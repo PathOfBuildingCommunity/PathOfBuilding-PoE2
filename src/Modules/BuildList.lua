@@ -21,6 +21,11 @@ function listMode:Init(selBuildName, subPath)
 		self.subPath = subPath or self.subPath
 		self.controls.buildList.controls.path:SetSubPath(self.subPath)
 		self.controls.buildList:SelByFileName(selBuildName and selBuildName..".xml")
+		if main.showPublicBuilds then
+			self.controls.ExtBuildList = self:getPublicBuilds()
+		else
+			self.controls.ExtBuildList = nil
+		end
 		self:BuildList()
 		self:SelectControl(self.controls.buildList)
 		return
@@ -61,14 +66,33 @@ function listMode:Init(selBuildName, subPath)
 		self:SortList()
 	end)
 	self.controls.sort:SelByValue(main.buildSortMode, "sortMode")
-	self.controls.buildList = new("BuildListControl", {"TOP",self.anchor,"TOP"}, 0, 75, 900, 0, self)
+	self.controls.buildList = new("BuildListControl", {"TOP",self.anchor,"TOP"}, 0, 75, main.screenW / 2, 0, self)
 	self.controls.buildList.height = function()
 		return main.screenH - 80
 	end
+	self.controls.buildList.width = function ()
+		return (main.screenW / 2)
+	end
+	self.controls.buildList.x = function ()
+		if main.showPublicBuilds then
+			local offset = math.min(450, main.screenW / 4)
+			return offset - 450
+		else
+			return 0
+		end
+	end
+
+	if main.showPublicBuilds then
+		self.controls.ExtBuildList = self:getPublicBuilds()
+	end
+
 	self.controls.searchText = new("EditControl", {"TOP",self.anchor,"TOP"}, 0, 25, 640, 20, self.filterBuildList, "Search", "%c%(%)", 100, function(buf)
 		main.filterBuildList = buf
 		self:BuildList()
 	end, nil, nil, true)
+	self.controls.searchText.width = function ()
+		return (main.screenW / 2 - 100)
+	end
 
 	self:BuildList()
 	self.controls.buildList:SelByFileName(selBuildName and selBuildName..".xml")
@@ -77,6 +101,23 @@ function listMode:Init(selBuildName, subPath)
 	self.initialised = true
 end
 
+function listMode:getPublicBuilds()
+	local buildProviders = {
+		{
+			name = "PoB Archives",
+			impl = new("PoBArchivesProvider", "builds")
+		}
+	}
+	local extBuildList = new("ExtBuildListControl", {"LEFT",self.controls.buildList,"RIGHT"}, 25, 0, main.screenW * 1 / 4 - 50, 0, buildProviders)
+	extBuildList:Init("PoB Archives")
+	extBuildList.height = function()
+		return main.screenH - 80
+	end
+	extBuildList.width = function ()
+		return math.max((main.screenW / 4 - 50), 400)
+	end
+	return extBuildList
+end
 function listMode:Shutdown()
 end
 
