@@ -20,7 +20,6 @@ LoadModule("Modules/Data")
 LoadModule("Modules/ModTools")
 LoadModule("Modules/ItemTools")
 LoadModule("Modules/CalcTools")
-LoadModule("Modules/PantheonTools")
 LoadModule("Modules/BuildSiteTools")
 
 --[[if launch.devMode then

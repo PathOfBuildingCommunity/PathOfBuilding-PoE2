@@ -173,8 +173,7 @@ You can get this from your web browser's cookies while logged into the Path of E
 	self.controls.charImportItemsClearSkills = new("CheckBoxControl", {"LEFT",self.controls.charImportItems,"RIGHT"}, {85, 0, 18}, "Delete skills:", nil, "Delete all existing skills when importing.", true)
 	self.controls.charImportItemsClearItems = new("CheckBoxControl", {"LEFT",self.controls.charImportItems,"RIGHT"}, {220, 0, 18}, "Delete equipment:", nil, "Delete all equipped items when importing.", true)
 	self.controls.charImportItemsIgnoreWeaponSwap = new("CheckBoxControl", {"LEFT",self.controls.charImportItems,"RIGHT"}, {380, 0, 18}, "Ignore weapon swap:", nil, "Ignore items and skills in weapon swap.", false)
-	self.controls.charBanditNote = new("LabelControl", {"TOPLEFT",self.controls.charImportHeader,"BOTTOMLEFT"}, {0, 50, 200, 14}, "^7Tip: After you finish importing a character, make sure you update the bandit choice,\nas it cannot be imported.")
-
+	
 	self.controls.charClose = new("ButtonControl", {"TOPLEFT",self.controls.charImportHeader,"BOTTOMLEFT"}, {0, 90, 60, 20}, "Close", function()
 		self.charImportMode = "GETACCOUNTNAME"
 		self.charImportStatus = "Idle"
@@ -674,13 +673,13 @@ function ImportTabClass:ImportPassiveTreeAndJewels(json, charData)
 	self.build.configTab:UpdateLevel()
 	self.build.controls.characterLevel:SetText(charData.level)
 	self.build:EstimatePlayerProgress()
-	local resistancePenaltyIndex = 3
+	local resistancePenaltyIndex = 7
 	if self.build.Act then -- Estimate resistance penalty setting based on act progression estimate
-		if type(self.build.Act) == "string" and self.build.Act == "Endgame" then resistancePenaltyIndex = 3
+		if type(self.build.Act) == "string" and self.build.Act == "Endgame" then resistancePenaltyIndex = 7
 		elseif type(self.build.Act) == "number" then 
-			if self.build.Act < 5 then resistancePenaltyIndex = 1
-			elseif self.build.Act > 5 and self.build.Act < 11 then resistancePenaltyIndex = 2
-			elseif self.build.Act > 10 then resistancePenaltyIndex = 3 end
+			if self.build.Act > 6 then resistancePenaltyIndex = 7
+			elseif self.build.Act < 1 then resistancePenaltyIndex = 0
+			else resistancePenaltyIndex = self.build.Act + 1 end
 		end
 	end
 	self.build.configTab.varControls["resistancePenalty"]:SetSel(resistancePenaltyIndex)

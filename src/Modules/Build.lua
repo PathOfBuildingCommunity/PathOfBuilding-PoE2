@@ -44,8 +44,6 @@ function buildMode:Init(dbFileName, buildName, buildXML, convertBuild, importLin
 	self.characterLevel = m_min(m_max(main.defaultCharLevel or 1, 1), 100)
 	self.targetVersion = liveTargetVersion
 	self.bandit = "None"
-	self.pantheonMajorGod = "None"
-	self.pantheonMinorGod = "None"
 	self.characterLevelAutoMode = main.defaultCharLevel == 1 or main.defaultCharLevel == nil
 	if buildXML then
 		if self:LoadDB(buildXML, "Unnamed build") then
@@ -579,11 +577,6 @@ function buildMode:Init(dbFileName, buildName, buildXML, convertBuild, importLin
 	end
 	table.sort(self.controls.classDrop.list, function(a, b) return a.label < b.label end)
 
-	-- Load legacy bandit and pantheon choices from build section
-	for _, control in ipairs({ "bandit", "pantheonMajorGod", "pantheonMinorGod" }) do
-		self.configTab.input[control] = self[control]
-	end
-
 	-- so we ran into problems with converted trees, trying to check passive tree routes and also consider thread jewels
 	-- but we can't check jewel info because items have not been loaded yet, and they come after passives in the xml.
 	-- the simplest solution seems to be making sure passive trees (which contain jewel sockets) are loaded last.
@@ -901,9 +894,6 @@ function buildMode:Load(xml, fileName)
 	end
 	self.characterLevel = tonumber(xml.attrib.level) or 1
 	self.characterLevelAutoMode = xml.attrib.characterLevelAutoMode == "true"
-	for _, diff in pairs({ "bandit", "pantheonMajorGod", "pantheonMinorGod" }) do
-		self[diff] = xml.attrib[diff] or "None"
-	end
 	self.mainSocketGroup = tonumber(xml.attrib.mainSkillIndex) or tonumber(xml.attrib.mainSocketGroup) or 1
 	wipeTable(self.spectreList)
 	for _, child in ipairs(xml) do
@@ -941,9 +931,6 @@ function buildMode:Save(xml)
 		level = tostring(self.characterLevel),
 		className = self.spec.curClassName,
 		ascendClassName = self.spec.curAscendClassName,
-		bandit = self.configTab.input.bandit,
-		pantheonMajorGod = self.configTab.input.pantheonMajorGod,
-		pantheonMinorGod = self.configTab.input.pantheonMinorGod,
 		mainSocketGroup = tostring(self.mainSocketGroup),
 		characterLevelAutoMode = tostring(self.characterLevelAutoMode)
 	}
