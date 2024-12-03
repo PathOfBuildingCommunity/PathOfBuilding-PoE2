@@ -235,7 +235,6 @@ function GGPKClass:GetNeededFiles()
 		"Data/passiveskilltattoos.dat",
 		"Data/passiveskilltattootargetsets.dat",
 		"Data/displayminionmonstertype.dat",
-		"Data/tinctures.dat",
 		"Data/gemeffects.dat",
 		"Data/actiontypes.dat",
 		"Data/azmerilifescalingperlevel.dat",
@@ -288,7 +287,6 @@ function GGPKClass:GetNeededFiles()
 		"Metadata/StatDescriptions/skill_stat_descriptions.txt",
 		"Metadata/StatDescriptions/stat_descriptions.txt",
 		"Metadata/StatDescriptions/variable_duration_skill_stat_descriptions.txt",
-		"Metadata/StatDescriptions/tincture_stat_descriptions.txt",
 	}
 	local itFiles = {
 		"Metadata/Items/Quivers/AbstractQuiver.it",
@@ -330,7 +328,6 @@ function GGPKClass:GetNeededFiles()
 		"Metadata/Items/Weapons/OneHandWeapons/AbstractOneHandWeapon.it",
 		"Metadata/Items/Equipment.it",
 		"Metadata/Items/Weapons/AbstractWeapon.it",
-		"Metadata/Items/Tinctures/AbstractTincture.it",
 		"Metadata/Items/Jewels/AbstractAnimalCharm.it",
 	}
 	return datFiles, txtFiles, itFiles
