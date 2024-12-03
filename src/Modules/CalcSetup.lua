@@ -826,6 +826,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 					end
 				end
 				item = nil
+			end
 			local scale = 1
 			if item and item.type == "Jewel" and item.base.subType == "Abyss" and slot.parentSlot then
 				-- Check if the item in the parent slot has enough Abyssal Sockets
