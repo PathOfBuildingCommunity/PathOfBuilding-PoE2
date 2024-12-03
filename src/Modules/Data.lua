@@ -27,6 +27,7 @@ local skillTypes = {
 local itemTypes = {
 	"axe",
 	"bow",
+	"charm",
 	"claw",
 	"dagger",
 	"fishing",
@@ -542,6 +543,7 @@ data.describeStats = LoadModule("Modules/StatDescriber")
 data.itemMods = {
 	Item = LoadModule("Data/ModItem"),
 	Flask = LoadModule("Data/ModFlask"),
+	--Charm = LoadModule("Data/ModCharm"),
 	Tincture = LoadModule("Data/ModTincture"),
 	Jewel = LoadModule("Data/ModJewel"),
 	JewelAbyss = LoadModule("Data/ModJewelAbyss"),

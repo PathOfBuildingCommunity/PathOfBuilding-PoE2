@@ -30,7 +30,7 @@ local socketDropList = {
 	{ label = colorCodes.SCION.."W", color = "W" }
 }
 
-local baseSlots = { "Weapon 1", "Weapon 2", "Helmet", "Body Armour", "Gloves", "Boots", "Amulet", "Ring 1", "Ring 2", "Belt", "Flask 1", "Flask 2", "Flask 3", "Flask 4", "Flask 5" }
+local baseSlots = { "Weapon 1", "Weapon 2", "Helmet", "Body Armour", "Gloves", "Boots", "Amulet", "Ring 1", "Ring 2", "Belt", "Charm 1", "Charm 2", "Charm 3", "Flask 1", "Flask 2" }
 
 local influenceInfo = itemLib.influenceInfo
 
@@ -493,7 +493,8 @@ holding Shift will put it in the second.]])
 	end)
 	self.controls.displayItemAddImplicit.shown = function()
 		return self.displayItem and
-			self.displayItem.type ~= "Tincture" and (self.displayItem.corruptible or ((self.displayItem.type ~= "Flask" and self.displayItem.type ~= "Jewel") and
+			self.displayItem.type ~= "Tincture" and self.displayItem.type ~= "Charm" and  
+			(self.displayItem.corruptible or ((self.displayItem.type ~= "Flask" and self.displayItem.type ~= "Jewel") and
 			(self.displayItem.rarity == "NORMAL" or self.displayItem.rarity == "MAGIC" or self.displayItem.rarity == "RARE"))) and 
 			not self.displayItem.implicitsCannotBeChanged
 	end
@@ -1964,7 +1965,7 @@ function ItemsTabClass:CraftItem()
 		item.implicitModLines = { }
 		item.explicitModLines = { }
 		item.crucibleModLines = { }
-		if base.base.type == "Amulet" or base.base.type == "Belt" or base.base.type == "Jewel" or base.base.type == "Quiver" or base.base.type == "Ring" then
+		if base.base.type == "Amulet" or base.base.type == "Belt" or base.base.type == "Charm" or base.base.type == "Jewel" or base.base.type == "Quiver" or base.base.type == "Ring" then
 			item.quality = nil
 		else
 			item.quality = 0
@@ -1972,7 +1973,7 @@ function ItemsTabClass:CraftItem()
 		local raritySel = controls.rarity.selIndex
 		if base.base.flask
 				or (base.base.type == "Jewel" and base.base.subType == "Charm")
-		 		or base.base.type == "Tincture"
+		 		or base.base.type == "Tincture" or base.base.type == "Charm"
 		then
 			if raritySel == 3 then
 				raritySel = 2
@@ -3171,6 +3172,9 @@ function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode)
 	else
 		tooltip:AddLine(20, rarityCode..item.namePrefix..item.baseName:gsub(" %(.+%)","")..item.nameSuffix)
 	end
+	if item.charmLimit then
+		tooltip:AddLine(16, s_format("^x7F7F7FCharm Slots: %d", item.charmLimit))
+	end
 	for _, curInfluenceInfo in ipairs(influenceInfo) do
 		if item[curInfluenceInfo.key] then
 			tooltip:AddLine(16, curInfluenceInfo.color..curInfluenceInfo.display.." Item")
@@ -3304,6 +3308,18 @@ function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode)
 		tooltip:AddLine(16, s_format("^x7F7F7FConsumes %s%d ^x7F7F7Fof %s%d ^x7F7F7FCharges on use",
 			main:StatColor(flaskData.chargesUsed, base.flask.chargesUsed), flaskData.chargesUsed,
 			main:StatColor(flaskData.chargesMax, base.flask.chargesMax), flaskData.chargesMax
+		))
+		for _, modLine in pairs(item.buffModLines) do
+			tooltip:AddLine(16, (modLine.extra and colorCodes.UNSUPPORTED or colorCodes.MAGIC) .. modLine.line)
+		end
+	elseif base.charm then
+		-- Charm-specific info
+		local charmData = item.charmData
+		
+		tooltip:AddLine(16, s_format("^x7F7F7FLasts %s%.2f ^x7F7F7FSeconds", main:StatColor(charmData.duration, base.charm.duration), charmData.duration))
+		tooltip:AddLine(16, s_format("^x7F7F7FConsumes %s%d ^x7F7F7Fof %s%d ^x7F7F7FCharges on use",
+			main:StatColor(charmData.chargesUsed, base.charm.chargesUsed), charmData.chargesUsed,
+			main:StatColor(charmData.chargesMax, base.charm.chargesMax), charmData.chargesMax
 		))
 		for _, modLine in pairs(item.buffModLines) do
 			tooltip:AddLine(16, (modLine.extra and colorCodes.UNSUPPORTED or colorCodes.MAGIC) .. modLine.line)
@@ -3652,6 +3668,41 @@ function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode)
 			header = "^7Deactivating this flask will give you:"
 		else
 			header = "^7Activating this flask will give you:"
+		end
+		self.build:AddStatComparesToTooltip(tooltip, calcBase, output, header)
+	elseif base.charm then
+		-- Special handling for charms
+		local stats = { }
+		local charmData = item.charmData
+		local modDB = self.build.calcsTab.mainEnv.modDB
+		local output = self.build.calcsTab.mainOutput
+		local durInc = modDB:Sum("INC", nil, "CharmDuration")
+		local effectInc = modDB:Sum("INC", { actor = "player" }, "CharmEffect")
+
+		if item.rarity == "MAGIC" then
+			effectInc = effectInc + modDB:Sum("INC", { actor = "player" }, "MagicCharmEffect")
+		end
+		local effectMod = (1 + (charmData.effectInc + effectInc) / 100) * (1 + (item.quality or 0) / 100)
+		if effectMod ~= 1 then
+			t_insert(stats, s_format("^8Charm effect modifier: ^7%+d%%", effectMod * 100 - 100))
+		end
+
+		if durInc ~= 0 then
+			t_insert(stats, s_format("^8Charm effect duration: ^7%.1f0s", charmData.duration * (1 + durInc / 100)))
+		end
+
+		if stats[1] then
+			tooltip:AddLine(14, "^7Effective charm stats:")
+			for _, stat in ipairs(stats) do
+				tooltip:AddLine(14, stat)
+			end
+		end
+		local output = calcFunc({ toggleCharm = item })
+		local header
+		if self.build.calcsTab.mainEnv.charms[item] then
+			header = "^7Deactivating this charm will give you:"
+		else
+			header = "^7Activating this charm will give you:"
 		end
 		self.build:AddStatComparesToTooltip(tooltip, calcBase, output, header)
 	elseif base.tincture then

@@ -362,6 +362,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 	self.baseLines = { }
 	local importedLevelReq
 	local flaskBuffLines
+	local charmBuffLines
 	local tinctureBuffLines
 	local deferJewelRadiusIndexAssignment
 	local gameModeStage = "FINDIMPLICIT"
@@ -371,6 +372,8 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 		local line = self.rawLines[l]
 		if flaskBuffLines and flaskBuffLines[line] then
 			flaskBuffLines[line] = nil
+		elseif charmBuffLines and charmBuffLines[line] then
+			charmBuffLines[line] = nil
 		elseif tinctureBuffLines and tinctureBuffLines[line] then
 			tinctureBuffLines[line] = nil
 		elseif line == "--------" then
@@ -423,6 +426,8 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 					self.itemLevel = specToNumber(specVal)
 				elseif specName == "Requires Class" then
 					self.classRestriction = specVal
+				elseif specName == "Charm Slots" then
+					self.charmLimit = specToNumber(specVal)
 				elseif specName == "Quality" then
 					self.quality = specToNumber(specVal)
 				elseif specName == "Sockets" then
@@ -688,7 +693,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 						else
 							self.enchantments = data.enchantments[self.base.type]
 						end
-						self.corruptible = self.base.type ~= "Flask"
+						self.corruptible = self.base.type ~= "Flask" and self.base.type ~= "Charm"
 						self.canBeInfluenced = self.base.influenceTags ~= nil
 						self.clusterJewel = data.clusterJewels and data.clusterJewels.jewels[self.baseName]
 						self.requirements.str = self.base.req.str or 0
@@ -700,6 +705,14 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 							flaskBuffLines = { }
 							for _, line in ipairs(self.base.flask.buff) do
 								flaskBuffLines[line] = true
+								local modList, extra = modLib.parseMod(line)
+								t_insert(self.buffModLines, { line = line, extra = extra, modList = modList or { } })
+							end
+						end
+						if self.base.charm and self.base.charm.buff and not charmBuffLines then
+							charmBuffLines = { }
+							for _, line in ipairs(self.base.charm.buff) do
+								charmBuffLines[line] = true
 								local modList, extra = modLib.parseMod(line)
 								t_insert(self.buffModLines, { line = line, extra = extra, modList = modList or { } })
 							end
@@ -982,6 +995,9 @@ function ItemClass:BuildRaw()
 		t_insert(rawLines, self.baseName)
 	else
 		t_insert(rawLines, (self.namePrefix or "") .. self.baseName .. (self.nameSuffix or ""))
+	end
+	if self.charmLimit then
+		t_insert(rawLines, "Charm Slots: " .. self.charmLimit)
 	end
 	if self.armourData then
 		for _, type in ipairs({ "Armour", "Evasion", "EnergyShield", "Ward" }) do
@@ -1506,6 +1522,17 @@ function ItemClass:BuildModListForSlotNum(baseList, slotNum)
 		for _, value in ipairs(modList:List(nil, "FlaskData")) do
 			flaskData[value.key] = value.value
 		end
+	elseif self.base.charm then
+		local charmData = self.charmData
+		local durationInc = calcLocal(modList, "Duration", "INC", 0)
+		local durationMore = calcLocal(modList, "Duration", "MORE", 0)
+		charmData.duration = round(self.base.charm.duration * (1 + durationInc / 100) * durationMore, 1)
+		charmData.chargesMax = self.base.charm.chargesMax + calcLocal(modList, "CharmCharges", "BASE", 0)
+		charmData.chargesUsed = m_floor(self.base.charm.chargesUsed * (1 + calcLocal(modList, "CharmChargesUsed", "INC", 0) / 100))
+		charmData.effectInc = calcLocal(modList, "CharmEffect", "INC", 0) + calcLocal(modList, "LocalEffect", "INC", 0)
+		for _, value in ipairs(modList:List(nil, "CharmData")) do
+			charmData[value.key] = value.value
+		end
 	elseif self.base.tincture then
 		local tinctureData = self.tinctureData
 		tinctureData.manaBurn = (self.base.tincture.manaBurn + 0.01) / (1 + calcLocal(modList, "TinctureManaBurnRate", "INC", 0) / 100) / (1 + calcLocal(modList, "TinctureManaBurnRate", "MORE", 0) / 100)
@@ -1578,6 +1605,9 @@ function ItemClass:BuildModList()
 		self.armourData = self.armourData or { }
 	elseif self.base.flask then
 		self.flaskData = { }
+		self.buffModList = { }
+	elseif self.base.charm then
+		self.charmData = { }
 		self.buffModList = { }
 	elseif self.base.tincture then
 		self.tinctureData = { }

@@ -1430,7 +1430,71 @@ function calcs.perform(env, skipEHP)
 			end
 		end
 	end
-	
+
+	local effectInc = modDB:Sum("INC", {actor = "player"}, "CharmEffect")
+	local effectIncMagic = modDB:Sum("INC", {actor = "player"}, "MagicCharmEffect")
+	local charmLimit = modDB:Sum("BASE", nil, "CharmLimit")
+
+	-- charm breakdown
+	if breakdown then
+		output.CharmEffect = effectInc
+		output.CharmLimit = charmLimit
+	end
+
+	local function mergeCharms(charms)
+		local charmBuffs = { }
+		local charmConditions = {}
+		local charmBuffsPerBase = {}
+
+		local function calcCharmMods(item, baseName, buffModList, modList)
+			local charmEffectInc = effectInc + item.charmData.effectInc
+			if item.rarity == "MAGIC" then
+				charmEffectInc = charmEffectInc + effectIncMagic
+			end
+			local effectMod = (1 + (charmEffectInc) / 100) * (1 + (item.quality or 0) / 100)
+
+			-- same deal as flasks, go look at the comment there
+			if buffModList[1] then
+				local srcList = new("ModList")
+				srcList:ScaleAddList(buffModList, effectMod)
+				mergeBuff(srcList, charmBuffs, baseName)
+				mergeBuff(srcList, charmBuffsPerBase[item.baseName], baseName)
+			end
+
+			if modList[1] then
+				local srcList = new("ModList")
+				srcList:ScaleAddList(modList, effectMod)
+				local key
+				if item.rarity == "UNIQUE" then
+					key = item.title
+				else
+					key = ""
+					for _, mod in ipairs(modList) do
+						key = key .. modLib.formatModParams(mod) .. "&"
+					end
+				end
+				mergeBuff(srcList, charmBuffs, key)
+				mergeBuff(srcList, charmBuffsPerBase[item.baseName], key)
+			end
+		end
+		for item in pairs(charms) do
+			if charmLimit <= 0 then
+				break
+			end
+			charmLimit = charmLimit - 1
+			charmBuffsPerBase[item.baseName] = charmBuffsPerBase[item.baseName] or {}
+			charmConditions["UsingCharm"] = true
+			charmConditions["Using"..item.baseName:gsub("%s+", "")] = true
+			calcCharmMods(item, item.baseName, item.buffModList, item.modList)
+		end
+		for charmCond, status in pairs(charmConditions) do
+			modDB.conditions[charmCond] = status
+		end
+		for _, buffModList in pairs(charmBuffs) do
+			modDB:AddList(buffModList)
+		end
+	end
+
 	local effectInc = modDB:Sum("INC", {actor = "player"}, "TinctureEffect")
 	local effectIncMagic = modDB:Sum("INC", {actor = "player"}, "MagicTinctureEffect")
 	local tinctureLimit = modDB:Sum("BASE", nil, "TinctureLimit")
@@ -1511,6 +1575,7 @@ function calcs.perform(env, skipEHP)
 		-- This needs to be done in 2 steps to account for effects affecting life recovery from flasks
 		-- For example Sorrow of the Divine and buffs (like flask recovery watchers eye)
 		mergeFlasks(env.flasks, false, true)
+		mergeCharms(env.charms)
 		mergeTinctures(env.tinctures)
 
 		-- Merge keystones again to catch any that were added by flasks
