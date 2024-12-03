@@ -1,6 +1,7 @@
 if not loadStatFile then
 	dofile("statdesc.lua")
 end
+loadStatFile("stat_descriptions.txt")
 
 local s_format = string.format
 

@@ -1,6 +1,7 @@
 if not loadStatFile then
 	dofile("statdesc.lua")
 end
+loadStatFile("stat_descriptions.txt")
 
 function table.containsId(table, element)
   for _, value in pairs(table) do
