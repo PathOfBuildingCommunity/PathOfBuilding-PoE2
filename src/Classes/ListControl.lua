@@ -8,7 +8,6 @@
 -- .dragTargetList  [List of controls that can receive drag events from this list control]
 -- .showRowSeparators  [Shows separators between rows]
 -- :GetRowValue(column, index, value)  [Required; called to retrieve the text for the given column of the given list value]
--- :GetRowIcon(column, index, value)  [Called to retrieve the icon for the given column of the given list value]
 -- :AddValueTooltip(index, value)  [Called to add the tooltip for the given list value]
 -- :GetDragValue(index, value)  [Called to retrieve the drag type and object for the given list value]
 -- :CanReceiveDrag(type, value)  [Called on drag target to determine if it can receive this value]
@@ -213,9 +212,6 @@ function ListClass:Draw(viewPort, noTooltip)
 			local value = list[index]
 			local text = self:GetRowValue(colIndex, index, value)
 			local icon = nil
-			if self.GetRowIcon then 
-				icon = self:GetRowIcon(colIndex, index, value)
-			end
 			local textWidth = DrawStringWidth(textHeight, colFont, text)
 			if textWidth > colWidth - 2 then
 				local clipIndex = DrawStringCursorIndex(textHeight, colFont, text, colWidth - clipWidth - 2, 0)
