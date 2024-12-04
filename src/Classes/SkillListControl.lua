@@ -6,6 +6,11 @@
 local ipairs = ipairs
 local t_insert = table.insert
 local t_remove = table.remove
+local slot_map = {
+	["WS 1"] 		= { icon = NewImageHandle(), path = "Assets/icon_weapon.png" },
+	["WS 2"] 		= { icon = NewImageHandle(), path = "Assets/icon_shield.png" },
+	["WS 3"] 		= { icon = NewImageHandle(), path = "Assets/icon_gloves.png" },
+}
 
 local SkillListClass = newClass("SkillListControl", "ListControl", function(self, anchor, rect, skillsTab)
 	self.ListControl(anchor, rect, 16, "VERTICAL", true, skillsTab.socketGroupList)
@@ -44,6 +49,9 @@ local SkillListClass = newClass("SkillListControl", "ListControl", function(self
 		skillsTab.build.buildFlag = true
 		return skillsTab.gemSlots[1].nameSpec
 	end)
+	for k, x in pairs(slot_map) do
+		x.icon:Load(x.path)
+	end
 end)
 
 function SkillListClass:GetRowValue(column, index, socketGroup)
@@ -180,6 +188,19 @@ function SkillListClass:OnHoverKeyUp(key)
 	end
 end
 
+
 function SkillListClass:Draw(viewPort)
 	self.ListControl.Draw(self, viewPort)
+end
+
+function SkillListClass:GetRowIcon(column, index, socketGroup)
+	if column == 1 then
+		local slot = "WS 3"
+		if socketGroup.weaponSet and socketGroup.weaponSet == 1 then
+			slot = "WS 1"
+		elseif socketGroup.weaponSet and socketGroup.weaponSet == 2 then
+			slot = "WS 2"
+		end
+		return slot_map[slot] and slot_map[slot].icon
+	end
 end
