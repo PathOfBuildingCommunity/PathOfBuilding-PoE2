@@ -7,9 +7,3 @@ local itemBases = ...
 
 #subType Mana
 #baseMatch Metadata/Items/Flasks/FlaskMana
-
-#subType Hybrid
-#baseMatch Metadata/Items/Flasks/FlaskHybrid
-
-#subType Utility
-#baseMatch Metadata/Items/Flasks/FlaskUtility

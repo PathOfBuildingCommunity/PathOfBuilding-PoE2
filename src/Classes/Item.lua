@@ -1495,9 +1495,6 @@ function ItemClass:BuildModListForSlotNum(baseList, slotNum)
 				flaskData.manaTotal = flaskData.manaInstant + flaskData.manaGradual
 				flaskData.manaEffectNotRemoved = calcLocal(baseList, "ManaFlaskEffectNotRemoved", "FLAG", 0)
 			end
-		else
-			-- Utility flask
-			flaskData.duration = round(self.base.flask.duration * (1 + durationInc / 100) * (1 + self.quality / 100) * durationMore, 1)
 		end
 		flaskData.chargesMax = self.base.flask.chargesMax + calcLocal(modList, "FlaskCharges", "BASE", 0)
 		flaskData.chargesUsed = m_floor(self.base.flask.chargesUsed * (1 + calcLocal(modList, "FlaskChargesUsed", "INC", 0) / 100))

@@ -30,7 +30,7 @@ local socketDropList = {
 	{ label = colorCodes.SCION.."W", color = "W" }
 }
 
-local baseSlots = { "Weapon 1", "Offhand 1", "Weapon 2", "Offhand 2", "Helmet", "Body Armour", "Gloves", "Boots", "Amulet", "Ring 1", "Ring 2", "Belt", "Flask 1", "Flask 2", "Flask 3", "Flask 4", "Flask 5" }
+local baseSlots = { "Weapon 1", "Offhand 1", "Weapon 2", "Offhand 2", "Helmet", "Body Armour", "Gloves", "Boots", "Amulet", "Ring 1", "Ring 2", "Belt", "Charm 1", "Charm 2", "Charm 3", "Flask 1", "Flask 2" }
 
 local influenceInfo = itemLib.influenceInfo
 
@@ -1908,6 +1908,12 @@ function ItemsTabClass:IsItemValidForSlot(item, slotName, itemSet)
 			-- Only allow jewels that fit in this socket
 			return not item.clusterJewel or item.clusterJewel.sizeIndex <= node.expansionJewel.size
 		end
+	elseif item.type == "Flask" and slotType == "Flask" then
+		if item.baseName:match("Life Flask") and slotName:match("Flask 1") then
+			return true
+		elseif item.baseName:match("Mana Flask") and slotName:match("Flask 2") then
+			return true
+		end
 	elseif item.type == slotType then
 		return true
 	elseif item.type == "Tincture" and slotType == "Flask" then
@@ -3291,9 +3297,6 @@ function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode)
 				tooltip:AddLine(16, s_format("^x7F7F7FRecovers %s%d ^x7F7F7FMana instantly", main:StatColor(flaskData.manaTotal, base.flask.mana), flaskData.manaInstant))
 			end
 		end
-		if not flaskData.lifeTotal and not flaskData.manaTotal then
-			tooltip:AddLine(16, s_format("^x7F7F7FLasts %s%.2f ^x7F7F7FSeconds", main:StatColor(flaskData.duration, base.flask.duration), flaskData.duration))
-		end
 		tooltip:AddLine(16, s_format("^x7F7F7FConsumes %s%d ^x7F7F7Fof %s%d ^x7F7F7FCharges on use",
 			main:StatColor(flaskData.chargesUsed, base.flask.chargesUsed), flaskData.chargesUsed,
 			main:StatColor(flaskData.chargesMax, base.flask.chargesMax), flaskData.chargesMax
@@ -3458,10 +3461,6 @@ function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode)
 		local lifeDur = 0
 		local manaDur = 0
 
-		if item.rarity == "MAGIC" and not item.base.flask.life and not item.base.flask.mana then
-			effectInc = effectInc + modDB:Sum("INC", { actor = "player" }, "MagicUtilityFlaskEffect")
-		end
-
 		if item.base.flask.life or item.base.flask.mana then
 			local rateInc = modDB:Sum("INC", nil, "FlaskRecoveryRate")
 			if item.base.flask.life then
@@ -3551,10 +3550,6 @@ function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode)
 					end
 				end
 			end
-		else
-			if durInc ~= 0 then
-				t_insert(stats, s_format("^8Flask effect duration: ^7%.1f0s", flaskData.duration * (1 + durInc / 100)))
-			end
 		end
 		local effectMod = 1 + (flaskData.effectInc + effectInc) / 100
 		if effectMod ~= 1 then
@@ -3577,9 +3572,6 @@ function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode)
 		end
 		if item.base.flask.mana then
 			chargesGenerated = chargesGenerated + modDB:Sum("BASE", nil, "ManaFlaskChargesGenerated")
-		end
-		if not item.base.flask.mana and not item.base.flask.life then
-			chargesGenerated = chargesGenerated + modDB:Sum("BASE", nil, "UtilityFlaskChargesGenerated")
 		end
 
 		local chargesGeneratedPerFlask = modDB:Sum("BASE", nil, "FlaskChargesGeneratedPerEmptyFlask")
