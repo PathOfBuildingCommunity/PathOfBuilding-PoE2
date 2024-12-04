@@ -108,7 +108,18 @@ local ItemsTabClass = newClass("ItemsTab", "UndoHandler", "ControlHost", "Contro
 		t_insert(self.controls, slot)
 	end
 	for index, slotName in ipairs(baseSlots) do
-		local slot = new("ItemSlotControl", {"TOPLEFT",prevSlot,"BOTTOMLEFT"}, 0, 2, self, slotName)
+		local slot
+		if self.activeItemSet then
+			if self.activeItemSet.useSecondWeaponSet and (slotName:match("Weapon 1") or slotName:match("Offhand 1")) then
+				slot = new("ItemSlotControl", {"TOPLEFT",prevSlot,"BOTTOMLEFT"}, 0, 2, self, "^7"..slotName)
+			elseif not self.activeItemSet.useSecondWeaponSet and (slotName:match("Weapon 2") or slotName:match("Offhand 2")) then
+				slot = new("ItemSlotControl", {"TOPLEFT",prevSlot,"BOTTOMLEFT"}, 0, 2, self, "^7"..slotName)
+			else
+				slot = new("ItemSlotControl", {"TOPLEFT",prevSlot,"BOTTOMLEFT"}, 0, 2, self, slotName)
+			end
+		else
+			slot = new("ItemSlotControl", {"TOPLEFT",prevSlot,"BOTTOMLEFT"}, 0, 2, self, slotName)
+		end
 		addSlot(slot)
 		if slotName:match("Weapon 1") or slotName:match("Offhand 1") then
 			slot.weaponSet = 1
@@ -121,10 +132,10 @@ local ItemsTabClass = newClass("ItemsTab", "UndoHandler", "ControlHost", "Contro
 				local abyssal = new("ItemSlotControl", {"TOPLEFT",prevSlot,"BOTTOMLEFT"}, 0, 2, self, slotName.." Abyssal Socket "..i, "Abyssal #"..i)			
 				addSlot(abyssal)
 				abyssal.parentSlot = slot
-				if slotName:match("Weapon 1") or slotName:match("Offhand 1") then
+				if slotName:match("Weapon") or slotName:match("Offhand") then
 					abyssal.weaponSet = slot.weaponSet
 					abyssal.shown = function()
-						return not abyssal.inactive and not self.activeItemSet.useSecondWeaponSet
+						return not abyssal.inactive
 					end
 				end
 				slot.abyssalSocketList[i] = abyssal
@@ -164,6 +175,47 @@ local ItemsTabClass = newClass("ItemsTab", "UndoHandler", "ControlHost", "Contro
 		addSlot(socketControl)
 	end
 	self.controls.slotHeader = new("LabelControl", {"BOTTOMLEFT",self.slotAnchor,"TOPLEFT"}, {0, -4, 0, 16}, "^7Equipped items:")
+	self.controls.weaponSwap1 = new("ButtonControl", {"BOTTOMRIGHT",self.slotAnchor,"TOPRIGHT"}, {-20, -2, 18, 18}, "I", function()
+		if self.activeItemSet.useSecondWeaponSet then
+			self.activeItemSet.useSecondWeaponSet = false
+			self:AddUndoState()
+			self.build.buildFlag = true
+			local mainSocketGroup = self.build.skillsTab.socketGroupList[self.build.mainSocketGroup]
+			if mainSocketGroup and mainSocketGroup.slot and self.slots[mainSocketGroup.slot].weaponSet == 2 then
+				for index, socketGroup in ipairs(self.build.skillsTab.socketGroupList) do
+					if socketGroup.slot and self.slots[socketGroup.slot].weaponSet == 1 then
+						self.build.mainSocketGroup = index
+						break
+					end
+				end
+			end
+		end
+	end)
+	self.controls.weaponSwap1.overSizeText = 3
+	self.controls.weaponSwap1.locked = function()
+		return not self.activeItemSet.useSecondWeaponSet
+	end
+	self.controls.weaponSwap2 = new("ButtonControl", {"BOTTOMRIGHT",self.slotAnchor,"TOPRIGHT"}, {0, -2, 18, 18}, "II", function()
+		if not self.activeItemSet.useSecondWeaponSet then
+			self.activeItemSet.useSecondWeaponSet = true
+			self:AddUndoState()
+			self.build.buildFlag = true
+			local mainSocketGroup = self.build.skillsTab.socketGroupList[self.build.mainSocketGroup]
+			if mainSocketGroup and mainSocketGroup.slot and self.slots[mainSocketGroup.slot].weaponSet == 1 then
+				for index, socketGroup in ipairs(self.build.skillsTab.socketGroupList) do
+					if socketGroup.slot and self.slots[socketGroup.slot].weaponSet == 2 then
+						self.build.mainSocketGroup = index
+						break
+					end
+				end
+			end
+		end
+	end)
+	self.controls.weaponSwap2.overSizeText = 3
+	self.controls.weaponSwap2.locked = function()
+		return self.activeItemSet.useSecondWeaponSet
+	end
+	self.controls.weaponSwapLabel = new("LabelControl", {"RIGHT",self.controls.weaponSwap1,"LEFT"}, {-4, 0, 0, 14}, "^7Active Weapon Set:")
 
 	-- All items list
 	if main.portraitMode then
