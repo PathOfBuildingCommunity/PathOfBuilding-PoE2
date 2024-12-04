@@ -13,9 +13,9 @@ local m_max = math.max
 local groupSlotDropList = {
 	{ label = "None" },
 	{ label = "Weapon 1", slotName = "Weapon 1" },
+	{ label = "Offhand 1", slotName = "Offhand 1" },
 	{ label = "Weapon 2", slotName = "Weapon 2" },
-	{ label = "Weapon 1 (Swap)", slotName = "Weapon 1 Swap" },
-	{ label = "Weapon 2 (Swap)", slotName = "Weapon 2 Swap" },
+	{ label = "Offhand 2", slotName = "Offhand 2" },
 	{ label = "Helmet", slotName = "Helmet" },
 	{ label = "Body Armour", slotName = "Body Armour" },
 	{ label = "Gloves", slotName = "Gloves" },

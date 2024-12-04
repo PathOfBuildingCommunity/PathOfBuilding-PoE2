@@ -8,9 +8,9 @@ local t_insert = table.insert
 local t_remove = table.remove
 local slot_map = {
 	["Weapon 1"] 		= { icon = NewImageHandle(), path = "Assets/icon_weapon.png" },
-	["Weapon 2"] 		= { icon = NewImageHandle(), path = "Assets/icon_weapon_2.png" },
-	["Weapon 1 Swap"] 	= { icon = NewImageHandle(), path = "Assets/icon_weapon_swap.png" },
-	["Weapon 2 Swap"] 	= { icon = NewImageHandle(), path = "Assets/icon_weapon_2_swap.png" },
+	["Offhand 1"] 		= { icon = NewImageHandle(), path = "Assets/icon_weapon_2.png" },
+	["Weapon 2"] 		= { icon = NewImageHandle(), path = "Assets/icon_weapon_swap.png" },
+	["Offhand 2"] 		= { icon = NewImageHandle(), path = "Assets/icon_weapon_2_swap.png" },
 	["Bow"] 			= { icon = NewImageHandle(), path = "Assets/icon_bow.png" },
 	["Quiver"] 			= { icon = NewImageHandle(), path = "Assets/icon_quiver.png" },
 	["Shield"] 			= { icon = NewImageHandle(), path = "Assets/icon_shield.png" },
@@ -212,23 +212,23 @@ function SkillListClass:GetRowIcon(column, index, socketGroup)
 		local itemsTab = self.skillsTab.build.itemsTab
 		local weapon1Sel = itemsTab.activeItemSet["Weapon 1"].selItemId or 0
 		local weapon1Type = itemsTab.items[weapon1Sel] and itemsTab.items[weapon1Sel].base.type or "None"
-		local weapon1SwapSel = itemsTab.activeItemSet["Weapon 1 Swap"].selItemId or 0
+		local weapon1SwapSel = itemsTab.activeItemSet["Weapon 2"].selItemId or 0
 		local weapon1SwapType = itemsTab.items[weapon1SwapSel] and itemsTab.items[weapon1SwapSel].base.type or "None"
-		local weapon2Sel = itemsTab.activeItemSet["Weapon 2"].selItemId or 0
+		local weapon2Sel = itemsTab.activeItemSet["Offhand 1"].selItemId or 0
 		local weapon2Type = itemsTab.items[weapon2Sel] and itemsTab.items[weapon2Sel].base.type or "None"
-		local weapon2SwapSel = itemsTab.activeItemSet["Weapon 2 Swap"].selItemId or 0
+		local weapon2SwapSel = itemsTab.activeItemSet["Offhand 2"].selItemId or 0
 		local weapon2SwapType = itemsTab.items[weapon2SwapSel] and itemsTab.items[weapon2SwapSel].base.type or "None"
 		if slot == "Weapon 1" and weapon1Type == "Bow" then
 			slot = weapon1Type
 		end
-		if slot == "Weapon 1 Swap" and weapon1SwapType == "Bow" then
-			slot = weapon1SwapType.." Swap"
+		if slot == "Weapon 2" and weapon1SwapType == "Bow" then
+			slot = weapon1SwapType
 		end
-		if slot == "Weapon 2" and (weapon2Type == "Quiver" or weapon2Type == "Shield") then
+		if slot == "Offhand 1" and (weapon2Type == "Quiver" or weapon2Type == "Shield") then
 			slot = weapon2Type
 		end
-		if slot == "Weapon 2 Swap" and (weapon2SwapType == "Quiver" or weapon2SwapType == "Shield") then
-			slot = weapon2SwapType.." Swap"
+		if slot == "Offhand 2" and (weapon2SwapType == "Quiver" or weapon2SwapType == "Shield") then
+			slot = weapon2SwapType
 		end
 		return slot_map[slot] and slot_map[slot].icon
 	end

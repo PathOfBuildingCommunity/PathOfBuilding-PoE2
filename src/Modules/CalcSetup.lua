@@ -644,7 +644,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 			local item
 			if slotName == override.repSlotName then
 				item = override.repItem
-			elseif override.repItem and override.repSlotName:match("^Weapon 1") and slotName:match("^Weapon 2") and
+			elseif override.repItem and override.repSlotName:match("^Weapon 1") and slotName:match("^Offhand 1") and
 			(override.repItem.base.type == "Staff" or override.repItem.base.type == "Two Handed Sword" or override.repItem.base.type == "Two Handed Axe" or override.repItem.base.type == "Two Handed Mace"
 			or (override.repItem.base.type == "Bow" and item and item.base.type ~= "Quiver")) then
 				goto continue
@@ -900,7 +900,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 							env.itemModDB:ScaleAddMod(mod, scale)
 						end
 					end
-				elseif (slotName == "Weapon 1" or slotName == "Weapon 2") and modDB.conditions["AffectedByEnergyBlade"] then
+				elseif (slotName == "Weapon 1" or slotName == "Offhand 1") and modDB.conditions["AffectedByEnergyBlade"] then
 					local previousItem = env.player.itemList[slotName]
 					local type = previousItem and previousItem.weaponData and previousItem.weaponData[1].type
 					local info = env.data.weaponTypeInfo[type]
@@ -1303,7 +1303,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 		env.player.weaponData1 = env.player.itemList["Weapon 1"] and env.player.itemList["Weapon 1"].weaponData and env.player.itemList["Weapon 1"].weaponData[1] or copyTable(env.data.unarmedWeaponData[env.classId])
 		if env.player.weaponData1.countsAsDualWielding then
 			env.player.weaponData2 = env.player.itemList["Weapon 1"].weaponData[2]
-		elseif not env.player.itemList["Weapon 2"] then
+		elseif not env.player.itemList["Offhand 1"] then
 			-- Hollow Palm Technique
 			if (not env.player.itemList["Weapon 1"]) and (not env.player.itemList["Gloves"]) and env.modDB.mods.Keystone then
 				for _, keystone in ipairs(env.modDB.mods.Keystone) do
@@ -1315,7 +1315,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 			end
 			env.player.weaponData2 = env.player.weaponData2 or { }
 		else
-			env.player.weaponData2 = env.player.itemList["Weapon 2"].weaponData and env.player.itemList["Weapon 2"].weaponData[2] or { }
+			env.player.weaponData2 = env.player.itemList["Offhand 1"].weaponData and env.player.itemList["Offhand 1"].weaponData[2] or { }
 		end
 
 		-- Determine main skill group

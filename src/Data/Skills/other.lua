@@ -2494,16 +2494,16 @@ skills["ShieldShatter"] = {
 	fromItem = true,
 	statMap = {
 		["spell_minimum_base_physical_damage_per_shield_quality"] = {
-			skill("PhysicalMin", nil, { type = "Multiplier", var = "QualityOnWeapon 2" }),
+			skill("PhysicalMin", nil, { type = "Multiplier", var = "QualityOnOffhand 1" }),
 		},
 		["spell_maximum_base_physical_damage_per_shield_quality"] = {
-			skill("PhysicalMax", nil, { type = "Multiplier", var = "QualityOnWeapon 2" }),
+			skill("PhysicalMax", nil, { type = "Multiplier", var = "QualityOnOffhand 1" }),
 		},
 		["buff_added_spell_minimum_base_physical_damage_per_shield_quality"] = {
-			mod("PhysicalMin", "BASE", nil, ModFlag.Spell, 0, { type = "Multiplier", var = "QualityOnWeapon 2" }, { type = "Condition", var = "BlockedRecently"}, { type = "GlobalEffect", effectType = "Buff"}),
+			mod("PhysicalMin", "BASE", nil, ModFlag.Spell, 0, { type = "Multiplier", var = "QualityOnOffhand 1" }, { type = "Condition", var = "BlockedRecently"}, { type = "GlobalEffect", effectType = "Buff"}),
 		},
 		["buff_added_spell_maximum_base_physical_damage_per_shield_quality"] = {
-			mod("PhysicalMax", "BASE", nil, ModFlag.Spell, 0, { type = "Multiplier", var = "QualityOnWeapon 2" }, { type = "Condition", var = "BlockedRecently"}, { type = "GlobalEffect", effectType = "Buff"}),
+			mod("PhysicalMax", "BASE", nil, ModFlag.Spell, 0, { type = "Multiplier", var = "QualityOnOffhand 1" }, { type = "Condition", var = "BlockedRecently"}, { type = "GlobalEffect", effectType = "Buff"}),
 		},
 	},
 	baseFlags = {
