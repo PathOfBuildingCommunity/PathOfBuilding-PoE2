@@ -671,7 +671,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 				goto continue
 			end
 			if slot.weaponSet == 2 and build.itemsTab.activeItemSet.useSecondWeaponSet then
-				slotName = slotName:gsub(" Swap","")
+				slotName = slotName:gsub(" 2"," 1")
 			end
 			if slot.nodeId then
 				-- Slot is a jewel socket, check if socket is allocated
@@ -1343,7 +1343,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 			group.slotEnabled = not slot or not slot.weaponSet or slot.weaponSet == (build.itemsTab.activeItemSet.useSecondWeaponSet and 2 or 1)
 			-- if group is main skill or group is enabled 
 			if index == env.mainSocketGroup or (group.enabled and group.slotEnabled) then
-				local slotName = group.slot and group.slot:gsub(" Swap","")
+				local slotName = group.slot and group.slot:gsub(" 2"," 1")
 				groupCfgList[slotName or "noSlot"] = groupCfgList[slotName or "noSlot"] or {}
 				groupCfgList[slotName or "noSlot"][group] = groupCfgList[slotName or "noSlot"][group] or {
 					slotName = slotName,
@@ -1447,7 +1447,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 		local socketGroupSkillListList = { }
 		for index, group in ipairs(build.skillsTab.socketGroupList) do
 			if index == env.mainSocketGroup or (group.enabled and group.slotEnabled) then
-				local slotName = group.slot and group.slot:gsub(" Swap","")
+				local slotName = group.slot and group.slot:gsub(" 2"," 1")
 				groupCfgList[slotName or "noSlot"][group] = groupCfgList[slotName or "noSlot"][group] or {
 					slotName = slotName,
 					propertyModList = env.modDB:Tabulate("LIST", {slotName = slotName}, "GemProperty")
@@ -1565,7 +1565,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 
 		-- Process calculated active skill lists
 		for index, group in ipairs(build.skillsTab.socketGroupList) do
-			local slotName = group.slot and group.slot:gsub(" Swap","")
+			local slotName = group.slot and group.slot:gsub(" 2"," 1")
 			socketGroupSkillListList[slotName or "noSlot"] = socketGroupSkillListList[slotName or "noSlot"] or {}
 			socketGroupSkillListList[slotName or "noSlot"][group] = socketGroupSkillListList[slotName or "noSlot"][group] or {}
 			local socketGroupSkillList = socketGroupSkillListList[slotName or "noSlot"][group]

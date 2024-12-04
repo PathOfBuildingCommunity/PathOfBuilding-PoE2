@@ -307,8 +307,8 @@ function GemSelectClass:UpdateSortCache()
 					end
 				end
 			end
-			for _, crossLinkedSlot in ipairs(group.slot and group.displaySkillList and group.displaySkillList[1] and self.skillsTab.build.calcsTab.mainEnv.crossLinkedSupportGroups[self.skillsTab.displayGroup.slot:gsub(" Swap", "")] or {}) do
-				if crossLinkedSlot == group.slot:gsub(" Swap", "") then
+			for _, crossLinkedSlot in ipairs(group.slot and group.displaySkillList and group.displaySkillList[1] and self.skillsTab.build.calcsTab.mainEnv.crossLinkedSupportGroups[self.skillsTab.displayGroup.slot:gsub(" 2", " 1")] or {}) do
+				if crossLinkedSlot == group.slot:gsub(" 2", " 1") then
 					for gemId, gemData in pairs(self.gems) do
 						if gemData.grantedEffect.support then
 							for _, activeSkill in ipairs(group.displaySkillList) do

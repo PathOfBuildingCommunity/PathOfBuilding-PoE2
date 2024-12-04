@@ -1249,13 +1249,13 @@ function ItemsTabClass:EquipItemInSet(item, itemSetId)
 	local slotName = item:GetPrimarySlot()
 	if self.slots[slotName].weaponSet == 1 and itemSet.useSecondWeaponSet then
 		-- Redirect to second weapon set
-		slotName = slotName .. " Swap"
+		slotName = slotName:gsub(" 1"," 2")
 	end
 	if not item.id or not self.items[item.id] then
 		item = new("Item", item.raw)
 		self:AddItem(item, true)
 	end
-	local altSlot = slotName:gsub("1","2")
+	local altSlot = slotName:gsub("Weapon","Offhand")
 	if IsKeyDown("SHIFT") then
 		-- Redirect to second slot if possible
 		if self:IsItemValidForSlot(item, altSlot, itemSet) then

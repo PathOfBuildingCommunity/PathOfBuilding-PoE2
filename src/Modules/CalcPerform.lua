@@ -1037,7 +1037,7 @@ function calcs.perform(env, skipEHP)
 					local item
 					if env.minion.itemSet then
 						if slot.weaponSet == 1 and env.minion.itemSet.useSecondWeaponSet then
-							slotName = slotName .. " Swap"
+							slotName = slotName:gsub(" 1"," 2")
 						end
 						item = env.build.itemsTab.items[env.minion.itemSet[slotName].selItemId]
 					else
