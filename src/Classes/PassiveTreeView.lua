@@ -62,6 +62,8 @@ local PassiveTreeViewClass = newClass("PassiveTreeView", function(self)
 	self.searchStrResults = {}
 	self.showStatDifferences = true
 	self.hoverNode = nil
+	-- keep track of switched nodes for resetAll
+	self.attrSwitchedNodes = { }
 end)
 
 function PassiveTreeViewClass:Load(xml, fileName)
@@ -263,11 +265,24 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 			hoverDep[depNode] = true
 		end
 	end
-
+	
+	local function switchAttributeNode(node, attribute, state) 
+		local shortName = string.sub(attribute, 0, 3)
+		node.dn = attribute
+		node.modKey = "[10 = "..shortName.."|BASE|-|-|-]"
+		node.mods[1].list[1].name = shortName
+		node.name = attribute
+		node.sd[1] = "+10 to "..attribute
+		
+		-- true for alloc, nil for reset
+		self.attrSwitchedNodes[hoverNode.id] = state
+	end
 	if treeClick == "LEFT" then
 		if hoverNode then
 			-- User left-clicked on a node
 			if hoverNode.alloc then
+				-- reset attribute switched nodes
+				switchAttributeNode(hoverNode, spec.tree.nodes[hoverNode.id].name)
 				-- Node is allocated, so deallocate it
 				spec:DeallocNode(hoverNode)
 				spec:AddUndoState()
@@ -279,6 +294,16 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 						build.treeTab:OpenMasteryPopup(hoverNode, viewPort)
 					end
 				else
+					-- attribute switching
+					if hoverNode.type == "Normal" and (hoverNode.dn == "Strength" or hoverNode.dn == "Dexterity" or hoverNode.dn == "Intelligence") then
+						if IsKeyDown("1") or IsKeyDown("I") then
+							switchAttributeNode(hoverNode, "Intelligence", true)
+						elseif IsKeyDown("2") or IsKeyDown("S") then
+							switchAttributeNode(hoverNode, "Strength", true)
+						elseif IsKeyDown("3") or IsKeyDown("D") then
+							switchAttributeNode(hoverNode, "Dexterity", true)
+						end
+					end
 					spec:AllocNode(hoverNode, self.tracePath and hoverNode == self.tracePath[#self.tracePath] and self.tracePath)
 					spec:AddUndoState()
 					build.buildFlag = true
