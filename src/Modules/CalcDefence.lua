@@ -1298,7 +1298,7 @@ function calcs.defence(env, actor)
 		output["Base"..damageType.."DamageReductionWhenHit"] = m_min(m_max(0, output["Base"..damageType.."DamageReduction"] + modDB:Sum("BASE", nil, damageType.."DamageReductionWhenHit")), output.DamageReductionMax)
 	end
 
-	-- Miscellaneous: move speed, avoidance
+	-- Miscellaneous: move speed, avoidance, weapon swap speed
 	output.MovementSpeedMod = modDB:Override(nil, "MovementSpeed") or (modDB:Flag(nil, "MovementSpeedEqualHighestLinkedPlayers") and actor.partyMembers.output.MovementSpeedMod or calcLib.mod(modDB, nil, "MovementSpeed"))
 	if modDB:Flag(nil, "MovementSpeedCannotBeBelowBase") then
 		output.MovementSpeedMod = m_max(output.MovementSpeedMod, 1)
@@ -1316,6 +1316,10 @@ function calcs.defence(env, actor)
 	if enemyDB:Flag(nil, "Blind") then
 		output.BlindEffectMod = calcLib.mod(enemyDB, nil, "BlindEffect", "BuffEffectOnSelf") * 100
 	end
+
+	output.WeaponSwapSpeed = modDB:Sum("BASE", nil, "WeaponSwapSpeed")
+	output.WeaponSwapSpeedMod = calcLib.mod(modDB, nil, "WeaponSwapSpeed")
+	output.WeaponSwapSpeed = output.WeaponSwapSpeed / output.WeaponSwapSpeedMod
 	
 	-- recovery on block, needs to be after primary defences
 	output.LifeOnBlock = 0
