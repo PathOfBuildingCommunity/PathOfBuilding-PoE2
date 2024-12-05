@@ -192,7 +192,7 @@ local ItemsTabClass = newClass("ItemsTab", "UndoHandler", "ControlHost", "Contro
 		end
 	end)
 	self.controls.weaponSwap1.overSizeText = 3
-	self.controls.weaponSwap1.locked = function()
+	self.controls.weaponSwap1.selected = function()
 		return not self.activeItemSet.useSecondWeaponSet
 	end
 	self.controls.weaponSwap2 = new("ButtonControl", {"BOTTOMRIGHT",self.slotAnchor,"TOPRIGHT"}, {0, -2, 18, 18}, "II", function()
@@ -212,7 +212,7 @@ local ItemsTabClass = newClass("ItemsTab", "UndoHandler", "ControlHost", "Contro
 		end
 	end)
 	self.controls.weaponSwap2.overSizeText = 3
-	self.controls.weaponSwap2.locked = function()
+	self.controls.weaponSwap2.selected = function()
 		return self.activeItemSet.useSecondWeaponSet
 	end
 	self.controls.weaponSwapLabel = new("LabelControl", {"RIGHT",self.controls.weaponSwap1,"LEFT"}, {-4, 0, 0, 14}, "^7Active Weapon Set:")
