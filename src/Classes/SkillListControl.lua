@@ -196,9 +196,9 @@ end
 function SkillListClass:GetRowIcon(column, index, socketGroup)
 	if column == 1 then
 		local slot = "WS 3"
-		if socketGroup.weaponSet and socketGroup.weaponSet == 1 then
+		if socketGroup.ws1 and not socketGroup.ws2 then
 			slot = "WS 1"
-		elseif socketGroup.weaponSet and socketGroup.weaponSet == 2 then
+		elseif socketGroup.ws2 and not socketGroup.ws1 then
 			slot = "WS 2"
 		end
 		return slot_map[slot] and slot_map[slot].icon
