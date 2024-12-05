@@ -122,30 +122,30 @@ local ItemsTabClass = newClass("ItemsTab", "UndoHandler", "ControlHost", "Contro
 			swapSlot.shown = function()
 				return self.activeItemSet.useSecondWeaponSet
 			end
-			for i = 1, 6 do
-				local abyssal = new("ItemSlotControl", {"TOPLEFT",prevSlot,"BOTTOMLEFT"}, 0, 2, self, slotName.." Swap Abyssal Socket "..i, "Abyssal #"..i)			
-				addSlot(abyssal)
-				abyssal.parentSlot = swapSlot
-				abyssal.weaponSet = 2
-				abyssal.shown = function()
-					return not abyssal.inactive and self.activeItemSet.useSecondWeaponSet
+			for i = 1, 3 do
+				local socket = new("ItemSlotControl", {"TOPLEFT",prevSlot,"BOTTOMLEFT"}, 0, 2, self, slotName.." Swap Socket "..i, "Socket #"..i)
+				addSlot(socket)
+				socket.parentSlot = swapSlot
+				socket.weaponSet = 2
+				socket.shown = function()
+					return not socket.inactive and self.activeItemSet.useSecondWeaponSet
 				end
-				swapSlot.abyssalSocketList[i] = abyssal
+				swapSlot.socketList[i] = socket
 			end
 		end
 		if slotName == "Weapon 1" or slotName == "Weapon 2" or slotName == "Helmet" or slotName == "Gloves" or slotName == "Body Armour" or slotName == "Boots" or slotName == "Belt" then
-			-- Add Abyssal Socket slots
-			for i = 1, 6 do
-				local abyssal = new("ItemSlotControl", {"TOPLEFT",prevSlot,"BOTTOMLEFT"}, 0, 2, self, slotName.." Abyssal Socket "..i, "Abyssal #"..i)			
-				addSlot(abyssal)
-				abyssal.parentSlot = slot
+			-- Add Rune / Soul Core Socket slots
+			for i = 1, 3 do
+				local socket = new("ItemSlotControl", {"TOPLEFT",prevSlot,"BOTTOMLEFT"}, 0, 2, self, slotName.." Socket "..i, "Socket #"..i)			
+				addSlot(socket)
+				socket.parentSlot = slot
 				if slotName:match("Weapon") then
-					abyssal.weaponSet = 1
-					abyssal.shown = function()
-						return not abyssal.inactive and not self.activeItemSet.useSecondWeaponSet
+					socket.weaponSet = 1
+					socket.shown = function()
+						return not socket.inactive and not self.activeItemSet.useSecondWeaponSet
 					end
 				end
-				slot.abyssalSocketList[i] = abyssal
+				slot.socketList[i] = socket
 			end
 		end
 	end
@@ -373,60 +373,9 @@ holding Shift will put it in the second.]])
 	self.controls.displayItemAltVariant5.shown = function()
 		return self.displayItem.hasAltVariant5
 	end
-
-	-- Section: Sockets and Links
-	self.controls.displayItemSectionSockets = new("Control", {"TOPLEFT",self.controls.displayItemSectionVariant,"BOTTOMLEFT"}, {0, 0, 0, function()
-		return self.displayItem and self.displayItem.selectableSocketCount > 0 and 28 or 0
-	end})
-	for i = 1, 6 do
-		local drop = new("DropDownControl", {"TOPLEFT",self.controls.displayItemSectionSockets,"TOPLEFT"}, {(i-1) * 64, 0, 36, 20}, socketDropList, function(index, value)
-			self.displayItem.sockets[i].color = value.color
-			self.displayItem:BuildAndParseRaw()
-			self:UpdateDisplayItemTooltip()
-		end)
-		drop.shown = function()
-			return self.displayItem.selectableSocketCount >= i and self.displayItem.sockets[i] and self.displayItem.sockets[i].color ~= "A"
-		end
-		self.controls["displayItemSocket"..i] = drop
-		if i < 6 then
-			local link = new("CheckBoxControl", {"LEFT",drop,"RIGHT"}, {4, 0, 20}, nil, function(state)
-				if state and self.displayItem.sockets[i].group ~= self.displayItem.sockets[i+1].group then
-					for s = i + 1, #self.displayItem.sockets do
-						self.displayItem.sockets[s].group = self.displayItem.sockets[s].group - 1
-					end
-				elseif not state and self.displayItem.sockets[i].group == self.displayItem.sockets[i+1].group then
-					for s = i + 1, #self.displayItem.sockets do
-						self.displayItem.sockets[s].group = self.displayItem.sockets[s].group + 1
-					end
-				end
-				self.displayItem:BuildAndParseRaw()
-				self:UpdateDisplayItemTooltip()
-			end)
-			link.shown = function()
-				return self.displayItem.selectableSocketCount > i and self.displayItem.sockets[i+1] and self.displayItem.sockets[i+1].color ~= "A"
-			end
-			self.controls["displayItemLink"..i] = link
-		end
-	end
-	self.controls.displayItemAddSocket = new("ButtonControl", {"TOPLEFT",self.controls.displayItemSectionSockets,"TOPLEFT"}, {function() return (#self.displayItem.sockets - self.displayItem.abyssalSocketCount) * 64 - 12 end, 0, 20, 20}, "+", function()
-		local insertIndex = #self.displayItem.sockets - self.displayItem.abyssalSocketCount + 1
-		t_insert(self.displayItem.sockets, insertIndex, {
-			color = self.displayItem.defaultSocketColor,
-			group = self.displayItem.sockets[insertIndex - 1].group + 1
-		})
-		for s = insertIndex + 1, #self.displayItem.sockets do
-			self.displayItem.sockets[s].group = self.displayItem.sockets[s].group + 1
-		end
-		self.displayItem:BuildAndParseRaw()
-		self:UpdateSocketControls()
-		self:UpdateDisplayItemTooltip()
-	end)
-	self.controls.displayItemAddSocket.shown = function()
-		return #self.displayItem.sockets < self.displayItem.selectableSocketCount + self.displayItem.abyssalSocketCount
-	end
 	
 	-- Section: Enchant / Anoint / Corrupt
-	self.controls.displayItemSectionEnchant = new("Control", {"TOPLEFT",self.controls.displayItemSectionSockets,"BOTTOMLEFT"}, {0, 0, 0, function()
+	self.controls.displayItemSectionEnchant = new("Control", {"TOPLEFT",self.controls.displayItemSectionVariant,"BOTTOMLEFT"}, {0, 0, 0, function()
 		return (self.controls.displayItemEnchant:IsShown() or self.controls.displayItemEnchant2:IsShown() or self.controls.displayItemAnoint:IsShown() or self.controls.displayItemAnoint2:IsShown() or self.controls.displayItemCorrupt:IsShown() ) and 28 or 0
 	end})
 	self.controls.displayItemEnchant = new("ButtonControl", {"TOPLEFT",self.controls.displayItemSectionEnchant,"TOPLEFT"}, {0, 0, 160, 20}, "Apply Enchantment...", function()
@@ -493,7 +442,8 @@ holding Shift will put it in the second.]])
 	end)
 	self.controls.displayItemAddImplicit.shown = function()
 		return self.displayItem and
-			self.displayItem.type ~= "Tincture" and (self.displayItem.corruptible or ((self.displayItem.type ~= "Flask" and self.displayItem.type ~= "Jewel") and
+			self.displayItem.type ~= "Tincture" and (self.displayItem.corruptible or ((self.displayItem.type ~= "Flask" and self.displayItem.type ~= "Jewel" and
+			self.displayItem.type ~= "Rune" and self.displayItem.type ~= "Soul Core") and
 			(self.displayItem.rarity == "NORMAL" or self.displayItem.rarity == "MAGIC" or self.displayItem.rarity == "RARE"))) and 
 			not self.displayItem.implicitsCannotBeChanged
 	end
@@ -545,7 +495,9 @@ holding Shift will put it in the second.]])
 	end})
 	self.controls.displayItemQuality = new("LabelControl", {"TOPLEFT",self.controls.displayItemSectionQuality,"TOPRIGHT"}, {-4, 0, 0, 16}, "^7Quality:")
 	self.controls.displayItemQuality.shown = function()
-		return self.displayItem and self.displayItem.quality and (self.displayItem.base.type ~= "Amulet" or self.displayItem.base.type ~= "Belt" or self.displayItem.base.type ~= "Jewel" or self.displayItem.base.type ~= "Quiver" or self.displayItem.base.type ~= "Ring")
+		return self.displayItem and self.displayItem.quality and (self.displayItem.base.type ~= "Amulet" or self.displayItem.base.type ~= "Belt" or
+			self.displayItem.base.type ~= "Jewel" or self.displayItem.base.type ~= "Quiver" or self.displayItem.base.type ~= "Ring" or
+			self.displayItem.base.type ~= "Rune" or self.displayItem.base.type ~= "Soul Core")
 	end
 
 	self.controls.displayItemQualityEdit = new("EditControl", {"LEFT",self.controls.displayItemQuality,"RIGHT"}, {2, 0, 60, 20}, nil, nil, "%D", 2, function(buf)
@@ -554,7 +506,9 @@ holding Shift will put it in the second.]])
 		self:UpdateDisplayItemTooltip()
 	end)
 	self.controls.displayItemQualityEdit.shown = function()
-		return self.displayItem and self.displayItem.quality and (self.displayItem.base.type ~= "Amulet" or self.displayItem.base.type ~= "Belt" or self.displayItem.base.type ~= "Jewel" or self.displayItem.base.type ~= "Quiver" or self.displayItem.base.type ~= "Ring")
+		return self.displayItem and self.displayItem.quality and (self.displayItem.base.type ~= "Amulet" or self.displayItem.base.type ~= "Belt" or 
+		self.displayItem.base.type ~= "Jewel" or self.displayItem.base.type ~= "Quiver" or self.displayItem.base.type ~= "Ring" or
+		self.displayItem.base.type ~= "Rune" or self.displayItem.base.type ~= "Soul Core")
 	end
 
 	-- Section: Catalysts
@@ -1559,7 +1513,6 @@ function ItemsTabClass:SetDisplayItem(item)
 			self.controls.displayItemAltVariant5.selIndex = item.variantAlt5
 			self.controls.displayItemAltVariant5:CheckDroppedWidth(true)
 		end
-		self:UpdateSocketControls()
 		if item.crafted then
 			self:UpdateAffixControls()
 		end
@@ -1600,16 +1553,6 @@ function ItemsTabClass:UpdateDisplayItemTooltip()
 	self.displayItemTooltip:Clear()
 	self:AddItemTooltip(self.displayItemTooltip, self.displayItem)
 	self.displayItemTooltip.center = false
-end
-
-function ItemsTabClass:UpdateSocketControls()
-	local sockets = self.displayItem.sockets
-	for i = 1, #sockets - self.displayItem.abyssalSocketCount do
-		self.controls["displayItemSocket"..i]:SelByValue(sockets[i].color, "color")
-		if i > 1 then
-			self.controls["displayItemLink"..(i-1)].state = sockets[i].group == sockets[i-1].group
-		end
-	end
 end
 
 function ItemsTabClass:UpdateClusterJewelControls()
@@ -1925,7 +1868,7 @@ function ItemsTabClass:IsItemValidForSlot(item, slotName, itemSet)
 		return true
 	elseif item.type == "Tincture" and slotType == "Flask" then
 		return true
-	elseif item.type == "Jewel" and item.base.subType == "Abyss" and slotName:match("Abyssal Socket") then
+	elseif (item.type == "Rune" or item.type == "Soul Core") and slotName:match("Socket") then
 		return true
 	elseif slotName == "Weapon 1" or slotName == "Weapon 1 Swap" or slotName == "Weapon" then
 		return item.base.weapon ~= nil
@@ -1970,7 +1913,8 @@ function ItemsTabClass:CraftItem()
 		item.implicitModLines = { }
 		item.explicitModLines = { }
 		item.crucibleModLines = { }
-		if base.base.type == "Amulet" or base.base.type == "Belt" or base.base.type == "Jewel" or base.base.type == "Quiver" or base.base.type == "Ring" then
+		if base.base.type == "Amulet" or base.base.type == "Belt" or base.base.type == "Jewel" or base.base.type == "Quiver" or base.base.type == "Ring" or
+			base.base.type == "Rune" or base.base.type == "Soul Core" then
 			item.quality = nil
 		else
 			item.quality = 0
@@ -3356,33 +3300,7 @@ function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode)
 	end
 
 	if #item.sockets > 0 then
-		-- Sockets/links
-		local group = 0
-		local line = ""
-		for i, socket in ipairs(item.sockets) do
-			if i > 1 then
-				if socket.group == group then
-					line = line .. "^7="
-				else
-					line = line .. "  "
-				end
-				group = socket.group
-			end
-			local code
-			if socket.color == "R" then
-				code = colorCodes.STRENGTH
-			elseif socket.color == "G" then
-				code = colorCodes.DEXTERITY
-			elseif socket.color == "B" then
-				code = colorCodes.INTELLIGENCE
-			elseif socket.color == "W" then
-				code = colorCodes.SCION
-			elseif socket.color == "A" then
-				code = "^xB0B0B0"
-			end
-			line = line .. code .. socket.color
-		end
-		tooltip:AddLine(16, "^x7F7F7FSockets: "..line)
+		tooltip:AddLine(16, "^x7F7F7FSockets: "..tostring(#item.sockets))
 	end
 	tooltip:AddSeparator(10)
 

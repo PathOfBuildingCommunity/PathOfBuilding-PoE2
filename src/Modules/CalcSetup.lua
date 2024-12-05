@@ -837,10 +837,10 @@ function calcs.initEnv(build, mode, override, specEnv)
 				item = nil
 			end
 			local scale = 1
-			if item and item.type == "Jewel" and item.base.subType == "Abyss" and slot.parentSlot then
-				-- Check if the item in the parent slot has enough Abyssal Sockets
+			if item and (item.type == "Rune" or item.type == "Soul Core") and slot.parentSlot then
+				-- Check if the item in the parent slot has enough Rune / Soul Core Sockets
 				local parentItem = env.player.itemList[slot.parentSlot.slotName]
-				if not parentItem or parentItem.abyssalSocketCount < slot.slotNum then
+				if not parentItem or parentItem.socketCount < slot.slotNum then
 					item = nil
 				else
 					scale = parentItem.socketedJewelEffectModifier
@@ -931,7 +931,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 						item:NormaliseQuality()
 						item:BuildAndParseRaw()
 						item.sockets = previousItem.sockets
-						item.abyssalSocketCount = previousItem.abyssalSocketCount
+						item.socketCount = previousItem.socketCount
 						env.player.itemList[slotName] = item
 					else
 						env.itemModDB:ScaleAddList(srcList, scale)

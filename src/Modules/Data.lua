@@ -46,6 +46,8 @@ local itemTypes = {
 	"jewel",
 	"flask",
 	"tincture",
+	"rune",
+	"soulcore",
 }
 
 local function makeSkillMod(modName, modType, modVal, flags, keywordFlags, ...)

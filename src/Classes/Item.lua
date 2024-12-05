@@ -688,7 +688,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 						else
 							self.enchantments = data.enchantments[self.base.type]
 						end
-						self.corruptible = self.base.type ~= "Flask"
+						self.corruptible = self.base.type ~= "Flask" and self.base.type ~= "Rune" and self.base.type ~= "Soul Core"
 						self.canBeInfluenced = self.base.influenceTags ~= nil
 						self.clusterJewel = data.clusterJewels and data.clusterJewels.jewels[self.baseName]
 						self.requirements.str = self.base.req.str or 0
@@ -879,7 +879,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 			end
 		end
 	end
-	self.abyssalSocketCount = 0
+	self.socketCount = 0
 	if self.variantList then
 		self.variant = m_min(#self.variantList, self.variant or #self.variantList)
 		if self.hasAltVariant then
@@ -1112,15 +1112,8 @@ function ItemClass:BuildRaw()
 	if self.quality then
 		t_insert(rawLines, "Quality: " .. self.quality)
 	end
-	if self.sockets and #self.sockets > 0 then
-		local line = "Sockets: "
-		for i, socket in pairs(self.sockets) do
-			line = line .. socket.color
-			if self.sockets[i+1] then
-				line = line .. (socket.group == self.sockets[i+1].group and "-" or " ")
-			end
-		end
-		t_insert(rawLines, line)
+	if self.sockets then
+		t_insert(rawLines, "Sockets: " .. #self.sockets)
 	end
 	if self.requirements and self.requirements.level then
 		t_insert(rawLines, "LevelReq: " .. self.requirements.level)
@@ -1671,48 +1664,18 @@ function ItemClass:BuildModList()
 			})
 		end
 	end
-	local socketCount = calcLocal(baseList, "SocketCount", "BASE", 0)
-	self.abyssalSocketCount = calcLocal(baseList, "AbyssalSocketCount", "BASE", 0)
-	self.selectableSocketCount = m_max(self.base.socketLimit or 0, #self.sockets) - self.abyssalSocketCount
+
+	self.socketCount = calcLocal(baseList, "SocketCount", "BASE", 0)
 	if calcLocal(baseList, "NoSockets", "FLAG", 0) then
 		-- Remove all sockets
 		wipeTable(self.sockets)
-		self.selectableSocketCount = 0
-	elseif socketCount > 0 then
-		-- Force the socket count to be equal to the stated number
-		self.selectableSocketCount = socketCount
-		local group = 0
-		for i = 1, m_max(socketCount, #self.sockets) do 
-			if i > socketCount then
-				self.sockets[i] = nil
-			elseif not self.sockets[i] then
-				self.sockets[i] = {
-					color = self.defaultSocketColor,
-					group = group
-				}
-			else
-				group = self.sockets[i].group
-			end
-		end
-	elseif self.abyssalSocketCount > 0 then
+	elseif self.socketCount > 0 then
 		-- Ensure that there are the correct number of abyssal sockets present
 		local newSockets = { }
 		local group = 0
-		if self.sockets then
-			for i, socket in ipairs(self.sockets) do
-				if socket.color ~= "A" then
-					if #newSockets >= self.selectableSocketCount then
-						break
-					end
-					t_insert(newSockets, socket)
-					group = socket.group
-				end
-			end
-		end
-		for i = 1, self.abyssalSocketCount do
+		for i = 1, self.socketCount do
 			group = group + 1
 			t_insert(newSockets, {
-				color = "A",
 				group = group
 			})
 		end
