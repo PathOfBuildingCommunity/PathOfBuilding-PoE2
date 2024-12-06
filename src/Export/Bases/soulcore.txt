@@ -1,0 +1,7 @@
+-- Item data (c) Grinding Gear Games
+local itemBases = ...
+
+#type SoulCore
+#influenceBaseTag soulcore
+
+#baseMatch BaseType Metadata/Items/SoulCores/AbstractSoulCore

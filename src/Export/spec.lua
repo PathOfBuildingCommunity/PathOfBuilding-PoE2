@@ -1647,7 +1647,7 @@ return {
 			name="Id",
 			refTo="",
 			type="String",
-			width=480
+			width=560
 		},
 		[2]={
 			list=false,
@@ -10333,14 +10333,14 @@ return {
 			name="BaseItemType",
 			refTo="BaseItemTypes",
 			type="Key",
-			width=290
+			width=350
 		},
 		[2]={
 			list=false,
 			name="Block",
 			refTo="",
 			type="Int",
-			width=60
+			width=80
 		}
 	},
 	shopcategory={

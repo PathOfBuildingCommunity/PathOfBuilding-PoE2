@@ -5,24 +5,18 @@ local itemBases = ...
 #socketLimit 3
 #influenceBaseTag sword
 
-#baseMatch Metadata/Items/Weapons/OneHandWeapons/OneHandSwords/OneHandSword
-
-#base Metadata/items/Weapons/OneHandWeapons/OneHandSwords/OneHandSwordC
+#baseMatch BaseType Metadata/Items/Weapons/OneHandWeapons/OneHandSwords/AbstractOneHandSword
+#baseMatch BaseType Metadata/Items/Weapons/OneHandWeapons/OneHandSwords/OneHandSwordDemigods
 
 #forceHide true
 #base Metadata/Items/Weapons/OneHandWeapons/OneHandSwords/StormBladeOneHand
 #forceHide false
 
-#type One Handed Sword
-#subType Thrusting
-#influenceBaseTag sword
-#baseMatch Metadata/Items/Weapons/OneHandWeapons/OneHandThrustingSwords/Rapier
-
 #type Two Handed Sword
 #subType
-#socketLimit 6
+#socketLimit 3
 #influenceBaseTag 2h_sword
-#baseMatch Metadata/Items/Weapons/TwoHandWeapons/TwoHandSwords/TwoHandSword
+#baseMatch BaseType Metadata/Items/Weapons/TwoHandWeapons/TwoHandSwords/AbstractTwoHandSword
 
 #forceHide true
 #base Metadata/Items/Weapons/TwoHandWeapons/TwoHandSwords/StormBladeTwoHand

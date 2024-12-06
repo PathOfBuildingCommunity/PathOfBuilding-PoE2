@@ -3,19 +3,5 @@ local itemBases = ...
 
 #type Ring
 #influenceBaseTag ring
-
-#baseMatch Metadata/Items/Rings/Ring%d+
-#baseMatch Metadata/Items/Rings/RingAtlas%d+
-#forceShow true
-#base Metadata/Items/Rings/Ring12 Two-Stone Ring (Fire/Lightning)
-#base Metadata/Items/Rings/Ring13 Two-Stone Ring (Cold/Lightning)
-#base Metadata/Items/Rings/Ring14 Two-Stone Ring (Fire/Cold)
-#baseMatch Metadata/Items/Rings/RingE%d+
-#baseMatch Metadata/Items/Rings/RingK%d+
-#baseMatch Metadata/Items/Rings/RingR%d+
-#baseMatch Metadata/Items/Rings/MirrorRing
-#forceShow false
-
-#base Metadata/Items/Rings/BreachRing
-#base Metadata/Items/Rings/RingDemigods1
-#base Metadata/Items/Rings/RingVictor1
+#baseMatch BaseType Metadata/Items/Rings/AbstractRing
+#baseMatch BaseType Metadata/Items/Rings/RingDemigods

@@ -2,296 +2,364 @@
 -- Item data (c) Grinding Gear Games
 local itemBases = ...
 
-itemBases["Gnarled Branch"] = {
+itemBases["Ashen Staff"] = {
 	type = "Staff",
-	socketLimit = 6,
-	tags = { two_hand_weapon = true, small_staff = true, staff = true, weapon = true, twohand = true, default = true, },
+	socketLimit = 3,
+	tags = { no_physical_spell_mods = true, no_lightning_spell_mods = true, no_cold_spell_mods = true, no_chaos_spell_mods = true, staff = true, twohand = true, default = true, },
 	influenceTags = { shaper = "staff_shaper", elder = "staff_elder", adjudicator = "staff_adjudicator", basilisk = "staff_basilisk", crusader = "staff_crusader", eyrie = "staff_eyrie", cleansing = "staff_cleansing", tangle = "staff_tangle" },
-	implicit = "+20% Chance to Block Spell Damage while wielding a Staff",
-	implicitModTypes = { { "block" }, },
-	weapon = { PhysicalMin = 9, PhysicalMax = 19, CritChanceBase = 7.5, AttackRateBase = 1.3, Range = 13, },
-	req = { str = 12, int = 12, },
+	implicitModTypes = { },
+	req = { },
 }
-itemBases["Primitive Staff"] = {
+itemBases["Gelid Staff"] = {
 	type = "Staff",
-	socketLimit = 6,
-	tags = { two_hand_weapon = true, staff = true, weapon = true, twohand = true, default = true, },
+	socketLimit = 3,
+	tags = { no_fire_spell_mods = true, no_lightning_spell_mods = true, staff = true, no_physical_spell_mods = true, no_chaos_spell_mods = true, twohand = true, default = true, },
 	influenceTags = { shaper = "staff_shaper", elder = "staff_elder", adjudicator = "staff_adjudicator", basilisk = "staff_basilisk", crusader = "staff_crusader", eyrie = "staff_eyrie", cleansing = "staff_cleansing", tangle = "staff_tangle" },
-	implicit = "+20% Chance to Block Spell Damage while wielding a Staff",
-	implicitModTypes = { { "block" }, },
-	weapon = { PhysicalMin = 10, PhysicalMax = 31, CritChanceBase = 8, AttackRateBase = 1.3, Range = 13, },
-	req = { level = 9, str = 20, int = 20, },
+	implicitModTypes = { },
+	req = { },
 }
-itemBases["Long Staff"] = {
+itemBases["Voltaic Staff"] = {
 	type = "Staff",
-	socketLimit = 6,
-	tags = { two_hand_weapon = true, staff = true, weapon = true, twohand = true, default = true, },
+	socketLimit = 3,
+	tags = { no_fire_spell_mods = true, no_physical_spell_mods = true, staff = true, no_chaos_spell_mods = true, no_cold_spell_mods = true, twohand = true, default = true, },
 	influenceTags = { shaper = "staff_shaper", elder = "staff_elder", adjudicator = "staff_adjudicator", basilisk = "staff_basilisk", crusader = "staff_crusader", eyrie = "staff_eyrie", cleansing = "staff_cleansing", tangle = "staff_tangle" },
-	implicit = "+20% Chance to Block Spell Damage while wielding a Staff",
-	implicitModTypes = { { "block" }, },
-	weapon = { PhysicalMin = 24, PhysicalMax = 41, CritChanceBase = 7.5, AttackRateBase = 1.3, Range = 13, },
-	req = { level = 18, str = 35, int = 35, },
+	implicitModTypes = { },
+	req = { },
 }
-itemBases["Royal Staff"] = {
+itemBases["Spriggan Staff"] = {
 	type = "Staff",
-	socketLimit = 6,
-	tags = { two_hand_weapon = true, staff = true, weapon = true, twohand = true, default = true, },
+	socketLimit = 3,
+	tags = { default = true, twohand = true, staff = true, },
 	influenceTags = { shaper = "staff_shaper", elder = "staff_elder", adjudicator = "staff_adjudicator", basilisk = "staff_basilisk", crusader = "staff_crusader", eyrie = "staff_eyrie", cleansing = "staff_cleansing", tangle = "staff_tangle" },
-	implicit = "+20% Chance to Block Spell Damage while wielding a Staff",
-	implicitModTypes = { { "block" }, },
-	weapon = { PhysicalMin = 27, PhysicalMax = 81, CritChanceBase = 8.5, AttackRateBase = 1.15, Range = 13, },
-	req = { level = 28, str = 51, int = 51, },
+	implicitModTypes = { },
+	req = { },
 }
-itemBases["Crescent Staff"] = {
+itemBases["Pyrophyte Staff"] = {
 	type = "Staff",
-	socketLimit = 6,
-	tags = { two_hand_weapon = true, maraketh = true, staff = true, not_for_sale = true, weapon = true, twohand = true, default = true, },
+	socketLimit = 3,
+	tags = { no_physical_spell_mods = true, no_lightning_spell_mods = true, no_cold_spell_mods = true, no_chaos_spell_mods = true, staff = true, twohand = true, default = true, },
 	influenceTags = { shaper = "staff_shaper", elder = "staff_elder", adjudicator = "staff_adjudicator", basilisk = "staff_basilisk", crusader = "staff_crusader", eyrie = "staff_eyrie", cleansing = "staff_cleansing", tangle = "staff_tangle" },
-	implicit = "80% increased Global Critical Strike Chance",
-	implicitModTypes = { { "critical" }, },
-	weapon = { PhysicalMin = 41, PhysicalMax = 85, CritChanceBase = 7.5, AttackRateBase = 1.2, Range = 13, },
-	req = { level = 36, str = 66, int = 66, },
+	implicitModTypes = { },
+	req = { },
 }
-itemBases["Woodful Staff"] = {
+itemBases["Chiming Staff"] = {
 	type = "Staff",
-	socketLimit = 6,
-	tags = { two_hand_weapon = true, staff = true, weapon = true, twohand = true, default = true, },
+	socketLimit = 3,
+	tags = { default = true, twohand = true, staff = true, },
 	influenceTags = { shaper = "staff_shaper", elder = "staff_elder", adjudicator = "staff_adjudicator", basilisk = "staff_basilisk", crusader = "staff_crusader", eyrie = "staff_eyrie", cleansing = "staff_cleansing", tangle = "staff_tangle" },
-	implicit = "+22% Chance to Block Spell Damage while wielding a Staff",
-	implicitModTypes = { { "block" }, },
-	weapon = { PhysicalMin = 34, PhysicalMax = 102, CritChanceBase = 8, AttackRateBase = 1.15, Range = 13, },
-	req = { level = 37, str = 65, int = 65, },
+	implicitModTypes = { },
+	req = { },
 }
-itemBases["Quarterstaff"] = {
+itemBases["Rending Staff"] = {
 	type = "Staff",
-	socketLimit = 6,
-	tags = { two_hand_weapon = true, staff = true, weapon = true, twohand = true, default = true, },
+	socketLimit = 3,
+	tags = { no_fire_spell_mods = true, no_lightning_spell_mods = true, staff = true, no_physical_spell_mods = true, no_cold_spell_mods = true, twohand = true, default = true, },
 	influenceTags = { shaper = "staff_shaper", elder = "staff_elder", adjudicator = "staff_adjudicator", basilisk = "staff_basilisk", crusader = "staff_crusader", eyrie = "staff_eyrie", cleansing = "staff_cleansing", tangle = "staff_tangle" },
-	implicit = "+22% Chance to Block Spell Damage while wielding a Staff",
-	implicitModTypes = { { "block" }, },
-	weapon = { PhysicalMin = 51, PhysicalMax = 86, CritChanceBase = 7.5, AttackRateBase = 1.3, Range = 13, },
-	req = { level = 45, str = 78, int = 78, },
+	implicitModTypes = { },
+	req = { },
 }
-itemBases["Highborn Staff"] = {
+itemBases["Reaping Staff"] = {
 	type = "Staff",
-	socketLimit = 6,
-	tags = { two_hand_weapon = true, staff = true, weapon = true, twohand = true, default = true, },
+	socketLimit = 3,
+	tags = { no_fire_spell_mods = true, no_lightning_spell_mods = true, staff = true, no_chaos_spell_mods = true, no_cold_spell_mods = true, twohand = true, default = true, },
 	influenceTags = { shaper = "staff_shaper", elder = "staff_elder", adjudicator = "staff_adjudicator", basilisk = "staff_basilisk", crusader = "staff_crusader", eyrie = "staff_eyrie", cleansing = "staff_cleansing", tangle = "staff_tangle" },
-	implicit = "+22% Chance to Block Spell Damage while wielding a Staff",
-	implicitModTypes = { { "block" }, },
-	weapon = { PhysicalMin = 48, PhysicalMax = 145, CritChanceBase = 8.25, AttackRateBase = 1.15, Range = 13, },
-	req = { level = 52, str = 89, int = 89, },
+	implicitModTypes = { },
+	req = { },
 }
-itemBases["Moon Staff"] = {
+itemBases["Icicle Staff"] = {
 	type = "Staff",
-	socketLimit = 6,
-	tags = { two_hand_weapon = true, maraketh = true, staff = true, not_for_sale = true, weapon = true, twohand = true, default = true, },
+	socketLimit = 3,
+	tags = { no_fire_spell_mods = true, no_lightning_spell_mods = true, staff = true, no_physical_spell_mods = true, no_chaos_spell_mods = true, twohand = true, default = true, },
 	influenceTags = { shaper = "staff_shaper", elder = "staff_elder", adjudicator = "staff_adjudicator", basilisk = "staff_basilisk", crusader = "staff_crusader", eyrie = "staff_eyrie", cleansing = "staff_cleansing", tangle = "staff_tangle" },
-	implicit = "80% increased Global Critical Strike Chance",
-	implicitModTypes = { { "critical" }, },
-	weapon = { PhysicalMin = 66, PhysicalMax = 138, CritChanceBase = 7.5, AttackRateBase = 1.2, Range = 13, },
-	req = { level = 57, str = 101, int = 101, },
+	implicitModTypes = { },
+	req = { },
 }
-itemBases["Primordial Staff"] = {
+itemBases["Roaring Staff"] = {
 	type = "Staff",
-	socketLimit = 6,
-	tags = { two_hand_weapon = true, staff = true, weapon = true, twohand = true, default = true, },
+	socketLimit = 3,
+	tags = { default = true, twohand = true, staff = true, },
 	influenceTags = { shaper = "staff_shaper", elder = "staff_elder", adjudicator = "staff_adjudicator", basilisk = "staff_basilisk", crusader = "staff_crusader", eyrie = "staff_eyrie", cleansing = "staff_cleansing", tangle = "staff_tangle" },
-	implicit = "+25% Chance to Block Spell Damage while wielding a Staff",
-	implicitModTypes = { { "block" }, },
-	weapon = { PhysicalMin = 55, PhysicalMax = 165, CritChanceBase = 8, AttackRateBase = 1.15, Range = 13, },
-	req = { level = 58, str = 99, int = 99, },
+	implicitModTypes = { },
+	req = { },
 }
-itemBases["Lathi"] = {
+itemBases["Paralysing Staff"] = {
 	type = "Staff",
-	socketLimit = 6,
-	tags = { two_hand_weapon = true, top_tier_base_item_type = true, staff = true, weapon = true, twohand = true, default = true, },
+	socketLimit = 3,
+	tags = { no_fire_spell_mods = true, no_physical_spell_mods = true, staff = true, no_chaos_spell_mods = true, no_cold_spell_mods = true, twohand = true, default = true, },
 	influenceTags = { shaper = "staff_shaper", elder = "staff_elder", adjudicator = "staff_adjudicator", basilisk = "staff_basilisk", crusader = "staff_crusader", eyrie = "staff_eyrie", cleansing = "staff_cleansing", tangle = "staff_tangle" },
-	implicit = "+25% Chance to Block Spell Damage while wielding a Staff",
-	implicitModTypes = { { "block" }, },
-	weapon = { PhysicalMin = 72, PhysicalMax = 120, CritChanceBase = 7.5, AttackRateBase = 1.3, Range = 13, },
-	req = { level = 62, str = 113, int = 113, },
+	implicitModTypes = { },
+	req = { },
 }
-itemBases["Imperial Staff"] = {
+itemBases["Cleric Staff"] = {
 	type = "Staff",
-	socketLimit = 6,
-	tags = { two_hand_weapon = true, top_tier_base_item_type = true, staff = true, weapon = true, twohand = true, default = true, },
+	socketLimit = 3,
+	tags = { default = true, twohand = true, staff = true, },
 	influenceTags = { shaper = "staff_shaper", elder = "staff_elder", adjudicator = "staff_adjudicator", basilisk = "staff_basilisk", crusader = "staff_crusader", eyrie = "staff_eyrie", cleansing = "staff_cleansing", tangle = "staff_tangle" },
-	implicit = "+25% Chance to Block Spell Damage while wielding a Staff",
-	implicitModTypes = { { "block" }, },
-	weapon = { PhysicalMin = 57, PhysicalMax = 171, CritChanceBase = 8.5, AttackRateBase = 1.15, Range = 13, },
-	req = { level = 66, str = 113, int = 113, },
+	implicitModTypes = { },
+	req = { },
 }
-itemBases["Eclipse Staff"] = {
+itemBases["Dark Staff"] = {
 	type = "Staff",
-	socketLimit = 6,
-	tags = { two_hand_weapon = true, maraketh = true, staff = true, not_for_sale = true, weapon = true, twohand = true, default = true, },
+	socketLimit = 3,
+	tags = { default = true, twohand = true, staff = true, },
 	influenceTags = { shaper = "staff_shaper", elder = "staff_elder", adjudicator = "staff_adjudicator", basilisk = "staff_basilisk", crusader = "staff_crusader", eyrie = "staff_eyrie", cleansing = "staff_cleansing", tangle = "staff_tangle" },
-	implicit = "100% increased Global Critical Strike Chance",
-	implicitModTypes = { { "critical" }, },
-	weapon = { PhysicalMin = 70, PhysicalMax = 145, CritChanceBase = 7.5, AttackRateBase = 1.2, Range = 13, },
-	req = { level = 70, str = 117, int = 117, },
-}
-itemBases["Transformer Staff"] = {
-	type = "Staff",
-	socketLimit = 6,
-	tags = { two_hand_weapon = true, weapon = true, staff = true, not_for_sale = true, experimental_base = true, twohand = true, default = true, },
-	influenceTags = { shaper = "staff_shaper", elder = "staff_elder", adjudicator = "staff_adjudicator", basilisk = "staff_basilisk", crusader = "staff_crusader", eyrie = "staff_eyrie", cleansing = "staff_cleansing", tangle = "staff_tangle" },
-	implicit = "Spend Energy Shield before Mana for Costs of Socketed Skills\n+(66-80) to maximum Energy Shield",
-	implicitModTypes = { {  }, {  }, },
-	weapon = { PhysicalMin = 36, PhysicalMax = 66, CritChanceBase = 7.5, AttackRateBase = 1.25, Range = 13, },
-	req = { level = 30, str = 54, int = 54, },
-}
-itemBases["Reciprocation Staff"] = {
-	type = "Staff",
-	socketLimit = 6,
-	tags = { two_hand_weapon = true, weapon = true, staff = true, not_for_sale = true, experimental_base = true, twohand = true, default = true, },
-	influenceTags = { shaper = "staff_shaper", elder = "staff_elder", adjudicator = "staff_adjudicator", basilisk = "staff_basilisk", crusader = "staff_crusader", eyrie = "staff_eyrie", cleansing = "staff_cleansing", tangle = "staff_tangle" },
-	implicit = "Spend Energy Shield before Mana for Costs of Socketed Skills\n+(100-120) to maximum Energy Shield",
-	implicitModTypes = { {  }, {  }, },
-	weapon = { PhysicalMin = 55, PhysicalMax = 102, CritChanceBase = 7.5, AttackRateBase = 1.25, Range = 13, },
-	req = { level = 50, str = 86, int = 86, },
-}
-itemBases["Battery Staff"] = {
-	type = "Staff",
-	socketLimit = 6,
-	tags = { two_hand_weapon = true, weapon = true, staff = true, not_for_sale = true, experimental_base = true, twohand = true, default = true, },
-	influenceTags = { shaper = "staff_shaper", elder = "staff_elder", adjudicator = "staff_adjudicator", basilisk = "staff_basilisk", crusader = "staff_crusader", eyrie = "staff_eyrie", cleansing = "staff_cleansing", tangle = "staff_tangle" },
-	implicit = "Spend Energy Shield before Mana for Costs of Socketed Skills\n+(140-165) to maximum Energy Shield",
-	implicitModTypes = { {  }, {  }, },
-	weapon = { PhysicalMin = 65, PhysicalMax = 120, CritChanceBase = 7.5, AttackRateBase = 1.25, Range = 13, },
-	req = { level = 70, str = 117, int = 117, },
+	implicitModTypes = { },
+	req = { },
 }
 
-itemBases["Iron Staff"] = {
+itemBases["Wrapped Quarterstaff"] = {
 	type = "Staff",
 	subType = "Warstaff",
-	socketLimit = 6,
-	tags = { two_hand_weapon = true, warstaff = true, staff = true, attack_staff = true, weapon = true, twohand = true, default = true, },
+	socketLimit = 3,
+	tags = { two_hand_weapon = true, warstaff = true, ezomyte_basetype = true, weapon = true, twohand = true, default = true, },
 	influenceTags = { shaper = "warstaff_shaper", elder = "warstaff_elder", adjudicator = "warstaff_adjudicator", basilisk = "warstaff_basilisk", crusader = "warstaff_crusader", eyrie = "warstaff_eyrie", cleansing = "warstaff_cleansing", tangle = "warstaff_tangle" },
-	implicit = "+20% Chance to Block Attack Damage while wielding a Staff",
+	implicitModTypes = { },
+	weapon = { PhysicalMin = 7, PhysicalMax = 12, CritChanceBase = 10, AttackRateBase = 1.4, Range = 13, },
+	req = { },
+}
+itemBases["Long Quarterstaff"] = {
+	type = "Staff",
+	subType = "Warstaff",
+	socketLimit = 3,
+	tags = { two_hand_weapon = true, warstaff = true, ezomyte_basetype = true, weapon = true, twohand = true, default = true, },
+	influenceTags = { shaper = "warstaff_shaper", elder = "warstaff_elder", adjudicator = "warstaff_adjudicator", basilisk = "warstaff_basilisk", crusader = "warstaff_crusader", eyrie = "warstaff_eyrie", cleansing = "warstaff_cleansing", tangle = "warstaff_tangle" },
+	implicit = "16% increased Range",
+	implicitModTypes = { { "attack" }, },
+	weapon = { PhysicalMin = 9, PhysicalMax = 18, CritChanceBase = 10, AttackRateBase = 1.4, Range = 13, },
+	req = { },
+}
+itemBases["Gothic Quarterstaff"] = {
+	type = "Staff",
+	subType = "Warstaff",
+	socketLimit = 3,
+	tags = { two_hand_weapon = true, warstaff = true, ezomyte_basetype = true, weapon = true, twohand = true, default = true, },
+	influenceTags = { shaper = "warstaff_shaper", elder = "warstaff_elder", adjudicator = "warstaff_adjudicator", basilisk = "warstaff_basilisk", crusader = "warstaff_crusader", eyrie = "warstaff_eyrie", cleansing = "warstaff_cleansing", tangle = "warstaff_tangle" },
+	implicitModTypes = { },
+	weapon = { PhysicalMin = 16, PhysicalMax = 26, CritChanceBase = 11.5, AttackRateBase = 1.4, Range = 13, },
+	req = { level = 11, },
+}
+itemBases["Crackling Quarterstaff"] = {
+	type = "Staff",
+	subType = "Warstaff",
+	socketLimit = 3,
+	tags = { two_hand_weapon = true, warstaff = true, maraketh_basetype = true, weapon = true, twohand = true, default = true, },
+	influenceTags = { shaper = "warstaff_shaper", elder = "warstaff_elder", adjudicator = "warstaff_adjudicator", basilisk = "warstaff_basilisk", crusader = "warstaff_crusader", eyrie = "warstaff_eyrie", cleansing = "warstaff_cleansing", tangle = "warstaff_tangle" },
+	implicitModTypes = { },
+	weapon = { PhysicalMin = 13, PhysicalMax = 54, CritChanceBase = 10, AttackRateBase = 1.4, Range = 13, },
+	req = { level = 16, },
+}
+itemBases["Crescent Quarterstaff"] = {
+	type = "Staff",
+	subType = "Warstaff",
+	socketLimit = 3,
+	tags = { two_hand_weapon = true, warstaff = true, maraketh_basetype = true, weapon = true, twohand = true, default = true, },
+	influenceTags = { shaper = "warstaff_shaper", elder = "warstaff_elder", adjudicator = "warstaff_adjudicator", basilisk = "warstaff_basilisk", crusader = "warstaff_crusader", eyrie = "warstaff_eyrie", cleansing = "warstaff_cleansing", tangle = "warstaff_tangle" },
+	implicitModTypes = { },
+	weapon = { PhysicalMin = 19, PhysicalMax = 39, CritChanceBase = 10, AttackRateBase = 1.5, Range = 13, },
+	req = { level = 20, },
+}
+itemBases["Steelpoint Quarterstaff"] = {
+	type = "Staff",
+	subType = "Warstaff",
+	socketLimit = 3,
+	tags = { two_hand_weapon = true, warstaff = true, maraketh_basetype = true, weapon = true, twohand = true, default = true, },
+	influenceTags = { shaper = "warstaff_shaper", elder = "warstaff_elder", adjudicator = "warstaff_adjudicator", basilisk = "warstaff_basilisk", crusader = "warstaff_crusader", eyrie = "warstaff_eyrie", cleansing = "warstaff_cleansing", tangle = "warstaff_tangle" },
+	implicitModTypes = { },
+	weapon = { PhysicalMin = 28, PhysicalMax = 51, CritChanceBase = 10, AttackRateBase = 1.4, Range = 13, },
+	req = { level = 28, },
+}
+itemBases["Slicing Quarterstaff"] = {
+	type = "Staff",
+	subType = "Warstaff",
+	socketLimit = 3,
+	tags = { two_hand_weapon = true, warstaff = true, vaal_basetype = true, weapon = true, twohand = true, default = true, },
+	influenceTags = { shaper = "warstaff_shaper", elder = "warstaff_elder", adjudicator = "warstaff_adjudicator", basilisk = "warstaff_basilisk", crusader = "warstaff_crusader", eyrie = "warstaff_eyrie", cleansing = "warstaff_cleansing", tangle = "warstaff_tangle" },
+	implicitModTypes = { },
+	weapon = { PhysicalMin = 29, PhysicalMax = 60, CritChanceBase = 10, AttackRateBase = 1.4, Range = 13, },
+	req = { level = 33, },
+}
+itemBases["Barrier Quarterstaff"] = {
+	type = "Staff",
+	subType = "Warstaff",
+	socketLimit = 3,
+	tags = { two_hand_weapon = true, warstaff = true, vaal_basetype = true, weapon = true, twohand = true, default = true, },
+	influenceTags = { shaper = "warstaff_shaper", elder = "warstaff_elder", adjudicator = "warstaff_adjudicator", basilisk = "warstaff_basilisk", crusader = "warstaff_crusader", eyrie = "warstaff_eyrie", cleansing = "warstaff_cleansing", tangle = "warstaff_tangle" },
+	implicit = "+(10-15)% to [Block] chance",
 	implicitModTypes = { { "block" }, },
-	weapon = { PhysicalMin = 14, PhysicalMax = 42, CritChanceBase = 7.6, AttackRateBase = 1.3, Range = 13, },
-	req = { level = 13, str = 27, int = 27, },
+	weapon = { PhysicalMin = 33, PhysicalMax = 55, CritChanceBase = 10, AttackRateBase = 1.4, Range = 13, },
+	req = { level = 37, },
 }
-itemBases["Coiled Staff"] = {
+itemBases["Hefty Quarterstaff"] = {
 	type = "Staff",
 	subType = "Warstaff",
-	socketLimit = 6,
-	tags = { two_hand_weapon = true, warstaff = true, staff = true, attack_staff = true, weapon = true, twohand = true, default = true, },
+	socketLimit = 3,
+	tags = { two_hand_weapon = true, warstaff = true, weapon = true, twohand = true, default = true, },
 	influenceTags = { shaper = "warstaff_shaper", elder = "warstaff_elder", adjudicator = "warstaff_adjudicator", basilisk = "warstaff_basilisk", crusader = "warstaff_crusader", eyrie = "warstaff_eyrie", cleansing = "warstaff_cleansing", tangle = "warstaff_tangle" },
-	implicit = "+20% Chance to Block Attack Damage while wielding a Staff",
+	implicitModTypes = { },
+	weapon = { PhysicalMin = 39, PhysicalMax = 80, CritChanceBase = 10, AttackRateBase = 1.35, Range = 13, },
+	req = { level = 45, },
+}
+itemBases["Smooth Quarterstaff"] = {
+	type = "Staff",
+	subType = "Warstaff",
+	socketLimit = 3,
+	tags = { two_hand_weapon = true, warstaff = true, weapon = true, twohand = true, default = true, },
+	influenceTags = { shaper = "warstaff_shaper", elder = "warstaff_elder", adjudicator = "warstaff_adjudicator", basilisk = "warstaff_basilisk", crusader = "warstaff_crusader", eyrie = "warstaff_eyrie", cleansing = "warstaff_cleansing", tangle = "warstaff_tangle" },
+	implicitModTypes = { },
+	weapon = { PhysicalMin = 62, PhysicalMax = 84, CritChanceBase = 0, AttackRateBase = 1.5, Range = 13, },
+	req = { level = 47, },
+}
+itemBases["Anima Quarterstaff"] = {
+	type = "Staff",
+	subType = "Warstaff",
+	socketLimit = 3,
+	tags = { two_hand_weapon = true, warstaff = true, weapon = true, twohand = true, default = true, },
+	influenceTags = { shaper = "warstaff_shaper", elder = "warstaff_elder", adjudicator = "warstaff_adjudicator", basilisk = "warstaff_basilisk", crusader = "warstaff_crusader", eyrie = "warstaff_eyrie", cleansing = "warstaff_cleansing", tangle = "warstaff_tangle" },
+	implicitModTypes = { },
+	weapon = { PhysicalMin = 47, PhysicalMax = 79, CritChanceBase = 10, AttackRateBase = 1.4, Range = 13, },
+	req = { level = 52, },
+}
+itemBases["Graceful Quarterstaff"] = {
+	type = "Staff",
+	subType = "Warstaff",
+	socketLimit = 3,
+	tags = { two_hand_weapon = true, warstaff = true, weapon = true, twohand = true, default = true, },
+	influenceTags = { shaper = "warstaff_shaper", elder = "warstaff_elder", adjudicator = "warstaff_adjudicator", basilisk = "warstaff_basilisk", crusader = "warstaff_crusader", eyrie = "warstaff_eyrie", cleansing = "warstaff_cleansing", tangle = "warstaff_tangle" },
+	implicitModTypes = { },
+	weapon = { PhysicalMin = 47, PhysicalMax = 87, CritChanceBase = 10, AttackRateBase = 1.4, Range = 13, },
+	req = { level = 56, },
+}
+itemBases["Wyrm Quarterstaff"] = {
+	type = "Staff",
+	subType = "Warstaff",
+	socketLimit = 3,
+	tags = { two_hand_weapon = true, warstaff = true, weapon = true, twohand = true, default = true, },
+	influenceTags = { shaper = "warstaff_shaper", elder = "warstaff_elder", adjudicator = "warstaff_adjudicator", basilisk = "warstaff_basilisk", crusader = "warstaff_crusader", eyrie = "warstaff_eyrie", cleansing = "warstaff_cleansing", tangle = "warstaff_tangle" },
+	implicitModTypes = { },
+	weapon = { PhysicalMin = 57, PhysicalMax = 94, CritChanceBase = 10, AttackRateBase = 1.4, Range = 13, },
+	req = { level = 65, },
+}
+itemBases["Advanced Long Quarterstaff"] = {
+	type = "Staff",
+	subType = "Warstaff",
+	socketLimit = 3,
+	tags = { two_hand_weapon = true, warstaff = true, weapon = true, twohand = true, default = true, },
+	influenceTags = { shaper = "warstaff_shaper", elder = "warstaff_elder", adjudicator = "warstaff_adjudicator", basilisk = "warstaff_basilisk", crusader = "warstaff_crusader", eyrie = "warstaff_eyrie", cleansing = "warstaff_cleansing", tangle = "warstaff_tangle" },
+	implicit = "16% increased Range",
+	implicitModTypes = { { "attack" }, },
+	weapon = { PhysicalMin = 35, PhysicalMax = 72, CritChanceBase = 10, AttackRateBase = 1.4, Range = 13, },
+	req = { level = 45, },
+}
+itemBases["Advanced Gothic Quarterstaff"] = {
+	type = "Staff",
+	subType = "Warstaff",
+	socketLimit = 3,
+	tags = { two_hand_weapon = true, warstaff = true, weapon = true, twohand = true, default = true, },
+	influenceTags = { shaper = "warstaff_shaper", elder = "warstaff_elder", adjudicator = "warstaff_adjudicator", basilisk = "warstaff_basilisk", crusader = "warstaff_crusader", eyrie = "warstaff_eyrie", cleansing = "warstaff_cleansing", tangle = "warstaff_tangle" },
+	implicitModTypes = { },
+	weapon = { PhysicalMin = 43, PhysicalMax = 72, CritChanceBase = 11.5, AttackRateBase = 1.4, Range = 13, },
+	req = { level = 48, },
+}
+itemBases["Advanced Crackling Quarterstaff"] = {
+	type = "Staff",
+	subType = "Warstaff",
+	socketLimit = 3,
+	tags = { two_hand_weapon = true, warstaff = true, weapon = true, twohand = true, default = true, },
+	influenceTags = { shaper = "warstaff_shaper", elder = "warstaff_elder", adjudicator = "warstaff_adjudicator", basilisk = "warstaff_basilisk", crusader = "warstaff_crusader", eyrie = "warstaff_eyrie", cleansing = "warstaff_cleansing", tangle = "warstaff_tangle" },
+	implicitModTypes = { },
+	weapon = { PhysicalMin = 30, PhysicalMax = 57, CritChanceBase = 10, AttackRateBase = 1.4, Range = 13, },
+	req = { level = 51, },
+}
+itemBases["Advanced Crescent Quarterstaff"] = {
+	type = "Staff",
+	subType = "Warstaff",
+	socketLimit = 3,
+	tags = { two_hand_weapon = true, warstaff = true, weapon = true, twohand = true, default = true, },
+	influenceTags = { shaper = "warstaff_shaper", elder = "warstaff_elder", adjudicator = "warstaff_adjudicator", basilisk = "warstaff_basilisk", crusader = "warstaff_crusader", eyrie = "warstaff_eyrie", cleansing = "warstaff_cleansing", tangle = "warstaff_tangle" },
+	implicitModTypes = { },
+	weapon = { PhysicalMin = 40, PhysicalMax = 83, CritChanceBase = 10, AttackRateBase = 1.5, Range = 13, },
+	req = { level = 55, },
+}
+itemBases["Advanced Slicing Quarterstaff"] = {
+	type = "Staff",
+	subType = "Warstaff",
+	socketLimit = 3,
+	tags = { two_hand_weapon = true, warstaff = true, weapon = true, twohand = true, default = true, },
+	influenceTags = { shaper = "warstaff_shaper", elder = "warstaff_elder", adjudicator = "warstaff_adjudicator", basilisk = "warstaff_basilisk", crusader = "warstaff_crusader", eyrie = "warstaff_eyrie", cleansing = "warstaff_cleansing", tangle = "warstaff_tangle" },
+	implicitModTypes = { },
+	weapon = { PhysicalMin = 45, PhysicalMax = 94, CritChanceBase = 10, AttackRateBase = 1.4, Range = 13, },
+	req = { level = 59, },
+}
+itemBases["Advanced Barrier Quarterstaff"] = {
+	type = "Staff",
+	subType = "Warstaff",
+	socketLimit = 3,
+	tags = { two_hand_weapon = true, warstaff = true, weapon = true, twohand = true, default = true, },
+	influenceTags = { shaper = "warstaff_shaper", elder = "warstaff_elder", adjudicator = "warstaff_adjudicator", basilisk = "warstaff_basilisk", crusader = "warstaff_crusader", eyrie = "warstaff_eyrie", cleansing = "warstaff_cleansing", tangle = "warstaff_tangle" },
+	implicit = "+(10-15)% to [Block] chance",
 	implicitModTypes = { { "block" }, },
-	weapon = { PhysicalMin = 27, PhysicalMax = 57, CritChanceBase = 7.7, AttackRateBase = 1.3, Range = 13, },
-	req = { level = 23, str = 43, int = 43, },
+	weapon = { PhysicalMin = 49, PhysicalMax = 82, CritChanceBase = 10, AttackRateBase = 1.4, Range = 13, },
+	req = { level = 62, },
 }
-itemBases["Vile Staff"] = {
+itemBases["Expert Gothic Quarterstaff"] = {
 	type = "Staff",
 	subType = "Warstaff",
-	socketLimit = 6,
-	tags = { two_hand_weapon = true, warstaff = true, staff = true, attack_staff = true, weapon = true, twohand = true, default = true, },
+	socketLimit = 3,
+	tags = { two_hand_weapon = true, warstaff = true, weapon = true, twohand = true, default = true, },
 	influenceTags = { shaper = "warstaff_shaper", elder = "warstaff_elder", adjudicator = "warstaff_adjudicator", basilisk = "warstaff_basilisk", crusader = "warstaff_crusader", eyrie = "warstaff_eyrie", cleansing = "warstaff_cleansing", tangle = "warstaff_tangle" },
-	implicit = "+20% Chance to Block Attack Damage while wielding a Staff",
+	implicitModTypes = { },
+	weapon = { PhysicalMin = 55, PhysicalMax = 92, CritChanceBase = 11.5, AttackRateBase = 1.4, Range = 13, },
+	req = { level = 67, },
+}
+itemBases["Expert Crescent Quarterstaff"] = {
+	type = "Staff",
+	subType = "Warstaff",
+	socketLimit = 3,
+	tags = { two_hand_weapon = true, warstaff = true, weapon = true, twohand = true, default = true, },
+	influenceTags = { shaper = "warstaff_shaper", elder = "warstaff_elder", adjudicator = "warstaff_adjudicator", basilisk = "warstaff_basilisk", crusader = "warstaff_crusader", eyrie = "warstaff_eyrie", cleansing = "warstaff_cleansing", tangle = "warstaff_tangle" },
+	implicitModTypes = { },
+	weapon = { PhysicalMin = 50, PhysicalMax = 103, CritChanceBase = 10, AttackRateBase = 1.5, Range = 13, },
+	req = { level = 72, },
+}
+itemBases["Expert Long Quarterstaff"] = {
+	type = "Staff",
+	subType = "Warstaff",
+	socketLimit = 3,
+	tags = { two_hand_weapon = true, warstaff = true, weapon = true, twohand = true, default = true, },
+	influenceTags = { shaper = "warstaff_shaper", elder = "warstaff_elder", adjudicator = "warstaff_adjudicator", basilisk = "warstaff_basilisk", crusader = "warstaff_crusader", eyrie = "warstaff_eyrie", cleansing = "warstaff_cleansing", tangle = "warstaff_tangle" },
+	implicit = "16% increased Range",
+	implicitModTypes = { { "attack" }, },
+	weapon = { PhysicalMin = 53, PhysicalMax = 111, CritChanceBase = 10, AttackRateBase = 1.4, Range = 13, },
+	req = { level = 77, },
+}
+itemBases["Expert Crackling Quarterstaff"] = {
+	type = "Staff",
+	subType = "Warstaff",
+	socketLimit = 3,
+	tags = { two_hand_weapon = true, warstaff = true, weapon = true, twohand = true, default = true, },
+	influenceTags = { shaper = "warstaff_shaper", elder = "warstaff_elder", adjudicator = "warstaff_adjudicator", basilisk = "warstaff_basilisk", crusader = "warstaff_crusader", eyrie = "warstaff_eyrie", cleansing = "warstaff_cleansing", tangle = "warstaff_tangle" },
+	implicitModTypes = { },
+	weapon = { PhysicalMin = 43, PhysicalMax = 172, CritChanceBase = 10, AttackRateBase = 1.4, Range = 13, },
+	req = { level = 78, },
+}
+itemBases["Expert Barrier Quarterstaff"] = {
+	type = "Staff",
+	subType = "Warstaff",
+	socketLimit = 3,
+	tags = { two_hand_weapon = true, warstaff = true, weapon = true, twohand = true, default = true, },
+	influenceTags = { shaper = "warstaff_shaper", elder = "warstaff_elder", adjudicator = "warstaff_adjudicator", basilisk = "warstaff_basilisk", crusader = "warstaff_crusader", eyrie = "warstaff_eyrie", cleansing = "warstaff_cleansing", tangle = "warstaff_tangle" },
+	implicit = "+(10-15)% to [Block] chance",
 	implicitModTypes = { { "block" }, },
-	weapon = { PhysicalMin = 41, PhysicalMax = 76, CritChanceBase = 7.5, AttackRateBase = 1.3, Range = 13, },
-	req = { level = 33, str = 59, int = 59, },
+	weapon = { PhysicalMin = 58, PhysicalMax = 97, CritChanceBase = 10, AttackRateBase = 1.4, Range = 13, },
+	req = { level = 79, },
 }
-itemBases["Military Staff"] = {
+itemBases["Expert Slicing Quarterstaff"] = {
 	type = "Staff",
 	subType = "Warstaff",
-	socketLimit = 6,
-	tags = { two_hand_weapon = true, warstaff = true, staff = true, attack_staff = true, weapon = true, twohand = true, default = true, },
+	socketLimit = 3,
+	tags = { two_hand_weapon = true, warstaff = true, weapon = true, twohand = true, default = true, },
 	influenceTags = { shaper = "warstaff_shaper", elder = "warstaff_elder", adjudicator = "warstaff_adjudicator", basilisk = "warstaff_basilisk", crusader = "warstaff_crusader", eyrie = "warstaff_eyrie", cleansing = "warstaff_cleansing", tangle = "warstaff_tangle" },
-	implicit = "+22% Chance to Block Attack Damage while wielding a Staff",
-	implicitModTypes = { { "block" }, },
-	weapon = { PhysicalMin = 38, PhysicalMax = 114, CritChanceBase = 7.9, AttackRateBase = 1.25, Range = 13, },
-	req = { level = 41, str = 72, int = 72, },
-}
-itemBases["Serpentine Staff"] = {
-	type = "Staff",
-	subType = "Warstaff",
-	socketLimit = 6,
-	tags = { two_hand_weapon = true, warstaff = true, staff = true, attack_staff = true, weapon = true, twohand = true, default = true, },
-	influenceTags = { shaper = "warstaff_shaper", elder = "warstaff_elder", adjudicator = "warstaff_adjudicator", basilisk = "warstaff_basilisk", crusader = "warstaff_crusader", eyrie = "warstaff_eyrie", cleansing = "warstaff_cleansing", tangle = "warstaff_tangle" },
-	implicit = "+22% Chance to Block Attack Damage while wielding a Staff",
-	implicitModTypes = { { "block" }, },
-	weapon = { PhysicalMin = 56, PhysicalMax = 117, CritChanceBase = 7.8, AttackRateBase = 1.25, Range = 13, },
-	req = { level = 49, str = 85, int = 85, },
-}
-itemBases["Foul Staff"] = {
-	type = "Staff",
-	subType = "Warstaff",
-	socketLimit = 6,
-	tags = { two_hand_weapon = true, warstaff = true, staff = true, attack_staff = true, weapon = true, twohand = true, default = true, },
-	influenceTags = { shaper = "warstaff_shaper", elder = "warstaff_elder", adjudicator = "warstaff_adjudicator", basilisk = "warstaff_basilisk", crusader = "warstaff_crusader", eyrie = "warstaff_eyrie", cleansing = "warstaff_cleansing", tangle = "warstaff_tangle" },
-	implicit = "+22% Chance to Block Attack Damage while wielding a Staff",
-	implicitModTypes = { { "block" }, },
-	weapon = { PhysicalMin = 65, PhysicalMax = 121, CritChanceBase = 7.5, AttackRateBase = 1.3, Range = 13, },
-	req = { level = 55, str = 94, int = 94, },
-}
-itemBases["Ezomyte Staff"] = {
-	type = "Staff",
-	subType = "Warstaff",
-	socketLimit = 6,
-	tags = { two_hand_weapon = true, top_tier_base_item_type = true, warstaff = true, staff = true, attack_staff = true, weapon = true, twohand = true, default = true, },
-	influenceTags = { shaper = "warstaff_shaper", elder = "warstaff_elder", adjudicator = "warstaff_adjudicator", basilisk = "warstaff_basilisk", crusader = "warstaff_crusader", eyrie = "warstaff_eyrie", cleansing = "warstaff_cleansing", tangle = "warstaff_tangle" },
-	implicit = "+25% Chance to Block Attack Damage while wielding a Staff",
-	implicitModTypes = { { "block" }, },
-	weapon = { PhysicalMin = 53, PhysicalMax = 160, CritChanceBase = 8.5, AttackRateBase = 1.25, Range = 13, },
-	req = { level = 60, str = 113, int = 113, },
-}
-itemBases["Maelstrom Staff"] = {
-	type = "Staff",
-	subType = "Warstaff",
-	socketLimit = 6,
-	tags = { two_hand_weapon = true, top_tier_base_item_type = true, warstaff = true, staff = true, attack_staff = true, weapon = true, twohand = true, default = true, },
-	influenceTags = { shaper = "warstaff_shaper", elder = "warstaff_elder", adjudicator = "warstaff_adjudicator", basilisk = "warstaff_basilisk", crusader = "warstaff_crusader", eyrie = "warstaff_eyrie", cleansing = "warstaff_cleansing", tangle = "warstaff_tangle" },
-	implicit = "+25% Chance to Block Attack Damage while wielding a Staff",
-	implicitModTypes = { { "block" }, },
-	weapon = { PhysicalMin = 71, PhysicalMax = 147, CritChanceBase = 8.1, AttackRateBase = 1.25, Range = 13, },
-	req = { level = 64, str = 113, int = 113, },
-}
-itemBases["Judgement Staff"] = {
-	type = "Staff",
-	subType = "Warstaff",
-	socketLimit = 6,
-	tags = { two_hand_weapon = true, top_tier_base_item_type = true, warstaff = true, staff = true, attack_staff = true, weapon = true, twohand = true, default = true, },
-	influenceTags = { shaper = "warstaff_shaper", elder = "warstaff_elder", adjudicator = "warstaff_adjudicator", basilisk = "warstaff_basilisk", crusader = "warstaff_crusader", eyrie = "warstaff_eyrie", cleansing = "warstaff_cleansing", tangle = "warstaff_tangle" },
-	implicit = "+25% Chance to Block Attack Damage while wielding a Staff",
-	implicitModTypes = { { "block" }, },
-	weapon = { PhysicalMin = 73, PhysicalMax = 136, CritChanceBase = 8, AttackRateBase = 1.3, Range = 13, },
-	req = { level = 68, str = 113, int = 113, },
-}
-itemBases["Capacity Rod"] = {
-	type = "Staff",
-	subType = "Warstaff",
-	socketLimit = 6,
-	tags = { two_hand_weapon = true, weapon = true, not_for_sale = true, staff = true, attack_staff = true, experimental_base = true, twohand = true, default = true, },
-	influenceTags = { shaper = "warstaff_shaper", elder = "warstaff_elder", adjudicator = "warstaff_adjudicator", basilisk = "warstaff_basilisk", crusader = "warstaff_crusader", eyrie = "warstaff_eyrie", cleansing = "warstaff_cleansing", tangle = "warstaff_tangle" },
-	implicit = "+1 to Maximum Power Charges and Maximum Endurance Charges",
-	implicitModTypes = { {  }, },
-	weapon = { PhysicalMin = 39, PhysicalMax = 73, CritChanceBase = 8.3, AttackRateBase = 1.25, Range = 13, },
-	req = { level = 30, str = 54, int = 54, },
-}
-itemBases["Potentiality Rod"] = {
-	type = "Staff",
-	subType = "Warstaff",
-	socketLimit = 6,
-	tags = { two_hand_weapon = true, weapon = true, not_for_sale = true, staff = true, attack_staff = true, experimental_base = true, twohand = true, default = true, },
-	influenceTags = { shaper = "warstaff_shaper", elder = "warstaff_elder", adjudicator = "warstaff_adjudicator", basilisk = "warstaff_basilisk", crusader = "warstaff_crusader", eyrie = "warstaff_eyrie", cleansing = "warstaff_cleansing", tangle = "warstaff_tangle" },
-	implicit = "+1 to Maximum Power Charges and Maximum Endurance Charges",
-	implicitModTypes = { {  }, },
-	weapon = { PhysicalMin = 61, PhysicalMax = 113, CritChanceBase = 8.3, AttackRateBase = 1.25, Range = 13, },
-	req = { level = 50, str = 86, int = 86, },
-}
-itemBases["Eventuality Rod"] = {
-	type = "Staff",
-	subType = "Warstaff",
-	socketLimit = 6,
-	tags = { two_hand_weapon = true, weapon = true, not_for_sale = true, staff = true, attack_staff = true, experimental_base = true, twohand = true, default = true, },
-	influenceTags = { shaper = "warstaff_shaper", elder = "warstaff_elder", adjudicator = "warstaff_adjudicator", basilisk = "warstaff_basilisk", crusader = "warstaff_crusader", eyrie = "warstaff_eyrie", cleansing = "warstaff_cleansing", tangle = "warstaff_tangle" },
-	implicit = "+1 to Maximum Power Charges and Maximum Endurance Charges",
-	implicitModTypes = { {  }, },
-	weapon = { PhysicalMin = 78, PhysicalMax = 144, CritChanceBase = 8.3, AttackRateBase = 1.25, Range = 13, },
-	req = { level = 70, str = 117, int = 117, },
+	implicitModTypes = { },
+	weapon = { PhysicalMin = 65, PhysicalMax = 108, CritChanceBase = 10, AttackRateBase = 1.4, Range = 13, },
+	req = { level = 77, },
 }

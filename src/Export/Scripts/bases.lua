@@ -141,28 +141,20 @@ directiveTable.base = function(state, args, out)
 		if shield then
 			out:write('BlockChance = ', shield.Block, ', ')
 		end
-		if armourType.ArmourMin > 0 then
-			out:write('ArmourBaseMin = ', armourType.ArmourMin, ', ')
-			out:write('ArmourBaseMax = ', armourType.ArmourMax, ', ')
-			itemValueSum = itemValueSum + armourType.ArmourMin + armourType.ArmourMax
+		if armourType.Armour > 0 then
+			out:write('Armour = ', armourType.Armour, ', ')
+			itemValueSum = itemValueSum + armourType.Armour
 		end
-		if armourType.EvasionMin > 0 then
-			out:write('EvasionBaseMin = ', armourType.EvasionMin, ', ')
-			out:write('EvasionBaseMax = ', armourType.EvasionMax, ', ')
-			itemValueSum = itemValueSum + armourType.EvasionMin + armourType.EvasionMax
+		if armourType.Evasion > 0 then
+			out:write('Evasion = ', armourType.Evasion, ', ')
+			itemValueSum = itemValueSum + armourType.Evasion
 		end
-		if armourType.EnergyShieldMin > 0 then
-			out:write('EnergyShieldBaseMin = ', armourType.EnergyShieldMin, ', ')
-			out:write('EnergyShieldBaseMax = ', armourType.EnergyShieldMax, ', ')
-			itemValueSum = itemValueSum + armourType.EnergyShieldMin + armourType.EnergyShieldMax
+		if armourType.EnergyShield > 0 then
+			out:write('EnergyShield = ', armourType.EnergyShield, ', ')
+			itemValueSum = itemValueSum + armourType.EnergyShield
 		end
 		if armourType.MovementPenalty ~= 0 then
 			out:write('MovementPenalty = ', -armourType.MovementPenalty, ', ')
-		end
-		if armourType.WardMin > 0 then
-			out:write('WardBaseMin = ', armourType.WardMin, ', ')
-			out:write('WardBaseMax = ', armourType.WardMax, ', ')
-			itemValueSum = itemValueSum + armourType.WardMin + armourType.WardMax
 		end
 		out:write('},\n')
 	end
@@ -191,10 +183,6 @@ directiveTable.base = function(state, args, out)
 		end
 		out:write('},\n')
 	end
-	local tincture = dat("tinctures"):GetRow("BaseItemType", baseItemType)
-	if tincture then
-		out:write('\ttincture = { manaBurn = ', tincture.ManaBurn / 1000, ', cooldown = ', tincture.CoolDown / 1000, ' },\n')
-	end
 	out:write('\treq = { ')
 	local reqLevel = 1
 	if weaponType or armourType then
@@ -213,16 +201,16 @@ directiveTable.base = function(state, args, out)
 	if reqLevel > 1 then
 		out:write('level = ', reqLevel, ', ')
 	end
-	local compAtt = dat("ComponentAttributeRequirements"):GetRow("BaseItemType", baseItemType.Id)
+	local compAtt = dat("AttributeRequirements"):GetRow("BaseType", baseItemType.Id)
 	if compAtt then
-		if compAtt.Str > 0 then
-			out:write('str = ', compAtt.Str, ', ')
+		if compAtt.ReqStr > 0 then
+			out:write('str = ', compAtt.ReqStr, ', ')
 		end
-		if compAtt.Dex > 0 then
-			out:write('dex = ', compAtt.Dex, ', ')
+		if compAtt.ReqDex > 0 then
+			out:write('dex = ', compAtt.ReqDex, ', ')
 		end
-		if compAtt.Int > 0 then
-			out:write('int = ', compAtt.Int, ', ')
+		if compAtt.ReqInt > 0 then
+			out:write('int = ', compAtt.ReqInt, ', ')
 		end
 	end
 	out:write('},\n}\n')
@@ -332,24 +320,29 @@ local itemTypes = {
 	"axe",
 	"bow",
 	"claw",
+	"crossbow",
 	"dagger",
 	"fishing",
+	"flail",
 	"mace",
+	"spear",
 	"staff",
 	"sword",
 	"wand",
 	"helmet",
 	"body",
+	"focus",
 	"gloves",
 	"boots",
 	"shield",
 	"quiver",
+	"traptool",
 	"amulet",
 	"ring",
 	"belt",
 	"jewel",
 	"flask",
-	"tincture",
+	"soulcore",
 }
 for _, name in pairs(itemTypes) do
 	processTemplateFile(name, "Bases/", "../Data/Bases/", directiveTable)
@@ -357,6 +350,5 @@ end
 
 print("Item bases exported.")
 
-processTemplateFile("Rares", "Bases/", "../Data/", directiveTable)
-
-print("Rare Item Templates Generated and Verified")
+--processTemplateFile("Rares", "Bases/", "../Data/", directiveTable)
+--print("Rare Item Templates Generated and Verified")
