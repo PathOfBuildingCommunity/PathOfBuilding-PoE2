@@ -628,7 +628,7 @@ function ModStoreClass:EvalMod(mod, cfg)
 				return
 			end
 		elseif tag.type == "SocketedIn" then
-			if not cfg or (not tag.slotName and not tag.keyword and not tag.socketColor) then
+			if not cfg or (not tag.slotName and not tag.keyword and not tag.socketColor and not tag.slotType) then
 				return
 			else
 				local function isValidSocket(sockets, targetSocket)
@@ -641,7 +641,15 @@ function ModStoreClass:EvalMod(mod, cfg)
 				end
 				
 				local match = {}
-				if tag.slotName then
+				if tag.slotType then
+					local match_result = false
+					if tag.slotType == "Armour" then
+						match_result = cfg.slotName == "Helmet" or cfg.slotName == "Body Armour" or cfg.slotName == "Gloves" or cfg.slotName == "Boots"
+					elseif tag.slotType == "Martial Weapons" then
+						match_result = false
+					end
+					match["slotType"] = match_result
+				elseif tag.slotName then
 					match["slotName"] = (tag.slotName == cfg.slotName) or false
 				end
 				if tag.keyword then

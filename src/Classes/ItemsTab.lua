@@ -1928,6 +1928,11 @@ function ItemsTabClass:CraftItem()
 				raritySel = 2
 			end
 		end
+		if base.base.rune or base.base.soulcore then
+			if raritySel == 3 or raritySel == 2 then
+				raritySel = 1
+			end
+		end
 		if raritySel == 2 or raritySel == 3 then
 			item.crafted = true
 		end
