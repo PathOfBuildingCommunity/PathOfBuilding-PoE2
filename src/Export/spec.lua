@@ -137,6 +137,10 @@ return {
 	},
 	activesettings={
 	},
+	activeskillrequirementicons={
+	},
+	activeskillrequirements={
+	},
 	activeskills={
 		[1]={
 			list=false,
@@ -509,6 +513,10 @@ return {
 	additionalmonsterpacksfromstats={
 	},
 	additionalmonsterpacksstatmode={
+	},
+	advancedcraftingbenchcustomtags={
+	},
+	advancedcraftingbenchtabfiltertypes={
 	},
 	advancedskillstutorial={
 	},
@@ -918,6 +926,8 @@ return {
 			width=200
 		}
 	},
+	ancestraltrialunits={
+	},
 	animatedobjectflags={
 	},
 	animateweaponuniques={
@@ -1222,7 +1232,11 @@ return {
 			width=150
 		}
 	},
+	areadifficultystats={
+	},
 	areainfluencedoodads={
+	},
+	areastatsperdifficulty={
 	},
 	areatransitionanimations={
 	},
@@ -1286,6 +1300,10 @@ return {
 			type="Int",
 			width=150
 		}
+	},
+	arrowspearoverride={
+	},
+	arrowstatreference={
 	},
 	ascendancy={
 		[1]={
@@ -1447,7 +1465,11 @@ return {
 	},
 	atlasnodedefinition={
 	},
+	atlaspassiveskillsubtrees={
+	},
 	atlaspassiveskilltreegrouptype={
+	},
+	atlaspoem={
 	},
 	atlaspositions={
 	},
@@ -1614,6 +1636,10 @@ return {
 		}
 	},
 	backenderrors={
+	},
+	ballisticbouncebehaviour={
+	},
+	ballisticbounceoverride={
 	},
 	baseitemtypes={
 		[1]={
@@ -1849,6 +1875,8 @@ return {
 	},
 	battlepasstracks={
 	},
+	belttypes={
+	},
 	bestiarycapturablemonsters={
 	},
 	bestiaryencounters={
@@ -1945,9 +1973,13 @@ return {
 	},
 	blighttowersperlevel={
 	},
+	bloodhiteffects={
+	},
 	bloodlines={
 	},
 	bloodtypes={
+	},
+	boltstatreference={
 	},
 	breachartvariations={
 	},
@@ -2816,9 +2848,23 @@ return {
 			width=80
 		}
 	},
+	buffvisualshapeshiftoverride={
+	},
+	caravanstops={
+	},
+	chanceableitemclasses={
+	},
 	characteraudioevents={
 	},
+	charactercreationbutton={
+	},
+	charactercreationdialogue={
+	},
+	charactercreationicons={
+	},
 	charactereventtextaudio={
+	},
+	charactermeleeskills={
 	},
 	characterpaneldescriptionmodes={
 	},
@@ -2945,6 +2991,10 @@ return {
 	},
 	charactertextaudio={
 	},
+	charactervariationgroups={
+	},
+	chargevariations={
+	},
 	chaticons={
 	},
 	chestclusters={
@@ -2954,6 +3004,8 @@ return {
 	chestitemtemplates={
 	},
 	chests={
+	},
+	classpassiveskilloverrides={
 	},
 	clientlakedifficulty={
 	},
@@ -3010,11 +3062,15 @@ return {
 			width=150
 		}
 	},
+	clientstrings2={
+	},
 	clientuiscreens={
 	},
 	cloneshot={
 	},
 	colours={
+	},
+	combatuiprompts={
 	},
 	commands={
 		[1]={
@@ -3059,6 +3115,8 @@ return {
 			type="Bool",
 			width=150
 		}
+	},
+	completionnotifications={
 	},
 	componentarmour={
 		[1]={
@@ -3173,11 +3231,15 @@ return {
 	},
 	componentweapon={
 	},
+	conditionalachievements={
+	},
 	cooldownbypasstypes={
 	},
 	cooldowngroups={
 	},
 	coreleagues={
+	},
+	corpseexplosiongibs={
 	},
 	corpsesinkvariations={
 	},
@@ -3256,6 +3318,8 @@ return {
 			type="Bool",
 			width=100
 		}
+	},
+	craftablemodtypes={
 	},
 	craftingbenchcustomactions={
 	},
@@ -3619,6 +3683,8 @@ return {
 			width=130
 		}
 	},
+	crossbowskillboltoverride={
+	},
 	crucibledifficulty={
 	},
 	crucibleendgamemonsterpacks={
@@ -3657,6 +3723,10 @@ return {
 			width=150
 		}
 	},
+	currencyexchange={
+	},
+	currencyexchangecategories={
+	},
 	currencyitems={
 	},
 	currencystashtablayout={
@@ -3667,9 +3737,15 @@ return {
 	},
 	customleaguemods={
 	},
+	customleaguemonsterreplacements={
+	},
+	customleagueroomreplacements={
+	},
 	customleaguetemplate={
 	},
 	daemonspawningdata={
+	},
+	damagecalculationtypes={
 	},
 	damageeffectvariations={
 	},
@@ -3893,6 +3969,8 @@ return {
 	},
 	descentstarterchest={
 	},
+	destructivedamageeffects={
+	},
 	dialogueevent={
 	},
 	directions={
@@ -3933,6 +4011,8 @@ return {
 	},
 	dropreplacementcustomtargets={
 	},
+	dynamicstashslots={
+	},
 	eclipsemods={
 	},
 	effectdrivenskill={
@@ -3965,7 +4045,25 @@ return {
 	},
 	eldermapbossoverride={
 	},
+	endgamecorruptionmods={
+	},
+	endgamemapbiomes={
+	},
+	endgamemapcompletionquests={
+	},
+	endgamemapcontent={
+	},
+	endgamemapcontentset={
+	},
+	endgamemapdecorations={
+	},
+	endgamemappins={
+	},
+	endgamemaps={
+	},
 	endlessledgechests={
+	},
+	environmentfootprints={
 	},
 	environments={
 	},
@@ -4069,6 +4167,8 @@ return {
 			width=150
 		}
 	},
+	eventcoins={
+	},
 	eventseason={
 	},
 	eventseasonrewards={
@@ -4090,6 +4190,8 @@ return {
 	expeditiondealfamilies={
 	},
 	expeditiondeals={
+	},
+	expeditiondealsdialogue={
 	},
 	expeditionfactions={
 	},
@@ -4249,6 +4351,8 @@ return {
 	},
 	fragmentstashtablayout={
 	},
+	gambleprices={
+	},
 	gameconstants={
 		[1]={
 			list=false,
@@ -4280,7 +4384,11 @@ return {
 	},
 	gamepadbutton={
 	},
+	gamepadbuttonbindaction={
+	},
 	gamepadbuttoncombination={
+	},
+	gamepaditemactiontypes={
 	},
 	gamepadthumbstick={
 	},
@@ -4446,6 +4554,8 @@ return {
 	},
 	genericleaguerewardtypevisuals={
 	},
+	genericskillindicator={
+	},
 	geometryattack={
 	},
 	geometrychannel={
@@ -4460,7 +4570,17 @@ return {
 	},
 	goldactscaling={
 	},
+	goldbasetypeprices={
+	},
 	goldconstants={
+	},
+	goldinherentskillpricesperlevel={
+	},
+	goldmodprices={
+	},
+	goldrespecprices={
+	},
+	goldvisualidentities={
 	},
 	grandmasters={
 	},
@@ -5114,11 +5234,19 @@ return {
 			width=270
 		}
 	},
+	grantedskillsocketnumbers={
+	},
+	graphicalitemreceptacle={
+	},
+	graphicalitemreceptacleslot={
+	},
 	groundeffecteffecttypes={
 	},
 	groundeffects={
 	},
 	groundeffecttypes={
+	},
+	hapticevents={
 	},
 	harbingermaps={
 	},
@@ -5281,6 +5409,8 @@ return {
 	},
 	hideoutrarity={
 	},
+	hideoutresistpenalties={
+	},
 	hideouts={
 	},
 	hideoutstashdoodads={
@@ -5381,6 +5511,8 @@ return {
 			type="String",
 			width=200
 		}
+	},
+	indicatorconditions={
 	},
 	influenceexalts={
 	},
@@ -5662,6 +5794,8 @@ return {
 	},
 	itemcreationtemplatecustomaction={
 	},
+	itemdisenchantvalues={
+	},
 	itemexperienceperlevel={
 		[1]={
 			list=false,
@@ -5758,11 +5892,15 @@ return {
 	},
 	itemisedvisualeffect={
 	},
+	itemisedvisualeffectexclusivetypes={
+	},
 	itemnotecode={
 	},
 	itemsetnames={
 	},
 	itemshoptype={
+	},
+	itemspirit={
 	},
 	itemstances={
 	},
@@ -5821,11 +5959,15 @@ return {
 	},
 	itemthemes={
 	},
+	itemtoggleable={
+	},
 	itemtradedata={
 	},
 	itemvisualeffect={
 	},
 	itemvisualheldbodymodel={
+	},
+	itemvisualheldbodymodeloverridebyitemaffiliatedattributes={
 	},
 	itemvisualidentity={
 		[1]={
@@ -6245,6 +6387,8 @@ return {
 	},
 	killstreakthresholds={
 	},
+	kioskmodecharactertutorials={
+	},
 	kiraclevels={
 	},
 	labyrinthareas={
@@ -6339,6 +6483,8 @@ return {
 	},
 	levelrelativeplayerscaling={
 	},
+	loginareas={
+	},
 	magicmonsterlifescalingperlevel={
 	},
 	mapcompletionachievements={
@@ -6346,6 +6492,8 @@ return {
 	mapconnections={
 	},
 	mapcreationinformation={
+	},
+	mapcurrencyinventorylayout={
 	},
 	mapdevicerecipes={
 	},
@@ -6444,6 +6592,8 @@ return {
 	},
 	microtransactionconditionalapparitions={
 	},
+	microtransactioncounters={
+	},
 	microtransactioncursorvariations={
 	},
 	microtransactionequippediconvariations={
@@ -6454,11 +6604,17 @@ return {
 	},
 	microtransactionjewelvariations={
 	},
+	microtransactionlevelupeffects={
+	},
 	microtransactionobjecteffects={
+	},
+	microtransactiononkillbeams={
 	},
 	microtransactiononkillconditions={
 	},
 	microtransactiononkilleffects={
+	},
+	microtransactiononopenchesteffects={
 	},
 	microtransactionperiodiccharactereffectvariations={
 	},
@@ -6474,13 +6630,23 @@ return {
 	},
 	microtransactionrecyclesalvagevalues={
 	},
+	microtransactionskillgemeffectslottypes={
+	},
 	microtransactionslot={
+	},
+	microtransactionslotadditionaldefaultoptions={
 	},
 	microtransactionslotid={
 	},
 	microtransactionsocialframevariations={
 	},
 	minimapicons={
+	},
+	minioncommands={
+	},
+	miniongemlevelscaling={
+	},
+	minionstats={
 	},
 	miniontype={
 		[1]={
@@ -6578,6 +6744,8 @@ return {
 	},
 	miscbeamsartvariations={
 	},
+	misccooldowns={
+	},
 	misceffectpacks={
 	},
 	misceffectpacksartvariations={
@@ -6586,6 +6754,10 @@ return {
 	},
 	miscobjectsartvariations={
 	},
+	miscprojectilemod={
+	},
+	miscprojectilemodartvariations={
+	},
 	missionfavourperlevel={
 	},
 	missiontilemap={
@@ -6593,6 +6765,26 @@ return {
 	missiontimertypes={
 	},
 	missiontransitiontiles={
+	},
+	mobileactoneatlasquestprogression={
+	},
+	mobileascendancythresholds={
+	},
+	mobileatlaseldermemories={
+	},
+	mobileatlasinventorylayout={
+	},
+	mobilecharactercreation={
+	},
+	mobilequestaudio={
+	},
+	mobileskillgemlayout={
+	},
+	mobileskillgemlayoutpages={
+	},
+	mobiletutorial={
+	},
+	mobiletutorialgroup={
 	},
 	modeffectstats={
 		[1]={
@@ -6690,6 +6882,8 @@ return {
 			type="String",
 			width=200
 		}
+	},
+	modgrantedskills={
 	},
 	mods={
 		[1]={
@@ -7293,6 +7487,8 @@ return {
 	},
 	monsterdeathconditions={
 	},
+	monsterencounterskillgroups={
+	},
 	monsterfleeconditions={
 	},
 	monstergroupentries={
@@ -7557,6 +7753,8 @@ return {
 	monsterscalingbylevel={
 	},
 	monstersegments={
+	},
+	monstershapeshift={
 	},
 	monstersize={
 	},
@@ -8386,6 +8584,10 @@ return {
 	},
 	mtxsetbonus={
 	},
+	mtxtypegamespecific={
+	},
+	mtxtypes={
+	},
 	multipartachievementareas={
 	},
 	multipartachievementconditions={
@@ -8445,6 +8647,10 @@ return {
 	},
 	npcconversations={
 	},
+	npcdialoguecutscene={
+	},
+	npcdialoguecutscenesequences={
+	},
 	npcdialoguestyles={
 	},
 	npcfollowervariations={
@@ -8452,6 +8658,8 @@ return {
 	npcmaster={
 	},
 	npcmasterlevels={
+	},
+	npcportraitaooverrides={
 	},
 	npcportraits={
 	},
@@ -8468,6 +8676,8 @@ return {
 	},
 	npcshopadditionalitems={
 	},
+	npcshopgamblervisualidentity={
+	},
 	npcshops={
 	},
 	npcshopsellpricetype={
@@ -8478,11 +8688,23 @@ return {
 	},
 	npctalkconsolequickactions={
 	},
+	npctalkmobilegroup={
+	},
 	npctextaudio={
 	},
 	npctextaudiointerruptrules={
 	},
+	npctype={
+	},
+	npcvendordialogue={
+	},
+	npcvendordialogueconditions={
+	},
 	oldmapstashtablayout={
+	},
+	ongoingbuffvariations={
+	},
+	ongoingtriggervariations={
 	},
 	onhiteffecttarget={
 	},
@@ -8687,6 +8909,8 @@ return {
 	},
 	passivejewelart={
 	},
+	passivejewelnodemodifyingstats={
+	},
 	passivejewelradii={
 		[1]={
 			list=false,
@@ -8767,6 +8991,8 @@ return {
 			type="Int",
 			width=150
 		}
+	},
+	passivejeweluniqueart={
 	},
 	passiveoverridelimits={
 		[1]={
@@ -9622,6 +9848,8 @@ return {
 	},
 	projectilecollisiontypes={
 	},
+	projectileoverrides={
+	},
 	projectiles={
 		[1]={
 			list=false,
@@ -9870,6 +10098,8 @@ return {
 	},
 	questflags={
 	},
+	questitemnpcaudio={
+	},
 	questitems={
 	},
 	questrewardoffers={
@@ -9891,6 +10121,8 @@ return {
 	questvendorrewards={
 	},
 	raceareas={
+	},
+	racerewardtomicro={
 	},
 	races={
 	},
@@ -9995,6 +10227,10 @@ return {
 			width=1000
 		}
 	},
+	reservationskillsaudio={
+	},
+	resistancepenaltyperarealevel={
+	},
 	ritualbalanceperlevel={
 	},
 	ritualconstants={
@@ -10025,6 +10261,10 @@ return {
 	},
 	sanctumairlocks={
 	},
+	sanctumbalanceperlevel={
+	},
+	sanctumdefenceicons={
+	},
 	sanctumdeferredrewarddisplaycategories={
 	},
 	sanctumeffecttriggers={
@@ -10042,6 +10282,8 @@ return {
 	sanctumpersistenteffectfamily={
 	},
 	sanctumpersistenteffects={
+	},
+	sanctumrewardobjects={
 	},
 	sanctumrooms={
 	},
@@ -10078,6 +10320,12 @@ return {
 	shapermemoryfragments={
 	},
 	shaperorbs={
+	},
+	shapeshiftformclones={
+	},
+	shapeshiftforms={
+	},
+	shapeshifttransformdata={
 	},
 	shieldtypes={
 		[1]={
@@ -10286,6 +10534,10 @@ return {
 	singlegroundlaser={
 	},
 	skillartvariations={
+	},
+	skillcraftingdata={
+	},
+	skillevents={
 	},
 	skillgeminfo={
 	},
@@ -10503,6 +10755,10 @@ return {
 			width=150
 		}
 	},
+	skillgemsforuniquestat={
+	},
+	skillgemsupports={
+	},
 	skillminevariations={
 	},
 	skillmorphdisplay={
@@ -10539,6 +10795,8 @@ return {
 	skilltrapvariations={
 	},
 	skillweaponeffects={
+	},
+	socketaudioevents={
 	},
 	socketnotches={
 	},
@@ -10652,7 +10910,13 @@ return {
 	},
 	stashtype={
 	},
+	statconvertaltattackcontainer={
+	},
 	statdescriptionfunctions={
+	},
+	statistictrackingmicrotransactions={
+	},
+	statistictrackingmicrotransactionsstatistics={
 	},
 	stats={
 		[1]={
@@ -11039,7 +11303,11 @@ return {
 	},
 	supporterpacksets={
 	},
+	supportgems={
+	},
 	surgecategory={
+	},
+	surgeeffectpackartvariations={
 	},
 	surgeeffects={
 	},
@@ -11320,7 +11588,11 @@ return {
 	},
 	terrainplugins={
 	},
+	threetoonerecipes={
+	},
 	tieredmicrotransactions={
+	},
+	tieredmicrotransactionsvisuals={
 	},
 	tinctures={
 		[1]={
@@ -11350,6 +11622,10 @@ return {
 	topologies={
 	},
 	tormentspirits={
+	},
+	totemdefendervarieties={
+	},
+	touchinteractiontype={
 	},
 	trademarketcategory={
 		[1]={
@@ -11468,9 +11744,13 @@ return {
 			width=150
 		}
 	},
+	traptools={
+	},
 	treasurehuntermissions={
 	},
 	triggerbeam={
+	},
+	triggeredaudioeventvolumeoverrides={
 	},
 	triggerspawners={
 	},
@@ -11488,6 +11768,8 @@ return {
 	},
 	ultimatumencountertypes={
 	},
+	ultimatumencountertypesserver={
+	},
 	ultimatumitemisedrewards={
 	},
 	ultimatummapmodifiers={
@@ -11496,7 +11778,19 @@ return {
 	},
 	ultimatummodifiertypes={
 	},
+	ultimatummonsterpackfamily={
+	},
+	ultimatumrooms={
+	},
+	ultimatumtriallength={
+	},
 	ultimatumtrialmasteraudio={
+	},
+	ultimatumwagertypes={
+	},
+	uncutgemadditionaltiers={
+	},
+	uncutgemtiers={
 	},
 	uniquechests={
 	},
@@ -11739,6 +12033,8 @@ return {
 			width=80
 		}
 	},
+	visualpinproperties={
+	},
 	votestate={
 	},
 	votetype={
@@ -11974,6 +12270,8 @@ return {
 			width=50
 		}
 	},
+	wieldableclasses={
+	},
 	windowcursors={
 	},
 	wordlists={
@@ -12040,7 +12338,11 @@ return {
 			width=150
 		}
 	},
+	worldmaplegends={
+	},
 	worldpopupicontypes={
+	},
+	worldscreenmappindialogue={
 	},
 	zanalevels={
 	},
