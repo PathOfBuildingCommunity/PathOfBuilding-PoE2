@@ -11,7 +11,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Curse Immune"
+				text="[Curse] Immune"
 			}
 		},
 		stats={
@@ -27,7 +27,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Hexproof"
+				text="[Hexproof]"
 			}
 		},
 		stats={
@@ -141,7 +141,7 @@ return {
 						[2]=99
 					}
 				},
-				text="Avoids Frozen"
+				text="Avoids [Freeze|Frozen]"
 			},
 			[2]={
 				limit={
@@ -150,7 +150,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Cannot be Frozen"
+				text="Cannot be [Freeze|Frozen]"
 			}
 		},
 		stats={
@@ -166,7 +166,7 @@ return {
 						[2]=99
 					}
 				},
-				text="Avoids Chilled"
+				text="Avoids [Chill|Chilled]"
 			},
 			[2]={
 				limit={
@@ -175,7 +175,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Cannot be Chilled"
+				text="Cannot be [Chill|Chilled]"
 			}
 		},
 		stats={
@@ -191,7 +191,7 @@ return {
 						[2]=99
 					}
 				},
-				text="Avoids Ignited"
+				text="Avoids [Ignite|Ignited]"
 			},
 			[2]={
 				limit={
@@ -200,7 +200,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Cannot be Ignited"
+				text="Cannot be [Ignite|Ignited]"
 			}
 		},
 		stats={
@@ -216,7 +216,7 @@ return {
 						[2]=99
 					}
 				},
-				text="Avoids Shocked"
+				text="Avoids [Shock|Shocked]"
 			},
 			[2]={
 				limit={
@@ -225,7 +225,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Cannot be Shocked"
+				text="Cannot be [Shock|Shocked]"
 			}
 		},
 		stats={
@@ -305,7 +305,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Removes Flask Charges"
+				text="Removes [Flask] Charges"
 			}
 		},
 		stats={
@@ -321,7 +321,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Causes Bleeding"
+				text="Causes [Bleeding|Bleeding]"
 			}
 		},
 		stats={
@@ -385,7 +385,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Enrages on Low Life"
+				text="Enrages on [LowLife|Low Life]"
 			}
 		},
 		stats={
@@ -417,46 +417,14 @@ return {
 						[2]="#"
 					}
 				},
-				text="Cannot be fully Slowed"
-			}
-		},
-		stats={
-			[1]="hellscape_boots_action_speed_+%_minimum_value"
-		}
-	},
-	[24]={
-		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="{0}% chance not to be consumed when sacrificed at the Blood Altar"
-			}
-		},
-		stats={
-			[1]="beast_%_chance_to_not_be_consumed"
-		}
-	},
-	[25]={
-		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Cannot be Life-Leeched"
+				text="Cannot be Life-[LifeLeech|Leeched]"
 			}
 		},
 		stats={
 			[1]="cannot_have_life_leeched_from"
 		}
 	},
-	[26]={
+	[24]={
 		[1]={
 			[1]={
 				limit={
@@ -472,7 +440,7 @@ return {
 			[1]="is_blight_chaos_monster"
 		}
 	},
-	[27]={
+	[25]={
 		[1]={
 			[1]={
 				limit={
@@ -488,7 +456,7 @@ return {
 			[1]="is_blight_cold_monster"
 		}
 	},
-	[28]={
+	[26]={
 		[1]={
 			[1]={
 				limit={
@@ -504,7 +472,7 @@ return {
 			[1]="is_blight_fire_monster"
 		}
 	},
-	[29]={
+	[27]={
 		[1]={
 			[1]={
 				limit={
@@ -520,7 +488,7 @@ return {
 			[1]="is_blight_lightning_monster"
 		}
 	},
-	[30]={
+	[28]={
 		[1]={
 			[1]={
 				limit={
@@ -536,39 +504,81 @@ return {
 			[1]="is_blight_physical_monster"
 		}
 	},
+	[29]={
+		[1]={
+			[1]={
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Empowered by Molten Gold"
+			}
+		},
+		stats={
+			[1]="monster_immune_to_damage_in_lava_text"
+		}
+	},
+	[30]={
+		[1]={
+			[1]={
+				limit={
+					[1]={
+						[1]=1,
+						[2]="#"
+					}
+				},
+				text="[DNT] {0}% more [Slow|Slowing] Potency of [Debuff|Debuffs] against this monster"
+			},
+			[2]={
+				[1]={
+					k="negate",
+					v=1
+				},
+				limit={
+					[1]={
+						[1]="#",
+						[2]=-1
+					}
+				},
+				text="[DNT] {0}% less [Slow|Slowing] Potency of [Debuff|Debuffs] against this monster"
+			}
+		},
+		stats={
+			[1]="monster_slow_potency_+%_final"
+		}
+	},
 	[31]={
 		[1]={
 			[1]={
 				limit={
 					[1]={
-						[1]="#",
+						[1]=1,
 						[2]="#"
 					}
 				},
-				text="Divined"
-			}
-		},
-		stats={
-			[1]="monster_drop_X_cards_from_area"
-		}
-	},
-	[32]={
-		[1]={
-			[1]={
+				text="[DNT] {0}% more Area of Effect"
+			},
+			[2]={
+				[1]={
+					k="negate",
+					v=1
+				},
 				limit={
 					[1]={
 						[1]="#",
-						[2]="#"
+						[2]=-1
 					}
 				},
-				text="Divined"
+				text="[DNT] {0}% less Area of Effect"
 			}
 		},
 		stats={
-			[1]="monster_drop_additional_card_from_area_chance_%"
+			[1]="rare_monster_mod_area_of_effect_+%_final"
 		}
 	},
-	[33]={
+	[32]={
 		[1]={
 			[1]={
 				limit={
@@ -589,25 +599,21 @@ return {
 	["base_avoid_freeze_%"]=8,
 	["base_avoid_ignite_%"]=10,
 	["base_avoid_shock_%"]=11,
-	["beast_%_chance_to_not_be_consumed"]=24,
-	["cannot_have_life_leeched_from"]=25,
+	["cannot_have_life_leeched_from"]=23,
 	["display_monster_casts_lightning_nova_text"]=14,
 	["display_monster_ice_spear_nova_on_death_text"]=13,
 	["display_monster_spike_nova_on_death_text"]=12,
-	["hellscape_boots_action_speed_+%_minimum_value"]=23,
 	["hexproof"]=2,
 	["immune_to_curses"]=1,
-	["is_blight_chaos_monster"]=26,
-	["is_blight_cold_monster"]=27,
-	["is_blight_fire_monster"]=28,
-	["is_blight_lightning_monster"]=29,
-	["is_blight_physical_monster"]=30,
+	["is_blight_chaos_monster"]=24,
+	["is_blight_cold_monster"]=25,
+	["is_blight_fire_monster"]=26,
+	["is_blight_lightning_monster"]=27,
+	["is_blight_physical_monster"]=28,
 	["monster_casts_bleed_nova_text"]=17,
 	["monster_casts_fire_nova_text"]=15,
 	["monster_casts_flask_charge_nova_text"]=16,
 	["monster_caustic_cloud_on_death_%_max_damage_to_deal_per_minute"]=6,
-	["monster_drop_X_cards_from_area"]=31,
-	["monster_drop_additional_card_from_area_chance_%"]=32,
 	["monster_enrages_on_low_life_text"]=21,
 	["monster_ground_fire_on_death_%_max_damage_to_deal_per_minute"]=3,
 	["monster_ground_ice_on_death_base_area_of_effect_radius"]=4,
@@ -615,6 +621,9 @@ return {
 	["monster_has_damage_taken_aura_text"]=18,
 	["monster_has_movement_skill_damage_aura_text"]=20,
 	["monster_has_temporal_chains_aura_text"]=19,
+	["monster_immune_to_damage_in_lava_text"]=29,
+	["monster_slow_potency_+%_final"]=30,
 	["necromancer_additional_rarity_levels_can_be_raised"]=7,
-	["trigger_charge_additional_block_chance_against_projectiles_%"]=33
+	["rare_monster_mod_area_of_effect_+%_final"]=31,
+	["trigger_charge_additional_block_chance_against_projectiles_%"]=32
 }

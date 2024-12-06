@@ -1,7 +1,7 @@
 if not loadStatFile then
 	dofile("statdesc.lua")
 end
-loadStatFile("tincture_stat_descriptions.txt")
+loadStatFile("stat_descriptions.csd")
 
 function table.containsId(table, element)
   for _, value in pairs(table) do
