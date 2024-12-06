@@ -518,6 +518,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 		modDB:NewMod("CharmLimit", "BASE", 0, "Base")
 		modDB:NewMod("ManaDegenPercent", "BASE", 1, "Base", { type = "Multiplier", var = "EffectiveManaBurnStacks" })
 		modDB:NewMod("LifeDegenPercent", "BASE", 1, "Base", { type = "Multiplier", var = "WeepingWoundsStacks" })
+		modDB:NewMod("WeaponSwapSpeed", "BASE", 250, "Base")  -- 250ms
 
 		-- Add bandit mods
 		if env.configInput.bandit == "Alira" then
