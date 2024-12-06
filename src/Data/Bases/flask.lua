@@ -2,5 +2,257 @@
 -- Item data (c) Grinding Gear Games
 local itemBases = ...
 
+itemBases["Lesser Life Flask"] = {
+	type = "Flask",
+	subType = "Life",
+	tags = { flask = true, life_flask = true, default = true, },
+	implicitModTypes = { },
+	flask = { life = 50, duration = 3, chargesUsed = 10, chargesMax = 60, },
+	req = { },
+}
+itemBases["Medium Life Flask"] = {
+	type = "Flask",
+	subType = "Life",
+	tags = { flask = true, life_flask = true, default = true, },
+	implicitModTypes = { },
+	flask = { life = 90, duration = 5, chargesUsed = 10, chargesMax = 65, },
+	req = { level = 4, },
+}
+itemBases["Greater Life Flask"] = {
+	type = "Flask",
+	subType = "Life",
+	tags = { flask = true, life_flask = true, default = true, },
+	implicitModTypes = { },
+	flask = { life = 150, duration = 4, chargesUsed = 10, chargesMax = 70, },
+	req = { level = 10, },
+}
+itemBases["Grand Life Flask"] = {
+	type = "Flask",
+	subType = "Life",
+	tags = { flask = true, life_flask = true, default = true, },
+	implicitModTypes = { },
+	flask = { life = 260, duration = 5, chargesUsed = 10, chargesMax = 75, },
+	req = { level = 16, },
+}
+itemBases["Giant Life Flask"] = {
+	type = "Flask",
+	subType = "Life",
+	tags = { flask = true, life_flask = true, default = true, },
+	implicitModTypes = { },
+	flask = { life = 340, duration = 4, chargesUsed = 10, chargesMax = 75, },
+	req = { level = 23, },
+}
+itemBases["Colossal Life Flask"] = {
+	type = "Flask",
+	subType = "Life",
+	tags = { flask = true, life_flask = true, default = true, },
+	implicitModTypes = { },
+	flask = { life = 450, duration = 4, chargesUsed = 10, chargesMax = 75, },
+	req = { level = 30, },
+}
+itemBases["Gargantuan Life Flask"] = {
+	type = "Flask",
+	subType = "Life",
+	tags = { flask = true, life_flask = true, default = true, },
+	implicitModTypes = { },
+	flask = { life = 710, duration = 5, chargesUsed = 10, chargesMax = 75, },
+	req = { level = 40, },
+}
+itemBases["Transcendent Life Flask"] = {
+	type = "Flask",
+	subType = "Life",
+	tags = { flask = true, life_flask = true, default = true, },
+	implicitModTypes = { },
+	flask = { life = 840, duration = 4, chargesUsed = 10, chargesMax = 75, },
+	req = { level = 50, },
+}
+itemBases["Ultimate Life Flask"] = {
+	type = "Flask",
+	subType = "Life",
+	tags = { flask = true, life_flask = true, default = true, },
+	implicitModTypes = { },
+	flask = { life = 920, duration = 3, chargesUsed = 10, chargesMax = 75, },
+	req = { level = 60, },
+}
 
+itemBases["Lesser Mana Flask"] = {
+	type = "Flask",
+	subType = "Mana",
+	tags = { flask = true, mana_flask = true, default = true, },
+	implicitModTypes = { },
+	flask = { mana = 50, duration = 2, chargesUsed = 10, chargesMax = 60, },
+	req = { },
+}
+itemBases["Medium Mana Flask"] = {
+	type = "Flask",
+	subType = "Mana",
+	tags = { flask = true, mana_flask = true, default = true, },
+	implicitModTypes = { },
+	flask = { mana = 70, duration = 3, chargesUsed = 10, chargesMax = 65, },
+	req = { level = 4, },
+}
+itemBases["Greater Mana Flask"] = {
+	type = "Flask",
+	subType = "Mana",
+	tags = { flask = true, mana_flask = true, default = true, },
+	implicitModTypes = { },
+	flask = { mana = 90, duration = 2.5, chargesUsed = 10, chargesMax = 70, },
+	req = { level = 10, },
+}
+itemBases["Grand Mana Flask"] = {
+	type = "Flask",
+	subType = "Mana",
+	tags = { flask = true, mana_flask = true, default = true, },
+	implicitModTypes = { },
+	flask = { mana = 110, duration = 2.5, chargesUsed = 10, chargesMax = 75, },
+	req = { level = 16, },
+}
+itemBases["Giant Mana Flask"] = {
+	type = "Flask",
+	subType = "Mana",
+	tags = { flask = true, mana_flask = true, default = true, },
+	implicitModTypes = { },
+	flask = { mana = 165, duration = 3.5, chargesUsed = 10, chargesMax = 75, },
+	req = { level = 23, },
+}
+itemBases["Colossal Mana Flask"] = {
+	type = "Flask",
+	subType = "Mana",
+	tags = { flask = true, mana_flask = true, default = true, },
+	implicitModTypes = { },
+	flask = { mana = 165, duration = 2.5, chargesUsed = 10, chargesMax = 75, },
+	req = { level = 30, },
+}
+itemBases["Gargantuan Mana Flask"] = {
+	type = "Flask",
+	subType = "Mana",
+	tags = { flask = true, mana_flask = true, default = true, },
+	implicitModTypes = { },
+	flask = { mana = 185, duration = 2, chargesUsed = 10, chargesMax = 75, },
+	req = { level = 40, },
+}
+itemBases["Transcendent Mana Flask"] = {
+	type = "Flask",
+	subType = "Mana",
+	tags = { flask = true, mana_flask = true, default = true, },
+	implicitModTypes = { },
+	flask = { mana = 285, duration = 3.5, chargesUsed = 10, chargesMax = 75, },
+	req = { level = 50, },
+}
+itemBases["Ultimate Mana Flask"] = {
+	type = "Flask",
+	subType = "Mana",
+	tags = { flask = true, mana_flask = true, default = true, },
+	implicitModTypes = { },
+	flask = { mana = 310, duration = 3, chargesUsed = 10, chargesMax = 75, },
+	req = { level = 60, },
+}
 
+itemBases["Thawing Charm"] = {
+	type = "Charm",
+	subType = "Mana",
+	tags = { flask = true, utility_flask = true, default = true, },
+	implicit = "Used when you become [Frozen]",
+	implicitModTypes = { {  }, },
+	flask = { duration = 3, chargesUsed = 80, chargesMax = 80, },
+	req = { level = 12, },
+}
+itemBases["Staunching Charm"] = {
+	type = "Charm",
+	subType = "Mana",
+	tags = { flask = true, utility_flask = true, default = true, },
+	implicit = "Used when you start [Bleeding]",
+	implicitModTypes = { {  }, },
+	flask = { duration = 3, chargesUsed = 60, chargesMax = 80, },
+	req = { level = 18, },
+}
+itemBases["Antidote Charm"] = {
+	type = "Charm",
+	subType = "Mana",
+	tags = { flask = true, utility_flask = true, default = true, },
+	implicit = "Used when you become [Poison|Poisoned]",
+	implicitModTypes = { {  }, },
+	flask = { duration = 3, chargesUsed = 40, chargesMax = 80, },
+	req = { level = 24, },
+}
+itemBases["Dousing Charm"] = {
+	type = "Charm",
+	subType = "Mana",
+	tags = { flask = true, utility_flask = true, default = true, },
+	implicit = "Used when you become [Ignite|Ignited]",
+	implicitModTypes = { {  }, },
+	flask = { duration = 3, chargesUsed = 60, chargesMax = 80, },
+	req = { level = 32, },
+}
+itemBases["Grounding Charm"] = {
+	type = "Charm",
+	subType = "Mana",
+	tags = { flask = true, utility_flask = true, default = true, },
+	implicit = "Used when you become [Shock|Shocked]",
+	implicitModTypes = { {  }, },
+	flask = { duration = 3, chargesUsed = 50, chargesMax = 80, },
+	req = { level = 32, },
+}
+itemBases["Stone Charm"] = {
+	type = "Charm",
+	subType = "Mana",
+	tags = { flask = true, utility_flask = true, default = true, },
+	implicit = "Used when you become [Stun|Stunned]",
+	implicitModTypes = { {  }, },
+	flask = { duration = 2.5, chargesUsed = 40, chargesMax = 80, },
+	req = { level = 8, },
+}
+itemBases["Silver Charm"] = {
+	type = "Charm",
+	subType = "Mana",
+	tags = { flask = true, utility_flask = true, default = true, },
+	implicit = "Used when you are affected by a [Slow]",
+	implicitModTypes = { {  }, },
+	flask = { duration = 3, chargesUsed = 40, chargesMax = 80, },
+	req = { level = 10, },
+}
+itemBases["Ruby Charm"] = {
+	type = "Charm",
+	subType = "Mana",
+	tags = { flask = true, utility_flask = true, default = true, },
+	implicit = "Used when you take [Fire] damage from a [HitDamage|Hit]",
+	implicitModTypes = { {  }, },
+	flask = { duration = 4, chargesUsed = 40, chargesMax = 80, },
+	req = { level = 5, },
+}
+itemBases["Sapphire Charm"] = {
+	type = "Charm",
+	subType = "Mana",
+	tags = { flask = true, utility_flask = true, default = true, },
+	implicit = "Used when you take [Cold] damage from a [HitDamage|Hit]",
+	implicitModTypes = { {  }, },
+	flask = { duration = 4, chargesUsed = 40, chargesMax = 80, },
+	req = { level = 5, },
+}
+itemBases["Topaz Charm"] = {
+	type = "Charm",
+	subType = "Mana",
+	tags = { flask = true, utility_flask = true, default = true, },
+	implicit = "Used when you take [Lightning] damage from a [HitDamage|Hit]",
+	implicitModTypes = { {  }, },
+	flask = { duration = 4, chargesUsed = 40, chargesMax = 80, },
+	req = { level = 5, },
+}
+itemBases["Amethyst Charm"] = {
+	type = "Charm",
+	subType = "Mana",
+	tags = { flask = true, utility_flask = true, default = true, },
+	implicit = "Used when you take [Chaos] damage from a [HitDamage|Hit]",
+	implicitModTypes = { {  }, },
+	flask = { duration = 4, chargesUsed = 60, chargesMax = 80, },
+	req = { level = 40, },
+}
+itemBases["Golden Charm"] = {
+	type = "Charm",
+	subType = "Mana",
+	tags = { flask = true, utility_flask = true, default = true, },
+	implicit = "Used when you Kill a [Rarity|Rare] or [Rarity|Unique] Enemy",
+	implicitModTypes = { {  }, },
+	flask = { duration = 1, chargesUsed = 80, chargesMax = 80, },
+	req = { level = 50, },
+}

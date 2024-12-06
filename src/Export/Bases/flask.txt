@@ -3,10 +3,10 @@ local itemBases = ...
 
 #type Flask
 #subType Life
-#baseMatch Metadata/Items/Flasks/AbstractLifeFlask
+#baseMatch Metadata/Items/Flasks/FourFlaskLife
 
 #subType Mana
-#baseMatch Metadata/Items/Flasks/AbstractManaFlask
+#baseMatch Metadata/Items/Flasks/FourFlaskMana
 
 #type Charm
-#baseMatch Metadata/Items/Flasks/AbstractUtilityFlask
+#baseMatch Metadata/Items/Flasks/FourCharm
