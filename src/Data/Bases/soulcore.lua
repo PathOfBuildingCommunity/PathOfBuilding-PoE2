@@ -2,92 +2,10 @@
 -- Item data (c) Grinding Gear Games
 local itemBases = ...
 
-
-itemBases["Desert Rune"] = {
-	type = "SoulCore",
-	hidden = true,
-	tags = { default = true, },
-	influenceTags = { shaper = "soulcore_shaper", elder = "soulcore_elder", adjudicator = "soulcore_adjudicator", basilisk = "soulcore_basilisk", crusader = "soulcore_crusader", eyrie = "soulcore_eyrie", cleansing = "soulcore_cleansing", tangle = "soulcore_tangle" },
-	implicitModTypes = { },
-	req = { },
-}
-itemBases["Glacial Rune"] = {
-	type = "SoulCore",
-	hidden = true,
-	tags = { default = true, },
-	influenceTags = { shaper = "soulcore_shaper", elder = "soulcore_elder", adjudicator = "soulcore_adjudicator", basilisk = "soulcore_basilisk", crusader = "soulcore_crusader", eyrie = "soulcore_eyrie", cleansing = "soulcore_cleansing", tangle = "soulcore_tangle" },
-	implicitModTypes = { },
-	req = { },
-}
-itemBases["Storm Rune"] = {
-	type = "SoulCore",
-	hidden = true,
-	tags = { default = true, },
-	influenceTags = { shaper = "soulcore_shaper", elder = "soulcore_elder", adjudicator = "soulcore_adjudicator", basilisk = "soulcore_basilisk", crusader = "soulcore_crusader", eyrie = "soulcore_eyrie", cleansing = "soulcore_cleansing", tangle = "soulcore_tangle" },
-	implicitModTypes = { },
-	req = { },
-}
-itemBases["Iron Rune"] = {
-	type = "SoulCore",
-	hidden = true,
-	tags = { default = true, },
-	influenceTags = { shaper = "soulcore_shaper", elder = "soulcore_elder", adjudicator = "soulcore_adjudicator", basilisk = "soulcore_basilisk", crusader = "soulcore_crusader", eyrie = "soulcore_eyrie", cleansing = "soulcore_cleansing", tangle = "soulcore_tangle" },
-	implicitModTypes = { },
-	req = { },
-}
-itemBases["Body Rune"] = {
-	type = "SoulCore",
-	hidden = true,
-	tags = { default = true, },
-	influenceTags = { shaper = "soulcore_shaper", elder = "soulcore_elder", adjudicator = "soulcore_adjudicator", basilisk = "soulcore_basilisk", crusader = "soulcore_crusader", eyrie = "soulcore_eyrie", cleansing = "soulcore_cleansing", tangle = "soulcore_tangle" },
-	implicitModTypes = { },
-	req = { },
-}
-itemBases["Mind Rune"] = {
-	type = "SoulCore",
-	hidden = true,
-	tags = { default = true, },
-	influenceTags = { shaper = "soulcore_shaper", elder = "soulcore_elder", adjudicator = "soulcore_adjudicator", basilisk = "soulcore_basilisk", crusader = "soulcore_crusader", eyrie = "soulcore_eyrie", cleansing = "soulcore_cleansing", tangle = "soulcore_tangle" },
-	implicitModTypes = { },
-	req = { },
-}
-itemBases["Rebirth Rune"] = {
-	type = "SoulCore",
-	hidden = true,
-	tags = { default = true, },
-	influenceTags = { shaper = "soulcore_shaper", elder = "soulcore_elder", adjudicator = "soulcore_adjudicator", basilisk = "soulcore_basilisk", crusader = "soulcore_crusader", eyrie = "soulcore_eyrie", cleansing = "soulcore_cleansing", tangle = "soulcore_tangle" },
-	implicitModTypes = { },
-	req = { },
-}
-itemBases["Inspiration Rune"] = {
-	type = "SoulCore",
-	hidden = true,
-	tags = { default = true, },
-	influenceTags = { shaper = "soulcore_shaper", elder = "soulcore_elder", adjudicator = "soulcore_adjudicator", basilisk = "soulcore_basilisk", crusader = "soulcore_crusader", eyrie = "soulcore_eyrie", cleansing = "soulcore_cleansing", tangle = "soulcore_tangle" },
-	implicitModTypes = { },
-	req = { },
-}
-itemBases["Stone Rune"] = {
-	type = "SoulCore",
-	hidden = true,
-	tags = { default = true, },
-	influenceTags = { shaper = "soulcore_shaper", elder = "soulcore_elder", adjudicator = "soulcore_adjudicator", basilisk = "soulcore_basilisk", crusader = "soulcore_crusader", eyrie = "soulcore_eyrie", cleansing = "soulcore_cleansing", tangle = "soulcore_tangle" },
-	implicitModTypes = { },
-	req = { },
-}
-itemBases["Vision Rune"] = {
-	type = "SoulCore",
-	hidden = true,
-	tags = { default = true, },
-	influenceTags = { shaper = "soulcore_shaper", elder = "soulcore_elder", adjudicator = "soulcore_adjudicator", basilisk = "soulcore_basilisk", crusader = "soulcore_crusader", eyrie = "soulcore_eyrie", cleansing = "soulcore_cleansing", tangle = "soulcore_tangle" },
-	implicitModTypes = { },
-	req = { },
-}
 itemBases["Soul Core of Tacati"] = {
 	type = "SoulCore",
 	hidden = true,
 	tags = { soul_core = true, soul_core_tier1 = true, default = true, },
-	influenceTags = { shaper = "soulcore_shaper", elder = "soulcore_elder", adjudicator = "soulcore_adjudicator", basilisk = "soulcore_basilisk", crusader = "soulcore_crusader", eyrie = "soulcore_eyrie", cleansing = "soulcore_cleansing", tangle = "soulcore_tangle" },
 	implicitModTypes = { },
 	req = { },
 }
@@ -95,7 +13,6 @@ itemBases["Soul Core of Opiloti"] = {
 	type = "SoulCore",
 	hidden = true,
 	tags = { soul_core = true, soul_core_tier1 = true, default = true, },
-	influenceTags = { shaper = "soulcore_shaper", elder = "soulcore_elder", adjudicator = "soulcore_adjudicator", basilisk = "soulcore_basilisk", crusader = "soulcore_crusader", eyrie = "soulcore_eyrie", cleansing = "soulcore_cleansing", tangle = "soulcore_tangle" },
 	implicitModTypes = { },
 	req = { },
 }
@@ -103,7 +20,6 @@ itemBases["Soul Core of Jiquani"] = {
 	type = "SoulCore",
 	hidden = true,
 	tags = { soul_core = true, soul_core_tier2 = true, default = true, },
-	influenceTags = { shaper = "soulcore_shaper", elder = "soulcore_elder", adjudicator = "soulcore_adjudicator", basilisk = "soulcore_basilisk", crusader = "soulcore_crusader", eyrie = "soulcore_eyrie", cleansing = "soulcore_cleansing", tangle = "soulcore_tangle" },
 	implicitModTypes = { },
 	req = { },
 }
@@ -111,7 +27,6 @@ itemBases["Soul Core of Zalatl"] = {
 	type = "SoulCore",
 	hidden = true,
 	tags = { soul_core = true, soul_core_tier2 = true, default = true, },
-	influenceTags = { shaper = "soulcore_shaper", elder = "soulcore_elder", adjudicator = "soulcore_adjudicator", basilisk = "soulcore_basilisk", crusader = "soulcore_crusader", eyrie = "soulcore_eyrie", cleansing = "soulcore_cleansing", tangle = "soulcore_tangle" },
 	implicitModTypes = { },
 	req = { },
 }
@@ -119,7 +34,6 @@ itemBases["Soul Core of Citaqualotl"] = {
 	type = "SoulCore",
 	hidden = true,
 	tags = { soul_core = true, soul_core_tier1 = true, default = true, },
-	influenceTags = { shaper = "soulcore_shaper", elder = "soulcore_elder", adjudicator = "soulcore_adjudicator", basilisk = "soulcore_basilisk", crusader = "soulcore_crusader", eyrie = "soulcore_eyrie", cleansing = "soulcore_cleansing", tangle = "soulcore_tangle" },
 	implicitModTypes = { },
 	req = { },
 }
@@ -127,7 +41,6 @@ itemBases["Soul Core of Puhuarte"] = {
 	type = "SoulCore",
 	hidden = true,
 	tags = { soul_core = true, soul_core_tier3 = true, default = true, },
-	influenceTags = { shaper = "soulcore_shaper", elder = "soulcore_elder", adjudicator = "soulcore_adjudicator", basilisk = "soulcore_basilisk", crusader = "soulcore_crusader", eyrie = "soulcore_eyrie", cleansing = "soulcore_cleansing", tangle = "soulcore_tangle" },
 	implicitModTypes = { },
 	req = { },
 }
@@ -135,7 +48,6 @@ itemBases["Soul Core of Tzamoto"] = {
 	type = "SoulCore",
 	hidden = true,
 	tags = { soul_core = true, soul_core_tier3 = true, default = true, },
-	influenceTags = { shaper = "soulcore_shaper", elder = "soulcore_elder", adjudicator = "soulcore_adjudicator", basilisk = "soulcore_basilisk", crusader = "soulcore_crusader", eyrie = "soulcore_eyrie", cleansing = "soulcore_cleansing", tangle = "soulcore_tangle" },
 	implicitModTypes = { },
 	req = { },
 }
@@ -143,7 +55,6 @@ itemBases["Soul Core of Xopec"] = {
 	type = "SoulCore",
 	hidden = true,
 	tags = { soul_core = true, soul_core_tier3 = true, default = true, },
-	influenceTags = { shaper = "soulcore_shaper", elder = "soulcore_elder", adjudicator = "soulcore_adjudicator", basilisk = "soulcore_basilisk", crusader = "soulcore_crusader", eyrie = "soulcore_eyrie", cleansing = "soulcore_cleansing", tangle = "soulcore_tangle" },
 	implicitModTypes = { },
 	req = { },
 }
@@ -151,7 +62,6 @@ itemBases["Soul Core of Azcapa"] = {
 	type = "SoulCore",
 	hidden = true,
 	tags = { soul_core = true, soul_core_tier3 = true, default = true, },
-	influenceTags = { shaper = "soulcore_shaper", elder = "soulcore_elder", adjudicator = "soulcore_adjudicator", basilisk = "soulcore_basilisk", crusader = "soulcore_crusader", eyrie = "soulcore_eyrie", cleansing = "soulcore_cleansing", tangle = "soulcore_tangle" },
 	implicitModTypes = { },
 	req = { },
 }
@@ -159,7 +69,6 @@ itemBases["Soul Core of Topotante"] = {
 	type = "SoulCore",
 	hidden = true,
 	tags = { soul_core = true, soul_core_tier1 = true, default = true, },
-	influenceTags = { shaper = "soulcore_shaper", elder = "soulcore_elder", adjudicator = "soulcore_adjudicator", basilisk = "soulcore_basilisk", crusader = "soulcore_crusader", eyrie = "soulcore_eyrie", cleansing = "soulcore_cleansing", tangle = "soulcore_tangle" },
 	implicitModTypes = { },
 	req = { },
 }
@@ -167,7 +76,6 @@ itemBases["Soul Core of Quipolatl"] = {
 	type = "SoulCore",
 	hidden = true,
 	tags = { soul_core = true, soul_core_tier2 = true, default = true, },
-	influenceTags = { shaper = "soulcore_shaper", elder = "soulcore_elder", adjudicator = "soulcore_adjudicator", basilisk = "soulcore_basilisk", crusader = "soulcore_crusader", eyrie = "soulcore_eyrie", cleansing = "soulcore_cleansing", tangle = "soulcore_tangle" },
 	implicitModTypes = { },
 	req = { },
 }
@@ -175,7 +83,6 @@ itemBases["Soul Core of Ticaba"] = {
 	type = "SoulCore",
 	hidden = true,
 	tags = { soul_core = true, soul_core_tier2 = true, default = true, },
-	influenceTags = { shaper = "soulcore_shaper", elder = "soulcore_elder", adjudicator = "soulcore_adjudicator", basilisk = "soulcore_basilisk", crusader = "soulcore_crusader", eyrie = "soulcore_eyrie", cleansing = "soulcore_cleansing", tangle = "soulcore_tangle" },
 	implicitModTypes = { },
 	req = { },
 }
@@ -183,7 +90,6 @@ itemBases["Soul Core of Atmohua"] = {
 	type = "SoulCore",
 	hidden = true,
 	tags = { soul_core = true, soul_core_tier2 = true, default = true, },
-	influenceTags = { shaper = "soulcore_shaper", elder = "soulcore_elder", adjudicator = "soulcore_adjudicator", basilisk = "soulcore_basilisk", crusader = "soulcore_crusader", eyrie = "soulcore_eyrie", cleansing = "soulcore_cleansing", tangle = "soulcore_tangle" },
 	implicitModTypes = { },
 	req = { },
 }
@@ -191,7 +97,6 @@ itemBases["Soul Core of Cholotl"] = {
 	type = "SoulCore",
 	hidden = true,
 	tags = { soul_core = true, soul_core_tier2 = true, default = true, },
-	influenceTags = { shaper = "soulcore_shaper", elder = "soulcore_elder", adjudicator = "soulcore_adjudicator", basilisk = "soulcore_basilisk", crusader = "soulcore_crusader", eyrie = "soulcore_eyrie", cleansing = "soulcore_cleansing", tangle = "soulcore_tangle" },
 	implicitModTypes = { },
 	req = { },
 }
@@ -199,7 +104,77 @@ itemBases["Soul Core of Zantipi"] = {
 	type = "SoulCore",
 	hidden = true,
 	tags = { soul_core = true, soul_core_tier2 = true, default = true, },
-	influenceTags = { shaper = "soulcore_shaper", elder = "soulcore_elder", adjudicator = "soulcore_adjudicator", basilisk = "soulcore_basilisk", crusader = "soulcore_crusader", eyrie = "soulcore_eyrie", cleansing = "soulcore_cleansing", tangle = "soulcore_tangle" },
+	implicitModTypes = { },
+	req = { },
+}
+
+itemBases["Desert Rune"] = {
+	type = "Rune",
+	hidden = true,
+	tags = { default = true, },
+	implicitModTypes = { },
+	req = { },
+}
+itemBases["Glacial Rune"] = {
+	type = "Rune",
+	hidden = true,
+	tags = { default = true, },
+	implicitModTypes = { },
+	req = { },
+}
+itemBases["Storm Rune"] = {
+	type = "Rune",
+	hidden = true,
+	tags = { default = true, },
+	implicitModTypes = { },
+	req = { },
+}
+itemBases["Iron Rune"] = {
+	type = "Rune",
+	hidden = true,
+	tags = { default = true, },
+	implicitModTypes = { },
+	req = { },
+}
+itemBases["Body Rune"] = {
+	type = "Rune",
+	hidden = true,
+	tags = { default = true, },
+	implicitModTypes = { },
+	req = { },
+}
+itemBases["Mind Rune"] = {
+	type = "Rune",
+	hidden = true,
+	tags = { default = true, },
+	implicitModTypes = { },
+	req = { },
+}
+itemBases["Rebirth Rune"] = {
+	type = "Rune",
+	hidden = true,
+	tags = { default = true, },
+	implicitModTypes = { },
+	req = { },
+}
+itemBases["Inspiration Rune"] = {
+	type = "Rune",
+	hidden = true,
+	tags = { default = true, },
+	implicitModTypes = { },
+	req = { },
+}
+itemBases["Stone Rune"] = {
+	type = "Rune",
+	hidden = true,
+	tags = { default = true, },
+	implicitModTypes = { },
+	req = { },
+}
+itemBases["Vision Rune"] = {
+	type = "Rune",
+	hidden = true,
+	tags = { default = true, },
 	implicitModTypes = { },
 	req = { },
 }

@@ -2,6 +2,7 @@
 local itemBases = ...
 
 #type SoulCore
-#influenceBaseTag soulcore
+#baseMatch Metadata/Items/SoulCores/SoulCore
 
-#baseMatch BaseType Metadata/Items/SoulCores/AbstractSoulCore
+#type Rune
+#baseMatch Metadata/Items/SoulCores/Rune
