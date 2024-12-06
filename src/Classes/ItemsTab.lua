@@ -30,7 +30,7 @@ local socketDropList = {
 	{ label = colorCodes.SCION.."W", color = "W" }
 }
 
-local baseSlots = { "Weapon 1", "Weapon 2", "Helmet", "Body Armour", "Gloves", "Boots", "Amulet", "Ring 1", "Ring 2", "Belt", "Charm 1", "Charm 2", "Charm 3", "Flask 1", "Flask 2" }
+local baseSlots = { "Weapon 1", "Offhand 1", "Weapon 2", "Offhand 2", "Helmet", "Body Armour", "Gloves", "Boots", "Amulet", "Ring 1", "Ring 2", "Belt", "Charm 1", "Charm 2", "Charm 3", "Flask 1", "Flask 2" }
 
 local influenceInfo = itemLib.influenceInfo
 
@@ -108,41 +108,34 @@ local ItemsTabClass = newClass("ItemsTab", "UndoHandler", "ControlHost", "Contro
 		t_insert(self.controls, slot)
 	end
 	for index, slotName in ipairs(baseSlots) do
-		local slot = new("ItemSlotControl", {"TOPLEFT",prevSlot,"BOTTOMLEFT"}, 0, 2, self, slotName)
-		addSlot(slot)
-		if slotName:match("Weapon") then
-			-- Add alternate weapon slot
-			slot.weaponSet = 1
-			slot.shown = function()
-				return not self.activeItemSet.useSecondWeaponSet
+		local slot
+		if self.activeItemSet then
+			if self.activeItemSet.useSecondWeaponSet and (slotName:match("Weapon 1") or slotName:match("Offhand 1")) then
+				slot = new("ItemSlotControl", {"TOPLEFT",prevSlot,"BOTTOMLEFT"}, 0, 2, self, "^7"..slotName)
+			elseif not self.activeItemSet.useSecondWeaponSet and (slotName:match("Weapon 2") or slotName:match("Offhand 2")) then
+				slot = new("ItemSlotControl", {"TOPLEFT",prevSlot,"BOTTOMLEFT"}, 0, 2, self, "^7"..slotName)
+			else
+				slot = new("ItemSlotControl", {"TOPLEFT",prevSlot,"BOTTOMLEFT"}, 0, 2, self, slotName)
 			end
-			local swapSlot = new("ItemSlotControl", {"TOPLEFT",prevSlot,"BOTTOMLEFT"}, 0, 2, self, slotName.." Swap", slotName)
-			addSlot(swapSlot)
-			swapSlot.weaponSet = 2
-			swapSlot.shown = function()
-				return self.activeItemSet.useSecondWeaponSet
-			end
-			for i = 1, 6 do
-				local abyssal = new("ItemSlotControl", {"TOPLEFT",prevSlot,"BOTTOMLEFT"}, 0, 2, self, slotName.." Swap Abyssal Socket "..i, "Abyssal #"..i)			
-				addSlot(abyssal)
-				abyssal.parentSlot = swapSlot
-				abyssal.weaponSet = 2
-				abyssal.shown = function()
-					return not abyssal.inactive and self.activeItemSet.useSecondWeaponSet
-				end
-				swapSlot.abyssalSocketList[i] = abyssal
-			end
+		else
+			slot = new("ItemSlotControl", {"TOPLEFT",prevSlot,"BOTTOMLEFT"}, 0, 2, self, slotName)
 		end
-		if slotName == "Weapon 1" or slotName == "Weapon 2" or slotName == "Helmet" or slotName == "Gloves" or slotName == "Body Armour" or slotName == "Boots" or slotName == "Belt" then
+		addSlot(slot)
+		if slotName:match("Weapon 1") or slotName:match("Offhand 1") then
+			slot.weaponSet = 1
+		elseif slotName:match("Weapon 2") or slotName:match("Offhand 2") then
+			slot.weaponSet = 2
+		end
+		if slotName == "Weapon 1" or slotName == "Offhand 1" or slotName == "Weapon 2" or slotName == "Offhand 2" or slotName == "Helmet" or slotName == "Gloves" or slotName == "Body Armour" or slotName == "Boots" or slotName == "Belt" then
 			-- Add Abyssal Socket slots
 			for i = 1, 6 do
 				local abyssal = new("ItemSlotControl", {"TOPLEFT",prevSlot,"BOTTOMLEFT"}, 0, 2, self, slotName.." Abyssal Socket "..i, "Abyssal #"..i)			
 				addSlot(abyssal)
 				abyssal.parentSlot = slot
-				if slotName:match("Weapon") then
-					abyssal.weaponSet = 1
+				if slotName:match("Weapon") or slotName:match("Offhand") then
+					abyssal.weaponSet = slot.weaponSet
 					abyssal.shown = function()
-						return not abyssal.inactive and not self.activeItemSet.useSecondWeaponSet
+						return not abyssal.inactive
 					end
 				end
 				slot.abyssalSocketList[i] = abyssal
@@ -199,7 +192,7 @@ local ItemsTabClass = newClass("ItemsTab", "UndoHandler", "ControlHost", "Contro
 		end
 	end)
 	self.controls.weaponSwap1.overSizeText = 3
-	self.controls.weaponSwap1.locked = function()
+	self.controls.weaponSwap1.selected = function()
 		return not self.activeItemSet.useSecondWeaponSet
 	end
 	self.controls.weaponSwap2 = new("ButtonControl", {"BOTTOMRIGHT",self.slotAnchor,"TOPRIGHT"}, {0, -2, 18, 18}, "II", function()
@@ -219,10 +212,10 @@ local ItemsTabClass = newClass("ItemsTab", "UndoHandler", "ControlHost", "Contro
 		end
 	end)
 	self.controls.weaponSwap2.overSizeText = 3
-	self.controls.weaponSwap2.locked = function()
+	self.controls.weaponSwap2.selected = function()
 		return self.activeItemSet.useSecondWeaponSet
 	end
-	self.controls.weaponSwapLabel = new("LabelControl", {"RIGHT",self.controls.weaponSwap1,"LEFT"}, {-4, 0, 0, 14}, "^7Weapon Set:")
+	self.controls.weaponSwapLabel = new("LabelControl", {"RIGHT",self.controls.weaponSwap1,"LEFT"}, {-4, 0, 0, 14}, "^7Active Weapon Set:")
 
 	-- All items list
 	if main.portraitMode then
@@ -1308,13 +1301,13 @@ function ItemsTabClass:EquipItemInSet(item, itemSetId)
 	local slotName = item:GetPrimarySlot()
 	if self.slots[slotName].weaponSet == 1 and itemSet.useSecondWeaponSet then
 		-- Redirect to second weapon set
-		slotName = slotName .. " Swap"
+		slotName = slotName:gsub(" 1"," 2")
 	end
 	if not item.id or not self.items[item.id] then
 		item = new("Item", item.raw)
 		self:AddItem(item, true)
 	end
-	local altSlot = slotName:gsub("1","2")
+	local altSlot = slotName:gsub("Weapon","Offhand")
 	if IsKeyDown("SHIFT") then
 		-- Redirect to second slot if possible
 		if self:IsItemValidForSlot(item, altSlot, itemSet) then
@@ -1927,10 +1920,10 @@ function ItemsTabClass:IsItemValidForSlot(item, slotName, itemSet)
 		return true
 	elseif item.type == "Jewel" and item.base.subType == "Abyss" and slotName:match("Abyssal Socket") then
 		return true
-	elseif slotName == "Weapon 1" or slotName == "Weapon 1 Swap" or slotName == "Weapon" then
+	elseif slotName == "Weapon 1" or slotName == "Weapon 2" or slotName == "Weapon" then
 		return item.base.weapon ~= nil
-	elseif slotName == "Weapon 2" or slotName == "Weapon 2 Swap" then
-		local weapon1Sel = itemSet[slotName == "Weapon 2" and "Weapon 1" or "Weapon 1 Swap"].selItemId or 0
+	elseif slotName == "Offhand 1" or slotName == "Offhand 2" then
+		local weapon1Sel = itemSet[slotName == "Offhand 1" and "Weapon 1" or "Weapon 2"].selItemId or 0
 		local weapon1Type = self.items[weapon1Sel] and self.items[weapon1Sel].base.type or "None"
 		if weapon1Type == "None" then
 			return item.type == "Shield" or (self.build.data.weaponTypeInfo[item.type] and self.build.data.weaponTypeInfo[item.type].oneHand)

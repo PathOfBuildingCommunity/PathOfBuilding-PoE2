@@ -255,7 +255,7 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 		activeEffect.srcInstance.skillPartCalcs = nil
 	end
 
-	if (skillTypes[SkillType.RequiresShield] or skillFlags.shieldAttack) and not activeSkill.summonSkill and (not activeSkill.actor.itemList["Weapon 2"] or activeSkill.actor.itemList["Weapon 2"].type ~= "Shield") then
+	if (skillTypes[SkillType.RequiresShield] or skillFlags.shieldAttack) and not activeSkill.summonSkill and (not activeSkill.actor.itemList["Offhand 1"] or activeSkill.actor.itemList["Offhand 1"].type ~= "Shield") then
 		-- Skill requires a shield to be equipped
 		skillFlags.disable = true
 		activeSkill.disableReason = "This skill requires a Shield"
@@ -691,7 +691,7 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 			if minion.uses then
 				if minion.uses["Weapon 1"] then
 					if minion.itemSet then
-						local item = env.build.itemsTab.items[minion.itemSet[minion.itemSet.useSecondWeaponSet and "Weapon 1 Swap" or "Weapon 1"].selItemId]
+						local item = env.build.itemsTab.items[minion.itemSet[minion.itemSet.useSecondWeaponSet and "Weapon 2" or "Weapon 1"].selItemId]
 						if item and item.weaponData then
 							minion.weaponData1 = item.weaponData[1]
 						end
@@ -699,9 +699,9 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 						minion.weaponData1 = env.player.weaponData1
 					end
 				end
-				if minion.uses["Weapon 2"] then	
+				if minion.uses["Offhand 1"] then	
 					if minion.itemSet then
-						local item = env.build.itemsTab.items[minion.itemSet[minion.itemSet.useSecondWeaponSet and "Weapon 2 Swap" or "Weapon 2"].selItemId]
+						local item = env.build.itemsTab.items[minion.itemSet[minion.itemSet.useSecondWeaponSet and "Offhand 2" or "Offhand 1"].selItemId]
 						if item and item.weaponData then
 							minion.weaponData2 = item.weaponData[2]
 						end

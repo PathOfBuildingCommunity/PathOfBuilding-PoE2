@@ -1249,7 +1249,7 @@ function ItemClass:GetPrimarySlot()
 	if self.base.weapon then
 		return "Weapon 1"
 	elseif self.type == "Quiver" or self.type == "Shield" then
-		return "Weapon 2"
+		return "Offhand 1"
 	elseif self.type == "Ring" then
 		return "Ring 1"
 	elseif self.type == "Flask" then

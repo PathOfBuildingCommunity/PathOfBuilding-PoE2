@@ -151,14 +151,14 @@ local function doActorAttribsConditions(env, actor)
 	local condList = modDB.conditions
 
 	-- Set conditions
-	if (actor.itemList["Weapon 2"] and actor.itemList["Weapon 2"].type == "Shield") or (actor == env.player and env.aegisModList) then
+	if (actor.itemList["Offhand 1"] and actor.itemList["Offhand 1"].type == "Shield") or (actor == env.player and env.aegisModList) then
 		condList["UsingShield"] = true
-	elseif not actor.itemList["Weapon 2"] then
+	elseif not actor.itemList["Offhand 1"] then
 		condList["OffHandIsEmpty"] = true
 	end
 	if actor.weaponData1.type == "None" then
 		condList["Unarmed"] = true
-		if not actor.itemList["Weapon 2"] and not actor.itemList["Gloves"] then
+		if not actor.itemList["Offhand 1"] and not actor.itemList["Gloves"] then
 			condList["Unencumbered"] = true
 		end
 	else
@@ -1020,10 +1020,6 @@ function calcs.perform(env, skipEHP)
 		for _, mod in ipairs(env.player.mainSkill.extraSkillModList) do
 			env.minion.modDB:AddMod(mod)
 		end
-		if env.aegisModList then
-			env.minion.itemList["Weapon 3"] = env.player.itemList["Weapon 2"]
-			env.minion.modDB:AddList(env.aegisModList)
-		end
 		if env.theIronMass and env.minion.type == "RaisedSkeleton" then
 			env.minion.modDB:AddList(env.theIronMass)
 		end
@@ -1031,8 +1027,8 @@ function calcs.perform(env, skipEHP)
 			if env.player.weaponData1.type == "Bow" then
 				env.minion.modDB:AddList(env.player.itemList["Weapon 1"].slotModList[1])
 			end
-			if env.player.itemList["Weapon 2"] and env.player.itemList["Weapon 2"].type == "Quiver" then
-				env.minion.modDB:ScaleAddList(env.player.itemList["Weapon 2"].modList, m_max(modDB:Sum("BASE", nil, "WidowHailMultiplier"), 1))
+			if env.player.itemList["Offhand 1"] and env.player.itemList["Offhand 1"].type == "Quiver" then
+				env.minion.modDB:ScaleAddList(env.player.itemList["Offhand 1"].modList, m_max(modDB:Sum("BASE", nil, "WidowHailMultiplier"), 1))
 			end
 		end
 		if env.minion.itemSet or env.minion.uses then
@@ -1041,7 +1037,7 @@ function calcs.perform(env, skipEHP)
 					local item
 					if env.minion.itemSet then
 						if slot.weaponSet == 1 and env.minion.itemSet.useSecondWeaponSet then
-							slotName = slotName .. " Swap"
+							slotName = slotName:gsub(" 1"," 2")
 						end
 						item = env.build.itemsTab.items[env.minion.itemSet[slotName].selItemId]
 					else
@@ -1060,9 +1056,6 @@ function calcs.perform(env, skipEHP)
 		if modDB:Flag(nil, "HalfStrengthAddedToMinions") then
 			env.minion.modDB:NewMod("Str", "BASE", round(calcLib.val(modDB, "Str") * 0.5), "Player")
 		end
-	end
-	if env.aegisModList then
-		env.player.itemList["Weapon 2"] = nil
 	end
 	if modDB:Flag(nil, "AlchemistsGenius") then
 		local effectMod = 1 + modDB:Sum("INC", nil, "BuffEffectOnSelf") / 100
@@ -1198,7 +1191,7 @@ function calcs.perform(env, skipEHP)
 		local energyShieldBase
 		local tempTable1 = { }
 		local slotCfg = wipeTable(tempTable1)
-		for _, slot in pairs({"Helmet","Gloves","Boots","Body Armour","Weapon 2","Weapon 3"}) do
+		for _, slot in pairs({"Helmet","Gloves","Boots","Body Armour","Offhand 1"}) do
 			local armourData = env.player.itemList[slot] and env.player.itemList[slot].armourData
 			if armourData then
 				slotCfg.slotName = slot

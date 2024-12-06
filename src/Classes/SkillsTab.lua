@@ -13,9 +13,9 @@ local m_max = math.max
 local groupSlotDropList = {
 	{ label = "None" },
 	{ label = "Weapon 1", slotName = "Weapon 1" },
+	{ label = "Offhand 1", slotName = "Offhand 1" },
 	{ label = "Weapon 2", slotName = "Weapon 2" },
-	{ label = "Weapon 1 (Swap)", slotName = "Weapon 1 Swap" },
-	{ label = "Weapon 2 (Swap)", slotName = "Weapon 2 Swap" },
+	{ label = "Offhand 2", slotName = "Offhand 2" },
 	{ label = "Helmet", slotName = "Helmet" },
 	{ label = "Body Armour", slotName = "Body Armour" },
 	{ label = "Gloves", slotName = "Gloves" },
@@ -165,31 +165,18 @@ local SkillsTabClass = newClass("SkillsTab", "UndoHandler", "ControlHost", "Cont
 		self:AddUndoState()
 		self.build.buildFlag = true
 	end)
-	self.controls.groupSlotLabel = new("LabelControl", { "TOPLEFT", self.anchorGroupDetail, "TOPLEFT" }, { 0, 30, 0, 16 }, "^7Socketed in:")
-	self.controls.groupSlot = new("DropDownControl", { "TOPLEFT", self.anchorGroupDetail, "TOPLEFT" }, { 85, 28, 130, 20 }, groupSlotDropList, function(index, value)
-		self.displayGroup.slot = value.slotName
+	self.controls.groupWeaponSetLabel = new("LabelControl", { "TOPLEFT", self.anchorGroupDetail, "TOPLEFT" }, { 0, 30, 0, 18 }, "^7Used in Weapon Set")
+	self.controls.groupWS1 = new("CheckBoxControl", { "TOPLEFT", self.controls.groupWeaponSetLabel, "TOPLEFT" }, { 170, 0, 20 }, "I:", function(state)
+		self.displayGroup.ws1 = state
 		self:AddUndoState()
 		self.build.buildFlag = true
 	end)
-	self.controls.groupSlot.tooltipFunc = function(tooltip, mode, index, value)
-		tooltip:Clear()
-		if mode == "OUT" or index == 1 then
-			tooltip:AddLine(16, "Select the item in which this skill is socketed.")
-			tooltip:AddLine(16, "This will allow the skill to benefit from modifiers on the item that affect socketed gems.")
-		else
-			local slot = self.build.itemsTab.slots[value.slotName]
-			local ttItem = self.build.itemsTab.items[slot.selItemId]
-			if ttItem then
-				self.build.itemsTab:AddItemTooltip(tooltip, ttItem, slot)
-			else
-				tooltip:AddLine(16, "No item is equipped in this slot.")
-			end
-		end
-	end
-	self.controls.groupSlot.enabled = function()
-		return self.displayGroup.source == nil
-	end
-	self.controls.groupEnabled = new("CheckBoxControl", { "LEFT", self.controls.groupSlot, "RIGHT" }, { 70, 0, 20 }, "Enabled:", function(state)
+	self.controls.groupWS2 = new("CheckBoxControl", { "TOPLEFT", self.controls.groupWS1, "TOPLEFT" }, { 40, 0, 20 }, "II:", function(state)
+		self.displayGroup.ws2 = state
+		self:AddUndoState()
+		self.build.buildFlag = true
+	end)
+	self.controls.groupEnabled = new("CheckBoxControl", { "LEFT", self.controls.groupWS2, "RIGHT" }, { 154, 0, 20 }, "Enabled:", function(state)
 		self.displayGroup.enabled = state
 		self:AddUndoState()
 		self.build.buildFlag = true
@@ -211,7 +198,7 @@ local SkillsTabClass = newClass("SkillsTab", "UndoHandler", "ControlHost", "Cont
 	self.controls.groupCount.shown = function()
 		return self.displayGroup.source ~= nil
 	end
-	self.controls.sourceNote = new("LabelControl", { "TOPLEFT", self.controls.groupSlotLabel, "TOPLEFT" }, { 0, 30, 0, 16 })
+	self.controls.sourceNote = new("LabelControl", { "TOPLEFT", self.controls.groupWeaponSetLabel, "TOPLEFT" }, { 0, 30, 0, 16 })
 	self.controls.sourceNote.shown = function()
 		return self.displayGroup.source ~= nil
 	end
@@ -1140,7 +1127,8 @@ function SkillsTabClass:SetDisplayGroup(socketGroup)
 
 		-- Update the main controls
 		self.controls.groupLabel:SetText(socketGroup.label)
-		self.controls.groupSlot:SelByValue(socketGroup.slot, "slotName")
+		self.controls.groupWS1.state = socketGroup.ws1
+		self.controls.groupWS2.state = socketGroup.ws2
 		self.controls.groupEnabled.state = socketGroup.enabled
 		self.controls.includeInFullDPS.state = socketGroup.includeInFullDPS and socketGroup.enabled
 		self.controls.groupCount:SetText(socketGroup.groupCount or 1)

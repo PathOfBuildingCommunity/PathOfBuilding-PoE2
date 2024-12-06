@@ -332,7 +332,7 @@ function calcs.defence(env, actor)
 	output.ActionSpeedMod = calcs.actionSpeedMod(actor)
 	
 	-- Armour defence types for conditionals
-	for _, slot in pairs({"Helmet","Gloves","Boots","Body Armour","Weapon 2","Weapon 3"}) do
+	for _, slot in pairs({"Helmet","Gloves","Boots","Body Armour","Offhand 1"}) do
 		local armourData = actor.itemList[slot] and actor.itemList[slot].armourData
 		if armourData then
 			wardBase = armourData.Ward or 0
@@ -514,11 +514,8 @@ function calcs.defence(env, actor)
 	output.BlockChanceOverCap = 0
 	output.SpellBlockChanceOverCap = 0
 	local baseBlockChance = 0
-	if actor.itemList["Weapon 2"] and actor.itemList["Weapon 2"].armourData then
-		baseBlockChance = baseBlockChance + actor.itemList["Weapon 2"].armourData.BlockChance
-	end
-	if actor.itemList["Weapon 3"] and actor.itemList["Weapon 3"].armourData then
-		baseBlockChance = baseBlockChance + actor.itemList["Weapon 3"].armourData.BlockChance
+	if actor.itemList["Offhand 1"] and actor.itemList["Offhand 1"].armourData then
+		baseBlockChance = baseBlockChance + actor.itemList["Offhand 1"].armourData.BlockChance
 	end
 	output.ShieldBlockChance = baseBlockChance
 	baseBlockChance = modDB:Override(nil, "ReplaceShieldBlock") or baseBlockChance
@@ -657,7 +654,7 @@ function calcs.defence(env, actor)
 		local gearArmour = 0
 		local gearEvasion = 0
 		local slotCfg = wipeTable(tempTable1)
-		for _, slot in pairs({"Helmet","Gloves","Boots","Body Armour","Weapon 2","Weapon 3"}) do
+		for _, slot in pairs({"Helmet","Gloves","Boots","Body Armour","Offhand 1"}) do
 			local armourData = actor.itemList[slot] and actor.itemList[slot].armourData
 			if armourData then
 				slotCfg.slotName = slot

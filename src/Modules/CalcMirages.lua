@@ -144,7 +144,7 @@ function calcs.mirages(env)
 				local moreDamage = env.player.mainSkill.skillModList:Sum("BASE", env.player.mainSkill.skillCfg, "SaviourMirageWarriorLessDamage")
 				-- Add new modifiers to new skill (which already has all the old skill's modifiers)
 				newSkill.skillModList:NewMod("Damage", "MORE", moreDamage, "The Saviour", env.player.mainSkill.ModFlags, env.player.mainSkill.KeywordFlags)
-				if env.player.itemList["Weapon 1"] and env.player.itemList["Weapon 2"] and env.player.itemList["Weapon 1"].name == env.player.itemList["Weapon 2"].name then
+				if env.player.itemList["Weapon 1"] and env.player.itemList["Offhand 1"] and env.player.itemList["Weapon 1"].name == env.player.itemList["Offhand 1"].name then
 					maxMirageWarriors = maxMirageWarriors / 2
 				end
 				newSkill.skillModList:NewMod("QuantityMultiplier", "BASE", maxMirageWarriors, "The Saviour Mirage Warriors", env.player.mainSkill.ModFlags, env.player.mainSkill.KeywordFlags)

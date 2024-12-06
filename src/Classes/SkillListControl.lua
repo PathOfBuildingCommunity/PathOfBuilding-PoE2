@@ -7,22 +7,9 @@ local ipairs = ipairs
 local t_insert = table.insert
 local t_remove = table.remove
 local slot_map = {
-	["Weapon 1"] 		= { icon = NewImageHandle(), path = "Assets/icon_weapon.png" },
-	["Weapon 2"] 		= { icon = NewImageHandle(), path = "Assets/icon_weapon_2.png" },
-	["Weapon 1 Swap"] 	= { icon = NewImageHandle(), path = "Assets/icon_weapon_swap.png" },
-	["Weapon 2 Swap"] 	= { icon = NewImageHandle(), path = "Assets/icon_weapon_2_swap.png" },
-	["Bow"] 			= { icon = NewImageHandle(), path = "Assets/icon_bow.png" },
-	["Quiver"] 			= { icon = NewImageHandle(), path = "Assets/icon_quiver.png" },
-	["Shield"] 			= { icon = NewImageHandle(), path = "Assets/icon_shield.png" },
-	["Shield Swap"] 	= { icon = NewImageHandle(), path = "Assets/icon_shield_swap.png" },
-	["Helmet"] 			= { icon = NewImageHandle(), path = "Assets/icon_helmet.png" },
-	["Body Armour"] 	= { icon = NewImageHandle(), path = "Assets/icon_body_armour.png" },
-	["Gloves"] 			= { icon = NewImageHandle(), path = "Assets/icon_gloves.png" },
-	["Boots"] 			= { icon = NewImageHandle(), path = "Assets/icon_boots.png" },
-	["Amulet"] 			= { icon = NewImageHandle(), path = "Assets/icon_amulet.png" },
-	["Ring 1"] 			= { icon = NewImageHandle(), path = "Assets/icon_ring_left.png" },
-	["Ring 2"] 			= { icon = NewImageHandle(), path = "Assets/icon_ring_right.png" },
-	["Belt"] 			= { icon = NewImageHandle(), path = "Assets/icon_belt.png" },
+	["WS 1"] 		= { icon = NewImageHandle(), path = "Assets/icon_weapon.png" },
+	["WS 2"] 		= { icon = NewImageHandle(), path = "Assets/icon_shield.png" },
+	["WS 3"] 		= { icon = NewImageHandle(), path = "Assets/icon_gloves.png" },
 }
 
 local SkillListClass = newClass("SkillListControl", "ListControl", function(self, anchor, rect, skillsTab)
@@ -208,27 +195,11 @@ end
 
 function SkillListClass:GetRowIcon(column, index, socketGroup)
 	if column == 1 then
-		local slot = socketGroup.slot
-		local itemsTab = self.skillsTab.build.itemsTab
-		local weapon1Sel = itemsTab.activeItemSet["Weapon 1"].selItemId or 0
-		local weapon1Type = itemsTab.items[weapon1Sel] and itemsTab.items[weapon1Sel].base.type or "None"
-		local weapon1SwapSel = itemsTab.activeItemSet["Weapon 1 Swap"].selItemId or 0
-		local weapon1SwapType = itemsTab.items[weapon1SwapSel] and itemsTab.items[weapon1SwapSel].base.type or "None"
-		local weapon2Sel = itemsTab.activeItemSet["Weapon 2"].selItemId or 0
-		local weapon2Type = itemsTab.items[weapon2Sel] and itemsTab.items[weapon2Sel].base.type or "None"
-		local weapon2SwapSel = itemsTab.activeItemSet["Weapon 2 Swap"].selItemId or 0
-		local weapon2SwapType = itemsTab.items[weapon2SwapSel] and itemsTab.items[weapon2SwapSel].base.type or "None"
-		if slot == "Weapon 1" and weapon1Type == "Bow" then
-			slot = weapon1Type
-		end
-		if slot == "Weapon 1 Swap" and weapon1SwapType == "Bow" then
-			slot = weapon1SwapType.." Swap"
-		end
-		if slot == "Weapon 2" and (weapon2Type == "Quiver" or weapon2Type == "Shield") then
-			slot = weapon2Type
-		end
-		if slot == "Weapon 2 Swap" and (weapon2SwapType == "Quiver" or weapon2SwapType == "Shield") then
-			slot = weapon2SwapType.." Swap"
+		local slot = "WS 3"
+		if socketGroup.ws1 and not socketGroup.ws2 then
+			slot = "WS 1"
+		elseif socketGroup.ws2 and not socketGroup.ws1 then
+			slot = "WS 2"
 		end
 		return slot_map[slot] and slot_map[slot].icon
 	end

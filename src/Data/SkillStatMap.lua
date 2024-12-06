@@ -579,7 +579,7 @@ return {
 	mod("CritMultiplier", "BASE", nil, 0, 0, { type = "Multiplier", var = "PowerCharge" }),
 },
 ["critical_multiplier_+%_per_100_max_es_on_shield"] = {
-	mod("CritMultiplier", "BASE", nil, 0, 0, { type = "PerStat", div = 100, stat = "EnergyShieldOnWeapon 2" }),
+	mod("CritMultiplier", "BASE", nil, 0, 0, { type = "PerStat", div = 100, stat = "EnergyShieldOnOffhand 1" }),
 },
 ["critical_strike_multiplier_+_if_dexterity_higher_than_intelligence"] = {
 	skill("CritMultiplier", nil, { type = "Condition", var = "DexHigherThanInt" }),
@@ -1578,25 +1578,25 @@ return {
 	skill("setOffHandAttackTime", nil),
 },
 ["off_hand_minimum_added_physical_damage_per_15_shield_armour_and_evasion_rating"] = {
-	mod("PhysicalMin", "BASE", nil, 0, 0, { type = "Condition", var = "OffHandAttack" }, { type = "PerStat", statList = { "ArmourOnWeapon 2", "EvasionOnWeapon 2" }, div = 15, }),
+	mod("PhysicalMin", "BASE", nil, 0, 0, { type = "Condition", var = "OffHandAttack" }, { type = "PerStat", statList = { "ArmourOnOffhand 1", "EvasionOnOffhand 1" }, div = 15, }),
 },
 ["off_hand_maximum_added_physical_damage_per_15_shield_armour_and_evasion_rating"] = {
-	mod("PhysicalMax", "BASE", nil, 0, 0, { type = "Condition", var = "OffHandAttack" }, { type = "PerStat", statList = { "ArmourOnWeapon 2", "EvasionOnWeapon 2" }, div = 15, }),
+	mod("PhysicalMax", "BASE", nil, 0, 0, { type = "Condition", var = "OffHandAttack" }, { type = "PerStat", statList = { "ArmourOnOffhand 1", "EvasionOnOffhand 1" }, div = 15, }),
 },
 ["off_hand_minimum_added_cold_damage_per_15_shield_evasion"] = {
-	mod("ColdMin", "BASE", nil, 0, 0, { type = "Condition", var = "OffHandAttack" }, { type = "PerStat", stat = "EvasionOnWeapon 2", div = 15 }),
+	mod("ColdMin", "BASE", nil, 0, 0, { type = "Condition", var = "OffHandAttack" }, { type = "PerStat", stat = "EvasionOnOffhand 1", div = 15 }),
 },
 ["off_hand_maximum_added_cold_damage_per_15_shield_evasion"] = {
-	mod("ColdMax", "BASE", nil, 0, 0, { type = "Condition", var = "OffHandAttack" }, { type = "PerStat", stat = "EvasionOnWeapon 2", div = 15 }),
+	mod("ColdMax", "BASE", nil, 0, 0, { type = "Condition", var = "OffHandAttack" }, { type = "PerStat", stat = "EvasionOnOffhand 1", div = 15 }),
 },
 ["off_hand_minimum_added_fire_damage_per_15_shield_armour"] = {
-	mod("FireMin", "BASE", nil, 0, 0, { type = "Condition", var = "OffHandAttack" }, { type = "PerStat", stat = "ArmourOnWeapon 2", div = 15 }),
+	mod("FireMin", "BASE", nil, 0, 0, { type = "Condition", var = "OffHandAttack" }, { type = "PerStat", stat = "ArmourOnOffhand 1", div = 15 }),
 },
 ["off_hand_maximum_added_fire_damage_per_15_shield_armour"] = {
-	mod("FireMax", "BASE", nil, 0, 0, { type = "Condition", var = "OffHandAttack" }, { type = "PerStat", stat = "ArmourOnWeapon 2", div = 15 }),
+	mod("FireMax", "BASE", nil, 0, 0, { type = "Condition", var = "OffHandAttack" }, { type = "PerStat", stat = "ArmourOnOffhand 1", div = 15 }),
 },
 ["additional_critical_strike_chance_per_10_shield_maximum_energy_shield_permyriad"] = {
-	mod("CritChance", "BASE", nil, 0, 0, { type = "PerStat", stat = "EnergyShieldOnWeapon 2", div = 10, }),
+	mod("CritChance", "BASE", nil, 0, 0, { type = "PerStat", stat = "EnergyShieldOnOffhand 1", div = 10, }),
 	div = 100,
 },
 -- Impale

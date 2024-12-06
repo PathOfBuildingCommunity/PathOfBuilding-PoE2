@@ -165,11 +165,11 @@ function ItemListClass:OnSelClick(index, itemId, doubleClick)
 		if slotName and self.itemsTab.slots[slotName] then
 			if self.itemsTab.slots[slotName].weaponSet == 1 and self.itemsTab.activeItemSet.useSecondWeaponSet then
 				-- Redirect to second weapon set
-				slotName = slotName .. " Swap"
+				slotName = slotName:gsub(" 1"," 2")
 			end
 			if IsKeyDown("SHIFT") then
 				-- Redirect to second slot if possible
-				local altSlot = slotName:gsub("1","2")
+				local altSlot = slotName:gsub("Weapon","Offhand")
 				if self.itemsTab:IsItemValidForSlot(item, altSlot) then
 					slotName = altSlot
 				end
