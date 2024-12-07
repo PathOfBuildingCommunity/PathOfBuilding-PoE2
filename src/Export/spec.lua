@@ -5232,9 +5232,37 @@ return {
 			refTo="",
 			type="Float",
 			width=270
+		},
+		[16]={
+			list=false,
+			name="",
+			refTo="",
+			type="Int",
+			width=150
+		},
+		[17]={
+			list=false,
+			name="",
+			refTo="",
+			type="Int",
+			width=150
 		}
 	},
 	grantedskillsocketnumbers={
+		[1]={
+			list=false,
+			name="PlayerLevel",
+			refTo="",
+			type="Int",
+			width=150
+		},
+		[2]={
+			list=false,
+			name="NumSupportSockets",
+			refTo="",
+			type="Int",
+			width=150
+		}
 	},
 	graphicalitemreceptacle={
 	},

@@ -37,7 +37,7 @@ local GGPKClass = newClass("GGPKData", function(self, path, datPath)
 	else
 		self.path = path
 		self.oozPath = io.popen("cd"):read('*l'):gsub('\r?', '') .. "\\ggpk\\"
-		self:CleanDir()
+		--self:CleanDir()
 		self:ExtractFiles()
 	end
 
@@ -76,7 +76,7 @@ function GGPKClass:ExtractFiles()
 		end
 
 		if fileList:len() > sweetSpotCharacter then
-			self:ExtractFilesWithBun(fileList)
+			--self:ExtractFilesWithBun(fileList)
 			fileList = ''
 		end
 	end
@@ -85,7 +85,7 @@ function GGPKClass:ExtractFiles()
 		fileList = fileList .. '"' .. fname .. '" '
 
 		if fileList:len() > sweetSpotCharacter then
-			self:ExtractFilesWithBun(fileList)
+			--self:ExtractFilesWithBun(fileList)
 			fileList = ''
 		end
 	end
@@ -94,7 +94,7 @@ function GGPKClass:ExtractFiles()
 		fileList = fileList .. '"' .. fname .. '" '
 
 		if fileList:len() > sweetSpotCharacter then
-			self:ExtractFilesWithBun(fileList)
+			--self:ExtractFilesWithBun(fileList)
 			fileList = ''
 		end
 	end
@@ -262,6 +262,7 @@ function GGPKClass:GetNeededFiles()
 		"Data/KeywordPopups.dat",
 		"Data/SoulCores.dat",
 		"Data/UtilityFlaskBuffs.dat",
+		"Data/GrantedSkillSocketNumbers.dat",
 	}
 	local csdFiles = {
 		"Metadata/StatDescriptions/passive_skill_aura_stat_descriptions.csd",
