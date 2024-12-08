@@ -1,4 +1,5 @@
 local nk = { }
+local wiki_entries = { }
 
 local function processStatFile(name)
 	--ConPrintf("Processing File: '%s'", name)
@@ -79,7 +80,7 @@ local function processStatFile(name)
 			end
 		end
 	end
-	print("Name: "..name)
+
 	local text = convertUTF16to8(getFile("Metadata/StatDescriptions/"..name..".csd"))
 	for line in text:gmatch("[^\r\n]+") do
 		processLine(line)

@@ -154468,7 +154468,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Mana [Flask] Effects are not removed when Unreserved Mana is Filled\Mana [Flask] Effects do not Queue"
+				text="Mana [Flask] Effects are not removed when Unreserved Mana is Filled\nMana [Flask] Effects do not Queue"
 			}
 		},
 		stats={

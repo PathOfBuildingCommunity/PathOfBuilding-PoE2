@@ -57,14 +57,15 @@ function GGPKClass:CleanDir()
 	os.execute(cmd)
 end
 
-function GGPKClass:ExtractFilesWithBun(fileListStr)
-	local cmd = 'cd ' .. self.oozPath .. ' && bun_extract_file.exe extract-files "' .. self.path .. '" . ' .. fileListStr
+function GGPKClass:ExtractFilesWithBun(fileListStr, useRegex)
+	local useRegex = useRegex or false
+	local cmd = 'cd ' .. self.oozPath .. ' && bun_extract_file.exe extract-files ' .. (useRegex and '--regex "' or '"') .. self.path .. '" . ' .. fileListStr
 	ConPrintf(cmd)
 	os.execute(cmd)
 end
 
 function GGPKClass:ExtractFiles()
-	local datList, txtList, itList = self:GetNeededFiles()
+	local datList, csdList, itList = self:GetNeededFiles()
 	local sweetSpotCharacter = 6000
 	local fileList = ''
 
@@ -74,15 +75,6 @@ function GGPKClass:ExtractFiles()
 		else
 			fileList = fileList .. '"' .. fname .. '" '
 		end
-
-		if fileList:len() > sweetSpotCharacter then
-			self:ExtractFilesWithBun(fileList)
-			fileList = ''
-		end
-	end
-
-	for _, fname in ipairs(txtList) do
-		fileList = fileList .. '"' .. fname .. '" '
 
 		if fileList:len() > sweetSpotCharacter then
 			self:ExtractFilesWithBun(fileList)
@@ -101,6 +93,13 @@ function GGPKClass:ExtractFiles()
 
 	if (fileList:len() > 0) then
 		self:ExtractFilesWithBun(fileList)
+		fileList = ''
+	end
+
+	-- Special handlign for stat descriptions (CSD) as they
+	-- are regex based
+	for _, fname in ipairs(csdList) do
+		self:ExtractFilesWithBun('"' .. fname .. '"', true)
 	end
 
 	-- Overwrite Enums
@@ -289,17 +288,8 @@ function GGPKClass:GetNeededFiles()
 		"Data/uncutgemtiers.dat",
 	}
 	local csdFiles = {
-		"Metadata/StatDescriptions/passive_skill_aura_stat_descriptions.csd",
-		"Metadata/StatDescriptions/passive_skill_stat_descriptions.csd",
-		"Metadata/StatDescriptions/active_skill_gem_stat_descriptions.csd",
-		"Metadata/StatDescriptions/advanced_mod_stat_descriptions.csd",
-		"Metadata/StatDescriptions/gem_stat_descriptions.csd",
-		"Metadata/StatDescriptions/meta_gem_stat_descriptions.csd",
-		"Metadata/StatDescriptions/monster_stat_descriptions.csd",
-		"Metadata/StatDescriptions/skillpopup_stat_filters.csd",
-		"Metadata/StatDescriptions/skill_stat_descriptions.csd",
-		"Metadata/StatDescriptions/stat_descriptions.csd",
-		"Metadata/StatDescriptions/utility_flask_buff_stat_descriptions.csd",
+		"^Metadata/StatDescriptions/specific_skill_stat_descriptions/\\w+.csd$",
+		"^Metadata/StatDescriptions/\\w+.csd$",
 	}
 	local itFiles = {
 		"Metadata/Items/Equipment.it",
