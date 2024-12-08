@@ -137,6 +137,7 @@ function PassiveSpecClass:Load(xml, dbFileName)
 				masteryEffects[tonumber(mastery)] = tonumber(effect)
 			end
 		end
+		local attributes = { "Strength", "Intelligence", "Dexterity" }
 		for _, node in pairs(xml) do
 			if type(node) == "table" then
 				if node.elem == "Overrides" then
@@ -146,23 +147,43 @@ function PassiveSpecClass:Load(xml, dbFileName)
 							return true
 						end
 						
-						-- In case a tattoo has been replaced by a different one attempt to find the new name for it
-						if not self.tree.tattoo.nodes[child.attrib.dn] then
-							for name ,data in pairs(self.tree.tattoo.nodes) do
-								if data["activeEffectImage"] == child.attrib["activeEffectImage"] and data["icon"] == child.attrib["icon"] then
-									self.tree.tattoo.nodes[child.attrib.dn] = data
-									ConPrintf("[PassiveSpecClass:Load] " .. child.attrib.dn .. " tattoo has been substituted with " .. name)
+						local dn = child.attrib.dn
+						if isValueInTable(attributes, dn) then
+							local nodeId = tonumber(child.attrib.nodeId)
+							local newNode = copyTableSafe(self.tree.nodes[nodeId], false, true)
+							local shortName = string.sub(dn, 0, 3)
+							
+							newNode.dn = dn
+							newNode.id = node.id
+							newNode.icon = "Art/2DArt/SkillIcons/passives/plus"..string.lower(dn)..".png"
+							newNode.modKey = "[10 = "..shortName.."|BASE|-|-|-]"
+							newNode.mods[1].list[1].name = shortName
+							newNode.modList[1].name = shortName
+							newNode.name = dn
+							newNode.sd[1] = "+10 to "..dn
+							newNode.sprites = self.tree.spriteMap[newNode.icon]
+							newNode.activeEffectImage = self.tree.spriteMap[newNode.icon]
+							
+							self.hashOverrides[nodeId] = newNode
+						else
+							-- In case a tattoo has been replaced by a different one attempt to find the new name for it
+							if not self.tree.tattoo.nodes[child.attrib.dn] then
+								for name ,data in pairs(self.tree.tattoo.nodes) do
+									if data["activeEffectImage"] == child.attrib["activeEffectImage"] and data["icon"] == child.attrib["icon"] then
+										self.tree.tattoo.nodes[child.attrib.dn] = data
+										ConPrintf("[PassiveSpecClass:Load] " .. child.attrib.dn .. " tattoo has been substituted with " .. name)
+									end
 								end
 							end
-						end
-
-						-- If the above failed remove the tattoo to avoid crashing
-						if self.tree.tattoo.nodes[child.attrib.dn] then
-							local nodeId = tonumber(child.attrib.nodeId)
-							self.hashOverrides[nodeId] = copyTable(self.tree.tattoo.nodes[child.attrib.dn], true)
-							self.hashOverrides[nodeId].id = nodeId
-						else
-							ConPrintf("[PassiveSpecClass:Load] Failed to find a tattoo with dn of: " .. child.attrib.dn)
+	
+							-- If the above failed remove the tattoo to avoid crashing
+							if self.tree.tattoo.nodes[child.attrib.dn] then
+								local nodeId = tonumber(child.attrib.nodeId)
+								self.hashOverrides[nodeId] = copyTable(self.tree.tattoo.nodes[child.attrib.dn], true)
+								self.hashOverrides[nodeId].id = nodeId
+							else
+								ConPrintf("[PassiveSpecClass:Load] Failed to find a tattoo with dn of: " .. child.attrib.dn)
+							end
 						end
 					end
 				end
@@ -254,6 +275,7 @@ function PassiveSpecClass:ImportFromNodeList(classId, ascendClassId, secondaryAs
 	end
 	for id, override in pairs(hashOverrides) do
 		local node = self.nodes[id]
+		
 		if node then
 			override.effectSprites = self.tree.spriteMap[override.activeEffectImage]
 			override.sprites = self.tree.spriteMap[override.icon]

@@ -266,23 +266,29 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 		end
 	end
 	
-	local function switchAttributeNode(node, attribute, state) 
+	local function switchAttributeNode(node, attribute)
+		local newNode = copyTableSafe(spec.tree.nodes[node.id], false, true)
 		local shortName = string.sub(attribute, 0, 3)
-		node.dn = attribute
-		node.modKey = "[10 = "..shortName.."|BASE|-|-|-]"
-		node.mods[1].list[1].name = shortName
-		node.name = attribute
-		node.sd[1] = "+10 to "..attribute
 		
-		-- true for alloc, nil for reset
-		self.attrSwitchedNodes[hoverNode.id] = state
+		newNode.dn = attribute
+		newNode.id = node.id
+		newNode.icon = "Art/2DArt/SkillIcons/passives/plus"..string.lower(attribute)..".png"
+		newNode.modKey = "[10 = "..shortName.."|BASE|-|-|-]"
+		newNode.mods[1].list[1].name = shortName
+		newNode.modList[1].name = shortName
+		newNode.name = attribute
+		newNode.sd[1] = "+10 to "..attribute
+		newNode.sprites = spec.tree.spriteMap[newNode.icon]
+		newNode.activeEffectImage = spec.tree.spriteMap[newNode.icon]
+		
+		spec.hashOverrides[node.id] = newNode
 	end
 	if treeClick == "LEFT" then
 		if hoverNode then
 			-- User left-clicked on a node
 			if hoverNode.alloc then
-				-- reset attribute switched nodes
-				switchAttributeNode(hoverNode, spec.tree.nodes[hoverNode.id].name)
+				-- reset attribute-switched nodes
+				switchAttributeNode(hoverNode, spec.nodes[hoverNode.id].name)
 				-- Node is allocated, so deallocate it
 				spec:DeallocNode(hoverNode)
 				spec:AddUndoState()
@@ -297,11 +303,11 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 					-- attribute switching
 					if hoverNode.type == "Normal" and (hoverNode.dn == "Strength" or hoverNode.dn == "Dexterity" or hoverNode.dn == "Intelligence") then
 						if IsKeyDown("1") or IsKeyDown("I") then
-							switchAttributeNode(hoverNode, "Intelligence", true)
+							switchAttributeNode(hoverNode, "Intelligence")
 						elseif IsKeyDown("2") or IsKeyDown("S") then
-							switchAttributeNode(hoverNode, "Strength", true)
+							switchAttributeNode(hoverNode, "Strength")
 						elseif IsKeyDown("3") or IsKeyDown("D") then
-							switchAttributeNode(hoverNode, "Dexterity", true)
+							switchAttributeNode(hoverNode, "Dexterity")
 						end
 					end
 					spec:AllocNode(hoverNode, self.tracePath and hoverNode == self.tracePath[#self.tracePath] and self.tracePath)
