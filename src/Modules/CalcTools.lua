@@ -179,10 +179,11 @@ function calcLib.buildSkillInstanceStats(skillInstance, grantedEffect)
 				-- Effectiveness interpolation
 				if not availableEffectiveness then
 					availableEffectiveness =
-					(data.gameConstants["SkillDamageBaseEffectiveness"] + 0.360246 * (actorLevel - 1)) * (grantedEffect.baseEffectiveness or 1)
+					(data.gameConstants["SkillDamageBaseEffectiveness"] + 0.00 * (actorLevel - 1)) * (grantedEffect.baseEffectiveness or 1)
 							* (1 + (grantedEffect.incrementalEffectiveness or 0)) ^ (actorLevel - 1)
 				end
-				statValue = round(availableEffectiveness * level[index])
+				statValue = availableEffectiveness * level[index]
+				print(availableEffectiveness, level[index], statValue)
 			elseif level.statInterpolation[index] == 2 then
 				-- Linear interpolation; I'm actually just guessing how this works
 

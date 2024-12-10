@@ -211,15 +211,15 @@ local weaponClassMap = {
 }
 
 local skillStatScope = { }
-do
-	local text = convertUTF16to8(getFile("Metadata/StatDescriptions/skillpopup_stat_filters.csd"))
-	for skillName, scope in text:gmatch('([%w_]+) "Metadata/StatDescriptions/specific_skill_stat_descriptions/([%w_]+)%.csd"') do
-		skillStatScope[skillName] = scope
-	end
-	for skillName, copyFromSkill in text:gmatch('copy ([%w_]+) ([%w_]+)') do
-		skillStatScope[skillName] = skillStatScope[copyFromSkill]
-	end
-end
+--do
+--	local text = convertUTF16to8(getFile("Metadata/StatDescriptions/skillpopup_stat_filters.csd"))
+--	for skillName, scope in text:gmatch('([%w_]+) "Metadata/StatDescriptions/specific_skill_stat_descriptions/([%w_]+)%.csd"') do
+--		skillStatScope[skillName] = scope
+--	end
+--	for skillName, copyFromSkill in text:gmatch('copy ([%w_]+) ([%w_]+)') do
+--		skillStatScope[skillName] = skillStatScope[copyFromSkill]
+--	end
+--end
 
 local gems = { }
 local trueGemNames = { }
@@ -310,7 +310,7 @@ directiveTable.skill = function(state, args, out)
 	skill.constantStats = { }
 	skill.addSkillTypes = state.addSkillTypes
 	state.addSkillTypes = nil
-	--out:write('\tcolor = ', granted.Attribute, ',\n')
+	out:write('\tcolor = ', skillGem.GemColour, ',\n')
 	if granted.GrantedEffectStatSets.BaseEffectiveness ~= 1 then
 		out:write('\tbaseEffectiveness = ', granted.GrantedEffectStatSets.BaseEffectiveness, ',\n')
 	end
@@ -412,15 +412,18 @@ directiveTable.skill = function(state, args, out)
 	local statsPerLevel = dat("GrantedEffectStatSetsPerLevel"):GetRowList("GrantedEffectStatSets", granted.GrantedEffectStatSets)
 	local statMapOrder = {}
 	local perLevel = dat("GrantedEffectsPerLevel"):GetRowList("GrantedEffect", granted)
+	local gemLevelProgression = dat("ItemExperiencePerLevel"):GetRowList("ItemExperienceType", skillGem.GemLevelProgression)
 	if #perLevel ~= #statsPerLevel and #perLevel > 1 and #statsPerLevel > 1 then
 		ConPrintf("UNKNOWN CASE of Level to Stat rows for '" .. granted.Id .. "'")
 	end
+	local nextGemLevelReqValue = 0
 	for indx = 1, math.max(#perLevel, #statsPerLevel) do
 		local levelRow = perLevel[indx] or perLevel[1]
 		local statRow = statsPerLevel[indx] or statsPerLevel[1]
 		local level = { extra = { }, statInterpolation = { }, cost = { } }
 		level.level = #perLevel == 1 and statRow.GemLevel or levelRow.Level
-		--level.extra.levelRequirement = #perLevel == 1 and statRow.PlayerLevelReq or levelRow.PlayerLevelReq
+		level.extra.levelRequirement = math.max(gemLevelProgression[indx] and gemLevelProgression[indx].PlayerLevel or 0, nextGemLevelReqValue)
+		nextGemLevelReqValue = level.extra.levelRequirement
 		for i, cost in ipairs(granted.CostType) do
 			level.cost[cost["Resource"]] = levelRow.CostAmounts[i]
 		end

@@ -9,6 +9,7 @@ local skills, mod, flag, skill = ...
 skills["AxeSlashPlayer"] = {
 	name = "[DNT] Axe Slash",
 	baseTypeName = "[DNT] Axe Slash",
+	color = 1,
 	incrementalEffectiveness = 0.092720001935959,
 	description = "[DNT] Step forward and swing your axe, knocking enemies back to drag them with your attack.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Multistrikeable] = true, [SkillType.Melee] = true, },
@@ -30,6 +31,6 @@ skills["AxeSlashPlayer"] = {
 		"melee_defer_damage_prediction",
 	},
 	levels = {
-		[1] = { attackSpeedMultiplier = -10, },
+		[1] = { attackSpeedMultiplier = -10, levelRequirement = 0, },
 	},
 }
