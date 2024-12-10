@@ -8,3 +8,7 @@ local skills, mod, flag, skill = ...
 #skill ArcPlayer
 #flags spell chaining
 #mods
+
+#skill EssenceDrainPlayer
+#flags spell projectile
+#mods

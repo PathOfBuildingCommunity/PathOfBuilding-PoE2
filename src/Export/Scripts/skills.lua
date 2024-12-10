@@ -211,16 +211,6 @@ local weaponClassMap = {
 }
 
 local skillStatScope = { }
---do
---	local text = convertUTF16to8(getFile("Metadata/StatDescriptions/skillpopup_stat_filters.csd"))
---	for skillName, scope in text:gmatch('([%w_]+) "Metadata/StatDescriptions/specific_skill_stat_descriptions/([%w_]+)%.csd"') do
---		skillStatScope[skillName] = scope
---	end
---	for skillName, copyFromSkill in text:gmatch('copy ([%w_]+) ([%w_]+)') do
---		skillStatScope[skillName] = skillStatScope[copyFromSkill]
---	end
---end
-
 local gems = { }
 local trueGemNames = { }
 
@@ -398,6 +388,10 @@ directiveTable.skill = function(state, args, out)
 				out:write('\t\t["', type, '"] = true,\n')
 			end
 			out:write('\t},\n')
+		end
+		local file = getFile("Metadata/StatDescriptions/specific_skill_stat_descriptions/"..granted.ActiveSkill.Id..".csd")
+		if file then
+			skillStatScope[granted.ActiveSkill.Id] = granted.ActiveSkill.Id
 		end
 		out:write('\tstatDescriptionScope = "', skillStatScope[granted.ActiveSkill.Id] or "skill_stat_descriptions", '",\n')
 		if granted.ActiveSkill.SkillTotem <= 21 then

@@ -108,6 +108,14 @@ for _, name in ipairs(statFileList) do
 	processStatFile(name)
 end
 
+local handle = NewFileSearch("ggpk/Metadata/StatDescriptions/Specific_Skill_Stat_Descriptions/*.csd")
+while handle do
+	processStatFile("specific_skill_stat_descriptions/"..handle:GetFileName():gsub("%.csd", ""))
+	if not handle:NextFile() then
+		break
+	end
+end
+
 for k, v in pairs(nk) do
 	--print("'"..k.."' = '"..v.."'")
 end
