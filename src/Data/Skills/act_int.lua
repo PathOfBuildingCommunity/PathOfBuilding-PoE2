@@ -92,7 +92,7 @@ skills["EssenceDrainPlayer"] = {
 	incrementalEffectiveness = 0.14000000059605,
 	description = "Fires a Projectile that applies a powerful Chaos damage over time debuff to enemies it hits.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Duration] = true, [SkillType.Totemable] = true, [SkillType.Multicastable] = true, [SkillType.DamageOverTime] = true, [SkillType.Chaos] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, [SkillType.CanRapidFire] = true, [SkillType.Trappable] = true, [SkillType.Mineable] = true, [SkillType.Nonpathing] = true, },
-	statDescriptionScope = "specific_skill_stat_descriptions/essence_drain",
+	statDescriptionScope = "essence_drain",
 	castTime = 0.8,
 	baseFlags = {
 		spell = true,

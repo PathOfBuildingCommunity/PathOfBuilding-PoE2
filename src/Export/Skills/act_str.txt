@@ -13,3 +13,390 @@ local skills, mod, flag, skill = ...
 #flags totem
 #mods
 
+#skill ArmourBreakerPlayer
+#flags
+#mods
+
+#skill ArtilleryBallistaPlayer
+#flags
+#mods
+
+#skill ArtilleryBallistaProjectilePlayer
+#flags
+#mods
+
+#skill AttritionPlayer
+#flags
+#mods
+
+#skill BerserkPlayer
+#flags
+#mods
+
+#skill BoneshatterPlayer
+#flags
+#mods
+
+#skill MetaCastOnBlockPlayer
+#flags
+#mods
+
+#skill SupportMetaCastOnBlockPlayer
+#flags
+#mods
+
+#skill SupportMetaCastOnMeleeKillPlayer
+#flags
+#mods
+
+#skill MetaCastOnMeleeStunPlayer
+#flags
+#mods
+
+#skill SupportMetaCastOnMeleeStunPlayer
+#flags
+#mods
+
+#skill MetaCastWhenDamageTakenPlayer
+#flags
+#mods
+
+#skill SupportMetaCastWhenDamageTakenPlayer
+#flags
+#mods
+
+#skill ClusterGrenadePlayer
+#flags
+#mods
+
+#skill ClusterGrenadeMiniPlayer
+#flags
+#mods
+
+#skill StaffConsecratePlayer
+#flags
+#mods
+
+#skill DefianceBannerReservationPlayer
+#flags
+#mods
+
+#skill DefianceBannerPlayer
+#flags
+#mods
+
+#skill DreadBannerReservationPlayer
+#flags
+#mods
+
+#skill DreadBannerPlayer
+#flags
+#mods
+
+#skill EarthquakePlayer
+#flags
+#mods
+
+#skill EarthshatterPlayer
+#flags
+#mods
+
+#skill EmergencyReloadPlayer
+#flags
+#mods
+
+#skill ExplosiveGrenadePlayer
+#flags
+#mods
+
+#skill ExsanguinatePlayer
+#flags
+#mods
+
+#skill BearWarcryMetaPlayer
+#flags
+#mods
+
+#skill SupportBearWarcryPlayer
+#flags
+#mods
+
+#skill FlashGrenadePlayer
+#flags
+#mods
+
+#skill BearSlamPlayer
+#flags
+#mods
+
+#skill ToxicGrenadePlayer
+#flags
+#mods
+
+#skill HammerOfTheGodsPlayer
+#flags
+#mods
+
+#skill HeraldOfAshPlayer
+#flags
+#mods
+
+#skill InfernalCryPlayer
+#flags
+#mods
+
+#skill InfernalCryCorpseExplosionPlayer
+#flags
+#mods
+
+#skill LeapSlamPlayer
+#flags
+#mods
+
+#skill ArmourPiercingBoltsAmmoPlayer
+#flags
+#mods
+
+#skill ArmourPiercingBoltsPlayer
+#flags
+#mods
+
+#skill ExplosiveShotAmmoPlayer
+#flags
+#mods
+
+#skill ExplosiveShotPlayer
+#flags
+#mods
+
+#skill FragmentationRoundsAmmoPlayer
+#flags
+#mods
+
+#skill FragmentationRoundsPlayer
+#flags
+#mods
+
+#skill GalvanicShardsAmmoPlayer
+#flags
+#mods
+
+#skill GalvanicShardsPlayer
+#flags
+#mods
+
+#skill GlacialBoltAmmoPlayer
+#flags
+#mods
+
+#skill GlacialBoltPlayer
+#flags
+#mods
+
+#skill HailstormRoundsAmmoPlayer
+#flags
+#mods
+
+#skill HailstormRoundsPlayer
+#flags
+#mods
+
+#skill HighVelocityRoundsAmmoPlayer
+#flags
+#mods
+
+#skill HighVelocityRoundsPlayer
+#flags
+#mods
+
+#skill IceShardsAmmoPlayer
+#flags
+#mods
+
+#skill IceShardsPlayer
+#flags
+#mods
+
+#skill IncendiaryShotAmmoPlayer
+#flags
+#mods
+
+#skill IncendiaryShotPlayer
+#flags
+#mods
+
+#skill PermafrostBoltsAmmoPlayer
+#flags
+#mods
+
+#skill PermafrostBoltsPlayer
+#flags
+#mods
+
+#skill PlasmaBlastAmmoPlayer
+#flags
+#mods
+
+#skill PlasmaBlastPlayer
+#flags
+#mods
+
+#skill RapidShotAmmoPlayer
+#flags
+#mods
+
+#skill RapidShotPlayer
+#flags
+#mods
+
+#skill ShockburstRoundsAmmoPlayer
+#flags
+#mods
+
+#skill ShockburstRoundsPlayer
+#flags
+#mods
+
+#skill SiegeCascadeAmmoPlayer
+#flags
+#mods
+
+#skill SiegeCascadePlayer
+#flags
+#mods
+
+#skill StormblastBoltsAmmoPlayer
+#flags
+#mods
+
+#skill StormblastBoltsPlayer
+#flags
+#mods
+
+#skill MagmaBarrierPlayer
+#flags
+#mods
+
+#skill MagmaSprayPlayer
+#flags
+#mods
+
+#skill BearMaulPlayer
+#flags
+#mods
+
+#skill MoltenBlastPlayer
+#flags
+#mods
+
+#skill OilGrenadePlayer
+#flags
+#mods
+
+#skill OverwhelmingPresencePlayer
+#flags
+#mods
+
+#skill PerfectStrikePlayer
+#flags
+#mods
+
+#skill BearRampagePlayer
+#flags
+#mods
+
+#skill ReapPlayer
+#flags
+#mods
+
+#skill ResonatingShieldPlayer
+#flags
+#mods
+
+#skill RipwireBallistaPlayer
+#flags
+#mods
+
+#skill RipwireBallistaProjectilePlayer
+#flags
+#mods
+
+#skill RollingSlamPlayer
+#flags
+#mods
+
+#skill ScavengedPlatingPlayer
+#flags
+#mods
+
+#skill SeismicCryPlayer
+#flags
+#mods
+
+#skill ShardScavengerPlayer
+#flags
+#mods
+
+#skill ShieldChargePlayer
+#flags
+#mods
+
+#skill ShieldWallPlayer
+#flags
+#mods
+
+#skill ShockwaveTotemPlayer
+#flags
+#mods
+
+#skill ShockwaveTotemQuakePlayer
+#flags
+#mods
+
+#skill SpinningInfernoPlayer
+#flags
+#mods
+
+#skill StampedePlayer
+#flags
+#mods
+
+#skill SummonWolfCompanionPlayer
+#flags
+#mods
+
+#skill SunderPlayer
+#flags
+#mods
+
+#skill SuperchargedSlamPlayer
+#flags
+#mods
+
+#skill TimeOfNeedPlayer
+#flags
+#mods
+
+#skill TornadoPlayer
+#flags
+#mods
+
+#skill VolcanicFissurePlayer
+#flags
+#mods
+
+#skill VolcanoPlayer
+#flags
+#mods
+
+#skill ShockGrenadePlayer
+#flags
+#mods
+
+#skill WarBannerReservationPlayer
+#flags
+#mods
+
+#skill WarBannerPlayer
+#flags
+#mods
