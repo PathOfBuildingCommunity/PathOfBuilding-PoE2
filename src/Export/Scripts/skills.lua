@@ -258,7 +258,7 @@ directiveTable.skill = function(state, args, out)
 	local gemEffect = dat("GemEffects"):GetRow("GrantedEffect", granted)
 	local secondaryEffect
 	if not gemEffect then
-		gemEffect = dat("GemEffects"):GetRow("GrantedEffect2", granted)
+		gemEffect = dat("GemEffects"):GetRow("AdditionalGrantedEffects", granted)
 		if gemEffect then 
 			secondaryEffect = true
 		end
@@ -286,7 +286,7 @@ directiveTable.skill = function(state, args, out)
 		if granted.IsSupport then
 			out:write('\tname = "', fullNameGems[skillGem.BaseItemType.Id] and skillGem.BaseItemType.Name or skillGem.BaseItemType.Name:gsub(" Support",""), '",\n')
 			if #gemEffect.Description > 0 then
-				out:write('\tdescription = "', gemEffect.Description:gsub('\n','\\n'), '",\n')
+				out:write('\tdescription = "', gemEffect.Description:gsub("%[([^|%]]+)%]", "%1"):gsub("%[[^|]+|([^|]+)%]", "%1"):gsub('\n','\\n'), '",\n')
 			end
 		else
 			out:write('\tname = "', secondaryEffect and granted.ActiveSkill.DisplayName or trueGemNames[gemEffect.Id] or granted.ActiveSkill.DisplayName, '",\n')
@@ -349,9 +349,6 @@ directiveTable.skill = function(state, args, out)
 		if granted.IgnoreMinionTypes then
 			out:write('\tignoreMinionTypes = true,\n')
 		end
-		if granted.PlusVersionOf then
-			out:write('\tplusVersionOf = "', granted.PlusVersionOf.Id, '",\n')
-		end
 		local weaponTypes = { }
 		for _, class in ipairs(granted.WeaponRestrictions) do
 			if weaponClassMap[class.Id] then
@@ -368,7 +365,7 @@ directiveTable.skill = function(state, args, out)
 		out:write('\tstatDescriptionScope = "gem_stat_descriptions",\n')
 	else
 		if #granted.ActiveSkill.Description > 0 then
-			out:write('\tdescription = "', granted.ActiveSkill.Description:gsub('"','\\"'):gsub('\n','\\n'), '",\n')
+			out:write('\tdescription = "', granted.ActiveSkill.Description:gsub("%[([^|%]]+)%]", "%1"):gsub("%[[^|]+|([^|]+)%]", "%1"):gsub('"','\\"'):gsub('\n','\\n'), '",\n')
 		end
 		out:write('\tskillTypes = { ')
 		for _, type in ipairs(granted.ActiveSkill.SkillTypes) do
@@ -725,6 +722,7 @@ for skillGem in dat("SkillGems"):Rows() do
 			for _, tag in ipairs(gemEffect.Tags) do
 				out:write('\t\t\t', tag.Id, ' = true,\n')
 				if #tag.Name > 0 then
+					tag.Name = tag.Name:gsub("%[([^|%]]+)%]", "%1"):gsub("%[[^|]+|([^|]+)%]", "%1") --Remove the words in brackets e.g. [DurationSkill|Duration] -> Duration
 					table.insert(tagNames, tag.Name)
 				end
 			end

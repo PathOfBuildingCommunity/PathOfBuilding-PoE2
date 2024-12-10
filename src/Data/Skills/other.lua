@@ -11,7 +11,7 @@ skills["MeleeUnarmedPlayer"] = {
 	hidden = true,
 	color = 4,
 	incrementalEffectiveness = 0.054999999701977,
-	description = "Perform an [Unarmed|Unarmed] [Strike].",
+	description = "Perform an Unarmed Strike.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Multistrikeable] = true, [SkillType.Melee] = true, [SkillType.Area] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,

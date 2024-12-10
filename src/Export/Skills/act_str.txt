@@ -5,6 +5,11 @@
 --
 local skills, mod, flag, skill = ...
 
-#skill AxeSlashPlayer
-#flags attack
+#skill AncestralWarriorTotemPlayer
+#flags totem
 #mods
+
+#skill SupportAncestralWarriorTotemPlayer
+#flags totem
+#mods
+

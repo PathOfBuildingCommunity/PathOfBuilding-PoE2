@@ -5,6 +5,6 @@
 --
 local skills, mod, flag, skill = ...
 
-#skill EssenceDrainPlayer
-#flags spell projectile
+#skill ArcPlayer
+#flags spell chaining
 #mods
