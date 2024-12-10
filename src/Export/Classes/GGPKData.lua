@@ -37,7 +37,7 @@ local GGPKClass = newClass("GGPKData", function(self, path, datPath)
 	else
 		self.path = path
 		self.oozPath = io.popen("cd"):read('*l'):gsub('\r?', '') .. "\\ggpk\\"
-		--self:CleanDir()
+		self:CleanDir()
 		self:ExtractFiles()
 	end
 
@@ -61,7 +61,7 @@ function GGPKClass:ExtractFilesWithBun(fileListStr, useRegex)
 	local useRegex = useRegex or false
 	local cmd = 'cd ' .. self.oozPath .. ' && bun_extract_file.exe extract-files ' .. (useRegex and '--regex "' or '"') .. self.path .. '" . ' .. fileListStr
 	ConPrintf(cmd)
-	--os.execute(cmd)
+	os.execute(cmd)
 end
 
 function GGPKClass:ExtractFiles()

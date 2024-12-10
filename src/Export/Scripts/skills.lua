@@ -310,7 +310,9 @@ directiveTable.skill = function(state, args, out)
 	skill.constantStats = { }
 	skill.addSkillTypes = state.addSkillTypes
 	state.addSkillTypes = nil
-	out:write('\tcolor = ', skillGem.GemColour, ',\n')
+	if skillGem and not state.noGem then
+		out:write('\tcolor = ', skillGem.GemColour, ',\n')
+	end
 	if granted.GrantedEffectStatSets.BaseEffectiveness ~= 1 then
 		out:write('\tbaseEffectiveness = ', granted.GrantedEffectStatSets.BaseEffectiveness, ',\n')
 	end
@@ -409,7 +411,10 @@ directiveTable.skill = function(state, args, out)
 	local statsPerLevel = dat("GrantedEffectStatSetsPerLevel"):GetRowList("GrantedEffectStatSets", granted.GrantedEffectStatSets)
 	local statMapOrder = {}
 	local perLevel = dat("GrantedEffectsPerLevel"):GetRowList("GrantedEffect", granted)
-	local gemLevelProgression = dat("ItemExperiencePerLevel"):GetRowList("ItemExperienceType", skillGem.GemLevelProgression)
+	local gemLevelProgression = nil
+	if skillGem and not state.noGem then
+		gemLevelProgression = dat("ItemExperiencePerLevel"):GetRowList("ItemExperienceType", skillGem.GemLevelProgression)
+	end
 	if #perLevel ~= #statsPerLevel and #perLevel > 1 and #statsPerLevel > 1 then
 		ConPrintf("UNKNOWN CASE of Level to Stat rows for '" .. granted.Id .. "'")
 	end
@@ -419,7 +424,7 @@ directiveTable.skill = function(state, args, out)
 		local statRow = statsPerLevel[indx] or statsPerLevel[1]
 		local level = { extra = { }, statInterpolation = { }, cost = { } }
 		level.level = #perLevel == 1 and statRow.GemLevel or levelRow.Level
-		level.extra.levelRequirement = math.max(gemLevelProgression[indx] and gemLevelProgression[indx].PlayerLevel or 0, nextGemLevelReqValue)
+		level.extra.levelRequirement = math.max(gemLevelProgression and gemLevelProgression[indx] and gemLevelProgression[indx].PlayerLevel or 0, nextGemLevelReqValue)
 		nextGemLevelReqValue = level.extra.levelRequirement
 		for i, cost in ipairs(granted.CostType) do
 			level.cost[cost["Resource"]] = levelRow.CostAmounts[i]

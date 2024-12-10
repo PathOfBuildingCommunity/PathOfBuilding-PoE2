@@ -277,7 +277,7 @@ return {
 		},
 		[20]={
 			list=false,
-			name="Gem",
+			name="isGem",
 			refTo="",
 			type="Bool",
 			width=70
@@ -1780,7 +1780,7 @@ return {
 			name="Tags",
 			refTo="Tags",
 			type="Key",
-			width=250
+			width=150
 		},
 		[13]={
 			list=false,
@@ -4914,7 +4914,7 @@ return {
 			name="GrantedEffect",
 			refTo="GrantedEffects",
 			type="Key",
-			width=230
+			width=150
 		},
 		[4]={
 			list=false,
@@ -5659,7 +5659,7 @@ return {
 		},
 		[23]={
 			list=false,
-			name="EffectOnPlayer?",
+			name="EffectOnPlayer",
 			refTo="",
 			type="Int",
 			width=150
@@ -5685,14 +5685,14 @@ return {
 			name="ImplicitStats",
 			refTo="Stats",
 			type="Key",
-			width=500
+			width=750
 		},
 		[4]={
 			list=true,
 			name="ConstantStats",
 			refTo="Stats",
 			type="Key",
-			width=1000
+			width=1400
 		},
 		[5]={
 			list=true,
@@ -5717,7 +5717,7 @@ return {
 		},
 		[8]={
 			list=false,
-			name="Interpolation 2?",
+			name="",
 			refTo="",
 			type="Float",
 			width=150
