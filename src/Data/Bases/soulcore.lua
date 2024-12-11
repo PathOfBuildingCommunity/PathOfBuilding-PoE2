@@ -7,105 +7,105 @@ itemBases["Soul Core of Tacati"] = {
 	tags = { soul_core = true, soul_core_tier1 = true, default = true, },
 	implicitModTypes = { },
 	implicit = "Martial Weapons: 15% chance to Poison on Hit\nArmour: +7% to Chaos Resistance",
-	req = { },
+	req = { level = 35, },
 }
 itemBases["Soul Core of Opiloti"] = {
 	type = "SoulCore",
 	tags = { soul_core = true, soul_core_tier1 = true, default = true, },
 	implicitModTypes = { },
 	implicit = "Martial Weapons: 15% chance to cause Bleeding on Hit\nArmour: 10% increased Charm Charges gained",
-	req = { },
+	req = { level = 35, },
 }
 itemBases["Soul Core of Jiquani"] = {
 	type = "SoulCore",
 	tags = { soul_core = true, soul_core_tier2 = true, default = true, },
 	implicitModTypes = { },
 	implicit = "Martial Weapons: Recover 2% of Life on Kill\nArmour: 2% increased maximum Life",
-	req = { },
+	req = { level = 35, },
 }
 itemBases["Soul Core of Zalatl"] = {
 	type = "SoulCore",
 	tags = { soul_core = true, soul_core_tier2 = true, default = true, },
 	implicitModTypes = { },
 	implicit = "Martial Weapons: Recover 2% of Mana on Kill\nArmour: 2% increased maximum Mana",
-	req = { },
+	req = { level = 35, },
 }
 itemBases["Soul Core of Citaqualotl"] = {
 	type = "SoulCore",
 	tags = { soul_core = true, soul_core_tier1 = true, default = true, },
 	implicitModTypes = { },
 	implicit = "Martial Weapons: 30% increased Elemental Damage with Attacks\nArmour: +5% to all Elemental Resistances",
-	req = { },
+	req = { level = 35, },
 }
 itemBases["Soul Core of Puhuarte"] = {
 	type = "SoulCore",
 	tags = { soul_core = true, soul_core_tier3 = true, default = true, },
 	implicitModTypes = { },
 	implicit = "Martial Weapons: 30% increased chance to Ignite\nArmour: +1% to Maximum Fire Resistance",
-	req = { },
+	req = { level = 35, },
 }
 itemBases["Soul Core of Tzamoto"] = {
 	type = "SoulCore",
 	tags = { soul_core = true, soul_core_tier3 = true, default = true, },
 	implicitModTypes = { },
 	implicit = "Martial Weapons: 20% increased Freeze Buildup\nArmour: +1% to Maximum Cold Resistance",
-	req = { },
+	req = { level = 35, },
 }
 itemBases["Soul Core of Xopec"] = {
 	type = "SoulCore",
 	tags = { soul_core = true, soul_core_tier3 = true, default = true, },
 	implicitModTypes = { },
 	implicit = "Martial Weapons: 30% increased chance to Shock\nArmour: +1% to Maximum Lightning Resistance",
-	req = { },
+	req = { level = 35, },
 }
 itemBases["Soul Core of Azcapa"] = {
 	type = "SoulCore",
 	tags = { soul_core = true, soul_core_tier3 = true, default = true, },
 	implicitModTypes = { },
 	implicit = "Martial Weapons: +15 to Spirit\nArmour: 10% increased Rarity of Items found",
-	req = { },
+	req = { level = 35, },
 }
 itemBases["Soul Core of Topotante"] = {
 	type = "SoulCore",
 	tags = { soul_core = true, soul_core_tier1 = true, default = true, },
 	implicitModTypes = { },
 	implicit = "Martial Weapons: Attacks with this Weapon Penetrate 15% Elemental Resistances\nArmour: 15% increased Elemental Ailment Threshold",
-	req = { },
+	req = { level = 35, },
 }
 itemBases["Soul Core of Quipolatl"] = {
 	type = "SoulCore",
 	tags = { soul_core = true, soul_core_tier2 = true, default = true, },
 	implicitModTypes = { },
 	implicit = "Martial Weapons: 5% increased Attack Speed\nArmour: 10% reduced Slowing Potency of Debuffs on You",
-	req = { },
+	req = { level = 35, },
 }
 itemBases["Soul Core of Ticaba"] = {
 	type = "SoulCore",
 	tags = { soul_core = true, soul_core_tier2 = true, default = true, },
 	implicitModTypes = { },
 	implicit = "Martial Weapons: +12% to Critical Damage Bonus\nArmour: Hits against you have 10% reduced Critical Damage Bonus",
-	req = { },
+	req = { level = 35, },
 }
 itemBases["Soul Core of Atmohua"] = {
 	type = "SoulCore",
 	tags = { soul_core = true, soul_core_tier2 = true, default = true, },
 	implicitModTypes = { },
 	implicit = "Martial Weapons: Convert 20% of Requirements to Strength\nArmour: Convert 20% of Requirements to Strength",
-	req = { },
+	req = { level = 35, },
 }
 itemBases["Soul Core of Cholotl"] = {
 	type = "SoulCore",
 	tags = { soul_core = true, soul_core_tier2 = true, default = true, },
 	implicitModTypes = { },
 	implicit = "Martial Weapons: Convert 20% of Requirements to Dexterity\nArmour: Convert 20% of Requirements to Dexterity",
-	req = { },
+	req = { level = 35, },
 }
 itemBases["Soul Core of Zantipi"] = {
 	type = "SoulCore",
 	tags = { soul_core = true, soul_core_tier2 = true, default = true, },
 	implicitModTypes = { },
 	implicit = "Martial Weapons: Convert 20% of Requirements to Intelligence\nArmour: Convert 20% of Requirements to Intelligence",
-	req = { },
+	req = { level = 35, },
 }
 
 itemBases["Desert Rune"] = {
