@@ -1,7 +1,7 @@
 if not loadStatFile then
 	dofile("statdesc.lua")
 end
-loadStatFile("tincture_stat_descriptions.txt")
+loadStatFile("stat_descriptions.csd")
 
 function table.containsId(table, element)
   for _, value in pairs(table) do
@@ -18,24 +18,6 @@ local function writeMods(outName, condFunc)
 	out:write('-- Item data (c) Grinding Gear Games\n\nreturn {\n')
 	for mod in dat("Mods"):Rows() do
 		if condFunc(mod) then
-			if mod.Domain == 16 and string.match(outName, "Item") then
-				if mod.SpawnTags[1].Id == "abyss_jewel" and mod.SpawnTags[2].Id == "jewel" and #mod.SpawnTags == 3 then
-					print("[Item]: Skipping '" .. mod.Id .. "'")
-					goto continue
-				end
-			elseif mod.Domain == 16 and string.match(outName, "JewelAbyss") then
-				if not table.containsId(mod.SpawnTags, "abyss_jewel") then
-					print("[Abyss Jewel]: Skipping '" .. mod.Id .. "'")
-					goto continue
-				end
-			elseif mod.Domain == 16 and string.match(outName, "Jewel") then
-				if not table.containsId(mod.SpawnTags, "jewel") then
-					print("[Jewel]: Skipping '" .. mod.Id .. "'")
-					goto continue
-				end
-			elseif mod.Family[1] and mod.Family[1].Id ~= "AuraBonus" and mod.Family[1].Id ~= "ArbalestBonus" and mod.GenerationType == 3 and not (mod.Domain == 16 or (mod.Domain == 1 and mod.Id:match("^Synthesis"))) then
-				goto continue
-			end
 			local stats, orders = describeMod(mod)
 			if #orders > 0 then
 				out:write('\t["', mod.Id, '"] = { ')
@@ -51,14 +33,6 @@ local function writeMods(outName, condFunc)
 					end
 				elseif mod.GenerationType == 5 then
 					out:write('type = "Corrupted", ')
-				elseif mod.GenerationType == 24 then
-					out:write('type = "ScourgeUpside", ')
-				elseif mod.GenerationType == 25 then
-					out:write('type = "ScourgeDownside", ')
-				elseif mod.GenerationType == 28 then
-					out:write('type = "Exarch", ')
-				elseif mod.GenerationType == 29 then
-					out:write('type = "Eater", ')
 				end
 				out:write('affix = "', mod.Name, '", ')
 				for index, value in pairs(mod.Family) do
@@ -68,26 +42,22 @@ local function writeMods(outName, condFunc)
 						break
 					end
  				end
-				if string.find(mod.Id, "EldritchImplicitUniquePresence") and #stats > 0 and #orders > 0 then
-					for i, stat in ipairs(stats) do
-						stats[i] = "While a Unique Enemy is in your Presence, ".. stat
-					end
-				end
-				if string.find(mod.Id, "EldritchImplicitPinnaclePresence") and #stats > 0 and #orders > 0 then
-					for i, stat in ipairs(stats) do
-						stats[i] = "While a Pinnacle Atlas Boss is in your Presence, ".. stat
-					end
-				end
 				out:write('"', table.concat(stats, '", "'), '", ')
 				out:write('statOrderKey = "', table.concat(orders, ','), '", ')
 				out:write('statOrder = { ', table.concat(orders, ', '), ' }, ')
 				out:write('level = ', mod.Level, ', group = "', mod.Type.Id, '", ')
 				out:write('weightKey = { ')
-				for _, tag in ipairs(mod.SpawnTags) do
-					out:write('"', tag.Id, '", ')
+				local GoldModPrices = dat("GoldModPrices"):GetRow("Id", dat("Mods"):GetRow("Id", mod.Id))
+				if GoldModPrices then
+					for _, tag in ipairs(GoldModPrices.SpawnTags) do
+						out:write('"', tag.Id, '", ')
+					end
+					out:write('}, ')
+					out:write('weightVal = { ', table.concat(GoldModPrices.SpawnWeights, ', '), ' }, ')
+				else
+					out:write('}, ')
+					out:write('weightVal = { ', table.concat(mod.SpawnWeights, ', '), ' }, ')
 				end
-				out:write('}, ')
-				out:write('weightVal = { ', table.concat(mod.SpawnWeights, ', '), ' }, ')
 				if mod.GenerationWeightTags[1] then
 					-- make large clusters only have 1 notable suffix
 					if mod.GenerationType == 2 and mod.Tags[1] and outName == "../Data/ModJewelCluster.lua" and mod.Tags[1].Id == "has_affliction_notable" then
@@ -140,31 +110,13 @@ writeMods("../Data/ModItem.lua", function(mod)
 			and #mod.AuraFlags == 0
 end)
 writeMods("../Data/ModFlask.lua", function(mod)
-	return mod.Domain == 2 and (mod.GenerationType == 1 or mod.GenerationType == 2)
-end)
-writeMods("../Data/ModTincture.lua", function(mod)
-	return (mod.Domain == 34) and (mod.GenerationType == 1 or mod.GenerationType == 2 or mod.GenerationType == 3)
+	return mod.Domain == 2 and (mod.GenerationType == 1 or mod.GenerationType == 2 or mod.GenerationType == 3)
 end)
 writeMods("../Data/ModJewel.lua", function(mod)
 	return (mod.Domain == 10 or mod.Domain == 16) and (mod.GenerationType == 1 or mod.GenerationType == 2 or mod.GenerationType == 5)
 end)
-writeMods("../Data/ModJewelAbyss.lua", function(mod)
-	return (mod.Domain == 13 or mod.Domain == 16) and (mod.GenerationType == 1 or mod.GenerationType == 2 or mod.GenerationType == 5)
-end)
 writeMods("../Data/ModJewelCluster.lua", function(mod)
 	return (mod.Domain == 21 and (mod.GenerationType == 1 or mod.GenerationType == 2)) or (mod.Domain == 10 and mod.GenerationType == 5)
-end)
-writeMods("../Data/ModJewelCharm.lua", function(mod)
-	return (mod.Domain == 35) and (mod.GenerationType == 1 or mod.GenerationType == 2)
-end)
-writeMods("../Data/Uniques/Special/WatchersEye.lua", function(mod)
-	return mod.Family[1] and (mod.Family[1].Id == "AuraBonus" or mod.Family[1].Id == "ArbalestBonus") and mod.GenerationType == 3 and not mod.Id:match("^Synthesis")
-end)
-writeMods("../Data/ModVeiled.lua", function(mod)
-	return mod.Domain == 28 and (mod.GenerationType == 1 or mod.GenerationType == 2)
-end)
-writeMods("../Data/ModNecropolis.lua", function(mod)
-	return mod.Domain == 1 and mod.Id:match("^NecropolisCrafting")
 end)
 
 

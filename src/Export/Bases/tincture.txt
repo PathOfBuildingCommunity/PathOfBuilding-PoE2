@@ -1,5 +1,0 @@
--- Item data (c) Grinding Gear Games
-local itemBases = ...
-
-#type Tincture
-#baseMatch Metadata/Items/Tinctures/Tincture%d

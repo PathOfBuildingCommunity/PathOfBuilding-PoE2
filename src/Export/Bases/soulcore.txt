@@ -1,5 +1,10 @@
 -- Item data (c) Grinding Gear Games
 local itemBases = ...
 
-#type Soul Core
+#type SoulCore
+#forceShow true
 #baseMatch Metadata/Items/SoulCores/SoulCore
+
+#type Rune
+#forceShow true
+#baseMatch Metadata/Items/SoulCores/Rune

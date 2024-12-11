@@ -623,7 +623,7 @@ local PassiveTreeClass = newClass("PassiveTree", function(self, treeVersion)
 	end
 
 	-- Late load the Generated data so we can take advantage of a tree existing
-	buildTreeDependentUniques(self)
+	--buildTreeDependentUniques(self)
 end)
 
 function PassiveTreeClass:ProcessStats(node, startIndex)

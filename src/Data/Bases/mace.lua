@@ -2,815 +2,472 @@
 -- Item data (c) Grinding Gear Games
 local itemBases = ...
 
-itemBases["Driftwood Club"] = {
+itemBases["Wooden Club"] = {
 	type = "One Handed Mace",
-	socketLimit = 3,
-	tags = { onehand = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
+	socketLimit = 2,
+	tags = { onehand = true, ezomyte_basetype = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
 	influenceTags = { shaper = "mace_shaper", elder = "mace_elder", adjudicator = "mace_adjudicator", basilisk = "mace_basilisk", crusader = "mace_crusader", eyrie = "mace_eyrie", cleansing = "mace_cleansing", tangle = "mace_tangle" },
-	implicit = "10% reduced Enemy Stun Threshold",
-	implicitModTypes = { {  }, },
-	weapon = { PhysicalMin = 6, PhysicalMax = 8, CritChanceBase = 5, AttackRateBase = 1.45, Range = 11, },
-	req = { str = 14, },
+	implicitModTypes = { },
+	weapon = { PhysicalMin = 6, PhysicalMax = 10, CritChanceBase = 5, AttackRateBase = 1.45, Range = 11, },
+	req = { },
 }
-itemBases["Tribal Club"] = {
+itemBases["Smithing Hammer"] = {
 	type = "One Handed Mace",
-	socketLimit = 3,
-	tags = { onehand = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
+	socketLimit = 2,
+	tags = { onehand = true, ezomyte_basetype = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
 	influenceTags = { shaper = "mace_shaper", elder = "mace_elder", adjudicator = "mace_adjudicator", basilisk = "mace_basilisk", crusader = "mace_crusader", eyrie = "mace_eyrie", cleansing = "mace_cleansing", tangle = "mace_tangle" },
-	implicit = "10% reduced Enemy Stun Threshold",
-	implicitModTypes = { {  }, },
-	weapon = { PhysicalMin = 8, PhysicalMax = 13, CritChanceBase = 5, AttackRateBase = 1.4, Range = 11, },
-	req = { level = 5, str = 26, },
+	implicitModTypes = { },
+	weapon = { PhysicalMin = 9, PhysicalMax = 15, CritChanceBase = 5, AttackRateBase = 1.45, Range = 11, },
+	req = { },
+}
+itemBases["Slim Mace"] = {
+	type = "One Handed Mace",
+	socketLimit = 2,
+	tags = { onehand = true, ezomyte_basetype = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
+	influenceTags = { shaper = "mace_shaper", elder = "mace_elder", adjudicator = "mace_adjudicator", basilisk = "mace_basilisk", crusader = "mace_crusader", eyrie = "mace_eyrie", cleansing = "mace_cleansing", tangle = "mace_tangle" },
+	implicitModTypes = { },
+	weapon = { PhysicalMin = 11, PhysicalMax = 17, CritChanceBase = 5, AttackRateBase = 1.55, Range = 11, },
+	req = { level = 10, },
 }
 itemBases["Spiked Club"] = {
 	type = "One Handed Mace",
-	socketLimit = 3,
-	tags = { onehand = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
+	socketLimit = 2,
+	tags = { maraketh_basetype = true, onehand = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
 	influenceTags = { shaper = "mace_shaper", elder = "mace_elder", adjudicator = "mace_adjudicator", basilisk = "mace_basilisk", crusader = "mace_crusader", eyrie = "mace_eyrie", cleansing = "mace_cleansing", tangle = "mace_tangle" },
-	implicit = "10% reduced Enemy Stun Threshold",
-	implicitModTypes = { {  }, },
-	weapon = { PhysicalMin = 13, PhysicalMax = 16, CritChanceBase = 5, AttackRateBase = 1.45, Range = 11, },
-	req = { level = 10, str = 41, },
+	implicitModTypes = { },
+	weapon = { PhysicalMin = 15, PhysicalMax = 24, CritChanceBase = 5, AttackRateBase = 1.45, Range = 11, },
+	req = { level = 16, },
 }
-itemBases["Stone Hammer"] = {
+itemBases["Warpick"] = {
 	type = "One Handed Mace",
-	socketLimit = 3,
-	tags = { onehand = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
+	socketLimit = 2,
+	tags = { maraketh_basetype = true, onehand = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
 	influenceTags = { shaper = "mace_shaper", elder = "mace_elder", adjudicator = "mace_adjudicator", basilisk = "mace_basilisk", crusader = "mace_crusader", eyrie = "mace_eyrie", cleansing = "mace_cleansing", tangle = "mace_tangle" },
-	implicit = "15% reduced Enemy Stun Threshold",
-	implicitModTypes = { {  }, },
-	weapon = { PhysicalMin = 15, PhysicalMax = 27, CritChanceBase = 5, AttackRateBase = 1.3, Range = 11, },
-	req = { level = 15, str = 56, },
+	implicit = "+(30-40)% to Critical Damage Bonus",
+	implicitModTypes = { { "damage", "attack", "critical" }, },
+	weapon = { PhysicalMin = 18, PhysicalMax = 24, CritChanceBase = 8, AttackRateBase = 1.45, Range = 11, },
+	req = { level = 22, },
 }
-itemBases["War Hammer"] = {
+itemBases["Plated Mace"] = {
 	type = "One Handed Mace",
-	socketLimit = 3,
-	tags = { onehand = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
+	socketLimit = 2,
+	tags = { maraketh_basetype = true, onehand = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
 	influenceTags = { shaper = "mace_shaper", elder = "mace_elder", adjudicator = "mace_adjudicator", basilisk = "mace_basilisk", crusader = "mace_crusader", eyrie = "mace_eyrie", cleansing = "mace_cleansing", tangle = "mace_tangle" },
-	implicit = "10% reduced Enemy Stun Threshold",
-	implicitModTypes = { {  }, },
-	weapon = { PhysicalMin = 13, PhysicalMax = 31, CritChanceBase = 5, AttackRateBase = 1.45, Range = 11, },
-	req = { level = 20, str = 71, },
+	implicitModTypes = { },
+	weapon = { PhysicalMin = 18, PhysicalMax = 38, CritChanceBase = 5, AttackRateBase = 1.4, Range = 11, },
+	req = { level = 26, },
 }
-itemBases["Bladed Mace"] = {
+itemBases["Brigand Mace"] = {
 	type = "One Handed Mace",
-	socketLimit = 3,
-	tags = { onehand = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
+	socketLimit = 2,
+	tags = { onehand = true, vaal_basetype = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
 	influenceTags = { shaper = "mace_shaper", elder = "mace_elder", adjudicator = "mace_adjudicator", basilisk = "mace_basilisk", crusader = "mace_crusader", eyrie = "mace_eyrie", cleansing = "mace_cleansing", tangle = "mace_tangle" },
-	implicit = "10% reduced Enemy Stun Threshold",
-	implicitModTypes = { {  }, },
-	weapon = { PhysicalMin = 19, PhysicalMax = 32, CritChanceBase = 5, AttackRateBase = 1.4, Range = 11, },
-	req = { level = 24, str = 83, },
+	implicitModTypes = { },
+	weapon = { PhysicalMin = 28, PhysicalMax = 38, CritChanceBase = 5, AttackRateBase = 1.45, Range = 11, },
+	req = { level = 33, },
 }
-itemBases["Ceremonial Mace"] = {
+itemBases["Construct Hammer"] = {
 	type = "One Handed Mace",
-	socketLimit = 3,
-	tags = { onehand = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
+	socketLimit = 2,
+	tags = { onehand = true, vaal_basetype = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
 	influenceTags = { shaper = "mace_shaper", elder = "mace_elder", adjudicator = "mace_adjudicator", basilisk = "mace_basilisk", crusader = "mace_crusader", eyrie = "mace_eyrie", cleansing = "mace_cleansing", tangle = "mace_tangle" },
-	implicit = "15% reduced Enemy Stun Threshold",
+	implicit = "Causes Daze buildup equal to 100% of Damage dealt",
 	implicitModTypes = { {  }, },
-	weapon = { PhysicalMin = 32, PhysicalMax = 40, CritChanceBase = 5, AttackRateBase = 1.2, Range = 11, },
-	req = { level = 28, str = 95, },
-}
-itemBases["Dream Mace"] = {
-	type = "One Handed Mace",
-	socketLimit = 3,
-	tags = { onehand = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
-	influenceTags = { shaper = "mace_shaper", elder = "mace_elder", adjudicator = "mace_adjudicator", basilisk = "mace_basilisk", crusader = "mace_crusader", eyrie = "mace_eyrie", cleansing = "mace_cleansing", tangle = "mace_tangle" },
-	implicit = "10% reduced Enemy Stun Threshold",
-	implicitModTypes = { {  }, },
-	weapon = { PhysicalMin = 21, PhysicalMax = 43, CritChanceBase = 5, AttackRateBase = 1.4, Range = 11, },
-	req = { level = 32, str = 107, },
-}
-itemBases["Wyrm Mace"] = {
-	type = "One Handed Mace",
-	socketLimit = 3,
-	tags = { maraketh = true, onehand = true, not_for_sale = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
-	influenceTags = { shaper = "mace_shaper", elder = "mace_elder", adjudicator = "mace_adjudicator", basilisk = "mace_basilisk", crusader = "mace_crusader", eyrie = "mace_eyrie", cleansing = "mace_cleansing", tangle = "mace_tangle" },
-	implicit = "4% increased Attack Speed",
-	implicitModTypes = { { "attack", "speed" }, },
-	weapon = { PhysicalMin = 28, PhysicalMax = 42, CritChanceBase = 5, AttackRateBase = 1.35, Range = 11, },
-	req = { level = 34, str = 118, },
-}
-itemBases["Petrified Club"] = {
-	type = "One Handed Mace",
-	socketLimit = 3,
-	tags = { onehand = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
-	influenceTags = { shaper = "mace_shaper", elder = "mace_elder", adjudicator = "mace_adjudicator", basilisk = "mace_basilisk", crusader = "mace_crusader", eyrie = "mace_eyrie", cleansing = "mace_cleansing", tangle = "mace_tangle" },
-	implicit = "10% reduced Enemy Stun Threshold",
-	implicitModTypes = { {  }, },
-	weapon = { PhysicalMin = 31, PhysicalMax = 51, CritChanceBase = 5, AttackRateBase = 1.25, Range = 11, },
-	req = { level = 35, str = 116, },
-}
-itemBases["Barbed Club"] = {
-	type = "One Handed Mace",
-	socketLimit = 3,
-	tags = { onehand = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
-	influenceTags = { shaper = "mace_shaper", elder = "mace_elder", adjudicator = "mace_adjudicator", basilisk = "mace_basilisk", crusader = "mace_crusader", eyrie = "mace_eyrie", cleansing = "mace_cleansing", tangle = "mace_tangle" },
-	implicit = "10% reduced Enemy Stun Threshold",
-	implicitModTypes = { {  }, },
-	weapon = { PhysicalMin = 33, PhysicalMax = 42, CritChanceBase = 5, AttackRateBase = 1.4, Range = 11, },
-	req = { level = 38, str = 125, },
-}
-itemBases["Rock Breaker"] = {
-	type = "One Handed Mace",
-	socketLimit = 3,
-	tags = { onehand = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
-	influenceTags = { shaper = "mace_shaper", elder = "mace_elder", adjudicator = "mace_adjudicator", basilisk = "mace_basilisk", crusader = "mace_crusader", eyrie = "mace_eyrie", cleansing = "mace_cleansing", tangle = "mace_tangle" },
-	implicit = "15% reduced Enemy Stun Threshold",
-	implicitModTypes = { {  }, },
-	weapon = { PhysicalMin = 37, PhysicalMax = 69, CritChanceBase = 5, AttackRateBase = 1.15, Range = 11, },
-	req = { level = 41, str = 134, },
-}
-itemBases["Battle Hammer"] = {
-	type = "One Handed Mace",
-	socketLimit = 3,
-	tags = { onehand = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
-	influenceTags = { shaper = "mace_shaper", elder = "mace_elder", adjudicator = "mace_adjudicator", basilisk = "mace_basilisk", crusader = "mace_crusader", eyrie = "mace_eyrie", cleansing = "mace_cleansing", tangle = "mace_tangle" },
-	implicit = "10% reduced Enemy Stun Threshold",
-	implicitModTypes = { {  }, },
-	weapon = { PhysicalMin = 25, PhysicalMax = 59, CritChanceBase = 5, AttackRateBase = 1.4, Range = 11, },
-	req = { level = 44, str = 143, },
-}
-itemBases["Flanged Mace"] = {
-	type = "One Handed Mace",
-	socketLimit = 3,
-	tags = { onehand = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
-	influenceTags = { shaper = "mace_shaper", elder = "mace_elder", adjudicator = "mace_adjudicator", basilisk = "mace_basilisk", crusader = "mace_crusader", eyrie = "mace_eyrie", cleansing = "mace_cleansing", tangle = "mace_tangle" },
-	implicit = "10% reduced Enemy Stun Threshold",
-	implicitModTypes = { {  }, },
-	weapon = { PhysicalMin = 38, PhysicalMax = 63, CritChanceBase = 5, AttackRateBase = 1.3, Range = 11, },
-	req = { level = 47, str = 152, },
-}
-itemBases["Ornate Mace"] = {
-	type = "One Handed Mace",
-	socketLimit = 3,
-	tags = { onehand = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
-	influenceTags = { shaper = "mace_shaper", elder = "mace_elder", adjudicator = "mace_adjudicator", basilisk = "mace_basilisk", crusader = "mace_crusader", eyrie = "mace_eyrie", cleansing = "mace_cleansing", tangle = "mace_tangle" },
-	implicit = "15% reduced Enemy Stun Threshold",
-	implicitModTypes = { {  }, },
-	weapon = { PhysicalMin = 53, PhysicalMax = 67, CritChanceBase = 5, AttackRateBase = 1.2, Range = 11, },
-	req = { level = 50, str = 161, },
-}
-itemBases["Phantom Mace"] = {
-	type = "One Handed Mace",
-	socketLimit = 3,
-	tags = { onehand = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
-	influenceTags = { shaper = "mace_shaper", elder = "mace_elder", adjudicator = "mace_adjudicator", basilisk = "mace_basilisk", crusader = "mace_crusader", eyrie = "mace_eyrie", cleansing = "mace_cleansing", tangle = "mace_tangle" },
-	implicit = "10% reduced Enemy Stun Threshold",
-	implicitModTypes = { {  }, },
-	weapon = { PhysicalMin = 33, PhysicalMax = 69, CritChanceBase = 5, AttackRateBase = 1.4, Range = 11, },
-	req = { level = 53, str = 170, },
-}
-itemBases["Dragon Mace"] = {
-	type = "One Handed Mace",
-	socketLimit = 3,
-	tags = { maraketh = true, onehand = true, not_for_sale = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
-	influenceTags = { shaper = "mace_shaper", elder = "mace_elder", adjudicator = "mace_adjudicator", basilisk = "mace_basilisk", crusader = "mace_crusader", eyrie = "mace_eyrie", cleansing = "mace_cleansing", tangle = "mace_tangle" },
-	implicit = "4% increased Attack Speed",
-	implicitModTypes = { { "attack", "speed" }, },
-	weapon = { PhysicalMin = 44, PhysicalMax = 66, CritChanceBase = 5, AttackRateBase = 1.35, Range = 11, },
-	req = { level = 55, str = 184, },
-}
-itemBases["Ancestral Club"] = {
-	type = "One Handed Mace",
-	socketLimit = 3,
-	tags = { onehand = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
-	influenceTags = { shaper = "mace_shaper", elder = "mace_elder", adjudicator = "mace_adjudicator", basilisk = "mace_basilisk", crusader = "mace_crusader", eyrie = "mace_eyrie", cleansing = "mace_cleansing", tangle = "mace_tangle" },
-	implicit = "10% reduced Enemy Stun Threshold",
-	implicitModTypes = { {  }, },
-	weapon = { PhysicalMin = 48, PhysicalMax = 80, CritChanceBase = 5, AttackRateBase = 1.25, Range = 11, },
-	req = { level = 56, str = 179, },
-}
-itemBases["Tenderizer"] = {
-	type = "One Handed Mace",
-	socketLimit = 3,
-	tags = { onehand = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
-	influenceTags = { shaper = "mace_shaper", elder = "mace_elder", adjudicator = "mace_adjudicator", basilisk = "mace_basilisk", crusader = "mace_crusader", eyrie = "mace_eyrie", cleansing = "mace_cleansing", tangle = "mace_tangle" },
-	implicit = "10% reduced Enemy Stun Threshold",
-	implicitModTypes = { {  }, },
-	weapon = { PhysicalMin = 49, PhysicalMax = 62, CritChanceBase = 5, AttackRateBase = 1.4, Range = 11, },
-	req = { level = 58, str = 185, },
-}
-itemBases["Gavel"] = {
-	type = "One Handed Mace",
-	socketLimit = 3,
-	tags = { onehand = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
-	influenceTags = { shaper = "mace_shaper", elder = "mace_elder", adjudicator = "mace_adjudicator", basilisk = "mace_basilisk", crusader = "mace_crusader", eyrie = "mace_eyrie", cleansing = "mace_cleansing", tangle = "mace_tangle" },
-	implicit = "15% reduced Enemy Stun Threshold",
-	implicitModTypes = { {  }, },
-	weapon = { PhysicalMin = 54, PhysicalMax = 101, CritChanceBase = 5, AttackRateBase = 1.15, Range = 11, },
-	req = { level = 60, str = 212, },
-}
-itemBases["Legion Hammer"] = {
-	type = "One Handed Mace",
-	socketLimit = 3,
-	tags = { onehand = true, top_tier_base_item_type = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
-	influenceTags = { shaper = "mace_shaper", elder = "mace_elder", adjudicator = "mace_adjudicator", basilisk = "mace_basilisk", crusader = "mace_crusader", eyrie = "mace_eyrie", cleansing = "mace_cleansing", tangle = "mace_tangle" },
-	implicit = "10% reduced Enemy Stun Threshold",
-	implicitModTypes = { {  }, },
-	weapon = { PhysicalMin = 35, PhysicalMax = 81, CritChanceBase = 5, AttackRateBase = 1.4, Range = 11, },
-	req = { level = 62, str = 212, },
-}
-itemBases["Pernach"] = {
-	type = "One Handed Mace",
-	socketLimit = 3,
-	tags = { onehand = true, top_tier_base_item_type = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
-	influenceTags = { shaper = "mace_shaper", elder = "mace_elder", adjudicator = "mace_adjudicator", basilisk = "mace_basilisk", crusader = "mace_crusader", eyrie = "mace_eyrie", cleansing = "mace_cleansing", tangle = "mace_tangle" },
-	implicit = "10% reduced Enemy Stun Threshold",
-	implicitModTypes = { {  }, },
-	weapon = { PhysicalMin = 49, PhysicalMax = 82, CritChanceBase = 5, AttackRateBase = 1.3, Range = 11, },
-	req = { level = 64, str = 212, },
-}
-itemBases["Auric Mace"] = {
-	type = "One Handed Mace",
-	socketLimit = 3,
-	tags = { onehand = true, top_tier_base_item_type = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
-	influenceTags = { shaper = "mace_shaper", elder = "mace_elder", adjudicator = "mace_adjudicator", basilisk = "mace_basilisk", crusader = "mace_crusader", eyrie = "mace_eyrie", cleansing = "mace_cleansing", tangle = "mace_tangle" },
-	implicit = "15% reduced Enemy Stun Threshold",
-	implicitModTypes = { {  }, },
-	weapon = { PhysicalMin = 65, PhysicalMax = 82, CritChanceBase = 5, AttackRateBase = 1.2, Range = 11, },
-	req = { level = 66, str = 212, },
-}
-itemBases["Nightmare Mace"] = {
-	type = "One Handed Mace",
-	socketLimit = 3,
-	tags = { onehand = true, top_tier_base_item_type = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
-	influenceTags = { shaper = "mace_shaper", elder = "mace_elder", adjudicator = "mace_adjudicator", basilisk = "mace_basilisk", crusader = "mace_crusader", eyrie = "mace_eyrie", cleansing = "mace_cleansing", tangle = "mace_tangle" },
-	implicit = "10% reduced Enemy Stun Threshold",
-	implicitModTypes = { {  }, },
-	weapon = { PhysicalMin = 38, PhysicalMax = 80, CritChanceBase = 5, AttackRateBase = 1.4, Range = 11, },
-	req = { level = 68, str = 212, },
-}
-itemBases["Behemoth Mace"] = {
-	type = "One Handed Mace",
-	socketLimit = 3,
-	tags = { maraketh = true, onehand = true, not_for_sale = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
-	influenceTags = { shaper = "mace_shaper", elder = "mace_elder", adjudicator = "mace_adjudicator", basilisk = "mace_basilisk", crusader = "mace_crusader", eyrie = "mace_eyrie", cleansing = "mace_cleansing", tangle = "mace_tangle" },
-	implicit = "6% increased Attack Speed",
-	implicitModTypes = { { "attack", "speed" }, },
-	weapon = { PhysicalMin = 49, PhysicalMax = 74, CritChanceBase = 5, AttackRateBase = 1.35, Range = 11, },
-	req = { level = 70, str = 220, },
-}
-itemBases["Flare Mace"] = {
-	type = "One Handed Mace",
-	socketLimit = 3,
-	tags = { weapon = true, onehand = true, not_for_sale = true, mace = true, experimental_base = true, one_hand_weapon = true, default = true, },
-	influenceTags = { shaper = "mace_shaper", elder = "mace_elder", adjudicator = "mace_adjudicator", basilisk = "mace_basilisk", crusader = "mace_crusader", eyrie = "mace_eyrie", cleansing = "mace_cleansing", tangle = "mace_tangle" },
-	implicit = "Trigger Level 10 Fiery Impact on Melee Hit with this Weapon",
-	implicitModTypes = { {  }, },
-	weapon = { PhysicalMin = 20, PhysicalMax = 41, CritChanceBase = 5, AttackRateBase = 1.3, Range = 11, },
-	req = { level = 30, str = 101, },
-}
-itemBases["Crack Mace"] = {
-	type = "One Handed Mace",
-	socketLimit = 3,
-	tags = { weapon = true, onehand = true, not_for_sale = true, mace = true, experimental_base = true, one_hand_weapon = true, default = true, },
-	influenceTags = { shaper = "mace_shaper", elder = "mace_elder", adjudicator = "mace_adjudicator", basilisk = "mace_basilisk", crusader = "mace_crusader", eyrie = "mace_eyrie", cleansing = "mace_cleansing", tangle = "mace_tangle" },
-	implicit = "Trigger Level 15 Fiery Impact on Melee Hit with this Weapon",
-	implicitModTypes = { {  }, },
-	weapon = { PhysicalMin = 31, PhysicalMax = 64, CritChanceBase = 5, AttackRateBase = 1.3, Range = 11, },
-	req = { level = 50, str = 161, },
-}
-itemBases["Boom Mace"] = {
-	type = "One Handed Mace",
-	socketLimit = 3,
-	tags = { weapon = true, onehand = true, not_for_sale = true, mace = true, experimental_base = true, one_hand_weapon = true, default = true, },
-	influenceTags = { shaper = "mace_shaper", elder = "mace_elder", adjudicator = "mace_adjudicator", basilisk = "mace_basilisk", crusader = "mace_crusader", eyrie = "mace_eyrie", cleansing = "mace_cleansing", tangle = "mace_tangle" },
-	implicit = "Trigger Level 20 Fiery Impact on Melee Hit with this Weapon",
-	implicitModTypes = { {  }, },
-	weapon = { PhysicalMin = 39, PhysicalMax = 81, CritChanceBase = 5, AttackRateBase = 1.3, Range = 11, },
-	req = { level = 70, str = 218, },
-}
-
-itemBases["Driftwood Sceptre"] = {
-	type = "Sceptre",
-	socketLimit = 3,
-	tags = { onehand = true, sceptre = true, weapon = true, one_hand_weapon = true, default = true, },
-	influenceTags = { shaper = "sceptre_shaper", elder = "sceptre_elder", adjudicator = "sceptre_adjudicator", basilisk = "sceptre_basilisk", crusader = "sceptre_crusader", eyrie = "sceptre_eyrie", cleansing = "sceptre_cleansing", tangle = "sceptre_tangle" },
-	implicit = "10% increased Elemental Damage",
-	implicitModTypes = { { "elemental_damage", "damage", "elemental" }, },
-	weapon = { PhysicalMin = 8, PhysicalMax = 11, CritChanceBase = 7, AttackRateBase = 1.2, Range = 11, },
-	req = { str = 8, int = 8, },
-}
-itemBases["Darkwood Sceptre"] = {
-	type = "Sceptre",
-	socketLimit = 3,
-	tags = { onehand = true, sceptre = true, weapon = true, one_hand_weapon = true, default = true, },
-	influenceTags = { shaper = "sceptre_shaper", elder = "sceptre_elder", adjudicator = "sceptre_adjudicator", basilisk = "sceptre_basilisk", crusader = "sceptre_crusader", eyrie = "sceptre_eyrie", cleansing = "sceptre_cleansing", tangle = "sceptre_tangle" },
-	implicit = "12% increased Elemental Damage",
-	implicitModTypes = { { "elemental_damage", "damage", "elemental" }, },
-	weapon = { PhysicalMin = 11, PhysicalMax = 17, CritChanceBase = 7, AttackRateBase = 1.2, Range = 11, },
-	req = { level = 5, str = 14, int = 14, },
-}
-itemBases["Bronze Sceptre"] = {
-	type = "Sceptre",
-	socketLimit = 3,
-	tags = { onehand = true, sceptre = true, weapon = true, one_hand_weapon = true, default = true, },
-	influenceTags = { shaper = "sceptre_shaper", elder = "sceptre_elder", adjudicator = "sceptre_adjudicator", basilisk = "sceptre_basilisk", crusader = "sceptre_crusader", eyrie = "sceptre_eyrie", cleansing = "sceptre_cleansing", tangle = "sceptre_tangle" },
-	implicit = "12% increased Elemental Damage",
-	implicitModTypes = { { "elemental_damage", "damage", "elemental" }, },
-	weapon = { PhysicalMin = 15, PhysicalMax = 29, CritChanceBase = 7, AttackRateBase = 1.1, Range = 11, },
-	req = { level = 10, str = 22, int = 22, },
-}
-itemBases["Quartz Sceptre"] = {
-	type = "Sceptre",
-	socketLimit = 3,
-	tags = { onehand = true, sceptre = true, weapon = true, one_hand_weapon = true, default = true, },
-	influenceTags = { shaper = "sceptre_shaper", elder = "sceptre_elder", adjudicator = "sceptre_adjudicator", basilisk = "sceptre_basilisk", crusader = "sceptre_crusader", eyrie = "sceptre_eyrie", cleansing = "sceptre_cleansing", tangle = "sceptre_tangle" },
-	implicit = "20% increased Elemental Damage",
-	implicitModTypes = { { "elemental_damage", "damage", "elemental" }, },
-	weapon = { PhysicalMin = 21, PhysicalMax = 32, CritChanceBase = 8, AttackRateBase = 1.1, Range = 11, },
-	req = { level = 15, str = 25, int = 35, },
-}
-itemBases["Iron Sceptre"] = {
-	type = "Sceptre",
-	socketLimit = 3,
-	tags = { onehand = true, sceptre = true, weapon = true, one_hand_weapon = true, default = true, },
-	influenceTags = { shaper = "sceptre_shaper", elder = "sceptre_elder", adjudicator = "sceptre_adjudicator", basilisk = "sceptre_basilisk", crusader = "sceptre_crusader", eyrie = "sceptre_eyrie", cleansing = "sceptre_cleansing", tangle = "sceptre_tangle" },
-	implicit = "14% increased Elemental Damage",
-	implicitModTypes = { { "elemental_damage", "damage", "elemental" }, },
-	weapon = { PhysicalMin = 27, PhysicalMax = 40, CritChanceBase = 7, AttackRateBase = 1.1, Range = 11, },
-	req = { level = 20, str = 38, int = 38, },
-}
-itemBases["Ochre Sceptre"] = {
-	type = "Sceptre",
-	socketLimit = 3,
-	tags = { onehand = true, sceptre = true, weapon = true, one_hand_weapon = true, default = true, },
-	influenceTags = { shaper = "sceptre_shaper", elder = "sceptre_elder", adjudicator = "sceptre_adjudicator", basilisk = "sceptre_basilisk", crusader = "sceptre_crusader", eyrie = "sceptre_eyrie", cleansing = "sceptre_cleansing", tangle = "sceptre_tangle" },
-	implicit = "16% increased Elemental Damage",
-	implicitModTypes = { { "elemental_damage", "damage", "elemental" }, },
-	weapon = { PhysicalMin = 24, PhysicalMax = 45, CritChanceBase = 7, AttackRateBase = 1.15, Range = 11, },
-	req = { level = 24, str = 44, int = 44, },
-}
-itemBases["Ritual Sceptre"] = {
-	type = "Sceptre",
-	socketLimit = 3,
-	tags = { onehand = true, sceptre = true, weapon = true, one_hand_weapon = true, default = true, },
-	influenceTags = { shaper = "sceptre_shaper", elder = "sceptre_elder", adjudicator = "sceptre_adjudicator", basilisk = "sceptre_basilisk", crusader = "sceptre_crusader", eyrie = "sceptre_eyrie", cleansing = "sceptre_cleansing", tangle = "sceptre_tangle" },
-	implicit = "16% increased Elemental Damage",
-	implicitModTypes = { { "elemental_damage", "damage", "elemental" }, },
-	weapon = { PhysicalMin = 21, PhysicalMax = 50, CritChanceBase = 7, AttackRateBase = 1.2, Range = 11, },
-	req = { level = 28, str = 51, int = 51, },
-}
-itemBases["Shadow Sceptre"] = {
-	type = "Sceptre",
-	socketLimit = 3,
-	tags = { onehand = true, sceptre = true, weapon = true, one_hand_weapon = true, default = true, },
-	influenceTags = { shaper = "sceptre_shaper", elder = "sceptre_elder", adjudicator = "sceptre_adjudicator", basilisk = "sceptre_basilisk", crusader = "sceptre_crusader", eyrie = "sceptre_eyrie", cleansing = "sceptre_cleansing", tangle = "sceptre_tangle" },
-	implicit = "22% increased Elemental Damage",
-	implicitModTypes = { { "elemental_damage", "damage", "elemental" }, },
-	weapon = { PhysicalMin = 29, PhysicalMax = 44, CritChanceBase = 7.3, AttackRateBase = 1.25, Range = 11, },
-	req = { level = 32, str = 52, int = 62, },
-}
-itemBases["Horned Sceptre"] = {
-	type = "Sceptre",
-	socketLimit = 3,
-	tags = { maraketh = true, onehand = true, sceptre = true, not_for_sale = true, weapon = true, one_hand_weapon = true, default = true, },
-	influenceTags = { shaper = "sceptre_shaper", elder = "sceptre_elder", adjudicator = "sceptre_adjudicator", basilisk = "sceptre_basilisk", crusader = "sceptre_crusader", eyrie = "sceptre_eyrie", cleansing = "sceptre_cleansing", tangle = "sceptre_tangle" },
-	implicit = "Damage Penetrates 4% Elemental Resistances",
-	implicitModTypes = { { "elemental_damage", "damage", "elemental" }, },
-	weapon = { PhysicalMin = 27, PhysicalMax = 50, CritChanceBase = 7, AttackRateBase = 1.3, Range = 11, },
-	req = { level = 36, str = 66, int = 66, },
-}
-itemBases["Grinning Fetish"] = {
-	type = "Sceptre",
-	socketLimit = 3,
-	tags = { onehand = true, sceptre = true, weapon = true, one_hand_weapon = true, default = true, },
-	influenceTags = { shaper = "sceptre_shaper", elder = "sceptre_elder", adjudicator = "sceptre_adjudicator", basilisk = "sceptre_basilisk", crusader = "sceptre_crusader", eyrie = "sceptre_eyrie", cleansing = "sceptre_cleansing", tangle = "sceptre_tangle" },
-	implicit = "18% increased Elemental Damage",
-	implicitModTypes = { { "elemental_damage", "damage", "elemental" }, },
-	weapon = { PhysicalMin = 24, PhysicalMax = 36, CritChanceBase = 7, AttackRateBase = 1.5, Range = 11, },
-	req = { level = 35, str = 62, int = 62, },
-}
-itemBases["Sekhem"] = {
-	type = "Sceptre",
-	socketLimit = 3,
-	tags = { onehand = true, sceptre = true, weapon = true, one_hand_weapon = true, default = true, },
-	influenceTags = { shaper = "sceptre_shaper", elder = "sceptre_elder", adjudicator = "sceptre_adjudicator", basilisk = "sceptre_basilisk", crusader = "sceptre_crusader", eyrie = "sceptre_eyrie", cleansing = "sceptre_cleansing", tangle = "sceptre_tangle" },
-	implicit = "18% increased Elemental Damage",
-	implicitModTypes = { { "elemental_damage", "damage", "elemental" }, },
-	weapon = { PhysicalMin = 30, PhysicalMax = 55, CritChanceBase = 7, AttackRateBase = 1.25, Range = 11, },
-	req = { level = 38, str = 67, int = 67, },
-}
-itemBases["Crystal Sceptre"] = {
-	type = "Sceptre",
-	socketLimit = 3,
-	tags = { onehand = true, sceptre = true, weapon = true, one_hand_weapon = true, default = true, },
-	influenceTags = { shaper = "sceptre_shaper", elder = "sceptre_elder", adjudicator = "sceptre_adjudicator", basilisk = "sceptre_basilisk", crusader = "sceptre_crusader", eyrie = "sceptre_eyrie", cleansing = "sceptre_cleansing", tangle = "sceptre_tangle" },
-	implicit = "30% increased Elemental Damage",
-	implicitModTypes = { { "elemental_damage", "damage", "elemental" }, },
-	weapon = { PhysicalMin = 35, PhysicalMax = 52, CritChanceBase = 8, AttackRateBase = 1.25, Range = 11, },
-	req = { level = 41, str = 59, int = 85, },
-}
-itemBases["Lead Sceptre"] = {
-	type = "Sceptre",
-	socketLimit = 3,
-	tags = { onehand = true, sceptre = true, weapon = true, one_hand_weapon = true, default = true, },
-	influenceTags = { shaper = "sceptre_shaper", elder = "sceptre_elder", adjudicator = "sceptre_adjudicator", basilisk = "sceptre_basilisk", crusader = "sceptre_crusader", eyrie = "sceptre_eyrie", cleansing = "sceptre_cleansing", tangle = "sceptre_tangle" },
-	implicit = "22% increased Elemental Damage",
-	implicitModTypes = { { "elemental_damage", "damage", "elemental" }, },
-	weapon = { PhysicalMin = 38, PhysicalMax = 57, CritChanceBase = 7, AttackRateBase = 1.25, Range = 11, },
-	req = { level = 44, str = 77, int = 77, },
-}
-itemBases["Blood Sceptre"] = {
-	type = "Sceptre",
-	socketLimit = 3,
-	tags = { onehand = true, sceptre = true, weapon = true, one_hand_weapon = true, default = true, },
-	influenceTags = { shaper = "sceptre_shaper", elder = "sceptre_elder", adjudicator = "sceptre_adjudicator", basilisk = "sceptre_basilisk", crusader = "sceptre_crusader", eyrie = "sceptre_eyrie", cleansing = "sceptre_cleansing", tangle = "sceptre_tangle" },
-	implicit = "24% increased Elemental Damage",
-	implicitModTypes = { { "elemental_damage", "damage", "elemental" }, },
-	weapon = { PhysicalMin = 30, PhysicalMax = 55, CritChanceBase = 7, AttackRateBase = 1.4, Range = 11, },
-	req = { level = 47, str = 81, int = 81, },
-}
-itemBases["Royal Sceptre"] = {
-	type = "Sceptre",
-	socketLimit = 3,
-	tags = { onehand = true, sceptre = true, weapon = true, one_hand_weapon = true, default = true, },
-	influenceTags = { shaper = "sceptre_shaper", elder = "sceptre_elder", adjudicator = "sceptre_adjudicator", basilisk = "sceptre_basilisk", crusader = "sceptre_crusader", eyrie = "sceptre_eyrie", cleansing = "sceptre_cleansing", tangle = "sceptre_tangle" },
-	implicit = "24% increased Elemental Damage",
-	implicitModTypes = { { "elemental_damage", "damage", "elemental" }, },
-	weapon = { PhysicalMin = 34, PhysicalMax = 80, CritChanceBase = 7, AttackRateBase = 1.2, Range = 11, },
-	req = { level = 50, str = 86, int = 86, },
-}
-itemBases["Abyssal Sceptre"] = {
-	type = "Sceptre",
-	socketLimit = 3,
-	tags = { onehand = true, sceptre = true, weapon = true, one_hand_weapon = true, default = true, },
-	influenceTags = { shaper = "sceptre_shaper", elder = "sceptre_elder", adjudicator = "sceptre_adjudicator", basilisk = "sceptre_basilisk", crusader = "sceptre_crusader", eyrie = "sceptre_eyrie", cleansing = "sceptre_cleansing", tangle = "sceptre_tangle" },
-	implicit = "30% increased Elemental Damage",
-	implicitModTypes = { { "elemental_damage", "damage", "elemental" }, },
-	weapon = { PhysicalMin = 45, PhysicalMax = 67, CritChanceBase = 7.3, AttackRateBase = 1.25, Range = 11, },
-	req = { level = 53, str = 83, int = 99, },
-}
-itemBases["Stag Sceptre"] = {
-	type = "Sceptre",
-	socketLimit = 3,
-	tags = { maraketh = true, onehand = true, sceptre = true, not_for_sale = true, weapon = true, one_hand_weapon = true, default = true, },
-	influenceTags = { shaper = "sceptre_shaper", elder = "sceptre_elder", adjudicator = "sceptre_adjudicator", basilisk = "sceptre_basilisk", crusader = "sceptre_crusader", eyrie = "sceptre_eyrie", cleansing = "sceptre_cleansing", tangle = "sceptre_tangle" },
-	implicit = "Damage Penetrates 4% Elemental Resistances",
-	implicitModTypes = { { "elemental_damage", "damage", "elemental" }, },
-	weapon = { PhysicalMin = 39, PhysicalMax = 72, CritChanceBase = 7, AttackRateBase = 1.3, Range = 11, },
-	req = { level = 55, str = 98, int = 98, },
-}
-itemBases["Karui Sceptre"] = {
-	type = "Sceptre",
-	socketLimit = 3,
-	tags = { onehand = true, sceptre = true, weapon = true, one_hand_weapon = true, default = true, },
-	influenceTags = { shaper = "sceptre_shaper", elder = "sceptre_elder", adjudicator = "sceptre_adjudicator", basilisk = "sceptre_basilisk", crusader = "sceptre_crusader", eyrie = "sceptre_eyrie", cleansing = "sceptre_cleansing", tangle = "sceptre_tangle" },
-	implicit = "26% increased Elemental Damage",
-	implicitModTypes = { { "elemental_damage", "damage", "elemental" }, },
-	weapon = { PhysicalMin = 37, PhysicalMax = 55, CritChanceBase = 7, AttackRateBase = 1.5, Range = 11, },
-	req = { level = 56, str = 96, int = 96, },
-}
-itemBases["Tyrant's Sekhem"] = {
-	type = "Sceptre",
-	socketLimit = 3,
-	tags = { onehand = true, sceptre = true, weapon = true, one_hand_weapon = true, default = true, },
-	influenceTags = { shaper = "sceptre_shaper", elder = "sceptre_elder", adjudicator = "sceptre_adjudicator", basilisk = "sceptre_basilisk", crusader = "sceptre_crusader", eyrie = "sceptre_eyrie", cleansing = "sceptre_cleansing", tangle = "sceptre_tangle" },
-	implicit = "26% increased Elemental Damage",
-	implicitModTypes = { { "elemental_damage", "damage", "elemental" }, },
-	weapon = { PhysicalMin = 43, PhysicalMax = 80, CritChanceBase = 7, AttackRateBase = 1.25, Range = 11, },
-	req = { level = 58, str = 99, int = 99, },
-}
-itemBases["Opal Sceptre"] = {
-	type = "Sceptre",
-	socketLimit = 3,
-	tags = { onehand = true, sceptre = true, weapon = true, one_hand_weapon = true, default = true, },
-	influenceTags = { shaper = "sceptre_shaper", elder = "sceptre_elder", adjudicator = "sceptre_adjudicator", basilisk = "sceptre_basilisk", crusader = "sceptre_crusader", eyrie = "sceptre_eyrie", cleansing = "sceptre_cleansing", tangle = "sceptre_tangle" },
-	implicit = "40% increased Elemental Damage",
-	implicitModTypes = { { "elemental_damage", "damage", "elemental" }, },
-	weapon = { PhysicalMin = 49, PhysicalMax = 73, CritChanceBase = 8, AttackRateBase = 1.25, Range = 11, },
-	req = { level = 60, str = 95, int = 131, },
-}
-itemBases["Platinum Sceptre"] = {
-	type = "Sceptre",
-	socketLimit = 3,
-	tags = { onehand = true, sceptre = true, top_tier_base_item_type = true, weapon = true, one_hand_weapon = true, default = true, },
-	influenceTags = { shaper = "sceptre_shaper", elder = "sceptre_elder", adjudicator = "sceptre_adjudicator", basilisk = "sceptre_basilisk", crusader = "sceptre_crusader", eyrie = "sceptre_eyrie", cleansing = "sceptre_cleansing", tangle = "sceptre_tangle" },
-	implicit = "30% increased Elemental Damage",
-	implicitModTypes = { { "elemental_damage", "damage", "elemental" }, },
-	weapon = { PhysicalMin = 51, PhysicalMax = 76, CritChanceBase = 7, AttackRateBase = 1.25, Range = 11, },
-	req = { level = 62, str = 113, int = 113, },
-}
-itemBases["Vaal Sceptre"] = {
-	type = "Sceptre",
-	socketLimit = 3,
-	tags = { onehand = true, sceptre = true, top_tier_base_item_type = true, weapon = true, one_hand_weapon = true, default = true, },
-	influenceTags = { shaper = "sceptre_shaper", elder = "sceptre_elder", adjudicator = "sceptre_adjudicator", basilisk = "sceptre_basilisk", crusader = "sceptre_crusader", eyrie = "sceptre_eyrie", cleansing = "sceptre_cleansing", tangle = "sceptre_tangle" },
-	implicit = "32% increased Elemental Damage",
-	implicitModTypes = { { "elemental_damage", "damage", "elemental" }, },
-	weapon = { PhysicalMin = 37, PhysicalMax = 70, CritChanceBase = 7, AttackRateBase = 1.4, Range = 11, },
-	req = { level = 64, str = 113, int = 113, },
-}
-itemBases["Carnal Sceptre"] = {
-	type = "Sceptre",
-	socketLimit = 3,
-	tags = { onehand = true, sceptre = true, top_tier_base_item_type = true, weapon = true, one_hand_weapon = true, default = true, },
-	influenceTags = { shaper = "sceptre_shaper", elder = "sceptre_elder", adjudicator = "sceptre_adjudicator", basilisk = "sceptre_basilisk", crusader = "sceptre_crusader", eyrie = "sceptre_eyrie", cleansing = "sceptre_cleansing", tangle = "sceptre_tangle" },
-	implicit = "32% increased Elemental Damage",
-	implicitModTypes = { { "elemental_damage", "damage", "elemental" }, },
-	weapon = { PhysicalMin = 41, PhysicalMax = 95, CritChanceBase = 7, AttackRateBase = 1.2, Range = 11, },
-	req = { level = 66, str = 113, int = 113, },
-}
-itemBases["Void Sceptre"] = {
-	type = "Sceptre",
-	socketLimit = 3,
-	tags = { onehand = true, sceptre = true, top_tier_base_item_type = true, weapon = true, one_hand_weapon = true, default = true, },
-	influenceTags = { shaper = "sceptre_shaper", elder = "sceptre_elder", adjudicator = "sceptre_adjudicator", basilisk = "sceptre_basilisk", crusader = "sceptre_crusader", eyrie = "sceptre_eyrie", cleansing = "sceptre_cleansing", tangle = "sceptre_tangle" },
-	implicit = "40% increased Elemental Damage",
-	implicitModTypes = { { "elemental_damage", "damage", "elemental" }, },
-	weapon = { PhysicalMin = 50, PhysicalMax = 76, CritChanceBase = 7.3, AttackRateBase = 1.25, Range = 11, },
-	req = { level = 68, str = 104, int = 122, },
-}
-itemBases["Sambar Sceptre"] = {
-	type = "Sceptre",
-	socketLimit = 3,
-	tags = { maraketh = true, onehand = true, sceptre = true, not_for_sale = true, weapon = true, one_hand_weapon = true, default = true, },
-	influenceTags = { shaper = "sceptre_shaper", elder = "sceptre_elder", adjudicator = "sceptre_adjudicator", basilisk = "sceptre_basilisk", crusader = "sceptre_crusader", eyrie = "sceptre_eyrie", cleansing = "sceptre_cleansing", tangle = "sceptre_tangle" },
-	implicit = "Damage Penetrates 6% Elemental Resistances",
-	implicitModTypes = { { "elemental_damage", "damage", "elemental" }, },
-	weapon = { PhysicalMin = 42, PhysicalMax = 78, CritChanceBase = 7, AttackRateBase = 1.3, Range = 11, },
-	req = { level = 70, str = 121, int = 113, },
-}
-itemBases["Oscillating Sceptre"] = {
-	type = "Sceptre",
-	socketLimit = 3,
-	tags = { weapon = true, onehand = true, sceptre = true, not_for_sale = true, experimental_base = true, one_hand_weapon = true, default = true, },
-	influenceTags = { shaper = "sceptre_shaper", elder = "sceptre_elder", adjudicator = "sceptre_adjudicator", basilisk = "sceptre_basilisk", crusader = "sceptre_crusader", eyrie = "sceptre_eyrie", cleansing = "sceptre_cleansing", tangle = "sceptre_tangle" },
-	implicit = "Elemental Overload",
-	implicitModTypes = { { "elemental_damage", "damage", "elemental", "critical" }, },
-	weapon = { PhysicalMin = 23, PhysicalMax = 34, CritChanceBase = 7.6, AttackRateBase = 1.45, Range = 11, },
-	req = { level = 30, str = 44, int = 64, },
-}
-itemBases["Stabilising Sceptre"] = {
-	type = "Sceptre",
-	socketLimit = 3,
-	tags = { weapon = true, onehand = true, sceptre = true, not_for_sale = true, experimental_base = true, one_hand_weapon = true, default = true, },
-	influenceTags = { shaper = "sceptre_shaper", elder = "sceptre_elder", adjudicator = "sceptre_adjudicator", basilisk = "sceptre_basilisk", crusader = "sceptre_crusader", eyrie = "sceptre_eyrie", cleansing = "sceptre_cleansing", tangle = "sceptre_tangle" },
-	implicit = "Elemental Equilibrium",
-	implicitModTypes = { { "elemental_damage", "damage", "elemental" }, },
-	weapon = { PhysicalMin = 35, PhysicalMax = 52, CritChanceBase = 7.6, AttackRateBase = 1.45, Range = 11, },
-	req = { level = 50, str = 71, int = 102, },
-}
-itemBases["Alternating Sceptre"] = {
-	type = "Sceptre",
-	socketLimit = 3,
-	tags = { weapon = true, onehand = true, sceptre = true, not_for_sale = true, experimental_base = true, one_hand_weapon = true, default = true, },
-	influenceTags = { shaper = "sceptre_shaper", elder = "sceptre_elder", adjudicator = "sceptre_adjudicator", basilisk = "sceptre_basilisk", crusader = "sceptre_crusader", eyrie = "sceptre_eyrie", cleansing = "sceptre_cleansing", tangle = "sceptre_tangle" },
-	implicit = "Secrets of Suffering",
-	implicitModTypes = { {  }, },
-	weapon = { PhysicalMin = 41, PhysicalMax = 61, CritChanceBase = 7.6, AttackRateBase = 1.45, Range = 11, },
-	req = { level = 70, str = 95, int = 131, },
-}
-
-itemBases["Driftwood Maul"] = {
-	type = "Two Handed Mace",
-	socketLimit = 6,
-	tags = { two_hand_weapon = true, mace = true, weapon = true, twohand = true, default = true, },
-	influenceTags = { shaper = "2h_mace_shaper", elder = "2h_mace_elder", adjudicator = "2h_mace_adjudicator", basilisk = "2h_mace_basilisk", crusader = "2h_mace_crusader", eyrie = "2h_mace_eyrie", cleansing = "2h_mace_cleansing", tangle = "2h_mace_tangle" },
-	implicit = "30% increased Stun Duration on Enemies",
-	implicitModTypes = { {  }, },
-	weapon = { PhysicalMin = 10, PhysicalMax = 16, CritChanceBase = 5, AttackRateBase = 1.3, Range = 13, },
-	req = { str = 20, },
-}
-itemBases["Tribal Maul"] = {
-	type = "Two Handed Mace",
-	socketLimit = 6,
-	tags = { two_hand_weapon = true, mace = true, weapon = true, twohand = true, default = true, },
-	influenceTags = { shaper = "2h_mace_shaper", elder = "2h_mace_elder", adjudicator = "2h_mace_adjudicator", basilisk = "2h_mace_basilisk", crusader = "2h_mace_crusader", eyrie = "2h_mace_eyrie", cleansing = "2h_mace_cleansing", tangle = "2h_mace_tangle" },
-	implicit = "30% increased Stun Duration on Enemies",
-	implicitModTypes = { {  }, },
-	weapon = { PhysicalMin = 17, PhysicalMax = 25, CritChanceBase = 5, AttackRateBase = 1.25, Range = 13, },
-	req = { level = 8, str = 35, },
-}
-itemBases["Mallet"] = {
-	type = "Two Handed Mace",
-	socketLimit = 6,
-	tags = { two_hand_weapon = true, mace = true, weapon = true, twohand = true, default = true, },
-	influenceTags = { shaper = "2h_mace_shaper", elder = "2h_mace_elder", adjudicator = "2h_mace_adjudicator", basilisk = "2h_mace_basilisk", crusader = "2h_mace_crusader", eyrie = "2h_mace_eyrie", cleansing = "2h_mace_cleansing", tangle = "2h_mace_tangle" },
-	implicit = "30% increased Stun Duration on Enemies",
-	implicitModTypes = { {  }, },
-	weapon = { PhysicalMin = 16, PhysicalMax = 33, CritChanceBase = 5, AttackRateBase = 1.3, Range = 13, },
-	req = { level = 12, str = 47, },
-}
-itemBases["Sledgehammer"] = {
-	type = "Two Handed Mace",
-	socketLimit = 6,
-	tags = { two_hand_weapon = true, mace = true, weapon = true, twohand = true, default = true, },
-	influenceTags = { shaper = "2h_mace_shaper", elder = "2h_mace_elder", adjudicator = "2h_mace_adjudicator", basilisk = "2h_mace_basilisk", crusader = "2h_mace_crusader", eyrie = "2h_mace_eyrie", cleansing = "2h_mace_cleansing", tangle = "2h_mace_tangle" },
-	implicit = "45% increased Stun Duration on Enemies",
-	implicitModTypes = { {  }, },
-	weapon = { PhysicalMin = 25, PhysicalMax = 38, CritChanceBase = 5, AttackRateBase = 1.3, Range = 13, },
-	req = { level = 17, str = 62, },
-}
-itemBases["Jagged Maul"] = {
-	type = "Two Handed Mace",
-	socketLimit = 6,
-	tags = { two_hand_weapon = true, mace = true, weapon = true, twohand = true, default = true, },
-	influenceTags = { shaper = "2h_mace_shaper", elder = "2h_mace_elder", adjudicator = "2h_mace_adjudicator", basilisk = "2h_mace_basilisk", crusader = "2h_mace_crusader", eyrie = "2h_mace_eyrie", cleansing = "2h_mace_cleansing", tangle = "2h_mace_tangle" },
-	implicit = "30% increased Stun Duration on Enemies",
-	implicitModTypes = { {  }, },
-	weapon = { PhysicalMin = 27, PhysicalMax = 49, CritChanceBase = 5, AttackRateBase = 1.3, Range = 13, },
-	req = { level = 22, str = 77, },
-}
-itemBases["Brass Maul"] = {
-	type = "Two Handed Mace",
-	socketLimit = 6,
-	tags = { two_hand_weapon = true, mace = true, weapon = true, twohand = true, default = true, },
-	influenceTags = { shaper = "2h_mace_shaper", elder = "2h_mace_elder", adjudicator = "2h_mace_adjudicator", basilisk = "2h_mace_basilisk", crusader = "2h_mace_crusader", eyrie = "2h_mace_eyrie", cleansing = "2h_mace_cleansing", tangle = "2h_mace_tangle" },
-	implicit = "30% increased Stun Duration on Enemies",
-	implicitModTypes = { {  }, },
-	weapon = { PhysicalMin = 40, PhysicalMax = 60, CritChanceBase = 5, AttackRateBase = 1.2, Range = 13, },
-	req = { level = 27, str = 92, },
-}
-itemBases["Fright Maul"] = {
-	type = "Two Handed Mace",
-	socketLimit = 6,
-	tags = { two_hand_weapon = true, mace = true, weapon = true, twohand = true, default = true, },
-	influenceTags = { shaper = "2h_mace_shaper", elder = "2h_mace_elder", adjudicator = "2h_mace_adjudicator", basilisk = "2h_mace_basilisk", crusader = "2h_mace_crusader", eyrie = "2h_mace_eyrie", cleansing = "2h_mace_cleansing", tangle = "2h_mace_tangle" },
-	implicit = "30% increased Stun Duration on Enemies",
-	implicitModTypes = { {  }, },
-	weapon = { PhysicalMin = 46, PhysicalMax = 62, CritChanceBase = 5, AttackRateBase = 1.25, Range = 13, },
-	req = { level = 32, str = 107, },
+	weapon = { PhysicalMin = 31, PhysicalMax = 38, CritChanceBase = 5, AttackRateBase = 1.4, Range = 11, },
+	req = { level = 36, },
 }
 itemBases["Morning Star"] = {
-	type = "Two Handed Mace",
-	socketLimit = 6,
-	tags = { two_hand_weapon = true, maraketh = true, not_for_sale = true, mace = true, weapon = true, twohand = true, default = true, },
-	influenceTags = { shaper = "2h_mace_shaper", elder = "2h_mace_elder", adjudicator = "2h_mace_adjudicator", basilisk = "2h_mace_basilisk", crusader = "2h_mace_crusader", eyrie = "2h_mace_eyrie", cleansing = "2h_mace_cleansing", tangle = "2h_mace_tangle" },
-	implicit = "15% increased Area of Effect",
-	implicitModTypes = { {  }, },
-	weapon = { PhysicalMin = 45, PhysicalMax = 68, CritChanceBase = 5, AttackRateBase = 1.25, Range = 13, },
-	req = { level = 34, str = 118, },
+	type = "One Handed Mace",
+	socketLimit = 2,
+	tags = { onehand = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
+	influenceTags = { shaper = "mace_shaper", elder = "mace_elder", adjudicator = "mace_adjudicator", basilisk = "mace_basilisk", crusader = "mace_crusader", eyrie = "mace_eyrie", cleansing = "mace_cleansing", tangle = "mace_tangle" },
+	implicitModTypes = { },
+	weapon = { PhysicalMin = 33, PhysicalMax = 49, CritChanceBase = 6.5, AttackRateBase = 1.45, Range = 11, },
+	req = { level = 45, },
 }
-itemBases["Totemic Maul"] = {
+itemBases["Jade Club"] = {
+	type = "One Handed Mace",
+	socketLimit = 2,
+	tags = { onehand = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
+	influenceTags = { shaper = "mace_shaper", elder = "mace_elder", adjudicator = "mace_adjudicator", basilisk = "mace_basilisk", crusader = "mace_crusader", eyrie = "mace_eyrie", cleansing = "mace_cleansing", tangle = "mace_tangle" },
+	implicit = "Always Hits",
+	implicitModTypes = { { "attack" }, },
+	weapon = { PhysicalMin = 30, PhysicalMax = 50, CritChanceBase = 5, AttackRateBase = 1.45, Range = 11, },
+	req = { level = 48, },
+}
+itemBases["Lumen Mace"] = {
+	type = "One Handed Mace",
+	socketLimit = 2,
+	tags = { onehand = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
+	influenceTags = { shaper = "mace_shaper", elder = "mace_elder", adjudicator = "mace_adjudicator", basilisk = "mace_basilisk", crusader = "mace_crusader", eyrie = "mace_eyrie", cleansing = "mace_cleansing", tangle = "mace_tangle" },
+	implicitModTypes = { },
+	weapon = { PhysicalMin = 36, PhysicalMax = 60, CritChanceBase = 5, AttackRateBase = 1.45, Range = 11, },
+	req = { level = 52, },
+}
+itemBases["Execratus Hammer"] = {
+	type = "One Handed Mace",
+	socketLimit = 2,
+	tags = { onehand = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
+	influenceTags = { shaper = "mace_shaper", elder = "mace_elder", adjudicator = "mace_adjudicator", basilisk = "mace_basilisk", crusader = "mace_crusader", eyrie = "mace_eyrie", cleansing = "mace_cleansing", tangle = "mace_tangle" },
+	implicitModTypes = { },
+	weapon = { PhysicalMin = 40, PhysicalMax = 60, CritChanceBase = 5, AttackRateBase = 1.45, Range = 11, },
+	req = { level = 55, },
+}
+itemBases["Torment Club"] = {
+	type = "One Handed Mace",
+	socketLimit = 2,
+	tags = { onehand = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
+	influenceTags = { shaper = "mace_shaper", elder = "mace_elder", adjudicator = "mace_adjudicator", basilisk = "mace_basilisk", crusader = "mace_crusader", eyrie = "mace_eyrie", cleansing = "mace_cleansing", tangle = "mace_tangle" },
+	implicitModTypes = { },
+	weapon = { PhysicalMin = 44, PhysicalMax = 73, CritChanceBase = 5, AttackRateBase = 1.45, Range = 11, },
+	req = { level = 65, },
+}
+itemBases["Advanced Smithing Hammer"] = {
+	type = "One Handed Mace",
+	socketLimit = 2,
+	tags = { onehand = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
+	influenceTags = { shaper = "mace_shaper", elder = "mace_elder", adjudicator = "mace_adjudicator", basilisk = "mace_basilisk", crusader = "mace_crusader", eyrie = "mace_eyrie", cleansing = "mace_cleansing", tangle = "mace_tangle" },
+	implicitModTypes = { },
+	weapon = { PhysicalMin = 38, PhysicalMax = 64, CritChanceBase = 5, AttackRateBase = 1.45, Range = 11, },
+	req = { level = 45, },
+}
+itemBases["Advanced Slim Mace"] = {
+	type = "One Handed Mace",
+	socketLimit = 2,
+	tags = { onehand = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
+	influenceTags = { shaper = "mace_shaper", elder = "mace_elder", adjudicator = "mace_adjudicator", basilisk = "mace_basilisk", crusader = "mace_crusader", eyrie = "mace_eyrie", cleansing = "mace_cleansing", tangle = "mace_tangle" },
+	implicitModTypes = { },
+	weapon = { PhysicalMin = 33, PhysicalMax = 50, CritChanceBase = 5, AttackRateBase = 1.55, Range = 11, },
+	req = { level = 48, },
+}
+itemBases["Advanced Warpick"] = {
+	type = "One Handed Mace",
+	socketLimit = 2,
+	tags = { onehand = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
+	influenceTags = { shaper = "mace_shaper", elder = "mace_elder", adjudicator = "mace_adjudicator", basilisk = "mace_basilisk", crusader = "mace_crusader", eyrie = "mace_eyrie", cleansing = "mace_cleansing", tangle = "mace_tangle" },
+	implicit = "+(30-40)% to Critical Damage Bonus",
+	implicitModTypes = { { "damage", "attack", "critical" }, },
+	weapon = { PhysicalMin = 34, PhysicalMax = 46, CritChanceBase = 8, AttackRateBase = 1.45, Range = 11, },
+	req = { level = 51, },
+}
+itemBases["Advanced Plated Mace"] = {
+	type = "One Handed Mace",
+	socketLimit = 2,
+	tags = { onehand = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
+	influenceTags = { shaper = "mace_shaper", elder = "mace_elder", adjudicator = "mace_adjudicator", basilisk = "mace_basilisk", crusader = "mace_crusader", eyrie = "mace_eyrie", cleansing = "mace_cleansing", tangle = "mace_tangle" },
+	implicitModTypes = { },
+	weapon = { PhysicalMin = 34, PhysicalMax = 70, CritChanceBase = 5, AttackRateBase = 1.4, Range = 11, },
+	req = { level = 55, },
+}
+itemBases["Advanced Brigand Mace"] = {
+	type = "One Handed Mace",
+	socketLimit = 2,
+	tags = { onehand = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
+	influenceTags = { shaper = "mace_shaper", elder = "mace_elder", adjudicator = "mace_adjudicator", basilisk = "mace_basilisk", crusader = "mace_crusader", eyrie = "mace_eyrie", cleansing = "mace_cleansing", tangle = "mace_tangle" },
+	implicitModTypes = { },
+	weapon = { PhysicalMin = 45, PhysicalMax = 61, CritChanceBase = 5, AttackRateBase = 1.45, Range = 11, },
+	req = { level = 59, },
+}
+itemBases["Advanced Construct Hammer"] = {
+	type = "One Handed Mace",
+	socketLimit = 2,
+	tags = { onehand = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
+	influenceTags = { shaper = "mace_shaper", elder = "mace_elder", adjudicator = "mace_adjudicator", basilisk = "mace_basilisk", crusader = "mace_crusader", eyrie = "mace_eyrie", cleansing = "mace_cleansing", tangle = "mace_tangle" },
+	implicit = "Causes Daze buildup equal to 100% of Damage dealt",
+	implicitModTypes = { {  }, },
+	weapon = { PhysicalMin = 49, PhysicalMax = 60, CritChanceBase = 5, AttackRateBase = 1.4, Range = 11, },
+	req = { level = 62, },
+}
+itemBases["Expert Slim Mace"] = {
+	type = "One Handed Mace",
+	socketLimit = 2,
+	tags = { onehand = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
+	influenceTags = { shaper = "mace_shaper", elder = "mace_elder", adjudicator = "mace_adjudicator", basilisk = "mace_basilisk", crusader = "mace_crusader", eyrie = "mace_eyrie", cleansing = "mace_cleansing", tangle = "mace_tangle" },
+	implicitModTypes = { },
+	weapon = { PhysicalMin = 45, PhysicalMax = 67, CritChanceBase = 5, AttackRateBase = 1.55, Range = 11, },
+	req = { level = 67, },
+}
+itemBases["Expert Plated Mace"] = {
+	type = "One Handed Mace",
+	socketLimit = 2,
+	tags = { onehand = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
+	influenceTags = { shaper = "mace_shaper", elder = "mace_elder", adjudicator = "mace_adjudicator", basilisk = "mace_basilisk", crusader = "mace_crusader", eyrie = "mace_eyrie", cleansing = "mace_cleansing", tangle = "mace_tangle" },
+	implicitModTypes = { },
+	weapon = { PhysicalMin = 43, PhysicalMax = 89, CritChanceBase = 5, AttackRateBase = 1.4, Range = 11, },
+	req = { level = 72, },
+}
+itemBases["Expert Smithing Hammer"] = {
+	type = "One Handed Mace",
+	socketLimit = 2,
+	tags = { onehand = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
+	influenceTags = { shaper = "mace_shaper", elder = "mace_elder", adjudicator = "mace_adjudicator", basilisk = "mace_basilisk", crusader = "mace_crusader", eyrie = "mace_eyrie", cleansing = "mace_cleansing", tangle = "mace_tangle" },
+	implicitModTypes = { },
+	weapon = { PhysicalMin = 61, PhysicalMax = 101, CritChanceBase = 5, AttackRateBase = 1.45, Range = 11, },
+	req = { level = 77, },
+}
+itemBases["Expert Warpick"] = {
+	type = "One Handed Mace",
+	socketLimit = 2,
+	tags = { onehand = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
+	influenceTags = { shaper = "mace_shaper", elder = "mace_elder", adjudicator = "mace_adjudicator", basilisk = "mace_basilisk", crusader = "mace_crusader", eyrie = "mace_eyrie", cleansing = "mace_cleansing", tangle = "mace_tangle" },
+	implicit = "+(30-40)% to Critical Damage Bonus",
+	implicitModTypes = { { "damage", "attack", "critical" }, },
+	weapon = { PhysicalMin = 48, PhysicalMax = 64, CritChanceBase = 8, AttackRateBase = 1.45, Range = 11, },
+	req = { level = 78, },
+}
+itemBases["Expert Construct Hammer"] = {
+	type = "One Handed Mace",
+	socketLimit = 2,
+	tags = { onehand = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
+	influenceTags = { shaper = "mace_shaper", elder = "mace_elder", adjudicator = "mace_adjudicator", basilisk = "mace_basilisk", crusader = "mace_crusader", eyrie = "mace_eyrie", cleansing = "mace_cleansing", tangle = "mace_tangle" },
+	implicit = "Causes Daze buildup equal to 100% of Damage dealt",
+	implicitModTypes = { {  }, },
+	weapon = { PhysicalMin = 60, PhysicalMax = 73, CritChanceBase = 5, AttackRateBase = 1.4, Range = 11, },
+	req = { level = 79, },
+}
+itemBases["Expert Brigand Mace"] = {
+	type = "One Handed Mace",
+	socketLimit = 2,
+	tags = { onehand = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
+	influenceTags = { shaper = "mace_shaper", elder = "mace_elder", adjudicator = "mace_adjudicator", basilisk = "mace_basilisk", crusader = "mace_crusader", eyrie = "mace_eyrie", cleansing = "mace_cleansing", tangle = "mace_tangle" },
+	implicitModTypes = { },
+	weapon = { PhysicalMin = 51, PhysicalMax = 84, CritChanceBase = 5, AttackRateBase = 1.45, Range = 11, },
+	req = { level = 77, },
+}
+
+
+itemBases["Felled Greatclub"] = {
 	type = "Two Handed Mace",
-	socketLimit = 6,
+	socketLimit = 3,
+	tags = { two_hand_weapon = true, ezomyte_basetype = true, mace = true, weapon = true, twohand = true, default = true, },
+	influenceTags = { shaper = "2h_mace_shaper", elder = "2h_mace_elder", adjudicator = "2h_mace_adjudicator", basilisk = "2h_mace_basilisk", crusader = "2h_mace_crusader", eyrie = "2h_mace_eyrie", cleansing = "2h_mace_cleansing", tangle = "2h_mace_tangle" },
+	implicitModTypes = { },
+	weapon = { PhysicalMin = 13, PhysicalMax = 18, CritChanceBase = 5, AttackRateBase = 1.1, Range = 13, },
+	req = { },
+}
+itemBases["Oak Greathammer"] = {
+	type = "Two Handed Mace",
+	socketLimit = 3,
+	tags = { two_hand_weapon = true, ezomyte_basetype = true, mace = true, weapon = true, twohand = true, default = true, },
+	influenceTags = { shaper = "2h_mace_shaper", elder = "2h_mace_elder", adjudicator = "2h_mace_adjudicator", basilisk = "2h_mace_basilisk", crusader = "2h_mace_crusader", eyrie = "2h_mace_eyrie", cleansing = "2h_mace_cleansing", tangle = "2h_mace_tangle" },
+	implicit = "Causes (30-50)% increased Stun Buildup",
+	implicitModTypes = { {  }, },
+	weapon = { PhysicalMin = 14, PhysicalMax = 26, CritChanceBase = 5, AttackRateBase = 1.05, Range = 13, },
+	req = { },
+}
+itemBases["Forge Maul"] = {
+	type = "Two Handed Mace",
+	socketLimit = 3,
+	tags = { two_hand_weapon = true, ezomyte_basetype = true, mace = true, weapon = true, twohand = true, default = true, },
+	influenceTags = { shaper = "2h_mace_shaper", elder = "2h_mace_elder", adjudicator = "2h_mace_adjudicator", basilisk = "2h_mace_basilisk", crusader = "2h_mace_crusader", eyrie = "2h_mace_eyrie", cleansing = "2h_mace_cleansing", tangle = "2h_mace_tangle" },
+	implicitModTypes = { },
+	weapon = { PhysicalMin = 29, PhysicalMax = 39, CritChanceBase = 5, AttackRateBase = 1.05, Range = 13, },
+	req = { level = 11, },
+}
+itemBases["Studded Greatclub"] = {
+	type = "Two Handed Mace",
+	socketLimit = 3,
+	tags = { two_hand_weapon = true, maraketh_basetype = true, mace = true, weapon = true, twohand = true, default = true, },
+	influenceTags = { shaper = "2h_mace_shaper", elder = "2h_mace_elder", adjudicator = "2h_mace_adjudicator", basilisk = "2h_mace_basilisk", crusader = "2h_mace_crusader", eyrie = "2h_mace_eyrie", cleansing = "2h_mace_cleansing", tangle = "2h_mace_tangle" },
+	implicitModTypes = { },
+	weapon = { PhysicalMin = 32, PhysicalMax = 48, CritChanceBase = 5, AttackRateBase = 1.1, Range = 13, },
+	req = { level = 16, },
+}
+itemBases["Cultist Greathammer"] = {
+	type = "Two Handed Mace",
+	socketLimit = 3,
+	tags = { two_hand_weapon = true, maraketh_basetype = true, mace = true, weapon = true, twohand = true, default = true, },
+	influenceTags = { shaper = "2h_mace_shaper", elder = "2h_mace_elder", adjudicator = "2h_mace_adjudicator", basilisk = "2h_mace_basilisk", crusader = "2h_mace_crusader", eyrie = "2h_mace_eyrie", cleansing = "2h_mace_cleansing", tangle = "2h_mace_tangle" },
+	implicit = "Strikes deal Splash damage to targets within 1.8 metres",
+	implicitModTypes = { { "attack" }, },
+	weapon = { PhysicalMin = 32, PhysicalMax = 43, CritChanceBase = 5, AttackRateBase = 1.05, Range = 13, },
+	req = { level = 22, },
+}
+itemBases["Temple Maul"] = {
+	type = "Two Handed Mace",
+	socketLimit = 3,
+	tags = { two_hand_weapon = true, maraketh_basetype = true, mace = true, weapon = true, twohand = true, default = true, },
+	influenceTags = { shaper = "2h_mace_shaper", elder = "2h_mace_elder", adjudicator = "2h_mace_adjudicator", basilisk = "2h_mace_basilisk", crusader = "2h_mace_crusader", eyrie = "2h_mace_eyrie", cleansing = "2h_mace_cleansing", tangle = "2h_mace_tangle" },
+	implicitModTypes = { },
+	weapon = { PhysicalMin = 35, PhysicalMax = 72, CritChanceBase = 5, AttackRateBase = 1.2, Range = 13, },
+	req = { level = 28, },
+}
+itemBases["Leaden Greathammer"] = {
+	type = "Two Handed Mace",
+	socketLimit = 3,
+	tags = { two_hand_weapon = true, vaal_basetype = true, mace = true, weapon = true, twohand = true, default = true, },
+	influenceTags = { shaper = "2h_mace_shaper", elder = "2h_mace_elder", adjudicator = "2h_mace_adjudicator", basilisk = "2h_mace_basilisk", crusader = "2h_mace_crusader", eyrie = "2h_mace_eyrie", cleansing = "2h_mace_cleansing", tangle = "2h_mace_tangle" },
+	implicitModTypes = { },
+	weapon = { PhysicalMin = 58, PhysicalMax = 78, CritChanceBase = 5, AttackRateBase = 1.1, Range = 13, },
+	req = { level = 33, },
+}
+itemBases["Crumbling Maul"] = {
+	type = "Two Handed Mace",
+	socketLimit = 3,
+	tags = { two_hand_weapon = true, vaal_basetype = true, mace = true, weapon = true, twohand = true, default = true, },
+	influenceTags = { shaper = "2h_mace_shaper", elder = "2h_mace_elder", adjudicator = "2h_mace_adjudicator", basilisk = "2h_mace_basilisk", crusader = "2h_mace_crusader", eyrie = "2h_mace_eyrie", cleansing = "2h_mace_cleansing", tangle = "2h_mace_tangle" },
+	implicit = "Causes Enemies to Explode on Critical kill, for 10% of their Life as Physical Damage",
+	implicitModTypes = { {  }, },
+	weapon = { PhysicalMin = 62, PhysicalMax = 75, CritChanceBase = 5, AttackRateBase = 1.1, Range = 13, },
+	req = { level = 38, },
+}
+itemBases["Pointed Maul"] = {
+	type = "Two Handed Mace",
+	socketLimit = 3,
 	tags = { two_hand_weapon = true, mace = true, weapon = true, twohand = true, default = true, },
 	influenceTags = { shaper = "2h_mace_shaper", elder = "2h_mace_elder", adjudicator = "2h_mace_adjudicator", basilisk = "2h_mace_basilisk", crusader = "2h_mace_crusader", eyrie = "2h_mace_eyrie", cleansing = "2h_mace_cleansing", tangle = "2h_mace_tangle" },
-	implicit = "30% increased Stun Duration on Enemies",
-	implicitModTypes = { {  }, },
-	weapon = { PhysicalMin = 57, PhysicalMax = 85, CritChanceBase = 5, AttackRateBase = 1.1, Range = 13, },
-	req = { level = 36, str = 119, },
+	implicitModTypes = { },
+	weapon = { PhysicalMin = 68, PhysicalMax = 102, CritChanceBase = 6.5, AttackRateBase = 1.1, Range = 13, },
+	req = { level = 45, },
 }
-itemBases["Great Mallet"] = {
+itemBases["Totemic Greatclub"] = {
 	type = "Two Handed Mace",
-	socketLimit = 6,
+	socketLimit = 3,
 	tags = { two_hand_weapon = true, mace = true, weapon = true, twohand = true, default = true, },
 	influenceTags = { shaper = "2h_mace_shaper", elder = "2h_mace_elder", adjudicator = "2h_mace_adjudicator", basilisk = "2h_mace_basilisk", crusader = "2h_mace_crusader", eyrie = "2h_mace_eyrie", cleansing = "2h_mace_cleansing", tangle = "2h_mace_tangle" },
-	implicit = "30% increased Stun Duration on Enemies",
-	implicitModTypes = { {  }, },
-	weapon = { PhysicalMin = 43, PhysicalMax = 88, CritChanceBase = 5, AttackRateBase = 1.25, Range = 13, },
-	req = { level = 40, str = 131, },
+	implicit = "Crushes Enemies on Hit",
+	implicitModTypes = { { "physical" }, },
+	weapon = { PhysicalMin = 73, PhysicalMax = 99, CritChanceBase = 5, AttackRateBase = 1.1, Range = 13, },
+	req = { level = 50, },
 }
-itemBases["Steelhead"] = {
+itemBases["Greatmace"] = {
 	type = "Two Handed Mace",
-	socketLimit = 6,
+	socketLimit = 3,
 	tags = { two_hand_weapon = true, mace = true, weapon = true, twohand = true, default = true, },
 	influenceTags = { shaper = "2h_mace_shaper", elder = "2h_mace_elder", adjudicator = "2h_mace_adjudicator", basilisk = "2h_mace_basilisk", crusader = "2h_mace_crusader", eyrie = "2h_mace_eyrie", cleansing = "2h_mace_cleansing", tangle = "2h_mace_tangle" },
-	implicit = "45% increased Stun Duration on Enemies",
-	implicitModTypes = { {  }, },
-	weapon = { PhysicalMin = 54, PhysicalMax = 81, CritChanceBase = 5, AttackRateBase = 1.3, Range = 13, },
-	req = { level = 44, str = 143, },
+	implicitModTypes = { },
+	weapon = { PhysicalMin = 74, PhysicalMax = 124, CritChanceBase = 5, AttackRateBase = 1.1, Range = 13, },
+	req = { level = 52, },
 }
-itemBases["Spiny Maul"] = {
+itemBases["Precise Greathammer"] = {
 	type = "Two Handed Mace",
-	socketLimit = 6,
+	socketLimit = 3,
 	tags = { two_hand_weapon = true, mace = true, weapon = true, twohand = true, default = true, },
 	influenceTags = { shaper = "2h_mace_shaper", elder = "2h_mace_elder", adjudicator = "2h_mace_adjudicator", basilisk = "2h_mace_basilisk", crusader = "2h_mace_crusader", eyrie = "2h_mace_eyrie", cleansing = "2h_mace_cleansing", tangle = "2h_mace_tangle" },
-	implicit = "30% increased Stun Duration on Enemies",
-	implicitModTypes = { {  }, },
-	weapon = { PhysicalMin = 55, PhysicalMax = 103, CritChanceBase = 5, AttackRateBase = 1.25, Range = 13, },
-	req = { level = 48, str = 155, },
+	implicitModTypes = { },
+	weapon = { PhysicalMin = 87, PhysicalMax = 118, CritChanceBase = 5, AttackRateBase = 1.1, Range = 13, },
+	req = { level = 54, },
 }
-itemBases["Plated Maul"] = {
+itemBases["Giant Maul"] = {
 	type = "Two Handed Mace",
-	socketLimit = 6,
+	socketLimit = 3,
 	tags = { two_hand_weapon = true, mace = true, weapon = true, twohand = true, default = true, },
 	influenceTags = { shaper = "2h_mace_shaper", elder = "2h_mace_elder", adjudicator = "2h_mace_adjudicator", basilisk = "2h_mace_basilisk", crusader = "2h_mace_crusader", eyrie = "2h_mace_eyrie", cleansing = "2h_mace_cleansing", tangle = "2h_mace_tangle" },
-	implicit = "30% increased Stun Duration on Enemies",
-	implicitModTypes = { {  }, },
-	weapon = { PhysicalMin = 72, PhysicalMax = 108, CritChanceBase = 5, AttackRateBase = 1.2, Range = 13, },
-	req = { level = 51, str = 164, },
+	implicitModTypes = { },
+	weapon = { PhysicalMin = 96, PhysicalMax = 144, CritChanceBase = 5, AttackRateBase = 1.1, Range = 13, },
+	req = { level = 65, },
 }
-itemBases["Dread Maul"] = {
+itemBases["Advanced Oak Greathammer"] = {
 	type = "Two Handed Mace",
-	socketLimit = 6,
+	socketLimit = 3,
 	tags = { two_hand_weapon = true, mace = true, weapon = true, twohand = true, default = true, },
 	influenceTags = { shaper = "2h_mace_shaper", elder = "2h_mace_elder", adjudicator = "2h_mace_adjudicator", basilisk = "2h_mace_basilisk", crusader = "2h_mace_crusader", eyrie = "2h_mace_eyrie", cleansing = "2h_mace_cleansing", tangle = "2h_mace_tangle" },
-	implicit = "30% increased Stun Duration on Enemies",
+	implicit = "Causes (30-50)% increased Stun Buildup",
 	implicitModTypes = { {  }, },
-	weapon = { PhysicalMin = 77, PhysicalMax = 104, CritChanceBase = 5, AttackRateBase = 1.25, Range = 13, },
-	req = { level = 54, str = 173, },
+	weapon = { PhysicalMin = 59, PhysicalMax = 109, CritChanceBase = 5, AttackRateBase = 1.05, Range = 13, },
+	req = { level = 45, },
 }
-itemBases["Solar Maul"] = {
+itemBases["Advanced Forge Maul"] = {
 	type = "Two Handed Mace",
-	socketLimit = 6,
-	tags = { two_hand_weapon = true, maraketh = true, not_for_sale = true, mace = true, weapon = true, twohand = true, default = true, },
-	influenceTags = { shaper = "2h_mace_shaper", elder = "2h_mace_elder", adjudicator = "2h_mace_adjudicator", basilisk = "2h_mace_basilisk", crusader = "2h_mace_crusader", eyrie = "2h_mace_eyrie", cleansing = "2h_mace_cleansing", tangle = "2h_mace_tangle" },
-	implicit = "15% increased Area of Effect",
-	implicitModTypes = { {  }, },
-	weapon = { PhysicalMin = 75, PhysicalMax = 113, CritChanceBase = 5, AttackRateBase = 1.25, Range = 13, },
-	req = { level = 56, str = 187, },
-}
-itemBases["Karui Maul"] = {
-	type = "Two Handed Mace",
-	socketLimit = 6,
+	socketLimit = 3,
 	tags = { two_hand_weapon = true, mace = true, weapon = true, twohand = true, default = true, },
 	influenceTags = { shaper = "2h_mace_shaper", elder = "2h_mace_elder", adjudicator = "2h_mace_adjudicator", basilisk = "2h_mace_basilisk", crusader = "2h_mace_crusader", eyrie = "2h_mace_eyrie", cleansing = "2h_mace_cleansing", tangle = "2h_mace_tangle" },
-	implicit = "45% increased Stun Duration on Enemies",
-	implicitModTypes = { {  }, },
-	weapon = { PhysicalMin = 112, PhysicalMax = 168, CritChanceBase = 5, AttackRateBase = 1, Range = 13, },
-	req = { level = 57, str = 182, },
+	implicitModTypes = { },
+	weapon = { PhysicalMin = 84, PhysicalMax = 113, CritChanceBase = 5, AttackRateBase = 1.05, Range = 13, },
+	req = { level = 48, },
 }
-itemBases["Colossus Mallet"] = {
+itemBases["Advanced Cultist Greathammer"] = {
 	type = "Two Handed Mace",
-	socketLimit = 6,
+	socketLimit = 3,
 	tags = { two_hand_weapon = true, mace = true, weapon = true, twohand = true, default = true, },
 	influenceTags = { shaper = "2h_mace_shaper", elder = "2h_mace_elder", adjudicator = "2h_mace_adjudicator", basilisk = "2h_mace_basilisk", crusader = "2h_mace_crusader", eyrie = "2h_mace_eyrie", cleansing = "2h_mace_cleansing", tangle = "2h_mace_tangle" },
-	implicit = "30% increased Area Damage",
-	implicitModTypes = { { "damage" }, },
-	weapon = { PhysicalMin = 65, PhysicalMax = 135, CritChanceBase = 5.5, AttackRateBase = 1.3, Range = 13, },
-	req = { level = 59, str = 188, },
+	implicit = "Strikes deal Splash damage to targets within 1.8 metres",
+	implicitModTypes = { { "attack" }, },
+	weapon = { PhysicalMin = 62, PhysicalMax = 83, CritChanceBase = 5, AttackRateBase = 1.05, Range = 13, },
+	req = { level = 51, },
 }
-itemBases["Piledriver"] = {
+itemBases["Advanced Temple Maul"] = {
 	type = "Two Handed Mace",
-	socketLimit = 6,
-	tags = { two_hand_weapon = true, top_tier_base_item_type = true, mace = true, weapon = true, twohand = true, default = true, },
+	socketLimit = 3,
+	tags = { two_hand_weapon = true, mace = true, weapon = true, twohand = true, default = true, },
 	influenceTags = { shaper = "2h_mace_shaper", elder = "2h_mace_elder", adjudicator = "2h_mace_adjudicator", basilisk = "2h_mace_basilisk", crusader = "2h_mace_crusader", eyrie = "2h_mace_eyrie", cleansing = "2h_mace_cleansing", tangle = "2h_mace_tangle" },
-	implicit = "20% reduced Enemy Stun Threshold",
+	implicitModTypes = { },
+	weapon = { PhysicalMin = 60, PhysicalMax = 125, CritChanceBase = 5, AttackRateBase = 1.2, Range = 13, },
+	req = { level = 55, },
+}
+itemBases["Advanced Leaden Greathammer"] = {
+	type = "Two Handed Mace",
+	socketLimit = 3,
+	tags = { two_hand_weapon = true, mace = true, weapon = true, twohand = true, default = true, },
+	influenceTags = { shaper = "2h_mace_shaper", elder = "2h_mace_elder", adjudicator = "2h_mace_adjudicator", basilisk = "2h_mace_basilisk", crusader = "2h_mace_crusader", eyrie = "2h_mace_eyrie", cleansing = "2h_mace_cleansing", tangle = "2h_mace_tangle" },
+	implicitModTypes = { },
+	weapon = { PhysicalMin = 94, PhysicalMax = 127, CritChanceBase = 5, AttackRateBase = 1.1, Range = 13, },
+	req = { level = 59, },
+}
+itemBases["Advanced Crumbling Maul"] = {
+	type = "Two Handed Mace",
+	socketLimit = 3,
+	tags = { two_hand_weapon = true, mace = true, weapon = true, twohand = true, default = true, },
+	influenceTags = { shaper = "2h_mace_shaper", elder = "2h_mace_elder", adjudicator = "2h_mace_adjudicator", basilisk = "2h_mace_basilisk", crusader = "2h_mace_crusader", eyrie = "2h_mace_eyrie", cleansing = "2h_mace_cleansing", tangle = "2h_mace_tangle" },
+	implicit = "Causes Enemies to Explode on Critical kill, for 10% of their Life as Physical Damage",
 	implicitModTypes = { {  }, },
-	weapon = { PhysicalMin = 77, PhysicalMax = 115, CritChanceBase = 5, AttackRateBase = 1.35, Range = 13, },
-	req = { level = 61, str = 212, },
+	weapon = { PhysicalMin = 93, PhysicalMax = 114, CritChanceBase = 5, AttackRateBase = 1.1, Range = 13, },
+	req = { level = 62, },
 }
-itemBases["Meatgrinder"] = {
+itemBases["Expert Forge Maul"] = {
 	type = "Two Handed Mace",
-	socketLimit = 6,
-	tags = { two_hand_weapon = true, top_tier_base_item_type = true, mace = true, weapon = true, twohand = true, default = true, },
+	socketLimit = 3,
+	tags = { two_hand_weapon = true, mace = true, weapon = true, twohand = true, default = true, },
 	influenceTags = { shaper = "2h_mace_shaper", elder = "2h_mace_elder", adjudicator = "2h_mace_adjudicator", basilisk = "2h_mace_basilisk", crusader = "2h_mace_crusader", eyrie = "2h_mace_eyrie", cleansing = "2h_mace_cleansing", tangle = "2h_mace_tangle" },
-	implicit = "5% chance to deal Double Damage",
-	implicitModTypes = { { "damage" }, },
-	weapon = { PhysicalMin = 74, PhysicalMax = 138, CritChanceBase = 5, AttackRateBase = 1.25, Range = 13, },
-	req = { level = 63, str = 212, },
+	implicitModTypes = { },
+	weapon = { PhysicalMin = 112, PhysicalMax = 151, CritChanceBase = 5, AttackRateBase = 1.05, Range = 13, },
+	req = { level = 67, },
 }
-itemBases["Imperial Maul"] = {
+itemBases["Expert Temple Maul"] = {
 	type = "Two Handed Mace",
-	socketLimit = 6,
-	tags = { two_hand_weapon = true, top_tier_base_item_type = true, mace = true, weapon = true, twohand = true, default = true, },
+	socketLimit = 3,
+	tags = { two_hand_weapon = true, mace = true, weapon = true, twohand = true, default = true, },
 	influenceTags = { shaper = "2h_mace_shaper", elder = "2h_mace_elder", adjudicator = "2h_mace_adjudicator", basilisk = "2h_mace_basilisk", crusader = "2h_mace_crusader", eyrie = "2h_mace_eyrie", cleansing = "2h_mace_cleansing", tangle = "2h_mace_tangle" },
-	implicit = "10% increased Strength",
-	implicitModTypes = { { "attribute" }, },
-	weapon = { PhysicalMin = 102, PhysicalMax = 153, CritChanceBase = 5, AttackRateBase = 1.1, Range = 13, },
-	req = { level = 65, str = 212, },
+	implicitModTypes = { },
+	weapon = { PhysicalMin = 76, PhysicalMax = 158, CritChanceBase = 5, AttackRateBase = 1.2, Range = 13, },
+	req = { level = 72, },
 }
-itemBases["Terror Maul"] = {
+itemBases["Expert Oak Greathammer"] = {
 	type = "Two Handed Mace",
-	socketLimit = 6,
-	tags = { two_hand_weapon = true, top_tier_base_item_type = true, mace = true, weapon = true, twohand = true, default = true, },
+	socketLimit = 3,
+	tags = { two_hand_weapon = true, mace = true, weapon = true, twohand = true, default = true, },
 	influenceTags = { shaper = "2h_mace_shaper", elder = "2h_mace_elder", adjudicator = "2h_mace_adjudicator", basilisk = "2h_mace_basilisk", crusader = "2h_mace_crusader", eyrie = "2h_mace_eyrie", cleansing = "2h_mace_cleansing", tangle = "2h_mace_tangle" },
-	implicit = "25% chance to double Stun Duration",
+	implicit = "Causes (30-50)% increased Stun Buildup",
 	implicitModTypes = { {  }, },
-	weapon = { PhysicalMin = 101, PhysicalMax = 137, CritChanceBase = 6, AttackRateBase = 1.15, Range = 13, },
-	req = { level = 67, str = 212, },
+	weapon = { PhysicalMin = 94, PhysicalMax = 174, CritChanceBase = 5, AttackRateBase = 1.05, Range = 13, },
+	req = { level = 77, },
 }
-itemBases["Coronal Maul"] = {
+itemBases["Expert Cultist Greathammer"] = {
 	type = "Two Handed Mace",
-	socketLimit = 6,
-	tags = { two_hand_weapon = true, maraketh = true, not_for_sale = true, mace = true, weapon = true, twohand = true, default = true, },
+	socketLimit = 3,
+	tags = { two_hand_weapon = true, mace = true, weapon = true, twohand = true, default = true, },
 	influenceTags = { shaper = "2h_mace_shaper", elder = "2h_mace_elder", adjudicator = "2h_mace_adjudicator", basilisk = "2h_mace_basilisk", crusader = "2h_mace_crusader", eyrie = "2h_mace_eyrie", cleansing = "2h_mace_cleansing", tangle = "2h_mace_tangle" },
-	implicit = "20% increased Area of Effect",
-	implicitModTypes = { {  }, },
-	weapon = { PhysicalMin = 91, PhysicalMax = 136, CritChanceBase = 5, AttackRateBase = 1.2, Range = 13, },
-	req = { level = 69, str = 220, },
+	implicit = "Strikes deal Splash damage to targets within 1.8 metres",
+	implicitModTypes = { { "attack" }, },
+	weapon = { PhysicalMin = 89, PhysicalMax = 120, CritChanceBase = 5, AttackRateBase = 1.05, Range = 13, },
+	req = { level = 78, },
 }
-itemBases["Blunt Force Condenser"] = {
+itemBases["Expert Crumbling Maul"] = {
 	type = "Two Handed Mace",
-	socketLimit = 6,
-	tags = { two_hand_weapon = true, weapon = true, not_for_sale = true, mace = true, experimental_base = true, twohand = true, default = true, },
+	socketLimit = 3,
+	tags = { two_hand_weapon = true, mace = true, weapon = true, twohand = true, default = true, },
 	influenceTags = { shaper = "2h_mace_shaper", elder = "2h_mace_elder", adjudicator = "2h_mace_adjudicator", basilisk = "2h_mace_basilisk", crusader = "2h_mace_crusader", eyrie = "2h_mace_eyrie", cleansing = "2h_mace_cleansing", tangle = "2h_mace_tangle" },
-	implicit = "Warcries Exert 1 additional Attack",
+	implicit = "Causes Enemies to Explode on Critical kill, for 10% of their Life as Physical Damage",
 	implicitModTypes = { {  }, },
-	weapon = { PhysicalMin = 39, PhysicalMax = 64, CritChanceBase = 5, AttackRateBase = 1.15, Range = 13, },
-	req = { level = 30, str = 101, },
+	weapon = { PhysicalMin = 113, PhysicalMax = 138, CritChanceBase = 5, AttackRateBase = 1.1, Range = 13, },
+	req = { level = 79, },
 }
-itemBases["Crushing Force Magnifier"] = {
+itemBases["Expert Leaden Greathammer"] = {
 	type = "Two Handed Mace",
-	socketLimit = 6,
-	tags = { two_hand_weapon = true, weapon = true, not_for_sale = true, mace = true, experimental_base = true, twohand = true, default = true, },
+	socketLimit = 3,
+	tags = { two_hand_weapon = true, mace = true, weapon = true, twohand = true, default = true, },
 	influenceTags = { shaper = "2h_mace_shaper", elder = "2h_mace_elder", adjudicator = "2h_mace_adjudicator", basilisk = "2h_mace_basilisk", crusader = "2h_mace_crusader", eyrie = "2h_mace_eyrie", cleansing = "2h_mace_cleansing", tangle = "2h_mace_tangle" },
-	implicit = "Warcries Exert 1 additional Attack",
-	implicitModTypes = { {  }, },
-	weapon = { PhysicalMin = 62, PhysicalMax = 103, CritChanceBase = 5, AttackRateBase = 1.15, Range = 13, },
-	req = { level = 50, str = 161, },
-}
-itemBases["Impact Force Propagator"] = {
-	type = "Two Handed Mace",
-	socketLimit = 6,
-	tags = { two_hand_weapon = true, weapon = true, not_for_sale = true, mace = true, experimental_base = true, twohand = true, default = true, },
-	influenceTags = { shaper = "2h_mace_shaper", elder = "2h_mace_elder", adjudicator = "2h_mace_adjudicator", basilisk = "2h_mace_basilisk", crusader = "2h_mace_crusader", eyrie = "2h_mace_eyrie", cleansing = "2h_mace_cleansing", tangle = "2h_mace_tangle" },
-	implicit = "Warcries Exert 2 additional Attacks",
-	implicitModTypes = { {  }, },
-	weapon = { PhysicalMin = 81, PhysicalMax = 135, CritChanceBase = 5, AttackRateBase = 1.15, Range = 13, },
-	req = { level = 70, str = 220, },
+	implicitModTypes = { },
+	weapon = { PhysicalMin = 119, PhysicalMax = 161, CritChanceBase = 5, AttackRateBase = 1.1, Range = 13, },
+	req = { level = 77, },
 }

@@ -1,7 +1,7 @@
 if not loadStatFile then
 	dofile("statdesc.lua")
 end
-loadStatFile("tincture_stat_descriptions.txt")
+loadStatFile("stat_descriptions.csd")
 
 local s_format = string.format
 
@@ -141,59 +141,69 @@ directiveTable.base = function(state, args, out)
 		if shield then
 			out:write('BlockChance = ', shield.Block, ', ')
 		end
-		if armourType.ArmourMin > 0 then
-			out:write('ArmourBaseMin = ', armourType.ArmourMin, ', ')
-			out:write('ArmourBaseMax = ', armourType.ArmourMax, ', ')
-			itemValueSum = itemValueSum + armourType.ArmourMin + armourType.ArmourMax
+		if armourType.Armour > 0 then
+			out:write('Armour = ', armourType.Armour, ', ')
+			itemValueSum = itemValueSum + armourType.Armour
 		end
-		if armourType.EvasionMin > 0 then
-			out:write('EvasionBaseMin = ', armourType.EvasionMin, ', ')
-			out:write('EvasionBaseMax = ', armourType.EvasionMax, ', ')
-			itemValueSum = itemValueSum + armourType.EvasionMin + armourType.EvasionMax
+		if armourType.Evasion > 0 then
+			out:write('Evasion = ', armourType.Evasion, ', ')
+			itemValueSum = itemValueSum + armourType.Evasion
 		end
-		if armourType.EnergyShieldMin > 0 then
-			out:write('EnergyShieldBaseMin = ', armourType.EnergyShieldMin, ', ')
-			out:write('EnergyShieldBaseMax = ', armourType.EnergyShieldMax, ', ')
-			itemValueSum = itemValueSum + armourType.EnergyShieldMin + armourType.EnergyShieldMax
+		if armourType.EnergyShield > 0 then
+			out:write('EnergyShield = ', armourType.EnergyShield, ', ')
+			itemValueSum = itemValueSum + armourType.EnergyShield
 		end
 		if armourType.MovementPenalty ~= 0 then
 			out:write('MovementPenalty = ', -armourType.MovementPenalty, ', ')
 		end
-		if armourType.WardMin > 0 then
-			out:write('WardBaseMin = ', armourType.WardMin, ', ')
-			out:write('WardBaseMax = ', armourType.WardMax, ', ')
-			itemValueSum = itemValueSum + armourType.WardMin + armourType.WardMax
-		end
 		out:write('},\n')
 	end
-	local flask = dat("Flasks"):GetRow("BaseItemType", baseItemType)
-	if flask then
-		local compCharges = dat("ComponentCharges"):GetRow("BaseItemType", baseItemType.Id)
-		out:write('\tflask = { ')
-		if flask.LifePerUse > 0 then
-			out:write('life = ', flask.LifePerUse, ', ')
+	if state.type == "Flask" or state.type == "Charm" then
+		local flask = dat("Flasks"):GetRow("BaseItemType", baseItemType)
+		if flask then
+			local compCharges = dat("ComponentCharges"):GetRow("BaseItemType", baseItemType.Id)
+			out:write('\tflask = { ')
+			if flask.LifePerUse > 0 then
+				out:write('life = ', flask.LifePerUse, ', ')
+			end
+			if flask.ManaPerUse > 0 then
+				out:write('mana = ', flask.ManaPerUse, ', ')
+			end
+			out:write('duration = ', flask.RecoveryTime / 10, ', ')
+			out:write('chargesUsed = ', compCharges.PerUse, ', ')
+			out:write('chargesMax = ', compCharges.Max, ', ')
+			if flask.Buff then
+				local stats = { }
+				for i, stat in ipairs(flask.Buff.Stats) do
+					stats[stat.Id] = { min = flask.BuffMagnitudes[i], max = flask.BuffMagnitudes[i] }
+				end
+				for i, stat in ipairs(flask.Buff.GrantedFlags) do
+					stats[stat.Id] = { min = 1, max = 1 }
+				end
+				out:write('buff = { "', table.concat(describeStats(stats), '", "'), '" }, ')
+			end
+			out:write('},\n')
 		end
-		if flask.ManaPerUse > 0 then
-			out:write('mana = ', flask.ManaPerUse, ', ')
-		end
-		out:write('duration = ', flask.RecoveryTime / 10, ', ')
-		out:write('chargesUsed = ', compCharges.PerUse, ', ')
-		out:write('chargesMax = ', compCharges.Max, ', ')
-		if flask.Buff then
+	end
+	-- Special handling of Runes and SoulCores
+	if state.type == "Rune" or state.type == "SoulCore" then
+		local soulcore = dat("SoulCores"):GetRow("BaseItemTypes", baseItemType)
+		if soulcore then
+			out:write('\timplicit = ')
 			local stats = { }
-			for i, stat in ipairs(flask.Buff.Stats) do
-				stats[stat.Id] = { min = flask.BuffMagnitudes[i], max = flask.BuffMagnitudes[i] }
+			for i, statKey in ipairs(soulcore.StatsKeysWeapon) do
+				local statValue = soulcore["StatsValuesWeapon"][i]
+				stats[statKey.Id] = { min = statValue, max = statValue }
 			end
-			for i, stat in ipairs(flask.Buff.GrantedFlags) do
-				stats[stat.Id] = { min = 1, max = 1 }
+			out:write('"Martial Weapons: ', table.concat(describeStats(stats), '", "'), '\\n')
+			stats = { }  -- reset stats to empty
+			for i, statKey in ipairs(soulcore.StatsKeysArmour) do
+				local statValue = soulcore["StatsValuesArmour"][i]
+				stats[statKey.Id] = { min = statValue, max = statValue }
 			end
-			out:write('buff = { "', table.concat(describeStats(stats), '", "'), '" }, ')
+			out:write('Armour: ', table.concat(describeStats(stats), '", "'), '"')
+			out:write(',\n')
 		end
-		out:write('},\n')
-	end
-	local tincture = dat("tinctures"):GetRow("BaseItemType", baseItemType)
-	if tincture then
-		out:write('\ttincture = { manaBurn = ', tincture.ManaBurn / 1000, ', cooldown = ', tincture.CoolDown / 1000, ' },\n')
 	end
 	out:write('\treq = { ')
 	local reqLevel = 1
@@ -202,7 +212,7 @@ directiveTable.base = function(state, args, out)
 			reqLevel = baseItemType.DropLevel
 		end
 	end
-	if flask then
+	if state.type == "Flask" or state.type == "SoulCore" or state.type == "Rune" or state.type == "Charm" then
 		if baseItemType.DropLevel > 2 then
 			reqLevel = baseItemType.DropLevel
 		end
@@ -213,16 +223,16 @@ directiveTable.base = function(state, args, out)
 	if reqLevel > 1 then
 		out:write('level = ', reqLevel, ', ')
 	end
-	local compAtt = dat("ComponentAttributeRequirements"):GetRow("BaseItemType", baseItemType.Id)
+	local compAtt = dat("AttributeRequirements"):GetRow("BaseType", baseItemType.Id)
 	if compAtt then
-		if compAtt.Str > 0 then
-			out:write('str = ', compAtt.Str, ', ')
+		if compAtt.ReqStr > 0 then
+			out:write('str = ', compAtt.ReqStr, ', ')
 		end
-		if compAtt.Dex > 0 then
-			out:write('dex = ', compAtt.Dex, ', ')
+		if compAtt.ReqDex > 0 then
+			out:write('dex = ', compAtt.ReqDex, ', ')
 		end
-		if compAtt.Int > 0 then
-			out:write('int = ', compAtt.Int, ', ')
+		if compAtt.ReqInt > 0 then
+			out:write('int = ', compAtt.ReqInt, ', ')
 		end
 	end
 	out:write('},\n}\n')
@@ -332,24 +342,29 @@ local itemTypes = {
 	"axe",
 	"bow",
 	"claw",
+	"crossbow",
 	"dagger",
 	"fishing",
+	"flail",
 	"mace",
+	"spear",
 	"staff",
 	"sword",
 	"wand",
 	"helmet",
 	"body",
+	"focus",
 	"gloves",
 	"boots",
 	"shield",
 	"quiver",
+	"traptool",
 	"amulet",
 	"ring",
 	"belt",
 	"jewel",
 	"flask",
-	"tincture",
+	"soulcore",
 }
 for _, name in pairs(itemTypes) do
 	processTemplateFile(name, "Bases/", "../Data/Bases/", directiveTable)
@@ -357,6 +372,5 @@ end
 
 print("Item bases exported.")
 
-processTemplateFile("Rares", "Bases/", "../Data/", directiveTable)
-
-print("Rare Item Templates Generated and Verified")
+--processTemplateFile("Rares", "Bases/", "../Data/", directiveTable)
+--print("Rare Item Templates Generated and Verified")
