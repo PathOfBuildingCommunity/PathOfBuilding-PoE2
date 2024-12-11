@@ -309,6 +309,9 @@ directiveTable.skill = function(state, args, out)
 	if granted.GrantedEffectStatSets.IncrementalEffectiveness ~= 0 then
 		out:write('\tincrementalEffectiveness = ', granted.GrantedEffectStatSets.IncrementalEffectiveness, ',\n')
 	end
+	if granted.GrantedEffectStatSets.DamageIncrementalEffectiveness ~= 0 then
+		out:write('\tdamageIncrementalEffectiveness = ', granted.GrantedEffectStatSets.DamageIncrementalEffectiveness, ',\n')
+	end
 	if granted.IsSupport then
 		skill.isSupport = true
 		out:write('\tsupport = true,\n')
@@ -416,7 +419,7 @@ directiveTable.skill = function(state, args, out)
 	for indx = 1, math.max(#perLevel, #statsPerLevel) do
 		local levelRow = perLevel[indx] or perLevel[1]
 		local statRow = statsPerLevel[indx] or statsPerLevel[1]
-		local level = { extra = { }, statInterpolation = { }, cost = { } }
+		local level = { extra = { }, statInterpolation = { }, actorLevel = 1, cost = { } }
 		level.level = #perLevel == 1 and statRow.GemLevel or levelRow.Level
 		level.extra.levelRequirement = math.max(gemLevelProgression and gemLevelProgression[indx] and gemLevelProgression[indx].PlayerLevel or 0, nextGemLevelReqValue)
 		nextGemLevelReqValue = level.extra.levelRequirement
@@ -476,6 +479,7 @@ directiveTable.skill = function(state, args, out)
 		--	level.extra.baseMultiplier = statRow.BaseMultiplier / 10000 + 1
 		--end
 		level.statInterpolation = statRow.StatInterpolations
+		level.actorLevel = statRow.ActorLevel
 		local resolveInterpolation = false
 		local injectConstantValuesIntoEachLevel = false
 		local statMapOrderIndex = 1
@@ -671,6 +675,9 @@ directiveTable.mods = function(state, args, out)
 				end
 				out:write('}, ')
 			end
+			if level.actorLevel ~= nil then
+				out:write('actorLevel = ', level.actorLevel, ', ')
+			end
 			if next(level.cost) ~= nil then
 				out:write('cost = { ')
 				for k, v in pairs(level.cost) do
@@ -705,9 +712,14 @@ for skillGem in dat("SkillGems"):Rows() do
 			out:write('\t\tgameId = "', skillGem.BaseItemType.Id, '",\n')
 			out:write('\t\tvariantId = "', gemEffect.Id, '",\n')
 			out:write('\t\tgrantedEffectId = "', gemEffect.GrantedEffect.Id, '",\n')
+			if gemEffect.GrantedEffect.AdditionalStatSets then
+				for count, additionalGrantedEffect in ipairs(gemEffect.GrantedEffect.AdditionalStatSets) do
+					out:write('\t\tadditionalStatSet' .. tostring(count) .. ' = "', additionalGrantedEffect.Id, '",\n')
+				end
+			end
 			if gemEffect.AdditionalGrantedEffects then
-				for _, additionalGrantedEffect in ipairs(gemEffect.AdditionalGrantedEffects) do
-					out:write('\t\tadditionalGrantedEffectId = "', additionalGrantedEffect.Id, '",\n')
+				for count, additionalGrantedEffect in ipairs(gemEffect.AdditionalGrantedEffects) do
+					out:write('\t\tadditionalGrantedEffectId' .. tostring(count) .. ' = "', additionalGrantedEffect.Id, '",\n')
 				end
 			end
 			if #gemEffect.SecondarySupportName > 0 then

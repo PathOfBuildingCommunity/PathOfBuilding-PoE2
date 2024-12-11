@@ -29,6 +29,7 @@ return {
 		gameId = "Metadata/Items/Gems/SkillGemShieldCharge",
 		variantId = "ShieldCharge",
 		grantedEffectId = "ShieldChargePlayer",
+		additionalStatSet1 = "ShieldChargeFinalConePlayer",
 		tags = {
 			grants_active_skill = true,
 			attack = true,
@@ -70,7 +71,7 @@ return {
 		gameId = "Metadata/Items/Gems/SkillGemShockwaveTotem",
 		variantId = "ShockwaveTotem",
 		grantedEffectId = "ShockwaveTotemPlayer",
-		additionalGrantedEffectId = "ShockwaveTotemQuakePlayer",
+		additionalGrantedEffectId1 = "ShockwaveTotemQuakePlayer",
 		tags = {
 			grants_active_skill = true,
 			attack = true,
@@ -112,6 +113,7 @@ return {
 		gameId = "Metadata/Items/Gems/SkillGemHeraldOfAsh",
 		variantId = "HeraldOfAsh",
 		grantedEffectId = "HeraldOfAshPlayer",
+		additionalStatSet1 = "HeraldOfAshOnKillPlayer",
 		tags = {
 			grants_active_skill = true,
 			buff = true,
@@ -133,7 +135,7 @@ return {
 		gameId = "Metadata/Items/Gems/SkillGemInfernalCry",
 		variantId = "InfernallCry",
 		grantedEffectId = "InfernalCryPlayer",
-		additionalGrantedEffectId = "InfernalCryCorpseExplosionPlayer",
+		additionalGrantedEffectId1 = "InfernalCryCorpseExplosionPlayer",
 		tags = {
 			grants_active_skill = true,
 			warcry = true,
@@ -154,6 +156,7 @@ return {
 		gameId = "Metadata/Items/Gems/SkillGemEarthquake",
 		variantId = "Earthquake",
 		grantedEffectId = "EarthquakePlayer",
+		additionalStatSet1 = "EarthquakeAftershockPlayer",
 		tags = {
 			grants_active_skill = true,
 			attack = true,
@@ -174,6 +177,7 @@ return {
 		gameId = "Metadata/Items/Gems/SkillGemEssenceDrain",
 		variantId = "EssenceDrain",
 		grantedEffectId = "EssenceDrainPlayer",
+		additionalStatSet1 = "EssenceDrainDotPlayer",
 		tags = {
 			grants_active_skill = true,
 			spell = true,
@@ -193,6 +197,7 @@ return {
 		gameId = "Metadata/Items/Gems/SkillGemSunder",
 		variantId = "Sunder",
 		grantedEffectId = "SunderPlayer",
+		additionalStatSet1 = "SunderShockwavePlayer",
 		tags = {
 			grants_active_skill = true,
 			attack = true,
@@ -213,7 +218,7 @@ return {
 		gameId = "Metadata/Items/Gems/SkillGemArtilleryBallista",
 		variantId = "ArtilleryBallista",
 		grantedEffectId = "ArtilleryBallistaPlayer",
-		additionalGrantedEffectId = "ArtilleryBallistaProjectilePlayer",
+		additionalGrantedEffectId1 = "ArtilleryBallistaProjectilePlayer",
 		tags = {
 			grants_active_skill = true,
 			attack = true,
@@ -254,6 +259,7 @@ return {
 		gameId = "Metadata/Items/Gems/SkillGemEarthshatter",
 		variantId = "Earthshatter",
 		grantedEffectId = "EarthshatterPlayer",
+		additionalStatSet1 = "EarthshatterSpikePlayer",
 		tags = {
 			grants_active_skill = true,
 			attack = true,
@@ -313,6 +319,7 @@ return {
 		gameId = "Metadata/Items/Gems/SkillGemBoneshatter",
 		variantId = "Boneshatter",
 		grantedEffectId = "BoneshatterPlayer",
+		additionalStatSet1 = "BoneshatterShockwavePlayer",
 		tags = {
 			grants_active_skill = true,
 			attack = true,
@@ -352,6 +359,7 @@ return {
 		gameId = "Metadata/Items/Gems/SkillGemVolcanicFissure",
 		variantId = "VolcanicFissure",
 		grantedEffectId = "VolcanicFissurePlayer",
+		additionalStatSet1 = "VolcanicFissureProjectilePlayer",
 		tags = {
 			grants_active_skill = true,
 			attack = true,
@@ -374,6 +382,8 @@ return {
 		gameId = "Metadata/Items/Gems/SkillGemRollingSlam",
 		variantId = "RollingSlam",
 		grantedEffectId = "RollingSlamPlayer",
+		additionalStatSet1 = "RollingSlamFirstSlamPlayer",
+		additionalStatSet2 = "RollingSlamSecondSlamPlayer",
 		tags = {
 			grants_active_skill = true,
 			attack = true,
@@ -393,6 +403,7 @@ return {
 		gameId = "Metadata/Items/Gems/SkillGemSuperchargedSlam",
 		variantId = "SuperchargedSlam",
 		grantedEffectId = "SuperchargedSlamPlayer",
+		additionalStatSet1 = "SuperchargedSlamAftershockPlayer",
 		tags = {
 			grants_active_skill = true,
 			attack = true,
@@ -432,7 +443,7 @@ return {
 		gameId = "Metadata/Items/Gems/SkillGemRipwireBallista",
 		variantId = "RipwireBallista",
 		grantedEffectId = "RipwireBallistaPlayer",
-		additionalGrantedEffectId = "RipwireBallistaProjectilePlayer",
+		additionalGrantedEffectId1 = "RipwireBallistaProjectilePlayer",
 		tags = {
 			grants_active_skill = true,
 			attack = true,
@@ -452,6 +463,8 @@ return {
 		gameId = "Metadata/Items/Gems/SkillGemVolcano",
 		variantId = "Volcano",
 		grantedEffectId = "VolcanoPlayer",
+		additionalStatSet1 = "VolcanoProjectilePlayer",
+		additionalStatSet2 = "VolcanoSlamPlayer",
 		tags = {
 			grants_active_skill = true,
 			spell = true,
@@ -490,6 +503,7 @@ return {
 		gameId = "Metadata/Items/Gems/SkillGemBearMaul",
 		variantId = "BearMaul",
 		grantedEffectId = "BearMaulPlayer",
+		additionalStatSet1 = "BearMaulStandingPlayer",
 		tags = {
 			grants_active_skill = true,
 			attack = true,
@@ -530,6 +544,7 @@ return {
 		gameId = "Metadata/Items/Gems/SkillGemFuriousSlam",
 		variantId = "FuriousSlam",
 		grantedEffectId = "BearSlamPlayer",
+		additionalStatSet1 = "BearSlamStandingPlayer",
 		tags = {
 			grants_active_skill = true,
 			attack = true,
@@ -549,7 +564,7 @@ return {
 		gameId = "Metadata/Items/Gems/SupportGemFerociousRoar",
 		variantId = "FerociousRoarSupport",
 		grantedEffectId = "BearWarcryMetaPlayer",
-		additionalGrantedEffectId = "SupportBearWarcryPlayer",
+		additionalGrantedEffectId1 = "SupportBearWarcryPlayer",
 		tags = {
 			grants_active_skill = true,
 			warcry = true,
@@ -568,7 +583,7 @@ return {
 		gameId = "Metadata/Items/Gems/SkillGemCastWhenDamageTaken",
 		variantId = "CastWhenDamageTaken",
 		grantedEffectId = "MetaCastWhenDamageTakenPlayer",
-		additionalGrantedEffectId = "SupportMetaCastWhenDamageTakenPlayer",
+		additionalGrantedEffectId1 = "SupportMetaCastWhenDamageTakenPlayer",
 		tags = {
 			grants_active_skill = true,
 			buff = true,
@@ -588,7 +603,7 @@ return {
 		gameId = "Metadata/Items/Gems/SkillGemCastOnMeleeStun",
 		variantId = "CastOnMeleeStun",
 		grantedEffectId = "MetaCastOnMeleeStunPlayer",
-		additionalGrantedEffectId = "SupportMetaCastOnMeleeStunPlayer",
+		additionalGrantedEffectId1 = "SupportMetaCastOnMeleeStunPlayer",
 		tags = {
 			grants_active_skill = true,
 			buff = true,
@@ -608,7 +623,7 @@ return {
 		gameId = "Metadata/Items/Gems/SkillGemAncestralWarriorTotem",
 		variantId = "AncestralWarriorTotem",
 		grantedEffectId = "AncestralWarriorTotemPlayer",
-		additionalGrantedEffectId = "SupportAncestralWarriorTotemPlayer",
+		additionalGrantedEffectId1 = "SupportAncestralWarriorTotemPlayer",
 		tags = {
 			grants_active_skill = true,
 			attack = true,
@@ -694,6 +709,8 @@ return {
 		gameId = "Metadata/Items/Gem/SkillGemGasGrenade",
 		variantId = "ToxicGrenade",
 		grantedEffectId = "ToxicGrenadePlayer",
+		additionalStatSet1 = "ToxicGrenadeCloudPlayer",
+		additionalStatSet2 = "ToxicGrenadeCloudExplosionPlayer",
 		tags = {
 			grants_active_skill = true,
 			attack = true,
@@ -737,6 +754,7 @@ return {
 		gameId = "Metadata/Items/Gem/SkillGemPerfectStrike",
 		variantId = "PerfectStrike",
 		grantedEffectId = "PerfectStrikePlayer",
+		additionalStatSet1 = "PerfectStrikeShockwavePlayer",
 		tags = {
 			grants_active_skill = true,
 			attack = true,
@@ -780,7 +798,7 @@ return {
 		gameId = "Metadata/Items/Gem/SkillGemMagmaBarrier",
 		variantId = "MagmaBarrier",
 		grantedEffectId = "MagmaBarrierPlayer",
-		additionalGrantedEffectId = "MagmaSprayPlayer",
+		additionalGrantedEffectId1 = "MagmaSprayPlayer",
 		tags = {
 			buff = true,
 			grants_active_skill = true,
@@ -843,6 +861,7 @@ return {
 		gameId = "Metadata/Items/Gem/SkillGemMoltenBlast",
 		variantId = "MoltenBlast",
 		grantedEffectId = "MoltenBlastPlayer",
+		additionalStatSet1 = "MoltenBlastSecondaryPlayer",
 		tags = {
 			grants_active_skill = true,
 			attack = true,
@@ -882,6 +901,8 @@ return {
 		gameId = "Metadata/Items/Gem/SkillGemStampede",
 		variantId = "Stampede",
 		grantedEffectId = "StampedePlayer",
+		additionalStatSet1 = "StampedeSlamPlayer",
+		additionalStatSet2 = "StampedeEruptionPlayer",
 		tags = {
 			grants_active_skill = true,
 			attack = true,
@@ -922,7 +943,7 @@ return {
 		gameId = "Metadata/Items/Gem/SkillGemHighVelocityRounds",
 		variantId = "HighVelocityRounds",
 		grantedEffectId = "HighVelocityRoundsAmmoPlayer",
-		additionalGrantedEffectId = "HighVelocityRoundsPlayer",
+		additionalGrantedEffectId1 = "HighVelocityRoundsPlayer",
 		tags = {
 			grants_active_skill = true,
 			attack = true,
@@ -943,7 +964,7 @@ return {
 		gameId = "Metadata/Items/Gem/SkillGemFragmentationRounds",
 		variantId = "FragmentationRounds",
 		grantedEffectId = "FragmentationRoundsAmmoPlayer",
-		additionalGrantedEffectId = "FragmentationRoundsPlayer",
+		additionalGrantedEffectId1 = "FragmentationRoundsPlayer",
 		tags = {
 			grants_active_skill = true,
 			attack = true,
@@ -963,7 +984,7 @@ return {
 		gameId = "Metadata/Items/Gem/SkillGemSiegeCascade",
 		variantId = "SiegeCascade",
 		grantedEffectId = "SiegeCascadeAmmoPlayer",
-		additionalGrantedEffectId = "SiegeCascadePlayer",
+		additionalGrantedEffectId1 = "SiegeCascadePlayer",
 		tags = {
 			grants_active_skill = true,
 			attack = true,
@@ -986,7 +1007,7 @@ return {
 		gameId = "Metadata/Items/Gem/SkillGemArmourPiercingRounds",
 		variantId = "ArmourPiercingRounds",
 		grantedEffectId = "ArmourPiercingBoltsAmmoPlayer",
-		additionalGrantedEffectId = "ArmourPiercingBoltsPlayer",
+		additionalGrantedEffectId1 = "ArmourPiercingBoltsPlayer",
 		tags = {
 			grants_active_skill = true,
 			attack = true,
@@ -1006,7 +1027,7 @@ return {
 		gameId = "Metadata/Items/Gem/SkillGemExplosiveShot",
 		variantId = "ExplosiveShot",
 		grantedEffectId = "ExplosiveShotAmmoPlayer",
-		additionalGrantedEffectId = "ExplosiveShotPlayer",
+		additionalGrantedEffectId1 = "ExplosiveShotPlayer",
 		tags = {
 			grants_active_skill = true,
 			attack = true,
@@ -1028,7 +1049,7 @@ return {
 		gameId = "Metadata/Items/Gem/SkillGemIncendiaryShot",
 		variantId = "IncendiaryShot",
 		grantedEffectId = "IncendiaryShotAmmoPlayer",
-		additionalGrantedEffectId = "IncendiaryShotPlayer",
+		additionalGrantedEffectId1 = "IncendiaryShotPlayer",
 		tags = {
 			grants_active_skill = true,
 			attack = true,
@@ -1049,7 +1070,7 @@ return {
 		gameId = "Metadata/Items/Gem/SkillGemRapidShot",
 		variantId = "RapidShot",
 		grantedEffectId = "RapidShotAmmoPlayer",
-		additionalGrantedEffectId = "RapidShotPlayer",
+		additionalGrantedEffectId1 = "RapidShotPlayer",
 		tags = {
 			grants_active_skill = true,
 			attack = true,
@@ -1069,7 +1090,7 @@ return {
 		gameId = "Metadata/Items/Gem/SkillGemGlacialBolt",
 		variantId = "GlacialBolt",
 		grantedEffectId = "GlacialBoltAmmoPlayer",
-		additionalGrantedEffectId = "GlacialBoltPlayer",
+		additionalGrantedEffectId1 = "GlacialBoltPlayer",
 		tags = {
 			grants_active_skill = true,
 			attack = true,
@@ -1091,7 +1112,7 @@ return {
 		gameId = "Metadata/Items/Gem/SkillGemPermafrostBolts",
 		variantId = "PermafrostBolts",
 		grantedEffectId = "PermafrostBoltsAmmoPlayer",
-		additionalGrantedEffectId = "PermafrostBoltsPlayer",
+		additionalGrantedEffectId1 = "PermafrostBoltsPlayer",
 		tags = {
 			grants_active_skill = true,
 			attack = true,
@@ -1112,7 +1133,7 @@ return {
 		gameId = "Metadata/Items/Gem/SkillGemHailstormRounds",
 		variantId = "HailstormRounds",
 		grantedEffectId = "HailstormRoundsAmmoPlayer",
-		additionalGrantedEffectId = "HailstormRoundsPlayer",
+		additionalGrantedEffectId1 = "HailstormRoundsPlayer",
 		tags = {
 			grants_active_skill = true,
 			attack = true,
@@ -1134,7 +1155,7 @@ return {
 		gameId = "Metadata/Items/Gem/SkillGemIceShards",
 		variantId = "IceShards",
 		grantedEffectId = "IceShardsAmmoPlayer",
-		additionalGrantedEffectId = "IceShardsPlayer",
+		additionalGrantedEffectId1 = "IceShardsPlayer",
 		tags = {
 			grants_active_skill = true,
 			attack = true,
@@ -1156,7 +1177,7 @@ return {
 		gameId = "Metadata/Items/Gem/SkillGemPlasmaBlast",
 		variantId = "PlasmaBlast",
 		grantedEffectId = "PlasmaBlastAmmoPlayer",
-		additionalGrantedEffectId = "PlasmaBlastPlayer",
+		additionalGrantedEffectId1 = "PlasmaBlastPlayer",
 		tags = {
 			grants_active_skill = true,
 			attack = true,
@@ -1178,7 +1199,7 @@ return {
 		gameId = "Metadata/Items/Gem/SkillGemGalvanicShards",
 		variantId = "GalvanicShards",
 		grantedEffectId = "GalvanicShardsAmmoPlayer",
-		additionalGrantedEffectId = "GalvanicShardsPlayer",
+		additionalGrantedEffectId1 = "GalvanicShardsPlayer",
 		tags = {
 			grants_active_skill = true,
 			attack = true,
@@ -1199,7 +1220,7 @@ return {
 		gameId = "Metadata/Items/Gem/SkillGemStormblastBolts",
 		variantId = "StormblastBolts",
 		grantedEffectId = "StormblastBoltsAmmoPlayer",
-		additionalGrantedEffectId = "StormblastBoltsPlayer",
+		additionalGrantedEffectId1 = "StormblastBoltsPlayer",
 		tags = {
 			grants_active_skill = true,
 			attack = true,
@@ -1221,7 +1242,7 @@ return {
 		gameId = "Metadata/Items/Gem/SkillGemShockburstRounds",
 		variantId = "ShockburstRounds",
 		grantedEffectId = "ShockburstRoundsAmmoPlayer",
-		additionalGrantedEffectId = "ShockburstRoundsPlayer",
+		additionalGrantedEffectId1 = "ShockburstRoundsPlayer",
 		tags = {
 			grants_active_skill = true,
 			attack = true,
@@ -1243,7 +1264,7 @@ return {
 		gameId = "Metadata/Items/Gem/SkillGemWarBanner",
 		variantId = "WarBanner",
 		grantedEffectId = "WarBannerReservationPlayer",
-		additionalGrantedEffectId = "WarBannerPlayer",
+		additionalGrantedEffectId1 = "WarBannerPlayer",
 		tags = {
 			grants_active_skill = true,
 			banner = true,
@@ -1264,7 +1285,7 @@ return {
 		gameId = "Metadata/Items/Gem/SkillGemDefianceBanner",
 		variantId = "DefianceBanner",
 		grantedEffectId = "DefianceBannerReservationPlayer",
-		additionalGrantedEffectId = "DefianceBannerPlayer",
+		additionalGrantedEffectId1 = "DefianceBannerPlayer",
 		tags = {
 			grants_active_skill = true,
 			banner = true,
@@ -1285,7 +1306,7 @@ return {
 		gameId = "Metadata/Items/Gem/SkillGemDreadBanner",
 		variantId = "DreadBanner",
 		grantedEffectId = "DreadBannerReservationPlayer",
-		additionalGrantedEffectId = "DreadBannerPlayer",
+		additionalGrantedEffectId1 = "DreadBannerPlayer",
 		tags = {
 			grants_active_skill = true,
 			banner = true,
@@ -1358,7 +1379,7 @@ return {
 		gameId = "Metadata/Items/Gem/SkillGemClusterGrenade",
 		variantId = "ClusterGrenade",
 		grantedEffectId = "ClusterGrenadePlayer",
-		additionalGrantedEffectId = "ClusterGrenadeMiniPlayer",
+		additionalGrantedEffectId1 = "ClusterGrenadeMiniPlayer",
 		tags = {
 			grants_active_skill = true,
 			attack = true,
@@ -1435,7 +1456,7 @@ return {
 		gameId = "Metadata/Items/Gems/SkillGemCastOnBlock",
 		variantId = "CastOnBlock",
 		grantedEffectId = "MetaCastOnBlockPlayer",
-		additionalGrantedEffectId = "SupportMetaCastOnBlockPlayer",
+		additionalGrantedEffectId1 = "SupportMetaCastOnBlockPlayer",
 		tags = {
 			buff = true,
 			grants_active_skill = true,

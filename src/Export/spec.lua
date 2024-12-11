@@ -5717,10 +5717,10 @@ return {
 		},
 		[8]={
 			list=false,
-			name="",
+			name="DamageIncrementalEffectiveness",
 			refTo="",
 			type="Float",
-			width=150
+			width=200
 		},
 		[9]={
 			list=true,
@@ -5845,7 +5845,7 @@ return {
 		},
 		[16]={
 			list=false,
-			name="",
+			name="ActorLevel",
 			refTo="",
 			type="Float",
 			width=150
@@ -12223,8 +12223,22 @@ return {
 	ritualbalanceperlevel={
 	},
 	ritualconstants={
+		[1]={
+			list=false,
+			name="",
+			refTo="",
+			type="String",
+			width=300
+		}
 	},
 	ritualrunetypes={
+		[1]={
+			list=false,
+			name="",
+			refTo="",
+			type="String",
+			width=170
+		}
 	},
 	ritualsetkillachievements={
 	},
