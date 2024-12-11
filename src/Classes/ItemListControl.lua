@@ -91,7 +91,7 @@ function ItemListClass:FindSocketedJewel(jewelId, excludeActiveSpec)
 end
 
 function ItemListClass:FindEquippedItemSocket(socketId, excludeActiveSet)
-	if not self.itemsTab.items[socketId] or self.itemsTab.items[socketId].type ~= "Rune" or self.itemsTab.items[socketId].type ~= "Soul Core" then
+	if not self.itemsTab.items[socketId] or self.itemsTab.items[socketId].type ~= "Rune" or self.itemsTab.items[socketId].type ~= "SoulCore" then
 		return nil
 	end
 	local equipSet = nil

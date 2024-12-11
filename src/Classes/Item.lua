@@ -688,7 +688,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 						else
 							self.enchantments = data.enchantments[self.base.type]
 						end
-						self.corruptible = self.base.type ~= "Flask" and self.base.type ~= "Rune" and self.base.type ~= "Soul Core"
+						self.corruptible = self.base.type ~= "Flask" and self.base.type ~= "Rune" and self.base.type ~= "SoulCore"
 						self.canBeInfluenced = self.base.influenceTags ~= nil
 						self.clusterJewel = data.clusterJewels and data.clusterJewels.jewels[self.baseName]
 						self.requirements.str = self.base.req.str or 0

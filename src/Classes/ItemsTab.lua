@@ -443,7 +443,7 @@ holding Shift will put it in the second.]])
 	self.controls.displayItemAddImplicit.shown = function()
 		return self.displayItem and
 			self.displayItem.type ~= "Tincture" and (self.displayItem.corruptible or ((self.displayItem.type ~= "Flask" and self.displayItem.type ~= "Jewel" and
-			self.displayItem.type ~= "Rune" and self.displayItem.type ~= "Soul Core") and
+			self.displayItem.type ~= "Rune" and self.displayItem.type ~= "SoulCore") and
 			(self.displayItem.rarity == "NORMAL" or self.displayItem.rarity == "MAGIC" or self.displayItem.rarity == "RARE"))) and 
 			not self.displayItem.implicitsCannotBeChanged
 	end
@@ -497,7 +497,7 @@ holding Shift will put it in the second.]])
 	self.controls.displayItemQuality.shown = function()
 		return self.displayItem and self.displayItem.quality and (self.displayItem.base.type ~= "Amulet" or self.displayItem.base.type ~= "Belt" or
 			self.displayItem.base.type ~= "Jewel" or self.displayItem.base.type ~= "Quiver" or self.displayItem.base.type ~= "Ring" or
-			self.displayItem.base.type ~= "Rune" or self.displayItem.base.type ~= "Soul Core")
+			self.displayItem.base.type ~= "Rune" or self.displayItem.base.type ~= "SoulCore")
 	end
 
 	self.controls.displayItemQualityEdit = new("EditControl", {"LEFT",self.controls.displayItemQuality,"RIGHT"}, {2, 0, 60, 20}, nil, nil, "%D", 2, function(buf)
@@ -508,7 +508,7 @@ holding Shift will put it in the second.]])
 	self.controls.displayItemQualityEdit.shown = function()
 		return self.displayItem and self.displayItem.quality and (self.displayItem.base.type ~= "Amulet" or self.displayItem.base.type ~= "Belt" or 
 		self.displayItem.base.type ~= "Jewel" or self.displayItem.base.type ~= "Quiver" or self.displayItem.base.type ~= "Ring" or
-		self.displayItem.base.type ~= "Rune" or self.displayItem.base.type ~= "Soul Core")
+		self.displayItem.base.type ~= "Rune" or self.displayItem.base.type ~= "SoulCore")
 	end
 
 	-- Section: Catalysts
@@ -1868,7 +1868,7 @@ function ItemsTabClass:IsItemValidForSlot(item, slotName, itemSet)
 		return true
 	elseif item.type == "Tincture" and slotType == "Flask" then
 		return true
-	elseif (item.type == "Rune" or item.type == "Soul Core") and slotName:match("Socket") then
+	elseif (item.type == "Rune" or item.type == "SoulCore") and slotName:match("Socket") then
 		return true
 	elseif slotName == "Weapon 1" or slotName == "Weapon 1 Swap" or slotName == "Weapon" then
 		return item.base.weapon ~= nil
@@ -1914,7 +1914,7 @@ function ItemsTabClass:CraftItem()
 		item.explicitModLines = { }
 		item.crucibleModLines = { }
 		if base.base.type == "Amulet" or base.base.type == "Belt" or base.base.type == "Jewel" or base.base.type == "Quiver" or base.base.type == "Ring" or
-			base.base.type == "SoulCore" then
+			base.base.type == "SoulCore" or base.base.type == "Rune" then
 			item.quality = nil
 		else
 			item.quality = 0
@@ -1928,7 +1928,7 @@ function ItemsTabClass:CraftItem()
 				raritySel = 2
 			end
 		end
-		if base.base.type == "SoulCore" then
+		if base.base.type == "SoulCore" or base.base.type == "Rune" then
 			if raritySel == 3 or raritySel == 2 then
 				raritySel = 1
 			end

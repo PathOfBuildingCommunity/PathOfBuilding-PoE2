@@ -837,8 +837,8 @@ function calcs.initEnv(build, mode, override, specEnv)
 				item = nil
 			end
 			local scale = 1
-			if item and (item.type == "Rune" or item.type == "Soul Core") and slot.parentSlot then
-				-- Check if the item in the parent slot has enough Rune / Soul Core Sockets
+			if item and (item.type == "Rune" or item.type == "SoulCore") and slot.parentSlot then
+				-- Check if the item in the parent slot has enough Rune / SoulCore Sockets
 				local parentItem = env.player.itemList[slot.parentSlot.slotName]
 				if not parentItem or parentItem.socketCount < slot.slotNum then
 					item = nil

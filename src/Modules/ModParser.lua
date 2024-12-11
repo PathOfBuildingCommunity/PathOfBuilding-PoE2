@@ -1202,6 +1202,7 @@ local preFlagList = {
 	-- While in the presence of...
 	["^while a unique enemy is in your presence, "] = { tag = { type = "ActorCondition", actor = "enemy", var = "RareOrUnique" } },
 	["^while a pinnacle atlas boss is in your presence, "] = { tag = { type = "ActorCondition", actor = "enemy", var = "PinnacleBoss" } },
+	-- Rune and SoulCore related
 	["^armour: "] = { tag = { type = "SocketedIn", slotType = "Armour" } },
 	["^martial weapons: "] = { tag = { type = "SocketedIn", slotType = "Martial Weapons" } },
 }
