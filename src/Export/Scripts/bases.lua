@@ -158,30 +158,52 @@ directiveTable.base = function(state, args, out)
 		end
 		out:write('},\n')
 	end
-	local flask = dat("Flasks"):GetRow("BaseItemType", baseItemType)
-	if flask then
-		local compCharges = dat("ComponentCharges"):GetRow("BaseItemType", baseItemType.Id)
-		out:write('\tflask = { ')
-		if flask.LifePerUse > 0 then
-			out:write('life = ', flask.LifePerUse, ', ')
+	if state.type == "Flask" then
+		local flask = dat("Flasks"):GetRow("BaseItemType", baseItemType)
+		if flask then
+			local compCharges = dat("ComponentCharges"):GetRow("BaseItemType", baseItemType.Id)
+			out:write('\tflask = { ')
+			if flask.LifePerUse > 0 then
+				out:write('life = ', flask.LifePerUse, ', ')
+			end
+			if flask.ManaPerUse > 0 then
+				out:write('mana = ', flask.ManaPerUse, ', ')
+			end
+			out:write('duration = ', flask.RecoveryTime / 10, ', ')
+			out:write('chargesUsed = ', compCharges.PerUse, ', ')
+			out:write('chargesMax = ', compCharges.Max, ', ')
+			if flask.Buff then
+				local stats = { }
+				for i, stat in ipairs(flask.Buff.Stats) do
+					stats[stat.Id] = { min = flask.BuffMagnitudes[i], max = flask.BuffMagnitudes[i] }
+				end
+				for i, stat in ipairs(flask.Buff.GrantedFlags) do
+					stats[stat.Id] = { min = 1, max = 1 }
+				end
+				out:write('buff = { "', table.concat(describeStats(stats), '", "'), '" }, ')
+			end
+			out:write('},\n')
 		end
-		if flask.ManaPerUse > 0 then
-			out:write('mana = ', flask.ManaPerUse, ', ')
-		end
-		out:write('duration = ', flask.RecoveryTime / 10, ', ')
-		out:write('chargesUsed = ', compCharges.PerUse, ', ')
-		out:write('chargesMax = ', compCharges.Max, ', ')
-		if flask.Buff then
+	end
+	-- Special handling of Runes and SoulCores
+	if state.type == "Rune" or state.type == "SoulCore" then
+		local soulcore = dat("SoulCores"):GetRow("BaseItemTypes", baseItemType)
+		if soulcore then
+			out:write('\timplicit = ')
 			local stats = { }
-			for i, stat in ipairs(flask.Buff.Stats) do
-				stats[stat.Id] = { min = flask.BuffMagnitudes[i], max = flask.BuffMagnitudes[i] }
+			for i, statKey in ipairs(soulcore.StatsKeysWeapon) do
+				local statValue = soulcore["StatsValuesWeapon"][i]
+				stats[statKey.Id] = { min = statValue, max = statValue }
 			end
-			for i, stat in ipairs(flask.Buff.GrantedFlags) do
-				stats[stat.Id] = { min = 1, max = 1 }
+			out:write('"Martial Weapons: ', table.concat(describeStats(stats), '", "'), '\\n')
+			stats = { }  -- reset stats to empty
+			for i, statKey in ipairs(soulcore.StatsKeysArmour) do
+				local statValue = soulcore["StatsValuesArmour"][i]
+				stats[statKey.Id] = { min = statValue, max = statValue }
 			end
-			out:write('buff = { "', table.concat(describeStats(stats), '", "'), '" }, ')
+			out:write('Armour: ', table.concat(describeStats(stats), '", "'), '"')
+			out:write(',\n')
 		end
-		out:write('},\n')
 	end
 	out:write('\treq = { ')
 	local reqLevel = 1

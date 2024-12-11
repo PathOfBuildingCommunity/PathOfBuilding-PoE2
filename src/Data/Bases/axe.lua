@@ -4,7 +4,7 @@ local itemBases = ...
 
 itemBases["Dull Hatchet"] = {
 	type = "One Handed Axe",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { axe = true, onehand = true, ezomyte_basetype = true, weapon = true, one_hand_weapon = true, default = true, },
 	influenceTags = { shaper = "axe_shaper", elder = "axe_elder", adjudicator = "axe_adjudicator", basilisk = "axe_basilisk", crusader = "axe_crusader", eyrie = "axe_eyrie", cleansing = "axe_cleansing", tangle = "axe_tangle" },
 	implicitModTypes = { },
@@ -13,7 +13,7 @@ itemBases["Dull Hatchet"] = {
 }
 itemBases["Hook Axe"] = {
 	type = "One Handed Axe",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { axe = true, onehand = true, ezomyte_basetype = true, weapon = true, one_hand_weapon = true, default = true, },
 	influenceTags = { shaper = "axe_shaper", elder = "axe_elder", adjudicator = "axe_adjudicator", basilisk = "axe_basilisk", crusader = "axe_crusader", eyrie = "axe_eyrie", cleansing = "axe_cleansing", tangle = "axe_tangle" },
 	implicit = "Gain 1 Rage on Hit",
@@ -23,7 +23,7 @@ itemBases["Hook Axe"] = {
 }
 itemBases["Bearded Axe"] = {
 	type = "One Handed Axe",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { axe = true, onehand = true, ezomyte_basetype = true, weapon = true, one_hand_weapon = true, default = true, },
 	influenceTags = { shaper = "axe_shaper", elder = "axe_elder", adjudicator = "axe_adjudicator", basilisk = "axe_basilisk", crusader = "axe_crusader", eyrie = "axe_eyrie", cleansing = "axe_cleansing", tangle = "axe_tangle" },
 	implicitModTypes = { },
@@ -32,7 +32,7 @@ itemBases["Bearded Axe"] = {
 }
 itemBases["Extended Cleaver"] = {
 	type = "One Handed Axe",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { axe = true, onehand = true, maraketh_basetype = true, weapon = true, one_hand_weapon = true, default = true, },
 	influenceTags = { shaper = "axe_shaper", elder = "axe_elder", adjudicator = "axe_adjudicator", basilisk = "axe_basilisk", crusader = "axe_crusader", eyrie = "axe_eyrie", cleansing = "axe_cleansing", tangle = "axe_tangle" },
 	implicit = "Has no Accuracy Penalty from Range",
@@ -42,7 +42,7 @@ itemBases["Extended Cleaver"] = {
 }
 itemBases["Bandit Hatchet"] = {
 	type = "One Handed Axe",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { axe = true, onehand = true, maraketh_basetype = true, weapon = true, one_hand_weapon = true, default = true, },
 	influenceTags = { shaper = "axe_shaper", elder = "axe_elder", adjudicator = "axe_adjudicator", basilisk = "axe_basilisk", crusader = "axe_crusader", eyrie = "axe_eyrie", cleansing = "axe_cleansing", tangle = "axe_tangle" },
 	implicitModTypes = { },
@@ -51,7 +51,7 @@ itemBases["Bandit Hatchet"] = {
 }
 itemBases["Crescent Axe"] = {
 	type = "One Handed Axe",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { axe = true, onehand = true, maraketh_basetype = true, weapon = true, one_hand_weapon = true, default = true, },
 	influenceTags = { shaper = "axe_shaper", elder = "axe_elder", adjudicator = "axe_adjudicator", basilisk = "axe_basilisk", crusader = "axe_crusader", eyrie = "axe_eyrie", cleansing = "axe_cleansing", tangle = "axe_tangle" },
 	implicitModTypes = { },
@@ -60,7 +60,7 @@ itemBases["Crescent Axe"] = {
 }
 itemBases["Carving Hatchet"] = {
 	type = "One Handed Axe",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { axe = true, onehand = true, vaal_basetype = true, weapon = true, one_hand_weapon = true, default = true, },
 	influenceTags = { shaper = "axe_shaper", elder = "axe_elder", adjudicator = "axe_adjudicator", basilisk = "axe_basilisk", crusader = "axe_crusader", eyrie = "axe_eyrie", cleansing = "axe_cleansing", tangle = "axe_tangle" },
 	implicitModTypes = { },
@@ -69,7 +69,7 @@ itemBases["Carving Hatchet"] = {
 }
 itemBases["Sacrificial Axe"] = {
 	type = "One Handed Axe",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { axe = true, onehand = true, vaal_basetype = true, weapon = true, one_hand_weapon = true, default = true, },
 	influenceTags = { shaper = "axe_shaper", elder = "axe_elder", adjudicator = "axe_adjudicator", basilisk = "axe_basilisk", crusader = "axe_crusader", eyrie = "axe_eyrie", cleansing = "axe_cleansing", tangle = "axe_tangle" },
 	implicit = "Gain (28-35) Mana per Enemy Killed",
@@ -79,7 +79,7 @@ itemBases["Sacrificial Axe"] = {
 }
 itemBases["Boarding Hatchet"] = {
 	type = "One Handed Axe",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { axe = true, onehand = true, weapon = true, one_hand_weapon = true, default = true, },
 	influenceTags = { shaper = "axe_shaper", elder = "axe_elder", adjudicator = "axe_adjudicator", basilisk = "axe_basilisk", crusader = "axe_crusader", eyrie = "axe_eyrie", cleansing = "axe_cleansing", tangle = "axe_tangle" },
 	implicitModTypes = { },
@@ -88,7 +88,7 @@ itemBases["Boarding Hatchet"] = {
 }
 itemBases["Fury Cleaver"] = {
 	type = "One Handed Axe",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { axe = true, onehand = true, weapon = true, one_hand_weapon = true, default = true, },
 	influenceTags = { shaper = "axe_shaper", elder = "axe_elder", adjudicator = "axe_adjudicator", basilisk = "axe_basilisk", crusader = "axe_crusader", eyrie = "axe_eyrie", cleansing = "axe_cleansing", tangle = "axe_tangle" },
 	implicit = "10% increased Damage taken",
@@ -98,7 +98,7 @@ itemBases["Fury Cleaver"] = {
 }
 itemBases["Battle Axe"] = {
 	type = "One Handed Axe",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { axe = true, onehand = true, weapon = true, one_hand_weapon = true, default = true, },
 	influenceTags = { shaper = "axe_shaper", elder = "axe_elder", adjudicator = "axe_adjudicator", basilisk = "axe_basilisk", crusader = "axe_crusader", eyrie = "axe_eyrie", cleansing = "axe_cleansing", tangle = "axe_tangle" },
 	implicitModTypes = { },
@@ -107,7 +107,7 @@ itemBases["Battle Axe"] = {
 }
 itemBases["Profane Cleaver"] = {
 	type = "One Handed Axe",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { axe = true, onehand = true, weapon = true, one_hand_weapon = true, default = true, },
 	influenceTags = { shaper = "axe_shaper", elder = "axe_elder", adjudicator = "axe_adjudicator", basilisk = "axe_basilisk", crusader = "axe_crusader", eyrie = "axe_eyrie", cleansing = "axe_cleansing", tangle = "axe_tangle" },
 	implicitModTypes = { },
@@ -116,7 +116,7 @@ itemBases["Profane Cleaver"] = {
 }
 itemBases["Dread Hatchet"] = {
 	type = "One Handed Axe",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { axe = true, onehand = true, weapon = true, one_hand_weapon = true, default = true, },
 	influenceTags = { shaper = "axe_shaper", elder = "axe_elder", adjudicator = "axe_adjudicator", basilisk = "axe_basilisk", crusader = "axe_crusader", eyrie = "axe_eyrie", cleansing = "axe_cleansing", tangle = "axe_tangle" },
 	implicitModTypes = { },

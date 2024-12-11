@@ -4,7 +4,7 @@ local itemBases = ...
 
 itemBases["Crude Claw"] = {
 	type = "Claw",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { onehand = true, ezomyte_basetype = true, default = true, weapon = true, one_hand_weapon = true, claw = true, },
 	influenceTags = { shaper = "claw_shaper", elder = "claw_elder", adjudicator = "claw_adjudicator", basilisk = "claw_basilisk", crusader = "claw_crusader", eyrie = "claw_eyrie", cleansing = "claw_cleansing", tangle = "claw_tangle" },
 	implicitModTypes = { },
@@ -13,7 +13,7 @@ itemBases["Crude Claw"] = {
 }
 itemBases["Pict Claw"] = {
 	type = "Claw",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { onehand = true, ezomyte_basetype = true, default = true, weapon = true, one_hand_weapon = true, claw = true, },
 	influenceTags = { shaper = "claw_shaper", elder = "claw_elder", adjudicator = "claw_adjudicator", basilisk = "claw_basilisk", crusader = "claw_crusader", eyrie = "claw_eyrie", cleansing = "claw_cleansing", tangle = "claw_tangle" },
 	implicitModTypes = { },
@@ -22,7 +22,7 @@ itemBases["Pict Claw"] = {
 }
 itemBases["Wolfbone Claw"] = {
 	type = "Claw",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { onehand = true, ezomyte_basetype = true, default = true, weapon = true, one_hand_weapon = true, claw = true, },
 	influenceTags = { shaper = "claw_shaper", elder = "claw_elder", adjudicator = "claw_adjudicator", basilisk = "claw_basilisk", crusader = "claw_crusader", eyrie = "claw_eyrie", cleansing = "claw_cleansing", tangle = "claw_tangle" },
 	implicit = "Grants 8 Life per Enemy Hit",
@@ -32,7 +32,7 @@ itemBases["Wolfbone Claw"] = {
 }
 itemBases["Forked Claw"] = {
 	type = "Claw",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { maraketh_basetype = true, onehand = true, default = true, weapon = true, one_hand_weapon = true, claw = true, },
 	influenceTags = { shaper = "claw_shaper", elder = "claw_elder", adjudicator = "claw_adjudicator", basilisk = "claw_basilisk", crusader = "claw_crusader", eyrie = "claw_eyrie", cleansing = "claw_cleansing", tangle = "claw_tangle" },
 	implicitModTypes = { },
@@ -41,7 +41,7 @@ itemBases["Forked Claw"] = {
 }
 itemBases["Plated Claw"] = {
 	type = "Claw",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { maraketh_basetype = true, onehand = true, default = true, weapon = true, one_hand_weapon = true, claw = true, },
 	influenceTags = { shaper = "claw_shaper", elder = "claw_elder", adjudicator = "claw_adjudicator", basilisk = "claw_basilisk", crusader = "claw_crusader", eyrie = "claw_eyrie", cleansing = "claw_cleansing", tangle = "claw_tangle" },
 	implicitModTypes = { },
@@ -50,7 +50,7 @@ itemBases["Plated Claw"] = {
 }
 itemBases["Edged Claw"] = {
 	type = "Claw",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { maraketh_basetype = true, onehand = true, default = true, weapon = true, one_hand_weapon = true, claw = true, },
 	influenceTags = { shaper = "claw_shaper", elder = "claw_elder", adjudicator = "claw_adjudicator", basilisk = "claw_basilisk", crusader = "claw_crusader", eyrie = "claw_eyrie", cleansing = "claw_cleansing", tangle = "claw_tangle" },
 	implicit = "(15-25)% chance to Blind Enemies on hit",
@@ -60,7 +60,7 @@ itemBases["Edged Claw"] = {
 }
 itemBases["Arced Claw"] = {
 	type = "Claw",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { onehand = true, vaal_basetype = true, default = true, weapon = true, one_hand_weapon = true, claw = true, },
 	influenceTags = { shaper = "claw_shaper", elder = "claw_elder", adjudicator = "claw_adjudicator", basilisk = "claw_basilisk", crusader = "claw_crusader", eyrie = "claw_eyrie", cleansing = "claw_cleansing", tangle = "claw_tangle" },
 	implicitModTypes = { },
@@ -69,7 +69,7 @@ itemBases["Arced Claw"] = {
 }
 itemBases["Hooked Claw"] = {
 	type = "Claw",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { onehand = true, vaal_basetype = true, default = true, weapon = true, one_hand_weapon = true, claw = true, },
 	influenceTags = { shaper = "claw_shaper", elder = "claw_elder", adjudicator = "claw_adjudicator", basilisk = "claw_basilisk", crusader = "claw_crusader", eyrie = "claw_eyrie", cleansing = "claw_cleansing", tangle = "claw_tangle" },
 	implicitModTypes = { },
@@ -78,7 +78,7 @@ itemBases["Hooked Claw"] = {
 }
 itemBases["Razorglass Claw"] = {
 	type = "Claw",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { onehand = true, default = true, weapon = true, one_hand_weapon = true, claw = true, },
 	influenceTags = { shaper = "claw_shaper", elder = "claw_elder", adjudicator = "claw_adjudicator", basilisk = "claw_basilisk", crusader = "claw_crusader", eyrie = "claw_eyrie", cleansing = "claw_cleansing", tangle = "claw_tangle" },
 	implicitModTypes = { },
@@ -87,7 +87,7 @@ itemBases["Razorglass Claw"] = {
 }
 itemBases["Sharktooth Claw"] = {
 	type = "Claw",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { onehand = true, default = true, weapon = true, one_hand_weapon = true, claw = true, },
 	influenceTags = { shaper = "claw_shaper", elder = "claw_elder", adjudicator = "claw_adjudicator", basilisk = "claw_basilisk", crusader = "claw_crusader", eyrie = "claw_eyrie", cleansing = "claw_cleansing", tangle = "claw_tangle" },
 	implicitModTypes = { },
@@ -96,7 +96,7 @@ itemBases["Sharktooth Claw"] = {
 }
 itemBases["Armoured Claw"] = {
 	type = "Claw",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { onehand = true, default = true, weapon = true, one_hand_weapon = true, claw = true, },
 	influenceTags = { shaper = "claw_shaper", elder = "claw_elder", adjudicator = "claw_adjudicator", basilisk = "claw_basilisk", crusader = "claw_crusader", eyrie = "claw_eyrie", cleansing = "claw_cleansing", tangle = "claw_tangle" },
 	implicitModTypes = { },
@@ -105,7 +105,7 @@ itemBases["Armoured Claw"] = {
 }
 itemBases["Piercing Claw"] = {
 	type = "Claw",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { onehand = true, default = true, weapon = true, one_hand_weapon = true, claw = true, },
 	influenceTags = { shaper = "claw_shaper", elder = "claw_elder", adjudicator = "claw_adjudicator", basilisk = "claw_basilisk", crusader = "claw_crusader", eyrie = "claw_eyrie", cleansing = "claw_cleansing", tangle = "claw_tangle" },
 	implicitModTypes = { },
@@ -114,7 +114,7 @@ itemBases["Piercing Claw"] = {
 }
 itemBases["Talon Claw"] = {
 	type = "Claw",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { onehand = true, default = true, weapon = true, one_hand_weapon = true, claw = true, },
 	influenceTags = { shaper = "claw_shaper", elder = "claw_elder", adjudicator = "claw_adjudicator", basilisk = "claw_basilisk", crusader = "claw_crusader", eyrie = "claw_eyrie", cleansing = "claw_cleansing", tangle = "claw_tangle" },
 	implicitModTypes = { },

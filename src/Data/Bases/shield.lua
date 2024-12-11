@@ -5,7 +5,7 @@ local itemBases = ...
 
 itemBases["Golden Flame"] = {
 	type = "Shield",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { not_for_sale = true, demigods = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicit = "+(11-19)% to Chaos Resistance",
@@ -15,7 +15,7 @@ itemBases["Golden Flame"] = {
 }
 itemBases["Splintered Tower Shield"] = {
 	type = "Shield",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { str_armour = true, ezomyte_basetype = true, str_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
@@ -24,7 +24,7 @@ itemBases["Splintered Tower Shield"] = {
 }
 itemBases["Painted Tower Shield"] = {
 	type = "Shield",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { str_armour = true, ezomyte_basetype = true, str_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
@@ -33,7 +33,7 @@ itemBases["Painted Tower Shield"] = {
 }
 itemBases["Braced Tower Shield"] = {
 	type = "Shield",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { str_armour = true, ezomyte_basetype = true, str_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
@@ -42,7 +42,7 @@ itemBases["Braced Tower Shield"] = {
 }
 itemBases["Barricade Tower Shield"] = {
 	type = "Shield",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { maraketh_basetype = true, str_armour = true, str_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
@@ -51,7 +51,7 @@ itemBases["Barricade Tower Shield"] = {
 }
 itemBases["Effigial Tower Shield"] = {
 	type = "Shield",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { maraketh_basetype = true, str_armour = true, str_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
@@ -60,7 +60,7 @@ itemBases["Effigial Tower Shield"] = {
 }
 itemBases["Rampart Tower Shield"] = {
 	type = "Shield",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { maraketh_basetype = true, str_armour = true, str_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
@@ -69,7 +69,7 @@ itemBases["Rampart Tower Shield"] = {
 }
 itemBases["Heraldric Tower Shield"] = {
 	type = "Shield",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { str_armour = true, vaal_basetype = true, str_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
@@ -78,7 +78,7 @@ itemBases["Heraldric Tower Shield"] = {
 }
 itemBases["Stone Tower Shield"] = {
 	type = "Shield",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { str_armour = true, vaal_basetype = true, str_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
@@ -87,7 +87,7 @@ itemBases["Stone Tower Shield"] = {
 }
 itemBases["Crucible Tower Shield"] = {
 	type = "Shield",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { str_armour = true, str_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
@@ -96,7 +96,7 @@ itemBases["Crucible Tower Shield"] = {
 }
 itemBases["Ancestor Tower Shield"] = {
 	type = "Shield",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { str_armour = true, str_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
@@ -105,7 +105,7 @@ itemBases["Ancestor Tower Shield"] = {
 }
 itemBases["Phalanx Tower Shield"] = {
 	type = "Shield",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { str_armour = true, str_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
@@ -114,7 +114,7 @@ itemBases["Phalanx Tower Shield"] = {
 }
 itemBases["Defiant Tower Shield"] = {
 	type = "Shield",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { str_armour = true, str_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
@@ -123,7 +123,7 @@ itemBases["Defiant Tower Shield"] = {
 }
 itemBases["Blacksteel Tower Shield"] = {
 	type = "Shield",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { str_armour = true, str_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
@@ -132,7 +132,7 @@ itemBases["Blacksteel Tower Shield"] = {
 }
 itemBases["Hardwood Targe"] = {
 	type = "Shield",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { str_dex_armour = true, ezomyte_basetype = true, str_dex_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
@@ -141,7 +141,7 @@ itemBases["Hardwood Targe"] = {
 }
 itemBases["Pelage Targe"] = {
 	type = "Shield",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { str_dex_armour = true, ezomyte_basetype = true, str_dex_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
@@ -150,7 +150,7 @@ itemBases["Pelage Targe"] = {
 }
 itemBases["Studded Targe"] = {
 	type = "Shield",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { maraketh_basetype = true, str_dex_armour = true, str_dex_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
@@ -159,7 +159,7 @@ itemBases["Studded Targe"] = {
 }
 itemBases["Crescent Targe"] = {
 	type = "Shield",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { maraketh_basetype = true, str_dex_armour = true, str_dex_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
@@ -168,7 +168,7 @@ itemBases["Crescent Targe"] = {
 }
 itemBases["Chiseled Targe"] = {
 	type = "Shield",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { str_dex_armour = true, vaal_basetype = true, str_dex_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
@@ -177,7 +177,7 @@ itemBases["Chiseled Targe"] = {
 }
 itemBases["Feathered Targe"] = {
 	type = "Shield",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { str_dex_armour = true, vaal_basetype = true, str_dex_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
@@ -186,7 +186,7 @@ itemBases["Feathered Targe"] = {
 }
 itemBases["Stratified Targe"] = {
 	type = "Shield",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { str_dex_armour = true, str_dex_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
@@ -195,7 +195,7 @@ itemBases["Stratified Targe"] = {
 }
 itemBases["Carved Targe"] = {
 	type = "Shield",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { str_dex_armour = true, str_dex_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
@@ -204,7 +204,7 @@ itemBases["Carved Targe"] = {
 }
 itemBases["Mosaic Targe"] = {
 	type = "Shield",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { str_dex_armour = true, str_dex_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
@@ -213,7 +213,7 @@ itemBases["Mosaic Targe"] = {
 }
 itemBases["Aureate Targe"] = {
 	type = "Shield",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { str_dex_armour = true, str_dex_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
@@ -222,7 +222,7 @@ itemBases["Aureate Targe"] = {
 }
 itemBases["Grand Targe"] = {
 	type = "Shield",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { str_dex_armour = true, str_dex_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
@@ -231,7 +231,7 @@ itemBases["Grand Targe"] = {
 }
 itemBases["Blazon Crest Shield"] = {
 	type = "Shield",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { str_int_armour = true, ezomyte_basetype = true, str_int_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
@@ -240,7 +240,7 @@ itemBases["Blazon Crest Shield"] = {
 }
 itemBases["Sigil Crest Shield"] = {
 	type = "Shield",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { str_int_armour = true, ezomyte_basetype = true, str_int_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
@@ -249,7 +249,7 @@ itemBases["Sigil Crest Shield"] = {
 }
 itemBases["Emblem Crest Shield"] = {
 	type = "Shield",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { maraketh_basetype = true, str_int_armour = true, str_int_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
@@ -258,7 +258,7 @@ itemBases["Emblem Crest Shield"] = {
 }
 itemBases["Jingling Crest Shield"] = {
 	type = "Shield",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { maraketh_basetype = true, str_int_armour = true, str_int_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
@@ -267,7 +267,7 @@ itemBases["Jingling Crest Shield"] = {
 }
 itemBases["Sectarian Crest Shield"] = {
 	type = "Shield",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { str_int_armour = true, vaal_basetype = true, str_int_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
@@ -276,7 +276,7 @@ itemBases["Sectarian Crest Shield"] = {
 }
 itemBases["Omen Crest Shield"] = {
 	type = "Shield",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { str_int_armour = true, vaal_basetype = true, str_int_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
@@ -285,7 +285,7 @@ itemBases["Omen Crest Shield"] = {
 }
 itemBases["Wayward Crest Shield"] = {
 	type = "Shield",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { str_int_armour = true, str_int_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
@@ -294,7 +294,7 @@ itemBases["Wayward Crest Shield"] = {
 }
 itemBases["Seer Crest Shield"] = {
 	type = "Shield",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { str_int_armour = true, str_int_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
@@ -303,7 +303,7 @@ itemBases["Seer Crest Shield"] = {
 }
 itemBases["Stoic Crest Shield"] = {
 	type = "Shield",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { str_int_armour = true, str_int_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
@@ -312,7 +312,7 @@ itemBases["Stoic Crest Shield"] = {
 }
 itemBases["Empyreal Crest Shield"] = {
 	type = "Shield",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { str_int_armour = true, str_int_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
@@ -321,7 +321,7 @@ itemBases["Empyreal Crest Shield"] = {
 }
 itemBases["Deified Crest Shield"] = {
 	type = "Shield",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { str_int_armour = true, str_int_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
@@ -330,7 +330,7 @@ itemBases["Deified Crest Shield"] = {
 }
 itemBases["Leather Buckler"] = {
 	type = "Shield",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { dex_shield = true, dex_armour = true, ezomyte_basetype = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
@@ -339,7 +339,7 @@ itemBases["Leather Buckler"] = {
 }
 itemBases["Wooden Buckler"] = {
 	type = "Shield",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { dex_shield = true, dex_armour = true, ezomyte_basetype = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
@@ -348,7 +348,7 @@ itemBases["Wooden Buckler"] = {
 }
 itemBases["Plated Buckler"] = {
 	type = "Shield",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { dex_shield = true, dex_armour = true, ezomyte_basetype = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
@@ -357,7 +357,7 @@ itemBases["Plated Buckler"] = {
 }
 itemBases["Iron Buckler"] = {
 	type = "Shield",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { maraketh_basetype = true, dex_shield = true, dex_armour = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
@@ -366,7 +366,7 @@ itemBases["Iron Buckler"] = {
 }
 itemBases["Ridged Buckler"] = {
 	type = "Shield",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { maraketh_basetype = true, dex_shield = true, dex_armour = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
@@ -375,7 +375,7 @@ itemBases["Ridged Buckler"] = {
 }
 itemBases["Spiked Buckler"] = {
 	type = "Shield",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { maraketh_basetype = true, dex_shield = true, dex_armour = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
@@ -384,7 +384,7 @@ itemBases["Spiked Buckler"] = {
 }
 itemBases["Ringed Buckler"] = {
 	type = "Shield",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { dex_shield = true, dex_armour = true, vaal_basetype = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
@@ -393,7 +393,7 @@ itemBases["Ringed Buckler"] = {
 }
 itemBases["Edged Buckler"] = {
 	type = "Shield",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { dex_shield = true, dex_armour = true, vaal_basetype = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
@@ -402,7 +402,7 @@ itemBases["Edged Buckler"] = {
 }
 itemBases["Laminate Buckler"] = {
 	type = "Shield",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { dex_shield = true, dex_armour = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
@@ -411,7 +411,7 @@ itemBases["Laminate Buckler"] = {
 }
 itemBases["Pearl Buckler"] = {
 	type = "Shield",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { dex_shield = true, dex_armour = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
@@ -420,7 +420,7 @@ itemBases["Pearl Buckler"] = {
 }
 itemBases["Ornate Buckler"] = {
 	type = "Shield",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { dex_shield = true, dex_armour = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
@@ -429,7 +429,7 @@ itemBases["Ornate Buckler"] = {
 }
 itemBases["Array Buckler"] = {
 	type = "Shield",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { dex_shield = true, dex_armour = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
@@ -438,7 +438,7 @@ itemBases["Array Buckler"] = {
 }
 itemBases["Aegis Buckler"] = {
 	type = "Shield",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { dex_shield = true, dex_armour = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
@@ -447,7 +447,7 @@ itemBases["Aegis Buckler"] = {
 }
 itemBases["Advanced Painted Tower Shield"] = {
 	type = "Shield",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { str_armour = true, str_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
@@ -456,7 +456,7 @@ itemBases["Advanced Painted Tower Shield"] = {
 }
 itemBases["Advanced Braced Tower Shield"] = {
 	type = "Shield",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { str_armour = true, str_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
@@ -465,7 +465,7 @@ itemBases["Advanced Braced Tower Shield"] = {
 }
 itemBases["Advanced Effigial Tower Shield"] = {
 	type = "Shield",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { str_armour = true, str_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
@@ -474,7 +474,7 @@ itemBases["Advanced Effigial Tower Shield"] = {
 }
 itemBases["Advanced Rampart Tower Shield"] = {
 	type = "Shield",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { str_armour = true, str_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
@@ -483,7 +483,7 @@ itemBases["Advanced Rampart Tower Shield"] = {
 }
 itemBases["Advanced Heraldric Tower Shield"] = {
 	type = "Shield",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { str_armour = true, str_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
@@ -492,7 +492,7 @@ itemBases["Advanced Heraldric Tower Shield"] = {
 }
 itemBases["Advanced Stone Tower Shield"] = {
 	type = "Shield",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { str_armour = true, str_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
@@ -501,7 +501,7 @@ itemBases["Advanced Stone Tower Shield"] = {
 }
 itemBases["Advanced Hardwood Targe"] = {
 	type = "Shield",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { str_dex_armour = true, str_dex_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
@@ -510,7 +510,7 @@ itemBases["Advanced Hardwood Targe"] = {
 }
 itemBases["Advanced Pelage Targe"] = {
 	type = "Shield",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { str_dex_armour = true, str_dex_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
@@ -519,7 +519,7 @@ itemBases["Advanced Pelage Targe"] = {
 }
 itemBases["Advanced Studded Targe"] = {
 	type = "Shield",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { str_dex_armour = true, str_dex_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
@@ -528,7 +528,7 @@ itemBases["Advanced Studded Targe"] = {
 }
 itemBases["Advanced Crescent Targe"] = {
 	type = "Shield",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { str_dex_armour = true, str_dex_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
@@ -537,7 +537,7 @@ itemBases["Advanced Crescent Targe"] = {
 }
 itemBases["Advanced Chiseled Targe"] = {
 	type = "Shield",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { str_dex_armour = true, str_dex_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
@@ -546,7 +546,7 @@ itemBases["Advanced Chiseled Targe"] = {
 }
 itemBases["Advanced Feathered Targe"] = {
 	type = "Shield",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { str_dex_armour = true, str_dex_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
@@ -555,7 +555,7 @@ itemBases["Advanced Feathered Targe"] = {
 }
 itemBases["Advanced Blazon Crest Shield"] = {
 	type = "Shield",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { str_int_armour = true, str_int_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
@@ -564,7 +564,7 @@ itemBases["Advanced Blazon Crest Shield"] = {
 }
 itemBases["Advanced Sigil Crest Shield"] = {
 	type = "Shield",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { str_int_armour = true, str_int_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
@@ -573,7 +573,7 @@ itemBases["Advanced Sigil Crest Shield"] = {
 }
 itemBases["Advanced Emblem Crest Shield"] = {
 	type = "Shield",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { str_int_armour = true, str_int_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
@@ -582,7 +582,7 @@ itemBases["Advanced Emblem Crest Shield"] = {
 }
 itemBases["Advanced Jingling Crest Shield"] = {
 	type = "Shield",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { str_int_armour = true, str_int_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
@@ -591,7 +591,7 @@ itemBases["Advanced Jingling Crest Shield"] = {
 }
 itemBases["Advanced Sectarian Crest Shield"] = {
 	type = "Shield",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { str_int_armour = true, str_int_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
@@ -600,7 +600,7 @@ itemBases["Advanced Sectarian Crest Shield"] = {
 }
 itemBases["Advanced Omen Crest Shield"] = {
 	type = "Shield",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { str_int_armour = true, str_int_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
@@ -609,7 +609,7 @@ itemBases["Advanced Omen Crest Shield"] = {
 }
 itemBases["Advanced Wooden Buckler"] = {
 	type = "Shield",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { dex_shield = true, dex_armour = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
@@ -618,7 +618,7 @@ itemBases["Advanced Wooden Buckler"] = {
 }
 itemBases["Advanced Plated Buckler"] = {
 	type = "Shield",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { dex_shield = true, dex_armour = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
@@ -627,7 +627,7 @@ itemBases["Advanced Plated Buckler"] = {
 }
 itemBases["Advanced Ridged Buckler"] = {
 	type = "Shield",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { dex_shield = true, dex_armour = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
@@ -636,7 +636,7 @@ itemBases["Advanced Ridged Buckler"] = {
 }
 itemBases["Advanced Spiked Buckler"] = {
 	type = "Shield",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { dex_shield = true, dex_armour = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
@@ -645,7 +645,7 @@ itemBases["Advanced Spiked Buckler"] = {
 }
 itemBases["Advanced Ringed Buckler"] = {
 	type = "Shield",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { dex_shield = true, dex_armour = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
@@ -654,7 +654,7 @@ itemBases["Advanced Ringed Buckler"] = {
 }
 itemBases["Advanced Edged Buckler"] = {
 	type = "Shield",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { dex_shield = true, dex_armour = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
@@ -663,7 +663,7 @@ itemBases["Advanced Edged Buckler"] = {
 }
 itemBases["Expert Braced Tower Shield"] = {
 	type = "Shield",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { str_armour = true, str_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
@@ -672,7 +672,7 @@ itemBases["Expert Braced Tower Shield"] = {
 }
 itemBases["Expert Rampart Tower Shield"] = {
 	type = "Shield",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { str_armour = true, str_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
@@ -681,7 +681,7 @@ itemBases["Expert Rampart Tower Shield"] = {
 }
 itemBases["Expert Stone Tower Shield"] = {
 	type = "Shield",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { str_armour = true, str_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
@@ -690,7 +690,7 @@ itemBases["Expert Stone Tower Shield"] = {
 }
 itemBases["Expert Pelage Targe"] = {
 	type = "Shield",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { str_dex_armour = true, str_dex_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
@@ -699,7 +699,7 @@ itemBases["Expert Pelage Targe"] = {
 }
 itemBases["Expert Crescent Targe"] = {
 	type = "Shield",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { str_dex_armour = true, str_dex_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
@@ -708,7 +708,7 @@ itemBases["Expert Crescent Targe"] = {
 }
 itemBases["Expert Feathered Targe"] = {
 	type = "Shield",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { str_dex_armour = true, str_dex_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
@@ -717,7 +717,7 @@ itemBases["Expert Feathered Targe"] = {
 }
 itemBases["Expert Sigil Crest Shield"] = {
 	type = "Shield",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { str_int_armour = true, str_int_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
@@ -726,7 +726,7 @@ itemBases["Expert Sigil Crest Shield"] = {
 }
 itemBases["Expert Jingling Crest Shield"] = {
 	type = "Shield",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { str_int_armour = true, str_int_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
@@ -735,7 +735,7 @@ itemBases["Expert Jingling Crest Shield"] = {
 }
 itemBases["Expert Omen Crest Shield"] = {
 	type = "Shield",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { str_int_armour = true, str_int_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
@@ -744,7 +744,7 @@ itemBases["Expert Omen Crest Shield"] = {
 }
 itemBases["Expert Plated Buckler"] = {
 	type = "Shield",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { dex_shield = true, dex_armour = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
@@ -753,7 +753,7 @@ itemBases["Expert Plated Buckler"] = {
 }
 itemBases["Expert Spiked Buckler"] = {
 	type = "Shield",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { dex_shield = true, dex_armour = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
@@ -762,7 +762,7 @@ itemBases["Expert Spiked Buckler"] = {
 }
 itemBases["Expert Edged Buckler"] = {
 	type = "Shield",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { dex_shield = true, dex_armour = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },

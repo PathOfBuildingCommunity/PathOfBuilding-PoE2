@@ -3,7 +3,7 @@ local itemBases = ...
 
 #type Shield
 #influenceBaseTag shield
-#socketLimit 3
+#socketLimit 2
 
 #baseMatch BaseType Metadata/Items/Armours/Shields/AbstractShield
 #baseMatch BaseType Metadata/Items/Armours/Shields/ShieldDemigods

@@ -4,7 +4,7 @@ local itemBases = ...
 
 itemBases["Golden Bracers"] = {
 	type = "Gloves",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { gloves = true, not_for_sale = true, armour = true, demigods = true, default = true, },
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicit = "+(20-30) to maximum Life",
@@ -14,7 +14,7 @@ itemBases["Golden Bracers"] = {
 }
 itemBases["Stocky Mitts"] = {
 	type = "Gloves",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { gloves = true, str_armour = true, armour = true, ezomyte_basetype = true, default = true, },
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
@@ -23,7 +23,7 @@ itemBases["Stocky Mitts"] = {
 }
 itemBases["Riveted Mitts"] = {
 	type = "Gloves",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { gloves = true, str_armour = true, armour = true, ezomyte_basetype = true, default = true, },
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
@@ -32,7 +32,7 @@ itemBases["Riveted Mitts"] = {
 }
 itemBases["Tempered Mitts"] = {
 	type = "Gloves",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { maraketh_basetype = true, gloves = true, str_armour = true, armour = true, default = true, },
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
@@ -41,7 +41,7 @@ itemBases["Tempered Mitts"] = {
 }
 itemBases["Bolstered Mitts"] = {
 	type = "Gloves",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { maraketh_basetype = true, gloves = true, str_armour = true, armour = true, default = true, },
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
@@ -50,7 +50,7 @@ itemBases["Bolstered Mitts"] = {
 }
 itemBases["Moulded Mitts"] = {
 	type = "Gloves",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { gloves = true, str_armour = true, armour = true, vaal_basetype = true, default = true, },
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
@@ -59,7 +59,7 @@ itemBases["Moulded Mitts"] = {
 }
 itemBases["Detailed Mitts"] = {
 	type = "Gloves",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { gloves = true, armour = true, str_armour = true, default = true, },
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
@@ -68,7 +68,7 @@ itemBases["Detailed Mitts"] = {
 }
 itemBases["Titan Mitts"] = {
 	type = "Gloves",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { gloves = true, armour = true, str_armour = true, default = true, },
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
@@ -77,7 +77,7 @@ itemBases["Titan Mitts"] = {
 }
 itemBases["Grand Mitts"] = {
 	type = "Gloves",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { gloves = true, armour = true, str_armour = true, default = true, },
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
@@ -86,7 +86,7 @@ itemBases["Grand Mitts"] = {
 }
 itemBases["Suede Bracers"] = {
 	type = "Gloves",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { gloves = true, ezomyte_basetype = true, dex_armour = true, armour = true, default = true, },
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
@@ -95,7 +95,7 @@ itemBases["Suede Bracers"] = {
 }
 itemBases["Firm Bracers"] = {
 	type = "Gloves",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { gloves = true, ezomyte_basetype = true, dex_armour = true, armour = true, default = true, },
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
@@ -104,7 +104,7 @@ itemBases["Firm Bracers"] = {
 }
 itemBases["Bound Bracers"] = {
 	type = "Gloves",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { maraketh_basetype = true, gloves = true, dex_armour = true, armour = true, default = true, },
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
@@ -113,7 +113,7 @@ itemBases["Bound Bracers"] = {
 }
 itemBases["Sectioned Bracers"] = {
 	type = "Gloves",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { maraketh_basetype = true, gloves = true, dex_armour = true, armour = true, default = true, },
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
@@ -122,7 +122,7 @@ itemBases["Sectioned Bracers"] = {
 }
 itemBases["Spined Bracers"] = {
 	type = "Gloves",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { gloves = true, dex_armour = true, armour = true, vaal_basetype = true, default = true, },
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
@@ -131,7 +131,7 @@ itemBases["Spined Bracers"] = {
 }
 itemBases["Fine Bracers"] = {
 	type = "Gloves",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { dex_armour = true, armour = true, gloves = true, default = true, },
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
@@ -140,7 +140,7 @@ itemBases["Fine Bracers"] = {
 }
 itemBases["Hardened Bracers"] = {
 	type = "Gloves",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { dex_armour = true, armour = true, gloves = true, default = true, },
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
@@ -149,7 +149,7 @@ itemBases["Hardened Bracers"] = {
 }
 itemBases["Engraved Bracers"] = {
 	type = "Gloves",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { dex_armour = true, armour = true, gloves = true, default = true, },
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
@@ -158,7 +158,7 @@ itemBases["Engraved Bracers"] = {
 }
 itemBases["Torn Gloves"] = {
 	type = "Gloves",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { gloves = true, ezomyte_basetype = true, int_armour = true, armour = true, default = true, },
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
@@ -167,7 +167,7 @@ itemBases["Torn Gloves"] = {
 }
 itemBases["Sombre Gloves"] = {
 	type = "Gloves",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { gloves = true, ezomyte_basetype = true, int_armour = true, armour = true, default = true, },
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
@@ -176,7 +176,7 @@ itemBases["Sombre Gloves"] = {
 }
 itemBases["Stitched Gloves"] = {
 	type = "Gloves",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { maraketh_basetype = true, gloves = true, int_armour = true, armour = true, default = true, },
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
@@ -185,7 +185,7 @@ itemBases["Stitched Gloves"] = {
 }
 itemBases["Jewelled Gloves"] = {
 	type = "Gloves",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { maraketh_basetype = true, gloves = true, int_armour = true, armour = true, default = true, },
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
@@ -194,7 +194,7 @@ itemBases["Jewelled Gloves"] = {
 }
 itemBases["Intricate Gloves"] = {
 	type = "Gloves",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { gloves = true, int_armour = true, armour = true, vaal_basetype = true, default = true, },
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
@@ -203,7 +203,7 @@ itemBases["Intricate Gloves"] = {
 }
 itemBases["Pauascale Gloves"] = {
 	type = "Gloves",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { int_armour = true, armour = true, gloves = true, default = true, },
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
@@ -212,7 +212,7 @@ itemBases["Pauascale Gloves"] = {
 }
 itemBases["Embroidered Gloves"] = {
 	type = "Gloves",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { int_armour = true, armour = true, gloves = true, default = true, },
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
@@ -221,7 +221,7 @@ itemBases["Embroidered Gloves"] = {
 }
 itemBases["Adorned Gloves"] = {
 	type = "Gloves",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { int_armour = true, armour = true, gloves = true, default = true, },
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
@@ -230,7 +230,7 @@ itemBases["Adorned Gloves"] = {
 }
 itemBases["Ringmail Gauntlets"] = {
 	type = "Gloves",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { str_dex_armour = true, ezomyte_basetype = true, armour = true, gloves = true, default = true, },
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
@@ -239,7 +239,7 @@ itemBases["Ringmail Gauntlets"] = {
 }
 itemBases["Layered Gauntlets"] = {
 	type = "Gloves",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { maraketh_basetype = true, str_dex_armour = true, armour = true, gloves = true, default = true, },
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
@@ -248,7 +248,7 @@ itemBases["Layered Gauntlets"] = {
 }
 itemBases["Doubled Gauntlets"] = {
 	type = "Gloves",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { str_dex_armour = true, vaal_basetype = true, armour = true, gloves = true, default = true, },
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
@@ -257,7 +257,7 @@ itemBases["Doubled Gauntlets"] = {
 }
 itemBases["Plate Gauntlets"] = {
 	type = "Gloves",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { str_dex_armour = true, armour = true, gloves = true, default = true, },
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
@@ -266,7 +266,7 @@ itemBases["Plate Gauntlets"] = {
 }
 itemBases["Burnished Gauntlets"] = {
 	type = "Gloves",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { str_dex_armour = true, armour = true, gloves = true, default = true, },
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
@@ -275,7 +275,7 @@ itemBases["Burnished Gauntlets"] = {
 }
 itemBases["Ornate Gauntlets"] = {
 	type = "Gloves",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { str_dex_armour = true, armour = true, gloves = true, default = true, },
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
@@ -284,7 +284,7 @@ itemBases["Ornate Gauntlets"] = {
 }
 itemBases["Rope Cuffs"] = {
 	type = "Gloves",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { str_int_armour = true, ezomyte_basetype = true, armour = true, gloves = true, default = true, },
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
@@ -293,7 +293,7 @@ itemBases["Rope Cuffs"] = {
 }
 itemBases["Aged Cuffs"] = {
 	type = "Gloves",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { maraketh_basetype = true, str_int_armour = true, armour = true, gloves = true, default = true, },
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
@@ -302,7 +302,7 @@ itemBases["Aged Cuffs"] = {
 }
 itemBases["Goldcast Cuffs"] = {
 	type = "Gloves",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { str_int_armour = true, vaal_basetype = true, armour = true, gloves = true, default = true, },
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
@@ -311,7 +311,7 @@ itemBases["Goldcast Cuffs"] = {
 }
 itemBases["Diviner Cuffs"] = {
 	type = "Gloves",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { str_int_armour = true, armour = true, gloves = true, default = true, },
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
@@ -320,7 +320,7 @@ itemBases["Diviner Cuffs"] = {
 }
 itemBases["Righteous Cuffs"] = {
 	type = "Gloves",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { str_int_armour = true, armour = true, gloves = true, default = true, },
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
@@ -329,7 +329,7 @@ itemBases["Righteous Cuffs"] = {
 }
 itemBases["Signet Cuffs"] = {
 	type = "Gloves",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { str_int_armour = true, armour = true, gloves = true, default = true, },
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
@@ -338,7 +338,7 @@ itemBases["Signet Cuffs"] = {
 }
 itemBases["Gauze Wraps"] = {
 	type = "Gloves",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { gloves = true, ezomyte_basetype = true, armour = true, default = true, dex_int_armour = true, },
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
@@ -347,7 +347,7 @@ itemBases["Gauze Wraps"] = {
 }
 itemBases["Linen Wraps"] = {
 	type = "Gloves",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { maraketh_basetype = true, gloves = true, armour = true, default = true, dex_int_armour = true, },
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
@@ -356,7 +356,7 @@ itemBases["Linen Wraps"] = {
 }
 itemBases["Spiral Wraps"] = {
 	type = "Gloves",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { gloves = true, vaal_basetype = true, armour = true, default = true, dex_int_armour = true, },
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
@@ -365,7 +365,7 @@ itemBases["Spiral Wraps"] = {
 }
 itemBases["Buckled Wraps"] = {
 	type = "Gloves",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { dex_int_armour = true, armour = true, gloves = true, default = true, },
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
@@ -374,7 +374,7 @@ itemBases["Buckled Wraps"] = {
 }
 itemBases["Furtive Wraps"] = {
 	type = "Gloves",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { dex_int_armour = true, armour = true, gloves = true, default = true, },
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
@@ -383,7 +383,7 @@ itemBases["Furtive Wraps"] = {
 }
 itemBases["Utility Wraps"] = {
 	type = "Gloves",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { dex_int_armour = true, armour = true, gloves = true, default = true, },
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
@@ -392,7 +392,7 @@ itemBases["Utility Wraps"] = {
 }
 itemBases["Grand Manchettes"] = {
 	type = "Gloves",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { str_dex_int_armour = true, armour = true, gloves = true, default = true, },
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
@@ -401,7 +401,7 @@ itemBases["Grand Manchettes"] = {
 }
 itemBases["Advanced Riveted Mitts"] = {
 	type = "Gloves",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { gloves = true, armour = true, str_armour = true, default = true, },
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
@@ -410,7 +410,7 @@ itemBases["Advanced Riveted Mitts"] = {
 }
 itemBases["Advanced Tempered Mitts"] = {
 	type = "Gloves",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { gloves = true, armour = true, str_armour = true, default = true, },
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
@@ -419,7 +419,7 @@ itemBases["Advanced Tempered Mitts"] = {
 }
 itemBases["Advanced Bolstered Mitts"] = {
 	type = "Gloves",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { gloves = true, armour = true, str_armour = true, default = true, },
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
@@ -428,7 +428,7 @@ itemBases["Advanced Bolstered Mitts"] = {
 }
 itemBases["Advanced Moulded Mitts"] = {
 	type = "Gloves",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { gloves = true, armour = true, str_armour = true, default = true, },
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
@@ -437,7 +437,7 @@ itemBases["Advanced Moulded Mitts"] = {
 }
 itemBases["Advanced Firm Bracers"] = {
 	type = "Gloves",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { dex_armour = true, armour = true, gloves = true, default = true, },
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
@@ -446,7 +446,7 @@ itemBases["Advanced Firm Bracers"] = {
 }
 itemBases["Advanced Bound Bracers"] = {
 	type = "Gloves",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { dex_armour = true, armour = true, gloves = true, default = true, },
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
@@ -455,7 +455,7 @@ itemBases["Advanced Bound Bracers"] = {
 }
 itemBases["Advanced Sectioned Bracers"] = {
 	type = "Gloves",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { dex_armour = true, armour = true, gloves = true, default = true, },
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
@@ -464,7 +464,7 @@ itemBases["Advanced Sectioned Bracers"] = {
 }
 itemBases["Advanced Spined Bracers"] = {
 	type = "Gloves",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { dex_armour = true, armour = true, gloves = true, default = true, },
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
@@ -473,7 +473,7 @@ itemBases["Advanced Spined Bracers"] = {
 }
 itemBases["Advanced Sombre Gloves"] = {
 	type = "Gloves",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { int_armour = true, armour = true, gloves = true, default = true, },
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
@@ -482,7 +482,7 @@ itemBases["Advanced Sombre Gloves"] = {
 }
 itemBases["Advanced Stitched Gloves"] = {
 	type = "Gloves",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { int_armour = true, armour = true, gloves = true, default = true, },
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
@@ -491,7 +491,7 @@ itemBases["Advanced Stitched Gloves"] = {
 }
 itemBases["Advanced Jewelled Gloves"] = {
 	type = "Gloves",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { int_armour = true, armour = true, gloves = true, default = true, },
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
@@ -500,7 +500,7 @@ itemBases["Advanced Jewelled Gloves"] = {
 }
 itemBases["Advanced Intricate Gloves"] = {
 	type = "Gloves",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { int_armour = true, armour = true, gloves = true, default = true, },
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
@@ -509,7 +509,7 @@ itemBases["Advanced Intricate Gloves"] = {
 }
 itemBases["Advanced Ringmail Gauntlets"] = {
 	type = "Gloves",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { str_dex_armour = true, armour = true, gloves = true, default = true, },
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
@@ -518,7 +518,7 @@ itemBases["Advanced Ringmail Gauntlets"] = {
 }
 itemBases["Advanced Layered Gauntlets"] = {
 	type = "Gloves",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { str_dex_armour = true, armour = true, gloves = true, default = true, },
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
@@ -527,7 +527,7 @@ itemBases["Advanced Layered Gauntlets"] = {
 }
 itemBases["Advanced Doubled Gauntlets"] = {
 	type = "Gloves",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { str_dex_armour = true, armour = true, gloves = true, default = true, },
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
@@ -536,7 +536,7 @@ itemBases["Advanced Doubled Gauntlets"] = {
 }
 itemBases["Advanced Rope Cuffs"] = {
 	type = "Gloves",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { str_int_armour = true, armour = true, gloves = true, default = true, },
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
@@ -545,7 +545,7 @@ itemBases["Advanced Rope Cuffs"] = {
 }
 itemBases["Advanced Aged Cuffs"] = {
 	type = "Gloves",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { str_int_armour = true, armour = true, gloves = true, default = true, },
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
@@ -554,7 +554,7 @@ itemBases["Advanced Aged Cuffs"] = {
 }
 itemBases["Advanced Goldcast Cuffs"] = {
 	type = "Gloves",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { str_int_armour = true, armour = true, gloves = true, default = true, },
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
@@ -563,7 +563,7 @@ itemBases["Advanced Goldcast Cuffs"] = {
 }
 itemBases["Advanced Gauze Wraps"] = {
 	type = "Gloves",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { dex_int_armour = true, armour = true, gloves = true, default = true, },
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
@@ -572,7 +572,7 @@ itemBases["Advanced Gauze Wraps"] = {
 }
 itemBases["Advanced Linen Wraps"] = {
 	type = "Gloves",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { dex_int_armour = true, armour = true, gloves = true, default = true, },
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
@@ -581,7 +581,7 @@ itemBases["Advanced Linen Wraps"] = {
 }
 itemBases["Advanced Spiral Wraps"] = {
 	type = "Gloves",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { dex_int_armour = true, armour = true, gloves = true, default = true, },
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
@@ -590,7 +590,7 @@ itemBases["Advanced Spiral Wraps"] = {
 }
 itemBases["Expert Riveted Mitts"] = {
 	type = "Gloves",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { gloves = true, armour = true, str_armour = true, default = true, },
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
@@ -599,7 +599,7 @@ itemBases["Expert Riveted Mitts"] = {
 }
 itemBases["Expert Bolstered Mitts"] = {
 	type = "Gloves",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { gloves = true, armour = true, str_armour = true, default = true, },
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
@@ -608,7 +608,7 @@ itemBases["Expert Bolstered Mitts"] = {
 }
 itemBases["Expert Moulded Mitts"] = {
 	type = "Gloves",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { gloves = true, armour = true, str_armour = true, default = true, },
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
@@ -617,7 +617,7 @@ itemBases["Expert Moulded Mitts"] = {
 }
 itemBases["Expert Firm Bracers"] = {
 	type = "Gloves",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { dex_armour = true, armour = true, gloves = true, default = true, },
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
@@ -626,7 +626,7 @@ itemBases["Expert Firm Bracers"] = {
 }
 itemBases["Expert Sectioned Bracers"] = {
 	type = "Gloves",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { dex_armour = true, armour = true, gloves = true, default = true, },
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
@@ -635,7 +635,7 @@ itemBases["Expert Sectioned Bracers"] = {
 }
 itemBases["Expert Spined Bracers"] = {
 	type = "Gloves",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { dex_armour = true, armour = true, gloves = true, default = true, },
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
@@ -644,7 +644,7 @@ itemBases["Expert Spined Bracers"] = {
 }
 itemBases["Expert Sombre Gloves"] = {
 	type = "Gloves",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { int_armour = true, armour = true, gloves = true, default = true, },
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
@@ -653,7 +653,7 @@ itemBases["Expert Sombre Gloves"] = {
 }
 itemBases["Expert Jewelled Gloves"] = {
 	type = "Gloves",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { int_armour = true, armour = true, gloves = true, default = true, },
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
@@ -662,7 +662,7 @@ itemBases["Expert Jewelled Gloves"] = {
 }
 itemBases["Expert Intricate Gloves"] = {
 	type = "Gloves",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { int_armour = true, armour = true, gloves = true, default = true, },
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
@@ -671,7 +671,7 @@ itemBases["Expert Intricate Gloves"] = {
 }
 itemBases["Expert Ringmail Gauntlets"] = {
 	type = "Gloves",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { str_dex_armour = true, armour = true, gloves = true, default = true, },
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
@@ -680,7 +680,7 @@ itemBases["Expert Ringmail Gauntlets"] = {
 }
 itemBases["Expert Layered Gauntlets"] = {
 	type = "Gloves",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { str_dex_armour = true, armour = true, gloves = true, default = true, },
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
@@ -689,7 +689,7 @@ itemBases["Expert Layered Gauntlets"] = {
 }
 itemBases["Expert Doubled Gauntlets"] = {
 	type = "Gloves",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { str_dex_armour = true, armour = true, gloves = true, default = true, },
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
@@ -698,7 +698,7 @@ itemBases["Expert Doubled Gauntlets"] = {
 }
 itemBases["Expert Rope Cuffs"] = {
 	type = "Gloves",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { str_int_armour = true, armour = true, gloves = true, default = true, },
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
@@ -707,7 +707,7 @@ itemBases["Expert Rope Cuffs"] = {
 }
 itemBases["Expert Aged Cuffs"] = {
 	type = "Gloves",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { str_int_armour = true, armour = true, gloves = true, default = true, },
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
@@ -716,7 +716,7 @@ itemBases["Expert Aged Cuffs"] = {
 }
 itemBases["Expert Goldcast Cuffs"] = {
 	type = "Gloves",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { str_int_armour = true, armour = true, gloves = true, default = true, },
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
@@ -725,7 +725,7 @@ itemBases["Expert Goldcast Cuffs"] = {
 }
 itemBases["Expert Gauze Wraps"] = {
 	type = "Gloves",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { dex_int_armour = true, armour = true, gloves = true, default = true, },
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
@@ -734,7 +734,7 @@ itemBases["Expert Gauze Wraps"] = {
 }
 itemBases["Expert Linen Wraps"] = {
 	type = "Gloves",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { dex_int_armour = true, armour = true, gloves = true, default = true, },
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
@@ -743,7 +743,7 @@ itemBases["Expert Linen Wraps"] = {
 }
 itemBases["Expert Spiral Wraps"] = {
 	type = "Gloves",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { dex_int_armour = true, armour = true, gloves = true, default = true, },
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },

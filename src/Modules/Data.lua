@@ -28,15 +28,19 @@ local itemTypes = {
 	"axe",
 	"bow",
 	"claw",
+	"crossbow",
 	"dagger",
 	"fishing",
+	"flail",
+	"focus",
 	"mace",
+	"spear",
 	"staff",
 	"sword",
 	"wand",
-	"helmet",
 	"body",
 	"gloves",
+	"helmet",
 	"boots",
 	"shield",
 	"quiver",
@@ -45,6 +49,7 @@ local itemTypes = {
 	"belt",
 	"jewel",
 	"flask",
+	"soulcore",
 }
 
 local function makeSkillMod(modName, modType, modVal, flags, keywordFlags, ...)

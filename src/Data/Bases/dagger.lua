@@ -5,7 +5,7 @@ local itemBases = ...
 itemBases["Ethereal Blade"] = {
 	type = "Dagger",
 	hidden = true,
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { onehand = true, not_for_sale = true, one_hand_weapon = true, weapon = true, dagger = true, default = true, },
 	influenceTags = { shaper = "dagger_shaper", elder = "dagger_elder", adjudicator = "dagger_adjudicator", basilisk = "dagger_basilisk", crusader = "dagger_crusader", eyrie = "dagger_eyrie", cleansing = "dagger_cleansing", tangle = "dagger_tangle" },
 	implicitModTypes = { },
@@ -14,7 +14,7 @@ itemBases["Ethereal Blade"] = {
 }
 itemBases["Glass Shank"] = {
 	type = "Dagger",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { onehand = true, ezomyte_basetype = true, one_hand_weapon = true, weapon = true, dagger = true, default = true, },
 	influenceTags = { shaper = "dagger_shaper", elder = "dagger_elder", adjudicator = "dagger_adjudicator", basilisk = "dagger_basilisk", crusader = "dagger_crusader", eyrie = "dagger_eyrie", cleansing = "dagger_cleansing", tangle = "dagger_tangle" },
 	implicitModTypes = { },
@@ -23,7 +23,7 @@ itemBases["Glass Shank"] = {
 }
 itemBases["Crone Knife"] = {
 	type = "Dagger",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { onehand = true, ezomyte_basetype = true, one_hand_weapon = true, weapon = true, dagger = true, default = true, },
 	influenceTags = { shaper = "dagger_shaper", elder = "dagger_elder", adjudicator = "dagger_adjudicator", basilisk = "dagger_basilisk", crusader = "dagger_crusader", eyrie = "dagger_eyrie", cleansing = "dagger_cleansing", tangle = "dagger_tangle" },
 	implicit = "Leeches 4% of Physical Damage as Mana",
@@ -33,7 +33,7 @@ itemBases["Crone Knife"] = {
 }
 itemBases["Simple Dagger"] = {
 	type = "Dagger",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { onehand = true, ezomyte_basetype = true, one_hand_weapon = true, weapon = true, dagger = true, default = true, },
 	influenceTags = { shaper = "dagger_shaper", elder = "dagger_elder", adjudicator = "dagger_adjudicator", basilisk = "dagger_basilisk", crusader = "dagger_crusader", eyrie = "dagger_eyrie", cleansing = "dagger_cleansing", tangle = "dagger_tangle" },
 	implicitModTypes = { },
@@ -42,7 +42,7 @@ itemBases["Simple Dagger"] = {
 }
 itemBases["Skinning Knife"] = {
 	type = "Dagger",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { maraketh_basetype = true, onehand = true, one_hand_weapon = true, weapon = true, dagger = true, default = true, },
 	influenceTags = { shaper = "dagger_shaper", elder = "dagger_elder", adjudicator = "dagger_adjudicator", basilisk = "dagger_basilisk", crusader = "dagger_crusader", eyrie = "dagger_eyrie", cleansing = "dagger_cleansing", tangle = "dagger_tangle" },
 	implicitModTypes = { },
@@ -51,7 +51,7 @@ itemBases["Skinning Knife"] = {
 }
 itemBases["Moon Dagger"] = {
 	type = "Dagger",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { maraketh_basetype = true, onehand = true, one_hand_weapon = true, weapon = true, dagger = true, default = true, },
 	influenceTags = { shaper = "dagger_shaper", elder = "dagger_elder", adjudicator = "dagger_adjudicator", basilisk = "dagger_basilisk", crusader = "dagger_crusader", eyrie = "dagger_eyrie", cleansing = "dagger_cleansing", tangle = "dagger_tangle" },
 	implicitModTypes = { },
@@ -60,7 +60,7 @@ itemBases["Moon Dagger"] = {
 }
 itemBases["Engraved Knife"] = {
 	type = "Dagger",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { maraketh_basetype = true, onehand = true, one_hand_weapon = true, weapon = true, dagger = true, default = true, },
 	influenceTags = { shaper = "dagger_shaper", elder = "dagger_elder", adjudicator = "dagger_adjudicator", basilisk = "dagger_basilisk", crusader = "dagger_crusader", eyrie = "dagger_eyrie", cleansing = "dagger_cleansing", tangle = "dagger_tangle" },
 	implicitModTypes = { },
@@ -69,7 +69,7 @@ itemBases["Engraved Knife"] = {
 }
 itemBases["Obsidian Dagger"] = {
 	type = "Dagger",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { onehand = true, vaal_basetype = true, one_hand_weapon = true, weapon = true, dagger = true, default = true, },
 	influenceTags = { shaper = "dagger_shaper", elder = "dagger_elder", adjudicator = "dagger_adjudicator", basilisk = "dagger_basilisk", crusader = "dagger_crusader", eyrie = "dagger_eyrie", cleansing = "dagger_cleansing", tangle = "dagger_tangle" },
 	implicitModTypes = { },
@@ -78,7 +78,7 @@ itemBases["Obsidian Dagger"] = {
 }
 itemBases["Bloodletting Dagger"] = {
 	type = "Dagger",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { onehand = true, vaal_basetype = true, one_hand_weapon = true, weapon = true, dagger = true, default = true, },
 	influenceTags = { shaper = "dagger_shaper", elder = "dagger_elder", adjudicator = "dagger_adjudicator", basilisk = "dagger_basilisk", crusader = "dagger_crusader", eyrie = "dagger_eyrie", cleansing = "dagger_cleansing", tangle = "dagger_tangle" },
 	implicit = "25% of Spell Mana Cost Converted to Life Cost",
@@ -88,7 +88,7 @@ itemBases["Bloodletting Dagger"] = {
 }
 itemBases["Mail Breaker"] = {
 	type = "Dagger",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { onehand = true, one_hand_weapon = true, weapon = true, dagger = true, default = true, },
 	influenceTags = { shaper = "dagger_shaper", elder = "dagger_elder", adjudicator = "dagger_adjudicator", basilisk = "dagger_basilisk", crusader = "dagger_crusader", eyrie = "dagger_eyrie", cleansing = "dagger_cleansing", tangle = "dagger_tangle" },
 	implicit = "Breaks (400-500) Armour on Critical Hit",
@@ -98,7 +98,7 @@ itemBases["Mail Breaker"] = {
 }
 itemBases["Kris Knife"] = {
 	type = "Dagger",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { onehand = true, one_hand_weapon = true, weapon = true, dagger = true, default = true, },
 	influenceTags = { shaper = "dagger_shaper", elder = "dagger_elder", adjudicator = "dagger_adjudicator", basilisk = "dagger_basilisk", crusader = "dagger_crusader", eyrie = "dagger_eyrie", cleansing = "dagger_cleansing", tangle = "dagger_tangle" },
 	implicitModTypes = { },
@@ -107,7 +107,7 @@ itemBases["Kris Knife"] = {
 }
 itemBases["Parrying Dagger"] = {
 	type = "Dagger",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { onehand = true, one_hand_weapon = true, weapon = true, dagger = true, default = true, },
 	influenceTags = { shaper = "dagger_shaper", elder = "dagger_elder", adjudicator = "dagger_adjudicator", basilisk = "dagger_basilisk", crusader = "dagger_crusader", eyrie = "dagger_eyrie", cleansing = "dagger_cleansing", tangle = "dagger_tangle" },
 	implicitModTypes = { },
@@ -116,7 +116,7 @@ itemBases["Parrying Dagger"] = {
 }
 itemBases["Arcane Dirk"] = {
 	type = "Dagger",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { onehand = true, one_hand_weapon = true, weapon = true, dagger = true, default = true, },
 	influenceTags = { shaper = "dagger_shaper", elder = "dagger_elder", adjudicator = "dagger_adjudicator", basilisk = "dagger_basilisk", crusader = "dagger_crusader", eyrie = "dagger_eyrie", cleansing = "dagger_cleansing", tangle = "dagger_tangle" },
 	implicitModTypes = { },
@@ -125,7 +125,7 @@ itemBases["Arcane Dirk"] = {
 }
 itemBases["Cinquedea"] = {
 	type = "Dagger",
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { onehand = true, one_hand_weapon = true, weapon = true, dagger = true, default = true, },
 	influenceTags = { shaper = "dagger_shaper", elder = "dagger_elder", adjudicator = "dagger_adjudicator", basilisk = "dagger_basilisk", crusader = "dagger_crusader", eyrie = "dagger_eyrie", cleansing = "dagger_cleansing", tangle = "dagger_tangle" },
 	implicitModTypes = { },
