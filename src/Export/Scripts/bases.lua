@@ -158,7 +158,7 @@ directiveTable.base = function(state, args, out)
 		end
 		out:write('},\n')
 	end
-	if state.type == "Flask" then
+	if state.type == "Flask" or state.type == "Charm" then
 		local flask = dat("Flasks"):GetRow("BaseItemType", baseItemType)
 		if flask then
 			local compCharges = dat("ComponentCharges"):GetRow("BaseItemType", baseItemType.Id)
@@ -212,7 +212,7 @@ directiveTable.base = function(state, args, out)
 			reqLevel = baseItemType.DropLevel
 		end
 	end
-	if state.type == "Flask" or state.type == "SoulCore" then
+	if state.type == "Flask" or state.type == "SoulCore" or state.type == "Rune" or state.type == "Charm" then
 		if baseItemType.DropLevel > 2 then
 			reqLevel = baseItemType.DropLevel
 		end

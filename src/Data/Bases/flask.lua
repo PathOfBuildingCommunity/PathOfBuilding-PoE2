@@ -154,7 +154,8 @@ itemBases["Thawing Charm"] = {
 	tags = { flask = true, utility_flask = true, default = true, },
 	implicit = "Used when you become Frozen",
 	implicitModTypes = { {  }, },
-	req = { },
+	flask = { duration = 3, chargesUsed = 80, chargesMax = 80, },
+	req = { level = 12, },
 }
 itemBases["Staunching Charm"] = {
 	type = "Charm",
@@ -162,7 +163,8 @@ itemBases["Staunching Charm"] = {
 	tags = { flask = true, utility_flask = true, default = true, },
 	implicit = "Used when you start Bleeding",
 	implicitModTypes = { {  }, },
-	req = { },
+	flask = { duration = 3, chargesUsed = 60, chargesMax = 80, },
+	req = { level = 18, },
 }
 itemBases["Antidote Charm"] = {
 	type = "Charm",
@@ -170,7 +172,8 @@ itemBases["Antidote Charm"] = {
 	tags = { flask = true, utility_flask = true, default = true, },
 	implicit = "Used when you become Poisoned",
 	implicitModTypes = { {  }, },
-	req = { },
+	flask = { duration = 3, chargesUsed = 40, chargesMax = 80, },
+	req = { level = 24, },
 }
 itemBases["Dousing Charm"] = {
 	type = "Charm",
@@ -178,7 +181,8 @@ itemBases["Dousing Charm"] = {
 	tags = { flask = true, utility_flask = true, default = true, },
 	implicit = "Used when you become Ignited",
 	implicitModTypes = { {  }, },
-	req = { },
+	flask = { duration = 3, chargesUsed = 60, chargesMax = 80, },
+	req = { level = 32, },
 }
 itemBases["Grounding Charm"] = {
 	type = "Charm",
@@ -186,7 +190,8 @@ itemBases["Grounding Charm"] = {
 	tags = { flask = true, utility_flask = true, default = true, },
 	implicit = "Used when you become Shocked",
 	implicitModTypes = { {  }, },
-	req = { },
+	flask = { duration = 3, chargesUsed = 50, chargesMax = 80, },
+	req = { level = 32, },
 }
 itemBases["Stone Charm"] = {
 	type = "Charm",
@@ -194,7 +199,8 @@ itemBases["Stone Charm"] = {
 	tags = { flask = true, utility_flask = true, default = true, },
 	implicit = "Used when you become Stunned",
 	implicitModTypes = { {  }, },
-	req = { },
+	flask = { duration = 2.5, chargesUsed = 40, chargesMax = 80, },
+	req = { level = 8, },
 }
 itemBases["Silver Charm"] = {
 	type = "Charm",
@@ -202,7 +208,8 @@ itemBases["Silver Charm"] = {
 	tags = { flask = true, utility_flask = true, default = true, },
 	implicit = "Used when you are affected by a Slow",
 	implicitModTypes = { {  }, },
-	req = { },
+	flask = { duration = 3, chargesUsed = 40, chargesMax = 80, },
+	req = { level = 10, },
 }
 itemBases["Ruby Charm"] = {
 	type = "Charm",
@@ -210,7 +217,8 @@ itemBases["Ruby Charm"] = {
 	tags = { flask = true, utility_flask = true, default = true, },
 	implicit = "Used when you take Fire damage from a Hit",
 	implicitModTypes = { {  }, },
-	req = { },
+	flask = { duration = 4, chargesUsed = 40, chargesMax = 80, },
+	req = { level = 5, },
 }
 itemBases["Sapphire Charm"] = {
 	type = "Charm",
@@ -218,7 +226,8 @@ itemBases["Sapphire Charm"] = {
 	tags = { flask = true, utility_flask = true, default = true, },
 	implicit = "Used when you take Cold damage from a Hit",
 	implicitModTypes = { {  }, },
-	req = { },
+	flask = { duration = 4, chargesUsed = 40, chargesMax = 80, },
+	req = { level = 5, },
 }
 itemBases["Topaz Charm"] = {
 	type = "Charm",
@@ -226,7 +235,8 @@ itemBases["Topaz Charm"] = {
 	tags = { flask = true, utility_flask = true, default = true, },
 	implicit = "Used when you take Lightning damage from a Hit",
 	implicitModTypes = { {  }, },
-	req = { },
+	flask = { duration = 4, chargesUsed = 40, chargesMax = 80, },
+	req = { level = 5, },
 }
 itemBases["Amethyst Charm"] = {
 	type = "Charm",
@@ -234,7 +244,8 @@ itemBases["Amethyst Charm"] = {
 	tags = { flask = true, utility_flask = true, default = true, },
 	implicit = "Used when you take Chaos damage from a Hit",
 	implicitModTypes = { {  }, },
-	req = { },
+	flask = { duration = 4, chargesUsed = 60, chargesMax = 80, },
+	req = { level = 40, },
 }
 itemBases["Golden Charm"] = {
 	type = "Charm",
@@ -242,5 +253,6 @@ itemBases["Golden Charm"] = {
 	tags = { flask = true, utility_flask = true, default = true, },
 	implicit = "Used when you Kill a Rare or Unique Enemy",
 	implicitModTypes = { {  }, },
-	req = { },
+	flask = { duration = 1, chargesUsed = 80, chargesMax = 80, },
+	req = { level = 50, },
 }

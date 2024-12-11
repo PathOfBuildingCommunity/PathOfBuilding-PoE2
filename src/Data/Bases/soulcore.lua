@@ -113,68 +113,68 @@ itemBases["Desert Rune"] = {
 	tags = { default = true, },
 	implicitModTypes = { },
 	implicit = "Martial Weapons: Adds 7 to 11 Fire Damage\nArmour: +12% to Fire Resistance",
-	req = { },
+	req = { level = 5, },
 }
 itemBases["Glacial Rune"] = {
 	type = "Rune",
 	tags = { default = true, },
 	implicitModTypes = { },
 	implicit = "Martial Weapons: Adds 6 to 10 Cold Damage\nArmour: +12% to Cold Resistance",
-	req = { },
+	req = { level = 5, },
 }
 itemBases["Storm Rune"] = {
 	type = "Rune",
 	tags = { default = true, },
 	implicitModTypes = { },
 	implicit = "Martial Weapons: Adds 1 to 20 Lightning Damage\nArmour: +12% to Lightning Resistance",
-	req = { },
+	req = { level = 5, },
 }
 itemBases["Iron Rune"] = {
 	type = "Rune",
 	tags = { default = true, },
 	implicitModTypes = { },
 	implicit = "Martial Weapons: 20% increased Physical Damage\nArmour: 20% increased Armour, Evasion and Energy Shield",
-	req = { },
+	req = { level = 5, },
 }
 itemBases["Body Rune"] = {
 	type = "Rune",
 	tags = { default = true, },
 	implicitModTypes = { },
 	implicit = "Martial Weapons: Leeches 3% of Physical Damage as Life\nArmour: +25 to maximum Life",
-	req = { },
+	req = { level = 16, },
 }
 itemBases["Mind Rune"] = {
 	type = "Rune",
 	tags = { default = true, },
 	implicitModTypes = { },
 	implicit = "Martial Weapons: Leeches 2% of Physical Damage as Mana\nArmour: +20 to maximum Mana",
-	req = { },
+	req = { level = 16, },
 }
 itemBases["Rebirth Rune"] = {
 	type = "Rune",
 	tags = { default = true, },
 	implicitModTypes = { },
 	implicit = "Martial Weapons: Gain 20 Life per Enemy Killed\nArmour: Regenerate 0.3% of Life per second",
-	req = { },
+	req = { level = 30, },
 }
 itemBases["Inspiration Rune"] = {
 	type = "Rune",
 	tags = { default = true, },
 	implicitModTypes = { },
 	implicit = "Martial Weapons: Gain 10 Mana per Enemy Killed\nArmour: 15% increased Mana Regeneration Rate",
-	req = { },
+	req = { level = 30, },
 }
 itemBases["Stone Rune"] = {
 	type = "Rune",
 	tags = { default = true, },
 	implicitModTypes = { },
 	implicit = "Martial Weapons: Causes 25% increased Stun Buildup\nArmour: +40 to Stun Threshold",
-	req = { },
+	req = { level = 21, },
 }
 itemBases["Vision Rune"] = {
 	type = "Rune",
 	tags = { default = true, },
 	implicitModTypes = { },
 	implicit = "Martial Weapons: +100 to Accuracy Rating\nArmour: 10% increased Life and Mana Recovery from Flasks",
-	req = { },
+	req = { level = 33, },
 }
