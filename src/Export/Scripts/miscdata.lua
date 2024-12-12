@@ -20,12 +20,13 @@ for stats in dat("DefaultMonsterStats"):Rows() do
 	allyLife = allyLife .. stats.MinionLife .. ", "
 	damage = damage .. stats.Damage .. ", "
 	allyDamage = allyDamage .. stats.MinionDamage .. ", "
-	--armour = armour .. stats.Armour .. ", " The table here is wrong so we generate it instead
+	armour = armour .. stats.Armour .. ", "
 	ailmentThreshold = ailmentThreshold .. stats.AilmentThreshold .. ", "
 end
-for i = 1, 100 do
-	armour = armour .. math.floor((10 + 2 * i ) * ( ( 1 + dat("GameConstants"):GetRow("Id", "MonsterDamageReductionImprovement").Value / dat("GameConstants"):GetRow("Id", "MonsterDamageReductionImprovement").Divisor / 100 ) ^ i)) .. ", "
-end
+-- Table was incorrect is PoE 1 but seems to be correct for PoE 2. Keeping here just in case
+--for i = 1, 100 do
+	--armour = armour .. math.floor((dat("GameConstants"):GetRow("Id", "MonsterArmourBase").Value + 2.5 * i ) * ( ( 1 + dat("GameConstants"):GetRow("Id", "MonsterArmourImprovement").Value / dat("GameConstants"):GetRow("Id", "MonsterArmourImprovement").Divisor / 100 ) ^ i)) .. ", "
+--end
 out:write('-- From DefaultMonsterStats.dat\n')
 out:write('data.monsterEvasionTable = { '..evasion..'}\n') --This table is off by about 0.5% in some cases but is quicker than generating the value at runtime
 out:write('data.monsterAccuracyTable = { '..accuracy..'}\n')

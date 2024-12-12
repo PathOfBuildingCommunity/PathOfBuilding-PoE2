@@ -147,7 +147,7 @@ function main:Init()
 		self.uniqueDB.loading = nil
 		ConPrintf("Uniques loaded")
 
-		for _, raw in pairsYield(data.rares) do
+		--[[for _, raw in pairsYield(data.rares) do
 			newItem = new("Item", raw, "RARE", true)
 			if newItem.base then
 				if newItem.crafted then
@@ -168,7 +168,7 @@ function main:Init()
 		end
 
 		self.rareDB.loading = nil
-		ConPrintf("Rares loaded")
+		ConPrintf("Rares loaded")]]
 	end
 
 	if self.saveNewModCache then

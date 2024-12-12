@@ -12,7 +12,15 @@ local scopes = { }
 
 local function getScope(scopeName)
 	if not scopes[scopeName] then
-		local scope = LoadModule("Data/StatDescriptions/"..scopeName)
+		local scope = nil
+		local file = io.open("Data/StatDescriptions/specific_skill_stat_descriptions/"..scopeName..".lua", 'rb')
+		if file then
+			file.close()
+			scope = LoadModule("Data/StatDescriptions/Specific_Skill_Stat_Descriptions/"..scopeName)
+		else
+			print("NOPE")
+			scope = LoadModule("Data/StatDescriptions/"..scopeName)
+		end 
 		scope.name = scopeName
 		if scope.parent then
 			local parentScope = getScope(scope.parent)

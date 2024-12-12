@@ -112,7 +112,7 @@ function GemSelectClass:PopulateGemList()
 
 	for gemId, gemData in pairs(self.skillsTab.build.data.gems) do
 		if (self.sortGemsBy and gemData.tags[self.sortGemsBy] == true or not self.sortGemsBy) then
-			local levelRequirement = gemData.grantedEffect.levels[1].levelRequirement or 1
+			local levelRequirement = (gemData.grantedEffect.levels and gemData.grantedEffect.levels[1] and gemData.grantedEffect.levels[1].levelRequirement) or 1
 			if characterLevel >= levelRequirement or not matchLevel then
 				if (showAwakened or showAll) and gemData.grantedEffect.plusVersionOf then
 					self.gems["Default:" .. gemId] = gemData

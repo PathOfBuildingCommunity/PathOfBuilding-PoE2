@@ -1971,7 +1971,8 @@ function ItemsTabClass:CraftItem()
 		item.implicitModLines = { }
 		item.explicitModLines = { }
 		item.crucibleModLines = { }
-		if base.base.type == "Amulet" or base.base.type == "Belt" or base.base.type == "Charm" or base.base.type == "Jewel" or base.base.type == "Quiver" or base.base.type == "Ring" then
+		if base.base.type == "Amulet" or base.base.type == "Belt" or base.base.type == "Charm" or base.base.type == "Jewel" 
+			or base.base.type == "Quiver" or base.base.type == "Ring" or base.base.type == "SoulCore" then
 			item.quality = nil
 		else
 			item.quality = 0
@@ -1983,6 +1984,11 @@ function ItemsTabClass:CraftItem()
 		then
 			if raritySel == 3 then
 				raritySel = 2
+			end
+		end
+		if base.base.type == "SoulCore" then
+			if raritySel == 3 or raritySel == 2 then
+				raritySel = 1
 			end
 		end
 		if raritySel == 2 or raritySel == 3 then

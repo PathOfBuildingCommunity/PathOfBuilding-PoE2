@@ -3,35 +3,7 @@ local itemBases = ...
 
 #type Gloves
 #influenceBaseTag gloves
-#socketLimit 4
+#socketLimit 2
+#baseMatch BaseType Metadata/Items/Armours/Gloves/AbstractGloves
+#baseMatch BaseType Metadata/Items/Armours/Gloves/GlovesDemigods
 
-#subType Armour
-#baseMatch Metadata/Items/Armours/Gloves/GlovesStr%d+
-#baseMatch Metadata/Items/Armours/Gloves/GlovesStrRitual%d+
-#base Metadata/Items/Armours/Gloves/GlovesAtlasStr
-
-#subType Evasion
-#baseMatch Metadata/Items/Armours/Gloves/GlovesDex%d+
-#baseMatch Metadata/Items/Armours/Gloves/GlovesDexRitual%d+
-#base Metadata/Items/Armours/Gloves/GlovesAtlasDex
-
-#subType Energy Shield
-#baseMatch Metadata/Items/Armours/Gloves/GlovesInt%d+
-#baseMatch Metadata/Items/Armours/Gloves/GlovesIntRitual%d+
-#base Metadata/Items/Armours/Gloves/GlovesAtlasInt
-
-#subType Armour/Evasion
-#baseMatch Metadata/Items/Armours/Gloves/GlovesStrDex%d+
-
-#subType Armour/Energy Shield
-#baseMatch Metadata/Items/Armours/Gloves/GlovesStrInt%d+
-#base Metadata/Items/Armours/Gloves/GlovesAtlasStrInt
-
-#subType Evasion/Energy Shield
-#baseMatch Metadata/Items/Armours/Gloves/GlovesDexInt%d+
-
-#subType Ward
-#baseMatch Metadata/Items/Armours/Gloves/GlovesExpedition%d+
-
-#subType
-#base Metadata/Items/Armours/Gloves/GlovesDemigods1

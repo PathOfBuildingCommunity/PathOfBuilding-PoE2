@@ -2,834 +2,751 @@
 -- Item data (c) Grinding Gear Games
 local itemBases = ...
 
-
-itemBases["Iron Greaves"] = {
-	type = "Boots",
-	subType = "Armour",
-	socketLimit = 4,
-	tags = { boots = true, armour = true, str_armour = true, default = true, },
-	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
-	implicitModTypes = { },
-	armour = { ArmourBaseMin = 6, ArmourBaseMax = 9, },
-	req = { str = 8, },
-}
-itemBases["Steel Greaves"] = {
-	type = "Boots",
-	subType = "Armour",
-	socketLimit = 4,
-	tags = { boots = true, armour = true, str_armour = true, default = true, },
-	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
-	implicitModTypes = { },
-	armour = { ArmourBaseMin = 32, ArmourBaseMax = 42, },
-	req = { level = 9, str = 21, },
-}
-itemBases["Plated Greaves"] = {
-	type = "Boots",
-	subType = "Armour",
-	socketLimit = 4,
-	tags = { boots = true, armour = true, str_armour = true, default = true, },
-	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
-	implicitModTypes = { },
-	armour = { ArmourBaseMin = 77, ArmourBaseMax = 96, },
-	req = { level = 23, str = 44, },
-}
-itemBases["Reinforced Greaves"] = {
-	type = "Boots",
-	subType = "Armour",
-	socketLimit = 4,
-	tags = { boots = true, armour = true, str_armour = true, default = true, },
-	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
-	implicitModTypes = { },
-	armour = { ArmourBaseMin = 109, ArmourBaseMax = 120, },
-	req = { level = 33, str = 61, },
-}
-itemBases["Antique Greaves"] = {
-	type = "Boots",
-	subType = "Armour",
-	socketLimit = 4,
-	tags = { boots = true, armour = true, str_armour = true, default = true, },
-	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
-	implicitModTypes = { },
-	armour = { ArmourBaseMin = 122, ArmourBaseMax = 144, },
-	req = { level = 37, str = 67, },
-}
-itemBases["Ancient Greaves"] = {
-	type = "Boots",
-	subType = "Armour",
-	socketLimit = 4,
-	tags = { boots = true, armour = true, str_armour = true, default = true, },
-	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
-	implicitModTypes = { },
-	armour = { ArmourBaseMin = 151, ArmourBaseMax = 174, },
-	req = { level = 46, str = 82, },
-}
-itemBases["Goliath Greaves"] = {
-	type = "Boots",
-	subType = "Armour",
-	socketLimit = 4,
-	tags = { boots = true, armour = true, str_armour = true, default = true, },
-	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
-	implicitModTypes = { },
-	armour = { ArmourBaseMin = 177, ArmourBaseMax = 209, },
-	req = { level = 54, str = 95, },
-}
-itemBases["Vaal Greaves"] = {
-	type = "Boots",
-	subType = "Armour",
-	socketLimit = 4,
-	tags = { boots = true, str_armour = true, armour = true, top_tier_base_item_type = true, default = true, },
-	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
-	implicitModTypes = { },
-	armour = { ArmourBaseMin = 220, ArmourBaseMax = 253, },
-	req = { level = 62, str = 117, },
-}
-itemBases["Titan Greaves"] = {
-	type = "Boots",
-	subType = "Armour",
-	socketLimit = 4,
-	tags = { boots = true, str_armour = true, armour = true, top_tier_base_item_type = true, default = true, },
-	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
-	implicitModTypes = { },
-	armour = { ArmourBaseMin = 241, ArmourBaseMax = 278, },
-	req = { level = 68, str = 120, },
-}
-itemBases["Precursor Greaves"] = {
-	type = "Boots",
-	subType = "Armour",
-	socketLimit = 4,
-	tags = { boots = true, str_armour = true, not_for_sale = true, armour = true, top_tier_base_item_type = true, default = true, },
-	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
-	implicitModTypes = { },
-	armour = { ArmourBaseMin = 307, ArmourBaseMax = 353, },
-	req = { level = 78, str = 153, },
-}
-itemBases["Leviathan Greaves"] = {
-	type = "Boots",
-	subType = "Armour",
-	socketLimit = 4,
-	tags = { boots = true, str_armour = true, not_for_sale = true, armour = true, top_tier_base_item_type = true, default = true, },
-	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
-	implicitModTypes = { },
-	armour = { ArmourBaseMin = 359, ArmourBaseMax = 413, },
-	req = { level = 84, str = 177, },
-}
-itemBases["Basemetal Treads"] = {
-	type = "Boots",
-	subType = "Armour",
-	socketLimit = 4,
-	tags = { boots = true, str_armour = true, not_for_sale = true, armour = true, default = true, },
-	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
-	implicit = "30% increased Stun and Block Recovery\n20% reduced Stun Threshold",
-	implicitModTypes = { {  }, {  }, },
-	armour = { ArmourBaseMin = 68, ArmourBaseMax = 78, },
-	req = { level = 20, str = 39, },
-}
-itemBases["Darksteel Treads"] = {
-	type = "Boots",
-	subType = "Armour",
-	socketLimit = 4,
-	tags = { boots = true, str_armour = true, not_for_sale = true, armour = true, default = true, },
-	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
-	implicit = "40% increased Stun and Block Recovery\n20% reduced Stun Threshold",
-	implicitModTypes = { {  }, {  }, },
-	armour = { ArmourBaseMin = 164, ArmourBaseMax = 189, },
-	req = { level = 50, str = 89, },
-}
-itemBases["Brimstone Treads"] = {
-	type = "Boots",
-	subType = "Armour",
-	socketLimit = 4,
-	tags = { boots = true, str_armour = true, not_for_sale = true, armour = true, default = true, },
-	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
-	implicit = "50% increased Stun and Block Recovery\n20% reduced Stun Threshold",
-	implicitModTypes = { {  }, {  }, },
-	armour = { ArmourBaseMin = 236, ArmourBaseMax = 271, },
-	req = { level = 80, str = 124, },
-}
-
-itemBases["Rawhide Boots"] = {
-	type = "Boots",
-	subType = "Evasion",
-	socketLimit = 4,
-	tags = { dex_armour = true, armour = true, boots = true, default = true, },
-	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
-	implicitModTypes = { },
-	armour = { EvasionBaseMin = 13, EvasionBaseMax = 18, },
-	req = { dex = 11, },
-}
-itemBases["Goathide Boots"] = {
-	type = "Boots",
-	subType = "Evasion",
-	socketLimit = 4,
-	tags = { dex_armour = true, armour = true, boots = true, default = true, },
-	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
-	implicitModTypes = { },
-	armour = { EvasionBaseMin = 42, EvasionBaseMax = 54, },
-	req = { level = 12, dex = 26, },
-}
-itemBases["Deerskin Boots"] = {
-	type = "Boots",
-	subType = "Evasion",
-	socketLimit = 4,
-	tags = { dex_armour = true, armour = true, boots = true, default = true, },
-	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
-	implicitModTypes = { },
-	armour = { EvasionBaseMin = 74, EvasionBaseMax = 92, },
-	req = { level = 22, dex = 42, },
-}
-itemBases["Nubuck Boots"] = {
-	type = "Boots",
-	subType = "Evasion",
-	socketLimit = 4,
-	tags = { dex_armour = true, armour = true, boots = true, default = true, },
-	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
-	implicitModTypes = { },
-	armour = { EvasionBaseMin = 113, EvasionBaseMax = 126, },
-	req = { level = 34, dex = 62, },
-}
-itemBases["Eelskin Boots"] = {
-	type = "Boots",
-	subType = "Evasion",
-	socketLimit = 4,
-	tags = { dex_armour = true, armour = true, boots = true, default = true, },
-	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
-	implicitModTypes = { },
-	armour = { EvasionBaseMin = 129, EvasionBaseMax = 148, },
-	req = { level = 39, dex = 70, },
-}
-itemBases["Sharkskin Boots"] = {
-	type = "Boots",
-	subType = "Evasion",
-	socketLimit = 4,
-	tags = { dex_armour = true, armour = true, boots = true, default = true, },
-	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
-	implicitModTypes = { },
-	armour = { EvasionBaseMin = 145, EvasionBaseMax = 171, },
-	req = { level = 44, dex = 79, },
-}
-itemBases["Shagreen Boots"] = {
-	type = "Boots",
-	subType = "Evasion",
-	socketLimit = 4,
-	tags = { dex_armour = true, armour = true, boots = true, default = true, },
-	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
-	implicitModTypes = { },
-	armour = { EvasionBaseMin = 180, EvasionBaseMax = 216, },
-	req = { level = 55, dex = 97, },
-}
-itemBases["Stealth Boots"] = {
-	type = "Boots",
-	subType = "Evasion",
-	socketLimit = 4,
-	tags = { boots = true, top_tier_base_item_type = true, dex_armour = true, armour = true, default = true, },
-	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
-	implicitModTypes = { },
-	armour = { EvasionBaseMin = 220, EvasionBaseMax = 253, },
-	req = { level = 62, dex = 117, },
-}
-itemBases["Slink Boots"] = {
-	type = "Boots",
-	subType = "Evasion",
-	socketLimit = 4,
-	tags = { boots = true, top_tier_base_item_type = true, dex_armour = true, armour = true, default = true, },
-	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
-	implicitModTypes = { },
-	armour = { EvasionBaseMin = 246, EvasionBaseMax = 283, },
-	req = { level = 69, dex = 120, },
-}
-itemBases["Harpyskin Boots"] = {
-	type = "Boots",
-	subType = "Evasion",
-	socketLimit = 4,
-	tags = { boots = true, top_tier_base_item_type = true, dex_armour = true, armour = true, not_for_sale = true, default = true, },
-	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
-	implicitModTypes = { },
-	armour = { EvasionBaseMin = 307, EvasionBaseMax = 353, },
-	req = { level = 78, dex = 153, },
-}
-itemBases["Velour Boots"] = {
-	type = "Boots",
-	subType = "Evasion",
-	socketLimit = 4,
-	tags = { boots = true, top_tier_base_item_type = true, dex_armour = true, armour = true, not_for_sale = true, default = true, },
-	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
-	implicitModTypes = { },
-	armour = { EvasionBaseMin = 359, EvasionBaseMax = 413, },
-	req = { level = 84, dex = 177, },
-}
-itemBases["Cloudwhisper Boots"] = {
-	type = "Boots",
-	subType = "Evasion",
-	socketLimit = 4,
-	tags = { boots = true, dex_armour = true, armour = true, not_for_sale = true, default = true, },
-	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
-	implicit = "1 to (5-6) Added Attack Lightning Damage per 200 Accuracy Rating\n25% less Accuracy Rating",
-	implicitModTypes = { { "attack" }, { "attack" }, },
-	armour = { EvasionBaseMin = 68, EvasionBaseMax = 78, },
-	req = { level = 20, dex = 39, },
-}
-itemBases["Windbreak Boots"] = {
-	type = "Boots",
-	subType = "Evasion",
-	socketLimit = 4,
-	tags = { boots = true, dex_armour = true, armour = true, not_for_sale = true, default = true, },
-	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
-	implicit = "1 to (5-6) Added Attack Lightning Damage per 200 Accuracy Rating\n25% less Accuracy Rating",
-	implicitModTypes = { { "attack" }, { "attack" }, },
-	armour = { EvasionBaseMin = 164, EvasionBaseMax = 189, },
-	req = { level = 50, dex = 89, },
-}
-itemBases["Stormrider Boots"] = {
-	type = "Boots",
-	subType = "Evasion",
-	socketLimit = 4,
-	tags = { boots = true, dex_armour = true, armour = true, not_for_sale = true, default = true, },
-	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
-	implicit = "1 to (5-6) Added Attack Lightning Damage per 200 Accuracy Rating\n25% less Accuracy Rating",
-	implicitModTypes = { { "attack" }, { "attack" }, },
-	armour = { EvasionBaseMin = 236, EvasionBaseMax = 271, },
-	req = { level = 80, dex = 124, },
-}
-
-itemBases["Wool Shoes"] = {
-	type = "Boots",
-	subType = "Energy Shield",
-	socketLimit = 4,
-	tags = { int_armour = true, armour = true, boots = true, default = true, },
-	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
-	implicitModTypes = { },
-	armour = { EnergyShieldBaseMin = 5, EnergyShieldBaseMax = 7, },
-	req = { int = 11, },
-}
-itemBases["Velvet Slippers"] = {
-	type = "Boots",
-	subType = "Energy Shield",
-	socketLimit = 4,
-	tags = { int_armour = true, armour = true, boots = true, default = true, },
-	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
-	implicitModTypes = { },
-	armour = { EnergyShieldBaseMin = 8, EnergyShieldBaseMax = 11, },
-	req = { level = 9, int = 21, },
-}
-itemBases["Silk Slippers"] = {
-	type = "Boots",
-	subType = "Energy Shield",
-	socketLimit = 4,
-	tags = { int_armour = true, armour = true, boots = true, default = true, },
-	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
-	implicitModTypes = { },
-	armour = { EnergyShieldBaseMin = 17, EnergyShieldBaseMax = 21, },
-	req = { level = 22, int = 42, },
-}
-itemBases["Scholar Boots"] = {
-	type = "Boots",
-	subType = "Energy Shield",
-	socketLimit = 4,
-	tags = { int_armour = true, armour = true, boots = true, default = true, },
-	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
-	implicitModTypes = { },
-	armour = { EnergyShieldBaseMin = 23, EnergyShieldBaseMax = 25, },
-	req = { level = 32, int = 59, },
-}
-itemBases["Satin Slippers"] = {
-	type = "Boots",
-	subType = "Energy Shield",
-	socketLimit = 4,
-	tags = { int_armour = true, armour = true, boots = true, default = true, },
-	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
-	implicitModTypes = { },
-	armour = { EnergyShieldBaseMin = 26, EnergyShieldBaseMax = 30, },
-	req = { level = 38, int = 69, },
-}
-itemBases["Samite Slippers"] = {
-	type = "Boots",
-	subType = "Energy Shield",
-	socketLimit = 4,
-	tags = { int_armour = true, armour = true, boots = true, default = true, },
-	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
-	implicitModTypes = { },
-	armour = { EnergyShieldBaseMin = 30, EnergyShieldBaseMax = 35, },
-	req = { level = 44, int = 79, },
-}
-itemBases["Conjurer Boots"] = {
-	type = "Boots",
-	subType = "Energy Shield",
-	socketLimit = 4,
-	tags = { int_armour = true, armour = true, boots = true, default = true, },
-	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
-	implicitModTypes = { },
-	armour = { EnergyShieldBaseMin = 36, EnergyShieldBaseMax = 42, },
-	req = { level = 53, int = 94, },
-}
-itemBases["Arcanist Slippers"] = {
-	type = "Boots",
-	subType = "Energy Shield",
-	socketLimit = 4,
-	tags = { boots = true, top_tier_base_item_type = true, int_armour = true, armour = true, default = true, },
-	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
-	implicitModTypes = { },
-	armour = { EnergyShieldBaseMin = 47, EnergyShieldBaseMax = 55, },
-	req = { level = 61, int = 119, },
-}
-itemBases["Sorcerer Boots"] = {
-	type = "Boots",
-	subType = "Energy Shield",
-	socketLimit = 4,
-	tags = { boots = true, top_tier_base_item_type = true, int_armour = true, armour = true, default = true, },
-	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
-	implicitModTypes = { },
-	armour = { EnergyShieldBaseMin = 51, EnergyShieldBaseMax = 59, },
-	req = { level = 67, int = 123, },
-}
-itemBases["Sage Slippers"] = {
-	type = "Boots",
-	subType = "Energy Shield",
-	socketLimit = 4,
-	tags = { boots = true, top_tier_base_item_type = true, int_armour = true, armour = true, not_for_sale = true, default = true, },
-	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
-	implicitModTypes = { },
-	armour = { EnergyShieldBaseMin = 62, EnergyShieldBaseMax = 71, },
-	req = { level = 78, int = 153, },
-}
-itemBases["Warlock Boots"] = {
-	type = "Boots",
-	subType = "Energy Shield",
-	socketLimit = 4,
-	tags = { boots = true, top_tier_base_item_type = true, int_armour = true, armour = true, not_for_sale = true, default = true, },
-	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
-	implicitModTypes = { },
-	armour = { EnergyShieldBaseMin = 72, EnergyShieldBaseMax = 83, },
-	req = { level = 84, int = 177, },
-}
-itemBases["Duskwalk Slippers"] = {
-	type = "Boots",
-	subType = "Energy Shield",
-	socketLimit = 4,
-	tags = { boots = true, int_armour = true, armour = true, not_for_sale = true, default = true, },
-	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
-	implicit = "10% reduced Movement Speed\n(45-50)% increased Cooldown Recovery Rate of Movement Skills",
-	implicitModTypes = { { "speed" }, { "speed" }, },
-	armour = { EnergyShieldBaseMin = 15, EnergyShieldBaseMax = 18, },
-	req = { level = 20, int = 39, },
-}
-itemBases["Nightwind Slippers"] = {
-	type = "Boots",
-	subType = "Energy Shield",
-	socketLimit = 4,
-	tags = { boots = true, int_armour = true, armour = true, not_for_sale = true, default = true, },
-	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
-	implicit = "10% reduced Movement Speed\n(45-50)% increased Cooldown Recovery Rate of Movement Skills",
-	implicitModTypes = { { "speed" }, { "speed" }, },
-	armour = { EnergyShieldBaseMin = 34, EnergyShieldBaseMax = 39, },
-	req = { level = 50, int = 89, },
-}
-itemBases["Dreamquest Slippers"] = {
-	type = "Boots",
-	subType = "Energy Shield",
-	socketLimit = 4,
-	tags = { boots = true, int_armour = true, armour = true, not_for_sale = true, default = true, },
-	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
-	implicit = "10% reduced Movement Speed\n(45-50)% increased Cooldown Recovery Rate of Movement Skills",
-	implicitModTypes = { { "speed" }, { "speed" }, },
-	armour = { EnergyShieldBaseMin = 50, EnergyShieldBaseMax = 57, },
-	req = { level = 80, int = 124, },
-}
-
-itemBases["Leatherscale Boots"] = {
-	type = "Boots",
-	subType = "Armour/Evasion",
-	socketLimit = 4,
-	tags = { str_dex_armour = true, armour = true, boots = true, default = true, },
-	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
-	implicitModTypes = { },
-	armour = { ArmourBaseMin = 12, ArmourBaseMax = 17, EvasionBaseMin = 12, EvasionBaseMax = 17, },
-	req = { level = 6, str = 9, dex = 9, },
-}
-itemBases["Ironscale Boots"] = {
-	type = "Boots",
-	subType = "Armour/Evasion",
-	socketLimit = 4,
-	tags = { str_dex_armour = true, armour = true, boots = true, default = true, },
-	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
-	implicitModTypes = { },
-	armour = { ArmourBaseMin = 34, ArmourBaseMax = 44, EvasionBaseMin = 34, EvasionBaseMax = 44, },
-	req = { level = 18, str = 19, dex = 19, },
-}
-itemBases["Bronzescale Boots"] = {
-	type = "Boots",
-	subType = "Armour/Evasion",
-	socketLimit = 4,
-	tags = { str_dex_armour = true, armour = true, boots = true, default = true, },
-	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
-	implicitModTypes = { },
-	armour = { ArmourBaseMin = 55, ArmourBaseMax = 63, EvasionBaseMin = 55, EvasionBaseMax = 63, },
-	req = { level = 30, str = 30, dex = 30, },
-}
-itemBases["Steelscale Boots"] = {
-	type = "Boots",
-	subType = "Armour/Evasion",
-	socketLimit = 4,
-	tags = { str_dex_armour = true, armour = true, boots = true, default = true, },
-	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
-	implicitModTypes = { },
-	armour = { ArmourBaseMin = 65, ArmourBaseMax = 75, EvasionBaseMin = 65, EvasionBaseMax = 75, },
-	req = { level = 36, str = 35, dex = 35, },
-}
-itemBases["Serpentscale Boots"] = {
-	type = "Boots",
-	subType = "Armour/Evasion",
-	socketLimit = 4,
-	tags = { str_dex_armour = true, armour = true, boots = true, default = true, },
-	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
-	implicitModTypes = { },
-	armour = { ArmourBaseMin = 76, ArmourBaseMax = 90, EvasionBaseMin = 76, EvasionBaseMax = 90, },
-	req = { level = 42, str = 40, dex = 40, },
-}
-itemBases["Wyrmscale Boots"] = {
-	type = "Boots",
-	subType = "Armour/Evasion",
-	socketLimit = 4,
-	tags = { str_dex_armour = true, armour = true, boots = true, default = true, },
-	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
-	implicitModTypes = { },
-	armour = { ArmourBaseMin = 92, ArmourBaseMax = 103, EvasionBaseMin = 92, EvasionBaseMax = 103, },
-	req = { level = 51, str = 48, dex = 48, },
-}
-itemBases["Hydrascale Boots"] = {
-	type = "Boots",
-	subType = "Armour/Evasion",
-	socketLimit = 4,
-	tags = { str_dex_armour = true, top_tier_base_item_type = true, armour = true, boots = true, default = true, },
-	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
-	implicitModTypes = { },
-	armour = { ArmourBaseMin = 106, ArmourBaseMax = 122, EvasionBaseMin = 106, EvasionBaseMax = 122, },
-	req = { level = 59, str = 56, dex = 56, },
-}
-itemBases["Dragonscale Boots"] = {
-	type = "Boots",
-	subType = "Armour/Evasion",
-	socketLimit = 4,
-	tags = { str_dex_armour = true, top_tier_base_item_type = true, armour = true, boots = true, default = true, },
-	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
-	implicitModTypes = { },
-	armour = { ArmourBaseMin = 121, ArmourBaseMax = 139, EvasionBaseMin = 121, EvasionBaseMax = 139, },
-	req = { level = 65, str = 62, dex = 62, },
-}
-itemBases["Chimerascale Boots"] = {
-	type = "Boots",
-	subType = "Armour/Evasion",
-	socketLimit = 4,
-	tags = { str_dex_armour = true, top_tier_base_item_type = true, not_for_sale = true, armour = true, boots = true, default = true, },
-	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
-	implicitModTypes = { },
-	armour = { ArmourBaseMin = 176, ArmourBaseMax = 203, EvasionBaseMin = 176, EvasionBaseMax = 203, },
-	req = { level = 78, str = 85, dex = 85, },
-}
-itemBases["Wyvernscale Boots"] = {
-	type = "Boots",
-	subType = "Armour/Evasion",
-	socketLimit = 4,
-	tags = { str_dex_armour = true, top_tier_base_item_type = true, not_for_sale = true, armour = true, boots = true, default = true, },
-	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
-	implicitModTypes = { },
-	armour = { ArmourBaseMin = 205, ArmourBaseMax = 236, EvasionBaseMin = 205, EvasionBaseMax = 236, },
-	req = { level = 84, str = 98, dex = 98, },
-}
-itemBases["Two-Toned Boots (Armour/Evasion)"] = {
-	type = "Boots",
-	subType = "Armour/Evasion",
-	socketLimit = 4,
-	tags = { boots = true, str_dex_armour = true, not_for_sale = true, atlas_base_type = true, armour = true, bootsatlas2 = true, default = true, },
-	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
-	implicit = "+(8-12)% to Fire and Cold Resistances",
-	implicitModTypes = { { "elemental", "fire", "cold", "resistance" }, },
-	armour = { ArmourBaseMin = 126, ArmourBaseMax = 145, EvasionBaseMin = 126, EvasionBaseMax = 145, },
-	req = { level = 70, str = 62, dex = 62, },
-}
-
-itemBases["Chain Boots"] = {
-	type = "Boots",
-	subType = "Armour/Energy Shield",
-	socketLimit = 4,
-	tags = { str_int_armour = true, armour = true, boots = true, default = true, },
-	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
-	implicitModTypes = { },
-	armour = { ArmourBaseMin = 11, ArmourBaseMax = 15, EnergyShieldBaseMin = 3, EnergyShieldBaseMax = 5, },
-	req = { level = 5, str = 8, int = 8, },
-}
-itemBases["Ringmail Boots"] = {
-	type = "Boots",
-	subType = "Armour/Energy Shield",
-	socketLimit = 4,
-	tags = { str_int_armour = true, armour = true, boots = true, default = true, },
-	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
-	implicitModTypes = { },
-	armour = { ArmourBaseMin = 25, ArmourBaseMax = 32, EnergyShieldBaseMin = 6, EnergyShieldBaseMax = 8, },
-	req = { level = 13, str = 15, int = 15, },
-}
-itemBases["Mesh Boots"] = {
-	type = "Boots",
-	subType = "Armour/Energy Shield",
-	socketLimit = 4,
-	tags = { str_int_armour = true, armour = true, boots = true, default = true, },
-	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
-	implicitModTypes = { },
-	armour = { ArmourBaseMin = 51, ArmourBaseMax = 64, EnergyShieldBaseMin = 11, EnergyShieldBaseMax = 14, },
-	req = { level = 28, str = 28, int = 28, },
-}
-itemBases["Riveted Boots"] = {
-	type = "Boots",
-	subType = "Armour/Energy Shield",
-	socketLimit = 4,
-	tags = { str_int_armour = true, armour = true, boots = true, default = true, },
-	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
-	implicitModTypes = { },
-	armour = { ArmourBaseMin = 65, ArmourBaseMax = 71, EnergyShieldBaseMin = 14, EnergyShieldBaseMax = 15, },
-	req = { level = 36, str = 35, int = 35, },
-}
-itemBases["Zealot Boots"] = {
-	type = "Boots",
-	subType = "Armour/Energy Shield",
-	socketLimit = 4,
-	tags = { str_int_armour = true, armour = true, boots = true, default = true, },
-	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
-	implicitModTypes = { },
-	armour = { ArmourBaseMin = 73, ArmourBaseMax = 87, EnergyShieldBaseMin = 15, EnergyShieldBaseMax = 18, },
-	req = { level = 40, str = 39, int = 39, },
-}
-itemBases["Soldier Boots"] = {
-	type = "Boots",
-	subType = "Armour/Energy Shield",
-	socketLimit = 4,
-	tags = { str_int_armour = true, armour = true, boots = true, default = true, },
-	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
-	implicitModTypes = { },
-	armour = { ArmourBaseMin = 88, ArmourBaseMax = 99, EnergyShieldBaseMin = 18, EnergyShieldBaseMax = 20, },
-	req = { level = 49, str = 47, int = 47, },
-}
-itemBases["Legion Boots"] = {
-	type = "Boots",
-	subType = "Armour/Energy Shield",
-	socketLimit = 4,
-	tags = { str_int_armour = true, top_tier_base_item_type = true, armour = true, boots = true, default = true, },
-	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
-	implicitModTypes = { },
-	armour = { ArmourBaseMin = 104, ArmourBaseMax = 120, EnergyShieldBaseMin = 21, EnergyShieldBaseMax = 25, },
-	req = { level = 58, str = 54, int = 54, },
-}
-itemBases["Crusader Boots"] = {
-	type = "Boots",
-	subType = "Armour/Energy Shield",
-	socketLimit = 4,
-	tags = { str_int_armour = true, top_tier_base_item_type = true, armour = true, boots = true, default = true, },
-	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
-	implicitModTypes = { },
-	armour = { ArmourBaseMin = 121, ArmourBaseMax = 139, EnergyShieldBaseMin = 25, EnergyShieldBaseMax = 28, },
-	req = { level = 64, str = 62, int = 62, },
-}
-itemBases["Martyr Boots"] = {
-	type = "Boots",
-	subType = "Armour/Energy Shield",
-	socketLimit = 4,
-	tags = { str_int_armour = true, top_tier_base_item_type = true, not_for_sale = true, armour = true, boots = true, default = true, },
-	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
-	implicitModTypes = { },
-	armour = { ArmourBaseMin = 176, ArmourBaseMax = 203, EnergyShieldBaseMin = 35, EnergyShieldBaseMax = 41, },
-	req = { level = 78, str = 85, int = 85, },
-}
-itemBases["Paladin Boots"] = {
-	type = "Boots",
-	subType = "Armour/Energy Shield",
-	socketLimit = 4,
-	tags = { str_int_armour = true, top_tier_base_item_type = true, not_for_sale = true, armour = true, boots = true, default = true, },
-	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
-	implicitModTypes = { },
-	armour = { ArmourBaseMin = 205, ArmourBaseMax = 236, EnergyShieldBaseMin = 41, EnergyShieldBaseMax = 47, },
-	req = { level = 84, str = 98, int = 98, },
-}
-itemBases["Two-Toned Boots (Armour/Energy Shield)"] = {
-	type = "Boots",
-	subType = "Armour/Energy Shield",
-	socketLimit = 4,
-	tags = { bootsatlas3 = true, boots = true, not_for_sale = true, atlas_base_type = true, armour = true, str_int_armour = true, default = true, },
-	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
-	implicit = "+(8-12)% to Fire and Lightning Resistances",
-	implicitModTypes = { { "elemental", "fire", "lightning", "resistance" }, },
-	armour = { ArmourBaseMin = 126, ArmourBaseMax = 145, EnergyShieldBaseMin = 26, EnergyShieldBaseMax = 30, },
-	req = { level = 70, str = 62, int = 62, },
-}
-
-itemBases["Wrapped Boots"] = {
-	type = "Boots",
-	subType = "Evasion/Energy Shield",
-	socketLimit = 4,
-	tags = { dex_int_armour = true, armour = true, boots = true, default = true, },
-	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
-	implicitModTypes = { },
-	armour = { EvasionBaseMin = 12, EvasionBaseMax = 17, EnergyShieldBaseMin = 4, EnergyShieldBaseMax = 5, },
-	req = { level = 6, dex = 9, int = 9, },
-}
-itemBases["Strapped Boots"] = {
-	type = "Boots",
-	subType = "Evasion/Energy Shield",
-	socketLimit = 4,
-	tags = { dex_int_armour = true, armour = true, boots = true, default = true, },
-	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
-	implicitModTypes = { },
-	armour = { EvasionBaseMin = 30, EvasionBaseMax = 39, EnergyShieldBaseMin = 7, EnergyShieldBaseMax = 9, },
-	req = { level = 16, dex = 18, int = 18, },
-}
-itemBases["Clasped Boots"] = {
-	type = "Boots",
-	subType = "Evasion/Energy Shield",
-	socketLimit = 4,
-	tags = { dex_int_armour = true, armour = true, boots = true, default = true, },
-	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
-	implicitModTypes = { },
-	armour = { EvasionBaseMin = 50, EvasionBaseMax = 57, EnergyShieldBaseMin = 11, EnergyShieldBaseMax = 12, },
-	req = { level = 27, dex = 27, int = 27, },
-}
-itemBases["Shackled Boots"] = {
-	type = "Boots",
-	subType = "Evasion/Energy Shield",
-	socketLimit = 4,
-	tags = { dex_int_armour = true, armour = true, boots = true, default = true, },
-	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
-	implicitModTypes = { },
-	armour = { EvasionBaseMin = 62, EvasionBaseMax = 71, EnergyShieldBaseMin = 13, EnergyShieldBaseMax = 15, },
-	req = { level = 34, dex = 34, int = 34, },
-}
-itemBases["Trapper Boots"] = {
-	type = "Boots",
-	subType = "Evasion/Energy Shield",
-	socketLimit = 4,
-	tags = { dex_int_armour = true, armour = true, boots = true, default = true, },
-	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
-	implicitModTypes = { },
-	armour = { EvasionBaseMin = 74, EvasionBaseMax = 85, EnergyShieldBaseMin = 16, EnergyShieldBaseMax = 18, },
-	req = { level = 41, dex = 40, int = 40, },
-}
-itemBases["Ambush Boots"] = {
-	type = "Boots",
-	subType = "Evasion/Energy Shield",
-	socketLimit = 4,
-	tags = { dex_int_armour = true, armour = true, boots = true, default = true, },
-	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
-	implicitModTypes = { },
-	armour = { EvasionBaseMin = 85, EvasionBaseMax = 95, EnergyShieldBaseMin = 18, EnergyShieldBaseMax = 20, },
-	req = { level = 47, dex = 45, int = 45, },
-}
-itemBases["Carnal Boots"] = {
-	type = "Boots",
-	subType = "Evasion/Energy Shield",
-	socketLimit = 4,
-	tags = { dex_int_armour = true, armour = true, boots = true, default = true, },
-	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
-	implicitModTypes = { },
-	armour = { EvasionBaseMin = 99, EvasionBaseMax = 117, EnergyShieldBaseMin = 20, EnergyShieldBaseMax = 24, },
-	req = { level = 55, dex = 52, int = 52, },
-}
-itemBases["Assassin's Boots"] = {
-	type = "Boots",
-	subType = "Evasion/Energy Shield",
-	socketLimit = 4,
-	tags = { boots = true, top_tier_base_item_type = true, armour = true, default = true, dex_int_armour = true, },
-	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
-	implicitModTypes = { },
-	armour = { EvasionBaseMin = 121, EvasionBaseMax = 139, EnergyShieldBaseMin = 25, EnergyShieldBaseMax = 28, },
-	req = { level = 63, dex = 62, int = 62, },
-}
-itemBases["Murder Boots"] = {
-	type = "Boots",
-	subType = "Evasion/Energy Shield",
-	socketLimit = 4,
-	tags = { boots = true, top_tier_base_item_type = true, armour = true, default = true, dex_int_armour = true, },
-	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
-	implicitModTypes = { },
-	armour = { EvasionBaseMin = 185, EvasionBaseMax = 213, EnergyShieldBaseMin = 18, EnergyShieldBaseMax = 21, },
-	req = { level = 69, dex = 82, int = 42, },
-}
-itemBases["Infiltrator Boots"] = {
-	type = "Boots",
-	subType = "Evasion/Energy Shield",
-	socketLimit = 4,
-	tags = { boots = true, top_tier_base_item_type = true, not_for_sale = true, armour = true, default = true, dex_int_armour = true, },
-	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
-	implicitModTypes = { },
-	armour = { EvasionBaseMin = 176, EvasionBaseMax = 203, EnergyShieldBaseMin = 35, EnergyShieldBaseMax = 41, },
-	req = { level = 78, dex = 85, int = 85, },
-}
-itemBases["Phantom Boots"] = {
-	type = "Boots",
-	subType = "Evasion/Energy Shield",
-	socketLimit = 4,
-	tags = { boots = true, top_tier_base_item_type = true, not_for_sale = true, armour = true, default = true, dex_int_armour = true, },
-	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
-	implicitModTypes = { },
-	armour = { EvasionBaseMin = 205, EvasionBaseMax = 236, EnergyShieldBaseMin = 41, EnergyShieldBaseMax = 47, },
-	req = { level = 84, dex = 98, int = 98, },
-}
-itemBases["Fugitive Boots"] = {
-	type = "Boots",
-	subType = "Evasion/Energy Shield",
-	socketLimit = 4,
-	tags = { boots = true, bootsatlasdexint = true, not_for_sale = true, atlas_base_type = true, armour = true, dex_int_armour = true, default = true, },
-	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
-	implicit = "+(13-17)% to Chaos Resistance",
-	implicitModTypes = { { "chaos", "resistance" }, },
-	armour = { EvasionBaseMin = 112, EvasionBaseMax = 129, EnergyShieldBaseMin = 32, EnergyShieldBaseMax = 37, },
-	req = { level = 70, dex = 56, int = 76, },
-}
-itemBases["Two-Toned Boots (Evasion/Energy Shield)"] = {
-	type = "Boots",
-	subType = "Evasion/Energy Shield",
-	socketLimit = 4,
-	tags = { boots = true, dex_int_armour = true, not_for_sale = true, atlas_base_type = true, armour = true, bootsatlas1 = true, default = true, },
-	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
-	implicit = "+(8-12)% to Cold and Lightning Resistances",
-	implicitModTypes = { { "elemental", "cold", "lightning", "resistance" }, },
-	armour = { EvasionBaseMin = 126, EvasionBaseMax = 145, EnergyShieldBaseMin = 26, EnergyShieldBaseMax = 30, },
-	req = { level = 70, dex = 62, int = 62, },
-}
-
-itemBases["Runic Greaves"] = {
-	type = "Boots",
-	subType = "Ward",
-	socketLimit = 4,
-	tags = { boots = true, not_for_sale = true, armour = true, ward_armour = true, default = true, },
-	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
-	implicitModTypes = { },
-	armour = { WardBaseMin = 24, WardBaseMax = 28, },
-	req = { level = 24, str = 20, dex = 20, int = 20, },
-}
-itemBases["Runic Sollerets"] = {
-	type = "Boots",
-	subType = "Ward",
-	socketLimit = 4,
-	tags = { boots = true, not_for_sale = true, armour = true, ward_armour = true, default = true, },
-	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
-	implicitModTypes = { },
-	armour = { WardBaseMin = 62, WardBaseMax = 71, },
-	req = { level = 48, str = 37, dex = 37, int = 37, },
-}
-itemBases["Runic Sabatons"] = {
-	type = "Boots",
-	subType = "Ward",
-	socketLimit = 4,
-	tags = { boots = true, not_for_sale = true, armour = true, ward_armour = true, default = true, },
-	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
-	implicitModTypes = { },
-	armour = { WardBaseMin = 102, WardBaseMax = 117, },
-	req = { level = 69, str = 46, dex = 46, int = 46, },
-}
-
 itemBases["Golden Caligae"] = {
 	type = "Boots",
-	socketLimit = 4,
+	socketLimit = 2,
 	tags = { boots = true, not_for_sale = true, armour = true, demigods = true, default = true, },
 	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
 	implicit = "+(8-16)% to all Elemental Resistances",
-	implicitModTypes = { { "elemental", "resistance" }, },
+	implicitModTypes = { { "elemental", "fire", "cold", "lightning", "resistance" }, },
 	armour = { },
 	req = { level = 12, },
+}
+itemBases["Rough Greaves"] = {
+	type = "Boots",
+	socketLimit = 2,
+	tags = { boots = true, str_armour = true, armour = true, ezomyte_basetype = true, default = true, },
+	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
+	implicitModTypes = { },
+	armour = { Armour = 22, },
+	req = { },
+}
+itemBases["Iron Greaves"] = {
+	type = "Boots",
+	socketLimit = 2,
+	tags = { boots = true, str_armour = true, armour = true, ezomyte_basetype = true, default = true, },
+	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
+	implicitModTypes = { },
+	armour = { Armour = 47, },
+	req = { level = 11, },
+}
+itemBases["Bronze Greaves"] = {
+	type = "Boots",
+	socketLimit = 2,
+	tags = { maraketh_basetype = true, boots = true, str_armour = true, armour = true, default = true, },
+	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
+	implicitModTypes = { },
+	armour = { Armour = 60, },
+	req = { level = 16, },
+}
+itemBases["Trimmed Greaves"] = {
+	type = "Boots",
+	socketLimit = 2,
+	tags = { maraketh_basetype = true, boots = true, str_armour = true, armour = true, default = true, },
+	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
+	implicitModTypes = { },
+	armour = { Armour = 87, },
+	req = { level = 27, },
+}
+itemBases["Stone Greaves"] = {
+	type = "Boots",
+	socketLimit = 2,
+	tags = { boots = true, str_armour = true, armour = true, vaal_basetype = true, default = true, },
+	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
+	implicitModTypes = { },
+	armour = { Armour = 102, },
+	req = { level = 33, },
+}
+itemBases["Reefsteel Greaves"] = {
+	type = "Boots",
+	socketLimit = 2,
+	tags = { boots = true, armour = true, str_armour = true, default = true, },
+	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
+	implicitModTypes = { },
+	armour = { Armour = 132, },
+	req = { level = 45, },
+}
+itemBases["Monument Greaves"] = {
+	type = "Boots",
+	socketLimit = 2,
+	tags = { boots = true, armour = true, str_armour = true, default = true, },
+	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
+	implicitModTypes = { },
+	armour = { Armour = 150, },
+	req = { level = 52, },
+}
+itemBases["Totemic Greaves"] = {
+	type = "Boots",
+	socketLimit = 2,
+	tags = { boots = true, armour = true, str_armour = true, default = true, },
+	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
+	implicitModTypes = { },
+	armour = { Armour = 182, },
+	req = { level = 65, },
+}
+itemBases["Rawhide Boots"] = {
+	type = "Boots",
+	socketLimit = 2,
+	tags = { boots = true, ezomyte_basetype = true, dex_armour = true, armour = true, default = true, },
+	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
+	implicitModTypes = { },
+	armour = { Evasion = 15, },
+	req = { },
+}
+itemBases["Laced Boots"] = {
+	type = "Boots",
+	socketLimit = 2,
+	tags = { boots = true, ezomyte_basetype = true, dex_armour = true, armour = true, default = true, },
+	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
+	implicitModTypes = { },
+	armour = { Evasion = 38, },
+	req = { level = 11, },
+}
+itemBases["Embossed Boots"] = {
+	type = "Boots",
+	socketLimit = 2,
+	tags = { maraketh_basetype = true, boots = true, dex_armour = true, armour = true, default = true, },
+	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
+	implicitModTypes = { },
+	armour = { Evasion = 50, },
+	req = { level = 16, },
+}
+itemBases["Steeltoe Boots"] = {
+	type = "Boots",
+	socketLimit = 2,
+	tags = { maraketh_basetype = true, boots = true, dex_armour = true, armour = true, default = true, },
+	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
+	implicitModTypes = { },
+	armour = { Evasion = 79, },
+	req = { level = 28, },
+}
+itemBases["Lizardscale Boots"] = {
+	type = "Boots",
+	socketLimit = 2,
+	tags = { boots = true, dex_armour = true, armour = true, vaal_basetype = true, default = true, },
+	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
+	implicitModTypes = { },
+	armour = { Evasion = 90, },
+	req = { level = 33, },
+}
+itemBases["Flared Boots"] = {
+	type = "Boots",
+	socketLimit = 2,
+	tags = { dex_armour = true, armour = true, boots = true, default = true, },
+	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
+	implicitModTypes = { },
+	armour = { Evasion = 119, },
+	req = { level = 45, },
+}
+itemBases["Leatherplate Boots"] = {
+	type = "Boots",
+	socketLimit = 2,
+	tags = { dex_armour = true, armour = true, boots = true, default = true, },
+	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
+	implicitModTypes = { },
+	armour = { Evasion = 135, },
+	req = { level = 52, },
+}
+itemBases["Embroidered Boots"] = {
+	type = "Boots",
+	socketLimit = 2,
+	tags = { dex_armour = true, armour = true, boots = true, default = true, },
+	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
+	implicitModTypes = { },
+	armour = { Evasion = 166, },
+	req = { level = 65, },
+}
+itemBases["Straw Sandals"] = {
+	type = "Boots",
+	socketLimit = 2,
+	tags = { boots = true, ezomyte_basetype = true, int_armour = true, armour = true, default = true, },
+	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
+	implicitModTypes = { },
+	armour = { EnergyShield = 14, },
+	req = { },
+}
+itemBases["Wrapped Sandals"] = {
+	type = "Boots",
+	socketLimit = 2,
+	tags = { boots = true, ezomyte_basetype = true, int_armour = true, armour = true, default = true, },
+	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
+	implicitModTypes = { },
+	armour = { EnergyShield = 22, },
+	req = { level = 11, },
+}
+itemBases["Lattice Sandals"] = {
+	type = "Boots",
+	socketLimit = 2,
+	tags = { maraketh_basetype = true, boots = true, int_armour = true, armour = true, default = true, },
+	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
+	implicitModTypes = { },
+	armour = { EnergyShield = 25, },
+	req = { level = 16, },
+}
+itemBases["Silk Slippers"] = {
+	type = "Boots",
+	socketLimit = 2,
+	tags = { maraketh_basetype = true, boots = true, int_armour = true, armour = true, default = true, },
+	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
+	implicitModTypes = { },
+	armour = { EnergyShield = 34, },
+	req = { level = 27, },
+}
+itemBases["Feathered Sandals"] = {
+	type = "Boots",
+	socketLimit = 2,
+	tags = { boots = true, int_armour = true, armour = true, vaal_basetype = true, default = true, },
+	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
+	implicitModTypes = { },
+	armour = { EnergyShield = 38, },
+	req = { level = 33, },
+}
+itemBases["Flax Sandals"] = {
+	type = "Boots",
+	socketLimit = 2,
+	tags = { int_armour = true, armour = true, boots = true, default = true, },
+	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
+	implicitModTypes = { },
+	armour = { EnergyShield = 48, },
+	req = { level = 45, },
+}
+itemBases["Studded Sandals"] = {
+	type = "Boots",
+	socketLimit = 2,
+	tags = { int_armour = true, armour = true, boots = true, default = true, },
+	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
+	implicitModTypes = { },
+	armour = { EnergyShield = 53, },
+	req = { level = 52, },
+}
+itemBases["Elaborate Sandals"] = {
+	type = "Boots",
+	socketLimit = 2,
+	tags = { int_armour = true, armour = true, boots = true, default = true, },
+	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
+	implicitModTypes = { },
+	armour = { EnergyShield = 63, },
+	req = { level = 65, },
+}
+itemBases["Mail Sabatons"] = {
+	type = "Boots",
+	socketLimit = 2,
+	tags = { str_dex_armour = true, ezomyte_basetype = true, armour = true, boots = true, default = true, },
+	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
+	implicitModTypes = { },
+	armour = { Armour = 19, Evasion = 15, },
+	req = { level = 6, },
+}
+itemBases["Braced Sabatons"] = {
+	type = "Boots",
+	socketLimit = 2,
+	tags = { maraketh_basetype = true, str_dex_armour = true, armour = true, boots = true, default = true, },
+	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
+	implicitModTypes = { },
+	armour = { Armour = 33, Evasion = 28, },
+	req = { level = 16, },
+}
+itemBases["Stacked Sabatons"] = {
+	type = "Boots",
+	socketLimit = 2,
+	tags = { str_dex_armour = true, vaal_basetype = true, armour = true, boots = true, default = true, },
+	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
+	implicitModTypes = { },
+	armour = { Armour = 56, Evasion = 50, },
+	req = { level = 33, },
+}
+itemBases["Covered Sabatons"] = {
+	type = "Boots",
+	socketLimit = 2,
+	tags = { str_dex_armour = true, armour = true, boots = true, default = true, },
+	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
+	implicitModTypes = { },
+	armour = { Armour = 73, Evasion = 65, },
+	req = { level = 45, },
+}
+itemBases["Flexile Sabatons"] = {
+	type = "Boots",
+	socketLimit = 2,
+	tags = { str_dex_armour = true, armour = true, boots = true, default = true, },
+	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
+	implicitModTypes = { },
+	armour = { Armour = 82, Evasion = 74, },
+	req = { level = 52, },
+}
+itemBases["Bold Sabatons"] = {
+	type = "Boots",
+	socketLimit = 2,
+	tags = { str_dex_armour = true, armour = true, boots = true, default = true, },
+	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
+	implicitModTypes = { },
+	armour = { Armour = 100, Evasion = 91, },
+	req = { level = 65, },
+}
+itemBases["Padded Leggings"] = {
+	type = "Boots",
+	socketLimit = 2,
+	tags = { str_int_armour = true, ezomyte_basetype = true, armour = true, boots = true, default = true, },
+	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
+	implicitModTypes = { },
+	armour = { Armour = 18, EnergyShield = 9, },
+	req = { level = 5, },
+}
+itemBases["Secured Leggings"] = {
+	type = "Boots",
+	socketLimit = 2,
+	tags = { maraketh_basetype = true, str_int_armour = true, armour = true, boots = true, default = true, },
+	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
+	implicitModTypes = { },
+	armour = { Armour = 33, EnergyShield = 14, },
+	req = { level = 16, },
+}
+itemBases["Pelt Leggings"] = {
+	type = "Boots",
+	socketLimit = 2,
+	tags = { str_int_armour = true, vaal_basetype = true, armour = true, boots = true, default = true, },
+	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
+	implicitModTypes = { },
+	armour = { Armour = 56, EnergyShield = 21, },
+	req = { level = 33, },
+}
+itemBases["Weaver Leggings"] = {
+	type = "Boots",
+	socketLimit = 2,
+	tags = { str_int_armour = true, armour = true, boots = true, default = true, },
+	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
+	implicitModTypes = { },
+	armour = { Armour = 73, EnergyShield = 26, },
+	req = { level = 45, },
+}
+itemBases["Gilt Leggings"] = {
+	type = "Boots",
+	socketLimit = 2,
+	tags = { str_int_armour = true, armour = true, boots = true, default = true, },
+	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
+	implicitModTypes = { },
+	armour = { Armour = 82, EnergyShield = 29, },
+	req = { level = 52, },
+}
+itemBases["Pious Leggings"] = {
+	type = "Boots",
+	socketLimit = 2,
+	tags = { str_int_armour = true, armour = true, boots = true, default = true, },
+	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
+	implicitModTypes = { },
+	armour = { Armour = 100, EnergyShield = 35, },
+	req = { level = 65, },
+}
+itemBases["Frayed Shoes"] = {
+	type = "Boots",
+	socketLimit = 2,
+	tags = { boots = true, ezomyte_basetype = true, armour = true, default = true, dex_int_armour = true, },
+	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
+	implicitModTypes = { },
+	armour = { Evasion = 13, EnergyShield = 9, },
+	req = { level = 5, },
+}
+itemBases["Threaded Shoes"] = {
+	type = "Boots",
+	socketLimit = 2,
+	tags = { maraketh_basetype = true, boots = true, armour = true, default = true, dex_int_armour = true, },
+	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
+	implicitModTypes = { },
+	armour = { Evasion = 28, EnergyShield = 14, },
+	req = { level = 16, },
+}
+itemBases["Hunting Shoes"] = {
+	type = "Boots",
+	socketLimit = 2,
+	tags = { boots = true, vaal_basetype = true, armour = true, default = true, dex_int_armour = true, },
+	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
+	implicitModTypes = { },
+	armour = { Evasion = 50, EnergyShield = 21, },
+	req = { level = 33, },
+}
+itemBases["Steelpoint Shoes"] = {
+	type = "Boots",
+	socketLimit = 2,
+	tags = { dex_int_armour = true, armour = true, boots = true, default = true, },
+	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
+	implicitModTypes = { },
+	armour = { Evasion = 65, EnergyShield = 26, },
+	req = { level = 45, },
+}
+itemBases["Velour Shoes"] = {
+	type = "Boots",
+	socketLimit = 2,
+	tags = { dex_int_armour = true, armour = true, boots = true, default = true, },
+	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
+	implicitModTypes = { },
+	armour = { Evasion = 74, EnergyShield = 29, },
+	req = { level = 52, },
+}
+itemBases["Bladed Shoes"] = {
+	type = "Boots",
+	socketLimit = 2,
+	tags = { dex_int_armour = true, armour = true, boots = true, default = true, },
+	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
+	implicitModTypes = { },
+	armour = { Evasion = 91, EnergyShield = 35, },
+	req = { level = 65, },
+}
+itemBases["Grand Cuisses"] = {
+	type = "Boots",
+	socketLimit = 2,
+	tags = { str_dex_int_armour = true, armour = true, boots = true, default = true, },
+	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
+	implicitModTypes = { },
+	armour = { Armour = 66, Evasion = 60, EnergyShield = 23, },
+	req = { level = 65, },
+}
+itemBases["Advanced Iron Greaves"] = {
+	type = "Boots",
+	socketLimit = 2,
+	tags = { boots = true, armour = true, str_armour = true, default = true, },
+	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
+	implicitModTypes = { },
+	armour = { Armour = 132, },
+	req = { level = 45, },
+}
+itemBases["Advanced Bronze Greaves"] = {
+	type = "Boots",
+	socketLimit = 2,
+	tags = { boots = true, armour = true, str_armour = true, default = true, },
+	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
+	implicitModTypes = { },
+	armour = { Armour = 147, },
+	req = { level = 51, },
+}
+itemBases["Advanced Trimmed Greaves"] = {
+	type = "Boots",
+	socketLimit = 2,
+	tags = { boots = true, armour = true, str_armour = true, default = true, },
+	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
+	implicitModTypes = { },
+	armour = { Armour = 157, },
+	req = { level = 55, },
+}
+itemBases["Advanced Stone Greaves"] = {
+	type = "Boots",
+	socketLimit = 2,
+	tags = { boots = true, armour = true, str_armour = true, default = true, },
+	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
+	implicitModTypes = { },
+	armour = { Armour = 167, },
+	req = { level = 59, },
+}
+itemBases["Advanced Laced Boots"] = {
+	type = "Boots",
+	socketLimit = 2,
+	tags = { dex_armour = true, armour = true, boots = true, default = true, },
+	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
+	implicitModTypes = { },
+	armour = { Evasion = 119, },
+	req = { level = 45, },
+}
+itemBases["Advanced Embossed Boots"] = {
+	type = "Boots",
+	socketLimit = 2,
+	tags = { dex_armour = true, armour = true, boots = true, default = true, },
+	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
+	implicitModTypes = { },
+	armour = { Evasion = 133, },
+	req = { level = 51, },
+}
+itemBases["Advanced Steeltoe Boots"] = {
+	type = "Boots",
+	socketLimit = 2,
+	tags = { dex_armour = true, armour = true, boots = true, default = true, },
+	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
+	implicitModTypes = { },
+	armour = { Evasion = 143, },
+	req = { level = 55, },
+}
+itemBases["Advanced Lizardscale Boots"] = {
+	type = "Boots",
+	socketLimit = 2,
+	tags = { dex_armour = true, armour = true, boots = true, default = true, },
+	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
+	implicitModTypes = { },
+	armour = { Evasion = 152, },
+	req = { level = 59, },
+}
+itemBases["Advanced Wrapped Sandals"] = {
+	type = "Boots",
+	socketLimit = 2,
+	tags = { int_armour = true, armour = true, boots = true, default = true, },
+	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
+	implicitModTypes = { },
+	armour = { EnergyShield = 48, },
+	req = { level = 45, },
+}
+itemBases["Advanced Lattice Sandals"] = {
+	type = "Boots",
+	socketLimit = 2,
+	tags = { int_armour = true, armour = true, boots = true, default = true, },
+	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
+	implicitModTypes = { },
+	armour = { EnergyShield = 52, },
+	req = { level = 51, },
+}
+itemBases["Advanced Silk Slippers"] = {
+	type = "Boots",
+	socketLimit = 2,
+	tags = { int_armour = true, armour = true, boots = true, default = true, },
+	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
+	implicitModTypes = { },
+	armour = { EnergyShield = 55, },
+	req = { level = 55, },
+}
+itemBases["Advanced Feathered Sandals"] = {
+	type = "Boots",
+	socketLimit = 2,
+	tags = { int_armour = true, armour = true, boots = true, default = true, },
+	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
+	implicitModTypes = { },
+	armour = { EnergyShield = 58, },
+	req = { level = 59, },
+}
+itemBases["Advanced Mail Sabatons"] = {
+	type = "Boots",
+	socketLimit = 2,
+	tags = { str_dex_armour = true, armour = true, boots = true, default = true, },
+	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
+	implicitModTypes = { },
+	armour = { Armour = 73, Evasion = 65, },
+	req = { level = 45, },
+}
+itemBases["Advanced Braced Sabatons"] = {
+	type = "Boots",
+	socketLimit = 2,
+	tags = { str_dex_armour = true, armour = true, boots = true, default = true, },
+	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
+	implicitModTypes = { },
+	armour = { Armour = 81, Evasion = 73, },
+	req = { level = 51, },
+}
+itemBases["Advanced Stacked Sabatons"] = {
+	type = "Boots",
+	socketLimit = 2,
+	tags = { str_dex_armour = true, armour = true, boots = true, default = true, },
+	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
+	implicitModTypes = { },
+	armour = { Armour = 92, Evasion = 84, },
+	req = { level = 59, },
+}
+itemBases["Advanced Padded Leggings"] = {
+	type = "Boots",
+	socketLimit = 2,
+	tags = { str_int_armour = true, armour = true, boots = true, default = true, },
+	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
+	implicitModTypes = { },
+	armour = { Armour = 73, EnergyShield = 26, },
+	req = { level = 45, },
+}
+itemBases["Advanced Secured Leggings"] = {
+	type = "Boots",
+	socketLimit = 2,
+	tags = { str_int_armour = true, armour = true, boots = true, default = true, },
+	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
+	implicitModTypes = { },
+	armour = { Armour = 81, EnergyShield = 29, },
+	req = { level = 51, },
+}
+itemBases["Advanced Pelt Leggings"] = {
+	type = "Boots",
+	socketLimit = 2,
+	tags = { str_int_armour = true, armour = true, boots = true, default = true, },
+	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
+	implicitModTypes = { },
+	armour = { Armour = 92, EnergyShield = 32, },
+	req = { level = 59, },
+}
+itemBases["Advanced Frayed Shoes"] = {
+	type = "Boots",
+	socketLimit = 2,
+	tags = { dex_int_armour = true, armour = true, boots = true, default = true, },
+	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
+	implicitModTypes = { },
+	armour = { Evasion = 65, EnergyShield = 26, },
+	req = { level = 45, },
+}
+itemBases["Advanced Threaded Shoes"] = {
+	type = "Boots",
+	socketLimit = 2,
+	tags = { dex_int_armour = true, armour = true, boots = true, default = true, },
+	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
+	implicitModTypes = { },
+	armour = { Evasion = 73, EnergyShield = 29, },
+	req = { level = 51, },
+}
+itemBases["Advanced Hunting Shoes"] = {
+	type = "Boots",
+	socketLimit = 2,
+	tags = { dex_int_armour = true, armour = true, boots = true, default = true, },
+	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
+	implicitModTypes = { },
+	armour = { Evasion = 84, EnergyShield = 32, },
+	req = { level = 59, },
+}
+itemBases["Expert Iron Greaves"] = {
+	type = "Boots",
+	socketLimit = 2,
+	tags = { boots = true, armour = true, str_armour = true, default = true, },
+	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
+	implicitModTypes = { },
+	armour = { Armour = 182, },
+	req = { level = 65, },
+}
+itemBases["Expert Trimmed Greaves"] = {
+	type = "Boots",
+	socketLimit = 2,
+	tags = { boots = true, armour = true, str_armour = true, default = true, },
+	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
+	implicitModTypes = { },
+	armour = { Armour = 200, },
+	req = { level = 70, },
+}
+itemBases["Expert Stone Greaves"] = {
+	type = "Boots",
+	socketLimit = 2,
+	tags = { boots = true, armour = true, str_armour = true, default = true, },
+	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
+	implicitModTypes = { },
+	armour = { Armour = 219, },
+	req = { level = 75, },
+}
+itemBases["Expert Laced Boots"] = {
+	type = "Boots",
+	socketLimit = 2,
+	tags = { dex_armour = true, armour = true, boots = true, default = true, },
+	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
+	implicitModTypes = { },
+	armour = { Evasion = 166, },
+	req = { level = 65, },
+}
+itemBases["Expert Steeltoe Boots"] = {
+	type = "Boots",
+	socketLimit = 2,
+	tags = { dex_armour = true, armour = true, boots = true, default = true, },
+	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
+	implicitModTypes = { },
+	armour = { Evasion = 183, },
+	req = { level = 70, },
+}
+itemBases["Expert Lizardscale Boots"] = {
+	type = "Boots",
+	socketLimit = 2,
+	tags = { dex_armour = true, armour = true, boots = true, default = true, },
+	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
+	implicitModTypes = { },
+	armour = { Evasion = 200, },
+	req = { level = 75, },
+}
+itemBases["Expert Wrapped Sandals"] = {
+	type = "Boots",
+	socketLimit = 2,
+	tags = { int_armour = true, armour = true, boots = true, default = true, },
+	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
+	implicitModTypes = { },
+	armour = { EnergyShield = 63, },
+	req = { level = 65, },
+}
+itemBases["Expert Silk Slippers"] = {
+	type = "Boots",
+	socketLimit = 2,
+	tags = { int_armour = true, armour = true, boots = true, default = true, },
+	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
+	implicitModTypes = { },
+	armour = { EnergyShield = 69, },
+	req = { level = 70, },
+}
+itemBases["Expert Feathered Sandals"] = {
+	type = "Boots",
+	socketLimit = 2,
+	tags = { int_armour = true, armour = true, boots = true, default = true, },
+	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
+	implicitModTypes = { },
+	armour = { EnergyShield = 75, },
+	req = { level = 75, },
+}
+itemBases["Expert Mail Sabatons"] = {
+	type = "Boots",
+	socketLimit = 2,
+	tags = { str_dex_armour = true, armour = true, boots = true, default = true, },
+	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
+	implicitModTypes = { },
+	armour = { Armour = 100, Evasion = 91, },
+	req = { level = 65, },
+}
+itemBases["Expert Braced Sabatons"] = {
+	type = "Boots",
+	socketLimit = 2,
+	tags = { str_dex_armour = true, armour = true, boots = true, default = true, },
+	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
+	implicitModTypes = { },
+	armour = { Armour = 110, Evasion = 101, },
+	req = { level = 70, },
+}
+itemBases["Expert Stacked Sabatons"] = {
+	type = "Boots",
+	socketLimit = 2,
+	tags = { str_dex_armour = true, armour = true, boots = true, default = true, },
+	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
+	implicitModTypes = { },
+	armour = { Armour = 120, Evasion = 110, },
+	req = { level = 75, },
+}
+itemBases["Expert Padded Leggings"] = {
+	type = "Boots",
+	socketLimit = 2,
+	tags = { str_int_armour = true, armour = true, boots = true, default = true, },
+	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
+	implicitModTypes = { },
+	armour = { Armour = 100, EnergyShield = 35, },
+	req = { level = 65, },
+}
+itemBases["Expert Secured Leggings"] = {
+	type = "Boots",
+	socketLimit = 2,
+	tags = { str_int_armour = true, armour = true, boots = true, default = true, },
+	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
+	implicitModTypes = { },
+	armour = { Armour = 110, EnergyShield = 38, },
+	req = { level = 70, },
+}
+itemBases["Expert Pelt Leggings"] = {
+	type = "Boots",
+	socketLimit = 2,
+	tags = { str_int_armour = true, armour = true, boots = true, default = true, },
+	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
+	implicitModTypes = { },
+	armour = { Armour = 120, EnergyShield = 42, },
+	req = { level = 75, },
+}
+itemBases["Expert Frayed Shoes"] = {
+	type = "Boots",
+	socketLimit = 2,
+	tags = { dex_int_armour = true, armour = true, boots = true, default = true, },
+	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
+	implicitModTypes = { },
+	armour = { Evasion = 91, EnergyShield = 35, },
+	req = { level = 65, },
+}
+itemBases["Expert Threaded Shoes"] = {
+	type = "Boots",
+	socketLimit = 2,
+	tags = { dex_int_armour = true, armour = true, boots = true, default = true, },
+	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
+	implicitModTypes = { },
+	armour = { Evasion = 101, EnergyShield = 38, },
+	req = { level = 70, },
+}
+itemBases["Expert Hunting Shoes"] = {
+	type = "Boots",
+	socketLimit = 2,
+	tags = { dex_int_armour = true, armour = true, boots = true, default = true, },
+	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
+	implicitModTypes = { },
+	armour = { Evasion = 110, EnergyShield = 42, },
+	req = { level = 75, },
 }

@@ -5715,20 +5715,6 @@ for k, v in pairs(jewelThresholdFuncs) do
 	jewelFuncList[k:lower()] = { func = v, type = "Threshold" }
 end
 
--- Generate list of cluster jewel skills
-local clusterJewelSkills = {}
-for baseName, jewel in pairs(data.clusterJewels.jewels) do
-	for skillId, skill in pairs(jewel.skills) do
-		clusterJewelSkills[table.concat(skill.enchant, " "):lower()] = { mod("JewelData", "LIST", { key = "clusterJewelSkill", value = skillId }) }
-	end
-end
-for notable in pairs(data.clusterJewels.notableSortOrder) do
-	clusterJewelSkills["1 added passive skill is "..notable:lower()] = { mod("ClusterJewelNotable", "LIST", notable) }
-end
-for _, keystone in ipairs(data.clusterJewels.keystones) do
-	clusterJewelSkills["adds "..keystone:lower()] = { mod("JewelData", "LIST", { key = "clusterJewelKeystone", value = keystone }) }
-end
-
 -- Scan a line for the earliest and longest match from the pattern list
 -- If a match is found, returns the corresponding value from the pattern list, plus the remainder of the line and a table of captures
 local function scan(line, patternList, plain)
@@ -5767,10 +5753,6 @@ local function parseMod(line, order)
 	local jewelFunc = jewelFuncList[lineLower]
 	if jewelFunc then
 		return { mod("JewelFunc", "LIST", jewelFunc) }
-	end
-	local clusterJewelSkill = clusterJewelSkills[lineLower]
-	if clusterJewelSkill then
-		return clusterJewelSkill
 	end
 	if unsupportedModList[lineLower] then
 		return { }, line

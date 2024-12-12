@@ -46,7 +46,7 @@ function loadStatFile(fileName)
 			else
 				local statLimits, text, special = line:match('([%d%-#| ]+) "(.-)"%s*(.*)')
 				if statLimits then
-					local desc = { text = text, limit = { } }
+					local desc = { text = text:gsub("%[([^|%]]+)%]", "%1"):gsub("%[[^|]+|([^|]+)%]", "%1"), limit = { } }
 					for statLimit in statLimits:gmatch("[!%d%-#|]+") do
 						local limit = { }
 						

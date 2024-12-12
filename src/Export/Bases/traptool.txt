@@ -1,0 +1,8 @@
+-- Item data (c) Grinding Gear Games
+local itemBases = ...
+
+#type TrapTool
+#influenceBaseTag traptool
+#socketLimit 1
+
+#baseMatch BaseType Metadata/Items/TrapTools/AbstractTrapTool
