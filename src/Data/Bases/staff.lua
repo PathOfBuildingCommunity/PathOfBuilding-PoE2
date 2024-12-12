@@ -145,7 +145,7 @@ itemBases["Crackling Quarterstaff"] = {
 	tags = { two_hand_weapon = true, warstaff = true, maraketh_basetype = true, weapon = true, twohand = true, default = true, },
 	influenceTags = { shaper = "warstaff_shaper", elder = "warstaff_elder", adjudicator = "warstaff_adjudicator", basilisk = "warstaff_basilisk", crusader = "warstaff_crusader", eyrie = "warstaff_eyrie", cleansing = "warstaff_cleansing", tangle = "warstaff_tangle" },
 	implicitModTypes = { },
-	weapon = { PhysicalMin = 13, PhysicalMax = 54, CritChanceBase = 10, AttackRateBase = 1.4, Range = 13, },
+	weapon = { LightningMin = 13, LightningMax = 54, CritChanceBase = 10, AttackRateBase = 1.4, Range = 13, },
 	req = { level = 16, },
 }
 itemBases["Crescent Quarterstaff"] = {
@@ -267,7 +267,7 @@ itemBases["Advanced Crackling Quarterstaff"] = {
 	tags = { two_hand_weapon = true, warstaff = true, weapon = true, twohand = true, default = true, },
 	influenceTags = { shaper = "warstaff_shaper", elder = "warstaff_elder", adjudicator = "warstaff_adjudicator", basilisk = "warstaff_basilisk", crusader = "warstaff_crusader", eyrie = "warstaff_eyrie", cleansing = "warstaff_cleansing", tangle = "warstaff_tangle" },
 	implicitModTypes = { },
-	weapon = { PhysicalMin = 30, PhysicalMax = 57, CritChanceBase = 10, AttackRateBase = 1.4, Range = 13, },
+	weapon = { LightningMin = 30, LightningMax = 57, CritChanceBase = 10, AttackRateBase = 1.4, Range = 13, },
 	req = { level = 51, },
 }
 itemBases["Advanced Crescent Quarterstaff"] = {
@@ -339,7 +339,7 @@ itemBases["Expert Crackling Quarterstaff"] = {
 	tags = { two_hand_weapon = true, warstaff = true, weapon = true, twohand = true, default = true, },
 	influenceTags = { shaper = "warstaff_shaper", elder = "warstaff_elder", adjudicator = "warstaff_adjudicator", basilisk = "warstaff_basilisk", crusader = "warstaff_crusader", eyrie = "warstaff_eyrie", cleansing = "warstaff_cleansing", tangle = "warstaff_tangle" },
 	implicitModTypes = { },
-	weapon = { PhysicalMin = 43, PhysicalMax = 172, CritChanceBase = 10, AttackRateBase = 1.4, Range = 13, },
+	weapon = { LightningMin = 43, LightningMax = 172, CritChanceBase = 10, AttackRateBase = 1.4, Range = 13, },
 	req = { level = 78, },
 }
 itemBases["Expert Barrier Quarterstaff"] = {

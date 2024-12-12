@@ -110,7 +110,7 @@ itemBases["Striking Spear"] = {
 	tags = { onehand = true, spear = true, weapon = true, one_hand_weapon = true, default = true, },
 	influenceTags = { shaper = "spear_shaper", elder = "spear_elder", adjudicator = "spear_adjudicator", basilisk = "spear_basilisk", crusader = "spear_crusader", eyrie = "spear_eyrie", cleansing = "spear_cleansing", tangle = "spear_tangle" },
 	implicitModTypes = { },
-	weapon = { PhysicalMin = 23, PhysicalMax = 91, CritChanceBase = 5, AttackRateBase = 1.6, Range = 15, },
+	weapon = { LightningMin = 23, LightningMax = 91, CritChanceBase = 5, AttackRateBase = 1.6, Range = 15, },
 	req = { level = 55, },
 }
 itemBases["Helix Spear"] = {

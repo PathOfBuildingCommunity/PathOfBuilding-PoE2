@@ -127,7 +127,43 @@ directiveTable.base = function(state, args, out)
 	local weaponType = dat("WeaponTypes"):GetRow("BaseItemType", baseItemType)
 	if weaponType then
 		out:write('\tweapon = { ')
-		out:write('PhysicalMin = ', weaponType.DamageMin, ', PhysicalMax = ', weaponType.DamageMax, ', ')
+		local modConversionMap = {
+			["local_weapon_implicit_hidden_%_base_damage_is_fire"] = "Fire",
+			["local_weapon_implicit_hidden_%_base_damage_is_cold"] = "Cold",
+			["local_weapon_implicit_hidden_%_base_damage_is_lightning"] = "Lightning",
+			["local_weapon_implicit_hidden_%_base_damage_is_chaos"] = "Chaos",
+		}
+		local conversion = {
+			["Physical"] = 100,
+			["Fire"] = 0,
+			["Cold"] = 0,
+			["Lightning"] = 0,
+			["Chaos"] = 0,
+		}
+		local total = 0
+		for _, mod in ipairs(baseItemType.ImplicitMods) do
+			for i = 1, 6 do
+				if mod["Stat"..i] then
+					local dmgType = modConversionMap[mod["Stat"..i].Id]
+					if dmgType then
+						local value = mod["Stat"..i.."Value"][1]
+						conversion[dmgType] = conversion[dmgType] + value
+						total = total + value
+					end
+				end
+			end
+		end
+		local factor = total > 100 and 100 / total or 1
+		for _, type in ipairs({ "Physical", "Fire", "Cold", "Lightning", "Chaos" }) do
+			if type == "Physical" then
+				conversion[type] = 1 - math.min(total / 100, 1)
+			else
+				conversion[type] = conversion[type] * factor / 100
+			end
+			if conversion[type] ~= 0 then
+				out:write(type, 'Min = ', math.floor(weaponType.DamageMin * conversion[type]), ', ', type, 'Max = ', math.floor(weaponType.DamageMax * conversion[type]), ', ')
+			end
+		end
 		out:write('CritChanceBase = ', weaponType.CritChance / 100, ', ')
 		out:write('AttackRateBase = ', round(1000 / weaponType.Speed, 2), ', ')
 		out:write('Range = ', weaponType.Range, ', ')

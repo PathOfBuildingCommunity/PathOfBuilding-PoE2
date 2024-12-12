@@ -17,7 +17,7 @@ itemBases["Smithing Hammer"] = {
 	tags = { onehand = true, ezomyte_basetype = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
 	influenceTags = { shaper = "mace_shaper", elder = "mace_elder", adjudicator = "mace_adjudicator", basilisk = "mace_basilisk", crusader = "mace_crusader", eyrie = "mace_eyrie", cleansing = "mace_cleansing", tangle = "mace_tangle" },
 	implicitModTypes = { },
-	weapon = { PhysicalMin = 9, PhysicalMax = 15, CritChanceBase = 5, AttackRateBase = 1.45, Range = 11, },
+	weapon = { PhysicalMin = 4, PhysicalMax = 7, FireMin = 4, FireMax = 7, CritChanceBase = 5, AttackRateBase = 1.45, Range = 11, },
 	req = { },
 }
 itemBases["Slim Mace"] = {
@@ -128,7 +128,7 @@ itemBases["Advanced Smithing Hammer"] = {
 	tags = { onehand = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
 	influenceTags = { shaper = "mace_shaper", elder = "mace_elder", adjudicator = "mace_adjudicator", basilisk = "mace_basilisk", crusader = "mace_crusader", eyrie = "mace_eyrie", cleansing = "mace_cleansing", tangle = "mace_tangle" },
 	implicitModTypes = { },
-	weapon = { PhysicalMin = 38, PhysicalMax = 64, CritChanceBase = 5, AttackRateBase = 1.45, Range = 11, },
+	weapon = { PhysicalMin = 19, PhysicalMax = 32, FireMin = 19, FireMax = 32, CritChanceBase = 5, AttackRateBase = 1.45, Range = 11, },
 	req = { level = 45, },
 }
 itemBases["Advanced Slim Mace"] = {
@@ -202,7 +202,7 @@ itemBases["Expert Smithing Hammer"] = {
 	tags = { onehand = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
 	influenceTags = { shaper = "mace_shaper", elder = "mace_elder", adjudicator = "mace_adjudicator", basilisk = "mace_basilisk", crusader = "mace_crusader", eyrie = "mace_eyrie", cleansing = "mace_cleansing", tangle = "mace_tangle" },
 	implicitModTypes = { },
-	weapon = { PhysicalMin = 61, PhysicalMax = 101, CritChanceBase = 5, AttackRateBase = 1.45, Range = 11, },
+	weapon = { PhysicalMin = 30, PhysicalMax = 50, FireMin = 30, FireMax = 50, CritChanceBase = 5, AttackRateBase = 1.45, Range = 11, },
 	req = { level = 77, },
 }
 itemBases["Expert Warpick"] = {
