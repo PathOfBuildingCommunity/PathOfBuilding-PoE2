@@ -1036,7 +1036,10 @@ function calcs.initEnv(build, mode, override, specEnv)
 									if tag.slotType == "Armour" then
 										if slotName == "Helmet" or slotName == "Body Armour" or slotName == "Gloves" or slotName == "Boots"
 											or parentItem.weaponData[2].type == "Shield" or parentItem.weaponData[2].type == "Focus" then
-											env.modDB:ScaleAddMod(mod, scale)
+											local modCopy = copyTable(mod)
+											modCopy[1] = nil
+											modLib.setSource(modCopy, item.modSource)
+											env.itemModDB:ScaleAddMod(modCopy, scale)
 										end
 									elseif tag.slotType == "Martial Weapons" then
 										local type = nil

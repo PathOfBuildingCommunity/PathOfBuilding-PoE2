@@ -54,14 +54,14 @@ end)
 function GGPKClass:CleanDir()
 	local cmd = 'del ' .. self.oozPath .. 'Data ' .. self.oozPath .. 'Metadata /Q /S'
 	ConPrintf(cmd)
-	os.execute(cmd)
+	--os.execute(cmd)
 end
 
 function GGPKClass:ExtractFilesWithBun(fileListStr, useRegex)
 	local useRegex = useRegex or false
 	local cmd = 'cd ' .. self.oozPath .. ' && bun_extract_file.exe extract-files ' .. (useRegex and '--regex "' or '"') .. self.path .. '" . ' .. fileListStr
 	ConPrintf(cmd)
-	os.execute(cmd)
+	--os.execute(cmd)
 end
 
 function GGPKClass:ExtractFiles()
