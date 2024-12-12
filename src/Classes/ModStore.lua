@@ -642,13 +642,7 @@ function ModStoreClass:EvalMod(mod, cfg)
 				
 				local match = {}
 				if tag.slotType then
-					local match_result = false
-					if tag.slotType == "Armour" then
-						match_result = cfg.slotName == "Helmet" or cfg.slotName == "Body Armour" or cfg.slotName == "Gloves" or cfg.slotName == "Boots"
-					elseif tag.slotType == "Martial Weapons" then
-						match_result = false
-					end
-					match["slotType"] = match_result
+					match["slotType"] = true  -- implemented in CalcSetup.lua
 				elseif tag.slotName then
 					match["slotName"] = (tag.slotName == cfg.slotName) or false
 				end

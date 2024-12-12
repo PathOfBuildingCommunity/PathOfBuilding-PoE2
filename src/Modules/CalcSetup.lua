@@ -837,15 +837,6 @@ function calcs.initEnv(build, mode, override, specEnv)
 				item = nil
 			end
 			local scale = 1
-			if item and (item.type == "Rune" or item.type == "SoulCore") and slot.parentSlot then
-				-- Check if the item in the parent slot has enough Rune / SoulCore Sockets
-				local parentItem = env.player.itemList[slot.parentSlot.slotName]
-				if not parentItem or parentItem.socketCount < slot.slotNum then
-					item = nil
-				else
-					scale = parentItem.socketedJewelEffectModifier
-				end
-			end
 			if slot.nodeId and item and item.type == "Jewel" and item.jewelData and item.jewelData.jewelIncEffectFromClassStart then
 				local node = env.spec.nodes[slot.nodeId]
 				if node and node.distanceToClassStart then
@@ -1034,6 +1025,39 @@ function calcs.initEnv(build, mode, override, specEnv)
 						combinedList:MergeMod(mod)
 					end	
 					env.itemModDB:ScaleAddList(combinedList, scale)
+				elseif (item.type == "Rune" or item.type == "SoulCore") and slot.parentSlot then
+					-- Check if the item in the parent slot has enough Rune / SoulCore Sockets
+					local slotName = slot.parentSlot.slotName
+					local parentItem = env.player.itemList[slotName]
+					if parentItem then
+						for _, mod in ipairs(srcList) do
+							for _, tag in ipairs(mod) do
+								if tag.type == "SocketedIn" then
+									if tag.slotType == "Armour" then
+										if slotName == "Helmet" or slotName == "Body Armour" or slotName == "Gloves" or slotName == "Boots"
+											or parentItem.weaponData[2].type == "Shield" or parentItem.weaponData[2].type == "Focus" then
+											env.modDB:ScaleAddMod(mod, scale)
+										end
+									elseif tag.slotType == "Martial Weapons" then
+										local type = nil
+										local subtype = nil
+										if slotName:match("Weapon") then
+											type = parentItem.weaponData and parentItem.weaponData[1].type
+											subtype = parentItem.weaponData and parentItem.weaponData[1].subType or nil
+										elseif slotName:match("Offhand") then
+											type = parentItem.weaponData and parentItem.weaponData[2].type
+											subtype = parentItem.weaponData and parentItem.weaponData[2].subType or nil
+										end
+										if type and (type == "Dagger" or type == "Bow" or type == "Crossbow" or type == "Spear" or type == "Claw"
+											or type:match("Axe") or type:match("Mace") or type:match("Sword") or type:match("Flail") 
+											or (subtype and subtype == "Warstaff") or type == "Fishing Rod") then
+											env.itemModDB:ScaleAddMod(mod, scale)
+										end
+									end
+								end
+							end
+						end
+					end
 				else
 					env.itemModDB:ScaleAddList(srcList, scale)
 				end

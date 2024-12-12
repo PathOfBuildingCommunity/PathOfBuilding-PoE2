@@ -97,21 +97,7 @@ function ItemSlotClass:Populate()
 	end
 	for i, socket in ipairs(self.socketList) do
 		socket.inactive = i > socketCount
-		if not socket.inactive then
-			if self.itemsTab.items[socket.selItemId] then
-				for k,v in pairs(self.itemsTab.items[socket.selItemId].modList) do
-					if self.itemsTab.items[socket.selItemId].modList[k][1].slotType == "Armour" then
-						if socket.parentSlot.slotName == "Helmet" or socket.parentSlot.slotName == "Body Armour" or socket.parentSlot.slotName == "Gloves" or socket.parentSlot.slotName == "Boots" then
-							local mod_to_add = copyTable(self.itemsTab.items[socket.selItemId].modList[k])
-							mod_to_add[1] = nil
-							t_insert(self.itemsTab.items[socket.parentSlot.selItemId].modList, mod_to_add)
-						end
-					elseif self.itemsTab.items[socket.selItemId].modList[k][1].slotType == "Martial Weapons" then
-						-- TODO
-					end
-				end
-			end
-		end
+
 	end
 end
 
