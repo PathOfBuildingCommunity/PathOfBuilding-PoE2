@@ -2,6 +2,103 @@
 -- Item data (c) Grinding Gear Games
 local itemBases = ...
 
+itemBases["Thawing Charm"] = {
+	type = "Charm",
+	tags = { flask = true, utility_flask = true, default = true, },
+	implicit = "Used when you become Frozen",
+	implicitModTypes = { {  }, },
+	flask = { duration = 3, chargesUsed = 80, chargesMax = 80, },
+	req = { level = 12, },
+}
+itemBases["Staunching Charm"] = {
+	type = "Charm",
+	tags = { flask = true, utility_flask = true, default = true, },
+	implicit = "Used when you start Bleeding",
+	implicitModTypes = { {  }, },
+	flask = { duration = 3, chargesUsed = 60, chargesMax = 80, },
+	req = { level = 18, },
+}
+itemBases["Antidote Charm"] = {
+	type = "Charm",
+	tags = { flask = true, utility_flask = true, default = true, },
+	implicit = "Used when you become Poisoned",
+	implicitModTypes = { {  }, },
+	flask = { duration = 3, chargesUsed = 40, chargesMax = 80, },
+	req = { level = 24, },
+}
+itemBases["Dousing Charm"] = {
+	type = "Charm",
+	tags = { flask = true, utility_flask = true, default = true, },
+	implicit = "Used when you become Ignited",
+	implicitModTypes = { {  }, },
+	flask = { duration = 3, chargesUsed = 60, chargesMax = 80, },
+	req = { level = 32, },
+}
+itemBases["Grounding Charm"] = {
+	type = "Charm",
+	tags = { flask = true, utility_flask = true, default = true, },
+	implicit = "Used when you become Shocked",
+	implicitModTypes = { {  }, },
+	flask = { duration = 3, chargesUsed = 50, chargesMax = 80, },
+	req = { level = 32, },
+}
+itemBases["Stone Charm"] = {
+	type = "Charm",
+	tags = { flask = true, utility_flask = true, default = true, },
+	implicit = "Used when you become Stunned",
+	implicitModTypes = { {  }, },
+	flask = { duration = 2.5, chargesUsed = 40, chargesMax = 80, },
+	req = { level = 8, },
+}
+itemBases["Silver Charm"] = {
+	type = "Charm",
+	tags = { flask = true, utility_flask = true, default = true, },
+	implicit = "Used when you are affected by a Slow",
+	implicitModTypes = { {  }, },
+	flask = { duration = 3, chargesUsed = 40, chargesMax = 80, },
+	req = { level = 10, },
+}
+itemBases["Ruby Charm"] = {
+	type = "Charm",
+	tags = { flask = true, utility_flask = true, default = true, },
+	implicit = "Used when you take Fire damage from a Hit",
+	implicitModTypes = { {  }, },
+	flask = { duration = 4, chargesUsed = 40, chargesMax = 80, },
+	req = { level = 5, },
+}
+itemBases["Sapphire Charm"] = {
+	type = "Charm",
+	tags = { flask = true, utility_flask = true, default = true, },
+	implicit = "Used when you take Cold damage from a Hit",
+	implicitModTypes = { {  }, },
+	flask = { duration = 4, chargesUsed = 40, chargesMax = 80, },
+	req = { level = 5, },
+}
+itemBases["Topaz Charm"] = {
+	type = "Charm",
+	tags = { flask = true, utility_flask = true, default = true, },
+	implicit = "Used when you take Lightning damage from a Hit",
+	implicitModTypes = { {  }, },
+	flask = { duration = 4, chargesUsed = 40, chargesMax = 80, },
+	req = { level = 5, },
+}
+itemBases["Amethyst Charm"] = {
+	type = "Charm",
+	tags = { flask = true, utility_flask = true, default = true, },
+	implicit = "Used when you take Chaos damage from a Hit",
+	implicitModTypes = { {  }, },
+	flask = { duration = 4, chargesUsed = 60, chargesMax = 80, },
+	req = { level = 40, },
+}
+itemBases["Golden Charm"] = {
+	type = "Charm",
+	tags = { flask = true, utility_flask = true, default = true, },
+	implicit = "Used when you Kill a Rare or Unique Enemy",
+	implicitModTypes = { {  }, },
+	flask = { duration = 1, chargesUsed = 80, chargesMax = 80, },
+	req = { level = 50, },
+}
+
 itemBases["Lesser Life Flask"] = {
 	type = "Flask",
 	subType = "Life",
@@ -146,113 +243,4 @@ itemBases["Ultimate Mana Flask"] = {
 	implicitModTypes = { },
 	flask = { mana = 310, duration = 3, chargesUsed = 10, chargesMax = 75, },
 	req = { level = 60, },
-}
-
-itemBases["Thawing Charm"] = {
-	type = "Charm",
-	subType = "Mana",
-	tags = { flask = true, utility_flask = true, default = true, },
-	implicit = "Used when you become Frozen",
-	implicitModTypes = { {  }, },
-	flask = { duration = 3, chargesUsed = 80, chargesMax = 80, },
-	req = { level = 12, },
-}
-itemBases["Staunching Charm"] = {
-	type = "Charm",
-	subType = "Mana",
-	tags = { flask = true, utility_flask = true, default = true, },
-	implicit = "Used when you start Bleeding",
-	implicitModTypes = { {  }, },
-	flask = { duration = 3, chargesUsed = 60, chargesMax = 80, },
-	req = { level = 18, },
-}
-itemBases["Antidote Charm"] = {
-	type = "Charm",
-	subType = "Mana",
-	tags = { flask = true, utility_flask = true, default = true, },
-	implicit = "Used when you become Poisoned",
-	implicitModTypes = { {  }, },
-	flask = { duration = 3, chargesUsed = 40, chargesMax = 80, },
-	req = { level = 24, },
-}
-itemBases["Dousing Charm"] = {
-	type = "Charm",
-	subType = "Mana",
-	tags = { flask = true, utility_flask = true, default = true, },
-	implicit = "Used when you become Ignited",
-	implicitModTypes = { {  }, },
-	flask = { duration = 3, chargesUsed = 60, chargesMax = 80, },
-	req = { level = 32, },
-}
-itemBases["Grounding Charm"] = {
-	type = "Charm",
-	subType = "Mana",
-	tags = { flask = true, utility_flask = true, default = true, },
-	implicit = "Used when you become Shocked",
-	implicitModTypes = { {  }, },
-	flask = { duration = 3, chargesUsed = 50, chargesMax = 80, },
-	req = { level = 32, },
-}
-itemBases["Stone Charm"] = {
-	type = "Charm",
-	subType = "Mana",
-	tags = { flask = true, utility_flask = true, default = true, },
-	implicit = "Used when you become Stunned",
-	implicitModTypes = { {  }, },
-	flask = { duration = 2.5, chargesUsed = 40, chargesMax = 80, },
-	req = { level = 8, },
-}
-itemBases["Silver Charm"] = {
-	type = "Charm",
-	subType = "Mana",
-	tags = { flask = true, utility_flask = true, default = true, },
-	implicit = "Used when you are affected by a Slow",
-	implicitModTypes = { {  }, },
-	flask = { duration = 3, chargesUsed = 40, chargesMax = 80, },
-	req = { level = 10, },
-}
-itemBases["Ruby Charm"] = {
-	type = "Charm",
-	subType = "Mana",
-	tags = { flask = true, utility_flask = true, default = true, },
-	implicit = "Used when you take Fire damage from a Hit",
-	implicitModTypes = { {  }, },
-	flask = { duration = 4, chargesUsed = 40, chargesMax = 80, },
-	req = { level = 5, },
-}
-itemBases["Sapphire Charm"] = {
-	type = "Charm",
-	subType = "Mana",
-	tags = { flask = true, utility_flask = true, default = true, },
-	implicit = "Used when you take Cold damage from a Hit",
-	implicitModTypes = { {  }, },
-	flask = { duration = 4, chargesUsed = 40, chargesMax = 80, },
-	req = { level = 5, },
-}
-itemBases["Topaz Charm"] = {
-	type = "Charm",
-	subType = "Mana",
-	tags = { flask = true, utility_flask = true, default = true, },
-	implicit = "Used when you take Lightning damage from a Hit",
-	implicitModTypes = { {  }, },
-	flask = { duration = 4, chargesUsed = 40, chargesMax = 80, },
-	req = { level = 5, },
-}
-itemBases["Amethyst Charm"] = {
-	type = "Charm",
-	subType = "Mana",
-	tags = { flask = true, utility_flask = true, default = true, },
-	implicit = "Used when you take Chaos damage from a Hit",
-	implicitModTypes = { {  }, },
-	flask = { duration = 4, chargesUsed = 60, chargesMax = 80, },
-	req = { level = 40, },
-}
-itemBases["Golden Charm"] = {
-	type = "Charm",
-	subType = "Mana",
-	tags = { flask = true, utility_flask = true, default = true, },
-	implicit = "Used when you Kill a Rare or Unique Enemy",
-	implicitModTypes = { {  }, },
-	flask = { duration = 1, chargesUsed = 80, chargesMax = 80, },
-	req = { level = 50, },
 }
