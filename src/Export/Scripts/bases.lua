@@ -79,6 +79,13 @@ directiveTable.base = function(state, args, out)
 	if state.subType and #state.subType > 0 then
 		out:write('\tsubType = "', state.subType, '",\n')
 	end
+	if state.type == "Belt" then
+		print(baseItemType.Id)
+		local beltType = dat("BeltTypes"):GetRow("BaseItemType", baseItemType)
+		if beltType then
+			out:write('\tcharmLimit = ', beltType.CharmCount, ',\n')
+		end
+	end
 	if (baseItemType.Hidden == 0 or state.forceHide) and not baseTypeId:match("Talisman") and not state.forceShow then
 		out:write('\thidden = true,\n')
 	end
@@ -297,9 +304,7 @@ directiveTable.baseMatch = function(state, argstr, out)
 		value = args[2]
 	end
 	for i, baseItemType in ipairs(dat("BaseItemTypes"):GetRowList(key, value, true)) do
-		if not string.find(baseItemType.Id, "Royale") then
-			directiveTable.base(state, baseItemType.Id, out)
-		end
+		directiveTable.base(state, baseItemType.Id, out)
 	end
 end
 

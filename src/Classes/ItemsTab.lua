@@ -1963,6 +1963,7 @@ function ItemsTabClass:CraftItem()
 		item.name = base.name
 		item.base = base.base
 		item.baseName = base.name
+		item.charmLimit = base.charmLimit
 		item.buffModLines = { }
 		item.enchantModLines = { }
 		item.classRequirementModLines = { }
@@ -3182,6 +3183,9 @@ function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode)
 		tooltip:AddLine(20, rarityCode..item.baseName:gsub(" %(.+%)",""))
 	else
 		tooltip:AddLine(20, rarityCode..item.namePrefix..item.baseName:gsub(" %(.+%)","")..item.nameSuffix)
+	end
+	if item.charmLimit then
+		tooltip:AddLine(16, colorCodes.SOURCE.."Charm Slots: "..item.charmLimit)
 	end
 	for _, curInfluenceInfo in ipairs(influenceInfo) do
 		if item[curInfluenceInfo.key] then
