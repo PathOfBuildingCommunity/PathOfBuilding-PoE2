@@ -80,7 +80,6 @@ directiveTable.base = function(state, args, out)
 		out:write('\tsubType = "', state.subType, '",\n')
 	end
 	if state.type == "Belt" then
-		print(baseItemType.Id)
 		local beltType = dat("BeltTypes"):GetRow("BaseItemType", baseItemType)
 		if beltType then
 			out:write('\tcharmLimit = ', beltType.CharmCount, ',\n')
