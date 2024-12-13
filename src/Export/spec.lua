@@ -2074,7 +2074,7 @@ return {
 			name="Description",
 			refTo="",
 			type="String",
-			width=150
+			width=440
 		},
 		[3]={
 			list=false,
@@ -4800,11 +4800,11 @@ return {
 			width=150
 		},
 		[10]={
-			list=false,
-			name="UtilityBuff",
+			list=true,
+			name="UtilityBuffs",
 			refTo="UtilityFlaskBuffs",
 			type="Key",
-			width=150
+			width=240
 		}
 	},
 	flaskstashbasetypeordering={
@@ -7751,8 +7751,8 @@ return {
 		[9]={
 			list=false,
 			name="Domain",
-			refTo="ModDomains",
-			type="Int",
+			refTo="modDomains",
+			type="Enum",
 			width=60
 		},
 		[10]={
@@ -7765,8 +7765,8 @@ return {
 		[11]={
 			list=false,
 			name="GenerationType",
-			refTo="ModGenerationType",
-			type="Int",
+			refTo="modGenerationTypes",
+			type="Enum",
 			width=100
 		},
 		[12]={
@@ -13826,28 +13826,28 @@ return {
 			name="BuffDefinitionsKey",
 			refTo="BuffDefinitions",
 			type="Key",
-			width=220
+			width=250
 		},
 		[2]={
 			list=true,
 			name="StatValues",
 			refTo="",
 			type="Int",
-			width=150
+			width=240
 		},
 		[3]={
 			list=true,
 			name="StatValues2",
 			refTo="",
 			type="Int",
-			width=150
+			width=250
 		},
 		[4]={
 			list=false,
 			name="",
 			refTo="",
 			type="Key",
-			width=150
+			width=250
 		}
 	},
 	villageuniquedisenchantvalues={

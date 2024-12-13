@@ -113,10 +113,7 @@ writeMods("../Data/ModFlask.lua", function(mod)
 	return mod.Domain == 2 and (mod.GenerationType == 1 or mod.GenerationType == 2 or mod.GenerationType == 3)
 end)
 writeMods("../Data/ModJewel.lua", function(mod)
-	return (mod.Domain == 10 or mod.Domain == 16) and (mod.GenerationType == 1 or mod.GenerationType == 2 or mod.GenerationType == 5)
-end)
-writeMods("../Data/ModJewelCluster.lua", function(mod)
-	return (mod.Domain == 21 and (mod.GenerationType == 1 or mod.GenerationType == 2)) or (mod.Domain == 10 and mod.GenerationType == 5)
+	return mod.Domain == 11 and (mod.GenerationType == 1 or mod.GenerationType == 2)
 end)
 
 
