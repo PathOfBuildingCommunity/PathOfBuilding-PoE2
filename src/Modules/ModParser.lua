@@ -766,7 +766,7 @@ local modNameList = {
 	["to apply lightning exposure on hit"] = "LightningExposureChance",
 	["to ignore enemy physical damage reduction"] = "ChanceToIgnoreEnemyPhysicalDamageReduction",
 	["weapon swap speed"] = "WeaponSwapSpeed",
-	-- Flask and Tincture modifiers
+	-- Flask and Charm modifiers
 	["effect"] = "LocalEffect",
 	["effect of flasks"] = "FlaskEffect",
 	["effect of tinctures"] = "TinctureEffect",
@@ -780,6 +780,7 @@ local modNameList = {
 	["mana recovery from flasks"] = "FlaskManaRecovery",
 	["life and mana recovery from flasks"] = { "FlaskLifeRecovery", "FlaskManaRecovery" },
 	["flask effect duration"] = "FlaskDuration",
+	["charm effect duration"] = "CharmDuration",
 	["recovery speed"] = "FlaskRecoveryRate",
 	["recovery rate"] = "FlaskRecoveryRate",
 	["flask recovery rate"] = "FlaskRecoveryRate",
@@ -791,7 +792,9 @@ local modNameList = {
 	["charges used"] = "FlaskChargesUsed",
 	["charges per use"] = "FlaskChargesUsed",
 	["flask charges used"] = "FlaskChargesUsed",
+	["charm charges used"] = "CharmChargesUsed",
 	["flask charges gained"] = "FlaskChargesGained",
+	["charm charges gained"] = "CharmChargesGained",
 	["charge recovery"] = "FlaskChargeRecovery",
 	["for flasks you use to not consume charges"] = "FlaskChanceNotConsumeCharges",
 	["for tinctures to not inflict mana burn"] = "TincturesNotInflictManaBurn",
@@ -4491,6 +4494,9 @@ local specialModList = {
 	["flasks gain (%d+) charges? every (%d+) seconds"] = function(num, _, div) return {
 		mod("FlaskChargesGenerated", "BASE", num / div)
 	} end,
+	["charms gain (%d+) charges? every per seconds"] = function(num) return {
+		mod("CharmChargesGenerated", "BASE", num)
+	} end,
 	["flasks gain a charge every (%d+) seconds"] = function(_, div) return {
 		mod("FlaskChargesGenerated", "BASE", 1 / div)
 	} end,
@@ -4521,6 +4527,11 @@ local specialModList = {
 	["life flask effects are not removed when unreserved life is filled"] = {
 		flag("LifeFlaskEffectNotRemoved")
 	},
+	["+(%d+) charm slots?"] = function(num) return { mod("CharmLimit", "BASE", num) } end,
+	["charms use no charges"] = { flag("CharmsUseNoCharges") },
+	["(%d+)%% of charges used by charms granted to your life flasks"] = function(num) return { 
+		mod("FlaskChargesGained", "MORE", num / 100, nil, nil, { type = "Multiplier", var = "AvgCharmChargesUsed"} ) 
+	} end,
 	-- Jewels
 	["passives in radius of ([%a%s']+) can be allocated without being connected to your tree"] = function(_, name) return {
 		mod("JewelData", "LIST", { key = "impossibleEscapeKeystone", value = name }),
