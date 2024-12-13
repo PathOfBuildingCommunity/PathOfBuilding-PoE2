@@ -103,8 +103,7 @@ local function writeMods(outName, condFunc)
 end
 
 writeMods("../Data/ModItem.lua", function(mod)
-	return (mod.Domain == 1 and (mod.GenerationType == 1 or mod.GenerationType == 2 or mod.GenerationType == 3 or mod.GenerationType == 5)) or
-		(mod.Domain == 10 and mod.Level ~= 0)
+	return mod.Domain == 1 and (mod.GenerationType == 1 or mod.GenerationType == 2 or mod.GenerationType == 3 or mod.GenerationType == 5)
 end)
 writeMods("../Data/ModFlask.lua", function(mod)
 	return mod.Domain == 2 and (mod.GenerationType == 1 or mod.GenerationType == 2 or mod.GenerationType == 3)
