@@ -1,6 +1,6 @@
 local module = { }
 
-function escape_path(path)
+local function escape_path(path)
     -- Replace '\' with '\\' first to avoid double escaping
     local escaped_path = path:gsub("\\", "\\\\")
     -- Replace '/' with '\\'
@@ -8,7 +8,7 @@ function escape_path(path)
     return escaped_path
 end
 
-function standard_path(path)
+local function standard_path(path)
     return path:gsub("/", "\\")
 end
 --[[
@@ -112,6 +112,67 @@ function module.combine_dds_to_sprite(sheet_name, sheet_data, from_path, to_path
 
 	if executeCommand then
 		os.execute(cmd)
+	end
+
+	logFile:close()
+end
+
+--[[
+info = {
+	{
+		mask = "Art/./mask.dds",
+		file = "Art/./file.dds",
+		extension = "png",
+		basename = "file",
+		minmapfile = 0,
+		minmapmask = 0,
+		total = 10
+	}
+}
+--]]
+function module.extract_lines_dds(name, info, from_path, to_path, script_batch_path, executeCommand)
+	executeCommand = executeCommand == nil and true or executeCommand
+
+	local fileLog = to_path.."log_" .. name  .. ".txt"
+	printf(fileLog)
+
+	local logFile = io.open(fileLog, "w")
+
+	for _, data in pairs(info) do
+		local src = from_path..data["file"]
+		local mipmapsrc = data["minmapfile"]
+		local mask = from_path..data["mask"]
+		local mipmapmask = data["minmapmask"]
+		local basename = data["basename"]
+		local extension = data["extension"]
+		local total = data["total"]
+		-- because command can be big we are creating a file scm and load base on script_batch_path
+		local script_batch_content = string.format(
+			"(load \"%s\")"
+			, escape_path(script_batch_path)
+		)
+
+		local callToFunction = string.format(
+			"(extract-lines-pob \"%s\" \"%s\" %d %d %d \"%s\" \"%s\" \"%s\" %d)", 
+			escape_path(src), escape_path(mask), mipmapsrc, mipmapmask, total, escape_path(to_path), basename, extension, 0
+		)
+
+		script_batch_content = script_batch_content .. "\n\n" .. callToFunction
+		local new_script_path = to_path.."script_".. name .. "_" .. basename ..".scm"
+		local new_script = io.open(new_script_path, "w")
+		new_script:write(script_batch_content)
+		new_script:close()
+
+		-- Construct the GIMP batch command
+		local cmd = string.format(
+			'gimp-console-2.10.exe -i -b "(load \\\"%s\\\")" -b "(gimp-quit 0)"',
+			escape_path(new_script_path)
+		)
+		logFile:write(cmd.."\n")
+
+		if executeCommand then
+			os.execute(cmd)
+		end
 	end
 
 	logFile:close()

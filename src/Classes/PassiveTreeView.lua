@@ -172,7 +172,7 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 
 	-- Create functions that will convert coordinates between the screen and tree coordinate spaces
 	local scale = m_min(viewPort.width, viewPort.height) / tree.size * self.zoom
-	if tree.pob ~= 1 then
+	if not tree:IsPobGenerate() then
 		scale = scale * 1.33
 	end
 
@@ -278,7 +278,9 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 			elseif hoverNode.path then
 				-- Node is unallocated and can be allocated, so allocate it
 				if hoverNode.type == "Mastery" and hoverNode.masteryEffects then
-					build.treeTab:OpenMasteryPopup(hoverNode, viewPort)
+					if not tree:IsPobGenerate() then
+						build.treeTab:OpenMasteryPopup(hoverNode, viewPort)
+					end
 				else
 					spec:AllocNode(hoverNode, self.tracePath and hoverNode == self.tracePath[#self.tracePath] and self.tracePath)
 					spec:AddUndoState()
@@ -303,18 +305,20 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 			build.treeTab:ModifyNodePopup(hoverNode, viewPort)
 			build.buildFlag = true
 		elseif hoverNode and hoverNode.alloc and hoverNode.type == "Mastery" and hoverNode.masteryEffects then
-			build.treeTab:OpenMasteryPopup(hoverNode, viewPort)
-			build.buildFlag = true
+			if not tree:IsPobGenerate() then
+				build.treeTab:OpenMasteryPopup(hoverNode, viewPort)
+				build.buildFlag = true
+			end
 		end
 	end
 
 	-- Draw the background artwork
-	local bg = tree.assets.Background2 or tree.assets.Background1
+	local bg = tree:GetAssetByName("Background2", "background") or tree:GetAssetByName("Background1", "background")
 	if bg.width == 0 then
 		bg.width, bg.height = bg.handle:ImageSize()
 	end
 	if bg.width > 0 then
-		local bgSize = bg.width * scale * 1.33 * 2.5
+		local bgSize = bg.width * scale * (tree:IsPobGenerate() and 1 or 1.33 * 2.5)
 		SetDrawColor(1, 1, 1)
 		DrawImage(bg.handle, viewPort.x, viewPort.y, viewPort.width, viewPort.height, (self.zoomX + viewPort.width/2) / -bgSize, (self.zoomY + viewPort.height/2) / -bgSize, (viewPort.width/2 - self.zoomX) / bgSize, (viewPort.height/2 - self.zoomY) / bgSize)
 	end
@@ -342,7 +346,15 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 
 	local function renderGroup(group, isExpansion)
 		local scrX, scrY = treeToScreen(group.x, group.y)
-		if group.ascendancyName then
+		if tree:IsPobGenerate() then
+			if group.background then
+				local bgAsset = tree:GetAssetByName(group.background.image, "groupBackground")
+				if group.background.offsetX and group.background.offsetY then
+					scrX, scrY = treeToScreen(group.x + group.background.offsetX, group.y + group.background.offsetY)
+				end
+				self:DrawAsset(bgAsset, scrX, scrY, scale, group.background.isHalfImage ~= nil)
+			end
+		elseif group.ascendancyName then
 			if group.isAscendancyStart then
 				if group.ascendancyName ~= spec.curAscendClassBaseName and (not spec.curSecondaryAscendClass or group.ascendancyName ~= spec.curSecondaryAscendClass.id) then
 					SetDrawColor(1, 1, 1, 0.25)
@@ -351,11 +363,11 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 				SetDrawColor(1, 1, 1)
 			end
 		elseif group.oo[3] then
-			self:DrawAsset(tree.assets[isExpansion and "GroupBackgroundLargeHalfAlt" or "PSGroupBackground3"], scrX, scrY, scale, true)
+			self:DrawAsset(tree:GetAssetByName(isExpansion and "GroupBackgroundLargeHalfAlt" or "PSGroupBackground3", "groupBackground"), scrX, scrY, scale, true)
 		elseif group.oo[2] then
-			self:DrawAsset(tree.assets[isExpansion and "GroupBackgroundMediumAlt" or "PSGroupBackground2"], scrX, scrY, scale)
+			self:DrawAsset(tree:GetAssetByName(isExpansion and "GroupBackgroundMediumAlt" or "PSGroupBackground2", "groupBackground"), scrX, scrY, scale)
 		elseif group.oo[1] then
-			self:DrawAsset(tree.assets[isExpansion and "GroupBackgroundSmallAlt" or "PSGroupBackground1"], scrX, scrY, scale)
+			self:DrawAsset(tree:GetAssetByName(isExpansion and "GroupBackgroundSmallAlt" or "PSGroupBackground1", "groupBackground"), scrX, scrY, scale)
 		end
 	end
 
@@ -420,7 +432,7 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 			setConnectorColor(0.75, 0.75, 0.75)
 		end
 		SetDrawColor(unpack(connectorColor))
-		local handle = tree.assets[connector.type..state] and tree.assets[connector.type..state].handle or tree.spriteMap[connector.type..state] and tree.spriteMap[connector.type..state].line.handle
+		handle = tree.assets[connector.type..state] and tree.assets[connector.type..state].handle or tree.spriteMap[connector.type..state] and tree.spriteMap[connector.type..state].line.handle
 		DrawImageQuad(handle, unpack(connector.c))
 	end
 
@@ -528,7 +540,9 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 				end
 			elseif node.type == "Mastery" then
 				-- This is the icon that appears in the center of many groups
-				if node.masteryEffects then
+				if tree:IsPobGenerate() then
+					base = node.masterySprites.activeEffectImage.masteryActiveEffect
+				elseif node.masteryEffects then
 					if isAlloc then
 						base = node.masterySprites.activeIcon.masteryActiveSelected
 						effect = node.masterySprites.activeEffectImage.masteryActiveEffect
@@ -647,12 +661,11 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 				SetDrawColor(1, 0, 0);
 				self:DrawAsset(base, scrX, scrY, scale)
 				SetDrawColor(1, 1, 1);
+			elseif node.type == "Mastery" and tree:IsPobGenerate() then
+				SetDrawColor(1,1,1, 0.15)
+				self:DrawAsset(base, scrX, scrY, scale)
 			else
-				if tree.pob == 1 then
-					self:DrawAsset(base, scrX, scrY, scale * tree.scaleImage)
-				else
-					self:DrawAsset(base, scrX, scrY, scale)
-				end
+				self:DrawAsset(base, scrX, scrY, scale)
 			end
 		end
 
@@ -694,7 +707,7 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 					end
 				end
 			end
-			self:DrawAsset(tree.assets[overlay], scrX, scrY, scale)
+			self:DrawAsset(tree:GetAssetByName(overlay, "frame"), scrX, scrY, scale)
 			SetDrawColor(1, 1, 1)
 		end
 		if self.searchStrResults[nodeId] then
@@ -837,7 +850,7 @@ end
 -- Zoom the tree in or out
 function PassiveTreeViewClass:Zoom(level, viewPort)
 	-- Calculate new zoom level and zoom factor
-	self.zoomLevel = m_max(0, m_min(20, self.zoomLevel + level))
+	self.zoomLevel = m_max(0, m_min(12, self.zoomLevel + level))
 	local oldZoom = self.zoom
 	self.zoom = 1.2 ^ self.zoomLevel
 

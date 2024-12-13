@@ -11063,7 +11063,7 @@ return {
 		},
 		[14]={
 			list=false,
-			name="KeystoneCanAllocate",
+			name="KeystoneFrameCanAllocate",
 			refTo="",
 			type="String",
 			width=550

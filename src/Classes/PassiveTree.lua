@@ -236,7 +236,7 @@ local PassiveTreeClass = newClass("PassiveTree", function(self, treeVersion)
 		local maxZoom
 		if not self.imageZoomLevels then
 			maxZoom = data
-		elseif self.pob == 1 then
+		elseif self:IsPobGenerate() then
 			maxZoom = data[self.scaleImage]
 		elseif versionNum >= 3.19 then
 			maxZoom = data[0.3835] or data[1]
@@ -350,9 +350,21 @@ local PassiveTreeClass = newClass("PassiveTree", function(self, treeVersion)
 		},
 	}
 	for type, data in pairs(self.nodeOverlay) do
-		local size = data.artWidth * 1.33
-		data.size = size
-		data.rsq = size * size
+		if self:IsPobGenerate() then
+			-- for now mastery is disabled in POB2
+			if type ~= "Mastery" and type ~= "Socket" then
+				local asset = self:GetAssetByName(data.alloc, "frame")
+				local artWidth = asset.width
+				data.artWidth = artWidth
+				data.size = artWidth
+			else
+				data.size = 0
+			end
+		else
+			local size = data.artWidth * 1.33
+			data.size = size
+		end
+		data.rsq = data.size * data.size
 	end
 
 	if versionNum >= 3.10 then
@@ -711,7 +723,7 @@ end
 -- Common processing code for nodes (used for both real tree nodes and subgraph nodes)
 function PassiveTreeClass:ProcessNode(node)
 	-- Assign node artwork assets
-	if node.type == "Mastery" and node.masteryEffects then
+	if node.type == "Mastery" and (node.masteryEffects or self:IsPobGenerate()) then
 		node.masterySprites = { activeIcon = self.spriteMap[node.activeIcon], inactiveIcon = self.spriteMap[node.inactiveIcon], activeEffectImage = self.spriteMap[node.activeEffectImage] }
 	else
 		node.sprites = self.spriteMap[node.icon]
@@ -810,12 +822,12 @@ function PassiveTreeClass:BuildConnector(node1, node2)
 
 	-- Generate a straight line
 	connector.type = "LineConnector"
-	local art = self.spriteMap["LineConnectorNormal"] and self.spriteMap["LineConnectorNormal"].line or self.assets.LineConnectorNormal
+	local art = self:GetAssetByName("LineConnectorNormal", "line")
 	local vX, vY = node2.x - node1.x, node2.y - node1.y
 	local dist = m_sqrt(vX * vX + vY * vY)
-	local scale = art.height * 1.33 / dist
+	local scale = art.height * (self:IsPobGenerate() and 1 or 1.33) / dist
 	local nX, nY = vX * scale, vY * scale
-	local endS = dist / (art.width * 1.33)
+	local endS = dist / (art.width * (self:IsPobGenerate() and 1 or 1.33))
 	connector[1], connector[2] = node1.x - nY, node1.y + nX
 	connector[3], connector[4] = node1.x + nY, node1.y - nX
 	connector[5], connector[6] = node2.x + nY, node2.y - nX
@@ -846,8 +858,8 @@ function PassiveTreeClass:BuildArc(arcAngle, node1, connector, isMirroredArc)
 	connector.vert = { }
 	for _, state in pairs({ "Normal", "Intermediate", "Active" }) do
 		-- The different line states have differently-sized artwork, so the vertex coords must be calculated separately for each one
-		local art = self.spriteMap[connector.type .. state] and self.spriteMap[connector.type .. state].line or self.assets[connector.type .. state]
-		local size = art.width * 2 * 1.33
+		local art = self:GetAssetByName(connector.type .. state, "line")
+		local size = art.width * 2 * (self:IsPobGenerate() and 1 or 1.33)
 		local oX, oY = size * m_sqrt(2) * m_sin(angle + m_pi / 4), size * m_sqrt(2) * -m_cos(angle + m_pi / 4)
 		local cX, cY = node1.group.x + oX, node1.group.y + oY
 		local vert = { }
@@ -891,4 +903,15 @@ function PassiveTreeClass:CalcOrbitAngles(nodesInOrbit)
 	end
 
 	return orbitAngles
+end
+
+function PassiveTreeClass:GetAssetByName(name, type)
+	if self.spriteMap[name] then
+		return self.spriteMap[name][type]
+	end
+	return self.assets[name]
+end
+
+function PassiveTreeClass:IsPobGenerate()
+	return self.pob == 1
 end

@@ -1,5 +1,6 @@
 local gimpbatch = require("gimpbatch.gimp_batch")
 local ddsfiles = require("ddsfiles")
+local nvtt = require("nvtt")
 
 if not loadStatFile then
 	dofile("statdesc.lua")
@@ -85,7 +86,7 @@ local function addToSheet(sheet, icon, section, metadata)
 	end
 	sheet.files[icon][section] = metadata
 end
-local function calculateSheetCoords(sheet, path_base)
+local function calculateSheetCoords(sheet, path_base, path_to)
 	for i = 0, sheet.maxGroups - 1 do
 		local coords = { }
 		local sortedFiles = { }
@@ -107,11 +108,18 @@ local function calculateSheetCoords(sheet, path_base)
 
 				local width = metadata[i + 1].width
 				local height = metadata[i + 1].height
+				local alias = metadata.alias
+				local convert = metadata.convert or nil
+
+				if convert then
+					icon = string.gsub(icon, ".dds", "_out.dds")
+				end
 				local mipmap = ddsfiles.findClosestDDSMipmap( path_base .. string.lower(icon), width, height)
 
 				table.insert(sortedFiles, {
 					icon = icon,
 					section = section,
+					alias = alias,
 					width = width,
 					height = height,
 					mipmap = mipmap,
@@ -127,7 +135,6 @@ local function calculateSheetCoords(sheet, path_base)
 
 		for _, iconInfo in pairs(sortedFiles) do
 			if group.x + iconInfo.width > group.w or iconInfo.height ~= lastHeight then
-				maxWidthFound = math.max(maxWidthFound, group.x)
 				group.x = 0
 				group.y = group.y + lastHeight
 				group.h = group.y + iconInfo.height
@@ -138,18 +145,19 @@ local function calculateSheetCoords(sheet, path_base)
 				y = group.y,
 				w = iconInfo.width,
 				h = iconInfo.height,
+				alias = iconInfo.alias,
 				section = iconInfo.section,
 				mipmap = iconInfo.mipmap,
 			})
 			group.x = group.x + iconInfo.width
+			maxWidthFound = math.max(maxWidthFound, group.x)
 			lastHeight = iconInfo.height
 		end
-
 		group.x = 0
 		group.y = 0
 		group.coords = coords
 
-		if maxWidthFound < group.w then
+		if maxWidthFound > 0 and maxWidthFound < group.w then
 			group.w = maxWidthFound
 		end
 
@@ -161,6 +169,9 @@ end
 
 local function generateSprite(sheet, path_base, path_out,executeCommand)
 	for i, group in ipairs(sheet.sprites) do
+		if #group.coords == 0 then
+			goto continue
+		end
 		gimpbatch.combine_dds_to_sprite(
 			sheet.name .. "-" .. (i-1),
 			group,
@@ -169,6 +180,7 @@ local function generateSprite(sheet, path_base, path_out,executeCommand)
 			sheet.opacity,
 			executeCommand
 		)
+		:: continue ::
 	end
 end
 
@@ -191,6 +203,44 @@ local function extractFromGgpk(listToExtract)
 	end
 end
 
+local function parseUIImages()
+	local file = "art/uiimages1.txt"
+	local text
+	if main.ggpk.txt[file] then
+		text = main.ggpk.txt[file]
+	else
+		extractFromGgpk({file})
+		text = convertUTF16to8(getFile(file))
+		main.ggpk.txt[file] = text
+	end
+	
+	local images = {}
+	
+	for line in text:gmatch("[^\r\n]+") do
+		local index = 0
+		local name = ""
+		for field in line:gmatch('"?([^%s"]+)"?') do
+			if index == 0 then
+				name = string.lower(field)
+				images[name] = {}
+			elseif index ==1 then
+				images[name]["path"] = string.lower(field)
+			elseif index == 2 then
+				images[name]["x"] = tonumber(field)
+			elseif index == 3 then
+				images[name]["y"] = tonumber(field)
+			elseif index == 4 then
+				images[name]["width"] = tonumber(field)
+			elseif index == 5 then
+				images[name]["height"] = tonumber(field)
+			end
+			index = index + 1
+		end
+	end
+	printf("UI Images parsed")
+	return images
+end
+
 --[[
 	===== Extraction =====
 	Extraction of passives tree from psg file
@@ -201,6 +251,14 @@ end
 			- check version (only support version 3 for now)
 --]]
 
+-- parse UI Images
+printf("Getting uiimages ...")
+local uiImages = parseUIImages()
+-- uncomment next line if wanna print what we found
+-- print_table(uiImages, 0)
+
+-- common DDS conversion, while Gimp doesnt support other format we need to always format to bc1a
+local ddsFormat = "bc1a"
 
 -- Set to true if you want to generate assets
 local generateAssets = false
@@ -311,85 +369,33 @@ printf("Passives tree " .. idPassiveTree .. " parsed")
 --]]
 
 -- we use functions to generate a new table and not shared table
-function skillNormalMetadata() 
-	return {
-		{
-			width = 8,
-			height = 8,
-		},
-		{
-			width = 16,
-			height = 16,
-		},
-		{
-			width = 32,
-			height = 32,
-		},
-		{
-			width = 64,
-			height = 64,
-		}
+local function commonBackgroundMetadata(alias, maxWBase, maxHBase , maxGroups, convert)
+	local metadata = {
+		alias = alias,
+		convert = convert
 	}
+
+	for i = 0, maxGroups-1  do
+		table.insert(metadata, {
+			width = maxWBase / (2 ^ (maxGroups - 1 - i)),
+			height = maxHBase / (2 ^ (maxGroups - 1 - i)),
+		})
+	end
+
+	return metadata
+end
+
+function skillNormalMetadata() 
+	return commonBackgroundMetadata(nil, 64, 64, 4, nil)
 end
 function skillKeystoneMetadata ()
-	return {
-		{
-			width = 16,
-			height = 16,
-		},
-		{
-			width = 32,
-			height = 32,
-		},
-		{
-			width = 64,
-			height = 64,
-		},
-		{
-			width = 128,
-			height = 128,
-		}
-	}
+	return commonBackgroundMetadata(nil, 128, 128, 4, nil)
 end
 function skillNotableMetadata()
-	return {
-		{
-			width = 16,
-			height = 16,
-		},
-		{
-			width = 32,
-			height = 32,
-		},
-		{
-			width = 64,
-			height = 64,
-		},
-		{
-			width = 128,
-			height = 128,
-		}
-	}
+	return commonBackgroundMetadata(nil, 128, 128, 4, nil)
 end
 function masteryMetadata()
-	return {
-		{
-			width = 32,
-			height = 32,
-		},
-		{
-			width = 64,
-			height = 64,
-		},
-		{
-			width = 128,
-			height = 128,
-		},
-		{
-			width = 256,
-			height = 256,
-		}
-	}
+	return commonBackgroundMetadata(nil, 256, 256, 4, nil)
 end
 
 local defaultMaxWidth = 86*14
@@ -401,6 +407,9 @@ local sheets = {
 	newSheet("mastery-active-selected", defaultMaxWidth, 100, maxGroups),
 	newSheet("mastery-disabled", defaultMaxWidth, 60, maxGroups),
 	newSheet("mastery-connected", defaultMaxWidth, 100, maxGroups),
+	newSheet("background", defaultMaxWidth, 100, maxGroups),
+	newSheet("group-background", defaultMaxWidth, 100, maxGroups),
+	newSheet("mastery-active-effect", defaultMaxWidth, 100, maxGroups),
 }
 local sheetLocations = {
 	["skills"] = 1,
@@ -409,12 +418,183 @@ local sheetLocations = {
 	["mastery-active-selected"] = 4,
 	["mastery-disabled"] = 5,
 	["mastery-connected"] = 6,
+	["background"] = 7,
+	["group-background"] = 8,
+	["mastery-active-effect"] = 9,
 }
-
 local function getSheet(sheetLocation)
 	return sheets[sheetLocations[sheetLocation]]
 end
 
+-- Extract all PassiveSkillScreen from uiimage
+printf("Extracting PassiveSkillScreen...")
+local listPassiveSkillDds = {}
+for icon, iconInfo in pairs(uiImages) do
+	-- for now exclude 4k files
+	if icon:find("passiveskillscreen") and not icon:find("4k") then
+		table.insert(listPassiveSkillDds, iconInfo.path)
+	end
+end
+extractFromGgpk(listPassiveSkillDds)
+
+-- we need to convert the dds to a ssuported version with nttd tools
+printf("Converting PassiveSkillScreen...")
+nvtt.CompressDDSIntoOtherFormat(main.ggpk.oozPath, basePath .. version .. "/", "passiveSkillScreen", listPassiveSkillDds, ddsFormat, false)
+
+-- Looking for Background2
+printf("Extracting Background2...")
+local bg2 = uiImages["art/2dart/uiimages/common/background2"]
+if not bg2 then
+	printf("Background2 not found")
+	goto final
+end
+
+-- for support we needs to _out.dds when .dds
+addToSheet(getSheet("background"), bg2.path, "background", commonBackgroundMetadata("Background2", 1024, 1024, 4, ddsFormat))
+
+-- add Group Background base ond UIArt from PassiveTree\
+printf("Getting Background Group...")
+local uIArt = rowPassiveTree.UIArt
+
+local gBgSmall = uiImages[string.lower(uIArt.GroupBackgroundSmall)].path
+addToSheet(getSheet("group-background"), gBgSmall, "groupBackground", commonBackgroundMetadata("PSGroupBackground1", 360, 369, 4, ddsFormat))
+
+local gBgMedium = uiImages[string.lower(uIArt.GroupBackgroundMedium)].path
+addToSheet(getSheet("group-background"), gBgMedium, "groupBackground", commonBackgroundMetadata("PSGroupBackground2", 468, 468, 4, ddsFormat))
+
+local gBgLarge = uiImages[string.lower(uIArt.GroupBackgroundLarge)].path
+addToSheet(getSheet("group-background"), gBgLarge, "groupBackground", commonBackgroundMetadata("PSGroupBackground3", 740, 376, 4, ddsFormat))
+
+printf("Getting PassiveFrame")
+local pFrameNormal = uiImages[string.lower(uIArt.PassiveFrameNormal)].path
+addToSheet(getSheet("group-background"), pFrameNormal, "frame", commonBackgroundMetadata("PSSkillFrame", 104, 104, 4, ddsFormat))
+
+local pFrameActive = uiImages[string.lower(uIArt.PassiveFrameActive)].path
+addToSheet(getSheet("group-background"), pFrameActive, "frame", commonBackgroundMetadata("PSSkillFrameActive", 104, 104, 4, ddsFormat))
+
+local pFrameCanAllocate = uiImages[string.lower(uIArt.PassiveFrameCanAllocate)].path
+addToSheet(getSheet("group-background"), pFrameCanAllocate, "frame", commonBackgroundMetadata("PSSkillFrameHighlighted", 104, 104, 4, ddsFormat))
+
+printf("Getting KeystoneFrame")
+local kFrameNormal = uiImages[string.lower(uIArt.KeystoneFrameNormal)].path
+addToSheet(getSheet("group-background"), kFrameNormal, "frame", commonBackgroundMetadata("KeystoneFrameUnallocated", 220, 224, 4, ddsFormat))
+
+local kFrameActive = uiImages[string.lower(uIArt.KeystoneFrameActive)].path
+addToSheet(getSheet("group-background"), kFrameActive, "frame", commonBackgroundMetadata("KeystoneFrameAllocated", 220, 224, 4, ddsFormat))
+
+local kFrameCanAllocate = uiImages[string.lower(uIArt.KeystoneFrameCanAllocate)].path
+addToSheet(getSheet("group-background"), kFrameCanAllocate, "frame", commonBackgroundMetadata("KeystoneFrameCanAllocate", 220, 224, 4, ddsFormat))
+
+printf("Getting NotableFrame")
+local nFrameNormal = uiImages[string.lower(uIArt.NotableFrameNormal)].path
+addToSheet(getSheet("group-background"), nFrameNormal, "frame", commonBackgroundMetadata("NotableFrameUnallocated", 152, 156, 4, ddsFormat))
+
+local nFrameActive = uiImages[string.lower(uIArt.NotableFrameActive)].path
+addToSheet(getSheet("group-background"), nFrameActive, "frame", commonBackgroundMetadata("NotableFrameAllocated", 152, 156, 4, ddsFormat))
+
+local nFrameCanAllocate = uiImages[string.lower(uIArt.NotableFrameCanAllocate)].path
+addToSheet(getSheet("group-background"), nFrameCanAllocate, "frame", commonBackgroundMetadata("NotableFrameCanAllocate", 152, 156, 4, ddsFormat))
+
+printf("Getting GroupBackgroundBlank")
+local gBgSmallBlank = uiImages[string.lower(uIArt.GroupBackgroundSmallBlank)].path
+addToSheet(getSheet("group-background"), gBgSmallBlank, "groupBackground", commonBackgroundMetadata("PSGroupBackgroundSmallBlank", 440, 440, 4, ddsFormat))
+
+local gBgMediumBlank = uiImages[string.lower(uIArt.GroupBackgroundMediumBlank)].path
+addToSheet(getSheet("group-background"), gBgMediumBlank, "groupBackground", commonBackgroundMetadata("PSGroupBackgroundMediumBlank", 756, 756, 4, ddsFormat))
+
+local gBgLargeBlank = uiImages[string.lower(uIArt.GroupBackgroundLargeBlank)].path
+addToSheet(getSheet("group-background"), gBgLargeBlank, "groupBackground", commonBackgroundMetadata("PSGroupBackgroundLargeBlank", 952, 952, 4, ddsFormat))
+
+-- we need to stract lines from dds
+local listAdditionalAssets = {
+	"art/2dart/passivetree/passiveskillwormholelightpulse.dds",
+	"art/2dart/passivetree/passiveskillscreencurvesnormaltogether.dds",
+	"art/2dart/passivetree/passiveskillscreencurvesnormalbluetogether.dds",
+	"art/2dart/passivetree/passiveskillscreencurvesnormalalttogether.dds",
+	"art/2dart/passivetree/passiveskillscreencurvesintermediatetogether.dds",
+	"art/2dart/passivetree/passiveskillscreencurvesintermediatebluetogether.dds",
+	"art/2dart/passivetree/passiveskillscreencurvesintermediatealttogether.dds",
+	"art/2dart/passivetree/passiveskillscreencurvesactivetogether.dds",
+	"art/2dart/passivetree/passiveskillscreencurvesactivebluetogether.dds",
+	"art/2dart/passivetree/passiveskillscreencurvesactivealttogether.dds",
+	"art/2dart/passivetree/atlaspassiveskillscreencurvesnormalbluetogether.dds",
+	"art/2dart/passivetree/atlaspassiveskillscreencurvesintermediatebluetogether.dds",
+	"art/2dart/passivetree/atlaspassiveskillscreencurvesactivebluetogether.dds",
+	"art/2dart/passivetree/ascendancypassiveskillscreencurvesnormaltogether.dds",
+	"art/2dart/passivetree/ascendancypassiveskillscreencurvesintermediatetogether.dds",
+	"art/2dart/passivetree/ascendancypassiveskillscreencurvesbackingtogether.dds",
+	"art/2dart/passivetree/ascendancypassiveskillscreencurvesactivetogether.dds",
+	"art/textures/interface/2d/2dart/uiimages/ingame/passiveskillscreenstartnodebackgroundinactive.dds",
+	"art/textures/interface/2d/2dart/uiimages/ingame/passiveskillscreenpointsbackground.dds",
+	"art/textures/interface/2d/2dart/uiimages/ingame/passiveskillscreenplusframenormal.dds",
+	"art/textures/interface/2d/2dart/uiimages/ingame/passiveskillscreenplusframecanallocate.dds",
+	"art/textures/interface/2d/2dart/uiimages/ingame/passiveskillscreenplusframeactive.dds",
+	"art/textures/interface/2d/2dart/uiimages/ingame/hudpassiveskillscreennormal.dds",
+	"art/textures/interface/2d/2dart/uiimages/ingame/hudpassiveskillscreenhover.dds",
+	"art/textures/interface/2d/2dart/uiimages/ingame/hudpassiveskillscreendown.dds",
+	"art/2dart/uieffects/passiveskillscreen/plusframemask.dds",
+	"art/2dart/uieffects/passiveskillscreen/passivemasterybuttonmask.dds",
+	"art/2dart/uieffects/passiveskillscreen/notableframemask.dds",
+	"art/2dart/uieffects/passiveskillscreen/nodeframemask.dds",
+	"art/2dart/uieffects/passiveskillscreen/linestogethermask.dds",
+	"art/2dart/uieffects/passiveskillscreen/keystoneframemask.dds",
+	"art/2dart/uieffects/passiveskillscreen/jewelsocketframemask.dds",
+	"art/2dart/uieffects/passiveskillscreen/expansionjewelsocketframemask.dds",
+	"art/2dart/uieffects/passiveskillscreen/atlaswormholeframemask.dds",
+	"art/2dart/uieffects/passiveskillscreen/atlasnotableframemask.dds",
+	"art/2dart/uieffects/passiveskillscreen/atlasnodeframemask.dds",
+	"art/2dart/uieffects/passiveskillscreen/atlaskeystoneframemask.dds",
+	"art/2dart/uieffects/passiveskillscreen/ascendancyframesmallmask.dds",
+	"art/2dart/uieffects/passiveskillscreen/ascendancyframelargemask.dds",
+}
+
+printf("Extracting Additional Assets...")
+extractFromGgpk(listAdditionalAssets)
+nvtt.CompressDDSIntoOtherFormat(main.ggpk.oozPath, basePath .. version .. "/", "additionalAssets", listAdditionalAssets, ddsFormat, true)
+
+printf("Generating decompose lines images...")
+local linesFiles = {
+	{
+		file = "art/2dart/passivetree/passiveskillscreencurvesactivetogether_out.dds",
+		mask = "art/2dart/uieffects/passiveskillscreen/linestogethermask_out.dds",
+		extension = ".png",
+		basename = "orbitactive",
+		first = "LineConnector",
+		prefix = "Orbit",
+		posfix = "Active",
+		meta = 0.3835,
+		minmapfile = 0,
+		minmapmask = 0,
+		total = 10
+	},
+	{
+		file = "art/2dart/passivetree/passiveskillscreencurvesintermediatetogether_out.dds",
+		mask = "art/2dart/uieffects/passiveskillscreen/linestogethermask_out.dds",
+		extension = ".png",
+		basename = "orbitintemediate",
+		first = "LineConnector",
+		prefix = "Orbit",
+		posfix = "Intermediate",
+		meta = 0.3835,
+		minmapfile = 0,
+		minmapmask = 0,
+		total = 10
+	},
+	{
+		file = "art/2dart/passivetree/passiveskillscreencurvesnormaltogether_out.dds",
+		mask = "art/2dart/uieffects/passiveskillscreen/linestogethermask_out.dds",
+		extension = ".png",
+		basename = "orbitnormal",
+		first = "LineConnector",
+		prefix = "Orbit",
+		posfix = "Normal",
+		meta = 0.3835,
+		minmapfile = 0,
+		minmapmask = 0,
+		total = 10
+	}
+}
+gimpbatch.extract_lines_dds("lines", linesFiles, main.ggpk.oozPath, basePath .. version .. "/", GetRuntimePath() .. "/lua/gimpbatch/extract_lines.scm", true)
 
 local tree = {
 	["pob"] = 1,
@@ -425,7 +605,8 @@ local tree = {
     ["max_y"]= 0,
 	["classes"] = {},
 	["groups"] = { },
-	["nodes"]= { },	
+	["nodes"]= { },
+	["assets"] = {},
 	["sprites"] = {},
 	["imageZoomLevels"] = {
         0.1246,
@@ -563,32 +744,39 @@ for i, group in ipairs(psg.groups) do
 				addToSheet(getSheet("skills"), passiveRow.Icon, "notableActive", skillNotableMetadata())
 				addToSheet(getSheet("skills-disabled"), passiveRow.Icon, "notableInactive", skillNotableMetadata())
 			elseif passiveRow.Mastery then
-				-- for now ignore mastery current version doesnt Use
-				printf("Ignoring mastery " .. passiveRow.Name)
-				goto exitnode
 				node["isMastery"] = true
 				node["inactiveIcon"] = passiveRow.MasteryGroup.IconInactive
 				node["activeIcon"] = passiveRow.MasteryGroup.IconActive
+				node["activeEffectImage"] = passiveRow.MasteryGroup.Background
+
+				local uiEffect = uiImages[string.lower(passiveRow.MasteryGroup.Background)]
+				addToSheet(getSheet("mastery-active-effect"), uiEffect.path, "masteryActiveEffect", commonBackgroundMetadata(passiveRow.MasteryGroup.Background, 768, 768, 4, ddsFormat))
 				
 				addToSheet(getSheet("mastery"), passiveRow.Icon, "mastery", masteryMetadata())
 				addToSheet(getSheet("mastery-disabled"), passiveRow.MasteryGroup.IconInactive, "masteryInactive", masteryMetadata())
 				addToSheet(getSheet("mastery-connected"), passiveRow.MasteryGroup.IconInactive, "masteryConnected", masteryMetadata())
 				addToSheet(getSheet("mastery-active-selected"), passiveRow.MasteryGroup.IconActive, "masteryActiveSelected", masteryMetadata())
 
-				node["masteryEffects"] = {}
 
-				for _, masteryEffect in ipairs(passiveRow.MasteryGroup.MasteryEffects) do
-					local effect = {
-						effect = masteryEffect.Hash,
-						stats = {},
-					}
+				-- node["masteryEffects"] = {}
 
-					for _, stat in ipairs(masteryEffect.Stats) do
-						table.insert(effect.stats, stat.Id)
-					end
+				-- for _, masteryEffect in ipairs(passiveRow.MasteryGroup.MasteryEffects) do
+				-- 	local effect = {
+				-- 		effect = masteryEffect.Hash,
+				-- 		stats = {},
+				-- 	}
 
-					table.insert(node["masteryEffects"], effect)
-				end
+				-- 	local parseStats = {}
+				-- 	for k, stat in ipairs(masteryEffect.Stats) do
+				-- 		parseStats[stat.Id] = { min = masteryEffect["Stat" .. k], max = masteryEffect["Stat" .. k] }
+				-- 	end
+				-- 	local out, orders = describeStats(parseStats)
+				-- 	for k, line in ipairs(out) do
+				-- 		table.insert(effect.stats, line)
+				-- 	end
+
+				-- 	table.insert(node["masteryEffects"], effect)
+				-- end
 			else
 				addToSheet(getSheet("skills"), passiveRow.Icon, "normalActive", skillNormalMetadata())
 				addToSheet(getSheet("skills-disabled"), passiveRow.Icon, "normalInactive", skillNormalMetadata())
@@ -662,10 +850,8 @@ end
 -- updating skillsPerOrbit
 printf("Updating skillsPerOrbit...")
 for i, orbit in ipairs(orbitsConstants) do
-	-- only even number or go to up even number
-	if orbit % 2 == 1 then
-		orbit = orbit + 1
-	end
+	-- only numbers base on 12
+	orbit = i == 1 and orbit or math.ceil(orbit / 12) * 12
 	tree.constants.skillsPerOrbit[i] = orbit
 end
 
@@ -699,9 +885,17 @@ MakeDir(basePath .. version)
 
 printf("Generating list to extract dds from sheets...")
 local listDds = {}
+local convertList = {}
 for i, sheet in ipairs(sheets) do
-	for icon, _ in pairs(sheet.files) do
+	for icon, section in pairs(sheet.files) do
 		listDds[icon] = true
+
+		for section, metadata in pairs(section) do
+			if metadata.convert then
+				convertList[metadata.convert] = convertList[metadata.convert] or {}
+				convertList[metadata.convert][icon] = true
+			end
+		end
 	end
 end
 
@@ -711,11 +905,21 @@ for icon, _ in pairs(listDds) do
 end
 extractFromGgpk(fileList)
 
+printf("Converting dds from sheets...")
+fileList = { }
+for convert, icons in pairs(convertList) do
+	for icon, _ in pairs(icons) do
+		table.insert(fileList, icon)
+	end
+	nvtt.CompressDDSIntoOtherFormat(main.ggpk.oozPath, basePath .. version .. "/", convert, fileList, convert, true)
+	fileList = { }
+end
+
 printf("Generating sprite info...")
 local sections = {}
 for i, sheet in ipairs(sheets) do
 	printf("Calculating sprite dimensions for " .. sheet.name)
-	calculateSheetCoords(sheet, main.ggpk.oozPath)
+	calculateSheetCoords(sheet, main.ggpk.oozPath, basePath .. version .. "/")
 
 	printf("Generating sprite sheet images...")
 	generateSprite(sheet, main.ggpk.oozPath, basePath .. version .. "/", generateAssets)
@@ -726,7 +930,7 @@ for i, sheet in ipairs(sheets) do
 	for j, group in ipairs(sheet.sprites) do
 		local zoomLevel = tree.imageZoomLevels[j]
 		for _, coords in pairs(group.coords) do
-			local icon = coords.icon
+			local icon = coords.alias or coords.icon
 			local sprite = {
 				x = coords.x,
 				y = coords.y,
@@ -754,6 +958,24 @@ end
 
 tree.sprites = sections
 
+printf("generate lines info into assets")
+-- Generate sprites
+
+for _, lines in ipairs(linesFiles) do
+	for i = 0, lines.total - 1 do
+		local name
+		if i == 0 then
+			name = lines.first .. lines.posfix
+		else
+			name = lines.prefix .. i .. lines.posfix
+		end
+
+		tree.assets[name] = {
+			[lines.meta] = lines.basename .. i .. lines.extension
+		}
+	end
+end
+
 printf("Generating file in " .. fileTree)
 local out, err = io.open(fileTree, "w")
 if out == nil then
@@ -765,3 +987,4 @@ out:write('return ')
 writeLuaTable(out, tree, 1)
 out:close()
 printf("File " .. fileTree .. " generated")
+:: final ::
