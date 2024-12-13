@@ -548,7 +548,6 @@ data.itemMods = {
 	Flask = LoadModule("Data/ModFlask"),
 	Jewel = LoadModule("Data/ModJewel"),
 }
-data.masterMods = LoadModule("Data/ModMaster")
 data.enchantments = {
 	["Helmet"] = LoadModule("Data/EnchantmentHelmet"),
 	["Boots"] = LoadModule("Data/EnchantmentBoots"),
