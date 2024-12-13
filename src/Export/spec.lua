@@ -7578,6 +7578,15 @@ return {
 	},
 	mobiletutorialgroup={
 	},
+	moddomains={
+		[1]={
+			list=false,
+			name="",
+			refTo="",
+			type="String",
+			width=220
+		}
+	},
 	modeffectstats={
 		[1]={
 			list=false,
@@ -7675,6 +7684,15 @@ return {
 			width=200
 		}
 	},
+	modgenerationtypes={
+		[1]={
+			list=false,
+			name="",
+			refTo="",
+			type="String",
+			width=150
+		}
+	},
 	modgrantedskills={
 		[1]={
 			list=false,
@@ -7753,7 +7771,7 @@ return {
 			name="Domain",
 			refTo="modDomains",
 			type="Enum",
-			width=60
+			width=140
 		},
 		[10]={
 			list=false,
@@ -7767,7 +7785,7 @@ return {
 			name="GenerationType",
 			refTo="modGenerationTypes",
 			type="Enum",
-			width=100
+			width=120
 		},
 		[12]={
 			list=true,
