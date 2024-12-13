@@ -104,6 +104,7 @@ end
 
 writeMods("../Data/ModItem.lua", function(mod)
 	return mod.Domain == 1 and (mod.GenerationType == 1 or mod.GenerationType == 2 or mod.GenerationType == 3 or mod.GenerationType == 5)
+	and (mod.Family[1] and mod.Family[1].Id ~= "AuraBonus" or not mod.Family[1]) and (not mod.Id:match("Cowards"))
 end)
 writeMods("../Data/ModFlask.lua", function(mod)
 	return mod.Domain == 2 and (mod.GenerationType == 1 or mod.GenerationType == 2 or mod.GenerationType == 3)
