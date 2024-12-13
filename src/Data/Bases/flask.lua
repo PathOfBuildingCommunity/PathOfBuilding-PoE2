@@ -7,7 +7,7 @@ itemBases["Thawing Charm"] = {
 	tags = { flask = true, utility_flask = true, default = true, },
 	implicit = "Used when you become Frozen",
 	implicitModTypes = { {  }, },
-	flask = { duration = 3, chargesUsed = 80, chargesMax = 80, },
+	charm = { duration = 3, chargesUsed = 80, chargesMax = 80, buff = { "Immune to Freeze" }, },
 	req = { level = 12, },
 }
 itemBases["Staunching Charm"] = {
@@ -15,7 +15,7 @@ itemBases["Staunching Charm"] = {
 	tags = { flask = true, utility_flask = true, default = true, },
 	implicit = "Used when you start Bleeding",
 	implicitModTypes = { {  }, },
-	flask = { duration = 3, chargesUsed = 60, chargesMax = 80, },
+	charm = { duration = 3, chargesUsed = 60, chargesMax = 80, buff = { "You are Immune to Bleeding" }, },
 	req = { level = 18, },
 }
 itemBases["Antidote Charm"] = {
@@ -23,7 +23,7 @@ itemBases["Antidote Charm"] = {
 	tags = { flask = true, utility_flask = true, default = true, },
 	implicit = "Used when you become Poisoned",
 	implicitModTypes = { {  }, },
-	flask = { duration = 3, chargesUsed = 40, chargesMax = 80, },
+	charm = { duration = 3, chargesUsed = 40, chargesMax = 80, buff = { "Immune to Poison" }, },
 	req = { level = 24, },
 }
 itemBases["Dousing Charm"] = {
@@ -31,7 +31,7 @@ itemBases["Dousing Charm"] = {
 	tags = { flask = true, utility_flask = true, default = true, },
 	implicit = "Used when you become Ignited",
 	implicitModTypes = { {  }, },
-	flask = { duration = 3, chargesUsed = 60, chargesMax = 80, },
+	charm = { duration = 3, chargesUsed = 60, chargesMax = 80, buff = { "Immune to Ignite" }, },
 	req = { level = 32, },
 }
 itemBases["Grounding Charm"] = {
@@ -39,7 +39,7 @@ itemBases["Grounding Charm"] = {
 	tags = { flask = true, utility_flask = true, default = true, },
 	implicit = "Used when you become Shocked",
 	implicitModTypes = { {  }, },
-	flask = { duration = 3, chargesUsed = 50, chargesMax = 80, },
+	charm = { duration = 3, chargesUsed = 50, chargesMax = 80, buff = { "Immune to Shock" }, },
 	req = { level = 32, },
 }
 itemBases["Stone Charm"] = {
@@ -47,7 +47,7 @@ itemBases["Stone Charm"] = {
 	tags = { flask = true, utility_flask = true, default = true, },
 	implicit = "Used when you become Stunned",
 	implicitModTypes = { {  }, },
-	flask = { duration = 2.5, chargesUsed = 40, chargesMax = 80, },
+	charm = { duration = 2.5, chargesUsed = 40, chargesMax = 80, buff = { "Cannot be Stunned" }, },
 	req = { level = 8, },
 }
 itemBases["Silver Charm"] = {
@@ -55,7 +55,7 @@ itemBases["Silver Charm"] = {
 	tags = { flask = true, utility_flask = true, default = true, },
 	implicit = "Used when you are affected by a Slow",
 	implicitModTypes = { {  }, },
-	flask = { duration = 3, chargesUsed = 40, chargesMax = 80, },
+	charm = { duration = 3, chargesUsed = 40, chargesMax = 80, buff = { "Your speed is unaffected by Slows" }, },
 	req = { level = 10, },
 }
 itemBases["Ruby Charm"] = {
@@ -63,7 +63,7 @@ itemBases["Ruby Charm"] = {
 	tags = { flask = true, utility_flask = true, default = true, },
 	implicit = "Used when you take Fire damage from a Hit",
 	implicitModTypes = { {  }, },
-	flask = { duration = 4, chargesUsed = 40, chargesMax = 80, },
+	charm = { duration = 4, chargesUsed = 40, chargesMax = 80, buff = { "+25% to Fire Resistance" }, },
 	req = { level = 5, },
 }
 itemBases["Sapphire Charm"] = {
@@ -71,7 +71,7 @@ itemBases["Sapphire Charm"] = {
 	tags = { flask = true, utility_flask = true, default = true, },
 	implicit = "Used when you take Cold damage from a Hit",
 	implicitModTypes = { {  }, },
-	flask = { duration = 4, chargesUsed = 40, chargesMax = 80, },
+	charm = { duration = 4, chargesUsed = 40, chargesMax = 80, buff = { "+25% to Cold Resistance" }, },
 	req = { level = 5, },
 }
 itemBases["Topaz Charm"] = {
@@ -79,7 +79,7 @@ itemBases["Topaz Charm"] = {
 	tags = { flask = true, utility_flask = true, default = true, },
 	implicit = "Used when you take Lightning damage from a Hit",
 	implicitModTypes = { {  }, },
-	flask = { duration = 4, chargesUsed = 40, chargesMax = 80, },
+	charm = { duration = 4, chargesUsed = 40, chargesMax = 80, buff = { "+25% to Lightning Resistance" }, },
 	req = { level = 5, },
 }
 itemBases["Amethyst Charm"] = {
@@ -87,7 +87,7 @@ itemBases["Amethyst Charm"] = {
 	tags = { flask = true, utility_flask = true, default = true, },
 	implicit = "Used when you take Chaos damage from a Hit",
 	implicitModTypes = { {  }, },
-	flask = { duration = 4, chargesUsed = 60, chargesMax = 80, },
+	charm = { duration = 4, chargesUsed = 60, chargesMax = 80, buff = { "+18% to Chaos Resistance" }, },
 	req = { level = 40, },
 }
 itemBases["Golden Charm"] = {
@@ -95,7 +95,7 @@ itemBases["Golden Charm"] = {
 	tags = { flask = true, utility_flask = true, default = true, },
 	implicit = "Used when you Kill a Rare or Unique Enemy",
 	implicitModTypes = { {  }, },
-	flask = { duration = 1, chargesUsed = 80, chargesMax = 80, },
+	charm = { duration = 1, chargesUsed = 80, chargesMax = 80, buff = { "20% increased Rarity of Items found" }, },
 	req = { level = 50, },
 }
 

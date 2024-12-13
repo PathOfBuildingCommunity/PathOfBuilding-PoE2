@@ -27,7 +27,6 @@ local skillTypes = {
 local itemTypes = {
 	"axe",
 	"bow",
-	"charm",
 	"claw",
 	"crossbow",
 	"dagger",

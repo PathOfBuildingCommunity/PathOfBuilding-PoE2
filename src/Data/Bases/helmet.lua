@@ -659,8 +659,8 @@ itemBases["Advanced Beaded Circlet"] = {
 	tags = { helmet = true, armour = true, int_armour = true, default = true, },
 	influenceTags = { shaper = "helmet_shaper", elder = "helmet_elder", adjudicator = "helmet_adjudicator", basilisk = "helmet_basilisk", crusader = "helmet_crusader", eyrie = "helmet_eyrie", cleansing = "helmet_cleansing", tangle = "helmet_tangle" },
 	implicitModTypes = { },
-	armour = { EnergyShield = 71, },
-	req = { level = 52, },
+	armour = { EnergyShield = 70, },
+	req = { level = 51, },
 }
 itemBases["Advanced Chain Tiara"] = {
 	type = "Helmet",

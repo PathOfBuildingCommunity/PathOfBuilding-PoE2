@@ -162,7 +162,11 @@ directiveTable.base = function(state, args, out)
 		local flask = dat("Flasks"):GetRow("BaseItemType", baseItemType)
 		if flask then
 			local compCharges = dat("ComponentCharges"):GetRow("BaseItemType", baseItemType.Id)
-			out:write('\tflask = { ')
+			if state.type == "Charm" then
+				out:write('\tcharm = { ')
+			else
+				out:write('\tflask = { ')
+			end
 			if flask.LifePerUse > 0 then
 				out:write('life = ', flask.LifePerUse, ', ')
 			end
@@ -172,13 +176,15 @@ directiveTable.base = function(state, args, out)
 			out:write('duration = ', flask.RecoveryTime / 10, ', ')
 			out:write('chargesUsed = ', compCharges.PerUse, ', ')
 			out:write('chargesMax = ', compCharges.Max, ', ')
-			if flask.Buff then
+			if next(flask.UtilityBuffs) then
 				local stats = { }
-				for i, stat in ipairs(flask.Buff.Stats) do
-					stats[stat.Id] = { min = flask.BuffMagnitudes[i], max = flask.BuffMagnitudes[i] }
-				end
-				for i, stat in ipairs(flask.Buff.GrantedFlags) do
-					stats[stat.Id] = { min = 1, max = 1 }
+				for _, buff in ipairs(flask.UtilityBuffs) do
+					for i, stat in ipairs(buff.BuffDefinitionsKey.GrantedStats) do
+						stats[stat.Id] = { min = buff.StatValues[i], max = buff.StatValues[i] }
+					end
+					for i, stat in ipairs(buff.BuffDefinitionsKey.GrantedFlags) do
+						stats[stat.Id] = { min = 1, max = 1 }
+					end
 				end
 				out:write('buff = { "', table.concat(describeStats(stats), '", "'), '" }, ')
 			end

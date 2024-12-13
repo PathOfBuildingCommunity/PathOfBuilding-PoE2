@@ -2074,7 +2074,7 @@ return {
 			name="Description",
 			refTo="",
 			type="String",
-			width=150
+			width=440
 		},
 		[3]={
 			list=false,
@@ -4800,11 +4800,11 @@ return {
 			width=150
 		},
 		[10]={
-			list=false,
-			name="UtilityBuff",
+			list=true,
+			name="UtilityBuffs",
 			refTo="UtilityFlaskBuffs",
 			type="Key",
-			width=150
+			width=240
 		}
 	},
 	flaskstashbasetypeordering={
@@ -14498,28 +14498,28 @@ return {
 			name="BuffDefinitionsKey",
 			refTo="BuffDefinitions",
 			type="Key",
-			width=220
+			width=250
 		},
 		[2]={
 			list=true,
 			name="StatValues",
 			refTo="",
 			type="Int",
-			width=150
+			width=240
 		},
 		[3]={
 			list=true,
 			name="StatValues2",
 			refTo="",
 			type="Int",
-			width=150
+			width=250
 		},
 		[4]={
 			list=false,
 			name="",
 			refTo="",
 			type="Key",
-			width=150
+			width=250
 		}
 	},
 	villageuniquedisenchantvalues={
