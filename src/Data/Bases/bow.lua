@@ -64,7 +64,7 @@ itemBases["Cultist Bow"] = {
 	tags = { two_hand_weapon = true, vaal_basetype = true, ranged = true, weapon = true, default = true, twohand = true, bow = true, },
 	influenceTags = { shaper = "bow_shaper", elder = "bow_elder", adjudicator = "bow_adjudicator", basilisk = "bow_basilisk", crusader = "bow_crusader", eyrie = "bow_eyrie", cleansing = "bow_cleansing", tangle = "bow_tangle" },
 	implicitModTypes = { },
-	weapon = { PhysicalMin = 36, PhysicalMax = 59, CritChanceBase = 5, AttackRateBase = 1.2, Range = 120, },
+	weapon = { ChaosMin = 36, ChaosMax = 59, CritChanceBase = 5, AttackRateBase = 1.2, Range = 120, },
 	req = { level = 33, },
 }
 itemBases["Zealot Bow"] = {
@@ -166,7 +166,7 @@ itemBases["Advanced Cultist Bow"] = {
 	tags = { two_hand_weapon = true, ranged = true, weapon = true, default = true, twohand = true, bow = true, },
 	influenceTags = { shaper = "bow_shaper", elder = "bow_elder", adjudicator = "bow_adjudicator", basilisk = "bow_basilisk", crusader = "bow_crusader", eyrie = "bow_eyrie", cleansing = "bow_cleansing", tangle = "bow_tangle" },
 	implicitModTypes = { },
-	weapon = { PhysicalMin = 41, PhysicalMax = 69, CritChanceBase = 5, AttackRateBase = 1.2, Range = 120, },
+	weapon = { ChaosMin = 41, ChaosMax = 69, CritChanceBase = 5, AttackRateBase = 1.2, Range = 120, },
 	req = { level = 59, },
 }
 itemBases["Advanced Zealot Bow"] = {
@@ -222,7 +222,7 @@ itemBases["Expert Cultist Bow"] = {
 	tags = { two_hand_weapon = true, ranged = true, weapon = true, default = true, twohand = true, bow = true, },
 	influenceTags = { shaper = "bow_shaper", elder = "bow_elder", adjudicator = "bow_adjudicator", basilisk = "bow_basilisk", crusader = "bow_crusader", eyrie = "bow_eyrie", cleansing = "bow_cleansing", tangle = "bow_tangle" },
 	implicitModTypes = { },
-	weapon = { PhysicalMin = 52, PhysicalMax = 87, CritChanceBase = 5, AttackRateBase = 1.2, Range = 120, },
+	weapon = { ChaosMin = 52, ChaosMax = 87, CritChanceBase = 5, AttackRateBase = 1.2, Range = 120, },
 	req = { level = 79, },
 }
 itemBases["Expert Zealot Bow"] = {

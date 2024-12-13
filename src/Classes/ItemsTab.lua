@@ -1964,6 +1964,7 @@ function ItemsTabClass:CraftItem()
 		item.name = base.name
 		item.base = base.base
 		item.baseName = base.name
+		item.charmLimit = base.charmLimit
 		item.buffModLines = { }
 		item.enchantModLines = { }
 		item.classRequirementModLines = { }
