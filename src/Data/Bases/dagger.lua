@@ -55,7 +55,7 @@ itemBases["Moon Dagger"] = {
 	tags = { maraketh_basetype = true, onehand = true, one_hand_weapon = true, weapon = true, dagger = true, default = true, },
 	influenceTags = { shaper = "dagger_shaper", elder = "dagger_elder", adjudicator = "dagger_adjudicator", basilisk = "dagger_basilisk", crusader = "dagger_crusader", eyrie = "dagger_eyrie", cleansing = "dagger_cleansing", tangle = "dagger_tangle" },
 	implicitModTypes = { },
-	weapon = { PhysicalMin = 11, PhysicalMax = 26, CritChanceBase = 15, AttackRateBase = 1.55, Range = 10, },
+	weapon = { ColdMin = 11, ColdMax = 26, CritChanceBase = 15, AttackRateBase = 1.55, Range = 10, },
 	req = { level = 20, },
 }
 itemBases["Engraved Knife"] = {

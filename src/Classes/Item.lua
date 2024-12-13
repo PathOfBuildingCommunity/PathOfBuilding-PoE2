@@ -294,6 +294,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 	self.nameSuffix = ""
 	self.base = nil
 	self.rarity = rarity or "UNIQUE"
+	self.charmLimit = nil
 	self.quality = nil
 	self.rawLines = { }
 	-- Find non-blank lines and trim whitespace
@@ -681,6 +682,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 						end
 						self.type = base.type
 						self.base = base
+						self.charmLimit = base.charmLimit
 						self.affixes = (self.base.subType and data.itemMods[self.base.type..self.base.subType])
 								or data.itemMods[self.base.type]
 								or data.itemMods.Item

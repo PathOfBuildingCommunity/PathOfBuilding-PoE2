@@ -8472,900 +8472,228 @@ return {
 			width=150
 		},
 		[2]={
-			list=false,
+			list=true,
 			name="FireNormal",
 			refTo="",
 			type="Int",
 			width=80
 		},
 		[3]={
-			list=false,
+			list=true,
 			name="ColdNormal",
 			refTo="",
 			type="Int",
 			width=80
 		},
 		[4]={
-			list=false,
+			list=true,
 			name="LightningNormal",
 			refTo="",
 			type="Int",
 			width=80
 		},
 		[5]={
-			list=false,
+			list=true,
 			name="ChaosNormal",
 			refTo="",
 			type="Int",
 			width=80
 		},
 		[6]={
-			list=false,
+			list=true,
 			name="FireCruel",
 			refTo="",
 			type="Int",
 			width=80
 		},
 		[7]={
-			list=false,
+			list=true,
 			name="ColdCruel",
 			refTo="",
 			type="Int",
 			width=80
 		},
 		[8]={
-			list=false,
+			list=true,
 			name="LightningCruel",
 			refTo="",
 			type="Int",
-			width=80
+			width=100
 		},
 		[9]={
-			list=false,
+			list=true,
 			name="ChaosCruel",
 			refTo="",
 			type="Int",
-			width=80
+			width=90
 		},
 		[10]={
-			list=false,
+			list=true,
 			name="FireMerciless",
 			refTo="",
 			type="Int",
 			width=80
 		},
 		[11]={
-			list=false,
+			list=true,
 			name="ColdMerciless",
 			refTo="",
 			type="Int",
 			width=80
 		},
 		[12]={
-			list=false,
+			list=true,
 			name="LightningMerciless",
 			refTo="",
 			type="Int",
 			width=80
 		},
 		[13]={
-			list=false,
+			list=true,
 			name="ChaosMerciless",
 			refTo="",
 			type="Int",
 			width=80
 		},
 		[14]={
-			list=false,
-			name="",
+			list=true,
+			name="1",
 			refTo="",
 			type="Int",
 			width=50
 		},
 		[15]={
-			list=false,
-			name="",
+			list=true,
+			name="2",
 			refTo="",
 			type="Int",
 			width=50
 		},
 		[16]={
-			list=false,
-			name="",
+			list=true,
+			name="3",
 			refTo="",
 			type="Int",
-			width=50
+			width=100
 		},
 		[17]={
-			list=false,
-			name="",
+			list=true,
+			name="4",
 			refTo="",
 			type="Int",
-			width=50
+			width=100
 		},
 		[18]={
-			list=false,
-			name="",
+			list=true,
+			name="5",
 			refTo="",
 			type="Int",
 			width=50
 		},
 		[19]={
-			list=false,
-			name="",
+			list=true,
+			name="6",
 			refTo="",
 			type="Int",
 			width=50
 		},
 		[20]={
-			list=false,
-			name="",
+			list=true,
+			name="7",
 			refTo="",
 			type="Int",
 			width=50
 		},
 		[21]={
-			list=false,
-			name="",
+			list=true,
+			name="8",
 			refTo="",
 			type="Int",
 			width=50
 		},
 		[22]={
-			list=false,
-			name="",
+			list=true,
+			name="9",
 			refTo="",
 			type="Int",
 			width=50
 		},
 		[23]={
-			list=false,
-			name="",
+			list=true,
+			name="10",
 			refTo="",
 			type="Int",
 			width=50
 		},
 		[24]={
-			list=false,
-			name="",
+			list=true,
+			name="11",
 			refTo="",
 			type="Int",
-			width=50
+			width=100
 		},
 		[25]={
-			list=false,
-			name="",
+			list=true,
+			name="12",
 			refTo="",
 			type="Int",
-			width=50
+			width=90
 		},
 		[26]={
-			list=false,
-			name="",
+			list=true,
+			name="13",
 			refTo="",
 			type="Int",
 			width=50
 		},
 		[27]={
-			list=false,
-			name="",
+			list=true,
+			name="14",
 			refTo="",
 			type="Int",
 			width=50
 		},
 		[28]={
-			list=false,
-			name="",
+			list=true,
+			name="15",
 			refTo="",
 			type="Int",
 			width=50
 		},
 		[29]={
-			list=false,
-			name="",
+			list=true,
+			name="16",
 			refTo="",
 			type="Int",
 			width=50
 		},
 		[30]={
-			list=false,
-			name="",
+			list=true,
+			name="17",
 			refTo="",
 			type="Int",
 			width=50
 		},
 		[31]={
-			list=false,
-			name="",
+			list=true,
+			name="18",
 			refTo="",
 			type="Int",
 			width=50
 		},
 		[32]={
-			list=false,
-			name="",
+			list=true,
+			name="19",
 			refTo="",
 			type="Int",
-			width=50
+			width=100
 		},
 		[33]={
-			list=false,
-			name="",
+			list=true,
+			name="20",
 			refTo="",
 			type="Int",
-			width=50
-		},
-		[34]={
-			list=false,
-			name="",
-			refTo="",
-			type="Int",
-			width=50
-		},
-		[35]={
-			list=false,
-			name="",
-			refTo="",
-			type="Int",
-			width=50
-		},
-		[36]={
-			list=false,
-			name="",
-			refTo="",
-			type="Int",
-			width=50
-		},
-		[37]={
-			list=false,
-			name="",
-			refTo="",
-			type="Int",
-			width=50
-		},
-		[38]={
-			list=false,
-			name="",
-			refTo="",
-			type="Int",
-			width=50
-		},
-		[39]={
-			list=false,
-			name="",
-			refTo="",
-			type="Int",
-			width=50
-		},
-		[40]={
-			list=false,
-			name="",
-			refTo="",
-			type="Int",
-			width=50
-		},
-		[41]={
-			list=false,
-			name="",
-			refTo="",
-			type="Int",
-			width=50
-		},
-		[42]={
-			list=false,
-			name="",
-			refTo="",
-			type="Int",
-			width=50
-		},
-		[43]={
-			list=false,
-			name="",
-			refTo="",
-			type="Int",
-			width=50
-		},
-		[44]={
-			list=false,
-			name="",
-			refTo="",
-			type="Int",
-			width=50
-		},
-		[45]={
-			list=false,
-			name="",
-			refTo="",
-			type="Int",
-			width=50
-		},
-		[46]={
-			list=false,
-			name="",
-			refTo="",
-			type="Int",
-			width=50
-		},
-		[47]={
-			list=false,
-			name="",
-			refTo="",
-			type="Int",
-			width=50
-		},
-		[48]={
-			list=false,
-			name="",
-			refTo="",
-			type="Int",
-			width=50
-		},
-		[49]={
-			list=false,
-			name="",
-			refTo="",
-			type="Int",
-			width=50
-		},
-		[50]={
-			list=false,
-			name="",
-			refTo="",
-			type="Int",
-			width=50
-		},
-		[51]={
-			list=false,
-			name="",
-			refTo="",
-			type="Int",
-			width=50
-		},
-		[52]={
-			list=false,
-			name="",
-			refTo="",
-			type="Int",
-			width=50
-		},
-		[53]={
-			list=false,
-			name="",
-			refTo="",
-			type="Int",
-			width=50
-		},
-		[54]={
-			list=false,
-			name="",
-			refTo="",
-			type="Int",
-			width=50
-		},
-		[55]={
-			list=false,
-			name="",
-			refTo="",
-			type="Int",
-			width=50
-		},
-		[56]={
-			list=false,
-			name="",
-			refTo="",
-			type="Int",
-			width=50
-		},
-		[57]={
-			list=false,
-			name="",
-			refTo="",
-			type="Int",
-			width=50
-		},
-		[58]={
-			list=false,
-			name="",
-			refTo="",
-			type="Int",
-			width=50
-		},
-		[59]={
-			list=false,
-			name="",
-			refTo="",
-			type="Int",
-			width=50
-		},
-		[60]={
-			list=false,
-			name="",
-			refTo="",
-			type="Int",
-			width=50
-		},
-		[61]={
-			list=false,
-			name="",
-			refTo="",
-			type="Int",
-			width=50
-		},
-		[62]={
-			list=false,
-			name="",
-			refTo="",
-			type="Int",
-			width=50
-		},
-		[63]={
-			list=false,
-			name="",
-			refTo="",
-			type="Int",
-			width=50
-		},
-		[64]={
-			list=false,
-			name="",
-			refTo="",
-			type="Int",
-			width=50
-		},
-		[65]={
-			list=false,
-			name="",
-			refTo="",
-			type="Int",
-			width=50
-		},
-		[66]={
-			list=false,
-			name="",
-			refTo="",
-			type="Int",
-			width=50
-		},
-		[67]={
-			list=false,
-			name="",
-			refTo="",
-			type="Int",
-			width=50
-		},
-		[68]={
-			list=false,
-			name="",
-			refTo="",
-			type="Int",
-			width=50
-		},
-		[69]={
-			list=false,
-			name="",
-			refTo="",
-			type="Int",
-			width=50
-		},
-		[70]={
-			list=false,
-			name="",
-			refTo="",
-			type="Int",
-			width=50
-		},
-		[71]={
-			list=false,
-			name="",
-			refTo="",
-			type="Int",
-			width=50
-		},
-		[72]={
-			list=false,
-			name="",
-			refTo="",
-			type="Int",
-			width=50
-		},
-		[73]={
-			list=false,
-			name="",
-			refTo="",
-			type="Int",
-			width=50
-		},
-		[74]={
-			list=false,
-			name="",
-			refTo="",
-			type="Int",
-			width=50
-		},
-		[75]={
-			list=false,
-			name="",
-			refTo="",
-			type="Int",
-			width=50
-		},
-		[76]={
-			list=false,
-			name="",
-			refTo="",
-			type="Int",
-			width=50
-		},
-		[77]={
-			list=false,
-			name="",
-			refTo="",
-			type="Int",
-			width=50
-		},
-		[78]={
-			list=false,
-			name="",
-			refTo="",
-			type="Int",
-			width=50
-		},
-		[79]={
-			list=false,
-			name="",
-			refTo="",
-			type="Int",
-			width=50
-		},
-		[80]={
-			list=false,
-			name="",
-			refTo="",
-			type="Int",
-			width=50
-		},
-		[81]={
-			list=false,
-			name="",
-			refTo="",
-			type="Int",
-			width=50
-		},
-		[82]={
-			list=false,
-			name="",
-			refTo="",
-			type="Int",
-			width=50
-		},
-		[83]={
-			list=false,
-			name="",
-			refTo="",
-			type="Int",
-			width=50
-		},
-		[84]={
-			list=false,
-			name="",
-			refTo="",
-			type="Int",
-			width=50
-		},
-		[85]={
-			list=false,
-			name="",
-			refTo="",
-			type="Int",
-			width=50
-		},
-		[86]={
-			list=false,
-			name="",
-			refTo="",
-			type="Int",
-			width=50
-		},
-		[87]={
-			list=false,
-			name="",
-			refTo="",
-			type="Int",
-			width=50
-		},
-		[88]={
-			list=false,
-			name="",
-			refTo="",
-			type="Int",
-			width=50
-		},
-		[89]={
-			list=false,
-			name="",
-			refTo="",
-			type="Int",
-			width=50
-		},
-		[90]={
-			list=false,
-			name="",
-			refTo="",
-			type="Int",
-			width=50
-		},
-		[91]={
-			list=false,
-			name="",
-			refTo="",
-			type="Int",
-			width=50
-		},
-		[92]={
-			list=false,
-			name="",
-			refTo="",
-			type="Int",
-			width=50
-		},
-		[93]={
-			list=false,
-			name="",
-			refTo="",
-			type="Int",
-			width=50
-		},
-		[94]={
-			list=false,
-			name="",
-			refTo="",
-			type="Int",
-			width=50
-		},
-		[95]={
-			list=false,
-			name="",
-			refTo="",
-			type="Int",
-			width=50
-		},
-		[96]={
-			list=false,
-			name="",
-			refTo="",
-			type="Int",
-			width=50
-		},
-		[97]={
-			list=false,
-			name="",
-			refTo="",
-			type="Int",
-			width=50
-		},
-		[98]={
-			list=false,
-			name="",
-			refTo="",
-			type="Int",
-			width=50
-		},
-		[99]={
-			list=false,
-			name="",
-			refTo="",
-			type="Int",
-			width=50
-		},
-		[100]={
-			list=false,
-			name="",
-			refTo="",
-			type="Int",
-			width=50
-		},
-		[101]={
-			list=false,
-			name="",
-			refTo="",
-			type="Int",
-			width=50
-		},
-		[102]={
-			list=false,
-			name="",
-			refTo="",
-			type="Int",
-			width=50
-		},
-		[103]={
-			list=false,
-			name="",
-			refTo="",
-			type="Int",
-			width=50
-		},
-		[104]={
-			list=false,
-			name="",
-			refTo="",
-			type="Int",
-			width=50
-		},
-		[105]={
-			list=false,
-			name="",
-			refTo="",
-			type="Int",
-			width=50
-		},
-		[106]={
-			list=false,
-			name="",
-			refTo="",
-			type="Int",
-			width=50
-		},
-		[107]={
-			list=false,
-			name="",
-			refTo="",
-			type="Int",
-			width=50
-		},
-		[108]={
-			list=false,
-			name="",
-			refTo="",
-			type="Int",
-			width=50
-		},
-		[109]={
-			list=false,
-			name="",
-			refTo="",
-			type="Int",
-			width=50
-		},
-		[110]={
-			list=false,
-			name="",
-			refTo="",
-			type="Int",
-			width=50
-		},
-		[111]={
-			list=false,
-			name="",
-			refTo="",
-			type="Int",
-			width=50
-		},
-		[112]={
-			list=false,
-			name="",
-			refTo="",
-			type="Int",
-			width=50
-		},
-		[113]={
-			list=false,
-			name="",
-			refTo="",
-			type="Int",
-			width=50
-		},
-		[114]={
-			list=false,
-			name="",
-			refTo="",
-			type="Int",
-			width=50
-		},
-		[115]={
-			list=false,
-			name="",
-			refTo="",
-			type="Int",
-			width=50
-		},
-		[116]={
-			list=false,
-			name="",
-			refTo="",
-			type="Int",
-			width=50
-		},
-		[117]={
-			list=false,
-			name="",
-			refTo="",
-			type="Int",
-			width=50
-		},
-		[118]={
-			list=false,
-			name="",
-			refTo="",
-			type="Int",
-			width=50
-		},
-		[119]={
-			list=false,
-			name="",
-			refTo="",
-			type="Int",
-			width=50
-		},
-		[120]={
-			list=false,
-			name="",
-			refTo="",
-			type="Int",
-			width=50
-		},
-		[121]={
-			list=false,
-			name="",
-			refTo="",
-			type="Int",
-			width=50
-		},
-		[122]={
-			list=false,
-			name="",
-			refTo="",
-			type="Int",
-			width=50
-		},
-		[123]={
-			list=false,
-			name="",
-			refTo="",
-			type="Int",
-			width=50
-		},
-		[124]={
-			list=false,
-			name="",
-			refTo="",
-			type="Int",
-			width=50
-		},
-		[125]={
-			list=false,
-			name="",
-			refTo="",
-			type="Int",
-			width=50
-		},
-		[126]={
-			list=false,
-			name="",
-			refTo="",
-			type="Int",
-			width=50
-		},
-		[127]={
-			list=false,
-			name="",
-			refTo="",
-			type="Int",
-			width=50
-		},
-		[128]={
-			list=false,
-			name="",
-			refTo="",
-			type="Int",
-			width=50
-		},
-		[129]={
-			list=false,
-			name="",
-			refTo="",
-			type="Int",
-			width=50
+			width=80
 		}
 	},
 	monsterscalingbylevel={
@@ -9416,73 +8744,73 @@ return {
 		},
 		[2]={
 			list=false,
+			name="OTFile",
+			refTo="",
+			type="String",
+			width=150
+		},
+		[3]={
+			list=false,
 			name="Accuracy",
 			refTo="",
 			type="Int",
 			width=70
 		},
-		[3]={
+		[4]={
 			list=false,
 			name="IsPlayerMinion",
 			refTo="",
 			type="Bool",
 			width=80
 		},
-		[4]={
+		[5]={
 			list=false,
 			name="Armour",
 			refTo="",
 			type="Int",
 			width=60
 		},
-		[5]={
+		[6]={
 			list=false,
 			name="Evasion",
 			refTo="",
 			type="Int",
 			width=60
 		},
-		[6]={
+		[7]={
 			list=false,
 			name="EnergyShield",
 			refTo="",
 			type="Int",
 			width=70
 		},
-		[7]={
+		[8]={
 			list=false,
 			name="DamageSpread",
 			refTo="",
 			type="Int",
 			width=100
 		},
-		[8]={
-			list=false,
+		[9]={
+			list=true,
 			name="Resistances",
 			refTo="MonsterResistances",
 			type="Key",
-			width=150
+			width=250
 		},
-		[9]={
+		[10]={
 			list=false,
 			name="AltLife1",
 			refTo="",
 			type="Bool",
-			width=50
-		},
-		[10]={
-			list=false,
-			name="AltLife2",
-			refTo="",
-			type="Bool",
-			width=50
+			width=180
 		},
 		[11]={
 			list=false,
-			name="BaseDamageIgnoresAttackSpeed",
+			name="",
 			refTo="",
-			type="Bool",
-			width=180
+			type="Int",
+			width=80
 		}
 	},
 	monstervarieties={

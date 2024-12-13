@@ -12,6 +12,7 @@ itemBases["Golden Obi"] = {
 }
 itemBases["Rawhide Belt"] = {
 	type = "Belt",
+	charmLimit = 1,
 	tags = { belt = true, default = true, },
 	influenceTags = { shaper = "belt_shaper", elder = "belt_elder", adjudicator = "belt_adjudicator", basilisk = "belt_basilisk", crusader = "belt_crusader", eyrie = "belt_eyrie", cleansing = "belt_cleansing", tangle = "belt_tangle" },
 	implicit = "(20-30)% increased Life Recovery from Flasks",
@@ -20,6 +21,7 @@ itemBases["Rawhide Belt"] = {
 }
 itemBases["Linen Belt"] = {
 	type = "Belt",
+	charmLimit = 1,
 	tags = { belt = true, default = true, },
 	influenceTags = { shaper = "belt_shaper", elder = "belt_elder", adjudicator = "belt_adjudicator", basilisk = "belt_basilisk", crusader = "belt_crusader", eyrie = "belt_eyrie", cleansing = "belt_cleansing", tangle = "belt_tangle" },
 	implicit = "(20-30)% increased Mana Recovery from Flasks",
@@ -28,6 +30,7 @@ itemBases["Linen Belt"] = {
 }
 itemBases["Wide Belt"] = {
 	type = "Belt",
+	charmLimit = 1,
 	tags = { belt = true, default = true, },
 	influenceTags = { shaper = "belt_shaper", elder = "belt_elder", adjudicator = "belt_adjudicator", basilisk = "belt_basilisk", crusader = "belt_crusader", eyrie = "belt_eyrie", cleansing = "belt_cleansing", tangle = "belt_tangle" },
 	implicit = "(20-30)% increased Flask Charges gained",
@@ -36,6 +39,7 @@ itemBases["Wide Belt"] = {
 }
 itemBases["Long Belt"] = {
 	type = "Belt",
+	charmLimit = 1,
 	tags = { belt = true, default = true, },
 	influenceTags = { shaper = "belt_shaper", elder = "belt_elder", adjudicator = "belt_adjudicator", basilisk = "belt_basilisk", crusader = "belt_crusader", eyrie = "belt_eyrie", cleansing = "belt_cleansing", tangle = "belt_tangle" },
 	implicit = "(15-20)% increased Charm Effect Duration",
@@ -44,6 +48,7 @@ itemBases["Long Belt"] = {
 }
 itemBases["Plate Belt"] = {
 	type = "Belt",
+	charmLimit = 1,
 	tags = { belt = true, default = true, },
 	influenceTags = { shaper = "belt_shaper", elder = "belt_elder", adjudicator = "belt_adjudicator", basilisk = "belt_basilisk", crusader = "belt_crusader", eyrie = "belt_eyrie", cleansing = "belt_cleansing", tangle = "belt_tangle" },
 	implicit = "+(100-140) to Armour",
@@ -52,6 +57,7 @@ itemBases["Plate Belt"] = {
 }
 itemBases["Ornate Belt"] = {
 	type = "Belt",
+	charmLimit = 1,
 	tags = { belt = true, default = true, },
 	influenceTags = { shaper = "belt_shaper", elder = "belt_elder", adjudicator = "belt_adjudicator", basilisk = "belt_basilisk", crusader = "belt_crusader", eyrie = "belt_eyrie", cleansing = "belt_cleansing", tangle = "belt_tangle" },
 	implicit = "(10-15)% reduced Charm Charges used",
@@ -60,6 +66,7 @@ itemBases["Ornate Belt"] = {
 }
 itemBases["Mail Belt"] = {
 	type = "Belt",
+	charmLimit = 1,
 	tags = { belt = true, default = true, },
 	influenceTags = { shaper = "belt_shaper", elder = "belt_elder", adjudicator = "belt_adjudicator", basilisk = "belt_basilisk", crusader = "belt_crusader", eyrie = "belt_eyrie", cleansing = "belt_cleansing", tangle = "belt_tangle" },
 	implicit = "(10-15)% reduced Flask Charges used",
@@ -68,6 +75,7 @@ itemBases["Mail Belt"] = {
 }
 itemBases["Double Belt"] = {
 	type = "Belt",
+	charmLimit = 1,
 	tags = { belt = true, default = true, },
 	influenceTags = { shaper = "belt_shaper", elder = "belt_elder", adjudicator = "belt_adjudicator", basilisk = "belt_basilisk", crusader = "belt_crusader", eyrie = "belt_eyrie", cleansing = "belt_cleansing", tangle = "belt_tangle" },
 	implicit = "(20-30)% increased Charm Charges gained",
@@ -76,6 +84,7 @@ itemBases["Double Belt"] = {
 }
 itemBases["Heavy Belt"] = {
 	type = "Belt",
+	charmLimit = 1,
 	tags = { belt = true, default = true, },
 	influenceTags = { shaper = "belt_shaper", elder = "belt_elder", adjudicator = "belt_adjudicator", basilisk = "belt_basilisk", crusader = "belt_crusader", eyrie = "belt_eyrie", cleansing = "belt_cleansing", tangle = "belt_tangle" },
 	implicit = "(20-30)% increased Stun Threshold",
@@ -84,6 +93,7 @@ itemBases["Heavy Belt"] = {
 }
 itemBases["Utility Belt"] = {
 	type = "Belt",
+	charmLimit = 1,
 	tags = { belt = true, default = true, },
 	influenceTags = { shaper = "belt_shaper", elder = "belt_elder", adjudicator = "belt_adjudicator", basilisk = "belt_basilisk", crusader = "belt_crusader", eyrie = "belt_eyrie", cleansing = "belt_cleansing", tangle = "belt_tangle" },
 	implicit = "20% of Flask Recovery applied Instantly",
@@ -92,6 +102,7 @@ itemBases["Utility Belt"] = {
 }
 itemBases["Fine Belt"] = {
 	type = "Belt",
+	charmLimit = 1,
 	tags = { belt = true, default = true, },
 	influenceTags = { shaper = "belt_shaper", elder = "belt_elder", adjudicator = "belt_adjudicator", basilisk = "belt_basilisk", crusader = "belt_crusader", eyrie = "belt_eyrie", cleansing = "belt_cleansing", tangle = "belt_tangle" },
 	implicit = "Flasks gain 0.17 charges per Second",
