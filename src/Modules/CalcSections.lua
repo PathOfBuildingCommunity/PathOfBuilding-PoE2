@@ -1654,6 +1654,11 @@ return {
 	{ label = "Charges/s", { format = "{2:output:ManaFlaskChargeGen}",
 		{ label = "Mana Flask Charges/s", modName = "ManaFlaskChargesGenerated", modType = "BASE"},
 		{ label = "Generic Flask Charges/s", modName = { "FlaskChargesGenerated", "FlaskChargesGeneratedPerEmptyFlask" }, modType = "BASE" }}, },
+} }, { defaultCollapsed = true, label = "Charms", data = {
+	extra = "+{0:output:CharmEffect}%, {0:output:CharmLimit}",
+	{ label = "Inc. Effect", { format = "{0:mod:1}%", { modName = "CharmEffect", modType = "INC", actor = "player"}, }, },
+	{ label = "Inc. Duration", { format = "{0:mod:1}%", { modName = "CharmDuration", modType = "INC" }, }, },
+	{ label = "Charm Limit", { format = "{0:mod:1}", { modName = "CharmLimit", modType = "BASE"}, }, },
 } }, { defaultCollapsed = true, label = "Tinctures", data = {
 	extra = "+{0:output:TinctureEffect}%, {0:output:TinctureLimit}",
 	{ label = "Inc. Effect", { format = "{0:mod:1}%", { modName = "TinctureEffect", modType = "INC", actor = "player"}, }, },

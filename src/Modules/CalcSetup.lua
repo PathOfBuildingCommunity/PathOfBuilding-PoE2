@@ -235,6 +235,7 @@ function wipeEnv(env, accelerate)
 		wipeTable(env.player.itemList)
 		wipeTable(env.grantedSkillsItems)
 		wipeTable(env.flasks)
+		wipeTable(env.charms)
 		wipeTable(env.tinctures)
 
 		-- Special / Unique Items that have their own ModDB()
@@ -406,6 +407,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 		env.explodeSources = { }
 		env.itemWarnings = { }
 		env.flasks = { }
+		env.charms = { }
 		env.tinctures = { }
 
 		-- tree based
@@ -513,6 +515,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 		modDB:NewMod("PerAfflictionNonDamageEffect", "BASE", 8, "Base")
 		modDB:NewMod("PerAbsorptionElementalEnergyShieldRecoup", "BASE", 12, "Base")
 		modDB:NewMod("TinctureLimit", "BASE", 1, "Base")
+		modDB:NewMod("CharmLimit", "BASE", 0, "Base")
 		modDB:NewMod("ManaDegenPercent", "BASE", 1, "Base", { type = "Multiplier", var = "EffectiveManaBurnStacks" })
 		modDB:NewMod("LifeDegenPercent", "BASE", 1, "Base", { type = "Multiplier", var = "WeepingWoundsStacks" })
 		modDB:NewMod("WeaponSwapSpeed", "BASE", 250, "Base")  -- 250ms
@@ -830,6 +833,11 @@ function calcs.initEnv(build, mode, override, specEnv)
 					end
 				end
 				item = nil
+			elseif item and item.type == "Charm" then
+				if slot.active then
+					env.charms[item] = true
+				end
+				item = nil
 			elseif item and item.type == "Tincture" then
 				if slot.active then
 					env.tinctures[item] = true
@@ -1068,7 +1076,10 @@ function calcs.initEnv(build, mode, override, specEnv)
 				if item.classRestriction then
 					env.itemModDB.conditions[item.title:gsub(" ", "")] = item.classRestriction
 				end
-				if item.type ~= "Jewel" and item.type ~= "Flask" and item.type ~= "Tincture" then
+				if item.charmLimit then
+					env.modDB:NewMod("CharmLimit", "BASE", item.charmLimit, item.title)
+				end
+				if item.type ~= "Jewel" and item.type ~= "Flask" and item.type ~= "Charm" and item.type ~= "Tincture" then
 					-- Update item counts
 					local key
 					if item.rarity == "UNIQUE" or item.rarity == "RELIC" then
@@ -1140,6 +1151,13 @@ function calcs.initEnv(build, mode, override, specEnv)
 				env.flasks[override.toggleFlask] = nil
 			else
 				env.flasks[override.toggleFlask] = true
+			end
+		end
+		if override.toggleCharm then
+			if env.charms[override.toggleCharm] then
+				env.charms[override.toggleCharm] = nil
+			else
+				env.charms[override.toggleCharm] = true
 			end
 		end
 		if override.toggleTincture then

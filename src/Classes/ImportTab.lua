@@ -929,6 +929,8 @@ function ImportTabClass:ImportItem(itemData, slotName)
 				item.requirements.level = req.values[1][1]
 			elseif req.name == "Class:" then
 				item.classRestriction = req.values[1][1]
+			elseif req.name == "Charm Slots:" then
+				item.charmLimit = req.values[1][1]
 			end
 		end
 	end

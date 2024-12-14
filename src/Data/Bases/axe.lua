@@ -214,7 +214,7 @@ itemBases["Ember Greataxe"] = {
 	tags = { axe = true, two_hand_weapon = true, weapon = true, twohand = true, default = true, },
 	influenceTags = { shaper = "2h_axe_shaper", elder = "2h_axe_elder", adjudicator = "2h_axe_adjudicator", basilisk = "2h_axe_basilisk", crusader = "2h_axe_crusader", eyrie = "2h_axe_eyrie", cleansing = "2h_axe_cleansing", tangle = "2h_axe_tangle" },
 	implicitModTypes = { },
-	weapon = { PhysicalMin = 58, PhysicalMax = 154, CritChanceBase = 5, AttackRateBase = 1.2, Range = 13, },
+	weapon = { FireMin = 58, FireMax = 154, CritChanceBase = 5, AttackRateBase = 1.2, Range = 13, },
 	req = { level = 50, },
 }
 itemBases["Ceremonial Halberd"] = {

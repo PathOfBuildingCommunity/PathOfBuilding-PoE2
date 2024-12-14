@@ -40,6 +40,18 @@ local ItemSlotClass = newClass("ItemSlotControl", "DropDownControl", function(se
 		end
 		self.controls.activate.tooltipText = "Activate this flask."
 		self.labelOffset = -24
+	elseif slotName:match("Charm") then
+		self.controls.activate = new("CheckBoxControl", {"RIGHT",self,"LEFT"}, {-2, 0, 20}, nil, function(state)
+			self.active = state
+			itemsTab.activeItemSet[self.slotName].active = state
+			itemsTab:AddUndoState()
+			itemsTab.build.buildFlag = true
+		end)
+		self.controls.activate.enabled = function()
+			return self.selItemId ~= 0
+		end
+		self.controls.activate.tooltipText = "Activate this charm."
+		self.labelOffset = -24
 	else
 		self.labelOffset = -2
 	end
