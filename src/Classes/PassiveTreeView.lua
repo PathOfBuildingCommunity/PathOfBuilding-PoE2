@@ -172,9 +172,6 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 
 	-- Create functions that will convert coordinates between the screen and tree coordinate spaces
 	local scale = m_min(viewPort.width, viewPort.height) / tree.size * self.zoom
-	if not tree:IsPobGenerate() then
-		scale = scale * 1.33
-	end
 
 	local offsetX = self.zoomX + viewPort.x + viewPort.width/2
 	local offsetY = self.zoomY + viewPort.y + viewPort.height/2
@@ -318,7 +315,7 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 		bg.width, bg.height = bg.handle:ImageSize()
 	end
 	if bg.width > 0 then
-		local bgSize = bg.width * scale * (tree:IsPobGenerate() and 1 or 1.33 * 2.5)
+		local bgSize = bg.width * scale
 		SetDrawColor(1, 1, 1)
 		DrawImage(bg.handle, viewPort.x, viewPort.y, viewPort.width, viewPort.height, (self.zoomX + viewPort.width/2) / -bgSize, (self.zoomY + viewPort.height/2) / -bgSize, (viewPort.width/2 - self.zoomX) / bgSize, (viewPort.height/2 - self.zoomY) / bgSize)
 	end
@@ -344,30 +341,14 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 		self:DrawAsset(tree.assets.BackgroundDexInt, scrX, scrY, scale)
 	end
 
-	local function renderGroup(group, isExpansion)
-		local scrX, scrY = treeToScreen(group.x, group.y)
-		if tree:IsPobGenerate() then
-			if group.background then
-				local bgAsset = tree:GetAssetByName(group.background.image, "groupBackground")
-				if group.background.offsetX and group.background.offsetY then
-					scrX, scrY = treeToScreen(group.x + group.background.offsetX, group.y + group.background.offsetY)
-				end
-				self:DrawAsset(bgAsset, scrX, scrY, scale, group.background.isHalfImage ~= nil)
+	local function renderGroup(group)
+		if group.background then
+			local scrX, scrY = treeToScreen(group.x, group.y)
+			local bgAsset = tree:GetAssetByName(group.background.image, "groupBackground")
+			if group.background.offsetX and group.background.offsetY then
+				scrX, scrY = treeToScreen(group.x + group.background.offsetX, group.y + group.background.offsetY)
 			end
-		elseif group.ascendancyName then
-			if group.isAscendancyStart then
-				if group.ascendancyName ~= spec.curAscendClassBaseName and (not spec.curSecondaryAscendClass or group.ascendancyName ~= spec.curSecondaryAscendClass.id) then
-					SetDrawColor(1, 1, 1, 0.25)
-				end
-				self:DrawAsset(tree.assets["Classes"..group.ascendancyName], scrX, scrY, scale)
-				SetDrawColor(1, 1, 1)
-			end
-		elseif group.oo[3] then
-			self:DrawAsset(tree:GetAssetByName(isExpansion and "GroupBackgroundLargeHalfAlt" or "PSGroupBackground3", "groupBackground"), scrX, scrY, scale, true)
-		elseif group.oo[2] then
-			self:DrawAsset(tree:GetAssetByName(isExpansion and "GroupBackgroundMediumAlt" or "PSGroupBackground2", "groupBackground"), scrX, scrY, scale)
-		elseif group.oo[1] then
-			self:DrawAsset(tree:GetAssetByName(isExpansion and "GroupBackgroundSmallAlt" or "PSGroupBackground1", "groupBackground"), scrX, scrY, scale)
+			self:DrawAsset(bgAsset, scrX, scrY, scale, group.background.isHalfImage ~= nil)
 		end
 	end
 
@@ -376,9 +357,6 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 		if not group.isProxy then
 			renderGroup(group)
 		end
-	end
-	for _, subGraph in pairs(spec.subGraphs) do
-		renderGroup(subGraph.group, true)
 	end
 
 	local connectorColor = { 1, 1, 1 }
@@ -432,7 +410,7 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 			setConnectorColor(0.75, 0.75, 0.75)
 		end
 		SetDrawColor(unpack(connectorColor))
-		handle = tree.assets[connector.type..state] and tree.assets[connector.type..state].handle or tree.spriteMap[connector.type..state] and tree.spriteMap[connector.type..state].line.handle
+		handle = tree:GetAssetByName(connector.type..state, "line").handle
 		DrawImageQuad(handle, unpack(connector.c))
 	end
 
@@ -507,7 +485,8 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 			end
 			if node.type == "Socket" then
 				-- Node is a jewel socket, retrieve the socketed jewel (if present) so we can display the correct art
-				base = tree.assets[(node.name == "Charm Socket" and "Azmeri" or "" ) .. node.overlay[state .. (node.expansionJewel and "Alt" or "")]]
+				base = tree:GetAssetByName(node.overlay[state], "frame")
+
 				local socket, jewel = build.itemsTab:GetSocketAndJewelForNodeID(nodeId)
 				if isAlloc and jewel then
 					if jewel.baseName == "Crimson Jewel" then
@@ -540,20 +519,8 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 				end
 			elseif node.type == "Mastery" then
 				-- This is the icon that appears in the center of many groups
-				if tree:IsPobGenerate() then
-					base = node.masterySprites.activeEffectImage.masteryActiveEffect
-				elseif node.masteryEffects then
-					if isAlloc then
-						base = node.masterySprites.activeIcon.masteryActiveSelected
-						effect = node.masterySprites.activeEffectImage.masteryActiveEffect
-					elseif node == hoverNode then
-						base = node.masterySprites.inactiveIcon.masteryConnected
-					else
-						base = node.masterySprites.inactiveIcon.masteryInactive
-					end
-				else
-					base = node.sprites.mastery
-				end
+				base = node.masterySprites.activeEffectImage.masteryActiveEffect
+
 				SetDrawLayer(nil, 15)
 			else
 				-- Normal node (includes keystones and notables)
@@ -561,7 +528,9 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 					effect = node.effectSprites["tattooActiveEffect"]
 				end
 				base = node.sprites[node.type:lower()..(isAlloc and "Active" or "Inactive")]
+
 				overlay = node.overlay[state .. (node.ascendancyName and "Ascend" or "") .. (node.isBlighted and "Blighted" or "")]
+				
 				if node.ascendancyName and tree.secondaryAscendNameMap and tree.secondaryAscendNameMap[node.ascendancyName] then
 					overlay = "Azmeri"..overlay
 				end
@@ -657,15 +626,22 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 
 		-- Draw base artwork
 		if base then
+			-- apply target size to the base image
+			if node.targetSize then
+				base.width = node.targetSize.width
+				base.height = node.targetSize.height
+			end
 			if node.type == "Socket" and hoverDep and hoverDep[node] then
 				SetDrawColor(1, 0, 0);
 				self:DrawAsset(base, scrX, scrY, scale)
 				SetDrawColor(1, 1, 1);
-			elseif node.type == "Mastery" and tree:IsPobGenerate() then
+			elseif node.type == "Socket" then
+				self:DrawAsset(base, scrX, scrY, scale)
+			elseif node.type == "Mastery" then
 				SetDrawColor(1,1,1, 0.15)
 				self:DrawAsset(base, scrX, scrY, scale)
 			else
-				self:DrawAsset(base, scrX, scrY, scale)
+				self:DrawAsset(base, scrX, scrY, scale * 0.68)
 			end
 		end
 
@@ -707,7 +683,14 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 					end
 				end
 			end
-			self:DrawAsset(tree:GetAssetByName(overlay, "frame"), scrX, scrY, scale)
+
+			local overlayImage = tree:GetAssetByName(overlay, "frame")
+			-- apply target size to the base image
+			if overlayImage and node.targetSize then
+				overlayImage.width = node.targetSize.width
+				overlayImage.height = node.targetSize.height
+			end
+			self:DrawAsset(overlayImage, scrX, scrY, scale)
 			SetDrawColor(1, 1, 1)
 		end
 		if self.searchStrResults[nodeId] then
@@ -850,7 +833,7 @@ end
 -- Zoom the tree in or out
 function PassiveTreeViewClass:Zoom(level, viewPort)
 	-- Calculate new zoom level and zoom factor
-	self.zoomLevel = m_max(0, m_min(12, self.zoomLevel + level))
+	self.zoomLevel = m_max(0, m_min(16, self.zoomLevel + level))
 	local oldZoom = self.zoom
 	self.zoom = 1.2 ^ self.zoomLevel
 

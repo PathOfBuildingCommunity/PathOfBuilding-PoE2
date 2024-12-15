@@ -12,12 +12,17 @@ local t_remove = table.remove
 local m_min = math.min
 local m_max = math.max
 local m_pi = math.pi
-local m_rad = math.rad
 local m_sin = math.sin
 local m_cos = math.cos
 local m_tan = math.tan
 local m_sqrt = math.sqrt
 
+
+local function sign_a(n)
+	return n > 0 and 1
+		or  n < 0 and -1
+		or  0
+end
 
 local classArt = {
 	[0] = "centerscion",
@@ -91,7 +96,7 @@ local PassiveTreeClass = newClass("PassiveTree", function(self, treeVersion)
 		self[k] = v
 	end
 
-	self.size = m_min(self.max_x - self.min_x, self.max_y - self.min_y) * 1.1
+	self.size = m_min(self.max_x - self.min_x, self.max_y - self.min_y) * self.scaleImage * 1.1
 
 	if versionNum >= 3.10 then
 		-- Migrate to old format
@@ -122,46 +127,6 @@ local PassiveTreeClass = newClass("PassiveTree", function(self, treeVersion)
 			}
 		end
 	end
-	
-	-- hide alternate_ascendancies as they are unobtainable in the newest versions and will cause a crash if an older version is loaded with it at the moment
-	if self.alternate_ascendancies then
-		if launch.devMode then
-			ConPrintf("WARNING! alternate_ascendancies exist but are being hidden")
-		end
-		local tempMap = {}
-		local temp_groups = {}
-		for ascendClassId, ascendClass in pairs(self.alternate_ascendancies) do
-			tempMap[ascendClass.id] = true
-		end
-		for i, node in pairs(self.nodes) do
-			if node.ascendancyName and tempMap[node.ascendancyName] then
-				self.nodes[i] = nil
-				temp_groups[node.group] = true
-			end
-		end
-		for i, group in pairs(temp_groups) do
-			self.groups[i] = nil
-		end
-			
-		self.alternate_ascendancies = nil
-	end
-	
-	if self.alternate_ascendancies then
-		self.secondaryAscendNameMap = { }
-		local alternate_ascendancies_class = { 
-			["name"]= "alternate_ascendancies",
-			["classes"]= self.alternate_ascendancies
-		}
-		for ascendClassId, ascendClass in pairs(self.alternate_ascendancies) do
-			self.ascendNameMap[ascendClass.id] = {
-				classId = "alternate_ascendancies",
-				class = alternate_ascendancies_class,
-				ascendClassId = ascendClassId,
-				ascendClass = ascendClass
-			}
-			self.secondaryAscendNameMap[ascendClass.id] = self.ascendNameMap[ascendClass.id]
-		end
-	end
 
 	self.skillsPerOrbit = self.constants.skillsPerOrbit or legacySkillsPerOrbit
 	self.orbitRadii = self.constants.orbitRadii or legacyOrbitRadii
@@ -170,83 +135,25 @@ local PassiveTreeClass = newClass("PassiveTree", function(self, treeVersion)
 		self.orbitAnglesByOrbit[orbit] = self:CalcOrbitAngles(skillsInOrbit)
 	end
 
-	if not self.assets then
-		self.assets = LoadModule("TreeData/3_19/Assets.lua")
-		self.assets = self.assets.assets
-		if self.alternate_ascendancies then
-			-- backgrounds
-			self.assets["ClassesPrimalist"] = {[0.3835]="https://web.poecdn.com/gen/image/WzIyLCJlMzIwYTYwYmNiZTY4ZmQ5YTc2NmE1ZmY4MzhjMDMyNCIseyJ0IjoyNywic3AiOjAuMzgzNX1d/3d68393250/ClassesPrimalist.png"}
-			self.assets["ClassesWarlock"] = {[0.3835]="https://web.poecdn.com/gen/image/WzIyLCJlMzIwYTYwYmNiZTY4ZmQ5YTc2NmE1ZmY4MzhjMDMyNCIseyJ0IjoyNywic3AiOjAuMzgzNX1d/3d68393250/ClassesWarlock.png"}
-			self.assets["ClassesWarden"] = {[0.3835]="https://web.poecdn.com/gen/image/WzIyLCJlMzIwYTYwYmNiZTY4ZmQ5YTc2NmE1ZmY4MzhjMDMyNCIseyJ0IjoyNywic3AiOjAuMzgzNX1d/3d68393250/ClassesWarden.png"}
-			-- ascendancy nodes
-			self.assets["AzmeriAscendancyMiddle"] = {[0.3835]="https://web.poecdn.com/gen/image/WzIyLCJlMzIwYTYwYmNiZTY4ZmQ5YTc2NmE1ZmY4MzhjMDMyNCIseyJ0IjoyNywic3AiOjAuMzgzNX1d/3d68393250/AzmeriAscendancyMiddle.png"}
-			self.assets["AzmeriAscendancyFrameLargeNormal"] = {[0.3835]="https://web.poecdn.com/gen/image/WzIyLCJlMzIwYTYwYmNiZTY4ZmQ5YTc2NmE1ZmY4MzhjMDMyNCIseyJ0IjoyNywic3AiOjAuMzgzNX1d/3d68393250/AzmeriAscendancyFrameLargeNormal.png"}
-			self.assets["AzmeriAscendancyFrameLargeCanAllocate"] = {[0.3835]="https://web.poecdn.com/gen/image/WzIyLCJlMzIwYTYwYmNiZTY4ZmQ5YTc2NmE1ZmY4MzhjMDMyNCIseyJ0IjoyNywic3AiOjAuMzgzNX1d/3d68393250/AzmeriAscendancyFrameLargeCanAllocate.png"}
-			self.assets["AzmeriAscendancyFrameLargeAllocated"] = {[0.3835]="https://web.poecdn.com/gen/image/WzIyLCJlMzIwYTYwYmNiZTY4ZmQ5YTc2NmE1ZmY4MzhjMDMyNCIseyJ0IjoyNywic3AiOjAuMzgzNX1d/3d68393250/AzmeriAscendancyFrameLargeAllocated.png"}
-			self.assets["AzmeriAscendancyFrameSmallNormal"] = {[0.3835]="https://web.poecdn.com/gen/image/WzIyLCJlMzIwYTYwYmNiZTY4ZmQ5YTc2NmE1ZmY4MzhjMDMyNCIseyJ0IjoyNywic3AiOjAuMzgzNX1d/3d68393250/AzmeriAscendancyFrameSmallNormal.png"}
-			self.assets["AzmeriAscendancyFrameSmallCanAllocate"] = {[0.3835]="https://web.poecdn.com/gen/image/WzIyLCJlMzIwYTYwYmNiZTY4ZmQ5YTc2NmE1ZmY4MzhjMDMyNCIseyJ0IjoyNywic3AiOjAuMzgzNX1d/3d68393250/AzmeriAscendancyFrameSmallCanAllocate.png"}
-			self.assets["AzmeriAscendancyFrameSmallAllocated"] = {[0.3835]="https://web.poecdn.com/gen/image/WzIyLCJlMzIwYTYwYmNiZTY4ZmQ5YTc2NmE1ZmY4MzhjMDMyNCIseyJ0IjoyNywic3AiOjAuMzgzNX1d/3d68393250/AzmeriAscendancyFrameSmallAllocated.png"}
-			-- jewel sockets
-			self.assets["AzmeriJewelFrameUnallocated"] = {[0.3835]="https://web.poecdn.com/gen/image/WzIyLCJlMzIwYTYwYmNiZTY4ZmQ5YTc2NmE1ZmY4MzhjMDMyNCIseyJ0IjoyNywic3AiOjAuMzgzNX1d/3d68393250/AzmeriJewelFrameUnallocated.png"}
-			self.assets["AzmeriJewelFrameCanAllocate"] = {[0.3835]="https://web.poecdn.com/gen/image/WzIyLCJlMzIwYTYwYmNiZTY4ZmQ5YTc2NmE1ZmY4MzhjMDMyNCIseyJ0IjoyNywic3AiOjAuMzgzNX1d/3d68393250/AzmeriJewelFrameCanAllocate.png"}
-			self.assets["AzmeriJewelFrameAllocated"] = {[0.3835]="https://web.poecdn.com/gen/image/WzIyLCJlMzIwYTYwYmNiZTY4ZmQ5YTc2NmE1ZmY4MzhjMDMyNCIseyJ0IjoyNywic3AiOjAuMzgzNX1d/3d68393250/AzmeriJewelFrameAllocated.png"}
-			self.assets["CharmSocketActiveStr"] = {[0.3835]="https://web.poecdn.com/gen/image/WzIyLCJlMzIwYTYwYmNiZTY4ZmQ5YTc2NmE1ZmY4MzhjMDMyNCIseyJ0IjoyNywic3AiOjAuMzgzNX1d/3d68393250/CharmSocketActiveStr.png"}
-			self.assets["CharmSocketActiveInt"] = {[0.3835]="https://web.poecdn.com/gen/image/WzIyLCJlMzIwYTYwYmNiZTY4ZmQ5YTc2NmE1ZmY4MzhjMDMyNCIseyJ0IjoyNywic3AiOjAuMzgzNX1d/3d68393250/CharmSocketActiveInt.png"}
-			self.assets["CharmSocketActiveDex"] = {[0.3835]="https://web.poecdn.com/gen/image/WzIyLCJlMzIwYTYwYmNiZTY4ZmQ5YTc2NmE1ZmY4MzhjMDMyNCIseyJ0IjoyNywic3AiOjAuMzgzNX1d/3d68393250/CharmSocketActiveDex.png"}
-		end
-	end
-
-	local cdnRoot = versionNum >= 3.08 and versionNum <= 3.09 and "https://web.poecdn.com" or ""
 	ConPrintf("Loading passive tree assets...")
 	for name, data in pairs(self.assets) do
-		self:LoadImage(name..".png", cdnRoot..(data[0.3835] or data[1]), data, not name:match("[OL][ri][bn][ie][tC]") and "ASYNC" or nil)--, not name:match("[OL][ri][bn][ie][tC]") and "MIPMAP" or nil)
+		self:LoadImage(data[self.scaleImage], data)
 	end
 
 	-- Load sprite sheets and build sprite map
 	self.spriteMap = { }
 	local spriteSheets = { }
 	if not self.skillSprites then
-		if not self.sprites then
-			ConPrintf("Loading passive tree sprite data for version '%s'...", treeVersions[treeVersion].display)
-			local spriteText
-			local spriteFile = io.open("TreeData/"..treeVersion.."/sprites.lua", "r")
-			if spriteFile then
-				spriteText = spriteFile:read("*a")
-				spriteFile:close()
-			else
-				local page
-				local pageFile = io.open("TreeData/"..treeVersion.."/sprites.json", "r")
-				if pageFile then
-					ConPrintf("Converting passive tree sprites json")
-					page = pageFile:read("*a")
-					pageFile:close()
-					spriteText = "return " .. jsonToLua(page)
-				end
-				spriteFile = io.open("TreeData/"..treeVersion.."/sprites.lua", "w")
-				spriteFile:write(spriteText)
-				spriteFile:close()
-			end
-			for k, v in pairs(assert(loadstring(spriteText))()) do
-				self[k] = v
-			end
-		end
 		self.skillSprites = self.sprites
 	end
+
 	for type, data in pairs(self.skillSprites) do
-		local maxZoom
-		if not self.imageZoomLevels then
-			maxZoom = data
-		elseif self:IsPobGenerate() then
-			maxZoom = data[self.scaleImage]
-		elseif versionNum >= 3.19 then
-			maxZoom = data[0.3835] or data[1]
-		else
-			maxZoom = data[#data]
-		end
+		local maxZoom = data[self.scaleImage]
+		
 		local sheet = spriteSheets[maxZoom.filename]
 		if not sheet then
 			sheet = { }
-			self:LoadImage(versionNum >= 3.16 and maxZoom.filename:gsub("%?%x+$",""):gsub(".*/","") or maxZoom.filename:gsub("%?%x+$",""), versionNum >= 3.16 and maxZoom.filename or "https://web.poecdn.com"..(self.imageRoot or "/image/")..(versionNum >= 3.08 and "passive-skill/" or "build-gen/passive-skill-sprite/")..maxZoom.filename, sheet, "CLAMP")--, "MIPMAP")
+			self:LoadImage(maxZoom.filename, sheet, "CLAMP")--, "MIPMAP")
 			spriteSheets[maxZoom.filename] = sheet
 		end
 		for name, coords in pairs(maxZoom.coords) do
@@ -304,7 +211,7 @@ local PassiveTreeClass = newClass("PassiveTree", function(self, treeVersion)
 	}
 	self.nodeOverlay = {
 		Normal = {
-			artWidth = 40,
+			artWidth = 70,
 			alloc = "PSSkillFrameActive",
 			path = "PSSkillFrameHighlighted",
 			unalloc = "PSSkillFrame",
@@ -313,7 +220,7 @@ local PassiveTreeClass = newClass("PassiveTree", function(self, treeVersion)
 			unallocAscend = versionNum >= 3.10 and "AscendancyFrameSmallNormal" or "PassiveSkillScreenAscendancyFrameSmallNormal"
 		},
 		Notable = {
-			artWidth = 58,
+			artWidth = 100,
 			alloc = "NotableFrameAllocated",
 			path = "NotableFrameCanAllocate",
 			unalloc = "NotableFrameUnallocated",
@@ -325,7 +232,7 @@ local PassiveTreeClass = newClass("PassiveTree", function(self, treeVersion)
 			unallocBlighted = "BlightedNotableFrameUnallocated",
 		},
 		Keystone = {
-			artWidth = 84,
+			artWidth = 138,
 			alloc = "KeystoneFrameAllocated",
 			path = "KeystoneFrameCanAllocate",
 			unalloc = "KeystoneFrameUnallocated",
@@ -334,7 +241,7 @@ local PassiveTreeClass = newClass("PassiveTree", function(self, treeVersion)
 			unallocBlighted = "KeystoneFrameUnallocated",
 		},
 		Socket = {
-			artWidth = 58,
+			artWidth = 100,
 			alloc = "JewelFrameAllocated",
 			path = "JewelFrameCanAllocate",
 			unalloc = "JewelFrameUnallocated",
@@ -343,26 +250,21 @@ local PassiveTreeClass = newClass("PassiveTree", function(self, treeVersion)
 			unallocAlt = "JewelSocketAltNormal",
 		},
 		Mastery = {
-			artWidth = 65,
+			artWidth = 100,
 			alloc = "AscendancyFrameLargeAllocated",
 			path = "AscendancyFrameLargeCanAllocate",
 			unalloc = "AscendancyFrameLargeNormal"
 		},
 	}
 	for type, data in pairs(self.nodeOverlay) do
-		if self:IsPobGenerate() then
-			-- for now mastery is disabled in POB2
-			if type ~= "Mastery" and type ~= "Socket" then
-				local asset = self:GetAssetByName(data.alloc, "frame")
-				local artWidth = asset.width
-				data.artWidth = artWidth
-				data.size = artWidth
-			else
-				data.size = 0
-			end
+		-- for now mastery is disabled in POB2
+		if type ~= "Mastery" then
+			local asset = self:GetAssetByName(data.alloc, "frame")
+			local artWidth = asset.width * self.scaleImage
+			data.artWidth = artWidth
+			data.size = artWidth
 		else
-			local size = data.artWidth * 1.33
-			data.size = size
+			data.size = 0
 		end
 		data.rsq = data.size * data.size
 	end
@@ -390,24 +292,14 @@ local PassiveTreeClass = newClass("PassiveTree", function(self, treeVersion)
 	self.masteryEffects = { }
 	local nodeMap = { }
 	for _, node in pairs(self.nodes) do
-		-- Migration...
-		if versionNum < 3.10 then
-			-- To new format
-			node.classStartIndex = node.spc[0] and node.spc[0]
-		else
-			-- To old format
-			node.id = node.skill
-			node.g = node.group
-			node.o = node.orbit
-			node.oidx = node.orbitIndex
-			node.dn = node.name
-			node.sd = node.stats
-			node.passivePointsGranted = node.grantedPassivePoints or 0
-		end
+		
+		node.id = node.skill
+		node.g = node.group
+		node.o = node.orbit
+		node.oidx = node.orbitIndex
+		node.dn = node.name
+		node.sd = node.stats
 
-		if versionNum <= 3.09 and node.passivePointsGranted > 0 then
-			t_insert(node.sd, "Grants "..node.passivePointsGranted.." Passive Skill Point"..(node.passivePointsGranted > 1 and "s" or ""))
-		end
 		node.__index = node
 		node.linkedId = { }
 		nodeMap[node.id] = node	
@@ -492,29 +384,44 @@ local PassiveTreeClass = newClass("PassiveTree", function(self, treeVersion)
 	-- Pregenerate the polygons for the node connector lines
 	self.connectors = { }
 	for _, node in pairs(self.nodes) do
-		for _, otherId in pairs(node.out or {}) do
-			if type(otherId) == "string" then
-				otherId = tonumber(otherId)
-			end
+		for _, connection in pairs(node.connections or {}) do
+			local otherId = connection.id
 			local other = nodeMap[otherId]
-			t_insert(node.linkedId, otherId)
-			if node.type ~= "ClassStart" and other.type ~= "ClassStart"
-				and node.type ~= "Mastery" and other.type ~= "Mastery"
-				and node.ascendancyName == other.ascendancyName
-				and not node.isProxy and not other.isProxy
-				and not node.group.isProxy and not node.group.isProxy then
-					local connectors = self:BuildConnector(node, other)
-					t_insert(self.connectors, connectors[1])
-					if connectors[2] then
-						t_insert(self.connectors, connectors[2])
-					end
+
+			if not other then
+				ConPrintf("missing node "..otherId)
+				goto endconnection
 			end
-		end
-		for _, otherId in pairs(node["in"] or {}) do
-			if type(otherId) == "string" then
-				otherId = tonumber(otherId)
+
+			if node.type == "Mastery" or other.type == "Mastery" then
+				goto endconnection
 			end
+			
+			if node.ascendancyName ~= other.ascendancyName then
+				goto endconnection
+			end
+
+			if node.classStartIndex ~= nil or other.classStartIndex ~= nil then
+				goto endconnection
+			end
+
+			if node.id == otherId then
+				goto endconnection
+			end
+
+			t_insert(other.linkedId, node.id)
 			t_insert(node.linkedId, otherId)
+			
+			local connectors = self:BuildConnector(node, other, connection)
+
+			if not connectors then
+				goto endconnection
+			end
+			t_insert(self.connectors, connectors[1])
+			if connectors[2] then
+				t_insert(self.connectors, connectors[2])
+			end
+			:: endconnection ::
 		end
 	end
 
@@ -586,59 +493,6 @@ local PassiveTreeClass = newClass("PassiveTree", function(self, treeVersion)
 			end
 		end
 	end
-
-	-- Build ModList for legion jewels
-	for _, node in pairs(self.legion.nodes) do
-		-- Determine node type
-		if node.m then
-			node.type = "Mastery"
-		elseif node.ks then
-			node.type = "Keystone"
-			if not self.keystoneMap[node.dn] then -- Don't override good tree data with legacy keystones
-				self.keystoneMap[node.dn] = node
-			end
-		elseif node["not"] then
-			node.type = "Notable"
-		else
-			node.type = "Normal"
-		end
-
-		-- Assign node artwork assets
-		node.sprites = self.spriteMap[node.icon]
-		if not node.sprites then
-			--error("missing sprite "..node.icon)
-			node.sprites = { }
-		end
-
-		self:ProcessStats(node)
-	end
-
-	-- Build ModList for tattoos
-	for _, node in pairs(self.tattoo.nodes) do
-		-- Determine node type
-		if node.m then
-			node.type = "Mastery"
-		elseif node.ks then
-			node.type = "Keystone"
-		elseif node["not"] then
-			node.type = "Notable"
-		else
-			node.type = "Normal"
-		end
-
-		-- Assign node artwork assets
-		node.sprites = self.spriteMap[node.icon]
-		node.effectSprites = self.spriteMap[node.activeEffectImage]
-		if not node.sprites then
-			--error("missing sprite "..node.icon)
-			node.sprites = { }
-		end
-
-		self:ProcessStats(node)
-	end
-
-	-- Late load the Generated data so we can take advantage of a tree existing
-	--buildTreeDependentUniques(self)
 end)
 
 function PassiveTreeClass:ProcessStats(node, startIndex)
@@ -732,52 +586,41 @@ function PassiveTreeClass:ProcessNode(node)
 		--error("missing sprite "..node.icon)
 		node.sprites = self.spriteMap["Art/2DArt/SkillIcons/passives/MasteryBlank.png"]
 	end
+
+	node.targetSize = self:GetNodeTargetSize(node)
 	node.overlay = self.nodeOverlay[node.type]
-	if node.overlay then
-		node.rsq = node.overlay.rsq
-		node.size = node.overlay.size
+	if node.overlay and node.type ~= "Mastery" then
+		node.rsq = node.targetSize.width * node.targetSize.height
+		node.size = node.targetSize.width
 	end
 
 	-- Derive the true position of the node
 	if node.group then
-		node.angle = self.orbitAnglesByOrbit[node.o + 1][node.oidx + 1]
-		local orbitRadius = self.orbitRadii[node.o + 1]
-		node.x = node.group.x + m_sin(node.angle) * orbitRadius
-		node.y = node.group.y - m_cos(node.angle) * orbitRadius
+		node.angle = ((self.orbitAnglesByOrbit[node.o + 1][node.oidx + 1]) - 90) * math.pi / 180
+
+		local orbitRadius = self.orbitRadii[node.o + 1] * self.scaleImage
+		node.x = (node.group.x * self.scaleImage) + m_cos(node.angle) * orbitRadius
+		node.y = (node.group.y * self.scaleImage) + m_sin(node.angle) * orbitRadius
 	end
 
 	self:ProcessStats(node)
 end
 
 -- Checks if a given image is present and downloads it from the given URL if it isn't there
-function PassiveTreeClass:LoadImage(imgName, url, data, ...)
-	local imgFile = io.open("TreeData/"..imgName, "r")
+function PassiveTreeClass:LoadImage(imgName, data, ...)
+	local imgFile = io.open("TreeData/"..self.treeVersion.."/"..imgName, "r")
 	if imgFile then
 		imgFile:close()
 	else
-		imgFile = io.open("TreeData/"..self.treeVersion.."/"..imgName, "r")
-		if imgFile then
-			imgFile:close()
-			imgName = self.treeVersion.."/"..imgName
-		elseif main.allowTreeDownload then -- Enable downloading with Ctrl+Shift+F5 (currently disabled)
-			ConPrintf("Downloading '%s'...", imgName)
-			local data = getFile(url)
-			if data and not data:match("<!DOCTYPE html>") then
-				imgFile = io.open("TreeData/"..imgName, "wb")
-				imgFile:write(data)
-				imgFile:close()
-			else
-				ConPrintf("Failed to download: %s", url)
-			end
-		end
+		ConPrintf("Image '%s' not found...", imgName)	
 	end
 	data.handle = NewImageHandle()
-	data.handle:Load("TreeData/"..imgName, ...)
+	data.handle:Load("TreeData/"..self.treeVersion.."/"..imgName, ...)
 	data.width, data.height = data.handle:ImageSize()
 end
 
 -- Generate the quad used to render the line between the two given nodes
-function PassiveTreeClass:BuildConnector(node1, node2)
+function PassiveTreeClass:BuildConnector(node1, node2, connection)
 	local connector = {
 		ascendancyName = node1.ascendancyName,
 		nodeId1 = node1.id,
@@ -786,38 +629,31 @@ function PassiveTreeClass:BuildConnector(node1, node2)
 				-- Only the texture coords are filled in at this time; the vertex coords need to be converted from tree-space to screen-space first
 				-- This will occur when the tree is being drawn; .vert will map line state (Normal/Intermediate/Active) to the correct tree-space coordinates 
 	}
-	if node1.g == node2.g and node1.o == node2.o then
-		-- Nodes are in the same orbit of the same group
-		-- Calculate the starting angle (node1.angle) and arc angle
-		if node1.angle > node2.angle then
-			node1, node2 = node2, node1
+
+	if connection.orbit ~= 0 and self.orbitRadii[math.abs(connection.orbit) + 1] then
+		if node1.id ~= 55342 and node1.id ~= 10364 then
+			return 
 		end
-		local arcAngle = node2.angle - node1.angle
-		if arcAngle >= m_pi then
-			node1, node2 = node2, node1
-			arcAngle = m_pi * 2 - arcAngle
+		local r =  self.orbitRadii[math.abs(connection.orbit) + 1] * self.scaleImage
+
+		local vX, vY = node2.x - node1.x, node2.y - node1.y
+		local dist = m_sqrt(vX * vX + vY * vY)
+
+		if dist < r * 2 then
+			self:BuildArc(r, node1, node2, connector,  connection.orbit , false)
+			return { connector }
 		end
-		if arcAngle <= m_pi then
-			-- Angle is less than 180 degrees, draw an arc
-			-- If our arc is greater than 90 degrees, we will need 2 arcs because our orbit assets are at most 90 degree arcs see below
-			-- The calling class already handles adding a second connector object in the return table if provided and omits it if nil
-			-- Establish a nil secondConnector to populate in the case that we need a second arc (>90 degree orbit)
-			local secondConnector
-			if arcAngle > (m_pi / 2) then
-				-- Angle is greater than 90 degrees.
-				-- The default behavior for a given arcAngle is to place the arc at the center point between two nodes and clip the excess
-				-- If we need a second arc of any size, we should shift the arcAngle to 25% of the distance between the nodes instead of 50%
-				arcAngle = arcAngle / 2
-				-- clone the original connector table to ensure same functionality for both of the necessary connectors
-				secondConnector = copyTableSafe(connector)
-				-- And then ask the BuildArc function to create a connector that is a mirror of the provided arcAngle
-				-- Provide the second connector as a parameter to store the mirrored arc
-				self:BuildArc(arcAngle, node1, secondConnector, true)
-			end
-			-- generate the primary arc -- this arcAngle may have been modified if we have determined that a second arc is necessary for this orbit
-			self:BuildArc(arcAngle, node1, connector)
-			return { connector, secondConnector }
+
+		return
+	end
+		
+	if node1.g == node2.g and node1.o == node2.o and connection.orbit == 0 then
+		if node1.id ~= 55342 and node1.id ~= 10364 then
+			return 
 		end
+		self:BuildArc(node1.angle, node1, node2, connector, node1.o, false)
+		return { connector}
+		-- return
 	end
 
 	-- Generate a straight line
@@ -825,9 +661,9 @@ function PassiveTreeClass:BuildConnector(node1, node2)
 	local art = self:GetAssetByName("LineConnectorNormal", "line")
 	local vX, vY = node2.x - node1.x, node2.y - node1.y
 	local dist = m_sqrt(vX * vX + vY * vY)
-	local scale = art.height * (self:IsPobGenerate() and 1 or 1.33) / dist
+	local scale = art.height * self.scaleImage / dist
 	local nX, nY = vX * scale, vY * scale
-	local endS = dist / (art.width * (self:IsPobGenerate() and 1 or 1.33))
+	local endS = dist / (art.width * self.scaleImage)
 	connector[1], connector[2] = node1.x - nY, node1.y + nX
 	connector[3], connector[4] = node1.x + nY, node1.y - nX
 	connector[5], connector[6] = node2.x + nY, node2.y - nX
@@ -840,40 +676,34 @@ function PassiveTreeClass:BuildConnector(node1, node2)
 	return { connector }
 end
 
-function PassiveTreeClass:BuildArc(arcAngle, node1, connector, isMirroredArc)
-	connector.type = "Orbit" .. node1.o
+function PassiveTreeClass:BuildArc(arcAngle, node1, node2, connector, orbit, isMirroredArc)
+	connector.type = "Orbit" .. math.abs(orbit)
 	-- This is an arc texture mapped onto a kite-shaped quad
 	-- Calculate how much the arc needs to be clipped by
 	-- Both ends of the arc will be clipped by this amount, so 90 degree arc angle = no clipping and 30 degree arc angle = 75 degrees of clipping
 	-- The clipping is accomplished by effectively moving the bottom left and top right corners of the arc texture towards the top left corner
 	-- The arc texture only shows 90 degrees of an arc, but some arcs must go for more than 90 degrees
 	-- Fortunately there's nowhere on the tree where we can't just show the middle 90 degrees and rely on the node artwork to cover the gaps :)
-	local clipAngle = m_pi / 4 - arcAngle / 2
+	connector.vert = { }
+
+	local clipAngle = m_pi / 4 - math.rad(arcAngle) / 2
 	local p = 1 - m_max(m_tan(clipAngle), 0)
 	local angle = node1.angle - clipAngle
-	if isMirroredArc then
-		-- The center of the mirrored angle should be positioned at 75% of the way between nodes.
-		angle = angle + arcAngle
-	end
-	connector.vert = { }
+
 	for _, state in pairs({ "Normal", "Intermediate", "Active" }) do
 		-- The different line states have differently-sized artwork, so the vertex coords must be calculated separately for each one
 		local art = self:GetAssetByName(connector.type .. state, "line")
-		local size = art.width * 2 * (self:IsPobGenerate() and 1 or 1.33)
+		if not art then
+			ConPrintf("missing asset %s", connector.type .. state)
+		end
+		local size = art.width * self.scaleImage
 		local oX, oY = size * m_sqrt(2) * m_sin(angle + m_pi / 4), size * m_sqrt(2) * -m_cos(angle + m_pi / 4)
-		local cX, cY = node1.group.x + oX, node1.group.y + oY
+		local cX, cY = node1.x + oX, node1.y + oY
 		local vert = { }
-		vert[1], vert[2] = node1.group.x, node1.group.y
+		vert[1], vert[2] = node1.x, node1.y
 		vert[3], vert[4] = cX + (size * m_sin(angle) - oX) * p, cY + (size * -m_cos(angle) - oY) * p
 		vert[5], vert[6] = cX, cY
 		vert[7], vert[8] = cX + (size * m_cos(angle) - oX) * p, cY + (size * m_sin(angle) - oY) * p
-		if (isMirroredArc) then
-		-- Flip the quad's non-origin, non-center vertexes when drawing a mirrored arc so that the arc actually mirrored
-		-- This is required to prevent the connection of the 2 arcs appear to have a 'seam'
-			local temp1, temp2 = vert[3],vert[4]
-			vert[3],vert[4] = vert[7],vert[8]
-			vert[7],vert[8] = temp1, temp2
-		end
 		connector.vert[state] = vert
 	end
 	connector.c[9], connector.c[10] = 1, 1
@@ -898,10 +728,6 @@ function PassiveTreeClass:CalcOrbitAngles(nodesInOrbit)
 		end
 	end
 
-	for i, degrees in ipairs(orbitAngles) do
-		orbitAngles[i] = m_rad(degrees)
-	end
-
 	return orbitAngles
 end
 
@@ -914,4 +740,20 @@ end
 
 function PassiveTreeClass:IsPobGenerate()
 	return self.pob == 1
+end
+
+function PassiveTreeClass:GetNodeTargetSize(node)
+	if node.type == "Notable" then
+		return { width = math.floor(80 * self.scaleImage), height = math.floor(80 * self.scaleImage) }
+	elseif node.type == "Mastery" then
+		return { width = math.floor(380 * self.scaleImage), height = math.floor(380 * self.scaleImage) }
+	elseif node.type == "Keystone" then
+		return { width = math.floor(120 * self.scaleImage), height = math.floor(120 * self.scaleImage) }
+	elseif node.type == "Normal" then
+		return { width = math.floor(54  * self.scaleImage), height = math.floor( 54  * self.scaleImage) }
+	elseif node.type == "Socket" then
+		return { width = math.floor(76 * self.scaleImage), height = math.floor(76 * self.scaleImage) }
+	else
+		return { width = 0, height = 0 }
+	end
 end

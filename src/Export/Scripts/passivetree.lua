@@ -24,7 +24,7 @@ local function toFloat(int)
 end
 local function getInt(f)
 	local int = f:read(4)
-	return int:byte(1) + int:byte(2) * 256 + int:byte(3) * 65536 + int:byte(4) * 16777216
+	return bytesToInt(int)
 end
 local function getLong(f)
 	local bytes = f:read(8)
@@ -115,6 +115,8 @@ local function calculateSheetCoords(sheet, path_base, path_to)
 					icon = string.gsub(icon, ".dds", "_out.dds")
 				end
 				local mipmap = ddsfiles.findClosestDDSMipmap( path_base .. string.lower(icon), width, height)
+
+				-- update width and heigth is the closest mipmap is different
 
 				table.insert(sortedFiles, {
 					icon = icon,
@@ -402,10 +404,10 @@ local defaultMaxWidth = 86*14
 local maxGroups = 5 -- this is base on imageZoomLevels
 local sheets = {
 	newSheet("skills",  defaultMaxWidth, 100, maxGroups),
-	newSheet("skills-disabled", defaultMaxWidth, 60, maxGroups),
+	newSheet("skills-disabled", defaultMaxWidth, 90, maxGroups),
 	newSheet("mastery", defaultMaxWidth, 100, maxGroups),
 	newSheet("mastery-active-selected", defaultMaxWidth, 100, maxGroups),
-	newSheet("mastery-disabled", defaultMaxWidth, 60, maxGroups),
+	newSheet("mastery-disabled", defaultMaxWidth, 90, maxGroups),
 	newSheet("mastery-connected", defaultMaxWidth, 100, maxGroups),
 	newSheet("background", defaultMaxWidth, 100, maxGroups),
 	newSheet("group-background", defaultMaxWidth, 100, maxGroups),
@@ -475,6 +477,8 @@ addToSheet(getSheet("group-background"), pFrameActive, "frame", commonBackground
 local pFrameCanAllocate = uiImages[string.lower(uIArt.PassiveFrameCanAllocate)].path
 addToSheet(getSheet("group-background"), pFrameCanAllocate, "frame", commonBackgroundMetadata("PSSkillFrameHighlighted", 104, 104, 4, ddsFormat))
 
+addToSheet(getSheet("group-background"), "art/2dart/uieffects/passiveskillscreen/nodeframemask.dds", "frame", commonBackgroundMetadata("PSSkillFrameMask", 104, 104, 4, ddsFormat))
+
 printf("Getting KeystoneFrame")
 local kFrameNormal = uiImages[string.lower(uIArt.KeystoneFrameNormal)].path
 addToSheet(getSheet("group-background"), kFrameNormal, "frame", commonBackgroundMetadata("KeystoneFrameUnallocated", 220, 224, 4, ddsFormat))
@@ -504,6 +508,16 @@ addToSheet(getSheet("group-background"), gBgMediumBlank, "groupBackground", comm
 
 local gBgLargeBlank = uiImages[string.lower(uIArt.GroupBackgroundLargeBlank)].path
 addToSheet(getSheet("group-background"), gBgLargeBlank, "groupBackground", commonBackgroundMetadata("PSGroupBackgroundLargeBlank", 952, 952, 4, ddsFormat))
+
+printf("Getting JewelSocketFrame")
+local jFrameNormal = uiImages[string.lower("Art/2DArt/UIImages/InGame/SanctumPassiveSkillScreenJewelSocketCanAllocate")].path
+addToSheet(getSheet("group-background"), jFrameNormal, "frame", commonBackgroundMetadata("JewelFrameCanAllocate", 104, 104, 4, ddsFormat))
+
+local jFrameActive = uiImages[string.lower("Art/2DArt/UIImages/InGame/SanctumPassiveSkillScreenJewelSocketActive")].path
+addToSheet(getSheet("group-background"), jFrameActive, "frame", commonBackgroundMetadata("JewelFrameAllocated", 104, 104, 4, ddsFormat))
+
+local jFrameCanAllocate = uiImages[string.lower("Art/2DArt/UIImages/InGame/SanctumPassiveSkillScreenJewelSocketNormal")].path
+addToSheet(getSheet("group-background"), jFrameCanAllocate, "frame", commonBackgroundMetadata("JewelFrameUnallocated", 104, 104, 4, ddsFormat))
 
 -- we need to stract lines from dds
 local listAdditionalAssets = {
@@ -720,8 +734,7 @@ for i, group in ipairs(psg.groups) do
 			["group"] = i,
 			["orbit"] = passive.radious,
 			["orbitIndex"] = passive.position,
-			["in"] = {},
-			["out"] = {},	
+			["connections"] = {},	
 		}
 
 		-- Get Information from passive Skill
@@ -777,6 +790,10 @@ for i, group in ipairs(psg.groups) do
 
 				-- 	table.insert(node["masteryEffects"], effect)
 				-- end
+			elseif passiveRow.JewelSocket then
+				node["isJewelSocket"] = true
+				addToSheet(getSheet("skills"), passiveRow.Icon, "socketActive", skillNormalMetadata())
+				addToSheet(getSheet("skills-disabled"), passiveRow.Icon, "socketInactive", skillNormalMetadata())
 			else
 				addToSheet(getSheet("skills"), passiveRow.Icon, "normalActive", skillNormalMetadata())
 				addToSheet(getSheet("skills-disabled"), passiveRow.Icon, "normalInactive", skillNormalMetadata())
@@ -808,17 +825,10 @@ for i, group in ipairs(psg.groups) do
 		end
 		
 		for k, connection in ipairs(passive.connections) do
-			-- validate connection to itself and not allow
-			if connection.id == passive.id then
-				printf("Node " .. passive.id .. " has a connection to itself")
-				goto nextconnection
-			end
-			table.insert(node.out, tostring(connection.id))
-			if nodesIn[connection.id] == nil then
-				nodesIn[connection.id] = {}
-			end
-			nodesIn[connection.id][passive.id] = true
-			:: nextconnection ::
+			table.insert(node.connections, {
+				id = connection.id,
+				orbit = connection.radious,
+			})
 		end
 
 		-- classStartIndex: is this node exist in psg.passives
@@ -832,7 +842,7 @@ for i, group in ipairs(psg.groups) do
 		orbits[passive.radious + 1] = true
 		orbitsConstants[passive.radious + 1] = math.max(orbitsConstants[passive.radious + 1] or 1, passive.position)
 		tree.nodes[passive.id] = node
-		table.insert(treeGroup.nodes, tostring(passive.id))
+		table.insert(treeGroup.nodes, passive.id)
 		:: exitnode ::
 	end
 
@@ -853,32 +863,6 @@ for i, orbit in ipairs(orbitsConstants) do
 	-- only numbers base on 12
 	orbit = i == 1 and orbit or math.ceil(orbit / 12) * 12
 	tree.constants.skillsPerOrbit[i] = orbit
-end
-
--- mapping nodes in base on nodes out
-printf("Mapping nodes...")
--- print_table(nodesIn, 0)
-for id, inIds in pairs(nodesIn) do
-	for inId, _ in pairs(inIds) do
-		if tree.nodes[id] == nil then
-			printf("Node " .. inId .. " not found")
-			-- remove from out
-			local node = tree.nodes[inId]
-			for i, outId in ipairs(node.out) do
-				if tonumber(outId) == id then
-					table.remove(node.out, i)
-					break
-				end
-			end
-			goto continuepassive
-		end
-		if id == inId then
-			printf("Node " .. id .. " has a connection to itself")
-			goto continuepassive
-		end
-		table.insert(tree.nodes[id]["in"], tostring(inId))
-		:: continuepassive ::
-	end
 end
 
 MakeDir(basePath .. version)
@@ -937,6 +921,15 @@ for i, sheet in ipairs(sheets) do
 				w = coords.w,
 				h = coords.h,
 			}
+
+			-- validate with mipmap if w and h are different and use that spaced
+			if coords.mipmap and coords.mipmap.width ~= sprite.w then
+				sprite.w = coords.mipmap.width
+			end
+
+			if coords.mipmap and coords.mipmap.height ~= sprite.h then
+				sprite.h = coords.mipmap.height
+			end
 
 			if sections[coords.section] == nil then
 				sections[coords.section] = {}
