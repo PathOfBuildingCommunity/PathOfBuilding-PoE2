@@ -434,12 +434,11 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 				elseif specName == "Sockets" then
 					local group = 0
 					for c in specVal:gmatch(".") do
-						if c:match("[RGBWA]") then
-							t_insert(self.sockets, { color = c, group = group })
-						elseif c == " " then
-							group = group + 1
+						if c:match("[S]") then
+							t_insert(self.sockets, { })
 						end
 					end
+					self.socketCount = #self.sockets
 				elseif specName == "Radius" and self.type == "Jewel" then
 					self.jewelRadiusLabel = specVal:match("^%a+")
 					if specVal:match("^%a+") == "Variable" then
@@ -486,9 +485,6 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 					end
 					self.armourData = self.armourData or { }
 					self.armourData[specName] = specToNumber(specVal)
-				elseif specName:match("BasePercentile") then
-					self.armourData = self.armourData or { }
-					self.armourData[specName] = specToNumber(specVal) or 0
 				elseif specName == "Requires Level" then
 					self.requirements.level = specToNumber(specVal)
 				elseif specName == "Level" then
@@ -703,7 +699,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 						self.requirements.dex = self.base.req.dex or 0
 						self.requirements.int = self.base.req.int or 0
 						local maxReq = m_max(self.requirements.str, self.requirements.dex, self.requirements.int)
-						self.defaultSocketColor = (maxReq == self.requirements.dex and "G") or (maxReq == self.requirements.int and "B") or "R"
+						self.defaultSocketColor = "S"
 						if self.base.flask and self.base.flask.buff and not flaskBuffLines then
 							flaskBuffLines = { }
 							for _, line in ipairs(self.base.flask.buff) do
@@ -888,10 +884,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 	if self.base and self.base.socketLimit then
 		if #self.sockets == 0 then
 			for i = 1, self.base.socketLimit do
-				t_insert(self.sockets, {
-					color = self.defaultSocketColor,
-					group = 0,
-				})
+				t_insert(self.sockets, { })
 			end
 		end
 	end
@@ -1006,9 +999,6 @@ function ItemClass:BuildRaw()
 		for _, type in ipairs({ "Armour", "Evasion", "EnergyShield", "Ward" }) do
 			if self.armourData[type] and self.armourData[type] > 0 then
 				t_insert(rawLines, type:gsub("EnergyShield", "Energy Shield") .. ": " .. self.armourData[type])
-				if self.armourData[type .. "BasePercentile"] then
-					t_insert(rawLines, type .. "BasePercentile: " .. self.armourData[type .. "BasePercentile"])
-				end
 			end
 		end
 	end
@@ -1132,7 +1122,12 @@ function ItemClass:BuildRaw()
 		t_insert(rawLines, "Quality: " .. self.quality)
 	end
 	if self.sockets then
-		t_insert(rawLines, "Sockets: " .. #self.sockets)
+		local socketString = ""
+		for _, socket in ipairs(self.sockets) do
+			socketString = socketString .. "S "
+		end
+		socketString = socketString:gsub(" $", "")
+		t_insert(rawLines, "Sockets: " .. socketString)
 	end
 	if self.requirements and self.requirements.level then
 		t_insert(rawLines, "LevelReq: " .. self.requirements.level)
@@ -1333,19 +1328,6 @@ function ItemClass:BuildModListForSlotNum(baseList, slotNum)
 			modList:AddMod(mod)
 		end
 	end
-	if #self.sockets > 0 then
-		local multiName = {
-			R = "Multiplier:RedSocketIn"..slotName,
-			G = "Multiplier:GreenSocketIn"..slotName,
-			B = "Multiplier:BlueSocketIn"..slotName,
-			W = "Multiplier:WhiteSocketIn"..slotName,
-		}
-		for _, socket in ipairs(self.sockets) do
-			if multiName[socket.color] then
-				modList:NewMod(multiName[socket.color], "BASE", 1, "Item Sockets")
-			end
-		end
-	end
 	local craftedQuality = calcLocal(modList,"Quality","BASE",0) or 0
 	if craftedQuality ~= self.craftedQuality then
 		if self.craftedQuality then
@@ -1414,17 +1396,13 @@ function ItemClass:BuildModListForSlotNum(baseList, slotNum)
 		end
 	elseif self.base.armour then
 		local armourData = self.armourData
-		local armourBase = calcLocal(modList, "Armour", "BASE", 0) + (self.base.armour.ArmourBaseMin or 0)
-		local armourVariance = (self.base.armour.ArmourBaseMax or 0) - (self.base.armour.ArmourBaseMin or 0)
+		local armourBase = calcLocal(modList, "Armour", "BASE", 0) + (self.base.armour.Armour or 0)
 		local armourEvasionBase = calcLocal(modList, "ArmourAndEvasion", "BASE", 0)
-		local evasionBase = calcLocal(modList, "Evasion", "BASE", 0) + (self.base.armour.EvasionBaseMin or 0)
-		local evasionVariance = (self.base.armour.EvasionBaseMax or 0) - (self.base.armour.EvasionBaseMin or 0)
+		local evasionBase = calcLocal(modList, "Evasion", "BASE", 0) + (self.base.armour.Evasion or 0)
 		local evasionEnergyShieldBase = calcLocal(modList, "EvasionAndEnergyShield", "BASE", 0)
-		local energyShieldBase = calcLocal(modList, "EnergyShield", "BASE", 0) + (self.base.armour.EnergyShieldBaseMin or 0)
-		local energyShieldVariance = (self.base.armour.EnergyShieldBaseMax or 0) - (self.base.armour.EnergyShieldBaseMin or 0)
+		local energyShieldBase = calcLocal(modList, "EnergyShield", "BASE", 0) + (self.base.armour.EnergyShield or 0)
 		local armourEnergyShieldBase = calcLocal(modList, "ArmourAndEnergyShield", "BASE", 0)
-		local wardBase = calcLocal(modList, "Ward", "BASE", 0) + (self.base.armour.WardBaseMin or 0)
-		local wardVariance = (self.base.armour.WardBaseMax or 0) - (self.base.armour.WardBaseMin or 0)
+		local wardBase = calcLocal(modList, "Ward", "BASE", 0) + (self.base.armour.Ward or 0)
 		local armourInc = calcLocal(modList, "Armour", "INC", 0)
 		local armourEvasionInc = calcLocal(modList, "ArmourAndEvasion", "INC", 0)
 		local evasionInc = calcLocal(modList, "Evasion", "INC", 0)
@@ -1437,41 +1415,11 @@ function ItemClass:BuildModListForSlotNum(baseList, slotNum)
 		if calcLocal(modList, "AlternateQualityArmour", "BASE", 0) > 0 then
 			qualityScalar = 0
 		end
-		-- base percentiles need to differ for each armour type, as they're weighted differently
-		if armourData.Armour and armourData.Armour > 0 and not armourData.ArmourBasePercentile then
-			armourData.ArmourBasePercentile = ((armourData.Armour / ((1 + (armourInc + armourEvasionInc + armourEnergyShieldInc + defencesInc) / 100) * (1 + (qualityScalar / 100))) - armourBase)) / armourVariance
-			armourData.ArmourBasePercentile = round(m_max(m_min(armourData.ArmourBasePercentile, 1), 0), 4)
-		end
-		if armourData.Evasion and armourData.Evasion > 0 and not armourData.EvasionBasePercentile then
-			armourData.EvasionBasePercentile = ((armourData.Evasion / ((1 + (evasionInc + armourEvasionInc + evasionEnergyShieldInc + defencesInc) / 100) * (1 + (qualityScalar / 100))) - evasionBase)) / evasionVariance
-			armourData.EvasionBasePercentile = round(m_max(m_min(armourData.EvasionBasePercentile, 1), 0), 4)
-		end
-		if armourData.EnergyShield and armourData.EnergyShield > 0 and not armourData.EnergyShieldBasePercentile then
-			armourData.EnergyShieldBasePercentile = ((armourData.EnergyShield / ((1 + (energyShieldInc + armourEnergyShieldInc + evasionEnergyShieldInc + defencesInc) / 100) * (1 + (qualityScalar / 100))) - energyShieldBase)) / energyShieldVariance
-			armourData.EnergyShieldBasePercentile = round(m_max(m_min(armourData.EnergyShieldBasePercentile, 1), 0), 4)
-		end
-		if armourData.Ward and armourData.Ward > 0 and not armourData.WardBasePercentile then
-			armourData.WardBasePercentile = ((armourData.Ward / ((1 + (wardInc + defencesInc) / 100) * (1 + (qualityScalar / 100))) - wardBase)) / wardVariance
-			armourData.WardBasePercentile = round(m_max(m_min(armourData.WardBasePercentile, 1), 0),4)
-		end
 
-		armourData.Armour = round((armourBase + armourEvasionBase + armourEnergyShieldBase + armourVariance * (armourData.ArmourBasePercentile or 1)) * (1 + (armourInc + armourEvasionInc + armourEnergyShieldInc + defencesInc) / 100) * (1 + (qualityScalar / 100)))
-		armourData.Evasion = round((evasionBase + armourEvasionBase + evasionEnergyShieldBase + evasionVariance * (armourData.EvasionBasePercentile or 1)) * (1 + (evasionInc + armourEvasionInc + evasionEnergyShieldInc + defencesInc) / 100) * (1 + (qualityScalar / 100)))
-		armourData.EnergyShield = round((energyShieldBase + evasionEnergyShieldBase + armourEnergyShieldBase + energyShieldVariance * (armourData.EnergyShieldBasePercentile or 1)) * (1 + (energyShieldInc + armourEnergyShieldInc + evasionEnergyShieldInc + defencesInc) / 100) * (1 + (qualityScalar / 100)))
-		armourData.Ward = round((wardBase + wardVariance * (armourData.WardBasePercentile or 1)) * (1 + (wardInc + defencesInc) / 100) * (1 + (qualityScalar / 100)))
-
-		if not armourData.ArmourBasePercentile and armourData.Armour > 0 then
-			armourData.ArmourBasePercentile = 1
-		end
-		if not armourData.EvasionBasePercentile and armourData.Evasion > 0 then
-			armourData.EvasionBasePercentile = 1
-		end
-		if not armourData.EnergyShieldBasePercentile and armourData.EnergyShield > 0 then
-			armourData.EnergyShieldBasePercentile = 1
-		end
-		if not armourData.WardBasePercentile and armourData.Ward > 0 then
-			armourData.WardBasePercentile = 1
-		end
+		armourData.Armour = round((armourBase + armourEvasionBase + armourEnergyShieldBase) * (1 + (armourInc + armourEvasionInc + armourEnergyShieldInc + defencesInc) / 100) * (1 + (qualityScalar / 100)))
+		armourData.Evasion = round((evasionBase + armourEvasionBase + evasionEnergyShieldBase) * (1 + (evasionInc + armourEvasionInc + evasionEnergyShieldInc + defencesInc) / 100) * (1 + (qualityScalar / 100)))
+		armourData.EnergyShield = round((energyShieldBase + evasionEnergyShieldBase + armourEnergyShieldBase) * (1 + (energyShieldInc + armourEnergyShieldInc + evasionEnergyShieldInc + defencesInc) / 100) * (1 + (qualityScalar / 100)))
+		armourData.Ward = round((wardBase) * (1 + (wardInc + defencesInc) / 100) * (1 + (qualityScalar / 100)))
 
 		if self.base.armour.BlockChance then
 			armourData.BlockChance = m_floor((self.base.armour.BlockChance + calcLocal(modList, "BlockChance", "BASE", 0)) * (1 + calcLocal(modList, "BlockChance", "INC", 0) / 100))
@@ -1698,19 +1646,15 @@ function ItemClass:BuildModList()
 		end
 	end
 
-	self.socketCount = calcLocal(baseList, "SocketCount", "BASE", 0)
+	self.socketCount = #self.sockets
 	if calcLocal(baseList, "NoSockets", "FLAG", 0) then
 		-- Remove all sockets
 		wipeTable(self.sockets)
 	elseif self.socketCount > 0 then
 		-- Ensure that there are the correct number of abyssal sockets present
 		local newSockets = { }
-		local group = 0
 		for i = 1, self.socketCount do
-			group = group + 1
-			t_insert(newSockets, {
-				group = group
-			})
+			t_insert(newSockets, {})
 		end
 		self.sockets = newSockets
 	end

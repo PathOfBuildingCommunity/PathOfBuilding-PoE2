@@ -24,10 +24,7 @@ local rarityDropList = {
 }
 
 local socketDropList = {
-	{ label = colorCodes.STRENGTH.."R", color = "R" },
-	{ label = colorCodes.DEXTERITY.."G", color = "G" },
-	{ label = colorCodes.INTELLIGENCE.."B", color = "B" },
-	{ label = colorCodes.SCION.."W", color = "W" }
+	{ label = colorCodes.SCION.."S", color = "W" }
 }
 
 local baseSlots = { "Weapon 1", "Weapon 2", "Helmet", "Body Armour", "Gloves", "Boots", "Amulet", "Ring 1", "Ring 2", "Belt", "Charm 1", "Charm 2", "Charm 3", "Flask 1", "Flask 2" }
@@ -135,7 +132,11 @@ local ItemsTabClass = newClass("ItemsTab", "UndoHandler", "ControlHost", "Contro
 		end
 		if slotName == "Weapon 1" or slotName == "Weapon 2" or slotName == "Helmet" or slotName == "Gloves" or slotName == "Body Armour" or slotName == "Boots" or slotName == "Belt" then
 			-- Add Rune / Soul Core Socket slots
-			for i = 1, 3 do
+			local maxSocketCount = 3
+			if slotName == "Body Armour" then
+				maxSocketCount = 6
+			end
+			for i = 1, maxSocketCount do
 				local socket = new("ItemSlotControl", {"TOPLEFT",prevSlot,"BOTTOMLEFT"}, 0, 2, self, slotName.." Socket "..i, "Socket #"..i)			
 				addSlot(socket)
 				socket.parentSlot = slot
@@ -3321,7 +3322,12 @@ function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode)
 	end
 
 	if #item.sockets > 0 then
-		tooltip:AddLine(16, "^x7F7F7FSockets: "..tostring(#item.sockets))
+		local socketString = ""
+		for _, socket in ipairs(item.sockets) do
+			socketString = socketString .. "S "
+		end
+		socketString = socketString:gsub(" $", "")
+		tooltip:AddLine(16, "^x7F7F7FSockets: " .. socketString)
 	end
 	tooltip:AddSeparator(10)
 

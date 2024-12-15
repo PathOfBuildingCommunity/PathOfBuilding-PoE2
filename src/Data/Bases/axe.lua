@@ -19,7 +19,7 @@ itemBases["Hook Axe"] = {
 	implicit = "Gain 1 Rage on Hit",
 	implicitModTypes = { {  }, },
 	weapon = { PhysicalMin = 5, PhysicalMax = 14, CritChanceBase = 5, AttackRateBase = 1.45, Range = 11, },
-	req = { },
+	req = { str = 10, },
 }
 itemBases["Bearded Axe"] = {
 	type = "One Handed Axe",
@@ -28,7 +28,7 @@ itemBases["Bearded Axe"] = {
 	influenceTags = { shaper = "axe_shaper", elder = "axe_elder", adjudicator = "axe_adjudicator", basilisk = "axe_basilisk", crusader = "axe_crusader", eyrie = "axe_eyrie", cleansing = "axe_cleansing", tangle = "axe_tangle" },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 8, PhysicalMax = 21, CritChanceBase = 5, AttackRateBase = 1.45, Range = 11, },
-	req = { level = 10, },
+	req = { level = 10, str = 20, dex = 10, },
 }
 itemBases["Extended Cleaver"] = {
 	type = "One Handed Axe",
@@ -38,7 +38,7 @@ itemBases["Extended Cleaver"] = {
 	implicit = "Has no Accuracy Penalty from Range",
 	implicitModTypes = { {  }, },
 	weapon = { PhysicalMin = 8, PhysicalMax = 25, CritChanceBase = 5, AttackRateBase = 1.5, Range = 11, },
-	req = { level = 16, },
+	req = { level = 16, str = 30, dex = 14, },
 }
 itemBases["Bandit Hatchet"] = {
 	type = "One Handed Axe",
@@ -47,7 +47,7 @@ itemBases["Bandit Hatchet"] = {
 	influenceTags = { shaper = "axe_shaper", elder = "axe_elder", adjudicator = "axe_adjudicator", basilisk = "axe_basilisk", crusader = "axe_crusader", eyrie = "axe_eyrie", cleansing = "axe_cleansing", tangle = "axe_tangle" },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 13, PhysicalMax = 31, CritChanceBase = 5, AttackRateBase = 1.5, Range = 11, },
-	req = { level = 20, },
+	req = { level = 20, str = 37, dex = 16, },
 }
 itemBases["Crescent Axe"] = {
 	type = "One Handed Axe",
@@ -56,7 +56,7 @@ itemBases["Crescent Axe"] = {
 	influenceTags = { shaper = "axe_shaper", elder = "axe_elder", adjudicator = "axe_adjudicator", basilisk = "axe_basilisk", crusader = "axe_crusader", eyrie = "axe_eyrie", cleansing = "axe_cleansing", tangle = "axe_tangle" },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 18, PhysicalMax = 37, CritChanceBase = 6.5, AttackRateBase = 1.4, Range = 11, },
-	req = { level = 26, },
+	req = { level = 26, str = 48, dex = 20, },
 }
 itemBases["Carving Hatchet"] = {
 	type = "One Handed Axe",
@@ -65,7 +65,7 @@ itemBases["Carving Hatchet"] = {
 	influenceTags = { shaper = "axe_shaper", elder = "axe_elder", adjudicator = "axe_adjudicator", basilisk = "axe_basilisk", crusader = "axe_crusader", eyrie = "axe_eyrie", cleansing = "axe_cleansing", tangle = "axe_tangle" },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 19, PhysicalMax = 44, CritChanceBase = 5, AttackRateBase = 1.5, Range = 11, },
-	req = { level = 33, },
+	req = { level = 33, str = 60, dex = 25, },
 }
 itemBases["Sacrificial Axe"] = {
 	type = "One Handed Axe",
@@ -75,7 +75,7 @@ itemBases["Sacrificial Axe"] = {
 	implicit = "Gain (28-35) Mana per Enemy Killed",
 	implicitModTypes = { { "resource", "mana" }, },
 	weapon = { PhysicalMin = 20, PhysicalMax = 42, CritChanceBase = 5, AttackRateBase = 1.5, Range = 11, },
-	req = { level = 37, },
+	req = { level = 37, str = 67, dex = 27, },
 }
 itemBases["Boarding Hatchet"] = {
 	type = "One Handed Axe",
@@ -84,7 +84,7 @@ itemBases["Boarding Hatchet"] = {
 	influenceTags = { shaper = "axe_shaper", elder = "axe_elder", adjudicator = "axe_adjudicator", basilisk = "axe_basilisk", crusader = "axe_crusader", eyrie = "axe_eyrie", cleansing = "axe_cleansing", tangle = "axe_tangle" },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 24, PhysicalMax = 55, CritChanceBase = 5, AttackRateBase = 1.55, Range = 11, },
-	req = { level = 45, },
+	req = { level = 45, str = 81, dex = 33, },
 }
 itemBases["Fury Cleaver"] = {
 	type = "One Handed Axe",
@@ -94,7 +94,7 @@ itemBases["Fury Cleaver"] = {
 	implicit = "10% increased Damage taken",
 	implicitModTypes = { {  }, },
 	weapon = { PhysicalMin = 30, PhysicalMax = 62, CritChanceBase = 5, AttackRateBase = 1.55, Range = 11, },
-	req = { level = 48, },
+	req = { level = 48, str = 86, dex = 35, },
 }
 itemBases["Battle Axe"] = {
 	type = "One Handed Axe",
@@ -103,7 +103,7 @@ itemBases["Battle Axe"] = {
 	influenceTags = { shaper = "axe_shaper", elder = "axe_elder", adjudicator = "axe_adjudicator", basilisk = "axe_basilisk", crusader = "axe_crusader", eyrie = "axe_eyrie", cleansing = "axe_cleansing", tangle = "axe_tangle" },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 28, PhysicalMax = 65, CritChanceBase = 5, AttackRateBase = 1.5, Range = 11, },
-	req = { level = 52, },
+	req = { level = 52, str = 93, dex = 37, },
 }
 itemBases["Profane Cleaver"] = {
 	type = "One Handed Axe",
@@ -112,7 +112,7 @@ itemBases["Profane Cleaver"] = {
 	influenceTags = { shaper = "axe_shaper", elder = "axe_elder", adjudicator = "axe_adjudicator", basilisk = "axe_basilisk", crusader = "axe_crusader", eyrie = "axe_eyrie", cleansing = "axe_cleansing", tangle = "axe_tangle" },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 26, PhysicalMax = 69, CritChanceBase = 5, AttackRateBase = 1.5, Range = 11, },
-	req = { level = 54, },
+	req = { level = 54, str = 96, dex = 38, },
 }
 itemBases["Dread Hatchet"] = {
 	type = "One Handed Axe",
@@ -121,7 +121,7 @@ itemBases["Dread Hatchet"] = {
 	influenceTags = { shaper = "axe_shaper", elder = "axe_elder", adjudicator = "axe_adjudicator", basilisk = "axe_basilisk", crusader = "axe_crusader", eyrie = "axe_eyrie", cleansing = "axe_cleansing", tangle = "axe_tangle" },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 34, PhysicalMax = 79, CritChanceBase = 5, AttackRateBase = 1.5, Range = 11, },
-	req = { level = 65, },
+	req = { level = 65, str = 116, dex = 45, },
 }
 
 itemBases["Splitting Greataxe"] = {
@@ -140,7 +140,7 @@ itemBases["Light Halberd"] = {
 	influenceTags = { shaper = "2h_axe_shaper", elder = "2h_axe_elder", adjudicator = "2h_axe_adjudicator", basilisk = "2h_axe_basilisk", crusader = "2h_axe_crusader", eyrie = "2h_axe_eyrie", cleansing = "2h_axe_cleansing", tangle = "2h_axe_tangle" },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 10, PhysicalMax = 25, CritChanceBase = 5, AttackRateBase = 1.25, Range = 13, },
-	req = { },
+	req = { str = 10, },
 }
 itemBases["Executioner Greataxe"] = {
 	type = "Two Handed Axe",
@@ -150,7 +150,7 @@ itemBases["Executioner Greataxe"] = {
 	implicit = "Culling Strike",
 	implicitModTypes = { {  }, },
 	weapon = { PhysicalMin = 10, PhysicalMax = 41, CritChanceBase = 5, AttackRateBase = 1.2, Range = 13, },
-	req = { level = 10, },
+	req = { level = 10, str = 20, dex = 10, },
 }
 itemBases["Arched Greataxe"] = {
 	type = "Two Handed Axe",
@@ -159,7 +159,7 @@ itemBases["Arched Greataxe"] = {
 	influenceTags = { shaper = "2h_axe_shaper", elder = "2h_axe_elder", adjudicator = "2h_axe_adjudicator", basilisk = "2h_axe_basilisk", crusader = "2h_axe_crusader", eyrie = "2h_axe_eyrie", cleansing = "2h_axe_cleansing", tangle = "2h_axe_tangle" },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 17, PhysicalMax = 59, CritChanceBase = 5, AttackRateBase = 1.15, Range = 13, },
-	req = { level = 16, },
+	req = { level = 16, str = 30, dex = 14, },
 }
 itemBases["Elegant Glaive"] = {
 	type = "Two Handed Axe",
@@ -168,7 +168,7 @@ itemBases["Elegant Glaive"] = {
 	influenceTags = { shaper = "2h_axe_shaper", elder = "2h_axe_elder", adjudicator = "2h_axe_adjudicator", basilisk = "2h_axe_basilisk", crusader = "2h_axe_crusader", eyrie = "2h_axe_eyrie", cleansing = "2h_axe_cleansing", tangle = "2h_axe_tangle" },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 19, PhysicalMax = 64, CritChanceBase = 5, AttackRateBase = 1.2, Range = 13, },
-	req = { level = 20, },
+	req = { level = 20, str = 37, dex = 16, },
 }
 itemBases["Savage Greataxe"] = {
 	type = "Two Handed Axe",
@@ -178,7 +178,7 @@ itemBases["Savage Greataxe"] = {
 	implicit = "Gain (34-43) Life per Enemy Killed",
 	implicitModTypes = { { "resource", "life" }, },
 	weapon = { PhysicalMin = 23, PhysicalMax = 70, CritChanceBase = 5, AttackRateBase = 1.2, Range = 13, },
-	req = { level = 27, },
+	req = { level = 27, str = 50, dex = 21, },
 }
 itemBases["Rending Halberd"] = {
 	type = "Two Handed Axe",
@@ -187,7 +187,7 @@ itemBases["Rending Halberd"] = {
 	influenceTags = { shaper = "2h_axe_shaper", elder = "2h_axe_elder", adjudicator = "2h_axe_adjudicator", basilisk = "2h_axe_basilisk", crusader = "2h_axe_crusader", eyrie = "2h_axe_eyrie", cleansing = "2h_axe_cleansing", tangle = "2h_axe_tangle" },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 27, PhysicalMax = 91, CritChanceBase = 6.5, AttackRateBase = 1.2, Range = 13, },
-	req = { level = 33, },
+	req = { level = 33, str = 60, dex = 25, },
 }
 itemBases["Jagged Greataxe"] = {
 	type = "Two Handed Axe",
@@ -197,7 +197,7 @@ itemBases["Jagged Greataxe"] = {
 	implicit = "(15-25)% chance to cause Bleeding on Hit",
 	implicitModTypes = { { "bleed", "physical", "attack", "ailment" }, },
 	weapon = { PhysicalMin = 43, PhysicalMax = 99, CritChanceBase = 5, AttackRateBase = 1.15, Range = 13, },
-	req = { level = 40, },
+	req = { level = 40, str = 72, dex = 29, },
 }
 itemBases["Reaver Glaive"] = {
 	type = "Two Handed Axe",
@@ -206,7 +206,7 @@ itemBases["Reaver Glaive"] = {
 	influenceTags = { shaper = "2h_axe_shaper", elder = "2h_axe_elder", adjudicator = "2h_axe_adjudicator", basilisk = "2h_axe_basilisk", crusader = "2h_axe_crusader", eyrie = "2h_axe_eyrie", cleansing = "2h_axe_cleansing", tangle = "2h_axe_tangle" },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 43, PhysicalMax = 113, CritChanceBase = 5, AttackRateBase = 1.2, Range = 13, },
-	req = { level = 45, },
+	req = { level = 45, str = 81, dex = 33, },
 }
 itemBases["Ember Greataxe"] = {
 	type = "Two Handed Axe",
@@ -215,7 +215,7 @@ itemBases["Ember Greataxe"] = {
 	influenceTags = { shaper = "2h_axe_shaper", elder = "2h_axe_elder", adjudicator = "2h_axe_adjudicator", basilisk = "2h_axe_basilisk", crusader = "2h_axe_crusader", eyrie = "2h_axe_eyrie", cleansing = "2h_axe_cleansing", tangle = "2h_axe_tangle" },
 	implicitModTypes = { },
 	weapon = { FireMin = 58, FireMax = 154, CritChanceBase = 5, AttackRateBase = 1.2, Range = 13, },
-	req = { level = 50, },
+	req = { level = 50, str = 89, dex = 36, },
 }
 itemBases["Ceremonial Halberd"] = {
 	type = "Two Handed Axe",
@@ -224,7 +224,7 @@ itemBases["Ceremonial Halberd"] = {
 	influenceTags = { shaper = "2h_axe_shaper", elder = "2h_axe_elder", adjudicator = "2h_axe_adjudicator", basilisk = "2h_axe_basilisk", crusader = "2h_axe_crusader", eyrie = "2h_axe_eyrie", cleansing = "2h_axe_cleansing", tangle = "2h_axe_tangle" },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 53, PhysicalMax = 123, CritChanceBase = 5, AttackRateBase = 1.2, Range = 13, },
-	req = { level = 52, },
+	req = { level = 52, str = 93, dex = 37, },
 }
 itemBases["Monument Greataxe"] = {
 	type = "Two Handed Axe",
@@ -233,7 +233,7 @@ itemBases["Monument Greataxe"] = {
 	influenceTags = { shaper = "2h_axe_shaper", elder = "2h_axe_elder", adjudicator = "2h_axe_adjudicator", basilisk = "2h_axe_basilisk", crusader = "2h_axe_crusader", eyrie = "2h_axe_eyrie", cleansing = "2h_axe_cleansing", tangle = "2h_axe_tangle" },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 48, PhysicalMax = 143, CritChanceBase = 5, AttackRateBase = 1.2, Range = 13, },
-	req = { level = 57, },
+	req = { level = 57, str = 102, dex = 40, },
 }
 itemBases["Vile Greataxe"] = {
 	type = "Two Handed Axe",
@@ -242,5 +242,5 @@ itemBases["Vile Greataxe"] = {
 	influenceTags = { shaper = "2h_axe_shaper", elder = "2h_axe_elder", adjudicator = "2h_axe_adjudicator", basilisk = "2h_axe_basilisk", crusader = "2h_axe_crusader", eyrie = "2h_axe_eyrie", cleansing = "2h_axe_cleansing", tangle = "2h_axe_tangle" },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 59, PhysicalMax = 155, CritChanceBase = 5, AttackRateBase = 1.2, Range = 13, },
-	req = { level = 65, },
+	req = { level = 65, str = 116, dex = 45, },
 }

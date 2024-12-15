@@ -39,7 +39,7 @@ itemBases["Soldier Greathelm"] = {
 	influenceTags = { shaper = "helmet_shaper", elder = "helmet_elder", adjudicator = "helmet_adjudicator", basilisk = "helmet_basilisk", crusader = "helmet_crusader", eyrie = "helmet_eyrie", cleansing = "helmet_cleansing", tangle = "helmet_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 66, },
-	req = { level = 12, },
+	req = { level = 12, str = 23, },
 }
 itemBases["Wrapped Greathelm"] = {
 	type = "Helmet",
@@ -48,7 +48,7 @@ itemBases["Wrapped Greathelm"] = {
 	influenceTags = { shaper = "helmet_shaper", elder = "helmet_elder", adjudicator = "helmet_adjudicator", basilisk = "helmet_basilisk", crusader = "helmet_crusader", eyrie = "helmet_eyrie", cleansing = "helmet_cleansing", tangle = "helmet_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 79, },
-	req = { level = 16, },
+	req = { level = 16, str = 30, },
 }
 itemBases["Spired Greathelm"] = {
 	type = "Helmet",
@@ -57,7 +57,7 @@ itemBases["Spired Greathelm"] = {
 	influenceTags = { shaper = "helmet_shaper", elder = "helmet_elder", adjudicator = "helmet_adjudicator", basilisk = "helmet_basilisk", crusader = "helmet_crusader", eyrie = "helmet_eyrie", cleansing = "helmet_cleansing", tangle = "helmet_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 116, },
-	req = { level = 27, },
+	req = { level = 27, str = 50, },
 }
 itemBases["Elite Greathelm"] = {
 	type = "Helmet",
@@ -66,7 +66,7 @@ itemBases["Elite Greathelm"] = {
 	influenceTags = { shaper = "helmet_shaper", elder = "helmet_elder", adjudicator = "helmet_adjudicator", basilisk = "helmet_basilisk", crusader = "helmet_crusader", eyrie = "helmet_eyrie", cleansing = "helmet_cleansing", tangle = "helmet_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 136, },
-	req = { level = 33, },
+	req = { level = 33, str = 61, },
 }
 itemBases["Warrior Greathelm"] = {
 	type = "Helmet",
@@ -75,7 +75,7 @@ itemBases["Warrior Greathelm"] = {
 	influenceTags = { shaper = "helmet_shaper", elder = "helmet_elder", adjudicator = "helmet_adjudicator", basilisk = "helmet_basilisk", crusader = "helmet_crusader", eyrie = "helmet_eyrie", cleansing = "helmet_cleansing", tangle = "helmet_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 146, },
-	req = { level = 36, },
+	req = { level = 36, str = 66, },
 }
 itemBases["Commander Greathelm"] = {
 	type = "Helmet",
@@ -84,7 +84,7 @@ itemBases["Commander Greathelm"] = {
 	influenceTags = { shaper = "helmet_shaper", elder = "helmet_elder", adjudicator = "helmet_adjudicator", basilisk = "helmet_basilisk", crusader = "helmet_crusader", eyrie = "helmet_eyrie", cleansing = "helmet_cleansing", tangle = "helmet_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 176, },
-	req = { level = 45, },
+	req = { level = 45, str = 83, },
 }
 itemBases["Fierce Greathelm"] = {
 	type = "Helmet",
@@ -93,7 +93,7 @@ itemBases["Fierce Greathelm"] = {
 	influenceTags = { shaper = "helmet_shaper", elder = "helmet_elder", adjudicator = "helmet_adjudicator", basilisk = "helmet_basilisk", crusader = "helmet_crusader", eyrie = "helmet_eyrie", cleansing = "helmet_cleansing", tangle = "helmet_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 196, },
-	req = { level = 51, },
+	req = { level = 51, str = 94, },
 }
 itemBases["Dueling Greathelm"] = {
 	type = "Helmet",
@@ -102,7 +102,7 @@ itemBases["Dueling Greathelm"] = {
 	influenceTags = { shaper = "helmet_shaper", elder = "helmet_elder", adjudicator = "helmet_adjudicator", basilisk = "helmet_basilisk", crusader = "helmet_crusader", eyrie = "helmet_eyrie", cleansing = "helmet_cleansing", tangle = "helmet_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 200, },
-	req = { level = 52, },
+	req = { level = 52, str = 95, },
 }
 itemBases["Goliath Greathelm"] = {
 	type = "Helmet",
@@ -111,7 +111,7 @@ itemBases["Goliath Greathelm"] = {
 	influenceTags = { shaper = "helmet_shaper", elder = "helmet_elder", adjudicator = "helmet_adjudicator", basilisk = "helmet_basilisk", crusader = "helmet_crusader", eyrie = "helmet_eyrie", cleansing = "helmet_cleansing", tangle = "helmet_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 216, },
-	req = { level = 57, },
+	req = { level = 57, str = 104, },
 }
 itemBases["Guardian Greathelm"] = {
 	type = "Helmet",
@@ -120,7 +120,7 @@ itemBases["Guardian Greathelm"] = {
 	influenceTags = { shaper = "helmet_shaper", elder = "helmet_elder", adjudicator = "helmet_adjudicator", basilisk = "helmet_basilisk", crusader = "helmet_crusader", eyrie = "helmet_eyrie", cleansing = "helmet_cleansing", tangle = "helmet_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 243, },
-	req = { level = 65, },
+	req = { level = 65, str = 118, },
 }
 itemBases["Shabby Hood"] = {
 	type = "Helmet",
@@ -138,7 +138,7 @@ itemBases["Felt Cap"] = {
 	influenceTags = { shaper = "helmet_shaper", elder = "helmet_elder", adjudicator = "helmet_adjudicator", basilisk = "helmet_basilisk", crusader = "helmet_crusader", eyrie = "helmet_eyrie", cleansing = "helmet_cleansing", tangle = "helmet_tangle" },
 	implicitModTypes = { },
 	armour = { Evasion = 48, },
-	req = { level = 10, },
+	req = { level = 10, dex = 20, },
 }
 itemBases["Lace Hood"] = {
 	type = "Helmet",
@@ -147,7 +147,7 @@ itemBases["Lace Hood"] = {
 	influenceTags = { shaper = "helmet_shaper", elder = "helmet_elder", adjudicator = "helmet_adjudicator", basilisk = "helmet_basilisk", crusader = "helmet_crusader", eyrie = "helmet_eyrie", cleansing = "helmet_cleansing", tangle = "helmet_tangle" },
 	implicitModTypes = { },
 	armour = { Evasion = 67, },
-	req = { level = 16, },
+	req = { level = 16, dex = 30, },
 }
 itemBases["Swathed Cap"] = {
 	type = "Helmet",
@@ -156,7 +156,7 @@ itemBases["Swathed Cap"] = {
 	influenceTags = { shaper = "helmet_shaper", elder = "helmet_elder", adjudicator = "helmet_adjudicator", basilisk = "helmet_basilisk", crusader = "helmet_crusader", eyrie = "helmet_eyrie", cleansing = "helmet_cleansing", tangle = "helmet_tangle" },
 	implicitModTypes = { },
 	armour = { Evasion = 98, },
-	req = { level = 26, },
+	req = { level = 26, dex = 49, },
 }
 itemBases["Hunter Hood"] = {
 	type = "Helmet",
@@ -165,7 +165,7 @@ itemBases["Hunter Hood"] = {
 	influenceTags = { shaper = "helmet_shaper", elder = "helmet_elder", adjudicator = "helmet_adjudicator", basilisk = "helmet_basilisk", crusader = "helmet_crusader", eyrie = "helmet_eyrie", cleansing = "helmet_cleansing", tangle = "helmet_tangle" },
 	implicitModTypes = { },
 	armour = { Evasion = 121, },
-	req = { level = 33, },
+	req = { level = 33, dex = 61, },
 }
 itemBases["Viper Cap"] = {
 	type = "Helmet",
@@ -174,7 +174,7 @@ itemBases["Viper Cap"] = {
 	influenceTags = { shaper = "helmet_shaper", elder = "helmet_elder", adjudicator = "helmet_adjudicator", basilisk = "helmet_basilisk", crusader = "helmet_crusader", eyrie = "helmet_eyrie", cleansing = "helmet_cleansing", tangle = "helmet_tangle" },
 	implicitModTypes = { },
 	armour = { Evasion = 136, },
-	req = { level = 38, },
+	req = { level = 38, dex = 70, },
 }
 itemBases["Corsair Cap"] = {
 	type = "Helmet",
@@ -183,7 +183,7 @@ itemBases["Corsair Cap"] = {
 	influenceTags = { shaper = "helmet_shaper", elder = "helmet_elder", adjudicator = "helmet_adjudicator", basilisk = "helmet_basilisk", crusader = "helmet_crusader", eyrie = "helmet_eyrie", cleansing = "helmet_cleansing", tangle = "helmet_tangle" },
 	implicitModTypes = { },
 	armour = { Evasion = 158, },
-	req = { level = 45, },
+	req = { level = 45, dex = 83, },
 }
 itemBases["Leatherbound Hood"] = {
 	type = "Helmet",
@@ -192,7 +192,7 @@ itemBases["Leatherbound Hood"] = {
 	influenceTags = { shaper = "helmet_shaper", elder = "helmet_elder", adjudicator = "helmet_adjudicator", basilisk = "helmet_basilisk", crusader = "helmet_crusader", eyrie = "helmet_eyrie", cleansing = "helmet_cleansing", tangle = "helmet_tangle" },
 	implicitModTypes = { },
 	armour = { Evasion = 177, },
-	req = { level = 51, },
+	req = { level = 51, dex = 94, },
 }
 itemBases["Velvet Cap"] = {
 	type = "Helmet",
@@ -201,7 +201,7 @@ itemBases["Velvet Cap"] = {
 	influenceTags = { shaper = "helmet_shaper", elder = "helmet_elder", adjudicator = "helmet_adjudicator", basilisk = "helmet_basilisk", crusader = "helmet_crusader", eyrie = "helmet_eyrie", cleansing = "helmet_cleansing", tangle = "helmet_tangle" },
 	implicitModTypes = { },
 	armour = { Evasion = 181, },
-	req = { level = 52, },
+	req = { level = 52, dex = 95, },
 }
 itemBases["Covert Hood"] = {
 	type = "Helmet",
@@ -210,7 +210,7 @@ itemBases["Covert Hood"] = {
 	influenceTags = { shaper = "helmet_shaper", elder = "helmet_elder", adjudicator = "helmet_adjudicator", basilisk = "helmet_basilisk", crusader = "helmet_crusader", eyrie = "helmet_eyrie", cleansing = "helmet_cleansing", tangle = "helmet_tangle" },
 	implicitModTypes = { },
 	armour = { Evasion = 193, },
-	req = { level = 56, },
+	req = { level = 56, dex = 102, },
 }
 itemBases["Armoured Cap"] = {
 	type = "Helmet",
@@ -219,7 +219,7 @@ itemBases["Armoured Cap"] = {
 	influenceTags = { shaper = "helmet_shaper", elder = "helmet_elder", adjudicator = "helmet_adjudicator", basilisk = "helmet_basilisk", crusader = "helmet_crusader", eyrie = "helmet_eyrie", cleansing = "helmet_cleansing", tangle = "helmet_tangle" },
 	implicitModTypes = { },
 	armour = { Evasion = 222, },
-	req = { level = 65, },
+	req = { level = 65, dex = 118, },
 }
 itemBases["Twig Circlet"] = {
 	type = "Helmet",
@@ -237,7 +237,7 @@ itemBases["Wicker Tiara"] = {
 	influenceTags = { shaper = "helmet_shaper", elder = "helmet_elder", adjudicator = "helmet_adjudicator", basilisk = "helmet_basilisk", crusader = "helmet_crusader", eyrie = "helmet_eyrie", cleansing = "helmet_cleansing", tangle = "helmet_tangle" },
 	implicitModTypes = { },
 	armour = { EnergyShield = 28, },
-	req = { level = 10, },
+	req = { level = 10, int = 20, },
 }
 itemBases["Beaded Circlet"] = {
 	type = "Helmet",
@@ -246,7 +246,7 @@ itemBases["Beaded Circlet"] = {
 	influenceTags = { shaper = "helmet_shaper", elder = "helmet_elder", adjudicator = "helmet_adjudicator", basilisk = "helmet_basilisk", crusader = "helmet_crusader", eyrie = "helmet_eyrie", cleansing = "helmet_cleansing", tangle = "helmet_tangle" },
 	implicitModTypes = { },
 	armour = { EnergyShield = 34, },
-	req = { level = 16, },
+	req = { level = 16, int = 30, },
 }
 itemBases["Chain Tiara"] = {
 	type = "Helmet",
@@ -255,7 +255,7 @@ itemBases["Chain Tiara"] = {
 	influenceTags = { shaper = "helmet_shaper", elder = "helmet_elder", adjudicator = "helmet_adjudicator", basilisk = "helmet_basilisk", crusader = "helmet_crusader", eyrie = "helmet_eyrie", cleansing = "helmet_cleansing", tangle = "helmet_tangle" },
 	implicitModTypes = { },
 	armour = { EnergyShield = 44, },
-	req = { level = 26, },
+	req = { level = 26, int = 49, },
 }
 itemBases["Feathered Tiara"] = {
 	type = "Helmet",
@@ -264,7 +264,7 @@ itemBases["Feathered Tiara"] = {
 	influenceTags = { shaper = "helmet_shaper", elder = "helmet_elder", adjudicator = "helmet_adjudicator", basilisk = "helmet_basilisk", crusader = "helmet_crusader", eyrie = "helmet_eyrie", cleansing = "helmet_cleansing", tangle = "helmet_tangle" },
 	implicitModTypes = { },
 	armour = { EnergyShield = 51, },
-	req = { level = 33, },
+	req = { level = 33, int = 61, },
 }
 itemBases["Gold Circlet"] = {
 	type = "Helmet",
@@ -273,7 +273,7 @@ itemBases["Gold Circlet"] = {
 	influenceTags = { shaper = "helmet_shaper", elder = "helmet_elder", adjudicator = "helmet_adjudicator", basilisk = "helmet_basilisk", crusader = "helmet_crusader", eyrie = "helmet_eyrie", cleansing = "helmet_cleansing", tangle = "helmet_tangle" },
 	implicitModTypes = { },
 	armour = { EnergyShield = 58, },
-	req = { level = 40, },
+	req = { level = 40, int = 74, },
 }
 itemBases["Coral Circlet"] = {
 	type = "Helmet",
@@ -282,7 +282,7 @@ itemBases["Coral Circlet"] = {
 	influenceTags = { shaper = "helmet_shaper", elder = "helmet_elder", adjudicator = "helmet_adjudicator", basilisk = "helmet_basilisk", crusader = "helmet_crusader", eyrie = "helmet_eyrie", cleansing = "helmet_cleansing", tangle = "helmet_tangle" },
 	implicitModTypes = { },
 	armour = { EnergyShield = 63, },
-	req = { level = 45, },
+	req = { level = 45, int = 83, },
 }
 itemBases["Jade Tiara"] = {
 	type = "Helmet",
@@ -291,7 +291,7 @@ itemBases["Jade Tiara"] = {
 	influenceTags = { shaper = "helmet_shaper", elder = "helmet_elder", adjudicator = "helmet_adjudicator", basilisk = "helmet_basilisk", crusader = "helmet_crusader", eyrie = "helmet_eyrie", cleansing = "helmet_cleansing", tangle = "helmet_tangle" },
 	implicitModTypes = { },
 	armour = { EnergyShield = 69, },
-	req = { level = 50, },
+	req = { level = 50, int = 92, },
 }
 itemBases["Noble Circlet"] = {
 	type = "Helmet",
@@ -300,7 +300,7 @@ itemBases["Noble Circlet"] = {
 	influenceTags = { shaper = "helmet_shaper", elder = "helmet_elder", adjudicator = "helmet_adjudicator", basilisk = "helmet_basilisk", crusader = "helmet_crusader", eyrie = "helmet_eyrie", cleansing = "helmet_cleansing", tangle = "helmet_tangle" },
 	implicitModTypes = { },
 	armour = { EnergyShield = 71, },
-	req = { level = 52, },
+	req = { level = 52, int = 95, },
 }
 itemBases["Twilight Tiara"] = {
 	type = "Helmet",
@@ -309,7 +309,7 @@ itemBases["Twilight Tiara"] = {
 	influenceTags = { shaper = "helmet_shaper", elder = "helmet_elder", adjudicator = "helmet_adjudicator", basilisk = "helmet_basilisk", crusader = "helmet_crusader", eyrie = "helmet_eyrie", cleansing = "helmet_cleansing", tangle = "helmet_tangle" },
 	implicitModTypes = { },
 	armour = { EnergyShield = 77, },
-	req = { level = 58, },
+	req = { level = 58, int = 106, },
 }
 itemBases["Magus Tiara"] = {
 	type = "Helmet",
@@ -318,7 +318,7 @@ itemBases["Magus Tiara"] = {
 	influenceTags = { shaper = "helmet_shaper", elder = "helmet_elder", adjudicator = "helmet_adjudicator", basilisk = "helmet_basilisk", crusader = "helmet_crusader", eyrie = "helmet_eyrie", cleansing = "helmet_cleansing", tangle = "helmet_tangle" },
 	implicitModTypes = { },
 	armour = { EnergyShield = 84, },
-	req = { level = 65, },
+	req = { level = 65, int = 118, },
 }
 itemBases["Brimmed Helm"] = {
 	type = "Helmet",
@@ -327,7 +327,7 @@ itemBases["Brimmed Helm"] = {
 	influenceTags = { shaper = "helmet_shaper", elder = "helmet_elder", adjudicator = "helmet_adjudicator", basilisk = "helmet_basilisk", crusader = "helmet_crusader", eyrie = "helmet_eyrie", cleansing = "helmet_cleansing", tangle = "helmet_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 23, Evasion = 18, },
-	req = { level = 5, },
+	req = { level = 5, str = 7, dex = 7, },
 }
 itemBases["Guarded Helm"] = {
 	type = "Helmet",
@@ -336,7 +336,7 @@ itemBases["Guarded Helm"] = {
 	influenceTags = { shaper = "helmet_shaper", elder = "helmet_elder", adjudicator = "helmet_adjudicator", basilisk = "helmet_basilisk", crusader = "helmet_crusader", eyrie = "helmet_eyrie", cleansing = "helmet_cleansing", tangle = "helmet_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 34, Evasion = 28, },
-	req = { level = 11, },
+	req = { level = 11, str = 13, dex = 13, },
 }
 itemBases["Visored Helm"] = {
 	type = "Helmet",
@@ -345,7 +345,7 @@ itemBases["Visored Helm"] = {
 	influenceTags = { shaper = "helmet_shaper", elder = "helmet_elder", adjudicator = "helmet_adjudicator", basilisk = "helmet_basilisk", crusader = "helmet_crusader", eyrie = "helmet_eyrie", cleansing = "helmet_cleansing", tangle = "helmet_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 44, Evasion = 37, },
-	req = { level = 16, },
+	req = { level = 16, str = 18, dex = 18, },
 }
 itemBases["Cowled Helm"] = {
 	type = "Helmet",
@@ -354,7 +354,7 @@ itemBases["Cowled Helm"] = {
 	influenceTags = { shaper = "helmet_shaper", elder = "helmet_elder", adjudicator = "helmet_adjudicator", basilisk = "helmet_basilisk", crusader = "helmet_crusader", eyrie = "helmet_eyrie", cleansing = "helmet_cleansing", tangle = "helmet_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 62, Evasion = 54, },
-	req = { level = 26, },
+	req = { level = 26, str = 27, dex = 27, },
 }
 itemBases["Shielded Helm"] = {
 	type = "Helmet",
@@ -363,7 +363,7 @@ itemBases["Shielded Helm"] = {
 	influenceTags = { shaper = "helmet_shaper", elder = "helmet_elder", adjudicator = "helmet_adjudicator", basilisk = "helmet_basilisk", crusader = "helmet_crusader", eyrie = "helmet_eyrie", cleansing = "helmet_cleansing", tangle = "helmet_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 75, Evasion = 66, },
-	req = { level = 33, },
+	req = { level = 33, str = 34, dex = 34, },
 }
 itemBases["Closed Helm"] = {
 	type = "Helmet",
@@ -372,7 +372,7 @@ itemBases["Closed Helm"] = {
 	influenceTags = { shaper = "helmet_shaper", elder = "helmet_elder", adjudicator = "helmet_adjudicator", basilisk = "helmet_basilisk", crusader = "helmet_crusader", eyrie = "helmet_eyrie", cleansing = "helmet_cleansing", tangle = "helmet_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 97, Evasion = 87, },
-	req = { level = 45, },
+	req = { level = 45, str = 46, dex = 46, },
 }
 itemBases["Decorated Helm"] = {
 	type = "Helmet",
@@ -381,7 +381,7 @@ itemBases["Decorated Helm"] = {
 	influenceTags = { shaper = "helmet_shaper", elder = "helmet_elder", adjudicator = "helmet_adjudicator", basilisk = "helmet_basilisk", crusader = "helmet_crusader", eyrie = "helmet_eyrie", cleansing = "helmet_cleansing", tangle = "helmet_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 110, Evasion = 99, },
-	req = { level = 52, },
+	req = { level = 52, str = 53, dex = 53, },
 }
 itemBases["Gallant Helm"] = {
 	type = "Helmet",
@@ -390,7 +390,7 @@ itemBases["Gallant Helm"] = {
 	influenceTags = { shaper = "helmet_shaper", elder = "helmet_elder", adjudicator = "helmet_adjudicator", basilisk = "helmet_basilisk", crusader = "helmet_crusader", eyrie = "helmet_eyrie", cleansing = "helmet_cleansing", tangle = "helmet_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 134, Evasion = 122, },
-	req = { level = 65, },
+	req = { level = 65, str = 65, dex = 65, },
 }
 itemBases["Iron Crown"] = {
 	type = "Helmet",
@@ -399,7 +399,7 @@ itemBases["Iron Crown"] = {
 	influenceTags = { shaper = "helmet_shaper", elder = "helmet_elder", adjudicator = "helmet_adjudicator", basilisk = "helmet_basilisk", crusader = "helmet_crusader", eyrie = "helmet_eyrie", cleansing = "helmet_cleansing", tangle = "helmet_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 23, EnergyShield = 12, },
-	req = { level = 5, },
+	req = { level = 5, str = 7, int = 7, },
 }
 itemBases["Horned Crown"] = {
 	type = "Helmet",
@@ -408,7 +408,7 @@ itemBases["Horned Crown"] = {
 	influenceTags = { shaper = "helmet_shaper", elder = "helmet_elder", adjudicator = "helmet_adjudicator", basilisk = "helmet_basilisk", crusader = "helmet_crusader", eyrie = "helmet_eyrie", cleansing = "helmet_cleansing", tangle = "helmet_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 33, EnergyShield = 15, },
-	req = { level = 10, },
+	req = { level = 10, str = 12, int = 12, },
 }
 itemBases["Cultist Crown"] = {
 	type = "Helmet",
@@ -417,7 +417,7 @@ itemBases["Cultist Crown"] = {
 	influenceTags = { shaper = "helmet_shaper", elder = "helmet_elder", adjudicator = "helmet_adjudicator", basilisk = "helmet_basilisk", crusader = "helmet_crusader", eyrie = "helmet_eyrie", cleansing = "helmet_cleansing", tangle = "helmet_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 44, EnergyShield = 19, },
-	req = { level = 16, },
+	req = { level = 16, str = 18, int = 18, },
 }
 itemBases["Martyr Crown"] = {
 	type = "Helmet",
@@ -426,7 +426,7 @@ itemBases["Martyr Crown"] = {
 	influenceTags = { shaper = "helmet_shaper", elder = "helmet_elder", adjudicator = "helmet_adjudicator", basilisk = "helmet_basilisk", crusader = "helmet_crusader", eyrie = "helmet_eyrie", cleansing = "helmet_cleansing", tangle = "helmet_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 66, EnergyShield = 25, },
-	req = { level = 28, },
+	req = { level = 28, str = 30, int = 30, },
 }
 itemBases["Heavy Crown"] = {
 	type = "Helmet",
@@ -435,7 +435,7 @@ itemBases["Heavy Crown"] = {
 	influenceTags = { shaper = "helmet_shaper", elder = "helmet_elder", adjudicator = "helmet_adjudicator", basilisk = "helmet_basilisk", crusader = "helmet_crusader", eyrie = "helmet_eyrie", cleansing = "helmet_cleansing", tangle = "helmet_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 75, EnergyShield = 28, },
-	req = { level = 33, },
+	req = { level = 33, str = 34, int = 34, },
 }
 itemBases["Spiritbone Crown"] = {
 	type = "Helmet",
@@ -444,7 +444,7 @@ itemBases["Spiritbone Crown"] = {
 	influenceTags = { shaper = "helmet_shaper", elder = "helmet_elder", adjudicator = "helmet_adjudicator", basilisk = "helmet_basilisk", crusader = "helmet_crusader", eyrie = "helmet_eyrie", cleansing = "helmet_cleansing", tangle = "helmet_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 97, EnergyShield = 35, },
-	req = { level = 45, },
+	req = { level = 45, str = 46, int = 46, },
 }
 itemBases["Lavish Crown"] = {
 	type = "Helmet",
@@ -453,7 +453,7 @@ itemBases["Lavish Crown"] = {
 	influenceTags = { shaper = "helmet_shaper", elder = "helmet_elder", adjudicator = "helmet_adjudicator", basilisk = "helmet_basilisk", crusader = "helmet_crusader", eyrie = "helmet_eyrie", cleansing = "helmet_cleansing", tangle = "helmet_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 110, EnergyShield = 39, },
-	req = { level = 52, },
+	req = { level = 52, str = 53, int = 53, },
 }
 itemBases["Templar Crown"] = {
 	type = "Helmet",
@@ -462,7 +462,7 @@ itemBases["Templar Crown"] = {
 	influenceTags = { shaper = "helmet_shaper", elder = "helmet_elder", adjudicator = "helmet_adjudicator", basilisk = "helmet_basilisk", crusader = "helmet_crusader", eyrie = "helmet_eyrie", cleansing = "helmet_cleansing", tangle = "helmet_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 134, EnergyShield = 46, },
-	req = { level = 65, },
+	req = { level = 65, str = 65, int = 65, },
 }
 itemBases["Hewn Mask"] = {
 	type = "Helmet",
@@ -471,7 +471,7 @@ itemBases["Hewn Mask"] = {
 	influenceTags = { shaper = "helmet_shaper", elder = "helmet_elder", adjudicator = "helmet_adjudicator", basilisk = "helmet_basilisk", crusader = "helmet_crusader", eyrie = "helmet_eyrie", cleansing = "helmet_cleansing", tangle = "helmet_tangle" },
 	implicitModTypes = { },
 	armour = { Evasion = 18, EnergyShield = 12, },
-	req = { level = 5, },
+	req = { level = 5, dex = 7, int = 7, },
 }
 itemBases["Face Mask"] = {
 	type = "Helmet",
@@ -480,7 +480,7 @@ itemBases["Face Mask"] = {
 	influenceTags = { shaper = "helmet_shaper", elder = "helmet_elder", adjudicator = "helmet_adjudicator", basilisk = "helmet_basilisk", crusader = "helmet_crusader", eyrie = "helmet_eyrie", cleansing = "helmet_cleansing", tangle = "helmet_tangle" },
 	implicitModTypes = { },
 	armour = { Evasion = 26, EnergyShield = 15, },
-	req = { level = 10, },
+	req = { level = 10, dex = 12, int = 12, },
 }
 itemBases["Hooded Mask"] = {
 	type = "Helmet",
@@ -489,7 +489,7 @@ itemBases["Hooded Mask"] = {
 	influenceTags = { shaper = "helmet_shaper", elder = "helmet_elder", adjudicator = "helmet_adjudicator", basilisk = "helmet_basilisk", crusader = "helmet_crusader", eyrie = "helmet_eyrie", cleansing = "helmet_cleansing", tangle = "helmet_tangle" },
 	implicitModTypes = { },
 	armour = { Evasion = 37, EnergyShield = 19, },
-	req = { level = 16, },
+	req = { level = 16, dex = 18, int = 18, },
 }
 itemBases["Veiled Mask"] = {
 	type = "Helmet",
@@ -498,7 +498,7 @@ itemBases["Veiled Mask"] = {
 	influenceTags = { shaper = "helmet_shaper", elder = "helmet_elder", adjudicator = "helmet_adjudicator", basilisk = "helmet_basilisk", crusader = "helmet_crusader", eyrie = "helmet_eyrie", cleansing = "helmet_cleansing", tangle = "helmet_tangle" },
 	implicitModTypes = { },
 	armour = { Evasion = 58, EnergyShield = 25, },
-	req = { level = 28, },
+	req = { level = 28, dex = 30, int = 30, },
 }
 itemBases["Tribal Mask"] = {
 	type = "Helmet",
@@ -507,7 +507,7 @@ itemBases["Tribal Mask"] = {
 	influenceTags = { shaper = "helmet_shaper", elder = "helmet_elder", adjudicator = "helmet_adjudicator", basilisk = "helmet_basilisk", crusader = "helmet_crusader", eyrie = "helmet_eyrie", cleansing = "helmet_cleansing", tangle = "helmet_tangle" },
 	implicitModTypes = { },
 	armour = { Evasion = 66, EnergyShield = 28, },
-	req = { level = 33, },
+	req = { level = 33, dex = 34, int = 34, },
 }
 itemBases["Solid Mask"] = {
 	type = "Helmet",
@@ -516,7 +516,7 @@ itemBases["Solid Mask"] = {
 	influenceTags = { shaper = "helmet_shaper", elder = "helmet_elder", adjudicator = "helmet_adjudicator", basilisk = "helmet_basilisk", crusader = "helmet_crusader", eyrie = "helmet_eyrie", cleansing = "helmet_cleansing", tangle = "helmet_tangle" },
 	implicitModTypes = { },
 	armour = { Evasion = 87, EnergyShield = 35, },
-	req = { level = 45, },
+	req = { level = 45, dex = 46, int = 46, },
 }
 itemBases["Shaded Mask"] = {
 	type = "Helmet",
@@ -525,7 +525,7 @@ itemBases["Shaded Mask"] = {
 	influenceTags = { shaper = "helmet_shaper", elder = "helmet_elder", adjudicator = "helmet_adjudicator", basilisk = "helmet_basilisk", crusader = "helmet_crusader", eyrie = "helmet_eyrie", cleansing = "helmet_cleansing", tangle = "helmet_tangle" },
 	implicitModTypes = { },
 	armour = { Evasion = 99, EnergyShield = 39, },
-	req = { level = 52, },
+	req = { level = 52, dex = 53, int = 53, },
 }
 itemBases["Death Mask"] = {
 	type = "Helmet",
@@ -534,7 +534,7 @@ itemBases["Death Mask"] = {
 	influenceTags = { shaper = "helmet_shaper", elder = "helmet_elder", adjudicator = "helmet_adjudicator", basilisk = "helmet_basilisk", crusader = "helmet_crusader", eyrie = "helmet_eyrie", cleansing = "helmet_cleansing", tangle = "helmet_tangle" },
 	implicitModTypes = { },
 	armour = { Evasion = 122, EnergyShield = 46, },
-	req = { level = 65, },
+	req = { level = 65, dex = 65, int = 65, },
 }
 itemBases["Grand Visage"] = {
 	type = "Helmet",
@@ -543,7 +543,7 @@ itemBases["Grand Visage"] = {
 	influenceTags = { shaper = "helmet_shaper", elder = "helmet_elder", adjudicator = "helmet_adjudicator", basilisk = "helmet_basilisk", crusader = "helmet_crusader", eyrie = "helmet_eyrie", cleansing = "helmet_cleansing", tangle = "helmet_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 88, Evasion = 80, EnergyShield = 30, },
-	req = { level = 65, },
+	req = { level = 65, str = 46, dex = 46, int = 46, },
 }
 itemBases["Advanced Rusted Greathelm"] = {
 	type = "Helmet",
@@ -552,7 +552,7 @@ itemBases["Advanced Rusted Greathelm"] = {
 	influenceTags = { shaper = "helmet_shaper", elder = "helmet_elder", adjudicator = "helmet_adjudicator", basilisk = "helmet_basilisk", crusader = "helmet_crusader", eyrie = "helmet_eyrie", cleansing = "helmet_cleansing", tangle = "helmet_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 176, },
-	req = { level = 45, },
+	req = { level = 45, str = 83, },
 }
 itemBases["Advanced Soldier Greathelm"] = {
 	type = "Helmet",
@@ -561,7 +561,7 @@ itemBases["Advanced Soldier Greathelm"] = {
 	influenceTags = { shaper = "helmet_shaper", elder = "helmet_elder", adjudicator = "helmet_adjudicator", basilisk = "helmet_basilisk", crusader = "helmet_crusader", eyrie = "helmet_eyrie", cleansing = "helmet_cleansing", tangle = "helmet_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 186, },
-	req = { level = 48, },
+	req = { level = 48, str = 88, },
 }
 itemBases["Advanced Wrapped Greathelm"] = {
 	type = "Helmet",
@@ -570,7 +570,7 @@ itemBases["Advanced Wrapped Greathelm"] = {
 	influenceTags = { shaper = "helmet_shaper", elder = "helmet_elder", adjudicator = "helmet_adjudicator", basilisk = "helmet_basilisk", crusader = "helmet_crusader", eyrie = "helmet_eyrie", cleansing = "helmet_cleansing", tangle = "helmet_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 196, },
-	req = { level = 51, },
+	req = { level = 51, str = 94, },
 }
 itemBases["Advanced Spired Greathelm"] = {
 	type = "Helmet",
@@ -579,7 +579,7 @@ itemBases["Advanced Spired Greathelm"] = {
 	influenceTags = { shaper = "helmet_shaper", elder = "helmet_elder", adjudicator = "helmet_adjudicator", basilisk = "helmet_basilisk", crusader = "helmet_crusader", eyrie = "helmet_eyrie", cleansing = "helmet_cleansing", tangle = "helmet_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 210, },
-	req = { level = 55, },
+	req = { level = 55, str = 101, },
 }
 itemBases["Advanced Elite Greathelm"] = {
 	type = "Helmet",
@@ -588,7 +588,7 @@ itemBases["Advanced Elite Greathelm"] = {
 	influenceTags = { shaper = "helmet_shaper", elder = "helmet_elder", adjudicator = "helmet_adjudicator", basilisk = "helmet_basilisk", crusader = "helmet_crusader", eyrie = "helmet_eyrie", cleansing = "helmet_cleansing", tangle = "helmet_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 223, },
-	req = { level = 59, },
+	req = { level = 59, str = 108, },
 }
 itemBases["Advanced Shabby Hood"] = {
 	type = "Helmet",
@@ -597,7 +597,7 @@ itemBases["Advanced Shabby Hood"] = {
 	influenceTags = { shaper = "helmet_shaper", elder = "helmet_elder", adjudicator = "helmet_adjudicator", basilisk = "helmet_basilisk", crusader = "helmet_crusader", eyrie = "helmet_eyrie", cleansing = "helmet_cleansing", tangle = "helmet_tangle" },
 	implicitModTypes = { },
 	armour = { Evasion = 158, },
-	req = { level = 45, },
+	req = { level = 45, dex = 83, },
 }
 itemBases["Advanced Felt Cap"] = {
 	type = "Helmet",
@@ -606,7 +606,7 @@ itemBases["Advanced Felt Cap"] = {
 	influenceTags = { shaper = "helmet_shaper", elder = "helmet_elder", adjudicator = "helmet_adjudicator", basilisk = "helmet_basilisk", crusader = "helmet_crusader", eyrie = "helmet_eyrie", cleansing = "helmet_cleansing", tangle = "helmet_tangle" },
 	implicitModTypes = { },
 	armour = { Evasion = 168, },
-	req = { level = 48, },
+	req = { level = 48, dex = 88, },
 }
 itemBases["Advanced Lace Hood"] = {
 	type = "Helmet",
@@ -615,7 +615,7 @@ itemBases["Advanced Lace Hood"] = {
 	influenceTags = { shaper = "helmet_shaper", elder = "helmet_elder", adjudicator = "helmet_adjudicator", basilisk = "helmet_basilisk", crusader = "helmet_crusader", eyrie = "helmet_eyrie", cleansing = "helmet_cleansing", tangle = "helmet_tangle" },
 	implicitModTypes = { },
 	armour = { Evasion = 177, },
-	req = { level = 51, },
+	req = { level = 51, dex = 94, },
 }
 itemBases["Advanced Swathed Cap"] = {
 	type = "Helmet",
@@ -624,7 +624,7 @@ itemBases["Advanced Swathed Cap"] = {
 	influenceTags = { shaper = "helmet_shaper", elder = "helmet_elder", adjudicator = "helmet_adjudicator", basilisk = "helmet_basilisk", crusader = "helmet_crusader", eyrie = "helmet_eyrie", cleansing = "helmet_cleansing", tangle = "helmet_tangle" },
 	implicitModTypes = { },
 	armour = { Evasion = 190, },
-	req = { level = 55, },
+	req = { level = 55, dex = 101, },
 }
 itemBases["Advanced Hunter Hood"] = {
 	type = "Helmet",
@@ -633,7 +633,7 @@ itemBases["Advanced Hunter Hood"] = {
 	influenceTags = { shaper = "helmet_shaper", elder = "helmet_elder", adjudicator = "helmet_adjudicator", basilisk = "helmet_basilisk", crusader = "helmet_crusader", eyrie = "helmet_eyrie", cleansing = "helmet_cleansing", tangle = "helmet_tangle" },
 	implicitModTypes = { },
 	armour = { Evasion = 203, },
-	req = { level = 59, },
+	req = { level = 59, dex = 108, },
 }
 itemBases["Advanced Twig Circlet"] = {
 	type = "Helmet",
@@ -642,7 +642,7 @@ itemBases["Advanced Twig Circlet"] = {
 	influenceTags = { shaper = "helmet_shaper", elder = "helmet_elder", adjudicator = "helmet_adjudicator", basilisk = "helmet_basilisk", crusader = "helmet_crusader", eyrie = "helmet_eyrie", cleansing = "helmet_cleansing", tangle = "helmet_tangle" },
 	implicitModTypes = { },
 	armour = { EnergyShield = 63, },
-	req = { level = 45, },
+	req = { level = 45, int = 83, },
 }
 itemBases["Advanced Wicker Tiara"] = {
 	type = "Helmet",
@@ -651,7 +651,7 @@ itemBases["Advanced Wicker Tiara"] = {
 	influenceTags = { shaper = "helmet_shaper", elder = "helmet_elder", adjudicator = "helmet_adjudicator", basilisk = "helmet_basilisk", crusader = "helmet_crusader", eyrie = "helmet_eyrie", cleansing = "helmet_cleansing", tangle = "helmet_tangle" },
 	implicitModTypes = { },
 	armour = { EnergyShield = 67, },
-	req = { level = 48, },
+	req = { level = 48, int = 88, },
 }
 itemBases["Advanced Beaded Circlet"] = {
 	type = "Helmet",
@@ -660,7 +660,7 @@ itemBases["Advanced Beaded Circlet"] = {
 	influenceTags = { shaper = "helmet_shaper", elder = "helmet_elder", adjudicator = "helmet_adjudicator", basilisk = "helmet_basilisk", crusader = "helmet_crusader", eyrie = "helmet_eyrie", cleansing = "helmet_cleansing", tangle = "helmet_tangle" },
 	implicitModTypes = { },
 	armour = { EnergyShield = 70, },
-	req = { level = 51, },
+	req = { level = 51, int = 94, },
 }
 itemBases["Advanced Chain Tiara"] = {
 	type = "Helmet",
@@ -669,7 +669,7 @@ itemBases["Advanced Chain Tiara"] = {
 	influenceTags = { shaper = "helmet_shaper", elder = "helmet_elder", adjudicator = "helmet_adjudicator", basilisk = "helmet_basilisk", crusader = "helmet_crusader", eyrie = "helmet_eyrie", cleansing = "helmet_cleansing", tangle = "helmet_tangle" },
 	implicitModTypes = { },
 	armour = { EnergyShield = 74, },
-	req = { level = 55, },
+	req = { level = 55, int = 101, },
 }
 itemBases["Advanced Feathered Tiara"] = {
 	type = "Helmet",
@@ -678,7 +678,7 @@ itemBases["Advanced Feathered Tiara"] = {
 	influenceTags = { shaper = "helmet_shaper", elder = "helmet_elder", adjudicator = "helmet_adjudicator", basilisk = "helmet_basilisk", crusader = "helmet_crusader", eyrie = "helmet_eyrie", cleansing = "helmet_cleansing", tangle = "helmet_tangle" },
 	implicitModTypes = { },
 	armour = { EnergyShield = 78, },
-	req = { level = 59, },
+	req = { level = 59, int = 108, },
 }
 itemBases["Advanced Brimmed Helm"] = {
 	type = "Helmet",
@@ -687,7 +687,7 @@ itemBases["Advanced Brimmed Helm"] = {
 	influenceTags = { shaper = "helmet_shaper", elder = "helmet_elder", adjudicator = "helmet_adjudicator", basilisk = "helmet_basilisk", crusader = "helmet_crusader", eyrie = "helmet_eyrie", cleansing = "helmet_cleansing", tangle = "helmet_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 97, Evasion = 87, },
-	req = { level = 45, },
+	req = { level = 45, str = 46, dex = 46, },
 }
 itemBases["Advanced Guarded Helm"] = {
 	type = "Helmet",
@@ -696,7 +696,7 @@ itemBases["Advanced Guarded Helm"] = {
 	influenceTags = { shaper = "helmet_shaper", elder = "helmet_elder", adjudicator = "helmet_adjudicator", basilisk = "helmet_basilisk", crusader = "helmet_crusader", eyrie = "helmet_eyrie", cleansing = "helmet_cleansing", tangle = "helmet_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 102, Evasion = 92, },
-	req = { level = 48, },
+	req = { level = 48, str = 49, dex = 49, },
 }
 itemBases["Advanced Visored Helm"] = {
 	type = "Helmet",
@@ -705,7 +705,7 @@ itemBases["Advanced Visored Helm"] = {
 	influenceTags = { shaper = "helmet_shaper", elder = "helmet_elder", adjudicator = "helmet_adjudicator", basilisk = "helmet_basilisk", crusader = "helmet_crusader", eyrie = "helmet_eyrie", cleansing = "helmet_cleansing", tangle = "helmet_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 108, Evasion = 98, },
-	req = { level = 51, },
+	req = { level = 51, str = 52, dex = 52, },
 }
 itemBases["Advanced Cowled Helm"] = {
 	type = "Helmet",
@@ -714,7 +714,7 @@ itemBases["Advanced Cowled Helm"] = {
 	influenceTags = { shaper = "helmet_shaper", elder = "helmet_elder", adjudicator = "helmet_adjudicator", basilisk = "helmet_basilisk", crusader = "helmet_crusader", eyrie = "helmet_eyrie", cleansing = "helmet_cleansing", tangle = "helmet_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 115, Evasion = 105, },
-	req = { level = 55, },
+	req = { level = 55, str = 55, dex = 55, },
 }
 itemBases["Advanced Shielded Helm"] = {
 	type = "Helmet",
@@ -723,7 +723,7 @@ itemBases["Advanced Shielded Helm"] = {
 	influenceTags = { shaper = "helmet_shaper", elder = "helmet_elder", adjudicator = "helmet_adjudicator", basilisk = "helmet_basilisk", crusader = "helmet_crusader", eyrie = "helmet_eyrie", cleansing = "helmet_cleansing", tangle = "helmet_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 123, Evasion = 111, },
-	req = { level = 59, },
+	req = { level = 59, str = 59, dex = 59, },
 }
 itemBases["Advanced Iron Crown"] = {
 	type = "Helmet",
@@ -732,7 +732,7 @@ itemBases["Advanced Iron Crown"] = {
 	influenceTags = { shaper = "helmet_shaper", elder = "helmet_elder", adjudicator = "helmet_adjudicator", basilisk = "helmet_basilisk", crusader = "helmet_crusader", eyrie = "helmet_eyrie", cleansing = "helmet_cleansing", tangle = "helmet_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 97, EnergyShield = 35, },
-	req = { level = 45, },
+	req = { level = 45, str = 46, int = 46, },
 }
 itemBases["Advanced Horned Crown"] = {
 	type = "Helmet",
@@ -741,7 +741,7 @@ itemBases["Advanced Horned Crown"] = {
 	influenceTags = { shaper = "helmet_shaper", elder = "helmet_elder", adjudicator = "helmet_adjudicator", basilisk = "helmet_basilisk", crusader = "helmet_crusader", eyrie = "helmet_eyrie", cleansing = "helmet_cleansing", tangle = "helmet_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 102, EnergyShield = 37, },
-	req = { level = 48, },
+	req = { level = 48, str = 49, int = 49, },
 }
 itemBases["Advanced Cultist Crown"] = {
 	type = "Helmet",
@@ -750,7 +750,7 @@ itemBases["Advanced Cultist Crown"] = {
 	influenceTags = { shaper = "helmet_shaper", elder = "helmet_elder", adjudicator = "helmet_adjudicator", basilisk = "helmet_basilisk", crusader = "helmet_crusader", eyrie = "helmet_eyrie", cleansing = "helmet_cleansing", tangle = "helmet_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 108, EnergyShield = 38, },
-	req = { level = 51, },
+	req = { level = 51, str = 52, int = 52, },
 }
 itemBases["Advanced Martyr Crown"] = {
 	type = "Helmet",
@@ -759,7 +759,7 @@ itemBases["Advanced Martyr Crown"] = {
 	influenceTags = { shaper = "helmet_shaper", elder = "helmet_elder", adjudicator = "helmet_adjudicator", basilisk = "helmet_basilisk", crusader = "helmet_crusader", eyrie = "helmet_eyrie", cleansing = "helmet_cleansing", tangle = "helmet_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 115, EnergyShield = 41, },
-	req = { level = 55, },
+	req = { level = 55, str = 55, int = 55, },
 }
 itemBases["Advanced Heavy Crown"] = {
 	type = "Helmet",
@@ -768,7 +768,7 @@ itemBases["Advanced Heavy Crown"] = {
 	influenceTags = { shaper = "helmet_shaper", elder = "helmet_elder", adjudicator = "helmet_adjudicator", basilisk = "helmet_basilisk", crusader = "helmet_crusader", eyrie = "helmet_eyrie", cleansing = "helmet_cleansing", tangle = "helmet_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 123, EnergyShield = 43, },
-	req = { level = 59, },
+	req = { level = 59, str = 59, int = 59, },
 }
 itemBases["Advanced Hewn Mask"] = {
 	type = "Helmet",
@@ -777,7 +777,7 @@ itemBases["Advanced Hewn Mask"] = {
 	influenceTags = { shaper = "helmet_shaper", elder = "helmet_elder", adjudicator = "helmet_adjudicator", basilisk = "helmet_basilisk", crusader = "helmet_crusader", eyrie = "helmet_eyrie", cleansing = "helmet_cleansing", tangle = "helmet_tangle" },
 	implicitModTypes = { },
 	armour = { Evasion = 87, EnergyShield = 35, },
-	req = { level = 45, },
+	req = { level = 45, dex = 46, int = 46, },
 }
 itemBases["Advanced Face Mask"] = {
 	type = "Helmet",
@@ -786,7 +786,7 @@ itemBases["Advanced Face Mask"] = {
 	influenceTags = { shaper = "helmet_shaper", elder = "helmet_elder", adjudicator = "helmet_adjudicator", basilisk = "helmet_basilisk", crusader = "helmet_crusader", eyrie = "helmet_eyrie", cleansing = "helmet_cleansing", tangle = "helmet_tangle" },
 	implicitModTypes = { },
 	armour = { Evasion = 92, EnergyShield = 37, },
-	req = { level = 48, },
+	req = { level = 48, dex = 49, int = 49, },
 }
 itemBases["Advanced Hooded Mask"] = {
 	type = "Helmet",
@@ -795,7 +795,7 @@ itemBases["Advanced Hooded Mask"] = {
 	influenceTags = { shaper = "helmet_shaper", elder = "helmet_elder", adjudicator = "helmet_adjudicator", basilisk = "helmet_basilisk", crusader = "helmet_crusader", eyrie = "helmet_eyrie", cleansing = "helmet_cleansing", tangle = "helmet_tangle" },
 	implicitModTypes = { },
 	armour = { Evasion = 98, EnergyShield = 38, },
-	req = { level = 51, },
+	req = { level = 51, dex = 52, int = 52, },
 }
 itemBases["Advanced Veiled Mask"] = {
 	type = "Helmet",
@@ -804,7 +804,7 @@ itemBases["Advanced Veiled Mask"] = {
 	influenceTags = { shaper = "helmet_shaper", elder = "helmet_elder", adjudicator = "helmet_adjudicator", basilisk = "helmet_basilisk", crusader = "helmet_crusader", eyrie = "helmet_eyrie", cleansing = "helmet_cleansing", tangle = "helmet_tangle" },
 	implicitModTypes = { },
 	armour = { Evasion = 105, EnergyShield = 41, },
-	req = { level = 55, },
+	req = { level = 55, dex = 55, int = 55, },
 }
 itemBases["Advanced Tribal Mask"] = {
 	type = "Helmet",
@@ -813,7 +813,7 @@ itemBases["Advanced Tribal Mask"] = {
 	influenceTags = { shaper = "helmet_shaper", elder = "helmet_elder", adjudicator = "helmet_adjudicator", basilisk = "helmet_basilisk", crusader = "helmet_crusader", eyrie = "helmet_eyrie", cleansing = "helmet_cleansing", tangle = "helmet_tangle" },
 	implicitModTypes = { },
 	armour = { Evasion = 111, EnergyShield = 43, },
-	req = { level = 59, },
+	req = { level = 59, dex = 59, int = 59, },
 }
 itemBases["Expert Soldier Greathelm"] = {
 	type = "Helmet",
@@ -822,7 +822,7 @@ itemBases["Expert Soldier Greathelm"] = {
 	influenceTags = { shaper = "helmet_shaper", elder = "helmet_elder", adjudicator = "helmet_adjudicator", basilisk = "helmet_basilisk", crusader = "helmet_crusader", eyrie = "helmet_eyrie", cleansing = "helmet_cleansing", tangle = "helmet_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 243, },
-	req = { level = 65, },
+	req = { level = 65, str = 118, },
 }
 itemBases["Expert Spired Greathelm"] = {
 	type = "Helmet",
@@ -831,7 +831,7 @@ itemBases["Expert Spired Greathelm"] = {
 	influenceTags = { shaper = "helmet_shaper", elder = "helmet_elder", adjudicator = "helmet_adjudicator", basilisk = "helmet_basilisk", crusader = "helmet_crusader", eyrie = "helmet_eyrie", cleansing = "helmet_cleansing", tangle = "helmet_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 267, },
-	req = { level = 70, },
+	req = { level = 70, str = 129, },
 }
 itemBases["Expert Elite Greathelm"] = {
 	type = "Helmet",
@@ -840,7 +840,7 @@ itemBases["Expert Elite Greathelm"] = {
 	influenceTags = { shaper = "helmet_shaper", elder = "helmet_elder", adjudicator = "helmet_adjudicator", basilisk = "helmet_basilisk", crusader = "helmet_crusader", eyrie = "helmet_eyrie", cleansing = "helmet_cleansing", tangle = "helmet_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 292, },
-	req = { level = 75, },
+	req = { level = 75, str = 139, },
 }
 itemBases["Expert Felt Cap"] = {
 	type = "Helmet",
@@ -849,7 +849,7 @@ itemBases["Expert Felt Cap"] = {
 	influenceTags = { shaper = "helmet_shaper", elder = "helmet_elder", adjudicator = "helmet_adjudicator", basilisk = "helmet_basilisk", crusader = "helmet_crusader", eyrie = "helmet_eyrie", cleansing = "helmet_cleansing", tangle = "helmet_tangle" },
 	implicitModTypes = { },
 	armour = { Evasion = 222, },
-	req = { level = 65, },
+	req = { level = 65, dex = 118, },
 }
 itemBases["Expert Swathed Cap"] = {
 	type = "Helmet",
@@ -858,7 +858,7 @@ itemBases["Expert Swathed Cap"] = {
 	influenceTags = { shaper = "helmet_shaper", elder = "helmet_elder", adjudicator = "helmet_adjudicator", basilisk = "helmet_basilisk", crusader = "helmet_crusader", eyrie = "helmet_eyrie", cleansing = "helmet_cleansing", tangle = "helmet_tangle" },
 	implicitModTypes = { },
 	armour = { Evasion = 244, },
-	req = { level = 70, },
+	req = { level = 70, dex = 129, },
 }
 itemBases["Expert Hunter Hood"] = {
 	type = "Helmet",
@@ -867,7 +867,7 @@ itemBases["Expert Hunter Hood"] = {
 	influenceTags = { shaper = "helmet_shaper", elder = "helmet_elder", adjudicator = "helmet_adjudicator", basilisk = "helmet_basilisk", crusader = "helmet_crusader", eyrie = "helmet_eyrie", cleansing = "helmet_cleansing", tangle = "helmet_tangle" },
 	implicitModTypes = { },
 	armour = { Evasion = 266, },
-	req = { level = 75, },
+	req = { level = 75, dex = 139, },
 }
 itemBases["Expert Wicker Tiara"] = {
 	type = "Helmet",
@@ -876,7 +876,7 @@ itemBases["Expert Wicker Tiara"] = {
 	influenceTags = { shaper = "helmet_shaper", elder = "helmet_elder", adjudicator = "helmet_adjudicator", basilisk = "helmet_basilisk", crusader = "helmet_crusader", eyrie = "helmet_eyrie", cleansing = "helmet_cleansing", tangle = "helmet_tangle" },
 	implicitModTypes = { },
 	armour = { EnergyShield = 84, },
-	req = { level = 65, },
+	req = { level = 65, int = 118, },
 }
 itemBases["Expert Chain Tiara"] = {
 	type = "Helmet",
@@ -885,7 +885,7 @@ itemBases["Expert Chain Tiara"] = {
 	influenceTags = { shaper = "helmet_shaper", elder = "helmet_elder", adjudicator = "helmet_adjudicator", basilisk = "helmet_basilisk", crusader = "helmet_crusader", eyrie = "helmet_eyrie", cleansing = "helmet_cleansing", tangle = "helmet_tangle" },
 	implicitModTypes = { },
 	armour = { EnergyShield = 92, },
-	req = { level = 70, },
+	req = { level = 70, int = 129, },
 }
 itemBases["Expert Feathered Tiara"] = {
 	type = "Helmet",
@@ -894,7 +894,7 @@ itemBases["Expert Feathered Tiara"] = {
 	influenceTags = { shaper = "helmet_shaper", elder = "helmet_elder", adjudicator = "helmet_adjudicator", basilisk = "helmet_basilisk", crusader = "helmet_crusader", eyrie = "helmet_eyrie", cleansing = "helmet_cleansing", tangle = "helmet_tangle" },
 	implicitModTypes = { },
 	armour = { EnergyShield = 101, },
-	req = { level = 75, },
+	req = { level = 75, int = 139, },
 }
 itemBases["Expert Guarded Helm"] = {
 	type = "Helmet",
@@ -903,7 +903,7 @@ itemBases["Expert Guarded Helm"] = {
 	influenceTags = { shaper = "helmet_shaper", elder = "helmet_elder", adjudicator = "helmet_adjudicator", basilisk = "helmet_basilisk", crusader = "helmet_crusader", eyrie = "helmet_eyrie", cleansing = "helmet_cleansing", tangle = "helmet_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 134, Evasion = 122, },
-	req = { level = 65, },
+	req = { level = 65, str = 65, dex = 65, },
 }
 itemBases["Expert Cowled Helm"] = {
 	type = "Helmet",
@@ -912,7 +912,7 @@ itemBases["Expert Cowled Helm"] = {
 	influenceTags = { shaper = "helmet_shaper", elder = "helmet_elder", adjudicator = "helmet_adjudicator", basilisk = "helmet_basilisk", crusader = "helmet_crusader", eyrie = "helmet_eyrie", cleansing = "helmet_cleansing", tangle = "helmet_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 147, Evasion = 134, },
-	req = { level = 70, },
+	req = { level = 70, str = 70, dex = 70, },
 }
 itemBases["Expert Shielded Helm"] = {
 	type = "Helmet",
@@ -921,7 +921,7 @@ itemBases["Expert Shielded Helm"] = {
 	influenceTags = { shaper = "helmet_shaper", elder = "helmet_elder", adjudicator = "helmet_adjudicator", basilisk = "helmet_basilisk", crusader = "helmet_crusader", eyrie = "helmet_eyrie", cleansing = "helmet_cleansing", tangle = "helmet_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 160, Evasion = 146, },
-	req = { level = 75, },
+	req = { level = 75, str = 76, dex = 76, },
 }
 itemBases["Expert Horned Crown"] = {
 	type = "Helmet",
@@ -930,7 +930,7 @@ itemBases["Expert Horned Crown"] = {
 	influenceTags = { shaper = "helmet_shaper", elder = "helmet_elder", adjudicator = "helmet_adjudicator", basilisk = "helmet_basilisk", crusader = "helmet_crusader", eyrie = "helmet_eyrie", cleansing = "helmet_cleansing", tangle = "helmet_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 134, EnergyShield = 46, },
-	req = { level = 65, },
+	req = { level = 65, str = 65, int = 65, },
 }
 itemBases["Expert Martyr Crown"] = {
 	type = "Helmet",
@@ -939,7 +939,7 @@ itemBases["Expert Martyr Crown"] = {
 	influenceTags = { shaper = "helmet_shaper", elder = "helmet_elder", adjudicator = "helmet_adjudicator", basilisk = "helmet_basilisk", crusader = "helmet_crusader", eyrie = "helmet_eyrie", cleansing = "helmet_cleansing", tangle = "helmet_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 147, EnergyShield = 51, },
-	req = { level = 70, },
+	req = { level = 70, str = 70, int = 70, },
 }
 itemBases["Expert Heavy Crown"] = {
 	type = "Helmet",
@@ -948,7 +948,7 @@ itemBases["Expert Heavy Crown"] = {
 	influenceTags = { shaper = "helmet_shaper", elder = "helmet_elder", adjudicator = "helmet_adjudicator", basilisk = "helmet_basilisk", crusader = "helmet_crusader", eyrie = "helmet_eyrie", cleansing = "helmet_cleansing", tangle = "helmet_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 160, EnergyShield = 55, },
-	req = { level = 75, },
+	req = { level = 75, str = 76, int = 76, },
 }
 itemBases["Expert Face Mask"] = {
 	type = "Helmet",
@@ -957,7 +957,7 @@ itemBases["Expert Face Mask"] = {
 	influenceTags = { shaper = "helmet_shaper", elder = "helmet_elder", adjudicator = "helmet_adjudicator", basilisk = "helmet_basilisk", crusader = "helmet_crusader", eyrie = "helmet_eyrie", cleansing = "helmet_cleansing", tangle = "helmet_tangle" },
 	implicitModTypes = { },
 	armour = { Evasion = 122, EnergyShield = 46, },
-	req = { level = 65, },
+	req = { level = 65, dex = 65, int = 65, },
 }
 itemBases["Expert Veiled Mask"] = {
 	type = "Helmet",
@@ -966,7 +966,7 @@ itemBases["Expert Veiled Mask"] = {
 	influenceTags = { shaper = "helmet_shaper", elder = "helmet_elder", adjudicator = "helmet_adjudicator", basilisk = "helmet_basilisk", crusader = "helmet_crusader", eyrie = "helmet_eyrie", cleansing = "helmet_cleansing", tangle = "helmet_tangle" },
 	implicitModTypes = { },
 	armour = { Evasion = 134, EnergyShield = 51, },
-	req = { level = 70, },
+	req = { level = 70, dex = 70, int = 70, },
 }
 itemBases["Expert Tribal Mask"] = {
 	type = "Helmet",
@@ -975,5 +975,5 @@ itemBases["Expert Tribal Mask"] = {
 	influenceTags = { shaper = "helmet_shaper", elder = "helmet_elder", adjudicator = "helmet_adjudicator", basilisk = "helmet_basilisk", crusader = "helmet_crusader", eyrie = "helmet_eyrie", cleansing = "helmet_cleansing", tangle = "helmet_tangle" },
 	implicitModTypes = { },
 	armour = { Evasion = 146, EnergyShield = 55, },
-	req = { level = 75, },
+	req = { level = 75, dex = 76, int = 76, },
 }

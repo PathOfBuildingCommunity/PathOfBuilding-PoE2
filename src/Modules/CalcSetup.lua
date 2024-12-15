@@ -1118,21 +1118,6 @@ function calcs.initEnv(build, mode, override, specEnv)
 							end
 						end
 					end
-					for i, socket in ipairs(item.sockets) do
-						-- Check socket color to ignore abyssal sockets
-						if socket.color == 'R' or socket.color == 'B' or socket.color == 'G' or socket.color == 'W' then
-							slotGemSocketsCount = slotGemSocketsCount + 1
-							-- loop through sockets indexes that are greater than number of socketed gems
-							if i > socketedGems then
-								slotEmptySocketsCount[socket.color] = slotEmptySocketsCount[socket.color] + 1
-							end
-						end
-					end
-					env.itemModDB.multipliers["SocketedGemsIn"..slotName] = (env.itemModDB.multipliers["SocketedGemsIn"..slotName] or 0) + math.min(slotGemSocketsCount, socketedGems)
-					env.itemModDB.multipliers.EmptyRedSocketsInAnySlot = (env.itemModDB.multipliers.EmptyRedSocketsInAnySlot or 0) + slotEmptySocketsCount.R
-					env.itemModDB.multipliers.EmptyGreenSocketsInAnySlot = (env.itemModDB.multipliers.EmptyGreenSocketsInAnySlot or 0) + slotEmptySocketsCount.G
-					env.itemModDB.multipliers.EmptyBlueSocketsInAnySlot = (env.itemModDB.multipliers.EmptyBlueSocketsInAnySlot or 0) + slotEmptySocketsCount.B
-					env.itemModDB.multipliers.EmptyWhiteSocketsInAnySlot = (env.itemModDB.multipliers.EmptyWhiteSocketsInAnySlot or 0) + slotEmptySocketsCount.W
 					-- Warn if socketed gems over socket limit
 					if socketedGems > slotGemSocketsCount then
 						env.itemWarnings.socketLimitWarning = env.itemWarnings.socketLimitWarning or { }

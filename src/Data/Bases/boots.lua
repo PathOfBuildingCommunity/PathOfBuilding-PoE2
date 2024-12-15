@@ -28,7 +28,7 @@ itemBases["Iron Greaves"] = {
 	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 47, },
-	req = { level = 11, },
+	req = { level = 11, str = 20, },
 }
 itemBases["Bronze Greaves"] = {
 	type = "Boots",
@@ -37,7 +37,7 @@ itemBases["Bronze Greaves"] = {
 	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 60, },
-	req = { level = 16, },
+	req = { level = 16, str = 29, },
 }
 itemBases["Trimmed Greaves"] = {
 	type = "Boots",
@@ -46,7 +46,7 @@ itemBases["Trimmed Greaves"] = {
 	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 87, },
-	req = { level = 27, },
+	req = { level = 27, str = 47, },
 }
 itemBases["Stone Greaves"] = {
 	type = "Boots",
@@ -55,7 +55,7 @@ itemBases["Stone Greaves"] = {
 	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 102, },
-	req = { level = 33, },
+	req = { level = 33, str = 57, },
 }
 itemBases["Reefsteel Greaves"] = {
 	type = "Boots",
@@ -64,7 +64,7 @@ itemBases["Reefsteel Greaves"] = {
 	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 132, },
-	req = { level = 45, },
+	req = { level = 45, str = 78, },
 }
 itemBases["Monument Greaves"] = {
 	type = "Boots",
@@ -73,7 +73,7 @@ itemBases["Monument Greaves"] = {
 	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 150, },
-	req = { level = 52, },
+	req = { level = 52, str = 89, },
 }
 itemBases["Totemic Greaves"] = {
 	type = "Boots",
@@ -82,7 +82,7 @@ itemBases["Totemic Greaves"] = {
 	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 182, },
-	req = { level = 65, },
+	req = { level = 65, str = 111, },
 }
 itemBases["Rawhide Boots"] = {
 	type = "Boots",
@@ -100,7 +100,7 @@ itemBases["Laced Boots"] = {
 	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
 	implicitModTypes = { },
 	armour = { Evasion = 38, },
-	req = { level = 11, },
+	req = { level = 11, dex = 20, },
 }
 itemBases["Embossed Boots"] = {
 	type = "Boots",
@@ -109,7 +109,7 @@ itemBases["Embossed Boots"] = {
 	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
 	implicitModTypes = { },
 	armour = { Evasion = 50, },
-	req = { level = 16, },
+	req = { level = 16, dex = 29, },
 }
 itemBases["Steeltoe Boots"] = {
 	type = "Boots",
@@ -118,7 +118,7 @@ itemBases["Steeltoe Boots"] = {
 	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
 	implicitModTypes = { },
 	armour = { Evasion = 79, },
-	req = { level = 28, },
+	req = { level = 28, dex = 49, },
 }
 itemBases["Lizardscale Boots"] = {
 	type = "Boots",
@@ -127,7 +127,7 @@ itemBases["Lizardscale Boots"] = {
 	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
 	implicitModTypes = { },
 	armour = { Evasion = 90, },
-	req = { level = 33, },
+	req = { level = 33, dex = 57, },
 }
 itemBases["Flared Boots"] = {
 	type = "Boots",
@@ -136,7 +136,7 @@ itemBases["Flared Boots"] = {
 	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
 	implicitModTypes = { },
 	armour = { Evasion = 119, },
-	req = { level = 45, },
+	req = { level = 45, dex = 78, },
 }
 itemBases["Leatherplate Boots"] = {
 	type = "Boots",
@@ -145,7 +145,7 @@ itemBases["Leatherplate Boots"] = {
 	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
 	implicitModTypes = { },
 	armour = { Evasion = 135, },
-	req = { level = 52, },
+	req = { level = 52, dex = 89, },
 }
 itemBases["Embroidered Boots"] = {
 	type = "Boots",
@@ -154,7 +154,7 @@ itemBases["Embroidered Boots"] = {
 	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
 	implicitModTypes = { },
 	armour = { Evasion = 166, },
-	req = { level = 65, },
+	req = { level = 65, dex = 111, },
 }
 itemBases["Straw Sandals"] = {
 	type = "Boots",
@@ -172,7 +172,7 @@ itemBases["Wrapped Sandals"] = {
 	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
 	implicitModTypes = { },
 	armour = { EnergyShield = 22, },
-	req = { level = 11, },
+	req = { level = 11, int = 20, },
 }
 itemBases["Lattice Sandals"] = {
 	type = "Boots",
@@ -181,7 +181,7 @@ itemBases["Lattice Sandals"] = {
 	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
 	implicitModTypes = { },
 	armour = { EnergyShield = 25, },
-	req = { level = 16, },
+	req = { level = 16, int = 29, },
 }
 itemBases["Silk Slippers"] = {
 	type = "Boots",
@@ -190,7 +190,7 @@ itemBases["Silk Slippers"] = {
 	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
 	implicitModTypes = { },
 	armour = { EnergyShield = 34, },
-	req = { level = 27, },
+	req = { level = 27, int = 47, },
 }
 itemBases["Feathered Sandals"] = {
 	type = "Boots",
@@ -199,7 +199,7 @@ itemBases["Feathered Sandals"] = {
 	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
 	implicitModTypes = { },
 	armour = { EnergyShield = 38, },
-	req = { level = 33, },
+	req = { level = 33, int = 57, },
 }
 itemBases["Flax Sandals"] = {
 	type = "Boots",
@@ -208,7 +208,7 @@ itemBases["Flax Sandals"] = {
 	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
 	implicitModTypes = { },
 	armour = { EnergyShield = 48, },
-	req = { level = 45, },
+	req = { level = 45, int = 78, },
 }
 itemBases["Studded Sandals"] = {
 	type = "Boots",
@@ -217,7 +217,7 @@ itemBases["Studded Sandals"] = {
 	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
 	implicitModTypes = { },
 	armour = { EnergyShield = 53, },
-	req = { level = 52, },
+	req = { level = 52, int = 89, },
 }
 itemBases["Elaborate Sandals"] = {
 	type = "Boots",
@@ -226,7 +226,7 @@ itemBases["Elaborate Sandals"] = {
 	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
 	implicitModTypes = { },
 	armour = { EnergyShield = 63, },
-	req = { level = 65, },
+	req = { level = 65, int = 111, },
 }
 itemBases["Mail Sabatons"] = {
 	type = "Boots",
@@ -235,7 +235,7 @@ itemBases["Mail Sabatons"] = {
 	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 19, Evasion = 15, },
-	req = { level = 6, },
+	req = { level = 6, str = 8, dex = 8, },
 }
 itemBases["Braced Sabatons"] = {
 	type = "Boots",
@@ -244,7 +244,7 @@ itemBases["Braced Sabatons"] = {
 	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 33, Evasion = 28, },
-	req = { level = 16, },
+	req = { level = 16, str = 17, dex = 17, },
 }
 itemBases["Stacked Sabatons"] = {
 	type = "Boots",
@@ -253,7 +253,7 @@ itemBases["Stacked Sabatons"] = {
 	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 56, Evasion = 50, },
-	req = { level = 33, },
+	req = { level = 33, str = 32, dex = 32, },
 }
 itemBases["Covered Sabatons"] = {
 	type = "Boots",
@@ -262,7 +262,7 @@ itemBases["Covered Sabatons"] = {
 	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 73, Evasion = 65, },
-	req = { level = 45, },
+	req = { level = 45, str = 43, dex = 43, },
 }
 itemBases["Flexile Sabatons"] = {
 	type = "Boots",
@@ -271,7 +271,7 @@ itemBases["Flexile Sabatons"] = {
 	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 82, Evasion = 74, },
-	req = { level = 52, },
+	req = { level = 52, str = 50, dex = 50, },
 }
 itemBases["Bold Sabatons"] = {
 	type = "Boots",
@@ -280,7 +280,7 @@ itemBases["Bold Sabatons"] = {
 	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 100, Evasion = 91, },
-	req = { level = 65, },
+	req = { level = 65, str = 61, dex = 61, },
 }
 itemBases["Padded Leggings"] = {
 	type = "Boots",
@@ -289,7 +289,7 @@ itemBases["Padded Leggings"] = {
 	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 18, EnergyShield = 9, },
-	req = { level = 5, },
+	req = { level = 5, str = 7, int = 7, },
 }
 itemBases["Secured Leggings"] = {
 	type = "Boots",
@@ -298,7 +298,7 @@ itemBases["Secured Leggings"] = {
 	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 33, EnergyShield = 14, },
-	req = { level = 16, },
+	req = { level = 16, str = 17, int = 17, },
 }
 itemBases["Pelt Leggings"] = {
 	type = "Boots",
@@ -307,7 +307,7 @@ itemBases["Pelt Leggings"] = {
 	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 56, EnergyShield = 21, },
-	req = { level = 33, },
+	req = { level = 33, str = 32, int = 32, },
 }
 itemBases["Weaver Leggings"] = {
 	type = "Boots",
@@ -316,7 +316,7 @@ itemBases["Weaver Leggings"] = {
 	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 73, EnergyShield = 26, },
-	req = { level = 45, },
+	req = { level = 45, str = 43, int = 43, },
 }
 itemBases["Gilt Leggings"] = {
 	type = "Boots",
@@ -325,7 +325,7 @@ itemBases["Gilt Leggings"] = {
 	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 82, EnergyShield = 29, },
-	req = { level = 52, },
+	req = { level = 52, str = 50, int = 50, },
 }
 itemBases["Pious Leggings"] = {
 	type = "Boots",
@@ -334,7 +334,7 @@ itemBases["Pious Leggings"] = {
 	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 100, EnergyShield = 35, },
-	req = { level = 65, },
+	req = { level = 65, str = 61, int = 61, },
 }
 itemBases["Frayed Shoes"] = {
 	type = "Boots",
@@ -343,7 +343,7 @@ itemBases["Frayed Shoes"] = {
 	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
 	implicitModTypes = { },
 	armour = { Evasion = 13, EnergyShield = 9, },
-	req = { level = 5, },
+	req = { level = 5, dex = 7, int = 7, },
 }
 itemBases["Threaded Shoes"] = {
 	type = "Boots",
@@ -352,7 +352,7 @@ itemBases["Threaded Shoes"] = {
 	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
 	implicitModTypes = { },
 	armour = { Evasion = 28, EnergyShield = 14, },
-	req = { level = 16, },
+	req = { level = 16, dex = 17, int = 17, },
 }
 itemBases["Hunting Shoes"] = {
 	type = "Boots",
@@ -361,7 +361,7 @@ itemBases["Hunting Shoes"] = {
 	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
 	implicitModTypes = { },
 	armour = { Evasion = 50, EnergyShield = 21, },
-	req = { level = 33, },
+	req = { level = 33, dex = 32, int = 32, },
 }
 itemBases["Steelpoint Shoes"] = {
 	type = "Boots",
@@ -370,7 +370,7 @@ itemBases["Steelpoint Shoes"] = {
 	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
 	implicitModTypes = { },
 	armour = { Evasion = 65, EnergyShield = 26, },
-	req = { level = 45, },
+	req = { level = 45, dex = 43, int = 43, },
 }
 itemBases["Velour Shoes"] = {
 	type = "Boots",
@@ -379,7 +379,7 @@ itemBases["Velour Shoes"] = {
 	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
 	implicitModTypes = { },
 	armour = { Evasion = 74, EnergyShield = 29, },
-	req = { level = 52, },
+	req = { level = 52, dex = 50, int = 50, },
 }
 itemBases["Bladed Shoes"] = {
 	type = "Boots",
@@ -388,7 +388,7 @@ itemBases["Bladed Shoes"] = {
 	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
 	implicitModTypes = { },
 	armour = { Evasion = 91, EnergyShield = 35, },
-	req = { level = 65, },
+	req = { level = 65, dex = 61, int = 61, },
 }
 itemBases["Grand Cuisses"] = {
 	type = "Boots",
@@ -397,7 +397,7 @@ itemBases["Grand Cuisses"] = {
 	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 66, Evasion = 60, EnergyShield = 23, },
-	req = { level = 65, },
+	req = { level = 65, str = 43, dex = 43, int = 43, },
 }
 itemBases["Advanced Iron Greaves"] = {
 	type = "Boots",
@@ -406,7 +406,7 @@ itemBases["Advanced Iron Greaves"] = {
 	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 132, },
-	req = { level = 45, },
+	req = { level = 45, str = 78, },
 }
 itemBases["Advanced Bronze Greaves"] = {
 	type = "Boots",
@@ -415,7 +415,7 @@ itemBases["Advanced Bronze Greaves"] = {
 	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 147, },
-	req = { level = 51, },
+	req = { level = 51, str = 88, },
 }
 itemBases["Advanced Trimmed Greaves"] = {
 	type = "Boots",
@@ -424,7 +424,7 @@ itemBases["Advanced Trimmed Greaves"] = {
 	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 157, },
-	req = { level = 55, },
+	req = { level = 55, str = 95, },
 }
 itemBases["Advanced Stone Greaves"] = {
 	type = "Boots",
@@ -433,7 +433,7 @@ itemBases["Advanced Stone Greaves"] = {
 	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 167, },
-	req = { level = 59, },
+	req = { level = 59, str = 101, },
 }
 itemBases["Advanced Laced Boots"] = {
 	type = "Boots",
@@ -442,7 +442,7 @@ itemBases["Advanced Laced Boots"] = {
 	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
 	implicitModTypes = { },
 	armour = { Evasion = 119, },
-	req = { level = 45, },
+	req = { level = 45, dex = 78, },
 }
 itemBases["Advanced Embossed Boots"] = {
 	type = "Boots",
@@ -451,7 +451,7 @@ itemBases["Advanced Embossed Boots"] = {
 	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
 	implicitModTypes = { },
 	armour = { Evasion = 133, },
-	req = { level = 51, },
+	req = { level = 51, dex = 88, },
 }
 itemBases["Advanced Steeltoe Boots"] = {
 	type = "Boots",
@@ -460,7 +460,7 @@ itemBases["Advanced Steeltoe Boots"] = {
 	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
 	implicitModTypes = { },
 	armour = { Evasion = 143, },
-	req = { level = 55, },
+	req = { level = 55, dex = 95, },
 }
 itemBases["Advanced Lizardscale Boots"] = {
 	type = "Boots",
@@ -469,7 +469,7 @@ itemBases["Advanced Lizardscale Boots"] = {
 	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
 	implicitModTypes = { },
 	armour = { Evasion = 152, },
-	req = { level = 59, },
+	req = { level = 59, dex = 101, },
 }
 itemBases["Advanced Wrapped Sandals"] = {
 	type = "Boots",
@@ -478,7 +478,7 @@ itemBases["Advanced Wrapped Sandals"] = {
 	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
 	implicitModTypes = { },
 	armour = { EnergyShield = 48, },
-	req = { level = 45, },
+	req = { level = 45, int = 78, },
 }
 itemBases["Advanced Lattice Sandals"] = {
 	type = "Boots",
@@ -487,7 +487,7 @@ itemBases["Advanced Lattice Sandals"] = {
 	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
 	implicitModTypes = { },
 	armour = { EnergyShield = 52, },
-	req = { level = 51, },
+	req = { level = 51, int = 88, },
 }
 itemBases["Advanced Silk Slippers"] = {
 	type = "Boots",
@@ -496,7 +496,7 @@ itemBases["Advanced Silk Slippers"] = {
 	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
 	implicitModTypes = { },
 	armour = { EnergyShield = 55, },
-	req = { level = 55, },
+	req = { level = 55, int = 95, },
 }
 itemBases["Advanced Feathered Sandals"] = {
 	type = "Boots",
@@ -505,7 +505,7 @@ itemBases["Advanced Feathered Sandals"] = {
 	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
 	implicitModTypes = { },
 	armour = { EnergyShield = 58, },
-	req = { level = 59, },
+	req = { level = 59, int = 101, },
 }
 itemBases["Advanced Mail Sabatons"] = {
 	type = "Boots",
@@ -514,7 +514,7 @@ itemBases["Advanced Mail Sabatons"] = {
 	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 73, Evasion = 65, },
-	req = { level = 45, },
+	req = { level = 45, str = 43, dex = 43, },
 }
 itemBases["Advanced Braced Sabatons"] = {
 	type = "Boots",
@@ -523,7 +523,7 @@ itemBases["Advanced Braced Sabatons"] = {
 	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 81, Evasion = 73, },
-	req = { level = 51, },
+	req = { level = 51, str = 49, dex = 49, },
 }
 itemBases["Advanced Stacked Sabatons"] = {
 	type = "Boots",
@@ -532,7 +532,7 @@ itemBases["Advanced Stacked Sabatons"] = {
 	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 92, Evasion = 84, },
-	req = { level = 59, },
+	req = { level = 59, str = 56, dex = 56, },
 }
 itemBases["Advanced Padded Leggings"] = {
 	type = "Boots",
@@ -541,7 +541,7 @@ itemBases["Advanced Padded Leggings"] = {
 	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 73, EnergyShield = 26, },
-	req = { level = 45, },
+	req = { level = 45, str = 43, int = 43, },
 }
 itemBases["Advanced Secured Leggings"] = {
 	type = "Boots",
@@ -550,7 +550,7 @@ itemBases["Advanced Secured Leggings"] = {
 	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 81, EnergyShield = 29, },
-	req = { level = 51, },
+	req = { level = 51, str = 49, int = 49, },
 }
 itemBases["Advanced Pelt Leggings"] = {
 	type = "Boots",
@@ -559,7 +559,7 @@ itemBases["Advanced Pelt Leggings"] = {
 	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 92, EnergyShield = 32, },
-	req = { level = 59, },
+	req = { level = 59, str = 56, int = 56, },
 }
 itemBases["Advanced Frayed Shoes"] = {
 	type = "Boots",
@@ -568,7 +568,7 @@ itemBases["Advanced Frayed Shoes"] = {
 	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
 	implicitModTypes = { },
 	armour = { Evasion = 65, EnergyShield = 26, },
-	req = { level = 45, },
+	req = { level = 45, dex = 43, int = 43, },
 }
 itemBases["Advanced Threaded Shoes"] = {
 	type = "Boots",
@@ -577,7 +577,7 @@ itemBases["Advanced Threaded Shoes"] = {
 	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
 	implicitModTypes = { },
 	armour = { Evasion = 73, EnergyShield = 29, },
-	req = { level = 51, },
+	req = { level = 51, dex = 49, int = 49, },
 }
 itemBases["Advanced Hunting Shoes"] = {
 	type = "Boots",
@@ -586,7 +586,7 @@ itemBases["Advanced Hunting Shoes"] = {
 	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
 	implicitModTypes = { },
 	armour = { Evasion = 84, EnergyShield = 32, },
-	req = { level = 59, },
+	req = { level = 59, dex = 56, int = 56, },
 }
 itemBases["Expert Iron Greaves"] = {
 	type = "Boots",
@@ -595,7 +595,7 @@ itemBases["Expert Iron Greaves"] = {
 	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 182, },
-	req = { level = 65, },
+	req = { level = 65, str = 111, },
 }
 itemBases["Expert Trimmed Greaves"] = {
 	type = "Boots",
@@ -604,7 +604,7 @@ itemBases["Expert Trimmed Greaves"] = {
 	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 200, },
-	req = { level = 70, },
+	req = { level = 70, str = 121, },
 }
 itemBases["Expert Stone Greaves"] = {
 	type = "Boots",
@@ -613,7 +613,7 @@ itemBases["Expert Stone Greaves"] = {
 	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 219, },
-	req = { level = 75, },
+	req = { level = 75, str = 131, },
 }
 itemBases["Expert Laced Boots"] = {
 	type = "Boots",
@@ -622,7 +622,7 @@ itemBases["Expert Laced Boots"] = {
 	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
 	implicitModTypes = { },
 	armour = { Evasion = 166, },
-	req = { level = 65, },
+	req = { level = 65, dex = 111, },
 }
 itemBases["Expert Steeltoe Boots"] = {
 	type = "Boots",
@@ -631,7 +631,7 @@ itemBases["Expert Steeltoe Boots"] = {
 	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
 	implicitModTypes = { },
 	armour = { Evasion = 183, },
-	req = { level = 70, },
+	req = { level = 70, dex = 121, },
 }
 itemBases["Expert Lizardscale Boots"] = {
 	type = "Boots",
@@ -640,7 +640,7 @@ itemBases["Expert Lizardscale Boots"] = {
 	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
 	implicitModTypes = { },
 	armour = { Evasion = 200, },
-	req = { level = 75, },
+	req = { level = 75, dex = 131, },
 }
 itemBases["Expert Wrapped Sandals"] = {
 	type = "Boots",
@@ -649,7 +649,7 @@ itemBases["Expert Wrapped Sandals"] = {
 	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
 	implicitModTypes = { },
 	armour = { EnergyShield = 63, },
-	req = { level = 65, },
+	req = { level = 65, int = 111, },
 }
 itemBases["Expert Silk Slippers"] = {
 	type = "Boots",
@@ -658,7 +658,7 @@ itemBases["Expert Silk Slippers"] = {
 	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
 	implicitModTypes = { },
 	armour = { EnergyShield = 69, },
-	req = { level = 70, },
+	req = { level = 70, int = 121, },
 }
 itemBases["Expert Feathered Sandals"] = {
 	type = "Boots",
@@ -667,7 +667,7 @@ itemBases["Expert Feathered Sandals"] = {
 	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
 	implicitModTypes = { },
 	armour = { EnergyShield = 75, },
-	req = { level = 75, },
+	req = { level = 75, int = 131, },
 }
 itemBases["Expert Mail Sabatons"] = {
 	type = "Boots",
@@ -676,7 +676,7 @@ itemBases["Expert Mail Sabatons"] = {
 	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 100, Evasion = 91, },
-	req = { level = 65, },
+	req = { level = 65, str = 61, dex = 61, },
 }
 itemBases["Expert Braced Sabatons"] = {
 	type = "Boots",
@@ -685,7 +685,7 @@ itemBases["Expert Braced Sabatons"] = {
 	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 110, Evasion = 101, },
-	req = { level = 70, },
+	req = { level = 70, str = 66, dex = 66, },
 }
 itemBases["Expert Stacked Sabatons"] = {
 	type = "Boots",
@@ -694,7 +694,7 @@ itemBases["Expert Stacked Sabatons"] = {
 	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 120, Evasion = 110, },
-	req = { level = 75, },
+	req = { level = 75, str = 71, dex = 71, },
 }
 itemBases["Expert Padded Leggings"] = {
 	type = "Boots",
@@ -703,7 +703,7 @@ itemBases["Expert Padded Leggings"] = {
 	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 100, EnergyShield = 35, },
-	req = { level = 65, },
+	req = { level = 65, str = 61, int = 61, },
 }
 itemBases["Expert Secured Leggings"] = {
 	type = "Boots",
@@ -712,7 +712,7 @@ itemBases["Expert Secured Leggings"] = {
 	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 110, EnergyShield = 38, },
-	req = { level = 70, },
+	req = { level = 70, str = 66, int = 66, },
 }
 itemBases["Expert Pelt Leggings"] = {
 	type = "Boots",
@@ -721,7 +721,7 @@ itemBases["Expert Pelt Leggings"] = {
 	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 120, EnergyShield = 42, },
-	req = { level = 75, },
+	req = { level = 75, str = 71, int = 71, },
 }
 itemBases["Expert Frayed Shoes"] = {
 	type = "Boots",
@@ -730,7 +730,7 @@ itemBases["Expert Frayed Shoes"] = {
 	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
 	implicitModTypes = { },
 	armour = { Evasion = 91, EnergyShield = 35, },
-	req = { level = 65, },
+	req = { level = 65, dex = 61, int = 61, },
 }
 itemBases["Expert Threaded Shoes"] = {
 	type = "Boots",
@@ -739,7 +739,7 @@ itemBases["Expert Threaded Shoes"] = {
 	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
 	implicitModTypes = { },
 	armour = { Evasion = 101, EnergyShield = 38, },
-	req = { level = 70, },
+	req = { level = 70, dex = 66, int = 66, },
 }
 itemBases["Expert Hunting Shoes"] = {
 	type = "Boots",
@@ -748,5 +748,5 @@ itemBases["Expert Hunting Shoes"] = {
 	influenceTags = { shaper = "boots_shaper", elder = "boots_elder", adjudicator = "boots_adjudicator", basilisk = "boots_basilisk", crusader = "boots_crusader", eyrie = "boots_eyrie", cleansing = "boots_cleansing", tangle = "boots_tangle" },
 	implicitModTypes = { },
 	armour = { Evasion = 110, EnergyShield = 42, },
-	req = { level = 75, },
+	req = { level = 75, dex = 71, int = 71, },
 }

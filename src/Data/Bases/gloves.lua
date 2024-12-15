@@ -28,7 +28,7 @@ itemBases["Riveted Mitts"] = {
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 31, },
-	req = { level = 11, },
+	req = { level = 11, str = 19, },
 }
 itemBases["Tempered Mitts"] = {
 	type = "Gloves",
@@ -37,7 +37,7 @@ itemBases["Tempered Mitts"] = {
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 40, },
-	req = { level = 16, },
+	req = { level = 16, str = 27, },
 }
 itemBases["Bolstered Mitts"] = {
 	type = "Gloves",
@@ -46,7 +46,7 @@ itemBases["Bolstered Mitts"] = {
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 58, },
-	req = { level = 27, },
+	req = { level = 27, str = 44, },
 }
 itemBases["Moulded Mitts"] = {
 	type = "Gloves",
@@ -55,7 +55,7 @@ itemBases["Moulded Mitts"] = {
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 68, },
-	req = { level = 33, },
+	req = { level = 33, str = 53, },
 }
 itemBases["Detailed Mitts"] = {
 	type = "Gloves",
@@ -64,7 +64,7 @@ itemBases["Detailed Mitts"] = {
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 88, },
-	req = { level = 45, },
+	req = { level = 45, str = 73, },
 }
 itemBases["Titan Mitts"] = {
 	type = "Gloves",
@@ -73,7 +73,7 @@ itemBases["Titan Mitts"] = {
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 100, },
-	req = { level = 52, },
+	req = { level = 52, str = 83, },
 }
 itemBases["Grand Mitts"] = {
 	type = "Gloves",
@@ -82,7 +82,7 @@ itemBases["Grand Mitts"] = {
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 122, },
-	req = { level = 65, },
+	req = { level = 65, str = 104, },
 }
 itemBases["Suede Bracers"] = {
 	type = "Gloves",
@@ -100,7 +100,7 @@ itemBases["Firm Bracers"] = {
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
 	armour = { Evasion = 26, },
-	req = { level = 11, },
+	req = { level = 11, dex = 19, },
 }
 itemBases["Bound Bracers"] = {
 	type = "Gloves",
@@ -109,7 +109,7 @@ itemBases["Bound Bracers"] = {
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
 	armour = { Evasion = 33, },
-	req = { level = 16, },
+	req = { level = 16, dex = 27, },
 }
 itemBases["Sectioned Bracers"] = {
 	type = "Gloves",
@@ -118,7 +118,7 @@ itemBases["Sectioned Bracers"] = {
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
 	armour = { Evasion = 52, },
-	req = { level = 28, },
+	req = { level = 28, dex = 46, },
 }
 itemBases["Spined Bracers"] = {
 	type = "Gloves",
@@ -127,7 +127,7 @@ itemBases["Spined Bracers"] = {
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
 	armour = { Evasion = 60, },
-	req = { level = 33, },
+	req = { level = 33, dex = 53, },
 }
 itemBases["Fine Bracers"] = {
 	type = "Gloves",
@@ -136,7 +136,7 @@ itemBases["Fine Bracers"] = {
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
 	armour = { Evasion = 79, },
-	req = { level = 45, },
+	req = { level = 45, dex = 73, },
 }
 itemBases["Hardened Bracers"] = {
 	type = "Gloves",
@@ -145,7 +145,7 @@ itemBases["Hardened Bracers"] = {
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
 	armour = { Evasion = 90, },
-	req = { level = 52, },
+	req = { level = 52, dex = 83, },
 }
 itemBases["Engraved Bracers"] = {
 	type = "Gloves",
@@ -154,7 +154,7 @@ itemBases["Engraved Bracers"] = {
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
 	armour = { Evasion = 111, },
-	req = { level = 65, },
+	req = { level = 65, dex = 104, },
 }
 itemBases["Torn Gloves"] = {
 	type = "Gloves",
@@ -172,7 +172,7 @@ itemBases["Sombre Gloves"] = {
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
 	armour = { EnergyShield = 15, },
-	req = { level = 12, },
+	req = { level = 12, int = 20, },
 }
 itemBases["Stitched Gloves"] = {
 	type = "Gloves",
@@ -181,7 +181,7 @@ itemBases["Stitched Gloves"] = {
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
 	armour = { EnergyShield = 17, },
-	req = { level = 16, },
+	req = { level = 16, int = 27, },
 }
 itemBases["Jewelled Gloves"] = {
 	type = "Gloves",
@@ -190,7 +190,7 @@ itemBases["Jewelled Gloves"] = {
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
 	armour = { EnergyShield = 22, },
-	req = { level = 26, },
+	req = { level = 26, int = 43, },
 }
 itemBases["Intricate Gloves"] = {
 	type = "Gloves",
@@ -199,7 +199,7 @@ itemBases["Intricate Gloves"] = {
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
 	armour = { EnergyShield = 26, },
-	req = { level = 33, },
+	req = { level = 33, int = 53, },
 }
 itemBases["Pauascale Gloves"] = {
 	type = "Gloves",
@@ -208,7 +208,7 @@ itemBases["Pauascale Gloves"] = {
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
 	armour = { EnergyShield = 32, },
-	req = { level = 45, },
+	req = { level = 45, int = 73, },
 }
 itemBases["Embroidered Gloves"] = {
 	type = "Gloves",
@@ -217,7 +217,7 @@ itemBases["Embroidered Gloves"] = {
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
 	armour = { EnergyShield = 35, },
-	req = { level = 52, },
+	req = { level = 52, int = 83, },
 }
 itemBases["Adorned Gloves"] = {
 	type = "Gloves",
@@ -226,7 +226,7 @@ itemBases["Adorned Gloves"] = {
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
 	armour = { EnergyShield = 42, },
-	req = { level = 65, },
+	req = { level = 65, int = 104, },
 }
 itemBases["Ringmail Gauntlets"] = {
 	type = "Gloves",
@@ -235,7 +235,7 @@ itemBases["Ringmail Gauntlets"] = {
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 13, Evasion = 10, },
-	req = { level = 6, },
+	req = { level = 6, str = 7, dex = 7, },
 }
 itemBases["Layered Gauntlets"] = {
 	type = "Gloves",
@@ -244,7 +244,7 @@ itemBases["Layered Gauntlets"] = {
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 22, Evasion = 18, },
-	req = { level = 16, },
+	req = { level = 16, str = 15, dex = 15, },
 }
 itemBases["Doubled Gauntlets"] = {
 	type = "Gloves",
@@ -253,7 +253,7 @@ itemBases["Doubled Gauntlets"] = {
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 37, Evasion = 33, },
-	req = { level = 33, },
+	req = { level = 33, str = 30, dex = 30, },
 }
 itemBases["Plate Gauntlets"] = {
 	type = "Gloves",
@@ -262,7 +262,7 @@ itemBases["Plate Gauntlets"] = {
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 48, Evasion = 44, },
-	req = { level = 45, },
+	req = { level = 45, str = 40, dex = 40, },
 }
 itemBases["Burnished Gauntlets"] = {
 	type = "Gloves",
@@ -271,7 +271,7 @@ itemBases["Burnished Gauntlets"] = {
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 55, Evasion = 50, },
-	req = { level = 52, },
+	req = { level = 52, str = 46, dex = 46, },
 }
 itemBases["Ornate Gauntlets"] = {
 	type = "Gloves",
@@ -280,7 +280,7 @@ itemBases["Ornate Gauntlets"] = {
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 67, Evasion = 61, },
-	req = { level = 65, },
+	req = { level = 65, str = 57, dex = 57, },
 }
 itemBases["Rope Cuffs"] = {
 	type = "Gloves",
@@ -289,7 +289,7 @@ itemBases["Rope Cuffs"] = {
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 12, EnergyShield = 6, },
-	req = { level = 5, },
+	req = { level = 5, str = 6, int = 6, },
 }
 itemBases["Aged Cuffs"] = {
 	type = "Gloves",
@@ -298,7 +298,7 @@ itemBases["Aged Cuffs"] = {
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 22, EnergyShield = 9, },
-	req = { level = 16, },
+	req = { level = 16, str = 15, int = 15, },
 }
 itemBases["Goldcast Cuffs"] = {
 	type = "Gloves",
@@ -307,7 +307,7 @@ itemBases["Goldcast Cuffs"] = {
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 37, EnergyShield = 14, },
-	req = { level = 33, },
+	req = { level = 33, str = 30, int = 30, },
 }
 itemBases["Diviner Cuffs"] = {
 	type = "Gloves",
@@ -316,7 +316,7 @@ itemBases["Diviner Cuffs"] = {
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 48, EnergyShield = 17, },
-	req = { level = 45, },
+	req = { level = 45, str = 40, int = 40, },
 }
 itemBases["Righteous Cuffs"] = {
 	type = "Gloves",
@@ -325,7 +325,7 @@ itemBases["Righteous Cuffs"] = {
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 55, EnergyShield = 19, },
-	req = { level = 52, },
+	req = { level = 52, str = 46, int = 46, },
 }
 itemBases["Signet Cuffs"] = {
 	type = "Gloves",
@@ -334,7 +334,7 @@ itemBases["Signet Cuffs"] = {
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 67, EnergyShield = 23, },
-	req = { level = 65, },
+	req = { level = 65, str = 57, int = 57, },
 }
 itemBases["Gauze Wraps"] = {
 	type = "Gloves",
@@ -343,7 +343,7 @@ itemBases["Gauze Wraps"] = {
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
 	armour = { Evasion = 8, EnergyShield = 6, },
-	req = { },
+	req = { dex = 6, int = 6, },
 }
 itemBases["Linen Wraps"] = {
 	type = "Gloves",
@@ -352,7 +352,7 @@ itemBases["Linen Wraps"] = {
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
 	armour = { Evasion = 18, EnergyShield = 9, },
-	req = { level = 16, },
+	req = { level = 16, dex = 15, int = 15, },
 }
 itemBases["Spiral Wraps"] = {
 	type = "Gloves",
@@ -361,7 +361,7 @@ itemBases["Spiral Wraps"] = {
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
 	armour = { Evasion = 33, EnergyShield = 14, },
-	req = { level = 33, },
+	req = { level = 33, dex = 30, int = 30, },
 }
 itemBases["Buckled Wraps"] = {
 	type = "Gloves",
@@ -370,7 +370,7 @@ itemBases["Buckled Wraps"] = {
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
 	armour = { Evasion = 44, EnergyShield = 17, },
-	req = { level = 45, },
+	req = { level = 45, dex = 40, int = 40, },
 }
 itemBases["Furtive Wraps"] = {
 	type = "Gloves",
@@ -379,7 +379,7 @@ itemBases["Furtive Wraps"] = {
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
 	armour = { Evasion = 50, EnergyShield = 19, },
-	req = { level = 52, },
+	req = { level = 52, dex = 46, int = 46, },
 }
 itemBases["Utility Wraps"] = {
 	type = "Gloves",
@@ -388,7 +388,7 @@ itemBases["Utility Wraps"] = {
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
 	armour = { Evasion = 61, EnergyShield = 23, },
-	req = { level = 65, },
+	req = { level = 65, dex = 57, int = 57, },
 }
 itemBases["Grand Manchettes"] = {
 	type = "Gloves",
@@ -397,7 +397,7 @@ itemBases["Grand Manchettes"] = {
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 44, Evasion = 40, EnergyShield = 15, },
-	req = { level = 65, },
+	req = { level = 65, str = 40, dex = 40, int = 40, },
 }
 itemBases["Advanced Riveted Mitts"] = {
 	type = "Gloves",
@@ -406,7 +406,7 @@ itemBases["Advanced Riveted Mitts"] = {
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 88, },
-	req = { level = 45, },
+	req = { level = 45, str = 73, },
 }
 itemBases["Advanced Tempered Mitts"] = {
 	type = "Gloves",
@@ -415,7 +415,7 @@ itemBases["Advanced Tempered Mitts"] = {
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 98, },
-	req = { level = 51, },
+	req = { level = 51, str = 82, },
 }
 itemBases["Advanced Bolstered Mitts"] = {
 	type = "Gloves",
@@ -424,7 +424,7 @@ itemBases["Advanced Bolstered Mitts"] = {
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 105, },
-	req = { level = 55, },
+	req = { level = 55, str = 88, },
 }
 itemBases["Advanced Moulded Mitts"] = {
 	type = "Gloves",
@@ -433,7 +433,7 @@ itemBases["Advanced Moulded Mitts"] = {
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 111, },
-	req = { level = 59, },
+	req = { level = 59, str = 95, },
 }
 itemBases["Advanced Firm Bracers"] = {
 	type = "Gloves",
@@ -442,7 +442,7 @@ itemBases["Advanced Firm Bracers"] = {
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
 	armour = { Evasion = 79, },
-	req = { level = 45, },
+	req = { level = 45, dex = 73, },
 }
 itemBases["Advanced Bound Bracers"] = {
 	type = "Gloves",
@@ -451,7 +451,7 @@ itemBases["Advanced Bound Bracers"] = {
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
 	armour = { Evasion = 89, },
-	req = { level = 51, },
+	req = { level = 51, dex = 82, },
 }
 itemBases["Advanced Sectioned Bracers"] = {
 	type = "Gloves",
@@ -460,7 +460,7 @@ itemBases["Advanced Sectioned Bracers"] = {
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
 	armour = { Evasion = 95, },
-	req = { level = 55, },
+	req = { level = 55, dex = 88, },
 }
 itemBases["Advanced Spined Bracers"] = {
 	type = "Gloves",
@@ -469,7 +469,7 @@ itemBases["Advanced Spined Bracers"] = {
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
 	armour = { Evasion = 101, },
-	req = { level = 59, },
+	req = { level = 59, dex = 95, },
 }
 itemBases["Advanced Sombre Gloves"] = {
 	type = "Gloves",
@@ -478,7 +478,7 @@ itemBases["Advanced Sombre Gloves"] = {
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
 	armour = { EnergyShield = 32, },
-	req = { level = 45, },
+	req = { level = 45, int = 73, },
 }
 itemBases["Advanced Stitched Gloves"] = {
 	type = "Gloves",
@@ -487,7 +487,7 @@ itemBases["Advanced Stitched Gloves"] = {
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
 	armour = { EnergyShield = 35, },
-	req = { level = 51, },
+	req = { level = 51, int = 82, },
 }
 itemBases["Advanced Jewelled Gloves"] = {
 	type = "Gloves",
@@ -496,7 +496,7 @@ itemBases["Advanced Jewelled Gloves"] = {
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
 	armour = { EnergyShield = 37, },
-	req = { level = 55, },
+	req = { level = 55, int = 88, },
 }
 itemBases["Advanced Intricate Gloves"] = {
 	type = "Gloves",
@@ -505,7 +505,7 @@ itemBases["Advanced Intricate Gloves"] = {
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
 	armour = { EnergyShield = 39, },
-	req = { level = 59, },
+	req = { level = 59, int = 95, },
 }
 itemBases["Advanced Ringmail Gauntlets"] = {
 	type = "Gloves",
@@ -514,7 +514,7 @@ itemBases["Advanced Ringmail Gauntlets"] = {
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 48, Evasion = 44, },
-	req = { level = 45, },
+	req = { level = 45, str = 40, dex = 40, },
 }
 itemBases["Advanced Layered Gauntlets"] = {
 	type = "Gloves",
@@ -523,7 +523,7 @@ itemBases["Advanced Layered Gauntlets"] = {
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 54, Evasion = 49, },
-	req = { level = 51, },
+	req = { level = 51, str = 46, dex = 46, },
 }
 itemBases["Advanced Doubled Gauntlets"] = {
 	type = "Gloves",
@@ -532,7 +532,7 @@ itemBases["Advanced Doubled Gauntlets"] = {
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 61, Evasion = 56, },
-	req = { level = 59, },
+	req = { level = 59, str = 52, dex = 52, },
 }
 itemBases["Advanced Rope Cuffs"] = {
 	type = "Gloves",
@@ -541,7 +541,7 @@ itemBases["Advanced Rope Cuffs"] = {
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 48, EnergyShield = 17, },
-	req = { level = 45, },
+	req = { level = 45, str = 40, int = 40, },
 }
 itemBases["Advanced Aged Cuffs"] = {
 	type = "Gloves",
@@ -550,7 +550,7 @@ itemBases["Advanced Aged Cuffs"] = {
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 54, EnergyShield = 19, },
-	req = { level = 51, },
+	req = { level = 51, str = 46, int = 46, },
 }
 itemBases["Advanced Goldcast Cuffs"] = {
 	type = "Gloves",
@@ -559,7 +559,7 @@ itemBases["Advanced Goldcast Cuffs"] = {
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 61, EnergyShield = 21, },
-	req = { level = 59, },
+	req = { level = 59, str = 52, int = 52, },
 }
 itemBases["Advanced Gauze Wraps"] = {
 	type = "Gloves",
@@ -568,7 +568,7 @@ itemBases["Advanced Gauze Wraps"] = {
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
 	armour = { Evasion = 44, EnergyShield = 17, },
-	req = { level = 45, },
+	req = { level = 45, dex = 40, int = 40, },
 }
 itemBases["Advanced Linen Wraps"] = {
 	type = "Gloves",
@@ -577,7 +577,7 @@ itemBases["Advanced Linen Wraps"] = {
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
 	armour = { Evasion = 49, EnergyShield = 19, },
-	req = { level = 51, },
+	req = { level = 51, dex = 46, int = 46, },
 }
 itemBases["Advanced Spiral Wraps"] = {
 	type = "Gloves",
@@ -586,7 +586,7 @@ itemBases["Advanced Spiral Wraps"] = {
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
 	armour = { Evasion = 56, EnergyShield = 21, },
-	req = { level = 59, },
+	req = { level = 59, dex = 52, int = 52, },
 }
 itemBases["Expert Riveted Mitts"] = {
 	type = "Gloves",
@@ -595,7 +595,7 @@ itemBases["Expert Riveted Mitts"] = {
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 122, },
-	req = { level = 65, },
+	req = { level = 65, str = 104, },
 }
 itemBases["Expert Bolstered Mitts"] = {
 	type = "Gloves",
@@ -604,7 +604,7 @@ itemBases["Expert Bolstered Mitts"] = {
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 134, },
-	req = { level = 70, },
+	req = { level = 70, str = 113, },
 }
 itemBases["Expert Moulded Mitts"] = {
 	type = "Gloves",
@@ -613,7 +613,7 @@ itemBases["Expert Moulded Mitts"] = {
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 146, },
-	req = { level = 75, },
+	req = { level = 75, str = 122, },
 }
 itemBases["Expert Firm Bracers"] = {
 	type = "Gloves",
@@ -622,7 +622,7 @@ itemBases["Expert Firm Bracers"] = {
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
 	armour = { Evasion = 111, },
-	req = { level = 65, },
+	req = { level = 65, dex = 104, },
 }
 itemBases["Expert Sectioned Bracers"] = {
 	type = "Gloves",
@@ -631,7 +631,7 @@ itemBases["Expert Sectioned Bracers"] = {
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
 	armour = { Evasion = 122, },
-	req = { level = 70, },
+	req = { level = 70, dex = 113, },
 }
 itemBases["Expert Spined Bracers"] = {
 	type = "Gloves",
@@ -640,7 +640,7 @@ itemBases["Expert Spined Bracers"] = {
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
 	armour = { Evasion = 133, },
-	req = { level = 75, },
+	req = { level = 75, dex = 122, },
 }
 itemBases["Expert Sombre Gloves"] = {
 	type = "Gloves",
@@ -649,7 +649,7 @@ itemBases["Expert Sombre Gloves"] = {
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
 	armour = { EnergyShield = 42, },
-	req = { level = 65, },
+	req = { level = 65, int = 104, },
 }
 itemBases["Expert Jewelled Gloves"] = {
 	type = "Gloves",
@@ -658,7 +658,7 @@ itemBases["Expert Jewelled Gloves"] = {
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
 	armour = { EnergyShield = 46, },
-	req = { level = 70, },
+	req = { level = 70, int = 113, },
 }
 itemBases["Expert Intricate Gloves"] = {
 	type = "Gloves",
@@ -667,7 +667,7 @@ itemBases["Expert Intricate Gloves"] = {
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
 	armour = { EnergyShield = 50, },
-	req = { level = 75, },
+	req = { level = 75, int = 122, },
 }
 itemBases["Expert Ringmail Gauntlets"] = {
 	type = "Gloves",
@@ -676,7 +676,7 @@ itemBases["Expert Ringmail Gauntlets"] = {
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 67, Evasion = 61, },
-	req = { level = 65, },
+	req = { level = 65, str = 57, dex = 57, },
 }
 itemBases["Expert Layered Gauntlets"] = {
 	type = "Gloves",
@@ -685,7 +685,7 @@ itemBases["Expert Layered Gauntlets"] = {
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 74, Evasion = 67, },
-	req = { level = 70, },
+	req = { level = 70, str = 62, dex = 62, },
 }
 itemBases["Expert Doubled Gauntlets"] = {
 	type = "Gloves",
@@ -694,7 +694,7 @@ itemBases["Expert Doubled Gauntlets"] = {
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 80, Evasion = 73, },
-	req = { level = 75, },
+	req = { level = 75, str = 67, dex = 67, },
 }
 itemBases["Expert Rope Cuffs"] = {
 	type = "Gloves",
@@ -703,7 +703,7 @@ itemBases["Expert Rope Cuffs"] = {
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 67, EnergyShield = 23, },
-	req = { level = 65, },
+	req = { level = 65, str = 57, int = 57, },
 }
 itemBases["Expert Aged Cuffs"] = {
 	type = "Gloves",
@@ -712,7 +712,7 @@ itemBases["Expert Aged Cuffs"] = {
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 74, EnergyShield = 25, },
-	req = { level = 70, },
+	req = { level = 70, str = 62, int = 62, },
 }
 itemBases["Expert Goldcast Cuffs"] = {
 	type = "Gloves",
@@ -721,7 +721,7 @@ itemBases["Expert Goldcast Cuffs"] = {
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
 	armour = { Armour = 80, EnergyShield = 28, },
-	req = { level = 75, },
+	req = { level = 75, str = 67, int = 67, },
 }
 itemBases["Expert Gauze Wraps"] = {
 	type = "Gloves",
@@ -730,7 +730,7 @@ itemBases["Expert Gauze Wraps"] = {
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
 	armour = { Evasion = 61, EnergyShield = 23, },
-	req = { level = 65, },
+	req = { level = 65, dex = 57, int = 57, },
 }
 itemBases["Expert Linen Wraps"] = {
 	type = "Gloves",
@@ -739,7 +739,7 @@ itemBases["Expert Linen Wraps"] = {
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
 	armour = { Evasion = 67, EnergyShield = 25, },
-	req = { level = 70, },
+	req = { level = 70, dex = 62, int = 62, },
 }
 itemBases["Expert Spiral Wraps"] = {
 	type = "Gloves",
@@ -748,6 +748,6 @@ itemBases["Expert Spiral Wraps"] = {
 	influenceTags = { shaper = "gloves_shaper", elder = "gloves_elder", adjudicator = "gloves_adjudicator", basilisk = "gloves_basilisk", crusader = "gloves_crusader", eyrie = "gloves_eyrie", cleansing = "gloves_cleansing", tangle = "gloves_tangle" },
 	implicitModTypes = { },
 	armour = { Evasion = 73, EnergyShield = 28, },
-	req = { level = 75, },
+	req = { level = 75, dex = 67, int = 67, },
 }
 

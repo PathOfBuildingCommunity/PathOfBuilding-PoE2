@@ -18,7 +18,7 @@ itemBases["Pict Claw"] = {
 	influenceTags = { shaper = "claw_shaper", elder = "claw_elder", adjudicator = "claw_adjudicator", basilisk = "claw_basilisk", crusader = "claw_crusader", eyrie = "claw_eyrie", cleansing = "claw_cleansing", tangle = "claw_tangle" },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 4, PhysicalMax = 16, CritChanceBase = 5, AttackRateBase = 1.7, Range = 11, },
-	req = { level = 6, },
+	req = { level = 6, dex = 16, },
 }
 itemBases["Wolfbone Claw"] = {
 	type = "Claw",
@@ -28,7 +28,7 @@ itemBases["Wolfbone Claw"] = {
 	implicit = "Grants 8 Life per Enemy Hit",
 	implicitModTypes = { { "resource", "life", "attack" }, },
 	weapon = { PhysicalMin = 7, PhysicalMax = 23, CritChanceBase = 5, AttackRateBase = 1.6, Range = 11, },
-	req = { level = 12, },
+	req = { level = 12, dex = 29, },
 }
 itemBases["Forked Claw"] = {
 	type = "Claw",
@@ -37,7 +37,7 @@ itemBases["Forked Claw"] = {
 	influenceTags = { shaper = "claw_shaper", elder = "claw_elder", adjudicator = "claw_adjudicator", basilisk = "claw_basilisk", crusader = "claw_crusader", eyrie = "claw_eyrie", cleansing = "claw_cleansing", tangle = "claw_tangle" },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 10, PhysicalMax = 26, CritChanceBase = 5, AttackRateBase = 1.55, Range = 11, },
-	req = { level = 16, },
+	req = { level = 16, dex = 38, },
 }
 itemBases["Plated Claw"] = {
 	type = "Claw",
@@ -46,7 +46,7 @@ itemBases["Plated Claw"] = {
 	influenceTags = { shaper = "claw_shaper", elder = "claw_elder", adjudicator = "claw_adjudicator", basilisk = "claw_basilisk", crusader = "claw_crusader", eyrie = "claw_eyrie", cleansing = "claw_cleansing", tangle = "claw_tangle" },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 13, PhysicalMax = 31, CritChanceBase = 5, AttackRateBase = 1.6, Range = 11, },
-	req = { level = 22, },
+	req = { level = 22, dex = 52, },
 }
 itemBases["Edged Claw"] = {
 	type = "Claw",
@@ -56,7 +56,7 @@ itemBases["Edged Claw"] = {
 	implicit = "(15-25)% chance to Blind Enemies on hit",
 	implicitModTypes = { {  }, },
 	weapon = { PhysicalMin = 11, PhysicalMax = 38, CritChanceBase = 5, AttackRateBase = 1.7, Range = 11, },
-	req = { level = 28, },
+	req = { level = 28, dex = 65, },
 }
 itemBases["Arced Claw"] = {
 	type = "Claw",
@@ -65,7 +65,7 @@ itemBases["Arced Claw"] = {
 	influenceTags = { shaper = "claw_shaper", elder = "claw_elder", adjudicator = "claw_adjudicator", basilisk = "claw_basilisk", crusader = "claw_crusader", eyrie = "claw_eyrie", cleansing = "claw_cleansing", tangle = "claw_tangle" },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 12, PhysicalMax = 46, CritChanceBase = 5, AttackRateBase = 1.65, Range = 11, },
-	req = { level = 33, },
+	req = { level = 33, dex = 76, },
 }
 itemBases["Hooked Claw"] = {
 	type = "Claw",
@@ -74,7 +74,7 @@ itemBases["Hooked Claw"] = {
 	influenceTags = { shaper = "claw_shaper", elder = "claw_elder", adjudicator = "claw_adjudicator", basilisk = "claw_basilisk", crusader = "claw_crusader", eyrie = "claw_eyrie", cleansing = "claw_cleansing", tangle = "claw_tangle" },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 16, PhysicalMax = 49, CritChanceBase = 5, AttackRateBase = 1.55, Range = 11, },
-	req = { level = 36, },
+	req = { level = 36, dex = 83, },
 }
 itemBases["Razorglass Claw"] = {
 	type = "Claw",
@@ -83,7 +83,7 @@ itemBases["Razorglass Claw"] = {
 	influenceTags = { shaper = "claw_shaper", elder = "claw_elder", adjudicator = "claw_adjudicator", basilisk = "claw_basilisk", crusader = "claw_crusader", eyrie = "claw_eyrie", cleansing = "claw_cleansing", tangle = "claw_tangle" },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 23, PhysicalMax = 54, CritChanceBase = 5, AttackRateBase = 1.6, Range = 11, },
-	req = { level = 45, },
+	req = { level = 45, dex = 104, },
 }
 itemBases["Sharktooth Claw"] = {
 	type = "Claw",
@@ -92,7 +92,7 @@ itemBases["Sharktooth Claw"] = {
 	influenceTags = { shaper = "claw_shaper", elder = "claw_elder", adjudicator = "claw_adjudicator", basilisk = "claw_basilisk", crusader = "claw_crusader", eyrie = "claw_eyrie", cleansing = "claw_cleansing", tangle = "claw_tangle" },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 25, PhysicalMax = 52, CritChanceBase = 5, AttackRateBase = 1.7, Range = 11, },
-	req = { level = 49, },
+	req = { level = 49, dex = 112, },
 }
 itemBases["Armoured Claw"] = {
 	type = "Claw",
@@ -101,7 +101,7 @@ itemBases["Armoured Claw"] = {
 	influenceTags = { shaper = "claw_shaper", elder = "claw_elder", adjudicator = "claw_adjudicator", basilisk = "claw_basilisk", crusader = "claw_crusader", eyrie = "claw_eyrie", cleansing = "claw_cleansing", tangle = "claw_tangle" },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 27, PhysicalMax = 63, CritChanceBase = 5, AttackRateBase = 1.55, Range = 11, },
-	req = { level = 52, },
+	req = { level = 52, dex = 119, },
 }
 itemBases["Piercing Claw"] = {
 	type = "Claw",
@@ -110,7 +110,7 @@ itemBases["Piercing Claw"] = {
 	influenceTags = { shaper = "claw_shaper", elder = "claw_elder", adjudicator = "claw_adjudicator", basilisk = "claw_basilisk", crusader = "claw_crusader", eyrie = "claw_eyrie", cleansing = "claw_cleansing", tangle = "claw_tangle" },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 23, PhysicalMax = 68, CritChanceBase = 5, AttackRateBase = 1.6, Range = 11, },
-	req = { level = 55, },
+	req = { level = 55, dex = 126, },
 }
 itemBases["Talon Claw"] = {
 	type = "Claw",
@@ -119,5 +119,5 @@ itemBases["Talon Claw"] = {
 	influenceTags = { shaper = "claw_shaper", elder = "claw_elder", adjudicator = "claw_adjudicator", basilisk = "claw_basilisk", crusader = "claw_crusader", eyrie = "claw_eyrie", cleansing = "claw_cleansing", tangle = "claw_tangle" },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 23, PhysicalMax = 79, CritChanceBase = 5, AttackRateBase = 1.65, Range = 11, },
-	req = { level = 65, },
+	req = { level = 65, dex = 148, },
 }

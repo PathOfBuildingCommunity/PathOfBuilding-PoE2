@@ -271,7 +271,7 @@ directiveTable.base = function(state, args, out)
 	if reqLevel > 1 then
 		out:write('level = ', reqLevel, ', ')
 	end
-	local compAtt = dat("AttributeRequirements"):GetRow("BaseType", baseItemType.Id)
+	local compAtt = dat("AttributeRequirements"):GetRow("BaseType", baseItemType)
 	if compAtt then
 		if compAtt.ReqStr > 0 then
 			out:write('str = ', compAtt.ReqStr, ', ')

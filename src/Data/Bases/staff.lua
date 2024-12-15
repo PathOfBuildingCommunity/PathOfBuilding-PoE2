@@ -126,7 +126,7 @@ itemBases["Long Quarterstaff"] = {
 	implicit = "16% increased Range",
 	implicitModTypes = { { "attack" }, },
 	weapon = { PhysicalMin = 9, PhysicalMax = 18, CritChanceBase = 10, AttackRateBase = 1.4, Range = 13, },
-	req = { },
+	req = { dex = 10, },
 }
 itemBases["Gothic Quarterstaff"] = {
 	type = "Staff",
@@ -136,7 +136,7 @@ itemBases["Gothic Quarterstaff"] = {
 	influenceTags = { shaper = "warstaff_shaper", elder = "warstaff_elder", adjudicator = "warstaff_adjudicator", basilisk = "warstaff_basilisk", crusader = "warstaff_crusader", eyrie = "warstaff_eyrie", cleansing = "warstaff_cleansing", tangle = "warstaff_tangle" },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 16, PhysicalMax = 26, CritChanceBase = 11.5, AttackRateBase = 1.4, Range = 13, },
-	req = { level = 11, },
+	req = { level = 11, dex = 22, int = 11, },
 }
 itemBases["Crackling Quarterstaff"] = {
 	type = "Staff",
@@ -146,7 +146,7 @@ itemBases["Crackling Quarterstaff"] = {
 	influenceTags = { shaper = "warstaff_shaper", elder = "warstaff_elder", adjudicator = "warstaff_adjudicator", basilisk = "warstaff_basilisk", crusader = "warstaff_crusader", eyrie = "warstaff_eyrie", cleansing = "warstaff_cleansing", tangle = "warstaff_tangle" },
 	implicitModTypes = { },
 	weapon = { LightningMin = 13, LightningMax = 54, CritChanceBase = 10, AttackRateBase = 1.4, Range = 13, },
-	req = { level = 16, },
+	req = { level = 16, dex = 30, int = 14, },
 }
 itemBases["Crescent Quarterstaff"] = {
 	type = "Staff",
@@ -156,7 +156,7 @@ itemBases["Crescent Quarterstaff"] = {
 	influenceTags = { shaper = "warstaff_shaper", elder = "warstaff_elder", adjudicator = "warstaff_adjudicator", basilisk = "warstaff_basilisk", crusader = "warstaff_crusader", eyrie = "warstaff_eyrie", cleansing = "warstaff_cleansing", tangle = "warstaff_tangle" },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 19, PhysicalMax = 39, CritChanceBase = 10, AttackRateBase = 1.5, Range = 13, },
-	req = { level = 20, },
+	req = { level = 20, dex = 37, int = 16, },
 }
 itemBases["Steelpoint Quarterstaff"] = {
 	type = "Staff",
@@ -166,7 +166,7 @@ itemBases["Steelpoint Quarterstaff"] = {
 	influenceTags = { shaper = "warstaff_shaper", elder = "warstaff_elder", adjudicator = "warstaff_adjudicator", basilisk = "warstaff_basilisk", crusader = "warstaff_crusader", eyrie = "warstaff_eyrie", cleansing = "warstaff_cleansing", tangle = "warstaff_tangle" },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 28, PhysicalMax = 51, CritChanceBase = 10, AttackRateBase = 1.4, Range = 13, },
-	req = { level = 28, },
+	req = { level = 28, dex = 51, int = 22, },
 }
 itemBases["Slicing Quarterstaff"] = {
 	type = "Staff",
@@ -176,7 +176,7 @@ itemBases["Slicing Quarterstaff"] = {
 	influenceTags = { shaper = "warstaff_shaper", elder = "warstaff_elder", adjudicator = "warstaff_adjudicator", basilisk = "warstaff_basilisk", crusader = "warstaff_crusader", eyrie = "warstaff_eyrie", cleansing = "warstaff_cleansing", tangle = "warstaff_tangle" },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 29, PhysicalMax = 60, CritChanceBase = 10, AttackRateBase = 1.4, Range = 13, },
-	req = { level = 33, },
+	req = { level = 33, dex = 60, int = 25, },
 }
 itemBases["Barrier Quarterstaff"] = {
 	type = "Staff",
@@ -187,7 +187,7 @@ itemBases["Barrier Quarterstaff"] = {
 	implicit = "+(10-15)% to Block chance",
 	implicitModTypes = { { "block" }, },
 	weapon = { PhysicalMin = 33, PhysicalMax = 55, CritChanceBase = 10, AttackRateBase = 1.4, Range = 13, },
-	req = { level = 37, },
+	req = { level = 37, dex = 67, int = 27, },
 }
 itemBases["Hefty Quarterstaff"] = {
 	type = "Staff",
@@ -197,7 +197,7 @@ itemBases["Hefty Quarterstaff"] = {
 	influenceTags = { shaper = "warstaff_shaper", elder = "warstaff_elder", adjudicator = "warstaff_adjudicator", basilisk = "warstaff_basilisk", crusader = "warstaff_crusader", eyrie = "warstaff_eyrie", cleansing = "warstaff_cleansing", tangle = "warstaff_tangle" },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 39, PhysicalMax = 80, CritChanceBase = 10, AttackRateBase = 1.35, Range = 13, },
-	req = { level = 45, },
+	req = { level = 45, dex = 81, int = 33, },
 }
 itemBases["Smooth Quarterstaff"] = {
 	type = "Staff",
@@ -207,7 +207,7 @@ itemBases["Smooth Quarterstaff"] = {
 	influenceTags = { shaper = "warstaff_shaper", elder = "warstaff_elder", adjudicator = "warstaff_adjudicator", basilisk = "warstaff_basilisk", crusader = "warstaff_crusader", eyrie = "warstaff_eyrie", cleansing = "warstaff_cleansing", tangle = "warstaff_tangle" },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 62, PhysicalMax = 84, CritChanceBase = 0, AttackRateBase = 1.5, Range = 13, },
-	req = { level = 47, },
+	req = { level = 47, dex = 84, int = 34, },
 }
 itemBases["Anima Quarterstaff"] = {
 	type = "Staff",
@@ -217,7 +217,7 @@ itemBases["Anima Quarterstaff"] = {
 	influenceTags = { shaper = "warstaff_shaper", elder = "warstaff_elder", adjudicator = "warstaff_adjudicator", basilisk = "warstaff_basilisk", crusader = "warstaff_crusader", eyrie = "warstaff_eyrie", cleansing = "warstaff_cleansing", tangle = "warstaff_tangle" },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 47, PhysicalMax = 79, CritChanceBase = 10, AttackRateBase = 1.4, Range = 13, },
-	req = { level = 52, },
+	req = { level = 52, dex = 93, int = 37, },
 }
 itemBases["Graceful Quarterstaff"] = {
 	type = "Staff",
@@ -227,7 +227,7 @@ itemBases["Graceful Quarterstaff"] = {
 	influenceTags = { shaper = "warstaff_shaper", elder = "warstaff_elder", adjudicator = "warstaff_adjudicator", basilisk = "warstaff_basilisk", crusader = "warstaff_crusader", eyrie = "warstaff_eyrie", cleansing = "warstaff_cleansing", tangle = "warstaff_tangle" },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 47, PhysicalMax = 87, CritChanceBase = 10, AttackRateBase = 1.4, Range = 13, },
-	req = { level = 56, },
+	req = { level = 56, dex = 100, int = 40, },
 }
 itemBases["Wyrm Quarterstaff"] = {
 	type = "Staff",
@@ -237,7 +237,7 @@ itemBases["Wyrm Quarterstaff"] = {
 	influenceTags = { shaper = "warstaff_shaper", elder = "warstaff_elder", adjudicator = "warstaff_adjudicator", basilisk = "warstaff_basilisk", crusader = "warstaff_crusader", eyrie = "warstaff_eyrie", cleansing = "warstaff_cleansing", tangle = "warstaff_tangle" },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 57, PhysicalMax = 94, CritChanceBase = 10, AttackRateBase = 1.4, Range = 13, },
-	req = { level = 65, },
+	req = { level = 65, dex = 116, int = 45, },
 }
 itemBases["Advanced Long Quarterstaff"] = {
 	type = "Staff",
@@ -248,7 +248,7 @@ itemBases["Advanced Long Quarterstaff"] = {
 	implicit = "16% increased Range",
 	implicitModTypes = { { "attack" }, },
 	weapon = { PhysicalMin = 35, PhysicalMax = 72, CritChanceBase = 10, AttackRateBase = 1.4, Range = 13, },
-	req = { level = 45, },
+	req = { level = 45, dex = 81, int = 33, },
 }
 itemBases["Advanced Gothic Quarterstaff"] = {
 	type = "Staff",
@@ -258,7 +258,7 @@ itemBases["Advanced Gothic Quarterstaff"] = {
 	influenceTags = { shaper = "warstaff_shaper", elder = "warstaff_elder", adjudicator = "warstaff_adjudicator", basilisk = "warstaff_basilisk", crusader = "warstaff_crusader", eyrie = "warstaff_eyrie", cleansing = "warstaff_cleansing", tangle = "warstaff_tangle" },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 43, PhysicalMax = 72, CritChanceBase = 11.5, AttackRateBase = 1.4, Range = 13, },
-	req = { level = 48, },
+	req = { level = 48, dex = 86, int = 35, },
 }
 itemBases["Advanced Crackling Quarterstaff"] = {
 	type = "Staff",
@@ -268,7 +268,7 @@ itemBases["Advanced Crackling Quarterstaff"] = {
 	influenceTags = { shaper = "warstaff_shaper", elder = "warstaff_elder", adjudicator = "warstaff_adjudicator", basilisk = "warstaff_basilisk", crusader = "warstaff_crusader", eyrie = "warstaff_eyrie", cleansing = "warstaff_cleansing", tangle = "warstaff_tangle" },
 	implicitModTypes = { },
 	weapon = { LightningMin = 30, LightningMax = 57, CritChanceBase = 10, AttackRateBase = 1.4, Range = 13, },
-	req = { level = 51, },
+	req = { level = 51, dex = 91, int = 36, },
 }
 itemBases["Advanced Crescent Quarterstaff"] = {
 	type = "Staff",
@@ -278,7 +278,7 @@ itemBases["Advanced Crescent Quarterstaff"] = {
 	influenceTags = { shaper = "warstaff_shaper", elder = "warstaff_elder", adjudicator = "warstaff_adjudicator", basilisk = "warstaff_basilisk", crusader = "warstaff_crusader", eyrie = "warstaff_eyrie", cleansing = "warstaff_cleansing", tangle = "warstaff_tangle" },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 40, PhysicalMax = 83, CritChanceBase = 10, AttackRateBase = 1.5, Range = 13, },
-	req = { level = 55, },
+	req = { level = 55, dex = 98, int = 39, },
 }
 itemBases["Advanced Slicing Quarterstaff"] = {
 	type = "Staff",
@@ -288,7 +288,7 @@ itemBases["Advanced Slicing Quarterstaff"] = {
 	influenceTags = { shaper = "warstaff_shaper", elder = "warstaff_elder", adjudicator = "warstaff_adjudicator", basilisk = "warstaff_basilisk", crusader = "warstaff_crusader", eyrie = "warstaff_eyrie", cleansing = "warstaff_cleansing", tangle = "warstaff_tangle" },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 45, PhysicalMax = 94, CritChanceBase = 10, AttackRateBase = 1.4, Range = 13, },
-	req = { level = 59, },
+	req = { level = 59, dex = 105, int = 42, },
 }
 itemBases["Advanced Barrier Quarterstaff"] = {
 	type = "Staff",
@@ -299,7 +299,7 @@ itemBases["Advanced Barrier Quarterstaff"] = {
 	implicit = "+(10-15)% to Block chance",
 	implicitModTypes = { { "block" }, },
 	weapon = { PhysicalMin = 49, PhysicalMax = 82, CritChanceBase = 10, AttackRateBase = 1.4, Range = 13, },
-	req = { level = 62, },
+	req = { level = 62, dex = 110, int = 44, },
 }
 itemBases["Expert Gothic Quarterstaff"] = {
 	type = "Staff",
@@ -309,7 +309,7 @@ itemBases["Expert Gothic Quarterstaff"] = {
 	influenceTags = { shaper = "warstaff_shaper", elder = "warstaff_elder", adjudicator = "warstaff_adjudicator", basilisk = "warstaff_basilisk", crusader = "warstaff_crusader", eyrie = "warstaff_eyrie", cleansing = "warstaff_cleansing", tangle = "warstaff_tangle" },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 55, PhysicalMax = 92, CritChanceBase = 11.5, AttackRateBase = 1.4, Range = 13, },
-	req = { level = 67, },
+	req = { level = 67, dex = 135, int = 53, },
 }
 itemBases["Expert Crescent Quarterstaff"] = {
 	type = "Staff",
@@ -319,7 +319,7 @@ itemBases["Expert Crescent Quarterstaff"] = {
 	influenceTags = { shaper = "warstaff_shaper", elder = "warstaff_elder", adjudicator = "warstaff_adjudicator", basilisk = "warstaff_basilisk", crusader = "warstaff_crusader", eyrie = "warstaff_eyrie", cleansing = "warstaff_cleansing", tangle = "warstaff_tangle" },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 50, PhysicalMax = 103, CritChanceBase = 10, AttackRateBase = 1.5, Range = 13, },
-	req = { level = 72, },
+	req = { level = 72, dex = 150, int = 59, },
 }
 itemBases["Expert Long Quarterstaff"] = {
 	type = "Staff",
@@ -330,7 +330,7 @@ itemBases["Expert Long Quarterstaff"] = {
 	implicit = "16% increased Range",
 	implicitModTypes = { { "attack" }, },
 	weapon = { PhysicalMin = 53, PhysicalMax = 111, CritChanceBase = 10, AttackRateBase = 1.4, Range = 13, },
-	req = { level = 77, },
+	req = { level = 77, dex = 165, int = 64, },
 }
 itemBases["Expert Crackling Quarterstaff"] = {
 	type = "Staff",
@@ -340,7 +340,7 @@ itemBases["Expert Crackling Quarterstaff"] = {
 	influenceTags = { shaper = "warstaff_shaper", elder = "warstaff_elder", adjudicator = "warstaff_adjudicator", basilisk = "warstaff_basilisk", crusader = "warstaff_crusader", eyrie = "warstaff_eyrie", cleansing = "warstaff_cleansing", tangle = "warstaff_tangle" },
 	implicitModTypes = { },
 	weapon = { LightningMin = 43, LightningMax = 172, CritChanceBase = 10, AttackRateBase = 1.4, Range = 13, },
-	req = { level = 78, },
+	req = { level = 78, dex = 165, int = 64, },
 }
 itemBases["Expert Barrier Quarterstaff"] = {
 	type = "Staff",
@@ -351,7 +351,7 @@ itemBases["Expert Barrier Quarterstaff"] = {
 	implicit = "+(10-15)% to Block chance",
 	implicitModTypes = { { "block" }, },
 	weapon = { PhysicalMin = 58, PhysicalMax = 97, CritChanceBase = 10, AttackRateBase = 1.4, Range = 13, },
-	req = { level = 79, },
+	req = { level = 79, dex = 165, int = 64, },
 }
 itemBases["Expert Slicing Quarterstaff"] = {
 	type = "Staff",
@@ -361,5 +361,5 @@ itemBases["Expert Slicing Quarterstaff"] = {
 	influenceTags = { shaper = "warstaff_shaper", elder = "warstaff_elder", adjudicator = "warstaff_adjudicator", basilisk = "warstaff_basilisk", crusader = "warstaff_crusader", eyrie = "warstaff_eyrie", cleansing = "warstaff_cleansing", tangle = "warstaff_tangle" },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 65, PhysicalMax = 108, CritChanceBase = 10, AttackRateBase = 1.4, Range = 13, },
-	req = { level = 77, },
+	req = { level = 77, dex = 165, int = 64, },
 }

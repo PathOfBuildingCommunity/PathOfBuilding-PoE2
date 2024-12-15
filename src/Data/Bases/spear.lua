@@ -18,7 +18,7 @@ itemBases["Ironhead Spear"] = {
 	influenceTags = { shaper = "spear_shaper", elder = "spear_elder", adjudicator = "spear_adjudicator", basilisk = "spear_basilisk", crusader = "spear_crusader", eyrie = "spear_eyrie", cleansing = "spear_cleansing", tangle = "spear_tangle" },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 7, PhysicalMax = 13, CritChanceBase = 5, AttackRateBase = 1.6, Range = 15, },
-	req = { level = 5, },
+	req = { level = 5, dex = 11, },
 }
 itemBases["Hunting Spear"] = {
 	type = "Spear",
@@ -28,7 +28,7 @@ itemBases["Hunting Spear"] = {
 	implicit = "(15-25)% chance to Maim on Hit",
 	implicitModTypes = { { "attack" }, },
 	weapon = { PhysicalMin = 10, PhysicalMax = 18, CritChanceBase = 5, AttackRateBase = 1.55, Range = 15, },
-	req = { level = 10, },
+	req = { level = 10, str = 10, dex = 20, },
 }
 itemBases["Winged Spear"] = {
 	type = "Spear",
@@ -37,7 +37,7 @@ itemBases["Winged Spear"] = {
 	influenceTags = { shaper = "spear_shaper", elder = "spear_elder", adjudicator = "spear_adjudicator", basilisk = "spear_basilisk", crusader = "spear_crusader", eyrie = "spear_eyrie", cleansing = "spear_cleansing", tangle = "spear_tangle" },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 12, PhysicalMax = 22, CritChanceBase = 5, AttackRateBase = 1.65, Range = 15, },
-	req = { level = 16, },
+	req = { level = 16, str = 14, dex = 30, },
 }
 itemBases["War Spear"] = {
 	type = "Spear",
@@ -47,7 +47,7 @@ itemBases["War Spear"] = {
 	implicit = "(25-35)% increased Projectile Speed when thrown",
 	implicitModTypes = { {  }, },
 	weapon = { PhysicalMin = 14, PhysicalMax = 26, CritChanceBase = 5, AttackRateBase = 1.6, Range = 15, },
-	req = { level = 21, },
+	req = { level = 21, str = 17, dex = 39, },
 }
 itemBases["Forked Spear"] = {
 	type = "Spear",
@@ -56,7 +56,7 @@ itemBases["Forked Spear"] = {
 	influenceTags = { shaper = "spear_shaper", elder = "spear_elder", adjudicator = "spear_adjudicator", basilisk = "spear_basilisk", crusader = "spear_crusader", eyrie = "spear_eyrie", cleansing = "spear_cleansing", tangle = "spear_tangle" },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 17, PhysicalMax = 32, CritChanceBase = 5, AttackRateBase = 1.6, Range = 15, },
-	req = { level = 26, },
+	req = { level = 26, str = 20, dex = 48, },
 }
 itemBases["Barbed Spear"] = {
 	type = "Spear",
@@ -65,7 +65,7 @@ itemBases["Barbed Spear"] = {
 	influenceTags = { shaper = "spear_shaper", elder = "spear_elder", adjudicator = "spear_adjudicator", basilisk = "spear_basilisk", crusader = "spear_crusader", eyrie = "spear_eyrie", cleansing = "spear_cleansing", tangle = "spear_tangle" },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 20, PhysicalMax = 38, CritChanceBase = 6.5, AttackRateBase = 1.6, Range = 15, },
-	req = { level = 33, },
+	req = { level = 33, str = 25, dex = 60, },
 }
 itemBases["Broad Spear"] = {
 	type = "Spear",
@@ -75,7 +75,7 @@ itemBases["Broad Spear"] = {
 	implicit = "Uses both hand slots",
 	implicitModTypes = { {  }, },
 	weapon = { PhysicalMin = 28, PhysicalMax = 51, CritChanceBase = 5, AttackRateBase = 1.55, Range = 15, },
-	req = { level = 40, },
+	req = { level = 40, str = 29, dex = 72, },
 }
 itemBases["Crossblade Spear"] = {
 	type = "Spear",
@@ -84,7 +84,7 @@ itemBases["Crossblade Spear"] = {
 	influenceTags = { shaper = "spear_shaper", elder = "spear_elder", adjudicator = "spear_adjudicator", basilisk = "spear_basilisk", crusader = "spear_crusader", eyrie = "spear_eyrie", cleansing = "spear_cleansing", tangle = "spear_tangle" },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 28, PhysicalMax = 51, CritChanceBase = 5, AttackRateBase = 1.55, Range = 15, },
-	req = { level = 45, },
+	req = { level = 45, str = 33, dex = 81, },
 }
 itemBases["Seaglass Spear"] = {
 	type = "Spear",
@@ -93,7 +93,7 @@ itemBases["Seaglass Spear"] = {
 	influenceTags = { shaper = "spear_shaper", elder = "spear_elder", adjudicator = "spear_adjudicator", basilisk = "spear_basilisk", crusader = "spear_crusader", eyrie = "spear_eyrie", cleansing = "spear_cleansing", tangle = "spear_tangle" },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 27, PhysicalMax = 50, CritChanceBase = 10, AttackRateBase = 1.6, Range = 15, },
-	req = { level = 51, },
+	req = { level = 51, str = 36, dex = 91, int = 65, },
 }
 itemBases["Sword Spear"] = {
 	type = "Spear",
@@ -102,7 +102,7 @@ itemBases["Sword Spear"] = {
 	influenceTags = { shaper = "spear_shaper", elder = "spear_elder", adjudicator = "spear_adjudicator", basilisk = "spear_basilisk", crusader = "spear_crusader", eyrie = "spear_eyrie", cleansing = "spear_cleansing", tangle = "spear_tangle" },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 30, PhysicalMax = 56, CritChanceBase = 5, AttackRateBase = 1.6, Range = 15, },
-	req = { level = 52, },
+	req = { level = 52, str = 37, dex = 93, },
 }
 itemBases["Striking Spear"] = {
 	type = "Spear",
@@ -111,7 +111,7 @@ itemBases["Striking Spear"] = {
 	influenceTags = { shaper = "spear_shaper", elder = "spear_elder", adjudicator = "spear_adjudicator", basilisk = "spear_basilisk", crusader = "spear_crusader", eyrie = "spear_eyrie", cleansing = "spear_cleansing", tangle = "spear_tangle" },
 	implicitModTypes = { },
 	weapon = { LightningMin = 23, LightningMax = 91, CritChanceBase = 5, AttackRateBase = 1.6, Range = 15, },
-	req = { level = 55, },
+	req = { level = 55, str = 39, dex = 98, },
 }
 itemBases["Helix Spear"] = {
 	type = "Spear",
@@ -120,5 +120,5 @@ itemBases["Helix Spear"] = {
 	influenceTags = { shaper = "spear_shaper", elder = "spear_elder", adjudicator = "spear_adjudicator", basilisk = "spear_basilisk", crusader = "spear_crusader", eyrie = "spear_eyrie", cleansing = "spear_cleansing", tangle = "spear_tangle" },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 37, PhysicalMax = 68, CritChanceBase = 5, AttackRateBase = 1.6, Range = 15, },
-	req = { level = 65, },
+	req = { level = 65, str = 45, dex = 116, },
 }

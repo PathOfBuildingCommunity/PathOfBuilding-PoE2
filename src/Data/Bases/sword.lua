@@ -39,7 +39,7 @@ itemBases["Broadsword"] = {
 	influenceTags = { shaper = "sword_shaper", elder = "sword_elder", adjudicator = "sword_adjudicator", basilisk = "sword_basilisk", crusader = "sword_crusader", eyrie = "sword_eyrie", cleansing = "sword_cleansing", tangle = "sword_tangle" },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 8, PhysicalMax = 13, CritChanceBase = 5, AttackRateBase = 1.6, Range = 11, },
-	req = { level = 6, },
+	req = { level = 6, str = 10, dex = 10, },
 }
 itemBases["Vampiric Blade"] = {
 	type = "One Handed Sword",
@@ -48,7 +48,7 @@ itemBases["Vampiric Blade"] = {
 	influenceTags = { shaper = "sword_shaper", elder = "sword_elder", adjudicator = "sword_adjudicator", basilisk = "sword_basilisk", crusader = "sword_crusader", eyrie = "sword_eyrie", cleansing = "sword_cleansing", tangle = "sword_tangle" },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 11, PhysicalMax = 20, CritChanceBase = 5, AttackRateBase = 1.5, Range = 11, },
-	req = { level = 11, },
+	req = { level = 11, str = 16, dex = 16, },
 }
 itemBases["Scimitar"] = {
 	type = "One Handed Sword",
@@ -57,7 +57,7 @@ itemBases["Scimitar"] = {
 	influenceTags = { shaper = "sword_shaper", elder = "sword_elder", adjudicator = "sword_adjudicator", basilisk = "sword_basilisk", crusader = "sword_crusader", eyrie = "sword_eyrie", cleansing = "sword_cleansing", tangle = "sword_tangle" },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 14, PhysicalMax = 23, CritChanceBase = 5, AttackRateBase = 1.55, Range = 11, },
-	req = { level = 16, },
+	req = { level = 16, str = 22, dex = 22, },
 }
 itemBases["Charred Shortsword"] = {
 	type = "One Handed Sword",
@@ -66,7 +66,7 @@ itemBases["Charred Shortsword"] = {
 	influenceTags = { shaper = "sword_shaper", elder = "sword_elder", adjudicator = "sword_adjudicator", basilisk = "sword_basilisk", crusader = "sword_crusader", eyrie = "sword_eyrie", cleansing = "sword_cleansing", tangle = "sword_tangle" },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 19, PhysicalMax = 34, CritChanceBase = 5, AttackRateBase = 1.6, Range = 11, },
-	req = { level = 21, },
+	req = { level = 21, str = 28, dex = 28, },
 }
 itemBases["Sickle Sword"] = {
 	type = "One Handed Sword",
@@ -75,7 +75,7 @@ itemBases["Sickle Sword"] = {
 	influenceTags = { shaper = "sword_shaper", elder = "sword_elder", adjudicator = "sword_adjudicator", basilisk = "sword_basilisk", crusader = "sword_crusader", eyrie = "sword_eyrie", cleansing = "sword_cleansing", tangle = "sword_tangle" },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 18, PhysicalMax = 38, CritChanceBase = 5, AttackRateBase = 1.5, Range = 11, },
-	req = { level = 28, },
+	req = { level = 28, str = 37, dex = 37, },
 }
 itemBases["Falchion"] = {
 	type = "One Handed Sword",
@@ -84,7 +84,7 @@ itemBases["Falchion"] = {
 	influenceTags = { shaper = "sword_shaper", elder = "sword_elder", adjudicator = "sword_adjudicator", basilisk = "sword_basilisk", crusader = "sword_crusader", eyrie = "sword_eyrie", cleansing = "sword_cleansing", tangle = "sword_tangle" },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 27, PhysicalMax = 37, CritChanceBase = 5, AttackRateBase = 1.5, Range = 11, },
-	req = { level = 33, },
+	req = { level = 33, str = 43, dex = 43, },
 }
 itemBases["Treasured Blade"] = {
 	type = "One Handed Sword",
@@ -93,7 +93,7 @@ itemBases["Treasured Blade"] = {
 	influenceTags = { shaper = "sword_shaper", elder = "sword_elder", adjudicator = "sword_adjudicator", basilisk = "sword_basilisk", crusader = "sword_crusader", eyrie = "sword_eyrie", cleansing = "sword_cleansing", tangle = "sword_tangle" },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 27, PhysicalMax = 45, CritChanceBase = 5, AttackRateBase = 1.55, Range = 11, },
-	req = { level = 40, },
+	req = { level = 40, str = 51, dex = 51, },
 }
 itemBases["Cutlass"] = {
 	type = "One Handed Sword",
@@ -102,7 +102,7 @@ itemBases["Cutlass"] = {
 	influenceTags = { shaper = "sword_shaper", elder = "sword_elder", adjudicator = "sword_adjudicator", basilisk = "sword_basilisk", crusader = "sword_crusader", eyrie = "sword_eyrie", cleansing = "sword_cleansing", tangle = "sword_tangle" },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 33, PhysicalMax = 49, CritChanceBase = 5, AttackRateBase = 1.5, Range = 11, },
-	req = { level = 45, },
+	req = { level = 45, str = 57, dex = 57, },
 }
 itemBases["Runic Shortsword"] = {
 	type = "One Handed Sword",
@@ -111,7 +111,7 @@ itemBases["Runic Shortsword"] = {
 	influenceTags = { shaper = "sword_shaper", elder = "sword_elder", adjudicator = "sword_adjudicator", basilisk = "sword_basilisk", crusader = "sword_crusader", eyrie = "sword_eyrie", cleansing = "sword_cleansing", tangle = "sword_tangle" },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 26, PhysicalMax = 55, CritChanceBase = 5, AttackRateBase = 1.65, Range = 11, },
-	req = { level = 50, },
+	req = { level = 50, str = 63, dex = 63, },
 }
 itemBases["Messer"] = {
 	type = "One Handed Sword",
@@ -120,7 +120,7 @@ itemBases["Messer"] = {
 	influenceTags = { shaper = "sword_shaper", elder = "sword_elder", adjudicator = "sword_adjudicator", basilisk = "sword_basilisk", crusader = "sword_crusader", eyrie = "sword_eyrie", cleansing = "sword_cleansing", tangle = "sword_tangle" },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 30, PhysicalMax = 56, CritChanceBase = 5, AttackRateBase = 1.6, Range = 11, },
-	req = { level = 52, },
+	req = { level = 52, str = 66, dex = 66, },
 }
 itemBases["Commander Sword"] = {
 	type = "One Handed Sword",
@@ -129,7 +129,7 @@ itemBases["Commander Sword"] = {
 	influenceTags = { shaper = "sword_shaper", elder = "sword_elder", adjudicator = "sword_adjudicator", basilisk = "sword_basilisk", crusader = "sword_crusader", eyrie = "sword_eyrie", cleansing = "sword_cleansing", tangle = "sword_tangle" },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 36, PhysicalMax = 60, CritChanceBase = 5, AttackRateBase = 1.5, Range = 11, },
-	req = { level = 54, },
+	req = { level = 54, str = 68, dex = 68, },
 }
 itemBases["Dark Blade"] = {
 	type = "One Handed Sword",
@@ -138,7 +138,7 @@ itemBases["Dark Blade"] = {
 	influenceTags = { shaper = "sword_shaper", elder = "sword_elder", adjudicator = "sword_adjudicator", basilisk = "sword_basilisk", crusader = "sword_crusader", eyrie = "sword_eyrie", cleansing = "sword_cleansing", tangle = "sword_tangle" },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 43, PhysicalMax = 65, CritChanceBase = 5, AttackRateBase = 1.55, Range = 11, },
-	req = { level = 65, },
+	req = { level = 65, str = 81, dex = 81, },
 }
 
 itemBases["Energy Blade One Handed"] = {
@@ -188,7 +188,7 @@ itemBases["Iron Greatsword"] = {
 	influenceTags = { shaper = "2h_sword_shaper", elder = "2h_sword_elder", adjudicator = "2h_sword_adjudicator", basilisk = "2h_sword_basilisk", crusader = "2h_sword_crusader", eyrie = "2h_sword_eyrie", cleansing = "2h_sword_cleansing", tangle = "2h_sword_tangle" },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 13, PhysicalMax = 23, CritChanceBase = 5, AttackRateBase = 1.35, Range = 13, },
-	req = { level = 6, },
+	req = { level = 6, str = 10, dex = 10, },
 }
 itemBases["Blessed Claymore"] = {
 	type = "Two Handed Sword",
@@ -197,7 +197,7 @@ itemBases["Blessed Claymore"] = {
 	influenceTags = { shaper = "2h_sword_shaper", elder = "2h_sword_elder", adjudicator = "2h_sword_adjudicator", basilisk = "2h_sword_basilisk", crusader = "2h_sword_crusader", eyrie = "2h_sword_eyrie", cleansing = "2h_sword_cleansing", tangle = "2h_sword_tangle" },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 19, PhysicalMax = 32, CritChanceBase = 5, AttackRateBase = 1.3, Range = 13, },
-	req = { level = 11, },
+	req = { level = 11, str = 16, dex = 16, },
 }
 itemBases["Broad Greatsword"] = {
 	type = "Two Handed Sword",
@@ -206,7 +206,7 @@ itemBases["Broad Greatsword"] = {
 	influenceTags = { shaper = "2h_sword_shaper", elder = "2h_sword_elder", adjudicator = "2h_sword_adjudicator", basilisk = "2h_sword_basilisk", crusader = "2h_sword_crusader", eyrie = "2h_sword_eyrie", cleansing = "2h_sword_cleansing", tangle = "2h_sword_tangle" },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 25, PhysicalMax = 42, CritChanceBase = 5, AttackRateBase = 1.25, Range = 13, },
-	req = { level = 16, },
+	req = { level = 16, str = 22, dex = 22, },
 }
 itemBases["Rippled Greatsword"] = {
 	type = "Two Handed Sword",
@@ -215,7 +215,7 @@ itemBases["Rippled Greatsword"] = {
 	influenceTags = { shaper = "2h_sword_shaper", elder = "2h_sword_elder", adjudicator = "2h_sword_adjudicator", basilisk = "2h_sword_basilisk", crusader = "2h_sword_crusader", eyrie = "2h_sword_eyrie", cleansing = "2h_sword_cleansing", tangle = "2h_sword_tangle" },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 28, PhysicalMax = 52, CritChanceBase = 5, AttackRateBase = 1.3, Range = 13, },
-	req = { level = 22, },
+	req = { level = 22, str = 30, dex = 30, },
 }
 itemBases["Arced Longsword"] = {
 	type = "Two Handed Sword",
@@ -224,7 +224,7 @@ itemBases["Arced Longsword"] = {
 	influenceTags = { shaper = "2h_sword_shaper", elder = "2h_sword_elder", adjudicator = "2h_sword_adjudicator", basilisk = "2h_sword_basilisk", crusader = "2h_sword_crusader", eyrie = "2h_sword_eyrie", cleansing = "2h_sword_cleansing", tangle = "2h_sword_tangle" },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 31, PhysicalMax = 58, CritChanceBase = 5, AttackRateBase = 1.35, Range = 13, },
-	req = { level = 28, },
+	req = { level = 28, str = 37, dex = 37, },
 }
 itemBases["Stone Greatsword"] = {
 	type = "Two Handed Sword",
@@ -233,7 +233,7 @@ itemBases["Stone Greatsword"] = {
 	influenceTags = { shaper = "2h_sword_shaper", elder = "2h_sword_elder", adjudicator = "2h_sword_adjudicator", basilisk = "2h_sword_basilisk", crusader = "2h_sword_crusader", eyrie = "2h_sword_eyrie", cleansing = "2h_sword_cleansing", tangle = "2h_sword_tangle" },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 40, PhysicalMax = 67, CritChanceBase = 5, AttackRateBase = 1.3, Range = 13, },
-	req = { level = 33, },
+	req = { level = 33, str = 43, dex = 43, },
 }
 itemBases["Obsidian Greatsword"] = {
 	type = "Two Handed Sword",
@@ -242,7 +242,7 @@ itemBases["Obsidian Greatsword"] = {
 	influenceTags = { shaper = "2h_sword_shaper", elder = "2h_sword_elder", adjudicator = "2h_sword_adjudicator", basilisk = "2h_sword_basilisk", crusader = "2h_sword_crusader", eyrie = "2h_sword_eyrie", cleansing = "2h_sword_cleansing", tangle = "2h_sword_tangle" },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 49, PhysicalMax = 73, CritChanceBase = 5, AttackRateBase = 1.25, Range = 13, },
-	req = { level = 36, },
+	req = { level = 36, str = 46, dex = 46, },
 }
 itemBases["Keen Greatsword"] = {
 	type = "Two Handed Sword",
@@ -251,7 +251,7 @@ itemBases["Keen Greatsword"] = {
 	influenceTags = { shaper = "2h_sword_shaper", elder = "2h_sword_elder", adjudicator = "2h_sword_adjudicator", basilisk = "2h_sword_basilisk", crusader = "2h_sword_crusader", eyrie = "2h_sword_eyrie", cleansing = "2h_sword_cleansing", tangle = "2h_sword_tangle" },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 45, PhysicalMax = 94, CritChanceBase = 5, AttackRateBase = 1.3, Range = 13, },
-	req = { level = 45, },
+	req = { level = 45, str = 57, dex = 57, },
 }
 itemBases["Ancient Greatblade"] = {
 	type = "Two Handed Sword",
@@ -260,7 +260,7 @@ itemBases["Ancient Greatblade"] = {
 	influenceTags = { shaper = "2h_sword_shaper", elder = "2h_sword_elder", adjudicator = "2h_sword_adjudicator", basilisk = "2h_sword_basilisk", crusader = "2h_sword_crusader", eyrie = "2h_sword_eyrie", cleansing = "2h_sword_cleansing", tangle = "2h_sword_tangle" },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 55, PhysicalMax = 103, CritChanceBase = 5, AttackRateBase = 1.25, Range = 13, },
-	req = { level = 49, },
+	req = { level = 49, str = 62, dex = 62, },
 }
 itemBases["Flanged Greatblade"] = {
 	type = "Two Handed Sword",
@@ -269,7 +269,7 @@ itemBases["Flanged Greatblade"] = {
 	influenceTags = { shaper = "2h_sword_shaper", elder = "2h_sword_elder", adjudicator = "2h_sword_adjudicator", basilisk = "2h_sword_basilisk", crusader = "2h_sword_crusader", eyrie = "2h_sword_eyrie", cleansing = "2h_sword_cleansing", tangle = "2h_sword_tangle" },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 51, PhysicalMax = 106, CritChanceBase = 5, AttackRateBase = 1.3, Range = 13, },
-	req = { level = 52, },
+	req = { level = 52, str = 66, dex = 66, },
 }
 itemBases["Regalia Longsword"] = {
 	type = "Two Handed Sword",
@@ -278,7 +278,7 @@ itemBases["Regalia Longsword"] = {
 	influenceTags = { shaper = "2h_sword_shaper", elder = "2h_sword_elder", adjudicator = "2h_sword_adjudicator", basilisk = "2h_sword_basilisk", crusader = "2h_sword_crusader", eyrie = "2h_sword_eyrie", cleansing = "2h_sword_cleansing", tangle = "2h_sword_tangle" },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 61, PhysicalMax = 92, CritChanceBase = 5, AttackRateBase = 1.35, Range = 13, },
-	req = { level = 54, },
+	req = { level = 54, str = 68, dex = 68, },
 }
 itemBases["Ultra Greatsword"] = {
 	type = "Two Handed Sword",
@@ -287,7 +287,7 @@ itemBases["Ultra Greatsword"] = {
 	influenceTags = { shaper = "2h_sword_shaper", elder = "2h_sword_elder", adjudicator = "2h_sword_adjudicator", basilisk = "2h_sword_basilisk", crusader = "2h_sword_crusader", eyrie = "2h_sword_eyrie", cleansing = "2h_sword_cleansing", tangle = "2h_sword_tangle" },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 72, PhysicalMax = 119, CritChanceBase = 5, AttackRateBase = 1.3, Range = 13, },
-	req = { level = 65, },
+	req = { level = 65, str = 81, dex = 81, },
 }
 
 itemBases["Energy Blade Two Handed"] = {

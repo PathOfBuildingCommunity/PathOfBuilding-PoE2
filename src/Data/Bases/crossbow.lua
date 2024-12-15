@@ -19,7 +19,7 @@ itemBases["Tense Crossbow"] = {
 	implicit = "(20-30)% increased Bolt Speed",
 	implicitModTypes = { {  }, },
 	weapon = { PhysicalMin = 7, PhysicalMax = 13, CritChanceBase = 5, AttackRateBase = 1.6, Range = 120, },
-	req = { },
+	req = { str = 8, dex = 8, },
 }
 itemBases["Sturdy Crossbow"] = {
 	type = "Crossbow",
@@ -28,7 +28,7 @@ itemBases["Sturdy Crossbow"] = {
 	influenceTags = { shaper = "crossbow_shaper", elder = "crossbow_elder", adjudicator = "crossbow_adjudicator", basilisk = "crossbow_basilisk", crusader = "crossbow_crusader", eyrie = "crossbow_eyrie", cleansing = "crossbow_cleansing", tangle = "crossbow_tangle" },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 9, PhysicalMax = 22, CritChanceBase = 5, AttackRateBase = 1.55, Range = 120, },
-	req = { level = 10, },
+	req = { level = 10, str = 15, dex = 15, },
 }
 itemBases["Varnished Crossbow"] = {
 	type = "Crossbow",
@@ -37,7 +37,7 @@ itemBases["Varnished Crossbow"] = {
 	influenceTags = { shaper = "crossbow_shaper", elder = "crossbow_elder", adjudicator = "crossbow_adjudicator", basilisk = "crossbow_basilisk", crusader = "crossbow_crusader", eyrie = "crossbow_eyrie", cleansing = "crossbow_cleansing", tangle = "crossbow_tangle" },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 10, PhysicalMax = 30, CritChanceBase = 5, AttackRateBase = 1.6, Range = 120, },
-	req = { level = 16, },
+	req = { level = 16, str = 22, dex = 22, },
 }
 itemBases["Dyad Crossbow"] = {
 	type = "Crossbow",
@@ -47,7 +47,7 @@ itemBases["Dyad Crossbow"] = {
 	implicit = "Loads an additional bolt",
 	implicitModTypes = { { "attack" }, },
 	weapon = { PhysicalMin = 7, PhysicalMax = 30, CritChanceBase = 5, AttackRateBase = 1.6, Range = 120, },
-	req = { level = 20, },
+	req = { level = 20, str = 27, dex = 27, },
 }
 itemBases["Alloy Crossbow"] = {
 	type = "Crossbow",
@@ -56,7 +56,7 @@ itemBases["Alloy Crossbow"] = {
 	influenceTags = { shaper = "crossbow_shaper", elder = "crossbow_elder", adjudicator = "crossbow_adjudicator", basilisk = "crossbow_basilisk", crusader = "crossbow_crusader", eyrie = "crossbow_eyrie", cleansing = "crossbow_cleansing", tangle = "crossbow_tangle" },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 11, PhysicalMax = 42, CritChanceBase = 5, AttackRateBase = 1.7, Range = 120, },
-	req = { level = 26, },
+	req = { level = 26, str = 34, dex = 34, },
 }
 itemBases["Bombard Crossbow"] = {
 	type = "Crossbow",
@@ -66,7 +66,7 @@ itemBases["Bombard Crossbow"] = {
 	implicit = "Grenade Skills Fire an additional Projectile",
 	implicitModTypes = { {  }, },
 	weapon = { PhysicalMin = 12, PhysicalMax = 47, CritChanceBase = 5, AttackRateBase = 1.65, Range = 120, },
-	req = { level = 33, },
+	req = { level = 33, str = 43, dex = 43, },
 }
 itemBases["Construct Crossbow"] = {
 	type = "Crossbow",
@@ -75,7 +75,7 @@ itemBases["Construct Crossbow"] = {
 	influenceTags = { shaper = "crossbow_shaper", elder = "crossbow_elder", adjudicator = "crossbow_adjudicator", basilisk = "crossbow_basilisk", crusader = "crossbow_crusader", eyrie = "crossbow_eyrie", cleansing = "crossbow_cleansing", tangle = "crossbow_tangle" },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 15, PhysicalMax = 61, CritChanceBase = 5, AttackRateBase = 1.6, Range = 120, },
-	req = { level = 38, },
+	req = { level = 38, str = 49, dex = 49, },
 }
 itemBases["Blackfire Crossbow"] = {
 	type = "Crossbow",
@@ -84,7 +84,7 @@ itemBases["Blackfire Crossbow"] = {
 	influenceTags = { shaper = "crossbow_shaper", elder = "crossbow_elder", adjudicator = "crossbow_adjudicator", basilisk = "crossbow_basilisk", crusader = "crossbow_crusader", eyrie = "crossbow_eyrie", cleansing = "crossbow_cleansing", tangle = "crossbow_tangle" },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 17, PhysicalMax = 67, CritChanceBase = 7, AttackRateBase = 1.6, Range = 120, },
-	req = { level = 45, },
+	req = { level = 45, str = 57, dex = 57, },
 }
 itemBases["Piercing Crossbow"] = {
 	type = "Crossbow",
@@ -94,7 +94,7 @@ itemBases["Piercing Crossbow"] = {
 	implicit = "(20-30)% chance to Pierce an Enemy",
 	implicitModTypes = { {  }, },
 	weapon = { PhysicalMin = 17, PhysicalMax = 68, CritChanceBase = 5, AttackRateBase = 1.65, Range = 120, },
-	req = { level = 48, },
+	req = { level = 48, str = 61, dex = 61, },
 }
 itemBases["Cumbrous Crossbow"] = {
 	type = "Crossbow",
@@ -104,7 +104,7 @@ itemBases["Cumbrous Crossbow"] = {
 	implicit = "+1 to maximum number of Summoned Ballista Totems",
 	implicitModTypes = { {  }, },
 	weapon = { PhysicalMin = 16, PhysicalMax = 63, CritChanceBase = 5, AttackRateBase = 1.6, Range = 120, },
-	req = { level = 52, },
+	req = { level = 52, str = 66, dex = 66, },
 }
 itemBases["Dedalian Crossbow"] = {
 	type = "Crossbow",
@@ -113,7 +113,7 @@ itemBases["Dedalian Crossbow"] = {
 	influenceTags = { shaper = "crossbow_shaper", elder = "crossbow_elder", adjudicator = "crossbow_adjudicator", basilisk = "crossbow_basilisk", crusader = "crossbow_crusader", eyrie = "crossbow_eyrie", cleansing = "crossbow_cleansing", tangle = "crossbow_tangle" },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 21, PhysicalMax = 83, CritChanceBase = 7, AttackRateBase = 1.55, Range = 120, },
-	req = { level = 56, },
+	req = { level = 56, str = 71, dex = 71, },
 }
 itemBases["Esoteric Crossbow"] = {
 	type = "Crossbow",
@@ -122,7 +122,7 @@ itemBases["Esoteric Crossbow"] = {
 	influenceTags = { shaper = "crossbow_shaper", elder = "crossbow_elder", adjudicator = "crossbow_adjudicator", basilisk = "crossbow_basilisk", crusader = "crossbow_crusader", eyrie = "crossbow_eyrie", cleansing = "crossbow_cleansing", tangle = "crossbow_tangle" },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 24, PhysicalMax = 96, CritChanceBase = 5, AttackRateBase = 1.6, Range = 120, },
-	req = { level = 65, },
+	req = { level = 65, str = 81, dex = 81, },
 }
 itemBases["Advanced Tense Crossbow"] = {
 	type = "Crossbow",
@@ -132,7 +132,7 @@ itemBases["Advanced Tense Crossbow"] = {
 	implicit = "(20-30)% increased Bolt Speed",
 	implicitModTypes = { {  }, },
 	weapon = { PhysicalMin = 17, PhysicalMax = 66, CritChanceBase = 5, AttackRateBase = 1.6, Range = 120, },
-	req = { level = 45, },
+	req = { level = 45, str = 57, dex = 57, },
 }
 itemBases["Advanced Sturdy Crossbow"] = {
 	type = "Crossbow",
@@ -141,7 +141,7 @@ itemBases["Advanced Sturdy Crossbow"] = {
 	influenceTags = { shaper = "crossbow_shaper", elder = "crossbow_elder", adjudicator = "crossbow_adjudicator", basilisk = "crossbow_basilisk", crusader = "crossbow_crusader", eyrie = "crossbow_eyrie", cleansing = "crossbow_cleansing", tangle = "crossbow_tangle" },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 19, PhysicalMax = 76, CritChanceBase = 5, AttackRateBase = 1.55, Range = 120, },
-	req = { level = 48, },
+	req = { level = 48, str = 61, dex = 61, },
 }
 itemBases["Advanced Varnished Crossbow"] = {
 	type = "Crossbow",
@@ -150,7 +150,7 @@ itemBases["Advanced Varnished Crossbow"] = {
 	influenceTags = { shaper = "crossbow_shaper", elder = "crossbow_elder", adjudicator = "crossbow_adjudicator", basilisk = "crossbow_basilisk", crusader = "crossbow_crusader", eyrie = "crossbow_eyrie", cleansing = "crossbow_cleansing", tangle = "crossbow_tangle" },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 19, PhysicalMax = 78, CritChanceBase = 5, AttackRateBase = 1.6, Range = 120, },
-	req = { level = 51, },
+	req = { level = 51, str = 65, dex = 65, },
 }
 itemBases["Advanced Dyad Crossbow"] = {
 	type = "Crossbow",
@@ -160,7 +160,7 @@ itemBases["Advanced Dyad Crossbow"] = {
 	implicit = "Loads an additional bolt",
 	implicitModTypes = { { "attack" }, },
 	weapon = { PhysicalMin = 17, PhysicalMax = 66, CritChanceBase = 5, AttackRateBase = 1.6, Range = 120, },
-	req = { level = 55, },
+	req = { level = 55, str = 69, dex = 69, },
 }
 itemBases["Advanced Bombard Crossbow"] = {
 	type = "Crossbow",
@@ -170,7 +170,7 @@ itemBases["Advanced Bombard Crossbow"] = {
 	implicit = "Grenade Skills Fire an additional Projectile",
 	implicitModTypes = { {  }, },
 	weapon = { PhysicalMin = 19, PhysicalMax = 77, CritChanceBase = 5, AttackRateBase = 1.65, Range = 120, },
-	req = { level = 59, },
+	req = { level = 59, str = 74, dex = 74, },
 }
 itemBases["Advanced Forlorn Crossbow"] = {
 	type = "Crossbow",
@@ -179,7 +179,7 @@ itemBases["Advanced Forlorn Crossbow"] = {
 	influenceTags = { shaper = "crossbow_shaper", elder = "crossbow_elder", adjudicator = "crossbow_adjudicator", basilisk = "crossbow_basilisk", crusader = "crossbow_crusader", eyrie = "crossbow_eyrie", cleansing = "crossbow_cleansing", tangle = "crossbow_tangle" },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 23, PhysicalMax = 92, CritChanceBase = 5, AttackRateBase = 1.6, Range = 120, },
-	req = { level = 62, },
+	req = { level = 62, str = 78, dex = 78, },
 }
 itemBases["Expert Sturdy Crossbow"] = {
 	type = "Crossbow",
@@ -188,7 +188,7 @@ itemBases["Expert Sturdy Crossbow"] = {
 	influenceTags = { shaper = "crossbow_shaper", elder = "crossbow_elder", adjudicator = "crossbow_adjudicator", basilisk = "crossbow_basilisk", crusader = "crossbow_crusader", eyrie = "crossbow_eyrie", cleansing = "crossbow_cleansing", tangle = "crossbow_tangle" },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 25, PhysicalMax = 102, CritChanceBase = 5, AttackRateBase = 1.55, Range = 120, },
-	req = { level = 67, },
+	req = { level = 67, str = 95, dex = 95, },
 }
 itemBases["Expert Varnished Crossbow"] = {
 	type = "Crossbow",
@@ -197,7 +197,7 @@ itemBases["Expert Varnished Crossbow"] = {
 	influenceTags = { shaper = "crossbow_shaper", elder = "crossbow_elder", adjudicator = "crossbow_adjudicator", basilisk = "crossbow_basilisk", crusader = "crossbow_crusader", eyrie = "crossbow_eyrie", cleansing = "crossbow_cleansing", tangle = "crossbow_tangle" },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 26, PhysicalMax = 105, CritChanceBase = 5, AttackRateBase = 1.6, Range = 120, },
-	req = { level = 72, },
+	req = { level = 72, str = 106, dex = 106, },
 }
 itemBases["Expert Tense Crossbow"] = {
 	type = "Crossbow",
@@ -207,7 +207,7 @@ itemBases["Expert Tense Crossbow"] = {
 	implicit = "(20-30)% increased Bolt Speed",
 	implicitModTypes = { {  }, },
 	weapon = { PhysicalMin = 26, PhysicalMax = 106, CritChanceBase = 5, AttackRateBase = 1.6, Range = 120, },
-	req = { level = 77, },
+	req = { level = 77, str = 116, dex = 116, },
 }
 itemBases["Expert Dyad Crossbow"] = {
 	type = "Crossbow",
@@ -217,7 +217,7 @@ itemBases["Expert Dyad Crossbow"] = {
 	implicit = "Loads an additional bolt",
 	implicitModTypes = { { "attack" }, },
 	weapon = { PhysicalMin = 22, PhysicalMax = 89, CritChanceBase = 5, AttackRateBase = 1.6, Range = 120, },
-	req = { level = 78, },
+	req = { level = 78, str = 116, dex = 116, },
 }
 itemBases["Expert Bombard Crossbow"] = {
 	type = "Crossbow",
@@ -227,7 +227,7 @@ itemBases["Expert Bombard Crossbow"] = {
 	implicit = "Grenade Skills Fire an additional Projectile",
 	implicitModTypes = { {  }, },
 	weapon = { PhysicalMin = 24, PhysicalMax = 97, CritChanceBase = 5, AttackRateBase = 1.65, Range = 120, },
-	req = { level = 79, },
+	req = { level = 79, str = 116, dex = 116, },
 }
 itemBases["Expert Forlorn Crossbow"] = {
 	type = "Crossbow",
@@ -236,5 +236,5 @@ itemBases["Expert Forlorn Crossbow"] = {
 	influenceTags = { shaper = "crossbow_shaper", elder = "crossbow_elder", adjudicator = "crossbow_adjudicator", basilisk = "crossbow_basilisk", crusader = "crossbow_crusader", eyrie = "crossbow_eyrie", cleansing = "crossbow_cleansing", tangle = "crossbow_tangle" },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 28, PhysicalMax = 112, CritChanceBase = 5, AttackRateBase = 1.6, Range = 120, },
-	req = { level = 77, },
+	req = { level = 77, str = 116, dex = 116, },
 }

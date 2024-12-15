@@ -19,7 +19,7 @@ itemBases["Woven Focus"] = {
 	influenceTags = { shaper = "focus_shaper", elder = "focus_elder", adjudicator = "focus_adjudicator", basilisk = "focus_basilisk", crusader = "focus_crusader", eyrie = "focus_eyrie", cleansing = "focus_cleansing", tangle = "focus_tangle" },
 	implicitModTypes = { },
 	armour = { EnergyShield = 15, },
-	req = { level = 6, },
+	req = { level = 6, int = 13, },
 }
 itemBases["Antler Focus"] = {
 	type = "Focus",
@@ -28,7 +28,7 @@ itemBases["Antler Focus"] = {
 	influenceTags = { shaper = "focus_shaper", elder = "focus_elder", adjudicator = "focus_adjudicator", basilisk = "focus_basilisk", crusader = "focus_crusader", eyrie = "focus_eyrie", cleansing = "focus_cleansing", tangle = "focus_tangle" },
 	implicitModTypes = { },
 	armour = { EnergyShield = 17, },
-	req = { level = 10, },
+	req = { level = 10, int = 20, },
 }
 itemBases["Engraved Focus"] = {
 	type = "Focus",
@@ -37,7 +37,7 @@ itemBases["Engraved Focus"] = {
 	influenceTags = { shaper = "focus_shaper", elder = "focus_elder", adjudicator = "focus_adjudicator", basilisk = "focus_basilisk", crusader = "focus_crusader", eyrie = "focus_eyrie", cleansing = "focus_cleansing", tangle = "focus_tangle" },
 	implicitModTypes = { },
 	armour = { EnergyShield = 21, },
-	req = { level = 16, },
+	req = { level = 16, int = 30, },
 }
 itemBases["Tonal Focus"] = {
 	type = "Focus",
@@ -46,7 +46,7 @@ itemBases["Tonal Focus"] = {
 	influenceTags = { shaper = "focus_shaper", elder = "focus_elder", adjudicator = "focus_adjudicator", basilisk = "focus_basilisk", crusader = "focus_crusader", eyrie = "focus_eyrie", cleansing = "focus_cleansing", tangle = "focus_tangle" },
 	implicitModTypes = { },
 	armour = { EnergyShield = 25, },
-	req = { level = 22, },
+	req = { level = 22, int = 42, },
 }
 itemBases["Crystal Focus"] = {
 	type = "Focus",
@@ -55,7 +55,7 @@ itemBases["Crystal Focus"] = {
 	influenceTags = { shaper = "focus_shaper", elder = "focus_elder", adjudicator = "focus_adjudicator", basilisk = "focus_basilisk", crusader = "focus_crusader", eyrie = "focus_eyrie", cleansing = "focus_cleansing", tangle = "focus_tangle" },
 	implicitModTypes = { },
 	armour = { EnergyShield = 28, },
-	req = { level = 26, },
+	req = { level = 26, int = 49, },
 }
 itemBases["Voodoo Focus"] = {
 	type = "Focus",
@@ -64,7 +64,7 @@ itemBases["Voodoo Focus"] = {
 	influenceTags = { shaper = "focus_shaper", elder = "focus_elder", adjudicator = "focus_adjudicator", basilisk = "focus_basilisk", crusader = "focus_crusader", eyrie = "focus_eyrie", cleansing = "focus_cleansing", tangle = "focus_tangle" },
 	implicitModTypes = { },
 	armour = { EnergyShield = 32, },
-	req = { level = 33, },
+	req = { level = 33, int = 61, },
 }
 itemBases["Plumed Focus"] = {
 	type = "Focus",
@@ -73,7 +73,7 @@ itemBases["Plumed Focus"] = {
 	influenceTags = { shaper = "focus_shaper", elder = "focus_elder", adjudicator = "focus_adjudicator", basilisk = "focus_basilisk", crusader = "focus_crusader", eyrie = "focus_eyrie", cleansing = "focus_cleansing", tangle = "focus_tangle" },
 	implicitModTypes = { },
 	armour = { EnergyShield = 34, },
-	req = { level = 36, },
+	req = { level = 36, int = 66, },
 }
 itemBases["Jade Focus"] = {
 	type = "Focus",
@@ -82,7 +82,7 @@ itemBases["Jade Focus"] = {
 	influenceTags = { shaper = "focus_shaper", elder = "focus_elder", adjudicator = "focus_adjudicator", basilisk = "focus_basilisk", crusader = "focus_crusader", eyrie = "focus_eyrie", cleansing = "focus_cleansing", tangle = "focus_tangle" },
 	implicitModTypes = { },
 	armour = { EnergyShield = 40, },
-	req = { level = 45, },
+	req = { level = 45, int = 83, },
 }
 itemBases["Paua Focus"] = {
 	type = "Focus",
@@ -91,7 +91,7 @@ itemBases["Paua Focus"] = {
 	influenceTags = { shaper = "focus_shaper", elder = "focus_elder", adjudicator = "focus_adjudicator", basilisk = "focus_basilisk", crusader = "focus_crusader", eyrie = "focus_eyrie", cleansing = "focus_cleansing", tangle = "focus_tangle" },
 	implicitModTypes = { },
 	armour = { EnergyShield = 43, },
-	req = { level = 51, },
+	req = { level = 51, int = 94, },
 }
 itemBases["Elegant Focus"] = {
 	type = "Focus",
@@ -100,7 +100,7 @@ itemBases["Elegant Focus"] = {
 	influenceTags = { shaper = "focus_shaper", elder = "focus_elder", adjudicator = "focus_adjudicator", basilisk = "focus_basilisk", crusader = "focus_crusader", eyrie = "focus_eyrie", cleansing = "focus_cleansing", tangle = "focus_tangle" },
 	implicitModTypes = { },
 	armour = { EnergyShield = 44, },
-	req = { level = 52, },
+	req = { level = 52, int = 95, },
 }
 itemBases["Attuned Focus"] = {
 	type = "Focus",
@@ -109,7 +109,7 @@ itemBases["Attuned Focus"] = {
 	influenceTags = { shaper = "focus_shaper", elder = "focus_elder", adjudicator = "focus_adjudicator", basilisk = "focus_basilisk", crusader = "focus_crusader", eyrie = "focus_eyrie", cleansing = "focus_cleansing", tangle = "focus_tangle" },
 	implicitModTypes = { },
 	armour = { EnergyShield = 47, },
-	req = { level = 57, },
+	req = { level = 57, int = 104, },
 }
 itemBases["Magus Focus"] = {
 	type = "Focus",
@@ -118,7 +118,7 @@ itemBases["Magus Focus"] = {
 	influenceTags = { shaper = "focus_shaper", elder = "focus_elder", adjudicator = "focus_adjudicator", basilisk = "focus_basilisk", crusader = "focus_crusader", eyrie = "focus_eyrie", cleansing = "focus_cleansing", tangle = "focus_tangle" },
 	implicitModTypes = { },
 	armour = { EnergyShield = 52, },
-	req = { level = 65, },
+	req = { level = 65, int = 118, },
 }
 itemBases["Advanced Woven Focus"] = {
 	type = "Focus",
@@ -127,7 +127,7 @@ itemBases["Advanced Woven Focus"] = {
 	influenceTags = { shaper = "focus_shaper", elder = "focus_elder", adjudicator = "focus_adjudicator", basilisk = "focus_basilisk", crusader = "focus_crusader", eyrie = "focus_eyrie", cleansing = "focus_cleansing", tangle = "focus_tangle" },
 	implicitModTypes = { },
 	armour = { EnergyShield = 40, },
-	req = { level = 45, },
+	req = { level = 45, int = 83, },
 }
 itemBases["Advanced Antler Focus"] = {
 	type = "Focus",
@@ -136,7 +136,7 @@ itemBases["Advanced Antler Focus"] = {
 	influenceTags = { shaper = "focus_shaper", elder = "focus_elder", adjudicator = "focus_adjudicator", basilisk = "focus_basilisk", crusader = "focus_crusader", eyrie = "focus_eyrie", cleansing = "focus_cleansing", tangle = "focus_tangle" },
 	implicitModTypes = { },
 	armour = { EnergyShield = 42, },
-	req = { level = 48, },
+	req = { level = 48, int = 88, },
 }
 itemBases["Advanced Tonal Focus"] = {
 	type = "Focus",
@@ -145,7 +145,7 @@ itemBases["Advanced Tonal Focus"] = {
 	influenceTags = { shaper = "focus_shaper", elder = "focus_elder", adjudicator = "focus_adjudicator", basilisk = "focus_basilisk", crusader = "focus_crusader", eyrie = "focus_eyrie", cleansing = "focus_cleansing", tangle = "focus_tangle" },
 	implicitModTypes = { },
 	armour = { EnergyShield = 43, },
-	req = { level = 51, },
+	req = { level = 51, int = 94, },
 }
 itemBases["Advanced Crystal Focus"] = {
 	type = "Focus",
@@ -154,7 +154,7 @@ itemBases["Advanced Crystal Focus"] = {
 	influenceTags = { shaper = "focus_shaper", elder = "focus_elder", adjudicator = "focus_adjudicator", basilisk = "focus_basilisk", crusader = "focus_crusader", eyrie = "focus_eyrie", cleansing = "focus_cleansing", tangle = "focus_tangle" },
 	implicitModTypes = { },
 	armour = { EnergyShield = 46, },
-	req = { level = 55, },
+	req = { level = 55, int = 101, },
 }
 itemBases["Advanced Voodoo Focus"] = {
 	type = "Focus",
@@ -163,7 +163,7 @@ itemBases["Advanced Voodoo Focus"] = {
 	influenceTags = { shaper = "focus_shaper", elder = "focus_elder", adjudicator = "focus_adjudicator", basilisk = "focus_basilisk", crusader = "focus_crusader", eyrie = "focus_eyrie", cleansing = "focus_cleansing", tangle = "focus_tangle" },
 	implicitModTypes = { },
 	armour = { EnergyShield = 49, },
-	req = { level = 59, },
+	req = { level = 59, int = 108, },
 }
 itemBases["Advanced Plumed Focus"] = {
 	type = "Focus",
@@ -172,7 +172,7 @@ itemBases["Advanced Plumed Focus"] = {
 	influenceTags = { shaper = "focus_shaper", elder = "focus_elder", adjudicator = "focus_adjudicator", basilisk = "focus_basilisk", crusader = "focus_crusader", eyrie = "focus_eyrie", cleansing = "focus_cleansing", tangle = "focus_tangle" },
 	implicitModTypes = { },
 	armour = { EnergyShield = 50, },
-	req = { level = 61, },
+	req = { level = 61, int = 112, },
 }
 itemBases["Expert Antler Focus"] = {
 	type = "Focus",
@@ -181,7 +181,7 @@ itemBases["Expert Antler Focus"] = {
 	influenceTags = { shaper = "focus_shaper", elder = "focus_elder", adjudicator = "focus_adjudicator", basilisk = "focus_basilisk", crusader = "focus_crusader", eyrie = "focus_eyrie", cleansing = "focus_cleansing", tangle = "focus_tangle" },
 	implicitModTypes = { },
 	armour = { EnergyShield = 52, },
-	req = { level = 65, },
+	req = { level = 65, int = 118, },
 }
 itemBases["Expert Crystal Focus"] = {
 	type = "Focus",
@@ -190,7 +190,7 @@ itemBases["Expert Crystal Focus"] = {
 	influenceTags = { shaper = "focus_shaper", elder = "focus_elder", adjudicator = "focus_adjudicator", basilisk = "focus_basilisk", crusader = "focus_crusader", eyrie = "focus_eyrie", cleansing = "focus_cleansing", tangle = "focus_tangle" },
 	implicitModTypes = { },
 	armour = { EnergyShield = 58, },
-	req = { level = 70, },
+	req = { level = 70, int = 129, },
 }
 itemBases["Expert Plumed Focus"] = {
 	type = "Focus",
@@ -199,5 +199,5 @@ itemBases["Expert Plumed Focus"] = {
 	influenceTags = { shaper = "focus_shaper", elder = "focus_elder", adjudicator = "focus_adjudicator", basilisk = "focus_basilisk", crusader = "focus_crusader", eyrie = "focus_eyrie", cleansing = "focus_cleansing", tangle = "focus_tangle" },
 	implicitModTypes = { },
 	armour = { EnergyShield = 63, },
-	req = { level = 75, },
+	req = { level = 75, int = 139, },
 }
