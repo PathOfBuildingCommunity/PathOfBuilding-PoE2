@@ -434,12 +434,11 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 				elseif specName == "Sockets" then
 					local group = 0
 					for c in specVal:gmatch(".") do
-						if c:match("[RGBWA]") then
-							t_insert(self.sockets, { color = c, group = group })
-						elseif c == " " then
-							group = group + 1
+						if c:match("[S]") then
+							t_insert(self.sockets, { })
 						end
 					end
+					self.socketCount = #self.sockets
 				elseif specName == "Radius" and self.type == "Jewel" then
 					self.jewelRadiusLabel = specVal:match("^%a+")
 					if specVal:match("^%a+") == "Variable" then
@@ -703,7 +702,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 						self.requirements.dex = self.base.req.dex or 0
 						self.requirements.int = self.base.req.int or 0
 						local maxReq = m_max(self.requirements.str, self.requirements.dex, self.requirements.int)
-						self.defaultSocketColor = (maxReq == self.requirements.dex and "G") or (maxReq == self.requirements.int and "B") or "R"
+						self.defaultSocketColor = "S"
 						if self.base.flask and self.base.flask.buff and not flaskBuffLines then
 							flaskBuffLines = { }
 							for _, line in ipairs(self.base.flask.buff) do
@@ -888,10 +887,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 	if self.base and self.base.socketLimit then
 		if #self.sockets == 0 then
 			for i = 1, self.base.socketLimit do
-				t_insert(self.sockets, {
-					color = self.defaultSocketColor,
-					group = 0,
-				})
+				t_insert(self.sockets, { })
 			end
 		end
 	end
@@ -1132,7 +1128,12 @@ function ItemClass:BuildRaw()
 		t_insert(rawLines, "Quality: " .. self.quality)
 	end
 	if self.sockets then
-		t_insert(rawLines, "Sockets: " .. #self.sockets)
+		local socketString = ""
+		for _, socket in ipairs(self.sockets) do
+			socketString = socketString .. "S "
+		end
+		socketString = socketString:gsub(" $", "")
+		t_insert(rawLines, "Sockets: " .. socketString)
 	end
 	if self.requirements and self.requirements.level then
 		t_insert(rawLines, "LevelReq: " .. self.requirements.level)
@@ -1331,19 +1332,6 @@ function ItemClass:BuildModListForSlotNum(baseList, slotNum)
 		if add then
 			mod.sourceSlot = slotName
 			modList:AddMod(mod)
-		end
-	end
-	if #self.sockets > 0 then
-		local multiName = {
-			R = "Multiplier:RedSocketIn"..slotName,
-			G = "Multiplier:GreenSocketIn"..slotName,
-			B = "Multiplier:BlueSocketIn"..slotName,
-			W = "Multiplier:WhiteSocketIn"..slotName,
-		}
-		for _, socket in ipairs(self.sockets) do
-			if multiName[socket.color] then
-				modList:NewMod(multiName[socket.color], "BASE", 1, "Item Sockets")
-			end
 		end
 	end
 	local craftedQuality = calcLocal(modList,"Quality","BASE",0) or 0
@@ -1698,19 +1686,15 @@ function ItemClass:BuildModList()
 		end
 	end
 
-	self.socketCount = calcLocal(baseList, "SocketCount", "BASE", 0)
+	self.socketCount = #self.sockets
 	if calcLocal(baseList, "NoSockets", "FLAG", 0) then
 		-- Remove all sockets
 		wipeTable(self.sockets)
 	elseif self.socketCount > 0 then
 		-- Ensure that there are the correct number of abyssal sockets present
 		local newSockets = { }
-		local group = 0
 		for i = 1, self.socketCount do
-			group = group + 1
-			t_insert(newSockets, {
-				group = group
-			})
+			t_insert(newSockets, {})
 		end
 		self.sockets = newSockets
 	end
