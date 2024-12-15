@@ -9,6 +9,558 @@ local skills, mod, flag, skill = ...
 #flags spell chaining
 #mods
 
+#skill ArchmagePlayer
+#flags
+#mods
+
+#skill ArcticArmourPlayer
+#flags
+#mods
+
+#skill BallLightningPlayer
+#flags
+#mods
+
+#skill MetaBarrierInvocationPlayer
+#flags
+#mods
+
+#skill SupportBarrierInvocationPlayer
+#flags
+#mods
+
+#skill BlasphemyPlayer
+#flags
+#mods
+
+#skill SupportBlasphemyPlayer
+#flags
+#mods
+
+#skill BlinkReservationPlayer
+#flags
+#mods
+
+#skill BlinkPlayer
+#flags
+#mods
+
+#skill BoneBlastPlayer
+#flags
+#mods
+
+#skill BoneCagePlayer
+#flags
+#mods
+
+#skill BoneOfferingPlayer
+#flags
+#mods
+
+#skill BonestormPlayer
+#flags
+#mods
+
+#skill MetaCastOnCritPlayer
+#flags
+#mods
+
+#skill SupportMetaCastOnCritPlayer
+#flags
+#mods
+
+#skill MetaCastOnDeathPlayer
+#flags
+#mods
+
+#skill SupportMetaCastOnDeathPlayer
+#flags
+#mods
+
+#skill MetaCastOnDodgePlayer
+#flags
+#mods
+
+#skill SupportMetaCastOnDodgePlayer
+#flags
+#mods
+
+#skill MetaCastOnFreezePlayer
+#flags
+#mods
+
+#skill SupportMetaCastOnFreezePlayer
+#flags
+#mods
+
+#skill MetaCastOnIgnitePlayer
+#flags
+#mods
+
+#skill SupportMetaCastOnIgnitePlayer
+#flags
+#mods
+
+#skill MetaCastOnMinionDeathPlayer
+#flags
+#mods
+
+#skill SupportMetaCastOnMinionDeathPlayer
+#flags
+#mods
+
+#skill MetaCastOnShockPlayer
+#flags
+#mods
+
+#skill SupportMetaCastOnShockPlayer
+#flags
+#mods
+
+#skill WeaponGrantedChaosboltPlayer
+#flags
+#mods
+
+#skill ChargeInfusionPlayer
+#flags
+#mods
+
+#skill ChargedStaffPlayer
+#flags
+#mods
+
+#skill ChargedStaffShockwavePlayer
+#flags
+#mods
+
+#skill ColdSnapPlayer
+#flags
+#mods
+
+#skill CometPlayer
+#flags
+#mods
+
+#skill ConductivityPlayer
+#flags
+#mods
+
+#skill ContagionPlayer
+#flags
+#mods
+
+#skill DarkEffigyPlayer
+#flags
+#mods
+
+#skill DarkEffigyProjectilePlayer
+#flags
+#mods
+
+#skill CorpseCloudPlayer
+#flags
+#mods
+
+#skill DespairPlayer
+#flags
+#mods
+
+#skill DetonateDeadPlayer
+#flags
+#mods
+
+#skill DisciplinePlayer
+#flags
+#mods
+
+#skill ElementalConfluxPlayer
+#flags
+#mods
+
+#skill MetaElementalInvocationPlayer
+#flags
+#mods
+
+#skill SupportElementalInvocationPlayer
+#flags
+#mods
+
+#skill BlazingClusterPlayer
+#flags
+#mods
+
+#skill EnfeeblePlayer
+#flags
+#mods
+
 #skill EssenceDrainPlayer
-#flags spell projectile
+#flags
+#mods
+
+#skill EyeOfWinterPlayer
+#flags
+#mods
+
+#skill FallingThunderPlayer
+#flags
+#mods
+
+#skill FireballPlayer
+#flags
+#mods
+
+#skill FireboltPlayer
+#flags
+#mods
+
+#skill FirestormPlayer
+#flags
+#mods
+
+#skill FlameWallPlayer
+#flags
+#mods
+
+#skill FlameblastPlayer
+#flags
+#mods
+
+#skill FlammabilityPlayer
+#flags
+#mods
+
+#skill FlickerStrikePlayer
+#flags
+#mods
+
+#skill FreezingMarkPlayer
+#flags
+#mods
+
+#skill TriggeredFreezingMarkNovaPlayer
+#flags
+#mods
+
+#skill FreezingShardsPlayer
+#flags
+#mods
+
+#skill FrostBombPlayer
+#flags
+#mods
+
+#skill FrostWallPlayer
+#flags
+#mods
+
+#skill HypothermiaPlayer
+#flags
+#mods
+
+#skill FrostboltPlayer
+#flags
+#mods
+
+#skill FrozenLocusPlayer
+#flags
+#mods
+
+#skill FrozenLocusExplodePlayer
+#flags
+#mods
+
+#skill GalvanicFieldPlayer
+#flags
+#mods
+
+#skill GatheringStormPlayer
+#flags
+#mods
+
+#skill GhostDancePlayer
+#flags
+#mods
+
+#skill GlacialCascadePlayer
+#flags
+#mods
+
+#skill GrimFeastPlayer
+#flags
+#mods
+
+#skill HandOfChayulaPlayer
+#flags
+#mods
+
+#skill SupportHandOfChayulaPlayer
+#flags
+#mods
+
+#skill HeraldOfIcePlayer
+#flags
+#mods
+
+#skill HexblastPlayer
+#flags
+#mods
+
+#skill IceNovaPlayer
+#flags
+#mods
+
+#skill IceStrikePlayer
+#flags
+#mods
+
+#skill IncineratePlayer
+#flags
+#mods
+
+#skill KillingPalmPlayer
+#flags
+#mods
+
+#skill LightningBoltPlayer
+#flags
+#mods
+
+#skill LightningConduitPlayer
+#flags
+#mods
+
+#skill LightningWarpPlayer
+#flags
+#mods
+
+#skill LingeringIllusionPlayer
+#flags
+#mods
+
+#skill LingeringIllusionSpawnPlayer
+#flags
+#mods
+
+#skill LivingBombPlayer
+#flags
+#mods
+
+#skill MalicePlayer
+#flags
+#mods
+
+#skill ManaDrainPlayer
+#flags
+#mods
+
+#skill ManaRemnantsPlayer
+#flags
+#mods
+
+#skill ManaTempestPlayer
+#flags
+#mods
+
+#skill MantraOfDestructionPlayer
+#flags
+#mods
+
+#skill OrbOfStormsPlayer
+#flags
+#mods
+
+#skill PainOfferingPlayer
+#flags
+#mods
+
+#skill PowerSiphonPlayer
+#flags
+#mods
+
+#skill ProfaneRitualPlayer
+#flags
+#mods
+
+#skill PurityOfFirePlayer
+#flags
+#mods
+
+#skill PurityOfIcePlayer
+#flags
+#mods
+
+#skill PurityOfLightningPlayer
+#flags
+#mods
+
+#skill RagingSpiritsPlayer
+#flags
+#mods
+
+#skill RaiseZombiePlayer
+#flags
+#mods
+
+#skill MetaReapersInvocationPlayer
+#flags
+#mods
+
+#skill SupportReapersInvocationPlayer
+#flags
+#mods
+
+#skill RollingMagmaPlayer
+#flags
+#mods
+
+#skill SacrificePlayer
+#flags
+#mods
+
+#skill ShatteringPalmPlayer
+#flags
+#mods
+
+#skill ShatteringPalmExplosionPlayer
+#flags
+#mods
+
+#skill SigilOfPowerPlayer
+#flags
+#mods
+
+#skill SiphoningStrikePlayer
+#flags
+#mods
+
+#skill SummonSkeletalArsonistsPlayer
+#flags
+#mods
+
+#skill CommandSkeletalArsonistPlayer
+#flags
+#mods
+
+#skill SummonSkeletalBrutesPlayer
+#flags
+#mods
+
+#skill SummonSkeletalClericsPlayer
+#flags
+#mods
+
+#skill SummonSkeletalFrostMagesPlayer
+#flags
+#mods
+
+#skill CommandSkeletalFrostMagePlayer
+#flags
+#mods
+
+#skill SummonSkeletalReaversPlayer
+#flags
+#mods
+
+#skill CommandSkeletalReaversPlayer
+#flags
+#mods
+
+#skill SummonSkeletalSnipersPlayer
+#flags
+#mods
+
+#skill CommandSkeletalSniperPlayer
+#flags
+#mods
+
+#skill SummonSkeletalStormMagesPlayer
+#flags
+#mods
+
+#skill CommandSkeletalStormMagePlayer
+#flags
+#mods
+
+#skill SummonSkeletalWarriorsPlayer
+#flags
+#mods
+
+#skill WeaponGrantedSummonSkeletalWarriorsPlayer
+#flags
+#mods
+
+#skill SolarOrbPlayer
+#flags
+#mods
+
+#skill SoulOfferingPlayer
+#flags
+#mods
+
+#skill SparkPlayer
+#flags
+#mods
+
+#skill StaggeringPalmPlayer
+#flags
+#mods
+
+#skill StaggeringPalmProjectilePlayer
+#flags
+#mods
+
+#skill StaggeringPalmUnarmedProjectilePlayer
+#flags
+#mods
+
+#skill StormWavePlayer
+#flags
+#mods
+
+#skill TempestBellPlayer
+#flags
+#mods
+
+#skill TempestFlurryPlayer
+#flags
+#mods
+
+#skill TemporalChainsPlayer
+#flags
+#mods
+
+#skill UnearthPlayer
+#flags
+#mods
+
+#skill StaffUnleashNextSpellPlayer
+#flags
+#mods
+
+#skill VaultingImpactPlayer
+#flags
+#mods
+
+#skill VolatileDeadPlayer
+#flags
+#mods
+
+#skill VulnerabilityPlayer
+#flags
+#mods
+
+#skill WaveOfFrostPlayer
+#flags
+#mods
+
+#skill WhirlingAssaultPlayer
+#flags
+#mods
+
+#skill GaleStrikePlayer
+#flags
+#mods
+
+#skill WitheringPresencePlayer
+#flags
 #mods

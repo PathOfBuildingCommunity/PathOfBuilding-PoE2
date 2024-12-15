@@ -5,3 +5,246 @@
 --
 local skills, mod, flag, skill = ...
 
+#skill SupportFasterProjectilesPlayer
+#flags
+#mods
+
+#skill SupportAmmoConservationPlayer
+#flags
+#mods
+
+#skill SupportBlindPlayer
+#flags
+#mods
+
+#skill SupportDazedBreakPlayer
+#flags
+#mods
+
+#skill SupportAdditionalAccuracyPlayer
+#flags
+#mods
+
+#skill SupportBurstingPlaguePlayer
+#flags
+#mods
+
+#skill PlagueBurstPlayer
+#flags
+#mods
+
+#skill SupportChainPlayer
+#flags
+#mods
+
+#skill SupportCloseCombatPlayer
+#flags
+#mods
+
+#skill SupportComboFinisherPlayer
+#flags
+#mods
+
+#skill SupportMultiplePoisonPlayer
+#flags
+#mods
+
+#skill SupportChanceToShockPlayer
+#flags
+#mods
+
+#skill SupportCorrosionPlayer
+#flags
+#mods
+
+#skill SupportCrescendoPlayer
+#flags
+#mods
+
+#skill SupportCullingStrikePlayer
+#flags
+#mods
+
+#skill SupportCulminationPlayer
+#flags
+#mods
+
+#skill SupportDeadlyPoisonPlayer
+#flags
+#mods
+
+#skill SupportSlowerProjectilesPlayer
+#flags
+#mods
+
+#skill SupportDazingPlayer
+#flags
+#mods
+
+#skill SupportElectrocutePlayer
+#flags
+#mods
+
+#skill SupportEncumberancePlayer
+#flags
+#mods
+
+#skill SupportChanceToPoisonPlayer
+#flags
+#mods
+
+#skill SupportFerocityPlayer
+#flags
+#mods
+
+#skill SupportForkPlayer
+#flags
+#mods
+
+#skill SupportFusilladePlayer
+#flags
+#mods
+
+#skill SupportCooldownReductionPlayer
+#flags
+#mods
+
+#skill SupportInnervatePlayer
+#flags
+#mods
+
+#skill SupportLastingShockPlayer
+#flags
+#mods
+
+#skill SupportLeveragePlayer
+#flags
+#mods
+
+#skill SupportLifeFlaskPlayer
+#flags
+#mods
+
+#skill SupportLifeOnCullPlayer
+#flags
+#mods
+
+#skill SupportLightningExposurePlayer
+#flags
+#mods
+
+#skill SupportAddedLightningDamagePlayer
+#flags
+#mods
+
+#skill SupportLightningPenetrationPlayer
+#flags
+#mods
+
+#skill SupportLockdownPlayer
+#flags
+#mods
+
+#skill SupportFarCombatPlayer
+#flags
+#mods
+
+#skill SupportMaimPlayer
+#flags
+#mods
+
+#skill SupportManaFlaskPlayer
+#flags
+#mods
+
+#skill SupportFasterAttackPlayer
+#flags
+#mods
+
+#skill SupportMobilityPlayer
+#flags
+#mods
+
+#skill SupportMomentumPlayer
+#flags
+#mods
+
+#skill SupportEmpoweredCullPlayer
+#flags
+#mods
+
+#skill SupportNeuralOverloadPlayer
+#flags
+#mods
+
+#skill SupportNimbleReloadPlayer
+#flags
+#mods
+
+#skill SupportIncreaseLimitPlayer
+#flags
+#mods
+
+#skill SupportOverchargePlayer
+#flags
+#mods
+
+#skill SupportPayloadPlayer
+#flags
+#mods
+
+#skill SupportPerpetualChargePlayer
+#flags
+#mods
+
+#skill SupportPiercePlayer
+#flags
+#mods
+
+#skill SupportPinPlayer
+#flags
+#mods
+
+#skill SupportPracticedComboPlayer
+#flags
+#mods
+
+#skill SupportPrecisionPlayer
+#flags
+#mods
+
+#skill SupportMultipleChargesPlayer
+#flags
+#mods
+
+#skill SupportRicochetPlayer
+#flags
+#mods
+
+#skill SupportMultipleProjectilesPlayer
+#flags
+#mods
+
+#skill SupportSecondWindPlayer
+#flags
+#mods
+
+#skill SupportManaOnCullPlayer
+#flags
+#mods
+
+#skill SupportSwiftAfflictionPlayer
+#flags
+#mods
+
+#skill SupportKnockbackWavePlayer
+#flags
+#mods
+
+#skill KnockbackWavePlayer
+#flags
+#mods
+
+#skill SupportWindowOfOpportunityPlayer
+#flags
+#mods

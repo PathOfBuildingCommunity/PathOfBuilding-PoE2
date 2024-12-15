@@ -45,6 +45,10 @@ local skills, mod, flag, skill = ...
 #flags
 #mods
 
+#skill MetaCastOnMeleeKillPlayer
+#flags
+#mods
+
 #skill SupportMetaCastOnMeleeKillPlayer
 #flags
 #mods
@@ -57,23 +61,11 @@ local skills, mod, flag, skill = ...
 #flags
 #mods
 
-#skill MetaCastWhenDamageTakenPlayer
-#flags
-#mods
-
-#skill SupportMetaCastWhenDamageTakenPlayer
-#flags
-#mods
-
 #skill ClusterGrenadePlayer
 #flags
 #mods
 
 #skill ClusterGrenadeMiniPlayer
-#flags
-#mods
-
-#skill StaffConsecratePlayer
 #flags
 #mods
 
@@ -109,23 +101,7 @@ local skills, mod, flag, skill = ...
 #flags
 #mods
 
-#skill ExsanguinatePlayer
-#flags
-#mods
-
-#skill BearWarcryMetaPlayer
-#flags
-#mods
-
-#skill SupportBearWarcryPlayer
-#flags
-#mods
-
 #skill FlashGrenadePlayer
-#flags
-#mods
-
-#skill BearSlamPlayer
 #flags
 #mods
 
@@ -281,10 +257,6 @@ local skills, mod, flag, skill = ...
 #flags
 #mods
 
-#skill BearMaulPlayer
-#flags
-#mods
-
 #skill MoltenBlastPlayer
 #flags
 #mods
@@ -298,14 +270,6 @@ local skills, mod, flag, skill = ...
 #mods
 
 #skill PerfectStrikePlayer
-#flags
-#mods
-
-#skill BearRampagePlayer
-#flags
-#mods
-
-#skill ReapPlayer
 #flags
 #mods
 
@@ -353,15 +317,7 @@ local skills, mod, flag, skill = ...
 #flags
 #mods
 
-#skill SpinningInfernoPlayer
-#flags
-#mods
-
 #skill StampedePlayer
-#flags
-#mods
-
-#skill SummonWolfCompanionPlayer
 #flags
 #mods
 
@@ -377,15 +333,7 @@ local skills, mod, flag, skill = ...
 #flags
 #mods
 
-#skill TornadoPlayer
-#flags
-#mods
-
 #skill VolcanicFissurePlayer
-#flags
-#mods
-
-#skill VolcanoPlayer
 #flags
 #mods
 

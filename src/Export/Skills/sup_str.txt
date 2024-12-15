@@ -5,3 +5,250 @@
 --
 local skills, mod, flag, skill = ...
 
+#skill SupportAftershockChancePlayer
+#flags
+#mods
+
+#skill SupportAncestralUrgencyPlayer
+#flags
+#mods
+
+#skill SupportArmourExplosionPlayer
+#flags
+#mods
+
+#skill ArmourExplosionPlayer
+#flags
+#mods
+
+#skill SupportAutoReloadPlayer
+#flags
+#mods
+
+#skill SupportBeheadPlayer
+#flags
+#mods
+
+#skill SupportBloodlustPlayer
+#flags
+#mods
+
+#skill SupportKnockbackPlayer
+#flags
+#mods
+
+#skill SupportEnduranceChargeOnArmourBreak
+#flags
+#mods
+
+#skill SupportBrutalityPlayer
+#flags
+#mods
+
+#skill SupportCannibalismPlayer
+#flags
+#mods
+
+#skill SupportCorruptingCryPlayer
+#flags
+#mods
+
+#skill SupportDazingCryPlayer
+#flags
+#mods
+
+#skill SupportDeepCutsPlayer
+#flags
+#mods
+
+#skill SupportIncreasedArmourBreakPlayer
+#flags
+#mods
+
+#skill SupportGroundEffectDurationPlayer
+#flags
+#mods
+
+#skill SupportDevastatePlayer
+#flags
+#mods
+
+#skill SupportDoubleBarrelPlayer
+#flags
+#mods
+
+#skill SupportEnragedWarcryPlayer
+#flags
+#mods
+
+#skill SupportIgniteDurationPlayer
+#flags
+#mods
+
+#skill SupportExecutePlayer
+#flags
+#mods
+
+#skill SupportExploitWeaknessPlayer
+#flags
+#mods
+
+#skill LessDurationSupportPlayer
+#flags
+#mods
+
+#skill SupportFireExposurePlayer
+#flags
+#mods
+
+#skill SupportAddedFireDamagePlayer
+#flags
+#mods
+
+#skill SupportFirePenetrationPlayer
+#flags
+#mods
+
+#skill FistOfWarSupportPlayer
+#flags
+#mods
+
+#skill SupportBloodFountainPlayer
+#flags
+#mods
+
+#skill SupportRageFountainPlayer
+#flags
+#mods
+
+#skill SupportFreshClipPlayer
+#flags
+#mods
+
+#skill SupportMeleePhysicalDamagePlayer
+#flags
+#mods
+
+#skill SupportHeftPlayer
+#flags
+#mods
+
+#skill SupportHerbalismPlayer
+#flags
+#mods
+
+#skill SupportHolyDescentPlayer
+#flags
+#mods
+
+#skill SupportChanceToIgnitePlayer
+#flags
+#mods
+
+#skill SupportImmolatePlayer
+#flags
+#mods
+
+#skill ImpactShockwaveSupportPlayer
+#flags
+#mods
+
+#skill SupportInfernalLegionPlayer
+#flags
+#mods
+
+#skill SupportInspirationPlayer
+#flags
+#mods
+
+#skill SupportIronwoodPlayer
+#flags
+#mods
+
+#skill SupportJaggedGroundPlayer
+#flags
+#mods
+
+#skill SupportChanceToBleedPlayer
+#flags
+#mods
+
+#skill SupportLifeLeechPlayer
+#flags
+#mods
+
+#skill SupportBloodMagicPlayer
+#flags
+#mods
+
+#skill SupportLongFusePlayer
+#flags
+#mods
+
+#skill SupportMeatShieldPlayer
+#flags
+#mods
+
+#skill SupportOverpowerPlayer
+#flags
+#mods
+
+#skill MoreDurationSupportPlayer
+#flags
+#mods
+
+#skill SupportEmpoweredDamagePlayer
+#flags
+#mods
+
+#skill SupportWeaponElementalDamagePlayer
+#flags
+#mods
+
+#skill SupportRagePlayer
+#flags
+#mods
+
+#skill SupportRageforgedPlayer
+#flags
+#mods
+
+#skill SupportRagingCryPlayer
+#flags
+#mods
+
+#skill SupportRupturePlayer
+#flags
+#mods
+
+#skill RuthlessSupportPlayer
+#flags
+#mods
+
+#skill SupportDeadlyIgnitesPlayer
+#flags
+#mods
+
+#skill SupportArmourBreakPlayer
+#flags
+#mods
+
+#skill SupportStompingGroundPlayer
+#flags
+#mods
+
+#skill StompingGroundShockwavePlayer
+#flags
+#mods
+
+#skill UnbreakableSupportPlayer
+#flags
+#mods
+
+#skill SupportUpheavalPlayer
+#flags
+#mods
+
+#skill SupportVitalityPlayer
+#flags
+#mods

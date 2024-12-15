@@ -5,3 +5,350 @@
 --
 local skills, mod, flag, skill = ...
 
+#skill SupportAblationPlayer
+#flags
+#mods
+
+#skill SupportAmbushPlayer
+#flags
+#mods
+
+#skill SupportArcaneSurgePlayer
+#flags
+#mods
+
+#skill SupportFasterCastPlayer
+#flags
+#mods
+
+#skill SupportAstralProjectionPlayer
+#flags
+#mods
+
+#skill SupportBitingFrostPlayer
+#flags
+#mods
+
+#skill SupportBurningRunesPlayer
+#flags
+#mods
+
+#skill TriggeredBurningRunesPlayer
+#flags
+#mods
+
+#skill SupportCapacitorPlayer
+#flags
+#mods
+
+#skill SupportAddedChaosDamagePlayer
+#flags
+#mods
+
+#skill SupportChaosMasteryPlayer
+#flags
+#mods
+
+#skill SupportChaoticFreezePlayer
+#flags
+#mods
+
+#skill SupportClarityPlayer
+#flags
+#mods
+
+#skill SupportColdExposurePlayer
+#flags
+#mods
+
+#skill SupportAddedColdDamagePlayer
+#flags
+#mods
+
+#skill SupportColdMasteryPlayer
+#flags
+#mods
+
+#skill SupportColdPenetrationPlayer
+#flags
+#mods
+
+#skill SupportConcentratedEffectPlayer
+#flags
+#mods
+
+#skill SupportConsideredCastingPlayer
+#flags
+#mods
+
+#skill SupportControlledDestructionPlayer
+#flags
+#mods
+
+#skill SupportCorpseConservationPlayer
+#flags
+#mods
+
+#skill SupportCoursingCurrentPlayer
+#flags
+#mods
+
+#skill SupportCursedGroundPlayer
+#flags
+#mods
+
+#skill SupportDanseMacabrePlayer
+#flags
+#mods
+
+#skill SupportDecayingHexPlayer
+#flags
+#mods
+
+#skill SupportLastingFrostPlayer
+#flags
+#mods
+
+#skill SupportDrainedAilmentPlayer
+#flags
+#mods
+
+#skill SupportElementalArmyPlayer
+#flags
+#mods
+
+#skill SupportElementalDischargePlayer
+#flags
+#mods
+
+#skill TriggeredElementalDischargePlayer
+#flags
+#mods
+
+#skill SupportElementalFocusPlayer
+#flags
+#mods
+
+#skill SupportEnergyBarrierPlayer
+#flags
+#mods
+
+#skill SupportEnergyRetentionPlayer
+#flags
+#mods
+
+#skill SupportExcisePlayer
+#flags
+#mods
+
+#skill SupportExecratePlayer
+#flags
+#mods
+
+#skill SupportExpandingGroundPlayer
+#flags
+#mods
+
+#skill SupportExpansePlayer
+#flags
+#mods
+
+#skill SupportExtractionPlayer
+#flags
+#mods
+
+#skill SupportFeedingFrenzyPlayer
+#flags
+#mods
+
+#skill SupportFieryDeathPlayer
+#flags
+#mods
+
+#skill TriggeredFieryDeathPlayer
+#flags
+#mods
+
+#skill SupportFireMasteryPlayer
+#flags
+#mods
+
+#skill SupportFocusedCursePlayer
+#flags
+#mods
+
+#skill SupportManaFountainPlayer
+#flags
+#mods
+
+#skill SupportWallFortressPlayer
+#flags
+#mods
+
+#skill SupportChillingIcePlayer
+#flags
+#mods
+
+#skill SupportFrostfirePlayer
+#flags
+#mods
+
+#skill SupportFrozenVortexPlayer
+#flags
+#mods
+
+#skill SupportGlaciationPlayer
+#flags
+#mods
+
+#skill SupportGlacierPlayer
+#flags
+#mods
+
+#skill SupportCurseEffectPlayer
+#flags
+#mods
+
+#skill SupportHexBloomPlayer
+#flags
+#mods
+
+#skill SupportHinderPlayer
+#flags
+#mods
+
+#skill SupportHourglassPlayer
+#flags
+#mods
+
+#skill SupportIceBitePlayer
+#flags
+#mods
+
+#skill SupportIciclePlayer
+#flags
+#mods
+
+#skill ViciousHexSupportPlayer
+#flags
+#mods
+
+#skill DoomBlastPlayer
+#flags
+#mods
+
+#skill SupportImpetusPlayer
+#flags
+#mods
+
+#skill SupportInevitableCriticalsPlayer
+#flags
+#mods
+
+#skill SupportChaoticAssassinationPlayer
+#flags
+#mods
+
+#skill SupportLastGaspPlayer
+#flags
+#mods
+
+#skill SupportLightningMasteryPlayer
+#flags
+#mods
+
+#skill SupportIncreasedAreaOfEffectPlayer
+#flags
+#mods
+
+#skill SupportManaFlarePlayer
+#flags
+#mods
+
+#skill TriggeredManaFlarePlayer
+#flags
+#mods
+
+#skill SupportMinionInstabilityPlayer
+#flags
+#mods
+
+#skill SupportMinionMasteryPlayer
+#flags
+#mods
+
+#skill SupportMinionPactPlayer
+#flags
+#mods
+
+#skill SupportPhysicalMasteryPlayer
+#flags
+#mods
+
+#skill SupportPotentialPlayer
+#flags
+#mods
+
+#skill SupportTempestuousTempoPlayer
+#flags
+#mods
+
+#skill SupportRitualisticCursePlayer
+#flags
+#mods
+
+#skill SupportSacrificialLambPlayer
+#flags
+#mods
+
+#skill SupportEnergyShieldOnShockKillPlayer
+#flags
+#mods
+
+#skill SupportManaLeechPlayer
+#flags
+#mods
+
+#skill SupportSoulbreakerPlayer
+#flags
+#mods
+
+#skill TriggeredSoulbreakerPlayer
+#flags
+#mods
+
+#skill SupportSpellCascadePlayer
+#flags
+#mods
+
+#skill SupportSpellEchoPlayer
+#flags
+#mods
+
+#skill SupportStormfirePlayer
+#flags
+#mods
+
+#skill SupportStripAwayPlayer
+#flags
+#mods
+
+#skill SupportIncreasedCriticalDamagePlayer
+#flags
+#mods
+
+#skill SupportUnleashPlayer
+#flags
+#mods
+
+#skill SupportWildfirePlayer
+#flags
+#mods
+
+#skill SupportWildshardsPlayer
+#flags
+#mods
+
+#skill SupportWitheringTouchPlayer
+#flags
+#mods

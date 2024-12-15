@@ -5,7 +5,132 @@
 --
 local skills, mod, flag, skill = ...
 
+#skill AncestralSpiritsPlayer
+#flags
+	fromTree = true,
+#mods
+
+#skill BleedingConcoctionPlayer
+#flags
+	fromTree = true,
+#mods
+
+#skill MeleeBowPlayer
+#flags
+	fromItem = true,
+#mods
+
+#skill MeleeCrossbowPlayer
+#flags
+	fromItem = true,
+#mods
+
+#skill DemonFormPlayer
+#flags
+	fromTree = true,
+#mods
+
+#skill ElementalExpressionTriggeredPlayer
+#flags
+	fromTree = true,
+#mods
+
+#skill ElementalStormPlayer
+#flags
+	fromTree = true,
+#mods
+
+#skill EncaseInJadePlayer
+#flags
+	fromTree = true,
+#mods
+
+#skill ExplosiveConcoctionPlayer
+#flags
+	fromTree = true,
+#mods
+
+#skill FulminatingConcoctionPlayer
+#flags
+	fromTree = true,
+#mods
+
+#skill IntoTheBreachPlayer
+#flags
+	fromTree = true,
+#mods
+
+#skill LifeRemnantsPlayer
+#flags
+	fromTree = true,
+#mods
+
+#skill Melee1HMacePlayer
+#flags
+	fromItem = true,
+#mods
+
+#skill Melee2HMacePlayer
+#flags
+	fromItem = true,
+#mods
+
+#skill MeleeMaceMacePlayer
+#flags
+	fromItem = true,
+#mods
+
+#skill MeditatePlayer
+#flags
+	fromTree = true,
+#mods
+
+#skill PoisonousConcoctionPlayer
+#flags
+	fromTree = true,
+#mods
+
 #noGem
 #skill MeleeUnarmedPlayer
 #flags attack area melee
+#mods
+
+#skill MeleeQuarterstaffPlayer
+#flags
+	fromItem = true,
+#mods
+
+#skill ShatteringConcoctionPlayer
+#flags
+	fromTree = true,
+#mods
+
+#skill SorceryWardPlayer
+#flags
+	fromTree = true,
+#mods
+
+#skill SummonInfernalHoundPlayer
+#flags
+	fromTree = true,
+#mods
+
+#skill TemporalRiftPlayer
+#flags
+	fromTree = true,
+#mods
+
+#skill TimeFreezePlayer
+#flags
+	fromTree = true,
+#mods
+
+#skill TimeSnapPlayer
+#flags
+	fromTree = true,
+#mods
+
+#skill UnboundAvatarPlayer
+#flags
+	fromTree = true,
 #mods

@@ -6,3 +6,122 @@
 local skills, mod, flag, skill = ...
 
 
+#skill AlchemistsBoonPlayer
+#flags
+#mods
+
+#skill BarragePlayer
+#flags
+#mods
+
+#skill CombatFrenzyPlayer
+#flags
+#mods
+
+#skill DetonatingArrowPlayer
+#flags
+#mods
+
+#skill ElectrocutingArrowPlayer
+#flags
+#mods
+
+#skill EscapeShotPlayer
+#flags
+#mods
+
+#skill FreezingSalvoPlayer
+#flags
+#mods
+
+#skill GasArrowPlayer
+#flags
+#mods
+
+#skill HeraldOfPlaguePlayer
+#flags
+#mods
+
+#skill HeraldOfThunderPlayer
+#flags
+#mods
+
+#skill IceShotPlayer
+#flags
+#mods
+
+#skill LightningArrowPlayer
+#flags
+#mods
+
+#skill LightningRodPlayer
+#flags
+#mods
+
+#skill MagneticSalvoPlayer
+#flags
+#mods
+
+#skill PlagueBearerPlayer
+#flags
+#mods
+
+#skill PlagueBearerNovaPlayer
+#flags
+#mods
+
+#skill PoisonBurstArrowPlayer
+#flags
+#mods
+
+#skill RainOfArrowsPlayer
+#flags
+#mods
+
+#skill ShockchainArrowPlayer
+#flags
+#mods
+
+#skill SnipePlayer
+#flags
+#mods
+
+#skill SnipersMarkPlayer
+#flags
+#mods
+
+#skill SpiralVolleyPlayer
+#flags
+#mods
+
+#skill StormcallerArrowPlayer
+#flags
+#mods
+
+#skill TornadoShotPlayer
+#flags
+#mods
+
+#skill ToxicGrowthPlayer
+#flags
+#mods
+
+#skill VineArrowPlayer
+#flags
+#mods
+
+#skill VoltaicMarkPlayer
+#flags
+#mods
+
+#skill TriggeredVoltaicMarkNovaPlayer
+#flags
+#mods
+
+#skill WindDancerPlayer
+#flags
+#mods
+
+#skill TriggeredWindDancerPlayer
+#flags
+#mods
