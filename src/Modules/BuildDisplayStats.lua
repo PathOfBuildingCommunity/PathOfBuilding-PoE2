@@ -175,7 +175,7 @@ local displayStats = {
 	{ stat = "ChaosResistOverCap", label = "Chaos Res. Over Max", fmt = "d%%", hideStat = true },
 	{ label = "Chaos Resistance", val = "Immune", labelStat = "ChaosResist", color = colorCodes.CHAOS, condFunc = function(o) return o.ChaosInoculation end },
 	{ },
-	{ stat = "EffectiveMovementSpeedMod", label = "Movement Speed Modifier", fmt = "+d%%", mod = true, condFunc = function() return true end },
+	{ stat = "EffectiveMovementSpeedMod", label = "Movement Speed Modifier", fmt = "+.1f%%", mod = true, condFunc = function() return true end },
 	--[[ potentially useful mods
 	{ stat = "QuantityMultiplier", label = "Quantity Multiplier", fmt = "+d%%" },
 	{ stat = "StoredUses", label = "Stored Uses", fmt = "d" },

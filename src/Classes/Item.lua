@@ -1477,7 +1477,7 @@ function ItemClass:BuildModListForSlotNum(baseList, slotNum)
 			armourData.BlockChance = m_floor((self.base.armour.BlockChance + calcLocal(modList, "BlockChance", "BASE", 0)) * (1 + calcLocal(modList, "BlockChance", "INC", 0) / 100))
 		end
 		if self.base.armour.MovementPenalty then
-			modList:NewMod("MovementSpeed", "INC", -self.base.armour.MovementPenalty, self.modSource, { type = "Condition", var = "IgnoreMovementPenalties", neg = true })
+			modList:NewMod("MovementSpeed", "BASE", -self.base.armour.MovementPenalty, self.modSource, { type = "Condition", var = "IgnoreMovementPenalties", neg = true })
 		end
 		for _, value in ipairs(modList:List(nil, "ArmourData")) do
 			armourData[value.key] = value.value

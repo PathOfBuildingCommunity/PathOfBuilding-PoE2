@@ -19,7 +19,7 @@ itemBases["Splintered Tower Shield"] = {
 	tags = { str_armour = true, ezomyte_basetype = true, str_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
-	armour = { BlockChance = 26, Armour = 18, MovementPenalty = 300, },
+	armour = { BlockChance = 26, Armour = 18, MovementPenalty = 0.03, },
 	req = { },
 }
 itemBases["Painted Tower Shield"] = {
@@ -28,7 +28,7 @@ itemBases["Painted Tower Shield"] = {
 	tags = { str_armour = true, ezomyte_basetype = true, str_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
-	armour = { BlockChance = 26, Armour = 29, MovementPenalty = 300, },
+	armour = { BlockChance = 26, Armour = 29, MovementPenalty = 0.03, },
 	req = { level = 6, },
 }
 itemBases["Braced Tower Shield"] = {
@@ -37,7 +37,7 @@ itemBases["Braced Tower Shield"] = {
 	tags = { str_armour = true, ezomyte_basetype = true, str_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
-	armour = { BlockChance = 26, Armour = 41, MovementPenalty = 300, },
+	armour = { BlockChance = 26, Armour = 41, MovementPenalty = 0.03, },
 	req = { level = 12, },
 }
 itemBases["Barricade Tower Shield"] = {
@@ -46,7 +46,7 @@ itemBases["Barricade Tower Shield"] = {
 	tags = { maraketh_basetype = true, str_armour = true, str_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
-	armour = { BlockChance = 26, Armour = 50, MovementPenalty = 300, },
+	armour = { BlockChance = 26, Armour = 50, MovementPenalty = 0.03, },
 	req = { level = 16, },
 }
 itemBases["Effigial Tower Shield"] = {
@@ -55,7 +55,7 @@ itemBases["Effigial Tower Shield"] = {
 	tags = { maraketh_basetype = true, str_armour = true, str_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
-	armour = { BlockChance = 26, Armour = 60, MovementPenalty = 300, },
+	armour = { BlockChance = 26, Armour = 60, MovementPenalty = 0.03, },
 	req = { level = 21, },
 }
 itemBases["Rampart Tower Shield"] = {
@@ -64,7 +64,7 @@ itemBases["Rampart Tower Shield"] = {
 	tags = { maraketh_basetype = true, str_armour = true, str_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
-	armour = { BlockChance = 26, Armour = 75, MovementPenalty = 300, },
+	armour = { BlockChance = 26, Armour = 75, MovementPenalty = 0.03, },
 	req = { level = 28, },
 }
 itemBases["Heraldric Tower Shield"] = {
@@ -73,7 +73,7 @@ itemBases["Heraldric Tower Shield"] = {
 	tags = { str_armour = true, vaal_basetype = true, str_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
-	armour = { BlockChance = 26, Armour = 85, MovementPenalty = 300, },
+	armour = { BlockChance = 26, Armour = 85, MovementPenalty = 0.03, },
 	req = { level = 33, },
 }
 itemBases["Stone Tower Shield"] = {
@@ -82,7 +82,7 @@ itemBases["Stone Tower Shield"] = {
 	tags = { str_armour = true, vaal_basetype = true, str_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
-	armour = { BlockChance = 26, Armour = 91, MovementPenalty = 300, },
+	armour = { BlockChance = 26, Armour = 91, MovementPenalty = 0.03, },
 	req = { level = 36, },
 }
 itemBases["Crucible Tower Shield"] = {
@@ -91,7 +91,7 @@ itemBases["Crucible Tower Shield"] = {
 	tags = { str_armour = true, str_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
-	armour = { BlockChance = 26, Armour = 110, MovementPenalty = 300, },
+	armour = { BlockChance = 26, Armour = 110, MovementPenalty = 0.03, },
 	req = { level = 45, },
 }
 itemBases["Ancestor Tower Shield"] = {
@@ -100,7 +100,7 @@ itemBases["Ancestor Tower Shield"] = {
 	tags = { str_armour = true, str_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
-	armour = { BlockChance = 26, Armour = 121, MovementPenalty = 300, },
+	armour = { BlockChance = 26, Armour = 121, MovementPenalty = 0.03, },
 	req = { level = 50, },
 }
 itemBases["Phalanx Tower Shield"] = {
@@ -109,7 +109,7 @@ itemBases["Phalanx Tower Shield"] = {
 	tags = { str_armour = true, str_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
-	armour = { BlockChance = 26, Armour = 125, MovementPenalty = 300, },
+	armour = { BlockChance = 26, Armour = 125, MovementPenalty = 0.03, },
 	req = { level = 52, },
 }
 itemBases["Defiant Tower Shield"] = {
@@ -118,7 +118,7 @@ itemBases["Defiant Tower Shield"] = {
 	tags = { str_armour = true, str_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
-	armour = { BlockChance = 26, Armour = 137, MovementPenalty = 300, },
+	armour = { BlockChance = 26, Armour = 137, MovementPenalty = 0.03, },
 	req = { level = 58, },
 }
 itemBases["Blacksteel Tower Shield"] = {
@@ -127,7 +127,7 @@ itemBases["Blacksteel Tower Shield"] = {
 	tags = { str_armour = true, str_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
-	armour = { BlockChance = 26, Armour = 152, MovementPenalty = 300, },
+	armour = { BlockChance = 26, Armour = 152, MovementPenalty = 0.03, },
 	req = { level = 65, },
 }
 itemBases["Hardwood Targe"] = {
@@ -136,7 +136,7 @@ itemBases["Hardwood Targe"] = {
 	tags = { str_dex_armour = true, ezomyte_basetype = true, str_dex_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
-	armour = { BlockChance = 25, Armour = 10, Evasion = 7, MovementPenalty = 150, },
+	armour = { BlockChance = 25, Armour = 10, Evasion = 7, MovementPenalty = 0.015, },
 	req = { },
 }
 itemBases["Pelage Targe"] = {
@@ -145,7 +145,7 @@ itemBases["Pelage Targe"] = {
 	tags = { str_dex_armour = true, ezomyte_basetype = true, str_dex_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
-	armour = { BlockChance = 25, Armour = 18, Evasion = 14, MovementPenalty = 150, },
+	armour = { BlockChance = 25, Armour = 18, Evasion = 14, MovementPenalty = 0.015, },
 	req = { level = 8, },
 }
 itemBases["Studded Targe"] = {
@@ -154,7 +154,7 @@ itemBases["Studded Targe"] = {
 	tags = { maraketh_basetype = true, str_dex_armour = true, str_dex_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
-	armour = { BlockChance = 25, Armour = 27, Evasion = 23, MovementPenalty = 150, },
+	armour = { BlockChance = 25, Armour = 27, Evasion = 23, MovementPenalty = 0.015, },
 	req = { level = 16, },
 }
 itemBases["Crescent Targe"] = {
@@ -163,7 +163,7 @@ itemBases["Crescent Targe"] = {
 	tags = { maraketh_basetype = true, str_dex_armour = true, str_dex_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
-	armour = { BlockChance = 25, Armour = 39, Evasion = 34, MovementPenalty = 150, },
+	armour = { BlockChance = 25, Armour = 39, Evasion = 34, MovementPenalty = 0.015, },
 	req = { level = 26, },
 }
 itemBases["Chiseled Targe"] = {
@@ -172,7 +172,7 @@ itemBases["Chiseled Targe"] = {
 	tags = { str_dex_armour = true, vaal_basetype = true, str_dex_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
-	armour = { BlockChance = 25, Armour = 47, Evasion = 41, MovementPenalty = 150, },
+	armour = { BlockChance = 25, Armour = 47, Evasion = 41, MovementPenalty = 0.015, },
 	req = { level = 33, },
 }
 itemBases["Feathered Targe"] = {
@@ -181,7 +181,7 @@ itemBases["Feathered Targe"] = {
 	tags = { str_dex_armour = true, vaal_basetype = true, str_dex_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
-	armour = { BlockChance = 25, Armour = 51, Evasion = 46, MovementPenalty = 150, },
+	armour = { BlockChance = 25, Armour = 51, Evasion = 46, MovementPenalty = 0.015, },
 	req = { level = 37, },
 }
 itemBases["Stratified Targe"] = {
@@ -190,7 +190,7 @@ itemBases["Stratified Targe"] = {
 	tags = { str_dex_armour = true, str_dex_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
-	armour = { BlockChance = 25, Armour = 61, Evasion = 54, MovementPenalty = 150, },
+	armour = { BlockChance = 25, Armour = 61, Evasion = 54, MovementPenalty = 0.015, },
 	req = { level = 45, },
 }
 itemBases["Carved Targe"] = {
@@ -199,7 +199,7 @@ itemBases["Carved Targe"] = {
 	tags = { str_dex_armour = true, str_dex_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
-	armour = { BlockChance = 25, Armour = 63, Evasion = 57, MovementPenalty = 150, },
+	armour = { BlockChance = 25, Armour = 63, Evasion = 57, MovementPenalty = 0.015, },
 	req = { level = 47, },
 }
 itemBases["Mosaic Targe"] = {
@@ -208,7 +208,7 @@ itemBases["Mosaic Targe"] = {
 	tags = { str_dex_armour = true, str_dex_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
-	armour = { BlockChance = 25, Armour = 69, Evasion = 62, MovementPenalty = 150, },
+	armour = { BlockChance = 25, Armour = 69, Evasion = 62, MovementPenalty = 0.015, },
 	req = { level = 52, },
 }
 itemBases["Aureate Targe"] = {
@@ -217,7 +217,7 @@ itemBases["Aureate Targe"] = {
 	tags = { str_dex_armour = true, str_dex_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
-	armour = { BlockChance = 25, Armour = 74, Evasion = 68, MovementPenalty = 150, },
+	armour = { BlockChance = 25, Armour = 74, Evasion = 68, MovementPenalty = 0.015, },
 	req = { level = 57, },
 }
 itemBases["Grand Targe"] = {
@@ -226,7 +226,7 @@ itemBases["Grand Targe"] = {
 	tags = { str_dex_armour = true, str_dex_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
-	armour = { BlockChance = 25, Armour = 84, Evasion = 76, MovementPenalty = 150, },
+	armour = { BlockChance = 25, Armour = 84, Evasion = 76, MovementPenalty = 0.015, },
 	req = { level = 65, },
 }
 itemBases["Blazon Crest Shield"] = {
@@ -235,7 +235,7 @@ itemBases["Blazon Crest Shield"] = {
 	tags = { str_int_armour = true, ezomyte_basetype = true, str_int_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
-	armour = { BlockChance = 25, Armour = 10, EnergyShield = 6, MovementPenalty = 150, },
+	armour = { BlockChance = 25, Armour = 10, EnergyShield = 6, MovementPenalty = 0.015, },
 	req = { },
 }
 itemBases["Sigil Crest Shield"] = {
@@ -244,7 +244,7 @@ itemBases["Sigil Crest Shield"] = {
 	tags = { str_int_armour = true, ezomyte_basetype = true, str_int_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
-	armour = { BlockChance = 25, Armour = 17, EnergyShield = 8, MovementPenalty = 150, },
+	armour = { BlockChance = 25, Armour = 17, EnergyShield = 8, MovementPenalty = 0.015, },
 	req = { level = 7, },
 }
 itemBases["Emblem Crest Shield"] = {
@@ -253,7 +253,7 @@ itemBases["Emblem Crest Shield"] = {
 	tags = { maraketh_basetype = true, str_int_armour = true, str_int_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
-	armour = { BlockChance = 25, Armour = 27, EnergyShield = 12, MovementPenalty = 150, },
+	armour = { BlockChance = 25, Armour = 27, EnergyShield = 12, MovementPenalty = 0.015, },
 	req = { level = 16, },
 }
 itemBases["Jingling Crest Shield"] = {
@@ -262,7 +262,7 @@ itemBases["Jingling Crest Shield"] = {
 	tags = { maraketh_basetype = true, str_int_armour = true, str_int_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
-	armour = { BlockChance = 25, Armour = 41, EnergyShield = 16, MovementPenalty = 150, },
+	armour = { BlockChance = 25, Armour = 41, EnergyShield = 16, MovementPenalty = 0.015, },
 	req = { level = 28, },
 }
 itemBases["Sectarian Crest Shield"] = {
@@ -271,7 +271,7 @@ itemBases["Sectarian Crest Shield"] = {
 	tags = { str_int_armour = true, vaal_basetype = true, str_int_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
-	armour = { BlockChance = 25, Armour = 47, EnergyShield = 18, MovementPenalty = 150, },
+	armour = { BlockChance = 25, Armour = 47, EnergyShield = 18, MovementPenalty = 0.015, },
 	req = { level = 33, },
 }
 itemBases["Omen Crest Shield"] = {
@@ -280,7 +280,7 @@ itemBases["Omen Crest Shield"] = {
 	tags = { str_int_armour = true, vaal_basetype = true, str_int_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
-	armour = { BlockChance = 25, Armour = 50, EnergyShield = 19, MovementPenalty = 150, },
+	armour = { BlockChance = 25, Armour = 50, EnergyShield = 19, MovementPenalty = 0.015, },
 	req = { level = 36, },
 }
 itemBases["Wayward Crest Shield"] = {
@@ -289,7 +289,7 @@ itemBases["Wayward Crest Shield"] = {
 	tags = { str_int_armour = true, str_int_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
-	armour = { BlockChance = 25, Armour = 61, EnergyShield = 22, MovementPenalty = 150, },
+	armour = { BlockChance = 25, Armour = 61, EnergyShield = 22, MovementPenalty = 0.015, },
 	req = { level = 45, },
 }
 itemBases["Seer Crest Shield"] = {
@@ -298,7 +298,7 @@ itemBases["Seer Crest Shield"] = {
 	tags = { str_int_armour = true, str_int_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
-	armour = { BlockChance = 25, Armour = 65, EnergyShield = 23, MovementPenalty = 150, },
+	armour = { BlockChance = 25, Armour = 65, EnergyShield = 23, MovementPenalty = 0.015, },
 	req = { level = 49, },
 }
 itemBases["Stoic Crest Shield"] = {
@@ -307,7 +307,7 @@ itemBases["Stoic Crest Shield"] = {
 	tags = { str_int_armour = true, str_int_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
-	armour = { BlockChance = 25, Armour = 69, EnergyShield = 24, MovementPenalty = 150, },
+	armour = { BlockChance = 25, Armour = 69, EnergyShield = 24, MovementPenalty = 0.015, },
 	req = { level = 52, },
 }
 itemBases["Empyreal Crest Shield"] = {
@@ -316,7 +316,7 @@ itemBases["Empyreal Crest Shield"] = {
 	tags = { str_int_armour = true, str_int_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
-	armour = { BlockChance = 25, Armour = 74, EnergyShield = 26, MovementPenalty = 150, },
+	armour = { BlockChance = 25, Armour = 74, EnergyShield = 26, MovementPenalty = 0.015, },
 	req = { level = 57, },
 }
 itemBases["Deified Crest Shield"] = {
@@ -325,7 +325,7 @@ itemBases["Deified Crest Shield"] = {
 	tags = { str_int_armour = true, str_int_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
-	armour = { BlockChance = 25, Armour = 84, EnergyShield = 29, MovementPenalty = 150, },
+	armour = { BlockChance = 25, Armour = 84, EnergyShield = 29, MovementPenalty = 0.015, },
 	req = { level = 65, },
 }
 itemBases["Leather Buckler"] = {
@@ -451,7 +451,7 @@ itemBases["Advanced Painted Tower Shield"] = {
 	tags = { str_armour = true, str_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
-	armour = { BlockChance = 26, Armour = 110, MovementPenalty = 300, },
+	armour = { BlockChance = 26, Armour = 110, MovementPenalty = 0.03, },
 	req = { level = 45, },
 }
 itemBases["Advanced Braced Tower Shield"] = {
@@ -460,7 +460,7 @@ itemBases["Advanced Braced Tower Shield"] = {
 	tags = { str_armour = true, str_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
-	armour = { BlockChance = 26, Armour = 116, MovementPenalty = 300, },
+	armour = { BlockChance = 26, Armour = 116, MovementPenalty = 0.03, },
 	req = { level = 48, },
 }
 itemBases["Advanced Effigial Tower Shield"] = {
@@ -469,7 +469,7 @@ itemBases["Advanced Effigial Tower Shield"] = {
 	tags = { str_armour = true, str_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
-	armour = { BlockChance = 26, Armour = 123, MovementPenalty = 300, },
+	armour = { BlockChance = 26, Armour = 123, MovementPenalty = 0.03, },
 	req = { level = 51, },
 }
 itemBases["Advanced Rampart Tower Shield"] = {
@@ -478,7 +478,7 @@ itemBases["Advanced Rampart Tower Shield"] = {
 	tags = { str_armour = true, str_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
-	armour = { BlockChance = 26, Armour = 131, MovementPenalty = 300, },
+	armour = { BlockChance = 26, Armour = 131, MovementPenalty = 0.03, },
 	req = { level = 55, },
 }
 itemBases["Advanced Heraldric Tower Shield"] = {
@@ -487,7 +487,7 @@ itemBases["Advanced Heraldric Tower Shield"] = {
 	tags = { str_armour = true, str_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
-	armour = { BlockChance = 26, Armour = 139, MovementPenalty = 300, },
+	armour = { BlockChance = 26, Armour = 139, MovementPenalty = 0.03, },
 	req = { level = 59, },
 }
 itemBases["Advanced Stone Tower Shield"] = {
@@ -496,7 +496,7 @@ itemBases["Advanced Stone Tower Shield"] = {
 	tags = { str_armour = true, str_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
-	armour = { BlockChance = 26, Armour = 144, MovementPenalty = 300, },
+	armour = { BlockChance = 26, Armour = 144, MovementPenalty = 0.03, },
 	req = { level = 61, },
 }
 itemBases["Advanced Hardwood Targe"] = {
@@ -505,7 +505,7 @@ itemBases["Advanced Hardwood Targe"] = {
 	tags = { str_dex_armour = true, str_dex_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
-	armour = { BlockChance = 25, Armour = 61, Evasion = 54, MovementPenalty = 150, },
+	armour = { BlockChance = 25, Armour = 61, Evasion = 54, MovementPenalty = 0.015, },
 	req = { level = 45, },
 }
 itemBases["Advanced Pelage Targe"] = {
@@ -514,7 +514,7 @@ itemBases["Advanced Pelage Targe"] = {
 	tags = { str_dex_armour = true, str_dex_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
-	armour = { BlockChance = 25, Armour = 64, Evasion = 58, MovementPenalty = 150, },
+	armour = { BlockChance = 25, Armour = 64, Evasion = 58, MovementPenalty = 0.015, },
 	req = { level = 48, },
 }
 itemBases["Advanced Studded Targe"] = {
@@ -523,7 +523,7 @@ itemBases["Advanced Studded Targe"] = {
 	tags = { str_dex_armour = true, str_dex_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
-	armour = { BlockChance = 25, Armour = 67, Evasion = 61, MovementPenalty = 150, },
+	armour = { BlockChance = 25, Armour = 67, Evasion = 61, MovementPenalty = 0.015, },
 	req = { level = 51, },
 }
 itemBases["Advanced Crescent Targe"] = {
@@ -532,7 +532,7 @@ itemBases["Advanced Crescent Targe"] = {
 	tags = { str_dex_armour = true, str_dex_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
-	armour = { BlockChance = 25, Armour = 72, Evasion = 65, MovementPenalty = 150, },
+	armour = { BlockChance = 25, Armour = 72, Evasion = 65, MovementPenalty = 0.015, },
 	req = { level = 55, },
 }
 itemBases["Advanced Chiseled Targe"] = {
@@ -541,7 +541,7 @@ itemBases["Advanced Chiseled Targe"] = {
 	tags = { str_dex_armour = true, str_dex_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
-	armour = { BlockChance = 25, Armour = 77, Evasion = 70, MovementPenalty = 150, },
+	armour = { BlockChance = 25, Armour = 77, Evasion = 70, MovementPenalty = 0.015, },
 	req = { level = 59, },
 }
 itemBases["Advanced Feathered Targe"] = {
@@ -550,7 +550,7 @@ itemBases["Advanced Feathered Targe"] = {
 	tags = { str_dex_armour = true, str_dex_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
-	armour = { BlockChance = 25, Armour = 80, Evasion = 73, MovementPenalty = 150, },
+	armour = { BlockChance = 25, Armour = 80, Evasion = 73, MovementPenalty = 0.015, },
 	req = { level = 62, },
 }
 itemBases["Advanced Blazon Crest Shield"] = {
@@ -559,7 +559,7 @@ itemBases["Advanced Blazon Crest Shield"] = {
 	tags = { str_int_armour = true, str_int_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
-	armour = { BlockChance = 25, Armour = 61, EnergyShield = 22, MovementPenalty = 150, },
+	armour = { BlockChance = 25, Armour = 61, EnergyShield = 22, MovementPenalty = 0.015, },
 	req = { level = 45, },
 }
 itemBases["Advanced Sigil Crest Shield"] = {
@@ -568,7 +568,7 @@ itemBases["Advanced Sigil Crest Shield"] = {
 	tags = { str_int_armour = true, str_int_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
-	armour = { BlockChance = 25, Armour = 64, EnergyShield = 23, MovementPenalty = 150, },
+	armour = { BlockChance = 25, Armour = 64, EnergyShield = 23, MovementPenalty = 0.015, },
 	req = { level = 48, },
 }
 itemBases["Advanced Emblem Crest Shield"] = {
@@ -577,7 +577,7 @@ itemBases["Advanced Emblem Crest Shield"] = {
 	tags = { str_int_armour = true, str_int_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
-	armour = { BlockChance = 25, Armour = 67, EnergyShield = 24, MovementPenalty = 150, },
+	armour = { BlockChance = 25, Armour = 67, EnergyShield = 24, MovementPenalty = 0.015, },
 	req = { level = 51, },
 }
 itemBases["Advanced Jingling Crest Shield"] = {
@@ -586,7 +586,7 @@ itemBases["Advanced Jingling Crest Shield"] = {
 	tags = { str_int_armour = true, str_int_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
-	armour = { BlockChance = 25, Armour = 72, EnergyShield = 25, MovementPenalty = 150, },
+	armour = { BlockChance = 25, Armour = 72, EnergyShield = 25, MovementPenalty = 0.015, },
 	req = { level = 55, },
 }
 itemBases["Advanced Sectarian Crest Shield"] = {
@@ -595,7 +595,7 @@ itemBases["Advanced Sectarian Crest Shield"] = {
 	tags = { str_int_armour = true, str_int_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
-	armour = { BlockChance = 25, Armour = 77, EnergyShield = 27, MovementPenalty = 150, },
+	armour = { BlockChance = 25, Armour = 77, EnergyShield = 27, MovementPenalty = 0.015, },
 	req = { level = 59, },
 }
 itemBases["Advanced Omen Crest Shield"] = {
@@ -604,7 +604,7 @@ itemBases["Advanced Omen Crest Shield"] = {
 	tags = { str_int_armour = true, str_int_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
-	armour = { BlockChance = 25, Armour = 80, EnergyShield = 28, MovementPenalty = 150, },
+	armour = { BlockChance = 25, Armour = 80, EnergyShield = 28, MovementPenalty = 0.015, },
 	req = { level = 62, },
 }
 itemBases["Advanced Wooden Buckler"] = {
@@ -667,7 +667,7 @@ itemBases["Expert Braced Tower Shield"] = {
 	tags = { str_armour = true, str_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
-	armour = { BlockChance = 26, Armour = 152, MovementPenalty = 300, },
+	armour = { BlockChance = 26, Armour = 152, MovementPenalty = 0.03, },
 	req = { level = 65, },
 }
 itemBases["Expert Rampart Tower Shield"] = {
@@ -676,7 +676,7 @@ itemBases["Expert Rampart Tower Shield"] = {
 	tags = { str_armour = true, str_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
-	armour = { BlockChance = 26, Armour = 167, MovementPenalty = 300, },
+	armour = { BlockChance = 26, Armour = 167, MovementPenalty = 0.03, },
 	req = { level = 70, },
 }
 itemBases["Expert Stone Tower Shield"] = {
@@ -685,7 +685,7 @@ itemBases["Expert Stone Tower Shield"] = {
 	tags = { str_armour = true, str_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
-	armour = { BlockChance = 26, Armour = 182, MovementPenalty = 300, },
+	armour = { BlockChance = 26, Armour = 182, MovementPenalty = 0.03, },
 	req = { level = 75, },
 }
 itemBases["Expert Pelage Targe"] = {
@@ -694,7 +694,7 @@ itemBases["Expert Pelage Targe"] = {
 	tags = { str_dex_armour = true, str_dex_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
-	armour = { BlockChance = 25, Armour = 84, Evasion = 76, MovementPenalty = 150, },
+	armour = { BlockChance = 25, Armour = 84, Evasion = 76, MovementPenalty = 0.015, },
 	req = { level = 65, },
 }
 itemBases["Expert Crescent Targe"] = {
@@ -703,7 +703,7 @@ itemBases["Expert Crescent Targe"] = {
 	tags = { str_dex_armour = true, str_dex_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
-	armour = { BlockChance = 25, Armour = 92, Evasion = 84, MovementPenalty = 150, },
+	armour = { BlockChance = 25, Armour = 92, Evasion = 84, MovementPenalty = 0.015, },
 	req = { level = 70, },
 }
 itemBases["Expert Feathered Targe"] = {
@@ -712,7 +712,7 @@ itemBases["Expert Feathered Targe"] = {
 	tags = { str_dex_armour = true, str_dex_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
-	armour = { BlockChance = 25, Armour = 100, Evasion = 91, MovementPenalty = 150, },
+	armour = { BlockChance = 25, Armour = 100, Evasion = 91, MovementPenalty = 0.015, },
 	req = { level = 75, },
 }
 itemBases["Expert Sigil Crest Shield"] = {
@@ -721,7 +721,7 @@ itemBases["Expert Sigil Crest Shield"] = {
 	tags = { str_int_armour = true, str_int_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
-	armour = { BlockChance = 25, Armour = 84, EnergyShield = 29, MovementPenalty = 150, },
+	armour = { BlockChance = 25, Armour = 84, EnergyShield = 29, MovementPenalty = 0.015, },
 	req = { level = 65, },
 }
 itemBases["Expert Jingling Crest Shield"] = {
@@ -730,7 +730,7 @@ itemBases["Expert Jingling Crest Shield"] = {
 	tags = { str_int_armour = true, str_int_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
-	armour = { BlockChance = 25, Armour = 92, EnergyShield = 32, MovementPenalty = 150, },
+	armour = { BlockChance = 25, Armour = 92, EnergyShield = 32, MovementPenalty = 0.015, },
 	req = { level = 70, },
 }
 itemBases["Expert Omen Crest Shield"] = {
@@ -739,7 +739,7 @@ itemBases["Expert Omen Crest Shield"] = {
 	tags = { str_int_armour = true, str_int_shield = true, armour = true, default = true, shield = true, },
 	influenceTags = { shaper = "shield_shaper", elder = "shield_elder", adjudicator = "shield_adjudicator", basilisk = "shield_basilisk", crusader = "shield_crusader", eyrie = "shield_eyrie", cleansing = "shield_cleansing", tangle = "shield_tangle" },
 	implicitModTypes = { },
-	armour = { BlockChance = 25, Armour = 100, EnergyShield = 35, MovementPenalty = 150, },
+	armour = { BlockChance = 25, Armour = 100, EnergyShield = 35, MovementPenalty = 0.015, },
 	req = { level = 75, },
 }
 itemBases["Expert Plated Buckler"] = {

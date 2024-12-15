@@ -196,7 +196,7 @@ directiveTable.base = function(state, args, out)
 			itemValueSum = itemValueSum + armourType.EnergyShield
 		end
 		if armourType.MovementPenalty ~= 0 then
-			out:write('MovementPenalty = ', -armourType.MovementPenalty, ', ')
+			out:write('MovementPenalty = ', -armourType.MovementPenalty / 10000, ', ')
 		end
 		out:write('},\n')
 	end

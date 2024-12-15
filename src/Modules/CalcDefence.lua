@@ -1299,17 +1299,17 @@ function calcs.defence(env, actor)
 	end
 
 	-- Miscellaneous: move speed, avoidance, weapon swap speed
-	output.MovementSpeedMod = modDB:Override(nil, "MovementSpeed") or (modDB:Flag(nil, "MovementSpeedEqualHighestLinkedPlayers") and actor.partyMembers.output.MovementSpeedMod or calcLib.mod(modDB, nil, "MovementSpeed"))
+	output.MovementSpeedMod = modDB:Override(nil, "MovementSpeed") or (modDB:Flag(nil, "MovementSpeedEqualHighestLinkedPlayers") and actor.partyMembers.output.MovementSpeedMod or (round((1 + modDB:Sum("BASE", nil, "MovementSpeed")) * calcLib.mod(modDB, nil, "MovementSpeed"), 3)))
 	if modDB:Flag(nil, "MovementSpeedCannotBeBelowBase") then
 		output.MovementSpeedMod = m_max(output.MovementSpeedMod, 1)
 	end
-	output.EffectiveMovementSpeedMod = output.MovementSpeedMod * output.ActionSpeedMod
+	output.EffectiveMovementSpeedMod = round(output.MovementSpeedMod * output.ActionSpeedMod, 3)
 	if breakdown then
 		breakdown.EffectiveMovementSpeedMod = { }
 		breakdown.multiChain(breakdown.EffectiveMovementSpeedMod, {
-			{ "%.2f ^8(movement speed modifier)", output.MovementSpeedMod },
+			{ "%.3f ^8(movement speed modifier)", output.MovementSpeedMod },
 			{ "%.2f ^8(action speed modifier)", output.ActionSpeedMod },
-			total = s_format("= %.2f ^8(effective movement speed modifier)", output.EffectiveMovementSpeedMod)
+			total = s_format("= %.3f ^8(effective movement speed modifier)", output.EffectiveMovementSpeedMod)
 		})
 	end
 
