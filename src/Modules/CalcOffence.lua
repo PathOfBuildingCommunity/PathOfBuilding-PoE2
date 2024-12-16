@@ -485,13 +485,6 @@ function calcs.offence(env, actor, activeSkill)
 	end
 
 	-- Add addition stat bonuses
-	if skillModList:Flag(nil, "IronGrip") then
-		skillModList:NewMod("PhysicalDamage", "INC", actor.strDmgBonus or 0, "Strength", bor(ModFlag.Attack, ModFlag.Projectile))
-	end
-	if skillModList:Flag(nil, "IronWill") then
-		skillModList:NewMod("Damage", "INC", actor.strDmgBonus or 0, "Strength", ModFlag.Spell)
-	end
-
 	if skillModList:Flag(nil, "TransfigurationOfBody") then
 		skillModList:NewMod("Damage", "INC", m_floor(skillModList:Sum("INC", nil, "Life") * data.misc.Transfiguration), "Transfiguration of Body", ModFlag.Attack)
 	end

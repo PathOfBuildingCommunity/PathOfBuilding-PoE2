@@ -1147,12 +1147,6 @@ return {
 ["cannot_cause_bleeding"] = {
 	flag("CannotBleed"),
 },
-["keystone_strong_bowman"] = {
-	flag("IronGrip"),
-},
-["strong_casting"] = {
-	flag("IronWill"),
-},
 ["deal_no_elemental_damage"] = {
 	flag("DealNoFire"),
 	flag("DealNoCold"),

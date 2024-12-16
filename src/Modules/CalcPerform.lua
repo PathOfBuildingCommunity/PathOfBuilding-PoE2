@@ -426,28 +426,15 @@ local function doActorAttribsConditions(env, actor)
 	if not modDB:Flag(nil, "NoAttributeBonuses") then
 		if not modDB:Flag(nil, "NoStrengthAttributeBonuses") then
 			if not modDB:Flag(nil, "NoStrBonusToLife") then
-				modDB:NewMod("Life", "BASE", m_floor(output.Str / 2), "Strength")
+				modDB:NewMod("Life", "BASE", output.Str * 2, "Strength")
 			end
-			local strDmgBonusRatioOverride = modDB:Sum("BASE", nil, "StrDmgBonusRatioOverride")
-			if strDmgBonusRatioOverride > 0 then
-				actor.strDmgBonus = m_floor((output.Str + modDB:Sum("BASE", nil, "DexIntToMeleeBonus")) * strDmgBonusRatioOverride)
-			else
-				actor.strDmgBonus = m_floor((output.Str + modDB:Sum("BASE", nil, "DexIntToMeleeBonus")) / 5)
-			end
-			modDB:NewMod("PhysicalDamage", "INC", actor.strDmgBonus, "Strength", ModFlag.Melee)
 		end
 		if not modDB:Flag(nil, "NoDexterityAttributeBonuses") then
 			modDB:NewMod("Accuracy", "BASE", output.Dex * (modDB:Override(nil, "DexAccBonusOverride") or data.misc.AccuracyPerDexBase), "Dexterity")
-			if not modDB:Flag(nil, "NoDexBonusToEvasion") then
-				modDB:NewMod("Evasion", "INC", m_floor(output.Dex / 5), "Dexterity")
-			end
 		end
 		if not modDB:Flag(nil, "NoIntelligenceAttributeBonuses") then
 			if not modDB:Flag(nil, "NoIntBonusToMana") then
-				modDB:NewMod("Mana", "BASE", m_floor(output.Int / 2), "Intelligence")
-			end
-			if not modDB:Flag(nil, "NoIntBonusToES") then
-				modDB:NewMod("EnergyShield", "INC", m_floor(output.Int / 5), "Intelligence")
+				modDB:NewMod("Mana", "BASE", output.Int * 2, "Intelligence")
 			end
 		end
 	end

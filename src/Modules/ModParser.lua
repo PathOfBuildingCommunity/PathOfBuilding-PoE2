@@ -2003,7 +2003,6 @@ local specialModList = {
 	["maximum chance to dodge spell hits is (%d+)%%"] = function(num) return { mod("SpellDodgeChanceMax", "OVERRIDE", num, "Acrobatics") } end,
 	["dexterity provides no bonus to evasion rating"] = { flag("NoDexBonusToEvasion") },
 	["dexterity provides no inherent bonus to evasion rating"] = { flag("NoDexBonusToEvasion") },
-	["strength's damage bonus applies to all spell damage as well"] = { flag("IronWill") },
 	["your hits can't be evaded"] = { flag("CannotBeEvaded") },
 	["minion hits can't be evaded"] = { mod("MinionModifier", "LIST", { mod = flag("CannotBeEvaded") }) },
 	["never deal critical hits"] = { flag("NeverCrit"), flag("Condition:NeverCrit") },
@@ -2015,8 +2014,6 @@ local specialModList = {
 	["cannot deal critical hits with attacks"] = { flag("NeverCrit", nil, ModFlag.Attack), flag("Condition:NeverCrit", nil, ModFlag.Attack) },
 	["no critical damage bonus"] = { flag("NoCritMultiplier") },
 	["ailments never count as being from critical hits"] = { flag("AilmentsAreNeverFromCrit") },
-	["the increase to physical damage from strength applies to projectile attacks as well as melee attacks"] = { flag("IronGrip") },
-	["strength%'s damage bonus applies to projectile attack damage as well as melee damage"] = { flag("IronGrip") },
 	["converts all evasion rating to armour%. dexterity provides no bonus to evasion rating"] = { flag("NoDexBonusToEvasion"), flag("IronReflexes") },
 	["30%% chance to dodge attack hits%. 50%% less armour, 30%% less energy shield, 30%% less chance to block spell and attack damage"] = {
 		mod("AttackDodgeChance", "BASE", 30),
@@ -4614,7 +4611,6 @@ local specialModList = {
 	["warcries exert (%d+) additional attacks?"] = function(num) return { mod("ExtraExertedAttacks", "BASE", num) } end,
 	["warcries have (%d+)%% chance to exert (%d+) additional attacks?"] = function(num, _, var) return { mod("ExtraExertedAttacks", "BASE", (num*var/100)) } end,
 	["skills deal (%d+)%% more damage for each warcry exerting them"] = function(num) return { mod("EchoesExertAverageIncrease", "MORE", num, nil) } end,
-	["iron will"] = { flag("IronWill") },
 	["iron reflexes while stationary"] = { mod("Keystone", "LIST", "Iron Reflexes", { type = "Condition", var = "Stationary" }) },
 	["you have iron reflexes while at maximum frenzy charges"] = { mod("Keystone", "LIST", "Iron Reflexes", { type = "StatThreshold", stat = "FrenzyCharges", thresholdStat = "FrenzyChargesMax" }) },
 	["you have zealot's oath if you haven't been hit recently"] = { mod("Keystone", "LIST", "Zealot's Oath", { type = "Condition", var = "BeenHitRecently", neg = true }) },
@@ -4721,7 +4717,6 @@ local specialModList = {
 		flag("DisableSkill", { type = "SkillType", skillType = SkillType.Travel }),
 		flag("EnableSkill", { type = "SkillId", skillId = gemIdLookup[name] }),
 	} end,
-	["strength's damage bonus instead grants (%d+)%% increased melee physical damage per (%d+) strength"] = function(num, _, perStr) return { mod("StrDmgBonusRatioOverride", "BASE", num / tonumber(perStr)) } end,
 	["while in her embrace, take ([%d%.]+)%% of your total maximum life and energy shield as fire damage per second per level"] = function(num) return {
 		mod("FireDegen", "BASE", 1, { type = "PercentStat", stat = "Life", percent = num }, { type = "Multiplier", var = "Level" }, { type = "Condition", var = "HerEmbrace" }),
 		mod("FireDegen", "BASE", 1, { type = "PercentStat", stat = "EnergyShield", percent = num }, { type = "Multiplier", var = "Level" }, { type = "Condition", var = "HerEmbrace" }),
@@ -5553,14 +5548,6 @@ local jewelSelfFuncs = {
 	["3% increased Totem Life per 10 Strength Allocated in Radius"] = getPerStat("TotemLife", "INC", 0, "Str", 3 / 10),
 	["Adds 1 maximum Lightning Damage to Attacks per 1 Dexterity Allocated in Radius"] = getPerStat("LightningMax", "BASE", ModFlag.Attack, "Dex", 1),
 	["5% increased Chaos damage per 10 Intelligence from Allocated Passives in Radius"] = getPerStat("ChaosDamage", "INC", 0, "Int", 5 / 10),
-	["Dexterity and Intelligence from passives in Radius count towards Strength Melee Damage bonus"] = function(node, out, data)
-		if node then
-			data.Dex = (data.Dex or 0) + node.modList:Sum("BASE", nil, "Dex")
-			data.Int = (data.Int or 0) + node.modList:Sum("BASE", nil, "Int")
-		elseif data.Dex or data.Int then
-			out:NewMod("DexIntToMeleeBonus", "BASE", (data.Dex or 0) + (data.Int or 0), data.modSource)
-		end
-	end,
 	["-1 Strength per 1 Strength on Allocated Passives in Radius"] = getPerStat("Str", "BASE", 0, "Str", -1),
 	["1% additional Physical Damage Reduction per 10 Strength on Allocated Passives in Radius"] = getPerStat("PhysicalDamageReduction", "BASE", 0, "Str", 1 / 10),
 	["2% increased Life Recovery Rate per 10 Strength on Allocated Passives in Radius"] = getPerStat("LifeRecoveryRate", "INC", 0, "Str", 2 / 10),
