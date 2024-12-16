@@ -14057,6 +14057,32 @@ return {
 			group=980,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=722,
@@ -14284,6 +14310,32 @@ return {
 			group=596,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=2,
 			orbitIndex=22,
 			skill=1140,
@@ -14380,6 +14432,32 @@ return {
 			group=46,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=4,
 			orbitIndex=36,
 			skill=1200,
@@ -14397,6 +14475,32 @@ return {
 			group=394,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=4,
 			orbitIndex=69,
 			skill=1207,
@@ -14519,6 +14623,32 @@ return {
 			group=333,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=6,
 			orbitIndex=56,
 			skill=1433,
@@ -14853,6 +14983,32 @@ return {
 			group=579,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=1826,
@@ -15268,6 +15424,32 @@ return {
 			group=923,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=2408,
@@ -15297,6 +15479,32 @@ return {
 			group=847,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=2,
 			orbitIndex=8,
 			skill=2448,
@@ -15483,6 +15691,32 @@ return {
 			group=992,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=2582,
@@ -15609,6 +15843,32 @@ return {
 			group=521,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=2847,
@@ -15751,6 +16011,32 @@ return {
 			group=543,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=3025,
@@ -15793,6 +16079,32 @@ return {
 			group=421,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=3,
 			orbitIndex=10,
 			skill=3041,
@@ -16075,6 +16387,32 @@ return {
 			group=772,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=3251,
@@ -16202,6 +16540,32 @@ return {
 			group=124,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=3446,
@@ -16322,6 +16686,7 @@ return {
 			orbitIndex=0,
 			skill=3605,
 			stats={
+				[1]="Grants Skill: Time Snap"
 			}
 		},
 		[3628]={
@@ -16864,6 +17229,32 @@ return {
 			group=768,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=4059,
@@ -16990,6 +17381,32 @@ return {
 			group=105,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=4140,
@@ -17040,6 +17457,32 @@ return {
 			group=600,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=4203,
@@ -17142,6 +17585,32 @@ return {
 			group=834,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=4328,
@@ -17297,6 +17766,32 @@ return {
 			group=464,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=4456,
@@ -17347,6 +17842,32 @@ return {
 			group=128,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=4527,
@@ -18050,6 +18571,32 @@ return {
 			group=500,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=4,
 			orbitIndex=36,
 			skill=5314,
@@ -18248,6 +18795,32 @@ return {
 			group=731,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=5702,
@@ -18542,6 +19115,32 @@ return {
 			group=366,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=3,
 			orbitIndex=15,
 			skill=6015,
@@ -18608,7 +19207,8 @@ return {
 			orbitIndex=0,
 			skill=6127,
 			stats={
-				[1]="Gain a stack of Jade every second"
+				[1]="Gain a stack of Jade every second",
+				[2]="Grants Skill: Encase in Jade"
 			}
 		},
 		[6133]={
@@ -19176,6 +19776,32 @@ return {
 			group=342,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=6,
 			orbitIndex=6,
 			skill=6744,
@@ -19235,6 +19861,32 @@ return {
 			group=690,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=4,
 			orbitIndex=6,
 			skill=6772,
@@ -19883,6 +20535,32 @@ return {
 			group=829,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=7526,
@@ -19964,6 +20642,32 @@ return {
 			group=427,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=6,
 			orbitIndex=30,
 			skill=7628,
@@ -20068,6 +20772,32 @@ return {
 			group=530,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=6,
 			orbitIndex=5,
 			skill=7741,
@@ -20473,6 +21203,7 @@ return {
 			orbitIndex=0,
 			skill=8272,
 			stats={
+				[1]="20 Passive Skill Points become Weapon Set Skill Points"
 			}
 		},
 		[8273]={
@@ -20537,6 +21268,32 @@ return {
 			group=366,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=3,
 			orbitIndex=21,
 			skill=8406,
@@ -20572,7 +21329,8 @@ return {
 			orbitIndex=0,
 			skill=8415,
 			stats={
-				[1]="Skills gain a Base Life Cost equal to Base Mana Cost"
+				[1]="Skills gain a Base Life Cost equal to Base Mana Cost",
+				[2]="Grants Skill: Life Remnants"
 			}
 		},
 		[8440]={
@@ -20637,6 +21395,32 @@ return {
 			group=388,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=8493,
@@ -20801,6 +21585,32 @@ return {
 			group=640,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=6,
 			orbitIndex=6,
 			skill=8569,
@@ -20859,6 +21669,32 @@ return {
 			group=502,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=8616,
@@ -21270,6 +22106,32 @@ return {
 			group=682,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=8975,
@@ -21830,6 +22692,32 @@ return {
 			group=554,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=9485,
@@ -21993,6 +22881,7 @@ return {
 			orbitIndex=0,
 			skill=9710,
 			stats={
+				[1]="Grants Skill: Bleeding Concoction"
 			}
 		},
 		[9736]={
@@ -22427,6 +23316,32 @@ return {
 			group=88,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=10100,
@@ -22452,6 +23367,32 @@ return {
 			group=728,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=10131,
@@ -22469,6 +23410,32 @@ return {
 			group=421,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=6,
 			orbitIndex=38,
 			skill=10156,
@@ -22573,6 +23540,32 @@ return {
 			group=511,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=6,
 			orbitIndex=51,
 			skill=10247,
@@ -22814,6 +23807,32 @@ return {
 			group=795,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=10382,
@@ -23266,6 +24285,32 @@ return {
 			group=588,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=3,
 			orbitIndex=8,
 			skill=10909,
@@ -23497,6 +24542,32 @@ return {
 			group=167,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=11248,
@@ -23862,6 +24933,32 @@ return {
 			group=773,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=11604,
@@ -23927,6 +25024,32 @@ return {
 			group=591,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=11672,
@@ -23961,6 +25084,32 @@ return {
 			group=92,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=3,
 			orbitIndex=8,
 			skill=11741,
@@ -24080,6 +25229,32 @@ return {
 			group=886,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=11825,
@@ -24410,6 +25585,32 @@ return {
 			group=921,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=12253,
@@ -24857,6 +26058,7 @@ return {
 			orbitIndex=7,
 			skill=12876,
 			stats={
+				[1]="Grants Skill: Meditate"
 			}
 		},
 		[12882]={
@@ -24875,7 +26077,8 @@ return {
 			orbitIndex=12,
 			skill=12882,
 			stats={
-				[1]="Trigger Elemental Storm on Critical Hit with Spells"
+				[1]="Trigger Elemental Storm on Critical Hit with Spells",
+				[2]="Grants Skill: Elemental Storm"
 			}
 		},
 		[12890]={
@@ -24892,6 +26095,32 @@ return {
 			group=850,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=6,
 			orbitIndex=12,
 			skill=12890,
@@ -25120,6 +26349,32 @@ return {
 			group=404,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=6,
 			orbitIndex=48,
 			skill=13241,
@@ -25133,6 +26388,32 @@ return {
 			group=380,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=13279,
@@ -25276,6 +26557,32 @@ return {
 			group=394,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=4,
 			orbitIndex=6,
 			skill=13397,
@@ -25316,6 +26623,32 @@ return {
 			group=708,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=5,
 			orbitIndex=42,
 			skill=13411,
@@ -26258,6 +27591,32 @@ return {
 			group=983,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=14262,
@@ -26275,6 +27634,32 @@ return {
 			group=1004,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=14267,
@@ -26330,6 +27715,32 @@ return {
 			group=601,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=14340,
@@ -26484,6 +27895,32 @@ return {
 			group=885,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=14446,
@@ -26677,6 +28114,32 @@ return {
 			group=185,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=14654,
@@ -26719,6 +28182,32 @@ return {
 			group=882,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=14658,
@@ -27062,6 +28551,32 @@ return {
 			group=471,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=15182,
@@ -27262,6 +28777,32 @@ return {
 			group=596,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=3,
 			orbitIndex=10,
 			skill=15507,
@@ -27377,6 +28918,32 @@ return {
 			group=148,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=15671,
@@ -27398,6 +28965,32 @@ return {
 			group=991,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=15775,
@@ -27419,6 +29012,32 @@ return {
 			group=256,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=15782,
@@ -27514,6 +29133,32 @@ return {
 			group=434,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=15885,
@@ -27746,6 +29391,32 @@ return {
 			group=435,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=6,
 			orbitIndex=48,
 			skill=16168,
@@ -27854,6 +29525,32 @@ return {
 			group=641,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=6,
 			orbitIndex=18,
 			skill=16460,
@@ -27895,6 +29592,32 @@ return {
 			group=711,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=2,
 			orbitIndex=0,
 			skill=16484,
@@ -27916,6 +29639,32 @@ return {
 			group=588,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=6,
 			orbitIndex=30,
 			skill=16489,
@@ -28093,6 +29842,32 @@ return {
 			group=845,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=6,
 			orbitIndex=66,
 			skill=16705,
@@ -28122,6 +29897,32 @@ return {
 			group=283,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=16725,
@@ -28191,6 +29992,32 @@ return {
 			group=571,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=6,
 			orbitIndex=36,
 			skill=16845,
@@ -28300,6 +30127,32 @@ return {
 			group=845,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=6,
 			orbitIndex=48,
 			skill=17088,
@@ -28321,6 +30174,32 @@ return {
 			group=691,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=17118,
@@ -28420,6 +30299,32 @@ return {
 			group=610,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=5,
 			orbitIndex=0,
 			skill=17248,
@@ -28814,6 +30719,32 @@ return {
 			group=275,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=6,
 			orbitIndex=48,
 			skill=17468,
@@ -29086,6 +31017,32 @@ return {
 			group=777,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=17702,
@@ -29169,7 +31126,8 @@ return {
 			orbitIndex=7,
 			skill=17754,
 			stats={
-				[1]="20% of Damage from Hits is taken from your Hellhound's Life before you"
+				[1]="20% of Damage from Hits is taken from your Hellhound's Life before you",
+				[2]="Grants Skill: Summon Infernal Hound"
 			}
 		},
 		[17762]={
@@ -29682,6 +31640,32 @@ return {
 			group=468,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=18407,
@@ -29730,6 +31714,32 @@ return {
 			group=72,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=18448,
@@ -30218,6 +32228,32 @@ return {
 			group=649,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=5,
 			orbitIndex=6,
 			skill=18882,
@@ -30295,6 +32331,32 @@ return {
 			group=742,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=6,
 			orbitIndex=36,
 			skill=18923,
@@ -30317,6 +32379,7 @@ return {
 			orbitIndex=0,
 			skill=18940,
 			stats={
+				[1]="Grants Skill: Shattering Concoction"
 			}
 		},
 		[18969]={
@@ -30567,6 +32630,32 @@ return {
 			group=400,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=19240,
@@ -31983,6 +34072,32 @@ return {
 			group=573,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=21274,
@@ -32030,6 +34145,32 @@ return {
 			group=713,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=21280,
@@ -32125,6 +34266,32 @@ return {
 			group=85,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=21387,
@@ -32315,6 +34482,32 @@ return {
 			group=160,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=21568,
@@ -32489,6 +34682,32 @@ return {
 			group=746,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=6,
 			orbitIndex=12,
 			skill=21746,
@@ -32541,6 +34760,32 @@ return {
 			group=516,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=21755,
@@ -33032,6 +35277,32 @@ return {
 			group=477,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=22419,
@@ -33146,6 +35417,32 @@ return {
 			group=275,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=6,
 			orbitIndex=66,
 			skill=22558,
@@ -33171,6 +35468,32 @@ return {
 			group=275,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=6,
 			orbitIndex=54,
 			skill=22616,
@@ -33423,6 +35746,32 @@ return {
 			group=315,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=5,
 			orbitIndex=69,
 			skill=22928,
@@ -33508,6 +35857,32 @@ return {
 			group=170,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=22975,
@@ -33730,6 +36105,32 @@ return {
 			group=89,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=23307,
@@ -33833,6 +36234,32 @@ return {
 			group=174,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=23382,
@@ -33956,6 +36383,32 @@ return {
 			group=408,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=4,
 			orbitIndex=18,
 			skill=23570,
@@ -34466,6 +36919,32 @@ return {
 			group=821,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=24165,
@@ -34571,6 +37050,32 @@ return {
 			group=952,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=24287,
@@ -34610,6 +37115,32 @@ return {
 			group=738,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=24321,
@@ -34875,6 +37406,32 @@ return {
 			group=748,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=6,
 			orbitIndex=42,
 			skill=24647,
@@ -34980,6 +37537,32 @@ return {
 			group=927,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=24786,
@@ -35054,6 +37637,32 @@ return {
 			group=701,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=3,
 			orbitIndex=10,
 			skill=24825,
@@ -35144,6 +37753,32 @@ return {
 			group=763,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=24922,
@@ -35165,6 +37800,32 @@ return {
 			group=845,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=6,
 			orbitIndex=30,
 			skill=24958,
@@ -35387,6 +38048,7 @@ return {
 			orbitIndex=66,
 			skill=25239,
 			stats={
+				[1]="Grants Skill: Demon Form"
 			}
 		},
 		[25281]={
@@ -35508,6 +38170,32 @@ return {
 			group=435,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=6,
 			orbitIndex=42,
 			skill=25374,
@@ -35670,6 +38358,32 @@ return {
 			group=712,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=6,
 			orbitIndex=16,
 			skill=25557,
@@ -36374,6 +39088,32 @@ return {
 			group=876,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=26432,
@@ -36547,6 +39287,32 @@ return {
 			group=832,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=26598,
@@ -36591,6 +39357,7 @@ return {
 			orbitIndex=0,
 			skill=26638,
 			stats={
+				[1]="Grants Skill: Temporal Rift"
 			}
 		},
 		[26663]={
@@ -36763,6 +39530,32 @@ return {
 			group=649,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=26786,
@@ -36972,6 +39765,32 @@ return {
 			group=91,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=27082,
@@ -37122,6 +39941,32 @@ return {
 			group=62,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=27296,
@@ -37179,6 +40024,32 @@ return {
 			group=315,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=5,
 			orbitIndex=51,
 			skill=27373,
@@ -37280,6 +40151,32 @@ return {
 			group=182,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=27439,
@@ -37500,6 +40397,32 @@ return {
 			group=994,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=27705,
@@ -37673,6 +40596,32 @@ return {
 			group=242,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=28002,
@@ -37731,6 +40680,32 @@ return {
 			group=716,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=6,
 			orbitIndex=24,
 			skill=28050,
@@ -37826,6 +40801,32 @@ return {
 			group=280,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=28175,
@@ -37929,6 +40930,32 @@ return {
 			group=240,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=28304,
@@ -37986,6 +41013,32 @@ return {
 			group=511,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=6,
 			orbitIndex=39,
 			skill=28370,
@@ -38137,6 +41190,32 @@ return {
 			group=487,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=6,
 			orbitIndex=56,
 			skill=28510,
@@ -38150,6 +41229,32 @@ return {
 			group=588,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=3,
 			orbitIndex=12,
 			skill=28556,
@@ -38573,6 +41678,32 @@ return {
 			group=47,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=28982,
@@ -38618,6 +41749,32 @@ return {
 			group=499,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=29009,
@@ -38707,6 +41864,32 @@ return {
 			group=364,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=29148,
@@ -38736,6 +41919,32 @@ return {
 			group=705,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=29240,
@@ -38999,6 +42208,32 @@ return {
 			group=701,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=5,
 			orbitIndex=18,
 			skill=29479,
@@ -39056,6 +42291,32 @@ return {
 			group=746,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=6,
 			orbitIndex=24,
 			skill=29517,
@@ -39110,6 +42371,32 @@ return {
 			group=61,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=29611,
@@ -39343,6 +42630,32 @@ return {
 			group=697,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=30047,
@@ -39453,6 +42766,32 @@ return {
 			group=53,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=30141,
@@ -39821,6 +43160,32 @@ return {
 			group=599,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=30555,
@@ -39892,6 +43257,32 @@ return {
 			group=894,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=30657,
@@ -40000,6 +43391,32 @@ return {
 			group=993,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=30808,
@@ -40171,6 +43588,32 @@ return {
 			group=351,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=30979,
@@ -40376,6 +43819,32 @@ return {
 			group=259,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=31238,
@@ -40842,6 +44311,32 @@ return {
 			group=845,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=31765,
@@ -40966,6 +44461,32 @@ return {
 			group=295,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=31903,
@@ -41032,6 +44553,32 @@ return {
 			group=640,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=6,
 			orbitIndex=12,
 			skill=31950,
@@ -41235,6 +44782,32 @@ return {
 			group=920,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=32183,
@@ -41252,6 +44825,32 @@ return {
 			group=342,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=6,
 			orbitIndex=60,
 			skill=32194,
@@ -41540,6 +45139,32 @@ return {
 			group=65,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=32474,
@@ -41841,6 +45466,32 @@ return {
 			group=746,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=6,
 			orbitIndex=18,
 			skill=32701,
@@ -42173,6 +45824,32 @@ return {
 			group=361,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=33169,
@@ -42726,6 +46403,32 @@ return {
 			group=84,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=33722,
@@ -43106,6 +46809,32 @@ return {
 			group=870,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=34015,
@@ -43152,6 +46881,32 @@ return {
 			group=439,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=34058,
@@ -43262,6 +47017,32 @@ return {
 			group=701,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=3,
 			orbitIndex=1,
 			skill=34136,
@@ -43326,6 +47107,32 @@ return {
 			group=789,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=34201,
@@ -43940,6 +47747,32 @@ return {
 			group=320,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=34840,
@@ -44231,6 +48064,32 @@ return {
 			group=317,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=35265,
@@ -44348,6 +48207,32 @@ return {
 			group=366,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=6,
 			orbitIndex=54,
 			skill=35426,
@@ -44604,6 +48489,32 @@ return {
 			group=922,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=35696,
@@ -44859,6 +48770,32 @@ return {
 			group=662,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=35896,
@@ -44888,6 +48825,32 @@ return {
 			group=850,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=6,
 			orbitIndex=60,
 			skill=35901,
@@ -45614,6 +49577,32 @@ return {
 			group=354,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=5,
 			orbitIndex=45,
 			skill=36629,
@@ -45701,6 +49690,7 @@ return {
 			orbitIndex=30,
 			skill=36676,
 			stats={
+				[1]="Grants 1 Passive Skill Point"
 			}
 		},
 		[36677]={
@@ -46086,6 +50076,32 @@ return {
 			group=252,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=37258,
@@ -46460,6 +50476,32 @@ return {
 			group=339,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=37612,
@@ -46493,6 +50535,32 @@ return {
 			group=342,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=6,
 			orbitIndex=42,
 			skill=37629,
@@ -46868,6 +50936,7 @@ return {
 			orbitIndex=0,
 			skill=38004,
 			stats={
+				[1]="Grants Skill: Explosive Concoction"
 			}
 		},
 		[38014]={
@@ -47063,6 +51132,32 @@ return {
 			group=641,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=2,
 			orbitIndex=18,
 			skill=38143,
@@ -47172,6 +51267,32 @@ return {
 			group=346,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=38323,
@@ -47325,6 +51446,32 @@ return {
 			group=869,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=38463,
@@ -47529,7 +51676,8 @@ return {
 			orbitIndex=28,
 			skill=38601,
 			stats={
-				[1]="50% less Armour and Evasion Rating"
+				[1]="50% less Armour and Evasion Rating",
+				[2]="Grants Skill: Sorcery Ward"
 			}
 		},
 		[38614]={
@@ -47710,6 +51858,32 @@ return {
 			group=112,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=38707,
@@ -47744,6 +51918,32 @@ return {
 			group=561,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=38732,
@@ -47825,6 +52025,32 @@ return {
 			group=654,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=38814,
@@ -47868,6 +52094,32 @@ return {
 			group=398,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=6,
 			orbitIndex=54,
 			skill=38856,
@@ -47889,6 +52141,32 @@ return {
 			group=260,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=38876,
@@ -48060,6 +52338,32 @@ return {
 			group=538,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=39037,
@@ -48123,6 +52427,32 @@ return {
 			group=83,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=39131,
@@ -48322,7 +52652,8 @@ return {
 			orbitIndex=0,
 			skill=39411,
 			stats={
-				[1]="Trigger Ancestral Spirits when you Summon a Totem"
+				[1]="Trigger Ancestral Spirits when you Summon a Totem",
+				[2]="Grants Skill: Ancestral Spirits"
 			}
 		},
 		[39423]={
@@ -48643,6 +52974,32 @@ return {
 			group=142,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=39710,
@@ -48778,6 +53135,32 @@ return {
 			group=449,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=39886,
@@ -49390,6 +53773,32 @@ return {
 			group=560,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=40783,
@@ -49514,6 +53923,32 @@ return {
 			group=959,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=41017,
@@ -49539,6 +53974,32 @@ return {
 			group=715,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=41029,
@@ -49556,6 +54017,32 @@ return {
 			group=408,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=4,
 			orbitIndex=27,
 			skill=41031,
@@ -50157,6 +54644,32 @@ return {
 			group=416,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=41646,
@@ -50256,6 +54769,32 @@ return {
 			group=55,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=41768,
@@ -50323,6 +54862,32 @@ return {
 			group=888,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=41877,
@@ -50621,6 +55186,32 @@ return {
 			group=689,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=42250,
@@ -50713,6 +55304,32 @@ return {
 			group=487,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=6,
 			orbitIndex=67,
 			skill=42350,
@@ -50773,6 +55390,32 @@ return {
 			group=835,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=42379,
@@ -50844,6 +55487,32 @@ return {
 			group=530,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=6,
 			orbitIndex=10,
 			skill=42500,
@@ -50918,6 +55587,32 @@ return {
 			group=864,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=42658,
@@ -50952,6 +55647,32 @@ return {
 			group=587,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=42736,
@@ -51769,6 +56490,32 @@ return {
 			group=746,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=6,
 			orbitIndex=6,
 			skill=43691,
@@ -51883,6 +56630,32 @@ return {
 			group=641,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=3,
 			orbitIndex=6,
 			skill=43746,
@@ -52419,6 +57192,32 @@ return {
 			group=615,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=5,
 			orbitIndex=36,
 			skill=44343,
@@ -52432,6 +57231,32 @@ return {
 			group=371,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=44344,
@@ -52823,6 +57648,32 @@ return {
 			group=354,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=5,
 			orbitIndex=27,
 			skill=44659,
@@ -52940,6 +57791,32 @@ return {
 			group=328,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=2,
 			orbitIndex=12,
 			skill=44733,
@@ -54075,6 +58952,32 @@ return {
 			group=455,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=45885,
@@ -54150,6 +59053,32 @@ return {
 			group=391,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=6,
 			orbitIndex=31,
 			skill=45923,
@@ -54192,6 +59121,32 @@ return {
 			group=435,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=6,
 			orbitIndex=36,
 			skill=45969,
@@ -54309,6 +59264,32 @@ return {
 			group=696,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=46034,
@@ -54572,6 +59553,32 @@ return {
 			group=399,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=6,
 			orbitIndex=66,
 			skill=46358,
@@ -54656,6 +59663,7 @@ return {
 			orbitIndex=42,
 			skill=46454,
 			stats={
+				[1]="Grants 5 Passive Skill Point"
 			}
 		},
 		[46475]={
@@ -54749,6 +59757,32 @@ return {
 			group=625,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=46554,
@@ -54842,6 +59876,32 @@ return {
 			group=248,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=4,
 			orbitIndex=67,
 			skill=46628,
@@ -55034,6 +60094,32 @@ return {
 			group=496,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=46819,
@@ -55051,6 +60137,32 @@ return {
 			group=725,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=46830,
@@ -55273,6 +60385,32 @@ return {
 			group=349,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=47168,
@@ -55347,6 +60485,32 @@ return {
 			group=627,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=47177,
@@ -55431,6 +60595,32 @@ return {
 			group=87,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=47263,
@@ -55686,6 +60876,32 @@ return {
 			group=421,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=6,
 			orbitIndex=22,
 			skill=47555,
@@ -55979,6 +61195,32 @@ return {
 			group=141,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=47931,
@@ -56000,6 +61242,32 @@ return {
 			group=912,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=47976,
@@ -56133,6 +61401,32 @@ return {
 			group=982,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=48116,
@@ -56309,6 +61603,32 @@ return {
 			group=347,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=48305,
@@ -56334,6 +61654,32 @@ return {
 			group=596,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=6,
 			orbitIndex=30,
 			skill=48401,
@@ -56503,6 +61849,32 @@ return {
 			group=249,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=48552,
@@ -56538,6 +61910,32 @@ return {
 			group=633,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=48568,
@@ -56697,6 +62095,32 @@ return {
 			group=277,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=48631,
@@ -56722,6 +62146,32 @@ return {
 			group=515,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=48635,
@@ -56783,6 +62233,32 @@ return {
 			group=407,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=6,
 			orbitIndex=42,
 			skill=48670,
@@ -56897,6 +62373,32 @@ return {
 			group=1001,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=48773,
@@ -57061,6 +62563,32 @@ return {
 			group=634,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=49046,
@@ -57355,6 +62883,32 @@ return {
 			group=342,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=6,
 			orbitIndex=0,
 			skill=49357,
@@ -57545,6 +63099,32 @@ return {
 			group=465,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=49512,
@@ -57694,6 +63274,32 @@ return {
 			group=510,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=6,
 			orbitIndex=33,
 			skill=49657,
@@ -57768,6 +63374,32 @@ return {
 			group=145,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=49734,
@@ -57846,6 +63478,32 @@ return {
 			group=189,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=49938,
@@ -57925,6 +63583,32 @@ return {
 			group=919,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=49996,
@@ -57985,6 +63669,7 @@ return {
 			orbitIndex=16,
 			skill=50098,
 			stats={
+				[1]="Grants Skill: Into the Breach"
 			}
 		},
 		[50104]={
@@ -58005,6 +63690,32 @@ return {
 			group=286,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=50104,
@@ -58281,6 +63992,32 @@ return {
 			group=399,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=6,
 			orbitIndex=57,
 			skill=50423,
@@ -58360,6 +64097,32 @@ return {
 			group=756,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=50469,
@@ -58834,6 +64597,32 @@ return {
 			group=729,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=51048,
@@ -58851,6 +64640,32 @@ return {
 			group=275,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=6,
 			orbitIndex=60,
 			skill=51052,
@@ -59048,6 +64863,32 @@ return {
 			group=341,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=2,
 			orbitIndex=0,
 			skill=51299,
@@ -59249,6 +65090,32 @@ return {
 			group=178,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=51561,
@@ -59459,6 +65326,7 @@ return {
 			orbitIndex=0,
 			skill=51737,
 			stats={
+				[1]="4 Passive Skill Points become Weapon Set Skill Points"
 			}
 		},
 		[51741]={
@@ -59479,6 +65347,32 @@ return {
 			group=845,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=6,
 			orbitIndex=12,
 			skill=51741,
@@ -59592,6 +65486,32 @@ return {
 			group=143,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=51821,
@@ -59743,6 +65663,32 @@ return {
 			group=392,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=6,
 			orbitIndex=54,
 			skill=51921,
@@ -59895,6 +65841,32 @@ return {
 			group=507,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=52125,
@@ -60073,6 +66045,32 @@ return {
 			group=135,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=52298,
@@ -60107,6 +66105,32 @@ return {
 			group=391,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=6,
 			orbitIndex=36,
 			skill=52319,
@@ -60298,7 +66322,8 @@ return {
 			orbitIndex=53,
 			skill=52448,
 			stats={
-				[1]="Trigger Elemental Expression on Melee Critical Hit"
+				[1]="Trigger Elemental Expression on Melee Critical Hit",
+				[2]="Grants Skill: Elemental Expression"
 			}
 		},
 		[52454]={
@@ -61082,6 +67107,32 @@ return {
 			group=391,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=6,
 			orbitIndex=12,
 			skill=53396,
@@ -61107,6 +67158,32 @@ return {
 			group=275,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=6,
 			orbitIndex=42,
 			skill=53405,
@@ -61227,6 +67304,32 @@ return {
 			group=405,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=53589,
@@ -61300,6 +67403,32 @@ return {
 			group=421,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=5,
 			orbitIndex=26,
 			skill=53697,
@@ -61338,6 +67467,32 @@ return {
 			group=155,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=53719,
@@ -61556,6 +67711,32 @@ return {
 			group=666,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=5,
 			orbitIndex=54,
 			skill=53960,
@@ -61716,6 +67897,32 @@ return {
 			group=443,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=54099,
@@ -61867,6 +68074,32 @@ return {
 			group=414,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=54232,
@@ -61888,6 +68121,32 @@ return {
 			group=522,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=3,
 			orbitIndex=0,
 			skill=54282,
@@ -62018,6 +68277,32 @@ return {
 			group=510,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=6,
 			orbitIndex=21,
 			skill=54417,
@@ -62097,6 +68382,32 @@ return {
 			group=413,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=54521,
@@ -62330,6 +68641,32 @@ return {
 			group=227,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=54811,
@@ -62343,6 +68680,32 @@ return {
 			group=459,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=54818,
@@ -62517,6 +68880,32 @@ return {
 			group=939,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=54984,
@@ -62983,6 +69372,32 @@ return {
 			group=615,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=5,
 			orbitIndex=24,
 			skill=55276,
@@ -63017,6 +69432,32 @@ return {
 			group=610,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=5,
 			orbitIndex=60,
 			skill=55342,
@@ -63422,6 +69863,32 @@ return {
 			group=704,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=55668,
@@ -63510,6 +69977,32 @@ return {
 			group=569,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=55802,
@@ -63653,6 +70146,32 @@ return {
 			group=342,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=6,
 			orbitIndex=48,
 			skill=55933,
@@ -63708,6 +70227,32 @@ return {
 			group=732,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=56045,
@@ -63827,6 +70372,32 @@ return {
 			group=537,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=56216,
@@ -64116,6 +70687,7 @@ return {
 			orbitIndex=0,
 			skill=56618,
 			stats={
+				[1]="Grants Skill: Fulminating Concoction"
 			}
 		},
 		[56638]={
@@ -64544,6 +71116,32 @@ return {
 			group=476,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=56935,
@@ -64583,6 +71181,32 @@ return {
 			group=549,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=56978,
@@ -65033,6 +71657,32 @@ return {
 			group=305,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=57506,
@@ -65187,6 +71837,32 @@ return {
 			group=188,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=57703,
@@ -65208,6 +71884,32 @@ return {
 			group=503,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=6,
 			orbitIndex=0,
 			skill=57710,
@@ -65344,6 +72046,32 @@ return {
 			group=906,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=4,
 			orbitIndex=12,
 			skill=57821,
@@ -65624,6 +72352,32 @@ return {
 			group=559,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=58109,
@@ -65760,6 +72514,32 @@ return {
 			group=126,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=2,
 			orbitIndex=4,
 			skill=58295,
@@ -65785,6 +72565,32 @@ return {
 			group=640,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=6,
 			orbitIndex=18,
 			skill=58329,
@@ -65807,6 +72613,7 @@ return {
 			orbitIndex=0,
 			skill=58379,
 			stats={
+				[1]="Grants Skill: Poisonous Concoction"
 			}
 		},
 		[58387]={
@@ -66010,6 +72817,7 @@ return {
 			orbitIndex=0,
 			skill=58747,
 			stats={
+				[1]="Grants Skill: Time Freeze"
 			}
 		},
 		[58783]={
@@ -66061,6 +72869,32 @@ return {
 			group=657,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=58814,
@@ -66279,6 +73113,32 @@ return {
 			group=150,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=59093,
@@ -66471,6 +73331,32 @@ return {
 			group=501,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=59362,
@@ -66503,6 +73389,32 @@ return {
 			group=399,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=6,
 			orbitIndex=3,
 			skill=59376,
@@ -66642,6 +73554,32 @@ return {
 			group=945,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=59538,
@@ -67005,6 +73943,32 @@ return {
 			group=68,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=59777,
@@ -67064,6 +74028,32 @@ return {
 			group=54,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=59785,
@@ -67081,6 +74071,32 @@ return {
 			group=421,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=5,
 			orbitIndex=33,
 			skill=59795,
@@ -67120,6 +74136,32 @@ return {
 			group=530,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=6,
 			orbitIndex=16,
 			skill=59881,
@@ -67594,6 +74636,32 @@ return {
 			group=733,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=60505,
@@ -67698,6 +74766,32 @@ return {
 			group=564,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=60685,
@@ -67853,6 +74947,32 @@ return {
 			group=395,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=61042,
@@ -68011,6 +75131,32 @@ return {
 			group=748,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=6,
 			orbitIndex=54,
 			skill=61196,
@@ -68074,6 +75220,32 @@ return {
 			group=668,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=4,
 			orbitIndex=42,
 			skill=61312,
@@ -68178,6 +75350,32 @@ return {
 			group=852,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=61403,
@@ -68299,6 +75497,32 @@ return {
 			group=487,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=6,
 			orbitIndex=62,
 			skill=61438,
@@ -68423,6 +75647,32 @@ return {
 			group=239,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=61490,
@@ -68877,6 +76127,32 @@ return {
 			group=783,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=61976,
@@ -69375,6 +76651,32 @@ return {
 			group=154,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=62498,
@@ -69585,6 +76887,32 @@ return {
 			group=572,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=62677,
@@ -69936,6 +77264,32 @@ return {
 			group=109,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=3,
 			orbitIndex=4,
 			skill=63114,
@@ -70234,6 +77588,32 @@ return {
 			group=520,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=63526,
@@ -70268,6 +77648,32 @@ return {
 			group=850,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=6,
 			orbitIndex=36,
 			skill=63566,
@@ -70541,6 +77947,32 @@ return {
 			group=793,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=63888,
@@ -70661,6 +78093,7 @@ return {
 			orbitIndex=4,
 			skill=64031,
 			stats={
+				[1]="Grants Skill: Unbound Avatar"
 			}
 		},
 		[64046]={
@@ -71001,6 +78434,32 @@ return {
 			group=391,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=6,
 			orbitIndex=17,
 			skill=64370,
@@ -71122,6 +78581,32 @@ return {
 			group=368,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=4,
 			orbitIndex=54,
 			skill=64471,
@@ -71438,6 +78923,32 @@ return {
 			group=746,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
 			name="Attribute",
+			options={
+				[1]={
+					icon="Art/2DArt/SkillIcons/passives/plusstrength.dds",
+					id=26297,
+					name="Strength",
+					stats={
+						[1]="+5 to Strength"
+					}
+				},
+				[2]={
+					icon="Art/2DArt/SkillIcons/passives/plusdexterity.dds",
+					id=14927,
+					name="Dexterity",
+					stats={
+						[1]="+5 to Dexterity"
+					}
+				},
+				[3]={
+					icon="Art/2DArt/SkillIcons/passives/plusintelligence.dds",
+					id=57022,
+					name="Intelligence",
+					stats={
+						[1]="+5 to Intelligence"
+					}
+				}
+			},
 			orbit=6,
 			orbitIndex=30,
 			skill=65009,
@@ -71859,6 +79370,12 @@ return {
 		background={
 			[0.1246]={
 				coords={
+					Background1={
+						h=128,
+						w=128,
+						x=128,
+						y=0
+					},
 					Background2={
 						h=128,
 						w=128,
@@ -71868,10 +79385,16 @@ return {
 				},
 				filename="background-0.png",
 				h=128,
-				w=128
+				w=256
 			},
 			[0.2109]={
 				coords={
+					Background1={
+						h=256,
+						w=256,
+						x=256,
+						y=0
+					},
 					Background2={
 						h=256,
 						w=256,
@@ -71881,10 +79404,16 @@ return {
 				},
 				filename="background-1.png",
 				h=256,
-				w=256
+				w=512
 			},
 			[0.2972]={
 				coords={
+					Background1={
+						h=256,
+						w=256,
+						x=512,
+						y=0
+					},
 					Background2={
 						h=512,
 						w=512,
@@ -71894,10 +79423,16 @@ return {
 				},
 				filename="background-2.png",
 				h=512,
-				w=512
+				w=1024
 			},
 			[0.3835]={
 				coords={
+					Background1={
+						h=256,
+						w=256,
+						x=0,
+						y=1024
+					},
 					Background2={
 						h=1024,
 						w=1024,
@@ -71906,349 +79441,517 @@ return {
 					}
 				},
 				filename="background-3.png",
-				h=1024,
+				h=2048,
 				w=1024
 			}
 		},
 		frame={
 			[0.1246]={
 				coords={
+					AscendancyFrameLargeAllocated={
+						h=26,
+						w=26,
+						x=26,
+						y=64.5
+					},
+					AscendancyFrameLargeCanAllocate={
+						h=26,
+						w=26,
+						x=0,
+						y=64.5
+					},
+					AscendancyFrameLargeNormal={
+						h=26,
+						w=26,
+						x=52,
+						y=64.5
+					},
+					AscendancyFrameSmallAllocated={
+						h=20,
+						w=20,
+						x=40,
+						y=44
+					},
+					AscendancyFrameSmallCanAllocate={
+						h=20,
+						w=20,
+						x=0,
+						y=44
+					},
+					AscendancyFrameSmallNormal={
+						h=20,
+						w=20,
+						x=20,
+						y=44
+					},
+					AscendancyMiddle={
+						h=11,
+						w=11,
+						x=0,
+						y=0
+					},
 					JewelFrameAllocated={
 						h=9,
 						w=9,
-						x=52,
-						y=0
+						x=13,
+						y=11.5
 					},
 					JewelFrameCanAllocate={
 						h=9,
 						w=9,
 						x=26,
-						y=0
+						y=11.5
 					},
 					JewelFrameUnallocated={
 						h=9,
 						w=9,
-						x=13,
-						y=0
+						x=78,
+						y=11.5
 					},
 					KeystoneFrameAllocated={
 						h=28,
 						w=27,
-						x=27.5,
-						y=32.5
+						x=55,
+						y=90.5
 					},
 					KeystoneFrameCanAllocate={
 						h=28,
 						w=27,
 						x=0,
-						y=32.5
+						y=90.5
 					},
 					KeystoneFrameUnallocated={
 						h=28,
 						w=27,
-						x=55,
-						y=32.5
+						x=27.5,
+						y=90.5
 					},
 					NotableFrameAllocated={
 						h=19,
 						w=19,
-						x=38,
-						y=13
+						x=0,
+						y=24.5
 					},
 					NotableFrameCanAllocate={
 						h=19,
 						w=19,
-						x=19,
-						y=13
+						x=38,
+						y=24.5
 					},
 					NotableFrameUnallocated={
 						h=19,
 						w=19,
-						x=0,
-						y=13
+						x=19,
+						y=24.5
 					},
 					PSSkillFrame={
 						h=13,
 						w=13,
-						x=39,
-						y=0
+						x=0,
+						y=11.5
 					},
 					PSSkillFrameActive={
 						h=13,
 						w=13,
-						x=78,
-						y=0
+						x=65,
+						y=11.5
 					},
 					PSSkillFrameHighlighted={
 						h=13,
 						w=13,
-						x=0,
-						y=0
+						x=52,
+						y=11.5
 					},
 					PSSkillFrameMask={
 						h=13,
 						w=13,
-						x=65,
-						y=0
+						x=39,
+						y=11.5
 					}
 				},
 				filename="group-background-0.png",
-				h=480.625,
+				h=538.625,
 				w=119
 			},
 			[0.2109]={
 				coords={
+					AscendancyFrameLargeAllocated={
+						h=52,
+						w=52,
+						x=52,
+						y=129
+					},
+					AscendancyFrameLargeCanAllocate={
+						h=52,
+						w=52,
+						x=0,
+						y=129
+					},
+					AscendancyFrameLargeNormal={
+						h=52,
+						w=52,
+						x=104,
+						y=129
+					},
+					AscendancyFrameSmallAllocated={
+						h=41,
+						w=40,
+						x=80,
+						y=88
+					},
+					AscendancyFrameSmallCanAllocate={
+						h=41,
+						w=40,
+						x=0,
+						y=88
+					},
+					AscendancyFrameSmallNormal={
+						h=41,
+						w=40,
+						x=40,
+						y=88
+					},
+					AscendancyMiddle={
+						h=23,
+						w=23,
+						x=0,
+						y=0
+					},
 					JewelFrameAllocated={
 						h=19,
 						w=19,
-						x=104,
-						y=0
+						x=26,
+						y=23
 					},
 					JewelFrameCanAllocate={
 						h=19,
 						w=19,
 						x=52,
-						y=0
+						y=23
 					},
 					JewelFrameUnallocated={
 						h=19,
 						w=19,
-						x=26,
-						y=0
+						x=156,
+						y=23
 					},
 					KeystoneFrameAllocated={
 						h=56,
 						w=55,
-						x=55,
-						y=65
+						x=110,
+						y=181
 					},
 					KeystoneFrameCanAllocate={
 						h=56,
 						w=55,
 						x=0,
-						y=65
+						y=181
 					},
 					KeystoneFrameUnallocated={
 						h=56,
 						w=55,
-						x=110,
-						y=65
+						x=55,
+						y=181
 					},
 					NotableFrameAllocated={
 						h=39,
 						w=38,
-						x=76,
-						y=26
+						x=0,
+						y=49
 					},
 					NotableFrameCanAllocate={
 						h=39,
 						w=38,
-						x=38,
-						y=26
+						x=76,
+						y=49
 					},
 					NotableFrameUnallocated={
 						h=39,
 						w=38,
-						x=0,
-						y=26
+						x=38,
+						y=49
 					},
 					PSSkillFrame={
 						h=26,
 						w=26,
-						x=78,
-						y=0
+						x=0,
+						y=23
 					},
 					PSSkillFrameActive={
 						h=26,
 						w=26,
-						x=156,
-						y=0
+						x=130,
+						y=23
 					},
 					PSSkillFrameHighlighted={
 						h=26,
 						w=26,
-						x=0,
-						y=0
+						x=104,
+						y=23
 					},
 					PSSkillFrameMask={
 						h=26,
 						w=26,
-						x=130,
-						y=0
+						x=78,
+						y=23
 					}
 				},
 				filename="group-background-1.png",
-				h=961.25,
+				h=1077.25,
 				w=238
 			},
 			[0.2972]={
 				coords={
+					AscendancyFrameLargeAllocated={
+						h=104,
+						w=104,
+						x=104,
+						y=258
+					},
+					AscendancyFrameLargeCanAllocate={
+						h=104,
+						w=104,
+						x=0,
+						y=258
+					},
+					AscendancyFrameLargeNormal={
+						h=104,
+						w=104,
+						x=208,
+						y=258
+					},
+					AscendancyFrameSmallAllocated={
+						h=82,
+						w=80,
+						x=160,
+						y=176
+					},
+					AscendancyFrameSmallCanAllocate={
+						h=82,
+						w=80,
+						x=0,
+						y=176
+					},
+					AscendancyFrameSmallNormal={
+						h=82,
+						w=80,
+						x=80,
+						y=176
+					},
+					AscendancyMiddle={
+						h=46,
+						w=46,
+						x=0,
+						y=0
+					},
 					JewelFrameAllocated={
 						h=39,
 						w=38,
-						x=208,
-						y=0
+						x=52,
+						y=46
 					},
 					JewelFrameCanAllocate={
 						h=39,
 						w=38,
 						x=104,
-						y=0
+						y=46
 					},
 					JewelFrameUnallocated={
 						h=39,
 						w=38,
-						x=52,
-						y=0
+						x=312,
+						y=46
 					},
 					KeystoneFrameAllocated={
 						h=112,
 						w=110,
-						x=110,
-						y=130
+						x=220,
+						y=362
 					},
 					KeystoneFrameCanAllocate={
 						h=112,
 						w=110,
 						x=0,
-						y=130
+						y=362
 					},
 					KeystoneFrameUnallocated={
 						h=112,
 						w=110,
-						x=220,
-						y=130
+						x=110,
+						y=362
 					},
 					NotableFrameAllocated={
 						h=78,
 						w=76,
-						x=152,
-						y=52
+						x=0,
+						y=98
 					},
 					NotableFrameCanAllocate={
 						h=78,
 						w=76,
-						x=76,
-						y=52
+						x=152,
+						y=98
 					},
 					NotableFrameUnallocated={
 						h=78,
 						w=76,
-						x=0,
-						y=52
+						x=76,
+						y=98
 					},
 					PSSkillFrame={
 						h=52,
 						w=52,
-						x=156,
-						y=0
+						x=0,
+						y=46
 					},
 					PSSkillFrameActive={
 						h=52,
 						w=52,
-						x=312,
-						y=0
+						x=260,
+						y=46
 					},
 					PSSkillFrameHighlighted={
 						h=52,
 						w=52,
-						x=0,
-						y=0
+						x=208,
+						y=46
 					},
 					PSSkillFrameMask={
 						h=52,
 						w=52,
-						x=260,
-						y=0
+						x=156,
+						y=46
 					}
 				},
 				filename="group-background-2.png",
-				h=1922.5,
+				h=2154.5,
 				w=476
 			},
 			[0.3835]={
 				coords={
+					AscendancyFrameLargeAllocated={
+						h=208,
+						w=208,
+						x=208,
+						y=516
+					},
+					AscendancyFrameLargeCanAllocate={
+						h=208,
+						w=208,
+						x=0,
+						y=516
+					},
+					AscendancyFrameLargeNormal={
+						h=208,
+						w=208,
+						x=416,
+						y=516
+					},
+					AscendancyFrameSmallAllocated={
+						h=164,
+						w=160,
+						x=320,
+						y=352
+					},
+					AscendancyFrameSmallCanAllocate={
+						h=164,
+						w=160,
+						x=0,
+						y=352
+					},
+					AscendancyFrameSmallNormal={
+						h=164,
+						w=160,
+						x=160,
+						y=352
+					},
+					AscendancyMiddle={
+						h=92,
+						w=92,
+						x=0,
+						y=0
+					},
 					JewelFrameAllocated={
 						h=78,
 						w=76,
-						x=416,
-						y=0
+						x=104,
+						y=92
 					},
 					JewelFrameCanAllocate={
 						h=78,
 						w=76,
 						x=208,
-						y=0
+						y=92
 					},
 					JewelFrameUnallocated={
 						h=78,
 						w=76,
-						x=104,
-						y=0
+						x=624,
+						y=92
 					},
 					KeystoneFrameAllocated={
 						h=224,
 						w=220,
-						x=220,
-						y=260
+						x=440,
+						y=724
 					},
 					KeystoneFrameCanAllocate={
 						h=224,
 						w=220,
 						x=0,
-						y=260
+						y=724
 					},
 					KeystoneFrameUnallocated={
 						h=224,
 						w=220,
-						x=440,
-						y=260
+						x=220,
+						y=724
 					},
 					NotableFrameAllocated={
 						h=156,
 						w=152,
-						x=304,
-						y=104
+						x=0,
+						y=196
 					},
 					NotableFrameCanAllocate={
 						h=156,
 						w=152,
-						x=152,
-						y=104
+						x=304,
+						y=196
 					},
 					NotableFrameUnallocated={
 						h=156,
 						w=152,
-						x=0,
-						y=104
+						x=152,
+						y=196
 					},
 					PSSkillFrame={
 						h=104,
 						w=104,
-						x=312,
-						y=0
+						x=0,
+						y=92
 					},
 					PSSkillFrameActive={
 						h=104,
 						w=104,
-						x=624,
-						y=0
+						x=520,
+						y=92
 					},
 					PSSkillFrameHighlighted={
 						h=104,
 						w=104,
-						x=0,
-						y=0
+						x=416,
+						y=92
 					},
 					PSSkillFrameMask={
 						h=104,
 						w=104,
-						x=520,
-						y=0
+						x=312,
+						y=92
 					}
 				},
 				filename="group-background-3.png",
-				h=3845,
+				h=4309,
 				w=952
 			}
 		},
@@ -72259,41 +79962,41 @@ return {
 						h=45,
 						w=45,
 						x=0,
-						y=60.5
+						y=118.5
 					},
 					PSGroupBackground2={
 						h=58,
 						w=58,
 						x=0,
-						y=208.625
+						y=266.625
 					},
 					PSGroupBackground3={
 						h=47,
 						w=92,
 						x=0,
-						y=106.625
+						y=164.625
 					},
 					PSGroupBackgroundLargeBlank={
 						h=123,
 						w=119,
 						x=0,
-						y=361.625
+						y=419.625
 					},
 					PSGroupBackgroundMediumBlank={
 						h=94,
 						w=94,
 						x=0,
-						y=267.125
+						y=325.125
 					},
 					PSGroupBackgroundSmallBlank={
 						h=55,
 						w=55,
 						x=0,
-						y=153.625
+						y=211.625
 					}
 				},
 				filename="group-background-0.png",
-				h=480.625,
+				h=538.625,
 				w=119
 			},
 			[0.2109]={
@@ -72302,41 +80005,41 @@ return {
 						h=90,
 						w=90,
 						x=0,
-						y=121
+						y=237
 					},
 					PSGroupBackground2={
 						h=117,
 						w=117,
 						x=0,
-						y=417.25
+						y=533.25
 					},
 					PSGroupBackground3={
 						h=94,
 						w=185,
 						x=0,
-						y=213.25
+						y=329.25
 					},
 					PSGroupBackgroundLargeBlank={
 						h=247,
 						w=238,
 						x=0,
-						y=723.25
+						y=839.25
 					},
 					PSGroupBackgroundMediumBlank={
 						h=189,
 						w=189,
 						x=0,
-						y=534.25
+						y=650.25
 					},
 					PSGroupBackgroundSmallBlank={
 						h=110,
 						w=110,
 						x=0,
-						y=307.25
+						y=423.25
 					}
 				},
 				filename="group-background-1.png",
-				h=961.25,
+				h=1077.25,
 				w=238
 			},
 			[0.2972]={
@@ -72345,41 +80048,41 @@ return {
 						h=180,
 						w=180,
 						x=0,
-						y=242
+						y=474
 					},
 					PSGroupBackground2={
 						h=234,
 						w=234,
 						x=0,
-						y=834.5
+						y=1066.5
 					},
 					PSGroupBackground3={
 						h=188,
 						w=370,
 						x=0,
-						y=426.5
+						y=658.5
 					},
 					PSGroupBackgroundLargeBlank={
 						h=494,
 						w=476,
 						x=0,
-						y=1446.5
+						y=1678.5
 					},
 					PSGroupBackgroundMediumBlank={
 						h=378,
 						w=378,
 						x=0,
-						y=1068.5
+						y=1300.5
 					},
 					PSGroupBackgroundSmallBlank={
 						h=220,
 						w=220,
 						x=0,
-						y=614.5
+						y=846.5
 					}
 				},
 				filename="group-background-2.png",
-				h=1922.5,
+				h=2154.5,
 				w=476
 			},
 			[0.3835]={
@@ -72388,41 +80091,41 @@ return {
 						h=360,
 						w=360,
 						x=0,
-						y=484
+						y=948
 					},
 					PSGroupBackground2={
 						h=468,
 						w=468,
 						x=0,
-						y=1669
+						y=2133
 					},
 					PSGroupBackground3={
 						h=376,
 						w=740,
 						x=0,
-						y=853
+						y=1317
 					},
 					PSGroupBackgroundLargeBlank={
 						h=988,
 						w=952,
 						x=0,
-						y=2893
+						y=3357
 					},
 					PSGroupBackgroundMediumBlank={
 						h=756,
 						w=756,
 						x=0,
-						y=2137
+						y=2601
 					},
 					PSGroupBackgroundSmallBlank={
 						h=440,
 						w=440,
 						x=0,
-						y=1229
+						y=1693
 					}
 				},
 				filename="group-background-3.png",
-				h=3845,
+				h=4309,
 				w=952
 			}
 		},

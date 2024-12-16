@@ -468,7 +468,7 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 		if node.type == "ClassStart" then
 			overlay = isAlloc and node.startArt or "PSStartNodeBackgroundInactive"
 		elseif node.type == "AscendClassStart" then
-			overlay = treeVersions[tree.treeVersion].num >= 3.10 and "AscendancyMiddle" or "PassiveSkillScreenAscendancyMiddle"
+			overlay = "AscendancyMiddle"
 			if node.ascendancyName and tree.secondaryAscendNameMap and tree.secondaryAscendNameMap[node.ascendancyName] then
 				overlay = "Azmeri"..overlay
 			end

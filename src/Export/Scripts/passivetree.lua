@@ -455,6 +455,16 @@ end
 -- for support we needs to _out.dds when .dds
 addToSheet(getSheet("background"), bg2.path, "background", commonBackgroundMetadata("Background2", 1024, 1024, 4, ddsFormat))
 
+printf("Extracting Background1...")
+local bg1 = uiImages["art/2dart/uiimages/common/background1"]
+if not bg1 then
+	printf("Background2 not found")
+	goto final
+end
+
+-- for support we needs to _out.dds when .dds
+addToSheet(getSheet("background"), bg1.path, "background", commonBackgroundMetadata("Background1", 1024, 1024, 4, ddsFormat))
+
 -- add Group Background base ond UIArt from PassiveTree\
 printf("Getting Background Group...")
 local uIArt = rowPassiveTree.UIArt
@@ -519,6 +529,28 @@ addToSheet(getSheet("group-background"), jFrameActive, "frame", commonBackground
 
 local jFrameCanAllocate = uiImages[string.lower("Art/2DArt/UIImages/InGame/SanctumPassiveSkillScreenJewelSocketNormal")].path
 addToSheet(getSheet("group-background"), jFrameCanAllocate, "frame", commonBackgroundMetadata("JewelFrameUnallocated", 104, 104, 4, ddsFormat))
+
+printf("Getting Ascendancy frames")
+local ascFrameNormal = uiImages[string.lower("Art/2DArt/UIImages/InGame/PassiveSkillScreenAscendancyFrameSmallCanAllocate")].path
+addToSheet(getSheet("group-background"), ascFrameNormal, "frame", commonBackgroundMetadata("AscendancyFrameSmallCanAllocate", 160, 164, 4, ddsFormat))
+
+local ascFrameActive = uiImages[string.lower("Art/2DArt/UIImages/InGame/PassiveSkillScreenAscendancyFrameSmallNormal")].path
+addToSheet(getSheet("group-background"), ascFrameActive, "frame", commonBackgroundMetadata("AscendancyFrameSmallNormal", 160, 164, 4, ddsFormat))
+
+local ascFrameCanAllocate = uiImages[string.lower("Art/2DArt/UIImages/InGame/PassiveSkillScreenAscendancyFrameSmallAllocated")].path
+addToSheet(getSheet("group-background"), ascFrameCanAllocate, "frame", commonBackgroundMetadata("AscendancyFrameSmallAllocated", 160, 164, 4, ddsFormat))
+
+local ascFrameLargeNormal = uiImages[string.lower("Art/2DArt/UIImages/InGame/PassiveSkillScreenAscendancyFrameLargeNormal")].path
+addToSheet(getSheet("group-background"), ascFrameLargeNormal, "frame", commonBackgroundMetadata("AscendancyFrameLargeNormal", 208, 208, 4, ddsFormat))
+
+local ascFrameLargeCanAllocate = uiImages[string.lower("Art/2DArt/UIImages/InGame/PassiveSkillScreenAscendancyFrameLargeCanAllocate")].path
+addToSheet(getSheet("group-background"), ascFrameLargeCanAllocate, "frame", commonBackgroundMetadata("AscendancyFrameLargeCanAllocate", 208, 208, 4, ddsFormat))
+
+local ascFrameLargeAllocated = uiImages[string.lower("Art/2DArt/UIImages/InGame/PassiveSkillScreenAscendancyFrameLargeAllocated")].path
+addToSheet(getSheet("group-background"), ascFrameLargeAllocated, "frame", commonBackgroundMetadata("AscendancyFrameLargeAllocated", 208, 208, 4, ddsFormat))
+
+local ascMiddle = uiImages[string.lower("Art/2DArt/UIImages/InGame/PassiveSkillScreenAscendancyMiddle")].path
+addToSheet(getSheet("group-background"), ascMiddle, "frame", commonBackgroundMetadata("AscendancyMiddle", 92, 92, 4, ddsFormat))
 
 -- we need to stract lines from dds
 local listAdditionalAssets = {
@@ -609,7 +641,7 @@ local linesFiles = {
 		total = 10
 	}
 }
-gimpbatch.extract_lines_dds("lines", linesFiles, main.ggpk.oozPath, basePath .. version .. "/", GetRuntimePath() .. "/lua/gimpbatch/extract_lines.scm", true)
+gimpbatch.extract_lines_dds("lines", linesFiles, main.ggpk.oozPath, basePath .. version .. "/", GetRuntimePath() .. "/lua/gimpbatch/extract_lines.scm", generateAssets)
 
 local tree = {
 	["pob"] = 1,
@@ -712,8 +744,49 @@ for i, classId in ipairs(psg.passives) do
 end
 
 
+-- for now we are harcoding attributes id
+local base_attributes = {
+	[26297] = {}, -- str
+	[14927] = {}, -- dex
+	[57022] = {}--int
+}
+
+for id, _ in pairs(base_attributes) do
+	local base = dat("passiveskills"):GetRow("PassiveSkillNodeId", id)
+	if base == nil then
+		printf("Base attribute " .. id .. " not found")
+		goto continue
+	end
+
+	if base.Name:find(ignoreFilter) ~= nil then
+		printf("Ignoring base attribute " .. base.Name)
+		goto continue
+	end
+
+	local attribute = {
+		["name"] = base.Name,
+		["icon"] = base.Icon,
+		["stats"] = {},
+	}
+
+	-- Stats
+	if base.Stats ~= nil then
+		local parseStats = {}
+		for k, stat in ipairs(base.Stats) do
+			parseStats[stat.Id] = { min = base["Stat" .. k], max = base["Stat" .. k] }
+		end
+		local out, orders = describeStats(parseStats)
+		for k, line in ipairs(out) do
+			table.insert(attribute["stats"], line)
+		end
+	end
+
+	base_attributes[id] = attribute
+	:: continue ::
+end
+
 printf("Generating tree groups...")
-local nodesIn = {}
+
 local orbitsConstants = { }
 for i, group in ipairs(psg.groups) do
 	tree.min_x = math.min(tree.min_x, group.x)
@@ -821,6 +894,41 @@ for i, group in ipairs(psg.groups) do
 				for k, line in ipairs(out) do
 					table.insert(node["stats"], line)
 				end
+			end
+
+			-- if the passive is "Attribute" we are going to add values
+			if passiveRow.Name == "Attribute" then
+				node["options"] = {}
+				for attId, value in pairs(base_attributes) do
+					table.insert(node["options"], {
+						["id"] = attId,
+						["name"] = base_attributes[attId].name,
+						["icon"] = base_attributes[attId].icon,
+						["stats"] = base_attributes[attId].stats,
+					})
+				end
+			end
+
+			-- support for granted skills
+			if passiveRow.GrantedSkill ~= nil then
+				node["stats"] = node["stats"] or {}
+
+				for _, gemEffect in pairs(passiveRow.GrantedSkill.GemEffects) do
+					local skillname = gemEffect.GrantedEffect.ActiveSkill.DisplayName
+					table.insert(node["stats"], "Grants Skill: " .. skillname)
+				end
+			end
+
+			-- support for Passive Points Granted
+			if passiveRow.PassivePointsGranted > 0 then
+				node["stats"] = node["stats"] or {}
+				table.insert(node["stats"], "Grants ".. passiveRow.PassivePointsGranted .." Passive Skill Point")
+			end
+
+			-- support for Weapon points granted
+			if passiveRow.WeaponPointsGranted > 0 then
+				node["stats"] = node["stats"] or {}
+				table.insert(node["stats"],  passiveRow.WeaponPointsGranted .." Passive Skill Points become Weapon Set Skill Points")
 			end
 		end
 		

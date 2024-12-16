@@ -24,16 +24,6 @@ local function sign_a(n)
 		or  0
 end
 
-local classArt = {
-	[0] = "centerscion",
-	[1] = "centermarauder",
-	[2] = "centerranger",
-	[3] = "centerwitch",
-	[4] = "centerduelist",
-	[5] = "centertemplar",
-	[6] = "centershadow"
-}
-
 -- These values are from the 3.6 tree; older trees are missing values for these constants
 local legacySkillsPerOrbit = { 1, 6, 12, 12, 40 }
 local legacyOrbitRadii = { 0, 82, 162, 335, 493 }
@@ -215,18 +205,18 @@ local PassiveTreeClass = newClass("PassiveTree", function(self, treeVersion)
 			alloc = "PSSkillFrameActive",
 			path = "PSSkillFrameHighlighted",
 			unalloc = "PSSkillFrame",
-			allocAscend = versionNum >= 3.10 and "AscendancyFrameSmallAllocated" or "PassiveSkillScreenAscendancyFrameSmallAllocated",
-			pathAscend = versionNum >= 3.10 and "AscendancyFrameSmallCanAllocate" or "PassiveSkillScreenAscendancyFrameSmallCanAllocate",
-			unallocAscend = versionNum >= 3.10 and "AscendancyFrameSmallNormal" or "PassiveSkillScreenAscendancyFrameSmallNormal"
+			allocAscend = "AscendancyFrameSmallAllocated",
+			pathAscend = "AscendancyFrameSmallCanAllocate",
+			unallocAscend = "AscendancyFrameSmallNormal"
 		},
 		Notable = {
 			artWidth = 100,
 			alloc = "NotableFrameAllocated",
 			path = "NotableFrameCanAllocate",
 			unalloc = "NotableFrameUnallocated",
-			allocAscend = versionNum >= 3.10 and "AscendancyFrameLargeAllocated" or "PassiveSkillScreenAscendancyFrameLargeAllocated",
-			pathAscend = versionNum >= 3.10 and "AscendancyFrameLargeCanAllocate" or "PassiveSkillScreenAscendancyFrameLargeCanAllocate",
-			unallocAscend = versionNum >= 3.10 and "AscendancyFrameLargeNormal" or "PassiveSkillScreenAscendancyFrameLargeNormal",
+			allocAscend = "AscendancyFrameLargeAllocated",
+			pathAscend = "AscendancyFrameLargeCanAllocate",
+			unallocAscend = "AscendancyFrameLargeNormal",
 			allocBlighted = "BlightedNotableFrameAllocated",
 			pathBlighted = "BlightedNotableFrameCanAllocate",
 			unallocBlighted = "BlightedNotableFrameUnallocated",
@@ -765,6 +755,8 @@ function PassiveTreeClass:GetNodeTargetSize(node)
 		return { width = math.floor(54  * self.scaleImage), height = math.floor( 54  * self.scaleImage) }
 	elseif node.type == "Socket" then
 		return { width = math.floor(76 * self.scaleImage), height = math.floor(76 * self.scaleImage) }
+	elseif node.type == "AscendClassStart" then
+		return { width = math.floor(54 * self.scaleImage), height = math.floor(54 * self.scaleImage) }
 	else
 		return { width = 0, height = 0 }
 	end
