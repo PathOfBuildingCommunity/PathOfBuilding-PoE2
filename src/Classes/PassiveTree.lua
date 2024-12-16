@@ -401,16 +401,16 @@ local PassiveTreeClass = newClass("PassiveTree", function(self, treeVersion)
 				goto endconnection
 			end
 
-			if node.classStartIndex ~= nil or other.classStartIndex ~= nil then
-				goto endconnection
-			end
-
 			if node.id == otherId then
 				goto endconnection
 			end
 
 			t_insert(other.linkedId, node.id)
 			t_insert(node.linkedId, otherId)
+
+			if node.classStartIndex ~= nil or other.classStartIndex ~= nil then
+				goto endconnection
+			end
 			
 			local connectors = self:BuildConnector(node, other, connection)
 
