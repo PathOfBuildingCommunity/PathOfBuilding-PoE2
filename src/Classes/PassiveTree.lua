@@ -631,29 +631,29 @@ function PassiveTreeClass:BuildConnector(node1, node2, connection)
 	}
 
 	if connection.orbit ~= 0 and self.orbitRadii[math.abs(connection.orbit) + 1] then
-		if node1.id ~= 55342 and node1.id ~= 10364 then
-			return 
-		end
-		local r =  self.orbitRadii[math.abs(connection.orbit) + 1] * self.scaleImage
+		-- if node1.id ~= 55342 and node1.id ~= 10364 then
+		-- 	return 
+		-- end
+		-- local r =  self.orbitRadii[math.abs(connection.orbit) + 1] * self.scaleImage
 
-		local vX, vY = node2.x - node1.x, node2.y - node1.y
-		local dist = m_sqrt(vX * vX + vY * vY)
+		-- local vX, vY = node2.x - node1.x, node2.y - node1.y
+		-- local dist = m_sqrt(vX * vX + vY * vY)
 
-		if dist < r * 2 then
-			self:BuildArc(r, node1, node2, connector,  connection.orbit , false)
-			return { connector }
-		end
+		-- if dist < r * 2 then
+		-- 	self:BuildArc(math.rad(r), node1, node2, connector,  connection.orbit , sign_a(connection.orbit) == -1)
+		-- 	return { connector }
+		-- end
 
-		return
+		--return
 	end
 		
 	if node1.g == node2.g and node1.o == node2.o and connection.orbit == 0 then
-		if node1.id ~= 55342 and node1.id ~= 10364 then
-			return 
-		end
-		self:BuildArc(node1.angle, node1, node2, connector, node1.o, false)
-		return { connector}
-		-- return
+		-- if node1.id ~= 55342 and node1.id ~= 10364 then
+		-- 	return 
+		-- end
+		-- self:BuildArc(node1.angle, node1, node2, connector, node1.o, sign_a(connection.orbit) == -1)
+		-- return { connector}
+		--return
 	end
 
 	-- Generate a straight line
@@ -686,9 +686,14 @@ function PassiveTreeClass:BuildArc(arcAngle, node1, node2, connector, orbit, isM
 	-- Fortunately there's nowhere on the tree where we can't just show the middle 90 degrees and rely on the node artwork to cover the gaps :)
 	connector.vert = { }
 
-	local clipAngle = m_pi / 4 - math.rad(arcAngle) / 2
+	local clipAngle = m_pi / 4 - arcAngle / 2
 	local p = 1 - m_max(m_tan(clipAngle), 0)
 	local angle = node1.angle - clipAngle
+
+	if isMirroredArc then
+		-- The center of the mirrored angle should be positioned at 75% of the way between nodes.
+		angle = angle + arcAngle
+	end
 
 	for _, state in pairs({ "Normal", "Intermediate", "Active" }) do
 		-- The different line states have differently-sized artwork, so the vertex coords must be calculated separately for each one
@@ -700,10 +705,17 @@ function PassiveTreeClass:BuildArc(arcAngle, node1, node2, connector, orbit, isM
 		local oX, oY = size * m_sqrt(2) * m_sin(angle + m_pi / 4), size * m_sqrt(2) * -m_cos(angle + m_pi / 4)
 		local cX, cY = node1.x + oX, node1.y + oY
 		local vert = { }
-		vert[1], vert[2] = node1.x, node1.y
+		vert[1], vert[2] = (node1.group.x * self.scaleImage), (node1.group.y * self.scaleImage)	
 		vert[3], vert[4] = cX + (size * m_sin(angle) - oX) * p, cY + (size * -m_cos(angle) - oY) * p
 		vert[5], vert[6] = cX, cY
 		vert[7], vert[8] = cX + (size * m_cos(angle) - oX) * p, cY + (size * m_sin(angle) - oY) * p
+		if (isMirroredArc) then
+		-- Flip the quad's non-origin, non-center vertexes when drawing a mirrored arc so that the arc actually mirrored
+		-- This is required to prevent the connection of the 2 arcs appear to have a 'seam'
+			local temp1, temp2 = vert[3],vert[4]
+			vert[3],vert[4] = vert[7],vert[8]
+			vert[7],vert[8] = temp1, temp2
+		end
 		connector.vert[state] = vert
 	end
 	connector.c[9], connector.c[10] = 1, 1

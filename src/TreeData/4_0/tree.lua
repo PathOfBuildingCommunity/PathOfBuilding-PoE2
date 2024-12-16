@@ -13538,7 +13538,8 @@ return {
 			orbitIndex=0,
 			skill=52,
 			stats={
-				[1]="Zealot's Oath"
+				[1]="Excess Life Recovery from Regeneration is applied to Energy Shield",
+				[2]="Energy Shield does not Recharge"
 			}
 		},
 		[55]={
@@ -13569,7 +13570,7 @@ return {
 			orbitIndex=12,
 			skill=60,
 			stats={
-				[1]="5% Global chance to Blind Enemies on hit"
+				[1]="5% chance to Blind Enemies on Hit"
 			}
 		},
 		[74]={
@@ -14234,9 +14235,9 @@ return {
 			orbitIndex=0,
 			skill=1104,
 			stats={
-				[1]="+1 to Maximum Power Charges",
-				[2]="5% chance that if you would gain Power Charges, you instead gain up to",
-				[3]="your maximum number of Power Charges"
+				[1]="5% chance that if you would gain Power Charges, you instead gain up to",
+				[2]="your maximum number of Power Charges",
+				[3]="+1 to Maximum Power Charges"
 			}
 		},
 		[1106]={
@@ -14730,7 +14731,7 @@ return {
 			skill=1599,
 			stats={
 				[1]="5% increased Critical Hit Chance",
-				[2]="8% increased Global Physical Damage"
+				[2]="8% increased Physical Damage"
 			}
 		},
 		[1631]={
@@ -14824,7 +14825,7 @@ return {
 			orbitIndex=4,
 			skill=1801,
 			stats={
-				[1]="5% Global chance to Blind Enemies on hit"
+				[1]="5% chance to Blind Enemies on Hit"
 			}
 		},
 		[1823]={
@@ -15067,7 +15068,8 @@ return {
 			skill=2113,
 			stats={
 				[1]="25% increased Accuracy Rating with Quarterstaves",
-				[2]="25% increased Critical Damage Bonus with Quarterstaves"
+				[2]="25% increased Critical Damage Bonus with Quarterstaves",
+				[3]="+25 to Dexterity"
 			}
 		},
 		[2119]={
@@ -15172,7 +15174,8 @@ return {
 			orbitIndex=0,
 			skill=2254,
 			stats={
-				[1]="30% increased maximum Energy Shield"
+				[1]="30% increased maximum Energy Shield",
+				[2]="+10 to Intelligence"
 			}
 		},
 		[2334]={
@@ -15193,6 +15196,7 @@ return {
 			orbitIndex=0,
 			skill=2334,
 			stats={
+				[1]="+8 to Dexterity"
 			}
 		},
 		[2335]={
@@ -15768,7 +15772,7 @@ return {
 			orbitIndex=14,
 			skill=3027,
 			stats={
-				[1]="10% increased Global Physical Damage"
+				[1]="10% increased Physical Damage"
 			}
 		},
 		[3041]={
@@ -17055,7 +17059,8 @@ return {
 			skill=4238,
 			stats={
 				[1]="6% increased Attack Speed with One Handed Melee Weapons",
-				[2]="15% increased Accuracy Rating with One Handed Melee Weapons"
+				[2]="15% increased Accuracy Rating with One Handed Melee Weapons",
+				[3]="+10 to Strength and Dexterity"
 			}
 		},
 		[4271]={
@@ -17508,7 +17513,8 @@ return {
 			orbitIndex=15,
 			skill=4673,
 			stats={
-				[1]="30% increased Stun Buildup"
+				[1]="30% increased Stun Buildup",
+				[2]="+15 to Strength"
 			}
 		},
 		[4709]={
@@ -17836,7 +17842,8 @@ return {
 			orbitIndex=14,
 			skill=5049,
 			stats={
-				[1]="2% increased Attack Speed"
+				[1]="2% increased Attack Speed",
+				[2]="+5 to Dexterity"
 			}
 		},
 		[5084]={
@@ -18294,7 +18301,8 @@ return {
 			skill=5710,
 			stats={
 				[1]="10% increased Stun Buildup",
-				[2]="16% increased Melee Damage"
+				[2]="16% increased Melee Damage",
+				[3]="+10 to Strength"
 			}
 		},
 		[5726]={
@@ -19389,8 +19397,9 @@ return {
 			orbitIndex=0,
 			skill=6898,
 			stats={
-				[1]="10% increased Critical Hit Chance",
-				[2]="10% increased Damage"
+				[1]="10% increased Damage",
+				[2]="10% increased Critical Hit Chance",
+				[3]="+5 to Strength and Intelligence"
 			}
 		},
 		[6923]={
@@ -20045,7 +20054,8 @@ return {
 			skill=7721,
 			stats={
 				[1]="15% increased Armour",
-				[2]="Regenerate 0.5% of Life per second"
+				[2]="Regenerate 0.5% of Life per second",
+				[3]="+10 to Strength"
 			}
 		},
 		[7741]={
@@ -20317,7 +20327,7 @@ return {
 			orbitIndex=0,
 			skill=8115,
 			stats={
-				[1]="12% increased Global Physical Damage"
+				[1]="12% increased Physical Damage"
 			}
 		},
 		[8143]={
@@ -21083,7 +21093,8 @@ return {
 			skill=8831,
 			stats={
 				[1]="20% increased Critical Damage Bonus",
-				[2]="20% increased Global Physical Damage"
+				[2]="+10 to Strength",
+				[3]="20% increased Physical Damage"
 			}
 		},
 		[8852]={
@@ -21752,7 +21763,8 @@ return {
 			orbitIndex=8,
 			skill=9421,
 			stats={
-				[1]="Damage Penetrates 15% Cold Resistance"
+				[1]="Damage Penetrates 15% Cold Resistance",
+				[2]="+10 to Intelligence"
 			}
 		},
 		[9444]={
@@ -21873,8 +21885,8 @@ return {
 			orbitIndex=21,
 			skill=9583,
 			stats={
-				[1]="10% increased Global Physical Damage",
-				[2]="10% increased amount of Life Leeched"
+				[1]="10% increased amount of Life Leeched",
+				[2]="10% increased Physical Damage"
 			}
 		},
 		[9586]={
@@ -23008,7 +23020,8 @@ return {
 			orbitIndex=9,
 			skill=10602,
 			stats={
-				[1]="8% increased Attack Speed with One Handed Weapons"
+				[1]="8% increased Attack Speed with One Handed Weapons",
+				[2]="+15 to Dexterity"
 			}
 		},
 		[10648]={
@@ -23737,7 +23750,8 @@ return {
 			orbitIndex=19,
 			skill=11504,
 			stats={
-				[1]="2% increased Attack Speed"
+				[1]="2% increased Attack Speed",
+				[2]="+5 to Dexterity"
 			}
 		},
 		[11505]={
@@ -24828,7 +24842,7 @@ return {
 			orbitIndex=3,
 			skill=12851,
 			stats={
-				[1]="10% increased Global Physical Damage"
+				[1]="10% increased Physical Damage"
 			}
 		},
 		[12876]={
@@ -24991,7 +25005,8 @@ return {
 			orbitIndex=0,
 			skill=13075,
 			stats={
-				[1]="5% reduced maximum Mana"
+				[1]="5% reduced maximum Mana",
+				[2]="+12 to Strength"
 			}
 		},
 		[13081]={
@@ -25287,7 +25302,8 @@ return {
 			orbitIndex=15,
 			skill=13407,
 			stats={
-				[1]="35% increased Critical Damage Bonus"
+				[1]="35% increased Critical Damage Bonus",
+				[2]="+10 to Strength"
 			}
 		},
 		[13411]={
@@ -25636,7 +25652,8 @@ return {
 			orbitIndex=40,
 			skill=13708,
 			stats={
-				[1]="15% increased Accuracy Rating"
+				[1]="15% increased Accuracy Rating",
+				[2]="+10 to Dexterity"
 			}
 		},
 		[13711]={
@@ -25694,8 +25711,8 @@ return {
 			orbitIndex=54,
 			skill=13724,
 			stats={
-				[1]="12% increased Critical Hit Chance",
-				[2]="30% increased Damage if you've dealt a Critical Hit in the past 8 seconds"
+				[1]="30% increased Damage if you've dealt a Critical Hit in the past 8 seconds",
+				[2]="12% increased Critical Hit Chance"
 			}
 		},
 		[13738]={
@@ -26074,7 +26091,7 @@ return {
 			orbitIndex=11,
 			skill=14082,
 			stats={
-				[1]="10% increased Global Physical Damage"
+				[1]="10% increased Physical Damage"
 			}
 		},
 		[14091]={
@@ -26099,8 +26116,8 @@ return {
 			orbitIndex=0,
 			skill=14091,
 			stats={
-				[1]="6% increased Global Physical Damage",
-				[2]="Break 10% increased Armour"
+				[1]="Break 10% increased Armour",
+				[2]="6% increased Physical Damage"
 			}
 		},
 		[14110]={
@@ -26189,7 +26206,8 @@ return {
 			orbitIndex=0,
 			skill=14226,
 			stats={
-				[1]="Dance with Death"
+				[1]="25% more Skill Speed while Off Hand is empty and you have",
+				[2]="a One-Handed Martial Weapon equipped in your Main Hand"
 			}
 		},
 		[14231]={
@@ -26586,7 +26604,8 @@ return {
 			orbitIndex=0,
 			skill=14540,
 			stats={
-				[1]="Unwavering Stance"
+				[1]="Your Stun Threshold is doubled",
+				[2]="Cannot Dodge Roll"
 			}
 		},
 		[14548]={
@@ -27858,7 +27877,8 @@ return {
 			skill=16466,
 			stats={
 				[1]="5% increased Cast Speed",
-				[2]="15% increased Mana Regeneration Rate"
+				[2]="15% increased Mana Regeneration Rate",
+				[3]="+10 to Intelligence"
 			}
 		},
 		[16484]={
@@ -28266,7 +28286,8 @@ return {
 			orbitIndex=12,
 			skill=17029,
 			stats={
-				[1]="Defend with 200% of Armour against Critical Hits"
+				[1]="Defend with 200% of Armour against Critical Hits",
+				[2]="+15 to Strength"
 			}
 		},
 		[17088]={
@@ -28895,8 +28916,8 @@ return {
 			orbitIndex=2,
 			skill=17548,
 			stats={
-				[1]="20% increased Critical Hit Chance",
-				[2]="25% increased Critical Damage Bonus if you've dealt a Non-Critical Hit Recently"
+				[1]="25% increased Critical Damage Bonus if you've dealt a Non-Critical Hit Recently",
+				[2]="20% increased Critical Hit Chance"
 			}
 		},
 		[17553]={
@@ -29432,7 +29453,8 @@ return {
 			orbitIndex=54,
 			skill=18086,
 			stats={
-				[1]="Damage Penetrates 15% Cold Resistance"
+				[1]="Damage Penetrates 15% Cold Resistance",
+				[2]="+10 to Intelligence"
 			}
 		},
 		[18115]={
@@ -29984,7 +30006,8 @@ return {
 			orbitIndex=0,
 			skill=18684,
 			stats={
-				[1]="Avatar of Fire"
+				[1]="75% of Damage Converted to Fire Damage",
+				[2]="Deal no Non-Fire Damage"
 			}
 		},
 		[18717]={
@@ -30603,7 +30626,8 @@ return {
 			orbitIndex=0,
 			skill=19288,
 			stats={
-				[1]="Glancing Blows"
+				[1]="Block Chance is doubled",
+				[2]="You take 50% of Damage from Blocked Hits"
 			}
 		},
 		[19330]={
@@ -30629,6 +30653,7 @@ return {
 			orbitIndex=0,
 			skill=19338,
 			stats={
+				[1]="+8 to Dexterity"
 			}
 		},
 		[19341]={
@@ -31118,8 +31143,8 @@ return {
 			orbitIndex=0,
 			skill=20032,
 			stats={
-				[1]="10% reduced Critical Hit Chance",
-				[2]="16% increased Cast Speed if you've dealt a Critical Hit Recently"
+				[1]="16% increased Cast Speed if you've dealt a Critical Hit Recently",
+				[2]="10% reduced Critical Hit Chance"
 			}
 		},
 		[20049]={
@@ -31354,8 +31379,8 @@ return {
 			orbitIndex=0,
 			skill=20416,
 			stats={
-				[1]="+1 to Maximum Endurance Charges",
-				[2]="5% chance that if you would gain Endurance Charges, you instead gain up to maximum Endurance Charges"
+				[1]="5% chance that if you would gain Endurance Charges, you instead gain up to maximum Endurance Charges",
+				[2]="+1 to Maximum Endurance Charges"
 			}
 		},
 		[20429]={
@@ -31486,7 +31511,8 @@ return {
 			orbitIndex=0,
 			skill=20677,
 			stats={
-				[1]="30% increased Critical Damage Bonus"
+				[1]="30% increased Critical Damage Bonus",
+				[2]="+10 to Intelligence"
 			}
 		},
 		[20691]={
@@ -32616,7 +32642,8 @@ return {
 			orbitIndex=14,
 			skill=21885,
 			stats={
-				[1]="10% increased Stun Threshold"
+				[1]="10% increased Stun Threshold",
+				[2]="+5 to Strength"
 			}
 		},
 		[21912]={
@@ -34270,7 +34297,7 @@ return {
 			orbitIndex=0,
 			skill=23993,
 			stats={
-				[1]="12% increased Global Physical Damage"
+				[1]="12% increased Physical Damage"
 			}
 		},
 		[24009]={
@@ -34339,7 +34366,8 @@ return {
 			skill=24062,
 			stats={
 				[1]="10% increased Energy Shield Recharge Rate",
-				[2]="Recover 2% of Life on Kill"
+				[2]="Recover 2% of Life on Kill",
+				[3]="+10 to Intelligence"
 			}
 		},
 		[24070]={
@@ -34356,6 +34384,7 @@ return {
 			orbitIndex=0,
 			skill=24070,
 			stats={
+				[1]="+8 to Dexterity"
 			}
 		},
 		[24120]={
@@ -34719,7 +34748,8 @@ return {
 			orbitIndex=20,
 			skill=24477,
 			stats={
-				[1]="10% increased Stun Threshold"
+				[1]="10% increased Stun Threshold",
+				[2]="+5 to Strength"
 			}
 		},
 		[24481]={
@@ -34823,7 +34853,8 @@ return {
 			orbitIndex=18,
 			skill=24646,
 			stats={
-				[1]="5% reduced maximum Mana"
+				[1]="5% reduced maximum Mana",
+				[2]="+12 to Strength"
 			}
 		},
 		[24647]={
@@ -34862,7 +34893,8 @@ return {
 			orbitIndex=30,
 			skill=24655,
 			stats={
-				[1]="Damage Penetrates 15% Fire Resistance"
+				[1]="Damage Penetrates 15% Fire Resistance",
+				[2]="+10 to Strength"
 			}
 		},
 		[24748]={
@@ -34905,7 +34937,8 @@ return {
 			orbitIndex=0,
 			skill=24753,
 			stats={
-				[1]="30% increased Accuracy Rating at Close Range"
+				[1]="30% increased Accuracy Rating at Close Range",
+				[2]="+10 to Dexterity"
 			}
 		},
 		[24767]={
@@ -35233,7 +35266,8 @@ return {
 			orbitIndex=0,
 			skill=25100,
 			stats={
-				[1]="Oasis"
+				[1]="Cannot use Charms",
+				[2]="30% more Recovery from Flasks"
 			}
 		},
 		[25101]={
@@ -35534,6 +35568,7 @@ return {
 			orbitIndex=0,
 			skill=25482,
 			stats={
+				[1]="+25 to Strength"
 			}
 		},
 		[25503]={
@@ -35584,7 +35619,9 @@ return {
 			orbitIndex=0,
 			skill=25520,
 			stats={
-				[1]="Resonance"
+				[1]="Gain Power Charges instead of Frenzy Charges",
+				[2]="Gain Frenzy Charges instead of Endurance Charges",
+				[3]="Gain Endurance Charges instead of Power Charges"
 			}
 		},
 		[25528]={
@@ -35887,7 +35924,7 @@ return {
 			orbitIndex=0,
 			skill=25851,
 			stats={
-				[1]="10% increased Global Physical Damage"
+				[1]="10% increased Physical Damage"
 			}
 		},
 		[25857]={
@@ -35971,7 +36008,8 @@ return {
 			skill=25971,
 			stats={
 				[1]="4% increased Attack Speed",
-				[2]="6% increased Attack Speed if you've been Hit Recently"
+				[2]="6% increased Attack Speed if you've been Hit Recently",
+				[3]="+10 to Strength"
 			}
 		},
 		[25992]={
@@ -36992,8 +37030,8 @@ return {
 			orbitIndex=0,
 			skill=27176,
 			stats={
-				[1]="+1 to Maximum Power Charges",
-				[2]="20% increased Critical Damage Bonus if you've gained a Power Charge Recently"
+				[1]="20% increased Critical Damage Bonus if you've gained a Power Charge Recently",
+				[2]="+1 to Maximum Power Charges"
 			}
 		},
 		[27262]={
@@ -37107,7 +37145,8 @@ return {
 			skill=27303,
 			stats={
 				[1]="10% reduced maximum Mana",
-				[2]="35% increased Critical Hit Chance"
+				[2]="+10 to Strength",
+				[3]="35% increased Critical Hit Chance"
 			}
 		},
 		[27307]={
@@ -38081,7 +38120,7 @@ return {
 			orbitIndex=0,
 			skill=28492,
 			stats={
-				[1]="Iron Reflexes"
+				[1]="Converts all Evasion Rating to Armour"
 			}
 		},
 		[28510]={
@@ -38458,7 +38497,8 @@ return {
 			skill=28950,
 			stats={
 				[1]="10% increased Mana Regeneration Rate",
-				[2]="Regenerate 0.5% of Life per second"
+				[2]="Regenerate 0.5% of Life per second",
+				[3]="+5 to Strength and Intelligence"
 			}
 		},
 		[28963]={
@@ -38560,7 +38600,8 @@ return {
 			skill=28992,
 			stats={
 				[1]="8% increased Projectile Speed",
-				[2]="8% increased Attack Speed"
+				[2]="8% increased Attack Speed",
+				[3]="+10 to Dexterity"
 			}
 		},
 		[29009]={
@@ -40036,7 +40077,8 @@ return {
 			orbitIndex=17,
 			skill=30839,
 			stats={
-				[1]="2% increased Attack Speed"
+				[1]="2% increased Attack Speed",
+				[2]="+5 to Dexterity"
 			}
 		},
 		[30871]={
@@ -40392,7 +40434,7 @@ return {
 			orbitIndex=14,
 			skill=31286,
 			stats={
-				[1]="10% increased Global Physical Damage"
+				[1]="10% increased Physical Damage"
 			}
 		},
 		[31292]={
@@ -40703,6 +40745,7 @@ return {
 			orbitIndex=12,
 			skill=31647,
 			stats={
+				[1]="+8 to Dexterity"
 			}
 		},
 		[31650]={
@@ -41348,7 +41391,8 @@ return {
 			orbitIndex=0,
 			skill=32349,
 			stats={
-				[1]="Giant's Blood"
+				[1]="You can wield Two-Handed Axes, Maces and Swords in one hand",
+				[2]="Triple Attribute requirements of weapons"
 			}
 		},
 		[32353]={
@@ -41514,9 +41558,9 @@ return {
 			orbitIndex=0,
 			skill=32507,
 			stats={
-				[1]="20% increased Global Physical Damage",
-				[2]="Break Armour on Critical Hit with Spells equal to 10% of Physical Damage dealt",
-				[3]="10% chance to inflict Bleeding on Hit"
+				[1]="Break Armour on Critical Hit with Spells equal to 10% of Physical Damage dealt",
+				[2]="10% chance to inflict Bleeding on Hit",
+				[3]="20% increased Physical Damage"
 			}
 		},
 		[32509]={
@@ -41835,7 +41879,7 @@ return {
 			orbitIndex=0,
 			skill=32745,
 			stats={
-				[1]="10% increased Global Physical Damage"
+				[1]="10% increased Physical Damage"
 			}
 		},
 		[32763]={
@@ -42364,7 +42408,8 @@ return {
 			orbitIndex=0,
 			skill=33369,
 			stats={
-				[1]="Vaal Pact"
+				[1]="Life Leech is Instant",
+				[2]="Cannot use Life Flasks"
 			}
 		},
 		[33391]={
@@ -42454,7 +42499,8 @@ return {
 			orbitIndex=0,
 			skill=33404,
 			stats={
-				[1]="Eternal Youth"
+				[1]="Life Recharges instead of Energy Shield",
+				[2]="Life Recovery from Flasks applies to Energy Shield instead"
 			}
 		},
 		[33415]={
@@ -43009,7 +43055,7 @@ return {
 			orbitIndex=0,
 			skill=33979,
 			stats={
-				[1]="Conduit"
+				[1]="If you would gain a Charge, Allies in your Presence gain that Charge instead"
 			}
 		},
 		[33989]={
@@ -43672,7 +43718,8 @@ return {
 			orbitIndex=0,
 			skill=34497,
 			stats={
-				[1]="Heartstopper"
+				[1]="Take 50% less Damage over Time if you've started taking Damage over Time in the past second",
+				[2]="Take 50% more Damage over Time if you've haven't started taking Damage over Time in the past second"
 			}
 		},
 		[34501]={
@@ -43715,7 +43762,7 @@ return {
 			orbitIndex=15,
 			skill=34520,
 			stats={
-				[1]="10% increased Global Physical Damage"
+				[1]="10% increased Physical Damage"
 			}
 		},
 		[34531]={
@@ -43822,7 +43869,8 @@ return {
 			orbitIndex=14,
 			skill=34671,
 			stats={
-				[1]="10% increased Stun Threshold"
+				[1]="10% increased Stun Threshold",
+				[2]="+5 to Strength"
 			}
 		},
 		[34717]={
@@ -44112,7 +44160,7 @@ return {
 			skill=35173,
 			stats={
 				[1]="5% increased Critical Hit Chance",
-				[2]="8% increased Global Physical Damage"
+				[2]="8% increased Physical Damage"
 			}
 		},
 		[35223]={
@@ -44521,7 +44569,8 @@ return {
 			orbitIndex=57,
 			skill=35671,
 			stats={
-				[1]="2% increased Attack Speed"
+				[1]="2% increased Attack Speed",
+				[2]="+5 to Dexterity"
 			}
 		},
 		[35688]={
@@ -44956,7 +45005,8 @@ return {
 			skill=35987,
 			stats={
 				[1]="4% increased Movement Speed",
-				[2]="20% increased Evasion Rating"
+				[2]="20% increased Evasion Rating",
+				[3]="+10 to Dexterity"
 			}
 		},
 		[36027]={
@@ -46190,7 +46240,8 @@ return {
 			orbitIndex=13,
 			skill=37408,
 			stats={
-				[1]="Life Flasks gain 0.1 charges per Second"
+				[1]="Life Flasks gain 0.1 charges per Second",
+				[2]="+10 to Strength"
 			}
 		},
 		[37414]={
@@ -46257,7 +46308,8 @@ return {
 			orbitIndex=0,
 			skill=37484,
 			stats={
-				[1]="Acrobatics"
+				[1]="Can Evade all Hits",
+				[2]="70% less Evasion Rating"
 			}
 		},
 		[37509]={
@@ -46391,7 +46443,7 @@ return {
 			orbitIndex=45,
 			skill=37608,
 			stats={
-				[1]="10% increased Global Physical Damage"
+				[1]="10% increased Physical Damage"
 			}
 		},
 		[37612]={
@@ -47368,8 +47420,8 @@ return {
 			orbitIndex=66,
 			skill=38535,
 			stats={
-				[1]="20% increased Critical Hit Chance",
-				[2]="40% increased Elemental Damage if you've dealt a Critical Hit Recently"
+				[1]="40% increased Elemental Damage if you've dealt a Critical Hit Recently",
+				[2]="20% increased Critical Hit Chance"
 			}
 		},
 		[38537]={
@@ -47391,7 +47443,8 @@ return {
 			orbitIndex=3,
 			skill=38537,
 			stats={
-				[1]="25% increased Critical Hit Chance"
+				[1]="+10 to Intelligence",
+				[2]="25% increased Critical Hit Chance"
 			}
 		},
 		[38541]={
@@ -48427,6 +48480,7 @@ return {
 			orbitIndex=0,
 			skill=39567,
 			stats={
+				[1]="+25 to Intelligence"
 			}
 		},
 		[39569]={
@@ -48710,8 +48764,8 @@ return {
 			skill=39881,
 			stats={
 				[1]="20% increased Critical Damage Bonus",
-				[2]="20% increased Global Physical Damage",
-				[3]="20% increased Knockback Distance"
+				[2]="20% increased Knockback Distance",
+				[3]="20% increased Physical Damage"
 			}
 		},
 		[39886]={
@@ -48990,8 +49044,8 @@ return {
 			orbitIndex=0,
 			skill=40270,
 			stats={
-				[1]="+1 to Maximum Frenzy Charges",
-				[2]="5% chance that if you would gain Frenzy Charges, you instead gain up to your maximum number of Frenzy Charges"
+				[1]="5% chance that if you would gain Frenzy Charges, you instead gain up to your maximum number of Frenzy Charges",
+				[2]="+1 to Maximum Frenzy Charges"
 			}
 		},
 		[40276]={
@@ -49933,7 +49987,8 @@ return {
 			skill=41512,
 			stats={
 				[1]="15% increased Melee Damage",
-				[2]="15% increased Stun Buildup with Melee Damage"
+				[2]="15% increased Stun Buildup with Melee Damage",
+				[3]="+15 to Strength"
 			}
 		},
 		[41522]={
@@ -50085,7 +50140,7 @@ return {
 			orbitIndex=69,
 			skill=41645,
 			stats={
-				[1]="10% increased Global Physical Damage"
+				[1]="10% increased Physical Damage"
 			}
 		},
 		[41646]={
@@ -50425,7 +50480,8 @@ return {
 			orbitIndex=1,
 			skill=42065,
 			stats={
-				[1]="Damage Penetrates 15% Lightning Resistance"
+				[1]="Damage Penetrates 15% Lightning Resistance",
+				[2]="+10 to Dexterity"
 			}
 		},
 		[42076]={
@@ -50465,7 +50521,8 @@ return {
 			orbitIndex=11,
 			skill=42077,
 			stats={
-				[1]="40% increased Energy Shield Recharge Rate"
+				[1]="40% increased Energy Shield Recharge Rate",
+				[2]="+10 to Intelligence"
 			}
 		},
 		[42111]={
@@ -50526,8 +50583,8 @@ return {
 			skill=42177,
 			stats={
 				[1]="5% increased Attack Speed",
-				[2]="5% increased Dexterity",
-				[3]="10% increased Accuracy Rating"
+				[2]="10% increased Accuracy Rating",
+				[3]="5% increased Dexterity"
 			}
 		},
 		[42205]={
@@ -51126,8 +51183,8 @@ return {
 			orbitIndex=0,
 			skill=42981,
 			stats={
-				[1]="25% increased Global Physical Damage",
-				[2]="Break 40% increased Armour"
+				[1]="Break 40% increased Armour",
+				[2]="25% increased Physical Damage"
 			}
 		},
 		[42999]={
@@ -52048,7 +52105,8 @@ return {
 			orbitIndex=0,
 			skill=44017,
 			stats={
-				[1]="Resolute Technique"
+				[1]="Your Hits can't be Evaded",
+				[2]="Never deal Critical Hits"
 			}
 		},
 		[44069]={
@@ -52706,7 +52764,8 @@ return {
 			skill=44605,
 			stats={
 				[1]="15% increased Projectile Damage",
-				[2]="30% increased Stun Buildup against enemies within 2 metres"
+				[2]="30% increased Stun Buildup against enemies within 2 metres",
+				[3]="+5 to Strength and Dexterity"
 			}
 		},
 		[44608]={
@@ -53371,7 +53430,8 @@ return {
 			orbitIndex=0,
 			skill=45202,
 			stats={
-				[1]="Ancestral Bond"
+				[1]="Unlimited number of Summoned Totems",
+				[2]="Totems reserve 100 Spirit each"
 			}
 		},
 		[45227]={
@@ -54072,7 +54132,8 @@ return {
 			orbitIndex=0,
 			skill=45918,
 			stats={
-				[1]="Mind over Matter"
+				[1]="All Damage is taken from Mana before Life",
+				[2]="50% less Mana Recovery Rate"
 			}
 		},
 		[45923]={
@@ -54343,8 +54404,8 @@ return {
 			orbitIndex=7,
 			skill=46197,
 			stats={
-				[1]="50% increased Critical Hit Chance",
-				[2]="20% reduced Critical Damage Bonus"
+				[1]="20% reduced Critical Damage Bonus",
+				[2]="50% increased Critical Hit Chance"
 			}
 		},
 		[46205]={
@@ -54391,7 +54452,8 @@ return {
 			orbitIndex=2,
 			skill=46224,
 			stats={
-				[1]="Mana Flasks gain 0.1 charges per Second"
+				[1]="Mana Flasks gain 0.1 charges per Second",
+				[2]="+10 to Intelligence"
 			}
 		},
 		[46275]={
@@ -54628,8 +54690,8 @@ return {
 			orbitIndex=0,
 			skill=46499,
 			stats={
-				[1]="+1 to Maximum Endurance Charges",
-				[2]="Recover 3% of Life for each Endurance Charge consumed"
+				[1]="Recover 3% of Life for each Endurance Charge consumed",
+				[2]="+1 to Maximum Endurance Charges"
 			}
 		},
 		[46533]={
@@ -54882,7 +54944,9 @@ return {
 			orbitIndex=0,
 			skill=46742,
 			stats={
-				[1]="Elemental Equilibrium"
+				[1]="Hits that deal Fire Damage remove Fire Exposure and inflict Lightning Exposure",
+				[2]="Hits that deal Cold Damage remove Cold Exposure and inflict Fire Exposure",
+				[3]="Hits that deal Lightning Damage remove Lightning Exposure and inflict Cold Exposure"
 			}
 		},
 		[46748]={
@@ -55443,8 +55507,8 @@ return {
 			skill=47316,
 			stats={
 				[1]="5% reduced maximum Life",
-				[2]="40% increased Global Physical Damage",
-				[3]="30% increased amount of Life Leeched"
+				[2]="30% increased amount of Life Leeched",
+				[3]="40% increased Physical Damage"
 			}
 		},
 		[47344]={
@@ -55510,7 +55574,8 @@ return {
 			orbitIndex=50,
 			skill=47363,
 			stats={
-				[1]="15% increased Area of Effect for Attacks"
+				[1]="15% increased Area of Effect for Attacks",
+				[2]="+10 to Strength"
 			}
 		},
 		[47371]={
@@ -55790,7 +55855,8 @@ return {
 			orbitIndex=0,
 			skill=47759,
 			stats={
-				[1]="Hex Master"
+				[1]="You can apply an additional Curse",
+				[2]="Double Activation Delay of Curses"
 			}
 		},
 		[47782]={
@@ -56045,7 +56111,8 @@ return {
 			skill=48103,
 			stats={
 				[1]="20% increased Stun Buildup",
-				[2]="20% increased Knockback Distance"
+				[2]="20% increased Knockback Distance",
+				[3]="+10 to Strength"
 			}
 		},
 		[48116]={
@@ -56169,7 +56236,8 @@ return {
 			skill=48198,
 			stats={
 				[1]="4% increased Movement Speed",
-				[2]="15% increased Mana Regeneration Rate"
+				[2]="15% increased Mana Regeneration Rate",
+				[3]="+5 to Dexterity and Intelligence"
 			}
 		},
 		[48240]={
@@ -57012,6 +57080,7 @@ return {
 			orbitIndex=0,
 			skill=49049,
 			stats={
+				[1]="Enemies in your Presence are Slowed by 20%"
 			}
 		},
 		[49088]={
@@ -57169,7 +57238,8 @@ return {
 			orbitIndex=12,
 			skill=49220,
 			stats={
-				[1]="8% increased Attack and Cast Speed"
+				[1]="8% increased Attack and Cast Speed",
+				[2]="+5 to Dexterity and Intelligence"
 			}
 		},
 		[49231]={
@@ -57833,7 +57903,8 @@ return {
 			orbitIndex=57,
 			skill=49984,
 			stats={
-				[1]="32% increased Spell Damage while wielding a Melee Weapon"
+				[1]="32% increased Spell Damage while wielding a Melee Weapon",
+				[2]="+10 to Dexterity"
 			}
 		},
 		[49996]={
@@ -58428,7 +58499,8 @@ return {
 			skill=50562,
 			stats={
 				[1]="45% increased Critical Damage Bonus",
-				[2]="10% increased Mana Cost of Skills"
+				[2]="10% increased Mana Cost of Skills",
+				[3]="+10 to Strength"
 			}
 		},
 		[50588]={
@@ -58618,6 +58690,7 @@ return {
 			orbitIndex=5,
 			skill=50755,
 			stats={
+				[1]="+8 to Intelligence"
 			}
 		},
 		[50795]={
@@ -58665,6 +58738,7 @@ return {
 			orbitIndex=67,
 			skill=50816,
 			stats={
+				[1]="+8 to Intelligence"
 			}
 		},
 		[50847]={
@@ -58866,7 +58940,8 @@ return {
 			orbitIndex=0,
 			skill=51184,
 			stats={
-				[1]="20% increased Spell Damage"
+				[1]="20% increased Spell Damage",
+				[2]="+10 to Intelligence"
 			}
 		},
 		[51206]={
@@ -59293,6 +59368,7 @@ return {
 			orbitIndex=16,
 			skill=51702,
 			stats={
+				[1]="+8 to Strength"
 			}
 		},
 		[51707]={
@@ -59425,7 +59501,8 @@ return {
 			orbitIndex=0,
 			skill=51749,
 			stats={
-				[1]="Blood Magic"
+				[1]="Removes all Mana",
+				[2]="Skill Mana Costs Converted to Life Costs"
 			}
 		},
 		[51795]={
@@ -59446,8 +59523,8 @@ return {
 			orbitIndex=12,
 			skill=51795,
 			stats={
-				[1]="6% increased Critical Hit Chance",
-				[2]="12% increased chance to Ignite"
+				[1]="12% increased chance to Ignite",
+				[2]="6% increased Critical Hit Chance"
 			}
 		},
 		[51797]={
@@ -59631,7 +59708,8 @@ return {
 			orbitIndex=17,
 			skill=51891,
 			stats={
-				[1]="8% of Damage is taken from Mana before Life"
+				[1]="8% of Damage is taken from Mana before Life",
+				[2]="+15 to Intelligence"
 			}
 		},
 		[51903]={
@@ -59838,7 +59916,8 @@ return {
 			orbitIndex=0,
 			skill=52126,
 			stats={
-				[1]="10% increased Stun Threshold"
+				[1]="10% increased Stun Threshold",
+				[2]="+5 to Strength"
 			}
 		},
 		[52191]={
@@ -60406,7 +60485,7 @@ return {
 			orbitIndex=1,
 			skill=52695,
 			stats={
-				[1]="10% increased Global Physical Damage"
+				[1]="10% increased Physical Damage"
 			}
 		},
 		[52703]={
@@ -60680,7 +60759,8 @@ return {
 			orbitIndex=5,
 			skill=53030,
 			stats={
-				[1]="25% increased Magnitude of Ignite you inflict"
+				[1]="25% increased Magnitude of Ignite you inflict",
+				[2]="+10 to Strength"
 			}
 		},
 		[53089]={
@@ -61189,8 +61269,8 @@ return {
 			orbitIndex=8,
 			skill=53632,
 			stats={
-				[1]="6% increased Critical Hit Chance",
-				[2]="12% increased chance to Ignite"
+				[1]="12% increased chance to Ignite",
+				[2]="6% increased Critical Hit Chance"
 			}
 		},
 		[53647]={
@@ -61774,7 +61854,7 @@ return {
 			orbitIndex=18,
 			skill=54228,
 			stats={
-				[1]="10% increased Global Physical Damage"
+				[1]="10% increased Physical Damage"
 			}
 		},
 		[54232]={
@@ -62000,6 +62080,7 @@ return {
 			orbitIndex=22,
 			skill=54485,
 			stats={
+				[1]="+8 to Strength"
 			}
 		},
 		[54521]={
@@ -62506,7 +62587,8 @@ return {
 			orbitIndex=0,
 			skill=55048,
 			stats={
-				[1]="Pain Attunement"
+				[1]="30% less Critical Damage Bonus when on Full Life",
+				[2]="30% more Critical Damage Bonus when on Low Life"
 			}
 		},
 		[55058]={
@@ -63767,8 +63849,8 @@ return {
 			orbitIndex=1,
 			skill=56265,
 			stats={
-				[1]="20% reduced Critical Hit Chance",
-				[2]="60% increased Critical Damage Bonus"
+				[1]="60% increased Critical Damage Bonus",
+				[2]="20% reduced Critical Hit Chance"
 			}
 		},
 		[56330]={
@@ -63834,7 +63916,7 @@ return {
 			orbitIndex=0,
 			skill=56349,
 			stats={
-				[1]="Chaos Inoculation"
+				[1]="Maximum Life becomes 1, Immune to Chaos Damage"
 			}
 		},
 		[56360]={
@@ -63992,7 +64074,8 @@ return {
 			orbitIndex=0,
 			skill=56605,
 			stats={
-				[1]="Bulwark"
+				[1]="Dodge Roll cannot Avoid Damage",
+				[2]="Take 30% less Damage from Hits while Dodge Rolling"
 			}
 		},
 		[56616]={
@@ -64376,7 +64459,8 @@ return {
 			skill=56910,
 			stats={
 				[1]="Hits against you have 20% reduced Critical Damage Bonus",
-				[2]="20% increased Armour and Evasion Rating"
+				[2]="20% increased Armour and Evasion Rating",
+				[3]="+5 to Strength and Dexterity"
 			}
 		},
 		[56914]={
@@ -64825,7 +64909,7 @@ return {
 			orbitIndex=6,
 			skill=57230,
 			stats={
-				[1]="10% increased Global Physical Damage"
+				[1]="10% increased Physical Damage"
 			}
 		},
 		[57320]={
@@ -64967,7 +65051,7 @@ return {
 			orbitIndex=0,
 			skill=57513,
 			stats={
-				[1]="Eldritch Battery"
+				[1]="Converts all Energy Shield to Mana"
 			}
 		},
 		[57518]={
@@ -65413,7 +65497,7 @@ return {
 			orbitIndex=3,
 			skill=58002,
 			stats={
-				[1]="10% increased Global Physical Damage"
+				[1]="10% increased Physical Damage"
 			}
 		},
 		[58013]={
@@ -65662,8 +65746,8 @@ return {
 			orbitIndex=11,
 			skill=58183,
 			stats={
-				[1]="25% increased Global Physical Damage",
-				[2]="15% increased Magnitude of Bleeding you inflict"
+				[1]="15% increased Magnitude of Bleeding you inflict",
+				[2]="25% increased Physical Damage"
 			}
 		},
 		[58295]={
@@ -65786,6 +65870,7 @@ return {
 			orbitIndex=0,
 			skill=58397,
 			stats={
+				[1]="+25 to Dexterity"
 			}
 		},
 		[58426]={
@@ -66409,6 +66494,7 @@ return {
 			orbitIndex=0,
 			skill=59372,
 			stats={
+				[1]="Your Hits are Crushing Blows"
 			}
 		},
 		[59376]={
@@ -67172,7 +67258,7 @@ return {
 			orbitIndex=10,
 			skill=60064,
 			stats={
-				[1]="10% increased Global Physical Damage"
+				[1]="10% increased Physical Damage"
 			}
 		},
 		[60083]={
@@ -67226,8 +67312,9 @@ return {
 			orbitIndex=3,
 			skill=60138,
 			stats={
-				[1]="25% increased Global Physical Damage",
-				[2]="Break 30% increased Armour on enemies affected by Ailments"
+				[1]="Break 30% increased Armour on enemies affected by Ailments",
+				[2]="+10 to Strength",
+				[3]="25% increased Physical Damage"
 			}
 		},
 		[60170]={
@@ -67579,6 +67666,7 @@ return {
 			orbitIndex=4,
 			skill=60620,
 			stats={
+				[1]="+8 to Strength"
 			}
 		},
 		[60634]={
@@ -68038,7 +68126,8 @@ return {
 			orbitIndex=6,
 			skill=61338,
 			stats={
-				[1]="Damage Penetrates 15% Lightning Resistance"
+				[1]="Damage Penetrates 15% Lightning Resistance",
+				[2]="+10 to Dexterity"
 			}
 		},
 		[61356]={
@@ -68133,7 +68222,8 @@ return {
 			orbitIndex=22,
 			skill=61409,
 			stats={
-				[1]="5% reduced maximum Mana"
+				[1]="5% reduced maximum Mana",
+				[2]="+12 to Strength"
 			}
 		},
 		[61419]={
@@ -68291,6 +68381,7 @@ return {
 			orbitIndex=10,
 			skill=61472,
 			stats={
+				[1]="+8 to Strength"
 			}
 		},
 		[61487]={
@@ -68435,7 +68526,8 @@ return {
 			orbitIndex=0,
 			skill=61601,
 			stats={
-				[1]="20% increased Critical Hit Chance"
+				[1]="+10 to Dexterity",
+				[2]="20% increased Critical Hit Chance"
 			}
 		},
 		[61632]={
@@ -69936,8 +70028,8 @@ return {
 			orbitIndex=0,
 			skill=63255,
 			stats={
-				[1]="+1 to Maximum Frenzy Charges",
-				[2]="50% increased Evasion Rating if you've consumed a Frenzy Charge Recently"
+				[1]="50% increased Evasion Rating if you've consumed a Frenzy Charge Recently",
+				[2]="+1 to Maximum Frenzy Charges"
 			}
 		},
 		[63267]={
@@ -70722,8 +70814,8 @@ return {
 			orbitIndex=22,
 			skill=64240,
 			stats={
-				[1]="25% increased Global Physical Damage",
-				[2]="5% increased Attack and Cast Speed"
+				[1]="5% increased Attack and Cast Speed",
+				[2]="25% increased Physical Damage"
 			}
 		},
 		[64284]={
@@ -71434,8 +71526,8 @@ return {
 			skill=65160,
 			stats={
 				[1]="30% increased Stun Buildup",
-				[2]="5% increased Strength",
-				[3]="30% increased Stun Threshold"
+				[2]="30% increased Stun Threshold",
+				[3]="5% increased Strength"
 			}
 		},
 		[65173]={
@@ -71511,7 +71603,8 @@ return {
 			orbitIndex=10,
 			skill=65193,
 			stats={
-				[1]="8% increased Melee Attack Speed"
+				[1]="8% increased Melee Attack Speed",
+				[2]="+10 to Dexterity"
 			}
 		},
 		[65204]={

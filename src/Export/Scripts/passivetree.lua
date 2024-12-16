@@ -6,6 +6,7 @@ if not loadStatFile then
 	dofile("statdesc.lua")
 end
 loadStatFile("stat_descriptions.csd")
+loadStatFile("passive_skill_stat_descriptions.csd")
 
 local function bits(int, s, e)
 	return bit.band(bit.rshift(int, s), 2 ^ (e - s + 1) - 1)
@@ -821,7 +822,6 @@ for i, group in ipairs(psg.groups) do
 					table.insert(node["stats"], line)
 				end
 			end
-
 		end
 		
 		for k, connection in ipairs(passive.connections) do
