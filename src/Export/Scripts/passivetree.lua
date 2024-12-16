@@ -410,9 +410,11 @@ local sheets = {
 	newSheet("mastery-active-selected", defaultMaxWidth, 100, maxGroups),
 	newSheet("mastery-disabled", defaultMaxWidth, 90, maxGroups),
 	newSheet("mastery-connected", defaultMaxWidth, 100, maxGroups),
-	newSheet("background", defaultMaxWidth, 100, maxGroups),
+	newSheet("background", 2400, 100, maxGroups),
 	newSheet("group-background", defaultMaxWidth, 100, maxGroups),
 	newSheet("mastery-active-effect", defaultMaxWidth, 100, maxGroups),
+	newSheet("ascendancy", 2400, 100, maxGroups),
+	newSheet("ascendancy-background", 2400, 100, maxGroups),
 }
 local sheetLocations = {
 	["skills"] = 1,
@@ -424,6 +426,8 @@ local sheetLocations = {
 	["background"] = 7,
 	["group-background"] = 8,
 	["mastery-active-effect"] = 9,
+	["ascendancy"] = 10,
+	["ascendancy-background"] = 11,
 }
 local function getSheet(sheetLocation)
 	return sheets[sheetLocations[sheetLocation]]
@@ -454,16 +458,6 @@ end
 
 -- for support we needs to _out.dds when .dds
 addToSheet(getSheet("background"), bg2.path, "background", commonBackgroundMetadata("Background2", 1024, 1024, 4, ddsFormat))
-
-printf("Extracting Background1...")
-local bg1 = uiImages["art/2dart/uiimages/common/background1"]
-if not bg1 then
-	printf("Background2 not found")
-	goto final
-end
-
--- for support we needs to _out.dds when .dds
-addToSheet(getSheet("background"), bg1.path, "background", commonBackgroundMetadata("Background1", 1024, 1024, 4, ddsFormat))
 
 -- add Group Background base ond UIArt from PassiveTree\
 printf("Getting Background Group...")
@@ -551,6 +545,9 @@ addToSheet(getSheet("group-background"), ascFrameLargeAllocated, "frame", common
 
 local ascMiddle = uiImages[string.lower("Art/2DArt/UIImages/InGame/PassiveSkillScreenAscendancyMiddle")].path
 addToSheet(getSheet("group-background"), ascMiddle, "frame", commonBackgroundMetadata("AscendancyMiddle", 92, 92, 4, ddsFormat))
+
+local ascStart = uiImages[string.lower("Art/2DArt/UIImages/InGame/PassiveSkillScreenStartNodeBackgroundInactive")].path
+addToSheet(getSheet("group-background"), ascStart, "startNode", commonBackgroundMetadata("PSStartNodeBackgroundInactive", 528, 528, 4, ddsFormat))
 
 -- we need to stract lines from dds
 local listAdditionalAssets = {
@@ -719,6 +716,10 @@ for i, classId in ipairs(psg.passives) do
 			["ascendancies"] = {},
 		}
 
+		-- add assets
+		addToSheet(getSheet("ascendancy-background"), character.PassiveTreeImage, "ascendancyBackground", commonBackgroundMetadata( "Classes" .. character.Name, 1500, 1500, 4, ddsFormat))
+		addToSheet(getSheet("group-background"), uiImages[string.lower(character.SkillTreeBackground)].path, "startNode", commonBackgroundMetadata( "center" .. string.lower(character.Name), 1024, 1024, 4, ddsFormat))
+
 		local ascendancies = dat("ascendancy"):GetRowList("Class", character)
 		for k, ascendency in ipairs(ascendancies) do
 			if ascendency.Name:find(ignoreFilter) ~= nil then
@@ -729,6 +730,9 @@ for i, classId in ipairs(psg.passives) do
 				["id"] = ascendency.Name,
 				["name"] = ascendency.Name,
 			})
+
+			-- add assets
+			addToSheet(getSheet("ascendancy-background"), ascendency.PassiveTreeImage, "ascendancyBackground", commonBackgroundMetadata( "Classes" .. ascendency.Name, 1500, 1500, 4, ddsFormat))
 
 			:: continue3 ::
 		end

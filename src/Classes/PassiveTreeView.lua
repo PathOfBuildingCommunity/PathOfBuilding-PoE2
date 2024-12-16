@@ -320,35 +320,38 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 		DrawImage(bg.handle, viewPort.x, viewPort.y, viewPort.width, viewPort.height, (self.zoomX + viewPort.width/2) / -bgSize, (self.zoomY + viewPort.height/2) / -bgSize, (viewPort.width/2 - self.zoomX) / bgSize, (viewPort.height/2 - self.zoomY) / bgSize)
 	end
 
-	-- Hack to draw class background art, the position data doesn't seem to be in the tree JSON yet
-	if build.spec.curClassId == 1 then
-		local scrX, scrY = treeToScreen(-2750, 1600)
-		self:DrawAsset(tree.assets.BackgroundStr, scrX, scrY, scale)
-	elseif build.spec.curClassId == 2 then
-		local scrX, scrY = treeToScreen(2550, 1600)
-		self:DrawAsset(tree.assets.BackgroundDex, scrX, scrY, scale)
-	elseif build.spec.curClassId == 3 then
-		local scrX, scrY = treeToScreen(-250, -2200)
-		self:DrawAsset(tree.assets.BackgroundInt, scrX, scrY, scale)
-	elseif build.spec.curClassId == 4 then
-		local scrX, scrY = treeToScreen(-150, 2350)
-		self:DrawAsset(tree.assets.BackgroundStrDex, scrX, scrY, scale)
-	elseif build.spec.curClassId == 5 then
-		local scrX, scrY = treeToScreen(-2100, -1500)
-		self:DrawAsset(tree.assets.BackgroundStrInt, scrX, scrY, scale)
-	elseif build.spec.curClassId == 6 then
-		local scrX, scrY = treeToScreen(2350, -1950)
-		self:DrawAsset(tree.assets.BackgroundDexInt, scrX, scrY, scale)
+	-- draw background artwork base on current class
+	local class = tree.classes[spec.curClassId]
+	if class and class.background then
+		local bg = tree:GetAssetByName(class.background.image, class.background.section or "groupBackground")
+		local scrX, scrY = treeToScreen(class.background.x * tree.scaleImage, class.background.y * tree.scaleImage)
+		self:DrawAsset(bg, scrX, scrY, scale * tree.scaleImage)
+	end
+
+	-- draw ascendancies
+	for name, data in pairs(tree.ascendNameMap) do
+		local ascendancy = data.ascendClass
+		if ascendancy.background then
+			local bg = tree:GetAssetByName(ascendancy.background.image, ascendancy.background.section or "groupBackground")
+			local scrX, scrY = treeToScreen(ascendancy.background.x * tree.scaleImage, ascendancy.background.y * tree.scaleImage)
+			if name == spec.curAscendClassBaseName then
+				SetDrawColor(1, 1, 1)
+			else
+				SetDrawColor(0.5, 0.5, 0.5)
+			end
+			self:DrawAsset(bg, scrX, scrY, scale * tree.scaleImage)
+		end
 	end
 
 	local function renderGroup(group)
 		if group.background then
-			local scrX, scrY = treeToScreen(group.x, group.y)
-			local bgAsset = tree:GetAssetByName(group.background.image, "groupBackground")
+			local scrX, scrY = treeToScreen(group.x * tree.scaleImage, group.y * tree.scaleImage)
+			local section = group.background.section or "groupBackground"
+			local bgAsset = tree:GetAssetByName(group.background.image, section)
 			if group.background.offsetX and group.background.offsetY then
 				scrX, scrY = treeToScreen(group.x + group.background.offsetX, group.y + group.background.offsetY)
 			end
-			self:DrawAsset(bgAsset, scrX, scrY, scale, group.background.isHalfImage ~= nil)
+			self:DrawAsset(bgAsset, scrX, scrY, scale * tree.scaleImage, group.background.isHalfImage ~= nil)
 		end
 	end
 
@@ -463,10 +466,12 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 		local compareNode = self.compareSpec and self.compareSpec.nodes[nodeId] or nil
 
 		local base, overlay, effect
+		local overlaySection =  "frame"
 		local isAlloc = node.alloc or build.calcsTab.mainEnv.grantedPassives[nodeId] or (compareNode and compareNode.alloc)
 		SetDrawLayer(nil, 25)
 		if node.type == "ClassStart" then
 			overlay = isAlloc and node.startArt or "PSStartNodeBackgroundInactive"
+			overlaySection = "startNode"
 		elseif node.type == "AscendClassStart" then
 			overlay = "AscendancyMiddle"
 			if node.ascendancyName and tree.secondaryAscendNameMap and tree.secondaryAscendNameMap[node.ascendancyName] then
@@ -684,11 +689,16 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 				end
 			end
 
-			local overlayImage = tree:GetAssetByName(overlay, "frame")
+			local overlayImage = tree:GetAssetByName(overlay, overlaySection)
+
+			local additionalScale = 1
+			if node.ascendancyName then
+				additionalScale = 1.30
+			end
 			-- apply target size to the base image
 			if overlayImage and node.targetSize then
-				overlayImage.width = node.targetSize.width
-				overlayImage.height = node.targetSize.height
+				overlayImage.width = node.targetSize.width * additionalScale
+				overlayImage.height = node.targetSize.height * additionalScale
 			end
 			self:DrawAsset(overlayImage, scrX, scrY, scale)
 			SetDrawColor(1, 1, 1)
@@ -997,6 +1007,15 @@ function PassiveTreeViewClass:AddNodeTooltip(tooltip, node, build)
 			-- Power debugging info
 			tooltip:AddLine(16, string.format("DPS power: %g   Defence power: %g", node.power.offence, node.power.defence))
 		end
+	end
+
+	-- add position dev info
+	if launch.devModeAlt then
+		tooltip:AddSeparator(14)
+		tooltip:AddLine(16, string.format("^7Position: %d, %d", node.x, node.y))
+		tooltip:AddLine(16, string.format("Angle: %f", node.angle))
+		tooltip:AddLine(16, string.format("Orbit: %d, Orbit Index: %d", node.orbit, node.orbitIndex))
+		tooltip:AddSeparator(14)
 	end
 
 	local function addModInfoToTooltip(node, i, line)

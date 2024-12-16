@@ -79367,15 +79367,615 @@ return {
 	},
 	pob=1,
 	sprites={
+		ascendancyBackground={
+			[0.1246]={
+				coords={
+					["ClassesAcolyte of Chayula"]={
+						h=187,
+						w=187,
+						x=2062.5,
+						y=187.5
+					},
+					["ClassesBlood Mage"]={
+						h=187,
+						w=187,
+						x=1125,
+						y=0
+					},
+					ClassesChronomancer={
+						h=187,
+						w=187,
+						x=187.5,
+						y=187.5
+					},
+					ClassesDeadeye={
+						h=187,
+						w=187,
+						x=0,
+						y=0
+					},
+					ClassesDruid={
+						h=187,
+						w=187,
+						x=2062.5,
+						y=0
+					},
+					ClassesDuelist={
+						h=187,
+						w=187,
+						x=937.5,
+						y=0
+					},
+					["ClassesGemling Legionnaire"]={
+						h=187,
+						w=187,
+						x=1687.5,
+						y=0
+					},
+					ClassesHuntress={
+						h=187,
+						w=187,
+						x=750,
+						y=187.5
+					},
+					ClassesInfernalist={
+						h=187,
+						w=187,
+						x=1500,
+						y=187.5
+					},
+					ClassesInvoker={
+						h=187,
+						w=187,
+						x=1312.5,
+						y=187.5
+					},
+					ClassesMarauder={
+						h=187,
+						w=187,
+						x=1500,
+						y=0
+					},
+					ClassesMercenary={
+						h=187,
+						w=187,
+						x=375,
+						y=187.5
+					},
+					ClassesMonk={
+						h=187,
+						w=187,
+						x=1875,
+						y=187.5
+					},
+					ClassesPathfinder={
+						h=187,
+						w=187,
+						x=562.5,
+						y=0
+					},
+					ClassesRanger={
+						h=187,
+						w=187,
+						x=1312.5,
+						y=0
+					},
+					ClassesShadow={
+						h=187,
+						w=187,
+						x=1687.5,
+						y=187.5
+					},
+					ClassesSorceress={
+						h=187,
+						w=187,
+						x=0,
+						y=187.5
+					},
+					ClassesStormweaver={
+						h=187,
+						w=187,
+						x=937.5,
+						y=187.5
+					},
+					ClassesTemplar={
+						h=187,
+						w=187,
+						x=1125,
+						y=187.5
+					},
+					ClassesTitan={
+						h=187,
+						w=187,
+						x=750,
+						y=0
+					},
+					ClassesWarbringer={
+						h=187,
+						w=187,
+						x=187.5,
+						y=0
+					},
+					ClassesWarrior={
+						h=187,
+						w=187,
+						x=375,
+						y=0
+					},
+					ClassesWitch={
+						h=187,
+						w=187,
+						x=562.5,
+						y=187.5
+					},
+					ClassesWitchhunter={
+						h=187,
+						w=187,
+						x=1875,
+						y=0
+					}
+				},
+				filename="ascendancy-background-0.png",
+				h=375,
+				w=2250
+			},
+			[0.2109]={
+				coords={
+					["ClassesAcolyte of Chayula"]={
+						h=375,
+						w=375,
+						x=1875,
+						y=1125
+					},
+					["ClassesBlood Mage"]={
+						h=375,
+						w=375,
+						x=0,
+						y=375
+					},
+					ClassesChronomancer={
+						h=375,
+						w=375,
+						x=375,
+						y=750
+					},
+					ClassesDeadeye={
+						h=375,
+						w=375,
+						x=0,
+						y=0
+					},
+					ClassesDruid={
+						h=375,
+						w=375,
+						x=1875,
+						y=375
+					},
+					ClassesDuelist={
+						h=375,
+						w=375,
+						x=1875,
+						y=0
+					},
+					["ClassesGemling Legionnaire"]={
+						h=375,
+						w=375,
+						x=1125,
+						y=375
+					},
+					ClassesHuntress={
+						h=375,
+						w=375,
+						x=1500,
+						y=750
+					},
+					ClassesInfernalist={
+						h=375,
+						w=375,
+						x=750,
+						y=1125
+					},
+					ClassesInvoker={
+						h=375,
+						w=375,
+						x=375,
+						y=1125
+					},
+					ClassesMarauder={
+						h=375,
+						w=375,
+						x=750,
+						y=375
+					},
+					ClassesMercenary={
+						h=375,
+						w=375,
+						x=750,
+						y=750
+					},
+					ClassesMonk={
+						h=375,
+						w=375,
+						x=1500,
+						y=1125
+					},
+					ClassesPathfinder={
+						h=375,
+						w=375,
+						x=1125,
+						y=0
+					},
+					ClassesRanger={
+						h=375,
+						w=375,
+						x=375,
+						y=375
+					},
+					ClassesShadow={
+						h=375,
+						w=375,
+						x=1125,
+						y=1125
+					},
+					ClassesSorceress={
+						h=375,
+						w=375,
+						x=0,
+						y=750
+					},
+					ClassesStormweaver={
+						h=375,
+						w=375,
+						x=1875,
+						y=750
+					},
+					ClassesTemplar={
+						h=375,
+						w=375,
+						x=0,
+						y=1125
+					},
+					ClassesTitan={
+						h=375,
+						w=375,
+						x=1500,
+						y=0
+					},
+					ClassesWarbringer={
+						h=375,
+						w=375,
+						x=375,
+						y=0
+					},
+					ClassesWarrior={
+						h=375,
+						w=375,
+						x=750,
+						y=0
+					},
+					ClassesWitch={
+						h=375,
+						w=375,
+						x=1125,
+						y=750
+					},
+					ClassesWitchhunter={
+						h=375,
+						w=375,
+						x=1500,
+						y=375
+					}
+				},
+				filename="ascendancy-background-1.png",
+				h=1500,
+				w=2250
+			},
+			[0.2972]={
+				coords={
+					["ClassesAcolyte of Chayula"]={
+						h=750,
+						w=750,
+						x=1500,
+						y=5250
+					},
+					["ClassesBlood Mage"]={
+						h=750,
+						w=750,
+						x=0,
+						y=1500
+					},
+					ClassesChronomancer={
+						h=750,
+						w=750,
+						x=750,
+						y=3000
+					},
+					ClassesDeadeye={
+						h=750,
+						w=750,
+						x=0,
+						y=0
+					},
+					ClassesDruid={
+						h=750,
+						w=750,
+						x=1500,
+						y=2250
+					},
+					ClassesDuelist={
+						h=750,
+						w=750,
+						x=1500,
+						y=750
+					},
+					["ClassesGemling Legionnaire"]={
+						h=750,
+						w=750,
+						x=0,
+						y=2250
+					},
+					ClassesHuntress={
+						h=750,
+						w=750,
+						x=750,
+						y=3750
+					},
+					ClassesInfernalist={
+						h=750,
+						w=750,
+						x=1500,
+						y=4500
+					},
+					ClassesInvoker={
+						h=750,
+						w=750,
+						x=750,
+						y=4500
+					},
+					ClassesMarauder={
+						h=750,
+						w=750,
+						x=1500,
+						y=1500
+					},
+					ClassesMercenary={
+						h=750,
+						w=750,
+						x=1500,
+						y=3000
+					},
+					ClassesMonk={
+						h=750,
+						w=750,
+						x=750,
+						y=5250
+					},
+					ClassesPathfinder={
+						h=750,
+						w=750,
+						x=0,
+						y=750
+					},
+					ClassesRanger={
+						h=750,
+						w=750,
+						x=750,
+						y=1500
+					},
+					ClassesShadow={
+						h=750,
+						w=750,
+						x=0,
+						y=5250
+					},
+					ClassesSorceress={
+						h=750,
+						w=750,
+						x=0,
+						y=3000
+					},
+					ClassesStormweaver={
+						h=750,
+						w=750,
+						x=1500,
+						y=3750
+					},
+					ClassesTemplar={
+						h=750,
+						w=750,
+						x=0,
+						y=4500
+					},
+					ClassesTitan={
+						h=750,
+						w=750,
+						x=750,
+						y=750
+					},
+					ClassesWarbringer={
+						h=750,
+						w=750,
+						x=750,
+						y=0
+					},
+					ClassesWarrior={
+						h=750,
+						w=750,
+						x=1500,
+						y=0
+					},
+					ClassesWitch={
+						h=750,
+						w=750,
+						x=0,
+						y=3750
+					},
+					ClassesWitchhunter={
+						h=750,
+						w=750,
+						x=750,
+						y=2250
+					}
+				},
+				filename="ascendancy-background-2.png",
+				h=6000,
+				w=2250
+			},
+			[0.3835]={
+				coords={
+					["ClassesAcolyte of Chayula"]={
+						h=1500,
+						w=1500,
+						x=0,
+						y=34500
+					},
+					["ClassesBlood Mage"]={
+						h=1500,
+						w=1500,
+						x=0,
+						y=9000
+					},
+					ClassesChronomancer={
+						h=1500,
+						w=1500,
+						x=0,
+						y=19500
+					},
+					ClassesDeadeye={
+						h=1500,
+						w=1500,
+						x=0,
+						y=0
+					},
+					ClassesDruid={
+						h=1500,
+						w=1500,
+						x=0,
+						y=16500
+					},
+					ClassesDuelist={
+						h=1500,
+						w=1500,
+						x=0,
+						y=7500
+					},
+					["ClassesGemling Legionnaire"]={
+						h=1500,
+						w=1500,
+						x=0,
+						y=13500
+					},
+					ClassesHuntress={
+						h=1500,
+						w=1500,
+						x=0,
+						y=24000
+					},
+					ClassesInfernalist={
+						h=1500,
+						w=1500,
+						x=0,
+						y=30000
+					},
+					ClassesInvoker={
+						h=1500,
+						w=1500,
+						x=0,
+						y=28500
+					},
+					ClassesMarauder={
+						h=1500,
+						w=1500,
+						x=0,
+						y=12000
+					},
+					ClassesMercenary={
+						h=1500,
+						w=1500,
+						x=0,
+						y=21000
+					},
+					ClassesMonk={
+						h=1500,
+						w=1500,
+						x=0,
+						y=33000
+					},
+					ClassesPathfinder={
+						h=1500,
+						w=1500,
+						x=0,
+						y=4500
+					},
+					ClassesRanger={
+						h=1500,
+						w=1500,
+						x=0,
+						y=10500
+					},
+					ClassesShadow={
+						h=1500,
+						w=1500,
+						x=0,
+						y=31500
+					},
+					ClassesSorceress={
+						h=1500,
+						w=1500,
+						x=0,
+						y=18000
+					},
+					ClassesStormweaver={
+						h=1500,
+						w=1500,
+						x=0,
+						y=25500
+					},
+					ClassesTemplar={
+						h=1500,
+						w=1500,
+						x=0,
+						y=27000
+					},
+					ClassesTitan={
+						h=1500,
+						w=1500,
+						x=0,
+						y=6000
+					},
+					ClassesWarbringer={
+						h=1500,
+						w=1500,
+						x=0,
+						y=1500
+					},
+					ClassesWarrior={
+						h=1500,
+						w=1500,
+						x=0,
+						y=3000
+					},
+					ClassesWitch={
+						h=1500,
+						w=1500,
+						x=0,
+						y=22500
+					},
+					ClassesWitchhunter={
+						h=1500,
+						w=1500,
+						x=0,
+						y=15000
+					}
+				},
+				filename="ascendancy-background-3.png",
+				h=36000,
+				w=1500
+			}
+		},
 		background={
 			[0.1246]={
 				coords={
-					Background1={
-						h=128,
-						w=128,
-						x=128,
-						y=0
-					},
 					Background2={
 						h=128,
 						w=128,
@@ -79385,16 +79985,10 @@ return {
 				},
 				filename="background-0.png",
 				h=128,
-				w=256
+				w=128
 			},
 			[0.2109]={
 				coords={
-					Background1={
-						h=256,
-						w=256,
-						x=256,
-						y=0
-					},
 					Background2={
 						h=256,
 						w=256,
@@ -79404,16 +79998,10 @@ return {
 				},
 				filename="background-1.png",
 				h=256,
-				w=512
+				w=256
 			},
 			[0.2972]={
 				coords={
-					Background1={
-						h=256,
-						w=256,
-						x=512,
-						y=0
-					},
 					Background2={
 						h=512,
 						w=512,
@@ -79423,16 +80011,10 @@ return {
 				},
 				filename="background-2.png",
 				h=512,
-				w=1024
+				w=512
 			},
 			[0.3835]={
 				coords={
-					Background1={
-						h=256,
-						w=256,
-						x=0,
-						y=1024
-					},
 					Background2={
 						h=1024,
 						w=1024,
@@ -79441,7 +80023,7 @@ return {
 					}
 				},
 				filename="background-3.png",
-				h=2048,
+				h=1024,
 				w=1024
 			}
 		},
@@ -79469,19 +80051,19 @@ return {
 					AscendancyFrameSmallAllocated={
 						h=20,
 						w=20,
-						x=40,
+						x=20,
 						y=44
 					},
 					AscendancyFrameSmallCanAllocate={
 						h=20,
 						w=20,
-						x=0,
+						x=40,
 						y=44
 					},
 					AscendancyFrameSmallNormal={
 						h=20,
 						w=20,
-						x=20,
+						x=0,
 						y=44
 					},
 					AscendancyMiddle={
@@ -79493,19 +80075,19 @@ return {
 					JewelFrameAllocated={
 						h=9,
 						w=9,
-						x=13,
+						x=0,
 						y=11.5
 					},
 					JewelFrameCanAllocate={
 						h=9,
 						w=9,
-						x=26,
+						x=78,
 						y=11.5
 					},
 					JewelFrameUnallocated={
 						h=9,
 						w=9,
-						x=78,
+						x=39,
 						y=11.5
 					},
 					KeystoneFrameAllocated={
@@ -79547,7 +80129,7 @@ return {
 					PSSkillFrame={
 						h=13,
 						w=13,
-						x=0,
+						x=52,
 						y=11.5
 					},
 					PSSkillFrameActive={
@@ -79559,19 +80141,19 @@ return {
 					PSSkillFrameHighlighted={
 						h=13,
 						w=13,
-						x=52,
+						x=26,
 						y=11.5
 					},
 					PSSkillFrameMask={
 						h=13,
 						w=13,
-						x=39,
+						x=13,
 						y=11.5
 					}
 				},
 				filename="group-background-0.png",
-				h=538.625,
-				w=119
+				h=732.625,
+				w=768
 			},
 			[0.2109]={
 				coords={
@@ -79596,19 +80178,19 @@ return {
 					AscendancyFrameSmallAllocated={
 						h=41,
 						w=40,
-						x=80,
+						x=40,
 						y=88
 					},
 					AscendancyFrameSmallCanAllocate={
 						h=41,
 						w=40,
-						x=0,
+						x=80,
 						y=88
 					},
 					AscendancyFrameSmallNormal={
 						h=41,
 						w=40,
-						x=40,
+						x=0,
 						y=88
 					},
 					AscendancyMiddle={
@@ -79620,19 +80202,19 @@ return {
 					JewelFrameAllocated={
 						h=19,
 						w=19,
-						x=26,
+						x=0,
 						y=23
 					},
 					JewelFrameCanAllocate={
 						h=19,
 						w=19,
-						x=52,
+						x=156,
 						y=23
 					},
 					JewelFrameUnallocated={
 						h=19,
 						w=19,
-						x=156,
+						x=78,
 						y=23
 					},
 					KeystoneFrameAllocated={
@@ -79674,7 +80256,7 @@ return {
 					PSSkillFrame={
 						h=26,
 						w=26,
-						x=0,
+						x=104,
 						y=23
 					},
 					PSSkillFrameActive={
@@ -79686,19 +80268,19 @@ return {
 					PSSkillFrameHighlighted={
 						h=26,
 						w=26,
-						x=104,
+						x=52,
 						y=23
 					},
 					PSSkillFrameMask={
 						h=26,
 						w=26,
-						x=78,
+						x=26,
 						y=23
 					}
 				},
 				filename="group-background-1.png",
-				h=1077.25,
-				w=238
+				h=1721.25,
+				w=1024
 			},
 			[0.2972]={
 				coords={
@@ -79723,19 +80305,19 @@ return {
 					AscendancyFrameSmallAllocated={
 						h=82,
 						w=80,
-						x=160,
+						x=80,
 						y=176
 					},
 					AscendancyFrameSmallCanAllocate={
 						h=82,
 						w=80,
-						x=0,
+						x=160,
 						y=176
 					},
 					AscendancyFrameSmallNormal={
 						h=82,
 						w=80,
-						x=80,
+						x=0,
 						y=176
 					},
 					AscendancyMiddle={
@@ -79747,19 +80329,19 @@ return {
 					JewelFrameAllocated={
 						h=39,
 						w=38,
-						x=52,
+						x=0,
 						y=46
 					},
 					JewelFrameCanAllocate={
 						h=39,
 						w=38,
-						x=104,
+						x=312,
 						y=46
 					},
 					JewelFrameUnallocated={
 						h=39,
 						w=38,
-						x=312,
+						x=156,
 						y=46
 					},
 					KeystoneFrameAllocated={
@@ -79801,7 +80383,7 @@ return {
 					PSSkillFrame={
 						h=52,
 						w=52,
-						x=0,
+						x=208,
 						y=46
 					},
 					PSSkillFrameActive={
@@ -79813,19 +80395,19 @@ return {
 					PSSkillFrameHighlighted={
 						h=52,
 						w=52,
-						x=208,
+						x=104,
 						y=46
 					},
 					PSSkillFrameMask={
 						h=52,
 						w=52,
-						x=156,
+						x=52,
 						y=46
 					}
 				},
 				filename="group-background-2.png",
-				h=2154.5,
-				w=476
+				h=3954.5,
+				w=1024
 			},
 			[0.3835]={
 				coords={
@@ -79850,19 +80432,19 @@ return {
 					AscendancyFrameSmallAllocated={
 						h=164,
 						w=160,
-						x=320,
+						x=160,
 						y=352
 					},
 					AscendancyFrameSmallCanAllocate={
 						h=164,
 						w=160,
-						x=0,
+						x=320,
 						y=352
 					},
 					AscendancyFrameSmallNormal={
 						h=164,
 						w=160,
-						x=160,
+						x=0,
 						y=352
 					},
 					AscendancyMiddle={
@@ -79874,19 +80456,19 @@ return {
 					JewelFrameAllocated={
 						h=78,
 						w=76,
-						x=104,
+						x=0,
 						y=92
 					},
 					JewelFrameCanAllocate={
 						h=78,
 						w=76,
-						x=208,
+						x=624,
 						y=92
 					},
 					JewelFrameUnallocated={
 						h=78,
 						w=76,
-						x=624,
+						x=312,
 						y=92
 					},
 					KeystoneFrameAllocated={
@@ -79928,7 +80510,7 @@ return {
 					PSSkillFrame={
 						h=104,
 						w=104,
-						x=0,
+						x=416,
 						y=92
 					},
 					PSSkillFrameActive={
@@ -79940,19 +80522,19 @@ return {
 					PSSkillFrameHighlighted={
 						h=104,
 						w=104,
-						x=416,
+						x=208,
 						y=92
 					},
 					PSSkillFrameMask={
 						h=104,
 						w=104,
-						x=312,
+						x=104,
 						y=92
 					}
 				},
 				filename="group-background-3.png",
-				h=4309,
-				w=952
+				h=10981,
+				w=1024
 			}
 		},
 		groupBackground={
@@ -79980,13 +80562,13 @@ return {
 						h=123,
 						w=119,
 						x=0,
-						y=419.625
+						y=485.625
 					},
 					PSGroupBackgroundMediumBlank={
 						h=94,
 						w=94,
 						x=0,
-						y=325.125
+						y=391.125
 					},
 					PSGroupBackgroundSmallBlank={
 						h=55,
@@ -79996,8 +80578,8 @@ return {
 					}
 				},
 				filename="group-background-0.png",
-				h=538.625,
-				w=119
+				h=732.625,
+				w=768
 			},
 			[0.2109]={
 				coords={
@@ -80023,13 +80605,13 @@ return {
 						h=247,
 						w=238,
 						x=0,
-						y=839.25
+						y=971.25
 					},
 					PSGroupBackgroundMediumBlank={
 						h=189,
 						w=189,
 						x=0,
-						y=650.25
+						y=782.25
 					},
 					PSGroupBackgroundSmallBlank={
 						h=110,
@@ -80039,8 +80621,8 @@ return {
 					}
 				},
 				filename="group-background-1.png",
-				h=1077.25,
-				w=238
+				h=1721.25,
+				w=1024
 			},
 			[0.2972]={
 				coords={
@@ -80066,13 +80648,13 @@ return {
 						h=494,
 						w=476,
 						x=0,
-						y=1678.5
+						y=1942.5
 					},
 					PSGroupBackgroundMediumBlank={
 						h=378,
 						w=378,
 						x=0,
-						y=1300.5
+						y=1564.5
 					},
 					PSGroupBackgroundSmallBlank={
 						h=220,
@@ -80082,8 +80664,8 @@ return {
 					}
 				},
 				filename="group-background-2.png",
-				h=2154.5,
-				w=476
+				h=3954.5,
+				w=1024
 			},
 			[0.3835]={
 				coords={
@@ -80109,13 +80691,13 @@ return {
 						h=988,
 						w=952,
 						x=0,
-						y=3357
+						y=3885
 					},
 					PSGroupBackgroundMediumBlank={
 						h=756,
 						w=756,
 						x=0,
-						y=2601
+						y=3129
 					},
 					PSGroupBackgroundSmallBlank={
 						h=440,
@@ -80125,8 +80707,8 @@ return {
 					}
 				},
 				filename="group-background-3.png",
-				h=4309,
-				w=952
+				h=10981,
+				w=1024
 			}
 		},
 		keystoneActive={
@@ -105741,6 +106323,204 @@ return {
 				filename="skills-disabled-3.png",
 				h=4416,
 				w=1152
+			}
+		},
+		startNode={
+			[0.1246]={
+				coords={
+					PSStartNodeBackgroundInactive={
+						h=66,
+						w=66,
+						x=0,
+						y=325.125
+					},
+					centerduelist={
+						h=145,
+						w=158,
+						x=0,
+						y=604.625
+					},
+					centermarauder={
+						h=145,
+						w=158,
+						x=256,
+						y=604.625
+					},
+					centerranger={
+						h=145,
+						w=158,
+						x=384,
+						y=604.625
+					},
+					centershadow={
+						h=145,
+						w=158,
+						x=128,
+						y=604.625
+					},
+					centertemplar={
+						h=145,
+						w=158,
+						x=640,
+						y=604.625
+					},
+					centerwitch={
+						h=145,
+						w=158,
+						x=512,
+						y=604.625
+					}
+				},
+				filename="group-background-0.png",
+				h=732.625,
+				w=768
+			},
+			[0.2109]={
+				coords={
+					PSStartNodeBackgroundInactive={
+						h=132,
+						w=132,
+						x=0,
+						y=650.25
+					},
+					centerduelist={
+						h=290,
+						w=316,
+						x=0,
+						y=1209.25
+					},
+					centermarauder={
+						h=290,
+						w=316,
+						x=512,
+						y=1209.25
+					},
+					centerranger={
+						h=290,
+						w=316,
+						x=768,
+						y=1209.25
+					},
+					centershadow={
+						h=290,
+						w=316,
+						x=256,
+						y=1209.25
+					},
+					centertemplar={
+						h=290,
+						w=316,
+						x=256,
+						y=1465.25
+					},
+					centerwitch={
+						h=290,
+						w=316,
+						x=0,
+						y=1465.25
+					}
+				},
+				filename="group-background-1.png",
+				h=1721.25,
+				w=1024
+			},
+			[0.2972]={
+				coords={
+					PSStartNodeBackgroundInactive={
+						h=264,
+						w=264,
+						x=0,
+						y=1300.5
+					},
+					centerduelist={
+						h=580,
+						w=632,
+						x=0,
+						y=2418.5
+					},
+					centermarauder={
+						h=580,
+						w=632,
+						x=0,
+						y=2930.5
+					},
+					centerranger={
+						h=580,
+						w=632,
+						x=512,
+						y=2930.5
+					},
+					centershadow={
+						h=580,
+						w=632,
+						x=512,
+						y=2418.5
+					},
+					centertemplar={
+						h=580,
+						w=632,
+						x=512,
+						y=3442.5
+					},
+					centerwitch={
+						h=580,
+						w=632,
+						x=0,
+						y=3442.5
+					}
+				},
+				filename="group-background-2.png",
+				h=3954.5,
+				w=1024
+			},
+			[0.3835]={
+				coords={
+					PSStartNodeBackgroundInactive={
+						h=528,
+						w=528,
+						x=0,
+						y=2601
+					},
+					centerduelist={
+						h=580,
+						w=632,
+						x=0,
+						y=4837
+					},
+					centermarauder={
+						h=580,
+						w=632,
+						x=0,
+						y=6885
+					},
+					centerranger={
+						h=580,
+						w=632,
+						x=0,
+						y=7909
+					},
+					centershadow={
+						h=580,
+						w=632,
+						x=0,
+						y=5861
+					},
+					centertemplar={
+						h=580,
+						w=632,
+						x=0,
+						y=9957
+					},
+					centerwitch={
+						h=580,
+						w=632,
+						x=0,
+						y=8933
+					}
+				},
+				filename="group-background-3.png",
+				h=10981,
+				w=1024
 			}
 		}
 	},

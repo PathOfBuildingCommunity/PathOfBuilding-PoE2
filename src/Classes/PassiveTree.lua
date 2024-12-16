@@ -162,34 +162,6 @@ local PassiveTreeClass = newClass("PassiveTree", function(self, treeVersion)
 		end
 	end
 
-	-- Load legion sprite sheets and build sprite map
-	local legionSprites = LoadModule("TreeData/legion/tree-legion.lua")
-	for type, data in pairs(legionSprites) do
-		local maxZoom = data[#data]
-		local sheet = spriteSheets[maxZoom.filename]
-		if not sheet then
-			sheet = { }
-			sheet.handle = NewImageHandle()
-			sheet.handle:Load("TreeData/legion/"..maxZoom.filename)
-			sheet.width, sheet.height = sheet.handle:ImageSize()
-			spriteSheets[maxZoom.filename] = sheet
-		end
-		for name, coords in pairs(maxZoom.coords) do
-			if not self.spriteMap[name] then
-				self.spriteMap[name] = { }
-			end
-			self.spriteMap[name][type] = {
-				handle = sheet.handle,
-				width = coords.w,
-				height = coords.h,
-				[1] = coords.x / sheet.width,
-				[2] = coords.y / sheet.height,
-				[3] = (coords.x + coords.w) / sheet.width,
-				[4] = (coords.y + coords.h) / sheet.height
-			}
-		end
-	end
-
 	local classArt = {
 		[0] = "centerscion",
 		[1] = "centermarauder",
@@ -363,6 +335,20 @@ local PassiveTreeClass = newClass("PassiveTree", function(self, treeVersion)
 			group.ascendancyName = node.ascendancyName
 			if node.isAscendancyStart then
 				group.isAscendancyStart = true
+				self.ascendNameMap[node.ascendancyName].ascendClass.background = {
+					image = "Classes" ..  self.ascendNameMap[node.ascendancyName].ascendClass.name,
+					section = "ascendancyBackground",
+					x = group.x ,
+					y = group.y
+				}
+			end
+			if node.classStartIndex then
+				self.classes[node.classStartIndex].background = {
+					image = "Classes" ..  self.classes[node.classStartIndex].name,
+					section = "ascendancyBackground",
+					x = 0 ,
+					y = 0
+				}
 			end
 		elseif node.type == "Notable" or node.type == "Keystone" then
 			self.clusterNodeMap[node.dn] = node
@@ -745,17 +731,17 @@ function PassiveTreeClass:IsPobGenerate()
 end
 
 function PassiveTreeClass:GetNodeTargetSize(node)
-	if node.type == "Notable" then
+	if node.type == "Notable" or (node.type == "AscendClassStart" and node.isNotable == true) then
 		return { width = math.floor(80 * self.scaleImage), height = math.floor(80 * self.scaleImage) }
 	elseif node.type == "Mastery" then
 		return { width = math.floor(380 * self.scaleImage), height = math.floor(380 * self.scaleImage) }
 	elseif node.type == "Keystone" then
 		return { width = math.floor(120 * self.scaleImage), height = math.floor(120 * self.scaleImage) }
-	elseif node.type == "Normal" then
+	elseif node.type == "Normal" or (node.type == "AscendClassStart" and node.isNotable == nil) then
 		return { width = math.floor(54  * self.scaleImage), height = math.floor( 54  * self.scaleImage) }
 	elseif node.type == "Socket" then
 		return { width = math.floor(76 * self.scaleImage), height = math.floor(76 * self.scaleImage) }
-	elseif node.type == "AscendClassStart" then
+	elseif node.type == "ClassStart" then
 		return { width = math.floor(54 * self.scaleImage), height = math.floor(54 * self.scaleImage) }
 	else
 		return { width = 0, height = 0 }
