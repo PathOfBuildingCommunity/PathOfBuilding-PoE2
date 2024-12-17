@@ -1,9 +1,9 @@
 local module = {}
 local function escape_path(path)
     -- Replace '\' with '\\' first to avoid double escaping
-    local escaped_path = path:gsub("\\", "\\\\")
+    local escaped_path = path:gsub("\\", "\\")
     -- Replace '/' with '\\'
-    escaped_path = escaped_path:gsub("/", "\\\\")
+    escaped_path = escaped_path:gsub("/", "\\")
     return escaped_path
 end
 --[[
@@ -14,7 +14,7 @@ function module.CompressDDSIntoOtherFormat(path_base, path_for_bat, name, listOf
 	local shCommands = ""
 	for _, file in ipairs(listOfFile) do
 		shCommands = shCommands .. string.format(
-			"nvcompress.exe -%s -highest %s %s\n",
+			"nvcompress.exe -%s -highest \"%s\" \"%s\"\n",
 			format,
 			escape_path(path_base .. file),
 			escape_path(path_base .. file)
@@ -26,7 +26,7 @@ function module.CompressDDSIntoOtherFormat(path_base, path_for_bat, name, listOf
 	batFile:close()
 
 	local command = string.format(
-		"cmd /c %s",
+		"cmd /c \"%s\"",
 		escape_path(batPath)
 	)
 
