@@ -105,7 +105,7 @@ function ItemSlotClass:Populate()
 	local socketCount = 0
 	if self.selItemId > 0 then
 		local selItem = self.itemsTab.items[self.selItemId]
-		socketCount = selItem.socketCount or 0
+		socketCount = selItem.itemSocketCount or 0
 	end
 	for i, socket in ipairs(self.socketList) do
 		socket.inactive = i > socketCount

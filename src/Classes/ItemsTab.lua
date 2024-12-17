@@ -3321,9 +3321,9 @@ function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode)
 		tooltip:AddSeparator(10)
 	end
 
-	if #item.sockets > 0 then
+	if item.itemSocketCount > 0 then
 		local socketString = ""
-		for _, socket in ipairs(item.sockets) do
+		for _ = 1, item.itemSocketCount do
 			socketString = socketString .. "S "
 		end
 		socketString = socketString:gsub(" $", "")

@@ -930,7 +930,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 						item:NormaliseQuality()
 						item:BuildAndParseRaw()
 						item.sockets = previousItem.sockets
-						item.socketCount = previousItem.socketCount
+						item.itemSocketCount = previousItem.itemSocketCount
 						env.player.itemList[slotName] = item
 					else
 						env.itemModDB:ScaleAddList(srcList, scale)

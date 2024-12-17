@@ -346,6 +346,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 	end
 	self.checkSection = false
 	self.sockets = { }
+	self.itemSocketCount = 0
 	self.classRequirementModLines = { }
 	self.buffModLines = { }
 	self.enchantModLines = { }
@@ -436,10 +437,11 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 					local group = 0
 					for c in specVal:gmatch(".") do
 						if c:match("[S]") then
-							t_insert(self.sockets, { })
+							t_insert(self.sockets, { group = group })
+							group = group + 1
 						end
 					end
-					self.socketCount = #self.sockets
+					self.itemSocketCount = #self.sockets
 				elseif specName == "Radius" and self.type == "Jewel" then
 					self.jewelRadiusLabel = specVal:match("^%a+")
 					if specVal:match("^%a+") == "Variable" then
@@ -885,11 +887,11 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 	if self.base and self.base.socketLimit then
 		if #self.sockets == 0 then
 			for i = 1, self.base.socketLimit do
-				t_insert(self.sockets, { })
+				t_insert(self.sockets, { group = 0 })
 			end
+			self.itemSocketCount = #self.sockets
 		end
 	end
-	self.socketCount = 0
 	if self.variantList then
 		self.variant = m_min(#self.variantList, self.variant or #self.variantList)
 		if self.hasAltVariant then
@@ -1122,9 +1124,9 @@ function ItemClass:BuildRaw()
 	if self.quality then
 		t_insert(rawLines, "Quality: " .. self.quality)
 	end
-	if self.sockets then
+	if self.itemSocketCount and self.itemSocketCount > 0 then
 		local socketString = ""
-		for _, socket in ipairs(self.sockets) do
+		for _ = 1, self.itemSocketCount do
 			socketString = socketString .. "S "
 		end
 		socketString = socketString:gsub(" $", "")
@@ -1647,15 +1649,13 @@ function ItemClass:BuildModList()
 		end
 	end
 
-	self.socketCount = #self.sockets
-	if calcLocal(baseList, "NoSockets", "FLAG", 0) then
-		-- Remove all sockets
-		wipeTable(self.sockets)
-	elseif self.socketCount > 0 then
+	if self.itemSocketCount > 0 then
 		-- Ensure that there are the correct number of abyssal sockets present
 		local newSockets = { }
-		for i = 1, self.socketCount do
-			t_insert(newSockets, {})
+		local group = 0
+		for i = 1, self.itemSocketCount do
+			group = group + 1
+			t_insert(newSockets, {group = group})
 		end
 		self.sockets = newSockets
 	end
