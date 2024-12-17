@@ -1436,7 +1436,7 @@ return {
 			list=false,
 			name="",
 			refTo="",
-			type="UInt",
+			type="Int",
 			width=70
 		},
 		[12]={
