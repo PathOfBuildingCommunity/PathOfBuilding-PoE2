@@ -8,7 +8,8 @@ local itemBases = ...
 
 #type Sceptre
 #influenceBaseTag sceptre
-#baseMatch BaseType Metadata/Items/Weapons/OneHandWeapons/OneHandMaces/AbstractSceptre
+#socketLimit 2
+#baseMatch BaseType Metadata/Items/Sceptres/AbstractSceptre
 
 #type Two Handed Mace
 #influenceBaseTag 2h_mace

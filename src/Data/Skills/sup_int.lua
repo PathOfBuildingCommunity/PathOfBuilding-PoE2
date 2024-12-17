@@ -237,6 +237,14 @@ skills["SupportAddedChaosDamagePlayer"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	statDescriptionScope = "gem_stat_descriptions",
+	statMap = {
+		["support_chaos_support_non_chaos_damage_+%_final"] = {
+			mod("ColdDamage", "MORE", nil),
+			mod("LightningDamage", "MORE", nil),
+			mod("FireDamage", "MORE", nil),
+			mod("PhysicalDamage", "MORE", nil),
+		},
+	},
 	constantStats = {
 		{ "non_skill_base_all_damage_%_to_gain_as_chaos_with_attacks", 25 },
 		{ "support_chaos_support_non_chaos_damage_+%_final", -50 },
@@ -373,6 +381,12 @@ skills["SupportAddedColdDamagePlayer"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	statDescriptionScope = "gem_stat_descriptions",
+	statMap = {
+		["support_fire_and_lightning_damage_+%_final"] = {
+			mod("FireDamage", "MORE", nil),
+			mod("LightningDamage", "MORE", nil),
+		},
+	},
 	constantStats = {
 		{ "non_skill_base_all_damage_%_to_gain_as_cold_with_attacks", 25 },
 		{ "support_fire_and_lightning_damage_+%_final", -50 },

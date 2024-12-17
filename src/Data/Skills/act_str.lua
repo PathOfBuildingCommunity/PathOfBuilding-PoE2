@@ -1251,7 +1251,37 @@ skills["EarthquakePlayer"] = {
 	},
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
+	parts = {
+		{
+			name = "Initial impact",
+		},
+		{
+			name = "Aftershock",
+		},
+	},
+	statMap = {
+		["jagged_ground_effect_+%"] = {
+			mod("Damage", "MORE", nil, 0, 0, { type = "SkillPart", skillPart = 2 }),
+		},
+		["active_skill_base_area_of_effect_radius"] = {
+			skill("radius", nil, { type = "SkillPart", skillPart = 1 }),
+		},
+		["active_skill_base_tertiary_area_of_effect_radius"] = {
+			skill("radius", nil, { type = "SkillPart", skillPart = 2 }),
+		},
+		["skill_jagged_ground_base_duration_ms"] = {
+			skill("duration", nil),
+			div = 1000,
+		},
+	},
 	baseFlags = {
+		attack = true,
+		melee = true,
+		area = true,
+		duration = true,
+	},
+	baseMods = {
+		skill("showAverage", true, { type = "SkillPart", skillPart = 2 }),
 	},
 	qualityStats = {
 		Default = {
@@ -1329,6 +1359,13 @@ skills["EarthshatterPlayer"] = {
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
 	baseFlags = {
+		attack = true,
+		melee = true,
+		area = true,
+		duration = true,
+	},
+	baseMods = {
+		skill("radius", 18, { type = "SkillPart", skillPart = 1 }),
 	},
 	qualityStats = {
 		Default = {

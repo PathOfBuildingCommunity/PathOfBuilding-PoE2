@@ -134,7 +134,12 @@ local skills, mod, flag, skill = ...
 #mods
 
 #skill SupportAddedLightningDamagePlayer
-#flags
+	statMap = {
+		["support_cold_and_fire_damage_+%_final"] = {
+			mod("ColdDamage", "MORE", nil),
+			mod("FireDamage", "MORE", nil),
+		},
+	},
 #mods
 
 #skill SupportLightningPenetrationPlayer

@@ -662,6 +662,12 @@ skills["SupportAddedLightningDamagePlayer"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	statDescriptionScope = "gem_stat_descriptions",
+	statMap = {
+		["support_cold_and_fire_damage_+%_final"] = {
+			mod("ColdDamage", "MORE", nil),
+			mod("FireDamage", "MORE", nil),
+		},
+	},
 	constantStats = {
 		{ "non_skill_base_all_damage_%_to_gain_as_lightning_with_attacks", 25 },
 		{ "support_cold_and_fire_damage_+%_final", -50 },

@@ -42,7 +42,14 @@ local skills, mod, flag, skill = ...
 #mods
 
 #skill SupportAddedChaosDamagePlayer
-#flags
+	statMap = {
+		["support_chaos_support_non_chaos_damage_+%_final"] = {
+			mod("ColdDamage", "MORE", nil),
+			mod("LightningDamage", "MORE", nil),
+			mod("FireDamage", "MORE", nil),
+			mod("PhysicalDamage", "MORE", nil),
+		},
+	},
 #mods
 
 #skill SupportChaosMasteryPlayer
@@ -62,7 +69,12 @@ local skills, mod, flag, skill = ...
 #mods
 
 #skill SupportAddedColdDamagePlayer
-#flags
+	statMap = {
+		["support_fire_and_lightning_damage_+%_final"] = {
+			mod("FireDamage", "MORE", nil),
+			mod("LightningDamage", "MORE", nil),
+		},
+	},
 #mods
 
 #skill SupportColdMasteryPlayer

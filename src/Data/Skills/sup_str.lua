@@ -44,44 +44,6 @@ skills["SupportAncestralUrgencyPlayer"] = {
 		[1] = { levelRequirement = 0, actorLevel = 1, },
 	},
 }
-skills["SupportArmourExplosionPlayer"] = {
-	name = "Armour Explosion",
-	description = "Supports Attacks, causing them to trigger a Fiery explosion when they Fully Break an enemy's Armour.",
-	color = 1,
-	incrementalEffectiveness = 0.054999999701977,
-	support = true,
-	requireSkillTypes = { SkillType.Attack, SkillType.CrossbowAmmoSkill, },
-	addSkillTypes = { },
-	excludeSkillTypes = { },
-	statDescriptionScope = "gem_stat_descriptions",
-	stats = {
-		"support_armour_explosion",
-	},
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
-}
-skills["ArmourExplosionPlayer"] = {
-	name = "[DNT] armour_explosion",
-	hidden = true,
-	incrementalEffectiveness = 0.054999999701977,
-	skillTypes = { [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.Damage] = true, [SkillType.Triggered] = true, [SkillType.Triggerable] = true, [SkillType.SkillGrantedBySupport] = true, },
-	statDescriptionScope = "armour_explosion",
-	castTime = 1,
-	baseFlags = {
-	},
-	constantStats = {
-		{ "active_skill_base_area_of_effect_radius", 14 },
-		{ "trigger_on_armour_break_%_chance", 100 },
-		{ "active_skill_base_physical_damage_%_to_convert_to_fire", 100 },
-	},
-	stats = {
-		"is_area_damage",
-	},
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
-}
 skills["SupportAutoReloadPlayer"] = {
 	name = "Auto Reload",
 	description = "Supports Crossbow Ammunition Skills, causing them to automatically reload when they Heavy Stun an enemy.",
@@ -128,6 +90,11 @@ skills["SupportBloodlustPlayer"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	statDescriptionScope = "gem_stat_descriptions",
+	statMap = {
+		["support_bloodlust_melee_physical_damage_+%_final_vs_bleeding_enemies"] = {
+			mod("PhysicalDamage", "MORE", nil, ModFlag.Melee, 0, { type = "ActorCondition", actor = "enemy", var = "Bleeding" }),
+		},
+	},
 	constantStats = {
 		{ "support_bloodlust_melee_physical_damage_+%_final_vs_bleeding_enemies", 30 },
 	},
@@ -188,6 +155,11 @@ skills["SupportBrutalityPlayer"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	statDescriptionScope = "gem_stat_descriptions",
+	statMap = {
+		["support_brutality_physical_damage_+%_final"] = {
+			mod("PhysicalDamage", "MORE", nil),
+		},
+	},
 	constantStats = {
 		{ "support_brutality_physical_damage_+%_final", 35 },
 	},
@@ -209,6 +181,11 @@ skills["SupportCannibalismPlayer"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	statDescriptionScope = "gem_stat_descriptions",
+	statMap = {
+		["support_cannibalism_recover_%_maximum_life_on_kill"] = {
+			mod("LifeOnKill", "BASE", nil, 0, 0, { type = "PercentStat", stat = "Life", percent = 1 }, { type = "GlobalEffect", effectType = "Buff", unscalable = true }),
+		},
+	},
 	constantStats = {
 		{ "support_cannibalism_recover_%_maximum_life_on_kill", 4 },
 	},
@@ -228,6 +205,31 @@ skills["SupportCorruptingCryPlayer"] = {
 	addSkillTypes = { SkillType.DamageOverTime, SkillType.Duration, },
 	excludeSkillTypes = { },
 	statDescriptionScope = "gem_stat_descriptions",
+	statMap = {
+		["support_corrupting_cry_corrupted_blood_base_physical_damage_per_minute_as_%_of_strength"] = {
+			skill("PhysicalDot", nil, { type = "PercentStat", stat = "Str", percent = 1 }),
+			div = 60,
+		},
+		["support_corrupting_cry_warcry_applies_X_stacks_of_corrupted_blood"] = {
+			mod("CorruptingCryStagesFromWarcry", nil, 0, KeywordFlag.Warcry)
+		},
+		["support_corrupting_cry_area_of_effect_+%_final"] = {
+			mod("AreaOfEffect", "INC", nil, 0, KeywordFlag.Warcry)
+		},
+		["support_corrupting_cry_corrupted_blood_duration_ms"] = {
+			skill("durationSecondary", nil),
+			div = 1000,
+		},
+		["support_corrupting_cry_warcry_applies_x_stacks_of_corrupted_blood"] = {
+			-- Display only
+		},
+	},
+	baseMods = {
+		skill("debuff", true),
+		flag("dotIsCorruptingBlood"),
+		mod("Multiplier:CorruptingCryMaxStages", "BASE", 10),
+		mod("Damage", "MORE", 100, 0, KeywordFlag.PhysicalDot, { type = "Multiplier", var = "CorruptingCryStageAfterFirst"}),
+	},
 	constantStats = {
 		{ "support_corrupting_cry_warcry_applies_x_stacks_of_corrupted_blood", 1 },
 		{ "support_corrupting_cry_corrupted_blood_base_physical_damage_per_minute_as_%_of_strength", 1500 },
@@ -270,6 +272,14 @@ skills["SupportDeepCutsPlayer"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	statDescriptionScope = "gem_stat_descriptions",
+	statMap = {
+		["support_deep_cuts_hit_damage_+%_final"] = {
+			mod("Damage", "MORE", nil, ModFlag.Hit),
+		},
+		["support_deep_cuts_bleeding_effect_+%_final"] = {
+			mod("BleedMagnitude", "MORE", nil),
+		},
+	},
 	constantStats = {
 		{ "support_deep_cuts_hit_damage_+%_final", -25 },
 		{ "support_deep_cuts_bleeding_effect_+%_final", 75 },
@@ -290,6 +300,11 @@ skills["SupportIncreasedArmourBreakPlayer"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	statDescriptionScope = "gem_stat_descriptions",
+	statMap = {
+		["support_increased_armour_break_armour_break_amount_+%_final"] = {
+			mod("ArmourBreakEffect", "MORE", nil),
+		},
+	},
 	constantStats = {
 		{ "support_increased_armour_break_armour_break_amount_+%_final", 40 },
 	},
@@ -328,6 +343,11 @@ skills["SupportDevastatePlayer"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	statDescriptionScope = "gem_stat_descriptions",
+	statMap = {
+		["fully_break_enemies_armour_on_heavy_stun"] = {
+			flag("Condition:CanArmourBreak", { type = "GlobalEffect", effectType = "Buff", effectName = "ArmourBreak" } ),
+		},
+	},
 	stats = {
 		"fully_break_enemies_armour_on_heavy_stun",
 	},
@@ -385,6 +405,11 @@ skills["SupportIgniteDurationPlayer"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	statDescriptionScope = "gem_stat_descriptions",
+	statMap = {
+		["support_eternal_flame_chance_to_ignite_+%_final"] = {
+			mod("EnemyIgniteChance", "MORE", nil),
+		},
+	},
 	constantStats = {
 		{ "ignite_duration_+%", 100 },
 		{ "support_eternal_flame_chance_to_ignite_+%_final", -25 },
@@ -405,6 +430,11 @@ skills["SupportExecutePlayer"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	statDescriptionScope = "gem_stat_descriptions",
+	statMap = {
+		["support_executioner_damage_vs_enemies_on_low_life_+%_final"] = {
+			mod("Damage", "MORE", nil, ModFlag.Hit, 0, { type = "ActorCondition", actor = "enemy", var = "LowLife"})
+		},
+	},
 	constantStats = {
 		{ "support_executioner_damage_vs_enemies_on_low_life_+%_final", 40 },
 	},
@@ -424,6 +454,11 @@ skills["SupportExploitWeaknessPlayer"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { SkillType.ConsumesFullyBrokenArmour, },
 	statDescriptionScope = "gem_stat_descriptions",
+	statMap = {
+		["support_gem_consume_enemy_fully_broken_armour_to_gain_damage_+%_final"] = {
+			mod("Damage", "MORE", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "ArmourBroken"})
+		},
+	},
 	constantStats = {
 		{ "support_gem_consume_enemy_fully_broken_armour_to_gain_damage_+%_final", 50 },
 	},
@@ -444,6 +479,11 @@ skills["LessDurationSupportPlayer"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	statDescriptionScope = "gem_stat_descriptions",
+	statMap = {
+		["support_reduced_duration_skill_effect_duration_+%_final"] = {
+			mod("Duration", "MORE", nil),
+		},
+	},
 	constantStats = {
 		{ "support_reduced_duration_skill_effect_duration_+%_final", -30 },
 		{ "support_reduced_duration_damage_+%_final", 0 },
@@ -464,6 +504,14 @@ skills["SupportFireExposurePlayer"] = {
 	addSkillTypes = { SkillType.Duration, },
 	excludeSkillTypes = { },
 	statDescriptionScope = "gem_stat_descriptions",
+	statMap = {
+		["inflict_fire_exposure_for_x_ms_on_ignite"] = {
+			mod("FireExposureChance", "BASE", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "Ignited"}),
+		},
+		["support_fire_exposure_damage_+%_final"] = {
+			mod("Damage", "MORE", nil),
+		},
+	},
 	constantStats = {
 		{ "inflict_fire_exposure_for_x_ms_on_ignite", 8000 },
 		{ "support_fire_exposure_damage_+%_final", -25 },
@@ -485,6 +533,12 @@ skills["SupportAddedFireDamagePlayer"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	statDescriptionScope = "gem_stat_descriptions",
+	statMap = {
+		["support_cold_and_lightning_damage_+%_final"] = {
+			mod("ColdDamage", "MORE", nil),
+			mod("LightningDamage", "MORE", nil),
+		},
+	},
 	constantStats = {
 		{ "non_skill_base_all_damage_%_to_gain_as_fire_with_attacks", 25 },
 		{ "support_cold_and_lightning_damage_+%_final", -50 },
@@ -524,6 +578,16 @@ skills["FistOfWarSupportPlayer"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { SkillType.SummonsTotem, SkillType.UsedByTotem, SkillType.Trapped, SkillType.RemoteMined, SkillType.Vaal, },
 	statDescriptionScope = "gem_stat_descriptions",
+	statMap = {
+		["ancestral_slam_interval_duration"] = {
+			mod("FistOfWarCooldown", "BASE", nil),
+			div = 1000,
+		},
+	},
+	baseMods = {
+		mod("FistOfWarDamageMultiplier", "BASE", 20),
+		mod("FistOfWarMOREAoE", "BASE", 20),
+	},
 	constantStats = {
 		{ "support_ancestral_slam_big_hit_max_count", 1 },
 		{ "ancestral_slam_interval_duration", 6000 },
@@ -544,6 +608,12 @@ skills["SupportBloodFountainPlayer"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	statDescriptionScope = "gem_stat_descriptions",
+	statMap = {
+		["support_blood_fountain_life_regeneration_rate_per_minute_%"] = {
+			mod("LifeRegenPercent", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Aura" }),
+			div = 60,
+		},
+	},
 	constantStats = {
 		{ "support_blood_fountain_life_regeneration_rate_per_minute_%", 120 },
 		{ "support_blood_fountain_radius", 30 },
@@ -564,6 +634,12 @@ skills["SupportRageFountainPlayer"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	statDescriptionScope = "gem_stat_descriptions",
+	statMap = {
+		["support_rage_fountain_rage_regeneration_per_minute"] = {
+			mod("RageRegen", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Aura" }),
+			div = 60,
+		},
+	},
 	constantStats = {
 		{ "support_rage_fountain_rage_regeneration_per_minute", 120 },
 		{ "support_rage_fountain_radius", 30 },
@@ -604,6 +680,14 @@ skills["SupportMeleePhysicalDamagePlayer"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	statDescriptionScope = "gem_stat_descriptions",
+	statMap = {
+		["support_melee_physical_damage_+%_final"] = {
+			mod("PhysicalDamage", "MORE", nil, ModFlag.Melee),
+		},
+		["support_melee_physical_damage_attack_speed_+%_final"] = {
+			mod("Speed", "MORE", nil, ModFlag.Attack),
+		},
+	},
 	constantStats = {
 		{ "support_melee_physical_damage_+%_final", 35 },
 		{ "support_melee_physical_damage_attack_speed_+%_final", -10 },
@@ -624,6 +708,11 @@ skills["SupportHeftPlayer"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	statDescriptionScope = "gem_stat_descriptions",
+	statMap = {
+		["support_maximum_physical_hit_damage_+%_final"] = {
+			mod("MaxPhysicalDamage", "MORE", nil, ModFlag.Hit),
+		},
+	},
 	constantStats = {
 		{ "support_maximum_physical_hit_damage_+%_final", 30 },
 	},
@@ -643,6 +732,11 @@ skills["SupportHerbalismPlayer"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	statDescriptionScope = "gem_stat_descriptions",
+	statMap = {
+		["support_herbalism_life_recovery_+%_from_life_flasks"] = {
+			mod("FlaskLifeRecovery", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff" }),
+		},
+	},
 	constantStats = {
 		{ "support_herbalism_life_recovery_+%_from_life_flasks", 30 },
 	},
@@ -662,6 +756,14 @@ skills["SupportHolyDescentPlayer"] = {
 	addSkillTypes = { SkillType.CreatesGroundEffect, },
 	excludeSkillTypes = { },
 	statDescriptionScope = "gem_stat_descriptions",
+	statMap = {
+		["support_holy_descent_consecrated_ground_on_landing"] = {
+			-- Display only
+		},
+		["support_holy_descent_consecrated_ground_base_duration_ms"] = {
+			-- Display only
+		},
+	},
 	constantStats = {
 		{ "support_holy_descent_consecrated_ground_base_duration_ms", 4000 },
 	},
@@ -682,6 +784,11 @@ skills["SupportChanceToIgnitePlayer"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	statDescriptionScope = "gem_stat_descriptions",
+	statMap = {
+		["support_ignition_chance_to_ignite_+%_final"] = {
+			mod("EnemyIgniteChance", "MORE", nil),
+		},
+	},
 	constantStats = {
 		{ "support_ignition_chance_to_ignite_+%_final", 100 },
 	},
@@ -747,6 +854,17 @@ skills["SupportInfernalLegionPlayer"] = {
 	addSkillTypes = { SkillType.CausesBurning, },
 	excludeSkillTypes = { },
 	statDescriptionScope = "gem_stat_descriptions",
+	statMap = {
+		["minion_fire_damage_%_of_maximum_life_taken_per_minute"] = {
+			mod("MinionModifier", "LIST", { mod = mod("FireDegen", "BASE", nil, 0, 0, { type = "PerStat", stat = "Life" }, { type = "GlobalEffect", effectType = "Buff" }) }),
+			div = 6000,
+		},
+		["support_minion_instability_minion_base_fire_area_damage_per_minute"] = {
+			mod("MinionModifier", "LIST", { mod = mod("Multiplier:InfernalLegionBaseDamage", "BASE", nil, 0, 0, { type = "PercentStat", stat = "Life", percent = 1 }) }),
+			div = 60,
+			mod("ExtraMinionSkill", "LIST", { skillId = "InfernalLegion" }),
+		},
+	},
 	constantStats = {
 		{ "minion_fire_damage_%_of_maximum_life_taken_per_minute", 1200 },
 		{ "support_minions_ignite_for_%_max_life", 20 },
@@ -769,6 +887,11 @@ skills["SupportInspirationPlayer"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { SkillType.Persistent, },
 	statDescriptionScope = "gem_stat_descriptions",
+	statMap = {
+		["support_inspiration_cost_+%_final"] = {
+			mod("Cost", "MORE", nil),
+		},
+	},
 	constantStats = {
 		{ "support_inspiration_cost_+%_final", -40 },
 	},
@@ -908,6 +1031,14 @@ skills["SupportMeatShieldPlayer"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	statDescriptionScope = "gem_stat_descriptions",
+	statMap = {
+		["support_minion_maximum_life_+%_final"] = {
+			mod("MinionModifier", "LIST", { mod = mod("Life", "MORE", nil) }),
+		},
+		["support_meat_shield_minion_damage_+%_final"] = {
+			mod("MinionModifier", "LIST", { mod = mod("Damage", "MORE", nil) }),
+		},
+	},
 	constantStats = {
 		{ "support_minion_maximum_life_+%_final", 50 },
 		{ "support_meat_shield_minion_damage_+%_final", -35 },
@@ -928,6 +1059,11 @@ skills["SupportOverpowerPlayer"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	statDescriptionScope = "gem_stat_descriptions",
+	statMap = {
+		["support_overpower_hit_damage_stun_multiplier_+%_final"] = {
+			mod("StunBuildup", "MORE", nil),
+		},
+	},
 	constantStats = {
 		{ "support_overpower_hit_damage_stun_multiplier_+%_final", 50 },
 	},
@@ -947,6 +1083,11 @@ skills["MoreDurationSupportPlayer"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	statDescriptionScope = "gem_stat_descriptions",
+	statMap = {
+		["support_more_duration_skill_effect_duration_+%_final"] = {
+			mod("Duration", "MORE", nil),
+		},
+	},
 	constantStats = {
 		{ "support_more_duration_skill_effect_duration_+%_final", 40 },
 	},
@@ -987,6 +1128,11 @@ skills["SupportWeaponElementalDamagePlayer"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { SkillType.NonWeaponAttack, },
 	statDescriptionScope = "gem_stat_descriptions",
+	statMap = {
+		["support_weapon_elemental_damage_+%_final"] = {
+			mod("ElementalDamage", "MORE", nil, 0, KeywordFlag.Attack),
+		},
+	},
 	constantStats = {
 		{ "support_weapon_elemental_damage_+%_final", 25 },
 	},
@@ -1107,6 +1253,14 @@ skills["SupportDeadlyIgnitesPlayer"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	statDescriptionScope = "gem_stat_descriptions",
+	statMap = {
+		["support_stronger_ignites_hit_damage_+%_final"] = {
+			mod("Damage", "MORE", nil, ModFlag.Hit),
+		},
+		["support_stronger_ignites_ignite_effect_+%_final"] = {
+			mod("IgniteMagnitude", "MORE", nil),
+		},
+	},
 	constantStats = {
 		{ "support_stronger_ignites_hit_damage_+%_final", -25 },
 		{ "support_stronger_ignites_ignite_effect_+%_final", 75 },
@@ -1185,6 +1339,11 @@ skills["UnbreakableSupportPlayer"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { SkillType.Instant, SkillType.Persistent, },
 	statDescriptionScope = "gem_stat_descriptions",
+	statMap = {
+		["support_unbreakable_stun_threshold_+%_final_while_performing_action"] = {
+			mod("StunThreshold", "MORE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", unscalable = true }),
+		},
+	},
 	constantStats = {
 		{ "support_unbreakable_stun_threshold_+%_final_while_performing_action", 200 },
 	},
@@ -1204,6 +1363,14 @@ skills["SupportUpheavalPlayer"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	statDescriptionScope = "gem_stat_descriptions",
+	statMap = {
+		["support_additional_fissures_damage_+%_final"] = {
+			mod("Damage", "MORE", nil, ModFlag.Hit),
+		},
+		["support_additional_fissures_attack_speed_+%_final"] = {
+			mod("Speed", "MORE", nil, ModFlag.Attack),
+		},
+	},
 	constantStats = {
 		{ "base_number_of_additional_fissures", 2 },
 		{ "support_additional_fissures_damage_+%_final", -40 },
@@ -1225,6 +1392,12 @@ skills["SupportVitalityPlayer"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	statDescriptionScope = "gem_stat_descriptions",
+	statMap = {
+		["support_vitality_life_regeneration_rate_per_minute_%"] = {
+			mod("LifeRegenPercent", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff" }),
+			div = 60,
+		},
+	},
 	constantStats = {
 		{ "support_vitality_life_regeneration_rate_per_minute_%", 60 },
 	},

@@ -426,7 +426,7 @@ return {
 	mod("DamageEnergyShieldLeech", "BASE", nil),
 	div = 100,
 },
-["life_leech_from_physical_attack_damage_permyriad"] = {
+["base_life_leech_from_physical_attack_damage_permyriad"] = {
 	mod("PhysicalDamageLifeLeech", "BASE", nil, ModFlag.Attack),
 	div = 100,
 },
@@ -835,8 +835,8 @@ return {
 ["active_skill_damage_+%_final_when_cast_on_frostbolt"] = {
 	mod("Damage", "INC", nil, 0, 0, { type = "Condition", var = "CastOnFrostbolt" }),
 },
-["active_skill_merged_damage_+%_final_while_dual_wielding"] = {
-	mod("Damage", "MORE", nil, 0, 0, { type = "Condition", var = "DualWielding" }),
+["active_skill_damage_+%_final_while_dual_wielding"] = {
+	mod("Damage", "MORE", nil, 0, 0, { type = "Condition", var = "DualWielding" })
 },
 ["active_skill_additive_minion_damage_modifiers_apply_to_all_damage_at_%_value"] = {
 	flag("MinionDamageAppliesToPlayer"),
@@ -877,6 +877,41 @@ return {
 },
 ["lightning_damage_%_to_add_as_chaos"] = {
 	mod("LightningDamageGainAsChaos", "BASE", nil),
+},
+["non_skill_base_all_damage_%_to_gain_as_lightning_with_attacks"] = {
+	mod("PhysicalDamageGainAsLightning", "BASE", nil, ModFlag.Attack),
+	mod("LightningDamageGainAsLightning", "BASE", nil, ModFlag.Attack),
+	mod("ColdDamageGainAsLightning", "BASE", nil, ModFlag.Attack),
+	mod("FireDamageGainAsLightning", "BASE", nil, ModFlag.Attack),
+	mod("ChaosDamageGainAsLightning", "BASE", nil, ModFlag.Attack),
+},
+["non_skill_base_all_damage_%_to_gain_as_cold_with_attacks"] = {
+	mod("PhysicalDamageGainAsCold", "BASE", nil, ModFlag.Attack),
+	mod("LightningDamageGainAsCold", "BASE", nil, ModFlag.Attack),
+	mod("ColdDamageGainAsCold", "BASE", nil, ModFlag.Attack),
+	mod("FireDamageGainAsCold", "BASE", nil, ModFlag.Attack),
+	mod("ChaosDamageGainAsCold", "BASE", nil, ModFlag.Attack),
+},
+["non_skill_base_all_damage_%_to_gain_as_fire_with_attacks"] = {
+	mod("PhysicalDamageGainAsFire", "BASE", nil, ModFlag.Attack),
+	mod("LightningDamageGainAsFire", "BASE", nil, ModFlag.Attack),
+	mod("ColdDamageGainAsFire", "BASE", nil, ModFlag.Attack),
+	mod("FireDamageGainAsFire", "BASE", nil, ModFlag.Attack),
+	mod("ChaosDamageGainAsFire", "BASE", nil, ModFlag.Attack),
+},
+["non_skill_base_all_damage_%_to_gain_as_chaos_with_attacks"] = {
+	mod("PhysicalDamageGainAsChaos", "BASE", nil, ModFlag.Attack),
+	mod("LightningDamageGainAsChaos", "BASE", nil, ModFlag.Attack),
+	mod("ColdDamageGainAsChaos", "BASE", nil, ModFlag.Attack),
+	mod("FireDamageGainAsChaos", "BASE", nil, ModFlag.Attack),
+	mod("ChaosDamageGainAsChaos", "BASE", nil, ModFlag.Attack),
+},
+["non_skill_base_all_damage_%_to_gain_as_fire_with_attacks_vs_burning_enemies"] = {
+	mod("PhysicalDamageGainAsFire", "BASE", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "Burning" }),
+	mod("LightningDamageGainAsFire", "BASE", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "Burning" }),
+	mod("ColdDamageGainAsFire", "BASE", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "Burning" }),
+	mod("FireDamageGainAsFire", "BASE", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "Burning" }),
+	mod("ChaosDamageGainAsFire", "BASE", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "Burning" }),
 },
 ["base_physical_damage_%_to_convert_to_lightning"] = {
 	mod("PhysicalDamageConvertToLightning", "BASE", nil),
@@ -929,6 +964,9 @@ return {
 -- Ailments
 ["bleed_on_hit_with_attacks_%"] = {
 	mod("BleedChance", "BASE", nil, ModFlag.Attack),
+},
+["base_chance_to_inflict_bleeding_%"] = {
+	mod("BleedChance", "BASE", nil),
 },
 ["global_bleed_on_hit"] = {
 	mod("BleedChance", "BASE", nil),
@@ -1147,6 +1185,9 @@ return {
 ["cannot_cause_bleeding"] = {
 	flag("CannotBleed"),
 },
+["cannot_break_armour"] = {
+	flag("CannotArmourBreak"),
+},
 ["deal_no_elemental_damage"] = {
 	flag("DealNoFire"),
 	flag("DealNoCold"),
@@ -1211,6 +1252,10 @@ return {
 },
 ["stun_threshold_+%"] = {
 	mod("StunThreshold", "INC", nil),
+},
+["support_apply_daze_on_warcry"] = {
+	mod("EnemyDazeChance", "BASE", nil),
+	value = 100,
 },
 ["base_killed_monster_dropped_item_quantity_+%"] = {
 	mod("LootQuantity", "INC", nil),
@@ -1480,6 +1525,9 @@ return {
 },
 ["attack_speed_+%_when_on_low_life"] = {
 	mod("Speed", "INC", nil, ModFlag.Attack, 0, { type = "Condition", var = "LowLife"})
+},
+["active_skill_attack_speed_+%_final_while_dual_wielding"] = {
+	mod("Speed", "MORE", nil, ModFlag.Attack, 0, { type = "Condition", var = "DualWielding"})
 },
 ["damage_+%_per_power_charge"] = {
 	mod("Damage", "INC", nil, 0, 0, { type = "Multiplier", var = "PowerCharge" })
@@ -1774,6 +1822,9 @@ return {
 	mod("TotemDuration", "BASE", nil),
 	div = 1000
 },
+["totem_elemental_resistance_%"] = {
+	mod("TotemElementalResist", "BASE", nil)
+},
 -- Minion
 ["minion_damage_+%"] = {
 	mod("MinionModifier", "LIST", { mod = mod("Damage", "INC", nil) }),
@@ -1926,6 +1977,9 @@ return {
 ["warcry_grant_damage_+%_to_exerted_attacks"] = {
 	mod("ExertIncrease", "INC", nil, ModFlag.Attack, 0)
 },
+["slam_aftershock_chance_%"] = {
+	mod("AftershockChance", "BASE", nil)
+},
 -- Curse
 ["curse_effect_+%"] = {
 	mod("CurseEffect", "INC", nil),
@@ -2054,6 +2108,12 @@ return {
 	flag("SpellCastTimeAddedToCooldownIfTriggered"),
 },
 ["gain_x_rage_on_attack_hit"] = {
+	flag("Condition:CanGainRage", { type = "GlobalEffect", effectType = "Buff", effectName = "Rage" } ),
+},
+["gain_x_rage_on_melee_hit"] = {
+	flag("Condition:CanGainRage", { type = "GlobalEffect", effectType = "Buff", effectName = "Rage" } ),
+},
+["warcry_grant_X_rage_per_5_power"] = {
 	flag("Condition:CanGainRage", { type = "GlobalEffect", effectType = "Buff", effectName = "Rage" } ),
 },
 ["warcry_count_power_from_enemies"] = {

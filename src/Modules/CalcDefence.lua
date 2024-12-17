@@ -1922,8 +1922,9 @@ function calcs.buildDefenceEstimations(env, actor)
 			stunThresholdBase = stunThresholdBase + output.EnergyShield * ESMult / 100
 			stunThresholdSource = stunThresholdSource.." and "..ESMult.."% of Energy Shield"
 		end
-		local StunThresholdMod = (1 + modDB:Sum("INC", nil, "StunThreshold") / 100)
-		output.StunThreshold = stunThresholdBase * StunThresholdMod
+		local StunThresholdInc = 1 + modDB:Sum("INC", nil, "StunThreshold") / 100
+		local StunThresholdMore = modDB:More("INC", nil, "StunThreshold")
+		output.StunThreshold = stunThresholdBase * StunThresholdInc * StunThresholdMore
 		
 		local notAvoidChance = modDB:Flag(nil, "StunImmune") and 0 or 100 - m_min(modDB:Sum("BASE", nil, "AvoidStun"), 100)
 		if output.EnergyShield > output["totalTakenHit"] and not env.modDB:Flag(nil, "EnergyShieldProtectsMana") then
@@ -1933,8 +1934,13 @@ function calcs.buildDefenceEstimations(env, actor)
 		
 		if breakdown then
 			breakdown.StunThreshold = { s_format("%d ^8(base from %s)", stunThresholdBase, stunThresholdSource) }
-			if StunThresholdMod ~= 1 then
-				t_insert(breakdown.StunThreshold, s_format("* %.2f ^8(increased threshold)", StunThresholdMod))
+			if StunThresholdInc ~= 1 then
+				t_insert(breakdown.StunThreshold, s_format("* %.2f ^8(increased threshold)", StunThresholdInc))
+			end
+			if StunThresholdMore ~= 1 then	
+				t_insert(breakdown.StunThreshold, s_format("* %.2f ^8(more threshold)", StunThresholdMore))
+			end
+			if StunThresholdInc ~= 1 or StunThresholdMore ~= 1 then	
 				t_insert(breakdown.StunThreshold, s_format("= %d", output.StunThreshold))
 			end
 			breakdown.StunAvoidChance = {

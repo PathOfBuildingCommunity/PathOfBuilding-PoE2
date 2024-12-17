@@ -235,6 +235,126 @@ itemBases["Expert Brigand Mace"] = {
 	req = { level = 77, str = 212, },
 }
 
+itemBases["Rattling Sceptre"] = {
+	type = "Sceptre",
+	socketLimit = 2,
+	tags = { default = true, onehand = true, sceptre = true, },
+	influenceTags = { shaper = "sceptre_shaper", elder = "sceptre_elder", adjudicator = "sceptre_adjudicator", basilisk = "sceptre_basilisk", crusader = "sceptre_crusader", eyrie = "sceptre_eyrie", cleansing = "sceptre_cleansing", tangle = "sceptre_tangle" },
+	implicitModTypes = { },
+	req = { },
+}
+itemBases["Stoic Sceptre"] = {
+	type = "Sceptre",
+	socketLimit = 2,
+	tags = { default = true, onehand = true, sceptre = true, },
+	influenceTags = { shaper = "sceptre_shaper", elder = "sceptre_elder", adjudicator = "sceptre_adjudicator", basilisk = "sceptre_basilisk", crusader = "sceptre_crusader", eyrie = "sceptre_eyrie", cleansing = "sceptre_cleansing", tangle = "sceptre_tangle" },
+	implicitModTypes = { },
+	req = { },
+}
+itemBases["Lupine Sceptre"] = {
+	type = "Sceptre",
+	socketLimit = 2,
+	tags = { default = true, onehand = true, sceptre = true, },
+	influenceTags = { shaper = "sceptre_shaper", elder = "sceptre_elder", adjudicator = "sceptre_adjudicator", basilisk = "sceptre_basilisk", crusader = "sceptre_crusader", eyrie = "sceptre_eyrie", cleansing = "sceptre_cleansing", tangle = "sceptre_tangle" },
+	implicitModTypes = { },
+	req = { },
+}
+itemBases["Omen Sceptre"] = {
+	type = "Sceptre",
+	socketLimit = 2,
+	tags = { default = true, onehand = true, sceptre = true, },
+	influenceTags = { shaper = "sceptre_shaper", elder = "sceptre_elder", adjudicator = "sceptre_adjudicator", basilisk = "sceptre_basilisk", crusader = "sceptre_crusader", eyrie = "sceptre_eyrie", cleansing = "sceptre_cleansing", tangle = "sceptre_tangle" },
+	implicitModTypes = { },
+	req = { },
+}
+itemBases["Ochre Sceptre"] = {
+	type = "Sceptre",
+	socketLimit = 2,
+	tags = { default = true, onehand = true, sceptre = true, },
+	influenceTags = { shaper = "sceptre_shaper", elder = "sceptre_elder", adjudicator = "sceptre_adjudicator", basilisk = "sceptre_basilisk", crusader = "sceptre_crusader", eyrie = "sceptre_eyrie", cleansing = "sceptre_cleansing", tangle = "sceptre_tangle" },
+	implicitModTypes = { },
+	req = { },
+}
+itemBases["Shrine Sceptre"] = {
+	type = "Sceptre",
+	socketLimit = 2,
+	tags = { default = true, onehand = true, sceptre = true, },
+	influenceTags = { shaper = "sceptre_shaper", elder = "sceptre_elder", adjudicator = "sceptre_adjudicator", basilisk = "sceptre_basilisk", crusader = "sceptre_crusader", eyrie = "sceptre_eyrie", cleansing = "sceptre_cleansing", tangle = "sceptre_tangle" },
+	implicitModTypes = { },
+	req = { },
+}
+itemBases["Shrine Sceptre"] = {
+	type = "Sceptre",
+	socketLimit = 2,
+	tags = { default = true, onehand = true, sceptre = true, },
+	influenceTags = { shaper = "sceptre_shaper", elder = "sceptre_elder", adjudicator = "sceptre_adjudicator", basilisk = "sceptre_basilisk", crusader = "sceptre_crusader", eyrie = "sceptre_eyrie", cleansing = "sceptre_cleansing", tangle = "sceptre_tangle" },
+	implicitModTypes = { },
+	req = { },
+}
+itemBases["Shrine Sceptre"] = {
+	type = "Sceptre",
+	socketLimit = 2,
+	tags = { default = true, onehand = true, sceptre = true, },
+	influenceTags = { shaper = "sceptre_shaper", elder = "sceptre_elder", adjudicator = "sceptre_adjudicator", basilisk = "sceptre_basilisk", crusader = "sceptre_crusader", eyrie = "sceptre_eyrie", cleansing = "sceptre_cleansing", tangle = "sceptre_tangle" },
+	implicitModTypes = { },
+	req = { },
+}
+itemBases["Devouring Sceptre"] = {
+	type = "Sceptre",
+	socketLimit = 2,
+	tags = { default = true, onehand = true, sceptre = true, },
+	influenceTags = { shaper = "sceptre_shaper", elder = "sceptre_elder", adjudicator = "sceptre_adjudicator", basilisk = "sceptre_basilisk", crusader = "sceptre_crusader", eyrie = "sceptre_eyrie", cleansing = "sceptre_cleansing", tangle = "sceptre_tangle" },
+	implicitModTypes = { },
+	req = { },
+}
+itemBases["Clasped Sceptre"] = {
+	type = "Sceptre",
+	socketLimit = 2,
+	tags = { default = true, onehand = true, sceptre = true, },
+	influenceTags = { shaper = "sceptre_shaper", elder = "sceptre_elder", adjudicator = "sceptre_adjudicator", basilisk = "sceptre_basilisk", crusader = "sceptre_crusader", eyrie = "sceptre_eyrie", cleansing = "sceptre_cleansing", tangle = "sceptre_tangle" },
+	implicitModTypes = { },
+	req = { },
+}
+itemBases["Devotional Sceptre"] = {
+	type = "Sceptre",
+	socketLimit = 2,
+	tags = { default = true, onehand = true, sceptre = true, },
+	influenceTags = { shaper = "sceptre_shaper", elder = "sceptre_elder", adjudicator = "sceptre_adjudicator", basilisk = "sceptre_basilisk", crusader = "sceptre_crusader", eyrie = "sceptre_eyrie", cleansing = "sceptre_cleansing", tangle = "sceptre_tangle" },
+	implicitModTypes = { },
+	req = { },
+}
+itemBases["Wrath Sceptre"] = {
+	type = "Sceptre",
+	socketLimit = 2,
+	tags = { default = true, onehand = true, sceptre = true, },
+	influenceTags = { shaper = "sceptre_shaper", elder = "sceptre_elder", adjudicator = "sceptre_adjudicator", basilisk = "sceptre_basilisk", crusader = "sceptre_crusader", eyrie = "sceptre_eyrie", cleansing = "sceptre_cleansing", tangle = "sceptre_tangle" },
+	implicitModTypes = { },
+	req = { },
+}
+itemBases["Aromatic Sceptre"] = {
+	type = "Sceptre",
+	socketLimit = 2,
+	tags = { default = true, onehand = true, sceptre = true, },
+	influenceTags = { shaper = "sceptre_shaper", elder = "sceptre_elder", adjudicator = "sceptre_adjudicator", basilisk = "sceptre_basilisk", crusader = "sceptre_crusader", eyrie = "sceptre_eyrie", cleansing = "sceptre_cleansing", tangle = "sceptre_tangle" },
+	implicitModTypes = { },
+	req = { },
+}
+itemBases["Pious Sceptre"] = {
+	type = "Sceptre",
+	socketLimit = 2,
+	tags = { default = true, onehand = true, sceptre = true, },
+	influenceTags = { shaper = "sceptre_shaper", elder = "sceptre_elder", adjudicator = "sceptre_adjudicator", basilisk = "sceptre_basilisk", crusader = "sceptre_crusader", eyrie = "sceptre_eyrie", cleansing = "sceptre_cleansing", tangle = "sceptre_tangle" },
+	implicitModTypes = { },
+	req = { },
+}
+itemBases["Hallowed Sceptre"] = {
+	type = "Sceptre",
+	socketLimit = 2,
+	tags = { default = true, onehand = true, sceptre = true, },
+	influenceTags = { shaper = "sceptre_shaper", elder = "sceptre_elder", adjudicator = "sceptre_adjudicator", basilisk = "sceptre_basilisk", crusader = "sceptre_crusader", eyrie = "sceptre_eyrie", cleansing = "sceptre_cleansing", tangle = "sceptre_tangle" },
+	implicitModTypes = { },
+	req = { },
+}
 
 itemBases["Felled Greatclub"] = {
 	type = "Two Handed Mace",

@@ -86,11 +86,35 @@ local skills, mod, flag, skill = ...
 #mods
 
 #skill EarthquakePlayer
-#flags
+#flags attack melee area duration
+	parts = {
+		{
+			name = "Initial impact",
+		},
+		{
+			name = "Aftershock",
+		},
+	},
+	statMap = {
+		["jagged_ground_effect_+%"] = {
+			mod("Damage", "MORE", nil, 0, 0, { type = "SkillPart", skillPart = 2 }),
+		},
+		["active_skill_base_area_of_effect_radius"] = {
+			skill("radius", nil, { type = "SkillPart", skillPart = 1 }),
+		},
+		["active_skill_base_tertiary_area_of_effect_radius"] = {
+			skill("radius", nil, { type = "SkillPart", skillPart = 2 }),
+		},
+		["skill_jagged_ground_base_duration_ms"] = {
+			skill("duration", nil),
+			div = 1000,
+		},
+	},
+#baseMod skill("showAverage", true, { type = "SkillPart", skillPart = 2 })
 #mods
 
 #skill EarthshatterPlayer
-#flags
+#flags attack melee area duration
 #mods
 
 #skill EmergencyReloadPlayer
