@@ -62,8 +62,6 @@ local PassiveTreeViewClass = newClass("PassiveTreeView", function(self)
 	self.searchStrResults = {}
 	self.showStatDifferences = true
 	self.hoverNode = nil
-	-- keep track of switched nodes for resetAll
-	self.attrSwitchedNodes = { }
 end)
 
 function PassiveTreeViewClass:Load(xml, fileName)
