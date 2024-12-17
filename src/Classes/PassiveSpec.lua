@@ -137,7 +137,7 @@ function PassiveSpecClass:Load(xml, dbFileName)
 				masteryEffects[tonumber(mastery)] = tonumber(effect)
 			end
 		end
-		local attributes = { "Strength", "Intelligence", "Dexterity" }
+		local attributes = { "Strength", "Dexterity", "Intelligence" }
 		for _, node in pairs(xml) do
 			if type(node) == "table" then
 				if node.elem == "Overrides" then
@@ -148,19 +148,17 @@ function PassiveSpecClass:Load(xml, dbFileName)
 						end
 						
 						local dn = child.attrib.dn
-						if isValueInTable(attributes, dn) then
+						local attributeIndex = isValueInTable(attributes, dn)
+						if attributeIndex then
 							local nodeId = tonumber(child.attrib.nodeId)
 							local newNode = copyTableSafe(self.tree.nodes[nodeId], false, true)
-							local shortName = string.sub(dn, 0, 3)
+							local option = newNode.options[attributeIndex]
 							
 							newNode.dn = dn
-							newNode.id = node.id
-							newNode.icon = "Art/2DArt/SkillIcons/passives/plus"..string.lower(dn)..".png"
-							newNode.modKey = "[10 = "..shortName.."|BASE|-|-|-]"
-							newNode.mods[1].list[1].name = shortName
-							newNode.modList[1].name = shortName
+							newNode.id = nodeId
+							newNode.icon = child.attrib.icon
+							self:NodeAdditionOrReplacementFromString(newNode, option.stats[1], true)
 							newNode.name = dn
-							newNode.sd[1] = "+10 to "..dn
 							newNode.sprites = self.tree.spriteMap[newNode.icon]
 							newNode.activeEffectImage = self.tree.spriteMap[newNode.icon]
 							

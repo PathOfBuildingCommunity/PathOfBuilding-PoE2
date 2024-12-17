@@ -266,18 +266,24 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 		end
 	end
 	
-	local function switchAttributeNode(node, attribute)
+	local function switchAttributeNode(node, attributeIndex)
+		local option = nil
+		local attribute = "Attribute"
 		local newNode = copyTableSafe(spec.tree.nodes[node.id], false, true)
-		local shortName = string.sub(attribute, 0, 3)
+		
+		if attributeIndex == 0 then
+			option = newNode
+		else
+			option = node.options[attributeIndex]
+			attribute = option.name
+		end
 		
 		newNode.dn = attribute
 		newNode.id = node.id
-		newNode.icon = "Art/2DArt/SkillIcons/passives/plus"..string.lower(attribute)..".png"
-		newNode.modKey = "[10 = "..shortName.."|BASE|-|-|-]"
-		newNode.mods[1].list[1].name = shortName
-		newNode.modList[1].name = shortName
+		newNode.icon = "Art/2DArt/SkillIcons/passives/plus"..string.lower(attribute)..".dds"
+		newNode.stats = option.stats
+		spec:NodeAdditionOrReplacementFromString(newNode, option.stats[1], true)
 		newNode.name = attribute
-		newNode.sd[1] = "+10 to "..attribute
 		newNode.sprites = spec.tree.spriteMap[newNode.icon]
 		newNode.activeEffectImage = spec.tree.spriteMap[newNode.icon]
 		
@@ -288,7 +294,9 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 			-- User left-clicked on a node
 			if hoverNode.alloc then
 				-- reset attribute-switched nodes
-				switchAttributeNode(hoverNode, spec.nodes[hoverNode.id].name)
+				if hoverNode.type == "Normal" and (hoverNode.dn == "Attribute" or hoverNode.dn == "Strength" or hoverNode.dn == "Dexterity" or hoverNode.dn == "Intelligence") then
+					switchAttributeNode(hoverNode, 0)
+				end
 				-- Node is allocated, so deallocate it
 				spec:DeallocNode(hoverNode)
 				spec:AddUndoState()
@@ -301,13 +309,13 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 					end
 				else
 					-- attribute switching
-					if hoverNode.type == "Normal" and (hoverNode.dn == "Strength" or hoverNode.dn == "Dexterity" or hoverNode.dn == "Intelligence") then
+					if hoverNode.type == "Normal" and (hoverNode.dn == "Attribute" or hoverNode.dn == "Strength" or hoverNode.dn == "Dexterity" or hoverNode.dn == "Intelligence") then
 						if IsKeyDown("1") or IsKeyDown("I") then
-							switchAttributeNode(hoverNode, "Intelligence")
+							switchAttributeNode(hoverNode, 3)
 						elseif IsKeyDown("2") or IsKeyDown("S") then
-							switchAttributeNode(hoverNode, "Strength")
+							switchAttributeNode(hoverNode, 1)
 						elseif IsKeyDown("3") or IsKeyDown("D") then
-							switchAttributeNode(hoverNode, "Dexterity")
+							switchAttributeNode(hoverNode, 2)
 						end
 					end
 					spec:AllocNode(hoverNode, self.tracePath and hoverNode == self.tracePath[#self.tracePath] and self.tracePath)
