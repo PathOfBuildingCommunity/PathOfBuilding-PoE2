@@ -552,7 +552,7 @@ addToSheet(getSheet("group-background"), ascStart, "startNode", commonBackground
 
 -- we need to stract lines from dds
 local listAdditionalAssets = {
-	"^art/2dart/passivetree/passiveskillwormholelightpulse.dds",
+	"art/2dart/passivetree/passiveskillwormholelightpulse.dds",
 	"art/2dart/passivetree/passiveskillscreencurvesnormaltogether.dds",
 	"art/2dart/passivetree/passiveskillscreencurvesnormalbluetogether.dds",
 	"art/2dart/passivetree/passiveskillscreencurvesnormalalttogether.dds",
@@ -864,10 +864,6 @@ for i, group in ipairs(psg.groups) do
 				node["isMastery"] = true
 				node["inactiveIcon"] = passiveRow.MasteryGroup.IconInactive
 				node["activeIcon"] = passiveRow.MasteryGroup.IconActive
-				node["activeEffectImage"] = passiveRow.MasteryGroup.Background
-
-				local uiEffect = uiImages[string.lower(passiveRow.MasteryGroup.Background)]
-				addToSheet(getSheet("mastery-active-effect"), uiEffect.path, "masteryActiveEffect", commonBackgroundMetadata(passiveRow.MasteryGroup.Background, 768, 768, 4, ddsFormat))
 				
 				addToSheet(getSheet("mastery"), passiveRow.Icon, "mastery", masteryMetadata())
 				addToSheet(getSheet("mastery-disabled"), passiveRow.MasteryGroup.IconInactive, "masteryInactive", masteryMetadata())
@@ -924,6 +920,14 @@ for i, group in ipairs(psg.groups) do
 				for k, line in ipairs(out) do
 					table.insert(node["stats"], line)
 				end
+			end
+
+			-- add Mastery Effect to other type of nodes different than Mastery
+			if passiveRow.MasteryGroup ~= nil then
+				node["activeEffectImage"] = passiveRow.MasteryGroup.Background
+
+				local uiEffect = uiImages[string.lower(passiveRow.MasteryGroup.Background)]
+				addToSheet(getSheet("mastery-active-effect"), uiEffect.path, "masteryActiveEffect", commonBackgroundMetadata(passiveRow.MasteryGroup.Background, 768, 768, 4, ddsFormat))
 			end
 
 			-- if the passive is "Attribute" we are going to add values

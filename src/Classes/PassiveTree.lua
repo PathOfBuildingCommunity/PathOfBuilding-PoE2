@@ -733,11 +733,17 @@ end
 
 function PassiveTreeClass:GetNodeTargetSize(node)
 	if node.type == "Notable" or (node.type == "AscendClassStart" and node.isNotable == true) then
-		return { width = math.floor(80 * self.scaleImage), height = math.floor(80 * self.scaleImage) }
+		return { 
+			['effect'] =  { width = math.floor(380 * self.scaleImage), height = math.floor(380 * self.scaleImage) },
+			width = math.floor(80 * self.scaleImage), height = math.floor(80 * self.scaleImage) 
+		}
 	elseif node.type == "Mastery" then
 		return { width = math.floor(380 * self.scaleImage), height = math.floor(380 * self.scaleImage) }
 	elseif node.type == "Keystone" then
-		return { width = math.floor(120 * self.scaleImage), height = math.floor(120 * self.scaleImage) }
+		return { 
+			['effect'] =  { width = math.floor(380 * self.scaleImage), height = math.floor(380 * self.scaleImage) },
+			width = math.floor(120 * self.scaleImage), height = math.floor(120 * self.scaleImage)
+		}
 	elseif node.type == "Normal" or (node.type == "AscendClassStart" and node.isNotable == nil) then
 		return { width = math.floor(54  * self.scaleImage), height = math.floor( 54  * self.scaleImage) }
 	elseif node.type == "Socket" then

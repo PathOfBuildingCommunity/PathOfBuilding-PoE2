@@ -13543,6 +13543,7 @@ return {
 			}
 		},
 		[55]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryDamageOverTimePattern",
 			connections={
 			},
 			group=764,
@@ -14176,6 +14177,7 @@ return {
 			}
 		},
 		[934]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasterySpellSuppressionPattern",
 			connections={
 				[1]={
 					id=12526,
@@ -17491,6 +17493,7 @@ return {
 			}
 		},
 		[4238]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryAttackPattern",
 			connections={
 			},
 			group=826,
@@ -17536,6 +17539,7 @@ return {
 			}
 		},
 		[4295]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryManaPattern",
 			connections={
 				[1]={
 					id=34248,
@@ -17730,6 +17734,7 @@ return {
 			}
 		},
 		[4447]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryProjectilePattern",
 			connections={
 				[1]={
 					id=9272,
@@ -18053,6 +18058,7 @@ return {
 			}
 		},
 		[4716]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryEvasionPattern",
 			connections={
 			},
 			group=423,
@@ -18486,6 +18492,7 @@ return {
 			}
 		},
 		[5257]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryColdPattern",
 			connections={
 				[1]={
 					id=16367,
@@ -18734,6 +18741,7 @@ return {
 			}
 		},
 		[5663]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryChargesPattern",
 			connections={
 			},
 			group=153,
@@ -18829,6 +18837,7 @@ return {
 			}
 		},
 		[5703]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryLightningPattern",
 			connections={
 				[1]={
 					id=16367,
@@ -18958,6 +18967,7 @@ return {
 			}
 		},
 		[5802]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryProjectilePattern",
 			connections={
 			},
 			group=900,
@@ -19299,6 +19309,7 @@ return {
 			}
 		},
 		[6229]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryAttackPattern",
 			connections={
 				[1]={
 					id=26490,
@@ -19680,6 +19691,7 @@ return {
 			}
 		},
 		[6655]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryBleedingPattern",
 			connections={
 			},
 			group=431,
@@ -20676,6 +20688,7 @@ return {
 			}
 		},
 		[7651]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryBowPattern",
 			connections={
 				[1]={
 					id=21788,
@@ -20864,6 +20877,7 @@ return {
 			}
 		},
 		[7809]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryLightningPattern",
 			connections={
 			},
 			group=938,
@@ -21207,6 +21221,7 @@ return {
 			}
 		},
 		[8273]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryLightningPattern",
 			connections={
 				[1]={
 					id=25565,
@@ -21856,6 +21871,7 @@ return {
 			}
 		},
 		[8810]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryDurationPattern",
 			connections={
 				[1]={
 					id=33751,
@@ -21914,6 +21930,7 @@ return {
 			}
 		},
 		[8831]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryPhysicalPattern",
 			connections={
 				[1]={
 					id=14082,
@@ -22026,6 +22043,7 @@ return {
 			}
 		},
 		[8881]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryImpalePattern",
 			connections={
 			},
 			group=161,
@@ -22041,6 +22059,7 @@ return {
 			}
 		},
 		[8904]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryProjectilePattern",
 			connections={
 			},
 			group=924,
@@ -22415,6 +22434,7 @@ return {
 			}
 		},
 		[9226]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryManaPattern",
 			connections={
 			},
 			group=96,
@@ -23056,6 +23076,7 @@ return {
 			}
 		},
 		[9908]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryLifePattern",
 			connections={
 			},
 			group=210,
@@ -24180,6 +24201,7 @@ return {
 			}
 		},
 		[10772]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryLeechPattern",
 			connections={
 				[1]={
 					id=2119,
@@ -24859,6 +24881,7 @@ return {
 			}
 		},
 		[11526]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryBowPattern",
 			connections={
 				[1]={
 					id=38993,
@@ -24877,6 +24900,7 @@ return {
 			}
 		},
 		[11578]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryLightningPattern",
 			connections={
 			},
 			group=714,
@@ -25283,6 +25307,7 @@ return {
 			}
 		},
 		[11838]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryEnergyPattern",
 			connections={
 				[1]={
 					id=33112,
@@ -25670,6 +25695,7 @@ return {
 			}
 		},
 		[12337]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryLightningPattern",
 			connections={
 				[1]={
 					id=5295,
@@ -25882,6 +25908,7 @@ return {
 			}
 		},
 		[12611]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryElementalPattern",
 			connections={
 				[1]={
 					id=32155,
@@ -25922,6 +25949,7 @@ return {
 			}
 		},
 		[12750]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryCharmsPattern",
 			connections={
 			},
 			group=692,
@@ -26317,6 +26345,7 @@ return {
 			}
 		},
 		[13233]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryCasterPattern",
 			connections={
 				[1]={
 					id=62978,
@@ -27049,6 +27078,7 @@ return {
 			}
 		},
 		[13738]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryLightningPattern",
 			connections={
 			},
 			group=628,
@@ -27684,6 +27714,7 @@ return {
 			}
 		},
 		[14324]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryManaPattern",
 			connections={
 				[1]={
 					id=1468,
@@ -27767,6 +27798,7 @@ return {
 			}
 		},
 		[14343]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryDamageOverTimePattern",
 			connections={
 			},
 			group=724,
@@ -27821,6 +27853,7 @@ return {
 			}
 		},
 		[14383]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryLeechPattern",
 			connections={
 				[1]={
 					id=46601,
@@ -28510,6 +28543,7 @@ return {
 			}
 		},
 		[15083]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryLightningPattern",
 			connections={
 			},
 			group=556,
@@ -28712,6 +28746,7 @@ return {
 			}
 		},
 		[15374]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryLifePattern",
 			connections={
 				[1]={
 					id=48035,
@@ -28832,6 +28867,7 @@ return {
 			}
 		},
 		[15617]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryLifePattern",
 			connections={
 			},
 			group=313,
@@ -29067,6 +29103,7 @@ return {
 			}
 		},
 		[15829]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryLeechPattern",
 			connections={
 				[1]={
 					id=46146,
@@ -29240,6 +29277,7 @@ return {
 			}
 		},
 		[15986]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryPoisonPattern",
 			connections={
 				[1]={
 					id=6030,
@@ -29969,6 +30007,7 @@ return {
 			}
 		},
 		[16816]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryAccuracyPattern",
 			connections={
 			},
 			group=747,
@@ -30486,6 +30525,7 @@ return {
 			}
 		},
 		[17340]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryEvasionPattern",
 			connections={
 				[1]={
 					id=62051,
@@ -31166,6 +31206,7 @@ return {
 			}
 		},
 		[17854]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryEvasionPattern",
 			connections={
 				[1]={
 					id=55275,
@@ -31555,6 +31596,7 @@ return {
 			}
 		},
 		[18308]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryBleedingPattern",
 			connections={
 			},
 			group=478,
@@ -32543,6 +32585,7 @@ return {
 			}
 		},
 		[19125]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryCasterPattern",
 			connections={
 			},
 			group=555,
@@ -33394,6 +33437,7 @@ return {
 			}
 		},
 		[20388]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryMinionDefencePattern",
 			connections={
 			},
 			group=367,
@@ -33458,6 +33502,7 @@ return {
 			}
 		},
 		[20416]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryChargesPattern",
 			connections={
 			},
 			group=383,
@@ -34421,6 +34466,7 @@ return {
 			}
 		},
 		[21537]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryChargesPattern",
 			connections={
 			},
 			group=996,
@@ -36539,6 +36585,7 @@ return {
 			}
 		},
 		[23764]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryLightningPattern",
 			connections={
 			},
 			group=650,
@@ -37001,6 +37048,7 @@ return {
 			}
 		},
 		[24240]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryBrandPattern",
 			connections={
 				[1]={
 					id=11764,
@@ -38234,6 +38282,7 @@ return {
 			}
 		},
 		[25482]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryAttributesPattern",
 			connections={
 				[1]={
 					id=61472,
@@ -39820,6 +39869,7 @@ return {
 			}
 		},
 		[27108]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryAccuracyPattern",
 			connections={
 				[1]={
 					id=47796,
@@ -40260,6 +40310,7 @@ return {
 			}
 		},
 		[27626]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryManaPattern",
 			connections={
 				[1]={
 					id=15628,
@@ -40527,6 +40578,7 @@ return {
 			}
 		},
 		[27875]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryLightningPattern",
 			connections={
 				[1]={
 					id=32123,
@@ -40852,6 +40904,7 @@ return {
 			}
 		},
 		[28258]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryMarkPattern",
 			connections={
 				[1]={
 					id=36976,
@@ -41476,6 +41529,7 @@ return {
 			}
 		},
 		[28835]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryElementalPattern",
 			connections={
 				[1]={
 					id=56847,
@@ -41626,6 +41680,7 @@ return {
 			}
 		},
 		[28975]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryLightningPattern",
 			connections={
 				[1]={
 					id=26905,
@@ -42078,6 +42133,7 @@ return {
 			}
 		},
 		[29372]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryImpalePattern",
 			connections={
 			},
 			group=245,
@@ -42897,6 +42953,7 @@ return {
 			}
 		},
 		[30341]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryBowPattern",
 			connections={
 				[1]={
 					id=1995,
@@ -43740,6 +43797,7 @@ return {
 			}
 		},
 		[31172]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryAttackPattern",
 			connections={
 			},
 			group=896,
@@ -43980,6 +44038,7 @@ return {
 			}
 		},
 		[31364]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryCharmsPattern",
 			connections={
 			},
 			group=819,
@@ -44512,6 +44571,7 @@ return {
 			}
 		},
 		[31925]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryEnergyPattern",
 			connections={
 				[1]={
 					id=24767,
@@ -45009,6 +45069,7 @@ return {
 			}
 		},
 		[32354]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryArmourAndEvasionPattern",
 			connections={
 				[1]={
 					id=6626,
@@ -45892,6 +45953,7 @@ return {
 			}
 		},
 		[33216]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryBleedingPattern",
 			connections={
 			},
 			group=463,
@@ -47300,6 +47362,7 @@ return {
 			}
 		},
 		[34340]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryLifePattern",
 			connections={
 				[1]={
 					id=17294,
@@ -48632,6 +48695,7 @@ return {
 			}
 		},
 		[35809]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryLifePattern",
 			connections={
 			},
 			group=811,
@@ -49311,6 +49375,7 @@ return {
 			}
 		},
 		[36364]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryLightningPattern",
 			connections={
 			},
 			group=966,
@@ -50110,6 +50175,7 @@ return {
 			}
 		},
 		[37266]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryMinionOffencePattern",
 			connections={
 				[1]={
 					id=29930,
@@ -50736,6 +50802,7 @@ return {
 			}
 		},
 		[37806]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryLightningPattern",
 			connections={
 			},
 			group=675,
@@ -51318,6 +51385,7 @@ return {
 			}
 		},
 		[38342]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryStunPattern",
 			connections={
 			},
 			group=984,
@@ -51681,6 +51749,7 @@ return {
 			}
 		},
 		[38614]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryCasterPattern",
 			connections={
 				[1]={
 					id=27662,
@@ -51703,6 +51772,7 @@ return {
 			}
 		},
 		[38628]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryPoisonPattern",
 			connections={
 			},
 			group=999,
@@ -52797,6 +52867,7 @@ return {
 			}
 		},
 		[39567]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryAttributesPattern",
 			connections={
 				[1]={
 					id=53188,
@@ -53296,6 +53367,7 @@ return {
 			}
 		},
 		[40073]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryLightningPattern",
 			connections={
 			},
 			group=608,
@@ -53417,6 +53489,7 @@ return {
 			}
 		},
 		[40270]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryChargesPattern",
 			connections={
 			},
 			group=741,
@@ -53589,6 +53662,7 @@ return {
 			}
 		},
 		[40480]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryLightningPattern",
 			connections={
 				[1]={
 					id=1953,
@@ -53879,6 +53953,7 @@ return {
 			}
 		},
 		[40990]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryLightningPattern",
 			connections={
 			},
 			group=956,
@@ -55133,6 +55208,7 @@ return {
 			}
 		},
 		[42177]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryAttackPattern",
 			connections={
 				[1]={
 					id=11153,
@@ -55273,6 +55349,7 @@ return {
 			}
 		},
 		[42302]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryProjectilePattern",
 			connections={
 				[1]={
 					id=45331,
@@ -55894,6 +55971,7 @@ return {
 			}
 		},
 		[42981]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryPhysicalPattern",
 			connections={
 			},
 			group=418,
@@ -55964,6 +56042,7 @@ return {
 			}
 		},
 		[43082]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryEvasionPattern",
 			connections={
 			},
 			group=944,
@@ -56462,6 +56541,7 @@ return {
 			}
 		},
 		[43677]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryPoisonPattern",
 			connections={
 			},
 			group=769,
@@ -57168,6 +57248,7 @@ return {
 			}
 		},
 		[44330]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryAttackPattern",
 			connections={
 			},
 			group=528,
@@ -57556,6 +57637,7 @@ return {
 			}
 		},
 		[44566]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryLightningPattern",
 			connections={
 			},
 			group=582,
@@ -57926,6 +58008,7 @@ return {
 			}
 		},
 		[44836]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryArmourAndEvasionPattern",
 			connections={
 				[1]={
 					id=47150,
@@ -58058,6 +58141,7 @@ return {
 			}
 		},
 		[44917]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryLeechPattern",
 			connections={
 				[1]={
 					id=34984,
@@ -58719,6 +58803,7 @@ return {
 			}
 		},
 		[45599]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryShieldPattern",
 			connections={
 				[1]={
 					id=6689,
@@ -58758,6 +58843,7 @@ return {
 			}
 		},
 		[45612]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryShieldPattern",
 			connections={
 				[1]={
 					id=53901,
@@ -59688,6 +59774,7 @@ return {
 			}
 		},
 		[46499]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryChargesPattern",
 			connections={
 			},
 			group=99,
@@ -60944,6 +61031,7 @@ return {
 			}
 		},
 		[47635]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryLightningPattern",
 			connections={
 			},
 			group=814,
@@ -63167,6 +63255,7 @@ return {
 			}
 		},
 		[49550]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryImpalePattern",
 			connections={
 			},
 			group=330,
@@ -63308,6 +63397,7 @@ return {
 			}
 		},
 		[49661]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryBleedingPattern",
 			connections={
 			},
 			group=776,
@@ -63798,6 +63888,7 @@ return {
 			}
 		},
 		[50253]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryAttackPattern",
 			connections={
 			},
 			group=191,
@@ -63892,6 +63983,7 @@ return {
 			}
 		},
 		[50342]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryEvasionPattern",
 			connections={
 				[1]={
 					id=5227,
@@ -63931,6 +64023,7 @@ return {
 			}
 		},
 		[50392]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryAttributesPattern",
 			connections={
 			},
 			group=108,
@@ -64371,6 +64464,7 @@ return {
 			}
 		},
 		[50687]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryLightningPattern",
 			connections={
 			},
 			group=472,
@@ -64719,6 +64813,7 @@ return {
 			}
 		},
 		[51169]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryEnergyPattern",
 			connections={
 			},
 			group=519,
@@ -64793,6 +64888,7 @@ return {
 			}
 		},
 		[51213]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryDamageOverTimePattern",
 			connections={
 			},
 			group=787,
@@ -65161,6 +65257,7 @@ return {
 			}
 		},
 		[51602]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryMarkPattern",
 			connections={
 			},
 			group=934,
@@ -65176,6 +65273,7 @@ return {
 			}
 		},
 		[51606]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryEvasionPattern",
 			connections={
 				[1]={
 					id=65207,
@@ -65239,6 +65337,7 @@ return {
 			}
 		},
 		[51707]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryEvasionPattern",
 			connections={
 				[1]={
 					id=38728,
@@ -65580,6 +65679,7 @@ return {
 			}
 		},
 		[51867]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryAttackPattern",
 			connections={
 			},
 			group=232,
@@ -65912,6 +66012,7 @@ return {
 			}
 		},
 		[52199]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryElementalPattern",
 			connections={
 				[1]={
 					id=44498,
@@ -67002,6 +67103,7 @@ return {
 			}
 		},
 		[53294]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryFirePattern",
 			connections={
 				[1]={
 					id=33397,
@@ -67621,6 +67723,7 @@ return {
 			}
 		},
 		[53921]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryStunPattern",
 			connections={
 				[1]={
 					id=58838,
@@ -68617,6 +68720,7 @@ return {
 			}
 		},
 		[54805]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryBrandPattern",
 			connections={
 			},
 			group=739,
@@ -68914,6 +69018,7 @@ return {
 			}
 		},
 		[54990]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryBleedingPattern",
 			connections={
 			},
 			group=457,
@@ -69914,6 +70019,7 @@ return {
 			}
 		},
 		[55708]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryLightningPattern",
 			connections={
 			},
 			group=581,
@@ -70274,6 +70380,7 @@ return {
 			}
 		},
 		[56063]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryChaosPattern",
 			connections={
 			},
 			group=617,
@@ -70857,6 +70964,7 @@ return {
 			}
 		},
 		[56806]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryBlockPattern",
 			connections={
 			},
 			group=655,
@@ -70993,6 +71101,7 @@ return {
 			}
 		},
 		[56893]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryCharmsPattern",
 			connections={
 			},
 			group=848,
@@ -71449,6 +71558,7 @@ return {
 			}
 		},
 		[57190]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryElementalPattern",
 			connections={
 				[1]={
 					id=27859,
@@ -72172,6 +72282,7 @@ return {
 			}
 		},
 		[57967]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryManaPattern",
 			connections={
 			},
 			group=373,
@@ -72655,6 +72766,7 @@ return {
 			}
 		},
 		[58397]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryAttributesPattern",
 			connections={
 				[1]={
 					id=19338,
@@ -73026,6 +73138,7 @@ return {
 			}
 		},
 		[59047]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryMarkPattern",
 			connections={
 				[1]={
 					id=21005,
@@ -73835,6 +73948,7 @@ return {
 			}
 		},
 		[59720]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryEvasionPattern",
 			connections={
 				[1]={
 					id=41163,
@@ -74261,6 +74375,7 @@ return {
 			}
 		},
 		[60034]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryAccuracyPattern",
 			connections={
 				[1]={
 					id=15207,
@@ -74304,6 +74419,7 @@ return {
 			}
 		},
 		[60083]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryProjectilePattern",
 			connections={
 				[1]={
 					id=44239,
@@ -74800,6 +74916,7 @@ return {
 			}
 		},
 		[60692]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryFirePattern",
 			connections={
 				[1]={
 					id=16367,
@@ -74852,6 +74969,7 @@ return {
 			}
 		},
 		[60764]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryBowPattern",
 			connections={
 			},
 			group=1002,
@@ -75834,6 +75952,7 @@ return {
 			}
 		},
 		[61741]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryPoisonPattern",
 			connections={
 				[1]={
 					id=40024,
@@ -76263,6 +76382,7 @@ return {
 			}
 		},
 		[62034]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryResistancesAndAilmentProtectionPattern",
 			connections={
 			},
 			group=67,
@@ -76420,6 +76540,7 @@ return {
 			}
 		},
 		[62230]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryEnergyPattern",
 			connections={
 				[1]={
 					id=19355,
@@ -77096,6 +77217,7 @@ return {
 			}
 		},
 		[62984]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryEvasionAndEnergyShieldPattern",
 			connections={
 				[1]={
 					id=15975,
@@ -77229,6 +77351,7 @@ return {
 			}
 		},
 		[63074]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryChaosPattern",
 			connections={
 			},
 			group=1009,
@@ -77372,6 +77495,7 @@ return {
 			}
 		},
 		[63255]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryChargesPattern",
 			connections={
 			},
 			group=706,
@@ -77457,6 +77581,7 @@ return {
 			}
 		},
 		[63451]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryStunPattern",
 			connections={
 				[1]={
 					id=44406,
@@ -77682,6 +77807,7 @@ return {
 			}
 		},
 		[63585]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryLightningPattern",
 			connections={
 			},
 			group=736,
@@ -78046,6 +78172,7 @@ return {
 			}
 		},
 		[63981]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryStunPattern",
 			connections={
 				[1]={
 					id=8194,
@@ -78811,6 +78938,7 @@ return {
 			}
 		},
 		[64851]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryBlockPattern",
 			connections={
 				[1]={
 					id=39658,
@@ -78975,6 +79103,7 @@ return {
 			}
 		},
 		[65023]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryArmourPattern",
 			connections={
 			},
 			group=423,
@@ -79022,6 +79151,7 @@ return {
 			}
 		},
 		[65160]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryStunPattern",
 			connections={
 				[1]={
 					id=44069,
@@ -79192,6 +79322,7 @@ return {
 			}
 		},
 		[65265]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryBlockPattern",
 			connections={
 				[1]={
 					id=17146,
@@ -83183,200 +83314,218 @@ return {
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryAccuracyPattern"]={
 						h=96,
 						w=97,
-						x=576,
+						x=384,
 						y=288
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryArmourAndEnergyShieldPattern"]={
 						h=96,
 						w=97,
-						x=576,
-						y=0
+						x=768,
+						y=96
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryArmourAndEvasionPattern"]={
 						h=96,
 						w=97,
-						x=288,
+						x=384,
 						y=96
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryArmourPattern"]={
 						h=96,
 						w=97,
-						x=864,
+						x=960,
 						y=0
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryAttackPattern"]={
 						h=96,
 						w=97,
-						x=192,
-						y=0
+						x=672,
+						y=96
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryAttributesPattern"]={
 						h=96,
 						w=97,
-						x=0,
-						y=288
+						x=576,
+						y=192
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryAxePattern"]={
 						h=96,
 						w=97,
-						x=960,
+						x=480,
+						y=0
+					},
+					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryBleedingPattern"]={
+						h=96,
+						w=97,
+						x=0,
 						y=96
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryBlindPattern"]={
 						h=96,
 						w=97,
-						x=0,
-						y=384
+						x=768,
+						y=192
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryBlockPattern"]={
 						h=96,
 						w=97,
-						x=96,
-						y=96
+						x=192,
+						y=0
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryBowPattern"]={
 						h=96,
 						w=97,
-						x=384,
-						y=0
-					},
-					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryCasterPattern"]={
-						h=96,
-						w=97,
-						x=96,
-						y=192
-					},
-					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryChaosPattern"]={
-						h=96,
-						w=97,
-						x=864,
+						x=672,
 						y=288
 					},
-					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryChargesPattern"]={
+					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryBrandPattern"]={
 						h=96,
 						w=97,
 						x=1056,
 						y=192
 					},
+					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryCasterPattern"]={
+						h=96,
+						w=97,
+						x=0,
+						y=192
+					},
+					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryChaosPattern"]={
+						h=96,
+						w=97,
+						x=960,
+						y=288
+					},
+					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryChargesPattern"]={
+						h=96,
+						w=97,
+						x=960,
+						y=96
+					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryCharmsPattern"]={
 						h=96,
 						w=97,
-						x=768,
+						x=960,
 						y=192
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryColdPattern"]={
 						h=96,
 						w=97,
 						x=480,
-						y=288
+						y=384
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryCriticalsPattern"]={
 						h=96,
 						w=97,
-						x=672,
+						x=864,
 						y=0
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryCursePattern"]={
 						h=96,
 						w=97,
-						x=960,
+						x=1056,
 						y=288
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryDaggersPattern"]={
 						h=96,
 						w=97,
-						x=864,
-						y=192
+						x=0,
+						y=288
+					},
+					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryDamageOverTimePattern"]={
+						h=96,
+						w=97,
+						x=768,
+						y=0
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryDualWieldPattern"]={
 						h=96,
 						w=97,
-						x=768,
+						x=576,
 						y=288
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryDurationPattern"]={
 						h=96,
 						w=97,
-						x=768,
+						x=1056,
 						y=96
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryElementalPattern"]={
 						h=96,
 						w=97,
-						x=384,
-						y=96
+						x=96,
+						y=192
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryEnergyPattern"]={
 						h=96,
 						w=97,
-						x=1056,
+						x=288,
 						y=96
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryEvasionAndEnergyShieldPattern"]={
 						h=96,
 						w=97,
-						x=288,
-						y=192
+						x=480,
+						y=288
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryEvasionPattern"]={
 						h=96,
 						w=97,
-						x=1056,
-						y=288
+						x=672,
+						y=192
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryFirePattern"]={
 						h=96,
 						w=97,
-						x=96,
+						x=576,
 						y=384
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryFlaskPattern"]={
 						h=96,
 						w=97,
-						x=672,
-						y=288
+						x=480,
+						y=192
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryFortifyPattern"]={
 						h=96,
 						w=97,
-						x=960,
-						y=192
+						x=288,
+						y=384
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryImpalePattern"]={
 						h=96,
 						w=97,
-						x=864,
+						x=192,
 						y=96
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryLeechPattern"]={
 						h=96,
 						w=97,
-						x=768,
-						y=0
+						x=192,
+						y=192
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryLifePattern"]={
 						h=96,
 						w=97,
-						x=288,
-						y=0
+						x=96,
+						y=96
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryLightningPattern"]={
 						h=96,
 						w=97,
-						x=576,
-						y=192
+						x=0,
+						y=384
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryLinkPattern"]={
 						h=96,
 						w=97,
-						x=576,
+						x=480,
 						y=96
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryMacePattern"]={
 						h=96,
 						w=97,
-						x=1056,
-						y=0
+						x=384,
+						y=192
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryManaPattern"]={
 						h=96,
@@ -83387,62 +83536,68 @@ return {
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryMarkPattern"]={
 						h=96,
 						w=97,
-						x=384,
-						y=192
+						x=192,
+						y=288
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryMinionDefencePattern"]={
 						h=96,
 						w=97,
-						x=480,
+						x=576,
 						y=0
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryMinionOffencePattern"]={
 						h=96,
 						w=97,
-						x=672,
-						y=96
+						x=96,
+						y=0
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryPhysicalPattern"]={
 						h=96,
 						w=97,
-						x=96,
+						x=384,
 						y=0
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryPoisonPattern"]={
 						h=96,
 						w=97,
-						x=480,
-						y=192
+						x=288,
+						y=288
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryProjectilePattern"]={
 						h=96,
 						w=97,
-						x=384,
-						y=288
+						x=192,
+						y=384
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryRecoveryPattern"]={
 						h=96,
 						w=97,
-						x=480,
+						x=864,
 						y=96
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryReservationPattern"]={
 						h=96,
 						w=97,
-						x=192,
+						x=288,
 						y=192
+					},
+					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryResistancesAndAilmentProtectionPattern"]={
+						h=96,
+						w=97,
+						x=384,
+						y=384
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryShieldPattern"]={
 						h=96,
 						w=97,
-						x=672,
-						y=192
+						x=576,
+						y=96
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasterySpellSuppressionPattern"]={
 						h=96,
 						w=97,
-						x=192,
-						y=288
+						x=96,
+						y=384
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryStaffPattern"]={
 						h=96,
@@ -83450,34 +83605,40 @@ return {
 						x=0,
 						y=0
 					},
+					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryStunPattern"]={
+						h=96,
+						w=97,
+						x=288,
+						y=0
+					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasterySwordPattern"]={
 						h=96,
 						w=97,
-						x=192,
-						y=96
+						x=768,
+						y=288
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryTotemPattern"]={
 						h=96,
 						w=97,
-						x=0,
-						y=96
+						x=672,
+						y=0
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryTrapsPattern"]={
 						h=96,
 						w=97,
-						x=288,
-						y=288
+						x=864,
+						y=192
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryTwoHandsPattern"]={
 						h=96,
 						w=97,
-						x=0,
-						y=192
+						x=864,
+						y=288
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryWarcryPattern"]={
 						h=96,
 						w=97,
-						x=960,
+						x=1056,
 						y=0
 					}
 				},
@@ -83490,200 +83651,218 @@ return {
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryAccuracyPattern"]={
 						h=192,
 						w=194,
-						x=0,
-						y=1344
+						x=768,
+						y=1152
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryArmourAndEnergyShieldPattern"]={
 						h=192,
 						w=194,
-						x=0,
-						y=192
+						x=384,
+						y=576
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryArmourAndEvasionPattern"]={
 						h=192,
 						w=194,
-						x=576,
+						x=768,
 						y=384
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryArmourPattern"]={
 						h=192,
 						w=194,
-						x=576,
+						x=768,
 						y=192
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryAttackPattern"]={
 						h=192,
 						w=194,
-						x=384,
-						y=0
+						x=192,
+						y=576
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryAttributesPattern"]={
 						h=192,
 						w=194,
 						x=0,
-						y=1152
+						y=960
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryAxePattern"]={
 						h=192,
 						w=194,
-						x=768,
-						y=576
+						x=960,
+						y=0
+					},
+					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryBleedingPattern"]={
+						h=192,
+						w=194,
+						x=0,
+						y=384
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryBlindPattern"]={
 						h=192,
 						w=194,
-						x=0,
-						y=1536
+						x=384,
+						y=960
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryBlockPattern"]={
 						h=192,
 						w=194,
-						x=192,
-						y=384
+						x=384,
+						y=0
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryBowPattern"]={
 						h=192,
 						w=194,
-						x=768,
-						y=0
-					},
-					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryCasterPattern"]={
-						h=192,
-						w=194,
 						x=192,
-						y=768
-					},
-					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryChaosPattern"]={
-						h=192,
-						w=194,
-						x=576,
 						y=1344
 					},
-					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryChargesPattern"]={
+					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryBrandPattern"]={
 						h=192,
 						w=194,
 						x=960,
 						y=960
 					},
+					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryCasterPattern"]={
+						h=192,
+						w=194,
+						x=0,
+						y=768
+					},
+					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryChaosPattern"]={
+						h=192,
+						w=194,
+						x=768,
+						y=1344
+					},
+					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryChargesPattern"]={
+						h=192,
+						w=194,
+						x=768,
+						y=576
+					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryCharmsPattern"]={
 						h=192,
 						w=194,
-						x=384,
+						x=768,
 						y=960
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryColdPattern"]={
 						h=192,
 						w=194,
 						x=960,
-						y=1152
+						y=1536
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryCriticalsPattern"]={
 						h=192,
 						w=194,
-						x=192,
+						x=576,
 						y=192
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryCursePattern"]={
 						h=192,
 						w=194,
-						x=768,
+						x=960,
 						y=1344
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryDaggersPattern"]={
 						h=192,
 						w=194,
-						x=576,
-						y=960
+						x=0,
+						y=1152
+					},
+					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryDamageOverTimePattern"]={
+						h=192,
+						w=194,
+						x=384,
+						y=192
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryDualWieldPattern"]={
 						h=192,
 						w=194,
-						x=384,
+						x=0,
 						y=1344
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryDurationPattern"]={
 						h=192,
 						w=194,
-						x=384,
+						x=960,
 						y=576
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryElementalPattern"]={
 						h=192,
 						w=194,
-						x=768,
-						y=384
+						x=192,
+						y=768
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryEnergyPattern"]={
 						h=192,
 						w=194,
-						x=960,
-						y=576
+						x=576,
+						y=384
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryEvasionAndEnergyShieldPattern"]={
 						h=192,
 						w=194,
-						x=576,
-						y=768
+						x=960,
+						y=1152
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryEvasionPattern"]={
 						h=192,
 						w=194,
-						x=960,
-						y=1344
+						x=192,
+						y=960
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryFirePattern"]={
 						h=192,
 						w=194,
-						x=192,
-						y=1536
+						x=0,
+						y=1728
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryFlaskPattern"]={
 						h=192,
 						w=194,
-						x=192,
-						y=1344
+						x=960,
+						y=768
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryFortifyPattern"]={
 						h=192,
 						w=194,
-						x=768,
-						y=960
+						x=576,
+						y=1536
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryImpalePattern"]={
 						h=192,
 						w=194,
-						x=576,
-						y=576
+						x=384,
+						y=384
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryLeechPattern"]={
 						h=192,
 						w=194,
 						x=384,
-						y=192
+						y=768
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryLifePattern"]={
 						h=192,
 						w=194,
-						x=576,
-						y=0
+						x=192,
+						y=384
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryLightningPattern"]={
 						h=192,
 						w=194,
 						x=0,
-						y=960
+						y=1536
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryLinkPattern"]={
 						h=192,
 						w=194,
-						x=0,
-						y=576
+						x=960,
+						y=384
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryMacePattern"]={
 						h=192,
 						w=194,
-						x=960,
-						y=192
+						x=768,
+						y=768
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryManaPattern"]={
 						h=192,
@@ -83694,62 +83873,68 @@ return {
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryMarkPattern"]={
 						h=192,
 						w=194,
-						x=768,
-						y=768
+						x=384,
+						y=1152
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryMinionDefencePattern"]={
 						h=192,
 						w=194,
-						x=960,
-						y=0
+						x=0,
+						y=192
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryMinionOffencePattern"]={
 						h=192,
 						w=194,
 						x=192,
-						y=576
+						y=0
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryPhysicalPattern"]={
 						h=192,
 						w=194,
-						x=192,
+						x=768,
 						y=0
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryPoisonPattern"]={
 						h=192,
 						w=194,
-						x=960,
-						y=768
+						x=576,
+						y=1152
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryProjectilePattern"]={
 						h=192,
 						w=194,
-						x=768,
-						y=1152
+						x=384,
+						y=1536
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryRecoveryPattern"]={
 						h=192,
 						w=194,
-						x=960,
-						y=384
+						x=576,
+						y=576
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryReservationPattern"]={
 						h=192,
 						w=194,
-						x=384,
+						x=576,
 						y=768
+					},
+					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryResistancesAndAilmentProtectionPattern"]={
+						h=192,
+						w=194,
+						x=768,
+						y=1536
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryShieldPattern"]={
 						h=192,
 						w=194,
-						x=192,
-						y=960
+						x=0,
+						y=576
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasterySpellSuppressionPattern"]={
 						h=192,
 						w=194,
-						x=384,
-						y=1152
+						x=192,
+						y=1536
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryStaffPattern"]={
 						h=192,
@@ -83757,39 +83942,45 @@ return {
 						x=0,
 						y=0
 					},
+					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryStunPattern"]={
+						h=192,
+						w=194,
+						x=576,
+						y=0
+					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasterySwordPattern"]={
 						h=192,
 						w=194,
 						x=384,
-						y=384
+						y=1344
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryTotemPattern"]={
 						h=192,
 						w=194,
-						x=0,
-						y=384
+						x=192,
+						y=192
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryTrapsPattern"]={
 						h=192,
 						w=194,
 						x=576,
-						y=1152
+						y=960
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryTwoHandsPattern"]={
 						h=192,
 						w=194,
-						x=0,
-						y=768
+						x=576,
+						y=1344
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryWarcryPattern"]={
 						h=192,
 						w=194,
-						x=768,
+						x=960,
 						y=192
 					}
 				},
 				filename="mastery-active-effect-1.png",
-				h=1728,
+				h=1920,
 				w=1152
 			},
 			[0.2972]={
@@ -83797,200 +83988,218 @@ return {
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryAccuracyPattern"]={
 						h=384,
 						w=388,
-						x=0,
-						y=5376
+						x=384,
+						y=4992
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryArmourAndEnergyShieldPattern"]={
 						h=384,
 						w=388,
-						x=0,
-						y=768
+						x=768,
+						y=2304
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryArmourAndEvasionPattern"]={
 						h=384,
 						w=388,
-						x=0,
+						x=384,
 						y=1920
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryArmourPattern"]={
 						h=384,
 						w=388,
-						x=0,
+						x=384,
 						y=1152
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryAttackPattern"]={
 						h=384,
 						w=388,
-						x=768,
-						y=0
+						x=384,
+						y=2304
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryAttributesPattern"]={
 						h=384,
 						w=388,
 						x=0,
-						y=4608
+						y=3840
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryAxePattern"]={
 						h=384,
 						w=388,
-						x=384,
-						y=2688
-					},
-					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryBlindPattern"]={
-						h=384,
-						w=388,
-						x=0,
-						y=6144
-					},
-					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryBlockPattern"]={
-						h=384,
-						w=388,
-						x=384,
-						y=1536
-					},
-					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryBowPattern"]={
-						h=384,
-						w=388,
-						x=384,
+						x=768,
 						y=384
 					},
-					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryCasterPattern"]={
-						h=384,
-						w=388,
-						x=384,
-						y=3072
-					},
-					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryChaosPattern"]={
+					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryBleedingPattern"]={
 						h=384,
 						w=388,
 						x=0,
-						y=5760
+						y=1536
 					},
-					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryChargesPattern"]={
-						h=384,
-						w=388,
-						x=768,
-						y=4224
-					},
-					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryCharmsPattern"]={
+					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryBlindPattern"]={
 						h=384,
 						w=388,
 						x=768,
 						y=3840
 					},
+					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryBlockPattern"]={
+						h=384,
+						w=388,
+						x=768,
+						y=0
+					},
+					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryBowPattern"]={
+						h=384,
+						w=388,
+						x=384,
+						y=5376
+					},
+					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryBrandPattern"]={
+						h=384,
+						w=388,
+						x=768,
+						y=4224
+					},
+					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryCasterPattern"]={
+						h=384,
+						w=388,
+						x=0,
+						y=3072
+					},
+					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryChaosPattern"]={
+						h=384,
+						w=388,
+						x=384,
+						y=5760
+					},
+					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryChargesPattern"]={
+						h=384,
+						w=388,
+						x=384,
+						y=2688
+					},
+					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryCharmsPattern"]={
+						h=384,
+						w=388,
+						x=384,
+						y=4224
+					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryColdPattern"]={
 						h=384,
 						w=388,
 						x=768,
-						y=4992
+						y=6528
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryCriticalsPattern"]={
 						h=384,
 						w=388,
-						x=384,
-						y=768
+						x=0,
+						y=1152
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryCursePattern"]={
 						h=384,
 						w=388,
-						x=384,
+						x=768,
 						y=5760
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryDaggersPattern"]={
 						h=384,
 						w=388,
 						x=0,
-						y=4224
+						y=4608
+					},
+					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryDamageOverTimePattern"]={
+						h=384,
+						w=388,
+						x=768,
+						y=768
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryDualWieldPattern"]={
 						h=384,
 						w=388,
-						x=768,
+						x=0,
 						y=5376
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryDurationPattern"]={
 						h=384,
 						w=388,
 						x=768,
-						y=2304
+						y=2688
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryElementalPattern"]={
 						h=384,
 						w=388,
 						x=384,
-						y=1920
+						y=3072
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryEnergyPattern"]={
 						h=384,
 						w=388,
-						x=768,
-						y=2688
+						x=0,
+						y=1920
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryEvasionAndEnergyShieldPattern"]={
 						h=384,
 						w=388,
-						x=0,
-						y=3456
+						x=768,
+						y=4992
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryEvasionPattern"]={
 						h=384,
 						w=388,
-						x=768,
-						y=5760
+						x=384,
+						y=3840
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryFirePattern"]={
 						h=384,
 						w=388,
-						x=384,
-						y=6144
+						x=0,
+						y=6912
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryFlaskPattern"]={
 						h=384,
 						w=388,
-						x=384,
-						y=5376
+						x=768,
+						y=3456
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryFortifyPattern"]={
 						h=384,
 						w=388,
-						x=384,
-						y=4224
+						x=0,
+						y=6528
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryImpalePattern"]={
 						h=384,
 						w=388,
-						x=0,
-						y=2688
+						x=768,
+						y=1536
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryLeechPattern"]={
 						h=384,
 						w=388,
 						x=768,
-						y=768
+						y=3072
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryLifePattern"]={
 						h=384,
 						w=388,
-						x=0,
-						y=384
+						x=384,
+						y=1536
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryLightningPattern"]={
 						h=384,
 						w=388,
 						x=0,
-						y=3840
+						y=6144
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryLinkPattern"]={
 						h=384,
 						w=388,
-						x=0,
-						y=2304
+						x=768,
+						y=1920
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryMacePattern"]={
 						h=384,
 						w=388,
-						x=768,
-						y=1152
+						x=384,
+						y=3456
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryManaPattern"]={
 						h=384,
@@ -84001,62 +84210,68 @@ return {
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryMarkPattern"]={
 						h=384,
 						w=388,
-						x=384,
-						y=3456
+						x=768,
+						y=4608
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryMinionDefencePattern"]={
 						h=384,
 						w=388,
-						x=768,
-						y=384
+						x=0,
+						y=768
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryMinionOffencePattern"]={
 						h=384,
 						w=388,
 						x=384,
-						y=2304
+						y=0
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryPhysicalPattern"]={
 						h=384,
 						w=388,
 						x=384,
-						y=0
+						y=384
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryPoisonPattern"]={
 						h=384,
 						w=388,
-						x=768,
-						y=3456
+						x=0,
+						y=4992
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryProjectilePattern"]={
 						h=384,
 						w=388,
-						x=384,
-						y=4992
+						x=768,
+						y=6144
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryRecoveryPattern"]={
 						h=384,
 						w=388,
-						x=768,
-						y=1920
+						x=0,
+						y=2688
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryReservationPattern"]={
 						h=384,
 						w=388,
-						x=768,
-						y=3072
+						x=0,
+						y=3456
+					},
+					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryResistancesAndAilmentProtectionPattern"]={
+						h=384,
+						w=388,
+						x=384,
+						y=6528
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryShieldPattern"]={
 						h=384,
 						w=388,
-						x=384,
-						y=3840
+						x=0,
+						y=2304
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasterySpellSuppressionPattern"]={
 						h=384,
 						w=388,
-						x=768,
-						y=4608
+						x=384,
+						y=6144
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryStaffPattern"]={
 						h=384,
@@ -84064,39 +84279,45 @@ return {
 						x=0,
 						y=0
 					},
+					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryStunPattern"]={
+						h=384,
+						w=388,
+						x=0,
+						y=384
+					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasterySwordPattern"]={
 						h=384,
 						w=388,
 						x=768,
-						y=1536
+						y=5376
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryTotemPattern"]={
 						h=384,
 						w=388,
-						x=0,
-						y=1536
+						x=384,
+						y=768
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryTrapsPattern"]={
 						h=384,
 						w=388,
 						x=0,
-						y=4992
+						y=4224
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryTwoHandsPattern"]={
 						h=384,
 						w=388,
 						x=0,
-						y=3072
+						y=5760
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryWarcryPattern"]={
 						h=384,
 						w=388,
-						x=384,
+						x=768,
 						y=1152
 					}
 				},
 				filename="mastery-active-effect-2.png",
-				h=6528,
+				h=7296,
 				w=1152
 			},
 			[0.3835]={
@@ -84105,199 +84326,217 @@ return {
 						h=768,
 						w=776,
 						x=0,
-						y=32256
+						y=30720
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryArmourAndEnergyShieldPattern"]={
 						h=768,
 						w=776,
 						x=0,
-						y=4608
+						y=15360
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryArmourAndEvasionPattern"]={
 						h=768,
 						w=776,
 						x=0,
-						y=11520
+						y=12288
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryArmourPattern"]={
 						h=768,
 						w=776,
 						x=0,
-						y=6912
+						y=7680
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryAttackPattern"]={
 						h=768,
 						w=776,
 						x=0,
-						y=1536
+						y=14592
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryAttributesPattern"]={
 						h=768,
 						w=776,
 						x=0,
-						y=27648
+						y=23040
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryAxePattern"]={
 						h=768,
 						w=776,
 						x=0,
-						y=16896
+						y=3840
+					},
+					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryBleedingPattern"]={
+						h=768,
+						w=776,
+						x=0,
+						y=9216
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryBlindPattern"]={
 						h=768,
 						w=776,
 						x=0,
-						y=36864
+						y=24576
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryBlockPattern"]={
 						h=768,
 						w=776,
 						x=0,
-						y=9984
+						y=1536
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryBowPattern"]={
 						h=768,
 						w=776,
 						x=0,
-						y=3072
+						y=33024
 					},
-					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryCasterPattern"]={
-						h=768,
-						w=776,
-						x=0,
-						y=19200
-					},
-					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryChaosPattern"]={
-						h=768,
-						w=776,
-						x=0,
-						y=34560
-					},
-					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryChargesPattern"]={
+					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryBrandPattern"]={
 						h=768,
 						w=776,
 						x=0,
 						y=26880
 					},
-					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryCharmsPattern"]={
+					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryCasterPattern"]={
 						h=768,
 						w=776,
 						x=0,
-						y=24576
+						y=18432
 					},
-					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryColdPattern"]={
-						h=768,
-						w=776,
-						x=0,
-						y=31488
-					},
-					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryCriticalsPattern"]={
-						h=768,
-						w=776,
-						x=0,
-						y=5376
-					},
-					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryCursePattern"]={
+					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryChaosPattern"]={
 						h=768,
 						w=776,
 						x=0,
 						y=35328
 					},
-					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryDaggersPattern"]={
+					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryChargesPattern"]={
 						h=768,
 						w=776,
 						x=0,
-						y=25344
+						y=16896
 					},
-					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryDualWieldPattern"]={
-						h=768,
-						w=776,
-						x=0,
-						y=33792
-					},
-					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryDurationPattern"]={
-						h=768,
-						w=776,
-						x=0,
-						y=15360
-					},
-					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryElementalPattern"]={
-						h=768,
-						w=776,
-						x=0,
-						y=12288
-					},
-					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryEnergyPattern"]={
-						h=768,
-						w=776,
-						x=0,
-						y=17664
-					},
-					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryEvasionAndEnergyShieldPattern"]={
-						h=768,
-						w=776,
-						x=0,
-						y=20736
-					},
-					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryEvasionPattern"]={
-						h=768,
-						w=776,
-						x=0,
-						y=36096
-					},
-					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryFirePattern"]={
-						h=768,
-						w=776,
-						x=0,
-						y=37632
-					},
-					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryFlaskPattern"]={
-						h=768,
-						w=776,
-						x=0,
-						y=33024
-					},
-					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryFortifyPattern"]={
+					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryCharmsPattern"]={
 						h=768,
 						w=776,
 						x=0,
 						y=26112
 					},
-					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryImpalePattern"]={
+					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryColdPattern"]={
 						h=768,
 						w=776,
 						x=0,
-						y=16128
+						y=40704
 					},
-					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryLeechPattern"]={
+					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryCriticalsPattern"]={
+						h=768,
+						w=776,
+						x=0,
+						y=6912
+					},
+					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryCursePattern"]={
+						h=768,
+						w=776,
+						x=0,
+						y=36096
+					},
+					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryDaggersPattern"]={
+						h=768,
+						w=776,
+						x=0,
+						y=27648
+					},
+					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryDamageOverTimePattern"]={
 						h=768,
 						w=776,
 						x=0,
 						y=6144
 					},
+					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryDualWieldPattern"]={
+						h=768,
+						w=776,
+						x=0,
+						y=32256
+					},
+					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryDurationPattern"]={
+						h=768,
+						w=776,
+						x=0,
+						y=17664
+					},
+					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryElementalPattern"]={
+						h=768,
+						w=776,
+						x=0,
+						y=19200
+					},
+					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryEnergyPattern"]={
+						h=768,
+						w=776,
+						x=0,
+						y=11520
+					},
+					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryEvasionAndEnergyShieldPattern"]={
+						h=768,
+						w=776,
+						x=0,
+						y=31488
+					},
+					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryEvasionPattern"]={
+						h=768,
+						w=776,
+						x=0,
+						y=23808
+					},
+					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryFirePattern"]={
+						h=768,
+						w=776,
+						x=0,
+						y=41472
+					},
+					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryFlaskPattern"]={
+						h=768,
+						w=776,
+						x=0,
+						y=22272
+					},
+					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryFortifyPattern"]={
+						h=768,
+						w=776,
+						x=0,
+						y=39168
+					},
+					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryImpalePattern"]={
+						h=768,
+						w=776,
+						x=0,
+						y=10752
+					},
+					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryLeechPattern"]={
+						h=768,
+						w=776,
+						x=0,
+						y=19968
+					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryLifePattern"]={
 						h=768,
 						w=776,
 						x=0,
-						y=2304
+						y=9984
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryLightningPattern"]={
 						h=768,
 						w=776,
 						x=0,
-						y=23040
+						y=36864
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryLinkPattern"]={
 						h=768,
 						w=776,
 						x=0,
-						y=13824
+						y=13056
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryMacePattern"]={
 						h=768,
 						w=776,
 						x=0,
-						y=8448
+						y=21504
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryManaPattern"]={
 						h=768,
@@ -84309,61 +84548,67 @@ return {
 						h=768,
 						w=776,
 						x=0,
-						y=21504
+						y=29184
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryMinionDefencePattern"]={
 						h=768,
 						w=776,
 						x=0,
-						y=3840
+						y=4608
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryMinionOffencePattern"]={
 						h=768,
 						w=776,
 						x=0,
-						y=14592
+						y=768
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryPhysicalPattern"]={
 						h=768,
 						w=776,
 						x=0,
-						y=768
+						y=3072
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryPoisonPattern"]={
 						h=768,
 						w=776,
 						x=0,
-						y=22272
+						y=29952
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryProjectilePattern"]={
 						h=768,
 						w=776,
 						x=0,
-						y=30720
+						y=38400
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryRecoveryPattern"]={
 						h=768,
 						w=776,
 						x=0,
-						y=13056
+						y=16128
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryReservationPattern"]={
 						h=768,
 						w=776,
 						x=0,
-						y=19968
+						y=20736
+					},
+					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryResistancesAndAilmentProtectionPattern"]={
+						h=768,
+						w=776,
+						x=0,
+						y=39936
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryShieldPattern"]={
 						h=768,
 						w=776,
 						x=0,
-						y=23808
+						y=13824
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasterySpellSuppressionPattern"]={
 						h=768,
 						w=776,
 						x=0,
-						y=29184
+						y=37632
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryStaffPattern"]={
 						h=768,
@@ -84371,39 +84616,45 @@ return {
 						x=0,
 						y=0
 					},
+					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryStunPattern"]={
+						h=768,
+						w=776,
+						x=0,
+						y=2304
+					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasterySwordPattern"]={
 						h=768,
 						w=776,
 						x=0,
-						y=10752
+						y=33792
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryTotemPattern"]={
 						h=768,
 						w=776,
 						x=0,
-						y=9216
+						y=5376
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryTrapsPattern"]={
 						h=768,
 						w=776,
 						x=0,
-						y=29952
+						y=25344
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryTwoHandsPattern"]={
 						h=768,
 						w=776,
 						x=0,
-						y=18432
+						y=34560
 					},
 					["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryWarcryPattern"]={
 						h=768,
 						w=776,
 						x=0,
-						y=7680
+						y=8448
 					}
 				},
 				filename="mastery-active-effect-3.png",
-				h=38400,
+				h=42240,
 				w=768
 			}
 		},

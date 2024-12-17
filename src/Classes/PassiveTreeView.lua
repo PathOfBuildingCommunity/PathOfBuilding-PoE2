@@ -545,6 +545,10 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 				if node.isTattoo and node.effectSprites then -- trees < 3.22.0 don't have effectSprites
 					effect = node.effectSprites["tattooActiveEffect"]
 				end
+
+				if node.activeEffectImage then
+					effect = tree:GetAssetByName(node.activeEffectImage, "masteryActiveEffect")
+				end
 				base = node.sprites[node.type:lower()..(isAlloc and "Active" or "Inactive")]
 
 				overlay = node.overlay[state .. (node.ascendancyName and "Ascend" or "") .. (node.isBlighted and "Blighted" or "")]
@@ -637,8 +641,18 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 
 		-- Draw mastery/tattoo effect artwork
 		if effect then
+			if node.targetSize and node.targetSize["effect"] then
+				effect.width = node.targetSize["effect"].width
+				effect.height = node.targetSize["effect"].height
+			end
 			SetDrawLayer(nil, 15)
+			if isAlloc or (self.tracePath and isValueInArray(self.tracePath, node)) or (hoverNode and hoverNode.path and isValueInArray(hoverNode.path, node))  then
+				SetDrawColor(1, 1, 1)
+			else
+				SetDrawColor(1,1,1, 0.15)
+			end
 			self:DrawAsset(effect, scrX, scrY, scale)
+			SetDrawColor(1, 1, 1)
 			SetDrawLayer(nil, 25)
 		end
 
