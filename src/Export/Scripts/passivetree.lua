@@ -70,11 +70,11 @@ local function print_table(t, indent)
     end
 end
 
-local function newSheet(name, maxWidth, opacity, maxGroups)
+local function newSheet(name, maxWidth, saturation, maxGroups)
 	return {
 		name = name,
 		maxWidth = maxWidth,
-		opacity = opacity,
+		saturation = saturation,
 		maxGroups = maxGroups,
 		sprites = { },
 		files = {}
@@ -180,14 +180,15 @@ local function generateSprite(sheet, path_base, path_out,executeCommand)
 			group,
 			path_base,
 			path_out, GetRuntimePath() .. "/lua/gimpbatch/combine_dds.scm",
-			sheet.opacity,
+			sheet.saturation,
 			executeCommand
 		)
 		:: continue ::
 	end
 end
 
-local function extractFromGgpk(listToExtract)
+local function extractFromGgpk(listToExtract, useRegex)
+	useRegex = useRegex or false
 	local sweetSpotCharacter = 6000
 	printf("Extracting ...")
 	local fileList = ''
@@ -195,13 +196,13 @@ local function extractFromGgpk(listToExtract)
 		fileList = fileList .. '"' .. string.lower(fname) .. '" '
 
 		if fileList:len() > sweetSpotCharacter then
-			main.ggpk:ExtractFilesWithBun(fileList)
+			main.ggpk:ExtractFilesWithBun(fileList, useRegex)
 			fileList = ''
 		end
 	end
 
 	if fileList:len() > 0 then
-		main.ggpk:ExtractFilesWithBun(fileList)
+		main.ggpk:ExtractFilesWithBun(fileList, useRegex)
 		fileList = ''
 	end
 end
@@ -405,10 +406,10 @@ local defaultMaxWidth = 86*14
 local maxGroups = 5 -- this is base on imageZoomLevels
 local sheets = {
 	newSheet("skills",  defaultMaxWidth, 100, maxGroups),
-	newSheet("skills-disabled", defaultMaxWidth, 90, maxGroups),
+	newSheet("skills-disabled", defaultMaxWidth, 40, maxGroups),
 	newSheet("mastery", defaultMaxWidth, 100, maxGroups),
 	newSheet("mastery-active-selected", defaultMaxWidth, 100, maxGroups),
-	newSheet("mastery-disabled", defaultMaxWidth, 90, maxGroups),
+	newSheet("mastery-disabled", defaultMaxWidth, 40, maxGroups),
 	newSheet("mastery-connected", defaultMaxWidth, 100, maxGroups),
 	newSheet("background", 2400, 100, maxGroups),
 	newSheet("group-background", defaultMaxWidth, 100, maxGroups),
@@ -551,7 +552,7 @@ addToSheet(getSheet("group-background"), ascStart, "startNode", commonBackground
 
 -- we need to stract lines from dds
 local listAdditionalAssets = {
-	"art/2dart/passivetree/passiveskillwormholelightpulse.dds",
+	"^art/2dart/passivetree/passiveskillwormholelightpulse.dds",
 	"art/2dart/passivetree/passiveskillscreencurvesnormaltogether.dds",
 	"art/2dart/passivetree/passiveskillscreencurvesnormalbluetogether.dds",
 	"art/2dart/passivetree/passiveskillscreencurvesnormalalttogether.dds",
@@ -590,11 +591,36 @@ local listAdditionalAssets = {
 	"art/2dart/uieffects/passiveskillscreen/atlaskeystoneframemask.dds",
 	"art/2dart/uieffects/passiveskillscreen/ascendancyframesmallmask.dds",
 	"art/2dart/uieffects/passiveskillscreen/ascendancyframelargemask.dds",
+	"art/textures/interface/2d/2dart/uiimages/ingame/passivetree/ptscrollbarthumb.dds",
+	"art/textures/interface/2d/2dart/uiimages/ingame/passivetree/ptscrollbarbgright.dds",
+	"art/textures/interface/2d/2dart/uiimages/ingame/passivetree/ptscrollbarbgleft.dds",
+	"art/textures/interface/2d/2dart/uiimages/ingame/passivetree/ptscrollbarbgcenter.dds",
+	"art/textures/interface/2d/2dart/uiimages/ingame/passivetree/passivetreepopupsplitallocation.dds",
+	"art/textures/interface/2d/2dart/uiimages/ingame/passivetree/passivetreepopupapply.dds",
+	"art/textures/interface/2d/2dart/uiimages/ingame/passivetree/passivetreepaneltop.dds",
+	"art/textures/interface/2d/2dart/uiimages/ingame/passivetree/passivetreepanelsetnormal.dds",
+	"art/textures/interface/2d/2dart/uiimages/ingame/passivetree/passivetreepanelsetactive.dds",
+	"art/textures/interface/2d/2dart/uiimages/ingame/passivetree/passivetreepanelgold.dds",
+	"art/textures/interface/2d/2dart/uiimages/ingame/passivetree/passivetreepanelbuttonpressed.dds",
+	"art/textures/interface/2d/2dart/uiimages/ingame/passivetree/passivetreepanelbuttonnormal.dds",
+	"art/textures/interface/2d/2dart/uiimages/ingame/passivetree/passivetreepanelbuttonhover.dds",
+	"art/textures/interface/2d/2dart/uiimages/ingame/passivetree/passivetreepanelbot.dds",
+	"art/textures/interface/2d/2dart/uiimages/ingame/passivetree/passivetreepanel3.dds",
+	"art/textures/interface/2d/2dart/uiimages/ingame/passivetree/passivetreepanel2.dds",
+	"art/textures/interface/2d/2dart/uiimages/ingame/passivetree/passivetreepanel.dds",
+	"art/textures/interface/2d/2dart/uiimages/ingame/passivetree/passivetreemaincircleactive2.dds",
+	"art/textures/interface/2d/2dart/uiimages/ingame/passivetree/passivetreemaincircleactive.dds",
+	"art/textures/interface/2d/2dart/uiimages/ingame/passivetree/passivetreemaincircle.dds",
+	"art/textures/interface/2d/2dart/uiimages/ingame/passivetree/ascendancypassivetreepaneltop.dds",
 }
 
 printf("Extracting Additional Assets...")
 extractFromGgpk(listAdditionalAssets)
 nvtt.CompressDDSIntoOtherFormat(main.ggpk.oozPath, basePath .. version .. "/", "additionalAssets", listAdditionalAssets, ddsFormat, true)
+
+-- adding passive tree assets
+addToSheet(getSheet("ascendancy-background"), "art/textures/interface/2d/2dart/uiimages/ingame/passivetree/passivetreemaincircle.dds", "ascendancyBackground", commonBackgroundMetadata("BGTree", 2000, 2000, 4, ddsFormat))
+addToSheet(getSheet("ascendancy-background"), "art/textures/interface/2d/2dart/uiimages/ingame/passivetree/passivetreemaincircleactive2.dds", "ascendancyBackground", commonBackgroundMetadata("BGTreeActive", 2000, 2000, 4, ddsFormat))
 
 printf("Generating decompose lines images...")
 local linesFiles = {

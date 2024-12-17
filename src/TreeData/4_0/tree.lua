@@ -79370,10 +79370,22 @@ return {
 		ascendancyBackground={
 			[0.1246]={
 				coords={
+					BGTree={
+						h=250,
+						w=250,
+						x=0,
+						y=375
+					},
+					BGTreeActive={
+						h=250,
+						w=250,
+						x=250,
+						y=375
+					},
 					["ClassesAcolyte of Chayula"]={
 						h=187,
 						w=187,
-						x=2062.5,
+						x=0,
 						y=187.5
 					},
 					["ClassesBlood Mage"]={
@@ -79385,73 +79397,73 @@ return {
 					ClassesChronomancer={
 						h=187,
 						w=187,
-						x=187.5,
+						x=1687.5,
 						y=187.5
 					},
 					ClassesDeadeye={
 						h=187,
 						w=187,
-						x=0,
-						y=0
+						x=750,
+						y=187.5
 					},
 					ClassesDruid={
 						h=187,
 						w=187,
-						x=2062.5,
-						y=0
+						x=1500,
+						y=187.5
 					},
 					ClassesDuelist={
-						h=187,
-						w=187,
-						x=937.5,
-						y=0
-					},
-					["ClassesGemling Legionnaire"]={
 						h=187,
 						w=187,
 						x=1687.5,
 						y=0
 					},
+					["ClassesGemling Legionnaire"]={
+						h=187,
+						w=187,
+						x=0,
+						y=0
+					},
 					ClassesHuntress={
 						h=187,
 						w=187,
-						x=750,
-						y=187.5
+						x=562.5,
+						y=0
 					},
 					ClassesInfernalist={
 						h=187,
 						w=187,
-						x=1500,
-						y=187.5
-					},
-					ClassesInvoker={
-						h=187,
-						w=187,
-						x=1312.5,
-						y=187.5
-					},
-					ClassesMarauder={
-						h=187,
-						w=187,
-						x=1500,
+						x=937.5,
 						y=0
 					},
-					ClassesMercenary={
+					ClassesInvoker={
 						h=187,
 						w=187,
 						x=375,
 						y=187.5
 					},
+					ClassesMarauder={
+						h=187,
+						w=187,
+						x=937.5,
+						y=187.5
+					},
+					ClassesMercenary={
+						h=187,
+						w=187,
+						x=1312.5,
+						y=187.5
+					},
 					ClassesMonk={
 						h=187,
 						w=187,
-						x=1875,
+						x=562.5,
 						y=187.5
 					},
 					ClassesPathfinder={
 						h=187,
 						w=187,
-						x=562.5,
+						x=187.5,
 						y=0
 					},
 					ClassesRanger={
@@ -79463,37 +79475,37 @@ return {
 					ClassesShadow={
 						h=187,
 						w=187,
-						x=1687.5,
+						x=2062.5,
 						y=187.5
 					},
 					ClassesSorceress={
 						h=187,
 						w=187,
-						x=0,
+						x=1125,
 						y=187.5
 					},
 					ClassesStormweaver={
 						h=187,
 						w=187,
-						x=937.5,
+						x=187.5,
 						y=187.5
 					},
 					ClassesTemplar={
 						h=187,
 						w=187,
-						x=1125,
+						x=1875,
 						y=187.5
 					},
 					ClassesTitan={
 						h=187,
 						w=187,
-						x=750,
+						x=1500,
 						y=0
 					},
 					ClassesWarbringer={
 						h=187,
 						w=187,
-						x=187.5,
+						x=1875,
 						y=0
 					},
 					ClassesWarrior={
@@ -79505,27 +79517,39 @@ return {
 					ClassesWitch={
 						h=187,
 						w=187,
-						x=562.5,
-						y=187.5
+						x=750,
+						y=0
 					},
 					ClassesWitchhunter={
 						h=187,
 						w=187,
-						x=1875,
+						x=2062.5,
 						y=0
 					}
 				},
 				filename="ascendancy-background-0.png",
-				h=375,
+				h=625,
 				w=2250
 			},
 			[0.2109]={
 				coords={
+					BGTree={
+						h=500,
+						w=500,
+						x=0,
+						y=1500
+					},
+					BGTreeActive={
+						h=500,
+						w=500,
+						x=500,
+						y=1500
+					},
 					["ClassesAcolyte of Chayula"]={
 						h=375,
 						w=375,
-						x=1875,
-						y=1125
+						x=0,
+						y=750
 					},
 					["ClassesBlood Mage"]={
 						h=375,
@@ -79536,73 +79560,73 @@ return {
 					ClassesChronomancer={
 						h=375,
 						w=375,
-						x=375,
-						y=750
+						x=1125,
+						y=1125
 					},
 					ClassesDeadeye={
+						h=375,
+						w=375,
+						x=1500,
+						y=750
+					},
+					ClassesDruid={
+						h=375,
+						w=375,
+						x=750,
+						y=1125
+					},
+					ClassesDuelist={
+						h=375,
+						w=375,
+						x=1125,
+						y=375
+					},
+					["ClassesGemling Legionnaire"]={
 						h=375,
 						w=375,
 						x=0,
 						y=0
 					},
-					ClassesDruid={
+					ClassesHuntress={
 						h=375,
 						w=375,
-						x=1875,
-						y=375
+						x=1125,
+						y=0
 					},
-					ClassesDuelist={
+					ClassesInfernalist={
 						h=375,
 						w=375,
 						x=1875,
 						y=0
 					},
-					["ClassesGemling Legionnaire"]={
-						h=375,
-						w=375,
-						x=1125,
-						y=375
-					},
-					ClassesHuntress={
-						h=375,
-						w=375,
-						x=1500,
-						y=750
-					},
-					ClassesInfernalist={
+					ClassesInvoker={
 						h=375,
 						w=375,
 						x=750,
-						y=1125
+						y=750
 					},
-					ClassesInvoker={
+					ClassesMarauder={
+						h=375,
+						w=375,
+						x=1875,
+						y=750
+					},
+					ClassesMercenary={
 						h=375,
 						w=375,
 						x=375,
 						y=1125
 					},
-					ClassesMarauder={
-						h=375,
-						w=375,
-						x=750,
-						y=375
-					},
-					ClassesMercenary={
-						h=375,
-						w=375,
-						x=750,
-						y=750
-					},
 					ClassesMonk={
 						h=375,
 						w=375,
-						x=1500,
-						y=1125
+						x=1125,
+						y=750
 					},
 					ClassesPathfinder={
 						h=375,
 						w=375,
-						x=1125,
+						x=375,
 						y=0
 					},
 					ClassesRanger={
@@ -79614,38 +79638,38 @@ return {
 					ClassesShadow={
 						h=375,
 						w=375,
-						x=1125,
+						x=1875,
 						y=1125
 					},
 					ClassesSorceress={
 						h=375,
 						w=375,
 						x=0,
-						y=750
+						y=1125
 					},
 					ClassesStormweaver={
 						h=375,
 						w=375,
-						x=1875,
+						x=375,
 						y=750
 					},
 					ClassesTemplar={
 						h=375,
 						w=375,
-						x=0,
+						x=1500,
 						y=1125
 					},
 					ClassesTitan={
 						h=375,
 						w=375,
-						x=1500,
-						y=0
+						x=750,
+						y=375
 					},
 					ClassesWarbringer={
 						h=375,
 						w=375,
-						x=375,
-						y=0
+						x=1500,
+						y=375
 					},
 					ClassesWarrior={
 						h=375,
@@ -79656,27 +79680,39 @@ return {
 					ClassesWitch={
 						h=375,
 						w=375,
-						x=1125,
-						y=750
+						x=1500,
+						y=0
 					},
 					ClassesWitchhunter={
 						h=375,
 						w=375,
-						x=1500,
+						x=1875,
 						y=375
 					}
 				},
 				filename="ascendancy-background-1.png",
-				h=1500,
+				h=2000,
 				w=2250
 			},
 			[0.2972]={
 				coords={
+					BGTree={
+						h=1000,
+						w=1000,
+						x=0,
+						y=6000
+					},
+					BGTreeActive={
+						h=1000,
+						w=1000,
+						x=1000,
+						y=6000
+					},
 					["ClassesAcolyte of Chayula"]={
 						h=750,
 						w=750,
-						x=1500,
-						y=5250
+						x=0,
+						y=3000
 					},
 					["ClassesBlood Mage"]={
 						h=750,
@@ -79687,74 +79723,74 @@ return {
 					ClassesChronomancer={
 						h=750,
 						w=750,
-						x=750,
-						y=3000
+						x=0,
+						y=5250
 					},
 					ClassesDeadeye={
-						h=750,
-						w=750,
-						x=0,
-						y=0
-					},
-					ClassesDruid={
-						h=750,
-						w=750,
-						x=1500,
-						y=2250
-					},
-					ClassesDuelist={
-						h=750,
-						w=750,
-						x=1500,
-						y=750
-					},
-					["ClassesGemling Legionnaire"]={
-						h=750,
-						w=750,
-						x=0,
-						y=2250
-					},
-					ClassesHuntress={
 						h=750,
 						w=750,
 						x=750,
 						y=3750
 					},
+					ClassesDruid={
+						h=750,
+						w=750,
+						x=1500,
+						y=4500
+					},
+					ClassesDuelist={
+						h=750,
+						w=750,
+						x=0,
+						y=2250
+					},
+					["ClassesGemling Legionnaire"]={
+						h=750,
+						w=750,
+						x=0,
+						y=0
+					},
+					ClassesHuntress={
+						h=750,
+						w=750,
+						x=0,
+						y=750
+					},
 					ClassesInfernalist={
 						h=750,
 						w=750,
 						x=1500,
-						y=4500
+						y=750
 					},
 					ClassesInvoker={
-						h=750,
-						w=750,
-						x=750,
-						y=4500
-					},
-					ClassesMarauder={
-						h=750,
-						w=750,
-						x=1500,
-						y=1500
-					},
-					ClassesMercenary={
 						h=750,
 						w=750,
 						x=1500,
 						y=3000
 					},
-					ClassesMonk={
+					ClassesMarauder={
+						h=750,
+						w=750,
+						x=1500,
+						y=3750
+					},
+					ClassesMercenary={
 						h=750,
 						w=750,
 						x=750,
-						y=5250
+						y=4500
+					},
+					ClassesMonk={
+						h=750,
+						w=750,
+						x=0,
+						y=3750
 					},
 					ClassesPathfinder={
 						h=750,
 						w=750,
-						x=0,
-						y=750
+						x=750,
+						y=0
 					},
 					ClassesRanger={
 						h=750,
@@ -79765,38 +79801,38 @@ return {
 					ClassesShadow={
 						h=750,
 						w=750,
-						x=0,
+						x=1500,
 						y=5250
 					},
 					ClassesSorceress={
 						h=750,
 						w=750,
 						x=0,
-						y=3000
+						y=4500
 					},
 					ClassesStormweaver={
 						h=750,
 						w=750,
-						x=1500,
-						y=3750
+						x=750,
+						y=3000
 					},
 					ClassesTemplar={
 						h=750,
 						w=750,
-						x=0,
-						y=4500
+						x=750,
+						y=5250
 					},
 					ClassesTitan={
 						h=750,
 						w=750,
-						x=750,
-						y=750
+						x=1500,
+						y=1500
 					},
 					ClassesWarbringer={
 						h=750,
 						w=750,
 						x=750,
-						y=0
+						y=2250
 					},
 					ClassesWarrior={
 						h=750,
@@ -79807,27 +79843,39 @@ return {
 					ClassesWitch={
 						h=750,
 						w=750,
-						x=0,
-						y=3750
+						x=750,
+						y=750
 					},
 					ClassesWitchhunter={
 						h=750,
 						w=750,
-						x=750,
+						x=1500,
 						y=2250
 					}
 				},
 				filename="ascendancy-background-2.png",
-				h=6000,
+				h=7000,
 				w=2250
 			},
 			[0.3835]={
 				coords={
+					BGTree={
+						h=2000,
+						w=2000,
+						x=0,
+						y=36000
+					},
+					BGTreeActive={
+						h=2000,
+						w=2000,
+						x=0,
+						y=38000
+					},
 					["ClassesAcolyte of Chayula"]={
 						h=1500,
 						w=1500,
 						x=0,
-						y=34500
+						y=18000
 					},
 					["ClassesBlood Mage"]={
 						h=1500,
@@ -79839,73 +79887,73 @@ return {
 						h=1500,
 						w=1500,
 						x=0,
-						y=19500
+						y=31500
 					},
 					ClassesDeadeye={
 						h=1500,
 						w=1500,
 						x=0,
-						y=0
+						y=24000
 					},
 					ClassesDruid={
 						h=1500,
 						w=1500,
 						x=0,
-						y=16500
+						y=30000
 					},
 					ClassesDuelist={
 						h=1500,
 						w=1500,
 						x=0,
-						y=7500
+						y=13500
 					},
 					["ClassesGemling Legionnaire"]={
 						h=1500,
 						w=1500,
 						x=0,
-						y=13500
+						y=0
 					},
 					ClassesHuntress={
 						h=1500,
 						w=1500,
 						x=0,
-						y=24000
+						y=4500
 					},
 					ClassesInfernalist={
 						h=1500,
 						w=1500,
 						x=0,
-						y=30000
+						y=7500
 					},
 					ClassesInvoker={
 						h=1500,
 						w=1500,
 						x=0,
-						y=28500
+						y=21000
 					},
 					ClassesMarauder={
 						h=1500,
 						w=1500,
 						x=0,
-						y=12000
+						y=25500
 					},
 					ClassesMercenary={
 						h=1500,
 						w=1500,
 						x=0,
-						y=21000
+						y=28500
 					},
 					ClassesMonk={
 						h=1500,
 						w=1500,
 						x=0,
-						y=33000
+						y=22500
 					},
 					ClassesPathfinder={
 						h=1500,
 						w=1500,
 						x=0,
-						y=4500
+						y=1500
 					},
 					ClassesRanger={
 						h=1500,
@@ -79917,37 +79965,37 @@ return {
 						h=1500,
 						w=1500,
 						x=0,
-						y=31500
+						y=34500
 					},
 					ClassesSorceress={
 						h=1500,
 						w=1500,
 						x=0,
-						y=18000
+						y=27000
 					},
 					ClassesStormweaver={
 						h=1500,
 						w=1500,
 						x=0,
-						y=25500
+						y=19500
 					},
 					ClassesTemplar={
 						h=1500,
 						w=1500,
 						x=0,
-						y=27000
+						y=33000
 					},
 					ClassesTitan={
 						h=1500,
 						w=1500,
 						x=0,
-						y=6000
+						y=12000
 					},
 					ClassesWarbringer={
 						h=1500,
 						w=1500,
 						x=0,
-						y=1500
+						y=15000
 					},
 					ClassesWarrior={
 						h=1500,
@@ -79959,18 +80007,18 @@ return {
 						h=1500,
 						w=1500,
 						x=0,
-						y=22500
+						y=6000
 					},
 					ClassesWitchhunter={
 						h=1500,
 						w=1500,
 						x=0,
-						y=15000
+						y=16500
 					}
 				},
 				filename="ascendancy-background-3.png",
-				h=36000,
-				w=1500
+				h=40000,
+				w=2000
 			}
 		},
 		background={

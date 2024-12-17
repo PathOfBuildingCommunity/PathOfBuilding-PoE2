@@ -1,4 +1,4 @@
-(define (combine-dds-into-sprite-sheet output_path w h opacity coords)
+(define (combine-dds-into-sprite-sheet output_path w h saturation coords)
   (let* (
          (sprite-sheet (car (gimp-image-new w h RGB)))
          (layer (car (gimp-layer-new sprite-sheet w h RGBA-IMAGE "Layer" 100 NORMAL-MODE)))
@@ -16,7 +16,11 @@
             )
         (gimp-image-insert-layer sprite-sheet layer -1 0)
         (gimp-item-set-visible layer TRUE)
-        (gimp-layer-set-opacity layer opacity)
+        (if (< saturation 100)
+          (begin
+            (gimp-drawable-hue-saturation layer 0 0 0 (- 0 saturation) 0)
+          )
+        )
         (gimp-layer-set-offsets layer x-offset y-offset)
         (gimp-image-delete loaded-image)
       )

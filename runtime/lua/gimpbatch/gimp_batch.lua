@@ -57,7 +57,7 @@ end
 	}
 },
 ]]--
-function module.combine_dds_to_sprite(sheet_name, sheet_data, from_path, to_path, script_batch_path, opacity, executeCommand)
+function module.combine_dds_to_sprite(sheet_name, sheet_data, from_path, to_path, script_batch_path, saturation, executeCommand)
 	executeCommand = executeCommand == nil and true or executeCommand
 	local fileLog = to_path.."log_" .. sheet_name  .. ".txt"
 	printf(fileLog)
@@ -94,7 +94,7 @@ function module.combine_dds_to_sprite(sheet_name, sheet_data, from_path, to_path
 
 	local callToFunction = string.format(
 		"(combine-dds-into-sprite-sheet \"%s\" %d %d %d '(%s))", 
-		escape_path(output_path), width, height, opacity, coords_str
+		escape_path(output_path), width, height, saturation, coords_str
 	)
 
 	script_batch_content = script_batch_content .. "\n\n" .. callToFunction

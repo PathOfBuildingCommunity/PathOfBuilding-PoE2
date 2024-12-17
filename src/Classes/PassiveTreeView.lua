@@ -315,17 +315,31 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 		bg.width, bg.height = bg.handle:ImageSize()
 	end
 	if bg.width > 0 then
-		local bgSize = bg.width * scale
+		local bgSize = bg.width * scale * tree.scaleImage
 		SetDrawColor(1, 1, 1)
 		DrawImage(bg.handle, viewPort.x, viewPort.y, viewPort.width, viewPort.height, (self.zoomX + viewPort.width/2) / -bgSize, (self.zoomY + viewPort.height/2) / -bgSize, (viewPort.width/2 - self.zoomX) / bgSize, (viewPort.height/2 - self.zoomY) / bgSize)
 	end
 
+	
+	-- TODO: More dynamic
+	local treeCenter = tree:GetAssetByName("BGTree", "ascendancyBackground")
+	local treeCenterActive = tree:GetAssetByName("BGTreeActive", "ascendancyBackground")
 	-- draw background artwork base on current class
 	local class = tree.classes[spec.curClassId]
 	if class and class.background then
 		local bg = tree:GetAssetByName(class.background.image, class.background.section or "groupBackground")
 		local scrX, scrY = treeToScreen(class.background.x * tree.scaleImage, class.background.y * tree.scaleImage)
+
 		self:DrawAsset(bg, scrX, scrY, scale * tree.scaleImage)
+
+		-- calculate rotation with quad
+		local startNode = spec.nodes[class.startNodeId]
+		local xActive = class.background.x * tree.scaleImage
+		local yActive = class.background.y * tree.scaleImage
+		local angleRad = (math.pi / 2) + math.atan2(startNode.y - yActive, startNode.x - xActive)
+
+		self:DrawQuadAndRotate(treeCenterActive, class.background.x * tree.scaleImage, class.background.y * tree.scaleImage, scale, angleRad, tree, treeToScreen)
+		self:DrawAsset(treeCenter, scrX, scrY, scale * tree.scaleImage)
 	end
 
 	-- draw ascendancies
@@ -471,7 +485,6 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 		SetDrawLayer(nil, 25)
 		if node.type == "ClassStart" then
 			overlay = isAlloc and node.startArt or "PSStartNodeBackgroundInactive"
-			overlaySection = "startNode"
 		elseif node.type == "AscendClassStart" then
 			overlay = "AscendancyMiddle"
 			if node.ascendancyName and tree.secondaryAscendNameMap and tree.secondaryAscendNameMap[node.ascendancyName] then
@@ -840,10 +853,51 @@ function PassiveTreeViewClass:DrawAsset(data, x, y, scale, isHalf)
 	end
 end
 
+function PassiveTreeViewClass:DrawQuadAndRotate(data, xTree, yTree, scale, angleRad, tree, treeToScreen)
+	local vertActive = {}
+		local xActive = xTree
+		local yActive = yTree
+		local widthActive = data.width * tree.scaleImage
+		local heightActive = data.height * tree.scaleImage
+	
+		local function rotate(x, y, cx, cy, theta)
+			local translatedX = x - cy
+			local translatedY = y - cy
+
+			local cosTheta = math.cos(theta)
+			local sinTheta = math.sin(theta)
+			local rotatedX =  translatedX * cosTheta - translatedY * sinTheta
+			local rotatedY =  translatedX * sinTheta + translatedY * cosTheta
+
+			return rotatedX + cx, rotatedY + cy
+		end
+
+		vertActive[1], vertActive[2] = xActive - widthActive, yActive - heightActive
+		vertActive[3], vertActive[4] = xActive + widthActive, yActive - heightActive
+		vertActive[5], vertActive[6] = xActive + widthActive, yActive + heightActive
+		vertActive[7], vertActive[8] = xActive - widthActive, yActive + heightActive
+		vertActive[9] = data[1] -- s1
+		vertActive[10] = data[2] -- t1
+		vertActive[11] = data[3] -- s2
+		vertActive[12] = data[2] -- t1
+		vertActive[13] = data[3] -- s2
+		vertActive[14] = data[4] -- t2
+		vertActive[15] = data[1] -- s1
+		vertActive[16] = data[4] -- t2
+
+		-- rotate the quad
+		vertActive[1], vertActive[2] = treeToScreen(rotate(vertActive[1], vertActive[2], xActive, yActive, angleRad))
+		vertActive[3], vertActive[4] = treeToScreen(rotate(vertActive[3], vertActive[4], xActive, yActive, angleRad))
+		vertActive[5], vertActive[6] = treeToScreen(rotate(vertActive[5], vertActive[6], xActive, yActive, angleRad))
+		vertActive[7], vertActive[8] = treeToScreen(rotate(vertActive[7], vertActive[8], xActive, yActive, angleRad))
+
+		DrawImageQuad(data.handle, unpack(vertActive))
+end
+
 -- Zoom the tree in or out
 function PassiveTreeViewClass:Zoom(level, viewPort)
 	-- Calculate new zoom level and zoom factor
-	self.zoomLevel = m_max(0, m_min(16, self.zoomLevel + level))
+	self.zoomLevel = m_max(0, m_min(20, self.zoomLevel + level))
 	local oldZoom = self.zoom
 	self.zoom = 1.2 ^ self.zoomLevel
 

@@ -47,6 +47,7 @@ end
 local PassiveTreeClass = newClass("PassiveTree", function(self, treeVersion)
 	self.treeVersion = treeVersion
 	self.scaleImage = 0.3835
+	self.assetsKey = 0.3835
 	local versionNum = treeVersions[treeVersion].num
 
 	self.legion = LoadModule("Data/TimelessJewelData/LegionPassives")
@@ -127,7 +128,7 @@ local PassiveTreeClass = newClass("PassiveTree", function(self, treeVersion)
 
 	ConPrintf("Loading passive tree assets...")
 	for name, data in pairs(self.assets) do
-		self:LoadImage(data[self.scaleImage], data)
+		self:LoadImage(data[self.assetsKey], data)
 	end
 
 	-- Load sprite sheets and build sprite map
@@ -138,7 +139,7 @@ local PassiveTreeClass = newClass("PassiveTree", function(self, treeVersion)
 	end
 
 	for type, data in pairs(self.skillSprites) do
-		local maxZoom = data[self.scaleImage]
+		local maxZoom = data[self.assetsKey]
 		
 		local sheet = spriteSheets[maxZoom.filename]
 		if not sheet then
