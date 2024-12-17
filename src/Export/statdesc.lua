@@ -160,8 +160,8 @@ function describeStats(stats)
 						val[spec.v].max = val[spec.v].max + 65536
 					end
 				elseif spec.k == "divide_by_two_0dp" then
-					val[spec.v].min = round(val[spec.v].min / 2, 1)
-					val[spec.v].max = round(val[spec.v].max / 2, 1)
+					val[spec.v].min = round(val[spec.v].min / 2)
+					val[spec.v].max = round(val[spec.v].max / 2)
 				elseif spec.k == "divide_by_three" then
 					val[spec.v].min = val[spec.v].min / 3
 					val[spec.v].max = val[spec.v].min / 3
