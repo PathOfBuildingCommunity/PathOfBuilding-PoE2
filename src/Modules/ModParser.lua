@@ -520,6 +520,8 @@ local modNameList = {
 	["life and mana leech is instant"] = { "InstantManaLeech", "InstantLifeLeech" },
 	["life leech is instant"] = { "InstantLifeLeech" },
 	["mana leech is instant"] = { "InstantManaLeech" },
+	["amount of mana leeched"] = "ManaLeech",
+	["amount of life leeched"] = "LifeLeech",
 	["energy shield leech is instant"] = { "InstantEnergyShieldLeech" },
 	["leech is instant"] = { "InstantEnergyShieldLeech", "InstantManaLeech", "InstantLifeLeech" },
 	["to impale enemies on hit"] = "ImpaleChance",
@@ -671,6 +673,7 @@ local modNameList = {
 	["cast speed"] = { "Speed", flags = ModFlag.Cast },
 	["warcry speed"] = { "WarcrySpeed", keywordFlags = KeywordFlag.Warcry },
 	["attack and cast speed"] = "Speed",
+	["skill speed"] = { "Speed", "WarcrySpeed" },
 	["dps"] = "DPS",
 	-- Elemental ailments
 	["to shock"] = "EnemyShockChance",
@@ -5173,9 +5176,7 @@ end
 
 -- Modifiers that are recognised but unsupported
 local unsupportedModList = {
-	["properties are doubled while in a breach"] = true,
 	["mirrored"] = true,
-	["split"] = true,
 }
 
 -- Special lookups used for various modifier forms
