@@ -1083,6 +1083,7 @@ function PassiveTreeViewClass:AddNodeTooltip(tooltip, node, build)
 		tooltip:AddLine(16, string.format("^7Position: %d, %d", node.x, node.y))
 		tooltip:AddLine(16, string.format("Angle: %f", node.angle))
 		tooltip:AddLine(16, string.format("Orbit: %d, Orbit Index: %d", node.orbit, node.orbitIndex))
+		tooltip:AddLine(16, string.format("Group: %d", node.g))
 		tooltip:AddSeparator(14)
 	end
 

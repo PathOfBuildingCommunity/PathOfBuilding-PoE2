@@ -818,12 +818,9 @@ end
 printf("Generating tree groups...")
 
 local orbitsConstants = { }
+local ascendancyGroups = {}
 for i, group in ipairs(psg.groups) do
-	tree.min_x = math.min(tree.min_x, group.x)
-	tree.min_y = math.min(tree.min_y, group.y)
-	tree.max_x = math.max(tree.max_x, group.x)
-	tree.max_y = math.max(tree.max_y, group.y)
-
+	local groupIsAscendancy = false
 	local treeGroup = {
 		["x"] = round_to(group.x, 2),
 		["y"] = round_to(group.y, 2),
@@ -901,12 +898,18 @@ for i, group in ipairs(psg.groups) do
 
 			-- Ascendancy
 			if passiveRow.Ascendancy ~= nil then
+				groupIsAscendancy = true
 				if passiveRow.Ascendancy.Name:find(ignoreFilter) ~= nil then
 					printf("Ignoring node ascendancy " .. passiveRow.Ascendancy.Name)
 					goto exitnode
 				end
 				node["ascendancyName"] = passiveRow.Ascendancy.Name
 				node["isAscendancyStart"] = passiveRow.AscendancyStart or nil
+
+				ascendancyGroups = ascendancyGroups or {}
+				ascendancyGroups[passiveRow.Ascendancy.Name] = ascendancyGroups[passiveRow.Ascendancy.Name] or { }
+				ascendancyGroups[passiveRow.Ascendancy.Name].startId = passive.id
+				ascendancyGroups[passiveRow.Ascendancy.Name][i] = true
 			end
 
 			-- Stats
@@ -994,6 +997,13 @@ for i, group in ipairs(psg.groups) do
 
 	if #treeGroup.nodes > 0 then
 		tree.groups[i] = treeGroup
+
+		if not groupIsAscendancy then
+			tree.min_x = math.min(tree.min_x, group.x)
+			tree.min_y = math.min(tree.min_y, group.y)
+			tree.max_x = math.max(tree.max_x, group.x)
+			tree.max_y = math.max(tree.max_y, group.y)
+		end
 	else
 		printf("Group " .. i .. " is empty")
 	end
@@ -1005,6 +1015,48 @@ for i, orbit in ipairs(orbitsConstants) do
 	-- only numbers base on 12
 	orbit = i == 1 and orbit or math.ceil(orbit / 12) * 12
 	tree.constants.skillsPerOrbit[i] = orbit
+end
+
+-- Update position of ascendancy base on min / max 
+-- get the orbit radious + harcoded value, calculate the angle of the class start
+-- translate the ascendancy to the new position in arc position
+local widthTree, heightTree = tree.max_x - tree.min_x, tree.max_y - tree.min_y
+local radiousTree = math.max(widthTree, heightTree) / 2
+local arcAngle = { [0] = 0, [1] = 0, [2] = 15, [3] = 30}
+
+for i, classId in ipairs(psg.passives) do
+	local nodeStart = tree.nodes[classId]
+	local group = tree.groups[nodeStart.group]
+	local angleToCenter = math.atan2(group.y, group.x)
+	local harcoded = radiousTree + 3000
+	local class = tree.classes[nodeStart.classStartIndex + 1]
+
+	local total = #class.ascendancies
+	local startAngle = angleToCenter - math.rad(arcAngle[total] / 2)
+	local angleStep = math.rad(arcAngle[total] / (total - 1)) or 0
+
+	for j, ascendancy in ipairs(class.ascendancies) do
+		local info = ascendancyGroups[ascendancy.id]
+		local ascendancyNode = tree.nodes[info.startId]
+		local groupAscendancy = tree.groups[ascendancyNode.group]
+
+		local angle = startAngle + (j - 1) * angleStep
+		local newX = harcoded * math.cos(angle)
+		local newY = harcoded * math.sin(angle)
+
+		local offsetX = newX - groupAscendancy.x
+		local offsetY = newY - groupAscendancy.y
+		
+		-- now update the whole groups with the offset
+		for groupId, value in pairs(info) do
+			if type(value) == "boolean" then
+				local group = tree.groups[groupId]
+				group.x = group.x + offsetX
+				group.y = group.y + offsetY
+			end
+		end		
+	end
+
 end
 
 MakeDir(basePath .. version)
