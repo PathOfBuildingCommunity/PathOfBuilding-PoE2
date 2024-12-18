@@ -157,7 +157,8 @@ local modNameList = {
 	["attributes"] = { "Str", "Dex", "Int", "All" },
 	["all attributes"] = { "Str", "Dex", "Int", "All" },
 	["devotion"] = "Devotion",
-	-- Life/mana
+	-- Life/Mana/Spirit
+	["spirit"] = "Spirit",
 	["life"] = "Life",
 	["maximum life"] = "Life",
 	["life regeneration rate"] = "LifeRegen",

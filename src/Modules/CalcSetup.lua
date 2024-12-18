@@ -465,6 +465,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 		modDB:NewMod("Life", "BASE", 12, "Base", { type = "Multiplier", var = "Level", base = 16 })
 		modDB:NewMod("Mana", "BASE", 4, "Base", { type = "Multiplier", var = "Level", base = 30 })
 		modDB:NewMod("ManaRegen", "BASE", 0.04, "Base", { type = "PerStat", stat = "Mana", div = 1 })
+		modDB:NewMod("Spirit", "BASE", 0, "Base")
 		modDB:NewMod("Devotion", "BASE", 0, "Base")
 		modDB:NewMod("Evasion", "BASE", 30, "Base")
 		modDB:NewMod("Accuracy", "BASE", 3, "Base", { type = "Multiplier", var = "Level", base = -3 })
@@ -1078,6 +1079,9 @@ function calcs.initEnv(build, mode, override, specEnv)
 				end
 				if item.charmLimit then
 					env.modDB:NewMod("CharmLimit", "BASE", item.charmLimit, item.title)
+				end
+				if item.spiritValue then
+					env.modDB:NewMod("Spirit", "BASE", item.spiritValue, item.title)
 				end
 				if item.type ~= "Jewel" and item.type ~= "Flask" and item.type ~= "Charm" and item.type ~= "Tincture" then
 					-- Update item counts

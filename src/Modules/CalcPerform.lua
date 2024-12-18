@@ -78,7 +78,7 @@ local function mergeKeystones(env)
 	end
 end
 
-function doActorLifeMana(actor)
+function doActorLifeManaSpirit(actor)
 	local modDB = actor.modDB
 	local output = actor.output
 	local breakdown = actor.breakdown
@@ -139,6 +139,7 @@ function doActorLifeMana(actor)
 		end
 	end
 	output.LowestOfMaximumLifeAndMaximumMana = m_min(output.Life, output.Mana)
+	output.Spirit = modDB:Sum("BASE", nil, "Spirit")
 end
 
 -- Calculate attributes, and set conditions
@@ -444,12 +445,12 @@ end
 
 -- Calculate life/mana reservation
 ---@param actor table
-function doActorLifeManaReservation(actor)
+function doActorLifeManaSpiritReservation(actor)
 	local modDB = actor.modDB
 	local output = actor.output
 	local condList = modDB.conditions
 
-	for _, pool in pairs({"Life", "Mana"}) do
+	for _, pool in pairs({"Life", "Mana", "Spirit"}) do
 		local max = output[pool]
 		local reserved
 		if max > 0 then
@@ -933,9 +934,9 @@ end
 -- 3. Initialises the main skill's minion, if present
 -- 4. Merges flask effects
 -- 5. Sets conditions and calculates attributes (doActorAttribsConditions)
--- 6. Calculates life and mana (doActorLifeMana)
+-- 6. Calculates life and mana (doActorLifeManaSpirit)
 -- 6. Calculates reservations
--- 7. Sets life/mana reservation (doActorLifeManaReservation)
+-- 7. Sets life/mana reservation (doActorLifeManaSpiritReservation)
 -- 8. Processes buffs and debuffs
 -- 9. Processes charges and misc buffs (doActorCharges, doActorMisc)
 -- 10. Calculates defence and offence stats (calcs.defence, calcs.offence)
@@ -1571,7 +1572,7 @@ function calcs.perform(env, skipEHP)
 
 	-- Calculate attributes and life/mana pools
 	doActorAttribsConditions(env, env.player)
-	doActorLifeMana(env.player)
+	doActorLifeManaSpirit(env.player)
 	if env.minion then
 		for _, value in ipairs(env.player.mainSkill.skillModList:List(env.player.mainSkill.skillCfg, "MinionModifier")) do
 			if not value.type or env.minion.type == value.type then
@@ -1695,7 +1696,7 @@ function calcs.perform(env, skipEHP)
 	end
 
 	-- Set the life/mana reservations
-	doActorLifeManaReservation(env.player)
+	doActorLifeManaSpiritReservation(env.player)
 
 	-- Process attribute requirements
 	do

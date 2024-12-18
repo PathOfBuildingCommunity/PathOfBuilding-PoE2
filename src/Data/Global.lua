@@ -63,6 +63,7 @@ colorCodes.INTELLIGENCE = colorCodes.WITCH
 
 colorCodes.LIFE = colorCodes.MARAUDER
 colorCodes.MANA = colorCodes.WITCH
+colorCodes.SPIRIT = colorCodes.SOURCE
 colorCodes.ES = colorCodes.SOURCE
 colorCodes.WARD = colorCodes.RARE
 colorCodes.ARMOUR = colorCodes.NORMAL
