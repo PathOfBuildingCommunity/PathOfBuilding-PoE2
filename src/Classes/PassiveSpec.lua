@@ -156,9 +156,9 @@ function PassiveSpecClass:Load(xml, dbFileName)
 							
 							newNode.dn = dn
 							newNode.icon = child.attrib.icon
-							self:NodeAdditionOrReplacementFromString(newNode, option.stats[1], true)
 							newNode.sprites = self.tree.spriteMap[newNode.icon]
 							newNode.activeEffectImage = self.tree.spriteMap[newNode.icon]
+							self:NodeAdditionOrReplacementFromString(newNode, option.stats[1], true)
 							
 							self.hashOverrides[nodeId] = newNode
 						else

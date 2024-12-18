@@ -271,9 +271,9 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 		
 		newNode.dn = attribute
 		newNode.icon = "Art/2DArt/SkillIcons/passives/plus"..string.lower(attribute)..".dds"
-		spec:NodeAdditionOrReplacementFromString(newNode, option.stats[1], true)
 		newNode.sprites = spec.tree.spriteMap[newNode.icon]
 		newNode.activeEffectImage = spec.tree.spriteMap[newNode.icon]
+		spec:NodeAdditionOrReplacementFromString(newNode, option.stats[1], true)
 		
 		spec.hashOverrides[node.id] = newNode
 	end
