@@ -268,11 +268,14 @@ local PassiveTreeClass = newClass("PassiveTree", function(self, treeVersion)
 		nodeMap[node.id] = node	
 
 		-- Determine node type
-		if node.classStartIndex then
+		if node.classesStart then
 			node.type = "ClassStart"
-			local class = self.classes[node.classStartIndex]
-			class.startNodeId = node.id
-			node.startArt = classArt[node.classStartIndex]
+			for _, className in ipairs(node.classesStart) do
+				local class = self.classes[self.classNameMap[className]]
+				if class ~= nil then
+					class.startNodeId = node.id
+				end
+			end
 		elseif node.isAscendancyStart then
 			node.type = "AscendClassStart"
 			local ascendClass = self.ascendNameMap[node.ascendancyName].ascendClass
@@ -339,17 +342,28 @@ local PassiveTreeClass = newClass("PassiveTree", function(self, treeVersion)
 				self.ascendNameMap[node.ascendancyName].ascendClass.background = {
 					image = "Classes" ..  self.ascendNameMap[node.ascendancyName].ascendClass.name,
 					section = "ascendancyBackground",
-					x = group.x ,
-					y = group.y
+					x = group.x,
+					y = group.y,
+					width = 1500 * self.scaleImage,
+					height = 1500 * self.scaleImage
 				}
 			end
-			if node.classStartIndex then
-				self.classes[node.classStartIndex].background = {
-					image = "Classes" ..  self.classes[node.classStartIndex].name,
-					section = "ascendancyBackground",
-					x = 0 ,
-					y = 0
-				}
+			if node.classesStart then
+				for _, className in ipairs(node.classesStart) do
+					local class = self.classes[self.classNameMap[className]]
+					if class ~= nil then
+						class.background = {
+							["active"] = { width = 2000 * self.scaleImage, height = 2000 * self.scaleImage },
+							["bg"] = { width = 2000 * self.scaleImage, height = 2000 * self.scaleImage },
+							image = "Classes" .. className,
+							section = "ascendancyBackground",
+							x = 0,
+							y = 0,
+							width = 1500 * self.scaleImage,
+							height = 1500 * self.scaleImage
+						}
+					end
+				end
 			end
 		elseif node.type == "Notable" or node.type == "Keystone" then
 			self.clusterNodeMap[node.dn] = node
@@ -385,7 +399,7 @@ local PassiveTreeClass = newClass("PassiveTree", function(self, treeVersion)
 			t_insert(other.linkedId, node.id)
 			t_insert(node.linkedId, otherId)
 
-			if node.classStartIndex ~= nil or other.classStartIndex ~= nil then
+			if node.classesStart ~= nil or other.classesStart ~= nil then
 				goto endconnection
 			end
 			

@@ -353,7 +353,7 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 		bg.width, bg.height = bg.handle:ImageSize()
 	end
 	if bg.width > 0 then
-		local bgSize = bg.width * scale * tree.scaleImage
+		local bgSize = bg.width * tree.scaleImage
 		SetDrawColor(1, 1, 1)
 		DrawImage(bg.handle, viewPort.x, viewPort.y, viewPort.width, viewPort.height, (self.zoomX + viewPort.width/2) / -bgSize, (self.zoomY + viewPort.height/2) / -bgSize, (viewPort.width/2 - self.zoomX) / bgSize, (viewPort.height/2 - self.zoomY) / bgSize)
 	end
@@ -365,19 +365,31 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 	-- draw background artwork base on current class
 	local class = tree.classes[spec.curClassId]
 	if class and class.background then
-		local bg = tree:GetAssetByName(class.background.image, class.background.section or "groupBackground")
+		local bgAssetName = class.background.image
+		local bgSection = class.background.section
+		if spec.curAscendClassId ~= 0 then
+			bgAssetName = class.classes[spec.curAscendClassId].background.image
+			bgSection = class.classes[spec.curAscendClassId].background.section
+		end
+		local bg = tree:GetAssetByName(bgAssetName, bgSection or "groupBackground")
 		local scrX, scrY = treeToScreen(class.background.x * tree.scaleImage, class.background.y * tree.scaleImage)
+		bg.width =  class.background.width
+		bg.height = class.background.height
 
-		self:DrawAsset(bg, scrX, scrY, scale * tree.scaleImage)
+		self:DrawAsset(bg, scrX, scrY, scale)
 
 		-- calculate rotation with quad
 		local startNode = spec.nodes[class.startNodeId]
 		local xActive = class.background.x * tree.scaleImage
 		local yActive = class.background.y * tree.scaleImage
 		local angleRad = (math.pi / 2) + math.atan2(startNode.y - yActive, startNode.x - xActive)
+		treeCenterActive.width = class.background['active'].width
+		treeCenterActive.height = class.background['active'].height
+		self:DrawQuadAndRotate(treeCenterActive, class.background.x * tree.scaleImage, class.background.y * tree.scaleImage, angleRad, treeToScreen)
 
-		self:DrawQuadAndRotate(treeCenterActive, class.background.x * tree.scaleImage, class.background.y * tree.scaleImage, scale, angleRad, tree, treeToScreen)
-		self:DrawAsset(treeCenter, scrX, scrY, scale * tree.scaleImage)
+		treeCenter.width = class.background['bg'].width
+		treeCenter.height = class.background['bg'].height
+		self:DrawAsset(treeCenter, scrX, scrY, scale)
 	end
 
 	-- draw ascendancies
@@ -386,12 +398,14 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 		if ascendancy.background then
 			local bg = tree:GetAssetByName(ascendancy.background.image, ascendancy.background.section or "groupBackground")
 			local scrX, scrY = treeToScreen(ascendancy.background.x * tree.scaleImage, ascendancy.background.y * tree.scaleImage)
+			bg.width = ascendancy.background.width
+			bg.height = ascendancy.background.height
 			if name == spec.curAscendClassBaseName then
 				SetDrawColor(1, 1, 1)
 			else
 				SetDrawColor(0.5, 0.5, 0.5)
 			end
-			self:DrawAsset(bg, scrX, scrY, scale * tree.scaleImage)
+			self:DrawAsset(bg, scrX, scrY, scale)
 		end
 	end
 
@@ -510,6 +524,20 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 		for nodeId, node in pairs(spec.nodes) do
 			self.searchStrResults[nodeId] = #self.searchParams > 0 and self:DoesNodeMatchSearchParams(node)
 		end
+	end
+
+	if launch.devModeAlt and hoverNode then
+		-- Draw orbits of the group node
+		local groupNode = hoverNode.group
+		SetDrawLayer(nil, 80)
+		SetDrawColor(1, 0, 0)
+		for _, orbit in ipairs(groupNode.orbits) do
+			local x, y = treeToScreen(groupNode.x * tree.scaleImage, groupNode.y * tree.scaleImage)
+			local orbitRadius = tree.orbitRadii[orbit + 1] * tree.scaleImage
+			local innerSize = orbitRadius * scale
+			DrawImage(self.ring, x - innerSize, y - innerSize, innerSize * 2, innerSize * 2)
+		end
+		SetDrawColor(1, 1, 1)
 	end
 
 	-- Draw the nodes
@@ -905,12 +933,12 @@ function PassiveTreeViewClass:DrawAsset(data, x, y, scale, isHalf)
 	end
 end
 
-function PassiveTreeViewClass:DrawQuadAndRotate(data, xTree, yTree, scale, angleRad, tree, treeToScreen)
+function PassiveTreeViewClass:DrawQuadAndRotate(data, xTree, yTree, angleRad, treeToScreen)
 	local vertActive = {}
 		local xActive = xTree
 		local yActive = yTree
-		local widthActive = data.width * tree.scaleImage
-		local heightActive = data.height * tree.scaleImage
+		local widthActive = data.width
+		local heightActive = data.height
 	
 		local function rotate(x, y, cx, cy, theta)
 			local translatedX = x - cy

@@ -914,7 +914,7 @@ for i, group in ipairs(psg.groups) do
 
 				ascendancyGroups = ascendancyGroups or {}
 				ascendancyGroups[passiveRow.Ascendancy.Name] = ascendancyGroups[passiveRow.Ascendancy.Name] or { }
-				ascendancyGroups[passiveRow.Ascendancy.Name].startId = passive.id
+				ascendancyGroups[passiveRow.Ascendancy.Name].startId = passiveRow.AscendancyStart and passive.id or ascendancyGroups[passiveRow.Ascendancy.Name].startId
 				ascendancyGroups[passiveRow.Ascendancy.Name][i] = true
 			end
 
@@ -1023,6 +1023,15 @@ for i, group in ipairs(psg.groups) do
 				}
 			end
 
+			-- classStartName
+			if #passiveRow.ClassStart > 0 then
+				node["classesStart"] = {}
+				for _, classStart in ipairs(passiveRow.ClassStart) do
+					if classStart.Name:find(ignoreFilter) == nil then
+						table.insert(node["classesStart"], classStart.Name)
+					end
+				end
+			end
 		end
 		
 		for k, connection in ipairs(passive.connections) do
@@ -1030,14 +1039,6 @@ for i, group in ipairs(psg.groups) do
 				id = connection.id,
 				orbit = connection.radious,
 			})
-		end
-
-		-- classStartIndex: is this node exist in psg.passives
-		for k, classStartIndex in ipairs(psg.passives) do
-			if classStartIndex == passive.id then
-				node["classStartIndex"] = k - 1
-				break
-			end
 		end
 
 		orbits[passive.radious + 1] = true
@@ -1078,41 +1079,61 @@ end
 -- translate the ascendancy to the new position in arc position
 local widthTree, heightTree = tree.max_x - tree.min_x, tree.max_y - tree.min_y
 local radiousTree = math.max(widthTree, heightTree) / 2
-local arcAngle = { [0] = 0, [1] = 0, [2] = 15, [3] = 30}
+local arcAngle = { [0] = 0, [1] = 0, [2] = 12, [3] = 24, [4] = 36, [5] = 48, [6] = 60}
 
 for i, classId in ipairs(psg.passives) do
 	local nodeStart = tree.nodes[classId]
 	local group = tree.groups[nodeStart.group]
 	local angleToCenter = math.atan2(group.y, group.x)
-	local harcoded = radiousTree + 3000
-	local class = tree.classes[nodeStart.classStartIndex + 1]
+	local harcoded = radiousTree + 2800
 
-	local total = #class.ascendancies
+	-- calculate how many ascendancies in that plase?
+	local total = 0
+	local classes = {}
+
+	for _, class in ipairs(tree.classes) do
+		for _, nodeClasses in ipairs(nodeStart.classesStart) do
+			if nodeClasses == class.name then
+				total = total + #class.ascendancies
+				table.insert(classes, class)
+			end
+		end
+	end
+
 	local startAngle = angleToCenter - math.rad(arcAngle[total] / 2)
 	local angleStep = math.rad(arcAngle[total] / (total - 1)) or 0
 
-	for j, ascendancy in ipairs(class.ascendancies) do
-		local info = ascendancyGroups[ascendancy.id]
-		local ascendancyNode = tree.nodes[info.startId]
-		local groupAscendancy = tree.groups[ascendancyNode.group]
+	local j = 1
+	for _, class in ipairs(classes) do
+		for _, ascendancy in ipairs(class.ascendancies) do
+			local info = ascendancyGroups[ascendancy.id]
+			local ascendancyNode = tree.nodes[info.startId]
+			local groupAscendancy = tree.groups[ascendancyNode.group]
 
-		local angle = startAngle + (j - 1) * angleStep
-		local newX = harcoded * math.cos(angle)
-		local newY = harcoded * math.sin(angle)
+			local angle = startAngle + (j - 1) * angleStep
+			local newX = harcoded * math.cos(angle)
+			local newY = harcoded * math.sin(angle)
 
-		local offsetX = newX - groupAscendancy.x
-		local offsetY = newY - groupAscendancy.y
+			local offsetX = newX - groupAscendancy.x
+			local offsetY = newY - groupAscendancy.y
 		
-		-- now update the whole groups with the offset
-		for groupId, value in pairs(info) do
-			if type(value) == "boolean" then
-				local group = tree.groups[groupId]
-				group.x = group.x + offsetX
-				group.y = group.y + offsetY
-			end
-		end		
-	end
+			-- now update the whole groups with the offset
+			for groupId, value in pairs(info) do
+				if type(value) == "boolean" then
+					local group = tree.groups[groupId]
+					group.x = group.x + offsetX
+					group.y = group.y + offsetY
 
+					-- recalculate min / max
+					tree.min_x = math.min(tree.min_x, group.x - harcoded / 2)
+					tree.min_y = math.min(tree.min_y, group.y - harcoded / 2)
+					tree.max_x = math.max(tree.max_x, group.x + harcoded / 2)
+					tree.max_y = math.max(tree.max_y, group.y + harcoded / 2)
+				end
+			end
+			j = j + 1
+		end
+	end
 end
 
 MakeDir(basePath .. version)
