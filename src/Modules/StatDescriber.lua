@@ -64,8 +64,8 @@ local function applySpecial(val, spec)
 	elseif spec.k == "negate_and_double" then
 		val[spec.v].max, val[spec.v].min = -2 * val[spec.v].min, -2 * val[spec.v].max
 	elseif spec.k == "divide_by_two_0dp" then
-		val[spec.v].min = val[spec.v].min / 2
-		val[spec.v].max = val[spec.v].max / 2
+		val[spec.v].min = round(val[spec.v].min / 2)
+		val[spec.v].max = round(val[spec.v].max / 2)
 	elseif spec.k == "divide_by_three" then
 		val[spec.v].min = val[spec.v].min / 3
 		val[spec.v].max = val[spec.v].max / 3
@@ -83,8 +83,8 @@ local function applySpecial(val, spec)
 		val[spec.v].max = val[spec.v].max / 6
 		val[spec.v].fmt = "g"
 	elseif spec.k == "divide_by_ten_0dp" then
-		val[spec.v].min = val[spec.v].min / 10
-		val[spec.v].max = val[spec.v].max / 10
+		val[spec.v].min = round(val[spec.v].min / 10)
+		val[spec.v].max = round(val[spec.v].max / 10)
 	elseif spec.k == "divide_by_ten_1dp" or spec.k == "divide_by_ten_1dp_if_required" then
 		val[spec.v].min = round(val[spec.v].min / 10, 1)
 		val[spec.v].max = round(val[spec.v].max / 10, 1)
@@ -94,22 +94,26 @@ local function applySpecial(val, spec)
 		val[spec.v].max = val[spec.v].max / 12
 		val[spec.v].fmt = "g"
 	elseif spec.k == "divide_by_fifteen_0dp" then
-		val[spec.v].min = val[spec.v].min / 15
-		val[spec.v].max = val[spec.v].max / 15
+		val[spec.v].min = round(val[spec.v].min / 15)
+		val[spec.v].max = round(val[spec.v].max / 15)
 	elseif spec.k == "divide_by_twenty" then
 		val[spec.v].min = val[spec.v].min / 20
 		val[spec.v].max = val[spec.v].max / 20
 		val[spec.v].fmt = "g"
-	elseif spec.k == "divide_by_twenty_then_double_0dp" then -- O_O
+	elseif spec.k == "divide_by_twenty_then_double_0dp" then
 		val[spec.v].min = round(val[spec.v].min / 20) * 2
 		val[spec.v].max = round(val[spec.v].max / 20) * 2
 	elseif spec.k == "divide_by_fifty" then
 		val[spec.v].min = val[spec.v].min / 50
 		val[spec.v].max = val[spec.v].max / 50
 		val[spec.v].fmt = "g"
-	elseif spec.k == "divide_by_one_hundred" or spec.k == "divide_by_one_hundred_0dp" then
+	elseif spec.k == "divide_by_one_hundred" then
 		val[spec.v].min = val[spec.v].min / 100
 		val[spec.v].max = val[spec.v].max / 100
+		val[spec.v].fmt = "g"
+	elseif spec.k == "divide_by_one_hundred_0dp" then
+		val[spec.v].min = round(val[spec.v].min / 100)
+		val[spec.v].max = round(val[spec.v].max / 100)
 		val[spec.v].fmt = "g"
 	elseif spec.k == "divide_by_one_hundred_1dp" then
 		val[spec.v].min = round(val[spec.v].min / 100, 1)
@@ -120,20 +124,20 @@ local function applySpecial(val, spec)
 		val[spec.v].max = round(val[spec.v].max / 100, 2)
 		val[spec.v].fmt = "g"
 	elseif spec.k == "divide_by_one_hundred_and_negate" then
-		val[spec.v].min = -round(val[spec.v].min / 100, 1)
-		val[spec.v].max = -round(val[spec.v].max / 100, 1)
+		val[spec.v].min = -val[spec.v].min / 100
+		val[spec.v].max = -val[spec.v].max / 100
 		val[spec.v].fmt = "g"
 	elseif spec.k == "divide_by_one_thousand" then
 		val[spec.v].min = val[spec.v].min / 1000
 		val[spec.v].max = val[spec.v].max / 1000
 		val[spec.v].fmt = "g"
 	elseif spec.k == "per_minute_to_per_second" then
-		val[spec.v].min = round(val[spec.v].min / 60, 1)
-		val[spec.v].max = round(val[spec.v].max / 60, 1)
-		val[spec.v].fmt = "g"
-	elseif spec.k == "per_minute_to_per_second_0dp" then
 		val[spec.v].min = val[spec.v].min / 60
 		val[spec.v].max = val[spec.v].max / 60
+		val[spec.v].fmt = "g"
+	elseif spec.k == "per_minute_to_per_second_0dp" then
+		val[spec.v].min = round(val[spec.v].min / 60)
+		val[spec.v].max = round(val[spec.v].max / 60)
 	elseif spec.k == "per_minute_to_per_second_1dp" then
 		val[spec.v].min = round(val[spec.v].min / 60, 1)
 		val[spec.v].max = round(val[spec.v].max / 60, 1)
@@ -151,20 +155,16 @@ local function applySpecial(val, spec)
 		val[spec.v].max = val[spec.v].max / 1000 / 2
 		val[spec.v].fmt = "g"
 	elseif spec.k == "milliseconds_to_seconds_0dp" then
-		val[spec.v].min = val[spec.v].min / 1000
-		val[spec.v].max = val[spec.v].max / 1000
+		val[spec.v].min = round(val[spec.v].min / 1000)
+		val[spec.v].max = round(val[spec.v].max / 1000)
 	elseif spec.k == "milliseconds_to_seconds_1dp" then
 		val[spec.v].min = round(val[spec.v].min / 1000, 1)
 		val[spec.v].max = round(val[spec.v].max / 1000, 1)
 		val[spec.v].fmt = "g"
-	elseif spec.k == "milliseconds_to_seconds_2dp" then
+	elseif spec.k == "milliseconds_to_seconds_2dp" or spec.k == "milliseconds_to_seconds_2dp_if_required" then
 		val[spec.v].min = round(val[spec.v].min / 1000, 2)
 		val[spec.v].max = round(val[spec.v].max / 1000, 2)
-		val[spec.v].fmt = "g"					
-	elseif spec.k == "milliseconds_to_seconds_2dp_if_required" then
-		val[spec.v].min = round(val[spec.v].min / 1000, 2)
-		val[spec.v].max = round(val[spec.v].max / 1000, 2)
-		val[spec.v].fmt = "g"					
+		val[spec.v].fmt = "g"									
 	elseif spec.k == "deciseconds_to_seconds" then
 		val[spec.v].min = val[spec.v].min / 10
 		val[spec.v].max = val[spec.v].max / 10
@@ -183,8 +183,8 @@ local function applySpecial(val, spec)
 		val[spec.v].min = 100 + val[spec.v].min
 		val[spec.v].max = 100 + val[spec.v].max
 	elseif spec.k == "multiplicative_permyriad_damage_modifier" then
-		val[spec.v].min = 100 + round(val[spec.v].min / 100, 1)
-		val[spec.v].max = 100 + round(val[spec.v].max / 100, 1)
+		val[spec.v].min = 100 + (val[spec.v].min / 100)
+		val[spec.v].max = 100 + (val[spec.v].max / 100)
 		val[spec.v].fmt = "g"
 	elseif spec.k == "times_one_point_five" then
 		val[spec.v].min = val[spec.v].min * 1.5
