@@ -264,33 +264,20 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 		end
 	end
 	
-	local function switchAttributeNode(node, attributeIndex)
-		local newNode = copyTableSafe(spec.tree.nodes[node.id], false, true)
-		local option = node.options[attributeIndex]
-		local attribute = option.name
-		
-		newNode.dn = attribute
-		newNode.icon = "Art/2DArt/SkillIcons/passives/plus"..string.lower(attribute)..".dds"
-		newNode.sprites = spec.tree.spriteMap[newNode.icon]
-		newNode.activeEffectImage = spec.tree.spriteMap[newNode.icon]
-		spec:NodeAdditionOrReplacementFromString(newNode, option.stats[1], true)
-		
-		spec.hashOverrides[node.id] = newNode
-	end
 	if treeClick == "LEFT" then
 		if hoverNode then
+			local hotkeyPressed = IsKeyDown("1") or IsKeyDown("I") or IsKeyDown("2") or IsKeyDown("S") or IsKeyDown("3") or IsKeyDown("D")
 			-- User left-clicked on a node
 			if hoverNode.alloc then
-				local hotkeyPressed = IsKeyDown("1") or IsKeyDown("I") or IsKeyDown("2") or IsKeyDown("S") or IsKeyDown("3") or IsKeyDown("D")
-				if hoverNode.type == "Normal" and (hoverNode.dn == "Attribute" or hoverNode.dn == "Strength" or hoverNode.dn == "Dexterity" or hoverNode.dn == "Intelligence") then
+				if hoverNode.isAttribute then
 					-- change to other attribute without needing to deallocate
 					if hotkeyPressed then
 						if IsKeyDown("1") or IsKeyDown("I") then
-							switchAttributeNode(hoverNode, 3)
+							spec:SwitchAttributeNode(hoverNode.id, 3)
 						elseif IsKeyDown("2") or IsKeyDown("S") then
-							switchAttributeNode(hoverNode, 1)
+							spec:SwitchAttributeNode(hoverNode.id, 1)
 						elseif IsKeyDown("3") or IsKeyDown("D") then
-							switchAttributeNode(hoverNode, 2)
+							spec:SwitchAttributeNode(hoverNode.id, 2)
 						end
 						-- reload allocated node with new attribute
 						spec:BuildAllDependsAndPaths()
@@ -313,14 +300,18 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 						build.treeTab:OpenMasteryPopup(hoverNode, viewPort)
 					end
 				else
-					-- attribute switching
-					if hoverNode.type == "Normal" and (hoverNode.dn == "Attribute" or hoverNode.dn == "Strength" or hoverNode.dn == "Dexterity" or hoverNode.dn == "Intelligence") then
-						if IsKeyDown("1") or IsKeyDown("I") then
-							switchAttributeNode(hoverNode, 3)
-						elseif IsKeyDown("2") or IsKeyDown("S") then
-							switchAttributeNode(hoverNode, 1)
-						elseif IsKeyDown("3") or IsKeyDown("D") then
-							switchAttributeNode(hoverNode, 2)
+					if hoverNode.isAttribute then
+						-- attribute switching, unallocated to allocated
+						if hotkeyPressed then
+							if IsKeyDown("1") or IsKeyDown("I") then
+								spec:SwitchAttributeNode(hoverNode.id, 3)
+							elseif IsKeyDown("2") or IsKeyDown("S") then
+								spec:SwitchAttributeNode(hoverNode.id, 1)
+							elseif IsKeyDown("3") or IsKeyDown("D") then
+								spec:SwitchAttributeNode(hoverNode.id, 2)
+							end
+						else
+							build.treeTab:ModifyAttributePopup(hoverNode)
 						end
 					end
 					spec:AllocNode(hoverNode, self.tracePath and hoverNode == self.tracePath[#self.tracePath] and self.tracePath)

@@ -137,31 +137,25 @@ function PassiveSpecClass:Load(xml, dbFileName)
 				masteryEffects[tonumber(mastery)] = tonumber(effect)
 			end
 		end
-		local attributes = { "Strength", "Dexterity", "Intelligence" }
 		for _, node in pairs(xml) do
 			if type(node) == "table" then
 				if node.elem == "Overrides" then
 					for _, child in ipairs(node) do
-						if not child.attrib.nodeId then
-							launch:ShowErrMsg("^1Error parsing '%s': 'Override' element missing 'nodeId' attribute", dbFileName)
-							return true
-						end
-						
-						local dn = child.attrib.dn
-						local attributeIndex = isValueInTable(attributes, dn)
-						if attributeIndex then
-							local nodeId = tonumber(child.attrib.nodeId)
-							local newNode = copyTableSafe(self.tree.nodes[nodeId], false, true)
-							local option = newNode.options[attributeIndex]
-							
-							newNode.dn = dn
-							newNode.icon = child.attrib.icon
-							newNode.sprites = self.tree.spriteMap[newNode.icon]
-							newNode.activeEffectImage = self.tree.spriteMap[newNode.icon]
-							self:NodeAdditionOrReplacementFromString(newNode, option.stats[1], true)
-							
-							self.hashOverrides[nodeId] = newNode
+						if child.elem == "AttributeOverride" then
+							for strengthId in child.attrib.strNodes:gmatch("%d+") do
+								self:SwitchAttributeNode(tonumber(strengthId), 1)
+							end
+							for dexterityId in child.attrib.dexNodes:gmatch("%d+") do
+								self:SwitchAttributeNode(tonumber(dexterityId), 2)
+							end
+							for intelligenceId in child.attrib.intNodes:gmatch("%d+") do
+								self:SwitchAttributeNode(tonumber(intelligenceId), 3)
+							end
 						else
+							if not child.attrib.nodeId then
+								launch:ShowErrMsg("^1Error parsing '%s': 'Override' element missing 'nodeId' attribute", dbFileName)
+								return true
+							end
 							-- In case a tattoo has been replaced by a different one attempt to find the new name for it
 							if not self.tree.tattoo.nodes[child.attrib.dn] then
 								for name ,data in pairs(self.tree.tattoo.nodes) do
@@ -171,7 +165,7 @@ function PassiveSpecClass:Load(xml, dbFileName)
 									end
 								end
 							end
-	
+
 							-- If the above failed remove the tattoo to avoid crashing
 							if self.tree.tattoo.nodes[child.attrib.dn] then
 								local nodeId = tonumber(child.attrib.nodeId)
@@ -233,13 +227,26 @@ function PassiveSpecClass:Save(xml)
 		elem = "Overrides"
 	}
 	if self.hashOverrides then
+		local strList, dexList, intList = { }, { }, { }
 		for nodeId, node in pairs(self.hashOverrides) do
-			local override = { elem = "Override", attrib = { nodeId = tostring(nodeId), icon = tostring(node.icon), activeEffectImage = tostring(node.activeEffectImage), dn = tostring(node.dn) } }
-			for _, modLine in ipairs(node.sd) do
-				t_insert(override, modLine)
+			if node.isAttribute then
+				if node.dn == "Strength" then
+					t_insert(strList, node.id)
+				elseif node.dn == "Dexterity" then
+					t_insert(dexList, node.id)
+				elseif node.dn == "Intelligence" then
+					t_insert(intList, node.id)
+				end
+			else -- tattoos
+				local override = { elem = "Override", attrib = { nodeId = tostring(nodeId), icon = tostring(node.icon), activeEffectImage = tostring(node.activeEffectImage), dn = tostring(node.dn) } }
+				for _, modLine in ipairs(node.sd) do
+					t_insert(override, modLine)
+				end
+				t_insert(overrides, override)
 			end
-			t_insert(overrides, override)
 		end
+		local attributeOverride = { elem = "AttributeOverride", attrib = { strNodes = table.concat(strList, ","), dexNodes = table.concat(dexList, ","), intNodes = table.concat(intList, ",") } }
+		t_insert(overrides, attributeOverride)
 	end
 	t_insert(xml, overrides)
 
@@ -2033,4 +2040,18 @@ function PassiveSpecClass:NodeInKeystoneRadius(keystoneNames, nodeId, radiusInde
 	end
 
 	return false
+end
+
+function PassiveSpecClass:SwitchAttributeNode(nodeId, attributeIndex)
+	local newNode = copyTableSafe(self.tree.nodes[nodeId], false, true)
+	local option = newNode.options[attributeIndex]
+	local attribute = option.name
+	
+	newNode.dn = attribute
+	newNode.icon = "Art/2DArt/SkillIcons/passives/plus"..string.lower(attribute)..".dds"
+	newNode.sprites = self.tree.spriteMap[newNode.icon]
+	newNode.activeEffectImage = self.tree.spriteMap[newNode.icon]
+	self:NodeAdditionOrReplacementFromString(newNode, option.stats[1], true)
+	
+	self.hashOverrides[nodeId] = newNode
 end
