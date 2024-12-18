@@ -155,10 +155,8 @@ function PassiveSpecClass:Load(xml, dbFileName)
 							local option = newNode.options[attributeIndex]
 							
 							newNode.dn = dn
-							newNode.id = nodeId
 							newNode.icon = child.attrib.icon
 							self:NodeAdditionOrReplacementFromString(newNode, option.stats[1], true)
-							newNode.name = dn
 							newNode.sprites = self.tree.spriteMap[newNode.icon]
 							newNode.activeEffectImage = self.tree.spriteMap[newNode.icon]
 							

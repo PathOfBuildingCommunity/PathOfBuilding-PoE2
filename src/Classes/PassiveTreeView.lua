@@ -265,23 +265,13 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 	end
 	
 	local function switchAttributeNode(node, attributeIndex)
-		if attributeIndex == 0 then
-			spec.hashOverrides[node.id] = nil
-			return
-		end
-		
-		local option = nil
-		local attribute = "Attribute"
 		local newNode = copyTableSafe(spec.tree.nodes[node.id], false, true)
-		option = node.options[attributeIndex]
-		attribute = option.name
+		local option = node.options[attributeIndex]
+		local attribute = option.name
 		
 		newNode.dn = attribute
-		newNode.id = node.id
 		newNode.icon = "Art/2DArt/SkillIcons/passives/plus"..string.lower(attribute)..".dds"
-		newNode.stats = option.stats
 		spec:NodeAdditionOrReplacementFromString(newNode, option.stats[1], true)
-		newNode.name = attribute
 		newNode.sprites = spec.tree.spriteMap[newNode.icon]
 		newNode.activeEffectImage = spec.tree.spriteMap[newNode.icon]
 		
@@ -292,8 +282,8 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 			-- User left-clicked on a node
 			if hoverNode.alloc then
 				local hotkeyPressed = IsKeyDown("1") or IsKeyDown("I") or IsKeyDown("2") or IsKeyDown("S") or IsKeyDown("3") or IsKeyDown("D")
-				-- reset attribute-switched nodes
 				if hoverNode.type == "Normal" and (hoverNode.dn == "Attribute" or hoverNode.dn == "Strength" or hoverNode.dn == "Dexterity" or hoverNode.dn == "Intelligence") then
+					-- change to other attribute without needing to deallocate
 					if hotkeyPressed then
 						if IsKeyDown("1") or IsKeyDown("I") then
 							switchAttributeNode(hoverNode, 3)
@@ -306,8 +296,9 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 						spec:BuildAllDependsAndPaths()
 						spec:AddUndoState()
 						build.buildFlag = true
+					-- reset switched node to generic Attribute
 					else
-						switchAttributeNode(hoverNode, 0)
+						spec.hashOverrides[hoverNode.id] = nil
 						spec:DeallocNode(hoverNode)
 					end
 				else
