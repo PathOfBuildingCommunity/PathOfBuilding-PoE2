@@ -727,6 +727,10 @@ end
 -- Deallocate the given node, and all nodes which depend on it (i.e. which are only connected to the tree through this node)
 function PassiveSpecClass:DeallocNode(node)
 	for _, depNode in ipairs(node.depends) do
+		-- reset any switched attribute nodes
+		if depNode.dn == "Strength" or depNode.dn == "Dexterity" or depNode.dn == "Intelligence" then
+			self.hashOverrides[depNode.id] = nil
+		end
 		self:DeallocSingleNode(depNode)
 	end
 
