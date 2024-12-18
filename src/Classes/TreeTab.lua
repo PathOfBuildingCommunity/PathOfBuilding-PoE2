@@ -866,7 +866,6 @@ function TreeTabClass:ModifyAttributePopup(hoverNode)
 	controls.attrSelect = new("DropDownControl", {"TOPLEFT",nil,"TOPLEFT"}, {200, 30, 100, 18}, attributes, nil)
 	controls.save = new("ButtonControl", nil, {-50, 65, 80, 20}, "Allocate", function()
 		spec:SwitchAttributeNode(hoverNode.id, controls.attrSelect.selIndex)
-		
 		spec:AllocNode(hoverNode, spec.tracePath and hoverNode == spec.tracePath[#spec.tracePath] and spec.tracePath)
 		spec:AddUndoState()
 		self.build.buildFlag = true
@@ -877,7 +876,8 @@ function TreeTabClass:ModifyAttributePopup(hoverNode)
 		main:ClosePopup()
 	end)
 	controls.hotkeyTooltip = new("LabelControl", nil, {0, 100, 0, 16}, 
-		"^8You can switch attributes quicker by holding hotkeys while allocating:\n\"1\" or \"I\" for Intelligence, \"2\" or \"S\" for Strength, \"3\" or \"D\" for Dexterity")
+		"^8You can switch attributes quicker by holding hotkeys while allocating:\n"..colorCodes.INTELLIGENCE.."\"1\" or \"I\" for Intelligence, "
+		..colorCodes.STRENGTH.."\"2\" or \"S\" for Strength, "..colorCodes.DEXTERITY.."\"3\" or \"D\" for Dexterity")
 	main:OpenPopup(500, 150, "Choose Attribute", controls, "save")
 end
 
