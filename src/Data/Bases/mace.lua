@@ -237,121 +237,151 @@ itemBases["Expert Brigand Mace"] = {
 
 itemBases["Rattling Sceptre"] = {
 	type = "Sceptre",
+	spirit = 100,
 	socketLimit = 2,
 	tags = { default = true, onehand = true, sceptre = true, },
 	influenceTags = { shaper = "sceptre_shaper", elder = "sceptre_elder", adjudicator = "sceptre_adjudicator", basilisk = "sceptre_basilisk", crusader = "sceptre_crusader", eyrie = "sceptre_eyrie", cleansing = "sceptre_cleansing", tangle = "sceptre_tangle" },
+	implicit = "Grants Skill: Level (1-20) Skeletal Warrior",
 	implicitModTypes = { },
 	req = { },
 }
 itemBases["Stoic Sceptre"] = {
 	type = "Sceptre",
+	spirit = 100,
 	socketLimit = 2,
 	tags = { default = true, onehand = true, sceptre = true, },
 	influenceTags = { shaper = "sceptre_shaper", elder = "sceptre_elder", adjudicator = "sceptre_adjudicator", basilisk = "sceptre_basilisk", crusader = "sceptre_crusader", eyrie = "sceptre_eyrie", cleansing = "sceptre_cleansing", tangle = "sceptre_tangle" },
+	implicit = "Grants Skill: Level (1-20) Discipline",
 	implicitModTypes = { },
 	req = { },
 }
 itemBases["Lupine Sceptre"] = {
 	type = "Sceptre",
+	spirit = 100,
 	socketLimit = 2,
 	tags = { default = true, onehand = true, sceptre = true, },
 	influenceTags = { shaper = "sceptre_shaper", elder = "sceptre_elder", adjudicator = "sceptre_adjudicator", basilisk = "sceptre_basilisk", crusader = "sceptre_crusader", eyrie = "sceptre_eyrie", cleansing = "sceptre_cleansing", tangle = "sceptre_tangle" },
+	implicit = "Grants Skill: Level (1-20) Skeletal Warrior",
 	implicitModTypes = { },
 	req = { },
 }
 itemBases["Omen Sceptre"] = {
 	type = "Sceptre",
+	spirit = 100,
 	socketLimit = 2,
 	tags = { default = true, onehand = true, sceptre = true, },
 	influenceTags = { shaper = "sceptre_shaper", elder = "sceptre_elder", adjudicator = "sceptre_adjudicator", basilisk = "sceptre_basilisk", crusader = "sceptre_crusader", eyrie = "sceptre_eyrie", cleansing = "sceptre_cleansing", tangle = "sceptre_tangle" },
+	implicit = "Grants Skill: Level (1-20) Malice",
 	implicitModTypes = { },
 	req = { },
 }
 itemBases["Ochre Sceptre"] = {
 	type = "Sceptre",
+	spirit = 100,
 	socketLimit = 2,
 	tags = { default = true, onehand = true, sceptre = true, },
 	influenceTags = { shaper = "sceptre_shaper", elder = "sceptre_elder", adjudicator = "sceptre_adjudicator", basilisk = "sceptre_basilisk", crusader = "sceptre_crusader", eyrie = "sceptre_eyrie", cleansing = "sceptre_cleansing", tangle = "sceptre_tangle" },
+	implicit = "Grants Skill: Level (1-20) Skeletal Warrior",
 	implicitModTypes = { },
 	req = { },
 }
 itemBases["Shrine Sceptre"] = {
 	type = "Sceptre",
+	spirit = 100,
 	socketLimit = 2,
 	tags = { default = true, onehand = true, sceptre = true, },
 	influenceTags = { shaper = "sceptre_shaper", elder = "sceptre_elder", adjudicator = "sceptre_adjudicator", basilisk = "sceptre_basilisk", crusader = "sceptre_crusader", eyrie = "sceptre_eyrie", cleansing = "sceptre_cleansing", tangle = "sceptre_tangle" },
+	implicit = "Grants Skill: Level (1-20) Purity of Fire",
 	implicitModTypes = { },
 	req = { },
 }
 itemBases["Shrine Sceptre"] = {
 	type = "Sceptre",
+	spirit = 100,
 	socketLimit = 2,
 	tags = { default = true, onehand = true, sceptre = true, },
 	influenceTags = { shaper = "sceptre_shaper", elder = "sceptre_elder", adjudicator = "sceptre_adjudicator", basilisk = "sceptre_basilisk", crusader = "sceptre_crusader", eyrie = "sceptre_eyrie", cleansing = "sceptre_cleansing", tangle = "sceptre_tangle" },
+	implicit = "Grants Skill: Level (1-20) Purity of Ice",
 	implicitModTypes = { },
 	req = { },
 }
 itemBases["Shrine Sceptre"] = {
 	type = "Sceptre",
+	spirit = 100,
 	socketLimit = 2,
 	tags = { default = true, onehand = true, sceptre = true, },
 	influenceTags = { shaper = "sceptre_shaper", elder = "sceptre_elder", adjudicator = "sceptre_adjudicator", basilisk = "sceptre_basilisk", crusader = "sceptre_crusader", eyrie = "sceptre_eyrie", cleansing = "sceptre_cleansing", tangle = "sceptre_tangle" },
+	implicit = "Grants Skill: Level (1-20) Purity of Lightning",
 	implicitModTypes = { },
 	req = { },
 }
 itemBases["Devouring Sceptre"] = {
 	type = "Sceptre",
+	spirit = 100,
 	socketLimit = 2,
 	tags = { default = true, onehand = true, sceptre = true, },
 	influenceTags = { shaper = "sceptre_shaper", elder = "sceptre_elder", adjudicator = "sceptre_adjudicator", basilisk = "sceptre_basilisk", crusader = "sceptre_crusader", eyrie = "sceptre_eyrie", cleansing = "sceptre_cleansing", tangle = "sceptre_tangle" },
+	implicit = "Grants Skill: Level (1-20) Skeletal Warrior",
 	implicitModTypes = { },
 	req = { },
 }
 itemBases["Clasped Sceptre"] = {
 	type = "Sceptre",
+	spirit = 100,
 	socketLimit = 2,
 	tags = { default = true, onehand = true, sceptre = true, },
 	influenceTags = { shaper = "sceptre_shaper", elder = "sceptre_elder", adjudicator = "sceptre_adjudicator", basilisk = "sceptre_basilisk", crusader = "sceptre_crusader", eyrie = "sceptre_eyrie", cleansing = "sceptre_cleansing", tangle = "sceptre_tangle" },
+	implicit = "Grants Skill: Level (1-20) Skeletal Warrior",
 	implicitModTypes = { },
 	req = { },
 }
 itemBases["Devotional Sceptre"] = {
 	type = "Sceptre",
+	spirit = 100,
 	socketLimit = 2,
 	tags = { default = true, onehand = true, sceptre = true, },
 	influenceTags = { shaper = "sceptre_shaper", elder = "sceptre_elder", adjudicator = "sceptre_adjudicator", basilisk = "sceptre_basilisk", crusader = "sceptre_crusader", eyrie = "sceptre_eyrie", cleansing = "sceptre_cleansing", tangle = "sceptre_tangle" },
+	implicit = "Grants Skill: Level (1-20) Skeletal Warrior",
 	implicitModTypes = { },
 	req = { },
 }
 itemBases["Wrath Sceptre"] = {
 	type = "Sceptre",
+	spirit = 100,
 	socketLimit = 2,
 	tags = { default = true, onehand = true, sceptre = true, },
 	influenceTags = { shaper = "sceptre_shaper", elder = "sceptre_elder", adjudicator = "sceptre_adjudicator", basilisk = "sceptre_basilisk", crusader = "sceptre_crusader", eyrie = "sceptre_eyrie", cleansing = "sceptre_cleansing", tangle = "sceptre_tangle" },
+	implicit = "Grants Skill: Level (1-20) Skeletal Warrior",
 	implicitModTypes = { },
 	req = { },
 }
 itemBases["Aromatic Sceptre"] = {
 	type = "Sceptre",
+	spirit = 100,
 	socketLimit = 2,
 	tags = { default = true, onehand = true, sceptre = true, },
 	influenceTags = { shaper = "sceptre_shaper", elder = "sceptre_elder", adjudicator = "sceptre_adjudicator", basilisk = "sceptre_basilisk", crusader = "sceptre_crusader", eyrie = "sceptre_eyrie", cleansing = "sceptre_cleansing", tangle = "sceptre_tangle" },
+	implicit = "Grants Skill: Level (1-20) Skeletal Warrior",
 	implicitModTypes = { },
 	req = { },
 }
 itemBases["Pious Sceptre"] = {
 	type = "Sceptre",
+	spirit = 100,
 	socketLimit = 2,
 	tags = { default = true, onehand = true, sceptre = true, },
 	influenceTags = { shaper = "sceptre_shaper", elder = "sceptre_elder", adjudicator = "sceptre_adjudicator", basilisk = "sceptre_basilisk", crusader = "sceptre_crusader", eyrie = "sceptre_eyrie", cleansing = "sceptre_cleansing", tangle = "sceptre_tangle" },
+	implicit = "Grants Skill: Level (1-20) Skeletal Warrior",
 	implicitModTypes = { },
 	req = { },
 }
 itemBases["Hallowed Sceptre"] = {
 	type = "Sceptre",
+	spirit = 100,
 	socketLimit = 2,
 	tags = { default = true, onehand = true, sceptre = true, },
 	influenceTags = { shaper = "sceptre_shaper", elder = "sceptre_elder", adjudicator = "sceptre_adjudicator", basilisk = "sceptre_basilisk", crusader = "sceptre_crusader", eyrie = "sceptre_eyrie", cleansing = "sceptre_cleansing", tangle = "sceptre_tangle" },
+	implicit = "Grants Skill: Level (1-20) Skeletal Warrior",
 	implicitModTypes = { },
 	req = { },
 }

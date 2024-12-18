@@ -1026,6 +1026,13 @@ return {
 		}
 	},
 	applydamagefunctions={
+		[1]={
+			list=false,
+			name="",
+			refTo="",
+			type="String",
+			width=250
+		}
 	},
 	archetyperewards={
 	},
@@ -6873,18 +6880,18 @@ return {
 			name="BaseItemType",
 			refTo="BaseItemTypes",
 			type="Key",
-			width=150
+			width=450
 		},
 		[2]={
 			list=true,
 			name="Skill",
 			refTo="SkillGems",
 			type="ShortKey",
-			width=330
+			width=400
 		},
 		[3]={
 			list=false,
-			name="",
+			name="Mainhand",
 			refTo="",
 			type="Bool",
 			width=50
@@ -6933,7 +6940,7 @@ return {
 	itemspirit={
 		[1]={
 			list=false,
-			name="",
+			name="BaseItemType",
 			refTo="BaseItemTypes",
 			type="Key",
 			width=430
@@ -12538,9 +12545,16 @@ return {
 	skillcraftingdata={
 		[1]={
 			list=false,
-			name="",
+			name="Id",
 			refTo="",
 			type="String",
+			width=150
+		},
+		[2]={
+			list=false,
+			name="",
+			refTo="",
+			type="Int",
 			width=150
 		}
 	},
@@ -14474,56 +14488,7 @@ return {
 			name="Id",
 			refTo="",
 			type="String",
-			width=300
-		},
-		[2]={
-			list=false,
-			name="ModTier",
-			refTo="",
-			type="Int",
-			width=150
-		},
-		[3]={
-			list=false,
-			name="Mod",
-			refTo="Mods",
-			type="Key",
-			width=450
-		},
-		[4]={
-			list=true,
-			name="NodeSpawnLocation",
-			refTo="",
-			type="Int",
-			width=150
-		},
-		[5]={
-			list=true,
-			name="Tags",
-			refTo="CrucibleTags",
-			type="Key",
-			width=200
-		},
-		[6]={
-			list=false,
-			name="ArtFilepath",
-			refTo="",
-			type="String",
-			width=450
-		},
-		[7]={
-			list=false,
-			name="Type",
-			refTo="WeaponPassiveSkillTypes",
-			type="Key",
-			width=150
-		},
-		[8]={
-			list=true,
-			name="Achievements",
-			refTo="AchievementItems",
-			type="Key",
-			width=360
+			width=230
 		}
 	},
 	weaponpassiveskilltypes={
@@ -14532,58 +14497,16 @@ return {
 			name="Id",
 			refTo="",
 			type="String",
-			width=150
-		},
-		[2]={
-			list=false,
-			name="",
-			refTo="",
-			type="Int",
-			width=150
+			width=250
 		}
 	},
 	weaponpassivetreebalanceperitemlevel={
 		[1]={
 			list=false,
-			name="ItemLevel",
+			name="Id",
 			refTo="",
-			type="Int",
-			width=80
-		},
-		[2]={
-			list=false,
-			name="XPNode1",
-			refTo="",
-			type="Int",
-			width=150
-		},
-		[3]={
-			list=false,
-			name="XPNode2",
-			refTo="",
-			type="Int",
-			width=150
-		},
-		[4]={
-			list=false,
-			name="XPNode3",
-			refTo="",
-			type="Int",
-			width=150
-		},
-		[5]={
-			list=false,
-			name="XPNode4",
-			refTo="",
-			type="Int",
-			width=150
-		},
-		[6]={
-			list=false,
-			name="XPNode5",
-			refTo="",
-			type="Int",
-			width=150
+			type="String",
+			width=230
 		}
 	},
 	weaponpassivetreeuniquebasetypes={
@@ -14591,15 +14514,8 @@ return {
 			list=false,
 			name="UniqueBase",
 			refTo="BaseItemTypes",
-			type="Key",
+			type="String",
 			width=500
-		},
-		[2]={
-			list=false,
-			name="",
-			refTo="",
-			type="Int",
-			width=150
 		}
 	},
 	weaponsoundtypes={
@@ -14656,10 +14572,10 @@ return {
 		},
 		[8]={
 			list=false,
-			name="",
+			name="ReloadTime",
 			refTo="",
 			type="Int",
-			width=50
+			width=80
 		}
 	},
 	wieldableclasses={

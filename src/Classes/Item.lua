@@ -1256,7 +1256,7 @@ end
 
 -- Return the name of the slot this item is equipped in
 function ItemClass:GetPrimarySlot()
-	if self.base.weapon then
+	if self.base.weapon or self.base.type == "Wand" or self.base.type == "Sceptre" or self.base.type == "Staff" then
 		return "Weapon 1"
 	elseif self.type == "Quiver" or self.type == "Shield" then
 		return "Weapon 2"
@@ -1660,7 +1660,7 @@ function ItemClass:BuildModList()
 		self.sockets = newSockets
 	end
 	self.socketedJewelEffectModifier = 1 + calcLocal(baseList, "SocketedJewelEffect", "INC", 0) / 100
-	if self.base.weapon or self.type == "Ring" then
+	if self.base.weapon or self.base.type == "Wand" or self.base.type == "Sceptre" or self.base.type == "Staff" or self.type == "Ring" then
 		self.slotModList = { }
 		for i = 1, 2 do
 			self.slotModList[i] = self:BuildModListForSlotNum(baseList, i)
