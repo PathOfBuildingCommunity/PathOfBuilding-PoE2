@@ -265,16 +265,16 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 	end
 	
 	local function switchAttributeNode(node, attributeIndex)
+		if attributeIndex == 0 then
+			spec.hashOverrides[node.id] = nil
+			return
+		end
+		
 		local option = nil
 		local attribute = "Attribute"
 		local newNode = copyTableSafe(spec.tree.nodes[node.id], false, true)
-		
-		if attributeIndex == 0 then
-			option = newNode
-		else
-			option = node.options[attributeIndex]
-			attribute = option.name
-		end
+		option = node.options[attributeIndex]
+		attribute = option.name
 		
 		newNode.dn = attribute
 		newNode.id = node.id
@@ -291,12 +291,28 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 		if hoverNode then
 			-- User left-clicked on a node
 			if hoverNode.alloc then
+				local hotkeyPressed = IsKeyDown("1") or IsKeyDown("I") or IsKeyDown("2") or IsKeyDown("S") or IsKeyDown("3") or IsKeyDown("D")
 				-- reset attribute-switched nodes
 				if hoverNode.type == "Normal" and (hoverNode.dn == "Attribute" or hoverNode.dn == "Strength" or hoverNode.dn == "Dexterity" or hoverNode.dn == "Intelligence") then
-					switchAttributeNode(hoverNode, 0)
+					if hotkeyPressed then
+						if IsKeyDown("1") or IsKeyDown("I") then
+							switchAttributeNode(hoverNode, 3)
+						elseif IsKeyDown("2") or IsKeyDown("S") then
+							switchAttributeNode(hoverNode, 1)
+						elseif IsKeyDown("3") or IsKeyDown("D") then
+							switchAttributeNode(hoverNode, 2)
+						end
+						-- reload allocated node with new attribute
+						spec:BuildAllDependsAndPaths()
+						spec:AddUndoState()
+						build.buildFlag = true
+					else
+						switchAttributeNode(hoverNode, 0)
+						spec:DeallocNode(hoverNode)
+					end
+				else
+					spec:DeallocNode(hoverNode)
 				end
-				-- Node is allocated, so deallocate it
-				spec:DeallocNode(hoverNode)
 				spec:AddUndoState()
 				build.buildFlag = true
 			elseif hoverNode.path then
