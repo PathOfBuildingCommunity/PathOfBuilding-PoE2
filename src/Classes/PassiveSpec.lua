@@ -733,7 +733,7 @@ end
 function PassiveSpecClass:DeallocNode(node)
 	for _, depNode in ipairs(node.depends) do
 		-- reset any switched attribute nodes
-		if depNode.dn == "Strength" or depNode.dn == "Dexterity" or depNode.dn == "Intelligence" then
+		if depNode.isAttribute then
 			self.hashOverrides[depNode.id] = nil
 		end
 		self:DeallocSingleNode(depNode)
