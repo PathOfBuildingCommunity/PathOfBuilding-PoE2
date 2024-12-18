@@ -14,9 +14,9 @@ function module.CompressDDSIntoOtherFormat(path_base, path_for_bat, name, listOf
 	local shCommands = ""
 	for _, file in ipairs(listOfFile) do
 		shCommands = shCommands .. string.format(
-			"nvcompress.exe -%s -highest \"%s\" \"%s\"\n",
+			"nvtt_export.exe -f %s -o \"%s\" \"%s\"\n",
 			format,
-			escape_path(path_base .. file),
+			escape_path(path_base .. string.gsub(file, ".dds", "_out.dds")),
 			escape_path(path_base .. file)
 		)
 	end
