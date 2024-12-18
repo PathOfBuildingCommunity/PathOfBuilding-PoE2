@@ -14117,6 +14117,7 @@ return {
 			},
 			group=984,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -14386,6 +14387,7 @@ return {
 			},
 			group=596,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -14513,6 +14515,7 @@ return {
 			},
 			group=46,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -14556,6 +14559,7 @@ return {
 			},
 			group=394,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -14709,6 +14713,7 @@ return {
 			},
 			group=333,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -15007,7 +15012,19 @@ return {
 			},
 			group=484,
 			icon="Art/2DArt/SkillIcons/passives/damagespells.dds",
+			isSwitchable=true,
 			name="Spell Damage",
+			options={
+				Witch={
+					icon="Art/2DArt/SkillIcons/passives/miniondamageBlue.dds",
+					id=31707,
+					name="Spell and Minion Damage",
+					stats={
+						[1]="8% increased Spell Damage",
+						[2]="Minions deal 8% increased Damage"
+					}
+				}
+			},
 			orbit=2,
 			orbitIndex=17,
 			skill=1755,
@@ -15079,6 +15096,7 @@ return {
 			},
 			group=579,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -15550,6 +15568,7 @@ return {
 			},
 			group=924,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -15605,6 +15624,7 @@ return {
 			},
 			group=847,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -15713,7 +15733,7 @@ return {
 			group=217,
 			icon="Art/2DArt/SkillIcons/passives/MasteryBlank.dds",
 			isJewelSocket=true,
-			name="[Jewel] Socket",
+			name="Jewel Socket",
 			orbit=1,
 			orbitIndex=10,
 			skill=2491,
@@ -15832,6 +15852,7 @@ return {
 			},
 			group=996,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -15989,6 +16010,7 @@ return {
 			},
 			group=521,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -16167,6 +16189,7 @@ return {
 			},
 			group=543,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -16235,6 +16258,7 @@ return {
 			},
 			group=421,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -16553,6 +16577,7 @@ return {
 			},
 			group=772,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -16706,6 +16731,7 @@ return {
 			},
 			group=124,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -17120,7 +17146,19 @@ return {
 			group=475,
 			icon="Art/2DArt/SkillIcons/passives/colddamage.dds",
 			isNotable=true,
+			isSwitchable=true,
 			name="Path of Winter",
+			options={
+				Witch={
+					icon="Art/2DArt/SkillIcons/passives/miniondamageBlue.dds",
+					id=17324,
+					name="Power of the Dead",
+					stats={
+						[1]="Minions deal 15% increased Damage",
+						[2]="Minions have 3% increased Attack and Cast Speed"
+					}
+				}
+			},
 			orbit=1,
 			orbitIndex=0,
 			recipe={
@@ -17440,6 +17478,7 @@ return {
 			},
 			group=768,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -17592,6 +17631,7 @@ return {
 			},
 			group=105,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -17668,6 +17708,7 @@ return {
 			},
 			group=600,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -17808,6 +17849,7 @@ return {
 			},
 			group=834,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -18000,6 +18042,7 @@ return {
 			},
 			group=464,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -18076,6 +18119,7 @@ return {
 			},
 			group=128,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -18354,7 +18398,19 @@ return {
 			},
 			group=523,
 			icon="Art/2DArt/SkillIcons/passives/damagespells.dds",
+			isSwitchable=true,
 			name="Spell Damage",
+			options={
+				Witch={
+					icon="Art/2DArt/SkillIcons/passives/miniondamageBlue.dds",
+					id=17306,
+					name="Spell and Minion Damage",
+					stats={
+						[1]="8% increased Spell Damage",
+						[2]="Minions deal 8% increased Damage"
+					}
+				}
+			},
 			orbit=3,
 			orbitIndex=22,
 			skill=4739,
@@ -18371,7 +18427,18 @@ return {
 			},
 			group=539,
 			icon="Art/2DArt/SkillIcons/passives/EnergyShieldNode.dds",
+			isSwitchable=true,
 			name="Energy Shield Delay",
+			options={
+				Witch={
+					icon="Art/2DArt/SkillIcons/passives/minionlife.dds",
+					id=48235,
+					name="Minion Life",
+					stats={
+						[1]="Minions have 10% increased maximum Life"
+					}
+				}
+			},
 			orbit=3,
 			orbitIndex=6,
 			skill=4748,
@@ -18872,6 +18939,7 @@ return {
 			},
 			group=500,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -19112,6 +19180,7 @@ return {
 			},
 			group=731,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -19459,6 +19528,7 @@ return {
 			},
 			group=366,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -19695,7 +19765,7 @@ return {
 			group=606,
 			icon="Art/2DArt/SkillIcons/passives/MasteryBlank.dds",
 			isJewelSocket=true,
-			name="[Jewel] Socket",
+			name="Jewel Socket",
 			orbit=0,
 			orbitIndex=0,
 			skill=6230,
@@ -20101,7 +20171,18 @@ return {
 			},
 			group=484,
 			icon="Art/2DArt/SkillIcons/passives/manaregeneration.dds",
+			isSwitchable=true,
 			name="Mana Regeneration",
+			options={
+				Witch={
+					icon="Art/2DArt/SkillIcons/passives/minionlife.dds",
+					id=29472,
+					name="Minion Life",
+					stats={
+						[1]="Minions have 10% increased maximum Life"
+					}
+				}
+			},
 			orbit=2,
 			orbitIndex=1,
 			skill=6686,
@@ -20157,6 +20238,7 @@ return {
 			},
 			group=342,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -20242,6 +20324,7 @@ return {
 			},
 			group=690,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -20951,6 +21034,7 @@ return {
 			},
 			group=829,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -21063,6 +21147,7 @@ return {
 			},
 			group=427,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -21209,6 +21294,7 @@ return {
 			},
 			group=530,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -21387,7 +21473,7 @@ return {
 			group=208,
 			icon="Art/2DArt/SkillIcons/passives/MasteryBlank.dds",
 			isJewelSocket=true,
-			name="[Jewel] Socket",
+			name="Jewel Socket",
 			orbit=1,
 			orbitIndex=2,
 			skill=7960,
@@ -21722,6 +21808,7 @@ return {
 			},
 			group=366,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -21854,6 +21941,7 @@ return {
 			},
 			group=388,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -22059,6 +22147,7 @@ return {
 			},
 			group=640,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -22143,6 +22232,7 @@ return {
 			},
 			group=502,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -22624,6 +22714,7 @@ return {
 			},
 			group=682,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -23246,6 +23337,7 @@ return {
 			},
 			group=554,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -23901,6 +23993,7 @@ return {
 			},
 			group=88,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -23952,6 +24045,7 @@ return {
 			},
 			group=728,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -23995,6 +24089,7 @@ return {
 			},
 			group=421,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -24125,6 +24220,7 @@ return {
 			},
 			group=511,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -24402,6 +24498,7 @@ return {
 			},
 			group=795,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -24911,6 +25008,7 @@ return {
 			},
 			group=588,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -25183,6 +25281,7 @@ return {
 			},
 			group=167,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -25596,6 +25695,7 @@ return {
 			},
 			group=773,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -25687,6 +25787,7 @@ return {
 			},
 			group=591,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -25747,6 +25848,7 @@ return {
 			},
 			group=92,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -25892,6 +25994,7 @@ return {
 			},
 			group=886,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -26263,6 +26366,7 @@ return {
 			},
 			group=922,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -26796,6 +26900,7 @@ return {
 			},
 			group=850,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -27061,6 +27166,7 @@ return {
 			},
 			group=404,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -27100,6 +27206,7 @@ return {
 			},
 			group=380,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -27269,6 +27376,7 @@ return {
 			},
 			group=394,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -27340,6 +27448,7 @@ return {
 			},
 			group=708,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -28354,6 +28463,7 @@ return {
 			},
 			group=987,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -28397,6 +28507,7 @@ return {
 			},
 			group=1008,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -28484,6 +28595,7 @@ return {
 			},
 			group=601,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -28676,6 +28788,7 @@ return {
 			},
 			group=885,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -28895,6 +29008,7 @@ return {
 			},
 			group=185,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -28963,6 +29077,7 @@ return {
 			},
 			group=882,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -29358,6 +29473,7 @@ return {
 			},
 			group=471,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -29590,6 +29706,7 @@ return {
 			},
 			group=596,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -29742,6 +29859,7 @@ return {
 			},
 			group=148,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -29789,6 +29907,7 @@ return {
 			},
 			group=995,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -29836,6 +29955,7 @@ return {
 			},
 			group=256,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -29963,6 +30083,7 @@ return {
 			},
 			group=434,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -30227,6 +30348,7 @@ return {
 			},
 			group=435,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -30384,6 +30506,7 @@ return {
 			},
 			group=641,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -30456,6 +30579,7 @@ return {
 			},
 			group=711,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -30503,6 +30627,7 @@ return {
 			},
 			group=588,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -30721,6 +30846,7 @@ return {
 			},
 			group=845,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -30776,6 +30902,7 @@ return {
 			},
 			group=283,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -30877,6 +31004,7 @@ return {
 			},
 			group=571,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -31017,6 +31145,7 @@ return {
 			},
 			group=845,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -31064,6 +31193,7 @@ return {
 			},
 			group=691,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -31199,6 +31329,7 @@ return {
 			},
 			group=610,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -31645,6 +31776,7 @@ return {
 			},
 			group=275,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -31953,6 +32085,7 @@ return {
 			},
 			group=777,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -32263,7 +32396,19 @@ return {
 			group=539,
 			icon="Art/2DArt/SkillIcons/passives/EnergyShieldNode.dds",
 			isNotable=true,
+			isSwitchable=true,
 			name="Rapid Recharge",
+			options={
+				Witch={
+					icon="Art/2DArt/SkillIcons/passives/minionlife.dds",
+					id=48926,
+					name="Living Death",
+					stats={
+						[1]="Minions have 15% increased maximum Life",
+						[2]="Minions Revive 15% faster"
+					}
+				}
+			},
 			orbit=7,
 			orbitIndex=3,
 			recipe={
@@ -32618,6 +32763,7 @@ return {
 			},
 			group=468,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -32697,6 +32843,7 @@ return {
 			},
 			group=72,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -33169,7 +33316,19 @@ return {
 			},
 			group=484,
 			icon="Art/2DArt/SkillIcons/passives/damagespells.dds",
+			isSwitchable=true,
 			name="Spell Damage",
+			options={
+				Witch={
+					icon="Art/2DArt/SkillIcons/passives/miniondamageBlue.dds",
+					id=27384,
+					name="Spell and Minion Damage",
+					stats={
+						[1]="8% increased Spell Damage",
+						[2]="Minions deal 8% increased Damage"
+					}
+				}
+			},
 			orbit=7,
 			orbitIndex=11,
 			skill=18845,
@@ -33226,6 +33385,7 @@ return {
 			},
 			group=649,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -33329,6 +33489,7 @@ return {
 			},
 			group=742,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -33654,6 +33815,7 @@ return {
 			},
 			group=400,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -35183,6 +35345,7 @@ return {
 			},
 			group=573,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -35256,6 +35419,7 @@ return {
 			},
 			group=713,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -35382,6 +35546,7 @@ return {
 			},
 			group=85,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -35609,6 +35774,7 @@ return {
 			},
 			group=160,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -35809,6 +35975,7 @@ return {
 			},
 			group=746,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -35892,6 +36059,7 @@ return {
 			},
 			group=516,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -36110,7 +36278,7 @@ return {
 			group=822,
 			icon="Art/2DArt/SkillIcons/passives/MasteryBlank.dds",
 			isJewelSocket=true,
-			name="[Jewel] Socket",
+			name="Jewel Socket",
 			orbit=1,
 			orbitIndex=4,
 			skill=21984,
@@ -36338,7 +36506,19 @@ return {
 			},
 			group=473,
 			icon="Art/2DArt/SkillIcons/passives/elementaldamage.dds",
+			isSwitchable=true,
 			name="Elemental Damage",
+			options={
+				Witch={
+					icon="Art/2DArt/SkillIcons/passives/miniondamageBlue.dds",
+					id=53140,
+					name="Spell and Minion Damage",
+					stats={
+						[1]="8% increased Spell Damage",
+						[2]="Minions deal 8% increased Damage"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=22314,
@@ -36414,6 +36594,7 @@ return {
 			},
 			group=477,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -36554,6 +36735,7 @@ return {
 			},
 			group=275,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -36605,6 +36787,7 @@ return {
 			},
 			group=275,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -36692,7 +36875,18 @@ return {
 			},
 			group=548,
 			icon="Art/2DArt/SkillIcons/passives/EnergyShieldNode.dds",
+			isSwitchable=true,
 			name="Energy Shield Delay",
+			options={
+				Witch={
+					icon="Art/2DArt/SkillIcons/passives/minionlife.dds",
+					id=19990,
+					name="Minion Life",
+					stats={
+						[1]="Minions have 10% increased maximum Life"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=22691,
@@ -36797,7 +36991,18 @@ return {
 			},
 			group=473,
 			icon="Art/2DArt/SkillIcons/passives/colddamage.dds",
+			isSwitchable=true,
 			name="Cold Damage",
+			options={
+				Witch={
+					icon="Art/2DArt/SkillIcons/passives/miniondamageBlue.dds",
+					id=183,
+					name="Minion Damage",
+					stats={
+						[1]="Minions deal 10% increased Damage"
+					}
+				}
+			},
 			orbit=7,
 			orbitIndex=0,
 			skill=22821,
@@ -36893,6 +37098,7 @@ return {
 			},
 			group=315,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -37009,6 +37215,7 @@ return {
 			},
 			group=170,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -37272,6 +37479,7 @@ return {
 			},
 			group=89,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -37406,6 +37614,7 @@ return {
 			},
 			group=174,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -37560,6 +37769,7 @@ return {
 			},
 			group=408,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -38127,6 +38337,7 @@ return {
 			},
 			group=821,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -38264,6 +38475,7 @@ return {
 			},
 			group=956,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -38329,6 +38541,7 @@ return {
 			},
 			group=738,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -38635,6 +38848,7 @@ return {
 			},
 			group=748,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -38776,6 +38990,7 @@ return {
 			},
 			group=929,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -38876,6 +39091,7 @@ return {
 			},
 			group=701,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -38992,6 +39208,7 @@ return {
 			},
 			group=763,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -39039,6 +39256,7 @@ return {
 			},
 			group=845,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -39409,6 +39627,7 @@ return {
 			},
 			group=435,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -39608,6 +39827,7 @@ return {
 			},
 			group=712,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -40167,7 +40387,7 @@ return {
 			group=73,
 			icon="Art/2DArt/SkillIcons/passives/MasteryBlank.dds",
 			isJewelSocket=true,
-			name="[Jewel] Socket",
+			name="Jewel Socket",
 			orbit=0,
 			orbitIndex=0,
 			skill=26196,
@@ -40383,6 +40603,7 @@ return {
 			},
 			group=876,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -40592,6 +40813,7 @@ return {
 			},
 			group=832,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -40742,7 +40964,7 @@ return {
 			group=74,
 			icon="Art/2DArt/SkillIcons/passives/MasteryBlank.dds",
 			isJewelSocket=true,
-			name="[Jewel] Socket",
+			name="Jewel Socket",
 			orbit=0,
 			orbitIndex=0,
 			skill=26725,
@@ -40835,6 +41057,7 @@ return {
 			},
 			group=649,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -41075,6 +41298,7 @@ return {
 			},
 			group=91,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -41267,6 +41491,7 @@ return {
 			},
 			group=62,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -41355,6 +41580,7 @@ return {
 			},
 			group=315,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -41492,6 +41718,7 @@ return {
 			},
 			group=182,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -41754,6 +41981,7 @@ return {
 			},
 			group=998,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -41964,6 +42192,7 @@ return {
 			},
 			group=242,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -42053,6 +42282,7 @@ return {
 			},
 			group=716,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -42174,6 +42404,7 @@ return {
 			},
 			group=280,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -42309,6 +42540,7 @@ return {
 			},
 			group=240,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -42397,6 +42629,7 @@ return {
 			},
 			group=511,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -42517,7 +42750,7 @@ return {
 			group=611,
 			icon="Art/2DArt/SkillIcons/passives/MasteryBlank.dds",
 			isJewelSocket=true,
-			name="[Jewel] Socket",
+			name="Jewel Socket",
 			orbit=0,
 			orbitIndex=0,
 			skill=28475,
@@ -42579,6 +42812,7 @@ return {
 			},
 			group=487,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -42618,6 +42852,7 @@ return {
 			},
 			group=588,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -43084,6 +43319,7 @@ return {
 			},
 			group=47,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -43160,6 +43396,7 @@ return {
 			},
 			group=499,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -43275,6 +43512,7 @@ return {
 			},
 			group=364,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -43330,6 +43568,7 @@ return {
 			},
 			group=705,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -43625,6 +43864,7 @@ return {
 			},
 			group=701,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -43713,6 +43953,7 @@ return {
 			},
 			group=746,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -43798,6 +44039,7 @@ return {
 			},
 			group=61,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -43873,7 +44115,18 @@ return {
 			},
 			group=533,
 			icon="Art/2DArt/SkillIcons/passives/EnergyShieldNode.dds",
+			isSwitchable=true,
 			name="Energy Shield Delay",
+			options={
+				Witch={
+					icon="Art/2DArt/SkillIcons/passives/manaregeneration.dds",
+					id=31204,
+					name="Mana Regeneration",
+					stats={
+						[1]="10% increased Mana Regeneration Rate"
+					}
+				}
+			},
 			orbit=2,
 			orbitIndex=7,
 			skill=29695,
@@ -44062,6 +44315,7 @@ return {
 			},
 			group=697,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -44198,6 +44452,7 @@ return {
 			},
 			group=53,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -44613,6 +44868,7 @@ return {
 			},
 			group=599,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -44715,6 +44971,7 @@ return {
 			},
 			group=894,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -44859,6 +45116,7 @@ return {
 			},
 			group=997,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -45056,6 +45314,7 @@ return {
 			},
 			group=351,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -45303,6 +45562,7 @@ return {
 			},
 			group=259,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -45762,7 +46022,7 @@ return {
 			group=851,
 			icon="Art/2DArt/SkillIcons/passives/MasteryBlank.dds",
 			isJewelSocket=true,
-			name="[Jewel] Socket",
+			name="Jewel Socket",
 			orbit=0,
 			orbitIndex=0,
 			skill=31683,
@@ -45816,6 +46076,7 @@ return {
 			},
 			group=845,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -45966,6 +46227,7 @@ return {
 			},
 			group=295,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -46064,6 +46326,7 @@ return {
 			},
 			group=640,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -46303,6 +46566,7 @@ return {
 			},
 			group=921,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -46346,6 +46610,7 @@ return {
 			},
 			group=342,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -46681,6 +46946,7 @@ return {
 			},
 			group=65,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -47023,6 +47289,7 @@ return {
 			},
 			group=746,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -47097,7 +47364,7 @@ return {
 			group=1015,
 			icon="Art/2DArt/SkillIcons/passives/MasteryBlank.dds",
 			isJewelSocket=true,
-			name="[Jewel] Socket",
+			name="Jewel Socket",
 			orbit=1,
 			orbitIndex=6,
 			skill=32763,
@@ -47401,6 +47668,7 @@ return {
 			},
 			group=361,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -47950,7 +48218,7 @@ return {
 			group=396,
 			icon="Art/2DArt/SkillIcons/passives/MasteryBlank.dds",
 			isJewelSocket=true,
-			name="[Jewel] Socket",
+			name="Jewel Socket",
 			orbit=0,
 			orbitIndex=0,
 			skill=33631,
@@ -47991,6 +48259,7 @@ return {
 			},
 			group=84,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -48370,7 +48639,7 @@ return {
 			group=144,
 			icon="Art/2DArt/SkillIcons/passives/MasteryBlank.dds",
 			isJewelSocket=true,
-			name="[Jewel] Socket",
+			name="Jewel Socket",
 			orbit=0,
 			orbitIndex=0,
 			skill=33989,
@@ -48407,6 +48676,7 @@ return {
 			},
 			group=870,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -48479,6 +48749,7 @@ return {
 			},
 			group=439,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -48615,6 +48886,7 @@ return {
 			},
 			group=701,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -48710,6 +48982,7 @@ return {
 			},
 			group=789,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -49106,7 +49379,7 @@ return {
 			group=919,
 			icon="Art/2DArt/SkillIcons/passives/MasteryBlank.dds",
 			isJewelSocket=true,
-			name="[Jewel] Socket",
+			name="Jewel Socket",
 			orbit=0,
 			orbitIndex=0,
 			skill=34483,
@@ -49391,6 +49664,7 @@ return {
 			},
 			group=320,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -49713,6 +49987,7 @@ return {
 			},
 			group=317,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -49866,6 +50141,7 @@ return {
 			},
 			group=366,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -50163,6 +50439,7 @@ return {
 			},
 			group=923,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -50470,6 +50747,7 @@ return {
 			},
 			group=662,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -50525,6 +50803,7 @@ return {
 			},
 			group=850,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -50719,7 +50998,7 @@ return {
 			group=104,
 			icon="Art/2DArt/SkillIcons/passives/MasteryBlank.dds",
 			isJewelSocket=true,
-			name="[Jewel] Socket",
+			name="Jewel Socket",
 			orbit=0,
 			orbitIndex=0,
 			skill=36044,
@@ -51323,6 +51602,7 @@ return {
 			},
 			group=354,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -51379,7 +51659,7 @@ return {
 			group=410,
 			icon="Art/2DArt/SkillIcons/passives/MasteryBlank.dds",
 			isJewelSocket=true,
-			name="[Jewel] Socket",
+			name="Jewel Socket",
 			orbit=0,
 			orbitIndex=0,
 			skill=36634,
@@ -51854,6 +52134,7 @@ return {
 			},
 			group=252,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -52285,6 +52566,7 @@ return {
 			},
 			group=339,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -52344,6 +52626,7 @@ return {
 			},
 			group=342,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -52972,6 +53255,7 @@ return {
 			},
 			group=641,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -53107,6 +53391,7 @@ return {
 			},
 			group=346,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -53297,6 +53582,7 @@ return {
 			},
 			group=869,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -53736,6 +54022,7 @@ return {
 			},
 			group=112,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -53796,6 +54083,7 @@ return {
 			},
 			group=561,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -53903,6 +54191,7 @@ return {
 			},
 			group=654,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -53972,6 +54261,7 @@ return {
 			},
 			group=398,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -54019,6 +54309,7 @@ return {
 			},
 			group=260,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -54236,6 +54527,7 @@ return {
 			},
 			group=538,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -54335,6 +54627,7 @@ return {
 			},
 			group=83,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -54898,6 +55191,7 @@ return {
 			},
 			group=142,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -55064,6 +55358,7 @@ return {
 			},
 			group=449,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -55755,6 +56050,7 @@ return {
 			},
 			group=560,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -55916,6 +56212,7 @@ return {
 			},
 			group=963,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -55967,6 +56264,7 @@ return {
 			},
 			group=715,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -56010,6 +56308,7 @@ return {
 			},
 			group=408,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -56330,7 +56629,7 @@ return {
 			group=195,
 			icon="Art/2DArt/SkillIcons/passives/MasteryBlank.dds",
 			isJewelSocket=true,
-			name="[Jewel] Socket",
+			name="Jewel Socket",
 			orbit=0,
 			orbitIndex=0,
 			skill=41263,
@@ -56652,6 +56951,7 @@ return {
 			},
 			group=416,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -56777,6 +57077,7 @@ return {
 			},
 			group=55,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -56875,6 +57176,7 @@ return {
 			},
 			group=888,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -56946,7 +57248,19 @@ return {
 			},
 			group=484,
 			icon="Art/2DArt/SkillIcons/passives/damagespells.dds",
+			isSwitchable=true,
 			name="Spell Damage",
+			options={
+				Witch={
+					icon="Art/2DArt/SkillIcons/passives/miniondamageBlue.dds",
+					id=37463,
+					name="Spell and Minion Damage",
+					stats={
+						[1]="8% increased Spell Damage",
+						[2]="Minions deal 8% increased Damage"
+					}
+				}
+			},
 			orbit=2,
 			orbitIndex=21,
 			skill=41965,
@@ -57230,6 +57544,7 @@ return {
 			},
 			group=689,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -57354,6 +57669,7 @@ return {
 			},
 			group=487,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -57445,6 +57761,7 @@ return {
 			},
 			group=835,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -57547,6 +57864,7 @@ return {
 			},
 			group=530,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -57647,6 +57965,7 @@ return {
 			},
 			group=864,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -57707,6 +58026,7 @@ return {
 			},
 			group=587,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -58629,6 +58949,7 @@ return {
 			},
 			group=746,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -58758,7 +59079,18 @@ return {
 			},
 			group=533,
 			icon="Art/2DArt/SkillIcons/passives/EnergyShieldNode.dds",
+			isSwitchable=true,
 			name="Energy Shield Delay",
+			options={
+				Witch={
+					icon="Art/2DArt/SkillIcons/passives/manaregeneration.dds",
+					id=38659,
+					name="Mana Regeneration",
+					stats={
+						[1]="10% increased Mana Regeneration Rate"
+					}
+				}
+			},
 			orbit=2,
 			orbitIndex=3,
 			skill=43736,
@@ -58779,6 +59111,7 @@ return {
 			},
 			group=641,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -59367,6 +59700,7 @@ return {
 			},
 			group=615,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -59406,6 +59740,7 @@ return {
 			},
 			group=371,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -59862,6 +60197,7 @@ return {
 			},
 			group=354,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -60005,6 +60341,7 @@ return {
 			},
 			group=328,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -60905,7 +61242,18 @@ return {
 			},
 			group=475,
 			icon="Art/2DArt/SkillIcons/passives/LightningDamagenode.dds",
+			isSwitchable=true,
 			name="Lightning Damage",
+			options={
+				Witch={
+					icon="Art/2DArt/SkillIcons/passives/ChaosDamagenode.dds",
+					id=40885,
+					name="Chaos Damage",
+					stats={
+						[1]="10% increased Chaos Damage"
+					}
+				}
+			},
 			orbit=3,
 			orbitIndex=6,
 			skill=45522,
@@ -61235,6 +61583,7 @@ return {
 			},
 			group=455,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -61336,6 +61685,7 @@ return {
 			},
 			group=391,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -61404,6 +61754,7 @@ return {
 			},
 			group=435,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -61552,6 +61903,7 @@ return {
 			},
 			group=696,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -61861,6 +62213,7 @@ return {
 			},
 			group=399,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -62076,6 +62429,7 @@ return {
 			},
 			group=625,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -62200,6 +62554,7 @@ return {
 			},
 			group=248,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -62428,6 +62783,7 @@ return {
 			},
 			group=496,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -62471,6 +62827,7 @@ return {
 			},
 			group=725,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -62550,7 +62907,7 @@ return {
 			group=827,
 			icon="Art/2DArt/SkillIcons/passives/MasteryBlank.dds",
 			isJewelSocket=true,
-			name="[Jewel] Socket",
+			name="Jewel Socket",
 			orbit=1,
 			orbitIndex=8,
 			skill=46882,
@@ -62724,6 +63081,7 @@ return {
 			},
 			group=349,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -62824,6 +63182,7 @@ return {
 			},
 			group=627,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -62934,6 +63293,7 @@ return {
 			},
 			group=87,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -63240,6 +63600,7 @@ return {
 			},
 			group=421,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -63570,6 +63931,7 @@ return {
 			},
 			group=141,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -63617,6 +63979,7 @@ return {
 			},
 			group=913,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -63791,6 +64154,7 @@ return {
 			},
 			group=986,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -64003,6 +64367,7 @@ return {
 			},
 			group=347,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -64054,6 +64419,7 @@ return {
 			},
 			group=596,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -64254,6 +64620,7 @@ return {
 			},
 			group=249,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -64320,6 +64687,7 @@ return {
 			},
 			group=633,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -64510,6 +64878,7 @@ return {
 			},
 			group=277,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -64561,6 +64930,7 @@ return {
 			},
 			group=515,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -64653,6 +65023,7 @@ return {
 			},
 			group=407,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -64769,7 +65140,7 @@ return {
 			group=203,
 			icon="Art/2DArt/SkillIcons/passives/MasteryBlank.dds",
 			isJewelSocket=true,
-			name="[Jewel] Socket",
+			name="Jewel Socket",
 			orbit=0,
 			orbitIndex=0,
 			skill=48768,
@@ -64793,6 +65164,7 @@ return {
 			},
 			group=1005,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -64993,6 +65365,7 @@ return {
 			},
 			group=634,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -65323,6 +65696,7 @@ return {
 			},
 			group=342,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -65544,6 +65918,7 @@ return {
 			},
 			group=465,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -65730,6 +66105,7 @@ return {
 			},
 			group=510,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -65836,6 +66212,7 @@ return {
 			},
 			group=145,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -65945,6 +66322,7 @@ return {
 			},
 			group=189,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -66055,6 +66433,7 @@ return {
 			},
 			group=920,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -66167,6 +66546,7 @@ return {
 			},
 			group=286,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -66482,6 +66862,7 @@ return {
 			},
 			group=399,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -66587,6 +66968,7 @@ return {
 			},
 			group=756,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -67113,6 +67495,7 @@ return {
 			},
 			group=729,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -67156,6 +67539,7 @@ return {
 			},
 			group=275,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -67283,7 +67667,20 @@ return {
 			group=474,
 			icon="Art/2DArt/SkillIcons/passives/IncreasedManaCostNotable.dds",
 			isNotable=true,
+			isSwitchable=true,
 			name="Raw Power",
+			options={
+				Witch={
+					icon="Art/2DArt/SkillIcons/passives/IncreasedManaCostNotable.dds",
+					id=5788,
+					name="Raw Destruction",
+					stats={
+						[1]="16% increased Spell Damage",
+						[2]="Minions deal 16% increased Damage",
+						[3]="+10 to Intelligence"
+					}
+				}
+			},
 			orbit=0,
 			orbitIndex=0,
 			recipe={
@@ -67406,6 +67803,7 @@ return {
 			},
 			group=341,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -67454,7 +67852,19 @@ return {
 			group=475,
 			icon="Art/2DArt/SkillIcons/passives/firedamageint.dds",
 			isNotable=true,
+			isSwitchable=true,
 			name="Path of Flame",
+			options={
+				Witch={
+					icon="Art/2DArt/SkillIcons/WitchBoneStorm.dds",
+					id=64801,
+					name="Jagged Shards",
+					stats={
+						[1]="15% increased Critical Hit Chance for Spells",
+						[2]="18% increased Physical Damage"
+					}
+				}
+			},
 			orbit=7,
 			orbitIndex=21,
 			recipe={
@@ -67653,6 +68063,7 @@ return {
 			},
 			group=178,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -67928,6 +68339,7 @@ return {
 			},
 			group=845,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -68072,6 +68484,7 @@ return {
 			},
 			group=143,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -68260,6 +68673,7 @@ return {
 			},
 			group=392,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -68344,7 +68758,18 @@ return {
 			},
 			group=475,
 			icon="Art/2DArt/SkillIcons/passives/firedamageint.dds",
+			isSwitchable=true,
 			name="Fire Damage",
+			options={
+				Witch={
+					icon="Art/2DArt/SkillIcons/WitchBoneStorm.dds",
+					id=18040,
+					name="Physical Damage",
+					stats={
+						[1]="10% increased Physical Damage"
+					}
+				}
+			},
 			orbit=3,
 			orbitIndex=18,
 			skill=51968,
@@ -68443,6 +68868,7 @@ return {
 			},
 			group=507,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -68658,6 +69084,7 @@ return {
 			},
 			group=135,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -68718,6 +69145,7 @@ return {
 			},
 			group=391,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -69761,6 +70189,7 @@ return {
 			},
 			group=391,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -69812,6 +70241,7 @@ return {
 			},
 			group=275,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -69963,6 +70393,7 @@ return {
 			},
 			group=405,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -70062,6 +70493,7 @@ return {
 			},
 			group=421,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -70126,6 +70558,7 @@ return {
 			},
 			group=155,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -70396,6 +70829,7 @@ return {
 			},
 			group=666,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -70582,6 +71016,7 @@ return {
 			},
 			group=443,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -70626,7 +71061,7 @@ return {
 			group=508,
 			icon="Art/2DArt/SkillIcons/passives/MasteryBlank.dds",
 			isJewelSocket=true,
-			name="[Jewel] Socket",
+			name="Jewel Socket",
 			orbit=0,
 			orbitIndex=0,
 			skill=54127,
@@ -70764,6 +71199,7 @@ return {
 			},
 			group=414,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -70811,6 +71247,7 @@ return {
 			},
 			group=522,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -70967,6 +71404,7 @@ return {
 			},
 			group=510,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -71072,6 +71510,7 @@ return {
 			},
 			group=413,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -71337,6 +71776,7 @@ return {
 			},
 			group=227,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -71376,6 +71816,7 @@ return {
 			},
 			group=459,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -71586,6 +72027,7 @@ return {
 			},
 			group=943,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -71915,7 +72357,7 @@ return {
 			group=42,
 			icon="Art/2DArt/SkillIcons/passives/MasteryBlank.dds",
 			isJewelSocket=true,
-			name="[Jewel] Socket",
+			name="Jewel Socket",
 			orbit=1,
 			orbitIndex=0,
 			skill=55190,
@@ -72109,6 +72551,7 @@ return {
 			},
 			group=615,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -72169,6 +72612,7 @@ return {
 			},
 			group=610,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -72605,6 +73049,7 @@ return {
 			},
 			group=704,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -72725,6 +73170,7 @@ return {
 			},
 			group=569,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -72768,7 +73214,18 @@ return {
 			},
 			group=484,
 			icon="Art/2DArt/SkillIcons/passives/manaregeneration.dds",
+			isSwitchable=true,
 			name="Mana Regeneration",
+			options={
+				Witch={
+					icon="Art/2DArt/SkillIcons/passives/minionlife.dds",
+					id=21429,
+					name="Minion Life",
+					stats={
+						[1]="Minions have 10% increased maximum Life"
+					}
+				}
+			},
 			orbit=2,
 			orbitIndex=5,
 			skill=55807,
@@ -72904,6 +73361,7 @@ return {
 			},
 			group=342,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -72985,6 +73443,7 @@ return {
 			},
 			group=732,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -73136,6 +73595,7 @@ return {
 			},
 			group=537,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -73922,6 +74382,7 @@ return {
 			},
 			group=476,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -73987,6 +74448,7 @@ return {
 			},
 			group=549,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -74514,6 +74976,7 @@ return {
 			},
 			group=305,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -74694,6 +75157,7 @@ return {
 			},
 			group=188,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -74741,6 +75205,7 @@ return {
 			},
 			group=503,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -74908,6 +75373,7 @@ return {
 			},
 			group=906,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -75230,6 +75696,7 @@ return {
 			},
 			group=559,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -75397,6 +75864,7 @@ return {
 			},
 			group=126,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -75448,6 +75916,7 @@ return {
 			},
 			group=640,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -75768,6 +76237,7 @@ return {
 			},
 			group=657,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -76023,6 +76493,7 @@ return {
 			},
 			group=150,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -76261,6 +76732,7 @@ return {
 			},
 			group=501,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -76319,6 +76791,7 @@ return {
 			},
 			group=399,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -76484,6 +76957,7 @@ return {
 			},
 			group=949,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -76815,7 +77289,7 @@ return {
 			group=918,
 			icon="Art/2DArt/SkillIcons/passives/MasteryBlank.dds",
 			isJewelSocket=true,
-			name="[Jewel] Socket",
+			name="Jewel Socket",
 			orbit=0,
 			orbitIndex=0,
 			skill=59740,
@@ -76904,6 +77378,7 @@ return {
 			},
 			group=68,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -76989,6 +77464,7 @@ return {
 			},
 			group=54,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -77032,6 +77508,7 @@ return {
 			},
 			group=421,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -77097,6 +77574,7 @@ return {
 			},
 			group=530,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -77404,7 +77882,19 @@ return {
 			},
 			group=475,
 			icon="Art/2DArt/SkillIcons/passives/elementaldamage.dds",
+			isSwitchable=true,
 			name="Elemental Damage",
+			options={
+				Witch={
+					icon="Art/2DArt/SkillIcons/passives/miniondamageBlue.dds",
+					id=19602,
+					name="Spell and Minion Damage",
+					stats={
+						[1]="8% increased Spell Damage",
+						[2]="Minions deal 8% increased Damage"
+					}
+				}
+			},
 			orbit=5,
 			orbitIndex=0,
 			skill=60230,
@@ -77629,6 +78119,7 @@ return {
 			},
 			group=733,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -77759,6 +78250,7 @@ return {
 			},
 			group=564,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -77827,7 +78319,7 @@ return {
 			group=975,
 			icon="Art/2DArt/SkillIcons/passives/MasteryBlank.dds",
 			isJewelSocket=true,
-			name="[Jewel] Socket",
+			name="Jewel Socket",
 			orbit=0,
 			orbitIndex=0,
 			skill=60735,
@@ -77962,6 +78454,7 @@ return {
 			},
 			group=395,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -78151,6 +78644,7 @@ return {
 			},
 			group=748,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -78240,6 +78734,7 @@ return {
 			},
 			group=668,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -78375,6 +78870,7 @@ return {
 			},
 			group=852,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -78473,7 +78969,7 @@ return {
 			group=498,
 			icon="Art/2DArt/SkillIcons/passives/MasteryBlank.dds",
 			isJewelSocket=true,
-			name="[Jewel] Socket",
+			name="Jewel Socket",
 			orbit=0,
 			orbitIndex=0,
 			skill=61419,
@@ -78527,6 +79023,7 @@ return {
 			},
 			group=487,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -78682,6 +79179,7 @@ return {
 			},
 			group=239,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -78984,7 +79482,7 @@ return {
 			group=973,
 			icon="Art/2DArt/SkillIcons/passives/MasteryBlank.dds",
 			isJewelSocket=true,
-			name="[Jewel] Socket",
+			name="Jewel Socket",
 			orbit=0,
 			orbitIndex=0,
 			skill=61834,
@@ -79188,6 +79686,7 @@ return {
 			},
 			group=783,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -79744,6 +80243,7 @@ return {
 			},
 			group=154,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -79985,6 +80485,7 @@ return {
 			},
 			group=572,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -80399,6 +80900,7 @@ return {
 			},
 			group=109,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -80451,7 +80953,7 @@ return {
 			group=825,
 			icon="Art/2DArt/SkillIcons/passives/MasteryBlank.dds",
 			isJewelSocket=true,
-			name="[Jewel] Socket",
+			name="Jewel Socket",
 			orbit=4,
 			orbitIndex=5,
 			skill=63132,
@@ -80740,6 +81242,7 @@ return {
 			},
 			group=520,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -80800,6 +81303,7 @@ return {
 			},
 			group=850,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -81120,6 +81624,7 @@ return {
 			},
 			group=793,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -81294,7 +81799,19 @@ return {
 			group=475,
 			icon="Art/2DArt/SkillIcons/passives/LightningDamagenode.dds",
 			isNotable=true,
+			isSwitchable=true,
 			name="Path of Storms",
+			options={
+				Witch={
+					icon="Art/2DArt/SkillIcons/passives/ChaosDamagenode.dds",
+					id=10941,
+					name="Entropy",
+					stats={
+						[1]="18% increased Chaos Damage",
+						[2]="15% increased Skill Effect Duration"
+					}
+				}
+			},
 			orbit=7,
 			orbitIndex=3,
 			recipe={
@@ -81638,6 +82155,7 @@ return {
 			},
 			group=391,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -81790,6 +82308,7 @@ return {
 			},
 			group=368,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -82143,6 +82662,7 @@ return {
 			},
 			group=746,
 			icon="Art/2DArt/SkillIcons/passives/plusattribute.dds",
+			isAttribute=true,
 			name="Attribute",
 			options={
 				[1]={
@@ -84024,7 +84544,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/BulwarkKeystone.dds"]={
 						h=16,
 						w=16,
-						x=112,
+						x=80,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/DancewithDeathKeystone.dds"]={
@@ -84048,7 +84568,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/GlancingBlows.dds"]={
 						h=16,
 						w=16,
-						x=160,
+						x=176,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/HeartstopperKeystone.dds"]={
@@ -84072,7 +84592,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/KeystoneBloodMagic.dds"]={
 						h=16,
 						w=16,
-						x=720,
+						x=704,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/KeystoneChaosInoculation.dds"]={
@@ -84084,7 +84604,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/KeystoneConduit.dds"]={
 						h=16,
 						w=16,
-						x=480,
+						x=464,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/KeystoneEldritchBattery.dds"]={
@@ -84102,7 +84622,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/KeystoneIronReflexes.dds"]={
 						h=16,
 						w=16,
-						x=256,
+						x=272,
 						y=24
 					},
 					["Art/2DArt/SkillIcons/passives/KeystonePainAttunement.dds"]={
@@ -84126,7 +84646,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/KeystoneWhispersOfDoom.dds"]={
 						h=16,
 						w=16,
-						x=320,
+						x=336,
 						y=24
 					},
 					["Art/2DArt/SkillIcons/passives/NecromanticTalismanKeystone.dds"]={
@@ -84138,7 +84658,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/OasisKeystone2.dds"]={
 						h=16,
 						w=16,
-						x=352,
+						x=400,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/ResonanceKeystone.dds"]={
@@ -84156,7 +84676,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/liferegentoenergyshield.dds"]={
 						h=16,
 						w=16,
-						x=160,
+						x=128,
 						y=24
 					},
 					["Art/2DArt/SkillIcons/passives/totemmax.dds"]={
@@ -84168,7 +84688,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/vaalpact.dds"]={
 						h=16,
 						w=16,
-						x=688,
+						x=672,
 						y=8
 					}
 				},
@@ -84181,7 +84701,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/BulwarkKeystone.dds"]={
 						h=32,
 						w=32,
-						x=224,
+						x=160,
 						y=32
 					},
 					["Art/2DArt/SkillIcons/passives/DancewithDeathKeystone.dds"]={
@@ -84205,7 +84725,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/GlancingBlows.dds"]={
 						h=32,
 						w=32,
-						x=320,
+						x=352,
 						y=32
 					},
 					["Art/2DArt/SkillIcons/passives/HeartstopperKeystone.dds"]={
@@ -84229,7 +84749,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/KeystoneBloodMagic.dds"]={
 						h=32,
 						w=32,
-						x=256,
+						x=224,
 						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/KeystoneChaosInoculation.dds"]={
@@ -84241,7 +84761,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/KeystoneConduit.dds"]={
 						h=32,
 						w=32,
-						x=960,
+						x=928,
 						y=32
 					},
 					["Art/2DArt/SkillIcons/passives/KeystoneEldritchBattery.dds"]={
@@ -84259,7 +84779,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/KeystoneIronReflexes.dds"]={
 						h=32,
 						w=32,
-						x=544,
+						x=576,
 						y=96
 					},
 					["Art/2DArt/SkillIcons/passives/KeystonePainAttunement.dds"]={
@@ -84283,7 +84803,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/KeystoneWhispersOfDoom.dds"]={
 						h=32,
 						w=32,
-						x=672,
+						x=704,
 						y=96
 					},
 					["Art/2DArt/SkillIcons/passives/NecromanticTalismanKeystone.dds"]={
@@ -84295,7 +84815,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/OasisKeystone2.dds"]={
 						h=32,
 						w=32,
-						x=704,
+						x=800,
 						y=32
 					},
 					["Art/2DArt/SkillIcons/passives/ResonanceKeystone.dds"]={
@@ -84313,7 +84833,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/liferegentoenergyshield.dds"]={
 						h=32,
 						w=32,
-						x=352,
+						x=288,
 						y=96
 					},
 					["Art/2DArt/SkillIcons/passives/totemmax.dds"]={
@@ -84325,7 +84845,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/vaalpact.dds"]={
 						h=32,
 						w=32,
-						x=192,
+						x=160,
 						y=64
 					}
 				},
@@ -84338,7 +84858,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/BulwarkKeystone.dds"]={
 						h=64,
 						w=64,
-						x=448,
+						x=320,
 						y=128
 					},
 					["Art/2DArt/SkillIcons/passives/DancewithDeathKeystone.dds"]={
@@ -84362,7 +84882,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/GlancingBlows.dds"]={
 						h=64,
 						w=64,
-						x=640,
+						x=704,
 						y=128
 					},
 					["Art/2DArt/SkillIcons/passives/HeartstopperKeystone.dds"]={
@@ -84386,7 +84906,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/KeystoneBloodMagic.dds"]={
 						h=64,
 						w=64,
-						x=576,
+						x=512,
 						y=256
 					},
 					["Art/2DArt/SkillIcons/passives/KeystoneChaosInoculation.dds"]={
@@ -84398,7 +84918,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/KeystoneConduit.dds"]={
 						h=64,
 						w=64,
-						x=768,
+						x=704,
 						y=192
 					},
 					["Art/2DArt/SkillIcons/passives/KeystoneEldritchBattery.dds"]={
@@ -84416,7 +84936,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/KeystoneIronReflexes.dds"]={
 						h=64,
 						w=64,
-						x=64,
+						x=128,
 						y=448
 					},
 					["Art/2DArt/SkillIcons/passives/KeystonePainAttunement.dds"]={
@@ -84440,7 +84960,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/KeystoneWhispersOfDoom.dds"]={
 						h=64,
 						w=64,
-						x=320,
+						x=384,
 						y=448
 					},
 					["Art/2DArt/SkillIcons/passives/NecromanticTalismanKeystone.dds"]={
@@ -84452,7 +84972,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/OasisKeystone2.dds"]={
 						h=64,
 						w=64,
-						x=256,
+						x=448,
 						y=192
 					},
 					["Art/2DArt/SkillIcons/passives/ResonanceKeystone.dds"]={
@@ -84470,7 +84990,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/liferegentoenergyshield.dds"]={
 						h=64,
 						w=64,
-						x=832,
+						x=704,
 						y=384
 					},
 					["Art/2DArt/SkillIcons/passives/totemmax.dds"]={
@@ -84482,7 +85002,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/vaalpact.dds"]={
 						h=64,
 						w=64,
-						x=448,
+						x=384,
 						y=256
 					}
 				},
@@ -84495,7 +85015,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/BulwarkKeystone.dds"]={
 						h=128,
 						w=128,
-						x=896,
+						x=640,
 						y=576
 					},
 					["Art/2DArt/SkillIcons/passives/DancewithDeathKeystone.dds"]={
@@ -84519,7 +85039,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/GlancingBlows.dds"]={
 						h=128,
 						w=128,
-						x=128,
+						x=256,
 						y=704
 					},
 					["Art/2DArt/SkillIcons/passives/HeartstopperKeystone.dds"]={
@@ -84543,8 +85063,8 @@ return {
 					["Art/2DArt/SkillIcons/passives/KeystoneBloodMagic.dds"]={
 						h=128,
 						w=128,
-						x=0,
-						y=1216
+						x=1024,
+						y=1088
 					},
 					["Art/2DArt/SkillIcons/passives/KeystoneChaosInoculation.dds"]={
 						h=128,
@@ -84555,7 +85075,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/KeystoneConduit.dds"]={
 						h=128,
 						w=128,
-						x=384,
+						x=256,
 						y=960
 					},
 					["Art/2DArt/SkillIcons/passives/KeystoneEldritchBattery.dds"]={
@@ -84573,7 +85093,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/KeystoneIronReflexes.dds"]={
 						h=128,
 						w=128,
-						x=128,
+						x=256,
 						y=1856
 					},
 					["Art/2DArt/SkillIcons/passives/KeystonePainAttunement.dds"]={
@@ -84597,7 +85117,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/KeystoneWhispersOfDoom.dds"]={
 						h=128,
 						w=128,
-						x=640,
+						x=768,
 						y=1856
 					},
 					["Art/2DArt/SkillIcons/passives/NecromanticTalismanKeystone.dds"]={
@@ -84609,7 +85129,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/OasisKeystone2.dds"]={
 						h=128,
 						w=128,
-						x=512,
+						x=896,
 						y=832
 					},
 					["Art/2DArt/SkillIcons/passives/ResonanceKeystone.dds"]={
@@ -84627,7 +85147,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/liferegentoenergyshield.dds"]={
 						h=128,
 						w=128,
-						x=512,
+						x=256,
 						y=1728
 					},
 					["Art/2DArt/SkillIcons/passives/totemmax.dds"]={
@@ -84639,7 +85159,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/vaalpact.dds"]={
 						h=128,
 						w=128,
-						x=896,
+						x=768,
 						y=1088
 					}
 				},
@@ -84678,7 +85198,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/GlancingBlows.dds"]={
 						h=16,
 						w=16,
-						x=144,
+						x=160,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/HeartstopperKeystone.dds"]={
@@ -84702,7 +85222,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/KeystoneBloodMagic.dds"]={
 						h=16,
 						w=16,
-						x=720,
+						x=704,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/KeystoneChaosInoculation.dds"]={
@@ -84714,7 +85234,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/KeystoneConduit.dds"]={
 						h=16,
 						w=16,
-						x=480,
+						x=464,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/KeystoneEldritchBattery.dds"]={
@@ -84732,7 +85252,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/KeystoneIronReflexes.dds"]={
 						h=16,
 						w=16,
-						x=256,
+						x=272,
 						y=24
 					},
 					["Art/2DArt/SkillIcons/passives/KeystonePainAttunement.dds"]={
@@ -84756,7 +85276,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/KeystoneWhispersOfDoom.dds"]={
 						h=16,
 						w=16,
-						x=320,
+						x=336,
 						y=24
 					},
 					["Art/2DArt/SkillIcons/passives/NecromanticTalismanKeystone.dds"]={
@@ -84768,7 +85288,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/OasisKeystone2.dds"]={
 						h=16,
 						w=16,
-						x=352,
+						x=384,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/ResonanceKeystone.dds"]={
@@ -84786,7 +85306,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/liferegentoenergyshield.dds"]={
 						h=16,
 						w=16,
-						x=160,
+						x=128,
 						y=24
 					},
 					["Art/2DArt/SkillIcons/passives/totemmax.dds"]={
@@ -84798,7 +85318,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/vaalpact.dds"]={
 						h=16,
 						w=16,
-						x=688,
+						x=672,
 						y=8
 					}
 				},
@@ -84835,7 +85355,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/GlancingBlows.dds"]={
 						h=32,
 						w=32,
-						x=288,
+						x=320,
 						y=32
 					},
 					["Art/2DArt/SkillIcons/passives/HeartstopperKeystone.dds"]={
@@ -84859,7 +85379,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/KeystoneBloodMagic.dds"]={
 						h=32,
 						w=32,
-						x=256,
+						x=224,
 						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/KeystoneChaosInoculation.dds"]={
@@ -84871,7 +85391,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/KeystoneConduit.dds"]={
 						h=32,
 						w=32,
-						x=960,
+						x=928,
 						y=32
 					},
 					["Art/2DArt/SkillIcons/passives/KeystoneEldritchBattery.dds"]={
@@ -84889,7 +85409,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/KeystoneIronReflexes.dds"]={
 						h=32,
 						w=32,
-						x=544,
+						x=576,
 						y=96
 					},
 					["Art/2DArt/SkillIcons/passives/KeystonePainAttunement.dds"]={
@@ -84913,7 +85433,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/KeystoneWhispersOfDoom.dds"]={
 						h=32,
 						w=32,
-						x=672,
+						x=704,
 						y=96
 					},
 					["Art/2DArt/SkillIcons/passives/NecromanticTalismanKeystone.dds"]={
@@ -84925,7 +85445,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/OasisKeystone2.dds"]={
 						h=32,
 						w=32,
-						x=704,
+						x=768,
 						y=32
 					},
 					["Art/2DArt/SkillIcons/passives/ResonanceKeystone.dds"]={
@@ -84943,7 +85463,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/liferegentoenergyshield.dds"]={
 						h=32,
 						w=32,
-						x=352,
+						x=288,
 						y=96
 					},
 					["Art/2DArt/SkillIcons/passives/totemmax.dds"]={
@@ -84955,7 +85475,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/vaalpact.dds"]={
 						h=32,
 						w=32,
-						x=192,
+						x=160,
 						y=64
 					}
 				},
@@ -84992,7 +85512,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/GlancingBlows.dds"]={
 						h=64,
 						w=64,
-						x=576,
+						x=640,
 						y=128
 					},
 					["Art/2DArt/SkillIcons/passives/HeartstopperKeystone.dds"]={
@@ -85016,7 +85536,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/KeystoneBloodMagic.dds"]={
 						h=64,
 						w=64,
-						x=576,
+						x=512,
 						y=256
 					},
 					["Art/2DArt/SkillIcons/passives/KeystoneChaosInoculation.dds"]={
@@ -85028,7 +85548,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/KeystoneConduit.dds"]={
 						h=64,
 						w=64,
-						x=768,
+						x=704,
 						y=192
 					},
 					["Art/2DArt/SkillIcons/passives/KeystoneEldritchBattery.dds"]={
@@ -85046,7 +85566,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/KeystoneIronReflexes.dds"]={
 						h=64,
 						w=64,
-						x=64,
+						x=128,
 						y=448
 					},
 					["Art/2DArt/SkillIcons/passives/KeystonePainAttunement.dds"]={
@@ -85070,7 +85590,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/KeystoneWhispersOfDoom.dds"]={
 						h=64,
 						w=64,
-						x=320,
+						x=384,
 						y=448
 					},
 					["Art/2DArt/SkillIcons/passives/NecromanticTalismanKeystone.dds"]={
@@ -85082,7 +85602,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/OasisKeystone2.dds"]={
 						h=64,
 						w=64,
-						x=256,
+						x=384,
 						y=192
 					},
 					["Art/2DArt/SkillIcons/passives/ResonanceKeystone.dds"]={
@@ -85100,7 +85620,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/liferegentoenergyshield.dds"]={
 						h=64,
 						w=64,
-						x=832,
+						x=704,
 						y=384
 					},
 					["Art/2DArt/SkillIcons/passives/totemmax.dds"]={
@@ -85112,7 +85632,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/vaalpact.dds"]={
 						h=64,
 						w=64,
-						x=448,
+						x=384,
 						y=256
 					}
 				},
@@ -85149,7 +85669,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/GlancingBlows.dds"]={
 						h=128,
 						w=128,
-						x=0,
+						x=128,
 						y=704
 					},
 					["Art/2DArt/SkillIcons/passives/HeartstopperKeystone.dds"]={
@@ -85173,8 +85693,8 @@ return {
 					["Art/2DArt/SkillIcons/passives/KeystoneBloodMagic.dds"]={
 						h=128,
 						w=128,
-						x=0,
-						y=1216
+						x=1024,
+						y=1088
 					},
 					["Art/2DArt/SkillIcons/passives/KeystoneChaosInoculation.dds"]={
 						h=128,
@@ -85185,7 +85705,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/KeystoneConduit.dds"]={
 						h=128,
 						w=128,
-						x=384,
+						x=256,
 						y=960
 					},
 					["Art/2DArt/SkillIcons/passives/KeystoneEldritchBattery.dds"]={
@@ -85203,7 +85723,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/KeystoneIronReflexes.dds"]={
 						h=128,
 						w=128,
-						x=128,
+						x=256,
 						y=1856
 					},
 					["Art/2DArt/SkillIcons/passives/KeystonePainAttunement.dds"]={
@@ -85227,7 +85747,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/KeystoneWhispersOfDoom.dds"]={
 						h=128,
 						w=128,
-						x=640,
+						x=768,
 						y=1856
 					},
 					["Art/2DArt/SkillIcons/passives/NecromanticTalismanKeystone.dds"]={
@@ -85239,7 +85759,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/OasisKeystone2.dds"]={
 						h=128,
 						w=128,
-						x=512,
+						x=768,
 						y=832
 					},
 					["Art/2DArt/SkillIcons/passives/ResonanceKeystone.dds"]={
@@ -85257,7 +85777,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/liferegentoenergyshield.dds"]={
 						h=128,
 						w=128,
-						x=512,
+						x=256,
 						y=1728
 					},
 					["Art/2DArt/SkillIcons/passives/totemmax.dds"]={
@@ -85269,7 +85789,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/vaalpact.dds"]={
 						h=128,
 						w=128,
-						x=896,
+						x=768,
 						y=1088
 					}
 				},
@@ -91194,79 +91714,79 @@ return {
 					["Art/2DArt/SkillIcons/WitchBoneStorm.dds"]={
 						h=8,
 						w=8,
-						x=72,
+						x=64,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/icongroundslam.dds"]={
 						h=8,
 						w=8,
-						x=544,
+						x=480,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/2handeddamage.dds"]={
 						h=8,
 						w=8,
-						x=32,
+						x=24,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/AcolyteofChayula/AcolyteOfChayulaNode.dds"]={
 						h=8,
 						w=8,
-						x=8,
+						x=40,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/AreaDmgNode.dds"]={
 						h=8,
 						w=8,
-						x=432,
+						x=456,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/ArmourAndEnergyShieldNode.dds"]={
 						h=8,
 						w=8,
-						x=464,
+						x=448,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/ArmourAndEvasionNode.dds"]={
 						h=8,
 						w=8,
-						x=104,
+						x=136,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/ArmourBreak1BuffIcon.dds"]={
 						h=8,
 						w=8,
-						x=80,
+						x=184,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/Ascendants/SkillPoint.dds"]={
 						h=8,
 						w=8,
-						x=1072,
+						x=1040,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/Blood2.dds"]={
 						h=8,
 						w=8,
-						x=696,
+						x=680,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/Bloodmage/BloodMageNode.dds"]={
 						h=8,
 						w=8,
-						x=1080,
+						x=968,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/BowDamage.dds"]={
 						h=8,
 						w=8,
-						x=912,
+						x=896,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/ChannellingAttacksNode.dds"]={
 						h=8,
 						w=8,
-						x=656,
+						x=576,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/ChaosDamagenode.dds"]={
@@ -91278,19 +91798,19 @@ return {
 					["Art/2DArt/SkillIcons/passives/CharmNode1.dds"]={
 						h=8,
 						w=8,
-						x=824,
+						x=864,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/ColdDamagenode.dds"]={
 						h=8,
 						w=8,
-						x=24,
+						x=16,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/ColdResistNode.dds"]={
 						h=8,
 						w=8,
-						x=1088,
+						x=1008,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/CorpseDamage.dds"]={
@@ -91308,13 +91828,13 @@ return {
 					["Art/2DArt/SkillIcons/passives/DeadEye/DeadeyeDealMoreProjectileDamageClose.dds"]={
 						h=8,
 						w=8,
-						x=1040,
+						x=1048,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/DeadEye/DeadeyeDealMoreProjectileDamageFarAway.dds"]={
 						h=8,
 						w=8,
-						x=864,
+						x=768,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/DeadEye/DeadeyeNode.dds"]={
@@ -91326,121 +91846,127 @@ return {
 					["Art/2DArt/SkillIcons/passives/Deflection.dds"]={
 						h=8,
 						w=8,
-						x=1120,
+						x=1112,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/DragonStyle.dds"]={
 						h=8,
 						w=8,
-						x=1104,
+						x=912,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/ElementalDamagenode.dds"]={
 						h=8,
 						w=8,
-						x=384,
+						x=560,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/ElementalDamagewithAttacks2.dds"]={
 						h=8,
 						w=8,
-						x=392,
+						x=424,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/EnergyShieldNode.dds"]={
 						h=8,
 						w=8,
-						x=176,
+						x=120,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/EvasionNode.dds"]={
 						h=8,
 						w=8,
-						x=896,
+						x=936,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/EvasionandEnergyShieldNode.dds"]={
 						h=8,
 						w=8,
-						x=152,
+						x=144,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/FireDamagenode.dds"]={
 						h=8,
 						w=8,
-						x=424,
+						x=440,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/FireResistNode.dds"]={
 						h=8,
 						w=8,
-						x=440,
+						x=432,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/Gemling/GemlingNode.dds"]={
 						h=8,
 						w=8,
-						x=96,
+						x=128,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/GreenAttackSmallPassive.dds"]={
 						h=8,
 						w=8,
-						x=576,
+						x=696,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/Harrier.dds"]={
 						h=8,
 						w=8,
-						x=848,
+						x=920,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/HeraldBuffEffectNode2.dds"]={
 						h=8,
 						w=8,
-						x=512,
+						x=472,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/HiredKiller2.dds"]={
 						h=8,
 						w=8,
-						x=936,
+						x=816,
+						y=0
+					},
+					["Art/2DArt/SkillIcons/passives/IncreasedManaCostNotable.dds"]={
+						h=8,
+						w=8,
+						x=624,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/IncreasedProjectileSpeedNode.dds"]={
 						h=8,
 						w=8,
-						x=872,
+						x=960,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/Infernalist/InfernalistNode.dds"]={
 						h=8,
 						w=8,
-						x=448,
+						x=568,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/Inquistitor/IncreasedElementalDamageAttackCasteSpeed.dds"]={
 						h=8,
 						w=8,
-						x=976,
+						x=856,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/Invoker/InvokerNode.dds"]={
 						h=8,
 						w=8,
-						x=744,
+						x=752,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/LifeRecoupNode.dds"]={
 						h=8,
 						w=8,
-						x=944,
+						x=848,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/LightningDamagenode.dds"]={
 						h=8,
 						w=8,
-						x=416,
+						x=400,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/LightningResistNode.dds"]={
@@ -91452,73 +91978,73 @@ return {
 					["Art/2DArt/SkillIcons/passives/ManaLeechThemedNode.dds"]={
 						h=8,
 						w=8,
-						x=568,
+						x=656,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/MarkNode.dds"]={
 						h=8,
 						w=8,
-						x=496,
+						x=488,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/MeleeAoENode.dds"]={
 						h=8,
 						w=8,
-						x=272,
+						x=192,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/MineAreaOfEffectNode.dds"]={
 						h=8,
 						w=8,
-						x=48,
+						x=72,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/MinionElementalResistancesNode.dds"]={
 						h=8,
 						w=8,
-						x=816,
+						x=976,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/MinionsandManaNode.dds"]={
 						h=8,
 						w=8,
-						x=112,
+						x=104,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/MiracleMaker.dds"]={
 						h=8,
 						w=8,
-						x=808,
+						x=1024,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/NodeDualWieldingDamage.dds"]={
 						h=8,
 						w=8,
-						x=920,
+						x=808,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderBrewConcoctionBleed.dds"]={
 						h=8,
 						w=8,
-						x=728,
+						x=720,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderBrewConcoctionCold.dds"]={
 						h=8,
 						w=8,
-						x=1136,
+						x=1096,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderBrewConcoctionFire.dds"]={
 						h=8,
 						w=8,
-						x=1064,
+						x=1032,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderBrewConcoctionLightning.dds"]={
 						h=8,
 						w=8,
-						x=1128,
+						x=952,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderBrewConcoctionPoison.dds"]={
@@ -91530,7 +92056,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderNode.dds"]={
 						h=8,
 						w=8,
-						x=992,
+						x=1000,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/PhysicalDamageChaosNode.dds"]={
@@ -91542,31 +92068,31 @@ return {
 					["Art/2DArt/SkillIcons/passives/PhysicalDamageNode.dds"]={
 						h=8,
 						w=8,
-						x=488,
+						x=536,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/PhysicalDamageOverTimeNode.dds"]={
 						h=8,
 						w=8,
-						x=40,
+						x=56,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/Poison.dds"]={
 						h=8,
 						w=8,
-						x=840,
+						x=992,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/Rage.dds"]={
 						h=8,
 						w=8,
-						x=400,
+						x=392,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/ReducedSkillEffectDurationNode.dds"]={
 						h=8,
 						w=8,
-						x=960,
+						x=984,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/ShieldNodeOffensive.dds"]={
@@ -91578,7 +92104,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/SpellMultiplyer2.dds"]={
 						h=8,
 						w=8,
-						x=624,
+						x=648,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/SpellSuppresionNode.dds"]={
@@ -91590,13 +92116,13 @@ return {
 					["Art/2DArt/SkillIcons/passives/SpellSupressionNotable1.dds"]={
 						h=8,
 						w=8,
-						x=792,
+						x=824,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/Stormweaver/StormweaverNode.dds"]={
 						h=8,
 						w=8,
-						x=752,
+						x=760,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/Temporalist/TemporalistNode.dds"]={
@@ -91608,19 +92134,19 @@ return {
 					["Art/2DArt/SkillIcons/passives/Titan/TitanNode.dds"]={
 						h=8,
 						w=8,
-						x=56,
+						x=48,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/WarCryEffect.dds"]={
 						h=8,
 						w=8,
-						x=528,
+						x=552,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/Warbringer/WarbringerNode.dds"]={
 						h=8,
 						w=8,
-						x=928,
+						x=880,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/Witchhunter/WitchunterNode.dds"]={
@@ -91644,19 +92170,19 @@ return {
 					["Art/2DArt/SkillIcons/passives/areaofeffect.dds"]={
 						h=8,
 						w=8,
-						x=16,
+						x=8,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/attackspeed.dds"]={
 						h=8,
 						w=8,
-						x=1112,
+						x=1104,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/attackspeedbow.dds"]={
 						h=8,
 						w=8,
-						x=1000,
+						x=1072,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/auraeffect.dds"]={
@@ -91674,19 +92200,19 @@ return {
 					["Art/2DArt/SkillIcons/passives/axedmgspeed.dds"]={
 						h=8,
 						w=8,
-						x=160,
+						x=96,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/blankDex.dds"]={
 						h=8,
 						w=8,
-						x=984,
+						x=888,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/blankInt.dds"]={
 						h=8,
 						w=8,
-						x=1032,
+						x=1088,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/blankStr.dds"]={
@@ -91698,25 +92224,25 @@ return {
 					["Art/2DArt/SkillIcons/passives/blockstr.dds"]={
 						h=8,
 						w=8,
-						x=304,
+						x=296,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/castspeed.dds"]={
 						h=8,
 						w=8,
-						x=560,
+						x=376,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/chargedex.dds"]={
 						h=8,
 						w=8,
-						x=952,
+						x=1120,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/chargeint.dds"]={
 						h=8,
 						w=8,
-						x=584,
+						x=592,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/chargestr.dds"]={
@@ -91728,7 +92254,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/clustersLinknode2.dds"]={
 						h=8,
 						w=8,
-						x=760,
+						x=840,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/colddamage.dds"]={
@@ -91740,7 +92266,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/coldresist.dds"]={
 						h=8,
 						w=8,
-						x=184,
+						x=272,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/criticaldaggerint.dds"]={
@@ -91752,7 +92278,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/criticalstrikechance.dds"]={
 						h=8,
 						w=8,
-						x=192,
+						x=312,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/criticalstrikechance2.dds"]={
@@ -91764,31 +92290,31 @@ return {
 					["Art/2DArt/SkillIcons/passives/damage.dds"]={
 						h=8,
 						w=8,
-						x=128,
+						x=88,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/damage_blue.dds"]={
 						h=8,
 						w=8,
-						x=720,
+						x=744,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/damageaxe.dds"]={
 						h=8,
 						w=8,
-						x=168,
+						x=160,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/damagedualwield.dds"]={
 						h=8,
 						w=8,
-						x=1144,
+						x=1128,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/damagespells.dds"]={
 						h=8,
 						w=8,
-						x=536,
+						x=528,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/damagestaff.dds"]={
@@ -91800,7 +92326,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/damagesword.dds"]={
 						h=8,
 						w=8,
-						x=480,
+						x=512,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/dmgreduction.dds"]={
@@ -91812,25 +92338,25 @@ return {
 					["Art/2DArt/SkillIcons/passives/elementaldamage.dds"]={
 						h=8,
 						w=8,
-						x=592,
+						x=584,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/energyshield.dds"]={
 						h=8,
 						w=8,
-						x=144,
+						x=168,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/evade.dds"]={
 						h=8,
 						w=8,
-						x=1016,
+						x=1056,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/executioner.dds"]={
 						h=8,
 						w=8,
-						x=888,
+						x=944,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/firedamage.dds"]={
@@ -91842,7 +92368,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/firedamageint.dds"]={
 						h=8,
 						w=8,
-						x=904,
+						x=792,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/firedamagestr.dds"]={
@@ -91854,19 +92380,19 @@ return {
 					["Art/2DArt/SkillIcons/passives/fireresist.dds"]={
 						h=8,
 						w=8,
-						x=712,
+						x=728,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/flaskdex.dds"]={
 						h=8,
 						w=8,
-						x=856,
+						x=800,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/flaskint.dds"]={
 						h=8,
 						w=8,
-						x=968,
+						x=1144,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/flaskstr.dds"]={
@@ -91878,61 +92404,61 @@ return {
 					["Art/2DArt/SkillIcons/passives/icebite.dds"]={
 						h=8,
 						w=8,
-						x=680,
+						x=712,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/increasedrunspeeddex.dds"]={
 						h=8,
 						w=8,
-						x=1096,
+						x=1136,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/knockback.dds"]={
 						h=8,
 						w=8,
-						x=1056,
+						x=1160,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/life1.dds"]={
 						h=8,
 						w=8,
-						x=296,
+						x=504,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/lifeleech.dds"]={
 						h=8,
 						w=8,
-						x=472,
+						x=416,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/lifepercentage.dds"]={
 						h=8,
 						w=8,
-						x=456,
+						x=464,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/lightningint.dds"]={
 						h=8,
 						w=8,
-						x=64,
+						x=80,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/lightningstr.dds"]={
 						h=8,
 						w=8,
-						x=1024,
+						x=1080,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/macedmg.dds"]={
 						h=8,
 						w=8,
-						x=880,
+						x=872,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/mana.dds"]={
 						h=8,
 						w=8,
-						x=640,
+						x=384,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/manaregeneration.dds"]={
@@ -91944,37 +92470,37 @@ return {
 					["Art/2DArt/SkillIcons/passives/manastr.dds"]={
 						h=8,
 						w=8,
-						x=1008,
+						x=1016,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/miniondamageBlue.dds"]={
 						h=8,
 						w=8,
-						x=88,
+						x=32,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/minionlife.dds"]={
 						h=8,
 						w=8,
-						x=376,
+						x=176,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/onehanddamage.dds"]={
 						h=8,
 						w=8,
-						x=120,
+						x=112,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/plusattribute.dds"]={
 						h=8,
 						w=8,
-						x=552,
+						x=544,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/plusdexterity.dds"]={
 						h=8,
 						w=8,
-						x=832,
+						x=928,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/plusintelligence.dds"]={
@@ -91986,13 +92512,13 @@ return {
 					["Art/2DArt/SkillIcons/passives/plusintelligencedexterity.dds"]={
 						h=8,
 						w=8,
-						x=1048,
+						x=1064,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/plusstrength.dds"]={
 						h=8,
 						w=8,
-						x=800,
+						x=776,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/plusstrengthdexterity.dds"]={
@@ -92004,7 +92530,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/plusstrengthintelligence.dds"]={
 						h=8,
 						w=8,
-						x=768,
+						x=832,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/projectilespeed.dds"]={
@@ -92016,13 +92542,13 @@ return {
 					["Art/2DArt/SkillIcons/passives/shieldblock.dds"]={
 						h=8,
 						w=8,
-						x=136,
+						x=152,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/spellcritical.dds"]={
 						h=8,
 						w=8,
-						x=312,
+						x=304,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/stun2h.dds"]={
@@ -92034,13 +92560,13 @@ return {
 					["Art/2DArt/SkillIcons/passives/stunstr.dds"]={
 						h=8,
 						w=8,
-						x=648,
+						x=640,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/tempint.dds"]={
 						h=8,
 						w=8,
-						x=776,
+						x=904,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/totemandbrandlife.dds"]={
@@ -92065,80 +92591,80 @@ return {
 					["Art/2DArt/SkillIcons/WitchBoneStorm.dds"]={
 						h=16,
 						w=16,
-						x=144,
+						x=128,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/icongroundslam.dds"]={
 						h=16,
 						w=16,
-						x=1088,
+						x=960,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/2handeddamage.dds"]={
 						h=16,
 						w=16,
-						x=64,
+						x=48,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/AcolyteofChayula/AcolyteOfChayulaNode.dds"]={
 						h=16,
 						w=16,
-						x=16,
+						x=80,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/AreaDmgNode.dds"]={
 						h=16,
 						w=16,
-						x=864,
+						x=912,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/ArmourAndEnergyShieldNode.dds"]={
 						h=16,
 						w=16,
-						x=928,
+						x=896,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/ArmourAndEvasionNode.dds"]={
 						h=16,
 						w=16,
-						x=208,
+						x=272,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/ArmourBreak1BuffIcon.dds"]={
 						h=16,
 						w=16,
-						x=160,
+						x=368,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/Ascendants/SkillPoint.dds"]={
 						h=16,
 						w=16,
-						x=944,
+						x=880,
 						y=16
 					},
 					["Art/2DArt/SkillIcons/passives/Blood2.dds"]={
 						h=16,
 						w=16,
-						x=192,
+						x=160,
 						y=16
 					},
 					["Art/2DArt/SkillIcons/passives/Bloodmage/BloodMageNode.dds"]={
 						h=16,
 						w=16,
-						x=960,
+						x=736,
 						y=16
 					},
 					["Art/2DArt/SkillIcons/passives/BowDamage.dds"]={
 						h=16,
 						w=16,
-						x=624,
+						x=592,
 						y=16
 					},
 					["Art/2DArt/SkillIcons/passives/ChannellingAttacksNode.dds"]={
 						h=16,
 						w=16,
-						x=112,
-						y=16
+						x=1152,
+						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/ChaosDamagenode.dds"]={
 						h=16,
@@ -92149,19 +92675,19 @@ return {
 					["Art/2DArt/SkillIcons/passives/CharmNode1.dds"]={
 						h=16,
 						w=16,
-						x=448,
+						x=528,
 						y=16
 					},
 					["Art/2DArt/SkillIcons/passives/ColdDamagenode.dds"]={
 						h=16,
 						w=16,
-						x=48,
+						x=32,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/ColdResistNode.dds"]={
 						h=16,
 						w=16,
-						x=976,
+						x=816,
 						y=16
 					},
 					["Art/2DArt/SkillIcons/passives/CorpseDamage.dds"]={
@@ -92179,13 +92705,13 @@ return {
 					["Art/2DArt/SkillIcons/passives/DeadEye/DeadeyeDealMoreProjectileDamageClose.dds"]={
 						h=16,
 						w=16,
-						x=880,
+						x=896,
 						y=16
 					},
 					["Art/2DArt/SkillIcons/passives/DeadEye/DeadeyeDealMoreProjectileDamageFarAway.dds"]={
 						h=16,
 						w=16,
-						x=528,
+						x=336,
 						y=16
 					},
 					["Art/2DArt/SkillIcons/passives/DeadEye/DeadeyeNode.dds"]={
@@ -92197,121 +92723,127 @@ return {
 					["Art/2DArt/SkillIcons/passives/Deflection.dds"]={
 						h=16,
 						w=16,
-						x=1040,
+						x=1024,
 						y=16
 					},
 					["Art/2DArt/SkillIcons/passives/DragonStyle.dds"]={
 						h=16,
 						w=16,
-						x=1008,
+						x=624,
 						y=16
 					},
 					["Art/2DArt/SkillIcons/passives/ElementalDamagenode.dds"]={
 						h=16,
 						w=16,
-						x=768,
+						x=1120,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/ElementalDamagewithAttacks2.dds"]={
 						h=16,
 						w=16,
-						x=784,
+						x=848,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/EnergyShieldNode.dds"]={
 						h=16,
 						w=16,
-						x=352,
+						x=240,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/EvasionNode.dds"]={
 						h=16,
 						w=16,
-						x=592,
+						x=672,
 						y=16
 					},
 					["Art/2DArt/SkillIcons/passives/EvasionandEnergyShieldNode.dds"]={
 						h=16,
 						w=16,
-						x=304,
+						x=288,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/FireDamagenode.dds"]={
 						h=16,
 						w=16,
-						x=848,
+						x=880,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/FireResistNode.dds"]={
 						h=16,
 						w=16,
-						x=880,
+						x=864,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/Gemling/GemlingNode.dds"]={
 						h=16,
 						w=16,
-						x=192,
+						x=256,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/GreenAttackSmallPassive.dds"]={
 						h=16,
 						w=16,
-						x=1152,
-						y=0
+						x=192,
+						y=16
 					},
 					["Art/2DArt/SkillIcons/passives/Harrier.dds"]={
 						h=16,
 						w=16,
-						x=496,
+						x=640,
 						y=16
 					},
 					["Art/2DArt/SkillIcons/passives/HeraldBuffEffectNode2.dds"]={
 						h=16,
 						w=16,
-						x=1024,
+						x=944,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/HiredKiller2.dds"]={
 						h=16,
 						w=16,
-						x=672,
+						x=432,
+						y=16
+					},
+					["Art/2DArt/SkillIcons/passives/IncreasedManaCostNotable.dds"]={
+						h=16,
+						w=16,
+						x=48,
 						y=16
 					},
 					["Art/2DArt/SkillIcons/passives/IncreasedProjectileSpeedNode.dds"]={
 						h=16,
 						w=16,
-						x=544,
+						x=720,
 						y=16
 					},
 					["Art/2DArt/SkillIcons/passives/Infernalist/InfernalistNode.dds"]={
 						h=16,
 						w=16,
-						x=896,
+						x=1136,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/Inquistitor/IncreasedElementalDamageAttackCasteSpeed.dds"]={
 						h=16,
 						w=16,
-						x=752,
+						x=512,
 						y=16
 					},
 					["Art/2DArt/SkillIcons/passives/Invoker/InvokerNode.dds"]={
 						h=16,
 						w=16,
-						x=288,
+						x=304,
 						y=16
 					},
 					["Art/2DArt/SkillIcons/passives/LifeRecoupNode.dds"]={
 						h=16,
 						w=16,
-						x=688,
+						x=496,
 						y=16
 					},
 					["Art/2DArt/SkillIcons/passives/LightningDamagenode.dds"]={
 						h=16,
 						w=16,
-						x=832,
+						x=800,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/LightningResistNode.dds"]={
@@ -92323,73 +92855,73 @@ return {
 					["Art/2DArt/SkillIcons/passives/ManaLeechThemedNode.dds"]={
 						h=16,
 						w=16,
-						x=1136,
-						y=0
+						x=112,
+						y=16
 					},
 					["Art/2DArt/SkillIcons/passives/MarkNode.dds"]={
 						h=16,
 						w=16,
-						x=992,
+						x=976,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/MeleeAoENode.dds"]={
 						h=16,
 						w=16,
-						x=544,
+						x=384,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/MineAreaOfEffectNode.dds"]={
 						h=16,
 						w=16,
-						x=96,
+						x=144,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/MinionElementalResistancesNode.dds"]={
 						h=16,
 						w=16,
-						x=432,
+						x=752,
 						y=16
 					},
 					["Art/2DArt/SkillIcons/passives/MinionsandManaNode.dds"]={
 						h=16,
 						w=16,
-						x=224,
+						x=208,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/MiracleMaker.dds"]={
 						h=16,
 						w=16,
-						x=416,
+						x=848,
 						y=16
 					},
 					["Art/2DArt/SkillIcons/passives/NodeDualWieldingDamage.dds"]={
 						h=16,
 						w=16,
-						x=640,
+						x=416,
 						y=16
 					},
 					["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderBrewConcoctionBleed.dds"]={
 						h=16,
 						w=16,
-						x=256,
+						x=240,
 						y=16
 					},
 					["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderBrewConcoctionCold.dds"]={
 						h=16,
 						w=16,
-						x=1072,
+						x=992,
 						y=16
 					},
 					["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderBrewConcoctionFire.dds"]={
 						h=16,
 						w=16,
-						x=928,
+						x=864,
 						y=16
 					},
 					["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderBrewConcoctionLightning.dds"]={
 						h=16,
 						w=16,
-						x=1056,
+						x=704,
 						y=16
 					},
 					["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderBrewConcoctionPoison.dds"]={
@@ -92401,7 +92933,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderNode.dds"]={
 						h=16,
 						w=16,
-						x=784,
+						x=800,
 						y=16
 					},
 					["Art/2DArt/SkillIcons/passives/PhysicalDamageChaosNode.dds"]={
@@ -92413,31 +92945,31 @@ return {
 					["Art/2DArt/SkillIcons/passives/PhysicalDamageNode.dds"]={
 						h=16,
 						w=16,
-						x=976,
+						x=1072,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/PhysicalDamageOverTimeNode.dds"]={
 						h=16,
 						w=16,
-						x=80,
+						x=112,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/Poison.dds"]={
 						h=16,
 						w=16,
-						x=480,
+						x=784,
 						y=16
 					},
 					["Art/2DArt/SkillIcons/passives/Rage.dds"]={
 						h=16,
 						w=16,
-						x=800,
+						x=784,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/ReducedSkillEffectDurationNode.dds"]={
 						h=16,
 						w=16,
-						x=720,
+						x=768,
 						y=16
 					},
 					["Art/2DArt/SkillIcons/passives/ShieldNodeOffensive.dds"]={
@@ -92449,7 +92981,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/SpellMultiplyer2.dds"]={
 						h=16,
 						w=16,
-						x=48,
+						x=96,
 						y=16
 					},
 					["Art/2DArt/SkillIcons/passives/SpellSuppresionNode.dds"]={
@@ -92461,13 +92993,13 @@ return {
 					["Art/2DArt/SkillIcons/passives/SpellSupressionNotable1.dds"]={
 						h=16,
 						w=16,
-						x=384,
+						x=448,
 						y=16
 					},
 					["Art/2DArt/SkillIcons/passives/Stormweaver/StormweaverNode.dds"]={
 						h=16,
 						w=16,
-						x=304,
+						x=320,
 						y=16
 					},
 					["Art/2DArt/SkillIcons/passives/Temporalist/TemporalistNode.dds"]={
@@ -92479,19 +93011,19 @@ return {
 					["Art/2DArt/SkillIcons/passives/Titan/TitanNode.dds"]={
 						h=16,
 						w=16,
-						x=112,
+						x=96,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/WarCryEffect.dds"]={
 						h=16,
 						w=16,
-						x=1056,
+						x=1104,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/Warbringer/WarbringerNode.dds"]={
 						h=16,
 						w=16,
-						x=656,
+						x=560,
 						y=16
 					},
 					["Art/2DArt/SkillIcons/passives/Witchhunter/WitchunterNode.dds"]={
@@ -92515,19 +93047,19 @@ return {
 					["Art/2DArt/SkillIcons/passives/areaofeffect.dds"]={
 						h=16,
 						w=16,
-						x=32,
+						x=16,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/attackspeed.dds"]={
 						h=16,
 						w=16,
-						x=1024,
+						x=1008,
 						y=16
 					},
 					["Art/2DArt/SkillIcons/passives/attackspeedbow.dds"]={
 						h=16,
 						w=16,
-						x=800,
+						x=944,
 						y=16
 					},
 					["Art/2DArt/SkillIcons/passives/auraeffect.dds"]={
@@ -92545,19 +93077,19 @@ return {
 					["Art/2DArt/SkillIcons/passives/axedmgspeed.dds"]={
 						h=16,
 						w=16,
-						x=320,
+						x=192,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/blankDex.dds"]={
 						h=16,
 						w=16,
-						x=768,
+						x=576,
 						y=16
 					},
 					["Art/2DArt/SkillIcons/passives/blankInt.dds"]={
 						h=16,
 						w=16,
-						x=864,
+						x=976,
 						y=16
 					},
 					["Art/2DArt/SkillIcons/passives/blankStr.dds"]={
@@ -92569,25 +93101,25 @@ return {
 					["Art/2DArt/SkillIcons/passives/blockstr.dds"]={
 						h=16,
 						w=16,
-						x=608,
+						x=592,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/castspeed.dds"]={
 						h=16,
 						w=16,
-						x=1120,
+						x=752,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/chargedex.dds"]={
 						h=16,
 						w=16,
-						x=704,
+						x=1040,
 						y=16
 					},
 					["Art/2DArt/SkillIcons/passives/chargeint.dds"]={
 						h=16,
 						w=16,
-						x=1168,
+						x=1184,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/chargestr.dds"]={
@@ -92599,7 +93131,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/clustersLinknode2.dds"]={
 						h=16,
 						w=16,
-						x=320,
+						x=480,
 						y=16
 					},
 					["Art/2DArt/SkillIcons/passives/colddamage.dds"]={
@@ -92611,7 +93143,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/coldresist.dds"]={
 						h=16,
 						w=16,
-						x=368,
+						x=544,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/criticaldaggerint.dds"]={
@@ -92623,7 +93155,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/criticalstrikechance.dds"]={
 						h=16,
 						w=16,
-						x=384,
+						x=624,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/criticalstrikechance2.dds"]={
@@ -92635,31 +93167,31 @@ return {
 					["Art/2DArt/SkillIcons/passives/damage.dds"]={
 						h=16,
 						w=16,
-						x=256,
+						x=176,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/damage_blue.dds"]={
 						h=16,
 						w=16,
-						x=240,
+						x=288,
 						y=16
 					},
 					["Art/2DArt/SkillIcons/passives/damageaxe.dds"]={
 						h=16,
 						w=16,
-						x=336,
+						x=320,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/damagedualwield.dds"]={
 						h=16,
 						w=16,
-						x=1088,
+						x=1056,
 						y=16
 					},
 					["Art/2DArt/SkillIcons/passives/damagespells.dds"]={
 						h=16,
 						w=16,
-						x=1072,
+						x=1056,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/damagestaff.dds"]={
@@ -92671,7 +93203,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/damagesword.dds"]={
 						h=16,
 						w=16,
-						x=960,
+						x=1024,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/dmgreduction.dds"]={
@@ -92683,25 +93215,25 @@ return {
 					["Art/2DArt/SkillIcons/passives/elementaldamage.dds"]={
 						h=16,
 						w=16,
-						x=1184,
+						x=1168,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/energyshield.dds"]={
 						h=16,
 						w=16,
-						x=288,
+						x=336,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/evade.dds"]={
 						h=16,
 						w=16,
-						x=832,
+						x=912,
 						y=16
 					},
 					["Art/2DArt/SkillIcons/passives/executioner.dds"]={
 						h=16,
 						w=16,
-						x=576,
+						x=688,
 						y=16
 					},
 					["Art/2DArt/SkillIcons/passives/firedamage.dds"]={
@@ -92713,7 +93245,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/firedamageint.dds"]={
 						h=16,
 						w=16,
-						x=608,
+						x=384,
 						y=16
 					},
 					["Art/2DArt/SkillIcons/passives/firedamagestr.dds"]={
@@ -92725,19 +93257,19 @@ return {
 					["Art/2DArt/SkillIcons/passives/fireresist.dds"]={
 						h=16,
 						w=16,
-						x=224,
+						x=256,
 						y=16
 					},
 					["Art/2DArt/SkillIcons/passives/flaskdex.dds"]={
 						h=16,
 						w=16,
-						x=512,
+						x=400,
 						y=16
 					},
 					["Art/2DArt/SkillIcons/passives/flaskint.dds"]={
 						h=16,
 						w=16,
-						x=736,
+						x=1088,
 						y=16
 					},
 					["Art/2DArt/SkillIcons/passives/flaskstr.dds"]={
@@ -92749,62 +93281,62 @@ return {
 					["Art/2DArt/SkillIcons/passives/icebite.dds"]={
 						h=16,
 						w=16,
-						x=160,
+						x=224,
 						y=16
 					},
 					["Art/2DArt/SkillIcons/passives/increasedrunspeeddex.dds"]={
 						h=16,
 						w=16,
-						x=992,
+						x=1072,
 						y=16
 					},
 					["Art/2DArt/SkillIcons/passives/knockback.dds"]={
 						h=16,
 						w=16,
-						x=912,
+						x=1120,
 						y=16
 					},
 					["Art/2DArt/SkillIcons/passives/life1.dds"]={
 						h=16,
 						w=16,
-						x=592,
+						x=1008,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/lifeleech.dds"]={
 						h=16,
 						w=16,
-						x=944,
+						x=832,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/lifepercentage.dds"]={
 						h=16,
 						w=16,
-						x=912,
+						x=928,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/lightningint.dds"]={
 						h=16,
 						w=16,
-						x=128,
+						x=160,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/lightningstr.dds"]={
 						h=16,
 						w=16,
-						x=848,
+						x=960,
 						y=16
 					},
 					["Art/2DArt/SkillIcons/passives/macedmg.dds"]={
 						h=16,
 						w=16,
-						x=560,
+						x=544,
 						y=16
 					},
 					["Art/2DArt/SkillIcons/passives/mana.dds"]={
 						h=16,
 						w=16,
-						x=80,
-						y=16
+						x=768,
+						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/manaregeneration.dds"]={
 						h=16,
@@ -92815,37 +93347,37 @@ return {
 					["Art/2DArt/SkillIcons/passives/manastr.dds"]={
 						h=16,
 						w=16,
-						x=816,
+						x=832,
 						y=16
 					},
 					["Art/2DArt/SkillIcons/passives/miniondamageBlue.dds"]={
 						h=16,
 						w=16,
-						x=176,
+						x=64,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/minionlife.dds"]={
 						h=16,
 						w=16,
-						x=752,
+						x=352,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/onehanddamage.dds"]={
 						h=16,
 						w=16,
-						x=240,
+						x=224,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/plusattribute.dds"]={
 						h=16,
 						w=16,
-						x=1104,
+						x=1088,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/plusdexterity.dds"]={
 						h=16,
 						w=16,
-						x=464,
+						x=656,
 						y=16
 					},
 					["Art/2DArt/SkillIcons/passives/plusintelligence.dds"]={
@@ -92857,13 +93389,13 @@ return {
 					["Art/2DArt/SkillIcons/passives/plusintelligencedexterity.dds"]={
 						h=16,
 						w=16,
-						x=896,
+						x=928,
 						y=16
 					},
 					["Art/2DArt/SkillIcons/passives/plusstrength.dds"]={
 						h=16,
 						w=16,
-						x=400,
+						x=352,
 						y=16
 					},
 					["Art/2DArt/SkillIcons/passives/plusstrengthdexterity.dds"]={
@@ -92875,7 +93407,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/plusstrengthintelligence.dds"]={
 						h=16,
 						w=16,
-						x=336,
+						x=464,
 						y=16
 					},
 					["Art/2DArt/SkillIcons/passives/projectilespeed.dds"]={
@@ -92887,13 +93419,13 @@ return {
 					["Art/2DArt/SkillIcons/passives/shieldblock.dds"]={
 						h=16,
 						w=16,
-						x=272,
+						x=304,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/spellcritical.dds"]={
 						h=16,
 						w=16,
-						x=624,
+						x=608,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/stun2h.dds"]={
@@ -92905,13 +93437,13 @@ return {
 					["Art/2DArt/SkillIcons/passives/stunstr.dds"]={
 						h=16,
 						w=16,
-						x=96,
+						x=80,
 						y=16
 					},
 					["Art/2DArt/SkillIcons/passives/tempint.dds"]={
 						h=16,
 						w=16,
-						x=352,
+						x=608,
 						y=16
 					},
 					["Art/2DArt/SkillIcons/passives/totemandbrandlife.dds"]={
@@ -92936,80 +93468,80 @@ return {
 					["Art/2DArt/SkillIcons/WitchBoneStorm.dds"]={
 						h=32,
 						w=32,
-						x=288,
+						x=256,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/icongroundslam.dds"]={
 						h=32,
 						w=32,
-						x=992,
+						x=736,
 						y=32
 					},
 					["Art/2DArt/SkillIcons/passives/2handeddamage.dds"]={
 						h=32,
 						w=32,
-						x=128,
+						x=96,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/AcolyteofChayula/AcolyteOfChayulaNode.dds"]={
 						h=32,
 						w=32,
-						x=32,
+						x=160,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/AreaDmgNode.dds"]={
 						h=32,
 						w=32,
-						x=544,
+						x=640,
 						y=32
 					},
 					["Art/2DArt/SkillIcons/passives/ArmourAndEnergyShieldNode.dds"]={
 						h=32,
 						w=32,
-						x=672,
+						x=608,
 						y=32
 					},
 					["Art/2DArt/SkillIcons/passives/ArmourAndEvasionNode.dds"]={
 						h=32,
 						w=32,
-						x=416,
+						x=544,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/ArmourBreak1BuffIcon.dds"]={
 						h=32,
 						w=32,
-						x=320,
+						x=736,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/Ascendants/SkillPoint.dds"]={
 						h=32,
 						w=32,
-						x=736,
+						x=608,
 						y=96
 					},
 					["Art/2DArt/SkillIcons/passives/Blood2.dds"]={
 						h=32,
 						w=32,
-						x=416,
+						x=352,
 						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/Bloodmage/BloodMageNode.dds"]={
 						h=32,
 						w=32,
-						x=768,
+						x=320,
 						y=96
 					},
 					["Art/2DArt/SkillIcons/passives/BowDamage.dds"]={
 						h=32,
 						w=32,
-						x=96,
+						x=32,
 						y=96
 					},
 					["Art/2DArt/SkillIcons/passives/ChannellingAttacksNode.dds"]={
 						h=32,
 						w=32,
-						x=256,
-						y=64
+						x=1120,
+						y=32
 					},
 					["Art/2DArt/SkillIcons/passives/ChaosDamagenode.dds"]={
 						h=32,
@@ -93020,19 +93552,19 @@ return {
 					["Art/2DArt/SkillIcons/passives/CharmNode1.dds"]={
 						h=32,
 						w=32,
-						x=928,
+						x=1088,
 						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/ColdDamagenode.dds"]={
 						h=32,
 						w=32,
-						x=96,
+						x=64,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/ColdResistNode.dds"]={
 						h=32,
 						w=32,
-						x=800,
+						x=480,
 						y=96
 					},
 					["Art/2DArt/SkillIcons/passives/CorpseDamage.dds"]={
@@ -93050,13 +93582,13 @@ return {
 					["Art/2DArt/SkillIcons/passives/DeadEye/DeadeyeDealMoreProjectileDamageClose.dds"]={
 						h=32,
 						w=32,
-						x=608,
+						x=640,
 						y=96
 					},
 					["Art/2DArt/SkillIcons/passives/DeadEye/DeadeyeDealMoreProjectileDamageFarAway.dds"]={
 						h=32,
 						w=32,
-						x=1088,
+						x=704,
 						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/DeadEye/DeadeyeNode.dds"]={
@@ -93068,121 +93600,127 @@ return {
 					["Art/2DArt/SkillIcons/passives/Deflection.dds"]={
 						h=32,
 						w=32,
-						x=928,
+						x=896,
 						y=96
 					},
 					["Art/2DArt/SkillIcons/passives/DragonStyle.dds"]={
 						h=32,
 						w=32,
-						x=864,
+						x=96,
 						y=96
 					},
 					["Art/2DArt/SkillIcons/passives/ElementalDamagenode.dds"]={
 						h=32,
 						w=32,
-						x=352,
+						x=1056,
 						y=32
 					},
 					["Art/2DArt/SkillIcons/passives/ElementalDamagewithAttacks2.dds"]={
 						h=32,
 						w=32,
-						x=384,
+						x=512,
 						y=32
 					},
 					["Art/2DArt/SkillIcons/passives/EnergyShieldNode.dds"]={
 						h=32,
 						w=32,
-						x=704,
+						x=480,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/EvasionNode.dds"]={
 						h=32,
 						w=32,
-						x=32,
+						x=192,
 						y=96
 					},
 					["Art/2DArt/SkillIcons/passives/EvasionandEnergyShieldNode.dds"]={
 						h=32,
 						w=32,
-						x=608,
+						x=576,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/FireDamagenode.dds"]={
 						h=32,
 						w=32,
-						x=512,
+						x=576,
 						y=32
 					},
 					["Art/2DArt/SkillIcons/passives/FireResistNode.dds"]={
 						h=32,
 						w=32,
-						x=576,
+						x=544,
 						y=32
 					},
 					["Art/2DArt/SkillIcons/passives/Gemling/GemlingNode.dds"]={
 						h=32,
 						w=32,
-						x=384,
+						x=512,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/GreenAttackSmallPassive.dds"]={
 						h=32,
 						w=32,
-						x=1120,
-						y=32
+						x=416,
+						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/Harrier.dds"]={
 						h=32,
 						w=32,
-						x=1024,
-						y=64
+						x=128,
+						y=96
 					},
 					["Art/2DArt/SkillIcons/passives/HeraldBuffEffectNode2.dds"]={
 						h=32,
 						w=32,
-						x=864,
+						x=704,
 						y=32
 					},
 					["Art/2DArt/SkillIcons/passives/HiredKiller2.dds"]={
 						h=32,
 						w=32,
-						x=192,
-						y=96
+						x=896,
+						y=64
+					},
+					["Art/2DArt/SkillIcons/passives/IncreasedManaCostNotable.dds"]={
+						h=32,
+						w=32,
+						x=128,
+						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/IncreasedProjectileSpeedNode.dds"]={
 						h=32,
 						w=32,
-						x=1120,
-						y=64
+						x=288,
+						y=96
 					},
 					["Art/2DArt/SkillIcons/passives/Infernalist/InfernalistNode.dds"]={
 						h=32,
 						w=32,
-						x=608,
+						x=1088,
 						y=32
 					},
 					["Art/2DArt/SkillIcons/passives/Inquistitor/IncreasedElementalDamageAttackCasteSpeed.dds"]={
 						h=32,
 						w=32,
-						x=352,
-						y=96
+						x=1056,
+						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/Invoker/InvokerNode.dds"]={
 						h=32,
 						w=32,
-						x=608,
+						x=640,
 						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/LifeRecoupNode.dds"]={
 						h=32,
 						w=32,
-						x=224,
-						y=96
+						x=1024,
+						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/LightningDamagenode.dds"]={
 						h=32,
 						w=32,
-						x=480,
+						x=416,
 						y=32
 					},
 					["Art/2DArt/SkillIcons/passives/LightningResistNode.dds"]={
@@ -93194,73 +93732,73 @@ return {
 					["Art/2DArt/SkillIcons/passives/ManaLeechThemedNode.dds"]={
 						h=32,
 						w=32,
-						x=1088,
-						y=32
+						x=256,
+						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/MarkNode.dds"]={
 						h=32,
 						w=32,
-						x=800,
+						x=768,
 						y=32
 					},
 					["Art/2DArt/SkillIcons/passives/MeleeAoENode.dds"]={
 						h=32,
 						w=32,
-						x=1088,
+						x=768,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/MineAreaOfEffectNode.dds"]={
 						h=32,
 						w=32,
-						x=192,
+						x=288,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/MinionElementalResistancesNode.dds"]={
 						h=32,
 						w=32,
-						x=896,
-						y=64
+						x=352,
+						y=96
 					},
 					["Art/2DArt/SkillIcons/passives/MinionsandManaNode.dds"]={
 						h=32,
 						w=32,
-						x=448,
+						x=416,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/MiracleMaker.dds"]={
 						h=32,
 						w=32,
-						x=864,
-						y=64
+						x=544,
+						y=96
 					},
 					["Art/2DArt/SkillIcons/passives/NodeDualWieldingDamage.dds"]={
 						h=32,
 						w=32,
-						x=128,
-						y=96
+						x=864,
+						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderBrewConcoctionBleed.dds"]={
 						h=32,
 						w=32,
-						x=544,
+						x=512,
 						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderBrewConcoctionCold.dds"]={
 						h=32,
 						w=32,
-						x=992,
+						x=832,
 						y=96
 					},
 					["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderBrewConcoctionFire.dds"]={
 						h=32,
 						w=32,
-						x=704,
+						x=576,
 						y=96
 					},
 					["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderBrewConcoctionLightning.dds"]={
 						h=32,
 						w=32,
-						x=960,
+						x=256,
 						y=96
 					},
 					["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderBrewConcoctionPoison.dds"]={
@@ -93272,7 +93810,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderNode.dds"]={
 						h=32,
 						w=32,
-						x=416,
+						x=448,
 						y=96
 					},
 					["Art/2DArt/SkillIcons/passives/PhysicalDamageChaosNode.dds"]={
@@ -93284,31 +93822,31 @@ return {
 					["Art/2DArt/SkillIcons/passives/PhysicalDamageNode.dds"]={
 						h=32,
 						w=32,
-						x=768,
+						x=960,
 						y=32
 					},
 					["Art/2DArt/SkillIcons/passives/PhysicalDamageOverTimeNode.dds"]={
 						h=32,
 						w=32,
-						x=160,
+						x=224,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/Poison.dds"]={
 						h=32,
 						w=32,
-						x=992,
-						y=64
+						x=416,
+						y=96
 					},
 					["Art/2DArt/SkillIcons/passives/Rage.dds"]={
 						h=32,
 						w=32,
-						x=416,
+						x=384,
 						y=32
 					},
 					["Art/2DArt/SkillIcons/passives/ReducedSkillEffectDurationNode.dds"]={
 						h=32,
 						w=32,
-						x=288,
+						x=384,
 						y=96
 					},
 					["Art/2DArt/SkillIcons/passives/ShieldNodeOffensive.dds"]={
@@ -93320,7 +93858,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/SpellMultiplyer2.dds"]={
 						h=32,
 						w=32,
-						x=128,
+						x=224,
 						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/SpellSuppresionNode.dds"]={
@@ -93332,13 +93870,13 @@ return {
 					["Art/2DArt/SkillIcons/passives/SpellSupressionNotable1.dds"]={
 						h=32,
 						w=32,
-						x=800,
+						x=928,
 						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/Stormweaver/StormweaverNode.dds"]={
 						h=32,
 						w=32,
-						x=640,
+						x=672,
 						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/Temporalist/TemporalistNode.dds"]={
@@ -93350,20 +93888,20 @@ return {
 					["Art/2DArt/SkillIcons/passives/Titan/TitanNode.dds"]={
 						h=32,
 						w=32,
-						x=224,
+						x=192,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/WarCryEffect.dds"]={
 						h=32,
 						w=32,
-						x=928,
+						x=1024,
 						y=32
 					},
 					["Art/2DArt/SkillIcons/passives/Warbringer/WarbringerNode.dds"]={
 						h=32,
 						w=32,
-						x=160,
-						y=96
+						x=1152,
+						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/Witchhunter/WitchunterNode.dds"]={
 						h=32,
@@ -93386,19 +93924,19 @@ return {
 					["Art/2DArt/SkillIcons/passives/areaofeffect.dds"]={
 						h=32,
 						w=32,
-						x=64,
+						x=32,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/attackspeed.dds"]={
 						h=32,
 						w=32,
-						x=896,
+						x=864,
 						y=96
 					},
 					["Art/2DArt/SkillIcons/passives/attackspeedbow.dds"]={
 						h=32,
 						w=32,
-						x=448,
+						x=736,
 						y=96
 					},
 					["Art/2DArt/SkillIcons/passives/auraeffect.dds"]={
@@ -93416,19 +93954,19 @@ return {
 					["Art/2DArt/SkillIcons/passives/axedmgspeed.dds"]={
 						h=32,
 						w=32,
-						x=640,
+						x=384,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/blankDex.dds"]={
 						h=32,
 						w=32,
-						x=384,
+						x=0,
 						y=96
 					},
 					["Art/2DArt/SkillIcons/passives/blankInt.dds"]={
 						h=32,
 						w=32,
-						x=576,
+						x=800,
 						y=96
 					},
 					["Art/2DArt/SkillIcons/passives/blankStr.dds"]={
@@ -93440,26 +93978,26 @@ return {
 					["Art/2DArt/SkillIcons/passives/blockstr.dds"]={
 						h=32,
 						w=32,
-						x=32,
+						x=0,
 						y=32
 					},
 					["Art/2DArt/SkillIcons/passives/castspeed.dds"]={
 						h=32,
 						w=32,
-						x=1056,
+						x=320,
 						y=32
 					},
 					["Art/2DArt/SkillIcons/passives/chargedex.dds"]={
 						h=32,
 						w=32,
-						x=256,
+						x=928,
 						y=96
 					},
 					["Art/2DArt/SkillIcons/passives/chargeint.dds"]={
 						h=32,
 						w=32,
-						x=1152,
-						y=32
+						x=0,
+						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/chargestr.dds"]={
 						h=32,
@@ -93470,7 +94008,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/clustersLinknode2.dds"]={
 						h=32,
 						w=32,
-						x=672,
+						x=992,
 						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/colddamage.dds"]={
@@ -93482,7 +94020,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/coldresist.dds"]={
 						h=32,
 						w=32,
-						x=736,
+						x=1088,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/criticaldaggerint.dds"]={
@@ -93494,8 +94032,8 @@ return {
 					["Art/2DArt/SkillIcons/passives/criticalstrikechance.dds"]={
 						h=32,
 						w=32,
-						x=768,
-						y=0
+						x=64,
+						y=32
 					},
 					["Art/2DArt/SkillIcons/passives/criticalstrikechance2.dds"]={
 						h=32,
@@ -93506,31 +94044,31 @@ return {
 					["Art/2DArt/SkillIcons/passives/damage.dds"]={
 						h=32,
 						w=32,
-						x=512,
+						x=352,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/damage_blue.dds"]={
 						h=32,
 						w=32,
-						x=512,
+						x=608,
 						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/damageaxe.dds"]={
 						h=32,
 						w=32,
-						x=672,
+						x=640,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/damagedualwield.dds"]={
 						h=32,
 						w=32,
-						x=1024,
+						x=960,
 						y=96
 					},
 					["Art/2DArt/SkillIcons/passives/damagespells.dds"]={
 						h=32,
 						w=32,
-						x=960,
+						x=928,
 						y=32
 					},
 					["Art/2DArt/SkillIcons/passives/damagestaff.dds"]={
@@ -93542,7 +94080,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/damagesword.dds"]={
 						h=32,
 						w=32,
-						x=736,
+						x=864,
 						y=32
 					},
 					["Art/2DArt/SkillIcons/passives/dmgreduction.dds"]={
@@ -93554,25 +94092,25 @@ return {
 					["Art/2DArt/SkillIcons/passives/elementaldamage.dds"]={
 						h=32,
 						w=32,
-						x=0,
-						y=64
+						x=1152,
+						y=32
 					},
 					["Art/2DArt/SkillIcons/passives/energyshield.dds"]={
 						h=32,
 						w=32,
-						x=576,
+						x=672,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/evade.dds"]={
 						h=32,
 						w=32,
-						x=512,
+						x=672,
 						y=96
 					},
 					["Art/2DArt/SkillIcons/passives/executioner.dds"]={
 						h=32,
 						w=32,
-						x=0,
+						x=224,
 						y=96
 					},
 					["Art/2DArt/SkillIcons/passives/firedamage.dds"]={
@@ -93584,8 +94122,8 @@ return {
 					["Art/2DArt/SkillIcons/passives/firedamageint.dds"]={
 						h=32,
 						w=32,
-						x=64,
-						y=96
+						x=800,
+						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/firedamagestr.dds"]={
 						h=32,
@@ -93596,19 +94134,19 @@ return {
 					["Art/2DArt/SkillIcons/passives/fireresist.dds"]={
 						h=32,
 						w=32,
-						x=480,
+						x=544,
 						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/flaskdex.dds"]={
 						h=32,
 						w=32,
-						x=1056,
+						x=832,
 						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/flaskint.dds"]={
 						h=32,
 						w=32,
-						x=320,
+						x=1024,
 						y=96
 					},
 					["Art/2DArt/SkillIcons/passives/flaskstr.dds"]={
@@ -93620,62 +94158,62 @@ return {
 					["Art/2DArt/SkillIcons/passives/icebite.dds"]={
 						h=32,
 						w=32,
-						x=352,
+						x=480,
 						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/increasedrunspeeddex.dds"]={
 						h=32,
 						w=32,
-						x=832,
+						x=992,
 						y=96
 					},
 					["Art/2DArt/SkillIcons/passives/knockback.dds"]={
 						h=32,
 						w=32,
-						x=672,
+						x=1088,
 						y=96
 					},
 					["Art/2DArt/SkillIcons/passives/life1.dds"]={
 						h=32,
 						w=32,
-						x=0,
+						x=832,
 						y=32
 					},
 					["Art/2DArt/SkillIcons/passives/lifeleech.dds"]={
 						h=32,
 						w=32,
-						x=704,
+						x=480,
 						y=32
 					},
 					["Art/2DArt/SkillIcons/passives/lifepercentage.dds"]={
 						h=32,
 						w=32,
-						x=640,
+						x=672,
 						y=32
 					},
 					["Art/2DArt/SkillIcons/passives/lightningint.dds"]={
 						h=32,
 						w=32,
-						x=256,
+						x=320,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/lightningstr.dds"]={
 						h=32,
 						w=32,
-						x=544,
+						x=768,
 						y=96
 					},
 					["Art/2DArt/SkillIcons/passives/macedmg.dds"]={
 						h=32,
 						w=32,
-						x=1152,
+						x=1120,
 						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/mana.dds"]={
 						h=32,
 						w=32,
-						x=192,
-						y=64
+						x=352,
+						y=32
 					},
 					["Art/2DArt/SkillIcons/passives/manaregeneration.dds"]={
 						h=32,
@@ -93686,38 +94224,38 @@ return {
 					["Art/2DArt/SkillIcons/passives/manastr.dds"]={
 						h=32,
 						w=32,
-						x=480,
+						x=512,
 						y=96
 					},
 					["Art/2DArt/SkillIcons/passives/miniondamageBlue.dds"]={
 						h=32,
 						w=32,
-						x=352,
+						x=128,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/minionlife.dds"]={
 						h=32,
 						w=32,
-						x=320,
-						y=32
+						x=704,
+						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/onehanddamage.dds"]={
 						h=32,
 						w=32,
-						x=480,
+						x=448,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/plusattribute.dds"]={
 						h=32,
 						w=32,
-						x=1024,
+						x=992,
 						y=32
 					},
 					["Art/2DArt/SkillIcons/passives/plusdexterity.dds"]={
 						h=32,
 						w=32,
-						x=960,
-						y=64
+						x=160,
+						y=96
 					},
 					["Art/2DArt/SkillIcons/passives/plusintelligence.dds"]={
 						h=32,
@@ -93728,13 +94266,13 @@ return {
 					["Art/2DArt/SkillIcons/passives/plusintelligencedexterity.dds"]={
 						h=32,
 						w=32,
-						x=640,
+						x=704,
 						y=96
 					},
 					["Art/2DArt/SkillIcons/passives/plusstrength.dds"]={
 						h=32,
 						w=32,
-						x=832,
+						x=736,
 						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/plusstrengthdexterity.dds"]={
@@ -93746,7 +94284,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/plusstrengthintelligence.dds"]={
 						h=32,
 						w=32,
-						x=704,
+						x=960,
 						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/projectilespeed.dds"]={
@@ -93758,13 +94296,13 @@ return {
 					["Art/2DArt/SkillIcons/passives/shieldblock.dds"]={
 						h=32,
 						w=32,
-						x=544,
+						x=608,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/spellcritical.dds"]={
 						h=32,
 						w=32,
-						x=64,
+						x=32,
 						y=32
 					},
 					["Art/2DArt/SkillIcons/passives/stun2h.dds"]={
@@ -93776,14 +94314,14 @@ return {
 					["Art/2DArt/SkillIcons/passives/stunstr.dds"]={
 						h=32,
 						w=32,
-						x=224,
+						x=192,
 						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/tempint.dds"]={
 						h=32,
 						w=32,
-						x=736,
-						y=64
+						x=64,
+						y=96
 					},
 					["Art/2DArt/SkillIcons/passives/totemandbrandlife.dds"]={
 						h=32,
@@ -93807,79 +94345,79 @@ return {
 					["Art/2DArt/SkillIcons/WitchBoneStorm.dds"]={
 						h=64,
 						w=64,
-						x=576,
+						x=512,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/icongroundslam.dds"]={
 						h=64,
 						w=64,
-						x=896,
+						x=384,
 						y=192
 					},
 					["Art/2DArt/SkillIcons/passives/2handeddamage.dds"]={
 						h=64,
 						w=64,
-						x=256,
+						x=192,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/AcolyteofChayula/AcolyteOfChayulaNode.dds"]={
 						h=64,
 						w=64,
-						x=64,
+						x=320,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/AreaDmgNode.dds"]={
 						h=64,
 						w=64,
-						x=0,
+						x=192,
 						y=192
 					},
 					["Art/2DArt/SkillIcons/passives/ArmourAndEnergyShieldNode.dds"]={
 						h=64,
 						w=64,
-						x=256,
+						x=128,
 						y=192
 					},
 					["Art/2DArt/SkillIcons/passives/ArmourAndEvasionNode.dds"]={
 						h=64,
 						w=64,
-						x=832,
+						x=1088,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/ArmourBreak1BuffIcon.dds"]={
 						h=64,
 						w=64,
-						x=640,
-						y=0
+						x=320,
+						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/Ascendants/SkillPoint.dds"]={
 						h=64,
 						w=64,
-						x=512,
+						x=256,
 						y=448
 					},
 					["Art/2DArt/SkillIcons/passives/Blood2.dds"]={
 						h=64,
 						w=64,
-						x=960,
+						x=832,
 						y=256
 					},
 					["Art/2DArt/SkillIcons/passives/Bloodmage/BloodMageNode.dds"]={
 						h=64,
 						w=64,
-						x=576,
-						y=448
+						x=832,
+						y=384
 					},
 					["Art/2DArt/SkillIcons/passives/BowDamage.dds"]={
 						h=64,
 						w=64,
-						x=384,
+						x=256,
 						y=384
 					},
 					["Art/2DArt/SkillIcons/passives/ChannellingAttacksNode.dds"]={
 						h=64,
 						w=64,
-						x=640,
+						x=0,
 						y=256
 					},
 					["Art/2DArt/SkillIcons/passives/ChaosDamagenode.dds"]={
@@ -93891,19 +94429,19 @@ return {
 					["Art/2DArt/SkillIcons/passives/CharmNode1.dds"]={
 						h=64,
 						w=64,
-						x=832,
-						y=320
+						x=0,
+						y=384
 					},
 					["Art/2DArt/SkillIcons/passives/ColdDamagenode.dds"]={
 						h=64,
 						w=64,
-						x=192,
+						x=128,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/ColdResistNode.dds"]={
 						h=64,
 						w=64,
-						x=640,
+						x=0,
 						y=448
 					},
 					["Art/2DArt/SkillIcons/passives/CorpseDamage.dds"]={
@@ -93921,14 +94459,14 @@ return {
 					["Art/2DArt/SkillIcons/passives/DeadEye/DeadeyeDealMoreProjectileDamageClose.dds"]={
 						h=64,
 						w=64,
-						x=256,
+						x=320,
 						y=448
 					},
 					["Art/2DArt/SkillIcons/passives/DeadEye/DeadeyeDealMoreProjectileDamageFarAway.dds"]={
 						h=64,
 						w=64,
-						x=0,
-						y=384
+						x=384,
+						y=320
 					},
 					["Art/2DArt/SkillIcons/passives/DeadEye/DeadeyeNode.dds"]={
 						h=64,
@@ -93939,121 +94477,127 @@ return {
 					["Art/2DArt/SkillIcons/passives/Deflection.dds"]={
 						h=64,
 						w=64,
-						x=896,
+						x=832,
 						y=448
 					},
 					["Art/2DArt/SkillIcons/passives/DragonStyle.dds"]={
 						h=64,
 						w=64,
-						x=768,
-						y=448
+						x=384,
+						y=384
 					},
 					["Art/2DArt/SkillIcons/passives/ElementalDamagenode.dds"]={
 						h=64,
 						w=64,
-						x=768,
-						y=128
+						x=1024,
+						y=192
 					},
 					["Art/2DArt/SkillIcons/passives/ElementalDamagewithAttacks2.dds"]={
-						h=64,
-						w=64,
-						x=832,
-						y=128
-					},
-					["Art/2DArt/SkillIcons/passives/EnergyShieldNode.dds"]={
-						h=64,
-						w=64,
-						x=256,
-						y=64
-					},
-					["Art/2DArt/SkillIcons/passives/EvasionNode.dds"]={
-						h=64,
-						w=64,
-						x=256,
-						y=384
-					},
-					["Art/2DArt/SkillIcons/passives/EvasionandEnergyShieldNode.dds"]={
-						h=64,
-						w=64,
-						x=64,
-						y=64
-					},
-					["Art/2DArt/SkillIcons/passives/FireDamagenode.dds"]={
 						h=64,
 						w=64,
 						x=1088,
 						y=128
 					},
-					["Art/2DArt/SkillIcons/passives/FireResistNode.dds"]={
+					["Art/2DArt/SkillIcons/passives/EnergyShieldNode.dds"]={
 						h=64,
 						w=64,
-						x=64,
-						y=192
-					},
-					["Art/2DArt/SkillIcons/passives/Gemling/GemlingNode.dds"]={
-						h=64,
-						w=64,
-						x=768,
+						x=960,
 						y=0
 					},
-					["Art/2DArt/SkillIcons/passives/GreenAttackSmallPassive.dds"]={
-						h=64,
-						w=64,
-						x=0,
-						y=256
-					},
-					["Art/2DArt/SkillIcons/passives/Harrier.dds"]={
-						h=64,
-						w=64,
-						x=1024,
-						y=320
-					},
-					["Art/2DArt/SkillIcons/passives/HeraldBuffEffectNode2.dds"]={
-						h=64,
-						w=64,
-						x=640,
-						y=192
-					},
-					["Art/2DArt/SkillIcons/passives/HiredKiller2.dds"]={
+					["Art/2DArt/SkillIcons/passives/EvasionNode.dds"]={
 						h=64,
 						w=64,
 						x=576,
 						y=384
 					},
-					["Art/2DArt/SkillIcons/passives/IncreasedProjectileSpeedNode.dds"]={
+					["Art/2DArt/SkillIcons/passives/EvasionandEnergyShieldNode.dds"]={
+						h=64,
+						w=64,
+						x=0,
+						y=64
+					},
+					["Art/2DArt/SkillIcons/passives/FireDamagenode.dds"]={
 						h=64,
 						w=64,
 						x=64,
+						y=192
+					},
+					["Art/2DArt/SkillIcons/passives/FireResistNode.dds"]={
+						h=64,
+						w=64,
+						x=0,
+						y=192
+					},
+					["Art/2DArt/SkillIcons/passives/Gemling/GemlingNode.dds"]={
+						h=64,
+						w=64,
+						x=1024,
+						y=0
+					},
+					["Art/2DArt/SkillIcons/passives/GreenAttackSmallPassive.dds"]={
+						h=64,
+						w=64,
+						x=960,
+						y=256
+					},
+					["Art/2DArt/SkillIcons/passives/Harrier.dds"]={
+						h=64,
+						w=64,
+						x=448,
+						y=384
+					},
+					["Art/2DArt/SkillIcons/passives/HeraldBuffEffectNode2.dds"]={
+						h=64,
+						w=64,
+						x=320,
+						y=192
+					},
+					["Art/2DArt/SkillIcons/passives/HiredKiller2.dds"]={
+						h=64,
+						w=64,
+						x=768,
+						y=320
+					},
+					["Art/2DArt/SkillIcons/passives/IncreasedManaCostNotable.dds"]={
+						h=64,
+						w=64,
+						x=384,
+						y=256
+					},
+					["Art/2DArt/SkillIcons/passives/IncreasedProjectileSpeedNode.dds"]={
+						h=64,
+						w=64,
+						x=768,
 						y=384
 					},
 					["Art/2DArt/SkillIcons/passives/Infernalist/InfernalistNode.dds"]={
 						h=64,
 						w=64,
-						x=128,
+						x=1088,
 						y=192
 					},
 					["Art/2DArt/SkillIcons/passives/Inquistitor/IncreasedElementalDamageAttackCasteSpeed.dds"]={
 						h=64,
 						w=64,
-						x=896,
-						y=384
+						x=1088,
+						y=320
 					},
 					["Art/2DArt/SkillIcons/passives/Invoker/InvokerNode.dds"]={
 						h=64,
 						w=64,
-						x=192,
+						x=256,
 						y=320
 					},
 					["Art/2DArt/SkillIcons/passives/LifeRecoupNode.dds"]={
 						h=64,
 						w=64,
-						x=640,
-						y=384
+						x=1024,
+						y=320
 					},
 					["Art/2DArt/SkillIcons/passives/LightningDamagenode.dds"]={
 						h=64,
 						w=64,
-						x=1024,
+						x=896,
 						y=128
 					},
 					["Art/2DArt/SkillIcons/passives/LightningResistNode.dds"]={
@@ -94065,74 +94609,74 @@ return {
 					["Art/2DArt/SkillIcons/passives/ManaLeechThemedNode.dds"]={
 						h=64,
 						w=64,
-						x=1088,
-						y=192
+						x=640,
+						y=256
 					},
 					["Art/2DArt/SkillIcons/passives/MarkNode.dds"]={
 						h=64,
 						w=64,
-						x=512,
+						x=448,
 						y=192
 					},
 					["Art/2DArt/SkillIcons/passives/MeleeAoENode.dds"]={
 						h=64,
 						w=64,
-						x=1024,
+						x=384,
 						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/MineAreaOfEffectNode.dds"]={
 						h=64,
 						w=64,
-						x=384,
+						x=576,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/MinionElementalResistancesNode.dds"]={
 						h=64,
 						w=64,
-						x=768,
-						y=320
+						x=896,
+						y=384
 					},
 					["Art/2DArt/SkillIcons/passives/MinionsandManaNode.dds"]={
 						h=64,
 						w=64,
-						x=896,
+						x=832,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/MiracleMaker.dds"]={
 						h=64,
 						w=64,
-						x=704,
-						y=320
+						x=128,
+						y=448
 					},
 					["Art/2DArt/SkillIcons/passives/NodeDualWieldingDamage.dds"]={
 						h=64,
 						w=64,
-						x=448,
-						y=384
+						x=704,
+						y=320
 					},
 					["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderBrewConcoctionBleed.dds"]={
 						h=64,
 						w=64,
-						x=64,
+						x=0,
 						y=320
 					},
 					["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderBrewConcoctionCold.dds"]={
 						h=64,
 						w=64,
-						x=1024,
+						x=704,
 						y=448
 					},
 					["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderBrewConcoctionFire.dds"]={
 						h=64,
 						w=64,
-						x=448,
+						x=192,
 						y=448
 					},
 					["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderBrewConcoctionLightning.dds"]={
 						h=64,
 						w=64,
-						x=960,
-						y=448
+						x=704,
+						y=384
 					},
 					["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderBrewConcoctionPoison.dds"]={
 						h=64,
@@ -94143,7 +94687,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderNode.dds"]={
 						h=64,
 						w=64,
-						x=1024,
+						x=1088,
 						y=384
 					},
 					["Art/2DArt/SkillIcons/passives/PhysicalDamageChaosNode.dds"]={
@@ -94155,31 +94699,31 @@ return {
 					["Art/2DArt/SkillIcons/passives/PhysicalDamageNode.dds"]={
 						h=64,
 						w=64,
-						x=448,
+						x=832,
 						y=192
 					},
 					["Art/2DArt/SkillIcons/passives/PhysicalDamageOverTimeNode.dds"]={
 						h=64,
 						w=64,
-						x=320,
+						x=448,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/Poison.dds"]={
 						h=64,
 						w=64,
-						x=960,
-						y=320
+						x=1024,
+						y=384
 					},
 					["Art/2DArt/SkillIcons/passives/Rage.dds"]={
 						h=64,
 						w=64,
-						x=896,
+						x=832,
 						y=128
 					},
 					["Art/2DArt/SkillIcons/passives/ReducedSkillEffectDurationNode.dds"]={
 						h=64,
 						w=64,
-						x=768,
+						x=960,
 						y=384
 					},
 					["Art/2DArt/SkillIcons/passives/ShieldNodeOffensive.dds"]={
@@ -94191,7 +94735,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/SpellMultiplyer2.dds"]={
 						h=64,
 						w=64,
-						x=384,
+						x=576,
 						y=256
 					},
 					["Art/2DArt/SkillIcons/passives/SpellSuppresionNode.dds"]={
@@ -94203,13 +94747,13 @@ return {
 					["Art/2DArt/SkillIcons/passives/SpellSupressionNotable1.dds"]={
 						h=64,
 						w=64,
-						x=576,
+						x=832,
 						y=320
 					},
 					["Art/2DArt/SkillIcons/passives/Stormweaver/StormweaverNode.dds"]={
 						h=64,
 						w=64,
-						x=256,
+						x=320,
 						y=320
 					},
 					["Art/2DArt/SkillIcons/passives/Temporalist/TemporalistNode.dds"]={
@@ -94221,19 +94765,19 @@ return {
 					["Art/2DArt/SkillIcons/passives/Titan/TitanNode.dds"]={
 						h=64,
 						w=64,
-						x=448,
+						x=384,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/WarCryEffect.dds"]={
 						h=64,
 						w=64,
-						x=768,
+						x=960,
 						y=192
 					},
 					["Art/2DArt/SkillIcons/passives/Warbringer/WarbringerNode.dds"]={
 						h=64,
 						w=64,
-						x=512,
+						x=128,
 						y=384
 					},
 					["Art/2DArt/SkillIcons/passives/Witchhunter/WitchunterNode.dds"]={
@@ -94257,20 +94801,20 @@ return {
 					["Art/2DArt/SkillIcons/passives/areaofeffect.dds"]={
 						h=64,
 						w=64,
-						x=128,
+						x=64,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/attackspeed.dds"]={
 						h=64,
 						w=64,
-						x=832,
+						x=768,
 						y=448
 					},
 					["Art/2DArt/SkillIcons/passives/attackspeedbow.dds"]={
 						h=64,
 						w=64,
-						x=1088,
-						y=384
+						x=512,
+						y=448
 					},
 					["Art/2DArt/SkillIcons/passives/auraeffect.dds"]={
 						h=64,
@@ -94287,19 +94831,19 @@ return {
 					["Art/2DArt/SkillIcons/passives/axedmgspeed.dds"]={
 						h=64,
 						w=64,
-						x=128,
-						y=64
+						x=768,
+						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/blankDex.dds"]={
 						h=64,
 						w=64,
-						x=960,
+						x=192,
 						y=384
 					},
 					["Art/2DArt/SkillIcons/passives/blankInt.dds"]={
 						h=64,
 						w=64,
-						x=192,
+						x=640,
 						y=448
 					},
 					["Art/2DArt/SkillIcons/passives/blankStr.dds"]={
@@ -94311,25 +94855,25 @@ return {
 					["Art/2DArt/SkillIcons/passives/blockstr.dds"]={
 						h=64,
 						w=64,
-						x=128,
+						x=64,
 						y=128
 					},
 					["Art/2DArt/SkillIcons/passives/castspeed.dds"]={
 						h=64,
 						w=64,
-						x=1024,
-						y=192
+						x=704,
+						y=128
 					},
 					["Art/2DArt/SkillIcons/passives/chargedex.dds"]={
 						h=64,
 						w=64,
-						x=704,
-						y=384
+						x=896,
+						y=448
 					},
 					["Art/2DArt/SkillIcons/passives/chargeint.dds"]={
 						h=64,
 						w=64,
-						x=64,
+						x=128,
 						y=256
 					},
 					["Art/2DArt/SkillIcons/passives/chargestr.dds"]={
@@ -94341,7 +94885,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/clustersLinknode2.dds"]={
 						h=64,
 						w=64,
-						x=320,
+						x=960,
 						y=320
 					},
 					["Art/2DArt/SkillIcons/passives/colddamage.dds"]={
@@ -94353,7 +94897,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/coldresist.dds"]={
 						h=64,
 						w=64,
-						x=320,
+						x=1024,
 						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/criticaldaggerint.dds"]={
@@ -94365,8 +94909,8 @@ return {
 					["Art/2DArt/SkillIcons/passives/criticalstrikechance.dds"]={
 						h=64,
 						w=64,
-						x=384,
-						y=64
+						x=192,
+						y=128
 					},
 					["Art/2DArt/SkillIcons/passives/criticalstrikechance2.dds"]={
 						h=64,
@@ -94377,31 +94921,31 @@ return {
 					["Art/2DArt/SkillIcons/passives/damage.dds"]={
 						h=64,
 						w=64,
-						x=1024,
+						x=704,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/damage_blue.dds"]={
 						h=64,
 						w=64,
-						x=0,
+						x=192,
 						y=320
 					},
 					["Art/2DArt/SkillIcons/passives/damageaxe.dds"]={
 						h=64,
 						w=64,
-						x=192,
+						x=128,
 						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/damagedualwield.dds"]={
 						h=64,
 						w=64,
-						x=1088,
+						x=960,
 						y=448
 					},
 					["Art/2DArt/SkillIcons/passives/damagespells.dds"]={
 						h=64,
 						w=64,
-						x=832,
+						x=768,
 						y=192
 					},
 					["Art/2DArt/SkillIcons/passives/damagestaff.dds"]={
@@ -94413,7 +94957,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/damagesword.dds"]={
 						h=64,
 						w=64,
-						x=384,
+						x=640,
 						y=192
 					},
 					["Art/2DArt/SkillIcons/passives/dmgreduction.dds"]={
@@ -94425,25 +94969,25 @@ return {
 					["Art/2DArt/SkillIcons/passives/elementaldamage.dds"]={
 						h=64,
 						w=64,
-						x=128,
+						x=64,
 						y=256
 					},
 					["Art/2DArt/SkillIcons/passives/energyshield.dds"]={
 						h=64,
 						w=64,
-						x=0,
+						x=192,
 						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/evade.dds"]={
 						h=64,
 						w=64,
-						x=64,
+						x=384,
 						y=448
 					},
 					["Art/2DArt/SkillIcons/passives/executioner.dds"]={
 						h=64,
 						w=64,
-						x=192,
+						x=640,
 						y=384
 					},
 					["Art/2DArt/SkillIcons/passives/firedamage.dds"]={
@@ -94455,8 +94999,8 @@ return {
 					["Art/2DArt/SkillIcons/passives/firedamageint.dds"]={
 						h=64,
 						w=64,
-						x=320,
-						y=384
+						x=576,
+						y=320
 					},
 					["Art/2DArt/SkillIcons/passives/firedamagestr.dds"]={
 						h=64,
@@ -94467,20 +95011,20 @@ return {
 					["Art/2DArt/SkillIcons/passives/fireresist.dds"]={
 						h=64,
 						w=64,
-						x=1088,
-						y=256
+						x=64,
+						y=320
 					},
 					["Art/2DArt/SkillIcons/passives/flaskdex.dds"]={
 						h=64,
 						w=64,
-						x=1088,
+						x=640,
 						y=320
 					},
 					["Art/2DArt/SkillIcons/passives/flaskint.dds"]={
 						h=64,
 						w=64,
-						x=832,
-						y=384
+						x=1088,
+						y=448
 					},
 					["Art/2DArt/SkillIcons/passives/flaskstr.dds"]={
 						h=64,
@@ -94491,62 +95035,62 @@ return {
 					["Art/2DArt/SkillIcons/passives/icebite.dds"]={
 						h=64,
 						w=64,
-						x=832,
+						x=1088,
 						y=256
 					},
 					["Art/2DArt/SkillIcons/passives/increasedrunspeeddex.dds"]={
 						h=64,
 						w=64,
-						x=704,
+						x=1024,
 						y=448
 					},
 					["Art/2DArt/SkillIcons/passives/knockback.dds"]={
 						h=64,
 						w=64,
-						x=384,
-						y=448
+						x=64,
+						y=512
 					},
 					["Art/2DArt/SkillIcons/passives/life1.dds"]={
 						h=64,
 						w=64,
-						x=64,
-						y=128
+						x=576,
+						y=192
 					},
 					["Art/2DArt/SkillIcons/passives/lifeleech.dds"]={
 						h=64,
 						w=64,
-						x=320,
-						y=192
+						x=1024,
+						y=128
 					},
 					["Art/2DArt/SkillIcons/passives/lifepercentage.dds"]={
 						h=64,
 						w=64,
-						x=192,
+						x=256,
 						y=192
 					},
 					["Art/2DArt/SkillIcons/passives/lightningint.dds"]={
 						h=64,
 						w=64,
-						x=512,
+						x=640,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/lightningstr.dds"]={
 						h=64,
 						w=64,
-						x=128,
+						x=576,
 						y=448
 					},
 					["Art/2DArt/SkillIcons/passives/macedmg.dds"]={
 						h=64,
 						w=64,
-						x=128,
+						x=64,
 						y=384
 					},
 					["Art/2DArt/SkillIcons/passives/mana.dds"]={
 						h=64,
 						w=64,
-						x=512,
-						y=256
+						x=768,
+						y=128
 					},
 					["Art/2DArt/SkillIcons/passives/manaregeneration.dds"]={
 						h=64,
@@ -94557,38 +95101,38 @@ return {
 					["Art/2DArt/SkillIcons/passives/manastr.dds"]={
 						h=64,
 						w=64,
-						x=0,
+						x=64,
 						y=448
 					},
 					["Art/2DArt/SkillIcons/passives/miniondamageBlue.dds"]={
 						h=64,
 						w=64,
-						x=704,
+						x=256,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/minionlife.dds"]={
 						h=64,
 						w=64,
-						x=704,
-						y=128
+						x=256,
+						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/onehanddamage.dds"]={
 						h=64,
 						w=64,
-						x=960,
+						x=896,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/plusattribute.dds"]={
 						h=64,
 						w=64,
-						x=960,
+						x=896,
 						y=192
 					},
 					["Art/2DArt/SkillIcons/passives/plusdexterity.dds"]={
 						h=64,
 						w=64,
-						x=896,
-						y=320
+						x=512,
+						y=384
 					},
 					["Art/2DArt/SkillIcons/passives/plusintelligence.dds"]={
 						h=64,
@@ -94599,13 +95143,13 @@ return {
 					["Art/2DArt/SkillIcons/passives/plusintelligencedexterity.dds"]={
 						h=64,
 						w=64,
-						x=320,
+						x=448,
 						y=448
 					},
 					["Art/2DArt/SkillIcons/passives/plusstrength.dds"]={
 						h=64,
 						w=64,
-						x=640,
+						x=448,
 						y=320
 					},
 					["Art/2DArt/SkillIcons/passives/plusstrengthdexterity.dds"]={
@@ -94617,7 +95161,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/plusstrengthintelligence.dds"]={
 						h=64,
 						w=64,
-						x=384,
+						x=896,
 						y=320
 					},
 					["Art/2DArt/SkillIcons/passives/projectilespeed.dds"]={
@@ -94629,13 +95173,13 @@ return {
 					["Art/2DArt/SkillIcons/passives/shieldblock.dds"]={
 						h=64,
 						w=64,
-						x=1088,
-						y=0
+						x=64,
+						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/spellcritical.dds"]={
 						h=64,
 						w=64,
-						x=192,
+						x=128,
 						y=128
 					},
 					["Art/2DArt/SkillIcons/passives/stun2h.dds"]={
@@ -94647,14 +95191,14 @@ return {
 					["Art/2DArt/SkillIcons/passives/stunstr.dds"]={
 						h=64,
 						w=64,
-						x=576,
+						x=512,
 						y=256
 					},
 					["Art/2DArt/SkillIcons/passives/tempint.dds"]={
 						h=64,
 						w=64,
-						x=448,
-						y=320
+						x=320,
+						y=384
 					},
 					["Art/2DArt/SkillIcons/passives/totemandbrandlife.dds"]={
 						h=64,
@@ -94680,103 +95224,103 @@ return {
 					["Art/2DArt/SkillIcons/WitchBoneStorm.dds"]={
 						h=8,
 						w=8,
-						x=72,
+						x=64,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/icongroundslam.dds"]={
 						h=8,
 						w=8,
-						x=480,
+						x=512,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/2handeddamage.dds"]={
 						h=8,
 						w=8,
-						x=24,
+						x=16,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/AcolyteofChayula/AcolyteOfChayulaNode.dds"]={
 						h=8,
 						w=8,
-						x=8,
+						x=40,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/AreaDmgNode.dds"]={
 						h=8,
 						w=8,
-						x=432,
+						x=456,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/ArmourAndEnergyShieldNode.dds"]={
 						h=8,
 						w=8,
-						x=464,
+						x=448,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/ArmourAndEvasionNode.dds"]={
 						h=8,
 						w=8,
-						x=104,
+						x=136,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/ArmourBreak1BuffIcon.dds"]={
 						h=8,
 						w=8,
-						x=80,
+						x=184,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/Ascendants/SkillPoint.dds"]={
 						h=8,
 						w=8,
-						x=1120,
+						x=1080,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/Blood2.dds"]={
 						h=8,
 						w=8,
-						x=696,
+						x=680,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/Bloodmage/BloodMageNode.dds"]={
 						h=8,
 						w=8,
-						x=944,
+						x=1088,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/BowDamage.dds"]={
 						h=8,
 						w=8,
-						x=936,
+						x=912,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/ChannellingAttacksNode.dds"]={
 						h=8,
 						w=8,
-						x=656,
+						x=576,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/ChaosDamagenode.dds"]={
 						h=8,
 						w=8,
-						x=704,
+						x=672,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/CharmNode1.dds"]={
 						h=8,
 						w=8,
-						x=816,
+						x=848,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/ColdDamagenode.dds"]={
 						h=8,
 						w=8,
-						x=32,
+						x=24,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/ColdResistNode.dds"]={
 						h=8,
 						w=8,
-						x=1136,
+						x=1008,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/CorpseDamage.dds"]={
@@ -94794,13 +95338,13 @@ return {
 					["Art/2DArt/SkillIcons/passives/DeadEye/DeadeyeDealMoreProjectileDamageClose.dds"]={
 						h=8,
 						w=8,
-						x=1048,
+						x=984,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/DeadEye/DeadeyeDealMoreProjectileDamageFarAway.dds"]={
 						h=8,
 						w=8,
-						x=864,
+						x=768,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/DeadEye/DeadeyeNode.dds"]={
@@ -94812,121 +95356,127 @@ return {
 					["Art/2DArt/SkillIcons/passives/Deflection.dds"]={
 						h=8,
 						w=8,
-						x=1104,
+						x=1136,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/DragonStyle.dds"]={
 						h=8,
 						w=8,
-						x=1096,
+						x=1040,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/ElementalDamagenode.dds"]={
 						h=8,
 						w=8,
-						x=384,
+						x=560,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/ElementalDamagewithAttacks2.dds"]={
 						h=8,
 						w=8,
-						x=392,
+						x=424,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/EnergyShieldNode.dds"]={
 						h=8,
 						w=8,
-						x=176,
+						x=120,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/EvasionNode.dds"]={
 						h=8,
 						w=8,
-						x=904,
+						x=960,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/EvasionandEnergyShieldNode.dds"]={
 						h=8,
 						w=8,
-						x=152,
+						x=144,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/FireDamagenode.dds"]={
 						h=8,
 						w=8,
-						x=424,
+						x=440,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/FireResistNode.dds"]={
 						h=8,
 						w=8,
-						x=440,
+						x=432,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/Gemling/GemlingNode.dds"]={
 						h=8,
 						w=8,
-						x=96,
+						x=128,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/GreenAttackSmallPassive.dds"]={
 						h=8,
 						w=8,
-						x=576,
+						x=696,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/Harrier.dds"]={
 						h=8,
 						w=8,
-						x=888,
+						x=920,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/HeraldBuffEffectNode2.dds"]={
 						h=8,
 						w=8,
-						x=512,
+						x=472,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/HiredKiller2.dds"]={
 						h=8,
 						w=8,
-						x=872,
+						x=800,
+						y=0
+					},
+					["Art/2DArt/SkillIcons/passives/IncreasedManaCostNotable.dds"]={
+						h=8,
+						w=8,
+						x=632,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/IncreasedProjectileSpeedNode.dds"]={
 						h=8,
 						w=8,
-						x=856,
+						x=896,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/Infernalist/InfernalistNode.dds"]={
 						h=8,
 						w=8,
-						x=448,
+						x=568,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/Inquistitor/IncreasedElementalDamageAttackCasteSpeed.dds"]={
 						h=8,
 						w=8,
-						x=832,
+						x=968,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/Invoker/InvokerNode.dds"]={
 						h=8,
 						w=8,
-						x=744,
+						x=752,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/LifeRecoupNode.dds"]={
 						h=8,
 						w=8,
-						x=928,
+						x=792,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/LightningDamagenode.dds"]={
 						h=8,
 						w=8,
-						x=416,
+						x=400,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/LightningResistNode.dds"]={
@@ -94938,55 +95488,55 @@ return {
 					["Art/2DArt/SkillIcons/passives/ManaLeechThemedNode.dds"]={
 						h=8,
 						w=8,
-						x=568,
+						x=656,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/MarkNode.dds"]={
 						h=8,
 						w=8,
-						x=496,
+						x=488,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/MeleeAoENode.dds"]={
 						h=8,
 						w=8,
-						x=272,
+						x=192,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/MineAreaOfEffectNode.dds"]={
 						h=8,
 						w=8,
-						x=40,
+						x=56,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/MinionElementalResistancesNode.dds"]={
 						h=8,
 						w=8,
-						x=824,
+						x=856,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/MinionsandManaNode.dds"]={
 						h=8,
 						w=8,
-						x=112,
+						x=104,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/MiracleMaker.dds"]={
 						h=8,
 						w=8,
-						x=776,
+						x=840,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/NodeDualWieldingDamage.dds"]={
 						h=8,
 						w=8,
-						x=952,
+						x=936,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderBrewConcoctionBleed.dds"]={
 						h=8,
 						w=8,
-						x=728,
+						x=720,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderBrewConcoctionCold.dds"]={
@@ -94998,13 +95548,13 @@ return {
 					["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderBrewConcoctionFire.dds"]={
 						h=8,
 						w=8,
-						x=1072,
+						x=1016,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderBrewConcoctionLightning.dds"]={
 						h=8,
 						w=8,
-						x=896,
+						x=904,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderBrewConcoctionPoison.dds"]={
@@ -95028,31 +95578,31 @@ return {
 					["Art/2DArt/SkillIcons/passives/PhysicalDamageNode.dds"]={
 						h=8,
 						w=8,
-						x=488,
+						x=536,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/PhysicalDamageOverTimeNode.dds"]={
 						h=8,
 						w=8,
-						x=56,
+						x=48,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/Poison.dds"]={
 						h=8,
 						w=8,
-						x=840,
+						x=1072,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/Rage.dds"]={
 						h=8,
 						w=8,
-						x=400,
+						x=392,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/ReducedSkillEffectDurationNode.dds"]={
 						h=8,
 						w=8,
-						x=960,
+						x=832,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/ShieldNodeOffensive.dds"]={
@@ -95064,7 +95614,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/SpellMultiplyer2.dds"]={
 						h=8,
 						w=8,
-						x=624,
+						x=648,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/SpellSuppresionNode.dds"]={
@@ -95076,13 +95626,13 @@ return {
 					["Art/2DArt/SkillIcons/passives/SpellSupressionNotable1.dds"]={
 						h=8,
 						w=8,
-						x=784,
+						x=776,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/Stormweaver/StormweaverNode.dds"]={
 						h=8,
 						w=8,
-						x=752,
+						x=760,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/Temporalist/TemporalistNode.dds"]={
@@ -95094,7 +95644,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/Titan/TitanNode.dds"]={
 						h=8,
 						w=8,
-						x=48,
+						x=72,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/WarCryEffect.dds"]={
@@ -95106,7 +95656,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/Warbringer/WarbringerNode.dds"]={
 						h=8,
 						w=8,
-						x=760,
+						x=888,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/Witchhunter/WitchunterNode.dds"]={
@@ -95130,19 +95680,19 @@ return {
 					["Art/2DArt/SkillIcons/passives/areaofeffect.dds"]={
 						h=8,
 						w=8,
-						x=16,
+						x=8,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/attackspeed.dds"]={
 						h=8,
 						w=8,
-						x=1080,
+						x=1120,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/attackspeedbow.dds"]={
 						h=8,
 						w=8,
-						x=1008,
+						x=1024,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/auraeffect.dds"]={
@@ -95160,19 +95710,19 @@ return {
 					["Art/2DArt/SkillIcons/passives/axedmgspeed.dds"]={
 						h=8,
 						w=8,
-						x=160,
+						x=96,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/blankDex.dds"]={
 						h=8,
 						w=8,
-						x=984,
+						x=816,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/blankInt.dds"]={
 						h=8,
 						w=8,
-						x=1040,
+						x=1032,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/blankStr.dds"]={
@@ -95184,25 +95734,25 @@ return {
 					["Art/2DArt/SkillIcons/passives/blockstr.dds"]={
 						h=8,
 						w=8,
-						x=304,
+						x=296,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/castspeed.dds"]={
 						h=8,
 						w=8,
-						x=560,
+						x=376,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/chargedex.dds"]={
 						h=8,
 						w=8,
-						x=1064,
+						x=976,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/chargeint.dds"]={
 						h=8,
 						w=8,
-						x=584,
+						x=592,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/chargestr.dds"]={
@@ -95214,7 +95764,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/clustersLinknode2.dds"]={
 						h=8,
 						w=8,
-						x=848,
+						x=784,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/colddamage.dds"]={
@@ -95226,7 +95776,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/coldresist.dds"]={
 						h=8,
 						w=8,
-						x=184,
+						x=272,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/criticaldaggerint.dds"]={
@@ -95238,7 +95788,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/criticalstrikechance.dds"]={
 						h=8,
 						w=8,
-						x=312,
+						x=304,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/criticalstrikechance2.dds"]={
@@ -95250,31 +95800,31 @@ return {
 					["Art/2DArt/SkillIcons/passives/damage.dds"]={
 						h=8,
 						w=8,
-						x=128,
+						x=88,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/damage_blue.dds"]={
 						h=8,
 						w=8,
-						x=720,
+						x=744,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/damageaxe.dds"]={
 						h=8,
 						w=8,
-						x=168,
+						x=160,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/damagedualwield.dds"]={
 						h=8,
 						w=8,
-						x=1152,
+						x=1096,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/damagespells.dds"]={
 						h=8,
 						w=8,
-						x=536,
+						x=552,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/damagestaff.dds"]={
@@ -95286,7 +95836,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/damagesword.dds"]={
 						h=8,
 						w=8,
-						x=544,
+						x=480,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/dmgreduction.dds"]={
@@ -95298,19 +95848,19 @@ return {
 					["Art/2DArt/SkillIcons/passives/elementaldamage.dds"]={
 						h=8,
 						w=8,
-						x=592,
+						x=584,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/energyshield.dds"]={
 						h=8,
 						w=8,
-						x=144,
+						x=168,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/evade.dds"]={
 						h=8,
 						w=8,
-						x=1024,
+						x=1048,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/executioner.dds"]={
@@ -95328,7 +95878,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/firedamageint.dds"]={
 						h=8,
 						w=8,
-						x=912,
+						x=952,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/firedamagestr.dds"]={
@@ -95340,13 +95890,13 @@ return {
 					["Art/2DArt/SkillIcons/passives/fireresist.dds"]={
 						h=8,
 						w=8,
-						x=712,
+						x=728,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/flaskdex.dds"]={
 						h=8,
 						w=8,
-						x=800,
+						x=872,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/flaskint.dds"]={
@@ -95364,7 +95914,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/icebite.dds"]={
 						h=8,
 						w=8,
-						x=680,
+						x=712,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/increasedrunspeeddex.dds"]={
@@ -95376,55 +95926,55 @@ return {
 					["Art/2DArt/SkillIcons/passives/knockback.dds"]={
 						h=8,
 						w=8,
-						x=1088,
+						x=1104,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/life1.dds"]={
 						h=8,
 						w=8,
-						x=296,
+						x=504,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/lifeleech.dds"]={
 						h=8,
 						w=8,
-						x=472,
+						x=416,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/lifepercentage.dds"]={
 						h=8,
 						w=8,
-						x=456,
+						x=464,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/lightningint.dds"]={
 						h=8,
 						w=8,
-						x=64,
+						x=80,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/lightningstr.dds"]={
 						h=8,
 						w=8,
-						x=1032,
+						x=1064,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/macedmg.dds"]={
 						h=8,
 						w=8,
-						x=920,
+						x=928,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/mana.dds"]={
 						h=8,
 						w=8,
-						x=640,
+						x=384,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/manaregeneration.dds"]={
 						h=8,
 						w=8,
-						x=768,
+						x=808,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/manastr.dds"]={
@@ -95436,31 +95986,31 @@ return {
 					["Art/2DArt/SkillIcons/passives/miniondamageBlue.dds"]={
 						h=8,
 						w=8,
-						x=88,
+						x=32,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/minionlife.dds"]={
 						h=8,
 						w=8,
-						x=376,
+						x=176,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/onehanddamage.dds"]={
 						h=8,
 						w=8,
-						x=120,
+						x=112,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/plusattribute.dds"]={
 						h=8,
 						w=8,
-						x=552,
+						x=544,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/plusdexterity.dds"]={
 						h=8,
 						w=8,
-						x=976,
+						x=944,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/plusintelligence.dds"]={
@@ -95478,7 +96028,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/plusstrength.dds"]={
 						h=8,
 						w=8,
-						x=792,
+						x=864,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/plusstrengthdexterity.dds"]={
@@ -95490,7 +96040,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/plusstrengthintelligence.dds"]={
 						h=8,
 						w=8,
-						x=808,
+						x=824,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/projectilespeed.dds"]={
@@ -95502,43 +96052,43 @@ return {
 					["Art/2DArt/SkillIcons/passives/shieldblock.dds"]={
 						h=8,
 						w=8,
-						x=136,
+						x=152,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/spellcritical.dds"]={
 						h=8,
 						w=8,
-						x=192,
+						x=312,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/stun2h.dds"]={
 						h=8,
 						w=8,
-						x=632,
+						x=624,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/stunstr.dds"]={
 						h=8,
 						w=8,
-						x=648,
+						x=640,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/tempint.dds"]={
 						h=8,
 						w=8,
-						x=968,
+						x=1160,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/totemandbrandlife.dds"]={
 						h=8,
 						w=8,
-						x=672,
+						x=704,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/trapdamage.dds"]={
 						h=8,
 						w=8,
-						x=1016,
+						x=1152,
 						y=0
 					}
 				},
@@ -95551,103 +96101,103 @@ return {
 					["Art/2DArt/SkillIcons/WitchBoneStorm.dds"]={
 						h=16,
 						w=16,
-						x=144,
+						x=128,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/icongroundslam.dds"]={
 						h=16,
 						w=16,
-						x=960,
+						x=1024,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/2handeddamage.dds"]={
 						h=16,
 						w=16,
-						x=48,
+						x=32,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/AcolyteofChayula/AcolyteOfChayulaNode.dds"]={
 						h=16,
 						w=16,
-						x=16,
+						x=80,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/AreaDmgNode.dds"]={
 						h=16,
 						w=16,
-						x=864,
+						x=912,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/ArmourAndEnergyShieldNode.dds"]={
 						h=16,
 						w=16,
-						x=928,
+						x=896,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/ArmourAndEvasionNode.dds"]={
 						h=16,
 						w=16,
-						x=208,
+						x=272,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/ArmourBreak1BuffIcon.dds"]={
 						h=16,
 						w=16,
-						x=160,
+						x=368,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/Ascendants/SkillPoint.dds"]={
 						h=16,
 						w=16,
-						x=1040,
+						x=960,
 						y=16
 					},
 					["Art/2DArt/SkillIcons/passives/Blood2.dds"]={
 						h=16,
 						w=16,
-						x=192,
+						x=160,
 						y=16
 					},
 					["Art/2DArt/SkillIcons/passives/Bloodmage/BloodMageNode.dds"]={
 						h=16,
 						w=16,
-						x=688,
+						x=976,
 						y=16
 					},
 					["Art/2DArt/SkillIcons/passives/BowDamage.dds"]={
 						h=16,
 						w=16,
-						x=672,
+						x=624,
 						y=16
 					},
 					["Art/2DArt/SkillIcons/passives/ChannellingAttacksNode.dds"]={
 						h=16,
 						w=16,
-						x=112,
-						y=16
+						x=1152,
+						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/ChaosDamagenode.dds"]={
 						h=16,
 						w=16,
-						x=208,
+						x=144,
 						y=16
 					},
 					["Art/2DArt/SkillIcons/passives/CharmNode1.dds"]={
 						h=16,
 						w=16,
-						x=432,
+						x=496,
 						y=16
 					},
 					["Art/2DArt/SkillIcons/passives/ColdDamagenode.dds"]={
 						h=16,
 						w=16,
-						x=64,
+						x=48,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/ColdResistNode.dds"]={
 						h=16,
 						w=16,
-						x=1072,
+						x=816,
 						y=16
 					},
 					["Art/2DArt/SkillIcons/passives/CorpseDamage.dds"]={
@@ -95665,13 +96215,13 @@ return {
 					["Art/2DArt/SkillIcons/passives/DeadEye/DeadeyeDealMoreProjectileDamageClose.dds"]={
 						h=16,
 						w=16,
-						x=896,
+						x=768,
 						y=16
 					},
 					["Art/2DArt/SkillIcons/passives/DeadEye/DeadeyeDealMoreProjectileDamageFarAway.dds"]={
 						h=16,
 						w=16,
-						x=528,
+						x=336,
 						y=16
 					},
 					["Art/2DArt/SkillIcons/passives/DeadEye/DeadeyeNode.dds"]={
@@ -95683,121 +96233,127 @@ return {
 					["Art/2DArt/SkillIcons/passives/Deflection.dds"]={
 						h=16,
 						w=16,
-						x=1008,
+						x=1072,
 						y=16
 					},
 					["Art/2DArt/SkillIcons/passives/DragonStyle.dds"]={
 						h=16,
 						w=16,
-						x=992,
+						x=880,
 						y=16
 					},
 					["Art/2DArt/SkillIcons/passives/ElementalDamagenode.dds"]={
 						h=16,
 						w=16,
-						x=768,
+						x=1120,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/ElementalDamagewithAttacks2.dds"]={
 						h=16,
 						w=16,
-						x=784,
+						x=848,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/EnergyShieldNode.dds"]={
 						h=16,
 						w=16,
-						x=352,
+						x=240,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/EvasionNode.dds"]={
 						h=16,
 						w=16,
-						x=608,
+						x=720,
 						y=16
 					},
 					["Art/2DArt/SkillIcons/passives/EvasionandEnergyShieldNode.dds"]={
 						h=16,
 						w=16,
-						x=304,
+						x=288,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/FireDamagenode.dds"]={
 						h=16,
 						w=16,
-						x=848,
+						x=880,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/FireResistNode.dds"]={
 						h=16,
 						w=16,
-						x=880,
+						x=864,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/Gemling/GemlingNode.dds"]={
 						h=16,
 						w=16,
-						x=192,
+						x=256,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/GreenAttackSmallPassive.dds"]={
 						h=16,
 						w=16,
-						x=1152,
-						y=0
+						x=192,
+						y=16
 					},
 					["Art/2DArt/SkillIcons/passives/Harrier.dds"]={
 						h=16,
 						w=16,
-						x=576,
+						x=640,
 						y=16
 					},
 					["Art/2DArt/SkillIcons/passives/HeraldBuffEffectNode2.dds"]={
 						h=16,
 						w=16,
-						x=1024,
+						x=944,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/HiredKiller2.dds"]={
 						h=16,
 						w=16,
-						x=544,
+						x=400,
+						y=16
+					},
+					["Art/2DArt/SkillIcons/passives/IncreasedManaCostNotable.dds"]={
+						h=16,
+						w=16,
+						x=64,
 						y=16
 					},
 					["Art/2DArt/SkillIcons/passives/IncreasedProjectileSpeedNode.dds"]={
 						h=16,
 						w=16,
-						x=512,
+						x=592,
 						y=16
 					},
 					["Art/2DArt/SkillIcons/passives/Infernalist/InfernalistNode.dds"]={
 						h=16,
 						w=16,
-						x=896,
+						x=1136,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/Inquistitor/IncreasedElementalDamageAttackCasteSpeed.dds"]={
 						h=16,
 						w=16,
-						x=464,
+						x=736,
 						y=16
 					},
 					["Art/2DArt/SkillIcons/passives/Invoker/InvokerNode.dds"]={
 						h=16,
 						w=16,
-						x=288,
+						x=304,
 						y=16
 					},
 					["Art/2DArt/SkillIcons/passives/LifeRecoupNode.dds"]={
 						h=16,
 						w=16,
-						x=656,
+						x=384,
 						y=16
 					},
 					["Art/2DArt/SkillIcons/passives/LightningDamagenode.dds"]={
 						h=16,
 						w=16,
-						x=832,
+						x=800,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/LightningResistNode.dds"]={
@@ -95809,55 +96365,55 @@ return {
 					["Art/2DArt/SkillIcons/passives/ManaLeechThemedNode.dds"]={
 						h=16,
 						w=16,
-						x=1136,
-						y=0
+						x=112,
+						y=16
 					},
 					["Art/2DArt/SkillIcons/passives/MarkNode.dds"]={
 						h=16,
 						w=16,
-						x=992,
+						x=976,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/MeleeAoENode.dds"]={
 						h=16,
 						w=16,
-						x=544,
+						x=384,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/MineAreaOfEffectNode.dds"]={
 						h=16,
 						w=16,
-						x=80,
+						x=112,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/MinionElementalResistancesNode.dds"]={
 						h=16,
 						w=16,
-						x=448,
+						x=512,
 						y=16
 					},
 					["Art/2DArt/SkillIcons/passives/MinionsandManaNode.dds"]={
 						h=16,
 						w=16,
-						x=224,
+						x=208,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/MiracleMaker.dds"]={
 						h=16,
 						w=16,
-						x=352,
+						x=480,
 						y=16
 					},
 					["Art/2DArt/SkillIcons/passives/NodeDualWieldingDamage.dds"]={
 						h=16,
 						w=16,
-						x=704,
+						x=672,
 						y=16
 					},
 					["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderBrewConcoctionBleed.dds"]={
 						h=16,
 						w=16,
-						x=256,
+						x=240,
 						y=16
 					},
 					["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderBrewConcoctionCold.dds"]={
@@ -95869,13 +96425,13 @@ return {
 					["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderBrewConcoctionFire.dds"]={
 						h=16,
 						w=16,
-						x=944,
+						x=832,
 						y=16
 					},
 					["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderBrewConcoctionLightning.dds"]={
 						h=16,
 						w=16,
-						x=592,
+						x=608,
 						y=16
 					},
 					["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderBrewConcoctionPoison.dds"]={
@@ -95899,31 +96455,31 @@ return {
 					["Art/2DArt/SkillIcons/passives/PhysicalDamageNode.dds"]={
 						h=16,
 						w=16,
-						x=976,
+						x=1072,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/PhysicalDamageOverTimeNode.dds"]={
 						h=16,
 						w=16,
-						x=112,
+						x=96,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/Poison.dds"]={
 						h=16,
 						w=16,
-						x=480,
+						x=944,
 						y=16
 					},
 					["Art/2DArt/SkillIcons/passives/Rage.dds"]={
 						h=16,
 						w=16,
-						x=800,
+						x=784,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/ReducedSkillEffectDurationNode.dds"]={
 						h=16,
 						w=16,
-						x=720,
+						x=464,
 						y=16
 					},
 					["Art/2DArt/SkillIcons/passives/ShieldNodeOffensive.dds"]={
@@ -95935,7 +96491,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/SpellMultiplyer2.dds"]={
 						h=16,
 						w=16,
-						x=48,
+						x=96,
 						y=16
 					},
 					["Art/2DArt/SkillIcons/passives/SpellSuppresionNode.dds"]={
@@ -95947,13 +96503,13 @@ return {
 					["Art/2DArt/SkillIcons/passives/SpellSupressionNotable1.dds"]={
 						h=16,
 						w=16,
-						x=368,
+						x=352,
 						y=16
 					},
 					["Art/2DArt/SkillIcons/passives/Stormweaver/StormweaverNode.dds"]={
 						h=16,
 						w=16,
-						x=304,
+						x=320,
 						y=16
 					},
 					["Art/2DArt/SkillIcons/passives/Temporalist/TemporalistNode.dds"]={
@@ -95965,7 +96521,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/Titan/TitanNode.dds"]={
 						h=16,
 						w=16,
-						x=96,
+						x=144,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/WarCryEffect.dds"]={
@@ -95977,7 +96533,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/Warbringer/WarbringerNode.dds"]={
 						h=16,
 						w=16,
-						x=320,
+						x=576,
 						y=16
 					},
 					["Art/2DArt/SkillIcons/passives/Witchhunter/WitchunterNode.dds"]={
@@ -96001,19 +96557,19 @@ return {
 					["Art/2DArt/SkillIcons/passives/areaofeffect.dds"]={
 						h=16,
 						w=16,
-						x=32,
+						x=16,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/attackspeed.dds"]={
 						h=16,
 						w=16,
-						x=960,
+						x=1040,
 						y=16
 					},
 					["Art/2DArt/SkillIcons/passives/attackspeedbow.dds"]={
 						h=16,
 						w=16,
-						x=816,
+						x=848,
 						y=16
 					},
 					["Art/2DArt/SkillIcons/passives/auraeffect.dds"]={
@@ -96031,19 +96587,19 @@ return {
 					["Art/2DArt/SkillIcons/passives/axedmgspeed.dds"]={
 						h=16,
 						w=16,
-						x=320,
+						x=192,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/blankDex.dds"]={
 						h=16,
 						w=16,
-						x=768,
+						x=432,
 						y=16
 					},
 					["Art/2DArt/SkillIcons/passives/blankInt.dds"]={
 						h=16,
 						w=16,
-						x=880,
+						x=864,
 						y=16
 					},
 					["Art/2DArt/SkillIcons/passives/blankStr.dds"]={
@@ -96055,25 +96611,25 @@ return {
 					["Art/2DArt/SkillIcons/passives/blockstr.dds"]={
 						h=16,
 						w=16,
-						x=608,
+						x=592,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/castspeed.dds"]={
 						h=16,
 						w=16,
-						x=1120,
+						x=752,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/chargedex.dds"]={
 						h=16,
 						w=16,
-						x=928,
+						x=752,
 						y=16
 					},
 					["Art/2DArt/SkillIcons/passives/chargeint.dds"]={
 						h=16,
 						w=16,
-						x=1168,
+						x=1184,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/chargestr.dds"]={
@@ -96085,7 +96641,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/clustersLinknode2.dds"]={
 						h=16,
 						w=16,
-						x=496,
+						x=368,
 						y=16
 					},
 					["Art/2DArt/SkillIcons/passives/colddamage.dds"]={
@@ -96097,7 +96653,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/coldresist.dds"]={
 						h=16,
 						w=16,
-						x=368,
+						x=544,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/criticaldaggerint.dds"]={
@@ -96109,7 +96665,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/criticalstrikechance.dds"]={
 						h=16,
 						w=16,
-						x=624,
+						x=608,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/criticalstrikechance2.dds"]={
@@ -96121,31 +96677,31 @@ return {
 					["Art/2DArt/SkillIcons/passives/damage.dds"]={
 						h=16,
 						w=16,
-						x=256,
+						x=176,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/damage_blue.dds"]={
 						h=16,
 						w=16,
-						x=240,
+						x=288,
 						y=16
 					},
 					["Art/2DArt/SkillIcons/passives/damageaxe.dds"]={
 						h=16,
 						w=16,
-						x=336,
+						x=320,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/damagedualwield.dds"]={
 						h=16,
 						w=16,
-						x=1104,
+						x=992,
 						y=16
 					},
 					["Art/2DArt/SkillIcons/passives/damagespells.dds"]={
 						h=16,
 						w=16,
-						x=1072,
+						x=1104,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/damagestaff.dds"]={
@@ -96157,7 +96713,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/damagesword.dds"]={
 						h=16,
 						w=16,
-						x=1088,
+						x=960,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/dmgreduction.dds"]={
@@ -96169,19 +96725,19 @@ return {
 					["Art/2DArt/SkillIcons/passives/elementaldamage.dds"]={
 						h=16,
 						w=16,
-						x=1184,
+						x=1168,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/energyshield.dds"]={
 						h=16,
 						w=16,
-						x=288,
+						x=336,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/evade.dds"]={
 						h=16,
 						w=16,
-						x=848,
+						x=896,
 						y=16
 					},
 					["Art/2DArt/SkillIcons/passives/executioner.dds"]={
@@ -96199,7 +96755,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/firedamageint.dds"]={
 						h=16,
 						w=16,
-						x=624,
+						x=704,
 						y=16
 					},
 					["Art/2DArt/SkillIcons/passives/firedamagestr.dds"]={
@@ -96211,13 +96767,13 @@ return {
 					["Art/2DArt/SkillIcons/passives/fireresist.dds"]={
 						h=16,
 						w=16,
-						x=224,
+						x=256,
 						y=16
 					},
 					["Art/2DArt/SkillIcons/passives/flaskdex.dds"]={
 						h=16,
 						w=16,
-						x=400,
+						x=544,
 						y=16
 					},
 					["Art/2DArt/SkillIcons/passives/flaskint.dds"]={
@@ -96235,7 +96791,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/icebite.dds"]={
 						h=16,
 						w=16,
-						x=160,
+						x=224,
 						y=16
 					},
 					["Art/2DArt/SkillIcons/passives/increasedrunspeeddex.dds"]={
@@ -96247,55 +96803,55 @@ return {
 					["Art/2DArt/SkillIcons/passives/knockback.dds"]={
 						h=16,
 						w=16,
-						x=976,
+						x=1008,
 						y=16
 					},
 					["Art/2DArt/SkillIcons/passives/life1.dds"]={
 						h=16,
 						w=16,
-						x=592,
+						x=1008,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/lifeleech.dds"]={
 						h=16,
 						w=16,
-						x=944,
+						x=832,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/lifepercentage.dds"]={
 						h=16,
 						w=16,
-						x=912,
+						x=928,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/lightningint.dds"]={
 						h=16,
 						w=16,
-						x=128,
+						x=160,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/lightningstr.dds"]={
 						h=16,
 						w=16,
-						x=864,
+						x=928,
 						y=16
 					},
 					["Art/2DArt/SkillIcons/passives/macedmg.dds"]={
 						h=16,
 						w=16,
-						x=640,
+						x=656,
 						y=16
 					},
 					["Art/2DArt/SkillIcons/passives/mana.dds"]={
 						h=16,
 						w=16,
-						x=80,
-						y=16
+						x=768,
+						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/manaregeneration.dds"]={
 						h=16,
 						w=16,
-						x=336,
+						x=416,
 						y=16
 					},
 					["Art/2DArt/SkillIcons/passives/manastr.dds"]={
@@ -96307,31 +96863,31 @@ return {
 					["Art/2DArt/SkillIcons/passives/miniondamageBlue.dds"]={
 						h=16,
 						w=16,
-						x=176,
+						x=64,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/minionlife.dds"]={
 						h=16,
 						w=16,
-						x=752,
+						x=352,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/onehanddamage.dds"]={
 						h=16,
 						w=16,
-						x=240,
+						x=224,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/plusattribute.dds"]={
 						h=16,
 						w=16,
-						x=1104,
+						x=1088,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/plusdexterity.dds"]={
 						h=16,
 						w=16,
-						x=752,
+						x=688,
 						y=16
 					},
 					["Art/2DArt/SkillIcons/passives/plusintelligence.dds"]={
@@ -96349,7 +96905,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/plusstrength.dds"]={
 						h=16,
 						w=16,
-						x=384,
+						x=528,
 						y=16
 					},
 					["Art/2DArt/SkillIcons/passives/plusstrengthdexterity.dds"]={
@@ -96361,7 +96917,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/plusstrengthintelligence.dds"]={
 						h=16,
 						w=16,
-						x=416,
+						x=448,
 						y=16
 					},
 					["Art/2DArt/SkillIcons/passives/projectilespeed.dds"]={
@@ -96373,43 +96929,43 @@ return {
 					["Art/2DArt/SkillIcons/passives/shieldblock.dds"]={
 						h=16,
 						w=16,
-						x=272,
+						x=304,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/spellcritical.dds"]={
 						h=16,
 						w=16,
-						x=384,
+						x=624,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/stun2h.dds"]={
 						h=16,
 						w=16,
-						x=64,
+						x=48,
 						y=16
 					},
 					["Art/2DArt/SkillIcons/passives/stunstr.dds"]={
 						h=16,
 						w=16,
-						x=96,
+						x=80,
 						y=16
 					},
 					["Art/2DArt/SkillIcons/passives/tempint.dds"]={
 						h=16,
 						w=16,
-						x=736,
+						x=1120,
 						y=16
 					},
 					["Art/2DArt/SkillIcons/passives/totemandbrandlife.dds"]={
 						h=16,
 						w=16,
-						x=144,
+						x=208,
 						y=16
 					},
 					["Art/2DArt/SkillIcons/passives/trapdamage.dds"]={
 						h=16,
 						w=16,
-						x=832,
+						x=1104,
 						y=16
 					}
 				},
@@ -96422,103 +96978,103 @@ return {
 					["Art/2DArt/SkillIcons/WitchBoneStorm.dds"]={
 						h=32,
 						w=32,
-						x=288,
+						x=256,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/icongroundslam.dds"]={
 						h=32,
 						w=32,
-						x=736,
+						x=864,
 						y=32
 					},
 					["Art/2DArt/SkillIcons/passives/2handeddamage.dds"]={
 						h=32,
 						w=32,
-						x=96,
+						x=64,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/AcolyteofChayula/AcolyteOfChayulaNode.dds"]={
 						h=32,
 						w=32,
-						x=32,
+						x=160,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/AreaDmgNode.dds"]={
 						h=32,
 						w=32,
-						x=544,
+						x=640,
 						y=32
 					},
 					["Art/2DArt/SkillIcons/passives/ArmourAndEnergyShieldNode.dds"]={
 						h=32,
 						w=32,
-						x=672,
+						x=608,
 						y=32
 					},
 					["Art/2DArt/SkillIcons/passives/ArmourAndEvasionNode.dds"]={
 						h=32,
 						w=32,
-						x=416,
+						x=544,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/ArmourBreak1BuffIcon.dds"]={
 						h=32,
 						w=32,
-						x=320,
+						x=736,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/Ascendants/SkillPoint.dds"]={
 						h=32,
 						w=32,
-						x=928,
+						x=768,
 						y=96
 					},
 					["Art/2DArt/SkillIcons/passives/Blood2.dds"]={
 						h=32,
 						w=32,
-						x=416,
+						x=352,
 						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/Bloodmage/BloodMageNode.dds"]={
 						h=32,
 						w=32,
-						x=224,
+						x=800,
 						y=96
 					},
 					["Art/2DArt/SkillIcons/passives/BowDamage.dds"]={
 						h=32,
 						w=32,
-						x=192,
+						x=96,
 						y=96
 					},
 					["Art/2DArt/SkillIcons/passives/ChannellingAttacksNode.dds"]={
 						h=32,
 						w=32,
-						x=256,
-						y=64
+						x=1120,
+						y=32
 					},
 					["Art/2DArt/SkillIcons/passives/ChaosDamagenode.dds"]={
 						h=32,
 						w=32,
-						x=448,
+						x=320,
 						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/CharmNode1.dds"]={
 						h=32,
 						w=32,
-						x=896,
+						x=1024,
 						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/ColdDamagenode.dds"]={
 						h=32,
 						w=32,
-						x=128,
+						x=96,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/ColdResistNode.dds"]={
 						h=32,
 						w=32,
-						x=992,
+						x=480,
 						y=96
 					},
 					["Art/2DArt/SkillIcons/passives/CorpseDamage.dds"]={
@@ -96536,13 +97092,13 @@ return {
 					["Art/2DArt/SkillIcons/passives/DeadEye/DeadeyeDealMoreProjectileDamageClose.dds"]={
 						h=32,
 						w=32,
-						x=640,
+						x=384,
 						y=96
 					},
 					["Art/2DArt/SkillIcons/passives/DeadEye/DeadeyeDealMoreProjectileDamageFarAway.dds"]={
 						h=32,
 						w=32,
-						x=1088,
+						x=704,
 						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/DeadEye/DeadeyeNode.dds"]={
@@ -96554,121 +97110,127 @@ return {
 					["Art/2DArt/SkillIcons/passives/Deflection.dds"]={
 						h=32,
 						w=32,
-						x=864,
+						x=992,
 						y=96
 					},
 					["Art/2DArt/SkillIcons/passives/DragonStyle.dds"]={
 						h=32,
 						w=32,
-						x=832,
+						x=608,
 						y=96
 					},
 					["Art/2DArt/SkillIcons/passives/ElementalDamagenode.dds"]={
 						h=32,
 						w=32,
-						x=352,
+						x=1056,
 						y=32
 					},
 					["Art/2DArt/SkillIcons/passives/ElementalDamagewithAttacks2.dds"]={
 						h=32,
 						w=32,
-						x=384,
+						x=512,
 						y=32
 					},
 					["Art/2DArt/SkillIcons/passives/EnergyShieldNode.dds"]={
 						h=32,
 						w=32,
-						x=704,
+						x=480,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/EvasionNode.dds"]={
 						h=32,
 						w=32,
-						x=64,
+						x=288,
 						y=96
 					},
 					["Art/2DArt/SkillIcons/passives/EvasionandEnergyShieldNode.dds"]={
 						h=32,
 						w=32,
-						x=608,
+						x=576,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/FireDamagenode.dds"]={
 						h=32,
 						w=32,
-						x=512,
+						x=576,
 						y=32
 					},
 					["Art/2DArt/SkillIcons/passives/FireResistNode.dds"]={
 						h=32,
 						w=32,
-						x=576,
+						x=544,
 						y=32
 					},
 					["Art/2DArt/SkillIcons/passives/Gemling/GemlingNode.dds"]={
 						h=32,
 						w=32,
-						x=384,
+						x=512,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/GreenAttackSmallPassive.dds"]={
 						h=32,
 						w=32,
-						x=1120,
-						y=32
+						x=416,
+						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/Harrier.dds"]={
 						h=32,
 						w=32,
-						x=0,
+						x=128,
 						y=96
 					},
 					["Art/2DArt/SkillIcons/passives/HeraldBuffEffectNode2.dds"]={
 						h=32,
 						w=32,
-						x=864,
+						x=704,
 						y=32
 					},
 					["Art/2DArt/SkillIcons/passives/HiredKiller2.dds"]={
 						h=32,
 						w=32,
-						x=1120,
+						x=832,
+						y=64
+					},
+					["Art/2DArt/SkillIcons/passives/IncreasedManaCostNotable.dds"]={
+						h=32,
+						w=32,
+						x=160,
 						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/IncreasedProjectileSpeedNode.dds"]={
 						h=32,
 						w=32,
-						x=1056,
-						y=64
+						x=32,
+						y=96
 					},
 					["Art/2DArt/SkillIcons/passives/Infernalist/InfernalistNode.dds"]={
 						h=32,
 						w=32,
-						x=608,
+						x=1088,
 						y=32
 					},
 					["Art/2DArt/SkillIcons/passives/Inquistitor/IncreasedElementalDamageAttackCasteSpeed.dds"]={
 						h=32,
 						w=32,
-						x=960,
-						y=64
+						x=320,
+						y=96
 					},
 					["Art/2DArt/SkillIcons/passives/Invoker/InvokerNode.dds"]={
 						h=32,
 						w=32,
-						x=608,
+						x=640,
 						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/LifeRecoupNode.dds"]={
 						h=32,
 						w=32,
-						x=160,
-						y=96
+						x=800,
+						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/LightningDamagenode.dds"]={
 						h=32,
 						w=32,
-						x=480,
+						x=416,
 						y=32
 					},
 					["Art/2DArt/SkillIcons/passives/LightningResistNode.dds"]={
@@ -96680,55 +97242,55 @@ return {
 					["Art/2DArt/SkillIcons/passives/ManaLeechThemedNode.dds"]={
 						h=32,
 						w=32,
-						x=1088,
-						y=32
+						x=256,
+						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/MarkNode.dds"]={
 						h=32,
 						w=32,
-						x=800,
+						x=768,
 						y=32
 					},
 					["Art/2DArt/SkillIcons/passives/MeleeAoENode.dds"]={
 						h=32,
 						w=32,
-						x=1088,
+						x=768,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/MineAreaOfEffectNode.dds"]={
 						h=32,
 						w=32,
-						x=160,
+						x=224,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/MinionElementalResistancesNode.dds"]={
 						h=32,
 						w=32,
-						x=928,
+						x=1056,
 						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/MinionsandManaNode.dds"]={
 						h=32,
 						w=32,
-						x=448,
+						x=416,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/MiracleMaker.dds"]={
 						h=32,
 						w=32,
-						x=736,
+						x=992,
 						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/NodeDualWieldingDamage.dds"]={
 						h=32,
 						w=32,
-						x=256,
+						x=192,
 						y=96
 					},
 					["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderBrewConcoctionBleed.dds"]={
 						h=32,
 						w=32,
-						x=544,
+						x=512,
 						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderBrewConcoctionCold.dds"]={
@@ -96740,13 +97302,13 @@ return {
 					["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderBrewConcoctionFire.dds"]={
 						h=32,
 						w=32,
-						x=736,
+						x=512,
 						y=96
 					},
 					["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderBrewConcoctionLightning.dds"]={
 						h=32,
 						w=32,
-						x=32,
+						x=64,
 						y=96
 					},
 					["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderBrewConcoctionPoison.dds"]={
@@ -96770,32 +97332,32 @@ return {
 					["Art/2DArt/SkillIcons/passives/PhysicalDamageNode.dds"]={
 						h=32,
 						w=32,
-						x=768,
+						x=960,
 						y=32
 					},
 					["Art/2DArt/SkillIcons/passives/PhysicalDamageOverTimeNode.dds"]={
 						h=32,
 						w=32,
-						x=224,
+						x=192,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/Poison.dds"]={
 						h=32,
 						w=32,
-						x=992,
-						y=64
+						x=736,
+						y=96
 					},
 					["Art/2DArt/SkillIcons/passives/Rage.dds"]={
 						h=32,
 						w=32,
-						x=416,
+						x=384,
 						y=32
 					},
 					["Art/2DArt/SkillIcons/passives/ReducedSkillEffectDurationNode.dds"]={
 						h=32,
 						w=32,
-						x=288,
-						y=96
+						x=960,
+						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/ShieldNodeOffensive.dds"]={
 						h=32,
@@ -96806,7 +97368,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/SpellMultiplyer2.dds"]={
 						h=32,
 						w=32,
-						x=128,
+						x=224,
 						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/SpellSuppresionNode.dds"]={
@@ -96818,13 +97380,13 @@ return {
 					["Art/2DArt/SkillIcons/passives/SpellSupressionNotable1.dds"]={
 						h=32,
 						w=32,
-						x=768,
+						x=736,
 						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/Stormweaver/StormweaverNode.dds"]={
 						h=32,
 						w=32,
-						x=640,
+						x=672,
 						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/Temporalist/TemporalistNode.dds"]={
@@ -96836,7 +97398,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/Titan/TitanNode.dds"]={
 						h=32,
 						w=32,
-						x=192,
+						x=288,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/WarCryEffect.dds"]={
@@ -96848,8 +97410,8 @@ return {
 					["Art/2DArt/SkillIcons/passives/Warbringer/WarbringerNode.dds"]={
 						h=32,
 						w=32,
-						x=672,
-						y=64
+						x=0,
+						y=96
 					},
 					["Art/2DArt/SkillIcons/passives/Witchhunter/WitchunterNode.dds"]={
 						h=32,
@@ -96872,19 +97434,19 @@ return {
 					["Art/2DArt/SkillIcons/passives/areaofeffect.dds"]={
 						h=32,
 						w=32,
-						x=64,
+						x=32,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/attackspeed.dds"]={
 						h=32,
 						w=32,
-						x=768,
+						x=928,
 						y=96
 					},
 					["Art/2DArt/SkillIcons/passives/attackspeedbow.dds"]={
 						h=32,
 						w=32,
-						x=480,
+						x=544,
 						y=96
 					},
 					["Art/2DArt/SkillIcons/passives/auraeffect.dds"]={
@@ -96902,19 +97464,19 @@ return {
 					["Art/2DArt/SkillIcons/passives/axedmgspeed.dds"]={
 						h=32,
 						w=32,
-						x=640,
+						x=384,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/blankDex.dds"]={
 						h=32,
 						w=32,
-						x=384,
-						y=96
+						x=896,
+						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/blankInt.dds"]={
 						h=32,
 						w=32,
-						x=608,
+						x=576,
 						y=96
 					},
 					["Art/2DArt/SkillIcons/passives/blankStr.dds"]={
@@ -96926,26 +97488,26 @@ return {
 					["Art/2DArt/SkillIcons/passives/blockstr.dds"]={
 						h=32,
 						w=32,
-						x=32,
+						x=0,
 						y=32
 					},
 					["Art/2DArt/SkillIcons/passives/castspeed.dds"]={
 						h=32,
 						w=32,
-						x=1056,
+						x=320,
 						y=32
 					},
 					["Art/2DArt/SkillIcons/passives/chargedex.dds"]={
 						h=32,
 						w=32,
-						x=704,
+						x=352,
 						y=96
 					},
 					["Art/2DArt/SkillIcons/passives/chargeint.dds"]={
 						h=32,
 						w=32,
-						x=1152,
-						y=32
+						x=0,
+						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/chargestr.dds"]={
 						h=32,
@@ -96956,7 +97518,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/clustersLinknode2.dds"]={
 						h=32,
 						w=32,
-						x=1024,
+						x=768,
 						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/colddamage.dds"]={
@@ -96968,7 +97530,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/coldresist.dds"]={
 						h=32,
 						w=32,
-						x=736,
+						x=1088,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/criticaldaggerint.dds"]={
@@ -96980,7 +97542,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/criticalstrikechance.dds"]={
 						h=32,
 						w=32,
-						x=64,
+						x=32,
 						y=32
 					},
 					["Art/2DArt/SkillIcons/passives/criticalstrikechance2.dds"]={
@@ -96992,31 +97554,31 @@ return {
 					["Art/2DArt/SkillIcons/passives/damage.dds"]={
 						h=32,
 						w=32,
-						x=512,
+						x=352,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/damage_blue.dds"]={
 						h=32,
 						w=32,
-						x=512,
+						x=608,
 						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/damageaxe.dds"]={
 						h=32,
 						w=32,
-						x=672,
+						x=640,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/damagedualwield.dds"]={
 						h=32,
 						w=32,
-						x=1056,
+						x=832,
 						y=96
 					},
 					["Art/2DArt/SkillIcons/passives/damagespells.dds"]={
 						h=32,
 						w=32,
-						x=960,
+						x=1024,
 						y=32
 					},
 					["Art/2DArt/SkillIcons/passives/damagestaff.dds"]={
@@ -97028,7 +97590,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/damagesword.dds"]={
 						h=32,
 						w=32,
-						x=992,
+						x=736,
 						y=32
 					},
 					["Art/2DArt/SkillIcons/passives/dmgreduction.dds"]={
@@ -97040,19 +97602,19 @@ return {
 					["Art/2DArt/SkillIcons/passives/elementaldamage.dds"]={
 						h=32,
 						w=32,
-						x=0,
-						y=64
+						x=1152,
+						y=32
 					},
 					["Art/2DArt/SkillIcons/passives/energyshield.dds"]={
 						h=32,
 						w=32,
-						x=576,
+						x=672,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/evade.dds"]={
 						h=32,
 						w=32,
-						x=544,
+						x=640,
 						y=96
 					},
 					["Art/2DArt/SkillIcons/passives/executioner.dds"]={
@@ -97070,7 +97632,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/firedamageint.dds"]={
 						h=32,
 						w=32,
-						x=96,
+						x=256,
 						y=96
 					},
 					["Art/2DArt/SkillIcons/passives/firedamagestr.dds"]={
@@ -97082,13 +97644,13 @@ return {
 					["Art/2DArt/SkillIcons/passives/fireresist.dds"]={
 						h=32,
 						w=32,
-						x=480,
+						x=544,
 						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/flaskdex.dds"]={
 						h=32,
 						w=32,
-						x=832,
+						x=1120,
 						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/flaskint.dds"]={
@@ -97106,7 +97668,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/icebite.dds"]={
 						h=32,
 						w=32,
-						x=352,
+						x=480,
 						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/increasedrunspeeddex.dds"]={
@@ -97118,55 +97680,55 @@ return {
 					["Art/2DArt/SkillIcons/passives/knockback.dds"]={
 						h=32,
 						w=32,
-						x=800,
+						x=864,
 						y=96
 					},
 					["Art/2DArt/SkillIcons/passives/life1.dds"]={
 						h=32,
 						w=32,
-						x=0,
+						x=832,
 						y=32
 					},
 					["Art/2DArt/SkillIcons/passives/lifeleech.dds"]={
 						h=32,
 						w=32,
-						x=704,
+						x=480,
 						y=32
 					},
 					["Art/2DArt/SkillIcons/passives/lifepercentage.dds"]={
 						h=32,
 						w=32,
-						x=640,
+						x=672,
 						y=32
 					},
 					["Art/2DArt/SkillIcons/passives/lightningint.dds"]={
 						h=32,
 						w=32,
-						x=256,
+						x=320,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/lightningstr.dds"]={
 						h=32,
 						w=32,
-						x=576,
+						x=704,
 						y=96
 					},
 					["Art/2DArt/SkillIcons/passives/macedmg.dds"]={
 						h=32,
 						w=32,
-						x=128,
+						x=160,
 						y=96
 					},
 					["Art/2DArt/SkillIcons/passives/mana.dds"]={
 						h=32,
 						w=32,
-						x=192,
-						y=64
+						x=352,
+						y=32
 					},
 					["Art/2DArt/SkillIcons/passives/manaregeneration.dds"]={
 						h=32,
 						w=32,
-						x=704,
+						x=864,
 						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/manastr.dds"]={
@@ -97178,31 +97740,31 @@ return {
 					["Art/2DArt/SkillIcons/passives/miniondamageBlue.dds"]={
 						h=32,
 						w=32,
-						x=352,
+						x=128,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/minionlife.dds"]={
 						h=32,
 						w=32,
-						x=320,
-						y=32
+						x=704,
+						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/onehanddamage.dds"]={
 						h=32,
 						w=32,
-						x=480,
+						x=448,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/plusattribute.dds"]={
 						h=32,
 						w=32,
-						x=1024,
+						x=992,
 						y=32
 					},
 					["Art/2DArt/SkillIcons/passives/plusdexterity.dds"]={
 						h=32,
 						w=32,
-						x=352,
+						x=224,
 						y=96
 					},
 					["Art/2DArt/SkillIcons/passives/plusintelligence.dds"]={
@@ -97220,7 +97782,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/plusstrength.dds"]={
 						h=32,
 						w=32,
-						x=800,
+						x=1088,
 						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/plusstrengthdexterity.dds"]={
@@ -97232,7 +97794,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/plusstrengthintelligence.dds"]={
 						h=32,
 						w=32,
-						x=864,
+						x=928,
 						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/projectilespeed.dds"]={
@@ -97244,43 +97806,43 @@ return {
 					["Art/2DArt/SkillIcons/passives/shieldblock.dds"]={
 						h=32,
 						w=32,
-						x=544,
+						x=608,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/spellcritical.dds"]={
 						h=32,
 						w=32,
-						x=768,
-						y=0
+						x=64,
+						y=32
 					},
 					["Art/2DArt/SkillIcons/passives/stun2h.dds"]={
 						h=32,
 						w=32,
-						x=160,
+						x=128,
 						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/stunstr.dds"]={
 						h=32,
 						w=32,
-						x=224,
+						x=192,
 						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/tempint.dds"]={
 						h=32,
 						w=32,
-						x=320,
+						x=1088,
 						y=96
 					},
 					["Art/2DArt/SkillIcons/passives/totemandbrandlife.dds"]={
 						h=32,
 						w=32,
-						x=320,
+						x=448,
 						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/trapdamage.dds"]={
 						h=32,
 						w=32,
-						x=512,
+						x=1056,
 						y=96
 					}
 				},
@@ -97293,103 +97855,103 @@ return {
 					["Art/2DArt/SkillIcons/WitchBoneStorm.dds"]={
 						h=64,
 						w=64,
-						x=576,
+						x=512,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/icongroundslam.dds"]={
 						h=64,
 						w=64,
-						x=384,
+						x=640,
 						y=192
 					},
 					["Art/2DArt/SkillIcons/passives/2handeddamage.dds"]={
 						h=64,
 						w=64,
-						x=192,
+						x=128,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/AcolyteofChayula/AcolyteOfChayulaNode.dds"]={
 						h=64,
 						w=64,
-						x=64,
+						x=320,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/AreaDmgNode.dds"]={
 						h=64,
 						w=64,
-						x=0,
+						x=192,
 						y=192
 					},
 					["Art/2DArt/SkillIcons/passives/ArmourAndEnergyShieldNode.dds"]={
 						h=64,
 						w=64,
-						x=256,
+						x=128,
 						y=192
 					},
 					["Art/2DArt/SkillIcons/passives/ArmourAndEvasionNode.dds"]={
 						h=64,
 						w=64,
-						x=832,
+						x=1088,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/ArmourBreak1BuffIcon.dds"]={
 						h=64,
 						w=64,
-						x=640,
-						y=0
+						x=320,
+						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/Ascendants/SkillPoint.dds"]={
 						h=64,
 						w=64,
-						x=896,
+						x=576,
 						y=448
 					},
 					["Art/2DArt/SkillIcons/passives/Blood2.dds"]={
 						h=64,
 						w=64,
-						x=960,
+						x=832,
 						y=256
 					},
 					["Art/2DArt/SkillIcons/passives/Bloodmage/BloodMageNode.dds"]={
 						h=64,
 						w=64,
 						x=640,
-						y=384
+						y=448
 					},
 					["Art/2DArt/SkillIcons/passives/BowDamage.dds"]={
 						h=64,
 						w=64,
-						x=576,
+						x=384,
 						y=384
 					},
 					["Art/2DArt/SkillIcons/passives/ChannellingAttacksNode.dds"]={
 						h=64,
 						w=64,
-						x=640,
+						x=0,
 						y=256
 					},
 					["Art/2DArt/SkillIcons/passives/ChaosDamagenode.dds"]={
 						h=64,
 						w=64,
-						x=1024,
+						x=768,
 						y=256
 					},
 					["Art/2DArt/SkillIcons/passives/CharmNode1.dds"]={
 						h=64,
 						w=64,
-						x=768,
+						x=1024,
 						y=320
 					},
 					["Art/2DArt/SkillIcons/passives/ColdDamagenode.dds"]={
 						h=64,
 						w=64,
-						x=256,
+						x=192,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/ColdResistNode.dds"]={
 						h=64,
 						w=64,
-						x=1024,
+						x=0,
 						y=448
 					},
 					["Art/2DArt/SkillIcons/passives/CorpseDamage.dds"]={
@@ -97407,14 +97969,14 @@ return {
 					["Art/2DArt/SkillIcons/passives/DeadEye/DeadeyeDealMoreProjectileDamageClose.dds"]={
 						h=64,
 						w=64,
-						x=320,
-						y=448
+						x=960,
+						y=384
 					},
 					["Art/2DArt/SkillIcons/passives/DeadEye/DeadeyeDealMoreProjectileDamageFarAway.dds"]={
 						h=64,
 						w=64,
-						x=0,
-						y=384
+						x=384,
+						y=320
 					},
 					["Art/2DArt/SkillIcons/passives/DeadEye/DeadeyeNode.dds"]={
 						h=64,
@@ -97425,121 +97987,127 @@ return {
 					["Art/2DArt/SkillIcons/passives/Deflection.dds"]={
 						h=64,
 						w=64,
-						x=768,
+						x=1024,
 						y=448
 					},
 					["Art/2DArt/SkillIcons/passives/DragonStyle.dds"]={
 						h=64,
 						w=64,
-						x=704,
+						x=256,
 						y=448
 					},
 					["Art/2DArt/SkillIcons/passives/ElementalDamagenode.dds"]={
 						h=64,
 						w=64,
-						x=768,
-						y=128
+						x=1024,
+						y=192
 					},
 					["Art/2DArt/SkillIcons/passives/ElementalDamagewithAttacks2.dds"]={
 						h=64,
 						w=64,
-						x=832,
+						x=1088,
 						y=128
 					},
 					["Art/2DArt/SkillIcons/passives/EnergyShieldNode.dds"]={
 						h=64,
 						w=64,
-						x=256,
-						y=64
+						x=960,
+						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/EvasionNode.dds"]={
 						h=64,
 						w=64,
-						x=320,
+						x=768,
 						y=384
 					},
 					["Art/2DArt/SkillIcons/passives/EvasionandEnergyShieldNode.dds"]={
 						h=64,
 						w=64,
-						x=64,
+						x=0,
 						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/FireDamagenode.dds"]={
 						h=64,
 						w=64,
-						x=1088,
-						y=128
+						x=64,
+						y=192
 					},
 					["Art/2DArt/SkillIcons/passives/FireResistNode.dds"]={
 						h=64,
 						w=64,
-						x=64,
+						x=0,
 						y=192
 					},
 					["Art/2DArt/SkillIcons/passives/Gemling/GemlingNode.dds"]={
 						h=64,
 						w=64,
-						x=768,
+						x=1024,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/GreenAttackSmallPassive.dds"]={
 						h=64,
 						w=64,
-						x=0,
+						x=960,
 						y=256
 					},
 					["Art/2DArt/SkillIcons/passives/Harrier.dds"]={
 						h=64,
 						w=64,
-						x=192,
+						x=448,
 						y=384
 					},
 					["Art/2DArt/SkillIcons/passives/HeraldBuffEffectNode2.dds"]={
 						h=64,
 						w=64,
-						x=640,
+						x=320,
 						y=192
 					},
 					["Art/2DArt/SkillIcons/passives/HiredKiller2.dds"]={
 						h=64,
 						w=64,
-						x=64,
-						y=384
+						x=640,
+						y=320
+					},
+					["Art/2DArt/SkillIcons/passives/IncreasedManaCostNotable.dds"]={
+						h=64,
+						w=64,
+						x=448,
+						y=256
 					},
 					["Art/2DArt/SkillIcons/passives/IncreasedProjectileSpeedNode.dds"]={
 						h=64,
 						w=64,
-						x=1088,
-						y=320
+						x=256,
+						y=384
 					},
 					["Art/2DArt/SkillIcons/passives/Infernalist/InfernalistNode.dds"]={
 						h=64,
 						w=64,
-						x=128,
+						x=1088,
 						y=192
 					},
 					["Art/2DArt/SkillIcons/passives/Inquistitor/IncreasedElementalDamageAttackCasteSpeed.dds"]={
 						h=64,
 						w=64,
-						x=896,
-						y=320
+						x=832,
+						y=384
 					},
 					["Art/2DArt/SkillIcons/passives/Invoker/InvokerNode.dds"]={
 						h=64,
 						w=64,
-						x=192,
+						x=256,
 						y=320
 					},
 					["Art/2DArt/SkillIcons/passives/LifeRecoupNode.dds"]={
 						h=64,
 						w=64,
-						x=512,
-						y=384
+						x=576,
+						y=320
 					},
 					["Art/2DArt/SkillIcons/passives/LightningDamagenode.dds"]={
 						h=64,
 						w=64,
-						x=1024,
+						x=896,
 						y=128
 					},
 					["Art/2DArt/SkillIcons/passives/LightningResistNode.dds"]={
@@ -97551,55 +98119,55 @@ return {
 					["Art/2DArt/SkillIcons/passives/ManaLeechThemedNode.dds"]={
 						h=64,
 						w=64,
-						x=1088,
-						y=192
+						x=640,
+						y=256
 					},
 					["Art/2DArt/SkillIcons/passives/MarkNode.dds"]={
 						h=64,
 						w=64,
-						x=512,
+						x=448,
 						y=192
 					},
 					["Art/2DArt/SkillIcons/passives/MeleeAoENode.dds"]={
 						h=64,
 						w=64,
-						x=1024,
+						x=384,
 						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/MineAreaOfEffectNode.dds"]={
 						h=64,
 						w=64,
-						x=320,
+						x=448,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/MinionElementalResistancesNode.dds"]={
 						h=64,
 						w=64,
-						x=832,
+						x=1088,
 						y=320
 					},
 					["Art/2DArt/SkillIcons/passives/MinionsandManaNode.dds"]={
 						h=64,
 						w=64,
-						x=896,
+						x=832,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/MiracleMaker.dds"]={
 						h=64,
 						w=64,
-						x=448,
+						x=960,
 						y=320
 					},
 					["Art/2DArt/SkillIcons/passives/NodeDualWieldingDamage.dds"]={
 						h=64,
 						w=64,
-						x=704,
+						x=576,
 						y=384
 					},
 					["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderBrewConcoctionBleed.dds"]={
 						h=64,
 						w=64,
-						x=64,
+						x=0,
 						y=320
 					},
 					["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderBrewConcoctionCold.dds"]={
@@ -97611,13 +98179,13 @@ return {
 					["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderBrewConcoctionFire.dds"]={
 						h=64,
 						w=64,
-						x=512,
+						x=64,
 						y=448
 					},
 					["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderBrewConcoctionLightning.dds"]={
 						h=64,
 						w=64,
-						x=256,
+						x=320,
 						y=384
 					},
 					["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderBrewConcoctionPoison.dds"]={
@@ -97641,32 +98209,32 @@ return {
 					["Art/2DArt/SkillIcons/passives/PhysicalDamageNode.dds"]={
 						h=64,
 						w=64,
-						x=448,
+						x=832,
 						y=192
 					},
 					["Art/2DArt/SkillIcons/passives/PhysicalDamageOverTimeNode.dds"]={
 						h=64,
 						w=64,
-						x=448,
+						x=384,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/Poison.dds"]={
 						h=64,
 						w=64,
-						x=960,
-						y=320
+						x=512,
+						y=448
 					},
 					["Art/2DArt/SkillIcons/passives/Rage.dds"]={
 						h=64,
 						w=64,
-						x=896,
+						x=832,
 						y=128
 					},
 					["Art/2DArt/SkillIcons/passives/ReducedSkillEffectDurationNode.dds"]={
 						h=64,
 						w=64,
-						x=768,
-						y=384
+						x=896,
+						y=320
 					},
 					["Art/2DArt/SkillIcons/passives/ShieldNodeOffensive.dds"]={
 						h=64,
@@ -97677,7 +98245,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/SpellMultiplyer2.dds"]={
 						h=64,
 						w=64,
-						x=384,
+						x=576,
 						y=256
 					},
 					["Art/2DArt/SkillIcons/passives/SpellSuppresionNode.dds"]={
@@ -97689,13 +98257,13 @@ return {
 					["Art/2DArt/SkillIcons/passives/SpellSupressionNotable1.dds"]={
 						h=64,
 						w=64,
-						x=512,
+						x=448,
 						y=320
 					},
 					["Art/2DArt/SkillIcons/passives/Stormweaver/StormweaverNode.dds"]={
 						h=64,
 						w=64,
-						x=256,
+						x=320,
 						y=320
 					},
 					["Art/2DArt/SkillIcons/passives/Temporalist/TemporalistNode.dds"]={
@@ -97707,7 +98275,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/Titan/TitanNode.dds"]={
 						h=64,
 						w=64,
-						x=384,
+						x=576,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/WarCryEffect.dds"]={
@@ -97719,8 +98287,8 @@ return {
 					["Art/2DArt/SkillIcons/passives/Warbringer/WarbringerNode.dds"]={
 						h=64,
 						w=64,
-						x=320,
-						y=320
+						x=192,
+						y=384
 					},
 					["Art/2DArt/SkillIcons/passives/Witchhunter/WitchunterNode.dds"]={
 						h=64,
@@ -97743,19 +98311,19 @@ return {
 					["Art/2DArt/SkillIcons/passives/areaofeffect.dds"]={
 						h=64,
 						w=64,
-						x=128,
+						x=64,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/attackspeed.dds"]={
 						h=64,
 						w=64,
-						x=576,
+						x=896,
 						y=448
 					},
 					["Art/2DArt/SkillIcons/passives/attackspeedbow.dds"]={
 						h=64,
 						w=64,
-						x=0,
+						x=128,
 						y=448
 					},
 					["Art/2DArt/SkillIcons/passives/auraeffect.dds"]={
@@ -97773,19 +98341,19 @@ return {
 					["Art/2DArt/SkillIcons/passives/axedmgspeed.dds"]={
 						h=64,
 						w=64,
-						x=128,
-						y=64
+						x=768,
+						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/blankDex.dds"]={
 						h=64,
 						w=64,
-						x=960,
-						y=384
+						x=768,
+						y=320
 					},
 					["Art/2DArt/SkillIcons/passives/blankInt.dds"]={
 						h=64,
 						w=64,
-						x=256,
+						x=192,
 						y=448
 					},
 					["Art/2DArt/SkillIcons/passives/blankStr.dds"]={
@@ -97797,25 +98365,25 @@ return {
 					["Art/2DArt/SkillIcons/passives/blockstr.dds"]={
 						h=64,
 						w=64,
-						x=128,
+						x=64,
 						y=128
 					},
 					["Art/2DArt/SkillIcons/passives/castspeed.dds"]={
 						h=64,
 						w=64,
-						x=1024,
-						y=192
+						x=704,
+						y=128
 					},
 					["Art/2DArt/SkillIcons/passives/chargedex.dds"]={
 						h=64,
 						w=64,
-						x=448,
-						y=448
+						x=896,
+						y=384
 					},
 					["Art/2DArt/SkillIcons/passives/chargeint.dds"]={
 						h=64,
 						w=64,
-						x=64,
+						x=128,
 						y=256
 					},
 					["Art/2DArt/SkillIcons/passives/chargestr.dds"]={
@@ -97827,7 +98395,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/clustersLinknode2.dds"]={
 						h=64,
 						w=64,
-						x=1024,
+						x=512,
 						y=320
 					},
 					["Art/2DArt/SkillIcons/passives/colddamage.dds"]={
@@ -97839,7 +98407,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/coldresist.dds"]={
 						h=64,
 						w=64,
-						x=320,
+						x=1024,
 						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/criticaldaggerint.dds"]={
@@ -97851,7 +98419,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/criticalstrikechance.dds"]={
 						h=64,
 						w=64,
-						x=192,
+						x=128,
 						y=128
 					},
 					["Art/2DArt/SkillIcons/passives/criticalstrikechance2.dds"]={
@@ -97863,31 +98431,31 @@ return {
 					["Art/2DArt/SkillIcons/passives/damage.dds"]={
 						h=64,
 						w=64,
-						x=1024,
+						x=704,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/damage_blue.dds"]={
 						h=64,
 						w=64,
-						x=0,
+						x=192,
 						y=320
 					},
 					["Art/2DArt/SkillIcons/passives/damageaxe.dds"]={
 						h=64,
 						w=64,
-						x=192,
+						x=128,
 						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/damagedualwield.dds"]={
 						h=64,
 						w=64,
-						x=0,
-						y=512
+						x=704,
+						y=448
 					},
 					["Art/2DArt/SkillIcons/passives/damagespells.dds"]={
 						h=64,
 						w=64,
-						x=832,
+						x=960,
 						y=192
 					},
 					["Art/2DArt/SkillIcons/passives/damagestaff.dds"]={
@@ -97899,7 +98467,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/damagesword.dds"]={
 						h=64,
 						w=64,
-						x=896,
+						x=384,
 						y=192
 					},
 					["Art/2DArt/SkillIcons/passives/dmgreduction.dds"]={
@@ -97911,19 +98479,19 @@ return {
 					["Art/2DArt/SkillIcons/passives/elementaldamage.dds"]={
 						h=64,
 						w=64,
-						x=128,
+						x=64,
 						y=256
 					},
 					["Art/2DArt/SkillIcons/passives/energyshield.dds"]={
 						h=64,
 						w=64,
-						x=0,
+						x=192,
 						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/evade.dds"]={
 						h=64,
 						w=64,
-						x=128,
+						x=320,
 						y=448
 					},
 					["Art/2DArt/SkillIcons/passives/executioner.dds"]={
@@ -97941,7 +98509,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/firedamageint.dds"]={
 						h=64,
 						w=64,
-						x=384,
+						x=704,
 						y=384
 					},
 					["Art/2DArt/SkillIcons/passives/firedamagestr.dds"]={
@@ -97953,14 +98521,14 @@ return {
 					["Art/2DArt/SkillIcons/passives/fireresist.dds"]={
 						h=64,
 						w=64,
-						x=1088,
-						y=256
+						x=64,
+						y=320
 					},
 					["Art/2DArt/SkillIcons/passives/flaskdex.dds"]={
 						h=64,
 						w=64,
-						x=640,
-						y=320
+						x=64,
+						y=384
 					},
 					["Art/2DArt/SkillIcons/passives/flaskint.dds"]={
 						h=64,
@@ -97977,7 +98545,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/icebite.dds"]={
 						h=64,
 						w=64,
-						x=832,
+						x=1088,
 						y=256
 					},
 					["Art/2DArt/SkillIcons/passives/increasedrunspeeddex.dds"]={
@@ -97989,55 +98557,55 @@ return {
 					["Art/2DArt/SkillIcons/passives/knockback.dds"]={
 						h=64,
 						w=64,
-						x=640,
+						x=768,
 						y=448
 					},
 					["Art/2DArt/SkillIcons/passives/life1.dds"]={
 						h=64,
 						w=64,
-						x=64,
-						y=128
+						x=576,
+						y=192
 					},
 					["Art/2DArt/SkillIcons/passives/lifeleech.dds"]={
 						h=64,
 						w=64,
-						x=320,
-						y=192
+						x=1024,
+						y=128
 					},
 					["Art/2DArt/SkillIcons/passives/lifepercentage.dds"]={
 						h=64,
 						w=64,
-						x=192,
+						x=256,
 						y=192
 					},
 					["Art/2DArt/SkillIcons/passives/lightningint.dds"]={
 						h=64,
 						w=64,
-						x=512,
+						x=640,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/lightningstr.dds"]={
 						h=64,
 						w=64,
-						x=192,
+						x=448,
 						y=448
 					},
 					["Art/2DArt/SkillIcons/passives/macedmg.dds"]={
 						h=64,
 						w=64,
-						x=448,
+						x=512,
 						y=384
 					},
 					["Art/2DArt/SkillIcons/passives/mana.dds"]={
 						h=64,
 						w=64,
-						x=512,
-						y=256
+						x=768,
+						y=128
 					},
 					["Art/2DArt/SkillIcons/passives/manaregeneration.dds"]={
 						h=64,
 						w=64,
-						x=384,
+						x=704,
 						y=320
 					},
 					["Art/2DArt/SkillIcons/passives/manastr.dds"]={
@@ -98049,31 +98617,31 @@ return {
 					["Art/2DArt/SkillIcons/passives/miniondamageBlue.dds"]={
 						h=64,
 						w=64,
-						x=704,
+						x=256,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/minionlife.dds"]={
 						h=64,
 						w=64,
-						x=704,
-						y=128
+						x=256,
+						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/onehanddamage.dds"]={
 						h=64,
 						w=64,
-						x=960,
+						x=896,
 						y=0
 					},
 					["Art/2DArt/SkillIcons/passives/plusattribute.dds"]={
 						h=64,
 						w=64,
-						x=960,
+						x=896,
 						y=192
 					},
 					["Art/2DArt/SkillIcons/passives/plusdexterity.dds"]={
 						h=64,
 						w=64,
-						x=896,
+						x=640,
 						y=384
 					},
 					["Art/2DArt/SkillIcons/passives/plusintelligence.dds"]={
@@ -98091,8 +98659,8 @@ return {
 					["Art/2DArt/SkillIcons/passives/plusstrength.dds"]={
 						h=64,
 						w=64,
-						x=576,
-						y=320
+						x=0,
+						y=384
 					},
 					["Art/2DArt/SkillIcons/passives/plusstrengthdexterity.dds"]={
 						h=64,
@@ -98103,7 +98671,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/plusstrengthintelligence.dds"]={
 						h=64,
 						w=64,
-						x=704,
+						x=832,
 						y=320
 					},
 					["Art/2DArt/SkillIcons/passives/projectilespeed.dds"]={
@@ -98115,44 +98683,44 @@ return {
 					["Art/2DArt/SkillIcons/passives/shieldblock.dds"]={
 						h=64,
 						w=64,
-						x=1088,
-						y=0
+						x=64,
+						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/spellcritical.dds"]={
 						h=64,
 						w=64,
-						x=384,
-						y=64
+						x=192,
+						y=128
 					},
 					["Art/2DArt/SkillIcons/passives/stun2h.dds"]={
 						h=64,
 						w=64,
-						x=448,
+						x=384,
 						y=256
 					},
 					["Art/2DArt/SkillIcons/passives/stunstr.dds"]={
 						h=64,
 						w=64,
-						x=576,
+						x=512,
 						y=256
 					},
 					["Art/2DArt/SkillIcons/passives/tempint.dds"]={
 						h=64,
 						w=64,
-						x=832,
-						y=384
+						x=64,
+						y=512
 					},
 					["Art/2DArt/SkillIcons/passives/totemandbrandlife.dds"]={
 						h=64,
 						w=64,
-						x=768,
+						x=1024,
 						y=256
 					},
 					["Art/2DArt/SkillIcons/passives/trapdamage.dds"]={
 						h=64,
 						w=64,
-						x=64,
-						y=448
+						x=0,
+						y=512
 					}
 				},
 				filename="skills-disabled-3.png",
@@ -98166,7 +98734,7 @@ return {
 					["Art/2DArt/SkillIcons/ExplosiveGrenade.dds"]={
 						h=16,
 						w=16,
-						x=432,
+						x=416,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/WitchBoneStorm.dds"]={
@@ -98244,7 +98812,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/Annihilation.dds"]={
 						h=16,
 						w=16,
-						x=992,
+						x=976,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/AreaDmgNode.dds"]={
@@ -98256,31 +98824,31 @@ return {
 					["Art/2DArt/SkillIcons/passives/ArmourAndEnergyShieldNode.dds"]={
 						h=16,
 						w=16,
-						x=240,
+						x=224,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/ArmourAndEvasionNode.dds"]={
 						h=16,
 						w=16,
-						x=368,
+						x=384,
 						y=24
 					},
 					["Art/2DArt/SkillIcons/passives/ArmourBreak2BuffIcon.dds"]={
 						h=16,
 						w=16,
-						x=48,
-						y=24
+						x=656,
+						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/Ascendants/SkillPoint.dds"]={
 						h=16,
 						w=16,
-						x=960,
+						x=944,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/AspectOfTheLynx.dds"]={
 						h=16,
 						w=16,
-						x=768,
+						x=736,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/Blood2.dds"]={
@@ -98292,7 +98860,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/Bloodmage/BloodMageCritDamagePerLife.dds"]={
 						h=16,
 						w=16,
-						x=80,
+						x=144,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/Bloodmage/BloodMageCurseInfiniteDuration.dds"]={
@@ -98304,7 +98872,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/Bloodmage/BloodMageDamageLeechedLife.dds"]={
 						h=16,
 						w=16,
-						x=640,
+						x=624,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/Bloodmage/BloodMageGainLifeEnergyShield.dds"]={
@@ -98334,19 +98902,19 @@ return {
 					["Art/2DArt/SkillIcons/passives/Bloodmage/BloodPhysicalDamageExtraGore.dds"]={
 						h=16,
 						w=16,
-						x=112,
-						y=24
+						x=1120,
+						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/BowDamage.dds"]={
 						h=16,
 						w=16,
-						x=240,
+						x=304,
 						y=24
 					},
 					["Art/2DArt/SkillIcons/passives/ChainingProjectiles.dds"]={
 						h=16,
 						w=16,
-						x=928,
+						x=768,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/ChannellingAttacksNotable2.dds"]={
@@ -98358,13 +98926,13 @@ return {
 					["Art/2DArt/SkillIcons/passives/ChaosDamagenode.dds"]={
 						h=16,
 						w=16,
-						x=576,
+						x=32,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/CharmNotable1.dds"]={
 						h=16,
 						w=16,
-						x=304,
+						x=272,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/ClawsOfTheMagpie.dds"]={
@@ -98376,7 +98944,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/ColdDamagenode.dds"]={
 						h=16,
 						w=16,
-						x=1168,
+						x=1152,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/CorpseDamage.dds"]={
@@ -98418,7 +98986,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/DeadEye/DeadeyeMarkEnemiesSpread.dds"]={
 						h=16,
 						w=16,
-						x=32,
+						x=176,
 						y=24
 					},
 					["Art/2DArt/SkillIcons/passives/DeadEye/DeadeyeMoreAccuracy.dds"]={
@@ -98460,13 +99028,13 @@ return {
 					["Art/2DArt/SkillIcons/passives/ElementalDamagenode.dds"]={
 						h=16,
 						w=16,
-						x=672,
-						y=8
+						x=16,
+						y=24
 					},
 					["Art/2DArt/SkillIcons/passives/ElementalDamagewithAttacks2.dds"]={
 						h=16,
 						w=16,
-						x=608,
+						x=208,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/ElementalResistance2.dds"]={
@@ -98484,13 +99052,13 @@ return {
 					["Art/2DArt/SkillIcons/passives/EvasionAndBlindNotable.dds"]={
 						h=16,
 						w=16,
-						x=176,
+						x=256,
 						y=24
 					},
 					["Art/2DArt/SkillIcons/passives/EvasionNode.dds"]={
 						h=16,
 						w=16,
-						x=272,
+						x=208,
 						y=24
 					},
 					["Art/2DArt/SkillIcons/passives/EvasionandEnergyShieldNode.dds"]={
@@ -98532,7 +99100,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/Gemling/GemlingInherentBonusesFromAttributesDouble.dds"]={
 						h=16,
 						w=16,
-						x=544,
+						x=432,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/Gemling/GemlingLevelAllSkillGems.dds"]={
@@ -98568,49 +99136,49 @@ return {
 					["Art/2DArt/SkillIcons/passives/GreenAttackSmallPassive.dds"]={
 						h=16,
 						w=16,
-						x=416,
-						y=24
+						x=576,
+						y=40
 					},
 					["Art/2DArt/SkillIcons/passives/Harrier.dds"]={
 						h=16,
 						w=16,
-						x=192,
+						x=48,
 						y=24
 					},
 					["Art/2DArt/SkillIcons/passives/Hearty.dds"]={
 						h=16,
 						w=16,
-						x=208,
+						x=192,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/HeraldBuffEffectNode2.dds"]={
 						h=16,
 						w=16,
-						x=448,
+						x=304,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/HiredKiller2.dds"]={
 						h=16,
 						w=16,
-						x=464,
+						x=528,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/Hunter.dds"]={
 						h=16,
 						w=16,
-						x=96,
+						x=144,
 						y=24
 					},
 					["Art/2DArt/SkillIcons/passives/IncreasedManaCostNotable.dds"]={
 						h=16,
 						w=16,
-						x=0,
-						y=24
+						x=1184,
+						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/IncreasedMaximumLifeNotable.dds"]={
 						h=16,
 						w=16,
-						x=912,
+						x=752,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/IncreasedProjectileSpeedNode.dds"]={
@@ -98622,13 +99190,13 @@ return {
 					["Art/2DArt/SkillIcons/passives/Infernalist/Fireblood.dds"]={
 						h=11,
 						w=11,
-						x=1056,
+						x=1040,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/Infernalist/FuryManifest.dds"]={
 						h=16,
 						w=16,
-						x=816,
+						x=800,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/Infernalist/InfernalFamiliar.dds"]={
@@ -98640,20 +99208,20 @@ return {
 					["Art/2DArt/SkillIcons/passives/Infernalist/InfernalistConvertLifeToEnergyShield.dds"]={
 						h=16,
 						w=16,
-						x=512,
+						x=480,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/Infernalist/InfernalistConvertLifeToMana.dds"]={
 						h=16,
 						w=16,
-						x=272,
+						x=320,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/Infernalist/InfernalistConvertLifeToSpirit.dds"]={
 						h=16,
 						w=16,
-						x=784,
-						y=8
+						x=400,
+						y=24
 					},
 					["Art/2DArt/SkillIcons/passives/Infernalist/InfernalistInfernalHeat.dds"]={
 						h=16,
@@ -98664,7 +99232,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/Infernalist/InfernalistTransformIntoDemon1.dds"]={
 						h=16,
 						w=16,
-						x=1024,
+						x=912,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/Infernalist/InfernalistTransformIntoDemon2.dds"]={
@@ -98676,8 +99244,8 @@ return {
 					["Art/2DArt/SkillIcons/passives/Infernalist/MoltenFury.dds"]={
 						h=16,
 						w=16,
-						x=400,
-						y=24
+						x=1008,
+						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/Infernalist/ScorchTheEarth.dds"]={
 						h=16,
@@ -98700,7 +99268,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/Invoker/InvokerCriticalStrikesIgnoreResistances.dds"]={
 						h=16,
 						w=16,
-						x=224,
+						x=240,
 						y=24
 					},
 					["Art/2DArt/SkillIcons/passives/Invoker/InvokerEnergyDoubled.dds"]={
@@ -98712,7 +99280,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/Invoker/InvokerEvasionEnergyShieldGrantsSpirit.dds"]={
 						h=16,
 						w=16,
-						x=304,
+						x=224,
 						y=24
 					},
 					["Art/2DArt/SkillIcons/passives/Invoker/InvokerEvasionGrantsPhysicalDamageReduction.dds"]={
@@ -98742,14 +99310,14 @@ return {
 					["Art/2DArt/SkillIcons/passives/Invoker/InvokerWildStrike.dds"]={
 						h=16,
 						w=16,
-						x=1152,
-						y=8
+						x=160,
+						y=24
 					},
 					["Art/2DArt/SkillIcons/passives/LifeRecoupNode.dds"]={
 						h=16,
 						w=16,
-						x=64,
-						y=24
+						x=1168,
+						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/LightningDamagenode.dds"]={
 						h=16,
@@ -98766,7 +99334,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/MarkNode.dds"]={
 						h=16,
 						w=16,
-						x=416,
+						x=384,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/MeleeAoENode.dds"]={
@@ -98778,19 +99346,19 @@ return {
 					["Art/2DArt/SkillIcons/passives/Meleerange.dds"]={
 						h=16,
 						w=16,
-						x=736,
+						x=784,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/MineAreaOfEffectNode.dds"]={
 						h=16,
 						w=16,
-						x=832,
+						x=816,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/MineManaReservationNotable.dds"]={
 						h=16,
 						w=16,
-						x=1088,
+						x=1072,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/MinionChaosResistanceNode.dds"]={
@@ -98808,19 +99376,19 @@ return {
 					["Art/2DArt/SkillIcons/passives/MinionsandManaNode.dds"]={
 						h=16,
 						w=16,
-						x=336,
+						x=368,
 						y=24
 					},
 					["Art/2DArt/SkillIcons/passives/MiracleMaker.dds"]={
 						h=16,
 						w=16,
-						x=1184,
-						y=8
+						x=64,
+						y=24
 					},
 					["Art/2DArt/SkillIcons/passives/NodeDualWieldingDamage.dds"]={
 						h=16,
 						w=16,
-						x=864,
+						x=880,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds"]={
@@ -98838,7 +99406,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderCannotBeSlowed.dds"]={
 						h=16,
 						w=16,
-						x=384,
+						x=320,
 						y=24
 					},
 					["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderEnemiesMultiplePoisons.dds"]={
@@ -98856,7 +99424,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderLifeFlasks.dds"]={
 						h=16,
 						w=16,
-						x=48,
+						x=160,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderMoreMovemenSpeedUsingSkills.dds"]={
@@ -98875,7 +99443,7 @@ return {
 						h=16,
 						w=16,
 						x=32,
-						y=8
+						y=24
 					},
 					["Art/2DArt/SkillIcons/passives/PhysicalDamageNode.dds"]={
 						h=16,
@@ -98904,7 +99472,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/PressurePoints.dds"]={
 						h=16,
 						w=16,
-						x=96,
+						x=112,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/ProjectilesNotable.dds"]={
@@ -98916,7 +99484,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/Rage.dds"]={
 						h=16,
 						w=16,
-						x=624,
+						x=608,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/ReducedSkillEffectDurationNode.dds"]={
@@ -98928,19 +99496,19 @@ return {
 					["Art/2DArt/SkillIcons/passives/ShieldNodeOffensive.dds"]={
 						h=16,
 						w=16,
-						x=1120,
+						x=1104,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/SpellSuppresionNode.dds"]={
 						h=16,
 						w=16,
-						x=1040,
+						x=1024,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/Storm Weaver.dds"]={
 						h=16,
 						w=16,
-						x=144,
+						x=512,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/Stormweaver/AllDamageCanChill.dds"]={
@@ -98976,7 +99544,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/Stormweaver/GrantsArcaneSurge.dds"]={
 						h=16,
 						w=16,
-						x=128,
+						x=112,
 						y=24
 					},
 					["Art/2DArt/SkillIcons/passives/Stormweaver/GrantsElementalStorm.dds"]={
@@ -98988,7 +99556,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/Stormweaver/ImprovedArcaneSurge.dds"]={
 						h=16,
 						w=16,
-						x=976,
+						x=992,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/Stormweaver/ImprovedElementalStorm.dds"]={
@@ -99018,7 +99586,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/Temporalist/TemporalistGainMoreCastSpeed8Seconds.dds"]={
 						h=16,
 						w=16,
-						x=400,
+						x=896,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/Temporalist/TemporalistGrantsReloadCooldownsSkill.dds"]={
@@ -99036,7 +99604,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/Temporalist/TemporalistGrantsTimeStopSkill.dds"]={
 						h=16,
 						w=16,
-						x=1072,
+						x=1056,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/Temporalist/TemporalistLifeRecoup.dds"]={
@@ -99048,7 +99616,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/Temporalist/TemporalistNearbyEnemiesProjectilesSlowed.dds"]={
 						h=16,
 						w=16,
-						x=128,
+						x=64,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/Titan/TitanAdditionalInventory.dds"]={
@@ -99102,7 +99670,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/WarCryEffect.dds"]={
 						h=16,
 						w=16,
-						x=288,
+						x=240,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/Warbringer/WarbringerBlockChance.dds"]={
@@ -99162,7 +99730,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/Warrior.dds"]={
 						h=16,
 						w=16,
-						x=16,
+						x=0,
 						y=24
 					},
 					["Art/2DArt/SkillIcons/passives/Witchhunter/WitchunterArmourEvasionConvertedSpellAegis.dds"]={
@@ -99198,13 +99766,13 @@ return {
 					["Art/2DArt/SkillIcons/passives/Witchhunter/WitchunterRemovePercentageFullLifeEnemies.dds"]={
 						h=16,
 						w=16,
-						x=656,
+						x=560,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/Witchhunter/WitchunterSpecPoints.dds"]={
 						h=16,
 						w=16,
-						x=896,
+						x=1136,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/Witchhunter/WitchunterStrongerSpellAegis.dds"]={
@@ -99240,13 +99808,13 @@ return {
 					["Art/2DArt/SkillIcons/passives/attackspeedbow.dds"]={
 						h=16,
 						w=16,
-						x=368,
+						x=352,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/auraeffect.dds"]={
 						h=16,
 						w=16,
-						x=592,
+						x=448,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/avoidchilling.dds"]={
@@ -99264,7 +99832,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/bodysoul.dds"]={
 						h=16,
 						w=16,
-						x=144,
+						x=96,
 						y=24
 					},
 					["Art/2DArt/SkillIcons/passives/castspeed.dds"]={
@@ -99288,13 +99856,13 @@ return {
 					["Art/2DArt/SkillIcons/passives/chargestr.dds"]={
 						h=16,
 						w=16,
-						x=384,
+						x=368,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/clustersLinknode2.dds"]={
 						h=16,
 						w=16,
-						x=752,
+						x=720,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/colddamage.dds"]={
@@ -99348,13 +99916,13 @@ return {
 					["Art/2DArt/SkillIcons/passives/damagesword.dds"]={
 						h=16,
 						w=16,
-						x=320,
+						x=288,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/deepwisdom.dds"]={
 						h=16,
 						w=16,
-						x=880,
+						x=848,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/dmgreduction.dds"]={
@@ -99366,7 +99934,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/eagleeye.dds"]={
 						h=16,
 						w=16,
-						x=560,
+						x=592,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/elementaldamage.dds"]={
@@ -99390,13 +99958,13 @@ return {
 					["Art/2DArt/SkillIcons/passives/executioner.dds"]={
 						h=16,
 						w=16,
-						x=224,
+						x=576,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/finesse.dds"]={
 						h=16,
 						w=16,
-						x=208,
+						x=288,
 						y=24
 					},
 					["Art/2DArt/SkillIcons/passives/firedamageint.dds"]={
@@ -99414,13 +99982,13 @@ return {
 					["Art/2DArt/SkillIcons/passives/flaskdex.dds"]={
 						h=16,
 						w=16,
-						x=176,
+						x=128,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/flaskint.dds"]={
 						h=16,
 						w=16,
-						x=64,
+						x=48,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/flaskstr.dds"]={
@@ -99444,7 +100012,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/knockback.dds"]={
 						h=16,
 						w=16,
-						x=1104,
+						x=1088,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/life1.dds"]={
@@ -99468,7 +100036,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/lightningint.dds"]={
 						h=16,
 						w=16,
-						x=800,
+						x=832,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/macedmg.dds"]={
@@ -99492,7 +100060,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/manastr.dds"]={
 						h=16,
 						w=16,
-						x=1008,
+						x=960,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/miniondamageBlue.dds"]={
@@ -99504,14 +100072,14 @@ return {
 					["Art/2DArt/SkillIcons/passives/minionlife.dds"]={
 						h=16,
 						w=16,
-						x=288,
+						x=192,
 						y=24
 					},
 					["Art/2DArt/SkillIcons/passives/newnewattackspeed.dds"]={
 						h=16,
 						w=16,
-						x=576,
-						y=40
+						x=416,
+						y=24
 					},
 					["Art/2DArt/SkillIcons/passives/onehanddamage.dds"]={
 						h=16,
@@ -99522,25 +100090,25 @@ return {
 					["Art/2DArt/SkillIcons/passives/plusdexterity.dds"]={
 						h=16,
 						w=16,
-						x=528,
+						x=496,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/plusintelligence.dds"]={
 						h=16,
 						w=16,
-						x=192,
+						x=96,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/plusstrength.dds"]={
 						h=16,
 						w=16,
-						x=848,
+						x=864,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/projectilespeed.dds"]={
 						h=16,
 						w=16,
-						x=944,
+						x=928,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/shieldblock.dds"]={
@@ -99552,19 +100120,19 @@ return {
 					["Art/2DArt/SkillIcons/passives/spellcritical.dds"]={
 						h=16,
 						w=16,
-						x=704,
+						x=688,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/steelspan.dds"]={
 						h=16,
 						w=16,
-						x=496,
+						x=544,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/strongarm.dds"]={
 						h=16,
 						w=16,
-						x=1136,
+						x=640,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/stun2h.dds"]={
@@ -99601,7 +100169,7 @@ return {
 					["Art/2DArt/SkillIcons/ExplosiveGrenade.dds"]={
 						h=32,
 						w=32,
-						x=864,
+						x=832,
 						y=32
 					},
 					["Art/2DArt/SkillIcons/WitchBoneStorm.dds"]={
@@ -99679,7 +100247,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/Annihilation.dds"]={
 						h=32,
 						w=32,
-						x=800,
+						x=768,
 						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/AreaDmgNode.dds"]={
@@ -99691,31 +100259,31 @@ return {
 					["Art/2DArt/SkillIcons/passives/ArmourAndEnergyShieldNode.dds"]={
 						h=32,
 						w=32,
-						x=480,
+						x=448,
 						y=32
 					},
 					["Art/2DArt/SkillIcons/passives/ArmourAndEvasionNode.dds"]={
 						h=32,
 						w=32,
-						x=768,
+						x=800,
 						y=96
 					},
 					["Art/2DArt/SkillIcons/passives/ArmourBreak2BuffIcon.dds"]={
 						h=32,
 						w=32,
 						x=128,
-						y=96
+						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/Ascendants/SkillPoint.dds"]={
 						h=32,
 						w=32,
-						x=736,
+						x=704,
 						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/AspectOfTheLynx.dds"]={
 						h=32,
 						w=32,
-						x=352,
+						x=288,
 						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/Blood2.dds"]={
@@ -99727,7 +100295,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/Bloodmage/BloodMageCritDamagePerLife.dds"]={
 						h=32,
 						w=32,
-						x=160,
+						x=288,
 						y=32
 					},
 					["Art/2DArt/SkillIcons/passives/Bloodmage/BloodMageCurseInfiniteDuration.dds"]={
@@ -99739,7 +100307,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/Bloodmage/BloodMageDamageLeechedLife.dds"]={
 						h=32,
 						w=32,
-						x=96,
+						x=64,
 						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/Bloodmage/BloodMageGainLifeEnergyShield.dds"]={
@@ -99769,19 +100337,19 @@ return {
 					["Art/2DArt/SkillIcons/passives/Bloodmage/BloodPhysicalDamageExtraGore.dds"]={
 						h=32,
 						w=32,
-						x=256,
-						y=96
+						x=1056,
+						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/BowDamage.dds"]={
 						h=32,
 						w=32,
-						x=512,
+						x=640,
 						y=96
 					},
 					["Art/2DArt/SkillIcons/passives/ChainingProjectiles.dds"]={
 						h=32,
 						w=32,
-						x=672,
+						x=352,
 						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/ChannellingAttacksNotable2.dds"]={
@@ -99793,13 +100361,13 @@ return {
 					["Art/2DArt/SkillIcons/passives/ChaosDamagenode.dds"]={
 						h=32,
 						w=32,
-						x=1152,
+						x=64,
 						y=32
 					},
 					["Art/2DArt/SkillIcons/passives/CharmNotable1.dds"]={
 						h=32,
 						w=32,
-						x=608,
+						x=544,
 						y=32
 					},
 					["Art/2DArt/SkillIcons/passives/ClawsOfTheMagpie.dds"]={
@@ -99811,7 +100379,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/ColdDamagenode.dds"]={
 						h=32,
 						w=32,
-						x=1152,
+						x=1120,
 						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/CorpseDamage.dds"]={
@@ -99853,7 +100421,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/DeadEye/DeadeyeMarkEnemiesSpread.dds"]={
 						h=32,
 						w=32,
-						x=96,
+						x=384,
 						y=96
 					},
 					["Art/2DArt/SkillIcons/passives/DeadEye/DeadeyeMoreAccuracy.dds"]={
@@ -99895,14 +100463,14 @@ return {
 					["Art/2DArt/SkillIcons/passives/ElementalDamagenode.dds"]={
 						h=32,
 						w=32,
-						x=160,
-						y=64
+						x=64,
+						y=96
 					},
 					["Art/2DArt/SkillIcons/passives/ElementalDamagewithAttacks2.dds"]={
 						h=32,
 						w=32,
-						x=32,
-						y=64
+						x=416,
+						y=32
 					},
 					["Art/2DArt/SkillIcons/passives/ElementalResistance2.dds"]={
 						h=32,
@@ -99919,13 +100487,13 @@ return {
 					["Art/2DArt/SkillIcons/passives/EvasionAndBlindNotable.dds"]={
 						h=32,
 						w=32,
-						x=384,
+						x=544,
 						y=96
 					},
 					["Art/2DArt/SkillIcons/passives/EvasionNode.dds"]={
 						h=32,
 						w=32,
-						x=576,
+						x=448,
 						y=96
 					},
 					["Art/2DArt/SkillIcons/passives/EvasionandEnergyShieldNode.dds"]={
@@ -99967,7 +100535,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/Gemling/GemlingInherentBonusesFromAttributesDouble.dds"]={
 						h=32,
 						w=32,
-						x=1088,
+						x=864,
 						y=32
 					},
 					["Art/2DArt/SkillIcons/passives/Gemling/GemlingLevelAllSkillGems.dds"]={
@@ -100003,49 +100571,49 @@ return {
 					["Art/2DArt/SkillIcons/passives/GreenAttackSmallPassive.dds"]={
 						h=32,
 						w=32,
-						x=864,
-						y=96
+						x=32,
+						y=192
 					},
 					["Art/2DArt/SkillIcons/passives/Harrier.dds"]={
 						h=32,
 						w=32,
-						x=416,
+						x=128,
 						y=96
 					},
 					["Art/2DArt/SkillIcons/passives/Hearty.dds"]={
 						h=32,
 						w=32,
-						x=416,
+						x=384,
 						y=32
 					},
 					["Art/2DArt/SkillIcons/passives/HeraldBuffEffectNode2.dds"]={
 						h=32,
 						w=32,
-						x=896,
+						x=608,
 						y=32
 					},
 					["Art/2DArt/SkillIcons/passives/HiredKiller2.dds"]={
 						h=32,
 						w=32,
-						x=928,
+						x=1056,
 						y=32
 					},
 					["Art/2DArt/SkillIcons/passives/Hunter.dds"]={
 						h=32,
 						w=32,
-						x=224,
+						x=320,
 						y=96
 					},
 					["Art/2DArt/SkillIcons/passives/IncreasedManaCostNotable.dds"]={
 						h=32,
 						w=32,
-						x=32,
+						x=0,
 						y=96
 					},
 					["Art/2DArt/SkillIcons/passives/IncreasedMaximumLifeNotable.dds"]={
 						h=32,
 						w=32,
-						x=640,
+						x=320,
 						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/IncreasedProjectileSpeedNode.dds"]={
@@ -100057,13 +100625,13 @@ return {
 					["Art/2DArt/SkillIcons/passives/Infernalist/Fireblood.dds"]={
 						h=22,
 						w=22,
-						x=928,
+						x=896,
 						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/Infernalist/FuryManifest.dds"]={
 						h=32,
 						w=32,
-						x=448,
+						x=416,
 						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/Infernalist/InfernalFamiliar.dds"]={
@@ -100075,20 +100643,20 @@ return {
 					["Art/2DArt/SkillIcons/passives/Infernalist/InfernalistConvertLifeToEnergyShield.dds"]={
 						h=32,
 						w=32,
-						x=1024,
+						x=960,
 						y=32
 					},
 					["Art/2DArt/SkillIcons/passives/Infernalist/InfernalistConvertLifeToMana.dds"]={
 						h=32,
 						w=32,
-						x=544,
+						x=640,
 						y=32
 					},
 					["Art/2DArt/SkillIcons/passives/Infernalist/InfernalistConvertLifeToSpirit.dds"]={
 						h=32,
 						w=32,
-						x=384,
-						y=64
+						x=832,
+						y=96
 					},
 					["Art/2DArt/SkillIcons/passives/Infernalist/InfernalistInfernalHeat.dds"]={
 						h=32,
@@ -100099,7 +100667,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/Infernalist/InfernalistTransformIntoDemon1.dds"]={
 						h=32,
 						w=32,
-						x=864,
+						x=640,
 						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/Infernalist/InfernalistTransformIntoDemon2.dds"]={
@@ -100112,7 +100680,7 @@ return {
 						h=32,
 						w=32,
 						x=832,
-						y=96
+						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/Infernalist/ScorchTheEarth.dds"]={
 						h=32,
@@ -100135,7 +100703,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/Invoker/InvokerCriticalStrikesIgnoreResistances.dds"]={
 						h=32,
 						w=32,
-						x=480,
+						x=512,
 						y=96
 					},
 					["Art/2DArt/SkillIcons/passives/Invoker/InvokerEnergyDoubled.dds"]={
@@ -100147,7 +100715,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/Invoker/InvokerEvasionEnergyShieldGrantsSpirit.dds"]={
 						h=32,
 						w=32,
-						x=640,
+						x=480,
 						y=96
 					},
 					["Art/2DArt/SkillIcons/passives/Invoker/InvokerEvasionGrantsPhysicalDamageReduction.dds"]={
@@ -100177,14 +100745,14 @@ return {
 					["Art/2DArt/SkillIcons/passives/Invoker/InvokerWildStrike.dds"]={
 						h=32,
 						w=32,
-						x=1120,
-						y=64
+						x=352,
+						y=96
 					},
 					["Art/2DArt/SkillIcons/passives/LifeRecoupNode.dds"]={
 						h=32,
 						w=32,
-						x=160,
-						y=96
+						x=1152,
+						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/LightningDamagenode.dds"]={
 						h=32,
@@ -100201,7 +100769,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/MarkNode.dds"]={
 						h=32,
 						w=32,
-						x=832,
+						x=768,
 						y=32
 					},
 					["Art/2DArt/SkillIcons/passives/MeleeAoENode.dds"]={
@@ -100213,19 +100781,19 @@ return {
 					["Art/2DArt/SkillIcons/passives/Meleerange.dds"]={
 						h=32,
 						w=32,
-						x=288,
+						x=384,
 						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/MineAreaOfEffectNode.dds"]={
 						h=32,
 						w=32,
-						x=480,
+						x=448,
 						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/MineManaReservationNotable.dds"]={
 						h=32,
 						w=32,
-						x=992,
+						x=960,
 						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/MinionChaosResistanceNode.dds"]={
@@ -100243,19 +100811,19 @@ return {
 					["Art/2DArt/SkillIcons/passives/MinionsandManaNode.dds"]={
 						h=32,
 						w=32,
-						x=704,
+						x=768,
 						y=96
 					},
 					["Art/2DArt/SkillIcons/passives/MiracleMaker.dds"]={
 						h=32,
 						w=32,
-						x=0,
+						x=160,
 						y=96
 					},
 					["Art/2DArt/SkillIcons/passives/NodeDualWieldingDamage.dds"]={
 						h=32,
 						w=32,
-						x=544,
+						x=576,
 						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds"]={
@@ -100273,7 +100841,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderCannotBeSlowed.dds"]={
 						h=32,
 						w=32,
-						x=800,
+						x=672,
 						y=96
 					},
 					["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderEnemiesMultiplePoisons.dds"]={
@@ -100291,7 +100859,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderLifeFlasks.dds"]={
 						h=32,
 						w=32,
-						x=96,
+						x=320,
 						y=32
 					},
 					["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderMoreMovemenSpeedUsingSkills.dds"]={
@@ -100309,8 +100877,8 @@ return {
 					["Art/2DArt/SkillIcons/passives/PhysicalDamageChaosNode.dds"]={
 						h=32,
 						w=32,
-						x=64,
-						y=32
+						x=96,
+						y=96
 					},
 					["Art/2DArt/SkillIcons/passives/PhysicalDamageNode.dds"]={
 						h=32,
@@ -100339,7 +100907,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/PressurePoints.dds"]={
 						h=32,
 						w=32,
-						x=192,
+						x=224,
 						y=32
 					},
 					["Art/2DArt/SkillIcons/passives/ProjectilesNotable.dds"]={
@@ -100351,7 +100919,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/Rage.dds"]={
 						h=32,
 						w=32,
-						x=64,
+						x=32,
 						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/ReducedSkillEffectDurationNode.dds"]={
@@ -100363,19 +100931,19 @@ return {
 					["Art/2DArt/SkillIcons/passives/ShieldNodeOffensive.dds"]={
 						h=32,
 						w=32,
-						x=1056,
+						x=1024,
 						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/SpellSuppresionNode.dds"]={
 						h=32,
 						w=32,
-						x=896,
+						x=864,
 						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/Storm Weaver.dds"]={
 						h=32,
 						w=32,
-						x=288,
+						x=1024,
 						y=32
 					},
 					["Art/2DArt/SkillIcons/passives/Stormweaver/AllDamageCanChill.dds"]={
@@ -100411,7 +100979,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/Stormweaver/GrantsArcaneSurge.dds"]={
 						h=32,
 						w=32,
-						x=288,
+						x=256,
 						y=96
 					},
 					["Art/2DArt/SkillIcons/passives/Stormweaver/GrantsElementalStorm.dds"]={
@@ -100423,7 +100991,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/Stormweaver/ImprovedArcaneSurge.dds"]={
 						h=32,
 						w=32,
-						x=768,
+						x=800,
 						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/Stormweaver/ImprovedElementalStorm.dds"]={
@@ -100453,8 +101021,8 @@ return {
 					["Art/2DArt/SkillIcons/passives/Temporalist/TemporalistGainMoreCastSpeed8Seconds.dds"]={
 						h=32,
 						w=32,
-						x=800,
-						y=32
+						x=608,
+						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/Temporalist/TemporalistGrantsReloadCooldownsSkill.dds"]={
 						h=32,
@@ -100471,7 +101039,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/Temporalist/TemporalistGrantsTimeStopSkill.dds"]={
 						h=32,
 						w=32,
-						x=960,
+						x=928,
 						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/Temporalist/TemporalistLifeRecoup.dds"]={
@@ -100483,7 +101051,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/Temporalist/TemporalistNearbyEnemiesProjectilesSlowed.dds"]={
 						h=32,
 						w=32,
-						x=256,
+						x=128,
 						y=32
 					},
 					["Art/2DArt/SkillIcons/passives/Titan/TitanAdditionalInventory.dds"]={
@@ -100537,7 +101105,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/WarCryEffect.dds"]={
 						h=32,
 						w=32,
-						x=576,
+						x=480,
 						y=32
 					},
 					["Art/2DArt/SkillIcons/passives/Warbringer/WarbringerBlockChance.dds"]={
@@ -100597,7 +101165,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/Warrior.dds"]={
 						h=32,
 						w=32,
-						x=64,
+						x=32,
 						y=96
 					},
 					["Art/2DArt/SkillIcons/passives/Witchhunter/WitchunterArmourEvasionConvertedSpellAegis.dds"]={
@@ -100633,13 +101201,13 @@ return {
 					["Art/2DArt/SkillIcons/passives/Witchhunter/WitchunterRemovePercentageFullLifeEnemies.dds"]={
 						h=32,
 						w=32,
-						x=128,
-						y=64
+						x=1120,
+						y=32
 					},
 					["Art/2DArt/SkillIcons/passives/Witchhunter/WitchunterSpecPoints.dds"]={
 						h=32,
 						w=32,
-						x=608,
+						x=1088,
 						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/Witchhunter/WitchunterStrongerSpellAegis.dds"]={
@@ -100675,14 +101243,14 @@ return {
 					["Art/2DArt/SkillIcons/passives/attackspeedbow.dds"]={
 						h=32,
 						w=32,
-						x=736,
+						x=704,
 						y=32
 					},
 					["Art/2DArt/SkillIcons/passives/auraeffect.dds"]={
 						h=32,
 						w=32,
-						x=0,
-						y=64
+						x=896,
+						y=32
 					},
 					["Art/2DArt/SkillIcons/passives/avoidchilling.dds"]={
 						h=32,
@@ -100699,7 +101267,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/bodysoul.dds"]={
 						h=32,
 						w=32,
-						x=320,
+						x=224,
 						y=96
 					},
 					["Art/2DArt/SkillIcons/passives/castspeed.dds"]={
@@ -100723,13 +101291,13 @@ return {
 					["Art/2DArt/SkillIcons/passives/chargestr.dds"]={
 						h=32,
 						w=32,
-						x=768,
+						x=736,
 						y=32
 					},
 					["Art/2DArt/SkillIcons/passives/clustersLinknode2.dds"]={
 						h=32,
 						w=32,
-						x=320,
+						x=256,
 						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/colddamage.dds"]={
@@ -100783,13 +101351,13 @@ return {
 					["Art/2DArt/SkillIcons/passives/damagesword.dds"]={
 						h=32,
 						w=32,
-						x=640,
+						x=576,
 						y=32
 					},
 					["Art/2DArt/SkillIcons/passives/deepwisdom.dds"]={
 						h=32,
 						w=32,
-						x=576,
+						x=512,
 						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/dmgreduction.dds"]={
@@ -100801,8 +101369,8 @@ return {
 					["Art/2DArt/SkillIcons/passives/eagleeye.dds"]={
 						h=32,
 						w=32,
-						x=1120,
-						y=32
+						x=0,
+						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/elementaldamage.dds"]={
 						h=32,
@@ -100825,13 +101393,13 @@ return {
 					["Art/2DArt/SkillIcons/passives/executioner.dds"]={
 						h=32,
 						w=32,
-						x=448,
+						x=1152,
 						y=32
 					},
 					["Art/2DArt/SkillIcons/passives/finesse.dds"]={
 						h=32,
 						w=32,
-						x=448,
+						x=608,
 						y=96
 					},
 					["Art/2DArt/SkillIcons/passives/firedamageint.dds"]={
@@ -100849,13 +101417,13 @@ return {
 					["Art/2DArt/SkillIcons/passives/flaskdex.dds"]={
 						h=32,
 						w=32,
-						x=352,
+						x=256,
 						y=32
 					},
 					["Art/2DArt/SkillIcons/passives/flaskint.dds"]={
 						h=32,
 						w=32,
-						x=128,
+						x=96,
 						y=32
 					},
 					["Art/2DArt/SkillIcons/passives/flaskstr.dds"]={
@@ -100879,7 +101447,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/knockback.dds"]={
 						h=32,
 						w=32,
-						x=1024,
+						x=992,
 						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/life1.dds"]={
@@ -100903,7 +101471,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/lightningint.dds"]={
 						h=32,
 						w=32,
-						x=416,
+						x=480,
 						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/macedmg.dds"]={
@@ -100927,7 +101495,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/manastr.dds"]={
 						h=32,
 						w=32,
-						x=832,
+						x=736,
 						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/miniondamageBlue.dds"]={
@@ -100939,14 +101507,14 @@ return {
 					["Art/2DArt/SkillIcons/passives/minionlife.dds"]={
 						h=32,
 						w=32,
-						x=608,
+						x=416,
 						y=96
 					},
 					["Art/2DArt/SkillIcons/passives/newnewattackspeed.dds"]={
 						h=32,
 						w=32,
-						x=32,
-						y=192
+						x=864,
+						y=96
 					},
 					["Art/2DArt/SkillIcons/passives/onehanddamage.dds"]={
 						h=32,
@@ -100957,25 +101525,25 @@ return {
 					["Art/2DArt/SkillIcons/passives/plusdexterity.dds"]={
 						h=32,
 						w=32,
-						x=1056,
+						x=992,
 						y=32
 					},
 					["Art/2DArt/SkillIcons/passives/plusintelligence.dds"]={
 						h=32,
 						w=32,
-						x=384,
+						x=192,
 						y=32
 					},
 					["Art/2DArt/SkillIcons/passives/plusstrength.dds"]={
 						h=32,
 						w=32,
-						x=512,
+						x=544,
 						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/projectilespeed.dds"]={
 						h=32,
 						w=32,
-						x=704,
+						x=672,
 						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/shieldblock.dds"]={
@@ -100987,19 +101555,19 @@ return {
 					["Art/2DArt/SkillIcons/passives/spellcritical.dds"]={
 						h=32,
 						w=32,
-						x=224,
+						x=192,
 						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/steelspan.dds"]={
 						h=32,
 						w=32,
-						x=992,
+						x=1088,
 						y=32
 					},
 					["Art/2DArt/SkillIcons/passives/strongarm.dds"]={
 						h=32,
 						w=32,
-						x=1088,
+						x=96,
 						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/stun2h.dds"]={
@@ -101036,7 +101604,7 @@ return {
 					["Art/2DArt/SkillIcons/ExplosiveGrenade.dds"]={
 						h=64,
 						w=64,
-						x=576,
+						x=512,
 						y=192
 					},
 					["Art/2DArt/SkillIcons/WitchBoneStorm.dds"]={
@@ -101114,7 +101682,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/Annihilation.dds"]={
 						h=64,
 						w=64,
-						x=512,
+						x=448,
 						y=320
 					},
 					["Art/2DArt/SkillIcons/passives/AreaDmgNode.dds"]={
@@ -101126,31 +101694,31 @@ return {
 					["Art/2DArt/SkillIcons/passives/ArmourAndEnergyShieldNode.dds"]={
 						h=64,
 						w=64,
-						x=960,
+						x=896,
 						y=128
 					},
 					["Art/2DArt/SkillIcons/passives/ArmourAndEvasionNode.dds"]={
 						h=64,
 						w=64,
-						x=512,
+						x=576,
 						y=448
 					},
 					["Art/2DArt/SkillIcons/passives/ArmourBreak2BuffIcon.dds"]={
 						h=64,
 						w=64,
-						x=384,
-						y=384
+						x=320,
+						y=256
 					},
 					["Art/2DArt/SkillIcons/passives/Ascendants/SkillPoint.dds"]={
 						h=64,
 						w=64,
-						x=384,
+						x=320,
 						y=320
 					},
 					["Art/2DArt/SkillIcons/passives/AspectOfTheLynx.dds"]={
 						h=64,
 						w=64,
-						x=768,
+						x=640,
 						y=256
 					},
 					["Art/2DArt/SkillIcons/passives/Blood2.dds"]={
@@ -101162,7 +101730,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/Bloodmage/BloodMageCritDamagePerLife.dds"]={
 						h=64,
 						w=64,
-						x=320,
+						x=576,
 						y=128
 					},
 					["Art/2DArt/SkillIcons/passives/Bloodmage/BloodMageCurseInfiniteDuration.dds"]={
@@ -101174,7 +101742,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/Bloodmage/BloodMageDamageLeechedLife.dds"]={
 						h=64,
 						w=64,
-						x=256,
+						x=192,
 						y=256
 					},
 					["Art/2DArt/SkillIcons/passives/Bloodmage/BloodMageGainLifeEnergyShield.dds"]={
@@ -101204,20 +101772,20 @@ return {
 					["Art/2DArt/SkillIcons/passives/Bloodmage/BloodPhysicalDamageExtraGore.dds"]={
 						h=64,
 						w=64,
-						x=640,
-						y=384
+						x=1024,
+						y=320
 					},
 					["Art/2DArt/SkillIcons/passives/BowDamage.dds"]={
 						h=64,
 						w=64,
-						x=0,
+						x=256,
 						y=448
 					},
 					["Art/2DArt/SkillIcons/passives/ChainingProjectiles.dds"]={
 						h=64,
 						w=64,
-						x=256,
-						y=320
+						x=768,
+						y=256
 					},
 					["Art/2DArt/SkillIcons/passives/ChannellingAttacksNotable2.dds"]={
 						h=64,
@@ -101228,14 +101796,14 @@ return {
 					["Art/2DArt/SkillIcons/passives/ChaosDamagenode.dds"]={
 						h=64,
 						w=64,
-						x=0,
-						y=256
+						x=128,
+						y=128
 					},
 					["Art/2DArt/SkillIcons/passives/CharmNotable1.dds"]={
 						h=64,
 						w=64,
-						x=64,
-						y=192
+						x=1088,
+						y=128
 					},
 					["Art/2DArt/SkillIcons/passives/ClawsOfTheMagpie.dds"]={
 						h=64,
@@ -101246,7 +101814,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/ColdDamagenode.dds"]={
 						h=64,
 						w=64,
-						x=64,
+						x=0,
 						y=384
 					},
 					["Art/2DArt/SkillIcons/passives/CorpseDamage.dds"]={
@@ -101288,7 +101856,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/DeadEye/DeadeyeMarkEnemiesSpread.dds"]={
 						h=64,
 						w=64,
-						x=320,
+						x=896,
 						y=384
 					},
 					["Art/2DArt/SkillIcons/passives/DeadEye/DeadeyeMoreAccuracy.dds"]={
@@ -101330,14 +101898,14 @@ return {
 					["Art/2DArt/SkillIcons/passives/ElementalDamagenode.dds"]={
 						h=64,
 						w=64,
-						x=384,
-						y=256
+						x=256,
+						y=384
 					},
 					["Art/2DArt/SkillIcons/passives/ElementalDamagewithAttacks2.dds"]={
 						h=64,
 						w=64,
-						x=128,
-						y=256
+						x=832,
+						y=128
 					},
 					["Art/2DArt/SkillIcons/passives/ElementalResistance2.dds"]={
 						h=64,
@@ -101354,14 +101922,14 @@ return {
 					["Art/2DArt/SkillIcons/passives/EvasionAndBlindNotable.dds"]={
 						h=64,
 						w=64,
-						x=896,
-						y=384
+						x=64,
+						y=448
 					},
 					["Art/2DArt/SkillIcons/passives/EvasionNode.dds"]={
 						h=64,
 						w=64,
-						x=128,
-						y=448
+						x=1024,
+						y=384
 					},
 					["Art/2DArt/SkillIcons/passives/EvasionandEnergyShieldNode.dds"]={
 						h=64,
@@ -101402,7 +101970,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/Gemling/GemlingInherentBonusesFromAttributesDouble.dds"]={
 						h=64,
 						w=64,
-						x=1024,
+						x=576,
 						y=192
 					},
 					["Art/2DArt/SkillIcons/passives/Gemling/GemlingLevelAllSkillGems.dds"]={
@@ -101438,50 +102006,50 @@ return {
 					["Art/2DArt/SkillIcons/passives/GreenAttackSmallPassive.dds"]={
 						h=64,
 						w=64,
-						x=704,
-						y=448
+						x=384,
+						y=768
 					},
 					["Art/2DArt/SkillIcons/passives/Harrier.dds"]={
 						h=64,
 						w=64,
-						x=960,
+						x=384,
 						y=384
 					},
 					["Art/2DArt/SkillIcons/passives/Hearty.dds"]={
 						h=64,
 						w=64,
-						x=832,
+						x=768,
 						y=128
 					},
 					["Art/2DArt/SkillIcons/passives/HeraldBuffEffectNode2.dds"]={
 						h=64,
 						w=64,
-						x=640,
+						x=64,
 						y=192
 					},
 					["Art/2DArt/SkillIcons/passives/HiredKiller2.dds"]={
 						h=64,
 						w=64,
-						x=704,
+						x=960,
 						y=192
 					},
 					["Art/2DArt/SkillIcons/passives/Hunter.dds"]={
 						h=64,
 						w=64,
-						x=576,
+						x=768,
 						y=384
 					},
 					["Art/2DArt/SkillIcons/passives/IncreasedManaCostNotable.dds"]={
 						h=64,
 						w=64,
-						x=192,
+						x=128,
 						y=384
 					},
 					["Art/2DArt/SkillIcons/passives/IncreasedMaximumLifeNotable.dds"]={
 						h=64,
 						w=64,
-						x=192,
-						y=320
+						x=704,
+						y=256
 					},
 					["Art/2DArt/SkillIcons/passives/IncreasedProjectileSpeedNode.dds"]={
 						h=64,
@@ -101492,13 +102060,13 @@ return {
 					["Art/2DArt/SkillIcons/passives/Infernalist/Fireblood.dds"]={
 						h=44,
 						w=44,
-						x=768,
+						x=704,
 						y=320
 					},
 					["Art/2DArt/SkillIcons/passives/Infernalist/FuryManifest.dds"]={
 						h=64,
 						w=64,
-						x=960,
+						x=896,
 						y=256
 					},
 					["Art/2DArt/SkillIcons/passives/Infernalist/InfernalFamiliar.dds"]={
@@ -101510,20 +102078,20 @@ return {
 					["Art/2DArt/SkillIcons/passives/Infernalist/InfernalistConvertLifeToEnergyShield.dds"]={
 						h=64,
 						w=64,
-						x=896,
+						x=768,
 						y=192
 					},
 					["Art/2DArt/SkillIcons/passives/Infernalist/InfernalistConvertLifeToMana.dds"]={
 						h=64,
 						w=64,
-						x=1088,
-						y=128
+						x=128,
+						y=192
 					},
 					["Art/2DArt/SkillIcons/passives/Infernalist/InfernalistConvertLifeToSpirit.dds"]={
 						h=64,
 						w=64,
-						x=832,
-						y=256
+						x=640,
+						y=448
 					},
 					["Art/2DArt/SkillIcons/passives/Infernalist/InfernalistInfernalHeat.dds"]={
 						h=64,
@@ -101534,7 +102102,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/Infernalist/InfernalistTransformIntoDemon1.dds"]={
 						h=64,
 						w=64,
-						x=640,
+						x=192,
 						y=320
 					},
 					["Art/2DArt/SkillIcons/passives/Infernalist/InfernalistTransformIntoDemon2.dds"]={
@@ -101546,8 +102114,8 @@ return {
 					["Art/2DArt/SkillIcons/passives/Infernalist/MoltenFury.dds"]={
 						h=64,
 						w=64,
-						x=640,
-						y=448
+						x=576,
+						y=320
 					},
 					["Art/2DArt/SkillIcons/passives/Infernalist/ScorchTheEarth.dds"]={
 						h=64,
@@ -101570,8 +102138,8 @@ return {
 					["Art/2DArt/SkillIcons/passives/Invoker/InvokerCriticalStrikesIgnoreResistances.dds"]={
 						h=64,
 						w=64,
-						x=1088,
-						y=384
+						x=0,
+						y=448
 					},
 					["Art/2DArt/SkillIcons/passives/Invoker/InvokerEnergyDoubled.dds"]={
 						h=64,
@@ -101582,8 +102150,8 @@ return {
 					["Art/2DArt/SkillIcons/passives/Invoker/InvokerEvasionEnergyShieldGrantsSpirit.dds"]={
 						h=64,
 						w=64,
-						x=256,
-						y=448
+						x=1088,
+						y=384
 					},
 					["Art/2DArt/SkillIcons/passives/Invoker/InvokerEvasionGrantsPhysicalDamageReduction.dds"]={
 						h=64,
@@ -101612,13 +102180,13 @@ return {
 					["Art/2DArt/SkillIcons/passives/Invoker/InvokerWildStrike.dds"]={
 						h=64,
 						w=64,
-						x=0,
+						x=832,
 						y=384
 					},
 					["Art/2DArt/SkillIcons/passives/LifeRecoupNode.dds"]={
 						h=64,
 						w=64,
-						x=448,
+						x=64,
 						y=384
 					},
 					["Art/2DArt/SkillIcons/passives/LightningDamagenode.dds"]={
@@ -101636,7 +102204,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/MarkNode.dds"]={
 						h=64,
 						w=64,
-						x=512,
+						x=384,
 						y=192
 					},
 					["Art/2DArt/SkillIcons/passives/MeleeAoENode.dds"]={
@@ -101648,19 +102216,19 @@ return {
 					["Art/2DArt/SkillIcons/passives/Meleerange.dds"]={
 						h=64,
 						w=64,
-						x=640,
+						x=832,
 						y=256
 					},
 					["Art/2DArt/SkillIcons/passives/MineAreaOfEffectNode.dds"]={
 						h=64,
 						w=64,
-						x=1024,
+						x=960,
 						y=256
 					},
 					["Art/2DArt/SkillIcons/passives/MineManaReservationNotable.dds"]={
 						h=64,
 						w=64,
-						x=896,
+						x=832,
 						y=320
 					},
 					["Art/2DArt/SkillIcons/passives/MinionChaosResistanceNode.dds"]={
@@ -101678,19 +102246,19 @@ return {
 					["Art/2DArt/SkillIcons/passives/MinionsandManaNode.dds"]={
 						h=64,
 						w=64,
-						x=384,
+						x=512,
 						y=448
 					},
 					["Art/2DArt/SkillIcons/passives/MiracleMaker.dds"]={
 						h=64,
 						w=64,
-						x=128,
+						x=448,
 						y=384
 					},
 					["Art/2DArt/SkillIcons/passives/NodeDualWieldingDamage.dds"]={
 						h=64,
 						w=64,
-						x=0,
+						x=64,
 						y=320
 					},
 					["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds"]={
@@ -101708,7 +102276,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderCannotBeSlowed.dds"]={
 						h=64,
 						w=64,
-						x=576,
+						x=320,
 						y=448
 					},
 					["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderEnemiesMultiplePoisons.dds"]={
@@ -101726,7 +102294,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderLifeFlasks.dds"]={
 						h=64,
 						w=64,
-						x=192,
+						x=640,
 						y=128
 					},
 					["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderMoreMovemenSpeedUsingSkills.dds"]={
@@ -101744,8 +102312,8 @@ return {
 					["Art/2DArt/SkillIcons/passives/PhysicalDamageChaosNode.dds"]={
 						h=64,
 						w=64,
-						x=128,
-						y=128
+						x=320,
+						y=384
 					},
 					["Art/2DArt/SkillIcons/passives/PhysicalDamageNode.dds"]={
 						h=64,
@@ -101774,7 +102342,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/PressurePoints.dds"]={
 						h=64,
 						w=64,
-						x=384,
+						x=448,
 						y=128
 					},
 					["Art/2DArt/SkillIcons/passives/ProjectilesNotable.dds"]={
@@ -101786,7 +102354,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/Rage.dds"]={
 						h=64,
 						w=64,
-						x=192,
+						x=128,
 						y=256
 					},
 					["Art/2DArt/SkillIcons/passives/ReducedSkillEffectDurationNode.dds"]={
@@ -101798,20 +102366,20 @@ return {
 					["Art/2DArt/SkillIcons/passives/ShieldNodeOffensive.dds"]={
 						h=64,
 						w=64,
-						x=1024,
+						x=960,
 						y=320
 					},
 					["Art/2DArt/SkillIcons/passives/SpellSuppresionNode.dds"]={
 						h=64,
 						w=64,
-						x=704,
+						x=640,
 						y=320
 					},
 					["Art/2DArt/SkillIcons/passives/Storm Weaver.dds"]={
 						h=64,
 						w=64,
-						x=576,
-						y=128
+						x=896,
+						y=192
 					},
 					["Art/2DArt/SkillIcons/passives/Stormweaver/AllDamageCanChill.dds"]={
 						h=64,
@@ -101846,7 +102414,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/Stormweaver/GrantsArcaneSurge.dds"]={
 						h=64,
 						w=64,
-						x=704,
+						x=640,
 						y=384
 					},
 					["Art/2DArt/SkillIcons/passives/Stormweaver/GrantsElementalStorm.dds"]={
@@ -101858,7 +102426,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/Stormweaver/ImprovedArcaneSurge.dds"]={
 						h=64,
 						w=64,
-						x=448,
+						x=512,
 						y=320
 					},
 					["Art/2DArt/SkillIcons/passives/Stormweaver/ImprovedElementalStorm.dds"]={
@@ -101888,8 +102456,8 @@ return {
 					["Art/2DArt/SkillIcons/passives/Temporalist/TemporalistGainMoreCastSpeed8Seconds.dds"]={
 						h=64,
 						w=64,
-						x=448,
-						y=192
+						x=128,
+						y=320
 					},
 					["Art/2DArt/SkillIcons/passives/Temporalist/TemporalistGrantsReloadCooldownsSkill.dds"]={
 						h=64,
@@ -101906,7 +102474,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/Temporalist/TemporalistGrantsTimeStopSkill.dds"]={
 						h=64,
 						w=64,
-						x=832,
+						x=768,
 						y=320
 					},
 					["Art/2DArt/SkillIcons/passives/Temporalist/TemporalistLifeRecoup.dds"]={
@@ -101918,7 +102486,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/Temporalist/TemporalistNearbyEnemiesProjectilesSlowed.dds"]={
 						h=64,
 						w=64,
-						x=512,
+						x=256,
 						y=128
 					},
 					["Art/2DArt/SkillIcons/passives/Titan/TitanAdditionalInventory.dds"]={
@@ -101972,8 +102540,8 @@ return {
 					["Art/2DArt/SkillIcons/passives/WarCryEffect.dds"]={
 						h=64,
 						w=64,
-						x=0,
-						y=192
+						x=960,
+						y=128
 					},
 					["Art/2DArt/SkillIcons/passives/Warbringer/WarbringerBlockChance.dds"]={
 						h=64,
@@ -102032,7 +102600,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/Warrior.dds"]={
 						h=64,
 						w=64,
-						x=256,
+						x=192,
 						y=384
 					},
 					["Art/2DArt/SkillIcons/passives/Witchhunter/WitchunterArmourEvasionConvertedSpellAegis.dds"]={
@@ -102068,13 +102636,13 @@ return {
 					["Art/2DArt/SkillIcons/passives/Witchhunter/WitchunterRemovePercentageFullLifeEnemies.dds"]={
 						h=64,
 						w=64,
-						x=320,
-						y=256
+						x=1088,
+						y=192
 					},
 					["Art/2DArt/SkillIcons/passives/Witchhunter/WitchunterSpecPoints.dds"]={
 						h=64,
 						w=64,
-						x=128,
+						x=1088,
 						y=320
 					},
 					["Art/2DArt/SkillIcons/passives/Witchhunter/WitchunterStrongerSpellAegis.dds"]={
@@ -102110,14 +102678,14 @@ return {
 					["Art/2DArt/SkillIcons/passives/attackspeedbow.dds"]={
 						h=64,
 						w=64,
-						x=320,
+						x=256,
 						y=192
 					},
 					["Art/2DArt/SkillIcons/passives/auraeffect.dds"]={
 						h=64,
 						w=64,
-						x=64,
-						y=256
+						x=640,
+						y=192
 					},
 					["Art/2DArt/SkillIcons/passives/avoidchilling.dds"]={
 						h=64,
@@ -102134,7 +102702,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/bodysoul.dds"]={
 						h=64,
 						w=64,
-						x=768,
+						x=576,
 						y=384
 					},
 					["Art/2DArt/SkillIcons/passives/castspeed.dds"]={
@@ -102158,13 +102726,13 @@ return {
 					["Art/2DArt/SkillIcons/passives/chargestr.dds"]={
 						h=64,
 						w=64,
-						x=384,
+						x=320,
 						y=192
 					},
 					["Art/2DArt/SkillIcons/passives/clustersLinknode2.dds"]={
 						h=64,
 						w=64,
-						x=704,
+						x=576,
 						y=256
 					},
 					["Art/2DArt/SkillIcons/passives/colddamage.dds"]={
@@ -102218,14 +102786,14 @@ return {
 					["Art/2DArt/SkillIcons/passives/damagesword.dds"]={
 						h=64,
 						w=64,
-						x=128,
+						x=0,
 						y=192
 					},
 					["Art/2DArt/SkillIcons/passives/deepwisdom.dds"]={
 						h=64,
 						w=64,
-						x=64,
-						y=320
+						x=1088,
+						y=256
 					},
 					["Art/2DArt/SkillIcons/passives/dmgreduction.dds"]={
 						h=64,
@@ -102236,8 +102804,8 @@ return {
 					["Art/2DArt/SkillIcons/passives/eagleeye.dds"]={
 						h=64,
 						w=64,
-						x=1088,
-						y=192
+						x=64,
+						y=256
 					},
 					["Art/2DArt/SkillIcons/passives/elementaldamage.dds"]={
 						h=64,
@@ -102260,14 +102828,14 @@ return {
 					["Art/2DArt/SkillIcons/passives/executioner.dds"]={
 						h=64,
 						w=64,
-						x=896,
-						y=128
+						x=0,
+						y=256
 					},
 					["Art/2DArt/SkillIcons/passives/finesse.dds"]={
 						h=64,
 						w=64,
-						x=1024,
-						y=384
+						x=192,
+						y=448
 					},
 					["Art/2DArt/SkillIcons/passives/firedamageint.dds"]={
 						h=64,
@@ -102284,13 +102852,13 @@ return {
 					["Art/2DArt/SkillIcons/passives/flaskdex.dds"]={
 						h=64,
 						w=64,
-						x=704,
+						x=512,
 						y=128
 					},
 					["Art/2DArt/SkillIcons/passives/flaskint.dds"]={
 						h=64,
 						w=64,
-						x=256,
+						x=192,
 						y=128
 					},
 					["Art/2DArt/SkillIcons/passives/flaskstr.dds"]={
@@ -102314,7 +102882,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/knockback.dds"]={
 						h=64,
 						w=64,
-						x=960,
+						x=896,
 						y=320
 					},
 					["Art/2DArt/SkillIcons/passives/life1.dds"]={
@@ -102338,7 +102906,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/lightningint.dds"]={
 						h=64,
 						w=64,
-						x=896,
+						x=1024,
 						y=256
 					},
 					["Art/2DArt/SkillIcons/passives/macedmg.dds"]={
@@ -102362,7 +102930,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/manastr.dds"]={
 						h=64,
 						w=64,
-						x=576,
+						x=384,
 						y=320
 					},
 					["Art/2DArt/SkillIcons/passives/miniondamageBlue.dds"]={
@@ -102374,14 +102942,14 @@ return {
 					["Art/2DArt/SkillIcons/passives/minionlife.dds"]={
 						h=64,
 						w=64,
-						x=192,
-						y=448
+						x=960,
+						y=384
 					},
 					["Art/2DArt/SkillIcons/passives/newnewattackspeed.dds"]={
 						h=64,
 						w=64,
-						x=384,
-						y=768
+						x=704,
+						y=448
 					},
 					["Art/2DArt/SkillIcons/passives/onehanddamage.dds"]={
 						h=64,
@@ -102392,25 +102960,25 @@ return {
 					["Art/2DArt/SkillIcons/passives/plusdexterity.dds"]={
 						h=64,
 						w=64,
-						x=960,
+						x=832,
 						y=192
 					},
 					["Art/2DArt/SkillIcons/passives/plusintelligence.dds"]={
 						h=64,
 						w=64,
-						x=768,
+						x=384,
 						y=128
 					},
 					["Art/2DArt/SkillIcons/passives/plusstrength.dds"]={
 						h=64,
 						w=64,
-						x=1088,
-						y=256
+						x=0,
+						y=320
 					},
 					["Art/2DArt/SkillIcons/passives/projectilespeed.dds"]={
 						h=64,
 						w=64,
-						x=320,
+						x=256,
 						y=320
 					},
 					["Art/2DArt/SkillIcons/passives/shieldblock.dds"]={
@@ -102422,20 +102990,20 @@ return {
 					["Art/2DArt/SkillIcons/passives/spellcritical.dds"]={
 						h=64,
 						w=64,
-						x=512,
+						x=448,
 						y=256
 					},
 					["Art/2DArt/SkillIcons/passives/steelspan.dds"]={
 						h=64,
 						w=64,
-						x=832,
+						x=1024,
 						y=192
 					},
 					["Art/2DArt/SkillIcons/passives/strongarm.dds"]={
 						h=64,
 						w=64,
-						x=1088,
-						y=320
+						x=256,
+						y=256
 					},
 					["Art/2DArt/SkillIcons/passives/stun2h.dds"]={
 						h=64,
@@ -102471,8 +103039,8 @@ return {
 					["Art/2DArt/SkillIcons/ExplosiveGrenade.dds"]={
 						h=64,
 						w=64,
-						x=0,
-						y=960
+						x=1024,
+						y=832
 					},
 					["Art/2DArt/SkillIcons/WitchBoneStorm.dds"]={
 						h=64,
@@ -102549,7 +103117,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/Annihilation.dds"]={
 						h=128,
 						w=128,
-						x=1024,
+						x=896,
 						y=1344
 					},
 					["Art/2DArt/SkillIcons/passives/AreaDmgNode.dds"]={
@@ -102561,31 +103129,31 @@ return {
 					["Art/2DArt/SkillIcons/passives/ArmourAndEnergyShieldNode.dds"]={
 						h=64,
 						w=64,
-						x=768,
+						x=640,
 						y=704
 					},
 					["Art/2DArt/SkillIcons/passives/ArmourAndEvasionNode.dds"]={
 						h=64,
 						w=64,
-						x=1024,
-						y=1856
+						x=0,
+						y=1984
 					},
 					["Art/2DArt/SkillIcons/passives/ArmourBreak2BuffIcon.dds"]={
 						h=64,
 						w=64,
-						x=768,
-						y=1600
+						x=640,
+						y=1088
 					},
 					["Art/2DArt/SkillIcons/passives/Ascendants/SkillPoint.dds"]={
 						h=64,
 						w=64,
-						x=768,
+						x=640,
 						y=1344
 					},
 					["Art/2DArt/SkillIcons/passives/AspectOfTheLynx.dds"]={
 						h=128,
 						w=128,
-						x=384,
+						x=128,
 						y=1216
 					},
 					["Art/2DArt/SkillIcons/passives/Blood2.dds"]={
@@ -102597,8 +103165,8 @@ return {
 					["Art/2DArt/SkillIcons/passives/Bloodmage/BloodMageCritDamagePerLife.dds"]={
 						h=128,
 						w=128,
-						x=640,
-						y=576
+						x=0,
+						y=704
 					},
 					["Art/2DArt/SkillIcons/passives/Bloodmage/BloodMageCurseInfiniteDuration.dds"]={
 						h=128,
@@ -102609,7 +103177,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/Bloodmage/BloodMageDamageLeechedLife.dds"]={
 						h=128,
 						w=128,
-						x=512,
+						x=384,
 						y=1088
 					},
 					["Art/2DArt/SkillIcons/passives/Bloodmage/BloodMageGainLifeEnergyShield.dds"]={
@@ -102639,20 +103207,20 @@ return {
 					["Art/2DArt/SkillIcons/passives/Bloodmage/BloodPhysicalDamageExtraGore.dds"]={
 						h=128,
 						w=128,
-						x=128,
-						y=1728
+						x=896,
+						y=1472
 					},
 					["Art/2DArt/SkillIcons/passives/BowDamage.dds"]={
 						h=128,
 						w=128,
-						x=0,
+						x=512,
 						y=1856
 					},
 					["Art/2DArt/SkillIcons/passives/ChainingProjectiles.dds"]={
 						h=128,
 						w=128,
-						x=512,
-						y=1344
+						x=384,
+						y=1216
 					},
 					["Art/2DArt/SkillIcons/passives/ChannellingAttacksNotable2.dds"]={
 						h=128,
@@ -102663,14 +103231,14 @@ return {
 					["Art/2DArt/SkillIcons/passives/ChaosDamagenode.dds"]={
 						h=64,
 						w=64,
-						x=0,
-						y=1088
+						x=256,
+						y=576
 					},
 					["Art/2DArt/SkillIcons/passives/CharmNotable1.dds"]={
 						h=128,
 						w=128,
-						x=128,
-						y=832
+						x=1024,
+						y=704
 					},
 					["Art/2DArt/SkillIcons/passives/ClawsOfTheMagpie.dds"]={
 						h=128,
@@ -102681,7 +103249,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/ColdDamagenode.dds"]={
 						h=64,
 						w=64,
-						x=128,
+						x=0,
 						y=1600
 					},
 					["Art/2DArt/SkillIcons/passives/CorpseDamage.dds"]={
@@ -102724,7 +103292,7 @@ return {
 						h=128,
 						w=128,
 						x=640,
-						y=1600
+						y=1728
 					},
 					["Art/2DArt/SkillIcons/passives/DeadEye/DeadeyeMoreAccuracy.dds"]={
 						h=128,
@@ -102765,14 +103333,14 @@ return {
 					["Art/2DArt/SkillIcons/passives/ElementalDamagenode.dds"]={
 						h=64,
 						w=64,
-						x=768,
-						y=1088
+						x=512,
+						y=1600
 					},
 					["Art/2DArt/SkillIcons/passives/ElementalDamagewithAttacks2.dds"]={
 						h=128,
 						w=128,
-						x=256,
-						y=1088
+						x=512,
+						y=704
 					},
 					["Art/2DArt/SkillIcons/passives/ElementalResistance2.dds"]={
 						h=128,
@@ -102789,14 +103357,14 @@ return {
 					["Art/2DArt/SkillIcons/passives/EvasionAndBlindNotable.dds"]={
 						h=128,
 						w=128,
-						x=640,
-						y=1728
+						x=128,
+						y=1856
 					},
 					["Art/2DArt/SkillIcons/passives/EvasionNode.dds"]={
 						h=64,
 						w=64,
-						x=256,
-						y=1856
+						x=896,
+						y=1728
 					},
 					["Art/2DArt/SkillIcons/passives/EvasionandEnergyShieldNode.dds"]={
 						h=64,
@@ -102837,7 +103405,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/Gemling/GemlingInherentBonusesFromAttributesDouble.dds"]={
 						h=128,
 						w=128,
-						x=896,
+						x=0,
 						y=960
 					},
 					["Art/2DArt/SkillIcons/passives/Gemling/GemlingLevelAllSkillGems.dds"]={
@@ -102873,50 +103441,50 @@ return {
 					["Art/2DArt/SkillIcons/passives/GreenAttackSmallPassive.dds"]={
 						h=64,
 						w=64,
-						x=256,
-						y=1984
+						x=768,
+						y=3136
 					},
 					["Art/2DArt/SkillIcons/passives/Harrier.dds"]={
 						h=128,
 						w=128,
 						x=768,
-						y=1728
+						y=1600
 					},
 					["Art/2DArt/SkillIcons/passives/Hearty.dds"]={
 						h=128,
 						w=128,
-						x=512,
+						x=384,
 						y=704
 					},
 					["Art/2DArt/SkillIcons/passives/HeraldBuffEffectNode2.dds"]={
 						h=64,
 						w=64,
 						x=128,
-						y=960
+						y=832
 					},
 					["Art/2DArt/SkillIcons/passives/HiredKiller2.dds"]={
 						h=128,
 						w=128,
-						x=256,
+						x=768,
 						y=960
 					},
 					["Art/2DArt/SkillIcons/passives/Hunter.dds"]={
 						h=128,
 						w=128,
-						x=0,
+						x=384,
 						y=1728
 					},
 					["Art/2DArt/SkillIcons/passives/IncreasedManaCostNotable.dds"]={
 						h=128,
 						w=128,
-						x=384,
+						x=256,
 						y=1600
 					},
 					["Art/2DArt/SkillIcons/passives/IncreasedMaximumLifeNotable.dds"]={
 						h=128,
 						w=128,
-						x=384,
-						y=1344
+						x=256,
+						y=1216
 					},
 					["Art/2DArt/SkillIcons/passives/IncreasedProjectileSpeedNode.dds"]={
 						h=64,
@@ -102927,13 +103495,13 @@ return {
 					["Art/2DArt/SkillIcons/passives/Infernalist/Fireblood.dds"]={
 						h=88,
 						w=88,
-						x=384,
+						x=256,
 						y=1472
 					},
 					["Art/2DArt/SkillIcons/passives/Infernalist/FuryManifest.dds"]={
 						h=128,
 						w=128,
-						x=768,
+						x=640,
 						y=1216
 					},
 					["Art/2DArt/SkillIcons/passives/Infernalist/InfernalFamiliar.dds"]={
@@ -102945,20 +103513,20 @@ return {
 					["Art/2DArt/SkillIcons/passives/Infernalist/InfernalistConvertLifeToEnergyShield.dds"]={
 						h=128,
 						w=128,
-						x=640,
+						x=384,
 						y=960
 					},
 					["Art/2DArt/SkillIcons/passives/Infernalist/InfernalistConvertLifeToMana.dds"]={
 						h=128,
 						w=128,
-						x=1024,
-						y=704
+						x=256,
+						y=832
 					},
 					["Art/2DArt/SkillIcons/passives/Infernalist/InfernalistConvertLifeToSpirit.dds"]={
 						h=128,
 						w=128,
-						x=512,
-						y=1216
+						x=128,
+						y=1984
 					},
 					["Art/2DArt/SkillIcons/passives/Infernalist/InfernalistInfernalHeat.dds"]={
 						h=128,
@@ -102969,8 +103537,8 @@ return {
 					["Art/2DArt/SkillIcons/passives/Infernalist/InfernalistTransformIntoDemon1.dds"]={
 						h=128,
 						w=128,
-						x=128,
-						y=1472
+						x=384,
+						y=1344
 					},
 					["Art/2DArt/SkillIcons/passives/Infernalist/InfernalistTransformIntoDemon2.dds"]={
 						h=128,
@@ -102981,8 +103549,8 @@ return {
 					["Art/2DArt/SkillIcons/passives/Infernalist/MoltenFury.dds"]={
 						h=128,
 						w=128,
-						x=128,
-						y=1984
+						x=0,
+						y=1472
 					},
 					["Art/2DArt/SkillIcons/passives/Infernalist/ScorchTheEarth.dds"]={
 						h=128,
@@ -103005,8 +103573,8 @@ return {
 					["Art/2DArt/SkillIcons/passives/Invoker/InvokerCriticalStrikesIgnoreResistances.dds"]={
 						h=128,
 						w=128,
-						x=1024,
-						y=1728
+						x=0,
+						y=1856
 					},
 					["Art/2DArt/SkillIcons/passives/Invoker/InvokerEnergyDoubled.dds"]={
 						h=128,
@@ -103017,8 +103585,8 @@ return {
 					["Art/2DArt/SkillIcons/passives/Invoker/InvokerEvasionEnergyShieldGrantsSpirit.dds"]={
 						h=128,
 						w=128,
-						x=512,
-						y=1856
+						x=1024,
+						y=1728
 					},
 					["Art/2DArt/SkillIcons/passives/Invoker/InvokerEvasionGrantsPhysicalDamageReduction.dds"]={
 						h=128,
@@ -103047,13 +103615,13 @@ return {
 					["Art/2DArt/SkillIcons/passives/Invoker/InvokerWildStrike.dds"]={
 						h=128,
 						w=128,
-						x=0,
-						y=1600
+						x=512,
+						y=1728
 					},
 					["Art/2DArt/SkillIcons/passives/LifeRecoupNode.dds"]={
 						h=64,
 						w=64,
-						x=896,
+						x=128,
 						y=1600
 					},
 					["Art/2DArt/SkillIcons/passives/LightningDamagenode.dds"]={
@@ -103071,7 +103639,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/MarkNode.dds"]={
 						h=64,
 						w=64,
-						x=1024,
+						x=768,
 						y=832
 					},
 					["Art/2DArt/SkillIcons/passives/MeleeAoENode.dds"]={
@@ -103083,19 +103651,19 @@ return {
 					["Art/2DArt/SkillIcons/passives/Meleerange.dds"]={
 						h=128,
 						w=128,
-						x=128,
+						x=512,
 						y=1216
 					},
 					["Art/2DArt/SkillIcons/passives/MineAreaOfEffectNode.dds"]={
 						h=64,
 						w=64,
-						x=896,
+						x=768,
 						y=1216
 					},
 					["Art/2DArt/SkillIcons/passives/MineManaReservationNotable.dds"]={
 						h=128,
 						w=128,
-						x=640,
+						x=512,
 						y=1472
 					},
 					["Art/2DArt/SkillIcons/passives/MinionChaosResistanceNode.dds"]={
@@ -103113,19 +103681,19 @@ return {
 					["Art/2DArt/SkillIcons/passives/MinionsandManaNode.dds"]={
 						h=64,
 						w=64,
-						x=768,
+						x=1024,
 						y=1856
 					},
 					["Art/2DArt/SkillIcons/passives/MiracleMaker.dds"]={
 						h=128,
 						w=128,
-						x=256,
+						x=896,
 						y=1600
 					},
 					["Art/2DArt/SkillIcons/passives/NodeDualWieldingDamage.dds"]={
 						h=64,
 						w=64,
-						x=0,
+						x=128,
 						y=1344
 					},
 					["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds"]={
@@ -103143,8 +103711,8 @@ return {
 					["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderCannotBeSlowed.dds"]={
 						h=128,
 						w=128,
-						x=0,
-						y=1984
+						x=640,
+						y=1856
 					},
 					["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderEnemiesMultiplePoisons.dds"]={
 						h=128,
@@ -103161,8 +103729,8 @@ return {
 					["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderLifeFlasks.dds"]={
 						h=128,
 						w=128,
-						x=384,
-						y=576
+						x=128,
+						y=704
 					},
 					["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderMoreMovemenSpeedUsingSkills.dds"]={
 						h=128,
@@ -103179,8 +103747,8 @@ return {
 					["Art/2DArt/SkillIcons/passives/PhysicalDamageChaosNode.dds"]={
 						h=64,
 						w=64,
-						x=256,
-						y=576
+						x=640,
+						y=1600
 					},
 					["Art/2DArt/SkillIcons/passives/PhysicalDamageNode.dds"]={
 						h=64,
@@ -103209,7 +103777,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/PressurePoints.dds"]={
 						h=128,
 						w=128,
-						x=768,
+						x=896,
 						y=576
 					},
 					["Art/2DArt/SkillIcons/passives/ProjectilesNotable.dds"]={
@@ -103221,7 +103789,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/Rage.dds"]={
 						h=64,
 						w=64,
-						x=384,
+						x=256,
 						y=1088
 					},
 					["Art/2DArt/SkillIcons/passives/ReducedSkillEffectDurationNode.dds"]={
@@ -103233,20 +103801,20 @@ return {
 					["Art/2DArt/SkillIcons/passives/ShieldNodeOffensive.dds"]={
 						h=64,
 						w=64,
-						x=896,
+						x=768,
 						y=1472
 					},
 					["Art/2DArt/SkillIcons/passives/SpellSuppresionNode.dds"]={
 						h=64,
 						w=64,
-						x=256,
+						x=128,
 						y=1472
 					},
 					["Art/2DArt/SkillIcons/passives/Storm Weaver.dds"]={
 						h=128,
 						w=128,
-						x=0,
-						y=704
+						x=640,
+						y=960
 					},
 					["Art/2DArt/SkillIcons/passives/Stormweaver/AllDamageCanChill.dds"]={
 						h=128,
@@ -103281,7 +103849,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/Stormweaver/GrantsArcaneSurge.dds"]={
 						h=128,
 						w=128,
-						x=256,
+						x=128,
 						y=1728
 					},
 					["Art/2DArt/SkillIcons/passives/Stormweaver/GrantsElementalStorm.dds"]={
@@ -103293,7 +103861,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/Stormweaver/ImprovedArcaneSurge.dds"]={
 						h=128,
 						w=128,
-						x=896,
+						x=1024,
 						y=1344
 					},
 					["Art/2DArt/SkillIcons/passives/Stormweaver/ImprovedElementalStorm.dds"]={
@@ -103323,8 +103891,8 @@ return {
 					["Art/2DArt/SkillIcons/passives/Temporalist/TemporalistGainMoreCastSpeed8Seconds.dds"]={
 						h=128,
 						w=128,
-						x=896,
-						y=832
+						x=256,
+						y=1344
 					},
 					["Art/2DArt/SkillIcons/passives/Temporalist/TemporalistGrantsReloadCooldownsSkill.dds"]={
 						h=128,
@@ -103341,7 +103909,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/Temporalist/TemporalistGrantsTimeStopSkill.dds"]={
 						h=128,
 						w=128,
-						x=512,
+						x=384,
 						y=1472
 					},
 					["Art/2DArt/SkillIcons/passives/Temporalist/TemporalistLifeRecoup.dds"]={
@@ -103353,7 +103921,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/Temporalist/TemporalistNearbyEnemiesProjectilesSlowed.dds"]={
 						h=128,
 						w=128,
-						x=1024,
+						x=512,
 						y=576
 					},
 					["Art/2DArt/SkillIcons/passives/Titan/TitanAdditionalInventory.dds"]={
@@ -103407,8 +103975,8 @@ return {
 					["Art/2DArt/SkillIcons/passives/WarCryEffect.dds"]={
 						h=64,
 						w=64,
-						x=0,
-						y=832
+						x=768,
+						y=704
 					},
 					["Art/2DArt/SkillIcons/passives/Warbringer/WarbringerBlockChance.dds"]={
 						h=128,
@@ -103467,7 +104035,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/Warrior.dds"]={
 						h=128,
 						w=128,
-						x=512,
+						x=384,
 						y=1600
 					},
 					["Art/2DArt/SkillIcons/passives/Witchhunter/WitchunterArmourEvasionConvertedSpellAegis.dds"]={
@@ -103503,14 +104071,14 @@ return {
 					["Art/2DArt/SkillIcons/passives/Witchhunter/WitchunterRemovePercentageFullLifeEnemies.dds"]={
 						h=128,
 						w=128,
-						x=640,
-						y=1088
+						x=1024,
+						y=960
 					},
 					["Art/2DArt/SkillIcons/passives/Witchhunter/WitchunterSpecPoints.dds"]={
 						h=128,
 						w=128,
-						x=256,
-						y=1344
+						x=1024,
+						y=1472
 					},
 					["Art/2DArt/SkillIcons/passives/Witchhunter/WitchunterStrongerSpellAegis.dds"]={
 						h=128,
@@ -103545,14 +104113,14 @@ return {
 					["Art/2DArt/SkillIcons/passives/attackspeedbow.dds"]={
 						h=64,
 						w=64,
-						x=640,
+						x=512,
 						y=832
 					},
 					["Art/2DArt/SkillIcons/passives/auraeffect.dds"]={
 						h=64,
 						w=64,
 						x=128,
-						y=1088
+						y=960
 					},
 					["Art/2DArt/SkillIcons/passives/avoidchilling.dds"]={
 						h=64,
@@ -103569,7 +104137,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/bodysoul.dds"]={
 						h=128,
 						w=128,
-						x=384,
+						x=0,
 						y=1728
 					},
 					["Art/2DArt/SkillIcons/passives/castspeed.dds"]={
@@ -103593,13 +104161,13 @@ return {
 					["Art/2DArt/SkillIcons/passives/chargestr.dds"]={
 						h=64,
 						w=64,
-						x=768,
+						x=640,
 						y=832
 					},
 					["Art/2DArt/SkillIcons/passives/clustersLinknode2.dds"]={
 						h=64,
 						w=64,
-						x=256,
+						x=0,
 						y=1216
 					},
 					["Art/2DArt/SkillIcons/passives/colddamage.dds"]={
@@ -103653,14 +104221,14 @@ return {
 					["Art/2DArt/SkillIcons/passives/damagesword.dds"]={
 						h=64,
 						w=64,
-						x=256,
+						x=0,
 						y=832
 					},
 					["Art/2DArt/SkillIcons/passives/deepwisdom.dds"]={
 						h=128,
 						w=128,
-						x=128,
-						y=1344
+						x=1024,
+						y=1216
 					},
 					["Art/2DArt/SkillIcons/passives/dmgreduction.dds"]={
 						h=64,
@@ -103671,8 +104239,8 @@ return {
 					["Art/2DArt/SkillIcons/passives/eagleeye.dds"]={
 						h=128,
 						w=128,
-						x=1024,
-						y=960
+						x=128,
+						y=1088
 					},
 					["Art/2DArt/SkillIcons/passives/elementaldamage.dds"]={
 						h=64,
@@ -103695,14 +104263,14 @@ return {
 					["Art/2DArt/SkillIcons/passives/executioner.dds"]={
 						h=128,
 						w=128,
-						x=640,
-						y=704
+						x=0,
+						y=1088
 					},
 					["Art/2DArt/SkillIcons/passives/finesse.dds"]={
 						h=128,
 						w=128,
-						x=896,
-						y=1728
+						x=384,
+						y=1856
 					},
 					["Art/2DArt/SkillIcons/passives/firedamageint.dds"]={
 						h=64,
@@ -103719,13 +104287,13 @@ return {
 					["Art/2DArt/SkillIcons/passives/flaskdex.dds"]={
 						h=64,
 						w=64,
-						x=256,
-						y=704
+						x=1024,
+						y=576
 					},
 					["Art/2DArt/SkillIcons/passives/flaskint.dds"]={
 						h=64,
 						w=64,
-						x=512,
+						x=384,
 						y=576
 					},
 					["Art/2DArt/SkillIcons/passives/flaskstr.dds"]={
@@ -103749,7 +104317,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/knockback.dds"]={
 						h=64,
 						w=64,
-						x=768,
+						x=640,
 						y=1472
 					},
 					["Art/2DArt/SkillIcons/passives/life1.dds"]={
@@ -103773,7 +104341,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/lightningint.dds"]={
 						h=64,
 						w=64,
-						x=640,
+						x=896,
 						y=1216
 					},
 					["Art/2DArt/SkillIcons/passives/macedmg.dds"]={
@@ -103797,8 +104365,8 @@ return {
 					["Art/2DArt/SkillIcons/passives/manastr.dds"]={
 						h=64,
 						w=64,
-						x=0,
-						y=1472
+						x=768,
+						y=1344
 					},
 					["Art/2DArt/SkillIcons/passives/miniondamageBlue.dds"]={
 						h=64,
@@ -103809,14 +104377,14 @@ return {
 					["Art/2DArt/SkillIcons/passives/minionlife.dds"]={
 						h=64,
 						w=64,
-						x=384,
-						y=1856
+						x=768,
+						y=1728
 					},
 					["Art/2DArt/SkillIcons/passives/newnewattackspeed.dds"]={
 						h=128,
 						w=128,
-						x=768,
-						y=3136
+						x=256,
+						y=1984
 					},
 					["Art/2DArt/SkillIcons/passives/onehanddamage.dds"]={
 						h=64,
@@ -103827,25 +104395,25 @@ return {
 					["Art/2DArt/SkillIcons/passives/plusdexterity.dds"]={
 						h=64,
 						w=64,
-						x=768,
+						x=512,
 						y=960
 					},
 					["Art/2DArt/SkillIcons/passives/plusintelligence.dds"]={
 						h=64,
 						w=64,
-						x=384,
-						y=704
+						x=768,
+						y=576
 					},
 					["Art/2DArt/SkillIcons/passives/plusstrength.dds"]={
 						h=64,
 						w=64,
-						x=1024,
-						y=1216
+						x=0,
+						y=1344
 					},
 					["Art/2DArt/SkillIcons/passives/projectilespeed.dds"]={
 						h=64,
 						w=64,
-						x=640,
+						x=512,
 						y=1344
 					},
 					["Art/2DArt/SkillIcons/passives/shieldblock.dds"]={
@@ -103857,20 +104425,20 @@ return {
 					["Art/2DArt/SkillIcons/passives/spellcritical.dds"]={
 						h=64,
 						w=64,
-						x=1024,
+						x=896,
 						y=1088
 					},
 					["Art/2DArt/SkillIcons/passives/steelspan.dds"]={
 						h=128,
 						w=128,
-						x=512,
+						x=896,
 						y=960
 					},
 					["Art/2DArt/SkillIcons/passives/strongarm.dds"]={
 						h=128,
 						w=128,
-						x=1024,
-						y=1472
+						x=512,
+						y=1088
 					},
 					["Art/2DArt/SkillIcons/passives/stun2h.dds"]={
 						h=64,
@@ -103908,7 +104476,7 @@ return {
 					["Art/2DArt/SkillIcons/ExplosiveGrenade.dds"]={
 						h=16,
 						w=16,
-						x=432,
+						x=416,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/WitchBoneStorm.dds"]={
@@ -103986,7 +104554,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/Annihilation.dds"]={
 						h=16,
 						w=16,
-						x=992,
+						x=976,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/AreaDmgNode.dds"]={
@@ -104004,25 +104572,25 @@ return {
 					["Art/2DArt/SkillIcons/passives/ArmourAndEvasionNode.dds"]={
 						h=16,
 						w=16,
-						x=368,
+						x=384,
 						y=24
 					},
 					["Art/2DArt/SkillIcons/passives/ArmourBreak2BuffIcon.dds"]={
 						h=16,
 						w=16,
-						x=48,
-						y=24
+						x=656,
+						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/Ascendants/SkillPoint.dds"]={
 						h=16,
 						w=16,
-						x=960,
+						x=1024,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/AspectOfTheLynx.dds"]={
 						h=16,
 						w=16,
-						x=752,
+						x=736,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/Blood2.dds"]={
@@ -104034,7 +104602,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/Bloodmage/BloodMageCritDamagePerLife.dds"]={
 						h=16,
 						w=16,
-						x=80,
+						x=64,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/Bloodmage/BloodMageCurseInfiniteDuration.dds"]={
@@ -104076,19 +104644,19 @@ return {
 					["Art/2DArt/SkillIcons/passives/Bloodmage/BloodPhysicalDamageExtraGore.dds"]={
 						h=16,
 						w=16,
-						x=112,
-						y=24
+						x=1120,
+						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/BowDamage.dds"]={
 						h=16,
 						w=16,
-						x=240,
+						x=304,
 						y=24
 					},
 					["Art/2DArt/SkillIcons/passives/ChainingProjectiles.dds"]={
 						h=16,
 						w=16,
-						x=928,
+						x=768,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/ChannellingAttacksNotable2.dds"]={
@@ -104100,13 +104668,13 @@ return {
 					["Art/2DArt/SkillIcons/passives/ChaosDamagenode.dds"]={
 						h=16,
 						w=16,
-						x=576,
+						x=96,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/CharmNotable1.dds"]={
 						h=16,
 						w=16,
-						x=304,
+						x=272,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/ClawsOfTheMagpie.dds"]={
@@ -104118,8 +104686,8 @@ return {
 					["Art/2DArt/SkillIcons/passives/ColdDamagenode.dds"]={
 						h=16,
 						w=16,
-						x=176,
-						y=24
+						x=1136,
+						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/CorpseDamage.dds"]={
 						h=16,
@@ -104130,7 +104698,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/CriticalStrikesNotable.dds"]={
 						h=16,
 						w=16,
-						x=32,
+						x=16,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/CurseEffectNode.dds"]={
@@ -104160,7 +104728,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/DeadEye/DeadeyeMarkEnemiesSpread.dds"]={
 						h=16,
 						w=16,
-						x=64,
+						x=176,
 						y=24
 					},
 					["Art/2DArt/SkillIcons/passives/DeadEye/DeadeyeMoreAccuracy.dds"]={
@@ -104190,7 +104758,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/Deflection.dds"]={
 						h=16,
 						w=16,
-						x=384,
+						x=336,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/DragonStyle.dds"]={
@@ -104202,13 +104770,13 @@ return {
 					["Art/2DArt/SkillIcons/passives/ElementalDamagenode.dds"]={
 						h=16,
 						w=16,
-						x=32,
+						x=48,
 						y=24
 					},
 					["Art/2DArt/SkillIcons/passives/ElementalDamagewithAttacks2.dds"]={
 						h=16,
 						w=16,
-						x=608,
+						x=208,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/ElementalResistance2.dds"]={
@@ -104226,13 +104794,13 @@ return {
 					["Art/2DArt/SkillIcons/passives/EvasionAndBlindNotable.dds"]={
 						h=16,
 						w=16,
-						x=1168,
-						y=8
+						x=256,
+						y=24
 					},
 					["Art/2DArt/SkillIcons/passives/EvasionNode.dds"]={
 						h=16,
 						w=16,
-						x=272,
+						x=208,
 						y=24
 					},
 					["Art/2DArt/SkillIcons/passives/EvasionandEnergyShieldNode.dds"]={
@@ -104274,7 +104842,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/Gemling/GemlingInherentBonusesFromAttributesDouble.dds"]={
 						h=16,
 						w=16,
-						x=448,
+						x=432,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/Gemling/GemlingLevelAllSkillGems.dds"]={
@@ -104310,13 +104878,13 @@ return {
 					["Art/2DArt/SkillIcons/passives/GreenAttackSmallPassive.dds"]={
 						h=16,
 						w=16,
-						x=416,
-						y=24
+						x=576,
+						y=40
 					},
 					["Art/2DArt/SkillIcons/passives/Harrier.dds"]={
 						h=16,
 						w=16,
-						x=192,
+						x=16,
 						y=24
 					},
 					["Art/2DArt/SkillIcons/passives/Hearty.dds"]={
@@ -104328,31 +104896,31 @@ return {
 					["Art/2DArt/SkillIcons/passives/HeraldBuffEffectNode2.dds"]={
 						h=16,
 						w=16,
-						x=320,
+						x=304,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/HiredKiller2.dds"]={
 						h=16,
 						w=16,
-						x=544,
+						x=528,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/Hunter.dds"]={
 						h=16,
 						w=16,
-						x=96,
+						x=144,
 						y=24
 					},
 					["Art/2DArt/SkillIcons/passives/IncreasedManaCostNotable.dds"]={
 						h=16,
 						w=16,
-						x=0,
-						y=24
+						x=1184,
+						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/IncreasedMaximumLifeNotable.dds"]={
 						h=16,
 						w=16,
-						x=912,
+						x=720,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/IncreasedProjectileSpeedNode.dds"]={
@@ -104364,13 +104932,13 @@ return {
 					["Art/2DArt/SkillIcons/passives/Infernalist/Fireblood.dds"]={
 						h=11,
 						w=11,
-						x=1056,
+						x=1040,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/Infernalist/FuryManifest.dds"]={
 						h=16,
 						w=16,
-						x=816,
+						x=800,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/Infernalist/InfernalFamiliar.dds"]={
@@ -104382,20 +104950,20 @@ return {
 					["Art/2DArt/SkillIcons/passives/Infernalist/InfernalistConvertLifeToEnergyShield.dds"]={
 						h=16,
 						w=16,
-						x=512,
+						x=480,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/Infernalist/InfernalistConvertLifeToMana.dds"]={
 						h=16,
 						w=16,
-						x=256,
+						x=320,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/Infernalist/InfernalistConvertLifeToSpirit.dds"]={
 						h=16,
 						w=16,
-						x=784,
-						y=8
+						x=400,
+						y=24
 					},
 					["Art/2DArt/SkillIcons/passives/Infernalist/InfernalistInfernalHeat.dds"]={
 						h=16,
@@ -104406,7 +104974,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/Infernalist/InfernalistTransformIntoDemon1.dds"]={
 						h=16,
 						w=16,
-						x=1024,
+						x=912,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/Infernalist/InfernalistTransformIntoDemon2.dds"]={
@@ -104418,8 +104986,8 @@ return {
 					["Art/2DArt/SkillIcons/passives/Infernalist/MoltenFury.dds"]={
 						h=16,
 						w=16,
-						x=400,
-						y=24
+						x=1008,
+						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/Infernalist/ScorchTheEarth.dds"]={
 						h=16,
@@ -104442,7 +105010,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/Invoker/InvokerCriticalStrikesIgnoreResistances.dds"]={
 						h=16,
 						w=16,
-						x=224,
+						x=240,
 						y=24
 					},
 					["Art/2DArt/SkillIcons/passives/Invoker/InvokerEnergyDoubled.dds"]={
@@ -104454,7 +105022,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/Invoker/InvokerEvasionEnergyShieldGrantsSpirit.dds"]={
 						h=16,
 						w=16,
-						x=304,
+						x=224,
 						y=24
 					},
 					["Art/2DArt/SkillIcons/passives/Invoker/InvokerEvasionGrantsPhysicalDamageReduction.dds"]={
@@ -104490,7 +105058,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/LifeRecoupNode.dds"]={
 						h=16,
 						w=16,
-						x=672,
+						x=1168,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/LightningDamagenode.dds"]={
@@ -104508,7 +105076,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/MarkNode.dds"]={
 						h=16,
 						w=16,
-						x=416,
+						x=400,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/MeleeAoENode.dds"]={
@@ -104520,19 +105088,19 @@ return {
 					["Art/2DArt/SkillIcons/passives/Meleerange.dds"]={
 						h=16,
 						w=16,
-						x=704,
+						x=784,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/MineAreaOfEffectNode.dds"]={
 						h=16,
 						w=16,
-						x=864,
+						x=848,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/MineManaReservationNotable.dds"]={
 						h=16,
 						w=16,
-						x=1088,
+						x=1072,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/MinionChaosResistanceNode.dds"]={
@@ -104550,19 +105118,19 @@ return {
 					["Art/2DArt/SkillIcons/passives/MinionsandManaNode.dds"]={
 						h=16,
 						w=16,
-						x=336,
+						x=368,
 						y=24
 					},
 					["Art/2DArt/SkillIcons/passives/MiracleMaker.dds"]={
 						h=16,
 						w=16,
-						x=1184,
-						y=8
+						x=64,
+						y=24
 					},
 					["Art/2DArt/SkillIcons/passives/NodeDualWieldingDamage.dds"]={
 						h=16,
 						w=16,
-						x=832,
+						x=880,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds"]={
@@ -104580,7 +105148,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderCannotBeSlowed.dds"]={
 						h=16,
 						w=16,
-						x=384,
+						x=320,
 						y=24
 					},
 					["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderEnemiesMultiplePoisons.dds"]={
@@ -104598,7 +105166,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderLifeFlasks.dds"]={
 						h=16,
 						w=16,
-						x=64,
+						x=48,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderMoreMovemenSpeedUsingSkills.dds"]={
@@ -104616,8 +105184,8 @@ return {
 					["Art/2DArt/SkillIcons/passives/PhysicalDamageChaosNode.dds"]={
 						h=16,
 						w=16,
-						x=208,
-						y=8
+						x=32,
+						y=24
 					},
 					["Art/2DArt/SkillIcons/passives/PhysicalDamageNode.dds"]={
 						h=16,
@@ -104646,7 +105214,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/PressurePoints.dds"]={
 						h=16,
 						w=16,
-						x=96,
+						x=80,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/ProjectilesNotable.dds"]={
@@ -104658,7 +105226,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/Rage.dds"]={
 						h=16,
 						w=16,
-						x=592,
+						x=608,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/ReducedSkillEffectDurationNode.dds"]={
@@ -104670,19 +105238,19 @@ return {
 					["Art/2DArt/SkillIcons/passives/ShieldNodeOffensive.dds"]={
 						h=16,
 						w=16,
-						x=1120,
+						x=1104,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/SpellSuppresionNode.dds"]={
 						h=16,
 						w=16,
-						x=1040,
+						x=944,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/Storm Weaver.dds"]={
 						h=16,
 						w=16,
-						x=16,
+						x=512,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/Stormweaver/AllDamageCanChill.dds"]={
@@ -104718,7 +105286,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/Stormweaver/GrantsArcaneSurge.dds"]={
 						h=16,
 						w=16,
-						x=80,
+						x=112,
 						y=24
 					},
 					["Art/2DArt/SkillIcons/passives/Stormweaver/GrantsElementalStorm.dds"]={
@@ -104730,7 +105298,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/Stormweaver/ImprovedArcaneSurge.dds"]={
 						h=16,
 						w=16,
-						x=1008,
+						x=992,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/Stormweaver/ImprovedElementalStorm.dds"]={
@@ -104760,7 +105328,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/Temporalist/TemporalistGainMoreCastSpeed8Seconds.dds"]={
 						h=16,
 						w=16,
-						x=400,
+						x=896,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/Temporalist/TemporalistGrantsReloadCooldownsSkill.dds"]={
@@ -104778,7 +105346,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/Temporalist/TemporalistGrantsTimeStopSkill.dds"]={
 						h=16,
 						w=16,
-						x=1072,
+						x=1088,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/Temporalist/TemporalistLifeRecoup.dds"]={
@@ -104790,7 +105358,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/Temporalist/TemporalistNearbyEnemiesProjectilesSlowed.dds"]={
 						h=16,
 						w=16,
-						x=160,
+						x=32,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/Titan/TitanAdditionalInventory.dds"]={
@@ -104844,7 +105412,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/WarCryEffect.dds"]={
 						h=16,
 						w=16,
-						x=272,
+						x=240,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/Warbringer/WarbringerBlockChance.dds"]={
@@ -104904,7 +105472,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/Warrior.dds"]={
 						h=16,
 						w=16,
-						x=16,
+						x=0,
 						y=24
 					},
 					["Art/2DArt/SkillIcons/passives/Witchhunter/WitchunterArmourEvasionConvertedSpellAegis.dds"]={
@@ -104940,14 +105508,14 @@ return {
 					["Art/2DArt/SkillIcons/passives/Witchhunter/WitchunterRemovePercentageFullLifeEnemies.dds"]={
 						h=16,
 						w=16,
-						x=656,
+						x=560,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/Witchhunter/WitchunterSpecPoints.dds"]={
 						h=16,
 						w=16,
-						x=896,
-						y=8
+						x=160,
+						y=24
 					},
 					["Art/2DArt/SkillIcons/passives/Witchhunter/WitchunterStrongerSpellAegis.dds"]={
 						h=16,
@@ -104982,13 +105550,13 @@ return {
 					["Art/2DArt/SkillIcons/passives/attackspeedbow.dds"]={
 						h=16,
 						w=16,
-						x=368,
+						x=352,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/auraeffect.dds"]={
 						h=16,
 						w=16,
-						x=464,
+						x=448,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/avoidchilling.dds"]={
@@ -105006,7 +105574,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/bodysoul.dds"]={
 						h=16,
 						w=16,
-						x=144,
+						x=96,
 						y=24
 					},
 					["Art/2DArt/SkillIcons/passives/castspeed.dds"]={
@@ -105018,25 +105586,25 @@ return {
 					["Art/2DArt/SkillIcons/passives/chargedex.dds"]={
 						h=16,
 						w=16,
-						x=240,
+						x=256,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/chargeint.dds"]={
 						h=16,
 						w=16,
-						x=128,
+						x=80,
 						y=24
 					},
 					["Art/2DArt/SkillIcons/passives/chargestr.dds"]={
 						h=16,
 						w=16,
-						x=336,
+						x=368,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/clustersLinknode2.dds"]={
 						h=16,
 						w=16,
-						x=736,
+						x=688,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/colddamage.dds"]={
@@ -105096,7 +105664,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/deepwisdom.dds"]={
 						h=16,
 						w=16,
-						x=880,
+						x=816,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/dmgreduction.dds"]={
@@ -105108,7 +105676,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/eagleeye.dds"]={
 						h=16,
 						w=16,
-						x=560,
+						x=592,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/elementaldamage.dds"]={
@@ -105132,13 +105700,13 @@ return {
 					["Art/2DArt/SkillIcons/passives/executioner.dds"]={
 						h=16,
 						w=16,
-						x=640,
+						x=576,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/finesse.dds"]={
 						h=16,
 						w=16,
-						x=208,
+						x=288,
 						y=24
 					},
 					["Art/2DArt/SkillIcons/passives/firedamageint.dds"]={
@@ -105186,7 +105754,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/knockback.dds"]={
 						h=16,
 						w=16,
-						x=1104,
+						x=1056,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/life1.dds"]={
@@ -105210,7 +105778,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/lightningint.dds"]={
 						h=16,
 						w=16,
-						x=800,
+						x=832,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/macedmg.dds"]={
@@ -105234,7 +105802,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/manastr.dds"]={
 						h=16,
 						w=16,
-						x=944,
+						x=928,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/miniondamageBlue.dds"]={
@@ -105246,14 +105814,14 @@ return {
 					["Art/2DArt/SkillIcons/passives/minionlife.dds"]={
 						h=16,
 						w=16,
-						x=288,
+						x=192,
 						y=24
 					},
 					["Art/2DArt/SkillIcons/passives/newnewattackspeed.dds"]={
 						h=16,
 						w=16,
-						x=576,
-						y=40
+						x=416,
+						y=24
 					},
 					["Art/2DArt/SkillIcons/passives/onehanddamage.dds"]={
 						h=16,
@@ -105264,25 +105832,25 @@ return {
 					["Art/2DArt/SkillIcons/passives/plusdexterity.dds"]={
 						h=16,
 						w=16,
-						x=528,
+						x=496,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/plusintelligence.dds"]={
 						h=16,
 						w=16,
-						x=48,
+						x=144,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/plusstrength.dds"]={
 						h=16,
 						w=16,
-						x=848,
+						x=864,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/projectilespeed.dds"]={
 						h=16,
 						w=16,
-						x=976,
+						x=960,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/shieldblock.dds"]={
@@ -105294,19 +105862,19 @@ return {
 					["Art/2DArt/SkillIcons/passives/spellcritical.dds"]={
 						h=16,
 						w=16,
-						x=768,
+						x=752,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/steelspan.dds"]={
 						h=16,
 						w=16,
-						x=496,
+						x=544,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/strongarm.dds"]={
 						h=16,
 						w=16,
-						x=1136,
+						x=640,
 						y=8
 					},
 					["Art/2DArt/SkillIcons/passives/stun2h.dds"]={
@@ -105343,7 +105911,7 @@ return {
 					["Art/2DArt/SkillIcons/ExplosiveGrenade.dds"]={
 						h=32,
 						w=32,
-						x=864,
+						x=832,
 						y=32
 					},
 					["Art/2DArt/SkillIcons/WitchBoneStorm.dds"]={
@@ -105421,7 +105989,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/Annihilation.dds"]={
 						h=32,
 						w=32,
-						x=800,
+						x=768,
 						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/AreaDmgNode.dds"]={
@@ -105439,25 +106007,25 @@ return {
 					["Art/2DArt/SkillIcons/passives/ArmourAndEvasionNode.dds"]={
 						h=32,
 						w=32,
-						x=768,
+						x=800,
 						y=96
 					},
 					["Art/2DArt/SkillIcons/passives/ArmourBreak2BuffIcon.dds"]={
 						h=32,
 						w=32,
 						x=128,
-						y=96
+						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/Ascendants/SkillPoint.dds"]={
 						h=32,
 						w=32,
-						x=736,
+						x=864,
 						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/AspectOfTheLynx.dds"]={
 						h=32,
 						w=32,
-						x=320,
+						x=288,
 						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/Blood2.dds"]={
@@ -105469,7 +106037,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/Bloodmage/BloodMageCritDamagePerLife.dds"]={
 						h=32,
 						w=32,
-						x=160,
+						x=128,
 						y=32
 					},
 					["Art/2DArt/SkillIcons/passives/Bloodmage/BloodMageCurseInfiniteDuration.dds"]={
@@ -105511,19 +106079,19 @@ return {
 					["Art/2DArt/SkillIcons/passives/Bloodmage/BloodPhysicalDamageExtraGore.dds"]={
 						h=32,
 						w=32,
-						x=256,
-						y=96
+						x=1056,
+						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/BowDamage.dds"]={
 						h=32,
 						w=32,
-						x=512,
+						x=640,
 						y=96
 					},
 					["Art/2DArt/SkillIcons/passives/ChainingProjectiles.dds"]={
 						h=32,
 						w=32,
-						x=672,
+						x=352,
 						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/ChannellingAttacksNotable2.dds"]={
@@ -105535,13 +106103,13 @@ return {
 					["Art/2DArt/SkillIcons/passives/ChaosDamagenode.dds"]={
 						h=32,
 						w=32,
-						x=1152,
+						x=192,
 						y=32
 					},
 					["Art/2DArt/SkillIcons/passives/CharmNotable1.dds"]={
 						h=32,
 						w=32,
-						x=608,
+						x=544,
 						y=32
 					},
 					["Art/2DArt/SkillIcons/passives/ClawsOfTheMagpie.dds"]={
@@ -105553,8 +106121,8 @@ return {
 					["Art/2DArt/SkillIcons/passives/ColdDamagenode.dds"]={
 						h=32,
 						w=32,
-						x=384,
-						y=96
+						x=1088,
+						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/CorpseDamage.dds"]={
 						h=32,
@@ -105565,7 +106133,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/CriticalStrikesNotable.dds"]={
 						h=32,
 						w=32,
-						x=64,
+						x=32,
 						y=32
 					},
 					["Art/2DArt/SkillIcons/passives/CurseEffectNode.dds"]={
@@ -105595,7 +106163,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/DeadEye/DeadeyeMarkEnemiesSpread.dds"]={
 						h=32,
 						w=32,
-						x=160,
+						x=384,
 						y=96
 					},
 					["Art/2DArt/SkillIcons/passives/DeadEye/DeadeyeMoreAccuracy.dds"]={
@@ -105625,7 +106193,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/Deflection.dds"]={
 						h=32,
 						w=32,
-						x=768,
+						x=672,
 						y=32
 					},
 					["Art/2DArt/SkillIcons/passives/DragonStyle.dds"]={
@@ -105637,14 +106205,14 @@ return {
 					["Art/2DArt/SkillIcons/passives/ElementalDamagenode.dds"]={
 						h=32,
 						w=32,
-						x=96,
+						x=128,
 						y=96
 					},
 					["Art/2DArt/SkillIcons/passives/ElementalDamagewithAttacks2.dds"]={
 						h=32,
 						w=32,
-						x=32,
-						y=64
+						x=416,
+						y=32
 					},
 					["Art/2DArt/SkillIcons/passives/ElementalResistance2.dds"]={
 						h=32,
@@ -105661,13 +106229,13 @@ return {
 					["Art/2DArt/SkillIcons/passives/EvasionAndBlindNotable.dds"]={
 						h=32,
 						w=32,
-						x=1152,
-						y=64
+						x=544,
+						y=96
 					},
 					["Art/2DArt/SkillIcons/passives/EvasionNode.dds"]={
 						h=32,
 						w=32,
-						x=576,
+						x=448,
 						y=96
 					},
 					["Art/2DArt/SkillIcons/passives/EvasionandEnergyShieldNode.dds"]={
@@ -105709,7 +106277,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/Gemling/GemlingInherentBonusesFromAttributesDouble.dds"]={
 						h=32,
 						w=32,
-						x=896,
+						x=864,
 						y=32
 					},
 					["Art/2DArt/SkillIcons/passives/Gemling/GemlingLevelAllSkillGems.dds"]={
@@ -105745,13 +106313,13 @@ return {
 					["Art/2DArt/SkillIcons/passives/GreenAttackSmallPassive.dds"]={
 						h=32,
 						w=32,
-						x=864,
-						y=96
+						x=32,
+						y=192
 					},
 					["Art/2DArt/SkillIcons/passives/Harrier.dds"]={
 						h=32,
 						w=32,
-						x=416,
+						x=64,
 						y=96
 					},
 					["Art/2DArt/SkillIcons/passives/Hearty.dds"]={
@@ -105763,31 +106331,31 @@ return {
 					["Art/2DArt/SkillIcons/passives/HeraldBuffEffectNode2.dds"]={
 						h=32,
 						w=32,
-						x=640,
+						x=608,
 						y=32
 					},
 					["Art/2DArt/SkillIcons/passives/HiredKiller2.dds"]={
 						h=32,
 						w=32,
-						x=1088,
+						x=1056,
 						y=32
 					},
 					["Art/2DArt/SkillIcons/passives/Hunter.dds"]={
 						h=32,
 						w=32,
-						x=224,
+						x=320,
 						y=96
 					},
 					["Art/2DArt/SkillIcons/passives/IncreasedManaCostNotable.dds"]={
 						h=32,
 						w=32,
-						x=32,
+						x=0,
 						y=96
 					},
 					["Art/2DArt/SkillIcons/passives/IncreasedMaximumLifeNotable.dds"]={
 						h=32,
 						w=32,
-						x=640,
+						x=256,
 						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/IncreasedProjectileSpeedNode.dds"]={
@@ -105799,13 +106367,13 @@ return {
 					["Art/2DArt/SkillIcons/passives/Infernalist/Fireblood.dds"]={
 						h=22,
 						w=22,
-						x=928,
+						x=896,
 						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/Infernalist/FuryManifest.dds"]={
 						h=32,
 						w=32,
-						x=448,
+						x=416,
 						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/Infernalist/InfernalFamiliar.dds"]={
@@ -105817,20 +106385,20 @@ return {
 					["Art/2DArt/SkillIcons/passives/Infernalist/InfernalistConvertLifeToEnergyShield.dds"]={
 						h=32,
 						w=32,
-						x=1024,
+						x=960,
 						y=32
 					},
 					["Art/2DArt/SkillIcons/passives/Infernalist/InfernalistConvertLifeToMana.dds"]={
 						h=32,
 						w=32,
-						x=512,
+						x=640,
 						y=32
 					},
 					["Art/2DArt/SkillIcons/passives/Infernalist/InfernalistConvertLifeToSpirit.dds"]={
 						h=32,
 						w=32,
-						x=384,
-						y=64
+						x=832,
+						y=96
 					},
 					["Art/2DArt/SkillIcons/passives/Infernalist/InfernalistInfernalHeat.dds"]={
 						h=32,
@@ -105841,7 +106409,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/Infernalist/InfernalistTransformIntoDemon1.dds"]={
 						h=32,
 						w=32,
-						x=864,
+						x=640,
 						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/Infernalist/InfernalistTransformIntoDemon2.dds"]={
@@ -105854,7 +106422,7 @@ return {
 						h=32,
 						w=32,
 						x=832,
-						y=96
+						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/Infernalist/ScorchTheEarth.dds"]={
 						h=32,
@@ -105877,7 +106445,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/Invoker/InvokerCriticalStrikesIgnoreResistances.dds"]={
 						h=32,
 						w=32,
-						x=480,
+						x=512,
 						y=96
 					},
 					["Art/2DArt/SkillIcons/passives/Invoker/InvokerEnergyDoubled.dds"]={
@@ -105889,7 +106457,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/Invoker/InvokerEvasionEnergyShieldGrantsSpirit.dds"]={
 						h=32,
 						w=32,
-						x=640,
+						x=480,
 						y=96
 					},
 					["Art/2DArt/SkillIcons/passives/Invoker/InvokerEvasionGrantsPhysicalDamageReduction.dds"]={
@@ -105925,7 +106493,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/LifeRecoupNode.dds"]={
 						h=32,
 						w=32,
-						x=160,
+						x=1152,
 						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/LightningDamagenode.dds"]={
@@ -105943,7 +106511,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/MarkNode.dds"]={
 						h=32,
 						w=32,
-						x=832,
+						x=800,
 						y=32
 					},
 					["Art/2DArt/SkillIcons/passives/MeleeAoENode.dds"]={
@@ -105955,19 +106523,19 @@ return {
 					["Art/2DArt/SkillIcons/passives/Meleerange.dds"]={
 						h=32,
 						w=32,
-						x=224,
+						x=384,
 						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/MineAreaOfEffectNode.dds"]={
 						h=32,
 						w=32,
-						x=544,
+						x=512,
 						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/MineManaReservationNotable.dds"]={
 						h=32,
 						w=32,
-						x=992,
+						x=960,
 						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/MinionChaosResistanceNode.dds"]={
@@ -105985,19 +106553,19 @@ return {
 					["Art/2DArt/SkillIcons/passives/MinionsandManaNode.dds"]={
 						h=32,
 						w=32,
-						x=704,
+						x=768,
 						y=96
 					},
 					["Art/2DArt/SkillIcons/passives/MiracleMaker.dds"]={
 						h=32,
 						w=32,
-						x=0,
+						x=160,
 						y=96
 					},
 					["Art/2DArt/SkillIcons/passives/NodeDualWieldingDamage.dds"]={
 						h=32,
 						w=32,
-						x=480,
+						x=576,
 						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds"]={
@@ -106015,7 +106583,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderCannotBeSlowed.dds"]={
 						h=32,
 						w=32,
-						x=800,
+						x=672,
 						y=96
 					},
 					["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderEnemiesMultiplePoisons.dds"]={
@@ -106033,7 +106601,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderLifeFlasks.dds"]={
 						h=32,
 						w=32,
-						x=128,
+						x=96,
 						y=32
 					},
 					["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderMoreMovemenSpeedUsingSkills.dds"]={
@@ -106051,8 +106619,8 @@ return {
 					["Art/2DArt/SkillIcons/passives/PhysicalDamageChaosNode.dds"]={
 						h=32,
 						w=32,
-						x=416,
-						y=32
+						x=96,
+						y=96
 					},
 					["Art/2DArt/SkillIcons/passives/PhysicalDamageNode.dds"]={
 						h=32,
@@ -106081,7 +106649,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/PressurePoints.dds"]={
 						h=32,
 						w=32,
-						x=192,
+						x=160,
 						y=32
 					},
 					["Art/2DArt/SkillIcons/passives/ProjectilesNotable.dds"]={
@@ -106093,7 +106661,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/Rage.dds"]={
 						h=32,
 						w=32,
-						x=0,
+						x=32,
 						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/ReducedSkillEffectDurationNode.dds"]={
@@ -106105,19 +106673,19 @@ return {
 					["Art/2DArt/SkillIcons/passives/ShieldNodeOffensive.dds"]={
 						h=32,
 						w=32,
-						x=1056,
+						x=1024,
 						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/SpellSuppresionNode.dds"]={
 						h=32,
 						w=32,
-						x=896,
+						x=704,
 						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/Storm Weaver.dds"]={
 						h=32,
 						w=32,
-						x=32,
+						x=1024,
 						y=32
 					},
 					["Art/2DArt/SkillIcons/passives/Stormweaver/AllDamageCanChill.dds"]={
@@ -106153,7 +106721,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/Stormweaver/GrantsArcaneSurge.dds"]={
 						h=32,
 						w=32,
-						x=192,
+						x=256,
 						y=96
 					},
 					["Art/2DArt/SkillIcons/passives/Stormweaver/GrantsElementalStorm.dds"]={
@@ -106165,7 +106733,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/Stormweaver/ImprovedArcaneSurge.dds"]={
 						h=32,
 						w=32,
-						x=832,
+						x=800,
 						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/Stormweaver/ImprovedElementalStorm.dds"]={
@@ -106195,8 +106763,8 @@ return {
 					["Art/2DArt/SkillIcons/passives/Temporalist/TemporalistGainMoreCastSpeed8Seconds.dds"]={
 						h=32,
 						w=32,
-						x=800,
-						y=32
+						x=608,
+						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/Temporalist/TemporalistGrantsReloadCooldownsSkill.dds"]={
 						h=32,
@@ -106213,7 +106781,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/Temporalist/TemporalistGrantsTimeStopSkill.dds"]={
 						h=32,
 						w=32,
-						x=960,
+						x=992,
 						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/Temporalist/TemporalistLifeRecoup.dds"]={
@@ -106225,7 +106793,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/Temporalist/TemporalistNearbyEnemiesProjectilesSlowed.dds"]={
 						h=32,
 						w=32,
-						x=320,
+						x=64,
 						y=32
 					},
 					["Art/2DArt/SkillIcons/passives/Titan/TitanAdditionalInventory.dds"]={
@@ -106279,7 +106847,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/WarCryEffect.dds"]={
 						h=32,
 						w=32,
-						x=544,
+						x=480,
 						y=32
 					},
 					["Art/2DArt/SkillIcons/passives/Warbringer/WarbringerBlockChance.dds"]={
@@ -106339,7 +106907,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/Warrior.dds"]={
 						h=32,
 						w=32,
-						x=64,
+						x=32,
 						y=96
 					},
 					["Art/2DArt/SkillIcons/passives/Witchhunter/WitchunterArmourEvasionConvertedSpellAegis.dds"]={
@@ -106375,14 +106943,14 @@ return {
 					["Art/2DArt/SkillIcons/passives/Witchhunter/WitchunterRemovePercentageFullLifeEnemies.dds"]={
 						h=32,
 						w=32,
-						x=128,
-						y=64
+						x=1120,
+						y=32
 					},
 					["Art/2DArt/SkillIcons/passives/Witchhunter/WitchunterSpecPoints.dds"]={
 						h=32,
 						w=32,
-						x=608,
-						y=64
+						x=352,
+						y=96
 					},
 					["Art/2DArt/SkillIcons/passives/Witchhunter/WitchunterStrongerSpellAegis.dds"]={
 						h=32,
@@ -106417,13 +106985,13 @@ return {
 					["Art/2DArt/SkillIcons/passives/attackspeedbow.dds"]={
 						h=32,
 						w=32,
-						x=736,
+						x=704,
 						y=32
 					},
 					["Art/2DArt/SkillIcons/passives/auraeffect.dds"]={
 						h=32,
 						w=32,
-						x=928,
+						x=896,
 						y=32
 					},
 					["Art/2DArt/SkillIcons/passives/avoidchilling.dds"]={
@@ -106441,7 +107009,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/bodysoul.dds"]={
 						h=32,
 						w=32,
-						x=320,
+						x=224,
 						y=96
 					},
 					["Art/2DArt/SkillIcons/passives/castspeed.dds"]={
@@ -106453,25 +107021,25 @@ return {
 					["Art/2DArt/SkillIcons/passives/chargedex.dds"]={
 						h=32,
 						w=32,
-						x=480,
+						x=512,
 						y=32
 					},
 					["Art/2DArt/SkillIcons/passives/chargeint.dds"]={
 						h=32,
 						w=32,
-						x=288,
+						x=192,
 						y=96
 					},
 					["Art/2DArt/SkillIcons/passives/chargestr.dds"]={
 						h=32,
 						w=32,
-						x=672,
+						x=736,
 						y=32
 					},
 					["Art/2DArt/SkillIcons/passives/clustersLinknode2.dds"]={
 						h=32,
 						w=32,
-						x=288,
+						x=192,
 						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/colddamage.dds"]={
@@ -106531,7 +107099,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/deepwisdom.dds"]={
 						h=32,
 						w=32,
-						x=576,
+						x=448,
 						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/dmgreduction.dds"]={
@@ -106543,8 +107111,8 @@ return {
 					["Art/2DArt/SkillIcons/passives/eagleeye.dds"]={
 						h=32,
 						w=32,
-						x=1120,
-						y=32
+						x=0,
+						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/elementaldamage.dds"]={
 						h=32,
@@ -106567,13 +107135,13 @@ return {
 					["Art/2DArt/SkillIcons/passives/executioner.dds"]={
 						h=32,
 						w=32,
-						x=96,
-						y=64
+						x=1152,
+						y=32
 					},
 					["Art/2DArt/SkillIcons/passives/finesse.dds"]={
 						h=32,
 						w=32,
-						x=448,
+						x=608,
 						y=96
 					},
 					["Art/2DArt/SkillIcons/passives/firedamageint.dds"]={
@@ -106621,7 +107189,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/knockback.dds"]={
 						h=32,
 						w=32,
-						x=1024,
+						x=928,
 						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/life1.dds"]={
@@ -106645,7 +107213,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/lightningint.dds"]={
 						h=32,
 						w=32,
-						x=416,
+						x=480,
 						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/macedmg.dds"]={
@@ -106669,7 +107237,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/manastr.dds"]={
 						h=32,
 						w=32,
-						x=704,
+						x=672,
 						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/miniondamageBlue.dds"]={
@@ -106681,14 +107249,14 @@ return {
 					["Art/2DArt/SkillIcons/passives/minionlife.dds"]={
 						h=32,
 						w=32,
-						x=608,
+						x=416,
 						y=96
 					},
 					["Art/2DArt/SkillIcons/passives/newnewattackspeed.dds"]={
 						h=32,
 						w=32,
-						x=32,
-						y=192
+						x=864,
+						y=96
 					},
 					["Art/2DArt/SkillIcons/passives/onehanddamage.dds"]={
 						h=32,
@@ -106699,25 +107267,25 @@ return {
 					["Art/2DArt/SkillIcons/passives/plusdexterity.dds"]={
 						h=32,
 						w=32,
-						x=1056,
+						x=992,
 						y=32
 					},
 					["Art/2DArt/SkillIcons/passives/plusintelligence.dds"]={
 						h=32,
 						w=32,
-						x=96,
+						x=288,
 						y=32
 					},
 					["Art/2DArt/SkillIcons/passives/plusstrength.dds"]={
 						h=32,
 						w=32,
-						x=512,
+						x=544,
 						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/projectilespeed.dds"]={
 						h=32,
 						w=32,
-						x=768,
+						x=736,
 						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/shieldblock.dds"]={
@@ -106729,19 +107297,19 @@ return {
 					["Art/2DArt/SkillIcons/passives/spellcritical.dds"]={
 						h=32,
 						w=32,
-						x=352,
+						x=320,
 						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/steelspan.dds"]={
 						h=32,
 						w=32,
-						x=992,
+						x=1088,
 						y=32
 					},
 					["Art/2DArt/SkillIcons/passives/strongarm.dds"]={
 						h=32,
 						w=32,
-						x=1088,
+						x=96,
 						y=64
 					},
 					["Art/2DArt/SkillIcons/passives/stun2h.dds"]={
@@ -106778,7 +107346,7 @@ return {
 					["Art/2DArt/SkillIcons/ExplosiveGrenade.dds"]={
 						h=64,
 						w=64,
-						x=576,
+						x=512,
 						y=192
 					},
 					["Art/2DArt/SkillIcons/WitchBoneStorm.dds"]={
@@ -106856,7 +107424,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/Annihilation.dds"]={
 						h=64,
 						w=64,
-						x=512,
+						x=448,
 						y=320
 					},
 					["Art/2DArt/SkillIcons/passives/AreaDmgNode.dds"]={
@@ -106874,25 +107442,25 @@ return {
 					["Art/2DArt/SkillIcons/passives/ArmourAndEvasionNode.dds"]={
 						h=64,
 						w=64,
-						x=512,
+						x=576,
 						y=448
 					},
 					["Art/2DArt/SkillIcons/passives/ArmourBreak2BuffIcon.dds"]={
 						h=64,
 						w=64,
-						x=384,
-						y=384
+						x=320,
+						y=256
 					},
 					["Art/2DArt/SkillIcons/passives/Ascendants/SkillPoint.dds"]={
 						h=64,
 						w=64,
-						x=384,
+						x=640,
 						y=320
 					},
 					["Art/2DArt/SkillIcons/passives/AspectOfTheLynx.dds"]={
 						h=64,
 						w=64,
-						x=704,
+						x=640,
 						y=256
 					},
 					["Art/2DArt/SkillIcons/passives/Blood2.dds"]={
@@ -106904,7 +107472,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/Bloodmage/BloodMageCritDamagePerLife.dds"]={
 						h=64,
 						w=64,
-						x=320,
+						x=256,
 						y=128
 					},
 					["Art/2DArt/SkillIcons/passives/Bloodmage/BloodMageCurseInfiniteDuration.dds"]={
@@ -106946,20 +107514,20 @@ return {
 					["Art/2DArt/SkillIcons/passives/Bloodmage/BloodPhysicalDamageExtraGore.dds"]={
 						h=64,
 						w=64,
-						x=640,
-						y=384
+						x=1024,
+						y=320
 					},
 					["Art/2DArt/SkillIcons/passives/BowDamage.dds"]={
 						h=64,
 						w=64,
-						x=0,
+						x=256,
 						y=448
 					},
 					["Art/2DArt/SkillIcons/passives/ChainingProjectiles.dds"]={
 						h=64,
 						w=64,
-						x=256,
-						y=320
+						x=768,
+						y=256
 					},
 					["Art/2DArt/SkillIcons/passives/ChannellingAttacksNotable2.dds"]={
 						h=64,
@@ -106970,14 +107538,14 @@ return {
 					["Art/2DArt/SkillIcons/passives/ChaosDamagenode.dds"]={
 						h=64,
 						w=64,
-						x=0,
-						y=256
+						x=384,
+						y=128
 					},
 					["Art/2DArt/SkillIcons/passives/CharmNotable1.dds"]={
 						h=64,
 						w=64,
-						x=64,
-						y=192
+						x=1088,
+						y=128
 					},
 					["Art/2DArt/SkillIcons/passives/ClawsOfTheMagpie.dds"]={
 						h=64,
@@ -106988,8 +107556,8 @@ return {
 					["Art/2DArt/SkillIcons/passives/ColdDamagenode.dds"]={
 						h=64,
 						w=64,
-						x=896,
-						y=384
+						x=1088,
+						y=320
 					},
 					["Art/2DArt/SkillIcons/passives/CorpseDamage.dds"]={
 						h=64,
@@ -107000,7 +107568,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/CriticalStrikesNotable.dds"]={
 						h=64,
 						w=64,
-						x=128,
+						x=64,
 						y=128
 					},
 					["Art/2DArt/SkillIcons/passives/CurseEffectNode.dds"]={
@@ -107030,7 +107598,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/DeadEye/DeadeyeMarkEnemiesSpread.dds"]={
 						h=64,
 						w=64,
-						x=448,
+						x=896,
 						y=384
 					},
 					["Art/2DArt/SkillIcons/passives/DeadEye/DeadeyeMoreAccuracy.dds"]={
@@ -107060,7 +107628,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/Deflection.dds"]={
 						h=64,
 						w=64,
-						x=384,
+						x=192,
 						y=192
 					},
 					["Art/2DArt/SkillIcons/passives/DragonStyle.dds"]={
@@ -107072,14 +107640,14 @@ return {
 					["Art/2DArt/SkillIcons/passives/ElementalDamagenode.dds"]={
 						h=64,
 						w=64,
-						x=320,
+						x=384,
 						y=384
 					},
 					["Art/2DArt/SkillIcons/passives/ElementalDamagewithAttacks2.dds"]={
 						h=64,
 						w=64,
-						x=128,
-						y=256
+						x=832,
+						y=128
 					},
 					["Art/2DArt/SkillIcons/passives/ElementalResistance2.dds"]={
 						h=64,
@@ -107097,13 +107665,13 @@ return {
 						h=64,
 						w=64,
 						x=64,
-						y=384
+						y=448
 					},
 					["Art/2DArt/SkillIcons/passives/EvasionNode.dds"]={
 						h=64,
 						w=64,
-						x=128,
-						y=448
+						x=1024,
+						y=384
 					},
 					["Art/2DArt/SkillIcons/passives/EvasionandEnergyShieldNode.dds"]={
 						h=64,
@@ -107144,7 +107712,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/Gemling/GemlingInherentBonusesFromAttributesDouble.dds"]={
 						h=64,
 						w=64,
-						x=640,
+						x=576,
 						y=192
 					},
 					["Art/2DArt/SkillIcons/passives/Gemling/GemlingLevelAllSkillGems.dds"]={
@@ -107180,13 +107748,13 @@ return {
 					["Art/2DArt/SkillIcons/passives/GreenAttackSmallPassive.dds"]={
 						h=64,
 						w=64,
-						x=704,
-						y=448
+						x=384,
+						y=768
 					},
 					["Art/2DArt/SkillIcons/passives/Harrier.dds"]={
 						h=64,
 						w=64,
-						x=960,
+						x=256,
 						y=384
 					},
 					["Art/2DArt/SkillIcons/passives/Hearty.dds"]={
@@ -107198,32 +107766,32 @@ return {
 					["Art/2DArt/SkillIcons/passives/HeraldBuffEffectNode2.dds"]={
 						h=64,
 						w=64,
-						x=128,
+						x=64,
 						y=192
 					},
 					["Art/2DArt/SkillIcons/passives/HiredKiller2.dds"]={
 						h=64,
 						w=64,
-						x=1024,
+						x=960,
 						y=192
 					},
 					["Art/2DArt/SkillIcons/passives/Hunter.dds"]={
 						h=64,
 						w=64,
-						x=576,
+						x=768,
 						y=384
 					},
 					["Art/2DArt/SkillIcons/passives/IncreasedManaCostNotable.dds"]={
 						h=64,
 						w=64,
-						x=192,
+						x=128,
 						y=384
 					},
 					["Art/2DArt/SkillIcons/passives/IncreasedMaximumLifeNotable.dds"]={
 						h=64,
 						w=64,
-						x=192,
-						y=320
+						x=576,
+						y=256
 					},
 					["Art/2DArt/SkillIcons/passives/IncreasedProjectileSpeedNode.dds"]={
 						h=64,
@@ -107234,13 +107802,13 @@ return {
 					["Art/2DArt/SkillIcons/passives/Infernalist/Fireblood.dds"]={
 						h=44,
 						w=44,
-						x=768,
+						x=704,
 						y=320
 					},
 					["Art/2DArt/SkillIcons/passives/Infernalist/FuryManifest.dds"]={
 						h=64,
 						w=64,
-						x=960,
+						x=896,
 						y=256
 					},
 					["Art/2DArt/SkillIcons/passives/Infernalist/InfernalFamiliar.dds"]={
@@ -107252,20 +107820,20 @@ return {
 					["Art/2DArt/SkillIcons/passives/Infernalist/InfernalistConvertLifeToEnergyShield.dds"]={
 						h=64,
 						w=64,
-						x=896,
+						x=768,
 						y=192
 					},
 					["Art/2DArt/SkillIcons/passives/Infernalist/InfernalistConvertLifeToMana.dds"]={
 						h=64,
 						w=64,
-						x=1024,
-						y=128
+						x=128,
+						y=192
 					},
 					["Art/2DArt/SkillIcons/passives/Infernalist/InfernalistConvertLifeToSpirit.dds"]={
 						h=64,
 						w=64,
-						x=832,
-						y=256
+						x=640,
+						y=448
 					},
 					["Art/2DArt/SkillIcons/passives/Infernalist/InfernalistInfernalHeat.dds"]={
 						h=64,
@@ -107276,7 +107844,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/Infernalist/InfernalistTransformIntoDemon1.dds"]={
 						h=64,
 						w=64,
-						x=640,
+						x=192,
 						y=320
 					},
 					["Art/2DArt/SkillIcons/passives/Infernalist/InfernalistTransformIntoDemon2.dds"]={
@@ -107288,8 +107856,8 @@ return {
 					["Art/2DArt/SkillIcons/passives/Infernalist/MoltenFury.dds"]={
 						h=64,
 						w=64,
-						x=640,
-						y=448
+						x=576,
+						y=320
 					},
 					["Art/2DArt/SkillIcons/passives/Infernalist/ScorchTheEarth.dds"]={
 						h=64,
@@ -107312,8 +107880,8 @@ return {
 					["Art/2DArt/SkillIcons/passives/Invoker/InvokerCriticalStrikesIgnoreResistances.dds"]={
 						h=64,
 						w=64,
-						x=1088,
-						y=384
+						x=0,
+						y=448
 					},
 					["Art/2DArt/SkillIcons/passives/Invoker/InvokerEnergyDoubled.dds"]={
 						h=64,
@@ -107324,8 +107892,8 @@ return {
 					["Art/2DArt/SkillIcons/passives/Invoker/InvokerEvasionEnergyShieldGrantsSpirit.dds"]={
 						h=64,
 						w=64,
-						x=256,
-						y=448
+						x=1088,
+						y=384
 					},
 					["Art/2DArt/SkillIcons/passives/Invoker/InvokerEvasionGrantsPhysicalDamageReduction.dds"]={
 						h=64,
@@ -107360,8 +107928,8 @@ return {
 					["Art/2DArt/SkillIcons/passives/LifeRecoupNode.dds"]={
 						h=64,
 						w=64,
-						x=384,
-						y=256
+						x=64,
+						y=384
 					},
 					["Art/2DArt/SkillIcons/passives/LightningDamagenode.dds"]={
 						h=64,
@@ -107378,7 +107946,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/MarkNode.dds"]={
 						h=64,
 						w=64,
-						x=512,
+						x=448,
 						y=192
 					},
 					["Art/2DArt/SkillIcons/passives/MeleeAoENode.dds"]={
@@ -107390,19 +107958,19 @@ return {
 					["Art/2DArt/SkillIcons/passives/Meleerange.dds"]={
 						h=64,
 						w=64,
-						x=512,
+						x=832,
 						y=256
 					},
 					["Art/2DArt/SkillIcons/passives/MineAreaOfEffectNode.dds"]={
 						h=64,
 						w=64,
-						x=0,
-						y=320
+						x=1088,
+						y=256
 					},
 					["Art/2DArt/SkillIcons/passives/MineManaReservationNotable.dds"]={
 						h=64,
 						w=64,
-						x=896,
+						x=832,
 						y=320
 					},
 					["Art/2DArt/SkillIcons/passives/MinionChaosResistanceNode.dds"]={
@@ -107420,20 +107988,20 @@ return {
 					["Art/2DArt/SkillIcons/passives/MinionsandManaNode.dds"]={
 						h=64,
 						w=64,
-						x=384,
+						x=512,
 						y=448
 					},
 					["Art/2DArt/SkillIcons/passives/MiracleMaker.dds"]={
 						h=64,
 						w=64,
-						x=128,
+						x=448,
 						y=384
 					},
 					["Art/2DArt/SkillIcons/passives/NodeDualWieldingDamage.dds"]={
 						h=64,
 						w=64,
-						x=1024,
-						y=256
+						x=64,
+						y=320
 					},
 					["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds"]={
 						h=64,
@@ -107450,7 +108018,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderCannotBeSlowed.dds"]={
 						h=64,
 						w=64,
-						x=576,
+						x=320,
 						y=448
 					},
 					["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderEnemiesMultiplePoisons.dds"]={
@@ -107468,7 +108036,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderLifeFlasks.dds"]={
 						h=64,
 						w=64,
-						x=256,
+						x=192,
 						y=128
 					},
 					["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderMoreMovemenSpeedUsingSkills.dds"]={
@@ -107486,8 +108054,8 @@ return {
 					["Art/2DArt/SkillIcons/passives/PhysicalDamageChaosNode.dds"]={
 						h=64,
 						w=64,
-						x=832,
-						y=128
+						x=320,
+						y=384
 					},
 					["Art/2DArt/SkillIcons/passives/PhysicalDamageNode.dds"]={
 						h=64,
@@ -107516,7 +108084,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/PressurePoints.dds"]={
 						h=64,
 						w=64,
-						x=384,
+						x=320,
 						y=128
 					},
 					["Art/2DArt/SkillIcons/passives/ProjectilesNotable.dds"]={
@@ -107528,7 +108096,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/Rage.dds"]={
 						h=64,
 						w=64,
-						x=64,
+						x=128,
 						y=256
 					},
 					["Art/2DArt/SkillIcons/passives/ReducedSkillEffectDurationNode.dds"]={
@@ -107540,20 +108108,20 @@ return {
 					["Art/2DArt/SkillIcons/passives/ShieldNodeOffensive.dds"]={
 						h=64,
 						w=64,
-						x=1024,
+						x=960,
 						y=320
 					},
 					["Art/2DArt/SkillIcons/passives/SpellSuppresionNode.dds"]={
 						h=64,
 						w=64,
-						x=704,
+						x=320,
 						y=320
 					},
 					["Art/2DArt/SkillIcons/passives/Storm Weaver.dds"]={
 						h=64,
 						w=64,
-						x=64,
-						y=128
+						x=896,
+						y=192
 					},
 					["Art/2DArt/SkillIcons/passives/Stormweaver/AllDamageCanChill.dds"]={
 						h=64,
@@ -107588,7 +108156,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/Stormweaver/GrantsArcaneSurge.dds"]={
 						h=64,
 						w=64,
-						x=512,
+						x=640,
 						y=384
 					},
 					["Art/2DArt/SkillIcons/passives/Stormweaver/GrantsElementalStorm.dds"]={
@@ -107600,7 +108168,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/Stormweaver/ImprovedArcaneSurge.dds"]={
 						h=64,
 						w=64,
-						x=576,
+						x=512,
 						y=320
 					},
 					["Art/2DArt/SkillIcons/passives/Stormweaver/ImprovedElementalStorm.dds"]={
@@ -107630,8 +108198,8 @@ return {
 					["Art/2DArt/SkillIcons/passives/Temporalist/TemporalistGainMoreCastSpeed8Seconds.dds"]={
 						h=64,
 						w=64,
-						x=448,
-						y=192
+						x=128,
+						y=320
 					},
 					["Art/2DArt/SkillIcons/passives/Temporalist/TemporalistGrantsReloadCooldownsSkill.dds"]={
 						h=64,
@@ -107648,7 +108216,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/Temporalist/TemporalistGrantsTimeStopSkill.dds"]={
 						h=64,
 						w=64,
-						x=832,
+						x=896,
 						y=320
 					},
 					["Art/2DArt/SkillIcons/passives/Temporalist/TemporalistLifeRecoup.dds"]={
@@ -107660,7 +108228,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/Temporalist/TemporalistNearbyEnemiesProjectilesSlowed.dds"]={
 						h=64,
 						w=64,
-						x=640,
+						x=128,
 						y=128
 					},
 					["Art/2DArt/SkillIcons/passives/Titan/TitanAdditionalInventory.dds"]={
@@ -107714,7 +108282,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/WarCryEffect.dds"]={
 						h=64,
 						w=64,
-						x=1088,
+						x=960,
 						y=128
 					},
 					["Art/2DArt/SkillIcons/passives/Warbringer/WarbringerBlockChance.dds"]={
@@ -107774,7 +108342,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/Warrior.dds"]={
 						h=64,
 						w=64,
-						x=256,
+						x=192,
 						y=384
 					},
 					["Art/2DArt/SkillIcons/passives/Witchhunter/WitchunterArmourEvasionConvertedSpellAegis.dds"]={
@@ -107810,14 +108378,14 @@ return {
 					["Art/2DArt/SkillIcons/passives/Witchhunter/WitchunterRemovePercentageFullLifeEnemies.dds"]={
 						h=64,
 						w=64,
-						x=320,
-						y=256
+						x=1088,
+						y=192
 					},
 					["Art/2DArt/SkillIcons/passives/Witchhunter/WitchunterSpecPoints.dds"]={
 						h=64,
 						w=64,
-						x=128,
-						y=320
+						x=832,
+						y=384
 					},
 					["Art/2DArt/SkillIcons/passives/Witchhunter/WitchunterStrongerSpellAegis.dds"]={
 						h=64,
@@ -107852,13 +108420,13 @@ return {
 					["Art/2DArt/SkillIcons/passives/attackspeedbow.dds"]={
 						h=64,
 						w=64,
-						x=320,
+						x=256,
 						y=192
 					},
 					["Art/2DArt/SkillIcons/passives/auraeffect.dds"]={
 						h=64,
 						w=64,
-						x=704,
+						x=640,
 						y=192
 					},
 					["Art/2DArt/SkillIcons/passives/avoidchilling.dds"]={
@@ -107876,7 +108444,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/bodysoul.dds"]={
 						h=64,
 						w=64,
-						x=768,
+						x=576,
 						y=384
 					},
 					["Art/2DArt/SkillIcons/passives/castspeed.dds"]={
@@ -107888,25 +108456,25 @@ return {
 					["Art/2DArt/SkillIcons/passives/chargedex.dds"]={
 						h=64,
 						w=64,
-						x=960,
+						x=1024,
 						y=128
 					},
 					["Art/2DArt/SkillIcons/passives/chargeint.dds"]={
 						h=64,
 						w=64,
-						x=704,
+						x=512,
 						y=384
 					},
 					["Art/2DArt/SkillIcons/passives/chargestr.dds"]={
 						h=64,
 						w=64,
-						x=192,
+						x=320,
 						y=192
 					},
 					["Art/2DArt/SkillIcons/passives/clustersLinknode2.dds"]={
 						h=64,
 						w=64,
-						x=640,
+						x=448,
 						y=256
 					},
 					["Art/2DArt/SkillIcons/passives/colddamage.dds"]={
@@ -107966,8 +108534,8 @@ return {
 					["Art/2DArt/SkillIcons/passives/deepwisdom.dds"]={
 						h=64,
 						w=64,
-						x=64,
-						y=320
+						x=960,
+						y=256
 					},
 					["Art/2DArt/SkillIcons/passives/dmgreduction.dds"]={
 						h=64,
@@ -107978,8 +108546,8 @@ return {
 					["Art/2DArt/SkillIcons/passives/eagleeye.dds"]={
 						h=64,
 						w=64,
-						x=1088,
-						y=192
+						x=64,
+						y=256
 					},
 					["Art/2DArt/SkillIcons/passives/elementaldamage.dds"]={
 						h=64,
@@ -108002,14 +108570,14 @@ return {
 					["Art/2DArt/SkillIcons/passives/executioner.dds"]={
 						h=64,
 						w=64,
-						x=256,
+						x=0,
 						y=256
 					},
 					["Art/2DArt/SkillIcons/passives/finesse.dds"]={
 						h=64,
 						w=64,
-						x=1024,
-						y=384
+						x=192,
+						y=448
 					},
 					["Art/2DArt/SkillIcons/passives/firedamageint.dds"]={
 						h=64,
@@ -108056,7 +108624,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/knockback.dds"]={
 						h=64,
 						w=64,
-						x=960,
+						x=768,
 						y=320
 					},
 					["Art/2DArt/SkillIcons/passives/life1.dds"]={
@@ -108080,7 +108648,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/lightningint.dds"]={
 						h=64,
 						w=64,
-						x=896,
+						x=1024,
 						y=256
 					},
 					["Art/2DArt/SkillIcons/passives/macedmg.dds"]={
@@ -108104,7 +108672,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/manastr.dds"]={
 						h=64,
 						w=64,
-						x=320,
+						x=256,
 						y=320
 					},
 					["Art/2DArt/SkillIcons/passives/miniondamageBlue.dds"]={
@@ -108116,14 +108684,14 @@ return {
 					["Art/2DArt/SkillIcons/passives/minionlife.dds"]={
 						h=64,
 						w=64,
-						x=192,
-						y=448
+						x=960,
+						y=384
 					},
 					["Art/2DArt/SkillIcons/passives/newnewattackspeed.dds"]={
 						h=64,
 						w=64,
-						x=384,
-						y=768
+						x=704,
+						y=448
 					},
 					["Art/2DArt/SkillIcons/passives/onehanddamage.dds"]={
 						h=64,
@@ -108134,25 +108702,25 @@ return {
 					["Art/2DArt/SkillIcons/passives/plusdexterity.dds"]={
 						h=64,
 						w=64,
-						x=960,
+						x=832,
 						y=192
 					},
 					["Art/2DArt/SkillIcons/passives/plusintelligence.dds"]={
 						h=64,
 						w=64,
-						x=192,
+						x=576,
 						y=128
 					},
 					["Art/2DArt/SkillIcons/passives/plusstrength.dds"]={
 						h=64,
 						w=64,
-						x=1088,
-						y=256
+						x=0,
+						y=320
 					},
 					["Art/2DArt/SkillIcons/passives/projectilespeed.dds"]={
 						h=64,
 						w=64,
-						x=448,
+						x=384,
 						y=320
 					},
 					["Art/2DArt/SkillIcons/passives/shieldblock.dds"]={
@@ -108164,20 +108732,20 @@ return {
 					["Art/2DArt/SkillIcons/passives/spellcritical.dds"]={
 						h=64,
 						w=64,
-						x=768,
+						x=704,
 						y=256
 					},
 					["Art/2DArt/SkillIcons/passives/steelspan.dds"]={
 						h=64,
 						w=64,
-						x=832,
+						x=1024,
 						y=192
 					},
 					["Art/2DArt/SkillIcons/passives/strongarm.dds"]={
 						h=64,
 						w=64,
-						x=1088,
-						y=320
+						x=256,
+						y=256
 					},
 					["Art/2DArt/SkillIcons/passives/stun2h.dds"]={
 						h=64,
@@ -108213,8 +108781,8 @@ return {
 					["Art/2DArt/SkillIcons/ExplosiveGrenade.dds"]={
 						h=64,
 						w=64,
-						x=0,
-						y=960
+						x=1024,
+						y=832
 					},
 					["Art/2DArt/SkillIcons/WitchBoneStorm.dds"]={
 						h=64,
@@ -108291,7 +108859,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/Annihilation.dds"]={
 						h=128,
 						w=128,
-						x=1024,
+						x=896,
 						y=1344
 					},
 					["Art/2DArt/SkillIcons/passives/AreaDmgNode.dds"]={
@@ -108309,25 +108877,25 @@ return {
 					["Art/2DArt/SkillIcons/passives/ArmourAndEvasionNode.dds"]={
 						h=64,
 						w=64,
-						x=1024,
-						y=1856
+						x=0,
+						y=1984
 					},
 					["Art/2DArt/SkillIcons/passives/ArmourBreak2BuffIcon.dds"]={
 						h=64,
 						w=64,
-						x=768,
-						y=1600
+						x=640,
+						y=1088
 					},
 					["Art/2DArt/SkillIcons/passives/Ascendants/SkillPoint.dds"]={
 						h=64,
 						w=64,
-						x=768,
-						y=1344
+						x=128,
+						y=1472
 					},
 					["Art/2DArt/SkillIcons/passives/AspectOfTheLynx.dds"]={
 						h=128,
 						w=128,
-						x=256,
+						x=128,
 						y=1216
 					},
 					["Art/2DArt/SkillIcons/passives/Blood2.dds"]={
@@ -108339,7 +108907,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/Bloodmage/BloodMageCritDamagePerLife.dds"]={
 						h=128,
 						w=128,
-						x=640,
+						x=512,
 						y=576
 					},
 					["Art/2DArt/SkillIcons/passives/Bloodmage/BloodMageCurseInfiniteDuration.dds"]={
@@ -108381,20 +108949,20 @@ return {
 					["Art/2DArt/SkillIcons/passives/Bloodmage/BloodPhysicalDamageExtraGore.dds"]={
 						h=128,
 						w=128,
-						x=128,
-						y=1728
+						x=896,
+						y=1472
 					},
 					["Art/2DArt/SkillIcons/passives/BowDamage.dds"]={
 						h=128,
 						w=128,
-						x=0,
+						x=512,
 						y=1856
 					},
 					["Art/2DArt/SkillIcons/passives/ChainingProjectiles.dds"]={
 						h=128,
 						w=128,
-						x=512,
-						y=1344
+						x=384,
+						y=1216
 					},
 					["Art/2DArt/SkillIcons/passives/ChannellingAttacksNotable2.dds"]={
 						h=128,
@@ -108405,14 +108973,14 @@ return {
 					["Art/2DArt/SkillIcons/passives/ChaosDamagenode.dds"]={
 						h=64,
 						w=64,
-						x=0,
-						y=1088
+						x=768,
+						y=576
 					},
 					["Art/2DArt/SkillIcons/passives/CharmNotable1.dds"]={
 						h=128,
 						w=128,
-						x=128,
-						y=832
+						x=1024,
+						y=704
 					},
 					["Art/2DArt/SkillIcons/passives/ClawsOfTheMagpie.dds"]={
 						h=128,
@@ -108423,8 +108991,8 @@ return {
 					["Art/2DArt/SkillIcons/passives/ColdDamagenode.dds"]={
 						h=64,
 						w=64,
-						x=640,
-						y=1728
+						x=1024,
+						y=1472
 					},
 					["Art/2DArt/SkillIcons/passives/CorpseDamage.dds"]={
 						h=64,
@@ -108435,7 +109003,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/CriticalStrikesNotable.dds"]={
 						h=128,
 						w=128,
-						x=256,
+						x=128,
 						y=576
 					},
 					["Art/2DArt/SkillIcons/passives/CurseEffectNode.dds"]={
@@ -108465,8 +109033,8 @@ return {
 					["Art/2DArt/SkillIcons/passives/DeadEye/DeadeyeMarkEnemiesSpread.dds"]={
 						h=128,
 						w=128,
-						x=896,
-						y=1600
+						x=640,
+						y=1728
 					},
 					["Art/2DArt/SkillIcons/passives/DeadEye/DeadeyeMoreAccuracy.dds"]={
 						h=128,
@@ -108495,7 +109063,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/Deflection.dds"]={
 						h=128,
 						w=128,
-						x=768,
+						x=384,
 						y=832
 					},
 					["Art/2DArt/SkillIcons/passives/DragonStyle.dds"]={
@@ -108507,14 +109075,14 @@ return {
 					["Art/2DArt/SkillIcons/passives/ElementalDamagenode.dds"]={
 						h=64,
 						w=64,
-						x=640,
+						x=768,
 						y=1600
 					},
 					["Art/2DArt/SkillIcons/passives/ElementalDamagewithAttacks2.dds"]={
 						h=128,
 						w=128,
-						x=256,
-						y=1088
+						x=512,
+						y=704
 					},
 					["Art/2DArt/SkillIcons/passives/ElementalResistance2.dds"]={
 						h=128,
@@ -108532,13 +109100,13 @@ return {
 						h=128,
 						w=128,
 						x=128,
-						y=1600
+						y=1856
 					},
 					["Art/2DArt/SkillIcons/passives/EvasionNode.dds"]={
 						h=64,
 						w=64,
-						x=256,
-						y=1856
+						x=896,
+						y=1728
 					},
 					["Art/2DArt/SkillIcons/passives/EvasionandEnergyShieldNode.dds"]={
 						h=64,
@@ -108579,7 +109147,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/Gemling/GemlingInherentBonusesFromAttributesDouble.dds"]={
 						h=128,
 						w=128,
-						x=128,
+						x=0,
 						y=960
 					},
 					["Art/2DArt/SkillIcons/passives/Gemling/GemlingLevelAllSkillGems.dds"]={
@@ -108615,14 +109183,14 @@ return {
 					["Art/2DArt/SkillIcons/passives/GreenAttackSmallPassive.dds"]={
 						h=64,
 						w=64,
-						x=256,
-						y=1984
+						x=768,
+						y=3136
 					},
 					["Art/2DArt/SkillIcons/passives/Harrier.dds"]={
 						h=128,
 						w=128,
-						x=768,
-						y=1728
+						x=512,
+						y=1600
 					},
 					["Art/2DArt/SkillIcons/passives/Hearty.dds"]={
 						h=128,
@@ -108633,32 +109201,32 @@ return {
 					["Art/2DArt/SkillIcons/passives/HeraldBuffEffectNode2.dds"]={
 						h=64,
 						w=64,
-						x=256,
+						x=128,
 						y=832
 					},
 					["Art/2DArt/SkillIcons/passives/HiredKiller2.dds"]={
 						h=128,
 						w=128,
-						x=896,
+						x=768,
 						y=960
 					},
 					["Art/2DArt/SkillIcons/passives/Hunter.dds"]={
 						h=128,
 						w=128,
-						x=0,
+						x=384,
 						y=1728
 					},
 					["Art/2DArt/SkillIcons/passives/IncreasedManaCostNotable.dds"]={
 						h=128,
 						w=128,
-						x=384,
+						x=256,
 						y=1600
 					},
 					["Art/2DArt/SkillIcons/passives/IncreasedMaximumLifeNotable.dds"]={
 						h=128,
 						w=128,
-						x=384,
-						y=1344
+						x=0,
+						y=1216
 					},
 					["Art/2DArt/SkillIcons/passives/IncreasedProjectileSpeedNode.dds"]={
 						h=64,
@@ -108669,13 +109237,13 @@ return {
 					["Art/2DArt/SkillIcons/passives/Infernalist/Fireblood.dds"]={
 						h=88,
 						w=88,
-						x=384,
+						x=256,
 						y=1472
 					},
 					["Art/2DArt/SkillIcons/passives/Infernalist/FuryManifest.dds"]={
 						h=128,
 						w=128,
-						x=768,
+						x=640,
 						y=1216
 					},
 					["Art/2DArt/SkillIcons/passives/Infernalist/InfernalFamiliar.dds"]={
@@ -108687,20 +109255,20 @@ return {
 					["Art/2DArt/SkillIcons/passives/Infernalist/InfernalistConvertLifeToEnergyShield.dds"]={
 						h=128,
 						w=128,
-						x=640,
+						x=384,
 						y=960
 					},
 					["Art/2DArt/SkillIcons/passives/Infernalist/InfernalistConvertLifeToMana.dds"]={
 						h=128,
 						w=128,
-						x=896,
-						y=704
+						x=256,
+						y=832
 					},
 					["Art/2DArt/SkillIcons/passives/Infernalist/InfernalistConvertLifeToSpirit.dds"]={
 						h=128,
 						w=128,
-						x=512,
-						y=1216
+						x=128,
+						y=1984
 					},
 					["Art/2DArt/SkillIcons/passives/Infernalist/InfernalistInfernalHeat.dds"]={
 						h=128,
@@ -108711,8 +109279,8 @@ return {
 					["Art/2DArt/SkillIcons/passives/Infernalist/InfernalistTransformIntoDemon1.dds"]={
 						h=128,
 						w=128,
-						x=128,
-						y=1472
+						x=384,
+						y=1344
 					},
 					["Art/2DArt/SkillIcons/passives/Infernalist/InfernalistTransformIntoDemon2.dds"]={
 						h=128,
@@ -108723,8 +109291,8 @@ return {
 					["Art/2DArt/SkillIcons/passives/Infernalist/MoltenFury.dds"]={
 						h=128,
 						w=128,
-						x=128,
-						y=1984
+						x=0,
+						y=1472
 					},
 					["Art/2DArt/SkillIcons/passives/Infernalist/ScorchTheEarth.dds"]={
 						h=128,
@@ -108747,8 +109315,8 @@ return {
 					["Art/2DArt/SkillIcons/passives/Invoker/InvokerCriticalStrikesIgnoreResistances.dds"]={
 						h=128,
 						w=128,
-						x=1024,
-						y=1728
+						x=0,
+						y=1856
 					},
 					["Art/2DArt/SkillIcons/passives/Invoker/InvokerEnergyDoubled.dds"]={
 						h=128,
@@ -108759,8 +109327,8 @@ return {
 					["Art/2DArt/SkillIcons/passives/Invoker/InvokerEvasionEnergyShieldGrantsSpirit.dds"]={
 						h=128,
 						w=128,
-						x=512,
-						y=1856
+						x=1024,
+						y=1728
 					},
 					["Art/2DArt/SkillIcons/passives/Invoker/InvokerEvasionGrantsPhysicalDamageReduction.dds"]={
 						h=128,
@@ -108795,8 +109363,8 @@ return {
 					["Art/2DArt/SkillIcons/passives/LifeRecoupNode.dds"]={
 						h=64,
 						w=64,
-						x=768,
-						y=1088
+						x=128,
+						y=1600
 					},
 					["Art/2DArt/SkillIcons/passives/LightningDamagenode.dds"]={
 						h=64,
@@ -108813,7 +109381,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/MarkNode.dds"]={
 						h=64,
 						w=64,
-						x=1024,
+						x=896,
 						y=832
 					},
 					["Art/2DArt/SkillIcons/passives/MeleeAoENode.dds"]={
@@ -108825,19 +109393,19 @@ return {
 					["Art/2DArt/SkillIcons/passives/Meleerange.dds"]={
 						h=128,
 						w=128,
-						x=1024,
-						y=1088
+						x=512,
+						y=1216
 					},
 					["Art/2DArt/SkillIcons/passives/MineAreaOfEffectNode.dds"]={
 						h=64,
 						w=64,
-						x=0,
-						y=1344
+						x=1024,
+						y=1216
 					},
 					["Art/2DArt/SkillIcons/passives/MineManaReservationNotable.dds"]={
 						h=128,
 						w=128,
-						x=640,
+						x=512,
 						y=1472
 					},
 					["Art/2DArt/SkillIcons/passives/MinionChaosResistanceNode.dds"]={
@@ -108855,20 +109423,20 @@ return {
 					["Art/2DArt/SkillIcons/passives/MinionsandManaNode.dds"]={
 						h=64,
 						w=64,
-						x=768,
+						x=1024,
 						y=1856
 					},
 					["Art/2DArt/SkillIcons/passives/MiracleMaker.dds"]={
 						h=128,
 						w=128,
-						x=256,
+						x=896,
 						y=1600
 					},
 					["Art/2DArt/SkillIcons/passives/NodeDualWieldingDamage.dds"]={
 						h=64,
 						w=64,
-						x=896,
-						y=1216
+						x=128,
+						y=1344
 					},
 					["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds"]={
 						h=128,
@@ -108885,8 +109453,8 @@ return {
 					["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderCannotBeSlowed.dds"]={
 						h=128,
 						w=128,
-						x=0,
-						y=1984
+						x=640,
+						y=1856
 					},
 					["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderEnemiesMultiplePoisons.dds"]={
 						h=128,
@@ -108903,7 +109471,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderLifeFlasks.dds"]={
 						h=128,
 						w=128,
-						x=512,
+						x=384,
 						y=576
 					},
 					["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderMoreMovemenSpeedUsingSkills.dds"]={
@@ -108921,8 +109489,8 @@ return {
 					["Art/2DArt/SkillIcons/passives/PhysicalDamageChaosNode.dds"]={
 						h=64,
 						w=64,
-						x=512,
-						y=704
+						x=640,
+						y=1600
 					},
 					["Art/2DArt/SkillIcons/passives/PhysicalDamageNode.dds"]={
 						h=64,
@@ -108951,7 +109519,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/PressurePoints.dds"]={
 						h=128,
 						w=128,
-						x=768,
+						x=640,
 						y=576
 					},
 					["Art/2DArt/SkillIcons/passives/ProjectilesNotable.dds"]={
@@ -108963,7 +109531,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/Rage.dds"]={
 						h=64,
 						w=64,
-						x=128,
+						x=256,
 						y=1088
 					},
 					["Art/2DArt/SkillIcons/passives/ReducedSkillEffectDurationNode.dds"]={
@@ -108975,20 +109543,20 @@ return {
 					["Art/2DArt/SkillIcons/passives/ShieldNodeOffensive.dds"]={
 						h=64,
 						w=64,
-						x=896,
+						x=768,
 						y=1472
 					},
 					["Art/2DArt/SkillIcons/passives/SpellSuppresionNode.dds"]={
 						h=64,
 						w=64,
-						x=256,
-						y=1472
+						x=640,
+						y=1344
 					},
 					["Art/2DArt/SkillIcons/passives/Storm Weaver.dds"]={
 						h=128,
 						w=128,
-						x=128,
-						y=576
+						x=640,
+						y=960
 					},
 					["Art/2DArt/SkillIcons/passives/Stormweaver/AllDamageCanChill.dds"]={
 						h=128,
@@ -109023,8 +109591,8 @@ return {
 					["Art/2DArt/SkillIcons/passives/Stormweaver/GrantsArcaneSurge.dds"]={
 						h=128,
 						w=128,
-						x=1024,
-						y=1600
+						x=128,
+						y=1728
 					},
 					["Art/2DArt/SkillIcons/passives/Stormweaver/GrantsElementalStorm.dds"]={
 						h=128,
@@ -109035,8 +109603,8 @@ return {
 					["Art/2DArt/SkillIcons/passives/Stormweaver/ImprovedArcaneSurge.dds"]={
 						h=128,
 						w=128,
-						x=0,
-						y=1472
+						x=1024,
+						y=1344
 					},
 					["Art/2DArt/SkillIcons/passives/Stormweaver/ImprovedElementalStorm.dds"]={
 						h=128,
@@ -109065,8 +109633,8 @@ return {
 					["Art/2DArt/SkillIcons/passives/Temporalist/TemporalistGainMoreCastSpeed8Seconds.dds"]={
 						h=128,
 						w=128,
-						x=896,
-						y=832
+						x=256,
+						y=1344
 					},
 					["Art/2DArt/SkillIcons/passives/Temporalist/TemporalistGrantsReloadCooldownsSkill.dds"]={
 						h=128,
@@ -109083,7 +109651,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/Temporalist/TemporalistGrantsTimeStopSkill.dds"]={
 						h=128,
 						w=128,
-						x=512,
+						x=640,
 						y=1472
 					},
 					["Art/2DArt/SkillIcons/passives/Temporalist/TemporalistLifeRecoup.dds"]={
@@ -109095,8 +109663,8 @@ return {
 					["Art/2DArt/SkillIcons/passives/Temporalist/TemporalistNearbyEnemiesProjectilesSlowed.dds"]={
 						h=128,
 						w=128,
-						x=128,
-						y=704
+						x=256,
+						y=576
 					},
 					["Art/2DArt/SkillIcons/passives/Titan/TitanAdditionalInventory.dds"]={
 						h=128,
@@ -109149,7 +109717,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/WarCryEffect.dds"]={
 						h=64,
 						w=64,
-						x=1024,
+						x=768,
 						y=704
 					},
 					["Art/2DArt/SkillIcons/passives/Warbringer/WarbringerBlockChance.dds"]={
@@ -109209,7 +109777,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/Warrior.dds"]={
 						h=128,
 						w=128,
-						x=512,
+						x=384,
 						y=1600
 					},
 					["Art/2DArt/SkillIcons/passives/Witchhunter/WitchunterArmourEvasionConvertedSpellAegis.dds"]={
@@ -109245,14 +109813,14 @@ return {
 					["Art/2DArt/SkillIcons/passives/Witchhunter/WitchunterRemovePercentageFullLifeEnemies.dds"]={
 						h=128,
 						w=128,
-						x=640,
-						y=1088
+						x=1024,
+						y=960
 					},
 					["Art/2DArt/SkillIcons/passives/Witchhunter/WitchunterSpecPoints.dds"]={
 						h=128,
 						w=128,
-						x=256,
-						y=1344
+						x=512,
+						y=1728
 					},
 					["Art/2DArt/SkillIcons/passives/Witchhunter/WitchunterStrongerSpellAegis.dds"]={
 						h=128,
@@ -109287,13 +109855,13 @@ return {
 					["Art/2DArt/SkillIcons/passives/attackspeedbow.dds"]={
 						h=64,
 						w=64,
-						x=640,
+						x=512,
 						y=832
 					},
 					["Art/2DArt/SkillIcons/passives/auraeffect.dds"]={
 						h=64,
 						w=64,
-						x=256,
+						x=128,
 						y=960
 					},
 					["Art/2DArt/SkillIcons/passives/avoidchilling.dds"]={
@@ -109311,7 +109879,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/bodysoul.dds"]={
 						h=128,
 						w=128,
-						x=384,
+						x=0,
 						y=1728
 					},
 					["Art/2DArt/SkillIcons/passives/castspeed.dds"]={
@@ -109323,26 +109891,26 @@ return {
 					["Art/2DArt/SkillIcons/passives/chargedex.dds"]={
 						h=64,
 						w=64,
-						x=768,
+						x=896,
 						y=704
 					},
 					["Art/2DArt/SkillIcons/passives/chargeint.dds"]={
 						h=64,
 						w=64,
-						x=256,
-						y=1728
+						x=1024,
+						y=1600
 					},
 					["Art/2DArt/SkillIcons/passives/chargestr.dds"]={
 						h=64,
 						w=64,
-						x=384,
+						x=640,
 						y=832
 					},
 					["Art/2DArt/SkillIcons/passives/clustersLinknode2.dds"]={
 						h=64,
 						w=64,
-						x=128,
-						y=1216
+						x=896,
+						y=1088
 					},
 					["Art/2DArt/SkillIcons/passives/colddamage.dds"]={
 						h=64,
@@ -109401,8 +109969,8 @@ return {
 					["Art/2DArt/SkillIcons/passives/deepwisdom.dds"]={
 						h=128,
 						w=128,
-						x=128,
-						y=1344
+						x=768,
+						y=1216
 					},
 					["Art/2DArt/SkillIcons/passives/dmgreduction.dds"]={
 						h=64,
@@ -109413,8 +109981,8 @@ return {
 					["Art/2DArt/SkillIcons/passives/eagleeye.dds"]={
 						h=128,
 						w=128,
-						x=1024,
-						y=960
+						x=128,
+						y=1088
 					},
 					["Art/2DArt/SkillIcons/passives/elementaldamage.dds"]={
 						h=64,
@@ -109437,14 +110005,14 @@ return {
 					["Art/2DArt/SkillIcons/passives/executioner.dds"]={
 						h=128,
 						w=128,
-						x=512,
+						x=0,
 						y=1088
 					},
 					["Art/2DArt/SkillIcons/passives/finesse.dds"]={
 						h=128,
 						w=128,
-						x=896,
-						y=1728
+						x=384,
+						y=1856
 					},
 					["Art/2DArt/SkillIcons/passives/firedamageint.dds"]={
 						h=64,
@@ -109491,7 +110059,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/knockback.dds"]={
 						h=64,
 						w=64,
-						x=768,
+						x=384,
 						y=1472
 					},
 					["Art/2DArt/SkillIcons/passives/life1.dds"]={
@@ -109515,7 +110083,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/lightningint.dds"]={
 						h=64,
 						w=64,
-						x=640,
+						x=896,
 						y=1216
 					},
 					["Art/2DArt/SkillIcons/passives/macedmg.dds"]={
@@ -109539,7 +110107,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/manastr.dds"]={
 						h=64,
 						w=64,
-						x=640,
+						x=512,
 						y=1344
 					},
 					["Art/2DArt/SkillIcons/passives/miniondamageBlue.dds"]={
@@ -109551,14 +110119,14 @@ return {
 					["Art/2DArt/SkillIcons/passives/minionlife.dds"]={
 						h=64,
 						w=64,
-						x=384,
-						y=1856
+						x=768,
+						y=1728
 					},
 					["Art/2DArt/SkillIcons/passives/newnewattackspeed.dds"]={
 						h=128,
 						w=128,
-						x=768,
-						y=3136
+						x=256,
+						y=1984
 					},
 					["Art/2DArt/SkillIcons/passives/onehanddamage.dds"]={
 						h=64,
@@ -109569,25 +110137,25 @@ return {
 					["Art/2DArt/SkillIcons/passives/plusdexterity.dds"]={
 						h=64,
 						w=64,
-						x=768,
+						x=512,
 						y=960
 					},
 					["Art/2DArt/SkillIcons/passives/plusintelligence.dds"]={
 						h=64,
 						w=64,
-						x=384,
-						y=576
+						x=0,
+						y=704
 					},
 					["Art/2DArt/SkillIcons/passives/plusstrength.dds"]={
 						h=64,
 						w=64,
-						x=1024,
-						y=1216
+						x=0,
+						y=1344
 					},
 					["Art/2DArt/SkillIcons/passives/projectilespeed.dds"]={
 						h=64,
 						w=64,
-						x=896,
+						x=768,
 						y=1344
 					},
 					["Art/2DArt/SkillIcons/passives/shieldblock.dds"]={
@@ -109599,20 +110167,20 @@ return {
 					["Art/2DArt/SkillIcons/passives/spellcritical.dds"]={
 						h=64,
 						w=64,
-						x=384,
+						x=256,
 						y=1216
 					},
 					["Art/2DArt/SkillIcons/passives/steelspan.dds"]={
 						h=128,
 						w=128,
-						x=512,
+						x=896,
 						y=960
 					},
 					["Art/2DArt/SkillIcons/passives/strongarm.dds"]={
 						h=128,
 						w=128,
-						x=1024,
-						y=1472
+						x=512,
+						y=1088
 					},
 					["Art/2DArt/SkillIcons/passives/stun2h.dds"]={
 						h=64,
@@ -109920,7 +110488,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/MasteryBlank.dds"]={
 						h=10,
 						w=10,
-						x=504,
+						x=496,
 						y=0
 					}
 				},
@@ -109933,7 +110501,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/MasteryBlank.dds"]={
 						h=21,
 						w=21,
-						x=1008,
+						x=992,
 						y=0
 					}
 				},
@@ -109946,7 +110514,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/MasteryBlank.dds"]={
 						h=43,
 						w=43,
-						x=832,
+						x=800,
 						y=32
 					}
 				},
@@ -109959,7 +110527,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/MasteryBlank.dds"]={
 						h=43,
 						w=43,
-						x=576,
+						x=512,
 						y=192
 					}
 				},
@@ -109974,7 +110542,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/MasteryBlank.dds"]={
 						h=10,
 						w=10,
-						x=504,
+						x=496,
 						y=0
 					}
 				},
@@ -109987,7 +110555,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/MasteryBlank.dds"]={
 						h=21,
 						w=21,
-						x=1008,
+						x=992,
 						y=0
 					}
 				},
@@ -110000,7 +110568,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/MasteryBlank.dds"]={
 						h=43,
 						w=43,
-						x=832,
+						x=800,
 						y=32
 					}
 				},
@@ -110013,7 +110581,7 @@ return {
 					["Art/2DArt/SkillIcons/passives/MasteryBlank.dds"]={
 						h=43,
 						w=43,
-						x=576,
+						x=512,
 						y=192
 					}
 				},

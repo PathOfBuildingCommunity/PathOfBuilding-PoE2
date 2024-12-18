@@ -11252,7 +11252,7 @@ return {
 		},
 		[46]={
 			list=false,
-			name="",
+			name="Attribute",
 			refTo="",
 			type="Bool",
 			width=150
@@ -11266,7 +11266,7 @@ return {
 		},
 		[48]={
 			list=false,
-			name="",
+			name="IsRootOfAtlas",
 			refTo="",
 			type="Bool",
 			width=150

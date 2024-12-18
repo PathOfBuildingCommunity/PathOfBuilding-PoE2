@@ -245,6 +245,10 @@ local function parseUIImages()
 	return images
 end
 
+local function escapeGGGString(text)
+	return text:gsub("%[([^|%]]+)%]", "%1"):gsub("%[[^|]+|([^|]+)%]", "%1")
+end
+
 --[[
 	===== Extraction =====
 	Extraction of passives tree from psg file
@@ -406,10 +410,10 @@ local defaultMaxWidth = 86*14
 local maxGroups = 5 -- this is base on imageZoomLevels
 local sheets = {
 	newSheet("skills",  defaultMaxWidth, 100, maxGroups),
-	newSheet("skills-disabled", defaultMaxWidth, 40, maxGroups),
+	newSheet("skills-disabled", defaultMaxWidth, 60, maxGroups),
 	newSheet("mastery", defaultMaxWidth, 100, maxGroups),
 	newSheet("mastery-active-selected", defaultMaxWidth, 100, maxGroups),
-	newSheet("mastery-disabled", defaultMaxWidth, 40, maxGroups),
+	newSheet("mastery-disabled", defaultMaxWidth, 60, maxGroups),
 	newSheet("mastery-connected", defaultMaxWidth, 100, maxGroups),
 	newSheet("background", 2400, 100, maxGroups),
 	newSheet("group-background", defaultMaxWidth, 100, maxGroups),
@@ -849,7 +853,7 @@ for i, group in ipairs(psg.groups) do
 				printf("Ignoring passive skill " .. passiveRow.Name)
 				goto exitnode
 			end
-			node["name"] = passiveRow.Name
+			node["name"] = escapeGGGString(passiveRow.Name)
 			node["icon"] = passiveRow.Icon
 			if passiveRow.Keystone then
 				node["isKeystone"] = true
@@ -936,8 +940,9 @@ for i, group in ipairs(psg.groups) do
 			end
 
 			-- if the passive is "Attribute" we are going to add values
-			if passiveRow.Name == "Attribute" then
+			if passiveRow.Attribute == true then
 				node["options"] = {}
+				node["isAttribute"] = true
 				for attId, value in pairs(base_attributes) do
 					table.insert(node["options"], {
 						["id"] = attId,
@@ -984,8 +989,40 @@ for i, group in ipairs(psg.groups) do
 						addToSheet(getSheet("oils"), item.Oil.ItemVisualIdentityKey.DDSFile, "oil", commonBackgroundMetadata(item.NameShort, 108, 108, 4, ddsFormat))
 					end
 				end
-				
 			end
+
+			-- support for switchnodes
+			local switchNode = dat("classpassiveskilloverrides"):GetRow("OriginalNode", passiveRow)
+			if switchNode ~= nil then
+				node["isSwitchable"] = true
+				local nodeInfo = {
+					["id"] = switchNode.SwitchedNode.PassiveSkillNodeId,
+					["name"] = switchNode.SwitchedNode.Name,
+					["icon"] = switchNode.SwitchedNode.Icon,
+					["stats"] = {},
+				}
+
+				-- add to assets
+				addToSheet(getSheet("skills"), switchNode.SwitchedNode.Icon, "normalActive", skillNormalMetadata())
+				addToSheet(getSheet("skills-disabled"), switchNode.SwitchedNode.Icon, "normalInactive", skillNormalMetadata())
+
+				-- Stats
+				if switchNode.SwitchedNode.Stats ~= nil then
+					local parseStats = {}
+					for k, stat in ipairs(switchNode.SwitchedNode.Stats) do
+						parseStats[stat.Id] = { min = switchNode.SwitchedNode["Stat" .. k], max = switchNode.SwitchedNode["Stat" .. k] }
+					end
+					local out, orders = describeStats(parseStats)
+					for k, line in ipairs(out) do
+						table.insert(nodeInfo["stats"], line)
+					end
+				end
+
+				node["options"] = {
+					[switchNode.Character.Name] = nodeInfo
+				}
+			end
+
 		end
 		
 		for k, connection in ipairs(passive.connections) do
