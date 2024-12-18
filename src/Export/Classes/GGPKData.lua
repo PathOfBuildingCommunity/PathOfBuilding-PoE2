@@ -292,6 +292,8 @@ function GGPKClass:GetNeededFiles()
 		"Data/BlightCraftingRecipes.dat",
 		"Data/BlightCraftingResults.dat",
 		"Data/BlightCraftingItems.dat",
+		"Data/ItemSpirit.dat",
+		"Data/ItemInherentSkills.dat",
 	}
 	local csdFiles = {
 		"^Metadata/StatDescriptions/specific_skill_stat_descriptions/\\w+.csd$",

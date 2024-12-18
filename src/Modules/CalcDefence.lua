@@ -515,10 +515,10 @@ function calcs.defence(env, actor)
 	output.SpellBlockChanceOverCap = 0
 	local baseBlockChance = 0
 	if actor.itemList["Weapon 2"] and actor.itemList["Weapon 2"].armourData then
-		baseBlockChance = baseBlockChance + actor.itemList["Weapon 2"].armourData.BlockChance
+		baseBlockChance = baseBlockChance + (actor.itemList["Weapon 2"].armourData.BlockChance or 0)
 	end
 	if actor.itemList["Weapon 3"] and actor.itemList["Weapon 3"].armourData then
-		baseBlockChance = baseBlockChance + actor.itemList["Weapon 3"].armourData.BlockChance
+		baseBlockChance = baseBlockChance + (actor.itemList["Weapon 3"].armourData.BlockChance or 0)
 	end
 	output.ShieldBlockChance = baseBlockChance
 	baseBlockChance = modDB:Override(nil, "ReplaceShieldBlock") or baseBlockChance
