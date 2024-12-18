@@ -13552,6 +13552,11 @@ return {
 			name="Fast Acting Toxins",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Paranoia",
+				[2]="Greed",
+				[3]="Isolation"
+			},
 			skill=55,
 			stats={
 				[1]="Damaging Ailments deal damage 12% faster"
@@ -13638,6 +13643,11 @@ return {
 			name="Insightfulness",
 			orbit=7,
 			orbitIndex=13,
+			recipe={
+				[1]="Guilt",
+				[2]="Disgust",
+				[3]="Fear"
+			},
 			skill=116,
 			stats={
 				[1]="18% increased maximum Energy Shield",
@@ -13799,6 +13809,11 @@ return {
 			name="Storm Swell",
 			orbit=3,
 			orbitIndex=15,
+			recipe={
+				[1]="Envy",
+				[2]="Suffering",
+				[3]="Suffering"
+			},
 			skill=336,
 			stats={
 				[1]="Damage Penetrates 15% Cold Resistance",
@@ -13835,6 +13850,11 @@ return {
 			name="Heatproofing",
 			orbit=7,
 			orbitIndex=6,
+			recipe={
+				[1]="Disgust",
+				[2]="Disgust",
+				[3]="Greed"
+			},
 			skill=372,
 			stats={
 				[1]="25% of Armour also applies to Fire Damage taken from Hits"
@@ -14190,6 +14210,11 @@ return {
 			name="Natural Immunity",
 			orbit=4,
 			orbitIndex=63,
+			recipe={
+				[1]="Greed",
+				[2]="Suffering",
+				[3]="Paranoia"
+			},
 			skill=934,
 			stats={
 				[1]="+4 to Ailment Threshold per Dexterity"
@@ -14243,6 +14268,11 @@ return {
 			name="Shockwaves",
 			orbit=3,
 			orbitIndex=7,
+			recipe={
+				[1]="Greed",
+				[2]="Paranoia",
+				[3]="Ire"
+			},
 			skill=1087,
 			stats={
 				[1]="30% increased Area of Effect if you've Stunned an Enemy with a Two Handed Melee Weapon Recently"
@@ -14261,6 +14291,11 @@ return {
 			name="Lust for Power",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Isolation",
+				[2]="Guilt",
+				[3]="Guilt"
+			},
 			skill=1104,
 			stats={
 				[1]="5% chance that if you would gain Power Charges, you instead gain up to",
@@ -14396,6 +14431,11 @@ return {
 			name="Urgent Call",
 			orbit=7,
 			orbitIndex=14,
+			recipe={
+				[1]="Fear",
+				[2]="Isolation",
+				[3]="Suffering"
+			},
 			skill=1169,
 			stats={
 				[1]="Recover 2% of Life and Mana when you use a Warcry",
@@ -14609,6 +14649,11 @@ return {
 			name="Unbending",
 			orbit=7,
 			orbitIndex=10,
+			recipe={
+				[1]="Fear",
+				[2]="Despair",
+				[3]="Paranoia"
+			},
 			skill=1352,
 			stats={
 				[1]="3% increased maximum Life",
@@ -14772,6 +14817,11 @@ return {
 			name="Spiral into Depression",
 			orbit=2,
 			orbitIndex=20,
+			recipe={
+				[1]="Envy",
+				[2]="Despair",
+				[3]="Suffering"
+			},
 			skill=1546,
 			stats={
 				[1]="3% increased Movement Speed",
@@ -14969,6 +15019,11 @@ return {
 			name="Illuminated Crown",
 			orbit=4,
 			orbitIndex=60,
+			recipe={
+				[1]="Suffering",
+				[2]="Paranoia",
+				[3]="Suffering"
+			},
 			skill=1823,
 			stats={
 				[1]="20% increased Light Radius",
@@ -15154,6 +15209,11 @@ return {
 			name="Wellspring",
 			orbit=7,
 			orbitIndex=0,
+			recipe={
+				[1]="Disgust",
+				[2]="Greed",
+				[3]="Guilt"
+			},
 			skill=2021,
 			stats={
 				[1]="30% increased Mana Recovery from Flasks",
@@ -15223,6 +15283,11 @@ return {
 			name="Martial Artistry",
 			orbit=3,
 			orbitIndex=13,
+			recipe={
+				[1]="Isolation",
+				[2]="Ire",
+				[3]="Fear"
+			},
 			skill=2113,
 			stats={
 				[1]="25% increased Accuracy Rating with Quarterstaves",
@@ -15256,6 +15321,11 @@ return {
 			name="Spiral into Insanity",
 			orbit=2,
 			orbitIndex=12,
+			recipe={
+				[1]="Greed",
+				[2]="Isolation",
+				[3]="Envy"
+			},
 			skill=2138,
 			stats={
 				[1]="29% increased Chaos Damage",
@@ -15330,6 +15400,11 @@ return {
 			name="Pure Energy",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Fear",
+				[2]="Guilt",
+				[3]="Disgust"
+			},
 			skill=2254,
 			stats={
 				[1]="30% increased maximum Energy Shield",
@@ -15370,6 +15445,11 @@ return {
 			name="Turn the Clock Forward",
 			orbit=3,
 			orbitIndex=6,
+			recipe={
+				[1]="Despair",
+				[2]="Fear",
+				[3]="Guilt"
+			},
 			skill=2335,
 			stats={
 				[1]="20% increased Projectile Speed for Spell Skills"
@@ -15402,6 +15482,11 @@ return {
 			name="Blade Flurry",
 			orbit=3,
 			orbitIndex=9,
+			recipe={
+				[1]="Envy",
+				[2]="Envy",
+				[3]="Despair"
+			},
 			skill=2394,
 			stats={
 				[1]="6% increased Attack Speed while Dual Wielding",
@@ -15568,6 +15653,11 @@ return {
 			name="Stars Aligned",
 			orbit=7,
 			orbitIndex=22,
+			recipe={
+				[1]="Suffering",
+				[2]="Envy",
+				[3]="Isolation"
+			},
 			skill=2486,
 			stats={
 				[1]="Damage with Hits is Lucky against Enemies that are on Low Life"
@@ -15637,6 +15727,11 @@ return {
 			name="Sundering",
 			orbit=3,
 			orbitIndex=20,
+			recipe={
+				[1]="Disgust",
+				[2]="Paranoia",
+				[3]="Ire"
+			},
 			skill=2511,
 			stats={
 				[1]="25% increased Critical Damage Bonus for Attack Damage",
@@ -15673,6 +15768,11 @@ return {
 			name="Ancestral Alacrity",
 			orbit=2,
 			orbitIndex=14,
+			recipe={
+				[1]="Suffering",
+				[2]="Paranoia",
+				[3]="Guilt"
+			},
 			skill=2575,
 			stats={
 				[1]="30% increased Totem Placement speed",
@@ -15772,6 +15872,11 @@ return {
 			name="Skullcrusher",
 			orbit=4,
 			orbitIndex=69,
+			recipe={
+				[1]="Ire",
+				[2]="Isolation",
+				[3]="Ire"
+			},
 			skill=2645,
 			stats={
 				[1]="20% more Damage against Heavy Stunned Enemies with Maces"
@@ -15907,6 +16012,11 @@ return {
 			name="Perpetual Freeze",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Guilt",
+				[2]="Ire",
+				[3]="Isolation"
+			},
 			skill=2863,
 			stats={
 				[1]="15% increased Freeze Buildup",
@@ -15989,6 +16099,11 @@ return {
 			name="Final Barrage",
 			orbit=6,
 			orbitIndex=22,
+			recipe={
+				[1]="Isolation",
+				[2]="Despair",
+				[3]="Disgust"
+			},
 			skill=2999,
 			stats={
 				[1]="20% increased Cast Speed when on Low Life",
@@ -16247,6 +16362,11 @@ return {
 			name="Revenge",
 			orbit=3,
 			orbitIndex=21,
+			recipe={
+				[1]="Ire",
+				[2]="Disgust",
+				[3]="Isolation"
+			},
 			skill=3188,
 			stats={
 				[1]="12% increased Attack Speed if you've been Hit Recently"
@@ -16304,6 +16424,11 @@ return {
 			name="Melding",
 			orbit=7,
 			orbitIndex=9,
+			recipe={
+				[1]="Guilt",
+				[2]="Envy",
+				[3]="Suffering"
+			},
 			skill=3215,
 			stats={
 				[1]="40% increased maximum Energy Shield",
@@ -16609,6 +16734,11 @@ return {
 			name="Void",
 			orbit=3,
 			orbitIndex=12,
+			recipe={
+				[1]="Isolation",
+				[2]="Ire",
+				[3]="Disgust"
+			},
 			skill=3492,
 			stats={
 				[1]="29% increased Chaos Damage",
@@ -16653,6 +16783,11 @@ return {
 			name="Raw Mana",
 			orbit=3,
 			orbitIndex=16,
+			recipe={
+				[1]="Suffering",
+				[2]="Ire",
+				[3]="Isolation"
+			},
 			skill=3567,
 			stats={
 				[1]="12% increased maximum Mana",
@@ -16789,6 +16924,11 @@ return {
 			name="Dynamism",
 			orbit=7,
 			orbitIndex=4,
+			recipe={
+				[1]="Isolation",
+				[2]="Greed",
+				[3]="Ire"
+			},
 			skill=3688,
 			stats={
 				[1]="40% increased Damage if you've Triggered a Skill Recently",
@@ -16808,6 +16948,11 @@ return {
 			name="Spike Pit",
 			orbit=2,
 			orbitIndex=11,
+			recipe={
+				[1]="Isolation",
+				[2]="Isolation",
+				[3]="Greed"
+			},
 			skill=3698,
 			stats={
 				[1]="Enemies in Jagged Ground you create take 10% increased Damage"
@@ -16938,6 +17083,11 @@ return {
 			name="Path of Winter",
 			orbit=1,
 			orbitIndex=0,
+			recipe={
+				[1]="Suffering",
+				[2]="Envy",
+				[3]="Despair"
+			},
 			skill=3823,
 			stats={
 				[1]="18% increased Cold Damage",
@@ -16999,6 +17149,11 @@ return {
 			name="Eldritch Will",
 			orbit=4,
 			orbitIndex=30,
+			recipe={
+				[1]="Isolation",
+				[2]="Guilt",
+				[3]="Isolation"
+			},
 			skill=3894,
 			stats={
 				[1]="3% increased maximum Life, Mana and Energy Shield",
@@ -17035,6 +17190,11 @@ return {
 			name="Fate Finding",
 			orbit=7,
 			orbitIndex=10,
+			recipe={
+				[1]="Fear",
+				[2]="Despair",
+				[3]="Greed"
+			},
 			skill=3921,
 			stats={
 				[1]="15% reduced Reservation of Herald Skills"
@@ -17074,6 +17234,11 @@ return {
 			name="Forces of Nature",
 			orbit=2,
 			orbitIndex=15,
+			recipe={
+				[1]="Suffering",
+				[2]="Isolation",
+				[3]="Ire"
+			},
 			skill=3985,
 			stats={
 				[1]="Attack Damage Penetrates 15% of Enemy Elemental Resistances"
@@ -17199,6 +17364,11 @@ return {
 			name="Icebreaker",
 			orbit=3,
 			orbitIndex=15,
+			recipe={
+				[1]="Ire",
+				[2]="Paranoia",
+				[3]="Fear"
+			},
 			skill=4031,
 			stats={
 				[1]="Gain 100% of Maximum Energy Shield as additional Freeze Threshold"
@@ -17502,6 +17672,11 @@ return {
 			name="Versatile Arms",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Ire",
+				[2]="Isolation",
+				[3]="Envy"
+			},
 			skill=4238,
 			stats={
 				[1]="6% increased Attack Speed with One Handed Melee Weapons",
@@ -17552,6 +17727,11 @@ return {
 			name="Adverse Growth",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Ire",
+				[2]="Paranoia",
+				[3]="Disgust"
+			},
 			skill=4295,
 			stats={
 				[1]="20% reduced Life Regeneration rate",
@@ -17707,6 +17887,11 @@ return {
 			name="Coated Knife",
 			orbit=2,
 			orbitIndex=7,
+			recipe={
+				[1]="Ire",
+				[2]="Despair",
+				[3]="Suffering"
+			},
 			skill=4423,
 			stats={
 				[1]="Critical Hits with Daggers have a 25% chance to Poison the Enemy"
@@ -17751,6 +17936,11 @@ return {
 			name="Pinned Down",
 			orbit=3,
 			orbitIndex=16,
+			recipe={
+				[1]="Disgust",
+				[2]="Despair",
+				[3]="Envy"
+			},
 			skill=4447,
 			stats={
 				[1]="Enemies are Maimed for 4 seconds after becoming Unpinned",
@@ -17889,6 +18079,11 @@ return {
 			name="Piercing Shot",
 			orbit=3,
 			orbitIndex=13,
+			recipe={
+				[1]="Disgust",
+				[2]="Guilt",
+				[3]="Disgust"
+			},
 			skill=4534,
 			stats={
 				[1]="50% chance to Pierce an Enemy"
@@ -17924,6 +18119,11 @@ return {
 			name="Unnatural Resilience",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Isolation",
+				[2]="Isolation",
+				[3]="Isolation"
+			},
 			skill=4547,
 			stats={
 				[1]="2% to Maximum Fire Resistance for each 40% Uncapped Fire Resistance"
@@ -17980,6 +18180,11 @@ return {
 			name="Climate Change",
 			orbit=7,
 			orbitIndex=0,
+			recipe={
+				[1]="Greed",
+				[2]="Isolation",
+				[3]="Despair"
+			},
 			skill=4627,
 			stats={
 				[1]="20% increased Freeze Buildup",
@@ -18037,6 +18242,11 @@ return {
 			name="Hulking Smash",
 			orbit=2,
 			orbitIndex=15,
+			recipe={
+				[1]="Disgust",
+				[2]="Guilt",
+				[3]="Guilt"
+			},
 			skill=4673,
 			stats={
 				[1]="30% increased Stun Buildup",
@@ -18052,6 +18262,11 @@ return {
 			name="Near Sighted",
 			orbit=2,
 			orbitIndex=19,
+			recipe={
+				[1]="Ire",
+				[2]="Envy",
+				[3]="Paranoia"
+			},
 			skill=4709,
 			stats={
 				[1]="60% increased Accuracy Rating at Close Range"
@@ -18067,6 +18282,11 @@ return {
 			name="Afterimage",
 			orbit=3,
 			orbitIndex=18,
+			recipe={
+				[1]="Guilt",
+				[2]="Greed",
+				[3]="Disgust"
+			},
 			skill=4716,
 			stats={
 				[1]="8% more chance to Evade Melee Attacks"
@@ -18277,6 +18497,11 @@ return {
 			name="Dependable Ward",
 			orbit=2,
 			orbitIndex=0,
+			recipe={
+				[1]="Ire",
+				[2]="Fear",
+				[3]="Envy"
+			},
 			skill=4931,
 			stats={
 				[1]="25% increased Energy Shield Recharge Rate",
@@ -18312,6 +18537,11 @@ return {
 			name="Heavy Frost",
 			orbit=7,
 			orbitIndex=2,
+			recipe={
+				[1]="Despair",
+				[2]="Fear",
+				[3]="Paranoia"
+			},
 			skill=4959,
 			stats={
 				[1]="20% increased Freeze Buildup",
@@ -18327,6 +18557,11 @@ return {
 			name="Flip the Script",
 			orbit=7,
 			orbitIndex=6,
+			recipe={
+				[1]="Ire",
+				[2]="Disgust",
+				[3]="Ire"
+			},
 			skill=4985,
 			stats={
 				[1]="Recover 20% of Life when you Heavy Stun a Rare or Unique Enemy"
@@ -18345,6 +18580,11 @@ return {
 			name="Seeing Stars",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Ire",
+				[2]="Guilt",
+				[3]="Paranoia"
+			},
 			skill=5009,
 			stats={
 				[1]="25% increased Daze Buildup",
@@ -18485,6 +18725,11 @@ return {
 			name="Escape Strategy",
 			orbit=3,
 			orbitIndex=20,
+			recipe={
+				[1]="Despair",
+				[2]="Paranoia",
+				[3]="Despair"
+			},
 			skill=5227,
 			stats={
 				[1]="100% increased Evasion Rating if you have been Hit Recently",
@@ -18505,6 +18750,11 @@ return {
 			name="Echoing Frost",
 			orbit=7,
 			orbitIndex=20,
+			recipe={
+				[1]="Suffering",
+				[2]="Guilt",
+				[3]="Greed"
+			},
 			skill=5257,
 			stats={
 				[1]="30% increased Elemental Damage if you've Chilled an Enemy Recently"
@@ -18523,6 +18773,11 @@ return {
 			name="Shredding Force",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Guilt",
+				[2]="Isolation",
+				[3]="Greed"
+			},
 			skill=5284,
 			stats={
 				[1]="15% increased Critical Hit Chance for Spells",
@@ -18677,6 +18932,11 @@ return {
 			name="Critical Overload",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Guilt",
+				[2]="Envy",
+				[3]="Ire"
+			},
 			skill=5501,
 			stats={
 				[1]="15% increased Critical Hit Chance for Spells",
@@ -18734,6 +18994,11 @@ return {
 			name="Watchtowers",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Disgust",
+				[2]="Suffering",
+				[3]="Suffering"
+			},
 			skill=5580,
 			stats={
 				[1]="Attack Skills have +1 to maximum number of Summoned Totems",
@@ -18750,6 +19015,11 @@ return {
 			name="Endurance",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Guilt",
+				[2]="Isolation",
+				[3]="Envy"
+			},
 			skill=5663,
 			stats={
 				[1]="+2 to Maximum Endurance Charges"
@@ -18850,6 +19120,11 @@ return {
 			name="Echoing Thunder",
 			orbit=7,
 			orbitIndex=4,
+			recipe={
+				[1]="Despair",
+				[2]="Suffering",
+				[3]="Ire"
+			},
 			skill=5703,
 			stats={
 				[1]="30% increased Elemental Damage if you've Shocked an Enemy Recently"
@@ -18880,6 +19155,11 @@ return {
 			name="Brutal",
 			orbit=4,
 			orbitIndex=51,
+			recipe={
+				[1]="Despair",
+				[2]="Despair",
+				[3]="Envy"
+			},
 			skill=5710,
 			stats={
 				[1]="10% increased Stun Buildup",
@@ -18920,6 +19200,11 @@ return {
 			name="Ancient Aegis",
 			orbit=7,
 			orbitIndex=4,
+			recipe={
+				[1]="Despair",
+				[2]="Paranoia",
+				[3]="Envy"
+			},
 			skill=5728,
 			stats={
 				[1]="60% increased Armour from Equipped Body Armour",
@@ -18960,6 +19245,11 @@ return {
 			name="Deadly Swarm",
 			orbit=4,
 			orbitIndex=4,
+			recipe={
+				[1]="Paranoia",
+				[2]="Despair",
+				[3]="Disgust"
+			},
 			skill=5777,
 			stats={
 				[1]="Minions deal 15% increased Damage",
@@ -18976,6 +19266,11 @@ return {
 			name="Stand and Deliver",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Disgust",
+				[2]="Greed",
+				[3]="Isolation"
+			},
 			skill=5802,
 			stats={
 				[1]="Projectiles have 40% increased Critical Damage Bonus against Enemies within 2m",
@@ -19238,6 +19533,11 @@ return {
 			name="Core of the Guardian",
 			orbit=4,
 			orbitIndex=48,
+			recipe={
+				[1]="Paranoia",
+				[2]="Greed",
+				[3]="Fear"
+			},
 			skill=6133,
 			stats={
 				[1]="100% increased Defences from Equipped Shield"
@@ -19277,6 +19577,11 @@ return {
 			name="Power Shots",
 			orbit=4,
 			orbitIndex=35,
+			recipe={
+				[1]="Paranoia",
+				[2]="Isolation",
+				[3]="Suffering"
+			},
 			skill=6178,
 			stats={
 				[1]="15% reduced Attack Speed with Crossbows",
@@ -19322,6 +19627,11 @@ return {
 			name="Push the Advantage",
 			orbit=7,
 			orbitIndex=5,
+			recipe={
+				[1]="Fear",
+				[2]="Ire",
+				[3]="Disgust"
+			},
 			skill=6229,
 			stats={
 				[1]="40% increased Critical Damage Bonus with One Handed Melee Weapons"
@@ -19416,6 +19726,11 @@ return {
 			name="Stand Ground",
 			orbit=2,
 			orbitIndex=4,
+			recipe={
+				[1]="Greed",
+				[2]="Paranoia",
+				[3]="Guilt"
+			},
 			skill=6304,
 			stats={
 				[1]="Regenerate 1% of Life per second while affected by any Damaging Ailment",
@@ -19558,6 +19873,11 @@ return {
 			name="Cacophony",
 			orbit=4,
 			orbitIndex=5,
+			recipe={
+				[1]="Isolation",
+				[2]="Guilt",
+				[3]="Fear"
+			},
 			skill=6514,
 			stats={
 				[1]="40% increased Damage with Warcries",
@@ -19619,6 +19939,11 @@ return {
 			name="Burning Strikes",
 			orbit=4,
 			orbitIndex=53,
+			recipe={
+				[1]="Envy",
+				[2]="Disgust",
+				[3]="Isolation"
+			},
 			skill=6544,
 			stats={
 				[1]="Gain 12% of Physical Damage as Extra Fire Damage"
@@ -19700,6 +20025,11 @@ return {
 			name="Aggravation",
 			orbit=2,
 			orbitIndex=14,
+			recipe={
+				[1]="Despair",
+				[2]="Suffering",
+				[3]="Envy"
+			},
 			skill=6655,
 			stats={
 				[1]="10% chance to Aggravate Bleeding on targets you Hit with Attacks"
@@ -20059,6 +20389,11 @@ return {
 			name="Relentless Vindicator",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Envy",
+				[2]="Paranoia",
+				[3]="Envy"
+			},
 			skill=6898,
 			stats={
 				[1]="10% increased Damage",
@@ -20186,6 +20521,11 @@ return {
 			name="Reusable Ammunition",
 			orbit=4,
 			orbitIndex=19,
+			recipe={
+				[1]="Paranoia",
+				[2]="Isolation",
+				[3]="Despair"
+			},
 			skill=7062,
 			stats={
 				[1]="15% chance for Crossbow Attacks to not consume a bolt"
@@ -20242,6 +20582,11 @@ return {
 			name="Stimulants",
 			orbit=5,
 			orbitIndex=45,
+			recipe={
+				[1]="Despair",
+				[2]="Greed",
+				[3]="Greed"
+			},
 			skill=7163,
 			stats={
 				[1]="12% increased Attack Speed during any Flask Effect"
@@ -20329,6 +20674,11 @@ return {
 			name="Echoing Pulse",
 			orbit=7,
 			orbitIndex=0,
+			recipe={
+				[1]="Fear",
+				[2]="Envy",
+				[3]="Ire"
+			},
 			skill=7302,
 			stats={
 				[1]="Final Repeat of Spells has 40% increased Area of Effect"
@@ -20343,6 +20693,11 @@ return {
 			name="Ignore Pain",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Despair",
+				[2]="Fear",
+				[3]="Suffering"
+			},
 			skill=7341,
 			stats={
 				[1]="Gain 3 Rage when Hit by an Enemy",
@@ -20366,6 +20721,11 @@ return {
 			name="Life from Death",
 			orbit=3,
 			orbitIndex=4,
+			recipe={
+				[1]="Greed",
+				[2]="Greed",
+				[3]="Greed"
+			},
 			skill=7344,
 			stats={
 				[1]="Recover 3% of Life on Kill"
@@ -20435,6 +20795,11 @@ return {
 			name="Retaliation",
 			orbit=3,
 			orbitIndex=13,
+			recipe={
+				[1]="Ire",
+				[2]="Fear",
+				[3]="Suffering"
+			},
 			skill=7395,
 			stats={
 				[1]="75% increased Thorns damage if you've Blocked Recently"
@@ -20614,6 +20979,11 @@ return {
 			name="Rapid Strike",
 			orbit=3,
 			orbitIndex=10,
+			recipe={
+				[1]="Ire",
+				[2]="Fear",
+				[3]="Fear"
+			},
 			skill=7604,
 			stats={
 				[1]="+30 to Accuracy Rating",
@@ -20701,6 +21071,11 @@ return {
 			name="Pierce the Heart",
 			orbit=6,
 			orbitIndex=21,
+			recipe={
+				[1]="Despair",
+				[2]="Isolation",
+				[3]="Paranoia"
+			},
 			skill=7651,
 			stats={
 				[1]="Arrows Pierce an additional Target"
@@ -20737,6 +21112,11 @@ return {
 			name="Internal Bleeding",
 			orbit=2,
 			orbitIndex=3,
+			recipe={
+				[1]="Guilt",
+				[2]="Despair",
+				[3]="Paranoia"
+			},
 			skill=7668,
 			stats={
 				[1]="20% chance to Aggravate Bleeding on targets you Hit with Empowered Attacks",
@@ -20768,6 +21148,11 @@ return {
 			name="Relentless",
 			orbit=4,
 			orbitIndex=45,
+			recipe={
+				[1]="Despair",
+				[2]="Despair",
+				[3]="Greed"
+			},
 			skill=7721,
 			stats={
 				[1]="15% increased Armour",
@@ -20835,6 +21220,11 @@ return {
 			name="Breaking Point",
 			orbit=4,
 			orbitIndex=18,
+			recipe={
+				[1]="Fear",
+				[2]="Paranoia",
+				[3]="Fear"
+			},
 			skill=7777,
 			stats={
 				[1]="10% increased Duration of Elemental Ailments on Enemies",
@@ -20886,6 +21276,11 @@ return {
 			name="Wild Storm",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Isolation",
+				[2]="Fear",
+				[3]="Isolation"
+			},
 			skill=7809,
 			stats={
 				[1]="15% more Maximum Lightning Damage"
@@ -21234,6 +21629,11 @@ return {
 			name="Endless Circuit",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Isolation",
+				[2]="Despair",
+				[3]="Despair"
+			},
 			skill=8273,
 			stats={
 				[1]="25% chance on Consuming a Shock on an Enemy to reapply it"
@@ -21394,6 +21794,11 @@ return {
 			name="Ruin",
 			orbit=7,
 			orbitIndex=7,
+			recipe={
+				[1]="Greed",
+				[2]="Despair",
+				[3]="Suffering"
+			},
 			skill=8483,
 			stats={
 				[1]="35% increased Spell Area Damage",
@@ -21490,6 +21895,11 @@ return {
 			name="Leaping Ambush",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Despair",
+				[2]="Guilt",
+				[3]="Guilt"
+			},
 			skill=8531,
 			stats={
 				[1]="100% increased Critical Hit Chance against Enemies on Full Life"
@@ -21504,6 +21914,11 @@ return {
 			name="Spiked Whip",
 			orbit=2,
 			orbitIndex=7,
+			recipe={
+				[1]="Disgust",
+				[2]="Envy",
+				[3]="Paranoia"
+			},
 			skill=8535,
 			stats={
 				[1]="25% increased Damage with Flails"
@@ -21539,6 +21954,11 @@ return {
 			name="Burning Nature",
 			orbit=4,
 			orbitIndex=54,
+			recipe={
+				[1]="Greed",
+				[2]="Isolation",
+				[3]="Greed"
+			},
 			skill=8554,
 			stats={
 				[1]="25% increased Fire Damage",
@@ -21792,6 +22212,11 @@ return {
 			name="Reverberation",
 			orbit=3,
 			orbitIndex=12,
+			recipe={
+				[1]="Paranoia",
+				[2]="Guilt",
+				[3]="Fear"
+			},
 			skill=8660,
 			stats={
 				[1]="Spell Skills have 20% increased Area of Effect"
@@ -21848,6 +22273,11 @@ return {
 			name="Sturdy Ally",
 			orbit=3,
 			orbitIndex=6,
+			recipe={
+				[1]="Fear",
+				[2]="Greed",
+				[3]="Despair"
+			},
 			skill=8791,
 			stats={
 				[1]="Minions have 25% increased maximum Life"
@@ -21884,6 +22314,11 @@ return {
 			name="Multitasking",
 			orbit=1,
 			orbitIndex=4,
+			recipe={
+				[1]="Paranoia",
+				[2]="Disgust",
+				[3]="Fear"
+			},
 			skill=8810,
 			stats={
 				[1]="15% increased Skill Effect Duration",
@@ -21924,6 +22359,11 @@ return {
 			name="Fast Metabolism",
 			orbit=7,
 			orbitIndex=8,
+			recipe={
+				[1]="Suffering",
+				[2]="Isolation",
+				[3]="Suffering"
+			},
 			skill=8827,
 			stats={
 				[1]="Life Leech effects are not removed when Unreserved Life is Filled"
@@ -21943,6 +22383,11 @@ return {
 			name="Tempered Mind",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Isolation",
+				[2]="Despair",
+				[3]="Paranoia"
+			},
 			skill=8831,
 			stats={
 				[1]="20% increased Critical Damage Bonus",
@@ -22052,6 +22497,11 @@ return {
 			name="Unforgiving",
 			orbit=4,
 			orbitIndex=6,
+			recipe={
+				[1]="Isolation",
+				[2]="Greed",
+				[3]="Greed"
+			},
 			skill=8881,
 			stats={
 				[1]="+4 to Maximum Rage",
@@ -22068,6 +22518,11 @@ return {
 			name="Death from Afar",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Isolation",
+				[2]="Fear",
+				[3]="Guilt"
+			},
 			skill=8904,
 			stats={
 				[1]="Projectiles have 25% increased Critical Hit Chance against Enemies further than 6m",
@@ -22109,6 +22564,11 @@ return {
 			name="Right Hand of Darkness",
 			orbit=4,
 			orbitIndex=44,
+			recipe={
+				[1]="Envy",
+				[2]="Isolation",
+				[3]="Suffering"
+			},
 			skill=8957,
 			stats={
 				[1]="Minions have 20% increased Area of Effect",
@@ -22184,6 +22644,11 @@ return {
 			name="Giantslayer",
 			orbit=1,
 			orbitIndex=11,
+			recipe={
+				[1]="Despair",
+				[2]="Isolation",
+				[3]="Despair"
+			},
 			skill=9020,
 			stats={
 				[1]="25% increased Damage with Hits against Rare and Unique Enemies",
@@ -22402,6 +22867,11 @@ return {
 			name="Escalation",
 			orbit=2,
 			orbitIndex=8,
+			recipe={
+				[1]="Isolation",
+				[2]="Greed",
+				[3]="Guilt"
+			},
 			skill=9187,
 			stats={
 				[1]="25% increased Warcry Speed",
@@ -22443,6 +22913,11 @@ return {
 			name="Mental Perseverance",
 			orbit=1,
 			orbitIndex=5,
+			recipe={
+				[1]="Ire",
+				[2]="Disgust",
+				[3]="Greed"
+			},
 			skill=9226,
 			stats={
 				[1]="10% of Damage is taken from Mana before Life"
@@ -22461,6 +22936,11 @@ return {
 			name="Swift Skewering",
 			orbit=2,
 			orbitIndex=4,
+			recipe={
+				[1]="Fear",
+				[2]="Ire",
+				[3]="Greed"
+			},
 			skill=9227,
 			stats={
 				[1]="8% increased Attack Speed with Spears"
@@ -22643,6 +23123,11 @@ return {
 			name="Snowpiercer",
 			orbit=2,
 			orbitIndex=8,
+			recipe={
+				[1]="Isolation",
+				[2]="Guilt",
+				[3]="Disgust"
+			},
 			skill=9421,
 			stats={
 				[1]="Damage Penetrates 15% Cold Resistance",
@@ -22658,6 +23143,11 @@ return {
 			name="One with the Storm",
 			orbit=6,
 			orbitIndex=39,
+			recipe={
+				[1]="Isolation",
+				[2]="Suffering",
+				[3]="Disgust"
+			},
 			skill=9444,
 			stats={
 				[1]="Quarterstaff Skills that consume Power Charges count as consuming an additional Power Charge"
@@ -22696,6 +23186,11 @@ return {
 			name="Catapult",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Envy",
+				[2]="Disgust",
+				[3]="Guilt"
+			},
 			skill=9472,
 			stats={
 				[1]="15% increased Projectile Speed",
@@ -22847,6 +23342,11 @@ return {
 			name="Dampening Shield",
 			orbit=7,
 			orbitIndex=21,
+			recipe={
+				[1]="Guilt",
+				[2]="Fear",
+				[3]="Isolation"
+			},
 			skill=9642,
 			stats={
 				[1]="28% increased maximum Energy Shield",
@@ -22921,6 +23421,11 @@ return {
 			name="Insulated Treads",
 			orbit=4,
 			orbitIndex=36,
+			recipe={
+				[1]="Ire",
+				[2]="Ire",
+				[3]="Ire"
+			},
 			skill=9736,
 			stats={
 				[1]="Gain Ailment Threshold equal to the lowest of Evasion and Armour on your Boots"
@@ -23085,6 +23590,11 @@ return {
 			name="Price of Freedom",
 			orbit=2,
 			orbitIndex=8,
+			recipe={
+				[1]="Envy",
+				[2]="Fear",
+				[3]="Ire"
+			},
 			skill=9908,
 			stats={
 				[1]="10% reduced Mana Cost of Attacks",
@@ -23143,6 +23653,11 @@ return {
 			name="Feel the Earth",
 			orbit=4,
 			orbitIndex=0,
+			recipe={
+				[1]="Paranoia",
+				[2]="Suffering",
+				[3]="Disgust"
+			},
 			skill=9968,
 			stats={
 				[1]="25% reduced Shock duration on you",
@@ -23200,6 +23715,11 @@ return {
 			name="Repulsion",
 			orbit=2,
 			orbitIndex=2,
+			recipe={
+				[1]="Disgust",
+				[2]="Paranoia",
+				[3]="Despair"
+			},
 			skill=10029,
 			stats={
 				[1]="Area Skills have 20% chance to Knock Enemies Back on Hit",
@@ -23240,6 +23760,11 @@ return {
 			name="Combat Alchemy",
 			orbit=2,
 			orbitIndex=20,
+			recipe={
+				[1]="Guilt",
+				[2]="Greed",
+				[3]="Ire"
+			},
 			skill=10053,
 			stats={
 				[1]="10% chance for Flasks you use to not consume Charges",
@@ -23624,6 +24149,11 @@ return {
 			name="Javelin",
 			orbit=6,
 			orbitIndex=48,
+			recipe={
+				[1]="Greed",
+				[2]="Despair",
+				[3]="Disgust"
+			},
 			skill=10265,
 			stats={
 				[1]="25% increased Damage with Spears"
@@ -23711,6 +24241,11 @@ return {
 			name="Overzealous",
 			orbit=5,
 			orbitIndex=30,
+			recipe={
+				[1]="Fear",
+				[2]="Despair",
+				[3]="Isolation"
+			},
 			skill=10295,
 			stats={
 				[1]="16% increased Cast Speed",
@@ -23874,6 +24409,11 @@ return {
 			name="Sudden Escalation",
 			orbit=7,
 			orbitIndex=20,
+			recipe={
+				[1]="Disgust",
+				[2]="Paranoia",
+				[3]="Fear"
+			},
 			skill=10398,
 			stats={
 				[1]="16% increased Critical Hit Chance for Spells",
@@ -23893,6 +24433,11 @@ return {
 			name="Exposed to the Inferno",
 			orbit=1,
 			orbitIndex=0,
+			recipe={
+				[1]="Isolation",
+				[2]="Envy",
+				[3]="Disgust"
+			},
 			skill=10423,
 			stats={
 				[1]="Damage Penetrates 15% Fire Resistance",
@@ -24058,6 +24603,11 @@ return {
 			name="Reaving",
 			orbit=4,
 			orbitIndex=9,
+			recipe={
+				[1]="Despair",
+				[2]="Ire",
+				[3]="Envy"
+			},
 			skill=10602,
 			stats={
 				[1]="8% increased Attack Speed with One Handed Weapons",
@@ -24115,6 +24665,11 @@ return {
 			name="Offensive Stance",
 			orbit=4,
 			orbitIndex=0,
+			recipe={
+				[1]="Disgust",
+				[2]="Fear",
+				[3]="Isolation"
+			},
 			skill=10681,
 			stats={
 				[1]="1% increased Damage per 1% Chance to Block"
@@ -24214,6 +24769,11 @@ return {
 			name="Bloodthirsty",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Disgust",
+				[2]="Disgust",
+				[3]="Fear"
+			},
 			skill=10772,
 			stats={
 				[1]="20% increased amount of Life Leeched",
@@ -24271,6 +24831,11 @@ return {
 			name="Bestial Rage",
 			orbit=3,
 			orbitIndex=21,
+			recipe={
+				[1]="Ire",
+				[2]="Disgust",
+				[3]="Fear"
+			},
 			skill=10873,
 			stats={
 				[1]="25% increased Attack Damage"
@@ -24399,6 +24964,11 @@ return {
 			name="Strong Chin",
 			orbit=4,
 			orbitIndex=24,
+			recipe={
+				[1]="Paranoia",
+				[2]="Ire",
+				[3]="Guilt"
+			},
 			skill=10998,
 			stats={
 				[1]="Gain Stun Threshold equal to the lowest of Evasion and Armour on your Helmet"
@@ -24466,6 +25036,11 @@ return {
 			name="Volatile Catalyst",
 			orbit=3,
 			orbitIndex=6,
+			recipe={
+				[1]="Greed",
+				[2]="Guilt",
+				[3]="Ire"
+			},
 			skill=11037,
 			stats={
 				[1]="10% increased Area of Effect",
@@ -24537,6 +25112,11 @@ return {
 			name="Whirling Onslaught",
 			orbit=3,
 			orbitIndex=19,
+			recipe={
+				[1]="Isolation",
+				[2]="Ire",
+				[3]="Paranoia"
+			},
 			skill=11178,
 			stats={
 				[1]="50% chance to gain Onslaught on Killing Blow with Axes"
@@ -24763,6 +25343,11 @@ return {
 			name="Volcanic Skin",
 			orbit=5,
 			orbitIndex=2,
+			recipe={
+				[1]="Suffering",
+				[2]="Isolation",
+				[3]="Paranoia"
+			},
 			skill=11366,
 			stats={
 				[1]="Gain 8% of Damage as Extra Fire Damage",
@@ -24782,6 +25367,11 @@ return {
 			name="Necrotic Touch",
 			orbit=1,
 			orbitIndex=0,
+			recipe={
+				[1]="Despair",
+				[2]="Despair",
+				[3]="Suffering"
+			},
 			skill=11376,
 			stats={
 				[1]="Minions have 40% increased Critical Hit Chance"
@@ -24894,6 +25484,11 @@ return {
 			name="Sniper",
 			orbit=5,
 			orbitIndex=30,
+			recipe={
+				[1]="Isolation",
+				[2]="Suffering",
+				[3]="Despair"
+			},
 			skill=11526,
 			stats={
 				[1]="Arrows gain Critical Hit Chance as they travel farther, up to 60% increased Critical Hit Chance"
@@ -24909,6 +25504,11 @@ return {
 			name="Spreading Shocks",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Guilt",
+				[2]="Disgust",
+				[3]="Disgust"
+			},
 			skill=11578,
 			stats={
 				[1]="Shocking Hits have a 50% chance to also Shock enemies in a 1.5 metre radius"
@@ -25299,6 +25899,11 @@ return {
 			name="Heavy Ammunition",
 			orbit=7,
 			orbitIndex=8,
+			recipe={
+				[1]="Guilt",
+				[2]="Greed",
+				[3]="Greed"
+			},
 			skill=11826,
 			stats={
 				[1]="8% reduced Attack Speed",
@@ -25320,6 +25925,11 @@ return {
 			name="Dreamcatcher",
 			orbit=7,
 			orbitIndex=6,
+			recipe={
+				[1]="Disgust",
+				[2]="Suffering",
+				[3]="Fear"
+			},
 			skill=11838,
 			stats={
 				[1]="25% increased Spell Damage while on Full Energy Shield",
@@ -25708,6 +26318,11 @@ return {
 			name="Flash Storm",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Paranoia",
+				[2]="Ire",
+				[3]="Isolation"
+			},
 			skill=12337,
 			stats={
 				[1]="30% increased chance to Shock",
@@ -25925,6 +26540,11 @@ return {
 			name="Harness the Elements",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Disgust",
+				[2]="Disgust",
+				[3]="Isolation"
+			},
 			skill=12611,
 			stats={
 				[1]="15% increased Damage for each type of Elemental Ailment on Enemy"
@@ -25943,6 +26563,11 @@ return {
 			name="Asceticism",
 			orbit=7,
 			orbitIndex=16,
+			recipe={
+				[1]="Isolation",
+				[2]="Ire",
+				[3]="Guilt"
+			},
 			skill=12661,
 			stats={
 				[1]="Stun Threshold is based on 30% of your Energy Shield instead of Life"
@@ -25958,6 +26583,11 @@ return {
 			name="Vale Shelter",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Greed",
+				[2]="Disgust",
+				[3]="Despair"
+			},
 			skill=12750,
 			stats={
 				[1]="Charms gain 0.15 charges per Second"
@@ -26207,6 +26837,11 @@ return {
 			name="Warm the Heart",
 			orbit=4,
 			orbitIndex=24,
+			recipe={
+				[1]="Ire",
+				[2]="Suffering",
+				[3]="Fear"
+			},
 			skill=12998,
 			stats={
 				[1]="25% reduced Freeze Duration on you",
@@ -26358,6 +26993,11 @@ return {
 			name="Radial Force",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Paranoia",
+				[2]="Greed",
+				[3]="Ire"
+			},
 			skill=13233,
 			stats={
 				[1]="10% increased Area of Effect",
@@ -26636,6 +27276,11 @@ return {
 			name="Heartbreaking",
 			orbit=2,
 			orbitIndex=15,
+			recipe={
+				[1]="Isolation",
+				[2]="Paranoia",
+				[3]="Fear"
+			},
 			skill=13407,
 			stats={
 				[1]="35% increased Critical Damage Bonus",
@@ -26732,6 +27377,11 @@ return {
 			name="Shadow Dancing",
 			orbit=4,
 			orbitIndex=60,
+			recipe={
+				[1]="Despair",
+				[2]="Guilt",
+				[3]="Despair"
+			},
 			skill=13457,
 			stats={
 				[1]="30% increased Evasion Rating if you have been Hit Recently",
@@ -26793,6 +27443,11 @@ return {
 			name="Resilient Soul",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Envy",
+				[2]="Guilt",
+				[3]="Envy"
+			},
 			skill=13505,
 			stats={
 				[1]="20% increased Life Regeneration rate",
@@ -26833,6 +27488,11 @@ return {
 			name="Loose Flesh",
 			orbit=7,
 			orbitIndex=2,
+			recipe={
+				[1]="Ire",
+				[2]="Fear",
+				[3]="Greed"
+			},
 			skill=13542,
 			stats={
 				[1]="15% of Elemental Damage taken Recouped as Life"
@@ -27012,6 +27672,11 @@ return {
 			name="Curved Weapon",
 			orbit=4,
 			orbitIndex=40,
+			recipe={
+				[1]="Greed",
+				[2]="Fear",
+				[3]="Greed"
+			},
 			skill=13708,
 			stats={
 				[1]="15% increased Accuracy Rating",
@@ -27071,6 +27736,11 @@ return {
 			name="Deadly Force",
 			orbit=4,
 			orbitIndex=54,
+			recipe={
+				[1]="Disgust",
+				[2]="Suffering",
+				[3]="Envy"
+			},
 			skill=13724,
 			stats={
 				[1]="30% increased Damage if you've dealt a Critical Hit in the past 8 seconds",
@@ -27087,6 +27757,11 @@ return {
 			name="Lightning Quick",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Fear",
+				[2]="Fear",
+				[3]="Isolation"
+			},
 			skill=13738,
 			stats={
 				[1]="14% increased Lightning Damage",
@@ -27183,6 +27858,11 @@ return {
 			name="Controlling Magic",
 			orbit=3,
 			orbitIndex=0,
+			recipe={
+				[1]="Envy",
+				[2]="Fear",
+				[3]="Isolation"
+			},
 			skill=13823,
 			stats={
 				[1]="25% increased Critical Hit Chance for Spells",
@@ -27310,6 +27990,11 @@ return {
 			name="Precise Point",
 			orbit=5,
 			orbitIndex=10,
+			recipe={
+				[1]="Guilt",
+				[2]="Envy",
+				[3]="Despair"
+			},
 			skill=13895,
 			stats={
 				[1]="25% increased Damage with Spears"
@@ -27366,6 +28051,11 @@ return {
 			name="Split the Earth",
 			orbit=4,
 			orbitIndex=33,
+			recipe={
+				[1]="Isolation",
+				[2]="Paranoia",
+				[3]="Disgust"
+			},
 			skill=13980,
 			stats={
 				[1]="10% chance to Aftershock for Slam Skills you use with Maces",
@@ -27727,6 +28417,11 @@ return {
 			name="Arcane Blossom",
 			orbit=7,
 			orbitIndex=3,
+			recipe={
+				[1]="Envy",
+				[2]="Despair",
+				[3]="Despair"
+			},
 			skill=14324,
 			stats={
 				[1]="15% increased Mana Recovery rate"
@@ -27807,6 +28502,11 @@ return {
 			name="Deterioration",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Paranoia",
+				[2]="Paranoia",
+				[3]="Isolation"
+			},
 			skill=14343,
 			stats={
 				[1]="Damaging Ailments Cannot Be inflicted on you while you already have one",
@@ -27866,6 +28566,11 @@ return {
 			name="Suffusion",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Fear",
+				[2]="Despair",
+				[3]="Guilt"
+			},
 			skill=14383,
 			stats={
 				[1]="30% increased amount of Mana Leeched",
@@ -28367,6 +29072,11 @@ return {
 			name="Bravado",
 			orbit=7,
 			orbitIndex=20,
+			recipe={
+				[1]="Suffering",
+				[2]="Guilt",
+				[3]="Despair"
+			},
 			skill=14777,
 			stats={
 				[1]="Empowered Attacks have 50% increased Stun Buildup",
@@ -28453,6 +29163,11 @@ return {
 			name="Spiral into Mania",
 			orbit=2,
 			orbitIndex=4,
+			recipe={
+				[1]="Ire",
+				[2]="Envy",
+				[3]="Suffering"
+			},
 			skill=14934,
 			stats={
 				[1]="10% increased Cast Speed",
@@ -28476,6 +29191,11 @@ return {
 			name="Growing Swarm",
 			orbit=3,
 			orbitIndex=16,
+			recipe={
+				[1]="Guilt",
+				[2]="Paranoia",
+				[3]="Fear"
+			},
 			skill=14945,
 			stats={
 				[1]="Minions have 20% increased Area of Effect",
@@ -28537,6 +29257,11 @@ return {
 			name="Break Focus",
 			orbit=3,
 			orbitIndex=15,
+			recipe={
+				[1]="Paranoia",
+				[2]="Envy",
+				[3]="Ire"
+			},
 			skill=15051,
 			stats={
 				[1]="Enemies you Mark have 15% reduced Accuracy Rating"
@@ -28552,6 +29277,11 @@ return {
 			name="Power Conduction",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Guilt",
+				[2]="Suffering",
+				[3]="Suffering"
+			},
 			skill=15083,
 			stats={
 				[1]="25% increased Shock Duration",
@@ -28759,6 +29489,11 @@ return {
 			name="Hale Heart",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Despair",
+				[2]="Paranoia",
+				[3]="Greed"
+			},
 			skill=15374,
 			stats={
 				[1]="15% increased Life Recovery rate"
@@ -28876,6 +29611,11 @@ return {
 			name="Heavy Drinker",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Envy",
+				[2]="Envy",
+				[3]="Envy"
+			},
 			skill=15617,
 			stats={
 				[1]="30% increased Flask Effect Duration",
@@ -28934,6 +29674,11 @@ return {
 			name="Shedding Skin",
 			orbit=3,
 			orbitIndex=10,
+			recipe={
+				[1]="Envy",
+				[2]="Ire",
+				[3]="Paranoia"
+			},
 			skill=15644,
 			stats={
 				[1]="40% increased Elemental Ailment Threshold",
@@ -29116,6 +29861,11 @@ return {
 			name="Siphon",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Paranoia",
+				[2]="Envy",
+				[3]="Guilt"
+			},
 			skill=15829,
 			stats={
 				[1]="Recover 2% of Mana on Kill",
@@ -29290,6 +30040,11 @@ return {
 			name="Building Toxins",
 			orbit=2,
 			orbitIndex=5,
+			recipe={
+				[1]="Greed",
+				[2]="Isolation",
+				[3]="Isolation"
+			},
 			skill=15986,
 			stats={
 				[1]="25% reduced Poison Duration",
@@ -29475,6 +30230,11 @@ return {
 			name="Ether Flow",
 			orbit=3,
 			orbitIndex=8,
+			recipe={
+				[1]="Envy",
+				[2]="Greed",
+				[3]="Envy"
+			},
 			skill=16256,
 			stats={
 				[1]="25% reduced Mana Regeneration Rate while stationary",
@@ -29609,6 +30369,11 @@ return {
 			name="Mental Alacrity",
 			orbit=2,
 			orbitIndex=4,
+			recipe={
+				[1]="Fear",
+				[2]="Envy",
+				[3]="Paranoia"
+			},
 			skill=16466,
 			stats={
 				[1]="5% increased Cast Speed",
@@ -29723,6 +30488,11 @@ return {
 			name="Lingering Whispers",
 			orbit=7,
 			orbitIndex=12,
+			recipe={
+				[1]="Isolation",
+				[2]="Despair",
+				[3]="Envy"
+			},
 			skill=16499,
 			stats={
 				[1]="40% increased Curse Duration",
@@ -29784,6 +30554,11 @@ return {
 			name="Jack of all Trades",
 			orbit=5,
 			orbitIndex=24,
+			recipe={
+				[1]="Greed",
+				[2]="Fear",
+				[3]="Envy"
+			},
 			skill=16618,
 			stats={
 				[1]="2% increased Damage per 5 of your lowest Attribute"
@@ -29806,6 +30581,11 @@ return {
 			name="Impact Area",
 			orbit=2,
 			orbitIndex=20,
+			recipe={
+				[1]="Paranoia",
+				[2]="Envy",
+				[3]="Disgust"
+			},
 			skill=16626,
 			stats={
 				[1]="15% increased Area of Effect if you have Stunned an Enemy Recently",
@@ -30016,6 +30796,11 @@ return {
 			name="Pinpoint Shot",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Isolation",
+				[2]="Envy",
+				[3]="Envy"
+			},
 			skill=16816,
 			stats={
 				[1]="Attacks gain increased Accuracy Rating equal to their Critical Hit Chance"
@@ -30150,6 +30935,11 @@ return {
 			name="Blade Catcher",
 			orbit=2,
 			orbitIndex=12,
+			recipe={
+				[1]="Fear",
+				[2]="Envy",
+				[3]="Guilt"
+			},
 			skill=17029,
 			stats={
 				[1]="Defend with 200% of Armour against Critical Hits",
@@ -30301,6 +31091,11 @@ return {
 			name="General's Bindings",
 			orbit=3,
 			orbitIndex=8,
+			recipe={
+				[1]="Paranoia",
+				[2]="Fear",
+				[3]="Envy"
+			},
 			skill=17150,
 			stats={
 				[1]="Gain 8% of Evasion Rating as extra Armour"
@@ -30323,6 +31118,11 @@ return {
 			name="Silent Guardian",
 			orbit=3,
 			orbitIndex=20,
+			recipe={
+				[1]="Fear",
+				[2]="Greed",
+				[3]="Disgust"
+			},
 			skill=17229,
 			stats={
 				[1]="Minions have +20% to all Elemental Resistances"
@@ -30388,6 +31188,11 @@ return {
 			name="Spell Haste",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Ire",
+				[2]="Guilt",
+				[3]="Isolation"
+			},
 			skill=17254,
 			stats={
 				[1]="15% increased Evasion Rating",
@@ -30407,6 +31212,11 @@ return {
 			name="Tough Claw",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Greed",
+				[2]="Ire",
+				[3]="Despair"
+			},
 			skill=17260,
 			stats={
 				[1]="25% increased Attack Damage"
@@ -30518,6 +31328,11 @@ return {
 			name="Perforation",
 			orbit=2,
 			orbitIndex=23,
+			recipe={
+				[1]="Greed",
+				[2]="Greed",
+				[3]="Suffering"
+			},
 			skill=17330,
 			stats={
 				[1]="20% chance for Bleeding to be Aggravated when Inflicted against Enemies on Jagged Ground",
@@ -30538,6 +31353,11 @@ return {
 			name="Adrenaline Rush",
 			orbit=4,
 			orbitIndex=9,
+			recipe={
+				[1]="Disgust",
+				[2]="Ire",
+				[3]="Fear"
+			},
 			skill=17340,
 			stats={
 				[1]="4% increased Movement Speed if you've Killed Recently",
@@ -30640,6 +31460,11 @@ return {
 			name="Reaching Strike",
 			orbit=3,
 			orbitIndex=6,
+			recipe={
+				[1]="Isolation",
+				[2]="Paranoia",
+				[3]="Guilt"
+			},
 			skill=17372,
 			stats={
 				[1]="25% increased Melee Damage",
@@ -30885,6 +31710,11 @@ return {
 			name="Moment of Truth",
 			orbit=7,
 			orbitIndex=2,
+			recipe={
+				[1]="Ire",
+				[2]="Suffering",
+				[3]="Disgust"
+			},
 			skill=17548,
 			stats={
 				[1]="25% increased Critical Damage Bonus if you've dealt a Non-Critical Hit Recently",
@@ -30955,6 +31785,11 @@ return {
 			name="Resourceful Ally",
 			orbit=3,
 			orbitIndex=18,
+			recipe={
+				[1]="Ire",
+				[2]="Greed",
+				[3]="Suffering"
+			},
 			skill=17600,
 			stats={
 				[1]="Minions deal 25% increased Damage"
@@ -31183,6 +32018,11 @@ return {
 			name="Vengeance",
 			orbit=2,
 			orbitIndex=23,
+			recipe={
+				[1]="Guilt",
+				[2]="Fear",
+				[3]="Envy"
+			},
 			skill=17762,
 			stats={
 				[1]="40% increased Thorns damage"
@@ -31219,6 +32059,11 @@ return {
 			name="Escape Velocity",
 			orbit=4,
 			orbitIndex=0,
+			recipe={
+				[1]="Greed",
+				[2]="Disgust",
+				[3]="Suffering"
+			},
 			skill=17854,
 			stats={
 				[1]="3% increased Movement Speed",
@@ -31256,6 +32101,11 @@ return {
 			name="Volatile Grenades",
 			orbit=7,
 			orbitIndex=2,
+			recipe={
+				[1]="Paranoia",
+				[2]="Ire",
+				[3]="Despair"
+			},
 			skill=17882,
 			stats={
 				[1]="25% reduced Grenade fuse duration"
@@ -31326,6 +32176,11 @@ return {
 			name="Careful Consideration",
 			orbit=3,
 			orbitIndex=6,
+			recipe={
+				[1]="Paranoia",
+				[2]="Paranoia",
+				[3]="Greed"
+			},
 			skill=17955,
 			stats={
 				[1]="30% reduced Evasion Rating if you have been Hit Recently",
@@ -31349,6 +32204,11 @@ return {
 			name="Rapid Recharge",
 			orbit=7,
 			orbitIndex=3,
+			recipe={
+				[1]="Guilt",
+				[2]="Ire",
+				[3]="Disgust"
+			},
 			skill=17973,
 			stats={
 				[1]="25% increased Energy Shield Recharge Rate",
@@ -31450,6 +32310,11 @@ return {
 			name="Breath of Ice",
 			orbit=4,
 			orbitIndex=54,
+			recipe={
+				[1]="Suffering",
+				[2]="Disgust",
+				[3]="Suffering"
+			},
 			skill=18086,
 			stats={
 				[1]="Damage Penetrates 15% Cold Resistance",
@@ -31605,6 +32470,11 @@ return {
 			name="Bleeding Out",
 			orbit=4,
 			orbitIndex=48,
+			recipe={
+				[1]="Despair",
+				[2]="Suffering",
+				[3]="Fear"
+			},
 			skill=18308,
 			stats={
 				[1]="+250 to Accuracy against Bleeding Enemies",
@@ -31670,6 +32540,11 @@ return {
 			name="Savoured Blood",
 			orbit=3,
 			orbitIndex=5,
+			recipe={
+				[1]="Despair",
+				[2]="Ire",
+				[3]="Ire"
+			},
 			skill=18397,
 			stats={
 				[1]="35% increased amount of Life Leeched",
@@ -31736,6 +32611,11 @@ return {
 			name="Ancestral Mending",
 			orbit=7,
 			orbitIndex=18,
+			recipe={
+				[1]="Envy",
+				[2]="Fear",
+				[3]="Paranoia"
+			},
 			skill=18419,
 			stats={
 				[1]="Regenerate 1% of Life per second while you have a Totem",
@@ -31815,6 +32695,11 @@ return {
 			name="Cruel Fate",
 			orbit=4,
 			orbitIndex=44,
+			recipe={
+				[1]="Envy",
+				[2]="Greed",
+				[3]="Despair"
+			},
 			skill=18465,
 			stats={
 				[1]="20% increased Critical Damage Bonus",
@@ -31894,6 +32779,11 @@ return {
 			name="Lasting Trauma",
 			orbit=7,
 			orbitIndex=12,
+			recipe={
+				[1]="Suffering",
+				[2]="Paranoia",
+				[3]="Envy"
+			},
 			skill=18496,
 			stats={
 				[1]="5% reduced Attack Speed",
@@ -31914,6 +32804,11 @@ return {
 			name="Crushing Verdict",
 			orbit=7,
 			orbitIndex=16,
+			recipe={
+				[1]="Envy",
+				[2]="Suffering",
+				[3]="Ire"
+			},
 			skill=18505,
 			stats={
 				[1]="5% reduced Attack Speed",
@@ -32510,6 +33405,11 @@ return {
 			name="Arcane Intensity",
 			orbit=1,
 			orbitIndex=0,
+			recipe={
+				[1]="Disgust",
+				[2]="Fear",
+				[3]="Despair"
+			},
 			skill=19044,
 			stats={
 				[1]="3% increased Spell Damage per 100 maximum Mana"
@@ -32544,6 +33444,11 @@ return {
 			name="Eagle Eye",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Ire",
+				[2]="Greed",
+				[3]="Guilt"
+			},
 			skill=19104,
 			stats={
 				[1]="+30 to Accuracy Rating",
@@ -32594,6 +33499,11 @@ return {
 			name="Potent Incantation",
 			orbit=1,
 			orbitIndex=4,
+			recipe={
+				[1]="Paranoia",
+				[2]="Paranoia",
+				[3]="Disgust"
+			},
 			skill=19125,
 			stats={
 				[1]="30% increased Spell Damage",
@@ -32617,6 +33527,11 @@ return {
 			name="Immaterial",
 			orbit=2,
 			orbitIndex=12,
+			recipe={
+				[1]="Ire",
+				[2]="Disgust",
+				[3]="Envy"
+			},
 			skill=19156,
 			stats={
 				[1]="50% increased Evasion Rating if Energy Shield Recharge has started in the past 2 seconds",
@@ -32653,6 +33568,11 @@ return {
 			name="Projectile Bulwark",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Ire",
+				[2]="Fear",
+				[3]="Despair"
+			},
 			skill=19236,
 			stats={
 				[1]="30% increased Armour",
@@ -32723,6 +33643,11 @@ return {
 			name="Supportive Ancestors",
 			orbit=6,
 			orbitIndex=0,
+			recipe={
+				[1]="Fear",
+				[2]="Disgust",
+				[3]="Isolation"
+			},
 			skill=19249,
 			stats={
 				[1]="25% increased Damage while you have a Totem",
@@ -32874,6 +33799,11 @@ return {
 			name="Prolonged Assault",
 			orbit=2,
 			orbitIndex=8,
+			recipe={
+				[1]="Guilt",
+				[2]="Despair",
+				[3]="Suffering"
+			},
 			skill=19442,
 			stats={
 				[1]="16% increased Attack Damage",
@@ -32946,6 +33876,11 @@ return {
 			name="Left Hand of Darkness",
 			orbit=4,
 			orbitIndex=29,
+			recipe={
+				[1]="Isolation",
+				[2]="Suffering",
+				[3]="Envy"
+			},
 			skill=19644,
 			stats={
 				[1]="Minions have 20% additional Physical Damage Reduction",
@@ -33016,6 +33951,11 @@ return {
 			name="Cremation",
 			orbit=4,
 			orbitIndex=66,
+			recipe={
+				[1]="Isolation",
+				[2]="Disgust",
+				[3]="Isolation"
+			},
 			skill=19715,
 			stats={
 				[1]="Damage Penetrates 18% Fire Resistance",
@@ -33031,6 +33971,11 @@ return {
 			name="Thin Ice",
 			orbit=7,
 			orbitIndex=10,
+			recipe={
+				[1]="Suffering",
+				[2]="Ire",
+				[3]="Greed"
+			},
 			skill=19722,
 			stats={
 				[1]="20% increased Freeze Buildup",
@@ -33201,6 +34146,11 @@ return {
 			name="Endless Blizzard",
 			orbit=4,
 			orbitIndex=6,
+			recipe={
+				[1]="Isolation",
+				[2]="Suffering",
+				[3]="Fear"
+			},
 			skill=19955,
 			stats={
 				[1]="+1 to Level of all Cold Skills"
@@ -33273,6 +34223,11 @@ return {
 			name="Erraticism",
 			orbit=2,
 			orbitIndex=0,
+			recipe={
+				[1]="Despair",
+				[2]="Greed",
+				[3]="Guilt"
+			},
 			skill=20032,
 			stats={
 				[1]="16% increased Cast Speed if you've dealt a Critical Hit Recently",
@@ -33363,6 +34318,11 @@ return {
 			name="No Escape",
 			orbit=3,
 			orbitIndex=3,
+			recipe={
+				[1]="Greed",
+				[2]="Disgust",
+				[3]="Disgust"
+			},
 			skill=20165,
 			stats={
 				[1]="Mark Skills have 60% increased Skill Effect Duration"
@@ -33446,6 +34406,11 @@ return {
 			name="Regenerative Flesh",
 			orbit=2,
 			orbitIndex=22,
+			recipe={
+				[1]="Greed",
+				[2]="Disgust",
+				[3]="Greed"
+			},
 			skill=20388,
 			stats={
 				[1]="Minions Recoup 10% of Damage taken as Life"
@@ -33468,6 +34433,11 @@ return {
 			name="Authority",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Greed",
+				[2]="Envy",
+				[3]="Suffering"
+			},
 			skill=20397,
 			stats={
 				[1]="20% increased Area of Effect for Attacks",
@@ -33495,6 +34465,11 @@ return {
 			name="Reprisal",
 			orbit=4,
 			orbitIndex=31,
+			recipe={
+				[1]="Ire",
+				[2]="Despair",
+				[3]="Despair"
+			},
 			skill=20414,
 			stats={
 				[1]="Attack Skills deal 25% increased Damage while holding a Shield",
@@ -33511,6 +34486,11 @@ return {
 			name="Grit",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Suffering",
+				[2]="Disgust",
+				[3]="Envy"
+			},
 			skill=20416,
 			stats={
 				[1]="5% chance that if you would gain Endurance Charges, you instead gain up to maximum Endurance Charges",
@@ -33643,6 +34623,11 @@ return {
 			name="For the Jugular",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Paranoia",
+				[2]="Suffering",
+				[3]="Guilt"
+			},
 			skill=20677,
 			stats={
 				[1]="30% increased Critical Damage Bonus",
@@ -33772,6 +34757,11 @@ return {
 			name="Catlike Agility",
 			orbit=2,
 			orbitIndex=14,
+			recipe={
+				[1]="Paranoia",
+				[2]="Guilt",
+				[3]="Ire"
+			},
 			skill=20831,
 			stats={
 				[1]="25% increased Evasion Rating",
@@ -33808,6 +34798,11 @@ return {
 			name="Blinding Strike",
 			orbit=7,
 			orbitIndex=8,
+			recipe={
+				[1]="Envy",
+				[2]="Fear",
+				[3]="Envy"
+			},
 			skill=20916,
 			stats={
 				[1]="24% increased Attack Damage",
@@ -34001,6 +34996,11 @@ return {
 			name="Fleshcrafting",
 			orbit=7,
 			orbitIndex=10,
+			recipe={
+				[1]="Isolation",
+				[2]="Greed",
+				[3]="Fear"
+			},
 			skill=21164,
 			stats={
 				[1]="Minions gain 15% of their Maximum Life as Extra Maximum Energy Shield"
@@ -34040,6 +35040,11 @@ return {
 			name="Explosive Impact",
 			orbit=3,
 			orbitIndex=9,
+			recipe={
+				[1]="Greed",
+				[2]="Disgust",
+				[3]="Fear"
+			},
 			skill=21206,
 			stats={
 				[1]="15% increased Area of Effect",
@@ -34292,6 +35297,11 @@ return {
 			name="Preemptive Strike",
 			orbit=7,
 			orbitIndex=1,
+			recipe={
+				[1]="Guilt",
+				[2]="Disgust",
+				[3]="Greed"
+			},
 			skill=21380,
 			stats={
 				[1]="100% increased Critical Damage Bonus against Enemies that are on Full Life"
@@ -34425,6 +35435,11 @@ return {
 			name="Breakage",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Fear",
+				[2]="Envy",
+				[3]="Greed"
+			},
 			skill=21453,
 			stats={
 				[1]="Break 60% increased Armour",
@@ -34475,6 +35490,11 @@ return {
 			name="Fervour",
 			orbit=2,
 			orbitIndex=16,
+			recipe={
+				[1]="Fear",
+				[2]="Guilt",
+				[3]="Isolation"
+			},
 			skill=21537,
 			stats={
 				[1]="+2 to Maximum Frenzy Charges"
@@ -34778,6 +35798,11 @@ return {
 			name="Impending Doom",
 			orbit=7,
 			orbitIndex=6,
+			recipe={
+				[1]="Envy",
+				[2]="Isolation",
+				[3]="Ire"
+			},
 			skill=21748,
 			stats={
 				[1]="40% faster Curse Activation",
@@ -34967,6 +35992,11 @@ return {
 			name="Calibration",
 			orbit=3,
 			orbitIndex=23,
+			recipe={
+				[1]="Suffering",
+				[2]="Isolation",
+				[3]="Despair"
+			},
 			skill=21935,
 			stats={
 				[1]="30% increased maximum Energy Shield",
@@ -35564,6 +36594,11 @@ return {
 			name="Irreparable",
 			orbit=7,
 			orbitIndex=4,
+			recipe={
+				[1]="Guilt",
+				[2]="Despair",
+				[3]="Disgust"
+			},
 			skill=22626,
 			stats={
 				[1]="100% increased Armour Break Duration"
@@ -35721,6 +36756,11 @@ return {
 			name="Tainted Strike",
 			orbit=3,
 			orbitIndex=19,
+			recipe={
+				[1]="Ire",
+				[2]="Despair",
+				[3]="Greed"
+			},
 			skill=22864,
 			stats={
 				[1]="25% increased Critical Hit Chance for Attacks",
@@ -35879,6 +36919,11 @@ return {
 			name="Vigilance",
 			orbit=3,
 			orbitIndex=1,
+			recipe={
+				[1]="Guilt",
+				[2]="Envy",
+				[3]="Guilt"
+			},
 			skill=22967,
 			stats={
 				[1]="12% increased Block chance",
@@ -36035,6 +37080,11 @@ return {
 			name="Holy Protector",
 			orbit=3,
 			orbitIndex=3,
+			recipe={
+				[1]="Disgust",
+				[2]="Despair",
+				[3]="Suffering"
+			},
 			skill=23078,
 			stats={
 				[1]="Minions have 25% increased maximum Life"
@@ -36083,6 +37133,11 @@ return {
 			name="Trick Shot",
 			orbit=3,
 			orbitIndex=23,
+			recipe={
+				[1]="Suffering",
+				[2]="Isolation",
+				[3]="Guilt"
+			},
 			skill=23221,
 			stats={
 				[1]="Projectiles have 15% chance to Chain an additional time from terrain"
@@ -36097,6 +37152,11 @@ return {
 			name="Initiative",
 			orbit=4,
 			orbitIndex=0,
+			recipe={
+				[1]="Greed",
+				[2]="Ire",
+				[3]="Envy"
+			},
 			skill=23227,
 			stats={
 				[1]="30% increased Melee Damage when on Full Life",
@@ -36243,6 +37303,11 @@ return {
 			name="Slippery Ice",
 			orbit=3,
 			orbitIndex=9,
+			recipe={
+				[1]="Despair",
+				[2]="Disgust",
+				[3]="Greed"
+			},
 			skill=23362,
 			stats={
 				[1]="25% reduced Effect of Chill on you",
@@ -36360,6 +37425,11 @@ return {
 			name="Chilled to the Bone",
 			orbit=4,
 			orbitIndex=54,
+			recipe={
+				[1]="Suffering",
+				[2]="Despair",
+				[3]="Despair"
+			},
 			skill=23427,
 			stats={
 				[1]="20% increased Chill Duration on Enemies",
@@ -36579,6 +37649,11 @@ return {
 			name="Madness in the Bones",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Ire",
+				[2]="Paranoia",
+				[3]="Suffering"
+			},
 			skill=23738,
 			stats={
 				[1]="Gain 6% of Physical Damage as extra Chaos Damage"
@@ -36594,6 +37669,11 @@ return {
 			name="Alternating Current",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Ire",
+				[2]="Ire",
+				[3]="Suffering"
+			},
 			skill=23764,
 			stats={
 				[1]="25% increased Mana Regeneration Rate if you have Shocked an Enemy Recently",
@@ -36755,6 +37835,11 @@ return {
 			name="Glazed Flesh",
 			orbit=7,
 			orbitIndex=12,
+			recipe={
+				[1]="Isolation",
+				[2]="Fear",
+				[3]="Fear"
+			},
 			skill=23939,
 			stats={
 				[1]="3% of Damage Taken Recouped as Life, Mana and Energy Shield"
@@ -36777,6 +37862,11 @@ return {
 			name="Adamant Recovery",
 			orbit=7,
 			orbitIndex=20,
+			recipe={
+				[1]="Isolation",
+				[2]="Envy",
+				[3]="Ire"
+			},
 			skill=23940,
 			stats={
 				[1]="Increases and Reductions to Armour also apply to Energy Shield",
@@ -36863,6 +37953,11 @@ return {
 			name="Immortal Infamy",
 			orbit=5,
 			orbitIndex=21,
+			recipe={
+				[1]="Envy",
+				[2]="Suffering",
+				[3]="Fear"
+			},
 			skill=24062,
 			stats={
 				[1]="10% increased Energy Shield Recharge Rate",
@@ -36900,6 +37995,11 @@ return {
 			name="Mental Toughness",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Envy",
+				[2]="Fear",
+				[3]="Greed"
+			},
 			skill=24120,
 			stats={
 				[1]="18% increased Mana Regeneration Rate",
@@ -37061,6 +38161,11 @@ return {
 			name="Time Manipulation",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Fear",
+				[2]="Despair",
+				[3]="Envy"
+			},
 			skill=24240,
 			stats={
 				[1]="Debuffs you inflict have 10% increased Slow Magnitude",
@@ -37289,6 +38394,11 @@ return {
 			name="Hardened Wood",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Despair",
+				[2]="Greed",
+				[3]="Despair"
+			},
 			skill=24438,
 			stats={
 				[1]="Totems gain +20% to all Elemental Resistances",
@@ -37360,6 +38470,11 @@ return {
 			name="Direct Approach",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Disgust",
+				[2]="Paranoia",
+				[3]="Paranoia"
+			},
 			skill=24483,
 			stats={
 				[1]="40% increased Critical Hit Chance against Enemies that are affected",
@@ -37412,6 +38527,11 @@ return {
 			name="Fulmination",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Suffering",
+				[2]="Suffering",
+				[3]="Greed"
+			},
 			skill=24630,
 			stats={
 				[1]="40% increased chance to Ignite",
@@ -37496,6 +38616,11 @@ return {
 			name="Breath of Fire",
 			orbit=4,
 			orbitIndex=30,
+			recipe={
+				[1]="Fear",
+				[2]="Ire",
+				[3]="Isolation"
+			},
 			skill=24655,
 			stats={
 				[1]="Damage Penetrates 15% Fire Resistance",
@@ -37540,6 +38665,11 @@ return {
 			name="Determined Precision",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Ire",
+				[2]="Greed",
+				[3]="Envy"
+			},
 			skill=24753,
 			stats={
 				[1]="30% increased Accuracy Rating at Close Range",
@@ -38303,6 +39433,11 @@ return {
 			name="Beef",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Fear",
+				[2]="Disgust",
+				[3]="Fear"
+			},
 			skill=25482,
 			stats={
 				[1]="+25 to Strength"
@@ -38338,6 +39473,11 @@ return {
 			name="Overwhelm",
 			orbit=6,
 			orbitIndex=45,
+			recipe={
+				[1]="Despair",
+				[2]="Fear",
+				[3]="Envy"
+			},
 			skill=25513,
 			stats={
 				[1]="5% reduced Attack Speed",
@@ -38522,6 +39662,11 @@ return {
 			name="Sand in the Eyes",
 			orbit=2,
 			orbitIndex=14,
+			recipe={
+				[1]="Despair",
+				[2]="Despair",
+				[3]="Despair"
+			},
 			skill=25619,
 			stats={
 				[1]="10% increased Attack Speed",
@@ -38541,6 +39686,11 @@ return {
 			name="Meat Recycling",
 			orbit=7,
 			orbitIndex=18,
+			recipe={
+				[1]="Paranoia",
+				[2]="Despair",
+				[3]="Guilt"
+			},
 			skill=25620,
 			stats={
 				[1]="15% chance to not destroy Corpses when Consuming Corpses"
@@ -38577,6 +39727,11 @@ return {
 			name="Thrill of Battle",
 			orbit=2,
 			orbitIndex=9,
+			recipe={
+				[1]="Guilt",
+				[2]="Suffering",
+				[3]="Ire"
+			},
 			skill=25711,
 			stats={
 				[1]="20% increased Attack Speed while Surrounded"
@@ -38768,6 +39923,11 @@ return {
 			name="Tenfold Attacks",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Greed",
+				[2]="Fear",
+				[3]="Guilt"
+			},
 			skill=25971,
 			stats={
 				[1]="4% increased Attack Speed",
@@ -38823,6 +39983,11 @@ return {
 			name="Bolstering Yell",
 			orbit=2,
 			orbitIndex=4,
+			recipe={
+				[1]="Suffering",
+				[2]="Disgust",
+				[3]="Paranoia"
+			},
 			skill=26070,
 			stats={
 				[1]="Empowered Attacks deal 30% increased Damage",
@@ -38859,6 +40024,11 @@ return {
 			name="Kite Runner",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Ire",
+				[2]="Isolation",
+				[3]="Despair"
+			},
 			skill=26107,
 			stats={
 				[1]="3% increased Movement Speed",
@@ -38984,6 +40154,11 @@ return {
 			name="Electrifying Nature",
 			orbit=4,
 			orbitIndex=28,
+			recipe={
+				[1]="Envy",
+				[2]="Greed",
+				[3]="Paranoia"
+			},
 			skill=26291,
 			stats={
 				[1]="25% increased Lightning Damage",
@@ -39041,6 +40216,11 @@ return {
 			name="Harsh Winter",
 			orbit=7,
 			orbitIndex=18,
+			recipe={
+				[1]="Fear",
+				[2]="Despair",
+				[3]="Ire"
+			},
 			skill=26331,
 			stats={
 				[1]="8% increased Cast Speed with Cold Skills",
@@ -39064,6 +40244,11 @@ return {
 			name="Ancestral Artifice",
 			orbit=1,
 			orbitIndex=0,
+			recipe={
+				[1]="Suffering",
+				[2]="Suffering",
+				[3]="Suffering"
+			},
 			skill=26339,
 			stats={
 				[1]="Attack Skills have +1 to maximum number of Summoned Totems",
@@ -39204,6 +40389,11 @@ return {
 			name="Refocus",
 			orbit=2,
 			orbitIndex=0,
+			recipe={
+				[1]="Paranoia",
+				[2]="Suffering",
+				[3]="Ire"
+			},
 			skill=26447,
 			stats={
 				[1]="30% increased Energy Shield Recharge Rate",
@@ -39236,6 +40426,11 @@ return {
 			name="Cold Nature",
 			orbit=4,
 			orbitIndex=5,
+			recipe={
+				[1]="Envy",
+				[2]="Fear",
+				[3]="Guilt"
+			},
 			skill=26518,
 			stats={
 				[1]="25% increased Cold Damage",
@@ -39778,6 +40973,11 @@ return {
 			name="Lust for Sacrifice",
 			orbit=7,
 			orbitIndex=12,
+			recipe={
+				[1]="Disgust",
+				[2]="Suffering",
+				[3]="Paranoia"
+			},
 			skill=27009,
 			stats={
 				[1]="40% increased Minion Damage while you have at least two different active Offerings"
@@ -39882,6 +41082,11 @@ return {
 			name="Mass Hysteria",
 			orbit=4,
 			orbitIndex=36,
+			recipe={
+				[1]="Disgust",
+				[2]="Disgust",
+				[3]="Envy"
+			},
 			skill=27108,
 			stats={
 				[1]="Allies in your Presence have 6% increased Attack Speed",
@@ -39897,6 +41102,11 @@ return {
 			name="The Power Within",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Envy",
+				[2]="Paranoia",
+				[3]="Suffering"
+			},
 			skill=27176,
 			stats={
 				[1]="20% increased Critical Damage Bonus if you've gained a Power Charge Recently",
@@ -39964,6 +41174,11 @@ return {
 			name="Heavy Blade",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Guilt",
+				[2]="Greed",
+				[3]="Suffering"
+			},
 			skill=27290,
 			stats={
 				[1]="25% increased Damage with Swords"
@@ -40037,6 +41252,11 @@ return {
 			name="Vulgar Methods",
 			orbit=7,
 			orbitIndex=16,
+			recipe={
+				[1]="Ire",
+				[2]="Guilt",
+				[3]="Despair"
+			},
 			skill=27303,
 			stats={
 				[1]="10% reduced maximum Mana",
@@ -40124,6 +41344,11 @@ return {
 			name="Aspiring Genius",
 			orbit=7,
 			orbitIndex=21,
+			recipe={
+				[1]="Suffering",
+				[2]="Greed",
+				[3]="Greed"
+			},
 			skill=27388,
 			stats={
 				[1]="20% increased Mana Regeneration Rate",
@@ -40147,6 +41372,11 @@ return {
 			name="Destructive Apparatus",
 			orbit=6,
 			orbitIndex=54,
+			recipe={
+				[1]="Envy",
+				[2]="Ire",
+				[3]="Despair"
+			},
 			skill=27417,
 			stats={
 				[1]="25% increased Trap Damage"
@@ -40243,6 +41473,11 @@ return {
 			name="Heavy Buffer",
 			orbit=4,
 			orbitIndex=24,
+			recipe={
+				[1]="Greed",
+				[2]="Paranoia",
+				[3]="Isolation"
+			},
 			skill=27491,
 			stats={
 				[1]="40% increased maximum Energy Shield",
@@ -40323,6 +41558,11 @@ return {
 			name="Touch the Arcane",
 			orbit=5,
 			orbitIndex=12,
+			recipe={
+				[1]="Despair",
+				[2]="Isolation",
+				[3]="Suffering"
+			},
 			skill=27626,
 			stats={
 				[1]="40% increased effect of Arcane Surge on you"
@@ -40421,6 +41661,11 @@ return {
 			name="Greatest Defence",
 			orbit=3,
 			orbitIndex=18,
+			recipe={
+				[1]="Suffering",
+				[2]="Fear",
+				[3]="Disgust"
+			},
 			skill=27687,
 			stats={
 				[1]="2% increased Attack Damage per 75 Armour or Evasion Rating on Shield"
@@ -40591,6 +41836,11 @@ return {
 			name="General Electric",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Isolation",
+				[2]="Suffering",
+				[3]="Greed"
+			},
 			skill=27875,
 			stats={
 				[1]="40% increased chance to Shock",
@@ -40614,6 +41864,11 @@ return {
 			name="Polished Iron",
 			orbit=2,
 			orbitIndex=0,
+			recipe={
+				[1]="Paranoia",
+				[2]="Guilt",
+				[3]="Despair"
+			},
 			skill=27950,
 			stats={
 				[1]="25% increased Armour",
@@ -40715,6 +41970,11 @@ return {
 			name="Coming Calamity",
 			orbit=3,
 			orbitIndex=12,
+			recipe={
+				[1]="Disgust",
+				[2]="Isolation",
+				[3]="Suffering"
+			},
 			skill=28044,
 			stats={
 				[1]="50% increased Cold Damage while affected by Herald of Ice",
@@ -40946,6 +42206,11 @@ return {
 			name="Desensitisation",
 			orbit=3,
 			orbitIndex=20,
+			recipe={
+				[1]="Envy",
+				[2]="Suffering",
+				[3]="Greed"
+			},
 			skill=28267,
 			stats={
 				[1]="25% increased Critical Damage Bonus",
@@ -41029,6 +42294,11 @@ return {
 			name="Pressure Points",
 			orbit=3,
 			orbitIndex=21,
+			recipe={
+				[1]="Guilt",
+				[2]="Despair",
+				[3]="Ire"
+			},
 			skill=28329,
 			stats={
 				[1]="35% increased Stun Buildup",
@@ -41205,6 +42475,11 @@ return {
 			name="Total Incineration",
 			orbit=7,
 			orbitIndex=1,
+			recipe={
+				[1]="Guilt",
+				[2]="Isolation",
+				[3]="Suffering"
+			},
 			skill=28482,
 			stats={
 				[1]="25% increased Critical Damage Bonus against Burning Enemies",
@@ -41653,6 +42928,11 @@ return {
 			name="Devoted Protector",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Despair",
+				[2]="Envy",
+				[3]="Envy"
+			},
 			skill=28950,
 			stats={
 				[1]="10% increased Mana Regeneration Rate",
@@ -41673,6 +42953,11 @@ return {
 			name="Way of the Wind",
 			orbit=4,
 			orbitIndex=66,
+			recipe={
+				[1]="Guilt",
+				[2]="Greed",
+				[3]="Despair"
+			},
 			skill=28963,
 			stats={
 				[1]="25% increased Evasion if you have Hit an Enemy Recently",
@@ -41693,6 +42978,11 @@ return {
 			name="Pure Power",
 			orbit=6,
 			orbitIndex=0,
+			recipe={
+				[1]="Suffering",
+				[2]="Guilt",
+				[3]="Suffering"
+			},
 			skill=28975,
 			stats={
 				[1]="2% increased Lightning Damage per 10 Intelligence"
@@ -41783,6 +43073,11 @@ return {
 			name="Honed Instincts",
 			orbit=4,
 			orbitIndex=21,
+			recipe={
+				[1]="Despair",
+				[2]="Envy",
+				[3]="Paranoia"
+			},
 			skill=28992,
 			stats={
 				[1]="8% increased Projectile Speed",
@@ -42142,6 +43437,11 @@ return {
 			name="Sudden Infuriation",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Fear",
+				[2]="Suffering",
+				[3]="Isolation"
+			},
 			skill=29372,
 			stats={
 				[1]="3% chance that if you would gain Rage on Hit, you instead gain up to your maximum Rage"
@@ -42327,6 +43627,11 @@ return {
 			name="Cluster Bombs",
 			orbit=3,
 			orbitIndex=3,
+			recipe={
+				[1]="Suffering",
+				[2]="Isolation",
+				[3]="Disgust"
+			},
 			skill=29514,
 			stats={
 				[1]="50% increased Grenade fuse duration",
@@ -42393,6 +43698,11 @@ return {
 			name="First Approach",
 			orbit=7,
 			orbitIndex=10,
+			recipe={
+				[1]="Paranoia",
+				[2]="Ire",
+				[3]="Fear"
+			},
 			skill=29527,
 			stats={
 				[1]="50% increased Critical Hit Chance against Enemies on Full Life",
@@ -42530,6 +43840,11 @@ return {
 			name="Guttural Roar",
 			orbit=3,
 			orbitIndex=13,
+			recipe={
+				[1]="Paranoia",
+				[2]="Ire",
+				[3]="Disgust"
+			},
 			skill=29762,
 			stats={
 				[1]="30% increased Warcry Speed",
@@ -42970,6 +44285,11 @@ return {
 			name="Master Fletching",
 			orbit=7,
 			orbitIndex=0,
+			recipe={
+				[1]="Fear",
+				[2]="Despair",
+				[3]="Disgust"
+			},
 			skill=30341,
 			stats={
 				[1]="30% increased bonuses gained from Equipped Quiver"
@@ -43072,6 +44392,11 @@ return {
 			name="Succour",
 			orbit=2,
 			orbitIndex=3,
+			recipe={
+				[1]="Disgust",
+				[2]="Despair",
+				[3]="Guilt"
+			},
 			skill=30392,
 			stats={
 				[1]="30% increased Life Regeneration rate during Effect of any Life Flask"
@@ -43090,6 +44415,11 @@ return {
 			name="High Alert",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Ire",
+				[2]="Ire",
+				[3]="Greed"
+			},
 			skill=30456,
 			stats={
 				[1]="50% increased Evasion Rating when on Full Life",
@@ -43167,6 +44497,11 @@ return {
 			name="Dead can Dance",
 			orbit=5,
 			orbitIndex=64,
+			recipe={
+				[1]="Despair",
+				[2]="Fear",
+				[3]="Ire"
+			},
 			skill=30523,
 			stats={
 				[1]="Minions have 25% increased Evasion Rating",
@@ -43263,6 +44598,11 @@ return {
 			name="Inner Faith",
 			orbit=2,
 			orbitIndex=16,
+			recipe={
+				[1]="Envy",
+				[2]="Greed",
+				[3]="Isolation"
+			},
 			skill=30562,
 			stats={
 				[1]="20% increased Evasion Rating",
@@ -43385,6 +44725,11 @@ return {
 			name="Vile Wounds",
 			orbit=2,
 			orbitIndex=14,
+			recipe={
+				[1]="Paranoia",
+				[2]="Despair",
+				[3]="Suffering"
+			},
 			skill=30695,
 			stats={
 				[1]="33% increased Damage with Hits against Enemies affected by Elemental Ailments"
@@ -43424,6 +44769,11 @@ return {
 			name="Entropic Incarnation",
 			orbit=2,
 			orbitIndex=2,
+			recipe={
+				[1]="Suffering",
+				[2]="Suffering",
+				[3]="Envy"
+			},
 			skill=30720,
 			stats={
 				[1]="Minions have +13% to Chaos Resistance",
@@ -43806,6 +45156,11 @@ return {
 			name="Falcon Technique",
 			orbit=5,
 			orbitIndex=51,
+			recipe={
+				[1]="Suffering",
+				[2]="Suffering",
+				[3]="Despair"
+			},
 			skill=31172,
 			stats={
 				[1]="1% increased Attack Speed per 15 Dexterity"
@@ -43824,6 +45179,11 @@ return {
 			name="Grip of Evil",
 			orbit=2,
 			orbitIndex=22,
+			recipe={
+				[1]="Isolation",
+				[2]="Despair",
+				[3]="Ire"
+			},
 			skill=31175,
 			stats={
 				[1]="Minions have 40% increased Critical Damage Bonus"
@@ -43842,6 +45202,11 @@ return {
 			name="Unexpected Finesse",
 			orbit=4,
 			orbitIndex=12,
+			recipe={
+				[1]="Despair",
+				[2]="Greed",
+				[3]="Isolation"
+			},
 			skill=31189,
 			stats={
 				[1]="10% increased Attack Damage",
@@ -44014,6 +45379,11 @@ return {
 			name="Slow Burn",
 			orbit=2,
 			orbitIndex=19,
+			recipe={
+				[1]="Guilt",
+				[2]="Suffering",
+				[3]="Paranoia"
+			},
 			skill=31326,
 			stats={
 				[1]="20% increased Ignite Duration on Enemies",
@@ -44047,6 +45417,11 @@ return {
 			name="Primal Protection",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Guilt",
+				[2]="Greed",
+				[3]="Paranoia"
+			},
 			skill=31364,
 			stats={
 				[1]="25% increased Charm Effect Duration",
@@ -44087,6 +45462,11 @@ return {
 			name="Vocal Empowerment",
 			orbit=4,
 			orbitIndex=63,
+			recipe={
+				[1]="Isolation",
+				[2]="Isolation",
+				[3]="Despair"
+			},
 			skill=31373,
 			stats={
 				[1]="Warcries Empower an additional Attack"
@@ -44164,6 +45544,11 @@ return {
 			name="Catalysis",
 			orbit=2,
 			orbitIndex=8,
+			recipe={
+				[1]="Isolation",
+				[2]="Isolation",
+				[3]="Paranoia"
+			},
 			skill=31433,
 			stats={
 				[1]="20% increased Elemental Damage with Attacks",
@@ -44584,6 +45969,11 @@ return {
 			name="Warding Fetish",
 			orbit=7,
 			orbitIndex=8,
+			recipe={
+				[1]="Fear",
+				[2]="Suffering",
+				[3]="Envy"
+			},
 			skill=31925,
 			stats={
 				[1]="30% increased Damage per Curse on you",
@@ -44756,6 +46146,11 @@ return {
 			name="Primal Growth",
 			orbit=3,
 			orbitIndex=23,
+			recipe={
+				[1]="Envy",
+				[2]="Fear",
+				[3]="Fear"
+			},
 			skill=32071,
 			stats={
 				[1]="20% increased Area of Effect if you've Killed Recently",
@@ -44809,6 +46204,11 @@ return {
 			name="Rattling Ball",
 			orbit=2,
 			orbitIndex=23,
+			recipe={
+				[1]="Greed",
+				[2]="Despair",
+				[3]="Despair"
+			},
 			skill=32148,
 			stats={
 				[1]="25% increased Damage with Flails"
@@ -45029,6 +46429,11 @@ return {
 			name="Frazzled",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Despair",
+				[2]="Disgust",
+				[3]="Paranoia"
+			},
 			skill=32301,
 			stats={
 				[1]="15% increased Mana Regeneration Rate",
@@ -45063,6 +46468,11 @@ return {
 			name="Swift Claw",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Suffering",
+				[2]="Fear",
+				[3]="Despair"
+			},
 			skill=32353,
 			stats={
 				[1]="25% increased Attack Damage"
@@ -45082,6 +46492,11 @@ return {
 			name="Defiance",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Envy",
+				[2]="Guilt",
+				[3]="Ire"
+			},
 			skill=32354,
 			stats={
 				[1]="80% increased Armour and Evasion Rating when on Low Life"
@@ -45125,6 +46540,11 @@ return {
 			name="Sturdy Metal",
 			orbit=2,
 			orbitIndex=16,
+			recipe={
+				[1]="Paranoia",
+				[2]="Greed",
+				[3]="Disgust"
+			},
 			skill=32416,
 			stats={
 				[1]="80% increased Armour from Equipped Body Armour"
@@ -45242,6 +46662,11 @@ return {
 			name="Cut to the Bone",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Despair",
+				[2]="Envy",
+				[3]="Isolation"
+			},
 			skill=32507,
 			stats={
 				[1]="Break Armour on Critical Hit with Spells equal to 10% of Physical Damage dealt",
@@ -45431,6 +46856,11 @@ return {
 			name="Flurry",
 			orbit=1,
 			orbitIndex=5,
+			recipe={
+				[1]="Fear",
+				[2]="Suffering",
+				[3]="Guilt"
+			},
 			skill=32664,
 			stats={
 				[1]="20% increased Area of Effect while Unarmed",
@@ -45473,6 +46903,11 @@ return {
 			name="Essence of the Mountain",
 			orbit=4,
 			orbitIndex=30,
+			recipe={
+				[1]="Despair",
+				[2]="Ire",
+				[3]="Suffering"
+			},
 			skill=32683,
 			stats={
 				[1]="Gain 5% of Damage as Extra Cold Damage",
@@ -45748,6 +47183,11 @@ return {
 			name="Preservation",
 			orbit=3,
 			orbitIndex=20,
+			recipe={
+				[1]="Disgust",
+				[2]="Suffering",
+				[3]="Ire"
+			},
 			skill=32951,
 			stats={
 				[1]="25% increased Skill Effect Duration"
@@ -45796,6 +47236,11 @@ return {
 			name="Back in Action",
 			orbit=2,
 			orbitIndex=12,
+			recipe={
+				[1]="Ire",
+				[2]="Guilt",
+				[3]="Greed"
+			},
 			skill=33059,
 			stats={
 				[1]="80% increased Stun Recovery"
@@ -45810,6 +47255,11 @@ return {
 			name="Effervescent",
 			orbit=7,
 			orbitIndex=6,
+			recipe={
+				[1]="Suffering",
+				[2]="Isolation",
+				[3]="Envy"
+			},
 			skill=33093,
 			stats={
 				[1]="4% increased Cast Speed for each different Non-Instant Spell you've Cast Recently"
@@ -45828,6 +47278,11 @@ return {
 			name="Hunter's Talisman",
 			orbit=4,
 			orbitIndex=27,
+			recipe={
+				[1]="Paranoia",
+				[2]="Paranoia",
+				[3]="Paranoia"
+			},
 			skill=33099,
 			stats={
 				[1]="25% chance when a Charm is used to use another Charm without consuming Charges"
@@ -45962,6 +47417,11 @@ return {
 			name="Deep Wounds",
 			orbit=2,
 			orbitIndex=10,
+			recipe={
+				[1]="Disgust",
+				[2]="Despair",
+				[3]="Paranoia"
+			},
 			skill=33216,
 			stats={
 				[1]="Attack Hits Aggravate any Bleeding on targets which is older than 4 seconds"
@@ -46021,6 +47481,11 @@ return {
 			name="Lord of Horrors",
 			orbit=5,
 			orbitIndex=71,
+			recipe={
+				[1]="Isolation",
+				[2]="Isolation",
+				[3]="Ire"
+			},
 			skill=33240,
 			stats={
 				[1]="Minions have 12% reduced Reservation"
@@ -46682,6 +48147,11 @@ return {
 			name="Full Salvo",
 			orbit=4,
 			orbitIndex=7,
+			recipe={
+				[1]="Ire",
+				[2]="Isolation",
+				[3]="Greed"
+			},
 			skill=33887,
 			stats={
 				[1]="25% increased Damage with Crossbows for each type of Ammunition fired in the past 10 seconds"
@@ -46799,6 +48269,11 @@ return {
 			name="Unstoppable Barrier",
 			orbit=7,
 			orbitIndex=21,
+			recipe={
+				[1]="Fear",
+				[2]="Paranoia",
+				[3]="Ire"
+			},
 			skill=33978,
 			stats={
 				[1]="10% increased Block chance",
@@ -47133,6 +48608,11 @@ return {
 			name="Crashing Wave",
 			orbit=7,
 			orbitIndex=22,
+			recipe={
+				[1]="Envy",
+				[2]="Guilt",
+				[3]="Despair"
+			},
 			skill=34168,
 			stats={
 				[1]="36% increased Damage if you've dealt a Critical Hit in the past 8 seconds"
@@ -47240,6 +48720,11 @@ return {
 			name="Flow State",
 			orbit=2,
 			orbitIndex=22,
+			recipe={
+				[1]="Despair",
+				[2]="Guilt",
+				[3]="Envy"
+			},
 			skill=34233,
 			stats={
 				[1]="5% increased Skill Speed",
@@ -47297,6 +48782,11 @@ return {
 			name="Conservative Casting",
 			orbit=2,
 			orbitIndex=22,
+			recipe={
+				[1]="Disgust",
+				[2]="Disgust",
+				[3]="Ire"
+			},
 			skill=34300,
 			stats={
 				[1]="20% increased Mana Regeneration Rate",
@@ -47320,6 +48810,11 @@ return {
 			name="Personal Touch",
 			orbit=3,
 			orbitIndex=16,
+			recipe={
+				[1]="Disgust",
+				[2]="Despair",
+				[3]="Ire"
+			},
 			skill=34308,
 			stats={
 				[1]="20% increased Melee Damage",
@@ -47335,6 +48830,11 @@ return {
 			name="One with the River",
 			orbit=6,
 			orbitIndex=3,
+			recipe={
+				[1]="Guilt",
+				[2]="Paranoia",
+				[3]="Isolation"
+			},
 			skill=34316,
 			stats={
 				[1]="30% increased Defences while wielding a Staff",
@@ -47356,6 +48856,11 @@ return {
 			name="Spectral Ward",
 			orbit=4,
 			orbitIndex=0,
+			recipe={
+				[1]="Envy",
+				[2]="Fear",
+				[3]="Suffering"
+			},
 			skill=34324,
 			stats={
 				[1]="+1 to Maximum Energy Shield per 12 Evasion Rating on Equipped Body Armour"
@@ -47375,6 +48880,11 @@ return {
 			name="Mass Rejuvenation",
 			orbit=4,
 			orbitIndex=48,
+			recipe={
+				[1]="Ire",
+				[2]="Paranoia",
+				[3]="Greed"
+			},
 			skill=34340,
 			stats={
 				[1]="Regenerate 0.5% of Life per second",
@@ -47498,6 +49008,11 @@ return {
 			name="Spaghettification",
 			orbit=2,
 			orbitIndex=8,
+			recipe={
+				[1]="Isolation",
+				[2]="Despair",
+				[3]="Fear"
+			},
 			skill=34473,
 			stats={
 				[1]="3% increased Movement Speed",
@@ -47644,6 +49159,11 @@ return {
 			name="Hallowed",
 			orbit=7,
 			orbitIndex=4,
+			recipe={
+				[1]="Despair",
+				[2]="Disgust",
+				[3]="Disgust"
+			},
 			skill=34531,
 			stats={
 				[1]="20% increased Stun Recovery",
@@ -47957,6 +49477,11 @@ return {
 			name="In the Thick of It",
 			orbit=2,
 			orbitIndex=21,
+			recipe={
+				[1]="Disgust",
+				[2]="Despair",
+				[3]="Greed"
+			},
 			skill=35028,
 			stats={
 				[1]="Regenerate 2.5% of Life per second while Surrounded"
@@ -48198,6 +49723,11 @@ return {
 			name="Burnout",
 			orbit=3,
 			orbitIndex=0,
+			recipe={
+				[1]="Isolation",
+				[2]="Greed",
+				[3]="Paranoia"
+			},
 			skill=35324,
 			stats={
 				[1]="Ignites you inflict deal Damage 15% faster"
@@ -48216,6 +49746,11 @@ return {
 			name="Investing Energies",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Ire",
+				[2]="Ire",
+				[3]="Envy"
+			},
 			skill=35369,
 			stats={
 				[1]="40% increased Mana Regeneration Rate while stationary",
@@ -48334,6 +49869,11 @@ return {
 			name="Far Sighted",
 			orbit=2,
 			orbitIndex=1,
+			recipe={
+				[1]="Guilt",
+				[2]="Ire",
+				[3]="Fear"
+			},
 			skill=35477,
 			stats={
 				[1]="30% reduced penalty to Accuracy Rating at range"
@@ -48407,6 +49947,11 @@ return {
 			name="Turn the Clock Back",
 			orbit=3,
 			orbitIndex=22,
+			recipe={
+				[1]="Fear",
+				[2]="Fear",
+				[3]="Despair"
+			},
 			skill=35564,
 			stats={
 				[1]="20% reduced Projectile Speed for Spell Skills"
@@ -48425,6 +49970,11 @@ return {
 			name="Near at Hand",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Paranoia",
+				[2]="Isolation",
+				[3]="Paranoia"
+			},
 			skill=35581,
 			stats={
 				[1]="16% reduced Skill Effect Duration",
@@ -48619,6 +50169,11 @@ return {
 			name="Crushing Judgement",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Greed",
+				[2]="Isolation",
+				[3]="Ire"
+			},
 			skill=35739,
 			stats={
 				[1]="25% increased Armour Break Duration",
@@ -48704,6 +50259,11 @@ return {
 			name="Reinvigoration",
 			orbit=1,
 			orbitIndex=6,
+			recipe={
+				[1]="Disgust",
+				[2]="Envy",
+				[3]="Ire"
+			},
 			skill=35809,
 			stats={
 				[1]="Regenerate 1% of Life per Second if you've used a Life Flask in the past 10 seconds"
@@ -48748,6 +50308,11 @@ return {
 			name="Thickened Arteries",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Envy",
+				[2]="Guilt",
+				[3]="Greed"
+			},
 			skill=35849,
 			stats={
 				[1]="5% reduced Movement Speed",
@@ -48771,6 +50336,11 @@ return {
 			name="Fortifying Blood",
 			orbit=2,
 			orbitIndex=3,
+			recipe={
+				[1]="Greed",
+				[2]="Paranoia",
+				[3]="Fear"
+			},
 			skill=35855,
 			stats={
 				[1]="20% increased amount of Life Leeched",
@@ -48814,6 +50384,11 @@ return {
 			name="Admonisher",
 			orbit=2,
 			orbitIndex=20,
+			recipe={
+				[1]="Disgust",
+				[2]="Suffering",
+				[3]="Disgust"
+			},
 			skill=35876,
 			stats={
 				[1]="25% increased Warcry Speed",
@@ -48956,6 +50531,11 @@ return {
 			name="Heart Tissue",
 			orbit=7,
 			orbitIndex=4,
+			recipe={
+				[1]="Paranoia",
+				[2]="Despair",
+				[3]="Ire"
+			},
 			skill=35966,
 			stats={
 				[1]="6% of Damage taken Recouped as Life",
@@ -49029,6 +50609,11 @@ return {
 			name="Blur",
 			orbit=4,
 			orbitIndex=27,
+			recipe={
+				[1]="Paranoia",
+				[2]="Disgust",
+				[3]="Ire"
+			},
 			skill=35987,
 			stats={
 				[1]="4% increased Movement Speed",
@@ -49129,6 +50714,11 @@ return {
 			name="Serrated Edges",
 			orbit=3,
 			orbitIndex=3,
+			recipe={
+				[1]="Paranoia",
+				[2]="Disgust",
+				[3]="Greed"
+			},
 			skill=36085,
 			stats={
 				[1]="10% increased Critical Hit Chance for Attacks",
@@ -49317,6 +50907,11 @@ return {
 			name="Practiced Signs",
 			orbit=7,
 			orbitIndex=0,
+			recipe={
+				[1]="Greed",
+				[2]="Guilt",
+				[3]="Envy"
+			},
 			skill=36302,
 			stats={
 				[1]="6% increased Cast Speed"
@@ -49352,6 +50947,11 @@ return {
 			name="Cull the Hordes",
 			orbit=2,
 			orbitIndex=10,
+			recipe={
+				[1]="Despair",
+				[2]="Guilt",
+				[3]="Suffering"
+			},
 			skill=36341,
 			stats={
 				[1]="25% increased Culling Strike Threshold"
@@ -49384,6 +50984,11 @@ return {
 			name="Electrocution",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Paranoia",
+				[2]="Suffering",
+				[3]="Greed"
+			},
 			skill=36364,
 			stats={
 				[1]="Enemies you Electrocute have 20% increased Damage taken"
@@ -49491,6 +51096,11 @@ return {
 			name="Essence of the Storm",
 			orbit=4,
 			orbitIndex=66,
+			recipe={
+				[1]="Greed",
+				[2]="Fear",
+				[3]="Paranoia"
+			},
 			skill=36479,
 			stats={
 				[1]="Gain 5% of Damage as Extra Lightning Damage",
@@ -49510,6 +51120,11 @@ return {
 			name="Vile Mending",
 			orbit=2,
 			orbitIndex=4,
+			recipe={
+				[1]="Greed",
+				[2]="Fear",
+				[3]="Fear"
+			},
 			skill=36507,
 			stats={
 				[1]="Minions have 20% increased maximum Life",
@@ -49626,6 +51241,11 @@ return {
 			name="Convalescence",
 			orbit=2,
 			orbitIndex=10,
+			recipe={
+				[1]="Disgust",
+				[2]="Suffering",
+				[3]="Greed"
+			},
 			skill=36623,
 			stats={
 				[1]="15% reduced Energy Shield Recharge Rate",
@@ -49917,6 +51537,11 @@ return {
 			name="Spiked Shield",
 			orbit=2,
 			orbitIndex=16,
+			recipe={
+				[1]="Fear",
+				[2]="Suffering",
+				[3]="Fear"
+			},
 			skill=36808,
 			stats={
 				[1]="50% increased Defences from Equipped Shield",
@@ -50014,6 +51639,11 @@ return {
 			name="Marked for Death",
 			orbit=3,
 			orbitIndex=9,
+			recipe={
+				[1]="Isolation",
+				[2]="Suffering",
+				[3]="Guilt"
+			},
 			skill=36976,
 			stats={
 				[1]="Culling Strike against Enemies you Mark"
@@ -50125,6 +51755,11 @@ return {
 			name="Shield Expertise",
 			orbit=2,
 			orbitIndex=8,
+			recipe={
+				[1]="Disgust",
+				[2]="Greed",
+				[3]="Fear"
+			},
 			skill=37244,
 			stats={
 				[1]="12% increased Block chance",
@@ -50188,6 +51823,11 @@ return {
 			name="Two-Pronged Attack",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Ire",
+				[2]="Fear",
+				[3]="Guilt"
+			},
 			skill=37266,
 			stats={
 				[1]="Minions deal 25% increased Damage"
@@ -50206,6 +51846,11 @@ return {
 			name="Battle Trance",
 			orbit=2,
 			orbitIndex=14,
+			recipe={
+				[1]="Isolation",
+				[2]="Disgust",
+				[3]="Fear"
+			},
 			skill=37276,
 			stats={
 				[1]="+8 to Maximum Rage"
@@ -50320,6 +51965,11 @@ return {
 			name="Staunching",
 			orbit=2,
 			orbitIndex=13,
+			recipe={
+				[1]="Envy",
+				[2]="Despair",
+				[3]="Disgust"
+			},
 			skill=37408,
 			stats={
 				[1]="Life Flasks gain 0.1 charges per Second",
@@ -50373,6 +52023,11 @@ return {
 			name="Strong Links",
 			orbit=2,
 			orbitIndex=13,
+			recipe={
+				[1]="Guilt",
+				[2]="Disgust",
+				[3]="Envy"
+			},
 			skill=37458,
 			stats={
 				[1]="Link Skills have 20% increased Buff Effect",
@@ -50428,6 +52083,11 @@ return {
 			name="Whirling Assault",
 			orbit=3,
 			orbitIndex=1,
+			recipe={
+				[1]="Envy",
+				[2]="Disgust",
+				[3]="Greed"
+			},
 			skill=37514,
 			stats={
 				[1]="8% increased Attack Speed with Quarterstaves",
@@ -50463,6 +52123,11 @@ return {
 			name="Full Recovery",
 			orbit=2,
 			orbitIndex=18,
+			recipe={
+				[1]="Despair",
+				[2]="Envy",
+				[3]="Guilt"
+			},
 			skill=37543,
 			stats={
 				[1]="15% increased Life Regeneration rate",
@@ -50681,6 +52346,11 @@ return {
 			name="Devestating Devices",
 			orbit=6,
 			orbitIndex=36,
+			recipe={
+				[1]="Disgust",
+				[2]="Envy",
+				[3]="Greed"
+			},
 			skill=37688,
 			stats={
 				[1]="25% increased Trap Damage"
@@ -50737,6 +52407,11 @@ return {
 			name="Manifold Method",
 			orbit=3,
 			orbitIndex=9,
+			recipe={
+				[1]="Paranoia",
+				[2]="Paranoia",
+				[3]="Fear"
+			},
 			skill=37742,
 			stats={
 				[1]="50% increased amount of Mana Leeched",
@@ -50811,6 +52486,11 @@ return {
 			name="Branching Bolts",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Suffering",
+				[2]="Disgust",
+				[3]="Ire"
+			},
 			skill=37806,
 			stats={
 				[1]="60% chance for Lightning Skills to Chain an additional time"
@@ -50854,6 +52534,11 @@ return {
 			name="Presence Present",
 			orbit=7,
 			orbitIndex=4,
+			recipe={
+				[1]="Ire",
+				[2]="Fear",
+				[3]="Isolation"
+			},
 			skill=37872,
 			stats={
 				[1]="Allies in your Presence have +100 to Accuracy Rating",
@@ -51058,6 +52743,11 @@ return {
 			name="Deafening Cries",
 			orbit=3,
 			orbitIndex=1,
+			recipe={
+				[1]="Disgust",
+				[2]="Guilt",
+				[3]="Paranoia"
+			},
 			skill=38053,
 			stats={
 				[1]="25% increased Warcry Cooldown Recovery Rate",
@@ -51140,6 +52830,11 @@ return {
 			name="Pliable Flesh",
 			orbit=2,
 			orbitIndex=0,
+			recipe={
+				[1]="Greed",
+				[2]="Disgust",
+				[3]="Isolation"
+			},
 			skill=38111,
 			stats={
 				[1]="6% of Damage taken Recouped as Life",
@@ -51394,6 +53089,11 @@ return {
 			name="Stupefy",
 			orbit=1,
 			orbitIndex=0,
+			recipe={
+				[1]="Paranoia",
+				[2]="Despair",
+				[3]="Paranoia"
+			},
 			skill=38342,
 			stats={
 				[1]="25% increased Critical Hit Chance against Dazed Enemies",
@@ -51473,6 +53173,11 @@ return {
 			name="Apocalypse",
 			orbit=7,
 			orbitIndex=14,
+			recipe={
+				[1]="Suffering",
+				[2]="Paranoia",
+				[3]="Greed"
+			},
 			skill=38398,
 			stats={
 				[1]="40% reduced Damage",
@@ -51560,6 +53265,11 @@ return {
 			name="Close Confines",
 			orbit=2,
 			orbitIndex=20,
+			recipe={
+				[1]="Ire",
+				[2]="Paranoia",
+				[3]="Ire"
+			},
 			skill=38479,
 			stats={
 				[1]="25% chance for Projectiles to Pierce Enemies within 3m distance of you"
@@ -51633,6 +53343,11 @@ return {
 			name="Stormcharged",
 			orbit=4,
 			orbitIndex=66,
+			recipe={
+				[1]="Fear",
+				[2]="Fear",
+				[3]="Envy"
+			},
 			skill=38535,
 			stats={
 				[1]="40% increased Elemental Damage if you've dealt a Critical Hit Recently",
@@ -51656,6 +53371,11 @@ return {
 			name="Heartstopping",
 			orbit=2,
 			orbitIndex=3,
+			recipe={
+				[1]="Ire",
+				[2]="Despair",
+				[3]="Paranoia"
+			},
 			skill=38537,
 			stats={
 				[1]="+10 to Intelligence",
@@ -51766,6 +53486,11 @@ return {
 			name="Psychic Fragmentation",
 			orbit=3,
 			orbitIndex=20,
+			recipe={
+				[1]="Paranoia",
+				[2]="Disgust",
+				[3]="Isolation"
+			},
 			skill=38614,
 			stats={
 				[1]="12% chance for Spell Skills to fire 2 additional Projectiles"
@@ -51781,6 +53506,11 @@ return {
 			name="Escalating Toxins",
 			orbit=2,
 			orbitIndex=19,
+			recipe={
+				[1]="Despair",
+				[2]="Isolation",
+				[3]="Disgust"
+			},
 			skill=38628,
 			stats={
 				[1]="10% increased Poison Duration for each Poison you have inflicted Recently, up to a maximum of 100%"
@@ -52274,6 +54004,11 @@ return {
 			name="Unerring Impact",
 			orbit=7,
 			orbitIndex=12,
+			recipe={
+				[1]="Greed",
+				[2]="Disgust",
+				[3]="Ire"
+			},
 			skill=38888,
 			stats={
 				[1]="10% increased Accuracy Rating with One Handed Melee Weapons",
@@ -52298,6 +54033,11 @@ return {
 			name="Crystal Elixir",
 			orbit=2,
 			orbitIndex=7,
+			recipe={
+				[1]="Fear",
+				[2]="Suffering",
+				[3]="Greed"
+			},
 			skill=38895,
 			stats={
 				[1]="40% increased Elemental Damage with Attack Skills during any Flask Effect"
@@ -52353,6 +54093,11 @@ return {
 			name="Finesse",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Fear",
+				[2]="Suffering",
+				[3]="Disgust"
+			},
 			skill=38969,
 			stats={
 				[1]="10% increased Accuracy Rating",
@@ -52376,6 +54121,11 @@ return {
 			name="Restless Dead",
 			orbit=3,
 			orbitIndex=8,
+			recipe={
+				[1]="Despair",
+				[2]="Fear",
+				[3]="Disgust"
+			},
 			skill=38972,
 			stats={
 				[1]="Minions Revive 25% faster"
@@ -52450,6 +54200,11 @@ return {
 			name="Exploit",
 			orbit=2,
 			orbitIndex=4,
+			recipe={
+				[1]="Disgust",
+				[2]="Envy",
+				[3]="Isolation"
+			},
 			skill=39050,
 			stats={
 				[1]="25% increased Damage with Hits against Enemies affected by Elemental Ailments",
@@ -52465,6 +54220,11 @@ return {
 			name="Blood Rush",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Guilt",
+				[2]="Fear",
+				[3]="Disgust"
+			},
 			skill=39083,
 			stats={
 				[1]="6% increased Skill Speed",
@@ -52660,6 +54420,11 @@ return {
 			name="Breaking Blows",
 			orbit=3,
 			orbitIndex=21,
+			recipe={
+				[1]="Disgust",
+				[2]="Disgust",
+				[3]="Disgust"
+			},
 			skill=39347,
 			stats={
 				[1]="30% increased Stun Buildup",
@@ -52701,6 +54466,11 @@ return {
 			name="Struck Through",
 			orbit=4,
 			orbitIndex=27,
+			recipe={
+				[1]="Isolation",
+				[2]="Despair",
+				[3]="Greed"
+			},
 			skill=39369,
 			stats={
 				[1]="Attacks have +1% to Critical Hit Chance"
@@ -52880,6 +54650,11 @@ return {
 			name="Ingenuity",
 			orbit=5,
 			orbitIndex=0,
+			recipe={
+				[1]="Ire",
+				[2]="Isolation",
+				[3]="Suffering"
+			},
 			skill=39567,
 			stats={
 				[1]="+25 to Intelligence"
@@ -53189,6 +54964,11 @@ return {
 			name="Staggering Palm",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Guilt",
+				[2]="Isolation",
+				[3]="Despair"
+			},
 			skill=39881,
 			stats={
 				[1]="20% increased Critical Damage Bonus",
@@ -53309,6 +55089,11 @@ return {
 			name="Chronomancy",
 			orbit=2,
 			orbitIndex=0,
+			recipe={
+				[1]="Despair",
+				[2]="Fear",
+				[3]="Despair"
+			},
 			skill=39990,
 			stats={
 				[1]="20% increased Skill Effect Duration",
@@ -53376,6 +55161,11 @@ return {
 			name="Drenched",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Isolation",
+				[2]="Suffering",
+				[3]="Ire"
+			},
 			skill=40073,
 			stats={
 				[1]="40% increased chance to Shock",
@@ -53391,6 +55181,11 @@ return {
 			name="Spiked Armour",
 			orbit=7,
 			orbitIndex=2,
+			recipe={
+				[1]="Despair",
+				[2]="Guilt",
+				[3]="Disgust"
+			},
 			skill=40117,
 			stats={
 				[1]="Gain Physical Thorns damage equal to 2% of Armour from equipped Body Armour"
@@ -53405,6 +55200,11 @@ return {
 			name="Deep Trance",
 			orbit=7,
 			orbitIndex=8,
+			recipe={
+				[1]="Fear",
+				[2]="Ire",
+				[3]="Despair"
+			},
 			skill=40166,
 			stats={
 				[1]="8% increased Attack Speed",
@@ -53465,6 +55265,11 @@ return {
 			name="Taste for Blood",
 			orbit=1,
 			orbitIndex=1,
+			recipe={
+				[1]="Envy",
+				[2]="Ire",
+				[3]="Greed"
+			},
 			skill=40213,
 			stats={
 				[1]="Gain 20 Life per Enemy Killed",
@@ -53498,6 +55303,11 @@ return {
 			name="Frenetic",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Ire",
+				[2]="Suffering",
+				[3]="Guilt"
+			},
 			skill=40270,
 			stats={
 				[1]="5% chance that if you would gain Frenzy Charges, you instead gain up to your maximum number of Frenzy Charges",
@@ -53542,6 +55352,11 @@ return {
 			name="Resolution",
 			orbit=3,
 			orbitIndex=21,
+			recipe={
+				[1]="Envy",
+				[2]="Disgust",
+				[3]="Envy"
+			},
 			skill=40325,
 			stats={
 				[1]="10% increased Global Defences",
@@ -53620,6 +55435,11 @@ return {
 			name="Master of Hexes",
 			orbit=7,
 			orbitIndex=0,
+			recipe={
+				[1]="Suffering",
+				[2]="Fear",
+				[3]="Suffering"
+			},
 			skill=40345,
 			stats={
 				[1]="25% reduced Curse Duration",
@@ -53639,6 +55459,11 @@ return {
 			name="Energise",
 			orbit=5,
 			orbitIndex=6,
+			recipe={
+				[1]="Isolation",
+				[2]="Guilt",
+				[3]="Paranoia"
+			},
 			skill=40399,
 			stats={
 				[1]="25% chance for Trigger skills to refund half of Energy Spent"
@@ -53675,6 +55500,11 @@ return {
 			name="Harmonic Generator",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Paranoia",
+				[2]="Fear",
+				[3]="Despair"
+			},
 			skill=40480,
 			stats={
 				[1]="25% increased Critical Hit Chance against Shocked Enemies",
@@ -53897,6 +55727,11 @@ return {
 			name="Sigil of Ice",
 			orbit=4,
 			orbitIndex=21,
+			recipe={
+				[1]="Suffering",
+				[2]="Disgust",
+				[3]="Guilt"
+			},
 			skill=40803,
 			stats={
 				[1]="30% increased Damage with Hits against Chilled Enemies"
@@ -53962,6 +55797,11 @@ return {
 			name="Exposed to the Storm",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Envy",
+				[2]="Isolation",
+				[3]="Despair"
+			},
 			skill=40990,
 			stats={
 				[1]="Damage Penetrates 18% Lightning Resistance",
@@ -54374,6 +56214,11 @@ return {
 			name="Ricochet",
 			orbit=4,
 			orbitIndex=21,
+			recipe={
+				[1]="Ire",
+				[2]="Disgust",
+				[3]="Disgust"
+			},
 			skill=41210,
 			stats={
 				[1]="15% increased Projectile Damage",
@@ -54546,6 +56391,11 @@ return {
 			name="Heavy Weaponry",
 			orbit=7,
 			orbitIndex=13,
+			recipe={
+				[1]="Paranoia",
+				[2]="Disgust",
+				[3]="Envy"
+			},
 			skill=41512,
 			stats={
 				[1]="15% increased Melee Damage",
@@ -54641,6 +56491,11 @@ return {
 			name="Maiming Strike",
 			orbit=7,
 			orbitIndex=2,
+			recipe={
+				[1]="Despair",
+				[2]="Isolation",
+				[3]="Ire"
+			},
 			skill=41580,
 			stats={
 				[1]="25% increased Attack Damage",
@@ -54890,6 +56745,11 @@ return {
 			name="Shatter Palm",
 			orbit=3,
 			orbitIndex=2,
+			recipe={
+				[1]="Greed",
+				[2]="Despair",
+				[3]="Paranoia"
+			},
 			skill=41811,
 			stats={
 				[1]="30% increased Stun Buildup",
@@ -54987,6 +56847,11 @@ return {
 			name="Gravedigger",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Ire",
+				[2]="Fear",
+				[3]="Disgust"
+			},
 			skill=41905,
 			stats={
 				[1]="Minions Revive 15% faster",
@@ -55027,6 +56892,11 @@ return {
 			name="Glaciation",
 			orbit=4,
 			orbitIndex=18,
+			recipe={
+				[1]="Paranoia",
+				[2]="Guilt",
+				[3]="Isolation"
+			},
 			skill=41972,
 			stats={
 				[1]="Damage Penetrates 18% Cold Resistance",
@@ -55099,6 +56969,11 @@ return {
 			name="Deflection",
 			orbit=4,
 			orbitIndex=17,
+			recipe={
+				[1]="Greed",
+				[2]="Fear",
+				[3]="Suffering"
+			},
 			skill=42036,
 			stats={
 				[1]="30% increased Block chance",
@@ -55118,6 +56993,11 @@ return {
 			name="Surging Currents",
 			orbit=2,
 			orbitIndex=1,
+			recipe={
+				[1]="Fear",
+				[2]="Envy",
+				[3]="Isolation"
+			},
 			skill=42065,
 			stats={
 				[1]="Damage Penetrates 15% Lightning Resistance",
@@ -55159,6 +57039,11 @@ return {
 			name="Essence Infusion",
 			orbit=2,
 			orbitIndex=11,
+			recipe={
+				[1]="Envy",
+				[2]="Envy",
+				[3]="Greed"
+			},
 			skill=42077,
 			stats={
 				[1]="40% increased Energy Shield Recharge Rate",
@@ -55221,6 +57106,11 @@ return {
 			name="Blurred Motion",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Despair",
+				[2]="Paranoia",
+				[3]="Ire"
+			},
 			skill=42177,
 			stats={
 				[1]="5% increased Attack Speed",
@@ -55366,6 +57256,11 @@ return {
 			name="Split Shot",
 			orbit=4,
 			orbitIndex=54,
+			recipe={
+				[1]="Ire",
+				[2]="Fear",
+				[3]="Paranoia"
+			},
 			skill=42302,
 			stats={
 				[1]="Projectiles have 75% chance for an additional Projectile when Forking"
@@ -55431,6 +57326,11 @@ return {
 			name="Blinding Flash",
 			orbit=2,
 			orbitIndex=2,
+			recipe={
+				[1]="Ire",
+				[2]="Guilt",
+				[3]="Ire"
+			},
 			skill=42354,
 			stats={
 				[1]="20% increased Blind Effect",
@@ -55517,6 +57417,11 @@ return {
 			name="Overheating Blow",
 			orbit=4,
 			orbitIndex=4,
+			recipe={
+				[1]="Disgust",
+				[2]="Suffering",
+				[3]="Guilt"
+			},
 			skill=42390,
 			stats={
 				[1]="Hits that Heavy Stun inflict Fire Exposure"
@@ -55795,6 +57700,11 @@ return {
 			name="Clean Shot",
 			orbit=2,
 			orbitIndex=2,
+			recipe={
+				[1]="Despair",
+				[2]="Ire",
+				[3]="Greed"
+			},
 			skill=42781,
 			stats={
 				[1]="15% chance to Pierce an Enemy",
@@ -55865,6 +57775,11 @@ return {
 			name="Tides of Change",
 			orbit=7,
 			orbitIndex=19,
+			recipe={
+				[1]="Paranoia",
+				[2]="Suffering",
+				[3]="Fear"
+			},
 			skill=42813,
 			stats={
 				[1]="25% increased Skill Effect Duration"
@@ -55925,6 +57840,11 @@ return {
 			name="Ball and Chain",
 			orbit=4,
 			orbitIndex=60,
+			recipe={
+				[1]="Greed",
+				[2]="Guilt",
+				[3]="Suffering"
+			},
 			skill=42914,
 			stats={
 				[1]="15% increased Damage with Flails",
@@ -55965,6 +57885,11 @@ return {
 			name="Low Tolerance",
 			orbit=7,
 			orbitIndex=12,
+			recipe={
+				[1]="Suffering",
+				[2]="Greed",
+				[3]="Isolation"
+			},
 			skill=42959,
 			stats={
 				[1]="60% increased Effect of Poison you inflict on targets that are not Poisoned"
@@ -55980,6 +57905,11 @@ return {
 			name="Cruel Methods",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Suffering",
+				[2]="Envy",
+				[3]="Paranoia"
+			},
 			skill=42981,
 			stats={
 				[1]="Break 40% increased Armour",
@@ -56051,6 +57981,11 @@ return {
 			name="Acceleration",
 			orbit=2,
 			orbitIndex=20,
+			recipe={
+				[1]="Fear",
+				[2]="Envy",
+				[3]="Disgust"
+			},
 			skill=43082,
 			stats={
 				[1]="3% increased Movement Speed",
@@ -56106,6 +58041,11 @@ return {
 			name="Stormbreaker",
 			orbit=4,
 			orbitIndex=0,
+			recipe={
+				[1]="Isolation",
+				[2]="Despair",
+				[3]="Guilt"
+			},
 			skill=43139,
 			stats={
 				[1]="15% increased Damage for each type of Elemental Ailment on Enemy"
@@ -56276,6 +58216,11 @@ return {
 			name="Exposed Wounds",
 			orbit=4,
 			orbitIndex=51,
+			recipe={
+				[1]="Envy",
+				[2]="Paranoia",
+				[3]="Greed"
+			},
 			skill=43383,
 			stats={
 				[1]="15% increased chance to inflict Ailments",
@@ -56295,6 +58240,11 @@ return {
 			name="Ancestral Reach",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Suffering",
+				[2]="Paranoia",
+				[3]="Ire"
+			},
 			skill=43396,
 			stats={
 				[1]="25% increased Totem Placement speed",
@@ -56314,6 +58264,11 @@ return {
 			name="Emboldened Avatar",
 			orbit=2,
 			orbitIndex=23,
+			recipe={
+				[1]="Suffering",
+				[2]="Disgust",
+				[3]="Greed"
+			},
 			skill=43423,
 			stats={
 				[1]="25% increased chance to Ignite",
@@ -56550,6 +58505,11 @@ return {
 			name="Crippling Toxins",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Envy",
+				[2]="Isolation",
+				[3]="Envy"
+			},
 			skill=43677,
 			stats={
 				[1]="25% chance for Attacks to Maim on Hit against Poisoned Enemies",
@@ -56620,6 +58580,11 @@ return {
 			name="Lasting Concoctions",
 			orbit=7,
 			orbitIndex=12,
+			recipe={
+				[1]="Despair",
+				[2]="Disgust",
+				[3]="Despair"
+			},
 			skill=43695,
 			stats={
 				[1]="25% increased Flask Effect Duration",
@@ -56635,6 +58600,11 @@ return {
 			name="Thornhide",
 			orbit=2,
 			orbitIndex=18,
+			recipe={
+				[1]="Ire",
+				[2]="Greed",
+				[3]="Fear"
+			},
 			skill=43711,
 			stats={
 				[1]="+5% to Thorns Critical Hit Chance"
@@ -56777,6 +58747,11 @@ return {
 			name="Advanced Munitions",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Guilt",
+				[2]="Fear",
+				[3]="Greed"
+			},
 			skill=43829,
 			stats={
 				[1]="25% increased chance to inflict Ailments with Projectiles"
@@ -56888,6 +58863,11 @@ return {
 			name="Fireproof",
 			orbit=3,
 			orbitIndex=9,
+			recipe={
+				[1]="Fear",
+				[2]="Paranoia",
+				[3]="Paranoia"
+			},
 			skill=43939,
 			stats={
 				[1]="+15% to Fire Resistance",
@@ -56920,6 +58900,11 @@ return {
 			name="Casting Cascade",
 			orbit=6,
 			orbitIndex=38,
+			recipe={
+				[1]="Fear",
+				[2]="Greed",
+				[3]="Isolation"
+			},
 			skill=44005,
 			stats={
 				[1]="15% reduced Spell Damage",
@@ -57225,6 +59210,11 @@ return {
 			name="Enhanced Barrier",
 			orbit=4,
 			orbitIndex=0,
+			recipe={
+				[1]="Isolation",
+				[2]="Paranoia",
+				[3]="Isolation"
+			},
 			skill=44299,
 			stats={
 				[1]="25% increased maximum Energy Shield",
@@ -57257,6 +59247,11 @@ return {
 			name="Coated Arms",
 			orbit=3,
 			orbitIndex=2,
+			recipe={
+				[1]="Fear",
+				[2]="Greed",
+				[3]="Paranoia"
+			},
 			skill=44330,
 			stats={
 				[1]="25% increased Damage with One Handed Weapons",
@@ -57405,6 +59400,11 @@ return {
 			name="Wither Away",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Guilt",
+				[2]="Guilt",
+				[3]="Isolation"
+			},
 			skill=44373,
 			stats={
 				[1]="Unwithered enemies are Withered for 8 seconds when they enter your Presence",
@@ -57612,6 +59612,11 @@ return {
 			name="Cautious Concoctions",
 			orbit=2,
 			orbitIndex=2,
+			recipe={
+				[1]="Disgust",
+				[2]="Paranoia",
+				[3]="Disgust"
+			},
 			skill=44527,
 			stats={
 				[1]="15% increased Flask Effect Duration",
@@ -57646,6 +59651,11 @@ return {
 			name="Lightning Rod",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Suffering",
+				[2]="Isolation",
+				[3]="Isolation"
+			},
 			skill=44566,
 			stats={
 				[1]="Lightning Damage with Non-Critical Hits is Lucky"
@@ -57668,6 +59678,11 @@ return {
 			name="Remorseless",
 			orbit=5,
 			orbitIndex=21,
+			recipe={
+				[1]="Greed",
+				[2]="Disgust",
+				[3]="Guilt"
+			},
 			skill=44605,
 			stats={
 				[1]="15% increased Projectile Damage",
@@ -57919,6 +59934,11 @@ return {
 			name="Marked Agility",
 			orbit=3,
 			orbitIndex=15,
+			recipe={
+				[1]="Despair",
+				[2]="Disgust",
+				[3]="Suffering"
+			},
 			skill=44756,
 			stats={
 				[1]="30% reduced Mana Cost of Mark Skills",
@@ -57938,6 +59958,11 @@ return {
 			name="Distracting Presence",
 			orbit=3,
 			orbitIndex=21,
+			recipe={
+				[1]="Envy",
+				[2]="Guilt",
+				[3]="Suffering"
+			},
 			skill=44765,
 			stats={
 				[1]="10% increased Cooldown Recovery Rate",
@@ -58021,6 +60046,11 @@ return {
 			name="Feel no Pain",
 			orbit=2,
 			orbitIndex=12,
+			recipe={
+				[1]="Paranoia",
+				[2]="Greed",
+				[3]="Guilt"
+			},
 			skill=44836,
 			stats={
 				[1]="20% increased Armour and Evasion Rating",
@@ -58154,6 +60184,11 @@ return {
 			name="Self Mortification",
 			orbit=7,
 			orbitIndex=0,
+			recipe={
+				[1]="Ire",
+				[2]="Envy",
+				[3]="Envy"
+			},
 			skill=44917,
 			stats={
 				[1]="Gain 20% of maximum Energy Shield as additional Stun Threshold",
@@ -58207,6 +60242,11 @@ return {
 			name="Made to Last",
 			orbit=3,
 			orbitIndex=11,
+			recipe={
+				[1]="Suffering",
+				[2]="Fear",
+				[3]="Guilt"
+			},
 			skill=44952,
 			stats={
 				[1]="15% of Physical Damage prevented Recouped as Life"
@@ -58250,6 +60290,11 @@ return {
 			name="Finishing Blows",
 			orbit=7,
 			orbitIndex=10,
+			recipe={
+				[1]="Despair",
+				[2]="Guilt",
+				[3]="Ire"
+			},
 			skill=45013,
 			stats={
 				[1]="60% increased Damage with Hits against Enemies that are on Low Life",
@@ -58446,6 +60491,11 @@ return {
 			name="Refills",
 			orbit=2,
 			orbitIndex=16,
+			recipe={
+				[1]="Greed",
+				[2]="Ire",
+				[3]="Isolation"
+			},
 			skill=45244,
 			stats={
 				[1]="Life Flasks gain 0.15 charges per Second"
@@ -58617,6 +60667,11 @@ return {
 			name="Smash",
 			orbit=3,
 			orbitIndex=23,
+			recipe={
+				[1]="Envy",
+				[2]="Envy",
+				[3]="Ire"
+			},
 			skill=45363,
 			stats={
 				[1]="20% increased Melee Damage",
@@ -58695,6 +60750,11 @@ return {
 			name="Cross Strike",
 			orbit=3,
 			orbitIndex=15,
+			recipe={
+				[1]="Guilt",
+				[2]="Greed",
+				[3]="Envy"
+			},
 			skill=45488,
 			stats={
 				[1]="20% increased Accuracy Rating while Dual Wielding",
@@ -58820,6 +60880,11 @@ return {
 			name="Lay Siege",
 			orbit=7,
 			orbitIndex=12,
+			recipe={
+				[1]="Fear",
+				[2]="Envy",
+				[3]="Fear"
+			},
 			skill=45599,
 			stats={
 				[1]="1% increased Damage per 1% Chance to Block"
@@ -58856,6 +60921,11 @@ return {
 			name="Defensive Reflexes",
 			orbit=2,
 			orbitIndex=12,
+			recipe={
+				[1]="Greed",
+				[2]="Ire",
+				[3]="Ire"
+			},
 			skill=45612,
 			stats={
 				[1]="12% increased Block chance",
@@ -58893,6 +60963,11 @@ return {
 			name="Mind Eraser",
 			orbit=7,
 			orbitIndex=17,
+			recipe={
+				[1]="Fear",
+				[2]="Ire",
+				[3]="Paranoia"
+			},
 			skill=45632,
 			stats={
 				[1]="10% increased Mana Regeneration Rate",
@@ -58977,6 +61052,11 @@ return {
 			name="Savouring",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Disgust",
+				[2]="Ire",
+				[3]="Isolation"
+			},
 			skill=45713,
 			stats={
 				[1]="20% chance for Flasks you use to not consume Charges"
@@ -59331,6 +61411,11 @@ return {
 			name="Sigil of Lightning",
 			orbit=4,
 			orbitIndex=44,
+			recipe={
+				[1]="Paranoia",
+				[2]="Suffering",
+				[3]="Paranoia"
+			},
 			skill=46024,
 			stats={
 				[1]="30% increased Damage with Hits against Shocked Enemies"
@@ -59400,6 +61485,11 @@ return {
 			name="Voracious",
 			orbit=7,
 			orbitIndex=20,
+			recipe={
+				[1]="Greed",
+				[2]="Isolation",
+				[3]="Suffering"
+			},
 			skill=46060,
 			stats={
 				[1]="20% of Leech is Instant"
@@ -59469,6 +61559,11 @@ return {
 			name="Careful Assassin",
 			orbit=2,
 			orbitIndex=7,
+			recipe={
+				[1]="Suffering",
+				[2]="Envy",
+				[3]="Greed"
+			},
 			skill=46197,
 			stats={
 				[1]="20% reduced Critical Damage Bonus",
@@ -59517,6 +61612,11 @@ return {
 			name="Arcane Alchemy",
 			orbit=2,
 			orbitIndex=2,
+			recipe={
+				[1]="Envy",
+				[2]="Greed",
+				[3]="Greed"
+			},
 			skill=46224,
 			stats={
 				[1]="Mana Flasks gain 0.1 charges per Second",
@@ -59549,6 +61649,11 @@ return {
 			name="Short Shot",
 			orbit=1,
 			orbitIndex=4,
+			recipe={
+				[1]="Suffering",
+				[2]="Guilt",
+				[3]="Envy"
+			},
 			skill=46296,
 			stats={
 				[1]="15% reduced Projectile Speed",
@@ -59706,6 +61811,11 @@ return {
 			name="Wide Barrier",
 			orbit=4,
 			orbitIndex=24,
+			recipe={
+				[1]="Envy",
+				[2]="Isolation",
+				[3]="Isolation"
+			},
 			skill=46384,
 			stats={
 				[1]="30% increased Block chance",
@@ -59783,6 +61893,11 @@ return {
 			name="Guts",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Suffering",
+				[2]="Ire",
+				[3]="Ire"
+			},
 			skill=46499,
 			stats={
 				[1]="Recover 3% of Life for each Endurance Charge consumed",
@@ -59906,6 +62021,11 @@ return {
 			name="Stance Breaker",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Ire",
+				[2]="Guilt",
+				[3]="Guilt"
+			},
 			skill=46565,
 			stats={
 				[1]="50% reduced Enemy Chance to Block Sword Attacks"
@@ -60042,6 +62162,11 @@ return {
 			name="Efficient Alchemy",
 			orbit=7,
 			orbitIndex=12,
+			recipe={
+				[1]="Fear",
+				[2]="Ire",
+				[3]="Guilt"
+			},
 			skill=46692,
 			stats={
 				[1]="20% increased Flask and Charm Charges gained",
@@ -60061,6 +62186,11 @@ return {
 			name="Impair",
 			orbit=4,
 			orbitIndex=68,
+			recipe={
+				[1]="Envy",
+				[2]="Suffering",
+				[3]="Disgust"
+			},
 			skill=46696,
 			stats={
 				[1]="25% increased Damage with One Handed Weapons",
@@ -60343,6 +62473,11 @@ return {
 			name="Arcane Mixtures",
 			orbit=7,
 			orbitIndex=23,
+			recipe={
+				[1]="Paranoia",
+				[2]="Paranoia",
+				[3]="Guilt"
+			},
 			skill=46972,
 			stats={
 				[1]="25% increased Energy Shield Recharge Rate",
@@ -60724,6 +62859,11 @@ return {
 			name="Inescapable Cold",
 			orbit=4,
 			orbitIndex=66,
+			recipe={
+				[1]="Ire",
+				[2]="Paranoia",
+				[3]="Isolation"
+			},
 			skill=47270,
 			stats={
 				[1]="40% increased Freeze Buildup",
@@ -60781,6 +62921,11 @@ return {
 			name="Goring",
 			orbit=7,
 			orbitIndex=16,
+			recipe={
+				[1]="Ire",
+				[2]="Isolation",
+				[3]="Isolation"
+			},
 			skill=47316,
 			stats={
 				[1]="5% reduced maximum Life",
@@ -60849,6 +62994,11 @@ return {
 			name="Colossal Weapon",
 			orbit=4,
 			orbitIndex=50,
+			recipe={
+				[1]="Fear",
+				[2]="Greed",
+				[3]="Ire"
+			},
 			skill=47363,
 			stats={
 				[1]="15% increased Area of Effect for Attacks",
@@ -60907,6 +63057,11 @@ return {
 			name="Warding Potions",
 			orbit=2,
 			orbitIndex=9,
+			recipe={
+				[1]="Greed",
+				[2]="Envy",
+				[3]="Paranoia"
+			},
 			skill=47418,
 			stats={
 				[1]="10% reduced Flask Charges used from Mana Flasks",
@@ -60939,6 +63094,11 @@ return {
 			name="Stigmata",
 			orbit=7,
 			orbitIndex=12,
+			recipe={
+				[1]="Disgust",
+				[2]="Guilt",
+				[3]="Fear"
+			},
 			skill=47441,
 			stats={
 				[1]="Offerings have 30% increased Maximum Life",
@@ -61040,6 +63200,11 @@ return {
 			name="Overload",
 			orbit=3,
 			orbitIndex=8,
+			recipe={
+				[1]="Paranoia",
+				[2]="Isolation",
+				[3]="Envy"
+			},
 			skill=47635,
 			stats={
 				[1]="Damage Penetrates 10% Lightning Resistance if on Low Mana",
@@ -61180,6 +63345,11 @@ return {
 			name="Quick-change Act",
 			orbit=4,
 			orbitIndex=54,
+			recipe={
+				[1]="Envy",
+				[2]="Disgust",
+				[3]="Ire"
+			},
 			skill=47782,
 			stats={
 				[1]="50% increased Weapon Swap Speed"
@@ -61376,6 +63546,11 @@ return {
 			name="Devastation",
 			orbit=7,
 			orbitIndex=9,
+			recipe={
+				[1]="Ire",
+				[2]="Ire",
+				[3]="Despair"
+			},
 			skill=48006,
 			stats={
 				[1]="15% increased Attack Area Damage",
@@ -61411,6 +63586,11 @@ return {
 			name="Honourless",
 			orbit=5,
 			orbitIndex=63,
+			recipe={
+				[1]="Ire",
+				[2]="Guilt",
+				[3]="Fear"
+			},
 			skill=48014,
 			stats={
 				[1]="25% increased Armour if you've Hit an Enemy with a Melee Attack Recently",
@@ -61464,6 +63644,11 @@ return {
 			name="Forcewave",
 			orbit=2,
 			orbitIndex=12,
+			recipe={
+				[1]="Greed",
+				[2]="Paranoia",
+				[3]="Paranoia"
+			},
 			skill=48103,
 			stats={
 				[1]="20% increased Stun Buildup",
@@ -61615,6 +63800,11 @@ return {
 			name="Step Like Mist",
 			orbit=4,
 			orbitIndex=12,
+			recipe={
+				[1]="Despair",
+				[2]="Despair",
+				[3]="Ire"
+			},
 			skill=48198,
 			stats={
 				[1]="4% increased Movement Speed",
@@ -61635,6 +63825,11 @@ return {
 			name="Quick Recovery",
 			orbit=3,
 			orbitIndex=15,
+			recipe={
+				[1]="Despair",
+				[2]="Suffering",
+				[3]="Greed"
+			},
 			skill=48240,
 			stats={
 				[1]="40% increased Stun Recovery",
@@ -61788,6 +63983,11 @@ return {
 			name="Hefty Unit",
 			orbit=2,
 			orbitIndex=10,
+			recipe={
+				[1]="Ire",
+				[2]="Disgust",
+				[3]="Suffering"
+			},
 			skill=48418,
 			stats={
 				[1]="+3 to Stun Threshold per Strength"
@@ -61983,6 +64183,11 @@ return {
 			name="Bringer of Order",
 			orbit=3,
 			orbitIndex=13,
+			recipe={
+				[1]="Envy",
+				[2]="Fear",
+				[3]="Disgust"
+			},
 			skill=48565,
 			stats={
 				[1]="Minions deal 25% increased Damage"
@@ -62048,6 +64253,11 @@ return {
 			name="Exploit the Elements",
 			orbit=6,
 			orbitIndex=0,
+			recipe={
+				[1]="Greed",
+				[2]="Fear",
+				[3]="Isolation"
+			},
 			skill=48581,
 			stats={
 				[1]="24% increased Damage with Hits against Enemies affected by Elemental Ailments",
@@ -62276,6 +64486,11 @@ return {
 			name="Shattering",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Greed",
+				[2]="Fear",
+				[3]="Despair"
+			},
 			skill=48658,
 			stats={
 				[1]="25% increased Freeze Buildup",
@@ -62507,6 +64722,11 @@ return {
 			name="Taut Flesh",
 			orbit=7,
 			orbitIndex=22,
+			recipe={
+				[1]="Disgust",
+				[2]="Ire",
+				[3]="Paranoia"
+			},
 			skill=48774,
 			stats={
 				[1]="15% of Physical Damage taken Recouped as Life"
@@ -62597,6 +64817,11 @@ return {
 			name="Altered Brain Chemistry",
 			orbit=2,
 			orbitIndex=15,
+			recipe={
+				[1]="Ire",
+				[2]="Envy",
+				[3]="Guilt"
+			},
 			skill=48974,
 			stats={
 				[1]="25% increased Mana Recovery from Flasks",
@@ -62712,6 +64937,11 @@ return {
 			name="Fear of Death",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Envy",
+				[2]="Paranoia",
+				[3]="Guilt"
+			},
 			skill=49088,
 			stats={
 				[1]="Minions have +150 to Accuracy Rating",
@@ -62852,6 +65082,11 @@ return {
 			name="Flow Like Water",
 			orbit=4,
 			orbitIndex=12,
+			recipe={
+				[1]="Greed",
+				[2]="Guilt",
+				[3]="Despair"
+			},
 			skill=49220,
 			stats={
 				[1]="8% increased Attack and Cast Speed",
@@ -63017,6 +65252,11 @@ return {
 			name="Morning Star",
 			orbit=2,
 			orbitIndex=15,
+			recipe={
+				[1]="Envy",
+				[2]="Greed",
+				[3]="Suffering"
+			},
 			skill=49370,
 			stats={
 				[1]="30% increased Critical Hit Chance with Flails",
@@ -63264,6 +65504,11 @@ return {
 			name="Prolonged Fury",
 			orbit=7,
 			orbitIndex=12,
+			recipe={
+				[1]="Ire",
+				[2]="Greed",
+				[3]="Despair"
+			},
 			skill=49550,
 			stats={
 				[1]="Inherent loss of Rage is 25% slower"
@@ -63303,6 +65548,11 @@ return {
 			name="Deadly Flourish",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Envy",
+				[2]="Ire",
+				[3]="Guilt"
+			},
 			skill=49618,
 			stats={
 				[1]="20% increased Melee Critical Hit Chance"
@@ -63406,6 +65656,11 @@ return {
 			name="Perfectly Placed Knife",
 			orbit=1,
 			orbitIndex=2,
+			recipe={
+				[1]="Fear",
+				[2]="Paranoia",
+				[3]="Isolation"
+			},
 			skill=49661,
 			stats={
 				[1]="30% increased Critical Hit Chance against Bleeding Enemies",
@@ -63510,6 +65765,11 @@ return {
 			name="Shattered Crystal",
 			orbit=7,
 			orbitIndex=0,
+			recipe={
+				[1]="Suffering",
+				[2]="Fear",
+				[3]="Ire"
+			},
 			skill=49740,
 			stats={
 				[1]="60% reduced Ice Crystal Life"
@@ -63649,6 +65909,11 @@ return {
 			name="Spellblade",
 			orbit=5,
 			orbitIndex=57,
+			recipe={
+				[1]="Despair",
+				[2]="Fear",
+				[3]="Fear"
+			},
 			skill=49984,
 			stats={
 				[1]="32% increased Spell Damage while wielding a Melee Weapon",
@@ -63719,6 +65984,11 @@ return {
 			name="Reinforced Barrier",
 			orbit=2,
 			orbitIndex=2,
+			recipe={
+				[1]="Despair",
+				[2]="Greed",
+				[3]="Envy"
+			},
 			skill=50062,
 			stats={
 				[1]="20% increased maximum Energy Shield",
@@ -63897,6 +66167,11 @@ return {
 			name="Aftershocks",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Despair",
+				[2]="Guilt",
+				[3]="Greed"
+			},
 			skill=50253,
 			stats={
 				[1]="40% increased Aftershock Area of Effect"
@@ -64017,6 +66292,11 @@ return {
 			name="Twinned Tethers",
 			orbit=2,
 			orbitIndex=1,
+			recipe={
+				[1]="Guilt",
+				[2]="Envy",
+				[3]="Disgust"
+			},
 			skill=50389,
 			stats={
 				[1]="Link Skills Link to 1 additional random target"
@@ -64253,6 +66533,11 @@ return {
 			name="Zone of Control",
 			orbit=2,
 			orbitIndex=18,
+			recipe={
+				[1]="Isolation",
+				[2]="Isolation",
+				[3]="Envy"
+			},
 			skill=50485,
 			stats={
 				[1]="40% increased Area of Effect of Curses",
@@ -64352,6 +66637,11 @@ return {
 			name="Barbaric Strength",
 			orbit=7,
 			orbitIndex=8,
+			recipe={
+				[1]="Guilt",
+				[2]="Despair",
+				[3]="Envy"
+			},
 			skill=50562,
 			stats={
 				[1]="45% increased Critical Damage Bonus",
@@ -64389,6 +66679,11 @@ return {
 			name="Hard to Kill",
 			orbit=3,
 			orbitIndex=18,
+			recipe={
+				[1]="Guilt",
+				[2]="Greed",
+				[3]="Guilt"
+			},
 			skill=50609,
 			stats={
 				[1]="40% increased Flask Life Recovery rate",
@@ -64473,6 +66768,11 @@ return {
 			name="Coursing Energy",
 			orbit=7,
 			orbitIndex=14,
+			recipe={
+				[1]="Envy",
+				[2]="Disgust",
+				[3]="Paranoia"
+			},
 			skill=50687,
 			stats={
 				[1]="40% increased Electrocute Buildup",
@@ -64567,6 +66867,11 @@ return {
 			name="Careful Aim",
 			orbit=7,
 			orbitIndex=7,
+			recipe={
+				[1]="Guilt",
+				[2]="Guilt",
+				[3]="Paranoia"
+			},
 			skill=50795,
 			stats={
 				[1]="16% increased Projectile Damage",
@@ -64784,6 +67089,11 @@ return {
 			name="Spirit Bond",
 			orbit=1,
 			orbitIndex=6,
+			recipe={
+				[1]="Greed",
+				[2]="Ire",
+				[3]="Fear"
+			},
 			skill=51105,
 			stats={
 				[1]="30% increased Totem Life",
@@ -64807,6 +67117,11 @@ return {
 			name="Pile On",
 			orbit=7,
 			orbitIndex=16,
+			recipe={
+				[1]="Isolation",
+				[2]="Ire",
+				[3]="Ire"
+			},
 			skill=51129,
 			stats={
 				[1]="60% increased Damage against Enemies with Fully Broken Armour"
@@ -64822,6 +67137,11 @@ return {
 			name="Soul Bloom",
 			orbit=7,
 			orbitIndex=21,
+			recipe={
+				[1]="Despair",
+				[2]="Ire",
+				[3]="Isolation"
+			},
 			skill=51169,
 			stats={
 				[1]="15% increased Energy Shield Recovery rate"
@@ -64848,6 +67168,11 @@ return {
 			name="Raw Power",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Greed",
+				[2]="Envy",
+				[3]="Despair"
+			},
 			skill=51184,
 			stats={
 				[1]="20% increased Spell Damage",
@@ -64897,6 +67222,11 @@ return {
 			name="Wasting",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Guilt",
+				[2]="Fear",
+				[3]="Despair"
+			},
 			skill=51213,
 			stats={
 				[1]="15% increased Duration of Damaging Ailments on Enemies",
@@ -65009,6 +67339,11 @@ return {
 			name="Path of Flame",
 			orbit=7,
 			orbitIndex=21,
+			recipe={
+				[1]="Suffering",
+				[2]="Fear",
+				[3]="Greed"
+			},
 			skill=51335,
 			stats={
 				[1]="18% increased Fire Damage",
@@ -65070,6 +67405,11 @@ return {
 			name="Unimpeded",
 			orbit=3,
 			orbitIndex=2,
+			recipe={
+				[1]="Isolation",
+				[2]="Envy",
+				[3]="Isolation"
+			},
 			skill=51394,
 			stats={
 				[1]="24% reduced Slowing Potency of Debuffs on You"
@@ -65109,6 +67449,11 @@ return {
 			name="Leather Bound Gauntlets",
 			orbit=3,
 			orbitIndex=16,
+			recipe={
+				[1]="Greed",
+				[2]="Suffering",
+				[3]="Ire"
+			},
 			skill=51446,
 			stats={
 				[1]="+1 to Evasion Rating per 1 Armour on Equipped Gloves"
@@ -65131,6 +67476,11 @@ return {
 			name="Waters of Life",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Greed",
+				[2]="Fear",
+				[3]="Disgust"
+			},
 			skill=51509,
 			stats={
 				[1]="Recover 2% of Life when you use a Mana Flask",
@@ -65266,6 +67616,11 @@ return {
 			name="Unsight",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Suffering",
+				[2]="Disgust",
+				[3]="Despair"
+			},
 			skill=51602,
 			stats={
 				[1]="Enemies near Enemies you Mark are Blinded",
@@ -65286,6 +67641,11 @@ return {
 			name="Freedom of Movement",
 			orbit=4,
 			orbitIndex=48,
+			recipe={
+				[1]="Greed",
+				[2]="Greed",
+				[3]="Envy"
+			},
 			skill=51606,
 			stats={
 				[1]="30% increased Evasion Rating",
@@ -65354,6 +67714,11 @@ return {
 			name="Enhanced Reflexes",
 			orbit=5,
 			orbitIndex=66,
+			recipe={
+				[1]="Fear",
+				[2]="Ire",
+				[3]="Envy"
+			},
 			skill=51707,
 			stats={
 				[1]="30% increased Evasion Rating",
@@ -65566,6 +67931,11 @@ return {
 			name="Ancestral Conduits",
 			orbit=6,
 			orbitIndex=36,
+			recipe={
+				[1]="Despair",
+				[2]="Suffering",
+				[3]="Suffering"
+			},
 			skill=51820,
 			stats={
 				[1]="12% increased Attack and Cast Speed if you've summoned a Totem Recently"
@@ -65707,6 +68077,11 @@ return {
 			name="Immortal Thirst",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Guilt",
+				[2]="Suffering",
+				[3]="Guilt"
+			},
 			skill=51871,
 			stats={
 				[1]="15% increased maximum Energy Shield",
@@ -65726,6 +68101,11 @@ return {
 			name="Lucidity",
 			orbit=7,
 			orbitIndex=17,
+			recipe={
+				[1]="Envy",
+				[2]="Disgust",
+				[3]="Suffering"
+			},
 			skill=51891,
 			stats={
 				[1]="8% of Damage is taken from Mana before Life",
@@ -65805,6 +68185,11 @@ return {
 			name="Invocated Efficiency",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Isolation",
+				[2]="Envy",
+				[3]="Paranoia"
+			},
 			skill=51934,
 			stats={
 				[1]="Recover 3% of Mana when you Invoke a Spell",
@@ -66005,6 +68390,11 @@ return {
 			name="Event Horizon",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Despair",
+				[2]="Isolation",
+				[3]="Guilt"
+			},
 			skill=52191,
 			stats={
 				[1]="53% increased Chaos Damage",
@@ -66025,6 +68415,11 @@ return {
 			name="Overexposure",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Suffering",
+				[2]="Isolation",
+				[3]="Greed"
+			},
 			skill=52199,
 			stats={
 				[1]="30% increased Cold Exposure Effect",
@@ -66256,6 +68651,11 @@ return {
 			name="Carved Earth",
 			orbit=7,
 			orbitIndex=15,
+			recipe={
+				[1]="Suffering",
+				[2]="Suffering",
+				[3]="Ire"
+			},
 			skill=52348,
 			stats={
 				[1]="20% increased Totem Damage",
@@ -66343,6 +68743,11 @@ return {
 			name="Singular Purpose",
 			orbit=3,
 			orbitIndex=17,
+			recipe={
+				[1]="Disgust",
+				[2]="Envy",
+				[3]="Fear"
+			},
 			skill=52392,
 			stats={
 				[1]="5% reduced Attack Speed",
@@ -66554,6 +68959,11 @@ return {
 			name="Feral Force",
 			orbit=3,
 			orbitIndex=3,
+			recipe={
+				[1]="Fear",
+				[2]="Suffering",
+				[3]="Paranoia"
+			},
 			skill=52618,
 			stats={
 				[1]="25% increased Attack Damage"
@@ -66739,6 +69149,11 @@ return {
 			name="Hale Traveller",
 			orbit=7,
 			orbitIndex=0,
+			recipe={
+				[1]="Envy",
+				[2]="Disgust",
+				[3]="Disgust"
+			},
 			skill=52803,
 			stats={
 				[1]="20% increased Life Recovery from Flasks",
@@ -66817,6 +69232,11 @@ return {
 			name="Quick Response",
 			orbit=4,
 			orbitIndex=45,
+			recipe={
+				[1]="Envy",
+				[2]="Disgust",
+				[3]="Fear"
+			},
 			skill=52971,
 			stats={
 				[1]="20% faster start of Energy Shield Recharge",
@@ -66883,6 +69303,11 @@ return {
 			name="Immolation",
 			orbit=2,
 			orbitIndex=5,
+			recipe={
+				[1]="Ire",
+				[2]="Despair",
+				[3]="Disgust"
+			},
 			skill=53030,
 			stats={
 				[1]="25% increased Magnitude of Ignite you inflict",
@@ -66984,6 +69409,11 @@ return {
 			name="Sharp Sight",
 			orbit=3,
 			orbitIndex=21,
+			recipe={
+				[1]="Guilt",
+				[2]="Disgust",
+				[3]="Ire"
+			},
 			skill=53150,
 			stats={
 				[1]="5% increased Attack Speed",
@@ -67116,6 +69546,11 @@ return {
 			name="Burn Away",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Fear",
+				[2]="Disgust",
+				[3]="Disgust"
+			},
 			skill=53294,
 			stats={
 				[1]="15% increased Fire Damage",
@@ -67374,6 +69809,11 @@ return {
 			name="Shattering Blow",
 			orbit=7,
 			orbitIndex=22,
+			recipe={
+				[1]="Fear",
+				[2]="Guilt",
+				[3]="Guilt"
+			},
 			skill=53527,
 			stats={
 				[1]="Break 50% of Armour on Heavy Stunning an Enemy"
@@ -67680,6 +70120,11 @@ return {
 			name="Towering Shield",
 			orbit=3,
 			orbitIndex=4,
+			recipe={
+				[1]="Ire",
+				[2]="Despair",
+				[3]="Guilt"
+			},
 			skill=53823,
 			stats={
 				[1]="50% increased Defences from Equipped Shield",
@@ -67699,6 +70144,11 @@ return {
 			name="Backup Plan",
 			orbit=7,
 			orbitIndex=19,
+			recipe={
+				[1]="Greed",
+				[2]="Greed",
+				[3]="Ire"
+			},
 			skill=53853,
 			stats={
 				[1]="40% increased Evasion Rating if you have been Hit Recently",
@@ -67740,6 +70190,11 @@ return {
 			name="Unbreaking",
 			orbit=5,
 			orbitIndex=48,
+			recipe={
+				[1]="Paranoia",
+				[2]="Envy",
+				[3]="Paranoia"
+			},
 			skill=53921,
 			stats={
 				[1]="30% increased Stun Threshold",
@@ -67763,6 +70218,11 @@ return {
 			name="Briny Carapace",
 			orbit=2,
 			orbitIndex=14,
+			recipe={
+				[1]="Guilt",
+				[2]="Ire",
+				[3]="Paranoia"
+			},
 			skill=53935,
 			stats={
 				[1]="60% increased Stun Threshold for each time you've been Stunned Recently"
@@ -67781,6 +70241,11 @@ return {
 			name="Shimmering",
 			orbit=3,
 			orbitIndex=12,
+			recipe={
+				[1]="Envy",
+				[2]="Envy",
+				[3]="Suffering"
+			},
 			skill=53941,
 			stats={
 				[1]="20% increased Energy Shield Recovery Rate if you haven't been Hit Recently",
@@ -68088,6 +70553,11 @@ return {
 			name="Smoke Inhalation",
 			orbit=2,
 			orbitIndex=6,
+			recipe={
+				[1]="Isolation",
+				[2]="Envy",
+				[3]="Fear"
+			},
 			skill=54148,
 			stats={
 				[1]="Damage Penetrates 15% Fire Resistance",
@@ -68729,6 +71199,11 @@ return {
 			name="Hindered Capabilities",
 			orbit=5,
 			orbitIndex=27,
+			recipe={
+				[1]="Suffering",
+				[2]="Greed",
+				[3]="Envy"
+			},
 			skill=54805,
 			stats={
 				[1]="30% increased Damage with Hits against Hindered Enemies",
@@ -68885,6 +71360,11 @@ return {
 			name="Firestarter",
 			orbit=2,
 			orbitIndex=7,
+			recipe={
+				[1]="Greed",
+				[2]="Isolation",
+				[3]="Guilt"
+			},
 			skill=54911,
 			stats={
 				[1]="40% increased chance to Ignite",
@@ -68900,6 +71380,11 @@ return {
 			name="Vengeful Fury",
 			orbit=1,
 			orbitIndex=9,
+			recipe={
+				[1]="Suffering",
+				[2]="Ire",
+				[3]="Despair"
+			},
 			skill=54937,
 			stats={
 				[1]="Gain 5 Rage when Hit by an Enemy",
@@ -69027,6 +71512,11 @@ return {
 			name="Bloodletting",
 			orbit=7,
 			orbitIndex=1,
+			recipe={
+				[1]="Fear",
+				[2]="Suffering",
+				[3]="Ire"
+			},
 			skill=54990,
 			stats={
 				[1]="10% chance to inflict Bleeding on Hit",
@@ -69046,6 +71536,11 @@ return {
 			name="Protraction",
 			orbit=2,
 			orbitIndex=5,
+			recipe={
+				[1]="Despair",
+				[2]="Disgust",
+				[3]="Guilt"
+			},
 			skill=54998,
 			stats={
 				[1]="20% increased Skill Effect Duration",
@@ -69119,6 +71614,11 @@ return {
 			name="Shrapnel",
 			orbit=5,
 			orbitIndex=9,
+			recipe={
+				[1]="Guilt",
+				[2]="Guilt",
+				[3]="Disgust"
+			},
 			skill=55060,
 			stats={
 				[1]="30% chance to Pierce an Enemy",
@@ -69241,6 +71741,11 @@ return {
 			name="Pure Chaos",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Envy",
+				[2]="Isolation",
+				[3]="Guilt"
+			},
 			skill=55149,
 			stats={
 				[1]="Gain 11% of Damage as Extra Chaos Damage"
@@ -69275,6 +71780,11 @@ return {
 			name="Relentless Fallen",
 			orbit=3,
 			orbitIndex=15,
+			recipe={
+				[1]="Despair",
+				[2]="Fear",
+				[3]="Isolation"
+			},
 			skill=55180,
 			stats={
 				[1]="Minions have 20% increased Movement Speed",
@@ -69307,6 +71817,11 @@ return {
 			name="Subterfuge Mask",
 			orbit=1,
 			orbitIndex=4,
+			recipe={
+				[1]="Ire",
+				[2]="Suffering",
+				[3]="Paranoia"
+			},
 			skill=55193,
 			stats={
 				[1]="+2 to Evasion Rating per 1 Maximum Energy Shield on Equipped Helmet"
@@ -69814,6 +72329,11 @@ return {
 			name="Forthcoming",
 			orbit=2,
 			orbitIndex=0,
+			recipe={
+				[1]="Despair",
+				[2]="Greed",
+				[3]="Suffering"
+			},
 			skill=55568,
 			stats={
 				[1]="16% reduced Skill Effect Duration",
@@ -70028,6 +72548,11 @@ return {
 			name="Electric Amplification",
 			orbit=7,
 			orbitIndex=10,
+			recipe={
+				[1]="Isolation",
+				[2]="Fear",
+				[3]="Disgust"
+			},
 			skill=55708,
 			stats={
 				[1]="Damage Penetrates 18% Lightning Resistance",
@@ -70154,6 +72679,11 @@ return {
 			name="Exposed to the Cosmos",
 			orbit=2,
 			orbitIndex=18,
+			recipe={
+				[1]="Isolation",
+				[2]="Fear",
+				[3]="Paranoia"
+			},
 			skill=55835,
 			stats={
 				[1]="Damage Penetrates 15% Cold Resistance",
@@ -70190,6 +72720,11 @@ return {
 			name="Ice Walls",
 			orbit=7,
 			orbitIndex=8,
+			recipe={
+				[1]="Fear",
+				[2]="Paranoia",
+				[3]="Disgust"
+			},
 			skill=55847,
 			stats={
 				[1]="200% increased Ice Crystal Life"
@@ -70389,6 +72924,11 @@ return {
 			name="Lingering Horror",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Isolation",
+				[2]="Disgust",
+				[3]="Disgust"
+			},
 			skill=56063,
 			stats={
 				[1]="23% increased Chaos Damage",
@@ -70525,6 +73065,11 @@ return {
 			name="Throatseeker",
 			orbit=2,
 			orbitIndex=1,
+			recipe={
+				[1]="Greed",
+				[2]="Envy",
+				[3]="Isolation"
+			},
 			skill=56265,
 			stats={
 				[1]="60% increased Critical Damage Bonus",
@@ -70627,6 +73172,11 @@ return {
 			name="Silent Shiv",
 			orbit=3,
 			orbitIndex=16,
+			recipe={
+				[1]="Suffering",
+				[2]="Greed",
+				[3]="Despair"
+			},
 			skill=56366,
 			stats={
 				[1]="5% increased Attack Speed with Daggers",
@@ -70669,6 +73219,11 @@ return {
 			name="Killer Instinct",
 			orbit=5,
 			orbitIndex=39,
+			recipe={
+				[1]="Greed",
+				[2]="Paranoia",
+				[3]="Greed"
+			},
 			skill=56453,
 			stats={
 				[1]="30% increased Attack Damage when on Full Life",
@@ -70773,6 +73328,11 @@ return {
 			name="Desperate Times",
 			orbit=2,
 			orbitIndex=0,
+			recipe={
+				[1]="Despair",
+				[2]="Disgust",
+				[3]="Ire"
+			},
 			skill=56616,
 			stats={
 				[1]="Regenerate 1.5% of Life per second while on Low Life",
@@ -70958,6 +73518,11 @@ return {
 			name="Cooked",
 			orbit=1,
 			orbitIndex=6,
+			recipe={
+				[1]="Suffering",
+				[2]="Ire",
+				[3]="Envy"
+			},
 			skill=56776,
 			stats={
 				[1]="50% increased Critical Damage Bonus during any Flask Effect"
@@ -70973,6 +73538,11 @@ return {
 			name="Parrying Motion",
 			orbit=7,
 			orbitIndex=0,
+			recipe={
+				[1]="Ire",
+				[2]="Fear",
+				[3]="Ire"
+			},
 			skill=56806,
 			stats={
 				[1]="12% increased Block chance",
@@ -71110,6 +73680,11 @@ return {
 			name="Thicket Warding",
 			orbit=7,
 			orbitIndex=16,
+			recipe={
+				[1]="Paranoia",
+				[2]="Fear",
+				[3]="Paranoia"
+			},
 			skill=56893,
 			stats={
 				[1]="20% chance for Charms you use to not consume Charges",
@@ -71137,6 +73712,11 @@ return {
 			name="Battle-hardened",
 			orbit=5,
 			orbitIndex=51,
+			recipe={
+				[1]="Greed",
+				[2]="Guilt",
+				[3]="Paranoia"
+			},
 			skill=56910,
 			stats={
 				[1]="Hits against you have 20% reduced Critical Damage Bonus",
@@ -71357,6 +73937,11 @@ return {
 			name="Heavy Contact",
 			orbit=4,
 			orbitIndex=6,
+			recipe={
+				[1]="Ire",
+				[2]="Envy",
+				[3]="Despair"
+			},
 			skill=56997,
 			stats={
 				[1]="Hits that Heavy Stun Enemies have Culling Strike"
@@ -71371,6 +73956,11 @@ return {
 			name="Locked On",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Despair",
+				[2]="Disgust",
+				[3]="Envy"
+			},
 			skill=56999,
 			stats={
 				[1]="15% increased Critical Hit Chance for Attacks",
@@ -71436,6 +74026,11 @@ return {
 			name="Polymathy",
 			orbit=5,
 			orbitIndex=48,
+			recipe={
+				[1]="Isolation",
+				[2]="Suffering",
+				[3]="Paranoia"
+			},
 			skill=57047,
 			stats={
 				[1]="10% increased Attributes"
@@ -71475,6 +74070,11 @@ return {
 			name="Spirit Bonds",
 			orbit=2,
 			orbitIndex=13,
+			recipe={
+				[1]="Greed",
+				[2]="Ire",
+				[3]="Suffering"
+			},
 			skill=57097,
 			stats={
 				[1]="Link Skills can target Damageable Minions"
@@ -71497,6 +74097,11 @@ return {
 			name="Infused Flesh",
 			orbit=7,
 			orbitIndex=5,
+			recipe={
+				[1]="Greed",
+				[2]="Envy",
+				[3]="Envy"
+			},
 			skill=57110,
 			stats={
 				[1]="+20 to maximum Life",
@@ -71571,6 +74176,11 @@ return {
 			name="Doomsayer",
 			orbit=1,
 			orbitIndex=6,
+			recipe={
+				[1]="Paranoia",
+				[2]="Guilt",
+				[3]="Disgust"
+			},
 			skill=57190,
 			stats={
 				[1]="Herald Skills have 30% increased Area of Effect",
@@ -71603,6 +74213,11 @@ return {
 			name="Critical Exploit",
 			orbit=2,
 			orbitIndex=13,
+			recipe={
+				[1]="Envy",
+				[2]="Paranoia",
+				[3]="Ire"
+			},
 			skill=57204,
 			stats={
 				[1]="25% increased Critical Hit Chance"
@@ -71696,6 +74311,11 @@ return {
 			name="In Your Face",
 			orbit=3,
 			orbitIndex=15,
+			recipe={
+				[1]="Fear",
+				[2]="Greed",
+				[3]="Envy"
+			},
 			skill=57379,
 			stats={
 				[1]="40% increased Melee Damage with Hits at Close Range"
@@ -71714,6 +74334,11 @@ return {
 			name="Overwhelming Strike",
 			orbit=3,
 			orbitIndex=22,
+			recipe={
+				[1]="Despair",
+				[2]="Envy",
+				[3]="Disgust"
+			},
 			skill=57388,
 			stats={
 				[1]="20% increased Critical Hit Chance for Attacks",
@@ -71751,6 +74376,11 @@ return {
 			name="Hunker Down",
 			orbit=3,
 			orbitIndex=8,
+			recipe={
+				[1]="Despair",
+				[2]="Despair",
+				[3]="Paranoia"
+			},
 			skill=57471,
 			stats={
 				[1]="Recover 20 Life when you Block",
@@ -72092,6 +74722,11 @@ return {
 			name="Clear Space",
 			orbit=4,
 			orbitIndex=18,
+			recipe={
+				[1]="Paranoia",
+				[2]="Guilt",
+				[3]="Guilt"
+			},
 			skill=57805,
 			stats={
 				[1]="20% increased Knockback Distance",
@@ -72291,6 +74926,11 @@ return {
 			name="Sturdy Mind",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Isolation",
+				[2]="Envy",
+				[3]="Guilt"
+			},
 			skill=57967,
 			stats={
 				[1]="+30 to maximum Mana",
@@ -72373,6 +75013,11 @@ return {
 			name="All Natural",
 			orbit=4,
 			orbitIndex=42,
+			recipe={
+				[1]="Fear",
+				[2]="Fear",
+				[3]="Greed"
+			},
 			skill=58016,
 			stats={
 				[1]="+5% to all Elemental Resistances",
@@ -72447,6 +75092,11 @@ return {
 			name="Lasting Incantations",
 			orbit=3,
 			orbitIndex=1,
+			recipe={
+				[1]="Isolation",
+				[2]="Greed",
+				[3]="Disgust"
+			},
 			skill=58096,
 			stats={
 				[1]="20% increased Spell Damage",
@@ -72609,6 +75259,11 @@ return {
 			name="Blood Tearing",
 			orbit=2,
 			orbitIndex=11,
+			recipe={
+				[1]="Despair",
+				[2]="Isolation",
+				[3]="Greed"
+			},
 			skill=58183,
 			stats={
 				[1]="15% increased Magnitude of Bleeding you inflict",
@@ -72787,6 +75442,11 @@ return {
 			name="Proficiency",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Fear",
+				[2]="Guilt",
+				[3]="Paranoia"
+			},
 			skill=58397,
 			stats={
 				[1]="+25 to Dexterity"
@@ -72805,6 +75465,11 @@ return {
 			name="Pocket Sand",
 			orbit=2,
 			orbitIndex=20,
+			recipe={
+				[1]="Paranoia",
+				[2]="Guilt",
+				[3]="Paranoia"
+			},
 			skill=58426,
 			stats={
 				[1]="50% increased Blind Effect"
@@ -72895,6 +75560,11 @@ return {
 			name="Grenadier",
 			orbit=4,
 			orbitIndex=60,
+			recipe={
+				[1]="Paranoia",
+				[2]="Fear",
+				[3]="Isolation"
+			},
 			skill=58714,
 			stats={
 				[1]="Grenade Skills have +1 Cooldown Use"
@@ -73077,6 +75747,11 @@ return {
 			name="Dispatch Foes",
 			orbit=2,
 			orbitIndex=8,
+			recipe={
+				[1]="Envy",
+				[2]="Envy",
+				[3]="Paranoia"
+			},
 			skill=58939,
 			stats={
 				[1]="80% increased Critical Hit Chance if you haven't dealt a Critical Hit Recently"
@@ -73159,6 +75834,11 @@ return {
 			name="Hold Focus",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Envy",
+				[2]="Isolation",
+				[3]="Paranoia"
+			},
 			skill=59047,
 			stats={
 				[1]="15% increased Effect of your Mark Skills"
@@ -73276,6 +75956,11 @@ return {
 			name="Potent Concoctions",
 			orbit=1,
 			orbitIndex=6,
+			recipe={
+				[1]="Disgust",
+				[2]="Ire",
+				[3]="Guilt"
+			},
 			skill=59142,
 			stats={
 				[1]="Flasks applied to you have 25% increased Effect"
@@ -73315,6 +76000,11 @@ return {
 			name="Fated End",
 			orbit=7,
 			orbitIndex=18,
+			recipe={
+				[1]="Disgust",
+				[2]="Isolation",
+				[3]="Despair"
+			},
 			skill=59214,
 			stats={
 				[1]="30% increased Curse Duration",
@@ -73352,6 +76042,11 @@ return {
 			name="Ripping Blade",
 			orbit=4,
 			orbitIndex=33,
+			recipe={
+				[1]="Paranoia",
+				[2]="Envy",
+				[3]="Greed"
+			},
 			skill=59263,
 			stats={
 				[1]="25% increased Damage with Swords"
@@ -73370,6 +76065,11 @@ return {
 			name="Lucky Rabbit Foot",
 			orbit=4,
 			orbitIndex=3,
+			recipe={
+				[1]="Isolation",
+				[2]="Disgust",
+				[3]="Ire"
+			},
 			skill=59303,
 			stats={
 				[1]="30% increased Damage while you have an active Charm",
@@ -73732,6 +76432,11 @@ return {
 			name="Necrotised Flesh",
 			orbit=3,
 			orbitIndex=3,
+			recipe={
+				[1]="Fear",
+				[2]="Guilt",
+				[3]="Fear"
+			},
 			skill=59541,
 			stats={
 				[1]="Minions have 40% increased maximum Life",
@@ -73769,6 +76474,11 @@ return {
 			name="Heavy Armour",
 			orbit=3,
 			orbitIndex=23,
+			recipe={
+				[1]="Despair",
+				[2]="Fear",
+				[3]="Greed"
+			},
 			skill=59589,
 			stats={
 				[1]="100% of Strength Requirements from Boots, Gloves and Helmets also added to Armour"
@@ -73787,6 +76497,11 @@ return {
 			name="Covering Ward",
 			orbit=3,
 			orbitIndex=16,
+			recipe={
+				[1]="Paranoia",
+				[2]="Despair",
+				[3]="Greed"
+			},
 			skill=59596,
 			stats={
 				[1]="25% increased Energy Shield Recharge Rate",
@@ -73840,6 +76555,11 @@ return {
 			name="Open Mind",
 			orbit=7,
 			orbitIndex=12,
+			recipe={
+				[1]="Guilt",
+				[2]="Guilt",
+				[3]="Ire"
+			},
 			skill=59636,
 			stats={
 				[1]="25% increased Mana Regeneration Rate"
@@ -73961,6 +76681,11 @@ return {
 			name="Beastial Skin",
 			orbit=5,
 			orbitIndex=42,
+			recipe={
+				[1]="Greed",
+				[2]="Disgust",
+				[3]="Envy"
+			},
 			skill=59720,
 			stats={
 				[1]="100% increased Evasion Rating from Equipped Body Armour"
@@ -74012,6 +76737,11 @@ return {
 			name="Reverberating Impact",
 			orbit=3,
 			orbitIndex=11,
+			recipe={
+				[1]="Envy",
+				[2]="Paranoia",
+				[3]="Despair"
+			},
 			skill=59767,
 			stats={
 				[1]="Break 25% increased Armour",
@@ -74392,6 +77122,11 @@ return {
 			name="Falcon Dive",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Isolation",
+				[2]="Paranoia",
+				[3]="Paranoia"
+			},
 			skill=60034,
 			stats={
 				[1]="1% increased Attack Speed per 250 Accuracy Rating"
@@ -74432,6 +77167,11 @@ return {
 			name="Pin and Run",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Disgust",
+				[2]="Despair",
+				[3]="Disgust"
+			},
 			skill=60083,
 			stats={
 				[1]="30% increased Pin Buildup",
@@ -74468,6 +77208,11 @@ return {
 			name="Stylebender",
 			orbit=5,
 			orbitIndex=3,
+			recipe={
+				[1]="Greed",
+				[2]="Paranoia",
+				[3]="Suffering"
+			},
 			skill=60138,
 			stats={
 				[1]="Break 30% increased Armour on enemies affected by Ailments",
@@ -74579,6 +77324,11 @@ return {
 			name="Roil",
 			orbit=7,
 			orbitIndex=19,
+			recipe={
+				[1]="Disgust",
+				[2]="Greed",
+				[3]="Ire"
+			},
 			skill=60269,
 			stats={
 				[1]="10% reduced Spell Area Damage",
@@ -74671,6 +77421,11 @@ return {
 			name="Perfect Opportunity",
 			orbit=2,
 			orbitIndex=14,
+			recipe={
+				[1]="Ire",
+				[2]="Suffering",
+				[3]="Suffering"
+			},
 			skill=60404,
 			stats={
 				[1]="30% increased Stun Buildup",
@@ -74694,6 +77449,11 @@ return {
 			name="Fan the Flames",
 			orbit=4,
 			orbitIndex=48,
+			recipe={
+				[1]="Suffering",
+				[2]="Paranoia",
+				[3]="Despair"
+			},
 			skill=60464,
 			stats={
 				[1]="25% reduced Ignite Duration on you",
@@ -74929,6 +77689,11 @@ return {
 			name="Echoing Flames",
 			orbit=7,
 			orbitIndex=12,
+			recipe={
+				[1]="Guilt",
+				[2]="Suffering",
+				[3]="Disgust"
+			},
 			skill=60692,
 			stats={
 				[1]="30% increased Elemental Damage if you've Ignited an Enemy Recently"
@@ -74978,6 +77743,11 @@ return {
 			name="Feathered Fletching",
 			orbit=5,
 			orbitIndex=12,
+			recipe={
+				[1]="Isolation",
+				[2]="Suffering",
+				[3]="Suffering"
+			},
 			skill=60764,
 			stats={
 				[1]="Increases and Reductions to Projectile Speed also apply to Damage with Bows"
@@ -75034,6 +77804,11 @@ return {
 			name="Crystalline Flesh",
 			orbit=3,
 			orbitIndex=0,
+			recipe={
+				[1]="Despair",
+				[2]="Paranoia",
+				[3]="Suffering"
+			},
 			skill=61026,
 			stats={
 				[1]="Minions have +20% to all Elemental Resistances",
@@ -75049,6 +77824,11 @@ return {
 			name="Mana Blessing",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Guilt",
+				[2]="Despair",
+				[3]="Guilt"
+			},
 			skill=61027,
 			stats={
 				[1]="+20 to maximum Mana",
@@ -75175,6 +77955,11 @@ return {
 			name="Roll and Strike",
 			orbit=5,
 			orbitIndex=14,
+			recipe={
+				[1]="Guilt",
+				[2]="Paranoia",
+				[3]="Disgust"
+			},
 			skill=61112,
 			stats={
 				[1]="25% increased Damage with Spears"
@@ -75414,6 +78199,11 @@ return {
 			name="Breath of Lightning",
 			orbit=4,
 			orbitIndex=6,
+			recipe={
+				[1]="Disgust",
+				[2]="Paranoia",
+				[3]="Isolation"
+			},
 			skill=61338,
 			stats={
 				[1]="Damage Penetrates 15% Lightning Resistance",
@@ -75518,6 +78308,11 @@ return {
 			name="Equilibrium",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Fear",
+				[2]="Suffering",
+				[3]="Despair"
+			},
 			skill=61404,
 			stats={
 				[1]="30% increased Attack Damage if you've Cast a Spell Recently",
@@ -75682,6 +78477,11 @@ return {
 			name="Anticipation",
 			orbit=3,
 			orbitIndex=7,
+			recipe={
+				[1]="Fear",
+				[2]="Envy",
+				[3]="Despair"
+			},
 			skill=61444,
 			stats={
 				[1]="Skills Supported by Unleash have 25% increased Seal gain frequency"
@@ -75811,6 +78611,11 @@ return {
 			name="Austerity Measures",
 			orbit=3,
 			orbitIndex=19,
+			recipe={
+				[1]="Paranoia",
+				[2]="Envy",
+				[3]="Despair"
+			},
 			skill=61493,
 			stats={
 				[1]="+5 to all Attributes",
@@ -75892,6 +78697,11 @@ return {
 			name="True Strike",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Ire",
+				[2]="Guilt",
+				[3]="Disgust"
+			},
 			skill=61601,
 			stats={
 				[1]="+10 to Dexterity",
@@ -75925,6 +78735,11 @@ return {
 			name="Sharpened Claw",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Ire",
+				[2]="Greed",
+				[3]="Greed"
+			},
 			skill=61703,
 			stats={
 				[1]="25% increased Attack Damage"
@@ -75965,6 +78780,11 @@ return {
 			name="Lasting Toxins",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Despair",
+				[2]="Isolation",
+				[3]="Envy"
+			},
 			skill=61741,
 			stats={
 				[1]="10% increased Skill Effect Duration",
@@ -76118,6 +78938,11 @@ return {
 			name="Storm Surge",
 			orbit=3,
 			orbitIndex=23,
+			recipe={
+				[1]="Envy",
+				[2]="Isolation",
+				[3]="Greed"
+			},
 			skill=61921,
 			stats={
 				[1]="Damage Penetrates 8% Cold Resistance",
@@ -76344,6 +79169,11 @@ return {
 			name="Backstabbing",
 			orbit=2,
 			orbitIndex=1,
+			recipe={
+				[1]="Envy",
+				[2]="Ire",
+				[3]="Isolation"
+			},
 			skill=62001,
 			stats={
 				[1]="25% increased Critical Damage Bonus with Daggers"
@@ -76391,6 +79221,11 @@ return {
 			name="Prism Guard",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Isolation",
+				[2]="Isolation",
+				[3]="Suffering"
+			},
 			skill=62034,
 			stats={
 				[1]="+1% to all Maximum Elemental Resistances",
@@ -76491,6 +79326,11 @@ return {
 			name="Rattled",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Greed",
+				[2]="Fear",
+				[3]="Ire"
+			},
 			skill=62185,
 			stats={
 				[1]="+20 to maximum Mana",
@@ -76553,6 +79393,11 @@ return {
 			name="Patient Barrier",
 			orbit=6,
 			orbitIndex=0,
+			recipe={
+				[1]="Suffering",
+				[2]="Isolation",
+				[3]="Fear"
+			},
 			skill=62230,
 			stats={
 				[1]="60% increased maximum Energy Shield",
@@ -76592,6 +79437,11 @@ return {
 			name="Incendiary",
 			orbit=7,
 			orbitIndex=22,
+			recipe={
+				[1]="Isolation",
+				[2]="Disgust",
+				[3]="Guilt"
+			},
 			skill=62310,
 			stats={
 				[1]="30% increased chance to Ignite",
@@ -76715,6 +79565,11 @@ return {
 			name="Enraged Reaver",
 			orbit=3,
 			orbitIndex=11,
+			recipe={
+				[1]="Isolation",
+				[2]="Isolation",
+				[3]="Fear"
+			},
 			skill=62439,
 			stats={
 				[1]="+10 to Maximum Rage while wielding an Axe"
@@ -76934,6 +79789,11 @@ return {
 			name="Ancestral Unity",
 			orbit=7,
 			orbitIndex=6,
+			recipe={
+				[1]="Suffering",
+				[2]="Fear",
+				[3]="Envy"
+			},
 			skill=62609,
 			stats={
 				[1]="Totems have 4% increased Attack Speed per Summoned Totem"
@@ -77058,6 +79918,11 @@ return {
 			name="Titan's Determination",
 			orbit=3,
 			orbitIndex=9,
+			recipe={
+				[1]="Ire",
+				[2]="Paranoia",
+				[3]="Paranoia"
+			},
 			skill=62732,
 			stats={
 				[1]="25% increased Stun Threshold",
@@ -77094,6 +79959,11 @@ return {
 			name="Woodland Aspect",
 			orbit=4,
 			orbitIndex=51,
+			recipe={
+				[1]="Suffering",
+				[2]="Guilt",
+				[3]="Isolation"
+			},
 			skill=62803,
 			stats={
 				[1]="Charms applied to you have 25% increased Effect"
@@ -77155,6 +80025,11 @@ return {
 			name="Living Death",
 			orbit=2,
 			orbitIndex=16,
+			recipe={
+				[1]="Greed",
+				[2]="Suffering",
+				[3]="Disgust"
+			},
 			skill=62887,
 			stats={
 				[1]="Minions have +22% to all Elemental Resistances",
@@ -77230,6 +80105,11 @@ return {
 			name="Mindful Awareness",
 			orbit=2,
 			orbitIndex=4,
+			recipe={
+				[1]="Paranoia",
+				[2]="Envy",
+				[3]="Suffering"
+			},
 			skill=62984,
 			stats={
 				[1]="24% increased Evasion Rating",
@@ -77322,6 +80202,11 @@ return {
 			name="Sigil of Fire",
 			orbit=4,
 			orbitIndex=70,
+			recipe={
+				[1]="Suffering",
+				[2]="Guilt",
+				[3]="Ire"
+			},
 			skill=63037,
 			stats={
 				[1]="30% increased Damage with Hits against Ignited Enemies"
@@ -77344,6 +80229,11 @@ return {
 			name="Mystic Stance",
 			orbit=2,
 			orbitIndex=10,
+			recipe={
+				[1]="Fear",
+				[2]="Greed",
+				[3]="Guilt"
+			},
 			skill=63064,
 			stats={
 				[1]="30% faster start of Energy Shield Recharge",
@@ -77360,6 +80250,11 @@ return {
 			name="Dark Entries",
 			orbit=1,
 			orbitIndex=4,
+			recipe={
+				[1]="Despair",
+				[2]="Isolation",
+				[3]="Isolation"
+			},
 			skill=63074,
 			stats={
 				[1]="+1 to Level of all Chaos Skills"
@@ -77504,6 +80399,11 @@ return {
 			name="Savagery",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Suffering",
+				[2]="Fear",
+				[3]="Paranoia"
+			},
 			skill=63255,
 			stats={
 				[1]="50% increased Evasion Rating if you've consumed a Frenzy Charge Recently",
@@ -77557,6 +80457,11 @@ return {
 			name="Leeching Toxins",
 			orbit=1,
 			orbitIndex=3,
+			recipe={
+				[1]="Greed",
+				[2]="Suffering",
+				[3]="Suffering"
+			},
 			skill=63431,
 			stats={
 				[1]="30% increased Magnitude of Poison you inflict",
@@ -77598,6 +80503,11 @@ return {
 			name="Cranial Impact",
 			orbit=6,
 			orbitIndex=6,
+			recipe={
+				[1]="Greed",
+				[2]="Paranoia",
+				[3]="Disgust"
+			},
 			skill=63451,
 			stats={
 				[1]="30% increased Stun Buildup",
@@ -77816,6 +80726,11 @@ return {
 			name="Thunderstruck",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Despair",
+				[2]="Paranoia",
+				[3]="Paranoia"
+			},
 			skill=63585,
 			stats={
 				[1]="50% increased Electrocute Buildup against Shocked Enemies",
@@ -77872,6 +80787,11 @@ return {
 			name="Clever Construction",
 			orbit=4,
 			orbitIndex=45,
+			recipe={
+				[1]="Disgust",
+				[2]="Guilt",
+				[3]="Despair"
+			},
 			skill=63659,
 			stats={
 				[1]="25% increased Critical Hit Chance with Traps"
@@ -77943,6 +80863,11 @@ return {
 			name="Stacking Toxins",
 			orbit=3,
 			orbitIndex=0,
+			recipe={
+				[1]="Isolation",
+				[2]="Disgust",
+				[3]="Paranoia"
+			},
 			skill=63759,
 			stats={
 				[1]="Targets can be affected by +1 of your Poisons at the same time",
@@ -78017,6 +80942,11 @@ return {
 			name="Marked for Sickness",
 			orbit=3,
 			orbitIndex=3,
+			recipe={
+				[1]="Guilt",
+				[2]="Disgust",
+				[3]="Isolation"
+			},
 			skill=63830,
 			stats={
 				[1]="Enemies you Mark take 10% increased Damage"
@@ -78185,6 +81115,11 @@ return {
 			name="Deft Recovery",
 			orbit=7,
 			orbitIndex=4,
+			recipe={
+				[1]="Envy",
+				[2]="Ire",
+				[3]="Ire"
+			},
 			skill=63981,
 			stats={
 				[1]="30% increased Stun Recovery",
@@ -78244,6 +81179,11 @@ return {
 			name="Path of Storms",
 			orbit=7,
 			orbitIndex=3,
+			recipe={
+				[1]="Fear",
+				[2]="Fear",
+				[3]="Ire"
+			},
 			skill=64046,
 			stats={
 				[1]="18% increased Lightning Damage",
@@ -78294,6 +81234,11 @@ return {
 			name="Instant Reload",
 			orbit=7,
 			orbitIndex=22,
+			recipe={
+				[1]="Fear",
+				[2]="Guilt",
+				[3]="Suffering"
+			},
 			skill=64119,
 			stats={
 				[1]="40% increased Crossbow Reload Speed"
@@ -78372,6 +81317,11 @@ return {
 			name="Battle Fever",
 			orbit=2,
 			orbitIndex=22,
+			recipe={
+				[1]="Disgust",
+				[2]="Guilt",
+				[3]="Isolation"
+			},
 			skill=64240,
 			stats={
 				[1]="5% increased Attack and Cast Speed",
@@ -78425,6 +81375,11 @@ return {
 			name="Bolstering Presence",
 			orbit=2,
 			orbitIndex=20,
+			recipe={
+				[1]="Despair",
+				[2]="Envy",
+				[3]="Suffering"
+			},
 			skill=64299,
 			stats={
 				[1]="20% increased Effect of Auras from your Skills"
@@ -78506,6 +81461,11 @@ return {
 			name="Defender's Resolve",
 			orbit=3,
 			orbitIndex=21,
+			recipe={
+				[1]="Guilt",
+				[2]="Paranoia",
+				[3]="Greed"
+			},
 			skill=64327,
 			stats={
 				[1]="12% increased Block chance",
@@ -78679,6 +81639,11 @@ return {
 			name="Impact Force",
 			orbit=3,
 			orbitIndex=8,
+			recipe={
+				[1]="Fear",
+				[2]="Ire",
+				[3]="Fear"
+			},
 			skill=64443,
 			stats={
 				[1]="20% increased Stun Buildup",
@@ -78780,6 +81745,11 @@ return {
 			name="Unbound Forces",
 			orbit=5,
 			orbitIndex=57,
+			recipe={
+				[1]="Disgust",
+				[2]="Envy",
+				[3]="Guilt"
+			},
 			skill=64543,
 			stats={
 				[1]="40% increased Chill Duration on Enemies",
@@ -78951,6 +81921,11 @@ return {
 			name="Flashy Deflection",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Greed",
+				[2]="Guilt",
+				[3]="Greed"
+			},
 			skill=64851,
 			stats={
 				[1]="12% increased Block chance",
@@ -79097,6 +82072,11 @@ return {
 			name="Intense Flames",
 			orbit=3,
 			orbitIndex=17,
+			recipe={
+				[1]="Guilt",
+				[2]="Suffering",
+				[3]="Fear"
+			},
 			skill=65016,
 			stats={
 				[1]="35% increased Damage with Hits against Burning Enemies"
@@ -79112,6 +82092,11 @@ return {
 			name="Impenetrable Shell",
 			orbit=3,
 			orbitIndex=6,
+			recipe={
+				[1]="Paranoia",
+				[2]="Paranoia",
+				[3]="Ire"
+			},
 			skill=65023,
 			stats={
 				[1]="Defend with 150% of Armour against Attacks from further than 6m"
@@ -79164,6 +82149,11 @@ return {
 			name="Titanic",
 			orbit=3,
 			orbitIndex=7,
+			recipe={
+				[1]="Despair",
+				[2]="Paranoia",
+				[3]="Guilt"
+			},
 			skill=65160,
 			stats={
 				[1]="30% increased Stun Buildup",
@@ -79242,6 +82232,11 @@ return {
 			name="Viciousness",
 			orbit=3,
 			orbitIndex=10,
+			recipe={
+				[1]="Disgust",
+				[2]="Greed",
+				[3]="Paranoia"
+			},
 			skill=65193,
 			stats={
 				[1]="8% increased Melee Attack Speed",
@@ -79265,6 +82260,11 @@ return {
 			name="Overflowing Power",
 			orbit=2,
 			orbitIndex=7,
+			recipe={
+				[1]="Isolation",
+				[2]="Envy",
+				[3]="Greed"
+			},
 			skill=65204,
 			stats={
 				[1]="+2 to Maximum Power Charges"
@@ -79339,6 +82339,11 @@ return {
 			name="Smooth Buckler",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Guilt",
+				[2]="Envy",
+				[3]="Greed"
+			},
 			skill=65265,
 			stats={
 				[1]="12% increased Block chance",
@@ -79490,6 +82495,11 @@ return {
 			name="Repeating Explosives",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Suffering",
+				[2]="Despair",
+				[3]="Isolation"
+			},
 			skill=65468,
 			stats={
 				[1]="Grenades have 15% chance to activate a second time"
@@ -106513,6 +109523,276 @@ return {
 				},
 				filename="skills-disabled-3.png",
 				h=4416,
+				w=1152
+			}
+		},
+		oil={
+			[0.1246]={
+				coords={
+					Despair={
+						h=13,
+						w=13,
+						x=16,
+						y=0
+					},
+					Disgust={
+						h=13,
+						w=13,
+						x=144,
+						y=0
+					},
+					Envy={
+						h=13,
+						w=13,
+						x=32,
+						y=0
+					},
+					Fear={
+						h=13,
+						w=13,
+						x=48,
+						y=0
+					},
+					Greed={
+						h=13,
+						w=13,
+						x=64,
+						y=0
+					},
+					Guilt={
+						h=13,
+						w=13,
+						x=96,
+						y=0
+					},
+					Ire={
+						h=13,
+						w=13,
+						x=0,
+						y=0
+					},
+					Isolation={
+						h=13,
+						w=13,
+						x=128,
+						y=0
+					},
+					Paranoia={
+						h=13,
+						w=13,
+						x=112,
+						y=0
+					},
+					Suffering={
+						h=13,
+						w=13,
+						x=80,
+						y=0
+					}
+				},
+				filename="oils-0.png",
+				h=16,
+				w=160
+			},
+			[0.2109]={
+				coords={
+					Despair={
+						h=27,
+						w=27,
+						x=32,
+						y=0
+					},
+					Disgust={
+						h=27,
+						w=27,
+						x=288,
+						y=0
+					},
+					Envy={
+						h=27,
+						w=27,
+						x=64,
+						y=0
+					},
+					Fear={
+						h=27,
+						w=27,
+						x=96,
+						y=0
+					},
+					Greed={
+						h=27,
+						w=27,
+						x=128,
+						y=0
+					},
+					Guilt={
+						h=27,
+						w=27,
+						x=192,
+						y=0
+					},
+					Ire={
+						h=27,
+						w=27,
+						x=0,
+						y=0
+					},
+					Isolation={
+						h=27,
+						w=27,
+						x=256,
+						y=0
+					},
+					Paranoia={
+						h=27,
+						w=27,
+						x=224,
+						y=0
+					},
+					Suffering={
+						h=27,
+						w=27,
+						x=160,
+						y=0
+					}
+				},
+				filename="oils-1.png",
+				h=32,
+				w=320
+			},
+			[0.2972]={
+				coords={
+					Despair={
+						h=54,
+						w=54,
+						x=64,
+						y=0
+					},
+					Disgust={
+						h=54,
+						w=54,
+						x=576,
+						y=0
+					},
+					Envy={
+						h=54,
+						w=54,
+						x=128,
+						y=0
+					},
+					Fear={
+						h=54,
+						w=54,
+						x=192,
+						y=0
+					},
+					Greed={
+						h=54,
+						w=54,
+						x=256,
+						y=0
+					},
+					Guilt={
+						h=54,
+						w=54,
+						x=384,
+						y=0
+					},
+					Ire={
+						h=54,
+						w=54,
+						x=0,
+						y=0
+					},
+					Isolation={
+						h=54,
+						w=54,
+						x=512,
+						y=0
+					},
+					Paranoia={
+						h=54,
+						w=54,
+						x=448,
+						y=0
+					},
+					Suffering={
+						h=54,
+						w=54,
+						x=320,
+						y=0
+					}
+				},
+				filename="oils-2.png",
+				h=64,
+				w=640
+			},
+			[0.3835]={
+				coords={
+					Despair={
+						h=108,
+						w=108,
+						x=128,
+						y=0
+					},
+					Disgust={
+						h=108,
+						w=108,
+						x=0,
+						y=128
+					},
+					Envy={
+						h=108,
+						w=108,
+						x=256,
+						y=0
+					},
+					Fear={
+						h=108,
+						w=108,
+						x=384,
+						y=0
+					},
+					Greed={
+						h=108,
+						w=108,
+						x=512,
+						y=0
+					},
+					Guilt={
+						h=108,
+						w=108,
+						x=768,
+						y=0
+					},
+					Ire={
+						h=108,
+						w=108,
+						x=0,
+						y=0
+					},
+					Isolation={
+						h=108,
+						w=108,
+						x=1024,
+						y=0
+					},
+					Paranoia={
+						h=108,
+						w=108,
+						x=896,
+						y=0
+					},
+					Suffering={
+						h=108,
+						w=108,
+						x=640,
+						y=0
+					}
+				},
+				filename="oils-3.png",
+				h=256,
 				w=1152
 			}
 		},

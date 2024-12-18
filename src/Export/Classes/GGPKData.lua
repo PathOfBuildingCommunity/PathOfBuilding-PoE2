@@ -288,6 +288,10 @@ function GGPKClass:GetNeededFiles()
 		"Data/uncutgemtiers.dat",
 		"Data/passiveskilltrees.dat",
 		"Data/passiveskilltreeuiart.dat",
+		"Data/BlightCraftingTypes.dat",
+		"Data/BlightCraftingRecipes.dat",
+		"Data/BlightCraftingResults.dat",
+		"Data/BlightCraftingItems.dat",
 	}
 	local csdFiles = {
 		"^Metadata/StatDescriptions/specific_skill_stat_descriptions/\\w+.csd$",

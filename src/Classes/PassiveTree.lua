@@ -580,6 +580,17 @@ function PassiveTreeClass:ProcessNode(node)
 		node.y = (node.group.y * self.scaleImage) + m_sin(node.angle) * orbitRadius
 	end
 
+	-- organize recipe aka oils
+	if node.recipe then
+		node.infoRecipe = { }
+		for _, oil in ipairs(node.recipe) do
+			table.insert(node.infoRecipe, { 
+				name = oil, 
+				sprite = self:GetAssetByName(oil, "oil")
+			})
+		end
+	end
+
 	self:ProcessStats(node)
 end
 

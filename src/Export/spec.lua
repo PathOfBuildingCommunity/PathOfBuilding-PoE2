@@ -2014,12 +2014,117 @@ return {
 	blightchesttypes={
 	},
 	blightcraftingitems={
+		[1]={
+			list=false,
+			name="Oil",
+			refTo="BaseItemTypes",
+			type="Key",
+			width=300
+		},
+		[2]={
+			list=false,
+			name="Tier",
+			refTo="",
+			type="Int",
+			width=150
+		},
+		[3]={
+			list=true,
+			name="Achievements",
+			refTo="",
+			type="Key",
+			width=150
+		},
+		[4]={
+			list=false,
+			name="UseType",
+			refTo="",
+			type="Int",
+			width=150
+		},
+		[5]={
+			list=false,
+			name="NameShort",
+			refTo="",
+			type="String",
+			width=150
+		}
 	},
 	blightcraftingrecipes={
+		[1]={
+			list=false,
+			name="Id",
+			refTo="",
+			type="String",
+			width=150
+		},
+		[2]={
+			list=false,
+			name="BlightCraftingResultsKey",
+			refTo="BlightCraftingResults",
+			type="ShortKey",
+			width=150
+		},
+		[3]={
+			list=false,
+			name="",
+			refTo="",
+			type="ShortKey",
+			width=150
+		},
+		[4]={
+			list=true,
+			name="Recipe",
+			refTo="BlightCraftingItems",
+			type="Key",
+			width=810
+		}
 	},
 	blightcraftingresults={
+		[1]={
+			list=false,
+			name="Id",
+			refTo="",
+			type="String",
+			width=150
+		},
+		[2]={
+			list=false,
+			name="ModsKey",
+			refTo="Mods",
+			type="Key",
+			width=150
+		},
+		[3]={
+			list=false,
+			name="PassiveSkillsKey",
+			refTo="PassiveSkills",
+			type="Key",
+			width=150
+		}
 	},
 	blightcraftingtypes={
+		[1]={
+			list=false,
+			name="Id",
+			refTo="",
+			type="String",
+			width=150
+		},
+		[2]={
+			list=false,
+			name="",
+			refTo="",
+			type="Int",
+			width=150
+		},
+		[3]={
+			list=false,
+			name="",
+			refTo="",
+			type="Bool",
+			width=150
+		}
 	},
 	blightcraftinguniques={
 	},

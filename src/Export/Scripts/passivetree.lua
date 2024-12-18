@@ -262,7 +262,7 @@ local uiImages = parseUIImages()
 -- print_table(uiImages, 0)
 
 -- common DDS conversion, while Gimp doesnt support other format we need to always format to bc1a
-local ddsFormat = "bc1a"
+local ddsFormat = "16" -- bc1a
 
 -- Set to true if you want to generate assets
 local generateAssets = false
@@ -416,6 +416,7 @@ local sheets = {
 	newSheet("mastery-active-effect", defaultMaxWidth, 100, maxGroups),
 	newSheet("ascendancy", 2400, 100, maxGroups),
 	newSheet("ascendancy-background", 2400, 100, maxGroups),
+	newSheet("oils", defaultMaxWidth, 100, maxGroups),
 }
 local sheetLocations = {
 	["skills"] = 1,
@@ -429,6 +430,7 @@ local sheetLocations = {
 	["mastery-active-effect"] = 9,
 	["ascendancy"] = 10,
 	["ascendancy-background"] = 11,
+	["oils"] = 12,
 }
 local function getSheet(sheetLocation)
 	return sheets[sheetLocations[sheetLocation]]
@@ -966,6 +968,23 @@ for i, group in ipairs(psg.groups) do
 			if passiveRow.WeaponPointsGranted > 0 then
 				node["stats"] = node["stats"] or {}
 				table.insert(node["stats"],  passiveRow.WeaponPointsGranted .." Passive Skill Points become Weapon Set Skill Points")
+			end
+
+			-- support for oils
+			local bResult = dat("blightcraftingresults"):GetRow("PassiveSkillsKey", passiveRow)
+
+			if bResult ~= nil then
+				node["recipe"] = {}
+				local bCraftRecipe = dat("blightcraftingrecipes"):GetRow("BlightCraftingResultsKey", bResult)
+				if bCraftRecipe ~= nil then
+					for _, item in ipairs(bCraftRecipe.Recipe) do
+						table.insert(node["recipe"], item.NameShort)
+
+						-- add to sprite sheet
+						addToSheet(getSheet("oils"), item.Oil.ItemVisualIdentityKey.DDSFile, "oil", commonBackgroundMetadata(item.NameShort, 108, 108, 4, ddsFormat))
+					end
+				end
+				
 			end
 		end
 		
