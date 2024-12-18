@@ -7,6 +7,7 @@ itemBases["Ashen Staff"] = {
 	socketLimit = 3,
 	tags = { no_physical_spell_mods = true, no_lightning_spell_mods = true, no_cold_spell_mods = true, no_chaos_spell_mods = true, staff = true, twohand = true, default = true, },
 	influenceTags = { shaper = "staff_shaper", elder = "staff_elder", adjudicator = "staff_adjudicator", basilisk = "staff_basilisk", crusader = "staff_crusader", eyrie = "staff_eyrie", cleansing = "staff_cleansing", tangle = "staff_tangle" },
+	implicit = "Grants Skill: Level (1-20) Firebolt",
 	implicitModTypes = { },
 	req = { },
 }
@@ -15,6 +16,7 @@ itemBases["Gelid Staff"] = {
 	socketLimit = 3,
 	tags = { no_fire_spell_mods = true, no_lightning_spell_mods = true, staff = true, no_physical_spell_mods = true, no_chaos_spell_mods = true, twohand = true, default = true, },
 	influenceTags = { shaper = "staff_shaper", elder = "staff_elder", adjudicator = "staff_adjudicator", basilisk = "staff_basilisk", crusader = "staff_crusader", eyrie = "staff_eyrie", cleansing = "staff_cleansing", tangle = "staff_tangle" },
+	implicit = "Grants Skill: Level (1-20) Freezing Shards",
 	implicitModTypes = { },
 	req = { },
 }
@@ -23,6 +25,7 @@ itemBases["Voltaic Staff"] = {
 	socketLimit = 3,
 	tags = { no_fire_spell_mods = true, no_physical_spell_mods = true, staff = true, no_chaos_spell_mods = true, no_cold_spell_mods = true, twohand = true, default = true, },
 	influenceTags = { shaper = "staff_shaper", elder = "staff_elder", adjudicator = "staff_adjudicator", basilisk = "staff_basilisk", crusader = "staff_crusader", eyrie = "staff_eyrie", cleansing = "staff_cleansing", tangle = "staff_tangle" },
+	implicit = "Grants Skill: Level (1-20) Lightning Bolt",
 	implicitModTypes = { },
 	req = { },
 }
@@ -31,6 +34,7 @@ itemBases["Spriggan Staff"] = {
 	socketLimit = 3,
 	tags = { default = true, twohand = true, staff = true, },
 	influenceTags = { shaper = "staff_shaper", elder = "staff_elder", adjudicator = "staff_adjudicator", basilisk = "staff_basilisk", crusader = "staff_crusader", eyrie = "staff_eyrie", cleansing = "staff_cleansing", tangle = "staff_tangle" },
+	implicit = "Grants Skill: Level (1-20) Firebolt",
 	implicitModTypes = { },
 	req = { },
 }
@@ -39,6 +43,7 @@ itemBases["Pyrophyte Staff"] = {
 	socketLimit = 3,
 	tags = { no_physical_spell_mods = true, no_lightning_spell_mods = true, no_cold_spell_mods = true, no_chaos_spell_mods = true, staff = true, twohand = true, default = true, },
 	influenceTags = { shaper = "staff_shaper", elder = "staff_elder", adjudicator = "staff_adjudicator", basilisk = "staff_basilisk", crusader = "staff_crusader", eyrie = "staff_eyrie", cleansing = "staff_cleansing", tangle = "staff_tangle" },
+	implicit = "Grants Skill: Level (1-20) Living Bomb",
 	implicitModTypes = { },
 	req = { },
 }
@@ -47,6 +52,7 @@ itemBases["Chiming Staff"] = {
 	socketLimit = 3,
 	tags = { default = true, twohand = true, staff = true, },
 	influenceTags = { shaper = "staff_shaper", elder = "staff_elder", adjudicator = "staff_adjudicator", basilisk = "staff_basilisk", crusader = "staff_crusader", eyrie = "staff_eyrie", cleansing = "staff_cleansing", tangle = "staff_tangle" },
+	implicit = "Grants Skill: Level (1-20) Sigil of Power",
 	implicitModTypes = { },
 	req = { },
 }
@@ -55,6 +61,7 @@ itemBases["Rending Staff"] = {
 	socketLimit = 3,
 	tags = { no_fire_spell_mods = true, no_lightning_spell_mods = true, staff = true, no_physical_spell_mods = true, no_cold_spell_mods = true, twohand = true, default = true, },
 	influenceTags = { shaper = "staff_shaper", elder = "staff_elder", adjudicator = "staff_adjudicator", basilisk = "staff_basilisk", crusader = "staff_crusader", eyrie = "staff_eyrie", cleansing = "staff_cleansing", tangle = "staff_tangle" },
+	implicit = "Grants Skill: Level (1-20) Soulrend",
 	implicitModTypes = { },
 	req = { },
 }
@@ -63,6 +70,7 @@ itemBases["Reaping Staff"] = {
 	socketLimit = 3,
 	tags = { no_fire_spell_mods = true, no_lightning_spell_mods = true, staff = true, no_chaos_spell_mods = true, no_cold_spell_mods = true, twohand = true, default = true, },
 	influenceTags = { shaper = "staff_shaper", elder = "staff_elder", adjudicator = "staff_adjudicator", basilisk = "staff_basilisk", crusader = "staff_crusader", eyrie = "staff_eyrie", cleansing = "staff_cleansing", tangle = "staff_tangle" },
+	implicit = "Grants Skill: Level (1-20) Reap",
 	implicitModTypes = { },
 	req = { },
 }
@@ -71,6 +79,7 @@ itemBases["Icicle Staff"] = {
 	socketLimit = 3,
 	tags = { no_fire_spell_mods = true, no_lightning_spell_mods = true, staff = true, no_physical_spell_mods = true, no_chaos_spell_mods = true, twohand = true, default = true, },
 	influenceTags = { shaper = "staff_shaper", elder = "staff_elder", adjudicator = "staff_adjudicator", basilisk = "staff_basilisk", crusader = "staff_crusader", eyrie = "staff_eyrie", cleansing = "staff_cleansing", tangle = "staff_tangle" },
+	implicit = "Grants Skill: Level (1-20) Firebolt",
 	implicitModTypes = { },
 	req = { },
 }
@@ -79,6 +88,7 @@ itemBases["Roaring Staff"] = {
 	socketLimit = 3,
 	tags = { default = true, twohand = true, staff = true, },
 	influenceTags = { shaper = "staff_shaper", elder = "staff_elder", adjudicator = "staff_adjudicator", basilisk = "staff_basilisk", crusader = "staff_crusader", eyrie = "staff_eyrie", cleansing = "staff_cleansing", tangle = "staff_tangle" },
+	implicit = "Grants Skill: Level (1-20) Unleash",
 	implicitModTypes = { },
 	req = { },
 }
@@ -87,6 +97,7 @@ itemBases["Paralysing Staff"] = {
 	socketLimit = 3,
 	tags = { no_fire_spell_mods = true, no_physical_spell_mods = true, staff = true, no_chaos_spell_mods = true, no_cold_spell_mods = true, twohand = true, default = true, },
 	influenceTags = { shaper = "staff_shaper", elder = "staff_elder", adjudicator = "staff_adjudicator", basilisk = "staff_basilisk", crusader = "staff_crusader", eyrie = "staff_eyrie", cleansing = "staff_cleansing", tangle = "staff_tangle" },
+	implicit = "Grants Skill: Level (1-20) Shock Nova",
 	implicitModTypes = { },
 	req = { },
 }
@@ -95,6 +106,7 @@ itemBases["Cleric Staff"] = {
 	socketLimit = 3,
 	tags = { default = true, twohand = true, staff = true, },
 	influenceTags = { shaper = "staff_shaper", elder = "staff_elder", adjudicator = "staff_adjudicator", basilisk = "staff_basilisk", crusader = "staff_crusader", eyrie = "staff_eyrie", cleansing = "staff_cleansing", tangle = "staff_tangle" },
+	implicit = "Grants Skill: Level (1-20) Consecrate",
 	implicitModTypes = { },
 	req = { },
 }
@@ -103,6 +115,7 @@ itemBases["Dark Staff"] = {
 	socketLimit = 3,
 	tags = { default = true, twohand = true, staff = true, },
 	influenceTags = { shaper = "staff_shaper", elder = "staff_elder", adjudicator = "staff_adjudicator", basilisk = "staff_basilisk", crusader = "staff_crusader", eyrie = "staff_eyrie", cleansing = "staff_cleansing", tangle = "staff_tangle" },
+	implicit = "Grants Skill: Level (1-20) Dark Pact",
 	implicitModTypes = { },
 	req = { },
 }

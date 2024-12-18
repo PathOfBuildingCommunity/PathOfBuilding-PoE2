@@ -1872,7 +1872,7 @@ function ItemsTabClass:IsItemValidForSlot(item, slotName, itemSet)
 	elseif (item.type == "Rune" or item.type == "SoulCore") and slotName:match("Socket") then
 		return true
 	elseif slotName == "Weapon 1" or slotName == "Weapon 1 Swap" or slotName == "Weapon" then
-		return item.base.weapon ~= nil
+		return item.base.weapon ~= nil or item.base.type == "Wand" or item.base.type == "Sceptre" or item.base.type == "Staff"
 	elseif slotName == "Weapon 2" or slotName == "Weapon 2 Swap" then
 		local weapon1Sel = itemSet[slotName == "Weapon 2" and "Weapon 1" or "Weapon 1 Swap"].selItemId or 0
 		local weapon1Type = self.items[weapon1Sel] and self.items[weapon1Sel].base.type or "None"
@@ -1880,8 +1880,10 @@ function ItemsTabClass:IsItemValidForSlot(item, slotName, itemSet)
 			return item.type == "Shield" or (self.build.data.weaponTypeInfo[item.type] and self.build.data.weaponTypeInfo[item.type].oneHand)
 		elseif weapon1Type == "Bow" then
 			return item.type == "Quiver"
+		elseif weapon1Type == "Wand" or weapon1Type == "Sceptre" then
+			return item.type == "Focus"
 		elseif self.build.data.weaponTypeInfo[weapon1Type].oneHand then
-			return item.type == "Shield" or (self.build.data.weaponTypeInfo[item.type] and self.build.data.weaponTypeInfo[item.type].oneHand and ((weapon1Type == "Wand" and item.type == "Wand") or (weapon1Type ~= "Wand" and item.type ~= "Wand")))
+			return item.type == "Shield" or (self.build.data.weaponTypeInfo[item.type] and self.build.data.weaponTypeInfo[item.type].oneHand)
 		end
 	end
 end
