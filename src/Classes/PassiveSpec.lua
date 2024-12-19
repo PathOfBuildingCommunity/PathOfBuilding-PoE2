@@ -2048,6 +2048,8 @@ end
 
 function PassiveSpecClass:SwitchAttributeNode(nodeId, attributeIndex)
 	local newNode = copyTableSafe(self.tree.nodes[nodeId], false, true)
+	if not newNode.isAttribute then return end -- safety check
+	
 	local option = newNode.options[attributeIndex]
 	local attribute = option.name
 	
