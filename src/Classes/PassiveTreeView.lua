@@ -266,7 +266,7 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 	
 	-- setIndex true, switchAttribute true -> allocating an attribute node, possibly with attribute in path
 	-- setIndex true, switchAttribute false -> allocating a non-attribute node, possibly with attribute in path
-	-- setIndex false, switchAttribute false -> deallocating an attribute node
+	-- setIndex false, switchAttribute true -> deallocating an attribute node
 	local function processAttributeHotkeys(setIndex, switchAttribute) 
 		if IsKeyDown("1") or IsKeyDown("I") then
 			if setIndex then spec.attributeIndex = 3 end
