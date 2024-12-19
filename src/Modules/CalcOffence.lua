@@ -2763,7 +2763,7 @@ function calcs.offence(env, actor, activeSkill)
 					t_insert(breakdown.CritChance, s_format("= %.2f%% ^8(crit chance)", output.PreEffectiveCritChance))
 					if preCapCritChance > 100 then
 						local overCap = preCapCritChance - 100
-						t_insert(breakdown.CritChance, s_format("Crit is overcapped by %.2f%% (%d%% increased Critical Strike Chance)", overCap, overCap / more / (baseCrit + base) * 100))
+						t_insert(breakdown.CritChance, s_format("Crit is overcapped by %.2f%% (%d%% increased Critical Hit Chance)", overCap, overCap / more / (baseCrit + base) * 100))
 					end
 					if env.mode_effective and skillModList:Flag(cfg, "CritChanceLucky") then
 						t_insert(breakdown.CritChance, "Crit Chance is Lucky:")

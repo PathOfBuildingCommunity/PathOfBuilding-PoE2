@@ -18,7 +18,6 @@ local function getScope(scopeName)
 			file.close()
 			scope = LoadModule("Data/StatDescriptions/Specific_Skill_Stat_Descriptions/"..scopeName)
 		else
-			print("NOPE")
 			scope = LoadModule("Data/StatDescriptions/"..scopeName)
 		end 
 		scope.name = scopeName
