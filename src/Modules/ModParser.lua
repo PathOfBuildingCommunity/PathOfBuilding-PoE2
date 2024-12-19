@@ -2249,6 +2249,10 @@ local specialModList = {
 	-- Duelist (Fatal flourish)
 	["final repeat of attack skills deals (%d+)%% more damage"] = function(num) return { mod("RepeatFinalDamage", "MORE", num, nil, ModFlag.Attack, 0) } end,
 	["non%-travel attack skills repeat an additional time"] = { mod("RepeatCount", "BASE", 1, nil, ModFlag.Attack, 0, { type = "Condition", varList = {"averageRepeat", "alwaysFinalRepeat"} }) },
+	-- Leech Related
+	["life leech is instant"] = { mod("InstantLifeLeech", "BASE", 100), },
+	["mana leech is instant"] = { mod("InstantManaLeech", "BASE", 100), },
+	["mana leech effects also recover energy shield"] = { flag("ManaLeechRecoversEnergyShield") },
 	-- Ascendant
 	["grants (%d+) passive skill points?"] = function(num) return { mod("ExtraPoints", "BASE", num) } end,
 	["can allocate passives from the %a+'s starting point"] = { },

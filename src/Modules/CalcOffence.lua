@@ -3200,15 +3200,18 @@ function calcs.offence(env, actor, activeSkill)
 			output.LifeLeechInstant = output.LifeLeech * output.LifeLeechInstantProportion
 			output.LifeLeech = output.LifeLeech * (1 - output.LifeLeechInstantProportion)
 		end
-		output.EnergyShieldLeechInstantProportion = m_max(m_min(skillModList:Sum("BASE", cfg, "InstantEnergyShieldLeech") or 0, 100), 0) / 100
-		if output.EnergyShieldLeechInstantProportion > 0 then
-			output.EnergyShieldLeechInstant = output.EnergyShieldLeech * output.EnergyShieldLeechInstantProportion
-			output.EnergyShieldLeech = output.EnergyShieldLeech * (1 - output.EnergyShieldLeechInstantProportion)
-		end
 		output.ManaLeechInstantProportion = m_max(m_min(skillModList:Sum("BASE", cfg, "InstantManaLeech") or 0, 100), 0) / 100
 		if output.ManaLeechInstantProportion > 0 then
 			output.ManaLeechInstant = output.ManaLeech * output.ManaLeechInstantProportion
 			output.ManaLeech = output.ManaLeech * (1 - output.ManaLeechInstantProportion)
+		end
+		output.EnergyShieldLeechInstantProportion = m_max(m_min(skillModList:Sum("BASE", cfg, "InstantEnergyShieldLeech") or 0, 100), 0) / 100
+		if skillModList:Flag(cfg, "ManaLeechRecoversEnergyShield") then
+			output.EnergyShieldLeechInstantProportion = output.EnergyShieldLeechInstantProportion + output.ManaLeechInstantProportion
+		end
+		if output.EnergyShieldLeechInstantProportion > 0 then
+			output.EnergyShieldLeechInstant = output.EnergyShieldLeech * output.EnergyShieldLeechInstantProportion
+			output.EnergyShieldLeech = output.EnergyShieldLeech * (1 - output.EnergyShieldLeechInstantProportion)
 		end
 
 		output.LifeLeechDuration, output.LifeLeechInstances = getLeechInstances(output.LifeLeech, globalOutput.Life)
