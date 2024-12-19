@@ -16,13 +16,8 @@ local m_sin = math.sin
 local m_cos = math.cos
 local m_tan = math.tan
 local m_sqrt = math.sqrt
-
-
-local function sign_a(n)
-	return n > 0 and 1
-		or  n < 0 and -1
-		or  0
-end
+local m_rad = math.rad
+local m_atan2 = math.atan2
 
 -- These values are from the 3.6 tree; older trees are missing values for these constants
 local legacySkillsPerOrbit = { 1, 6, 12, 12, 40 }
@@ -46,7 +41,7 @@ end
 
 local PassiveTreeClass = newClass("PassiveTree", function(self, treeVersion)
 	self.treeVersion = treeVersion
-	self.scaleImage = 0.3835
+	self.scaleImage = 1 -- 0.3835
 	self.assetsKey = 0.3835
 	local versionNum = treeVersions[treeVersion].num
 
@@ -587,11 +582,16 @@ function PassiveTreeClass:ProcessNode(node)
 
 	-- Derive the true position of the node
 	if node.group then
-		node.angle = ((self.orbitAnglesByOrbit[node.o + 1][node.oidx + 1]) - 90) * math.pi / 180
+		-- node.angle = ((self.orbitAnglesByOrbit[node.o + 1][node.oidx + 1]) - 90) * math.pi / 180
 
-		local orbitRadius = self.orbitRadii[node.o + 1] * self.scaleImage
-		node.x = (node.group.x * self.scaleImage) + m_cos(node.angle) * orbitRadius
-		node.y = (node.group.y * self.scaleImage) + m_sin(node.angle) * orbitRadius
+		-- local orbitRadius = self.orbitRadii[node.o + 1] * self.scaleImage
+		-- node.x = (node.group.x * self.scaleImage) + m_cos(node.angle) * orbitRadius
+		-- node.y = (node.group.y * self.scaleImage) + m_sin(node.angle) * orbitRadius
+
+		node.angle = self.orbitAnglesByOrbit[node.o + 1][node.oidx + 1]
+		local orbitRadius = self.orbitRadii[node.o + 1]  * self.scaleImage
+		node.x = (node.group.x * self.scaleImage) + m_sin(node.angle) * orbitRadius
+		node.y = (node.group.y * self.scaleImage) - m_cos(node.angle) * orbitRadius
 	end
 
 	-- organize recipe aka oils
@@ -633,29 +633,89 @@ function PassiveTreeClass:BuildConnector(node1, node2, connection)
 	}
 
 	if connection.orbit ~= 0 and self.orbitRadii[math.abs(connection.orbit) + 1] then
-		-- if node1.id ~= 55342 and node1.id ~= 10364 then
+		-- if node1.id ~= 10364 then
 		-- 	return 
 		-- end
-		-- local r =  self.orbitRadii[math.abs(connection.orbit) + 1] * self.scaleImage
+		-- local orbit = math.abs(connection.orbit)
+		-- local r =  self.orbitRadii[orbit + 1] * self.scaleImage
 
-		-- local vX, vY = node2.x - node1.x, node2.y - node1.y
-		-- local dist = m_sqrt(vX * vX + vY * vY)
+		-- local dx, dy = node2.x - node1.x, node2.y - node1.y
+		-- local dist = m_sqrt(dx * dx + dy * dy)
 
 		-- if dist < r * 2 then
-		-- 	self:BuildArc(math.rad(r), node1, node2, connector,  connection.orbit , sign_a(connection.orbit) == -1)
-		-- 	return { connector }
+		-- 	local perp = m_sqrt(r * r - (dist * dist) / 4) * (connection.orbit > 0 and 1 or -1)
+		-- 	local cx = node1.x + dx / 2 + perp * (dy / dist)
+		-- 	local cy = node1.y + dy / 2 - perp * (dx / dist)
+			
+		-- 	local angle1 = m_atan2(node1.y - cy, node1.x - cx) 
+		-- 	local angle2 = m_atan2(node2.y - cy, node2.x - cx)
+
+		-- 	-- Nodes are in the same orbit of the same group
+		-- 	-- Calculate the starting angle (node1.angle) and arc angle
+		-- 	if angle1 > angle2 then
+		-- 		angle1, angle2 = angle2, angle1
+		-- 	end
+		-- 	local arcAngle = angle2 - angle1
+		-- 	if arcAngle >= m_pi then
+		-- 		angle1, angle2 = angle2, angle1
+		-- 		arcAngle = m_pi * 2 - arcAngle
+		-- 	end
+		-- 	if arcAngle <= m_pi then
+		-- 		-- Angle is less than 180 degrees, draw an arc
+		-- 		-- If our arc is greater than 90 degrees, we will need 2 arcs because our orbit assets are at most 90 degree arcs see below
+		-- 		-- The calling class already handles adding a second connector object in the return table if provided and omits it if nil
+		-- 		-- Establish a nil secondConnector to populate in the case that we need a second arc (>90 degree orbit)
+		-- 		local secondConnector
+		-- 		if arcAngle > (m_pi / 2) then
+		-- 			-- Angle is greater than 90 degrees.
+		-- 			-- The default behavior for a given arcAngle is to place the arc at the center point between two nodes and clip the excess
+		-- 			-- If we need a second arc of any size, we should shift the arcAngle to 25% of the distance between the nodes instead of 50%
+		-- 			arcAngle = arcAngle / 2
+		-- 			-- clone the original connector table to ensure same functionality for both of the necessary connectors
+		-- 			secondConnector = copyTableSafe(connector)
+		-- 			-- And then ask the BuildArc function to create a connector that is a mirror of the provided arcAngle
+		-- 			-- Provide the second connector as a parameter to store the mirrored arc
+		-- 			self:BuildArc(arcAngle, orbit, cx , cy , angle1, secondConnector, true)
+		-- 		end
+		-- 		-- generate the primary arc -- this arcAngle may have been modified if we have determined that a second arc is necessary for this orbit
+		-- 		self:BuildArc(arcAngle, orbit, cx , cy, angle2, connector)
+		-- 		return { connector, secondConnector }
+		-- 	end
 		-- end
 
-		--return
-	end
-		
-	if node1.g == node2.g and node1.o == node2.o and connection.orbit == 0 then
-		-- if node1.id ~= 55342 and node1.id ~= 10364 then
-		-- 	return 
-		-- end
-		-- self:BuildArc(node1.angle, node1, node2, connector, node1.o, sign_a(connection.orbit) == -1)
-		-- return { connector}
-		--return
+		-- return
+	elseif node1.g == node2.g and node1.o == node2.o and connection.orbit == 0 then
+		-- Nodes are in the same orbit of the same group
+		-- Calculate the starting angle (node1.angle) and arc angle
+		if node1.angle > node2.angle then
+			node1, node2 = node2, node1
+		end
+		local arcAngle = node2.angle - node1.angle
+		if arcAngle >= m_pi then
+			node1, node2 = node2, node1
+			arcAngle = m_pi * 2 - arcAngle
+		end
+		if arcAngle <= m_pi then
+			-- Angle is less than 180 degrees, draw an arc
+			-- If our arc is greater than 90 degrees, we will need 2 arcs because our orbit assets are at most 90 degree arcs see below
+			-- The calling class already handles adding a second connector object in the return table if provided and omits it if nil
+			-- Establish a nil secondConnector to populate in the case that we need a second arc (>90 degree orbit)
+			local secondConnector
+			if arcAngle > (m_pi / 2) then
+				-- Angle is greater than 90 degrees.
+				-- The default behavior for a given arcAngle is to place the arc at the center point between two nodes and clip the excess
+				-- If we need a second arc of any size, we should shift the arcAngle to 25% of the distance between the nodes instead of 50%
+				arcAngle = arcAngle / 2
+				-- clone the original connector table to ensure same functionality for both of the necessary connectors
+				secondConnector = copyTableSafe(connector)
+				-- And then ask the BuildArc function to create a connector that is a mirror of the provided arcAngle
+				-- Provide the second connector as a parameter to store the mirrored arc
+				self:BuildArc(arcAngle, node1.o, node1.group.x * self.scaleImage, node1.group.y * self.scaleImage, node1.angle, secondConnector, true)
+			end
+			-- generate the primary arc -- this arcAngle may have been modified if we have determined that a second arc is necessary for this orbit
+			self:BuildArc(arcAngle, node1.o, node1.group.x * self.scaleImage, node1.group.y * self.scaleImage, node1.angle, connector)
+			return { connector, secondConnector }
+		end
 	end
 
 	-- Generate a straight line
@@ -678,36 +738,29 @@ function PassiveTreeClass:BuildConnector(node1, node2, connection)
 	return { connector }
 end
 
-function PassiveTreeClass:BuildArc(arcAngle, node1, node2, connector, orbit, isMirroredArc)
-	connector.type = "Orbit" .. math.abs(orbit)
+function PassiveTreeClass:BuildArc(arcAngle, orbit, xScale, yScale, angle, connector, isMirroredArc)
+	connector.type = "Orbit" .. orbit
 	-- This is an arc texture mapped onto a kite-shaped quad
 	-- Calculate how much the arc needs to be clipped by
 	-- Both ends of the arc will be clipped by this amount, so 90 degree arc angle = no clipping and 30 degree arc angle = 75 degrees of clipping
 	-- The clipping is accomplished by effectively moving the bottom left and top right corners of the arc texture towards the top left corner
 	-- The arc texture only shows 90 degrees of an arc, but some arcs must go for more than 90 degrees
 	-- Fortunately there's nowhere on the tree where we can't just show the middle 90 degrees and rely on the node artwork to cover the gaps :)
-	connector.vert = { }
-
 	local clipAngle = m_pi / 4 - arcAngle / 2
 	local p = 1 - m_max(m_tan(clipAngle), 0)
-	local angle = node1.angle - clipAngle
-
+	local angle = angle - clipAngle
 	if isMirroredArc then
 		-- The center of the mirrored angle should be positioned at 75% of the way between nodes.
 		angle = angle + arcAngle
 	end
-
+	connector.vert = { }
 	for _, state in pairs({ "Normal", "Intermediate", "Active" }) do
 		-- The different line states have differently-sized artwork, so the vertex coords must be calculated separately for each one
-		local art = self:GetAssetByName(connector.type .. state, "line")
-		if not art then
-			ConPrintf("missing asset %s", connector.type .. state)
-		end
-		local size = art.width * self.scaleImage
+		local size = self.orbitRadii[orbit + 1]  * self.scaleImage
 		local oX, oY = size * m_sqrt(2) * m_sin(angle + m_pi / 4), size * m_sqrt(2) * -m_cos(angle + m_pi / 4)
-		local cX, cY = node1.x + oX, node1.y + oY
+		local cX, cY = xScale + oX, yScale + oY
 		local vert = { }
-		vert[1], vert[2] = (node1.group.x * self.scaleImage), (node1.group.y * self.scaleImage)	
+		vert[1], vert[2] = xScale, yScale
 		vert[3], vert[4] = cX + (size * m_sin(angle) - oX) * p, cY + (size * -m_cos(angle) - oY) * p
 		vert[5], vert[6] = cX, cY
 		vert[7], vert[8] = cX + (size * m_cos(angle) - oX) * p, cY + (size * m_sin(angle) - oY) * p
@@ -740,6 +793,10 @@ function PassiveTreeClass:CalcOrbitAngles(nodesInOrbit)
 		for i = 0, nodesInOrbit do
 			orbitAngles[i + 1] = 360 * i / nodesInOrbit
 		end
+	end
+
+	for i, degrees in ipairs(orbitAngles) do
+		orbitAngles[i] = m_rad(degrees)
 	end
 
 	return orbitAngles

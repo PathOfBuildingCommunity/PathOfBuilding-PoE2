@@ -10,40 +10,40 @@ return {
 			[0.3835]="orbitnormal0.png"
 		},
 		Orbit1Active={
-			[0.3835]="orbitactive1.png"
+			[0.3835]="orbitactive9.png"
 		},
 		Orbit1Intermediate={
-			[0.3835]="orbitintemediate1.png"
+			[0.3835]="orbitintemediate9.png"
 		},
 		Orbit1Normal={
-			[0.3835]="orbitnormal1.png"
+			[0.3835]="orbitnormal9.png"
 		},
 		Orbit2Active={
-			[0.3835]="orbitactive2.png"
+			[0.3835]="orbitactive8.png"
 		},
 		Orbit2Intermediate={
-			[0.3835]="orbitintemediate2.png"
+			[0.3835]="orbitintemediate8.png"
 		},
 		Orbit2Normal={
-			[0.3835]="orbitnormal2.png"
+			[0.3835]="orbitnormal8.png"
 		},
 		Orbit3Active={
-			[0.3835]="orbitactive3.png"
+			[0.3835]="orbitactive7.png"
 		},
 		Orbit3Intermediate={
-			[0.3835]="orbitintemediate3.png"
+			[0.3835]="orbitintemediate7.png"
 		},
 		Orbit3Normal={
-			[0.3835]="orbitnormal3.png"
+			[0.3835]="orbitnormal7.png"
 		},
 		Orbit4Active={
-			[0.3835]="orbitactive4.png"
+			[0.3835]="orbitactive6.png"
 		},
 		Orbit4Intermediate={
-			[0.3835]="orbitintemediate4.png"
+			[0.3835]="orbitintemediate6.png"
 		},
 		Orbit4Normal={
-			[0.3835]="orbitnormal4.png"
+			[0.3835]="orbitnormal6.png"
 		},
 		Orbit5Active={
 			[0.3835]="orbitactive5.png"
@@ -55,40 +55,40 @@ return {
 			[0.3835]="orbitnormal5.png"
 		},
 		Orbit6Active={
-			[0.3835]="orbitactive6.png"
+			[0.3835]="orbitactive4.png"
 		},
 		Orbit6Intermediate={
-			[0.3835]="orbitintemediate6.png"
+			[0.3835]="orbitintemediate4.png"
 		},
 		Orbit6Normal={
-			[0.3835]="orbitnormal6.png"
+			[0.3835]="orbitnormal4.png"
 		},
 		Orbit7Active={
-			[0.3835]="orbitactive7.png"
+			[0.3835]="orbitactive3.png"
 		},
 		Orbit7Intermediate={
-			[0.3835]="orbitintemediate7.png"
+			[0.3835]="orbitintemediate3.png"
 		},
 		Orbit7Normal={
-			[0.3835]="orbitnormal7.png"
+			[0.3835]="orbitnormal3.png"
 		},
 		Orbit8Active={
-			[0.3835]="orbitactive8.png"
+			[0.3835]="orbitactive2.png"
 		},
 		Orbit8Intermediate={
-			[0.3835]="orbitintemediate8.png"
+			[0.3835]="orbitintemediate2.png"
 		},
 		Orbit8Normal={
-			[0.3835]="orbitnormal8.png"
+			[0.3835]="orbitnormal2.png"
 		},
 		Orbit9Active={
-			[0.3835]="orbitactive9.png"
+			[0.3835]="orbitactive1.png"
 		},
 		Orbit9Intermediate={
-			[0.3835]="orbitintemediate9.png"
+			[0.3835]="orbitintemediate1.png"
 		},
 		Orbit9Normal={
-			[0.3835]="orbitnormal9.png"
+			[0.3835]="orbitnormal1.png"
 		}
 	},
 	classes={

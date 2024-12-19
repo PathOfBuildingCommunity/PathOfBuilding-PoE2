@@ -538,6 +538,30 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 			DrawImage(self.ring, x - innerSize, y - innerSize, innerSize * 2, innerSize * 2)
 		end
 		SetDrawColor(1, 1, 1)
+
+		local node1 = hoverNode
+		for _, connection in ipairs(hoverNode.connections) do
+			-- draw connections by hand
+			local node2 = spec.nodes[connection.id]
+			if connection.orbit ~= 0 and tree.orbitRadii[math.abs(connection.orbit) + 1] then
+				local r =  tree.orbitRadii[math.abs(connection.orbit) + 1] * tree.scaleImage
+
+				local dx, dy = node2.x - node1.x, node2.y - node1.y
+				local dist = math.sqrt(dx * dx + dy * dy) * (connection.orbit > 0 and 1 or -1)
+
+				if dist < r * 2 then
+					local perp = math.sqrt(r * r - (dist * dist) / 4) * (r > 0 and 1 or -1)
+					local cx = node1.x + dx / 2 + perp * (dy / dist)
+					local cy = node1.y + dy / 2 - perp * (dx / dist)
+					local scx, scy = treeToScreen(cx, cy)
+					
+					local innerSize = r * scale
+					SetDrawColor(0, 1, 0)
+					DrawImage(self.ring, scx - innerSize, scy - innerSize, innerSize * 2, innerSize * 2)
+					SetDrawColor(1, 1, 1)
+				end
+			end
+		end
 	end
 
 	-- Draw the nodes
@@ -977,7 +1001,7 @@ end
 -- Zoom the tree in or out
 function PassiveTreeViewClass:Zoom(level, viewPort)
 	-- Calculate new zoom level and zoom factor
-	self.zoomLevel = m_max(0, m_min(20, self.zoomLevel + level))
+	self.zoomLevel = m_max(0, m_min(16, self.zoomLevel + level))
 	local oldZoom = self.zoom
 	self.zoom = 1.2 ^ self.zoomLevel
 
@@ -1150,6 +1174,13 @@ function PassiveTreeViewClass:AddNodeTooltip(tooltip, node, build)
 		tooltip:AddLine(16, string.format("Angle: %f", node.angle))
 		tooltip:AddLine(16, string.format("Orbit: %d, Orbit Index: %d", node.orbit, node.orbitIndex))
 		tooltip:AddLine(16, string.format("Group: %d", node.g))
+		tooltip:AddSeparator(14)
+
+		-- add conection info for debugging
+		for _, connection in ipairs(node.connections) do
+			tooltip:AddLine(16, string.format("^7Connection: %d, Orbit: %d", connection.id, connection.orbit))
+		end
+
 		tooltip:AddSeparator(14)
 	end
 

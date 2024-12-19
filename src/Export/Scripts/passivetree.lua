@@ -266,7 +266,7 @@ local uiImages = parseUIImages()
 -- print_table(uiImages, 0)
 
 -- common DDS conversion, while Gimp doesnt support other format we need to always format to bc1a
-local ddsFormat = "16" -- bc1a
+local ddsFormat = "bc1a" -- bc1a
 
 -- Set to true if you want to generate assets
 local generateAssets = false
@@ -1228,14 +1228,17 @@ printf("generate lines info into assets")
 for _, lines in ipairs(linesFiles) do
 	for i = 0, lines.total - 1 do
 		local name
+		local middle
 		if i == 0 then
 			name = lines.first .. lines.posfix
+			middle = 0
 		else
 			name = lines.prefix .. i .. lines.posfix
+			middle = lines.total - i
 		end
 
 		tree.assets[name] = {
-			[lines.meta] = lines.basename .. i .. lines.extension
+			[lines.meta] = lines.basename .. middle .. lines.extension
 		}
 	end
 end
