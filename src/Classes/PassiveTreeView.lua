@@ -264,6 +264,22 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 		end
 	end
 	
+	-- setIndex true, switchAttribute true -> allocating an attribute node, possibly with attribute in path
+	-- setIndex true, switchAttribute false -> allocating a non-attribute node, possibly with attribute in path
+	-- setIndex false, switchAttribute false -> deallocating an attribute node
+	local function processAttributeHotkeys(setIndex, switchAttribute) 
+		if IsKeyDown("1") or IsKeyDown("I") then
+			if setIndex then spec.attributeIndex = 3 end
+			if switchAttribute then spec:SwitchAttributeNode(hoverNode.id, 3) end
+		elseif IsKeyDown("2") or IsKeyDown("S") then
+			if setIndex then spec.attributeIndex = 1 end
+			if switchAttribute then spec:SwitchAttributeNode(hoverNode.id, 1) end
+		elseif IsKeyDown("3") or IsKeyDown("D") then
+			if setIndex then spec.attributeIndex = 2 end
+			if switchAttribute then spec:SwitchAttributeNode(hoverNode.id, 2) end
+		end
+	end
+	
 	if treeClick == "LEFT" then
 		if hoverNode then
 			local hotkeyPressed = IsKeyDown("1") or IsKeyDown("I") or IsKeyDown("2") or IsKeyDown("S") or IsKeyDown("3") or IsKeyDown("D")
@@ -272,13 +288,7 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 				if hoverNode.isAttribute then
 					-- change to other attribute without needing to deallocate
 					if hotkeyPressed then
-						if IsKeyDown("1") or IsKeyDown("I") then
-							spec:SwitchAttributeNode(hoverNode.id, 3)
-						elseif IsKeyDown("2") or IsKeyDown("S") then
-							spec:SwitchAttributeNode(hoverNode.id, 1)
-						elseif IsKeyDown("3") or IsKeyDown("D") then
-							spec:SwitchAttributeNode(hoverNode.id, 2)
-						end
+						processAttributeHotkeys(false, true)
 						-- reload allocated node with new attribute
 						spec:BuildAllDependsAndPaths()
 						spec:AddUndoState()
@@ -300,23 +310,22 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 						build.treeTab:OpenMasteryPopup(hoverNode, viewPort)
 					end
 				else
-					if hoverNode.isAttribute then
-						-- attribute switching, unallocated to allocated
-						if hotkeyPressed then
-							if IsKeyDown("1") or IsKeyDown("I") then
-								spec:SwitchAttributeNode(hoverNode.id, 3)
-							elseif IsKeyDown("2") or IsKeyDown("S") then
-								spec:SwitchAttributeNode(hoverNode.id, 1)
-							elseif IsKeyDown("3") or IsKeyDown("D") then
-								spec:SwitchAttributeNode(hoverNode.id, 2)
-							end
-						else
-							build.treeTab:ModifyAttributePopup(hoverNode)
+					-- attribute switching, unallocated to allocated
+					if hoverNode.isAttribute and not hotkeyPressed then
+						build.treeTab:ModifyAttributePopup(hoverNode)
+					else 
+						-- the odd conditional here is so the popup only calls AllocNode inside and to avoid duplicating some code
+						-- same flow for hotkey attribute and non attribute nodes
+						if hoverNode.isAttribute and hotkeyPressed then
+							processAttributeHotkeys(true, true)
 						end
+						-- hotkey only, will set any attribute nodes in path when allocating a non attribute node
+						processAttributeHotkeys(true, false)
+						spec:AllocNode(hoverNode, self.tracePath and hoverNode == self.tracePath[#self.tracePath] and self.tracePath)
+						spec:AddUndoState()
+						build.buildFlag = true
+						spec.attributeIndex = nil
 					end
-					spec:AllocNode(hoverNode, self.tracePath and hoverNode == self.tracePath[#self.tracePath] and self.tracePath)
-					spec:AddUndoState()
-					build.buildFlag = true
 				end
 			end
 		end
