@@ -440,7 +440,7 @@ local function doActorAttribsConditions(env, actor)
 		end
 	end
 
-	doActorLifeMana(actor)
+	doActorLifeManaSpirit(actor)
 end
 
 -- Calculate life/mana reservation
