@@ -1444,7 +1444,7 @@ return {
 	}, },
 } }
 } },
-{ 1, "Spirit", 2, colorCodes.SPIRIT, {{ defaultCollapsed = false, label = "Mana", data = {
+{ 1, "Spirit", 2, colorCodes.SPIRIT, {{ defaultCollapsed = false, label = "Spirit", data = {
 	extra = "{0:output:SpiritUnreserved}/{0:output:Spirit}",
 	notFlag = "minionSkill",
 	{ label = "Base from Gear", { format = "{0:mod:1}", { modName = "Spirit", modType = "BASE", modSource = "Item" }, }, },

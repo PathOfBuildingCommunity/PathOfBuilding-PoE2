@@ -685,7 +685,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 						self.type = base.type
 						self.base = base
 						self.charmLimit = base.charmLimit
-						self.spiritValue = base.spiritValue
+						self.spiritValue = base.spirit
 						self.affixes = (self.base.subType and data.itemMods[self.base.type..self.base.subType])
 								or data.itemMods[self.base.type]
 								or data.itemMods.Item
