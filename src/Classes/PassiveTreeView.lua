@@ -291,10 +291,7 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 						processAttributeHotkeys(false, true)
 						-- reload allocated node with new attribute
 						spec:BuildAllDependsAndPaths()
-						spec:AddUndoState()
-						build.buildFlag = true
-					-- reset switched node to generic Attribute
-					else
+					else -- reset switched node to generic Attribute
 						spec.hashOverrides[hoverNode.id] = nil
 						spec:DeallocNode(hoverNode)
 					end
