@@ -45,10 +45,10 @@
     (let* (
            (final-layer (car (gimp-image-merge-visible-layers sprite-sheet CLIP-TO-IMAGE)))
           )
-      (file-png-save-defaults RUN-NONINTERACTIVE sprite-sheet final-layer output_path output_path)
+      (file-png-save RUN-NONINTERACTIVE sprite-sheet final-layer output_path output_path 0 9 0 1 1 1 1)
     )
     ; Save the sprite sheet as a PNG
-    ; (file-png-save RUN-NONINTERACTIVE sprite-sheet layer output_path output_path 0 9 0 1 1 1 1)
+    ; (file-png-save RUN-NONINTERACTIVE sprite-sheet layer output_path output_path 0 9 1 1 1 1 1 1)
     
     ; Clean up the image object after saving
     (gimp-image-delete sprite-sheet)

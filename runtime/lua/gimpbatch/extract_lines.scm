@@ -94,7 +94,7 @@
         (gimp-edit-copy src-layer-id)
         (gimp-floating-sel-anchor (car (gimp-edit-paste new-layer TRUE)))
         (set! dest (string-append output-path filename  (number->string total) extension))
-        (file-png-save-defaults RUN-NONINTERACTIVE new-image new-layer dest dest)
+        (file-png-save RUN-NONINTERACTIVE new-image new-layer dest dest 0 9 0 1 1 1 1 )
 
         (if (= interactive 1)
             (begin
@@ -222,7 +222,7 @@
 
             ;; save the image
             (set! dest (string-append output-path filename  (number->string total) extension))
-            (file-png-save-defaults RUN-NONINTERACTIVE new-image new-layer dest dest)
+            (file-png-save RUN-NONINTERACTIVE new-image new-layer dest dest 0 9 0 1 1 1 1)
 
             (if (= interactive 1)
                 (begin
