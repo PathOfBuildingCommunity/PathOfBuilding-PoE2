@@ -245,7 +245,7 @@ local uiImages = parseUIImages()
 -- print_table(uiImages, 0)
 
 -- Set to true if you want to generate assets
-local generateAssets = true
+local generateAssets = false
 -- Find a way to get the default passive tree
 local idPassiveTree = 'Default'
 -- Find a way to get version
@@ -1056,6 +1056,7 @@ gimpbatch.extract_lines_from_image("lines", linesFiles, main.ggpk.oozPath, baseP
 
 printf("generate lines info into assets")
 -- Generate sprites
+local curveOrbitfile = 9
 for _, lines in ipairs(linesFiles) do
 	for i = 0, lines.total - 1 do
 		local name
@@ -1063,14 +1064,21 @@ for _, lines in ipairs(linesFiles) do
 		if i == 0 then
 			name = lines.first .. lines.posfix
 			middle = 0
+		elseif i == 3 then
+			curveOrbitfile = curveOrbitfile - 1
+			middle = curveOrbitfile
+		elseif i == 7 then
+			middle = 7
 		else
 			name = lines.prefix .. i .. lines.posfix
-			middle = lines.total - i
+			middle = curveOrbitfile
+
+			curveOrbitfile = curveOrbitfile - 1
 		end
 
 		tree.assets[name] = {
 			lines.basename .. middle .. lines.extension
-		} 
+		}
 	end
 end
 
