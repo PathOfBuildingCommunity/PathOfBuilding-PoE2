@@ -29,49 +29,49 @@ return {
 			[1]="orbitnormal8.png"
 		},
 		Orbit3Active={
-			[1]="orbitactive7.png"
-		},
-		Orbit3Intermediate={
-			[1]="orbitintemediate7.png"
-		},
-		Orbit3Normal={
-			[1]="orbitnormal7.png"
-		},
-		Orbit4Active={
 			[1]="orbitactive6.png"
 		},
-		Orbit4Intermediate={
+		Orbit3Intermediate={
 			[1]="orbitintemediate6.png"
 		},
-		Orbit4Normal={
+		Orbit3Normal={
 			[1]="orbitnormal6.png"
 		},
-		Orbit5Active={
+		Orbit4Active={
 			[1]="orbitactive5.png"
 		},
-		Orbit5Intermediate={
+		Orbit4Intermediate={
 			[1]="orbitintemediate5.png"
 		},
-		Orbit5Normal={
+		Orbit4Normal={
 			[1]="orbitnormal5.png"
 		},
-		Orbit6Active={
+		Orbit5Active={
 			[1]="orbitactive4.png"
 		},
-		Orbit6Intermediate={
+		Orbit5Intermediate={
 			[1]="orbitintemediate4.png"
 		},
-		Orbit6Normal={
+		Orbit5Normal={
 			[1]="orbitnormal4.png"
 		},
-		Orbit7Active={
+		Orbit6Active={
 			[1]="orbitactive3.png"
 		},
-		Orbit7Intermediate={
+		Orbit6Intermediate={
 			[1]="orbitintemediate3.png"
 		},
-		Orbit7Normal={
+		Orbit6Normal={
 			[1]="orbitnormal3.png"
+		},
+		Orbit7Active={
+			[1]="orbitactive7.png"
+		},
+		Orbit7Intermediate={
+			[1]="orbitintemediate7.png"
+		},
+		Orbit7Normal={
+			[1]="orbitnormal7.png"
 		},
 		Orbit8Active={
 			[1]="orbitactive2.png"
