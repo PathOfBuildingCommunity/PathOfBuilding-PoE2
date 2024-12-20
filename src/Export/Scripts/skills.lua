@@ -298,7 +298,7 @@ directiveTable.skill = function(state, args, out)
 	end
 	if gemEffect then
 		for _, tag in ipairs(gemEffect.Tags) do
-			if isTagWeCareAbout(tag) then
+			if isTagWeCareAbout(tag.Id) then
 				skill.baseFlags[tag.Id] = true
 			end
 		end

@@ -18,6 +18,7 @@ skills["AncestralSpiritsPlayer"] = {
 	castTime = 0,
 	fromTree = true,
 	baseFlags = {
+		duration = true,
 	},
 	qualityStats = {
 		Default = {
@@ -85,6 +86,9 @@ skills["BleedingConcoctionPlayer"] = {
 	castTime = 1,
 	fromTree = true,
 	baseFlags = {
+		projectile = true,
+		area = true,
+		attack = true,
 	},
 	qualityStats = {
 		Default = {
@@ -169,6 +173,8 @@ skills["MeleeBowPlayer"] = {
 	castTime = 1,
 	fromItem = true,
 	baseFlags = {
+		projectile = true,
+		attack = true,
 	},
 	constantStats = {
 		{ "movement_speed_+%_final_while_performing_action", -70 },
@@ -238,6 +244,9 @@ skills["MeleeCrossbowPlayer"] = {
 	castTime = 1,
 	fromItem = true,
 	baseFlags = {
+		projectile = true,
+		area = true,
+		attack = true,
 	},
 	constantStats = {
 		{ "action_required_target_facing_angle_tolerance_degrees", 90 },
@@ -380,6 +389,9 @@ skills["ElementalExpressionTriggeredPlayer"] = {
 	castTime = 0,
 	fromTree = true,
 	baseFlags = {
+		projectile = true,
+		area = true,
+		chaining = true,
 	},
 	qualityStats = {
 		Default = {
@@ -598,6 +610,8 @@ skills["ElementalStormPlayer"] = {
 	castTime = 0,
 	fromTree = true,
 	baseFlags = {
+		duration = true,
+		area = true,
 	},
 	qualityStats = {
 		Default = {
@@ -811,6 +825,7 @@ skills["EncaseInJadePlayer"] = {
 	castTime = 0.3,
 	fromTree = true,
 	baseFlags = {
+		duration = true,
 	},
 	qualityStats = {
 		Default = {
@@ -880,6 +895,10 @@ skills["ExplosiveConcoctionPlayer"] = {
 	castTime = 1,
 	fromTree = true,
 	baseFlags = {
+		projectile = true,
+		area = true,
+		duration = true,
+		attack = true,
 	},
 	qualityStats = {
 		Default = {
@@ -963,6 +982,10 @@ skills["FulminatingConcoctionPlayer"] = {
 	castTime = 1,
 	fromTree = true,
 	baseFlags = {
+		projectile = true,
+		area = true,
+		duration = true,
+		attack = true,
 	},
 	qualityStats = {
 		Default = {
@@ -1186,6 +1209,9 @@ skills["Melee1HMacePlayer"] = {
 	castTime = 1,
 	fromItem = true,
 	baseFlags = {
+		area = true,
+		melee = true,
+		attack = true,
 	},
 	constantStats = {
 		{ "melee_conditional_step_distance", 10 },
@@ -1250,6 +1276,9 @@ skills["Melee2HMacePlayer"] = {
 	castTime = 1,
 	fromItem = true,
 	baseFlags = {
+		area = true,
+		melee = true,
+		attack = true,
 	},
 	constantStats = {
 		{ "melee_conditional_step_distance", 10 },
@@ -1315,6 +1344,9 @@ skills["MeleeMaceMacePlayer"] = {
 	castTime = 1,
 	fromItem = true,
 	baseFlags = {
+		area = true,
+		melee = true,
+		attack = true,
 	},
 	constantStats = {
 		{ "melee_conditional_step_distance", 10 },
@@ -1450,6 +1482,9 @@ skills["PoisonousConcoctionPlayer"] = {
 	castTime = 1,
 	fromTree = true,
 	baseFlags = {
+		projectile = true,
+		area = true,
+		attack = true,
 	},
 	qualityStats = {
 		Default = {
@@ -1594,6 +1629,9 @@ skills["MeleeQuarterstaffPlayer"] = {
 	castTime = 1,
 	fromItem = true,
 	baseFlags = {
+		area = true,
+		melee = true,
+		attack = true,
 	},
 	constantStats = {
 		{ "melee_conditional_step_distance", 10 },
@@ -1657,6 +1695,10 @@ skills["ShatteringConcoctionPlayer"] = {
 	castTime = 1,
 	fromTree = true,
 	baseFlags = {
+		projectile = true,
+		area = true,
+		duration = true,
+		attack = true,
 	},
 	qualityStats = {
 		Default = {
@@ -1945,6 +1987,8 @@ skills["TimeFreezePlayer"] = {
 	castTime = 0.7,
 	fromTree = true,
 	baseFlags = {
+		duration = true,
+		area = true,
 	},
 	qualityStats = {
 		Default = {
@@ -2075,6 +2119,7 @@ skills["UnboundAvatarPlayer"] = {
 	castTime = 0,
 	fromTree = true,
 	baseFlags = {
+		duration = true,
 	},
 	qualityStats = {
 		Default = {

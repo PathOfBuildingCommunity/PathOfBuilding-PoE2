@@ -23,6 +23,10 @@ skills["AncestralWarriorTotemPlayer"] = {
 	skillTotemId = 15,
 	castTime = 0.5,
 	baseFlags = {
+		area = true,
+		duration = true,
+		melee = true,
+		attack = true,
 		totem = true,
 	},
 	qualityStats = {
@@ -168,6 +172,9 @@ skills["ArmourBreakerPlayer"] = {
 	statDescriptionScope = "heavy_strike",
 	castTime = 1,
 	baseFlags = {
+		area = true,
+		melee = true,
+		attack = true,
 	},
 	qualityStats = {
 		Default = {
@@ -241,6 +248,11 @@ skills["ArtilleryBallistaPlayer"] = {
 	skillTotemId = 19,
 	castTime = 1,
 	baseFlags = {
+		projectile = true,
+		area = true,
+		duration = true,
+		attack = true,
+		totem = true,
 	},
 	qualityStats = {
 		Default = {
@@ -582,6 +594,9 @@ skills["BoneshatterPlayer"] = {
 	statDescriptionScope = "boneshatter",
 	castTime = 1,
 	baseFlags = {
+		area = true,
+		melee = true,
+		attack = true,
 	},
 	qualityStats = {
 		Default = {
@@ -922,6 +937,10 @@ skills["ClusterGrenadePlayer"] = {
 	statDescriptionScope = "cluster_grenade",
 	castTime = 1,
 	baseFlags = {
+		projectile = true,
+		area = true,
+		duration = true,
+		attack = true,
 	},
 	qualityStats = {
 		Default = {
@@ -1082,6 +1101,8 @@ skills["DefianceBannerReservationPlayer"] = {
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
 	baseFlags = {
+		duration = true,
+		area = true,
 	},
 	constantStats = {
 		{ "gain_x_valour_per_minute_while_unique_presence", 60 },
@@ -1213,6 +1234,8 @@ skills["DreadBannerReservationPlayer"] = {
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
 	baseFlags = {
+		duration = true,
+		area = true,
 	},
 	constantStats = {
 		{ "gain_x_valour_per_minute_while_unique_presence", 60 },
@@ -1373,10 +1396,10 @@ skills["EarthquakePlayer"] = {
 		},
 	},
 	baseFlags = {
-		attack = true,
+		melee = true,
 		area = true,
 		duration = true,
-		melee = true,
+		attack = true,
 	},
 	baseMods = {
 		skill("showAverage", true, { type = "SkillPart", skillPart = 2 }),
@@ -1505,10 +1528,10 @@ skills["EarthshatterPlayer"] = {
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
 	baseFlags = {
-		attack = true,
+		melee = true,
 		area = true,
 		duration = true,
-		melee = true,
+		attack = true,
 	},
 	qualityStats = {
 		Default = {
@@ -1624,6 +1647,7 @@ skills["EmergencyReloadPlayer"] = {
 	statDescriptionScope = "emergency_reload",
 	castTime = 0,
 	baseFlags = {
+		duration = true,
 	},
 	qualityStats = {
 		Default = {
@@ -1694,6 +1718,10 @@ skills["ExplosiveGrenadePlayer"] = {
 	statDescriptionScope = "explosive_grenade",
 	castTime = 1,
 	baseFlags = {
+		projectile = true,
+		area = true,
+		duration = true,
+		attack = true,
 	},
 	qualityStats = {
 		Default = {
@@ -1775,6 +1803,10 @@ skills["FlashGrenadePlayer"] = {
 	statDescriptionScope = "flash_grenade",
 	castTime = 1,
 	baseFlags = {
+		projectile = true,
+		area = true,
+		duration = true,
+		attack = true,
 	},
 	qualityStats = {
 		Default = {
@@ -1858,6 +1890,10 @@ skills["ToxicGrenadePlayer"] = {
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
 	baseFlags = {
+		projectile = true,
+		area = true,
+		duration = true,
+		attack = true,
 	},
 	qualityStats = {
 		Default = {
@@ -2047,6 +2083,10 @@ skills["HammerOfTheGodsPlayer"] = {
 	statDescriptionScope = "hammer_of_the_gods",
 	castTime = 1,
 	baseFlags = {
+		melee = true,
+		area = true,
+		duration = true,
+		attack = true,
 	},
 	qualityStats = {
 		Default = {
@@ -2130,6 +2170,8 @@ skills["HeraldOfAshPlayer"] = {
 	statDescriptionScope = "herald_of_ash",
 	castTime = 0,
 	baseFlags = {
+		duration = true,
+		area = true,
 	},
 	qualityStats = {
 		Default = {
@@ -2245,6 +2287,8 @@ skills["InfernalCryPlayer"] = {
 	statDescriptionScope = "infernal_cry",
 	castTime = 0.8,
 	baseFlags = {
+		duration = true,
+		area = true,
 	},
 	qualityStats = {
 		Default = {
@@ -2397,6 +2441,9 @@ skills["LeapSlamPlayer"] = {
 	statDescriptionScope = "leap_slam",
 	castTime = 1.4,
 	baseFlags = {
+		area = true,
+		melee = true,
+		attack = true,
 	},
 	qualityStats = {
 		Default = {
@@ -2474,6 +2521,8 @@ skills["ArmourPiercingBoltsAmmoPlayer"] = {
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 0.6,
 	baseFlags = {
+		projectile = true,
+		attack = true,
 	},
 	constantStats = {
 		{ "action_allowed_queue_time_override_ms", 1000 },
@@ -2625,6 +2674,9 @@ skills["ExplosiveShotAmmoPlayer"] = {
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1.5,
 	baseFlags = {
+		projectile = true,
+		area = true,
+		attack = true,
 	},
 	constantStats = {
 		{ "base_number_of_crossbow_bolts", 1 },
@@ -2829,6 +2881,8 @@ skills["FragmentationRoundsAmmoPlayer"] = {
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 0.8,
 	baseFlags = {
+		projectile = true,
+		attack = true,
 	},
 	constantStats = {
 		{ "base_number_of_crossbow_bolts", 1 },
@@ -3034,6 +3088,9 @@ skills["GalvanicShardsAmmoPlayer"] = {
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 0.6,
 	baseFlags = {
+		projectile = true,
+		chaining = true,
+		attack = true,
 	},
 	qualityStats = {
 		Default = {
@@ -3237,6 +3294,10 @@ skills["GlacialBoltAmmoPlayer"] = {
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
 	baseFlags = {
+		projectile = true,
+		area = true,
+		duration = true,
+		attack = true,
 	},
 	qualityStats = {
 		Default = {
@@ -3443,6 +3504,9 @@ skills["HailstormRoundsAmmoPlayer"] = {
 	statDescriptionScope = "siege_cascade_permafrost_ammo",
 	castTime = 1,
 	baseFlags = {
+		projectile = true,
+		area = true,
+		attack = true,
 	},
 	constantStats = {
 		{ "action_allowed_queue_time_override_ms", 1000 },
@@ -3591,6 +3655,8 @@ skills["HighVelocityRoundsAmmoPlayer"] = {
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
 	baseFlags = {
+		projectile = true,
+		attack = true,
 	},
 	constantStats = {
 		{ "base_number_of_crossbow_bolts", 1 },
@@ -3792,6 +3858,9 @@ skills["IceShardsAmmoPlayer"] = {
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 0.6,
 	baseFlags = {
+		projectile = true,
+		area = true,
+		attack = true,
 	},
 	constantStats = {
 		{ "base_number_of_crossbow_bolts", 12 },
@@ -3998,6 +4067,9 @@ skills["IncendiaryShotAmmoPlayer"] = {
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 0.8,
 	baseFlags = {
+		projectile = true,
+		area = true,
+		attack = true,
 	},
 	constantStats = {
 		{ "base_number_of_crossbow_bolts", 1 },
@@ -4205,6 +4277,9 @@ skills["PermafrostBoltsAmmoPlayer"] = {
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 0.8,
 	baseFlags = {
+		projectile = true,
+		area = true,
+		attack = true,
 	},
 	constantStats = {
 		{ "base_number_of_crossbow_bolts", 1 },
@@ -4407,6 +4482,9 @@ skills["PlasmaBlastAmmoPlayer"] = {
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
 	baseFlags = {
+		projectile = true,
+		area = true,
+		attack = true,
 	},
 	constantStats = {
 		{ "base_number_of_crossbow_bolts", 1 },
@@ -4610,6 +4688,8 @@ skills["RapidShotAmmoPlayer"] = {
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1.2,
 	baseFlags = {
+		projectile = true,
+		attack = true,
 	},
 	constantStats = {
 		{ "action_allowed_queue_time_override_ms", 1000 },
@@ -4770,6 +4850,9 @@ skills["ShockburstRoundsAmmoPlayer"] = {
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 0.8,
 	baseFlags = {
+		projectile = true,
+		area = true,
+		attack = true,
 	},
 	constantStats = {
 		{ "action_allowed_queue_time_override_ms", 1000 },
@@ -4972,6 +5055,9 @@ skills["SiegeCascadeAmmoPlayer"] = {
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
 	baseFlags = {
+		projectile = true,
+		area = true,
+		attack = true,
 	},
 	constantStats = {
 		{ "base_number_of_crossbow_bolts", 1 },
@@ -5168,6 +5254,10 @@ skills["StormblastBoltsAmmoPlayer"] = {
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
 	baseFlags = {
+		projectile = true,
+		area = true,
+		duration = true,
+		attack = true,
 	},
 	constantStats = {
 		{ "base_number_of_crossbow_bolts", 5 },
@@ -5365,6 +5455,10 @@ skills["MagmaBarrierPlayer"] = {
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 0,
 	baseFlags = {
+		melee = true,
+		area = true,
+		duration = true,
+		attack = true,
 	},
 	qualityStats = {
 		Default = {
@@ -5502,6 +5596,9 @@ skills["MoltenBlastPlayer"] = {
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
 	baseFlags = {
+		projectile = true,
+		area = true,
+		attack = true,
 	},
 	qualityStats = {
 		Default = {
@@ -5631,6 +5728,10 @@ skills["OilGrenadePlayer"] = {
 	statDescriptionScope = "oil_grenade",
 	castTime = 1,
 	baseFlags = {
+		projectile = true,
+		area = true,
+		duration = true,
+		attack = true,
 	},
 	qualityStats = {
 		Default = {
@@ -5786,6 +5887,10 @@ skills["PerfectStrikePlayer"] = {
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
 	baseFlags = {
+		melee = true,
+		area = true,
+		duration = true,
+		attack = true,
 	},
 	qualityStats = {
 		Default = {
@@ -5909,6 +6014,9 @@ skills["ResonatingShieldPlayer"] = {
 	statDescriptionScope = "shield_drum",
 	castTime = 1,
 	baseFlags = {
+		area = true,
+		melee = true,
+		attack = true,
 	},
 	qualityStats = {
 		Default = {
@@ -5989,6 +6097,10 @@ skills["RipwireBallistaPlayer"] = {
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
 	baseFlags = {
+		projectile = true,
+		attack = true,
+		duration = true,
+		totem = true,
 	},
 	constantStats = {
 		{ "base_totem_range", 60 },
@@ -6064,6 +6176,8 @@ skills["RipwireBallistaProjectilePlayer"] = {
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
 	baseFlags = {
+		projectile = true,
+		attack = true,
 	},
 	qualityStats = {
 		Default = {
@@ -6147,6 +6261,9 @@ skills["RollingSlamPlayer"] = {
 	statDescriptionScope = "double_slam",
 	castTime = 1,
 	baseFlags = {
+		area = true,
+		melee = true,
+		attack = true,
 	},
 	qualityStats = {
 		Default = {
@@ -6320,6 +6437,7 @@ skills["ScavengedPlatingPlayer"] = {
 	statDescriptionScope = "scavenged_plating",
 	castTime = 1,
 	baseFlags = {
+		duration = true,
 	},
 	qualityStats = {
 		Default = {
@@ -6391,6 +6509,8 @@ skills["SeismicCryPlayer"] = {
 	statDescriptionScope = "seismic_cry",
 	castTime = 0.8,
 	baseFlags = {
+		duration = true,
+		area = true,
 	},
 	qualityStats = {
 		Default = {
@@ -6541,6 +6661,9 @@ skills["ShieldChargePlayer"] = {
 	statDescriptionScope = "channel_shield_charge",
 	castTime = 1,
 	baseFlags = {
+		area = true,
+		melee = true,
+		attack = true,
 	},
 	qualityStats = {
 		Default = {
@@ -6674,6 +6797,9 @@ skills["ShieldWallPlayer"] = {
 	statDescriptionScope = "shield_barricade",
 	castTime = 1,
 	baseFlags = {
+		area = true,
+		duration = true,
+		attack = true,
 	},
 	qualityStats = {
 		Default = {
@@ -6766,6 +6892,11 @@ skills["ShockwaveTotemPlayer"] = {
 	skillTotemId = 5,
 	castTime = 0.6,
 	baseFlags = {
+		area = true,
+		duration = true,
+		melee = true,
+		attack = true,
+		totem = true,
 	},
 	qualityStats = {
 		Default = {
@@ -6950,6 +7081,10 @@ skills["StampedePlayer"] = {
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
 	baseFlags = {
+		melee = true,
+		area = true,
+		duration = true,
+		attack = true,
 	},
 	qualityStats = {
 		Default = {
@@ -7123,6 +7258,9 @@ skills["SunderPlayer"] = {
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
 	baseFlags = {
+		area = true,
+		melee = true,
+		attack = true,
 	},
 	qualityStats = {
 		Default = {
@@ -7252,6 +7390,9 @@ skills["SuperchargedSlamPlayer"] = {
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
 	baseFlags = {
+		area = true,
+		melee = true,
+		attack = true,
 	},
 	qualityStats = {
 		Default = {
@@ -7374,6 +7515,7 @@ skills["TimeOfNeedPlayer"] = {
 	statDescriptionScope = "time_of_need",
 	castTime = 1,
 	baseFlags = {
+		duration = true,
 	},
 	qualityStats = {
 		Default = {
@@ -7442,6 +7584,10 @@ skills["VolcanicFissurePlayer"] = {
 	statDescriptionScope = "volcanic_fissure",
 	castTime = 1,
 	baseFlags = {
+		melee = true,
+		area = true,
+		duration = true,
+		attack = true,
 	},
 	qualityStats = {
 		Default = {
@@ -7555,6 +7701,10 @@ skills["ShockGrenadePlayer"] = {
 	statDescriptionScope = "shock_grenade",
 	castTime = 1,
 	baseFlags = {
+		projectile = true,
+		area = true,
+		duration = true,
+		attack = true,
 	},
 	qualityStats = {
 		Default = {
@@ -7638,6 +7788,8 @@ skills["WarBannerReservationPlayer"] = {
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
 	baseFlags = {
+		duration = true,
+		area = true,
 	},
 	constantStats = {
 		{ "gain_x_valour_per_minute_while_unique_presence", 60 },

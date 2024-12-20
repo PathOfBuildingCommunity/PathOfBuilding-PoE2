@@ -228,6 +228,8 @@ skills["BallLightningPlayer"] = {
 	statDescriptionScope = "ball_lightning",
 	castTime = 1,
 	baseFlags = {
+		projectile = true,
+		area = true,
 	},
 	qualityStats = {
 		Default = {
@@ -430,6 +432,7 @@ skills["BlasphemyPlayer"] = {
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 0,
 	baseFlags = {
+		area = true,
 	},
 	qualityStats = {
 		Default = {
@@ -682,6 +685,8 @@ skills["BoneBlastPlayer"] = {
 	statDescriptionScope = "bone_blast",
 	castTime = 0.75,
 	baseFlags = {
+		duration = true,
+		area = true,
 	},
 	qualityStats = {
 		Default = {
@@ -757,6 +762,8 @@ skills["BoneCagePlayer"] = {
 	statDescriptionScope = "ring_of_bone",
 	castTime = 1,
 	baseFlags = {
+		duration = true,
+		area = true,
 	},
 	qualityStats = {
 		Default = {
@@ -838,6 +845,8 @@ skills["BoneOfferingPlayer"] = {
 	statDescriptionScope = "bone_offering",
 	castTime = 0.6,
 	baseFlags = {
+		duration = true,
+		area = true,
 	},
 	qualityStats = {
 		Default = {
@@ -911,6 +920,9 @@ skills["BonestormPlayer"] = {
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 0.75,
 	baseFlags = {
+		projectile = true,
+		area = true,
+		duration = true,
 	},
 	qualityStats = {
 		Default = {
@@ -1871,6 +1883,7 @@ skills["WeaponGrantedChaosboltPlayer"] = {
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 0.75,
 	baseFlags = {
+		projectile = true,
 	},
 	qualityStats = {
 		Default = {
@@ -2014,6 +2027,9 @@ skills["ChargedStaffPlayer"] = {
 	statDescriptionScope = "charged_staff",
 	castTime = 0.75,
 	baseFlags = {
+		area = true,
+		duration = true,
+		attack = true,
 	},
 	qualityStats = {
 		Default = {
@@ -2146,6 +2162,7 @@ skills["ColdSnapPlayer"] = {
 	statDescriptionScope = "shatter",
 	castTime = 0.5,
 	baseFlags = {
+		area = true,
 	},
 	qualityStats = {
 		Default = {
@@ -2221,6 +2238,7 @@ skills["CometPlayer"] = {
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
 	baseFlags = {
+		area = true,
 	},
 	qualityStats = {
 		Default = {
@@ -2292,6 +2310,8 @@ skills["ConductivityPlayer"] = {
 	statDescriptionScope = "lightning_weakness",
 	castTime = 0.7,
 	baseFlags = {
+		duration = true,
+		area = true,
 	},
 	qualityStats = {
 		Default = {
@@ -2366,6 +2386,8 @@ skills["ContagionPlayer"] = {
 	statDescriptionScope = "contagion",
 	castTime = 1,
 	baseFlags = {
+		duration = true,
+		area = true,
 	},
 	qualityStats = {
 		Default = {
@@ -2440,6 +2462,10 @@ skills["DarkEffigyPlayer"] = {
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
 	baseFlags = {
+		projectile = true,
+		area = true,
+		duration = true,
+		totem = true,
 	},
 	qualityStats = {
 		Default = {
@@ -2582,6 +2608,8 @@ skills["CorpseCloudPlayer"] = {
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 0.8,
 	baseFlags = {
+		duration = true,
+		area = true,
 	},
 	qualityStats = {
 		Default = {
@@ -2704,6 +2732,8 @@ skills["DespairPlayer"] = {
 	statDescriptionScope = "despair",
 	castTime = 0.7,
 	baseFlags = {
+		duration = true,
+		area = true,
 	},
 	qualityStats = {
 		Default = {
@@ -2778,6 +2808,7 @@ skills["DetonateDeadPlayer"] = {
 	statDescriptionScope = "detonate_dead",
 	castTime = 0.8,
 	baseFlags = {
+		area = true,
 	},
 	qualityStats = {
 		Default = {
@@ -2918,6 +2949,7 @@ skills["ElementalConfluxPlayer"] = {
 	statDescriptionScope = "elemental_conflux",
 	castTime = 1,
 	baseFlags = {
+		duration = true,
 	},
 	qualityStats = {
 		Default = {
@@ -3116,6 +3148,9 @@ skills["BlazingClusterPlayer"] = {
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 0.4,
 	baseFlags = {
+		projectile = true,
+		area = true,
+		duration = true,
 	},
 	qualityStats = {
 		Default = {
@@ -3241,6 +3276,8 @@ skills["EnfeeblePlayer"] = {
 	statDescriptionScope = "enfeeble",
 	castTime = 0.7,
 	baseFlags = {
+		duration = true,
+		area = true,
 	},
 	qualityStats = {
 		Default = {
@@ -3316,6 +3353,8 @@ skills["EssenceDrainPlayer"] = {
 	statDescriptionScope = "essence_drain",
 	castTime = 0.8,
 	baseFlags = {
+		projectile = true,
+		duration = true,
 	},
 	qualityStats = {
 		Default = {
@@ -3444,6 +3483,7 @@ skills["EyeOfWinterPlayer"] = {
 	statDescriptionScope = "eye_of_winter_new",
 	castTime = 1.1,
 	baseFlags = {
+		projectile = true,
 	},
 	qualityStats = {
 		Default = {
@@ -3522,6 +3562,10 @@ skills["FallingThunderPlayer"] = {
 	statDescriptionScope = "new_new_lightning_strike",
 	castTime = 1,
 	baseFlags = {
+		projectile = true,
+		area = true,
+		melee = true,
+		attack = true,
 	},
 	qualityStats = {
 		Default = {
@@ -3652,6 +3696,8 @@ skills["FireballPlayer"] = {
 	statDescriptionScope = "greater_fireball",
 	castTime = 1.2,
 	baseFlags = {
+		projectile = true,
+		area = true,
 	},
 	qualityStats = {
 		Default = {
@@ -3826,6 +3872,8 @@ skills["FireboltPlayer"] = {
 	statDescriptionScope = "fireball",
 	castTime = 0.9,
 	baseFlags = {
+		projectile = true,
+		area = true,
 	},
 	qualityStats = {
 		Default = {
@@ -3952,6 +4000,8 @@ skills["FirestormPlayer"] = {
 	statDescriptionScope = "fire_storm",
 	castTime = 1.4,
 	baseFlags = {
+		duration = true,
+		area = true,
 	},
 	qualityStats = {
 		Default = {
@@ -4082,6 +4132,8 @@ skills["FlameWallPlayer"] = {
 	statDescriptionScope = "firewall",
 	castTime = 1,
 	baseFlags = {
+		duration = true,
+		area = true,
 	},
 	qualityStats = {
 		Default = {
@@ -4206,6 +4258,7 @@ skills["FlameblastPlayer"] = {
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 0.25,
 	baseFlags = {
+		area = true,
 	},
 	qualityStats = {
 		Default = {
@@ -4285,6 +4338,8 @@ skills["FlammabilityPlayer"] = {
 	statDescriptionScope = "fire_weakness",
 	castTime = 0.7,
 	baseFlags = {
+		duration = true,
+		area = true,
 	},
 	qualityStats = {
 		Default = {
@@ -4358,6 +4413,9 @@ skills["FlickerStrikePlayer"] = {
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
 	baseFlags = {
+		area = true,
+		melee = true,
+		attack = true,
 	},
 	qualityStats = {
 		Default = {
@@ -4426,6 +4484,9 @@ skills["FreezingMarkPlayer"] = {
 	statDescriptionScope = "freezing_mark",
 	castTime = 0.5,
 	baseFlags = {
+		area = true,
+		duration = true,
+		attack = true,
 	},
 	qualityStats = {
 		Default = {
@@ -4567,6 +4628,7 @@ skills["FreezingShardsPlayer"] = {
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1.2,
 	baseFlags = {
+		projectile = true,
 	},
 	qualityStats = {
 		Default = {
@@ -4644,6 +4706,8 @@ skills["FrostBombPlayer"] = {
 	statDescriptionScope = "frost_bomb",
 	castTime = 0.8,
 	baseFlags = {
+		duration = true,
+		area = true,
 	},
 	qualityStats = {
 		Default = {
@@ -4724,6 +4788,8 @@ skills["FrostWallPlayer"] = {
 	statDescriptionScope = "frost_wall_new",
 	castTime = 0.8,
 	baseFlags = {
+		duration = true,
+		area = true,
 	},
 	qualityStats = {
 		Default = {
@@ -4801,6 +4867,8 @@ skills["HypothermiaPlayer"] = {
 	statDescriptionScope = "cold_weakness",
 	castTime = 0.7,
 	baseFlags = {
+		duration = true,
+		area = true,
 	},
 	qualityStats = {
 		Default = {
@@ -4875,6 +4943,9 @@ skills["FrostboltPlayer"] = {
 	statDescriptionScope = "frost_bolt",
 	castTime = 0.8,
 	baseFlags = {
+		projectile = true,
+		area = true,
+		duration = true,
 	},
 	qualityStats = {
 		Default = {
@@ -5001,6 +5072,10 @@ skills["FrozenLocusPlayer"] = {
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
 	baseFlags = {
+		melee = true,
+		area = true,
+		duration = true,
+		attack = true,
 	},
 	qualityStats = {
 		Default = {
@@ -5198,6 +5273,9 @@ skills["GalvanicFieldPlayer"] = {
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 0.5,
 	baseFlags = {
+		chaining = true,
+		area = true,
+		duration = true,
 	},
 	qualityStats = {
 		Default = {
@@ -5273,6 +5351,9 @@ skills["GatheringStormPlayer"] = {
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
 	baseFlags = {
+		area = true,
+		melee = true,
+		attack = true,
 	},
 	qualityStats = {
 		Default = {
@@ -5448,6 +5529,7 @@ skills["GhostDancePlayer"] = {
 	statDescriptionScope = "ghost_dance",
 	castTime = 0,
 	baseFlags = {
+		duration = true,
 	},
 	qualityStats = {
 		Default = {
@@ -5515,6 +5597,9 @@ skills["GlacialCascadePlayer"] = {
 	statDescriptionScope = "glacial_cascade_attack",
 	castTime = 1,
 	baseFlags = {
+		area = true,
+		melee = true,
+		attack = true,
 	},
 	qualityStats = {
 		Default = {
@@ -5714,6 +5799,9 @@ skills["HandOfChayulaPlayer"] = {
 	statDescriptionScope = "hand_of_chayula",
 	castTime = 1,
 	baseFlags = {
+		area = true,
+		melee = true,
+		attack = true,
 	},
 	constantStats = {
 		{ "melee_conditional_step_distance", 10 },
@@ -5853,6 +5941,8 @@ skills["HeraldOfIcePlayer"] = {
 	statDescriptionScope = "herald_of_ice",
 	castTime = 0,
 	baseFlags = {
+		area = true,
+		attack = true,
 	},
 	qualityStats = {
 		Default = {
@@ -5972,6 +6062,7 @@ skills["HexblastPlayer"] = {
 	statDescriptionScope = "hexblast",
 	castTime = 1,
 	baseFlags = {
+		area = true,
 	},
 	qualityStats = {
 		Default = {
@@ -6047,6 +6138,7 @@ skills["IceNovaPlayer"] = {
 	statDescriptionScope = "ice_nova",
 	castTime = 1,
 	baseFlags = {
+		area = true,
 	},
 	qualityStats = {
 		Default = {
@@ -6171,6 +6263,9 @@ skills["IceStrikePlayer"] = {
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
 	baseFlags = {
+		area = true,
+		melee = true,
+		attack = true,
 	},
 	qualityStats = {
 		Default = {
@@ -6290,6 +6385,8 @@ skills["IncineratePlayer"] = {
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 0.25,
 	baseFlags = {
+		duration = true,
+		area = true,
 	},
 	qualityStats = {
 		Default = {
@@ -6428,6 +6525,9 @@ skills["KillingPalmPlayer"] = {
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
 	baseFlags = {
+		area = true,
+		melee = true,
+		attack = true,
 	},
 	qualityStats = {
 		Default = {
@@ -6504,6 +6604,7 @@ skills["LightningBoltPlayer"] = {
 	statDescriptionScope = "lightning_bolt",
 	castTime = 0.85,
 	baseFlags = {
+		area = true,
 	},
 	qualityStats = {
 		Default = {
@@ -6578,6 +6679,7 @@ skills["LightningConduitPlayer"] = {
 	statDescriptionScope = "lightning_conduit",
 	castTime = 1,
 	baseFlags = {
+		area = true,
 	},
 	qualityStats = {
 		Default = {
@@ -6650,6 +6752,8 @@ skills["LightningWarpPlayer"] = {
 	statDescriptionScope = "teleport_ball",
 	castTime = 0.5,
 	baseFlags = {
+		duration = true,
+		area = true,
 	},
 	qualityStats = {
 		Default = {
@@ -6724,6 +6828,7 @@ skills["LingeringIllusionPlayer"] = {
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 0,
 	baseFlags = {
+		duration = true,
 	},
 	stats = {
 		"base_deal_no_damage",
@@ -6851,6 +6956,8 @@ skills["LivingBombPlayer"] = {
 	statDescriptionScope = "living_bomb_player",
 	castTime = 0.6,
 	baseFlags = {
+		duration = true,
+		area = true,
 	},
 	qualityStats = {
 		Default = {
@@ -6925,6 +7032,7 @@ skills["MalicePlayer"] = {
 	statDescriptionScope = "aura_crit_against_enemy",
 	castTime = 1,
 	baseFlags = {
+		duration = true,
 	},
 	qualityStats = {
 		Default = {
@@ -7205,6 +7313,7 @@ skills["MantraOfDestructionPlayer"] = {
 	statDescriptionScope = "mantra_of_destruction",
 	castTime = 0.6,
 	baseFlags = {
+		duration = true,
 	},
 	qualityStats = {
 		Default = {
@@ -7283,6 +7392,9 @@ skills["OrbOfStormsPlayer"] = {
 	statDescriptionScope = "orb_of_storms",
 	castTime = 0.8,
 	baseFlags = {
+		chaining = true,
+		area = true,
+		duration = true,
 	},
 	qualityStats = {
 		Default = {
@@ -7365,6 +7477,8 @@ skills["PainOfferingPlayer"] = {
 	statDescriptionScope = "pain_offering",
 	castTime = 0.6,
 	baseFlags = {
+		duration = true,
+		area = true,
 	},
 	qualityStats = {
 		Default = {
@@ -7515,6 +7629,8 @@ skills["ProfaneRitualPlayer"] = {
 	statDescriptionScope = "ritual_of_power",
 	castTime = 1,
 	baseFlags = {
+		duration = true,
+		area = true,
 	},
 	qualityStats = {
 		Default = {
@@ -7786,6 +7902,7 @@ skills["RagingSpiritsPlayer"] = {
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
 	baseFlags = {
+		duration = true,
 	},
 	qualityStats = {
 		Default = {
@@ -7858,6 +7975,7 @@ skills["RaiseZombiePlayer"] = {
 	statDescriptionScope = "raise_zombie",
 	castTime = 0.6,
 	baseFlags = {
+		duration = true,
 	},
 	qualityStats = {
 		Default = {
@@ -8064,6 +8182,8 @@ skills["RollingMagmaPlayer"] = {
 	statDescriptionScope = "fire_mortar",
 	castTime = 0.7,
 	baseFlags = {
+		projectile = true,
+		area = true,
 	},
 	qualityStats = {
 		Default = {
@@ -8216,6 +8336,9 @@ skills["ShatteringPalmPlayer"] = {
 	statDescriptionScope = "shattering_palm",
 	castTime = 1,
 	baseFlags = {
+		area = true,
+		melee = true,
+		attack = true,
 	},
 	qualityStats = {
 		Default = {
@@ -8356,6 +8479,8 @@ skills["SigilOfPowerPlayer"] = {
 	statDescriptionScope = "circle_of_power",
 	castTime = 0.6,
 	baseFlags = {
+		duration = true,
+		area = true,
 	},
 	qualityStats = {
 		Default = {
@@ -8430,6 +8555,9 @@ skills["SiphoningStrikePlayer"] = {
 	statDescriptionScope = "charged_strike",
 	castTime = 1,
 	baseFlags = {
+		area = true,
+		melee = true,
+		attack = true,
 	},
 	qualityStats = {
 		Default = {
@@ -9478,6 +9606,8 @@ skills["SolarOrbPlayer"] = {
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 0.8,
 	baseFlags = {
+		duration = true,
+		area = true,
 	},
 	qualityStats = {
 		Default = {
@@ -9604,6 +9734,7 @@ skills["SoulOfferingPlayer"] = {
 	statDescriptionScope = "power_offering",
 	castTime = 1,
 	baseFlags = {
+		duration = true,
 	},
 	qualityStats = {
 		Default = {
@@ -9677,6 +9808,8 @@ skills["SparkPlayer"] = {
 	statDescriptionScope = "spark",
 	castTime = 0.7,
 	baseFlags = {
+		projectile = true,
+		duration = true,
 	},
 	qualityStats = {
 		Default = {
@@ -9761,6 +9894,11 @@ skills["StaggeringPalmPlayer"] = {
 	statDescriptionScope = "wind_palm",
 	castTime = 1,
 	baseFlags = {
+		projectile = true,
+		area = true,
+		duration = true,
+		melee = true,
+		attack = true,
 	},
 	constantStats = {
 		{ "melee_conditional_step_distance", 10 },
@@ -9974,6 +10112,9 @@ skills["StormWavePlayer"] = {
 	statDescriptionScope = "storm_wave",
 	castTime = 1,
 	baseFlags = {
+		area = true,
+		melee = true,
+		attack = true,
 	},
 	qualityStats = {
 		Default = {
@@ -10045,6 +10186,10 @@ skills["TempestBellPlayer"] = {
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
 	baseFlags = {
+		melee = true,
+		area = true,
+		duration = true,
+		attack = true,
 	},
 	qualityStats = {
 		Default = {
@@ -10225,6 +10370,9 @@ skills["TempestFlurryPlayer"] = {
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
 	baseFlags = {
+		area = true,
+		melee = true,
+		attack = true,
 	},
 	qualityStats = {
 		Default = {
@@ -10394,6 +10542,8 @@ skills["TemporalChainsPlayer"] = {
 	statDescriptionScope = "temporal_chains",
 	castTime = 0.7,
 	baseFlags = {
+		duration = true,
+		area = true,
 	},
 	qualityStats = {
 		Default = {
@@ -10470,6 +10620,8 @@ skills["UnearthPlayer"] = {
 	statDescriptionScope = "bone_cone",
 	castTime = 0.95,
 	baseFlags = {
+		duration = true,
+		area = true,
 	},
 	qualityStats = {
 		Default = {
@@ -10544,6 +10696,7 @@ skills["StaffUnleashNextSpellPlayer"] = {
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 0.75,
 	baseFlags = {
+		duration = true,
 	},
 	qualityStats = {
 		Default = {
@@ -10575,6 +10728,9 @@ skills["VaultingImpactPlayer"] = {
 	statDescriptionScope = "vaulting_impact",
 	castTime = 1,
 	baseFlags = {
+		area = true,
+		melee = true,
+		attack = true,
 	},
 	qualityStats = {
 		Default = {
@@ -10648,6 +10804,7 @@ skills["VolatileDeadPlayer"] = {
 	statDescriptionScope = "volatile_dead",
 	castTime = 0.8,
 	baseFlags = {
+		area = true,
 	},
 	qualityStats = {
 		Default = {
@@ -10722,6 +10879,8 @@ skills["VulnerabilityPlayer"] = {
 	statDescriptionScope = "vulnerability",
 	castTime = 0.7,
 	baseFlags = {
+		duration = true,
+		area = true,
 	},
 	qualityStats = {
 		Default = {
@@ -10794,6 +10953,9 @@ skills["WaveOfFrostPlayer"] = {
 	statDescriptionScope = "quarterstaff_frost_burst",
 	castTime = 1,
 	baseFlags = {
+		area = true,
+		melee = true,
+		attack = true,
 	},
 	qualityStats = {
 		Default = {
@@ -10862,6 +11024,9 @@ skills["WhirlingAssaultPlayer"] = {
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
 	baseFlags = {
+		area = true,
+		melee = true,
+		attack = true,
 	},
 	qualityStats = {
 		Default = {
@@ -10933,6 +11098,9 @@ skills["GaleStrikePlayer"] = {
 	statDescriptionScope = "gale_strike",
 	castTime = 1,
 	baseFlags = {
+		area = true,
+		melee = true,
+		attack = true,
 	},
 	qualityStats = {
 		Default = {
@@ -11010,6 +11178,7 @@ skills["WitheringPresencePlayer"] = {
 	statDescriptionScope = "withering_presence",
 	castTime = 1,
 	baseFlags = {
+		duration = true,
 	},
 	qualityStats = {
 		Default = {

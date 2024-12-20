@@ -84,6 +84,7 @@ skills["BarragePlayer"] = {
 	statDescriptionScope = "empower_barrage",
 	castTime = 0.7,
 	baseFlags = {
+		duration = true,
 	},
 	qualityStats = {
 		Default = {
@@ -224,6 +225,9 @@ skills["DetonatingArrowPlayer"] = {
 	statDescriptionScope = "detonating_arrow",
 	castTime = 1,
 	baseFlags = {
+		projectile = true,
+		area = true,
+		attack = true,
 	},
 	qualityStats = {
 		Default = {
@@ -350,6 +354,9 @@ skills["ElectrocutingArrowPlayer"] = {
 	statDescriptionScope = "electrocuting_arrow",
 	castTime = 1,
 	baseFlags = {
+		projectile = true,
+		duration = true,
+		attack = true,
 	},
 	qualityStats = {
 		Default = {
@@ -513,6 +520,9 @@ skills["FreezingSalvoPlayer"] = {
 	statDescriptionScope = "freezing_salvo",
 	castTime = 1,
 	baseFlags = {
+		projectile = true,
+		area = true,
+		attack = true,
 	},
 	qualityStats = {
 		Default = {
@@ -594,6 +604,10 @@ skills["GasArrowPlayer"] = {
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
 	baseFlags = {
+		projectile = true,
+		area = true,
+		duration = true,
+		attack = true,
 	},
 	qualityStats = {
 		Default = {
@@ -849,6 +863,8 @@ skills["HeraldOfThunderPlayer"] = {
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 0,
 	baseFlags = {
+		area = true,
+		attack = true,
 	},
 	qualityStats = {
 		Default = {
@@ -966,6 +982,8 @@ skills["IceShotPlayer"] = {
 	statDescriptionScope = "ice_shot",
 	castTime = 1,
 	baseFlags = {
+		projectile = true,
+		attack = true,
 	},
 	qualityStats = {
 		Default = {
@@ -1099,6 +1117,10 @@ skills["LightningArrowPlayer"] = {
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
 	baseFlags = {
+		projectile = true,
+		area = true,
+		chaining = true,
+		attack = true,
 	},
 	qualityStats = {
 		Default = {
@@ -1228,6 +1250,10 @@ skills["LightningRodPlayer"] = {
 	statDescriptionScope = "lightning_rod_rain",
 	castTime = 1,
 	baseFlags = {
+		projectile = true,
+		area = true,
+		duration = true,
+		attack = true,
 	},
 	qualityStats = {
 		Default = {
@@ -1308,6 +1334,9 @@ skills["MagneticSalvoPlayer"] = {
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
 	baseFlags = {
+		projectile = true,
+		area = true,
+		attack = true,
 	},
 	qualityStats = {
 		Default = {
@@ -1426,6 +1455,7 @@ skills["PlagueBearerPlayer"] = {
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 0,
 	baseFlags = {
+		area = true,
 	},
 	qualityStats = {
 		Default = {
@@ -1567,6 +1597,10 @@ skills["PoisonBurstArrowPlayer"] = {
 	statDescriptionScope = "poison_burst_arrow",
 	castTime = 1,
 	baseFlags = {
+		projectile = true,
+		area = true,
+		duration = true,
+		attack = true,
 	},
 	qualityStats = {
 		Default = {
@@ -1700,6 +1734,9 @@ skills["RainOfArrowsPlayer"] = {
 	statDescriptionScope = "rain_of_arrows_new",
 	castTime = 1,
 	baseFlags = {
+		projectile = true,
+		area = true,
+		attack = true,
 	},
 	qualityStats = {
 		Default = {
@@ -1783,6 +1820,10 @@ skills["ShockchainArrowPlayer"] = {
 	statDescriptionScope = "trick_shot",
 	castTime = 1,
 	baseFlags = {
+		projectile = true,
+		area = true,
+		chaining = true,
+		attack = true,
 	},
 	qualityStats = {
 		Default = {
@@ -1963,6 +2004,9 @@ skills["SnipePlayer"] = {
 	statDescriptionScope = "channelled_snipe",
 	castTime = 1,
 	baseFlags = {
+		projectile = true,
+		area = true,
+		attack = true,
 	},
 	qualityStats = {
 		Default = {
@@ -2094,6 +2138,7 @@ skills["SnipersMarkPlayer"] = {
 	statDescriptionScope = "snipers_mark",
 	castTime = 0.5,
 	baseFlags = {
+		duration = true,
 	},
 	qualityStats = {
 		Default = {
@@ -2168,6 +2213,8 @@ skills["SpiralVolleyPlayer"] = {
 	statDescriptionScope = "spiral_volley",
 	castTime = 1,
 	baseFlags = {
+		projectile = true,
+		attack = true,
 	},
 	qualityStats = {
 		Default = {
@@ -2246,6 +2293,10 @@ skills["StormcallerArrowPlayer"] = {
 	statDescriptionScope = "shocking_arrow",
 	castTime = 1,
 	baseFlags = {
+		projectile = true,
+		area = true,
+		duration = true,
+		attack = true,
 	},
 	qualityStats = {
 		Default = {
@@ -2377,6 +2428,10 @@ skills["TornadoShotPlayer"] = {
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
 	baseFlags = {
+		projectile = true,
+		area = true,
+		duration = true,
+		attack = true,
 	},
 	qualityStats = {
 		Default = {
@@ -2512,6 +2567,10 @@ skills["ToxicGrowthPlayer"] = {
 	statDescriptionScope = "poisonbloom_arrow",
 	castTime = 1,
 	baseFlags = {
+		projectile = true,
+		area = true,
+		duration = true,
+		attack = true,
 	},
 	qualityStats = {
 		Default = {
@@ -2642,6 +2701,10 @@ skills["VineArrowPlayer"] = {
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
 	baseFlags = {
+		projectile = true,
+		area = true,
+		duration = true,
+		attack = true,
 	},
 	qualityStats = {
 		Default = {
@@ -2768,6 +2831,9 @@ skills["VoltaicMarkPlayer"] = {
 	statDescriptionScope = "thaumaturgist_mark",
 	castTime = 0.5,
 	baseFlags = {
+		area = true,
+		duration = true,
+		attack = true,
 	},
 	qualityStats = {
 		Default = {
@@ -2918,6 +2984,9 @@ skills["WindDancerPlayer"] = {
 	statDescriptionScope = "wind_dancer",
 	castTime = 1,
 	baseFlags = {
+		area = true,
+		melee = true,
+		attack = true,
 	},
 	qualityStats = {
 		Default = {
