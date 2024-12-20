@@ -632,55 +632,55 @@ function PassiveTreeClass:BuildConnector(node1, node2, connection)
 	}
 
 	if connection.orbit ~= 0 and self.orbitRadii[math.abs(connection.orbit) + 1] then
-		-- if node1.id ~= 10364 then
-		-- 	return 
-		-- end
-		-- local orbit = math.abs(connection.orbit)
-		-- local r =  self.orbitRadii[orbit + 1] * self.scaleImage
+		if node1.id ~= 10364 then
+			return 
+		end
+		local orbit = math.abs(connection.orbit)
+		local r =  self.orbitRadii[orbit + 1] * self.scaleImage
 
-		-- local dx, dy = node2.x - node1.x, node2.y - node1.y
-		-- local dist = m_sqrt(dx * dx + dy * dy)
+		local dx, dy = node2.x - node1.x, node2.y - node1.y
+		local dist = m_sqrt(dx * dx + dy * dy)
 
-		-- if dist < r * 2 then
-		-- 	local perp = m_sqrt(r * r - (dist * dist) / 4) * (connection.orbit > 0 and 1 or -1)
-		-- 	local cx = node1.x + dx / 2 + perp * (dy / dist)
-		-- 	local cy = node1.y + dy / 2 - perp * (dx / dist)
+		if dist < r * 2 then
+			local perp = m_sqrt(r * r - (dist * dist) / 4) * (connection.orbit > 0 and 1 or -1)
+			local cx = node1.x + dx / 2 + perp * (dy / dist)
+			local cy = node1.y + dy / 2 - perp * (dx / dist)
 			
-		-- 	local angle1 = m_atan2(node1.y - cy, node1.x - cx) 
-		-- 	local angle2 = m_atan2(node2.y - cy, node2.x - cx)
+			local angle1 = m_atan2(node1.y - cy, node1.x - cx) 
+			local angle2 = m_atan2(node2.y - cy, node2.x - cx)
 
-		-- 	-- Nodes are in the same orbit of the same group
-		-- 	-- Calculate the starting angle (node1.angle) and arc angle
-		-- 	if angle1 > angle2 then
-		-- 		angle1, angle2 = angle2, angle1
-		-- 	end
-		-- 	local arcAngle = angle2 - angle1
-		-- 	if arcAngle >= m_pi then
-		-- 		angle1, angle2 = angle2, angle1
-		-- 		arcAngle = m_pi * 2 - arcAngle
-		-- 	end
-		-- 	if arcAngle <= m_pi then
-		-- 		-- Angle is less than 180 degrees, draw an arc
-		-- 		-- If our arc is greater than 90 degrees, we will need 2 arcs because our orbit assets are at most 90 degree arcs see below
-		-- 		-- The calling class already handles adding a second connector object in the return table if provided and omits it if nil
-		-- 		-- Establish a nil secondConnector to populate in the case that we need a second arc (>90 degree orbit)
-		-- 		local secondConnector
-		-- 		if arcAngle > (m_pi / 2) then
-		-- 			-- Angle is greater than 90 degrees.
-		-- 			-- The default behavior for a given arcAngle is to place the arc at the center point between two nodes and clip the excess
-		-- 			-- If we need a second arc of any size, we should shift the arcAngle to 25% of the distance between the nodes instead of 50%
-		-- 			arcAngle = arcAngle / 2
-		-- 			-- clone the original connector table to ensure same functionality for both of the necessary connectors
-		-- 			secondConnector = copyTableSafe(connector)
-		-- 			-- And then ask the BuildArc function to create a connector that is a mirror of the provided arcAngle
-		-- 			-- Provide the second connector as a parameter to store the mirrored arc
-		-- 			self:BuildArc(arcAngle, orbit, cx , cy , angle1, secondConnector, true)
-		-- 		end
-		-- 		-- generate the primary arc -- this arcAngle may have been modified if we have determined that a second arc is necessary for this orbit
-		-- 		self:BuildArc(arcAngle, orbit, cx , cy, angle2, connector)
-		-- 		return { connector, secondConnector }
-		-- 	end
-		-- end
+			-- Nodes are in the same orbit of the same group
+			-- Calculate the starting angle (node1.angle) and arc angle
+			if angle1 > angle2 then
+				angle1, angle2 = angle2, angle1
+			end
+			local arcAngle = angle2 - angle1
+			if arcAngle >= m_pi then
+				angle1, angle2 = angle2, angle1
+				arcAngle = m_pi * 2 - arcAngle
+			end
+			if arcAngle <= m_pi then
+				-- Angle is less than 180 degrees, draw an arc
+				-- If our arc is greater than 90 degrees, we will need 2 arcs because our orbit assets are at most 90 degree arcs see below
+				-- The calling class already handles adding a second connector object in the return table if provided and omits it if nil
+				-- Establish a nil secondConnector to populate in the case that we need a second arc (>90 degree orbit)
+				local secondConnector
+				if arcAngle > (m_pi / 2) then
+					-- Angle is greater than 90 degrees.
+					-- The default behavior for a given arcAngle is to place the arc at the center point between two nodes and clip the excess
+					-- If we need a second arc of any size, we should shift the arcAngle to 25% of the distance between the nodes instead of 50%
+					arcAngle = arcAngle / 2
+					-- clone the original connector table to ensure same functionality for both of the necessary connectors
+					secondConnector = copyTableSafe(connector)
+					-- And then ask the BuildArc function to create a connector that is a mirror of the provided arcAngle
+					-- Provide the second connector as a parameter to store the mirrored arc
+					self:BuildArc(arcAngle, orbit, cx , cy , angle1, secondConnector, true)
+				end
+				-- generate the primary arc -- this arcAngle may have been modified if we have determined that a second arc is necessary for this orbit
+				self:BuildArc(arcAngle, orbit,  cx, cy , angle1, connector)
+				return { connector, secondConnector }
+			end
+		end
 
 		-- return
 	elseif node1.g == node2.g and node1.o == node2.o and connection.orbit == 0 then
