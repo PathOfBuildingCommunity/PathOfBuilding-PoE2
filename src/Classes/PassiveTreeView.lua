@@ -324,7 +324,6 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 						spec:AllocNode(hoverNode, self.tracePath and hoverNode == self.tracePath[#self.tracePath] and self.tracePath)
 						spec:AddUndoState()
 						build.buildFlag = true
-						spec.attributeIndex = nil
 					end
 				end
 			end
