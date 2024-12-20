@@ -17,7 +17,7 @@ skills["SupportAftershockChancePlayer"] = {
 	excludeSkillTypes = { SkillType.SummonsTotem, SkillType.UsedByTotem, SkillType.Trapped, SkillType.RemoteMined, SkillType.Vaal, },
 	statDescriptionScope = "gem_stat_descriptions",
 	constantStats = {
-		{ "slam_aftershock_chance_%", 20 },
+		{ "slam_aftershock_chance_%", 25 },
 	},
 	stats = {
 	},
@@ -496,7 +496,7 @@ skills["LessDurationSupportPlayer"] = {
 }
 skills["SupportFireExposurePlayer"] = {
 	name = "Fire Exposure",
-	description = "Supports any skill that Hits enemies, causing it to deal less damage but inflict Fire Exposure when it Ignites an enemy.",
+	description = "Supports any skill that Hits enemies, causing it to inflict Fire Exposure when it Ignites an enemy.",
 	color = 1,
 	incrementalEffectiveness = 0.054999999701977,
 	support = true,
@@ -511,12 +511,11 @@ skills["SupportFireExposurePlayer"] = {
 	},
 	constantStats = {
 		{ "inflict_fire_exposure_for_x_ms_on_ignite", 8000 },
-		{ "support_fire_exposure_damage_+%_final", -25 },
 	},
 	stats = {
 	},
 	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
+		[1] = { manaMultiplier = 20, levelRequirement = 0, actorLevel = 1, },
 	},
 }
 skills["SupportAddedFireDamagePlayer"] = {
@@ -828,7 +827,7 @@ skills["ImpactShockwaveSupportPlayer"] = {
 	excludeSkillTypes = { },
 	statDescriptionScope = "gem_stat_descriptions",
 	constantStats = {
-		{ "support_impact_shockwave_base_splash_radius", 14 },
+		{ "support_impact_shockwave_base_splash_radius", 20 },
 	},
 	stats = {
 	},
@@ -949,7 +948,7 @@ skills["SupportChanceToBleedPlayer"] = {
 	excludeSkillTypes = { },
 	statDescriptionScope = "gem_stat_descriptions",
 	constantStats = {
-		{ "base_chance_to_inflict_bleeding_%", 30 },
+		{ "base_chance_to_inflict_bleeding_%", 50 },
 	},
 	stats = {
 	},
@@ -1246,4 +1245,183 @@ skills["SupportDeadlyIgnitesPlayer"] = {
 	color = 1,
 	incrementalEffectiveness = 0.054999999701977,
 	support = true,
-	requireSkillTypes = { SkillType.Damage, SkillType.Attac
+	requireSkillTypes = { SkillType.Damage, SkillType.Attack, SkillType.CrossbowAmmoSkill, },
+	addSkillTypes = { },
+	excludeSkillTypes = { },
+	statDescriptionScope = "gem_stat_descriptions",
+	statMap = {
+		["support_stronger_ignites_hit_damage_+%_final"] = {
+			mod("Damage", "MORE", nil, ModFlag.Hit),
+		},
+		["support_stronger_ignites_ignite_effect_+%_final"] = {
+			mod("IgniteMagnitude", "MORE", nil),
+		},
+	},
+	constantStats = {
+		{ "support_stronger_ignites_hit_damage_+%_final", -25 },
+		{ "support_stronger_ignites_ignite_effect_+%_final", 75 },
+	},
+	stats = {
+	},
+	levels = {
+		[1] = { levelRequirement = 0, actorLevel = 1, },
+	},
+}
+skills["SupportArmourBreakPlayer"] = {
+	name = "Splinter",
+	description = "Supports Skills that Hit Enemies, causing those Hits to Break Armour based on a portion of Physical Damage dealt.",
+	color = 1,
+	incrementalEffectiveness = 0.054999999701977,
+	support = true,
+	requireSkillTypes = { SkillType.Attack, SkillType.Damage, SkillType.CrossbowAmmoSkill, SkillType.Physical, },
+	addSkillTypes = { },
+	excludeSkillTypes = { },
+	statDescriptionScope = "gem_stat_descriptions",
+	constantStats = {
+		{ "armour_break_physical_damage_%_dealt_as_armour_break", 15 },
+	},
+	stats = {
+	},
+	levels = {
+		[1] = { levelRequirement = 0, actorLevel = 1, },
+	},
+}
+skills["SupportStompingGroundPlayer"] = {
+	name = "Stomping Ground",
+	description = "Supports Travel skills, causing your footsteps to crack the earth and emit damaging shockwaves while using the skill.",
+	color = 1,
+	incrementalEffectiveness = 0.054999999701977,
+	support = true,
+	requireSkillTypes = { SkillType.Travel, },
+	addSkillTypes = { },
+	excludeSkillTypes = { },
+	statDescriptionScope = "gem_stat_descriptions",
+	stats = {
+		"support_stomping_ground",
+	},
+	levels = {
+		[1] = { levelRequirement = 0, actorLevel = 1, },
+	},
+}
+skills["StompingGroundShockwavePlayer"] = {
+	name = "Stomping Ground Shockwave",
+	hidden = true,
+	incrementalEffectiveness = 0.054999999701977,
+	skillTypes = { [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.Damage] = true, [SkillType.Triggered] = true, [SkillType.Triggerable] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.UseGlobalStats] = true, },
+	statDescriptionScope = "stomping_ground_shockwave",
+	castTime = 1,
+	baseFlags = {
+	},
+	constantStats = {
+		{ "active_skill_base_area_of_effect_radius", 18 },
+		{ "stomping_ground_trigger_on_footstep_%_chance", 100 },
+		{ "attack_minimum_added_physical_damage_as_%_of_strength", 80 },
+		{ "attack_maximum_added_physical_damage_as_%_of_strength", 120 },
+	},
+	stats = {
+		"is_area_damage",
+	},
+	levels = {
+		[1] = { levelRequirement = 0, actorLevel = 1, },
+	},
+}
+skills["SupportTremorsPlayer"] = {
+	name = "Tremors",
+	description = "Supports Slam Skills you use yourself. Supported Skills gain multiple independent chances to cause Aftershocks, but deal less Damage.",
+	color = 1,
+	incrementalEffectiveness = 0.054999999701977,
+	support = true,
+	requireSkillTypes = { SkillType.Slam, },
+	addSkillTypes = { },
+	excludeSkillTypes = { SkillType.Minion, SkillType.UsedByTotem, },
+	statDescriptionScope = "gem_stat_descriptions",
+	constantStats = {
+		{ "support_slam_chance_for_one_additional_aftershock_%", 30 },
+		{ "support_slam_chance_for_two_additional_aftershocks_%", 15 },
+		{ "support_slam_chance_for_three_additional_aftershocks_%", 10 },
+		{ "support_unstable_earth_damage_+%_final", -35 },
+	},
+	stats = {
+	},
+	levels = {
+		[1] = { levelRequirement = 0, actorLevel = 1, },
+	},
+}
+skills["UnbreakableSupportPlayer"] = {
+	name = "Unbreakable",
+	description = "Supports any skill that you can use, making you harder to Stun while using it.",
+	color = 1,
+	incrementalEffectiveness = 0.092720001935959,
+	support = true,
+	requireSkillTypes = { },
+	addSkillTypes = { },
+	excludeSkillTypes = { SkillType.Instant, SkillType.Persistent, },
+	statDescriptionScope = "gem_stat_descriptions",
+	statMap = {
+		["support_unbreakable_stun_threshold_+%_final_while_performing_action"] = {
+			mod("StunThreshold", "MORE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", unscalable = true }),
+		},
+	},
+	constantStats = {
+		{ "support_unbreakable_stun_threshold_+%_final_while_performing_action", 200 },
+	},
+	stats = {
+	},
+	levels = {
+		[1] = { manaMultiplier = 10, levelRequirement = 0, actorLevel = 1, },
+	},
+}
+skills["SupportUpheavalPlayer"] = {
+	name = "Upheaval",
+	description = "Supports Melee Attacks which create fissures in the ground, causing them to create additional fissures at the cost of damage and attack speed.",
+	color = 1,
+	incrementalEffectiveness = 0.054999999701977,
+	support = true,
+	requireSkillTypes = { SkillType.CreatesFissure, },
+	addSkillTypes = { },
+	excludeSkillTypes = { },
+	statDescriptionScope = "gem_stat_descriptions",
+	statMap = {
+		["support_additional_fissures_damage_+%_final"] = {
+			mod("Damage", "MORE", nil, ModFlag.Hit),
+		},
+		["support_additional_fissures_attack_speed_+%_final"] = {
+			mod("Speed", "MORE", nil, ModFlag.Attack),
+		},
+	},
+	constantStats = {
+		{ "base_number_of_additional_fissures", 2 },
+		{ "support_additional_fissures_damage_+%_final", -40 },
+		{ "support_additional_fissures_attack_speed_+%_final", -20 },
+	},
+	stats = {
+	},
+	levels = {
+		[1] = { levelRequirement = 0, actorLevel = 1, },
+	},
+}
+skills["SupportVitalityPlayer"] = {
+	name = "Vitality",
+	description = "Supports Persistent Buff Skills, causing you to gain Life Regeneration while the Skill is active.",
+	color = 1,
+	incrementalEffectiveness = 0.054999999701977,
+	support = true,
+	requireSkillTypes = { SkillType.Persistent, SkillType.Buff, SkillType.AND, },
+	addSkillTypes = { },
+	excludeSkillTypes = { },
+	statDescriptionScope = "gem_stat_descriptions",
+	statMap = {
+		["support_vitality_life_regeneration_rate_per_minute_%"] = {
+			mod("LifeRegenPercent", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff" }),
+			div = 60,
+		},
+	},
+	constantStats = {
+		{ "support_vitality_life_regeneration_rate_per_minute_%", 60 },
+	},
+	stats = {
+	},
+	levels = {
+		[1] = { levelRequirement = 0, actorLevel = 1, },
+	},
+}

@@ -293,10 +293,13 @@ directiveTable.skill = function(state, args, out)
 	end
 	state.noGem = false
 	skill.baseFlags = { }
+	local function isTagWeCareAbout(tag)
+		return tag == "area" or tag == "attack" or tag == "chaining" or tag == "duration" or tag == "melee" or tag == "projectile" or tag == "totem" or tag == "trap"
+	end
 	if gemEffect then
 		for _, tag in ipairs(gemEffect.Tags) do
-			if tag.Id ~= "grants_active_skill" and tag.Id ~= "support" then
-				table.insert(skill.baseFlags, tag.Id)
+			if isTagWeCareAbout(tag) then
+				skill.baseFlags[tag.Id] = true
 			end
 		end
 	end
@@ -613,7 +616,7 @@ end
 directiveTable.flags = function(state, args, out)
 	local skill = state.skill
 	for flag in args:gmatch("%a+") do
-		table.insert(skill.baseFlags, flag)
+		skill.baseFlags[flag] = true
 	end
 end
 
@@ -631,8 +634,8 @@ directiveTable.mods = function(state, args, out)
 	if not args:match("noBaseFlags") then
 		if not skill.isSupport then
 			out:write('\tbaseFlags = {\n')
-			for _, flag in ipairs(skill.baseFlags) do
-				out:write('\t\t', flag, ' = true,\n')
+			for flag, flagValue in pairs(skill.baseFlags) do
+				out:write('\t\t', flag, ' = ', tostring(flagValue), ',\n')
 			end
 			out:write('\t},\n')
 		end
