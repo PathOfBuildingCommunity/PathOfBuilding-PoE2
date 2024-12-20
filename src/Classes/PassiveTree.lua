@@ -42,7 +42,6 @@ end
 local PassiveTreeClass = newClass("PassiveTree", function(self, treeVersion)
 	self.treeVersion = treeVersion
 	self.scaleImage = 1 -- 0.3835
-	self.assetsKey = 0.3835
 	local versionNum = treeVersions[treeVersion].num
 
 	self.legion = LoadModule("Data/TimelessJewelData/LegionPassives")
@@ -123,7 +122,7 @@ local PassiveTreeClass = newClass("PassiveTree", function(self, treeVersion)
 
 	ConPrintf("Loading passive tree assets...")
 	for name, data in pairs(self.assets) do
-		self:LoadImage(data[self.assetsKey], data)
+		self:LoadImage(data[1], data)
 	end
 
 	-- Load sprite sheets and build sprite map
@@ -134,12 +133,12 @@ local PassiveTreeClass = newClass("PassiveTree", function(self, treeVersion)
 	end
 
 	for type, data in pairs(self.skillSprites) do
-		local maxZoom = data[self.assetsKey]
+		local maxZoom = data
 		
 		local sheet = spriteSheets[maxZoom.filename]
 		if not sheet then
 			sheet = { }
-			self:LoadImage(maxZoom.filename, sheet, "CLAMP")--, "MIPMAP")
+			self:LoadImage(maxZoom.filename, sheet)
 			spriteSheets[maxZoom.filename] = sheet
 		end
 		for name, coords in pairs(maxZoom.coords) do
@@ -723,7 +722,7 @@ function PassiveTreeClass:BuildConnector(node1, node2, connection)
 	local art = self:GetAssetByName("LineConnectorNormal", "line")
 	local vX, vY = node2.x - node1.x, node2.y - node1.y
 	local dist = m_sqrt(vX * vX + vY * vY)
-	local scale = art.height * self.scaleImage / dist
+	local scale = 16 * self.scaleImage / dist
 	local nX, nY = vX * scale, vY * scale
 	local endS = dist / (art.width * self.scaleImage)
 	connector[1], connector[2] = node1.x - nY, node1.y + nX

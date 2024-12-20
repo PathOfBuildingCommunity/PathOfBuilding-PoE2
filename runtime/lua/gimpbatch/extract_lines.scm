@@ -1,17 +1,13 @@
-(define (extract-lines-pob src-path-image mask-path-image srcmipmap maskmipmap max-orbits output-path filename extension interactive)
+(define (extract-lines-pob src-path-image mask-path-image max-orbits output-path filename extension interactive)
     (let*
         (
             ;; Load the images
-            (src-image (car (file-dds-load RUN-NONINTERACTIVE src-path-image src-path-image 1 1)))
-            (mask-image (car (file-dds-load RUN-NONINTERACTIVE mask-path-image mask-path-image 1 1)))
-
-            ;; Get the layers
-            (layers-src-image (list-ref (gimp-image-get-layers src-image) 1))
-            (layers-mask-image (list-ref (gimp-image-get-layers mask-image) 1))
+            (src-image (car (gimp-file-load RUN-NONINTERACTIVE src-path-image src-path-image)))
+            (mask-image (car (gimp-file-load RUN-NONINTERACTIVE mask-path-image mask-path-image)))
 
             ;; Get the layer
-            (src-layer-id (vector-ref layers-src-image srcmipmap))
-            (mask-layer-id (vector-ref layers-mask-image srcmipmap))
+            (src-layer-id (car (gimp-image-get-active-layer src-image)))
+            (mask-layer-id (car (gimp-image-get-active-layer mask-image)))
 
             ; get the width and height of the image
             (width-image (car (gimp-drawable-width src-layer-id)))

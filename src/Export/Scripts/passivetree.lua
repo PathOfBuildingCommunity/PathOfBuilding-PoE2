@@ -2,11 +2,39 @@ local gimpbatch = require("gimpbatch.gimp_batch")
 local ddsfiles = require("ddsfiles")
 local nvtt = require("nvtt")
 
+-- by session we would like to dont extract the same file multiple times
+main.treeCacheExtract = main.treeCacheExtract or { }
+local cacheExtract = main.treeCacheExtract
+
 if not loadStatFile then
 	dofile("statdesc.lua")
 end
 loadStatFile("stat_descriptions.csd")
 loadStatFile("passive_skill_stat_descriptions.csd")
+
+local function extractFromGgpk(listToExtract, useRegex)
+	useRegex = useRegex or false
+	local sweetSpotCharacter = 6000
+	printf("Extracting ...")
+	local fileList = ''
+	for _, fname in ipairs(listToExtract) do
+		-- we are going to validate if the file is already extracted in this session
+		if not cacheExtract[fname] then
+			cacheExtract[fname] = true
+			fileList = fileList .. '"' .. string.lower(fname) .. '" '
+
+			if fileList:len() > sweetSpotCharacter then
+				main.ggpk:ExtractFilesWithBun(fileList, useRegex)
+				fileList = ''
+			end
+		end
+	end
+
+	if fileList:len() > 0 then
+		main.ggpk:ExtractFilesWithBun(fileList, useRegex)
+		fileList = ''
+	end
+end
 
 local function bits(int, s, e)
 	return bit.band(bit.rshift(int, s), 2 ^ (e - s + 1) - 1)
@@ -70,13 +98,12 @@ local function print_table(t, indent)
     end
 end
 
-local function newSheet(name, maxWidth, saturation, maxGroups)
+local function newSheet(name, startWidth, saturation)
 	return {
 		name = name,
-		maxWidth = maxWidth,
+		startWidth = startWidth,
 		saturation = saturation,
-		maxGroups = maxGroups,
-		sprites = { },
+		sprite = { },
 		files = {}
 	}
 end
@@ -87,124 +114,76 @@ local function addToSheet(sheet, icon, section, metadata)
 	end
 	sheet.files[icon][section] = metadata
 end
-local function calculateSheetCoords(sheet, path_base, path_to)
-	for i = 0, sheet.maxGroups - 1 do
-		local coords = { }
-		local sortedFiles = { }
-		local lastHeight = 0
-		local maxWidthFound = 0
-		local group = {
-			x=0, 
-			y=0,
-			w = sheet.maxWidth,
-			h = 0,
-			filename = sheet.name .. "-" .. i .. ".png",
-		}
+local function calculateSheetCoords(sheet, path_base)
+	local coords = { }
+	local sortedFiles = { }
+	local lastHeight = 0
+	local maxWidthFound = 0
+	local sprite = {
+		x=0, 
+		y=0,
+		w = sheet.startWidth,
+		h = 0,
+		filename = sheet.name .. ".png",
+	}
 
-		for icon, sections in pairs(sheet.files) do
-			for section, metadata in pairs(sections) do
-				if not metadata[i + 1] then
-					goto continue
-				end
+	-- stract all files first from GGG pack
+	local filesToExtract = { }
+	for icon, _ in pairs(sheet.files) do
+		table.insert(filesToExtract, icon)
+	end
+	extractFromGgpk(filesToExtract)
 
-				local width = metadata[i + 1].width
-				local height = metadata[i + 1].height
-				local alias = metadata.alias
-				local convert = metadata.convert or nil
+	for icon, sections in pairs(sheet.files) do
+		local width, height = ddsfiles.getMixSize(path_base .. string.lower(icon))
 
-				if convert then
-					icon = string.gsub(icon, ".dds", "_out.dds")
-				end
-				local mipmap = ddsfiles.findClosestDDSMipmap( path_base .. string.lower(icon), width, height)
-
-				-- update width and heigth is the closest mipmap is different
-
-				table.insert(sortedFiles, {
-					icon = icon,
-					section = section,
-					alias = alias,
-					width = width,
-					height = height,
-					mipmap = mipmap,
-				})
-
-				:: continue ::
-			end
-		end
-
-		table.sort(sortedFiles, function(a, b)
-			return a.height < b.height
-		end)
-
-		for _, iconInfo in pairs(sortedFiles) do
-			if group.x + iconInfo.width > group.w or iconInfo.height ~= lastHeight then
-				group.x = 0
-				group.y = group.y + lastHeight
-				group.h = group.y + iconInfo.height
-			end
-			table.insert(coords, {
-				icon = iconInfo.icon,
-				x = group.x,
-				y = group.y,
-				w = iconInfo.width,
-				h = iconInfo.height,
-				alias = iconInfo.alias,
-				section = iconInfo.section,
-				mipmap = iconInfo.mipmap,
-			})
-			group.x = group.x + iconInfo.width
-			maxWidthFound = math.max(maxWidthFound, group.x)
-			lastHeight = iconInfo.height
-		end
-		group.x = 0
-		group.y = 0
-		group.coords = coords
-
-		if maxWidthFound > 0 and maxWidthFound < group.w then
-			group.w = maxWidthFound
-		end
-
-		table.insert(sheet.sprites, group)
+		table.insert(sortedFiles, {
+			icon = icon,
+			sections = sections,
+			width = width,
+			height = height,
+		})
 	end
 
+	table.sort(sortedFiles, function(a, b)
+		return a.height < b.height
+	end)
+
+	-- validate if we have a file bigger than the sheet and update to use the max new size * 2
+	for _, iconInfo in pairs(sortedFiles) do
+		if iconInfo.width > sprite.w then
+			sprite.w = iconInfo.width * 2
+		end
+	end
+
+	for _, iconInfo in pairs(sortedFiles) do
+		if sprite.x + iconInfo.width > sprite.w or iconInfo.height ~= lastHeight then
+			sprite.x = 0
+			sprite.y = sprite.y + lastHeight
+			sprite.h = sprite.y + iconInfo.height
+		end
+		table.insert(coords, {
+			icon = iconInfo.icon,
+			x = sprite.x,
+			y = sprite.y,
+			w = iconInfo.width,
+			h = iconInfo.height,
+			sections = iconInfo.sections,
+		})
+		sprite.x = sprite.x + iconInfo.width
+		maxWidthFound = math.max(maxWidthFound, sprite.x)
+		lastHeight = iconInfo.height
+	end
+	sprite.x = 0
+	sprite.y = 0
+	sprite.coords = coords
+
+	if maxWidthFound > 0 and maxWidthFound < sprite.w then
+		sprite.w = maxWidthFound
+	end
+
+	sheet.sprite = sprite
 	sheet.files = {}
-end
-
-local function generateSprite(sheet, path_base, path_out,executeCommand)
-	for i, group in ipairs(sheet.sprites) do
-		if #group.coords == 0 then
-			goto continue
-		end
-		gimpbatch.combine_dds_to_sprite(
-			sheet.name .. "-" .. (i-1),
-			group,
-			path_base,
-			path_out, GetRuntimePath() .. "/lua/gimpbatch/combine_dds.scm",
-			sheet.saturation,
-			executeCommand
-		)
-		:: continue ::
-	end
-end
-
-local function extractFromGgpk(listToExtract, useRegex)
-	useRegex = useRegex or false
-	local sweetSpotCharacter = 6000
-	printf("Extracting ...")
-	local fileList = ''
-	for _, fname in ipairs(listToExtract) do
-		fileList = fileList .. '"' .. string.lower(fname) .. '" '
-
-		if fileList:len() > sweetSpotCharacter then
-			main.ggpk:ExtractFilesWithBun(fileList, useRegex)
-			fileList = ''
-		end
-	end
-
-	if fileList:len() > 0 then
-		main.ggpk:ExtractFilesWithBun(fileList, useRegex)
-		fileList = ''
-	end
 end
 
 local function parseUIImages()
@@ -265,11 +244,8 @@ local uiImages = parseUIImages()
 -- uncomment next line if wanna print what we found
 -- print_table(uiImages, 0)
 
--- common DDS conversion, while Gimp doesnt support other format we need to always format to bc1a
-local ddsFormat = "bc1a" -- bc1a
-
 -- Set to true if you want to generate assets
-local generateAssets = false
+local generateAssets = true
 -- Find a way to get the default passive tree
 local idPassiveTree = 'Default'
 -- Find a way to get version
@@ -377,50 +353,28 @@ printf("Passives tree " .. idPassiveTree .. " parsed")
 --]]
 
 -- we use functions to generate a new table and not shared table
-local function commonBackgroundMetadata(alias, maxWBase, maxHBase , maxGroups, convert)
+local function commonMetadata(alias)
 	local metadata = {
 		alias = alias,
-		convert = convert
 	}
-
-	for i = 0, maxGroups-1  do
-		table.insert(metadata, {
-			width = maxWBase / (2 ^ (maxGroups - 1 - i)),
-			height = maxHBase / (2 ^ (maxGroups - 1 - i)),
-		})
-	end
-
 	return metadata
 end
 
-function skillNormalMetadata() 
-	return commonBackgroundMetadata(nil, 64, 64, 4, nil)
-end
-function skillKeystoneMetadata ()
-	return commonBackgroundMetadata(nil, 128, 128, 4, nil)
-end
-function skillNotableMetadata()
-	return commonBackgroundMetadata(nil, 128, 128, 4, nil)
-end
-function masteryMetadata()
-	return commonBackgroundMetadata(nil, 256, 256, 4, nil)
-end
-
 local defaultMaxWidth = 86*14
-local maxGroups = 5 -- this is base on imageZoomLevels
 local sheets = {
-	newSheet("skills",  defaultMaxWidth, 100, maxGroups),
-	newSheet("skills-disabled", defaultMaxWidth, 60, maxGroups),
-	newSheet("mastery", defaultMaxWidth, 100, maxGroups),
-	newSheet("mastery-active-selected", defaultMaxWidth, 100, maxGroups),
-	newSheet("mastery-disabled", defaultMaxWidth, 60, maxGroups),
-	newSheet("mastery-connected", defaultMaxWidth, 100, maxGroups),
-	newSheet("background", 2400, 100, maxGroups),
-	newSheet("group-background", defaultMaxWidth, 100, maxGroups),
-	newSheet("mastery-active-effect", defaultMaxWidth, 100, maxGroups),
-	newSheet("ascendancy", 2400, 100, maxGroups),
-	newSheet("ascendancy-background", 2400, 100, maxGroups),
-	newSheet("oils", defaultMaxWidth, 100, maxGroups),
+	newSheet("skills",  defaultMaxWidth, 100),
+	newSheet("skills-disabled", defaultMaxWidth, 60),
+	newSheet("mastery", defaultMaxWidth, 100),
+	newSheet("mastery-active-selected", defaultMaxWidth, 100),
+	newSheet("mastery-disabled", defaultMaxWidth, 60),
+	newSheet("mastery-connected", defaultMaxWidth, 100),
+	newSheet("background", defaultMaxWidth, 100),
+	newSheet("group-background", defaultMaxWidth, 100),
+	newSheet("mastery-active-effect", defaultMaxWidth, 100),
+	newSheet("ascendancy", defaultMaxWidth, 100),
+	newSheet("ascendancy-background", defaultMaxWidth, 100),
+	newSheet("oils", defaultMaxWidth, 100),
+	newSheet("lines", defaultMaxWidth, 100),
 }
 local sheetLocations = {
 	["skills"] = 1,
@@ -435,25 +389,11 @@ local sheetLocations = {
 	["ascendancy"] = 10,
 	["ascendancy-background"] = 11,
 	["oils"] = 12,
+	["lines"] = 13,
 }
 local function getSheet(sheetLocation)
 	return sheets[sheetLocations[sheetLocation]]
 end
-
--- Extract all PassiveSkillScreen from uiimage
-printf("Extracting PassiveSkillScreen...")
-local listPassiveSkillDds = {}
-for icon, iconInfo in pairs(uiImages) do
-	-- for now exclude 4k files
-	if icon:find("passiveskillscreen") and not icon:find("4k") then
-		table.insert(listPassiveSkillDds, iconInfo.path)
-	end
-end
-extractFromGgpk(listPassiveSkillDds)
-
--- we need to convert the dds to a ssuported version with nttd tools
-printf("Converting PassiveSkillScreen...")
-nvtt.CompressDDSIntoOtherFormat(main.ggpk.oozPath, basePath .. version .. "/", "passiveSkillScreen", listPassiveSkillDds, ddsFormat, false)
 
 -- Looking for Background2
 printf("Extracting Background2...")
@@ -464,213 +404,107 @@ if not bg2 then
 end
 
 -- for support we needs to _out.dds when .dds
-addToSheet(getSheet("background"), bg2.path, "background", commonBackgroundMetadata("Background2", 1024, 1024, 4, ddsFormat))
+addToSheet(getSheet("background"), bg2.path, "background", commonMetadata("Background2"))
 
 -- add Group Background base ond UIArt from PassiveTree\
 printf("Getting Background Group...")
 local uIArt = rowPassiveTree.UIArt
 
 local gBgSmall = uiImages[string.lower(uIArt.GroupBackgroundSmall)].path
-addToSheet(getSheet("group-background"), gBgSmall, "groupBackground", commonBackgroundMetadata("PSGroupBackground1", 360, 369, 4, ddsFormat))
+addToSheet(getSheet("group-background"), gBgSmall, "groupBackground", commonMetadata("PSGroupBackground1"))
 
 local gBgMedium = uiImages[string.lower(uIArt.GroupBackgroundMedium)].path
-addToSheet(getSheet("group-background"), gBgMedium, "groupBackground", commonBackgroundMetadata("PSGroupBackground2", 468, 468, 4, ddsFormat))
+addToSheet(getSheet("group-background"), gBgMedium, "groupBackground", commonMetadata("PSGroupBackground2"))
 
 local gBgLarge = uiImages[string.lower(uIArt.GroupBackgroundLarge)].path
-addToSheet(getSheet("group-background"), gBgLarge, "groupBackground", commonBackgroundMetadata("PSGroupBackground3", 740, 376, 4, ddsFormat))
+addToSheet(getSheet("group-background"), gBgLarge, "groupBackground", commonMetadata("PSGroupBackground3"))
 
 printf("Getting PassiveFrame")
 local pFrameNormal = uiImages[string.lower(uIArt.PassiveFrameNormal)].path
-addToSheet(getSheet("group-background"), pFrameNormal, "frame", commonBackgroundMetadata("PSSkillFrame", 104, 104, 4, ddsFormat))
+addToSheet(getSheet("group-background"), pFrameNormal, "frame", commonMetadata("PSSkillFrame"))
 
 local pFrameActive = uiImages[string.lower(uIArt.PassiveFrameActive)].path
-addToSheet(getSheet("group-background"), pFrameActive, "frame", commonBackgroundMetadata("PSSkillFrameActive", 104, 104, 4, ddsFormat))
+addToSheet(getSheet("group-background"), pFrameActive, "frame", commonMetadata("PSSkillFrameActive"))
 
 local pFrameCanAllocate = uiImages[string.lower(uIArt.PassiveFrameCanAllocate)].path
-addToSheet(getSheet("group-background"), pFrameCanAllocate, "frame", commonBackgroundMetadata("PSSkillFrameHighlighted", 104, 104, 4, ddsFormat))
+addToSheet(getSheet("group-background"), pFrameCanAllocate, "frame", commonMetadata("PSSkillFrameHighlighted"))
 
-addToSheet(getSheet("group-background"), "art/2dart/uieffects/passiveskillscreen/nodeframemask.dds", "frame", commonBackgroundMetadata("PSSkillFrameMask", 104, 104, 4, ddsFormat))
+addToSheet(getSheet("group-background"), "art/2dart/uieffects/passiveskillscreen/nodeframemask.dds", "frame", commonMetadata("PSSkillFrameMask"))
 
 printf("Getting KeystoneFrame")
 local kFrameNormal = uiImages[string.lower(uIArt.KeystoneFrameNormal)].path
-addToSheet(getSheet("group-background"), kFrameNormal, "frame", commonBackgroundMetadata("KeystoneFrameUnallocated", 220, 224, 4, ddsFormat))
+addToSheet(getSheet("group-background"), kFrameNormal, "frame", commonMetadata("KeystoneFrameUnallocated"))
 
 local kFrameActive = uiImages[string.lower(uIArt.KeystoneFrameActive)].path
-addToSheet(getSheet("group-background"), kFrameActive, "frame", commonBackgroundMetadata("KeystoneFrameAllocated", 220, 224, 4, ddsFormat))
+addToSheet(getSheet("group-background"), kFrameActive, "frame", commonMetadata("KeystoneFrameAllocated"))
 
 local kFrameCanAllocate = uiImages[string.lower(uIArt.KeystoneFrameCanAllocate)].path
-addToSheet(getSheet("group-background"), kFrameCanAllocate, "frame", commonBackgroundMetadata("KeystoneFrameCanAllocate", 220, 224, 4, ddsFormat))
+addToSheet(getSheet("group-background"), kFrameCanAllocate, "frame", commonMetadata("KeystoneFrameCanAllocate"))
 
 printf("Getting NotableFrame")
 local nFrameNormal = uiImages[string.lower(uIArt.NotableFrameNormal)].path
-addToSheet(getSheet("group-background"), nFrameNormal, "frame", commonBackgroundMetadata("NotableFrameUnallocated", 152, 156, 4, ddsFormat))
+addToSheet(getSheet("group-background"), nFrameNormal, "frame", commonMetadata("NotableFrameUnallocated"))
 
 local nFrameActive = uiImages[string.lower(uIArt.NotableFrameActive)].path
-addToSheet(getSheet("group-background"), nFrameActive, "frame", commonBackgroundMetadata("NotableFrameAllocated", 152, 156, 4, ddsFormat))
+addToSheet(getSheet("group-background"), nFrameActive, "frame", commonMetadata("NotableFrameAllocated"))
 
 local nFrameCanAllocate = uiImages[string.lower(uIArt.NotableFrameCanAllocate)].path
-addToSheet(getSheet("group-background"), nFrameCanAllocate, "frame", commonBackgroundMetadata("NotableFrameCanAllocate", 152, 156, 4, ddsFormat))
+addToSheet(getSheet("group-background"), nFrameCanAllocate, "frame", commonMetadata("NotableFrameCanAllocate"))
 
 printf("Getting GroupBackgroundBlank")
 local gBgSmallBlank = uiImages[string.lower(uIArt.GroupBackgroundSmallBlank)].path
-addToSheet(getSheet("group-background"), gBgSmallBlank, "groupBackground", commonBackgroundMetadata("PSGroupBackgroundSmallBlank", 440, 440, 4, ddsFormat))
+addToSheet(getSheet("group-background"), gBgSmallBlank, "groupBackground", commonMetadata("PSGroupBackgroundSmallBlank"))
 
 local gBgMediumBlank = uiImages[string.lower(uIArt.GroupBackgroundMediumBlank)].path
-addToSheet(getSheet("group-background"), gBgMediumBlank, "groupBackground", commonBackgroundMetadata("PSGroupBackgroundMediumBlank", 756, 756, 4, ddsFormat))
+addToSheet(getSheet("group-background"), gBgMediumBlank, "groupBackground", commonMetadata("PSGroupBackgroundMediumBlank"))
 
 local gBgLargeBlank = uiImages[string.lower(uIArt.GroupBackgroundLargeBlank)].path
-addToSheet(getSheet("group-background"), gBgLargeBlank, "groupBackground", commonBackgroundMetadata("PSGroupBackgroundLargeBlank", 952, 952, 4, ddsFormat))
+addToSheet(getSheet("group-background"), gBgLargeBlank, "groupBackground", commonMetadata("PSGroupBackgroundLargeBlank"))
 
 printf("Getting JewelSocketFrame")
 local jFrameNormal = uiImages[string.lower("Art/2DArt/UIImages/InGame/SanctumPassiveSkillScreenJewelSocketCanAllocate")].path
-addToSheet(getSheet("group-background"), jFrameNormal, "frame", commonBackgroundMetadata("JewelFrameCanAllocate", 104, 104, 4, ddsFormat))
+addToSheet(getSheet("group-background"), jFrameNormal, "frame", commonMetadata("JewelFrameCanAllocate"))
 
 local jFrameActive = uiImages[string.lower("Art/2DArt/UIImages/InGame/SanctumPassiveSkillScreenJewelSocketActive")].path
-addToSheet(getSheet("group-background"), jFrameActive, "frame", commonBackgroundMetadata("JewelFrameAllocated", 104, 104, 4, ddsFormat))
+addToSheet(getSheet("group-background"), jFrameActive, "frame", commonMetadata("JewelFrameAllocated"))
 
 local jFrameCanAllocate = uiImages[string.lower("Art/2DArt/UIImages/InGame/SanctumPassiveSkillScreenJewelSocketNormal")].path
-addToSheet(getSheet("group-background"), jFrameCanAllocate, "frame", commonBackgroundMetadata("JewelFrameUnallocated", 104, 104, 4, ddsFormat))
+addToSheet(getSheet("group-background"), jFrameCanAllocate, "frame", commonMetadata("JewelFrameUnallocated"))
 
 printf("Getting Ascendancy frames")
 local ascFrameNormal = uiImages[string.lower("Art/2DArt/UIImages/InGame/PassiveSkillScreenAscendancyFrameSmallCanAllocate")].path
-addToSheet(getSheet("group-background"), ascFrameNormal, "frame", commonBackgroundMetadata("AscendancyFrameSmallCanAllocate", 160, 164, 4, ddsFormat))
+addToSheet(getSheet("group-background"), ascFrameNormal, "frame", commonMetadata("AscendancyFrameSmallCanAllocate"))
 
 local ascFrameActive = uiImages[string.lower("Art/2DArt/UIImages/InGame/PassiveSkillScreenAscendancyFrameSmallNormal")].path
-addToSheet(getSheet("group-background"), ascFrameActive, "frame", commonBackgroundMetadata("AscendancyFrameSmallNormal", 160, 164, 4, ddsFormat))
+addToSheet(getSheet("group-background"), ascFrameActive, "frame", commonMetadata("AscendancyFrameSmallNormal"))
 
 local ascFrameCanAllocate = uiImages[string.lower("Art/2DArt/UIImages/InGame/PassiveSkillScreenAscendancyFrameSmallAllocated")].path
-addToSheet(getSheet("group-background"), ascFrameCanAllocate, "frame", commonBackgroundMetadata("AscendancyFrameSmallAllocated", 160, 164, 4, ddsFormat))
+addToSheet(getSheet("group-background"), ascFrameCanAllocate, "frame", commonMetadata("AscendancyFrameSmallAllocated"))
 
 local ascFrameLargeNormal = uiImages[string.lower("Art/2DArt/UIImages/InGame/PassiveSkillScreenAscendancyFrameLargeNormal")].path
-addToSheet(getSheet("group-background"), ascFrameLargeNormal, "frame", commonBackgroundMetadata("AscendancyFrameLargeNormal", 208, 208, 4, ddsFormat))
+addToSheet(getSheet("group-background"), ascFrameLargeNormal, "frame", commonMetadata("AscendancyFrameLargeNormal"))
 
 local ascFrameLargeCanAllocate = uiImages[string.lower("Art/2DArt/UIImages/InGame/PassiveSkillScreenAscendancyFrameLargeCanAllocate")].path
-addToSheet(getSheet("group-background"), ascFrameLargeCanAllocate, "frame", commonBackgroundMetadata("AscendancyFrameLargeCanAllocate", 208, 208, 4, ddsFormat))
+addToSheet(getSheet("group-background"), ascFrameLargeCanAllocate, "frame", commonMetadata("AscendancyFrameLargeCanAllocate"))
 
 local ascFrameLargeAllocated = uiImages[string.lower("Art/2DArt/UIImages/InGame/PassiveSkillScreenAscendancyFrameLargeAllocated")].path
-addToSheet(getSheet("group-background"), ascFrameLargeAllocated, "frame", commonBackgroundMetadata("AscendancyFrameLargeAllocated", 208, 208, 4, ddsFormat))
+addToSheet(getSheet("group-background"), ascFrameLargeAllocated, "frame", commonMetadata("AscendancyFrameLargeAllocated"))
 
 local ascMiddle = uiImages[string.lower("Art/2DArt/UIImages/InGame/PassiveSkillScreenAscendancyMiddle")].path
-addToSheet(getSheet("group-background"), ascMiddle, "frame", commonBackgroundMetadata("AscendancyMiddle", 92, 92, 4, ddsFormat))
+addToSheet(getSheet("group-background"), ascMiddle, "frame", commonMetadata("AscendancyMiddle"))
 
 local ascStart = uiImages[string.lower("Art/2DArt/UIImages/InGame/PassiveSkillScreenStartNodeBackgroundInactive")].path
-addToSheet(getSheet("group-background"), ascStart, "startNode", commonBackgroundMetadata("PSStartNodeBackgroundInactive", 528, 528, 4, ddsFormat))
-
--- we need to stract lines from dds
-local listAdditionalAssets = {
-	"art/2dart/passivetree/passiveskillwormholelightpulse.dds",
-	"art/2dart/passivetree/passiveskillscreencurvesnormaltogether.dds",
-	"art/2dart/passivetree/passiveskillscreencurvesnormalbluetogether.dds",
-	"art/2dart/passivetree/passiveskillscreencurvesnormalalttogether.dds",
-	"art/2dart/passivetree/passiveskillscreencurvesintermediatetogether.dds",
-	"art/2dart/passivetree/passiveskillscreencurvesintermediatebluetogether.dds",
-	"art/2dart/passivetree/passiveskillscreencurvesintermediatealttogether.dds",
-	"art/2dart/passivetree/passiveskillscreencurvesactivetogether.dds",
-	"art/2dart/passivetree/passiveskillscreencurvesactivebluetogether.dds",
-	"art/2dart/passivetree/passiveskillscreencurvesactivealttogether.dds",
-	"art/2dart/passivetree/atlaspassiveskillscreencurvesnormalbluetogether.dds",
-	"art/2dart/passivetree/atlaspassiveskillscreencurvesintermediatebluetogether.dds",
-	"art/2dart/passivetree/atlaspassiveskillscreencurvesactivebluetogether.dds",
-	"art/2dart/passivetree/ascendancypassiveskillscreencurvesnormaltogether.dds",
-	"art/2dart/passivetree/ascendancypassiveskillscreencurvesintermediatetogether.dds",
-	"art/2dart/passivetree/ascendancypassiveskillscreencurvesbackingtogether.dds",
-	"art/2dart/passivetree/ascendancypassiveskillscreencurvesactivetogether.dds",
-	"art/textures/interface/2d/2dart/uiimages/ingame/passiveskillscreenstartnodebackgroundinactive.dds",
-	"art/textures/interface/2d/2dart/uiimages/ingame/passiveskillscreenpointsbackground.dds",
-	"art/textures/interface/2d/2dart/uiimages/ingame/passiveskillscreenplusframenormal.dds",
-	"art/textures/interface/2d/2dart/uiimages/ingame/passiveskillscreenplusframecanallocate.dds",
-	"art/textures/interface/2d/2dart/uiimages/ingame/passiveskillscreenplusframeactive.dds",
-	"art/textures/interface/2d/2dart/uiimages/ingame/hudpassiveskillscreennormal.dds",
-	"art/textures/interface/2d/2dart/uiimages/ingame/hudpassiveskillscreenhover.dds",
-	"art/textures/interface/2d/2dart/uiimages/ingame/hudpassiveskillscreendown.dds",
-	"art/2dart/uieffects/passiveskillscreen/plusframemask.dds",
-	"art/2dart/uieffects/passiveskillscreen/passivemasterybuttonmask.dds",
-	"art/2dart/uieffects/passiveskillscreen/notableframemask.dds",
-	"art/2dart/uieffects/passiveskillscreen/nodeframemask.dds",
-	"art/2dart/uieffects/passiveskillscreen/linestogethermask.dds",
-	"art/2dart/uieffects/passiveskillscreen/keystoneframemask.dds",
-	"art/2dart/uieffects/passiveskillscreen/jewelsocketframemask.dds",
-	"art/2dart/uieffects/passiveskillscreen/expansionjewelsocketframemask.dds",
-	"art/2dart/uieffects/passiveskillscreen/atlaswormholeframemask.dds",
-	"art/2dart/uieffects/passiveskillscreen/atlasnotableframemask.dds",
-	"art/2dart/uieffects/passiveskillscreen/atlasnodeframemask.dds",
-	"art/2dart/uieffects/passiveskillscreen/atlaskeystoneframemask.dds",
-	"art/2dart/uieffects/passiveskillscreen/ascendancyframesmallmask.dds",
-	"art/2dart/uieffects/passiveskillscreen/ascendancyframelargemask.dds",
-	"art/textures/interface/2d/2dart/uiimages/ingame/passivetree/ptscrollbarthumb.dds",
-	"art/textures/interface/2d/2dart/uiimages/ingame/passivetree/ptscrollbarbgright.dds",
-	"art/textures/interface/2d/2dart/uiimages/ingame/passivetree/ptscrollbarbgleft.dds",
-	"art/textures/interface/2d/2dart/uiimages/ingame/passivetree/ptscrollbarbgcenter.dds",
-	"art/textures/interface/2d/2dart/uiimages/ingame/passivetree/passivetreepopupsplitallocation.dds",
-	"art/textures/interface/2d/2dart/uiimages/ingame/passivetree/passivetreepopupapply.dds",
-	"art/textures/interface/2d/2dart/uiimages/ingame/passivetree/passivetreepaneltop.dds",
-	"art/textures/interface/2d/2dart/uiimages/ingame/passivetree/passivetreepanelsetnormal.dds",
-	"art/textures/interface/2d/2dart/uiimages/ingame/passivetree/passivetreepanelsetactive.dds",
-	"art/textures/interface/2d/2dart/uiimages/ingame/passivetree/passivetreepanelgold.dds",
-	"art/textures/interface/2d/2dart/uiimages/ingame/passivetree/passivetreepanelbuttonpressed.dds",
-	"art/textures/interface/2d/2dart/uiimages/ingame/passivetree/passivetreepanelbuttonnormal.dds",
-	"art/textures/interface/2d/2dart/uiimages/ingame/passivetree/passivetreepanelbuttonhover.dds",
-	"art/textures/interface/2d/2dart/uiimages/ingame/passivetree/passivetreepanelbot.dds",
-	"art/textures/interface/2d/2dart/uiimages/ingame/passivetree/passivetreepanel3.dds",
-	"art/textures/interface/2d/2dart/uiimages/ingame/passivetree/passivetreepanel2.dds",
-	"art/textures/interface/2d/2dart/uiimages/ingame/passivetree/passivetreepanel.dds",
-	"art/textures/interface/2d/2dart/uiimages/ingame/passivetree/passivetreemaincircleactive2.dds",
-	"art/textures/interface/2d/2dart/uiimages/ingame/passivetree/passivetreemaincircleactive.dds",
-	"art/textures/interface/2d/2dart/uiimages/ingame/passivetree/passivetreemaincircle.dds",
-	"art/textures/interface/2d/2dart/uiimages/ingame/passivetree/ascendancypassivetreepaneltop.dds",
-}
-
-printf("Extracting Additional Assets...")
-extractFromGgpk(listAdditionalAssets)
-nvtt.CompressDDSIntoOtherFormat(main.ggpk.oozPath, basePath .. version .. "/", "additionalAssets", listAdditionalAssets, ddsFormat, true)
+addToSheet(getSheet("group-background"), ascStart, "startNode", commonMetadata("PSStartNodeBackgroundInactive"))
 
 -- adding passive tree assets
-addToSheet(getSheet("ascendancy-background"), "art/textures/interface/2d/2dart/uiimages/ingame/passivetree/passivetreemaincircle.dds", "ascendancyBackground", commonBackgroundMetadata("BGTree", 2000, 2000, 4, ddsFormat))
-addToSheet(getSheet("ascendancy-background"), "art/textures/interface/2d/2dart/uiimages/ingame/passivetree/passivetreemaincircleactive2.dds", "ascendancyBackground", commonBackgroundMetadata("BGTreeActive", 2000, 2000, 4, ddsFormat))
+addToSheet(getSheet("ascendancy-background"), "art/textures/interface/2d/2dart/uiimages/ingame/passivetree/passivetreemaincircle.dds", "ascendancyBackground", commonMetadata("BGTree"))
+addToSheet(getSheet("ascendancy-background"), "art/textures/interface/2d/2dart/uiimages/ingame/passivetree/passivetreemaincircleactive2.dds", "ascendancyBackground", commonMetadata("BGTreeActive"))
 
-printf("Generating decompose lines images...")
-local linesFiles = {
-	{
-		file = "art/2dart/passivetree/passiveskillscreencurvesactivetogether_out.dds",
-		mask = "art/2dart/uieffects/passiveskillscreen/linestogethermask_out.dds",
-		extension = ".png",
-		basename = "orbitactive",
-		first = "LineConnector",
-		prefix = "Orbit",
-		posfix = "Active",
-		meta = 0.3835,
-		minmapfile = 0,
-		minmapmask = 0,
-		total = 10
-	},
-	{
-		file = "art/2dart/passivetree/passiveskillscreencurvesintermediatetogether_out.dds",
-		mask = "art/2dart/uieffects/passiveskillscreen/linestogethermask_out.dds",
-		extension = ".png",
-		basename = "orbitintemediate",
-		first = "LineConnector",
-		prefix = "Orbit",
-		posfix = "Intermediate",
-		meta = 0.3835,
-		minmapfile = 0,
-		minmapmask = 0,
-		total = 10
-	},
-	{
-		file = "art/2dart/passivetree/passiveskillscreencurvesnormaltogether_out.dds",
-		mask = "art/2dart/uieffects/passiveskillscreen/linestogethermask_out.dds",
-		extension = ".png",
-		basename = "orbitnormal",
-		first = "LineConnector",
-		prefix = "Orbit",
-		posfix = "Normal",
-		meta = 0.3835,
-		minmapfile = 0,
-		minmapmask = 0,
-		total = 10
-	}
-}
-gimpbatch.extract_lines_dds("lines", linesFiles, main.ggpk.oozPath, basePath .. version .. "/", GetRuntimePath() .. "/lua/gimpbatch/extract_lines.scm", generateAssets)
+
+-- adding lines to sprite
+addToSheet(getSheet("lines"), "art/2dart/passivetree/passiveskillscreencurvesactivetogether.dds", "line", commonMetadata( "CurvesActive"))
+addToSheet(getSheet("lines"), "art/2dart/passivetree/passiveskillscreencurvesintermediatetogether.dds", "line", commonMetadata( "CurvesIntermediate"))
+addToSheet(getSheet("lines"), "art/2dart/passivetree/passiveskillscreencurvesnormaltogether.dds", "line", commonMetadata( "CurvesNormal"))
 
 local tree = {
 	["pob"] = 1,
@@ -682,15 +516,8 @@ local tree = {
 	["classes"] = {},
 	["groups"] = { },
 	["nodes"]= { },
-	["assets"] = {},
+	["assets"]={},
 	["sprites"] = {},
-	["imageZoomLevels"] = {
-        0.1246,
-        0.2109,
-        0.2972,
-        0.3835,
-		0.9013 -- calculate
-	},
 	["constants"]= { -- calculate this
         ["classes"]= {
             ["StrDexIntClass"]= 0,
@@ -749,8 +576,8 @@ for i, classId in ipairs(psg.passives) do
 		}
 
 		-- add assets
-		addToSheet(getSheet("ascendancy-background"), character.PassiveTreeImage, "ascendancyBackground", commonBackgroundMetadata( "Classes" .. character.Name, 1500, 1500, 4, ddsFormat))
-		addToSheet(getSheet("group-background"), uiImages[string.lower(character.SkillTreeBackground)].path, "startNode", commonBackgroundMetadata( "center" .. string.lower(character.Name), 1024, 1024, 4, ddsFormat))
+		addToSheet(getSheet("ascendancy-background"), character.PassiveTreeImage, "ascendancyBackground", commonMetadata( "Classes" .. character.Name))
+		addToSheet(getSheet("group-background"), uiImages[string.lower(character.SkillTreeBackground)].path, "startNode", commonMetadata( "center" .. string.lower(character.Name)))
 
 		local ascendancies = dat("ascendancy"):GetRowList("Class", character)
 		for k, ascendency in ipairs(ascendancies) do
@@ -764,7 +591,7 @@ for i, classId in ipairs(psg.passives) do
 			})
 
 			-- add assets
-			addToSheet(getSheet("ascendancy-background"), ascendency.PassiveTreeImage, "ascendancyBackground", commonBackgroundMetadata( "Classes" .. ascendency.Name, 1500, 1500, 4, ddsFormat))
+			addToSheet(getSheet("ascendancy-background"), ascendency.PassiveTreeImage, "ascendancyBackground", commonMetadata( "Classes" .. ascendency.Name))
 
 			:: continue3 ::
 		end
@@ -817,6 +644,7 @@ for id, _ in pairs(base_attributes) do
 		end
 	end
 
+	addToSheet(getSheet("skills"), base.Icon, "normalActive", commonMetadata(nil))
 	base_attributes[id] = attribute
 	:: continue ::
 end
@@ -857,21 +685,21 @@ for i, group in ipairs(psg.groups) do
 			node["icon"] = passiveRow.Icon
 			if passiveRow.Keystone then
 				node["isKeystone"] = true
-				addToSheet(getSheet("skills"), passiveRow.Icon, "keystoneActive", skillKeystoneMetadata())
-				addToSheet(getSheet("skills-disabled"), passiveRow.Icon, "keystoneInactive", skillKeystoneMetadata())
+				addToSheet(getSheet("skills"), passiveRow.Icon, "keystoneActive", commonMetadata(nil))
+				addToSheet(getSheet("skills-disabled"), passiveRow.Icon, "keystoneInactive", commonMetadata(nil))
 			elseif passiveRow.Notable then
 				node["isNotable"] = true
-				addToSheet(getSheet("skills"), passiveRow.Icon, "notableActive", skillNotableMetadata())
-				addToSheet(getSheet("skills-disabled"), passiveRow.Icon, "notableInactive", skillNotableMetadata())
+				addToSheet(getSheet("skills"), passiveRow.Icon, "notableActive", commonMetadata(nil))
+				addToSheet(getSheet("skills-disabled"), passiveRow.Icon, "notableInactive", commonMetadata(nil))
 			elseif passiveRow.Mastery then
 				node["isMastery"] = true
 				node["inactiveIcon"] = passiveRow.MasteryGroup.IconInactive
 				node["activeIcon"] = passiveRow.MasteryGroup.IconActive
 				
-				addToSheet(getSheet("mastery"), passiveRow.Icon, "mastery", masteryMetadata())
-				addToSheet(getSheet("mastery-disabled"), passiveRow.MasteryGroup.IconInactive, "masteryInactive", masteryMetadata())
-				addToSheet(getSheet("mastery-connected"), passiveRow.MasteryGroup.IconInactive, "masteryConnected", masteryMetadata())
-				addToSheet(getSheet("mastery-active-selected"), passiveRow.MasteryGroup.IconActive, "masteryActiveSelected", masteryMetadata())
+				addToSheet(getSheet("mastery"), passiveRow.Icon, "mastery", commonMetadata(nil))
+				addToSheet(getSheet("mastery-disabled"), passiveRow.MasteryGroup.IconInactive, "masteryInactive", commonMetadata(nil))
+				addToSheet(getSheet("mastery-connected"), passiveRow.MasteryGroup.IconInactive, "masteryConnected", commonMetadata(nil))
+				addToSheet(getSheet("mastery-active-selected"), passiveRow.MasteryGroup.IconActive, "masteryActiveSelected", commonMetadata(nil))
 
 
 				-- node["masteryEffects"] = {}
@@ -895,11 +723,11 @@ for i, group in ipairs(psg.groups) do
 				-- end
 			elseif passiveRow.JewelSocket then
 				node["isJewelSocket"] = true
-				addToSheet(getSheet("skills"), passiveRow.Icon, "socketActive", skillNormalMetadata())
-				addToSheet(getSheet("skills-disabled"), passiveRow.Icon, "socketInactive", skillNormalMetadata())
+				addToSheet(getSheet("skills"), passiveRow.Icon, "socketActive", commonMetadata(nil))
+				addToSheet(getSheet("skills-disabled"), passiveRow.Icon, "socketInactive", commonMetadata(nil))
 			else
-				addToSheet(getSheet("skills"), passiveRow.Icon, "normalActive", skillNormalMetadata())
-				addToSheet(getSheet("skills-disabled"), passiveRow.Icon, "normalInactive", skillNormalMetadata())
+				addToSheet(getSheet("skills"), passiveRow.Icon, "normalActive", commonMetadata(nil))
+				addToSheet(getSheet("skills-disabled"), passiveRow.Icon, "normalInactive", commonMetadata(nil))
 			end
 
 			-- Ascendancy
@@ -936,7 +764,7 @@ for i, group in ipairs(psg.groups) do
 				node["activeEffectImage"] = passiveRow.MasteryGroup.Background
 
 				local uiEffect = uiImages[string.lower(passiveRow.MasteryGroup.Background)]
-				addToSheet(getSheet("mastery-active-effect"), uiEffect.path, "masteryActiveEffect", commonBackgroundMetadata(passiveRow.MasteryGroup.Background, 768, 768, 4, ddsFormat))
+				addToSheet(getSheet("mastery-active-effect"), uiEffect.path, "masteryActiveEffect", commonMetadata(passiveRow.MasteryGroup.Background))
 			end
 
 			-- if the passive is "Attribute" we are going to add values
@@ -986,7 +814,7 @@ for i, group in ipairs(psg.groups) do
 						table.insert(node["recipe"], item.NameShort)
 
 						-- add to sprite sheet
-						addToSheet(getSheet("oils"), item.Oil.ItemVisualIdentityKey.DDSFile, "oil", commonBackgroundMetadata(item.NameShort, 108, 108, 4, ddsFormat))
+						addToSheet(getSheet("oils"), item.Oil.ItemVisualIdentityKey.DDSFile, "oil", commonMetadata(item.NameShort))
 					end
 				end
 			end
@@ -1003,8 +831,8 @@ for i, group in ipairs(psg.groups) do
 				}
 
 				-- add to assets
-				addToSheet(getSheet("skills"), switchNode.SwitchedNode.Icon, "normalActive", skillNormalMetadata())
-				addToSheet(getSheet("skills-disabled"), switchNode.SwitchedNode.Icon, "normalInactive", skillNormalMetadata())
+				addToSheet(getSheet("skills"), switchNode.SwitchedNode.Icon, "normalActive", commonMetadata(nil))
+				addToSheet(getSheet("skills-disabled"), switchNode.SwitchedNode.Icon, "normalInactive", commonMetadata(nil))
 
 				-- Stats
 				if switchNode.SwitchedNode.Stats ~= nil then
@@ -1138,93 +966,96 @@ end
 
 MakeDir(basePath .. version)
 
-printf("Generating list to extract dds from sheets...")
-local listDds = {}
-local convertList = {}
-for i, sheet in ipairs(sheets) do
-	for icon, section in pairs(sheet.files) do
-		listDds[icon] = true
-
-		for section, metadata in pairs(section) do
-			if metadata.convert then
-				convertList[metadata.convert] = convertList[metadata.convert] or {}
-				convertList[metadata.convert][icon] = true
-			end
-		end
-	end
-end
-
-local fileList = { }
-for icon, _ in pairs(listDds) do
-	table.insert(fileList, icon)
-end
-extractFromGgpk(fileList)
-
-printf("Converting dds from sheets...")
-fileList = { }
-for convert, icons in pairs(convertList) do
-	for icon, _ in pairs(icons) do
-		table.insert(fileList, icon)
-	end
-	nvtt.CompressDDSIntoOtherFormat(main.ggpk.oozPath, basePath .. version .. "/", convert, fileList, convert, true)
-	fileList = { }
-end
-
 printf("Generating sprite info...")
 local sections = {}
 for i, sheet in ipairs(sheets) do
 	printf("Calculating sprite dimensions for " .. sheet.name)
 	calculateSheetCoords(sheet, main.ggpk.oozPath, basePath .. version .. "/")
 
-	printf("Generating sprite sheet images...")
-	generateSprite(sheet, main.ggpk.oozPath, basePath .. version .. "/", generateAssets)
-
 	printf("Generating sprite info for " .. sheet.name)
 	-- now we are going to creeate sprites base on section and zoom level
-	-- this is base on imageZoomLevels
-	for j, group in ipairs(sheet.sprites) do
-		local zoomLevel = tree.imageZoomLevels[j]
-		for _, coords in pairs(group.coords) do
-			local icon = coords.alias or coords.icon
-			local sprite = {
-				x = coords.x,
-				y = coords.y,
-				w = coords.w,
-				h = coords.h,
-			}
-
-			-- validate with mipmap if w and h are different and use that spaced
-			if coords.mipmap and coords.mipmap.width ~= sprite.w then
-				sprite.w = coords.mipmap.width
-			end
-
-			if coords.mipmap and coords.mipmap.height ~= sprite.h then
-				sprite.h = coords.mipmap.height
-			end
-
-			if sections[coords.section] == nil then
-				sections[coords.section] = {}
-			end
-			if sections[coords.section][zoomLevel] == nil then
-				sections[coords.section][zoomLevel] = {
-					filename = group.filename,
-					w = group.w,
-					h = group.h,
+	for _, coord in pairs(sheet.sprite.coords) do
+		for section, metadata in pairs(coord.sections) do
+			if sections[section] == nil then
+				sections[section] = {
+					filename = sheet.sprite.filename,
+					w = sheet.sprite.w,
+					h = sheet.sprite.h,
 					coords = { },
 				}
 			end
 
-			sections[coords.section][zoomLevel].coords[icon] = sprite
-			:: continue ::
+			local icon = metadata.alias or coord.icon
+			local sprite = {
+				x = coord.x,
+				y = coord.y,
+				w = coord.w,
+				h = coord.h,
+			}
+
+			sections[section].coords[icon] = sprite
 		end
 	end
 end
 
 tree.sprites = sections
 
+printf("Generating decompose lines images...")
+local linesFiles = {
+	{
+		file = "art/2dart/passivetree/passiveskillscreencurvesactivetogether.dds",
+		mask = "art/2dart/uieffects/passiveskillscreen/linestogethermask.dds",
+		extension = ".png",
+		basename = "orbitactive",
+		first = "LineConnector",
+		prefix = "Orbit",
+		posfix = "Active",
+		meta = 0.3835,
+		minmapfile = 0,
+		minmapmask = 0,
+		total = 10
+	},
+	{
+		file = "art/2dart/passivetree/passiveskillscreencurvesintermediatetogether.dds",
+		mask = "art/2dart/uieffects/passiveskillscreen/linestogethermask.dds",
+		extension = ".png",
+		basename = "orbitintemediate",
+		first = "LineConnector",
+		prefix = "Orbit",
+		posfix = "Intermediate",
+		total = 10
+	},
+	{
+		file = "art/2dart/passivetree/passiveskillscreencurvesnormaltogether.dds",
+		mask = "art/2dart/uieffects/passiveskillscreen/linestogethermask.dds",
+		extension = ".png",
+		basename = "orbitnormal",
+		first = "LineConnector",
+		prefix = "Orbit",
+		posfix = "Normal",
+		total = 10
+	}
+}
+
+local linesDds = {}
+for _, lines in ipairs(linesFiles) do
+	table.insert(linesDds, lines.file)
+	table.insert(linesDds, lines.mask)
+end
+
+extractFromGgpk(linesDds)
+nvtt.ExportDDSToPng(main.ggpk.oozPath, basePath .. version .. "/", "lines", linesDds, true)
+
+-- change extension from dds to png
+for _, lines in ipairs(linesFiles) do
+	lines.file = lines.file:gsub(".dds", ".png")
+	lines.mask = lines.mask:gsub(".dds", ".png")
+end
+
+gimpbatch.extract_lines_from_image("lines", linesFiles, main.ggpk.oozPath, basePath .. version .. "/", GetRuntimePath() .. "/lua/gimpbatch/extract_lines.scm", generateAssets)
+
 printf("generate lines info into assets")
 -- Generate sprites
-
 for _, lines in ipairs(linesFiles) do
 	for i = 0, lines.total - 1 do
 		local name
@@ -1238,8 +1069,8 @@ for _, lines in ipairs(linesFiles) do
 		end
 
 		tree.assets[name] = {
-			[lines.meta] = lines.basename .. middle .. lines.extension
-		}
+			lines.basename .. middle .. lines.extension
+		} 
 	end
 end
 
@@ -1254,4 +1085,35 @@ out:write('return ')
 writeLuaTable(out, tree, 1)
 out:close()
 printf("File " .. fileTree .. " generated")
+
+-- Here we should validate if we need to create assets real assets
+if generateAssets then
+	printf("Generating png from dds ...")
+	local ddsFiles = {}
+	for _, sheet in ipairs(sheets) do
+		for _, coord in pairs(sheet.sprite.coords) do
+			table.insert( ddsFiles,  coord.icon)
+		end
+	end
+
+	nvtt.ExportDDSToPng(main.ggpk.oozPath, basePath .. version .. "/", "assets", ddsFiles, true)
+
+	printf("Generating sprite sheet images...")
+	for _, sheet in ipairs(sheets) do
+		-- update coord.icon from .dds to .png
+		for _, coord in pairs(sheet.sprite.coords) do
+			coord.icon = coord.icon:gsub(".dds", ".png")
+		end
+
+		gimpbatch.combine_images_to_sprite(
+			sheet.name ,
+			sheet.sprite,
+			main.ggpk.oozPath,
+			basePath .. version .. "/",
+			GetRuntimePath() .. "/lua/gimpbatch/combine_images.scm",
+			sheet.saturation,
+			generateAssets
+		)
+	end
+end
 :: final ::
