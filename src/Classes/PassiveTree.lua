@@ -632,9 +632,6 @@ function PassiveTreeClass:BuildConnector(node1, node2, connection)
 	}
 
 	if connection.orbit ~= 0 and self.orbitRadii[math.abs(connection.orbit) + 1] then
-		if node1.id ~= 10364 then
-			return 
-		end
 		local orbit = math.abs(connection.orbit)
 		local r =  self.orbitRadii[orbit + 1] * self.scaleImage
 
@@ -659,6 +656,8 @@ function PassiveTreeClass:BuildConnector(node1, node2, connection)
 				angle1, angle2 = angle2, angle1
 				arcAngle = m_pi * 2 - arcAngle
 			end
+
+			angle1 = angle1 + m_pi / 2
 			if arcAngle <= m_pi then
 				-- Angle is less than 180 degrees, draw an arc
 				-- If our arc is greater than 90 degrees, we will need 2 arcs because our orbit assets are at most 90 degree arcs see below
