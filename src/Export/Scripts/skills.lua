@@ -293,6 +293,13 @@ directiveTable.skill = function(state, args, out)
 	end
 	state.noGem = false
 	skill.baseFlags = { }
+	if gemEffect then
+		for _, tag in ipairs(gemEffect.Tags) do
+			if tag.Id ~= "grants_active_skill" and tag.Id ~= "support" then
+				table.insert(skill.baseFlags, tag.Id)
+			end
+		end
+	end
 	local modMap = { }
 	skill.mods = { }
 	skill.levels = { }

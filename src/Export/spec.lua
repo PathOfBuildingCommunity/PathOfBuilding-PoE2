@@ -196,7 +196,7 @@ return {
 			name="Id",
 			refTo="",
 			type="String",
-			width=190
+			width=210
 		},
 		[2]={
 			list=false,
@@ -238,7 +238,7 @@ return {
 			name="SkillTypes",
 			refTo="ActiveSkillType",
 			type="Key",
-			width=330
+			width=920
 		},
 		[8]={
 			list=true,
