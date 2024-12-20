@@ -314,12 +314,7 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 						-- the odd conditional here is so the popup only calls AllocNode inside and to avoid duplicating some code
 						-- same flow for hotkey attribute and non attribute nodes
 						if hotkeyPressed then
-							if hoverNode.isAttribute then
-								processAttributeHotkeys(true)
-							else
-								-- will set any attribute nodes in path when allocating a non attribute node
-								processAttributeHotkeys(false)
-							end
+							processAttributeHotkeys(hoverNode.isAttribute)
 						end
 						spec:AllocNode(hoverNode, self.tracePath and hoverNode == self.tracePath[#self.tracePath] and self.tracePath)
 						spec:AddUndoState()
