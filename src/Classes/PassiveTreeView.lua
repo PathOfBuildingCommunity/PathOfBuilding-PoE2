@@ -264,19 +264,19 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 		end
 	end
 	
-	-- setIndex true, switchAttribute true -> allocating an attribute node, possibly with attribute in path
-	-- setIndex true, switchAttribute false -> allocating a non-attribute node, possibly with attribute in path
-	-- setIndex false, switchAttribute true -> hotswap allocated attribute node
-	local function processAttributeHotkeys(setIndex, switchAttribute) 
-		if IsKeyDown("1") or IsKeyDown("I") then
-			if setIndex then spec.attributeIndex = 3 end
-			if switchAttribute then spec:SwitchAttributeNode(hoverNode.id, 3) end
-		elseif IsKeyDown("2") or IsKeyDown("S") then
-			if setIndex then spec.attributeIndex = 1 end
+	-- switchAttribute true -> allocating an attribute node, possibly with attribute in path -or- hotswap allocated attribute
+	-- switchAttribute false -> allocating a non-attribute node, possibly with attribute in path
+	-- we always want to keep track of last used attribute
+	local function processAttributeHotkeys(switchAttribute)
+		if IsKeyDown("2") or IsKeyDown("S") then
+			spec.attributeIndex = 1
 			if switchAttribute then spec:SwitchAttributeNode(hoverNode.id, 1) end
 		elseif IsKeyDown("3") or IsKeyDown("D") then
-			if setIndex then spec.attributeIndex = 2 end
+			spec.attributeIndex = 2
 			if switchAttribute then spec:SwitchAttributeNode(hoverNode.id, 2) end
+		elseif IsKeyDown("1") or IsKeyDown("I") then
+			spec.attributeIndex = 3
+			if switchAttribute then spec:SwitchAttributeNode(hoverNode.id, 3) end
 		end
 	end
 	
@@ -288,7 +288,7 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 				if hoverNode.isAttribute then
 					-- change to other attribute without needing to deallocate
 					if hotkeyPressed then
-						processAttributeHotkeys(false, true)
+						processAttributeHotkeys(true)
 						-- reload allocated node with new attribute
 						spec:BuildAllDependsAndPaths()
 					else -- reset switched node to generic Attribute
@@ -315,10 +315,10 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 						-- same flow for hotkey attribute and non attribute nodes
 						if hotkeyPressed then
 							if hoverNode.isAttribute then
-								processAttributeHotkeys(true, true)
+								processAttributeHotkeys(true)
 							else
 								-- will set any attribute nodes in path when allocating a non attribute node
-								processAttributeHotkeys(true, false)
+								processAttributeHotkeys(false)
 							end
 						end
 						spec:AllocNode(hoverNode, self.tracePath and hoverNode == self.tracePath[#self.tracePath] and self.tracePath)

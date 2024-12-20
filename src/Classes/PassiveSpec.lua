@@ -700,9 +700,9 @@ function PassiveSpecClass:AllocNode(node, altPath)
 		self.allocNodes[node.id] = node
 	else
 		for _, pathNode in ipairs(altPath or node.path) do
-			-- set path attribute nodes to latest chosen attribute
-			if self.attributeIndex and pathNode.isAttribute then 
-				self:SwitchAttributeNode(pathNode.id, self.attributeIndex)
+			-- set path attribute nodes to latest chosen attribute or default to Strength if allocating before choosing an attribute
+			if pathNode.isAttribute then 
+				self:SwitchAttributeNode(pathNode.id, self.attributeIndex or 1)
 			end
 			pathNode.alloc = true
 			self.allocNodes[pathNode.id] = pathNode
