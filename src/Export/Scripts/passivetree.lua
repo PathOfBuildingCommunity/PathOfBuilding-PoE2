@@ -1056,8 +1056,8 @@ gimpbatch.extract_lines_from_image("lines", linesFiles, main.ggpk.oozPath, baseP
 
 printf("generate lines info into assets")
 -- Generate sprites
-local curveOrbitfile = 9
 for _, lines in ipairs(linesFiles) do
+	local curveOrbitfile = 9
 	for i = 0, lines.total - 1 do
 		local name
 		local middle
@@ -1067,8 +1067,11 @@ for _, lines in ipairs(linesFiles) do
 		elseif i == 3 then
 			curveOrbitfile = curveOrbitfile - 1
 			middle = curveOrbitfile
+			curveOrbitfile = curveOrbitfile - 1
+			name = lines.prefix .. i .. lines.posfix
 		elseif i == 7 then
 			middle = 7
+			name = lines.prefix .. i .. lines.posfix
 		else
 			name = lines.prefix .. i .. lines.posfix
 			middle = curveOrbitfile

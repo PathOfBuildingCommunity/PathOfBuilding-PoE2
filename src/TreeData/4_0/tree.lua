@@ -1,5 +1,4 @@
 return {
-	pob = 1,
 	assets={
 		LineConnectorActive={
 			[1]="orbitactive0.png"
@@ -83156,6 +83155,7 @@ return {
 			}
 		}
 	},
+	pob=1,
 	sprites={
 		ascendancyBackground={
 			coords={
