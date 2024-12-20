@@ -145,7 +145,7 @@
             (gimp-floating-sel-anchor paste-item)
 
             ;; find the next rectangle
-            (gimp-image-select-color mask-image CHANNEL-OP-REPLACE mask-layer-id '(0 0 0 ))
+            (gimp-image-select-color mask-image CHANNEL-OP-REPLACE mask-layer-id '(0 0 0))
             (gimp-image-select-contiguous-color mask-image CHANNEL-OP-SUBTRACT mask-layer-id (- width-image 2) (+ y 2))
 
             ;; get bounds
@@ -206,12 +206,11 @@
             (set! new-layer (car (gimp-image-merge-visible-layers new-image EXPAND-AS-NECESSARY)))
 
             ;; redefine the new layer
-            (gimp-context-set-sample-transparent TRUE)
-            (gimp-image-select-contiguous-color new-image CHANNEL-OP-REPLACE new-layer 0 0)
-            (gimp-selection-invert new-image)
             (set! position (cdr (gimp-selection-bounds new-image)))
             (set! pos-x (list-ref position 0))
             (set! pos-y (list-ref position 1))
+            (set! pos-x (+ pos-x 6))
+            (set! pos-y (+ pos-y 6))
             (gimp-image-resize new-image (- width-image pos-x) (- height-image pos-y) (- 0 pos-x) (- 0 pos-y))
             (gimp-layer-resize-to-image-size new-layer)
             (gimp-context-set-sample-transparent FALSE)
