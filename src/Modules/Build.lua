@@ -1708,14 +1708,14 @@ do
 				t_insert(req, s_format("%s%d ^x7F7F7FOmni", main:StatColor(omni, 0, self.calcsTab.mainOutput.Omni), omni))
 			end
 		else 
-			if str and (str > 14 or str > self.calcsTab.mainOutput.Str) then
-				t_insert(req, s_format("%s%d ^x7F7F7FStr", main:StatColor(str, strBase, self.calcsTab.mainOutput.Str), str))
+			if str and (str > 7 or str > self.calcsTab.mainOutput.Str) then
+				t_insert(req, s_format("%s%d ^x7F7F7F%s", main:StatColor(str, strBase, self.calcsTab.mainOutput.Str), str, level and "Str" or "Strength"))
 			end
-			if dex and (dex > 14 or dex > self.calcsTab.mainOutput.Dex) then
-				t_insert(req, s_format("%s%d ^x7F7F7FDex", main:StatColor(dex, dexBase, self.calcsTab.mainOutput.Dex), dex))
+			if dex and (dex > 7 or dex > self.calcsTab.mainOutput.Dex) then
+				t_insert(req, s_format("%s%d ^x7F7F7F%s", main:StatColor(dex, dexBase, self.calcsTab.mainOutput.Dex), dex, level and "Dex" or "Dexterity"))
 			end
-			if int and (int > 14 or int > self.calcsTab.mainOutput.Int) then
-				t_insert(req, s_format("%s%d ^x7F7F7FInt", main:StatColor(int, intBase, self.calcsTab.mainOutput.Int), int))
+			if int and (int > 7 or int > self.calcsTab.mainOutput.Int) then
+				t_insert(req, s_format("%s%d ^x7F7F7F%s", main:StatColor(int, intBase, self.calcsTab.mainOutput.Int), int, level and "Int" or "Intelligence"))
 			end
 		end	
 		if req[1] then
