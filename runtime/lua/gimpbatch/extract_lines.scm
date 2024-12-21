@@ -1,17 +1,13 @@
-(define (extract-lines-pob src-path-image mask-path-image srcmipmap maskmipmap max-orbits output-path filename extension interactive)
+(define (extract-lines-pob src-path-image mask-path-image max-orbits output-path filename extension interactive)
     (let*
         (
             ;; Load the images
-            (src-image (car (file-dds-load RUN-NONINTERACTIVE src-path-image src-path-image 1 1)))
-            (mask-image (car (file-dds-load RUN-NONINTERACTIVE mask-path-image mask-path-image 1 1)))
-
-            ;; Get the layers
-            (layers-src-image (list-ref (gimp-image-get-layers src-image) 1))
-            (layers-mask-image (list-ref (gimp-image-get-layers mask-image) 1))
+            (src-image (car (gimp-file-load RUN-NONINTERACTIVE src-path-image src-path-image)))
+            (mask-image (car (gimp-file-load RUN-NONINTERACTIVE mask-path-image mask-path-image)))
 
             ;; Get the layer
-            (src-layer-id (vector-ref layers-src-image srcmipmap))
-            (mask-layer-id (vector-ref layers-mask-image srcmipmap))
+            (src-layer-id (car (gimp-image-get-active-layer src-image)))
+            (mask-layer-id (car (gimp-image-get-active-layer mask-image)))
 
             ; get the width and height of the image
             (width-image (car (gimp-drawable-width src-layer-id)))
@@ -94,7 +90,7 @@
         (gimp-edit-copy src-layer-id)
         (gimp-floating-sel-anchor (car (gimp-edit-paste new-layer TRUE)))
         (set! dest (string-append output-path filename  (number->string total) extension))
-        (file-png-save-defaults RUN-NONINTERACTIVE new-image new-layer dest dest)
+        (file-png-save RUN-NONINTERACTIVE new-image new-layer dest dest 0 9 0 1 1 1 1 )
 
         (if (= interactive 1)
             (begin
@@ -149,7 +145,7 @@
             (gimp-floating-sel-anchor paste-item)
 
             ;; find the next rectangle
-            (gimp-image-select-color mask-image CHANNEL-OP-REPLACE mask-layer-id '(0 0 0 ))
+            (gimp-image-select-color mask-image CHANNEL-OP-REPLACE mask-layer-id '(0 0 0))
             (gimp-image-select-contiguous-color mask-image CHANNEL-OP-SUBTRACT mask-layer-id (- width-image 2) (+ y 2))
 
             ;; get bounds
@@ -210,19 +206,18 @@
             (set! new-layer (car (gimp-image-merge-visible-layers new-image EXPAND-AS-NECESSARY)))
 
             ;; redefine the new layer
-            (gimp-context-set-sample-transparent TRUE)
-            (gimp-image-select-contiguous-color new-image CHANNEL-OP-REPLACE new-layer 0 0)
-            (gimp-selection-invert new-image)
             (set! position (cdr (gimp-selection-bounds new-image)))
             (set! pos-x (list-ref position 0))
             (set! pos-y (list-ref position 1))
+            (set! pos-x (+ pos-x 6))
+            (set! pos-y (+ pos-y 6))
             (gimp-image-resize new-image (- width-image pos-x) (- height-image pos-y) (- 0 pos-x) (- 0 pos-y))
             (gimp-layer-resize-to-image-size new-layer)
             (gimp-context-set-sample-transparent FALSE)
 
             ;; save the image
             (set! dest (string-append output-path filename  (number->string total) extension))
-            (file-png-save-defaults RUN-NONINTERACTIVE new-image new-layer dest dest)
+            (file-png-save RUN-NONINTERACTIVE new-image new-layer dest dest 0 9 0 1 1 1 1)
 
             (if (= interactive 1)
                 (begin

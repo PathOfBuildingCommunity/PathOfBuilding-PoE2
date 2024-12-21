@@ -10,17 +10,20 @@ end
 PLease install NVIDIA Texture Tools Mods exported
 and add the path to the system environment variable
 --]]
-function module.CompressDDSIntoOtherFormat(path_base, path_for_bat, name, listOfFile, format, executeCommand)
-	local shCommands = ""
+function module.ExportDDSToPng(path_base, path_for_bat, name, listOfFile, executeCommand)
+	local shCommands = "@echo off\n"
 	for _, file in ipairs(listOfFile) do
+		local output = escape_path(path_base .. string.gsub(file, ".dds", ".png"))
+		local input = escape_path(path_base .. file)
 		shCommands = shCommands .. string.format(
-			"nvtt_export.exe -f %s -o \"%s\" \"%s\"\n",
-			format,
-			escape_path(path_base .. string.gsub(file, ".dds", "_out.dds")),
-			escape_path(path_base .. file)
+			"if not exist \"%s\" (\n\tnvtt_export.exe -o \"%s\" \"%s\"\n) else (\n\techo File %s already exists\n)\n",
+			output,
+			output,
+			input,
+			output
 		)
 	end
-	local batPath = path_for_bat .. "compress_" .. name .. ".bat"
+	local batPath = path_for_bat .. "export_" .. name .. ".bat"
 	local batFile = io.open(batPath, "w")
 	batFile:write(shCommands)
 	batFile:close()

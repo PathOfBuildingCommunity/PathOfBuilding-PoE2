@@ -55,6 +55,24 @@ end
 
 local cacheInfo = {}
 
+function module.getMixSize(filePath)
+	if not cacheInfo[filePath] then
+		local file = io.open(filePath, "rb")
+		if not file then
+			error("Cannot open file: " .. filePath)
+		end
+
+		-- Parse the DDS header
+		local baseWidth, baseHeight, mipmapCount = parseDDSHeader(file)
+		file:close()
+
+		-- Calculate mipmaps
+		cacheInfo[filePath] = calculateMipmaps(baseWidth, baseHeight, mipmapCount)
+	end
+	local mipmaps = cacheInfo[filePath]
+	return mipmaps[1].width, mipmaps[1].height
+end
+
 function module.findClosestDDSMipmap(filePath, targetWidth, targetHeight)
 	-- Check if the mipmaps have already been calculated	
 	if not cacheInfo[filePath] then

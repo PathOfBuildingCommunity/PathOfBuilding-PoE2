@@ -353,9 +353,8 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 		bg.width, bg.height = bg.handle:ImageSize()
 	end
 	if bg.width > 0 then
-		local bgSize = bg.width * scale * tree.scaleImage
-		SetDrawColor(1, 1, 1)
-		DrawImage(bg.handle, viewPort.x, viewPort.y, viewPort.width, viewPort.height, (self.zoomX + viewPort.width/2) / -bgSize, (self.zoomY + viewPort.height/2) / -bgSize, (viewPort.width/2 - self.zoomX) / bgSize, (viewPort.height/2 - self.zoomY) / bgSize)
+		SetDrawColor(1, 1, 1, 1)
+		DrawImage(bg.handle, viewPort.x, viewPort.y, viewPort.width, viewPort.height, 0, 0, viewPort.width / 100, viewPort.height / 100)
 	end
 
 	
@@ -365,19 +364,31 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 	-- draw background artwork base on current class
 	local class = tree.classes[spec.curClassId]
 	if class and class.background then
-		local bg = tree:GetAssetByName(class.background.image, class.background.section or "groupBackground")
+		local bgAssetName = class.background.image
+		local bgSection = class.background.section
+		if spec.curAscendClassId ~= 0 then
+			bgAssetName = class.classes[spec.curAscendClassId].background.image
+			bgSection = class.classes[spec.curAscendClassId].background.section
+		end
+		local bg = tree:GetAssetByName(bgAssetName, bgSection or "groupBackground")
 		local scrX, scrY = treeToScreen(class.background.x * tree.scaleImage, class.background.y * tree.scaleImage)
+		bg.width =  class.background.width
+		bg.height = class.background.height
 
-		self:DrawAsset(bg, scrX, scrY, scale * tree.scaleImage)
+		self:DrawAsset(bg, scrX, scrY, scale)
 
 		-- calculate rotation with quad
 		local startNode = spec.nodes[class.startNodeId]
 		local xActive = class.background.x * tree.scaleImage
 		local yActive = class.background.y * tree.scaleImage
 		local angleRad = (math.pi / 2) + math.atan2(startNode.y - yActive, startNode.x - xActive)
+		treeCenterActive.width = class.background['active'].width
+		treeCenterActive.height = class.background['active'].height
+		self:DrawQuadAndRotate(treeCenterActive, class.background.x * tree.scaleImage, class.background.y * tree.scaleImage, angleRad, treeToScreen)
 
-		self:DrawQuadAndRotate(treeCenterActive, class.background.x * tree.scaleImage, class.background.y * tree.scaleImage, scale, angleRad, tree, treeToScreen)
-		self:DrawAsset(treeCenter, scrX, scrY, scale * tree.scaleImage)
+		treeCenter.width = class.background['bg'].width
+		treeCenter.height = class.background['bg'].height
+		self:DrawAsset(treeCenter, scrX, scrY, scale)
 	end
 
 	-- draw ascendancies
@@ -386,12 +397,14 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 		if ascendancy.background then
 			local bg = tree:GetAssetByName(ascendancy.background.image, ascendancy.background.section or "groupBackground")
 			local scrX, scrY = treeToScreen(ascendancy.background.x * tree.scaleImage, ascendancy.background.y * tree.scaleImage)
+			bg.width = ascendancy.background.width
+			bg.height = ascendancy.background.height
 			if name == spec.curAscendClassBaseName then
 				SetDrawColor(1, 1, 1)
 			else
 				SetDrawColor(0.5, 0.5, 0.5)
 			end
-			self:DrawAsset(bg, scrX, scrY, scale * tree.scaleImage)
+			self:DrawAsset(bg, scrX, scrY, scale)
 		end
 	end
 
@@ -512,6 +525,44 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 		end
 	end
 
+	if launch.devModeAlt and hoverNode then
+		-- Draw orbits of the group node
+		local groupNode = hoverNode.group
+		SetDrawLayer(nil, 80)
+		SetDrawColor(1, 0, 0)
+		for _, orbit in ipairs(groupNode.orbits) do
+			local x, y = treeToScreen(groupNode.x * tree.scaleImage, groupNode.y * tree.scaleImage)
+			local orbitRadius = tree.orbitRadii[orbit + 1] * tree.scaleImage
+			local innerSize = orbitRadius * scale
+			DrawImage(self.ring, x - innerSize, y - innerSize, innerSize * 2, innerSize * 2)
+		end
+		SetDrawColor(1, 1, 1)
+
+		local node1 = hoverNode
+		for _, connection in ipairs(hoverNode.connections) do
+			-- draw connections by hand
+			local node2 = spec.nodes[connection.id]
+			if connection.orbit ~= 0 and tree.orbitRadii[math.abs(connection.orbit) + 1] then
+				local r =  tree.orbitRadii[math.abs(connection.orbit) + 1] * tree.scaleImage
+
+				local dx, dy = node2.x - node1.x, node2.y - node1.y
+				local dist = math.sqrt(dx * dx + dy * dy) * (connection.orbit > 0 and 1 or -1)
+
+				if dist < r * 2 then
+					local perp = math.sqrt(r * r - (dist * dist) / 4) * (r > 0 and 1 or -1)
+					local cx = node1.x + dx / 2 + perp * (dy / dist)
+					local cy = node1.y + dy / 2 - perp * (dx / dist)
+					local scx, scy = treeToScreen(cx, cy)
+					
+					local innerSize = r * scale
+					SetDrawColor(0, 1, 0)
+					DrawImage(self.ring, scx - innerSize, scy - innerSize, innerSize * 2, innerSize * 2)
+					SetDrawColor(1, 1, 1)
+				end
+			end
+		end
+	end
+
 	-- Draw the nodes
 	for nodeId, node in pairs(spec.nodes) do
 		-- Determine the base and overlay images for this node based on type and state
@@ -545,33 +596,8 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 
 				local socket, jewel = build.itemsTab:GetSocketAndJewelForNodeID(nodeId)
 				if isAlloc and jewel then
-					if jewel.baseName == "Crimson Jewel" then
-						overlay = node.expansionJewel and "JewelSocketActiveRedAlt" or "JewelSocketActiveRed"
-					elseif jewel.baseName == "Viridian Jewel" then
-						overlay = node.expansionJewel and "JewelSocketActiveGreenAlt" or "JewelSocketActiveGreen"
-					elseif jewel.baseName == "Cobalt Jewel" then
-						overlay = node.expansionJewel and "JewelSocketActiveBlueAlt" or "JewelSocketActiveBlue"
-					elseif jewel.baseName == "Prismatic Jewel" then
-						overlay = node.expansionJewel and "JewelSocketActivePrismaticAlt" or "JewelSocketActivePrismatic"
-					elseif jewel.base.subType == "Abyss" then
-						overlay = node.expansionJewel and "JewelSocketActiveAbyssAlt" or "JewelSocketActiveAbyss"
-					elseif jewel.base.subType == "Charm" then
-						if jewel.baseName == "Ursine Charm" then
-							overlay = "CharmSocketActiveStr"
-						elseif jewel.baseName == "Corvine Charm" then
-							overlay = "CharmSocketActiveInt"
-						elseif jewel.baseName == "Lupine Charm" then
-							overlay = "CharmSocketActiveDex"
-						end
-					elseif jewel.baseName == "Timeless Jewel" then
-						overlay = node.expansionJewel and "JewelSocketActiveLegionAlt" or "JewelSocketActiveLegion"
-					elseif jewel.baseName == "Large Cluster Jewel" then
-						overlay = "JewelSocketActiveAltPurple"
-					elseif jewel.baseName == "Medium Cluster Jewel" then
-						overlay = "JewelSocketActiveAltBlue"
-					elseif jewel.baseName == "Small Cluster Jewel" then
-						overlay = "JewelSocketActiveAltRed"
-					end
+					overlay = jewel.baseName
+					overlaySection = "jewelpassive"
 				end
 			elseif node.type == "Mastery" then
 				-- This is the icon that appears in the center of many groups
@@ -905,12 +931,12 @@ function PassiveTreeViewClass:DrawAsset(data, x, y, scale, isHalf)
 	end
 end
 
-function PassiveTreeViewClass:DrawQuadAndRotate(data, xTree, yTree, scale, angleRad, tree, treeToScreen)
+function PassiveTreeViewClass:DrawQuadAndRotate(data, xTree, yTree, angleRad, treeToScreen)
 	local vertActive = {}
 		local xActive = xTree
 		local yActive = yTree
-		local widthActive = data.width * tree.scaleImage
-		local heightActive = data.height * tree.scaleImage
+		local widthActive = data.width
+		local heightActive = data.height
 	
 		local function rotate(x, y, cx, cy, theta)
 			local translatedX = x - cy
@@ -1122,6 +1148,13 @@ function PassiveTreeViewClass:AddNodeTooltip(tooltip, node, build)
 		tooltip:AddLine(16, string.format("Angle: %f", node.angle))
 		tooltip:AddLine(16, string.format("Orbit: %d, Orbit Index: %d", node.orbit, node.orbitIndex))
 		tooltip:AddLine(16, string.format("Group: %d", node.g))
+		tooltip:AddSeparator(14)
+
+		-- add conection info for debugging
+		for _, connection in ipairs(node.connections) do
+			tooltip:AddLine(16, string.format("^7Connection: %d, Orbit: %d", connection.id, connection.orbit))
+		end
+
 		tooltip:AddSeparator(14)
 	end
 

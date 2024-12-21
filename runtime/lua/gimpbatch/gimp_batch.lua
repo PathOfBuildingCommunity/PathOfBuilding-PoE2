@@ -23,16 +23,6 @@ end
 			["y"]= 183,
 			["w"]= 58,
 			["h"]= 58,
-			["mipmap"] = {
-				["level"]= 1
-			}
-			["x"]= 122,
-			["y"]= 183,
-			["w"]= 58,
-			["h"]= 58,
-			["mipmap"] = {
-				["level"]= 1
-			}
 		},
 		{
 			["icon"]= "path/file2.dds",
@@ -40,9 +30,6 @@ end
 			["y"]= 183,
 			["w"]= 58,
 			["h"]= 58,
-			["mipmap"] = {
-				["level"]= 1
-			}
 		},
 		{
 			["icon"]= "path/file3.dds",
@@ -50,14 +37,11 @@ end
 			["y"]= 183,
 			["w"]= 58,
 			["h"]= 58,
-			["mipmap"] = {
-				["level"]= 1
-			}
 		}
 	}
 },
 ]]--
-function module.combine_dds_to_sprite(sheet_name, sheet_data, from_path, to_path, script_batch_path, saturation, executeCommand)
+function module.combine_images_to_sprite(sheet_name, sheet_data, from_path, to_path, script_batch_path, saturation, executeCommand)
 	executeCommand = executeCommand == nil and true or executeCommand
 	local fileLog = to_path.."log_" .. sheet_name  .. ".txt"
 	printf(fileLog)
@@ -77,10 +61,9 @@ function module.combine_dds_to_sprite(sheet_name, sheet_data, from_path, to_path
 		local y = coords_data["y"]
 		local w = coords_data["w"]
 		local h = coords_data["h"]
-		local mipmap = coords_data["mipmap"]["level"]
 
 		-- Format each DDS entry and append to the string
-		coords_str = coords_str .. string.format('("%s%s" %d %d %d %d %d) ', escape_path(from_path), escape_path(dds_file), x, y, w, h, mipmap)
+		coords_str = coords_str .. string.format('("%s%s" %d %d %d %d) ', escape_path(from_path), escape_path(dds_file), x, y, w, h)
 	end
 
 	-- Trim last comma from the coordinates string
@@ -93,7 +76,7 @@ function module.combine_dds_to_sprite(sheet_name, sheet_data, from_path, to_path
 	)
 
 	local callToFunction = string.format(
-		"(combine-dds-into-sprite-sheet \"%s\" %d %d %d '(%s))", 
+		"(combine-images-into-sprite-sheet \"%s\" %d %d %d '(%s))", 
 		escape_path(output_path), width, height, saturation, coords_str
 	)
 
@@ -120,17 +103,15 @@ end
 --[[
 info = {
 	{
-		mask = "Art/./mask.dds",
-		file = "Art/./file.dds",
+		mask = "Art/./mask.png",
+		file = "Art/./file.png",
 		extension = "png",
 		basename = "file",
-		minmapfile = 0,
-		minmapmask = 0,
 		total = 10
 	}
 }
 --]]
-function module.extract_lines_dds(name, info, from_path, to_path, script_batch_path, executeCommand)
+function module.extract_lines_from_image(name, info, from_path, to_path, script_batch_path, executeCommand)
 	executeCommand = executeCommand == nil and true or executeCommand
 
 	local fileLog = to_path.."log_" .. name  .. ".txt"
@@ -140,9 +121,7 @@ function module.extract_lines_dds(name, info, from_path, to_path, script_batch_p
 
 	for _, data in pairs(info) do
 		local src = from_path..data["file"]
-		local mipmapsrc = data["minmapfile"]
 		local mask = from_path..data["mask"]
-		local mipmapmask = data["minmapmask"]
 		local basename = data["basename"]
 		local extension = data["extension"]
 		local total = data["total"]
@@ -153,8 +132,8 @@ function module.extract_lines_dds(name, info, from_path, to_path, script_batch_p
 		)
 
 		local callToFunction = string.format(
-			"(extract-lines-pob \"%s\" \"%s\" %d %d %d \"%s\" \"%s\" \"%s\" %d)", 
-			escape_path(src), escape_path(mask), mipmapsrc, mipmapmask, total, escape_path(to_path), basename, extension, 0
+			"(extract-lines-pob \"%s\" \"%s\" %d \"%s\" \"%s\" \"%s\" %d)", 
+			escape_path(src), escape_path(mask),  total, escape_path(to_path), basename, extension, 0
 		)
 
 		script_batch_content = script_batch_content .. "\n\n" .. callToFunction

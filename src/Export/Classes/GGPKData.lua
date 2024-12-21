@@ -285,7 +285,9 @@ function GGPKClass:GetNeededFiles()
 		"Data/ItemSpirit.dat",
 		"Data/ItemInherentSkills.dat",
 		"Data/startingpassiveskills.dat",
-		"Data/ClassPassiveSkillOverrides.dat"
+		"Data/ClassPassiveSkillOverrides.dat",
+		"Data/passivejewelart.dat",
+		"Data/passivejeweluniqueart.dat"
 	}
 	local csdFiles = {
 		"^Metadata/StatDescriptions/specific_skill_stat_descriptions/\\w+.csd$",
