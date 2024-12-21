@@ -353,10 +353,8 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 		bg.width, bg.height = bg.handle:ImageSize()
 	end
 	if bg.width > 0 then
-		SetDrawColor(1, 1, 1)
-		SetDrawColor(1, 1, 1, 0.4)
-		self:DrawAsset(bg, viewPort.x + viewPort.width / 2, viewPort.y + viewPort.height/2,  tree.scaleImage)
-		SetDrawColor(1, 1, 1)
+		SetDrawColor(1, 1, 1, 1)
+		DrawImage(bg.handle, viewPort.x, viewPort.y, viewPort.width, viewPort.height, 0, 0, viewPort.width / 100, viewPort.height / 100)
 	end
 
 	
