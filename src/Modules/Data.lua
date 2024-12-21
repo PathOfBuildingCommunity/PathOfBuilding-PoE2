@@ -452,6 +452,7 @@ data.highPrecisionMods = {
 data.weaponTypeInfo = {
 	["None"] = { oneHand = true, melee = true, flag = "Unarmed" },
 	["Bow"] = { oneHand = false, melee = false, flag = "Bow" },
+	["Crossbow"] = { oneHand = false, melee = false, flag = "Crossbow" },
 	["Claw"] = { oneHand = true, melee = true, flag = "Claw" },
 	["Dagger"] = { oneHand = true, melee = true, flag = "Dagger" },
 	["Staff"] = { oneHand = false, melee = true, flag = "Staff" },
@@ -841,11 +842,16 @@ local function setupGem(gem, gemId)
 	if gem.baseTypeName and gem.baseTypeName ~= baseName then
 		data.gemForBaseName[gem.baseTypeName:lower()] = gemId
 	end
-	gem.secondaryGrantedEffect = gem.secondaryGrantedEffectId and data.skills[gem.secondaryGrantedEffectId]
+	gem.additionalGrantedEffects = {}
 	gem.grantedEffectList = {
 		gem.grantedEffect,
-		gem.secondaryGrantedEffect
 	}
+	local i = 1
+	while gem["additionalGrantedEffectId"..i] do
+		table.insert(gem.grantedEffectList, data.skills[gem["additionalGrantedEffectId"..i]])
+		table.insert(gem.additionalGrantedEffects, data.skills[gem["additionalGrantedEffectId"..i]])
+		i = i + 1
+	end
 	gem.naturalMaxLevel = gem.naturalMaxLevel or (#gem.grantedEffect.levels > 20 and #gem.grantedEffect.levels - 20) or (gem.grantedEffect.levels[3][1] and 3) or 1
 end
 

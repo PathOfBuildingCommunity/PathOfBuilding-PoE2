@@ -21,7 +21,7 @@ local skills, mod, flag, skill = ...
 #mods
 
 #skill MeleeCrossbowPlayer
-#flags
+#flags attack area projectile
 	fromItem = true,
 #mods
 

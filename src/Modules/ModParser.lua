@@ -676,6 +676,7 @@ local modNameList = {
 	["warcry speed"] = { "WarcrySpeed", keywordFlags = KeywordFlag.Warcry },
 	["attack and cast speed"] = "Speed",
 	["skill speed"] = { "Speed", "WarcrySpeed" },
+	["reload speed"] = { "ReloadSpeed", flags = ModFlag.Attack },
 	["dps"] = "DPS",
 	-- Elemental ailments
 	["to shock"] = "EnemyShockChance",
@@ -831,6 +832,7 @@ local modFlagList = {
 	["with bows"] = { flags = bor(ModFlag.Bow, ModFlag.Hit) },
 	["to bow attacks"] = { flags = bor(ModFlag.Bow, ModFlag.Hit) },
 	["with bow attacks"] = { flags = bor(ModFlag.Bow, ModFlag.Hit) },
+	["with crossbows"] = { flags = bor(ModFlag.Crossbow, ModFlag.Hit) },
 	["with claws"] = { flags = bor(ModFlag.Claw, ModFlag.Hit) },
 	["with claws or daggers"] = { flags = ModFlag.Hit, tag = { type = "ModFlagOr", modFlags = bor(ModFlag.Claw, ModFlag.Dagger) } },
 	["to claw attacks"] = { flags = bor(ModFlag.Claw, ModFlag.Hit) },
@@ -892,6 +894,7 @@ local modFlagList = {
 	["weapon"] = { flags = ModFlag.Weapon },
 	["with weapons"] = { flags = ModFlag.Weapon },
 	["melee"] = { flags = ModFlag.Melee },
+	["crossbow"] = { flags = ModFlag.Crossbow },
 	["with melee attacks"] = { flags = ModFlag.Melee },
 	["with melee critical hits"] = { flags = ModFlag.Melee, tag = { type = "Condition", var = "CriticalStrike" } },
 	["with melee skills"] = { tag = { type = "SkillType", skillType = SkillType.Melee } },
@@ -1891,11 +1894,13 @@ local function extraSupport(name, level, slot)
 		local gemId = data.gemForBaseName[(data.skills[skillId].name .. " Support"):lower()]
 		if gemId then
 			local mods = {mod("ExtraSupport", "LIST", { skillId = data.gems[gemId].grantedEffectId, level = level }, { type = "SocketedIn", slotName = slot })}
-			if data.gems[gemId].secondaryGrantedEffect then
-				if data.gems[gemId].secondaryGrantedEffect.support then
-					t_insert(mods, mod("ExtraSupport", "LIST", { skillId = data.gems[gemId].secondaryGrantedEffectId, level = level }, { type = "SocketedIn", slotName = slot }))
-				else
-					t_insert(mods, mod("ExtraSkill", "LIST", { skillId = data.gems[gemId].secondaryGrantedEffectId, level = level }))
+			if data.gems[gemId].additionalGrantedEffects then
+				for i, additional in data.gems[gemId].additionalGrantedEffects do
+					if additional.support then
+						t_insert(mods, mod("ExtraSupport", "LIST", { skillId = data.gems[gemId]["additionalGrantedEffectId"..i], level = level }, { type = "SocketedIn", slotName = slot }))
+					else
+						t_insert(mods, mod("ExtraSkill", "LIST", { skillId = data.gems[gemId]["additionalGrantedEffectId"..i], level = level }))
+					end
 				end
 			end
 			return mods
