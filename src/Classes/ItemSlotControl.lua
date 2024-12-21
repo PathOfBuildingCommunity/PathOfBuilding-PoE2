@@ -150,8 +150,8 @@ function ItemSlotClass:Draw(viewPort)
 		DrawImage(nil, viewerX, viewerY, 304, 304)
 		local viewer = self.itemsTab.socketViewer
 		local node = self.itemsTab.build.spec.nodes[self.nodeId]
-		viewer.zoom = 5
-		local scale = self.itemsTab.build.spec.tree.size / 1500
+		viewer.zoom = 20
+		local scale = self.itemsTab.build.spec.tree.size / 6000
 		viewer.zoomX = -node.x / scale
 		viewer.zoomY = -node.y / scale
 		SetViewport(viewerX + 2, viewerY + 2, 300, 300)
