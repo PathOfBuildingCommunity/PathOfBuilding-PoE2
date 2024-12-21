@@ -2253,6 +2253,12 @@ local specialModList = {
 	["life leech is instant"] = { mod("InstantLifeLeech", "BASE", 100), },
 	["mana leech is instant"] = { mod("InstantManaLeech", "BASE", 100), },
 	["mana leech effects also recover energy shield"] = { flag("ManaLeechRecoversEnergyShield") },
+	["leeches (%d.+)%% of (%a+) damage as mana"] = function(num, _, dmgType) return {
+		mod(firstToUpper(dmgType) .. "DamageManaLeech", "BASE", num),
+	} end,
+	["leeches (%d.+)%% of (%a+) damage as life"] = function(num, _, dmgType) return {
+		mod(firstToUpper(dmgType) .. "DamageManaLeech", "BASE", num),
+	} end,
 	-- Ascendant
 	["grants (%d+) passive skill points?"] = function(num) return { mod("ExtraPoints", "BASE", num) } end,
 	["can allocate passives from the %a+'s starting point"] = { },
