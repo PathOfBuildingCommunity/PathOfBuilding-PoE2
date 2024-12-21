@@ -495,9 +495,9 @@ directiveTable.skill = function(state, args, out)
 			if statRow.OffhandCritChance ~= 0 then
 				level.extra.critChance = statRow.OffhandCritChance / 100
 			end
-			--if statRow.BaseMultiplier and statRow.BaseMultiplier ~= 0 then
-			--	level.extra.baseMultiplier = statRow.BaseMultiplier / 10000 + 1
-			--end
+			if statRow.BaseMultiplier and statRow.BaseMultiplier ~= 0 then
+				level.extra.baseMultiplier = statRow.BaseMultiplier / 10000 + 1
+			end
 			level.statInterpolation = statRow.StatInterpolations
 			level.actorLevel = statRow.ActorLevel
 			local resolveInterpolation = false
