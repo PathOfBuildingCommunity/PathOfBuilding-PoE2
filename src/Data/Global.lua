@@ -13,7 +13,7 @@ colorCodes = {
 	GEM = "^x1AA29B",
 	PROPHECY = "^xB54BFF",
 	CURRENCY = "^xAA9E82",
-	CRAFTED = "^xB8DAF1",
+	ENCHANTED = "^xB8DAF1",
 	CUSTOM = "^x5CF0BB",
 	SOURCE = "^x88FFFF",
 	UNSUPPORTED = "^xF05050",
@@ -63,6 +63,7 @@ colorCodes.INTELLIGENCE = colorCodes.WITCH
 
 colorCodes.LIFE = colorCodes.MARAUDER
 colorCodes.MANA = colorCodes.WITCH
+colorCodes.SPIRIT = colorCodes.SHAPER
 colorCodes.ES = colorCodes.SOURCE
 colorCodes.WARD = colorCodes.RARE
 colorCodes.ARMOUR = colorCodes.NORMAL

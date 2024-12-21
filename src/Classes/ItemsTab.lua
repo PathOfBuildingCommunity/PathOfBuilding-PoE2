@@ -29,8 +29,6 @@ local socketDropList = {
 
 local baseSlots = { "Weapon 1", "Weapon 2", "Helmet", "Body Armour", "Gloves", "Boots", "Amulet", "Ring 1", "Ring 2", "Belt", "Charm 1", "Charm 2", "Charm 3", "Flask 1", "Flask 2" }
 
-local influenceInfo = itemLib.influenceInfo
-
 local catalystQualityFormat = {
 	"^x7F7F7FQuality (Attack Modifiers): "..colorCodes.MAGIC.."+%d%% (augmented)",
 	"^x7F7F7FQuality (Speed Modifiers): "..colorCodes.MAGIC.."+%d%% (augmented)",
@@ -425,73 +423,14 @@ holding Shift will put it in the second.]])
 			#self.displayItem.enchantModLines > 2
 	end
 	self.controls.displayItemCorrupt = new("ButtonControl", {"TOPLEFT",self.controls.displayItemAnoint4,"TOPRIGHT",true}, {8, 10, 100, 20}, "Corrupt...", function()
-		self:CorruptDisplayItem("Corrupted")
+		self:CorruptDisplayItem()
 	end)
 	self.controls.displayItemCorrupt.shown = function()
 		return self.displayItem and self.displayItem.corruptible
 	end
-	--[[
-	self.controls.displayItemScourge = new("ButtonControl", {"TOPLEFT",self.controls.displayItemCorrupt,"TOPRIGHT",true}, {8, 0, 100, 20}, "Scourge...", function()
-		self:CorruptDisplayItem("Scourge")
-	end)
-	self.controls.displayItemScourge.shown = function()
-		return self.displayItem and self.displayItem.corruptible
-	end
-	--]]
-	self.controls.displayItemAddImplicit = new("ButtonControl", {"TOPLEFT",self.controls.displayItemCorrupt,"TOPRIGHT",true}, {8, 0, 120, 20}, "Add Implicit...", function()
-		self:AddImplicitToDisplayItem()
-	end)
-	self.controls.displayItemAddImplicit.shown = function()
-		return self.displayItem and
-			self.displayItem.type ~= "Tincture" and self.displayItem.type ~= "Charm" and (self.displayItem.corruptible or ((self.displayItem.type ~= "Flask" and self.displayItem.type ~= "Jewel" and
-			self.displayItem.type ~= "Rune" and self.displayItem.type ~= "SoulCore") and
-			(self.displayItem.rarity == "NORMAL" or self.displayItem.rarity == "MAGIC" or self.displayItem.rarity == "RARE"))) and 
-			not self.displayItem.implicitsCannotBeChanged
-	end
-
-	-- Section: Influence dropdowns
-	local influenceDisplayList = { "Influence" }
-	for i, curInfluenceInfo in ipairs(influenceInfo) do
-		influenceDisplayList[i + 1] = curInfluenceInfo.display
-	end
-	local function setDisplayItemInfluence(influenceIndexList)
-		self.displayItem:ResetInfluence()
-		for _, index in ipairs(influenceIndexList) do
-			if index > 0 then
-				self.displayItem[influenceInfo[index].key] = true;
-			end
-		end
-
-		if self.displayItem.crafted then
-			for i = 1, self.displayItem.affixLimit do
-				-- Force affix selectors to update
-				local drop = self.controls["displayItemAffix"..i]
-				drop.selFunc(drop.selIndex, drop.list[drop.selIndex])
-			end
-		end
-		self.displayItem:BuildAndParseRaw()
-		self:UpdateDisplayItemTooltip()
-	end
-	self.controls.displayItemSectionInfluence = new("Control", {"TOPLEFT",self.controls.displayItemSectionEnchant,"BOTTOMLEFT"}, {0, 0, 0, function()
-		return self.displayItem and self.displayItem.canBeInfluenced and 28 or 0
-	end})
-	self.controls.displayItemInfluence = new("DropDownControl", {"TOPLEFT",self.controls.displayItemSectionInfluence,"TOPRIGHT"}, {0, 0, 100, 20}, influenceDisplayList, function(index, value)
-		local otherIndex = self.controls.displayItemInfluence2.selIndex
-		setDisplayItemInfluence({ index - 1, otherIndex - 1 })
-	end)
-	self.controls.displayItemInfluence.shown = function()
-		return self.displayItem and self.displayItem.canBeInfluenced
-	end
-	self.controls.displayItemInfluence2 = new("DropDownControl", {"TOPLEFT",self.controls.displayItemInfluence,"TOPRIGHT",true}, {8, 0, 100, 20}, influenceDisplayList, function(index, value)
-		local otherIndex = self.controls.displayItemInfluence.selIndex
-		setDisplayItemInfluence({ index - 1, otherIndex - 1 })
-	end)
-	self.controls.displayItemInfluence2.shown = function()
-		return self.displayItem and self.displayItem.canBeInfluenced
-	end
 
 	-- Section: Item Quality
-	self.controls.displayItemSectionQuality = new("Control", {"TOPLEFT",self.controls.displayItemSectionInfluence,"BOTTOMLEFT"}, {0, 0, 0, function()
+	self.controls.displayItemSectionQuality = new("Control", {"TOPLEFT",self.controls.displayItemSectionEnchant,"BOTTOMLEFT"}, {0, 0, 0, function()
 		return (self.controls.displayItemQuality:IsShown() and self.controls.displayItemQualityEdit:IsShown()) and 28 or 0
 	end})
 	self.controls.displayItemQuality = new("LabelControl", {"TOPLEFT",self.controls.displayItemSectionQuality,"TOPRIGHT"}, {-4, 0, 0, 16}, "^7Quality:")
@@ -812,26 +751,15 @@ holding Shift will put it in the second.]])
 	end
 
 	-- Section: Custom modifiers
-	-- if either Custom or Crucible mod buttons are shown, create the control for the list of mods
+	-- if Custom mod button is shown, create the control for the list of mods
 	self.controls.displayItemSectionCustom = new("Control", {"TOPLEFT",self.controls.displayItemSectionAffix,"BOTTOMLEFT"}, {0, 0, 0, function()
-		return (self.controls.displayItemAddCustom:IsShown() or self.controls.displayItemAddCrucible:IsShown()) and 28 + self.displayItem.customCount * 22 or 0
+		return self.controls.displayItemAddCustom:IsShown() and 28 + self.displayItem.customCount * 22 or 0
 	end})
 	self.controls.displayItemAddCustom = new("ButtonControl", {"TOPLEFT",self.controls.displayItemSectionCustom,"TOPLEFT"}, {0, 0, 120, 20}, "Add modifier...", function()
 		self:AddCustomModifierToDisplayItem()
 	end)
 	self.controls.displayItemAddCustom.shown = function()
 		return self.displayItem and (self.displayItem.rarity == "MAGIC" or self.displayItem.rarity == "RARE")
-	end
-
-	-- Section: Crucible modifiers
-	-- if the Add modifier button is not shown, take its place, otherwise move it to the right of it
-	self.controls.displayItemAddCrucible = new("ButtonControl", {"TOPLEFT",self.controls.displayItemSectionCustom,"TOPLEFT"}, {function()
-		return (self.controls.displayItemAddCustom:IsShown() and 128) or 0
-	end, 0, 150, 20}, "Add Crucible mod...", function()
-		self:AddCrucibleModifierToDisplayItem()
-	end)
-	self.controls.displayItemAddCrucible.shown = function()
-		return self.displayItem and (self.displayItem:GetPrimarySlot() == "Weapon 1" or self.displayItem.type == "Shield" or self.displayItem.canHaveShieldCrucibleTree)
 	end
 
 	-- Section: Modifier Range
@@ -926,7 +854,7 @@ function ItemsTabClass:Load(xml, dbFileName)
 					-- 'ModRange' elements are legacy though, so is this actually needed? :<
 					-- Maybe it is? Maybe it isn't? Maybe up is down? Maybe good is bad? AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 					-- Sorry, cluster jewels are making me crazy(-ier)
-					for _, list in ipairs{item.buffModLines, item.enchantModLines, item.scourgeModLines, item.implicitModLines, item.explicitModLines, item.crucibleModLines} do
+					for _, list in ipairs{item.buffModLines, item.enchantModLines, item.implicitModLines, item.explicitModLines } do
 						if id <= #list then
 							list[id].range = range
 							break
@@ -1020,12 +948,6 @@ function ItemsTabClass:Save(xml)
 			end
 			id = id + 1
 		end
-		for _, modLine in ipairs(item.scourgeModLines) do
-			if modLine.range then
-				t_insert(child, { elem = "ModRange", attrib = { id = tostring(id), range = tostring(modLine.range) } })
-			end
-			id = id + 1
-		end
 		for _, modLine in ipairs(item.implicitModLines) do
 			if modLine.range then
 				t_insert(child, { elem = "ModRange", attrib = { id = tostring(id), range = tostring(modLine.range) } })
@@ -1033,12 +955,6 @@ function ItemsTabClass:Save(xml)
 			id = id + 1
 		end
 		for _, modLine in ipairs(item.explicitModLines) do
-			if modLine.range then
-				t_insert(child, { elem = "ModRange", attrib = { id = tostring(id), range = tostring(modLine.range) } })
-			end
-			id = id + 1
-		end
-		for _, modLine in ipairs(item.crucibleModLines) do
 			if modLine.range then
 				t_insert(child, { elem = "ModRange", attrib = { id = tostring(id), range = tostring(modLine.range) } })
 			end
@@ -1518,21 +1434,6 @@ function ItemsTabClass:SetDisplayItem(item)
 			self:UpdateAffixControls()
 		end
 
-		-- Set both influence dropdowns
-		local influence1 = 1
-		local influence2 = 1
-		for i, curInfluenceInfo in ipairs(influenceInfo) do
-			if item[curInfluenceInfo.key] then
-				if influence1 == 1 then
-					influence1 = i + 1
-				elseif influence2 == 1 then
-					influence2 = i + 1
-					break
-				end
-			end
-		end
-		self.controls.displayItemInfluence:SetSel(influence1, true) -- Don't call the selection function for the first influence dropdown as the second dropdown isn't properly set yet.
-		self.controls.displayItemInfluence2:SetSel(influence2) -- The selection function for the second dropdown properly handles everything for both dropdowns
 		self.controls.displayItemQualityEdit:SetText(item.quality)
 		self.controls.displayItemCatalyst:SetSel((item.catalyst or 0) + 1)
 		if item.catalystQuality then
@@ -1586,14 +1487,14 @@ end
 function ItemsTabClass:CraftClusterJewel()
 	local item = self.displayItem
 	wipeTable(item.enchantModLines)
-	t_insert(item.enchantModLines, { line = "Adds "..(item.clusterJewelNodeCount or item.clusterJewel.maxNodes).." Passive Skills", crafted = true })
+	t_insert(item.enchantModLines, { line = "Adds "..(item.clusterJewelNodeCount or item.clusterJewel.maxNodes).." Passive Skills", enchant = true })
 	if item.clusterJewel.size == "Large" then
-		t_insert(item.enchantModLines, { line = "2 Added Passive Skills are Jewel Sockets", crafted = true })
+		t_insert(item.enchantModLines, { line = "2 Added Passive Skills are Jewel Sockets", enchant = true })
 	elseif item.clusterJewel.size == "Medium" then
-		t_insert(item.enchantModLines, { line = "1 Added Passive Skill is a Jewel Socket", crafted = true })
+		t_insert(item.enchantModLines, { line = "1 Added Passive Skill is a Jewel Socket", enchant = true })
 	end
 	local skill = item.clusterJewel.skills[item.clusterJewelSkill]
-	t_insert(item.enchantModLines, { line = table.concat(skill.enchant, "\n"), crafted = true })
+	t_insert(item.enchantModLines, { line = table.concat(skill.enchant, "\n"), enchant = true })
 	item:BuildAndParseRaw()
 
 	-- Update affixes manually to force out affixes that may now be invalid
@@ -1648,7 +1549,7 @@ function ItemsTabClass:UpdateAffixControl(control, item, type, outputTable, outp
 	end
 	local affixList = { }
 	for modId, mod in pairs(item.affixes) do
-		if mod.type == type and not excludeGroups[mod.group] and item:GetModSpawnWeight(mod, extraTags) > 0 and not item:CheckIfModIsDelve(mod) then
+		if mod.type == type and not excludeGroups[mod.group] and item:GetModSpawnWeight(mod, extraTags) > 0 then
 			t_insert(affixList, modId)
 		end
 	end
@@ -1730,14 +1631,9 @@ function ItemsTabClass:UpdateCustomControls()
 	local item = self.displayItem
 	local i = 1
 	local modLines = copyTable(item.explicitModLines)
-	if item.crucibleModLines and #item.crucibleModLines > 0 then
-		for _, line in ipairs(item.crucibleModLines) do
-			t_insert(modLines, line)
-		end
-	end
-	if item.rarity == "MAGIC" or item.rarity == "RARE" or (item.crucibleModLines and #item.crucibleModLines > 0) then
+	if item.rarity == "MAGIC" or item.rarity == "RARE" then
 		for index, modLine in ipairs(modLines) do
-			if modLine.custom or modLine.crafted or modLine.crucible then
+			if modLine.custom then
 				local line = itemLib.formatModLine(modLine)
 				if line then
 					if not self.controls["displayItemCustomModifierRemove"..i] then
@@ -1751,11 +1647,9 @@ function ItemsTabClass:UpdateCustomControls()
 						label = label:sub(1, DrawStringCursorIndex(16, "VAR", label, 310, 10)) .. "..."
 					end
 					self.controls["displayItemCustomModifier"..i].label = label
-					self.controls["displayItemCustomModifierLabel"..i].label = modLine.crafted and " ^7Crafted:" or modLine.crucible and "^7Crucible:" or " ^7Custom:"
+					self.controls["displayItemCustomModifierLabel"..i].label = " ^7Custom:"
 					self.controls["displayItemCustomModifierRemove"..i].onClick = function()
-						if index > #item.explicitModLines then
-							t_remove(item.crucibleModLines, index - #item.explicitModLines)
-						else
+						if index <= #item.explicitModLines then
 							t_remove(item.explicitModLines, index)
 						end
 						item:BuildAndParseRaw()
@@ -1906,13 +1800,12 @@ function ItemsTabClass:CraftItem()
 		item.base = base.base
 		item.baseName = base.name
 		item.charmLimit = base.charmLimit
+		item.spiritValue = base.spiritValue
 		item.buffModLines = { }
 		item.enchantModLines = { }
 		item.classRequirementModLines = { }
-		item.scourgeModLines = { }
 		item.implicitModLines = { }
 		item.explicitModLines = { }
-		item.crucibleModLines = { }
 		if base.base.type == "Amulet" or base.base.type == "Belt" or base.base.type == "Charm" or base.base.type == "Jewel" 
 			or base.base.type == "Quiver" or base.base.type == "Ring" or base.base.type == "SoulCore" or base.base.type == "Rune" then
 			item.quality = nil
@@ -2116,7 +2009,7 @@ function ItemsTabClass:EnchantDisplayItem(enchantSlot)
 		if remove then
 			t_remove(item.enchantModLines, self.enchantSlot)
 		elseif first then
-			item.enchantModLines = { { crafted = true, line = first }, { crafted = true, line = second } }
+			item.enchantModLines = { { enchant = true, line = first }, { enchant = true, line = second } }
 		else
 			if not item.canHaveTwoEnchants and #item.enchantModLines > 1 then
 				item.enchantModLines = { item.enchantModLines[1] }
@@ -2124,7 +2017,7 @@ function ItemsTabClass:EnchantDisplayItem(enchantSlot)
 			if #item.enchantModLines >= self.enchantSlot then
 				t_remove(item.enchantModLines, self.enchantSlot)
 			end
-			t_insert(item.enchantModLines, self.enchantSlot, { crafted = true, line = line})
+			t_insert(item.enchantModLines, self.enchantSlot, { enchant = true, line = line})
 		end
 		item:BuildAndParseRaw()
 		return item
@@ -2179,7 +2072,7 @@ end
 function ItemsTabClass:getAnoint(item)
 	local result = { }
 	if item then
-		for _, modList in ipairs{item.enchantModLines, item.scourgeModLines, item.implicitModLines, item.explicitModLines, item.crucibleModLines} do
+		for _, modList in ipairs{item.enchantModLines, item.implicitModLines, item.explicitModLines} do
 			for _, mod in ipairs(modList) do
 				local line = mod.line
 				local anoint = line:find("Allocates ([a-zA-Z ]+)")
@@ -2205,7 +2098,7 @@ function ItemsTabClass:anointItem(node)
 		t_remove(item.enchantModLines, self.anointEnchantSlot)
 	end
 	if node then
-		t_insert(item.enchantModLines, self.anointEnchantSlot, { crafted = true, line = "Allocates " .. node.dn })
+		t_insert(item.enchantModLines, self.anointEnchantSlot, { enchant = true, line = "Allocates " .. node.dn })
 	end
 	item:BuildAndParseRaw()
 	return item
@@ -2306,22 +2199,20 @@ function ItemsTabClass:AnointDisplayItem(enchantSlot)
 end
 
 -- Opens the item corrupting popup
-function ItemsTabClass:CorruptDisplayItem(modType)
-	local currentModType = modType or "Corrupted"
+function ItemsTabClass:CorruptDisplayItem() -- todo implement vaal orb new outcomes this code is for poe 1
 	local controls = { } 
 	local implicitList = { }
-	local sourceList = { "Corrupted", "Scourge" }
-	local function buildImplicitList(modType)
-		if implicitList[modType] then
+	local function buildImplicitList()
+		if implicitList["Corrupted"] then
 			return
 		end
-		implicitList[modType] = {}
+		implicitList["Corrupted"] = {}
 		for modId, mod in pairs(self.displayItem.affixes) do
-			if mod.type == modType and self.displayItem:GetModSpawnWeight(mod) > 0 then
-				t_insert(implicitList[modType], mod)
+			if mod.type == "Corrupted" and self.displayItem:GetModSpawnWeight(mod) > 0 then
+				t_insert(implicitList["Corrupted"], mod)
 			end
 		end
-		table.sort(implicitList[modType], function(a, b)
+		table.sort(implicitList["Corrupted"], function(a, b)
 			local an = a[1]:lower():gsub("%(.-%)","$"):gsub("[%+%-%%]",""):gsub("%d+","$")
 			local bn = b[1]:lower():gsub("%(.-%)","$"):gsub("[%+%-%%]",""):gsub("%d+","$")
 			if an ~= bn then
@@ -2331,20 +2222,20 @@ function ItemsTabClass:CorruptDisplayItem(modType)
 			end
 		end)
 	end
-	buildImplicitList(currentModType)
-	local function buildList(control, other, modType)
+	buildImplicitList()
+	local function buildList(control, other)
 		local selfMod = control.selIndex and control.selIndex > 1 and control.list[control.selIndex].mod
 		local otherMod = other and other.selIndex and other.selIndex > 1 and other.list[other.selIndex].mod
 		wipeTable(control.list)
 		t_insert(control.list, { label = "None" })
-		for _, mod in ipairs(implicitList[modType]) do
+		for _, mod in ipairs(implicitList["Corrupted"]) do
 			if not otherMod or mod.group ~= otherMod.group then
 				t_insert(control.list, { label = table.concat(mod, "/"), mod = mod })
 			end
 		end
 		control:SelByValue(selfMod, "mod")
 	end
-	local function corruptItem()
+	local function corruptItem() 
 		local item = new("Item", self.displayItem:BuildRaw())
 		item.id = self.displayItem.id
 		item.corrupted = true
@@ -2353,7 +2244,6 @@ function ItemsTabClass:CorruptDisplayItem(modType)
 			if control.selIndex > 1 then
 				local mod = control.list[control.selIndex].mod
 				for _, modLine in ipairs(mod) do
-					modLine = (currentModType == "ScourgeUpside" and "{scourge}" or "") .. modLine
 					if mod.modTags[1] then
 						t_insert(newImplicit, { line = "{tags:" .. table.concat(mod.modTags, ",") .. "}" .. modLine })
 					else
@@ -2363,67 +2253,41 @@ function ItemsTabClass:CorruptDisplayItem(modType)
 			end
 		end
 		if #newImplicit > 0 then
-			wipeTable(currentModType == "Corrupted" and item.implicitModLines or item.scourgeModLines)
+			wipeTable(item.implicitModLines)
 			for i, implicit in ipairs(newImplicit) do
-				t_insert(currentModType == "Corrupted" and item.implicitModLines or item.scourgeModLines, i, implicit)
+				t_insert( item.implicitModLines, i, implicit)
 			end
 		end
 		item:BuildAndParseRaw()
 		return item
 	end
 	controls.sourceLabel = new("LabelControl", {"TOPRIGHT",nil,"TOPLEFT"}, {95, 20, 0, 16}, "^7Source:")
-	controls.source = new("DropDownControl", {"TOPLEFT",nil,"TOPLEFT"}, {100, 20, 150, 18}, sourceList, function(index, value)
-		if value == "Scourge" then
-			currentModType = "ScourgeUpside"
-			buildImplicitList("ScourgeUpside")
-			buildImplicitList("ScourgeDownside")
-			controls.implicit.shown = true
-			controls.implicitLabel.shown = true
-			controls.implicit2.shown = true
-			controls.implicit2Label.shown = true
-			controls.implicit3.shown = true
-			controls.implicit3Label.shown = true
-			controls.implicitCannotBeChangedLabel.shown = false
-			main.popups[1].height = 147
-			controls.close.y = 117
-			controls.save.y = 117
-			if self.displayItem.rarity == "UNIQUE" or self.displayItem.rarity == "RELIC" then
-				controls.implicit4Label.shown = true
-				controls.implicit4.shown = true
-				main.popups[1].height = 165
-				controls.close.y = 135
-				controls.save.y = 135
-			end
-			controls.implicit2.y = 85
-			buildList(controls.implicit3, controls.implicit4, "ScourgeDownside")
-			buildList(controls.implicit4, controls.implicit3, "ScourgeDownside")
-		else
-			currentModType = value
-			controls.implicit.shown = not self.displayItem.implicitsCannotBeChanged
-			controls.implicitLabel.shown = not self.displayItem.implicitsCannotBeChanged
-			controls.implicit2.shown = not self.displayItem.implicitsCannotBeChanged
-			controls.implicit2Label.shown = not self.displayItem.implicitsCannotBeChanged
-			controls.implicit3Label.shown = false
-			controls.implicit3.shown = false
-			controls.implicit4Label.shown = false
-			controls.implicit4.shown = false
-			controls.implicitCannotBeChangedLabel.shown = self.displayItem.implicitsCannotBeChanged
-			controls.implicit2.y = 65
-			main.popups[1].height = 129
-			controls.close.y = 99
-			controls.save.y = 99
-		end
-		buildList(controls.implicit, controls.implicit2, currentModType)
-		buildList(controls.implicit2, controls.implicit, currentModType)
+	controls.source = new("DropDownControl", {"TOPLEFT",nil,"TOPLEFT"}, {100, 20, 150, 18}, { "Corrupted" }, function(index, value)
+		controls.implicit.shown = not self.displayItem.implicitsCannotBeChanged
+		controls.implicitLabel.shown = not self.displayItem.implicitsCannotBeChanged
+		controls.implicit2.shown = not self.displayItem.implicitsCannotBeChanged
+		controls.implicit2Label.shown = not self.displayItem.implicitsCannotBeChanged
+		controls.implicit3Label.shown = false
+		controls.implicit3.shown = false
+		controls.implicit4Label.shown = false
+		controls.implicit4.shown = false
+		controls.implicitCannotBeChangedLabel.shown = self.displayItem.implicitsCannotBeChanged
+		controls.implicit2.y = 65
+		main.popups[1].height = 129
+		controls.close.y = 99
+		controls.save.y = 99
+		
+		buildList(controls.implicit, controls.implicit2)
+		buildList(controls.implicit2, controls.implicit)
 		controls.implicit:SetSel(1)
 		controls.implicit2:SetSel(1)
 		controls.implicit3:SetSel(1)
 		controls.implicit4:SetSel(1)
 	end)
-	controls.source.enabled = #sourceList > 1
+	controls.source.enabled = true
 	controls.implicitLabel = new("LabelControl", {"TOPRIGHT",nil,"TOPLEFT"}, {75, 45, 0, 16}, "^7Implicit #1:")
 	controls.implicit = new("DropDownControl", {"TOPLEFT",nil,"TOPLEFT"}, {80, 45, 440, 18}, nil, function()
-		buildList(controls.implicit2, controls.implicit, currentModType)
+		buildList(controls.implicit2, controls.implicit)
 	end)
 	controls.implicit.tooltipFunc = function(tooltip, mode, index, value)
 		tooltip:Clear()
@@ -2438,7 +2302,7 @@ function ItemsTabClass:CorruptDisplayItem(modType)
 	controls.implicitLabel.shown = not self.displayItem.implicitsCannotBeChanged
 	controls.implicit2Label = new("LabelControl", {"TOPRIGHT",nil,"TOPLEFT"}, {75, 65, 0, 16}, "^7Implicit #2:")
 	controls.implicit2 = new("DropDownControl", {"TOPLEFT",nil,"TOPLEFT"}, {80, 65, 440, 18}, nil, function()
-		buildList(controls.implicit, controls.implicit2, currentModType)
+		buildList(controls.implicit, controls.implicit2)
 	end)
 	controls.implicit2.tooltipFunc = function(tooltip, mode, index, value)
 		tooltip:Clear()
@@ -2451,41 +2315,12 @@ function ItemsTabClass:CorruptDisplayItem(modType)
 	end
 	controls.implicit2.shown = not self.displayItem.implicitsCannotBeChanged
 	controls.implicit2Label.shown = not self.displayItem.implicitsCannotBeChanged
-	controls.implicit3Label = new("LabelControl", {"TOPRIGHT",nil,"TOPLEFT"}, {75, 85, 0, 16}, "^7Implicit #3:")
-	controls.implicit3 = new("DropDownControl", {"TOPLEFT",nil,"TOPLEFT"}, {80, 65, 440, 18}, nil, function()
-		buildList(controls.implicit4, controls.implicit3, "ScourgeDownside")
-	end)
-	controls.implicit3.tooltipFunc = function(tooltip, mode, index, value)
-		tooltip:Clear()
-		if mode ~= "OUT" and value and value.mod then
-			for _, line in ipairs(value.mod) do
-				tooltip:AddLine(16, "^7"..line)
-			end
-			self:AddModComparisonTooltip(tooltip, value.mod)
-		end
-	end
-	controls.implicit3Label.shown = false
-	controls.implicit3.shown = false
-	controls.implicit4Label = new("LabelControl", {"TOPRIGHT",nil,"TOPLEFT"}, {75, 105, 0, 16}, "^7Implicit #4:")
-	controls.implicit4 = new("DropDownControl", {"TOPLEFT",nil,"TOPLEFT"}, {80, 105, 440, 18}, nil, function()
-		buildList(controls.implicit3, controls.implicit4, "ScourgeDownside")
-	end)
-	controls.implicit4.tooltipFunc = function(tooltip, mode, index, value)
-		tooltip:Clear()
-		if mode ~= "OUT" and value and value.mod then
-			for _, line in ipairs(value.mod) do
-				tooltip:AddLine(16, "^7"..line)
-			end
-			self:AddModComparisonTooltip(tooltip, value.mod)
-		end
-	end
-	controls.implicit4Label.shown = false
-	controls.implicit4.shown = false
+
 	controls.implicitCannotBeChangedLabel = new("LabelControl", {"TOPLEFT",nil,"TOPLEFT"}, {20, 45, 0, 20}, "^7This Items Implicits Cannot Be Changed")
 	controls.implicitCannotBeChangedLabel.shown = self.displayItem.implicitsCannotBeChanged
-	buildList(controls.implicit, controls.implicit2, currentModType)
-	buildList(controls.implicit2, controls.implicit, currentModType)
-	controls.save = new("ButtonControl", nil, {-45, 99, 80, 20}, modType, function()
+	buildList(controls.implicit, controls.implicit2)
+	buildList(controls.implicit2, controls.implicit)
+	controls.save = new("ButtonControl", nil, {-45, 99, 80, 20}, "Corrupted", function()
 		self:SetDisplayItem(corruptItem())
 		main:ClosePopup()
 	end)
@@ -2496,7 +2331,7 @@ function ItemsTabClass:CorruptDisplayItem(modType)
 	controls.close = new("ButtonControl", nil, {45, 99, 80, 20}, "Cancel", function()
 		main:ClosePopup()
 	end)
-	main:OpenPopup(540, 129, modType .. " Item", controls)
+	main:OpenPopup(540, 129, "Corrupted Item", controls)
 end
 
 -- Opens the custom modifier popup
@@ -2508,52 +2343,7 @@ function ItemsTabClass:AddCustomModifierToDisplayItem()
 	---@param sourceId string @The crafting source id to build the list of mods for
 	local function buildMods(sourceId)
 		wipeTable(modList)
-		if sourceId == "MASTER" then
-			local excludeGroups = { }
-			for _, modLine in ipairs({ self.displayItem.prefixes, self.displayItem.suffixes }) do
-				for i = 1, (modLine.limit or (self.displayItem.affixLimit / 2)) do
-					if modLine[i].modId ~= "None" then
-						excludeGroups[self.displayItem.affixes[modLine[i].modId].group] = true
-					end
-				end
-			end
-			for i, craft in ipairs(self.build.data.masterMods) do
-				if craft.types[self.displayItem.type] and not excludeGroups[craft.group] then
-					t_insert(modList, {
-						label = table.concat(craft, "/") .. " ^8(" .. craft.type .. ")",
-						mod = craft,
-						type = "crafted",
-						affixType = craft.type,
-						defaultOrder = i,
-					})
-				end
-			end
-			table.sort(modList, function(a, b)
-				if a.affixType ~= b.affixType then
-					return a.affixType == "Prefix" and b.affixType == "Suffix"
-				else
-					return a.defaultOrder < b.defaultOrder
-				end
-			end)
-		elseif sourceId == "ESSENCE" then
-			for _, essence in pairs(self.build.data.essences) do
-				local modId = essence.mods[self.displayItem.type]
-				local mod = self.displayItem.affixes[modId]
-				t_insert(modList, {
-					label = essence.name .. "   " .. "^8[" .. table.concat(mod, "/") .. "]" .. " (" .. mod.type .. ")",
-					mod = mod,
-					type = "custom",
-					essence = essence,
-				})
-			end
-			table.sort(modList, function(a, b)
-				if a.essence.type ~= b.essence.type then
-					return a.essence.type > b.essence.type
-				else
-					return a.essence.tier > b.essence.tier
-				end
-			end)
-		elseif sourceId == "PREFIX" or sourceId == "SUFFIX" then
+		if sourceId == "PREFIX" or sourceId == "SUFFIX" then -- might be implied.
 			for _, mod in pairs(self.displayItem.affixes) do
 				if sourceId:lower() == mod.type:lower() and self.displayItem:GetModSpawnWeight(mod) > 0 then
 					t_insert(modList, {
@@ -2577,77 +2367,7 @@ function ItemsTabClass:AddCustomModifierToDisplayItem()
 				end
 				return modA.level > modB.level
 			end)
-		elseif sourceId == "VEILED" then
-			for i, mod in pairs(self.build.data.veiledMods) do
-				if self.displayItem:GetModSpawnWeight(mod) > 0 then
-					t_insert(modList, {
-						label = table.concat(mod, "/") .. " (" .. mod.type .. ")",
-						mod = mod,
-						affixType = mod.type,
-						type = "custom",
-						defaultOrder = i,
-					})
-				end
-			end
-			table.sort(modList, function(a, b)
-				if a.affixType ~= b.affixType then
-					return a.affixType == "Prefix" and b.affixType == "Suffix"
-				else
-					return a.defaultOrder < b.defaultOrder
-				end
-			end)
-		elseif sourceId == "DELVE" then
-			for i, mod in pairs(self.displayItem.affixes) do
-				if self.displayItem:CheckIfModIsDelve(mod) and self.displayItem:GetModSpawnWeight(mod) > 0 then
-					t_insert(modList, {
-						label = table.concat(mod, "/") .. " (" .. mod.type .. ")",
-						mod = mod,
-						affixType = mod.type,
-						type = "custom",
-						defaultOrder = i,
-					})
-				end
-			end
-			table.sort(modList, function(a, b)
-				if a.affixType ~= b.affixType then
-					return a.affixType == "Prefix" and b.affixType == "Suffix"
-				else
-					return a.defaultOrder < b.defaultOrder
-				end
-			end)
-		elseif sourceId == "NECROPOLIS" then
-			for i, mod in pairs(self.build.data.necropolisMods) do
-				if self.displayItem:GetNecropolisModSpawnWeight(mod) > 0 then
-					t_insert(modList, {
-						label = table.concat(mod, "/") .. " (" .. mod.type .. ")",
-						mod = mod,
-						affixType = mod.type,
-						type = "custom",
-						defaultOrder = i,
-					})
-				end
-			end
-			table.sort(modList, function(a, b)
-				if a.affixType ~= b.affixType then
-					return a.affixType == "Prefix" and b.affixType == "Suffix"
-				else
-					return a.defaultOrder < b.defaultOrder
-				end
-			end)
 		end
-	end
-	if self.displayItem.type ~= "Jewel" then
-		t_insert(sourceList, { label = "Crafting Bench", sourceId = "MASTER" })
-	end
-	if self.displayItem.type ~= "Jewel" and self.displayItem.type ~= "Flask" then
-		t_insert(sourceList, { label = "Essence", sourceId = "ESSENCE" })
-		t_insert(sourceList, { label = "Veiled", sourceId = "VEILED"})
-	end
-	if self.displayItem.type == "Helmet" or self.displayItem.type == "Body Armour" or self.displayItem.type == "Gloves" or self.displayItem.type == "Boots" then
-		t_insert(sourceList, { label = "Necropolis", sourceId = "NECROPOLIS"})
-	end
-	if not self.displayItem.clusterJewel and self.displayItem.type ~= "Flask" then
-		t_insert(sourceList, { label = "Delve", sourceId = "DELVE"})
 	end
 	if not self.displayItem.crafted then
 		t_insert(sourceList, { label = "Prefix", sourceId = "PREFIX" })
@@ -2710,393 +2430,6 @@ function ItemsTabClass:AddCustomModifierToDisplayItem()
 	main:OpenPopup(710, 105, "Add Modifier to Item", controls, "save", sourceList[controls.source.selIndex].sourceId == "CUSTOM" and "custom")	
 end
 
--- Opens the crucible modifier popup
-function ItemsTabClass:AddCrucibleModifierToDisplayItem()
-	local controls = { }
-	local modList = {[1] = {"None"}, [2] = {"None"}, [3] = {"None"}, [4] = {"None"}, [5] = {"None"}}
-	local itemModMap, nodeSelections = { }, { }
-	local function getLabelFromMod(mod)
-		local label = copyTable(mod)
-		for index, line in ipairs(mod) do
-			label[index] = checkLineForAllocates(line, self.build.spec.nodes)
-		end
-		return table.concat(label, "/")
-	end
-	local function itemCanHaveMod(mod)
-		local keyMap, includeTags = { }, { }
-		for index, key in ipairs(mod.weightKey) do
-			keyMap[key] = index
-		end
-		-- check for uniques with off-tag mods
-		if data.casterTagCrucibleUniques[self.displayItem.title] then
-			includeTags["caster_unique_weapon"] = true
-		end
-		if data.minionTagCrucibleUniques[self.displayItem.title] then
-			includeTags["minion_unique_weapon"] = true
-		end
-		if self.displayItem.canHaveOnlySupportSkillsCrucibleTree then
-			 return keyMap["crucible_unique_staff"] and mod.weightVal[keyMap["crucible_unique_staff"]] ~= 0
-		elseif self.displayItem.canHaveShieldCrucibleTree then
-			return self.displayItem:GetModSpawnWeight(mod, { ["crucible_unique_helmet"] = true, ["shield"] = true }) > 0
-		elseif self.displayItem.canHaveTwoHandedSwordCrucibleTree then
-			return self.displayItem:GetModSpawnWeight(mod, { ["two_hand_weapon"] = true }, { ["one_hand_weapon"] = true }) > 0
-		end
-		return self.displayItem:GetModSpawnWeight(mod, includeTags) > 0
-	end
-	local function buildCrucibleMods()
-		for i, mod in pairs(self.build.data.crucible) do
-			if itemCanHaveMod(mod) then
-				-- item mod must match the whole mod, whether that's one line or two
-				if itemModMap[checkLineForAllocates(mod[1], self.build.spec.nodes)] and ((mod[2] and itemModMap[checkLineForAllocates(mod[2], self.build.spec.nodes)]) or not mod[2]) then
-					-- for multi nodes, if the first location is taken, use second
-					-- works for multi vs single node, ambiguous for multi vs multi (3,4 vs 3,4) but both mods load
-					if nodeSelections[mod.nodeLocation[1]] and mod.nodeLocation[2] then
-						nodeSelections[mod.nodeLocation[2]] = i
-					-- nodeSelections[nodeId] = defaultOrder, used later to match with sorted modList to get selIndex
-					else
-						nodeSelections[mod.nodeLocation[1]] = i
-					end
-				end
-				for _, location in ipairs(mod.nodeLocation) do
-					t_insert(modList[location], {
-						label = getLabelFromMod(mod) .. " - Tier: " .. mod.tier,
-						mod = mod,
-						affixType = mod.type,
-						type = "crucible",
-						defaultOrder = i,
-					})
-				end
-			end
-		end
-		for _, tierList in ipairs(modList) do
-			table.sort(tierList, function(a, b)
-				if b ~= "None" then
-					if a.affixType ~= b.affixType then
-						return a.affixType == "Spawn" and b.affixType == "MergeOnly"
-					else
-						return a.defaultOrder < b.defaultOrder
-					end
-				end
-			end)
-		end
-	end
-	local function addModifier()
-		local item = new("Item", self.displayItem:BuildRaw())
-		item.id = self.displayItem.id
-		item.crucibleModLines = { }
-		local listMod = {
-			modList[1][controls.modSelectNode1.selIndex],
-			modList[2][controls.modSelectNode2.selIndex],
-			modList[3][controls.modSelectNode3.selIndex],
-			modList[4][controls.modSelectNode4.selIndex],
-			modList[5][controls.modSelectNode5.selIndex],
-		}
-		for _, nodeMod in ipairs(listMod) do
-			if nodeMod ~= "None" then
-				for index, line in ipairs(nodeMod.mod) do
-					t_insert(item.crucibleModLines, { line = checkLineForAllocates(line, self.build.spec.nodes), modTags = nodeMod.mod.modTags, [nodeMod.type] = true })
-				end
-			end
-		end
-		item:BuildAndParseRaw()
-		return item
-	end
-	-- set up name map to know what modLines the item has as we build the mods out
-	for _, mod in ipairs(self.displayItem.crucibleModLines) do
-		itemModMap[mod.line] = true
-	end
-	buildCrucibleMods()
-	local y = 45
-	for i = 1,5 do
-		controls["modSelectNode"..i.."Label"] = new("LabelControl", {"TOPRIGHT",nil,"TOPLEFT"}, {95, y, 0, 16}, "^7Node "..i..":")
-		controls["modSelectNode"..i] = new("DropDownControl", {"TOPLEFT",nil,"TOPLEFT"}, {100, y, 555, 18}, modList[i])
-		controls["modSelectNode"..i].tooltipFunc = function(tooltip, mode, index, value)
-			tooltip:Clear()
-			if mode ~= "OUT" and value and value ~= "None" then
-				for _, line in ipairs(value.mod) do
-					tooltip:AddLine(16, "^7"..checkLineForAllocates(line, self.build.spec.nodes))
-				end
-				self:AddModComparisonTooltip(tooltip, value.mod)
-			end
-		end
-		y = y + 22
-	end
-	-- populate dropdowns with item mods
-	for nodeId, defaultOrder in pairs(nodeSelections) do
-		for index, mod in pairs(modList[nodeId]) do
-			if defaultOrder == mod.defaultOrder then
-				controls["modSelectNode"..nodeId].selIndex = index
-			end
-		end
-	end
-	controls.save = new("ButtonControl", nil, {-45, 157, 80, 20}, "Add", function()
-		self:SetDisplayItem(addModifier())
-		main:ClosePopup()
-	end)
-	controls.save.tooltipFunc = function(tooltip)
-		tooltip:Clear()
-		self:AddItemTooltip(tooltip, addModifier())
-	end
-	controls.close = new("ButtonControl", nil, {45, 157, 80, 20}, "Cancel", function()
-		main:ClosePopup()
-	end)
-	main:OpenPopup(710, 185, "Add Crucible Modifier to Item", controls, "save")
-end
-
--- Opens the custom Implicit popup
-function ItemsTabClass:AddImplicitToDisplayItem()
-	local controls = { }
-	local sourceList = { }
-	local modList = { }
-	local modGroups = {}
-	---Mutates modList to contain mods from the specified source
-	---@param sourceId string @The crafting source id to build the list of mods for
-	local function buildMods(sourceId)
-		wipeTable(modList)
-		wipeTable(modGroups)
-		local groupIndexes = {}
-		if sourceId == "EXARCH" or sourceId == "EATER" then
-			for i, mod in pairs(self.displayItem.affixes) do
-				if self.displayItem:GetModSpawnWeight(mod) > 0 and sourceId:lower() == mod.type:lower() then
-					local modLabel = table.concat(mod, "/")
-					local group = mod.group:gsub("PinnaclePresence", ""):gsub("UniquePresence", "")
-					if not groupIndexes[group] then
-						t_insert(modList, {})
-						t_insert(modGroups, {
-							label = modLabel,
-							mod = mod,
-							modListIndex = #modList,
-							defaultOrder = i,
-						})
-						groupIndexes[group] = #modGroups
-					end
-					t_insert(modList[groupIndexes[group]], {
-						label = modLabel,
-						mod = mod,
-						affixType = mod.type,
-						type = sourceId:lower(),
-						defaultOrder = i,
-					})
-				end
-			end
-			table.sort(modGroups, function(a, b)
-				local modA = a.mod
-				local modB = b.mod
-				for i = 1, m_max(#modA, #modB) do
-					if not modA[i] then
-						return true
-					elseif not modB[i] then
-						return false
-					elseif modA.statOrder[i] ~= modB.statOrder[i] then
-						return modA.statOrder[i] < modB.statOrder[i]
-					end
-				end
-				return modA.level > modB.level
-			end)
-			for i, _ in pairs(modList) do
-				table.sort(modList[i], function(a, b)
-					local modA = a.mod
-					local modB = b.mod
-					if modA.group ~= modB.group then
-						if modA.group:match("PinnaclePresence") then
-							return false
-						elseif modB.group:match("PinnaclePresence") then
-							return true
-						elseif modA.group:match("UniquePresence") then
-							return false
-						else
-							return true
-						end
-					end
-					for j = 1, m_max(#modA, #modB) do
-						if not modA[j] then
-							return true
-						elseif not modB[j] then
-							return false
-						elseif modA.statOrder[j] ~= modB.statOrder[j] then
-							return modA.statOrder[j] < modB.statOrder[j]
-						else
-							local modAVal = tonumber(a.defaultOrder:match("%d+$"))
-							local modBVal = tonumber(b.defaultOrder:match("%d+$"))
-							return modAVal < modBVal
-						end
-					end
-					return modA.level > modB.level
-				end)
-			end
-			for i, _ in pairs(modGroups) do
-				modGroups[i].label = modList[modGroups[i].modListIndex][1].label:gsub("%([%d%.]+%-[%d%.]+%)", "#"):gsub("[%d%.]+", "#")
-			end
-		elseif sourceId == "SYNTHESIS" then
-			for i, mod in pairs(self.displayItem.affixes) do
-				if sourceId:lower() == mod.type:lower() then -- weights are missing and so are 0, how do I determine what goes on what item?, also arn't these supposed to work on jewels?
-					t_insert(modList, {
-						label = table.concat(mod, "/"),
-						mod = mod,
-						affixType = mod.type,
-						type = "synthesis",
-						defaultOrder = i,
-					})
-				end
-			end
-			table.sort(modList, function(a, b)
-				return a.defaultOrder < b.defaultOrder
-			end)
-		elseif sourceId == "DelveImplicit" then
-			for i, mod in pairs(self.displayItem.affixes) do
-				if self.displayItem:GetModSpawnWeight(mod) > 0 and sourceId:lower() == mod.type:lower() then
-					local modLabel = table.concat(mod, "/")
-					if not groupIndexes[mod.group] then
-						t_insert(modList, {})
-						t_insert(modGroups, {
-							label = modLabel,
-							mod = mod,
-							modListIndex = #modList,
-							defaultOrder = i,
-						})
-						groupIndexes[mod.group] = #modGroups
-					--elseif mod[1].len() < modGroups[groupIndexes[mod.group] ].mod[1].len() then
-					--	modGroups[groupIndexes[mod.group]].label = modLabel
-					--	modGroups[groupIndexes[mod.group]].mod = mod
-					end
-					t_insert(modList[groupIndexes[mod.group]], {
-						label = modLabel,
-						mod = mod,
-						affixType = mod.type,
-						type = "custom",
-						defaultOrder = i,
-					})
-				end
-			end
-			for i, _ in pairs(modList) do
-				table.sort(modList[i], function(a, b)
-					return a.defaultOrder < b.defaultOrder
-				end)
-			end
-		end
-	end
-	if (self.displayItem.rarity ~= "UNIQUE" and self.displayItem.rarity ~= "RELIC") and (self.displayItem.type == "Helmet" or self.displayItem.type == "Body Armour" or self.displayItem.type == "Gloves" or self.displayItem.type == "Boots") then
-		if self.displayItem.cleansing then
-			t_insert(sourceList, { label = "Searing Exarch", sourceId = "EXARCH" })
-		end
-		if self.displayItem.tangle then
-			t_insert(sourceList, { label = "Eater of Worlds", sourceId = "EATER" })
-		end
-	end
-	if self.displayItem.type ~= "Flask" and self.displayItem.type ~= "Jewel" then
-		--t_insert(sourceList, { label = "Synth", sourceId = "SYNTHESIS" }) -- synth removed until we get proper support for where the mods go
-		t_insert(sourceList, { label = "Delve", sourceId = "DelveImplicit" })
-	end
-	t_insert(sourceList, { label = "Custom", sourceId = "CUSTOM" })
-	buildMods(sourceList[1].sourceId)
-	local function addModifier()
-		local item = new("Item", self.displayItem:BuildRaw())
-		item.id = self.displayItem.id
-		local sourceId = sourceList[controls.source.selIndex].sourceId
-		if sourceId == "CUSTOM" then
-			if controls.custom.buf:match("%S") then
-				t_insert(item.implicitModLines, { line = controls.custom.buf, custom = true })
-			end
-		elseif sourceId == "SYNTHESIS" then
-			local listMod = modList[controls.modSelect.selIndex]
-			for _, line in ipairs(listMod.mod) do
-				t_insert(item.implicitModLines, { line = line, modTags = listMod.mod.modTags, [listMod.type] = true })
-			end
-		elseif sourceId == "EXARCH" or sourceId == "EATER" then
-			local listMod = modList[modGroups[controls.modGroupSelect.selIndex].modListIndex][controls.modSelect.selIndex]
-			local index
-			for i, implicitMod in ipairs(item.implicitModLines) do
-				if implicitMod[listMod.type] then
-					index = i
-					break
-				end
-			end
-			if index then
-				for i, line in ipairs(listMod.mod) do
-					item.implicitModLines[index + i - 1] = { line = line, modTags = listMod.mod.modTags, [listMod.type] = true }
-				end
-			else
-				for _, line in ipairs(listMod.mod) do
-					t_insert(item.implicitModLines, { line = line, modTags = listMod.mod.modTags, [listMod.type] = true })
-				end
-			end
-		else
-			local listMod = modList[modGroups[controls.modGroupSelect.selIndex].modListIndex][controls.modSelect.selIndex]
-			for _, line in ipairs(listMod.mod) do
-				t_insert(item.implicitModLines, { line = line, modTags = listMod.mod.modTags, [listMod.type] = true })
-			end
-		end
-		item:BuildAndParseRaw()
-		return item
-	end
-	controls.sourceLabel = new("LabelControl", {"TOPRIGHT",nil,"TOPLEFT"}, {95, 20, 0, 16}, "^7Source:")
-	controls.source = new("DropDownControl", {"TOPLEFT",nil,"TOPLEFT"}, {100, 20, 150, 18}, sourceList, function(index, value)
-		if value.sourceId ~= "CUSTOM" then
-			controls.modSelectLabel.y = 70
-			buildMods(value.sourceId)
-			controls.modGroupSelect:SetSel(1)
-			controls.modSelect.list = modList[modGroups[1].modListIndex]
-			controls.modSelect:SetSel(1)
-		else
-			controls.modSelectLabel.y = 45
-		end
-	end)
-	controls.source.enabled = #sourceList > 1
-	controls.modGroupSelectLabel = new("LabelControl", {"TOPRIGHT",nil,"TOPLEFT"}, {95, 45, 0, 16}, "^7Type:")
-	controls.modGroupSelect = new("DropDownControl", {"TOPLEFT",nil,"TOPLEFT"}, {100, 45, 600, 18}, modGroups, function(index, value)
-		controls.modSelect.list = modList[value.modListIndex]
-		controls.modSelect:SetSel(1)
-	end)
-	controls.modGroupSelectLabel.shown = function()
-		if sourceList[controls.source.selIndex].sourceId == "CUSTOM" then
-			controls.modSelectLabel.y = 45
-		end
-		return sourceList[controls.source.selIndex].sourceId ~= "CUSTOM"
-	end
-	controls.modGroupSelect.shown = function()
-		return sourceList[controls.source.selIndex].sourceId ~= "CUSTOM"
-	end
-	controls.modGroupSelect.tooltipFunc = function(tooltip, mode, index, value)
-		tooltip:Clear()
-		if mode ~= "OUT" and value then
-			for _, line in ipairs(value.mod) do
-				tooltip:AddLine(16, "^7"..line)
-			end
-			self:AddModComparisonTooltip(tooltip, value.mod)
-		end
-	end
-	controls.modSelectLabel = new("LabelControl", {"TOPRIGHT",nil,"TOPLEFT"}, {95, 70, 0, 16}, "^7Modifier:")
-	controls.modSelect = new("DropDownControl", {"TOPLEFT",nil,"TOPLEFT"}, {100, 70, 600, 18}, sourceList[controls.source.selIndex].sourceId ~= "CUSTOM" and modList[modGroups[1].modListIndex] or { })
-	controls.modSelect.shown = function()
-		return sourceList[controls.source.selIndex].sourceId ~= "CUSTOM"
-	end
-	controls.modSelect.tooltipFunc = function(tooltip, mode, index, value)
-		tooltip:Clear()
-		if mode ~= "OUT" and value then
-			for _, line in ipairs(value.mod) do
-				tooltip:AddLine(16, "^7"..line)
-			end
-			self:AddModComparisonTooltip(tooltip, value.mod)
-		end
-	end
-	controls.custom = new("EditControl", {"TOPLEFT",nil,"TOPLEFT"}, {100, 45, 440, 18})
-	controls.custom.shown = function()
-		return sourceList[controls.source.selIndex].sourceId == "CUSTOM"
-	end
-	controls.save = new("ButtonControl", nil, {-45, 100, 80, 20}, "Add", function()
-		self:SetDisplayItem(addModifier())
-		main:ClosePopup()
-	end)
-	controls.save.tooltipFunc = function(tooltip)
-		tooltip:Clear()
-		self:AddItemTooltip(tooltip, addModifier())
-	end	
-	controls.close = new("ButtonControl", nil, {45, 100, 80, 20}, "Cancel", function()
-		main:ClosePopup()
-	end)
-	main:OpenPopup(710, 130, "Add Implicit to Item", controls, "save", sourceList[controls.source.selIndex].sourceId == "CUSTOM" and "custom")	
-end
-
 function ItemsTabClass:AddItemSetTooltip(tooltip, itemSet)
 	for _, slot in ipairs(self.orderedSlots) do
 		if not slot.nodeId then
@@ -3129,16 +2462,8 @@ function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode)
 	if item.charmLimit then
 		tooltip:AddLine(16, s_format("^x7F7F7FCharm Slots: %d", item.charmLimit))
 	end
-	for _, curInfluenceInfo in ipairs(influenceInfo) do
-		if item[curInfluenceInfo.key] then
-			tooltip:AddLine(16, curInfluenceInfo.color..curInfluenceInfo.display.." Item")
-		end
-	end
-	if item.fractured then
-		tooltip:AddLine(16, colorCodes.FRACTURED.."Fractured Item")
-	end
-	if item.synthesised then
-		tooltip:AddLine(16, colorCodes.CRAFTED.."Synthesised Item")
+	if item.spiritValue then
+		tooltip:AddLine(16, s_format("^x7F7F7FSpirit: %d", item.spiritValue))
 	end
 	tooltip:AddSeparator(10)
 
@@ -3340,7 +2665,7 @@ function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode)
 		item.requirements.str or 0, item.requirements.dex or 0, item.requirements.int or 0)
 
 	-- Modifiers
-	for _, modList in ipairs{item.enchantModLines, item.scourgeModLines, item.implicitModLines, item.explicitModLines, item.crucibleModLines} do
+	for _, modList in ipairs{item.enchantModLines, item.implicitModLines, item.explicitModLines} do
 		if modList[1] then
 			for _, modLine in ipairs(modList) do
 				if item:CheckModLineVariant(modLine) then
@@ -3377,12 +2702,9 @@ function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode)
 	end
 
 	-- Corrupted item label
-	if item.corrupted or item.split or item.mirrored then
+	if item.corrupted or item.mirrored then
 		if #item.explicitModLines == 0 then
 			tooltip:AddSeparator(10)
-		end
-		if item.split then
-			tooltip:AddLine(16, colorCodes.NEGATIVE.."Split")
 		end
 		if item.mirrored then
 			tooltip:AddLine(16, colorCodes.NEGATIVE.."Mirrored")

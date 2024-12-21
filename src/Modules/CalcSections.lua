@@ -602,6 +602,8 @@ return {
 } },
 { 1, "SkillTypeStats", 1, colorCodes.OFFENCE, {{ defaultCollapsed = false, label = "Skill type-specific Stats", data = {
 	{ label = "Gem Level", haveOutput = "GemHasLevel", { format = "{0:output:GemLevel}", { breakdown = "GemLevel" }, { modName = { "GemLevel" }, cfg = "skill" },{ modName = { "GemSupportLevel" }, cfg = "skill" }, { modName = { "GemItemLevel" }, cfg = "skill" }, }, },
+	{ label = "Spirit Cost", color = colorCodes.SPIRIT, haveOutput = "SpiritHasCost", { format = "{0:output:SpiritCost}", { breakdown = "SpiritCost" }, { modName = { "SpiritCost", "Cost", "SpiritCostNoMult" }, cfg = "skill" }, }, },
+	{ label = "Spirit % Cost", color = colorCodes.SPIRIT, haveOutput = "SpiritPercentHasCost", { format = "{0:output:SpiritPercentCost}", { breakdown = "SpiritPercentCost" }, { modName = { "SpiritCost", "Cost", "SpiritCostNoMult" }, cfg = "skill" }, }, },
 	{ label = "Mana Cost", color = colorCodes.MANA, haveOutput = "ManaHasCost", { format = "{0:output:ManaCost}", { breakdown = "ManaCost" }, { modName = { "ManaCost", "Cost", "ManaCostNoMult" }, cfg = "skill" }, }, },
 	{ label = "Mana % Cost", color = colorCodes.MANA, haveOutput = "ManaPercentHasCost", { format = "{0:output:ManaPercentCost}", { breakdown = "ManaPercentCost" }, { modName = { "ManaCost", "Cost", "ManaCostNoMult" }, cfg = "skill" }, }, },
 	{ label = "Mana per second", color = colorCodes.MANA, haveOutput = "ManaPerSecondHasCost", { format = "{2:output:ManaPerSecondCost}", { breakdown = "ManaPerSecondCost" }, { modName = { "ManaCost", "Cost", "ManaCostNoMult" }, cfg = "skill" }, }, },
@@ -673,6 +675,10 @@ return {
 	{ label = "Life Reserve Mod", haveOutput = "LifeReservedMod", { format = "x {2:output:LifeReservedMod}",
 		{ breakdown = "LifeReservedMod" },
 		{ modName = { "LifeReserved", "Reserved", "SupportManaMultiplier", "LifeReservationEfficiency", "ReservationEfficiency"  }, cfg = "skill"}
+	}, },
+	{ label = "Spirit Reserve Mod", haveOutput = "SpiritReservedMod", { format = "x {2:output:SpiritReservedMod}",
+		{ breakdown = "SpiritReservedMod" },
+		{ modName = { "SpiritReserved", "Reserved", "SupportManaMultiplier", "SpiritReservationEfficiency", "ReservationEfficiency"  }, cfg = "skill"}
 	}, },
 	{ label = "Curse Effect Mod", haveOutput = "CurseEffectMod", { format = "x {2:output:CurseEffectMod}",
 		{ breakdown = "CurseEffectMod" },
@@ -1438,6 +1444,18 @@ return {
 	}, },
 } }
 } },
+{ 1, "Spirit", 2, colorCodes.SPIRIT, {{ defaultCollapsed = false, label = "Spirit", data = {
+	extra = "{0:output:SpiritUnreserved}/{0:output:Spirit}",
+	notFlag = "minionSkill",
+	{ label = "Base from Gear", { format = "{0:mod:1}", { modName = "Spirit", modType = "BASE", modSource = "Item" }, }, },
+	{ label = "Inc. from Tree", { format = "{0:mod:1}%", { modName = "Spirit", modType = "INC", modSource = "Tree" }, }, },
+	{ label = "Total Base", { format = "{0:mod:1}", { modName = "Spirit", modType = "BASE" }, }, },
+	{ label = "Total Increased", { format = "{0:mod:1}%", { modName = "Spirit", modType = "INC" }, }, },
+	{ label = "Total", { format = "{0:output:Spirit}", { breakdown = "Spirit" }, }, },
+	{ label = "Reserved", { format = "{0:output:SpiritReserved} ({0:output:SpiritReservedPercent}%)", { breakdown = "SpiritReserved" }, }, },
+	{ label = "Unreserved", { format = "{0:output:SpiritUnreserved} ({0:output:SpiritUnreservedPercent}%)" }, },
+} }
+} },
 { 1, "EnergyShield", 2, colorCodes.ES, {{ defaultCollapsed = false, label = "Energy Shield", data = {
 	extra = "{0:output:EnergyShield}",
 	{ label = "Base from Armours", { format = "{0:output:Gear:EnergyShield}", { breakdown = "EnergyShield", gearOnly = true }, }, },
@@ -1618,7 +1636,7 @@ return {
 } },
 } },
 -- misc resources
-{ 1, "Flasks", 3, colorCodes.CRAFTED, {{ defaultCollapsed = false, label = "Flasks", data = {
+{ 1, "Flasks", 3, colorCodes.ENCHANTED, {{ defaultCollapsed = false, label = "Flasks", data = {
 	extra = "+{0:output:FlaskEffect}%, {2:output:FlaskChargeGen}/s",
 	{ label = "Inc. Effect", { format = "{0:mod:1}%", { modName = "FlaskEffect", modType = "INC", actor = "player"}, }, },
 	{ label = "Inc. Duration", { format = "{0:mod:1}%", { modName = "FlaskDuration", modType = "INC" }, }, },

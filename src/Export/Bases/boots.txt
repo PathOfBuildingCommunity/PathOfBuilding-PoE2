@@ -2,7 +2,6 @@
 local itemBases = ...
 
 #type Boots
-#influenceBaseTag boots
 #socketLimit 2
 #baseMatch BaseType Metadata/Items/Armours/Boots/AbstractBoots
 #baseMatch BaseType Metadata/Items/Armours/Boots/BootsDemigods

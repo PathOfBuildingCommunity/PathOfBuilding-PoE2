@@ -263,13 +263,41 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 			hoverDep[depNode] = true
 		end
 	end
-
+	
+	-- switchAttribute true -> allocating an attribute node, possibly with attribute in path -or- hotswap allocated attribute
+	-- switchAttribute false -> allocating a non-attribute node, possibly with attribute in path
+	-- we always want to keep track of last used attribute
+	local function processAttributeHotkeys(switchAttribute)
+		if IsKeyDown("2") or IsKeyDown("S") then
+			spec.attributeIndex = 1
+			if switchAttribute then spec:SwitchAttributeNode(hoverNode.id, 1) end
+		elseif IsKeyDown("3") or IsKeyDown("D") then
+			spec.attributeIndex = 2
+			if switchAttribute then spec:SwitchAttributeNode(hoverNode.id, 2) end
+		elseif IsKeyDown("1") or IsKeyDown("I") then
+			spec.attributeIndex = 3
+			if switchAttribute then spec:SwitchAttributeNode(hoverNode.id, 3) end
+		end
+	end
+	
 	if treeClick == "LEFT" then
 		if hoverNode then
+			local hotkeyPressed = IsKeyDown("1") or IsKeyDown("I") or IsKeyDown("2") or IsKeyDown("S") or IsKeyDown("3") or IsKeyDown("D")
 			-- User left-clicked on a node
 			if hoverNode.alloc then
-				-- Node is allocated, so deallocate it
-				spec:DeallocNode(hoverNode)
+				if hoverNode.isAttribute then
+					-- change to other attribute without needing to deallocate
+					if hotkeyPressed then
+						processAttributeHotkeys(true)
+						-- reload allocated node with new attribute
+						spec:BuildAllDependsAndPaths()
+					else -- reset switched node to generic Attribute
+						spec.hashOverrides[hoverNode.id] = nil
+						spec:DeallocNode(hoverNode)
+					end
+				else
+					spec:DeallocNode(hoverNode)
+				end
 				spec:AddUndoState()
 				build.buildFlag = true
 			elseif hoverNode.path then
@@ -279,9 +307,19 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 						build.treeTab:OpenMasteryPopup(hoverNode, viewPort)
 					end
 				else
-					spec:AllocNode(hoverNode, self.tracePath and hoverNode == self.tracePath[#self.tracePath] and self.tracePath)
-					spec:AddUndoState()
-					build.buildFlag = true
+					-- attribute switching, unallocated to allocated
+					if hoverNode.isAttribute and not hotkeyPressed then
+						build.treeTab:ModifyAttributePopup(hoverNode)
+					else 
+						-- the odd conditional here is so the popup only calls AllocNode inside and to avoid duplicating some code
+						-- same flow for hotkey attribute and non attribute nodes
+						if hotkeyPressed then
+							processAttributeHotkeys(hoverNode.isAttribute)
+						end
+						spec:AllocNode(hoverNode, self.tracePath and hoverNode == self.tracePath[#self.tracePath] and self.tracePath)
+						spec:AddUndoState()
+						build.buildFlag = true
+					end
 				end
 			end
 		end

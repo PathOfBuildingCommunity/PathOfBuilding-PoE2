@@ -2,6 +2,5 @@
 local itemBases = ...
 
 #type Belt
-#influenceBaseTag belt
 #baseMatch BaseType Metadata/Items/Belts/AbstractBelt
 #baseMatch BaseType Metadata/Items/Belts/BeltDemigods

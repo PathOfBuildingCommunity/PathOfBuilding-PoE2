@@ -465,6 +465,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 		modDB:NewMod("Life", "BASE", 12, "Base", { type = "Multiplier", var = "Level", base = 16 })
 		modDB:NewMod("Mana", "BASE", 4, "Base", { type = "Multiplier", var = "Level", base = 30 })
 		modDB:NewMod("ManaRegen", "BASE", 0.04, "Base", { type = "PerStat", stat = "Mana", div = 1 })
+		modDB:NewMod("Spirit", "BASE", 0, "Base")
 		modDB:NewMod("Devotion", "BASE", 0, "Base")
 		modDB:NewMod("Evasion", "BASE", 30, "Base")
 		modDB:NewMod("Accuracy", "BASE", 3, "Base", { type = "Multiplier", var = "Level", base = -3 })
@@ -913,10 +914,8 @@ function calcs.initEnv(build, mode, override, specEnv)
 						item.classRequirementModLines = { }
 						item.buffModLines = { }
 						item.enchantModLines = { }
-						item.scourgeModLines = { }
 						item.implicitModLines = { }
 						item.explicitModLines = { }
-						item.crucibleModLines = { }
 						item.quality = 0
 						item.rarity = "NORMAL"
 						if item.baseName.implicit then
@@ -973,15 +972,10 @@ function calcs.initEnv(build, mode, override, specEnv)
 					end
 				elseif item.name:match("Kalandra's Touch") then
 					-- Reset mult counters since they don't work for kalandra
-					for mult, property in pairs({["CorruptedItem"] = "corrupted", ["ShaperItem"] = "shaper", ["ElderItem"] = "elder"}) do
-						if item[property] then
-							env.itemModDB.multipliers[mult] = (env.itemModDB.multipliers[mult] or 0) - 1
-						else
-							env.itemModDB.multipliers["Non"..mult] = (env.itemModDB.multipliers["Non"..mult] or 0) + 1
-						end
-					end
-					if item.shaper or item.elder then
-						env.itemModDB.multipliers.ShaperOrElderItem = (env.itemModDB.multipliers.ShaperOrElderItem or 0) - 1
+					if item["corrupted"] then
+						env.itemModDB.multipliers["CorruptedItem"] = (env.itemModDB.multipliers["CorruptedItem"] or 0) - 1
+					else
+						env.itemModDB.multipliers["NonCorruptedItem"] = (env.itemModDB.multipliers["NonCorruptedItem"] or 0) + 1
 					end
 					local otherRing = items[(slotName == "Ring 1" and "Ring 2") or (slotName == "Ring 2" and "Ring 1")]
 					if otherRing and not otherRing.name:match("Kalandra's Touch") then
@@ -1000,14 +994,10 @@ function calcs.initEnv(build, mode, override, specEnv)
 							::skip_mod::
 						end
 						-- Adjust multipliers based on other ring
-						for mult, property in pairs({["CorruptedItem"] = "corrupted", ["ShaperItem"] = "shaper", ["ElderItem"] = "elder"}) do
-							if otherRing[property] then
-								env.itemModDB.multipliers[mult] = (env.itemModDB.multipliers[mult] or 0) + 1
-								env.itemModDB.multipliers["Non"..mult] = (env.itemModDB.multipliers["Non"..mult] or 0) - 1
-							end
-						end
-						if otherRing.elder or otherRing.shaper then
-							env.itemModDB.multipliers.ShaperOrElderItem = (env.itemModDB.multipliers.ShaperOrElderItem or 0) + 1
+						if item["corrupted"] then
+							env.itemModDB.multipliers["CorruptedItem"] = (env.itemModDB.multipliers["CorruptedItem"] or 0) + 1
+						else
+							env.itemModDB.multipliers["NonCorruptedItem"] = (env.itemModDB.multipliers["NonCorruptedItem"] or 0) - 1
 						end
 					end
 
@@ -1079,6 +1069,9 @@ function calcs.initEnv(build, mode, override, specEnv)
 				if item.charmLimit then
 					env.modDB:NewMod("CharmLimit", "BASE", item.charmLimit, item.title)
 				end
+				if item.spiritValue then
+					env.modDB:NewMod("Spirit", "BASE", item.spiritValue, item.title)
+				end
 				if item.type ~= "Jewel" and item.type ~= "Flask" and item.type ~= "Charm" and item.type ~= "Tincture" then
 					-- Update item counts
 					local key
@@ -1093,16 +1086,12 @@ function calcs.initEnv(build, mode, override, specEnv)
 					end
 					env.itemModDB.multipliers[key] = (env.itemModDB.multipliers[key] or 0) + 1
 					env.itemModDB.conditions[key .. "In" .. slotName] = true
-					for mult, property in pairs({["CorruptedItem"] = "corrupted", ["ShaperItem"] = "shaper", ["ElderItem"] = "elder"}) do
-						if item[property] then
-							env.itemModDB.multipliers[mult] = (env.itemModDB.multipliers[mult] or 0) + 1
-						else
-							env.itemModDB.multipliers["Non"..mult] = (env.itemModDB.multipliers["Non"..mult] or 0) + 1
-						end
+					if item["corrupted"] then
+						env.itemModDB.multipliers["CorruptedItem"] = (env.itemModDB.multipliers["CorruptedItem"] or 0) + 1
+					else
+						env.itemModDB.multipliers["NonCorruptedItem"] = (env.itemModDB.multipliers["NonCorruptedItem"] or 0) + 1
 					end
-					if item.shaper or item.elder then
-						env.itemModDB.multipliers.ShaperOrElderItem = (env.itemModDB.multipliers.ShaperOrElderItem or 0) + 1
-					end
+
 					env.itemModDB.multipliers[item.type:gsub(" ", ""):gsub(".+Handed", "").."Item"] = (env.itemModDB.multipliers[item.type:gsub(" ", ""):gsub(".+Handed", "").."Item"] or 0) + 1
 					-- Calculate socket counts
 					local slotEmptySocketsCount = { R = 0, G = 0, B = 0, W = 0}	

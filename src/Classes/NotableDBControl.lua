@@ -232,7 +232,7 @@ function NotableDBClass:GetRowValue(column, index, node)
 				return "^x808080"..node.dn
 			end
 		else
-			return colorCodes.CRAFTED..node.dn
+			return colorCodes.ENCHANTED..node.dn
 		end
 	end
 end

@@ -500,8 +500,8 @@ function calcs.defence(env, actor)
 	end
 
 	if actor == env.minion then
-		doActorLifeMana(env.minion)
-		doActorLifeManaReservation(env.minion)
+		doActorLifeManaSpirit(env.minion)
+		doActorLifeManaSpiritReservation(env.minion)
 	end
 
 	-- Block

@@ -17,8 +17,6 @@ local realmList = {
 	{ label = "Tencent", id = "PC", realmCode = "pc", hostName = "https://poe.game.qq.com/", profileURL = "account/view-profile/" },
 }
 
-local influenceInfo = itemLib.influenceInfo
-
 local ImportTabClass = newClass("ImportTab", "ControlHost", "Control", function(self, build)
 	self.ControlHost()
 	self.Control()
@@ -806,7 +804,6 @@ function ImportTabClass:ImportItem(itemData, slotName)
 	item.rarity = rarityMap[itemData.frameType]
 	if #itemData.name > 0 then
 		item.title = sanitiseText(itemData.name)
-		item.baseName = sanitiseText(itemData.typeLine):gsub("Synthesised ","")
 		item.name = item.title .. ", " .. item.baseName
 		if item.baseName == "Two-Toned Boots" then
 			-- Hack for Two-Toned Boots
@@ -861,11 +858,6 @@ function ImportTabClass:ImportItem(itemData, slotName)
 
 	-- Import item data
 	item.uniqueID = itemData.id
-	if itemData.influences then
-		for _, curInfluenceInfo in ipairs(influenceInfo) do
-			item[curInfluenceInfo.key] = itemData.influences[curInfluenceInfo.display:lower()]
-		end
-	end
 	if itemData.ilvl > 0 then
 		item.itemLevel = itemData.ilvl
 	end
@@ -901,11 +893,8 @@ function ImportTabClass:ImportItem(itemData, slotName)
 			end
 		end
 	end
-	item.split = itemData.split
 	item.mirrored = itemData.mirrored
 	item.corrupted = itemData.corrupted
-	item.fractured = itemData.fractured
-	item.synthesised = itemData.synthesised
 	if itemData.sockets and itemData.sockets[1] then
 		item.sockets = { }
 		for i, socket in pairs(itemData.sockets) do
@@ -929,24 +918,14 @@ function ImportTabClass:ImportItem(itemData, slotName)
 		end
 	end
 	item.enchantModLines = { }
-	item.scourgeModLines = { }
 	item.classRequirementModLines = { }
 	item.implicitModLines = { }
 	item.explicitModLines = { }
-	item.crucibleModLines = { }
 	if itemData.enchantMods then
 		for _, line in ipairs(itemData.enchantMods) do
 			for line in line:gmatch("[^\n]+") do
 				local modList, extra = modLib.parseMod(line)
-				t_insert(item.enchantModLines, { line = line, extra = extra, mods = modList or { }, crafted = true })
-			end
-		end
-	end
-	if itemData.scourgeMods then
-		for _, line in ipairs(itemData.scourgeMods) do
-			for line in line:gmatch("[^\n]+") do
-				local modList, extra = modLib.parseMod(line)
-				t_insert(item.scourgeModLines, { line = line, extra = extra, mods = modList or { }, scourge = true })
+				t_insert(item.enchantModLines, { line = line, extra = extra, mods = modList or { }, enchant = true })
 			end
 		end
 	end
@@ -958,14 +937,6 @@ function ImportTabClass:ImportItem(itemData, slotName)
 			end
 		end
 	end
-	if itemData.fracturedMods then
-		for _, line in ipairs(itemData.fracturedMods) do
-			for line in line:gmatch("[^\n]+") do
-				local modList, extra = modLib.parseMod(line)
-				t_insert(item.explicitModLines, { line = line, extra = extra, mods = modList or { }, fractured = true })
-			end
-		end
-	end
 	if itemData.explicitMods then
 		for _, line in ipairs(itemData.explicitMods) do
 			for line in line:gmatch("[^\n]+") do
@@ -974,22 +945,7 @@ function ImportTabClass:ImportItem(itemData, slotName)
 			end
 		end
 	end
-	if itemData.crucibleMods then
-		for _, line in ipairs(itemData.crucibleMods) do
-			for line in line:gmatch("[^\n]+") do
-				local modList, extra = modLib.parseMod(line)
-				t_insert(item.crucibleModLines, { line = line, extra = extra, mods = modList or { }, crucible = true })
-			end
-		end
-	end
-	if itemData.craftedMods then
-		for _, line in ipairs(itemData.craftedMods) do
-			for line in line:gmatch("[^\n]+") do
-				local modList, extra = modLib.parseMod(line)
-				t_insert(item.explicitModLines, { line = line, extra = extra, mods = modList or { }, crafted = true })
-			end
-		end
-	end
+
 	-- Sometimes flavour text has actual mods that PoB cares about
 	-- Right now, the only known one is "This item can be anointed by Cassia"
 	if itemData.flavourText then

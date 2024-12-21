@@ -5,7 +5,6 @@ local itemBases = ...
 itemBases["Crimson Amulet"] = {
 	type = "Amulet",
 	tags = { amulet = true, default = true, },
-	influenceTags = { shaper = "amulet_shaper", elder = "amulet_elder", adjudicator = "amulet_adjudicator", basilisk = "amulet_basilisk", crusader = "amulet_crusader", eyrie = "amulet_eyrie", cleansing = "amulet_cleansing", tangle = "amulet_tangle" },
 	implicit = "(2-4) Life Regeneration per second",
 	implicitModTypes = { { "flat_life_regen", "resource", "life" }, },
 	req = { },
@@ -13,7 +12,6 @@ itemBases["Crimson Amulet"] = {
 itemBases["Azure Amulet"] = {
 	type = "Amulet",
 	tags = { amulet = true, default = true, },
-	influenceTags = { shaper = "amulet_shaper", elder = "amulet_elder", adjudicator = "amulet_adjudicator", basilisk = "amulet_basilisk", crusader = "amulet_crusader", eyrie = "amulet_eyrie", cleansing = "amulet_cleansing", tangle = "amulet_tangle" },
 	implicit = "(20-30)% increased Mana Regeneration Rate",
 	implicitModTypes = { { "resource", "mana" }, },
 	req = { },
@@ -21,7 +19,6 @@ itemBases["Azure Amulet"] = {
 itemBases["Amber Amulet"] = {
 	type = "Amulet",
 	tags = { amulet = true, default = true, },
-	influenceTags = { shaper = "amulet_shaper", elder = "amulet_elder", adjudicator = "amulet_adjudicator", basilisk = "amulet_basilisk", crusader = "amulet_crusader", eyrie = "amulet_eyrie", cleansing = "amulet_cleansing", tangle = "amulet_tangle" },
 	implicit = "+(10-15) to Strength",
 	implicitModTypes = { { "attribute" }, },
 	req = { level = 8, },
@@ -29,7 +26,6 @@ itemBases["Amber Amulet"] = {
 itemBases["Jade Amulet"] = {
 	type = "Amulet",
 	tags = { amulet = true, default = true, },
-	influenceTags = { shaper = "amulet_shaper", elder = "amulet_elder", adjudicator = "amulet_adjudicator", basilisk = "amulet_basilisk", crusader = "amulet_crusader", eyrie = "amulet_eyrie", cleansing = "amulet_cleansing", tangle = "amulet_tangle" },
 	implicit = "+(10-15) to Dexterity",
 	implicitModTypes = { { "attribute" }, },
 	req = { level = 8, },
@@ -37,7 +33,6 @@ itemBases["Jade Amulet"] = {
 itemBases["Lapis Amulet"] = {
 	type = "Amulet",
 	tags = { amulet = true, default = true, },
-	influenceTags = { shaper = "amulet_shaper", elder = "amulet_elder", adjudicator = "amulet_adjudicator", basilisk = "amulet_basilisk", crusader = "amulet_crusader", eyrie = "amulet_eyrie", cleansing = "amulet_cleansing", tangle = "amulet_tangle" },
 	implicit = "+(10-15) to Intelligence",
 	implicitModTypes = { { "attribute" }, },
 	req = { level = 8, },
@@ -45,7 +40,6 @@ itemBases["Lapis Amulet"] = {
 itemBases["Lunar Amulet"] = {
 	type = "Amulet",
 	tags = { amulet = true, default = true, },
-	influenceTags = { shaper = "amulet_shaper", elder = "amulet_elder", adjudicator = "amulet_adjudicator", basilisk = "amulet_basilisk", crusader = "amulet_crusader", eyrie = "amulet_eyrie", cleansing = "amulet_cleansing", tangle = "amulet_tangle" },
 	implicit = "+(20-30) to maximum Energy Shield",
 	implicitModTypes = { { "energy_shield", "defences" }, },
 	req = { level = 14, },
@@ -53,7 +47,6 @@ itemBases["Lunar Amulet"] = {
 itemBases["Bloodstone Amulet"] = {
 	type = "Amulet",
 	tags = { amulet = true, default = true, },
-	influenceTags = { shaper = "amulet_shaper", elder = "amulet_elder", adjudicator = "amulet_adjudicator", basilisk = "amulet_basilisk", crusader = "amulet_crusader", eyrie = "amulet_eyrie", cleansing = "amulet_cleansing", tangle = "amulet_tangle" },
 	implicit = "+(30-40) to maximum Life",
 	implicitModTypes = { { "resource", "life" }, },
 	req = { level = 18, },
@@ -61,7 +54,6 @@ itemBases["Bloodstone Amulet"] = {
 itemBases["Stellar Amulet"] = {
 	type = "Amulet",
 	tags = { amulet = true, default = true, },
-	influenceTags = { shaper = "amulet_shaper", elder = "amulet_elder", adjudicator = "amulet_adjudicator", basilisk = "amulet_basilisk", crusader = "amulet_crusader", eyrie = "amulet_eyrie", cleansing = "amulet_cleansing", tangle = "amulet_tangle" },
 	implicit = "+(5-7) to all Attributes",
 	implicitModTypes = { { "attribute" }, },
 	req = { level = 24, },
@@ -69,7 +61,6 @@ itemBases["Stellar Amulet"] = {
 itemBases["Solar Amulet"] = {
 	type = "Amulet",
 	tags = { amulet = true, default = true, },
-	influenceTags = { shaper = "amulet_shaper", elder = "amulet_elder", adjudicator = "amulet_adjudicator", basilisk = "amulet_basilisk", crusader = "amulet_crusader", eyrie = "amulet_eyrie", cleansing = "amulet_cleansing", tangle = "amulet_tangle" },
 	implicit = "+(10-15) to Spirit",
 	implicitModTypes = { {  }, },
 	req = { level = 30, },
@@ -77,7 +68,6 @@ itemBases["Solar Amulet"] = {
 itemBases["Gold Amulet"] = {
 	type = "Amulet",
 	tags = { amulet = true, default = true, },
-	influenceTags = { shaper = "amulet_shaper", elder = "amulet_elder", adjudicator = "amulet_adjudicator", basilisk = "amulet_basilisk", crusader = "amulet_crusader", eyrie = "amulet_eyrie", cleansing = "amulet_cleansing", tangle = "amulet_tangle" },
 	implicit = "(12-20)% increased Rarity of Items found",
 	implicitModTypes = { {  }, },
 	req = { level = 35, },

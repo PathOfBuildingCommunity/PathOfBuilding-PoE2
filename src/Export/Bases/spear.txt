@@ -2,6 +2,5 @@
 local itemBases = ...
 
 #type Spear
-#influenceBaseTag spear
 #socketLimit 2
 #baseMatch BaseType Metadata/Items/Weapons/OneHandWeapons/Spears/AbstractSpear

@@ -2,6 +2,5 @@
 local itemBases = ...
 
 #type Wand
-#influenceBaseTag wand
 #socketLimit 2
 #baseMatch Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand

@@ -600,16 +600,6 @@ function ModStoreClass:EvalMod(mod, cfg)
 					t_insert(matches, item.corrupted == tag.corruptedCond)
 				end
 			end
-			if tag.shaperCond then
-				for _, item in pairs(items) do
-					t_insert(matches, item.shaper == tag.shaperCond)
-				end
-			end
-			if tag.elderCond then
-				for _, item in pairs(items) do
-					t_insert(matches, item.elder == tag.elderCond)
-				end
-			end
 
 			local hasItems = false
 			for _, item in pairs(items) do

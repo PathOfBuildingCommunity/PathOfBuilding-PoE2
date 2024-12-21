@@ -47,20 +47,6 @@ local function writeEnum(filename, enumTable)
 	print("Wrote " .. size .. " enum types to " .. filename)
 end
 
-
--- influenced types
-local influenceTypes = {
-	"Shaper",
-	"Elder",
-	"Crusader",
-	"Eyrie",
-	"Basilisk",
-	"Adjudicator",
-	"None"
-}
-
-writeEnum("influenceTypes.datc64", influenceTypes)
-
 -- passive Skills types
 local passiveSkillTypes  = {
 	"Passive Tree",

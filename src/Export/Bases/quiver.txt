@@ -2,5 +2,4 @@
 local itemBases = ...
 
 #type Quiver
-#influenceBaseTag quiver
 #baseMatch BaseType Metadata/Items/Quivers/AbstractQuiver

@@ -94,9 +94,9 @@ local formList = {
 	["penetrates? (%d+)%%"] = "PEN",
 	["penetrates (%d+)%% of"] = "PEN",
 	["penetrates (%d+)%% of enemy"] = "PEN",
-	["^([%d%.]+) (.+) regenerated per second"] = "REGENFLAT",
-	["^([%d%.]+)%% (.+) regenerated per second"] = "REGENPERCENT",
-	["^([%d%.]+)%% of (.+) regenerated per second"] = "REGENPERCENT",
+	["^([%d%.]+) (.+) regeneration per second"] = "REGENFLAT",
+	["^([%d%.]+)%% (.+) regeneration per second"] = "REGENPERCENT",
+	["^([%d%.]+)%% of (.+) regeneration per second"] = "REGENPERCENT",
 	["^regenerate ([%d%.]+) (.-) per second"] = "REGENFLAT",
 	["^regenerate ([%d%.]+)%% (.-) per second"] = "REGENPERCENT",
 	["^regenerate ([%d%.]+)%% of (.-) per second"] = "REGENPERCENT",
@@ -157,9 +157,11 @@ local modNameList = {
 	["attributes"] = { "Str", "Dex", "Int", "All" },
 	["all attributes"] = { "Str", "Dex", "Int", "All" },
 	["devotion"] = "Devotion",
-	-- Life/mana
+	-- Life/Mana/Spirit
+	["spirit"] = "Spirit",
 	["life"] = "Life",
 	["maximum life"] = "Life",
+	["life regeneration"] = "LifeRegen",
 	["life regeneration rate"] = "LifeRegen",
 	["mana"] = "Mana",
 	["maximum mana"] = "Mana",
@@ -1261,9 +1263,6 @@ local modTagList = {
 	["for each equipped unique item"] = { tag = { type = "Multiplier", var = "UniqueItem" } },
 	["for each unique item equipped"] = { tag = { type = "Multiplier", var = "UniqueItem" } },
 	["for each unique item you have equipped"] = { tag = { type = "Multiplier", var = "UniqueItem" } },
-	["per elder item equipped"] = { tag = { type = "Multiplier", var = "ElderItem" } },
-	["per shaper item equipped"] = { tag = { type = "Multiplier", var = "ShaperItem" } },
-	["per elder or shaper item equipped"] = { tag = { type = "Multiplier", var = "ShaperOrElderItem" } },
 	["for each corrupted item equipped"] = { tag = { type = "Multiplier", var = "CorruptedItem" } },
 	["for each equipped corrupted item"] = { tag = { type = "Multiplier", var = "CorruptedItem" } },
 	["for each uncorrupted item equipped"] = { tag = { type = "Multiplier", var = "NonCorruptedItem" } },
@@ -1446,8 +1445,6 @@ local modTagList = {
 	["w?i?t?h? main hand"] = { tagList = { { type = "Condition", var = "MainHandAttack" }, { type = "SkillType", skillType = SkillType.Attack } } },
 	["w?i?t?h? off hand"] = { tagList = { { type = "Condition", var = "OffHandAttack" }, { type = "SkillType", skillType = SkillType.Attack } } },
 	["[fi]?[rn]?[of]?[ml]?[ i]?[hc]?[it]?[te]?[sd]? ? with this weapon"] = { tagList = { { type = "Condition", var = "{Hand}Attack" }, { type = "SkillType", skillType = SkillType.Attack } } },
-	["if your other ring is a shaper item"] = { tag = { type = "ItemCondition", itemSlot = "Ring {OtherSlotNum}", shaperCond = true} },
-	["if your other ring is an elder item"] = { tag = { type = "ItemCondition", itemSlot = "Ring {OtherSlotNum}", elderCond = true}},
 	["if you have a (%a+) (%a+) in (%a+) slot"] = function(_, rarity, item, slot) return { tag = { type = "Condition", var = rarity:gsub("^%l", string.upper).."ItemIn"..item:gsub("^%l", string.upper).." "..(slot == "right" and 2 or slot == "left" and 1) } } end,
 	["of skills supported by spellslinger"] = { tag = { type = "Condition", var = "SupportedBySpellslinger" } },
 	-- Equipment conditions
@@ -2253,6 +2250,18 @@ local specialModList = {
 	["life leech is instant"] = { mod("InstantLifeLeech", "BASE", 100), },
 	["mana leech is instant"] = { mod("InstantManaLeech", "BASE", 100), },
 	["mana leech effects also recover energy shield"] = { flag("ManaLeechRecoversEnergyShield") },
+	["leeche?s? (%d.+)%% of (%a+) damage as mana"] = function(num, _, dmgType) return {
+		mod(firstToUpper(dmgType) .. "DamageManaLeech", "BASE", num),
+	} end,
+	["leeche?s? (%d.+)%% of (%a+) damage as life"] = function(num, _, dmgType) return {
+		mod(firstToUpper(dmgType) .. "DamageLifeLeech", "BASE", num),
+	} end,
+	["leeche?s? (%d.+)%% of (%a+) attack damage as mana"] = function(num, _, dmgType) return {
+		mod(firstToUpper(dmgType) .. "DamageManaLeech", "BASE", num, nil, ModFlag.Attack, 0),
+	} end,
+	["leeche?s? (%d.+)%% of (%a+) attack damage as life"] = function(num, _, dmgType) return {
+		mod(firstToUpper(dmgType) .. "DamageLifeLeech", "BASE", num, nil, ModFlag.Attack, 0),
+	} end,
 	-- Ascendant
 	["grants (%d+) passive skill points?"] = function(num) return { mod("ExtraPoints", "BASE", num) } end,
 	["can allocate passives from the %a+'s starting point"] = { },
@@ -4793,8 +4802,6 @@ local specialModList = {
 	["intelligence provides no inherent bonus to maximum mana"] = { flag("NoIntBonusToMana") },
 	["with a ghastly eye jewel socketed, minions have %+(%d+) to accuracy rating"] = function(num) return { mod("MinionModifier", "LIST", { mod = mod("Accuracy", "BASE", num) }, { type = "Condition", var = "HaveGhastlyEyeJewelIn{SlotName}" }) } end,
 	["with a hypnotic eye jewel socketed, gain arcane surge on hit with spells"] = function(num) return { flag("Condition:ArcaneSurge", { type = "Condition", var = "HitSpellRecently" }, { type = "Condition", var = "HaveHypnoticEyeJewelIn{SlotName}" }) } end,
-	["hits ignore enemy monster chaos resistance if all equipped items are shaper items"] = { flag("IgnoreChaosResistance", { type = "MultiplierThreshold", var = "NonShaperItem", upper = true, threshold = 0 }) },
-	["hits ignore enemy monster chaos resistance if all equipped items are elder items"] = { flag("IgnoreChaosResistance", { type = "MultiplierThreshold", var = "NonElderItem", upper = true, threshold = 0 }) },
 	["gain %d+ rage on critical hit with attacks, no more than once every [%d%.]+ seconds"] = {
 		flag("Condition:CanGainRage"),
 	},
@@ -5136,10 +5143,6 @@ local specialModList = {
 	["can have (%d+) additional enchantment modifiers"] = { },
 	["this item can be anointed by cassia"] = { },
 	["implicit modifiers cannot be changed"] = { },
-	["has a crucible passive skill tree"] = { },
-	["has a two handed sword crucible passive skill tree"] = { },
-	["has a crucible passive skill tree with only support passive skills"] = { },
-	["crucible passive skill tree is removed if this modifier is removed"] = { },
 	["all sockets are white"] = { },
 	["every (%d+) seconds, regenerate (%d+)%% of life over one second"] = function (num, _, percent) return {
 		mod("LifeRegenPercent", "BASE", tonumber(percent), { type = "Condition", var = "LifeRegenBurstFull" }),

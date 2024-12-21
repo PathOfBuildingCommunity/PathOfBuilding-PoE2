@@ -2,7 +2,6 @@
 local itemBases = ...
 
 #type Gloves
-#influenceBaseTag gloves
 #socketLimit 2
 #baseMatch BaseType Metadata/Items/Armours/Gloves/AbstractGloves
 #baseMatch BaseType Metadata/Items/Armours/Gloves/GlovesDemigods

@@ -2,6 +2,5 @@
 local itemBases = ...
 
 #type Flail
-#influenceBaseTag flail
 #socketLimit 2
 #baseMatch BaseType Metadata/Items/Weapons/OneHandWeapons/Flails/AbstractFlail

@@ -10,19 +10,6 @@ local m_max = math.max
 local m_floor = math.floor
 
 itemLib = { }
-
--- Info table for all types of item influence
-itemLib.influenceInfo = {
-	{ key="shaper", display="Shaper", color=colorCodes.SHAPER },
-	{ key="elder", display="Elder", color=colorCodes.ELDER },
-	{ key="adjudicator", display="Warlord", color=colorCodes.ADJUDICATOR },
-	{ key="basilisk", display="Hunter", color=colorCodes.BASILISK },
-	{ key="crusader", display="Crusader", color=colorCodes.CRUSADER },
-	{ key="eyrie", display="Redeemer", color=colorCodes.EYRIE },
-	{ key="cleansing", display="Searing Exarch", color=colorCodes.CLEANSING },
-	{ key="tangle", display="Eater of Worlds", color=colorCodes.TANGLE },
-}
-
 -- Apply a value scalar to the first n of any numbers present
 function itemLib.applyValueScalar(line, valueScalar, numbers, precision)
 	if valueScalar and type(valueScalar) == "number" and valueScalar ~= 1 then
@@ -121,7 +108,7 @@ function itemLib.formatModLine(modLine, dbMode)
 			line = line .. "   ^1'" .. modLine.extra .. "'"
 		end
 	else
-		colorCode = (modLine.crafted and colorCodes.CRAFTED) or (modLine.scourge and colorCodes.SCOURGE) or (modLine.custom and colorCodes.CUSTOM) or (modLine.fractured and colorCodes.FRACTURED) or (modLine.crucible and colorCodes.CRUCIBLE) or colorCodes.MAGIC
+		colorCode = (modLine.enchant and colorCodes.ENCHANTED) or (modLine.custom and colorCodes.CUSTOM) or colorCodes.MAGIC
 	end
 	return colorCode..line
 end

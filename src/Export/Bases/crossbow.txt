@@ -2,6 +2,5 @@
 local itemBases = ...
 
 #type Crossbow
-#influenceBaseTag crossbow
 #socketLimit 3
 #baseMatch BaseType Metadata/Items/Weapons/TwoHandWeapons/Crossbows/AbstractCrossbow

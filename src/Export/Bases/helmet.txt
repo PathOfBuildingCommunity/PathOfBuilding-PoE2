@@ -2,7 +2,6 @@
 local itemBases = ...
 
 #type Helmet
-#influenceBaseTag helmet
 #socketLimit 2
 
 #baseMatch BaseType Metadata/Items/Armours/Helmets/AbstractHelmet

@@ -16,10 +16,6 @@ directiveTable.subType = function(state, args, out)
 	state.subType = args
 end
 
-directiveTable.influenceBaseTag = function(state, args, out)
-	state.influenceBaseTag = args
-end
-
 directiveTable.forceShow = function(state, args, out)
 	state.forceShow = (args == "true")
 end
@@ -107,15 +103,6 @@ directiveTable.base = function(state, args, out)
 		out:write(tag, ' = true, ')
 	end
 	out:write('},\n')
-	local influencePrefix = state.influenceBaseTag
-	if influencePrefix then
-		out:write('\tinfluenceTags = { ')
-		for i, influenceSuffix in ipairs({ "shaper", "elder", "adjudicator", "basilisk", "crusader", "eyrie", "cleansing", "tangle" }) do
-			if i ~= 1 then out:write(", ") end
-			out:write(influenceSuffix, ' = "', influencePrefix, "_", influenceSuffix, '"')
-		end
-		out:write(' },\n')
-	end
 	local implicitLines = { }
 	local implicitModTypes = { }
 	for _, mod in ipairs(baseItemType.ImplicitMods) do
