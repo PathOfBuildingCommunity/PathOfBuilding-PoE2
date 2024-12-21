@@ -83503,6 +83503,49 @@ return {
 			h=8344,
 			w=952
 		},
+		jewelpassive={
+			coords={
+				Emerald={
+					h=156,
+					w=152,
+					x=456,
+					y=0
+				},
+				Ruby={
+					h=156,
+					w=152,
+					x=0,
+					y=0
+				},
+				Sapphire={
+					h=156,
+					w=152,
+					x=760,
+					y=0
+				},
+				["Time-Lost Emerald"]={
+					h=156,
+					w=152,
+					x=304,
+					y=0
+				},
+				["Time-Lost Ruby"]={
+					h=156,
+					w=152,
+					x=608,
+					y=0
+				},
+				["Timeless Jewel"]={
+					h=156,
+					w=152,
+					x=152,
+					y=0
+				}
+			},
+			filename="jewelsockets.png",
+			h=156,
+			w=912
+		},
 		keystoneActive={
 			coords={
 				["Art/2DArt/SkillIcons/passives/BulwarkKeystone.dds"]={

@@ -10530,6 +10530,34 @@ return {
 	pantheonsouls={
 	},
 	passivejewelart={
+		[1]={
+			list=false,
+			name="Item",
+			refTo="BaseItemTypes",
+			type="Key",
+			width=300
+		},
+		[2]={
+			list=false,
+			name="JewelArt",
+			refTo="",
+			type="String",
+			width=550
+		},
+		[3]={
+			list=false,
+			name="JewelBlueArt",
+			refTo="",
+			type="String",
+			width=480
+		},
+		[4]={
+			list=false,
+			name="",
+			refTo="",
+			type="Key",
+			width=150
+		}
 	},
 	passivejewelnodemodifyingstats={
 		[1]={
@@ -10657,6 +10685,34 @@ return {
 		}
 	},
 	passivejeweluniqueart={
+		[1]={
+			list=false,
+			name="",
+			refTo="",
+			type="Int",
+			width=150
+		},
+		[2]={
+			list=false,
+			name="",
+			refTo="",
+			type="Key",
+			width=150
+		},
+		[3]={
+			list=false,
+			name="",
+			refTo="",
+			type="Key",
+			width=150
+		},
+		[4]={
+			list=false,
+			name="JewelAsset",
+			refTo="",
+			type="String",
+			width=560
+		}
 	},
 	passiveoverridelimits={
 		[1]={
@@ -11002,7 +11058,7 @@ return {
 			name="ClassStart",
 			refTo="Characters",
 			type="Key",
-			width=80
+			width=530
 		},
 		[11]={
 			list=false,

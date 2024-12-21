@@ -375,6 +375,7 @@ local sheets = {
 	newSheet("ascendancy-background", defaultMaxWidth, 100),
 	newSheet("oils", defaultMaxWidth, 100),
 	newSheet("lines", defaultMaxWidth, 100),
+	newSheet("jewelsockets", defaultMaxWidth, 100),
 }
 local sheetLocations = {
 	["skills"] = 1,
@@ -390,6 +391,7 @@ local sheetLocations = {
 	["ascendancy-background"] = 11,
 	["oils"] = 12,
 	["lines"] = 13,
+	["jewelsockets"] = 14,
 }
 local function getSheet(sheetLocation)
 	return sheets[sheetLocations[sheetLocation]]
@@ -500,11 +502,18 @@ addToSheet(getSheet("group-background"), ascStart, "startNode", commonMetadata("
 addToSheet(getSheet("ascendancy-background"), "art/textures/interface/2d/2dart/uiimages/ingame/passivetree/passivetreemaincircle.dds", "ascendancyBackground", commonMetadata("BGTree"))
 addToSheet(getSheet("ascendancy-background"), "art/textures/interface/2d/2dart/uiimages/ingame/passivetree/passivetreemaincircleactive2.dds", "ascendancyBackground", commonMetadata("BGTreeActive"))
 
-
 -- adding lines to sprite
 addToSheet(getSheet("lines"), "art/2dart/passivetree/passiveskillscreencurvesactivetogether.dds", "line", commonMetadata( "CurvesActive"))
 addToSheet(getSheet("lines"), "art/2dart/passivetree/passiveskillscreencurvesintermediatetogether.dds", "line", commonMetadata( "CurvesIntermediate"))
 addToSheet(getSheet("lines"), "art/2dart/passivetree/passiveskillscreencurvesnormaltogether.dds", "line", commonMetadata( "CurvesNormal"))
+
+-- adding jewel sockets
+local jewelArt = dat("passivejewelart")
+for jewel in jewelArt:Rows() do
+	local asset = uiImages[string.lower(jewel.JewelArt)]
+	local name = jewel.Item.Name
+	addToSheet(getSheet("jewelsockets"), asset.path, "jewelpassive", commonMetadata(name))
+end
 
 local tree = {
 	["pob"] = 1,
@@ -1098,33 +1107,31 @@ out:close()
 printf("File " .. fileTree .. " generated")
 
 -- Here we should validate if we need to create assets real assets
-if generateAssets then
-	printf("Generating png from dds ...")
-	local ddsFiles = {}
-	for _, sheet in ipairs(sheets) do
-		for _, coord in pairs(sheet.sprite.coords) do
-			table.insert( ddsFiles,  coord.icon)
-		end
+printf("Generating png from dds ...")
+local ddsFiles = {}
+for _, sheet in ipairs(sheets) do
+	for _, coord in pairs(sheet.sprite.coords) do
+		table.insert( ddsFiles,  coord.icon)
+	end
+end
+
+nvtt.ExportDDSToPng(main.ggpk.oozPath, basePath .. version .. "/", "assets", ddsFiles, true)
+
+printf("Generating sprite sheet images...")
+for _, sheet in ipairs(sheets) do
+	-- update coord.icon from .dds to .png
+	for _, coord in pairs(sheet.sprite.coords) do
+		coord.icon = coord.icon:gsub(".dds", ".png")
 	end
 
-	nvtt.ExportDDSToPng(main.ggpk.oozPath, basePath .. version .. "/", "assets", ddsFiles, true)
-
-	printf("Generating sprite sheet images...")
-	for _, sheet in ipairs(sheets) do
-		-- update coord.icon from .dds to .png
-		for _, coord in pairs(sheet.sprite.coords) do
-			coord.icon = coord.icon:gsub(".dds", ".png")
-		end
-
-		gimpbatch.combine_images_to_sprite(
-			sheet.name ,
-			sheet.sprite,
-			main.ggpk.oozPath,
-			basePath .. version .. "/",
-			GetRuntimePath() .. "/lua/gimpbatch/combine_images.scm",
-			sheet.saturation,
-			generateAssets
-		)
-	end
+	gimpbatch.combine_images_to_sprite(
+		sheet.name ,
+		sheet.sprite,
+		main.ggpk.oozPath,
+		basePath .. version .. "/",
+		GetRuntimePath() .. "/lua/gimpbatch/combine_images.scm",
+		sheet.saturation,
+		generateAssets
+	)
 end
 :: final ::
