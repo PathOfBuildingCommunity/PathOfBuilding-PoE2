@@ -2257,7 +2257,7 @@ local specialModList = {
 		mod(firstToUpper(dmgType) .. "DamageManaLeech", "BASE", num),
 	} end,
 	["leeches (%d.+)%% of (%a+) damage as life"] = function(num, _, dmgType) return {
-		mod(firstToUpper(dmgType) .. "DamageManaLeech", "BASE", num),
+		mod(firstToUpper(dmgType) .. "DamageLifeLeech", "BASE", num),
 	} end,
 	-- Ascendant
 	["grants (%d+) passive skill points?"] = function(num) return { mod("ExtraPoints", "BASE", num) } end,
