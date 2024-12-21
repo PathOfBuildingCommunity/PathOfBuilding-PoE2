@@ -596,33 +596,8 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 
 				local socket, jewel = build.itemsTab:GetSocketAndJewelForNodeID(nodeId)
 				if isAlloc and jewel then
-					if jewel.baseName == "Crimson Jewel" then
-						overlay = node.expansionJewel and "JewelSocketActiveRedAlt" or "JewelSocketActiveRed"
-					elseif jewel.baseName == "Viridian Jewel" then
-						overlay = node.expansionJewel and "JewelSocketActiveGreenAlt" or "JewelSocketActiveGreen"
-					elseif jewel.baseName == "Cobalt Jewel" then
-						overlay = node.expansionJewel and "JewelSocketActiveBlueAlt" or "JewelSocketActiveBlue"
-					elseif jewel.baseName == "Prismatic Jewel" then
-						overlay = node.expansionJewel and "JewelSocketActivePrismaticAlt" or "JewelSocketActivePrismatic"
-					elseif jewel.base.subType == "Abyss" then
-						overlay = node.expansionJewel and "JewelSocketActiveAbyssAlt" or "JewelSocketActiveAbyss"
-					elseif jewel.base.subType == "Charm" then
-						if jewel.baseName == "Ursine Charm" then
-							overlay = "CharmSocketActiveStr"
-						elseif jewel.baseName == "Corvine Charm" then
-							overlay = "CharmSocketActiveInt"
-						elseif jewel.baseName == "Lupine Charm" then
-							overlay = "CharmSocketActiveDex"
-						end
-					elseif jewel.baseName == "Timeless Jewel" then
-						overlay = node.expansionJewel and "JewelSocketActiveLegionAlt" or "JewelSocketActiveLegion"
-					elseif jewel.baseName == "Large Cluster Jewel" then
-						overlay = "JewelSocketActiveAltPurple"
-					elseif jewel.baseName == "Medium Cluster Jewel" then
-						overlay = "JewelSocketActiveAltBlue"
-					elseif jewel.baseName == "Small Cluster Jewel" then
-						overlay = "JewelSocketActiveAltRed"
-					end
+					overlay = jewel.baseName
+					overlaySection = "jewelpassive"
 				end
 			elseif node.type == "Mastery" then
 				-- This is the icon that appears in the center of many groups
