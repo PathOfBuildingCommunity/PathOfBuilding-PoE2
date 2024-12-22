@@ -268,7 +268,6 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 	else
 		-- Set weapon flags
 		local weaponTypes = { activeGrantedEffect.weaponTypes }
-		print(activeGrantedEffect.weaponTypes)
 		for _, skillEffect in pairs(activeSkill.effectList) do
 			if skillEffect.grantedEffect.support and skillEffect.grantedEffect.weaponTypes then
 				t_insert(weaponTypes, skillEffect.grantedEffect.weaponTypes)

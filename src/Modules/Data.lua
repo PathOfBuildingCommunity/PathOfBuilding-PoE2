@@ -96,6 +96,9 @@ end
 
 data = { }
 
+-- Misc data tables
+LoadModule("Data/Misc", data)
+
 data.powerStatList = {
 	{ stat=nil, label="Offence/Defence", combinedOffDef=true, ignoreForItems=true },
 	{ stat=nil, label="Name", itemField="Name", ignoreForNodes=true, reverseSort=true, transform=function(value) return value:gsub("^The ","") end},
@@ -173,10 +176,10 @@ data.misc = { -- magic numbers
 	DotDpsCap = 35791394, -- (2 ^ 31 - 1) / 60 (int max / 60 seconds)
 	BleedPercentBase = 70,
 	BleedDurationBase = 5,
-	PoisonPercentBase = 0.30,
-	PoisonDurationBase = 2,
-	IgnitePercentBase = 0.9,
-	IgniteDurationBase = 4,
+	PoisonPercentBase = data.gameConstants["PoisonHitDamagePercentPerMinute"] / 60 / 100,
+	PoisonDurationBase = data.gameConstants["BasePoisonDuration"],
+	IgnitePercentBase = data.gameConstants["IgniteHitDamagePercentPerMinute"] / 60 / 100,
+	IgniteDurationBase = data.gameConstants["BaseIgniteDuration"],
 	ImpaleStoredDamageBase = 0.1,
 	TrapTriggerRadiusBase = 10,
 	MineDetonationRadiusBase = 60,
@@ -320,18 +323,15 @@ data.keystones = {
 	"Zealot's Oath",
 }
 
-data.ailmentTypeList = { "Bleed", "Poison", "Ignite", "Chill", "Freeze", "Shock", "Scorch", "Brittle", "Sap" }
-data.elementalAilmentTypeList = { "Ignite", "Chill", "Freeze", "Shock", "Scorch", "Brittle", "Sap" }
-data.nonDamagingAilmentTypeList = { "Chill", "Freeze", "Shock", "Scorch", "Brittle", "Sap" }
+data.ailmentTypeList = { "Bleed", "Poison", "Ignite", "Chill", "Freeze", "Shock" }
+data.elementalAilmentTypeList = { "Ignite", "Chill", "Freeze", "Shock" }
+data.nonDamagingAilmentTypeList = { "Chill", "Freeze", "Shock" }
 data.nonElementalAilmentTypeList = { "Bleed", "Poison" }
 
 data.nonDamagingAilment = {
 	["Chill"] = { associatedType = "Cold", alt = false, default = 10, min = 5, max = 30, precision = 0, duration = 2 },
 	["Freeze"] = { associatedType = "Cold", alt = false, default = nil, min = 0.3, max = 3, precision = 2, duration = nil },
 	["Shock"] = { associatedType = "Lightning", alt = false, default = 15, min = 5, max = 50, precision = 0, duration = 2 },
-	["Scorch"] = { associatedType = "Fire", alt = true, default = 10, min = 0, max = 30, precision = 0, duration = 4 },
-	["Brittle"] = { associatedType = "Cold", alt = true, default = 2, min = 0, max = 6, precision = 2, duration = 4 },
-	["Sap"] = { associatedType = "Lightning", alt = true, default = 6, min = 0, max = 20, precision = 0, duration = 4 },
 }
 
 -- Used in ModStoreClass:ScaleAddMod(...) to identify high precision modifiers
@@ -535,9 +535,6 @@ data.enchantmentSource = {
 	{ name = "CRUEL", label = "Cruel Labyrinth" },
 	{ name = "NORMAL", label = "Normal Labyrinth" },
 }
-
--- Misc data tables
-LoadModule("Data/Misc", data)
 
 -- Stat descriptions
 data.describeStats = LoadModule("Modules/StatDescriber")
