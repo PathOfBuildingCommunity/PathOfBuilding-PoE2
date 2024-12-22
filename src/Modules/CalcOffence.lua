@@ -2784,6 +2784,8 @@ function calcs.offence(env, actor, activeSkill)
 				output.CritMultiplier = 1
 			else
 				local extraDamage = skillModList:Sum("BASE", cfg, "CritMultiplier") / 100
+				local extraDamageInc = 1 + skillModList:Sum("INC", cfg, "CritMultiplier") / 100
+				extraDamage = extraDamage * extraDamageInc
 				local multiOverride = skillModList:Override(skillCfg, "CritMultiplier")
 				if multiOverride then
 					extraDamage = (multiOverride - 100) / 100
