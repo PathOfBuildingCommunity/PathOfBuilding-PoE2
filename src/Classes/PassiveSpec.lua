@@ -683,6 +683,7 @@ function PassiveSpecClass:ResetNodes()
 		end
 	end
 	wipeTable(self.masterySelections)
+	wipeTable(self.hashOverrides) -- reset attribute nodes to "Attribute"
 end
 
 -- Allocate the given node, if possible, and all nodes along the path to the node
