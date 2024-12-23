@@ -894,6 +894,7 @@ return {
 { 1, "Poison", 1, colorCodes.OFFENCE, {{ defaultCollapsed = false, label = "Poison", data = {
 	extra = "{0:output:PoisonChance}% {1:output:PoisonDPS} {2:output:PoisonDuration}s",
 	flag = "poison",
+	{ label = "Max Poison Stacks", { format = "{1:output:PoisonStacksMax}", { modName = "PoisonStacks" }, }, },
 	{ label = "Chance to Poison", { format = "{0:output:PoisonChance}%", 
 		{ breakdown = "MainHand.PoisonChance" }, 
 		{ breakdown = "OffHand.PoisonChance" }, 

@@ -271,10 +271,6 @@ return {
 ["active_skill_minion_added_damage_+%_final"] = {
 	skill("minionDamageEffectiveness", nil),
 },
-["base_bleed_on_hit_still_%_of_physical_damage_to_deal_per_minute"] = {
-	skill("bleedBasePercent", nil),
-	div = 60,
-},
 ["corpse_explosion_monster_life_%"] = {
 	skill("corpseExplosionLifeMultiplier", nil),
 	div = 100,

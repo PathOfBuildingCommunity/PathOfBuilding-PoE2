@@ -3584,6 +3584,7 @@ function calcs.offence(env, actor, activeSkill)
 		skillFlags[string.lower(ailment)] = false
 	end
 	skillFlags.igniteCanStack = skillModList:Flag(skillCfg, "IgniteCanStack")
+	skillFlags.poisonCanStack = skillModList:Flag(skillCfg, "PoisonCanStack")
 	skillFlags.igniteToChaos = skillModList:Flag(skillCfg, "IgniteToChaos")
 	skillFlags.impale = false
 	--Calculate ailments and debuffs (poison, bleed, ignite, impale, exposure, etc)
@@ -3970,7 +3971,7 @@ function calcs.offence(env, actor, activeSkill)
 					}
 				end
 			end
-			local basePercent = skillData.bleedBasePercent or data.misc.BleedPercentBase
+			local basePercent = data.misc.BleedPercentBase * calcLib.mod(skillModList, dotCfg, "AilmentMagnitude")
 			-- over-stacking bleed stacks increases the chance a critical bleed is present
 			local ailmentCritChance = 100 * (1 - m_pow(1 - output.CritChance / 100, m_max(globalOutput.BleedStackPotential, 1)))
 
@@ -4121,8 +4122,17 @@ function calcs.offence(env, actor, activeSkill)
 			globalOutput.PoisonDuration = durationBase * durationMod / rateMod * debuffDurationMult
 			-- The chance any given hit applies poison
 			local poisonChance = output.PoisonChanceOnHit / 100 * (1 - output.CritChance / 100) + output.PoisonChanceOnCrit / 100 * output.CritChance / 100
+
+			-- For poisons we will be using a weighted average calculation
+			local maxStacks = 1
+			if skillFlags.poisonCanStack then
+				maxStacks = skillModList:Override(cfg, "PoisonStacks") or (maxStacks + skillModList:Sum("BASE", cfg, "PoisonStacks"))
+			end
+			--local overrideStackPotential = skillModList:Override(nil, "PoisonStackPotentialOverride") and skillModList:Override(nil, "PoisonStackPotentialOverride") / maxStacks
+			globalOutput.PoisonStacksMax = maxStacks
+
 			-- The average number of poisons that will be active on the enemy at once
-			local PoisonStacks = output.HitChance / 100 * poisonChance * skillData.dpsMultiplier * (skillData.stackMultiplier or 1) * quantityMultiplier
+			local PoisonStacks = (output.HitChance / 100 * poisonChance * skillData.dpsMultiplier * (skillData.stackMultiplier or 1) * quantityMultiplier) * maxStacks
 			if (globalOutput.HitSpeed or globalOutput.Speed) > 0 then
 				--assume skills with no cast, attack, or cooldown time are single cast
 				PoisonStacks = PoisonStacks * globalOutput.PoisonDuration * (globalOutput.HitSpeed or globalOutput.Speed) 
@@ -4537,9 +4547,10 @@ function calcs.offence(env, actor, activeSkill)
 			end
 			-- over-stacking ignite stacks increases the chance a critical ignite is present
 			local ailmentCritChance = 100 * (1 - m_pow(1 - output.CritChance / 100, m_max(1, igniteStacks)))
-			local baseMinVal = calcAilmentDamage("Ignite", ailmentCritChance, sourceMinHitDmg, 0, true) * data.misc.IgnitePercentBase
-			local baseMaxVal = calcAilmentDamage("Ignite", 100, sourceMaxHitDmg, sourceMaxCritDmg, true) * data.misc.IgnitePercentBase * output.RuthlessBlowAilmentEffect * output.FistOfWarDamageEffect * globalOutput.AilmentWarcryEffect
-			local baseVal = calcAilmentDamage("Ignite", ailmentCritChance, sourceHitDmg, sourceCritDmg) * data.misc.IgnitePercentBase * output.RuthlessBlowAilmentEffect * output.FistOfWarDamageEffect * globalOutput.AilmentWarcryEffect
+			local ignitePercentBase = data.misc.IgnitePercentBase * calcLib.mod(skillModList, dotCfg, "AilmentMagnitude")
+			local baseMinVal = calcAilmentDamage("Ignite", ailmentCritChance, sourceMinHitDmg, 0, true) * ignitePercentBase
+			local baseMaxVal = calcAilmentDamage("Ignite", 100, sourceMaxHitDmg, sourceMaxCritDmg, true) * ignitePercentBase * output.RuthlessBlowAilmentEffect * output.FistOfWarDamageEffect * globalOutput.AilmentWarcryEffect
+			local baseVal = calcAilmentDamage("Ignite", ailmentCritChance, sourceHitDmg, sourceCritDmg) * ignitePercentBase * output.RuthlessBlowAilmentEffect * output.FistOfWarDamageEffect * globalOutput.AilmentWarcryEffect
 			if baseVal > 0 then
 				skillFlags.ignite = true
 				local effMult = 1
@@ -5003,15 +5014,6 @@ function calcs.offence(env, actor, activeSkill)
 		combineStat("ShockEffectMod", "AVERAGE")
 		combineStat("FreezeChance", "AVERAGE")
 		combineStat("FreezeDurationMod", "AVERAGE")
-		combineStat("ScorchChance", "AVERAGE")
-		combineStat("ScorchEffectMod", "AVERAGE")
-		combineStat("ScorchDuration", "AVERAGE")
-		combineStat("BrittleChance", "AVERAGE")
-		combineStat("BrittleEffectMod", "AVERAGE")
-		combineStat("BrittleDuration", "AVERAGE")
-		combineStat("SapChance", "AVERAGE")
-		combineStat("SapEffectMod", "AVERAGE")
-		combineStat("SapDuration", "AVERAGE")
 		combineStat("ImpaleChance", "AVERAGE")
 		combineStat("ImpaleStoredDamage", "AVERAGE")
 		combineStat("ImpaleModifier", "CHANCE", "ImpaleChance")
