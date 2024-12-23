@@ -152,28 +152,7 @@ function PassiveSpecClass:Load(xml, dbFileName)
 								self:SwitchAttributeNode(tonumber(intelligenceId), 3)
 							end
 						else
-							if not child.attrib.nodeId then
-								launch:ShowErrMsg("^1Error parsing '%s': 'Override' element missing 'nodeId' attribute", dbFileName)
-								return true
-							end
-							-- In case a tattoo has been replaced by a different one attempt to find the new name for it
-							if not self.tree.tattoo.nodes[child.attrib.dn] then
-								for name ,data in pairs(self.tree.tattoo.nodes) do
-									if data["activeEffectImage"] == child.attrib["activeEffectImage"] and data["icon"] == child.attrib["icon"] then
-										self.tree.tattoo.nodes[child.attrib.dn] = data
-										ConPrintf("[PassiveSpecClass:Load] " .. child.attrib.dn .. " tattoo has been substituted with " .. name)
-									end
-								end
-							end
-
-							-- If the above failed remove the tattoo to avoid crashing
-							if self.tree.tattoo.nodes[child.attrib.dn] then
-								local nodeId = tonumber(child.attrib.nodeId)
-								self.hashOverrides[nodeId] = copyTable(self.tree.tattoo.nodes[child.attrib.dn], true)
-								self.hashOverrides[nodeId].id = nodeId
-							else
-								ConPrintf("[PassiveSpecClass:Load] Failed to find a tattoo with dn of: " .. child.attrib.dn)
-							end
+							ConPrintf("[PassiveSpecClass:Load] Unexpected element found in Overrides: " .. child.elem)
 						end
 					end
 				end
@@ -231,18 +210,12 @@ function PassiveSpecClass:Save(xml)
 		for nodeId, node in pairs(self.hashOverrides) do
 			if node.isAttribute then
 				if node.dn == "Strength" then
-					t_insert(strList, node.id)
+					t_insert(strList, nodeId)
 				elseif node.dn == "Dexterity" then
-					t_insert(dexList, node.id)
+					t_insert(dexList, nodeId)
 				elseif node.dn == "Intelligence" then
-					t_insert(intList, node.id)
+					t_insert(intList, nodeId)
 				end
-			else -- tattoos
-				local override = { elem = "Override", attrib = { nodeId = tostring(nodeId), icon = tostring(node.icon), activeEffectImage = tostring(node.activeEffectImage), dn = tostring(node.dn) } }
-				for _, modLine in ipairs(node.sd) do
-					t_insert(override, modLine)
-				end
-				t_insert(overrides, override)
 			end
 		end
 		local attributeOverride = { elem = "AttributeOverride", attrib = { strNodes = table.concat(strList, ","), dexNodes = table.concat(dexList, ","), intNodes = table.concat(intList, ",") } }
@@ -996,8 +969,8 @@ function PassiveSpecClass:BuildAllDependsAndPaths()
 		end
 	end
 
-	for id, node in pairs(self.nodes) do
-		-- If node is tattooed, replace it
+	for _, node in pairs(self.nodes) do
+		-- set attribute nodes
 		if self.hashOverrides[node.id] then
 			self:ReplaceNode(node, self.hashOverrides[node.id])
 		end
@@ -1159,13 +1132,13 @@ function PassiveSpecClass:BuildAllDependsAndPaths()
 						end
 					end
 				elseif conqueredBy.conqueror.type == "karui" then
-					local str = (isValueInArray(attributes, node.dn) or node.isTattoo) and "2" or "4"
+					local str = isValueInArray(attributes, node.dn) and "2" or "4"
 					self:NodeAdditionOrReplacementFromString(node, " \n+" .. str .. " to Strength")
 				elseif conqueredBy.conqueror.type == "maraketh" then
-					local dex = (isValueInArray(attributes, node.dn) or node.isTattoo) and "2" or "4"
+					local dex = isValueInArray(attributes, node.dn) and "2" or "4"
 					self:NodeAdditionOrReplacementFromString(node, " \n+" .. dex .. " to Dexterity")
 				elseif conqueredBy.conqueror.type == "templar" then
-					if (isValueInArray(attributes, node.dn) or node.isTattoo) then
+					if isValueInArray(attributes, node.dn) then
 						local legionNode = legionNodes[91] -- templar_devotion_node
 						self:ReplaceNode(node, legionNode)
 					else
@@ -1411,7 +1384,6 @@ function PassiveSpecClass:ReplaceNode(old, newNode)
 	old.modList:AddList(newNode.modList)
 	old.sprites = newNode.sprites
 	old.effectSprites = newNode.effectSprites
-	old.isTattoo = newNode.isTattoo
 	old.keystoneMod = newNode.keystoneMod
 	old.icon = newNode.icon
 	old.spriteId = newNode.spriteId

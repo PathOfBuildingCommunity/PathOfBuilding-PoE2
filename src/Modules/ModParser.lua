@@ -21,8 +21,7 @@ local function getSimpleConv(srcList, dst, type, remove, factor)
 		if node then
 			for _, src in pairs(srcList) do
 				for _, mod in ipairs(node.modList) do
-					-- do not convert stats from tattoos
-					if mod.name == src and mod.type == type and not (node.isTattoo and attributes[src]) then
+					if mod.name == src and mod.type == type then
 						if remove then
 							out:MergeNewMod(src, type, -mod.value, mod.source, mod.flags, mod.keywordFlags, unpack(mod))
 						end
@@ -5104,19 +5103,6 @@ local specialModList = {
 				{ key = "conqueredBy", value = { id = num, conqueror = conquerorList[name:lower()] } }) } end,
 	["passives in radius are conquered by the (%D+)"] = { },
 	["historic"] = { },
-	-- Tattoos
-	["+(%d+) to maximum life per allocated journey tattoo of the body"] = function(num) return {
-		mod("Life", "BASE", num, { type = "Multiplier", var = "JourneyTattooBody" }),
-		mod("Multiplier:JourneyTattooBody", "BASE", 1),
-	} end,
-	["+(%d+) to maximum energy shield per allocated journey tattoo of the soul"] = function(num) return {
-		mod("EnergyShield", "BASE", num, { type = "Multiplier", var = "JourneyTattooSoul" }),
-		mod("Multiplier:JourneyTattooSoul", "BASE", 1),
-	} end,
-	["+(%d+) to maximum mana per allocated journey tattoo of the mind"] = function(num) return {
-		mod("Mana", "BASE", num, { type = "Multiplier", var = "JourneyTattooMind" }),
-		mod("Multiplier:JourneyTattooMind", "BASE", 1),
-	} end,
 	-- Display-only modifiers
 	["extra gore"] = { },
 	["prefixes:"] = { },
@@ -5412,11 +5398,6 @@ local jewelOtherFuncs = {
 	["Notable Passive Skills in Radius grant nothing"] = function(node, out, data)
 		if node and node.type == "Notable" then
 			out:NewMod("PassiveSkillHasNoEffect", "FLAG", true, data.modSource)
-		end
-	end,
-	["100% increased effect of Tattoos in Radius"] = function(node, out, data)
-		if node and node.isTattoo then
-			out:NewMod("PassiveSkillEffect", "INC", 100, data.modSource)
 		end
 	end,
 	["Allocated Small Passive Skills in Radius grant nothing"] = function(node, out, data)
