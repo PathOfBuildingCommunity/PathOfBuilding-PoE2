@@ -127,7 +127,7 @@ local TreeTabClass = newClass("TreeTab", "ControlHost", function(self, build)
 		controls.cancel = new("ButtonControl", nil, { 65, buttonY, 100, 20 }, "Cancel", function()
 			main:ClosePopup()
 		end)
-		main:OpenPopup(570, 100, "Reset Tree", controls, nil, "edit", "cancel")
+		main:OpenPopup(470, 100, "Reset Tree", controls, nil, "edit", "cancel")
 	end)
 
 	-- Tree Version Dropdown
