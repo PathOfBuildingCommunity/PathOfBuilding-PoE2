@@ -365,6 +365,14 @@ skills["SupportDeadlyPoisonPlayer"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	statDescriptionScope = "gem_stat_descriptions",
+	statMap = {
+		["support_deadly_poison_hit_damage_+%_final"] = {
+			mod("Damage", "LESS", nil, ModFlag.Hit, KeywordFlag.Poison),
+		},
+		["support_deadly_poison_poison_effect_+%_final"] = {
+			mod("AilmentMagnitude", "MORE", nil, 0, KeywordFlag.Poison),
+		},
+	},
 	constantStats = {
 		{ "support_deadly_poison_hit_damage_+%_final", -25 },
 		{ "support_deadly_poison_poison_effect_+%_final", 75 },

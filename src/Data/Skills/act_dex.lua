@@ -2170,6 +2170,8 @@ skills["SpiralVolleyPlayer"] = {
 	statDescriptionScope = "spiral_volley",
 	castTime = 1,
 	baseFlags = {
+		attack = true,
+		projectile = true,
 	},
 	qualityStats = {
 		Default = {
