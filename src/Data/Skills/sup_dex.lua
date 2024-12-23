@@ -367,7 +367,7 @@ skills["SupportDeadlyPoisonPlayer"] = {
 	statDescriptionScope = "gem_stat_descriptions",
 	statMap = {
 		["support_deadly_poison_hit_damage_+%_final"] = {
-			mod("Damage", "LESS", nil, ModFlag.Hit, KeywordFlag.Poison),
+			mod("Damage", "MORE", nil, ModFlag.Hit, KeywordFlag.Poison),
 		},
 		["support_deadly_poison_poison_effect_+%_final"] = {
 			mod("AilmentMagnitude", "MORE", nil, 0, KeywordFlag.Poison),
