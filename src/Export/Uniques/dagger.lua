@@ -1,6 +1,6 @@
 -- Item data (c) Grinding Gear Games
 
 return {
--- Soulcore
+-- Weapon: Dagger
 
 }

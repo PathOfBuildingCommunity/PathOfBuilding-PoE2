@@ -6,8 +6,7 @@ return {
 The Adorned
 Diamond
 Limited to: 1
-(0-100)% increased Effect of Jewel Socket Passive Skills
-containing Corrupted Magic Jewels
+CorruptedMagicJewelModEffectUnique__1
 ]],[[
 Controlled Metamorphosis
 Diamond
@@ -27,26 +26,26 @@ Radius: Variable
 {variant:5}Only affects Passives in Medium-Large Ring
 {variant:6}Only affects Passives in Large Ring
 {variant:7}Only affects Passives in Very Large Ring
-Passives in Radius can be Allocated without being connected to your tree
--(20-5)% to all Elemental Resistances
--(23-3)% to Chaos Resistance
+JewelUniqueAllocateDisconnectedPassives
+UniqueAllResistances12
+UniqueChaosResist18
 ]],[[
 Grand Spectrum
 Ruby
 Limited to: 3
-2% increased Maximum Life per socketed Grand Spectrum
+UniqueMaximumLifePerStackableJewel1
 ]],
 [[
 Grand Spectrum
 Emerald
 Limited to: 3
-2% increased Spirit per socketed Grand Spectrum
+UniqueMaximumSpiritPerStackableJewel1
 ]],
 [[
 Grand Spectrum
 Sapphire
 Limited to: 3
-+4% to all Elemental Resistances per socketed Grand Spectrum
+UniqueAllResistancePerStackableJewel1
 ]],
 -- Jewel: Timeless
 [[

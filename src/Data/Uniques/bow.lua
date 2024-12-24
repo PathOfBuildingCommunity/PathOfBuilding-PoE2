@@ -2,5 +2,32 @@
 
 return {
 -- Weapon: Bow
-
+[[
+Death's Harp
+Dualstring Bow
+Implicits: 1
+Bow Attacks fire an additional Arrow
++(50-70)% to Critical Damage Bonus
+Bow Attacks fire 3 additional Arrows
+Gain (20-30) Life per Enemy Killed
+Gain (12-18) Mana per Enemy Killed
+]],[[
+Quill Rain
+Shortbow
+100% increased Attack Speed
++(10-20) to Dexterity
+(50-100)% increased Arrow Speed
+40% less Attack Damage
+]],[[
+Splinterheart
+Recurve Bow
+(60-80)% increased Physical Damage
++(50-70) to Accuracy Rating
+(20-30)% increased Projectile Speed
+Projectiles Split towards +2 targets
+]],[[
+Widowhail
+Crude Bow
+(150-250)% increased bonuses gained from Equipped Quiver
+]],
 }

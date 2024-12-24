@@ -1,0 +1,144 @@
+-- Item data (c) Grinding Gear Games
+
+return {
+-- Weapon: One Handed Mace
+[[
+Brynhand's Mark
+Wooden Club
+UniqueLocalAddedPhysicalDamage5
+UniqueLocalIncreasedAccuracy1
+UniqueStrength11
+UniqueLocalDoubleStunDamage1
+]],[[
+Frostbreath
+Slim Mace
+UniqueLocalAddedPhysicalDamage4
+UniqueLocalAddedColdDamage2
+UniqueLocalAllDamageCanFreeze1
+UniqueLocalCullingStrikeFrozenEnemies1
+]],[[
+Olrovasara
+Torment Club
+UniqueLocalAddedLightningDamage1
+UniqueLocalIncreasedAccuracy5
+UniqueLocalIncreasedAttackSpeed10
+UniqueMaximumLightningDamagePerPower1
+]],[[
+Seeing Stars
+Plated Mace
+UniqueLocalAddedColdDamage3
+UniqueLocalAddedLightningDamage2
+UniqueLocalIncreasedAttackSpeed6
+UniqueDoubleEnergyGain1
+]],[[
+Trenchtimbre
+Spiked Club
+UniqueLocalAddedPhysicalDamage9
+UniqueLocalIncreasedAttackSpeed11
+UniqueGlobalMinionSpellSkillGemLevel1
+UniqueMinionAttackSpeedAffectsYou1
+]],[[
+Wylund's Stake
+Smithing Hammer
+UniqueLocalAddedPhysicalDamage6
+UniqueLocalAddedFireDamage2
+UniqueLocalBreakArmourOnHit1
+UniqueLocalFireExposureOnArmourBreak1
+]],
+-- Weapon: Sceptre
+[[
+The Dark Defiler
+Rattling Sceptre
+Implicits: 1
+Grants Skill: Level (1-20) Skeletal Warrior Minion
+UniqueIncreasedMana2
+UniqueIntelligence3
+UniqueManaRegeneration1
+UniqueExtraChaosDamagePerUndeadMinion1
+]],[[
+Font of Power
+Omen Sceptre
+Implicits: 1
+Grants Skill: Level (1-20) Malice
+UniqueLocalIncreasedSpiritPercent1
+UniqueIncreasedMana7
+UniqueManaRegeneration6
+UniqueManaScarificeToAllies1
+]],[[
+Guiding Palm
+Shrine Sceptre
+Variant: Fire
+Variant: Cold
+Variant: Lightning
+Implicits: 3
+{variant:1}Grants Skill: Level (1-20) Purity of Fire
+{variant:2}Grants Skill: Level (1-20) Purity of Ice
+{variant:3}Grants Skill: Level (1-20) Purity of Lightning
+{variant:1}UniqueNearbyAlliesAddedFireDamage1
+{variant:2}UniqueNearbyAlliesAddedColdDamage1
+{variant:3}UniqueNearbyAlliesAddedLightningDamage1
+UniqueAllAttributes2
+UniqueLightRadius9
+UniqueBaseLifeRegenToAllies1
+]],[[
+Sacred Flame
+Shrine Sceptre
+Implicits: 1
+Grants Skill: Level (1-20) Purity of Fire
+UniqueDamageGainedAsFire1
+UniqueNearbyAlliesDamageAsFire1
+UniqueNearbyAlliesPercentLifeRegeneration1
+UniqueEnemiesInPresenceLowestResistance1
+]],
+-- Weapon: Two Handed Mace
+[[
+Brain Rattler
+Studded Greatclub
+UniqueLocalAddedPhysicalDamage9
+UniqueLocalAddedLightningDamage3
+UniqueLocalIncreasedAttackSpeed5
+UniqueLocalAllDamageCanElectrocute1
+]],[[
+Chober Chaber
+Leaden Greathammer
+UniqueIntelligenceRequirements1
+UniqueLocalIncreasedPhysicalDamagePercent4
+UniqueIncreasedMana22
+UniqueLocalCriticalStrikeChance3
+UniqueMinionDamageAffectsYou1
+]],[[
+Hoghunt
+Felled Greatclub
+UniqueLocalIncreasedPhysicalDamagePercent2
+UniqueLocalCriticalStrikeChance1
+UniqueLocalIncreasedAttackSpeed4
+UniqueStrength19
+UniqueLocalMaimOnCrit1
+]],[[
+Hrimnor's Hymn
+Oak Greathammer
+Implicits: 1
+MaceImplicitStunDamageIncrease1
+UniqueLocalIncreasedPhysicalDamagePercent3
+UniqueStrength3
+UniqueLifeGainedFromEnemyDeath6
+UniqueAftershockChance1
+]],[[
+Quecholli
+Crumbling Maul
+Implicits: 1
+MaceImplicitEnemiesExplodeOnCrit1
+UniqueLocalIncreasedPhysicalDamagePercent4
+UniqueAllAttributes7
+UniqueLifeGainedFromEnemyDeath8
+UniqueLocalCritChanceOverride1
+UniqueLocalNoCriticalStrikeMultiplier1
+]],[[
+Trephina
+Forge Maul
+UniqueLocalAddedPhysicalDamage8
+UniqueLocalIncreasedAttackSpeed5
+UniqueLocalStunDamageIncrease1
+UniqueAlwaysCritHeavyStun1
+]],
+}
