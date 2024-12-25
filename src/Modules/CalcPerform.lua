@@ -1020,7 +1020,14 @@ function calcs.perform(env, skipEHP)
 				env.minion.modDB:AddList(env.player.itemList["Weapon 1"].slotModList[1])
 			end
 			if env.player.itemList["Weapon 2"] and env.player.itemList["Weapon 2"].type == "Quiver" then
-				env.minion.modDB:ScaleAddList(env.player.itemList["Weapon 2"].modList, m_max(modDB:Sum("BASE", nil, "WidowHailMultiplier"), 1))
+				local quiverEffectMod = env.player.modDB:Sum("INC", nil, "EffectOfBonusesFromQuiver") / 100
+				if quiverEffectMod > 0 then
+					for _, mod in ipairs(env.player.itemList["Weapon 2"].modList) do
+						local modCopy = copyTable(mod)
+						modCopy.source = "Many Sources:" .. tostring(quiverEffectMod * 100) .. "% Quiver Bonus Effect"
+						env.minion.modDB:ScaleAddMod(modCopy, quiverEffectMod)
+					end
+				end
 			end
 		end
 		if env.minion.itemSet or env.minion.uses then
