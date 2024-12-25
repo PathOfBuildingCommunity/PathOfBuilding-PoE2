@@ -1203,7 +1203,7 @@ function calcs.perform(env, skipEHP)
 		if quiverEffectMod > 0 then
 			for _, mod in ipairs(env.player.itemList["Weapon 2"].modList) do
 				local modCopy = copyTable(mod)
-				modCopy.source = "Many Tree Nodes:Quiver Bonus Effect"
+				modCopy.source = "Many Tree Nodes:" .. tostring(quiverEffectMod * 100) .. "% Quiver Bonus Effect"
 				modDB:ScaleAddMod(modCopy, quiverEffectMod)
 			end
 		end
