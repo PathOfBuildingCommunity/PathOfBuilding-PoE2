@@ -1198,6 +1198,17 @@ function calcs.perform(env, skipEHP)
 		end
 	end
 
+	if env.player.itemList["Weapon 2"] and env.player.itemList["Weapon 2"].type == "Quiver" then
+		local quiverEffectMod = modDB:Sum("INC", nil, "EffectOfBonusesFromQuiver") / 100
+		if quiverEffectMod > 0 then
+			for _, mod in ipairs(env.player.itemList["Weapon 2"].modList) do
+				local modCopy = copyTable(mod)
+				modCopy.source = "Many Tree Nodes:Quiver Bonus Effect"
+				modDB:ScaleAddMod(modCopy, quiverEffectMod)
+			end
+		end
+	end
+
 	if modDB:Flag(nil, "ConvertBodyArmourArmourEvasionToWard") then
 		local ward
 		local armourData = env.player.itemList["Body Armour"] and env.player.itemList["Body Armour"].armourData
