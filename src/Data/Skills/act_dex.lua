@@ -2515,6 +2515,10 @@ skills["ToxicGrowthPlayer"] = {
 	statDescriptionScope = "poisonbloom_arrow",
 	castTime = 1,
 	baseFlags = {
+		attack = true,
+		projectile = true,
+		area = true,
+		duration = true,
 	},
 	qualityStats = {
 		Default = {

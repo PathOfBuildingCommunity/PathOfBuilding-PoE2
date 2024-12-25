@@ -103,7 +103,7 @@ local skills, mod, flag, skill = ...
 #mods
 
 #skill ToxicGrowthPlayer
-#flags
+#flags attack projectile area duration
 #mods
 
 #skill VineArrowPlayer
