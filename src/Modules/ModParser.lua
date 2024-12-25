@@ -680,10 +680,13 @@ local modNameList = {
 	-- Elemental ailments
 	["to shock"] = "EnemyShockChance",
 	["shock chance"] = "EnemyShockChance",
+	["chance to shock"] = "EnemyShockChance",
 	["to freeze"] = "EnemyFreezeChance",
 	["freeze chance"] = "EnemyFreezeChance",
+	["chance to freeze"] = "EnemyFreezeChance",
 	["to ignite"] = "EnemyIgniteChance",
 	["ignite chance"] = "EnemyIgniteChance",
+	["chance to ignite"] = "EnemyIgniteChance",
 	["to freeze, shock and ignite"] = { "EnemyFreezeChance", "EnemyShockChance", "EnemyIgniteChance" },
 	["magnitude of shock you inflict"] = "EnemyShockMagnitude",
 	["magnitude of chill you inflict"] = "EnemyChillMagnitude",
