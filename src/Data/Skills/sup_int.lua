@@ -464,6 +464,14 @@ skills["SupportConcentratedEffectPlayer"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	statDescriptionScope = "gem_stat_descriptions",
+	statMap = {
+		["support_concentrated_effect_skill_area_of_effect_+%_final"] = {
+			mod("AreaOfEffect", "MORE", nil),
+		},
+		["support_area_concentrate_area_damage_+%_final"] = {
+			mod("Damage", "MORE", nil, ModFlag.Area),
+		},
+	},
 	constantStats = {
 		{ "support_concentrated_effect_skill_area_of_effect_+%_final", -50 },
 		{ "support_area_concentrate_area_damage_+%_final", 40 },

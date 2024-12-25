@@ -75,7 +75,7 @@ local skills, mod, flag, skill = ...
 #mods
 
 #skill RainOfArrowsPlayer
-#flags
+#flags attack projectile area
 #mods
 
 #skill ShockchainArrowPlayer

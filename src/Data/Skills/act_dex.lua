@@ -1700,6 +1700,9 @@ skills["RainOfArrowsPlayer"] = {
 	statDescriptionScope = "rain_of_arrows_new",
 	castTime = 1,
 	baseFlags = {
+		attack = true,
+		projectile = true,
+		area = true,
 	},
 	qualityStats = {
 		Default = {
