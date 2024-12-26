@@ -2,33 +2,7 @@
 local itemBases = ...
 
 #type Helmet
-#influenceBaseTag helmet
-#socketLimit 4
+#socketLimit 2
 
-#subType Armour
-#baseMatch Metadata/Items/Armours/Helmets/HelmetStr%d+
-
-#subType Evasion
-#baseMatch Metadata/Items/Armours/Helmets/HelmetDex%d+
-
-#subType Energy Shield
-#baseMatch Metadata/Items/Armours/Helmets/HelmetInt%d+
-
-#subType Armour/Evasion
-#baseMatch Metadata/Items/Armours/Helmets/HelmetStrDex%d+
-#baseMatch Metadata/Items/Armours/Helmets/HelmetStrDexRitual%d+
-
-#subType Armour/Energy Shield
-#baseMatch Metadata/Items/Armours/Helmets/HelmetStrInt%d+
-#baseMatch Metadata/Items/Armours/Helmets/HelmetStrIntRitual%d+
-#base Metadata/Items/Armours/Helmets/HelmetAtlas1
-
-#subType Evasion/Energy Shield
-#baseMatch Metadata/Items/Armours/Helmets/HelmetDexInt%d+
-#baseMatch Metadata/Items/Armours/Helmets/HelmetDexIntRitual%d+
-
-#subType Ward
-#baseMatch Metadata/Items/Armours/Helmets/HelmetExpedition%d+
-
-#subType
-#base Metadata/Items/Armours/Helmets/HelmetWreath1
+#baseMatch BaseType Metadata/Items/Armours/Helmets/AbstractHelmet
+#baseMatch BaseType Metadata/Items/Armours/Helmets/HelmetDemigods

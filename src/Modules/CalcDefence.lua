@@ -500,8 +500,8 @@ function calcs.defence(env, actor)
 	end
 
 	if actor == env.minion then
-		doActorLifeMana(env.minion)
-		doActorLifeManaReservation(env.minion)
+		doActorLifeManaSpirit(env.minion)
+		doActorLifeManaSpiritReservation(env.minion)
 	end
 
 	-- Block
@@ -515,10 +515,10 @@ function calcs.defence(env, actor)
 	output.SpellBlockChanceOverCap = 0
 	local baseBlockChance = 0
 	if actor.itemList["Weapon 2"] and actor.itemList["Weapon 2"].armourData then
-		baseBlockChance = baseBlockChance + actor.itemList["Weapon 2"].armourData.BlockChance
+		baseBlockChance = baseBlockChance + (actor.itemList["Weapon 2"].armourData.BlockChance or 0)
 	end
 	if actor.itemList["Weapon 3"] and actor.itemList["Weapon 3"].armourData then
-		baseBlockChance = baseBlockChance + actor.itemList["Weapon 3"].armourData.BlockChance
+		baseBlockChance = baseBlockChance + (actor.itemList["Weapon 3"].armourData.BlockChance or 0)
 	end
 	output.ShieldBlockChance = baseBlockChance
 	baseBlockChance = modDB:Override(nil, "ReplaceShieldBlock") or baseBlockChance
@@ -1139,12 +1139,12 @@ function calcs.defence(env, actor)
 		local more = modDB:More(nil, "EnergyShieldRecharge")
 		if output.EnergyShieldRechargeAppliesToLife then
 			local recharge = output.Life * data.misc.EnergyShieldRechargeBase * (1 + inc/100) * more
-			output.LifeRecharge = round(recharge * output.LifeRecoveryRateMod)
+			output.LifeRecharge = round(recharge * output.LifeRecoveryRateMod, 1)
 			if breakdown then
 				breakdown.LifeRecharge = { }
 				breakdown.multiChain(breakdown.LifeRecharge, {
 					label = "Recharge rate:",
-					base = { "%.1f ^8(33%% per second)", output.Life * data.misc.EnergyShieldRechargeBase },
+					base = { "%.1f ^8(%.1f%% per second)", output.Life * data.misc.EnergyShieldRechargeBase, data.misc.EnergyShieldRechargeBase * 100 },
 					{ "%.2f ^8(increased/reduced)", 1 + inc/100 },
 					{ "%.2f ^8(more/less)", more },
 					total = s_format("= %.1f ^8per second", recharge),
@@ -1158,12 +1158,12 @@ function calcs.defence(env, actor)
 			end
 		else
 			local recharge = output.EnergyShield * data.misc.EnergyShieldRechargeBase * (1 + inc/100) * more
-			output.EnergyShieldRecharge = round(recharge * output.EnergyShieldRecoveryRateMod)
+			output.EnergyShieldRecharge = round(recharge * output.EnergyShieldRecoveryRateMod, 1)
 			if breakdown then
 				breakdown.EnergyShieldRecharge = { }
 				breakdown.multiChain(breakdown.EnergyShieldRecharge, {
 					label = "Recharge rate:",
-					base = { "%.1f ^8(33%% per second)", output.EnergyShield * data.misc.EnergyShieldRechargeBase },
+					base = { "%.1f ^8(%.1f%% per second)", output.EnergyShield * data.misc.EnergyShieldRechargeBase, data.misc.EnergyShieldRechargeBase * 100 },
 					{ "%.2f ^8(increased/reduced)", 1 + inc/100 },
 					{ "%.2f ^8(more/less)", more },
 					total = s_format("= %.1f ^8per second", recharge),
@@ -1298,24 +1298,28 @@ function calcs.defence(env, actor)
 		output["Base"..damageType.."DamageReductionWhenHit"] = m_min(m_max(0, output["Base"..damageType.."DamageReduction"] + modDB:Sum("BASE", nil, damageType.."DamageReductionWhenHit")), output.DamageReductionMax)
 	end
 
-	-- Miscellaneous: move speed, avoidance
-	output.MovementSpeedMod = modDB:Override(nil, "MovementSpeed") or (modDB:Flag(nil, "MovementSpeedEqualHighestLinkedPlayers") and actor.partyMembers.output.MovementSpeedMod or calcLib.mod(modDB, nil, "MovementSpeed"))
+	-- Miscellaneous: move speed, avoidance, weapon swap speed
+	output.MovementSpeedMod = modDB:Override(nil, "MovementSpeed") or (modDB:Flag(nil, "MovementSpeedEqualHighestLinkedPlayers") and actor.partyMembers.output.MovementSpeedMod or (round((1 + modDB:Sum("BASE", nil, "MovementSpeed")) * calcLib.mod(modDB, nil, "MovementSpeed"), 3)))
 	if modDB:Flag(nil, "MovementSpeedCannotBeBelowBase") then
 		output.MovementSpeedMod = m_max(output.MovementSpeedMod, 1)
 	end
-	output.EffectiveMovementSpeedMod = output.MovementSpeedMod * output.ActionSpeedMod
+	output.EffectiveMovementSpeedMod = round(output.MovementSpeedMod * output.ActionSpeedMod, 3)
 	if breakdown then
 		breakdown.EffectiveMovementSpeedMod = { }
 		breakdown.multiChain(breakdown.EffectiveMovementSpeedMod, {
-			{ "%.2f ^8(movement speed modifier)", output.MovementSpeedMod },
+			{ "%.3f ^8(movement speed modifier)", output.MovementSpeedMod },
 			{ "%.2f ^8(action speed modifier)", output.ActionSpeedMod },
-			total = s_format("= %.2f ^8(effective movement speed modifier)", output.EffectiveMovementSpeedMod)
+			total = s_format("= %.3f ^8(effective movement speed modifier)", output.EffectiveMovementSpeedMod)
 		})
 	end
 
 	if enemyDB:Flag(nil, "Blind") then
 		output.BlindEffectMod = calcLib.mod(enemyDB, nil, "BlindEffect", "BuffEffectOnSelf") * 100
 	end
+
+	output.WeaponSwapSpeed = modDB:Sum("BASE", nil, "WeaponSwapSpeed")
+	output.WeaponSwapSpeedMod = calcLib.mod(modDB, nil, "WeaponSwapSpeed")
+	output.WeaponSwapSpeed = output.WeaponSwapSpeed / output.WeaponSwapSpeedMod
 	
 	-- recovery on block, needs to be after primary defences
 	output.LifeOnBlock = 0
@@ -1918,8 +1922,9 @@ function calcs.buildDefenceEstimations(env, actor)
 			stunThresholdBase = stunThresholdBase + output.EnergyShield * ESMult / 100
 			stunThresholdSource = stunThresholdSource.." and "..ESMult.."% of Energy Shield"
 		end
-		local StunThresholdMod = (1 + modDB:Sum("INC", nil, "StunThreshold") / 100)
-		output.StunThreshold = stunThresholdBase * StunThresholdMod
+		local StunThresholdInc = 1 + modDB:Sum("INC", nil, "StunThreshold") / 100
+		local StunThresholdMore = modDB:More("INC", nil, "StunThreshold")
+		output.StunThreshold = stunThresholdBase * StunThresholdInc * StunThresholdMore
 		
 		local notAvoidChance = modDB:Flag(nil, "StunImmune") and 0 or 100 - m_min(modDB:Sum("BASE", nil, "AvoidStun"), 100)
 		if output.EnergyShield > output["totalTakenHit"] and not env.modDB:Flag(nil, "EnergyShieldProtectsMana") then
@@ -1929,8 +1934,13 @@ function calcs.buildDefenceEstimations(env, actor)
 		
 		if breakdown then
 			breakdown.StunThreshold = { s_format("%d ^8(base from %s)", stunThresholdBase, stunThresholdSource) }
-			if StunThresholdMod ~= 1 then
-				t_insert(breakdown.StunThreshold, s_format("* %.2f ^8(increased threshold)", StunThresholdMod))
+			if StunThresholdInc ~= 1 then
+				t_insert(breakdown.StunThreshold, s_format("* %.2f ^8(increased threshold)", StunThresholdInc))
+			end
+			if StunThresholdMore ~= 1 then	
+				t_insert(breakdown.StunThreshold, s_format("* %.2f ^8(more threshold)", StunThresholdMore))
+			end
+			if StunThresholdInc ~= 1 or StunThresholdMore ~= 1 then	
 				t_insert(breakdown.StunThreshold, s_format("= %d", output.StunThreshold))
 			end
 			breakdown.StunAvoidChance = {

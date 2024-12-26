@@ -2,13 +2,4 @@
 local itemBases = ...
 
 #type Quiver
-#influenceBaseTag quiver
-#forceHide true
-#baseMatch Metadata/Items/Quivers/Quiver%d[0123]?$
-#forceHide false
-#base Metadata/Items/Quivers/Quiver14
-#forceShow true
-#baseMatch Metadata/Items/Quivers/QuiverNew%d+
-#baseMatch Metadata/Items/Quivers/Descent
-#forceShow false
-#baseMatch Metadata/Items/Quivers/QuiverAtlas%d+
+#baseMatch BaseType Metadata/Items/Quivers/AbstractQuiver

@@ -64,7 +64,7 @@ local skillTypes = {
 	"Warcry",
 	"Instant",
 	"Brand",
-	"DestroysCorpse",
+	"TargetsDestructibleCorpses",
 	"NonHitChill",
 	"ChillingArea",
 	"AppliesCurse",
@@ -93,7 +93,7 @@ local skillTypes = {
 	"Slam",
 	"Stance",
 	"NonRepeatable",
-	"OtherThingUsesSkill",
+	"UsedByTotem",
 	"Steel",
 	"Hex",
 	"Mark",
@@ -111,16 +111,77 @@ local skillTypes = {
 	"DynamicCooldown",
 	"Microtransaction",
 	"OwnerCannotUse",
-	"ProjectilesNotFired",
+	"ProjectilesNumberModifiersNotApplied",
 	"TotemsAreBallistae",
 	"SkillGrantedBySupport",
-	"PreventHexTransfer",
-	"MinionsAreUndamageable",
-	"InnateTrauma",
-	"DualWieldRequiresDifferentTypes",
-	"NoVolley",
+	"CrossbowSkill",
+	"CrossbowAmmoSkill",
+	"UseGlobalStats",
+	"ModifiesNextSkill",
+	"OngoingSkill",
+	"UsableWhileShapeshifted",
+	"Meta",
+	"Bear",
+	"Wolf",
+	"Invokable",
+	"CreatesSkeletonMinion",
+	"CreatesUndeadMinion",
+	"CreatesDemonMinion",
+	"CommandsMinions",
+	"ReservesManually",
+	"ConsumesCharges",
+	"ManualCooldownConsumption",
+	"SupportedByHourglass",
+	"ConsumesFullyBrokenArmour",
+	"SkillConsumesFreeze",
+	"SkillConsumesIgnite",
+	"SkillConsumesShock",
+	"Wall",
+	"Persistent",
+	"Nonpathing",
+	"CanBecomeArrowRain",
+	"MultipleReservation",
+	"SupportedByElementalDischarge",
+	"Limit",
+	"Singular",
+	"GeneratesCharges",
+	"EmpowersOtherSkill",
+	"PerformsFinalStrike",
+	"PerfectTiming",
+	"CanHaveMultipleOngoingSkillInstances",
+	"Sustained",
+	"ComboStacking",
+	"SupportedByComboFinisher",
+	"Offering",
 	"Retaliation",
-	"NeverExertable",
+	"Shapeshift",
+	"Invocation",
+	"Grenade",
+	"NoDualWield",
+	"QuarterstaffSkill",
+	"SupportedByFountains",
+	"Jumping",
+	"CannotChain",
+	"CreatesGroundRune",
+	"CreatesFissure",
+	"SummonsAttackTotem",
+	"NonWeaponAttack",
+	"CreatesGroundEffect",
+	"SupportedByComboMastery",
+	"IceCrystal",
+	"SkillConsumesPowerChargesOnUse",
+	"SkillConsumesFrenzyChargesOnUse",
+	"SkillConsumesEnduranceChargesOnUse",
+	"SupportedByFerocity",
+	"SupportedByPotential",
+	"ProjectileNoCollision",
+	"SupportedByExcise",
+	"SupportedByExpanse",
+	"SupportedByExecrate",
+	"IsBlasphemy",
+	"PersistentShowsCastTime",
+	"GeneratesEnergy",
+	"CommandableMinion",
 }
 
 -- This is here to fix name collisions like in the case of Barrage
@@ -146,21 +207,10 @@ local weaponClassMap = {
 	["Two Hand Sword"] = "Two Handed Sword",
 	["Two Hand Axe"] = "Two Handed Axe",
 	["Two Hand Mace"] = "Two Handed Mace",
-	["Sceptre"] = "Sceptre",
 	["Unarmed"] = "None",
 }
 
 local skillStatScope = { }
-do
-	local text = convertUTF16to8(getFile("Metadata/StatDescriptions/skillpopup_stat_filters.txt"))
-	for skillName, scope in text:gmatch('([%w_]+) "Metadata/StatDescriptions/([%w_]+)%.txt"') do
-		skillStatScope[skillName] = scope
-	end
-	for skillName, copyFromSkill in text:gmatch('copy ([%w_]+) ([%w_]+)') do
-		skillStatScope[skillName] = skillStatScope[copyFromSkill]
-	end
-end
-
 local gems = { }
 local trueGemNames = { }
 
@@ -198,7 +248,7 @@ directiveTable.skill = function(state, args, out)
 	local gemEffect = dat("GemEffects"):GetRow("GrantedEffect", granted)
 	local secondaryEffect
 	if not gemEffect then
-		gemEffect = dat("GemEffects"):GetRow("GrantedEffect2", granted)
+		gemEffect = dat("GemEffects"):GetRow("AdditionalGrantedEffects", granted)
 		if gemEffect then 
 			secondaryEffect = true
 		end
@@ -206,7 +256,7 @@ directiveTable.skill = function(state, args, out)
 	local skillGem
 	if gemEffect then
 		for gem in dat("SkillGems"):Rows() do
-			for _, variant in ipairs(gem.GemVariants) do
+			for _, variant in ipairs(gem.GemEffects) do
 				if gemEffect.Id == variant.Id then
 					skillGem = gem
 					local trueGemNameObj = dat("GemEffects"):GetRow("Id", gemEffect.Id)
@@ -226,7 +276,7 @@ directiveTable.skill = function(state, args, out)
 		if granted.IsSupport then
 			out:write('\tname = "', fullNameGems[skillGem.BaseItemType.Id] and skillGem.BaseItemType.Name or skillGem.BaseItemType.Name:gsub(" Support",""), '",\n')
 			if #gemEffect.Description > 0 then
-				out:write('\tdescription = "', gemEffect.Description:gsub('\n','\\n'), '",\n')
+				out:write('\tdescription = "', gemEffect.Description:gsub('"','\\"'):gsub('\r',''):gsub('\n','\\n'):gsub("%[([^|%]]+)%]", "%1"):gsub("%[[^|]+|([^|]+)%]", "%1"), '",\n')
 			end
 		else
 			out:write('\tname = "', secondaryEffect and granted.ActiveSkill.DisplayName or trueGemNames[gemEffect.Id] or granted.ActiveSkill.DisplayName, '",\n')
@@ -245,17 +295,21 @@ directiveTable.skill = function(state, args, out)
 	local modMap = { }
 	skill.mods = { }
 	skill.levels = { }
-	local statMap = { }
 	skill.stats = { }
 	skill.constantStats = { }
 	skill.addSkillTypes = state.addSkillTypes
 	state.addSkillTypes = nil
-	out:write('\tcolor = ', granted.Attribute, ',\n')
+	if skillGem and not state.noGem then
+		out:write('\tcolor = ', skillGem.GemColour, ',\n')
+	end
 	if granted.GrantedEffectStatSets.BaseEffectiveness ~= 1 then
 		out:write('\tbaseEffectiveness = ', granted.GrantedEffectStatSets.BaseEffectiveness, ',\n')
 	end
 	if granted.GrantedEffectStatSets.IncrementalEffectiveness ~= 0 then
 		out:write('\tincrementalEffectiveness = ', granted.GrantedEffectStatSets.IncrementalEffectiveness, ',\n')
+	end
+	if granted.GrantedEffectStatSets.DamageIncrementalEffectiveness ~= 0 then
+		out:write('\tdamageIncrementalEffectiveness = ', granted.GrantedEffectStatSets.DamageIncrementalEffectiveness, ',\n')
 	end
 	if granted.IsSupport then
 		skill.isSupport = true
@@ -289,9 +343,6 @@ directiveTable.skill = function(state, args, out)
 		if granted.IgnoreMinionTypes then
 			out:write('\tignoreMinionTypes = true,\n')
 		end
-		if granted.PlusVersionOf then
-			out:write('\tplusVersionOf = "', granted.PlusVersionOf.Id, '",\n')
-		end
 		local weaponTypes = { }
 		for _, class in ipairs(granted.WeaponRestrictions) do
 			if weaponClassMap[class.Id] then
@@ -308,7 +359,7 @@ directiveTable.skill = function(state, args, out)
 		out:write('\tstatDescriptionScope = "gem_stat_descriptions",\n')
 	else
 		if #granted.ActiveSkill.Description > 0 then
-			out:write('\tdescription = "', granted.ActiveSkill.Description:gsub('"','\\"'):gsub('\n','\\n'), '",\n')
+			out:write('\tdescription = "', granted.ActiveSkill.Description:gsub('"','\\"'):gsub('\r',''):gsub('\n','\\n'):gsub("%[([^|%]]+)%]", "%1"):gsub("%[[^|]+|([^|]+)%]", "%1"), '",\n')
 		end
 		out:write('\tskillTypes = { ')
 		for _, type in ipairs(granted.ActiveSkill.SkillTypes) do
@@ -340,6 +391,10 @@ directiveTable.skill = function(state, args, out)
 			end
 			out:write('\t},\n')
 		end
+		local file = getFile("Metadata/StatDescriptions/specific_skill_stat_descriptions/"..granted.ActiveSkill.Id..".csd")
+		if file then
+			skillStatScope[granted.ActiveSkill.Id] = granted.ActiveSkill.Id
+		end
 		out:write('\tstatDescriptionScope = "', skillStatScope[granted.ActiveSkill.Id] or "skill_stat_descriptions", '",\n')
 		if granted.ActiveSkill.SkillTotem <= 21 then
 			out:write('\tskillTotemId = ', granted.ActiveSkill.SkillTotem, ',\n')
@@ -349,109 +404,98 @@ directiveTable.skill = function(state, args, out)
 			out:write('\tcannotBeSupported = true,\n')
 		end
 	end
-	local statsPerLevel = dat("GrantedEffectStatSetsPerLevel"):GetRowList("GrantedEffectStatSets", granted.GrantedEffectStatSets)
-	local statMapOrder = {}
-	local perLevel = dat("GrantedEffectsPerLevel"):GetRowList("GrantedEffect", granted)
-	if #perLevel ~= #statsPerLevel and #perLevel > 1 and #statsPerLevel > 1 then
-		ConPrintf("UNKNOWN CASE of Level to Stat rows for '" .. granted.Id .. "'")
-	end
-	for indx = 1, math.max(#perLevel, #statsPerLevel) do
-		local levelRow = perLevel[indx] or perLevel[1]
-		local statRow = statsPerLevel[indx] or statsPerLevel[1]
-		local level = { extra = { }, statInterpolation = { }, cost = { } }
-		level.level = #perLevel == 1 and statRow.GemLevel or levelRow.Level
-		level.extra.levelRequirement = #perLevel == 1 and statRow.PlayerLevelReq or levelRow.PlayerLevelReq
-		for i, cost in ipairs(levelRow.CostTypes) do
-			level.cost[cost["Resource"]] = levelRow.CostAmounts[i]
+	for statSetCount = 1, math.max(1, #granted.AdditionalStatSets + 1) do
+		skill.stats[statSetCount] = { }
+		skill.constantStats[statSetCount] = { }
+		skill.levels[statSetCount] = { }
+		local statMap = { }
+		local statsPerLevel = dat("GrantedEffectStatSetsPerLevel"):GetRowList("GrantedEffectStatSets", granted.GrantedEffectStatSets)
+		local statsSets = dat("GrantedEffectStatSets"):GetRow("Id", grantedId)
+		if statSetCount > 1 then
+			statsPerLevel = dat("GrantedEffectStatSetsPerLevel"):GetRowList("GrantedEffectStatSets", granted.AdditionalStatSets[statSetCount-1])
+			statsSets = dat("GrantedEffectStatSets"):GetRow("Id", granted.AdditionalStatSets[statSetCount-1].Id)
 		end
-		if levelRow.ManaReservationFlat ~= 0 then
-			level.extra.manaReservationFlat = levelRow.ManaReservationFlat
+		local statMapOrder = {}
+		local perLevel = dat("GrantedEffectsPerLevel"):GetRowList("GrantedEffect", granted)
+		local gemLevelProgression = nil
+		if skillGem and not state.noGem then
+			gemLevelProgression = dat("ItemExperiencePerLevel"):GetRowList("ItemExperienceType", skillGem.GemLevelProgression)
 		end
-		if levelRow.ManaReservationPercent ~= 0 then
-			level.extra.manaReservationPercent = levelRow.ManaReservationPercent / 100
+		if #perLevel ~= #statsPerLevel and #perLevel > 1 and #statsPerLevel > 1 then
+			ConPrintf("UNKNOWN CASE of Level to Stat rows for '" .. granted.Id .. "'")
 		end
-		if levelRow.LifeReservationFlat ~= 0 then
-			level.extra.lifeReservationFlat = levelRow.LifeReservationFlat
-		end
-		if levelRow.LifeReservationPercent ~= 0 then
-			level.extra.lifeReservationPercent = levelRow.LifeReservationPercent / 100
-		end
-		if levelRow.CostMultiplier ~= 100 then
-			level.extra.manaMultiplier = levelRow.CostMultiplier - 100
-		end
-		if levelRow.AttackSpeedMultiplier and levelRow.AttackSpeedMultiplier ~= 0 then
-			level.extra.attackSpeedMultiplier = levelRow.AttackSpeedMultiplier
-		end
-		if levelRow.AttackTime ~= 0 then
-			level.extra.attackTime = levelRow.AttackTime
-		end
-		if levelRow.Cooldown and levelRow.Cooldown ~= 0 then
-			level.extra.cooldown = levelRow.Cooldown / 1000
-		end
-		if levelRow.PvPDamageMultiplier ~= 0 then
-			level.extra.PvPDamageMultiplier = levelRow.PvPDamageMultiplier
-		end
-		if levelRow.StoredUses ~= 0 then
-			level.extra.storedUses = levelRow.StoredUses
-		end
-		if levelRow.VaalSouls ~= 0 then
-			level.cost.Soul = levelRow.VaalSouls
-		end
-		if levelRow.VaalStoredUses ~= 0 then
-			level.extra.vaalStoredUses = levelRow.VaalStoredUses
-		end
-		if levelRow.SoulGainPreventionDuration ~= 0 then
-			level.extra.soulPreventionDuration = levelRow.SoulGainPreventionDuration / 1000
-		end
-		-- stat based level info
-		if statRow.DamageEffectiveness ~= 0 then
-			level.extra.damageEffectiveness = statRow.DamageEffectiveness / 10000 + 1
-		end
-		if statRow.AttackCritChance ~= 0 then
-			level.extra.critChance = statRow.AttackCritChance / 100
-		end
-		if statRow.OffhandCritChance ~= 0 then
-			level.extra.critChance = statRow.OffhandCritChance / 100
-		end
-		if statRow.BaseMultiplier and statRow.BaseMultiplier ~= 0 then
-			level.extra.baseMultiplier = statRow.BaseMultiplier / 10000 + 1
-		end
-		level.statInterpolation = statRow.StatInterpolations
-		local resolveInterpolation = false
-		local injectConstantValuesIntoEachLevel = false
-		local statMapOrderIndex = 1
-		for i, stat in ipairs(statRow.FloatStats) do
-			if not statMap[stat.Id] or indx == 1 then
-				statMap[stat.Id] = #skill.stats + 1
-				table.insert(skill.stats, { id = stat.Id })
-				if indx == 1 then
-					table.insert(statMapOrder, stat.Id)
-				else
-					print(displayName .. ": stat missing from earlier levels: ".. stat.Id)
-				end
-			elseif statMapOrder[statMapOrderIndex] ~= stat.Id then
-				-- add missing stats
-				while statMapOrderIndex < #statMapOrder and statMapOrder[statMapOrderIndex] ~= stat.Id do
-					table.insert(level, 0)
-					if #level.statInterpolation < #statMapOrder then
-						table.insert(level.statInterpolation, statMapOrderIndex, "0")
-					end
-					statMapOrderIndex = statMapOrderIndex + 1
-				end
+		local nextGemLevelReqValue = 0
+		for indx = 1, math.max(#perLevel, #statsPerLevel) do
+			local levelRow = perLevel[indx] or perLevel[1]
+			local statRow = statsPerLevel[indx] or statsPerLevel[1]
+			local level = { extra = { }, statInterpolation = { }, actorLevel = 1, cost = { } }
+			level.level = #perLevel == 1 and statRow.GemLevel or levelRow.Level
+			level.extra.levelRequirement = math.max(gemLevelProgression and gemLevelProgression[indx] and gemLevelProgression[indx].PlayerLevel or 0, nextGemLevelReqValue)
+			nextGemLevelReqValue = level.extra.levelRequirement
+			for i, cost in ipairs(granted.CostType) do
+				level.cost[cost["Resource"]] = levelRow.CostAmounts[i]
 			end
-			statMapOrderIndex = statMapOrderIndex + 1
-			if resolveInterpolation then
-				table.insert(level, statRow.BaseResolvedValues[i])
-				level.statInterpolation[statMapOrderIndex] = 1
-			else
-				table.insert(level, statRow.FloatStatsValues[i] / math.max(statRow.InterpolationBases[i].Value, 0.00001) )
+			--if levelRow.ManaReservationFlat ~= 0 then
+			--	level.extra.manaReservationFlat = levelRow.ManaReservationFlat
+			--end
+			--if levelRow.ManaReservationPercent ~= 0 then
+			--	level.extra.manaReservationPercent = levelRow.ManaReservationPercent / 100
+			--end
+			--if levelRow.LifeReservationFlat ~= 0 then
+			--	level.extra.lifeReservationFlat = levelRow.LifeReservationFlat
+			--end
+			--if levelRow.LifeReservationPercent ~= 0 then
+			--	level.extra.lifeReservationPercent = levelRow.LifeReservationPercent / 100
+			--end
+			if levelRow.CostMultiplier ~= 100 then
+				level.extra.manaMultiplier = levelRow.CostMultiplier - 100
 			end
-		end
-		if injectConstantValuesIntoEachLevel then
-			for i, stat in ipairs(granted.GrantedEffectStatSets.ConstantStats) do
-				if not statMap[stat.Id] then
-					statMap[stat.Id] = #skill.stats + #skill.constantStats + 1
-					table.insert(skill.stats, { id = stat.Id })
+			if levelRow.AttackSpeedMultiplier and levelRow.AttackSpeedMultiplier ~= 0 then
+				level.extra.attackSpeedMultiplier = levelRow.AttackSpeedMultiplier
+			end
+			if levelRow.AttackTime ~= 0 then
+				level.extra.attackTime = levelRow.AttackTime
+			end
+			if levelRow.Cooldown and levelRow.Cooldown ~= 0 then
+				level.extra.cooldown = levelRow.Cooldown / 1000
+			end
+			if levelRow.PvPDamageMultiplier ~= 0 then
+				level.extra.PvPDamageMultiplier = levelRow.PvPDamageMultiplier
+			end
+			if levelRow.StoredUses ~= 0 then
+				level.extra.storedUses = levelRow.StoredUses
+			end
+			if levelRow.VaalSouls ~= 0 then
+				level.cost.Soul = levelRow.VaalSouls
+			end
+			if levelRow.VaalStoredUses ~= 0 then
+				level.extra.vaalStoredUses = levelRow.VaalStoredUses
+			end
+			if levelRow.SoulGainPreventionDuration ~= 0 then
+				level.extra.soulPreventionDuration = levelRow.SoulGainPreventionDuration / 1000
+			end
+			-- stat based level info
+			--if statRow.DamageEffectiveness ~= 0 then
+			--	level.extra.damageEffectiveness = statRow.DamageEffectiveness / 10000 + 1
+			--end
+			if statRow.AttackCritChance ~= 0 then
+				level.extra.critChance = statRow.AttackCritChance / 100
+			end
+			if statRow.OffhandCritChance ~= 0 then
+				level.extra.critChance = statRow.OffhandCritChance / 100
+			end
+			if statRow.BaseMultiplier and statRow.BaseMultiplier ~= 0 then
+				level.extra.baseMultiplier = statRow.BaseMultiplier / 10000 + 1
+			end
+			level.statInterpolation = statRow.StatInterpolations
+			level.actorLevel = statRow.ActorLevel
+			local resolveInterpolation = false
+			local injectConstantValuesIntoEachLevel = false
+			local statMapOrderIndex = 1
+			for i, stat in ipairs(statRow.FloatStats) do
+				if not statMap[stat.Id] or indx == 1 then
+					statMap[stat.Id] = #skill.stats + 1
+					table.insert(skill.stats[statSetCount], { id = stat.Id })
 					if indx == 1 then
 						table.insert(statMapOrder, stat.Id)
 					else
@@ -468,48 +512,81 @@ directiveTable.skill = function(state, args, out)
 					end
 				end
 				statMapOrderIndex = statMapOrderIndex + 1
-				table.insert(level, granted.GrantedEffectStatSets.ConstantStatsValues[i])
-				table.insert(level.statInterpolation, #statRow.FloatStats + 1, 1)
-			end
-		end
-		for i, stat in ipairs(statRow.AdditionalStats) do
-			if not statMap[stat.Id] then
-				statMap[stat.Id] = #skill.stats + 1
-				table.insert(skill.stats, { id = stat.Id })
-				if indx == 1 then
-					table.insert(statMapOrder, stat.Id)
+				if resolveInterpolation then
+					table.insert(level, statRow.BaseResolvedValues[i])
+					level.statInterpolation[statMapOrderIndex] = 1
 				else
-					print(displayName .. ": stat missing from earlier levels: ".. stat.Id)
+					table.insert(level, statRow.FloatStatsValues[i] / math.max(statRow.InterpolationBases[i].Value, 0.00001) )
 				end
-			elseif statMapOrder[statMapOrderIndex] ~= stat.Id then
-				-- add missing stats
-				while statMapOrderIndex < #statMapOrder and statMapOrder[statMapOrderIndex] ~= stat.Id do
-					table.insert(level, 0)
-					if #level.statInterpolation < #statMapOrder then
-						table.insert(level.statInterpolation, statMapOrderIndex, "0")
+			end
+			if injectConstantValuesIntoEachLevel then
+				for i, stat in ipairs(statsSets.ConstantStats) do
+					if not statMap[stat.Id] then
+						statMap[stat.Id] = #skill.stats + #skill.constantStats + 1
+						table.insert(skill.stats[statSetCount], { id = stat.Id })
+						if indx == 1 then
+							table.insert(statMapOrder, stat.Id)
+						else
+							print(displayName .. ": stat missing from earlier levels: ".. stat.Id)
+						end
+					elseif statMapOrder[statMapOrderIndex] ~= stat.Id then
+						-- add missing stats
+						while statMapOrderIndex < #statMapOrder and statMapOrder[statMapOrderIndex] ~= stat.Id do
+							table.insert(level, 0)
+							if #level.statInterpolation < #statMapOrder then
+								table.insert(level.statInterpolation, statMapOrderIndex, "0")
+							end
+							statMapOrderIndex = statMapOrderIndex + 1
+						end
 					end
 					statMapOrderIndex = statMapOrderIndex + 1
+					table.insert(level, statsSets.ConstantStatsValues[i])
+					table.insert(level.statInterpolation, #statRow.FloatStats + 1, 1)
 				end
 			end
-			statMapOrderIndex = statMapOrderIndex + 1
-			table.insert(level, statRow.AdditionalStatsValues[i])
+			for i, stat in ipairs(statRow.AdditionalStats) do
+				if not statMap[stat.Id] then
+					statMap[stat.Id] = #skill.stats + 1
+					table.insert(skill.stats[statSetCount], { id = stat.Id })
+					if indx == 1 then
+						table.insert(statMapOrder, stat.Id)
+					else
+						print(displayName .. ": stat missing from earlier levels: ".. stat.Id)
+					end
+				elseif statMapOrder[statMapOrderIndex] ~= stat.Id then
+					-- add missing stats
+					while statMapOrderIndex < #statMapOrder and statMapOrder[statMapOrderIndex] ~= stat.Id do
+						table.insert(level, 0)
+						if #level.statInterpolation < #statMapOrder then
+							table.insert(level.statInterpolation, statMapOrderIndex, "0")
+						end
+						statMapOrderIndex = statMapOrderIndex + 1
+					end
+				end
+				statMapOrderIndex = statMapOrderIndex + 1
+				table.insert(level, statRow.AdditionalStatsValues[i])
+			end
+			for i, stat in ipairs(statRow.AdditionalBooleanStats) do
+				if not statMap[stat.Id] then
+					statMap[stat.Id] = #skill.stats + 1
+					table.insert(skill.stats[statSetCount], { id = stat.Id })
+				end
+			end
+			table.insert(skill.levels[statSetCount], level)
 		end
-		for i, stat in ipairs(statRow.AdditionalBooleanStats) do
-			if not statMap[stat.Id] then
-				statMap[stat.Id] = #skill.stats + 1
-				table.insert(skill.stats, { id = stat.Id })
+		if statsSets and statsSets.ImplicitStats then
+			for i, stat in ipairs(statsSets.ImplicitStats) do
+				if not statMap[stat.Id] then
+					statMap[stat.Id] = #skill.stats + 1
+					table.insert(skill.stats[statSetCount], { id = stat.Id })
+				end
 			end
 		end
-		table.insert(skill.levels, level)
-	end
-	for i, stat in ipairs(granted.GrantedEffectStatSets.ImplicitStats) do
-		if not statMap[stat.Id] then
-			statMap[stat.Id] = #skill.stats + 1
-			table.insert(skill.stats, { id = stat.Id })
+		if statsSets and statsSets.ConstantStats then
+			for i, stat in ipairs(statsSets.ConstantStats) do
+				table.insert(skill.constantStats[statSetCount], { stat.Id, statsSets.ConstantStatsValues[i] })
+			end
 		end
-	end
-	for i, stat in ipairs(granted.GrantedEffectStatSets.ConstantStats) do
-		table.insert(skill.constantStats, { stat.Id, granted.GrantedEffectStatSets.ConstantStatsValues[i] })
 	end
 	if not skill.qualityStats then
 		skill.qualityStats = { }
@@ -582,52 +659,78 @@ directiveTable.mods = function(state, args, out)
 	if not args:match("noStats") then
 		if next(skill.constantStats) ~= nil then
 			-- write out constant stats that don't change per level
-			out:write('\tconstantStats = {\n')
-			for i, stat in ipairs(skill.constantStats) do
-				out:write('\t\t{ "', stat[1], '", ', stat[2], ' },\n')
+			for i, alternates in ipairs(skill.constantStats) do
+				if next(alternates) ~= nil then
+					if i == 1 then
+						out:write('\tconstantStats = {\n')
+					else
+						local value = i - 1
+						out:write('\tconstantStats' .. value .. ' = {\n')
+					end
+					for _, stat in ipairs(alternates) do
+						out:write('\t\t{ "', stat[1], '", ', stat[2], ' },\n')
+					end
+					out:write('\t},\n')
+				end
+			end
+		end
+		for i, alternates in ipairs(skill.stats) do
+			-- write out per level stats
+			if i == 1 then
+				out:write('\tstats = {\n')
+			else
+				local value = i - 1
+				out:write('\tstats' .. value .. ' = {\n')
+			end
+			for _, stat in ipairs(alternates) do
+				out:write('\t\t"', stat.id, '",\n')
 			end
 			out:write('\t},\n')
 		end
-		-- write out per level stats
-		out:write('\tstats = {\n')
-		for _, stat in ipairs(skill.stats) do
-			out:write('\t\t"', stat.id, '",\n')
-		end
-		out:write('\t},\n')
 	end
 	if not args:match("noLevels") then
-		out:write('\tlevels = {\n')
-		for index, level in ipairs(skill.levels) do
-			out:write('\t\t[', level.level, '] = { ')
-			for _, statVal in ipairs(level) do
-				out:write(tostring(statVal), ', ')
+		for i, alternates in ipairs(skill.levels) do
+			if i == 1 then
+				out:write('\tlevels = {\n')
+			else
+				local value = i - 1
+				out:write('\tlevels' .. value .. ' = {\n')
 			end
-			for k, v in pairs(level.extra) do
-				out:write(k, ' = ', tostring(v), ', ')
-			end
-			if next(level.statInterpolation) ~= nil then
-				out:write('statInterpolation = { ')
-				for _, type in ipairs(level.statInterpolation) do
-					out:write(type, ', ')
+			for index, level in ipairs(alternates) do
+				out:write('\t\t[', level.level, '] = { ')
+				for _, statVal in ipairs(level) do
+					out:write(tostring(statVal), ', ')
 				end
-				out:write('}, ')
-			end
-			if next(level.cost) ~= nil then
-				out:write('cost = { ')
-				for k, v in pairs(level.cost) do
+				for k, v in pairs(level.extra) do
 					out:write(k, ' = ', tostring(v), ', ')
 				end
-				out:write('}, ')
+				if next(level.statInterpolation) ~= nil then
+					out:write('statInterpolation = { ')
+					for _, type in ipairs(level.statInterpolation) do
+						out:write(type, ', ')
+					end
+					out:write('}, ')
+				end
+				if level.actorLevel ~= nil then
+					out:write('actorLevel = ', level.actorLevel, ', ')
+				end
+				if next(level.cost) ~= nil then
+					out:write('cost = { ')
+					for k, v in pairs(level.cost) do
+						out:write(k, ' = ', tostring(v), ', ')
+					end
+					out:write('}, ')
+				end
+				out:write('},\n')
 			end
-			out:write('},\n')
+			out:write('\t},\n')
 		end
-		out:write('\t},\n')
 	end
 	out:write('}')
 	state.skill = nil
 end
 
-for _, name in pairs({"act_str","act_dex","act_int","other","glove","minion","spectre","sup_str","sup_dex","sup_int"}) do
+for _, name in pairs({"act_str","act_dex","act_int","other","sup_str","sup_dex","sup_int"}) do
 	processTemplateFile(name, "Skills/", "../Data/Skills/", directiveTable)
 end
 
@@ -635,7 +738,7 @@ local out = io.open("../Data/Gems.lua", "w")
 out:write('-- This file is automatically generated, do not edit!\n')
 out:write('-- Gem data (c) Grinding Gear Games\n\nreturn {\n')
 for skillGem in dat("SkillGems"):Rows() do
-	for _, gemEffect in ipairs(skillGem.GemVariants) do
+	for _, gemEffect in ipairs(skillGem.GemEffects) do
 		if gems[gemEffect.Id] then
 			out:write('\t["', "Metadata/Items/Gems/SkillGem" .. gemEffect.Id, '"] = {\n')
 			out:write('\t\tname = "', fullNameGems[skillGem.BaseItemType.Id] and skillGem.BaseItemType.Name or trueGemNames[gemEffect.Id] or skillGem.BaseItemType.Name:gsub(" Support",""), '",\n')
@@ -646,8 +749,15 @@ for skillGem in dat("SkillGems"):Rows() do
 			out:write('\t\tgameId = "', skillGem.BaseItemType.Id, '",\n')
 			out:write('\t\tvariantId = "', gemEffect.Id, '",\n')
 			out:write('\t\tgrantedEffectId = "', gemEffect.GrantedEffect.Id, '",\n')
-			if gemEffect.GrantedEffect2 then
-				out:write('\t\tsecondaryGrantedEffectId = "', gemEffect.GrantedEffect2.Id, '",\n')
+			if gemEffect.GrantedEffect.AdditionalStatSets then
+				for count, additionalGrantedEffect in ipairs(gemEffect.GrantedEffect.AdditionalStatSets) do
+					out:write('\t\tadditionalStatSet' .. tostring(count) .. ' = "', additionalGrantedEffect.Id, '",\n')
+				end
+			end
+			if gemEffect.AdditionalGrantedEffects then
+				for count, additionalGrantedEffect in ipairs(gemEffect.AdditionalGrantedEffects) do
+					out:write('\t\tadditionalGrantedEffectId' .. tostring(count) .. ' = "', additionalGrantedEffect.Id, '",\n')
+				end
 			end
 			if #gemEffect.SecondarySupportName > 0 then
 				out:write('\t\tsecondaryEffectName = "', gemEffect.SecondarySupportName, '",\n')
@@ -660,6 +770,7 @@ for skillGem in dat("SkillGems"):Rows() do
 			for _, tag in ipairs(gemEffect.Tags) do
 				out:write('\t\t\t', tag.Id, ' = true,\n')
 				if #tag.Name > 0 then
+					tag.Name = tag.Name:gsub("%[([^|%]]+)%]", "%1"):gsub("%[[^|]+|([^|]+)%]", "%1") --Remove the words in brackets e.g. [DurationSkill|Duration] -> Duration
 					table.insert(tagNames, tag.Name)
 				end
 			end

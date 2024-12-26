@@ -172,6 +172,7 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 
 	-- Create functions that will convert coordinates between the screen and tree coordinate spaces
 	local scale = m_min(viewPort.width, viewPort.height) / tree.size * self.zoom
+
 	local offsetX = self.zoomX + viewPort.x + viewPort.width/2
 	local offsetY = self.zoomY + viewPort.y + viewPort.height/2
 	local function treeToScreen(x, y)
@@ -262,23 +263,63 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 			hoverDep[depNode] = true
 		end
 	end
-
+	
+	-- switchAttribute true -> allocating an attribute node, possibly with attribute in path -or- hotswap allocated attribute
+	-- switchAttribute false -> allocating a non-attribute node, possibly with attribute in path
+	-- we always want to keep track of last used attribute
+	local function processAttributeHotkeys(switchAttribute)
+		if IsKeyDown("2") or IsKeyDown("S") then
+			spec.attributeIndex = 1
+			if switchAttribute then spec:SwitchAttributeNode(hoverNode.id, 1) end
+		elseif IsKeyDown("3") or IsKeyDown("D") then
+			spec.attributeIndex = 2
+			if switchAttribute then spec:SwitchAttributeNode(hoverNode.id, 2) end
+		elseif IsKeyDown("1") or IsKeyDown("I") then
+			spec.attributeIndex = 3
+			if switchAttribute then spec:SwitchAttributeNode(hoverNode.id, 3) end
+		end
+	end
+	
 	if treeClick == "LEFT" then
 		if hoverNode then
+			local hotkeyPressed = IsKeyDown("1") or IsKeyDown("I") or IsKeyDown("2") or IsKeyDown("S") or IsKeyDown("3") or IsKeyDown("D")
 			-- User left-clicked on a node
 			if hoverNode.alloc then
-				-- Node is allocated, so deallocate it
-				spec:DeallocNode(hoverNode)
+				if hoverNode.isAttribute then
+					-- change to other attribute without needing to deallocate
+					if hotkeyPressed then
+						processAttributeHotkeys(true)
+						-- reload allocated node with new attribute
+						spec:BuildAllDependsAndPaths()
+					else -- reset switched node to generic Attribute
+						spec.hashOverrides[hoverNode.id] = nil
+						spec:DeallocNode(hoverNode)
+					end
+				else
+					spec:DeallocNode(hoverNode)
+				end
 				spec:AddUndoState()
 				build.buildFlag = true
 			elseif hoverNode.path then
 				-- Node is unallocated and can be allocated, so allocate it
 				if hoverNode.type == "Mastery" and hoverNode.masteryEffects then
-					build.treeTab:OpenMasteryPopup(hoverNode, viewPort)
+					if not tree:IsPobGenerate() then
+						build.treeTab:OpenMasteryPopup(hoverNode, viewPort)
+					end
 				else
-					spec:AllocNode(hoverNode, self.tracePath and hoverNode == self.tracePath[#self.tracePath] and self.tracePath)
-					spec:AddUndoState()
-					build.buildFlag = true
+					-- attribute switching, unallocated to allocated
+					if hoverNode.isAttribute and not hotkeyPressed then
+						build.treeTab:ModifyAttributePopup(hoverNode)
+					else 
+						-- the odd conditional here is so the popup only calls AllocNode inside and to avoid duplicating some code
+						-- same flow for hotkey attribute and non attribute nodes
+						if hotkeyPressed then
+							processAttributeHotkeys(hoverNode.isAttribute)
+						end
+						spec:AllocNode(hoverNode, self.tracePath and hoverNode == self.tracePath[#self.tracePath] and self.tracePath)
+						spec:AddUndoState()
+						build.buildFlag = true
+					end
 				end
 			end
 		end
@@ -299,59 +340,83 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 			build.treeTab:ModifyNodePopup(hoverNode, viewPort)
 			build.buildFlag = true
 		elseif hoverNode and hoverNode.alloc and hoverNode.type == "Mastery" and hoverNode.masteryEffects then
-			build.treeTab:OpenMasteryPopup(hoverNode, viewPort)
-			build.buildFlag = true
+			if not tree:IsPobGenerate() then
+				build.treeTab:OpenMasteryPopup(hoverNode, viewPort)
+				build.buildFlag = true
+			end
 		end
 	end
 
 	-- Draw the background artwork
-	local bg = tree.assets.Background2 or tree.assets.Background1
+	local bg = tree:GetAssetByName("Background2", "background") or tree:GetAssetByName("Background1", "background")
 	if bg.width == 0 then
 		bg.width, bg.height = bg.handle:ImageSize()
 	end
 	if bg.width > 0 then
-		local bgSize = bg.width * scale * 1.33 * 2.5
-		SetDrawColor(1, 1, 1)
-		DrawImage(bg.handle, viewPort.x, viewPort.y, viewPort.width, viewPort.height, (self.zoomX + viewPort.width/2) / -bgSize, (self.zoomY + viewPort.height/2) / -bgSize, (viewPort.width/2 - self.zoomX) / bgSize, (viewPort.height/2 - self.zoomY) / bgSize)
+		SetDrawColor(1, 1, 1, 1)
+		DrawImage(bg.handle, viewPort.x, viewPort.y, viewPort.width, viewPort.height, 0, 0, viewPort.width / 100, viewPort.height / 100)
 	end
 
-	-- Hack to draw class background art, the position data doesn't seem to be in the tree JSON yet
-	if build.spec.curClassId == 1 then
-		local scrX, scrY = treeToScreen(-2750, 1600)
-		self:DrawAsset(tree.assets.BackgroundStr, scrX, scrY, scale)
-	elseif build.spec.curClassId == 2 then
-		local scrX, scrY = treeToScreen(2550, 1600)
-		self:DrawAsset(tree.assets.BackgroundDex, scrX, scrY, scale)
-	elseif build.spec.curClassId == 3 then
-		local scrX, scrY = treeToScreen(-250, -2200)
-		self:DrawAsset(tree.assets.BackgroundInt, scrX, scrY, scale)
-	elseif build.spec.curClassId == 4 then
-		local scrX, scrY = treeToScreen(-150, 2350)
-		self:DrawAsset(tree.assets.BackgroundStrDex, scrX, scrY, scale)
-	elseif build.spec.curClassId == 5 then
-		local scrX, scrY = treeToScreen(-2100, -1500)
-		self:DrawAsset(tree.assets.BackgroundStrInt, scrX, scrY, scale)
-	elseif build.spec.curClassId == 6 then
-		local scrX, scrY = treeToScreen(2350, -1950)
-		self:DrawAsset(tree.assets.BackgroundDexInt, scrX, scrY, scale)
+	
+	-- TODO: More dynamic
+	local treeCenter = tree:GetAssetByName("BGTree", "ascendancyBackground")
+	local treeCenterActive = tree:GetAssetByName("BGTreeActive", "ascendancyBackground")
+	-- draw background artwork base on current class
+	local class = tree.classes[spec.curClassId]
+	if class and class.background then
+		local bgAssetName = class.background.image
+		local bgSection = class.background.section
+		if spec.curAscendClassId ~= 0 then
+			bgAssetName = class.classes[spec.curAscendClassId].background.image
+			bgSection = class.classes[spec.curAscendClassId].background.section
+		end
+		local bg = tree:GetAssetByName(bgAssetName, bgSection or "groupBackground")
+		local scrX, scrY = treeToScreen(class.background.x * tree.scaleImage, class.background.y * tree.scaleImage)
+		bg.width =  class.background.width
+		bg.height = class.background.height
+
+		self:DrawAsset(bg, scrX, scrY, scale)
+
+		-- calculate rotation with quad
+		local startNode = spec.nodes[class.startNodeId]
+		local xActive = class.background.x * tree.scaleImage
+		local yActive = class.background.y * tree.scaleImage
+		local angleRad = (math.pi / 2) + math.atan2(startNode.y - yActive, startNode.x - xActive)
+		treeCenterActive.width = class.background['active'].width
+		treeCenterActive.height = class.background['active'].height
+		self:DrawQuadAndRotate(treeCenterActive, class.background.x * tree.scaleImage, class.background.y * tree.scaleImage, angleRad, treeToScreen)
+
+		treeCenter.width = class.background['bg'].width
+		treeCenter.height = class.background['bg'].height
+		self:DrawAsset(treeCenter, scrX, scrY, scale)
 	end
 
-	local function renderGroup(group, isExpansion)
-		local scrX, scrY = treeToScreen(group.x, group.y)
-		if group.ascendancyName then
-			if group.isAscendancyStart then
-				if group.ascendancyName ~= spec.curAscendClassBaseName and (not spec.curSecondaryAscendClass or group.ascendancyName ~= spec.curSecondaryAscendClass.id) then
-					SetDrawColor(1, 1, 1, 0.25)
-				end
-				self:DrawAsset(tree.assets["Classes"..group.ascendancyName], scrX, scrY, scale)
+	-- draw ascendancies
+	for name, data in pairs(tree.ascendNameMap) do
+		local ascendancy = data.ascendClass
+		if ascendancy.background then
+			local bg = tree:GetAssetByName(ascendancy.background.image, ascendancy.background.section or "groupBackground")
+			local scrX, scrY = treeToScreen(ascendancy.background.x * tree.scaleImage, ascendancy.background.y * tree.scaleImage)
+			bg.width = ascendancy.background.width
+			bg.height = ascendancy.background.height
+			if name == spec.curAscendClassBaseName then
 				SetDrawColor(1, 1, 1)
+			else
+				SetDrawColor(0.5, 0.5, 0.5)
 			end
-		elseif group.oo[3] then
-			self:DrawAsset(tree.assets[isExpansion and "GroupBackgroundLargeHalfAlt" or "PSGroupBackground3"], scrX, scrY, scale, true)
-		elseif group.oo[2] then
-			self:DrawAsset(tree.assets[isExpansion and "GroupBackgroundMediumAlt" or "PSGroupBackground2"], scrX, scrY, scale)
-		elseif group.oo[1] then
-			self:DrawAsset(tree.assets[isExpansion and "GroupBackgroundSmallAlt" or "PSGroupBackground1"], scrX, scrY, scale)
+			self:DrawAsset(bg, scrX, scrY, scale)
+		end
+	end
+
+	local function renderGroup(group)
+		if group.background then
+			local scrX, scrY = treeToScreen(group.x * tree.scaleImage, group.y * tree.scaleImage)
+			local section = group.background.section or "groupBackground"
+			local bgAsset = tree:GetAssetByName(group.background.image, section)
+			if group.background.offsetX and group.background.offsetY then
+				scrX, scrY = treeToScreen(group.x + group.background.offsetX, group.y + group.background.offsetY)
+			end
+			self:DrawAsset(bgAsset, scrX, scrY, scale * tree.scaleImage, group.background.isHalfImage ~= nil)
 		end
 	end
 
@@ -360,9 +425,6 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 		if not group.isProxy then
 			renderGroup(group)
 		end
-	end
-	for _, subGraph in pairs(spec.subGraphs) do
-		renderGroup(subGraph.group, true)
 	end
 
 	local connectorColor = { 1, 1, 1 }
@@ -416,7 +478,8 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 			setConnectorColor(0.75, 0.75, 0.75)
 		end
 		SetDrawColor(unpack(connectorColor))
-		DrawImageQuad(tree.assets[connector.type..state].handle, unpack(connector.c))
+		handle = tree:GetAssetByName(connector.type..state, "line").handle
+		DrawImageQuad(handle, unpack(connector.c))
 	end
 
 	-- Draw the connecting lines between nodes
@@ -462,18 +525,57 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 		end
 	end
 
+	if launch.devModeAlt and hoverNode then
+		-- Draw orbits of the group node
+		local groupNode = hoverNode.group
+		SetDrawLayer(nil, 80)
+		SetDrawColor(1, 0, 0)
+		for _, orbit in ipairs(groupNode.orbits) do
+			local x, y = treeToScreen(groupNode.x * tree.scaleImage, groupNode.y * tree.scaleImage)
+			local orbitRadius = tree.orbitRadii[orbit + 1] * tree.scaleImage
+			local innerSize = orbitRadius * scale
+			DrawImage(self.ring, x - innerSize, y - innerSize, innerSize * 2, innerSize * 2)
+		end
+		SetDrawColor(1, 1, 1)
+
+		local node1 = hoverNode
+		for _, connection in ipairs(hoverNode.connections) do
+			-- draw connections by hand
+			local node2 = spec.nodes[connection.id]
+			if connection.orbit ~= 0 and tree.orbitRadii[math.abs(connection.orbit) + 1] then
+				local r =  tree.orbitRadii[math.abs(connection.orbit) + 1] * tree.scaleImage
+
+				local dx, dy = node2.x - node1.x, node2.y - node1.y
+				local dist = math.sqrt(dx * dx + dy * dy) * (connection.orbit > 0 and 1 or -1)
+
+				if dist < r * 2 then
+					local perp = math.sqrt(r * r - (dist * dist) / 4) * (r > 0 and 1 or -1)
+					local cx = node1.x + dx / 2 + perp * (dy / dist)
+					local cy = node1.y + dy / 2 - perp * (dx / dist)
+					local scx, scy = treeToScreen(cx, cy)
+					
+					local innerSize = r * scale
+					SetDrawColor(0, 1, 0)
+					DrawImage(self.ring, scx - innerSize, scy - innerSize, innerSize * 2, innerSize * 2)
+					SetDrawColor(1, 1, 1)
+				end
+			end
+		end
+	end
+
 	-- Draw the nodes
 	for nodeId, node in pairs(spec.nodes) do
 		-- Determine the base and overlay images for this node based on type and state
 		local compareNode = self.compareSpec and self.compareSpec.nodes[nodeId] or nil
 
 		local base, overlay, effect
+		local overlaySection =  "frame"
 		local isAlloc = node.alloc or build.calcsTab.mainEnv.grantedPassives[nodeId] or (compareNode and compareNode.alloc)
 		SetDrawLayer(nil, 25)
 		if node.type == "ClassStart" then
 			overlay = isAlloc and node.startArt or "PSStartNodeBackgroundInactive"
 		elseif node.type == "AscendClassStart" then
-			overlay = treeVersions[tree.treeVersion].num >= 3.10 and "AscendancyMiddle" or "PassiveSkillScreenAscendancyMiddle"
+			overlay = "AscendancyMiddle"
 			if node.ascendancyName and tree.secondaryAscendNameMap and tree.secondaryAscendNameMap[node.ascendancyName] then
 				overlay = "Azmeri"..overlay
 			end
@@ -490,59 +592,31 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 			end
 			if node.type == "Socket" then
 				-- Node is a jewel socket, retrieve the socketed jewel (if present) so we can display the correct art
-				base = tree.assets[(node.name == "Charm Socket" and "Azmeri" or "" ) .. node.overlay[state .. (node.expansionJewel and "Alt" or "")]]
+				base = tree:GetAssetByName(node.overlay[state], "frame")
+
 				local socket, jewel = build.itemsTab:GetSocketAndJewelForNodeID(nodeId)
 				if isAlloc and jewel then
-					if jewel.baseName == "Crimson Jewel" then
-						overlay = node.expansionJewel and "JewelSocketActiveRedAlt" or "JewelSocketActiveRed"
-					elseif jewel.baseName == "Viridian Jewel" then
-						overlay = node.expansionJewel and "JewelSocketActiveGreenAlt" or "JewelSocketActiveGreen"
-					elseif jewel.baseName == "Cobalt Jewel" then
-						overlay = node.expansionJewel and "JewelSocketActiveBlueAlt" or "JewelSocketActiveBlue"
-					elseif jewel.baseName == "Prismatic Jewel" then
-						overlay = node.expansionJewel and "JewelSocketActivePrismaticAlt" or "JewelSocketActivePrismatic"
-					elseif jewel.base.subType == "Abyss" then
-						overlay = node.expansionJewel and "JewelSocketActiveAbyssAlt" or "JewelSocketActiveAbyss"
-					elseif jewel.base.subType == "Charm" then
-						if jewel.baseName == "Ursine Charm" then
-							overlay = "CharmSocketActiveStr"
-						elseif jewel.baseName == "Corvine Charm" then
-							overlay = "CharmSocketActiveInt"
-						elseif jewel.baseName == "Lupine Charm" then
-							overlay = "CharmSocketActiveDex"
-						end
-					elseif jewel.baseName == "Timeless Jewel" then
-						overlay = node.expansionJewel and "JewelSocketActiveLegionAlt" or "JewelSocketActiveLegion"
-					elseif jewel.baseName == "Large Cluster Jewel" then
-						overlay = "JewelSocketActiveAltPurple"
-					elseif jewel.baseName == "Medium Cluster Jewel" then
-						overlay = "JewelSocketActiveAltBlue"
-					elseif jewel.baseName == "Small Cluster Jewel" then
-						overlay = "JewelSocketActiveAltRed"
-					end
+					overlay = jewel.baseName
+					overlaySection = "jewelpassive"
 				end
 			elseif node.type == "Mastery" then
 				-- This is the icon that appears in the center of many groups
-				if node.masteryEffects then
-					if isAlloc then
-						base = node.masterySprites.activeIcon.masteryActiveSelected
-						effect = node.masterySprites.activeEffectImage.masteryActiveEffect
-					elseif node == hoverNode then
-						base = node.masterySprites.inactiveIcon.masteryConnected
-					else
-						base = node.masterySprites.inactiveIcon.masteryInactive
-					end
-				else
-					base = node.sprites.mastery
-				end
+				base = node.masterySprites.activeEffectImage.masteryActiveEffect
+
 				SetDrawLayer(nil, 15)
 			else
 				-- Normal node (includes keystones and notables)
 				if node.isTattoo and node.effectSprites then -- trees < 3.22.0 don't have effectSprites
 					effect = node.effectSprites["tattooActiveEffect"]
 				end
+
+				if node.activeEffectImage then
+					effect = tree:GetAssetByName(node.activeEffectImage, "masteryActiveEffect")
+				end
 				base = node.sprites[node.type:lower()..(isAlloc and "Active" or "Inactive")]
+
 				overlay = node.overlay[state .. (node.ascendancyName and "Ascend" or "") .. (node.isBlighted and "Blighted" or "")]
+				
 				if node.ascendancyName and tree.secondaryAscendNameMap and tree.secondaryAscendNameMap[node.ascendancyName] then
 					overlay = "Azmeri"..overlay
 				end
@@ -631,19 +705,39 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 
 		-- Draw mastery/tattoo effect artwork
 		if effect then
+			if node.targetSize and node.targetSize["effect"] then
+				effect.width = node.targetSize["effect"].width
+				effect.height = node.targetSize["effect"].height
+			end
 			SetDrawLayer(nil, 15)
+			if isAlloc or (self.tracePath and isValueInArray(self.tracePath, node)) or (hoverNode and hoverNode.path and isValueInArray(hoverNode.path, node))  then
+				SetDrawColor(1, 1, 1)
+			else
+				SetDrawColor(1,1,1, 0.15)
+			end
 			self:DrawAsset(effect, scrX, scrY, scale)
+			SetDrawColor(1, 1, 1)
 			SetDrawLayer(nil, 25)
 		end
 
 		-- Draw base artwork
 		if base then
+			-- apply target size to the base image
+			if node.targetSize then
+				base.width = node.targetSize.width
+				base.height = node.targetSize.height
+			end
 			if node.type == "Socket" and hoverDep and hoverDep[node] then
 				SetDrawColor(1, 0, 0);
 				self:DrawAsset(base, scrX, scrY, scale)
 				SetDrawColor(1, 1, 1);
-			else
+			elseif node.type == "Socket" then
 				self:DrawAsset(base, scrX, scrY, scale)
+			elseif node.type == "Mastery" then
+				SetDrawColor(1,1,1, 0.15)
+				self:DrawAsset(base, scrX, scrY, scale)
+			else
+				self:DrawAsset(base, scrX, scrY, scale * 0.68)
 			end
 		end
 
@@ -685,7 +779,19 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 					end
 				end
 			end
-			self:DrawAsset(tree.assets[overlay], scrX, scrY, scale)
+
+			local overlayImage = tree:GetAssetByName(overlay, overlaySection)
+
+			local additionalScale = 1
+			if node.ascendancyName then
+				additionalScale = 1.30
+			end
+			-- apply target size to the base image
+			if overlayImage and node.targetSize then
+				overlayImage.width = node.targetSize.width * additionalScale
+				overlayImage.height = node.targetSize.height * additionalScale
+			end
+			self:DrawAsset(overlayImage, scrX, scrY, scale)
 			SetDrawColor(1, 1, 1)
 		end
 		if self.searchStrResults[nodeId] then
@@ -693,7 +799,7 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 			SetDrawLayer(nil, 30)
 			local rgbColor = rgbColor or {1, 0, 0}
 			SetDrawColor(rgbColor[1], rgbColor[2], rgbColor[3])
-			local size = 175 * scale / self.zoom ^ 0.4
+			local size = 80 * scale / self.zoom ^ 0.4
 
 			if main.edgeSearchHighlight then
 				-- Snap node matches to the edge of the viewPort
@@ -815,8 +921,8 @@ function PassiveTreeViewClass:DrawAsset(data, x, y, scale, isHalf)
 			return
 		end
 	end
-	local width = data.width * scale * 1.33
-	local height = data.height * scale * 1.33
+	local width = data.width * scale
+	local height = data.height * scale
 	if isHalf then
 		DrawImage(data.handle, x - width, y - height * 2, width * 2, height * 2)
 		DrawImage(data.handle, x - width, y, width * 2, height * 2, 0, 1, 1, 0)
@@ -825,10 +931,51 @@ function PassiveTreeViewClass:DrawAsset(data, x, y, scale, isHalf)
 	end
 end
 
+function PassiveTreeViewClass:DrawQuadAndRotate(data, xTree, yTree, angleRad, treeToScreen)
+	local vertActive = {}
+		local xActive = xTree
+		local yActive = yTree
+		local widthActive = data.width
+		local heightActive = data.height
+	
+		local function rotate(x, y, cx, cy, theta)
+			local translatedX = x - cy
+			local translatedY = y - cy
+
+			local cosTheta = math.cos(theta)
+			local sinTheta = math.sin(theta)
+			local rotatedX =  translatedX * cosTheta - translatedY * sinTheta
+			local rotatedY =  translatedX * sinTheta + translatedY * cosTheta
+
+			return rotatedX + cx, rotatedY + cy
+		end
+
+		vertActive[1], vertActive[2] = xActive - widthActive, yActive - heightActive
+		vertActive[3], vertActive[4] = xActive + widthActive, yActive - heightActive
+		vertActive[5], vertActive[6] = xActive + widthActive, yActive + heightActive
+		vertActive[7], vertActive[8] = xActive - widthActive, yActive + heightActive
+		vertActive[9] = data[1] -- s1
+		vertActive[10] = data[2] -- t1
+		vertActive[11] = data[3] -- s2
+		vertActive[12] = data[2] -- t1
+		vertActive[13] = data[3] -- s2
+		vertActive[14] = data[4] -- t2
+		vertActive[15] = data[1] -- s1
+		vertActive[16] = data[4] -- t2
+
+		-- rotate the quad
+		vertActive[1], vertActive[2] = treeToScreen(rotate(vertActive[1], vertActive[2], xActive, yActive, angleRad))
+		vertActive[3], vertActive[4] = treeToScreen(rotate(vertActive[3], vertActive[4], xActive, yActive, angleRad))
+		vertActive[5], vertActive[6] = treeToScreen(rotate(vertActive[5], vertActive[6], xActive, yActive, angleRad))
+		vertActive[7], vertActive[8] = treeToScreen(rotate(vertActive[7], vertActive[8], xActive, yActive, angleRad))
+
+		DrawImageQuad(data.handle, unpack(vertActive))
+end
+
 -- Zoom the tree in or out
 function PassiveTreeViewClass:Zoom(level, viewPort)
 	-- Calculate new zoom level and zoom factor
-	self.zoomLevel = m_max(0, m_min(12, self.zoomLevel + level))
+	self.zoomLevel = m_max(0, m_min(20, self.zoomLevel + level))
 	local oldZoom = self.zoom
 	self.zoom = 1.2 ^ self.zoomLevel
 
@@ -928,7 +1075,7 @@ function PassiveTreeViewClass:DoesNodeMatchSearchParams(node)
 end
 
 function PassiveTreeViewClass:AddNodeName(tooltip, node, build)
-	tooltip:SetRecipe(node.recipe)
+	tooltip:SetRecipe(node.infoRecipe)
 	tooltip:AddLine(24, "^7"..node.dn..(launch.devModeAlt and " ["..node.id.."]" or ""))
 	if launch.devModeAlt and node.id > 65535 then
 		-- Decompose cluster node Id
@@ -992,6 +1139,23 @@ function PassiveTreeViewClass:AddNodeTooltip(tooltip, node, build)
 			-- Power debugging info
 			tooltip:AddLine(16, string.format("DPS power: %g   Defence power: %g", node.power.offence, node.power.defence))
 		end
+	end
+
+	-- add position dev info
+	if launch.devModeAlt then
+		tooltip:AddSeparator(14)
+		tooltip:AddLine(16, string.format("^7Position: %d, %d", node.x, node.y))
+		tooltip:AddLine(16, string.format("Angle: %f", node.angle))
+		tooltip:AddLine(16, string.format("Orbit: %d, Orbit Index: %d", node.orbit, node.orbitIndex))
+		tooltip:AddLine(16, string.format("Group: %d", node.g))
+		tooltip:AddSeparator(14)
+
+		-- add conection info for debugging
+		for _, connection in ipairs(node.connections) do
+			tooltip:AddLine(16, string.format("^7Connection: %d, Orbit: %d", connection.id, connection.orbit))
+		end
+
+		tooltip:AddSeparator(14)
 	end
 
 	local function addModInfoToTooltip(node, i, line)

@@ -1,0 +1,7 @@
+-- Item data (c) Grinding Gear Games
+local itemBases = ...
+
+#type Sceptre
+#influenceBaseTag sceptre
+#socketLimit 0
+#baseMatch BaseType Metadata/Items/Sceptres/AbstractSceptre

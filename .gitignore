@@ -25,9 +25,15 @@ manifest-updated.xml
 # GGPK Export
 src/Export/ggpk/metadata/
 src/Export/ggpk/data/
+src/Export/ggpk/art/
 src/Export/ggpk/*.exe
 src/Export/ggpk/*.dll
 
+#tree data
+src/TreeData/**/*.scm
+src/TreeData/**/*.txt
+src/TreeData/**/*.bat
+ 
 # PoB Trader
 *_currency_values.json
 
@@ -36,3 +42,4 @@ src/Data/TimelessJewelData/*.bin
 
 # Simplegraphic Debugging
 runtime/imgui.ini
+

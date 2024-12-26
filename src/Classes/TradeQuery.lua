@@ -429,12 +429,6 @@ Highest Weight - Displays the order retrieved from trade]]
 	local slotTables = {}
 	for _, slotName in ipairs(baseSlots) do
 		t_insert(slotTables, { slotName = slotName })
-		-- add abyssal sockets to slotTables if exist for this slot
-		if activeAbyssalSockets[slotName] then
-			for _, abyssalSocket in pairs(activeAbyssalSockets[slotName]) do
-				t_insert(slotTables, { slotName = abyssalSocket.label, fullName = abyssalSocket.slotName }) -- actual slotName doesn't fit/excessive in slotName on popup but is needed for exact matching later
-			end
-		end
 	end
 	local activeSocketList = { }
 	for nodeId, slot in pairs(self.itemsTab.sockets) do

@@ -235,6 +235,7 @@ function wipeEnv(env, accelerate)
 		wipeTable(env.player.itemList)
 		wipeTable(env.grantedSkillsItems)
 		wipeTable(env.flasks)
+		wipeTable(env.charms)
 
 		-- Special / Unique Items that have their own ModDB()
 		if env.aegisModList then
@@ -405,6 +406,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 		env.explodeSources = { }
 		env.itemWarnings = { }
 		env.flasks = { }
+		env.charms = { }
 
 		-- tree based
 		env.grantedPassives = { }
@@ -458,12 +460,13 @@ function calcs.initEnv(build, mode, override, specEnv)
 		end
 		modDB.multipliers["Level"] = m_max(1, m_min(100, build.characterLevel))
 		calcs.initModDB(env, modDB)
-		modDB:NewMod("Life", "BASE", 12, "Base", { type = "Multiplier", var = "Level", base = 38 })
-		modDB:NewMod("Mana", "BASE", 6, "Base", { type = "Multiplier", var = "Level", base = 34 })
-		modDB:NewMod("ManaRegen", "BASE", 0.0175, "Base", { type = "PerStat", stat = "Mana", div = 1 })
+		modDB:NewMod("Life", "BASE", 12, "Base", { type = "Multiplier", var = "Level", base = 16 })
+		modDB:NewMod("Mana", "BASE", 4, "Base", { type = "Multiplier", var = "Level", base = 30 })
+		modDB:NewMod("ManaRegen", "BASE", 0.04, "Base", { type = "PerStat", stat = "Mana", div = 1 })
+		modDB:NewMod("Spirit", "BASE", 0, "Base")
 		modDB:NewMod("Devotion", "BASE", 0, "Base")
-		modDB:NewMod("Evasion", "BASE", 15, "Base")
-		modDB:NewMod("Accuracy", "BASE", 2, "Base", { type = "Multiplier", var = "Level", base = -2 })
+		modDB:NewMod("Evasion", "BASE", 30, "Base")
+		modDB:NewMod("Accuracy", "BASE", 3, "Base", { type = "Multiplier", var = "Level", base = -3 })
 		modDB:NewMod("CritMultiplier", "BASE", 50, "Base")
 		modDB:NewMod("DotMultiplier", "BASE", 50, "Base", { type = "Condition", var = "CriticalStrike" })
 		modDB:NewMod("FireResist", "BASE", env.configInput.resistancePenalty or -60, "Base")
@@ -510,8 +513,10 @@ function calcs.initEnv(build, mode, override, specEnv)
 		modDB:NewMod("PerAfflictionAilmentDamage", "BASE", 8, "Base")
 		modDB:NewMod("PerAfflictionNonDamageEffect", "BASE", 8, "Base")
 		modDB:NewMod("PerAbsorptionElementalEnergyShieldRecoup", "BASE", 12, "Base")
+		modDB:NewMod("CharmLimit", "BASE", 0, "Base")
 		modDB:NewMod("ManaDegenPercent", "BASE", 1, "Base", { type = "Multiplier", var = "EffectiveManaBurnStacks" })
 		modDB:NewMod("LifeDegenPercent", "BASE", 1, "Base", { type = "Multiplier", var = "WeepingWoundsStacks" })
+		modDB:NewMod("WeaponSwapSpeed", "BASE", 250, "Base")  -- 250ms
 
 		-- Add bandit mods
 		if env.configInput.bandit == "Alira" then
@@ -826,17 +831,13 @@ function calcs.initEnv(build, mode, override, specEnv)
 					end
 				end
 				item = nil
+			elseif item and item.type == "Charm" then
+				if slot.active then
+					env.charms[item] = true
+				end
+				item = nil
 			end
 			local scale = 1
-			if item and item.type == "Jewel" and item.base.subType == "Abyss" and slot.parentSlot then
-				-- Check if the item in the parent slot has enough Abyssal Sockets
-				local parentItem = env.player.itemList[slot.parentSlot.slotName]
-				if not parentItem or parentItem.abyssalSocketCount < slot.slotNum then
-					item = nil
-				else
-					scale = parentItem.socketedJewelEffectModifier
-				end
-			end
 			if slot.nodeId and item and item.type == "Jewel" and item.jewelData and item.jewelData.jewelIncEffectFromClassStart then
 				local node = env.spec.nodes[slot.nodeId]
 				if node and node.distanceToClassStart then
@@ -905,10 +906,8 @@ function calcs.initEnv(build, mode, override, specEnv)
 						item.classRequirementModLines = { }
 						item.buffModLines = { }
 						item.enchantModLines = { }
-						item.scourgeModLines = { }
 						item.implicitModLines = { }
 						item.explicitModLines = { }
-						item.crucibleModLines = { }
 						item.quality = 0
 						item.rarity = "NORMAL"
 						if item.baseName.implicit then
@@ -922,7 +921,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 						item:NormaliseQuality()
 						item:BuildAndParseRaw()
 						item.sockets = previousItem.sockets
-						item.abyssalSocketCount = previousItem.abyssalSocketCount
+						item.itemSocketCount = previousItem.itemSocketCount
 						env.player.itemList[slotName] = item
 					else
 						env.itemModDB:ScaleAddList(srcList, scale)
@@ -965,15 +964,10 @@ function calcs.initEnv(build, mode, override, specEnv)
 					end
 				elseif item.name:match("Kalandra's Touch") then
 					-- Reset mult counters since they don't work for kalandra
-					for mult, property in pairs({["CorruptedItem"] = "corrupted", ["ShaperItem"] = "shaper", ["ElderItem"] = "elder"}) do
-						if item[property] then
-							env.itemModDB.multipliers[mult] = (env.itemModDB.multipliers[mult] or 0) - 1
-						else
-							env.itemModDB.multipliers["Non"..mult] = (env.itemModDB.multipliers["Non"..mult] or 0) + 1
-						end
-					end
-					if item.shaper or item.elder then
-						env.itemModDB.multipliers.ShaperOrElderItem = (env.itemModDB.multipliers.ShaperOrElderItem or 0) - 1
+					if item["corrupted"] then
+						env.itemModDB.multipliers["CorruptedItem"] = (env.itemModDB.multipliers["CorruptedItem"] or 0) - 1
+					else
+						env.itemModDB.multipliers["NonCorruptedItem"] = (env.itemModDB.multipliers["NonCorruptedItem"] or 0) + 1
 					end
 					local otherRing = items[(slotName == "Ring 1" and "Ring 2") or (slotName == "Ring 2" and "Ring 1")]
 					if otherRing and not otherRing.name:match("Kalandra's Touch") then
@@ -992,14 +986,10 @@ function calcs.initEnv(build, mode, override, specEnv)
 							::skip_mod::
 						end
 						-- Adjust multipliers based on other ring
-						for mult, property in pairs({["CorruptedItem"] = "corrupted", ["ShaperItem"] = "shaper", ["ElderItem"] = "elder"}) do
-							if otherRing[property] then
-								env.itemModDB.multipliers[mult] = (env.itemModDB.multipliers[mult] or 0) + 1
-								env.itemModDB.multipliers["Non"..mult] = (env.itemModDB.multipliers["Non"..mult] or 0) - 1
-							end
-						end
-						if otherRing.elder or otherRing.shaper then
-							env.itemModDB.multipliers.ShaperOrElderItem = (env.itemModDB.multipliers.ShaperOrElderItem or 0) + 1
+						if item["corrupted"] then
+							env.itemModDB.multipliers["CorruptedItem"] = (env.itemModDB.multipliers["CorruptedItem"] or 0) + 1
+						else
+							env.itemModDB.multipliers["NonCorruptedItem"] = (env.itemModDB.multipliers["NonCorruptedItem"] or 0) - 1
 						end
 					end
 
@@ -1025,6 +1015,42 @@ function calcs.initEnv(build, mode, override, specEnv)
 						combinedList:MergeMod(mod)
 					end	
 					env.itemModDB:ScaleAddList(combinedList, scale)
+				elseif (item.type == "Rune" or item.type == "SoulCore") and slot.parentSlot then
+					-- Check if the item in the parent slot has enough Rune / SoulCore Sockets
+					local slotName = slot.parentSlot.slotName
+					local parentItem = env.player.itemList[slotName]
+					if parentItem then
+						for _, mod in ipairs(srcList) do
+							for _, tag in ipairs(mod) do
+								if tag.type == "SocketedIn" then
+									if tag.slotType == "Armour" then
+										if slotName == "Helmet" or slotName == "Body Armour" or slotName == "Gloves" or slotName == "Boots"
+											or parentItem.weaponData and (parentItem.weaponData[2].type == "Shield" or parentItem.weaponData[2].type == "Focus") then
+											local modCopy = copyTable(mod)
+											modCopy[1] = nil
+											modLib.setSource(modCopy, item.modSource)
+											env.itemModDB:ScaleAddMod(modCopy, scale)
+										end
+									elseif tag.slotType == "Martial Weapons" then
+										local type = nil
+										local subtype = nil
+										if slotName:match("Weapon") then
+											type = parentItem.weaponData and parentItem.weaponData[1].type
+											subtype = parentItem.weaponData and parentItem.weaponData[1].subType or nil
+										elseif slotName:match("Offhand") then
+											type = parentItem.weaponData and parentItem.weaponData[2].type
+											subtype = parentItem.weaponData and parentItem.weaponData[2].subType or nil
+										end
+										if type and (type == "Dagger" or type == "Bow" or type == "Crossbow" or type == "Spear" or type == "Claw"
+											or type:match("Axe") or type:match("Mace") or type:match("Sword") or type:match("Flail") 
+											or (subtype and subtype == "Warstaff") or type == "Fishing Rod") then
+											env.itemModDB:ScaleAddMod(mod, scale)
+										end
+									end
+								end
+							end
+						end
+					end
 				else
 					env.itemModDB:ScaleAddList(srcList, scale)
 				end
@@ -1032,7 +1058,13 @@ function calcs.initEnv(build, mode, override, specEnv)
 				if item.classRestriction then
 					env.itemModDB.conditions[item.title:gsub(" ", "")] = item.classRestriction
 				end
-				if item.type ~= "Jewel" and item.type ~= "Flask" then
+				if item.charmLimit then
+					env.modDB:NewMod("CharmLimit", "BASE", item.charmLimit, item.title)
+				end
+				if item.spiritValue then
+					env.modDB:NewMod("Spirit", "BASE", item.spiritValue, item.title)
+				end
+				if item.type ~= "Jewel" and item.type ~= "Flask" and item.type ~= "Charm" then
 					-- Update item counts
 					local key
 					if item.rarity == "UNIQUE" or item.rarity == "RELIC" then
@@ -1046,16 +1078,12 @@ function calcs.initEnv(build, mode, override, specEnv)
 					end
 					env.itemModDB.multipliers[key] = (env.itemModDB.multipliers[key] or 0) + 1
 					env.itemModDB.conditions[key .. "In" .. slotName] = true
-					for mult, property in pairs({["CorruptedItem"] = "corrupted", ["ShaperItem"] = "shaper", ["ElderItem"] = "elder"}) do
-						if item[property] then
-							env.itemModDB.multipliers[mult] = (env.itemModDB.multipliers[mult] or 0) + 1
-						else
-							env.itemModDB.multipliers["Non"..mult] = (env.itemModDB.multipliers["Non"..mult] or 0) + 1
-						end
+					if item["corrupted"] then
+						env.itemModDB.multipliers["CorruptedItem"] = (env.itemModDB.multipliers["CorruptedItem"] or 0) + 1
+					else
+						env.itemModDB.multipliers["NonCorruptedItem"] = (env.itemModDB.multipliers["NonCorruptedItem"] or 0) + 1
 					end
-					if item.shaper or item.elder then
-						env.itemModDB.multipliers.ShaperOrElderItem = (env.itemModDB.multipliers.ShaperOrElderItem or 0) + 1
-					end
+
 					env.itemModDB.multipliers[item.type:gsub(" ", ""):gsub(".+Handed", "").."Item"] = (env.itemModDB.multipliers[item.type:gsub(" ", ""):gsub(".+Handed", "").."Item"] or 0) + 1
 					-- Calculate socket counts
 					local slotEmptySocketsCount = { R = 0, G = 0, B = 0, W = 0}	
@@ -1071,21 +1099,6 @@ function calcs.initEnv(build, mode, override, specEnv)
 							end
 						end
 					end
-					for i, socket in ipairs(item.sockets) do
-						-- Check socket color to ignore abyssal sockets
-						if socket.color == 'R' or socket.color == 'B' or socket.color == 'G' or socket.color == 'W' then
-							slotGemSocketsCount = slotGemSocketsCount + 1
-							-- loop through sockets indexes that are greater than number of socketed gems
-							if i > socketedGems then
-								slotEmptySocketsCount[socket.color] = slotEmptySocketsCount[socket.color] + 1
-							end
-						end
-					end
-					env.itemModDB.multipliers["SocketedGemsIn"..slotName] = (env.itemModDB.multipliers["SocketedGemsIn"..slotName] or 0) + math.min(slotGemSocketsCount, socketedGems)
-					env.itemModDB.multipliers.EmptyRedSocketsInAnySlot = (env.itemModDB.multipliers.EmptyRedSocketsInAnySlot or 0) + slotEmptySocketsCount.R
-					env.itemModDB.multipliers.EmptyGreenSocketsInAnySlot = (env.itemModDB.multipliers.EmptyGreenSocketsInAnySlot or 0) + slotEmptySocketsCount.G
-					env.itemModDB.multipliers.EmptyBlueSocketsInAnySlot = (env.itemModDB.multipliers.EmptyBlueSocketsInAnySlot or 0) + slotEmptySocketsCount.B
-					env.itemModDB.multipliers.EmptyWhiteSocketsInAnySlot = (env.itemModDB.multipliers.EmptyWhiteSocketsInAnySlot or 0) + slotEmptySocketsCount.W
 					-- Warn if socketed gems over socket limit
 					if socketedGems > slotGemSocketsCount then
 						env.itemWarnings.socketLimitWarning = env.itemWarnings.socketLimitWarning or { }
@@ -1104,6 +1117,13 @@ function calcs.initEnv(build, mode, override, specEnv)
 				env.flasks[override.toggleFlask] = nil
 			else
 				env.flasks[override.toggleFlask] = true
+			end
+		end
+		if override.toggleCharm then
+			if env.charms[override.toggleCharm] then
+				env.charms[override.toggleCharm] = nil
+			else
+				env.charms[override.toggleCharm] = true
 			end
 		end
 	end
@@ -1617,7 +1637,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 		if not env.player.mainSkill then
 			-- Add a default main skill if none are specified
 			local defaultEffect = {
-				grantedEffect = env.data.skills.Melee,
+				grantedEffect = env.data.skills.MeleeUnarmedPlayer,
 				level = 1,
 				quality = 0,
 				enabled = true,

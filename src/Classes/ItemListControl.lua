@@ -43,7 +43,7 @@ local ItemListClass = newClass("ItemListControl", "ListControl", function(self, 
 	self.controls.deleteUnused = new("ButtonControl", {"RIGHT",self.controls.deleteAll,"LEFT"}, {-4, 0, 100, 18}, "Delete Unused", function()
 		local delList = {}
 		for _, itemId in pairs(self.list) do
-			if not itemsTab:GetEquippedSlotForItem(itemsTab.items[itemId]) and not self:FindEquippedAbyssJewel(itemId, false) and not self:FindSocketedJewel(itemId, false) then
+			if not itemsTab:GetEquippedSlotForItem(itemsTab.items[itemId]) and not self:FindEquippedItemSocket(itemId, false) and not self:FindSocketedJewel(itemId, false) then
 				t_insert(delList, itemId)
 			end
 		end
@@ -90,15 +90,15 @@ function ItemListClass:FindSocketedJewel(jewelId, excludeActiveSpec)
 	return equipTree
 end
 
-function ItemListClass:FindEquippedAbyssJewel(jewelId, excludeActiveSet)
-	if not self.itemsTab.items[jewelId] or self.itemsTab.items[jewelId].base.subType ~= "Abyss" then
+function ItemListClass:FindEquippedItemSocket(socketId, excludeActiveSet)
+	if not self.itemsTab.items[socketId] or self.itemsTab.items[socketId].type ~= "Rune" or self.itemsTab.items[socketId].type ~= "SoulCore" then
 		return nil
 	end
 	local equipSet = nil
 	local matchActive = false
 	for _, itemSet in pairs(self.itemsTab.itemSets) do
 		for slotName, slot in pairs(itemSet) do
-			if type(slot) == "table" and slot.selItemId == jewelId then
+			if type(slot) == "table" and slot.selItemId == socketId then
 				if excludeActiveSet and (itemSet == self.itemsTab.activeItemSet or matchActive) then
 					equipSet = nil
 					matchActive = true
@@ -114,7 +114,7 @@ end
 function ItemListClass:GetRowValue(column, index, itemId)
 	local item = self.itemsTab.items[itemId]
 	if column == 1 then
-		local used = self:FindEquippedAbyssJewel(itemId, true) or self:FindSocketedJewel(itemId, true) or ""
+		local used = self:FindEquippedItemSocket(itemId, true) or self:FindSocketedJewel(itemId, true) or ""
 		if used == "" then
 			local slot, itemSet = self.itemsTab:GetEquippedSlotForItem(item)
 			if not slot then
@@ -206,10 +206,10 @@ function ItemListClass:OnSelDelete(index, itemId)
 			self.selValue = nil
 		end)
 	else
-		local equipSet = self:FindEquippedAbyssJewel(itemId, true)
+		local equipSet = self:FindEquippedItemSocket(itemId, true)
 		if equipSet then
 			local inSet = equipSet and (" in set '"..(equipSet.title or "Default").."'") or ""
-			main:OpenConfirmPopup("Delete Item", item.name.." is currently equipped in an Abyssal Socket"..inSet..".\nAre you sure you want to delete it?", "Delete", function()
+			main:OpenConfirmPopup("Delete Item", item.name.." is currently equipped in a Socket"..inSet..".\nAre you sure you want to delete it?", "Delete", function()
 				self.itemsTab:DeleteItem(item)
 				self.selIndex = nil
 				self.selValue = nil

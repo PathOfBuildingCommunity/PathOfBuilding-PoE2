@@ -2,78 +2,56 @@
 -- Item data (c) Grinding Gear Games
 local itemBases = ...
 
-itemBases["Crimson Jewel"] = {
+itemBases["Ruby"] = {
 	type = "Jewel",
-	tags = { strjewel = true, not_dex = true, not_for_sale = true, not_int = true, jewel = true, default = true, },
+	tags = { strjewel = true, jewel = true, default = true, },
 	implicitModTypes = { },
 	req = { },
 }
-itemBases["Viridian Jewel"] = {
+itemBases["Emerald"] = {
 	type = "Jewel",
-	tags = { dexjewel = true, not_for_sale = true, jewel = true, not_int = true, not_str = true, default = true, },
+	tags = { dexjewel = true, jewel = true, default = true, },
 	implicitModTypes = { },
 	req = { },
 }
-itemBases["Cobalt Jewel"] = {
+itemBases["Sapphire"] = {
 	type = "Jewel",
-	tags = { not_dex = true, not_for_sale = true, intjewel = true, not_str = true, jewel = true, default = true, },
+	tags = { jewel = true, intjewel = true, default = true, },
 	implicitModTypes = { },
 	req = { },
 }
-itemBases["Prismatic Jewel"] = {
+itemBases["Diamond"] = {
 	type = "Jewel",
-	tags = { dexjewel = true, not_for_sale = true, strjewel = true, jewel = true, default = true, intjewel = true, },
-	implicitModTypes = { },
-	req = { },
-}
-
-itemBases["Ghastly Eye Jewel"] = {
-	type = "Jewel",
-	subType = "Abyss",
-	tags = { abyss_jewel = true, default = true, abyss_jewel_summoner = true, not_for_sale = true, },
-	implicitModTypes = { },
-	req = { },
-}
-itemBases["Hypnotic Eye Jewel"] = {
-	type = "Jewel",
-	subType = "Abyss",
-	tags = { abyss_jewel = true, abyss_jewel_caster = true, default = true, not_for_sale = true, },
-	implicitModTypes = { },
-	req = { },
-}
-itemBases["Murderous Eye Jewel"] = {
-	type = "Jewel",
-	subType = "Abyss",
-	tags = { abyss_jewel = true, abyss_jewel_melee = true, default = true, not_for_sale = true, },
-	implicitModTypes = { },
-	req = { },
-}
-itemBases["Searching Eye Jewel"] = {
-	type = "Jewel",
-	subType = "Abyss",
-	tags = { abyss_jewel = true, abyss_jewel_ranged = true, default = true, not_for_sale = true, },
+	tags = { jewel = true, not_for_sale = true, default = true, },
 	implicitModTypes = { },
 	req = { },
 }
 
-itemBases["Large Cluster Jewel"] = {
+itemBases["Time-Lost Ruby"] = {
 	type = "Jewel",
-	subType = "Cluster",
-	tags = { not_for_sale = true, jewel = true, expansion_jewel_large = true, default = true, },
+	subType = "Radius",
+	tags = { str_radius_jewel = true, not_for_sale = true, jewel = true, radius_jewel = true, default = true, },
 	implicitModTypes = { },
 	req = { },
 }
-itemBases["Medium Cluster Jewel"] = {
+itemBases["Time-Lost Emerald"] = {
 	type = "Jewel",
-	subType = "Cluster",
-	tags = { expansion_jewel_medium = true, jewel = true, not_for_sale = true, default = true, },
+	subType = "Radius",
+	tags = { not_for_sale = true, jewel = true, dex_radius_jewel = true, radius_jewel = true, default = true, },
 	implicitModTypes = { },
 	req = { },
 }
-itemBases["Small Cluster Jewel"] = {
+itemBases["Time-Lost Sapphire"] = {
 	type = "Jewel",
-	subType = "Cluster",
-	tags = { not_for_sale = true, jewel = true, expansion_jewel_small = true, default = true, },
+	subType = "Radius",
+	tags = { not_for_sale = true, radius_jewel = true, jewel = true, int_radius_jewel = true, default = true, },
+	implicitModTypes = { },
+	req = { },
+}
+itemBases["Time-Lost Diamond"] = {
+	type = "Jewel",
+	subType = "Radius",
+	tags = { not_for_sale = true, jewel = true, radius_jewel = true, default = true, },
 	implicitModTypes = { },
 	req = { },
 }
@@ -82,31 +60,6 @@ itemBases["Timeless Jewel"] = {
 	type = "Jewel",
 	subType = "Timeless",
 	tags = { dexjewel = true, not_for_sale = true, strjewel = true, jewel = true, default = true, intjewel = true, },
-	implicitModTypes = { },
-	req = { },
-}
-
-itemBases["Ursine Charm"] = {
-	type = "Jewel",
-	subType = "Charm",
-	hidden = true,
-	tags = { animal_charm = true, str_animal_charm = true, default = true, },
-	implicitModTypes = { },
-	req = { },
-}
-itemBases["Lupine Charm"] = {
-	type = "Jewel",
-	subType = "Charm",
-	hidden = true,
-	tags = { animal_charm = true, dex_animal_charm = true, default = true, },
-	implicitModTypes = { },
-	req = { },
-}
-itemBases["Corvine Charm"] = {
-	type = "Jewel",
-	subType = "Charm",
-	hidden = true,
-	tags = { animal_charm = true, int_animal_charm = true, default = true, },
 	implicitModTypes = { },
 	req = { },
 }

@@ -600,16 +600,6 @@ function ModStoreClass:EvalMod(mod, cfg)
 					t_insert(matches, item.corrupted == tag.corruptedCond)
 				end
 			end
-			if tag.shaperCond then
-				for _, item in pairs(items) do
-					t_insert(matches, item.shaper == tag.shaperCond)
-				end
-			end
-			if tag.elderCond then
-				for _, item in pairs(items) do
-					t_insert(matches, item.elder == tag.elderCond)
-				end
-			end
 
 			local hasItems = false
 			for _, item in pairs(items) do
@@ -628,7 +618,7 @@ function ModStoreClass:EvalMod(mod, cfg)
 				return
 			end
 		elseif tag.type == "SocketedIn" then
-			if not cfg or (not tag.slotName and not tag.keyword and not tag.socketColor) then
+			if not cfg or (not tag.slotName and not tag.keyword and not tag.socketColor and not tag.slotType) then
 				return
 			else
 				local function isValidSocket(sockets, targetSocket)
@@ -641,7 +631,9 @@ function ModStoreClass:EvalMod(mod, cfg)
 				end
 				
 				local match = {}
-				if tag.slotName then
+				if tag.slotType then
+					match["slotType"] = true  -- implemented in CalcSetup.lua
+				elseif tag.slotName then
 					match["slotName"] = (tag.slotName == cfg.slotName) or false
 				end
 				if tag.keyword then

@@ -858,6 +858,30 @@ function TreeTabClass:ModifyNodePopup(selectedNode)
 	controls.showLegacyTattoo.state = self.showLegacyTattoo
 end
 
+function TreeTabClass:ModifyAttributePopup(hoverNode)
+	local controls = { }
+	local spec = self.build.spec
+	local attributes = { "Strength", "Dexterity", "Intelligence" }
+	
+	controls.attrSelect = new("DropDownControl", {"TOPLEFT",nil,"TOPLEFT"}, {200, 30, 100, 18}, attributes, nil)
+	controls.save = new("ButtonControl", nil, {-50, 65, 80, 20}, "Allocate", function()
+		spec:SwitchAttributeNode(hoverNode.id, controls.attrSelect.selIndex)
+		spec.attributeIndex = controls.attrSelect.selIndex
+		spec:AllocNode(hoverNode, spec.tracePath and hoverNode == spec.tracePath[#spec.tracePath] and spec.tracePath)
+		spec:AddUndoState()
+		self.build.buildFlag = true
+		main:ClosePopup()
+	end)
+	controls.close = new("ButtonControl", nil, {50, 65, 80, 20}, "Cancel", function()
+		spec:DeallocNode(hoverNode)
+		main:ClosePopup()
+	end)
+	controls.hotkeyTooltip = new("LabelControl", nil, {0, 100, 0, 16}, 
+		"^8You can switch attributes quicker by holding hotkeys while allocating:\n"..colorCodes.INTELLIGENCE.."\"1\" or \"I\" for Intelligence, "
+		..colorCodes.STRENGTH.."\"2\" or \"S\" for Strength, "..colorCodes.DEXTERITY.."\"3\" or \"D\" for Dexterity")
+	main:OpenPopup(500, 150, "Choose Attribute", controls, "save")
+end
+
 function TreeTabClass:SaveMasteryPopup(node, listControl)
 		if listControl.selValue == nil then
 			return

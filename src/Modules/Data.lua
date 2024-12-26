@@ -28,15 +28,20 @@ local itemTypes = {
 	"axe",
 	"bow",
 	"claw",
+	"crossbow",
 	"dagger",
 	"fishing",
+	"flail",
+	"focus",
 	"mace",
+	"spear",
 	"staff",
+	"sceptre",
 	"sword",
 	"wand",
-	"helmet",
 	"body",
 	"gloves",
+	"helmet",
 	"boots",
 	"shield",
 	"quiver",
@@ -45,6 +50,7 @@ local itemTypes = {
 	"belt",
 	"jewel",
 	"flask",
+	"soulcore",
 }
 
 local function makeSkillMod(modName, modType, modVal, flags, keywordFlags, ...)
@@ -145,7 +151,7 @@ data.powerStatList = {
 data.misc = { -- magic numbers
 	ServerTickTime = 0.033,
 	ServerTickRate = 1 / 0.033,
-	AccuracyPerDexBase = 2,
+	AccuracyPerDexBase = 5,
 	LowPoolThreshold = 0.5,
 	TemporalChainsEffectCap = 75,
 	BuffExpirationSlowCap = 0.25,
@@ -158,8 +164,8 @@ data.misc = { -- magic numbers
 	SuppressionChanceCap = 100,
 	SuppressionEffect = 50,
 	AvoidChanceCap = 75,
-	EnergyShieldRechargeBase = 0.33,
-	EnergyShieldRechargeDelay = 2,
+	EnergyShieldRechargeBase = 0.125,
+	EnergyShieldRechargeDelay = 4,
 	WardRechargeDelay = 2,
 	Transfiguration = 0.3,
 	EnemyMaxResist = 75,
@@ -454,7 +460,6 @@ data.weaponTypeInfo = {
 	["One Handed Axe"] = { oneHand = true, melee = true, flag = "Axe" },
 	["One Handed Mace"] = { oneHand = true, melee = true, flag = "Mace" },
 	["One Handed Sword"] = { oneHand = true, melee = true, flag = "Sword" },
-	["Sceptre"] = { oneHand = true, melee = true, flag = "Mace", label = "Sceptre" },
 	["Thrusting One Handed Sword"] = { oneHand = true, melee = true, flag = "Sword", label = "One Handed Sword" },
 	["Fishing Rod"] = { oneHand = false, melee = true, flag = "Fishing" },
 	["Two Handed Axe"] = { oneHand = false, melee = true, flag = "Axe" },
@@ -542,11 +547,7 @@ data.itemMods = {
 	Item = LoadModule("Data/ModItem"),
 	Flask = LoadModule("Data/ModFlask"),
 	Jewel = LoadModule("Data/ModJewel"),
-	JewelAbyss = LoadModule("Data/ModJewelAbyss"),
-	JewelCluster = LoadModule("Data/ModJewelCluster"),
-	JewelCharm = LoadModule("Data/ModJewelCharm"),
 }
-data.masterMods = LoadModule("Data/ModMaster")
 data.enchantments = {
 	["Helmet"] = LoadModule("Data/EnchantmentHelmet"),
 	["Boots"] = LoadModule("Data/EnchantmentBoots"),
@@ -574,11 +575,6 @@ do
 		end
 	end					
 end
-data.essences = LoadModule("Data/Essence")
-data.veiledMods = LoadModule("Data/ModVeiled")
-data.necropolisMods = LoadModule("Data/ModNecropolis")
-data.crucible = LoadModule("Data/Crucible")
-data.pantheons = LoadModule("Data/Pantheons")
 data.costs = LoadModule("Data/Costs")
 do
 	local map = { }
@@ -707,80 +703,6 @@ data.itemTagSpecialExclusionPattern = {
 		},
 	},
 }
-
--- Cluster jewel data
-data.clusterJewels = LoadModule("Data/ClusterJewels")
-
--- Create a quick lookup cache from cluster jewel skill to the notables which use that skill
----@type table<string, table<string>>
-local clusterSkillToNotables = { }
-for notableKey, notableInfo in pairs(data.itemMods.JewelCluster) do
-	-- Translate the notable key to its name
-	local notableName = notableInfo[1] and notableInfo[1]:match("1 Added Passive Skill is (.*)")
-	if notableName then
-		for weightIndex, clusterSkill in pairs(notableInfo.weightKey) do
-			if notableInfo.weightVal[weightIndex] > 0 then
-				if not clusterSkillToNotables[clusterSkill] then
-					clusterSkillToNotables[clusterSkill] = { }
-				end
-				table.insert(clusterSkillToNotables[clusterSkill], notableName)
-			end
-		end
-	end
-end
-
--- Create easy lookup from cluster node name -> cluster jewel size and types
-data.clusterJewelInfoForNotable = { }
-for size, jewel in pairs(data.clusterJewels.jewels) do
-	for skill, skillInfo in pairs(jewel.skills) do
-		local notables = clusterSkillToNotables[skill]
-		if notables then
-			for _, notableKey in ipairs(notables) do
-				if not data.clusterJewelInfoForNotable[notableKey] then
-					data.clusterJewelInfoForNotable[notableKey] = { }
-					data.clusterJewelInfoForNotable[notableKey].jewelTypes = { }
-					data.clusterJewelInfoForNotable[notableKey].size = { }
-				end
-				local curJewelInfo = data.clusterJewelInfoForNotable[notableKey]
-				curJewelInfo.size[size] = true
-				table.insert(curJewelInfo.jewelTypes, skill)
-			end
-		end
-	end
-end
-
-data.timelessJewelTypes = {
-	[1] = "Glorious Vanity",
-	[2] = "Lethal Pride",
-	[3] = "Brutal Restraint",
-	[4] = "Militant Faith",
-	[5] = "Elegant Hubris",
-}
-data.timelessJewelSeedMin = {
-	[1] = 100,
-	[2] = 10000,
-	[3] = 500,
-	[4] = 2000,
-	[5] = 2000 / 20,
-}
-data.timelessJewelSeedMax = {
-	[1] = 8000,
-	[2] = 18000,
-	[3] = 8000,
-	[4] = 10000,
-	[5] = 160000 / 20,
-}
-data.timelessJewelTradeIDs = LoadModule("Data/TimelessJewelData/LegionTradeIds")
-data.timelessJewelAdditions = 94 -- #legionAdditions
-data.nodeIDList = LoadModule("Data/TimelessJewelData/NodeIndexMapping")
-data.timelessJewelLUTs = { }
-data.readLUT, data.repairLUTs = LoadModule("Modules/DataLegionLookUpTableHelper")
-
--- this runs if the "size" key is missing from nodeIDList and attempts to rebuild all jewel LUTs and the nodeIDList
--- note this should only run in dev mode
-if not data.nodeIDList.size and launch.devMode then
-	-- data.nodeIDList = data.repairLUTs()
-end
 
 -- Load bosses
 do 
@@ -1034,51 +956,7 @@ end
 table.sort(data.itemBaseTypeList)
 
 -- Rare templates
-data.rares = LoadModule("Data/Rares")
-
-data.casterTagCrucibleUniques = {
-	["Atziri's Rule"] = true,
-	["Cane of Kulemak"] = true,
-	["Cane of Unravelling"] = true,
-	["Cospri's Malice"] = true,
-	["Cybil's Paw"] = true,
-	["Disintegrator"] = true,
-	["Duskdawn"] = true,
-	["Geofri's Devotion"] = true,
-	["Mjolner"] = true,
-	["Pledge of Hands"] = true,
-	["Soulwrest"] = true,
-	["Taryn's Shiver"] = true,
-	["The Rippling Thoughts"] = true,
-	["The Surging Thoughts"] = true,
-	["The Whispering Ice"] = true,
-	["Tremor Rod"] = true,
-	["Xirgil's Crank"] = true,
-}
-data.minionTagCrucibleUniques = {
-	["Arakaali's Fang"] = true,
-	["Ashcaller"] = true,
-	["Chaber Cairn"] = true,
-	["Chober Chaber"] = true,
-	["Clayshaper"] = true,
-	["Earendel's Embrace"] = true,
-	["Femurs of the Saints"] = true,
-	["Jorrhast's Blacksteel"] = true,
-	["Law of the Wilds"] = true,
-	["Midnight Bargain"] = true,
-	["Mon'tregul's Grasp"] = true,
-	["Null's Inclination"] = true,
-	["Queen's Decree"] = true,
-	["Queen's Escape"] = true,
-	["Replica Earendel's Embrace"] = true,
-	["Replica Midnight Bargain"] = true,
-	["Severed in Sleep"] = true,
-	["Soulwrest"] = true,
-	["The Black Cane"] = true,
-	["The Iron Mass"] = true,
-	["The Scourge"] = true,
-	["United in Dream"] = true,
-}
+--data.rares = LoadModule("Data/Rares")
 
 -- Uniques (loaded after version-specific data because reasons)
 data.uniques = { }
@@ -1086,19 +964,5 @@ for _, type in pairs(itemTypes) do
 	data.uniques[type] = LoadModule("Data/Uniques/"..type)
 end
 data.uniques['race'] = LoadModule("Data/Uniques/Special/race")
-data.uniqueMods = { }
-data.uniqueMods["Watcher's Eye"] = { }
-local unsortedMods = LoadModule("Data/Uniques/Special/WatchersEye")
-local sortedMods = { }
-for modId in pairs(unsortedMods) do
-	table.insert(sortedMods, modId)
-end
-table.sort(sortedMods)
-for _, modId in ipairs(sortedMods) do
-	table.insert(data.uniqueMods["Watcher's Eye"], {
-		Id = modId,
-		mod = unsortedMods[modId],
-	})
-end
 LoadModule("Data/Uniques/Special/Generated")
 LoadModule("Data/Uniques/Special/New")

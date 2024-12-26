@@ -1,0 +1,7 @@
+-- Item data (c) Grinding Gear Games
+local itemBases = ...
+
+#type Focus
+#socketLimit 2
+
+#baseMatch BaseType Metadata/Items/Armours/Focus/AbstractFocus

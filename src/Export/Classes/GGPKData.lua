@@ -31,14 +31,14 @@ end
 
 -- Path can be in any format recognized by the extractor at oozPath, ie,
 -- a .ggpk file or a Steam Path of Exile directory
-local GGPKClass = newClass("GGPKData", function(self, path, datPath)
+local GGPKClass = newClass("GGPKData", function(self, path, datPath, reExport)
 	if datPath then
 		self.oozPath = datPath:match("\\$") and datPath or (datPath .. "\\")
 	else
 		self.path = path
 		self.oozPath = io.popen("cd"):read('*l'):gsub('\r?', '') .. "\\ggpk\\"
-		self:CleanDir()
-		self:ExtractFiles()
+		self:CleanDir(reExport)
+		self:ExtractFiles(reExport)
 	end
 
 	self.dat = { }
@@ -51,55 +51,59 @@ local GGPKClass = newClass("GGPKData", function(self, path, datPath)
 	end
 end)
 
-function GGPKClass:CleanDir()
-	local cmd = 'del ' .. self.oozPath .. 'Data ' .. self.oozPath .. 'Metadata /Q /S'
+function GGPKClass:CleanDir(reExport)
+	if reExport then
+		local cmd = 'del ' .. self.oozPath .. 'Data ' .. self.oozPath .. 'Metadata /Q /S'
+		ConPrintf(cmd)
+		os.execute(cmd)
+	end
+end
+
+function GGPKClass:ExtractFilesWithBun(fileListStr, useRegex)
+	local useRegex = useRegex or false
+	local cmd = 'cd ' .. self.oozPath .. ' && bun_extract_file.exe extract-files ' .. (useRegex and '--regex "' or '"') .. self.path .. '" . ' .. fileListStr
 	ConPrintf(cmd)
 	os.execute(cmd)
 end
 
-function GGPKClass:ExtractFilesWithBun(fileListStr)
-	local cmd = 'cd ' .. self.oozPath .. ' && bun_extract_file.exe extract-files "' .. self.path .. '" . ' .. fileListStr
-	ConPrintf(cmd)
-	os.execute(cmd)
-end
+function GGPKClass:ExtractFiles(reExport)
+	if reExport then
+		local datList, csdList, itList = self:GetNeededFiles()
+		local sweetSpotCharacter = 6000
+		local fileList = ''
 
-function GGPKClass:ExtractFiles()
-	local datList, txtList, itList = self:GetNeededFiles()
-	local sweetSpotCharacter = 6000
-	local fileList = ''
-	for _, fname in ipairs(datList) do
-		if USE_DAT64 then
-			fileList = fileList .. '"' .. fname .. 'c64" '
-		else
+		for _, fname in ipairs(datList) do
+			if USE_DAT64 then
+				fileList = fileList .. '"' .. fname .. 'c64" '
+			else
+				fileList = fileList .. '"' .. fname .. '" '
+			end
+
+			if fileList:len() > sweetSpotCharacter then
+				self:ExtractFilesWithBun(fileList)
+				fileList = ''
+			end
+		end
+
+		for _, fname in ipairs(itList) do
 			fileList = fileList .. '"' .. fname .. '" '
+
+			if fileList:len() > sweetSpotCharacter then
+				self:ExtractFilesWithBun(fileList)
+				fileList = ''
+			end
 		end
 
-		if fileList:len() > sweetSpotCharacter then
+		if (fileList:len() > 0) then
 			self:ExtractFilesWithBun(fileList)
 			fileList = ''
 		end
-	end
 
-	for _, fname in ipairs(txtList) do
-		fileList = fileList .. '"' .. fname .. '" '
-
-		if fileList:len() > sweetSpotCharacter then
-			self:ExtractFilesWithBun(fileList)
-			fileList = ''
+		-- Special handlign for stat descriptions (CSD) as they
+		-- are regex based
+		for _, fname in ipairs(csdList) do
+			self:ExtractFilesWithBun('"' .. fname .. '"', true)
 		end
-	end
-
-	for _, fname in ipairs(itList) do
-		fileList = fileList .. '"' .. fname .. '" '
-
-		if fileList:len() > sweetSpotCharacter then
-			self:ExtractFilesWithBun(fileList)
-			fileList = ''
-		end
-	end
-
-	if (fileList:len() > 0) then
-		self:ExtractFilesWithBun(fileList)
 	end
 
 	-- Overwrite Enums
@@ -145,7 +149,6 @@ function GGPKClass:GetNeededFiles()
 		"Data/ShieldTypes.dat",
 		"Data/Flasks.dat",
 		"Data/ComponentCharges.dat",
-		"Data/ComponentAttributeRequirements.dat",
 		"Data/PassiveSkills.dat",
 		"Data/PassiveSkillStatCategories.dat",
 		"Data/PassiveSkillMasteryGroups.dat",
@@ -179,7 +182,6 @@ function GGPKClass:GetNeededFiles()
 		"Data/BuffVisualsArtVariations.dat",
 		"Data/BuffVisualOrbs.dat",
 		"Data/BuffVisualOrbTypes.dat",
-		"Data/BuffVisualOrbArt.dat",
 		"Data/GenericBuffAuras.dat",
 		"Data/AddBuffToTargetVarieties.dat",
 		"Data/HideoutNPCs.dat",
@@ -219,29 +221,16 @@ function GGPKClass:GetNeededFiles()
 		"Data/MonsterMapBossDifficulty.dat",
 		"Data/ReminderText.dat",
 		"Data/Projectiles.dat",
-		"Data/AnimateWeaponUniques.dat",
 		"Data/ItemExperienceTypes.dat",
-		"Data/WeaponPassiveSkills.dat",
-		"Data/WeaponPassiveSkillTypes.dat",
-		"Data/WeaponPassiveTreeBalancePerItemLevel.dat",
-		"Data/WeaponPassiveTreeUniqueBaseTypes.dat",
-		"Data/CrucibleTags.dat",
 		"Data/UniqueStashLayout.dat",
 		"Data/UniqueStashTypes.dat",
 		"Data/Shrines.dat",
 		"Data/passiveoverridelimits.dat",
 		"Data/passiveskilloverrides.dat",
 		"Data/passiveskilloverridetypes.dat",
-		"Data/passiveskilltattoos.dat",
-		"Data/passiveskilltattootargetsets.dat",
 		"Data/displayminionmonstertype.dat",
 		"Data/gemeffects.dat",
 		"Data/actiontypes.dat",
-		"Data/azmerilifescalingperlevel.dat",
-		"Data/azmerifeaturerooms.dat",
-		"Data/corpsetypetags.dat",
-		"Data/itemisedcorpse.dat",
-		"Data/indexableskillgems.dat",
 		"Data/indexablesupportgems.dat",
 		"Data/itemclasscategories.dat",
 		"Data/miniontype.dat",
@@ -260,75 +249,97 @@ function GGPKClass:GetNeededFiles()
 		"Data/Commands.dat",
 		"Data/ModEquivalencies.dat",
 		"Data/InfluenceTags.dat",
-		"Data/leaguenames.dat"
+		"Data/AttributeRequirements.dat",
+		"Data/GrantedEffectLabels.dat",
+		"Data/ItemInherentSkills.dat",
+		"Data/KeywordPopups.dat",
+		"Data/SoulCores.dat",
+		"Data/UtilityFlaskBuffs.dat",
+		"Data/GrantedSkillSocketNumbers.dat",
+		"Data/advancedcraftingbenchcustomtags.dat",
+		"Data/advancedcraftingbenchtabfiltertypes.dat",
+		"Data/belttypes.dat",
+		"Data/charactermeleeskills.dat",
+		"Data/clientstrings2.dat",
+		"Data/craftablemodtypes.dat",
+		"Data/damagecalculationtypes.dat",
+		"Data/endgamecorruptionmods.dat",
+		"Data/goldinherentskillpricesperlevel.dat",
+		"Data/goldmodprices.dat",
+		"Data/goldrespecprices.dat",
+		"Data/hideoutresistpenalties.dat",
+		"Data/miniongemlevelscaling.dat",
+		"Data/minionstats.dat",
+		"Data/modgrantedskills.dat",
+		"Data/passivejewelnodemodifyingstats.dat",
+		"Data/resistancepenaltyperarealevel.dat",
+		"Data/shapeshiftforms.dat",
+		"Data/skillgemsforuniquestat.dat",
+		"Data/skillgemsupports.dat",
+		"Data/supportgems.dat",
+		"Data/traptools.dat",
+		"Data/uncutgemadditionaltiers.dat",
+		"Data/uncutgemtiers.dat",
+		"Data/passiveskilltrees.dat",
+		"Data/passiveskilltreeuiart.dat",
+		"Data/BlightCraftingTypes.dat",
+		"Data/BlightCraftingRecipes.dat",
+		"Data/BlightCraftingResults.dat",
+		"Data/BlightCraftingItems.dat",
+		"Data/ItemSpirit.dat",
+		"Data/ItemInherentSkills.dat",
+		"Data/startingpassiveskills.dat",
+		"Data/ClassPassiveSkillOverrides.dat",
+		"Data/passivejewelart.dat",
+		"Data/passivejeweluniqueart.dat"
 	}
-	local txtFiles = {
-		"Metadata/StatDescriptions/passive_skill_aura_stat_descriptions.txt",
-		"Metadata/StatDescriptions/passive_skill_stat_descriptions.txt",
-		"Metadata/StatDescriptions/active_skill_gem_stat_descriptions.txt",
-		"Metadata/StatDescriptions/advanced_mod_stat_descriptions.txt",
-		"Metadata/StatDescriptions/aura_skill_stat_descriptions.txt",
-		"Metadata/StatDescriptions/banner_aura_skill_stat_descriptions.txt",
-		"Metadata/StatDescriptions/beam_skill_stat_descriptions.txt",
-		"Metadata/StatDescriptions/brand_skill_stat_descriptions.txt",
-		"Metadata/StatDescriptions/buff_skill_stat_descriptions.txt",
-		"Metadata/StatDescriptions/curse_skill_stat_descriptions.txt",
-		"Metadata/StatDescriptions/debuff_skill_stat_descriptions.txt",
-		"Metadata/StatDescriptions/secondary_debuff_skill_stat_descriptions.txt",
-		"Metadata/StatDescriptions/gem_stat_descriptions.txt",
-		"Metadata/StatDescriptions/minion_attack_skill_stat_descriptions.txt",
-		"Metadata/StatDescriptions/minion_skill_stat_descriptions.txt",
-		"Metadata/StatDescriptions/minion_spell_skill_stat_descriptions.txt",
-		"Metadata/StatDescriptions/minion_spell_damage_skill_stat_descriptions.txt",
-		"Metadata/StatDescriptions/monster_stat_descriptions.txt",
-		"Metadata/StatDescriptions/offering_skill_stat_descriptions.txt",
-		"Metadata/StatDescriptions/single_minion_spell_skill_stat_descriptions.txt",
-		"Metadata/StatDescriptions/skillpopup_stat_filters.txt",
-		"Metadata/StatDescriptions/skill_stat_descriptions.txt",
-		"Metadata/StatDescriptions/stat_descriptions.txt",
-		"Metadata/StatDescriptions/variable_duration_skill_stat_descriptions.txt",
+	local csdFiles = {
+		"^Metadata/StatDescriptions/specific_skill_stat_descriptions/\\w+.csd$",
+		"^Metadata/StatDescriptions/\\w+.csd$",
 	}
 	local itFiles = {
-		"Metadata/Items/Quivers/AbstractQuiver.it",
-		"Metadata/Items/Rings/AbstractRing.it",
-		"Metadata/Items/Belts/AbstractBelt.it",
-		"Metadata/Items/Flasks/AbstractUtilityFlask.it",
-		"Metadata/Items/Jewels/AbstractJewel.it",
-		"Metadata/Items/Flasks/CriticalUtilityFlask.it",
-		"Metadata/Items/Flasks/AbstractHybridFlask.it",
-		"Metadata/Items/Flasks/AbstractManaFlask.it",
-		"Metadata/Items/Weapons/TwoHandWeapons/Staves/AbstractWarstaff.it",
-		"Metadata/Items/Weapons/OneHandWeapons/OneHandMaces/AbstractSceptre.it",
-		"Metadata/Items/Weapons/OneHandWeapons/OneHandSwords/AbstractOneHandSwordThrusting.it",
-		"Metadata/Items/Weapons/OneHandWeapons/Claws/AbstractClaw.it",
-		"Metadata/Items/Armours/Shields/AbstractShield.it",
-		"Metadata/Items/Weapons/TwoHandWeapons/Bows/AbstractBow.it",
-		"Metadata/Items/Weapons/TwoHandWeapons/FishingRods/AbstractFishingRod.it",
-		"Metadata/Items/Weapons/TwoHandWeapons/TwoHandMaces/AbstractTwoHandMace.it",
-		"Metadata/Items/Armours/Boots/AbstractBoots.it",
-		"Metadata/Items/Jewels/AbstractAbyssJewel.it",
-		"Metadata/Items/Armours/BodyArmours/AbstractBodyArmour.it",
-		"Metadata/Items/Armours/AbstractArmour.it",
-		"Metadata/Items/Weapons/OneHandWeapons/Daggers/AbstractRuneDagger.it",
-		"Metadata/Items/Weapons/TwoHandWeapons/Staves/AbstractStaff.it",
-		"Metadata/Items/Weapons/TwoHandWeapons/TwoHandAxes/AbstractTwoHandAxe.it",
-		"Metadata/Items/Weapons/OneHandWeapons/OneHandAxes/AbstractOneHandAxe.it",
-		"Metadata/Items/Weapons/TwoHandWeapons/TwoHandSwords/AbstractTwoHandSword.it",
-		"Metadata/Items/Weapons/OneHandWeapons/OneHandMaces/AbstractOneHandMace.it",
-		"Metadata/Items/Armours/Gloves/AbstractGloves.it",
-		"Metadata/Items/Weapons/OneHandWeapons/Daggers/AbstractDagger.it",
-		"Metadata/Items/Weapons/OneHandWeapons/OneHandSwords/AbstractOneHandSword.it",
-		"Metadata/Items/Amulets/AbstractAmulet.it",
-		"Metadata/Items/Flasks/AbstractLifeFlask.it",
-		"Metadata/Items/Weapons/OneHandWeapons/Wands/AbstractWand.it",
-		"Metadata/Items/Armours/Helmets/AbstractHelmet.it",
-		"Metadata/Items/Flasks/AbstractFlask.it",
-		"Metadata/Items/Weapons/TwoHandWeapons/AbstractTwoHandWeapon.it",
-		"Metadata/Items/Item.it",
-		"Metadata/Items/Weapons/OneHandWeapons/AbstractOneHandWeapon.it",
 		"Metadata/Items/Equipment.it",
+		"Metadata/Items/Item.it",
 		"Metadata/Items/Weapons/AbstractWeapon.it",
-		"Metadata/Items/Jewels/AbstractAnimalCharm.it",
+		"Metadata/Items/Weapons/TwoHandWeapons/AbstractTwoHandWeapon.it",
+		"Metadata/Items/Weapons/TwoHandWeapons/TwoHandSwords/StormbladeTwoHand.it",
+		"Metadata/Items/Weapons/TwoHandWeapons/TwoHandSwords/AbstractTwoHandSword.it",
+		"Metadata/Items/Weapons/TwoHandWeapons/TwoHandMaces/AbstractTwoHandMace.it",
+		"Metadata/Items/Weapons/TwoHandWeapons/TwoHandAxes/AbstractTwoHandAxe.it",
+		"Metadata/Items/Weapons/TwoHandWeapons/Staves/AbstractWarstaff.it",
+		"Metadata/Items/Weapons/TwoHandWeapons/FishingRods/AbstractFishingRod.it",
+		"Metadata/Items/Weapons/TwoHandWeapons/Crossbows/AbstractCrossbow.it",
+		"Metadata/Items/Weapons/TwoHandWeapons/Bows/AbstractBow.it",
+		"Metadata/Items/Weapons/OneHandWeapons/AbstractOneHandWeapon.it",
+		"Metadata/Items/Weapons/OneHandWeapons/Spears/AbstractSpear.it",
+		"Metadata/Items/Weapons/OneHandWeapons/OneHandSwords/StormbladeOneHand.it",
+		"Metadata/Items/Weapons/OneHandWeapons/OneHandSwords/AbstractOneHandSword.it",
+		"Metadata/Items/Weapons/OneHandWeapons/OneHandMaces/AbstractOneHandMace.it",
+		"Metadata/Items/Weapons/OneHandWeapons/OneHandAxes/AbstractOneHandAxe.it",
+		"Metadata/Items/Weapons/OneHandWeapons/Flail/AbstractFlail.it",
+		"Metadata/Items/Weapons/OneHandWeapons/Daggers/AbstractDagger.it",
+		"Metadata/Items/Weapons/OneHandWeapons/Claws/AbstractClaw.it",
+		"Metadata/Items/Wands/AbstractWand.it",
+		"Metadata/Items/TrapTools/AbstractTrapTool.it",
+		"Metadata/Items/Staves/AbstractStaff.it",
+		"Metadata/Items/SoulCores/AbstractSoulCore.it",
+		"Metadata/Items/Sceptres/AbstractSceptre.it",
+		"Metadata/Items/Rings/AbstractRing.it",
+		"Metadata/Items/Quivers/AbstractQuiver.it",
+		"Metadata/Items/Jewels/AbstractJewel.it",
+		"Metadata/Items/Flasks/AbstractUtilityFlask.it",
+		"Metadata/Items/Flasks/AbstractManaFlask.it",
+		"Metadata/Items/Flasks/AbstractLifeFlask.it",
+		"Metadata/Items/Flasks/AbstractFlask.it",
+		"Metadata/Items/Belts/AbstractBelt.it",
+		"Metadata/Items/Armours/AbstractArmour.it",
+		"Metadata/Items/Armours/Shields/AbstractShield.it",
+		"Metadata/Items/Armours/Helmets/AbstractHelmet.it",
+		"Metadata/Items/Armours/Gloves/AbstractGloves.it",
+		"Metadata/Items/Armours/Focus/AbstractFocus.it",
+		"Metadata/Items/Armours/Boots/AbstractBoots.it",
+		"Metadata/Items/Armours/BodyArmours/AbstractBodyArmour.it",
+		"Metadata/Items/Amulets/AbstractAmulet.it",
 	}
-	return datFiles, txtFiles, itFiles
+	return datFiles, csdFiles, itFiles
 end

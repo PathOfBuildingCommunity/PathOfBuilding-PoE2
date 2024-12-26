@@ -1,7 +1,7 @@
 if not loadStatFile then
 	dofile("statdesc.lua")
 end
-loadStatFile("stat_descriptions.txt")
+loadStatFile("stat_descriptions.csd")
 
 local s_format = string.format
 
@@ -14,10 +14,6 @@ end
 
 directiveTable.subType = function(state, args, out)
 	state.subType = args
-end
-
-directiveTable.influenceBaseTag = function(state, args, out)
-	state.influenceBaseTag = args
 end
 
 directiveTable.forceShow = function(state, args, out)
@@ -79,6 +75,16 @@ directiveTable.base = function(state, args, out)
 	if state.subType and #state.subType > 0 then
 		out:write('\tsubType = "', state.subType, '",\n')
 	end
+	if state.type == "Belt" then
+		local beltType = dat("BeltTypes"):GetRow("BaseItemType", baseItemType)
+		if beltType then
+			out:write('\tcharmLimit = ', beltType.CharmCount, ',\n')
+		end
+	end
+	local itemSpirit = dat("ItemSpirit"):GetRow("BaseItemType", baseItemType)
+	if itemSpirit then
+		out:write('\tspirit = ', itemSpirit.Value, ',\n')
+	end
 	if (baseItemType.Hidden == 0 or state.forceHide) and not baseTypeId:match("Talisman") and not state.forceShow then
 		out:write('\thidden = true,\n')
 	end
@@ -97,15 +103,6 @@ directiveTable.base = function(state, args, out)
 		out:write(tag, ' = true, ')
 	end
 	out:write('},\n')
-	local influencePrefix = state.influenceBaseTag
-	if influencePrefix then
-		out:write('\tinfluenceTags = { ')
-		for i, influenceSuffix in ipairs({ "shaper", "elder", "adjudicator", "basilisk", "crusader", "eyrie", "cleansing", "tangle" }) do
-			if i ~= 1 then out:write(", ") end
-			out:write(influenceSuffix, ' = "', influencePrefix, "_", influenceSuffix, '"')
-		end
-		out:write(' },\n')
-	end
 	local implicitLines = { }
 	local implicitModTypes = { }
 	for _, mod in ipairs(baseItemType.ImplicitMods) do
@@ -118,6 +115,14 @@ directiveTable.base = function(state, args, out)
 	if #implicitLines > 0 then
 		out:write('\timplicit = "', table.concat(implicitLines, "\\n"), '",\n')
 	end
+	local inherentSkillType = dat("ItemInherentSkills"):GetRow("BaseItemType", baseItemType)
+	if inherentSkillType then
+		local skillGem = dat("SkillGems"):GetRow("BaseItemType", inherentSkillType.Skill)
+		if #inherentSkillType.Skill > 1 then
+			print("Unhandled Instance - Inherent Skill number more than 1")
+		end
+		out:write('\timplicit = "Grants Skill: Level (1-20) ', inherentSkillType.Skill[1].BaseItemType.Name, '",\n')
+	end
 	out:write('\timplicitModTypes = { ')
 	for i=1,#implicitModTypes do
 		out:write('{ ', implicitModTypes[i], ' }, ')
@@ -127,7 +132,43 @@ directiveTable.base = function(state, args, out)
 	local weaponType = dat("WeaponTypes"):GetRow("BaseItemType", baseItemType)
 	if weaponType then
 		out:write('\tweapon = { ')
-		out:write('PhysicalMin = ', weaponType.DamageMin, ', PhysicalMax = ', weaponType.DamageMax, ', ')
+		local modConversionMap = {
+			["local_weapon_implicit_hidden_%_base_damage_is_fire"] = "Fire",
+			["local_weapon_implicit_hidden_%_base_damage_is_cold"] = "Cold",
+			["local_weapon_implicit_hidden_%_base_damage_is_lightning"] = "Lightning",
+			["local_weapon_implicit_hidden_%_base_damage_is_chaos"] = "Chaos",
+		}
+		local conversion = {
+			["Physical"] = 100,
+			["Fire"] = 0,
+			["Cold"] = 0,
+			["Lightning"] = 0,
+			["Chaos"] = 0,
+		}
+		local total = 0
+		for _, mod in ipairs(baseItemType.ImplicitMods) do
+			for i = 1, 6 do
+				if mod["Stat"..i] then
+					local dmgType = modConversionMap[mod["Stat"..i].Id]
+					if dmgType then
+						local value = mod["Stat"..i.."Value"][1]
+						conversion[dmgType] = conversion[dmgType] + value
+						total = total + value
+					end
+				end
+			end
+		end
+		local factor = total > 100 and 100 / total or 1
+		for _, type in ipairs({ "Physical", "Fire", "Cold", "Lightning", "Chaos" }) do
+			if type == "Physical" then
+				conversion[type] = 1 - math.min(total / 100, 1)
+			else
+				conversion[type] = conversion[type] * factor / 100
+			end
+			if conversion[type] ~= 0 then
+				out:write(type, 'Min = ', math.floor(weaponType.DamageMin * conversion[type]), ', ', type, 'Max = ', math.floor(weaponType.DamageMax * conversion[type]), ', ')
+			end
+		end
 		out:write('CritChanceBase = ', weaponType.CritChance / 100, ', ')
 		out:write('AttackRateBase = ', round(1000 / weaponType.Speed, 2), ', ')
 		out:write('Range = ', weaponType.Range, ', ')
@@ -141,55 +182,75 @@ directiveTable.base = function(state, args, out)
 		if shield then
 			out:write('BlockChance = ', shield.Block, ', ')
 		end
-		if armourType.ArmourMin > 0 then
-			out:write('ArmourBaseMin = ', armourType.ArmourMin, ', ')
-			out:write('ArmourBaseMax = ', armourType.ArmourMax, ', ')
-			itemValueSum = itemValueSum + armourType.ArmourMin + armourType.ArmourMax
+		if armourType.Armour > 0 then
+			out:write('Armour = ', armourType.Armour, ', ')
+			itemValueSum = itemValueSum + armourType.Armour
 		end
-		if armourType.EvasionMin > 0 then
-			out:write('EvasionBaseMin = ', armourType.EvasionMin, ', ')
-			out:write('EvasionBaseMax = ', armourType.EvasionMax, ', ')
-			itemValueSum = itemValueSum + armourType.EvasionMin + armourType.EvasionMax
+		if armourType.Evasion > 0 then
+			out:write('Evasion = ', armourType.Evasion, ', ')
+			itemValueSum = itemValueSum + armourType.Evasion
 		end
-		if armourType.EnergyShieldMin > 0 then
-			out:write('EnergyShieldBaseMin = ', armourType.EnergyShieldMin, ', ')
-			out:write('EnergyShieldBaseMax = ', armourType.EnergyShieldMax, ', ')
-			itemValueSum = itemValueSum + armourType.EnergyShieldMin + armourType.EnergyShieldMax
+		if armourType.EnergyShield > 0 then
+			out:write('EnergyShield = ', armourType.EnergyShield, ', ')
+			itemValueSum = itemValueSum + armourType.EnergyShield
 		end
 		if armourType.MovementPenalty ~= 0 then
-			out:write('MovementPenalty = ', -armourType.MovementPenalty, ', ')
-		end
-		if armourType.WardMin > 0 then
-			out:write('WardBaseMin = ', armourType.WardMin, ', ')
-			out:write('WardBaseMax = ', armourType.WardMax, ', ')
-			itemValueSum = itemValueSum + armourType.WardMin + armourType.WardMax
+			out:write('MovementPenalty = ', -armourType.MovementPenalty / 10000, ', ')
 		end
 		out:write('},\n')
 	end
-	local flask = dat("Flasks"):GetRow("BaseItemType", baseItemType)
-	if flask then
-		local compCharges = dat("ComponentCharges"):GetRow("BaseItemType", baseItemType.Id)
-		out:write('\tflask = { ')
-		if flask.LifePerUse > 0 then
-			out:write('life = ', flask.LifePerUse, ', ')
+	if state.type == "Flask" or state.type == "Charm" then
+		local flask = dat("Flasks"):GetRow("BaseItemType", baseItemType)
+		if flask then
+			local compCharges = dat("ComponentCharges"):GetRow("BaseItemType", baseItemType.Id)
+			if state.type == "Charm" then
+				out:write('\tcharm = { ')
+			else
+				out:write('\tflask = { ')
+			end
+			if flask.LifePerUse > 0 then
+				out:write('life = ', flask.LifePerUse, ', ')
+			end
+			if flask.ManaPerUse > 0 then
+				out:write('mana = ', flask.ManaPerUse, ', ')
+			end
+			out:write('duration = ', flask.RecoveryTime / 10, ', ')
+			out:write('chargesUsed = ', compCharges.PerUse, ', ')
+			out:write('chargesMax = ', compCharges.Max, ', ')
+			if next(flask.UtilityBuffs) then
+				local stats = { }
+				for _, buff in ipairs(flask.UtilityBuffs) do
+					for i, stat in ipairs(buff.BuffDefinitionsKey.GrantedStats) do
+						stats[stat.Id] = { min = buff.StatValues[i], max = buff.StatValues[i] }
+					end
+					for i, stat in ipairs(buff.BuffDefinitionsKey.GrantedFlags) do
+						stats[stat.Id] = { min = 1, max = 1 }
+					end
+				end
+				out:write('buff = { "', table.concat(describeStats(stats), '", "'), '" }, ')
+			end
+			out:write('},\n')
 		end
-		if flask.ManaPerUse > 0 then
-			out:write('mana = ', flask.ManaPerUse, ', ')
-		end
-		out:write('duration = ', flask.RecoveryTime / 10, ', ')
-		out:write('chargesUsed = ', compCharges.PerUse, ', ')
-		out:write('chargesMax = ', compCharges.Max, ', ')
-		if flask.Buff then
+	end
+	-- Special handling of Runes and SoulCores
+	if state.type == "Rune" or state.type == "SoulCore" then
+		local soulcore = dat("SoulCores"):GetRow("BaseItemTypes", baseItemType)
+		if soulcore then
+			out:write('\timplicit = ')
 			local stats = { }
-			for i, stat in ipairs(flask.Buff.Stats) do
-				stats[stat.Id] = { min = flask.BuffMagnitudes[i], max = flask.BuffMagnitudes[i] }
+			for i, statKey in ipairs(soulcore.StatsKeysWeapon) do
+				local statValue = soulcore["StatsValuesWeapon"][i]
+				stats[statKey.Id] = { min = statValue, max = statValue }
 			end
-			for i, stat in ipairs(flask.Buff.GrantedFlags) do
-				stats[stat.Id] = { min = 1, max = 1 }
+			out:write('"Martial Weapons: ', table.concat(describeStats(stats), '", "'), '\\n')
+			stats = { }  -- reset stats to empty
+			for i, statKey in ipairs(soulcore.StatsKeysArmour) do
+				local statValue = soulcore["StatsValuesArmour"][i]
+				stats[statKey.Id] = { min = statValue, max = statValue }
 			end
-			out:write('buff = { "', table.concat(describeStats(stats), '", "'), '" }, ')
+			out:write('Armour: ', table.concat(describeStats(stats), '", "'), '"')
+			out:write(',\n')
 		end
-		out:write('},\n')
 	end
 	out:write('\treq = { ')
 	local reqLevel = 1
@@ -198,7 +259,7 @@ directiveTable.base = function(state, args, out)
 			reqLevel = baseItemType.DropLevel
 		end
 	end
-	if flask then
+	if state.type == "Flask" or state.type == "SoulCore" or state.type == "Rune" or state.type == "Charm" then
 		if baseItemType.DropLevel > 2 then
 			reqLevel = baseItemType.DropLevel
 		end
@@ -209,16 +270,16 @@ directiveTable.base = function(state, args, out)
 	if reqLevel > 1 then
 		out:write('level = ', reqLevel, ', ')
 	end
-	local compAtt = dat("ComponentAttributeRequirements"):GetRow("BaseItemType", baseItemType.Id)
+	local compAtt = dat("AttributeRequirements"):GetRow("BaseType", baseItemType)
 	if compAtt then
-		if compAtt.Str > 0 then
-			out:write('str = ', compAtt.Str, ', ')
+		if compAtt.ReqStr > 0 then
+			out:write('str = ', compAtt.ReqStr, ', ')
 		end
-		if compAtt.Dex > 0 then
-			out:write('dex = ', compAtt.Dex, ', ')
+		if compAtt.ReqDex > 0 then
+			out:write('dex = ', compAtt.ReqDex, ', ')
 		end
-		if compAtt.Int > 0 then
-			out:write('int = ', compAtt.Int, ', ')
+		if compAtt.ReqInt > 0 then
+			out:write('int = ', compAtt.ReqInt, ', ')
 		end
 	end
 	out:write('},\n}\n')
@@ -247,9 +308,7 @@ directiveTable.baseMatch = function(state, argstr, out)
 		value = args[2]
 	end
 	for i, baseItemType in ipairs(dat("BaseItemTypes"):GetRowList(key, value, true)) do
-		if not string.find(baseItemType.Id, "Royale") then
-			directiveTable.base(state, baseItemType.Id, out)
-		end
+		directiveTable.base(state, baseItemType.Id, out)
 	end
 end
 
@@ -328,23 +387,30 @@ local itemTypes = {
 	"axe",
 	"bow",
 	"claw",
+	"crossbow",
 	"dagger",
 	"fishing",
+	"flail",
 	"mace",
+	"sceptre",
+	"spear",
 	"staff",
 	"sword",
 	"wand",
 	"helmet",
 	"body",
+	"focus",
 	"gloves",
 	"boots",
 	"shield",
 	"quiver",
+	"traptool",
 	"amulet",
 	"ring",
 	"belt",
 	"jewel",
 	"flask",
+	"soulcore",
 }
 for _, name in pairs(itemTypes) do
 	processTemplateFile(name, "Bases/", "../Data/Bases/", directiveTable)
@@ -352,6 +418,5 @@ end
 
 print("Item bases exported.")
 
-processTemplateFile("Rares", "Bases/", "../Data/", directiveTable)
-
-print("Rare Item Templates Generated and Verified")
+--processTemplateFile("Rares", "Bases/", "../Data/", directiveTable)
+--print("Rare Item Templates Generated and Verified")

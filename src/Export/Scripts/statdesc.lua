@@ -1,4 +1,5 @@
 local nk = { }
+local wiki_entries = { }
 
 local function processStatFile(name)
 	--ConPrintf("Processing File: '%s'", name)
@@ -11,7 +12,7 @@ local function processStatFile(name)
 			line = prepend .. line
 			prepend = ''
 		end
-		local parent = line:match('include "Metadata/StatDescriptions/(.+)%.txt"$')
+		local parent = line:match('include "Metadata/StatDescriptions/(.+)%.csd"$')
 		if parent then
 			statDescriptor.parent = parent
 			return
@@ -44,7 +45,7 @@ local function processStatFile(name)
 			elseif curLang then
 				local statLimits, text, special = line:match('([%d%-#!| ]+) "(.-)"%s*(.*)')
 				if statLimits then
-					local desc = { text = text, limit = { } }
+					local desc = { text = text:gsub("%[([^|%]]+)%]", "%1"):gsub("%[[^|]+|([^|]+)%]", "%1"), limit = { } }
 					for statLimit in statLimits:gmatch("[!%d%-#|]+") do
 						local limit = { }
 						
@@ -79,7 +80,8 @@ local function processStatFile(name)
 			end
 		end
 	end
-	local text = convertUTF16to8(getFile("Metadata/StatDescriptions/"..name..".txt"))
+
+	local text = convertUTF16to8(getFile("Metadata/StatDescriptions/"..name..".csd"))
 	for line in text:gmatch("[^\r\n]+") do
 		processLine(line)
 	end
@@ -92,27 +94,26 @@ end
 
 local statFileList = {
 	"active_skill_gem_stat_descriptions",
-	"aura_skill_stat_descriptions",
-	"banner_aura_skill_stat_descriptions",
-	"beam_skill_stat_descriptions",
-	"brand_skill_stat_descriptions",
-	"curse_skill_stat_descriptions",
-	"debuff_skill_stat_descriptions",
-	"secondary_debuff_skill_stat_descriptions",
+	"advanced_mod_stat_descriptions",
 	"gem_stat_descriptions",
-	"minion_attack_skill_stat_descriptions",
-	"minion_skill_stat_descriptions",
-	"minion_spell_skill_stat_descriptions",
-	"minion_spell_damage_skill_stat_descriptions",
+	"meta_gem_stat_descriptions",
 	"monster_stat_descriptions",
-	"offering_skill_stat_descriptions",
+	"passive_skill_aura_stat_descriptions",
+	"passive_skill_stat_descriptions",
 	"skill_stat_descriptions",
 	"stat_descriptions",
-	"variable_duration_skill_stat_descriptions",
-	"buff_skill_stat_descriptions",
+	"utility_flask_buff_stat_descriptions",
 }
 for _, name in ipairs(statFileList) do
 	processStatFile(name)
+end
+
+local handle = NewFileSearch("ggpk/Metadata/StatDescriptions/Specific_Skill_Stat_Descriptions/*.csd")
+while handle do
+	processStatFile("specific_skill_stat_descriptions/"..handle:GetFileName():gsub("%.csd", ""))
+	if not handle:NextFile() then
+		break
+	end
 end
 
 for k, v in pairs(nk) do

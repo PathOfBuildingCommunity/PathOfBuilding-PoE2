@@ -46,7 +46,7 @@ function loadStatFile(fileName)
 			else
 				local statLimits, text, special = line:match('([%d%-#| ]+) "(.-)"%s*(.*)')
 				if statLimits then
-					local desc = { text = text, limit = { } }
+					local desc = { text = text:gsub("%[([^|%]]+)%]", "%1"):gsub("%[[^|]+|([^|]+)%]", "%1"), limit = { } }
 					for statLimit in statLimits:gmatch("[!%d%-#|]+") do
 						local limit = { }
 						
@@ -160,49 +160,81 @@ function describeStats(stats)
 						val[spec.v].max = val[spec.v].max + 65536
 					end
 				elseif spec.k == "divide_by_two_0dp" then
-					val[spec.v].min = val[spec.v].min / 2
-					val[spec.v].max = val[spec.v].max / 2
+					val[spec.v].min = round(val[spec.v].min / 2)
+					val[spec.v].max = round(val[spec.v].max / 2)
+				elseif spec.k == "divide_by_three" then
+					val[spec.v].min = val[spec.v].min / 3
+					val[spec.v].max = val[spec.v].min / 3
+					val[spec.v].fmt = "g"
+				elseif spec.k == "divide_by_four" then
+					val[spec.v].min = val[spec.v].min / 4
+					val[spec.v].max = val[spec.v].min / 4
+					val[spec.v].fmt = "g"
 				elseif spec.k == "divide_by_five" then
-					val[spec.v].min = round(val[spec.v].min / 5, 1)
-					val[spec.v].max = round(val[spec.v].max / 5, 1)
+					val[spec.v].min = val[spec.v].min / 5
+					val[spec.v].max = val[spec.v].max / 5
 					val[spec.v].fmt = "g"
 				elseif spec.k == "divide_by_six" then
-					val[spec.v].min = round(val[spec.v].min / 6, 1)
-					val[spec.v].max = round(val[spec.v].max / 6, 1)
+					val[spec.v].min = val[spec.v].min / 6
+					val[spec.v].max = val[spec.v].max / 6
 					val[spec.v].fmt = "g"
-				elseif spec.k == "divide_by_ten_1dp_if_required" then
+				elseif spec.k == "divide_by_ten_0dp" then
+					val[spec.v].min = round(val[spec.v].min / 10)
+					val[spec.v].max = round(val[spec.v].max / 10)
+				elseif spec.k == "divide_by_ten_1dp" or spec.k == "divide_by_ten_1dp_if_required" then
 					val[spec.v].min = round(val[spec.v].min / 10, 1)
 					val[spec.v].max = round(val[spec.v].max / 10, 1)
 					val[spec.v].fmt = "g"
 				elseif spec.k == "divide_by_twelve" then
-					val[spec.v].min = round(val[spec.v].min / 12, 1)
-					val[spec.v].max = round(val[spec.v].max / 12, 1)
+					val[spec.v].min = val[spec.v].min / 12
+					val[spec.v].max = val[spec.v].max / 12
 					val[spec.v].fmt = "g"
+				elseif spec.k == "divide_by_fifteen_0dp" then
+					val[spec.v].min = round(val[spec.v].min / 15)
+					val[spec.v].max = round(val[spec.v].max / 15)
 				elseif spec.k == "divide_by_twenty" then
-					val[spec.v].min = round(val[spec.v].min / 20, 1)
-					val[spec.v].max = round(val[spec.v].max / 20, 1)
+					val[spec.v].min = val[spec.v].min / 20
+					val[spec.v].max = val[spec.v].max / 20
+					val[spec.v].fmt = "g"
+				elseif spec.k == "divide_by_twenty_then_double_0dp" then
+					val[spec.v].min = round(val[spec.v].min / 20) * 2
+					val[spec.v].max = round(val[spec.v].max / 20) * 2
+				elseif spec.k == "divide_by_fifty" then
+					val[spec.v].min = val[spec.v].min / 50
+					val[spec.v].max = val[spec.v].max / 50
 					val[spec.v].fmt = "g"
 				elseif spec.k == "divide_by_one_hundred" then
-					val[spec.v].min = round(val[spec.v].min / 100, 1)
-					val[spec.v].max = round(val[spec.v].max / 100, 1)
+					val[spec.v].min = val[spec.v].min / 100
+					val[spec.v].max = val[spec.v].max / 100
+					val[spec.v].fmt = "g"
+				elseif spec.k == "divide_by_one_hundred_0dp" then
+					val[spec.v].min = round(val[spec.v].min / 100)
+					val[spec.v].max = round(val[spec.v].max / 100)
 					val[spec.v].fmt = "g"
 				elseif spec.k == "divide_by_one_hundred_1dp" then
 					val[spec.v].min = round(val[spec.v].min / 100, 1)
 					val[spec.v].max = round(val[spec.v].max / 100, 1)
 					val[spec.v].fmt = "g"
-				elseif spec.k == "divide_by_one_hundred_2dp" then
+				elseif spec.k == "divide_by_one_hundred_2dp_if_required" or spec.k == "divide_by_one_hundred_2dp" then
 					val[spec.v].min = round(val[spec.v].min / 100, 2)
 					val[spec.v].max = round(val[spec.v].max / 100, 2)
 					val[spec.v].fmt = "g"
-				elseif spec.k == "divide_by_one_hundred_2dp_if_required" then
-					val[spec.v].min = round(val[spec.v].min / 100, 2)
-					val[spec.v].max = round(val[spec.v].max / 100, 2)
+				elseif spec.k == "divide_by_one_hundred_and_negate" then
+					val[spec.v].min = -val[spec.v].min / 100
+					val[spec.v].max = -val[spec.v].max / 100
 					val[spec.v].fmt = "g"
 				elseif spec.k == "divide_by_one_thousand" then
-					val[spec.v].min = round(val[spec.v].min / 1000, 1)
-					val[spec.v].max = round(val[spec.v].max / 1000, 1)
+					val[spec.v].min = val[spec.v].min / 1000
+					val[spec.v].max = val[spec.v].max / 1000
 					val[spec.v].fmt = "g"
 				elseif spec.k == "per_minute_to_per_second" then
+					val[spec.v].min = val[spec.v].min / 60
+					val[spec.v].max = val[spec.v].max / 60
+					val[spec.v].fmt = "g"
+				elseif spec.k == "per_minute_to_per_second_0dp" then
+					val[spec.v].min = round(val[spec.v].min / 60)
+					val[spec.v].max = round(val[spec.v].max / 60)
+				elseif spec.k == "per_minute_to_per_second_1dp" then
 					val[spec.v].min = round(val[spec.v].min / 60, 1)
 					val[spec.v].max = round(val[spec.v].max / 60, 1)
 					val[spec.v].fmt = "g"
@@ -210,34 +242,35 @@ function describeStats(stats)
 					val[spec.v].min = round(val[spec.v].min / 60, 2)
 					val[spec.v].max = round(val[spec.v].max / 60, 2)
 					val[spec.v].fmt = "g"
-				elseif spec.k == "per_minute_to_per_second_0dp" then
-					val[spec.v].min = val[spec.v].min / 60
-					val[spec.v].max = val[spec.v].max / 60
 				elseif spec.k == "milliseconds_to_seconds" then
 					val[spec.v].min = val[spec.v].min / 1000
 					val[spec.v].max = val[spec.v].max / 1000
 					val[spec.v].fmt = "g"
+				elseif spec.k == "milliseconds_to_seconds_halved" then
+					val[spec.v].min = val[spec.v].min / 1000 / 2
+					val[spec.v].max = val[spec.v].max / 1000 / 2
+					val[spec.v].fmt = "g"
 				elseif spec.k == "milliseconds_to_seconds_0dp" then
-					val[spec.v].min = val[spec.v].min / 1000
-					val[spec.v].max = val[spec.v].max / 1000
-				elseif spec.k == "milliseconds_to_seconds_2dp_if_required" or spec.k == "milliseconds_to_seconds_2dp" then
+					val[spec.v].min = round(val[spec.v].min / 1000)
+					val[spec.v].max = round(val[spec.v].max / 1000)
+				elseif spec.k == "milliseconds_to_seconds_1dp" then
+					val[spec.v].min = round(val[spec.v].min / 1000, 1)
+					val[spec.v].max = round(val[spec.v].max / 1000, 1)
+					val[spec.v].fmt = "g"
+				elseif spec.k == "milliseconds_to_seconds_2dp" or spec.k == "milliseconds_to_seconds_2dp_if_required" then
 					val[spec.v].min = round(val[spec.v].min / 1000, 2)
 					val[spec.v].max = round(val[spec.v].max / 1000, 2)
-					val[spec.v].fmt = "g"	
+					val[spec.v].fmt = "g"										
 				elseif spec.k == "deciseconds_to_seconds" then
 					val[spec.v].min = val[spec.v].min / 10
 					val[spec.v].max = val[spec.v].max / 10
 					val[spec.v].fmt = ".2f"
-				elseif spec.k == "locations_to_metres" then
-					val[spec.v].min = val[spec.v].min / 10
-					val[spec.v].max = val[spec.v].max / 10
-					val[spec.v].fmt = "g"
-				elseif spec.k == "60%_of_value" then
-					val[spec.v].min = val[spec.v].min * 0.6
-					val[spec.v].max = val[spec.v].max * 0.6
 				elseif spec.k == "30%_of_value" then
 					val[spec.v].min = val[spec.v].min * 0.3
 					val[spec.v].max = val[spec.v].max * 0.3
+				elseif spec.k == "60%_of_value" then
+					val[spec.v].min = val[spec.v].min * 0.6
+					val[spec.v].max = val[spec.v].max * 0.6
 				elseif spec.k == "mod_value_to_item_class" then
 					val[spec.v].min = ItemClasses[val[spec.v].min].Name
 					val[spec.v].max = ItemClasses[val[spec.v].max].Name
@@ -245,18 +278,34 @@ function describeStats(stats)
 				elseif spec.k == "multiplicative_damage_modifier" then
 					val[spec.v].min = 100 + val[spec.v].min
 					val[spec.v].max = 100 + val[spec.v].max
-				elseif spec.k == "multiply_by_four" then
-					val[spec.v].min = val[spec.v].min * 4
-					val[spec.v].max = val[spec.v].max * 4
+				elseif spec.k == "multiplicative_permyriad_damage_modifier" then
+					val[spec.v].min = 100 + (val[spec.v].min / 100)
+					val[spec.v].max = 100 + (val[spec.v].max / 100)
+					val[spec.v].fmt = "g"
 				elseif spec.k == "times_one_point_five" then
 					val[spec.v].min = val[spec.v].min * 1.5
 					val[spec.v].max = val[spec.v].max * 1.5
-				elseif spec.k == "times_twenty" then
-					val[spec.v].min = val[spec.v].min * 20
-					val[spec.v].max = val[spec.v].max * 20
 				elseif spec.k == "double" then
 					val[spec.v].min = val[spec.v].min * 2
 					val[spec.v].max = val[spec.v].max * 2
+				elseif spec.k == "multiply_by_four" then
+					val[spec.v].min = val[spec.v].min * 4
+					val[spec.v].max = val[spec.v].max * 4
+				elseif spec.k == "multiply_by_four_and_negate" then
+					val[spec.v].min = -val[spec.v].min * 4
+					val[spec.v].max = -val[spec.v].max * 4
+				elseif spec.k == "multiply_by_ten" then
+					val[spec.v].min = val[spec.v].min * 10
+					val[spec.v].max = val[spec.v].max * 10
+				elseif spec.k == "times_twenty" then
+					val[spec.v].min = val[spec.v].min * 20
+					val[spec.v].max = val[spec.v].max * 20
+				elseif spec.k == "multiply_by_one_hundred" then
+					val[spec.v].min = val[spec.v].min * 100
+					val[spec.v].max = val[spec.v].max * 100
+				elseif spec.k == "plus_two_hundred" then
+					val[spec.v].min = val[spec.v].min + 200
+					val[spec.v].max = val[spec.v].max + 200
 				elseif spec.k == "reminderstring" or spec.k == "canonical_line" or spec.k == "_stat" then
 				elseif spec.k then
 					ConPrintf("Unknown description function: %s", spec.k)

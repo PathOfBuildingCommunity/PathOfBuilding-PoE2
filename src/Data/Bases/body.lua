@@ -2,1247 +2,1192 @@
 -- Item data (c) Grinding Gear Games
 local itemBases = ...
 
-
-itemBases["Plate Vest"] = {
+itemBases["Golden Mantle"] = {
 	type = "Body Armour",
-	subType = "Armour",
-	socketLimit = 6,
-	tags = { body_armour = true, armour = true, str_armour = true, default = true, },
-	influenceTags = { shaper = "body_armour_shaper", elder = "body_armour_elder", adjudicator = "body_armour_adjudicator", basilisk = "body_armour_basilisk", crusader = "body_armour_crusader", eyrie = "body_armour_eyrie", cleansing = "body_armour_cleansing", tangle = "body_armour_tangle" },
-	implicitModTypes = { },
-	armour = { ArmourBaseMin = 19, ArmourBaseMax = 27, MovementPenalty = 3, },
-	req = { str = 12, },
+	socketLimit = 3,
+	tags = { body_armour = true, str_dex_int_armour = true, demigods = true, armour = true, not_for_sale = true, default = true, },
+	implicit = "+(15-25)% to all Elemental Resistances",
+	implicitModTypes = { { "elemental", "fire", "cold", "lightning", "resistance" }, },
+	armour = { Armour = 51, Evasion = 44, EnergyShield = 21, },
+	req = { level = 20, str = 8, dex = 8, int = 8, },
 }
-itemBases["Chestplate"] = {
+itemBases["Rusted Cuirass"] = {
 	type = "Body Armour",
-	subType = "Armour",
-	socketLimit = 6,
-	tags = { body_armour = true, armour = true, str_armour = true, default = true, },
-	influenceTags = { shaper = "body_armour_shaper", elder = "body_armour_elder", adjudicator = "body_armour_adjudicator", basilisk = "body_armour_basilisk", crusader = "body_armour_crusader", eyrie = "body_armour_eyrie", cleansing = "body_armour_cleansing", tangle = "body_armour_tangle" },
+	socketLimit = 3,
+	tags = { body_armour = true, str_armour = true, armour = true, ezomyte_basetype = true, default = true, },
 	implicitModTypes = { },
-	armour = { ArmourBaseMin = 68, ArmourBaseMax = 89, MovementPenalty = 5, },
-	req = { level = 6, str = 25, },
+	armour = { Armour = 45, MovementPenalty = 0.05, },
+	req = { },
 }
-itemBases["Copper Plate"] = {
+itemBases["Fur Plate"] = {
 	type = "Body Armour",
-	subType = "Armour",
-	socketLimit = 6,
-	tags = { body_armour = true, armour = true, str_armour = true, default = true, },
-	influenceTags = { shaper = "body_armour_shaper", elder = "body_armour_elder", adjudicator = "body_armour_adjudicator", basilisk = "body_armour_basilisk", crusader = "body_armour_crusader", eyrie = "body_armour_eyrie", cleansing = "body_armour_cleansing", tangle = "body_armour_tangle" },
+	socketLimit = 3,
+	tags = { body_armour = true, str_armour = true, armour = true, ezomyte_basetype = true, default = true, },
 	implicitModTypes = { },
-	armour = { ArmourBaseMin = 176, ArmourBaseMax = 221, MovementPenalty = 5, },
-	req = { level = 17, str = 53, },
+	armour = { Armour = 60, MovementPenalty = 0.05, },
+	req = { str = 10, },
 }
-itemBases["War Plate"] = {
+itemBases["Iron Cuirass"] = {
 	type = "Body Armour",
-	subType = "Armour",
-	socketLimit = 6,
-	tags = { body_armour = true, armour = true, str_armour = true, default = true, },
-	influenceTags = { shaper = "body_armour_shaper", elder = "body_armour_elder", adjudicator = "body_armour_adjudicator", basilisk = "body_armour_basilisk", crusader = "body_armour_crusader", eyrie = "body_armour_eyrie", cleansing = "body_armour_cleansing", tangle = "body_armour_tangle" },
+	socketLimit = 3,
+	tags = { body_armour = true, str_armour = true, armour = true, ezomyte_basetype = true, default = true, },
 	implicitModTypes = { },
-	armour = { ArmourBaseMin = 216, ArmourBaseMax = 248, MovementPenalty = 5, },
-	req = { level = 21, str = 63, },
+	armour = { Armour = 96, MovementPenalty = 0.05, },
+	req = { level = 11, str = 24, },
+}
+itemBases["Raider Plate"] = {
+	type = "Body Armour",
+	socketLimit = 3,
+	tags = { body_armour = true, str_armour = true, armour = true, maraketh_basetype = true, default = true, },
+	implicitModTypes = { },
+	armour = { Armour = 121, MovementPenalty = 0.05, },
+	req = { level = 16, str = 34, },
+}
+itemBases["Maraketh Cuirass"] = {
+	type = "Body Armour",
+	socketLimit = 3,
+	tags = { body_armour = true, str_armour = true, armour = true, maraketh_basetype = true, default = true, },
+	implicitModTypes = { },
+	armour = { Armour = 141, MovementPenalty = 0.05, },
+	req = { level = 20, str = 42, },
+}
+itemBases["Steel Plate"] = {
+	type = "Body Armour",
+	socketLimit = 3,
+	tags = { body_armour = true, str_armour = true, armour = true, maraketh_basetype = true, default = true, },
+	implicitModTypes = { },
+	armour = { Armour = 177, MovementPenalty = 0.05, },
+	req = { level = 27, str = 57, },
 }
 itemBases["Full Plate"] = {
 	type = "Body Armour",
-	subType = "Armour",
-	socketLimit = 6,
-	tags = { body_armour = true, armour = true, str_armour = true, default = true, },
-	influenceTags = { shaper = "body_armour_shaper", elder = "body_armour_elder", adjudicator = "body_armour_adjudicator", basilisk = "body_armour_basilisk", crusader = "body_armour_crusader", eyrie = "body_armour_eyrie", cleansing = "body_armour_cleansing", tangle = "body_armour_tangle" },
+	socketLimit = 3,
+	tags = { body_armour = true, str_armour = true, armour = true, vaal_basetype = true, default = true, },
 	implicitModTypes = { },
-	armour = { ArmourBaseMin = 284, ArmourBaseMax = 319, MovementPenalty = 5, },
-	req = { level = 28, str = 81, },
+	armour = { Armour = 208, MovementPenalty = 0.05, },
+	req = { level = 33, str = 68, },
 }
-itemBases["Arena Plate"] = {
+itemBases["Vaal Cuirass"] = {
 	type = "Body Armour",
-	subType = "Armour",
-	socketLimit = 6,
-	tags = { body_armour = true, armour = true, str_armour = true, default = true, },
-	influenceTags = { shaper = "body_armour_shaper", elder = "body_armour_elder", adjudicator = "body_armour_adjudicator", basilisk = "body_armour_basilisk", crusader = "body_armour_crusader", eyrie = "body_armour_eyrie", cleansing = "body_armour_cleansing", tangle = "body_armour_tangle" },
+	socketLimit = 3,
+	tags = { body_armour = true, str_armour = true, armour = true, vaal_basetype = true, default = true, },
 	implicitModTypes = { },
-	armour = { ArmourBaseMin = 324, ArmourBaseMax = 389, MovementPenalty = 5, },
-	req = { level = 32, str = 91, },
+	armour = { Armour = 228, MovementPenalty = 0.05, },
+	req = { level = 37, str = 77, },
 }
-itemBases["Lordly Plate"] = {
+itemBases["Juggernaut Plate"] = {
 	type = "Body Armour",
-	subType = "Armour",
-	socketLimit = 6,
+	socketLimit = 3,
 	tags = { body_armour = true, armour = true, str_armour = true, default = true, },
-	influenceTags = { shaper = "body_armour_shaper", elder = "body_armour_elder", adjudicator = "body_armour_adjudicator", basilisk = "body_armour_basilisk", crusader = "body_armour_crusader", eyrie = "body_armour_eyrie", cleansing = "body_armour_cleansing", tangle = "body_armour_tangle" },
 	implicitModTypes = { },
-	armour = { ArmourBaseMin = 353, ArmourBaseMax = 417, MovementPenalty = 5, },
-	req = { level = 35, str = 99, },
+	armour = { Armour = 269, MovementPenalty = 0.05, },
+	req = { level = 45, str = 94, },
 }
-itemBases["Bronze Plate"] = {
+itemBases["Chieftain Cuirass"] = {
 	type = "Body Armour",
-	subType = "Armour",
-	socketLimit = 6,
+	socketLimit = 3,
 	tags = { body_armour = true, armour = true, str_armour = true, default = true, },
-	influenceTags = { shaper = "body_armour_shaper", elder = "body_armour_elder", adjudicator = "body_armour_adjudicator", basilisk = "body_armour_basilisk", crusader = "body_armour_crusader", eyrie = "body_armour_eyrie", cleansing = "body_armour_cleansing", tangle = "body_armour_tangle" },
 	implicitModTypes = { },
-	armour = { ArmourBaseMin = 373, ArmourBaseMax = 429, MovementPenalty = 5, },
-	req = { level = 37, str = 104, },
-}
-itemBases["Battle Plate"] = {
-	type = "Body Armour",
-	subType = "Armour",
-	socketLimit = 6,
-	tags = { body_armour = true, armour = true, str_armour = true, default = true, },
-	influenceTags = { shaper = "body_armour_shaper", elder = "body_armour_elder", adjudicator = "body_armour_adjudicator", basilisk = "body_armour_basilisk", crusader = "body_armour_crusader", eyrie = "body_armour_eyrie", cleansing = "body_armour_cleansing", tangle = "body_armour_tangle" },
-	implicitModTypes = { },
-	armour = { ArmourBaseMin = 412, ArmourBaseMax = 474, MovementPenalty = 5, },
-	req = { level = 41, str = 114, },
-}
-itemBases["Sun Plate"] = {
-	type = "Body Armour",
-	subType = "Armour",
-	socketLimit = 6,
-	tags = { body_armour = true, armour = true, str_armour = true, default = true, },
-	influenceTags = { shaper = "body_armour_shaper", elder = "body_armour_elder", adjudicator = "body_armour_adjudicator", basilisk = "body_armour_basilisk", crusader = "body_armour_crusader", eyrie = "body_armour_eyrie", cleansing = "body_armour_cleansing", tangle = "body_armour_tangle" },
-	implicitModTypes = { },
-	armour = { ArmourBaseMin = 451, ArmourBaseMax = 506, MovementPenalty = 5, },
-	req = { level = 45, str = 124, },
+	armour = { Armour = 294, MovementPenalty = 0.05, },
+	req = { level = 50, str = 104, },
 }
 itemBases["Colosseum Plate"] = {
 	type = "Body Armour",
-	subType = "Armour",
-	socketLimit = 6,
+	socketLimit = 3,
 	tags = { body_armour = true, armour = true, str_armour = true, default = true, },
-	influenceTags = { shaper = "body_armour_shaper", elder = "body_armour_elder", adjudicator = "body_armour_adjudicator", basilisk = "body_armour_basilisk", crusader = "body_armour_crusader", eyrie = "body_armour_eyrie", cleansing = "body_armour_cleansing", tangle = "body_armour_tangle" },
 	implicitModTypes = { },
-	armour = { ArmourBaseMin = 491, ArmourBaseMax = 589, MovementPenalty = 5, },
-	req = { level = 49, str = 134, },
+	armour = { Armour = 304, MovementPenalty = 0.05, },
+	req = { level = 52, str = 107, },
 }
-itemBases["Majestic Plate"] = {
+itemBases["Champion Cuirass"] = {
 	type = "Body Armour",
-	subType = "Armour",
-	socketLimit = 6,
+	socketLimit = 3,
 	tags = { body_armour = true, armour = true, str_armour = true, default = true, },
-	influenceTags = { shaper = "body_armour_shaper", elder = "body_armour_elder", adjudicator = "body_armour_adjudicator", basilisk = "body_armour_basilisk", crusader = "body_armour_crusader", eyrie = "body_armour_eyrie", cleansing = "body_armour_cleansing", tangle = "body_armour_tangle" },
 	implicitModTypes = { },
-	armour = { ArmourBaseMin = 530, ArmourBaseMax = 625, MovementPenalty = 5, },
-	req = { level = 53, str = 145, },
-}
-itemBases["Golden Plate"] = {
-	type = "Body Armour",
-	subType = "Armour",
-	socketLimit = 6,
-	tags = { body_armour = true, armour = true, str_armour = true, default = true, },
-	influenceTags = { shaper = "body_armour_shaper", elder = "body_armour_elder", adjudicator = "body_armour_adjudicator", basilisk = "body_armour_basilisk", crusader = "body_armour_crusader", eyrie = "body_armour_eyrie", cleansing = "body_armour_cleansing", tangle = "body_armour_tangle" },
-	implicitModTypes = { },
-	armour = { ArmourBaseMin = 559, ArmourBaseMax = 643, MovementPenalty = 5, },
-	req = { level = 56, str = 152, },
-}
-itemBases["Crusader Plate"] = {
-	type = "Body Armour",
-	subType = "Armour",
-	socketLimit = 6,
-	tags = { body_armour = true, armour = true, str_armour = true, default = true, },
-	influenceTags = { shaper = "body_armour_shaper", elder = "body_armour_elder", adjudicator = "body_armour_adjudicator", basilisk = "body_armour_basilisk", crusader = "body_armour_crusader", eyrie = "body_armour_eyrie", cleansing = "body_armour_cleansing", tangle = "body_armour_tangle" },
-	implicitModTypes = { },
-	armour = { ArmourBaseMin = 601, ArmourBaseMax = 691, MovementPenalty = 5, },
-	req = { level = 59, str = 160, },
-}
-itemBases["Astral Plate"] = {
-	type = "Body Armour",
-	subType = "Armour",
-	socketLimit = 6,
-	tags = { body_armour = true, str_armour = true, armour = true, top_tier_base_item_type = true, default = true, },
-	influenceTags = { shaper = "body_armour_shaper", elder = "body_armour_elder", adjudicator = "body_armour_adjudicator", basilisk = "body_armour_basilisk", crusader = "body_armour_crusader", eyrie = "body_armour_eyrie", cleansing = "body_armour_cleansing", tangle = "body_armour_tangle" },
-	implicit = "+(8-12)% to all Elemental Resistances",
-	implicitModTypes = { { "elemental", "resistance" }, },
-	armour = { ArmourBaseMin = 711, ArmourBaseMax = 782, MovementPenalty = 5, },
-	req = { level = 62, str = 180, },
-}
-itemBases["Gladiator Plate"] = {
-	type = "Body Armour",
-	subType = "Armour",
-	socketLimit = 6,
-	tags = { body_armour = true, str_armour = true, armour = true, top_tier_base_item_type = true, default = true, },
-	influenceTags = { shaper = "body_armour_shaper", elder = "body_armour_elder", adjudicator = "body_armour_adjudicator", basilisk = "body_armour_basilisk", crusader = "body_armour_crusader", eyrie = "body_armour_eyrie", cleansing = "body_armour_cleansing", tangle = "body_armour_tangle" },
-	implicitModTypes = { },
-	armour = { ArmourBaseMin = 738, ArmourBaseMax = 848, MovementPenalty = 5, },
-	req = { level = 65, str = 177, },
+	armour = { Armour = 335, MovementPenalty = 0.05, },
+	req = { level = 58, str = 120, },
 }
 itemBases["Glorious Plate"] = {
 	type = "Body Armour",
-	subType = "Armour",
-	socketLimit = 6,
-	tags = { body_armour = true, str_armour = true, armour = true, top_tier_base_item_type = true, default = true, },
-	influenceTags = { shaper = "body_armour_shaper", elder = "body_armour_elder", adjudicator = "body_armour_adjudicator", basilisk = "body_armour_basilisk", crusader = "body_armour_crusader", eyrie = "body_armour_eyrie", cleansing = "body_armour_cleansing", tangle = "body_armour_tangle" },
+	socketLimit = 3,
+	tags = { body_armour = true, armour = true, str_armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { ArmourBaseMin = 776, ArmourBaseMax = 892, },
-	req = { level = 68, str = 191, },
+	armour = { Armour = 534, MovementPenalty = 0.05, },
+	req = { level = 65, str = 157, },
 }
-itemBases["Titan Plate"] = {
+itemBases["Conqueror Plate"] = {
 	type = "Body Armour",
-	subType = "Armour",
-	socketLimit = 6,
-	tags = { body_armour = true, str_armour = true, not_for_sale = true, armour = true, top_tier_base_item_type = true, default = true, },
-	influenceTags = { shaper = "body_armour_shaper", elder = "body_armour_elder", adjudicator = "body_armour_adjudicator", basilisk = "body_armour_basilisk", crusader = "body_armour_crusader", eyrie = "body_armour_eyrie", cleansing = "body_armour_cleansing", tangle = "body_armour_tangle" },
+	socketLimit = 3,
+	tags = { body_armour = true, armour = true, str_armour = true, default = true, },
+	implicit = "(30-40)% increased Stun Threshold",
+	implicitModTypes = { {  }, },
+	armour = { Armour = 445, MovementPenalty = 0.05, },
+	req = { level = 68, str = 157, },
+}
+itemBases["Abyssal Cuirass"] = {
+	type = "Body Armour",
+	socketLimit = 3,
+	tags = { body_armour = true, armour = true, str_armour = true, default = true, },
+	implicit = "Regenerate (1.5-2.5)% of Life per second",
+	implicitModTypes = { { "resource", "life" }, },
+	armour = { Armour = 445, MovementPenalty = 0.05, },
+	req = { level = 73, str = 157, },
+}
+itemBases["Leather Vest"] = {
+	type = "Body Armour",
+	socketLimit = 3,
+	tags = { body_armour = true, ezomyte_basetype = true, dex_armour = true, armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { ArmourBaseMin = 877, ArmourBaseMax = 1009, MovementPenalty = 5, },
-	req = { level = 73, str = 222, },
+	armour = { Evasion = 30, MovementPenalty = 0.03, },
+	req = { },
 }
-itemBases["Legion Plate"] = {
+itemBases["Quilted Vest"] = {
 	type = "Body Armour",
-	subType = "Armour",
-	socketLimit = 6,
-	tags = { body_armour = true, str_armour = true, not_for_sale = true, armour = true, top_tier_base_item_type = true, default = true, },
-	influenceTags = { shaper = "body_armour_shaper", elder = "body_armour_elder", adjudicator = "body_armour_adjudicator", basilisk = "body_armour_basilisk", crusader = "body_armour_crusader", eyrie = "body_armour_eyrie", cleansing = "body_armour_cleansing", tangle = "body_armour_tangle" },
+	socketLimit = 3,
+	tags = { body_armour = true, ezomyte_basetype = true, dex_armour = true, armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { ArmourBaseMin = 1018, ArmourBaseMax = 1171, MovementPenalty = 5, },
-	req = { level = 78, str = 254, },
+	armour = { Evasion = 44, MovementPenalty = 0.03, },
+	req = { dex = 10, },
 }
-itemBases["Royal Plate"] = {
+itemBases["Pathfinder Coat"] = {
 	type = "Body Armour",
-	subType = "Armour",
-	socketLimit = 6,
-	tags = { body_armour = true, str_armour = true, not_for_sale = true, armour = true, top_tier_base_item_type = true, default = true, },
-	influenceTags = { shaper = "body_armour_shaper", elder = "body_armour_elder", adjudicator = "body_armour_adjudicator", basilisk = "body_armour_basilisk", crusader = "body_armour_crusader", eyrie = "body_armour_eyrie", cleansing = "body_armour_cleansing", tangle = "body_armour_tangle" },
+	socketLimit = 3,
+	tags = { body_armour = true, ezomyte_basetype = true, dex_armour = true, armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { ArmourBaseMin = 1183, ArmourBaseMax = 1360, MovementPenalty = 5, },
-	req = { level = 84, str = 293, },
+	armour = { Evasion = 78, MovementPenalty = 0.03, },
+	req = { level = 11, dex = 24, },
 }
-
-itemBases["Shabby Jerkin"] = {
+itemBases["Shrouded Vest"] = {
 	type = "Body Armour",
-	subType = "Evasion",
-	socketLimit = 6,
+	socketLimit = 3,
+	tags = { body_armour = true, dex_armour = true, armour = true, maraketh_basetype = true, default = true, },
+	implicitModTypes = { },
+	armour = { Evasion = 102, MovementPenalty = 0.03, },
+	req = { level = 16, dex = 34, },
+}
+itemBases["Rhoahide Coat"] = {
+	type = "Body Armour",
+	socketLimit = 3,
+	tags = { body_armour = true, dex_armour = true, armour = true, maraketh_basetype = true, default = true, },
+	implicitModTypes = { },
+	armour = { Evasion = 131, MovementPenalty = 0.03, },
+	req = { level = 22, dex = 47, },
+}
+itemBases["Studded Vest"] = {
+	type = "Body Armour",
+	socketLimit = 3,
+	tags = { body_armour = true, dex_armour = true, armour = true, maraketh_basetype = true, default = true, },
+	implicitModTypes = { },
+	armour = { Evasion = 150, MovementPenalty = 0.03, },
+	req = { level = 26, dex = 55, },
+}
+itemBases["Scout's Vest"] = {
+	type = "Body Armour",
+	socketLimit = 3,
+	tags = { body_armour = true, dex_armour = true, armour = true, vaal_basetype = true, default = true, },
+	implicitModTypes = { },
+	armour = { Evasion = 184, MovementPenalty = 0.03, },
+	req = { level = 33, dex = 68, },
+}
+itemBases["Serpentscale Coat"] = {
+	type = "Body Armour",
+	socketLimit = 3,
+	tags = { body_armour = true, dex_armour = true, armour = true, vaal_basetype = true, default = true, },
+	implicitModTypes = { },
+	armour = { Evasion = 198, MovementPenalty = 0.03, },
+	req = { level = 36, dex = 75, },
+}
+itemBases["Corsair Vest"] = {
+	type = "Body Armour",
+	socketLimit = 3,
 	tags = { body_armour = true, armour = true, dex_armour = true, default = true, },
-	influenceTags = { shaper = "body_armour_shaper", elder = "body_armour_elder", adjudicator = "body_armour_adjudicator", basilisk = "body_armour_basilisk", crusader = "body_armour_crusader", eyrie = "body_armour_eyrie", cleansing = "body_armour_cleansing", tangle = "body_armour_tangle" },
 	implicitModTypes = { },
-	armour = { EvasionBaseMin = 29, EvasionBaseMax = 41, MovementPenalty = 3, },
-	req = { dex = 14, },
+	armour = { Evasion = 242, MovementPenalty = 0.03, },
+	req = { level = 45, dex = 94, },
 }
-itemBases["Strapped Leather"] = {
+itemBases["Smuggler Coat"] = {
 	type = "Body Armour",
-	subType = "Evasion",
-	socketLimit = 6,
+	socketLimit = 3,
 	tags = { body_armour = true, armour = true, dex_armour = true, default = true, },
-	influenceTags = { shaper = "body_armour_shaper", elder = "body_armour_elder", adjudicator = "body_armour_adjudicator", basilisk = "body_armour_basilisk", crusader = "body_armour_crusader", eyrie = "body_armour_eyrie", cleansing = "body_armour_cleansing", tangle = "body_armour_tangle" },
 	implicitModTypes = { },
-	armour = { EvasionBaseMin = 98, EvasionBaseMax = 127, MovementPenalty = 3, },
-	req = { level = 9, dex = 32, },
+	armour = { Evasion = 256, MovementPenalty = 0.03, },
+	req = { level = 48, dex = 99, },
 }
-itemBases["Buckskin Tunic"] = {
+itemBases["Strider Vest"] = {
 	type = "Body Armour",
-	subType = "Evasion",
-	socketLimit = 6,
+	socketLimit = 3,
 	tags = { body_armour = true, armour = true, dex_armour = true, default = true, },
-	influenceTags = { shaper = "body_armour_shaper", elder = "body_armour_elder", adjudicator = "body_armour_adjudicator", basilisk = "body_armour_basilisk", crusader = "body_armour_crusader", eyrie = "body_armour_eyrie", cleansing = "body_armour_cleansing", tangle = "body_armour_tangle" },
 	implicitModTypes = { },
-	armour = { EvasionBaseMin = 176, EvasionBaseMax = 221, MovementPenalty = 3, },
-	req = { level = 17, dex = 53, },
+	armour = { Evasion = 275, MovementPenalty = 0.03, },
+	req = { level = 52, dex = 107, },
 }
-itemBases["Wild Leather"] = {
+itemBases["Hardleather Coat"] = {
 	type = "Body Armour",
-	subType = "Evasion",
-	socketLimit = 6,
+	socketLimit = 3,
 	tags = { body_armour = true, armour = true, dex_armour = true, default = true, },
-	influenceTags = { shaper = "body_armour_shaper", elder = "body_armour_elder", adjudicator = "body_armour_adjudicator", basilisk = "body_armour_basilisk", crusader = "body_armour_crusader", eyrie = "body_armour_eyrie", cleansing = "body_armour_cleansing", tangle = "body_armour_tangle" },
 	implicitModTypes = { },
-	armour = { EvasionBaseMin = 255, EvasionBaseMax = 306, MovementPenalty = 3, },
-	req = { level = 25, dex = 73, },
+	armour = { Evasion = 295, MovementPenalty = 0.03, },
+	req = { level = 56, dex = 115, },
 }
-itemBases["Full Leather"] = {
+itemBases["Exquisite Vest"] = {
 	type = "Body Armour",
-	subType = "Evasion",
-	socketLimit = 6,
+	socketLimit = 3,
 	tags = { body_armour = true, armour = true, dex_armour = true, default = true, },
-	influenceTags = { shaper = "body_armour_shaper", elder = "body_armour_elder", adjudicator = "body_armour_adjudicator", basilisk = "body_armour_basilisk", crusader = "body_armour_crusader", eyrie = "body_armour_eyrie", cleansing = "body_armour_cleansing", tangle = "body_armour_tangle" },
 	implicitModTypes = { },
-	armour = { EvasionBaseMin = 284, EvasionBaseMax = 327, MovementPenalty = 3, },
-	req = { level = 28, dex = 81, },
+	armour = { Evasion = 487, MovementPenalty = 0.03, },
+	req = { level = 65, dex = 157, },
 }
-itemBases["Sun Leather"] = {
+itemBases["Mail Coat"] = {
 	type = "Body Armour",
-	subType = "Evasion",
-	socketLimit = 6,
+	socketLimit = 3,
 	tags = { body_armour = true, armour = true, dex_armour = true, default = true, },
-	influenceTags = { shaper = "body_armour_shaper", elder = "body_armour_elder", adjudicator = "body_armour_adjudicator", basilisk = "body_armour_basilisk", crusader = "body_armour_crusader", eyrie = "body_armour_eyrie", cleansing = "body_armour_cleansing", tangle = "body_armour_tangle" },
-	implicitModTypes = { },
-	armour = { EvasionBaseMin = 324, EvasionBaseMax = 382, MovementPenalty = 3, },
-	req = { level = 32, dex = 91, },
+	implicit = "(20-30)% reduced Slowing Potency of Debuffs on You",
+	implicitModTypes = { {  }, },
+	armour = { Evasion = 406, MovementPenalty = 0.03, },
+	req = { level = 68, dex = 157, },
 }
-itemBases["Thief's Garb"] = {
+itemBases["Armoured Vest"] = {
 	type = "Body Armour",
-	subType = "Evasion",
-	socketLimit = 6,
+	socketLimit = 3,
 	tags = { body_armour = true, armour = true, dex_armour = true, default = true, },
-	influenceTags = { shaper = "body_armour_shaper", elder = "body_armour_elder", adjudicator = "body_armour_adjudicator", basilisk = "body_armour_basilisk", crusader = "body_armour_crusader", eyrie = "body_armour_eyrie", cleansing = "body_armour_cleansing", tangle = "body_armour_tangle" },
-	implicitModTypes = { },
-	armour = { EvasionBaseMin = 353, EvasionBaseMax = 396, MovementPenalty = 3, },
-	req = { level = 35, dex = 99, },
+	implicit = "(30-40)% increased Elemental Ailment Threshold",
+	implicitModTypes = { {  }, },
+	armour = { Evasion = 406, MovementPenalty = 0.03, },
+	req = { level = 73, dex = 157, },
 }
-itemBases["Eelskin Tunic"] = {
+itemBases["Tattered Robe"] = {
 	type = "Body Armour",
-	subType = "Evasion",
-	socketLimit = 6,
-	tags = { body_armour = true, armour = true, dex_armour = true, default = true, },
-	influenceTags = { shaper = "body_armour_shaper", elder = "body_armour_elder", adjudicator = "body_armour_adjudicator", basilisk = "body_armour_basilisk", crusader = "body_armour_crusader", eyrie = "body_armour_eyrie", cleansing = "body_armour_cleansing", tangle = "body_armour_tangle" },
+	socketLimit = 3,
+	tags = { body_armour = true, ezomyte_basetype = true, int_armour = true, armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { EvasionBaseMin = 373, EvasionBaseMax = 429, MovementPenalty = 3, },
-	req = { level = 37, dex = 104, },
+	armour = { EnergyShield = 28, MovementPenalty = 0.03, },
+	req = { },
 }
-itemBases["Frontier Leather"] = {
+itemBases["Feathered Robe"] = {
 	type = "Body Armour",
-	subType = "Evasion",
-	socketLimit = 6,
-	tags = { body_armour = true, armour = true, dex_armour = true, default = true, },
-	influenceTags = { shaper = "body_armour_shaper", elder = "body_armour_elder", adjudicator = "body_armour_adjudicator", basilisk = "body_armour_basilisk", crusader = "body_armour_crusader", eyrie = "body_armour_eyrie", cleansing = "body_armour_cleansing", tangle = "body_armour_tangle" },
+	socketLimit = 3,
+	tags = { body_armour = true, ezomyte_basetype = true, int_armour = true, armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { EvasionBaseMin = 412, EvasionBaseMax = 495, MovementPenalty = 3, },
-	req = { level = 41, dex = 114, },
+	armour = { EnergyShield = 35, MovementPenalty = 0.03, },
+	req = { level = 5, int = 13, },
 }
-itemBases["Glorious Leather"] = {
+itemBases["Hexer's Robe"] = {
 	type = "Body Armour",
-	subType = "Evasion",
-	socketLimit = 6,
-	tags = { body_armour = true, armour = true, dex_armour = true, default = true, },
-	influenceTags = { shaper = "body_armour_shaper", elder = "body_armour_elder", adjudicator = "body_armour_adjudicator", basilisk = "body_armour_basilisk", crusader = "body_armour_crusader", eyrie = "body_armour_eyrie", cleansing = "body_armour_cleansing", tangle = "body_armour_tangle" },
+	socketLimit = 3,
+	tags = { body_armour = true, ezomyte_basetype = true, int_armour = true, armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { EvasionBaseMin = 451, EvasionBaseMax = 519, MovementPenalty = 3, },
-	req = { level = 45, dex = 124, },
+	armour = { EnergyShield = 44, MovementPenalty = 0.03, },
+	req = { level = 11, int = 24, },
 }
-itemBases["Coronal Leather"] = {
+itemBases["Bone Raiment"] = {
 	type = "Body Armour",
-	subType = "Evasion",
-	socketLimit = 6,
-	tags = { body_armour = true, armour = true, dex_armour = true, default = true, },
-	influenceTags = { shaper = "body_armour_shaper", elder = "body_armour_elder", adjudicator = "body_armour_adjudicator", basilisk = "body_armour_basilisk", crusader = "body_armour_crusader", eyrie = "body_armour_eyrie", cleansing = "body_armour_cleansing", tangle = "body_armour_tangle" },
+	socketLimit = 3,
+	tags = { body_armour = true, int_armour = true, armour = true, maraketh_basetype = true, default = true, },
 	implicitModTypes = { },
-	armour = { EvasionBaseMin = 491, EvasionBaseMax = 579, MovementPenalty = 3, },
-	req = { level = 49, dex = 134, },
-}
-itemBases["Cutthroat's Garb"] = {
-	type = "Body Armour",
-	subType = "Evasion",
-	socketLimit = 6,
-	tags = { body_armour = true, armour = true, dex_armour = true, default = true, },
-	influenceTags = { shaper = "body_armour_shaper", elder = "body_armour_elder", adjudicator = "body_armour_adjudicator", basilisk = "body_armour_basilisk", crusader = "body_armour_crusader", eyrie = "body_armour_eyrie", cleansing = "body_armour_cleansing", tangle = "body_armour_tangle" },
-	implicitModTypes = { },
-	armour = { EvasionBaseMin = 530, EvasionBaseMax = 594, MovementPenalty = 3, },
-	req = { level = 53, dex = 145, },
-}
-itemBases["Sharkskin Tunic"] = {
-	type = "Body Armour",
-	subType = "Evasion",
-	socketLimit = 6,
-	tags = { body_armour = true, armour = true, dex_armour = true, default = true, },
-	influenceTags = { shaper = "body_armour_shaper", elder = "body_armour_elder", adjudicator = "body_armour_adjudicator", basilisk = "body_armour_basilisk", crusader = "body_armour_crusader", eyrie = "body_armour_eyrie", cleansing = "body_armour_cleansing", tangle = "body_armour_tangle" },
-	implicitModTypes = { },
-	armour = { EvasionBaseMin = 559, EvasionBaseMax = 643, MovementPenalty = 3, },
-	req = { level = 56, dex = 152, },
-}
-itemBases["Destiny Leather"] = {
-	type = "Body Armour",
-	subType = "Evasion",
-	socketLimit = 6,
-	tags = { body_armour = true, armour = true, dex_armour = true, default = true, },
-	influenceTags = { shaper = "body_armour_shaper", elder = "body_armour_elder", adjudicator = "body_armour_adjudicator", basilisk = "body_armour_basilisk", crusader = "body_armour_crusader", eyrie = "body_armour_eyrie", cleansing = "body_armour_cleansing", tangle = "body_armour_tangle" },
-	implicitModTypes = { },
-	armour = { EvasionBaseMin = 601, EvasionBaseMax = 721, MovementPenalty = 3, },
-	req = { level = 59, dex = 160, },
-}
-itemBases["Exquisite Leather"] = {
-	type = "Body Armour",
-	subType = "Evasion",
-	socketLimit = 6,
-	tags = { body_armour = true, top_tier_base_item_type = true, dex_armour = true, armour = true, default = true, },
-	influenceTags = { shaper = "body_armour_shaper", elder = "body_armour_elder", adjudicator = "body_armour_adjudicator", basilisk = "body_armour_basilisk", crusader = "body_armour_crusader", eyrie = "body_armour_eyrie", cleansing = "body_armour_cleansing", tangle = "body_armour_tangle" },
-	implicitModTypes = { },
-	armour = { EvasionBaseMin = 704, EvasionBaseMax = 810, MovementPenalty = 3, },
-	req = { level = 62, dex = 170, },
-}
-itemBases["Zodiac Leather"] = {
-	type = "Body Armour",
-	subType = "Evasion",
-	socketLimit = 6,
-	tags = { body_armour = true, top_tier_base_item_type = true, dex_armour = true, armour = true, default = true, },
-	influenceTags = { shaper = "body_armour_shaper", elder = "body_armour_elder", adjudicator = "body_armour_adjudicator", basilisk = "body_armour_basilisk", crusader = "body_armour_crusader", eyrie = "body_armour_eyrie", cleansing = "body_armour_cleansing", tangle = "body_armour_tangle" },
-	implicitModTypes = { },
-	armour = { EvasionBaseMin = 854, EvasionBaseMax = 982, MovementPenalty = 3, },
-	req = { level = 65, dex = 197, },
-}
-itemBases["Assassin's Garb"] = {
-	type = "Body Armour",
-	subType = "Evasion",
-	socketLimit = 6,
-	tags = { body_armour = true, top_tier_base_item_type = true, dex_armour = true, armour = true, default = true, },
-	influenceTags = { shaper = "body_armour_shaper", elder = "body_armour_elder", adjudicator = "body_armour_adjudicator", basilisk = "body_armour_basilisk", crusader = "body_armour_crusader", eyrie = "body_armour_eyrie", cleansing = "body_armour_cleansing", tangle = "body_armour_tangle" },
-	implicit = "3% increased Movement Speed",
-	implicitModTypes = { { "speed" }, },
-	armour = { EvasionBaseMin = 737, EvasionBaseMax = 811, },
-	req = { level = 68, dex = 183, },
-}
-itemBases["Supreme Leather"] = {
-	type = "Body Armour",
-	subType = "Evasion",
-	socketLimit = 6,
-	tags = { body_armour = true, top_tier_base_item_type = true, dex_armour = true, armour = true, not_for_sale = true, default = true, },
-	influenceTags = { shaper = "body_armour_shaper", elder = "body_armour_elder", adjudicator = "body_armour_adjudicator", basilisk = "body_armour_basilisk", crusader = "body_armour_crusader", eyrie = "body_armour_eyrie", cleansing = "body_armour_cleansing", tangle = "body_armour_tangle" },
-	implicitModTypes = { },
-	armour = { EvasionBaseMin = 894, EvasionBaseMax = 1028, MovementPenalty = 3, },
-	req = { level = 73, dex = 222, },
-}
-itemBases["Astral Leather"] = {
-	type = "Body Armour",
-	subType = "Evasion",
-	socketLimit = 6,
-	tags = { body_armour = true, top_tier_base_item_type = true, dex_armour = true, armour = true, not_for_sale = true, default = true, },
-	influenceTags = { shaper = "body_armour_shaper", elder = "body_armour_elder", adjudicator = "body_armour_adjudicator", basilisk = "body_armour_basilisk", crusader = "body_armour_crusader", eyrie = "body_armour_eyrie", cleansing = "body_armour_cleansing", tangle = "body_armour_tangle" },
-	implicitModTypes = { },
-	armour = { EvasionBaseMin = 1037, EvasionBaseMax = 1193, MovementPenalty = 3, },
-	req = { level = 78, dex = 254, },
-}
-itemBases["Syndicate's Garb"] = {
-	type = "Body Armour",
-	subType = "Evasion",
-	socketLimit = 6,
-	tags = { body_armour = true, top_tier_base_item_type = true, dex_armour = true, armour = true, not_for_sale = true, default = true, },
-	influenceTags = { shaper = "body_armour_shaper", elder = "body_armour_elder", adjudicator = "body_armour_adjudicator", basilisk = "body_armour_basilisk", crusader = "body_armour_crusader", eyrie = "body_armour_eyrie", cleansing = "body_armour_cleansing", tangle = "body_armour_tangle" },
-	implicitModTypes = { },
-	armour = { EvasionBaseMin = 1205, EvasionBaseMax = 1386, MovementPenalty = 3, },
-	req = { level = 84, dex = 293, },
-}
-
-itemBases["Simple Robe"] = {
-	type = "Body Armour",
-	subType = "Energy Shield",
-	socketLimit = 6,
-	tags = { body_armour = true, armour = true, int_armour = true, default = true, },
-	influenceTags = { shaper = "body_armour_shaper", elder = "body_armour_elder", adjudicator = "body_armour_adjudicator", basilisk = "body_armour_basilisk", crusader = "body_armour_crusader", eyrie = "body_armour_eyrie", cleansing = "body_armour_cleansing", tangle = "body_armour_tangle" },
-	implicitModTypes = { },
-	armour = { EnergyShieldBaseMin = 14, EnergyShieldBaseMax = 20, MovementPenalty = 3, },
-	req = { int = 17, },
-}
-itemBases["Silken Vest"] = {
-	type = "Body Armour",
-	subType = "Energy Shield",
-	socketLimit = 6,
-	tags = { body_armour = true, armour = true, int_armour = true, default = true, },
-	influenceTags = { shaper = "body_armour_shaper", elder = "body_armour_elder", adjudicator = "body_armour_adjudicator", basilisk = "body_armour_basilisk", crusader = "body_armour_crusader", eyrie = "body_armour_eyrie", cleansing = "body_armour_cleansing", tangle = "body_armour_tangle" },
-	implicitModTypes = { },
-	armour = { EnergyShieldBaseMin = 30, EnergyShieldBaseMax = 38, MovementPenalty = 3, },
-	req = { level = 11, int = 37, },
-}
-itemBases["Scholar's Robe"] = {
-	type = "Body Armour",
-	subType = "Energy Shield",
-	socketLimit = 6,
-	tags = { body_armour = true, armour = true, int_armour = true, default = true, },
-	influenceTags = { shaper = "body_armour_shaper", elder = "body_armour_elder", adjudicator = "body_armour_adjudicator", basilisk = "body_armour_basilisk", crusader = "body_armour_crusader", eyrie = "body_armour_eyrie", cleansing = "body_armour_cleansing", tangle = "body_armour_tangle" },
-	implicitModTypes = { },
-	armour = { EnergyShieldBaseMin = 43, EnergyShieldBaseMax = 53, MovementPenalty = 3, },
-	req = { level = 18, int = 55, },
-}
-itemBases["Silken Garb"] = {
-	type = "Body Armour",
-	subType = "Energy Shield",
-	socketLimit = 6,
-	tags = { body_armour = true, armour = true, int_armour = true, default = true, },
-	influenceTags = { shaper = "body_armour_shaper", elder = "body_armour_elder", adjudicator = "body_armour_adjudicator", basilisk = "body_armour_basilisk", crusader = "body_armour_crusader", eyrie = "body_armour_eyrie", cleansing = "body_armour_cleansing", tangle = "body_armour_tangle" },
-	implicitModTypes = { },
-	armour = { EnergyShieldBaseMin = 56, EnergyShieldBaseMax = 64, MovementPenalty = 3, },
-	req = { level = 25, int = 73, },
-}
-itemBases["Mage's Vestment"] = {
-	type = "Body Armour",
-	subType = "Energy Shield",
-	socketLimit = 6,
-	tags = { body_armour = true, armour = true, int_armour = true, default = true, },
-	influenceTags = { shaper = "body_armour_shaper", elder = "body_armour_elder", adjudicator = "body_armour_adjudicator", basilisk = "body_armour_basilisk", crusader = "body_armour_crusader", eyrie = "body_armour_eyrie", cleansing = "body_armour_cleansing", tangle = "body_armour_tangle" },
-	implicitModTypes = { },
-	armour = { EnergyShieldBaseMin = 62, EnergyShieldBaseMax = 69, MovementPenalty = 3, },
-	req = { level = 28, int = 81, },
+	armour = { EnergyShield = 52, MovementPenalty = 0.03, },
+	req = { level = 16, int = 34, },
 }
 itemBases["Silk Robe"] = {
 	type = "Body Armour",
-	subType = "Energy Shield",
-	socketLimit = 6,
+	socketLimit = 3,
+	tags = { body_armour = true, int_armour = true, armour = true, maraketh_basetype = true, default = true, },
+	implicitModTypes = { },
+	armour = { EnergyShield = 61, MovementPenalty = 0.03, },
+	req = { level = 22, int = 47, },
+}
+itemBases["Keth Raiment"] = {
+	type = "Body Armour",
+	socketLimit = 3,
+	tags = { body_armour = true, int_armour = true, armour = true, maraketh_basetype = true, default = true, },
+	implicitModTypes = { },
+	armour = { EnergyShield = 70, MovementPenalty = 0.03, },
+	req = { level = 28, int = 59, },
+}
+itemBases["Votive Raiment"] = {
+	type = "Body Armour",
+	socketLimit = 3,
+	tags = { body_armour = true, int_armour = true, armour = true, vaal_basetype = true, default = true, },
+	implicitModTypes = { },
+	armour = { EnergyShield = 78, MovementPenalty = 0.03, },
+	req = { level = 33, int = 68, },
+}
+itemBases["Altar Robe"] = {
+	type = "Body Armour",
+	socketLimit = 3,
+	tags = { body_armour = true, int_armour = true, armour = true, vaal_basetype = true, default = true, },
+	implicitModTypes = { },
+	armour = { EnergyShield = 89, MovementPenalty = 0.03, },
+	req = { level = 40, int = 83, },
+}
+itemBases["Elementalist Robe"] = {
+	type = "Body Armour",
+	socketLimit = 3,
 	tags = { body_armour = true, armour = true, int_armour = true, default = true, },
-	influenceTags = { shaper = "body_armour_shaper", elder = "body_armour_elder", adjudicator = "body_armour_adjudicator", basilisk = "body_armour_basilisk", crusader = "body_armour_crusader", eyrie = "body_armour_eyrie", cleansing = "body_armour_cleansing", tangle = "body_armour_tangle" },
 	implicitModTypes = { },
-	armour = { EnergyShieldBaseMin = 69, EnergyShieldBaseMax = 80, MovementPenalty = 3, },
-	req = { level = 32, int = 91, },
+	armour = { EnergyShield = 97, MovementPenalty = 0.03, },
+	req = { level = 45, int = 94, },
 }
-itemBases["Cabalist Regalia"] = {
+itemBases["Mystic Raiment"] = {
 	type = "Body Armour",
-	subType = "Energy Shield",
-	socketLimit = 6,
+	socketLimit = 3,
 	tags = { body_armour = true, armour = true, int_armour = true, default = true, },
-	influenceTags = { shaper = "body_armour_shaper", elder = "body_armour_elder", adjudicator = "body_armour_adjudicator", basilisk = "body_armour_basilisk", crusader = "body_armour_crusader", eyrie = "body_armour_eyrie", cleansing = "body_armour_cleansing", tangle = "body_armour_tangle" },
 	implicitModTypes = { },
-	armour = { EnergyShieldBaseMin = 75, EnergyShieldBaseMax = 88, MovementPenalty = 3, },
-	req = { level = 35, int = 99, },
+	armour = { EnergyShield = 100, MovementPenalty = 0.03, },
+	req = { level = 47, int = 97, },
 }
-itemBases["Sage's Robe"] = {
+itemBases["Imperial Robe"] = {
 	type = "Body Armour",
-	subType = "Energy Shield",
-	socketLimit = 6,
+	socketLimit = 3,
 	tags = { body_armour = true, armour = true, int_armour = true, default = true, },
-	influenceTags = { shaper = "body_armour_shaper", elder = "body_armour_elder", adjudicator = "body_armour_adjudicator", basilisk = "body_armour_basilisk", crusader = "body_armour_crusader", eyrie = "body_armour_eyrie", cleansing = "body_armour_cleansing", tangle = "body_armour_tangle" },
 	implicitModTypes = { },
-	armour = { EnergyShieldBaseMin = 79, EnergyShieldBaseMax = 90, MovementPenalty = 3, },
-	req = { level = 37, int = 104, },
+	armour = { EnergyShield = 108, MovementPenalty = 0.03, },
+	req = { level = 52, int = 107, },
 }
-itemBases["Silken Wrap"] = {
+itemBases["Plated Raiment"] = {
 	type = "Body Armour",
-	subType = "Energy Shield",
-	socketLimit = 6,
+	socketLimit = 3,
 	tags = { body_armour = true, armour = true, int_armour = true, default = true, },
-	influenceTags = { shaper = "body_armour_shaper", elder = "body_armour_elder", adjudicator = "body_armour_adjudicator", basilisk = "body_armour_basilisk", crusader = "body_armour_crusader", eyrie = "body_armour_eyrie", cleansing = "body_armour_cleansing", tangle = "body_armour_tangle" },
 	implicitModTypes = { },
-	armour = { EnergyShieldBaseMin = 86, EnergyShieldBaseMax = 104, MovementPenalty = 3, },
-	req = { level = 41, int = 114, },
+	armour = { EnergyShield = 117, MovementPenalty = 0.03, },
+	req = { level = 58, int = 120, },
 }
-itemBases["Conjurer's Vestment"] = {
+itemBases["Havoc Raiment"] = {
 	type = "Body Armour",
-	subType = "Energy Shield",
-	socketLimit = 6,
+	socketLimit = 3,
 	tags = { body_armour = true, armour = true, int_armour = true, default = true, },
-	influenceTags = { shaper = "body_armour_shaper", elder = "body_armour_elder", adjudicator = "body_armour_adjudicator", basilisk = "body_armour_basilisk", crusader = "body_armour_crusader", eyrie = "body_armour_eyrie", cleansing = "body_armour_cleansing", tangle = "body_armour_tangle" },
 	implicitModTypes = { },
-	armour = { EnergyShieldBaseMin = 94, EnergyShieldBaseMax = 105, MovementPenalty = 3, },
-	req = { level = 45, int = 124, },
+	armour = { EnergyShield = 184, MovementPenalty = 0.03, },
+	req = { level = 65, int = 157, },
 }
-itemBases["Spidersilk Robe"] = {
+itemBases["Enlightened Robe"] = {
 	type = "Body Armour",
-	subType = "Energy Shield",
-	socketLimit = 6,
+	socketLimit = 3,
 	tags = { body_armour = true, armour = true, int_armour = true, default = true, },
-	influenceTags = { shaper = "body_armour_shaper", elder = "body_armour_elder", adjudicator = "body_armour_adjudicator", basilisk = "body_armour_basilisk", crusader = "body_armour_crusader", eyrie = "body_armour_eyrie", cleansing = "body_armour_cleansing", tangle = "body_armour_tangle" },
-	implicitModTypes = { },
-	armour = { EnergyShieldBaseMin = 101, EnergyShieldBaseMax = 117, MovementPenalty = 3, },
-	req = { level = 49, int = 134, },
-}
-itemBases["Destroyer Regalia"] = {
-	type = "Body Armour",
-	subType = "Energy Shield",
-	socketLimit = 6,
-	tags = { body_armour = true, armour = true, int_armour = true, default = true, },
-	influenceTags = { shaper = "body_armour_shaper", elder = "body_armour_elder", adjudicator = "body_armour_adjudicator", basilisk = "body_armour_basilisk", crusader = "body_armour_crusader", eyrie = "body_armour_eyrie", cleansing = "body_armour_cleansing", tangle = "body_armour_tangle" },
-	implicitModTypes = { },
-	armour = { EnergyShieldBaseMin = 109, EnergyShieldBaseMax = 129, MovementPenalty = 3, },
-	req = { level = 53, int = 145, },
-}
-itemBases["Savant's Robe"] = {
-	type = "Body Armour",
-	subType = "Energy Shield",
-	socketLimit = 6,
-	tags = { body_armour = true, armour = true, int_armour = true, default = true, },
-	influenceTags = { shaper = "body_armour_shaper", elder = "body_armour_elder", adjudicator = "body_armour_adjudicator", basilisk = "body_armour_basilisk", crusader = "body_armour_crusader", eyrie = "body_armour_eyrie", cleansing = "body_armour_cleansing", tangle = "body_armour_tangle" },
-	implicitModTypes = { },
-	armour = { EnergyShieldBaseMin = 115, EnergyShieldBaseMax = 132, MovementPenalty = 3, },
-	req = { level = 56, int = 152, },
-}
-itemBases["Necromancer Silks"] = {
-	type = "Body Armour",
-	subType = "Energy Shield",
-	socketLimit = 6,
-	tags = { body_armour = true, armour = true, int_armour = true, default = true, },
-	influenceTags = { shaper = "body_armour_shaper", elder = "body_armour_elder", adjudicator = "body_armour_adjudicator", basilisk = "body_armour_basilisk", crusader = "body_armour_crusader", eyrie = "body_armour_eyrie", cleansing = "body_armour_cleansing", tangle = "body_armour_tangle" },
-	implicitModTypes = { },
-	armour = { EnergyShieldBaseMin = 123, EnergyShieldBaseMax = 147, MovementPenalty = 3, },
-	req = { level = 59, int = 160, },
-}
-itemBases["Occultist's Vestment"] = {
-	type = "Body Armour",
-	subType = "Energy Shield",
-	socketLimit = 6,
-	tags = { body_armour = true, top_tier_base_item_type = true, int_armour = true, armour = true, default = true, },
-	influenceTags = { shaper = "body_armour_shaper", elder = "body_armour_elder", adjudicator = "body_armour_adjudicator", basilisk = "body_armour_basilisk", crusader = "body_armour_crusader", eyrie = "body_armour_eyrie", cleansing = "body_armour_cleansing", tangle = "body_armour_tangle" },
-	implicit = "(3-10)% increased Spell Damage",
-	implicitModTypes = { { "caster_damage", "damage", "caster" }, },
-	armour = { EnergyShieldBaseMin = 137, EnergyShieldBaseMax = 151, MovementPenalty = 3, },
-	req = { level = 62, int = 180, },
-}
-itemBases["Widowsilk Robe"] = {
-	type = "Body Armour",
-	subType = "Energy Shield",
-	socketLimit = 6,
-	tags = { body_armour = true, top_tier_base_item_type = true, int_armour = true, armour = true, default = true, },
-	influenceTags = { shaper = "body_armour_shaper", elder = "body_armour_elder", adjudicator = "body_armour_adjudicator", basilisk = "body_armour_basilisk", crusader = "body_armour_crusader", eyrie = "body_armour_eyrie", cleansing = "body_armour_cleansing", tangle = "body_armour_tangle" },
-	implicitModTypes = { },
-	armour = { EnergyShieldBaseMin = 157, EnergyShieldBaseMax = 181, MovementPenalty = 3, },
-	req = { level = 65, int = 187, },
-}
-itemBases["Vaal Regalia"] = {
-	type = "Body Armour",
-	subType = "Energy Shield",
-	socketLimit = 6,
-	tags = { body_armour = true, top_tier_base_item_type = true, int_armour = true, armour = true, default = true, },
-	influenceTags = { shaper = "body_armour_shaper", elder = "body_armour_elder", adjudicator = "body_armour_adjudicator", basilisk = "body_armour_basilisk", crusader = "body_armour_crusader", eyrie = "body_armour_eyrie", cleansing = "body_armour_cleansing", tangle = "body_armour_tangle" },
-	implicitModTypes = { },
-	armour = { EnergyShieldBaseMin = 171, EnergyShieldBaseMax = 197, MovementPenalty = 3, },
-	req = { level = 68, int = 194, },
-}
-itemBases["Arcane Vestment"] = {
-	type = "Body Armour",
-	subType = "Energy Shield",
-	socketLimit = 6,
-	tags = { body_armour = true, top_tier_base_item_type = true, int_armour = true, armour = true, not_for_sale = true, default = true, },
-	influenceTags = { shaper = "body_armour_shaper", elder = "body_armour_elder", adjudicator = "body_armour_adjudicator", basilisk = "body_armour_basilisk", crusader = "body_armour_crusader", eyrie = "body_armour_eyrie", cleansing = "body_armour_cleansing", tangle = "body_armour_tangle" },
-	implicitModTypes = { },
-	armour = { EnergyShieldBaseMin = 196, EnergyShieldBaseMax = 225, MovementPenalty = 3, },
-	req = { level = 73, int = 222, },
-}
-itemBases["Nightweave Robe"] = {
-	type = "Body Armour",
-	subType = "Energy Shield",
-	socketLimit = 6,
-	tags = { body_armour = true, top_tier_base_item_type = true, int_armour = true, armour = true, not_for_sale = true, default = true, },
-	influenceTags = { shaper = "body_armour_shaper", elder = "body_armour_elder", adjudicator = "body_armour_adjudicator", basilisk = "body_armour_basilisk", crusader = "body_armour_crusader", eyrie = "body_armour_eyrie", cleansing = "body_armour_cleansing", tangle = "body_armour_tangle" },
-	implicitModTypes = { },
-	armour = { EnergyShieldBaseMin = 227, EnergyShieldBaseMax = 260, MovementPenalty = 3, },
-	req = { level = 78, int = 254, },
-}
-itemBases["Twilight Regalia"] = {
-	type = "Body Armour",
-	subType = "Energy Shield",
-	socketLimit = 6,
-	tags = { body_armour = true, top_tier_base_item_type = true, int_armour = true, armour = true, not_for_sale = true, default = true, },
-	influenceTags = { shaper = "body_armour_shaper", elder = "body_armour_elder", adjudicator = "body_armour_adjudicator", basilisk = "body_armour_basilisk", crusader = "body_armour_crusader", eyrie = "body_armour_eyrie", cleansing = "body_armour_cleansing", tangle = "body_armour_tangle" },
-	implicitModTypes = { },
-	armour = { EnergyShieldBaseMin = 262, EnergyShieldBaseMax = 302, MovementPenalty = 3, },
-	req = { level = 84, int = 293, },
-}
-
-itemBases["Scale Vest"] = {
-	type = "Body Armour",
-	subType = "Armour/Evasion",
-	socketLimit = 6,
-	tags = { body_armour = true, armour = true, str_dex_armour = true, default = true, },
-	influenceTags = { shaper = "body_armour_shaper", elder = "body_armour_elder", adjudicator = "body_armour_adjudicator", basilisk = "body_armour_basilisk", crusader = "body_armour_crusader", eyrie = "body_armour_eyrie", cleansing = "body_armour_cleansing", tangle = "body_armour_tangle" },
-	implicitModTypes = { },
-	armour = { ArmourBaseMin = 27, ArmourBaseMax = 38, EvasionBaseMin = 27, EvasionBaseMax = 38, MovementPenalty = 3, },
-	req = { str = 10, dex = 10, },
-}
-itemBases["Light Brigandine"] = {
-	type = "Body Armour",
-	subType = "Armour/Evasion",
-	socketLimit = 6,
-	tags = { body_armour = true, armour = true, str_dex_armour = true, default = true, },
-	influenceTags = { shaper = "body_armour_shaper", elder = "body_armour_elder", adjudicator = "body_armour_adjudicator", basilisk = "body_armour_basilisk", crusader = "body_armour_crusader", eyrie = "body_armour_eyrie", cleansing = "body_armour_cleansing", tangle = "body_armour_tangle" },
-	implicitModTypes = { },
-	armour = { ArmourBaseMin = 48, ArmourBaseMax = 63, EvasionBaseMin = 48, EvasionBaseMax = 63, MovementPenalty = 3, },
-	req = { level = 8, str = 16, dex = 16, },
-}
-itemBases["Scale Doublet"] = {
-	type = "Body Armour",
-	subType = "Armour/Evasion",
-	socketLimit = 6,
-	tags = { body_armour = true, armour = true, str_dex_armour = true, default = true, },
-	influenceTags = { shaper = "body_armour_shaper", elder = "body_armour_elder", adjudicator = "body_armour_adjudicator", basilisk = "body_armour_basilisk", crusader = "body_armour_crusader", eyrie = "body_armour_eyrie", cleansing = "body_armour_cleansing", tangle = "body_armour_tangle" },
-	implicitModTypes = { },
-	armour = { ArmourBaseMin = 97, ArmourBaseMax = 121, EvasionBaseMin = 97, EvasionBaseMax = 121, MovementPenalty = 3, },
-	req = { level = 17, str = 28, dex = 28, },
-}
-itemBases["Infantry Brigandine"] = {
-	type = "Body Armour",
-	subType = "Armour/Evasion",
-	socketLimit = 6,
-	tags = { body_armour = true, armour = true, str_dex_armour = true, default = true, },
-	influenceTags = { shaper = "body_armour_shaper", elder = "body_armour_elder", adjudicator = "body_armour_adjudicator", basilisk = "body_armour_basilisk", crusader = "body_armour_crusader", eyrie = "body_armour_eyrie", cleansing = "body_armour_cleansing", tangle = "body_armour_tangle" },
-	implicitModTypes = { },
-	armour = { ArmourBaseMin = 119, ArmourBaseMax = 142, EvasionBaseMin = 119, EvasionBaseMax = 142, MovementPenalty = 3, },
-	req = { level = 21, str = 34, dex = 34, },
-}
-itemBases["Full Scale Armour"] = {
-	type = "Body Armour",
-	subType = "Armour/Evasion",
-	socketLimit = 6,
-	tags = { body_armour = true, armour = true, str_dex_armour = true, default = true, },
-	influenceTags = { shaper = "body_armour_shaper", elder = "body_armour_elder", adjudicator = "body_armour_adjudicator", basilisk = "body_armour_basilisk", crusader = "body_armour_crusader", eyrie = "body_armour_eyrie", cleansing = "body_armour_cleansing", tangle = "body_armour_tangle" },
-	implicitModTypes = { },
-	armour = { ArmourBaseMin = 156, ArmourBaseMax = 180, EvasionBaseMin = 156, EvasionBaseMax = 180, MovementPenalty = 3, },
-	req = { level = 28, str = 43, dex = 43, },
-}
-itemBases["Soldier's Brigandine"] = {
-	type = "Body Armour",
-	subType = "Armour/Evasion",
-	socketLimit = 6,
-	tags = { body_armour = true, armour = true, str_dex_armour = true, default = true, },
-	influenceTags = { shaper = "body_armour_shaper", elder = "body_armour_elder", adjudicator = "body_armour_adjudicator", basilisk = "body_armour_basilisk", crusader = "body_armour_crusader", eyrie = "body_armour_eyrie", cleansing = "body_armour_cleansing", tangle = "body_armour_tangle" },
-	implicitModTypes = { },
-	armour = { ArmourBaseMin = 178, ArmourBaseMax = 210, EvasionBaseMin = 178, EvasionBaseMax = 210, MovementPenalty = 3, },
-	req = { level = 32, str = 48, dex = 48, },
-}
-itemBases["Field Lamellar"] = {
-	type = "Body Armour",
-	subType = "Armour/Evasion",
-	socketLimit = 6,
-	tags = { body_armour = true, armour = true, str_dex_armour = true, default = true, },
-	influenceTags = { shaper = "body_armour_shaper", elder = "body_armour_elder", adjudicator = "body_armour_adjudicator", basilisk = "body_armour_basilisk", crusader = "body_armour_crusader", eyrie = "body_armour_eyrie", cleansing = "body_armour_cleansing", tangle = "body_armour_tangle" },
-	implicitModTypes = { },
-	armour = { ArmourBaseMin = 194, ArmourBaseMax = 223, EvasionBaseMin = 194, EvasionBaseMax = 223, MovementPenalty = 3, },
-	req = { level = 35, str = 53, dex = 53, },
-}
-itemBases["Wyrmscale Doublet"] = {
-	type = "Body Armour",
-	subType = "Armour/Evasion",
-	socketLimit = 6,
-	tags = { body_armour = true, armour = true, str_dex_armour = true, default = true, },
-	influenceTags = { shaper = "body_armour_shaper", elder = "body_armour_elder", adjudicator = "body_armour_adjudicator", basilisk = "body_armour_basilisk", crusader = "body_armour_crusader", eyrie = "body_armour_eyrie", cleansing = "body_armour_cleansing", tangle = "body_armour_tangle" },
-	implicitModTypes = { },
-	armour = { ArmourBaseMin = 210, ArmourBaseMax = 236, EvasionBaseMin = 210, EvasionBaseMax = 236, MovementPenalty = 3, },
-	req = { level = 38, str = 57, dex = 57, },
-}
-itemBases["Hussar Brigandine"] = {
-	type = "Body Armour",
-	subType = "Armour/Evasion",
-	socketLimit = 6,
-	tags = { body_armour = true, armour = true, str_dex_armour = true, default = true, },
-	influenceTags = { shaper = "body_armour_shaper", elder = "body_armour_elder", adjudicator = "body_armour_adjudicator", basilisk = "body_armour_basilisk", crusader = "body_armour_crusader", eyrie = "body_armour_eyrie", cleansing = "body_armour_cleansing", tangle = "body_armour_tangle" },
-	implicitModTypes = { },
-	armour = { ArmourBaseMin = 232, ArmourBaseMax = 278, EvasionBaseMin = 232, EvasionBaseMax = 278, MovementPenalty = 3, },
-	req = { level = 42, str = 62, dex = 62, },
-}
-itemBases["Full Wyrmscale"] = {
-	type = "Body Armour",
-	subType = "Armour/Evasion",
-	socketLimit = 6,
-	tags = { body_armour = true, armour = true, str_dex_armour = true, default = true, },
-	influenceTags = { shaper = "body_armour_shaper", elder = "body_armour_elder", adjudicator = "body_armour_adjudicator", basilisk = "body_armour_basilisk", crusader = "body_armour_crusader", eyrie = "body_armour_eyrie", cleansing = "body_armour_cleansing", tangle = "body_armour_tangle" },
-	implicitModTypes = { },
-	armour = { ArmourBaseMin = 254, ArmourBaseMax = 292, EvasionBaseMin = 254, EvasionBaseMax = 292, MovementPenalty = 3, },
-	req = { level = 46, str = 68, dex = 68, },
-}
-itemBases["Commander's Brigandine"] = {
-	type = "Body Armour",
-	subType = "Armour/Evasion",
-	socketLimit = 6,
-	tags = { body_armour = true, armour = true, str_dex_armour = true, default = true, },
-	influenceTags = { shaper = "body_armour_shaper", elder = "body_armour_elder", adjudicator = "body_armour_adjudicator", basilisk = "body_armour_basilisk", crusader = "body_armour_crusader", eyrie = "body_armour_eyrie", cleansing = "body_armour_cleansing", tangle = "body_armour_tangle" },
-	implicitModTypes = { },
-	armour = { ArmourBaseMin = 275, ArmourBaseMax = 325, EvasionBaseMin = 275, EvasionBaseMax = 325, MovementPenalty = 3, },
-	req = { level = 50, str = 73, dex = 73, },
-}
-itemBases["Battle Lamellar"] = {
-	type = "Body Armour",
-	subType = "Armour/Evasion",
-	socketLimit = 6,
-	tags = { body_armour = true, armour = true, str_dex_armour = true, default = true, },
-	influenceTags = { shaper = "body_armour_shaper", elder = "body_armour_elder", adjudicator = "body_armour_adjudicator", basilisk = "body_armour_basilisk", crusader = "body_armour_crusader", eyrie = "body_armour_eyrie", cleansing = "body_armour_cleansing", tangle = "body_armour_tangle" },
-	implicitModTypes = { },
-	armour = { ArmourBaseMin = 297, ArmourBaseMax = 341, EvasionBaseMin = 297, EvasionBaseMax = 341, MovementPenalty = 3, },
-	req = { level = 54, str = 79, dex = 79, },
-}
-itemBases["Dragonscale Doublet"] = {
-	type = "Body Armour",
-	subType = "Armour/Evasion",
-	socketLimit = 6,
-	tags = { body_armour = true, armour = true, str_dex_armour = true, default = true, },
-	influenceTags = { shaper = "body_armour_shaper", elder = "body_armour_elder", adjudicator = "body_armour_adjudicator", basilisk = "body_armour_basilisk", crusader = "body_armour_crusader", eyrie = "body_armour_eyrie", cleansing = "body_armour_cleansing", tangle = "body_armour_tangle" },
-	implicitModTypes = { },
-	armour = { ArmourBaseMin = 313, ArmourBaseMax = 351, EvasionBaseMin = 313, EvasionBaseMax = 351, MovementPenalty = 3, },
-	req = { level = 57, str = 83, dex = 83, },
-}
-itemBases["Desert Brigandine"] = {
-	type = "Body Armour",
-	subType = "Armour/Evasion",
-	socketLimit = 6,
-	tags = { body_armour = true, armour = true, str_dex_armour = true, default = true, },
-	influenceTags = { shaper = "body_armour_shaper", elder = "body_armour_elder", adjudicator = "body_armour_adjudicator", basilisk = "body_armour_basilisk", crusader = "body_armour_crusader", eyrie = "body_armour_eyrie", cleansing = "body_armour_cleansing", tangle = "body_armour_tangle" },
-	implicitModTypes = { },
-	armour = { ArmourBaseMin = 376, ArmourBaseMax = 451, EvasionBaseMin = 376, EvasionBaseMax = 451, MovementPenalty = 3, },
-	req = { level = 60, str = 96, dex = 96, },
-}
-itemBases["Full Dragonscale"] = {
-	type = "Body Armour",
-	subType = "Armour/Evasion",
-	socketLimit = 6,
-	tags = { body_armour = true, str_dex_armour = true, top_tier_base_item_type = true, armour = true, default = true, },
-	influenceTags = { shaper = "body_armour_shaper", elder = "body_armour_elder", adjudicator = "body_armour_adjudicator", basilisk = "body_armour_basilisk", crusader = "body_armour_crusader", eyrie = "body_armour_eyrie", cleansing = "body_armour_cleansing", tangle = "body_armour_tangle" },
-	implicitModTypes = { },
-	armour = { ArmourBaseMin = 470, ArmourBaseMax = 541, EvasionBaseMin = 373, EvasionBaseMax = 429, MovementPenalty = 3, },
-	req = { level = 63, str = 115, dex = 94, },
-}
-itemBases["General's Brigandine"] = {
-	type = "Body Armour",
-	subType = "Armour/Evasion",
-	socketLimit = 6,
-	tags = { body_armour = true, str_dex_armour = true, top_tier_base_item_type = true, armour = true, default = true, },
-	influenceTags = { shaper = "body_armour_shaper", elder = "body_armour_elder", adjudicator = "body_armour_adjudicator", basilisk = "body_armour_basilisk", crusader = "body_armour_crusader", eyrie = "body_armour_eyrie", cleansing = "body_armour_cleansing", tangle = "body_armour_tangle" },
-	implicitModTypes = { },
-	armour = { ArmourBaseMin = 415, ArmourBaseMax = 465, EvasionBaseMin = 415, EvasionBaseMax = 465, MovementPenalty = 3, },
-	req = { level = 66, str = 103, dex = 103, },
-}
-itemBases["Triumphant Lamellar"] = {
-	type = "Body Armour",
-	subType = "Armour/Evasion",
-	socketLimit = 6,
-	tags = { body_armour = true, str_dex_armour = true, top_tier_base_item_type = true, armour = true, default = true, },
-	influenceTags = { shaper = "body_armour_shaper", elder = "body_armour_elder", adjudicator = "body_armour_adjudicator", basilisk = "body_armour_basilisk", crusader = "body_armour_crusader", eyrie = "body_armour_eyrie", cleansing = "body_armour_cleansing", tangle = "body_armour_tangle" },
-	implicitModTypes = { },
-	armour = { ArmourBaseMin = 380, ArmourBaseMax = 437, EvasionBaseMin = 477, EvasionBaseMax = 549, MovementPenalty = 3, },
-	req = { level = 69, str = 95, dex = 116, },
-}
-itemBases["Full Wyvernscale"] = {
-	type = "Body Armour",
-	subType = "Armour/Evasion",
-	socketLimit = 6,
-	tags = { body_armour = true, str_dex_armour = true, top_tier_base_item_type = true, not_for_sale = true, armour = true, default = true, },
-	influenceTags = { shaper = "body_armour_shaper", elder = "body_armour_elder", adjudicator = "body_armour_adjudicator", basilisk = "body_armour_basilisk", crusader = "body_armour_crusader", eyrie = "body_armour_eyrie", cleansing = "body_armour_cleansing", tangle = "body_armour_tangle" },
-	implicitModTypes = { },
-	armour = { ArmourBaseMin = 545, ArmourBaseMax = 627, EvasionBaseMin = 545, EvasionBaseMax = 627, MovementPenalty = 3, },
-	req = { level = 73, str = 133, dex = 133, },
-}
-itemBases["Marshall's Brigandine"] = {
-	type = "Body Armour",
-	subType = "Armour/Evasion",
-	socketLimit = 6,
-	tags = { body_armour = true, str_dex_armour = true, top_tier_base_item_type = true, not_for_sale = true, armour = true, default = true, },
-	influenceTags = { shaper = "body_armour_shaper", elder = "body_armour_elder", adjudicator = "body_armour_adjudicator", basilisk = "body_armour_basilisk", crusader = "body_armour_crusader", eyrie = "body_armour_eyrie", cleansing = "body_armour_cleansing", tangle = "body_armour_tangle" },
-	implicitModTypes = { },
-	armour = { ArmourBaseMin = 627, ArmourBaseMax = 721, EvasionBaseMin = 627, EvasionBaseMax = 721, MovementPenalty = 3, },
-	req = { level = 78, str = 151, dex = 151, },
-}
-itemBases["Conquest Lamellar"] = {
-	type = "Body Armour",
-	subType = "Armour/Evasion",
-	socketLimit = 6,
-	tags = { body_armour = true, str_dex_armour = true, top_tier_base_item_type = true, not_for_sale = true, armour = true, default = true, },
-	influenceTags = { shaper = "body_armour_shaper", elder = "body_armour_elder", adjudicator = "body_armour_adjudicator", basilisk = "body_armour_basilisk", crusader = "body_armour_crusader", eyrie = "body_armour_eyrie", cleansing = "body_armour_cleansing", tangle = "body_armour_tangle" },
-	implicitModTypes = { },
-	armour = { ArmourBaseMin = 723, ArmourBaseMax = 831, EvasionBaseMin = 723, EvasionBaseMax = 831, MovementPenalty = 3, },
-	req = { level = 84, str = 173, dex = 173, },
-}
-
-itemBases["Chainmail Vest"] = {
-	type = "Body Armour",
-	subType = "Armour/Energy Shield",
-	socketLimit = 6,
-	tags = { body_armour = true, armour = true, str_int_armour = true, default = true, },
-	influenceTags = { shaper = "body_armour_shaper", elder = "body_armour_elder", adjudicator = "body_armour_adjudicator", basilisk = "body_armour_basilisk", crusader = "body_armour_crusader", eyrie = "body_armour_eyrie", cleansing = "body_armour_cleansing", tangle = "body_armour_tangle" },
-	implicitModTypes = { },
-	armour = { ArmourBaseMin = 27, ArmourBaseMax = 38, EnergyShieldBaseMin = 9, EnergyShieldBaseMax = 13, MovementPenalty = 5, },
-	req = { str = 10, int = 10, },
-}
-itemBases["Chainmail Tunic"] = {
-	type = "Body Armour",
-	subType = "Armour/Energy Shield",
-	socketLimit = 6,
-	tags = { body_armour = true, armour = true, str_int_armour = true, default = true, },
-	influenceTags = { shaper = "body_armour_shaper", elder = "body_armour_elder", adjudicator = "body_armour_adjudicator", basilisk = "body_armour_basilisk", crusader = "body_armour_crusader", eyrie = "body_armour_eyrie", cleansing = "body_armour_cleansing", tangle = "body_armour_tangle" },
-	implicitModTypes = { },
-	armour = { ArmourBaseMin = 48, ArmourBaseMax = 63, EnergyShieldBaseMin = 13, EnergyShieldBaseMax = 17, MovementPenalty = 5, },
-	req = { level = 8, str = 16, int = 16, },
-}
-itemBases["Ringmail Coat"] = {
-	type = "Body Armour",
-	subType = "Armour/Energy Shield",
-	socketLimit = 6,
-	tags = { body_armour = true, armour = true, str_int_armour = true, default = true, },
-	influenceTags = { shaper = "body_armour_shaper", elder = "body_armour_elder", adjudicator = "body_armour_adjudicator", basilisk = "body_armour_basilisk", crusader = "body_armour_crusader", eyrie = "body_armour_eyrie", cleansing = "body_armour_cleansing", tangle = "body_armour_tangle" },
-	implicitModTypes = { },
-	armour = { ArmourBaseMin = 97, ArmourBaseMax = 121, EnergyShieldBaseMin = 22, EnergyShieldBaseMax = 28, MovementPenalty = 5, },
-	req = { level = 17, str = 28, int = 28, },
-}
-itemBases["Chainmail Doublet"] = {
-	type = "Body Armour",
-	subType = "Armour/Energy Shield",
-	socketLimit = 6,
-	tags = { body_armour = true, armour = true, str_int_armour = true, default = true, },
-	influenceTags = { shaper = "body_armour_shaper", elder = "body_armour_elder", adjudicator = "body_armour_adjudicator", basilisk = "body_armour_basilisk", crusader = "body_armour_crusader", eyrie = "body_armour_eyrie", cleansing = "body_armour_cleansing", tangle = "body_armour_tangle" },
-	implicitModTypes = { },
-	armour = { ArmourBaseMin = 119, ArmourBaseMax = 140, EnergyShieldBaseMin = 27, EnergyShieldBaseMax = 31, MovementPenalty = 5, },
-	req = { level = 21, str = 34, int = 34, },
-}
-itemBases["Full Ringmail"] = {
-	type = "Body Armour",
-	subType = "Armour/Energy Shield",
-	socketLimit = 6,
-	tags = { body_armour = true, armour = true, str_int_armour = true, default = true, },
-	influenceTags = { shaper = "body_armour_shaper", elder = "body_armour_elder", adjudicator = "body_armour_adjudicator", basilisk = "body_armour_basilisk", crusader = "body_armour_crusader", eyrie = "body_armour_eyrie", cleansing = "body_armour_cleansing", tangle = "body_armour_tangle" },
-	implicitModTypes = { },
-	armour = { ArmourBaseMin = 156, ArmourBaseMax = 180, EnergyShieldBaseMin = 34, EnergyShieldBaseMax = 39, MovementPenalty = 5, },
-	req = { level = 28, str = 43, int = 43, },
-}
-itemBases["Full Chainmail"] = {
-	type = "Body Armour",
-	subType = "Armour/Energy Shield",
-	socketLimit = 6,
-	tags = { body_armour = true, armour = true, str_int_armour = true, default = true, },
-	influenceTags = { shaper = "body_armour_shaper", elder = "body_armour_elder", adjudicator = "body_armour_adjudicator", basilisk = "body_armour_basilisk", crusader = "body_armour_crusader", eyrie = "body_armour_eyrie", cleansing = "body_armour_cleansing", tangle = "body_armour_tangle" },
-	implicitModTypes = { },
-	armour = { ArmourBaseMin = 178, ArmourBaseMax = 199, EnergyShieldBaseMin = 38, EnergyShieldBaseMax = 43, MovementPenalty = 5, },
-	req = { level = 32, str = 48, int = 48, },
-}
-itemBases["Holy Chainmail"] = {
-	type = "Body Armour",
-	subType = "Armour/Energy Shield",
-	socketLimit = 6,
-	tags = { body_armour = true, armour = true, str_int_armour = true, default = true, },
-	influenceTags = { shaper = "body_armour_shaper", elder = "body_armour_elder", adjudicator = "body_armour_adjudicator", basilisk = "body_armour_basilisk", crusader = "body_armour_crusader", eyrie = "body_armour_eyrie", cleansing = "body_armour_cleansing", tangle = "body_armour_tangle" },
-	implicitModTypes = { },
-	armour = { ArmourBaseMin = 194, ArmourBaseMax = 233, EnergyShieldBaseMin = 41, EnergyShieldBaseMax = 49, MovementPenalty = 5, },
-	req = { level = 35, str = 53, int = 53, },
-}
-itemBases["Latticed Ringmail"] = {
-	type = "Body Armour",
-	subType = "Armour/Energy Shield",
-	socketLimit = 6,
-	tags = { body_armour = true, armour = true, str_int_armour = true, default = true, },
-	influenceTags = { shaper = "body_armour_shaper", elder = "body_armour_elder", adjudicator = "body_armour_adjudicator", basilisk = "body_armour_basilisk", crusader = "body_armour_crusader", eyrie = "body_armour_eyrie", cleansing = "body_armour_cleansing", tangle = "body_armour_tangle" },
-	implicitModTypes = { },
-	armour = { ArmourBaseMin = 216, ArmourBaseMax = 248, EnergyShieldBaseMin = 45, EnergyShieldBaseMax = 52, MovementPenalty = 5, },
-	req = { level = 39, str = 59, int = 59, },
-}
-itemBases["Crusader Chainmail"] = {
-	type = "Body Armour",
-	subType = "Armour/Energy Shield",
-	socketLimit = 6,
-	tags = { body_armour = true, armour = true, str_int_armour = true, default = true, },
-	influenceTags = { shaper = "body_armour_shaper", elder = "body_armour_elder", adjudicator = "body_armour_adjudicator", basilisk = "body_armour_basilisk", crusader = "body_armour_crusader", eyrie = "body_armour_eyrie", cleansing = "body_armour_cleansing", tangle = "body_armour_tangle" },
-	implicitModTypes = { },
-	armour = { ArmourBaseMin = 237, ArmourBaseMax = 266, EnergyShieldBaseMin = 50, EnergyShieldBaseMax = 55, MovementPenalty = 5, },
-	req = { level = 43, str = 64, int = 64, },
-}
-itemBases["Ornate Ringmail"] = {
-	type = "Body Armour",
-	subType = "Armour/Energy Shield",
-	socketLimit = 6,
-	tags = { body_armour = true, armour = true, str_int_armour = true, default = true, },
-	influenceTags = { shaper = "body_armour_shaper", elder = "body_armour_elder", adjudicator = "body_armour_adjudicator", basilisk = "body_armour_basilisk", crusader = "body_armour_crusader", eyrie = "body_armour_eyrie", cleansing = "body_armour_cleansing", tangle = "body_armour_tangle" },
-	implicitModTypes = { },
-	armour = { ArmourBaseMin = 259, ArmourBaseMax = 298, EnergyShieldBaseMin = 54, EnergyShieldBaseMax = 62, MovementPenalty = 5, },
-	req = { level = 47, str = 69, int = 69, },
-}
-itemBases["Chain Hauberk"] = {
-	type = "Body Armour",
-	subType = "Armour/Energy Shield",
-	socketLimit = 6,
-	tags = { body_armour = true, armour = true, str_int_armour = true, default = true, },
-	influenceTags = { shaper = "body_armour_shaper", elder = "body_armour_elder", adjudicator = "body_armour_adjudicator", basilisk = "body_armour_basilisk", crusader = "body_armour_crusader", eyrie = "body_armour_eyrie", cleansing = "body_armour_cleansing", tangle = "body_armour_tangle" },
-	implicitModTypes = { },
-	armour = { ArmourBaseMin = 281, ArmourBaseMax = 314, EnergyShieldBaseMin = 58, EnergyShieldBaseMax = 65, MovementPenalty = 5, },
-	req = { level = 51, str = 75, int = 75, },
-}
-itemBases["Devout Chainmail"] = {
-	type = "Body Armour",
-	subType = "Armour/Energy Shield",
-	socketLimit = 6,
-	tags = { body_armour = true, armour = true, str_int_armour = true, default = true, },
-	influenceTags = { shaper = "body_armour_shaper", elder = "body_armour_elder", adjudicator = "body_armour_adjudicator", basilisk = "body_armour_basilisk", crusader = "body_armour_crusader", eyrie = "body_armour_eyrie", cleansing = "body_armour_cleansing", tangle = "body_armour_tangle" },
-	implicitModTypes = { },
-	armour = { ArmourBaseMin = 302, ArmourBaseMax = 363, EnergyShieldBaseMin = 62, EnergyShieldBaseMax = 74, MovementPenalty = 5, },
-	req = { level = 55, str = 80, int = 80, },
-}
-itemBases["Loricated Ringmail"] = {
-	type = "Body Armour",
-	subType = "Armour/Energy Shield",
-	socketLimit = 6,
-	tags = { body_armour = true, armour = true, str_int_armour = true, default = true, },
-	influenceTags = { shaper = "body_armour_shaper", elder = "body_armour_elder", adjudicator = "body_armour_adjudicator", basilisk = "body_armour_basilisk", crusader = "body_armour_crusader", eyrie = "body_armour_eyrie", cleansing = "body_armour_cleansing", tangle = "body_armour_tangle" },
-	implicitModTypes = { },
-	armour = { ArmourBaseMin = 325, ArmourBaseMax = 374, EnergyShieldBaseMin = 66, EnergyShieldBaseMax = 76, MovementPenalty = 5, },
-	req = { level = 58, str = 84, int = 84, },
-}
-itemBases["Conquest Chainmail"] = {
-	type = "Body Armour",
-	subType = "Armour/Energy Shield",
-	socketLimit = 6,
-	tags = { body_armour = true, armour = true, str_int_armour = true, default = true, },
-	influenceTags = { shaper = "body_armour_shaper", elder = "body_armour_elder", adjudicator = "body_armour_adjudicator", basilisk = "body_armour_basilisk", crusader = "body_armour_crusader", eyrie = "body_armour_eyrie", cleansing = "body_armour_cleansing", tangle = "body_armour_tangle" },
-	implicitModTypes = { },
-	armour = { ArmourBaseMin = 387, ArmourBaseMax = 445, EnergyShieldBaseMin = 79, EnergyShieldBaseMax = 91, MovementPenalty = 5, },
-	req = { level = 61, str = 96, int = 96, },
-}
-itemBases["Elegant Ringmail"] = {
-	type = "Body Armour",
-	subType = "Armour/Energy Shield",
-	socketLimit = 6,
-	tags = { body_armour = true, str_int_armour = true, top_tier_base_item_type = true, armour = true, default = true, },
-	influenceTags = { shaper = "body_armour_shaper", elder = "body_armour_elder", adjudicator = "body_armour_adjudicator", basilisk = "body_armour_basilisk", crusader = "body_armour_crusader", eyrie = "body_armour_eyrie", cleansing = "body_armour_cleansing", tangle = "body_armour_tangle" },
-	implicitModTypes = { },
-	armour = { ArmourBaseMin = 377, ArmourBaseMax = 433, EnergyShieldBaseMin = 92, EnergyShieldBaseMax = 105, MovementPenalty = 5, },
-	req = { level = 64, str = 90, int = 105, },
-}
-itemBases["Saint's Hauberk"] = {
-	type = "Body Armour",
-	subType = "Armour/Energy Shield",
-	socketLimit = 6,
-	tags = { body_armour = true, str_int_armour = true, top_tier_base_item_type = true, armour = true, default = true, },
-	influenceTags = { shaper = "body_armour_shaper", elder = "body_armour_elder", adjudicator = "body_armour_adjudicator", basilisk = "body_armour_basilisk", crusader = "body_armour_crusader", eyrie = "body_armour_eyrie", cleansing = "body_armour_cleansing", tangle = "body_armour_tangle" },
-	implicitModTypes = { },
-	armour = { ArmourBaseMin = 443, ArmourBaseMax = 496, EnergyShieldBaseMin = 76, EnergyShieldBaseMax = 85, MovementPenalty = 5, },
-	req = { level = 67, str = 109, int = 94, },
-}
-itemBases["Saintly Chainmail"] = {
-	type = "Body Armour",
-	subType = "Armour/Energy Shield",
-	socketLimit = 6,
-	tags = { body_armour = true, str_int_armour = true, top_tier_base_item_type = true, armour = true, default = true, },
-	influenceTags = { shaper = "body_armour_shaper", elder = "body_armour_elder", adjudicator = "body_armour_adjudicator", basilisk = "body_armour_basilisk", crusader = "body_armour_crusader", eyrie = "body_armour_eyrie", cleansing = "body_armour_cleansing", tangle = "body_armour_tangle" },
-	implicitModTypes = { },
-	armour = { ArmourBaseMin = 401, ArmourBaseMax = 461, EnergyShieldBaseMin = 96, EnergyShieldBaseMax = 110, MovementPenalty = 5, },
-	req = { level = 70, str = 99, int = 115, },
-}
-itemBases["Grand Ringmail"] = {
-	type = "Body Armour",
-	subType = "Armour/Energy Shield",
-	socketLimit = 6,
-	tags = { body_armour = true, str_int_armour = true, top_tier_base_item_type = true, not_for_sale = true, armour = true, default = true, },
-	influenceTags = { shaper = "body_armour_shaper", elder = "body_armour_elder", adjudicator = "body_armour_adjudicator", basilisk = "body_armour_basilisk", crusader = "body_armour_crusader", eyrie = "body_armour_eyrie", cleansing = "body_armour_cleansing", tangle = "body_armour_tangle" },
-	implicitModTypes = { },
-	armour = { ArmourBaseMin = 545, ArmourBaseMax = 627, EnergyShieldBaseMin = 110, EnergyShieldBaseMax = 127, MovementPenalty = 5, },
-	req = { level = 73, str = 133, int = 133, },
-}
-itemBases["Paladin's Hauberk"] = {
-	type = "Body Armour",
-	subType = "Armour/Energy Shield",
-	socketLimit = 6,
-	tags = { body_armour = true, str_int_armour = true, top_tier_base_item_type = true, not_for_sale = true, armour = true, default = true, },
-	influenceTags = { shaper = "body_armour_shaper", elder = "body_armour_elder", adjudicator = "body_armour_adjudicator", basilisk = "body_armour_basilisk", crusader = "body_armour_crusader", eyrie = "body_armour_eyrie", cleansing = "body_armour_cleansing", tangle = "body_armour_tangle" },
-	implicitModTypes = { },
-	armour = { ArmourBaseMin = 627, ArmourBaseMax = 721, EnergyShieldBaseMin = 126, EnergyShieldBaseMax = 145, MovementPenalty = 5, },
-	req = { level = 78, str = 151, int = 151, },
-}
-itemBases["Sacred Chainmail"] = {
-	type = "Body Armour",
-	subType = "Armour/Energy Shield",
-	socketLimit = 6,
-	tags = { body_armour = true, str_int_armour = true, top_tier_base_item_type = true, not_for_sale = true, armour = true, default = true, },
-	influenceTags = { shaper = "body_armour_shaper", elder = "body_armour_elder", adjudicator = "body_armour_adjudicator", basilisk = "body_armour_basilisk", crusader = "body_armour_crusader", eyrie = "body_armour_eyrie", cleansing = "body_armour_cleansing", tangle = "body_armour_tangle" },
-	implicitModTypes = { },
-	armour = { ArmourBaseMin = 723, ArmourBaseMax = 831, EnergyShieldBaseMin = 145, EnergyShieldBaseMax = 167, MovementPenalty = 5, },
-	req = { level = 84, str = 173, int = 173, },
-}
-
-itemBases["Padded Vest"] = {
-	type = "Body Armour",
-	subType = "Evasion/Energy Shield",
-	socketLimit = 6,
-	tags = { body_armour = true, armour = true, dex_int_armour = true, default = true, },
-	influenceTags = { shaper = "body_armour_shaper", elder = "body_armour_elder", adjudicator = "body_armour_adjudicator", basilisk = "body_armour_basilisk", crusader = "body_armour_crusader", eyrie = "body_armour_eyrie", cleansing = "body_armour_cleansing", tangle = "body_armour_tangle" },
-	implicitModTypes = { },
-	armour = { EvasionBaseMin = 27, EvasionBaseMax = 38, EnergyShieldBaseMin = 9, EnergyShieldBaseMax = 13, MovementPenalty = 3, },
-	req = { dex = 10, int = 10, },
-}
-itemBases["Oiled Vest"] = {
-	type = "Body Armour",
-	subType = "Evasion/Energy Shield",
-	socketLimit = 6,
-	tags = { body_armour = true, armour = true, dex_int_armour = true, default = true, },
-	influenceTags = { shaper = "body_armour_shaper", elder = "body_armour_elder", adjudicator = "body_armour_adjudicator", basilisk = "body_armour_basilisk", crusader = "body_armour_crusader", eyrie = "body_armour_eyrie", cleansing = "body_armour_cleansing", tangle = "body_armour_tangle" },
-	implicitModTypes = { },
-	armour = { EvasionBaseMin = 54, EvasionBaseMax = 70, EnergyShieldBaseMin = 14, EnergyShieldBaseMax = 18, MovementPenalty = 3, },
-	req = { level = 9, dex = 17, int = 17, },
-}
-itemBases["Padded Jacket"] = {
-	type = "Body Armour",
-	subType = "Evasion/Energy Shield",
-	socketLimit = 6,
-	tags = { body_armour = true, armour = true, dex_int_armour = true, default = true, },
-	influenceTags = { shaper = "body_armour_shaper", elder = "body_armour_elder", adjudicator = "body_armour_adjudicator", basilisk = "body_armour_basilisk", crusader = "body_armour_crusader", eyrie = "body_armour_eyrie", cleansing = "body_armour_cleansing", tangle = "body_armour_tangle" },
-	implicitModTypes = { },
-	armour = { EvasionBaseMin = 102, EvasionBaseMax = 128, EnergyShieldBaseMin = 24, EnergyShieldBaseMax = 29, MovementPenalty = 3, },
-	req = { level = 18, dex = 30, int = 30, },
-}
-itemBases["Oiled Coat"] = {
-	type = "Body Armour",
-	subType = "Evasion/Energy Shield",
-	socketLimit = 6,
-	tags = { body_armour = true, armour = true, dex_int_armour = true, default = true, },
-	influenceTags = { shaper = "body_armour_shaper", elder = "body_armour_elder", adjudicator = "body_armour_adjudicator", basilisk = "body_armour_basilisk", crusader = "body_armour_crusader", eyrie = "body_armour_eyrie", cleansing = "body_armour_cleansing", tangle = "body_armour_tangle" },
-	implicitModTypes = { },
-	armour = { EvasionBaseMin = 124, EvasionBaseMax = 146, EnergyShieldBaseMin = 28, EnergyShieldBaseMax = 33, MovementPenalty = 3, },
-	req = { level = 22, dex = 35, int = 35, },
-}
-itemBases["Scarlet Raiment"] = {
-	type = "Body Armour",
-	subType = "Evasion/Energy Shield",
-	socketLimit = 6,
-	tags = { body_armour = true, armour = true, dex_int_armour = true, default = true, },
-	influenceTags = { shaper = "body_armour_shaper", elder = "body_armour_elder", adjudicator = "body_armour_adjudicator", basilisk = "body_armour_basilisk", crusader = "body_armour_crusader", eyrie = "body_armour_eyrie", cleansing = "body_armour_cleansing", tangle = "body_armour_tangle" },
-	implicitModTypes = { },
-	armour = { EvasionBaseMin = 156, EvasionBaseMax = 180, EnergyShieldBaseMin = 34, EnergyShieldBaseMax = 39, MovementPenalty = 3, },
-	req = { level = 28, dex = 43, int = 43, },
-}
-itemBases["Waxed Garb"] = {
-	type = "Body Armour",
-	subType = "Evasion/Energy Shield",
-	socketLimit = 6,
-	tags = { body_armour = true, armour = true, dex_int_armour = true, default = true, },
-	influenceTags = { shaper = "body_armour_shaper", elder = "body_armour_elder", adjudicator = "body_armour_adjudicator", basilisk = "body_armour_basilisk", crusader = "body_armour_crusader", eyrie = "body_armour_eyrie", cleansing = "body_armour_cleansing", tangle = "body_armour_tangle" },
-	implicitModTypes = { },
-	armour = { EvasionBaseMin = 178, EvasionBaseMax = 205, EnergyShieldBaseMin = 38, EnergyShieldBaseMax = 44, MovementPenalty = 3, },
-	req = { level = 32, dex = 48, int = 48, },
-}
-itemBases["Bone Armour"] = {
-	type = "Body Armour",
-	subType = "Evasion/Energy Shield",
-	socketLimit = 6,
-	tags = { body_armour = true, armour = true, dex_int_armour = true, default = true, },
-	influenceTags = { shaper = "body_armour_shaper", elder = "body_armour_elder", adjudicator = "body_armour_adjudicator", basilisk = "body_armour_basilisk", crusader = "body_armour_crusader", eyrie = "body_armour_eyrie", cleansing = "body_armour_cleansing", tangle = "body_armour_tangle" },
-	implicitModTypes = { },
-	armour = { EvasionBaseMin = 194, EvasionBaseMax = 233, EnergyShieldBaseMin = 41, EnergyShieldBaseMax = 49, MovementPenalty = 3, },
-	req = { level = 35, dex = 53, int = 53, },
-}
-itemBases["Quilted Jacket"] = {
-	type = "Body Armour",
-	subType = "Evasion/Energy Shield",
-	socketLimit = 6,
-	tags = { body_armour = true, armour = true, dex_int_armour = true, default = true, },
-	influenceTags = { shaper = "body_armour_shaper", elder = "body_armour_elder", adjudicator = "body_armour_adjudicator", basilisk = "body_armour_basilisk", crusader = "body_armour_crusader", eyrie = "body_armour_eyrie", cleansing = "body_armour_cleansing", tangle = "body_armour_tangle" },
-	implicitModTypes = { },
-	armour = { EvasionBaseMin = 221, EvasionBaseMax = 248, EnergyShieldBaseMin = 46, EnergyShieldBaseMax = 52, MovementPenalty = 3, },
-	req = { level = 40, dex = 60, int = 60, },
-}
-itemBases["Sleek Coat"] = {
-	type = "Body Armour",
-	subType = "Evasion/Energy Shield",
-	socketLimit = 6,
-	tags = { body_armour = true, armour = true, dex_int_armour = true, default = true, },
-	influenceTags = { shaper = "body_armour_shaper", elder = "body_armour_elder", adjudicator = "body_armour_adjudicator", basilisk = "body_armour_basilisk", crusader = "body_armour_crusader", eyrie = "body_armour_eyrie", cleansing = "body_armour_cleansing", tangle = "body_armour_tangle" },
-	implicitModTypes = { },
-	armour = { EvasionBaseMin = 243, EvasionBaseMax = 287, EnergyShieldBaseMin = 51, EnergyShieldBaseMax = 60, MovementPenalty = 3, },
-	req = { level = 44, dex = 65, int = 65, },
-}
-itemBases["Crimson Raiment"] = {
-	type = "Body Armour",
-	subType = "Evasion/Energy Shield",
-	socketLimit = 6,
-	tags = { body_armour = true, armour = true, dex_int_armour = true, default = true, },
-	influenceTags = { shaper = "body_armour_shaper", elder = "body_armour_elder", adjudicator = "body_armour_adjudicator", basilisk = "body_armour_basilisk", crusader = "body_armour_crusader", eyrie = "body_armour_eyrie", cleansing = "body_armour_cleansing", tangle = "body_armour_tangle" },
-	implicitModTypes = { },
-	armour = { EvasionBaseMin = 264, EvasionBaseMax = 304, EnergyShieldBaseMin = 55, EnergyShieldBaseMax = 63, MovementPenalty = 3, },
-	req = { level = 48, dex = 71, int = 71, },
-}
-itemBases["Lacquered Garb"] = {
-	type = "Body Armour",
-	subType = "Evasion/Energy Shield",
-	socketLimit = 6,
-	tags = { body_armour = true, armour = true, dex_int_armour = true, default = true, },
-	influenceTags = { shaper = "body_armour_shaper", elder = "body_armour_elder", adjudicator = "body_armour_adjudicator", basilisk = "body_armour_basilisk", crusader = "body_armour_crusader", eyrie = "body_armour_eyrie", cleansing = "body_armour_cleansing", tangle = "body_armour_tangle" },
-	implicitModTypes = { },
-	armour = { EvasionBaseMin = 286, EvasionBaseMax = 329, EnergyShieldBaseMin = 59, EnergyShieldBaseMax = 68, MovementPenalty = 3, },
-	req = { level = 52, dex = 76, int = 76, },
-}
-itemBases["Crypt Armour"] = {
-	type = "Body Armour",
-	subType = "Evasion/Energy Shield",
-	socketLimit = 6,
-	tags = { body_armour = true, armour = true, dex_int_armour = true, default = true, },
-	influenceTags = { shaper = "body_armour_shaper", elder = "body_armour_elder", adjudicator = "body_armour_adjudicator", basilisk = "body_armour_basilisk", crusader = "body_armour_crusader", eyrie = "body_armour_eyrie", cleansing = "body_armour_cleansing", tangle = "body_armour_tangle" },
-	implicitModTypes = { },
-	armour = { EvasionBaseMin = 308, EvasionBaseMax = 369, EnergyShieldBaseMin = 63, EnergyShieldBaseMax = 76, MovementPenalty = 3, },
-	req = { level = 56, dex = 82, int = 82, },
-}
-itemBases["Sentinel Jacket"] = {
-	type = "Body Armour",
-	subType = "Evasion/Energy Shield",
-	socketLimit = 6,
-	tags = { body_armour = true, armour = true, dex_int_armour = true, default = true, },
-	influenceTags = { shaper = "body_armour_shaper", elder = "body_armour_elder", adjudicator = "body_armour_adjudicator", basilisk = "body_armour_basilisk", crusader = "body_armour_crusader", eyrie = "body_armour_eyrie", cleansing = "body_armour_cleansing", tangle = "body_armour_tangle" },
-	implicitModTypes = { },
-	armour = { EvasionBaseMin = 330, EvasionBaseMax = 370, EnergyShieldBaseMin = 67, EnergyShieldBaseMax = 76, MovementPenalty = 3, },
-	req = { level = 59, dex = 86, int = 86, },
-}
-itemBases["Varnished Coat"] = {
-	type = "Body Armour",
-	subType = "Evasion/Energy Shield",
-	socketLimit = 6,
-	tags = { body_armour = true, armour = true, dex_int_armour = true, default = true, },
-	influenceTags = { shaper = "body_armour_shaper", elder = "body_armour_elder", adjudicator = "body_armour_adjudicator", basilisk = "body_armour_basilisk", crusader = "body_armour_crusader", eyrie = "body_armour_eyrie", cleansing = "body_armour_cleansing", tangle = "body_armour_tangle" },
-	implicitModTypes = { },
-	armour = { EvasionBaseMin = 387, EvasionBaseMax = 434, EnergyShieldBaseMin = 79, EnergyShieldBaseMax = 89, MovementPenalty = 3, },
-	req = { level = 62, dex = 96, int = 96, },
-}
-itemBases["Blood Raiment"] = {
-	type = "Body Armour",
-	subType = "Evasion/Energy Shield",
-	socketLimit = 6,
-	tags = { body_armour = true, top_tier_base_item_type = true, armour = true, default = true, dex_int_armour = true, },
-	influenceTags = { shaper = "body_armour_shaper", elder = "body_armour_elder", adjudicator = "body_armour_adjudicator", basilisk = "body_armour_basilisk", crusader = "body_armour_crusader", eyrie = "body_armour_eyrie", cleansing = "body_armour_cleansing", tangle = "body_armour_tangle" },
-	implicitModTypes = { },
-	armour = { EvasionBaseMin = 436, EvasionBaseMax = 501, EnergyShieldBaseMin = 73, EnergyShieldBaseMax = 84, MovementPenalty = 3, },
-	req = { level = 65, dex = 107, int = 90, },
-}
-itemBases["Sadist Garb"] = {
-	type = "Body Armour",
-	subType = "Evasion/Energy Shield",
-	socketLimit = 6,
-	tags = { body_armour = true, top_tier_base_item_type = true, armour = true, default = true, dex_int_armour = true, },
-	influenceTags = { shaper = "body_armour_shaper", elder = "body_armour_elder", adjudicator = "body_armour_adjudicator", basilisk = "body_armour_basilisk", crusader = "body_armour_crusader", eyrie = "body_armour_eyrie", cleansing = "body_armour_cleansing", tangle = "body_armour_tangle" },
-	implicitModTypes = { },
-	armour = { EvasionBaseMin = 427, EvasionBaseMax = 491, EnergyShieldBaseMin = 93, EnergyShieldBaseMax = 107, MovementPenalty = 3, },
-	req = { level = 68, dex = 103, int = 109, },
-}
-itemBases["Carnal Armour"] = {
-	type = "Body Armour",
-	subType = "Evasion/Energy Shield",
-	socketLimit = 6,
-	tags = { body_armour = true, top_tier_base_item_type = true, armour = true, default = true, dex_int_armour = true, },
-	influenceTags = { shaper = "body_armour_shaper", elder = "body_armour_elder", adjudicator = "body_armour_adjudicator", basilisk = "body_armour_basilisk", crusader = "body_armour_crusader", eyrie = "body_armour_eyrie", cleansing = "body_armour_cleansing", tangle = "body_armour_tangle" },
-	implicit = "+(20-25) to maximum Mana",
+	implicit = "(40-50)% increased Mana Regeneration Rate",
 	implicitModTypes = { { "resource", "mana" }, },
-	armour = { EvasionBaseMin = 353, EvasionBaseMax = 388, EnergyShieldBaseMin = 103, EnergyShieldBaseMax = 113, MovementPenalty = 3, },
-	req = { level = 71, dex = 88, int = 122, },
+	armour = { EnergyShield = 153, MovementPenalty = 0.03, },
+	req = { level = 68, int = 157, },
 }
-itemBases["Sanguine Raiment"] = {
+itemBases["Arcane Robe"] = {
 	type = "Body Armour",
-	subType = "Evasion/Energy Shield",
-	socketLimit = 6,
-	tags = { body_armour = true, top_tier_base_item_type = true, not_for_sale = true, armour = true, default = true, dex_int_armour = true, },
-	influenceTags = { shaper = "body_armour_shaper", elder = "body_armour_elder", adjudicator = "body_armour_adjudicator", basilisk = "body_armour_basilisk", crusader = "body_armour_crusader", eyrie = "body_armour_eyrie", cleansing = "body_armour_cleansing", tangle = "body_armour_tangle" },
+	socketLimit = 3,
+	tags = { body_armour = true, armour = true, int_armour = true, default = true, },
+	implicit = "(40-50)% faster start of Energy Shield Recharge",
+	implicitModTypes = { { "energy_shield", "defences" }, },
+	armour = { EnergyShield = 153, MovementPenalty = 0.03, },
+	req = { level = 73, int = 157, },
+}
+itemBases["Chain Mail"] = {
+	type = "Body Armour",
+	socketLimit = 3,
+	tags = { body_armour = true, str_dex_armour = true, ezomyte_basetype = true, armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { EvasionBaseMin = 545, EvasionBaseMax = 627, EnergyShieldBaseMin = 110, EnergyShieldBaseMax = 127, MovementPenalty = 3, },
-	req = { level = 73, dex = 133, int = 133, },
+	armour = { Armour = 25, Evasion = 16, MovementPenalty = 0.04, },
+	req = { },
 }
-itemBases["Torturer Garb"] = {
+itemBases["Rogue Armour"] = {
 	type = "Body Armour",
-	subType = "Evasion/Energy Shield",
-	socketLimit = 6,
-	tags = { body_armour = true, top_tier_base_item_type = true, not_for_sale = true, armour = true, default = true, dex_int_armour = true, },
-	influenceTags = { shaper = "body_armour_shaper", elder = "body_armour_elder", adjudicator = "body_armour_adjudicator", basilisk = "body_armour_basilisk", crusader = "body_armour_crusader", eyrie = "body_armour_eyrie", cleansing = "body_armour_cleansing", tangle = "body_armour_tangle" },
+	socketLimit = 3,
+	tags = { body_armour = true, str_dex_armour = true, ezomyte_basetype = true, armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { EvasionBaseMin = 627, EvasionBaseMax = 721, EnergyShieldBaseMin = 126, EnergyShieldBaseMax = 145, MovementPenalty = 3, },
-	req = { level = 78, dex = 151, int = 151, },
+	armour = { Armour = 53, Evasion = 43, MovementPenalty = 0.04, },
+	req = { level = 11, str = 14, dex = 14, },
 }
-itemBases["Necrotic Armour"] = {
+itemBases["Vagabond Armour"] = {
 	type = "Body Armour",
-	subType = "Evasion/Energy Shield",
-	socketLimit = 6,
-	tags = { body_armour = true, top_tier_base_item_type = true, not_for_sale = true, armour = true, default = true, dex_int_armour = true, },
-	influenceTags = { shaper = "body_armour_shaper", elder = "body_armour_elder", adjudicator = "body_armour_adjudicator", basilisk = "body_armour_basilisk", crusader = "body_armour_crusader", eyrie = "body_armour_eyrie", cleansing = "body_armour_cleansing", tangle = "body_armour_tangle" },
+	socketLimit = 3,
+	tags = { body_armour = true, str_dex_armour = true, armour = true, maraketh_basetype = true, default = true, },
 	implicitModTypes = { },
-	armour = { EvasionBaseMin = 723, EvasionBaseMax = 831, EnergyShieldBaseMin = 145, EnergyShieldBaseMax = 167, MovementPenalty = 3, },
-	req = { level = 84, dex = 173, int = 173, },
+	armour = { Armour = 67, Evasion = 56, MovementPenalty = 0.04, },
+	req = { level = 16, str = 20, dex = 20, },
 }
-
-itemBases["Sacrificial Garb"] = {
+itemBases["Cloaked Mail"] = {
 	type = "Body Armour",
-	subType = "Armour/Evasion/Energy Shield",
-	socketLimit = 6,
-	tags = { body_armour = true, str_dex_int_armour = true, armour = true, not_for_sale = true, default = true, },
-	influenceTags = { shaper = "body_armour_shaper", elder = "body_armour_elder", adjudicator = "body_armour_adjudicator", basilisk = "body_armour_basilisk", crusader = "body_armour_crusader", eyrie = "body_armour_eyrie", cleansing = "body_armour_cleansing", tangle = "body_armour_tangle" },
-	implicit = "+1 to Level of all Vaal Skill Gems",
-	implicitModTypes = { { "gem" }, },
-	armour = { ArmourBaseMin = 329, ArmourBaseMax = 378, EvasionBaseMin = 329, EvasionBaseMax = 378, EnergyShieldBaseMin = 67, EnergyShieldBaseMax = 77, MovementPenalty = 3, },
-	req = { level = 72, str = 66, dex = 66, int = 66, },
-}
-itemBases["Grasping Mail"] = {
-	type = "Body Armour",
-	subType = "Armour/Evasion/Energy Shield",
-	socketLimit = 6,
-	tags = { body_armour = true, str_dex_int_armour = true, armour = true, not_for_sale = true, default = true, },
-	influenceTags = { shaper = "body_armour_shaper", elder = "body_armour_elder", adjudicator = "body_armour_adjudicator", basilisk = "body_armour_basilisk", crusader = "body_armour_crusader", eyrie = "body_armour_eyrie", cleansing = "body_armour_cleansing", tangle = "body_armour_tangle" },
+	socketLimit = 3,
+	tags = { body_armour = true, str_dex_armour = true, armour = true, maraketh_basetype = true, default = true, },
 	implicitModTypes = { },
-	armour = { ArmourBaseMin = 217, ArmourBaseMax = 250, EvasionBaseMin = 217, EvasionBaseMax = 250, EnergyShieldBaseMin = 44, EnergyShieldBaseMax = 51, MovementPenalty = 3, },
-	req = { level = 70, str = 60, dex = 60, int = 60, },
+	armour = { Armour = 95, Evasion = 83, MovementPenalty = 0.04, },
+	req = { level = 26, str = 31, dex = 31, },
 }
-itemBases["Golden Mantle"] = {
+itemBases["Explorer Armour"] = {
 	type = "Body Armour",
-	subType = "Armour/Evasion/Energy Shield",
-	hidden = true,
-	socketLimit = 6,
-	tags = { body_armour = true, str_dex_int_armour = true, demigods = true, armour = true, not_for_sale = true, default = true, },
-	influenceTags = { shaper = "body_armour_shaper", elder = "body_armour_elder", adjudicator = "body_armour_adjudicator", basilisk = "body_armour_basilisk", crusader = "body_armour_crusader", eyrie = "body_armour_eyrie", cleansing = "body_armour_cleansing", tangle = "body_armour_tangle" },
-	implicit = "+(15-25)% to all Elemental Resistances",
+	socketLimit = 3,
+	tags = { body_armour = true, str_dex_armour = true, armour = true, vaal_basetype = true, default = true, },
+	implicitModTypes = { },
+	armour = { Armour = 114, Evasion = 101, MovementPenalty = 0.04, },
+	req = { level = 33, str = 39, dex = 39, },
+}
+itemBases["Scale Mail"] = {
+	type = "Body Armour",
+	socketLimit = 3,
+	tags = { body_armour = true, str_dex_armour = true, armour = true, vaal_basetype = true, default = true, },
+	implicitModTypes = { },
+	armour = { Armour = 125, Evasion = 112, MovementPenalty = 0.04, },
+	req = { level = 37, str = 43, dex = 43, },
+}
+itemBases["Knight Armour"] = {
+	type = "Body Armour",
+	socketLimit = 3,
+	tags = { body_armour = true, armour = true, str_dex_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Armour = 148, Evasion = 133, MovementPenalty = 0.04, },
+	req = { level = 45, str = 51, dex = 51, },
+}
+itemBases["Ancestral Mail"] = {
+	type = "Body Armour",
+	socketLimit = 3,
+	tags = { body_armour = true, armour = true, str_dex_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Armour = 162, Evasion = 146, MovementPenalty = 0.04, },
+	req = { level = 50, str = 57, dex = 57, },
+}
+itemBases["Lamellar Mail"] = {
+	type = "Body Armour",
+	socketLimit = 3,
+	tags = { body_armour = true, armour = true, str_dex_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Armour = 167, Evasion = 151, MovementPenalty = 0.04, },
+	req = { level = 52, str = 59, dex = 59, },
+}
+itemBases["Gladiator Armour"] = {
+	type = "Body Armour",
+	socketLimit = 3,
+	tags = { body_armour = true, armour = true, str_dex_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Armour = 184, Evasion = 167, MovementPenalty = 0.04, },
+	req = { level = 58, str = 66, dex = 66, },
+}
+itemBases["Heroic Armour"] = {
+	type = "Body Armour",
+	socketLimit = 3,
+	tags = { body_armour = true, armour = true, str_dex_armour = true, default = true, },
+	implicit = "+(60-80) to maximum Life",
+	implicitModTypes = { { "resource", "life" }, },
+	armour = { Armour = 245, Evasion = 223, MovementPenalty = 0.04, },
+	req = { level = 65, str = 86, dex = 86, },
+}
+itemBases["Tournament Mail"] = {
+	type = "Body Armour",
+	socketLimit = 3,
+	tags = { body_armour = true, armour = true, str_dex_armour = true, default = true, },
+	implicit = "+(20-25)% to Fire Resistance",
+	implicitModTypes = { { "elemental", "fire", "resistance" }, },
+	armour = { Armour = 245, Evasion = 223, MovementPenalty = 0.04, },
+	req = { level = 68, str = 86, dex = 86, },
+}
+itemBases["Tournament Mail"] = {
+	type = "Body Armour",
+	socketLimit = 3,
+	tags = { body_armour = true, armour = true, str_dex_armour = true, default = true, },
+	implicit = "+(20-25)% to Cold Resistance",
+	implicitModTypes = { { "elemental", "cold", "resistance" }, },
+	armour = { Armour = 245, Evasion = 223, MovementPenalty = 0.04, },
+	req = { level = 68, str = 86, dex = 86, },
+}
+itemBases["Tournament Mail"] = {
+	type = "Body Armour",
+	socketLimit = 3,
+	tags = { body_armour = true, armour = true, str_dex_armour = true, default = true, },
+	implicit = "+(20-25)% to Lightning Resistance",
+	implicitModTypes = { { "elemental", "lightning", "resistance" }, },
+	armour = { Armour = 245, Evasion = 223, MovementPenalty = 0.04, },
+	req = { level = 68, str = 86, dex = 86, },
+}
+itemBases["Slayer Armour"] = {
+	type = "Body Armour",
+	socketLimit = 3,
+	tags = { body_armour = true, armour = true, str_dex_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Armour = 294, Evasion = 268, MovementPenalty = 0.04, },
+	req = { level = 73, str = 86, dex = 86, },
+}
+itemBases["Pilgrim Vestments"] = {
+	type = "Body Armour",
+	socketLimit = 3,
+	tags = { body_armour = true, str_int_armour = true, ezomyte_basetype = true, armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Armour = 25, EnergyShield = 16, MovementPenalty = 0.04, },
+	req = { },
+}
+itemBases["Pelt Mantle"] = {
+	type = "Body Armour",
+	socketLimit = 3,
+	tags = { body_armour = true, str_int_armour = true, ezomyte_basetype = true, armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Armour = 50, EnergyShield = 23, MovementPenalty = 0.04, },
+	req = { level = 10, str = 14, int = 14, },
+}
+itemBases["Mail Vestments"] = {
+	type = "Body Armour",
+	socketLimit = 3,
+	tags = { body_armour = true, str_int_armour = true, armour = true, maraketh_basetype = true, default = true, },
+	implicitModTypes = { },
+	armour = { Armour = 67, EnergyShield = 28, MovementPenalty = 0.04, },
+	req = { level = 16, str = 20, int = 20, },
+}
+itemBases["Shaman Mantle"] = {
+	type = "Body Armour",
+	socketLimit = 3,
+	tags = { body_armour = true, str_int_armour = true, armour = true, maraketh_basetype = true, default = true, },
+	implicitModTypes = { },
+	armour = { Armour = 100, EnergyShield = 39, MovementPenalty = 0.04, },
+	req = { level = 28, str = 33, int = 33, },
+}
+itemBases["Ironclad Vestments"] = {
+	type = "Body Armour",
+	socketLimit = 3,
+	tags = { body_armour = true, str_int_armour = true, armour = true, vaal_basetype = true, default = true, },
+	implicitModTypes = { },
+	armour = { Armour = 114, EnergyShield = 43, MovementPenalty = 0.04, },
+	req = { level = 33, str = 39, int = 39, },
+}
+itemBases["Sacrificial Mantle"] = {
+	type = "Body Armour",
+	socketLimit = 3,
+	tags = { body_armour = true, str_int_armour = true, armour = true, vaal_basetype = true, default = true, },
+	implicitModTypes = { },
+	armour = { Armour = 123, EnergyShield = 46, MovementPenalty = 0.04, },
+	req = { level = 36, str = 41, int = 41, },
+}
+itemBases["Cleric Vestments"] = {
+	type = "Body Armour",
+	socketLimit = 3,
+	tags = { body_armour = true, armour = true, str_int_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Armour = 148, EnergyShield = 53, MovementPenalty = 0.04, },
+	req = { level = 45, str = 51, int = 51, },
+}
+itemBases["Tideseer Mantle"] = {
+	type = "Body Armour",
+	socketLimit = 3,
+	tags = { body_armour = true, armour = true, str_int_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Armour = 165, EnergyShield = 58, MovementPenalty = 0.04, },
+	req = { level = 51, str = 59, int = 59, },
+}
+itemBases["Gilded Vestments"] = {
+	type = "Body Armour",
+	socketLimit = 3,
+	tags = { body_armour = true, armour = true, str_int_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Armour = 167, EnergyShield = 59, MovementPenalty = 0.04, },
+	req = { level = 52, str = 59, int = 59, },
+}
+itemBases["Venerated Mantle"] = {
+	type = "Body Armour",
+	socketLimit = 3,
+	tags = { body_armour = true, armour = true, str_int_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Armour = 173, EnergyShield = 61, MovementPenalty = 0.04, },
+	req = { level = 54, str = 61, int = 61, },
+}
+itemBases["Revered Vestments"] = {
+	type = "Body Armour",
+	socketLimit = 3,
+	tags = { body_armour = true, armour = true, str_int_armour = true, default = true, },
+	implicit = "+1% to all Maximum Elemental Resistances",
 	implicitModTypes = { { "elemental", "resistance" }, },
-	armour = { ArmourBaseMin = 75, ArmourBaseMax = 86, EvasionBaseMin = 75, EvasionBaseMax = 86, EnergyShieldBaseMin = 17, EnergyShieldBaseMax = 19, },
-	req = { level = 20, str = 8, dex = 8, int = 8, },
+	armour = { Armour = 245, EnergyShield = 84, MovementPenalty = 0.04, },
+	req = { level = 65, str = 86, int = 86, },
+}
+itemBases["Corvus Mantle"] = {
+	type = "Body Armour",
+	socketLimit = 3,
+	tags = { body_armour = true, armour = true, str_int_armour = true, default = true, },
+	implicit = "+(20-30) to Spirit",
+	implicitModTypes = { {  }, },
+	armour = { Armour = 245, EnergyShield = 84, MovementPenalty = 0.04, },
+	req = { level = 68, str = 86, int = 86, },
+}
+itemBases["Zenith Vestments"] = {
+	type = "Body Armour",
+	socketLimit = 3,
+	tags = { body_armour = true, armour = true, str_int_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Armour = 294, EnergyShield = 101, MovementPenalty = 0.04, },
+	req = { level = 73, str = 86, int = 86, },
+}
+itemBases["Hermit Garb"] = {
+	type = "Body Armour",
+	socketLimit = 3,
+	tags = { body_armour = true, ezomyte_basetype = true, armour = true, default = true, dex_int_armour = true, },
+	implicitModTypes = { },
+	armour = { Evasion = 16, EnergyShield = 16, MovementPenalty = 0.03, },
+	req = { },
+}
+itemBases["Waxed Jacket"] = {
+	type = "Body Armour",
+	socketLimit = 3,
+	tags = { body_armour = true, ezomyte_basetype = true, armour = true, default = true, dex_int_armour = true, },
+	implicitModTypes = { },
+	armour = { Evasion = 43, EnergyShield = 24, MovementPenalty = 0.03, },
+	req = { level = 11, dex = 14, int = 14, },
+}
+itemBases["Marabout Garb"] = {
+	type = "Body Armour",
+	socketLimit = 3,
+	tags = { body_armour = true, maraketh_basetype = true, armour = true, default = true, dex_int_armour = true, },
+	implicitModTypes = { },
+	armour = { Evasion = 56, EnergyShield = 28, MovementPenalty = 0.03, },
+	req = { level = 16, dex = 20, int = 20, },
+}
+itemBases["Wayfarer Jacket"] = {
+	type = "Body Armour",
+	socketLimit = 3,
+	tags = { body_armour = true, maraketh_basetype = true, armour = true, default = true, dex_int_armour = true, },
+	implicitModTypes = { },
+	armour = { Evasion = 88, EnergyShield = 39, MovementPenalty = 0.03, },
+	req = { level = 28, dex = 33, int = 33, },
+}
+itemBases["Anchorite Garb"] = {
+	type = "Body Armour",
+	socketLimit = 3,
+	tags = { body_armour = true, vaal_basetype = true, armour = true, default = true, dex_int_armour = true, },
+	implicitModTypes = { },
+	armour = { Evasion = 101, EnergyShield = 43, MovementPenalty = 0.03, },
+	req = { level = 33, dex = 39, int = 39, },
+}
+itemBases["Scalper's Jacket"] = {
+	type = "Body Armour",
+	socketLimit = 3,
+	tags = { body_armour = true, vaal_basetype = true, armour = true, default = true, dex_int_armour = true, },
+	implicitModTypes = { },
+	armour = { Evasion = 117, EnergyShield = 48, MovementPenalty = 0.03, },
+	req = { level = 39, dex = 45, int = 45, },
+}
+itemBases["Scoundrel Jacket"] = {
+	type = "Body Armour",
+	socketLimit = 3,
+	tags = { body_armour = true, armour = true, dex_int_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Evasion = 133, EnergyShield = 53, MovementPenalty = 0.03, },
+	req = { level = 45, dex = 51, int = 51, },
+}
+itemBases["Ascetic Garb"] = {
+	type = "Body Armour",
+	socketLimit = 3,
+	tags = { body_armour = true, armour = true, dex_int_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Evasion = 149, EnergyShield = 58, MovementPenalty = 0.03, },
+	req = { level = 51, dex = 59, int = 59, },
+}
+itemBases["Clandestine Jacket"] = {
+	type = "Body Armour",
+	socketLimit = 3,
+	tags = { body_armour = true, armour = true, dex_int_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Evasion = 151, EnergyShield = 59, MovementPenalty = 0.03, },
+	req = { level = 52, dex = 59, int = 59, },
+}
+itemBases["Monastic Garb"] = {
+	type = "Body Armour",
+	socketLimit = 3,
+	tags = { body_armour = true, armour = true, dex_int_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Evasion = 162, EnergyShield = 63, MovementPenalty = 0.03, },
+	req = { level = 56, dex = 64, int = 64, },
+}
+itemBases["Torment Jacket"] = {
+	type = "Body Armour",
+	socketLimit = 3,
+	tags = { body_armour = true, armour = true, dex_int_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Evasion = 268, EnergyShield = 101, MovementPenalty = 0.03, },
+	req = { level = 65, dex = 86, int = 86, },
+}
+itemBases["Devout Garb"] = {
+	type = "Body Armour",
+	socketLimit = 3,
+	tags = { body_armour = true, armour = true, dex_int_armour = true, default = true, },
+	implicit = "+(7-13)% to Chaos Resistance",
+	implicitModTypes = { { "chaos", "resistance" }, },
+	armour = { Evasion = 223, EnergyShield = 84, MovementPenalty = 0.03, },
+	req = { level = 68, dex = 86, int = 86, },
+}
+itemBases["Assassin Garb"] = {
+	type = "Body Armour",
+	socketLimit = 3,
+	tags = { body_armour = true, armour = true, dex_int_armour = true, default = true, },
+	implicit = "5% increased Movement Speed",
+	implicitModTypes = { { "speed" }, },
+	armour = { Evasion = 223, EnergyShield = 84, MovementPenalty = 0.03, },
+	req = { level = 73, dex = 86, int = 86, },
+}
+itemBases["Garment"] = {
+	type = "Body Armour",
+	socketLimit = 3,
+	tags = { body_armour = true, armour = true, str_dex_int_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { },
+	req = { },
+}
+itemBases["Grand Regalia"] = {
+	type = "Body Armour",
+	socketLimit = 3,
+	tags = { body_armour = true, armour = true, str_dex_int_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Armour = 135, Evasion = 123, EnergyShield = 46, MovementPenalty = 0.04, },
+	req = { level = 65, str = 51, dex = 51, int = 51, },
+}
+itemBases["Advanced Fur Plate"] = {
+	type = "Body Armour",
+	socketLimit = 3,
+	tags = { body_armour = true, armour = true, str_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Armour = 269, MovementPenalty = 0.05, },
+	req = { level = 45, str = 94, },
+}
+itemBases["Advanced Iron Cuirass"] = {
+	type = "Body Armour",
+	socketLimit = 3,
+	tags = { body_armour = true, armour = true, str_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Armour = 284, MovementPenalty = 0.05, },
+	req = { level = 48, str = 99, },
+}
+itemBases["Advanced Maraketh Cuirass"] = {
+	type = "Body Armour",
+	socketLimit = 3,
+	tags = { body_armour = true, armour = true, str_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Armour = 299, MovementPenalty = 0.05, },
+	req = { level = 51, str = 105, },
+}
+itemBases["Advanced Steel Plate"] = {
+	type = "Body Armour",
+	socketLimit = 3,
+	tags = { body_armour = true, armour = true, str_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Armour = 320, MovementPenalty = 0.05, },
+	req = { level = 55, str = 113, },
+}
+itemBases["Advanced Full Plate"] = {
+	type = "Body Armour",
+	socketLimit = 3,
+	tags = { body_armour = true, armour = true, str_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Armour = 340, MovementPenalty = 0.05, },
+	req = { level = 59, str = 122, },
+}
+itemBases["Advanced Vaal Cuirass"] = {
+	type = "Body Armour",
+	socketLimit = 3,
+	tags = { body_armour = true, armour = true, str_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Armour = 355, MovementPenalty = 0.05, },
+	req = { level = 62, str = 128, },
+}
+itemBases["Advanced Quilted Vest"] = {
+	type = "Body Armour",
+	socketLimit = 3,
+	tags = { body_armour = true, armour = true, dex_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Evasion = 242, MovementPenalty = 0.03, },
+	req = { level = 45, dex = 94, },
+}
+itemBases["Advanced Pathfinder Coat"] = {
+	type = "Body Armour",
+	socketLimit = 3,
+	tags = { body_armour = true, armour = true, dex_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Evasion = 256, MovementPenalty = 0.03, },
+	req = { level = 48, dex = 99, },
+}
+itemBases["Advanced Rhoahide Coat"] = {
+	type = "Body Armour",
+	socketLimit = 3,
+	tags = { body_armour = true, armour = true, dex_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Evasion = 271, MovementPenalty = 0.03, },
+	req = { level = 51, dex = 105, },
+}
+itemBases["Advanced Studded Vest"] = {
+	type = "Body Armour",
+	socketLimit = 3,
+	tags = { body_armour = true, armour = true, dex_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Evasion = 290, MovementPenalty = 0.03, },
+	req = { level = 55, dex = 113, },
+}
+itemBases["Advanced Scout's Vest"] = {
+	type = "Body Armour",
+	socketLimit = 3,
+	tags = { body_armour = true, armour = true, dex_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Evasion = 309, MovementPenalty = 0.03, },
+	req = { level = 59, dex = 122, },
+}
+itemBases["Advanced Serpentscale Coat"] = {
+	type = "Body Armour",
+	socketLimit = 3,
+	tags = { body_armour = true, armour = true, dex_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Evasion = 324, MovementPenalty = 0.03, },
+	req = { level = 62, dex = 128, },
+}
+itemBases["Advanced Feathered Robe"] = {
+	type = "Body Armour",
+	socketLimit = 3,
+	tags = { body_armour = true, armour = true, int_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { EnergyShield = 97, MovementPenalty = 0.03, },
+	req = { level = 45, int = 94, },
+}
+itemBases["Advanced Hexer's Robe"] = {
+	type = "Body Armour",
+	socketLimit = 3,
+	tags = { body_armour = true, armour = true, int_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { EnergyShield = 101, MovementPenalty = 0.03, },
+	req = { level = 48, int = 99, },
+}
+itemBases["Advanced Silk Robe"] = {
+	type = "Body Armour",
+	socketLimit = 3,
+	tags = { body_armour = true, armour = true, int_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { EnergyShield = 106, MovementPenalty = 0.03, },
+	req = { level = 51, int = 105, },
+}
+itemBases["Advanced Keth Raiment"] = {
+	type = "Body Armour",
+	socketLimit = 3,
+	tags = { body_armour = true, armour = true, int_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { EnergyShield = 112, MovementPenalty = 0.03, },
+	req = { level = 55, int = 113, },
+}
+itemBases["Advanced Votive Raiment"] = {
+	type = "Body Armour",
+	socketLimit = 3,
+	tags = { body_armour = true, armour = true, int_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { EnergyShield = 119, MovementPenalty = 0.03, },
+	req = { level = 59, int = 122, },
+}
+itemBases["Advanced Altar Robe"] = {
+	type = "Body Armour",
+	socketLimit = 3,
+	tags = { body_armour = true, armour = true, int_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { EnergyShield = 123, MovementPenalty = 0.03, },
+	req = { level = 62, int = 128, },
+}
+itemBases["Advanced Chain Mail"] = {
+	type = "Body Armour",
+	socketLimit = 3,
+	tags = { body_armour = true, armour = true, str_dex_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Armour = 148, Evasion = 133, MovementPenalty = 0.04, },
+	req = { level = 45, str = 51, dex = 51, },
+}
+itemBases["Advanced Rogue Armour"] = {
+	type = "Body Armour",
+	socketLimit = 3,
+	tags = { body_armour = true, armour = true, str_dex_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Armour = 156, Evasion = 141, MovementPenalty = 0.04, },
+	req = { level = 48, str = 55, dex = 55, },
+}
+itemBases["Advanced Vagabond Armour"] = {
+	type = "Body Armour",
+	socketLimit = 3,
+	tags = { body_armour = true, armour = true, str_dex_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Armour = 165, Evasion = 149, MovementPenalty = 0.04, },
+	req = { level = 51, str = 59, dex = 59, },
+}
+itemBases["Advanced Cloaked Mail"] = {
+	type = "Body Armour",
+	socketLimit = 3,
+	tags = { body_armour = true, armour = true, str_dex_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Armour = 176, Evasion = 159, MovementPenalty = 0.04, },
+	req = { level = 55, str = 62, dex = 62, },
+}
+itemBases["Advanced Explorer Armour"] = {
+	type = "Body Armour",
+	socketLimit = 3,
+	tags = { body_armour = true, armour = true, str_dex_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Armour = 187, Evasion = 170, MovementPenalty = 0.04, },
+	req = { level = 59, str = 67, dex = 67, },
+}
+itemBases["Advanced Scale Mail"] = {
+	type = "Body Armour",
+	socketLimit = 3,
+	tags = { body_armour = true, armour = true, str_dex_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Armour = 195, Evasion = 178, MovementPenalty = 0.04, },
+	req = { level = 62, str = 70, dex = 70, },
+}
+itemBases["Advanced Pilgrim Vestments"] = {
+	type = "Body Armour",
+	socketLimit = 3,
+	tags = { body_armour = true, armour = true, str_int_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Armour = 148, EnergyShield = 53, MovementPenalty = 0.04, },
+	req = { level = 45, str = 51, int = 51, },
+}
+itemBases["Advanced Pelt Mantle"] = {
+	type = "Body Armour",
+	socketLimit = 3,
+	tags = { body_armour = true, armour = true, str_int_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Armour = 156, EnergyShield = 56, MovementPenalty = 0.04, },
+	req = { level = 48, str = 55, int = 55, },
+}
+itemBases["Advanced Mail Vestments"] = {
+	type = "Body Armour",
+	socketLimit = 3,
+	tags = { body_armour = true, armour = true, str_int_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Armour = 165, EnergyShield = 58, MovementPenalty = 0.04, },
+	req = { level = 51, str = 59, int = 59, },
+}
+itemBases["Advanced Shaman Mantle"] = {
+	type = "Body Armour",
+	socketLimit = 3,
+	tags = { body_armour = true, armour = true, str_int_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Armour = 176, EnergyShield = 62, MovementPenalty = 0.04, },
+	req = { level = 55, str = 62, int = 62, },
+}
+itemBases["Advanced Ironclad Vestments"] = {
+	type = "Body Armour",
+	socketLimit = 3,
+	tags = { body_armour = true, armour = true, str_int_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Armour = 187, EnergyShield = 65, MovementPenalty = 0.04, },
+	req = { level = 59, str = 67, int = 67, },
+}
+itemBases["Advanced Sacrificial Mantle"] = {
+	type = "Body Armour",
+	socketLimit = 3,
+	tags = { body_armour = true, armour = true, str_int_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Armour = 195, EnergyShield = 68, MovementPenalty = 0.04, },
+	req = { level = 62, str = 70, int = 70, },
+}
+itemBases["Advanced Hermit Garb"] = {
+	type = "Body Armour",
+	socketLimit = 3,
+	tags = { body_armour = true, armour = true, dex_int_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Evasion = 133, EnergyShield = 53, MovementPenalty = 0.03, },
+	req = { level = 45, dex = 51, int = 51, },
+}
+itemBases["Advanced Waxed Jacket"] = {
+	type = "Body Armour",
+	socketLimit = 3,
+	tags = { body_armour = true, armour = true, dex_int_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Evasion = 141, EnergyShield = 56, MovementPenalty = 0.03, },
+	req = { level = 48, dex = 55, int = 55, },
+}
+itemBases["Advanced Marabout Garb"] = {
+	type = "Body Armour",
+	socketLimit = 3,
+	tags = { body_armour = true, armour = true, dex_int_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Evasion = 149, EnergyShield = 58, MovementPenalty = 0.03, },
+	req = { level = 51, dex = 59, int = 59, },
+}
+itemBases["Advanced Wayfarer Jacket"] = {
+	type = "Body Armour",
+	socketLimit = 3,
+	tags = { body_armour = true, armour = true, dex_int_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Evasion = 159, EnergyShield = 62, MovementPenalty = 0.03, },
+	req = { level = 55, dex = 62, int = 62, },
+}
+itemBases["Advanced Anchorite Garb"] = {
+	type = "Body Armour",
+	socketLimit = 3,
+	tags = { body_armour = true, armour = true, dex_int_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Evasion = 170, EnergyShield = 65, MovementPenalty = 0.03, },
+	req = { level = 59, dex = 67, int = 67, },
+}
+itemBases["Advanced Scalper's Jacket"] = {
+	type = "Body Armour",
+	socketLimit = 3,
+	tags = { body_armour = true, armour = true, dex_int_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Evasion = 178, EnergyShield = 68, MovementPenalty = 0.03, },
+	req = { level = 62, dex = 70, int = 70, },
+}
+itemBases["Expert Iron Cuirass"] = {
+	type = "Body Armour",
+	socketLimit = 3,
+	tags = { body_armour = true, armour = true, str_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Armour = 534, MovementPenalty = 0.05, },
+	req = { level = 65, str = 157, },
+}
+itemBases["Expert Steel Plate"] = {
+	type = "Body Armour",
+	socketLimit = 3,
+	tags = { body_armour = true, armour = true, str_armour = true, default = true, },
+	implicit = "Regenerate (1.5-2.5)% of Life per second",
+	implicitModTypes = { { "resource", "life" }, },
+	armour = { Armour = 445, MovementPenalty = 0.05, },
+	req = { level = 70, str = 157, },
+}
+itemBases["Expert Vaal Cuirass"] = {
+	type = "Body Armour",
+	socketLimit = 3,
+	tags = { body_armour = true, armour = true, str_armour = true, default = true, },
+	implicit = "(30-40)% increased Stun Threshold",
+	implicitModTypes = { {  }, },
+	armour = { Armour = 445, MovementPenalty = 0.05, },
+	req = { level = 75, str = 157, },
+}
+itemBases["Expert Pathfinder Coat"] = {
+	type = "Body Armour",
+	socketLimit = 3,
+	tags = { body_armour = true, armour = true, dex_armour = true, default = true, },
+	implicit = "(20-30)% reduced Slowing Potency of Debuffs on You",
+	implicitModTypes = { {  }, },
+	armour = { Evasion = 406, MovementPenalty = 0.03, },
+	req = { level = 65, dex = 157, },
+}
+itemBases["Expert Studded Vest"] = {
+	type = "Body Armour",
+	socketLimit = 3,
+	tags = { body_armour = true, armour = true, dex_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Evasion = 487, MovementPenalty = 0.03, },
+	req = { level = 70, dex = 157, },
+}
+itemBases["Expert Serpentscale Coat"] = {
+	type = "Body Armour",
+	socketLimit = 3,
+	tags = { body_armour = true, armour = true, dex_armour = true, default = true, },
+	implicit = "(30-40)% increased Elemental Ailment Threshold",
+	implicitModTypes = { {  }, },
+	armour = { Evasion = 406, MovementPenalty = 0.03, },
+	req = { level = 75, dex = 157, },
+}
+itemBases["Expert Hexer's Robe"] = {
+	type = "Body Armour",
+	socketLimit = 3,
+	tags = { body_armour = true, armour = true, int_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { EnergyShield = 184, MovementPenalty = 0.03, },
+	req = { level = 65, int = 157, },
+}
+itemBases["Expert Keth Raiment"] = {
+	type = "Body Armour",
+	socketLimit = 3,
+	tags = { body_armour = true, armour = true, int_armour = true, default = true, },
+	implicit = "(40-50)% increased Mana Regeneration Rate",
+	implicitModTypes = { { "resource", "mana" }, },
+	armour = { EnergyShield = 153, MovementPenalty = 0.03, },
+	req = { level = 70, int = 157, },
+}
+itemBases["Expert Altar Robe"] = {
+	type = "Body Armour",
+	socketLimit = 3,
+	tags = { body_armour = true, armour = true, int_armour = true, default = true, },
+	implicit = "(40-50)% faster start of Energy Shield Recharge",
+	implicitModTypes = { { "energy_shield", "defences" }, },
+	armour = { EnergyShield = 153, MovementPenalty = 0.03, },
+	req = { level = 75, int = 157, },
+}
+itemBases["Expert Rogue Armour"] = {
+	type = "Body Armour",
+	socketLimit = 3,
+	tags = { body_armour = true, armour = true, str_dex_armour = true, default = true, },
+	implicit = "+(60-80) to maximum Life",
+	implicitModTypes = { { "resource", "life" }, },
+	armour = { Armour = 245, Evasion = 223, MovementPenalty = 0.04, },
+	req = { level = 65, str = 86, dex = 86, },
+}
+itemBases["Expert Cloaked Mail"] = {
+	type = "Body Armour",
+	socketLimit = 3,
+	tags = { body_armour = true, armour = true, str_dex_armour = true, default = true, },
+	implicit = "+(20-25)% to Fire Resistance",
+	implicitModTypes = { { "elemental", "fire", "resistance" }, },
+	armour = { Armour = 245, Evasion = 223, MovementPenalty = 0.04, },
+	req = { level = 70, str = 86, dex = 86, },
+}
+itemBases["Expert Cloaked Mail"] = {
+	type = "Body Armour",
+	socketLimit = 3,
+	tags = { body_armour = true, armour = true, str_dex_armour = true, default = true, },
+	implicit = "+(20-25)% to Cold Resistance",
+	implicitModTypes = { { "elemental", "cold", "resistance" }, },
+	armour = { Armour = 245, Evasion = 223, MovementPenalty = 0.04, },
+	req = { level = 70, str = 86, dex = 86, },
+}
+itemBases["Expert Cloaked Mail"] = {
+	type = "Body Armour",
+	socketLimit = 3,
+	tags = { body_armour = true, armour = true, str_dex_armour = true, default = true, },
+	implicit = "+(20-25)% to Lightning Resistance",
+	implicitModTypes = { { "elemental", "lightning", "resistance" }, },
+	armour = { Armour = 245, Evasion = 223, MovementPenalty = 0.04, },
+	req = { level = 70, str = 86, dex = 86, },
+}
+itemBases["Expert Scale Mail"] = {
+	type = "Body Armour",
+	socketLimit = 3,
+	tags = { body_armour = true, armour = true, str_dex_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Armour = 294, Evasion = 268, MovementPenalty = 0.04, },
+	req = { level = 75, str = 86, dex = 86, },
+}
+itemBases["Expert Pelt Mantle"] = {
+	type = "Body Armour",
+	socketLimit = 3,
+	tags = { body_armour = true, armour = true, str_int_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Armour = 294, EnergyShield = 101, MovementPenalty = 0.04, },
+	req = { level = 65, str = 86, int = 86, },
+}
+itemBases["Expert Shaman Mantle"] = {
+	type = "Body Armour",
+	socketLimit = 3,
+	tags = { body_armour = true, armour = true, str_int_armour = true, default = true, },
+	implicit = "+(20-30) to Spirit",
+	implicitModTypes = { {  }, },
+	armour = { Armour = 245, EnergyShield = 84, MovementPenalty = 0.04, },
+	req = { level = 70, str = 86, int = 86, },
+}
+itemBases["Expert Sacrificial Mantle"] = {
+	type = "Body Armour",
+	socketLimit = 3,
+	tags = { body_armour = true, armour = true, str_int_armour = true, default = true, },
+	implicit = "+1% to all Maximum Elemental Resistances",
+	implicitModTypes = { { "elemental", "resistance" }, },
+	armour = { Armour = 245, EnergyShield = 84, MovementPenalty = 0.04, },
+	req = { level = 75, str = 86, int = 86, },
+}
+itemBases["Expert Waxed Jacket"] = {
+	type = "Body Armour",
+	socketLimit = 3,
+	tags = { body_armour = true, armour = true, dex_int_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Evasion = 268, EnergyShield = 101, MovementPenalty = 0.03, },
+	req = { level = 65, dex = 86, int = 86, },
+}
+itemBases["Expert Wayfarer Jacket"] = {
+	type = "Body Armour",
+	socketLimit = 3,
+	tags = { body_armour = true, armour = true, dex_int_armour = true, default = true, },
+	implicit = "+(7-13)% to Chaos Resistance",
+	implicitModTypes = { { "chaos", "resistance" }, },
+	armour = { Evasion = 223, EnergyShield = 84, MovementPenalty = 0.03, },
+	req = { level = 70, dex = 86, int = 86, },
+}
+itemBases["Expert Scalper's Jacket"] = {
+	type = "Body Armour",
+	socketLimit = 3,
+	tags = { body_armour = true, armour = true, dex_int_armour = true, default = true, },
+	implicit = "5% increased Movement Speed",
+	implicitModTypes = { { "speed" }, },
+	armour = { Evasion = 223, EnergyShield = 84, MovementPenalty = 0.03, },
+	req = { level = 75, dex = 86, int = 86, },
 }

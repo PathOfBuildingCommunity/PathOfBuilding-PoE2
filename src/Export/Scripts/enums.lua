@@ -47,23 +47,78 @@ local function writeEnum(filename, enumTable)
 	print("Wrote " .. size .. " enum types to " .. filename)
 end
 
-
--- influenced types
-local influenceTypes = {
-	"Shaper",
-	"Elder",
-	"Crusader",
-	"Eyrie",
-	"Basilisk",
-	"Adjudicator",
-	"None"
-}
-
-writeEnum("influenceTypes.datc64", influenceTypes)
-
 -- passive Skills types
 local passiveSkillTypes  = {
 	"Passive Tree",
 	"Atlas Tree"
 }
 writeEnum("passiveSkillTypes.datc64", passiveSkillTypes)
+
+-- modifier domains
+local modDomains  = {
+	"Generic Modifiers",
+	"Flask / Charm",
+	"Monster",
+	"Treasure chest",
+	"Strongboxes & Chest Spawn",
+	"Map",
+	"7",
+	"Sanctum",
+	"9",
+	"Crafted",
+	"Jewel",
+	"Sextant",
+	"Additional Areas",
+	"14",
+	"Fragments & Scarabs",
+	"Dummy",
+	"17",
+	"Map Drop Quantity monster mods",
+	"Map Drop Quantity",
+	"Synthesis Map",
+	"Synthesis Map",
+	"Unique Jewel",
+	"Heist",
+	"Heist",
+	"26",
+	"Veiled Prefixes",
+	"Expedition",
+	"Jun",
+	"Sentinel",
+	"Maven Memory Lines",
+	"33",
+	"Breach Tower",
+	"Ultimatum"
+}
+writeEnum("modDomains.datc64", modDomains)
+
+-- modifier generation types
+local modGenerationTypes = {
+	"Prefix",
+	"Suffix",
+	"Hybrid & Unique",
+	"Nemesis",
+	"Corruption",
+	"Bloodline",
+	"Torment",
+	"MapEclipse",
+	"Talisman",
+	"10",
+	"Essence",
+	"12",
+	"Bestiary",
+	"Map & Delve",
+	"Map World",
+	"Synthesized Monster",
+	"Synthesized Map",
+	"Blight",
+	"19",
+	"Monster Affliction",
+	"21",
+	"22",
+	"Expedition Map",
+	"24",
+	"25",
+	"Hellscape",
+}
+writeEnum("modGenerationTypes.datc64", modGenerationTypes)

@@ -78,7 +78,7 @@ local function mergeKeystones(env)
 	end
 end
 
-function doActorLifeMana(actor)
+function doActorLifeManaSpirit(actor)
 	local modDB = actor.modDB
 	local output = actor.output
 	local breakdown = actor.breakdown
@@ -139,6 +139,7 @@ function doActorLifeMana(actor)
 		end
 	end
 	output.LowestOfMaximumLifeAndMaximumMana = m_min(output.Life, output.Mana)
+	output.Spirit = modDB:Sum("BASE", nil, "Spirit")
 end
 
 -- Calculate attributes, and set conditions
@@ -426,43 +427,30 @@ local function doActorAttribsConditions(env, actor)
 	if not modDB:Flag(nil, "NoAttributeBonuses") then
 		if not modDB:Flag(nil, "NoStrengthAttributeBonuses") then
 			if not modDB:Flag(nil, "NoStrBonusToLife") then
-				modDB:NewMod("Life", "BASE", m_floor(output.Str / 2), "Strength")
+				modDB:NewMod("Life", "BASE", output.Str * 2, "Strength")
 			end
-			local strDmgBonusRatioOverride = modDB:Sum("BASE", nil, "StrDmgBonusRatioOverride")
-			if strDmgBonusRatioOverride > 0 then
-				actor.strDmgBonus = m_floor((output.Str + modDB:Sum("BASE", nil, "DexIntToMeleeBonus")) * strDmgBonusRatioOverride)
-			else
-				actor.strDmgBonus = m_floor((output.Str + modDB:Sum("BASE", nil, "DexIntToMeleeBonus")) / 5)
-			end
-			modDB:NewMod("PhysicalDamage", "INC", actor.strDmgBonus, "Strength", ModFlag.Melee)
 		end
 		if not modDB:Flag(nil, "NoDexterityAttributeBonuses") then
 			modDB:NewMod("Accuracy", "BASE", output.Dex * (modDB:Override(nil, "DexAccBonusOverride") or data.misc.AccuracyPerDexBase), "Dexterity")
-			if not modDB:Flag(nil, "NoDexBonusToEvasion") then
-				modDB:NewMod("Evasion", "INC", m_floor(output.Dex / 5), "Dexterity")
-			end
 		end
 		if not modDB:Flag(nil, "NoIntelligenceAttributeBonuses") then
 			if not modDB:Flag(nil, "NoIntBonusToMana") then
-				modDB:NewMod("Mana", "BASE", m_floor(output.Int / 2), "Intelligence")
-			end
-			if not modDB:Flag(nil, "NoIntBonusToES") then
-				modDB:NewMod("EnergyShield", "INC", m_floor(output.Int / 5), "Intelligence")
+				modDB:NewMod("Mana", "BASE", output.Int * 2, "Intelligence")
 			end
 		end
 	end
 
-	doActorLifeMana(actor)
+	doActorLifeManaSpirit(actor)
 end
 
 -- Calculate life/mana reservation
 ---@param actor table
-function doActorLifeManaReservation(actor)
+function doActorLifeManaSpiritReservation(actor)
 	local modDB = actor.modDB
 	local output = actor.output
 	local condList = modDB.conditions
 
-	for _, pool in pairs({"Life", "Mana"}) do
+	for _, pool in pairs({"Life", "Mana", "Spirit"}) do
 		local max = output[pool]
 		local reserved
 		if max > 0 then
@@ -946,9 +934,9 @@ end
 -- 3. Initialises the main skill's minion, if present
 -- 4. Merges flask effects
 -- 5. Sets conditions and calculates attributes (doActorAttribsConditions)
--- 6. Calculates life and mana (doActorLifeMana)
+-- 6. Calculates life and mana (doActorLifeManaSpirit)
 -- 6. Calculates reservations
--- 7. Sets life/mana reservation (doActorLifeManaReservation)
+-- 7. Sets life/mana reservation (doActorLifeManaSpiritReservation)
 -- 8. Processes buffs and debuffs
 -- 9. Processes charges and misc buffs (doActorCharges, doActorMisc)
 -- 10. Calculates defence and offence stats (calcs.defence, calcs.offence)
@@ -1430,11 +1418,76 @@ function calcs.perform(env, skipEHP)
 			end
 		end
 	end
-	
+
+	local effectInc = modDB:Sum("INC", {actor = "player"}, "CharmEffect")
+	local effectIncMagic = modDB:Sum("INC", {actor = "player"}, "MagicCharmEffect")
+	local charmLimit = modDB:Sum("BASE", nil, "CharmLimit")
+
+	-- charm breakdown
+	if breakdown then
+		output.CharmEffect = effectInc
+		output.CharmLimit = charmLimit
+	end
+
+	local function mergeCharms(charms)
+		local charmBuffs = { }
+		local charmConditions = {}
+		local charmBuffsPerBase = {}
+
+		local function calcCharmMods(item, baseName, buffModList, modList)
+			local charmEffectInc = effectInc + item.charmData.effectInc
+			if item.rarity == "MAGIC" then
+				charmEffectInc = charmEffectInc + effectIncMagic
+			end
+			local effectMod = (1 + (charmEffectInc) / 100) * (1 + (item.quality or 0) / 100)
+
+			-- same deal as flasks, go look at the comment there
+			if buffModList[1] then
+				local srcList = new("ModList")
+				srcList:ScaleAddList(buffModList, effectMod)
+				mergeBuff(srcList, charmBuffs, baseName)
+				mergeBuff(srcList, charmBuffsPerBase[item.baseName], baseName)
+			end
+
+			if modList[1] then
+				local srcList = new("ModList")
+				srcList:ScaleAddList(modList, effectMod)
+				local key
+				if item.rarity == "UNIQUE" then
+					key = item.title
+				else
+					key = ""
+					for _, mod in ipairs(modList) do
+						key = key .. modLib.formatModParams(mod) .. "&"
+					end
+				end
+				mergeBuff(srcList, charmBuffs, key)
+				mergeBuff(srcList, charmBuffsPerBase[item.baseName], key)
+			end
+		end
+		for item in pairs(charms) do
+			if charmLimit <= 0 then
+				break
+			end
+			charmLimit = charmLimit - 1
+			charmBuffsPerBase[item.baseName] = charmBuffsPerBase[item.baseName] or {}
+			charmConditions["UsingCharm"] = true
+			charmConditions["Using"..item.baseName:gsub("%s+", "")] = true
+			calcCharmMods(item, item.baseName, item.buffModList, item.modList)
+		end
+		for charmCond, status in pairs(charmConditions) do
+			modDB.conditions[charmCond] = status
+		end
+		for _, buffModList in pairs(charmBuffs) do
+			modDB:AddList(buffModList)
+		end
+	end
+
 	if env.mode_combat then
 		-- This needs to be done in 2 steps to account for effects affecting life recovery from flasks
 		-- For example Sorrow of the Divine and buffs (like flask recovery watchers eye)
 		mergeFlasks(env.flasks, false, true)
+		mergeCharms(env.charms)
 
 		-- Merge keystones again to catch any that were added by flasks
 		mergeKeystones(env)
@@ -1442,7 +1495,7 @@ function calcs.perform(env, skipEHP)
 
 	-- Calculate attributes and life/mana pools
 	doActorAttribsConditions(env, env.player)
-	doActorLifeMana(env.player)
+	doActorLifeManaSpirit(env.player)
 	if env.minion then
 		for _, value in ipairs(env.player.mainSkill.skillModList:List(env.player.mainSkill.skillCfg, "MinionModifier")) do
 			if not value.type or env.minion.type == value.type then
@@ -1566,7 +1619,7 @@ function calcs.perform(env, skipEHP)
 	end
 
 	-- Set the life/mana reservations
-	doActorLifeManaReservation(env.player)
+	doActorLifeManaSpiritReservation(env.player)
 
 	-- Process attribute requirements
 	do

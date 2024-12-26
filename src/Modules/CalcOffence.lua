@@ -485,13 +485,6 @@ function calcs.offence(env, actor, activeSkill)
 	end
 
 	-- Add addition stat bonuses
-	if skillModList:Flag(nil, "IronGrip") then
-		skillModList:NewMod("PhysicalDamage", "INC", actor.strDmgBonus or 0, "Strength", bor(ModFlag.Attack, ModFlag.Projectile))
-	end
-	if skillModList:Flag(nil, "IronWill") then
-		skillModList:NewMod("Damage", "INC", actor.strDmgBonus or 0, "Strength", ModFlag.Spell)
-	end
-
 	if skillModList:Flag(nil, "TransfigurationOfBody") then
 		skillModList:NewMod("Damage", "INC", m_floor(skillModList:Sum("INC", nil, "Life") * data.misc.Transfiguration), "Transfiguration of Body", ModFlag.Attack)
 	end
@@ -965,7 +958,7 @@ function calcs.offence(env, actor, activeSkill)
 		if skillModList:Flag(skillCfg, "CannotChain") or skillModList:Flag(skillCfg, "NoAdditionalChains")then
 			output.ChainMaxString = "Cannot chain"
 		else
-			output.ChainMax = skillModList:Sum("BASE", skillCfg, "ChainCountMax", not skillFlags.projectile and "BeamChainCountMax" or nil)
+			output.ChainMax = skillModList:Sum("BASE", skillCfg, "ChainCountMax", not skillFlags.projectile and "BeamChainCountMax" or nil) * skillModList:More(skillCfg, "ChainCountMax", not skillFlags.projectile and "BeamChainCountMax" or nil)
 			if skillModList:Flag(skillCfg, "AdditionalProjectilesAddChainsInstead") then
 				output.ChainMax = output.ChainMax + m_floor((skillModList:Sum("BASE", skillCfg, "ProjectileCount") - 1) * skillModList:More(skillCfg, "ProjectileCount"))
 			end
@@ -2158,7 +2151,7 @@ function calcs.offence(env, actor, activeSkill)
 				skillModList:NewMod("Multiplier:TraumaStacks", "BASE", skillModList:Sum("BASE", skillCfg, "Multiplier:SustainableTraumaStacks"), "Maximum Sustainable Trauma Stacks")
 			end
 			local inc = skillModList:Sum("INC", cfg, "Speed")
-			output.Speed = 1 / baseTime * round((1 + inc/100) * more, 2)
+			output.Speed = 1 / (baseTime / round((1 + inc/100) * more, 2) + skillModList:Sum("BASE", cfg, "TotalAttackTime"))
 			output.CastRate = output.Speed
 			if skillFlags.selfCast then
 				-- Self-cast skill; apply action speed
@@ -2655,10 +2648,10 @@ function calcs.offence(env, actor, activeSkill)
 				globalOutput.MaxFistOfWarDamageEffect = 1 + globalOutput.FistOfWarDamageMultiplier
 				if activeSkill.skillModList:Flag(nil, "Condition:WarcryMaxHit") then
 					output.FistOfWarDamageEffect = globalOutput.MaxFistOfWarDamageEffect
-					skillModList:NewMod("AreaOfEffect", "INC", skillModList:Sum("BASE", nil, "FistOfWarIncAoE"), "Max Fist of War Boosted AoE")
+					skillModList:NewMod("AreaOfEffect", "MORE", skillModList:Sum("BASE", nil, "FistOfWarMOREAoE"), "Max Fist of War Boosted AoE")
 				else
 					output.FistOfWarDamageEffect = globalOutput.AvgFistOfWarDamageEffect
-					skillModList:NewMod("AreaOfEffect", "INC", m_floor(skillModList:Sum("BASE", nil, "FistOfWarIncAoE") / 100 * globalOutput.FistOfWarUptimeRatio), "Avg Fist Of War Boosted AoE")
+					skillModList:NewMod("AreaOfEffect", "MORE", m_floor(skillModList:Sum("BASE", nil, "FistOfWarMOREAoE") / 100 * globalOutput.FistOfWarUptimeRatio), "Avg Fist Of War Boosted AoE")
 				end
 				calcAreaOfEffect(skillModList, skillCfg, skillData, skillFlags, globalOutput, globalBreakdown)
 				globalOutput.TheoreticalOffensiveWarcryEffect = globalOutput.TheoreticalOffensiveWarcryEffect * globalOutput.AvgFistOfWarDamageEffect
@@ -2770,7 +2763,7 @@ function calcs.offence(env, actor, activeSkill)
 					t_insert(breakdown.CritChance, s_format("= %.2f%% ^8(crit chance)", output.PreEffectiveCritChance))
 					if preCapCritChance > 100 then
 						local overCap = preCapCritChance - 100
-						t_insert(breakdown.CritChance, s_format("Crit is overcapped by %.2f%% (%d%% increased Critical Strike Chance)", overCap, overCap / more / (baseCrit + base) * 100))
+						t_insert(breakdown.CritChance, s_format("Crit is overcapped by %.2f%% (%d%% increased Critical Hit Chance)", overCap, overCap / more / (baseCrit + base) * 100))
 					end
 					if env.mode_effective and skillModList:Flag(cfg, "CritChanceLucky") then
 						t_insert(breakdown.CritChance, "Crit Chance is Lucky:")
@@ -2791,6 +2784,8 @@ function calcs.offence(env, actor, activeSkill)
 				output.CritMultiplier = 1
 			else
 				local extraDamage = skillModList:Sum("BASE", cfg, "CritMultiplier") / 100
+				local extraDamageInc = 1 + skillModList:Sum("INC", cfg, "CritMultiplier") / 100
+				extraDamage = extraDamage * extraDamageInc
 				local multiOverride = skillModList:Override(skillCfg, "CritMultiplier")
 				if multiOverride then
 					extraDamage = (multiOverride - 100) / 100
@@ -3207,15 +3202,18 @@ function calcs.offence(env, actor, activeSkill)
 			output.LifeLeechInstant = output.LifeLeech * output.LifeLeechInstantProportion
 			output.LifeLeech = output.LifeLeech * (1 - output.LifeLeechInstantProportion)
 		end
-		output.EnergyShieldLeechInstantProportion = m_max(m_min(skillModList:Sum("BASE", cfg, "InstantEnergyShieldLeech") or 0, 100), 0) / 100
-		if output.EnergyShieldLeechInstantProportion > 0 then
-			output.EnergyShieldLeechInstant = output.EnergyShieldLeech * output.EnergyShieldLeechInstantProportion
-			output.EnergyShieldLeech = output.EnergyShieldLeech * (1 - output.EnergyShieldLeechInstantProportion)
-		end
 		output.ManaLeechInstantProportion = m_max(m_min(skillModList:Sum("BASE", cfg, "InstantManaLeech") or 0, 100), 0) / 100
 		if output.ManaLeechInstantProportion > 0 then
 			output.ManaLeechInstant = output.ManaLeech * output.ManaLeechInstantProportion
 			output.ManaLeech = output.ManaLeech * (1 - output.ManaLeechInstantProportion)
+		end
+		output.EnergyShieldLeechInstantProportion = m_max(m_min(skillModList:Sum("BASE", cfg, "InstantEnergyShieldLeech") or 0, 100), 0) / 100
+		if skillModList:Flag(cfg, "ManaLeechRecoversEnergyShield") then
+			output.EnergyShieldLeechInstantProportion = output.EnergyShieldLeechInstantProportion + output.ManaLeechInstantProportion
+		end
+		if output.EnergyShieldLeechInstantProportion > 0 then
+			output.EnergyShieldLeechInstant = output.EnergyShieldLeech * output.EnergyShieldLeechInstantProportion
+			output.EnergyShieldLeech = output.EnergyShieldLeech * (1 - output.EnergyShieldLeechInstantProportion)
 		end
 
 		output.LifeLeechDuration, output.LifeLeechInstances = getLeechInstances(output.LifeLeech, globalOutput.Life)

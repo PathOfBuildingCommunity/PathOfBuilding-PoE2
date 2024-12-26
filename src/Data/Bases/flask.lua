@@ -2,12 +2,109 @@
 -- Item data (c) Grinding Gear Games
 local itemBases = ...
 
-itemBases["Small Life Flask"] = {
+itemBases["Thawing Charm"] = {
+	type = "Charm",
+	tags = { flask = true, utility_flask = true, default = true, },
+	implicit = "Used when you become Frozen",
+	implicitModTypes = { {  }, },
+	charm = { duration = 3, chargesUsed = 80, chargesMax = 80, buff = { "Immune to Freeze" }, },
+	req = { level = 12, },
+}
+itemBases["Staunching Charm"] = {
+	type = "Charm",
+	tags = { flask = true, utility_flask = true, default = true, },
+	implicit = "Used when you start Bleeding",
+	implicitModTypes = { {  }, },
+	charm = { duration = 3, chargesUsed = 60, chargesMax = 80, buff = { "You are Immune to Bleeding" }, },
+	req = { level = 18, },
+}
+itemBases["Antidote Charm"] = {
+	type = "Charm",
+	tags = { flask = true, utility_flask = true, default = true, },
+	implicit = "Used when you become Poisoned",
+	implicitModTypes = { {  }, },
+	charm = { duration = 3, chargesUsed = 40, chargesMax = 80, buff = { "Immune to Poison" }, },
+	req = { level = 24, },
+}
+itemBases["Dousing Charm"] = {
+	type = "Charm",
+	tags = { flask = true, utility_flask = true, default = true, },
+	implicit = "Used when you become Ignited",
+	implicitModTypes = { {  }, },
+	charm = { duration = 3, chargesUsed = 60, chargesMax = 80, buff = { "Immune to Ignite" }, },
+	req = { level = 32, },
+}
+itemBases["Grounding Charm"] = {
+	type = "Charm",
+	tags = { flask = true, utility_flask = true, default = true, },
+	implicit = "Used when you become Shocked",
+	implicitModTypes = { {  }, },
+	charm = { duration = 3, chargesUsed = 50, chargesMax = 80, buff = { "Immune to Shock" }, },
+	req = { level = 32, },
+}
+itemBases["Stone Charm"] = {
+	type = "Charm",
+	tags = { flask = true, utility_flask = true, default = true, },
+	implicit = "Used when you become Stunned",
+	implicitModTypes = { {  }, },
+	charm = { duration = 2.5, chargesUsed = 40, chargesMax = 80, buff = { "Cannot be Stunned" }, },
+	req = { level = 8, },
+}
+itemBases["Silver Charm"] = {
+	type = "Charm",
+	tags = { flask = true, utility_flask = true, default = true, },
+	implicit = "Used when you are affected by a Slow",
+	implicitModTypes = { {  }, },
+	charm = { duration = 3, chargesUsed = 40, chargesMax = 80, buff = { "Your speed is unaffected by Slows" }, },
+	req = { level = 10, },
+}
+itemBases["Ruby Charm"] = {
+	type = "Charm",
+	tags = { flask = true, utility_flask = true, default = true, },
+	implicit = "Used when you take Fire damage from a Hit",
+	implicitModTypes = { {  }, },
+	charm = { duration = 4, chargesUsed = 40, chargesMax = 80, buff = { "+25% to Fire Resistance" }, },
+	req = { level = 5, },
+}
+itemBases["Sapphire Charm"] = {
+	type = "Charm",
+	tags = { flask = true, utility_flask = true, default = true, },
+	implicit = "Used when you take Cold damage from a Hit",
+	implicitModTypes = { {  }, },
+	charm = { duration = 4, chargesUsed = 40, chargesMax = 80, buff = { "+25% to Cold Resistance" }, },
+	req = { level = 5, },
+}
+itemBases["Topaz Charm"] = {
+	type = "Charm",
+	tags = { flask = true, utility_flask = true, default = true, },
+	implicit = "Used when you take Lightning damage from a Hit",
+	implicitModTypes = { {  }, },
+	charm = { duration = 4, chargesUsed = 40, chargesMax = 80, buff = { "+25% to Lightning Resistance" }, },
+	req = { level = 5, },
+}
+itemBases["Amethyst Charm"] = {
+	type = "Charm",
+	tags = { flask = true, utility_flask = true, default = true, },
+	implicit = "Used when you take Chaos damage from a Hit",
+	implicitModTypes = { {  }, },
+	charm = { duration = 4, chargesUsed = 60, chargesMax = 80, buff = { "+18% to Chaos Resistance" }, },
+	req = { level = 40, },
+}
+itemBases["Golden Charm"] = {
+	type = "Charm",
+	tags = { flask = true, utility_flask = true, default = true, },
+	implicit = "Used when you Kill a Rare or Unique Enemy",
+	implicitModTypes = { {  }, },
+	charm = { duration = 1, chargesUsed = 80, chargesMax = 80, buff = { "20% increased Rarity of Items found" }, },
+	req = { level = 50, },
+}
+
+itemBases["Lesser Life Flask"] = {
 	type = "Flask",
 	subType = "Life",
 	tags = { flask = true, life_flask = true, default = true, },
 	implicitModTypes = { },
-	flask = { life = 70, duration = 3, chargesUsed = 7, chargesMax = 21, },
+	flask = { life = 50, duration = 3, chargesUsed = 10, chargesMax = 60, },
 	req = { },
 }
 itemBases["Medium Life Flask"] = {
@@ -15,96 +112,72 @@ itemBases["Medium Life Flask"] = {
 	subType = "Life",
 	tags = { flask = true, life_flask = true, default = true, },
 	implicitModTypes = { },
-	flask = { life = 150, duration = 3.5, chargesUsed = 8, chargesMax = 28, },
-	req = { level = 3, },
-}
-itemBases["Large Life Flask"] = {
-	type = "Flask",
-	subType = "Life",
-	tags = { flask = true, life_flask = true, default = true, },
-	implicitModTypes = { },
-	flask = { life = 250, duration = 3.5, chargesUsed = 9, chargesMax = 30, },
-	req = { level = 6, },
+	flask = { life = 90, duration = 5, chargesUsed = 10, chargesMax = 65, },
+	req = { level = 4, },
 }
 itemBases["Greater Life Flask"] = {
 	type = "Flask",
 	subType = "Life",
 	tags = { flask = true, life_flask = true, default = true, },
 	implicitModTypes = { },
-	flask = { life = 360, duration = 3.5, chargesUsed = 10, chargesMax = 32, },
-	req = { level = 12, },
+	flask = { life = 150, duration = 4, chargesUsed = 10, chargesMax = 70, },
+	req = { level = 10, },
 }
 itemBases["Grand Life Flask"] = {
 	type = "Flask",
 	subType = "Life",
 	tags = { flask = true, life_flask = true, default = true, },
 	implicitModTypes = { },
-	flask = { life = 640, duration = 3, chargesUsed = 10, chargesMax = 25, },
-	req = { level = 18, },
+	flask = { life = 260, duration = 5, chargesUsed = 10, chargesMax = 75, },
+	req = { level = 16, },
 }
 itemBases["Giant Life Flask"] = {
 	type = "Flask",
 	subType = "Life",
 	tags = { flask = true, life_flask = true, default = true, },
 	implicitModTypes = { },
-	flask = { life = 830, duration = 4, chargesUsed = 10, chargesMax = 30, },
-	req = { level = 24, },
+	flask = { life = 340, duration = 4, chargesUsed = 10, chargesMax = 75, },
+	req = { level = 23, },
 }
 itemBases["Colossal Life Flask"] = {
 	type = "Flask",
 	subType = "Life",
 	tags = { flask = true, life_flask = true, default = true, },
 	implicitModTypes = { },
-	flask = { life = 1000, duration = 3.5, chargesUsed = 10, chargesMax = 32, },
+	flask = { life = 450, duration = 4, chargesUsed = 10, chargesMax = 75, },
 	req = { level = 30, },
 }
-itemBases["Sacred Life Flask"] = {
+itemBases["Gargantuan Life Flask"] = {
 	type = "Flask",
 	subType = "Life",
 	tags = { flask = true, life_flask = true, default = true, },
 	implicitModTypes = { },
-	flask = { life = 1200, duration = 3, chargesUsed = 10, chargesMax = 25, },
-	req = { level = 36, },
+	flask = { life = 710, duration = 5, chargesUsed = 10, chargesMax = 75, },
+	req = { level = 40, },
 }
-itemBases["Hallowed Life Flask"] = {
+itemBases["Transcendent Life Flask"] = {
 	type = "Flask",
 	subType = "Life",
 	tags = { flask = true, life_flask = true, default = true, },
 	implicitModTypes = { },
-	flask = { life = 1990, duration = 4, chargesUsed = 10, chargesMax = 30, },
-	req = { level = 42, },
-}
-itemBases["Sanctified Life Flask"] = {
-	type = "Flask",
-	subType = "Life",
-	tags = { flask = true, life_flask = true, default = true, },
-	implicitModTypes = { },
-	flask = { life = 1460, duration = 1.5, chargesUsed = 15, chargesMax = 30, },
+	flask = { life = 840, duration = 4, chargesUsed = 10, chargesMax = 75, },
 	req = { level = 50, },
 }
-itemBases["Divine Life Flask"] = {
+itemBases["Ultimate Life Flask"] = {
 	type = "Flask",
 	subType = "Life",
-	tags = { flask = true, not_for_sale = true, life_flask = true, default = true, },
+	tags = { flask = true, life_flask = true, default = true, },
 	implicitModTypes = { },
-	flask = { life = 2400, duration = 3.5, chargesUsed = 15, chargesMax = 45, },
+	flask = { life = 920, duration = 3, chargesUsed = 10, chargesMax = 75, },
 	req = { level = 60, },
 }
-itemBases["Eternal Life Flask"] = {
-	type = "Flask",
-	subType = "Life",
-	tags = { flask = true, not_for_sale = true, life_flask = true, default = true, },
-	implicitModTypes = { },
-	flask = { life = 2080, duration = 2, chargesUsed = 15, chargesMax = 45, },
-	req = { level = 65, },
-}
 
-itemBases["Small Mana Flask"] = {
+itemBases["Lesser Mana Flask"] = {
 	type = "Flask",
 	subType = "Mana",
 	tags = { flask = true, mana_flask = true, default = true, },
 	implicitModTypes = { },
-	flask = { mana = 50, duration = 3, chargesUsed = 6, chargesMax = 24, },
+	flask = { mana = 50, duration = 2, chargesUsed = 10, chargesMax = 60, },
 	req = { },
 }
 itemBases["Medium Mana Flask"] = {
@@ -112,285 +185,62 @@ itemBases["Medium Mana Flask"] = {
 	subType = "Mana",
 	tags = { flask = true, mana_flask = true, default = true, },
 	implicitModTypes = { },
-	flask = { mana = 70, duration = 3.5, chargesUsed = 7, chargesMax = 30, },
-	req = { level = 3, },
-}
-itemBases["Large Mana Flask"] = {
-	type = "Flask",
-	subType = "Mana",
-	tags = { flask = true, mana_flask = true, default = true, },
-	implicitModTypes = { },
-	flask = { mana = 90, duration = 4, chargesUsed = 8, chargesMax = 35, },
-	req = { level = 6, },
+	flask = { mana = 70, duration = 3, chargesUsed = 10, chargesMax = 65, },
+	req = { level = 4, },
 }
 itemBases["Greater Mana Flask"] = {
 	type = "Flask",
 	subType = "Mana",
 	tags = { flask = true, mana_flask = true, default = true, },
 	implicitModTypes = { },
-	flask = { mana = 120, duration = 4, chargesUsed = 9, chargesMax = 36, },
-	req = { level = 12, },
+	flask = { mana = 90, duration = 2.5, chargesUsed = 10, chargesMax = 70, },
+	req = { level = 10, },
 }
 itemBases["Grand Mana Flask"] = {
 	type = "Flask",
 	subType = "Mana",
 	tags = { flask = true, mana_flask = true, default = true, },
 	implicitModTypes = { },
-	flask = { mana = 170, duration = 4.5, chargesUsed = 7, chargesMax = 30, },
-	req = { level = 18, },
+	flask = { mana = 110, duration = 2.5, chargesUsed = 10, chargesMax = 75, },
+	req = { level = 16, },
 }
 itemBases["Giant Mana Flask"] = {
 	type = "Flask",
 	subType = "Mana",
 	tags = { flask = true, mana_flask = true, default = true, },
 	implicitModTypes = { },
-	flask = { mana = 250, duration = 5, chargesUsed = 8, chargesMax = 36, },
-	req = { level = 24, },
+	flask = { mana = 165, duration = 3.5, chargesUsed = 10, chargesMax = 75, },
+	req = { level = 23, },
 }
 itemBases["Colossal Mana Flask"] = {
 	type = "Flask",
 	subType = "Mana",
 	tags = { flask = true, mana_flask = true, default = true, },
 	implicitModTypes = { },
-	flask = { mana = 350, duration = 5, chargesUsed = 8, chargesMax = 38, },
+	flask = { mana = 165, duration = 2.5, chargesUsed = 10, chargesMax = 75, },
 	req = { level = 30, },
 }
-itemBases["Sacred Mana Flask"] = {
+itemBases["Gargantuan Mana Flask"] = {
 	type = "Flask",
 	subType = "Mana",
 	tags = { flask = true, mana_flask = true, default = true, },
 	implicitModTypes = { },
-	flask = { mana = 480, duration = 5.5, chargesUsed = 7, chargesMax = 35, },
-	req = { level = 36, },
-}
-itemBases["Hallowed Mana Flask"] = {
-	type = "Flask",
-	subType = "Mana",
-	tags = { flask = true, mana_flask = true, default = true, },
-	implicitModTypes = { },
-	flask = { mana = 700, duration = 6, chargesUsed = 6, chargesMax = 30, },
-	req = { level = 42, },
-}
-itemBases["Sanctified Mana Flask"] = {
-	type = "Flask",
-	subType = "Mana",
-	tags = { flask = true, mana_flask = true, default = true, },
-	implicitModTypes = { },
-	flask = { mana = 1100, duration = 6.5, chargesUsed = 7, chargesMax = 35, },
-	req = { level = 50, },
-}
-itemBases["Divine Mana Flask"] = {
-	type = "Flask",
-	subType = "Mana",
-	tags = { flask = true, not_for_sale = true, mana_flask = true, default = true, },
-	implicitModTypes = { },
-	flask = { mana = 1400, duration = 5, chargesUsed = 8, chargesMax = 42, },
-	req = { level = 60, },
-}
-itemBases["Eternal Mana Flask"] = {
-	type = "Flask",
-	subType = "Mana",
-	tags = { flask = true, not_for_sale = true, mana_flask = true, default = true, },
-	implicitModTypes = { },
-	flask = { mana = 1800, duration = 7, chargesUsed = 8, chargesMax = 42, },
-	req = { level = 65, },
-}
-
-itemBases["Small Hybrid Flask"] = {
-	type = "Flask",
-	subType = "Hybrid",
-	tags = { flask = true, hybrid_flask = true, default = true, },
-	implicitModTypes = { },
-	flask = { life = 100, mana = 70, duration = 5, chargesUsed = 20, chargesMax = 40, },
-	req = { level = 10, },
-}
-itemBases["Medium Hybrid Flask"] = {
-	type = "Flask",
-	subType = "Hybrid",
-	tags = { flask = true, hybrid_flask = true, default = true, },
-	implicitModTypes = { },
-	flask = { life = 230, mana = 100, duration = 5, chargesUsed = 20, chargesMax = 40, },
-	req = { level = 20, },
-}
-itemBases["Large Hybrid Flask"] = {
-	type = "Flask",
-	subType = "Hybrid",
-	tags = { flask = true, hybrid_flask = true, default = true, },
-	implicitModTypes = { },
-	flask = { life = 510, mana = 140, duration = 5, chargesUsed = 20, chargesMax = 40, },
-	req = { level = 30, },
-}
-itemBases["Colossal Hybrid Flask"] = {
-	type = "Flask",
-	subType = "Hybrid",
-	tags = { flask = true, hybrid_flask = true, default = true, },
-	implicitModTypes = { },
-	flask = { life = 690, mana = 200, duration = 5, chargesUsed = 20, chargesMax = 40, },
+	flask = { mana = 185, duration = 2, chargesUsed = 10, chargesMax = 75, },
 	req = { level = 40, },
 }
-itemBases["Sacred Hybrid Flask"] = {
+itemBases["Transcendent Mana Flask"] = {
 	type = "Flask",
-	subType = "Hybrid",
-	tags = { flask = true, hybrid_flask = true, default = true, },
+	subType = "Mana",
+	tags = { flask = true, mana_flask = true, default = true, },
 	implicitModTypes = { },
-	flask = { life = 1440, mana = 400, duration = 5, chargesUsed = 20, chargesMax = 40, },
+	flask = { mana = 285, duration = 3.5, chargesUsed = 10, chargesMax = 75, },
 	req = { level = 50, },
 }
-itemBases["Hallowed Hybrid Flask"] = {
+itemBases["Ultimate Mana Flask"] = {
 	type = "Flask",
-	subType = "Hybrid",
-	tags = { flask = true, hybrid_flask = true, not_for_sale = true, default = true, },
+	subType = "Mana",
+	tags = { flask = true, mana_flask = true, default = true, },
 	implicitModTypes = { },
-	flask = { life = 1740, mana = 480, duration = 5, chargesUsed = 20, chargesMax = 40, },
+	flask = { mana = 310, duration = 3, chargesUsed = 10, chargesMax = 75, },
 	req = { level = 60, },
-}
-
-itemBases["Diamond Flask"] = {
-	type = "Flask",
-	subType = "Utility",
-	tags = { flask = true, utility_flask = true, default = true, },
-	implicitModTypes = { },
-	flask = { duration = 6, chargesUsed = 20, chargesMax = 40, buff = { "100% increased Global Critical Strike Chance" }, },
-	req = { level = 27, },
-}
-itemBases["Ruby Flask"] = {
-	type = "Flask",
-	subType = "Utility",
-	tags = { flask = true, utility_flask = true, default = true, },
-	implicitModTypes = { },
-	flask = { duration = 8, chargesUsed = 20, chargesMax = 50, buff = { "+5% to maximum Fire Resistance", "+40% to Fire Resistance" }, },
-	req = { level = 18, },
-}
-itemBases["Sapphire Flask"] = {
-	type = "Flask",
-	subType = "Utility",
-	tags = { flask = true, utility_flask = true, default = true, },
-	implicitModTypes = { },
-	flask = { duration = 8, chargesUsed = 20, chargesMax = 50, buff = { "+5% to maximum Cold Resistance", "+40% to Cold Resistance" }, },
-	req = { level = 18, },
-}
-itemBases["Topaz Flask"] = {
-	type = "Flask",
-	subType = "Utility",
-	tags = { flask = true, utility_flask = true, default = true, },
-	implicitModTypes = { },
-	flask = { duration = 8, chargesUsed = 20, chargesMax = 50, buff = { "+5% to maximum Lightning Resistance", "+40% to Lightning Resistance" }, },
-	req = { level = 18, },
-}
-itemBases["Granite Flask"] = {
-	type = "Flask",
-	subType = "Utility",
-	tags = { flask = true, utility_flask = true, default = true, },
-	implicitModTypes = { },
-	flask = { duration = 6, chargesUsed = 30, chargesMax = 60, buff = { "+1500 to Armour" }, },
-	req = { level = 27, },
-}
-itemBases["Quicksilver Flask"] = {
-	type = "Flask",
-	subType = "Utility",
-	tags = { flask = true, utility_flask = true, default = true, },
-	implicitModTypes = { },
-	flask = { duration = 6, chargesUsed = 30, chargesMax = 60, buff = { "40% increased Movement Speed" }, },
-	req = { level = 4, },
-}
-itemBases["Amethyst Flask"] = {
-	type = "Flask",
-	subType = "Utility",
-	tags = { flask = true, utility_flask = true, default = true, },
-	implicitModTypes = { },
-	flask = { duration = 6.5, chargesUsed = 35, chargesMax = 65, buff = { "+35% to Chaos Resistance" }, },
-	req = { level = 18, },
-}
-itemBases["Quartz Flask"] = {
-	type = "Flask",
-	subType = "Utility",
-	tags = { flask = true, utility_flask = true, default = true, },
-	implicitModTypes = { },
-	flask = { duration = 6, chargesUsed = 30, chargesMax = 60, buff = { "+10% chance to Suppress Spell Damage", "Phasing" }, },
-	req = { level = 27, },
-}
-itemBases["Jade Flask"] = {
-	type = "Flask",
-	subType = "Utility",
-	tags = { flask = true, utility_flask = true, default = true, },
-	implicitModTypes = { },
-	flask = { duration = 6, chargesUsed = 30, chargesMax = 60, buff = { "+1500 to Evasion Rating" }, },
-	req = { level = 27, },
-}
-itemBases["Basalt Flask"] = {
-	type = "Flask",
-	subType = "Utility",
-	tags = { flask = true, utility_flask = true, default = true, },
-	implicit = "Taunts nearby Enemies on use",
-	implicitModTypes = { { "flask" }, },
-	flask = { duration = 8, chargesUsed = 40, chargesMax = 60, buff = { "20% more Armour" }, },
-	req = { level = 27, },
-}
-itemBases["Aquamarine Flask"] = {
-	type = "Flask",
-	subType = "Utility",
-	tags = { flask = true, utility_flask = true, default = true, },
-	implicit = "Creates Chilled Ground on Use",
-	implicitModTypes = { { "flask" }, },
-	flask = { duration = 8, chargesUsed = 20, chargesMax = 50, buff = { "60% reduced Effect of Freeze on you" }, },
-	req = { level = 27, },
-}
-itemBases["Stibnite Flask"] = {
-	type = "Flask",
-	subType = "Utility",
-	tags = { flask = true, utility_flask = true, default = true, },
-	implicit = "Creates a Smoke Cloud on Use",
-	implicitModTypes = { { "flask" }, },
-	flask = { duration = 8, chargesUsed = 40, chargesMax = 60, buff = { "20% more Evasion Rating" }, },
-	req = { level = 27, },
-}
-itemBases["Sulphur Flask"] = {
-	type = "Flask",
-	subType = "Utility",
-	tags = { flask = true, utility_flask = true, default = true, },
-	implicit = "Creates Consecrated Ground on Use",
-	implicitModTypes = { { "flask" }, },
-	flask = { duration = 8, chargesUsed = 40, chargesMax = 60, buff = { "40% increased Damage" }, },
-	req = { level = 27, },
-}
-itemBases["Silver Flask"] = {
-	type = "Flask",
-	subType = "Utility",
-	tags = { flask = true, utility_flask = true, default = true, },
-	implicitModTypes = { },
-	flask = { duration = 6, chargesUsed = 40, chargesMax = 60, buff = { "Onslaught" }, },
-	req = { level = 27, },
-}
-itemBases["Bismuth Flask"] = {
-	type = "Flask",
-	subType = "Utility",
-	tags = { flask = true, utility_flask = true, default = true, },
-	implicitModTypes = { },
-	flask = { duration = 8.5, chargesUsed = 15, chargesMax = 40, buff = { "+35% to all Elemental Resistances" }, },
-	req = { level = 8, },
-}
-itemBases["Gold Flask"] = {
-	type = "Flask",
-	subType = "Utility",
-	tags = { flask = true, utility_flask = true, default = true, },
-	implicitModTypes = { },
-	flask = { duration = 5, chargesUsed = 60, chargesMax = 80, buff = { "30% increased Rarity of Items found" }, },
-	req = { level = 27, },
-}
-itemBases["Corundum Flask"] = {
-	type = "Flask",
-	subType = "Utility",
-	tags = { flask = true, utility_flask = true, default = true, },
-	implicitModTypes = { },
-	flask = { duration = 7.5, chargesUsed = 20, chargesMax = 50, buff = { "30% increased Stun Threshold", "Cannot be Stunned if you've been Stunned during Effect" }, },
-	req = { level = 27, },
-}
-itemBases["Iron Flask"] = {
-	type = "Flask",
-	subType = "Utility",
-	tags = { flask = true, utility_flask = true, not_for_sale = true, expedition_flask = true, default = true, },
-	implicit = "Restores Ward on use",
-	implicitModTypes = { { "flask" }, },
-	flask = { duration = 4, chargesUsed = 40, chargesMax = 60, buff = { "+200 to Ward" }, },
-	req = { level = 27, },
 }

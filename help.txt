@@ -46,6 +46,21 @@ Ctrl	While scrolling on a slider makes it 5* times slower
 * default of 5, some scroll bars have more or less extreme modifiers to scroll speed
   and scroll bars in help section and version history will jump to the previous/next section
 
+Attribute Shortcuts:
+
+LMB + 1 / I	Allocate Intelligence for an unallocated Attribute node or
+	    Hotswap an allocated attribute node to Intelligence*
+LMB + 2 / S	Allocate Strength for an unallocated Attribute node or
+	    Hotswap an allocated attribute node to Strength*
+LMB + 3 / D	Allocate Dexterity for an unallocated Attribute node or
+	    Hotswap an allocated attribute node to Dexterity*
+* if allocating a line/path of attribute nodes, all will be set to the selected attribute
+
+If allocating a non-attribute node, either the last used hotkey (if no hotkey is pressed) or one of the hotkeys above
+    will allocate any attribute nodes in the path to the selected attribute
+
+---
+
 When creating an item either through item creator or adding an item pressing ctrl will add it to the first slot
     and ctrl+shift will add it to the second slot e.g. offhand for a weapon.
 

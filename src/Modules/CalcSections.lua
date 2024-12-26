@@ -602,6 +602,8 @@ return {
 } },
 { 1, "SkillTypeStats", 1, colorCodes.OFFENCE, {{ defaultCollapsed = false, label = "Skill type-specific Stats", data = {
 	{ label = "Gem Level", haveOutput = "GemHasLevel", { format = "{0:output:GemLevel}", { breakdown = "GemLevel" }, { modName = { "GemLevel" }, cfg = "skill" },{ modName = { "GemSupportLevel" }, cfg = "skill" }, { modName = { "GemItemLevel" }, cfg = "skill" }, }, },
+	{ label = "Spirit Cost", color = colorCodes.SPIRIT, haveOutput = "SpiritHasCost", { format = "{0:output:SpiritCost}", { breakdown = "SpiritCost" }, { modName = { "SpiritCost", "Cost", "SpiritCostNoMult" }, cfg = "skill" }, }, },
+	{ label = "Spirit % Cost", color = colorCodes.SPIRIT, haveOutput = "SpiritPercentHasCost", { format = "{0:output:SpiritPercentCost}", { breakdown = "SpiritPercentCost" }, { modName = { "SpiritCost", "Cost", "SpiritCostNoMult" }, cfg = "skill" }, }, },
 	{ label = "Mana Cost", color = colorCodes.MANA, haveOutput = "ManaHasCost", { format = "{0:output:ManaCost}", { breakdown = "ManaCost" }, { modName = { "ManaCost", "Cost", "ManaCostNoMult" }, cfg = "skill" }, }, },
 	{ label = "Mana % Cost", color = colorCodes.MANA, haveOutput = "ManaPercentHasCost", { format = "{0:output:ManaPercentCost}", { breakdown = "ManaPercentCost" }, { modName = { "ManaCost", "Cost", "ManaCostNoMult" }, cfg = "skill" }, }, },
 	{ label = "Mana per second", color = colorCodes.MANA, haveOutput = "ManaPerSecondHasCost", { format = "{2:output:ManaPerSecondCost}", { breakdown = "ManaPerSecondCost" }, { modName = { "ManaCost", "Cost", "ManaCostNoMult" }, cfg = "skill" }, }, },
@@ -673,6 +675,10 @@ return {
 	{ label = "Life Reserve Mod", haveOutput = "LifeReservedMod", { format = "x {2:output:LifeReservedMod}",
 		{ breakdown = "LifeReservedMod" },
 		{ modName = { "LifeReserved", "Reserved", "SupportManaMultiplier", "LifeReservationEfficiency", "ReservationEfficiency"  }, cfg = "skill"}
+	}, },
+	{ label = "Spirit Reserve Mod", haveOutput = "SpiritReservedMod", { format = "x {2:output:SpiritReservedMod}",
+		{ breakdown = "SpiritReservedMod" },
+		{ modName = { "SpiritReserved", "Reserved", "SupportManaMultiplier", "SpiritReservationEfficiency", "ReservationEfficiency"  }, cfg = "skill"}
 	}, },
 	{ label = "Curse Effect Mod", haveOutput = "CurseEffectMod", { format = "x {2:output:CurseEffectMod}",
 		{ breakdown = "CurseEffectMod" },
@@ -1438,6 +1444,18 @@ return {
 	}, },
 } }
 } },
+{ 1, "Spirit", 2, colorCodes.SPIRIT, {{ defaultCollapsed = false, label = "Spirit", data = {
+	extra = "{0:output:SpiritUnreserved}/{0:output:Spirit}",
+	notFlag = "minionSkill",
+	{ label = "Base from Gear", { format = "{0:mod:1}", { modName = "Spirit", modType = "BASE", modSource = "Item" }, }, },
+	{ label = "Inc. from Tree", { format = "{0:mod:1}%", { modName = "Spirit", modType = "INC", modSource = "Tree" }, }, },
+	{ label = "Total Base", { format = "{0:mod:1}", { modName = "Spirit", modType = "BASE" }, }, },
+	{ label = "Total Increased", { format = "{0:mod:1}%", { modName = "Spirit", modType = "INC" }, }, },
+	{ label = "Total", { format = "{0:output:Spirit}", { breakdown = "Spirit" }, }, },
+	{ label = "Reserved", { format = "{0:output:SpiritReserved} ({0:output:SpiritReservedPercent}%)", { breakdown = "SpiritReserved" }, }, },
+	{ label = "Unreserved", { format = "{0:output:SpiritUnreserved} ({0:output:SpiritUnreservedPercent}%)" }, },
+} }
+} },
 { 1, "EnergyShield", 2, colorCodes.ES, {{ defaultCollapsed = false, label = "Energy Shield", data = {
 	extra = "{0:output:EnergyShield}",
 	{ label = "Base from Armours", { format = "{0:output:Gear:EnergyShield}", { breakdown = "EnergyShield", gearOnly = true }, }, },
@@ -1618,7 +1636,7 @@ return {
 } },
 } },
 -- misc resources
-{ 1, "Flasks", 3, colorCodes.CRAFTED, {{ defaultCollapsed = false, label = "Flasks", data = {
+{ 1, "Flasks", 3, colorCodes.ENCHANTED, {{ defaultCollapsed = false, label = "Flasks", data = {
 	extra = "+{0:output:FlaskEffect}%, {2:output:FlaskChargeGen}/s",
 	{ label = "Inc. Effect", { format = "{0:mod:1}%", { modName = "FlaskEffect", modType = "INC", actor = "player"}, }, },
 	{ label = "Inc. Duration", { format = "{0:mod:1}%", { modName = "FlaskDuration", modType = "INC" }, }, },
@@ -1654,7 +1672,13 @@ return {
 	{ label = "Charges/s", { format = "{2:output:ManaFlaskChargeGen}",
 		{ label = "Mana Flask Charges/s", modName = "ManaFlaskChargesGenerated", modType = "BASE"},
 		{ label = "Generic Flask Charges/s", modName = { "FlaskChargesGenerated", "FlaskChargesGeneratedPerEmptyFlask" }, modType = "BASE" }}, },
-} }} },
+} }, { defaultCollapsed = true, label = "Charms", data = {
+	extra = "+{0:output:CharmEffect}%, {0:output:CharmLimit}",
+	{ label = "Inc. Effect", { format = "{0:mod:1}%", { modName = "CharmEffect", modType = "INC", actor = "player"}, }, },
+	{ label = "Inc. Duration", { format = "{0:mod:1}%", { modName = "CharmDuration", modType = "INC" }, }, },
+	{ label = "Charm Limit", { format = "{0:mod:1}", { modName = "CharmLimit", modType = "BASE"}, }, },
+} }, 
+} },
 { 1, "Rage", 3, colorCodes.RAGE, {{ defaultCollapsed = true, label = "Rage", data = {
 	extra = "{0:output:Rage} ({1:output:RageEffect})",
 	{ label = "Total", { format = "{0:output:Rage}", }, },
@@ -1697,13 +1721,14 @@ return {
 } },
 -- misc defense
 { 1, "MiscDefences", 3, colorCodes.DEFENCE, {{ defaultCollapsed = false, label = "Other Defences", data = {
-	{ label = "Movement Speed", { format = "x {2:output:EffectiveMovementSpeedMod}", { breakdown = "EffectiveMovementSpeedMod" }, { modName = { "MovementSpeed", "MovementSpeedEqualHighestLinkedPlayers" } }, }, },
+	{ label = "Movement Speed", { format = "x {3:output:EffectiveMovementSpeedMod}", { breakdown = "EffectiveMovementSpeedMod" }, { modName = { "MovementSpeed", "MovementSpeedEqualHighestLinkedPlayers" } }, }, },
 	{ label = "Effect of Elusive", haveOutput = "ElusiveEffectMod", { format = "{0:output:ElusiveEffectMod}%", { breakdown = "ElusiveEffectMod" }, { modName = { "ElusiveEffect", "BuffEffectOnSelf", "NightbladeSupportedElusiveEffect" }, }, } },
 	{ label = "Light Radius Mod", { format = "x {2:output:LightRadiusMod}", { breakdown = "LightRadiusMod" }, { modName = "LightRadius" }, }, },
 	{ label = "Curse Effect on You", { format = "{1:output:CurseEffectOnSelf}%", { modName = "CurseEffectOnSelf" }, }, },
 	{ label = "Exposure Effect", { format = "{1:output:ExposureEffectOnSelf}%", { modName = "ExposureEffectOnSelf" }, }, },
 	{ label = "Wither Effect", { format = "{1:output:WitherEffectOnSelf}%", { modName = "WitherEffectOnSelf" }, }, },
 	{ label = "Debuff Dur. Mult.", haveOutput = "showDebuffExpirationModifier", { format = "{1:output:DebuffExpirationModifier}%", { modName = "SelfDebuffExpirationRate" }, }, },
+	{ label = "Weap. Swap Speed", { format = "{0:output:WeaponSwapSpeed} ms", { breakdown = "WeaponSwapSpeedMod" }, { modName = { "WeaponSwapSpeed" } }, }, },
 } }, { defaultCollapsed = false, label = "Stun Duration", data = {
 	{ label = "Stun Avoid Chance", haveOutput = "StunAvoidChance", { format = "{0:output:StunAvoidChance}%",  { breakdown = "StunAvoidChance" }, { modName = "AvoidStun" }, }, },
 	{ label = "Stun Threshold", { format = "{0:output:StunThreshold}", { breakdown = "StunThreshold" }, { modName = { "StunThreshold", "StunThresholdManaPercent", "StunThresholdEnergyShieldPercent" } }, }, },

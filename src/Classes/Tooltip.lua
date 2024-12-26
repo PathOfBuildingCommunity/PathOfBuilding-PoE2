@@ -15,31 +15,6 @@ local BORDER_WIDTH = 3
 local H_PAD	= 12
 local V_PAD = 10
 
--- All possible values for notable recipes (oils)
-local recipeNames = {
-	"AmberOil",
-	"AzureOil",
-	"BlackOil",
-	"ClearOil",
-	"CrimsonOil",
-	"GoldenOil",
-	"IndigoOil",
-	"OpalescentOil",
-	"PrismaticOil",
-	"SepiaOil",
-	"SilverOil",
-	"TealOil",
-	"VerdantOil",
-	"VioletOil",
-}
-
--- Preload all recipe images
-local recipeImages = { }
-for _, recipeName in pairs(recipeNames) do
-	recipeImages[recipeName] = NewImageHandle()
-	recipeImages[recipeName]:Load("TreeData/" .. recipeName .. ".png", "CLAMP")
-end
-
 local TooltipClass = newClass("Tooltip", function(self)
 	self.lines = { }
 	self.blocks = { }
@@ -121,7 +96,8 @@ function TooltipClass:GetSize()
 		local title = self.lines[1]
 		local imageX = DrawStringWidth(title.size, "VAR", title.text) + title.size
 		local recipeTextSize = (title.size * 3) / 4
-		for _, recipeName in ipairs(self.recipe) do
+		for _, recipeInfo in ipairs(self.recipe) do
+			local recipeName = recipeInfo.name
 			-- Trim "Oil" from the recipe name, which normally looks like "GoldenOil"
 			local recipeNameShort = recipeName
 			if #recipeNameShort > 3 and recipeNameShort:sub(-3) == "Oil" then
@@ -156,7 +132,8 @@ function TooltipClass:CalculateColumns(ttY, ttX, ttH, ttW, viewPort)
 			local title = self.lines[1]
 			local imageX = DrawStringWidth(title.size, "VAR", title.text) + title.size
 			local recipeTextSize = (title.size * 3) / 4
-			for _, recipeName in ipairs(self.recipe) do
+			for _, recipeInfo in ipairs(self.recipe) do
+				local recipeName = recipeInfo.name
 				-- Trim "Oil" from the recipe name, which normally looks like "GoldenOil"
 				local recipeNameShort = recipeName
 				if #recipeNameShort > 3 and recipeNameShort:sub(-3) == "Oil" then
@@ -166,7 +143,7 @@ function TooltipClass:CalculateColumns(ttY, ttX, ttH, ttW, viewPort)
 				t_insert(drawStack, {ttX + imageX, y + (title.size - recipeTextSize)/2, "LEFT", recipeTextSize, "VAR", recipeNameShort})
 				imageX = imageX + DrawStringWidth(recipeTextSize, "VAR", recipeNameShort)
 				-- Draw the image of the recipe component (oil)
-				t_insert(drawStack, {recipeImages[recipeName], ttX + imageX, y, title.size, title.size})
+				t_insert(drawStack, {recipeInfo.sprite, ttX + imageX, y, title.size, title.size})
 				imageX = imageX + title.size * 1.25
 			end
 		end
@@ -235,7 +212,21 @@ function TooltipClass:Draw(x, y, w, h, viewPort)
 			else
 				SetDrawColor(unpack(self.color))
 			end
-			DrawImage(unpack(lines))
+			if lines[1] and lines[1].handle then
+				local arguments = {
+					lines[1].handle,
+					lines[2], 
+					lines[3], 
+					lines[4], 
+					lines[5]
+				}
+				for _, v in ipairs(lines[1]) do
+					t_insert(arguments, v)
+				end
+				DrawImage(unpack(arguments))
+			else
+				DrawImage(unpack(lines))
+			end
 		else
 			DrawString(unpack(lines))
 		end
