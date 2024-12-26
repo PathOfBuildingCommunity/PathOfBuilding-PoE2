@@ -8692,10 +8692,10 @@ return {
 		},
 		[64]={
 			list=false,
-			name="",
-			refTo="",
-			type="Int",
-			width=150
+			name="NodeType",
+			refTo="passiveNodeTypes",
+			type="Enum",
+			width=70
 		}
 	},
 	modsellpricetypes={
@@ -10529,6 +10529,15 @@ return {
 	},
 	pantheonsouls={
 	},
+	passiveNodeTypes={
+		[1]={
+			list=false,
+			name="Id",
+			refTo="",
+			type="String",
+			width=150
+		}
+	},
 	passivejewelart={
 		[1]={
 			list=false,
@@ -10713,6 +10722,8 @@ return {
 			type="String",
 			width=560
 		}
+	},
+	passivenodetypes={
 	},
 	passiveoverridelimits={
 		[1]={

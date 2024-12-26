@@ -91,6 +91,9 @@ local function writeMods(outName, condFunc)
 					end
 				end
 				out:write('modTags = { ', stats.modTags, ' }, ')
+				if mod.NodeType ~= 3 then
+					out:write('nodeType = ', mod.NodeType, ', ')
+				end
 				out:write('},\n')
 			else
 				print("Mod '"..mod.Id.."' has no stats")

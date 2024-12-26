@@ -12,31 +12,16 @@ local excludedItemKeystones = {
 local uniqueMods = LoadModule("Data/ModUnique")
 
 do
-	local againstMods = {
-		{ mod = "UniqueJewelRadiusMana", name = "Mana", notable = false },
-		{ mod = "UniqueJewelRadiusLife", name = "Life", notable = false },
-		{ mod = "UniqueJewelRadiusIgniteDurationOnSelf", name = "Ignite Duration", notable = false },
-		{ mod = "UniqueJewelRadiusFreezeDurationOnSelf", name = "Freeze Duration", notable = false },
-		{ mod = "UniqueJewelRadiusShockDurationOnSelf", name = "Shock Duration", notable = false },
-		{ mod = "UniqueJewelRadiusFireResistance", name = "Fire Resistance", notable = false },
-		{ mod = "UniqueJewelRadiusColdResistance", name = "Cold Resistance", notable = false },
-		{ mod = "UniqueJewelRadiusLightningResistance", name = "Lightning Resistance", notable = false },
-		{ mod = "UniqueJewelRadiusChaosResistance", name = "Chaos Resistance", notable = false },
-		{ mod = "UniqueJewelRadiusMaxFireResistance", name = "Max Fire Resistance", notable = true },
-		{ mod = "UniqueJewelRadiusMaxColdResistance", name = "Max Cold Resistance", notable = true },
-		{ mod = "UniqueJewelRadiusMaxLightningResistance", name = "Max Lightning Resistance", notable = true },
-		{ mod = "UniqueJewelRadiusMaxChaosResistance", name = "Max Chaos Resistance", notable = true },
-		{ mod = "UniqueJewelRadiusPercentStrenth", name = "Percent Strenth", notable = true },
-		{ mod = "UniqueJewelRadiusPercentIntelligence", name = "Percent Intelligence", notable = true },
-		{ mod = "UniqueJewelRadiusPercentDexterity", name = "Percent Dexterity", notable = true },
-		{ mod = "UniqueJewelRadiusSpirit", name = "Spirit", notable = true },
-		{ mod = "UniqueJewelRadiusDamageAsFire", name = "Damage As Fire", notable = true },
-		{ mod = "UniqueJewelRadiusDamageAsCold", name = "Damage As Cold", notable = true },
-		{ mod = "UniqueJewelRadiusDamageAsLightning", name = "Damage As Lightning", notable = true },
-		{ mod = "UniqueJewelRadiusDamageAsChaos", name = "Damage As Chaos", notable = true },
-	}
+	local againstMods = { }
+	for modName, mod in pairs(uniqueMods) do
+		local name = modName:match("^UniqueJewelRadius(.+)$")
+		if name then
+			table.insert(againstMods, { mod = mod, name = name:gsub("[%u%d]", " %1"):gsub("_", ""):gsub("E S", "ES") })
+		end
+	end
+	table.sort(uniqueMods, function(a, b) return a.mod.statOrder[1] > b.mod.statOrder[1] end)
 	local against = {
-		"Against The Darkness",
+		"Against the Darkness",
 		"Time-Lost Diamond",
 		"Limited to: 1",
 		"Radius: Large",
@@ -45,12 +30,12 @@ do
 		"Selected Alt Variant: 2",
 	}
 	for _, mod in ipairs(againstMods) do
-		table.insert(against, "Variant: " .. mod.name)
+		table.insert(against, "Variant:" .. mod.name)
 	end
 	local smallLine = "Small Passive Skills in Radius also grant "
 	local notableLine = "Notable Passive Skills in Radius also grant "
 	for index, mod in ipairs(againstMods) do
-		table.insert(against, "{variant:" .. index .. "}" .. (mod.notable and notableLine or smallLine) .. uniqueMods[mod.mod][1])
+		table.insert(against, "{variant:" .. index .. "}" .. (mod.mod.nodeType == 1 and smallLine or notableLine) .. mod.mod[1])
 	end
 	table.insert(data.uniques.generated, table.concat(against, "\n"))
 end
