@@ -10723,8 +10723,6 @@ return {
 			width=560
 		}
 	},
-	passivenodetypes={
-	},
 	passiveoverridelimits={
 		[1]={
 			list=false,
