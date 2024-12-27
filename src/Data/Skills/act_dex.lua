@@ -1702,6 +1702,7 @@ skills["RainOfArrowsPlayer"] = {
 	baseFlags = {
 		attack = true,
 		projectile = true,
+		area = true,
 	},
 	qualityStats = {
 		Default = {
