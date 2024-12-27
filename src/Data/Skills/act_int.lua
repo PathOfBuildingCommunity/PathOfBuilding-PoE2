@@ -5844,6 +5844,7 @@ skills["HeraldOfIcePlayer"] = {
 		["Two Handed Sword"] = true,
 		["Dagger"] = true,
 		["Claw"] = true,
+		["Crossbow"] = true,
 		["Two Handed Axe"] = true,
 		["Two Handed Mace"] = true,
 		["One Handed Axe"] = true,

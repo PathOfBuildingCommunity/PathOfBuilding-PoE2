@@ -234,10 +234,16 @@ skills["MeleeCrossbowPlayer"] = {
 	incrementalEffectiveness = 0.054999999701977,
 	description = "Fires a bolt from your crossbow.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Area] = true, [SkillType.CrossbowSkill] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Nonpathing] = true, },
+	weaponTypes = {
+		["Crossbow"] = true,
+	},
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
 	fromItem = true,
 	baseFlags = {
+		attack = true,
+		area = true,
+		projectile = true,
 	},
 	constantStats = {
 		{ "action_required_target_facing_angle_tolerance_degrees", 90 },
