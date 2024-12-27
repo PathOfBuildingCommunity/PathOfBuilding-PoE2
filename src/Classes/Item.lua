@@ -11,18 +11,20 @@ local m_max = math.max
 local m_floor = math.floor
 
 local dmgTypeList = {"Physical", "Lightning", "Cold", "Fire", "Chaos"}
-local catalystList = {"Abrasive", "Accelerating", "Fertile", "Imbued", "Intrinsic", "Noxious", "Prismatic", "Tempering", "Turbulent", "Unstable"}
+local catalystList = {"Flesh", "Neural", "Carapace", "Uul-Netol's", "Xoph's", "Tul's", "Esh's", "Chayula's", "Reaver", "Sibilant", "Skittering", "Adaptive"}
 local catalystTags = {
-	{ "attack" },
-	{ "speed" },
-	{ "life", "mana", "resource" },
-	{ "caster" },
-	{ "jewellery_attribute", "attribute" },
-	{ "physical_damage", "chaos_damage" },
-	{ "jewellery_resistance", "resistance" },
+	{ "life" },
+	{ "mana" },
 	{ "jewellery_defense", "defences" },
-	{ "jewellery_elemental" ,"elemental_damage" },
-	{ "critical" },
+	{ "physical_damage" },
+	{ "fire_damage" },
+	{ "cold_damage" },
+	{ "lightning_damage" },
+	{ "chaos_damage" },
+	{ "attack" },
+	{ "caster" },
+	{ "speed" },
+	{ "jewellery_attribute", "attribute" },
 }
 
 local function getCatalystScalar(catalystId, tags, quality)
