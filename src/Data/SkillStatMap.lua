@@ -1402,9 +1402,6 @@ return {
 	mod("ProjectileCount", "BASE", nil),
 	base = -1,
 },
-["skill_can_fire_arrows"] = {
-	--flag("CanFireArrows"),
-},
 ["number_of_additional_projectiles"] = {
 	mod("ProjectileCount", "BASE", nil),
 },
