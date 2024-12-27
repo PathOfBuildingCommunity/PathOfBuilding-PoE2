@@ -49,14 +49,245 @@ local function writeMods(outName, condFunc)
 				out:write('weightKey = { ')
 				local GoldModPrices = dat("GoldModPrices"):GetRow("Id", dat("Mods"):GetRow("Id", mod.Id))
 				if GoldModPrices then
+					local count = 0
 					for _, tag in ipairs(GoldModPrices.SpawnTags) do
 						out:write('"', tag.Id, '", ')
+						count = count + 1
 					end
-					out:write('}, ')
-					out:write('weightVal = { ', table.concat(GoldModPrices.SpawnWeights, ', '), ' }, ')
+					-- no spawntags exist for flask/charm mods
+					if count == 0 then 
+						-- flasks/charms
+						if mod.Domain == 2 then 
+							if mod.Type.Id == "FlaskExtraLifeCostsMana" or mod.Type.Id == "FlaskIncreasedRecoveryOnLowLife" or mod.Type.Id == "FlaskHealsMinions" then 
+								out:write('"life_flask", ')
+							elseif mod.Type.Id == "FlaskExtraManaCostsLife" or mod.Type.Id == "FlaskIncreasedRecoveryOnLowMana" then 
+								out:write('"mana_flask", ')
+							elseif mod.Id:match("^Flask") then 
+								out:write('"flask", ') 
+							elseif mod.Id:match("^Charm") then
+								out:write('"utility_flask", ') 
+							end
+							out:write('"default" }, ')
+							out:write('weightVal = { 1, 0 }, ')
+						end
+					else
+						out:write('}, ')
+						out:write('weightVal = { ', table.concat(GoldModPrices.SpawnWeights, ', '), ' }, ')
+					end
 				else
-					out:write('}, ')
-					out:write('weightVal = { ', table.concat(mod.SpawnWeights, ', '), ' }, ')
+					-- jewels
+					if mod.Domain == 11 then
+						local strTypes = {
+							-- prefixes
+							"AreaOfEffect",
+							"GlobalPhysicalDamageReductionRatingPercent",
+							"ArmourBreak",
+							"Attackdamage",
+							"BaseChanceToBleed",
+							"IncreasedBlockChance",
+							"DamagevsArmourBrokenEnemies",
+							"ElementalDamagePercent",
+							"ExertedAttackDamage",
+							"FireDamagePercentage",
+							"FireResistancePenetration",
+							"IgniteEffect",
+							"IncreasedMaceDamageForJewel",
+							"MaximumRage",
+							"MeleeDamage",
+							"MinionAreaOfEffect",
+							"MinionLife",
+							"PhysicalDamagePercent",
+							"ShieldArmourIncrease",
+							"BleedDotMultiplier",
+							"ThornsDamageIncrease",
+							"TotemDamageForJewel",
+							"IncreasedTotemLife",
+							"WarcryEffect",
+							"WarcryDamage",
+							-- suffixes
+							"ArmourBreakDuration", 
+							"BleedDuration",
+							"IgniteChanceIncrease",
+							"SkillEffectDuration",
+							"KnockbackDistance",
+							"LifeCost",
+							"LifeLeechAmount",
+							"LifeRegenerationRate",
+							"MaceStun",
+							"MaximumFireResist",
+							"MinionPhysicalDamageReduction",
+							"RageOnHit",
+							"GainRageWhenHit",
+							"StunDamageIncrease",
+							"IncreasedStunThreshold",
+							"SummonTotemCastSpeed",
+							"WarcryCooldownSpeed",
+							"WarcrySpeed",
+							"WeaponSwapSpeed",
+						}
+						local dexTypes = {
+							-- prefixes
+							"IncreasedAccuracyPercent",
+							"AilmentEffect",
+							"AttackDamage",
+							"BlindEffect",
+							"DamageVsRareOrUnique",
+							"BowIncreasedAccuracyRating",
+							"IncreasedBowDamageForJewel",
+							"CharmDamageWhileUsing",
+							"CriticalAilmentEffect",
+							"CrossbowDamage",
+							"ElementalDamagePercent",
+							"GlobalEvasionRatingPercent",
+							"HeraldDamage",
+							"LightningDamagePercentage",
+							"LightningResistancePenetration",
+							"MarkEffect",
+							"PoisonEffect",
+							"ProjectileDamage",
+							"ProjectileSpeed",
+							"IncreasedStaffDamageForJewel",
+							"QuiverModifierEffect",
+							"ShockEffect",
+							-- suffixes
+							"AilmentChance",
+							"IncreasedAilmentThreshold",
+							"AttackCriticalStrikeChance",
+							"AttackCriticalStrikeMultiplier",
+							"IncreasedAttackSpeed",
+							"AttacksBlindOnHitChance",
+							"BowAttackSpeedForJewel",
+							"ChainFromTerrain",
+							"CharmDuration",
+							"CharmChargesGained",
+							"GlobalCooldownRecovery",
+							"CrossbowReloadSpeed",
+							"CrossbowSpeed",
+							"DamagingAilmentDuration",
+							"DazeBuildup",
+							"DebuffTimePassed",
+							"ElementalAilmentDuration",
+							"FasterAilmentDamageForJewel",
+							"IncreasedFlaskChargesGained",
+							"FlaskDuration",
+							"ForkingProjectiles",
+							"GlobalFlaskLifeRecovery",
+							"LifeFlaskChargePercentGeneration",
+							"FlaskManaRecovery",
+							"ManaFlaskChargePercentGeneration",
+							"ManaLeechAmount",
+							"MarkCastSpeed",
+							"MarkDuration",
+							"MaximumLightningResistance",
+							"MovementVelocity",
+							"ChanceToPierce", 
+							"PinBuildup", 
+							"BaseChanceToPoison", 
+							"PoisonDuration",
+							"QuarterstaffFreezeBuildup",
+							"StaffAttackSpeedForJewel",
+							"ShockChanceIncrease",
+							"ShockDuration",
+							"SlowPotency",
+							"IncreasedStunThresholdIfNoRecentStun"
+						}
+						local intTypes = {
+							-- prefixes
+							"AilmentEffect",
+							"AreaOfEffect",
+							"AuraEffectForJewel",
+							"IncreasedChaosDamage",
+							"ColdDamagePercentage", 
+							"ColdResistancePenetration",
+							"DamageIfConsumedCorpse",
+							"CriticalAilmentEffect",
+							"CurseAreaOfEffect",
+							"CurseEffectivenessForJewel",
+							"ElementalDamagePercent",
+							"GlobalEnergyShieldPercent",
+							"EnergyShieldDelay",
+							"EnergyShieldRegeneration",
+							"FocusEnergyShield",
+							"IgniteEffect",
+							"MinionAccuracyRatingForJewel",
+							"MinionDamage",
+							"OfferingLife",
+							"ShockEffect",
+							"WeaponSpellDamage",
+							"DamageWithTriggeredSpells",
+							"WitheredEffect",
+							-- suffixes
+							"AilmentChance",
+							"IncreasedCastSpeed",
+							"IncreasedChillDuration",
+							"CriticalStrikeChance",
+							"CriticalStrikeMultiplier",
+							"SpellCritMultiplierForJewel",
+							"CurseDelay",
+							"BaseCurseDuration",
+							"DamagingAilmentDuration",
+							"DebuffTimePassed",
+							"EnergyGeneration",
+							"FasterAilmentDamageForJewel",
+							"FreezeDamageIncrease",
+							"FreezeThreshold",
+							"IgniteChanceIncrease",
+							"SkillEffectDuration",
+							"MaximumLifeOnKillPercent",
+							"LifeRecoupForJewel",
+							"ManaGainedOnKillPercentage",
+							"ManaRegeneration",
+							"MaximumColdResist",
+							"MinionAttackSpeedAndCastSpeed",
+							"MinionChaosResistance",
+							"MinionCriticalStrikeChanceIncrease",
+							"MinionCriticalStrikeMultiplier",
+							"MinionElementalResistance",
+							"OfferingDuration",
+							"QuarterstaffFreezeBuildup",
+							"ShockChanceIncrease",
+							"ShockDuration",
+							"SpellCriticalStrikeChance",
+							"StunThresholdfromEnergyShield"
+						}
+						local keysCount = 0
+						if mod.Id:match("JewelRadius") then
+							if isValueInArray(strTypes, mod.Type.Id) then
+								out:write('"str_radius_jewel", ')
+								keysCount = keysCount + 1
+							end
+							if isValueInArray(dexTypes, mod.Type.Id) then
+								out:write('"dex_radius_jewel", ')
+								keysCount = keysCount + 1
+							end
+							if isValueInArray(intTypes, mod.Type.Id) then
+								out:write('"int_radius_jewel", ')
+								keysCount = keysCount + 1
+							end
+							if keysCount == 0 then
+								out:write('"radius_jewel", ')
+								keysCount = keysCount + 1
+							end
+						else 
+							if isValueInArray(strTypes, mod.Type.Id) then
+								out:write('"strjewel", ')
+								keysCount = keysCount + 1
+							end
+							if isValueInArray(dexTypes, mod.Type.Id) then
+								out:write('"dexjewel", ')
+								keysCount = keysCount + 1
+							end
+							if isValueInArray(intTypes, mod.Type.Id) then
+								out:write('"intjewel", ')
+								keysCount = keysCount + 1
+							end
+						end
+						out:write('"default" }, ')
+						out:write('weightVal = { ', string.rep("1, ", keysCount), '0 }, ')
+					else
+						out:write('}, ')
+						out:write('weightVal = { ', table.concat(mod.SpawnWeights, ', '), ' }, ')
+					end
 				end
 				if mod.GenerationWeightTags[1] then
 					-- make large clusters only have 1 notable suffix
@@ -102,12 +333,18 @@ local function writeMods(outName, condFunc)
 	out:close()
 end
 
+
+
 writeMods("../Data/ModItem.lua", function(mod)
 	return mod.Domain == 1 and (mod.GenerationType == 1 or mod.GenerationType == 2 or mod.GenerationType == 3 or mod.GenerationType == 5)
 	and (mod.Family[1] and mod.Family[1].Id ~= "AuraBonus" or not mod.Family[1]) and (not mod.Id:match("Cowards"))
 end)
 writeMods("../Data/ModFlask.lua", function(mod)
-	return mod.Domain == 2 and (mod.GenerationType == 1 or mod.GenerationType == 2)
+	return mod.Domain == 2 and (mod.GenerationType == 1 or mod.GenerationType == 2) and mod.Id:match("^Flask")
+end)
+writeMods("../Data/ModCharm.lua", function(mod)
+	return mod.Domain == 2 and ((mod.GenerationType == 1 and mod.Id:match("^Charm"))
+	or (mod.GenerationType == 2 and not mod.Id:match("Immunity"))) 
 end)
 writeMods("../Data/ModJewel.lua", function(mod)
 	return (mod.Domain == 11 and (mod.GenerationType == 1 or mod.GenerationType == 2)) or (mod.Domain == 21 and mod.GenerationType == 3)

@@ -546,6 +546,7 @@ data.describeStats = LoadModule("Modules/StatDescriber")
 data.itemMods = {
 	Item = LoadModule("Data/ModItem"),
 	Flask = LoadModule("Data/ModFlask"),
+	Charm = LoadModule("Data/ModCharm"),
 	Jewel = LoadModule("Data/ModJewel"),
 }
 data.enchantments = {
