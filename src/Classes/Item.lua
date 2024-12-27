@@ -15,16 +15,16 @@ local catalystList = {"Flesh", "Neural", "Carapace", "Uul-Netol's", "Xoph's", "T
 local catalystTags = {
 	{ "life" },
 	{ "mana" },
-	{ "jewellery_defense", "defences" },
-	{ "physical_damage" },
-	{ "fire_damage" },
-	{ "cold_damage" },
-	{ "lightning_damage" },
-	{ "chaos_damage" },
+	{ "defences" },
+	{ "physical" },
+	{ "fire" },
+	{ "cold" },
+	{ "lightning" },
+	{ "chaos" },
 	{ "attack" },
 	{ "caster" },
 	{ "speed" },
-	{ "jewellery_attribute", "attribute" },
+	{ "attribute" },
 }
 
 local function getCatalystScalar(catalystId, tags, quality)
