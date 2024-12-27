@@ -271,10 +271,6 @@ return {
 ["active_skill_minion_added_damage_+%_final"] = {
 	skill("minionDamageEffectiveness", nil),
 },
-["base_bleed_on_hit_still_%_of_physical_damage_to_deal_per_minute"] = {
-	skill("bleedBasePercent", nil),
-	div = 60,
-},
 ["corpse_explosion_monster_life_%"] = {
 	skill("corpseExplosionLifeMultiplier", nil),
 	div = 100,
@@ -1083,50 +1079,41 @@ return {
 	flag("CannotChill"),
 	flag("CannotFreeze"),
 	flag("CannotIgnite"),
-	flag("CannotScorch"),
-	flag("CannotBrittle"),
-	flag("CannotSap"),
 },
 ["lightning_damage_cannot_shock"] = {
 	flag("LightningCannotShock"),
 },
 ["chill_effect_+%"] = {
-	mod("EnemyChillEffect", "INC", nil),
+	mod("EnemyChillMagnitude", "INC", nil),
 },
 ["active_skill_chill_effect_+%_final"] = {
-	mod("EnemyChillEffect", "MORE", nil),
+	mod("EnemyChillMagnitude", "MORE", nil),
 },
 ["shock_effect_+%"] = {
-	mod("EnemyShockEffect", "INC", nil),
+	mod("EnemyShockMagnitude", "INC", nil),
 },
 ["active_skill_shock_effect_+%_final"] = {
-	mod("EnemyShockEffect", "MORE", nil),
+	mod("EnemyShockMagnitude", "MORE", nil),
 },
 ["non_damaging_ailment_effect_+%"] = {
-	mod("EnemyChillEffect", "INC", nil),
-	mod("EnemyShockEffect", "INC", nil),
+	mod("EnemyChillMagnitude", "INC", nil),
+	mod("EnemyShockMagnitude", "INC", nil),
 	mod("EnemyFreezeEffect", "INC", nil),
-	mod("EnemyScorchEffect", "INC", nil),
-	mod("EnemyBrittleEffect", "INC", nil),
-	mod("EnemySapEffect", "INC", nil),
 },
 ["lightning_ailment_effect_+%"] = {
-	mod("EnemyShockEffect", "INC", nil),
-	mod("EnemySapEffect", "INC", nil),
+	mod("EnemyShockMagnitude", "INC", nil),
 },
 ["cold_ailment_duration_+%"] = {
 	mod("EnemyChillDuration", "INC", nil),
 	mod("EnemyFreezeDuration", "INC", nil),
-	mod("EnemyBrittleDuration", "INC", nil),
 },
 ["chill_and_freeze_duration_+%"] = {
 	mod("EnemyChillDuration", "INC", nil),
 	mod("EnemyFreezeDuration", "INC", nil),
 },
 ["cold_ailment_effect_+%"] = {
-	mod("EnemyChillEffect", "INC", nil),
+	mod("EnemyChillMagnitude", "INC", nil),
 	mod("EnemyFreezeEffect", "INC", nil),
-	mod("EnemyBrittleEffect", "INC", nil),
 },
 ["active_skill_hit_damage_freeze_multiplier_+%_final"] = {
 	mod("EnemyFreezeEffect", "MORE", nil),

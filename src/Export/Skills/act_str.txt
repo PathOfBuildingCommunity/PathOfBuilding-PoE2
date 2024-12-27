@@ -22,7 +22,7 @@ local skills, mod, flag, skill = ...
 #mods
 
 #skill ArtilleryBallistaProjectilePlayer
-#flags
+#flags attack area totem projectile duration
 #mods
 
 #skill AttritionPlayer
@@ -62,11 +62,11 @@ local skills, mod, flag, skill = ...
 #mods
 
 #skill ClusterGrenadePlayer
-#flags
+#flags attack area projectile duration
 #mods
 
 #skill ClusterGrenadeMiniPlayer
-#flags
+#flags attack area projectile duration
 #mods
 
 #skill DefianceBannerReservationPlayer
@@ -122,15 +122,15 @@ local skills, mod, flag, skill = ...
 #mods
 
 #skill ExplosiveGrenadePlayer
-#flags
+#flags attack area projectile duration
 #mods
 
 #skill FlashGrenadePlayer
-#flags
+#flags attack area projectile duration
 #mods
 
 #skill ToxicGrenadePlayer
-#flags
+#flags attack area projectile duration
 #mods
 
 #skill HammerOfTheGodsPlayer
@@ -158,7 +158,7 @@ local skills, mod, flag, skill = ...
 #mods
 
 #skill ArmourPiercingBoltsPlayer
-#flags
+#flags attack projectile
 #mods
 
 #skill ExplosiveShotAmmoPlayer
@@ -166,7 +166,7 @@ local skills, mod, flag, skill = ...
 #mods
 
 #skill ExplosiveShotPlayer
-#flags
+#flags attack projectile area
 #mods
 
 #skill FragmentationRoundsAmmoPlayer
@@ -174,7 +174,7 @@ local skills, mod, flag, skill = ...
 #mods
 
 #skill FragmentationRoundsPlayer
-#flags
+#flags attack projectile
 #mods
 
 #skill GalvanicShardsAmmoPlayer
@@ -182,7 +182,7 @@ local skills, mod, flag, skill = ...
 #mods
 
 #skill GalvanicShardsPlayer
-#flags
+#flags attack projectile
 #mods
 
 #skill GlacialBoltAmmoPlayer
@@ -190,7 +190,7 @@ local skills, mod, flag, skill = ...
 #mods
 
 #skill GlacialBoltPlayer
-#flags
+#flags attack projectile area duration
 #mods
 
 #skill HailstormRoundsAmmoPlayer
@@ -198,7 +198,7 @@ local skills, mod, flag, skill = ...
 #mods
 
 #skill HailstormRoundsPlayer
-#flags
+#flags attack projectile area
 #mods
 
 #skill HighVelocityRoundsAmmoPlayer
@@ -206,7 +206,7 @@ local skills, mod, flag, skill = ...
 #mods
 
 #skill HighVelocityRoundsPlayer
-#flags
+#flags attack projectile
 #mods
 
 #skill IceShardsAmmoPlayer
@@ -214,7 +214,7 @@ local skills, mod, flag, skill = ...
 #mods
 
 #skill IceShardsPlayer
-#flags
+#flags attack projectile area
 #mods
 
 #skill IncendiaryShotAmmoPlayer
@@ -222,7 +222,7 @@ local skills, mod, flag, skill = ...
 #mods
 
 #skill IncendiaryShotPlayer
-#flags
+#flags attack projectile area
 #mods
 
 #skill PermafrostBoltsAmmoPlayer
@@ -230,7 +230,7 @@ local skills, mod, flag, skill = ...
 #mods
 
 #skill PermafrostBoltsPlayer
-#flags
+#flags attack projectile area
 #mods
 
 #skill PlasmaBlastAmmoPlayer
@@ -238,7 +238,7 @@ local skills, mod, flag, skill = ...
 #mods
 
 #skill PlasmaBlastPlayer
-#flags
+#flags attack projectile area
 #mods
 
 #skill RapidShotAmmoPlayer
@@ -246,7 +246,7 @@ local skills, mod, flag, skill = ...
 #mods
 
 #skill RapidShotPlayer
-#flags
+#flags attack projectile
 #mods
 
 #skill ShockburstRoundsAmmoPlayer
@@ -254,7 +254,7 @@ local skills, mod, flag, skill = ...
 #mods
 
 #skill ShockburstRoundsPlayer
-#flags
+#flags attack projectile area
 #mods
 
 #skill SiegeCascadeAmmoPlayer
@@ -262,7 +262,7 @@ local skills, mod, flag, skill = ...
 #mods
 
 #skill SiegeCascadePlayer
-#flags
+#flags attack projectile area
 #mods
 
 #skill StormblastBoltsAmmoPlayer
@@ -270,7 +270,7 @@ local skills, mod, flag, skill = ...
 #mods
 
 #skill StormblastBoltsPlayer
-#flags
+#flags attack projectile
 #mods
 
 #skill MagmaBarrierPlayer
@@ -286,7 +286,7 @@ local skills, mod, flag, skill = ...
 #mods
 
 #skill OilGrenadePlayer
-#flags
+#flags attack area projectile duration
 #mods
 
 #skill OverwhelmingPresencePlayer
@@ -306,7 +306,7 @@ local skills, mod, flag, skill = ...
 #mods
 
 #skill RipwireBallistaProjectilePlayer
-#flags
+#flags attack projectile duration totem
 #mods
 
 #skill RollingSlamPlayer
@@ -362,7 +362,7 @@ local skills, mod, flag, skill = ...
 #mods
 
 #skill ShockGrenadePlayer
-#flags
+#flags attack area projectile duration
 #mods
 
 #skill WarBannerReservationPlayer

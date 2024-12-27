@@ -202,6 +202,7 @@ local weaponClassMap = {
 	["One Hand Axe"] = "One Handed Axe",
 	["One Hand Mace"] = "One Handed Mace",
 	["Bow"] = "Bow",
+	["Crossbow"] = "Crossbow",
 	["Fishing Rod"] = "Fishing Rod",
 	["Staff"] = "Staff",
 	["Two Hand Sword"] = "Two Handed Sword",
@@ -276,7 +277,7 @@ directiveTable.skill = function(state, args, out)
 		if granted.IsSupport then
 			out:write('\tname = "', fullNameGems[skillGem.BaseItemType.Id] and skillGem.BaseItemType.Name or skillGem.BaseItemType.Name:gsub(" Support",""), '",\n')
 			if #gemEffect.Description > 0 then
-				out:write('\tdescription = "', gemEffect.Description:gsub('"','\\"'):gsub('\r',''):gsub('\n','\\n'):gsub("%[([^|%]]+)%]", "%1"):gsub("%[[^|]+|([^|]+)%]", "%1"), '",\n')
+				out:write('\tdescription = "', escapeGGGString(gemEffect.Description:gsub('"','\\"'):gsub('\r',''):gsub('\n','\\n')), '",\n')
 			end
 		else
 			out:write('\tname = "', secondaryEffect and granted.ActiveSkill.DisplayName or trueGemNames[gemEffect.Id] or granted.ActiveSkill.DisplayName, '",\n')
@@ -359,7 +360,7 @@ directiveTable.skill = function(state, args, out)
 		out:write('\tstatDescriptionScope = "gem_stat_descriptions",\n')
 	else
 		if #granted.ActiveSkill.Description > 0 then
-			out:write('\tdescription = "', granted.ActiveSkill.Description:gsub('"','\\"'):gsub('\r',''):gsub('\n','\\n'):gsub("%[([^|%]]+)%]", "%1"):gsub("%[[^|]+|([^|]+)%]", "%1"), '",\n')
+			out:write('\tdescription = "', escapeGGGString(granted.ActiveSkill.Description:gsub('"','\\"'):gsub('\r',''):gsub('\n','\\n')), '",\n')
 		end
 		out:write('\tskillTypes = { ')
 		for _, type in ipairs(granted.ActiveSkill.SkillTypes) do
@@ -770,7 +771,7 @@ for skillGem in dat("SkillGems"):Rows() do
 			for _, tag in ipairs(gemEffect.Tags) do
 				out:write('\t\t\t', tag.Id, ' = true,\n')
 				if #tag.Name > 0 then
-					tag.Name = tag.Name:gsub("%[([^|%]]+)%]", "%1"):gsub("%[[^|]+|([^|]+)%]", "%1") --Remove the words in brackets e.g. [DurationSkill|Duration] -> Duration
+					tag.Name = escapeGGGString(tag.Name) --Remove the words in brackets e.g. [DurationSkill|Duration] -> Duration
 					table.insert(tagNames, tag.Name)
 				end
 			end

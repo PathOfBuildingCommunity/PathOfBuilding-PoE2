@@ -45,7 +45,7 @@ local function processStatFile(name)
 			elseif curLang then
 				local statLimits, text, special = line:match('([%d%-#!| ]+) "(.-)"%s*(.*)')
 				if statLimits then
-					local desc = { text = text:gsub("%[([^|%]]+)%]", "%1"):gsub("%[[^|]+|([^|]+)%]", "%1"), limit = { } }
+					local desc = { text = escapeGGGString(text), limit = { } }
 					for statLimit in statLimits:gmatch("[!%d%-#|]+") do
 						local limit = { }
 						

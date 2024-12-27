@@ -224,10 +224,6 @@ local function parseUIImages()
 	return images
 end
 
-local function escapeGGGString(text)
-	return text:gsub("%[([^|%]]+)%]", "%1"):gsub("%[[^|]+|([^|]+)%]", "%1")
-end
-
 --[[
 	===== Extraction =====
 	Extraction of passives tree from psg file

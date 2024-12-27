@@ -409,6 +409,8 @@ function CalcBreakdownClass:AddModSection(sectionData, modList)
 				row.sourceName = node.dn
 				row.sourceNameNode = node
 			end
+		elseif sourceType == "Many Sources" then
+			row.sourceName = row.mod.source:match("Many Sources:(.+)")
 		elseif sourceType == "Skill" then
 			-- Extract skill name
 			row.sourceName = build.data.skills[row.mod.source:match("Skill:(.+)")].name

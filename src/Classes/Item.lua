@@ -11,18 +11,20 @@ local m_max = math.max
 local m_floor = math.floor
 
 local dmgTypeList = {"Physical", "Lightning", "Cold", "Fire", "Chaos"}
-local catalystList = {"Abrasive", "Accelerating", "Fertile", "Imbued", "Intrinsic", "Noxious", "Prismatic", "Tempering", "Turbulent", "Unstable"}
+local catalystList = {"Flesh", "Neural", "Carapace", "Uul-Netol's", "Xoph's", "Tul's", "Esh's", "Chayula's", "Reaver", "Sibilant", "Skittering", "Adaptive"}
 local catalystTags = {
+	{ "life" },
+	{ "mana" },
+	{ "defences" },
+	{ "physical" },
+	{ "fire" },
+	{ "cold" },
+	{ "lightning" },
+	{ "chaos" },
 	{ "attack" },
-	{ "speed" },
-	{ "life", "mana", "resource" },
 	{ "caster" },
-	{ "jewellery_attribute", "attribute" },
-	{ "physical_damage", "chaos_damage" },
-	{ "jewellery_resistance", "resistance" },
-	{ "jewellery_defense", "defences" },
-	{ "jewellery_elemental" ,"elemental_damage" },
-	{ "critical" },
+	{ "speed" },
+	{ "attribute" },
 }
 
 local function getCatalystScalar(catalystId, tags, quality)
@@ -283,7 +285,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 	self.rawLines = { }
 	-- Find non-blank lines and trim whitespace
 	for line in raw:gmatch("%s*([^\n]*%S)") do
-		line = line:gsub("%[([^|%]]+)%]", "%1"):gsub("%[[^|]+|([^|]+)%]", "%1") -- Remove game text 
+		line = escapeGGGString(line)
 		t_insert(self.rawLines, line)
 	end
 	local mode = rarity and "GAME" or "WIKI"
@@ -416,13 +418,13 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 					end
 					self.itemSocketCount = #self.sockets
 				elseif specName == "Radius" and self.type == "Jewel" then
-					self.jewelRadiusLabel = specVal:match("^%a+")
+					self.jewelRadiusLabel = specVal:match("^[%a ]+")
 					if specVal:match("^%a+") == "Variable" then
                         -- Jewel radius is variable and must be read from it's mods instead after they are parsed
                         deferJewelRadiusIndexAssignment = true
                     else
                         for index, data in pairs(data.jewelRadius) do
-                            if specVal:match("^%a+") == data.label then
+                            if specVal:match("^[%a ]+") == data.label then
                                 self.jewelRadiusIndex = index
                                 break
                             end

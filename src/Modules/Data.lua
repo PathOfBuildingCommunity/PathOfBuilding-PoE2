@@ -96,6 +96,9 @@ end
 
 data = { }
 
+-- Misc data tables
+LoadModule("Data/Misc", data)
+
 data.powerStatList = {
 	{ stat=nil, label="Offence/Defence", combinedOffDef=true, ignoreForItems=true },
 	{ stat=nil, label="Name", itemField="Name", ignoreForNodes=true, reverseSort=true, transform=function(value) return value:gsub("^The ","") end},
@@ -171,12 +174,12 @@ data.misc = { -- magic numbers
 	EnemyMaxResist = 75,
 	LeechRateBase = 0.02,
 	DotDpsCap = 35791394, -- (2 ^ 31 - 1) / 60 (int max / 60 seconds)
-	BleedPercentBase = 70,
-	BleedDurationBase = 5,
-	PoisonPercentBase = 0.30,
-	PoisonDurationBase = 2,
-	IgnitePercentBase = 0.9,
-	IgniteDurationBase = 4,
+	BleedPercentBase = data.gameConstants["BleedingHitDamagePercentPerMinute"] / 60 / 100,
+	BleedDurationBase = data.gameConstants["BaseBleedingDuration"],
+	PoisonPercentBase = data.gameConstants["PoisonHitDamagePercentPerMinute"] / 60 / 100,
+	PoisonDurationBase = data.gameConstants["BasePoisonDuration"],
+	IgnitePercentBase = data.gameConstants["IgniteHitDamagePercentPerMinute"] / 60 / 100,
+	IgniteDurationBase = data.gameConstants["BaseIgniteDuration"],
 	ImpaleStoredDamageBase = 0.1,
 	TrapTriggerRadiusBase = 10,
 	MineDetonationRadiusBase = 60,
@@ -265,73 +268,40 @@ data.cursePriority = {
 data.keystones = {
 	"Acrobatics",
 	"Ancestral Bond",
-	"Arrow Dancing",
-	"Arsenal of Vengeance",
 	"Avatar of Fire",
 	"Blood Magic",
-	"Bloodsoaked Blade",
-	"Call to Arms",
+	"Bulwark",
 	"Chaos Inoculation",
 	"Conduit",
-	"Corrupted Soul",
-	"Crimson Dance",
-	"Divine Flesh",
-	"Divine Shield",
-	"Doomsday",
+	"Dance with Death",
 	"Eldritch Battery",
 	"Elemental Equilibrium",
-	"Elemental Overload",
 	"Eternal Youth",
-	"Ghost Dance",
-	"Ghost Reaver",
+	"Giant's Blood",
 	"Glancing Blows",
-	"Hex Master",
-	"Hollow Palm Technique",
-	"Imbalanced Guard",
-	"Immortal Ambition",
-	"Inner Conviction",
-	"Iron Grip",
+	"Heartstopper",
 	"Iron Reflexes",
-	"Iron Will",
-	"Lethe Shade",
-	"Magebane",
 	"Mind Over Matter",
-	"Minion Instability",
-	"Mortal Conviction",
-	"Necromantic Aegis",
+	"Necromantic Talisman",
+	"Oasis",
 	"Pain Attunement",
-	"Perfect Agony",
-	"Phase Acrobatics",
-	"Point Blank",
-	"Precise Technique",
 	"Resolute Technique",
-	"Runebinder",
-	"Secrets of Suffering",
-	"Solipsism",
-	"Supreme Decadence",
-	"Supreme Ego",
-	"The Agnostic",
-	"The Impaler",
+	"Resonance",
 	"Unwavering Stance",
 	"Vaal Pact",
-	"Versatile Combatant",
-	"Wicked Ward",
-	"Wind Dancer",
+	"Whispers of Doom",
 	"Zealot's Oath",
 }
 
-data.ailmentTypeList = { "Bleed", "Poison", "Ignite", "Chill", "Freeze", "Shock", "Scorch", "Brittle", "Sap" }
-data.elementalAilmentTypeList = { "Ignite", "Chill", "Freeze", "Shock", "Scorch", "Brittle", "Sap" }
-data.nonDamagingAilmentTypeList = { "Chill", "Freeze", "Shock", "Scorch", "Brittle", "Sap" }
+data.ailmentTypeList = { "Bleed", "Poison", "Ignite", "Chill", "Freeze", "Shock" }
+data.elementalAilmentTypeList = { "Ignite", "Chill", "Freeze", "Shock" }
+data.nonDamagingAilmentTypeList = { "Chill", "Freeze", "Shock" }
 data.nonElementalAilmentTypeList = { "Bleed", "Poison" }
 
 data.nonDamagingAilment = {
-	["Chill"] = { associatedType = "Cold", alt = false, default = 10, min = 5, max = 30, precision = 0, duration = 2 },
-	["Freeze"] = { associatedType = "Cold", alt = false, default = nil, min = 0.3, max = 3, precision = 2, duration = nil },
-	["Shock"] = { associatedType = "Lightning", alt = false, default = 15, min = 5, max = 50, precision = 0, duration = 2 },
-	["Scorch"] = { associatedType = "Fire", alt = true, default = 10, min = 0, max = 30, precision = 0, duration = 4 },
-	["Brittle"] = { associatedType = "Cold", alt = true, default = 2, min = 0, max = 6, precision = 2, duration = 4 },
-	["Sap"] = { associatedType = "Lightning", alt = true, default = 6, min = 0, max = 20, precision = 0, duration = 4 },
+	["Chill"] = { associatedType = "Cold", alt = false, default = 10, min = 5, max = data.gameConstants["ChillMaxEffect"], precision = 0, duration = data.gameConstants["BaseChillDuration"] },
+	["Freeze"] = { associatedType = "Cold", alt = false, default = nil, min = 0.3, max = 3, precision = 2, duration = data.gameConstants["FreezeDuration"] },
+	["Shock"] = { associatedType = "Lightning", alt = false, default = 15, min = 5, max = 50, precision = 0, duration = data.gameConstants["BaseShockDuration"] },
 }
 
 -- Used in ModStoreClass:ScaleAddMod(...) to identify high precision modifiers
@@ -453,6 +423,7 @@ data.highPrecisionMods = {
 data.weaponTypeInfo = {
 	["None"] = { oneHand = true, melee = true, flag = "Unarmed" },
 	["Bow"] = { oneHand = false, melee = false, flag = "Bow" },
+	["Crossbow"] = { oneHand = false, melee = false, flag = "Crossbow" },
 	["Claw"] = { oneHand = true, melee = true, flag = "Claw" },
 	["Dagger"] = { oneHand = true, melee = true, flag = "Dagger" },
 	["Staff"] = { oneHand = false, melee = true, flag = "Staff" },
@@ -478,11 +449,18 @@ data.unarmedWeaponData = {
 
 data.setJewelRadiiGlobally = function(treeVersion)
 	local major, minor = treeVersion:match("(%d+)_(%d+)")
-	if tonumber(major) <= 3 and tonumber(minor) <= 15 then
-		data.jewelRadius = data.jewelRadii["3_15"]
-	else
-		data.jewelRadius = data.jewelRadii["3_16"]
+	major, minor = tonumber(major), tonumber(minor)
+
+	local selectedVersion = nil
+	for version, _ in pairs(data.jewelRadii) do
+		local vMajor, vMinor = version:match("(%d+)_(%d+)")
+		vMajor, vMinor = tonumber(vMajor), tonumber(vMinor)
+		if not selectedVersion or (vMajor > major) or
+			(vMajor == major and vMinor > minor) then
+			selectedVersion = version
+		end
 	end
+	data.jewelRadius = data.jewelRadii[selectedVersion]
 
 	local maxJewelRadius = 0
 	for _, radiusInfo in ipairs(data.jewelRadius) do
@@ -518,6 +496,21 @@ data.jewelRadii = {
 		{ inner = 1680, outer = 2040, col = "^x2222CC", label = "Variable" },
 		{ inner = 2040, outer = 2400, col = "^xC100FF", label = "Variable" },
 		{ inner = 2400, outer = 2880, col = "^x0B9300", label = "Variable" },
+	},
+	["4_0"] = {
+		{ inner = 0, outer = 1000, col = "^xFF0000", label = "Small" },
+		{ inner = 0, outer = 1150, col = "^xFF0000", label = "Medium" },
+		{ inner = 0, outer = 1300, col = "^xFF0000", label = "Large" },
+		{ inner = 0, outer = 1500, col = "^xFF0000", label = "Very Large" },
+
+		{ inner = 650, outer = 950, col = "^xFF0000", label = "Variable" },
+		{ inner = 800, outer = 1100, col = "^xFF0000", label = "Variable" },
+		{ inner = 950, outer = 1250, col = "^xFF0000", label = "Variable" },
+		{ inner = 1100, outer = 1400, col = "^xFF0000", label = "Variable" },
+		{ inner = 1250, outer = 1550, col = "^xFF0000", label = "Variable" },
+		{ inner = 1400, outer = 1700, col = "^xFF0000", label = "Variable" },
+		{ inner = 1650, outer = 1950, col = "^xFF0000", label = "Variable" },
+		{ inner = 1800, outer = 2100, col = "^xFF0000", label = "Variable" },
 	}
 }
 
@@ -536,9 +529,6 @@ data.enchantmentSource = {
 	{ name = "NORMAL", label = "Normal Labyrinth" },
 }
 
--- Misc data tables
-LoadModule("Data/Misc", data)
-
 -- Stat descriptions
 data.describeStats = LoadModule("Modules/StatDescriber")
 
@@ -546,6 +536,7 @@ data.describeStats = LoadModule("Modules/StatDescriber")
 data.itemMods = {
 	Item = LoadModule("Data/ModItem"),
 	Flask = LoadModule("Data/ModFlask"),
+	Charm = LoadModule("Data/ModCharm"),
 	Jewel = LoadModule("Data/ModJewel"),
 }
 data.enchantments = {
@@ -841,11 +832,16 @@ local function setupGem(gem, gemId)
 	if gem.baseTypeName and gem.baseTypeName ~= baseName then
 		data.gemForBaseName[gem.baseTypeName:lower()] = gemId
 	end
-	gem.secondaryGrantedEffect = gem.secondaryGrantedEffectId and data.skills[gem.secondaryGrantedEffectId]
+	gem.additionalGrantedEffects = {}
 	gem.grantedEffectList = {
 		gem.grantedEffect,
-		gem.secondaryGrantedEffect
 	}
+	local i = 1
+	while gem["additionalGrantedEffectId"..i] do
+		table.insert(gem.grantedEffectList, data.skills[gem["additionalGrantedEffectId"..i]])
+		table.insert(gem.additionalGrantedEffects, data.skills[gem["additionalGrantedEffectId"..i]])
+		i = i + 1
+	end
 	gem.naturalMaxLevel = gem.naturalMaxLevel or (#gem.grantedEffect.levels > 20 and #gem.grantedEffect.levels - 20) or (gem.grantedEffect.levels[3][1] and 3) or 1
 end
 

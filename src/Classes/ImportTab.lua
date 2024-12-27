@@ -645,13 +645,6 @@ function ImportTabClass:ImportPassiveTreeAndJewels(json, charData)
 		end
 	end
 
-	if charPassiveData.skill_overrides then
-		for nodeId, override in pairs(charPassiveData.skill_overrides) do
-			self.build.spec:ReplaceNode(override, self.build.spec.tree.tattoo.nodes[override.name])
-			override.id = nodeId
-		end
-	end
-
 	if errMsg then
 		self.charImportStatus = colorCodes.NEGATIVE.."Error processing character data, try again later."
 		return

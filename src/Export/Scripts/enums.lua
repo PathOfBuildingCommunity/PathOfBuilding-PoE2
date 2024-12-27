@@ -122,3 +122,11 @@ local modGenerationTypes = {
 	"Hellscape",
 }
 writeEnum("modGenerationTypes.datc64", modGenerationTypes)
+
+-- node types for jewel mods
+local nodeTypes = {
+	"Small",
+	"Notable",
+	"N/A",
+}
+writeEnum("passiveNodeTypes.datc64", nodeTypes)
