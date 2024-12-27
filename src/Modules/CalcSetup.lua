@@ -479,12 +479,6 @@ function calcs.initEnv(build, mode, override, specEnv)
 		modDB:NewMod("TotemColdResist", "BASE", 40, "Base")
 		modDB:NewMod("TotemLightningResist", "BASE", 40, "Base")
 		modDB:NewMod("TotemChaosResist", "BASE", 20, "Base")
-		modDB:NewMod("CritChance", "INC", 50, "Base", { type = "Multiplier", var = "PowerCharge" })
-		modDB:NewMod("Speed", "INC", 4, "Base", ModFlag.Attack, { type = "Multiplier", var = "FrenzyCharge" })
-		modDB:NewMod("Speed", "INC", 4, "Base", ModFlag.Cast, { type = "Multiplier", var = "FrenzyCharge" })
-		modDB:NewMod("Damage", "MORE", 4, "Base", { type = "Multiplier", var = "FrenzyCharge" })
-		modDB:NewMod("PhysicalDamageReduction", "BASE", 4, "Base", { type = "Multiplier", var = "EnduranceCharge" })
-		modDB:NewMod("ElementalDamageReduction", "BASE", 4, "Base", { type = "Multiplier", var = "EnduranceCharge" })
 		modDB:NewMod("MaximumRage", "BASE", 30, "Base")
 		modDB:NewMod("Multiplier:GaleForce", "BASE", 0, "Base")
 		modDB:NewMod("MaximumGaleForce", "BASE", 10, "Base")
@@ -520,17 +514,6 @@ function calcs.initEnv(build, mode, override, specEnv)
 		modDB:NewMod("ManaDegenPercent", "BASE", 1, "Base", { type = "Multiplier", var = "EffectiveManaBurnStacks" })
 		modDB:NewMod("LifeDegenPercent", "BASE", 1, "Base", { type = "Multiplier", var = "WeepingWoundsStacks" })
 		modDB:NewMod("WeaponSwapSpeed", "BASE", 250, "Base")  -- 250ms
-
-		-- Add bandit mods
-		if env.configInput.bandit == "Alira" then
-			modDB:NewMod("ElementalResist", "BASE", 15, "Bandit")
-		elseif env.configInput.bandit == "Kraityn" then
-			modDB:NewMod("MovementSpeed", "INC", 8, "Bandit")
-		elseif env.configInput.bandit == "Oak" then
-			modDB:NewMod("Life", "BASE", 40, "Bandit")
-		else
-			modDB:NewMod("ExtraPoints", "BASE", 1, "Bandit")
-		end
 
 		-- Add Pantheon mods
 		local parser = modLib.parseMod
@@ -1007,15 +990,6 @@ function calcs.initEnv(build, mode, override, specEnv)
 							env.itemModDB:ScaleAddMod(mod, scale)
 						end
 					end
-				elseif item.type == "Quiver" and items["Weapon 1"] and items["Weapon 1"].name:match("Widowhail") then
-					local widowHailMod=(1 + (items["Weapon 1"].baseModList:Sum("INC", nil, "EffectOfBonusesFromQuiver") or 100) / 100)
-					scale = scale * widowHailMod
-					env.modDB:NewMod("WidowHailMultiplier", "BASE", widowHailMod, "Widowhail")
-					local combinedList = new("ModList")
-					for _, mod in ipairs(srcList) do
-						combinedList:MergeMod(mod)
-					end
-					env.itemModDB:ScaleAddList(combinedList, scale)
 				elseif env.modDB.multipliers["CorruptedMagicJewelEffect"] and item.type == "Jewel" and item.rarity == "MAGIC" and item.corrupted and slot.nodeId and item.base.subType ~= "Charm" then
 					scale = scale + env.modDB.multipliers["CorruptedMagicJewelEffect"]
 					local combinedList = new("ModList")

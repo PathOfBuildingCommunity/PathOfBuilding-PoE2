@@ -74,6 +74,14 @@ local skills, mod, flag, skill = ...
 #mods
 
 #skill SupportConcentratedEffectPlayer
+	statMap = {
+		["support_concentrated_effect_skill_area_of_effect_+%_final"] = {
+			mod("AreaOfEffect", "MORE", nil),
+		},
+		["support_area_concentrate_area_damage_+%_final"] = {
+			mod("Damage", "MORE", nil, ModFlag.Area),
+		},
+	},
 #mods
 
 #skill SupportConsideredCastingPlayer
