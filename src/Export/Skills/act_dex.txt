@@ -7,23 +7,90 @@ local skills, mod, flag, skill = ...
 
 
 #skill AlchemistsBoonPlayer
-#flags
+#flags area aura
+    statMap = {
+        ["skill_alchemists_boon_generate_x_charges_for_any_flask_per_minute"] = {
+            mod("FlaskChargesGenerated", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff" }),
+            div = 60,
+        },
+        ["recovery_from_flasks_applies_to_allies_in_presence_%"] = {
+        -- how to apply this in calc perform?
+            mod("FlaskRecoveryAppliedToAllies", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Aura" }),
+        },
+    },
+#baseMod skill("radius", 60)
 #mods
 
 #skill BarragePlayer
-#flags
+#flags spell duration buff
+    statMap = {
+        ["empower_barrage_maximum_cooldown_ms"] = {
+            -- how to implement max cooldown?
+            --mod("Cooldown", "MAX", nil), 
+            --div = 1000,
+        }, 
+        ["empower_barrage_base_number_of_barrage_repeats"] = {
+            -- need to implement BarrageRepeats
+            mod("BarrageRepeats", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff"}),
+        },
+        ["empower_barrage_number_of_barrage_repeats_per_frenzy_charge"] = {
+            mod("BarrageRepeats", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff"}, { type = "Multiplier", var = "RemovableFrenzyCharge"}),
+        },
+        ["empower_barrage_cooldown_%of_attack_time"] = {
+            -- how to set attack time for this cooldown?
+        },
+        ["empower_barrage_damage_-%_final_with_repeated_projectiles"] = {
+            mod("BarrageRepeatDamage", "MORE", nil),
+            mult = -1
+        },
+    },
 #mods
 
 #skill CombatFrenzyPlayer
-#flags
-#mods
+#flags buff
+-- how to automatically enable frenzy charges when skill is selected
+    statMap = {
+        ["skill_combat_frenzy_x_ms_cooldown"] = {
+            mod("Cooldown", "BASE", nil),
+            div = 1000,
+        },
+    },
+#mods 
 
 #skill DetonatingArrowPlayer
-#flags
+#flags attack projectile
+    -- how to have multiple parts as well as stages?
+    parts = {
+        {
+            name = "Projectile",
+            area = false,
+        },
+        {
+            name = "Explosion",
+            area = true,
+        },
+    },
+	preDamageFunc = function(activeSkill, output)
+        local stages = math.max(activeSkill.skillModList:Sum("BASE", activeSkill.skillCfg, "Multiplier:DetonatingArrowStage"), 1)
+        local maxStages = activeSkill.skillModList:Sum("BASE", activeSkill.skillCfg, "Multiplier:DetonatingArrowMaxStages")
+		activeSkill.skillData.hitTimeMultiplier = stages
+        if activeSkill.skillPart == 2 and stages < maxStages then
+            activeSkill.skillData.dpsMultiplier = 0
+        end
+	end,
+	statMap = {
+		["detonating_arrow_all_damage_%_to_gain_as_fire_per_stage"] = {
+			mod("DamageGainAsFire", "BASE", nil, 0, 0, { type = "Multiplier", var = "DetonatingArrowStage" }),
+		},
+		["detonating_arrow_max_number_of_stages"] = {
+			mod("Multiplier:DetonatingArrowMaxStages", "BASE", nil),
+		},
+    },
 #mods
 
 #skill ElectrocutingArrowPlayer
-#flags
+#flags attack projectile
+-- add config option for whether or not enemy is electrocuted
 #mods
 
 #skill EscapeShotPlayer
@@ -31,97 +98,230 @@ local skills, mod, flag, skill = ...
 #mods
 
 #skill FreezingSalvoPlayer
-#flags
+#flags attack projectile area 
+-- how best to configure seals and dps
+    statMap = {
+        ["freezing_salvo_maximum_number_of_seals"] = {
+            mod("FreezingSalvoMaxSeals", "BASE", nil),
+        },
+        ["freezing_salvo_seals_gain_base_interval_ms"] = {
+            mod("FreezingSalvoSealGainInterval", "BASE", nil),
+        },
+    },
 #mods
 
 #skill GasArrowPlayer
-#flags
+#flags attack projectile 
+    parts = {
+        {
+            name = "Projectile"
+        },
+        {
+            name = "Poison Cloud"
+        },
+        {
+            name = "Explosion"
+        },
+    },
 #mods
 
 #skill HeraldOfPlaguePlayer
-#flags
+#flags buff
 #mods
 
 #skill HeraldOfThunderPlayer
-#flags
+#flags buff area attack
 #mods
 
 #skill IceShotPlayer
-#flags
+#flags attack projectile 
+-- does it scale with area damage?
 #mods
 
 #skill LightningArrowPlayer
-#flags
+#flags attack projectile area 
 #mods
 
 #skill LightningRodPlayer
-#flags
+#flags attack projectile area duration
+    statMap = {
+        ["lightning_rod_number_of_chains_allowed"] = {
+            mod("ChainCountMax", "BASE", nil)
+        },
+    },
 #mods
 
 #skill MagneticSalvoPlayer
-#flags
+#flags attack projectile area  
 #mods
 
 #skill PlagueBearerPlayer
-#flags
+#flags buff 
 #mods
 
 #skill PlagueBearerNovaPlayer
-#flags
+#flags area 
+-- how to add set stored poison value
 #mods
 
 #skill PoisonBurstArrowPlayer
-#flags
+#flags attack projectile area
+-- does the prjoectile hit? or only poison
 #mods
 
 #skill RainOfArrowsPlayer
 #flags attack projectile area
+    statMap = {
+        ["rain_of_arrows_projectile_count_multiplier_if_any_frenzy_charge_spent"] = {
+            mod("ProjectileNumber", "MORE", nil, 0, 0, { type = "Multiplier", var = "RemovableFrenzyCharge", limit = 1 }),
+        },
+        ["rain_of_arrows_projectile_count_multiplier_per_frenzy_charge"] = {
+            mod("ProjectileNumber", "MORE", nil, 0, 0, { type = "Multiplier", var = "RemovableFrenzyCharge" }),
+        },
+    },
 #mods
 
 #skill ShockchainArrowPlayer
-#flags
+#flags attack projectile area
 #mods
 
 #skill SnipePlayer
-#flags
+#flags attack projectile 
+    parts = {
+        {
+            name = "Normal projectile",
+            area = false,
+        },
+        {
+            name = "Perfect Strike Explosion",
+            area = true,
+        },
+    },
+    -- how to link stats1 stuff into part 2
 #mods
 
 #skill SnipersMarkPlayer
-#flags
+#flags spell duration mark
+    statMap = {
+        ["enemy_additional_critical_strike_multiplier_against_self"] = {
+        -- should effect type be changed to mark since marks won't scale with curse effect any more?
+            mod("SelfCritMultiplier", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Curse" }),
+        },
+    },
+    -- how to make frenzy charge config show up 
+#baseMod skill("debuff", true)
 #mods
 
 #skill SpiralVolleyPlayer
-#flags
+#flags attack projectile 
+    statMap = {
+        ["spiral_volley_damage_+%_final_when_frenzy_charges_consumed"] = {
+            mod("Damage", "MORE", nil, 0, 0, { type = "Multiplier", var = "RemovableFrenzyCharge", limit = 1}),
+        },
+        ["spiral_volley_damage_+%_final_per_frenzy_charge_consumed"] = {
+            mod("Damage", "MORE", nil, 0, 0, { type = "Multiplier", var = "RemovableFrenzyCharge" }),
+        },
+        ["spiral_volley_X_chains_per_frenzy_charge_consumed"] = {
+            mod("ChainsCountMax", "BASE", nil, 0, 0, { type = "Multiplier", var = "RemovableFrenzyCharge" }),
+        },
+    },
 #mods
 
 #skill StormcallerArrowPlayer
-#flags
+#flags attack projectile 
+    parts = {
+        {
+            name = "Projectile",
+            area = false,
+        },
+        {
+            name = "Explosion",
+            area = true,
+        },
+    },
 #mods
 
 #skill TornadoShotPlayer
-#flags
+#flags attack projectile area 
+    statMap = {
+        -- how to restrict this to copied projectiles only?
+        ["tornado_shot_projectile_damage_+%_final"] = {
+            mod("Damage", "MORE", nil)
+        },
+    },
 #mods
 
 #skill ToxicGrowthPlayer
 #flags attack projectile area duration
+    statMap = {
+        ["poisonbloom_arrow_bloom_max_burst_damage_+%_final_from_stored_poison"] = {
+            mod("Damage", "MORE", nil),
+        },
+        ["poisonbloom_arrow_max_additional_burst_base_radius_+"] = {
+            skill("radiusSecondaryExtra"),
+        },
+		["poisonbloom_arrow_bloom_burst_1%_more_damage_per_x_stored_poison"] = {
+            mod("Damage", "MORE", nil),
+            div = 1 -- change this to stored poison amount
+        },
+		["poisonbloom_arrow_duration_expires_1%_faster_per_x_stored_poison_damage"] = {
+
+        },
+		["poisonbloom_arrow_burst_base_radius_+1_per_x_stored_poison"] = {
+            -- skill("radiusSecondaryExtra"),
+        },
+    },
 #mods
 
 #skill VineArrowPlayer
-#flags
+#flags attack projectile area duration
+    statMap = {
+        ["poison_vine_arrow_vine_stored_poison_damage_+%_final"] = {
+            skill("ChaosDot", nil),
+            mul = 1 -- how to set the multipler to poison damage
+        },
+    },
 #mods
 
 #skill VoltaicMarkPlayer
-#flags
+#flags spell mark
+    statMap = {
+    -- might need to be a MORE modifier depending on how EnemyShockEffect is configured
+        ["thaumaturgist_mark_enemy_shock_effect_+%_taken"] = {
+            mod("EnemyShockEffect", "INC", nil),
+        },
+        ["thaumaturgist_mark_enemies_shocked_chance_+%_final"] = {
+            mod("EnemyShockChance", "MORE", nil),
+        },
+    },
 #mods
 
 #skill TriggeredVoltaicMarkNovaPlayer
-#flags
+#flags attack area
+    -- how to override weapon damage, do we need to use weapon type 24 for something?
 #mods
 
 #skill WindDancerPlayer
-#flags
+#flags buff 
+    statMap = {
+        -- should wind dancer stages be configured in skill or in config?
+        ["wind_dancer_evasion_rating_+%_final_per_stage"] = {
+            mod("Evasion", "MORE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff"}, { type = "Multiplier", var = "Multiplier:WindDancerStages" }),
+        },
+        ["wind_dancer_maximum_number_of_stages"] = {
+            mod("Multiplier:WindDancerMaxStages", "BASE", nil)
+        },
+    },
 #mods
 
 #skill TriggeredWindDancerPlayer
-#flags
+#flags attack area melee
+    statMap = {
+        ["wind_dancer_damage_+%_final_per_stage"] = {
+            mod("Damage", "MORE", nil, 0, 0, { type = "Multiplier", var = "Multiplier:WindDancerStages" }),
+        },
+        ["wind_dancer_knockback_+%_final_per_stage"] = {
+            mod("EnemyKnockbackDistance", "MORE", nil, 0, 0, { type = "Multiplier", var = "Multiplier:WindDancerStages" }),
+        },
+    },
 #mods

@@ -16,7 +16,22 @@ skills["AlchemistsBoonPlayer"] = {
 	skillTypes = { [SkillType.OngoingSkill] = true, [SkillType.HasReservation] = true, [SkillType.Buff] = true, [SkillType.Persistent] = true, [SkillType.Aura] = true, },
 	statDescriptionScope = "alchemist_boon",
 	castTime = 1,
+    statMap = {
+        ["skill_alchemists_boon_generate_x_charges_for_any_flask_per_minute"] = {
+            mod("FlaskChargesGenerated", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff" }),
+            div = 60,
+        },
+        ["recovery_from_flasks_applies_to_allies_in_presence_%"] = {
+        -- how to apply this in calc perform?
+            mod("FlaskRecoveryAppliedToAllies", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Aura" }),
+        },
+    },
 	baseFlags = {
+		area = true,
+		aura = true,
+	},
+	baseMods = {
+		skill("radius", 60),
 	},
 	qualityStats = {
 		Default = {
@@ -83,7 +98,31 @@ skills["BarragePlayer"] = {
 	},
 	statDescriptionScope = "empower_barrage",
 	castTime = 0.7,
+    statMap = {
+        ["empower_barrage_maximum_cooldown_ms"] = {
+            -- how to implement max cooldown?
+            --mod("Cooldown", "MAX", nil), 
+            --div = 1000,
+        }, 
+        ["empower_barrage_base_number_of_barrage_repeats"] = {
+            -- need to implement BarrageRepeats
+            mod("BarrageRepeats", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff"}),
+        },
+        ["empower_barrage_number_of_barrage_repeats_per_frenzy_charge"] = {
+            mod("BarrageRepeats", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff"}, { type = "Multiplier", var = "RemovableFrenzyCharge"}),
+        },
+        ["empower_barrage_cooldown_%of_attack_time"] = {
+            -- how to set attack time for this cooldown?
+        },
+        ["empower_barrage_damage_-%_final_with_repeated_projectiles"] = {
+            mod("BarrageRepeatDamage", "MORE", nil),
+            mult = -1
+        },
+    },
 	baseFlags = {
+		spell = true,
+		duration = true,
+		buff = true,
 	},
 	qualityStats = {
 		Default = {
@@ -157,7 +196,15 @@ skills["CombatFrenzyPlayer"] = {
 	skillTypes = { [SkillType.OngoingSkill] = true, [SkillType.HasReservation] = true, [SkillType.Buff] = true, [SkillType.Persistent] = true, [SkillType.GeneratesCharges] = true, },
 	statDescriptionScope = "combat_frenzy",
 	castTime = 1,
+-- how to automatically enable frenzy charges when skill is selected
+    statMap = {
+        ["skill_combat_frenzy_x_ms_cooldown"] = {
+            mod("Cooldown", "BASE", nil),
+            div = 1000,
+        },
+    },
 	baseFlags = {
+		buff = true,
 	},
 	qualityStats = {
 		Default = {
@@ -223,7 +270,36 @@ skills["DetonatingArrowPlayer"] = {
 	},
 	statDescriptionScope = "detonating_arrow",
 	castTime = 1,
+    -- how to have multiple parts as well as stages?
+    parts = {
+        {
+            name = "Projectile",
+            area = false,
+        },
+        {
+            name = "Explosion",
+            area = true,
+        },
+    },
+	preDamageFunc = function(activeSkill, output)
+        local stages = math.max(activeSkill.skillModList:Sum("BASE", activeSkill.skillCfg, "Multiplier:DetonatingArrowStage"), 1)
+        local maxStages = activeSkill.skillModList:Sum("BASE", activeSkill.skillCfg, "Multiplier:DetonatingArrowMaxStages")
+		activeSkill.skillData.hitTimeMultiplier = stages
+        if activeSkill.skillPart == 2 and stages < maxStages then
+            activeSkill.skillData.dpsMultiplier = 0
+        end
+	end,
+	statMap = {
+		["detonating_arrow_all_damage_%_to_gain_as_fire_per_stage"] = {
+			mod("DamageGainAsFire", "BASE", nil, 0, 0, { type = "Multiplier", var = "DetonatingArrowStage" }),
+		},
+		["detonating_arrow_max_number_of_stages"] = {
+			mod("Multiplier:DetonatingArrowMaxStages", "BASE", nil),
+		},
+    },
 	baseFlags = {
+		attack = true,
+		projectile = true,
 	},
 	qualityStats = {
 		Default = {
@@ -349,7 +425,10 @@ skills["ElectrocutingArrowPlayer"] = {
 	},
 	statDescriptionScope = "electrocuting_arrow",
 	castTime = 1,
+-- add config option for whether or not enemy is electrocuted
 	baseFlags = {
+		attack = true,
+		projectile = true,
 	},
 	qualityStats = {
 		Default = {
@@ -512,7 +591,19 @@ skills["FreezingSalvoPlayer"] = {
 	},
 	statDescriptionScope = "freezing_salvo",
 	castTime = 1,
+-- how best to configure seals and dps
+    statMap = {
+        ["freezing_salvo_maximum_number_of_seals"] = {
+            mod("FreezingSalvoMaxSeals", "BASE", nil),
+        },
+        ["freezing_salvo_seals_gain_base_interval_ms"] = {
+            mod("FreezingSalvoSealGainInterval", "BASE", nil),
+        },
+    },
 	baseFlags = {
+		attack = true,
+		projectile = true,
+		area = true,
 	},
 	qualityStats = {
 		Default = {
@@ -593,7 +684,20 @@ skills["GasArrowPlayer"] = {
 	},
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
+    parts = {
+        {
+            name = "Projectile"
+        },
+        {
+            name = "Poison Cloud"
+        },
+        {
+            name = "Explosion"
+        },
+    },
 	baseFlags = {
+		attack = true,
+		projectile = true,
 	},
 	qualityStats = {
 		Default = {
@@ -774,6 +878,7 @@ skills["HeraldOfPlaguePlayer"] = {
 	statDescriptionScope = "herald_of_agony",
 	castTime = 1,
 	baseFlags = {
+		buff = true,
 	},
 	qualityStats = {
 		Default = {
@@ -849,6 +954,9 @@ skills["HeraldOfThunderPlayer"] = {
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 0,
 	baseFlags = {
+		buff = true,
+		area = true,
+		attack = true,
 	},
 	qualityStats = {
 		Default = {
@@ -965,7 +1073,10 @@ skills["IceShotPlayer"] = {
 	},
 	statDescriptionScope = "ice_shot",
 	castTime = 1,
+-- does it scale with area damage?
 	baseFlags = {
+		attack = true,
+		projectile = true,
 	},
 	qualityStats = {
 		Default = {
@@ -1099,6 +1210,9 @@ skills["LightningArrowPlayer"] = {
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
 	baseFlags = {
+		attack = true,
+		projectile = true,
+		area = true,
 	},
 	qualityStats = {
 		Default = {
@@ -1227,7 +1341,16 @@ skills["LightningRodPlayer"] = {
 	},
 	statDescriptionScope = "lightning_rod_rain",
 	castTime = 1,
+    statMap = {
+        ["lightning_rod_number_of_chains_allowed"] = {
+            mod("ChainCountMax", "BASE", nil)
+        },
+    },
 	baseFlags = {
+		attack = true,
+		projectile = true,
+		area = true,
+		duration = true,
 	},
 	qualityStats = {
 		Default = {
@@ -1308,6 +1431,9 @@ skills["MagneticSalvoPlayer"] = {
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
 	baseFlags = {
+		attack = true,
+		projectile = true,
+		area = true,
 	},
 	qualityStats = {
 		Default = {
@@ -1426,6 +1552,7 @@ skills["PlagueBearerPlayer"] = {
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 0,
 	baseFlags = {
+		buff = true,
 	},
 	qualityStats = {
 		Default = {
@@ -1492,7 +1619,9 @@ skills["PlagueBearerNovaPlayer"] = {
 	skillTypes = { [SkillType.Area] = true, [SkillType.Nonpathing] = true, [SkillType.Nova] = true, [SkillType.Physical] = true, [SkillType.Chaos] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
+-- how to add set stored poison value
 	baseFlags = {
+		area = true,
 	},
 	constantStats = {
 		{ "active_skill_base_area_of_effect_radius", 18 },
@@ -1566,7 +1695,11 @@ skills["PoisonBurstArrowPlayer"] = {
 	},
 	statDescriptionScope = "poison_burst_arrow",
 	castTime = 1,
+-- does the prjoectile hit? or only poison
 	baseFlags = {
+		attack = true,
+		projectile = true,
+		area = true,
 	},
 	qualityStats = {
 		Default = {
@@ -1699,6 +1832,14 @@ skills["RainOfArrowsPlayer"] = {
 	},
 	statDescriptionScope = "rain_of_arrows_new",
 	castTime = 1,
+    statMap = {
+        ["rain_of_arrows_projectile_count_multiplier_if_any_frenzy_charge_spent"] = {
+            mod("ProjectileNumber", "MORE", nil, 0, 0, { type = "Multiplier", var = "RemovableFrenzyCharge", limit = 1 }),
+        },
+        ["rain_of_arrows_projectile_count_multiplier_per_frenzy_charge"] = {
+            mod("ProjectileNumber", "MORE", nil, 0, 0, { type = "Multiplier", var = "RemovableFrenzyCharge" }),
+        },
+    },
 	baseFlags = {
 		attack = true,
 		projectile = true,
@@ -1786,6 +1927,9 @@ skills["ShockchainArrowPlayer"] = {
 	statDescriptionScope = "trick_shot",
 	castTime = 1,
 	baseFlags = {
+		attack = true,
+		projectile = true,
+		area = true,
 	},
 	qualityStats = {
 		Default = {
@@ -1965,7 +2109,20 @@ skills["SnipePlayer"] = {
 	},
 	statDescriptionScope = "channelled_snipe",
 	castTime = 1,
+    parts = {
+        {
+            name = "Normal projectile",
+            area = false,
+        },
+        {
+            name = "Perfect Strike Explosion",
+            area = true,
+        },
+    },
+    -- how to link stats1 stuff into part 2
 	baseFlags = {
+		attack = true,
+		projectile = true,
 	},
 	qualityStats = {
 		Default = {
@@ -2096,7 +2253,20 @@ skills["SnipersMarkPlayer"] = {
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.CanRapidFire] = true, [SkillType.Duration] = true, [SkillType.Nonpathing] = true, [SkillType.GeneratesCharges] = true, [SkillType.Mark] = true, [SkillType.Cooldown] = true, [SkillType.Limit] = true, },
 	statDescriptionScope = "snipers_mark",
 	castTime = 0.5,
+    statMap = {
+        ["enemy_additional_critical_strike_multiplier_against_self"] = {
+        -- should effect type be changed to mark since marks won't scale with curse effect any more?
+            mod("SelfCritMultiplier", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Curse" }),
+        },
+    },
+    -- how to make frenzy charge config show up 
 	baseFlags = {
+		spell = true,
+		duration = true,
+		mark = true,
+	},
+	baseMods = {
+		skill("debuff", true),
 	},
 	qualityStats = {
 		Default = {
@@ -2170,7 +2340,20 @@ skills["SpiralVolleyPlayer"] = {
 	},
 	statDescriptionScope = "spiral_volley",
 	castTime = 1,
+    statMap = {
+        ["spiral_volley_damage_+%_final_when_frenzy_charges_consumed"] = {
+            mod("Damage", "MORE", nil, 0, 0, { type = "Multiplier", var = "RemovableFrenzyCharge", limit = 1}),
+        },
+        ["spiral_volley_damage_+%_final_per_frenzy_charge_consumed"] = {
+            mod("Damage", "MORE", nil, 0, 0, { type = "Multiplier", var = "RemovableFrenzyCharge" }),
+        },
+        ["spiral_volley_X_chains_per_frenzy_charge_consumed"] = {
+            mod("ChainsCountMax", "BASE", nil, 0, 0, { type = "Multiplier", var = "RemovableFrenzyCharge" }),
+        },
+    },
 	baseFlags = {
+		attack = true,
+		projectile = true,
 	},
 	qualityStats = {
 		Default = {
@@ -2248,7 +2431,19 @@ skills["StormcallerArrowPlayer"] = {
 	},
 	statDescriptionScope = "shocking_arrow",
 	castTime = 1,
+    parts = {
+        {
+            name = "Projectile",
+            area = false,
+        },
+        {
+            name = "Explosion",
+            area = true,
+        },
+    },
 	baseFlags = {
+		attack = true,
+		projectile = true,
 	},
 	qualityStats = {
 		Default = {
@@ -2379,7 +2574,16 @@ skills["TornadoShotPlayer"] = {
 	},
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
+    statMap = {
+        -- how to restrict this to copied projectiles only?
+        ["tornado_shot_projectile_damage_+%_final"] = {
+            mod("Damage", "MORE", nil)
+        },
+    },
 	baseFlags = {
+		attack = true,
+		projectile = true,
+		area = true,
 	},
 	qualityStats = {
 		Default = {
@@ -2514,6 +2718,24 @@ skills["ToxicGrowthPlayer"] = {
 	},
 	statDescriptionScope = "poisonbloom_arrow",
 	castTime = 1,
+    statMap = {
+        ["poisonbloom_arrow_bloom_max_burst_damage_+%_final_from_stored_poison"] = {
+            mod("Damage", "MORE", nil),
+        },
+        ["poisonbloom_arrow_max_additional_burst_base_radius_+"] = {
+            skill("radiusSecondaryExtra"),
+        },
+		["poisonbloom_arrow_bloom_burst_1%_more_damage_per_x_stored_poison"] = {
+            mod("Damage", "MORE", nil),
+            div = 1 -- change this to stored poison amount
+        },
+		["poisonbloom_arrow_duration_expires_1%_faster_per_x_stored_poison_damage"] = {
+
+        },
+		["poisonbloom_arrow_burst_base_radius_+1_per_x_stored_poison"] = {
+            -- skill("radiusSecondaryExtra"),
+        },
+    },
 	baseFlags = {
 		attack = true,
 		projectile = true,
@@ -2648,7 +2870,17 @@ skills["VineArrowPlayer"] = {
 	},
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
+    statMap = {
+        ["poison_vine_arrow_vine_stored_poison_damage_+%_final"] = {
+            skill("ChaosDot", nil),
+            mul = 1 -- how to set the multipler to poison damage
+        },
+    },
 	baseFlags = {
+		attack = true,
+		projectile = true,
+		area = true,
+		duration = true,
 	},
 	qualityStats = {
 		Default = {
@@ -2774,7 +3006,18 @@ skills["VoltaicMarkPlayer"] = {
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.CanRapidFire] = true, [SkillType.Duration] = true, [SkillType.Nonpathing] = true, [SkillType.Mark] = true, [SkillType.Lightning] = true, [SkillType.Limit] = true, },
 	statDescriptionScope = "thaumaturgist_mark",
 	castTime = 0.5,
+    statMap = {
+    -- might need to be a MORE modifier depending on how EnemyShockEffect is configured
+        ["thaumaturgist_mark_enemy_shock_effect_+%_taken"] = {
+            mod("EnemyShockEffect", "INC", nil),
+        },
+        ["thaumaturgist_mark_enemies_shocked_chance_+%_final"] = {
+            mod("EnemyShockChance", "MORE", nil),
+        },
+    },
 	baseFlags = {
+		spell = true,
+		mark = true,
 	},
 	qualityStats = {
 		Default = {
@@ -2846,7 +3089,10 @@ skills["TriggeredVoltaicMarkNovaPlayer"] = {
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Nova] = true, [SkillType.Area] = true, [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.UseGlobalStats] = true, [SkillType.Lightning] = true, [SkillType.NonWeaponAttack] = true, },
 	statDescriptionScope = "thaumaturgist_mark_nova",
 	castTime = 1,
+    -- how to override weapon damage, do we need to use weapon type 24 for something?
 	baseFlags = {
+		attack = true,
+		area = true,
 	},
 	constantStats = {
 		{ "active_skill_base_area_of_effect_radius", 26 },
@@ -2924,7 +3170,17 @@ skills["WindDancerPlayer"] = {
 	},
 	statDescriptionScope = "wind_dancer",
 	castTime = 1,
+    statMap = {
+        -- should wind dancer stages be configured in skill or in config?
+        ["wind_dancer_evasion_rating_+%_final_per_stage"] = {
+            mod("Evasion", "MORE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff"}, { type = "Multiplier", var = "Multiplier:WindDancerStages" }),
+        },
+        ["wind_dancer_maximum_number_of_stages"] = {
+            mod("Multiplier:WindDancerMaxStages", "BASE", nil)
+        },
+    },
 	baseFlags = {
+		buff = true,
 	},
 	qualityStats = {
 		Default = {
@@ -3000,7 +3256,18 @@ skills["TriggeredWindDancerPlayer"] = {
 	},
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
+    statMap = {
+        ["wind_dancer_damage_+%_final_per_stage"] = {
+            mod("Damage", "MORE", nil, 0, 0, { type = "Multiplier", var = "Multiplier:WindDancerStages" }),
+        },
+        ["wind_dancer_knockback_+%_final_per_stage"] = {
+            mod("EnemyKnockbackDistance", "MORE", nil, 0, 0, { type = "Multiplier", var = "Multiplier:WindDancerStages" }),
+        },
+    },
 	baseFlags = {
+		attack = true,
+		area = true,
+		melee = true,
 	},
 	constantStats = {
 		{ "chance_to_trigger_wind_dancer_on_taken_melee_hit_%", 100 },

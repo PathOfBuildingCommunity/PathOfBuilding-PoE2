@@ -81,6 +81,12 @@ return {
 ["secondary_maximum_base_chaos_damage"] = {
 	skill("ChaosMax", nil),
 },
+["main_hand_weapon_minimum_lightning_damage"] = {
+	skill("LightningMin", nil)
+},
+["main_hand_weapon_maximum_lightning_damage"] = {
+	skill("LightningMax", nil)
+},
 ["spell_minimum_base_lightning_damage_per_removable_power_charge"] = {
 	skill("LightningMin", nil, { type = "Multiplier", var = "RemovablePowerCharge" }),
 },
@@ -373,6 +379,10 @@ return {
 },
 ["base_life_cost_+%"] = {
 	mod("LifeCost", "INC", nil),
+},
+-- does this make sense?
+["attack_speed_modifiers_apply_to_over_time_cost"] = {
+	flag("AttackSpeedScalesCost"),
 },
 ["flask_mana_to_recover_+%"] = {
 	mod("FlaskManaRecovery", "INC", nil),
@@ -680,6 +690,9 @@ return {
 },
 ["lightning_damage_+%"] = {
 	mod("LightningDamage", "INC", nil),
+},
+["active_skill_lightning_damage_+%_final"] = {
+	mod("LightningDamage", "MORE", nil),
 },
 ["cold_damage_+%"] = {
 	mod("ColdDamage", "INC", nil),
@@ -1096,6 +1109,9 @@ return {
 ["active_skill_chill_effect_+%_final"] = {
 	mod("EnemyChillEffect", "MORE", nil),
 },
+["active_skill_shock_chance_+%_final"] = {
+	mod("EnemyShockChance", "MORE", nil),
+},
 ["shock_effect_+%"] = {
 	mod("EnemyShockEffect", "INC", nil),
 },
@@ -1130,6 +1146,10 @@ return {
 },
 ["active_skill_hit_damage_freeze_multiplier_+%_final"] = {
 	mod("EnemyFreezeEffect", "MORE", nil),
+},
+["base_poison_effect_%"] = {
+	-- needs to be implemented
+	mod("EnemyPoisonEffect", "INC", nil),
 },
 ["base_poison_duration_+%"] = {
 	mod("EnemyPoisonDuration", "INC", nil),
@@ -1349,6 +1369,10 @@ return {
 ["link_buff_effect_on_self_+%"] = {
 	mod("LinkEffectOnSelf", "INC", nil),
 },
+["active_skill_base_slow_debuff_movement_speed_+%_final"] = {
+	-- this is probably wrong
+	mod("MovementSpeed", "MORE", nil, 0, 0, { type = "Actor", actor = "enemy"}),
+},
 -- Projectiles
 ["base_projectile_speed_+%"] = {
 	mod("ProjectileSpeed", "INC", nil),
@@ -1417,6 +1441,9 @@ return {
 },
 ["number_of_additional_projectiles"] = {
 	mod("ProjectileCount", "BASE", nil),
+},
+["base_projectiles_cannot_chain"] = {
+	flag("CannotChain"),
 },
 ["projectile_damage_+%_per_remaining_chain"] = {
 	mod("Damage", "INC", nil, ModFlag.Projectile, 0, { type = "PerStat", stat = "ChainRemaining" }),
@@ -2174,6 +2201,9 @@ return {
 },
 ["warcry_count_power_from_enemies"] = {
 	flag("UsesWarcryPower", { type = "GlobalEffect", effectType = "Buff" })
+},
+["chance_to_gain_1_more_charge_%"] = {
+	mod("AdditionalChargeChance", "BASE", nil)
 },
 --
 -- Spectre or Minion-specific stats
