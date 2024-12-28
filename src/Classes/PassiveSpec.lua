@@ -930,7 +930,11 @@ function PassiveSpecClass:BuildAllDependsAndPaths()
 
 		-- ignore cluster jewel nodes that don't have an id in the tree
 		if self.tree.nodes[id] then
-			self:ReplaceNode(node,self.tree.nodes[id])
+			local nodeToReplace = self.tree.nodes[id]
+			if self.tree.nodes[id].isSwitchable and self.tree.nodes[id].options[self.curClassName] then
+				nodeToReplace = self.tree.nodes[id].options[self.curClassName]
+			end
+			self:ReplaceNode(node, nodeToReplace)
 		end
 
 		if node.type ~= "ClassStart" and node.type ~= "Socket" and not node.ascendancyName then
