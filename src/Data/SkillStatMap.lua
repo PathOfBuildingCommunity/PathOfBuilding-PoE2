@@ -482,6 +482,9 @@ return {
 ["life_leech_does_not_stop_at_full_life"] = {
 	flag("CanLeechLifeOnFullLife"),
 },
+["recover_%_maximum_life_on_cull"] = {
+	mod("LifeOnKill", "BASE", nil, 0, 0, { type = "PercentStat", stat = "Life", percent = 1 }),
+},
 --
 -- Offensive modifiers
 --
@@ -620,6 +623,9 @@ return {
 },
 ["critical_strike_chance_+%_vs_blinded_enemies"] = {
 	mod("CritChance", "INC", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "Blinded"})
+},
+["critical_strike_chance_+%_vs_immobilised_enemies"] = {
+	mod("CritChance", "INC", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "Immobilised" })
 },
 ["no_critical_strike_multiplier"] = {
 	flag("NoCritMultiplier"),
@@ -924,6 +930,13 @@ return {
 	mod("ColdDamageGainAsFire", "BASE", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "Burning" }),
 	mod("FireDamageGainAsFire", "BASE", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "Burning" }),
 	mod("ChaosDamageGainAsFire", "BASE", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "Burning" }),
+},
+["support_innervate_buff_grant_%_added_lightning_attack_damage"] = {
+	mod("PhysicalDamageGainAsLightning", "BASE", nil, ModFlag.Attack, 0, { type = "Condition", var = "KilledShockedLast3Seconds" }),
+	mod("LightningDamageGainAsLightning", "BASE", nil, ModFlag.Attack, 0, { type = "Condition", var = "KilledShockedLast3Seconds" }),
+	mod("ColdDamageGainAsLightning", "BASE", nil, ModFlag.Attack, 0, { type = "Condition", var = "KilledShockedLast3Seconds" }),
+	mod("FireDamageGainAsLightning", "BASE", nil, ModFlag.Attack, 0, { type = "Condition", var = "KilledShockedLast3Seconds" }),
+	mod("ChaosDamageGainAsLightning", "BASE", nil, ModFlag.Attack, 0, { type = "Condition", var = "KilledShockedLast3Seconds" }),
 },
 ["base_physical_damage_%_to_convert_to_lightning"] = {
 	mod("PhysicalDamageConvertToLightning", "BASE", nil),
@@ -1284,6 +1297,9 @@ return {
 	flag("FireCanShock"),
 	flag("ChaosCanShock"),
 },
+["base_lightning_damage_can_electrocute"] = {
+	flag("LightningCanElectrocute"),
+},
 -- Other effects
 ["enemy_phys_reduction_%_penalty_vs_hit"] = {
 	mod("EnemyPhysicalDamageReduction", "BASE", nil),
@@ -1441,6 +1457,7 @@ return {
 },
 ["chains_hit_X_more_times"] = {
 	mod("ChainCountMax", "MORE", nil),
+	mult = 100,
 },
 ["additional_beam_only_chains"] = {
 	mod("BeamChainCountMax", "BASE", nil),

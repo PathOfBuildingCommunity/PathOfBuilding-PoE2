@@ -200,6 +200,11 @@ skills["SupportCloseCombatPlayer"] = {
 	excludeSkillTypes = { },
 	ignoreMinionTypes = true,
 	statDescriptionScope = "gem_stat_descriptions",
+	statMap = {
+		["support_close_combat_attack_damage_+%_final_from_distance"] = {
+			mod("Damage", "MORE", nil, 0, 0, { type = "DistanceRamp", ramp = {{10,1},{35,0}} }),
+		},
+	},
 	constantStats = {
 		{ "support_close_combat_attack_damage_+%_final_from_distance", 25 },
 	},
@@ -252,6 +257,15 @@ skills["SupportMultiplePoisonPlayer"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	statDescriptionScope = "gem_stat_descriptions",
+	statMap = {
+		["support_multi_poison_poison_duration_+%_final"] = {
+			mod("EnemyPoisonDuration", "MORE", nil),
+		},
+		["number_of_additional_poison_stacks"] = {
+			mod("PoisonStacks", "BASE", nil),
+			flag("PoisonCanStack"),
+		},
+	},
 	constantStats = {
 		{ "number_of_additional_poison_stacks", 1 },
 		{ "support_multi_poison_poison_duration_+%_final", -30 },
@@ -272,6 +286,11 @@ skills["SupportChanceToShockPlayer"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	statDescriptionScope = "gem_stat_descriptions",
+	statMap = {
+		["support_conduction_chance_to_shock_+%_final"] = {
+			mod("EnemyShockChance", "MORE", nil),
+		},
+	},
 	constantStats = {
 		{ "support_conduction_chance_to_shock_+%_final", 100 },
 	},
@@ -327,6 +346,12 @@ skills["SupportCullingStrikePlayer"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	statDescriptionScope = "gem_stat_descriptions",
+	statMap = {
+		["support_culling_strike_vs_rare_or_unique_enemy"] = {
+			mod("CullPercent", "MAX", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "RareOrUnique" }),
+			value = 10
+		},
+	},
 	stats = {
 		"support_culling_strike_vs_rare_or_unique_enemy",
 	},
@@ -394,7 +419,7 @@ skills["SupportSlowerProjectilesPlayer"] = {
 	excludeSkillTypes = { SkillType.FixedSpeedProjectile, },
 	statDescriptionScope = "gem_stat_descriptions",
 	statMap = {
-		["support_faster_projectiles_projectile_speed_+%_final"] = {
+		["support_slower_projectiles_projectile_speed_+%_final"] = {
 			mod("ProjectileSpeed", "MORE", nil),
 		},
 	},
@@ -492,6 +517,11 @@ skills["SupportFerocityPlayer"] = {
 	addSkillTypes = { SkillType.SkillConsumesFrenzyChargesOnUse, SkillType.SupportedByFerocity, },
 	excludeSkillTypes = { SkillType.Minion, SkillType.SummonsTotem, SkillType.UsedByTotem, SkillType.Persistent, SkillType.SkillConsumesFrenzyChargesOnUse, SkillType.SupportedByFerocity, SkillType.NOT, SkillType.AND, },
 	statDescriptionScope = "gem_stat_descriptions",
+	statMap = {
+		["skill_consume_frenzy_charge_to_gain_skill_speed_+%_final"] = {
+			mod("Speed", "MORE", nil, 0, 0, { type = "MultiplierThreshold", var = "RemovableFrenzyCharge", threshold = 1 }),
+		},
+	},
 	constantStats = {
 		{ "skill_consume_frenzy_charge_to_gain_skill_speed_+%_final", 40 },
 	},
@@ -512,6 +542,11 @@ skills["SupportForkPlayer"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { SkillType.ProjectileNoCollision, },
 	statDescriptionScope = "gem_stat_descriptions",
+	statMap = {
+		["support_fork_forked_projectile_damage_+%_final"] = {
+			mod("Damage", "MORE", nil, 0, 0, { type = "StatThreshold", stat = "ForkedCount", threshold = 1 }),
+		},
+	},
 	constantStats = {
 		{ "terrain_arrow_attachment_chance_reduction_+%", 100 },
 		{ "support_fork_forked_projectile_damage_+%_final", -50 },
@@ -532,6 +567,14 @@ skills["SupportFusilladePlayer"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	statDescriptionScope = "gem_stat_descriptions",
+	weaponTypes = {
+		["Bow"] = true,
+	},
+	statMap = {
+		["skill_can_only_use_bow"] = {
+			-- Display only
+		},
+	},
 	constantStats = {
 		{ "number_of_additional_projectiles", 4 },
 	},
@@ -554,6 +597,11 @@ skills["SupportCooldownReductionPlayer"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	statDescriptionScope = "gem_stat_descriptions",
+	statMap = {
+		["support_cooldown_reduction_cooldown_recovery_+%"] = {
+			mod("CooldownRecovery", "INC", nil),
+		},
+	},
 	constantStats = {
 		{ "support_cooldown_reduction_cooldown_recovery_+%", 30 },
 	},
@@ -574,6 +622,11 @@ skills["SupportInnervatePlayer"] = {
 	excludeSkillTypes = { SkillType.Trapped, SkillType.RemoteMined, SkillType.SummonsTotem, },
 	ignoreMinionTypes = true,
 	statDescriptionScope = "gem_stat_descriptions",
+	statMap = {
+		["support_innervate_buff_base_duration_ms"] = {
+			-- Display only
+		},
+	},
 	constantStats = {
 		{ "support_innervate_buff_grant_%_added_lightning_attack_damage", 35 },
 		{ "support_innervate_buff_base_duration_ms", 3000 },
@@ -594,6 +647,11 @@ skills["SupportLastingShockPlayer"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	statDescriptionScope = "gem_stat_descriptions",
+	statMap = {
+		["support_lasting_shock_chance_to_shock_+%_final"] = {
+			mod("EnemyShockChance", "MORE", nil),
+		},
+	},
 	constantStats = {
 		{ "shock_duration_+%", 100 },
 		{ "support_lasting_shock_chance_to_shock_+%_final", -25 },
