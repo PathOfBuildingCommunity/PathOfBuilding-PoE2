@@ -45,7 +45,9 @@ local TradeQueryClass = newClass("TradeQuery", function(self, itemsTab)
 	-- table holding all realm/league pairs. (allLeagues[realm] = [league.id,...])
 	self.allLeagues = {}
 	-- realm id-text table to pair realm name with API parameter
-	self.realmIds = {}
+	self.realmIds = {
+		["PoE 2"]   = "poe2",
+	}
 
 	self.tradeQueryRequests = new("TradeQueryRequests")
 	main.onFrameFuncs["TradeQueryRequests"] = function()
@@ -60,7 +62,7 @@ end)
 ---@param callback fun()
 function TradeQueryClass:FetchCurrencyConversionTable(callback)
 	launch:DownloadPage(
-		"https://www.pathofexile.com/api/trade/data/static",
+		"https://www.pathofexile.com/api/trade2/data/static",
 		function(response, errMsg)
 			if errMsg then
 				callback(response, errMsg)
@@ -353,6 +355,11 @@ Highest Weight - Displays the order retrieved from trade]]
 	end)
 	self.controls.enchantInSort.tooltipText = "This includes enchants in sorting that occurs after trade results have been retrieved"
 
+	self.controls.updateCurrencyConversion = new("ButtonControl", {"BOTTOMLEFT", nil, "BOTTOMLEFT"}, {pane_margins_horizontal, -pane_margins_vertical, 240, row_height}, "Get Currency Conversion Rates", function()
+		-- self:PullPoENinjaCurrencyConversion(self.pbLeague)
+	end)
+	self.controls.pbNotice = new("LabelControl",  {"BOTTOMRIGHT", nil, "BOTTOMRIGHT"}, {-row_height - pane_margins_vertical - row_vertical_padding, -pane_margins_vertical - row_height - row_vertical_padding, 300, row_height}, "")
+
 	-- Realm selection
 	self.controls.realmLabel = new("LabelControl", {"LEFT", self.controls.setSelect, "RIGHT"}, {18, 0, 20, row_height - 4}, "^7Realm:")
 	self.controls.realm = new("DropDownControl", {"LEFT", self.controls.realmLabel, "RIGHT"}, {6, 0, 150, row_height}, self.realmDropList, function(index, value)
@@ -376,14 +383,12 @@ Highest Weight - Displays the order retrieved from trade]]
 				end
 				local sorted_leagues = { }
 				for _, league in ipairs(leagues) do
-					if league ~= "Standard" and  league ~= "Ruthless" and league ~= "Hardcore" and league ~= "Hardcore Ruthless" then
+					if league ~= "Standard" and league ~= "Hardcore" then
 						t_insert(sorted_leagues, league)
 					end
 				end
 				t_insert(sorted_leagues, "Standard")
 				t_insert(sorted_leagues, "Hardcore")
-				t_insert(sorted_leagues, "Ruthless")
-				t_insert(sorted_leagues, "Hardcore Ruthless")
 				self.allLeagues[self.pbRealm] = sorted_leagues
 				setLeagueDropList()
 			end)
@@ -408,21 +413,6 @@ Highest Weight - Displays the order retrieved from trade]]
 
 	if self.pbRealm == "" then
 		self:UpdateRealms()
-	end
-
-	local activeAbyssalSockets = {
-		["Weapon 1"] = { }, ["Weapon 2"] = { }, ["Helmet"] = { }, ["Body Armour"] = { }, ["Gloves"] = { }, ["Boots"] = { }, ["Belt"] = { },
-	}
-	-- loop all slots, set any active abyssal sockets
-	for index, slot in pairs(self.itemsTab.slots) do
-		if index:find("Abyssal") and slot.shown() then
-			t_insert(activeAbyssalSockets[slot.parentSlot.slotName], slot)
-		end
-	end
-	for _, abyssal in pairs(activeAbyssalSockets) do -- sort Abyssal #1 > Abyssal #2 etc
-		t_sort(abyssal, function(a, b)
-			return a.label < b.label
-		end)
 	end
 
 	-- Individual slot rows
@@ -501,11 +491,6 @@ Highest Weight - Displays the order retrieved from trade]]
 		-- the deallocated socket controls were still showing, so this will remove all dynamically created controls from items
 		wipeItemControls()
 	end)
-
-	self.controls.updateCurrencyConversion = new("ButtonControl", {"BOTTOMLEFT", nil, "BOTTOMLEFT"}, {pane_margins_horizontal, -pane_margins_vertical, 240, row_height}, "Get Currency Conversion Rates", function()
-		self:PullPoENinjaCurrencyConversion(self.pbLeague)
-	end)
-	self.controls.pbNotice = new("LabelControl",  {"BOTTOMRIGHT", nil, "BOTTOMRIGHT"}, {-row_height - pane_margins_vertical - row_vertical_padding, -pane_margins_vertical, 300, row_height}, "")
 
 	-- used in PopupDialog:Draw()
 	local function scrollBarFunc()
@@ -624,13 +609,12 @@ function TradeQueryClass:SetCurrencyConversionButton()
 	if self.pbLeague == nil then
 		return
 	end
-	if self.pbRealm ~= "pc" then
+	if true then -- tbd once poe ninja has data for poe2
 		self.controls.updateCurrencyConversion.label = "Currency Rates are not available"
 		self.controls.updateCurrencyConversion.enabled = false
 		self.controls.updateCurrencyConversion.tooltipFunc = function(tooltip)
 			tooltip:Clear()
 			tooltip:AddLine(16, "Currency Conversion rates are pulled from PoE Ninja")
-			tooltip:AddLine(16, "The data is only available for the PC realm.")
 		end
 		return
 	end
@@ -867,7 +851,7 @@ function TradeQueryClass:PriceItemRowDisplay(row_idx, top_pane_alignment_ref, ro
 	local controls = self.controls
 	local slotTbl = self.slotTables[row_idx]
 	local activeSlotRef = slotTbl.nodeId and self.itemsTab.activeItemSet[slotTbl.nodeId] or self.itemsTab.activeItemSet[slotTbl.slotName]
-	local activeSlot = slotTbl.nodeId and self.itemsTab.sockets[slotTbl.nodeId] or slotTbl.slotName and (self.itemsTab.slots[slotTbl.slotName] or slotTbl.fullName and self.itemsTab.slots[slotTbl.fullName]) -- fullName for Abyssal Sockets
+	local activeSlot = slotTbl.nodeId and self.itemsTab.sockets[slotTbl.nodeId] or slotTbl.slotName and self.itemsTab.slots[slotTbl.slotName]
 	local nameColor = slotTbl.unique and colorCodes.UNIQUE or "^7"
 	controls["name"..row_idx] = new("LabelControl", top_pane_alignment_ref, {0, row_idx*(row_height + row_vertical_padding), 100, row_height - 4}, nameColor..slotTbl.slotName)
 	controls["bestButton"..row_idx] = new("ButtonControl", { "LEFT", controls["name"..row_idx], "LEFT"}, {100 + 8, 0, 80, row_height}, "Find best", function()
@@ -879,7 +863,7 @@ function TradeQueryClass:PriceItemRowDisplay(row_idx, top_pane_alignment_ref, ro
 				self:SetNotice(context.controls.pbNotice, "")
 			end
 			if main.POESESSID == nil or main.POESESSID == "" then
-				local url = self.tradeQueryRequests:buildUrl(self.hostName .. "trade/search", self.pbRealm, self.pbLeague)
+				local url = self.tradeQueryRequests:buildUrl(self.hostName .. "trade2/search", self.pbRealm, self.pbLeague)
 				url = url .. "?q=" .. urlEncode(query)
 				controls["uri"..context.row_idx]:SetText(url, true)
 				return
@@ -900,7 +884,7 @@ function TradeQueryClass:PriceItemRowDisplay(row_idx, top_pane_alignment_ref, ro
 				end,
 				{
 					callbackQueryId = function(queryId)
-						local url = self.tradeQueryRequests:buildUrl(self.hostName .. "trade/search", self.pbRealm, self.pbLeague, queryId)
+						local url = self.tradeQueryRequests:buildUrl(self.hostName .. "trade2/search", self.pbRealm, self.pbLeague, queryId)
 						controls["uri"..context.row_idx]:SetText(url, true)
 					end
 				}
@@ -911,7 +895,7 @@ function TradeQueryClass:PriceItemRowDisplay(row_idx, top_pane_alignment_ref, ro
 	controls["bestButton"..row_idx].tooltipText = "Creates a weighted search to find the highest Stat Value items for this slot."
 	local pbURL
 	controls["uri"..row_idx] = new("EditControl", { "TOPLEFT", controls["bestButton"..row_idx], "TOPRIGHT"}, {8, 0, 514, row_height}, nil, nil, "^%C\t\n", nil, function(buf)
-		local subpath = buf:match(self.hostName .. "trade/search/(.+)$") or ""
+		local subpath = buf:match(self.hostName .. "trade2/search/(.+)$") or ""
 		local paths = {}
 		for path in subpath:gmatch("[^/]+") do
 			table.insert(paths, path)
@@ -933,7 +917,7 @@ function TradeQueryClass:PriceItemRowDisplay(row_idx, top_pane_alignment_ref, ro
 	end
 	controls["uri"..row_idx].tooltipFunc = function(tooltip)
 		tooltip:Clear()
-		if controls["uri"..row_idx].buf:find('^'..self.hostName..'trade/search/') ~= nil then
+		if controls["uri"..row_idx].buf:find('^'..self.hostName..'trade2/search/') ~= nil then
 			tooltip:AddLine(16, "Control + click to open in web-browser")
 		end
 	end
@@ -1082,12 +1066,7 @@ function TradeQueryClass:UpdateRealms()
 	local function setRealmDropList()
 		self.realmDropList = {}
 		for realm, _ in pairs(self.realmIds) do
-			-- place PC as the first entry
-			if realm == "PC" then
-				t_insert(self.realmDropList, 1, realm)
-			else
-				t_insert(self.realmDropList, realm)
-			end
+			t_insert(self.realmDropList, realm)
 		end
 		self.controls.realm:SetList(self.realmDropList)
 		-- invalidate selIndex to trigger select function call in the SetSel
@@ -1096,38 +1075,26 @@ function TradeQueryClass:UpdateRealms()
 		self.controls.realm:SetSel(self.pbRealmIndex)
 	end
 
-	if main.POESESSID and main.POESESSID ~= "" then
-		-- Fetch from trade page using POESESSID, includes private leagues
-		ConPrintf("Fetching realms and leagues using POESESSID")
-		self.tradeQueryRequests:FetchRealmsAndLeaguesHTML(function(data, errMsg)
+	-- use trade leagues api to get trade leagues including private leagues if valid.
+	for _, realmId in pairs (self.realmIds) do
+		self.tradeQueryRequests:FetchLeagues(realmId, function(leagues, errMsg)
 			if errMsg then
-				self:SetNotice(self.controls.pbNotice, "Error while fetching league list: "..errMsg)
-				return
+				self:SetNotice(self.controls.pbNotice, "Using Fallback Error while fetching league list: "..errMsg)
 			end
-			local leagues = data.leagues
 			self.allLeagues = {}
-			for _, value in ipairs(leagues) do
-				if not self.allLeagues[value.realm] then self.allLeagues[value.realm] = {} end
-				t_insert(self.allLeagues[value.realm], value.id)
-			end
-			self.realmIds = {}
-			for _, value in pairs(data.realms) do
-				-- filter out only Path of Exile one realms, as poe2 is not supported yet
-				if value.text:match("PoE 1 ") then
-					self.realmIds[value.text:gsub("PoE 1 ", "")] = value.id
-				end
+			for _, league in ipairs(leagues) do
+				if not self.allLeagues[realmId] then self.allLeagues[realmId] = {} end
+				t_insert(self.allLeagues[realmId], league)
 			end
 			setRealmDropList()
 
 		end)
-	else
-		-- Fallback to static list
-		ConPrintf("Using static realms list")
-		self.realmIds = {
-			["PC"]   = "pc",
-			["PS4"]  = "sony",
-			["Xbox"] = "xbox",
-		}
-		setRealmDropList()
 	end
+
+	-- perform a generic search to make sure POESESSID if valid.
+	self.tradeQueryRequests:PerformSearch("poe2", "Standard", [[{"query":{"status":{"option":"online"},"stats":[{"type":"and","filters":[]}]},"sort":{"price":"asc"}}]], function(response, errMsg) 
+		if errMsg then
+			self:SetNotice(self.controls.pbNotice, "Error: " .. tostring(errMsg))
+		end
+	end)
 end

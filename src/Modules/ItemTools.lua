@@ -136,7 +136,7 @@ itemLib.wiki = {
 	open = function(name)
 		local route = string.gsub(name, " ", "_")
 
-		OpenURL("https://www.poewiki.net/wiki/" .. route)
+		OpenURL("https://www.poe2wiki.net/wiki/" .. route)
 		itemLib.wiki.triggered = true
 	end,
 	matchesKey = function(key)

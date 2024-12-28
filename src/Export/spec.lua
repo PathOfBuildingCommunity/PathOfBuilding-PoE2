@@ -8692,10 +8692,10 @@ return {
 		},
 		[64]={
 			list=false,
-			name="",
-			refTo="",
-			type="Int",
-			width=150
+			name="NodeType",
+			refTo="passiveNodeTypes",
+			type="Enum",
+			width=70
 		}
 	},
 	modsellpricetypes={
@@ -10712,6 +10712,15 @@ return {
 			refTo="",
 			type="String",
 			width=560
+		}
+	},
+	passivenodetypes={
+		[1]={
+			list=false,
+			name="Id",
+			refTo="",
+			type="String",
+			width=150
 		}
 	},
 	passiveoverridelimits={
@@ -14062,29 +14071,6 @@ return {
 	tieredmicrotransactions={
 	},
 	tieredmicrotransactionsvisuals={
-	},
-	tinctures={
-		[1]={
-			list=false,
-			name="BaseItemType",
-			refTo="BaseItemTypes",
-			type="Key",
-			width=250
-		},
-		[2]={
-			list=false,
-			name="ManaBurn",
-			refTo="",
-			type="Int",
-			width=100
-		},
-		[3]={
-			list=false,
-			name="CoolDown",
-			refTo="",
-			type="Int",
-			width=100
-		}
 	},
 	tips={
 	},

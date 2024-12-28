@@ -113,31 +113,21 @@ local TreeTabClass = newClass("TreeTab", "ControlHost", function(self, build)
 	self.controls.compareSelect.maxDroppedWidth = 1000
 	self.controls.compareSelect.enableDroppedWidth = true
 	self.controls.compareSelect.enableChangeBoxWidth = true
-	self.controls.reset = new("ButtonControl", { "LEFT", self.controls.compareCheck, "RIGHT" }, { 8, 0, 145, 20 }, "Reset Tree/Tattoos", function()
+	self.controls.reset = new("ButtonControl", { "LEFT", self.controls.compareCheck, "RIGHT" }, { 8, 0, 100, 20 }, "Reset Tree", function()
 		local controls = { }
 		local buttonY = 65
-		controls.warningLabel = new("LabelControl", nil, { 0, 30, 0, 16 }, "^7Warning: resetting your passive tree or removing all tattoos cannot be undone.\n")
-		controls.reset = new("ButtonControl", nil, { -130, buttonY, 100, 20 }, "Reset Tree", function()
+		controls.warningLabel = new("LabelControl", nil, { 0, 30, 0, 16 }, "^7Warning: resetting your passive tree cannot be undone.\n")
+		controls.reset = new("ButtonControl", nil, { -65, buttonY, 100, 20 }, "Reset", function()
 			self.build.spec:ResetNodes()
 			self.build.spec:BuildAllDependsAndPaths()
 			self.build.spec:AddUndoState()
 			self.build.buildFlag = true
 			main:ClosePopup()
 		end)
-		controls.removeTattoo = new("ButtonControl", nil, { 0, buttonY, 144, 20 }, "Remove All Tattoos", function()
-			for id, node in pairs(self.build.spec.hashOverrides) do --hashOverrides will contain only the nodes that have been tattoo-ed
-				if node.isTattoo then
-					self:RemoveTattooFromNode(self.build.spec.nodes[id])
-				end
-			end
-			self.modFlag = true
-			self.build.buildFlag = true
+		controls.cancel = new("ButtonControl", nil, { 65, buttonY, 100, 20 }, "Cancel", function()
 			main:ClosePopup()
 		end)
-		controls.cancel = new("ButtonControl", nil, { 130, buttonY, 100, 20 }, "Cancel", function()
-			main:ClosePopup()
-		end)
-		main:OpenPopup(570, 100, "Reset Tree/Tattoos", controls, nil, "edit", "cancel")
+		main:OpenPopup(470, 100, "Reset Tree", controls, nil, "edit", "cancel")
 	end)
 
 	-- Tree Version Dropdown
@@ -172,9 +162,6 @@ local TreeTabClass = newClass("TreeTab", "ControlHost", function(self, build)
 	self.controls.findTimelessJewel = new("ButtonControl", { "LEFT", self.controls.treeSearch, "RIGHT" }, { 8, 0, 150, 20 }, "Find Timeless Jewel", function()
 		self:FindTimelessJewel()
 	end)
-	
-	--Default index for Tattoos
-	self.defaultTattoo = { }
 
 	-- Show Node Power Checkbox
 	self.controls.treeHeatMap = new("CheckBoxControl", { "LEFT", self.controls.findTimelessJewel, "RIGHT" }, { 130, 0, 20 }, "Show Node Power:", function(state)
@@ -269,13 +256,6 @@ local TreeTabClass = newClass("TreeTab", "ControlHost", function(self, build)
 	self.jumpToX = 0
 	self.jumpToY = 0
 end)
-
-function TreeTabClass:RemoveTattooFromNode(node)
-	self.build.spec.tree.nodes[node.id].isTattoo = false
-	self.build.spec.hashOverrides[node.id] = nil
-	self.build.spec:ReplaceNode(node, self.build.spec.tree.nodes[node.id])
-	self.build.spec:BuildAllDependsAndPaths()
-end
 
 function TreeTabClass:Draw(viewPort, inputEvents)
 	self.anchorControls.x = viewPort.x + 4
@@ -730,132 +710,6 @@ function TreeTabClass:OpenExportPopup()
 		main:ClosePopup()
 	end)
 	popup = main:OpenPopup(380, 100, "Export Tree", controls, "done", "edit")
-end
-
-function TreeTabClass:ModifyNodePopup(selectedNode)
-	local controls = { }
-	local modGroups = { }
-	local treeNodes = self.build.spec.tree.nodes
-	local nodeName = treeNodes[selectedNode.id].dn
-	local function buildMods(selectedNode)
-		wipeTable(modGroups)
-		local numLinkedNodes = selectedNode.linkedId and #selectedNode.linkedId or 0
-		local nodeValue = treeNodes[selectedNode.id].sd[1]
-		for id, node in pairs(self.build.spec.tree.tattoo.nodes) do
-			if (nodeName:match(node.targetType:gsub("^Small ", "")) or (node.targetValue ~= "" and nodeValue:match(node.targetValue)) or
-					(node.targetType == "Small Attribute" and (nodeName == "Intelligence" or nodeName == "Strength" or nodeName == "Dexterity"))
-					or (node.targetType == "Keystone" and treeNodes[selectedNode.id].type == node.targetType))
-					and node.MinimumConnected <= numLinkedNodes and (node.legacy == false or node.legacy == self.showLegacyTattoo) then
-				local combine = false
-				for id, desc in pairs(node.stats) do
-					combine = (id:match("^local_display.*") and #node.stats == (#node.sd - 1)) or combine
-					if combine then break end
-				end
-				local descriptionsAndReminders = copyTable(node.sd)
-				if combine then
-					t_remove(descriptionsAndReminders, 1)
-					t_remove(descriptionsAndReminders, 1)
-					t_insert(descriptionsAndReminders, 1, node.sd[1] .. " " .. node.sd[2])
-				end
-				local descriptionsAndReminders = combine and { [1] = table.concat(node.sd, " ") } or copyTable(node.sd)
-				if node.reminderText then
-					t_insert(descriptionsAndReminders, node.reminderText[1])
-				end
-				t_insert(modGroups, {
-				label = node.dn .. "                                                " .. table.concat(node.sd, ","),
-				descriptions = descriptionsAndReminders,
-				id = id,
-				})
-			end
-		end
-		table.sort(modGroups, function(a, b) return a.label < b.label end)
-		end
-	local function addModifier(selectedNode)
-		local newTattooNode = self.build.spec.tree.tattoo.nodes[modGroups[controls.modSelect.selIndex].id]
-		newTattooNode.id = selectedNode.id
-		self.build.spec.hashOverrides[selectedNode.id] = newTattooNode
-		self.build.spec:ReplaceNode(selectedNode, newTattooNode)
-		self.build.spec:BuildAllDependsAndPaths()
-	end
-
-	local function constructUI(modGroup)
-		local totalHeight = 43
-		local maxWidth = 375
-		local i = 1
-		while controls[i] do
-			controls[i] = nil
-			i = i + 1
-		end
-
-		local wrapTable = {}
-		for idx, desc in ipairs(modGroup.descriptions) do
-			for _, wrappedDesc in ipairs(main:WrapString(desc, 16, maxWidth)) do
-				t_insert(wrapTable, wrappedDesc)
-			end
-		end
-		for idx, desc in ipairs(wrapTable) do
-			controls[idx] = new("LabelControl", {"TOPLEFT", controls[idx-1] or controls.modSelect,"TOPLEFT"}, {0, 20, 600, 16}, "^7"..desc)
-			totalHeight = totalHeight + 20
-		end
-		main.popups[1].height = totalHeight + 75
-		local buttonHeight = totalHeight + 15
-		controls.save.y = buttonHeight
-		controls.reset.y = buttonHeight
-		controls.close.y = buttonHeight
-		controls.totalTattoos.y = buttonHeight + 30
-	end
-
-	buildMods(selectedNode)
-	controls.modSelectLabel = new("LabelControl", {"TOPRIGHT",nil,"TOPLEFT"}, {150, 25, 0, 16}, "^7Modifier:")
-	controls.modSelect = new("DropDownControl", {"TOPLEFT",nil,"TOPLEFT"}, {155, 25, 250, 18}, modGroups, function(idx) constructUI(modGroups[idx]) end)
-	controls.modSelect.selIndex = self.defaultTattoo[nodeName] or 1
-	controls.modSelect.tooltipFunc = function(tooltip, mode, index, value)
-		tooltip:Clear()
-		if mode ~= "OUT" and value then
-			for _, line in ipairs(value.descriptions) do
-				tooltip:AddLine(16, "^7"..line)
-			end
-		end
-	end
-	controls.save = new("ButtonControl", nil, {-90, 75, 80, 20}, "Add", function()
-		addModifier(selectedNode)
-		self.modFlag = true
-		self.build.buildFlag = true
-		self.defaultTattoo[nodeName] = controls.modSelect.selIndex
-		main:ClosePopup()
-	end)
-	controls.reset = new("ButtonControl", nil, {0, 75, 80, 20}, "Reset Node", function()
-		self:RemoveTattooFromNode(selectedNode)
-		self.modFlag = true
-		self.build.buildFlag = true
-		main:ClosePopup()
-	end)
-	controls.close = new("ButtonControl", nil, {90, 75, 80, 20}, "Cancel", function()
-		main:ClosePopup()
-	end)
-
-	local function getTattooCount()
-		local count = 0
-		for _, node in pairs(self.build.spec.hashOverrides) do
-			if node.isTattoo then
-				count = count + 1
-			end
-		end
-		if count > 50 then
-			count = colorCodes.NEGATIVE..count
-		end
-		return count
-	end
-	controls.totalTattoos = new("LabelControl", nil, { 0, 95, 0, 16 }, "^7Tattoo Count: ".. getTattooCount() .."/50" )
-	main:OpenPopup(600, 105, "Replace Modifier of Node", controls, "save")
-	constructUI(modGroups[self.defaultTattoo[nodeName] or 1])
-	
-	-- Show Legacy Tattoos
-	controls.showLegacyTattoo = new("CheckBoxControl", { "LEFT", controls.totalTattoos, "RIGHT" }, { 205, 0, 20 }, "Show Legacy Tattoos:", function(state)
-		self.showLegacyTattoo = state
-		buildMods(selectedNode)
-	end)
-	controls.showLegacyTattoo.state = self.showLegacyTattoo
 end
 
 function TreeTabClass:ModifyAttributePopup(hoverNode)
@@ -1946,15 +1800,15 @@ function TreeTabClass:FindTimelessJewel()
 			end
 		end
 	else
-		self.tradeQueryRequests:FetchLeagues("pc", function(leagues, errMsg)
+		self.tradeQueryRequests:FetchLeagues("poe2", function(leagues, errMsg)
 			if errMsg then
 				controls.msg.label = "^1Error fetching league list, default league will be used\n"..errMsg.."^7"
 				return
 			end
 			local tempLeagueTable = { }
 			for _, league in ipairs(leagues) do
-				if league ~= "Standard" and  league ~= "Ruthless" and league ~= "Hardcore" and league ~= "Hardcore Ruthless" then
-					if not (league:find("Hardcore") or league:find("Ruthless")) then
+				if league ~= "Standard" and league ~= "Hardcore" then
+					if not league:find("Hardcore") then
 						-- set the dynamic, base league name to index 1 to sync league shown in dropdown on load with default/old behavior of copy trade url
 						t_insert(tempLeagueTable, league)
 						for _, val in ipairs(self.tradeLeaguesList) do
@@ -1968,8 +1822,6 @@ function TreeTabClass:FindTimelessJewel()
 			end
 			t_insert(self.tradeLeaguesList, "Standard")
 			t_insert(self.tradeLeaguesList, "Hardcore")
-			t_insert(self.tradeLeaguesList, "Ruthless")
-			t_insert(self.tradeLeaguesList, "Hardcore Ruthless")
 			controls.searchTradeLeagueSelect:SetList(self.tradeLeaguesList)
 		end)
 	end

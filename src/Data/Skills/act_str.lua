@@ -237,6 +237,9 @@ skills["ArtilleryBallistaPlayer"] = {
 	damageIncrementalEffectiveness = 0.006699999794364,
 	description = "Deploys a Ballista Totem that fires bolts skyward, to explode a short time after landing.",
 	skillTypes = { [SkillType.ProjectilesFromUser] = true, [SkillType.Trappable] = true, [SkillType.Mineable] = true, [SkillType.SummonsTotem] = true, [SkillType.SummonsAttackTotem] = true, [SkillType.TotemsAreBallistae] = true, [SkillType.Nonpathing] = true, [SkillType.UseGlobalStats] = true, [SkillType.Limit] = true, [SkillType.Duration] = true, },
+	weaponTypes = {
+		["Crossbow"] = true,
+	},
 	statDescriptionScope = "skill_stat_descriptions",
 	skillTotemId = 19,
 	castTime = 1,
@@ -318,9 +321,17 @@ skills["ArtilleryBallistaProjectilePlayer"] = {
 	hidden = true,
 	incrementalEffectiveness = 0.054999999701977,
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Projectile] = true, [SkillType.CanRapidFire] = true, [SkillType.AttackInPlaceIsDefault] = true, [SkillType.Fire] = true, [SkillType.Area] = true, [SkillType.CannotChain] = true, [SkillType.UsedByTotem] = true, },
+	weaponTypes = {
+		["Crossbow"] = true,
+	},
 	statDescriptionScope = "artillery_ballista_projectile",
 	castTime = 1,
 	baseFlags = {
+		attack = true,
+		area = true,
+		totem = true,
+		projectile = true,
+		duration = true,
 	},
 	constantStats = {
 		{ "action_required_target_facing_angle_tolerance_degrees", 90 },
@@ -919,9 +930,16 @@ skills["ClusterGrenadePlayer"] = {
 	incrementalEffectiveness = 0.054999999701977,
 	description = "Fires a bouncing Grenade that explodes when its fuse expires, throwing out a nova of mini Grenades that explode when they come to a stop.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Area] = true, [SkillType.ProjectileNumber] = true, [SkillType.ProjectileSpeed] = true, [SkillType.Cooldown] = true, [SkillType.Duration] = true, [SkillType.Grenade] = true, [SkillType.Fire] = true, [SkillType.Nonpathing] = true, [SkillType.ProjectileNoCollision] = true, },
+	weaponTypes = {
+		["Crossbow"] = true,
+	},
 	statDescriptionScope = "cluster_grenade",
 	castTime = 1,
 	baseFlags = {
+		attack = true,
+		area = true,
+		projectile = true,
+		duration = true,
 	},
 	qualityStats = {
 		Default = {
@@ -999,9 +1017,16 @@ skills["ClusterGrenadeMiniPlayer"] = {
 	hidden = true,
 	incrementalEffectiveness = 0.054999999701977,
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Area] = true, [SkillType.ProjectileNumber] = true, [SkillType.ProjectileSpeed] = true, [SkillType.Cooldown] = true, [SkillType.Duration] = true, [SkillType.Grenade] = true, },
+	weaponTypes = {
+		["Crossbow"] = true,
+	},
 	statDescriptionScope = "cluster_grenade_mini",
 	castTime = 1,
 	baseFlags = {
+		attack = true,
+		area = true,
+		projectile = true,
+		duration = true,
 	},
 	qualityStats = {
 		Default = {
@@ -1621,6 +1646,9 @@ skills["EmergencyReloadPlayer"] = {
 	incrementalEffectiveness = 0.054999999701977,
 	description = "Instantly reloads your active Crossbow Ammunition and Empowers the loaded bolts to deal more damage.",
 	skillTypes = { [SkillType.Instant] = true, [SkillType.Cooldown] = true, [SkillType.Duration] = true, [SkillType.ModifiesNextSkill] = true, [SkillType.Buff] = true, [SkillType.EmpowersOtherSkill] = true, },
+	weaponTypes = {
+		["Crossbow"] = true,
+	},
 	statDescriptionScope = "emergency_reload",
 	castTime = 0,
 	baseFlags = {
@@ -1691,9 +1719,16 @@ skills["ExplosiveGrenadePlayer"] = {
 	incrementalEffectiveness = 0.054999999701977,
 	description = "Fires a bouncing Grenade that unleashes a devastating fiery blast when its fuse expires.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Area] = true, [SkillType.ProjectileNumber] = true, [SkillType.ProjectileSpeed] = true, [SkillType.Cooldown] = true, [SkillType.Duration] = true, [SkillType.Grenade] = true, [SkillType.Fire] = true, [SkillType.Nonpathing] = true, },
+	weaponTypes = {
+		["Crossbow"] = true,
+	},
 	statDescriptionScope = "explosive_grenade",
 	castTime = 1,
 	baseFlags = {
+		attack = true,
+		area = true,
+		projectile = true,
+		duration = true,
 	},
 	qualityStats = {
 		Default = {
@@ -1772,9 +1807,16 @@ skills["FlashGrenadePlayer"] = {
 	incrementalEffectiveness = 0.054999999701977,
 	description = "Fires a bouncing Grenade that unleashes a Blinding, Stunning explosion when its fuse expires. This explosion can Blind both Allies and Enemies.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Area] = true, [SkillType.ProjectileNumber] = true, [SkillType.ProjectileSpeed] = true, [SkillType.Cooldown] = true, [SkillType.Duration] = true, [SkillType.Grenade] = true, [SkillType.Nonpathing] = true, },
+	weaponTypes = {
+		["Crossbow"] = true,
+	},
 	statDescriptionScope = "flash_grenade",
 	castTime = 1,
 	baseFlags = {
+		attack = true,
+		area = true,
+		projectile = true,
+		duration = true,
 	},
 	qualityStats = {
 		Default = {
@@ -1855,9 +1897,16 @@ skills["ToxicGrenadePlayer"] = {
 	incrementalEffectiveness = 0.054999999701977,
 	description = "Fires a bouncing Grenade that causes a burst of Poison gas when its fuse expires, damaging enemies and leaving behind a growing Poison cloud. Burning effects or Detonator skills will cause the cloud to explode in a fiery blast.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Area] = true, [SkillType.ProjectileNumber] = true, [SkillType.ProjectileSpeed] = true, [SkillType.Cooldown] = true, [SkillType.Duration] = true, [SkillType.Grenade] = true, [SkillType.Chaos] = true, [SkillType.Fire] = true, [SkillType.Nonpathing] = true, },
+	weaponTypes = {
+		["Crossbow"] = true,
+	},
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
 	baseFlags = {
+		attack = true,
+		area = true,
+		projectile = true,
+		duration = true,
 	},
 	qualityStats = {
 		Default = {
@@ -2121,6 +2170,7 @@ skills["HeraldOfAshPlayer"] = {
 		["Two Handed Sword"] = true,
 		["Dagger"] = true,
 		["Claw"] = true,
+		["Crossbow"] = true,
 		["Two Handed Axe"] = true,
 		["Two Handed Mace"] = true,
 		["One Handed Axe"] = true,
@@ -2471,6 +2521,9 @@ skills["ArmourPiercingBoltsAmmoPlayer"] = {
 	incrementalEffectiveness = 0.054999999701977,
 	description = "Loads your Crossbow with a clip of bolts that can be fired rapidly and Break enemy Armour. Using this skill again reloads the clip.",
 	skillTypes = { [SkillType.CrossbowAmmoSkill] = true, [SkillType.ReservesManually] = true, [SkillType.Attack] = true, [SkillType.Nonpathing] = true, },
+	weaponTypes = {
+		["Crossbow"] = true,
+	},
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 0.6,
 	baseFlags = {
@@ -2537,9 +2590,14 @@ skills["ArmourPiercingBoltsPlayer"] = {
 	incrementalEffectiveness = 0.054999999701977,
 	description = "Rapidly fires bolts that Break enemy Armour. Can fire a limited number of bolts before needing to reload.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.CrossbowSkill] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Nonpathing] = true, [SkillType.Physical] = true, },
+	weaponTypes = {
+		["Crossbow"] = true,
+	},
 	statDescriptionScope = "rapid_shot_piercing",
 	castTime = 1,
 	baseFlags = {
+		attack = true,
+		projectile = true,
 	},
 	qualityStats = {
 		Default = {
@@ -2622,6 +2680,9 @@ skills["ExplosiveShotAmmoPlayer"] = {
 	incrementalEffectiveness = 0.054999999701977,
 	description = "Loads your Crossbow with flaming bolts that explode on impact. The explosion will cause any Grenades in its area of effect to also explode.",
 	skillTypes = { [SkillType.CrossbowAmmoSkill] = true, [SkillType.ReservesManually] = true, [SkillType.Attack] = true, [SkillType.Nonpathing] = true, },
+	weaponTypes = {
+		["Crossbow"] = true,
+	},
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1.5,
 	baseFlags = {
@@ -2689,9 +2750,15 @@ skills["ExplosiveShotPlayer"] = {
 	incrementalEffectiveness = 0.054999999701977,
 	description = "Fires a flaming bolt that explodes on impact. The explosion will cause any Grenades in its area of effect to also explode.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Area] = true, [SkillType.CrossbowSkill] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Fire] = true, [SkillType.Nonpathing] = true, },
+	weaponTypes = {
+		["Crossbow"] = true,
+	},
 	statDescriptionScope = "power_shot_incendiary",
 	castTime = 1,
 	baseFlags = {
+		attack = true,
+		projectile = true,
+		area = true,
 	},
 	qualityStats = {
 		Default = {
@@ -2826,6 +2893,9 @@ skills["FragmentationRoundsAmmoPlayer"] = {
 	incrementalEffectiveness = 0.054999999701977,
 	description = "Loads your Crossbow with Piercing bolts that fragment in flight. Bolts that hit a Frozen enemy consume the Freeze and cause an explosion of shrapnel. Bolts that hit an Ice Crystal cause it to explode.",
 	skillTypes = { [SkillType.CrossbowAmmoSkill] = true, [SkillType.ReservesManually] = true, [SkillType.Attack] = true, [SkillType.Nonpathing] = true, },
+	weaponTypes = {
+		["Crossbow"] = true,
+	},
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 0.8,
 	baseFlags = {
@@ -2892,9 +2962,14 @@ skills["FragmentationRoundsPlayer"] = {
 	incrementalEffectiveness = 0.054999999701977,
 	description = "Fires Piercing bolts that fragment in flight. Bolts that hit a Frozen enemy Consume the Freeze and cause an explosion of shrapnel. Bolts that hit an Ice Crystal cause it to explode.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.CrossbowSkill] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Nonpathing] = true, [SkillType.SkillConsumesFreeze] = true, },
+	weaponTypes = {
+		["Crossbow"] = true,
+	},
 	statDescriptionScope = "burst_shot_piercing",
 	castTime = 1,
 	baseFlags = {
+		attack = true,
+		projectile = true,
 	},
 	qualityStats = {
 		Default = {
@@ -3031,6 +3106,9 @@ skills["GalvanicShardsAmmoPlayer"] = {
 	incrementalEffectiveness = 0.054999999701977,
 	description = "Loads your Crossbow with a clip of charged bolts that fragment in flight, releasing Chaining Lightning beams when they Hit enemies. Using this skill again reloads the clip.",
 	skillTypes = { [SkillType.CrossbowAmmoSkill] = true, [SkillType.ReservesManually] = true, [SkillType.Attack] = true, [SkillType.Nonpathing] = true, },
+	weaponTypes = {
+		["Crossbow"] = true,
+	},
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 0.6,
 	baseFlags = {
@@ -3103,9 +3181,14 @@ skills["GalvanicShardsPlayer"] = {
 	incrementalEffectiveness = 0.054999999701977,
 	description = "Rapidly fires charged bolts that fragment in flight, releasing Chaining Lightning beams when they Hit enemies. Can fire a limited number of bursts before needing to reload.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.CrossbowSkill] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Lightning] = true, [SkillType.Chains] = true, [SkillType.Nonpathing] = true, },
+	weaponTypes = {
+		["Crossbow"] = true,
+	},
 	statDescriptionScope = "burst_shot_stormblast",
 	castTime = 1,
 	baseFlags = {
+		attack = true,
+		projectile = true,
 	},
 	constantStats = {
 		{ "projectiles_normal_distribution_height_mean", 3 },
@@ -3234,6 +3317,9 @@ skills["GlacialBoltAmmoPlayer"] = {
 	incrementalEffectiveness = 0.054999999701977,
 	description = "Loads your Crossbow with icy bolts that create two walls of Ice Crystals at the end of their flight.",
 	skillTypes = { [SkillType.CrossbowAmmoSkill] = true, [SkillType.ReservesManually] = true, [SkillType.Attack] = true, [SkillType.Nonpathing] = true, },
+	weaponTypes = {
+		["Crossbow"] = true,
+	},
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
 	baseFlags = {
@@ -3305,9 +3391,16 @@ skills["GlacialBoltPlayer"] = {
 	incrementalEffectiveness = 0.054999999701977,
 	description = "Fires an icy bolt that creates two walls of Ice Crystals at the end of its flight.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Area] = true, [SkillType.CrossbowSkill] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Cold] = true, [SkillType.Wall] = true, [SkillType.SupportedByFountains] = true, [SkillType.Nonpathing] = true, [SkillType.IceCrystal] = true, [SkillType.Duration] = true, },
+	weaponTypes = {
+		["Crossbow"] = true,
+	},
 	statDescriptionScope = "power_shot_permafrost",
 	castTime = 0.8,
 	baseFlags = {
+		attack = true,
+		projectile = true,
+		area = true,
+		duration = true,
 	},
 	constantStats = {
 		{ "action_required_target_facing_angle_tolerance_degrees", 90 },
@@ -3440,6 +3533,9 @@ skills["HailstormRoundsAmmoPlayer"] = {
 	incrementalEffectiveness = 0.054999999701977,
 	description = "Passively generates bolts of ice at a frequency equal to reload time, up to a cap. Activate to Load the accumulated bolts into your Crossbow. All loaded bolts are fired at once, causing them to rain down over the target area.",
 	skillTypes = { [SkillType.CrossbowAmmoSkill] = true, [SkillType.ReservesManually] = true, [SkillType.Attack] = true, [SkillType.Nonpathing] = true, },
+	weaponTypes = {
+		["Crossbow"] = true,
+	},
 	statDescriptionScope = "siege_cascade_permafrost_ammo",
 	castTime = 1,
 	baseFlags = {
@@ -3510,9 +3606,15 @@ skills["HailstormRoundsPlayer"] = {
 	incrementalEffectiveness = 0.054999999701977,
 	description = "Fires all loaded bolts into the sky, causing them to rain down over the target area.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Area] = true, [SkillType.ProjectileNumber] = true, [SkillType.ProjectileSpeed] = true, [SkillType.CrossbowSkill] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Cold] = true, [SkillType.Sustained] = true, [SkillType.Nonpathing] = true, [SkillType.ProjectileNoCollision] = true, },
+	weaponTypes = {
+		["Crossbow"] = true,
+	},
 	statDescriptionScope = "siege_cascade_permafrost",
 	castTime = 1,
 	baseFlags = {
+		attack = true,
+		projectile = true,
+		area = true,
 	},
 	qualityStats = {
 		Default = {
@@ -3588,6 +3690,9 @@ skills["HighVelocityRoundsAmmoPlayer"] = {
 	incrementalEffectiveness = 0.054999999701977,
 	description = "Loads your Crossbow with Piercing bolts that can consume Fully Broken Armour on enemies to deal extra damage.",
 	skillTypes = { [SkillType.CrossbowAmmoSkill] = true, [SkillType.ReservesManually] = true, [SkillType.Attack] = true, [SkillType.Nonpathing] = true, [SkillType.ConsumesFullyBrokenArmour] = true, },
+	weaponTypes = {
+		["Crossbow"] = true,
+	},
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
 	baseFlags = {
@@ -3654,9 +3759,14 @@ skills["HighVelocityRoundsPlayer"] = {
 	incrementalEffectiveness = 0.054999999701977,
 	description = "Fires a powerful Piercing bolt that can consume Fully Broken Armour on enemies to deal extra damage.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.CrossbowSkill] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Physical] = true, [SkillType.Nonpathing] = true, [SkillType.ConsumesFullyBrokenArmour] = true, },
+	weaponTypes = {
+		["Crossbow"] = true,
+	},
 	statDescriptionScope = "power_shot_piercing",
 	castTime = 0.8,
 	baseFlags = {
+		attack = true,
+		projectile = true,
 	},
 	qualityStats = {
 		Default = {
@@ -3789,6 +3899,9 @@ skills["IceShardsAmmoPlayer"] = {
 	incrementalEffectiveness = 0.054999999701977,
 	description = "Loads your Crossbow with a clip of icy bolts that rapidly fire at the ground, leaving a shard of ice at the impact location unless the bolt hits an enemy. The ice shards shatter when enemies step on them, dealing damage to nearby enemies. Using this skill again reloads the clip.",
 	skillTypes = { [SkillType.CrossbowAmmoSkill] = true, [SkillType.ReservesManually] = true, [SkillType.Attack] = true, [SkillType.Nonpathing] = true, },
+	weaponTypes = {
+		["Crossbow"] = true,
+	},
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 0.6,
 	baseFlags = {
@@ -3855,9 +3968,15 @@ skills["IceShardsPlayer"] = {
 	incrementalEffectiveness = 0.054999999701977,
 	description = "Rapidly fires icy bolts at the ground, leaving a shard of ice at the impact location unless the bolt hits an enemy. The ice shards shatter when enemies step on them, dealing damage to nearby enemies. Can fire a limited number of bolts before needing to reload.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Area] = true, [SkillType.CrossbowSkill] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Nonpathing] = true, [SkillType.Cold] = true, [SkillType.Sustained] = true, },
+	weaponTypes = {
+		["Crossbow"] = true,
+	},
 	statDescriptionScope = "rapid_shot_permafrost",
 	castTime = 1,
 	baseFlags = {
+		attack = true,
+		projectile = true,
+		area = true,
 	},
 	qualityStats = {
 		Default = {
@@ -3995,6 +4114,9 @@ skills["IncendiaryShotAmmoPlayer"] = {
 	incrementalEffectiveness = 0.054999999701977,
 	description = "Loads your Crossbow with flaming bolts that fragment in flight, damaging and Igniting enemies on hit and in a small cone behind their final target.",
 	skillTypes = { [SkillType.CrossbowAmmoSkill] = true, [SkillType.ReservesManually] = true, [SkillType.Attack] = true, [SkillType.Nonpathing] = true, },
+	weaponTypes = {
+		["Crossbow"] = true,
+	},
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 0.8,
 	baseFlags = {
@@ -4061,9 +4183,15 @@ skills["IncendiaryShotPlayer"] = {
 	incrementalEffectiveness = 0.054999999701977,
 	description = "Fires flaming bolts that fragment in flight, damaging and Igniting enemies on hit, and in a small cone behind their final target.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Area] = true, [SkillType.CrossbowSkill] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Fire] = true, [SkillType.Nonpathing] = true, },
+	weaponTypes = {
+		["Crossbow"] = true,
+	},
 	statDescriptionScope = "burst_shot_incendiary",
 	castTime = 1,
 	baseFlags = {
+		attack = true,
+		projectile = true,
+		area = true,
 	},
 	qualityStats = {
 		Default = {
@@ -4202,6 +4330,9 @@ skills["PermafrostBoltsAmmoPlayer"] = {
 	incrementalEffectiveness = 0.054999999701977,
 	description = "Loads your Crossbow with icy bolts that fragment in flight, damaging enemies on hit and in a small cone behind their final target. The icy coating on the bolts makes them extremely potent at Freezing enemies.",
 	skillTypes = { [SkillType.CrossbowAmmoSkill] = true, [SkillType.ReservesManually] = true, [SkillType.Attack] = true, [SkillType.Nonpathing] = true, },
+	weaponTypes = {
+		["Crossbow"] = true,
+	},
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 0.8,
 	baseFlags = {
@@ -4268,9 +4399,15 @@ skills["PermafrostBoltsPlayer"] = {
 	incrementalEffectiveness = 0.054999999701977,
 	description = "Fires icy bolts that  fragment in flight, damaging enemies on hit and in a small cone behind their final target. The icy coating on the bolts makes them extremely potent at Freezing enemies.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Area] = true, [SkillType.CrossbowSkill] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Cold] = true, [SkillType.Nonpathing] = true, },
+	weaponTypes = {
+		["Crossbow"] = true,
+	},
 	statDescriptionScope = "burst_shot_permafrost",
 	castTime = 1,
 	baseFlags = {
+		attack = true,
+		projectile = true,
+		area = true,
 	},
 	qualityStats = {
 		Default = {
@@ -4404,6 +4541,9 @@ skills["PlasmaBlastAmmoPlayer"] = {
 	incrementalEffectiveness = 0.054999999701977,
 	description = "Loads your Crossbow with unstable bolts that require a lengthy charging period to fire but deal devastating damage, Pierce through enemies, and explode upon hitting terrain.",
 	skillTypes = { [SkillType.CrossbowAmmoSkill] = true, [SkillType.ReservesManually] = true, [SkillType.Attack] = true, [SkillType.Nonpathing] = true, },
+	weaponTypes = {
+		["Crossbow"] = true,
+	},
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
 	baseFlags = {
@@ -4470,9 +4610,15 @@ skills["PlasmaBlastPlayer"] = {
 	incrementalEffectiveness = 0.054999999701977,
 	description = "Channel to charge an unstable bolt. The bolt deals devastating damage and explodes on hitting terrain, but cannot be fired at all unless fully charged.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Area] = true, [SkillType.CrossbowSkill] = true, [SkillType.Totemable] = true, [SkillType.Channel] = true, [SkillType.Lightning] = true, [SkillType.Nonpathing] = true, },
+	weaponTypes = {
+		["Crossbow"] = true,
+	},
 	statDescriptionScope = "power_shot_stormblast",
 	castTime = 1,
 	baseFlags = {
+		attack = true,
+		projectile = true,
+		area = true,
 	},
 	qualityStats = {
 		Default = {
@@ -4607,6 +4753,9 @@ skills["RapidShotAmmoPlayer"] = {
 	incrementalEffectiveness = 0.054999999701977,
 	description = "Loads your Crossbow with a large clip of heavily modified bolts that cause Heat to build up on your crossbow, before unleashing a stream of flaming bolts that gain Fire Damage based on your Heat. Heat also grants bonus damage to Grenades you fire, but dissipates rapidly when not building up. Using this skill again reloads the clip.",
 	skillTypes = { [SkillType.CrossbowAmmoSkill] = true, [SkillType.ReservesManually] = true, [SkillType.Attack] = true, [SkillType.Nonpathing] = true, },
+	weaponTypes = {
+		["Crossbow"] = true,
+	},
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1.2,
 	baseFlags = {
@@ -4676,9 +4825,14 @@ skills["RapidShotPlayer"] = {
 	damageIncrementalEffectiveness = 0.010739999823272,
 	description = "Fires heavily modified bolts that cause Heat to build up on your crossbow. Using this skill causes an initial buildup of Heat before unleashing a stream of flaming bolts that gain Fire Damage based on your Heat. Heat also grants bonus damage to Grenades you fire, but dissipates rapidly when not building up. Can fire a large number of bolts before needing to reload.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.CrossbowSkill] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Nonpathing] = true, [SkillType.Fire] = true, },
+	weaponTypes = {
+		["Crossbow"] = true,
+	},
 	statDescriptionScope = "rapid_shot_incendiary",
 	castTime = 1,
 	baseFlags = {
+		attack = true,
+		projectile = true,
 	},
 	qualityStats = {
 		Default = {
@@ -4767,6 +4921,9 @@ skills["ShockburstRoundsAmmoPlayer"] = {
 	incrementalEffectiveness = 0.054999999701977,
 	description = "Loads your Crossbow with a clip of charged bolts which release damaging pulses upon Hitting an enemy affected by a Lightning Ailment. Using this skill again reloads the clip.",
 	skillTypes = { [SkillType.CrossbowAmmoSkill] = true, [SkillType.ReservesManually] = true, [SkillType.Attack] = true, [SkillType.Nonpathing] = true, },
+	weaponTypes = {
+		["Crossbow"] = true,
+	},
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 0.8,
 	baseFlags = {
@@ -4834,9 +4991,15 @@ skills["ShockburstRoundsPlayer"] = {
 	incrementalEffectiveness = 0.054999999701977,
 	description = "Rapidly fires charged bolts which release damaging pulses upon Hitting an enemy affected by a Lightning Ailment. Can fire a limited number of bolts before needing to reload.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Area] = true, [SkillType.CrossbowSkill] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Nonpathing] = true, [SkillType.Lightning] = true, },
+	weaponTypes = {
+		["Crossbow"] = true,
+	},
 	statDescriptionScope = "rapid_shot_stormblast",
 	castTime = 1,
 	baseFlags = {
+		attack = true,
+		projectile = true,
+		area = true,
 	},
 	qualityStats = {
 		Default = {
@@ -4969,6 +5132,9 @@ skills["SiegeCascadeAmmoPlayer"] = {
 	incrementalEffectiveness = 0.054999999701977,
 	description = "Loads your Crossbow with enemy-seeking payloads which are fired into the air, dropping a bolt near every enemy in the target area. These bolts lodge in the ground and explode after a short delay.",
 	skillTypes = { [SkillType.CrossbowAmmoSkill] = true, [SkillType.ReservesManually] = true, [SkillType.Attack] = true, [SkillType.Nonpathing] = true, },
+	weaponTypes = {
+		["Crossbow"] = true,
+	},
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
 	baseFlags = {
@@ -5037,9 +5203,15 @@ skills["SiegeCascadePlayer"] = {
 	incrementalEffectiveness = 0.054999999701977,
 	description = "Aims skyward and fires an enemy-seeking payload which drops a bolt near every enemy in the target area. These bolts lodge in the ground and explode after a short delay.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Area] = true, [SkillType.ProjectileNumber] = true, [SkillType.ProjectileSpeed] = true, [SkillType.CrossbowSkill] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Fire] = true, [SkillType.Sustained] = true, [SkillType.Nonpathing] = true, [SkillType.ProjectileNoCollision] = true, },
+	weaponTypes = {
+		["Crossbow"] = true,
+	},
 	statDescriptionScope = "siege_cascade_piercing",
 	castTime = 1,
 	baseFlags = {
+		attack = true,
+		projectile = true,
+		area = true,
 	},
 	qualityStats = {
 		Default = {
@@ -5165,6 +5337,9 @@ skills["StormblastBoltsAmmoPlayer"] = {
 	incrementalEffectiveness = 0.054999999701977,
 	description = "Loads your Crossbow with charged bolts that land around the target location and explode if hit by a Detonator Skill. Using this skill again reloads the clip.",
 	skillTypes = { [SkillType.CrossbowAmmoSkill] = true, [SkillType.ReservesManually] = true, [SkillType.Attack] = true, [SkillType.Nonpathing] = true, },
+	weaponTypes = {
+		["Crossbow"] = true,
+	},
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
 	baseFlags = {
@@ -5233,9 +5408,14 @@ skills["StormblastBoltsPlayer"] = {
 	incrementalEffectiveness = 0.054999999701977,
 	description = "Aims skyward and fires charged bolts that land around the target location, dealing damage and lodging in the ground for a duration. Detonator Skills will cause these bolts to explode. Can fire a limited number of bolts before needing to reload.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Area] = true, [SkillType.ProjectileNumber] = true, [SkillType.ProjectileSpeed] = true, [SkillType.CrossbowSkill] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Lightning] = true, [SkillType.Nonpathing] = true, [SkillType.Duration] = true, },
+	weaponTypes = {
+		["Crossbow"] = true,
+	},
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
 	baseFlags = {
+		attack = true,
+		projectile = true,
 	},
 	qualityStats = {
 		Default = {
@@ -5628,9 +5808,16 @@ skills["OilGrenadePlayer"] = {
 	damageIncrementalEffectiveness = 0.0065000001341105,
 	description = "Fires a bouncing Grenade that bursts in a spray of Oil when the fuse expires or when it impacts an Enemy, dealing minimal damage but covering the ground and nearby enemies in Oil. Oil created this way can be Ignited by Detonator Skills or Ignited Ground.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Area] = true, [SkillType.ProjectileNumber] = true, [SkillType.ProjectileSpeed] = true, [SkillType.Cooldown] = true, [SkillType.Duration] = true, [SkillType.Grenade] = true, [SkillType.Fire] = true, [SkillType.Nonpathing] = true, [SkillType.CreatesGroundEffect] = true, },
+	weaponTypes = {
+		["Crossbow"] = true,
+	},
 	statDescriptionScope = "oil_grenade",
 	castTime = 1,
 	baseFlags = {
+		attack = true,
+		area = true,
+		projectile = true,
+		duration = true,
 	},
 	qualityStats = {
 		Default = {
@@ -5986,6 +6173,9 @@ skills["RipwireBallistaPlayer"] = {
 	damageIncrementalEffectiveness = 0.006699999794364,
 	description = "Deploys a Ballista Totem that fires Pinning bolts which Maim Enemies.",
 	skillTypes = { [SkillType.ProjectilesFromUser] = true, [SkillType.Trappable] = true, [SkillType.Mineable] = true, [SkillType.SummonsTotem] = true, [SkillType.SummonsAttackTotem] = true, [SkillType.TotemsAreBallistae] = true, [SkillType.Nonpathing] = true, [SkillType.UseGlobalStats] = true, [SkillType.Limit] = true, [SkillType.Duration] = true, },
+	weaponTypes = {
+		["Crossbow"] = true,
+	},
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
 	baseFlags = {
@@ -6061,9 +6251,16 @@ skills["RipwireBallistaProjectilePlayer"] = {
 	hidden = true,
 	incrementalEffectiveness = 0.054999999701977,
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Projectile] = true, [SkillType.CanRapidFire] = true, [SkillType.AttackInPlaceIsDefault] = true, [SkillType.UsedByTotem] = true, },
+	weaponTypes = {
+		["Crossbow"] = true,
+	},
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
 	baseFlags = {
+		attack = true,
+		projectile = true,
+		duration = true,
+		totem = true,
 	},
 	qualityStats = {
 		Default = {
@@ -6473,6 +6670,9 @@ skills["ShardScavengerPlayer"] = {
 	incrementalEffectiveness = 0.054999999701977,
 	description = "While active, Consuming Freeze, Shock, Ignite, or Fully Broken Armour on an enemy reloads your Crossbow. This can only occur once every few seconds.",
 	skillTypes = { [SkillType.OngoingSkill] = true, [SkillType.HasReservation] = true, [SkillType.Buff] = true, [SkillType.Persistent] = true, [SkillType.Cold] = true, [SkillType.Lightning] = true, [SkillType.Physical] = true, [SkillType.Fire] = true, },
+	weaponTypes = {
+		["Crossbow"] = true,
+	},
 	statDescriptionScope = "shard_despoiler",
 	castTime = 1,
 	baseFlags = {
@@ -6756,6 +6956,7 @@ skills["ShockwaveTotemPlayer"] = {
 		["Two Handed Sword"] = true,
 		["Dagger"] = true,
 		["Claw"] = true,
+		["Crossbow"] = true,
 		["Two Handed Axe"] = true,
 		["Two Handed Mace"] = true,
 		["One Handed Axe"] = true,
@@ -7552,9 +7753,16 @@ skills["ShockGrenadePlayer"] = {
 	incrementalEffectiveness = 0.054999999701977,
 	description = "Fires a bouncing Grenade that discharges an Electrocuting Lightning blast when its fuse expires.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Area] = true, [SkillType.ProjectileNumber] = true, [SkillType.ProjectileSpeed] = true, [SkillType.Cooldown] = true, [SkillType.Triggerable] = true, [SkillType.Duration] = true, [SkillType.Grenade] = true, [SkillType.Lightning] = true, [SkillType.Nonpathing] = true, },
+	weaponTypes = {
+		["Crossbow"] = true,
+	},
 	statDescriptionScope = "shock_grenade",
 	castTime = 1,
 	baseFlags = {
+		attack = true,
+		area = true,
+		projectile = true,
+		duration = true,
 	},
 	qualityStats = {
 		Default = {

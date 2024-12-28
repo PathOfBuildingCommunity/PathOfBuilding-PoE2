@@ -561,25 +561,24 @@ end
 function GemSelectClass:AddGemTooltip(gemInstance)
 	self.tooltip.center = true
 	self.tooltip.color = colorCodes.GEM
-	local primary = gemInstance.gemData.grantedEffect
-	local secondary = gemInstance.gemData.secondaryGrantedEffect
-	if secondary and (not secondary.support or gemInstance.gemData.secondaryEffectName) then
-		local grantedEffect = gemInstance.gemData.VaalGem and secondary or primary
-		local grantedEffectSecondary = gemInstance.gemData.VaalGem and primary or secondary
-		self.tooltip:AddLine(20, colorCodes.GEM .. altQualMap[gemInstance.qualityId]..grantedEffect.name)
-		self.tooltip:AddSeparator(10)
-		self.tooltip:AddLine(16, "^x7F7F7F" .. gemInstance.gemData.tagString)
-		self:AddCommonGemInfo(gemInstance, grantedEffect, true)
-		self.tooltip:AddSeparator(10)
-		self.tooltip:AddLine(20, colorCodes.GEM .. (gemInstance.gemData.secondaryEffectName or grantedEffectSecondary.name))
-		self.tooltip:AddSeparator(10)
-		self:AddCommonGemInfo(gemInstance, grantedEffectSecondary)
-	else
-		local grantedEffect = gemInstance.gemData.grantedEffect
-		self.tooltip:AddLine(20, colorCodes.GEM .. altQualMap[gemInstance.qualityId]..grantedEffect.name)
-		self.tooltip:AddSeparator(10)
-		self.tooltip:AddLine(16, "^x7F7F7F" .. gemInstance.gemData.tagString)
-		self:AddCommonGemInfo(gemInstance, grantedEffect, true, secondary and secondary.support and secondary)
+	local grantedEffect = gemInstance.gemData.grantedEffect
+	local additionalEffects = gemInstance.gemData.additionalGrantedEffects
+
+	self.tooltip:AddLine(20, colorCodes.GEM .. altQualMap[gemInstance.qualityId]..grantedEffect.name)
+	self.tooltip:AddSeparator(10)
+	self.tooltip:AddLine(16, "^x7F7F7F" .. gemInstance.gemData.tagString)
+	-- Will need rework if a gem can have 2+ additional supports
+	self:AddCommonGemInfo(gemInstance, grantedEffect, true, additionalEffects[1] and additionalEffects[1].support and additionalEffects[1])
+
+	if additionalEffects then
+		for _, additional in ipairs(additionalEffects) do
+			if not additional.support then
+				self.tooltip:AddSeparator(10)
+				self.tooltip:AddLine(20, colorCodes.GEM .. additional.name)
+				self.tooltip:AddSeparator(10)
+				self:AddCommonGemInfo(gemInstance, additional)
+			end
+		end
 	end
 end
 

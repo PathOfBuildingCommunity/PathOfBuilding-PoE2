@@ -229,14 +229,13 @@ function wipeEnv(env, accelerate)
 		-- 1) Jewels and Jewel-Radius related node modifications
 		-- 2) Player items
 		-- 3) Granted Skill from items (e.g., Curse on Hit rings)
-		-- 4) Flasks and Tinctures
+		-- 4) Flasks
 		wipeTable(env.radiusJewelList)
 		wipeTable(env.extraRadiusNodeList)
 		wipeTable(env.player.itemList)
 		wipeTable(env.grantedSkillsItems)
 		wipeTable(env.flasks)
 		wipeTable(env.charms)
-		wipeTable(env.tinctures)
 
 		-- Special / Unique Items that have their own ModDB()
 		if env.aegisModList then
@@ -408,7 +407,6 @@ function calcs.initEnv(build, mode, override, specEnv)
 		env.itemWarnings = { }
 		env.flasks = { }
 		env.charms = { }
-		env.tinctures = { }
 
 		-- tree based
 		env.grantedPassives = { }
@@ -479,12 +477,6 @@ function calcs.initEnv(build, mode, override, specEnv)
 		modDB:NewMod("TotemColdResist", "BASE", 40, "Base")
 		modDB:NewMod("TotemLightningResist", "BASE", 40, "Base")
 		modDB:NewMod("TotemChaosResist", "BASE", 20, "Base")
-		modDB:NewMod("CritChance", "INC", 50, "Base", { type = "Multiplier", var = "PowerCharge" })
-		modDB:NewMod("Speed", "INC", 4, "Base", ModFlag.Attack, { type = "Multiplier", var = "FrenzyCharge" })
-		modDB:NewMod("Speed", "INC", 4, "Base", ModFlag.Cast, { type = "Multiplier", var = "FrenzyCharge" })
-		modDB:NewMod("Damage", "MORE", 4, "Base", { type = "Multiplier", var = "FrenzyCharge" })
-		modDB:NewMod("PhysicalDamageReduction", "BASE", 4, "Base", { type = "Multiplier", var = "EnduranceCharge" })
-		modDB:NewMod("ElementalDamageReduction", "BASE", 4, "Base", { type = "Multiplier", var = "EnduranceCharge" })
 		modDB:NewMod("MaximumRage", "BASE", 30, "Base")
 		modDB:NewMod("Multiplier:GaleForce", "BASE", 0, "Base")
 		modDB:NewMod("MaximumGaleForce", "BASE", 10, "Base")
@@ -515,22 +507,10 @@ function calcs.initEnv(build, mode, override, specEnv)
 		modDB:NewMod("PerAfflictionAilmentDamage", "BASE", 8, "Base")
 		modDB:NewMod("PerAfflictionNonDamageEffect", "BASE", 8, "Base")
 		modDB:NewMod("PerAbsorptionElementalEnergyShieldRecoup", "BASE", 12, "Base")
-		modDB:NewMod("TinctureLimit", "BASE", 1, "Base")
 		modDB:NewMod("CharmLimit", "BASE", 0, "Base")
 		modDB:NewMod("ManaDegenPercent", "BASE", 1, "Base", { type = "Multiplier", var = "EffectiveManaBurnStacks" })
 		modDB:NewMod("LifeDegenPercent", "BASE", 1, "Base", { type = "Multiplier", var = "WeepingWoundsStacks" })
 		modDB:NewMod("WeaponSwapSpeed", "BASE", 250, "Base")  -- 250ms
-
-		-- Add bandit mods
-		if env.configInput.bandit == "Alira" then
-			modDB:NewMod("ElementalResist", "BASE", 15, "Bandit")
-		elseif env.configInput.bandit == "Kraityn" then
-			modDB:NewMod("MovementSpeed", "INC", 8, "Bandit")
-		elseif env.configInput.bandit == "Oak" then
-			modDB:NewMod("Life", "BASE", 40, "Bandit")
-		else
-			modDB:NewMod("ExtraPoints", "BASE", 1, "Bandit")
-		end
 
 		-- Add Pantheon mods
 		local parser = modLib.parseMod
@@ -839,11 +819,6 @@ function calcs.initEnv(build, mode, override, specEnv)
 					env.charms[item] = true
 				end
 				item = nil
-			elseif item and item.type == "Tincture" then
-				if slot.active then
-					env.tinctures[item] = true
-				end
-				item = nil
 			end
 			local scale = 1
 			if slot.nodeId and item and item.type == "Jewel" and item.jewelData and item.jewelData.jewelIncEffectFromClassStart then
@@ -1007,15 +982,6 @@ function calcs.initEnv(build, mode, override, specEnv)
 							env.itemModDB:ScaleAddMod(mod, scale)
 						end
 					end
-				elseif item.type == "Quiver" and items["Weapon 1"] and items["Weapon 1"].name:match("Widowhail") then
-					local widowHailMod=(1 + (items["Weapon 1"].baseModList:Sum("INC", nil, "EffectOfBonusesFromQuiver") or 100) / 100)
-					scale = scale * widowHailMod
-					env.modDB:NewMod("WidowHailMultiplier", "BASE", widowHailMod, "Widowhail")
-					local combinedList = new("ModList")
-					for _, mod in ipairs(srcList) do
-						combinedList:MergeMod(mod)
-					end
-					env.itemModDB:ScaleAddList(combinedList, scale)
 				elseif env.modDB.multipliers["CorruptedMagicJewelEffect"] and item.type == "Jewel" and item.rarity == "MAGIC" and item.corrupted and slot.nodeId and item.base.subType ~= "Charm" then
 					scale = scale + env.modDB.multipliers["CorruptedMagicJewelEffect"]
 					local combinedList = new("ModList")
@@ -1072,7 +1038,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 				if item.spiritValue then
 					env.modDB:NewMod("Spirit", "BASE", item.spiritValue, item.title)
 				end
-				if item.type ~= "Jewel" and item.type ~= "Flask" and item.type ~= "Charm" and item.type ~= "Tincture" then
+				if item.type ~= "Jewel" and item.type ~= "Flask" and item.type ~= "Charm" then
 					-- Update item counts
 					local key
 					if item.rarity == "UNIQUE" or item.rarity == "RELIC" then
@@ -1132,13 +1098,6 @@ function calcs.initEnv(build, mode, override, specEnv)
 				env.charms[override.toggleCharm] = nil
 			else
 				env.charms[override.toggleCharm] = true
-			end
-		end
-		if override.toggleTincture then
-			if env.tinctures[override.toggleTincture] then
-				env.tinctures[override.toggleTincture] = nil
-			else
-				env.tinctures[override.toggleTincture] = true
 			end
 		end
 	end
@@ -1454,7 +1413,9 @@ function calcs.initEnv(build, mode, override, specEnv)
 						end
 						if gemInstance.gemData then
 							processGrantedEffect(gemInstance.gemData.grantedEffect)
-							processGrantedEffect(gemInstance.gemData.secondaryGrantedEffect)
+							for _, additional in ipairs(gemInstance.gemData.additionalGrantedEffects) do
+								processGrantedEffect(additional)
+							end
 						else
 							processGrantedEffect(gemInstance.grantedEffect)
 						end

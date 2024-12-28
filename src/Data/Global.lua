@@ -119,12 +119,13 @@ ModFlag.Sword =		 0x00400000
 ModFlag.Wand =		 0x00800000
 ModFlag.Unarmed =	 0x01000000
 ModFlag.Fishing =	 0x02000000
+ModFlag.Crossbow =	 0x40000000
 -- Weapon classes
 ModFlag.WeaponMelee =0x04000000
 ModFlag.WeaponRanged=0x08000000
 ModFlag.Weapon1H =	 0x10000000
 ModFlag.Weapon2H =	 0x20000000
-ModFlag.WeaponMask = 0x2FFF0000
+ModFlag.WeaponMask = 0x7FFF0000
 
 KeywordFlag = { }
 -- Skill keywords

@@ -41,7 +41,7 @@ function calcs.armourReductionF(armour, raw)
 	if armour == 0 and raw == 0 then
 		return 0
 	end
-	return (armour / (armour + raw * 5) * 100)
+	return (armour / (armour + raw * data.misc.ArmourRatio) * 100)
 end
 
 -- Calculate damage reduction from armour, int
@@ -86,7 +86,7 @@ function calcs.applyDmgTakenConversion(activeSkill, output, breakdown, sourceTyp
 			if percentOfArmourApplies > 0 then
 				local effArmour = (output.Armour * percentOfArmourApplies / 100) * (1 + output.ArmourDefense)
 				local effDamage = damage * resMult
-				armourReduct = round(effArmour ~= 0 and damage * resMult ~= 0 and (effArmour / (effArmour + effDamage * 5) * 100) or 0)
+				armourReduct = round(effArmour ~= 0 and damage * resMult ~= 0 and calcs.armourReductionF(effArmour, effDamage) or 0)
 				armourReduct = m_min(output.DamageReductionMax, armourReduct)
 			end
 			reductMult = (1 - m_max(m_min(output.DamageReductionMax, armourReduct + reduction), 0) / 100) * damageTakenMods
@@ -2976,7 +2976,7 @@ function calcs.buildDefenceEstimations(env, actor)
 
 						-- We know the damage and armour calculation chain. The important part for max hit calculations is:
 						-- 		dmgAfterRes = RAW * DamageConvertedMulti * ResistanceMulti
-						-- 		armourDR = AppliedArmour / (AppliedArmour + 5 * dmgAfterRes)
+						-- 		armourDR = AppliedArmour / (AppliedArmour + 12 * dmgAfterRes)
 						-- 		totalDR = max(min(armourDR + FlatDR, MaxReduction) - Overwhelm, 0)	-- min and max is complicated to actually math out so skip caps first and tack it on later. Result should be close enough
 						-- 		dmgReceived = dmgAfterRes * (1 - totalDR)
 						-- 		damageTaken = (dmgReceived + takenFlat) * TakenMulti
@@ -2986,13 +2986,13 @@ function calcs.buildDefenceEstimations(env, actor)
 						-- Trying to solve that for RAW might require solving a polynomial equation of 6th degree, so this solution settles for solving the parts independently and then approximating the final result
 						--
 						-- To solve only one part the above can be expressed as this:
-						--		5 * (1 - FlatDR + Overwhelm) * TakenMulti * ResistanceMulti * ResistanceMulti * DamageConvertedMulti * DamageConvertedMulti * RAW * RAW + ((Overwhelm - FlatDR) * AppliedArmour * TakenMulti - 5 * (damageTaken - takenFlat * TakenMulti)) * ResistanceMulti * DamageConvertedMulti * RAW - (damageTaken - takenFlat * TakenMulti) * AppliedArmour = 0
+						--		12 * (1 - FlatDR + Overwhelm) * TakenMulti * ResistanceMulti * ResistanceMulti * DamageConvertedMulti * DamageConvertedMulti * RAW * RAW + ((Overwhelm - FlatDR) * AppliedArmour * TakenMulti - 12 * (damageTaken - takenFlat * TakenMulti)) * ResistanceMulti * DamageConvertedMulti * RAW - (damageTaken - takenFlat * TakenMulti) * AppliedArmour = 0
 						-- Which means that
 						-- 		RAW = [quadratic]
 
 						local resistXConvert = totalResistMult * damageConvertedMulti
-						local a = 5 * (1 - flatDR + enemyOverwhelmPercent / 100) * totalTakenMulti * resistXConvert * resistXConvert
-						local b = ((enemyOverwhelmPercent / 100 - flatDR) * effectiveAppliedArmour * totalTakenMulti - 5 * (totalHitPool - takenFlat * totalTakenMulti)) * resistXConvert
+						local a = data.misc.ArmourRatio * (1 - flatDR + enemyOverwhelmPercent / 100) * totalTakenMulti * resistXConvert * resistXConvert
+						local b = ((enemyOverwhelmPercent / 100 - flatDR) * effectiveAppliedArmour * totalTakenMulti - data.misc.ArmourRatio * (totalHitPool - takenFlat * totalTakenMulti)) * resistXConvert
 						local c = -effectiveAppliedArmour * (totalHitPool - takenFlat * totalTakenMulti)
 
 						local RAW = (m_sqrt(b * b - 4 * a * c) - b) / (2 * a)

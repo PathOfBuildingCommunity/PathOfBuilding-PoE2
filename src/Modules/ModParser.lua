@@ -21,8 +21,7 @@ local function getSimpleConv(srcList, dst, type, remove, factor)
 		if node then
 			for _, src in pairs(srcList) do
 				for _, mod in ipairs(node.modList) do
-					-- do not convert stats from tattoos
-					if mod.name == src and mod.type == type and not (node.isTattoo and attributes[src]) then
+					if mod.name == src and mod.type == type then
 						if remove then
 							out:MergeNewMod(src, type, -mod.value, mod.source, mod.flags, mod.keywordFlags, unpack(mod))
 						end
@@ -676,34 +675,34 @@ local modNameList = {
 	["warcry speed"] = { "WarcrySpeed", keywordFlags = KeywordFlag.Warcry },
 	["attack and cast speed"] = "Speed",
 	["skill speed"] = { "Speed", "WarcrySpeed" },
+	["reload speed"] = { "ReloadSpeed", flags = ModFlag.Attack },
 	["dps"] = "DPS",
 	-- Elemental ailments
 	["to shock"] = "EnemyShockChance",
 	["shock chance"] = "EnemyShockChance",
+	["chance to shock"] = "EnemyShockChance",
 	["to freeze"] = "EnemyFreezeChance",
 	["freeze chance"] = "EnemyFreezeChance",
+	["chance to freeze"] = "EnemyFreezeChance",
 	["to ignite"] = "EnemyIgniteChance",
 	["ignite chance"] = "EnemyIgniteChance",
+	["chance to ignite"] = "EnemyIgniteChance",
 	["to freeze, shock and ignite"] = { "EnemyFreezeChance", "EnemyShockChance", "EnemyIgniteChance" },
-	["to scorch enemies"] = "EnemyScorchChance",
-	["to inflict brittle"] = "EnemyBrittleChance",
-	["to sap enemies"] = "EnemySapChance",
-	["effect of scorch"] = "EnemyScorchEffect",
-	["effect of sap"] = "EnemySapEffect",
-	["effect of brittle"] = "EnemyBrittleEffect",
-	["effect of shock"] = "EnemyShockEffect",
-	["effect of shock on you"] = "SelfShockEffect",
-	["effect of shock you inflict"] = "EnemyShockEffect",
-	["effect of shocks you inflict"] = "EnemyShockEffect",
-	["effect of lightning ailments"] = { "EnemyShockEffect" , "EnemySapEffect" },
-	["effect of chill"] = "EnemyChillEffect",
+	["magnitude of shock you inflict"] = "EnemyShockMagnitude",
+	["magnitude of chill you inflict"] = "EnemyChillMagnitude",
+	["magnitude of jagged ground you create"] = "EnemyJaggedGroundMagnitude",
+	["magnitude of bleeding you inflict"] = { "AilmentMagnitude", keywordFlags = KeywordFlag.Bleed },
+	["magnitude of ignite you inflict"] = { "AilmentMagnitude", keywordFlags = KeywordFlag.Ignite },
+	["magnitude of poison you inflict"] = { "AilmentMagnitude", keywordFlags = KeywordFlag.Poison },
+	["magnitude of ailments you inflict"] = { "AilmentMagnitude", keywordFlags = bor(KeywordFlag.Poison, KeywordFlag.Bleed, KeywordFlag.Ignite) },
+	["effect of lightning ailments"] = "EnemyShockMagnitude",
 	["effect of chill and shock on you"] = { "SelfChillEffect", "SelfShockEffect" },
-	["chill effect"] = "EnemyChillEffect",
-	["effect of chill you inflict"] = "EnemyChillEffect",
-	["effect of cold ailments"] = { "EnemyChillEffect" , "EnemyBrittleEffect" },
+	["chill effect"] = "EnemyChillMagnitude",
+	["effect of cold ailments"] = "EnemyChillMagnitude",
 	["effect of chill on you"] = "SelfChillEffect",
-	["effect of non-damaging ailments"] = { "EnemyShockEffect", "EnemyChillEffect", "EnemyFreezeEffect", "EnemyScorchEffect", "EnemyBrittleEffect", "EnemySapEffect" },
-	["effect of non-damaging ailments you inflict"] = { "EnemyShockEffect", "EnemyChillEffect", "EnemyFreezeEffect", "EnemyScorchEffect", "EnemyBrittleEffect", "EnemySapEffect" },
+	["effect of shock on you"] = "SelfShockEffect",
+	["effect of non-damaging ailments"] = { "EnemyShockMagnitude", "EnemyChillMagnitude", "EnemyFreezeEffect" },
+	["effect of non-damaging ailments you inflict"] = { "EnemyShockMagnitude", "EnemyChillMagnitude", "EnemyFreezeEffect" },
 	["shock duration"] = "EnemyShockDuration",
 	["duration of shocks you inflict"] = "EnemyShockDuration",
 	["shock duration on you"] = "SelfShockDuration",
@@ -774,7 +773,6 @@ local modNameList = {
 	-- Flask and Charm modifiers
 	["effect"] = "LocalEffect",
 	["effect of flasks"] = "FlaskEffect",
-	["effect of tinctures"] = "TinctureEffect",
 	["effect of charms"] = "CharmEffect",
 	["amount recovered"] = "FlaskRecovery",
 	["life recovered"] = "FlaskRecovery",
@@ -802,8 +800,6 @@ local modNameList = {
 	["charm charges gained"] = "CharmChargesGained",
 	["charge recovery"] = "FlaskChargeRecovery",
 	["for flasks you use to not consume charges"] = "FlaskChanceNotConsumeCharges",
-	["for tinctures to not inflict mana burn"] = "TincturesNotInflictManaBurn",
-	["mana burn rate"] = "TinctureManaBurnRate",
 	["impales you inflict last"] = "ImpaleStacksMax",
 	-- Buffs
 	["adrenaline"] = "Condition:Adrenaline",
@@ -831,6 +827,7 @@ local modFlagList = {
 	["with bows"] = { flags = bor(ModFlag.Bow, ModFlag.Hit) },
 	["to bow attacks"] = { flags = bor(ModFlag.Bow, ModFlag.Hit) },
 	["with bow attacks"] = { flags = bor(ModFlag.Bow, ModFlag.Hit) },
+	["with crossbows"] = { flags = bor(ModFlag.Crossbow, ModFlag.Hit) },
 	["with claws"] = { flags = bor(ModFlag.Claw, ModFlag.Hit) },
 	["with claws or daggers"] = { flags = ModFlag.Hit, tag = { type = "ModFlagOr", modFlags = bor(ModFlag.Claw, ModFlag.Dagger) } },
 	["to claw attacks"] = { flags = bor(ModFlag.Claw, ModFlag.Hit) },
@@ -886,6 +883,7 @@ local modFlagList = {
 	["weapon"] = { flags = ModFlag.Weapon },
 	["with weapons"] = { flags = ModFlag.Weapon },
 	["melee"] = { flags = ModFlag.Melee },
+	["crossbow"] = { flags = ModFlag.Crossbow },
 	["with melee attacks"] = { flags = ModFlag.Melee },
 	["with melee critical hits"] = { flags = ModFlag.Melee, tag = { type = "Condition", var = "CriticalStrike" } },
 	["with melee skills"] = { tag = { type = "SkillType", skillType = SkillType.Melee } },
@@ -1578,8 +1576,6 @@ local modTagList = {
 	["if you've used a life flask in the past 10 seconds"] = { tag = { type = "Condition", var = "UsingLifeFlask" } },
 	["if you've used a mana flask in the past 10 seconds"] = { tag = { type = "Condition", var = "UsingManaFlask" } },
 	["during effect of any life or mana flask"] = { tag = { type = "Condition", varList = { "UsingManaFlask", "UsingLifeFlask" } } },
-	["while you have an active tincture"] = { tag = { type = "Condition", var = "UsingTincture" } },
-	["while you have a tincture active"] = { tag = { type = "Condition", var = "UsingTincture" } },
 	["while on consecrated ground"] = { tag = { type = "Condition", var = "OnConsecratedGround" } },
 	["while on caustic ground"] = { tag = { type = "Condition", var = "OnCausticGround" } },
 	["when you create consecrated ground"] = { },
@@ -1881,11 +1877,13 @@ local function extraSupport(name, level, slot)
 		local gemId = data.gemForBaseName[(data.skills[skillId].name .. " Support"):lower()]
 		if gemId then
 			local mods = {mod("ExtraSupport", "LIST", { skillId = data.gems[gemId].grantedEffectId, level = level }, { type = "SocketedIn", slotName = slot })}
-			if data.gems[gemId].secondaryGrantedEffect then
-				if data.gems[gemId].secondaryGrantedEffect.support then
-					t_insert(mods, mod("ExtraSupport", "LIST", { skillId = data.gems[gemId].secondaryGrantedEffectId, level = level }, { type = "SocketedIn", slotName = slot }))
-				else
-					t_insert(mods, mod("ExtraSkill", "LIST", { skillId = data.gems[gemId].secondaryGrantedEffectId, level = level }))
+			if data.gems[gemId].additionalGrantedEffects then
+				for i, additional in data.gems[gemId].additionalGrantedEffects do
+					if additional.support then
+						t_insert(mods, mod("ExtraSupport", "LIST", { skillId = data.gems[gemId]["additionalGrantedEffectId"..i], level = level }, { type = "SocketedIn", slotName = slot }))
+					else
+						t_insert(mods, mod("ExtraSkill", "LIST", { skillId = data.gems[gemId]["additionalGrantedEffectId"..i], level = level }))
+					end
 				end
 			end
 			return mods
@@ -2463,13 +2461,11 @@ local specialModList = {
 		flag("ChecksHighestDamage"),
 	} end,
 	["(%d+)%% more effect of cold ailments you inflict with hits for which the highest damage type is cold"] = function(num) return {
-		mod("EnemyChillEffect", "MORE", num, { type = "Condition", var = "ColdIsHighestDamageType" }),
-		mod("EnemyBrittleEffect", "MORE", num, { type = "Condition", var = "ColdIsHighestDamageType" }),
+		mod("EnemyChillMagnitude", "MORE", num, { type = "Condition", var = "ColdIsHighestDamageType" }),
 		flag("ChecksHighestDamage"),
 	} end,
 	["(%d+)%% more effect of lightning ailments you inflict with hits if the highest damage type is lightning"] = function(num) return {
-		mod("EnemyShockEffect", "MORE", num, { type = "Condition", var = "LightningIsHighestDamageType" }),
-		mod("EnemySapEffect", "MORE", num, { type = "Condition", var = "LightningIsHighestDamageType" }),
+		mod("EnemyShockMagnitude", "MORE", num, { type = "Condition", var = "LightningIsHighestDamageType" }),
 		flag("ChecksHighestDamage"),
 	} end,
 	["your chills can reduce action speed by up to a maximum of (%d+)%%"] = function(num) return { mod("ChillMax", "OVERRIDE", num) } end,
@@ -3198,6 +3194,7 @@ local specialModList = {
 	},
 	["you can inflict up to (%d+) ignites on an enemy"] = function(num) return { flag("IgniteCanStack"), mod("IgniteStacks", "OVERRIDE", num) } end,
 	["you can inflict an additional ignite on [ea][an]c?h? enemy"] = { flag("IgniteCanStack"), mod("IgniteStacks", "BASE", 1) },
+	["targets can be affected by %+(%d+) of your poisons at the same time"] =  function(num) return { flag("PoisonCanStack"), mod("PoisonStacks", "BASE", num) } end,
 	["enemies chilled by you take (%d+)%% increased burning damage"] = function(num) return { mod("EnemyModifier", "LIST", { mod = mod("FireDamageTakenOverTime", "INC", num) }, { type = "ActorCondition", actor = "enemy", var = "Chilled" }) } end,
 	["damaging ailments deal damage (%d+)%% faster"] = function(num) return { mod("IgniteBurnFaster", "INC", num), mod("BleedFaster", "INC", num), mod("PoisonFaster", "INC", num) } end,
 	["damaging ailments you inflict deal damage (%d+)%% faster while affected by malevolence"] = function(num) return {
@@ -3240,12 +3237,9 @@ local specialModList = {
 		mod("SapAsThoughDealing", "MORE", num),
 	} end,
 	["non%-damaging elemental ailments you inflict have (%d+)%% more effect"] = function(num) return {
-		mod("EnemyShockEffect", "MORE", num),
-		mod("EnemyChillEffect", "MORE", num),
+		mod("EnemyShockMagnitude", "MORE", num),
+		mod("EnemyChillMagnitude", "MORE", num),
 		mod("EnemyFreezeEffect", "MORE", num),
-		mod("EnemyScorchEffect", "MORE", num),
-		mod("EnemyBrittleEffect", "MORE", num),
-		mod("EnemySapEffect", "MORE", num),
 	} end,
 	["immun[ei]t?y? to elemental ailments while on consecrated ground if you have at least (%d+) devotion"] = function(num) return { flag("ElementalAilmentImmune", { type = "Condition", var = "OnConsecratedGround" }, { type = "StatThreshold", stat = "Devotion", threshold = num }), } end,
 	["freeze enemies as though dealing (%d+)%% more damage"] = function(num) return { mod("FreezeAsThoughDealing", "MORE", num) } end,
@@ -3269,17 +3263,8 @@ local specialModList = {
 		flag("Condition:Shocked", { type = "Condition", var = "Focused" }),
 	},
 	["drops shocked ground while moving, lasting (%d+) seconds"] = { mod("ShockBase", "BASE", data.nonDamagingAilment["Shock"].default, { type = "ActorCondition", actor = "enemy", var = "OnShockedGround" }) },
-	["drops scorched ground while moving, lasting (%d+) seconds"] = { mod("ScorchBase", "BASE", data.nonDamagingAilment["Scorch"].default, { type = "ActorCondition", actor = "enemy", var = "OnScorchedGround" }) },
-	["drops brittle ground while moving, lasting (%d+) seconds"] = { mod("BrittleBase", "BASE", data.nonDamagingAilment["Brittle"].default, { type = "ActorCondition", actor = "enemy", var = "OnBrittleGround" }) },
-	["drops sapped ground while moving, lasting (%d+) seconds"] = { mod("SapBase", "BASE", data.nonDamagingAilment["Sap"].default, { type = "ActorCondition", actor = "enemy", var = "OnSappedGround" }) },
 	["while a unique enemy is in your presence, drops shocked ground while moving, lasting (%d+) seconds"] = { mod("ShockBase", "BASE", data.nonDamagingAilment["Shock"].default, { type = "ActorCondition", actor = "enemy", var = "OnShockedGround" }, { type = "ActorCondition", actor = "enemy", var = "RareOrUnique" }) },
-	["while a unique enemy is in your presence, drops scorched ground while moving, lasting (%d+) seconds"] = { mod("ScorchBase", "BASE", data.nonDamagingAilment["Scorch"].default, { type = "ActorCondition", actor = "enemy", var = "OnScorchedGround" }, { type = "ActorCondition", actor = "enemy", var = "RareOrUnique" }) },
-	["while a unique enemy is in your presence, drops brittle ground while moving, lasting (%d+) seconds"] = { mod("BrittleBase", "BASE", data.nonDamagingAilment["Brittle"].default, { type = "ActorCondition", actor = "enemy", var = "OnBrittleGround" }, { type = "ActorCondition", actor = "enemy", var = "RareOrUnique" }) },
-	["while a unique enemy is in your presence, drops sapped ground while moving, lasting (%d+) seconds"] = { mod("SapBase", "BASE", data.nonDamagingAilment["Sap"].default, { type = "ActorCondition", actor = "enemy", var = "OnSappedGround" }, { type = "ActorCondition", actor = "enemy", var = "RareOrUnique" }) },
 	["while a pinnacle atlas boss is in your presence, drops shocked ground while moving, lasting (%d+) seconds"] = { mod("ShockBase", "BASE", data.nonDamagingAilment["Shock"].default, { type = "ActorCondition", actor = "enemy", var = "OnShockedGround" }, { type = "ActorCondition", actor = "enemy", var = "PinnacleBoss" }) },
-	["while a pinnacle atlas boss is in your presence, drops scorched ground while moving, lasting (%d+) seconds"] = { mod("ScorchBase", "BASE", data.nonDamagingAilment["Scorch"].default, { type = "ActorCondition", actor = "enemy", var = "OnScorchedGround" }, { type = "ActorCondition", actor = "enemy", var = "PinnacleBoss" }) },
-	["while a pinnacle atlas boss is in your presence, drops brittle ground while moving, lasting (%d+) seconds"] = { mod("BrittleBase", "BASE", data.nonDamagingAilment["Brittle"].default, { type = "ActorCondition", actor = "enemy", var = "OnBrittleGround" }, { type = "ActorCondition", actor = "enemy", var = "PinnacleBoss" }) },
-	["while a pinnacle atlas boss is in your presence, drops sapped ground while moving, lasting (%d+) seconds"] = { mod("SapBase", "BASE", data.nonDamagingAilment["Sap"].default, { type = "ActorCondition", actor = "enemy", var = "OnSappedGround" }, { type = "ActorCondition", actor = "enemy", var = "PinnacleBoss" }) },
 	["%+(%d+)%% chance to ignite, freeze, shock, and poison cursed enemies"] = function(num) return {
 		mod("EnemyIgniteChance", "BASE", num, { type = "ActorCondition", actor = "enemy", var = "Cursed" }),
 		mod("EnemyFreezeChance", "BASE", num, { type = "ActorCondition", actor = "enemy", var = "Cursed" }),
@@ -4116,7 +4101,6 @@ local specialModList = {
 	["%+(%d+) life gained on killing ignited enemies"] = function(num) return { mod("LifeOnKill", "BASE", num, { type = "ActorCondition", actor = "enemy", var = "Ignited" }) } end,
 	["gain (%d+) life per ignited enemy killed"] = function(num) return { mod("LifeOnKill", "BASE", num, { type = "ActorCondition", actor = "enemy", var = "Ignited" }) } end,
 	["recover (%d+)%% of mana on kill"] = function(num) return { mod("ManaOnKill", "BASE", 1, { type = "PercentStat", stat = "Mana", percent = num }) } end,
-	["recover (%d+)%% of mana on kill while you have a tincture active"] = function(num) return { mod("ManaOnKill", "BASE", 1, { type = "PercentStat", stat = "Mana", percent = num }, { type = "Condition", var = "UsingTincture" }) } end,
 	["recover (%d+)%% of mana on kill for each different type of mastery you have allocated"] = function(num) return { mod("ManaOnKill", "BASE", 1, { type = "PercentStat", stat = "Mana", percent = num }, { type = "Multiplier", var = "AllocatedMasteryType" }) } end,
 	["lose (%d+)%% of mana on kill"] = function(num) return { mod("ManaOnKill", "BASE", -1, { type = "PercentStat", stat = "Mana", percent = num }) } end,
 	["%+(%d+) mana gained on killing a frozen enemy"] = function(num) return { mod("ManaOnKill", "BASE", num, { type = "ActorCondition", actor = "enemy", var = "Frozen" }) } end,
@@ -4561,17 +4545,6 @@ local specialModList = {
 	["while a pinnacle atlas boss is in your presence, flasks applied to you have (%d+)%% increased effect"] = function(num) return { mod("FlaskEffect", "INC", num, { type = "ActorCondition", actor = "enemy", var = "PinnacleBoss" }, { type = "ActorCondition", actor = "player"}) } end,
 	["magic utility flasks applied to you have (%d+)%% increased effect"] = function(num) return { mod("MagicUtilityFlaskEffect", "INC", num, { type = "ActorCondition", actor = "player"}) } end,
 	["flasks applied to you have (%d+)%% reduced effect"] = function(num) return { mod("FlaskEffect", "INC", -num, { type = "ActorCondition", actor = "player"}) } end,
-	["tinctures applied to you have (%d+)%% increased effect"] = function(num) return { mod("TinctureEffect", "INC", num, { type = "ActorCondition", actor = "player"}) } end,
-	["tinctures applied to you have (%d+)%% increased effect if you've used a life flask recently"] = function(num) return { mod("TinctureEffect", "INC", num, { type = "ActorCondition", actor = "player"}, { type = "Condition", var = "UsingLifeFlask" }) } end,
-	["tinctures have (%d+)%% increased effect while at or above (%d+) stacks of mana burn"] = function(num, _, threshold) return { mod("TinctureEffect", "INC", num, { type = "MultiplierThreshold", varList = {"ManaBurnStacks", "WeepingWoundsStacks"}, threshold = tonumber(threshold) }) } end,
-	["tinctures applied to you have (%d+)%% reduced mana burn rate"] = function(num) return { mod("TinctureManaBurnRate", "INC", -num, { type = "ActorCondition", actor = "player"}) } end,
-	["tinctures applied to you have (%d+)%% less mana burn rate"] = function(num) return { mod("TinctureManaBurnRate", "MORE", -num, { type = "ActorCondition", actor = "player"}) } end,
-	["the first (%d+) mana burn applied to you have no effect"] = function(num) return { mod("EffectiveManaBurnStacks", "BASE", -num, { type = "ActorCondition", actor = "player"}) } end,
-	["tinctures deactivate when you have (%d+) or more mana burn"] = function(num) return { mod("MaxManaBurnStacks", "BASE", num) } end,
-	["tinctures inflict weeping wounds instead of mana burn"] = { flag("Condition:WeepingWoundsInsteadOfManaBurn"), },
-	["tincture effects also apply to ranged weapons"] = { flag("TinctureRangedWeapons"), },
-	["you can have an additional tincture active"] = { mod("TinctureLimit", "BASE", 1), },
-	["(%d+)%% increased tincture cooldown recovery rate"] = function(num) return { mod("TinctureCooldownRecovery", "INC", num) } end,
 	["(%d+)%% increased charm cooldown recovery rate"] = function(num) return { mod("CharmCooldownRecovery", "INC", num) } end,
 	["adds (%d+) passive skills"] = function(num) return { mod("JewelData", "LIST", { key = "clusterJewelNodeCount", value = num }) } end,
 	["1 added passive skill is a jewel socket"] = { mod("JewelData", "LIST", { key = "clusterJewelSocketCount", value = 1 }) },
@@ -4589,7 +4562,7 @@ local specialModList = {
 	["can't use helmet"] = { mod("CanNotUseHelmet", "Flag", 1, { type = "DisablesItem", slotName = "Helmet" }) }, -- this is to allow for custom mod without saying the other is parsed
 	["can't use other rings"] = { mod("CanNotUseRightRing", "Flag", 1, { type = "DisablesItem", slotName = "Ring 2" }, { type = "SlotNumber", num = 1 }), mod("CanNotUseLeftRing", "Flag", 1, { type = "DisablesItem", slotName = "Ring 1" }, { type = "SlotNumber", num = 2 }) },
 	["uses both hand slots"] = { mod("CanNotUseRightWeapon", "Flag", 1, { type = "DisablesItem", slotName = "Weapon 2" }, { type = "SlotNumber", num = 1 }), mod("CanNotUseLeftWeapon", "Flag", 1, { type = "DisablesItem", slotName = "Weapon 1" }, { type = "SlotNumber", num = 2 }) },
-	["can't use flask in fifth slot"] = { mod("CanNotUseFifthFlask", "Flag", 1, { type = "DisablesItem", slotName = "Flask 5", excludeItemType = "Tincture" }) },
+	["can't use flask in fifth slot"] = { mod("CanNotUseFifthFlask", "Flag", 1, { type = "DisablesItem", slotName = "Flask 5"}) },
 	["boneshatter has (%d+)%% chance to grant %+1 trauma"] = function(num) return { mod("ExtraTrauma", "BASE", num, { type = "SkillName", skillName = "Boneshatter", includeTransfigured = true }) } end,
 	["your minimum frenzy, endurance and power charges are equal to your maximum while you are stationary"] = {
 		flag("MinimumFrenzyChargesIsMaximumFrenzyCharges", {type = "Condition", var = "Stationary" }),
@@ -5104,19 +5077,6 @@ local specialModList = {
 				{ key = "conqueredBy", value = { id = num, conqueror = conquerorList[name:lower()] } }) } end,
 	["passives in radius are conquered by the (%D+)"] = { },
 	["historic"] = { },
-	-- Tattoos
-	["+(%d+) to maximum life per allocated journey tattoo of the body"] = function(num) return {
-		mod("Life", "BASE", num, { type = "Multiplier", var = "JourneyTattooBody" }),
-		mod("Multiplier:JourneyTattooBody", "BASE", 1),
-	} end,
-	["+(%d+) to maximum energy shield per allocated journey tattoo of the soul"] = function(num) return {
-		mod("EnergyShield", "BASE", num, { type = "Multiplier", var = "JourneyTattooSoul" }),
-		mod("Multiplier:JourneyTattooSoul", "BASE", 1),
-	} end,
-	["+(%d+) to maximum mana per allocated journey tattoo of the mind"] = function(num) return {
-		mod("Mana", "BASE", num, { type = "Multiplier", var = "JourneyTattooMind" }),
-		mod("Multiplier:JourneyTattooMind", "BASE", 1),
-	} end,
 	-- Display-only modifiers
 	["extra gore"] = { },
 	["prefixes:"] = { },
@@ -5412,11 +5372,6 @@ local jewelOtherFuncs = {
 	["Notable Passive Skills in Radius grant nothing"] = function(node, out, data)
 		if node and node.type == "Notable" then
 			out:NewMod("PassiveSkillHasNoEffect", "FLAG", true, data.modSource)
-		end
-	end,
-	["100% increased effect of Tattoos in Radius"] = function(node, out, data)
-		if node and node.isTattoo then
-			out:NewMod("PassiveSkillEffect", "INC", 100, data.modSource)
 		end
 	end,
 	["Allocated Small Passive Skills in Radius grant nothing"] = function(node, out, data)

@@ -11,18 +11,20 @@ local m_max = math.max
 local m_floor = math.floor
 
 local dmgTypeList = {"Physical", "Lightning", "Cold", "Fire", "Chaos"}
-local catalystList = {"Abrasive", "Accelerating", "Fertile", "Imbued", "Intrinsic", "Noxious", "Prismatic", "Tempering", "Turbulent", "Unstable"}
+local catalystList = {"Flesh", "Neural", "Carapace", "Uul-Netol's", "Xoph's", "Tul's", "Esh's", "Chayula's", "Reaver", "Sibilant", "Skittering", "Adaptive"}
 local catalystTags = {
+	{ "life" },
+	{ "mana" },
+	{ "defences" },
+	{ "physical" },
+	{ "fire" },
+	{ "cold" },
+	{ "lightning" },
+	{ "chaos" },
 	{ "attack" },
-	{ "speed" },
-	{ "life", "mana", "resource" },
 	{ "caster" },
-	{ "jewellery_attribute", "attribute" },
-	{ "physical_damage", "chaos_damage" },
-	{ "jewellery_resistance", "resistance" },
-	{ "jewellery_defense", "defences" },
-	{ "jewellery_elemental" ,"elemental_damage" },
-	{ "critical" },
+	{ "speed" },
+	{ "attribute" },
 }
 
 local function getCatalystScalar(catalystId, tags, quality)
@@ -283,7 +285,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 	self.rawLines = { }
 	-- Find non-blank lines and trim whitespace
 	for line in raw:gmatch("%s*([^\n]*%S)") do
-		line = line:gsub("%[([^|%]]+)%]", "%1"):gsub("%[[^|]+|([^|]+)%]", "%1") -- Remove game text 
+		line = escapeGGGString(line)
 		t_insert(self.rawLines, line)
 	end
 	local mode = rarity and "GAME" or "WIKI"
@@ -348,7 +350,6 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 	local importedLevelReq
 	local flaskBuffLines
 	local charmBuffLines
-	local tinctureBuffLines
 	local deferJewelRadiusIndexAssignment
 	local gameModeStage = "FINDIMPLICIT"
 	local foundExplicit, foundImplicit
@@ -359,8 +360,6 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 			flaskBuffLines[line] = nil
 		elseif charmBuffLines and charmBuffLines[line] then
 			charmBuffLines[line] = nil
-		elseif tinctureBuffLines and tinctureBuffLines[line] then
-			tinctureBuffLines[line] = nil
 		elseif line == "--------" then
 			self.checkSection = true
 		elseif line == "Mirrored" then
@@ -419,13 +418,13 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 					end
 					self.itemSocketCount = #self.sockets
 				elseif specName == "Radius" and self.type == "Jewel" then
-					self.jewelRadiusLabel = specVal:match("^%a+")
+					self.jewelRadiusLabel = specVal:match("^[%a ]+")
 					if specVal:match("^%a+") == "Variable" then
                         -- Jewel radius is variable and must be read from it's mods instead after they are parsed
                         deferJewelRadiusIndexAssignment = true
                     else
                         for index, data in pairs(data.jewelRadius) do
-                            if specVal:match("^%a+") == data.label then
+                            if specVal:match("^[%a ]+") == data.label then
                                 self.jewelRadiusIndex = index
                                 break
                             end
@@ -690,14 +689,6 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 								t_insert(self.buffModLines, { line = line, extra = extra, modList = modList or { } })
 							end
 						end
-						if self.base.tincture and self.base.tincture.buff and not tinctureBuffLines then
-							tinctureBuffLines = { }
-							for _, line in ipairs(self.base.tincture.buff) do
-								tinctureBuffLines[line] = true
-								local modList, extra = modLib.parseMod(line)
-								t_insert(self.buffModLines, { line = line, extra = extra, modList = modList or { } })
-							end
-						end
 					end
 					-- Base lines don't need mod parsing, skip it
 					goto continue
@@ -886,7 +877,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 end
 
 function ItemClass:NormaliseQuality()
-	if self.base and (self.base.armour or self.base.weapon or self.base.flask or self.base.tincture) then
+	if self.base and (self.base.armour or self.base.weapon or self.base.flask) then
 		if not self.quality then
 			self.quality = 0
 		elseif not self.uniqueID and not self.corrupted and not self.mirrored and self.quality < 20 then
@@ -1376,14 +1367,6 @@ function ItemClass:BuildModListForSlotNum(baseList, slotNum)
 		for _, value in ipairs(modList:List(nil, "CharmData")) do
 			charmData[value.key] = value.value
 		end
-	elseif self.base.tincture then
-		local tinctureData = self.tinctureData
-		tinctureData.manaBurn = (self.base.tincture.manaBurn + 0.01) / (1 + calcLocal(modList, "TinctureManaBurnRate", "INC", 0) / 100) / (1 + calcLocal(modList, "TinctureManaBurnRate", "MORE", 0) / 100)
-		tinctureData.cooldown = self.base.tincture.cooldown / (1 + calcLocal(modList, "TinctureCooldownRecovery", "INC", 0) / 100)
-		tinctureData.effectInc = calcLocal(modList, "TinctureEffect", "INC", 0) + calcLocal(modList, "LocalEffect", "INC", 0)
-		for _, value in ipairs(modList:List(nil, "TinctureData")) do
-			tinctureData[value.key] = value.value
-		end
 	elseif self.type == "Jewel" then
 		if self.name:find("Grand Spectrum") then
 			local spectrumMod = modLib.createMod("Multiplier:GrandSpectrum", "BASE", 1, self.name)
@@ -1451,9 +1434,6 @@ function ItemClass:BuildModList()
 		self.buffModList = { }
 	elseif self.base.charm then
 		self.charmData = { }
-		self.buffModList = { }
-	elseif self.base.tincture then
-		self.tinctureData = { }
 		self.buffModList = { }
 	elseif self.type == "Jewel" then
 		self.jewelData = { }

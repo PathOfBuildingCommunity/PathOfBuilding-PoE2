@@ -585,8 +585,8 @@ local function doActorMisc(env, actor)
 		if modDB.conditions["AffectedByArcaneSurge"] or modDB:Flag(nil, "Condition:ArcaneSurge") then
 			modDB.conditions["AffectedByArcaneSurge"] = true
 			local effect = 1 + modDB:Sum("INC", nil, "ArcaneSurgeEffect", "BuffEffectOnSelf") / 100
-			modDB:NewMod("ManaRegen", "INC", (modDB:Max(nil, "ArcaneSurgeManaRegen") or 30) * effect, "Arcane Surge")
-			modDB:NewMod("Speed", "INC", (modDB:Max(nil, "ArcaneSurgeCastSpeed") or 10) * effect, "Arcane Surge", ModFlag.Cast)
+			modDB:NewMod("ManaRegen", "MORE", (modDB:Max(nil, "ArcaneSurgeManaRegen") or 20) * effect, "Arcane Surge")
+			modDB:NewMod("Speed", "MORE", (modDB:Max(nil, "ArcaneSurgeCastSpeed") or 10) * effect, "Arcane Surge", ModFlag.Cast)
 			local arcaneSurgeDamage = modDB:Max(nil, "ArcaneSurgeDamage") or 0
 			if arcaneSurgeDamage ~= 0 then modDB:NewMod("Damage", "MORE", arcaneSurgeDamage * effect, "Arcane Surge", ModFlag.Spell) end
 		end
@@ -682,7 +682,7 @@ local function doActorMisc(env, actor)
 			local ailmentData = data.nonDamagingAilment
 			local chillValue = modDB:Override(nil, "ChillVal") or ailmentData.Chill.default
 
-			local chillSelf = (modDB:Flag(nil, "Condition:ChilledSelf") and modDB:Sum("INC", nil, "EnemyChillEffect") / 100) or 0
+			local chillSelf = (modDB:Flag(nil, "Condition:ChilledSelf") and modDB:Sum("INC", nil, "EnemyChillMagnitude") / 100) or 0
 			local totalChillSelfEffect = calcLib.mod(modDB, nil, "SelfChillEffect") + chillSelf
 
 			local effect = m_min(m_max(m_floor(chillValue *  totalChillSelfEffect), 0), modDB:Override(nil, "ChillMax") or ailmentData.Chill.max)
@@ -1020,7 +1020,14 @@ function calcs.perform(env, skipEHP)
 				env.minion.modDB:AddList(env.player.itemList["Weapon 1"].slotModList[1])
 			end
 			if env.player.itemList["Weapon 2"] and env.player.itemList["Weapon 2"].type == "Quiver" then
-				env.minion.modDB:ScaleAddList(env.player.itemList["Weapon 2"].modList, m_max(modDB:Sum("BASE", nil, "WidowHailMultiplier"), 1))
+				local quiverEffectMod = env.player.modDB:Sum("INC", nil, "EffectOfBonusesFromQuiver") / 100
+				if quiverEffectMod > 0 then
+					for _, mod in ipairs(env.player.itemList["Weapon 2"].modList) do
+						local modCopy = copyTable(mod)
+						modCopy.source = "Many Sources:" .. tostring(quiverEffectMod * 100) .. "% Quiver Bonus Effect"
+						env.minion.modDB:ScaleAddMod(modCopy, quiverEffectMod)
+					end
+				end
 			end
 		end
 		if env.minion.itemSet or env.minion.uses then
@@ -1107,7 +1114,7 @@ function calcs.perform(env, skipEHP)
 		end
 		if (activeSkill.activeEffect.grantedEffect.name == "Vaal Lightning Trap" or activeSkill.activeEffect.grantedEffect.name == "Shock Ground") then
 			-- Shock effect applies to shocked ground
-			local effect = activeSkill.skillModList:Sum("BASE", nil, "ShockedGroundEffect") * (1 + activeSkill.skillModList:Sum("INC", nil, "EnemyShockEffect") / 100)
+			local effect = activeSkill.skillModList:Sum("BASE", nil, "ShockedGroundEffect") * (1 + activeSkill.skillModList:Sum("INC", nil, "EnemyShockMagnitude") / 100)
 			modDB:NewMod("ShockOverride", "BASE", effect, "Shocked Ground", { type = "ActorCondition", actor = "enemy", var = "OnShockedGround" } )
 		end
 		if activeSkill.skillData.supportBonechill and (activeSkill.skillTypes[SkillType.ChillingArea] or activeSkill.skillTypes[SkillType.NonHitChill] or not activeSkill.skillModList:Flag(nil, "CannotChill")) then
@@ -1115,12 +1122,12 @@ function calcs.perform(env, skipEHP)
 		end
 		if activeSkill.activeEffect.grantedEffect.name == "Summon Skitterbots" then
 			if not activeSkill.skillModList:Flag(nil, "SkitterbotsCannotShock") then
-				local effect = data.nonDamagingAilment.Shock.default * (1 + activeSkill.skillModList:Sum("INC", { source = "Skill" }, "EnemyShockEffect") / 100)
+				local effect = data.nonDamagingAilment.Shock.default * (1 + activeSkill.skillModList:Sum("INC", { source = "Skill" }, "EnemyShockMagnitude") / 100)
 				modDB:NewMod("ShockOverride", "BASE", effect, activeSkill.activeEffect.grantedEffect.name)
 				enemyDB:NewMod("Condition:Shocked", "FLAG", true, activeSkill.activeEffect.grantedEffect.name)
 			end
 			if not activeSkill.skillModList:Flag(nil, "SkitterbotsCannotChill") then
-				local effect = data.nonDamagingAilment.Chill.default * (1 + activeSkill.skillModList:Sum("INC", { source = "Skill" }, "EnemyChillEffect") / 100)
+				local effect = data.nonDamagingAilment.Chill.default * (1 + activeSkill.skillModList:Sum("INC", { source = "Skill" }, "EnemyChillMagnitude") / 100)
 				modDB:NewMod("ChillOverride", "BASE", effect, activeSkill.activeEffect.grantedEffect.name)
 				enemyDB:NewMod("Condition:Chilled", "FLAG", true, activeSkill.activeEffect.grantedEffect.name)
 				if activeSkill.skillData.supportBonechill then
@@ -1128,7 +1135,7 @@ function calcs.perform(env, skipEHP)
 				end
 			end
 		elseif activeSkill.skillTypes[SkillType.ChillingArea] or (activeSkill.skillTypes[SkillType.NonHitChill] and not activeSkill.skillModList:Flag(nil, "CannotChill")) then
-			local effect = data.nonDamagingAilment.Chill.default * calcLib.mod(activeSkill.skillModList, activeSkill.skillCfg, "EnemyChillEffect")
+			local effect = data.nonDamagingAilment.Chill.default * calcLib.mod(activeSkill.skillModList, activeSkill.skillCfg, "EnemyChillMagnitude")
 			modDB:NewMod("ChillOverride", "BASE", effect, activeSkill.activeEffect.grantedEffect.name)
 			enemyDB:NewMod("Condition:Chilled", "FLAG", true, activeSkill.activeEffect.grantedEffect.name)
 			if activeSkill.skillData.supportBonechill then
@@ -1194,6 +1201,17 @@ function calcs.perform(env, skipEHP)
 				if energyShieldBase > 0 then
 					modDB:NewMod("Life", "BASE", energyShieldBase, slot.." ES to Life Conversion")
 				end
+			end
+		end
+	end
+
+	if env.player.itemList["Weapon 2"] and env.player.itemList["Weapon 2"].type == "Quiver" then
+		local quiverEffectMod = modDB:Sum("INC", nil, "EffectOfBonusesFromQuiver") / 100
+		if quiverEffectMod > 0 then
+			for _, mod in ipairs(env.player.itemList["Weapon 2"].modList) do
+				local modCopy = copyTable(mod)
+				modCopy.source = "Many Sources:" .. tostring(quiverEffectMod * 100) .. "% Quiver Bonus Effect"
+				modDB:ScaleAddMod(modCopy, quiverEffectMod)
 			end
 		end
 	end
@@ -1483,88 +1501,11 @@ function calcs.perform(env, skipEHP)
 		end
 	end
 
-	local effectInc = modDB:Sum("INC", {actor = "player"}, "TinctureEffect")
-	local effectIncMagic = modDB:Sum("INC", {actor = "player"}, "MagicTinctureEffect")
-	local tinctureLimit = modDB:Sum("BASE", nil, "TinctureLimit")
-
-	-- tincture breakdown
-	if breakdown then
-		output.TinctureEffect = effectInc
-		output.TinctureLimit = tinctureLimit
-	end
-	
-	
-	local function mergeTinctures(tinctures)
-		local tinctureBuffs = { }
-		local tinctureConditions = {}
-		local tinctureBuffsPerBase = {}
-
-		local function calcTinctureMods(item, baseName, buffModList, modList)
-			local tinctureEffectInc = effectInc + item.tinctureData.effectInc
-			if item.rarity == "MAGIC" then
-				tinctureEffectInc = tinctureEffectInc + effectIncMagic
-			end
-			local effectMod = (1 + (tinctureEffectInc) / 100) * (1 + (item.quality or 0) / 100)
-
-			-- same deal as flasks, go look at the comment there
-			if buffModList[1] then
-				local srcList = new("ModList")
-				srcList:ScaleAddList(buffModList, effectMod)
-				mergeBuff(srcList, tinctureBuffs, baseName)
-				mergeBuff(srcList, tinctureBuffsPerBase[item.baseName], baseName)
-			end
-
-			if modList[1] then
-				local srcList = new("ModList")
-				srcList:ScaleAddList(modList, effectMod)
-				local key
-				if item.rarity == "UNIQUE" then
-					key = item.title
-				else
-					key = ""
-					for _, mod in ipairs(modList) do
-						key = key .. modLib.formatModParams(mod) .. "&"
-					end
-				end
-				mergeBuff(srcList, tinctureBuffs, key)
-				mergeBuff(srcList, tinctureBuffsPerBase[item.baseName], key)
-			end
-		end
-		for item in pairs(tinctures) do
-			if tinctureLimit <= 0 then
-				break
-			end
-			tinctureLimit = tinctureLimit - 1
-			tinctureBuffsPerBase[item.baseName] = tinctureBuffsPerBase[item.baseName] or {}
-			tinctureConditions["UsingTincture"] = true
-			tinctureConditions["Using"..item.baseName:gsub("%s+", "")] = true
-			calcTinctureMods(item, item.baseName, item.buffModList, item.modList)
-		end
-		for tinctureCond, status in pairs(tinctureConditions) do
-			modDB.conditions[tinctureCond] = status
-		end
-		for _, buffModList in pairs(tinctureBuffs) do
-			modDB:AddList(buffModList)
-		end
-		if modDB:Flag(nil, "TinctureRangedWeapons") then
-			for key, buffModList in pairs(tinctureBuffs) do
-				for _, buff in ipairs(buffModList) do
-					if band(buff.flags, ModFlag.WeaponMelee) == ModFlag.WeaponMelee then
-						newMod = copyTable(buff, true)
-						newMod.flags = bor(band(newMod.flags, bnot(ModFlag.WeaponMelee)), ModFlag.WeaponRanged)
-						modDB:AddList({newMod})
-					end
-				end
-			end
-		end
-	end
-
 	if env.mode_combat then
 		-- This needs to be done in 2 steps to account for effects affecting life recovery from flasks
 		-- For example Sorrow of the Divine and buffs (like flask recovery watchers eye)
 		mergeFlasks(env.flasks, false, true)
 		mergeCharms(env.charms)
-		mergeTinctures(env.tinctures)
 
 		-- Merge keystones again to catch any that were added by flasks
 		mergeKeystones(env)
@@ -1803,7 +1744,7 @@ function calcs.perform(env, skipEHP)
 		for _, value in ipairs(modDB:Tabulate("INC", nil, "Mana")) do
 			local mod = value.mod
 			local modifiers = calcLib.getConvertedModTags(mod, multiplier)
-			modDB:NewMod("EnemyShockEffect", "INC", m_floor(mod.value * multiplier), mod.source, mod.flags, mod.keywordFlags, unpack(modifiers))
+			modDB:NewMod("EnemyShockMagnitude", "INC", m_floor(mod.value * multiplier), mod.source, mod.flags, mod.keywordFlags, unpack(modifiers))
 		end
 	end
 
@@ -2671,12 +2612,9 @@ function calcs.perform(env, skipEHP)
 			local dmgPerAffliction = modDB:Sum("BASE", nil, "PerAfflictionAilmentDamage")
 			local effectPerAffliction = modDB:Sum("BASE", nil, "PerAfflictionNonDamageEffect")
 			modDB:NewMod("Damage", "MORE", dmgPerAffliction, "Affliction Charges", 0, KeywordFlag.Ailment, { type = "Multiplier", var = "AfflictionCharge" } )
-			modDB:NewMod("EnemyChillEffect", "MORE", effectPerAffliction, "Affliction Charges", { type = "Multiplier", var = "AfflictionCharge" } )
-			modDB:NewMod("EnemyShockEffect", "MORE", effectPerAffliction, "Affliction Charges", { type = "Multiplier", var = "AfflictionCharge" } )
+			modDB:NewMod("EnemyChillMagnitude", "MORE", effectPerAffliction, "Affliction Charges", { type = "Multiplier", var = "AfflictionCharge" } )
+			modDB:NewMod("EnemyShockMagnitude", "MORE", effectPerAffliction, "Affliction Charges", { type = "Multiplier", var = "AfflictionCharge" } )
 			modDB:NewMod("EnemyFreezeEffect", "MORE", effectPerAffliction, "Affliction Charges", { type = "Multiplier", var = "AfflictionCharge" } )
-			modDB:NewMod("EnemyScorchEffect", "MORE", effectPerAffliction, "Affliction Charges", { type = "Multiplier", var = "AfflictionCharge" } )
-			modDB:NewMod("EnemyBrittleEffect", "MORE", effectPerAffliction, "Affliction Charges", { type = "Multiplier", var = "AfflictionCharge" } )
-			modDB:NewMod("EnemySapEffect", "MORE", effectPerAffliction, "Affliction Charges", { type = "Multiplier", var = "AfflictionCharge" } )
 		end
 	end
 
@@ -3028,34 +2966,6 @@ function calcs.perform(env, skipEHP)
 					t_insert(mods, modLib.createMod("DamageTaken", "INC", num, "Shock", { type = "Condition", var = "Shocked" }))
 				end
 				return mods 
-			end
-		},
-		["Scorch"] = {
-			condition = "Scorched",
-			mods = function(num)
-				local mods = { }
-				if modDB:Flag(nil, "ScorchCanStack") then
-					t_insert(mods, modLib.createMod("ElementalResist", "BASE", -num, "Scorch", { type = "Condition", var = "Scorched" }, { type = "Multiplier", var = "ScorchStacks", limit = modDB:Override(nil, "ScorchStacksMax") or modDB:Sum("BASE", nil, "ScorchStacksMax")}))
-					output["CurrentScorch"] = num * m_min(enemyDB:Sum("BASE", nil, "Multiplier:ScorchStacks"), modDB:Override(nil, "ScorchStacksMax") or modDB:Sum("BASE", nil, "ScorchStacksMax"))
-					if breakdown then
-						t_insert(mods, modLib.createMod("ElementalResistByScorch", "BASE", -num, "Scorch Stacks", { type = "Condition", var = "Scorched" }, { type = "Multiplier", var = "ScorchStacks", limit = modDB:Override(nil, "ScorchStacksMax") or modDB:Sum("BASE", nil, "ScorchStacksMax")}))
-					end
-				else 
-					t_insert(mods, modLib.createMod("ElementalResist", "BASE", -num, "Scorch", { type = "Condition", var = "Scorched" }))
-				end
-				return mods 
-			end
-		},
-		["Brittle"] = {
-			condition = "Brittle",
-			mods = function(num)
-				return { modLib.createMod("SelfCritChance", "BASE", num, "Brittle", { type = "Condition", var = "Brittle" }) }
-			end
-		},
-		["Sap"] = {
-			condition = "Sapped",
-			mods = function(num)
-				return { modLib.createMod("Damage", "MORE", -num, "Sap", { type = "Condition", var = "Sapped" }) }
 			end
 		},
 	}

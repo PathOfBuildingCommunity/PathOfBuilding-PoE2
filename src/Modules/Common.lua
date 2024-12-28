@@ -948,3 +948,8 @@ function ImportBuild(importLink, callback)
 		callback(Inflate(common.base64.decode(importLink:gsub("-", "+"):gsub("_", "/"))), nil)
 	end
 end
+
+function escapeGGGString(text)
+	local line = text:gsub("%[([^|%]]+)%]", "%1"):gsub("%[[^|]+|([^|]+)%]", "%1")
+	return line
+end

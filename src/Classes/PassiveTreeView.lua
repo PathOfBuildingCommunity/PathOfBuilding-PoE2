@@ -332,13 +332,6 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 				build.itemsTab:SelectControl(slot)
 				build.viewMode = "ITEMS"
 			end
-		elseif hoverNode and (hoverNode.isTattoo
-			or (hoverNode.type == "Normal" and (hoverNode.dn == "Strength" or hoverNode.dn == "Dexterity" or hoverNode.dn == "Intelligence"))
-			or (hoverNode.type == "Notable" and #hoverNode.sd > 0 and (hoverNode.sd[1]:match("+30 to Dexterity") or hoverNode.sd[1]:match("+30 to Strength") or hoverNode.sd[1]:match("+30 to Intelligence")))
-			or hoverNode.type == "Keystone")
-		then
-			build.treeTab:ModifyNodePopup(hoverNode, viewPort)
-			build.buildFlag = true
 		elseif hoverNode and hoverNode.alloc and hoverNode.type == "Mastery" and hoverNode.masteryEffects then
 			if not tree:IsPobGenerate() then
 				build.treeTab:OpenMasteryPopup(hoverNode, viewPort)
@@ -606,10 +599,6 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 				SetDrawLayer(nil, 15)
 			else
 				-- Normal node (includes keystones and notables)
-				if node.isTattoo and node.effectSprites then -- trees < 3.22.0 don't have effectSprites
-					effect = node.effectSprites["tattooActiveEffect"]
-				end
-
 				if node.activeEffectImage then
 					effect = tree:GetAssetByName(node.activeEffectImage, "masteryActiveEffect")
 				end
@@ -703,7 +692,7 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 			end
 		end
 
-		-- Draw mastery/tattoo effect artwork
+		-- Draw mastery effect artwork
 		if effect then
 			if node.targetSize and node.targetSize["effect"] then
 				effect.width = node.targetSize["effect"].width
@@ -1240,16 +1229,6 @@ function PassiveTreeViewClass:AddNodeTooltip(tooltip, node, build)
 		for _, line in ipairs(node.reminderText) do
 			tooltip:AddLine(14, "^xA0A080"..line)
 		end
-	end
-
-	-- Tattoo Editing
-	if node and (node.isTattoo
-			or (node.type == "Normal" and (node.dn == "Strength" or node.dn == "Dexterity" or node.dn == "Intelligence"))
-			or (node.type == "Notable" and #node.sd > 0 and (node.sd[1]:match("+30 to Dexterity") or node.sd[1]:match("+30 to Strength") or node.sd[1]:match("+30 to Intelligence")))
-			or node.type == "Keystone")
-	then
-		tooltip:AddSeparator(14)
-		tooltip:AddLine(14, colorCodes.TIP.."Tip: Right click to edit the tattoo for this node")
 	end
 
 	-- Mod differences

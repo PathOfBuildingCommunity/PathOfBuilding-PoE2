@@ -945,6 +945,7 @@ skills["HeraldOfThunderPlayer"] = {
 		["Two Handed Sword"] = true,
 		["Dagger"] = true,
 		["Claw"] = true,
+		["Crossbow"] = true,
 		["Two Handed Axe"] = true,
 		["Two Handed Mace"] = true,
 		["One Handed Axe"] = true,
@@ -2340,17 +2341,17 @@ skills["SpiralVolleyPlayer"] = {
 	},
 	statDescriptionScope = "spiral_volley",
 	castTime = 1,
-    statMap = {
-        ["spiral_volley_damage_+%_final_when_frenzy_charges_consumed"] = {
-            mod("Damage", "MORE", nil, 0, 0, { type = "Multiplier", var = "RemovableFrenzyCharge", limit = 1}),
-        },
-        ["spiral_volley_damage_+%_final_per_frenzy_charge_consumed"] = {
-            mod("Damage", "MORE", nil, 0, 0, { type = "Multiplier", var = "RemovableFrenzyCharge" }),
-        },
-        ["spiral_volley_X_chains_per_frenzy_charge_consumed"] = {
-            mod("ChainsCountMax", "BASE", nil, 0, 0, { type = "Multiplier", var = "RemovableFrenzyCharge" }),
-        },
-    },
+	statMap = {
+		["spiral_volley_damage_+%_final_when_frenzy_charges_consumed"] = {
+			mod("Damage", "MORE", nil, 0, 0, { type = "Multiplier", var = "RemovableFrenzyCharge", limit = 1 }),
+		},
+		["spiral_volley_damage_+%_final_per_frenzy_charge_consumed"] = {
+			mod("Damage", "MORE", nil, 0, 0, { type = "Multiplier", var = "RemovableFrenzyCharge" }),
+		},
+		["spiral_volley_X_chains_per_frenzy_charge_consumed"] = {
+			mod("ChainCountMax", "BASE", nil, 0, 0, { type = "Multiplier", var = "RemovableFrenzyCharge" }),
+		},
+	},
 	baseFlags = {
 		attack = true,
 		projectile = true,
@@ -3162,6 +3163,7 @@ skills["WindDancerPlayer"] = {
 		["Two Handed Sword"] = true,
 		["Dagger"] = true,
 		["Claw"] = true,
+		["Crossbow"] = true,
 		["Two Handed Axe"] = true,
 		["Two Handed Mace"] = true,
 		["One Handed Axe"] = true,
@@ -3248,6 +3250,7 @@ skills["TriggeredWindDancerPlayer"] = {
 		["Two Handed Sword"] = true,
 		["Dagger"] = true,
 		["Claw"] = true,
+		["Crossbow"] = true,
 		["Two Handed Axe"] = true,
 		["Two Handed Mace"] = true,
 		["One Handed Axe"] = true,
