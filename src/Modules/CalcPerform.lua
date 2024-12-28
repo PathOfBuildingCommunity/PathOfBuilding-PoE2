@@ -3233,5 +3233,9 @@ function calcs.perform(env, skipEHP)
 		end
 	end
 
+	-- We need to recalculate Spirit, Some Passive tree work with defences stats (Evasion, Energy Shield) from items
+	doActorLifeManaSpirit(env.player)
+	doActorLifeManaSpiritReservation(env.player)
+
 	cacheData(cacheSkillUUID(env.player.mainSkill, env), env)
 end

@@ -1367,6 +1367,8 @@ local modTagList = {
 	["per (%d+) maximum energy shield on helmet"] = function(num) return { tag = { type = "PerStat", stat = "EnergyShieldOnHelmet", div = num } } end,
 	["per (%d+) evasion rating on body armour"] = function(num) return { tag = { type = "PerStat", stat = "EvasionOnBody Armour", div = num } } end,
 	["per (%d+) evasion rating on equipped body armour"] = function(num) return { tag = { type = "PerStat", stat = "EvasionOnBody Armour", div = num } } end,
+	["for every (%d+) evasion rating on equipped body armour"] = function(num) return { tag = { type = "PerStat", stat = "EvasionOnBody Armour", div = num } } end,
+	["for every (%d+) energy shield on equipped body armour"] = function(num) return { tag = { type = "PerStat", stat = "EnergyShieldOnBody Armour", div = num } } end,
 	["per (%d+) armour on equipped shield"] = function(num) return { tag = { type = "PerStat", stat = "ArmourOnWeapon 2", div = num } } end,
 	["per (%d+) armour or evasion rating on shield"] = function(num) return { tag = { type = "PerStat", statList = { "ArmourOnWeapon 2", "EvasionOnWeapon 2" }, div = num } } end,
 	["per (%d+) armour or evasion rating on equipped shield"] = function(num) return { tag = { type = "PerStat", statList = { "ArmourOnWeapon 2", "EvasionOnWeapon 2" }, div = num } } end,
@@ -4181,6 +4183,7 @@ local specialModList = {
 	["cannot gain energy shield during f?l?a?s?k? ?effect"] = { flag("CannotGainEnergyShield", { type = "Condition", var = "UsingFlask" }) },
 	["cannot gain life during f?l?a?s?k? ?effect"] = { flag("CannotGainLife", { type = "Condition", var = "UsingFlask" }) },
 	["cannot gain mana during f?l?a?s?k? ?effect"] = { flag("CannotGainMana", { type = "Condition", var = "UsingFlask" }) },
+	["cannot gain spirit from equipment"] = { flag("CannotGainSpiritFromEquipment")},
 	["life that would be lost by taking damage is instead reserved"] = { flag("DamageInsteadReservesLife") },
 	["you have no armour or energy shield"] = {
 		mod("Armour", "MORE", -100),

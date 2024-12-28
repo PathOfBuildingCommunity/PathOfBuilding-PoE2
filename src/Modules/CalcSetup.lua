@@ -608,6 +608,8 @@ function calcs.initEnv(build, mode, override, specEnv)
 		env.allocNodes = nodes
 	end
 
+	local nodesModsList = calcs.buildModListForNodeList(env, env.allocNodes, true)
+
 	if allocatedNotableCount and allocatedNotableCount > 0 then
 		modDB:NewMod("Multiplier:AllocatedNotable", "BASE", allocatedNotableCount)
 	end
@@ -832,6 +834,18 @@ function calcs.initEnv(build, mode, override, specEnv)
 				env.player.itemList[slotName] = item
 				-- Merge mods for this item
 				local srcList = item.modList or (item.slotModList and item.slotModList[slot.slotNum]) or {}
+
+				-- Remove Spirit Base if CannotGainSpiritFromEquipment flag is true
+				if nodesModsList:Flag(nil, "CannotGainSpiritFromEquipment") then
+					srcList = copyTable(srcList, true)
+					for index = #srcList, 1, -1 do
+						local mod = srcList[index]
+						if mod.name == "Spirit" and mod.type == "BASE" then
+							t_remove(srcList, index)
+						end
+					end
+				end
+
 				if item.requirements and not accelerate.requirementsItems then
 					t_insert(env.requirementsTableItems, {
 						source = "Item",
@@ -1036,7 +1050,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 				if item.charmLimit then
 					env.modDB:NewMod("CharmLimit", "BASE", item.charmLimit, item.title)
 				end
-				if item.spiritValue then
+				if item.spiritValue and not nodesModsList:Flag(nil, "CannotGainSpiritFromEquipment") then
 					env.modDB:NewMod("Spirit", "BASE", item.spiritValue, item.title)
 				end
 				if item.type ~= "Jewel" and item.type ~= "Flask" and item.type ~= "Charm" then
@@ -1137,7 +1151,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 	end
 
 	-- Merge modifiers for allocated passives
-	env.modDB:AddList(calcs.buildModListForNodeList(env, env.allocNodes, true))
+	env.modDB:AddList(nodesModsList)
 
 	if not override or (override and not override.extraJewelFuncs) then
 		override = override or {}
