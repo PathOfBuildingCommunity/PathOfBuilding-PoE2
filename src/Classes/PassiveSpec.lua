@@ -158,7 +158,7 @@ function PassiveSpecClass:Load(xml, dbFileName)
 				end
 			end
 		end
-		self:ImportFromNodeList(tonumber(xml.attrib.classId), tonumber(xml.attrib.ascendClassId), tonumber(xml.attrib.secondaryAscendClassId or 0), hashList, self.hashOverrides, masteryEffects)
+		self:ImportFromNodeList(tonumber(xml.attrib.classId), tonumber(xml.attrib.ascendClassId), tonumber(xml.attrib.secondaryAscendClassId or 0), hashList,	copyTable(self.hashOverrides, true), masteryEffects)
 	elseif url then
 		self:DecodeURL(url)
 	end
@@ -2028,13 +2028,7 @@ function PassiveSpecClass:SwitchAttributeNode(nodeId, attributeIndex)
 	if not newNode.isAttribute then return end -- safety check
 	
 	local option = newNode.options[attributeIndex]
-	local attribute = option.name
-	
-	newNode.dn = attribute
-	newNode.icon = "Art/2DArt/SkillIcons/passives/plus"..string.lower(attribute)..".dds"
-	newNode.sprites = self.tree.spriteMap[newNode.icon]
-	newNode.activeEffectImage = self.tree.spriteMap[newNode.icon]
-	self:NodeAdditionOrReplacementFromString(newNode, option.stats[1], true)
+	self:ReplaceNode(newNode, option)
 	
 	self.hashOverrides[nodeId] = newNode
 end

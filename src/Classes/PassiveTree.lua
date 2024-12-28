@@ -608,6 +608,10 @@ function PassiveTreeClass:ProcessNode(node)
 	-- if this node isSwtichable then parse also subnodes
 	if node.isSwitchable or node.isAttribute then
 		for class, switchNode in pairs(node.options) do
+			setmetatable(switchNode, { __index = node })
+			if node.isAttribute then
+				switchNode.id = node.id
+			end
 			switchNode.dn = switchNode.name
 			switchNode.sd = switchNode.stats
 			switchNode.sprites = self.spriteMap[switchNode.icon]
