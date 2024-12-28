@@ -2752,36 +2752,38 @@ function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode)
 				local esGrad = base * output.EnergyShieldRecoveryRateMod
 				lifeDur = flaskData.duration * (1 + durInc / 100) / (1 + rateInc / 100) / (1 + lifeRateInc / 100)
 
-				-- LocalLifeFlaskAdditionalLifeRecovery flask mods
-				if flaskData.lifeAdditional > 0 and not self.build.configTab.input.conditionFullLife then
-					local totalAdditionalAmount = (flaskData.lifeAdditional/100) * flaskData.lifeTotal * output.LifeRecoveryRateMod
-					local additionalGrad = (lifeDur/10) * totalAdditionalAmount
-					local leftoverDur = 10 - lifeDur
-					local leftoverAmount = totalAdditionalAmount - additionalGrad
+				if not modDB:Flag(nil, "LifeFlaskDoesNotApply") then
+					-- LocalLifeFlaskAdditionalLifeRecovery flask mods
+					if flaskData.lifeAdditional > 0 and not self.build.configTab.input.conditionFullLife then
+						local totalAdditionalAmount = (flaskData.lifeAdditional/100) * flaskData.lifeTotal * output.LifeRecoveryRateMod
+						local additionalGrad = (lifeDur/10) * totalAdditionalAmount
+						local leftoverDur = 10 - lifeDur
+						local leftoverAmount = totalAdditionalAmount - additionalGrad
 
-					if inst > 0 then
-						if grad > 0 then
-							t_insert(stats, s_format("^8Life recovered: ^7%d ^8(^7%d^8 instantly, plus ^7%d ^8over^7 %.2fs^8, and an additional ^7%d ^8over subsequent ^7%.2fs^8)",
-									inst + grad + totalAdditionalAmount, inst, grad + additionalGrad, lifeDur, leftoverAmount, leftoverDur))
+						if inst > 0 then
+							if grad > 0 then
+								t_insert(stats, s_format("^8Life recovered: ^7%d ^8(^7%d^8 instantly, plus ^7%d ^8over^7 %.2fs^8, and an additional ^7%d ^8over subsequent ^7%.2fs^8)",
+										inst + grad + totalAdditionalAmount, inst, grad + additionalGrad, lifeDur, leftoverAmount, leftoverDur))
+							else
+								lifeDur = 0
+								t_insert(stats, s_format("^8Life recovered: ^7%d ^8(^7%d^8 instantly, and an additional ^7%d ^8over ^7%.2fs^8)",
+										inst + totalAdditionalAmount, inst, totalAdditionalAmount, 10))
+							end
 						else
-							lifeDur = 0
-							t_insert(stats, s_format("^8Life recovered: ^7%d ^8(^7%d^8 instantly, and an additional ^7%d ^8over ^7%.2fs^8)",
-									inst + totalAdditionalAmount, inst, totalAdditionalAmount, 10))
+							t_insert(stats, s_format("^8Life recovered: ^7%d ^8(^7%d ^8over ^7%.2fs^8, and an additional ^7%d ^8over subsequent ^7%.2fs^8)",
+							grad + totalAdditionalAmount, grad + additionalGrad, lifeDur, leftoverAmount, leftoverDur))
 						end
 					else
-						t_insert(stats, s_format("^8Life recovered: ^7%d ^8(^7%d ^8over ^7%.2fs^8, and an additional ^7%d ^8over subsequent ^7%.2fs^8)",
-						grad + totalAdditionalAmount, grad + additionalGrad, lifeDur, leftoverAmount, leftoverDur))
-					end
-				else
-					if inst > 0 and grad > 0 then
-						t_insert(stats, s_format("^8Life recovered: ^7%d ^8(^7%d^8 instantly, plus ^7%d ^8over^7 %.2fs^8)", inst + grad, inst, grad, lifeDur))
-					-- modifiers to recovery amount or duration
-					elseif inst + grad ~= flaskData.lifeTotal or (inst == 0 and lifeDur ~= flaskData.duration) then
-						if inst > 0 then
-							lifeDur = 0
-							t_insert(stats, s_format("^8Life recovered: ^7%d ^8instantly", inst))
-						elseif grad > 0 then
-							t_insert(stats, s_format("^8Life recovered: ^7%d ^8over ^7%.2fs", grad, lifeDur))
+						if inst > 0 and grad > 0 then
+							t_insert(stats, s_format("^8Life recovered: ^7%d ^8(^7%d^8 instantly, plus ^7%d ^8over^7 %.2fs^8)", inst + grad, inst, grad, lifeDur))
+						-- modifiers to recovery amount or duration
+						elseif inst + grad ~= flaskData.lifeTotal or (inst == 0 and lifeDur ~= flaskData.duration) then
+							if inst > 0 then
+								lifeDur = 0
+								t_insert(stats, s_format("^8Life recovered: ^7%d ^8instantly", inst))
+							elseif grad > 0 then
+								t_insert(stats, s_format("^8Life recovered: ^7%d ^8over ^7%.2fs", grad, lifeDur))
+							end
 						end
 					end
 				end
@@ -2797,10 +2799,11 @@ function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode)
 			end
 			if item.base.flask.mana then
 				local manaInc = modDB:Sum("INC", nil, "FlaskManaRecovery")
+				local manaMore = modDB:More(nil, "FlaskManaRecovery")
 				local manaRateInc = modDB:Sum("INC", nil, "FlaskManaRecoveryRate")
 				local instantPerc = flaskData.instantPerc + modDB:Sum("BASE", nil, "ManaFlaskInstantRecovery")
-				local inst = flaskData.manaBase * instantPerc / 100 * (1 + manaInc / 100) * (1 + effectInc / 100)
-				local base = flaskData.manaBase * (1 - instantPerc / 100) * (1 + manaInc / 100) * (1 + effectInc / 100) * (1 + durInc / 100)
+				local inst = flaskData.manaBase * instantPerc / 100 * (1 + manaInc / 100) * manaMore * (1 + effectInc / 100)
+				local base = flaskData.manaBase * (1 - instantPerc / 100) * (1 + manaInc / 100) * manaMore * (1 + effectInc / 100) * (1 + durInc / 100)
 				local grad = base * output.ManaRecoveryRateMod
 				local lifeGrad = base * output.LifeRecoveryRateMod
 				manaDur = flaskData.duration * (1 + durInc / 100) / (1 + rateInc / 100) / (1 + manaRateInc / 100)
