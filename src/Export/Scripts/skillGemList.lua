@@ -10,7 +10,7 @@ local export = false
 local types = { "Strength", "Dexterity", "Intelligence", "Other" }
 
 local function grantedEffectString(grantedEffect) 
-	local s =  "#skill "..grantedEffect.Id.."\n"
+	local s =  "#skill "..grantedEffect.Id.."\n#startSets\n"
 	for _, statSet in ipairs(tableConcat({grantedEffect.GrantedEffectStatSets}, grantedEffect.AdditionalStatSets)) do
 		s = s.."#set "..statSet.Id.."\n#flags\n#mods\n"
 	end

@@ -6,84 +6,98 @@
 local skills, mod, flag, skill = ...
 
 #skill ArcPlayer
+#startSets
 #set ArcPlayer
 #flags
 #mods
 #skillEnd
 
 #skill ArchmagePlayer
+#startSets
 #set ArchmagePlayer
 #flags
 #mods
 #skillEnd
 
 #skill ArcticArmourPlayer
+#startSets
 #set ArcticArmourPlayer
 #flags
 #mods
 #skillEnd
 
 #skill BallLightningPlayer
+#startSets
 #set BallLightningPlayer
 #flags
 #mods
 #skillEnd
 
 #skill MetaBarrierInvocationPlayer
+#startSets
 #set MetaBarrierInvocationPlayer
 #flags
 #mods
 #skillEnd
 
 #skill SupportBarrierInvocationPlayer
+#startSets
 #set SupportBarrierInvocationPlayer
 #flags
 #mods
 #skillEnd
 
 #skill BlasphemyPlayer
+#startSets
 #set BlasphemyPlayer
 #flags
 #mods
 #skillEnd
 
 #skill SupportBlasphemyPlayer
+#startSets
 #set SupportBlasphemyPlayer
 #flags
 #mods
 #skillEnd
 
 #skill BlinkReservationPlayer
+#startSets
 #set BlinkReservationPlayer
 #flags
 #mods
 #skillEnd
 
 #skill BlinkPlayer
+#startSets
 #set BlinkPlayer
 #flags
 #mods
 #skillEnd
 
 #skill BoneBlastPlayer
+#startSets
 #set BoneBlastPlayer
 #flags
 #mods
 #skillEnd
 
 #skill BoneCagePlayer
+#startSets
 #set BoneCagePlayer
 #flags
 #mods
 #skillEnd
 
 #skill BoneOfferingPlayer
+#startSets
 #set BoneOfferingPlayer
 #flags
 #mods
 #skillEnd
 
 #skill BonestormPlayer
+#startSets
 #set BonestormPlayer
 #flags
 #mods
@@ -93,150 +107,175 @@ local skills, mod, flag, skill = ...
 #skillEnd
 
 #skill MetaCastOnCritPlayer
+#startSets
 #set MetaCastOnCritPlayer
 #flags
 #mods
 #skillEnd
 
 #skill SupportMetaCastOnCritPlayer
+#startSets
 #set SupportMetaCastOnCritPlayer
 #flags
 #mods
 #skillEnd
 
 #skill MetaCastOnDeathPlayer
+#startSets
 #set MetaCastOnDeathPlayer
 #flags
 #mods
 #skillEnd
 
 #skill SupportMetaCastOnDeathPlayer
+#startSets
 #set SupportMetaCastOnDeathPlayer
 #flags
 #mods
 #skillEnd
 
 #skill MetaCastOnDodgePlayer
+#startSets
 #set MetaCastOnDodgePlayer
 #flags
 #mods
 #skillEnd
 
 #skill SupportMetaCastOnDodgePlayer
+#startSets
 #set SupportMetaCastOnDodgePlayer
 #flags
 #mods
 #skillEnd
 
 #skill MetaCastOnFreezePlayer
+#startSets
 #set MetaCastOnFreezePlayer
 #flags
 #mods
 #skillEnd
 
 #skill SupportMetaCastOnFreezePlayer
+#startSets
 #set SupportMetaCastOnFreezePlayer
 #flags
 #mods
 #skillEnd
 
 #skill MetaCastOnIgnitePlayer
+#startSets
 #set MetaCastOnIgnitePlayer
 #flags
 #mods
 #skillEnd
 
 #skill SupportMetaCastOnIgnitePlayer
+#startSets
 #set SupportMetaCastOnIgnitePlayer
 #flags
 #mods
 #skillEnd
 
 #skill MetaCastOnMinionDeathPlayer
+#startSets
 #set MetaCastOnMinionDeathPlayer
 #flags
 #mods
 #skillEnd
 
 #skill SupportMetaCastOnMinionDeathPlayer
+#startSets
 #set SupportMetaCastOnMinionDeathPlayer
 #flags
 #mods
 #skillEnd
 
 #skill MetaCastOnShockPlayer
+#startSets
 #set MetaCastOnShockPlayer
 #flags
 #mods
 #skillEnd
 
 #skill SupportMetaCastOnShockPlayer
+#startSets
 #set SupportMetaCastOnShockPlayer
 #flags
 #mods
 #skillEnd
 
 #skill WeaponGrantedChaosboltPlayer
+#startSets
 #set WeaponGrantedChaosboltPlayer
 #flags
 #mods
 #skillEnd
 
 #skill ChargeInfusionPlayer
+#startSets
 #set ChargeInfusionPlayer
 #flags
 #mods
 #skillEnd
 
 #skill ChargedStaffPlayer
+#startSets
 #set ChargedStaffPlayer
 #flags
 #mods
 #skillEnd
 
 #skill ChargedStaffShockwavePlayer
+#startSets
 #set ChargedStaffShockwavePlayer
 #flags
 #mods
 #skillEnd
 
 #skill ColdSnapPlayer
+#startSets
 #set ColdSnapPlayer
 #flags
 #mods
 #skillEnd
 
 #skill CometPlayer
+#startSets
 #set CometPlayer
 #flags
 #mods
 #skillEnd
 
 #skill ConductivityPlayer
+#startSets
 #set ConductivityPlayer
 #flags
 #mods
 #skillEnd
 
 #skill ContagionPlayer
+#startSets
 #set ContagionPlayer
 #flags
 #mods
 #skillEnd
 
 #skill DarkEffigyPlayer
+#startSets
 #set DarkEffigyPlayer
 #flags
 #mods
 #skillEnd
 
 #skill DarkEffigyProjectilePlayer
+#startSets
 #set DarkEffigyProjectilePlayer
 #flags
 #mods
 #skillEnd
 
 #skill CorpseCloudPlayer
+#startSets
 #set CorpseCloudPlayer
 #flags
 #mods
@@ -246,42 +285,49 @@ local skills, mod, flag, skill = ...
 #skillEnd
 
 #skill DespairPlayer
+#startSets
 #set DespairPlayer
 #flags
 #mods
 #skillEnd
 
 #skill DetonateDeadPlayer
+#startSets
 #set DetonateDeadPlayer
 #flags
 #mods
 #skillEnd
 
 #skill DisciplinePlayer
+#startSets
 #set DisciplinePlayer
 #flags
 #mods
 #skillEnd
 
 #skill ElementalConfluxPlayer
+#startSets
 #set ElementalConfluxPlayer
 #flags
 #mods
 #skillEnd
 
 #skill MetaElementalInvocationPlayer
+#startSets
 #set MetaElementalInvocationPlayer
 #flags
 #mods
 #skillEnd
 
 #skill SupportElementalInvocationPlayer
+#startSets
 #set SupportElementalInvocationPlayer
 #flags
 #mods
 #skillEnd
 
 #skill BlazingClusterPlayer
+#startSets
 #set BlazingClusterPlayer
 #flags
 #mods
@@ -291,12 +337,14 @@ local skills, mod, flag, skill = ...
 #skillEnd
 
 #skill EnfeeblePlayer
+#startSets
 #set EnfeeblePlayer
 #flags
 #mods
 #skillEnd
 
 #skill EssenceDrainPlayer
+#startSets
 #set EssenceDrainPlayer
 #flags
 #mods
@@ -306,12 +354,14 @@ local skills, mod, flag, skill = ...
 #skillEnd
 
 #skill EyeOfWinterPlayer
+#startSets
 #set EyeOfWinterPlayer
 #flags
 #mods
 #skillEnd
 
 #skill FallingThunderPlayer
+#startSets
 #set FallingThunderPlayer
 #flags
 #mods
@@ -321,6 +371,7 @@ local skills, mod, flag, skill = ...
 #skillEnd
 
 #skill FireballPlayer
+#startSets
 #set FireballPlayer
 #flags
 #mods
@@ -333,6 +384,7 @@ local skills, mod, flag, skill = ...
 #skillEnd
 
 #skill FireboltPlayer
+#startSets
 #set FireboltPlayer
 #flags
 #mods
@@ -342,6 +394,7 @@ local skills, mod, flag, skill = ...
 #skillEnd
 
 #skill FirestormPlayer
+#startSets
 #set FirestormPlayer
 #flags
 #mods
@@ -351,6 +404,7 @@ local skills, mod, flag, skill = ...
 #skillEnd
 
 #skill FlameWallPlayer
+#startSets
 #set FlameWallPlayer
 #flags
 #mods
@@ -360,60 +414,70 @@ local skills, mod, flag, skill = ...
 #skillEnd
 
 #skill FlameblastPlayer
+#startSets
 #set FlameblastPlayer
 #flags
 #mods
 #skillEnd
 
 #skill FlammabilityPlayer
+#startSets
 #set FlammabilityPlayer
 #flags
 #mods
 #skillEnd
 
 #skill FlickerStrikePlayer
+#startSets
 #set FlickerStrikePlayer
 #flags
 #mods
 #skillEnd
 
 #skill FreezingMarkPlayer
+#startSets
 #set FreezingMarkPlayer
 #flags
 #mods
 #skillEnd
 
 #skill TriggeredFreezingMarkNovaPlayer
+#startSets
 #set TriggeredFreezingMarkNovaPlayer
 #flags
 #mods
 #skillEnd
 
 #skill FreezingShardsPlayer
+#startSets
 #set FreezingShardsPlayer
 #flags
 #mods
 #skillEnd
 
 #skill FrostBombPlayer
+#startSets
 #set FrostBombPlayer
 #flags
 #mods
 #skillEnd
 
 #skill FrostWallPlayer
+#startSets
 #set FrostWallPlayer
 #flags
 #mods
 #skillEnd
 
 #skill HypothermiaPlayer
+#startSets
 #set HypothermiaPlayer
 #flags
 #mods
 #skillEnd
 
 #skill FrostboltPlayer
+#startSets
 #set FrostboltPlayer
 #flags
 #mods
@@ -423,6 +487,7 @@ local skills, mod, flag, skill = ...
 #skillEnd
 
 #skill FrozenLocusPlayer
+#startSets
 #set FrozenLocusPlayer
 #flags
 #mods
@@ -432,18 +497,21 @@ local skills, mod, flag, skill = ...
 #skillEnd
 
 #skill FrozenLocusExplodePlayer
+#startSets
 #set FrozenLocusExplodePlayer
 #flags
 #mods
 #skillEnd
 
 #skill GalvanicFieldPlayer
+#startSets
 #set GalvanicFieldPlayer
 #flags
 #mods
 #skillEnd
 
 #skill GatheringStormPlayer
+#startSets
 #set GatheringStormPlayer
 #flags
 #mods
@@ -456,12 +524,14 @@ local skills, mod, flag, skill = ...
 #skillEnd
 
 #skill GhostDancePlayer
+#startSets
 #set GhostDancePlayer
 #flags
 #mods
 #skillEnd
 
 #skill GlacialCascadePlayer
+#startSets
 #set GlacialCascadePlayer
 #flags
 #mods
@@ -471,24 +541,28 @@ local skills, mod, flag, skill = ...
 #skillEnd
 
 #skill GrimFeastPlayer
+#startSets
 #set GrimFeastPlayer
 #flags
 #mods
 #skillEnd
 
 #skill HandOfChayulaPlayer
+#startSets
 #set HandOfChayulaPlayer
 #flags
 #mods
 #skillEnd
 
 #skill SupportHandOfChayulaPlayer
+#startSets
 #set SupportHandOfChayulaPlayer
 #flags
 #mods
 #skillEnd
 
 #skill HeraldOfIcePlayer
+#startSets
 #set HeraldOfIcePlayer
 #flags
 #mods
@@ -498,12 +572,14 @@ local skills, mod, flag, skill = ...
 #skillEnd
 
 #skill HexblastPlayer
+#startSets
 #set HexblastPlayer
 #flags
 #mods
 #skillEnd
 
 #skill IceNovaPlayer
+#startSets
 #set IceNovaPlayer
 #flags
 #mods
@@ -513,6 +589,7 @@ local skills, mod, flag, skill = ...
 #skillEnd
 
 #skill IceStrikePlayer
+#startSets
 #set IceStrikePlayer
 #flags
 #mods
@@ -522,6 +599,7 @@ local skills, mod, flag, skill = ...
 #skillEnd
 
 #skill IncineratePlayer
+#startSets
 #set IncineratePlayer
 #flags
 #mods
@@ -531,174 +609,203 @@ local skills, mod, flag, skill = ...
 #skillEnd
 
 #skill KillingPalmPlayer
+#startSets
 #set KillingPalmPlayer
 #flags
 #mods
 #skillEnd
 
 #skill LightningBoltPlayer
+#startSets
 #set LightningBoltPlayer
 #flags
 #mods
 #skillEnd
 
 #skill LightningConduitPlayer
+#startSets
 #set LightningConduitPlayer
 #flags
 #mods
 #skillEnd
 
 #skill LightningWarpPlayer
+#startSets
 #set LightningWarpPlayer
 #flags
 #mods
 #skillEnd
 
 #skill LingeringIllusionPlayer
+#startSets
 #set LingeringIllusionPlayer
 #flags
 #mods
 #skillEnd
 
 #skill LingeringIllusionSpawnPlayer
+#startSets
 #set LingeringIllusionSpawnPlayer
 #flags
 #mods
 #skillEnd
 
 #skill LivingBombPlayer
+#startSets
 #set LivingBombPlayer
 #flags
 #mods
 #skillEnd
 
 #skill MalicePlayer
+#startSets
 #set MalicePlayer
 #flags
 #mods
 #skillEnd
 
 #skill ManaDrainPlayer
+#startSets
 #set ManaDrainPlayer
 #flags
 #mods
 #skillEnd
 
 #skill ManaRemnantsPlayer
+#startSets
 #set ManaRemnantsPlayer
 #flags
 #mods
 #skillEnd
 
 #skill ManaTempestPlayer
+#startSets
 #set ManaTempestPlayer
 #flags
 #mods
 #skillEnd
 
 #skill MantraOfDestructionPlayer
+#startSets
 #set MantraOfDestructionPlayer
 #flags
 #mods
 #skillEnd
 
 #skill OrbOfStormsPlayer
+#startSets
 #set OrbOfStormsPlayer
 #flags
 #mods
 #skillEnd
 
 #skill PainOfferingPlayer
+#startSets
 #set PainOfferingPlayer
 #flags
 #mods
 #skillEnd
 
 #skill PowerSiphonPlayer
+#startSets
 #set PowerSiphonPlayer
 #flags
 #mods
 #skillEnd
 
 #skill ProfaneRitualPlayer
+#startSets
 #set ProfaneRitualPlayer
 #flags
 #mods
 #skillEnd
 
 #skill PurityOfFirePlayer
+#startSets
 #set PurityOfFirePlayer
 #flags
 #mods
 #skillEnd
 
 #skill PurityOfIcePlayer
+#startSets
 #set PurityOfIcePlayer
 #flags
 #mods
 #skillEnd
 
 #skill PurityOfLightningPlayer
+#startSets
 #set PurityOfLightningPlayer
 #flags
 #mods
 #skillEnd
 
 #skill RagingSpiritsPlayer
+#startSets
 #set RagingSpiritsPlayer
 #flags
 #mods
 #skillEnd
 
 #skill RaiseZombiePlayer
+#startSets
 #set RaiseZombiePlayer
 #flags
 #mods
 #skillEnd
 
 #skill MetaReapersInvocationPlayer
+#startSets
 #set MetaReapersInvocationPlayer
 #flags
 #mods
 #skillEnd
 
 #skill SupportReapersInvocationPlayer
+#startSets
 #set SupportReapersInvocationPlayer
 #flags
 #mods
 #skillEnd
 
 #skill RollingMagmaPlayer
+#startSets
 #set RollingMagmaPlayer
 #flags
 #mods
 #skillEnd
 
 #skill SacrificePlayer
+#startSets
 #set SacrificePlayer
 #flags
 #mods
 #skillEnd
 
 #skill ShatteringPalmPlayer
+#startSets
 #set ShatteringPalmPlayer
 #flags
 #mods
 #skillEnd
 
 #skill ShatteringPalmExplosionPlayer
+#startSets
 #set TriggeredFreezingWordExplosionPlayer
 #flags
 #mods
 #skillEnd
 
 #skill SigilOfPowerPlayer
+#startSets
 #set SigilOfPowerPlayer
 #flags
 #mods
 #skillEnd
 
 #skill SiphoningStrikePlayer
+#startSets
 #set SiphoningStrikePlayer
 #flags
 #mods
@@ -708,90 +815,105 @@ local skills, mod, flag, skill = ...
 #skillEnd
 
 #skill SummonSkeletalArsonistsPlayer
+#startSets
 #set SummonSkeletalArsonistsPlayer
 #flags
 #mods
 #skillEnd
 
 #skill CommandSkeletalArsonistPlayer
+#startSets
 #set CommandSkeletalArsonistPlayer
 #flags
 #mods
 #skillEnd
 
 #skill SummonSkeletalBrutesPlayer
+#startSets
 #set SummonSkeletalBrutesPlayer
 #flags
 #mods
 #skillEnd
 
 #skill SummonSkeletalClericsPlayer
+#startSets
 #set SummonSkeletalClericsPlayer
 #flags
 #mods
 #skillEnd
 
 #skill SummonSkeletalFrostMagesPlayer
+#startSets
 #set SummonSkeletalFrostMagesPlayer
 #flags
 #mods
 #skillEnd
 
 #skill CommandSkeletalFrostMagePlayer
+#startSets
 #set CommandSkeletalFrostMagePlayer
 #flags
 #mods
 #skillEnd
 
 #skill SummonSkeletalReaversPlayer
+#startSets
 #set SummonSkeletalReaversPlayer
 #flags
 #mods
 #skillEnd
 
 #skill CommandSkeletalReaversPlayer
+#startSets
 #set CommandSkeletalReaversPlayer
 #flags
 #mods
 #skillEnd
 
 #skill SummonSkeletalSnipersPlayer
+#startSets
 #set SummonSkeletalSnipersPlayer
 #flags
 #mods
 #skillEnd
 
 #skill CommandSkeletalSniperPlayer
+#startSets
 #set CommandSkeletalSniperPlayer
 #flags
 #mods
 #skillEnd
 
 #skill SummonSkeletalStormMagesPlayer
+#startSets
 #set SummonSkeletalStormMagesPlayer
 #flags
 #mods
 #skillEnd
 
 #skill CommandSkeletalStormMagePlayer
+#startSets
 #set CommandSkeletalStormMagePlayer
 #flags
 #mods
 #skillEnd
 
 #skill SummonSkeletalWarriorsPlayer
+#startSets
 #set SummonSkeletalWarriorsPlayer
 #flags
 #mods
 #skillEnd
 
 #skill WeaponGrantedSummonSkeletalWarriorsPlayer
+#startSets
 #set WeaponGrantedSummonSkeletalWarriorsPlayer
 #flags
 #mods
 #skillEnd
 
 #skill SolarOrbPlayer
+#startSets
 #set SolarOrbPlayer
 #flags
 #mods
@@ -801,42 +923,49 @@ local skills, mod, flag, skill = ...
 #skillEnd
 
 #skill SoulOfferingPlayer
+#startSets
 #set SoulOfferingPlayer
 #flags
 #mods
 #skillEnd
 
 #skill SparkPlayer
+#startSets
 #set SparkPlayer
 #flags
 #mods
 #skillEnd
 
 #skill StaggeringPalmPlayer
+#startSets
 #set StaggeringPalmPlayer
 #flags
 #mods
 #skillEnd
 
 #skill StaggeringPalmProjectilePlayer
+#startSets
 #set StaggeringPalmProjectilePlayer
 #flags
 #mods
 #skillEnd
 
 #skill StaggeringPalmUnarmedProjectilePlayer
+#startSets
 #set StaggeringPalmUnarmedProjectilePlayer
 #flags
 #mods
 #skillEnd
 
 #skill StormWavePlayer
+#startSets
 #set StormWavePlayer
 #flags
 #mods
 #skillEnd
 
 #skill TempestBellPlayer
+#startSets
 #set TempestBellPlayer
 #flags
 #mods
@@ -849,6 +978,7 @@ local skills, mod, flag, skill = ...
 #skillEnd
 
 #skill TempestFlurryPlayer
+#startSets
 #set TempestFlurryPlayer
 #flags
 #mods
@@ -861,60 +991,70 @@ local skills, mod, flag, skill = ...
 #skillEnd
 
 #skill TemporalChainsPlayer
+#startSets
 #set TemporalChainsPlayer
 #flags
 #mods
 #skillEnd
 
 #skill UnearthPlayer
+#startSets
 #set UnearthPlayer
 #flags
 #mods
 #skillEnd
 
 #skill StaffUnleashNextSpellPlayer
+#startSets
 #set StaffUnleashNextSpellPlayer
 #flags
 #mods
 #skillEnd
 
 #skill VaultingImpactPlayer
+#startSets
 #set VaultingImpactPlayer
 #flags
 #mods
 #skillEnd
 
 #skill VolatileDeadPlayer
+#startSets
 #set VolatileDeadPlayer
 #flags
 #mods
 #skillEnd
 
 #skill VulnerabilityPlayer
+#startSets
 #set VulnerabilityPlayer
 #flags
 #mods
 #skillEnd
 
 #skill WaveOfFrostPlayer
+#startSets
 #set WaveOfFrostPlayer
 #flags
 #mods
 #skillEnd
 
 #skill WhirlingAssaultPlayer
+#startSets
 #set WhirlingAssaultPlayer
 #flags
 #mods
 #skillEnd
 
 #skill GaleStrikePlayer
+#startSets
 #set GaleStrikePlayer
 #flags
 #mods
 #skillEnd
 
 #skill WitheringPresencePlayer
+#startSets
 #set WitheringPresencePlayer
 #flags
 #mods

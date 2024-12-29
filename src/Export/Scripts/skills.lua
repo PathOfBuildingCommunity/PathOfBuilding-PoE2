@@ -490,6 +490,9 @@ directiveTable.skill = function(state, args, out)
 			out:write('\tcannotBeSupported = true,\n')
 		end
 	end
+end
+
+directiveTable.startSets = function(state, args, out)
 	out:write('\tstatSets = {\n')
 end
 

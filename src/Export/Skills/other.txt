@@ -6,6 +6,7 @@
 local skills, mod, flag, skill = ...
 
 #skill AncestralSpiritsPlayer
+#startSets
 #set AncestralSpiritsPlayer
 #flags
 	fromTree = true,
@@ -13,6 +14,7 @@ local skills, mod, flag, skill = ...
 #skillEnd
 
 #skill BleedingConcoctionPlayer
+#startSets
 #set BleedingConcoctionPlayer
 #flags
 	fromTree = true,
@@ -20,6 +22,7 @@ local skills, mod, flag, skill = ...
 #skillEnd
 
 #skill MeleeBowPlayer
+#startSets
 #set MeleeBowPlayer
 #flags
 	fromItem = true,
@@ -27,6 +30,7 @@ local skills, mod, flag, skill = ...
 #skillEnd
 
 #skill MeleeCrossbowPlayer
+#startSets
 #set MeleeCrossbowPlayer
 #flags attack area projectile
 	fromItem = true,
@@ -34,6 +38,7 @@ local skills, mod, flag, skill = ...
 #skillEnd
 
 #skill DemonFormPlayer
+#startSets
 #set DemonFormPlayer
 #flags
 	fromTree = true,
@@ -41,6 +46,7 @@ local skills, mod, flag, skill = ...
 #skillEnd
 
 #skill ElementalExpressionTriggeredPlayer
+#startSets
 #set ElementalExpressionTriggeredPlayer
 #flags
 	fromTree = true,
@@ -60,6 +66,7 @@ local skills, mod, flag, skill = ...
 #skillEnd
 
 #skill ElementalStormPlayer
+#startSets
 #set ElementalStormPlayer
 #flags
 	fromTree = true,
@@ -79,6 +86,7 @@ local skills, mod, flag, skill = ...
 #skillEnd
 
 #skill EncaseInJadePlayer
+#startSets
 #set EncaseInJadePlayer
 #flags
 	fromTree = true,
@@ -86,6 +94,7 @@ local skills, mod, flag, skill = ...
 #skillEnd
 
 #skill ExplosiveConcoctionPlayer
+#startSets
 #set ExplosiveConcoctionPlayer
 #flags
 	fromTree = true,
@@ -93,6 +102,7 @@ local skills, mod, flag, skill = ...
 #skillEnd
 
 #skill FulminatingConcoctionPlayer
+#startSets
 #set FulminatingConcoctionPlayer
 #flags
 	fromTree = true,
@@ -100,6 +110,7 @@ local skills, mod, flag, skill = ...
 #skillEnd
 
 #skill IntoTheBreachPlayer
+#startSets
 #set IntoTheBreachPlayer
 #flags
 	fromTree = true,
@@ -107,6 +118,7 @@ local skills, mod, flag, skill = ...
 #skillEnd
 
 #skill LifeRemnantsPlayer
+#startSets
 #set LifeRemnantsPlayer
 #flags
 	fromTree = true,
@@ -114,6 +126,7 @@ local skills, mod, flag, skill = ...
 #skillEnd
 
 #skill Melee1HMacePlayer
+#startSets
 #set Melee1HMacePlayer
 #flags
 	fromItem = true,
@@ -121,6 +134,7 @@ local skills, mod, flag, skill = ...
 #skillEnd
 
 #skill Melee2HMacePlayer
+#startSets
 #set Melee2HMacePlayer
 #flags
 	fromItem = true,
@@ -128,6 +142,7 @@ local skills, mod, flag, skill = ...
 #skillEnd
 
 #skill MeleeMaceMacePlayer
+#startSets
 #set MeleeMaceMacePlayer
 #flags
 	fromItem = true,
@@ -135,6 +150,7 @@ local skills, mod, flag, skill = ...
 #skillEnd
 
 #skill MeditatePlayer
+#startSets
 #set MeditatePlayer
 #flags
 	fromTree = true,
@@ -142,6 +158,7 @@ local skills, mod, flag, skill = ...
 #skillEnd
 
 #skill PoisonousConcoctionPlayer
+#startSets
 #set PoisonousConcoctionPlayer
 #flags
 	fromTree = true,
@@ -150,12 +167,14 @@ local skills, mod, flag, skill = ...
 
 #noGem
 #skill MeleeUnarmedPlayer
+#startSets
 #set MeleeUnarmedPlayer
 #flags attack area melee
 #mods
 #skillEnd
 
 #skill MeleeQuarterstaffPlayer
+#startSets
 #set MeleeQuarterstaffPlayer
 #flags
 	fromItem = true,
@@ -163,6 +182,7 @@ local skills, mod, flag, skill = ...
 #skillEnd
 
 #skill ShatteringConcoctionPlayer
+#startSets
 #set ShatteringConcoctionPlayer
 #flags
 	fromTree = true,
@@ -170,6 +190,7 @@ local skills, mod, flag, skill = ...
 #skillEnd
 
 #skill SorceryWardPlayer
+#startSets
 #set SorceryWardPlayer
 #flags
 	fromTree = true,
@@ -177,6 +198,7 @@ local skills, mod, flag, skill = ...
 #skillEnd
 
 #skill SummonInfernalHoundPlayer
+#startSets
 #set SummonInfernalHoundPlayer
 #flags
 	fromTree = true,
@@ -184,6 +206,7 @@ local skills, mod, flag, skill = ...
 #skillEnd
 
 #skill TemporalRiftPlayer
+#startSets
 #set TemporalRiftPlayer
 #flags
 	fromTree = true,
@@ -191,6 +214,7 @@ local skills, mod, flag, skill = ...
 #skillEnd
 
 #skill TimeFreezePlayer
+#startSets
 #set TimeFreezePlayer
 #flags
 	fromTree = true,
@@ -198,6 +222,7 @@ local skills, mod, flag, skill = ...
 #skillEnd
 
 #skill TimeSnapPlayer
+#startSets
 #set TimeSnapPlayer
 #flags
 	fromTree = true,
@@ -205,6 +230,7 @@ local skills, mod, flag, skill = ...
 #skillEnd
 
 #skill UnboundAvatarPlayer
+#startSets
 #set UnboundAvatarPlayer
 #flags
 	fromTree = true,

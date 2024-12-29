@@ -2838,6 +2838,8 @@ skills["SnipePlayer"] = {
 			label = "Snipe",
 			incrementalEffectiveness = 0.092720001935959,
 			baseFlags = {
+				attack = true,
+				projectile = true,
 			},
 			constantStats = {
 				{ "active_skill_override_turn_duration_ms", 120 },
@@ -2907,6 +2909,9 @@ skills["SnipePlayer"] = {
 			label = "Snipe",
 			incrementalEffectiveness = 0.092720001935959,
 			baseFlags = {
+				attack = true,
+				projectile = true,
+				area = true,
 			},
 			constantStats = {
 				{ "active_skill_base_area_of_effect_radius", 15 },

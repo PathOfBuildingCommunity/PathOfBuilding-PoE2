@@ -5,35 +5,42 @@
 --
 local skills, mod, flag, skill = ...
 #skill SupportAftershockChancePlayer
+#startSets
 #set SupportAftershockChancePlayer
 #mods
 #skillEnd
 
 #skill SupportAncestralUrgencyPlayer
+#startSets
 #set SupportAncestralUrgencyPlayer
 #mods
 #skillEnd
 
 #skill SupportArmourExplosionPlayer
+#startSets
 #set SupportArmourExplosionPlayer
 #mods
 #skillEnd
 #skill ArmourExplosionPlayer
+#startSets
 #set ArmourExplosion
 #mods
 #skillEnd
 
 #skill SupportAutoReloadPlayer
+#startSets
 #set SupportAutoReloadPlayer
 #mods
 #skillEnd
 
 #skill SupportBeheadPlayer
+#startSets
 #set SupportBeheadPlayer
 #mods
 #skillEnd
 
 #skill SupportBloodlustPlayer
+#startSets
 #set SupportBloodlustPlayer
 	statMap = {
 		["support_bloodlust_melee_physical_damage_+%_final_vs_bleeding_enemies"] = {
@@ -44,16 +51,19 @@ local skills, mod, flag, skill = ...
 #skillEnd
 
 #skill SupportKnockbackPlayer
+#startSets
 #set SupportKnockbackPlayer
 #mods
 #skillEnd
 
 #skill SupportEnduranceChargeOnArmourBreak
+#startSets
 #set SupportEnduranceChargeOnArmourBreak
 #mods
 #skillEnd
 
 #skill SupportBrutalityPlayer
+#startSets
 #set SupportBrutalityPlayer
 	statMap = {
 		["support_brutality_physical_damage_+%_final"] = {
@@ -64,6 +74,7 @@ local skills, mod, flag, skill = ...
 #skillEnd
 
 #skill SupportCannibalismPlayer
+#startSets
 #set SupportCannibalismPlayer
 #mods
 	statMap = {
@@ -74,6 +85,7 @@ local skills, mod, flag, skill = ...
 #skillEnd
 
 #skill SupportCorruptingCryPlayer
+#startSets
 #set SupportCorruptingCryPlayer
 	statMap = {
 		["support_corrupting_cry_corrupted_blood_base_physical_damage_per_minute_as_%_of_strength"] = {
@@ -102,11 +114,13 @@ local skills, mod, flag, skill = ...
 #skillEnd
 
 #skill SupportDazingCryPlayer
+#startSets
 #set SupportDazingCryPlayer
 #mods
 #skillEnd
 
 #skill SupportDeepCutsPlayer
+#startSets
 #set SupportDeepCutsPlayer
 	statMap = {
 		["support_deep_cuts_hit_damage_+%_final"] = {
@@ -120,6 +134,7 @@ local skills, mod, flag, skill = ...
 #skillEnd
 
 #skill SupportIncreasedArmourBreakPlayer
+#startSets
 #set SupportIncreasedArmourBreakPlayer
 	statMap = {
 		["support_increased_armour_break_armour_break_amount_+%_final"] = {
@@ -130,11 +145,13 @@ local skills, mod, flag, skill = ...
 #skillEnd
 
 #skill SupportGroundEffectDurationPlayer
+#startSets
 #set SupportGroundEffectDurationPlayer
 #mods
 #skillEnd
 
 #skill SupportDevastatePlayer
+#startSets
 #set SupportDevastatePlayer
 	statMap = {
 		["fully_break_enemies_armour_on_heavy_stun"] = {
@@ -145,16 +162,19 @@ local skills, mod, flag, skill = ...
 #skillEnd
 
 #skill SupportDoubleBarrelPlayer
+#startSets
 #set SupportDoubleBarrelPlayer
 #mods
 #skillEnd
 
 #skill SupportEnragedWarcryPlayer
+#startSets
 #set SupportEnragedWarcryPlayer
 #mods
 #skillEnd
 
 #skill SupportIgniteDurationPlayer
+#startSets
 #set SupportIgniteDurationPlayer
 	statMap = {
 		["support_eternal_flame_chance_to_ignite_+%_final"] = {
@@ -165,6 +185,7 @@ local skills, mod, flag, skill = ...
 #skillEnd
 
 #skill SupportExecutePlayer
+#startSets
 #set SupportExecutePlayer
 	statMap = {
 		["support_executioner_damage_vs_enemies_on_low_life_+%_final"] = {
@@ -175,6 +196,7 @@ local skills, mod, flag, skill = ...
 #skillEnd
 
 #skill SupportExploitWeaknessPlayer
+#startSets
 #set SupportExploitWeaknessPlayer
 	statMap = {
 		["support_gem_consume_enemy_fully_broken_armour_to_gain_damage_+%_final"] = {
@@ -185,6 +207,7 @@ local skills, mod, flag, skill = ...
 #skillEnd
 
 #skill LessDurationSupportPlayer
+#startSets
 #set LessDurationSupportPlayer
 	statMap = {
 		["support_reduced_duration_skill_effect_duration_+%_final"] = {
@@ -195,6 +218,7 @@ local skills, mod, flag, skill = ...
 #skillEnd
 
 #skill SupportFireExposurePlayer
+#startSets
 #set SupportFireExposurePlayer
 	statMap = {
 		["inflict_fire_exposure_for_x_ms_on_ignite"] = {
@@ -205,6 +229,7 @@ local skills, mod, flag, skill = ...
 #skillEnd
 
 #skill SupportAddedFireDamagePlayer
+#startSets
 #set SupportAddedFireDamagePlayer
 	statMap = {
 		["support_cold_and_lightning_damage_+%_final"] = {
@@ -216,11 +241,13 @@ local skills, mod, flag, skill = ...
 #skillEnd
 
 #skill SupportFirePenetrationPlayer
+#startSets
 #set SupportFirePenetrationPlayer
 #mods
 #skillEnd
 
 #skill FistOfWarSupportPlayer
+#startSets
 #set FistOfWarSupportPlayer
 	statMap = {
 		["ancestral_slam_interval_duration"] = {
@@ -234,6 +261,7 @@ local skills, mod, flag, skill = ...
 #skillEnd
 
 #skill SupportBloodFountainPlayer
+#startSets
 #set SupportBloodFountainPlayer
 	statMap = {
 		["support_blood_fountain_life_regeneration_rate_per_minute_%"] = {
@@ -245,6 +273,7 @@ local skills, mod, flag, skill = ...
 #skillEnd
 
 #skill SupportRageFountainPlayer
+#startSets
 #set SupportRageFountainPlayer
 	statMap = {
 		["support_rage_fountain_rage_regeneration_per_minute"] = {
@@ -256,11 +285,13 @@ local skills, mod, flag, skill = ...
 #skillEnd
 
 #skill SupportFreshClipPlayer
+#startSets
 #set SupportFreshClipPlayer
 #mods
 #skillEnd
 
 #skill SupportMeleePhysicalDamagePlayer
+#startSets
 #set SupportMeleePhysicalDamagePlayer
 	statMap = {
 		["support_melee_physical_damage_+%_final"] = {
@@ -274,6 +305,7 @@ local skills, mod, flag, skill = ...
 #skillEnd
 
 #skill SupportHeftPlayer
+#startSets
 #set SupportHeftPlayer
 	statMap = {
 		["support_maximum_physical_hit_damage_+%_final"] = {
@@ -284,6 +316,7 @@ local skills, mod, flag, skill = ...
 #skillEnd
 
 #skill SupportHerbalismPlayer
+#startSets
 #set SupportHerbalismPlayer
 	statMap = {
 		["support_herbalism_life_recovery_+%_from_life_flasks"] = {
@@ -294,6 +327,7 @@ local skills, mod, flag, skill = ...
 #skillEnd
 
 #skill SupportHolyDescentPlayer
+#startSets
 #set SupportHolyDescentPlayer
 	statMap = {
 		["support_holy_descent_consecrated_ground_on_landing"] = {
@@ -307,6 +341,7 @@ local skills, mod, flag, skill = ...
 #skillEnd
 
 #skill SupportChanceToIgnitePlayer
+#startSets
 #set SupportChanceToIgnitePlayer
 	statMap = {
 		["support_ignition_chance_to_ignite_+%_final"] = {
@@ -317,16 +352,19 @@ local skills, mod, flag, skill = ...
 #skillEnd
 
 #skill SupportImmolatePlayer
+#startSets
 #set SupportImmolatePlayer
 #mods
 #skillEnd
 
 #skill ImpactShockwaveSupportPlayer
+#startSets
 #set ImpactShockwaveSupportPlayer
 #mods
 #skillEnd
 
 #skill SupportInfernalLegionPlayer
+#startSets
 #set SupportInfernalLegionPlayer
 	statMap = {
 		["minion_fire_damage_%_of_maximum_life_taken_per_minute"] = {
@@ -343,6 +381,7 @@ local skills, mod, flag, skill = ...
 #skillEnd
 
 #skill SupportInspirationPlayer
+#startSets
 #set SupportInspirationPlayer
 	statMap = {
 		["support_inspiration_cost_+%_final"] = {
@@ -353,36 +392,43 @@ local skills, mod, flag, skill = ...
 #skillEnd
 
 #skill SupportIronwoodPlayer
+#startSets
 #set SupportIronwoodPlayer
 #mods
 #skillEnd
 
 #skill SupportJaggedGroundPlayer
+#startSets
 #set SupportJaggedGroundPlayer
 #mods
 #skillEnd
 
 #skill SupportChanceToBleedPlayer
+#startSets
 #set SupportChanceToBleedPlayer
 #mods
 #skillEnd
 
 #skill SupportLifeLeechPlayer
+#startSets
 #set SupportLifeLeechPlayer
 #mods
 #skillEnd
 
 #skill SupportBloodMagicPlayer
+#startSets
 #set SupportBloodMagicPlayer
 #mods
 #skillEnd
 
 #skill SupportLongFusePlayer
+#startSets
 #set SupportLongFusePlayer
 #mods
 #skillEnd
 
 #skill SupportMeatShieldPlayer
+#startSets
 #set SupportMeatShieldPlayer
 	statMap = {
 		["support_minion_maximum_life_+%_final"] = {
@@ -396,6 +442,7 @@ local skills, mod, flag, skill = ...
 #skillEnd
 
 #skill SupportOverpowerPlayer
+#startSets
 #set SupportOverpowerPlayer
 	statMap = {
 		["support_overpower_hit_damage_stun_multiplier_+%_final"] = {
@@ -406,6 +453,7 @@ local skills, mod, flag, skill = ...
 #skillEnd
 
 #skill MoreDurationSupportPlayer
+#startSets
 #set MoreDurationSupportPlayer
 	statMap = {
 		["support_more_duration_skill_effect_duration_+%_final"] = {
@@ -416,11 +464,13 @@ local skills, mod, flag, skill = ...
 #skillEnd
 
 #skill SupportEmpoweredDamagePlayer
+#startSets
 #set SupportEmpoweredDamagePlayer
 #mods
 #skillEnd
 
 #skill SupportWeaponElementalDamagePlayer
+#startSets
 #set SupportWeaponElementalDamagePlayer
 	statMap = {
 		["support_weapon_elemental_damage_+%_final"] = {
@@ -431,31 +481,37 @@ local skills, mod, flag, skill = ...
 #skillEnd
 
 #skill SupportRagePlayer
+#startSets
 #set SupportRagePlayer
 #mods
 #skillEnd
 
 #skill SupportRageforgedPlayer
+#startSets
 #set SupportRageforgedPlayer
 #mods
 #skillEnd
 
 #skill SupportRagingCryPlayer
+#startSets
 #set SupportRagingCryPlayer
 #mods
 #skillEnd
 
 #skill SupportRupturePlayer
+#startSets
 #set SupportRupturePlayer
 #mods
 #skillEnd
 
 #skill RuthlessSupportPlayer
+#startSets
 #set RuthlessSupportPlayer
 #mods
 #skillEnd
 
 #skill SupportDeadlyIgnitesPlayer
+#startSets
 #set SupportDeadlyIgnitesPlayer
 	statMap = {
 		["support_stronger_ignites_hit_damage_+%_final"] = {
@@ -469,25 +525,30 @@ local skills, mod, flag, skill = ...
 #skillEnd
 
 #skill SupportArmourBreakPlayer
+#startSets
 #set SupportArmourBreakPlayer
 #mods
 #skillEnd
 
 #skill SupportStompingGroundPlayer
+#startSets
 #set SupportStompingGroundPlayer
 #mods
 #skillEnd
 #skill StompingGroundShockwavePlayer
+#startSets
 #set StompingGroundShockwavePlayer
 #mods
 #skillEnd
 
 #skill SupportTremorsPlayer
+#startSets
 #set SupportTremorsPlayer
 #mods
 #skillEnd
 
 #skill UnbreakableSupportPlayer
+#startSets
 #set UnbreakableSupportPlayer
 	statMap = {
 		["support_unbreakable_stun_threshold_+%_final_while_performing_action"] = {
@@ -498,6 +559,7 @@ local skills, mod, flag, skill = ...
 #skillEnd
 
 #skill SupportUpheavalPlayer
+#startSets
 #set SupportUpheavalPlayer
 	statMap = {
 		["support_additional_fissures_damage_+%_final"] = {
@@ -511,6 +573,7 @@ local skills, mod, flag, skill = ...
 #skillEnd
 
 #skill SupportVitalityPlayer
+#startSets
 #set SupportVitalityPlayer
 	statMap = {
 		["support_vitality_life_regeneration_rate_per_minute_%"] = {
