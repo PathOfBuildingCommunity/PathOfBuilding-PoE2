@@ -129,7 +129,61 @@ local function mapAffixDropDownFunction(val, modList, enemyModList, build)
 	end
 end
 
-return {
+local function questModsRewards(source, line, modList)
+	local strippedLine = StripEscapes(line):gsub("^[%s?]+", ""):gsub("[%s?]+$", "")
+	local mods, extra = modLib.parseMod(strippedLine)
+
+	if mods and not extra then
+		for i = 1, #mods do
+			local mod = mods[i]
+
+			if mod then
+				mod = modLib.setSource(mod, source)
+				modList:AddMod(mod)
+			end
+		end
+	end
+end
+
+local function addQuestModsRewardsConfigOptions(configSettings)
+	table.insert(configSettings, { section = "Quest Rewards", col = 1 })
+
+	for i, quest in ipairs(data.questRewards) do
+		local source = string.format("Quest:Act %d %s %s", quest.Act, quest.Type, quest.Area)
+		if quest.Stat then
+			table.insert(configSettings,{
+				var = "questAct".. quest.Act .. quest.Type .. quest.Area,
+				label = string.format("Act %d %s: %s", quest.Act, quest.Type, quest.Area),
+				type = "check",
+				tooltip = "Enabled this config add:\n" .. quest.Stat,
+				apply = function(val, modList, enemyModList)
+					questModsRewards(source, quest.Stat, modList)
+				end
+			})
+		elseif quest.Options then
+			local listOptions = { { label = "Nothing", val = "None" } }
+			for j, option in ipairs(quest.Options) do
+				table.insert(listOptions, { label = option, val = option })
+			end
+			table.insert(configSettings,{
+				var = "questAct".. quest.Act .. quest.Type .. quest.Area,
+				label = string.format("Act %d %s: %s", quest.Act, quest.Type, quest.Area),
+				type = "list",
+				list = listOptions,
+				defaultIndex = 1,
+				tooltip = "Enabled this config add one of the next options:\n" .. table.concat(quest.Options, "\n"),
+				apply = function(val, modList, enemyModList)
+					if val == "None" then
+						return
+					end
+					questModsRewards(source, val, modList)
+				end
+			})
+		end
+	end
+end
+
+local configSettings = {
 	-- Section: General options
 	{ section = "General", col = 1 },
 	{ var = "resistancePenalty", type = "list", label = "Resistance penalty:", list = {{val=0,label="None"},{val=-30,label="Act 5 (-30%)"},{val=-60,label="Act 10 (-60%)"}}, defaultIndex = 3 },
@@ -2115,3 +2169,7 @@ Huge sets the radius to 11.
 			return out
 		end},
 }
+
+addQuestModsRewardsConfigOptions(configSettings)
+
+return configSettings
