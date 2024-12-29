@@ -158,7 +158,7 @@ function PassiveSpecClass:Load(xml, dbFileName)
 				end
 			end
 		end
-		self:ImportFromNodeList(tonumber(xml.attrib.classId), tonumber(xml.attrib.ascendClassId), tonumber(xml.attrib.secondaryAscendClassId or 0), hashList, self.hashOverrides, masteryEffects)
+		self:ImportFromNodeList(tonumber(xml.attrib.classId), tonumber(xml.attrib.ascendClassId), tonumber(xml.attrib.secondaryAscendClassId or 0), hashList,	copyTable(self.hashOverrides, true), masteryEffects)
 	elseif url then
 		self:DecodeURL(url)
 	end
@@ -930,7 +930,11 @@ function PassiveSpecClass:BuildAllDependsAndPaths()
 
 		-- ignore cluster jewel nodes that don't have an id in the tree
 		if self.tree.nodes[id] then
-			self:ReplaceNode(node,self.tree.nodes[id])
+			local nodeToReplace = self.tree.nodes[id]
+			if self.tree.nodes[id].isSwitchable and self.tree.nodes[id].options[self.curClassName] then
+				nodeToReplace = self.tree.nodes[id].options[self.curClassName]
+			end
+			self:ReplaceNode(node, nodeToReplace)
 		end
 
 		if node.type ~= "ClassStart" and node.type ~= "Socket" and not node.ascendancyName then
@@ -2024,13 +2028,7 @@ function PassiveSpecClass:SwitchAttributeNode(nodeId, attributeIndex)
 	if not newNode.isAttribute then return end -- safety check
 	
 	local option = newNode.options[attributeIndex]
-	local attribute = option.name
-	
-	newNode.dn = attribute
-	newNode.icon = "Art/2DArt/SkillIcons/passives/plus"..string.lower(attribute)..".dds"
-	newNode.sprites = self.tree.spriteMap[newNode.icon]
-	newNode.activeEffectImage = self.tree.spriteMap[newNode.icon]
-	self:NodeAdditionOrReplacementFromString(newNode, option.stats[1], true)
+	self:ReplaceNode(newNode, option)
 	
 	self.hashOverrides[nodeId] = newNode
 end

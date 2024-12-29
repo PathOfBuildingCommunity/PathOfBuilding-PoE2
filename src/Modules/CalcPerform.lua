@@ -1308,7 +1308,9 @@ function calcs.perform(env, skipEHP)
 			flaskTotal = flaskTotal * (lType == "life" and ((lowLifeFlaskRecMore - 1) / (1 + (effectInc) / 100)) + 1 or 1)
 		end
 
-		t_insert(out, modLib.createMod(type.."Recovery", "BASE", flaskTotal / flaskDur, name))
+		if not (modDB:Flag(nil, type.."FlaskDoesNotApply")) then
+			t_insert(out, modLib.createMod(type.."Recovery", "BASE", flaskTotal / flaskDur, name))
+		end
 
 		if (modDB:Flag(nil, type.."FlaskAppliesToEnergyShield")) then
 			t_insert(out, modLib.createMod("EnergyShieldRecovery", "BASE", flaskTotal / flaskDur, name))

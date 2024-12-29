@@ -567,7 +567,7 @@ skills["SupportSlowerProjectilesPlayer"] = {
 			label = "Deceleration",
 			incrementalEffectiveness = 0.092720001935959,
 	statMap = {
-		["support_faster_projectiles_projectile_speed_+%_final"] = {
+		["support_slower_projectiles_projectile_speed_+%_final"] = {
 			mod("ProjectileSpeed", "MORE", nil),
 		},
 	},

@@ -604,6 +604,21 @@ function PassiveTreeClass:ProcessNode(node)
 	end
 
 	self:ProcessStats(node)
+
+	-- if this node isSwtichable then parse also subnodes
+	if node.isSwitchable or node.isAttribute then
+		for class, switchNode in pairs(node.options) do
+			setmetatable(switchNode, { __index = node })
+			if node.isAttribute then
+				switchNode.id = node.id
+			end
+			switchNode.dn = switchNode.name
+			switchNode.sd = switchNode.stats
+			switchNode.sprites = self.spriteMap[switchNode.icon]
+
+			self:ProcessStats(switchNode)
+		end 
+	end
 end
 
 -- Checks if a given image is present and downloads it from the given URL if it isn't there

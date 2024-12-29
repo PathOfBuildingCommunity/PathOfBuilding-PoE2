@@ -2976,7 +2976,7 @@ function calcs.buildDefenceEstimations(env, actor)
 
 						-- We know the damage and armour calculation chain. The important part for max hit calculations is:
 						-- 		dmgAfterRes = RAW * DamageConvertedMulti * ResistanceMulti
-						-- 		armourDR = AppliedArmour / (AppliedArmour + 12 * dmgAfterRes)
+						-- 		armourDR = AppliedArmour / (AppliedArmour + data.misc.ArmourRatio * dmgAfterRes)
 						-- 		totalDR = max(min(armourDR + FlatDR, MaxReduction) - Overwhelm, 0)	-- min and max is complicated to actually math out so skip caps first and tack it on later. Result should be close enough
 						-- 		dmgReceived = dmgAfterRes * (1 - totalDR)
 						-- 		damageTaken = (dmgReceived + takenFlat) * TakenMulti
@@ -2986,7 +2986,8 @@ function calcs.buildDefenceEstimations(env, actor)
 						-- Trying to solve that for RAW might require solving a polynomial equation of 6th degree, so this solution settles for solving the parts independently and then approximating the final result
 						--
 						-- To solve only one part the above can be expressed as this:
-						--		12 * (1 - FlatDR + Overwhelm) * TakenMulti * ResistanceMulti * ResistanceMulti * DamageConvertedMulti * DamageConvertedMulti * RAW * RAW + ((Overwhelm - FlatDR) * AppliedArmour * TakenMulti - 12 * (damageTaken - takenFlat * TakenMulti)) * ResistanceMulti * DamageConvertedMulti * RAW - (damageTaken - takenFlat * TakenMulti) * AppliedArmour = 0
+						--		data.misc.ArmourRatio * (1 - FlatDR + Overwhelm) * TakenMulti * ResistanceMulti * ResistanceMulti * DamageConvertedMulti * DamageConvertedMulti * RAW * RAW + ((Overwhelm - FlatDR) * AppliedArmour * TakenMulti 
+						--			- data.misc.ArmourRatio * (damageTaken - takenFlat * TakenMulti)) * ResistanceMulti * DamageConvertedMulti * RAW - (damageTaken - takenFlat * TakenMulti) * AppliedArmour = 0
 						-- Which means that
 						-- 		RAW = [quadratic]
 
