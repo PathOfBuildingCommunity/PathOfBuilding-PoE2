@@ -53,7 +53,7 @@ for _, name in ipairs(itemTypes) do
 		if not specName and line ~= "]],[[" then
 			local variantString = line:match("({variant:[%d,]+})")
 			local fractured = line:match("({fractured})") or ""
-			local modName = line:gsub("{.+}", "")
+			local modName, legacy = line:gsub("{.+}", ""):match("^([%a%d_]+)([%[%]-,%d]*)")
 			local mod = uniqueMods[modName]
 			if mod then
 				if variantString then
@@ -71,7 +71,26 @@ for _, name in ipairs(itemTypes) do
 					out:write("{tags:" .. table.concat(tags, ",") .. "}")
 				end
 				out:write(fractured)
-				out:write(table.concat(mod, "\n" .. (variantString or "")), "\n")
+				local legacyMod
+				if legacy ~= "" then
+					local values = { }
+					for range in legacy:gmatch("%b[]") do
+						local min, max = range:match("%[([%d%-]+),([%d%-]+)%]")
+						table.insert(values, { min = tonumber(min), max = tonumber(max) })
+					end
+					local mod = dat("Mods"):GetRow("Id", modName)
+					local stats = { }
+					for i = 1, 6 do
+						if mod["Stat"..i] then
+							stats[mod["Stat"..i].Id] = values[i]
+						end
+					end
+					if mod.Type then
+						stats.Type = mod.Type
+					end
+					legacyMod = describeStats(stats)
+				end
+				out:write(table.concat(legacyMod or mod, "\n" .. (variantString or "")), "\n")
 			else
 				out:write(line, "\n")
 			end
