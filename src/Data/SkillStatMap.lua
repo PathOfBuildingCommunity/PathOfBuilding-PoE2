@@ -82,10 +82,10 @@ return {
 	skill("ChaosMax", nil),
 },
 ["main_hand_weapon_minimum_lightning_damage"] = {
-	skill("LightningMin", nil)
+	skill("LightningMin", nil, { type = "Condition", var = "MainHandAttack" })
 },
 ["main_hand_weapon_maximum_lightning_damage"] = {
-	skill("LightningMax", nil)
+	skill("LightningMax", nil, { type = "Condition", var = "MainHandAttack" })
 },
 ["spell_minimum_base_lightning_damage_per_removable_power_charge"] = {
 	skill("LightningMin", nil, { type = "Multiplier", var = "RemovablePowerCharge" }),
@@ -1356,10 +1356,6 @@ return {
 ["link_buff_effect_on_self_+%"] = {
 	mod("LinkEffectOnSelf", "INC", nil),
 },
-["active_skill_base_slow_debuff_movement_speed_+%_final"] = {
-	-- this is probably wrong
-	mod("MovementSpeed", "MORE", nil, 0, 0, { type = "Actor", actor = "enemy"}),
-},
 -- Projectiles
 ["base_projectile_speed_+%"] = {
 	mod("ProjectileSpeed", "INC", nil),
@@ -1430,7 +1426,7 @@ return {
 	mod("ProjectileCount", "BASE", nil),
 },
 ["base_projectiles_cannot_chain"] = {
-	flag("CannotChain"),
+	flag("BaseProjectilesCannotChain"),
 },
 ["projectile_damage_+%_per_remaining_chain"] = {
 	mod("Damage", "INC", nil, ModFlag.Projectile, 0, { type = "PerStat", stat = "ChainRemaining" }),
