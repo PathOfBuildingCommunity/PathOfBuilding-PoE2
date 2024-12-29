@@ -631,7 +631,7 @@ directiveTable.set = function(state, args, out)
 	end
 
 	-- Emitting statSet data
-	out:write('\t\t["'..state.skill.setIndex..'"] = {\n')
+	out:write('\t\t['..state.skill.setIndex..'] = {\n')
 	state.skill.setIndex = state.skill.setIndex + 1
 	out:write('\t\t\tlabel = "'..state.skill.displayName..'",\n')
 	if grantedEffectStatSet.BaseEffectiveness ~= 1 then
