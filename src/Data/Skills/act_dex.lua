@@ -196,7 +196,6 @@ skills["CombatFrenzyPlayer"] = {
 	skillTypes = { [SkillType.OngoingSkill] = true, [SkillType.HasReservation] = true, [SkillType.Buff] = true, [SkillType.Persistent] = true, [SkillType.GeneratesCharges] = true, },
 	statDescriptionScope = "combat_frenzy",
 	castTime = 1,
--- how to automatically enable frenzy charges when skill is selected
     statMap = {
         ["skill_combat_frenzy_x_ms_cooldown"] = {
             mod("Cooldown", "BASE", nil),
@@ -1074,7 +1073,6 @@ skills["IceShotPlayer"] = {
 	},
 	statDescriptionScope = "ice_shot",
 	castTime = 1,
--- does it scale with area damage?
 	baseFlags = {
 		attack = true,
 		projectile = true,
@@ -1213,7 +1211,6 @@ skills["LightningArrowPlayer"] = {
 	baseFlags = {
 		attack = true,
 		projectile = true,
-		area = true,
 	},
 	qualityStats = {
 		Default = {
@@ -2257,11 +2254,9 @@ skills["SnipersMarkPlayer"] = {
 	castTime = 0.5,
     statMap = {
         ["enemy_additional_critical_strike_multiplier_against_self"] = {
-        -- should effect type be changed to mark since marks won't scale with curse effect any more?
-            mod("SelfCritMultiplier", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Curse" }),
+            mod("SelfCritMultiplier", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Mark" }),
         },
     },
-    -- how to make frenzy charge config show up 
 	baseFlags = {
 		spell = true,
 		duration = true,
@@ -2577,9 +2572,9 @@ skills["TornadoShotPlayer"] = {
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
     statMap = {
-        -- how to restrict this to copied projectiles only?
+		-- NEEDS IMPLEMENTATION
         ["tornado_shot_projectile_damage_+%_final"] = {
-            mod("Damage", "MORE", nil)
+            mod("TornadoShotCopiedProjectilesDamage", "MORE", nil)
         },
     },
 	baseFlags = {
@@ -2721,22 +2716,21 @@ skills["ToxicGrowthPlayer"] = {
 	statDescriptionScope = "poisonbloom_arrow",
 	castTime = 1,
     statMap = {
-        ["poisonbloom_arrow_bloom_max_burst_damage_+%_final_from_stored_poison"] = {
-            mod("Damage", "MORE", nil),
-        },
+        -- Skipping for now due to complexity
+        --["poisonbloom_arrow_bloom_max_burst_damage_+%_final_from_stored_poison"] = {
+        --    mod("Damage", "MORE", nil),
+        --},
         ["poisonbloom_arrow_max_additional_burst_base_radius_+"] = {
             skill("radiusSecondaryExtra"),
         },
-		["poisonbloom_arrow_bloom_burst_1%_more_damage_per_x_stored_poison"] = {
-            mod("Damage", "MORE", nil),
-            div = 1 -- change this to stored poison amount
-        },
-		["poisonbloom_arrow_duration_expires_1%_faster_per_x_stored_poison_damage"] = {
-
-        },
-		["poisonbloom_arrow_burst_base_radius_+1_per_x_stored_poison"] = {
+		--["poisonbloom_arrow_bloom_burst_1%_more_damage_per_x_stored_poison"] = {
+        --    mod("Damage", "MORE", nil),
+        --    div = x
+        --},
+		--["poisonbloom_arrow_duration_expires_1%_faster_per_x_stored_poison_damage"] = {},
+		--["poisonbloom_arrow_burst_base_radius_+1_per_x_stored_poison"] = {
             -- skill("radiusSecondaryExtra"),
-        },
+        --},
     },
 	baseFlags = {
 		attack = true,
@@ -2873,9 +2867,13 @@ skills["VineArrowPlayer"] = {
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
     statMap = {
-        ["poison_vine_arrow_vine_stored_poison_damage_+%_final"] = {
-            skill("ChaosDot", nil),
-            mul = 1 -- how to set the multipler to poison damage
+        -- skipping for now due to complexity
+        --["poison_vine_arrow_vine_stored_poison_damage_+%_final"] = {
+            --skill("ChaosDot", nil),
+            --mul = 1 -- how to set the multipler to poison damage
+        --},
+        ["active_skill_base_slow_debuff_movement_speed_+%_final"] = {
+            mod("MovementSpeed", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Debuff", effectName = "Vine Arrow"}),
         },
     },
 	baseFlags = {
