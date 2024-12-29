@@ -4,50 +4,77 @@
 -- Skill data (c) Grinding Gear Games
 --
 local skills, mod, flag, skill = ...
-
 #skill SupportAftershockChancePlayer
+#set SupportAftershockChancePlayer
 #mods
+#skillEnd
 
 #skill SupportAncestralUrgencyPlayer
+#set SupportAncestralUrgencyPlayer
 #mods
+#skillEnd
+
+#skill SupportArmourExplosionPlayer
+#set SupportArmourExplosionPlayer
+#mods
+#skillEnd
+#skill ArmourExplosionPlayer
+#set ArmourExplosion
+#mods
+#skillEnd
 
 #skill SupportAutoReloadPlayer
+#set SupportAutoReloadPlayer
 #mods
+#skillEnd
 
 #skill SupportBeheadPlayer
+#set SupportBeheadPlayer
 #mods
+#skillEnd
 
 #skill SupportBloodlustPlayer
+#set SupportBloodlustPlayer
 	statMap = {
 		["support_bloodlust_melee_physical_damage_+%_final_vs_bleeding_enemies"] = {
 			mod("PhysicalDamage", "MORE", nil, ModFlag.Melee, 0, { type = "ActorCondition", actor = "enemy", var = "Bleeding" }),
 		},
 	},
 #mods
+#skillEnd
 
 #skill SupportKnockbackPlayer
+#set SupportKnockbackPlayer
 #mods
+#skillEnd
 
 #skill SupportEnduranceChargeOnArmourBreak
+#set SupportEnduranceChargeOnArmourBreak
 #mods
+#skillEnd
 
 #skill SupportBrutalityPlayer
+#set SupportBrutalityPlayer
 	statMap = {
 		["support_brutality_physical_damage_+%_final"] = {
 			mod("PhysicalDamage", "MORE", nil),
 		},
 	},
 #mods
+#skillEnd
 
 #skill SupportCannibalismPlayer
+#set SupportCannibalismPlayer
+#mods
 	statMap = {
 		["support_cannibalism_recover_%_maximum_life_on_kill"] = {
 			mod("LifeOnKill", "BASE", nil, 0, 0, { type = "PercentStat", stat = "Life", percent = 1 }, { type = "GlobalEffect", effectType = "Buff", unscalable = true }),
 		},
 	},
-#mods
+#skillEnd
 
 #skill SupportCorruptingCryPlayer
+#set SupportCorruptingCryPlayer
 	statMap = {
 		["support_corrupting_cry_corrupted_blood_base_physical_damage_per_minute_as_%_of_strength"] = {
 			skill("PhysicalDot", nil, { type = "PercentStat", stat = "Str", percent = 1 }),
@@ -72,11 +99,15 @@ local skills, mod, flag, skill = ...
 #baseMod mod("Multiplier:CorruptingCryMaxStages", "BASE", 10)
 #baseMod mod("Damage", "MORE", 100, 0, KeywordFlag.PhysicalDot, { type = "Multiplier", var = "CorruptingCryStageAfterFirst"})
 #mods
+#skillEnd
 
 #skill SupportDazingCryPlayer
+#set SupportDazingCryPlayer
 #mods
+#skillEnd
 
 #skill SupportDeepCutsPlayer
+#set SupportDeepCutsPlayer
 	statMap = {
 		["support_deep_cuts_hit_damage_+%_final"] = {
 			mod("Damage", "MORE", nil, ModFlag.Hit),
@@ -86,73 +117,95 @@ local skills, mod, flag, skill = ...
 		},
 	},
 #mods
+#skillEnd
 
 #skill SupportIncreasedArmourBreakPlayer
+#set SupportIncreasedArmourBreakPlayer
 	statMap = {
 		["support_increased_armour_break_armour_break_amount_+%_final"] = {
 			mod("ArmourBreakEffect", "MORE", nil),
 		},
 	},
 #mods
+#skillEnd
 
 #skill SupportGroundEffectDurationPlayer
+#set SupportGroundEffectDurationPlayer
 #mods
+#skillEnd
 
 #skill SupportDevastatePlayer
+#set SupportDevastatePlayer
 	statMap = {
 		["fully_break_enemies_armour_on_heavy_stun"] = {
 			flag("Condition:CanArmourBreak", { type = "GlobalEffect", effectType = "Buff", effectName = "ArmourBreak" } ),
 		},
 	},
 #mods
+#skillEnd
 
 #skill SupportDoubleBarrelPlayer
+#set SupportDoubleBarrelPlayer
 #mods
+#skillEnd
 
 #skill SupportEnragedWarcryPlayer
+#set SupportEnragedWarcryPlayer
 #mods
+#skillEnd
 
 #skill SupportIgniteDurationPlayer
+#set SupportIgniteDurationPlayer
 	statMap = {
 		["support_eternal_flame_chance_to_ignite_+%_final"] = {
 			mod("EnemyIgniteChance", "MORE", nil),
 		},
 	},
 #mods
+#skillEnd
 
 #skill SupportExecutePlayer
+#set SupportExecutePlayer
 	statMap = {
 		["support_executioner_damage_vs_enemies_on_low_life_+%_final"] = {
 			mod("Damage", "MORE", nil, ModFlag.Hit, 0, { type = "ActorCondition", actor = "enemy", var = "LowLife"})
 		},
 	},
 #mods
+#skillEnd
 
 #skill SupportExploitWeaknessPlayer
+#set SupportExploitWeaknessPlayer
 	statMap = {
 		["support_gem_consume_enemy_fully_broken_armour_to_gain_damage_+%_final"] = {
 			mod("Damage", "MORE", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "ArmourBroken"})
 		},
 	},
 #mods
+#skillEnd
 
 #skill LessDurationSupportPlayer
+#set LessDurationSupportPlayer
 	statMap = {
 		["support_reduced_duration_skill_effect_duration_+%_final"] = {
 			mod("Duration", "MORE", nil),
 		},
 	},
 #mods
+#skillEnd
 
 #skill SupportFireExposurePlayer
+#set SupportFireExposurePlayer
 	statMap = {
 		["inflict_fire_exposure_for_x_ms_on_ignite"] = {
 			mod("FireExposureChance", "BASE", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "Ignited"}),
 		},
 	},
 #mods
+#skillEnd
 
 #skill SupportAddedFireDamagePlayer
+#set SupportAddedFireDamagePlayer
 	statMap = {
 		["support_cold_and_lightning_damage_+%_final"] = {
 			mod("ColdDamage", "MORE", nil),
@@ -160,11 +213,15 @@ local skills, mod, flag, skill = ...
 		},
 	},
 #mods
+#skillEnd
 
 #skill SupportFirePenetrationPlayer
+#set SupportFirePenetrationPlayer
 #mods
+#skillEnd
 
 #skill FistOfWarSupportPlayer
+#set FistOfWarSupportPlayer
 	statMap = {
 		["ancestral_slam_interval_duration"] = {
 			mod("FistOfWarCooldown", "BASE", nil),
@@ -174,8 +231,10 @@ local skills, mod, flag, skill = ...
 #baseMod mod("FistOfWarDamageMultiplier", "BASE", 20)
 #baseMod mod("FistOfWarMOREAoE", "BASE", 20)
 #mods
+#skillEnd
 
 #skill SupportBloodFountainPlayer
+#set SupportBloodFountainPlayer
 	statMap = {
 		["support_blood_fountain_life_regeneration_rate_per_minute_%"] = {
 			mod("LifeRegenPercent", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Aura" }),
@@ -183,8 +242,10 @@ local skills, mod, flag, skill = ...
 		},
 	},
 #mods
+#skillEnd
 
 #skill SupportRageFountainPlayer
+#set SupportRageFountainPlayer
 	statMap = {
 		["support_rage_fountain_rage_regeneration_per_minute"] = {
 			mod("RageRegen", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Aura" }),
@@ -192,11 +253,15 @@ local skills, mod, flag, skill = ...
 		},
 	},
 #mods
+#skillEnd
 
 #skill SupportFreshClipPlayer
+#set SupportFreshClipPlayer
 #mods
+#skillEnd
 
 #skill SupportMeleePhysicalDamagePlayer
+#set SupportMeleePhysicalDamagePlayer
 	statMap = {
 		["support_melee_physical_damage_+%_final"] = {
 			mod("PhysicalDamage", "MORE", nil, ModFlag.Melee),
@@ -206,24 +271,30 @@ local skills, mod, flag, skill = ...
 		},
 	},
 #mods
+#skillEnd
 
 #skill SupportHeftPlayer
+#set SupportHeftPlayer
 	statMap = {
 		["support_maximum_physical_hit_damage_+%_final"] = {
 			mod("MaxPhysicalDamage", "MORE", nil, ModFlag.Hit),
 		},
 	},
 #mods
+#skillEnd
 
 #skill SupportHerbalismPlayer
+#set SupportHerbalismPlayer
 	statMap = {
 		["support_herbalism_life_recovery_+%_from_life_flasks"] = {
 			mod("FlaskLifeRecovery", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff" }),
 		},
 	},
 #mods
+#skillEnd
 
 #skill SupportHolyDescentPlayer
+#set SupportHolyDescentPlayer
 	statMap = {
 		["support_holy_descent_consecrated_ground_on_landing"] = {
 			-- Display only
@@ -233,22 +304,30 @@ local skills, mod, flag, skill = ...
 		},
 	},
 #mods
+#skillEnd
 
 #skill SupportChanceToIgnitePlayer
+#set SupportChanceToIgnitePlayer
 	statMap = {
 		["support_ignition_chance_to_ignite_+%_final"] = {
 			mod("EnemyIgniteChance", "MORE", nil),
 		},
 	},
 #mods
+#skillEnd
 
 #skill SupportImmolatePlayer
+#set SupportImmolatePlayer
 #mods
+#skillEnd
 
 #skill ImpactShockwaveSupportPlayer
+#set ImpactShockwaveSupportPlayer
 #mods
+#skillEnd
 
 #skill SupportInfernalLegionPlayer
+#set SupportInfernalLegionPlayer
 	statMap = {
 		["minion_fire_damage_%_of_maximum_life_taken_per_minute"] = {
 			mod("MinionModifier", "LIST", { mod = mod("FireDegen", "BASE", nil, 0, 0, { type = "PerStat", stat = "Life" }, { type = "GlobalEffect", effectType = "Buff" }) }),
@@ -261,34 +340,50 @@ local skills, mod, flag, skill = ...
 		},
 	},
 #mods
+#skillEnd
 
 #skill SupportInspirationPlayer
+#set SupportInspirationPlayer
 	statMap = {
 		["support_inspiration_cost_+%_final"] = {
 			mod("Cost", "MORE", nil),
 		},
 	},
 #mods
+#skillEnd
 
 #skill SupportIronwoodPlayer
+#set SupportIronwoodPlayer
 #mods
+#skillEnd
 
 #skill SupportJaggedGroundPlayer
+#set SupportJaggedGroundPlayer
 #mods
+#skillEnd
 
 #skill SupportChanceToBleedPlayer
+#set SupportChanceToBleedPlayer
 #mods
+#skillEnd
 
 #skill SupportLifeLeechPlayer
+#set SupportLifeLeechPlayer
 #mods
+#skillEnd
 
 #skill SupportBloodMagicPlayer
+#set SupportBloodMagicPlayer
 #mods
+#skillEnd
 
 #skill SupportLongFusePlayer
+#set SupportLongFusePlayer
 #mods
+#skillEnd
 
 #skill SupportMeatShieldPlayer
+#set SupportMeatShieldPlayer
 	statMap = {
 		["support_minion_maximum_life_+%_final"] = {
 			mod("MinionModifier", "LIST", { mod = mod("Life", "MORE", nil) }),
@@ -298,50 +393,70 @@ local skills, mod, flag, skill = ...
 		},
 	},
 #mods
+#skillEnd
 
 #skill SupportOverpowerPlayer
+#set SupportOverpowerPlayer
 	statMap = {
 		["support_overpower_hit_damage_stun_multiplier_+%_final"] = {
 			mod("StunBuildup", "MORE", nil),
 		},
 	},
 #mods
+#skillEnd
 
 #skill MoreDurationSupportPlayer
+#set MoreDurationSupportPlayer
 	statMap = {
 		["support_more_duration_skill_effect_duration_+%_final"] = {
 			mod("Duration", "MORE", nil),
 		},
 	},
 #mods
+#skillEnd
 
 #skill SupportEmpoweredDamagePlayer
+#set SupportEmpoweredDamagePlayer
 #mods
+#skillEnd
 
 #skill SupportWeaponElementalDamagePlayer
+#set SupportWeaponElementalDamagePlayer
 	statMap = {
 		["support_weapon_elemental_damage_+%_final"] = {
 			mod("ElementalDamage", "MORE", nil, 0, KeywordFlag.Attack),
 		},
 	},
 #mods
+#skillEnd
 
 #skill SupportRagePlayer
+#set SupportRagePlayer
 #mods
+#skillEnd
 
 #skill SupportRageforgedPlayer
+#set SupportRageforgedPlayer
 #mods
+#skillEnd
 
 #skill SupportRagingCryPlayer
+#set SupportRagingCryPlayer
 #mods
+#skillEnd
 
 #skill SupportRupturePlayer
+#set SupportRupturePlayer
 #mods
+#skillEnd
 
 #skill RuthlessSupportPlayer
+#set RuthlessSupportPlayer
 #mods
+#skillEnd
 
 #skill SupportDeadlyIgnitesPlayer
+#set SupportDeadlyIgnitesPlayer
 	statMap = {
 		["support_stronger_ignites_hit_damage_+%_final"] = {
 			mod("Damage", "MORE", nil, ModFlag.Hit),
@@ -351,28 +466,39 @@ local skills, mod, flag, skill = ...
 		},
 	},
 #mods
+#skillEnd
 
 #skill SupportArmourBreakPlayer
+#set SupportArmourBreakPlayer
 #mods
+#skillEnd
 
 #skill SupportStompingGroundPlayer
+#set SupportStompingGroundPlayer
 #mods
-
+#skillEnd
 #skill StompingGroundShockwavePlayer
+#set StompingGroundShockwavePlayer
 #mods
+#skillEnd
 
 #skill SupportTremorsPlayer
+#set SupportTremorsPlayer
 #mods
+#skillEnd
 
 #skill UnbreakableSupportPlayer
+#set UnbreakableSupportPlayer
 	statMap = {
 		["support_unbreakable_stun_threshold_+%_final_while_performing_action"] = {
 			mod("StunThreshold", "MORE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", unscalable = true }),
 		},
 	},
 #mods
+#skillEnd
 
 #skill SupportUpheavalPlayer
+#set SupportUpheavalPlayer
 	statMap = {
 		["support_additional_fissures_damage_+%_final"] = {
 			mod("Damage", "MORE", nil, ModFlag.Hit),
@@ -382,8 +508,10 @@ local skills, mod, flag, skill = ...
 		},
 	},
 #mods
+#skillEnd
 
 #skill SupportVitalityPlayer
+#set SupportVitalityPlayer
 	statMap = {
 		["support_vitality_life_regeneration_rate_per_minute_%"] = {
 			mod("LifeRegenPercent", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff" }),
@@ -391,3 +519,4 @@ local skills, mod, flag, skill = ...
 		},
 	},
 #mods
+#skillEnd

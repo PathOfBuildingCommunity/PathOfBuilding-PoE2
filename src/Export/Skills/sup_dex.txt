@@ -6,74 +6,106 @@
 local skills, mod, flag, skill = ...
 
 #skill SupportFasterProjectilesPlayer
+#set SupportFasterProjectilesPlayer
 	statMap = {
 		["support_faster_projectiles_projectile_speed_+%_final"] = {
 			mod("ProjectileSpeed", "MORE", nil),
 		},
 	},
 #mods
+#skillEnd
 
 #skill SupportAmmoConservationPlayer
+#set SupportAmmoConservationPlayer
 	statMap = {
 		["crossbow_attack_%_chance_to_not_consume_ammo"] = {
 			mod("ChanceToNotConsumeAmmo", "BASE", nil),
 		},
 	},
 #mods
+#skillEnd
 
 #skill SupportBlindPlayer
+#set SupportBlindPlayer
 #mods
+#skillEnd
 
 #skill SupportDazedBreakPlayer
+#set SupportDazedBreakPlayer
 #mods
+#skillEnd
 
 #skill SupportAdditionalAccuracyPlayer
+#set SupportAdditionalAccuracyPlayer
 	statMap = {
 		["support_additional_accurary_rating_+%_final"] = {
 			mod("Accuracy", "MORE", nil),
 		},
 	},
 #mods
+#skillEnd
 
 #skill SupportBurstingPlaguePlayer
+#set SupportBurstingPlaguePlayer
 #mods
-
+#skillEnd
 #skill PlagueBurstPlayer
+#set PlagueBurstPlayer
 #mods
+#skillEnd
 
 #skill SupportChainPlayer
+#set SupportChainPlayer
 	statMap = {
 		["support_chain_hit_damage_+%_final"] = {
 			mod("Damage", "MORE", nil),
 		},
 	},
 #mods
+#skillEnd
 
 #skill SupportCloseCombatPlayer
+#set SupportCloseCombatPlayer
 #mods
+#skillEnd
 
 #skill SupportComboFinisherPlayer
+#set SupportComboFinisherPlayer
 #mods
+#skillEnd
 
 #skill SupportMultiplePoisonPlayer
+#set SupportMultiplePoisonPlayer
 #mods
+#skillEnd
 
 #skill SupportChanceToShockPlayer
+#set SupportChanceToShockPlayer
 #mods
+#skillEnd
 
 #skill SupportCorrosionPlayer
+#set SupportCorrosionPlayer
 #mods
+#skillEnd
 
 #skill SupportCrescendoPlayer
+#set SupportCrescendoPlayer
 #mods
+#skillEnd
 
 #skill SupportCullingStrikePlayer
+#set SupportCullingStrikePlayer
 #mods
+#skillEnd
 
 #skill SupportCulminationPlayer
+#set SupportCulminationPlayer
 #mods
+#skillEnd
 
 #skill SupportDeadlyPoisonPlayer
+#set SupportDeadlyPoisonPlayer
 	statMap = {
 		["support_deadly_poison_hit_damage_+%_final"] = {
 			mod("Damage", "MORE", nil, ModFlag.Hit, KeywordFlag.Poison),
@@ -83,58 +115,90 @@ local skills, mod, flag, skill = ...
 		},
 	},
 #mods
+#skillEnd
 
 #skill SupportSlowerProjectilesPlayer
+#set SupportSlowerProjectilesPlayer
 	statMap = {
 		["support_faster_projectiles_projectile_speed_+%_final"] = {
 			mod("ProjectileSpeed", "MORE", nil),
 		},
 	},
 #mods
+#skillEnd
 
 #skill SupportDazingPlayer
+#set SupportDazingPlayer
 #mods
+#skillEnd
 
 #skill SupportElectrocutePlayer
+#set SupportElectrocutePlayer
 #mods
+#skillEnd
 
 #skill SupportEncumberancePlayer
+#set SupportEncumberancePlayer
 #mods
+#skillEnd
 
 #skill SupportChanceToPoisonPlayer
+#set SupportChanceToPoisonPlayer
 #mods
+#skillEnd
 
 #skill SupportFerocityPlayer
+#set SupportFerocityPlayer
 #mods
+#skillEnd
 
 #skill SupportForkPlayer
+#set SupportForkPlayer
 #mods
+#skillEnd
 
 #skill SupportFusilladePlayer
+#set SupportFusilladePlayer
 #mods
+#skillEnd
 
 #skill SupportCooldownReductionPlayer
+#set SupportCooldownReductionPlayer
 #mods
+#skillEnd
 
 #skill SupportInnervatePlayer
+#set SupportInnervatePlayer
 #mods
+#skillEnd
 
 #skill SupportLastingShockPlayer
+#set SupportLastingShockPlayer
 #mods
+#skillEnd
 
 #skill SupportLeveragePlayer
+#set SupportLeveragePlayer
 #mods
+#skillEnd
 
 #skill SupportLifeFlaskPlayer
+#set SupportLifeFlaskPlayer
 #mods
+#skillEnd
 
 #skill SupportLifeOnCullPlayer
+#set SupportLifeOnCullPlayer
 #mods
+#skillEnd
 
 #skill SupportLightningExposurePlayer
+#set SupportLightningExposurePlayer
 #mods
+#skillEnd
 
 #skill SupportAddedLightningDamagePlayer
+#set SupportAddedLightningDamagePlayer
 	statMap = {
 		["support_cold_and_fire_damage_+%_final"] = {
 			mod("ColdDamage", "MORE", nil),
@@ -142,87 +206,143 @@ local skills, mod, flag, skill = ...
 		},
 	},
 #mods
+#skillEnd
 
 #skill SupportLightningPenetrationPlayer
+#set SupportLightningPenetrationPlayer
 #mods
+#skillEnd
 
 #skill SupportLockdownPlayer
+#set SupportLockdownPlayer
 #mods
+#skillEnd
 
 #skill SupportFarCombatPlayer
+#set SupportFarCombatPlayer
 #mods
+#skillEnd
 
 #skill SupportMaimPlayer
+#set SupportMaimPlayer
 #mods
+#skillEnd
 
 #skill SupportManaFlaskPlayer
+#set SupportManaFlaskPlayer
 #mods
+#skillEnd
 
 #skill SupportFasterAttackPlayer
+#set SupportFasterAttackPlayer
 #mods
+#skillEnd
 
 #skill SupportMobilityPlayer
+#set SupportMobilityPlayer
 #mods
+#skillEnd
 
 #skill SupportMomentumPlayer
+#set SupportMomentumPlayer
 #mods
+#skillEnd
 
 #skill SupportEmpoweredCullPlayer
+#set SupportEmpoweredCullPlayer
 #mods
+#skillEnd
 
 #skill SupportNeuralOverloadPlayer
+#set SupportNeuralOverloadPlayer
 #mods
+#skillEnd
 
 #skill SupportNimbleReloadPlayer
+#set SupportNimbleReloadPlayer
 #mods
+#skillEnd
 
 #skill SupportIncreaseLimitPlayer
+#set SupportIncreaseLimitPlayer
 #mods
+#skillEnd
 
 #skill SupportOverchargePlayer
+#set SupportOverchargePlayer
 #mods
+#skillEnd
 
 #skill SupportPayloadPlayer
+#set SupportPayloadPlayer
 #mods
+#skillEnd
 
 #skill SupportPerpetualChargePlayer
+#set SupportPerpetualChargePlayer
 #mods
+#skillEnd
 
 #skill SupportPiercePlayer
+#set SupportPiercePlayer
 #mods
+#skillEnd
 
 #skill SupportPinPlayer
+#set SupportPinPlayer
 #mods
+#skillEnd
 
 #skill SupportPracticedComboPlayer
+#set SupportPracticedComboPlayer
 #mods
+#skillEnd
 
 #skill SupportPrecisionPlayer
+#set SupportPrecisionPlayer
 #mods
+#skillEnd
 
 #skill SupportMultipleChargesPlayer
+#set SupportMultipleChargesPlayer
 #mods
+#skillEnd
 
 #skill SupportRicochetPlayer
+#set SupportRicochetPlayer
 #mods
+#skillEnd
 
 #skill SupportMultipleProjectilesPlayer
+#set SupportMultipleProjectilesPlayer
 #mods
+#skillEnd
 
 #skill SupportSecondWindPlayer
+#set SupportSecondWindPlayer
 #mods
+#skillEnd
 
 #skill SupportManaOnCullPlayer
+#set SupportManaOnCullPlayer
 #mods
+#skillEnd
 
 #skill SupportSwiftAfflictionPlayer
+#set SupportSwiftAfflictionPlayer
 #mods
+#skillEnd
 
 #skill SupportKnockbackWavePlayer
+#set SupportKnockbackWavePlayer
 #mods
-
+#skillEnd
 #skill KnockbackWavePlayer
+#set KnockbackWavePlayer
 #mods
+#skillEnd
 
 #skill SupportWindowOfOpportunityPlayer
+#set SupportWindowOfOpportunityPlayer
 #mods
+#skillEnd

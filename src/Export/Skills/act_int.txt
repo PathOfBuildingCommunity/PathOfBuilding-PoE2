@@ -6,561 +6,916 @@
 local skills, mod, flag, skill = ...
 
 #skill ArcPlayer
-#flags spell chaining
+#set ArcPlayer
+#flags
 #mods
+#skillEnd
 
 #skill ArchmagePlayer
+#set ArchmagePlayer
 #flags
 #mods
+#skillEnd
 
 #skill ArcticArmourPlayer
+#set ArcticArmourPlayer
 #flags
 #mods
+#skillEnd
 
 #skill BallLightningPlayer
+#set BallLightningPlayer
 #flags
 #mods
+#skillEnd
 
 #skill MetaBarrierInvocationPlayer
+#set MetaBarrierInvocationPlayer
 #flags
 #mods
+#skillEnd
 
 #skill SupportBarrierInvocationPlayer
+#set SupportBarrierInvocationPlayer
 #flags
 #mods
+#skillEnd
 
 #skill BlasphemyPlayer
+#set BlasphemyPlayer
 #flags
 #mods
+#skillEnd
 
 #skill SupportBlasphemyPlayer
+#set SupportBlasphemyPlayer
 #flags
 #mods
+#skillEnd
 
 #skill BlinkReservationPlayer
+#set BlinkReservationPlayer
 #flags
 #mods
+#skillEnd
 
 #skill BlinkPlayer
+#set BlinkPlayer
 #flags
 #mods
+#skillEnd
 
 #skill BoneBlastPlayer
+#set BoneBlastPlayer
 #flags
 #mods
+#skillEnd
 
 #skill BoneCagePlayer
+#set BoneCagePlayer
 #flags
 #mods
+#skillEnd
 
 #skill BoneOfferingPlayer
+#set BoneOfferingPlayer
 #flags
 #mods
+#skillEnd
 
 #skill BonestormPlayer
+#set BonestormPlayer
 #flags
 #mods
+#set BonestormExplosionPlayer
+#flags
+#mods
+#skillEnd
 
 #skill MetaCastOnCritPlayer
+#set MetaCastOnCritPlayer
 #flags
 #mods
+#skillEnd
 
 #skill SupportMetaCastOnCritPlayer
+#set SupportMetaCastOnCritPlayer
 #flags
 #mods
+#skillEnd
 
 #skill MetaCastOnDeathPlayer
+#set MetaCastOnDeathPlayer
 #flags
 #mods
+#skillEnd
 
 #skill SupportMetaCastOnDeathPlayer
+#set SupportMetaCastOnDeathPlayer
 #flags
 #mods
+#skillEnd
 
 #skill MetaCastOnDodgePlayer
+#set MetaCastOnDodgePlayer
 #flags
 #mods
+#skillEnd
 
 #skill SupportMetaCastOnDodgePlayer
+#set SupportMetaCastOnDodgePlayer
 #flags
 #mods
+#skillEnd
 
 #skill MetaCastOnFreezePlayer
+#set MetaCastOnFreezePlayer
 #flags
 #mods
+#skillEnd
 
 #skill SupportMetaCastOnFreezePlayer
+#set SupportMetaCastOnFreezePlayer
 #flags
 #mods
+#skillEnd
 
 #skill MetaCastOnIgnitePlayer
+#set MetaCastOnIgnitePlayer
 #flags
 #mods
+#skillEnd
 
 #skill SupportMetaCastOnIgnitePlayer
+#set SupportMetaCastOnIgnitePlayer
 #flags
 #mods
+#skillEnd
 
 #skill MetaCastOnMinionDeathPlayer
+#set MetaCastOnMinionDeathPlayer
 #flags
 #mods
+#skillEnd
 
 #skill SupportMetaCastOnMinionDeathPlayer
+#set SupportMetaCastOnMinionDeathPlayer
 #flags
 #mods
+#skillEnd
 
 #skill MetaCastOnShockPlayer
+#set MetaCastOnShockPlayer
 #flags
 #mods
+#skillEnd
 
 #skill SupportMetaCastOnShockPlayer
+#set SupportMetaCastOnShockPlayer
 #flags
 #mods
+#skillEnd
 
 #skill WeaponGrantedChaosboltPlayer
+#set WeaponGrantedChaosboltPlayer
 #flags
 #mods
+#skillEnd
 
 #skill ChargeInfusionPlayer
+#set ChargeInfusionPlayer
 #flags
 #mods
+#skillEnd
 
 #skill ChargedStaffPlayer
+#set ChargedStaffPlayer
 #flags
 #mods
+#skillEnd
 
 #skill ChargedStaffShockwavePlayer
+#set ChargedStaffShockwavePlayer
 #flags
 #mods
+#skillEnd
 
 #skill ColdSnapPlayer
+#set ColdSnapPlayer
 #flags
 #mods
+#skillEnd
 
 #skill CometPlayer
+#set CometPlayer
 #flags
 #mods
+#skillEnd
 
 #skill ConductivityPlayer
+#set ConductivityPlayer
 #flags
 #mods
+#skillEnd
 
 #skill ContagionPlayer
+#set ContagionPlayer
 #flags
 #mods
+#skillEnd
 
 #skill DarkEffigyPlayer
+#set DarkEffigyPlayer
 #flags
 #mods
+#skillEnd
 
 #skill DarkEffigyProjectilePlayer
+#set DarkEffigyProjectilePlayer
 #flags
 #mods
+#skillEnd
 
 #skill CorpseCloudPlayer
+#set CorpseCloudPlayer
 #flags
 #mods
+#set CorpseCloudExplosionPlayer
+#flags
+#mods
+#skillEnd
 
 #skill DespairPlayer
+#set DespairPlayer
 #flags
 #mods
+#skillEnd
 
 #skill DetonateDeadPlayer
+#set DetonateDeadPlayer
 #flags
 #mods
+#skillEnd
 
 #skill DisciplinePlayer
+#set DisciplinePlayer
 #flags
 #mods
+#skillEnd
 
 #skill ElementalConfluxPlayer
+#set ElementalConfluxPlayer
 #flags
 #mods
+#skillEnd
 
 #skill MetaElementalInvocationPlayer
+#set MetaElementalInvocationPlayer
 #flags
 #mods
+#skillEnd
 
 #skill SupportElementalInvocationPlayer
+#set SupportElementalInvocationPlayer
 #flags
 #mods
+#skillEnd
 
 #skill BlazingClusterPlayer
+#set BlazingClusterPlayer
 #flags
 #mods
+#set BlazingClusterExplosionPlayer
+#flags
+#mods
+#skillEnd
 
 #skill EnfeeblePlayer
+#set EnfeeblePlayer
 #flags
 #mods
+#skillEnd
 
 #skill EssenceDrainPlayer
+#set EssenceDrainPlayer
 #flags
 #mods
+#set EssenceDrainDotPlayer
+#flags
+#mods
+#skillEnd
 
 #skill EyeOfWinterPlayer
+#set EyeOfWinterPlayer
 #flags
 #mods
+#skillEnd
 
 #skill FallingThunderPlayer
+#set FallingThunderPlayer
 #flags
 #mods
+#set FallingThunderProjectilePlayer
+#flags
+#mods
+#skillEnd
 
 #skill FireballPlayer
+#set FireballPlayer
 #flags
 #mods
+#set FireballExplosionPlayer
+#flags
+#mods
+#set FireballSecondaryProjectilePlayer
+#flags
+#mods
+#skillEnd
 
 #skill FireboltPlayer
+#set FireboltPlayer
 #flags
 #mods
+#set FireboltExplosionPlayer
+#flags
+#mods
+#skillEnd
 
 #skill FirestormPlayer
+#set FirestormPlayer
 #flags
 #mods
+#set FirestormEmpoweredPlayer
+#flags
+#mods
+#skillEnd
 
 #skill FlameWallPlayer
+#set FlameWallPlayer
 #flags
 #mods
+#set FlameWallIgnitePlayer
+#flags
+#mods
+#skillEnd
 
 #skill FlameblastPlayer
+#set FlameblastPlayer
 #flags
 #mods
+#skillEnd
 
 #skill FlammabilityPlayer
+#set FlammabilityPlayer
 #flags
 #mods
+#skillEnd
 
 #skill FlickerStrikePlayer
+#set FlickerStrikePlayer
 #flags
 #mods
+#skillEnd
 
 #skill FreezingMarkPlayer
+#set FreezingMarkPlayer
 #flags
 #mods
+#skillEnd
 
 #skill TriggeredFreezingMarkNovaPlayer
+#set TriggeredFreezingMarkNovaPlayer
 #flags
 #mods
+#skillEnd
 
 #skill FreezingShardsPlayer
+#set FreezingShardsPlayer
 #flags
 #mods
+#skillEnd
 
 #skill FrostBombPlayer
+#set FrostBombPlayer
 #flags
 #mods
+#skillEnd
 
 #skill FrostWallPlayer
+#set FrostWallPlayer
 #flags
 #mods
+#skillEnd
 
 #skill HypothermiaPlayer
+#set HypothermiaPlayer
 #flags
 #mods
+#skillEnd
 
 #skill FrostboltPlayer
+#set FrostboltPlayer
 #flags
 #mods
+#set FrostboltExplosionPlayer
+#flags
+#mods
+#skillEnd
 
 #skill FrozenLocusPlayer
+#set FrozenLocusPlayer
 #flags
 #mods
+#set FrozenLocusGroundPlayer
+#flags
+#mods
+#skillEnd
 
 #skill FrozenLocusExplodePlayer
+#set FrozenLocusExplodePlayer
 #flags
 #mods
+#skillEnd
 
 #skill GalvanicFieldPlayer
+#set GalvanicFieldPlayer
 #flags
 #mods
+#skillEnd
 
 #skill GatheringStormPlayer
+#set GatheringStormPlayer
 #flags
 #mods
+#set GatheringStormPerfectPlayer
+#flags
+#mods
+#set GatheringStormExplodePlayer
+#flags
+#mods
+#skillEnd
 
 #skill GhostDancePlayer
+#set GhostDancePlayer
 #flags
 #mods
+#skillEnd
 
 #skill GlacialCascadePlayer
+#set GlacialCascadePlayer
 #flags
 #mods
+#set GlacialCascadeLastSpikePlayer
+#flags
+#mods
+#skillEnd
 
 #skill GrimFeastPlayer
+#set GrimFeastPlayer
 #flags
 #mods
+#skillEnd
 
 #skill HandOfChayulaPlayer
+#set HandOfChayulaPlayer
 #flags
 #mods
+#skillEnd
 
 #skill SupportHandOfChayulaPlayer
+#set SupportHandOfChayulaPlayer
 #flags
 #mods
+#skillEnd
 
 #skill HeraldOfIcePlayer
+#set HeraldOfIcePlayer
 #flags
 #mods
+#set HeraldOfIceOnKillPlayer
+#flags
+#mods
+#skillEnd
 
 #skill HexblastPlayer
+#set HexblastPlayer
 #flags
 #mods
+#skillEnd
 
 #skill IceNovaPlayer
+#set IceNovaPlayer
 #flags
 #mods
+#set IceNovaPlayerOnFrostbolt
+#flags
+#mods
+#skillEnd
 
 #skill IceStrikePlayer
+#set IceStrikePlayer
 #flags
 #mods
+#set IceStrikeThirdAttackPlayer
+#flags
+#mods
+#skillEnd
 
 #skill IncineratePlayer
+#set IncineratePlayer
 #flags
 #mods
+#set IncinerateGroundPlayer
+#flags
+#mods
+#skillEnd
 
 #skill KillingPalmPlayer
+#set KillingPalmPlayer
 #flags
 #mods
+#skillEnd
 
 #skill LightningBoltPlayer
+#set LightningBoltPlayer
 #flags
 #mods
+#skillEnd
 
 #skill LightningConduitPlayer
+#set LightningConduitPlayer
 #flags
 #mods
+#skillEnd
 
 #skill LightningWarpPlayer
+#set LightningWarpPlayer
 #flags
 #mods
+#skillEnd
 
 #skill LingeringIllusionPlayer
+#set LingeringIllusionPlayer
 #flags
 #mods
+#skillEnd
 
 #skill LingeringIllusionSpawnPlayer
+#set LingeringIllusionSpawnPlayer
 #flags
 #mods
+#skillEnd
 
 #skill LivingBombPlayer
+#set LivingBombPlayer
 #flags
 #mods
+#skillEnd
 
 #skill MalicePlayer
+#set MalicePlayer
 #flags
 #mods
+#skillEnd
 
 #skill ManaDrainPlayer
+#set ManaDrainPlayer
 #flags
 #mods
+#skillEnd
 
 #skill ManaRemnantsPlayer
+#set ManaRemnantsPlayer
 #flags
 #mods
+#skillEnd
 
 #skill ManaTempestPlayer
+#set ManaTempestPlayer
 #flags
 #mods
+#skillEnd
 
 #skill MantraOfDestructionPlayer
+#set MantraOfDestructionPlayer
 #flags
 #mods
+#skillEnd
 
 #skill OrbOfStormsPlayer
+#set OrbOfStormsPlayer
 #flags
 #mods
+#skillEnd
 
 #skill PainOfferingPlayer
+#set PainOfferingPlayer
 #flags
 #mods
+#skillEnd
 
 #skill PowerSiphonPlayer
+#set PowerSiphonPlayer
 #flags
 #mods
+#skillEnd
 
 #skill ProfaneRitualPlayer
+#set ProfaneRitualPlayer
 #flags
 #mods
+#skillEnd
 
 #skill PurityOfFirePlayer
+#set PurityOfFirePlayer
 #flags
 #mods
+#skillEnd
 
 #skill PurityOfIcePlayer
+#set PurityOfIcePlayer
 #flags
 #mods
+#skillEnd
 
 #skill PurityOfLightningPlayer
+#set PurityOfLightningPlayer
 #flags
 #mods
+#skillEnd
 
 #skill RagingSpiritsPlayer
+#set RagingSpiritsPlayer
 #flags
 #mods
+#skillEnd
 
 #skill RaiseZombiePlayer
+#set RaiseZombiePlayer
 #flags
 #mods
+#skillEnd
 
 #skill MetaReapersInvocationPlayer
+#set MetaReapersInvocationPlayer
 #flags
 #mods
+#skillEnd
 
 #skill SupportReapersInvocationPlayer
+#set SupportReapersInvocationPlayer
 #flags
 #mods
+#skillEnd
 
 #skill RollingMagmaPlayer
+#set RollingMagmaPlayer
 #flags
 #mods
+#skillEnd
 
 #skill SacrificePlayer
+#set SacrificePlayer
 #flags
 #mods
+#skillEnd
 
 #skill ShatteringPalmPlayer
+#set ShatteringPalmPlayer
 #flags
 #mods
+#skillEnd
 
 #skill ShatteringPalmExplosionPlayer
+#set TriggeredFreezingWordExplosionPlayer
 #flags
 #mods
+#skillEnd
 
 #skill SigilOfPowerPlayer
+#set SigilOfPowerPlayer
 #flags
 #mods
+#skillEnd
 
 #skill SiphoningStrikePlayer
+#set SiphoningStrikePlayer
 #flags
 #mods
+#set SiphoningStrikePulsePlayer
+#flags
+#mods
+#skillEnd
 
 #skill SummonSkeletalArsonistsPlayer
+#set SummonSkeletalArsonistsPlayer
 #flags
 #mods
+#skillEnd
 
 #skill CommandSkeletalArsonistPlayer
+#set CommandSkeletalArsonistPlayer
 #flags
 #mods
+#skillEnd
 
 #skill SummonSkeletalBrutesPlayer
+#set SummonSkeletalBrutesPlayer
 #flags
 #mods
+#skillEnd
 
 #skill SummonSkeletalClericsPlayer
+#set SummonSkeletalClericsPlayer
 #flags
 #mods
+#skillEnd
 
 #skill SummonSkeletalFrostMagesPlayer
+#set SummonSkeletalFrostMagesPlayer
 #flags
 #mods
+#skillEnd
 
 #skill CommandSkeletalFrostMagePlayer
+#set CommandSkeletalFrostMagePlayer
 #flags
 #mods
+#skillEnd
 
 #skill SummonSkeletalReaversPlayer
+#set SummonSkeletalReaversPlayer
 #flags
 #mods
+#skillEnd
 
 #skill CommandSkeletalReaversPlayer
+#set CommandSkeletalReaversPlayer
 #flags
 #mods
+#skillEnd
 
 #skill SummonSkeletalSnipersPlayer
+#set SummonSkeletalSnipersPlayer
 #flags
 #mods
+#skillEnd
 
 #skill CommandSkeletalSniperPlayer
+#set CommandSkeletalSniperPlayer
 #flags
 #mods
+#skillEnd
 
 #skill SummonSkeletalStormMagesPlayer
+#set SummonSkeletalStormMagesPlayer
 #flags
 #mods
+#skillEnd
 
 #skill CommandSkeletalStormMagePlayer
+#set CommandSkeletalStormMagePlayer
 #flags
 #mods
+#skillEnd
 
 #skill SummonSkeletalWarriorsPlayer
+#set SummonSkeletalWarriorsPlayer
 #flags
 #mods
+#skillEnd
 
 #skill WeaponGrantedSummonSkeletalWarriorsPlayer
+#set WeaponGrantedSummonSkeletalWarriorsPlayer
 #flags
 #mods
+#skillEnd
 
 #skill SolarOrbPlayer
+#set SolarOrbPlayer
 #flags
 #mods
+#set SolarOrbAuraPlayer
+#flags
+#mods
+#skillEnd
 
 #skill SoulOfferingPlayer
+#set SoulOfferingPlayer
 #flags
 #mods
+#skillEnd
 
 #skill SparkPlayer
+#set SparkPlayer
 #flags
 #mods
+#skillEnd
 
 #skill StaggeringPalmPlayer
+#set StaggeringPalmPlayer
 #flags
 #mods
+#skillEnd
 
 #skill StaggeringPalmProjectilePlayer
+#set StaggeringPalmProjectilePlayer
 #flags
 #mods
+#skillEnd
 
 #skill StaggeringPalmUnarmedProjectilePlayer
+#set StaggeringPalmUnarmedProjectilePlayer
 #flags
 #mods
+#skillEnd
 
 #skill StormWavePlayer
+#set StormWavePlayer
 #flags
 #mods
+#skillEnd
 
 #skill TempestBellPlayer
+#set TempestBellPlayer
 #flags
 #mods
+#set TempestBellSlamPlayer
+#flags
+#mods
+#set TempestBellShockwavePlayer
+#flags
+#mods
+#skillEnd
 
 #skill TempestFlurryPlayer
+#set TempestFlurryPlayer
 #flags
 #mods
+#set TempestFlurryPlayerThirdStrike
+#flags
+#mods
+#set TempestFlurryPlayerFinalStrike
+#flags
+#mods
+#skillEnd
 
 #skill TemporalChainsPlayer
+#set TemporalChainsPlayer
 #flags
 #mods
+#skillEnd
 
 #skill UnearthPlayer
+#set UnearthPlayer
 #flags
 #mods
+#skillEnd
 
 #skill StaffUnleashNextSpellPlayer
+#set StaffUnleashNextSpellPlayer
 #flags
 #mods
+#skillEnd
 
 #skill VaultingImpactPlayer
+#set VaultingImpactPlayer
 #flags
 #mods
+#skillEnd
 
 #skill VolatileDeadPlayer
+#set VolatileDeadPlayer
 #flags
 #mods
+#skillEnd
 
 #skill VulnerabilityPlayer
+#set VulnerabilityPlayer
 #flags
 #mods
+#skillEnd
 
 #skill WaveOfFrostPlayer
+#set WaveOfFrostPlayer
 #flags
 #mods
+#skillEnd
 
 #skill WhirlingAssaultPlayer
+#set WhirlingAssaultPlayer
 #flags
 #mods
+#skillEnd
 
 #skill GaleStrikePlayer
+#set GaleStrikePlayer
 #flags
 #mods
+#skillEnd
 
 #skill WitheringPresencePlayer
+#set WitheringPresencePlayer
 #flags
 #mods
+#skillEnd

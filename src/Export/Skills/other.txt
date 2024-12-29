@@ -6,131 +6,207 @@
 local skills, mod, flag, skill = ...
 
 #skill AncestralSpiritsPlayer
+#set AncestralSpiritsPlayer
 #flags
 	fromTree = true,
 #mods
+#skillEnd
 
 #skill BleedingConcoctionPlayer
+#set BleedingConcoctionPlayer
 #flags
 	fromTree = true,
 #mods
+#skillEnd
 
 #skill MeleeBowPlayer
+#set MeleeBowPlayer
 #flags
 	fromItem = true,
 #mods
+#skillEnd
 
 #skill MeleeCrossbowPlayer
+#set MeleeCrossbowPlayer
 #flags attack area projectile
 	fromItem = true,
 #mods
+#skillEnd
 
 #skill DemonFormPlayer
+#set DemonFormPlayer
 #flags
 	fromTree = true,
 #mods
+#skillEnd
 
 #skill ElementalExpressionTriggeredPlayer
+#set ElementalExpressionTriggeredPlayer
 #flags
 	fromTree = true,
 #mods
+#set ElementalExpressionFirePlayer
+#flags
+	fromTree = true,
+#mods
+#set ElementalExpressionColdPlayer
+#flags
+	fromTree = true,
+#mods
+#set ElementalExpressionLightningPlayer
+#flags
+	fromTree = true,
+#mods
+#skillEnd
 
 #skill ElementalStormPlayer
+#set ElementalStormPlayer
 #flags
 	fromTree = true,
 #mods
+#set ElementalStormFirePlayer
+#flags
+	fromTree = true,
+#mods
+#set ElementalStormLightningPlayer
+#flags
+	fromTree = true,
+#mods
+#set ElementalStormColdPlayer
+#flags
+	fromTree = true,
+#mods
+#skillEnd
 
 #skill EncaseInJadePlayer
+#set EncaseInJadePlayer
 #flags
 	fromTree = true,
 #mods
+#skillEnd
 
 #skill ExplosiveConcoctionPlayer
+#set ExplosiveConcoctionPlayer
 #flags
 	fromTree = true,
 #mods
+#skillEnd
 
 #skill FulminatingConcoctionPlayer
+#set FulminatingConcoctionPlayer
 #flags
 	fromTree = true,
 #mods
+#skillEnd
 
 #skill IntoTheBreachPlayer
+#set IntoTheBreachPlayer
 #flags
 	fromTree = true,
 #mods
+#skillEnd
 
 #skill LifeRemnantsPlayer
+#set LifeRemnantsPlayer
 #flags
 	fromTree = true,
 #mods
+#skillEnd
 
 #skill Melee1HMacePlayer
+#set Melee1HMacePlayer
 #flags
 	fromItem = true,
 #mods
+#skillEnd
 
 #skill Melee2HMacePlayer
+#set Melee2HMacePlayer
 #flags
 	fromItem = true,
 #mods
+#skillEnd
 
 #skill MeleeMaceMacePlayer
+#set MeleeMaceMacePlayer
 #flags
 	fromItem = true,
 #mods
+#skillEnd
 
 #skill MeditatePlayer
+#set MeditatePlayer
 #flags
 	fromTree = true,
 #mods
+#skillEnd
 
 #skill PoisonousConcoctionPlayer
+#set PoisonousConcoctionPlayer
 #flags
 	fromTree = true,
 #mods
+#skillEnd
 
 #noGem
 #skill MeleeUnarmedPlayer
+#set MeleeUnarmedPlayer
 #flags attack area melee
 #mods
+#skillEnd
 
 #skill MeleeQuarterstaffPlayer
+#set MeleeQuarterstaffPlayer
 #flags
 	fromItem = true,
 #mods
+#skillEnd
 
 #skill ShatteringConcoctionPlayer
+#set ShatteringConcoctionPlayer
 #flags
 	fromTree = true,
 #mods
+#skillEnd
 
 #skill SorceryWardPlayer
+#set SorceryWardPlayer
 #flags
 	fromTree = true,
 #mods
+#skillEnd
 
 #skill SummonInfernalHoundPlayer
+#set SummonInfernalHoundPlayer
 #flags
 	fromTree = true,
 #mods
+#skillEnd
 
 #skill TemporalRiftPlayer
+#set TemporalRiftPlayer
 #flags
 	fromTree = true,
 #mods
+#skillEnd
 
 #skill TimeFreezePlayer
+#set TimeFreezePlayer
 #flags
 	fromTree = true,
 #mods
+#skillEnd
 
 #skill TimeSnapPlayer
+#set TimeSnapPlayer
 #flags
 	fromTree = true,
 #mods
+#skillEnd
 
 #skill UnboundAvatarPlayer
+#set UnboundAvatarPlayer
 #flags
 	fromTree = true,
 #mods
+#skillEnd

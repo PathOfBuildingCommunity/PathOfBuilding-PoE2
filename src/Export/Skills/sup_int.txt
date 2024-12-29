@@ -6,36 +6,56 @@
 local skills, mod, flag, skill = ...
 
 #skill SupportAblationPlayer
+#set SupportAblationPlayer
 #mods
+#skillEnd
 
 #skill SupportAmbushPlayer
+#set SupportAmbushPlayer
 #mods
+#skillEnd
 
 #skill SupportArcaneSurgePlayer
+#set SupportArcaneSurgePlayer
 #mods
+#skillEnd
 
 #skill SupportFasterCastPlayer
+#set SupportFasterCastPlayer
 #mods
+#skillEnd
 
 #skill SupportAstralProjectionPlayer
+#set SupportAstralProjectionPlayer
 #mods
+#skillEnd
 
 #skill SupportBiddingPlayer
+#set SupportBiddingPlayer
 #mods
+#skillEnd
 
 #skill SupportBitingFrostPlayer
+#set SupportBitingFrostPlayer
 #mods
+#skillEnd
 
 #skill SupportBurningRunesPlayer
+#set SupportBurningRunesPlayer
 #mods
-
+#skillEnd
 #skill TriggeredBurningRunesPlayer
+#set TriggeredBurningRunesPlayer
 #mods
+#skillEnd
 
 #skill SupportCapacitorPlayer
+#set SupportCapacitorPlayer
 #mods
+#skillEnd
 
 #skill SupportAddedChaosDamagePlayer
+#set SupportAddedChaosDamagePlayer
 	statMap = {
 		["support_chaos_support_non_chaos_damage_+%_final"] = {
 			mod("ColdDamage", "MORE", nil),
@@ -45,20 +65,30 @@ local skills, mod, flag, skill = ...
 		},
 	},
 #mods
+#skillEnd
 
 #skill SupportChaosMasteryPlayer
+#set SupportChaosMasteryPlayer
 #mods
+#skillEnd
 
 #skill SupportChaoticFreezePlayer
+#set SupportChaoticFreezePlayer
 #mods
+#skillEnd
 
 #skill SupportClarityPlayer
+#set SupportClarityPlayer
 #mods
+#skillEnd
 
 #skill SupportColdExposurePlayer
+#set SupportColdExposurePlayer
 #mods
+#skillEnd
 
 #skill SupportAddedColdDamagePlayer
+#set SupportAddedColdDamagePlayer
 	statMap = {
 		["support_fire_and_lightning_damage_+%_final"] = {
 			mod("FireDamage", "MORE", nil),
@@ -66,14 +96,20 @@ local skills, mod, flag, skill = ...
 		},
 	},
 #mods
+#skillEnd
 
 #skill SupportColdMasteryPlayer
+#set SupportColdMasteryPlayer
 #mods
+#skillEnd
 
 #skill SupportColdPenetrationPlayer
+#set SupportColdPenetrationPlayer
 #mods
+#skillEnd
 
 #skill SupportConcentratedEffectPlayer
+#set SupportConcentratedEffectPlayer
 	statMap = {
 		["support_concentrated_effect_skill_area_of_effect_+%_final"] = {
 			mod("AreaOfEffect", "MORE", nil),
@@ -83,210 +119,344 @@ local skills, mod, flag, skill = ...
 		},
 	},
 #mods
+#skillEnd
 
 #skill SupportConsideredCastingPlayer
+#set SupportConsideredCastingPlayer
 #mods
+#skillEnd
 
 #skill SupportControlledDestructionPlayer
+#set SupportControlledDestructionPlayer
 #mods
+#skillEnd
 
 #skill SupportCorpseConservationPlayer
+#set SupportCorpseConservationPlayer
 #mods
+#skillEnd
 
 #skill SupportCoursingCurrentPlayer
+#set SupportCoursingCurrentPlayer
 #mods
+#skillEnd
 
 #skill SupportCursedGroundPlayer
+#set SupportCursedGroundPlayer
 #mods
+#skillEnd
 
 #skill SupportDanseMacabrePlayer
+#set SupportDanseMacabrePlayer
 #mods
+#skillEnd
 
 #skill SupportDecayingHexPlayer
+#set SupportDecayingHexPlayer
 #mods
+#skillEnd
 
 #skill SupportLastingFrostPlayer
+#set SupportLastingFrostPlayer
 #mods
+#skillEnd
 
 #skill SupportDrainedAilmentPlayer
+#set SupportDrainedAilmentPlayer
 #mods
+#skillEnd
 
 #skill SupportElementalArmyPlayer
+#set SupportElementalArmyPlayer
 #mods
+#skillEnd
 
 #skill SupportElementalDischargePlayer
+#set SupportElementalDischargePlayer
 #mods
-
+#skillEnd
 #skill TriggeredElementalDischargePlayer
+#set TriggeredElementalDischargePlayer
 #mods
+#skillEnd
 
 #skill SupportElementalFocusPlayer
+#set SupportElementalFocusPlayer
 #mods
+#skillEnd
 
 #skill SupportEnergyBarrierPlayer
+#set SupportEnergyBarrierPlayer
 #mods
+#skillEnd
 
 #skill SupportEnergyRetentionPlayer
+#set SupportEnergyRetentionPlayer
 #mods
+#skillEnd
 
 #skill SupportExcisePlayer
+#set SupportExcisePlayer
 #mods
+#skillEnd
 
 #skill SupportExecratePlayer
+#set SupportExecratePlayer
 #mods
+#skillEnd
 
 #skill SupportExpandingGroundPlayer
+#set SupportExpandingGroundPlayer
 #mods
+#skillEnd
 
 #skill SupportExpansePlayer
+#set SupportExpansePlayer
 #mods
+#skillEnd
 
 #skill SupportExtractionPlayer
+#set SupportExtractionPlayer
 #mods
+#skillEnd
 
 #skill SupportFeedingFrenzyPlayer
+#set SupportFeedingFrenzyPlayer
 #mods
+#skillEnd
 
 #skill SupportFieryDeathPlayer
+#set SupportFieryDeathPlayer
 #mods
-
+#skillEnd
 #skill TriggeredFieryDeathPlayer
+#set TriggeredFieryDeathPlayer
 #mods
+#skillEnd
 
 #skill SupportFireMasteryPlayer
+#set SupportFireMasteryPlayer
 #mods
+#skillEnd
 
 #skill SupportFocusedCursePlayer
+#set SupportFocusedCursePlayer
 #mods
+#skillEnd
 
 #skill SupportManaFountainPlayer
+#set SupportManaFountainPlayer
 #mods
+#skillEnd
 
 #skill SupportWallFortressPlayer
+#set SupportWallFortressPlayer
 #mods
+#skillEnd
 
 #skill SupportChillingIcePlayer
+#set SupportChillingIcePlayer
 #mods
+#skillEnd
 
 #skill SupportFrostfirePlayer
+#set SupportFrostfirePlayer
 #mods
+#skillEnd
 
 #skill SupportFrozenVortexPlayer
+#set SupportFrozenVortexPlayer
 #mods
+#skillEnd
 
 #skill SupportGlaciationPlayer
+#set SupportGlaciationPlayer
 #mods
+#skillEnd
 
 #skill SupportGlacierPlayer
+#set SupportGlacierPlayer
 #mods
+#skillEnd
 
 #skill SupportCurseEffectPlayer
+#set SupportCurseEffectPlayer
 #mods
+#skillEnd
 
 #skill SupportHexBloomPlayer
+#set SupportHexBloomPlayer
 #mods
+#skillEnd
 
 #skill SupportHinderPlayer
+#set SupportHinderPlayer
 #mods
+#skillEnd
 
 #skill SupportHourglassPlayer
+#set SupportHourglassPlayer
 #mods
+#skillEnd
 
 #skill SupportIceBitePlayer
+#set SupportIceBitePlayer
 #mods
+#skillEnd
 
 #skill SupportIciclePlayer
+#set SupportIciclePlayer
 #mods
+#skillEnd
 
 #skill ViciousHexSupportPlayer
+#set ViciousHexSupportPlayer
 #mods
-
+#skillEnd
 #skill DoomBlastPlayer
+#set DoomBlastPlayer
 #mods
+#skillEnd
 
 #skill SupportImpetusPlayer
+#set SupportImpetusPlayer
 #mods
+#skillEnd
 
 #skill SupportInevitableCriticalsPlayer
+#set SupportInevitableCriticalsPlayer
 #mods
+#skillEnd
 
 #skill SupportChaoticAssassinationPlayer
+#set SupportChaoticAssassinationPlayer
 #mods
+#skillEnd
 
 #skill SupportLastGaspPlayer
+#set SupportLastGaspPlayer
 #mods
+#skillEnd
 
 #skill SupportLightningMasteryPlayer
+#set SupportLightningMasteryPlayer
 #mods
+#skillEnd
 
 #skill SupportIncreasedAreaOfEffectPlayer
+#set SupportIncreasedAreaOfEffectPlayer
 #mods
+#skillEnd
 
 #skill SupportManaFlarePlayer
+#set SupportManaFlarePlayer
 #mods
-
+#skillEnd
 #skill TriggeredManaFlarePlayer
+#set TriggeredManaFlarePlayer
 #mods
+#skillEnd
 
 #skill SupportMinionInstabilityPlayer
+#set SupportMinionInstabilityPlayer
 #mods
+#skillEnd
 
 #skill SupportMinionMasteryPlayer
+#set SupportMinionMasteryPlayer
 #mods
+#skillEnd
 
 #skill SupportMinionPactPlayer
+#set SupportMinionPactPlayer
 #mods
+#skillEnd
 
 #skill SupportPhysicalMasteryPlayer
+#set SupportPhysicalMasteryPlayer
 #mods
+#skillEnd
 
 #skill SupportPotentialPlayer
+#set SupportPotentialPlayer
 #mods
+#skillEnd
 
 #skill SupportTempestuousTempoPlayer
+#set SupportTempestuousTempoPlayer
 #mods
+#skillEnd
 
 #skill SupportRitualisticCursePlayer
+#set SupportRitualisticCursePlayer
 #mods
+#skillEnd
 
 #skill SupportSacrificialLambPlayer
+#set SupportSacrificialLambPlayer
 #mods
+#skillEnd
 
 #skill SupportEnergyShieldOnShockKillPlayer
+#set SupportEnergyShieldOnShockKillPlayer
 #mods
+#skillEnd
 
 #skill SupportManaLeechPlayer
+#set SupportManaLeechPlayer
 #mods
+#skillEnd
 
 #skill SupportSoulbreakerPlayer
+#set SupportSoulbreakerPlayer
 #mods
-
+#skillEnd
 #skill TriggeredSoulbreakerPlayer
+#set TriggeredSoulbreakerPlayer
 #mods
+#skillEnd
 
 #skill SupportSpellCascadePlayer
+#set SupportSpellCascadePlayer
 #mods
+#skillEnd
 
 #skill SupportSpellEchoPlayer
+#set SupportSpellEchoPlayer
 #mods
+#skillEnd
 
 #skill SupportStormfirePlayer
+#set SupportStormfirePlayer
 #mods
+#skillEnd
 
 #skill SupportStripAwayPlayer
+#set SupportStripAwayPlayer
 #mods
+#skillEnd
 
 #skill SupportIncreasedCriticalDamagePlayer
+#set SupportIncreasedCriticalDamagePlayer
 #mods
+#skillEnd
 
 #skill SupportUnleashPlayer
+#set SupportUnleashPlayer
 #mods
+#skillEnd
 
 #skill SupportWildfirePlayer
+#set SupportWildfirePlayer
 #mods
+#skillEnd
 
 #skill SupportWildshardsPlayer
+#set SupportWildshardsPlayer
 #mods
+#skillEnd
 
 #skill SupportWitheringTouchPlayer
+#set SupportWitheringTouchPlayer
 #mods
+#skillEnd
