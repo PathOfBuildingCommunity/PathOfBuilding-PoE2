@@ -6191,7 +6191,7 @@ return {
 		},
 		[22]={
 			list=false,
-			name="",
+			name="ActorLevel",
 			refTo="",
 			type="Float",
 			width=100

@@ -8,6 +8,15 @@ out:write('-- Gem data (c) Grinding Gear Games\n\n')
 local export = false
 
 local types = { "Strength", "Dexterity", "Intelligence", "Other" }
+
+local function grantedEffectString(grantedEffect) 
+	local s =  "#skill "..grantedEffect.Id.."\n"
+	for _, statSet in ipairs(tableConcat({grantedEffect.GrantedEffectStatSets}, grantedEffect.AdditionalStatSets)) do
+		s = s.."#set "..statSet.Id.."\n#flags\n#mods\n"
+	end
+	s = s.."#skillEnd\n"
+	return s
+end
 for i, _ in ipairs(types) do
 	local active = {}
 	local support = {}
@@ -28,11 +37,11 @@ for i, _ in ipairs(types) do
 			if skillGem.IsSupport and skillGem.GemColour == i and not gemEffect.Id:match("Unknown") and not gemEffect.Id:match("Playtest") and not skillGem.BaseItemType.Name:match("DNT")
 			and dat("SupportGems"):GetRow("SkillGem", dat("SkillGems"):GetRow("BaseItemType", dat("BaseItemTypes"):GetRow("Id", skillGem.BaseItemType.Id))) then
 				local temp = skillGem.BaseItemType.Name..string.rep(" ", 30 - string.len(skillGem.BaseItemType.Name)).."\t\t----\t\t"..gemEffect.GrantedEffect.Id
-				local temp1 = skillGem.BaseItemType.Name.."#skill "..gemEffect.GrantedEffect.Id.."\n#flags\n#mods\n"
+				local temp1 = skillGem.BaseItemType.Name..grantedEffectString(gemEffect.GrantedEffect)
 				if gemEffect.AdditionalGrantedEffects then
 					for _, additionalGrantedEffect in ipairs(gemEffect.AdditionalGrantedEffects) do
 						temp = temp.."\t"..additionalGrantedEffect.Id
-						temp1 = temp1.."\n#skill "..additionalGrantedEffect.Id.."\n#flags\n#mods\n"
+						temp1 = temp1..grantedEffectString(additionalGrantedEffect)
 					end
 				end
 				table.insert(support, temp)
@@ -40,11 +49,11 @@ for i, _ in ipairs(types) do
 			elseif not skillGem.IsSupport and types[i] == colour and not gemEffect.Id:match("Unknown") and not gemEffect.Id:match("Playtest") and not gemEffect.GrantedEffect.ActiveSkill.DisplayName:match("DNT") and not skillGem.BaseItemType.Name:match("DNT") 
 			and dat("SkillGemSupports"):GetRow("ActiveGem", dat("SkillGems"):GetRow("BaseItemType", dat("BaseItemTypes"):GetRow("Id", skillGem.BaseItemType.Id))) then
 				local temp = gemEffect.GrantedEffect.ActiveSkill.DisplayName..string.rep(" ", 30 - string.len(gemEffect.GrantedEffect.ActiveSkill.DisplayName)).."\t\t----\t\t"..gemEffect.GrantedEffect.Id
-				local temp1 = gemEffect.GrantedEffect.ActiveSkill.DisplayName.."#skill "..gemEffect.GrantedEffect.Id.."\n#flags\n#mods\n"
+				local temp1 = gemEffect.GrantedEffect.ActiveSkill.DisplayName..grantedEffectString(gemEffect.GrantedEffect)
 				if gemEffect.AdditionalGrantedEffects then
 					for _, additionalGrantedEffect in ipairs(gemEffect.AdditionalGrantedEffects) do
 						temp = temp.."\t"..additionalGrantedEffect.Id
-						temp1 = temp1.."\n#skill "..additionalGrantedEffect.Id.."\n#flags\n#mods\n"
+						temp1 = temp1.."\n"..grantedEffectString(additionalGrantedEffect)
 					end
 				end
 				table.insert(active, temp)
