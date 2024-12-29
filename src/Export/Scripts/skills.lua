@@ -657,8 +657,8 @@ end
 -- #baseMod <mod definition>
 -- Adds a base modifier to the set
 directiveTable.baseMod = function(state, args, out)
-	local skill = state.skill
-	table.insert(skill.mods, args)
+	local set = state.set
+	table.insert(set.mods, args)
 end
 
 -- #mods
