@@ -12102,10 +12102,73 @@ return {
 	pvptypes={
 	},
 	quest={
+		[1]={
+			list=false,
+			name="Id",
+			refTo="",
+			type="String",
+			width=230
+		},
+		[2]={
+			list=false,
+			name="Act",
+			refTo="",
+			type="Int",
+			width=150
+		},
+		[3]={
+			list=false,
+			name="Name",
+			refTo="",
+			type="String",
+			width=230
+		},
+		[4]={
+			list=false,
+			name="Icon",
+			refTo="",
+			type="String",
+			width=340
+		},
+		[5]={
+			list=false,
+			name="QuestId",
+			refTo="",
+			type="Int",
+			width=150
+		},
+		[6]={
+			list=false,
+			name="",
+			refTo="",
+			type="Bool",
+			width=150
+		},
+		[7]={
+			list=false,
+			name="Type",
+			refTo="QuestType",
+			type="Key",
+			width=150
+		}
 	},
 	questachievements={
 	},
 	questflags={
+		[1]={
+			list=false,
+			name="Id",
+			refTo="",
+			type="String",
+			width=250
+		},
+		[2]={
+			list=false,
+			name="Hash",
+			refTo="",
+			type="Int",
+			width=150
+		}
 	},
 	questitemnpcaudio={
 	},
@@ -12122,10 +12185,38 @@ return {
 	queststates={
 	},
 	queststaticrewards={
+		[1]={
+			list=false,
+			name="QuestFlag",
+			refTo="QuestFlags",
+			type="Key",
+			width=270
+		},
+		[2]={
+			list=false,
+			name="",
+			refTo="",
+			type="Int",
+			width=150
+		}
 	},
 	questtrackergroup={
 	},
 	questtype={
+		[1]={
+			list=false,
+			name="Id",
+			refTo="",
+			type="String",
+			width=150
+		},
+		[2]={
+			list=true,
+			name="",
+			refTo="",
+			type="Int",
+			width=150
+		}
 	},
 	questvendorrewards={
 	},
