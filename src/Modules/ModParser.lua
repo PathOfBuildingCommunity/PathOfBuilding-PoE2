@@ -5278,7 +5278,14 @@ for gemId, gemData in pairs(data.gems) do
 			preSkillNameList["^"..skillName:lower().." totem deals "] = { tag = { type = "SkillName", skillName = skillName, includeTransfigured = true } }
 			preSkillNameList["^"..skillName:lower().." totem grants "] = { addToSkill = { type = "SkillName", skillName = skillName, includeTransfigured = true }, tag = { type = "GlobalEffect", effectType = "Buff" } }
 		end
-		if grantedEffect.skillTypes[SkillType.Buff] or grantedEffect.baseFlags.buff then
+		local hasBuffStatSet = false
+		for _, statSet in ipairs(grantedEffect.statSets) do
+			if statSet.baseFlags.buff then
+				hasBuffStatSet = true
+				break
+			end
+		end
+		if grantedEffect.skillTypes[SkillType.Buff] or hasBuffStatSet then
 			preSkillNameList["^"..skillName:lower().." grants "] = { addToSkill = { type = "SkillName", skillName = skillName, includeTransfigured = true }, tag = { type = "GlobalEffect", effectType = "Buff" } }
 			preSkillNameList["^"..skillName:lower().." grants a?n? ?additional "] = { addToSkill = { type = "SkillName", skillName = skillName, includeTransfigured = true }, tag = { type = "GlobalEffect", effectType = "Buff" } }
 		end

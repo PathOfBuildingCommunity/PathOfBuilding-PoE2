@@ -171,7 +171,8 @@ function calcLib.buildSkillInstanceStats(skillInstance, grantedEffect)
 	local level = grantedEffect.levels[skillInstance.level] or { }
 	local availableEffectiveness
 	local actorLevel = skillInstance.actorLevel or level.levelRequirement or 1
-	for index, stat in ipairs(grantedEffect.stats) do
+	-- TEMPORARY FIX JUST TO ALLOW CLIENT TO LOAD, NEED TO PROPERLY ACCOUNT FOR STATSETS
+	for index, stat in ipairs(grantedEffect.statSets[1].stats) do
 		-- Static value used as default (assumes statInterpolation == 1)
 		local statValue = level[index] or 1
 		if level.statInterpolation then

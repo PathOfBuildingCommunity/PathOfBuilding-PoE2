@@ -99,7 +99,8 @@ function calcs.createActiveSkill(activeEffect, supportList, actor, socketGroup, 
 	end
 
 	-- Initialise skill flag set ('attack', 'projectile', etc)
-	local skillFlags = copyTable(activeGrantedEffect.baseFlags)
+	-- TEMPORARY FIX JUST TO ALLOW CLIENT TO LOAD, NEED TO PROPERLY ACCOUNT FOR STATSETS
+	local skillFlags = copyTable(activeGrantedEffect.statSets[1].baseFlags)
 	activeSkill.skillFlags = skillFlags
 	skillFlags.hit = skillFlags.hit or activeSkill.skillTypes[SkillType.Attack] or activeSkill.skillTypes[SkillType.Damage] or activeSkill.skillTypes[SkillType.Projectile]
 
