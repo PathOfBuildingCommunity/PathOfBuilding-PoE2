@@ -76,7 +76,7 @@ local formList = {
 	["^throw up to (%d+)"] = "BASE",
 	["^you gain ([%d%.]+)"] = "GAIN",
 	["^gains? ([%d%.]+)%% of"] = "GAIN",
-	["^gain ([%d%.]+)"] = "GAIN",
+	["^gains? ([%d%.]+)"] = "GAIN",
 	["^gain %+(%d+)%% to"] = "GAIN",
 	["^you lose ([%d%.]+)"] = "LOSE",
 	["^loses? ([%d%.]+)%% of"] = "LOSE",
@@ -792,14 +792,21 @@ local modNameList = {
 	["flask life recovery rate"] = "FlaskLifeRecoveryRate",
 	["flask mana recovery rate"] = "FlaskManaRecoveryRate",
 	["extra charges"] = "FlaskCharges",
+	["charges"] = "FlaskCharges",
 	["maximum charges"] = "FlaskCharges",
-	["charges used"] = "FlaskChargesUsed",
+	["charges gained"] = "FlaskChargesGained",
 	["charges per use"] = "FlaskChargesUsed",
+	["charges used"] = "FlaskChargesUsed",
 	["flask charges used"] = "FlaskChargesUsed",
+	["flask charges used from life flasks"] = "LifeFlaskChargesUsed",
+	["flask charges used from mana flasks"] = "ManaFlaskChargesUsed",
 	["charm charges used"] = "CharmChargesUsed",
 	["flask charges gained"] = "FlaskChargesGained",
+	["life flask charges gained"] = "LifeFlaskChargesGained",
+	["mana flask charges gained"] = "ManaFlaskChargesGained",
 	["charm charges gained"] = "CharmChargesGained",
 	["charge recovery"] = "FlaskChargeRecovery",
+	["charges per second"] = "FlaskChargesGenerated",
 	["for flasks you use to not consume charges"] = "FlaskChanceNotConsumeCharges",
 	["impales you inflict last"] = "ImpaleStacksMax",
 	-- Buffs
@@ -4488,9 +4495,6 @@ local specialModList = {
 	["flasks gain (%d+) charges? every (%d+) seconds"] = function(num, _, div) return {
 		mod("FlaskChargesGenerated", "BASE", num / div)
 	} end,
-	["charms gain (%d+) charges? every per seconds"] = function(num) return {
-		mod("CharmChargesGenerated", "BASE", num)
-	} end,
 	["flasks gain a charge every (%d+) seconds"] = function(_, div) return {
 		mod("FlaskChargesGenerated", "BASE", 1 / div)
 	} end,
@@ -4509,9 +4513,6 @@ local specialModList = {
 	["mana flasks gain (%d+) charges? every (%d+) seconds"] = function(num, _, div) return {
 		mod("ManaFlaskChargesGenerated", "BASE", num / div)
 	} end,
-	["flasks gain (%d+) charges? per empty flask slot every (%d+) seconds"] = function(num, _, div) return {
-		mod("FlaskChargesGeneratedPerEmptyFlask", "BASE", num / div)
-	} end,
 	["flasks gain (%d+) charges? per second if you've hit a unique enemy recently"] = function(num) return {
 		mod("FlaskChargesGenerated", "BASE", num, { type = "Condition", var = "HitRecently" }, { type = "ActorCondition", actor = "enemy", var = "RareOrUnique" })
 	} end,
@@ -4521,6 +4522,18 @@ local specialModList = {
 	["life flask effects are not removed when unreserved life is filled"] = {
 		flag("LifeFlaskEffectNotRemoved")
 	},
+	["flasks gain (%d*%.?%d+) charges? per second"] = function(num) return {
+		mod("FlaskChargesGenerated", "BASE", num)
+	} end,
+	["life flasks gain (%d*%.?%d+) charges? per second"] = function(num) return {
+		mod("LifeFlaskChargesGenerated", "BASE", num)
+	} end,
+	["mana flasks gain (%d*%.?%d+) charges? per second"] = function(num) return {
+		mod("ManaFlaskChargesGenerated", "BASE", num)
+	} end,
+	["charms gain (%d*%.?%d+) charges? per second"] = function(num) return {
+		mod("CharmChargesGenerated", "BASE", num)
+	} end,
 	["+(%d+) charm slots?"] = function(num) return { mod("CharmLimit", "BASE", num) } end,
 	["charms use no charges"] = { flag("CharmsUseNoCharges") },
 	["(%d+)%% of charges used by charms granted to your life flasks"] = function(num) return { 

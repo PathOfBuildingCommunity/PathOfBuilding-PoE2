@@ -2830,17 +2830,30 @@ function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode)
 			t_insert(stats, s_format("^8Flask effect modifier: ^7%+d%%", effectMod * 100 - 100))
 		end
 		local usedInc = modDB:Sum("INC", nil, "FlaskChargesUsed")
+		if item.base.flask.life then
+			usedInc = usedInc + modDB:Sum("INC", nil, "LifeFlaskChargesUsed")
+		end
+		if item.base.flask.mana then
+			usedInc = usedInc + modDB:Sum("INC", nil, "ManaFlaskChargesUsed")
+		end
 		if usedInc ~= 0 then
 			local used = m_floor(flaskData.chargesUsed * (1 + usedInc / 100))
 			t_insert(stats, s_format("^8Charges used: ^7%d ^8of ^7%d ^8(^7%d ^8uses)", used, flaskData.chargesMax, m_floor(flaskData.chargesMax / used)))
 		end
-		local gainMod = flaskData.gainMod * (1 + modDB:Sum("INC", nil, "FlaskChargesGained") / 100)
+		local gainInc = flaskData.gainInc + modDB:Sum("INC", nil, "FlaskChargesGained")
+		if item.base.flask.life then
+			gainInc = gainInc + modDB:Sum("INC", nil, "LifeFlaskChargesGained")
+		end
+		if item.base.flask.mana then
+			gainInc = gainInc + modDB:Sum("INC", nil, "ManaFlaskChargesGained")
+		end
+		local gainMod = flaskData.gainMod * (1 + gainInc / 100)
 		if gainMod ~= 1 then
 			t_insert(stats, s_format("^8Charge gain modifier: ^7%+d%%", gainMod * 100 - 100))
 		end
 
 		-- charge generation
-		local chargesGenerated = modDB:Sum("BASE", nil, "FlaskChargesGenerated")
+		local chargesGenerated = flaskData.gainBase + modDB:Sum("BASE", nil, "FlaskChargesGenerated")
 		if item.base.flask.life then
 			chargesGenerated = chargesGenerated + modDB:Sum("BASE", nil, "LifeFlaskChargesGenerated")
 		end
@@ -2848,18 +2861,7 @@ function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode)
 			chargesGenerated = chargesGenerated + modDB:Sum("BASE", nil, "ManaFlaskChargesGenerated")
 		end
 
-		local chargesGeneratedPerFlask = modDB:Sum("BASE", nil, "FlaskChargesGeneratedPerEmptyFlask")
-		local emptyFlaskSlots = 0
-		for slotName, slot in pairs(self.slots) do
-			if slotName:find("^Flask") ~= nil and slot.selItemId == 0 then
-				emptyFlaskSlots = emptyFlaskSlots + 1
-			end
-		end
-		chargesGeneratedPerFlask = chargesGeneratedPerFlask * emptyFlaskSlots
-		chargesGenerated = chargesGenerated * gainMod
-		chargesGeneratedPerFlask = chargesGeneratedPerFlask * gainMod
-
-		local totalChargesGenerated = chargesGenerated + chargesGeneratedPerFlask
+		local totalChargesGenerated = chargesGenerated * gainMod
 		if totalChargesGenerated > 0 then
 			t_insert(stats, s_format("^8Charges generated: ^7%.2f^8 per second", totalChargesGenerated))
 		end
@@ -2884,12 +2886,9 @@ function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode)
 		if hasUptime then
 			local flaskChargesUsed = flaskData.chargesUsed * (1 + usedInc / 100)
 			if flaskChargesUsed > 0 and flaskDuration > 0 then
-				local per3Duration = flaskDuration - (flaskDuration % 3)
-				local per5Duration = flaskDuration - (flaskDuration % 5)
-				local minimumChargesGenerated = per3Duration * chargesGenerated + per5Duration * chargesGeneratedPerFlask
-				local percentageMin = m_min(minimumChargesGenerated / flaskChargesUsed * 100, 100)
+				local averageChargesGenerated = chargesGenerated * flaskDuration
+				local percentageMin = m_min(averageChargesGenerated / flaskChargesUsed * 100, 100)
 				if percentageMin < 100 and chanceToNotConsumeCharges < 100 then
-					local averageChargesGenerated = (chargesGenerated + chargesGeneratedPerFlask) * flaskDuration
 					local averageChargesUsed = flaskChargesUsed * (100 - chanceToNotConsumeCharges) / 100
 					local percentageAvg = m_min(averageChargesGenerated / averageChargesUsed * 100, 100)
 					t_insert(stats, s_format("^8Flask uptime: ^7%d%%^8 average, ^7%d%%^8 minimum", percentageAvg, percentageMin))

@@ -1260,25 +1260,15 @@ function calcs.perform(env, skipEHP)
 	-- flask breakdown
 	if breakdown then
 		local chargesGenerated = modDB:Sum("BASE", nil, "FlaskChargesGenerated")
-		local usedFlasks = 0
-		for i, v in pairs(env.flasks) do
-			if v then
-				usedFlasks = usedFlasks + 1
-			end
-		end
-
-		local chargesGeneratedPerFlask = modDB:Sum("BASE", nil, "FlaskChargesGeneratedPerEmptyFlask") * (5 - usedFlasks)
-		local totalChargesGenerated = chargesGenerated + chargesGeneratedPerFlask
 		local utilityChargesGenerated = modDB:Sum("BASE", nil, "UtilityFlaskChargesGenerated")
 		local lifeChargesGenerated = modDB:Sum("BASE", nil, "LifeFlaskChargesGenerated")
 		local manaChargesGenerated = modDB:Sum("BASE", nil, "ManaFlaskChargesGenerated")
 
 		output.FlaskEffect = effectInc
-		output.FlaskChargeGen = totalChargesGenerated
-		output.LifeFlaskChargeGen = totalChargesGenerated + lifeChargesGenerated
-		output.ManaFlaskChargeGen = totalChargesGenerated + manaChargesGenerated
-		output.UtilityFlaskChargeGen = totalChargesGenerated + utilityChargesGenerated
-		output.FlaskChargeOnCritChance = m_min(100, modDB:Sum("BASE", nil, "FlaskChargeOnCritChance"))
+		output.FlaskChargeGen = chargesGenerated
+		output.LifeFlaskChargeGen = chargesGenerated + lifeChargesGenerated
+		output.ManaFlaskChargeGen = chargesGenerated + manaChargesGenerated
+		output.UtilityFlaskChargeGen = chargesGenerated + utilityChargesGenerated
 	end
 
 	-- Merge flask modifiers
