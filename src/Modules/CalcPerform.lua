@@ -605,13 +605,6 @@ local function doActorMisc(env, actor)
 			local effect = m_floor(30 * (1 + modDB:Sum("INC", nil, "BuffEffectOnSelf") / 100))
 			modDB:NewMod("PhysicalDamageGainAsChaos", "BASE", effect, "Chaotic Might")
 		end
-		if modDB:Flag(nil, "Tailwind") then
-			local effect = m_floor(8 * (1 + modDB:Sum("INC", nil, "TailwindEffectOnSelf", "BuffEffectOnSelf") / 100))
-			modDB:NewMod("ActionSpeed", "INC", effect, "Tailwind")
-		end
-		if modDB:Flag(nil, "Condition:TotemTailwind") then
-			modDB:NewMod("TotemActionSpeed", "INC", 8, "Tailwind")
-		end
 		if modDB:Flag(nil, "Adrenaline") then
 			local effectMod = 1 + modDB:Sum("INC", nil, "BuffEffectOnSelf") / 100
 			modDB:NewMod("Damage", "INC", m_floor(100 * effectMod), "Adrenaline")
