@@ -10,6 +10,10 @@ return {
 					v=1
 				},
 				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
 				},
 				text="Enemy Elemental Ailment Threshold reduction {0}%"
 			},
@@ -48,6 +52,10 @@ return {
 					v=1
 				},
 				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
 				},
 				text="Enemy Stun Threshold reduction {0}%"
 			},

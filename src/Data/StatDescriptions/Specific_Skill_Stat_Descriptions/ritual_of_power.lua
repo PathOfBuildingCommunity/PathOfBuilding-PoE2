@@ -10,6 +10,10 @@ return {
 					v=1
 				},
 				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
 				},
 				text="Ritual radius {0}m"
 			}
@@ -92,6 +96,10 @@ return {
 					v=1
 				},
 				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
 				},
 				text="Ritual duration {0}s"
 			}

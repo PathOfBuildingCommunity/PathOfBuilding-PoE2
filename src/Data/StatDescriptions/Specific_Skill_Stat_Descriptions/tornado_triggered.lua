@@ -10,6 +10,10 @@ return {
 					v=1
 				},
 				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
 				},
 				text="Storm radius {0}m"
 			}
@@ -92,6 +96,10 @@ return {
 					v=1
 				},
 				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
 				},
 				text="Storm duration {0}s"
 			}

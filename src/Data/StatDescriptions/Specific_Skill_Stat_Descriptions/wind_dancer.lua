@@ -6,6 +6,10 @@ return {
 		[1]={
 			[1]={
 				limit={
+					[1]={
+						[1]=1,
+						[2]="#"
+					}
 				},
 				text="Maximum stages {0}"
 			},
@@ -31,6 +35,10 @@ return {
 					v=1
 				},
 				limit={
+					[1]={
+						[1]=1,
+						[2]="#"
+					}
 				},
 				text="Stage gain interval {0}s"
 			},
@@ -56,6 +64,10 @@ return {
 		[1]={
 			[1]={
 				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
 				},
 				text="More Evasion Rating per stage {0}%"
 			},

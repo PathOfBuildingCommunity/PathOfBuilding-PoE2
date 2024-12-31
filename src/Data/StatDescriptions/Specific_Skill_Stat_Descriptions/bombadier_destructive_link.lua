@@ -15,7 +15,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Explosion radius {0}m"
+				text="Explosion radius@{0}m"
 			}
 		},
 		stats={

@@ -10,6 +10,10 @@ return {
 					v=1
 				},
 				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
 				},
 				text="Banner Aura radius {0}m"
 			}
@@ -88,6 +92,10 @@ return {
 		[1]={
 			[1]={
 				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
 				},
 				text="More Armour and Evasion granted {0}%"
 			},
@@ -122,6 +130,10 @@ return {
 		[1]={
 			[1]={
 				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
 				},
 				text="Increased movement speed granted {0}%"
 			},
@@ -160,6 +172,10 @@ return {
 					v=1
 				},
 				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
 				},
 				text="Maximum Banner duration {0}s"
 			}

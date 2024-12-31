@@ -26,6 +26,10 @@ return {
 		[1]={
 			[1]={
 				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
 				},
 				text="Energy Shield recovered {0}"
 			}
@@ -38,6 +42,10 @@ return {
 		[1]={
 			[1]={
 				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
 				},
 				text="Maximum Ghost Shrouds {0}"
 			},
@@ -79,6 +87,10 @@ return {
 					v=1
 				},
 				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
 				},
 				text="Duration between Ghost Shrouds {0}s"
 			}

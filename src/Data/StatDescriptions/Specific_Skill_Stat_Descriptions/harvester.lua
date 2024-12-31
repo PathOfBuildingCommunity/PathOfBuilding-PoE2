@@ -10,6 +10,10 @@ return {
 					v=1
 				},
 				limit={
+					[1]={
+						[1]="#",
+						[2]=-1
+					}
 				},
 				text="Minion Revive speed penalty {0}%"
 			},

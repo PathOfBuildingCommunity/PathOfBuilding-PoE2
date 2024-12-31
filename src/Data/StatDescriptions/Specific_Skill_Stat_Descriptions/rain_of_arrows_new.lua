@@ -10,6 +10,10 @@ return {
 					v=1
 				},
 				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
 				},
 				text="Rain radius {0}m"
 			}
@@ -92,6 +96,10 @@ return {
 					v=1
 				},
 				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
 				},
 				text="Impact radius {0}m"
 			}
@@ -129,6 +137,10 @@ return {
 		[1]={
 			[1]={
 				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
 				},
 				text="Arrow Rain Maximum {0}"
 			}
@@ -145,6 +157,10 @@ return {
 					v=1
 				},
 				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
 				},
 				text="Arrow landing interval {0}s"
 			},
@@ -170,6 +186,10 @@ return {
 		[1]={
 			[1]={
 				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
 				},
 				text="More arrows fired if Frenzy Charge Consumed {0}%"
 			},
@@ -191,6 +211,10 @@ return {
 		[1]={
 			[1]={
 				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
 				},
 				text="More arrows fired per Frenzy Charge Consumed {0}%"
 			},

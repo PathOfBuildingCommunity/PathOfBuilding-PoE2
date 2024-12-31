@@ -6,6 +6,10 @@ return {
 		[1]={
 			[1]={
 				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
 				},
 				text="Culling Strike time in Presence requirement {0}s"
 			},
@@ -27,6 +31,14 @@ return {
 		[1]={
 			[1]={
 				limit={
+					[1]={
+						[1]=1,
+						[2]="#"
+					},
+					[2]={
+						[1]=1,
+						[2]="#"
+					}
 				},
 				text="Hit damage for every 2 seconds in Presence (max) {0}% ({1}%)"
 			},

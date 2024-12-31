@@ -15,6 +15,10 @@ return {
 					v=1
 				},
 				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
 				},
 				text="Charging time {0}s"
 			}
@@ -27,6 +31,10 @@ return {
 		[1]={
 			[1]={
 				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
 				},
 				text="Damage Gained as extra Fire per Heat {0}%"
 			},
@@ -48,6 +56,10 @@ return {
 		[1]={
 			[1]={
 				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
 				},
 				text="Attack time required to charge {0}%"
 			},
@@ -73,6 +85,10 @@ return {
 					v=1
 				},
 				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
 				},
 				text="Heat gained per second {0}"
 			},
@@ -107,6 +123,10 @@ return {
 		[1]={
 			[1]={
 				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
 				},
 				text="Grenade Damage Gained as extra Fire per Heat {0}%"
 			},

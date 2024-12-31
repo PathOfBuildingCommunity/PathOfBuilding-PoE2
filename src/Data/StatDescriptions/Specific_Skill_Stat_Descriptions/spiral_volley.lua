@@ -6,6 +6,10 @@ return {
 		[1]={
 			[1]={
 				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
 				},
 				text="Chains per Frenzy Charge Consumed {0}"
 			},
@@ -36,6 +40,10 @@ return {
 		[1]={
 			[1]={
 				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
 				},
 				text="More Damage per Frenzy Charge Consumed {0}%"
 			},
@@ -70,6 +78,10 @@ return {
 		[1]={
 			[1]={
 				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
 				},
 				text="More Damage if Frenzy Charge Consumed {0}%"
 			},

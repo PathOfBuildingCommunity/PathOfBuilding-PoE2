@@ -92,6 +92,14 @@ return {
 		[1]={
 			[1]={
 				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					},
+					[2]={
+						[1]="#",
+						[2]="#"
+					}
 				},
 				text="Projectile added Fire damage {0}–{1}"
 			},
@@ -118,6 +126,10 @@ return {
 		[1]={
 			[1]={
 				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
 				},
 				text="Projectile gains extra {0}% damage as Fire"
 			},
@@ -168,7 +180,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Lingering Ignite damage per second {0}"
+				text="Lingering Ignite damage per second@{0}"
 			}
 		},
 		stats={
@@ -183,6 +195,10 @@ return {
 					v=1
 				},
 				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
 				},
 				text="Lingering Ignite duration {0}s"
 			}
@@ -199,6 +215,10 @@ return {
 					v=1
 				},
 				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
 				},
 				text="Wall duration {0}s"
 			}

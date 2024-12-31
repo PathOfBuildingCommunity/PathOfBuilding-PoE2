@@ -6,6 +6,10 @@ return {
 		[1]={
 			[1]={
 				limit={
+					[1]={
+						[1]=1,
+						[2]="#"
+					}
 				},
 				text="Energy Shield recovered per Remnant {0}"
 			},
@@ -43,6 +47,10 @@ return {
 		[1]={
 			[1]={
 				limit={
+					[1]={
+						[1]=1,
+						[2]="#"
+					}
 				},
 				text="Remnant spawn on death chance {0}%"
 			},

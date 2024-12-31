@@ -11,6 +11,10 @@ return {
 		[1]={
 			[1]={
 				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
 				},
 				text="Lightning Spell Chains granted {0}"
 			},
@@ -41,6 +45,10 @@ return {
 		[1]={
 			[1]={
 				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
 				},
 				text="Additional Chain targets granted {0}"
 			},
@@ -71,6 +79,10 @@ return {
 		[1]={
 			[1]={
 				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
 				},
 				text="Causes Lightning Spell Projectiles to Fork"
 			},
@@ -92,6 +104,10 @@ return {
 		[1]={
 			[1]={
 				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
 				},
 				text="Mana cost inherited from skills used {0}%"
 			},

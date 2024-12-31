@@ -43,6 +43,10 @@ return {
 					v=1
 				},
 				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
 				},
 				text="Critical Weakness frequency {0}s"
 			},
@@ -85,6 +89,10 @@ return {
 					v=1
 				},
 				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
 				},
 				text="Critical Weakness duration {0}s"
 			}

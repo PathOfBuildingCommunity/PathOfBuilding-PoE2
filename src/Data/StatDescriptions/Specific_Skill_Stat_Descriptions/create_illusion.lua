@@ -16,6 +16,14 @@ return {
 		[1]={
 			[1]={
 				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					},
+					[2]={
+						[1]="#",
+						[2]="#"
+					}
 				},
 				text="Additional Power Charge chance {0}%"
 			},

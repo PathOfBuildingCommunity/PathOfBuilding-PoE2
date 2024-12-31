@@ -89077,6 +89077,10 @@ return {
 		[1]={
 			[1]={
 				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
 				},
 				text="Unbound Fury gain interval per Ailment 0.2s"
 			},
@@ -91092,6 +91096,10 @@ return {
 		[1]={
 			[1]={
 				limit={
+					[1]={
+						[1]=1,
+						[2]="#"
+					}
 				},
 				text="More Elemental Damage while Unbound {0}%"
 			},
@@ -143084,6 +143092,14 @@ return {
 					v=2
 				},
 				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					},
+					[2]={
+						[1]="#",
+						[2]="#"
+					}
 				},
 				text="Ignites enemies within {1}m radius as though dealing {0} Fire damage"
 			}
@@ -173554,6 +173570,10 @@ return {
 					v=1
 				},
 				limit={
+					[1]={
+						[1]=1,
+						[2]="#"
+					}
 				},
 				text="Maximum Life taken as Fire damage per second {0}%"
 			}
@@ -193977,6 +193997,10 @@ return {
 					v=1
 				},
 				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
 				},
 				text="Death delay at 0 Life {0}s"
 			}
@@ -197402,6 +197426,10 @@ return {
 		[1]={
 			[1]={
 				limit={
+					[1]={
+						[1]=1,
+						[2]="#"
+					}
 				},
 				text="More Elemental Ailment buildup while Unbound {0}%"
 			},
@@ -197436,6 +197464,10 @@ return {
 		[1]={
 			[1]={
 				limit={
+					[1]={
+						[1]=1,
+						[2]="#"
+					}
 				},
 				text="More Elemental Ailment chance while Unbound {0}%"
 			},

@@ -15,6 +15,10 @@ return {
 					v=1
 				},
 				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
 				},
 				text="Burst radius {0}m"
 			}
@@ -93,6 +97,10 @@ return {
 		[1]={
 			[1]={
 				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
 				},
 				text="Number of Chains before Arrow disappears {0}"
 			},
@@ -123,16 +131,28 @@ return {
 		[1]={
 			[1]={
 				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
 				},
 				text="Maximum active Arrows {0}"
 			},
 			[2]={
 				limit={
+					[1]={
+						[1]=1,
+						[2]=1
+					}
 				},
 				text="Maximum {0} active Arrow"
 			},
 			[3]={
 				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
 				},
 				text="Maximum {0} active Arrows"
 			}
@@ -149,6 +169,10 @@ return {
 					v=1
 				},
 				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
 				},
 				text="Maximum Arrow duration {0}s"
 			}

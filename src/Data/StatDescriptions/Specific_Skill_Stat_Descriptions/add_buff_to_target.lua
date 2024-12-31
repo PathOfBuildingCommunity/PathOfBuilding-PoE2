@@ -15,7 +15,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Life Regeneration granted {0}"
+				text="Life Regeneration granted@{0}"
 			}
 		},
 		stats={
@@ -30,6 +30,10 @@ return {
 					v=1
 				},
 				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
 				},
 				text="Regeneration duration {0}s"
 			}

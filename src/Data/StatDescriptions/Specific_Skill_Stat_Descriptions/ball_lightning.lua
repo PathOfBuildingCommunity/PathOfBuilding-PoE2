@@ -15,7 +15,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Fires Beams at targets within {0}m"
+				text="Fires Beams at targets within@{0}m"
 			}
 		},
 		stats={

@@ -20771,6 +20771,10 @@ return {
 		[1]={
 			[1]={
 				limit={
+					[1]={
+						[1]=100,
+						[2]=100
+					}
 				},
 				text="Triggers Burning Inscription on expiry"
 			}

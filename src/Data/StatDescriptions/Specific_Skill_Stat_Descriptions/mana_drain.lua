@@ -27,7 +27,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Mana Leeched per cast {0}"
+				text="Mana Leeched per cast@{0}"
 			}
 		},
 		stats={

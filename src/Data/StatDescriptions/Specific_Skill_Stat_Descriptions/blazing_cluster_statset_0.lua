@@ -39,6 +39,10 @@ return {
 		[1]={
 			[1]={
 				limit={
+					[1]={
+						[1]=2,
+						[2]="#"
+					}
 				},
 				text="Maximum accumulated Embers {0}"
 			},
@@ -64,6 +68,10 @@ return {
 					v=1
 				},
 				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
 				},
 				text="Hover duration {0}s"
 			}
@@ -76,6 +84,10 @@ return {
 		[1]={
 			[1]={
 				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
 				},
 				text="Embers conjured per use {0}"
 			}

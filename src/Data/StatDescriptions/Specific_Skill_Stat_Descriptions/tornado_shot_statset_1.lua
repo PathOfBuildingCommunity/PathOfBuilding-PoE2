@@ -90,6 +90,10 @@ return {
 		[1]={
 			[1]={
 				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
 				},
 				text="Tornado Limit {0}"
 			}
@@ -106,6 +110,10 @@ return {
 					v=1
 				},
 				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
 				},
 				text="Maximum Tornado duration {0}s"
 			}
@@ -118,6 +126,10 @@ return {
 		[1]={
 			[1]={
 				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
 				},
 				text="Number of Hits before Tornado disappears {0}"
 			},
@@ -152,6 +164,10 @@ return {
 					v=1
 				},
 				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
 				},
 				text="Copied Projectiles damage penalty {0}%"
 			},
@@ -190,6 +206,10 @@ return {
 					v=1
 				},
 				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
 				},
 				text="Copied Projectiles maximum range {0}m"
 			},
@@ -215,6 +235,10 @@ return {
 		[1]={
 			[1]={
 				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
 				},
 				text="Copied Projectiles fired {0}"
 			}

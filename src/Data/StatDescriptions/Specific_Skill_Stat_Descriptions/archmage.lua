@@ -42,6 +42,10 @@ return {
 		[1]={
 			[1]={
 				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
 				},
 				text="Non-Channelling Spell additional Mana cost {0}"
 			}
@@ -54,6 +58,10 @@ return {
 		[1]={
 			[1]={
 				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
 				},
 				text="Non-Channelling Spell damage Gained as Lightning {0}%"
 			}

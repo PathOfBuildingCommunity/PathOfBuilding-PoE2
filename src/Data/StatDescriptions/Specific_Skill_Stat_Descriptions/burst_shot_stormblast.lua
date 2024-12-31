@@ -57,6 +57,10 @@ return {
 		[1]={
 			[1]={
 				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
 				},
 				text="Multiple fragments can Hit the same target, combining Damage"
 			},

@@ -20,6 +20,10 @@ return {
 					v=1
 				},
 				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
 				},
 				text="Bolt impact radius {0}m"
 			}

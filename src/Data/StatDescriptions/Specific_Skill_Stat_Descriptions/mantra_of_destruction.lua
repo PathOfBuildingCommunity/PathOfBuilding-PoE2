@@ -48,6 +48,10 @@ return {
 					v=1
 				},
 				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
 				},
 				text="Purple Flames of Chayula duration {0}s"
 			}
@@ -64,6 +68,10 @@ return {
 					v=1
 				},
 				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
 				},
 				text="Maximum Buff duration {0}s"
 			}

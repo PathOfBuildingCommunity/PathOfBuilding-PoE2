@@ -15,7 +15,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Cone length {0}m"
+				text="Cone length@{0}m"
 			}
 		},
 		stats={
@@ -96,6 +96,10 @@ return {
 					v=1
 				},
 				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
 				},
 				text="Bone Construct duration {0}s"
 			}

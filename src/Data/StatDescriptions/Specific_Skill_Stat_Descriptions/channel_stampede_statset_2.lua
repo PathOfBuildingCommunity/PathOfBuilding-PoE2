@@ -30,6 +30,10 @@ return {
 					v=1
 				},
 				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
 				},
 				text="Jagged Ground detonation radius {0}m"
 			}

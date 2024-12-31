@@ -20,6 +20,10 @@ return {
 					v=1
 				},
 				limit={
+					[1]={
+						[1]=1,
+						[2]="#"
+					}
 				},
 				text="Barrier recharge delay {0}s"
 			},

@@ -10,6 +10,10 @@ return {
 					v=1
 				},
 				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
 				},
 				text="Vine attachment radius {0}m"
 			}
@@ -66,6 +70,10 @@ return {
 					v=1
 				},
 				limit={
+					[1]={
+						[1]="#",
+						[2]=-1
+					}
 				},
 				text="Movement speed Slow inflicted by Vines {0}%"
 			},
@@ -128,6 +136,10 @@ return {
 					v=1
 				},
 				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
 				},
 				text="Incoming Poison stored {0}%"
 			},
@@ -157,6 +169,10 @@ return {
 					v=1
 				},
 				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
 				},
 				text="Plant duration {0}s"
 			}
