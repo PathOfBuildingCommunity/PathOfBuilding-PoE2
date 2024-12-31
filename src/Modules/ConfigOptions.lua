@@ -155,7 +155,8 @@ local function addQuestModsRewardsConfigOptions(configSettings)
 				var = "questAct".. quest.Act .. quest.Type .. quest.Area,
 				label = string.format("Act %d %s: %s", quest.Act, quest.Type, quest.Area),
 				type = "check",
-				tooltip = "Enabled this config add:\n" .. quest.Stat,
+				defaultState = true,
+				tooltip = quest.Stat,
 				apply = function(val, modList, enemyModList)
 					questModsRewards(source, quest.Stat, modList)
 				end
@@ -171,7 +172,7 @@ local function addQuestModsRewardsConfigOptions(configSettings)
 				type = "list",
 				list = listOptions,
 				defaultIndex = 1,
-				tooltip = "Enabled this config add one of the next options:\n" .. table.concat(quest.Options, "\n"),
+				tooltip = "Choose one of the following options:\n" .. table.concat(quest.Options, "\n"),
 				apply = function(val, modList, enemyModList)
 					if val == "None" then
 						return
