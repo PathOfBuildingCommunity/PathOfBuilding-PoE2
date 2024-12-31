@@ -10,6 +10,15 @@ return {
 					v=1
 				},
 				limit={
+				},
+				text="Minion Revive speed penalty@{0}%"
+			},
+			[2]={
+				[1]={
+					k="negate",
+					v=1
+				},
+				limit={
 					[1]={
 						[1]="#",
 						[2]=-1
@@ -17,7 +26,7 @@ return {
 				},
 				text="Skills can use your undead Reviving Minions in\nplace of Corpses\nMinions Revive {0}% more slowly"
 			},
-			[2]={
+			[3]={
 				limit={
 					[1]={
 						[1]=1,

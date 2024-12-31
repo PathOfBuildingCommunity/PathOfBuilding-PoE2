@@ -6,6 +6,11 @@ return {
 		[1]={
 			[1]={
 				limit={
+				},
+				text="Flask recovery granted to Allies@{0}%"
+			},
+			[2]={
+				limit={
 					[1]={
 						[1]="#",
 						[2]="#"
@@ -21,6 +26,15 @@ return {
 	[2]={
 		[1]={
 			[1]={
+				[1]={
+					k="per_minute_to_per_second_2dp_if_required",
+					v=1
+				},
+				limit={
+				},
+				text="Flask charges per second@{0}"
+			},
+			[2]={
 				[1]={
 					k="per_minute_to_per_second_2dp_if_required",
 					v=1

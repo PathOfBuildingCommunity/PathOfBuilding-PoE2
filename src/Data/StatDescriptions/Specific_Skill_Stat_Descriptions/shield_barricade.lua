@@ -4,6 +4,15 @@
 return {
 	[1]={
 		[1]={
+			[1]={
+				[1]={
+					k="divide_by_ten_1dp_if_required",
+					v=1
+				},
+				limit={
+				},
+				text="Explosion radius@{0}m"
+			}
 		},
 		stats={
 			[1]="active_skill_area_of_effect_radius"
@@ -79,6 +88,11 @@ return {
 		[1]={
 			[1]={
 				limit={
+				},
+				text="Wall Segment maximum Life@{0}"
+			},
+			[2]={
+				limit={
 					[1]={
 						[1]=1,
 						[2]=1
@@ -90,7 +104,7 @@ return {
 				},
 				text="Wall Segment has {0} maximum Life"
 			},
-			[2]={
+			[3]={
 				limit={
 					[1]={
 						[1]=2,
@@ -111,6 +125,15 @@ return {
 	},
 	[5]={
 		[1]={
+			[1]={
+				[1]={
+					k="milliseconds_to_seconds_2dp_if_required",
+					v=1
+				},
+				limit={
+				},
+				text="Wall duration@{0}s"
+			}
 		},
 		stats={
 			[1]="skill_effect_duration"

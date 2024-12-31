@@ -211,7 +211,7 @@ local weaponClassMap = {
 	["Unarmed"] = "None",
 }
 
-local skillStatScope = { }
+--local skillStatScope = { }
 local gems = { }
 local trueGemNames = { }
 
@@ -392,11 +392,12 @@ directiveTable.skill = function(state, args, out)
 			end
 			out:write('\t},\n')
 		end
-		local file = getFile("Metadata/StatDescriptions/specific_skill_stat_descriptions/"..granted.ActiveSkill.Id..".csd")
-		if file then
-			skillStatScope[granted.ActiveSkill.Id] = granted.ActiveSkill.Id
-		end
-		out:write('\tstatDescriptionScope = "', skillStatScope[granted.ActiveSkill.Id] or "skill_stat_descriptions", '",\n')
+		--local file = getFile("Metadata/StatDescriptions/specific_skill_stat_descriptions/"..granted.ActiveSkill.Id..".csd")
+		--if file then
+		--	skillStatScope[granted.ActiveSkill.Id] = granted.ActiveSkill.Id
+		--end
+		--out:write('\tstatDescriptionScope = "', skillStatScope[granted.ActiveSkill.Id] or "skill_stat_descriptions", '",\n')
+		out:write('\tstatDescriptionScope = "', granted.ActiveSkill.StatDescription:gsub("^Metadata/StatDescriptions/", ""):gsub("specific_skill_stat_descriptions/", ""):gsub("/$", ""):gsub("/", "_"), '",\n')
 		if granted.ActiveSkill.SkillTotem <= 21 then
 			out:write('\tskillTotemId = ', granted.ActiveSkill.SkillTotem, ',\n')
 		end

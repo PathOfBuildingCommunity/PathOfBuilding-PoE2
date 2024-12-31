@@ -44,6 +44,11 @@ return {
 		[1]={
 			[1]={
 				limit={
+				},
+				text="Critical Damage Bonus applied@+{0}%"
+			},
+			[2]={
+				limit={
 					[1]={
 						[1]="#",
 						[2]="#"
@@ -58,6 +63,15 @@ return {
 	},
 	[4]={
 		[1]={
+			[1]={
+				[1]={
+					k="milliseconds_to_seconds_2dp_if_required",
+					v=1
+				},
+				limit={
+				},
+				text="Maximum Mark duration@{0}s"
+			}
 		},
 		stats={
 			[1]="skill_effect_duration"

@@ -42,6 +42,15 @@ return {
 	},
 	[3]={
 		[1]={
+			[1]={
+				[1]={
+					k="milliseconds_to_seconds_2dp_if_required",
+					v=1
+				},
+				limit={
+				},
+				text="Spike duration@{0}s"
+			}
 		},
 		stats={
 			[1]="skill_effect_duration"

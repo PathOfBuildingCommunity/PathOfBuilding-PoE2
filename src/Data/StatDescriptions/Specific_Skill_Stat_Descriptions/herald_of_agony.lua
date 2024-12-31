@@ -10,6 +10,15 @@ return {
 					v=1
 				},
 				limit={
+				},
+				text="Poison Spread radius on Kill@{0}m"
+			},
+			[2]={
+				[1]={
+					k="divide_by_ten_1dp_if_required",
+					v=1
+				},
+				limit={
 					[1]={
 						[1]="#",
 						[2]="#"
@@ -25,6 +34,11 @@ return {
 	[2]={
 		[1]={
 			[1]={
+				limit={
+				},
+				text="Chance to Hinder on spreading Poison@{0}%"
+			},
+			[2]={
 				limit={
 					[1]={
 						[1]="#",

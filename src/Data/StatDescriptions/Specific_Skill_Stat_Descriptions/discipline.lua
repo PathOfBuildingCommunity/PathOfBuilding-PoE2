@@ -6,6 +6,11 @@ return {
 		[1]={
 			[1]={
 				limit={
+				},
+				text="Total Maximum Energy Shield granted@{0:+d}"
+			},
+			[2]={
+				limit={
 					[1]={
 						[1]="#",
 						[2]="#"

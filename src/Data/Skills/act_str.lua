@@ -1372,7 +1372,7 @@ skills["EarthquakePlayer"] = {
 		["Two Handed Mace"] = true,
 		["One Handed Mace"] = true,
 	},
-	statDescriptionScope = "skill_stat_descriptions",
+	statDescriptionScope = "earthquake_statset_0",
 	castTime = 1,
 	parts = {
 		{
@@ -1527,7 +1527,7 @@ skills["EarthshatterPlayer"] = {
 		["Two Handed Mace"] = true,
 		["One Handed Mace"] = true,
 	},
-	statDescriptionScope = "skill_stat_descriptions",
+	statDescriptionScope = "spike_slam_statset_0",
 	castTime = 1,
 	baseFlags = {
 		attack = true,
@@ -1900,7 +1900,7 @@ skills["ToxicGrenadePlayer"] = {
 	weaponTypes = {
 		["Crossbow"] = true,
 	},
-	statDescriptionScope = "skill_stat_descriptions",
+	statDescriptionScope = "toxic_grenade_statset_0",
 	castTime = 1,
 	baseFlags = {
 		attack = true,
@@ -5411,7 +5411,7 @@ skills["StormblastBoltsPlayer"] = {
 	weaponTypes = {
 		["Crossbow"] = true,
 	},
-	statDescriptionScope = "skill_stat_descriptions",
+	statDescriptionScope = "siege_cascade_stormblast_statset_0",
 	castTime = 1,
 	baseFlags = {
 		attack = true,
@@ -5679,7 +5679,7 @@ skills["MoltenBlastPlayer"] = {
 		["Two Handed Mace"] = true,
 		["One Handed Mace"] = true,
 	},
-	statDescriptionScope = "skill_stat_descriptions",
+	statDescriptionScope = "molten_blast_statset_0",
 	castTime = 1,
 	baseFlags = {
 	},
@@ -7148,7 +7148,7 @@ skills["StampedePlayer"] = {
 		["One Handed Mace"] = true,
 		["Two Handed Mace"] = true,
 	},
-	statDescriptionScope = "skill_stat_descriptions",
+	statDescriptionScope = "channel_stampede_statset_0",
 	castTime = 1,
 	baseFlags = {
 	},
@@ -7321,7 +7321,7 @@ skills["SunderPlayer"] = {
 		["Two Handed Mace"] = true,
 		["One Handed Mace"] = true,
 	},
-	statDescriptionScope = "skill_stat_descriptions",
+	statDescriptionScope = "new_sunder_statset_0",
 	castTime = 1,
 	baseFlags = {
 	},
@@ -7450,7 +7450,7 @@ skills["SuperchargedSlamPlayer"] = {
 	weaponTypes = {
 		["Two Handed Mace"] = true,
 	},
-	statDescriptionScope = "skill_stat_descriptions",
+	statDescriptionScope = "channelled_slam_statset_0",
 	castTime = 1,
 	baseFlags = {
 	},

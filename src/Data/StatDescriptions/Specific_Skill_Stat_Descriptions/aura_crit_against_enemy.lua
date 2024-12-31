@@ -43,6 +43,15 @@ return {
 					v=1
 				},
 				limit={
+				},
+				text="Critical Weakness frequency@{0}s"
+			},
+			[2]={
+				[1]={
+					k="milliseconds_to_seconds_2dp_if_required",
+					v=1
+				},
+				limit={
 					[1]={
 						[1]=1000,
 						[2]=1000
@@ -50,7 +59,7 @@ return {
 				},
 				text="Applies Critical Weakness to enemies every {0} second"
 			},
-			[2]={
+			[3]={
 				[1]={
 					k="milliseconds_to_seconds_2dp_if_required",
 					v=1
@@ -70,6 +79,15 @@ return {
 	},
 	[3]={
 		[1]={
+			[1]={
+				[1]={
+					k="milliseconds_to_seconds_2dp_if_required",
+					v=1
+				},
+				limit={
+				},
+				text="Critical Weakness duration@{0}s"
+			}
 		},
 		stats={
 			[1]="skill_effect_duration"

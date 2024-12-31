@@ -6,6 +6,11 @@ return {
 		[1]={
 			[1]={
 				limit={
+				},
+				text="Damage Gained from Ground Surfaces@{0}%"
+			},
+			[2]={
+				limit={
 					[1]={
 						[1]=1,
 						[2]="#"

@@ -20,6 +20,11 @@ return {
 	},
 	[2]={
 		[1]={
+			[1]={
+				limit={
+				},
+				text="Maximum bolts stored@{0}"
+			}
 		},
 		stats={
 			[1]="number_of_crossbow_bolts"

@@ -4,6 +4,15 @@
 return {
 	[1]={
 		[1]={
+			[1]={
+				[1]={
+					k="divide_by_ten_1dp_if_required",
+					v=1
+				},
+				limit={
+				},
+				text="Banner Aura radius@{0}m"
+			}
 		},
 		stats={
 			[1]="active_skill_area_of_effect_radius"
@@ -77,6 +86,15 @@ return {
 	},
 	[4]={
 		[1]={
+			[1]={
+				[1]={
+					k="milliseconds_to_seconds_2dp_if_required",
+					v=1
+				},
+				limit={
+				},
+				text="Maximum Banner duration@{0}s"
+			}
 		},
 		stats={
 			[1]="skill_effect_duration"
@@ -86,6 +104,11 @@ return {
 		[1]={
 			[1]={
 				limit={
+				},
+				text="Increased Accuracy granted@{0}%"
+			},
+			[2]={
+				limit={
 					[1]={
 						[1]=1,
 						[2]="#"
@@ -93,7 +116,7 @@ return {
 				},
 				text="Aura grants {0}% increased Accuracy"
 			},
-			[2]={
+			[3]={
 				[1]={
 					k="negate",
 					v=1
@@ -115,6 +138,11 @@ return {
 		[1]={
 			[1]={
 				limit={
+				},
+				text="More Attack damage granted@{0}%"
+			},
+			[2]={
+				limit={
 					[1]={
 						[1]=1,
 						[2]="#"
@@ -122,7 +150,7 @@ return {
 				},
 				text="Aura grants {0}% more Attack damage"
 			},
-			[2]={
+			[3]={
 				[1]={
 					k="negate",
 					v=1

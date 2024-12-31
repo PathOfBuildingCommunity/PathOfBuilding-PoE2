@@ -42,6 +42,15 @@ return {
 	},
 	[3]={
 		[1]={
+			[1]={
+				[1]={
+					k="milliseconds_to_seconds_2dp_if_required",
+					v=1
+				},
+				limit={
+				},
+				text="Mark duration@{0}s"
+			}
 		},
 		stats={
 			[1]="skill_effect_duration"
@@ -51,6 +60,11 @@ return {
 		[1]={
 			[1]={
 				limit={
+				},
+				text="More Shock chance applied@{0}%"
+			},
+			[2]={
+				limit={
 					[1]={
 						[1]=1,
 						[2]="#"
@@ -58,7 +72,7 @@ return {
 				},
 				text="Hits against Marked enemy have\n{0}% more chance to Shock"
 			},
-			[2]={
+			[3]={
 				[1]={
 					k="negate",
 					v=1
@@ -80,6 +94,11 @@ return {
 		[1]={
 			[1]={
 				limit={
+				},
+				text="Increased Shock effect applied@{0}%"
+			},
+			[2]={
+				limit={
 					[1]={
 						[1]=1,
 						[2]="#"
@@ -87,7 +106,7 @@ return {
 				},
 				text="Shock has {0}% increased effect on Marked enemy"
 			},
-			[2]={
+			[3]={
 				[1]={
 					k="negate",
 					v=1

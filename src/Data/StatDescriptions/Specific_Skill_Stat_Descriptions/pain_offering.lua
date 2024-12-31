@@ -9,6 +9,15 @@ return {
 	},
 	[2]={
 		[1]={
+			[1]={
+				[1]={
+					k="divide_by_ten_1dp_if_required",
+					v=1
+				},
+				limit={
+				},
+				text="Aura radius@{0}m"
+			}
 		},
 		stats={
 			[1]="active_skill_area_of_effect_radius"
@@ -84,6 +93,11 @@ return {
 		[1]={
 			[1]={
 				limit={
+				},
+				text="Minion increased Attack and Cast Speed granted@{0}%"
+			},
+			[2]={
+				limit={
 					[1]={
 						[1]=1,
 						[2]="#"
@@ -91,7 +105,7 @@ return {
 				},
 				text="Aura grants Minions {0}% increased Attack and Cast Speed"
 			},
-			[2]={
+			[3]={
 				[1]={
 					k="negate",
 					v=1
@@ -113,6 +127,11 @@ return {
 		[1]={
 			[1]={
 				limit={
+				},
+				text="Minion more damage granted@{0}%"
+			},
+			[2]={
+				limit={
 					[1]={
 						[1]=1,
 						[2]="#"
@@ -120,7 +139,7 @@ return {
 				},
 				text="Aura grants Minions {0}% more Damage"
 			},
-			[2]={
+			[3]={
 				[1]={
 					k="negate",
 					v=1
@@ -140,6 +159,15 @@ return {
 	},
 	[7]={
 		[1]={
+			[1]={
+				[1]={
+					k="milliseconds_to_seconds_2dp_if_required",
+					v=1
+				},
+				limit={
+				},
+				text="Spike duration@{0}s"
+			}
 		},
 		stats={
 			[1]="skill_effect_duration"

@@ -20769,6 +20769,11 @@ return {
 	},
 	[830]={
 		[1]={
+			[1]={
+				limit={
+				},
+				text="Triggers Burning Inscription on expiry"
+			}
 		},
 		stats={
 			[1]="triggers_burning_runes_on_placing_ground_rune"

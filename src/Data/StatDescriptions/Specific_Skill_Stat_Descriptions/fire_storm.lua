@@ -9,6 +9,15 @@ return {
 	},
 	[2]={
 		[1]={
+			[1]={
+				[1]={
+					k="divide_by_ten_1dp_if_required",
+					v=1
+				},
+				limit={
+				},
+				text="Impact radius@{0}m"
+			}
 		},
 		stats={
 			[1]="active_skill_area_of_effect_radius"
@@ -82,6 +91,15 @@ return {
 	},
 	[5]={
 		[1]={
+			[1]={
+				[1]={
+					k="divide_by_ten_1dp_if_required",
+					v=1
+				},
+				limit={
+				},
+				text="Storm radius@{0}m"
+			}
 		},
 		stats={
 			[1]="active_skill_secondary_area_of_effect_radius"
@@ -128,6 +146,15 @@ return {
 					v=1
 				},
 				limit={
+				},
+				text="Impact interval@{0}s"
+			},
+			[2]={
+				[1]={
+					k="milliseconds_to_seconds_2dp",
+					v=1
+				},
+				limit={
 					[1]={
 						[1]=1,
 						[2]="#"
@@ -139,7 +166,7 @@ return {
 				},
 				text="One impact every {0} seconds"
 			},
-			[2]={
+			[3]={
 				limit={
 					[1]={
 						[1]="#",
@@ -185,6 +212,15 @@ return {
 	},
 	[9]={
 		[1]={
+			[1]={
+				[1]={
+					k="milliseconds_to_seconds_2dp_if_required",
+					v=1
+				},
+				limit={
+				},
+				text="Storm duration@{0}s"
+			}
 		},
 		stats={
 			[1]="skill_effect_duration"

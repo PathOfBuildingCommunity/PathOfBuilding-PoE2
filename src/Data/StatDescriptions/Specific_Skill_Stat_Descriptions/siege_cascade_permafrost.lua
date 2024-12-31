@@ -4,6 +4,15 @@
 return {
 	[1]={
 		[1]={
+			[1]={
+				[1]={
+					k="divide_by_ten_1dp_if_required",
+					v=1
+				},
+				limit={
+				},
+				text="Impact radius@{0}m"
+			}
 		},
 		stats={
 			[1]="active_skill_area_of_effect_radius"
@@ -77,6 +86,15 @@ return {
 	},
 	[4]={
 		[1]={
+			[1]={
+				[1]={
+					k="divide_by_ten_1dp_if_required",
+					v=1
+				},
+				limit={
+				},
+				text="Rain radius@{0}m"
+			}
 		},
 		stats={
 			[1]="active_skill_secondary_area_of_effect_radius"

@@ -9,6 +9,15 @@ return {
 	},
 	[2]={
 		[1]={
+			[1]={
+				[1]={
+					k="divide_by_ten_1dp_if_required",
+					v=1
+				},
+				limit={
+				},
+				text="Impact radius@{0}m"
+			}
 		},
 		stats={
 			[1]="active_skill_area_of_effect_radius"
@@ -51,6 +60,11 @@ return {
 		[1]={
 			[1]={
 				limit={
+				},
+				text="More Stun buildup against Broken Armour@{0}%"
+			},
+			[2]={
+				limit={
 					[1]={
 						[1]=1,
 						[2]="#"
@@ -58,7 +72,7 @@ return {
 				},
 				text="Consumes Fully Broken Armour on enemies to cause {0}% more Stun buildup"
 			},
-			[2]={
+			[3]={
 				[1]={
 					k="negate",
 					v=1

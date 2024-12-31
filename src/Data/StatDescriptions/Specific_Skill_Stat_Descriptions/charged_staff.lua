@@ -6,6 +6,11 @@ return {
 		[1]={
 			[1]={
 				limit={
+				},
+				text="Lightning damage per Power Charge@{0}–{1}"
+			},
+			[2]={
+				limit={
 					[1]={
 						[1]="#",
 						[2]="#"
@@ -26,6 +31,15 @@ return {
 	[2]={
 		[1]={
 			[1]={
+				[1]={
+					k="milliseconds_to_seconds_2dp_if_required",
+					v=1
+				},
+				limit={
+				},
+				text="Buff duration per Power Charge@{0}s"
+			},
+			[2]={
 				[1]={
 					k="milliseconds_to_seconds_2dp_if_required",
 					v=1

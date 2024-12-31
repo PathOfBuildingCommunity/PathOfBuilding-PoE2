@@ -24,6 +24,11 @@ return {
 	},
 	[2]={
 		[1]={
+			[1]={
+				limit={
+				},
+				text="Energy Shield recovered@{0}"
+			}
 		},
 		stats={
 			[1]="display_skill_ghost_dance_grants_energy_shield_when_hit"
@@ -32,6 +37,11 @@ return {
 	[3]={
 		[1]={
 			[1]={
+				limit={
+				},
+				text="Maximum Ghost Shrouds@{0}"
+			},
+			[2]={
 				limit={
 					[1]={
 						[1]="#",
@@ -63,6 +73,15 @@ return {
 	},
 	[5]={
 		[1]={
+			[1]={
+				[1]={
+					k="milliseconds_to_seconds_2dp_if_required",
+					v=1
+				},
+				limit={
+				},
+				text="Duration between Ghost Shrouds@{0}s"
+			}
 		},
 		stats={
 			[1]="skill_effect_duration"

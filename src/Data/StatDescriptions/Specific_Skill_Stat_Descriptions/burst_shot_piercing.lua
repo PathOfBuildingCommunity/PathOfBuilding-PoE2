@@ -9,6 +9,15 @@ return {
 	},
 	[2]={
 		[1]={
+			[1]={
+				[1]={
+					k="divide_by_ten_1dp_if_required",
+					v=1
+				},
+				limit={
+				},
+				text="Explosion radius@{0}m"
+			}
 		},
 		stats={
 			[1]="active_skill_area_of_effect_radius"
@@ -96,6 +105,11 @@ return {
 	[6]={
 		[1]={
 			[1]={
+				limit={
+				},
+				text="Multiple fragments can Hit the same target, combining Damage"
+			},
+			[2]={
 				limit={
 					[1]={
 						[1]="#",

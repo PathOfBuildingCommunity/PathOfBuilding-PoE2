@@ -37,6 +37,15 @@ return {
 	},
 	[2]={
 		[1]={
+			[1]={
+				[1]={
+					k="divide_by_ten_1dp_if_required",
+					v=1
+				},
+				limit={
+				},
+				text="Bolt explosion radius@{0}m"
+			}
 		},
 		stats={
 			[1]="active_skill_secondary_area_of_effect_radius"

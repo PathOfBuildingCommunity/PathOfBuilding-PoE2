@@ -591,7 +591,7 @@ skills["GasArrowPlayer"] = {
 	weaponTypes = {
 		["Bow"] = true,
 	},
-	statDescriptionScope = "skill_stat_descriptions",
+	statDescriptionScope = "gas_cloud_arrow_statset_0",
 	castTime = 1,
 	baseFlags = {
 	},
@@ -847,7 +847,7 @@ skills["HeraldOfThunderPlayer"] = {
 		["Bow"] = true,
 		["One Handed Sword"] = true,
 	},
-	statDescriptionScope = "skill_stat_descriptions",
+	statDescriptionScope = "herald_of_thunder_statset_0",
 	castTime = 0,
 	baseFlags = {
 	},
@@ -1097,7 +1097,7 @@ skills["LightningArrowPlayer"] = {
 	weaponTypes = {
 		["Bow"] = true,
 	},
-	statDescriptionScope = "skill_stat_descriptions",
+	statDescriptionScope = "lightning_arrow_statset_0",
 	castTime = 1,
 	baseFlags = {
 	},
@@ -1306,7 +1306,7 @@ skills["MagneticSalvoPlayer"] = {
 	weaponTypes = {
 		["Bow"] = true,
 	},
-	statDescriptionScope = "skill_stat_descriptions",
+	statDescriptionScope = "magnetic_salvo_statset_0",
 	castTime = 1,
 	baseFlags = {
 	},
@@ -2394,7 +2394,7 @@ skills["TornadoShotPlayer"] = {
 	weaponTypes = {
 		["Bow"] = true,
 	},
-	statDescriptionScope = "skill_stat_descriptions",
+	statDescriptionScope = "tornado_shot_statset_0",
 	castTime = 1,
 	baseFlags = {
 	},
@@ -2663,7 +2663,7 @@ skills["VineArrowPlayer"] = {
 	weaponTypes = {
 		["Bow"] = true,
 	},
-	statDescriptionScope = "skill_stat_descriptions",
+	statDescriptionScope = "poison_vine_arrow_statset_0",
 	castTime = 1,
 	baseFlags = {
 	},

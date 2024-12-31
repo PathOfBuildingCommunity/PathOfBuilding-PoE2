@@ -908,7 +908,7 @@ skills["BonestormPlayer"] = {
 	damageIncrementalEffectiveness = 0.0094999996945262,
 	description = "Channel to conjure a swarm of bone spikes in the air, then release to fire them at enemies and explode. Shrapnel lodges in enemies hit, each causing the next Attack against that enemy to deal additional damage. Consumes your Power Charges to cause much larger explosions.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Channel] = true, [SkillType.Projectile] = true, [SkillType.Physical] = true, [SkillType.Duration] = true, [SkillType.Nonpathing] = true, [SkillType.Area] = true, [SkillType.ConsumesCharges] = true, [SkillType.Damage] = true, [SkillType.SkillConsumesPowerChargesOnUse] = true, [SkillType.Sustained] = true, },
-	statDescriptionScope = "skill_stat_descriptions",
+	statDescriptionScope = "bone_spike_statset_0",
 	castTime = 0.75,
 	baseFlags = {
 	},
@@ -2579,7 +2579,7 @@ skills["CorpseCloudPlayer"] = {
 	damageIncrementalEffectiveness = 0.0065000001341105,
 	description = "Consumes a Corpse to create a cloud of flammable Poisonous gas. Any Burning effects or Detonator skills will explode the gas cloud, creating a fiery explosion.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Fire] = true, [SkillType.Cascadable] = true, [SkillType.TargetsDestructibleCorpses] = true, [SkillType.CanRapidFire] = true, [SkillType.AreaSpell] = true, [SkillType.Chaos] = true, [SkillType.Nonpathing] = true, [SkillType.Duration] = true, },
-	statDescriptionScope = "skill_stat_descriptions",
+	statDescriptionScope = "corpse_cloud_statset_0",
 	castTime = 0.8,
 	baseFlags = {
 	},
@@ -3113,7 +3113,7 @@ skills["BlazingClusterPlayer"] = {
 	damageIncrementalEffectiveness = 0.0065000001341105,
 	description = "Conjures a blazing Ember that hovers above you. After a short duration, the Ember launches at an enemy, dealing Fire damage in an area on impact and prioritising the last enemy targeted. Recasting this spell resets the duration for all active Embers. Multiple Embers fired in the same Fusillade will attempt to target different enemies.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Fire] = true, [SkillType.Projectile] = true, [SkillType.Duration] = true, [SkillType.CanRapidFire] = true, [SkillType.Nonpathing] = true, [SkillType.Area] = true, [SkillType.AreaSpell] = true, [SkillType.Triggerable] = true, },
-	statDescriptionScope = "skill_stat_descriptions",
+	statDescriptionScope = "blazing_cluster_statset_0",
 	castTime = 0.4,
 	baseFlags = {
 	},
@@ -4998,7 +4998,7 @@ skills["FrozenLocusPlayer"] = {
 	incrementalEffectiveness = 0.054999999701977,
 	description = "Leap backward and crack the ground with your staff to call forth an Ice Crystal, which creates Chilled Ground around it and can be damaged by you and enemies. If the Crystal is destroyed it causes an icy explosion that deals Attack damage but does not use your weapon's damage.",
 	skillTypes = { [SkillType.Melee] = true, [SkillType.Attack] = true, [SkillType.Duration] = true, [SkillType.Cold] = true, [SkillType.QuarterstaffSkill] = true, [SkillType.NonWeaponAttack] = true, [SkillType.CreatesGroundEffect] = true, [SkillType.IceCrystal] = true, },
-	statDescriptionScope = "skill_stat_descriptions",
+	statDescriptionScope = "ice_ambush_statset_0",
 	castTime = 1,
 	baseFlags = {
 	},
@@ -5270,7 +5270,7 @@ skills["GatheringStormPlayer"] = {
 	incrementalEffectiveness = 0.054999999701977,
 	description = "Flips backward and Channels to charge your Quarterstaff with Lightning. Releasing dashes towards the target location, damaging enemies along the way. Releasing with perfect timing performs a Lightning-infused dash that releases shockwaves from enemies you dash through and leaves a trail of Shocked Ground in your wake.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Channel] = true, [SkillType.Travel] = true, [SkillType.PerfectTiming] = true, [SkillType.Lightning] = true, [SkillType.Area] = true, [SkillType.Melee] = true, [SkillType.MeleeSingleTarget] = true, },
-	statDescriptionScope = "skill_stat_descriptions",
+	statDescriptionScope = "gathering_storm_statset_0",
 	castTime = 1,
 	baseFlags = {
 	},
@@ -6288,7 +6288,7 @@ skills["IncineratePlayer"] = {
 	damageIncrementalEffectiveness = 0.0065000001341105,
 	description = "Conjures a torrent of Fire from your hand, Igniting enemies in front of you. The flames grow stronger the longer you Channel for, and at maximum strength also apply stacking Fire Exposure and creating Ignited Ground.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Totemable] = true, [SkillType.Fire] = true, [SkillType.Channel] = true, [SkillType.Area] = true, [SkillType.AreaSpell] = true, [SkillType.Duration] = true, [SkillType.Nonpathing] = true, [SkillType.Sustained] = true, [SkillType.CreatesGroundEffect] = true, },
-	statDescriptionScope = "skill_stat_descriptions",
+	statDescriptionScope = "incinerate_player_statset_0",
 	castTime = 0.25,
 	baseFlags = {
 	},
@@ -9476,7 +9476,7 @@ skills["SolarOrbPlayer"] = {
 	damageIncrementalEffectiveness = 0.0065000001341105,
 	description = "Creates a fiery Orb that periodically releases fiery pulses. Enemies that are very close to the Orb are Ignited.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Fire] = true, [SkillType.Area] = true, [SkillType.Triggerable] = true, [SkillType.Trappable] = true, [SkillType.Mineable] = true, [SkillType.Totemable] = true, [SkillType.AreaSpell] = true, [SkillType.Orb] = true, [SkillType.Duration] = true, [SkillType.Nonpathing] = true, [SkillType.Limit] = true, [SkillType.Sustained] = true, },
-	statDescriptionScope = "skill_stat_descriptions",
+	statDescriptionScope = "solar_orb_statset_0",
 	castTime = 0.8,
 	baseFlags = {
 	},
@@ -10043,7 +10043,7 @@ skills["TempestBellPlayer"] = {
 	incrementalEffectiveness = 0.054999999701977,
 	description = "Build Combo by successfully Striking Enemies with other skills. After reaching maximum Combo, use this skill to cause the Bell on your staff to grow to massive size as you drop it on the ground. The Bell damages enemies on impact and can be Hit by your skills, creating a damaging shockwave. Elemental Ailments applied to the Bell cause its shockwaves to deal extra damage of the corresponding type, and Hits which would have caused Knockback increase the area of effect of the shockwaves.",
 	skillTypes = { [SkillType.ComboStacking] = true, [SkillType.Melee] = true, [SkillType.RangedAttack] = true, [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.ManualCooldownConsumption] = true, [SkillType.Duration] = true, [SkillType.Nova] = true, [SkillType.Limit] = true, [SkillType.Sustained] = true, [SkillType.QuarterstaffSkill] = true, [SkillType.SupportedByFountains] = true, },
-	statDescriptionScope = "skill_stat_descriptions",
+	statDescriptionScope = "tempest_bell_statset_0",
 	castTime = 1,
 	baseFlags = {
 	},

@@ -42,6 +42,15 @@ return {
 	},
 	[3]={
 		[1]={
+			[1]={
+				[1]={
+					k="milliseconds_to_seconds_2dp_if_required",
+					v=1
+				},
+				limit={
+				},
+				text="Purple Flames of Chayula duration@{0}s"
+			}
 		},
 		stats={
 			[1]="secondary_skill_effect_duration"
@@ -49,6 +58,15 @@ return {
 	},
 	[4]={
 		[1]={
+			[1]={
+				[1]={
+					k="milliseconds_to_seconds_2dp_if_required",
+					v=1
+				},
+				limit={
+				},
+				text="Maximum Buff duration@{0}s"
+			}
 		},
 		stats={
 			[1]="skill_effect_duration"

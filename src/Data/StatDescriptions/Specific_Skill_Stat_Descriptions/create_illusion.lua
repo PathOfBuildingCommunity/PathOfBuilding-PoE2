@@ -16,6 +16,11 @@ return {
 		[1]={
 			[1]={
 				limit={
+				},
+				text="Additional Power Charge chance@{0}%"
+			},
+			[2]={
+				limit={
 					[1]={
 						[1]=1,
 						[2]=99
@@ -27,7 +32,7 @@ return {
 				},
 				text="{0}% chance to grant an additional Power Charge when killed"
 			},
-			[2]={
+			[3]={
 				limit={
 					[1]={
 						[1]=100,
@@ -40,7 +45,7 @@ return {
 				},
 				text="Grants an additional Power Charge when killed"
 			},
-			[3]={
+			[4]={
 				limit={
 					[1]={
 						[1]="#",

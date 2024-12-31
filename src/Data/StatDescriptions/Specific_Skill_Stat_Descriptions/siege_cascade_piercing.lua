@@ -19,6 +19,15 @@ return {
 	},
 	[4]={
 		[1]={
+			[1]={
+				[1]={
+					k="divide_by_ten_1dp_if_required",
+					v=1
+				},
+				limit={
+				},
+				text="Target acquisition radius@{0}m"
+			}
 		},
 		stats={
 			[1]="active_skill_area_of_effect_radius"
@@ -79,6 +88,15 @@ return {
 	},
 	[7]={
 		[1]={
+			[1]={
+				[1]={
+					k="divide_by_ten_1dp_if_required",
+					v=1
+				},
+				limit={
+				},
+				text="Bolt explosion radius@{0}m"
+			}
 		},
 		stats={
 			[1]="active_skill_secondary_area_of_effect_radius"
@@ -88,6 +106,11 @@ return {
 		[1]={
 			[1]={
 				limit={
+				},
+				text="More damage against Immobilised enemies@{0}%"
+			},
+			[2]={
+				limit={
 					[1]={
 						[1]=1,
 						[2]="#"
@@ -95,7 +118,7 @@ return {
 				},
 				text="{0}% more damage against Immobilised enemies"
 			},
-			[2]={
+			[3]={
 				[1]={
 					k="negate",
 					v=1

@@ -44,6 +44,11 @@ return {
 		[1]={
 			[1]={
 				limit={
+				},
+				text="More Armour per Scavenged Plating@{0}%"
+			},
+			[2]={
+				limit={
 					[1]={
 						[1]=1,
 						[2]="#"
@@ -51,7 +56,7 @@ return {
 				},
 				text="{0}% more Armour per Scavenged Plating"
 			},
-			[2]={
+			[3]={
 				[1]={
 					k="negate",
 					v=1
@@ -73,6 +78,11 @@ return {
 		[1]={
 			[1]={
 				limit={
+				},
+				text="Maximum Scavenged Plating@{0}"
+			},
+			[2]={
+				limit={
 					[1]={
 						[1]="#",
 						[2]="#"
@@ -88,6 +98,11 @@ return {
 	[5]={
 		[1]={
 			[1]={
+				limit={
+				},
+				text="Thorns per Scavenged Plating@{0}–{1}"
+			},
+			[2]={
 				limit={
 					[1]={
 						[1]="#",
@@ -108,6 +123,15 @@ return {
 	},
 	[6]={
 		[1]={
+			[1]={
+				[1]={
+					k="milliseconds_to_seconds_2dp_if_required",
+					v=1
+				},
+				limit={
+				},
+				text="Scavenged Plating duration@{0}s"
+			}
 		},
 		stats={
 			[1]="skill_effect_duration"

@@ -9,6 +9,15 @@ return {
 	},
 	[2]={
 		[1]={
+			[1]={
+				[1]={
+					k="divide_by_ten_1dp_if_required",
+					v=1
+				},
+				limit={
+				},
+				text="Burst radius@{0}m"
+			}
 		},
 		stats={
 			[1]="active_skill_area_of_effect_radius"
@@ -82,6 +91,15 @@ return {
 	},
 	[5]={
 		[1]={
+			[1]={
+				[1]={
+					k="divide_by_ten_1dp_if_required",
+					v=1
+				},
+				limit={
+				},
+				text="Wave length@{0}m"
+			}
 		},
 		stats={
 			[1]="cascade_attack_total_distance"
@@ -90,6 +108,11 @@ return {
 	[6]={
 		[1]={
 			[1]={
+				limit={
+				},
+				text="Bursts@{0}"
+			},
+			[2]={
 				limit={
 					[1]={
 						[1]="#",

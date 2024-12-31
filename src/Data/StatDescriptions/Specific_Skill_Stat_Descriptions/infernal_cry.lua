@@ -9,6 +9,15 @@ return {
 	},
 	[2]={
 		[1]={
+			[1]={
+				[1]={
+					k="divide_by_ten_1dp_if_required",
+					v=1
+				},
+				limit={
+				},
+				text="Warcry radius@{0}m"
+			}
 		},
 		stats={
 			[1]="active_skill_area_of_effect_radius"
@@ -55,6 +64,15 @@ return {
 					v=1
 				},
 				limit={
+				},
+				text="Destabilisation duration@{0}s"
+			},
+			[2]={
+				[1]={
+					k="milliseconds_to_seconds_2dp_if_required",
+					v=1
+				},
+				limit={
 					[1]={
 						[1]=1000,
 						[2]=1000
@@ -62,7 +80,7 @@ return {
 				},
 				text="Destabilises Enemies for {0} second"
 			},
-			[2]={
+			[3]={
 				[1]={
 					k="milliseconds_to_seconds_2dp_if_required",
 					v=1

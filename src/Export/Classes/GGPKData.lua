@@ -296,6 +296,7 @@ function GGPKClass:GetNeededFiles()
 	local csdFiles = {
 		"^Metadata/StatDescriptions/specific_skill_stat_descriptions/\\w+.csd$",
 		"^Metadata/StatDescriptions/\\w+.csd$",
+		"^Metadata/StatDescriptions/specific_skill_stat_descriptions/\\w+/\\w+.csd$",
 	}
 	local itFiles = {
 		"Metadata/Items/Equipment.it",
