@@ -3086,6 +3086,69 @@ return {
 	chanceableitemclasses={
 	},
 	characteraudioevents={
+		[1]={
+			list=false,
+			name="Id",
+			refTo="",
+			type="String",
+			width=150
+		},
+		[2]={
+			list=false,
+			name="Event",
+			refTo="Questflags",
+			type="Key",
+			width=150
+		},
+		[3]={
+			list=false,
+			name="",
+			refTo="",
+			type="Int",
+			width=150
+		},
+		[4]={
+			list=false,
+			name="",
+			refTo="",
+			type="Int",
+			width=150
+		},
+		[5]={
+			list=true,
+			name="GoddessAudio",
+			refTo="CharacterTextAudio",
+			type="Key",
+			width=150
+		},
+		[6]={
+			list=true,
+			name="JackTheAxeAudio",
+			refTo="CharacterTextAudio",
+			type="Key",
+			width=150
+		},
+		[7]={
+			list=false,
+			name="",
+			refTo="",
+			type="Bool",
+			width=70
+		},
+		[8]={
+			list=false,
+			name="",
+			refTo="",
+			type="Bool",
+			width=70
+		},
+		[9]={
+			list=true,
+			name="",
+			refTo="",
+			type="Key",
+			width=70
+		}
 	},
 	charactercreationbutton={
 	},
@@ -3094,6 +3157,34 @@ return {
 	charactercreationicons={
 	},
 	charactereventtextaudio={
+		[1]={
+			list=false,
+			name="Event",
+			refTo="CharacterAudioEvents",
+			type="Key",
+			width=250
+		},
+		[2]={
+			list=false,
+			name="Character",
+			refTo="Characters",
+			type="Key",
+			width=250
+		},
+		[3]={
+			list=true,
+			name="",
+			refTo="CharacterTextAudio",
+			type="Key",
+			width=300
+		},
+		[4]={
+			list=false,
+			name="",
+			refTo="",
+			type="Int",
+			width=100
+		}
 	},
 	charactermeleeskills={
 		[1]={
@@ -3620,6 +3711,48 @@ return {
 	characterstartstateset={
 	},
 	charactertextaudio={
+		[1]={
+			list=false,
+			name="Id",
+			refTo="",
+			type="String",
+			width=150
+		},
+		[2]={
+			list=false,
+			name="Text",
+			refTo="",
+			type="String",
+			width=150
+		},
+		[3]={
+			list=false,
+			name="SoundFile",
+			refTo="",
+			type="String",
+			width=150
+		},
+		[4]={
+			list=false,
+			name="ParrotSoundFile",
+			refTo="",
+			type="String",
+			width=150
+		},
+		[5]={
+			list=false,
+			name="",
+			refTo="",
+			type="Int",
+			width=150
+		},
+		[6]={
+			list=false,
+			name="",
+			refTo="",
+			type="Int",
+			width=150
+		}
 	},
 	charactervariationgroups={
 	},
@@ -8068,6 +8201,48 @@ return {
 	miniqueststates={
 	},
 	miscanimated={
+		[1]={
+			list=false,
+			name="Id",
+			refTo="",
+			type="String",
+			width=200
+		},
+		[2]={
+			list=false,
+			name="AOFile",
+			refTo="",
+			type="String",
+			width=150
+		},
+		[3]={
+			list=true,
+			name="PreloadGroup",
+			refTo="",
+			type="Key",
+			width=150
+		},
+		[4]={
+			list=false,
+			name="",
+			refTo="",
+			type="Int",
+			width=100
+		},
+		[5]={
+			list=false,
+			name="",
+			refTo="",
+			type="Int",
+			width=100
+		},
+		[6]={
+			list=false,
+			name="HASH32",
+			refTo="",
+			type="UInt",
+			width=100
+		}
 	},
 	miscanimatedartvariations={
 	},
@@ -10313,6 +10488,34 @@ return {
 	npctalkmobilegroup={
 	},
 	npctextaudio={
+		[1]={
+			list=false,
+			name="Id",
+			refTo="",
+			type="String",
+			width=150
+		},
+		[2]={
+			list=true,
+			name="Characters",
+			refTo="Characters",
+			type="Key",
+			width=230
+		},
+		[3]={
+			list=false,
+			name="",
+			refTo="",
+			type="String",
+			width=400
+		},
+		[4]={
+			list=false,
+			name="",
+			refTo="",
+			type="Bool",
+			width=150
+		}
 	},
 	npctextaudiointerruptrules={
 	},
@@ -12121,14 +12324,14 @@ return {
 			name="Name",
 			refTo="",
 			type="String",
-			width=230
+			width=180
 		},
 		[4]={
 			list=false,
 			name="Icon",
 			refTo="",
 			type="String",
-			width=340
+			width=150
 		},
 		[5]={
 			list=false,
@@ -12150,6 +12353,55 @@ return {
 			refTo="QuestType",
 			type="Key",
 			width=150
+		},
+		[8]={
+			list=true,
+			name="",
+			refTo="",
+			type="Int",
+			width=150
+		},
+		[9]={
+			list=false,
+			name="",
+			refTo="",
+			type="Int",
+			width=150
+		},
+		[10]={
+			list=false,
+			name="",
+			refTo="",
+			type="Key",
+			width=40
+		},
+		[11]={
+			list=false,
+			name="",
+			refTo="",
+			type="Bool",
+			width=80
+		},
+		[12]={
+			list=false,
+			name="",
+			refTo="",
+			type="Bool",
+			width=50
+		},
+		[13]={
+			list=true,
+			name="NormalReward",
+			refTo="QuestRewardType",
+			type="Key",
+			width=150
+		},
+		[14]={
+			list=true,
+			name="CruelReward",
+			refTo="QuestRewardType",
+			type="Key",
+			width=150
 		}
 	},
 	questachievements={
@@ -12164,9 +12416,9 @@ return {
 		},
 		[2]={
 			list=false,
-			name="Hash",
+			name="Hash32",
 			refTo="",
-			type="Int",
+			type="UInt",
 			width=150
 		}
 	},
@@ -12175,10 +12427,283 @@ return {
 	questitems={
 	},
 	questrewardoffers={
+		[1]={
+			list=false,
+			name="Id",
+			refTo="",
+			type="String",
+			width=200
+		},
+		[2]={
+			list=false,
+			name="Quest",
+			refTo="Quest",
+			type="Key",
+			width=200
+		},
+		[3]={
+			list=false,
+			name="QuestFlags",
+			refTo="QuestFlags",
+			type="Key",
+			width=200
+		},
+		[4]={
+			list=false,
+			name="",
+			refTo="",
+			type="Int",
+			width=50
+		},
+		[5]={
+			list=false,
+			name="",
+			refTo="",
+			type="Key",
+			width=50
+		},
+		[6]={
+			list=false,
+			name="",
+			refTo="",
+			type="Bool",
+			width=50
+		},
+		[7]={
+			list=false,
+			name="",
+			refTo="",
+			type="Bool",
+			width=50
+		},
+		[8]={
+			list=false,
+			name="",
+			refTo="",
+			type="Key",
+			width=50
+		},
+		[9]={
+			list=false,
+			name="",
+			refTo="",
+			type="Int",
+			width=50
+		},
+		[10]={
+			list=false,
+			name="",
+			refTo="",
+			type="Key",
+			width=50
+		},
+		[11]={
+			list=false,
+			name="",
+			refTo="",
+			type="Key",
+			width=50
+		},
+		[12]={
+			list=false,
+			name="",
+			refTo="",
+			type="Interval",
+			width=150
+		}
 	},
 	questrewards={
+		[1]={
+			list=false,
+			name="Id",
+			refTo="QuestRewardOffers",
+			type="Key",
+			width=150
+		},
+		[2]={
+			list=false,
+			name="QuestPart",
+			refTo="",
+			type="Int",
+			width=150
+		},
+		[3]={
+			list=false,
+			name="ActDifficulty",
+			refTo="",
+			type="Int",
+			width=150
+		},
+		[4]={
+			list=true,
+			name="",
+			refTo="",
+			type="Key",
+			width=50
+		},
+		[5]={
+			list=false,
+			name="BaseItemType",
+			refTo="BaseItemTypes",
+			type="Key",
+			width=460
+		},
+		[6]={
+			list=false,
+			name="RewardItemLevel",
+			refTo="",
+			type="Int",
+			width=150
+		},
+		[7]={
+			list=false,
+			name="QuestType",
+			refTo="QuestType",
+			type="Key",
+			width=150
+		},
+		[8]={
+			list=false,
+			name="",
+			refTo="",
+			type="Int",
+			width=50
+		},
+		[9]={
+			list=false,
+			name="",
+			refTo="",
+			type="String",
+			width=50
+		},
+		[10]={
+			list=true,
+			name="",
+			refTo="",
+			type="Key",
+			width=50
+		},
+		[11]={
+			list=false,
+			name="",
+			refTo="",
+			type="Bool",
+			width=50
+		},
+		[12]={
+			list=false,
+			name="",
+			refTo="",
+			type="Int",
+			width=50
+		},
+		[13]={
+			list=false,
+			name="",
+			refTo="",
+			type="Bool",
+			width=50
+		},
+		[14]={
+			list=true,
+			name="",
+			refTo="",
+			type="Int",
+			width=50
+		},
+		[15]={
+			list=false,
+			name="",
+			refTo="",
+			type="String",
+			width=50
+		},
+		[16]={
+			list=true,
+			name="",
+			refTo="",
+			type="Key",
+			width=50
+		},
+		[17]={
+			list=false,
+			name="",
+			refTo="",
+			type="Int",
+			width=50
+		},
+		[18]={
+			list=false,
+			name="",
+			refTo="",
+			type="Key",
+			width=50
+		},
+		[19]={
+			list=false,
+			name="",
+			refTo="",
+			type="Int",
+			width=50
+		},
+		[20]={
+			list=true,
+			name="",
+			refTo="",
+			type="Key",
+			width=50
+		},
+		[21]={
+			list=false,
+			name="",
+			refTo="",
+			type="Int",
+			width=50
+		},
+		[22]={
+			list=false,
+			name="",
+			refTo="",
+			type="Bool",
+			width=80
+		}
 	},
 	questrewardtype={
+		[1]={
+			list=false,
+			name="Id",
+			refTo="",
+			type="String",
+			width=150
+		},
+		[2]={
+			list=false,
+			name="Icon",
+			refTo="",
+			type="String",
+			width=150
+		},
+		[3]={
+			list=false,
+			name="Name",
+			refTo="",
+			type="String",
+			width=150
+		},
+		[4]={
+			list=false,
+			name="Description",
+			refTo="",
+			type="String",
+			width=150
+		},
+		[5]={
+			list=false,
+			name="BaseItemType",
+			refTo="BaseItemTypes",
+			type="Key",
+			width=150
+		}
 	},
 	queststatecalculation={
 	},
@@ -12188,15 +12713,71 @@ return {
 		[1]={
 			list=false,
 			name="QuestFlag",
-			refTo="QuestFlags",
+			refTo="questflags",
 			type="Key",
 			width=270
 		},
 		[2]={
 			list=false,
+			name="Acts",
+			refTo="",
+			type="Int",
+			width=150
+		},
+		[3]={
+			list=false,
+			name="WeaponPassives",
+			refTo="",
+			type="Int",
+			width=150
+		},
+		[4]={
+			list=true,
+			name="Stats",
+			refTo="Stats",
+			type="Key",
+			width=400
+		},
+		[5]={
+			list=true,
+			name="StatValues",
+			refTo="",
+			type="Int",
+			width=100
+		},
+		[6]={
+			list=false,
+			name="Quest",
+			refTo="Quest",
+			type="Key",
+			width=150
+		},
+		[7]={
+			list=false,
 			name="",
 			refTo="",
 			type="Int",
+			width=150
+		},
+		[8]={
+			list=false,
+			name="",
+			refTo="clientstrings",
+			type="Key",
+			width=250
+		},
+		[9]={
+			list=false,
+			name="",
+			refTo="",
+			type="Int",
+			width=150
+		},
+		[10]={
+			list=false,
+			name="",
+			refTo="",
+			type="Bool",
 			width=150
 		}
 	},
@@ -12212,7 +12793,7 @@ return {
 		},
 		[2]={
 			list=true,
-			name="",
+			name="Colour",
 			refTo="",
 			type="Int",
 			width=150
