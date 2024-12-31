@@ -49,7 +49,7 @@ return {
 				},
 				limit={
 				},
-				text="Orb radius@{0}m"
+				text="Orb radius {0}m"
 			}
 		},
 		stats={
@@ -114,7 +114,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Orb Limit@{0}"
+				text="Orb Limit {0}"
 			}
 		},
 		stats={
@@ -130,7 +130,7 @@ return {
 				},
 				limit={
 				},
-				text="Orb duration@{0}s"
+				text="Orb duration {0}s"
 			}
 		},
 		stats={

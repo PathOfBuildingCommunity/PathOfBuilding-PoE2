@@ -357,7 +357,7 @@ return {
 				},
 				limit={
 				},
-				text="Physical damage from Corpse Life@{0}%"
+				text="Physical damage from Corpse Life {0}%"
 			},
 			[2]={
 				[1]={
@@ -1084,7 +1084,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Knockback chance@{0}%"
+				text="Knockback chance {0}%"
 			},
 			[2]={
 				limit={
@@ -1807,7 +1807,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Targets Pierced@{0}"
+				text="Targets Pierced {0}"
 			},
 			[2]={
 				limit={
@@ -4468,7 +4468,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Totem Limit@{0}"
+				text="Totem Limit {0}"
 			}
 		},
 		stats={
@@ -5123,7 +5123,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Projectile Return chance@{0}%"
+				text="Projectile Return chance {0}%"
 			},
 			[2]={
 				limit={
@@ -5675,7 +5675,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Additional Strikes per Power Charge@{0}"
+				text="Additional Strikes per Power Charge {0}"
 			},
 			[2]={
 				limit={
@@ -6399,7 +6399,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="More damage per Stage@{0}%"
+				text="More damage per Stage {0}%"
 			},
 			[2]={
 				limit={
@@ -7665,7 +7665,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="More Melee Physical damage vs Bleeding enemies@{0}%"
+				text="More Melee Physical damage vs Bleeding enemies {0}%"
 			},
 			[2]={
 				limit={
@@ -8531,7 +8531,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Expected Poison damage stored@{0}%"
+				text="Expected Poison damage stored {0}%"
 			},
 			[2]={
 				limit={
@@ -8849,32 +8849,32 @@ return {
 			[1]={
 				limit={
 				},
-				text="More Stun Buildup every second use@{0}%"
+				text="More Stun Buildup every second use {0}%"
 			},
 			[2]={
 				limit={
 				},
-				text="More Stun Buildup every third use@{0}%"
+				text="More Stun Buildup every third use {0}%"
 			},
 			[3]={
 				limit={
 				},
-				text="More Stun Buildup every fourth use@{0}%"
+				text="More Stun Buildup every fourth use {0}%"
 			},
 			[4]={
 				limit={
 				},
-				text="More Stun Buildup every fifth use@{0}%"
+				text="More Stun Buildup every fifth use {0}%"
 			},
 			[5]={
 				limit={
 				},
-				text="More Stun Buildup every sixth use@{0}%"
+				text="More Stun Buildup every sixth use {0}%"
 			},
 			[6]={
 				limit={
 				},
-				text="More Stun Buildup every seventh use@{0}%"
+				text="More Stun Buildup every seventh use {0}%"
 			}
 		},
 		stats={
@@ -9059,7 +9059,7 @@ return {
 				},
 				limit={
 				},
-				text="Ancestral Boost interval@{0}s"
+				text="Ancestral Boost interval {0}s"
 			}
 		},
 		stats={
@@ -9917,7 +9917,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Freeze Buildup modifier@{0}%"
+				text="Freeze Buildup modifier {0}%"
 			},
 			[2]={
 				limit={
@@ -10156,7 +10156,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Pin buildup modifier@{0}%"
+				text="Pin buildup modifier {0}%"
 			},
 			[2]={
 				limit={
@@ -10507,7 +10507,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Chance to build an additional Combo on Hit@{0}%"
+				text="Chance to build an additional Combo on Hit {0}%"
 			},
 			[2]={
 				limit={
@@ -10944,7 +10944,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="More damage for each remaining Chain@{0}%"
+				text="More damage for each remaining Chain {0}%"
 			},
 			[2]={
 				limit={
@@ -11294,7 +11294,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Armour Break from Poison damage@{0}%"
+				text="Armour Break from Poison damage {0}%"
 			}
 		},
 		stats={
@@ -11306,7 +11306,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Break Armour from Physical damage@{0}%"
+				text="Break Armour from Physical damage {0}%"
 			}
 		},
 		stats={
@@ -11409,7 +11409,7 @@ return {
 				},
 				limit={
 				},
-				text="Attack time@{0}s"
+				text="Attack time {0}s"
 			}
 		},
 		stats={
@@ -11582,7 +11582,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Hit damage required to gain 1 Energy@{0}"
+				text="Hit damage required to gain 1 Energy {0}"
 			},
 			[2]={
 				limit={
@@ -11680,7 +11680,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Pierce chance@{0}%"
+				text="Pierce chance {0}%"
 			}
 		},
 		stats={
@@ -13399,7 +13399,7 @@ return {
 				},
 				limit={
 				},
-				text="Flame of Chayula manifestation interval\nFlame of Chayula fade time@{0}s\n25s"
+				text="Flame of Chayula manifestation interval\nFlame of Chayula fade time {0}s\n25s"
 			},
 			[2]={
 				limit={
@@ -13547,7 +13547,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Energy gained on Block@{0}"
+				text="Energy gained on Block {0}"
 			},
 			[2]={
 				limit={
@@ -13572,7 +13572,7 @@ return {
 				},
 				limit={
 				},
-				text="Energy gained per Power of enemies Critically Hit@{0}"
+				text="Energy gained per Power of enemies Critically Hit {0}"
 			},
 			[2]={
 				[1]={
@@ -13622,7 +13622,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Energy gained when you are Hit@{0}"
+				text="Energy gained when you are Hit {0}"
 			},
 			[2]={
 				limit={
@@ -13663,7 +13663,7 @@ return {
 				},
 				limit={
 				},
-				text="Energy gained per metre rolled@{0}"
+				text="Energy gained per metre rolled {0}"
 			},
 			[2]={
 				[1]={
@@ -13717,7 +13717,7 @@ return {
 				},
 				limit={
 				},
-				text="Energy gained per Power of Frozen enemies@{0}"
+				text="Energy gained per Power of Frozen enemies {0}"
 			},
 			[2]={
 				[1]={
@@ -13746,7 +13746,7 @@ return {
 				},
 				limit={
 				},
-				text="Energy gained per Power of Ignited enemies@{0}"
+				text="Energy gained per Power of Ignited enemies {0}"
 			},
 			[2]={
 				[1]={
@@ -13771,7 +13771,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Energy gained on Melee kill@{0}"
+				text="Energy gained on Melee kill {0}"
 			},
 			[2]={
 				limit={
@@ -13792,7 +13792,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Energy gained per enemy Power on Melee Heavy Stun@{0}"
+				text="Energy gained per enemy Power on Melee Heavy Stun {0}"
 			},
 			[2]={
 				limit={
@@ -13813,7 +13813,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Energy gained per enemy Power on Melee Stun@{0}"
+				text="Energy gained per enemy Power on Melee Stun {0}"
 			},
 			[2]={
 				limit={
@@ -13834,7 +13834,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Base Energy gained when a Minion is Killed modified by Minion Power@50"
+				text="Base Energy gained when a Minion is Killed modified by Minion Power 50"
 			},
 			[2]={
 				limit={
@@ -13859,7 +13859,7 @@ return {
 				},
 				limit={
 				},
-				text="Energy gained per Power of Shocked enemies@{0}"
+				text="Energy gained per Power of Shocked enemies {0}"
 			},
 			[2]={
 				[1]={
@@ -13884,7 +13884,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Energy gained when you are Stunned@{0}"
+				text="Energy gained when you are Stunned {0}"
 			},
 			[2]={
 				limit={
@@ -13905,7 +13905,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Energy gained per second while Channelling@{0}"
+				text="Energy gained per second while Channelling {0}"
 			},
 			[2]={
 				limit={
@@ -14226,7 +14226,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Chance to gain an additional Charge@{0}%"
+				text="Chance to gain an additional Charge {0}%"
 			}
 		},
 		stats={
@@ -14238,7 +14238,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Endurance Charge chance on Full Armour Break@{0}%"
+				text="Endurance Charge chance on Full Armour Break {0}%"
 			}
 		},
 		stats={
@@ -14477,7 +14477,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Chance to not destroy Consumed Corpses@{0}%"
+				text="Chance to not destroy Consumed Corpses {0}%"
 			}
 		},
 		stats={
@@ -14609,7 +14609,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Explosion chance on Ignited death@{0}%"
+				text="Explosion chance on Ignited death {0}%"
 			}
 		},
 		stats={
@@ -14872,7 +14872,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Chance to not remove Charges@{0}%"
+				text="Chance to not remove Charges {0}%"
 			},
 			[2]={
 				limit={
@@ -15023,7 +15023,7 @@ return {
 				},
 				limit={
 				},
-				text="Chilled Ground duration on Freeze@{0}s"
+				text="Chilled Ground duration on Freeze {0}s"
 			}
 		},
 		stats={
@@ -15257,7 +15257,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Minion targeting Life threshold@{0}"
+				text="Minion targeting Life threshold {0}"
 			},
 			[2]={
 				limit={
@@ -15397,7 +15397,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="More Stun Buildup when Consuming Daze@{0}%"
+				text="More Stun Buildup when Consuming Daze {0}%"
 			},
 			[2]={
 				limit={
@@ -15463,7 +15463,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Hit damage per 5% enemy Shock@{0}%"
+				text="Hit damage per 5% enemy Shock {0}%"
 			},
 			[2]={
 				limit={
@@ -15529,7 +15529,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="More damage per spread (max)@{0}% ({1}%)"
+				text="More damage per spread (max) {0}% ({1}%)"
 			},
 			[2]={
 				limit={
@@ -15972,7 +15972,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Increased Critical Hit Chance against Immobilised Enemies@{0}%"
+				text="Increased Critical Hit Chance against Immobilised Enemies {0}%"
 			},
 			[2]={
 				[1]={
@@ -15981,7 +15981,7 @@ return {
 				},
 				limit={
 				},
-				text="Reduced Critical Hit Chance against Immobilised Enemies@{0}%"
+				text="Reduced Critical Hit Chance against Immobilised Enemies {0}%"
 			}
 		},
 		stats={
@@ -17143,7 +17143,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Curse effect modifier@{0:+d}%"
+				text="Curse effect modifier {0:+d}%"
 			}
 		},
 		stats={
@@ -17277,7 +17277,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Unbound Fury required@{0}"
+				text="Unbound Fury required {0}"
 			}
 		},
 		stats={
@@ -17379,7 +17379,7 @@ return {
 				},
 				limit={
 				},
-				text="Main Hand estimated Bleeding damage per second@{0} to {1}"
+				text="Main Hand estimated Bleeding damage per second {0} to {1}"
 			}
 		},
 		stats={
@@ -17400,7 +17400,7 @@ return {
 				},
 				limit={
 				},
-				text="Main Hand estimated Ignite damage per second@{0} to {1}"
+				text="Main Hand estimated Ignite damage per second {0} to {1}"
 			}
 		},
 		stats={
@@ -17421,7 +17421,7 @@ return {
 				},
 				limit={
 				},
-				text="Main Hand estimated Poison damage per second@{0} to {1}"
+				text="Main Hand estimated Poison damage per second {0} to {1}"
 			}
 		},
 		stats={
@@ -17442,7 +17442,7 @@ return {
 				},
 				limit={
 				},
-				text="Off Hand estimated Bleeding damage per second@{0} to {1}"
+				text="Off Hand estimated Bleeding damage per second {0} to {1}"
 			}
 		},
 		stats={
@@ -17463,7 +17463,7 @@ return {
 				},
 				limit={
 				},
-				text="Off Hand estimated Ignite damage per second@{0} to {1}"
+				text="Off Hand estimated Ignite damage per second {0} to {1}"
 			}
 		},
 		stats={
@@ -17484,7 +17484,7 @@ return {
 				},
 				limit={
 				},
-				text="Off Hand estimated Poison damage per second@{0} to {1}"
+				text="Off Hand estimated Poison damage per second {0} to {1}"
 			}
 		},
 		stats={
@@ -17505,7 +17505,7 @@ return {
 				},
 				limit={
 				},
-				text="Estimated Bleeding damage per second@{0} to {1}"
+				text="Estimated Bleeding damage per second {0} to {1}"
 			}
 		},
 		stats={
@@ -17526,7 +17526,7 @@ return {
 				},
 				limit={
 				},
-				text="Estimated Ignite damage per second@{0} to {1}"
+				text="Estimated Ignite damage per second {0} to {1}"
 			}
 		},
 		stats={
@@ -17547,7 +17547,7 @@ return {
 				},
 				limit={
 				},
-				text="Estimated Poison damage per second@{0} to {1}"
+				text="Estimated Poison damage per second {0} to {1}"
 			}
 		},
 		stats={
@@ -17568,7 +17568,7 @@ return {
 				},
 				limit={
 				},
-				text="Estimated Bleeding damage per second@{0} to {1}"
+				text="Estimated Bleeding damage per second {0} to {1}"
 			}
 		},
 		stats={
@@ -17589,7 +17589,7 @@ return {
 				},
 				limit={
 				},
-				text="Estimated Ignite damage per second@{0} to {1}"
+				text="Estimated Ignite damage per second {0} to {1}"
 			}
 		},
 		stats={
@@ -17610,7 +17610,7 @@ return {
 				},
 				limit={
 				},
-				text="Estimated Poison damage per second@{0} to {1}"
+				text="Estimated Poison damage per second {0} to {1}"
 			}
 		},
 		stats={
@@ -17736,7 +17736,7 @@ return {
 				},
 				limit={
 				},
-				text="Cooldown@{0}s"
+				text="Cooldown {0}s"
 			}
 		},
 		stats={
@@ -17764,7 +17764,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Slain monster item drop Rarity modifier@{0}%"
+				text="Slain monster item drop Rarity modifier {0}%"
 			}
 		},
 		stats={
@@ -17800,7 +17800,7 @@ return {
 				},
 				limit={
 				},
-				text="Bleeding duration@{0}s"
+				text="Bleeding duration {0}s"
 			}
 		},
 		stats={
@@ -17816,7 +17816,7 @@ return {
 				},
 				limit={
 				},
-				text="Chill duration@{0}s"
+				text="Chill duration {0}s"
 			}
 		},
 		stats={
@@ -17832,7 +17832,7 @@ return {
 				},
 				limit={
 				},
-				text="Ignite duration@{0}s"
+				text="Ignite duration {0}s"
 			}
 		},
 		stats={
@@ -17848,7 +17848,7 @@ return {
 				},
 				limit={
 				},
-				text="Poison duration@{0}s"
+				text="Poison duration {0}s"
 			}
 		},
 		stats={
@@ -18317,7 +18317,7 @@ return {
 				},
 				limit={
 				},
-				text="Energy gained per Power of Frozen enemies@{0}"
+				text="Energy gained per Power of Frozen enemies {0}"
 			},
 			[2]={
 				[1]={
@@ -18346,7 +18346,7 @@ return {
 				},
 				limit={
 				},
-				text="Energy gained per Power of Ignited enemies@{0}"
+				text="Energy gained per Power of Ignited enemies {0}"
 			},
 			[2]={
 				[1]={
@@ -18375,7 +18375,7 @@ return {
 				},
 				limit={
 				},
-				text="Energy gained per Power of Shocked enemies@{0}"
+				text="Energy gained per Power of Shocked enemies {0}"
 			},
 			[2]={
 				[1]={
@@ -18445,7 +18445,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="More damage per previous Ember fired@{0}%"
+				text="More damage per previous Ember fired {0}%"
 			},
 			[2]={
 				limit={
@@ -18716,7 +18716,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Energy gain modifier@{0}%"
+				text="Energy gain modifier {0}%"
 			},
 			[2]={
 				limit={
@@ -19591,7 +19591,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Maximum Stages@{0}"
+				text="Maximum Stages {0}"
 			},
 			[2]={
 				limit={
@@ -19718,7 +19718,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Mana Flask charges Consumed@{0}"
+				text="Mana Flask charges Consumed {0}"
 			},
 			[2]={
 				limit={
@@ -20533,7 +20533,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Maximum Life@{0}"
+				text="Maximum Life {0}"
 			}
 		},
 		stats={
@@ -20841,7 +20841,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Rage gained on Hit@{0}"
+				text="Rage gained on Hit {0}"
 			}
 		},
 		stats={
@@ -20910,7 +20910,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Rage gained on Melee Hit@{0}"
+				text="Rage gained on Melee Hit {0}"
 			}
 		},
 		stats={
@@ -21283,7 +21283,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Chance to activate a second time@{0}%"
+				text="Chance to activate a second time {0}%"
 			}
 		},
 		stats={
@@ -21295,7 +21295,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="More Area of Effect per second (maximum {1}%)@{0}%"
+				text="More Area of Effect per second (maximum {1}%) {0}%"
 			},
 			[2]={
 				limit={
@@ -21798,7 +21798,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Attacks per second@{0}"
+				text="Attacks per second {0}"
 			}
 		},
 		stats={
@@ -21814,7 +21814,7 @@ return {
 				},
 				limit={
 				},
-				text="Average damage per use@{0}"
+				text="Average damage per use {0}"
 			}
 		},
 		stats={
@@ -21834,7 +21834,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Casts per second@{0}"
+				text="Casts per second {0}"
 			}
 		},
 		stats={
@@ -21850,7 +21850,7 @@ return {
 				},
 				limit={
 				},
-				text="Damage per second@{0}"
+				text="Damage per second {0}"
 			}
 		},
 		stats={
@@ -22019,7 +22019,7 @@ return {
 				},
 				limit={
 				},
-				text="Magma infusion window@{0}s"
+				text="Magma infusion window {0}s"
 			},
 			[2]={
 				[1]={
@@ -22057,7 +22057,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="More Ignite Magnitude when Consuming Freeze@{0}%"
+				text="More Ignite Magnitude when Consuming Freeze {0}%"
 			}
 		},
 		stats={
@@ -22377,7 +22377,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="More Fire Damage per Corpse Power@{0}%"
+				text="More Fire Damage per Corpse Power {0}%"
 			},
 			[2]={
 				limit={
@@ -22422,7 +22422,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Cold Exposure on Cold Critical Hit@{0}s"
+				text="Cold Exposure on Cold Critical Hit {0}s"
 			}
 		},
 		stats={
@@ -22442,7 +22442,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Fire Exposure on Ignite@{0}s"
+				text="Fire Exposure on Ignite {0}s"
 			}
 		},
 		stats={
@@ -22462,7 +22462,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Lightning Exposure on Shock@{0}s"
+				text="Lightning Exposure on Shock {0}s"
 			}
 		},
 		stats={
@@ -22531,7 +22531,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Chaos damage per second@{0}"
+				text="Chaos damage per second {0}"
 			}
 		},
 		stats={
@@ -22551,7 +22551,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Chaos damage per second@{0}"
+				text="Chaos damage per second {0}"
 			}
 		},
 		stats={
@@ -22571,7 +22571,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Cold damage per second@{0}"
+				text="Cold damage per second {0}"
 			}
 		},
 		stats={
@@ -22591,7 +22591,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Cold damage per second@{0}"
+				text="Cold damage per second {0}"
 			}
 		},
 		stats={
@@ -22611,7 +22611,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Fire damage per second@{0}"
+				text="Fire damage per second {0}"
 			}
 		},
 		stats={
@@ -22631,7 +22631,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Fire damage per second@{0}"
+				text="Fire damage per second {0}"
 			}
 		},
 		stats={
@@ -22651,7 +22651,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Lightning damage per second@{0}"
+				text="Lightning damage per second {0}"
 			}
 		},
 		stats={
@@ -22671,7 +22671,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Lightning damage per second@{0}"
+				text="Lightning damage per second {0}"
 			}
 		},
 		stats={
@@ -22691,7 +22691,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Physical damage per second@{0}"
+				text="Physical damage per second {0}"
 			}
 		},
 		stats={
@@ -22711,7 +22711,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Physical damage per second@{0}"
+				text="Physical damage per second {0}"
 			}
 		},
 		stats={
@@ -22763,7 +22763,7 @@ return {
 				},
 				limit={
 				},
-				text="Jagged Ground duration@{0}s"
+				text="Jagged Ground duration {0}s"
 			}
 		},
 		stats={
@@ -23367,7 +23367,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Main Hand Accuracy Rating@{0}"
+				text="Main Hand Accuracy Rating {0}"
 			}
 		},
 		stats={
@@ -23379,7 +23379,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Main Hand Chaos Resistance Penetration@{0}%"
+				text="Main Hand Chaos Resistance Penetration {0}%"
 			}
 		},
 		stats={
@@ -23391,7 +23391,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Main Hand Cold Resistance Penetration@{0}%"
+				text="Main Hand Cold Resistance Penetration {0}%"
 			}
 		},
 		stats={
@@ -23403,7 +23403,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Main Hand Fire Resistance Penetration@{0}%"
+				text="Main Hand Fire Resistance Penetration {0}%"
 			}
 		},
 		stats={
@@ -23415,7 +23415,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Main Hand Lightning Resistance Penetration@{0}%"
+				text="Main Hand Lightning Resistance Penetration {0}%"
 			}
 		},
 		stats={
@@ -23427,7 +23427,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Main Hand Critical Damage Bonus@+{0}%"
+				text="Main Hand Critical Damage Bonus +{0}%"
 			}
 		},
 		stats={
@@ -23443,7 +23443,7 @@ return {
 				},
 				limit={
 				},
-				text="Main Hand Critical Hit Chance@{0}%"
+				text="Main Hand Critical Hit Chance {0}%"
 			}
 		},
 		stats={
@@ -23455,7 +23455,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Main Hand Chaos damage@{0} – {1}"
+				text="Main Hand Chaos damage {0} – {1}"
 			}
 		},
 		stats={
@@ -23468,7 +23468,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Main Hand Cold damage@{0} – {1}"
+				text="Main Hand Cold damage {0} – {1}"
 			}
 		},
 		stats={
@@ -23481,7 +23481,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Main Hand Fire damage@{0} – {1}"
+				text="Main Hand Fire damage {0} – {1}"
 			}
 		},
 		stats={
@@ -23494,7 +23494,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Main Hand Lightning damage@{0} – {1}"
+				text="Main Hand Lightning damage {0} – {1}"
 			}
 		},
 		stats={
@@ -23507,7 +23507,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Main Hand Physical damage@{0} – {1}"
+				text="Main Hand Physical damage {0} – {1}"
 			}
 		},
 		stats={
@@ -23520,7 +23520,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Main Hand total damage@{0} – {1}"
+				text="Main Hand total damage {0} – {1}"
 			}
 		},
 		stats={
@@ -23537,7 +23537,7 @@ return {
 				},
 				limit={
 				},
-				text="Reload time@{0}s"
+				text="Reload time {0}s"
 			}
 		},
 		stats={
@@ -23679,7 +23679,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Mark effect modifier@{0}%"
+				text="Mark effect modifier {0}%"
 			}
 		},
 		stats={
@@ -23788,7 +23788,7 @@ return {
 				},
 				limit={
 				},
-				text="Stage gain interval\nMaximum Stages@{0}s\n{1}"
+				text="Stage gain interval\nMaximum Stages {0}s\n{1}"
 			},
 			[2]={
 				[1]={
@@ -24027,7 +24027,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="More Energy Shield Recharge Rate@{0}%"
+				text="More Energy Shield Recharge Rate {0}%"
 			},
 			[2]={
 				limit={
@@ -24090,7 +24090,7 @@ return {
 				},
 				limit={
 				},
-				text="Energy gained per enemy Power on Melee kill@{0}"
+				text="Energy gained per enemy Power on Melee kill {0}"
 			},
 			[2]={
 				[1]={
@@ -25286,7 +25286,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Damage Gained as Fire vs Ignited enemies@{0}%"
+				text="Damage Gained as Fire vs Ignited enemies {0}%"
 			}
 		},
 		stats={
@@ -25298,7 +25298,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Empowered Spell damage Gained as Lightning@{0}%"
+				text="Empowered Spell damage Gained as Lightning {0}%"
 			},
 			[2]={
 				limit={
@@ -25339,7 +25339,7 @@ return {
 				},
 				limit={
 				},
-				text="Use time@{0}s"
+				text="Use time {0}s"
 			}
 		},
 		stats={
@@ -25388,7 +25388,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Additional fissures created@{0}"
+				text="Additional fissures created {0}"
 			}
 		},
 		stats={
@@ -25466,7 +25466,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Bolts loaded per reload@{0}"
+				text="Bolts loaded per reload {0}"
 			}
 		},
 		stats={
@@ -25628,7 +25628,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Bone Construct Limit@{0}"
+				text="Bone Construct Limit {0}"
 			}
 		},
 		stats={
@@ -25640,7 +25640,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Bell Limit@{0}"
+				text="Bell Limit {0}"
 			}
 		},
 		stats={
@@ -25656,7 +25656,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Totems placed per use@{0}"
+				text="Totems placed per use {0}"
 			}
 		},
 		stats={
@@ -25668,7 +25668,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Off Hand Accuracy Rating@{0}"
+				text="Off Hand Accuracy Rating {0}"
 			}
 		},
 		stats={
@@ -25680,7 +25680,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Off Hand Chaos Resistance Penetration@{0}%"
+				text="Off Hand Chaos Resistance Penetration {0}%"
 			}
 		},
 		stats={
@@ -25692,7 +25692,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Off Hand Cold Resistance Penetration@{0}%"
+				text="Off Hand Cold Resistance Penetration {0}%"
 			}
 		},
 		stats={
@@ -25704,7 +25704,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Off Hand Fire Resistance Penetration@{0}%"
+				text="Off Hand Fire Resistance Penetration {0}%"
 			}
 		},
 		stats={
@@ -25716,7 +25716,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Off Hand Lightning Resistance Penetration@{0}%"
+				text="Off Hand Lightning Resistance Penetration {0}%"
 			}
 		},
 		stats={
@@ -25728,7 +25728,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Off Hand Critical Damage Bonus@+{0}%"
+				text="Off Hand Critical Damage Bonus +{0}%"
 			}
 		},
 		stats={
@@ -25744,7 +25744,7 @@ return {
 				},
 				limit={
 				},
-				text="Off Hand Critical Hit Chance@{0}%"
+				text="Off Hand Critical Hit Chance {0}%"
 			}
 		},
 		stats={
@@ -25756,7 +25756,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Off Hand Chaos damage@{0} – {1}"
+				text="Off Hand Chaos damage {0} – {1}"
 			}
 		},
 		stats={
@@ -25769,7 +25769,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Off Hand Cold damage@{0} – {1}"
+				text="Off Hand Cold damage {0} – {1}"
 			}
 		},
 		stats={
@@ -25782,7 +25782,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Off Hand Fire damage@{0} – {1}"
+				text="Off Hand Fire damage {0} – {1}"
 			}
 		},
 		stats={
@@ -25795,7 +25795,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Off Hand Lightning damage@{0} – {1}"
+				text="Off Hand Lightning damage {0} – {1}"
 			}
 		},
 		stats={
@@ -25808,7 +25808,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Off Hand Physical damage@{0} – {1}"
+				text="Off Hand Physical damage {0} – {1}"
 			}
 		},
 		stats={
@@ -25821,7 +25821,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Off Hand total damage@{0} – {1}"
+				text="Off Hand total damage {0} – {1}"
 			}
 		},
 		stats={
@@ -25838,7 +25838,7 @@ return {
 				},
 				limit={
 				},
-				text="Bolt firing interval@{0}s"
+				text="Bolt firing interval {0}s"
 			}
 		},
 		stats={
@@ -25883,7 +25883,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Maximum bolts fired@{0}"
+				text="Maximum bolts fired {0}"
 			},
 			[2]={
 				limit={
@@ -26320,7 +26320,7 @@ return {
 				},
 				limit={
 				},
-				text="Maximum more Area of Effect from stored Poison@{0}%"
+				text="Maximum more Area of Effect from stored Poison {0}%"
 			},
 			[2]={
 				[1]={
@@ -26446,7 +26446,7 @@ return {
 				},
 				limit={
 				},
-				text="Maximum additional explosion radius from Poison@+{1}m"
+				text="Maximum additional explosion radius from Poison +{1}m"
 			},
 			[2]={
 				[1]={
@@ -26493,7 +26493,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Maximum more explosion damage from Poison@{1}%"
+				text="Maximum more explosion damage from Poison {1}%"
 			},
 			[2]={
 				limit={
@@ -26543,7 +26543,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Totem maximum Energy Shield@{0}"
+				text="Totem maximum Energy Shield {0}"
 			}
 		},
 		stats={
@@ -26559,7 +26559,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Totem maximum Life@{0}"
+				text="Totem maximum Life {0}"
 			}
 		},
 		stats={
@@ -26734,7 +26734,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Projectile chance to Chain from terrain@{0}"
+				text="Projectile chance to Chain from terrain {0}"
 			}
 		},
 		stats={
@@ -26750,7 +26750,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Projectile additional Chain chance from terrain@{0}%"
+				text="Projectile additional Chain chance from terrain {0}%"
 			}
 		},
 		stats={
@@ -26845,7 +26845,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Projectile speed modifier@{0:+d}%"
+				text="Projectile speed modifier {0:+d}%"
 			}
 		},
 		stats={
@@ -27370,7 +27370,7 @@ return {
 				},
 				limit={
 				},
-				text="Life loss per second@{0}% ({1}% more per second)"
+				text="Life loss per second {0}% ({1}% more per second)"
 			}
 		},
 		stats={
@@ -27432,7 +27432,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Life Recovered on Cull@{0}%"
+				text="Life Recovered on Cull {0}%"
 			}
 		},
 		stats={
@@ -27448,7 +27448,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Mana Recovered over four seconds on Cull@{0}%"
+				text="Mana Recovered over four seconds on Cull {0}%"
 			}
 		},
 		stats={
@@ -27480,7 +27480,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Chaos Resistance Penetration@{0}%"
+				text="Chaos Resistance Penetration {0}%"
 			}
 		},
 		stats={
@@ -27508,7 +27508,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Cold Resistance Penetration@{0}%"
+				text="Cold Resistance Penetration {0}%"
 			}
 		},
 		stats={
@@ -27520,7 +27520,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Fire Resistance Penetration@{0}%"
+				text="Fire Resistance Penetration {0}%"
 			}
 		},
 		stats={
@@ -27532,7 +27532,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Lightning Resistance Penetration@{0}%"
+				text="Lightning Resistance Penetration {0}%"
 			}
 		},
 		stats={
@@ -27560,7 +27560,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Increased Reload Speed@+{0}%"
+				text="Increased Reload Speed +{0}%"
 			},
 			[2]={
 				[1]={
@@ -27569,7 +27569,7 @@ return {
 				},
 				limit={
 				},
-				text="Reduced Reload Speed@+{0}%"
+				text="Reduced Reload Speed +{0}%"
 			}
 		},
 		stats={
@@ -27791,7 +27791,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Life Sacrificed on use@{0}%"
+				text="Life Sacrificed on use {0}%"
 			}
 		},
 		stats={
@@ -28062,7 +28062,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Critical Damage Bonus@+{0}%"
+				text="Critical Damage Bonus +{0}%"
 			}
 		},
 		stats={
@@ -28078,7 +28078,7 @@ return {
 				},
 				limit={
 				},
-				text="Critical Hit Chance@{0}%"
+				text="Critical Hit Chance {0}%"
 			}
 		},
 		stats={
@@ -28090,7 +28090,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Chaos damage@{0} – {1}"
+				text="Chaos damage {0} – {1}"
 			}
 		},
 		stats={
@@ -28103,7 +28103,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Cold damage@{0} – {1}"
+				text="Cold damage {0} – {1}"
 			}
 		},
 		stats={
@@ -28116,7 +28116,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Fire damage@{0} – {1}"
+				text="Fire damage {0} – {1}"
 			}
 		},
 		stats={
@@ -28129,7 +28129,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Lightning damage@{0} – {1}"
+				text="Lightning damage {0} – {1}"
 			}
 		},
 		stats={
@@ -28142,7 +28142,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Physical damage@{0} – {1}"
+				text="Physical damage {0} – {1}"
 			}
 		},
 		stats={
@@ -28155,7 +28155,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Total damage@{0} – {1}"
+				text="Total damage {0} – {1}"
 			}
 		},
 		stats={
@@ -28765,7 +28765,7 @@ return {
 				},
 				limit={
 				},
-				text="Covered in Oil Fire Exposure Total Resistance modifier@{0}%"
+				text="Covered in Oil Fire Exposure Total Resistance modifier {0}%"
 			},
 			[2]={
 				limit={
@@ -28810,7 +28810,7 @@ return {
 				},
 				limit={
 				},
-				text="Oil Ground applies Fire Exposure Total Resistance modifier@{0}%"
+				text="Oil Ground applies Fire Exposure Total Resistance modifier {0}%"
 			},
 			[2]={
 				limit={
@@ -28905,7 +28905,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="More Skill Speed on Frenzy Charge Consumption@{0}%"
+				text="More Skill Speed on Frenzy Charge Consumption {0}%"
 			}
 		},
 		stats={
@@ -28917,7 +28917,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="More Critical Hit chance on Power Charge Consumption@{0}%"
+				text="More Critical Hit chance on Power Charge Consumption {0}%"
 			}
 		},
 		stats={
@@ -28933,7 +28933,7 @@ return {
 				},
 				limit={
 				},
-				text="Covered in Oil movement speed Slow@{0}%"
+				text="Covered in Oil movement speed Slow {0}%"
 			}
 		},
 		stats={
@@ -29088,7 +29088,7 @@ return {
 				},
 				limit={
 				},
-				text="Oil Ground movement speed Slow@{0}%"
+				text="Oil Ground movement speed Slow {0}%"
 			}
 		},
 		stats={
@@ -29291,7 +29291,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Withered duration@{0}s"
+				text="Withered duration {0}s"
 			}
 		},
 		stats={
@@ -29303,7 +29303,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Aftershock chance@{0}%"
+				text="Aftershock chance {0}%"
 			},
 			[2]={
 				limit={
@@ -29385,7 +29385,7 @@ return {
 				},
 				limit={
 				},
-				text="Pulse interval@{0}s"
+				text="Pulse interval {0}s"
 			}
 		},
 		stats={
@@ -29649,7 +29649,7 @@ return {
 				},
 				limit={
 				},
-				text="Cast time@{0}s"
+				text="Cast time {0}s"
 			}
 		},
 		stats={
@@ -29677,7 +29677,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Critical Damage Bonus@+{0}%"
+				text="Critical Damage Bonus +{0}%"
 			}
 		},
 		stats={
@@ -29693,7 +29693,7 @@ return {
 				},
 				limit={
 				},
-				text="Critical Hit Chance@{0}%"
+				text="Critical Hit Chance {0}%"
 			}
 		},
 		stats={
@@ -29758,7 +29758,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Chaos damage@{0} – {1}"
+				text="Chaos damage {0} – {1}"
 			}
 		},
 		stats={
@@ -29771,7 +29771,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Cold damage@{0} – {1}"
+				text="Cold damage {0} – {1}"
 			}
 		},
 		stats={
@@ -29784,7 +29784,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Fire damage@{0} – {1}"
+				text="Fire damage {0} – {1}"
 			}
 		},
 		stats={
@@ -29797,7 +29797,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Lightning damage@{0} – {1}"
+				text="Lightning damage {0} – {1}"
 			}
 		},
 		stats={
@@ -29810,7 +29810,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Physical damage@{0} – {1}"
+				text="Physical damage {0} – {1}"
 			}
 		},
 		stats={
@@ -29823,7 +29823,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Total damage@{0} – {1}"
+				text="Total damage {0} – {1}"
 			}
 		},
 		stats={
@@ -29836,7 +29836,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Chance to fire 8 additional Projectiles in a circle@{0}%"
+				text="Chance to fire 8 additional Projectiles in a circle {0}%"
 			}
 		},
 		stats={
@@ -30681,7 +30681,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Maximum active Bolts@{0}"
+				text="Maximum active Bolts {0}"
 			},
 			[2]={
 				limit={
@@ -30911,7 +30911,7 @@ return {
 				},
 				limit={
 				},
-				text="Chance to Shock enemies within {1}m on Shock@{0}%"
+				text="Chance to Shock enemies within {1}m on Shock {0}%"
 			}
 		},
 		stats={
@@ -30925,7 +30925,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="More damage when Consuming Freeze@{0}%"
+				text="More damage when Consuming Freeze {0}%"
 			}
 		},
 		stats={
@@ -31001,7 +31001,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="More Critical Hit Chance against Full Life enemies@{0}%"
+				text="More Critical Hit Chance against Full Life enemies {0}%"
 			}
 		},
 		stats={
@@ -31013,7 +31013,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Maximum Seals@{0}"
+				text="Maximum Seals {0}"
 			}
 		},
 		stats={
@@ -31053,7 +31053,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Maximum Mana expenditure required to gain {1}s of Arcane Surge@{0}%"
+				text="Maximum Mana expenditure required to gain {1}s of Arcane Surge {0}%"
 			}
 		},
 		stats={
@@ -31135,7 +31135,7 @@ return {
 				},
 				limit={
 				},
-				text="Life Regeneration granted within {1}m of Font@{0}%"
+				text="Life Regeneration granted within {1}m of Font {0}%"
 			}
 		},
 		stats={
@@ -31173,7 +31173,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Poison damage added as Plague up to {1}% of Enemy Life@{0}%"
+				text="Poison damage added as Plague up to {1}% of Enemy Life {0}%"
 			}
 		},
 		stats={
@@ -31186,7 +31186,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Life Recovery on Kill granted to you@{0}%"
+				text="Life Recovery on Kill granted to you {0}%"
 			}
 		},
 		stats={
@@ -31198,7 +31198,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="More damage over time with Debuffs inflicted on Full Life enemies@{0}%"
+				text="More damage over time with Debuffs inflicted on Full Life enemies {0}%"
 			}
 		},
 		stats={
@@ -31222,7 +31222,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Increased Mana Regeneration granted to you@{0}%"
+				text="Increased Mana Regeneration granted to you {0}%"
 			}
 		},
 		stats={
@@ -31234,7 +31234,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="More Attack damage to enemies within 1m@{0}%"
+				text="More Attack damage to enemies within 1m {0}%"
 			}
 		},
 		stats={
@@ -31324,7 +31324,7 @@ return {
 				},
 				limit={
 				},
-				text="Corrupted Blood Physical damage per second@{0}"
+				text="Corrupted Blood Physical damage per second {0}"
 			}
 		},
 		stats={
@@ -31340,7 +31340,7 @@ return {
 				},
 				limit={
 				},
-				text="Corrupted Blood duration@{0}s"
+				text="Corrupted Blood duration {0}s"
 			}
 		},
 		stats={
@@ -31384,7 +31384,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="More damage per Combo lost@{0}%"
+				text="More damage per Combo lost {0}%"
 			}
 		},
 		stats={
@@ -31396,7 +31396,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="More damage per bolt reloaded in past 6s@{0}%"
+				text="More damage per bolt reloaded in past 6s {0}%"
 			}
 		},
 		stats={
@@ -31412,7 +31412,7 @@ return {
 				},
 				limit={
 				},
-				text="Daze on Full Armour Break duration@{0}s"
+				text="Daze on Full Armour Break duration {0}s"
 			}
 		},
 		stats={
@@ -31428,7 +31428,7 @@ return {
 				},
 				limit={
 				},
-				text="Enemy Daze on use@{0}s"
+				text="Enemy Daze on use {0}s"
 			}
 		},
 		stats={
@@ -31478,7 +31478,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="More damage over time when Consuming a random Ailment@{0}%"
+				text="More damage over time when Consuming a random Ailment {0}%"
 			}
 		},
 		stats={
@@ -31502,7 +31502,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="More damage granted to Empowered Skills@{0}%"
+				text="More damage granted to Empowered Skills {0}%"
 			}
 		},
 		stats={
@@ -31534,7 +31534,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="More Hit damage vs Low Life enemies@{0}%"
+				text="More Hit damage vs Low Life enemies {0}%"
 			}
 		},
 		stats={
@@ -31550,7 +31550,7 @@ return {
 				},
 				limit={
 				},
-				text="Modifier steal time on killing Rare monster@{0}s"
+				text="Modifier steal time on killing Rare monster {0}s"
 			}
 		},
 		stats={
@@ -31578,7 +31578,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Exposure effect modifier@{0}%"
+				text="Exposure effect modifier {0}%"
 			}
 		},
 		stats={
@@ -31594,7 +31594,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Maximum more Attack Damage to enemies 7m+ away@{0}%"
+				text="Maximum more Attack Damage to enemies 7m+ away {0}%"
 			}
 		},
 		stats={
@@ -31639,7 +31639,7 @@ return {
 				},
 				limit={
 				},
-				text="Less Projectile damage after Forking@{0}%"
+				text="Less Projectile damage after Forking {0}%"
 			}
 		},
 		stats={
@@ -31651,7 +31651,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="More damage when Consuming Fully Broken Armour@{0}%"
+				text="More damage when Consuming Fully Broken Armour {0}%"
 			}
 		},
 		stats={
@@ -31770,7 +31770,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="More Area of Effect per second (maximum {1}%)@{0}%"
+				text="More Area of Effect per second (maximum {1}%) {0}%"
 			},
 			[2]={
 				limit={
@@ -31796,7 +31796,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Increased Flask Life Recovery granted to you@{0}%"
+				text="Increased Flask Life Recovery granted to you {0}%"
 			}
 		},
 		stats={
@@ -31824,7 +31824,7 @@ return {
 				},
 				limit={
 				},
-				text="Consecrated Ground duration on landing@{0}s"
+				text="Consecrated Ground duration on landing {0}s"
 			}
 		},
 		stats={
@@ -31869,7 +31869,7 @@ return {
 				},
 				limit={
 				},
-				text="Attack damage Gained as Cold for {1} seconds on Freeze@{0}%"
+				text="Attack damage Gained as Cold for {1} seconds on Freeze {0}%"
 			}
 		},
 		stats={
@@ -31944,7 +31944,7 @@ return {
 				},
 				limit={
 				},
-				text="Ignite Spread radius after 2 seconds@{0}m"
+				text="Ignite Spread radius after 2 seconds {0}m"
 			}
 		},
 		stats={
@@ -31960,7 +31960,7 @@ return {
 				},
 				limit={
 				},
-				text="Aftershock radius on Heavy Stun@{0}m"
+				text="Aftershock radius on Heavy Stun {0}m"
 			}
 		},
 		stats={
@@ -31980,7 +31980,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Increased Critical Hit Chance gained per second without Critically Hitting@{0}% (max {1}%)"
+				text="Increased Critical Hit Chance gained per second without Critically Hitting {0}% (max {1}%)"
 			}
 		},
 		stats={
@@ -31997,7 +31997,7 @@ return {
 				},
 				limit={
 				},
-				text="Attack damage Gained as Lightning for {1} seconds on kill vs Shocked@{0}%"
+				text="Attack damage Gained as Lightning for {1} seconds on kill vs Shocked {0}%"
 			}
 		},
 		stats={
@@ -32067,7 +32067,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="More Life Flask Charges gained from kills@{0}%"
+				text="More Life Flask Charges gained from kills {0}%"
 			}
 		},
 		stats={
@@ -32132,7 +32132,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Maixmum more Pin Buildup against enemies within 2m@{0}%"
+				text="Maixmum more Pin Buildup against enemies within 2m {0}%"
 			}
 		},
 		stats={
@@ -32202,7 +32202,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="More Mana Flask Charges gained from kills@{0}%"
+				text="More Mana Flask Charges gained from kills {0}%"
 			}
 		},
 		stats={
@@ -32218,7 +32218,7 @@ return {
 				},
 				limit={
 				},
-				text="Increased Mana Regeneration granted within {1}m of Font@{0}%"
+				text="Increased Mana Regeneration granted within {1}m of Font {0}%"
 			}
 		},
 		stats={
@@ -32368,7 +32368,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="More damage when removing {0}% of your Life from a Minion@{1}%"
+				text="More damage when removing {0}% of your Life from a Minion {1}%"
 			}
 		},
 		stats={
@@ -32471,7 +32471,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="More damage after moving {0} metre@{1}%"
+				text="More damage after moving {0} metre {1}%"
 			},
 			[2]={
 				[1]={
@@ -32488,7 +32488,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="More damage after moving {0} metres@{1}%"
+				text="More damage after moving {0} metres {1}%"
 			}
 		},
 		stats={
@@ -32505,7 +32505,7 @@ return {
 				},
 				limit={
 				},
-				text="Uninterrupted Energy Shield Recharge when Stunned@{0}s"
+				text="Uninterrupted Energy Shield Recharge when Stunned {0}s"
 			}
 		},
 		stats={
@@ -32595,7 +32595,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Daze buildup from Physical damage@{0}%"
+				text="Daze buildup from Physical damage {0}%"
 			},
 			[2]={
 				limit={
@@ -32620,7 +32620,7 @@ return {
 				},
 				limit={
 				},
-				text="Less Projectile damage after Piercing@{0}%"
+				text="Less Projectile damage after Piercing {0}%"
 			}
 		},
 		stats={
@@ -32665,7 +32665,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Increased Accuracy Rating granted to you@{0}%"
+				text="Increased Accuracy Rating granted to you {0}%"
 			}
 		},
 		stats={
@@ -32714,7 +32714,7 @@ return {
 				},
 				limit={
 				},
-				text="Rage Regeneration granted within {1}m of Font@{0}"
+				text="Rage Regeneration granted within {1}m of Font {0}"
 			}
 		},
 		stats={
@@ -32747,7 +32747,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="More damage on Consuming {0} Rage@{1}%"
+				text="More damage on Consuming {0} Rage {1}%"
 			}
 		},
 		stats={
@@ -32760,7 +32760,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Energy Shield Recovered on killing a Shocked Enemy@{0}%"
+				text="Energy Shield Recovered on killing a Shocked Enemy {0}%"
 			}
 		},
 		stats={
@@ -33116,7 +33116,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Area of effect modifiers for Cascades@{0}%"
+				text="Area of effect modifiers for Cascades {0}%"
 			}
 		},
 		stats={
@@ -33141,7 +33141,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="More Echo Area of Effect@{0}%"
+				text="More Echo Area of Effect {0}%"
 			}
 		},
 		stats={
@@ -33298,7 +33298,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Echo count@{0}"
+				text="Echo count {0}"
 			}
 		},
 		stats={
@@ -33314,7 +33314,7 @@ return {
 				},
 				limit={
 				},
-				text="Less damage when reoccuring@{0}%"
+				text="Less damage when reoccuring {0}%"
 			}
 		},
 		stats={
@@ -33686,7 +33686,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="More Stun Threshold while using Skill@{0}%"
+				text="More Stun Threshold while using Skill {0}%"
 			}
 		},
 		stats={
@@ -33702,7 +33702,7 @@ return {
 				},
 				limit={
 				},
-				text="Life Regeneration granted to you@{0}%"
+				text="Life Regeneration granted to you {0}%"
 			}
 		},
 		stats={
@@ -33714,7 +33714,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="More Empowered Attack damage on Consuming {0} Rage@{1}%"
+				text="More Empowered Attack damage on Consuming {0} Rage {1}%"
 			}
 		},
 		stats={
@@ -34048,7 +34048,7 @@ return {
 				},
 				limit={
 				},
-				text="Damage interval@{0}s"
+				text="Damage interval {0}s"
 			}
 		},
 		stats={
@@ -34109,7 +34109,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Projectiles fired per use@{0}"
+				text="Projectiles fired per use {0}"
 			}
 		},
 		stats={
@@ -34129,7 +34129,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Totem duration@{0}s"
+				text="Totem duration {0}s"
 			}
 		},
 		stats={
@@ -34782,7 +34782,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Chance for Triggered Skills to refund half of their Energy cost@{0}%"
+				text="Chance for Triggered Skills to refund half of their Energy cost {0}%"
 			}
 		},
 		stats={
@@ -35143,7 +35143,7 @@ return {
 				},
 				limit={
 				},
-				text="Explosion radius per Stage@{0}m"
+				text="Explosion radius per Stage {0}m"
 			},
 			[2]={
 				[1]={
@@ -35381,7 +35381,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Barrier value@{0}"
+				text="Barrier value {0}"
 			}
 		},
 		stats={
@@ -35434,7 +35434,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Chill Magnitude modifier@{0}%"
+				text="Chill Magnitude modifier {0}%"
 			}
 		},
 		stats={
@@ -35462,7 +35462,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Chance to not consume a bolt@{0}%"
+				text="Chance to not consume a bolt {0}%"
 			}
 		},
 		stats={
@@ -35478,7 +35478,7 @@ return {
 				},
 				limit={
 				},
-				text="Curse application delay@{0}s"
+				text="Curse application delay {0}s"
 			}
 		},
 		stats={
@@ -35494,7 +35494,7 @@ return {
 				},
 				limit={
 				},
-				text="Chaos damage per second to Cursed targets@{0}"
+				text="Chaos damage per second to Cursed targets {0}"
 			}
 		},
 		stats={
@@ -35506,7 +35506,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Main Hand chance to inflict Bleeding on Hit@{0}%"
+				text="Main Hand chance to inflict Bleeding on Hit {0}%"
 			}
 		},
 		stats={
@@ -35518,7 +35518,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Main Hand chance to Poison@{0}%"
+				text="Main Hand chance to Poison {0}%"
 			}
 		},
 		stats={
@@ -35530,7 +35530,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Off Hand chance to inflict Bleeding on Hit@{0}%"
+				text="Off Hand chance to inflict Bleeding on Hit {0}%"
 			}
 		},
 		stats={
@@ -35542,7 +35542,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Off Hand chance to Poison@{0}%"
+				text="Off Hand chance to Poison {0}%"
 			}
 		},
 		stats={
@@ -35554,7 +35554,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Chance to inflict Bleeding on Hit@{0}%"
+				text="Chance to inflict Bleeding on Hit {0}%"
 			}
 		},
 		stats={
@@ -35566,7 +35566,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Chance to Poison@{0}%"
+				text="Chance to Poison {0}%"
 			}
 		},
 		stats={
@@ -35578,7 +35578,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Chance to inflict Bleeding on Hit@{0}%"
+				text="Chance to inflict Bleeding on Hit {0}%"
 			}
 		},
 		stats={
@@ -35590,7 +35590,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Chance to Poison@{0}%"
+				text="Chance to Poison {0}%"
 			}
 		},
 		stats={
@@ -35618,7 +35618,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Maximum Energy@{0}"
+				text="Maximum Energy {0}"
 			}
 		},
 		stats={
@@ -35630,7 +35630,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="More Area of Effect per second (maximum {1}%)@{0}%"
+				text="More Area of Effect per second (maximum {1}%) {0}%"
 			},
 			[2]={
 				limit={
@@ -35685,7 +35685,7 @@ return {
 			[2]={
 				limit={
 				},
-				text="Stun buildup modifier@{0}%"
+				text="Stun buildup modifier {0}%"
 			},
 			[3]={
 				limit={
@@ -35719,7 +35719,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Knockback distance modifier@{0}%"
+				text="Knockback distance modifier {0}%"
 			}
 		},
 		stats={
@@ -35731,7 +35731,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Main Hand Armour Break on Hit@{0}"
+				text="Main Hand Armour Break on Hit {0}"
 			}
 		},
 		stats={
@@ -35748,7 +35748,7 @@ return {
 			[2]={
 				limit={
 				},
-				text="Main Hand Stun buildup modifier@{0}%"
+				text="Main Hand Stun buildup modifier {0}%"
 			}
 		},
 		stats={
@@ -35895,7 +35895,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Chain count@{0}"
+				text="Chain count {0}"
 			}
 		},
 		stats={
@@ -35907,7 +35907,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Marked target Limit@{0}"
+				text="Marked target Limit {0}"
 			}
 		},
 		stats={
@@ -35919,7 +35919,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Off Hand Armour Break on Hit@{0}"
+				text="Off Hand Armour Break on Hit {0}"
 			}
 		},
 		stats={
@@ -35936,7 +35936,7 @@ return {
 			[2]={
 				limit={
 				},
-				text="Off Hand Stun buildup modifier@{0}%"
+				text="Off Hand Stun buildup modifier {0}%"
 			}
 		},
 		stats={
@@ -35985,7 +35985,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Projectile Split targets@{0}"
+				text="Projectile Split targets {0}"
 			}
 		},
 		stats={
@@ -36025,7 +36025,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Ritual Limit@{0}"
+				text="Ritual Limit {0}"
 			}
 		},
 		stats={
@@ -36037,7 +36037,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Melee Attacks Empowered@{0}"
+				text="Melee Attacks Empowered {0}"
 			}
 		},
 		stats={
@@ -36049,7 +36049,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Combo required@{0}"
+				text="Combo required {0}"
 			}
 		},
 		stats={
@@ -36155,7 +36155,7 @@ return {
 				},
 				limit={
 				},
-				text="Seal gain interval@{0}s"
+				text="Seal gain interval {0}s"
 			}
 		},
 		stats={
@@ -36245,7 +36245,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Cooldown uses@{0}"
+				text="Cooldown uses {0}"
 			}
 		},
 		stats={
@@ -36257,7 +36257,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Totem Cold Resistance@{0}%"
+				text="Totem Cold Resistance {0}%"
 			}
 		},
 		stats={
@@ -36269,7 +36269,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Totem Fire Resistance@{0}%"
+				text="Totem Fire Resistance {0}%"
 			}
 		},
 		stats={
@@ -36281,7 +36281,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Totem Lightning Resistance@{0}%"
+				text="Totem Lightning Resistance {0}%"
 			}
 		},
 		stats={
@@ -36931,7 +36931,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Attacks Empowered per Endurance Charge@{0}"
+				text="Attacks Empowered per Endurance Charge {0}"
 			},
 			[2]={
 				limit={
@@ -37596,7 +37596,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Rage granted per 5 counted enemy Power@{0}"
+				text="Rage granted per 5 counted enemy Power {0}"
 			}
 		},
 		stats={
@@ -37770,7 +37770,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Chance to inflict Withered on Chaos Hit@{0}%"
+				text="Chance to inflict Withered on Chaos Hit {0}%"
 			}
 		},
 		stats={
@@ -37861,7 +37861,7 @@ return {
 				},
 				limit={
 				},
-				text="Magma infusion recovery time@{0}s"
+				text="Magma infusion recovery time {0}s"
 			},
 			[2]={
 				[1]={
@@ -37928,7 +37928,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Maximum damage absorbed per Jade consumed@{0}"
+				text="Maximum damage absorbed per Jade consumed {0}"
 			},
 			[2]={
 				limit={
@@ -38147,7 +38147,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Empowered Attack Damage as Fire per 5 Power (max)@{0}% ({1}%)"
+				text="Empowered Attack Damage as Fire per 5 Power (max) {0}% ({1}%)"
 			},
 			[2]={
 				limit={

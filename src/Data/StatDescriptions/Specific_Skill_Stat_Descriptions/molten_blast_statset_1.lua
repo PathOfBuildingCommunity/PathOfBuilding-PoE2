@@ -12,7 +12,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Projectiles fired per explosion@{0}"
+				text="Projectiles fired per explosion {0}"
 			}
 		},
 		stats={

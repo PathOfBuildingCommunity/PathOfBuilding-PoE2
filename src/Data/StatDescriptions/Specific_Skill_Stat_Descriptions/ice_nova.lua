@@ -11,7 +11,7 @@ return {
 				},
 				limit={
 				},
-				text="Nova radius@{0}m"
+				text="Nova radius {0}m"
 			}
 		},
 		stats={

@@ -16,7 +16,7 @@ return {
 				},
 				limit={
 				},
-				text="Cone length@{0}m"
+				text="Cone length {0}m"
 			}
 		},
 		stats={

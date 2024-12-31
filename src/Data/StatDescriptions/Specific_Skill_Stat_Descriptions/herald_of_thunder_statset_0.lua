@@ -7,7 +7,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Bolts granted on kill@{0}"
+				text="Bolts granted on kill {0}"
 			},
 			[2]={
 				limit={

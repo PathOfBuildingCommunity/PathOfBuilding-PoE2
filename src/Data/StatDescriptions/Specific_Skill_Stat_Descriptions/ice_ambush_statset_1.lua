@@ -31,7 +31,7 @@ return {
 				},
 				limit={
 				},
-				text="Chilled Ground radius@{0}m"
+				text="Chilled Ground radius {0}m"
 			}
 		},
 		stats={

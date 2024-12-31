@@ -7,7 +7,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Total Maximum Energy Shield granted@{0:+d}"
+				text="Total Maximum Energy Shield granted {0:+d}"
 			},
 			[2]={
 				limit={

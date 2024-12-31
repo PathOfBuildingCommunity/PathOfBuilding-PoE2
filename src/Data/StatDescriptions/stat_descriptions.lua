@@ -89078,7 +89078,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Unbound Fury gain interval per Ailment@0.2s"
+				text="Unbound Fury gain interval per Ailment 0.2s"
 			},
 			[2]={
 				limit={
@@ -91093,7 +91093,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="More Elemental Damage while Unbound@{0}%"
+				text="More Elemental Damage while Unbound {0}%"
 			},
 			[2]={
 				limit={
@@ -173555,7 +173555,7 @@ return {
 				},
 				limit={
 				},
-				text="Maximum Life taken as Fire damage per second@{0}%"
+				text="Maximum Life taken as Fire damage per second {0}%"
 			}
 		},
 		stats={
@@ -193978,7 +193978,7 @@ return {
 				},
 				limit={
 				},
-				text="Death delay at 0 Life@{0}s"
+				text="Death delay at 0 Life {0}s"
 			}
 		},
 		stats={
@@ -197403,7 +197403,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="More Elemental Ailment buildup while Unbound@{0}%"
+				text="More Elemental Ailment buildup while Unbound {0}%"
 			},
 			[2]={
 				limit={
@@ -197437,7 +197437,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="More Elemental Ailment chance while Unbound@{0}%"
+				text="More Elemental Ailment chance while Unbound {0}%"
 			},
 			[2]={
 				limit={

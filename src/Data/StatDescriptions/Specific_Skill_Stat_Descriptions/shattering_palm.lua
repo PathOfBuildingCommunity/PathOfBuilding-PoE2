@@ -11,7 +11,7 @@ return {
 				},
 				limit={
 				},
-				text="Shard attachment radius@{0}m"
+				text="Shard attachment radius {0}m"
 			}
 		},
 		stats={

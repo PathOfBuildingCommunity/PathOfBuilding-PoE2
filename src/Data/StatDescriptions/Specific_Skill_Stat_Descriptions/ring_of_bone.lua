@@ -11,7 +11,7 @@ return {
 				},
 				limit={
 				},
-				text="Cage radius@{0}m"
+				text="Cage radius {0}m"
 			}
 		},
 		stats={
@@ -93,7 +93,7 @@ return {
 				},
 				limit={
 				},
-				text="Explosion radius@{0}m"
+				text="Explosion radius {0}m"
 			}
 		},
 		stats={
@@ -142,7 +142,7 @@ return {
 				},
 				limit={
 				},
-				text="Cage duration@{0}s"
+				text="Cage duration {0}s"
 			}
 		},
 		stats={

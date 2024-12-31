@@ -11,7 +11,7 @@ return {
 				},
 				limit={
 				},
-				text="Wave length@{0}m"
+				text="Wave length {0}m"
 			}
 		},
 		stats={
@@ -93,7 +93,7 @@ return {
 				},
 				limit={
 				},
-				text="Wave width@{0}m"
+				text="Wave width {0}m"
 			}
 		},
 		stats={

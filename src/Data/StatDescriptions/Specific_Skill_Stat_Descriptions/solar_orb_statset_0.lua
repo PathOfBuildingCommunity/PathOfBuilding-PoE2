@@ -11,7 +11,7 @@ return {
 				},
 				limit={
 				},
-				text="Explosion radius@{0}m"
+				text="Explosion radius {0}m"
 			}
 		},
 		stats={
@@ -93,7 +93,7 @@ return {
 				},
 				limit={
 				},
-				text="Orb duration@{0}s"
+				text="Orb duration {0}s"
 			}
 		},
 		stats={
@@ -134,7 +134,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Orb Limit@{0}"
+				text="Orb Limit {0}"
 			}
 		},
 		stats={

@@ -7,7 +7,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Cold Resistance granted@{0}%"
+				text="Cold Resistance granted {0}%"
 			},
 			[2]={
 				limit={

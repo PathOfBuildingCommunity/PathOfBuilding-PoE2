@@ -11,7 +11,7 @@ return {
 				},
 				limit={
 				},
-				text="Storm radius@{0}m"
+				text="Storm radius {0}m"
 			}
 		},
 		stats={
@@ -93,7 +93,7 @@ return {
 				},
 				limit={
 				},
-				text="Storm duration@{0}s"
+				text="Storm duration {0}s"
 			}
 		},
 		stats={

@@ -26,7 +26,7 @@ return {
 				},
 				limit={
 				},
-				text="Target acquisition radius@{0}m"
+				text="Target acquisition radius {0}m"
 			}
 		},
 		stats={
@@ -95,7 +95,7 @@ return {
 				},
 				limit={
 				},
-				text="Bolt explosion radius@{0}m"
+				text="Bolt explosion radius {0}m"
 			}
 		},
 		stats={
@@ -107,7 +107,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="More damage against Immobilised enemies@{0}%"
+				text="More damage against Immobilised enemies {0}%"
 			},
 			[2]={
 				limit={

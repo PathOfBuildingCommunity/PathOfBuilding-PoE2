@@ -11,7 +11,7 @@ return {
 				},
 				limit={
 				},
-				text="Physical Attack Life Leech granted per Rage@{0}%"
+				text="Physical Attack Life Leech granted per Rage {0}%"
 			},
 			[2]={
 				[1]={
@@ -40,7 +40,7 @@ return {
 				},
 				limit={
 				},
-				text="Life Lost per Rage while not losing Rage@{0}%"
+				text="Life Lost per Rage while not losing Rage {0}%"
 			},
 			[2]={
 				[1]={
@@ -65,7 +65,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Rage effect modifier@{0}%"
+				text="Rage effect modifier {0}%"
 			},
 			[2]={
 				limit={

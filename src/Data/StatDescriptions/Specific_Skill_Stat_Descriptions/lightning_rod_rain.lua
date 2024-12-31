@@ -16,7 +16,7 @@ return {
 				},
 				limit={
 				},
-				text="Burst radius@{0}m"
+				text="Burst radius {0}m"
 			}
 		},
 		stats={
@@ -94,7 +94,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Number of Chains before Arrow disappears@{0}"
+				text="Number of Chains before Arrow disappears {0}"
 			},
 			[2]={
 				limit={
@@ -124,7 +124,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Maximum active Arrows@{0}"
+				text="Maximum active Arrows {0}"
 			},
 			[2]={
 				limit={
@@ -150,7 +150,7 @@ return {
 				},
 				limit={
 				},
-				text="Maximum Arrow duration@{0}s"
+				text="Maximum Arrow duration {0}s"
 			}
 		},
 		stats={

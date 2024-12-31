@@ -11,7 +11,7 @@ return {
 				},
 				limit={
 				},
-				text="Chaos Resistance removed@{0}%"
+				text="Chaos Resistance removed {0}%"
 			},
 			[2]={
 				limit={
@@ -36,7 +36,7 @@ return {
 				},
 				limit={
 				},
-				text="Curse radius@{0}m"
+				text="Curse radius {0}m"
 			}
 		},
 		stats={
@@ -118,7 +118,7 @@ return {
 				},
 				limit={
 				},
-				text="Curse duration@{0}s"
+				text="Curse duration {0}s"
 			}
 		},
 		stats={

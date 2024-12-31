@@ -16,7 +16,7 @@ return {
 				},
 				limit={
 				},
-				text="Explosion radius@{0}m"
+				text="Explosion radius {0}m"
 			}
 		},
 		stats={
@@ -98,7 +98,7 @@ return {
 				},
 				limit={
 				},
-				text="Cloud duration@{0}s"
+				text="Cloud duration {0}s"
 			}
 		},
 		stats={

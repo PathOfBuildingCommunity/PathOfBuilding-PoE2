@@ -11,7 +11,7 @@ return {
 				},
 				limit={
 				},
-				text="Wave radius@{0}m"
+				text="Wave radius {0}m"
 			}
 		},
 		stats={
@@ -93,7 +93,7 @@ return {
 				},
 				limit={
 				},
-				text="Time Freeze duration@{0}s"
+				text="Time Freeze duration {0}s"
 			}
 		},
 		stats={

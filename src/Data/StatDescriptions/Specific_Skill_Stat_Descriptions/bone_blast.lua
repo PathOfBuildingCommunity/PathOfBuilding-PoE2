@@ -15,7 +15,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Ritual radius@{0}m"
+				text="Ritual radius {0}m"
 			}
 		},
 		stats={
@@ -97,7 +97,7 @@ return {
 				},
 				limit={
 				},
-				text="Ritual duration@{0}s"
+				text="Ritual duration {0}s"
 			}
 		},
 		stats={

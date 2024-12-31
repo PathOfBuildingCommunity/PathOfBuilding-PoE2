@@ -11,7 +11,7 @@ return {
 				},
 				limit={
 				},
-				text="Charge consumption interval@{0}s"
+				text="Charge consumption interval {0}s"
 			},
 			[2]={
 				limit={
@@ -45,7 +45,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="More Critical Hit Chance with Power Charge@{0}%"
+				text="More Critical Hit Chance with Power Charge {0}%"
 			},
 			[2]={
 				limit={
@@ -79,7 +79,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="More Defences with Endurance Charge@{0}%"
+				text="More Defences with Endurance Charge {0}%"
 			},
 			[2]={
 				limit={
@@ -113,7 +113,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="More Skill Speed with Frenzy Charge@{0}%"
+				text="More Skill Speed with Frenzy Charge {0}%"
 			},
 			[2]={
 				limit={

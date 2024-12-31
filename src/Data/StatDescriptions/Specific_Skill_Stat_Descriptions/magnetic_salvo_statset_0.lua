@@ -11,7 +11,7 @@ return {
 				},
 				limit={
 				},
-				text="Impact radius@{0}m"
+				text="Impact radius {0}m"
 			}
 		},
 		stats={
@@ -77,7 +77,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Maximum missiles per use@{0}"
+				text="Maximum missiles per use {0}"
 			}
 		},
 		stats={

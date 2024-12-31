@@ -44,7 +44,7 @@ return {
 				},
 				limit={
 				},
-				text="Withered duration@{0}s"
+				text="Withered duration {0}s"
 			}
 		},
 		stats={
@@ -60,7 +60,7 @@ return {
 				},
 				limit={
 				},
-				text="Withered interval@{0}s"
+				text="Withered interval {0}s"
 			},
 			[2]={
 				[1]={

@@ -50,8 +50,8 @@ local function processStatFile(name, changeOutLocation)
 						table_only = text:match('table_only') ~= nil
 						if table_only then
 							text = text:gsub('table_only ', '')
-							text = text:gsub('@', ' ')
 						end
+						text = text:gsub('@', ' ')
 					end
 					local desc = { text = escapeGGGString(text), limit = { } }
 					for statLimit in statLimits:gmatch("[!%d%-#|]+") do

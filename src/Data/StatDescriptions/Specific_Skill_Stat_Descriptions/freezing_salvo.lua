@@ -11,7 +11,7 @@ return {
 				},
 				limit={
 				},
-				text="Impact radius@{0}m"
+				text="Impact radius {0}m"
 			}
 		},
 		stats={
@@ -56,7 +56,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Maximum accumulated missiles@{0}"
+				text="Maximum accumulated missiles {0}"
 			},
 			[2]={
 				limit={
@@ -101,7 +101,7 @@ return {
 				},
 				limit={
 				},
-				text="Missile accumulation interval@{0}s"
+				text="Missile accumulation interval {0}s"
 			}
 		},
 		stats={

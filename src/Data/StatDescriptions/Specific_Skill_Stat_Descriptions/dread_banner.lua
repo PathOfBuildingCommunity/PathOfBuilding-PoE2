@@ -11,7 +11,7 @@ return {
 				},
 				limit={
 				},
-				text="Banner Aura radius@{0}m"
+				text="Banner Aura radius {0}m"
 			}
 		},
 		stats={
@@ -93,7 +93,7 @@ return {
 				},
 				limit={
 				},
-				text="Flask charges per second@{0}"
+				text="Flask charges per second {0}"
 			},
 			[2]={
 				[1]={
@@ -118,7 +118,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="More Stun and Ailment Threshold@{0}%"
+				text="More Stun and Ailment Threshold {0}%"
 			},
 			[2]={
 				limit={
@@ -156,7 +156,7 @@ return {
 				},
 				limit={
 				},
-				text="Maximum Banner duration@{0}s"
+				text="Maximum Banner duration {0}s"
 			}
 		},
 		stats={

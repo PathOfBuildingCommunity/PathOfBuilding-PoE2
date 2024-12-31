@@ -16,7 +16,7 @@ return {
 				},
 				limit={
 				},
-				text="Burst radius@{0}m"
+				text="Burst radius {0}m"
 			}
 		},
 		stats={
@@ -98,7 +98,7 @@ return {
 				},
 				limit={
 				},
-				text="Wave length@{0}m"
+				text="Wave length {0}m"
 			}
 		},
 		stats={
@@ -110,7 +110,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Bursts@{0}"
+				text="Bursts {0}"
 			},
 			[2]={
 				limit={

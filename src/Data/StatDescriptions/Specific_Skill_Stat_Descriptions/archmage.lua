@@ -43,7 +43,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Non-Channelling Spell additional Mana cost@{0}"
+				text="Non-Channelling Spell additional Mana cost {0}"
 			}
 		},
 		stats={
@@ -55,7 +55,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Non-Channelling Spell damage Gained as Lightning@{0}%"
+				text="Non-Channelling Spell damage Gained as Lightning {0}%"
 			}
 		},
 		stats={

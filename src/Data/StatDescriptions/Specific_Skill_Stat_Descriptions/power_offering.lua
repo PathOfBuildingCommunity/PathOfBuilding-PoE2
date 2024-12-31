@@ -78,7 +78,7 @@ return {
 				},
 				limit={
 				},
-				text="Spike duration@{0}s"
+				text="Spike duration {0}s"
 			}
 		},
 		stats={

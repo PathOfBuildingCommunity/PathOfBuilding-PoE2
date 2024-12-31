@@ -44,7 +44,7 @@ return {
 				},
 				limit={
 				},
-				text="Maximum Buff duration@{0}s"
+				text="Maximum Buff duration {0}s"
 			}
 		},
 		stats={

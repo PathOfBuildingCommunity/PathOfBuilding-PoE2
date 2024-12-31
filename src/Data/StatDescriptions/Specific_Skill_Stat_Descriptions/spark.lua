@@ -44,7 +44,7 @@ return {
 				},
 				limit={
 				},
-				text="Projectile duration@{0}s"
+				text="Projectile duration {0}s"
 			}
 		},
 		stats={

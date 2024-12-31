@@ -16,7 +16,7 @@ return {
 				},
 				limit={
 				},
-				text="Impact radius@{0}m"
+				text="Impact radius {0}m"
 			}
 		},
 		stats={

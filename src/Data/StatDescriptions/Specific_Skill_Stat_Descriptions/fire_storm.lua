@@ -16,7 +16,7 @@ return {
 				},
 				limit={
 				},
-				text="Impact radius@{0}m"
+				text="Impact radius {0}m"
 			}
 		},
 		stats={
@@ -98,7 +98,7 @@ return {
 				},
 				limit={
 				},
-				text="Storm radius@{0}m"
+				text="Storm radius {0}m"
 			}
 		},
 		stats={
@@ -147,7 +147,7 @@ return {
 				},
 				limit={
 				},
-				text="Impact interval@{0}s"
+				text="Impact interval {0}s"
 			},
 			[2]={
 				[1]={
@@ -219,7 +219,7 @@ return {
 				},
 				limit={
 				},
-				text="Storm duration@{0}s"
+				text="Storm duration {0}s"
 			}
 		},
 		stats={
@@ -235,7 +235,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Firestorm Limit@{0}"
+				text="Firestorm Limit {0}"
 			}
 		},
 		stats={

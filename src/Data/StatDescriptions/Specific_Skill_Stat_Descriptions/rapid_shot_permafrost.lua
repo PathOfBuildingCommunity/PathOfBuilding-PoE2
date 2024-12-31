@@ -11,7 +11,7 @@ return {
 				},
 				limit={
 				},
-				text="Explosion radius@{0}m"
+				text="Explosion radius {0}m"
 			}
 		},
 		stats={
@@ -56,7 +56,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="More damage after one second@{0}%"
+				text="More damage after one second {0}%"
 			},
 			[2]={
 				limit={
@@ -90,7 +90,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Maximum shards@{0}"
+				text="Maximum shards {0}"
 			},
 			[2]={
 				limit={

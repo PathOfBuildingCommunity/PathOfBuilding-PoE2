@@ -11,7 +11,7 @@ return {
 				},
 				limit={
 				},
-				text="Explosion radius@{0}m"
+				text="Explosion radius {0}m"
 			}
 		},
 		stats={
@@ -80,7 +80,7 @@ return {
 				},
 				limit={
 				},
-				text="Target seeking radius@{0}m"
+				text="Target seeking radius {0}m"
 			}
 		},
 		stats={
@@ -92,7 +92,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Maximum Explosions per cast@{0}"
+				text="Maximum Explosions per cast {0}"
 			},
 			[2]={
 				limit={

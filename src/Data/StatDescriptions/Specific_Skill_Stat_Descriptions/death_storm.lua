@@ -11,7 +11,7 @@ return {
 				},
 				limit={
 				},
-				text="Bolt explosion radius@{0}m"
+				text="Bolt explosion radius {0}m"
 			}
 		},
 		stats={
@@ -93,7 +93,7 @@ return {
 				},
 				limit={
 				},
-				text="Shocked Ground radius@{0}m"
+				text="Shocked Ground radius {0}m"
 			}
 		},
 		stats={
@@ -142,7 +142,7 @@ return {
 				},
 				limit={
 				},
-				text="Shocked Ground duration@{0}s"
+				text="Shocked Ground duration {0}s"
 			}
 		},
 		stats={

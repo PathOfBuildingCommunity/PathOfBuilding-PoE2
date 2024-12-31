@@ -7,7 +7,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Flask recovery granted to Allies@{0}%"
+				text="Flask recovery granted to Allies {0}%"
 			},
 			[2]={
 				limit={
@@ -32,7 +32,7 @@ return {
 				},
 				limit={
 				},
-				text="Flask charges per second@{0}"
+				text="Flask charges per second {0}"
 			},
 			[2]={
 				[1]={

@@ -7,7 +7,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Lightning damage per Power Charge@{0}–{1}"
+				text="Lightning damage per Power Charge {0}–{1}"
 			},
 			[2]={
 				limit={
@@ -37,7 +37,7 @@ return {
 				},
 				limit={
 				},
-				text="Buff duration per Power Charge@{0}s"
+				text="Buff duration per Power Charge {0}s"
 			},
 			[2]={
 				[1]={

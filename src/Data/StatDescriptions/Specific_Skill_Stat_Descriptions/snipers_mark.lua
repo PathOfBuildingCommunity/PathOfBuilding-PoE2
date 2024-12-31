@@ -45,7 +45,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Critical Damage Bonus applied@+{0}%"
+				text="Critical Damage Bonus applied +{0}%"
 			},
 			[2]={
 				limit={
@@ -70,7 +70,7 @@ return {
 				},
 				limit={
 				},
-				text="Maximum Mark duration@{0}s"
+				text="Maximum Mark duration {0}s"
 			}
 		},
 		stats={

@@ -31,7 +31,7 @@ return {
 				},
 				limit={
 				},
-				text="Duration between randomisations@{0}s"
+				text="Duration between randomisations {0}s"
 			}
 		},
 		stats={
@@ -43,7 +43,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="More damage granted@{0}%"
+				text="More damage granted {0}%"
 			},
 			[2]={
 				limit={

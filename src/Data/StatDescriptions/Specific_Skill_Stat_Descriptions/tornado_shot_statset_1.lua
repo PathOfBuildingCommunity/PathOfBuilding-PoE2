@@ -91,7 +91,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Tornado Limit@{0}"
+				text="Tornado Limit {0}"
 			}
 		},
 		stats={
@@ -107,7 +107,7 @@ return {
 				},
 				limit={
 				},
-				text="Maximum Tornado duration@{0}s"
+				text="Maximum Tornado duration {0}s"
 			}
 		},
 		stats={
@@ -119,7 +119,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Number of Hits before Tornado disappears@{0}"
+				text="Number of Hits before Tornado disappears {0}"
 			},
 			[2]={
 				limit={
@@ -153,7 +153,7 @@ return {
 				},
 				limit={
 				},
-				text="Copied Projectiles damage penalty@{0}%"
+				text="Copied Projectiles damage penalty {0}%"
 			},
 			[2]={
 				limit={
@@ -191,7 +191,7 @@ return {
 				},
 				limit={
 				},
-				text="Copied Projectiles maximum range@{0}m"
+				text="Copied Projectiles maximum range {0}m"
 			},
 			[2]={
 				[1]={
@@ -216,7 +216,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Copied Projectiles fired@{0}"
+				text="Copied Projectiles fired {0}"
 			}
 		},
 		stats={

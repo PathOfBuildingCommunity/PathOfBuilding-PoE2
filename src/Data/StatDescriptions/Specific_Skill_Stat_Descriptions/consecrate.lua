@@ -11,7 +11,7 @@ return {
 				},
 				limit={
 				},
-				text="Consecrated Ground radius@{0}m"
+				text="Consecrated Ground radius {0}m"
 			}
 		},
 		stats={
@@ -93,7 +93,7 @@ return {
 				},
 				limit={
 				},
-				text="Consecrated Ground duration@{0}s"
+				text="Consecrated Ground duration {0}s"
 			}
 		},
 		stats={

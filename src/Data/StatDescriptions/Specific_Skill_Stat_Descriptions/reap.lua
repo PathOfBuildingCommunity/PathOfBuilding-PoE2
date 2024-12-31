@@ -44,7 +44,7 @@ return {
 				},
 				limit={
 				},
-				text="Critical Weakness duration@{0}s"
+				text="Critical Weakness duration {0}s"
 			}
 		},
 		stats={

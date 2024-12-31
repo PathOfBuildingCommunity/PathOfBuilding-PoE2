@@ -16,7 +16,7 @@ return {
 				},
 				limit={
 				},
-				text="Sigil radius@{0}m"
+				text="Sigil radius {0}m"
 			}
 		},
 		stats={
@@ -61,7 +61,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Mana spend required to gain a Stage@{0}%"
+				text="Mana spend required to gain a Stage {0}%"
 			},
 			[2]={
 				limit={
@@ -115,7 +115,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Maximum Stages@{0}"
+				text="Maximum Stages {0}"
 			},
 			[2]={
 				limit={
@@ -145,7 +145,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="More Spell Damage granted per stage@{0}%"
+				text="More Spell Damage granted per stage {0}%"
 			},
 			[2]={
 				limit={
@@ -183,7 +183,7 @@ return {
 				},
 				limit={
 				},
-				text="Sigil duration@{0}s"
+				text="Sigil duration {0}s"
 			}
 		},
 		stats={

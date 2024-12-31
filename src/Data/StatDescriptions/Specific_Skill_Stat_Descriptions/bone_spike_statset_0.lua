@@ -12,7 +12,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Maximum Projectiles@{0}"
+				text="Maximum Projectiles {0}"
 			},
 			[2]={
 				limit={
@@ -70,7 +70,7 @@ return {
 				},
 				limit={
 				},
-				text="Debuff duration@{0}s"
+				text="Debuff duration {0}s"
 			}
 		},
 		stats={
@@ -82,7 +82,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Projectiles fired per stage@{0}"
+				text="Projectiles fired per stage {0}"
 			}
 		},
 		stats={

@@ -16,7 +16,7 @@ return {
 				},
 				limit={
 				},
-				text="Aura radius@{0}m"
+				text="Aura radius {0}m"
 			}
 		},
 		stats={
@@ -94,7 +94,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Minion increased Attack and Cast Speed granted@{0}%"
+				text="Minion increased Attack and Cast Speed granted {0}%"
 			},
 			[2]={
 				limit={
@@ -128,7 +128,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Minion more damage granted@{0}%"
+				text="Minion more damage granted {0}%"
 			},
 			[2]={
 				limit={
@@ -166,7 +166,7 @@ return {
 				},
 				limit={
 				},
-				text="Spike duration@{0}s"
+				text="Spike duration {0}s"
 			}
 		},
 		stats={

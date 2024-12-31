@@ -49,7 +49,7 @@ return {
 				},
 				limit={
 				},
-				text="Bell duration@{0}s"
+				text="Bell duration {0}s"
 			}
 		},
 		stats={
@@ -61,7 +61,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Bell maximum Hits@{0}"
+				text="Bell maximum Hits {0}"
 			},
 			[2]={
 				limit={

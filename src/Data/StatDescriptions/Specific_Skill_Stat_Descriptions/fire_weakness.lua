@@ -11,7 +11,7 @@ return {
 				},
 				limit={
 				},
-				text="Curse radius@{0}m"
+				text="Curse radius {0}m"
 			}
 		},
 		stats={
@@ -93,7 +93,7 @@ return {
 				},
 				limit={
 				},
-				text="Curse duration@{0}s"
+				text="Curse duration {0}s"
 			}
 		},
 		stats={
@@ -109,7 +109,7 @@ return {
 				},
 				limit={
 				},
-				text="Fire Resistance removed@{0}%"
+				text="Fire Resistance removed {0}%"
 			},
 			[2]={
 				limit={

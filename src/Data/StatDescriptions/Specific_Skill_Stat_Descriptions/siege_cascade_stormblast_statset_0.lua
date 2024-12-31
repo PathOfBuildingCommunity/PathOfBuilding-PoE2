@@ -16,7 +16,7 @@ return {
 				},
 				limit={
 				},
-				text="Impact radius@{0}m"
+				text="Impact radius {0}m"
 			}
 		},
 		stats={
@@ -119,7 +119,7 @@ return {
 				},
 				limit={
 				},
-				text="Charged bolt duration@{0}s"
+				text="Charged bolt duration {0}s"
 			}
 		},
 		stats={

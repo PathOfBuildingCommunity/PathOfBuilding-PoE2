@@ -131,7 +131,7 @@ return {
 				},
 				limit={
 				},
-				text="Zombie duration@{0}s"
+				text="Zombie duration {0}s"
 			}
 		},
 		stats={

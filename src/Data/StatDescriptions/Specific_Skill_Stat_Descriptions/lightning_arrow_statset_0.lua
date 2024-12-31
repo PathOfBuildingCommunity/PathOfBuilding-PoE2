@@ -11,7 +11,7 @@ return {
 				},
 				limit={
 				},
-				text="Beam targeting radius@{0}m"
+				text="Beam targeting radius {0}m"
 			}
 		},
 		stats={
@@ -56,7 +56,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Beams fired@{0}"
+				text="Beams fired {0}"
 			},
 			[2]={
 				limit={

@@ -44,7 +44,7 @@ return {
 				},
 				limit={
 				},
-				text="Ignited Ground duration@{0}s"
+				text="Ignited Ground duration {0}s"
 			}
 		},
 		stats={

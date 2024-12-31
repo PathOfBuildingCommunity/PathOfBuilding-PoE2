@@ -16,7 +16,7 @@ return {
 				},
 				limit={
 				},
-				text="Impact radius@{0}m"
+				text="Impact radius {0}m"
 			}
 		},
 		stats={
@@ -61,7 +61,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="More Hit damage per stage@{0}%"
+				text="More Hit damage per stage {0}%"
 			},
 			[2]={
 				limit={
@@ -95,7 +95,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Maximum Stages@{0}"
+				text="Maximum Stages {0}"
 			},
 			[2]={
 				limit={

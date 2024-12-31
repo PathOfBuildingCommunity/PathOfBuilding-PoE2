@@ -23,7 +23,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Maximum bolts stored@{0}"
+				text="Maximum bolts stored {0}"
 			}
 		},
 		stats={

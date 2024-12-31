@@ -31,7 +31,7 @@ return {
 				},
 				limit={
 				},
-				text="Duration between blessings@{0}s"
+				text="Duration between blessings {0}s"
 			}
 		},
 		stats={
@@ -43,7 +43,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Blessing Life recovery@{0}"
+				text="Blessing Life recovery {0}"
 			},
 			[2]={
 				limit={

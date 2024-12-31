@@ -11,7 +11,7 @@ return {
 				},
 				limit={
 				},
-				text="Poison Spread radius on Kill@{0}m"
+				text="Poison Spread radius on Kill {0}m"
 			},
 			[2]={
 				[1]={
@@ -36,7 +36,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Chance to Hinder on spreading Poison@{0}%"
+				text="Chance to Hinder on spreading Poison {0}%"
 			},
 			[2]={
 				limit={

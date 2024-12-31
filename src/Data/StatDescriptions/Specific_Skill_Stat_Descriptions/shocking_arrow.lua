@@ -16,7 +16,7 @@ return {
 				},
 				limit={
 				},
-				text="Impact radius@{0}m"
+				text="Impact radius {0}m"
 			}
 		},
 		stats={
@@ -98,7 +98,7 @@ return {
 				},
 				limit={
 				},
-				text="Arrow duration@{0}s"
+				text="Arrow duration {0}s"
 			}
 		},
 		stats={

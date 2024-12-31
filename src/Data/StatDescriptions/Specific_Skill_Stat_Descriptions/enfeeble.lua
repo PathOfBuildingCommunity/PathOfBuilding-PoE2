@@ -11,7 +11,7 @@ return {
 				},
 				limit={
 				},
-				text="Curse radius@{0}m"
+				text="Curse radius {0}m"
 			}
 		},
 		stats={
@@ -89,7 +89,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Non-unique enemy damage@{0}%"
+				text="Non-unique enemy damage {0}%"
 			},
 			[2]={
 				limit={
@@ -123,7 +123,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Unique enemy damage@{0}%"
+				text="Unique enemy damage {0}%"
 			},
 			[2]={
 				limit={
@@ -161,7 +161,7 @@ return {
 				},
 				limit={
 				},
-				text="Curse duration@{0}s"
+				text="Curse duration {0}s"
 			}
 		},
 		stats={

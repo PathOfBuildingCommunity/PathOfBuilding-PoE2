@@ -11,7 +11,7 @@ return {
 				},
 				limit={
 				},
-				text="Explosion radius@{0}m"
+				text="Explosion radius {0}m"
 			}
 		},
 		stats={
@@ -89,7 +89,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Wall Segment maximum Life@{0}"
+				text="Wall Segment maximum Life {0}"
 			},
 			[2]={
 				limit={
@@ -132,7 +132,7 @@ return {
 				},
 				limit={
 				},
-				text="Wall duration@{0}s"
+				text="Wall duration {0}s"
 			}
 		},
 		stats={

@@ -11,7 +11,7 @@ return {
 				},
 				limit={
 				},
-				text="Banner Aura radius@{0}m"
+				text="Banner Aura radius {0}m"
 			}
 		},
 		stats={
@@ -89,7 +89,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="More Armour and Evasion granted@{0}%"
+				text="More Armour and Evasion granted {0}%"
 			},
 			[2]={
 				limit={
@@ -123,7 +123,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Increased movement speed granted@{0}%"
+				text="Increased movement speed granted {0}%"
 			},
 			[2]={
 				limit={
@@ -161,7 +161,7 @@ return {
 				},
 				limit={
 				},
-				text="Maximum Banner duration@{0}s"
+				text="Maximum Banner duration {0}s"
 			}
 		},
 		stats={

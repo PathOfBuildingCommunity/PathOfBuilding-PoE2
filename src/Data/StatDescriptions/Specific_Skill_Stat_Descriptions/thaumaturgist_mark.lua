@@ -49,7 +49,7 @@ return {
 				},
 				limit={
 				},
-				text="Mark duration@{0}s"
+				text="Mark duration {0}s"
 			}
 		},
 		stats={
@@ -61,7 +61,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="More Shock chance applied@{0}%"
+				text="More Shock chance applied {0}%"
 			},
 			[2]={
 				limit={
@@ -95,7 +95,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Increased Shock effect applied@{0}%"
+				text="Increased Shock effect applied {0}%"
 			},
 			[2]={
 				limit={

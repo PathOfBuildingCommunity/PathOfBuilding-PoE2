@@ -16,7 +16,7 @@ return {
 				},
 				limit={
 				},
-				text="Warcry radius@{0}m"
+				text="Warcry radius {0}m"
 			}
 		},
 		stats={
@@ -65,7 +65,7 @@ return {
 				},
 				limit={
 				},
-				text="Destabilisation duration@{0}s"
+				text="Destabilisation duration {0}s"
 			},
 			[2]={
 				[1]={

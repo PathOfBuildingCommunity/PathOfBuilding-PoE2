@@ -26,7 +26,7 @@ return {
 				},
 				limit={
 				},
-				text="Explosion radius@{0}m"
+				text="Explosion radius {0}m"
 			}
 		},
 		stats={
@@ -71,7 +71,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="More Area per Power Charge Consumed@{0}%"
+				text="More Area per Power Charge Consumed {0}%"
 			},
 			[2]={
 				limit={
@@ -109,7 +109,7 @@ return {
 				},
 				limit={
 				},
-				text="Bonus radius if Power Charge Consumed@+{0}m"
+				text="Bonus radius if Power Charge Consumed +{0}m"
 			},
 			[2]={
 				[1]={

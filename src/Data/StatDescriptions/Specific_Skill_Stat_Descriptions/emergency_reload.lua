@@ -40,7 +40,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Empowered bolt more damage@{0}%"
+				text="Empowered bolt more damage {0}%"
 			},
 			[2]={
 				limit={
@@ -78,7 +78,7 @@ return {
 				},
 				limit={
 				},
-				text="Maximum Buff duration@{0}s"
+				text="Maximum Buff duration {0}s"
 			}
 		},
 		stats={

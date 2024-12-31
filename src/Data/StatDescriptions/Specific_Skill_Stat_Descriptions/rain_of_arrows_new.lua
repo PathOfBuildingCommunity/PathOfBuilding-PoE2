@@ -11,7 +11,7 @@ return {
 				},
 				limit={
 				},
-				text="Rain radius@{0}m"
+				text="Rain radius {0}m"
 			}
 		},
 		stats={
@@ -93,7 +93,7 @@ return {
 				},
 				limit={
 				},
-				text="Impact radius@{0}m"
+				text="Impact radius {0}m"
 			}
 		},
 		stats={
@@ -130,7 +130,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Arrow Rain Maximum@{0}"
+				text="Arrow Rain Maximum {0}"
 			}
 		},
 		stats={
@@ -146,7 +146,7 @@ return {
 				},
 				limit={
 				},
-				text="Arrow landing interval@{0}s"
+				text="Arrow landing interval {0}s"
 			},
 			[2]={
 				[1]={
@@ -171,7 +171,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="More arrows fired if Frenzy Charge Consumed@{0}%"
+				text="More arrows fired if Frenzy Charge Consumed {0}%"
 			},
 			[2]={
 				limit={
@@ -192,7 +192,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="More arrows fired per Frenzy Charge Consumed@{0}%"
+				text="More arrows fired per Frenzy Charge Consumed {0}%"
 			},
 			[2]={
 				limit={

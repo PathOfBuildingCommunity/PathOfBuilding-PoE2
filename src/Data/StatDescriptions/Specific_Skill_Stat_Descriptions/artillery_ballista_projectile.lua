@@ -44,7 +44,7 @@ return {
 				},
 				limit={
 				},
-				text="Bolt explosion radius@{0}m"
+				text="Bolt explosion radius {0}m"
 			}
 		},
 		stats={

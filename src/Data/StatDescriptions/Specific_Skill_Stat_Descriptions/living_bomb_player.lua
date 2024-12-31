@@ -11,7 +11,7 @@ return {
 				},
 				limit={
 				},
-				text="Explosion radius@{0}m"
+				text="Explosion radius {0}m"
 			}
 		},
 		stats={
@@ -114,7 +114,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Active Seed Limit@{0}"
+				text="Active Seed Limit {0}"
 			}
 		},
 		stats={
@@ -130,7 +130,7 @@ return {
 				},
 				limit={
 				},
-				text="Seed duration@{0}s"
+				text="Seed duration {0}s"
 			}
 		},
 		stats={

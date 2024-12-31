@@ -11,7 +11,7 @@ return {
 				},
 				limit={
 				},
-				text="Impact and Jagged Ground radius@{0}m"
+				text="Impact and Jagged Ground radius {0}m"
 			}
 		},
 		stats={

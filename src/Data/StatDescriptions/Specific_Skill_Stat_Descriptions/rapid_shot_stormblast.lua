@@ -21,7 +21,7 @@ return {
 				},
 				limit={
 				},
-				text="Pulse radius@{0}m"
+				text="Pulse radius {0}m"
 			}
 		},
 		stats={

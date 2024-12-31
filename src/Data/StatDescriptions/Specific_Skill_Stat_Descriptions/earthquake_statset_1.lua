@@ -11,7 +11,7 @@ return {
 				},
 				limit={
 				},
-				text="Aftershock radius@{0}m"
+				text="Aftershock radius {0}m"
 			}
 		},
 		stats={

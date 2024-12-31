@@ -11,7 +11,7 @@ return {
 				},
 				limit={
 				},
-				text="Impact radius@{0}m"
+				text="Impact radius {0}m"
 			}
 		},
 		stats={
@@ -93,7 +93,7 @@ return {
 				},
 				limit={
 				},
-				text="Jagged Ground radius@{0}m"
+				text="Jagged Ground radius {0}m"
 			}
 		},
 		stats={
@@ -134,7 +134,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Maximum Jagged Ground patches@{0}"
+				text="Maximum Jagged Ground patches {0}"
 			}
 		},
 		stats={
@@ -150,7 +150,7 @@ return {
 				},
 				limit={
 				},
-				text="Jagged Ground duration@{0}s"
+				text="Jagged Ground duration {0}s"
 			}
 		},
 		stats={

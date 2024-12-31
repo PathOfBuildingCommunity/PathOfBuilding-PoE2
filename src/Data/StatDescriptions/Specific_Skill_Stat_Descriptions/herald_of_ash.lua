@@ -11,7 +11,7 @@ return {
 				},
 				limit={
 				},
-				text="Explosion radius@{0}m"
+				text="Explosion radius {0}m"
 			}
 		},
 		stats={
@@ -93,7 +93,7 @@ return {
 				},
 				limit={
 				},
-				text="Ignite damage from Overkill damage@{0}%"
+				text="Ignite damage from Overkill damage {0}%"
 			},
 			[2]={
 				[1]={
@@ -118,7 +118,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Overkill damage threshold@{0}%"
+				text="Overkill damage threshold {0}%"
 			},
 			[2]={
 				limit={
@@ -143,7 +143,7 @@ return {
 				},
 				limit={
 				},
-				text="Ignite duration@{0}s"
+				text="Ignite duration {0}s"
 			}
 		},
 		stats={

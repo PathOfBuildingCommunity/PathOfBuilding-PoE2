@@ -11,7 +11,7 @@ return {
 				},
 				limit={
 				},
-				text="Bolt shattering cone length@{0}m"
+				text="Bolt shattering cone length {0}m"
 			}
 		},
 		stats={

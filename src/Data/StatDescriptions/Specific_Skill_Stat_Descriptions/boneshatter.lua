@@ -15,7 +15,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Shockwave radius@{0}m"
+				text="Shockwave radius {0}m"
 			}
 		},
 		stats={

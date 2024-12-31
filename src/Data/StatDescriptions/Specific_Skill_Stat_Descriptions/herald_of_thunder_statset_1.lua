@@ -21,7 +21,7 @@ return {
 				},
 				limit={
 				},
-				text="Bolt impact radius@{0}m"
+				text="Bolt impact radius {0}m"
 			}
 		},
 		stats={

@@ -44,7 +44,7 @@ return {
 				},
 				limit={
 				},
-				text="Encasement duration@{0}s"
+				text="Encasement duration {0}s"
 			}
 		},
 		stats={

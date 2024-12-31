@@ -40,7 +40,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Maximum accumulated Embers@{0}"
+				text="Maximum accumulated Embers {0}"
 			},
 			[2]={
 				limit={
@@ -65,7 +65,7 @@ return {
 				},
 				limit={
 				},
-				text="Hover duration@{0}s"
+				text="Hover duration {0}s"
 			}
 		},
 		stats={
@@ -77,7 +77,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Embers conjured per use@{0}"
+				text="Embers conjured per use {0}"
 			}
 		},
 		stats={

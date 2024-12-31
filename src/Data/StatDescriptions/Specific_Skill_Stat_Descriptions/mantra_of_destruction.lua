@@ -49,7 +49,7 @@ return {
 				},
 				limit={
 				},
-				text="Purple Flames of Chayula duration@{0}s"
+				text="Purple Flames of Chayula duration {0}s"
 			}
 		},
 		stats={
@@ -65,7 +65,7 @@ return {
 				},
 				limit={
 				},
-				text="Maximum Buff duration@{0}s"
+				text="Maximum Buff duration {0}s"
 			}
 		},
 		stats={

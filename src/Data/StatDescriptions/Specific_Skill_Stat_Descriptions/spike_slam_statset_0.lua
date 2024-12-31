@@ -11,7 +11,7 @@ return {
 				},
 				limit={
 				},
-				text="Emerge damage radius@{0}m"
+				text="Emerge damage radius {0}m"
 			}
 		},
 		stats={
@@ -80,7 +80,7 @@ return {
 				},
 				limit={
 				},
-				text="Spike duration@{0}s"
+				text="Spike duration {0}s"
 			}
 		},
 		stats={

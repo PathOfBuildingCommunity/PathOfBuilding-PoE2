@@ -49,7 +49,7 @@ return {
 				},
 				limit={
 				},
-				text="Arrow duration@{0}s"
+				text="Arrow duration {0}s"
 			}
 		},
 		stats={

@@ -16,7 +16,7 @@ return {
 				},
 				limit={
 				},
-				text="Shockwave radius@{0}m"
+				text="Shockwave radius {0}m"
 			}
 		},
 		stats={
@@ -61,7 +61,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Maximum shockwaves per use@{0}"
+				text="Maximum shockwaves per use {0}"
 			},
 			[2]={
 				limit={

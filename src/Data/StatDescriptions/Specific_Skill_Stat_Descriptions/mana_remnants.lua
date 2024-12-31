@@ -7,7 +7,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Remnant spawn on kill chance@{0}%"
+				text="Remnant spawn on kill chance {0}%"
 			},
 			[2]={
 				limit={
@@ -41,7 +41,7 @@ return {
 				},
 				limit={
 				},
-				text="Remnant spawn on Critical Hit interval@{0}s"
+				text="Remnant spawn on Critical Hit interval {0}s"
 			},
 			[2]={
 				limit={
@@ -75,7 +75,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Mana recovered per Remnant@{0}"
+				text="Mana recovered per Remnant {0}"
 			},
 			[2]={
 				limit={

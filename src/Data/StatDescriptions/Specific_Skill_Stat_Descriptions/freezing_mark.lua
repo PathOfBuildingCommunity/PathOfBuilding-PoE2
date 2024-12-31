@@ -16,7 +16,7 @@ return {
 				},
 				limit={
 				},
-				text="Explosion radius@{0}m"
+				text="Explosion radius {0}m"
 			}
 		},
 		stats={
@@ -94,7 +94,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Marked enemy more Freeze buildup@{0}%"
+				text="Marked enemy more Freeze buildup {0}%"
 			},
 			[2]={
 				limit={
@@ -154,7 +154,7 @@ return {
 				},
 				limit={
 				},
-				text="Mark duration@{0}s"
+				text="Mark duration {0}s"
 			}
 		},
 		stats={

@@ -45,7 +45,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="More Armour per Scavenged Plating@{0}%"
+				text="More Armour per Scavenged Plating {0}%"
 			},
 			[2]={
 				limit={
@@ -79,7 +79,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Maximum Scavenged Plating@{0}"
+				text="Maximum Scavenged Plating {0}"
 			},
 			[2]={
 				limit={
@@ -100,7 +100,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Thorns per Scavenged Plating@{0}–{1}"
+				text="Thorns per Scavenged Plating {0}–{1}"
 			},
 			[2]={
 				limit={
@@ -130,7 +130,7 @@ return {
 				},
 				limit={
 				},
-				text="Scavenged Plating duration@{0}s"
+				text="Scavenged Plating duration {0}s"
 			}
 		},
 		stats={

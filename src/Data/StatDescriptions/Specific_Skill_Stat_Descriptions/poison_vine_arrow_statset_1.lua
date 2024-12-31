@@ -11,7 +11,7 @@ return {
 				},
 				limit={
 				},
-				text="Vine attachment radius@{0}m"
+				text="Vine attachment radius {0}m"
 			}
 		},
 		stats={
@@ -67,7 +67,7 @@ return {
 				},
 				limit={
 				},
-				text="Movement speed Slow inflicted by Vines@{0}%"
+				text="Movement speed Slow inflicted by Vines {0}%"
 			},
 			[2]={
 				[1]={
@@ -129,7 +129,7 @@ return {
 				},
 				limit={
 				},
-				text="Incoming Poison stored@{0}%"
+				text="Incoming Poison stored {0}%"
 			},
 			[2]={
 				[1]={
@@ -158,7 +158,7 @@ return {
 				},
 				limit={
 				},
-				text="Plant duration@{0}s"
+				text="Plant duration {0}s"
 			}
 		},
 		stats={

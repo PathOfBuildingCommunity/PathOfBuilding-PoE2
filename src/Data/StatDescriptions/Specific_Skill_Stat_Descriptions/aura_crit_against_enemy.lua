@@ -44,7 +44,7 @@ return {
 				},
 				limit={
 				},
-				text="Critical Weakness frequency@{0}s"
+				text="Critical Weakness frequency {0}s"
 			},
 			[2]={
 				[1]={
@@ -86,7 +86,7 @@ return {
 				},
 				limit={
 				},
-				text="Critical Weakness duration@{0}s"
+				text="Critical Weakness duration {0}s"
 			}
 		},
 		stats={

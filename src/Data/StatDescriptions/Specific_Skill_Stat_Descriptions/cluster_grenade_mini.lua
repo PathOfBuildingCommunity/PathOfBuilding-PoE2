@@ -16,7 +16,7 @@ return {
 				},
 				limit={
 				},
-				text="Explosion radius@{0}m"
+				text="Explosion radius {0}m"
 			}
 		},
 		stats={
@@ -119,7 +119,7 @@ return {
 				},
 				limit={
 				},
-				text="Fuse duration@{0}s"
+				text="Fuse duration {0}s"
 			}
 		},
 		stats={
@@ -131,7 +131,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Projectiles fired@{0}"
+				text="Projectiles fired {0}"
 			}
 		},
 		stats={

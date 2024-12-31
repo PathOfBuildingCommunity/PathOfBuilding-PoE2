@@ -11,7 +11,7 @@ return {
 				},
 				limit={
 				},
-				text="Pulse and Explosion radius@{0}m"
+				text="Pulse and Explosion radius {0}m"
 			}
 		},
 		stats={
@@ -126,7 +126,7 @@ return {
 				},
 				limit={
 				},
-				text="Exposure duration@{0}s"
+				text="Exposure duration {0}s"
 			}
 		},
 		stats={
@@ -142,7 +142,7 @@ return {
 				},
 				limit={
 				},
-				text="Orb duration@{0}s"
+				text="Orb duration {0}s"
 			}
 		},
 		stats={

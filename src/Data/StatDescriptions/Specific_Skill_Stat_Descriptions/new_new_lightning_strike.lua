@@ -11,7 +11,7 @@ return {
 				},
 				limit={
 				},
-				text="Cone length@{0}m"
+				text="Cone length {0}m"
 			}
 		},
 		stats={
@@ -56,7 +56,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="More Damage per Power Charge Consumed@{0}%"
+				text="More Damage per Power Charge Consumed {0}%"
 			},
 			[2]={
 				limit={
@@ -90,7 +90,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="More Damage if Power Charge Consumed@{0}%"
+				text="More Damage if Power Charge Consumed {0}%"
 			},
 			[2]={
 				limit={
@@ -124,7 +124,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Projectiles per Power Charge Consumed@{0}"
+				text="Projectiles per Power Charge Consumed {0}"
 			},
 			[2]={
 				limit={

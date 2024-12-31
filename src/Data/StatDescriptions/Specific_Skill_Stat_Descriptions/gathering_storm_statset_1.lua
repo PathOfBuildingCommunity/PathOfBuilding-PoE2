@@ -16,7 +16,7 @@ return {
 				},
 				limit={
 				},
-				text="Shocked Ground width@{0}m"
+				text="Shocked Ground width {0}m"
 			}
 		},
 		stats={

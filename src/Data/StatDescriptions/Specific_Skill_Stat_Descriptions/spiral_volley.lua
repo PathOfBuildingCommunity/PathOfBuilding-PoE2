@@ -7,7 +7,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Chains per Frenzy Charge Consumed@{0}"
+				text="Chains per Frenzy Charge Consumed {0}"
 			},
 			[2]={
 				limit={
@@ -37,7 +37,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="More Damage per Frenzy Charge Consumed@{0}%"
+				text="More Damage per Frenzy Charge Consumed {0}%"
 			},
 			[2]={
 				limit={
@@ -71,7 +71,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="More Damage if Frenzy Charge Consumed@{0}%"
+				text="More Damage if Frenzy Charge Consumed {0}%"
 			},
 			[2]={
 				limit={

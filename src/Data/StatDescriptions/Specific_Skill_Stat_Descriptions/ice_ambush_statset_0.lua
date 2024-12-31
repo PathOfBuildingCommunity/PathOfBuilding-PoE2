@@ -40,7 +40,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Ice Crystal maximum Life@{0}"
+				text="Ice Crystal maximum Life {0}"
 			},
 			[2]={
 				limit={
@@ -83,7 +83,7 @@ return {
 				},
 				limit={
 				},
-				text="Ice Crystal duration@{0}s"
+				text="Ice Crystal duration {0}s"
 			}
 		},
 		stats={

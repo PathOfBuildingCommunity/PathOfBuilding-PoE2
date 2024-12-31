@@ -16,7 +16,7 @@ return {
 				},
 				limit={
 				},
-				text="Explosion radius@{0}m"
+				text="Explosion radius {0}m"
 			}
 		},
 		stats={
@@ -65,7 +65,7 @@ return {
 				},
 				limit={
 				},
-				text="Radius per successive aftershock@{0:+d}m"
+				text="Radius per successive aftershock {0:+d}m"
 			},
 			[2]={
 				[1]={
@@ -103,7 +103,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="More Hit damage per stage@{0}%"
+				text="More Hit damage per stage {0}%"
 			},
 			[2]={
 				limit={

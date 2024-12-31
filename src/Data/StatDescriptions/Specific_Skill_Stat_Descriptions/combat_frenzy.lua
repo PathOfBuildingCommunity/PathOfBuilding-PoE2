@@ -11,7 +11,7 @@ return {
 				},
 				limit={
 				},
-				text="Minimum Frenzy Charge gain interval@{0}s"
+				text="Minimum Frenzy Charge gain interval {0}s"
 			},
 			[2]={
 				limit={

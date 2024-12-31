@@ -7,7 +7,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Increased Cast Speed granted@{0}%"
+				text="Increased Cast Speed granted {0}%"
 			},
 			[2]={
 				limit={
@@ -41,7 +41,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Spell Skill levels granted@+{0}"
+				text="Spell Skill levels granted +{0}"
 			},
 			[2]={
 				limit={
@@ -86,7 +86,7 @@ return {
 				},
 				limit={
 				},
-				text="Life Loss per second per Demonflame@{0}"
+				text="Life Loss per second per Demonflame {0}"
 			}
 		},
 		stats={
@@ -98,7 +98,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Increased Spell damage granted per Demonflame@{0}%"
+				text="Increased Spell damage granted per Demonflame {0}%"
 			},
 			[2]={
 				limit={
@@ -128,7 +128,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Maximum Demonflame@{0}"
+				text="Maximum Demonflame {0}"
 			}
 		},
 		stats={

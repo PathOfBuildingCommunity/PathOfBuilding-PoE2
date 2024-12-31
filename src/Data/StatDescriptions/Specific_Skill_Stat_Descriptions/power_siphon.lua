@@ -12,7 +12,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Additional Power Charge chance@{0}%"
+				text="Additional Power Charge chance {0}%"
 			},
 			[2]={
 				limit={

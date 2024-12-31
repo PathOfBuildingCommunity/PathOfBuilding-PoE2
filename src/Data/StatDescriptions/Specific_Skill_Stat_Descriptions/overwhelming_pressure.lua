@@ -11,7 +11,7 @@ return {
 				},
 				limit={
 				},
-				text="Enemy Elemental Ailment Threshold reduction@{0}%"
+				text="Enemy Elemental Ailment Threshold reduction {0}%"
 			},
 			[2]={
 				limit={
@@ -49,7 +49,7 @@ return {
 				},
 				limit={
 				},
-				text="Enemy Stun Threshold reduction@{0}%"
+				text="Enemy Stun Threshold reduction {0}%"
 			},
 			[2]={
 				limit={

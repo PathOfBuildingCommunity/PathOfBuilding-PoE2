@@ -11,7 +11,7 @@ return {
 				},
 				limit={
 				},
-				text="Explosion and Shocked Ground radius@{0}m"
+				text="Explosion and Shocked Ground radius {0}m"
 			}
 		},
 		stats={
@@ -93,7 +93,7 @@ return {
 				},
 				limit={
 				},
-				text="Shocked Ground duration@{0}s"
+				text="Shocked Ground duration {0}s"
 			}
 		},
 		stats={

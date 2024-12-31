@@ -21,7 +21,7 @@ return {
 				},
 				limit={
 				},
-				text="Barrier recharge delay@{0}s"
+				text="Barrier recharge delay {0}s"
 			},
 			[2]={
 				[1]={

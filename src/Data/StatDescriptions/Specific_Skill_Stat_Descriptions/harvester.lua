@@ -11,7 +11,7 @@ return {
 				},
 				limit={
 				},
-				text="Minion Revive speed penalty@{0}%"
+				text="Minion Revive speed penalty {0}%"
 			},
 			[2]={
 				[1]={

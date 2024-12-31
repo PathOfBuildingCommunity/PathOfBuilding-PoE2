@@ -7,7 +7,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Energy Shield recovered per Remnant@{0}"
+				text="Energy Shield recovered per Remnant {0}"
 			},
 			[2]={
 				limit={
@@ -44,7 +44,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Remnant spawn on death chance@{0}%"
+				text="Remnant spawn on death chance {0}%"
 			},
 			[2]={
 				limit={

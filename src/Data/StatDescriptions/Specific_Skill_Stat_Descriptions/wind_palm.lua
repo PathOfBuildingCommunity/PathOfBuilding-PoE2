@@ -44,7 +44,7 @@ return {
 				},
 				limit={
 				},
-				text="Buff duration@{0}s"
+				text="Buff duration {0}s"
 			}
 		},
 		stats={

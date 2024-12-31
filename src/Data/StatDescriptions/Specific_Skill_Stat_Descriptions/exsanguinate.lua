@@ -44,7 +44,7 @@ return {
 				},
 				limit={
 				},
-				text="Debuff duration@{0}s"
+				text="Debuff duration {0}s"
 			}
 		},
 		stats={

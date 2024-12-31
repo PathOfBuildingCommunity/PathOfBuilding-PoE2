@@ -44,7 +44,7 @@ return {
 				},
 				limit={
 				},
-				text="Fissure duration@{0}s"
+				text="Fissure duration {0}s"
 			}
 		},
 		stats={

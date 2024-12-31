@@ -11,7 +11,7 @@ return {
 				},
 				limit={
 				},
-				text="Cone length@{0}m"
+				text="Cone length {0}m"
 			}
 		},
 		stats={
@@ -56,7 +56,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="More damage per stage@{0}%"
+				text="More damage per stage {0}%"
 			},
 			[2]={
 				limit={
@@ -77,7 +77,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Fire Exposure inflicted at maximum stages (maximum)@{0}% ({1}%)"
+				text="Fire Exposure inflicted at maximum stages (maximum) {0}% ({1}%)"
 			},
 			[2]={
 				limit={
@@ -103,7 +103,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Maximum stages@{0}"
+				text="Maximum stages {0}"
 			},
 			[2]={
 				limit={

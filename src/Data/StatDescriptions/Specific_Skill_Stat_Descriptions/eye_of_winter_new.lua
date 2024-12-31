@@ -7,7 +7,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Damage Gained from Ground Surfaces@{0}%"
+				text="Damage Gained from Ground Surfaces {0}%"
 			},
 			[2]={
 				limit={

@@ -16,7 +16,7 @@ return {
 				},
 				limit={
 				},
-				text="Charging time@{0}s"
+				text="Charging time {0}s"
 			}
 		},
 		stats={
@@ -28,7 +28,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Damage Gained as extra Fire per Heat@{0}%"
+				text="Damage Gained as extra Fire per Heat {0}%"
 			},
 			[2]={
 				limit={
@@ -49,7 +49,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Attack time required to charge@{0}%"
+				text="Attack time required to charge {0}%"
 			},
 			[2]={
 				limit={
@@ -74,7 +74,7 @@ return {
 				},
 				limit={
 				},
-				text="Heat gained per second@{0}"
+				text="Heat gained per second {0}"
 			},
 			[2]={
 				limit={
@@ -108,7 +108,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Grenade Damage Gained as extra Fire per Heat@{0}%"
+				text="Grenade Damage Gained as extra Fire per Heat {0}%"
 			},
 			[2]={
 				limit={

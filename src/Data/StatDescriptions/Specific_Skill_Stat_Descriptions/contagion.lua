@@ -11,7 +11,7 @@ return {
 				},
 				limit={
 				},
-				text="Spread radius@{0}m"
+				text="Spread radius {0}m"
 			}
 		},
 		stats={
@@ -93,7 +93,7 @@ return {
 				},
 				limit={
 				},
-				text="Debuff duration@{0}s"
+				text="Debuff duration {0}s"
 			}
 		},
 		stats={

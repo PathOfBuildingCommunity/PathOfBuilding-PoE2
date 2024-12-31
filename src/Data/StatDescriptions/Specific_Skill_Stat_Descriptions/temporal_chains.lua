@@ -11,7 +11,7 @@ return {
 				},
 				limit={
 				},
-				text="Curse radius@{0}m"
+				text="Curse radius {0}m"
 			}
 		},
 		stats={
@@ -93,7 +93,7 @@ return {
 				},
 				limit={
 				},
-				text="Effect expiry speed reduction inflicted@{0}%"
+				text="Effect expiry speed reduction inflicted {0}%"
 			},
 			[2]={
 				limit={
@@ -131,7 +131,7 @@ return {
 				},
 				limit={
 				},
-				text="Curse duration@{0}s"
+				text="Curse duration {0}s"
 			}
 		},
 		stats={
@@ -147,7 +147,7 @@ return {
 				},
 				limit={
 				},
-				text="Slow inflicted@{0}%"
+				text="Slow inflicted {0}%"
 			}
 		},
 		stats={

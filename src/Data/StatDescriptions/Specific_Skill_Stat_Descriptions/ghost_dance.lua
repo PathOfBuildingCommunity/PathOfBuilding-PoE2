@@ -27,7 +27,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Energy Shield recovered@{0}"
+				text="Energy Shield recovered {0}"
 			}
 		},
 		stats={
@@ -39,7 +39,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Maximum Ghost Shrouds@{0}"
+				text="Maximum Ghost Shrouds {0}"
 			},
 			[2]={
 				limit={
@@ -80,7 +80,7 @@ return {
 				},
 				limit={
 				},
-				text="Duration between Ghost Shrouds@{0}s"
+				text="Duration between Ghost Shrouds {0}s"
 			}
 		},
 		stats={

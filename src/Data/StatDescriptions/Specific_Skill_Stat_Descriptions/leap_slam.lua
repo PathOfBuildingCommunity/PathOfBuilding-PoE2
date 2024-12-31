@@ -16,7 +16,7 @@ return {
 				},
 				limit={
 				},
-				text="Impact radius@{0}m"
+				text="Impact radius {0}m"
 			}
 		},
 		stats={
@@ -61,7 +61,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="More Stun buildup against Broken Armour@{0}%"
+				text="More Stun buildup against Broken Armour {0}%"
 			},
 			[2]={
 				limit={

@@ -11,7 +11,7 @@ return {
 				},
 				limit={
 				},
-				text="Ignite radius@{0}m"
+				text="Ignite radius {0}m"
 			}
 		},
 		stats={

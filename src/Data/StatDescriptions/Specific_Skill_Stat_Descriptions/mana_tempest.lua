@@ -12,7 +12,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Lightning Spell Chains granted@{0}"
+				text="Lightning Spell Chains granted {0}"
 			},
 			[2]={
 				limit={
@@ -42,7 +42,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Additional Chain targets granted@{0}"
+				text="Additional Chain targets granted {0}"
 			},
 			[2]={
 				limit={
@@ -93,7 +93,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Mana cost inherited from skills used@{0}%"
+				text="Mana cost inherited from skills used {0}%"
 			},
 			[2]={
 				limit={

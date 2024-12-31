@@ -11,7 +11,7 @@ return {
 				},
 				limit={
 				},
-				text="Burst radius@{0}m"
+				text="Burst radius {0}m"
 			}
 		},
 		stats={
@@ -98,7 +98,7 @@ return {
 				},
 				limit={
 				},
-				text="Poison duration@{0}s"
+				text="Poison duration {0}s"
 			}
 		},
 		stats={

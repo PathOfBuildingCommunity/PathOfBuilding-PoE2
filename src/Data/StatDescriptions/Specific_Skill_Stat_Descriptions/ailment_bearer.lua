@@ -44,7 +44,7 @@ return {
 				},
 				limit={
 				},
-				text="Unbound duration@{0}s"
+				text="Unbound duration {0}s"
 			}
 		},
 		stats={

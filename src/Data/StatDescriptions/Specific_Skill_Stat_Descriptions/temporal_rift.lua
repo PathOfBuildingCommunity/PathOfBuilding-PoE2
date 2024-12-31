@@ -7,7 +7,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Maximum afterimages@{0}"
+				text="Maximum afterimages {0}"
 			},
 			[2]={
 				limit={
@@ -32,7 +32,7 @@ return {
 				},
 				limit={
 				},
-				text="Afterimage creation interval@{0}s"
+				text="Afterimage creation interval {0}s"
 			},
 			[2]={
 				[1]={

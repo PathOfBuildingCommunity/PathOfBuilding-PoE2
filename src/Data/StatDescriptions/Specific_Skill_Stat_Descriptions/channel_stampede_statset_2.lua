@@ -31,7 +31,7 @@ return {
 				},
 				limit={
 				},
-				text="Jagged Ground detonation radius@{0}m"
+				text="Jagged Ground detonation radius {0}m"
 			}
 		},
 		stats={

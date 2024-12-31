@@ -11,7 +11,7 @@ return {
 				},
 				limit={
 				},
-				text="Banner Aura radius@{0}m"
+				text="Banner Aura radius {0}m"
 			}
 		},
 		stats={
@@ -93,7 +93,7 @@ return {
 				},
 				limit={
 				},
-				text="Maximum Banner duration@{0}s"
+				text="Maximum Banner duration {0}s"
 			}
 		},
 		stats={
@@ -105,7 +105,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="Increased Accuracy granted@{0}%"
+				text="Increased Accuracy granted {0}%"
 			},
 			[2]={
 				limit={
@@ -139,7 +139,7 @@ return {
 			[1]={
 				limit={
 				},
-				text="More Attack damage granted@{0}%"
+				text="More Attack damage granted {0}%"
 			},
 			[2]={
 				limit={

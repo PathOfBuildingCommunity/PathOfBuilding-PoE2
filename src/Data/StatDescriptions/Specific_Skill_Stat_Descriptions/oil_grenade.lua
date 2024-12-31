@@ -11,7 +11,7 @@ return {
 				},
 				limit={
 				},
-				text="Oil spray radius@{0}m"
+				text="Oil spray radius {0}m"
 			}
 		},
 		stats={
@@ -126,7 +126,7 @@ return {
 				},
 				limit={
 				},
-				text="Fuse duration@{0}s"
+				text="Fuse duration {0}s"
 			}
 		},
 		stats={
@@ -142,7 +142,7 @@ return {
 				},
 				limit={
 				},
-				text="Oil duration@{0}s"
+				text="Oil duration {0}s"
 			}
 		},
 		stats={
@@ -158,7 +158,7 @@ return {
 				},
 				limit={
 				},
-				text="Oil Ground duration@{0}s"
+				text="Oil Ground duration {0}s"
 			}
 		},
 		stats={
@@ -174,7 +174,7 @@ return {
 				},
 				limit={
 				},
-				text="Oil duration@{0}s"
+				text="Oil duration {0}s"
 			}
 		},
 		stats={
