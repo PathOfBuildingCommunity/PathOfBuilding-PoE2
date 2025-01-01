@@ -5743,7 +5743,7 @@ return {
 		},
 		[2]={
 			list=false,
-			name="",
+			name="Label",
 			refTo="",
 			type="String",
 			width=150

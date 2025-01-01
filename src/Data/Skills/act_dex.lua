@@ -55,12 +55,12 @@ skills["AlchemistsBoonPlayer"] = {
 	},
 	description = "While active, grants you Flask charges passively and causes Life and Mana recovery from your Flasks to also apply to Allies in your Presence.",
 	skillTypes = { [SkillType.OngoingSkill] = true, [SkillType.HasReservation] = true, [SkillType.Buff] = true, [SkillType.Persistent] = true, [SkillType.Aura] = true, },
-	statDescriptionScope = "alchemist_boon",
 	castTime = 1,
 	statSets = {
 		[1] = {
 			label = "Alchemist's Boon",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "alchemist_boon",
 			baseFlags = {
 			},
 			stats = {
@@ -164,12 +164,12 @@ skills["BarragePlayer"] = {
 	weaponTypes = {
 		["Bow"] = true,
 	},
-	statDescriptionScope = "empower_barrage",
 	castTime = 0.7,
 	statSets = {
 		[1] = {
 			label = "Barrage",
 			incrementalEffectiveness = 0.092720001935959,
+			statDescriptionScope = "empower_barrage",
 			baseFlags = {
 			},
 			constantStats = {
@@ -280,12 +280,12 @@ skills["CombatFrenzyPlayer"] = {
 	},
 	description = "While active, grants you a Frenzy Charge when you Freeze, Electrocute or Pin an enemy. This can only occur once every few seconds.",
 	skillTypes = { [SkillType.OngoingSkill] = true, [SkillType.HasReservation] = true, [SkillType.Buff] = true, [SkillType.Persistent] = true, [SkillType.GeneratesCharges] = true, },
-	statDescriptionScope = "combat_frenzy",
 	castTime = 1,
 	statSets = {
 		[1] = {
 			label = "Combat Frenzy",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "combat_frenzy",
 			baseFlags = {
 			},
 			stats = {
@@ -388,12 +388,12 @@ skills["DetonatingArrowPlayer"] = {
 	weaponTypes = {
 		["Bow"] = true,
 	},
-	statDescriptionScope = "detonating_arrow",
 	castTime = 1,
 	statSets = {
 		[1] = {
-			label = "Detonating Arrow",
+			label = "Arrow",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "detonating_arrow",
 			baseFlags = {
 			},
 			constantStats = {
@@ -456,8 +456,9 @@ skills["DetonatingArrowPlayer"] = {
 			},
 		},
 		[2] = {
-			label = "Detonating Arrow",
+			label = "Explosion",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "detonating_arrow",
 			baseFlags = {
 			},
 			constantStats = {
@@ -523,12 +524,12 @@ skills["ElectrocutingArrowPlayer"] = {
 	weaponTypes = {
 		["Bow"] = true,
 	},
-	statDescriptionScope = "electrocuting_arrow",
 	castTime = 1,
 	statSets = {
 		[1] = {
 			label = "Electrocuting Arrow",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "electrocuting_arrow",
 			baseFlags = {
 			},
 			constantStats = {
@@ -644,12 +645,12 @@ skills["EscapeShotPlayer"] = {
 	weaponTypes = {
 		["Bow"] = true,
 	},
-	statDescriptionScope = "escape_shot",
 	castTime = 1,
 	statSets = {
 		[1] = {
 			label = "Escape Shot",
 			incrementalEffectiveness = 0.092720001935959,
+			statDescriptionScope = "escape_shot",
 			baseFlags = {
 				attack = true,
 				projectile = true,
@@ -770,12 +771,12 @@ skills["FreezingSalvoPlayer"] = {
 	weaponTypes = {
 		["Bow"] = true,
 	},
-	statDescriptionScope = "freezing_salvo",
 	castTime = 1,
 	statSets = {
 		[1] = {
 			label = "Freezing Salvo",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "freezing_salvo",
 			baseFlags = {
 			},
 			constantStats = {
@@ -893,12 +894,12 @@ skills["GasArrowPlayer"] = {
 	weaponTypes = {
 		["Bow"] = true,
 	},
-	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
 	statSets = {
 		[1] = {
-			label = "Gas Arrow",
+			label = "Arrow",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gas_cloud_arrow_statset_0",
 			baseFlags = {
 			},
 			constantStats = {
@@ -963,8 +964,9 @@ skills["GasArrowPlayer"] = {
 			},
 		},
 		[2] = {
-			label = "Gas Arrow",
+			label = "Poison Cloud",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gas_cloud_arrow_statset_0",
 			baseFlags = {
 			},
 			constantStats = {
@@ -1023,8 +1025,9 @@ skills["GasArrowPlayer"] = {
 			},
 		},
 		[3] = {
-			label = "Gas Arrow",
+			label = "Explosion",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gas_cloud_arrow_statset_0",
 			baseFlags = {
 			},
 			constantStats = {
@@ -1127,12 +1130,12 @@ skills["HeraldOfPlaguePlayer"] = {
 	},
 	description = "While active, killing a Poisoned enemy spreads its Poison to other nearby enemies, and has a chance to also Hinder them.",
 	skillTypes = { [SkillType.OngoingSkill] = true, [SkillType.HasReservation] = true, [SkillType.Buff] = true, [SkillType.Persistent] = true, [SkillType.Herald] = true, [SkillType.Chaos] = true, },
-	statDescriptionScope = "herald_of_agony",
 	castTime = 1,
 	statSets = {
 		[1] = {
 			label = "Herald of Plague",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "herald_of_agony",
 			baseFlags = {
 			},
 			stats = {
@@ -1245,12 +1248,12 @@ skills["HeraldOfThunderPlayer"] = {
 		["Bow"] = true,
 		["One Handed Sword"] = true,
 	},
-	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 0,
 	statSets = {
 		[1] = {
-			label = "Herald of Thunder",
+			label = "Buff",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "herald_of_thunder_statset_0",
 			baseFlags = {
 			},
 			stats = {
@@ -1301,8 +1304,9 @@ skills["HeraldOfThunderPlayer"] = {
 			},
 		},
 		[2] = {
-			label = "Herald of Thunder",
+			label = "Bolt",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "herald_of_thunder_statset_0",
 			baseFlags = {
 			},
 			constantStats = {
@@ -1410,12 +1414,12 @@ skills["IceShotPlayer"] = {
 	weaponTypes = {
 		["Bow"] = true,
 	},
-	statDescriptionScope = "ice_shot",
 	castTime = 1,
 	statSets = {
 		[1] = {
-			label = "Ice Shot",
+			label = "Arrow",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "ice_shot",
 			baseFlags = {
 			},
 			constantStats = {
@@ -1480,8 +1484,9 @@ skills["IceShotPlayer"] = {
 			},
 		},
 		[2] = {
-			label = "Ice Shot",
+			label = "Shards",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "ice_shot",
 			baseFlags = {
 			},
 			constantStats = {
@@ -1589,14 +1594,14 @@ skills["LightningArrowPlayer"] = {
 	weaponTypes = {
 		["Bow"] = true,
 	},
-	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
 	statSets = {
 		[1] = {
-			label = "Lightning Arrow",
+			label = "Projectile",
 			baseEffectiveness = 0.6700000166893,
 			incrementalEffectiveness = 0.092720001935959,
 			damageIncrementalEffectiveness = 0.023299999535084,
+			statDescriptionScope = "lightning_arrow_statset_0",
 			baseFlags = {
 			},
 			constantStats = {
@@ -1662,8 +1667,9 @@ skills["LightningArrowPlayer"] = {
 			},
 		},
 		[2] = {
-			label = "Lightning Arrow",
+			label = "Beam",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "lightning_arrow_statset_0",
 			baseFlags = {
 			},
 			constantStats = {
@@ -1768,12 +1774,12 @@ skills["LightningRodPlayer"] = {
 	weaponTypes = {
 		["Bow"] = true,
 	},
-	statDescriptionScope = "lightning_rod_rain",
 	castTime = 1,
 	statSets = {
 		[1] = {
 			label = "Lightning Rod",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "lightning_rod_rain",
 			baseFlags = {
 			},
 			constantStats = {
@@ -1890,12 +1896,12 @@ skills["MagneticSalvoPlayer"] = {
 	weaponTypes = {
 		["Bow"] = true,
 	},
-	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
 	statSets = {
 		[1] = {
-			label = "Magnetic Salvo",
+			label = "Impact",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "magnetic_salvo_statset_0",
 			baseFlags = {
 			},
 			constantStats = {
@@ -1952,8 +1958,9 @@ skills["MagneticSalvoPlayer"] = {
 			},
 		},
 		[2] = {
-			label = "Magnetic Salvo",
+			label = "Explosion",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "magnetic_salvo_statset_0",
 			baseFlags = {
 			},
 			constantStats = {
@@ -2054,7 +2061,6 @@ skills["PlagueBearerPlayer"] = {
 	},
 	description = "Stores all Poison Damage you deal. Using the Plague Nova skill unleashes the stored Poison.",
 	skillTypes = { [SkillType.Buff] = true, [SkillType.OngoingSkill] = true, [SkillType.HasReservation] = true, [SkillType.Persistent] = true, },
-	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 0,
 	statSets = {
 		[1] = {
@@ -2062,6 +2068,7 @@ skills["PlagueBearerPlayer"] = {
 			baseEffectiveness = 14,
 			incrementalEffectiveness = 0.12517000734806,
 			damageIncrementalEffectiveness = 0.032000001519918,
+			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -2163,7 +2170,6 @@ skills["PlagueBearerNovaPlayer"] = {
 	},
 	description = "Release all Poison stored by Plague Bearer, dealing an equal amount of Physical Damage to enemies around you.",
 	skillTypes = { [SkillType.Area] = true, [SkillType.Nonpathing] = true, [SkillType.Nova] = true, [SkillType.Physical] = true, [SkillType.Chaos] = true, },
-	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
 	statSets = {
 		[1] = {
@@ -2171,6 +2177,7 @@ skills["PlagueBearerNovaPlayer"] = {
 			baseEffectiveness = 40,
 			incrementalEffectiveness = 0.092720001935959,
 			damageIncrementalEffectiveness = 0.032000001519918,
+			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -2286,12 +2293,12 @@ skills["PoisonBurstArrowPlayer"] = {
 	weaponTypes = {
 		["Bow"] = true,
 	},
-	statDescriptionScope = "poison_burst_arrow",
 	castTime = 1,
 	statSets = {
 		[1] = {
-			label = "Poisonburst Arrow",
+			label = "Arrow",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "poison_burst_arrow",
 			baseFlags = {
 			},
 			constantStats = {
@@ -2354,10 +2361,11 @@ skills["PoisonBurstArrowPlayer"] = {
 			},
 		},
 		[2] = {
-			label = "Poisonburst Arrow",
+			label = "Poison Burst",
 			baseEffectiveness = 3.5,
 			incrementalEffectiveness = 0.092720001935959,
 			damageIncrementalEffectiveness = 0.032000001519918,
+			statDescriptionScope = "poison_burst_arrow",
 			baseFlags = {
 			},
 			constantStats = {
@@ -2468,13 +2476,13 @@ skills["RainOfArrowsPlayer"] = {
 	weaponTypes = {
 		["Bow"] = true,
 	},
-	statDescriptionScope = "rain_of_arrows_new",
 	castTime = 1,
 	statSets = {
 		[1] = {
 			label = "Rain of Arrows",
 			baseEffectiveness = 0,
 			incrementalEffectiveness = 0.092720001935959,
+			statDescriptionScope = "rain_of_arrows_new",
 			baseFlags = {
 				attack = true,
 				projectile = true,
@@ -2597,12 +2605,12 @@ skills["ShockchainArrowPlayer"] = {
 	weaponTypes = {
 		["Bow"] = true,
 	},
-	statDescriptionScope = "trick_shot",
 	castTime = 1,
 	statSets = {
 		[1] = {
-			label = "Shockchain Arrow",
+			label = "Projectile",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "trick_shot",
 			baseFlags = {
 			},
 			constantStats = {
@@ -2669,8 +2677,9 @@ skills["ShockchainArrowPlayer"] = {
 			},
 		},
 		[2] = {
-			label = "Shockchain Arrow",
+			label = "Beam",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "trick_shot",
 			baseFlags = {
 			},
 			constantStats = {
@@ -2724,8 +2733,9 @@ skills["ShockchainArrowPlayer"] = {
 			},
 		},
 		[3] = {
-			label = "Shockchain Arrow",
+			label = "Shockwave",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "trick_shot",
 			baseFlags = {
 			},
 			constantStats = {
@@ -2831,12 +2841,12 @@ skills["SnipePlayer"] = {
 	weaponTypes = {
 		["Bow"] = true,
 	},
-	statDescriptionScope = "channelled_snipe",
 	castTime = 1,
 	statSets = {
 		[1] = {
-			label = "Snipe",
+			label = "Arrow",
 			incrementalEffectiveness = 0.092720001935959,
+			statDescriptionScope = "channelled_snipe",
 			baseFlags = {
 				attack = true,
 				projectile = true,
@@ -2906,8 +2916,9 @@ skills["SnipePlayer"] = {
 			},
 		},
 		[2] = {
-			label = "Snipe",
+			label = "Explosion",
 			incrementalEffectiveness = 0.092720001935959,
+			statDescriptionScope = "channelled_snipe",
 			baseFlags = {
 				attack = true,
 				projectile = true,
@@ -2975,13 +2986,13 @@ skills["SnipersMarkPlayer"] = {
 	},
 	description = "Marks a target. The next Critical Hit the target receives consumes the Mark to deal extra damage and grant you a Frenzy Charge.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.CanRapidFire] = true, [SkillType.Duration] = true, [SkillType.Nonpathing] = true, [SkillType.GeneratesCharges] = true, [SkillType.Mark] = true, [SkillType.Cooldown] = true, [SkillType.Limit] = true, },
-	statDescriptionScope = "snipers_mark",
 	castTime = 0.5,
 	statSets = {
 		[1] = {
 			label = "Sniper's Mark",
 			baseEffectiveness = 0,
 			incrementalEffectiveness = 0.092720001935959,
+			statDescriptionScope = "snipers_mark",
 			baseFlags = {
 			},
 			constantStats = {
@@ -3092,12 +3103,12 @@ skills["SpiralVolleyPlayer"] = {
 	weaponTypes = {
 		["Bow"] = true,
 	},
-	statDescriptionScope = "spiral_volley",
 	castTime = 1,
 	statSets = {
 		[1] = {
 			label = "Spiral Volley",
 			incrementalEffectiveness = 0.092720001935959,
+			statDescriptionScope = "spiral_volley",
 	statMap = {
 		["spiral_volley_damage_+%_final_when_frenzy_charges_consumed"] = {
 			mod("Damage", "MORE", nil, 0, 0, { type = "MultiplierThreshold", var = "RemovableFrenzyCharge", threshold = 1 }),
@@ -3225,12 +3236,12 @@ skills["StormcallerArrowPlayer"] = {
 	weaponTypes = {
 		["Bow"] = true,
 	},
-	statDescriptionScope = "shocking_arrow",
 	castTime = 1,
 	statSets = {
 		[1] = {
-			label = "Stormcaller Arrow",
+			label = "Arrow",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "shocking_arrow",
 			baseFlags = {
 			},
 			constantStats = {
@@ -3294,8 +3305,9 @@ skills["StormcallerArrowPlayer"] = {
 			},
 		},
 		[2] = {
-			label = "Stormcaller Arrow",
+			label = "Bolt",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "shocking_arrow",
 			baseFlags = {
 			},
 			constantStats = {
@@ -3404,12 +3416,12 @@ skills["TornadoShotPlayer"] = {
 	weaponTypes = {
 		["Bow"] = true,
 	},
-	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
 	statSets = {
 		[1] = {
-			label = "Tornado Shot",
+			label = "Impact",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "tornado_shot_statset_0",
 			baseFlags = {
 			},
 			constantStats = {
@@ -3472,10 +3484,11 @@ skills["TornadoShotPlayer"] = {
 			},
 		},
 		[2] = {
-			label = "Tornado Shot",
+			label = "Tornado",
 			baseEffectiveness = 4,
 			incrementalEffectiveness = 0.14000000059605,
 			damageIncrementalEffectiveness = 0.0065000001341105,
+			statDescriptionScope = "tornado_shot_statset_0",
 			baseFlags = {
 			},
 			constantStats = {
@@ -3587,7 +3600,6 @@ skills["ToxicGrowthPlayer"] = {
 	weaponTypes = {
 		["Bow"] = true,
 	},
-	statDescriptionScope = "poisonbloom_arrow",
 	castTime = 1,
 	statSets = {
 		[1] = {
@@ -3595,6 +3607,7 @@ skills["ToxicGrowthPlayer"] = {
 			baseEffectiveness = 21,
 			incrementalEffectiveness = 0.092720001935959,
 			damageIncrementalEffectiveness = 0.032000001519918,
+			statDescriptionScope = "poisonbloom_arrow",
 			baseFlags = {
 				attack = true,
 				projectile = true,
@@ -3668,8 +3681,9 @@ skills["ToxicGrowthPlayer"] = {
 			},
 		},
 		[2] = {
-			label = "Toxic Growth",
+			label = "Hidden",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "poisonbloom_arrow",
 			baseFlags = {
 				attack = true,
 				projectile = true,
@@ -3735,12 +3749,12 @@ skills["VineArrowPlayer"] = {
 	weaponTypes = {
 		["Bow"] = true,
 	},
-	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
 	statSets = {
 		[1] = {
-			label = "Vine Arrow",
+			label = "Impact",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "poison_vine_arrow_statset_0",
 			baseFlags = {
 			},
 			constantStats = {
@@ -3802,10 +3816,11 @@ skills["VineArrowPlayer"] = {
 			},
 		},
 		[2] = {
-			label = "Vine Arrow",
+			label = "Vines",
 			baseEffectiveness = 5.1999998092651,
 			incrementalEffectiveness = 0.14000000059605,
 			damageIncrementalEffectiveness = 0.0065000001341105,
+			statDescriptionScope = "poison_vine_arrow_statset_0",
 			baseFlags = {
 			},
 			constantStats = {
@@ -3911,12 +3926,12 @@ skills["VoltaicMarkPlayer"] = {
 	},
 	description = "Marks a target, making them more susceptible to being Shocked. When the Marked target dies, a Lightning nova erupts from their corpse. This nova does not use your Weapon Damage, and instead uses its own base Attack Damage.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.CanRapidFire] = true, [SkillType.Duration] = true, [SkillType.Nonpathing] = true, [SkillType.Mark] = true, [SkillType.Lightning] = true, [SkillType.Limit] = true, },
-	statDescriptionScope = "thaumaturgist_mark",
 	castTime = 0.5,
 	statSets = {
 		[1] = {
-			label = "Voltaic Mark",
+			label = "Mark",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "thaumaturgist_mark",
 			baseFlags = {
 			},
 			constantStats = {
@@ -4023,14 +4038,14 @@ skills["TriggeredVoltaicMarkNovaPlayer"] = {
 		[40] = { levelRequirement = 0, actorLevel = 288.29998779297, },
 	},
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Nova] = true, [SkillType.Area] = true, [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.UseGlobalStats] = true, [SkillType.Lightning] = true, [SkillType.NonWeaponAttack] = true, },
-	statDescriptionScope = "thaumaturgist_mark_nova",
 	castTime = 1,
 	statSets = {
 		[1] = {
-			label = "Voltaic Nova",
+			label = "Nova",
 			baseEffectiveness = 1.9409999847412,
 			incrementalEffectiveness = 0.11649999767542,
 			damageIncrementalEffectiveness = 0.006699999794364,
+			statDescriptionScope = "thaumaturgist_mark_nova",
 			baseFlags = {
 			},
 			constantStats = {
@@ -4151,12 +4166,12 @@ skills["WindDancerPlayer"] = {
 		["Bow"] = true,
 		["One Handed Sword"] = true,
 	},
-	statDescriptionScope = "wind_dancer",
 	castTime = 1,
 	statSets = {
 		[1] = {
-			label = "Wind Dancer",
+			label = "Buff",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "wind_dancer",
 			baseFlags = {
 			},
 			constantStats = {
@@ -4270,12 +4285,12 @@ skills["TriggeredWindDancerPlayer"] = {
 		["Bow"] = true,
 		["One Handed Sword"] = true,
 	},
-	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
 	statSets = {
 		[1] = {
 			label = "Gale Force",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {

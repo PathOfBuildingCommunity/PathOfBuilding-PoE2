@@ -229,9 +229,6 @@ local skills, mod, flag, skill = ...
 #set ToxicGrowthPlayer
 #flags attack projectile area duration
 #mods
-#set ToxicGrowthBurstPlayer
-#flags attack projectile area
-#mods
 #skillEnd
 
 #skill VineArrowPlayer

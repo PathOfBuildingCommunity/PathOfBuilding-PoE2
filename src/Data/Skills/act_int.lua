@@ -54,7 +54,6 @@ skills["ArcPlayer"] = {
 	},
 	description = "An arc of Lightning stretches from the caster to a targeted enemy and Chains on to other nearby enemies.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Chains] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Lightning] = true, [SkillType.CanRapidFire] = true, [SkillType.Invokable] = true, [SkillType.Nonpathing] = true, },
-	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1.1,
 	statSets = {
 		[1] = {
@@ -62,6 +61,7 @@ skills["ArcPlayer"] = {
 			baseEffectiveness = 3.0999999046326,
 			incrementalEffectiveness = 0.14000000059605,
 			damageIncrementalEffectiveness = 0.0065000001341105,
+			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -173,12 +173,12 @@ skills["ArchmagePlayer"] = {
 	},
 	description = "While active, causes your Non-Channelling Spells to cost additional mana and deal extra Lightning damage, both based on your maximum Mana.",
 	skillTypes = { [SkillType.OngoingSkill] = true, [SkillType.HasReservation] = true, [SkillType.Buff] = true, [SkillType.Persistent] = true, [SkillType.Lightning] = true, },
-	statDescriptionScope = "archmage",
 	castTime = 1,
 	statSets = {
 		[1] = {
 			label = "Archmage",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "archmage",
 			baseFlags = {
 			},
 			stats = {
@@ -279,7 +279,6 @@ skills["ArcticArmourPlayer"] = {
 	},
 	description = "Conjures an icy barrier that gains stages over time. While the barrier has stages, Melee Attacks that hit you will remove a stage to cause a burst of ice that deals Cold Spell damage to the attacker.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Buff] = true, [SkillType.HasReservation] = true, [SkillType.Cold] = true, [SkillType.OngoingSkill] = true, [SkillType.Persistent] = true, [SkillType.Damage] = true, [SkillType.Sustained] = true, },
-	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 0,
 	statSets = {
 		[1] = {
@@ -287,6 +286,7 @@ skills["ArcticArmourPlayer"] = {
 			baseEffectiveness = 2.1800000667572,
 			incrementalEffectiveness = 0.14000000059605,
 			damageIncrementalEffectiveness = 0.0065000001341105,
+			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
 			},
 			stats = {
@@ -388,7 +388,6 @@ skills["BallLightningPlayer"] = {
 	},
 	description = "Fires a slow-moving Projectile that repeatedly shoots bolts of Lightning at nearby enemies.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Area] = true, [SkillType.Totemable] = true, [SkillType.Trappable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Lightning] = true, [SkillType.CanRapidFire] = true, [SkillType.AreaSpell] = true, [SkillType.Nonpathing] = true, [SkillType.CannotChain] = true, [SkillType.Sustained] = true, },
-	statDescriptionScope = "ball_lightning",
 	castTime = 1,
 	statSets = {
 		[1] = {
@@ -396,6 +395,7 @@ skills["BallLightningPlayer"] = {
 			baseEffectiveness = 0.30000001192093,
 			incrementalEffectiveness = 0.14000000059605,
 			damageIncrementalEffectiveness = 0.0065000001341105,
+			statDescriptionScope = "ball_lightning",
 			baseFlags = {
 			},
 			constantStats = {
@@ -506,12 +506,12 @@ skills["MetaBarrierInvocationPlayer"] = {
 	},
 	description = "While active, this Invocation gains Energy when your Energy Shield is damaged by Hits. Using the Invocation once sufficient Energy is gathered will consume the Energy to trigger socketed Spells, and can trigger them multiple times if it has enough Energy.",
 	skillTypes = { [SkillType.HasReservation] = true, [SkillType.OngoingSkill] = true, [SkillType.Meta] = true, [SkillType.Persistent] = true, [SkillType.Buff] = true, [SkillType.CanHaveMultipleOngoingSkillInstances] = true, [SkillType.Invocation] = true, [SkillType.GeneratesEnergy] = true, },
-	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 0,
 	statSets = {
 		[1] = {
 			label = "Barrier Invocation",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -617,11 +617,11 @@ skills["SupportBarrierInvocationPlayer"] = {
 	addSkillTypes = { SkillType.Triggered, SkillType.Cooldown, },
 	excludeSkillTypes = { SkillType.SupportedByHourglass, },
 	isTrigger = true,
-	statDescriptionScope = "gem_stat_descriptions",
 	statSets = {
 		[1] = {
 			label = "SupportBarrierInvocationPlayer",
 			incrementalEffectiveness = 0.054999999701977,
+	statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -725,12 +725,12 @@ skills["BlasphemyPlayer"] = {
 	},
 	description = "Turns socketed Curse skills into vile Auras, applying their effects to all nearby enemies.",
 	skillTypes = { [SkillType.Area] = true, [SkillType.Buff] = true, [SkillType.HasReservation] = true, [SkillType.Aura] = true, [SkillType.AreaSpell] = true, [SkillType.OngoingSkill] = true, [SkillType.Persistent] = true, [SkillType.Meta] = true, [SkillType.CanHaveMultipleOngoingSkillInstances] = true, [SkillType.IsBlasphemy] = true, },
-	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 0,
 	statSets = {
 		[1] = {
-			label = "Blasphemy",
+			label = "Buff",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -836,11 +836,11 @@ skills["SupportBlasphemyPlayer"] = {
 	excludeSkillTypes = { SkillType.Trapped, SkillType.RemoteMined, SkillType.OR, SkillType.SummonsTotem, SkillType.UsedByTotem, SkillType.NOT, SkillType.AND, SkillType.SupportedByHourglass, },
 	isTrigger = true,
 	ignoreMinionTypes = true,
-	statDescriptionScope = "gem_stat_descriptions",
 	statSets = {
 		[1] = {
-			label = "SupportBlasphemyPlayer",
+			label = "Curses",
 			incrementalEffectiveness = 0.092720001935959,
+	statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			stats = {
@@ -942,12 +942,12 @@ skills["BlinkReservationPlayer"] = {
 	},
 	description = "Replaces your dodge roll with a short-cooldown Spell that allows you to tunnel through space, instantly reappearing a medium distance away.",
 	skillTypes = { [SkillType.OngoingSkill] = true, [SkillType.HasReservation] = true, [SkillType.Buff] = true, [SkillType.Persistent] = true, },
-	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
 	statSets = {
 		[1] = {
 			label = "Blink",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
 			},
 			stats = {
@@ -1044,12 +1044,12 @@ skills["BlinkPlayer"] = {
 		[40] = { storedUses = 1, levelRequirement = 0, cooldown = 2.5, actorLevel = 288.29998779297, },
 	},
 	skillTypes = { [SkillType.UsableWhileShapeshifted] = true, [SkillType.Nonpathing] = true, [SkillType.Spell] = true, [SkillType.Cooldown] = true, },
-	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 0.7,
 	statSets = {
 		[1] = {
 			label = "",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -1155,7 +1155,6 @@ skills["BoneBlastPlayer"] = {
 	},
 	description = "Conjures a circle of ritual inscriptions that last for a short duration. When the duration ends, spikes of bone erupt from enemies in the area, damaging them and potentially causing Bleeding.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Duration] = true, [SkillType.Area] = true, [SkillType.Physical] = true, [SkillType.CanRapidFire] = true, [SkillType.Nonpathing] = true, [SkillType.Damage] = true, [SkillType.Cascadable] = true, [SkillType.CreatesGroundRune] = true, },
-	statDescriptionScope = "bone_blast",
 	castTime = 0.75,
 	statSets = {
 		[1] = {
@@ -1163,6 +1162,7 @@ skills["BoneBlastPlayer"] = {
 			baseEffectiveness = 1.7000000476837,
 			incrementalEffectiveness = 0.14000000059605,
 			damageIncrementalEffectiveness = 0.0094999996945262,
+			statDescriptionScope = "bone_blast",
 			baseFlags = {
 			},
 			constantStats = {
@@ -1272,7 +1272,6 @@ skills["BoneCagePlayer"] = {
 	},
 	description = "Raises a ring of bone spikes around you. The spikes are destroyed when enemies touch them, damaging and Pinning those enemies.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Duration] = true, [SkillType.Area] = true, [SkillType.Physical] = true, [SkillType.CanRapidFire] = true, [SkillType.Nova] = true, [SkillType.Nonpathing] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, [SkillType.Cascadable] = true, },
-	statDescriptionScope = "ring_of_bone",
 	castTime = 1,
 	statSets = {
 		[1] = {
@@ -1280,6 +1279,7 @@ skills["BoneCagePlayer"] = {
 			baseEffectiveness = 2.5599999427795,
 			incrementalEffectiveness = 0.14000000059605,
 			damageIncrementalEffectiveness = 0.0094999996945262,
+			statDescriptionScope = "ring_of_bone",
 			baseFlags = {
 			},
 			constantStats = {
@@ -1395,14 +1395,14 @@ skills["BoneOfferingPlayer"] = {
 	description = "Impales a Skeleton on a bone spike to shield your Minions while the spike remains. The shield absorbs all damage from the next Hit each Minion takes, then explodes.\n\nThe bone spike is itself a Minion, and shields itself. If it dies, shields on your other Minions disappear.",
 	skillTypes = { [SkillType.Offering] = true, [SkillType.Minion] = true, [SkillType.Buff] = true, [SkillType.Duration] = true, [SkillType.Triggerable] = true, [SkillType.Trappable] = true, [SkillType.Mineable] = true, [SkillType.Totemable] = true, [SkillType.Area] = true, [SkillType.Physical] = true, [SkillType.CanRapidFire] = true, [SkillType.Nonpathing] = true, [SkillType.CreatesMinion] = true, [SkillType.Limit] = true, },
 	minionSkillTypes = { [SkillType.Spell] = true, [SkillType.Physical] = true, [SkillType.Damage] = true, [SkillType.Area] = true, },
-	statDescriptionScope = "bone_offering",
 	castTime = 0.6,
 	statSets = {
 		[1] = {
-			label = "Bone Offering",
+			label = "Buff",
 			baseEffectiveness = 1.710000038147,
 			incrementalEffectiveness = 0.14000000059605,
 			damageIncrementalEffectiveness = 0.0065000001341105,
+			statDescriptionScope = "bone_offering",
 			baseFlags = {
 			},
 			constantStats = {
@@ -1510,14 +1510,14 @@ skills["BonestormPlayer"] = {
 	},
 	description = "Channel to conjure a swarm of bone spikes in the air, then release to fire them at enemies and explode. Shrapnel lodges in enemies hit, each causing the next Attack against that enemy to deal additional damage. Consumes your Power Charges to cause much larger explosions.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Channel] = true, [SkillType.Projectile] = true, [SkillType.Physical] = true, [SkillType.Duration] = true, [SkillType.Nonpathing] = true, [SkillType.Area] = true, [SkillType.ConsumesCharges] = true, [SkillType.Damage] = true, [SkillType.SkillConsumesPowerChargesOnUse] = true, [SkillType.Sustained] = true, },
-	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 0.75,
 	statSets = {
 		[1] = {
-			label = "Bonestorm",
+			label = "Projectile",
 			baseEffectiveness = 1.4500000476837,
 			incrementalEffectiveness = 0.14000000059605,
 			damageIncrementalEffectiveness = 0.0094999996945262,
+			statDescriptionScope = "bone_spike_statset_0",
 			baseFlags = {
 			},
 			constantStats = {
@@ -1589,10 +1589,11 @@ skills["BonestormPlayer"] = {
 			},
 		},
 		[2] = {
-			label = "Bonestorm",
+			label = "Explosion",
 			baseEffectiveness = 1.1900000572205,
 			incrementalEffectiveness = 0.14000000059605,
 			damageIncrementalEffectiveness = 0.0094999996945262,
+			statDescriptionScope = "bone_spike_statset_0",
 			baseFlags = {
 			},
 			constantStats = {
@@ -1699,12 +1700,12 @@ skills["MetaCastOnCritPlayer"] = {
 	},
 	description = "While active, gains Energy when you Critically Hit enemies and triggers socketed Spells on reaching maximum Energy.",
 	skillTypes = { [SkillType.HasReservation] = true, [SkillType.OngoingSkill] = true, [SkillType.Meta] = true, [SkillType.Persistent] = true, [SkillType.Buff] = true, [SkillType.CanHaveMultipleOngoingSkillInstances] = true, [SkillType.GeneratesEnergy] = true, },
-	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 0,
 	statSets = {
 		[1] = {
 			label = "Cast on Critical",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -1811,11 +1812,11 @@ skills["SupportMetaCastOnCritPlayer"] = {
 	addSkillTypes = { SkillType.Triggered, SkillType.Cooldown, },
 	excludeSkillTypes = { SkillType.SupportedByHourglass, },
 	isTrigger = true,
-	statDescriptionScope = "gem_stat_descriptions",
 	statSets = {
 		[1] = {
 			label = "SupportMetaCastOnCritPlayer",
 			incrementalEffectiveness = 0.054999999701977,
+	statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -1880,12 +1881,12 @@ skills["MetaCastOnDeathPlayer"] = {
 		[14] = { levelRequirement = 58, actorLevel = 58.147998809814, },
 	},
 	skillTypes = { [SkillType.HasReservation] = true, [SkillType.OngoingSkill] = true, [SkillType.Meta] = true, [SkillType.Persistent] = true, [SkillType.Buff] = true, [SkillType.CanHaveMultipleOngoingSkillInstances] = true, [SkillType.GeneratesEnergy] = true, },
-	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 0,
 	statSets = {
 		[1] = {
 			label = "Cast on Death",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -1914,11 +1915,11 @@ skills["SupportMetaCastOnDeathPlayer"] = {
 	addSkillTypes = { SkillType.Triggered, SkillType.Cooldown, },
 	excludeSkillTypes = { SkillType.SupportedByHourglass, },
 	isTrigger = true,
-	statDescriptionScope = "gem_stat_descriptions",
 	statSets = {
 		[1] = {
 			label = "SupportMetaCastOnDeathPlayer",
 			incrementalEffectiveness = 0.054999999701977,
+	statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -1984,12 +1985,12 @@ skills["MetaCastOnDodgePlayer"] = {
 	},
 	description = "While active, gains Energy when you dodge roll and triggers socketed spells on reaching maximum Energy.",
 	skillTypes = { [SkillType.HasReservation] = true, [SkillType.OngoingSkill] = true, [SkillType.Meta] = true, [SkillType.Persistent] = true, [SkillType.Buff] = true, [SkillType.CanHaveMultipleOngoingSkillInstances] = true, [SkillType.GeneratesEnergy] = true, },
-	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 0,
 	statSets = {
 		[1] = {
 			label = "Cast on Dodge",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -2096,11 +2097,11 @@ skills["SupportMetaCastOnDodgePlayer"] = {
 	addSkillTypes = { SkillType.Triggered, SkillType.Cooldown, },
 	excludeSkillTypes = { SkillType.SupportedByHourglass, },
 	isTrigger = true,
-	statDescriptionScope = "gem_stat_descriptions",
 	statSets = {
 		[1] = {
 			label = "SupportMetaCastOnDodgePlayer",
 			incrementalEffectiveness = 0.054999999701977,
+	statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -2204,12 +2205,12 @@ skills["MetaCastOnFreezePlayer"] = {
 	},
 	description = "While active, gains Energy when you Freeze enemies and triggers socketed spells on reaching maximum Energy.",
 	skillTypes = { [SkillType.HasReservation] = true, [SkillType.OngoingSkill] = true, [SkillType.Meta] = true, [SkillType.Persistent] = true, [SkillType.Buff] = true, [SkillType.Cold] = true, [SkillType.CanHaveMultipleOngoingSkillInstances] = true, [SkillType.GeneratesEnergy] = true, },
-	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 0,
 	statSets = {
 		[1] = {
 			label = "Cast on Freeze",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -2316,11 +2317,11 @@ skills["SupportMetaCastOnFreezePlayer"] = {
 	addSkillTypes = { SkillType.Triggered, SkillType.Cooldown, },
 	excludeSkillTypes = { SkillType.SupportedByHourglass, },
 	isTrigger = true,
-	statDescriptionScope = "gem_stat_descriptions",
 	statSets = {
 		[1] = {
 			label = "SupportMetaCastOnFreezePlayer",
 			incrementalEffectiveness = 0.054999999701977,
+	statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -2424,12 +2425,12 @@ skills["MetaCastOnIgnitePlayer"] = {
 	},
 	description = "While active, gains Energy when you Ignite enemies and triggers socketed spells on reaching maximum Energy.",
 	skillTypes = { [SkillType.HasReservation] = true, [SkillType.OngoingSkill] = true, [SkillType.Meta] = true, [SkillType.Persistent] = true, [SkillType.Buff] = true, [SkillType.Fire] = true, [SkillType.CanHaveMultipleOngoingSkillInstances] = true, [SkillType.GeneratesEnergy] = true, },
-	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 0,
 	statSets = {
 		[1] = {
 			label = "Cast on Ignite",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -2536,11 +2537,11 @@ skills["SupportMetaCastOnIgnitePlayer"] = {
 	addSkillTypes = { SkillType.Triggered, SkillType.Cooldown, },
 	excludeSkillTypes = { SkillType.SupportedByHourglass, },
 	isTrigger = true,
-	statDescriptionScope = "gem_stat_descriptions",
 	statSets = {
 		[1] = {
 			label = "SupportMetaCastOnIgnitePlayer",
 			incrementalEffectiveness = 0.054999999701977,
+	statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -2644,12 +2645,12 @@ skills["MetaCastOnMinionDeathPlayer"] = {
 	},
 	description = "While active, gains Energy when one of your Minions is Killed, and triggers socketed Spells upon reaching maximum Energy. Cannot socket Spells which create Minions.",
 	skillTypes = { [SkillType.HasReservation] = true, [SkillType.OngoingSkill] = true, [SkillType.Meta] = true, [SkillType.Persistent] = true, [SkillType.Buff] = true, [SkillType.Minion] = true, [SkillType.CanHaveMultipleOngoingSkillInstances] = true, [SkillType.GeneratesEnergy] = true, },
-	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 0,
 	statSets = {
 		[1] = {
 			label = "Cast on Minion Death",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -2756,11 +2757,11 @@ skills["SupportMetaCastOnMinionDeathPlayer"] = {
 	addSkillTypes = { SkillType.Triggered, SkillType.Cooldown, },
 	excludeSkillTypes = { SkillType.SupportedByHourglass, SkillType.CreatesMinion, },
 	isTrigger = true,
-	statDescriptionScope = "gem_stat_descriptions",
 	statSets = {
 		[1] = {
 			label = "SupportMetaCastOnMinionDeathPlayer",
 			incrementalEffectiveness = 0.054999999701977,
+	statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -2864,12 +2865,12 @@ skills["MetaCastOnShockPlayer"] = {
 	},
 	description = "While active, gains Energy when you Shock enemies and triggers socketed spells on reaching maximum Energy.",
 	skillTypes = { [SkillType.HasReservation] = true, [SkillType.OngoingSkill] = true, [SkillType.Meta] = true, [SkillType.Persistent] = true, [SkillType.Buff] = true, [SkillType.Lightning] = true, [SkillType.CanHaveMultipleOngoingSkillInstances] = true, [SkillType.GeneratesEnergy] = true, },
-	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 0,
 	statSets = {
 		[1] = {
 			label = "Cast on Shock",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -2976,11 +2977,11 @@ skills["SupportMetaCastOnShockPlayer"] = {
 	addSkillTypes = { SkillType.Triggered, SkillType.Cooldown, },
 	excludeSkillTypes = { SkillType.SupportedByHourglass, },
 	isTrigger = true,
-	statDescriptionScope = "gem_stat_descriptions",
 	statSets = {
 		[1] = {
 			label = "SupportMetaCastOnShockPlayer",
 			incrementalEffectiveness = 0.054999999701977,
+	statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -3084,7 +3085,6 @@ skills["WeaponGrantedChaosboltPlayer"] = {
 	},
 	description = "Fires a burst of Chaos energy at the target.",
 	skillTypes = { [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Chaos] = true, [SkillType.CanRapidFire] = true, [SkillType.Invokable] = true, [SkillType.Nonpathing] = true, },
-	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 0.75,
 	statSets = {
 		[1] = {
@@ -3092,6 +3092,7 @@ skills["WeaponGrantedChaosboltPlayer"] = {
 			baseEffectiveness = 2,
 			incrementalEffectiveness = 0.14000000059605,
 			damageIncrementalEffectiveness = 0.0087000001221895,
+			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -3203,12 +3204,12 @@ skills["ChargeInfusionPlayer"] = {
 	},
 	description = "While active, you gain powerful Buffs based on your active Charges. However, maintaining the Buff Consumes Charges every few seconds.",
 	skillTypes = { [SkillType.OngoingSkill] = true, [SkillType.HasReservation] = true, [SkillType.Buff] = true, [SkillType.Persistent] = true, },
-	statDescriptionScope = "charge_mastery",
 	castTime = 1,
 	statSets = {
 		[1] = {
 			label = "Charge Infusion",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "charge_mastery",
 			baseFlags = {
 			},
 			stats = {
@@ -3311,14 +3312,14 @@ skills["ChargedStaffPlayer"] = {
 	},
 	description = "Consume all Power Charges to infuse your Quarterstaff with electricity, adding Lightning damage and a Lightning shockwave to your Quarterstaff Attacks. Reusing this skill while the Buff is active adds to the Buff's duration and damage.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Duration] = true, [SkillType.Buff] = true, [SkillType.ConsumesCharges] = true, [SkillType.QuarterstaffSkill] = true, [SkillType.SkillConsumesPowerChargesOnUse] = true, },
-	statDescriptionScope = "charged_staff",
 	castTime = 0.75,
 	statSets = {
 		[1] = {
-			label = "Charged Staff",
+			label = "Buff",
 			baseEffectiveness = 0.23299999535084,
 			incrementalEffectiveness = 0.072530001401901,
 			damageIncrementalEffectiveness = 0.0049000000581145,
+			statDescriptionScope = "charged_staff",
 			baseFlags = {
 			},
 			constantStats = {
@@ -3420,12 +3421,12 @@ skills["ChargedStaffShockwavePlayer"] = {
 		[40] = { levelRequirement = 0, actorLevel = 288.29998779297, },
 	},
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.QuarterstaffSkill] = true, },
-	statDescriptionScope = "charged_staff_shockwave",
 	castTime = 0.75,
 	statSets = {
 		[1] = {
-			label = "Charged Shockwave",
+			label = "Shockwave",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "charged_staff_shockwave",
 			baseFlags = {
 			},
 			constantStats = {
@@ -3532,7 +3533,6 @@ skills["ColdSnapPlayer"] = {
 	},
 	description = "Shatters the frost on a Frozen enemy, Consuming the Freeze to deal a large amount of Cold Damage to enemies caught in the blast. Can also be cast on a Frostbolt to cause it to explode immediately. Any Frozen enemies hit by the Frostbolt's explosion will be dealt Cold Snap's damage and have their Freeze Consumed.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Cold] = true, [SkillType.Cascadable] = true, [SkillType.AreaSpell] = true, [SkillType.SkillConsumesFreeze] = true, [SkillType.Nonpathing] = true, [SkillType.CanRapidFire] = true, },
-	statDescriptionScope = "shatter",
 	castTime = 0.5,
 	statSets = {
 		[1] = {
@@ -3540,6 +3540,7 @@ skills["ColdSnapPlayer"] = {
 			baseEffectiveness = 8.8000001907349,
 			incrementalEffectiveness = 0.14000000059605,
 			damageIncrementalEffectiveness = 0.0065000001341105,
+			statDescriptionScope = "shatter",
 			baseFlags = {
 			},
 			constantStats = {
@@ -3649,7 +3650,6 @@ skills["CometPlayer"] = {
 	},
 	description = "Calls down a mass of ice from the sky, dealing high damage at the targeted location. Targeting close to you will cause you to jump back as you cast.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Cold] = true, [SkillType.Cascadable] = true, [SkillType.CanRapidFire] = true, [SkillType.AreaSpell] = true, [SkillType.Invokable] = true, },
-	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
 	statSets = {
 		[1] = {
@@ -3657,6 +3657,7 @@ skills["CometPlayer"] = {
 			baseEffectiveness = 11.939999580383,
 			incrementalEffectiveness = 0.14000000059605,
 			damageIncrementalEffectiveness = 0.0065000001341105,
+			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -3764,12 +3765,12 @@ skills["ConductivityPlayer"] = {
 	},
 	description = "Curses all targets in an area after a short delay, lowering their Lightning Resistance.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Lightning] = true, [SkillType.Cascadable] = true, [SkillType.AppliesCurse] = true, [SkillType.CanRapidFire] = true, [SkillType.AreaSpell] = true, [SkillType.Nonpathing] = true, },
-	statDescriptionScope = "lightning_weakness",
 	castTime = 0.7,
 	statSets = {
 		[1] = {
 			label = "Conductivity",
 			incrementalEffectiveness = 0.092720001935959,
+			statDescriptionScope = "lightning_weakness",
 			baseFlags = {
 			},
 			constantStats = {
@@ -3878,7 +3879,6 @@ skills["ContagionPlayer"] = {
 	},
 	description = "Afflicts a single enemy with a Debuff that deals Chaos damage over time. If the enemy dies while affected by Contagion, it and all other Chaos damage over time Debuffs spread to nearby enemies and refresh their durations. Reanimating or detonating a corpse affected by Contagion will cause the Minion or explosion to\nspread Contagion on hit.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.DamageOverTime] = true, [SkillType.Chaos] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Mineable] = true, [SkillType.DegenOnlySpellDamage] = true, [SkillType.CanRapidFire] = true, [SkillType.AreaSpell] = true, [SkillType.Nonpathing] = true, },
-	statDescriptionScope = "contagion",
 	castTime = 1,
 	statSets = {
 		[1] = {
@@ -3886,6 +3886,7 @@ skills["ContagionPlayer"] = {
 			baseEffectiveness = 1.6299999952316,
 			incrementalEffectiveness = 0.14000000059605,
 			damageIncrementalEffectiveness = 0.0087000001221895,
+			statDescriptionScope = "contagion",
 			baseFlags = {
 			},
 			constantStats = {
@@ -3996,12 +3997,12 @@ skills["DarkEffigyPlayer"] = {
 	},
 	description = "Raises a Totem that bombards enemies afflicted by Chaos damage over time Debuffs.",
 	skillTypes = { [SkillType.SummonsTotem] = true, [SkillType.Trappable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Duration] = true, [SkillType.Nonpathing] = true, [SkillType.Chaos] = true, [SkillType.Limit] = true, },
-	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
 	statSets = {
 		[1] = {
 			label = "Dark Effigy",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -4110,7 +4111,6 @@ skills["DarkEffigyProjectilePlayer"] = {
 	},
 	description = "Fires a Projectile at every nearby enemy that is afflicted by a Chaos damage over time Debuff. Fires multiple Projectiles at enemies afflicted by multiple Debuffs, but Projectile count cannot be otherwise modified.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Projectile] = true, [SkillType.Chaos] = true, [SkillType.Area] = true, [SkillType.AreaSpell] = true, [SkillType.ProjectilesNumberModifiersNotApplied] = true, [SkillType.ProjectileNoCollision] = true, },
-	statDescriptionScope = "dark_effigy_projectile",
 	castTime = 1,
 	statSets = {
 		[1] = {
@@ -4118,6 +4118,7 @@ skills["DarkEffigyProjectilePlayer"] = {
 			baseEffectiveness = 0.83999997377396,
 			incrementalEffectiveness = 0.054999999701977,
 			damageIncrementalEffectiveness = 0.0089999996125698,
+			statDescriptionScope = "dark_effigy_projectile",
 			baseFlags = {
 			},
 			constantStats = {
@@ -4225,14 +4226,14 @@ skills["CorpseCloudPlayer"] = {
 	},
 	description = "Consumes a Corpse to create a cloud of flammable Poisonous gas. Any Burning effects or Detonator skills will explode the gas cloud, creating a fiery explosion.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Fire] = true, [SkillType.Cascadable] = true, [SkillType.TargetsDestructibleCorpses] = true, [SkillType.CanRapidFire] = true, [SkillType.AreaSpell] = true, [SkillType.Chaos] = true, [SkillType.Nonpathing] = true, [SkillType.Duration] = true, },
-	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 0.8,
 	statSets = {
 		[1] = {
-			label = "Decompose",
+			label = "Poison Cloud",
 			baseEffectiveness = 3.539999961853,
 			incrementalEffectiveness = 0.14000000059605,
 			damageIncrementalEffectiveness = 0.0065000001341105,
+			statDescriptionScope = "corpse_cloud_statset_0",
 			baseFlags = {
 			},
 			constantStats = {
@@ -4295,10 +4296,11 @@ skills["CorpseCloudPlayer"] = {
 			},
 		},
 		[2] = {
-			label = "Decompose",
+			label = "Explosion",
 			baseEffectiveness = 3.539999961853,
 			incrementalEffectiveness = 0.14000000059605,
 			damageIncrementalEffectiveness = 0.0065000001341105,
+			statDescriptionScope = "corpse_cloud_statset_0",
 			baseFlags = {
 			},
 			stats = {
@@ -4398,12 +4400,12 @@ skills["DespairPlayer"] = {
 	},
 	description = "Curses all targets in an area after a short delay, lowering their Chaos Resistance.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Cascadable] = true, [SkillType.Chaos] = true, [SkillType.AppliesCurse] = true, [SkillType.CanRapidFire] = true, [SkillType.AreaSpell] = true, [SkillType.Nonpathing] = true, },
-	statDescriptionScope = "despair",
 	castTime = 0.7,
 	statSets = {
 		[1] = {
 			label = "Despair",
 			incrementalEffectiveness = 0.092720001935959,
+			statDescriptionScope = "despair",
 			baseFlags = {
 			},
 			constantStats = {
@@ -4512,7 +4514,6 @@ skills["DetonateDeadPlayer"] = {
 	},
 	description = "Causes a Corpse to violently explode, damaging surrounding enemies.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Fire] = true, [SkillType.Cascadable] = true, [SkillType.TargetsDestructibleCorpses] = true, [SkillType.CanRapidFire] = true, [SkillType.AreaSpell] = true, [SkillType.Physical] = true, [SkillType.Nonpathing] = true, },
-	statDescriptionScope = "detonate_dead",
 	castTime = 0.8,
 	statSets = {
 		[1] = {
@@ -4520,6 +4521,7 @@ skills["DetonateDeadPlayer"] = {
 			baseEffectiveness = 2,
 			incrementalEffectiveness = 0.14000000059605,
 			damageIncrementalEffectiveness = 0.0065000001341105,
+			statDescriptionScope = "detonate_dead",
 			baseFlags = {
 			},
 			constantStats = {
@@ -4630,12 +4632,12 @@ skills["DisciplinePlayer"] = {
 	},
 	description = "Emits an Aura that grants Allies in your Presence additional Total Energy Shield. The Aura does not affect you.",
 	skillTypes = { [SkillType.Buff] = true, [SkillType.HasReservation] = true, [SkillType.Aura] = true, [SkillType.OngoingSkill] = true, [SkillType.Persistent] = true, },
-	statDescriptionScope = "discipline",
 	castTime = 0,
 	statSets = {
 		[1] = {
 			label = "Discipline",
 			incrementalEffectiveness = 0.092720001935959,
+			statDescriptionScope = "discipline",
 			baseFlags = {
 			},
 			constantStats = {
@@ -4738,12 +4740,12 @@ skills["ElementalConfluxPlayer"] = {
 	},
 	description = "Tap into a current of raw and unpredictable Elemental power, causing you to deal greatly more damage of a randomly chosen Element. The Element affected changes frequently, though the same Element can be affected multiple times in succession.",
 	skillTypes = { [SkillType.OngoingSkill] = true, [SkillType.HasReservation] = true, [SkillType.Buff] = true, [SkillType.Persistent] = true, [SkillType.Duration] = true, [SkillType.Lightning] = true, [SkillType.Cold] = true, [SkillType.Fire] = true, },
-	statDescriptionScope = "elemental_conflux",
 	castTime = 1,
 	statSets = {
 		[1] = {
 			label = "Elemental Conflux",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "elemental_conflux",
 			baseFlags = {
 			},
 			constantStats = {
@@ -4846,12 +4848,12 @@ skills["MetaElementalInvocationPlayer"] = {
 	},
 	description = "While active, this Invocation gains Energy when you Freeze, Shock or Ignite an enemy. Using the Invocation once sufficient Energy is gathered will consume the Energy to trigger socketed Spells, and can trigger them multiple times if it has enough Energy.",
 	skillTypes = { [SkillType.HasReservation] = true, [SkillType.OngoingSkill] = true, [SkillType.Meta] = true, [SkillType.Persistent] = true, [SkillType.Buff] = true, [SkillType.CanHaveMultipleOngoingSkillInstances] = true, [SkillType.Invocation] = true, [SkillType.Fire] = true, [SkillType.Cold] = true, [SkillType.Lightning] = true, [SkillType.GeneratesEnergy] = true, },
-	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 0,
 	statSets = {
 		[1] = {
 			label = "Elemental Invocation",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -4959,11 +4961,11 @@ skills["SupportElementalInvocationPlayer"] = {
 	addSkillTypes = { SkillType.Triggered, SkillType.Cooldown, },
 	excludeSkillTypes = { SkillType.SupportedByHourglass, },
 	isTrigger = true,
-	statDescriptionScope = "gem_stat_descriptions",
 	statSets = {
 		[1] = {
 			label = "SupportElementalInvocationPlayer",
 			incrementalEffectiveness = 0.054999999701977,
+	statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -5067,14 +5069,14 @@ skills["BlazingClusterPlayer"] = {
 	},
 	description = "Conjures a blazing Ember that hovers above you. After a short duration, the Ember launches at an enemy, dealing Fire damage in an area on impact and prioritising the last enemy targeted. Recasting this spell resets the duration for all active Embers. Multiple Embers fired in the same Fusillade will attempt to target different enemies.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Fire] = true, [SkillType.Projectile] = true, [SkillType.Duration] = true, [SkillType.CanRapidFire] = true, [SkillType.Nonpathing] = true, [SkillType.Area] = true, [SkillType.AreaSpell] = true, [SkillType.Triggerable] = true, },
-	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 0.4,
 	statSets = {
 		[1] = {
-			label = "Ember Fusillade",
+			label = "Projectile",
 			baseEffectiveness = 2.2000000476837,
 			incrementalEffectiveness = 0.14000000059605,
 			damageIncrementalEffectiveness = 0.0065000001341105,
+			statDescriptionScope = "blazing_cluster_statset_0",
 			baseFlags = {
 			},
 			constantStats = {
@@ -5138,8 +5140,9 @@ skills["BlazingClusterPlayer"] = {
 			},
 		},
 		[2] = {
-			label = "Ember Fusillade",
+			label = "Explosion",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "blazing_cluster_statset_0",
 			baseFlags = {
 			},
 			constantStats = {
@@ -5241,13 +5244,13 @@ skills["EnfeeblePlayer"] = {
 	},
 	description = "Curses all targets in an area after a short delay, making them deal less damage.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Cascadable] = true, [SkillType.AppliesCurse] = true, [SkillType.CanRapidFire] = true, [SkillType.AreaSpell] = true, [SkillType.Nonpathing] = true, },
-	statDescriptionScope = "enfeeble",
 	castTime = 0.7,
 	statSets = {
 		[1] = {
 			label = "Enfeeble",
 			baseEffectiveness = 0,
 			incrementalEffectiveness = 0.092720001935959,
+			statDescriptionScope = "enfeeble",
 			baseFlags = {
 			},
 			constantStats = {
@@ -5357,14 +5360,14 @@ skills["EssenceDrainPlayer"] = {
 	},
 	description = "Fires a Projectile that applies a powerful Chaos damage over time debuff to enemies it hits.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Duration] = true, [SkillType.Totemable] = true, [SkillType.Multicastable] = true, [SkillType.DamageOverTime] = true, [SkillType.Chaos] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, [SkillType.CanRapidFire] = true, [SkillType.Trappable] = true, [SkillType.Mineable] = true, [SkillType.Nonpathing] = true, },
-	statDescriptionScope = "essence_drain",
 	castTime = 0.8,
 	statSets = {
 		[1] = {
-			label = "Essence Drain",
+			label = "Projectile",
 			baseEffectiveness = 1.7000000476837,
 			incrementalEffectiveness = 0.14000000059605,
 			damageIncrementalEffectiveness = 0.0087000001221895,
+			statDescriptionScope = "essence_drain",
 			baseFlags = {
 			},
 			constantStats = {
@@ -5428,10 +5431,11 @@ skills["EssenceDrainPlayer"] = {
 			},
 		},
 		[2] = {
-			label = "Essence Drain",
+			label = "Damage over Time",
 			baseEffectiveness = 7.4099998474121,
 			incrementalEffectiveness = 0.14000000059605,
 			damageIncrementalEffectiveness = 0.0087000001221895,
+			statDescriptionScope = "essence_drain",
 			baseFlags = {
 			},
 			constantStats = {
@@ -5535,7 +5539,6 @@ skills["EyeOfWinterPlayer"] = {
 	},
 	description = "Fires a single Eye Projectile which does not Hit enemies. The Eye constantly releases damaging shard Projectiles in a spiral as it flies, plus an extra burst of shards at the end of its flight. If the Eye passes over an Elemental ground surface, it will take on that surface's effect, applying it to nearby enemies and causing shards to deal more damage of the corresponding Type.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Projectile] = true, [SkillType.ProjectileSpiral] = true, [SkillType.Damage] = true, [SkillType.SingleMainProjectile] = true, [SkillType.Cold] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Trappable] = true, [SkillType.Multicastable] = true, [SkillType.CanRapidFire] = true, [SkillType.Triggerable] = true, [SkillType.Nonpathing] = true, },
-	statDescriptionScope = "eye_of_winter_new",
 	castTime = 1.1,
 	statSets = {
 		[1] = {
@@ -5543,6 +5546,7 @@ skills["EyeOfWinterPlayer"] = {
 			baseEffectiveness = 0.30000001192093,
 			incrementalEffectiveness = 0.14000000059605,
 			damageIncrementalEffectiveness = 0.0065000001341105,
+			statDescriptionScope = "eye_of_winter_new",
 			baseFlags = {
 			},
 			constantStats = {
@@ -5655,14 +5659,14 @@ skills["FallingThunderPlayer"] = {
 	},
 	description = "Infuses your Quarterstaff with electrical energies, then Slams the ground to deal damage in a large cone in front of you. Consumes your Power Charges to fire Lightning Projectiles forwards from the impact.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.Area] = true, [SkillType.Slam] = true, [SkillType.Multistrikeable] = true, [SkillType.Projectile] = true, [SkillType.RangedAttack] = true, [SkillType.ProjectilesNotFromUser] = true, [SkillType.Lightning] = true, [SkillType.ConsumesCharges] = true, [SkillType.QuarterstaffSkill] = true, [SkillType.SkillConsumesPowerChargesOnUse] = true, },
-	statDescriptionScope = "new_new_lightning_strike",
 	castTime = 1,
 	statSets = {
 		[1] = {
-			label = "Falling Thunder",
+			label = "Melee",
 			baseEffectiveness = 0.62000000476837,
 			incrementalEffectiveness = 0.14000000059605,
 			damageIncrementalEffectiveness = 0.0065000001341105,
+			statDescriptionScope = "new_new_lightning_strike",
 			baseFlags = {
 			},
 			constantStats = {
@@ -5718,10 +5722,11 @@ skills["FallingThunderPlayer"] = {
 			},
 		},
 		[2] = {
-			label = "Falling Thunder",
+			label = "Projectile",
 			baseEffectiveness = 0.62000000476837,
 			incrementalEffectiveness = 0.14000000059605,
 			damageIncrementalEffectiveness = 0.0065000001341105,
+			statDescriptionScope = "new_new_lightning_strike",
 			baseFlags = {
 			},
 			constantStats = {
@@ -5796,14 +5801,14 @@ skills["FireballPlayer"] = {
 	},
 	description = "Launches a large ball of Fire which explodes on impact, creating a nova of smaller firebolts.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Fire] = true, [SkillType.CanRapidFire] = true, [SkillType.AreaSpell] = true, [SkillType.Invokable] = true, [SkillType.Nonpathing] = true, },
-	statDescriptionScope = "greater_fireball",
 	castTime = 1.2,
 	statSets = {
 		[1] = {
-			label = "Fireball",
+			label = "Projectile",
 			baseEffectiveness = 2.2874999046326,
 			incrementalEffectiveness = 0.14000000059605,
 			damageIncrementalEffectiveness = 0.0065000001341105,
+			statDescriptionScope = "greater_fireball",
 			baseFlags = {
 			},
 			constantStats = {
@@ -5865,8 +5870,9 @@ skills["FireballPlayer"] = {
 			},
 		},
 		[2] = {
-			label = "Fireball",
+			label = "Explosion",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "greater_fireball",
 			baseFlags = {
 			},
 			constantStats = {
@@ -5919,10 +5925,11 @@ skills["FireballPlayer"] = {
 			},
 		},
 		[3] = {
-			label = "Fireball",
+			label = "Firebolts",
 			baseEffectiveness = 1.7159999608994,
 			incrementalEffectiveness = 0.14000000059605,
 			damageIncrementalEffectiveness = 0.0065000001341105,
+			statDescriptionScope = "greater_fireball",
 			baseFlags = {
 			},
 			constantStats = {
@@ -6026,14 +6033,14 @@ skills["FireboltPlayer"] = {
 	},
 	description = "Launches a fiery Projectile towards a target. The Projectile explodes on impact, damaging foes in a small area.",
 	skillTypes = { [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Fire] = true, [SkillType.CanRapidFire] = true, [SkillType.AreaSpell] = true, [SkillType.Invokable] = true, [SkillType.Nonpathing] = true, },
-	statDescriptionScope = "fireball",
 	castTime = 0.9,
 	statSets = {
 		[1] = {
-			label = "Firebolt",
+			label = "Projectile",
 			baseEffectiveness = 2.4000000953674,
 			incrementalEffectiveness = 0.14000000059605,
 			damageIncrementalEffectiveness = 0.0065000001341105,
+			statDescriptionScope = "fireball",
 			baseFlags = {
 			},
 			constantStats = {
@@ -6096,8 +6103,9 @@ skills["FireboltPlayer"] = {
 			},
 		},
 		[2] = {
-			label = "Firebolt",
+			label = "Explosion",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "fireball",
 			baseFlags = {
 			},
 			constantStats = {
@@ -6200,7 +6208,6 @@ skills["FirestormPlayer"] = {
 	},
 	description = "Rains flaming bolts over the targeted area. Ignites on enemies in front of you are Consumed to fuel the Firestorm, causing one bolt to be improved for each Ignite Consumed.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Fire] = true, [SkillType.Cascadable] = true, [SkillType.CanRapidFire] = true, [SkillType.AreaSpell] = true, [SkillType.Nonpathing] = true, [SkillType.Limit] = true, [SkillType.Sustained] = true, [SkillType.SkillConsumesIgnite] = true, },
-	statDescriptionScope = "fire_storm",
 	castTime = 1.4,
 	statSets = {
 		[1] = {
@@ -6208,6 +6215,7 @@ skills["FirestormPlayer"] = {
 			baseEffectiveness = 0.95999997854233,
 			incrementalEffectiveness = 0.14000000059605,
 			damageIncrementalEffectiveness = 0.0065000001341105,
+			statDescriptionScope = "fire_storm",
 			baseFlags = {
 			},
 			constantStats = {
@@ -6273,10 +6281,11 @@ skills["FirestormPlayer"] = {
 			},
 		},
 		[2] = {
-			label = "Firestorm",
+			label = "Improved Bolt",
 			baseEffectiveness = 3.7999999523163,
 			incrementalEffectiveness = 0.14000000059605,
 			damageIncrementalEffectiveness = 0.0065000001341105,
+			statDescriptionScope = "fire_storm",
 			baseFlags = {
 			},
 			constantStats = {
@@ -6380,7 +6389,6 @@ skills["FlameWallPlayer"] = {
 	},
 	description = "Create a wall of Fire in front of the character, which Ignites everything within its area.  Any Projectiles fired through the wall by you and Allies deal added Fire damage and inflict the Ignite on hit.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.DamageOverTime] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Trappable] = true, [SkillType.Mineable] = true, [SkillType.Triggerable] = true, [SkillType.AreaSpell] = true, [SkillType.Totemable] = true, [SkillType.Fire] = true, [SkillType.DegenOnlySpellDamage] = true, [SkillType.CanRapidFire] = true, [SkillType.Multicastable] = true, [SkillType.Cascadable] = true, [SkillType.CausesBurning] = true, [SkillType.Wall] = true, [SkillType.Nonpathing] = true, },
-	statDescriptionScope = "firewall",
 	castTime = 1,
 	statSets = {
 		[1] = {
@@ -6388,6 +6396,7 @@ skills["FlameWallPlayer"] = {
 			baseEffectiveness = 4.3000001907349,
 			incrementalEffectiveness = 0.14000000059605,
 			damageIncrementalEffectiveness = 0.0065000001341105,
+			statDescriptionScope = "firewall",
 			baseFlags = {
 			},
 			constantStats = {
@@ -6452,8 +6461,9 @@ skills["FlameWallPlayer"] = {
 			},
 		},
 		[2] = {
-			label = "Flame Wall",
+			label = "Hidden",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "firewall",
 			baseFlags = {
 			},
 			stats = {
@@ -6552,7 +6562,6 @@ skills["FlameblastPlayer"] = {
 	},
 	description = "Channels to build destructive energy around you or a targeted Solar Orb. Releasing the energy causes a devastating explosion that is larger and more intense the longer you Channelled for.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Totemable] = true, [SkillType.Fire] = true, [SkillType.Channel] = true, [SkillType.AreaSpell] = true, [SkillType.Nova] = true, [SkillType.Nonpathing] = true, [SkillType.Cascadable] = true, },
-	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 0.25,
 	statSets = {
 		[1] = {
@@ -6560,6 +6569,7 @@ skills["FlameblastPlayer"] = {
 			baseEffectiveness = 0.80000001192093,
 			incrementalEffectiveness = 0.14000000059605,
 			damageIncrementalEffectiveness = 0.0065000001341105,
+			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -6675,12 +6685,12 @@ skills["FlammabilityPlayer"] = {
 	},
 	description = "Curses all targets in an area after a short delay, lowering their Fire Resistance.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Fire] = true, [SkillType.Cascadable] = true, [SkillType.AppliesCurse] = true, [SkillType.CanRapidFire] = true, [SkillType.AreaSpell] = true, [SkillType.Nonpathing] = true, },
-	statDescriptionScope = "fire_weakness",
 	castTime = 0.7,
 	statSets = {
 		[1] = {
 			label = "Flammability",
 			incrementalEffectiveness = 0.092720001935959,
+			statDescriptionScope = "fire_weakness",
 			baseFlags = {
 			},
 			constantStats = {
@@ -6789,13 +6799,13 @@ skills["FlickerStrikePlayer"] = {
 	},
 	description = "Teleport to a enemy and Strike them. Consumes Power Charges to perform additional teleporting Strikes on nearby enemies.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Area] = true, [SkillType.Multistrikeable] = true, [SkillType.ConsumesCharges] = true, [SkillType.QuarterstaffSkill] = true, [SkillType.SkillConsumesPowerChargesOnUse] = true, },
-	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
 	statSets = {
 		[1] = {
 			label = "Flicker Strike",
 			baseEffectiveness = 0,
 			incrementalEffectiveness = 0.092720001935959,
+			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -6900,12 +6910,12 @@ skills["FreezingMarkPlayer"] = {
 	},
 	description = "Marks a target, making them more susceptible to being Frozen. When the Marked target dies, a Cold nova erupts from their corpse. This nova does not use your Weapon Damage, and instead uses its own base Attack Damage.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.CanRapidFire] = true, [SkillType.Duration] = true, [SkillType.Nonpathing] = true, [SkillType.Mark] = true, [SkillType.Cold] = true, [SkillType.Limit] = true, },
-	statDescriptionScope = "freezing_mark",
 	castTime = 0.5,
 	statSets = {
 		[1] = {
-			label = "Freezing Mark",
+			label = "Mark",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "freezing_mark",
 			baseFlags = {
 			},
 			constantStats = {
@@ -7012,14 +7022,14 @@ skills["TriggeredFreezingMarkNovaPlayer"] = {
 		[40] = { levelRequirement = 0, actorLevel = 288.29998779297, },
 	},
 	skillTypes = { [SkillType.Nova] = true, [SkillType.Area] = true, [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.Attack] = true, [SkillType.UseGlobalStats] = true, [SkillType.Cold] = true, [SkillType.NonWeaponAttack] = true, },
-	statDescriptionScope = "freezing_mark_nova",
 	castTime = 1,
 	statSets = {
 		[1] = {
-			label = "Freezing Nova",
+			label = "Nova",
 			baseEffectiveness = 1.9409999847412,
 			incrementalEffectiveness = 0.11649999767542,
 			damageIncrementalEffectiveness = 0.006699999794364,
+			statDescriptionScope = "freezing_mark_nova",
 			baseFlags = {
 			},
 			constantStats = {
@@ -7128,7 +7138,6 @@ skills["FreezingShardsPlayer"] = {
 	},
 	description = "Launches icy Projectiles in a sweeping arc. Multiple Projectiles can hit the same enemy.",
 	skillTypes = { [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.AreaSpell] = true, [SkillType.Invokable] = true, [SkillType.Cold] = true, [SkillType.CanRapidFire] = true, [SkillType.Nonpathing] = true, },
-	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1.2,
 	statSets = {
 		[1] = {
@@ -7136,6 +7145,7 @@ skills["FreezingShardsPlayer"] = {
 			baseEffectiveness = 0.74000000953674,
 			incrementalEffectiveness = 0.14000000059605,
 			damageIncrementalEffectiveness = 0.0065000001341105,
+			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -7247,7 +7257,6 @@ skills["FrostBombPlayer"] = {
 	},
 	description = "Creates a pulsing Orb of frost. Each pulse inflicts Cold Exposure on nearby enemies. When the Orb's duration ends, it explodes, dealing Cold damage to surrounding enemies.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Cold] = true, [SkillType.Damage] = true, [SkillType.Multicastable] = true, [SkillType.Totemable] = true, [SkillType.Trappable] = true, [SkillType.Mineable] = true, [SkillType.Triggerable] = true, [SkillType.Cascadable] = true, [SkillType.AreaSpell] = true, [SkillType.Cooldown] = true, [SkillType.Orb] = true, [SkillType.Invokable] = true, [SkillType.Nonpathing] = true, },
-	statDescriptionScope = "frost_bomb",
 	castTime = 0.8,
 	statSets = {
 		[1] = {
@@ -7255,6 +7264,7 @@ skills["FrostBombPlayer"] = {
 			baseEffectiveness = 6.8400001525879,
 			incrementalEffectiveness = 0.14000000059605,
 			damageIncrementalEffectiveness = 0.0065000001341105,
+			statDescriptionScope = "frost_bomb",
 			baseFlags = {
 			},
 			constantStats = {
@@ -7369,7 +7379,6 @@ skills["FrostWallPlayer"] = {
 	},
 	description = "Creates a wall of Ice Crystals which holds back enemies. The Crystals explode if sufficiently damaged, or if pushed hard enough, damaging nearby enemies.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Duration] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Cold] = true, [SkillType.Cascadable] = true, [SkillType.Cooldown] = true, [SkillType.Invokable] = true, [SkillType.Area] = true, [SkillType.Wall] = true, [SkillType.Nonpathing] = true, [SkillType.SupportedByFountains] = true, [SkillType.IceCrystal] = true, },
-	statDescriptionScope = "frost_wall_new",
 	castTime = 0.8,
 	statSets = {
 		[1] = {
@@ -7377,6 +7386,7 @@ skills["FrostWallPlayer"] = {
 			baseEffectiveness = 2.2799999713898,
 			incrementalEffectiveness = 0.14000000059605,
 			damageIncrementalEffectiveness = 0.0065000001341105,
+			statDescriptionScope = "frost_wall_new",
 			baseFlags = {
 			},
 			constantStats = {
@@ -7490,12 +7500,12 @@ skills["HypothermiaPlayer"] = {
 	},
 	description = "Curses all targets in an area after a short delay, lowering their Cold Resistance.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Cold] = true, [SkillType.Cascadable] = true, [SkillType.AppliesCurse] = true, [SkillType.CanRapidFire] = true, [SkillType.AreaSpell] = true, [SkillType.Nonpathing] = true, },
-	statDescriptionScope = "cold_weakness",
 	castTime = 0.7,
 	statSets = {
 		[1] = {
 			label = "Frostbite",
 			incrementalEffectiveness = 0.092720001935959,
+			statDescriptionScope = "cold_weakness",
 			baseFlags = {
 			},
 			constantStats = {
@@ -7604,14 +7614,14 @@ skills["FrostboltPlayer"] = {
 	},
 	description = "Fires a slow-moving Piercing Projectile that leaves a wake of Chilled Ground, deals Cold damage and explodes on colliding with terrain.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Damage] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Cold] = true, [SkillType.Triggerable] = true, [SkillType.CanRapidFire] = true, [SkillType.Duration] = true, [SkillType.Area] = true, [SkillType.Nonpathing] = true, [SkillType.CreatesGroundEffect] = true, },
-	statDescriptionScope = "frost_bolt",
 	castTime = 0.8,
 	statSets = {
 		[1] = {
-			label = "Frostbolt",
+			label = "Projectile",
 			baseEffectiveness = 1.6000000238419,
 			incrementalEffectiveness = 0.14000000059605,
 			damageIncrementalEffectiveness = 0.0065000001341105,
+			statDescriptionScope = "frost_bolt",
 			baseFlags = {
 			},
 			constantStats = {
@@ -7675,10 +7685,11 @@ skills["FrostboltPlayer"] = {
 			},
 		},
 		[2] = {
-			label = "Frostbolt",
+			label = "Explosion",
 			baseEffectiveness = 0.80000001192093,
 			incrementalEffectiveness = 0.14000000059605,
 			damageIncrementalEffectiveness = 0.0065000001341105,
+			statDescriptionScope = "frost_bolt",
 			baseFlags = {
 			},
 			constantStats = {
@@ -7782,12 +7793,12 @@ skills["FrozenLocusPlayer"] = {
 	},
 	description = "Leap backward and crack the ground with your staff to call forth an Ice Crystal, which creates Chilled Ground around it and can be damaged by you and enemies. If the Crystal is destroyed it causes an icy explosion that deals Attack damage but does not use your weapon's damage.",
 	skillTypes = { [SkillType.Melee] = true, [SkillType.Attack] = true, [SkillType.Duration] = true, [SkillType.Cold] = true, [SkillType.QuarterstaffSkill] = true, [SkillType.NonWeaponAttack] = true, [SkillType.CreatesGroundEffect] = true, [SkillType.IceCrystal] = true, },
-	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
 	statSets = {
 		[1] = {
-			label = "Frozen Locus",
+			label = "Crystal",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "ice_ambush_statset_0",
 			baseFlags = {
 			},
 			constantStats = {
@@ -7850,8 +7861,9 @@ skills["FrozenLocusPlayer"] = {
 			},
 		},
 		[2] = {
-			label = "Frozen Locus",
+			label = "Chilled Ground",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "ice_ambush_statset_0",
 			baseFlags = {
 			},
 			constantStats = {
@@ -7915,14 +7927,14 @@ skills["FrozenLocusExplodePlayer"] = {
 		[40] = { levelRequirement = 0, actorLevel = 288.29998779297, },
 	},
 	skillTypes = { [SkillType.Melee] = true, [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.UseGlobalStats] = true, [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.Cold] = true, [SkillType.Nova] = true, },
-	statDescriptionScope = "ice_ambush_explode",
 	castTime = 1,
 	statSets = {
 		[1] = {
-			label = "Crystal Explosion",
+			label = "Explosion",
 			baseEffectiveness = 1.9409999847412,
 			incrementalEffectiveness = 0.034650001674891,
 			damageIncrementalEffectiveness = 0.012719999998808,
+			statDescriptionScope = "ice_ambush_explode",
 			baseFlags = {
 			},
 			constantStats = {
@@ -8033,7 +8045,6 @@ skills["GalvanicFieldPlayer"] = {
 	},
 	description = "Grants a Buff that boosts your Shock chance. Shocking an enemy consumes the Buff to attach an Orb of electricity to that enemy. The Orb fires bolts of electricity at nearby enemies until it expires.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Buff] = true, [SkillType.Duration] = true, [SkillType.Lightning] = true, [SkillType.Chains] = true, [SkillType.Orb] = true, [SkillType.Triggerable] = true, [SkillType.Nonpathing] = true, [SkillType.Limit] = true, },
-	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 0.5,
 	statSets = {
 		[1] = {
@@ -8041,6 +8052,7 @@ skills["GalvanicFieldPlayer"] = {
 			baseEffectiveness = 0.33700001239777,
 			incrementalEffectiveness = 0.14000000059605,
 			damageIncrementalEffectiveness = 0.0065000001341105,
+			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -8152,12 +8164,12 @@ skills["GatheringStormPlayer"] = {
 	},
 	description = "Flips backward and Channels to charge your Quarterstaff with Lightning. Releasing dashes towards the target location, damaging enemies along the way. Releasing with perfect timing performs a Lightning-infused dash that releases shockwaves from enemies you dash through and leaves a trail of Shocked Ground in your wake.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Channel] = true, [SkillType.Travel] = true, [SkillType.PerfectTiming] = true, [SkillType.Lightning] = true, [SkillType.Area] = true, [SkillType.Melee] = true, [SkillType.MeleeSingleTarget] = true, },
-	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
 	statSets = {
 		[1] = {
-			label = "Gathering Storm",
+			label = "Normal Dash",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gathering_storm_statset_0",
 			baseFlags = {
 			},
 			constantStats = {
@@ -8221,8 +8233,9 @@ skills["GatheringStormPlayer"] = {
 			},
 		},
 		[2] = {
-			label = "Gathering Storm",
+			label = "Perfect Dash",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gathering_storm_statset_0",
 			baseFlags = {
 			},
 			constantStats = {
@@ -8277,8 +8290,9 @@ skills["GatheringStormPlayer"] = {
 			},
 		},
 		[3] = {
-			label = "Gathering Storm",
+			label = "Shockwave",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gathering_storm_statset_0",
 			baseFlags = {
 			},
 			constantStats = {
@@ -8381,12 +8395,12 @@ skills["GhostDancePlayer"] = {
 	},
 	description = "Periodically gain Ghost Shrouds. If you are Hit while you have a Ghost Shroud, it is immediately consumed to recover Energy Shield based on your Evasion.",
 	skillTypes = { [SkillType.HasReservation] = true, [SkillType.OngoingSkill] = true, [SkillType.Persistent] = true, [SkillType.Buff] = true, [SkillType.Duration] = true, },
-	statDescriptionScope = "ghost_dance",
 	castTime = 0,
 	statSets = {
 		[1] = {
 			label = "Ghost Dance",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "ghost_dance",
 			baseFlags = {
 			},
 			constantStats = {
@@ -8490,12 +8504,12 @@ skills["GlacialCascadePlayer"] = {
 	},
 	description = "Sweep your Quarterstaff upwards, releasing an icy fissure which deals damage in a series of bursts culminating in a large spike. Frozen enemies hit by the final spike are dealt heavy damage but the Freeze is Consumed. Ice Crystals hit by the final spike explode.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.Area] = true, [SkillType.Cold] = true, [SkillType.Multistrikeable] = true, [SkillType.Area] = true, [SkillType.Nonpathing] = true, [SkillType.QuarterstaffSkill] = true, [SkillType.SkillConsumesFreeze] = true, [SkillType.CreatesFissure] = true, },
-	statDescriptionScope = "glacial_cascade_attack",
 	castTime = 1,
 	statSets = {
 		[1] = {
-			label = "Glacial Cascade",
+			label = "Wave",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "glacial_cascade_attack",
 			baseFlags = {
 			},
 			constantStats = {
@@ -8558,8 +8572,9 @@ skills["GlacialCascadePlayer"] = {
 			},
 		},
 		[2] = {
-			label = "Glacial Cascade",
+			label = "Final Burst",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "glacial_cascade_attack",
 			baseFlags = {
 			},
 			constantStats = {
@@ -8666,12 +8681,12 @@ skills["GrimFeastPlayer"] = {
 	},
 	description = "Feeds on corpses to bolster your Energy Shield. While active, enemies and Reviving Minions that die in your Presence have a chance to drop Grim Remnants. Picking up a Grim Remnant grants you Energy Shield which can Overflow maximum Energy Shield.",
 	skillTypes = { [SkillType.Buff] = true, [SkillType.HasReservation] = true, [SkillType.OngoingSkill] = true, [SkillType.Persistent] = true, },
-	statDescriptionScope = "grim_feast",
 	castTime = 0,
 	statSets = {
 		[1] = {
 			label = "Grim Feast",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "grim_feast",
 			baseFlags = {
 			},
 			constantStats = {
@@ -8777,14 +8792,14 @@ skills["HandOfChayulaPlayer"] = {
 	weaponTypes = {
 		["None"] = true,
 	},
-	statDescriptionScope = "hand_of_chayula",
 	castTime = 1,
 	statSets = {
 		[1] = {
-			label = "Hand of Chayula",
+			label = "Strike",
 			baseEffectiveness = 1.9409999847412,
 			incrementalEffectiveness = 0.11649999767542,
 			damageIncrementalEffectiveness = 0.006699999794364,
+			statDescriptionScope = "hand_of_chayula",
 			baseFlags = {
 			},
 			constantStats = {
@@ -8892,11 +8907,11 @@ skills["SupportHandOfChayulaPlayer"] = {
 	requireSkillTypes = { SkillType.AppliesCurse, SkillType.Mark, SkillType.OR, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
-	statDescriptionScope = "gem_stat_descriptions",
 	statSets = {
 		[1] = {
-			label = "SupportHandOfChayulaPlayer",
+			label = "Support",
 			incrementalEffectiveness = 0.054999999701977,
+	statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			stats = {
@@ -9009,12 +9024,12 @@ skills["HeraldOfIcePlayer"] = {
 		["Bow"] = true,
 		["One Handed Sword"] = true,
 	},
-	statDescriptionScope = "herald_of_ice",
 	castTime = 0,
 	statSets = {
 		[1] = {
-			label = "Herald of Ice",
+			label = "Buff",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "herald_of_ice",
 			baseFlags = {
 			},
 			stats = {
@@ -9066,8 +9081,9 @@ skills["HeraldOfIcePlayer"] = {
 			},
 		},
 		[2] = {
-			label = "Herald of Ice",
+			label = "Explosion",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "herald_of_ice",
 			baseFlags = {
 			},
 			constantStats = {
@@ -9174,7 +9190,6 @@ skills["HexblastPlayer"] = {
 	},
 	description = "Detonates a Curse on every enemy in an area, causing explosions of Chaos damage but removing the Curse.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Chaos] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.CanRapidFire] = true, [SkillType.AreaSpell] = true, [SkillType.DynamicCooldown] = true, [SkillType.Cascadable] = true, [SkillType.Nonpathing] = true, },
-	statDescriptionScope = "hexblast",
 	castTime = 1,
 	statSets = {
 		[1] = {
@@ -9182,6 +9197,7 @@ skills["HexblastPlayer"] = {
 			baseEffectiveness = 4.3099999427795,
 			incrementalEffectiveness = 0.14000000059605,
 			damageIncrementalEffectiveness = 0.0065000001341105,
+			statDescriptionScope = "hexblast",
 			baseFlags = {
 			},
 			constantStats = {
@@ -9291,14 +9307,14 @@ skills["IceNovaPlayer"] = {
 	},
 	description = "A nova of ice expands from you, Knocking Back enemies based on how close they are to you. Casting Ice Nova targeting near a Frostbolt Projectile will cause it to originate from the Frostbolt instead of you, and cause more Freeze buildup.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Cold] = true, [SkillType.CanRapidFire] = true, [SkillType.AreaSpell] = true, [SkillType.Nova] = true, [SkillType.Invokable] = true, [SkillType.Nonpathing] = true, [SkillType.Cascadable] = true, },
-	statDescriptionScope = "ice_nova",
 	castTime = 1,
 	statSets = {
 		[1] = {
-			label = "Ice Nova",
+			label = "Base",
 			baseEffectiveness = 1.3400000333786,
 			incrementalEffectiveness = 0.14000000059605,
 			damageIncrementalEffectiveness = 0.0065000001341105,
+			statDescriptionScope = "ice_nova",
 			baseFlags = {
 			},
 			constantStats = {
@@ -9363,8 +9379,9 @@ skills["IceNovaPlayer"] = {
 			},
 		},
 		[2] = {
-			label = "Ice Nova",
+			label = "Cast on Frostbolt",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "ice_nova",
 			baseFlags = {
 			},
 			constantStats = {
@@ -9426,12 +9443,12 @@ skills["IceStrikePlayer"] = {
 	},
 	description = "Perform a fast icy Strike. Using this Attack three times in quick succession causes a final strike that is slower and more powerful.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Multistrikeable] = true, [SkillType.Melee] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Area] = true, [SkillType.Cold] = true, [SkillType.PerformsFinalStrike] = true, [SkillType.QuarterstaffSkill] = true, },
-	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
 	statSets = {
 		[1] = {
-			label = "Ice Strike",
+			label = "Normal Strikes",
 			incrementalEffectiveness = 0.092720001935959,
+			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -9487,8 +9504,9 @@ skills["IceStrikePlayer"] = {
 			},
 		},
 		[2] = {
-			label = "Ice Strike",
+			label = "Third Strike",
 			incrementalEffectiveness = 0.092720001935959,
+			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -9591,7 +9609,6 @@ skills["IncineratePlayer"] = {
 	},
 	description = "Conjures a torrent of Fire from your hand, Igniting enemies in front of you. The flames grow stronger the longer you Channel for, and at maximum strength also apply stacking Fire Exposure and creating Ignited Ground.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Totemable] = true, [SkillType.Fire] = true, [SkillType.Channel] = true, [SkillType.Area] = true, [SkillType.AreaSpell] = true, [SkillType.Duration] = true, [SkillType.Nonpathing] = true, [SkillType.Sustained] = true, [SkillType.CreatesGroundEffect] = true, },
-	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 0.25,
 	statSets = {
 		[1] = {
@@ -9599,6 +9616,7 @@ skills["IncineratePlayer"] = {
 			baseEffectiveness = 2.9500000476837,
 			incrementalEffectiveness = 0.14000000059605,
 			damageIncrementalEffectiveness = 0.0065000001341105,
+			statDescriptionScope = "incinerate_player_statset_0",
 			baseFlags = {
 			},
 			constantStats = {
@@ -9670,8 +9688,9 @@ skills["IncineratePlayer"] = {
 			},
 		},
 		[2] = {
-			label = "Incinerate",
+			label = "Burning Ground",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "incinerate_player_statset_0",
 			baseFlags = {
 			},
 			constantStats = {
@@ -9777,7 +9796,6 @@ skills["KillingPalmPlayer"] = {
 	weaponTypes = {
 		["None"] = true,
 	},
-	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
 	statSets = {
 		[1] = {
@@ -9785,6 +9803,7 @@ skills["KillingPalmPlayer"] = {
 			baseEffectiveness = 1.9409999847412,
 			incrementalEffectiveness = 0.11649999767542,
 			damageIncrementalEffectiveness = 0.006699999794364,
+			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -9895,7 +9914,6 @@ skills["LightningBoltPlayer"] = {
 	},
 	description = "Call down a Shocking bolt of Lightning to strike enemies in a small area.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Lightning] = true, [SkillType.CanRapidFire] = true, [SkillType.Area] = true, [SkillType.AreaSpell] = true, [SkillType.Cascadable] = true, [SkillType.Nonpathing] = true, },
-	statDescriptionScope = "lightning_bolt",
 	castTime = 0.85,
 	statSets = {
 		[1] = {
@@ -9903,6 +9921,7 @@ skills["LightningBoltPlayer"] = {
 			baseEffectiveness = 1.8600000143051,
 			incrementalEffectiveness = 0.14000000059605,
 			damageIncrementalEffectiveness = 0.0065000001341105,
+			statDescriptionScope = "lightning_bolt",
 			baseFlags = {
 			},
 			constantStats = {
@@ -10011,7 +10030,6 @@ skills["LightningConduitPlayer"] = {
 	},
 	description = "Calls down lightning to strike all enemies in a cone in front of you. Deals significantly more damage to Shocked enemies but Consumes Shock from them after damaging them. Targeting close to you will cause you to jump back as you cast.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Totemable] = true, [SkillType.Trappable] = true, [SkillType.Mineable] = true, [SkillType.Triggerable] = true, [SkillType.Multicastable] = true, [SkillType.Lightning] = true, [SkillType.AreaSpell] = true, [SkillType.DynamicCooldown] = true, [SkillType.SkillConsumesShock] = true, },
-	statDescriptionScope = "lightning_conduit",
 	castTime = 1,
 	statSets = {
 		[1] = {
@@ -10019,6 +10037,7 @@ skills["LightningConduitPlayer"] = {
 			baseEffectiveness = 1.9199999570847,
 			incrementalEffectiveness = 0.14000000059605,
 			damageIncrementalEffectiveness = 0.0065000001341105,
+			statDescriptionScope = "lightning_conduit",
 			baseFlags = {
 			},
 			constantStats = {
@@ -10125,7 +10144,6 @@ skills["LightningWarpPlayer"] = {
 	},
 	description = "Teleports you inside the target's body, causing it to violently explode. Highlights enemies that can be Culled, and can only be used on these enemies or Ball Lightning Projectiles. The target is destroyed, and the explosion deals Lightning Damage to surrounding enemies and creates Shocked Ground.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Triggerable] = true, [SkillType.Lightning] = true, [SkillType.AreaSpell] = true, [SkillType.Multicastable] = true, [SkillType.CanRapidFire] = true, [SkillType.Nonpathing] = true, [SkillType.CreatesGroundEffect] = true, },
-	statDescriptionScope = "teleport_ball",
 	castTime = 0.5,
 	statSets = {
 		[1] = {
@@ -10133,6 +10151,7 @@ skills["LightningWarpPlayer"] = {
 			baseEffectiveness = 3.5999999046326,
 			incrementalEffectiveness = 0.14000000059605,
 			damageIncrementalEffectiveness = 0.0065000001341105,
+			statDescriptionScope = "teleport_ball",
 			baseFlags = {
 			},
 			constantStats = {
@@ -10243,12 +10262,12 @@ skills["LingeringIllusionPlayer"] = {
 	},
 	description = "Creates a short-lived illusory copy of yourself whenever you dodge roll. The copy can be damaged by enemies, and copies that are destroyed by an enemy will grant you a Power Charge.",
 	skillTypes = { [SkillType.HasReservation] = true, [SkillType.OngoingSkill] = true, [SkillType.Persistent] = true, [SkillType.Buff] = true, [SkillType.GeneratesCharges] = true, [SkillType.Duration] = true, },
-	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 0,
 	statSets = {
 		[1] = {
-			label = "Lingering Illusion",
+			label = "Buff",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
 			},
 			stats = {
@@ -10345,12 +10364,12 @@ skills["LingeringIllusionSpawnPlayer"] = {
 		[40] = { levelRequirement = 0, actorLevel = 288.29998779297, cost = { Mana = 10, }, },
 	},
 	skillTypes = { [SkillType.HasReservation] = true, [SkillType.OngoingSkill] = true, [SkillType.Persistent] = true, [SkillType.Buff] = true, [SkillType.GeneratesCharges] = true, [SkillType.Duration] = true, },
-	statDescriptionScope = "create_illusion",
 	castTime = 1,
 	statSets = {
 		[1] = {
-			label = "",
+			label = "Illusion",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "create_illusion",
 			baseFlags = {
 			},
 			constantStats = {
@@ -10457,7 +10476,6 @@ skills["LivingBombPlayer"] = {
 	},
 	description = "Plant a seed of Fire inside an enemy, which grows over a duration. When the duration expires, the seed explodes, damaging the enemy and all other enemies nearby.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.AreaSpell] = true, [SkillType.Limit] = true, [SkillType.Fire] = true, [SkillType.Nonpathing] = true, [SkillType.Duration] = true, },
-	statDescriptionScope = "living_bomb_player",
 	castTime = 0.6,
 	statSets = {
 		[1] = {
@@ -10465,6 +10483,7 @@ skills["LivingBombPlayer"] = {
 			baseEffectiveness = 2.5999999046326,
 			incrementalEffectiveness = 0.14000000059605,
 			damageIncrementalEffectiveness = 0.0065000001341105,
+			statDescriptionScope = "living_bomb_player",
 			baseFlags = {
 			},
 			constantStats = {
@@ -10575,12 +10594,12 @@ skills["MalicePlayer"] = {
 	},
 	description = "Emits an Aura that continuously inflicts Critical Weakness on enemies in your Presence.",
 	skillTypes = { [SkillType.Buff] = true, [SkillType.HasReservation] = true, [SkillType.Aura] = true, [SkillType.OngoingSkill] = true, [SkillType.Persistent] = true, [SkillType.Duration] = true, },
-	statDescriptionScope = "aura_crit_against_enemy",
 	castTime = 1,
 	statSets = {
 		[1] = {
 			label = "Malice",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "aura_crit_against_enemy",
 			baseFlags = {
 			},
 			constantStats = {
@@ -10684,12 +10703,12 @@ skills["ManaDrainPlayer"] = {
 	},
 	description = "Siphons power from an enemy, briefly Hindering them and Leeching Mana.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Totemable] = true, [SkillType.Trappable] = true, [SkillType.Mineable] = true, [SkillType.Nonpathing] = true, },
-	statDescriptionScope = "mana_drain",
 	castTime = 0.85,
 	statSets = {
 		[1] = {
 			label = "Mana Drain",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "mana_drain",
 			baseFlags = {
 			},
 			constantStats = {
@@ -10794,7 +10813,6 @@ skills["ManaRemnantsPlayer"] = {
 	},
 	description = "Conjures surging lightning to restore your Mana. While active, Shocked enemies you kill have a chance to spawn a Mana Remnant, and Critically Hitting a Shocked target spawns a Mana Remnant every few seconds. Picking up a Mana Remnant grants you Mana which can Overflow maximum Mana.",
 	skillTypes = { [SkillType.Buff] = true, [SkillType.HasReservation] = true, [SkillType.TotemCastsAlone] = true, [SkillType.Lightning] = true, [SkillType.OngoingSkill] = true, [SkillType.Persistent] = true, },
-	statDescriptionScope = "mana_remnants",
 	castTime = 0,
 	statSets = {
 		[1] = {
@@ -10802,6 +10820,7 @@ skills["ManaRemnantsPlayer"] = {
 			baseEffectiveness = 5,
 			incrementalEffectiveness = 0.050000000745058,
 			damageIncrementalEffectiveness = 0.0089999996125698,
+			statDescriptionScope = "mana_remnants",
 			baseFlags = {
 			},
 			constantStats = {
@@ -10905,12 +10924,12 @@ skills["ManaTempestPlayer"] = {
 	},
 	description = "Creates a storm of arcane energies that Empowers your Mana-costing Spells while you remain inside it. Maintaining the storm constantly drains your Mana, and each Spell you cast causes it to drain faster. The storm will dissipate when you exit it or run out of Mana.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Buff] = true, [SkillType.Cooldown] = true, [SkillType.Lightning] = true, [SkillType.InstantNoRepeatWhenHeld] = true, [SkillType.InstantShiftAttackForLeftMouse] = true, [SkillType.Nonpathing] = true, [SkillType.EmpowersOtherSkill] = true, },
-	statDescriptionScope = "mana_tempest",
 	castTime = 0.6,
 	statSets = {
 		[1] = {
 			label = "Mana Tempest",
 			incrementalEffectiveness = 0.092720001935959,
+			statDescriptionScope = "mana_tempest",
 			baseFlags = {
 			},
 			constantStats = {
@@ -11023,12 +11042,12 @@ skills["MantraOfDestructionPlayer"] = {
 	},
 	description = "Build Combo by successfully Striking Enemies with other skills. After reaching maximum Combo, use this skill to Empower your next Quarterstaff Attack, causing it to deal additional Chaos damage. Each kill with the Empowered Attack grants\nPurple Flames of Chayula for a duration.",
 	skillTypes = { [SkillType.ComboStacking] = true, [SkillType.Buff] = true, [SkillType.Duration] = true, [SkillType.Nonpathing] = true, [SkillType.EmpowersOtherSkill] = true, [SkillType.Chaos] = true, },
-	statDescriptionScope = "mantra_of_destruction",
 	castTime = 0.6,
 	statSets = {
 		[1] = {
 			label = "Mantra of Destruction",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "mantra_of_destruction",
 			baseFlags = {
 			},
 			constantStats = {
@@ -11141,7 +11160,6 @@ skills["OrbOfStormsPlayer"] = {
 	},
 	description = "Creates an Orb of electricity that fires Chaining Lightning bolts at nearby enemies.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Lightning] = true, [SkillType.Area] = true, [SkillType.Chains] = true, [SkillType.Triggerable] = true, [SkillType.Trappable] = true, [SkillType.Mineable] = true, [SkillType.Totemable] = true, [SkillType.AreaSpell] = true, [SkillType.Orb] = true, [SkillType.Nonpathing] = true, [SkillType.Limit] = true, [SkillType.Duration] = true, [SkillType.Sustained] = true, },
-	statDescriptionScope = "orb_of_storms",
 	castTime = 0.8,
 	statSets = {
 		[1] = {
@@ -11149,6 +11167,7 @@ skills["OrbOfStormsPlayer"] = {
 			baseEffectiveness = 0.86000001430511,
 			incrementalEffectiveness = 0.14000000059605,
 			damageIncrementalEffectiveness = 0.0065000001341105,
+			statDescriptionScope = "orb_of_storms",
 			baseFlags = {
 			},
 			constantStats = {
@@ -11267,12 +11286,12 @@ skills["PainOfferingPlayer"] = {
 	},
 	description = "Impales a Skeleton on a bone spike to send nearby Minions into a frenzy as long as the spike remains, causing them to use skills more quickly and deal more damage.\n\nThe bone spike is itself a Minion. If it dies, the effect ends immediately.",
 	skillTypes = { [SkillType.Offering] = true, [SkillType.Minion] = true, [SkillType.Buff] = true, [SkillType.Duration] = true, [SkillType.CanRapidFire] = true, [SkillType.Nonpathing] = true, [SkillType.CreatesMinion] = true, [SkillType.Aura] = true, [SkillType.Limit] = true, [SkillType.Area] = true, },
-	statDescriptionScope = "pain_offering",
 	castTime = 0.6,
 	statSets = {
 		[1] = {
 			label = "Pain Offering",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "pain_offering",
 			baseFlags = {
 			},
 			constantStats = {
@@ -11383,7 +11402,6 @@ skills["PowerSiphonPlayer"] = {
 	},
 	description = "Attempts to rip the lifeforce from an enemy. Enemies within Culling range will be highlighted and instantly killed on Hit, granting a Power Charge. Can only target Enemies in Culling range.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Totemable] = true, [SkillType.Trappable] = true, [SkillType.Mineable] = true, [SkillType.Nonpathing] = true, [SkillType.Damage] = true, [SkillType.GeneratesCharges] = true, [SkillType.Physical] = true, },
-	statDescriptionScope = "power_siphon",
 	castTime = 0.7,
 	statSets = {
 		[1] = {
@@ -11391,6 +11409,7 @@ skills["PowerSiphonPlayer"] = {
 			baseEffectiveness = 0.37000000476837,
 			incrementalEffectiveness = 0.14000000059605,
 			damageIncrementalEffectiveness = 0.0094999996945262,
+			statDescriptionScope = "power_siphon",
 			baseFlags = {
 			},
 			constantStats = {
@@ -11499,7 +11518,6 @@ skills["ProfaneRitualPlayer"] = {
 	},
 	description = "Marks a Corpse with a profane rune, dealing Chaos damage over time to nearby enemies. When the ritual is complete the Corpse is consumed and you gain a Power Charge.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Chaos] = true, [SkillType.Duration] = true, [SkillType.Area] = true, [SkillType.DamageOverTime] = true, [SkillType.Multicastable] = true, [SkillType.Cascadable] = true, [SkillType.Triggerable] = true, [SkillType.DegenOnlySpellDamage] = true, [SkillType.CanRapidFire] = true, [SkillType.AreaSpell] = true, [SkillType.Nonpathing] = true, [SkillType.TargetsDestructibleCorpses] = true, [SkillType.Limit] = true, [SkillType.GeneratesCharges] = true, [SkillType.CreatesGroundRune] = true, },
-	statDescriptionScope = "ritual_of_power",
 	castTime = 1,
 	statSets = {
 		[1] = {
@@ -11507,6 +11525,7 @@ skills["ProfaneRitualPlayer"] = {
 			baseEffectiveness = 12,
 			incrementalEffectiveness = 0.14000000059605,
 			damageIncrementalEffectiveness = 0.0087000001221895,
+			statDescriptionScope = "ritual_of_power",
 			baseFlags = {
 			},
 			constantStats = {
@@ -11615,12 +11634,12 @@ skills["PurityOfFirePlayer"] = {
 	},
 	description = "Emits an Aura that boosts the Fire Resistance of Allies in your Presence. The Aura does not affect you.",
 	skillTypes = { [SkillType.Buff] = true, [SkillType.HasReservation] = true, [SkillType.Aura] = true, [SkillType.OngoingSkill] = true, [SkillType.Persistent] = true, [SkillType.Fire] = true, },
-	statDescriptionScope = "fire_resist_aura",
 	castTime = 0,
 	statSets = {
 		[1] = {
 			label = "Purity of Fire",
 			incrementalEffectiveness = 0.092720001935959,
+			statDescriptionScope = "fire_resist_aura",
 			baseFlags = {
 			},
 			constantStats = {
@@ -11723,12 +11742,12 @@ skills["PurityOfIcePlayer"] = {
 	},
 	description = "Emits an Aura that boosts the Cold Resistance of Allies in your Presence. The Aura does not affect you.",
 	skillTypes = { [SkillType.Buff] = true, [SkillType.HasReservation] = true, [SkillType.Aura] = true, [SkillType.OngoingSkill] = true, [SkillType.Persistent] = true, [SkillType.Cold] = true, },
-	statDescriptionScope = "cold_resist_aura",
 	castTime = 0,
 	statSets = {
 		[1] = {
 			label = "Purity of Ice",
 			incrementalEffectiveness = 0.092720001935959,
+			statDescriptionScope = "cold_resist_aura",
 			baseFlags = {
 			},
 			constantStats = {
@@ -11831,12 +11850,12 @@ skills["PurityOfLightningPlayer"] = {
 	},
 	description = "Emits an Aura that boosts the Lightning Resistance of Allies in your Presence. The Aura does not affect you.",
 	skillTypes = { [SkillType.Buff] = true, [SkillType.HasReservation] = true, [SkillType.Aura] = true, [SkillType.OngoingSkill] = true, [SkillType.Persistent] = true, [SkillType.Lightning] = true, },
-	statDescriptionScope = "lightning_resist_aura",
 	castTime = 0,
 	statSets = {
 		[1] = {
 			label = "Purity of Lightning",
 			incrementalEffectiveness = 0.092720001935959,
+			statDescriptionScope = "lightning_resist_aura",
 			baseFlags = {
 			},
 			constantStats = {
@@ -11940,12 +11959,12 @@ skills["RagingSpiritsPlayer"] = {
 	description = "While active, your Fire Spells will also summon Raging Spirits, which are short-lived flaming skulls that rush at nearby enemies and rapidly Attack them. Enemies will not directly engage these Minions, and can pass through them.",
 	skillTypes = { [SkillType.Buff] = true, [SkillType.Minion] = true, [SkillType.Fire] = true, [SkillType.CreatesMinion] = true, [SkillType.HasReservation] = true, [SkillType.OngoingSkill] = true, [SkillType.Duration] = true, [SkillType.Persistent] = true, [SkillType.Limit] = true, },
 	minionSkillTypes = { [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Multistrikeable] = true, },
-	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
 	statSets = {
 		[1] = {
 			label = "Raging Spirits",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -12053,13 +12072,13 @@ skills["RaiseZombiePlayer"] = {
 	description = "Consumes a Corpse or Power Charge to create a short-lived Zombie. Zombies created from Power Charges are Empowered.",
 	skillTypes = { [SkillType.Minion] = true, [SkillType.MinionsCanExplode] = true, [SkillType.Totemable] = true, [SkillType.CreatesMinion] = true, [SkillType.Nonpathing] = true, [SkillType.Duration] = true, [SkillType.TargetsDestructibleCorpses] = true, [SkillType.Physical] = true, [SkillType.ConsumesCharges] = true, [SkillType.Limit] = true, [SkillType.SkillConsumesPowerChargesOnUse] = true, },
 	minionSkillTypes = { [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Multistrikeable] = true, [SkillType.Area] = true, },
-	statDescriptionScope = "raise_zombie",
 	castTime = 0.6,
 	statSets = {
 		[1] = {
-			label = "Raise Zombie",
+			label = "Minion Info",
 			baseEffectiveness = 0,
 			incrementalEffectiveness = 0.092720001935959,
+			statDescriptionScope = "raise_zombie",
 			baseFlags = {
 			},
 			constantStats = {
@@ -12172,12 +12191,12 @@ skills["MetaReapersInvocationPlayer"] = {
 	},
 	description = "While active, this Invocation gains Energy when you kill an enemy with a Melee Attack. Using the Invocation once sufficient Energy is gathered will consume the Energy to trigger socketed Spells, and can trigger them multiple times if it has enough Energy.",
 	skillTypes = { [SkillType.HasReservation] = true, [SkillType.OngoingSkill] = true, [SkillType.Meta] = true, [SkillType.Persistent] = true, [SkillType.Buff] = true, [SkillType.CanHaveMultipleOngoingSkillInstances] = true, [SkillType.Invocation] = true, [SkillType.GeneratesEnergy] = true, },
-	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 0,
 	statSets = {
 		[1] = {
 			label = "Reaper's Invocation",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -12283,11 +12302,11 @@ skills["SupportReapersInvocationPlayer"] = {
 	addSkillTypes = { SkillType.Triggered, SkillType.Cooldown, },
 	excludeSkillTypes = { SkillType.SupportedByHourglass, },
 	isTrigger = true,
-	statDescriptionScope = "gem_stat_descriptions",
 	statSets = {
 		[1] = {
 			label = "SupportReapersInvocationPlayer",
 			incrementalEffectiveness = 0.054999999701977,
+	statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -12391,7 +12410,6 @@ skills["RollingMagmaPlayer"] = {
 	},
 	description = "Lob a fiery orb that deals area damage as it hits the ground. The skill Chains, bouncing forward to deal damage multiple times. The number of  Chains is refreshed when passing through a Flame Wall.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Trappable] = true, [SkillType.Mineable] = true, [SkillType.Totemable] = true, [SkillType.Triggerable] = true, [SkillType.Fire] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Multicastable] = true, [SkillType.CanRapidFire] = true, [SkillType.AreaSpell] = true, [SkillType.Nonpathing] = true, },
-	statDescriptionScope = "fire_mortar",
 	castTime = 0.7,
 	statSets = {
 		[1] = {
@@ -12399,6 +12417,7 @@ skills["RollingMagmaPlayer"] = {
 			baseEffectiveness = 2.5599999427795,
 			incrementalEffectiveness = 0.14000000059605,
 			damageIncrementalEffectiveness = 0.0065000001341105,
+			statDescriptionScope = "fire_mortar",
 			baseFlags = {
 			},
 			constantStats = {
@@ -12519,12 +12538,12 @@ skills["SacrificePlayer"] = {
 	},
 	description = "While active, your undead Reviving Minions can be used in place of Corpses by your skills, but your Minions Revive more slowly.",
 	skillTypes = { [SkillType.OngoingSkill] = true, [SkillType.HasReservation] = true, [SkillType.Buff] = true, [SkillType.Persistent] = true, [SkillType.Minion] = true, },
-	statDescriptionScope = "harvester",
 	castTime = 1,
 	statSets = {
 		[1] = {
 			label = "Sacrifice",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "harvester",
 			baseFlags = {
 			},
 			stats = {
@@ -12627,14 +12646,14 @@ skills["ShatteringPalmPlayer"] = {
 	weaponTypes = {
 		["None"] = true,
 	},
-	statDescriptionScope = "shattering_palm",
 	castTime = 1,
 	statSets = {
 		[1] = {
-			label = "Shattering Palm",
+			label = "Melee",
 			baseEffectiveness = 1.9409999847412,
 			incrementalEffectiveness = 0.11649999767542,
 			damageIncrementalEffectiveness = 0.006699999794364,
+			statDescriptionScope = "shattering_palm",
 			baseFlags = {
 			},
 			constantStats = {
@@ -12744,14 +12763,14 @@ skills["ShatteringPalmExplosionPlayer"] = {
 	weaponTypes = {
 		["None"] = true,
 	},
-	statDescriptionScope = "triggered_freezing_word_explosion",
 	castTime = 1,
 	statSets = {
 		[1] = {
-			label = "Freezing Explosion",
+			label = "Explosion",
 			baseEffectiveness = 1.9409999847412,
 			incrementalEffectiveness = 0.034650001674891,
 			damageIncrementalEffectiveness = 0.012719999998808,
+			statDescriptionScope = "triggered_freezing_word_explosion",
 			baseFlags = {
 			},
 			constantStats = {
@@ -12860,7 +12879,6 @@ skills["SigilOfPowerPlayer"] = {
 	},
 	description = "Places a Sigil on the ground, providing a powerful Spell Damage Buff to you and Allies while standing in it. The Buff becomes more powerful the more mana you spend while standing in the Sigil.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Trappable] = true, [SkillType.Mineable] = true, [SkillType.Triggerable] = true, [SkillType.AreaSpell] = true, [SkillType.Cooldown] = true, [SkillType.Totemable] = true, [SkillType.Nonpathing] = true, [SkillType.Limit] = true, },
-	statDescriptionScope = "circle_of_power",
 	castTime = 0.6,
 	statSets = {
 		[1] = {
@@ -12868,6 +12886,7 @@ skills["SigilOfPowerPlayer"] = {
 			baseEffectiveness = 0.1630000025034,
 			incrementalEffectiveness = 0.14000000059605,
 			damageIncrementalEffectiveness = 0.0065000001341105,
+			statDescriptionScope = "circle_of_power",
 			baseFlags = {
 			},
 			constantStats = {
@@ -12978,12 +12997,12 @@ skills["SiphoningStrikePlayer"] = {
 	},
 	description = "Dash to a target and Strike them with your Quarterstaff. If the target is Shocked, consumes the Shock to release a Lightning shockwave around the target and grant you a Power Charge.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.Area] = true, [SkillType.Lightning] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.SkillConsumesShock] = true, [SkillType.GeneratesCharges] = true, [SkillType.QuarterstaffSkill] = true, },
-	statDescriptionScope = "charged_strike",
 	castTime = 1,
 	statSets = {
 		[1] = {
-			label = "Siphoning Strike",
+			label = "Dash",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "charged_strike",
 			baseFlags = {
 			},
 			constantStats = {
@@ -13043,8 +13062,9 @@ skills["SiphoningStrikePlayer"] = {
 			},
 		},
 		[2] = {
-			label = "Siphoning Strike",
+			label = "Shockwave",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "charged_strike",
 			baseFlags = {
 			},
 			constantStats = {
@@ -13148,12 +13168,12 @@ skills["SummonSkeletalArsonistsPlayer"] = {
 	description = "Summons bomb-throwing, Reviving Skeletal Arsonists that can detonate other Minions on Command.",
 	skillTypes = { [SkillType.Minion] = true, [SkillType.MinionsCanExplode] = true, [SkillType.CreatesMinion] = true, [SkillType.CreatesUndeadMinion] = true, [SkillType.CreatesSkeletonMinion] = true, [SkillType.HasReservation] = true, [SkillType.Persistent] = true, [SkillType.MultipleReservation] = true, [SkillType.Fire] = true, [SkillType.CommandableMinion] = true, },
 	minionSkillTypes = { [SkillType.Attack] = true, [SkillType.Projectile] = true, [SkillType.Area] = true, [SkillType.DamageOverTime] = true, },
-	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 0,
 	statSets = {
 		[1] = {
-			label = "Skeletal Arsonist Minion",
+			label = "Minion Info",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -13255,13 +13275,13 @@ skills["CommandSkeletalArsonistPlayer"] = {
 		[40] = { levelRequirement = 0, actorLevel = 288.29998779297, cost = { Mana = 1262, }, },
 	},
 	skillTypes = { [SkillType.CommandsMinions] = true, [SkillType.Nonpathing] = true, },
-	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 0.6,
 	statSets = {
 		[1] = {
-			label = "Command: {0} ",
+			label = "Command",
 			baseEffectiveness = 2,
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -13373,12 +13393,12 @@ skills["SummonSkeletalBrutesPlayer"] = {
 	description = "Summons hard-hitting, Reviving Skeletal Brutes that can Stun Primed enemies.",
 	skillTypes = { [SkillType.Minion] = true, [SkillType.MinionsCanExplode] = true, [SkillType.CreatesMinion] = true, [SkillType.CreatesUndeadMinion] = true, [SkillType.CreatesSkeletonMinion] = true, [SkillType.HasReservation] = true, [SkillType.Persistent] = true, [SkillType.MultipleReservation] = true, [SkillType.Physical] = true, },
 	minionSkillTypes = { [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Multistrikeable] = true, },
-	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 0,
 	statSets = {
 		[1] = {
-			label = "Skeletal Brute Minion",
+			label = "Minion Info",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -13483,12 +13503,12 @@ skills["SummonSkeletalClericsPlayer"] = {
 	description = "Summons Reviving Skeletal Clerics that heal other minions and revive fallen Skeletons.",
 	skillTypes = { [SkillType.Minion] = true, [SkillType.MinionsCanExplode] = true, [SkillType.CreatesMinion] = true, [SkillType.CreatesUndeadMinion] = true, [SkillType.CreatesSkeletonMinion] = true, [SkillType.HasReservation] = true, [SkillType.Persistent] = true, [SkillType.MultipleReservation] = true, },
 	minionSkillTypes = { [SkillType.Spell] = true, [SkillType.Cooldown] = true, },
-	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 0,
 	statSets = {
 		[1] = {
-			label = "Skeletal Cleric Minion",
+			label = "Minion Info",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -13593,12 +13613,12 @@ skills["SummonSkeletalFrostMagesPlayer"] = {
 	description = "Summons Reviving Skeletal Frost Mages that can be Commanded to cast icy explosions.",
 	skillTypes = { [SkillType.Minion] = true, [SkillType.MinionsCanExplode] = true, [SkillType.CreatesMinion] = true, [SkillType.CreatesUndeadMinion] = true, [SkillType.CreatesSkeletonMinion] = true, [SkillType.HasReservation] = true, [SkillType.Persistent] = true, [SkillType.MultipleReservation] = true, [SkillType.Cold] = true, [SkillType.CommandableMinion] = true, },
 	minionSkillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Cascadable] = true, },
-	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 0,
 	statSets = {
 		[1] = {
-			label = "Skeletal Frost Mage Minion",
+			label = "Minion Info",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -13700,12 +13720,12 @@ skills["CommandSkeletalFrostMagePlayer"] = {
 		[40] = { levelRequirement = 0, actorLevel = 288.29998779297, cost = { Mana = 1366, }, },
 	},
 	skillTypes = { [SkillType.CommandsMinions] = true, [SkillType.Nonpathing] = true, },
-	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1.25,
 	statSets = {
 		[1] = {
-			label = "Command: {0} ",
+			label = "Command",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -13813,13 +13833,13 @@ skills["SummonSkeletalReaversPlayer"] = {
 	description = "Summons aggressive, Reviving Skeletal Reavers that can enrage on Command.",
 	skillTypes = { [SkillType.Minion] = true, [SkillType.MinionsCanExplode] = true, [SkillType.CreatesMinion] = true, [SkillType.CreatesUndeadMinion] = true, [SkillType.CreatesSkeletonMinion] = true, [SkillType.HasReservation] = true, [SkillType.Persistent] = true, [SkillType.MultipleReservation] = true, [SkillType.Physical] = true, [SkillType.CommandableMinion] = true, },
 	minionSkillTypes = { [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Multistrikeable] = true, },
-	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 0,
 	statSets = {
 		[1] = {
-			label = "Skeletal Reaver Minion",
+			label = "Minion Info",
 			baseEffectiveness = 0,
 			incrementalEffectiveness = 0.092720001935959,
+			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -13921,12 +13941,12 @@ skills["CommandSkeletalReaversPlayer"] = {
 		[40] = { levelRequirement = 0, actorLevel = 288.29998779297, cost = { Mana = 1135, }, },
 	},
 	skillTypes = { [SkillType.CommandsMinions] = true, [SkillType.Nonpathing] = true, },
-	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
 	statSets = {
 		[1] = {
-			label = "Command: {0} ",
+			label = "Command",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -14034,12 +14054,12 @@ skills["SummonSkeletalSnipersPlayer"] = {
 	description = "Summons long-ranged, Reviving Skeletal Snipers that can fire a gas arrow on Command.",
 	skillTypes = { [SkillType.Minion] = true, [SkillType.MinionsCanExplode] = true, [SkillType.CreatesMinion] = true, [SkillType.CreatesUndeadMinion] = true, [SkillType.CreatesSkeletonMinion] = true, [SkillType.HasReservation] = true, [SkillType.Persistent] = true, [SkillType.MultipleReservation] = true, [SkillType.Physical] = true, [SkillType.Chaos] = true, [SkillType.Fire] = true, [SkillType.CommandableMinion] = true, },
 	minionSkillTypes = { [SkillType.Attack] = true, [SkillType.Projectile] = true, [SkillType.Duration] = true, [SkillType.Area] = true, },
-	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 0,
 	statSets = {
 		[1] = {
-			label = "Skeletal Sniper Minion",
+			label = "Minion Info",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -14141,12 +14161,12 @@ skills["CommandSkeletalSniperPlayer"] = {
 		[40] = { levelRequirement = 0, actorLevel = 288.29998779297, cost = { Mana = 1156, }, },
 	},
 	skillTypes = { [SkillType.CommandsMinions] = true, [SkillType.Nonpathing] = true, },
-	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1.25,
 	statSets = {
 		[1] = {
-			label = "Command: {0} ",
+			label = "Command",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -14254,12 +14274,12 @@ skills["SummonSkeletalStormMagesPlayer"] = {
 	description = "Summons Reviving Skeletal Storm Mages that can call down a lightning storm on dead Skeletons on Command.",
 	skillTypes = { [SkillType.Minion] = true, [SkillType.MinionsCanExplode] = true, [SkillType.CreatesMinion] = true, [SkillType.CreatesUndeadMinion] = true, [SkillType.CreatesSkeletonMinion] = true, [SkillType.HasReservation] = true, [SkillType.Persistent] = true, [SkillType.MultipleReservation] = true, [SkillType.Lightning] = true, [SkillType.CommandableMinion] = true, },
 	minionSkillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.AreaSpell] = true, [SkillType.Chains] = true, [SkillType.CreatesGroundEffect] = true, [SkillType.Duration] = true, },
-	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 0,
 	statSets = {
 		[1] = {
-			label = "Skeletal Storm Mage Minion",
+			label = "Minion Info",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -14361,12 +14381,12 @@ skills["CommandSkeletalStormMagePlayer"] = {
 		[40] = { levelRequirement = 0, actorLevel = 288.29998779297, cost = { Mana = 2103, }, },
 	},
 	skillTypes = { [SkillType.CommandsMinions] = true, [SkillType.Nonpathing] = true, },
-	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 2,
 	statSets = {
 		[1] = {
-			label = "Command: {0} ",
+			label = "Command",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -14474,13 +14494,13 @@ skills["SummonSkeletalWarriorsPlayer"] = {
 	description = "Summons Reviving Skeletal Warriors.",
 	skillTypes = { [SkillType.Minion] = true, [SkillType.MinionsCanExplode] = true, [SkillType.CreatesMinion] = true, [SkillType.CreatesUndeadMinion] = true, [SkillType.CreatesSkeletonMinion] = true, [SkillType.HasReservation] = true, [SkillType.Persistent] = true, [SkillType.MultipleReservation] = true, [SkillType.Physical] = true, },
 	minionSkillTypes = { [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Multistrikeable] = true, },
-	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 0,
 	statSets = {
 		[1] = {
-			label = "Skeletal Warrior Minion",
+			label = "Minion Info",
 			baseEffectiveness = 0,
 			incrementalEffectiveness = 0.092720001935959,
+			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -14585,13 +14605,13 @@ skills["WeaponGrantedSummonSkeletalWarriorsPlayer"] = {
 	description = "Summons Reviving Skeletal Warriors.",
 	skillTypes = { [SkillType.Minion] = true, [SkillType.MinionsCanExplode] = true, [SkillType.CreatesMinion] = true, [SkillType.CreatesUndeadMinion] = true, [SkillType.CreatesSkeletonMinion] = true, [SkillType.HasReservation] = true, [SkillType.Persistent] = true, [SkillType.MultipleReservation] = true, [SkillType.Physical] = true, },
 	minionSkillTypes = { [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Multistrikeable] = true, },
-	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 0,
 	statSets = {
 		[1] = {
-			label = "Skeletal Warrior Minion",
+			label = "Minion Info",
 			baseEffectiveness = 0,
 			incrementalEffectiveness = 0.092720001935959,
+			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -14695,14 +14715,14 @@ skills["SolarOrbPlayer"] = {
 	},
 	description = "Creates a fiery Orb that periodically releases fiery pulses. Enemies that are very close to the Orb are Ignited.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Fire] = true, [SkillType.Area] = true, [SkillType.Triggerable] = true, [SkillType.Trappable] = true, [SkillType.Mineable] = true, [SkillType.Totemable] = true, [SkillType.AreaSpell] = true, [SkillType.Orb] = true, [SkillType.Duration] = true, [SkillType.Nonpathing] = true, [SkillType.Limit] = true, [SkillType.Sustained] = true, },
-	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 0.8,
 	statSets = {
 		[1] = {
-			label = "Solar Orb",
+			label = "Pulse",
 			baseEffectiveness = 1.1399999856949,
 			incrementalEffectiveness = 0.14000000059605,
 			damageIncrementalEffectiveness = 0.0065000001341105,
+			statDescriptionScope = "solar_orb_statset_0",
 			baseFlags = {
 			},
 			constantStats = {
@@ -14765,10 +14785,11 @@ skills["SolarOrbPlayer"] = {
 			},
 		},
 		[2] = {
-			label = "Solar Orb",
+			label = "Ignite",
 			baseEffectiveness = 4.3000001907349,
 			incrementalEffectiveness = 0.14000000059605,
 			damageIncrementalEffectiveness = 0.0065000001341105,
+			statDescriptionScope = "solar_orb_statset_0",
 			baseFlags = {
 			},
 			constantStats = {
@@ -14873,12 +14894,12 @@ skills["SoulOfferingPlayer"] = {
 	},
 	description = "Impales a Skeleton on a bone spike, granting you a powerful Spell damage Buff as long as the spike remains. Does not affect your Minions.\n\nThe bone spike is itself a Minion. If it dies, the effect ends immediately.",
 	skillTypes = { [SkillType.Offering] = true, [SkillType.Minion] = true, [SkillType.Duration] = true, [SkillType.Nonpathing] = true, [SkillType.Triggerable] = true, [SkillType.CreatesMinion] = true, [SkillType.Limit] = true, [SkillType.Buff] = true, },
-	statDescriptionScope = "power_offering",
 	castTime = 1,
 	statSets = {
 		[1] = {
 			label = "Soul Offering",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "power_offering",
 			baseFlags = {
 			},
 			constantStats = {
@@ -14986,7 +15007,6 @@ skills["SparkPlayer"] = {
 	},
 	description = "Launches a spray of sparking Projectiles that travel erratically along the ground until they hit an enemy or expire.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Damage] = true, [SkillType.Duration] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Lightning] = true, [SkillType.CanRapidFire] = true, [SkillType.Invokable] = true, [SkillType.Nonpathing] = true, },
-	statDescriptionScope = "spark",
 	castTime = 0.7,
 	statSets = {
 		[1] = {
@@ -14994,6 +15014,7 @@ skills["SparkPlayer"] = {
 			baseEffectiveness = 1.1399999856949,
 			incrementalEffectiveness = 0.14000000059605,
 			damageIncrementalEffectiveness = 0.0065000001341105,
+			statDescriptionScope = "spark",
 			baseFlags = {
 			},
 			constantStats = {
@@ -15112,7 +15133,6 @@ skills["StaggeringPalmPlayer"] = {
 	weaponTypes = {
 		["None"] = true,
 	},
-	statDescriptionScope = "wind_palm",
 	castTime = 1,
 	statSets = {
 		[1] = {
@@ -15120,6 +15140,7 @@ skills["StaggeringPalmPlayer"] = {
 			baseEffectiveness = 1.9409999847412,
 			incrementalEffectiveness = 0.11649999767542,
 			damageIncrementalEffectiveness = 0.006699999794364,
+			statDescriptionScope = "wind_palm",
 			baseFlags = {
 			},
 			constantStats = {
@@ -15230,12 +15251,12 @@ skills["StaggeringPalmProjectilePlayer"] = {
 	weaponTypes = {
 		["None"] = true,
 	},
-	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
 	statSets = {
 		[1] = {
-			label = "Wind Blast (Quarterstaff)",
+			label = "Projectile (Quarterstaff)",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -15342,14 +15363,14 @@ skills["StaggeringPalmUnarmedProjectilePlayer"] = {
 	weaponTypes = {
 		["None"] = true,
 	},
-	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
 	statSets = {
 		[1] = {
-			label = "Wind Blast (Unarmed)",
+			label = "Projectile (Unarmed)",
 			baseEffectiveness = 1.9409999847412,
 			incrementalEffectiveness = 0.11649999767542,
 			damageIncrementalEffectiveness = 0.006699999794364,
+			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -15458,12 +15479,12 @@ skills["StormWavePlayer"] = {
 	},
 	description = "Sweep your Quarterstaff, projecting a bolt of Lightning through the ground in a long wave ahead of you.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Multistrikeable] = true, [SkillType.Melee] = true, [SkillType.Area] = true, [SkillType.Lightning] = true, [SkillType.Nonpathing] = true, [SkillType.QuarterstaffSkill] = true, [SkillType.CreatesFissure] = true, },
-	statDescriptionScope = "storm_wave",
 	castTime = 1,
 	statSets = {
 		[1] = {
 			label = "Storm Wave",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "storm_wave",
 			baseFlags = {
 			},
 			constantStats = {
@@ -15571,12 +15592,12 @@ skills["TempestBellPlayer"] = {
 	},
 	description = "Build Combo by successfully Striking Enemies with other skills. After reaching maximum Combo, use this skill to cause the Bell on your staff to grow to massive size as you drop it on the ground. The Bell damages enemies on impact and can be Hit by your skills, creating a damaging shockwave. Elemental Ailments applied to the Bell cause its shockwaves to deal extra damage of the corresponding type, and Hits which would have caused Knockback increase the area of effect of the shockwaves.",
 	skillTypes = { [SkillType.ComboStacking] = true, [SkillType.Melee] = true, [SkillType.RangedAttack] = true, [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.ManualCooldownConsumption] = true, [SkillType.Duration] = true, [SkillType.Nova] = true, [SkillType.Limit] = true, [SkillType.Sustained] = true, [SkillType.QuarterstaffSkill] = true, [SkillType.SupportedByFountains] = true, },
-	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
 	statSets = {
 		[1] = {
 			label = "Tempest Bell",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "tempest_bell_statset_0",
 			baseFlags = {
 			},
 			constantStats = {
@@ -15644,8 +15665,9 @@ skills["TempestBellPlayer"] = {
 			},
 		},
 		[2] = {
-			label = "Tempest Bell",
+			label = "Impact",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "tempest_bell_statset_0",
 			baseFlags = {
 			},
 			constantStats = {
@@ -15698,8 +15720,9 @@ skills["TempestBellPlayer"] = {
 			},
 		},
 		[3] = {
-			label = "Tempest Bell",
+			label = "Shockwave",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "tempest_bell_statset_0",
 			baseFlags = {
 			},
 			constantStats = {
@@ -15805,12 +15828,12 @@ skills["TempestFlurryPlayer"] = {
 	},
 	description = "Perform a series of aggressive Strikes. When used in quick succession, the third use Strikes three times, and the fourth use performs a Final Strike that calls down a powerful Shocking bolt.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Multistrikeable] = true, [SkillType.Melee] = true, [SkillType.Lightning] = true, [SkillType.Area] = true, [SkillType.PerformsFinalStrike] = true, [SkillType.QuarterstaffSkill] = true, },
-	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
 	statSets = {
 		[1] = {
-			label = "Tempest Flurry",
+			label = "Normal Strikes",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -15868,8 +15891,9 @@ skills["TempestFlurryPlayer"] = {
 			},
 		},
 		[2] = {
-			label = "Tempest Flurry",
+			label = "Third Strike",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -15921,8 +15945,9 @@ skills["TempestFlurryPlayer"] = {
 			},
 		},
 		[3] = {
-			label = "Tempest Flurry",
+			label = "Fourth Strike",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -16027,13 +16052,13 @@ skills["TemporalChainsPlayer"] = {
 	},
 	description = "Curses all enemies in an area, Slowing them and making other effects on them expire more slowly.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Cascadable] = true, [SkillType.AppliesCurse] = true, [SkillType.CanRapidFire] = true, [SkillType.AreaSpell] = true, [SkillType.Nonpathing] = true, },
-	statDescriptionScope = "temporal_chains",
 	castTime = 0.7,
 	statSets = {
 		[1] = {
 			label = "Temporal Chains",
 			baseEffectiveness = 0,
 			incrementalEffectiveness = 0.092720001935959,
+			statDescriptionScope = "temporal_chains",
 			baseFlags = {
 			},
 			constantStats = {
@@ -16144,7 +16169,6 @@ skills["UnearthPlayer"] = {
 	description = "Raises spikes of bone from the earth in front of you, damaging enemies. The bones of Corpses in the area are ripped out and reassembled into short-lived Bone Construct Minions that fight for you.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Physical] = true, [SkillType.Duration] = true, [SkillType.Area] = true, [SkillType.Minion] = true, [SkillType.CanRapidFire] = true, [SkillType.Nonpathing] = true, [SkillType.CreatesMinion] = true, [SkillType.Damage] = true, [SkillType.TargetsDestructibleCorpses] = true, [SkillType.Limit] = true, [SkillType.Triggerable] = true, },
 	minionSkillTypes = { [SkillType.Attack] = true, },
-	statDescriptionScope = "bone_cone",
 	castTime = 0.95,
 	statSets = {
 		[1] = {
@@ -16152,6 +16176,7 @@ skills["UnearthPlayer"] = {
 			baseEffectiveness = 1.2599999904633,
 			incrementalEffectiveness = 0.14000000059605,
 			damageIncrementalEffectiveness = 0.0094999996945262,
+			statDescriptionScope = "bone_cone",
 			baseFlags = {
 			},
 			constantStats = {
@@ -16223,12 +16248,12 @@ skills["StaffUnleashNextSpellPlayer"] = {
 	},
 	description = "Infuses your staff arcane energy for a short duration, Empowering the next spell you cast to reoccur.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Cooldown] = true, [SkillType.Buff] = true, [SkillType.ModifiesNextSkill] = true, [SkillType.Duration] = true, [SkillType.EmpowersOtherSkill] = true, [SkillType.Nonpathing] = true, },
-	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 0.75,
 	statSets = {
 		[1] = {
 			label = "Unleash",
 			incrementalEffectiveness = 0.092720001935959,
+			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -16296,12 +16321,12 @@ skills["VaultingImpactPlayer"] = {
 	},
 	description = "Leaps forward and Slams the ground, sending out a Stunning shockwave that is especially potent against Dazed enemies.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Multistrikeable] = true, [SkillType.Melee] = true, [SkillType.Slam] = true, [SkillType.Area] = true, [SkillType.QuarterstaffSkill] = true, [SkillType.Jumping] = true, [SkillType.Travel] = true, },
-	statDescriptionScope = "vaulting_impact",
 	castTime = 1,
 	statSets = {
 		[1] = {
 			label = "Vaulting Impact",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "vaulting_impact",
 			baseFlags = {
 			},
 			constantStats = {
@@ -16409,7 +16434,6 @@ skills["VolatileDeadPlayer"] = {
 	},
 	description = "Consumes a Corpse to create a fireball that seeks out enemies and explodes. ",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Fire] = true, [SkillType.Cascadable] = true, [SkillType.CanRapidFire] = true, [SkillType.AreaSpell] = true, [SkillType.Nonpathing] = true, [SkillType.TargetsDestructibleCorpses] = true, },
-	statDescriptionScope = "volatile_dead",
 	castTime = 0.8,
 	statSets = {
 		[1] = {
@@ -16417,6 +16441,7 @@ skills["VolatileDeadPlayer"] = {
 			baseEffectiveness = 3.75,
 			incrementalEffectiveness = 0.14000000059605,
 			damageIncrementalEffectiveness = 0.0065000001341105,
+			statDescriptionScope = "volatile_dead",
 			baseFlags = {
 			},
 			constantStats = {
@@ -16526,13 +16551,13 @@ skills["VulnerabilityPlayer"] = {
 	},
 	description = "Curses all targets in an area after a short delay, making Hits against them ignore a portion of their Armour.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Cascadable] = true, [SkillType.AppliesCurse] = true, [SkillType.CanRapidFire] = true, [SkillType.AreaSpell] = true, [SkillType.Physical] = true, [SkillType.Nonpathing] = true, },
-	statDescriptionScope = "vulnerability",
 	castTime = 0.7,
 	statSets = {
 		[1] = {
 			label = "Vulnerability",
 			baseEffectiveness = 0,
 			incrementalEffectiveness = 0.092720001935959,
+			statDescriptionScope = "vulnerability",
 			baseFlags = {
 			},
 			constantStats = {
@@ -16641,12 +16666,12 @@ skills["WaveOfFrostPlayer"] = {
 	},
 	description = "Flips backwards and sends forth a Freezing wave in front of you.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.Area] = true, [SkillType.Multistrikeable] = true, [SkillType.Cold] = true, [SkillType.AttackInPlaceIsDefault] = true, [SkillType.QuarterstaffSkill] = true, [SkillType.Movement] = true, [SkillType.Jumping] = true, },
-	statDescriptionScope = "quarterstaff_frost_burst",
 	castTime = 1,
 	statSets = {
 		[1] = {
 			label = "Wave of Frost",
 			incrementalEffectiveness = 0.092720001935959,
+			statDescriptionScope = "quarterstaff_frost_burst",
 			baseFlags = {
 			},
 			constantStats = {
@@ -16751,12 +16776,12 @@ skills["WhirlingAssaultPlayer"] = {
 	},
 	description = "Advance while hitting enemies around you with a series of spinning Strikes.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Multistrikeable] = true, [SkillType.Melee] = true, [SkillType.Area] = true, [SkillType.QuarterstaffSkill] = true, },
-	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
 	statSets = {
 		[1] = {
 			label = "Whirling Assault",
 			incrementalEffectiveness = 0.092720001935959,
+			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -16864,12 +16889,12 @@ skills["GaleStrikePlayer"] = {
 	},
 	description = "Strike enemies at range by generating a gust of wind as you swing. Enemies will be Knocked Back based on how close they are to you.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.Area] = true, [SkillType.QuarterstaffSkill] = true, },
-	statDescriptionScope = "gale_strike",
 	castTime = 1,
 	statSets = {
 		[1] = {
 			label = "Wind Blast",
 			incrementalEffectiveness = 0.092720001935959,
+			statDescriptionScope = "gale_strike",
 			baseFlags = {
 			},
 			constantStats = {
@@ -16983,12 +17008,12 @@ skills["WitheringPresencePlayer"] = {
 	},
 	description = "While active, periodically Withers enemies in your Presence.",
 	skillTypes = { [SkillType.OngoingSkill] = true, [SkillType.HasReservation] = true, [SkillType.Buff] = true, [SkillType.Persistent] = true, [SkillType.Chaos] = true, [SkillType.Duration] = true, },
-	statDescriptionScope = "withering_presence",
 	castTime = 1,
 	statSets = {
 		[1] = {
 			label = "Withering Presence",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "withering_presence",
 			baseFlags = {
 			},
 			constantStats = {

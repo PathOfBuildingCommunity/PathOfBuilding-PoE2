@@ -125,9 +125,6 @@ local skills, mod, flag, skill = ...
 
 #skill DefianceBannerReservationPlayer
 #startSets
-#set DefianceBannerReservationPlayer
-#flags
-#mods
 #skillEnd
 
 #skill DefianceBannerPlayer
@@ -139,9 +136,6 @@ local skills, mod, flag, skill = ...
 
 #skill DreadBannerReservationPlayer
 #startSets
-#set DreadBannerReservationPlayer
-#flags
-#mods
 #skillEnd
 
 #skill DreadBannerPlayer
@@ -403,9 +397,6 @@ local skills, mod, flag, skill = ...
 #set IncendiaryShotPlayer
 #flags attack projectile area
 #mods
-#set IncendiaryShotConePlayer
-#flags attack projectile area
-#mods
 #skillEnd
 
 #skill PermafrostBoltsAmmoPlayer
@@ -418,9 +409,6 @@ local skills, mod, flag, skill = ...
 #skill PermafrostBoltsPlayer
 #startSets
 #set PermafrostBoltsPlayer
-#flags attack projectile area
-#mods
-#set PermafrostBoltsConePlayer
 #flags attack projectile area
 #mods
 #skillEnd
@@ -689,9 +677,6 @@ local skills, mod, flag, skill = ...
 #set VolcanicFissurePlayer
 #flags
 #mods
-#set VolcanicFissureProjectilePlayer
-#flags
-#mods
 #skillEnd
 
 #skill ShockGrenadePlayer
@@ -703,9 +688,6 @@ local skills, mod, flag, skill = ...
 
 #skill WarBannerReservationPlayer
 #startSets
-#set WarBannerReservationPlayer
-#flags
-#mods
 #skillEnd
 
 #skill WarBannerPlayer

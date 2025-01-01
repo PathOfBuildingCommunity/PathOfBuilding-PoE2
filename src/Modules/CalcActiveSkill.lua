@@ -52,7 +52,8 @@ end
 function calcs.mergeSkillInstanceMods(env, modList, skillEffect, extraStats)
 	calcLib.validateGemLevel(skillEffect)
 	local grantedEffect = skillEffect.grantedEffect	
-	local stats = calcLib.buildSkillInstanceStats(skillEffect, grantedEffect)
+	-- TEMP FIX
+	local stats = calcLib.buildSkillInstanceStats(skillEffect, grantedEffect, grantedEffect.statSets[1])
 	if extraStats and extraStats[1] then
 		for _, stat in pairs(extraStats) do
 			stats[stat.key] = (stats[stat.key] or 0) + stat.value

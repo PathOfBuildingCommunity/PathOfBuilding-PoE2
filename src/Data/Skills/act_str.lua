@@ -58,7 +58,6 @@ skills["AncestralWarriorTotemPlayer"] = {
 		["One Handed Mace"] = true,
 		["Two Handed Mace"] = true,
 	},
-	statDescriptionScope = "skill_stat_descriptions",
 	skillTotemId = 15,
 	castTime = 0.5,
 	statSets = {
@@ -67,6 +66,7 @@ skills["AncestralWarriorTotemPlayer"] = {
 			baseEffectiveness = 1.9409999847412,
 			incrementalEffectiveness = 0.11649999767542,
 			damageIncrementalEffectiveness = 0.006699999794364,
+			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -186,11 +186,11 @@ skills["SupportAncestralWarriorTotemPlayer"] = {
 	weaponTypes = {
 		["Two Handed Mace"] = true,
 	},
-	statDescriptionScope = "gem_stat_descriptions",
 	statSets = {
 		[1] = {
 			label = "SupportAncestralWarriorTotemPlayer",
 			incrementalEffectiveness = 0.054999999701977,
+	statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -296,12 +296,12 @@ skills["ArmourBreakerPlayer"] = {
 		["Two Handed Mace"] = true,
 		["One Handed Mace"] = true,
 	},
-	statDescriptionScope = "heavy_strike",
 	castTime = 1,
 	statSets = {
 		[1] = {
 			label = "Armour Breaker",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "heavy_strike",
 			baseFlags = {
 			},
 			constantStats = {
@@ -411,15 +411,15 @@ skills["ArtilleryBallistaPlayer"] = {
 	weaponTypes = {
 		["Crossbow"] = true,
 	},
-	statDescriptionScope = "skill_stat_descriptions",
 	skillTotemId = 19,
 	castTime = 1,
 	statSets = {
 		[1] = {
-			label = "Artillery Ballista",
+			label = "Ballista",
 			baseEffectiveness = 1.4500000476837,
 			incrementalEffectiveness = 0.11649999767542,
 			damageIncrementalEffectiveness = 0.006699999794364,
+			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
 				totem = true,
 				duration = true,
@@ -541,12 +541,12 @@ skills["ArtilleryBallistaProjectilePlayer"] = {
 	weaponTypes = {
 		["Crossbow"] = true,
 	},
-	statDescriptionScope = "artillery_ballista_projectile",
 	castTime = 1,
 	statSets = {
 		[1] = {
-			label = "Artillery Shot",
+			label = "Artillery",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "artillery_ballista_projectile",
 			baseFlags = {
 				attack = true,
 				area = true,
@@ -615,8 +615,9 @@ skills["ArtilleryBallistaProjectilePlayer"] = {
 			},
 		},
 		[2] = {
-			label = "Artillery Shot",
+			label = "Explosion",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "artillery_ballista_projectile",
 			baseFlags = {
 				attack = true,
 				area = true,
@@ -723,12 +724,12 @@ skills["AttritionPlayer"] = {
 	},
 	description = "While active, causes you to deal more Hit damage to Rare and Unique enemies the longer you've been fighting them, and gain Culling Strike against them once you've been fighting them for long enough.",
 	skillTypes = { [SkillType.OngoingSkill] = true, [SkillType.HasReservation] = true, [SkillType.Buff] = true, [SkillType.Persistent] = true, },
-	statDescriptionScope = "attrition",
 	castTime = 1,
 	statSets = {
 		[1] = {
 			label = "Attrition",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "attrition",
 			baseFlags = {
 			},
 			constantStats = {
@@ -832,12 +833,12 @@ skills["BerserkPlayer"] = {
 	},
 	description = "While active, strengthens your Rage and grants you Life Leech based on your Rage, but causes you to lose Life while Raging.",
 	skillTypes = { [SkillType.OngoingSkill] = true, [SkillType.HasReservation] = true, [SkillType.Buff] = true, [SkillType.Persistent] = true, },
-	statDescriptionScope = "berserk",
 	castTime = 1,
 	statSets = {
 		[1] = {
 			label = "Berserk",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "berserk",
 			baseFlags = {
 			},
 			constantStats = {
@@ -945,14 +946,14 @@ skills["BoneshatterPlayer"] = {
 		["One Handed Mace"] = true,
 		["Two Handed Mace"] = true,
 	},
-	statDescriptionScope = "boneshatter",
 	castTime = 1,
 	statSets = {
 		[1] = {
-			label = "Boneshatter",
+			label = "Initial Strike",
 			baseEffectiveness = 0.18279999494553,
 			incrementalEffectiveness = 0.092720001935959,
 			damageIncrementalEffectiveness = 0.053700000047684,
+			statDescriptionScope = "boneshatter",
 			baseFlags = {
 			},
 			constantStats = {
@@ -1009,10 +1010,11 @@ skills["BoneshatterPlayer"] = {
 			},
 		},
 		[2] = {
-			label = "Boneshatter",
+			label = "Shockwave",
 			baseEffectiveness = 0.18279999494553,
 			incrementalEffectiveness = 0.092720001935959,
 			damageIncrementalEffectiveness = 0.053700000047684,
+			statDescriptionScope = "boneshatter",
 			baseFlags = {
 			},
 			constantStats = {
@@ -1115,12 +1117,12 @@ skills["MetaCastOnBlockPlayer"] = {
 	},
 	description = "While active, gains Energy when you Block and triggers socketed Spells on reaching maximum Energy.",
 	skillTypes = { [SkillType.HasReservation] = true, [SkillType.OngoingSkill] = true, [SkillType.Meta] = true, [SkillType.Persistent] = true, [SkillType.Buff] = true, [SkillType.CanHaveMultipleOngoingSkillInstances] = true, [SkillType.GeneratesEnergy] = true, },
-	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 0,
 	statSets = {
 		[1] = {
 			label = "Cast on Block",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -1228,11 +1230,11 @@ skills["SupportMetaCastOnBlockPlayer"] = {
 	addSkillTypes = { SkillType.Triggered, SkillType.Cooldown, },
 	excludeSkillTypes = { SkillType.SupportedByHourglass, },
 	isTrigger = true,
-	statDescriptionScope = "gem_stat_descriptions",
 	statSets = {
 		[1] = {
 			label = "SupportMetaCastOnBlockPlayer",
 			incrementalEffectiveness = 0.054999999701977,
+	statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -1297,12 +1299,12 @@ skills["MetaCastOnMeleeKillPlayer"] = {
 	},
 	description = "While active, gains Energy when you kill enemies with Melee Attacks and triggers socketed spells on reaching maximum Energy.",
 	skillTypes = { [SkillType.HasReservation] = true, [SkillType.OngoingSkill] = true, [SkillType.Meta] = true, [SkillType.Persistent] = true, [SkillType.Buff] = true, [SkillType.CanHaveMultipleOngoingSkillInstances] = true, [SkillType.GeneratesEnergy] = true, },
-	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 0,
 	statSets = {
 		[1] = {
 			label = "Cast on Melee Kill",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -1330,11 +1332,11 @@ skills["SupportMetaCastOnMeleeKillPlayer"] = {
 	addSkillTypes = { SkillType.Triggered, SkillType.Cooldown, },
 	excludeSkillTypes = { SkillType.SupportedByHourglass, },
 	isTrigger = true,
-	statDescriptionScope = "gem_stat_descriptions",
 	statSets = {
 		[1] = {
 			label = "SupportMetaCastOnMeleeKillPlayer",
 			incrementalEffectiveness = 0.054999999701977,
+	statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -1361,12 +1363,12 @@ skills["MetaCastOnMeleeStunPlayer"] = {
 	},
 	description = "While active, gains Energy when you Stun enemies with Melee Attacks and triggers socketed spells on reaching maximum Energy.",
 	skillTypes = { [SkillType.HasReservation] = true, [SkillType.OngoingSkill] = true, [SkillType.Meta] = true, [SkillType.Persistent] = true, [SkillType.Buff] = true, [SkillType.CanHaveMultipleOngoingSkillInstances] = true, [SkillType.GeneratesEnergy] = true, },
-	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 0,
 	statSets = {
 		[1] = {
 			label = "Cast on Melee Stun",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -1395,11 +1397,11 @@ skills["SupportMetaCastOnMeleeStunPlayer"] = {
 	addSkillTypes = { SkillType.Triggered, SkillType.Cooldown, },
 	excludeSkillTypes = { SkillType.SupportedByHourglass, },
 	isTrigger = true,
-	statDescriptionScope = "gem_stat_descriptions",
 	statSets = {
 		[1] = {
 			label = "SupportMetaCastOnMeleeStunPlayer",
 			incrementalEffectiveness = 0.054999999701977,
+	statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -1467,12 +1469,12 @@ skills["ClusterGrenadePlayer"] = {
 	weaponTypes = {
 		["Crossbow"] = true,
 	},
-	statDescriptionScope = "cluster_grenade",
 	castTime = 1,
 	statSets = {
 		[1] = {
-			label = "Cluster Grenade",
+			label = "Primary Grenade",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "cluster_grenade",
 			baseFlags = {
 				attack = true,
 				area = true,
@@ -1596,12 +1598,12 @@ skills["ClusterGrenadeMiniPlayer"] = {
 	weaponTypes = {
 		["Crossbow"] = true,
 	},
-	statDescriptionScope = "cluster_grenade_mini",
 	castTime = 1,
 	statSets = {
 		[1] = {
-			label = "",
+			label = "Mini Grenades",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "cluster_grenade_mini",
 			baseFlags = {
 				attack = true,
 				area = true,
@@ -1722,12 +1724,12 @@ skills["DefianceBannerReservationPlayer"] = {
 	},
 	description = "While active, killing enemies with Attacks or standing near a Unique enemy generates Valour. Using this Skill consumes its Valour to place an inspiring Banner with an Aura that grants you and nearby Allies Armour, Evasion and movement speed while the Banner lasts. The Banner cannot gain Valour while placed, and you cannot place a Banner while you already have a Banner placed.",
 	skillTypes = { [SkillType.OngoingSkill] = true, [SkillType.HasReservation] = true, [SkillType.Buff] = true, [SkillType.Persistent] = true, [SkillType.CanHaveMultipleOngoingSkillInstances] = true, [SkillType.Area] = true, [SkillType.Duration] = true, },
-	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
 	statSets = {
 		[1] = {
-			label = "Defiance Banner",
+			label = "Hidden",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -1827,12 +1829,12 @@ skills["DefianceBannerPlayer"] = {
 		[40] = { levelRequirement = 0, actorLevel = 288.29998779297, },
 	},
 	skillTypes = { [SkillType.Banner] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Nonpathing] = true, },
-	statDescriptionScope = "defiance_banner",
 	castTime = 1,
 	statSets = {
 		[1] = {
 			label = "Defiance Banner",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "defiance_banner",
 			baseFlags = {
 			},
 			constantStats = {
@@ -1942,12 +1944,12 @@ skills["DreadBannerReservationPlayer"] = {
 	},
 	description = "While active, killing enemies with Attacks or standing near a Unique enemy generates Valour. Using this Skill consumes its Valour to place an inspiring Banner with an Aura that grants you and nearby Allies Stun Threshold, Elemental Ailment Threshold and Flask charges while the Banner lasts. The Banner cannot gain Valour while placed, and you cannot place a Banner while you already have a Banner placed.",
 	skillTypes = { [SkillType.OngoingSkill] = true, [SkillType.HasReservation] = true, [SkillType.Buff] = true, [SkillType.Persistent] = true, [SkillType.CanHaveMultipleOngoingSkillInstances] = true, [SkillType.Area] = true, [SkillType.Duration] = true, },
-	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
 	statSets = {
 		[1] = {
-			label = "Dread Banner",
+			label = "Hidden",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -2047,12 +2049,12 @@ skills["DreadBannerPlayer"] = {
 		[40] = { levelRequirement = 0, actorLevel = 288.29998779297, },
 	},
 	skillTypes = { [SkillType.Banner] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Nonpathing] = true, },
-	statDescriptionScope = "dread_banner",
 	castTime = 1,
 	statSets = {
 		[1] = {
 			label = "Dread Banner",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "dread_banner",
 			baseFlags = {
 			},
 			constantStats = {
@@ -2166,14 +2168,14 @@ skills["EarthquakePlayer"] = {
 		["Two Handed Mace"] = true,
 		["One Handed Mace"] = true,
 	},
-	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
 	statSets = {
 		[1] = {
-			label = "Earthquake",
+			label = "Impact",
 			baseEffectiveness = 1.5,
 			incrementalEffectiveness = 0.092720001935959,
 			damageIncrementalEffectiveness = 0.023299999535084,
+			statDescriptionScope = "earthquake_statset_0",
 	statMap = {
 		["active_skill_base_area_of_effect_radius"] = {
 			skill("radius", nil),
@@ -2247,8 +2249,9 @@ skills["EarthquakePlayer"] = {
 			},
 		},
 		[2] = {
-			label = "Earthquake",
+			label = "Aftershock",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "earthquake_statset_0",
 	statMap = {
 		["jagged_ground_effect_+%"] = {
 			mod("Damage", "MORE", nil, 0, 0),
@@ -2368,12 +2371,12 @@ skills["EarthshatterPlayer"] = {
 		["Two Handed Mace"] = true,
 		["One Handed Mace"] = true,
 	},
-	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
 	statSets = {
 		[1] = {
-			label = "Earthshatter",
+			label = "Slam",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "spike_slam_statset_0",
 			baseFlags = {
 			},
 			constantStats = {
@@ -2429,8 +2432,9 @@ skills["EarthshatterPlayer"] = {
 			},
 		},
 		[2] = {
-			label = "Earthshatter",
+			label = "Explosion",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "spike_slam_statset_0",
 			baseFlags = {
 			},
 			constantStats = {
@@ -2534,12 +2538,12 @@ skills["EmergencyReloadPlayer"] = {
 	weaponTypes = {
 		["Crossbow"] = true,
 	},
-	statDescriptionScope = "emergency_reload",
 	castTime = 0,
 	statSets = {
 		[1] = {
 			label = "Emergency Reload",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "emergency_reload",
 			baseFlags = {
 			},
 			constantStats = {
@@ -2649,12 +2653,12 @@ skills["ExplosiveGrenadePlayer"] = {
 	weaponTypes = {
 		["Crossbow"] = true,
 	},
-	statDescriptionScope = "explosive_grenade",
 	castTime = 1,
 	statSets = {
 		[1] = {
 			label = "Explosive Grenade",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "explosive_grenade",
 			baseFlags = {
 				attack = true,
 				area = true,
@@ -2779,12 +2783,12 @@ skills["FlashGrenadePlayer"] = {
 	weaponTypes = {
 		["Crossbow"] = true,
 	},
-	statDescriptionScope = "flash_grenade",
 	castTime = 1,
 	statSets = {
 		[1] = {
 			label = "Flash Grenade",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "flash_grenade",
 			baseFlags = {
 				attack = true,
 				area = true,
@@ -2911,12 +2915,12 @@ skills["ToxicGrenadePlayer"] = {
 	weaponTypes = {
 		["Crossbow"] = true,
 	},
-	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
 	statSets = {
 		[1] = {
-			label = "Gas Grenade",
+			label = "Impact",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "toxic_grenade_statset_0",
 			baseFlags = {
 				attack = true,
 				area = true,
@@ -2989,8 +2993,9 @@ skills["ToxicGrenadePlayer"] = {
 			},
 		},
 		[2] = {
-			label = "Gas Grenade",
+			label = "Poison Cloud",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "toxic_grenade_statset_0",
 			baseFlags = {
 				attack = true,
 				area = true,
@@ -3053,8 +3058,9 @@ skills["ToxicGrenadePlayer"] = {
 			},
 		},
 		[3] = {
-			label = "Gas Grenade",
+			label = "Explosion",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "toxic_grenade_statset_0",
 			baseFlags = {
 				attack = true,
 				area = true,
@@ -3164,12 +3170,12 @@ skills["HammerOfTheGodsPlayer"] = {
 		["One Handed Mace"] = true,
 		["Two Handed Mace"] = true,
 	},
-	statDescriptionScope = "hammer_of_the_gods",
 	castTime = 1,
 	statSets = {
 		[1] = {
 			label = "Hammer of the Gods",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "hammer_of_the_gods",
 			baseFlags = {
 			},
 			constantStats = {
@@ -3290,12 +3296,12 @@ skills["HeraldOfAshPlayer"] = {
 		["Bow"] = true,
 		["One Handed Sword"] = true,
 	},
-	statDescriptionScope = "herald_of_ash",
 	castTime = 0,
 	statSets = {
 		[1] = {
-			label = "Herald of Ash",
+			label = "Buff",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "herald_of_ash",
 			baseFlags = {
 			},
 			constantStats = {
@@ -3348,8 +3354,9 @@ skills["HeraldOfAshPlayer"] = {
 			},
 		},
 		[2] = {
-			label = "Herald of Ash",
+			label = "Explosion",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "herald_of_ash",
 			baseFlags = {
 			},
 			constantStats = {
@@ -3453,12 +3460,12 @@ skills["InfernalCryPlayer"] = {
 	},
 	description = "Performs a warcry, Empowering subsequent Attacks. Consumes all Endurance Charges to Empower additional attacks. Enemies in the warcry's area are destabilised and will Combust on death.",
 	skillTypes = { [SkillType.Warcry] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Fire] = true, [SkillType.Damage] = true, [SkillType.Cooldown] = true, [SkillType.ConsumesCharges] = true, [SkillType.EmpowersOtherSkill] = true, [SkillType.Nonpathing] = true, [SkillType.SkillConsumesEnduranceChargesOnUse] = true, },
-	statDescriptionScope = "infernal_cry",
 	castTime = 0.8,
 	statSets = {
 		[1] = {
 			label = "Infernal Cry",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "infernal_cry",
 			baseFlags = {
 			},
 			constantStats = {
@@ -3571,7 +3578,6 @@ skills["InfernalCryCorpseExplosionPlayer"] = {
 	},
 	description = "The enemy's Corpse violently explodes, dealing Fire damage in an area around it.",
 	skillTypes = { [SkillType.Fire] = true, [SkillType.Triggered] = true, [SkillType.Area] = true, [SkillType.Triggerable] = true, [SkillType.InbuiltTrigger] = true, },
-	statDescriptionScope = "infernal_cry_corpse_explosion",
 	castTime = 1,
 	statSets = {
 		[1] = {
@@ -3579,6 +3585,7 @@ skills["InfernalCryCorpseExplosionPlayer"] = {
 			baseEffectiveness = 1.4099999666214,
 			incrementalEffectiveness = 0.14000000059605,
 			damageIncrementalEffectiveness = 0.0065000001341105,
+			statDescriptionScope = "infernal_cry_corpse_explosion",
 			baseFlags = {
 			},
 			constantStats = {
@@ -3692,13 +3699,13 @@ skills["LeapSlamPlayer"] = {
 		["Two Handed Mace"] = true,
 		["One Handed Mace"] = true,
 	},
-	statDescriptionScope = "leap_slam",
 	castTime = 1.4,
 	statSets = {
 		[1] = {
 			label = "Leap Slam",
 			baseEffectiveness = 0,
 			incrementalEffectiveness = 0.092720001935959,
+			statDescriptionScope = "leap_slam",
 			baseFlags = {
 			},
 			constantStats = {
@@ -3815,12 +3822,12 @@ skills["ArmourPiercingBoltsAmmoPlayer"] = {
 	weaponTypes = {
 		["Crossbow"] = true,
 	},
-	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 0.6,
 	statSets = {
 		[1] = {
-			label = "Load Armour Piercing Rounds",
+			label = "Ammunition",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -3931,12 +3938,12 @@ skills["ArmourPiercingBoltsPlayer"] = {
 	weaponTypes = {
 		["Crossbow"] = true,
 	},
-	statDescriptionScope = "rapid_shot_piercing",
 	castTime = 1,
 	statSets = {
 		[1] = {
-			label = "Armour Piercing Rounds",
+			label = "Projectile",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "rapid_shot_piercing",
 			baseFlags = {
 				attack = true,
 				projectile = true,
@@ -4063,12 +4070,12 @@ skills["ExplosiveShotAmmoPlayer"] = {
 	weaponTypes = {
 		["Crossbow"] = true,
 	},
-	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1.5,
 	statSets = {
 		[1] = {
-			label = "Load Explosive Shot",
+			label = "Ammunition",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -4180,12 +4187,12 @@ skills["ExplosiveShotPlayer"] = {
 	weaponTypes = {
 		["Crossbow"] = true,
 	},
-	statDescriptionScope = "power_shot_incendiary",
 	castTime = 1,
 	statSets = {
 		[1] = {
-			label = "Explosive Shot",
+			label = "Projectile",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "power_shot_incendiary",
 			baseFlags = {
 				attack = true,
 				projectile = true,
@@ -4261,8 +4268,9 @@ skills["ExplosiveShotPlayer"] = {
 			},
 		},
 		[2] = {
-			label = "Explosive Shot",
+			label = "Explosion",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "power_shot_incendiary",
 			baseFlags = {
 				attack = true,
 				projectile = true,
@@ -4373,12 +4381,12 @@ skills["FragmentationRoundsAmmoPlayer"] = {
 	weaponTypes = {
 		["Crossbow"] = true,
 	},
-	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 0.8,
 	statSets = {
 		[1] = {
-			label = "Load Fragmentation Rounds",
+			label = "Ammunition",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -4489,12 +4497,12 @@ skills["FragmentationRoundsPlayer"] = {
 	weaponTypes = {
 		["Crossbow"] = true,
 	},
-	statDescriptionScope = "burst_shot_piercing",
 	castTime = 1,
 	statSets = {
 		[1] = {
-			label = "Fragmentation Rounds",
+			label = "Projectile",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "burst_shot_piercing",
 			baseFlags = {
 				attack = true,
 				projectile = true,
@@ -4576,8 +4584,9 @@ skills["FragmentationRoundsPlayer"] = {
 			},
 		},
 		[2] = {
-			label = "Fragmentation Rounds",
+			label = "Vs Frozen",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "burst_shot_piercing",
 			baseFlags = {
 			},
 			stats = {
@@ -4681,12 +4690,12 @@ skills["GalvanicShardsAmmoPlayer"] = {
 	weaponTypes = {
 		["Crossbow"] = true,
 	},
-	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 0.6,
 	statSets = {
 		[1] = {
-			label = "Load Galvanic Shards",
+			label = "Ammunition",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -4798,12 +4807,12 @@ skills["GalvanicShardsPlayer"] = {
 	weaponTypes = {
 		["Crossbow"] = true,
 	},
-	statDescriptionScope = "burst_shot_stormblast",
 	castTime = 1,
 	statSets = {
 		[1] = {
-			label = "Galvanic Shards",
+			label = "Projectile",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "burst_shot_stormblast",
 			baseFlags = {
 				attack = true,
 				projectile = true,
@@ -4880,8 +4889,9 @@ skills["GalvanicShardsPlayer"] = {
 			},
 		},
 		[2] = {
-			label = "Galvanic Shards",
+			label = "Beam",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "burst_shot_stormblast",
 			baseFlags = {
 				attack = true,
 				projectile = true,
@@ -4989,12 +4999,12 @@ skills["GlacialBoltAmmoPlayer"] = {
 	weaponTypes = {
 		["Crossbow"] = true,
 	},
-	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
 	statSets = {
 		[1] = {
-			label = "Load Glacial Bolt",
+			label = "Ammunition",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -5105,12 +5115,12 @@ skills["GlacialBoltPlayer"] = {
 	weaponTypes = {
 		["Crossbow"] = true,
 	},
-	statDescriptionScope = "power_shot_permafrost",
 	castTime = 0.8,
 	statSets = {
 		[1] = {
-			label = "Glacial Bolt",
+			label = "Projectile",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "power_shot_permafrost",
 			baseFlags = {
 				attack = true,
 				projectile = true,
@@ -5187,8 +5197,9 @@ skills["GlacialBoltPlayer"] = {
 			},
 		},
 		[2] = {
-			label = "Glacial Bolt",
+			label = "Wall",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "power_shot_permafrost",
 			baseFlags = {
 				attack = true,
 				area = true,
@@ -5302,12 +5313,12 @@ skills["HailstormRoundsAmmoPlayer"] = {
 	weaponTypes = {
 		["Crossbow"] = true,
 	},
-	statDescriptionScope = "siege_cascade_permafrost_ammo",
 	castTime = 1,
 	statSets = {
 		[1] = {
-			label = "Load Hailstorm Rounds",
+			label = "Ammunition",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "siege_cascade_permafrost_ammo",
 			baseFlags = {
 			},
 			constantStats = {
@@ -5422,12 +5433,12 @@ skills["HailstormRoundsPlayer"] = {
 	weaponTypes = {
 		["Crossbow"] = true,
 	},
-	statDescriptionScope = "siege_cascade_permafrost",
 	castTime = 1,
 	statSets = {
 		[1] = {
-			label = "Hailstorm Rounds",
+			label = "Impact",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "siege_cascade_permafrost",
 			baseFlags = {
 				attack = true,
 				projectile = true,
@@ -5548,12 +5559,12 @@ skills["HighVelocityRoundsAmmoPlayer"] = {
 	weaponTypes = {
 		["Crossbow"] = true,
 	},
-	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
 	statSets = {
 		[1] = {
-			label = "Load High Velocity Rounds",
+			label = "Ammunition",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -5664,12 +5675,12 @@ skills["HighVelocityRoundsPlayer"] = {
 	weaponTypes = {
 		["Crossbow"] = true,
 	},
-	statDescriptionScope = "power_shot_piercing",
 	castTime = 0.8,
 	statSets = {
 		[1] = {
-			label = "High Velocity Rounds",
+			label = "Projectile",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "power_shot_piercing",
 			baseFlags = {
 				attack = true,
 				projectile = true,
@@ -5749,8 +5760,9 @@ skills["HighVelocityRoundsPlayer"] = {
 			},
 		},
 		[2] = {
-			label = "High Velocity Rounds",
+			label = "Vs Armour Broken",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "power_shot_piercing",
 			baseFlags = {
 				attack = true,
 				projectile = true,
@@ -5856,12 +5868,12 @@ skills["IceShardsAmmoPlayer"] = {
 	weaponTypes = {
 		["Crossbow"] = true,
 	},
-	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 0.6,
 	statSets = {
 		[1] = {
-			label = "Load Ice Shards",
+			label = "Ammunition",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -5972,12 +5984,12 @@ skills["IceShardsPlayer"] = {
 	weaponTypes = {
 		["Crossbow"] = true,
 	},
-	statDescriptionScope = "rapid_shot_permafrost",
 	castTime = 1,
 	statSets = {
 		[1] = {
-			label = "Ice Shards",
+			label = "Projectile",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "rapid_shot_permafrost",
 			baseFlags = {
 				attack = true,
 				projectile = true,
@@ -6054,8 +6066,9 @@ skills["IceShardsPlayer"] = {
 			},
 		},
 		[2] = {
-			label = "Ice Shards",
+			label = "Shard",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "rapid_shot_permafrost",
 			baseFlags = {
 				attack = true,
 				projectile = true,
@@ -6169,12 +6182,12 @@ skills["IncendiaryShotAmmoPlayer"] = {
 	weaponTypes = {
 		["Crossbow"] = true,
 	},
-	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 0.8,
 	statSets = {
 		[1] = {
-			label = "Load Incendiary Shot",
+			label = "Ammunition",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -6285,12 +6298,12 @@ skills["IncendiaryShotPlayer"] = {
 	weaponTypes = {
 		["Crossbow"] = true,
 	},
-	statDescriptionScope = "burst_shot_incendiary",
 	castTime = 1,
 	statSets = {
 		[1] = {
-			label = "Incendiary Shot",
+			label = "Projectile",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "burst_shot_incendiary",
 			baseFlags = {
 				attack = true,
 				projectile = true,
@@ -6376,8 +6389,9 @@ skills["IncendiaryShotPlayer"] = {
 			},
 		},
 		[2] = {
-			label = "Incendiary Shot",
+			label = "Hidden",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "burst_shot_incendiary",
 			baseFlags = {
 				attack = true,
 				projectile = true,
@@ -6483,12 +6497,12 @@ skills["PermafrostBoltsAmmoPlayer"] = {
 	weaponTypes = {
 		["Crossbow"] = true,
 	},
-	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 0.8,
 	statSets = {
 		[1] = {
-			label = "Load Permafrost Bolts",
+			label = "Ammunition",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -6599,12 +6613,12 @@ skills["PermafrostBoltsPlayer"] = {
 	weaponTypes = {
 		["Crossbow"] = true,
 	},
-	statDescriptionScope = "burst_shot_permafrost",
 	castTime = 1,
 	statSets = {
 		[1] = {
-			label = "Permafrost Bolts",
+			label = "Projectile",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "burst_shot_permafrost",
 			baseFlags = {
 				attack = true,
 				projectile = true,
@@ -6685,8 +6699,9 @@ skills["PermafrostBoltsPlayer"] = {
 			},
 		},
 		[2] = {
-			label = "Permafrost Bolts",
+			label = "Hidden",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "burst_shot_permafrost",
 			baseFlags = {
 				attack = true,
 				projectile = true,
@@ -6792,12 +6807,12 @@ skills["PlasmaBlastAmmoPlayer"] = {
 	weaponTypes = {
 		["Crossbow"] = true,
 	},
-	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
 	statSets = {
 		[1] = {
-			label = "Load Plasma Blast",
+			label = "Ammunition",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -6908,12 +6923,12 @@ skills["PlasmaBlastPlayer"] = {
 	weaponTypes = {
 		["Crossbow"] = true,
 	},
-	statDescriptionScope = "power_shot_stormblast",
 	castTime = 1,
 	statSets = {
 		[1] = {
-			label = "Plasma Blast",
+			label = "Projectile",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "power_shot_stormblast",
 			baseFlags = {
 				attack = true,
 				projectile = true,
@@ -6991,8 +7006,9 @@ skills["PlasmaBlastPlayer"] = {
 			},
 		},
 		[2] = {
-			label = "Plasma Blast",
+			label = "Explosion",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "power_shot_stormblast",
 			baseFlags = {
 				attack = true,
 				projectile = true,
@@ -7102,12 +7118,12 @@ skills["RapidShotAmmoPlayer"] = {
 	weaponTypes = {
 		["Crossbow"] = true,
 	},
-	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1.2,
 	statSets = {
 		[1] = {
-			label = "Load Rapid Shot",
+			label = "Ammunition",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -7219,14 +7235,14 @@ skills["RapidShotPlayer"] = {
 	weaponTypes = {
 		["Crossbow"] = true,
 	},
-	statDescriptionScope = "rapid_shot_incendiary",
 	castTime = 1,
 	statSets = {
 		[1] = {
-			label = "Rapid Shot",
+			label = "Projectile",
 			baseEffectiveness = 0.33000001311302,
 			incrementalEffectiveness = 0.027599999681115,
 			damageIncrementalEffectiveness = 0.010739999823272,
+			statDescriptionScope = "rapid_shot_incendiary",
 			baseFlags = {
 				attack = true,
 				projectile = true,
@@ -7359,12 +7375,12 @@ skills["ShockburstRoundsAmmoPlayer"] = {
 	weaponTypes = {
 		["Crossbow"] = true,
 	},
-	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 0.8,
 	statSets = {
 		[1] = {
-			label = "Load Shockburst Rounds",
+			label = "Ammunition",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -7476,12 +7492,12 @@ skills["ShockburstRoundsPlayer"] = {
 	weaponTypes = {
 		["Crossbow"] = true,
 	},
-	statDescriptionScope = "rapid_shot_stormblast",
 	castTime = 1,
 	statSets = {
 		[1] = {
-			label = "Shockburst Rounds",
+			label = "Projectile",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "rapid_shot_stormblast",
 			baseFlags = {
 				attack = true,
 				projectile = true,
@@ -7557,8 +7573,9 @@ skills["ShockburstRoundsPlayer"] = {
 			},
 		},
 		[2] = {
-			label = "Shockburst Rounds",
+			label = "Pulse",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "rapid_shot_stormblast",
 			baseFlags = {
 				attack = true,
 				projectile = true,
@@ -7668,12 +7685,12 @@ skills["SiegeCascadeAmmoPlayer"] = {
 	weaponTypes = {
 		["Crossbow"] = true,
 	},
-	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
 	statSets = {
 		[1] = {
-			label = "Load Siege Cascade",
+			label = "Ammunition",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -7786,12 +7803,12 @@ skills["SiegeCascadePlayer"] = {
 	weaponTypes = {
 		["Crossbow"] = true,
 	},
-	statDescriptionScope = "siege_cascade_piercing",
 	castTime = 1,
 	statSets = {
 		[1] = {
-			label = "Siege Cascade",
+			label = "Impact",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "siege_cascade_piercing",
 			baseFlags = {
 				attack = true,
 				projectile = true,
@@ -7863,8 +7880,9 @@ skills["SiegeCascadePlayer"] = {
 			},
 		},
 		[2] = {
-			label = "Siege Cascade",
+			label = "Explosion",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "siege_cascade_piercing",
 			baseFlags = {
 				attack = true,
 				projectile = true,
@@ -7971,12 +7989,12 @@ skills["StormblastBoltsAmmoPlayer"] = {
 	weaponTypes = {
 		["Crossbow"] = true,
 	},
-	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
 	statSets = {
 		[1] = {
-			label = "Load Stormblast Bolts",
+			label = "Ammunition",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -8089,12 +8107,12 @@ skills["StormblastBoltsPlayer"] = {
 	weaponTypes = {
 		["Crossbow"] = true,
 	},
-	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
 	statSets = {
 		[1] = {
-			label = "Stormblast Bolts",
+			label = "Impact",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "siege_cascade_stormblast_statset_0",
 			baseFlags = {
 				attack = true,
 				projectile = true,
@@ -8163,8 +8181,9 @@ skills["StormblastBoltsPlayer"] = {
 			},
 		},
 		[2] = {
-			label = "Stormblast Bolts",
+			label = "Explosion",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "siege_cascade_stormblast_statset_0",
 			baseFlags = {
 				attack = true,
 				projectile = true,
@@ -8271,12 +8290,12 @@ skills["MagmaBarrierPlayer"] = {
 	},
 	description = "When you raise your Shield it is infused with magma for a short time. Blocking during this time will spray magma at the attacker and grant you an Endurance Charge.",
 	skillTypes = { [SkillType.Buff] = true, [SkillType.OngoingSkill] = true, [SkillType.HasReservation] = true, [SkillType.Fire] = true, [SkillType.Duration] = true, [SkillType.Persistent] = true, },
-	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 0,
 	statSets = {
 		[1] = {
-			label = "Magma Barrier",
+			label = "Buff",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -8378,7 +8397,6 @@ skills["MagmaSprayPlayer"] = {
 		[40] = { levelRequirement = 0, actorLevel = 288.29998779297, },
 	},
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.Area] = true, [SkillType.Fire] = true, [SkillType.Triggered] = true, [SkillType.Triggerable] = true, [SkillType.InbuiltTrigger] = true, [SkillType.GeneratesCharges] = true, [SkillType.NonWeaponAttack] = true, },
-	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
 	statSets = {
 		[1] = {
@@ -8386,6 +8404,7 @@ skills["MagmaSprayPlayer"] = {
 			baseEffectiveness = 1.4400000572205,
 			incrementalEffectiveness = 0.092720001935959,
 			damageIncrementalEffectiveness = 0.017300000414252,
+			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -8497,12 +8516,12 @@ skills["MoltenBlastPlayer"] = {
 		["Two Handed Mace"] = true,
 		["One Handed Mace"] = true,
 	},
-	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
 	statSets = {
 		[1] = {
-			label = "Molten Blast",
+			label = "Projectile",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "molten_blast_statset_0",
 			baseFlags = {
 			},
 			constantStats = {
@@ -8565,8 +8584,9 @@ skills["MoltenBlastPlayer"] = {
 			},
 		},
 		[2] = {
-			label = "Molten Blast",
+			label = "Shrapnel",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "molten_blast_statset_0",
 			baseFlags = {
 			},
 			constantStats = {
@@ -8675,7 +8695,6 @@ skills["OilGrenadePlayer"] = {
 	weaponTypes = {
 		["Crossbow"] = true,
 	},
-	statDescriptionScope = "oil_grenade",
 	castTime = 1,
 	statSets = {
 		[1] = {
@@ -8683,6 +8702,7 @@ skills["OilGrenadePlayer"] = {
 			baseEffectiveness = 16,
 			incrementalEffectiveness = 0.14000000059605,
 			damageIncrementalEffectiveness = 0.0065000001341105,
+			statDescriptionScope = "oil_grenade",
 			baseFlags = {
 				attack = true,
 				area = true,
@@ -8809,12 +8829,12 @@ skills["OverwhelmingPresencePlayer"] = {
 	},
 	description = "While active, enemies in your Presence are easier to Stun and inflict Elemental Ailments upon.",
 	skillTypes = { [SkillType.OngoingSkill] = true, [SkillType.HasReservation] = true, [SkillType.Buff] = true, [SkillType.Persistent] = true, },
-	statDescriptionScope = "overwhelming_pressure",
 	castTime = 1,
 	statSets = {
 		[1] = {
 			label = "Overwhelming Presence",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "overwhelming_pressure",
 			baseFlags = {
 			},
 			stats = {
@@ -8919,12 +8939,12 @@ skills["PerfectStrikePlayer"] = {
 		["One Handed Mace"] = true,
 		["Two Handed Mace"] = true,
 	},
-	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
 	statSets = {
 		[1] = {
-			label = "Perfect Strike",
+			label = "Normal Strikes",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -8985,6 +9005,7 @@ skills["PerfectStrikePlayer"] = {
 		[2] = {
 			label = "Perfect Strike",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -9088,7 +9109,6 @@ skills["ResonatingShieldPlayer"] = {
 	},
 	description = "Repeatedly strike your Shield with your weapon causing damaging shockwaves in an area around you. Enemies hit by the shockwave lose Armour for a duration. While using Resonating Shield, your Shield is raised and you will Block all incoming Blockable hits.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.Physical] = true, [SkillType.Channel] = true, [SkillType.RequiresShield] = true, [SkillType.Nonpathing] = true, [SkillType.Area] = true, [SkillType.Sustained] = true, [SkillType.NonWeaponAttack] = true, },
-	statDescriptionScope = "shield_drum",
 	castTime = 1,
 	statSets = {
 		[1] = {
@@ -9096,6 +9116,7 @@ skills["ResonatingShieldPlayer"] = {
 			baseEffectiveness = 1.210000038147,
 			incrementalEffectiveness = 0.11649999767542,
 			damageIncrementalEffectiveness = 0.006699999794364,
+			statDescriptionScope = "shield_drum",
 			baseFlags = {
 			},
 			constantStats = {
@@ -9213,14 +9234,14 @@ skills["RipwireBallistaPlayer"] = {
 	weaponTypes = {
 		["Crossbow"] = true,
 	},
-	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
 	statSets = {
 		[1] = {
-			label = "Ripwire Ballista",
+			label = "Ballista",
 			baseEffectiveness = 1.9409999847412,
 			incrementalEffectiveness = 0.11649999767542,
 			damageIncrementalEffectiveness = 0.006699999794364,
+			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -9340,12 +9361,12 @@ skills["RipwireBallistaProjectilePlayer"] = {
 	weaponTypes = {
 		["Crossbow"] = true,
 	},
-	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
 	statSets = {
 		[1] = {
-			label = "Ripwire Bolt",
+			label = "Bolts",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
 				attack = true,
 				projectile = true,
@@ -9469,12 +9490,12 @@ skills["RollingSlamPlayer"] = {
 		["One Handed Mace"] = true,
 		["Two Handed Mace"] = true,
 	},
-	statDescriptionScope = "double_slam",
 	castTime = 1,
 	statSets = {
 		[1] = {
 			label = "Rolling Slam",
 			incrementalEffectiveness = 0.092720001935959,
+			statDescriptionScope = "double_slam",
 			baseFlags = {
 			},
 			constantStats = {
@@ -9535,8 +9556,9 @@ skills["RollingSlamPlayer"] = {
 			},
 		},
 		[2] = {
-			label = "Rolling Slam",
+			label = "First Slam",
 			incrementalEffectiveness = 0.092720001935959,
+			statDescriptionScope = "double_slam",
 			baseFlags = {
 			},
 			constantStats = {
@@ -9590,8 +9612,9 @@ skills["RollingSlamPlayer"] = {
 			},
 		},
 		[3] = {
-			label = "Rolling Slam",
+			label = "Second Slam",
 			incrementalEffectiveness = 0.092720001935959,
+			statDescriptionScope = "double_slam",
 			baseFlags = {
 			},
 			constantStats = {
@@ -9694,7 +9717,6 @@ skills["ScavengedPlatingPlayer"] = {
 	},
 	description = "Uses fragments of armour scavenged from enemies to bolster your own. Fully Breaking an enemy's Armour grants you a stack of Scavenged Plating for a duration, and you gain Armour and Thorns per stack.",
 	skillTypes = { [SkillType.Buff] = true, [SkillType.OngoingSkill] = true, [SkillType.HasReservation] = true, [SkillType.Duration] = true, [SkillType.Persistent] = true, [SkillType.Physical] = true, },
-	statDescriptionScope = "scavenged_plating",
 	castTime = 1,
 	statSets = {
 		[1] = {
@@ -9702,6 +9724,7 @@ skills["ScavengedPlatingPlayer"] = {
 			baseEffectiveness = 0.53329998254776,
 			incrementalEffectiveness = 0.14000000059605,
 			damageIncrementalEffectiveness = 0.0065000001341105,
+			statDescriptionScope = "scavenged_plating",
 			baseFlags = {
 			},
 			constantStats = {
@@ -9807,7 +9830,6 @@ skills["SeismicCryPlayer"] = {
 	},
 	description = "Performs a damaging warcry, Knocking Back nearby enemies. If a Heavy Stunned enemy is hit, your next Slam is Empowered to perform an additional Aftershock. If not, this skill's cooldown is reset. Only counts Heavily Stunned enemies for purposes of counting Power Gained.",
 	skillTypes = { [SkillType.Warcry] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Damage] = true, [SkillType.ConsumesCharges] = true, [SkillType.Cooldown] = true, [SkillType.ManualCooldownConsumption] = true, [SkillType.Physical] = true, [SkillType.EmpowersOtherSkill] = true, [SkillType.Nonpathing] = true, },
-	statDescriptionScope = "seismic_cry",
 	castTime = 0.8,
 	statSets = {
 		[1] = {
@@ -9815,6 +9837,7 @@ skills["SeismicCryPlayer"] = {
 			baseEffectiveness = 1.8600000143051,
 			incrementalEffectiveness = 0.14000000059605,
 			damageIncrementalEffectiveness = 0.0065000001341105,
+			statDescriptionScope = "seismic_cry",
 			baseFlags = {
 			},
 			constantStats = {
@@ -9939,12 +9962,12 @@ skills["ShardScavengerPlayer"] = {
 	weaponTypes = {
 		["Crossbow"] = true,
 	},
-	statDescriptionScope = "shard_despoiler",
 	castTime = 1,
 	statSets = {
 		[1] = {
 			label = "Shard Scavenger",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "shard_despoiler",
 			baseFlags = {
 			},
 			stats = {
@@ -10044,14 +10067,14 @@ skills["ShieldChargePlayer"] = {
 	},
 	description = "Channel to charge in the target direction. You will crash into enemies on your path, stopping your charge and dealing damage to enemies in an area, and extra damage to the enemies you collided with. While charging, your Shield is raised and you will Block all incoming Blockable hits.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RequiresShield] = true, [SkillType.Melee] = true, [SkillType.Area] = true, [SkillType.Physical] = true, [SkillType.Cooldown] = true, [SkillType.Channel] = true, [SkillType.Travel] = true, [SkillType.NonWeaponAttack] = true, },
-	statDescriptionScope = "channel_shield_charge",
 	castTime = 1,
 	statSets = {
 		[1] = {
-			label = "Shield Charge",
+			label = "Area of Effect",
 			baseEffectiveness = 1.210000038147,
 			incrementalEffectiveness = 0.11649999767542,
 			damageIncrementalEffectiveness = 0.006699999794364,
+			statDescriptionScope = "channel_shield_charge",
 			baseFlags = {
 			},
 			constantStats = {
@@ -10120,8 +10143,9 @@ skills["ShieldChargePlayer"] = {
 			},
 		},
 		[2] = {
-			label = "Shield Charge",
+			label = "Collision",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "channel_shield_charge",
 			baseFlags = {
 			},
 			constantStats = {
@@ -10225,7 +10249,6 @@ skills["ShieldWallPlayer"] = {
 	},
 	description = "Ram your Shield into the ground, throwing up a semi-circular wall of earth. Enemies can attack the walls and your Slams will instantly destroy them. Each wall segment explodes when destroyed, damaging enemies around it.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Wall] = true, [SkillType.Duration] = true, [SkillType.RequiresShield] = true, [SkillType.Physical] = true, [SkillType.Area] = true, [SkillType.SupportedByFountains] = true, [SkillType.NonWeaponAttack] = true, },
-	statDescriptionScope = "shield_barricade",
 	castTime = 1,
 	statSets = {
 		[1] = {
@@ -10233,6 +10256,7 @@ skills["ShieldWallPlayer"] = {
 			baseEffectiveness = 1.210000038147,
 			incrementalEffectiveness = 0.11649999767542,
 			damageIncrementalEffectiveness = 0.006699999794364,
+			statDescriptionScope = "shield_barricade",
 			baseFlags = {
 			},
 			constantStats = {
@@ -10359,15 +10383,15 @@ skills["ShockwaveTotemPlayer"] = {
 		["Bow"] = true,
 		["One Handed Sword"] = true,
 	},
-	statDescriptionScope = "skill_stat_descriptions",
 	skillTotemId = 5,
 	castTime = 0.6,
 	statSets = {
 		[1] = {
-			label = "Shockwave Totem",
+			label = "Totem",
 			baseEffectiveness = 1.9409999847412,
 			incrementalEffectiveness = 0.11649999767542,
 			damageIncrementalEffectiveness = 0.006699999794364,
+			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -10476,12 +10500,12 @@ skills["ShockwaveTotemQuakePlayer"] = {
 		[40] = { levelRequirement = 0, actorLevel = 288.29998779297, },
 	},
 	skillTypes = { [SkillType.Area] = true, [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.Physical] = true, [SkillType.Nova] = true, [SkillType.Slam] = true, [SkillType.UsedByTotem] = true, },
-	statDescriptionScope = "totem_shockwave_quake",
 	castTime = 0.6,
 	statSets = {
 		[1] = {
-			label = "Shockwave Slam",
+			label = "Slam",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "totem_shockwave_quake",
 			baseFlags = {
 			},
 			constantStats = {
@@ -10538,8 +10562,9 @@ skills["ShockwaveTotemQuakePlayer"] = {
 			},
 		},
 		[2] = {
-			label = "Shockwave Slam",
+			label = "Jagged Ground Eruption",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "totem_shockwave_quake",
 			baseFlags = {
 			},
 			stats = {
@@ -10641,12 +10666,12 @@ skills["StampedePlayer"] = {
 		["One Handed Mace"] = true,
 		["Two Handed Mace"] = true,
 	},
-	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
 	statSets = {
 		[1] = {
-			label = "Stampede",
+			label = "Footsteps",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "channel_stampede_statset_0",
 			baseFlags = {
 			},
 			constantStats = {
@@ -10710,8 +10735,9 @@ skills["StampedePlayer"] = {
 			},
 		},
 		[2] = {
-			label = "Stampede",
+			label = "Slam",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "channel_stampede_statset_0",
 			baseFlags = {
 			},
 			constantStats = {
@@ -10764,8 +10790,9 @@ skills["StampedePlayer"] = {
 			},
 		},
 		[3] = {
-			label = "Stampede",
+			label = "Explosion",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "channel_stampede_statset_0",
 			baseFlags = {
 			},
 			stats = {
@@ -10868,12 +10895,12 @@ skills["SunderPlayer"] = {
 		["Two Handed Mace"] = true,
 		["One Handed Mace"] = true,
 	},
-	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
 	statSets = {
 		[1] = {
-			label = "Sunder",
+			label = "Wave",
 			incrementalEffectiveness = 0.092720001935959,
+			statDescriptionScope = "new_sunder_statset_0",
 			baseFlags = {
 			},
 			constantStats = {
@@ -10939,8 +10966,9 @@ skills["SunderPlayer"] = {
 			},
 		},
 		[2] = {
-			label = "Sunder",
+			label = "Shockwave",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "new_sunder_statset_0",
 			baseFlags = {
 			},
 			constantStats = {
@@ -11045,12 +11073,12 @@ skills["SuperchargedSlamPlayer"] = {
 	weaponTypes = {
 		["Two Handed Mace"] = true,
 	},
-	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
 	statSets = {
 		[1] = {
-			label = "Supercharged Slam",
+			label = "Impact",
 			incrementalEffectiveness = 0.092720001935959,
+			statDescriptionScope = "channelled_slam_statset_0",
 			baseFlags = {
 			},
 			constantStats = {
@@ -11110,8 +11138,9 @@ skills["SuperchargedSlamPlayer"] = {
 			},
 		},
 		[2] = {
-			label = "Supercharged Slam",
+			label = "Aftershock",
 			incrementalEffectiveness = 0.092720001935959,
+			statDescriptionScope = "channelled_slam_statset_0",
 			baseFlags = {
 			},
 			constantStats = {
@@ -11215,12 +11244,12 @@ skills["TimeOfNeedPlayer"] = {
 	},
 	description = "Invokes divine blessings, periodically healing you and removing Curses and Elemental Ailments from you.",
 	skillTypes = { [SkillType.OngoingSkill] = true, [SkillType.HasReservation] = true, [SkillType.Buff] = true, [SkillType.Persistent] = true, [SkillType.Duration] = true, },
-	statDescriptionScope = "time_of_need",
 	castTime = 1,
 	statSets = {
 		[1] = {
 			label = "Time of Need",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "time_of_need",
 			baseFlags = {
 			},
 			stats = {
@@ -11325,12 +11354,12 @@ skills["VolcanicFissurePlayer"] = {
 		["One Handed Mace"] = true,
 		["Two Handed Mace"] = true,
 	},
-	statDescriptionScope = "volcanic_fissure",
 	castTime = 1,
 	statSets = {
 		[1] = {
 			label = "Volcanic Fissure",
 			incrementalEffectiveness = 0.092720001935959,
+			statDescriptionScope = "volcanic_fissure",
 			baseFlags = {
 			},
 			constantStats = {
@@ -11386,8 +11415,9 @@ skills["VolcanicFissurePlayer"] = {
 			},
 		},
 		[2] = {
-			label = "Volcanic Fissure",
+			label = "Hidden",
 			incrementalEffectiveness = 0.092720001935959,
+			statDescriptionScope = "volcanic_fissure",
 			baseFlags = {
 			},
 			stats = {
@@ -11450,12 +11480,12 @@ skills["ShockGrenadePlayer"] = {
 	weaponTypes = {
 		["Crossbow"] = true,
 	},
-	statDescriptionScope = "shock_grenade",
 	castTime = 1,
 	statSets = {
 		[1] = {
 			label = "Voltaic Grenade",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "shock_grenade",
 			baseFlags = {
 				attack = true,
 				area = true,
@@ -11579,12 +11609,12 @@ skills["WarBannerReservationPlayer"] = {
 	},
 	description = "While active, killing enemies with Attacks or standing near a Unique enemy generates Valour. Using this Skill consumes its Valour to place an inspiring Banner with an Aura that grants you and nearby Allies Attack damage and Accuracy while the Banner lasts. The Banner cannot gain Valour while placed, and you cannot place a Banner while you already have a Banner placed.",
 	skillTypes = { [SkillType.OngoingSkill] = true, [SkillType.HasReservation] = true, [SkillType.Buff] = true, [SkillType.Persistent] = true, [SkillType.CanHaveMultipleOngoingSkillInstances] = true, [SkillType.Area] = true, [SkillType.Duration] = true, },
-	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
 	statSets = {
 		[1] = {
-			label = "War Banner",
+			label = "Hidden",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -11684,12 +11714,12 @@ skills["WarBannerPlayer"] = {
 		[40] = { levelRequirement = 0, actorLevel = 288.29998779297, },
 	},
 	skillTypes = { [SkillType.Banner] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Nonpathing] = true, },
-	statDescriptionScope = "war_banner",
 	castTime = 1,
 	statSets = {
 		[1] = {
 			label = "War Banner",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "war_banner",
 			baseFlags = {
 			},
 			constantStats = {

@@ -55,12 +55,12 @@ skills["AncestralSpiritsPlayer"] = {
 	description = "Each of your Totems will summon an Ancestral Spirit Minion to fight for you. If the Totem that summoned the Minion dies then the Ancestral Spirit will too.",
 	skillTypes = { [SkillType.Minion] = true, [SkillType.Duration] = true, [SkillType.Triggerable] = true, [SkillType.InbuiltTrigger] = true, [SkillType.CreatesMinion] = true, [SkillType.Triggered] = true, },
 	minionSkillTypes = { [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Multistrikeable] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Projectile] = true, [SkillType.Chains] = true, [SkillType.Duration] = true, [SkillType.DamageOverTime] = true, [SkillType.RangedAttack] = true, [SkillType.ProjectilesFromUser] = true, },
-	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 0,
 	statSets = {
 		[1] = {
 			label = "Ancestral Spirits",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
 	fromTree = true,
 			baseFlags = {
 			},
@@ -162,7 +162,6 @@ skills["BleedingConcoctionPlayer"] = {
 	},
 	description = "Consume charges from your Mana Flask to throw a bottle that explodes, dealing unarmed Physical attack damage in an area. Bleeding inflicted by this skill has more effect.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Area] = true, [SkillType.Projectile] = true, [SkillType.UseGlobalStats] = true, [SkillType.Physical] = true, [SkillType.Nonpathing] = true, [SkillType.ProjectileNoCollision] = true, },
-	statDescriptionScope = "throw_flask_bleed",
 	castTime = 1,
 	statSets = {
 		[1] = {
@@ -170,6 +169,7 @@ skills["BleedingConcoctionPlayer"] = {
 			baseEffectiveness = 4.1999998092651,
 			incrementalEffectiveness = 0.14000000059605,
 			damageIncrementalEffectiveness = 0.0065000001341105,
+			statDescriptionScope = "throw_flask_bleed",
 	fromTree = true,
 			baseFlags = {
 			},
@@ -290,12 +290,12 @@ skills["MeleeBowPlayer"] = {
 	weaponTypes = {
 		["Bow"] = true,
 	},
-	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
 	statSets = {
 		[1] = {
 			label = "Bow Shot",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
 	fromItem = true,
 			baseFlags = {
 			},
@@ -409,12 +409,12 @@ skills["MeleeCrossbowPlayer"] = {
 	weaponTypes = {
 		["Crossbow"] = true,
 	},
-	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
 	statSets = {
 		[1] = {
 			label = "Crossbow Shot",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
 	fromItem = true,
 			baseFlags = {
 				attack = true,
@@ -537,12 +537,12 @@ skills["DemonFormPlayer"] = {
 	},
 	description = "Shapeshift into a demon, vastly boosting the power of your Spells. You gain Demonflame every second you remain in demon form, causing your Life to be lost at an ever-increasing rate. Revert to human form if you reach 1 Life, use a Skill that isn't a Spell, or reactivate this Skill.",
 	skillTypes = { [SkillType.Buff] = true, [SkillType.Persistent] = true, [SkillType.Cooldown] = true, [SkillType.Shapeshift] = true, [SkillType.ManualCooldownConsumption] = true, },
-	statDescriptionScope = "demon_transformation",
 	castTime = 1,
 	statSets = {
 		[1] = {
 			label = "Demon Form",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "demon_transformation",
 	fromTree = true,
 			baseFlags = {
 			},
@@ -648,12 +648,12 @@ skills["ElementalExpressionTriggeredPlayer"] = {
 	},
 	description = "Creates a fiery explosion, an arcing bolt of lightning, or an icy wave of projectiles. The chance for an explosion is proportional to your Strength, for a bolt proportional to your Dexterity, and for a wave proportional to your Intelligence.",
 	skillTypes = { [SkillType.Damage] = true, [SkillType.Triggerable] = true, [SkillType.Spell] = true, [SkillType.Cooldown] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Lightning] = true, [SkillType.Cold] = true, [SkillType.Fire] = true, [SkillType.Projectile] = true, [SkillType.Area] = true, [SkillType.Chains] = true, },
-	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 0,
 	statSets = {
 		[1] = {
 			label = "Elemental Expression",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
 	fromTree = true,
 			baseFlags = {
 			},
@@ -705,10 +705,11 @@ skills["ElementalExpressionTriggeredPlayer"] = {
 			},
 		},
 		[2] = {
-			label = "Elemental Expression",
+			label = "Fiery Explosion",
 			baseEffectiveness = 1.25,
 			incrementalEffectiveness = 0.14000000059605,
 			damageIncrementalEffectiveness = 0.0065000001341105,
+			statDescriptionScope = "skill_stat_descriptions",
 	fromTree = true,
 			baseFlags = {
 			},
@@ -764,10 +765,11 @@ skills["ElementalExpressionTriggeredPlayer"] = {
 			},
 		},
 		[3] = {
-			label = "Elemental Expression",
+			label = "Icy Wave",
 			baseEffectiveness = 1.0249999761581,
 			incrementalEffectiveness = 0.14000000059605,
 			damageIncrementalEffectiveness = 0.0065000001341105,
+			statDescriptionScope = "skill_stat_descriptions",
 	fromTree = true,
 			baseFlags = {
 			},
@@ -826,10 +828,11 @@ skills["ElementalExpressionTriggeredPlayer"] = {
 			},
 		},
 		[4] = {
-			label = "Elemental Expression",
+			label = "Arcing Bolt",
 			baseEffectiveness = 1.1499999761581,
 			incrementalEffectiveness = 0.14000000059605,
 			damageIncrementalEffectiveness = 0.0065000001341105,
+			statDescriptionScope = "skill_stat_descriptions",
 	fromTree = true,
 			baseFlags = {
 			},
@@ -933,7 +936,6 @@ skills["ElementalStormPlayer"] = {
 	},
 	description = "Creates a stationary Fire, Cold or Lightning storm at a target location for a duration, based on the highest Elemental Damage type for the Hit that Triggered the storm. Hits which do not deal Elemental Damage will not Trigger the storm.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Duration] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, [SkillType.Physical] = true, [SkillType.Area] = true, [SkillType.Orb] = true, [SkillType.AreaSpell] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Cooldown] = true, [SkillType.Fire] = true, [SkillType.Cold] = true, [SkillType.Lightning] = true, },
-	statDescriptionScope = "tornado_triggered",
 	castTime = 0,
 	statSets = {
 		[1] = {
@@ -941,6 +943,7 @@ skills["ElementalStormPlayer"] = {
 			baseEffectiveness = 0.5625,
 			incrementalEffectiveness = 0.14000000059605,
 			damageIncrementalEffectiveness = 0.0065000001341105,
+			statDescriptionScope = "tornado_triggered",
 	fromTree = true,
 			baseFlags = {
 			},
@@ -1003,10 +1006,11 @@ skills["ElementalStormPlayer"] = {
 			},
 		},
 		[2] = {
-			label = "Elemental Storm",
+			label = "Fire",
 			baseEffectiveness = 0.58749997615814,
 			incrementalEffectiveness = 0.14000000059605,
 			damageIncrementalEffectiveness = 0.0065000001341105,
+			statDescriptionScope = "tornado_triggered",
 	fromTree = true,
 			baseFlags = {
 			},
@@ -1058,10 +1062,11 @@ skills["ElementalStormPlayer"] = {
 			},
 		},
 		[3] = {
-			label = "Elemental Storm",
+			label = "Lightning",
 			baseEffectiveness = 0.5625,
 			incrementalEffectiveness = 0.14000000059605,
 			damageIncrementalEffectiveness = 0.0065000001341105,
+			statDescriptionScope = "tornado_triggered",
 	fromTree = true,
 			baseFlags = {
 			},
@@ -1113,10 +1118,11 @@ skills["ElementalStormPlayer"] = {
 			},
 		},
 		[4] = {
-			label = "Elemental Storm",
+			label = "Cold",
 			baseEffectiveness = 0.53750002384186,
 			incrementalEffectiveness = 0.14000000059605,
 			damageIncrementalEffectiveness = 0.0065000001341105,
+			statDescriptionScope = "tornado_triggered",
 	fromTree = true,
 			baseFlags = {
 			},
@@ -1217,12 +1223,12 @@ skills["EncaseInJadePlayer"] = {
 	},
 	description = "Consumes all stacks of Jade to grant a Buff for a duration that absorbs all Damage from Hits, up to a maximum based on the amount of Jade consumed. While encased you cannot move or perform actions.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Buff] = true, [SkillType.Guard] = true, [SkillType.Cooldown] = true, [SkillType.Duration] = true, [SkillType.Physical] = true, },
-	statDescriptionScope = "encase_in_jade",
 	castTime = 0.3,
 	statSets = {
 		[1] = {
 			label = "Encase in Jade",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "encase_in_jade",
 	fromTree = true,
 			baseFlags = {
 			},
@@ -1326,7 +1332,6 @@ skills["ExplosiveConcoctionPlayer"] = {
 	},
 	description = "Consume charges from your Mana Flask to throw a bottle that explodes, dealing unarmed Fire attack damage in an area and inflicting Fire Exposure.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Area] = true, [SkillType.Projectile] = true, [SkillType.UseGlobalStats] = true, [SkillType.Duration] = true, [SkillType.Fire] = true, [SkillType.Nonpathing] = true, [SkillType.ProjectileNoCollision] = true, },
-	statDescriptionScope = "throw_flask_fire",
 	castTime = 1,
 	statSets = {
 		[1] = {
@@ -1334,6 +1339,7 @@ skills["ExplosiveConcoctionPlayer"] = {
 			baseEffectiveness = 4.5,
 			incrementalEffectiveness = 0.14000000059605,
 			damageIncrementalEffectiveness = 0.0065000001341105,
+			statDescriptionScope = "throw_flask_fire",
 	fromTree = true,
 			baseFlags = {
 			},
@@ -1451,7 +1457,6 @@ skills["FulminatingConcoctionPlayer"] = {
 	},
 	description = "Consume charges from your Mana Flask to throw a bottle that explodes, dealing unarmed Lightning attack damage in an area and inflicting Lightning Exposure.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Area] = true, [SkillType.Projectile] = true, [SkillType.UseGlobalStats] = true, [SkillType.Duration] = true, [SkillType.Lightning] = true, [SkillType.Nonpathing] = true, [SkillType.ProjectileNoCollision] = true, },
-	statDescriptionScope = "throw_flask_lightning",
 	castTime = 1,
 	statSets = {
 		[1] = {
@@ -1459,6 +1464,7 @@ skills["FulminatingConcoctionPlayer"] = {
 			baseEffectiveness = 4.1999998092651,
 			incrementalEffectiveness = 0.14000000059605,
 			damageIncrementalEffectiveness = 0.0065000001341105,
+			statDescriptionScope = "throw_flask_lightning",
 	fromTree = true,
 			baseFlags = {
 			},
@@ -1576,12 +1582,12 @@ skills["IntoTheBreachPlayer"] = {
 	},
 	description = "Creates a Breach around you, allowing you to see nearby Flames of Chayula. You are considered to be in a Breach while this skill is active.",
 	skillTypes = { [SkillType.Buff] = true, [SkillType.Persistent] = true, [SkillType.OngoingSkill] = true, [SkillType.HasReservation] = true, },
-	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 0,
 	statSets = {
 		[1] = {
 			label = "Into the Breach",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
 	fromTree = true,
 			baseFlags = {
 			},
@@ -1688,12 +1694,12 @@ skills["LifeRemnantsPlayer"] = {
 	},
 	description = "Drinks the blood of your enemies to restore your Life. While active, enemies you kill have a chance to spawn a Life Remnant, and Critically Hitting a target spawns a Life Remnant every few seconds. Picking up a Life Remnant grants you Life which can Overflow maximum Life.",
 	skillTypes = { [SkillType.Buff] = true, [SkillType.HasReservation] = true, [SkillType.OngoingSkill] = true, [SkillType.Persistent] = true, },
-	statDescriptionScope = "life_remnants",
 	castTime = 0,
 	statSets = {
 		[1] = {
 			label = "Life Remnants",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "life_remnants",
 	fromTree = true,
 			baseFlags = {
 			},
@@ -1802,12 +1808,12 @@ skills["Melee1HMacePlayer"] = {
 	weaponTypes = {
 		["One Handed Mace"] = true,
 	},
-	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
 	statSets = {
 		[1] = {
 			label = "Mace Strike",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
 	fromItem = true,
 			baseFlags = {
 			},
@@ -1913,12 +1919,12 @@ skills["Melee2HMacePlayer"] = {
 	weaponTypes = {
 		["Two Handed Mace"] = true,
 	},
-	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
 	statSets = {
 		[1] = {
 			label = "Mace Strike",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
 	fromItem = true,
 			baseFlags = {
 			},
@@ -2025,12 +2031,12 @@ skills["MeleeMaceMacePlayer"] = {
 		["One Handed Mace"] = true,
 		["Two Handed Mace"] = true,
 	},
-	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
 	statSets = {
 		[1] = {
 			label = "Mace Strike",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
 	fromItem = true,
 			baseFlags = {
 			},
@@ -2135,12 +2141,12 @@ skills["MeditatePlayer"] = {
 	},
 	description = "Channels to Recharge Energy Shield. Can overcharge your Energy Shield up to double its normal maximum. Channelling ends when you take damage or your Energy Shield is double its normal maximum. This skill cannot be used if your Energy Shield is already double its normal maximum or you have no maximum Energy Shield.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Channel] = true, [SkillType.Cooldown] = true, },
-	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
 	statSets = {
 		[1] = {
 			label = "Meditate",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
 	fromTree = true,
 			baseFlags = {
 			},
@@ -2247,7 +2253,6 @@ skills["PoisonousConcoctionPlayer"] = {
 	},
 	description = "Consume charges from your Mana Flask to throw a bottle that explodes, dealing unarmed Chaos attack damage in an area. Poison inflicted by this skill has more effect.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Area] = true, [SkillType.Projectile] = true, [SkillType.UseGlobalStats] = true, [SkillType.Chaos] = true, [SkillType.Nonpathing] = true, [SkillType.ProjectileNoCollision] = true, },
-	statDescriptionScope = "throw_flask_poison",
 	castTime = 1,
 	statSets = {
 		[1] = {
@@ -2255,6 +2260,7 @@ skills["PoisonousConcoctionPlayer"] = {
 			baseEffectiveness = 3.9000000953674,
 			incrementalEffectiveness = 0.14000000059605,
 			damageIncrementalEffectiveness = 0.0065000001341105,
+			statDescriptionScope = "throw_flask_poison",
 	fromTree = true,
 			baseFlags = {
 			},
@@ -2372,12 +2378,12 @@ skills["MeleeUnarmedPlayer"] = {
 	},
 	description = "Perform an Unarmed Strike.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Multistrikeable] = true, [SkillType.Melee] = true, [SkillType.Area] = true, },
-	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
 	statSets = {
 		[1] = {
 			label = "Punch",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
 				attack = true,
 				area = true,
@@ -2482,12 +2488,12 @@ skills["MeleeQuarterstaffPlayer"] = {
 	},
 	description = "Strike with your Quarterstaff.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Multistrikeable] = true, [SkillType.Melee] = true, [SkillType.Area] = true, [SkillType.QuarterstaffSkill] = true, },
-	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
 	statSets = {
 		[1] = {
 			label = "Quarterstaff Strike",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
 	fromItem = true,
 			baseFlags = {
 			},
@@ -2590,7 +2596,6 @@ skills["ShatteringConcoctionPlayer"] = {
 	},
 	description = "Consume charges from your Mana Flask to throw a bottle that explodes, dealing unarmed Cold attack damage in an area and inflicting Cold Exposure.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Area] = true, [SkillType.Projectile] = true, [SkillType.UseGlobalStats] = true, [SkillType.Duration] = true, [SkillType.Cold] = true, [SkillType.Nonpathing] = true, [SkillType.ProjectileNoCollision] = true, },
-	statDescriptionScope = "throw_flask_cold",
 	castTime = 1,
 	statSets = {
 		[1] = {
@@ -2598,6 +2603,7 @@ skills["ShatteringConcoctionPlayer"] = {
 			baseEffectiveness = 3.9000000953674,
 			incrementalEffectiveness = 0.14000000059605,
 			damageIncrementalEffectiveness = 0.0065000001341105,
+			statDescriptionScope = "throw_flask_cold",
 	fromTree = true,
 			baseFlags = {
 			},
@@ -2715,12 +2721,12 @@ skills["SorceryWardPlayer"] = {
 	},
 	description = "Passively manifests a protective barrier which takes Elemental Damage from Hits for you until depleted. The barrier instantly recharges to its full value a short time after it stops taking damage or is fully depleted.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Aegis] = true, [SkillType.Fire] = true, [SkillType.Cold] = true, [SkillType.Lightning] = true, [SkillType.Buff] = true, [SkillType.OngoingSkill] = true, [SkillType.Persistent] = true, [SkillType.HasReservation] = true, },
-	statDescriptionScope = "sorcery_ward",
 	castTime = 1,
 	statSets = {
 		[1] = {
 			label = "Sorcery Ward",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "sorcery_ward",
 	fromTree = true,
 			baseFlags = {
 			},
@@ -2828,12 +2834,12 @@ skills["SummonInfernalHoundPlayer"] = {
 	description = "Summons a Reviving Infernal Hound which Ignites enemies near it. The Hound takes a portion of damage from Hits for you.",
 	skillTypes = { [SkillType.Minion] = true, [SkillType.CreatesMinion] = true, [SkillType.Persistent] = true, [SkillType.Fire] = true, [SkillType.CreatesDemonMinion] = true, [SkillType.MinionsCanExplode] = true, [SkillType.HasReservation] = true, },
 	minionSkillTypes = { [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Multistrikeable] = true, [SkillType.Area] = true, },
-	statDescriptionScope = "summon_infernal_familiar",
 	castTime = 0,
 	statSets = {
 		[1] = {
 			label = "Summon Infernal Hound",
 			incrementalEffectiveness = 0.092720001935959,
+			statDescriptionScope = "summon_infernal_familiar",
 	fromTree = true,
 			baseFlags = {
 			},
@@ -2938,12 +2944,12 @@ skills["TemporalRiftPlayer"] = {
 	},
 	description = "Passively leaves afterimages of your recent past. Cast the Spell to return to the oldest afterimage, teleporting to that location and resetting your Life, Mana and Energy Shield to the values they had at the time.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Cooldown] = true, [SkillType.HasReservation] = true, [SkillType.Buff] = true, [SkillType.Persistent] = true, [SkillType.OngoingSkill] = true, [SkillType.PersistentShowsCastTime] = true, [SkillType.FixedCastTime] = true, },
-	statDescriptionScope = "temporal_rift",
 	castTime = 0.5,
 	statSets = {
 		[1] = {
 			label = "Temporal Rift",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "temporal_rift",
 	fromTree = true,
 			baseFlags = {
 			},
@@ -3048,12 +3054,12 @@ skills["TimeFreezePlayer"] = {
 	},
 	description = "Releases a large wave that stops time for all affected enemies for a duration. Duration is lower the more times the enemy has had time stopped for them.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Cooldown] = true, [SkillType.Area] = true, [SkillType.Duration] = true, },
-	statDescriptionScope = "time_stop",
 	castTime = 0.7,
 	statSets = {
 		[1] = {
 			label = "Time Freeze",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "time_stop",
 	fromTree = true,
 			baseFlags = {
 			},
@@ -3158,12 +3164,12 @@ skills["TimeSnapPlayer"] = {
 	},
 	description = "Manipulates time, resetting the cooldowns of your other Skills.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Cooldown] = true, },
-	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 0.6,
 	statSets = {
 		[1] = {
 			label = "Time Snap",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
 	fromTree = true,
 			baseFlags = {
 			},
@@ -3262,12 +3268,12 @@ skills["UnboundAvatarPlayer"] = {
 	},
 	description = "Gain Unbound Fury by inflicting Elemental Ailments with Hits on enemies. Once you reach maximum Unbound Fury, consume it to become Unbound for a duration, vastly augmenting your Elemental prowess.",
 	skillTypes = { [SkillType.Buff] = true, [SkillType.Cooldown] = true, [SkillType.Instant] = true, [SkillType.Fire] = true, [SkillType.Cold] = true, [SkillType.Lightning] = true, [SkillType.InstantNoRepeatWhenHeld] = true, [SkillType.InstantShiftAttackForLeftMouse] = true, [SkillType.Duration] = true, },
-	statDescriptionScope = "ailment_bearer",
 	castTime = 0,
 	statSets = {
 		[1] = {
 			label = "Unbound Avatar",
 			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "ailment_bearer",
 	fromTree = true,
 			baseFlags = {
 			},

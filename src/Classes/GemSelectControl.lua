@@ -568,21 +568,25 @@ function GemSelectClass:AddGemTooltip(gemInstance)
 	self.tooltip:AddSeparator(10)
 	self.tooltip:AddLine(16, "^x7F7F7F" .. gemInstance.gemData.tagString)
 	-- Will need rework if a gem can have 2+ additional supports
-	self:AddCommonGemInfo(gemInstance, grantedEffect, true, additionalEffects[1] and additionalEffects[1].support and additionalEffects[1])
+	self:AddGrantedEffectInfo(gemInstance, grantedEffect, true)
+	for _, statSet in ipairs(grantedEffect.statSets) do
+		self:AddStatSetInfo(gemInstance, grantedEffect, statSet)
+	end
 
-	if additionalEffects then
-		for _, additional in ipairs(additionalEffects) do
-			if not additional.support then
-				self.tooltip:AddSeparator(10)
-				self.tooltip:AddLine(20, colorCodes.GEM .. additional.name)
-				self.tooltip:AddSeparator(10)
-				self:AddCommonGemInfo(gemInstance, additional)
+	for _, additional in ipairs(additionalEffects or {}) do
+		if not additional.support then
+			self.tooltip:AddSeparator(10)
+			self.tooltip:AddLine(20, colorCodes.GEM .. additional.name)
+			self.tooltip:AddSeparator(10)
+			self:AddGrantedEffectInfo(gemInstance, additional)
+			for _, statSet in ipairs(additional.statSets) do
+				self:AddStatSetInfo(gemInstance, grantedEffect, statSet)
 			end
 		end
 	end
 end
 
-function GemSelectClass:AddCommonGemInfo(gemInstance, grantedEffect, addReq, mergeStatsFrom)
+function GemSelectClass:AddGrantedEffectInfo(gemInstance, grantedEffect, addReq)
 	local displayInstance = gemInstance.displayEffect or gemInstance
 	local grantedEffectLevel = grantedEffect.levels[displayInstance.level] or { }
 	if addReq then
@@ -661,12 +665,6 @@ function GemSelectClass:AddCommonGemInfo(gemInstance, grantedEffect, addReq, mer
 				self.tooltip:AddLine(16, "^x7F7F7FCast Time: ^7Instant")
 			end
 		end
-		if grantedEffectLevel.critChance then
-			self.tooltip:AddLine(16, string.format("^x7F7F7FCritical Hit Chance: ^7%.2f%%", grantedEffectLevel.critChance))
-		end
-		if grantedEffectLevel.damageEffectiveness then
-			self.tooltip:AddLine(16, string.format("^x7F7F7FEffectiveness of Added Damage: ^7%d%%", grantedEffectLevel.damageEffectiveness * 100))
-		end
 	end
 	if addReq and displayInstance.quality > 0 then
 		self.tooltip:AddLine(16, string.format("^x7F7F7FQuality: "..colorCodes.MAGIC.."+%d%%^7%s",
@@ -688,17 +686,30 @@ function GemSelectClass:AddCommonGemInfo(gemInstance, grantedEffect, addReq, mer
 			self.tooltip:AddLine(16, colorCodes.GEM..line)
 		end
 	end
-	if self.skillsTab.build.data.describeStats then
+end
+function GemSelectClass:AddStatSetInfo(gemInstance, grantedEffect, statSet)
+	local displayInstance = gemInstance.displayEffect or gemInstance
+	local statSetLevel = statSet.levels[displayInstance.level] or { }
+	self.tooltip:AddSeparator(10)
+	self.tooltip:AddLine(20, colorCodes.GEM .. statSet.label)
+	self.tooltip:AddSeparator(10)
+	if statSetLevel.critChance then
+		self.tooltip:AddLine(16, string.format("^x7F7F7FCritical Hit Chance: ^7%.2f%%", statSetLevel.critChance))
+	end
+	if statSetLevel.baseMultiplier then
+		self.tooltip:AddLine(16, string.format("^x7F7F7FAttack Damage: ^7%d%%", statSetLevel.baseMultiplier * 100))
+	end
+	if self.skillsTab and self.skillsTab.build.data.describeStats then
 		self.tooltip:AddSeparator(10)
-		local stats = calcLib.buildSkillInstanceStats(displayInstance, grantedEffect)
-		if mergeStatsFrom then
-			for stat, val in pairs(calcLib.buildSkillInstanceStats(displayInstance, mergeStatsFrom)) do
-				stats[stat] = (stats[stat] or 0) + val
-			end
-		end
-		local descriptions, lineMap = self.skillsTab.build.data.describeStats(stats, grantedEffect.statDescriptionScope)
+		local stats = calcLib.buildSkillInstanceStats(displayInstance, grantedEffect, statSet)
+		--if mergeStatsFrom then
+		--	for stat, val in pairs(calcLib.buildSkillInstanceStats(displayInstance, mergeStatsFrom)) do
+		--		stats[stat] = (stats[stat] or 0) + val
+		--	end
+		--end
+		local descriptions, lineMap = self.skillsTab.build.data.describeStats(stats, statSet.statDescriptionScope)
 		for _, line in ipairs(descriptions) do
-			local source = grantedEffect.statMap[lineMap[line]] or self.skillsTab.build.data.skillStatMap[lineMap[line]]
+			local source = statSet.statMap[lineMap[line]] or self.skillsTab.build.data.skillStatMap[lineMap[line]]
 			if source then
 				if launch.devModeAlt then
 					local devText = lineMap[line]
@@ -720,7 +731,6 @@ function GemSelectClass:AddCommonGemInfo(gemInstance, grantedEffect, addReq, mer
 		end
 	end
 end
-
 function GemSelectClass:OnFocusGained()
 	self.EditControl:OnFocusGained()
 	self.dropped = true

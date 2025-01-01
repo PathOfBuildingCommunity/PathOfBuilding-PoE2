@@ -211,7 +211,6 @@ local weaponClassMap = {
 	["Unarmed"] = "None",
 }
 
-local skillStatScope = { }
 local gems = { }
 local trueGemNames = { }
 
@@ -272,6 +271,7 @@ directiveTable.skill = function(state, args, out)
 	end
 	local skill = { }
 	state.skill = skill
+	state.granted = granted
 	if skillGem and not state.noGem then
 		gems[gemEffect.Id] = true
 		if granted.IsSupport then
@@ -442,7 +442,6 @@ directiveTable.skill = function(state, args, out)
 			end
 			out:write('\t},\n')
 		end
-		out:write('\tstatDescriptionScope = "gem_stat_descriptions",\n')
 	else
 		if #granted.ActiveSkill.Description > 0 then
 			out:write('\tdescription = "', escapeGGGString(granted.ActiveSkill.Description:gsub('"','\\"'):gsub('\r',''):gsub('\n','\\n')), '",\n')
@@ -477,11 +476,6 @@ directiveTable.skill = function(state, args, out)
 			end
 			out:write('\t},\n')
 		end
-		local file = getFile("Metadata/StatDescriptions/specific_skill_stat_descriptions/"..granted.ActiveSkill.Id..".csd")
-		if file then
-			skillStatScope[granted.ActiveSkill.Id] = granted.ActiveSkill.Id
-		end
-		out:write('\tstatDescriptionScope = "', skillStatScope[granted.ActiveSkill.Id] or "skill_stat_descriptions", '",\n')
 		if granted.ActiveSkill.SkillTotem <= 21 then
 			out:write('\tskillTotemId = ', granted.ActiveSkill.SkillTotem, ',\n')
 		end
@@ -502,9 +496,10 @@ directiveTable.set = function(state, args, out)
 	local statSetId = args
 	local grantedEffectStatSet = dat("GrantedEffectStatSets"):GetRow("Id", statSetId)
 	local statsPerLevel = dat("GrantedEffectStatSetsPerLevel"):GetRowList("GrantedEffectStatSets", grantedEffectStatSet)
-	local label = grantedEffectStatSet.LabelType and grantedEffectStatSet.LabelType.Id or state.skill.displayName
+	local label = grantedEffectStatSet.LabelType and grantedEffectStatSet.LabelType.Label or state.skill.displayName
 	local set = { }
-	state.skill.sets[args] = set
+	local skill = state.skill
+	skill.sets[args] = set
 	state.set = set
 	set.baseFlags = { }
 	set.mods = { }
@@ -634,9 +629,9 @@ directiveTable.set = function(state, args, out)
 	end
 
 	-- Emitting statSet data
-	out:write('\t\t['..state.skill.setIndex..'] = {\n')
-	state.skill.setIndex = state.skill.setIndex + 1
-	out:write('\t\t\tlabel = "'..state.skill.displayName..'",\n')
+	out:write('\t\t['..skill.setIndex..'] = {\n')
+	skill.setIndex = skill.setIndex + 1
+	out:write('\t\t\tlabel = "'..label..'",\n')
 	if grantedEffectStatSet.BaseEffectiveness ~= 1 then
 		out:write('\t\t\tbaseEffectiveness = ', grantedEffectStatSet.BaseEffectiveness, ',\n')
 	end
@@ -645,6 +640,11 @@ directiveTable.set = function(state, args, out)
 	end
 	if grantedEffectStatSet.DamageIncrementalEffectiveness ~= 0 then
 		out:write('\t\t\tdamageIncrementalEffectiveness = ', grantedEffectStatSet.DamageIncrementalEffectiveness, ',\n')
+	end
+	if state.granted.IsSupport then
+		out:write('\tstatDescriptionScope = "gem_stat_descriptions",\n')
+	else
+		out:write('\t\t\tstatDescriptionScope = "', state.granted.ActiveSkill.StatDescription:gsub("^Metadata/StatDescriptions/", ""):gsub("specific_skill_stat_descriptions/", ""):gsub("/$", ""):gsub("/", "_"), '",\n')
 	end
 end
 

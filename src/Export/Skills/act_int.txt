@@ -408,9 +408,6 @@ local skills, mod, flag, skill = ...
 #set FlameWallPlayer
 #flags
 #mods
-#set FlameWallIgnitePlayer
-#flags
-#mods
 #skillEnd
 
 #skill FlameblastPlayer

@@ -156,7 +156,7 @@ function calcLib.getGemStatRequirement(level, isSupport, multi)
 end
 
 -- Build table of stats for the given skill instance
-function calcLib.buildSkillInstanceStats(skillInstance, grantedEffect)
+function calcLib.buildSkillInstanceStats(skillInstance, grantedEffect, statSet)
 	local stats = { }
 	if skillInstance.quality > 0 and grantedEffect.qualityStats then
 		local qualityId = skillInstance.qualityId or "Default"
@@ -168,25 +168,25 @@ function calcLib.buildSkillInstanceStats(skillInstance, grantedEffect)
 			stats[stat[1]] = (stats[stat[1]] or 0) + math.modf(stat[2] * skillInstance.quality)
 		end
 	end
-	local level = grantedEffect.levels[skillInstance.level] or { }
+	local grantedEffectLevel = grantedEffect.levels[skillInstance.level] or { }
+	local statSetLevel = statSet.levels[skillInstance.level] or { }
 	local availableEffectiveness
-	local actorLevel = skillInstance.actorLevel or level.levelRequirement or 1
-	-- TEMPORARY FIX JUST TO ALLOW CLIENT TO LOAD, NEED TO PROPERLY ACCOUNT FOR STATSETS
-	for index, stat in ipairs(grantedEffect.statSets[1].stats) do
+	local actorLevel = skillInstance.actorLevel or grantedEffectLevel.levelRequirement or 1
+	for index, stat in ipairs(statSet.stats) do
 		-- Static value used as default (assumes statInterpolation == 1)
-		local statValue = level[index] or 1
-		if level.statInterpolation then
-			if level.statInterpolation[index] == 3 then
+		local statValue = statSetLevel[index] or 1
+		if statSetLevel.statInterpolation then
+			if statSetLevel.statInterpolation[index] == 3 then
 				-- Effectiveness interpolation
 				if not availableEffectiveness then
-					actorLevel = level.actorLevel
+					actorLevel = statSetLevel.actorLevel
 					availableEffectiveness =
-						data.gameConstants["SkillDamageBaseEffectiveness"] * (grantedEffect.baseEffectiveness or 1)
-							* (1 + grantedEffect.incrementalEffectiveness * (actorLevel - 1)) 
-							* (1 + (grantedEffect.damageIncrementalEffectiveness or 0)) ^ (actorLevel - 1)
+						data.gameConstants["SkillDamageBaseEffectiveness"] * (statSet.baseEffectiveness or 1)
+							* (1 + (statSet.incrementalEffectiveness or 0) * (actorLevel - 1)) 
+							* (1 + (statSet.damageIncrementalEffectiveness or 0)) ^ (actorLevel - 1)
 				end
-				statValue = availableEffectiveness * level[index]
-			elseif level.statInterpolation[index] == 2 then
+				statValue = availableEffectiveness * statSetLevel[index]
+			elseif statSetLevel.statInterpolation[index] == 2 then
 				-- Linear interpolation; I'm actually just guessing how this works
 
 				-- Order the levels, since sometimes they skip around
@@ -216,10 +216,8 @@ function calcLib.buildSkillInstanceStats(skillInstance, grantedEffect)
 		end
 		stats[stat] = (stats[stat] or 0) + statValue
 	end
-	if grantedEffect.constantStats then
-		for _, stat in ipairs(grantedEffect.constantStats) do
-			stats[stat[1]] = (stats[stat[1]] or 0) + (stat[2] or 0)
-		end
+	for _, stat in ipairs(statSet.constantStats or {}) do
+		stats[stat[1]] = (stats[stat[1]] or 0) + (stat[2] or 0)
 	end
 	return stats
 end
