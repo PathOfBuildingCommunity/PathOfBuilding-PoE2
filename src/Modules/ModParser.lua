@@ -1762,6 +1762,7 @@ local modTagList = {
 		{ type = "StatThreshold", stat = "LifeReserved", threshold = 1},
 		{ type = "StatThreshold", stat = "ManaReserved", threshold = 1} } },
 	["if you've shattered an enemy recently"] = { tag = { type = "Condition", var = "ShatteredEnemyRecently" } },
+	["if you've dodge rolled recently"] = { tag = { type = "Condition", var = "DodgeRolledRecently" } },
 	-- Enemy status conditions
 	["at close range"] = { tag = { type = "Condition", var = "AtCloseRange" } },
 	["against rare and unique enemies"] = { tag = { type = "ActorCondition", actor = "enemy", var = "RareOrUnique" } },
