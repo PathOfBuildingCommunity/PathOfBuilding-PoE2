@@ -1169,10 +1169,12 @@ function calcs.initEnv(build, mode, override, specEnv)
 	-- Find skills granted by tree nodes
 	if not accelerate.nodeAlloc then
 		for _, node in pairs(env.allocNodes) do
-			for _, skill in ipairs(node.grantedSkills) do
-				local grantedSkill = copyTable(skill)
-				grantedSkill.sourceNode = node
-				t_insert(env.grantedSkillsNodes, grantedSkill)
+			if node.grantedSkills then
+				for _, skill in ipairs(node.grantedSkills) do
+					local grantedSkill = copyTable(skill)
+					grantedSkill.sourceNode = node
+					t_insert(env.grantedSkillsNodes, grantedSkill)
+				end
 			end
 		end
 	end
