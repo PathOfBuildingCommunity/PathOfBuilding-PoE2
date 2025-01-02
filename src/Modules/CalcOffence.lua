@@ -26,6 +26,7 @@ local s_format = string.format
 local tempTable1 = { }
 local tempTable2 = { }
 local tempTable3 = { }
+local tempTable4 = { }
 
 local isElemental = { Fire = true, Cold = true, Lightning = true }
 
@@ -60,24 +61,15 @@ end })
 local globalOutput = nil
 local globalBreakdown = nil
 
--- Calculate min/max damage for the given damage type
-local function calcDamage(activeSkill, output, cfg, breakdown, damageType, typeFlags, convDst)
-	local skillModList = activeSkill.skillModList
-
-	typeFlags = bor(typeFlags, dmgTypeFlags[damageType])
-
+local function calcConvertedDamage(activeSkill, output, damageType)
 	-- Calculate conversions
 	local addMin, addMax = 0, 0
 	local conversionTable = activeSkill.conversionTable
 	for _, otherType in ipairs(dmgTypeList) do
-		if otherType == damageType then
-			-- Damage can only be converted from damage types that precede this one in the conversion sequence, so stop here
-			break
-		end
 		local convMult = conversionTable[otherType][damageType]
 		if convMult > 0 then
 			-- Damage is being converted/gained from the other damage type
-			local min, max = calcDamage(activeSkill, output, cfg, breakdown, otherType, typeFlags, damageType)
+			local min, max = output[otherType.."MinBase"], output[otherType.."MaxBase"]
 			addMin = addMin + min * convMult
 			addMax = addMax + max * convMult
 		end
@@ -89,6 +81,40 @@ local function calcDamage(activeSkill, output, cfg, breakdown, damageType, typeF
 
 	local baseMin = output[damageType.."MinBase"]
 	local baseMax = output[damageType.."MaxBase"]
+
+	return baseMin + addMin, baseMax + addMax
+end
+
+local function calcGainedDamage(activeSkill, output, damageType)
+	local gainTable = activeSkill.gainTable
+	
+	local addMin, addMax = 0, 0
+	for _, otherType in ipairs(dmgTypeList) do
+		local gainMult = gainTable[otherType][damageType]
+		if gainMult > 0 then
+			-- Damage is being converted/gained from the other damage type
+			local min, max = calcConvertedDamage(activeSkill, output, otherType)
+			addMin = addMin + min * gainMult
+			addMax = addMax + max * gainMult
+		end
+	end
+	
+	return addMin, addMax
+end
+
+-- Calculate min/max damage for the given damage type
+local function calcDamage(activeSkill, output, cfg, breakdown, damageType, typeFlags, convDst)
+	local skillModList = activeSkill.skillModList
+
+	typeFlags = bor(typeFlags, dmgTypeFlags[damageType])
+
+	local addMin, addMax = 0, 0
+	local baseMin, baseMax = calcConvertedDamage(activeSkill, output, damageType)
+	local gainedMin, gainedMax = calcGainedDamage(activeSkill, output, damageType)
+	baseMin = baseMin + gainedMin
+	baseMax = baseMax + gainedMax
+
+	ConPrintf("Base damage for "..damageType.." is "..baseMin.." to "..baseMax)
 	if baseMin == 0 and baseMax == 0 then
 		-- No base damage for this type, don't need to calculate modifiers
 		if breakdown and (addMin ~= 0 or addMax ~= 0) then
@@ -122,7 +148,8 @@ local function calcDamage(activeSkill, output, cfg, breakdown, damageType, typeF
 			convDst = convDst and conversionTable[damageType][convDst] > 0 and s_format("%d%% to %s", conversionTable[damageType][convDst] * 100, convDst),
 		})
 	end
-
+	
+	ConPrintf("Returning calculated damage for "..damageType.." is "..baseMin.." to "..baseMax)
 	return 	round(((baseMin * inc * more) * genericMoreMinDamage + addMin) * moreMinDamage),
 			round(((baseMax * inc * more) * genericMoreMaxDamage + addMax) * moreMaxDamage)
 end
@@ -1740,20 +1767,25 @@ function calcs.offence(env, actor, activeSkill)
 
 	-- Calculate damage conversion percentages
 	activeSkill.conversionTable = wipeTable(activeSkill.conversionTable)
-	for damageTypeIndex = 1, 4 do
+	activeSkill.gainTable = wipeTable(activeSkill.gainTable)
+	ConPrintf("CalOffenceRunning")
+	for damageTypeIndex = 1, 5 do
 		local damageType = dmgTypeList[damageTypeIndex]
 		local globalConv = wipeTable(tempTable1)
 		local skillConv = wipeTable(tempTable2)
-		local add = wipeTable(tempTable3)
+		local globalAdd = wipeTable(tempTable3)
+		local skillAdd = wipeTable(tempTable4)
 		local globalTotal, skillTotal = 0, 0
-		for otherTypeIndex = damageTypeIndex + 1, 5 do
+		for otherTypeIndex = 1, 5 do
 			-- For all possible destination types, check for global and skill conversions
 			otherType = dmgTypeList[otherTypeIndex]
+			-- ConPrintf(otherType)
 			globalConv[otherType] = m_max(skillModList:Sum("BASE", skillCfg, damageType.."DamageConvertTo"..otherType, isElemental[damageType] and "ElementalDamageConvertTo"..otherType or nil, damageType ~= "Chaos" and "NonChaosDamageConvertTo"..otherType or nil), 0)
 			globalTotal = globalTotal + globalConv[otherType]
 			skillConv[otherType] = m_max(skillModList:Sum("BASE", skillCfg, "Skill"..damageType.."DamageConvertTo"..otherType), 0)
 			skillTotal = skillTotal + skillConv[otherType]
-			add[otherType] = m_max(skillModList:Sum("BASE", skillCfg, damageType.."DamageGainAs"..otherType, isElemental[damageType] and "ElementalDamageGainAs"..otherType or nil, damageType ~= "Chaos" and "NonChaosDamageGainAs"..otherType or nil), 0)
+			globalAdd[otherType] = m_max(skillModList:Sum("BASE", skillCfg, damageType.."DamageGainAs"..otherType, isElemental[damageType] and "ElementalDamageGainAs"..otherType or nil, damageType ~= "Chaos" and "NonChaosDamageGainAs"..otherType or nil), 0)
+			skillAdd[otherType] = m_max(skillModList:Sum("BASE", skillCfg, "Skill"..damageType.."DamageGainAs"..otherType, isElemental[damageType] and "SkillElementalDamageGainAs"..otherType or nil, damageType ~= "Chaos" and "SkillNonChaosDamageGainAs"..otherType or nil), 0)
 		end
 		if skillTotal > 100 then
 			-- Skill conversion exceeds 100%, scale it down and remove non-skill conversions
@@ -1774,13 +1806,23 @@ function calcs.offence(env, actor, activeSkill)
 			globalTotal = globalTotal * factor
 		end
 		local dmgTable = { }
+		local gainTable = { }
 		for type, val in pairs(globalConv) do
-			dmgTable[type] = (globalConv[type] + skillConv[type] + add[type]) / 100
+			dmgTable[type] = (val + skillConv[type]) / 100
 		end
-		dmgTable.mult = 1 - m_min((globalTotal + skillTotal) / 100, 1)
+		
+		for type, val in pairs(globalAdd) do
+			gainTable[type] = (globalAdd[type] + skillAdd[type]) / 100
+		end
+
+		dmgTable.mult = 1 -- 1 - m_min((globalTotal + skillTotal) / 100, 1)
+		ConPrintf("DamageTable for "..damageType)
+		ConPrintTable(dmgTable)
+		ConPrintf("GainTable for "..damageType)
+		ConPrintTable(gainTable)
 		activeSkill.conversionTable[damageType] = dmgTable
+		activeSkill.gainTable[damageType] = gainTable
 	end
-	activeSkill.conversionTable["Chaos"] = { mult = 1 }
 
 	-- Configure damage passes
 	local passList = { }
