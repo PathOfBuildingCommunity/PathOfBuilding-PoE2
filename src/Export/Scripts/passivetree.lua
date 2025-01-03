@@ -135,7 +135,7 @@ local function calculateSheetCoords(sheet, path_base)
 	extractFromGgpk(filesToExtract)
 
 	for icon, sections in pairs(sheet.files) do
-		local width, height = ddsfiles.getMixSize(path_base .. string.lower(icon))
+		local width, height = ddsfiles.getMaxSize(path_base .. string.lower(icon))
 
 		table.insert(sortedFiles, {
 			icon = icon,
