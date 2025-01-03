@@ -74,7 +74,6 @@ function calcs.initModDB(env, modDB)
 	modDB:NewMod("Onslaught", "FLAG", true, "Base", { type = "Condition", var = "Onslaught" })
 	modDB:NewMod("UnholyMight", "FLAG", true, "Base", { type = "Condition", var = "UnholyMight" })
 	modDB:NewMod("ChaoticMight", "FLAG", true, "Base", { type = "Condition", var = "ChaoticMight" })
-	modDB:NewMod("Tailwind", "FLAG", true, "Base", { type = "Condition", var = "Tailwind" })
 	modDB:NewMod("Adrenaline", "FLAG", true, "Base", { type = "Condition", var = "Adrenaline" })
 	modDB:NewMod("LesserMassiveShrine", "FLAG", true, "Base", { type = "Condition", var = "LesserMassiveShrine" })
 	modDB:NewMod("LesserBrutalShrine", "FLAG", true, "Base", { type = "Condition", var = "LesserBrutalShrine" })
@@ -479,8 +478,6 @@ function calcs.initEnv(build, mode, override, specEnv)
 		modDB:NewMod("TotemLightningResist", "BASE", 40, "Base")
 		modDB:NewMod("TotemChaosResist", "BASE", 20, "Base")
 		modDB:NewMod("MaximumRage", "BASE", 30, "Base")
-		modDB:NewMod("Multiplier:GaleForce", "BASE", 0, "Base")
-		modDB:NewMod("MaximumGaleForce", "BASE", 10, "Base")
 		modDB:NewMod("MaximumFortification", "BASE", 20, "Base")
 		modDB:NewMod("MaximumValour", "BASE", 50, "Base")
 		modDB:NewMod("SoulEaterMax", "BASE", 45, "Base")
@@ -512,6 +509,10 @@ function calcs.initEnv(build, mode, override, specEnv)
 		modDB:NewMod("ManaDegenPercent", "BASE", 1, "Base", { type = "Multiplier", var = "EffectiveManaBurnStacks" })
 		modDB:NewMod("LifeDegenPercent", "BASE", 1, "Base", { type = "Multiplier", var = "WeepingWoundsStacks" })
 		modDB:NewMod("WeaponSwapSpeed", "BASE", 250, "Base")  -- 250ms
+		modDB:NewMod("Speed", "INC", 3, "Base", ModFlag.Attack, { type = "Multiplier", var = "Tailwind", limit = 10 })
+		modDB:NewMod("Speed", "INC", 3, "Base", ModFlag.Cast, { type = "Multiplier", var = "Tailwind", limit = 10 })
+		modDB:NewMod("MovementSpeed", "INC", 1, "Base", { type = "Multiplier", var = "Tailwind", limit = 10 })
+		modDB:NewMod("Evasion", "INC", 15, "Base", { type = "Multiplier", var = "Tailwind", limit = 10 })
 
 		-- Add Pantheon mods
 		local parser = modLib.parseMod
@@ -607,6 +608,8 @@ function calcs.initEnv(build, mode, override, specEnv)
 		end
 		env.allocNodes = nodes
 	end
+
+	local nodesModsList = calcs.buildModListForNodeList(env, env.allocNodes, true)
 
 	if allocatedNotableCount and allocatedNotableCount > 0 then
 		modDB:NewMod("Multiplier:AllocatedNotable", "BASE", allocatedNotableCount)
@@ -832,6 +835,18 @@ function calcs.initEnv(build, mode, override, specEnv)
 				env.player.itemList[slotName] = item
 				-- Merge mods for this item
 				local srcList = item.modList or (item.slotModList and item.slotModList[slot.slotNum]) or {}
+
+				-- Remove Spirit Base if CannotGainSpiritFromEquipment flag is true
+				if nodesModsList:Flag(nil, "CannotGainSpiritFromEquipment") then
+					srcList = copyTable(srcList, true)
+					for index = #srcList, 1, -1 do
+						local mod = srcList[index]
+						if mod.name == "Spirit" and mod.type == "BASE" then
+							t_remove(srcList, index)
+						end
+					end
+				end
+
 				if item.requirements and not accelerate.requirementsItems then
 					t_insert(env.requirementsTableItems, {
 						source = "Item",
@@ -1036,7 +1051,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 				if item.charmLimit then
 					env.modDB:NewMod("CharmLimit", "BASE", item.charmLimit, item.title)
 				end
-				if item.spiritValue then
+				if item.spiritValue and not nodesModsList:Flag(nil, "CannotGainSpiritFromEquipment") then
 					env.modDB:NewMod("Spirit", "BASE", item.spiritValue, item.title)
 				end
 				if item.type ~= "Jewel" and item.type ~= "Flask" and item.type ~= "Charm" then
@@ -1137,7 +1152,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 	end
 
 	-- Merge modifiers for allocated passives
-	env.modDB:AddList(calcs.buildModListForNodeList(env, env.allocNodes, true))
+	env.modDB:AddList(nodesModsList)
 
 	if not override or (override and not override.extraJewelFuncs) then
 		override = override or {}
@@ -1154,10 +1169,12 @@ function calcs.initEnv(build, mode, override, specEnv)
 	-- Find skills granted by tree nodes
 	if not accelerate.nodeAlloc then
 		for _, node in pairs(env.allocNodes) do
-			for _, skill in ipairs(node.grantedSkills) do
-				local grantedSkill = copyTable(skill)
-				grantedSkill.sourceNode = node
-				t_insert(env.grantedSkillsNodes, grantedSkill)
+			if node.grantedSkills then
+				for _, skill in ipairs(node.grantedSkills) do
+					local grantedSkill = copyTable(skill)
+					grantedSkill.sourceNode = node
+					t_insert(env.grantedSkillsNodes, grantedSkill)
+				end
 			end
 		end
 	end

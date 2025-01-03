@@ -349,75 +349,8 @@ local function doActorAttribsConditions(env, actor)
 		end
 	end
 
-	local calculateOmniscience = function (convert)
-		local classStats = env.spec.tree.characterData and env.spec.tree.characterData[env.classId] or env.spec.tree.classes[env.classId]
-
-		for pass = 1, 2 do -- Calculate twice because of circular dependency (X attribute higher than Y attribute)
-			if pass ~= 1 then
-				for _, stat in pairs({"Str","Dex","Int"}) do
-					local base = classStats["base_"..stat:lower()]
-					output[stat] = m_min(round(calcLib.val(modDB, stat)), base)
-					if breakdown then
-						breakdown[stat] = breakdown.simple(nil, nil, output[stat], stat)
-					end
-
-					modDB:NewMod("Omni", "BASE", (modDB:Sum("BASE", nil, stat) - base), stat.." conversion Omniscience")
-					modDB:NewMod("Omni", "INC", modDB:Sum("INC", nil, stat), "Omniscience")
-					modDB:NewMod("Omni", "MORE", modDB:Sum("MORE", nil, stat), "Omniscience")
-				end
-			end
-
-			if pass ~= 2 then
-				-- Subtract out double and triple dips
-				local conversion = { }
-				local reduction = { }
-				for _, type in pairs({"BASE", "INC", "MORE"}) do
-					conversion[type] = { }
-					for _, stat in pairs({"StrDex", "StrInt", "DexInt", "All"}) do
-						conversion[type][stat] = modDB:Sum(type, nil, stat) or 0
-					end
-					reduction[type] = conversion[type].StrDex + conversion[type].StrInt + conversion[type].DexInt + 2*conversion[type].All
-				end
-				modDB:NewMod("Omni", "BASE", -reduction["BASE"], "Reduction from Double/Triple Dipped attributes to Omniscience")
-				modDB:NewMod("Omni", "INC", -reduction["INC"], "Reduction from Double/Triple Dipped attributes to Omniscience")
-				modDB:NewMod("Omni", "MORE", -reduction["MORE"], "Reduction from Double/Triple Dipped attributes to Omniscience")
-			end
-
-			for _, stat in pairs({"Str","Dex","Int"}) do
-				local base = classStats["base_"..stat:lower()]
-				output[stat] = base
-			end
-
-			output["Omni"] = m_max(round(calcLib.val(modDB, "Omni")), 0)
-			if breakdown then
-				breakdown["Omni"] = breakdown.simple(nil, nil, output["Omni"], "Omni")
-			end
-
-			local stats = { output.Str, output.Dex, output.Int }
-			table.sort(stats)
-			output.LowestAttribute = stats[1]
-			condList["TwoHighestAttributesEqual"] = stats[2] == stats[3]
-
-			condList["DexHigherThanInt"] = output.Dex > output.Int
-			condList["StrHigherThanInt"] = output.Str > output.Int
-			condList["IntHigherThanDex"] = output.Int > output.Dex
-			condList["StrHigherThanDex"] = output.Str > output.Dex
-			condList["IntHigherThanStr"] = output.Int > output.Str
-			condList["DexHigherThanStr"] = output.Dex > output.Str
-
-			condList["StrHighestAttribute"] = output.Str >= output.Dex and output.Str >= output.Int
-			condList["IntHighestAttribute"] = output.Int >= output.Str and output.Int >= output.Dex
-			condList["DexHighestAttribute"] = output.Dex >= output.Str and output.Dex >= output.Int
-		end
-	end
-
-	if modDB:Flag(nil, "Omniscience") then
-		calculateOmniscience()
-	else
-		calculateAttributes()
-	end
-
 	-- Calculate total attributes
+	calculateAttributes()
 	output.TotalAttr = output.Str + output.Dex + output.Int
 
 	-- Special case for Devotion
@@ -425,17 +358,21 @@ local function doActorAttribsConditions(env, actor)
 
 	-- Add attribute bonuses
 	if not modDB:Flag(nil, "NoAttributeBonuses") then
+		local inherentAttributeMultiplier = 1
+		if modDB:Flag(nil, "DoubledInherentAttributeBonuses") then
+			inherentAttributeMultiplier = 2
+		end
 		if not modDB:Flag(nil, "NoStrengthAttributeBonuses") then
 			if not modDB:Flag(nil, "NoStrBonusToLife") then
-				modDB:NewMod("Life", "BASE", output.Str * 2, "Strength")
+				modDB:NewMod("Life", "BASE", output.Str * 2 * inherentAttributeMultiplier, "Strength")
 			end
 		end
 		if not modDB:Flag(nil, "NoDexterityAttributeBonuses") then
-			modDB:NewMod("Accuracy", "BASE", output.Dex * (modDB:Override(nil, "DexAccBonusOverride") or data.misc.AccuracyPerDexBase), "Dexterity")
+			modDB:NewMod("Accuracy", "BASE", output.Dex * (modDB:Override(nil, "DexAccBonusOverride") or data.misc.AccuracyPerDexBase) * inherentAttributeMultiplier, "Dexterity")
 		end
 		if not modDB:Flag(nil, "NoIntelligenceAttributeBonuses") then
 			if not modDB:Flag(nil, "NoIntBonusToMana") then
-				modDB:NewMod("Mana", "BASE", output.Int * 2, "Intelligence")
+				modDB:NewMod("Mana", "BASE", output.Int * 2 * inherentAttributeMultiplier, "Intelligence")
 			end
 		end
 	end
@@ -604,13 +541,6 @@ local function doActorMisc(env, actor)
 		if modDB:Flag(nil, "ChaoticMight") then
 			local effect = m_floor(30 * (1 + modDB:Sum("INC", nil, "BuffEffectOnSelf") / 100))
 			modDB:NewMod("PhysicalDamageGainAsChaos", "BASE", effect, "Chaotic Might")
-		end
-		if modDB:Flag(nil, "Tailwind") then
-			local effect = m_floor(8 * (1 + modDB:Sum("INC", nil, "TailwindEffectOnSelf", "BuffEffectOnSelf") / 100))
-			modDB:NewMod("ActionSpeed", "INC", effect, "Tailwind")
-		end
-		if modDB:Flag(nil, "Condition:TotemTailwind") then
-			modDB:NewMod("TotemActionSpeed", "INC", 8, "Tailwind")
 		end
 		if modDB:Flag(nil, "Adrenaline") then
 			local effectMod = 1 + modDB:Sum("INC", nil, "BuffEffectOnSelf") / 100
@@ -1260,25 +1190,15 @@ function calcs.perform(env, skipEHP)
 	-- flask breakdown
 	if breakdown then
 		local chargesGenerated = modDB:Sum("BASE", nil, "FlaskChargesGenerated")
-		local usedFlasks = 0
-		for i, v in pairs(env.flasks) do
-			if v then
-				usedFlasks = usedFlasks + 1
-			end
-		end
-
-		local chargesGeneratedPerFlask = modDB:Sum("BASE", nil, "FlaskChargesGeneratedPerEmptyFlask") * (5 - usedFlasks)
-		local totalChargesGenerated = chargesGenerated + chargesGeneratedPerFlask
 		local utilityChargesGenerated = modDB:Sum("BASE", nil, "UtilityFlaskChargesGenerated")
 		local lifeChargesGenerated = modDB:Sum("BASE", nil, "LifeFlaskChargesGenerated")
 		local manaChargesGenerated = modDB:Sum("BASE", nil, "ManaFlaskChargesGenerated")
 
 		output.FlaskEffect = effectInc
-		output.FlaskChargeGen = totalChargesGenerated
-		output.LifeFlaskChargeGen = totalChargesGenerated + lifeChargesGenerated
-		output.ManaFlaskChargeGen = totalChargesGenerated + manaChargesGenerated
-		output.UtilityFlaskChargeGen = totalChargesGenerated + utilityChargesGenerated
-		output.FlaskChargeOnCritChance = m_min(100, modDB:Sum("BASE", nil, "FlaskChargeOnCritChance"))
+		output.FlaskChargeGen = chargesGenerated
+		output.LifeFlaskChargeGen = chargesGenerated + lifeChargesGenerated
+		output.ManaFlaskChargeGen = chargesGenerated + manaChargesGenerated
+		output.UtilityFlaskChargeGen = chargesGenerated + utilityChargesGenerated
 	end
 
 	-- Merge flask modifiers
@@ -3232,6 +3152,10 @@ function calcs.perform(env, skipEHP)
 			end
 		end
 	end
+
+	-- We need to recalculate Spirit, Some Passive tree work with defences stats (Evasion, Energy Shield) from items
+	doActorLifeManaSpirit(env.player)
+	doActorLifeManaSpiritReservation(env.player)
 
 	cacheData(cacheSkillUUID(env.player.mainSkill, env), env)
 end

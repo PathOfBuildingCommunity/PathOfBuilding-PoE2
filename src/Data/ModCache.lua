@@ -2220,7 +2220,7 @@ c["Cannot be Blinded while on Full Life 80% increased Damage with Hits against E
 c["Cannot be Ignited"]={{[1]={flags=0,keywordFlags=0,name="IgniteImmune",type="FLAG",value=true}},nil}
 c["Cannot be Poisoned"]={{[1]={flags=0,keywordFlags=0,name="PoisonImmune",type="FLAG",value=true}},nil}
 c["Cannot be Shocked"]={{[1]={flags=0,keywordFlags=0,name="ShockImmune",type="FLAG",value=true}},nil}
-c["Cannot gain Spirit from Equipment"]={nil,"Cannot gain Spirit from Equipment "}
+c["Cannot gain Spirit from Equipment"]={{[1]={flags=0,keywordFlags=0,name="CannotGainSpiritFromEquipment",type="FLAG",value=true}},nil}
 c["Cannot have Energy Shield"]={nil,"Cannot have Energy Shield "}
 c["Cannot have Energy Shield Regenerate 0.05 Life per second per Maximum Energy Shield"]={nil,"Cannot have Energy Shield Regenerate 0.05 Life per second per Maximum Energy Shield "}
 c["Cannot use Charms"]={nil,"Cannot use Charms "}
@@ -2418,11 +2418,8 @@ c["Gain 0% to 40% increased Movement Speed at random when Hit, until Hit again"]
 c["Gain 1 Fragile Regrowth each second"]={{}," Fragile Regrowth each second "}
 c["Gain 1 Rage on Melee Axe Hit"]={{}," Rage on  Axe Hit "}
 c["Gain 1 Rage on Melee Hit"]={{[1]={flags=0,keywordFlags=0,name="Condition:CanGainRage",type="FLAG",value=true}},nil}
-c["Gain 1 Spirit for every 15 Evasion Rating on equipped Body Armour"]={{[1]={flags=0,keywordFlags=0,name="Spirit",type="BASE",value=1}},"  for every 15 Evasion Rating on equipped Body Armour "}
-c["Gain 1 Spirit for every 15 Evasion Rating on equipped Body Armour Cannot gain Spirit from Equipment"]={{[1]={flags=0,keywordFlags=0,name="Spirit",type="BASE",value=1}},"  for every 15 Evasion Rating on equipped Body Armour Cannot gain Spirit from Equipment "}
-c["Gain 1 Spirit for every 6 Energy Shield on equipped Body Armour"]={{[1]={flags=0,keywordFlags=0,name="Spirit",type="BASE",value=1}},"  for every 6 Energy Shield on equipped Body Armour "}
-c["Gain 1 Spirit for every 6 Energy Shield on equipped Body Armour Gain 1 Spirit for every 15 Evasion Rating on equipped Body Armour"]={{[1]={flags=0,keywordFlags=0,name="Spirit",type="BASE",value=1}},"  for every 6 Energy Shield on equipped Body Armour Gain 1 Spirit for every 15 Evasion Rating on equipped Body Armour "}
-c["Gain 1 Spirit for every 6 Energy Shield on equipped Body Armour Gain 1 Spirit for every 15 Evasion Rating on equipped Body Armour Cannot gain Spirit from Equipment"]={{[1]={flags=0,keywordFlags=0,name="Spirit",type="BASE",value=1}},"  for every 6 Energy Shield on equipped Body Armour Gain 1 Spirit for every 15 Evasion Rating on equipped Body Armour Cannot gain Spirit from Equipment "}
+c["Gain 1 Spirit for every 15 Evasion Rating on equipped Body Armour"]={{[1]={[1]={div=15,stat="EvasionOnBody Armour",type="PerStat"},flags=0,keywordFlags=0,name="Spirit",type="BASE",value=1}},nil}
+c["Gain 1 Spirit for every 6 Energy Shield on equipped Body Armour"]={{[1]={[1]={div=6,stat="EnergyShieldOnBody Armour",type="PerStat"},flags=0,keywordFlags=0,name="Spirit",type="BASE",value=1}},nil}
 c["Gain 1% of Damage as Extra Chaos Damage per 20 Unreserved Darkness"]={{[1]={flags=0,keywordFlags=0,name="DamageGainAsChaos",type="BASE",value=1}},"   per 20 Unreserved Darkness "}
 c["Gain 10 Life per Enemy Killed"]={{[1]={flags=0,keywordFlags=0,name="LifeOnKill",type="BASE",value=10}},nil}
 c["Gain 10 Mana per Enemy Killed"]={{[1]={flags=0,keywordFlags=0,name="ManaOnKill",type="BASE",value=10}},nil}
