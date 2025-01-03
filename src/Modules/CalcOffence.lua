@@ -1770,8 +1770,8 @@ function calcs.offence(env, actor, activeSkill)
 		local damageType = dmgTypeList[damageTypeIndex]
 		local globalConv = wipeTable(tempTable1)
 		local skillConv = wipeTable(tempTable2)
-		local globalAdd = wipeTable(tempTable3)
-		local skillAdd = wipeTable(tempTable4)
+		local globalGain = wipeTable(tempTable3)
+		local skillGain = wipeTable(tempTable4)
 		local globalTotal, skillTotal = 0, 0
 		for otherTypeIndex = 1, 5 do
 			-- For all possible destination types, check for global and skill conversions
@@ -1781,8 +1781,8 @@ function calcs.offence(env, actor, activeSkill)
 			globalTotal = globalTotal + globalConv[otherType]
 			skillConv[otherType] = m_max(skillModList:Sum("BASE", skillCfg, "Skill"..damageType.."DamageConvertTo"..otherType), 0)
 			skillTotal = skillTotal + skillConv[otherType]
-			globalAdd[otherType] = m_max(skillModList:Sum("BASE", skillCfg, damageType.."DamageGainAs"..otherType, isElemental[damageType] and "ElementalDamageGainAs"..otherType or nil, damageType ~= "Chaos" and "NonChaosDamageGainAs"..otherType or nil), 0)
-			skillAdd[otherType] = m_max(skillModList:Sum("BASE", skillCfg, "Skill"..damageType.."DamageGainAs"..otherType, isElemental[damageType] and "SkillElementalDamageGainAs"..otherType or nil, damageType ~= "Chaos" and "SkillNonChaosDamageGainAs"..otherType or nil), 0)
+			globalGain[otherType] = m_max(skillModList:Sum("BASE", skillCfg, damageType.."DamageGainAs"..otherType, isElemental[damageType] and "ElementalDamageGainAs"..otherType or nil, damageType ~= "Chaos" and "NonChaosDamageGainAs"..otherType or nil), 0)
+			skillGain[otherType] = m_max(skillModList:Sum("BASE", skillCfg, "Skill"..damageType.."DamageGainAs"..otherType, isElemental[damageType] and "SkillElementalDamageGainAs"..otherType or nil, damageType ~= "Chaos" and "SkillNonChaosDamageGainAs"..otherType or nil), 0)
 		end
 		if skillTotal > 100 then
 			-- Skill conversion exceeds 100%, scale it down and remove non-skill conversions
@@ -1808,15 +1808,10 @@ function calcs.offence(env, actor, activeSkill)
 			dmgTable[type] = (val + skillConv[type]) / 100
 		end
 		
-		for type, val in pairs(globalAdd) do
-			gainTable[type] = (globalAdd[type] + skillAdd[type]) / 100
+		for type, val in pairs(globalGain) do
+			gainTable[type] = (globalGain[type] + skillGain[type]) / 100
 		end
-
 		dmgTable.mult = 1 - m_min((globalTotal + skillTotal) / 100, 1)
-		ConPrintf("DamageTable for "..damageType)
-		ConPrintTable(dmgTable)
-		ConPrintf("GainTable for "..damageType)
-		ConPrintTable(gainTable)
 		activeSkill.conversionTable[damageType] = dmgTable
 		activeSkill.gainTable[damageType] = gainTable
 	end
