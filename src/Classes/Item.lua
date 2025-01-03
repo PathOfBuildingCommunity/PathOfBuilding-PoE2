@@ -1349,8 +1349,10 @@ function ItemClass:BuildModListForSlotNum(baseList, slotNum)
 				flaskData.manaEffectNotRemoved = calcLocal(baseList, "ManaFlaskEffectNotRemoved", "FLAG", 0)
 			end
 		end
-		flaskData.chargesMax = self.base.flask.chargesMax + calcLocal(modList, "FlaskCharges", "BASE", 0)
+		flaskData.chargesMax = (self.base.flask.chargesMax + calcLocal(modList, "FlaskCharges", "BASE", 0)) * (1 + calcLocal(modList, "FlaskCharges", "INC", 0) / 100)
 		flaskData.chargesUsed = m_floor(self.base.flask.chargesUsed * (1 + calcLocal(modList, "FlaskChargesUsed", "INC", 0) / 100))
+		flaskData.gainBase = calcLocal(modList, "FlaskChargesGenerated", "BASE", 0)
+		flaskData.gainInc = calcLocal(modList, "FlaskChargesGained", "INC", 0)
 		flaskData.gainMod = 1 + calcLocal(modList, "FlaskChargeRecovery", "INC", 0) / 100
 		flaskData.effectInc = calcLocal(modList, "FlaskEffect", "INC", 0) + calcLocal(modList, "LocalEffect", "INC", 0)
 		for _, value in ipairs(modList:List(nil, "FlaskData")) do
@@ -1361,8 +1363,11 @@ function ItemClass:BuildModListForSlotNum(baseList, slotNum)
 		local durationInc = calcLocal(modList, "Duration", "INC", 0)
 		local durationMore = calcLocal(modList, "Duration", "MORE", 0)
 		charmData.duration = round(self.base.charm.duration * (1 + durationInc / 100) * durationMore, 1)
-		charmData.chargesMax = self.base.charm.chargesMax + calcLocal(modList, "CharmCharges", "BASE", 0)
-		charmData.chargesUsed = m_floor(self.base.charm.chargesUsed * (1 + calcLocal(modList, "CharmChargesUsed", "INC", 0) / 100))
+		charmData.chargesMax = (self.base.charm.chargesMax + calcLocal(modList, "FlaskCharges", "BASE", 0)) * (1 + calcLocal(modList, "FlaskCharges", "INC", 0) / 100)
+		charmData.chargesUsed = m_floor(self.base.charm.chargesUsed * (1 + calcLocal(modList, "FlaskChargesUsed", "INC", 0) / 100))
+		charmData.gainBase = calcLocal(modList, "FlaskChargesGenerated", "BASE", 0)
+		charmData.gainInc = calcLocal(modList, "FlaskChargesGained", "INC", 0)
+		charmData.gainMod = 1 + calcLocal(modList, "FlaskChargeRecovery", "INC", 0) / 100
 		charmData.effectInc = calcLocal(modList, "CharmEffect", "INC", 0) + calcLocal(modList, "LocalEffect", "INC", 0)
 		for _, value in ipairs(modList:List(nil, "CharmData")) do
 			charmData[value.key] = value.value
