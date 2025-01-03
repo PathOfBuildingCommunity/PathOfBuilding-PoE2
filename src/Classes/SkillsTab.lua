@@ -834,17 +834,6 @@ function SkillsTabClass:CreateGemSlot(index)
 	self.controls["gemSlot"..index.."EnableGlobal2"] = slot.enableGlobal2
 end
 
-function SkillsTabClass:getGemAltQualityList(gemData)
-	local altQualList = { }
-
-	for indx, entry in ipairs(alternateGemQualityList) do
-		if gemData and (gemData.grantedEffect.qualityStats and gemData.grantedEffect.qualityStats[entry.type] or (gemData.secondaryGrantedEffect and gemData.secondaryGrantedEffect.qualityStats and gemData.secondaryGrantedEffect.qualityStats[entry.type])) then
-			t_insert(altQualList, entry)
-		end
-	end
-	return #altQualList > 0 and altQualList or {{ label = "Default", type = "Default" }}
-end
-
 -- Update the gem slot controls to reflect the currently displayed socket group
 function SkillsTabClass:UpdateGemSlots()
 	if not self.displayGroup then

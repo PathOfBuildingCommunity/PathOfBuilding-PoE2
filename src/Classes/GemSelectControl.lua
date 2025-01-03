@@ -12,12 +12,6 @@ local m_max = math.max
 local m_floor = math.floor
 
 local toolTipText = "Prefix tag searches with a colon and exclude tags with a dash. e.g. :fire:lightning:-cold:area"
-local altQualMap = {
-	["Default"] = "",
-	["Alternate1"] = "Anomalous ",
-	["Alternate2"] = "Divergent ",
-	["Alternate3"] = "Phantasmal ",
-}
 
 local GemSelectClass = newClass("GemSelectControl", "EditControl", function(self, anchor, rect, skillsTab, index, changeFunc, forceTooltip)
 	self.EditControl(anchor, rect, nil, nil, "^ %a':-")
@@ -58,7 +52,7 @@ local GemSelectClass = newClass("GemSelectControl", "EditControl", function(self
 	}
 end)
 
-function GemSelectClass:CalcOutputWithThisGem(calcFunc, gemData, qualityId, useFullDPS)
+function GemSelectClass:CalcOutputWithThisGem(calcFunc, gemData, useFullDPS)
 	local gemList = self.skillsTab.displayGroup.gemList
 	local oldGem
 	if gemList[self.index] then
@@ -66,7 +60,6 @@ function GemSelectClass:CalcOutputWithThisGem(calcFunc, gemData, qualityId, useF
 	else
 		gemList[self.index] = {
 			level = gemData.naturalMaxLevel,
-			qualityId = qualityId,
 			quality = self.skillsTab.defaultGemQuality or 0,
 			count = 1,
 			enabled = true,
@@ -83,9 +76,6 @@ function GemSelectClass:CalcOutputWithThisGem(calcFunc, gemData, qualityId, useF
 	gemInstance.level = self.skillsTab:ProcessGemLevel(gemData)
 	gemInstance.gemData = gemData
 	gemInstance.displayEffect = nil
-	if gemInstance.qualityId == nil or gemInstance.qualityId == "" then
-		gemInstance.qualityId = "Default"
-	end
 	-- Add hovered gem to tooltip
 	self:AddGemTooltip(gemInstance)
 	-- Calculate the impact of using this gem
@@ -114,17 +104,7 @@ function GemSelectClass:PopulateGemList()
 		if (self.sortGemsBy and gemData.tags[self.sortGemsBy] == true or not self.sortGemsBy) then
 			local levelRequirement = (gemData.grantedEffect.levels and gemData.grantedEffect.levels[1] and gemData.grantedEffect.levels[1].levelRequirement) or 1
 			if characterLevel >= levelRequirement or not matchLevel then
-				if (showAwakened or showAll) and gemData.grantedEffect.plusVersionOf then
-					self.gems["Default:" .. gemId] = gemData
-				elseif showNormal or showAll then
-					if self.skillsTab.showAltQualityGems and (self.skillsTab.defaultGemQuality or 0) > 0 then
-						for _, altQual in ipairs(self.skillsTab:getGemAltQualityList(gemData)) do
-							self.gems[altQual.type .. ":" .. gemId] = gemData
-						end
-					else
-						self.gems["Default:" .. gemId] = gemData
-					end
-				end
+				self.gems["Default:" .. gemId] = gemData
 			end
 		end
 	end
@@ -170,7 +150,7 @@ function GemSelectClass:BuildList(buf)
 		for i, pattern in ipairs(patternList) do
 			local matchList = { }
 			for gemId, gemData in pairs(self.gems) do
-				if self:FilterSupport(gemId, gemData) and not added[gemId] and ((" "..gemData.name:lower()):match(pattern) or altQualMap[self:GetQualityType(gemId)]:lower():match(pattern)) then
+				if self:FilterSupport(gemId, gemData) and not added[gemId] and ((" "..gemData.name:lower()):match(pattern)) then
 					addThisGem = true
 					if #tagsList > 0 then
 						for _, tag in ipairs(tagsList) do
@@ -334,7 +314,7 @@ function GemSelectClass:UpdateSortCache()
 		sortCache.dps[gemId] = baseDPS
 		-- Ignore gems that don't support the active skill
 		if sortCache.canSupport[gemId] or gemData.grantedEffect.hasGlobalEffect then
-			local output = self:CalcOutputWithThisGem(calcFunc, gemData, self:GetQualityType(gemId), useFullDPS)
+			local output = self:CalcOutputWithThisGem(calcFunc, gemData, useFullDPS)
 			-- Check for nil because some fields may not be populated, default to 0
 			sortCache.dps[gemId] = (dpsField == "FullDPS" and output[dpsField] ~= nil and output[dpsField]) or (output.Minion and output.Minion.CombinedDPS) or (output[dpsField] ~= nil and output[dpsField]) or 0
 		end
@@ -457,9 +437,6 @@ function GemSelectClass:Draw(viewPort, noTooltip)
 				end
 			end
 			local gemText = gemData and gemData.name or "<No matches>"
-			if gemId and gemId ~= "" then
-				gemText = altQualMap[self:GetQualityType(gemId)] .. gemText
-			end
 			DrawString(0, y, "LEFT", height - 4, "VAR", gemText)
 			if gemData then
 				if gemData.grantedEffect.support and self.sortCache.canSupport[gemId] then
@@ -477,7 +454,7 @@ function GemSelectClass:Draw(viewPort, noTooltip)
 			local calcFunc, calcBase = self.skillsTab.build.calcsTab:GetMiscCalculator(self.build)
 			if calcFunc then
 				self.tooltip:Clear()
-				local output, gemInstance = self:CalcOutputWithThisGem(calcFunc, self.gems[self.list[self.hoverSel]], self:GetQualityType(self.list[self.hoverSel]), self.skillsTab.sortGemsByDPSField == "FullDPS")
+				local output = self:CalcOutputWithThisGem(calcFunc, self.gems[self.list[self.hoverSel]], self.skillsTab.sortGemsByDPSField == "FullDPS")
 				self.tooltip:AddSeparator(10)
 				self.skillsTab.build:AddStatComparesToTooltip(self.tooltip, calcBase, output, "^7Selecting this gem will give you:")
 				self.tooltip:Draw(x, y + height + 2 + (self.hoverSel - 1) * (height - 4) - scrollBar.offset, width, height - 4, viewPort)
@@ -506,10 +483,6 @@ function GemSelectClass:Draw(viewPort, noTooltip)
 			local cursorX, cursorY = GetCursorPos()
 			self.tooltip:Clear()
 			if gemInstance and gemInstance.gemData then
-				-- Check valid qualityId, set to 'Default' if missing
-				if gemInstance.qualityId == nil or gemInstance.qualityId == "" then
-					gemInstance.qualityId = "Default"
-				end
 				self:AddGemTooltip(gemInstance)
 			else
 				self.tooltip:AddLine(16, toolTipText)
@@ -564,7 +537,7 @@ function GemSelectClass:AddGemTooltip(gemInstance)
 	local grantedEffect = gemInstance.gemData.grantedEffect
 	local additionalEffects = gemInstance.gemData.additionalGrantedEffects
 
-	self.tooltip:AddLine(20, colorCodes.GEM .. altQualMap[gemInstance.qualityId]..grantedEffect.name)
+	self.tooltip:AddLine(20, colorCodes.GEM .. grantedEffect.name)
 	self.tooltip:AddSeparator(10)
 	self.tooltip:AddLine(16, "^x7F7F7F" .. gemInstance.gemData.tagString)
 	-- Will need rework if a gem can have 2+ additional supports
