@@ -155,15 +155,11 @@ function calcLib.getGemStatRequirement(level, isSupport, multi)
 	return req < 14 and 0 or req
 end
 
--- Build table of stats for the given skill instance
+-- Build table of stats for the given skill instance statset
 function calcLib.buildSkillInstanceStats(skillInstance, grantedEffect, statSet)
 	local stats = { }
 	if skillInstance.quality > 0 and grantedEffect.qualityStats then
-		local qualityId = skillInstance.qualityId or "Default"
-		local qualityStats = grantedEffect.qualityStats[qualityId]
-		if not qualityStats then
-			qualityStats = grantedEffect.qualityStats
-		end
+		local qualityStats = grantedEffect.qualityStats
 		for _, stat in ipairs(qualityStats) do
 			stats[stat[1]] = (stats[stat[1]] or 0) + math.modf(stat[2] * skillInstance.quality)
 		end
