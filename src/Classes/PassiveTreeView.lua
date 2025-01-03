@@ -234,8 +234,6 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 							-- Node is already in the trace path, remove it first
 							t_remove(self.tracePath, index)
 							t_insert(self.tracePath, hoverNode)
-						elseif lastPathNode.type == "Mastery" then
-							hoverNode = nil
 						else
 							t_insert(self.tracePath, hoverNode)
 						end
@@ -302,24 +300,18 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 				build.buildFlag = true
 			elseif hoverNode.path then
 				-- Node is unallocated and can be allocated, so allocate it
-				if hoverNode.type == "Mastery" and hoverNode.masteryEffects then
-					if not tree:IsPobGenerate() then
-						build.treeTab:OpenMasteryPopup(hoverNode, viewPort)
-					end
+				-- attribute switching, unallocated to allocated
+				if hoverNode.isAttribute and not hotkeyPressed then
+					build.treeTab:ModifyAttributePopup(hoverNode)
 				else
-					-- attribute switching, unallocated to allocated
-					if hoverNode.isAttribute and not hotkeyPressed then
-						build.treeTab:ModifyAttributePopup(hoverNode)
-					else 
-						-- the odd conditional here is so the popup only calls AllocNode inside and to avoid duplicating some code
-						-- same flow for hotkey attribute and non attribute nodes
-						if hotkeyPressed then
-							processAttributeHotkeys(hoverNode.isAttribute)
-						end
-						spec:AllocNode(hoverNode, self.tracePath and hoverNode == self.tracePath[#self.tracePath] and self.tracePath)
-						spec:AddUndoState()
-						build.buildFlag = true
+					-- the odd conditional here is so the popup only calls AllocNode inside and to avoid duplicating some code
+					-- same flow for hotkey attribute and non attribute nodes
+					if hotkeyPressed then
+						processAttributeHotkeys(hoverNode.isAttribute)
 					end
+					spec:AllocNode(hoverNode, self.tracePath and hoverNode == self.tracePath[#self.tracePath] and self.tracePath)
+					spec:AddUndoState()
+					build.buildFlag = true
 				end
 			end
 		end
@@ -331,11 +323,6 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 				slot.dropped = true
 				build.itemsTab:SelectControl(slot)
 				build.viewMode = "ITEMS"
-			end
-		elseif hoverNode and hoverNode.alloc and hoverNode.type == "Mastery" and hoverNode.masteryEffects then
-			if not tree:IsPobGenerate() then
-				build.treeTab:OpenMasteryPopup(hoverNode, viewPort)
-				build.buildFlag = true
 			end
 		end
 	end
@@ -592,9 +579,9 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 					overlay = jewel.baseName
 					overlaySection = "jewelpassive"
 				end
-			elseif node.type == "Mastery" then
+			elseif node.type == "OnlyImage" then
 				-- This is the icon that appears in the center of many groups
-				base = node.masterySprites.activeEffectImage.masteryActiveEffect
+				base = tree:GetAssetByName(node.activeEffectImage, "masteryActiveEffect")
 
 				SetDrawLayer(nil, 15)
 			else
@@ -652,9 +639,6 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 					elseif not compareNode.alloc and node.alloc then
 						-- Base has not, current has, color red (Remove nodes to match)
 						SetDrawColor(1, 0, 0)
-					elseif node.type == "Mastery" and compareNode.alloc and node.alloc and node.sd ~= compareNode.sd then
-						-- Node is a mastery, both have it allocated, but mastery changed, color it blue
-						SetDrawColor(0, 0, 1)
 					else
 						-- Both have or both have not, use white
 						SetDrawColor(1, 1, 1)
@@ -680,9 +664,6 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 				elseif not compareNode.alloc and node.alloc then
 					-- Base has not, current has, color red (Remove nodes to match)
 					SetDrawColor(1, 0, 0)
-				elseif node.type == "Mastery" and compareNode.alloc and node.alloc and node.sd ~= compareNode.sd then
-					-- Node is a mastery, both have it allocated, but mastery changed, color it blue
-					SetDrawColor(0, 0, 1)
 				else
 					-- Both have or both have not, use white
 					SetDrawColor(1, 1, 1)
@@ -722,11 +703,11 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 				SetDrawColor(1, 1, 1);
 			elseif node.type == "Socket" then
 				self:DrawAsset(base, scrX, scrY, scale)
-			elseif node.type == "Mastery" then
+			elseif node.type == "OnlyImage" then
 				SetDrawColor(1,1,1, 0.15)
 				self:DrawAsset(base, scrX, scrY, scale)
 			else
-				self:DrawAsset(base, scrX, scrY, scale * 0.68)
+				self:DrawAsset(base, scrX, scrY, scale)
 			end
 		end
 
@@ -776,9 +757,9 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 				additionalScale = 1.30
 			end
 			-- apply target size to the base image
-			if overlayImage and node.targetSize then
-				overlayImage.width = node.targetSize.width * additionalScale
-				overlayImage.height = node.targetSize.height * additionalScale
+			if overlayImage and node.targetSize and node.targetSize["overlay"] then
+				overlayImage.width = node.targetSize["overlay"].width * additionalScale
+				overlayImage.height = node.targetSize["overlay"].height * additionalScale
 			end
 			self:DrawAsset(overlayImage, scrX, scrY, scale)
 			SetDrawColor(1, 1, 1)
@@ -810,7 +791,7 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 			end
 
 		end
-		if node == hoverNode and (node.type ~= "Socket" or not IsKeyDown("SHIFT")) and (node.type ~= "Mastery" or node.masteryEffects) and not IsKeyDown("CTRL") and not main.popups[1] then
+		if node == hoverNode and (node.type ~= "Socket" or not IsKeyDown("SHIFT")) and not IsKeyDown("CTRL") and not main.popups[1] then
 			-- Draw tooltip
 			SetDrawLayer(nil, 100)
 			local size = m_floor(node.size * scale)
@@ -989,7 +970,7 @@ function PassiveTreeViewClass:Focus(x, y, viewPort, build)
 end
 
 function PassiveTreeViewClass:DoesNodeMatchSearchParams(node)
-	if node.type == "ClassStart" or (node.type == "Mastery" and not node.masteryEffects) then
+	if node.type == "ClassStart" or node.type == "OnlyImage" then
 		return
 	end
 
@@ -1166,60 +1147,15 @@ function PassiveTreeViewClass:AddNodeTooltip(tooltip, node, build)
 		end
 	end
 
-	-- If node is a Mastery node, check if compare tree is on
 	-- If so, check if the left hand tree is unallocated, but the right hand tree is allocated.
-	-- If so, set the node variable to be the node element from the right hand tree and change the Mastery color
 	-- Then continue processing as normal
-	local masteryColor = ""
 	local mNode = node
-	local compareNode = self.compareSpec and self.compareSpec.nodes[node.id] and self.compareSpec.nodes[node.id].alloc or false
-	if node.type == "Mastery" then
-		if not node.alloc and compareNode then
-			mNode = self.compareSpec.nodes[node.id]
-			masteryColor = colorCodes.DEXTERITY
-		end
-		-- If allocated on Left, but not Right, match the colour of the other unallocated nodes.
-		if self.compareSpec and node.alloc and not compareNode then
-			masteryColor = colorCodes.STRENGTH
-		end
-		-- If both are allocated but are different text ...
-		if node.alloc and compareNode then
-			mNode = self.compareSpec.nodes[node.id]
-			if node.sd[1] ~= mNode.sd[1] then
-				for i, line in ipairs(node.sd) do
-					addModInfoToTooltip(node, i, "<- "..line)
-					masteryColor = colorCodes.DEXTERITY.."-> "
-				end
-			end
-		end
-	end
-
-	if mNode.sd[1] and mNode.allMasteryOptions then
-		tooltip:AddSeparator(14)
-		tooltip:AddLine(14, "^7Available Mastery node options are:")
-		tooltip:AddLine(6, "")
-		local lineCount = 0
-		for n, effect in ipairs(mNode.masteryEffects) do
-			local existingMastery = isValueInTable(build.spec.masterySelections, effect.effect)
-			if not existingMastery then
-				effect = build.spec.tree.masteryEffects[effect.effect]
-				for _, line in ipairs(effect.sd) do
-					lineCount = lineCount + 1
-					addModInfoToTooltip(mNode, lineCount, line)
-				end
-				if n < #mNode.masteryEffects then
-					tooltip:AddLine(6, "")
-				end
-			end
-		end
-		tooltip:AddSeparator(24)
-	end
 
 	-- This stanza actives for both Mastery and non Mastery tooltips. Proof: add '"Blah "..' to addModInfoToTooltip
 	if mNode.sd[1] and not mNode.allMasteryOptions then
 		tooltip:AddLine(16, "")
 		for i, line in ipairs(mNode.sd) do
-			addModInfoToTooltip(mNode, i, masteryColor..line)
+			addModInfoToTooltip(mNode, i, line)
 		end
 	end
 
@@ -1244,10 +1180,7 @@ function PassiveTreeViewClass:AddNodeTooltip(tooltip, node, build)
 		local nodeOutput, pathOutput
 		local isGranted = build.calcsTab.mainEnv.grantedPassives[node.id]
 		local realloc = false
-		if node.alloc and node.type == "Mastery" and main.popups[1] then
-			realloc = true
-			nodeOutput = calcFunc({ addNodes = { [node] = true } })
-		elseif node.alloc then
+		if node.alloc then
 			-- Calculate the differences caused by deallocating this node and its dependent nodes
 			nodeOutput = calcFunc({ removeNodes = { [node] = true } })
 			if pathLength > 1 then
@@ -1257,13 +1190,7 @@ function PassiveTreeViewClass:AddNodeTooltip(tooltip, node, build)
 			-- Calculate the differences caused by deallocating this node
 			nodeOutput = calcFunc({ removeNodes = { [node.id] = true } })
 		else
-			-- Calculated the differences caused by allocating this node and all nodes along the path to it
-			if node.type == "Mastery" and node.allMasteryOptions then
-				pathNodes[node] = nil
-				nodeOutput = calcFunc()
-			else
-				nodeOutput = calcFunc({ addNodes = { [node] = true } })
-			end
+			nodeOutput = calcFunc({ addNodes = { [node] = true } })
 			if pathLength > 1 then
 				pathOutput = calcFunc({ addNodes = pathNodes })
 			end

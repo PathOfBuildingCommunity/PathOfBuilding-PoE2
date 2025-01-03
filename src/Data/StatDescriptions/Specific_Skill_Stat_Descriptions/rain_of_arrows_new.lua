@@ -4,6 +4,19 @@
 return {
 	[1]={
 		[1]={
+			[1]={
+				[1]={
+					k="divide_by_ten_1dp_if_required",
+					v=1
+				},
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Rain radius {0}m"
+			}
 		},
 		stats={
 			[1]="active_skill_area_of_effect_radius"
@@ -77,6 +90,19 @@ return {
 	},
 	[4]={
 		[1]={
+			[1]={
+				[1]={
+					k="divide_by_ten_1dp_if_required",
+					v=1
+				},
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Impact radius {0}m"
+			}
 		},
 		stats={
 			[1]="active_skill_secondary_area_of_effect_radius"
@@ -109,6 +135,15 @@ return {
 	},
 	[6]={
 		[1]={
+			[1]={
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Arrow Rain Maximum {0}"
+			}
 		},
 		stats={
 			[1]="number_of_arrow_rains_allowed"
@@ -117,6 +152,19 @@ return {
 	[7]={
 		[1]={
 			[1]={
+				[1]={
+					k="milliseconds_to_seconds_2dp_if_required",
+					v=1
+				},
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Arrow landing interval {0}s"
+			},
+			[2]={
 				[1]={
 					k="milliseconds_to_seconds_2dp_if_required",
 					v=1
@@ -143,6 +191,15 @@ return {
 						[2]="#"
 					}
 				},
+				text="More arrows fired if Frenzy Charge Consumed {0}%"
+			},
+			[2]={
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
 				text="Fires {0}% more Arrows if a Frenzy Charge was consumed"
 			}
 		},
@@ -153,6 +210,15 @@ return {
 	[9]={
 		[1]={
 			[1]={
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="More arrows fired per Frenzy Charge Consumed {0}%"
+			},
+			[2]={
 				limit={
 					[1]={
 						[1]="#",

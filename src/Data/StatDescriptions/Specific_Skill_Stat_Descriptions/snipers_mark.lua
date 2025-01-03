@@ -49,6 +49,15 @@ return {
 						[2]="#"
 					}
 				},
+				text="Critical Damage Bonus applied +{0}%"
+			},
+			[2]={
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
 				text="Next Critical Hit against Marked Enemy has {0:+d}% to Critical Damage Bonus"
 			}
 		},
@@ -58,6 +67,19 @@ return {
 	},
 	[4]={
 		[1]={
+			[1]={
+				[1]={
+					k="milliseconds_to_seconds_2dp_if_required",
+					v=1
+				},
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Maximum Mark duration {0}s"
+			}
 		},
 		stats={
 			[1]="skill_effect_duration"

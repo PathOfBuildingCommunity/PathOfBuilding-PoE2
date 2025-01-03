@@ -7,13 +7,22 @@ return {
 			[1]={
 				limit={
 					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Chains per Frenzy Charge Consumed {0}"
+			},
+			[2]={
+				limit={
+					[1]={
 						[1]=1,
 						[2]=1
 					}
 				},
 				text="Chains once per Frenzy Charge Consumed"
 			},
-			[2]={
+			[3]={
 				limit={
 					[1]={
 						[1]=2,
@@ -32,13 +41,22 @@ return {
 			[1]={
 				limit={
 					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="More Damage per Frenzy Charge Consumed {0}%"
+			},
+			[2]={
+				limit={
+					[1]={
 						[1]=1,
 						[2]="#"
 					}
 				},
 				text="{0}% more Damage per Frenzy Charge Consumed"
 			},
-			[2]={
+			[3]={
 				[1]={
 					k="negate",
 					v=1
@@ -61,13 +79,22 @@ return {
 			[1]={
 				limit={
 					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="More Damage if Frenzy Charge Consumed {0}%"
+			},
+			[2]={
+				limit={
+					[1]={
 						[1]=1,
 						[2]="#"
 					}
 				},
 				text="{0}% more Damage if a Frenzy Charge was Consumed"
 			},
-			[2]={
+			[3]={
 				[1]={
 					k="negate",
 					v=1

@@ -89082,6 +89082,15 @@ return {
 						[2]="#"
 					}
 				},
+				text="Unbound Fury gain interval per Ailment 0.2s"
+			},
+			[2]={
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
 				text="Gain Unbound Fury when you inflict an Elemental Ailment with a Hit on an Enemy, no more than once every 0.2 seconds for each type of Ailment\nMaximum 100 Unbound Fury\nCannot gain Unbound Fury while Unbound"
 			}
 		},
@@ -91092,9 +91101,18 @@ return {
 						[2]="#"
 					}
 				},
-				text="{0}% more Elemental Damage while Unbound"
+				text="More Elemental Damage while Unbound {0}%"
 			},
 			[2]={
+				limit={
+					[1]={
+						[1]=1,
+						[2]="#"
+					}
+				},
+				text="{0}% more Elemental Damage while Unbound"
+			},
+			[3]={
 				[1]={
 					k="negate",
 					v=1
@@ -143068,6 +143086,23 @@ return {
 	},
 	[6510]={
 		[1]={
+			[1]={
+				[1]={
+					k="divide_by_ten_1dp_if_required",
+					v=2
+				},
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					},
+					[2]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Ignites enemies within {1}m radius as though dealing {0} Fire damage"
+			}
 		},
 		stats={
 			[1]="infernal_familiar_burn_damage",
@@ -173529,6 +173564,19 @@ return {
 	},
 	[7924]={
 		[1]={
+			[1]={
+				[1]={
+					k="per_minute_to_per_second",
+					v=1
+				},
+				limit={
+					[1]={
+						[1]=1,
+						[2]="#"
+					}
+				},
+				text="Maximum Life taken as Fire damage per second {0}%"
+			}
 		},
 		stats={
 			[1]="minion_fire_damage_%_of_maximum_life_taken_per_minute"
@@ -193943,6 +193991,19 @@ return {
 	},
 	[8858]={
 		[1]={
+			[1]={
+				[1]={
+					k="milliseconds_to_seconds",
+					v=1
+				},
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Death delay at 0 Life {0}s"
+			}
 		},
 		stats={
 			[1]="support_last_gasp_duration_ms"
@@ -197370,9 +197431,18 @@ return {
 						[2]="#"
 					}
 				},
-				text="{0}% more Elemental Ailment Buildup while Unbound"
+				text="More Elemental Ailment buildup while Unbound {0}%"
 			},
 			[2]={
+				limit={
+					[1]={
+						[1]=1,
+						[2]="#"
+					}
+				},
+				text="{0}% more Elemental Ailment Buildup while Unbound"
+			},
+			[3]={
 				[1]={
 					k="negate",
 					v=1
@@ -197399,9 +197469,18 @@ return {
 						[2]="#"
 					}
 				},
-				text="{0}% more chance to inflict Elemental Ailments while Unbound"
+				text="More Elemental Ailment chance while Unbound {0}%"
 			},
 			[2]={
+				limit={
+					[1]={
+						[1]=1,
+						[2]="#"
+					}
+				},
+				text="{0}% more chance to inflict Elemental Ailments while Unbound"
+			},
+			[3]={
 				[1]={
 					k="negate",
 					v=1

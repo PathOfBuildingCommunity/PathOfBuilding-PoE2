@@ -11,6 +11,15 @@ return {
 						[2]="#"
 					}
 				},
+				text="Total Maximum Energy Shield granted {0:+d}"
+			},
+			[2]={
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
 				text="Grants Allies {0:+d} to their Total Maximum Energy Shield"
 			}
 		},

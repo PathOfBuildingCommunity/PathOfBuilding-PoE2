@@ -15,9 +15,22 @@ return {
 						[2]=-1
 					}
 				},
-				text="Skills can use your undead Reviving Minions in\nplace of Corpses\nMinions Revive {0}% more slowly"
+				text="Minion Revive speed penalty {0}%"
 			},
 			[2]={
+				[1]={
+					k="negate",
+					v=1
+				},
+				limit={
+					[1]={
+						[1]="#",
+						[2]=-1
+					}
+				},
+				text="Skills can use your undead Reviving Minions in\nplace of Corpses\nMinions Revive {0}% more slowly"
+			},
+			[3]={
 				limit={
 					[1]={
 						[1]=1,

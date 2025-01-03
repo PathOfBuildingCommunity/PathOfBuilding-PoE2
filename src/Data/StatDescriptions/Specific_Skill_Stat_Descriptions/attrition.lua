@@ -11,6 +11,15 @@ return {
 						[2]="#"
 					}
 				},
+				text="Culling Strike time in Presence requirement {0}s"
+			},
+			[2]={
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
 				text="You have Culling Strike against Rare and Unique enemies that have been in your Presence for a total of at least {0} seconds"
 			}
 		},
@@ -21,6 +30,19 @@ return {
 	[2]={
 		[1]={
 			[1]={
+				limit={
+					[1]={
+						[1]=1,
+						[2]="#"
+					},
+					[2]={
+						[1]=1,
+						[2]="#"
+					}
+				},
+				text="Hit damage for every 2 seconds in Presence (max) {0}% ({1}%)"
+			},
+			[2]={
 				limit={
 					[1]={
 						[1]=1,

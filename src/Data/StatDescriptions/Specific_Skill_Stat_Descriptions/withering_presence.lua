@@ -37,6 +37,19 @@ return {
 	},
 	[2]={
 		[1]={
+			[1]={
+				[1]={
+					k="milliseconds_to_seconds_2dp_if_required",
+					v=1
+				},
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Withered duration {0}s"
+			}
 		},
 		stats={
 			[1]="skill_effect_duration"
@@ -51,13 +64,26 @@ return {
 				},
 				limit={
 					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Withered interval {0}s"
+			},
+			[2]={
+				[1]={
+					k="milliseconds_to_seconds_2dp_if_required",
+					v=1
+				},
+				limit={
+					[1]={
 						[1]=1000,
 						[2]=1000
 					}
 				},
 				text="Withers enemies in your Presence every second"
 			},
-			[2]={
+			[3]={
 				[1]={
 					k="milliseconds_to_seconds_2dp_if_required",
 					v=1

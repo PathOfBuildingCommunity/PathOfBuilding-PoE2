@@ -8,12 +8,21 @@ return {
 				limit={
 					[1]={
 						[1]=1,
+						[2]="#"
+					}
+				},
+				text="Remnant spawn on kill chance {0}%"
+			},
+			[2]={
+				limit={
+					[1]={
+						[1]=1,
 						[2]=99
 					}
 				},
 				text="{0}% chance to spawn a Remnant on killing a Shocked enemy"
 			},
-			[2]={
+			[3]={
 				limit={
 					[1]={
 						[1]=100,
@@ -30,6 +39,19 @@ return {
 	[2]={
 		[1]={
 			[1]={
+				[1]={
+					k="milliseconds_to_seconds_2dp_if_required",
+					v=1
+				},
+				limit={
+					[1]={
+						[1]=1,
+						[2]="#"
+					}
+				},
+				text="Remnant spawn on Critical Hit interval {0}s"
+			},
+			[2]={
 				limit={
 					[1]={
 						[1]=1000,
@@ -38,7 +60,7 @@ return {
 				},
 				text="Spawn a Remnant on Critically Hitting a Shocked target, no more than once per second"
 			},
-			[2]={
+			[3]={
 				[1]={
 					k="milliseconds_to_seconds_2dp_if_required",
 					v=1
@@ -59,6 +81,15 @@ return {
 	[3]={
 		[1]={
 			[1]={
+				limit={
+					[1]={
+						[1]=1,
+						[2]="#"
+					}
+				},
+				text="Mana recovered per Remnant {0}"
+			},
+			[2]={
 				limit={
 					[1]={
 						[1]=1,

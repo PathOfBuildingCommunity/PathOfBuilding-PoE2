@@ -5,6 +5,19 @@ return {
 	[1]={
 		[1]={
 			[1]={
+				[1]={
+					k="milliseconds_to_seconds_2dp_if_required",
+					v=1
+				},
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Minimum Frenzy Charge gain interval {0}s"
+			},
+			[2]={
 				limit={
 					[1]={
 						[1]=1000,
@@ -13,7 +26,7 @@ return {
 				},
 				text="Gain a Frenzy Charge when you Freeze, Electrocute or Pin an enemy, no more than once per second"
 			},
-			[2]={
+			[3]={
 				[1]={
 					k="milliseconds_to_seconds_2dp_if_required",
 					v=1

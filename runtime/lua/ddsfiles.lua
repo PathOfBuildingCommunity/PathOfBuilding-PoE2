@@ -55,7 +55,7 @@ end
 
 local cacheInfo = {}
 
-function module.getMixSize(filePath)
+function module.getMaxSize(filePath)
 	if not cacheInfo[filePath] then
 		local file = io.open(filePath, "rb")
 		if not file then

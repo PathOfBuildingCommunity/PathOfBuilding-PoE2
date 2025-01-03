@@ -38,7 +38,6 @@
     ; Flatten the image and save as PNG
     (let* (
             (output-jxl (string-append (substring output_path 0 (- (string-length output_path) 4)) ".jxl"))
-            (output-webp (string-append (substring output_path 0 (- (string-length output_path) 4)) ".webp"))
             (final-layer (car (gimp-image-merge-visible-layers sprite-sheet CLIP-TO-IMAGE)))
           )
       
@@ -47,9 +46,6 @@
 
       ;; (file-jpegxl-export run-mode image file options lossless compression save-bit-depth speed uses-original-profile cmyk save-exif save-xmp)
       (file-jpegxl-export RUN-NONINTERACTIVE sprite-sheet output-jxl -1 0 1 8 "falcon" 0 0 0 0)
-
-      ;; (file-webp-export run-mode image file options preset lossless quality alpha-quality use-sharp-yuv animation-loop minimize-size keyframe-distance default-delay force-delay animation)
-      (file-webp-export RUN-NONINTERACTIVE sprite-sheet output-webp -1 "default" 0 100 100 0 0 1 50 200 0 0)
     )
     
     ; Clean up the image object after saving

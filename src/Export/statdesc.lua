@@ -44,8 +44,16 @@ function loadStatFile(fileName)
 				curLang = { }
 				--curDescriptor.lang[langName] = curLang
 			else
-				local statLimits, text, special = line:match('([%d%-#| !]+) "(.-)"%s*(.*)')
+				local table_only = false
+				if line:match('table_only') then
+					line = line:gsub('table_only ', '')
+					table_only = true
+				end
+				local statLimits, text, special = line:match('([%d%-#| !]+)%s*"(.-)"%s*(.*)')
 				if statLimits then
+					if text and table_only then
+						text = text:gsub('@', ' ')
+					end
 					local desc = { text = escapeGGGString(text), limit = { } }
 					for statLimit in statLimits:gmatch("[!%d%-#|]+") do
 						local limit = { }

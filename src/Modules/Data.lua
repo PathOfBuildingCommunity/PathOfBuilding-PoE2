@@ -943,3 +943,5 @@ end
 data.uniques['race'] = LoadModule("Data/Uniques/Special/race")
 LoadModule("Data/Uniques/Special/Generated")
 LoadModule("Data/Uniques/Special/New")
+
+data.questRewards = LoadModule("Data/QuestRewards")

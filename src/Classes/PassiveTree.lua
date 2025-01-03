@@ -133,7 +133,7 @@ local PassiveTreeClass = newClass("PassiveTree", function(self, treeVersion)
 
 	for type, data in pairs(self.skillSprites) do
 		local maxZoom = data
-		
+
 		local sheet = spriteSheets[maxZoom.filename]
 		if not sheet then
 			sheet = { }
@@ -205,23 +205,12 @@ local PassiveTreeClass = newClass("PassiveTree", function(self, treeVersion)
 			pathAlt = "JewelSocketAltCanAllocate",
 			unallocAlt = "JewelSocketAltNormal",
 		},
-		Mastery = {
-			artWidth = 100,
-			alloc = "AscendancyFrameLargeAllocated",
-			path = "AscendancyFrameLargeCanAllocate",
-			unalloc = "AscendancyFrameLargeNormal"
-		},
 	}
 	for type, data in pairs(self.nodeOverlay) do
-		-- for now mastery is disabled in POB2
-		if type ~= "Mastery" then
-			local asset = self:GetAssetByName(data.alloc, "frame")
-			local artWidth = asset.width * self.scaleImage
-			data.artWidth = artWidth
-			data.size = artWidth
-		else
-			data.size = 0
-		end
+		local asset = self:GetAssetByName(data.alloc, "frame")
+		local artWidth = asset.width * self.scaleImage
+		data.artWidth = artWidth
+		data.size = artWidth
 		data.rsq = data.size * data.size
 	end
 
@@ -248,7 +237,6 @@ local PassiveTreeClass = newClass("PassiveTree", function(self, treeVersion)
 	self.masteryEffects = { }
 	local nodeMap = { }
 	for _, node in pairs(self.nodes) do
-		
 		node.id = node.skill
 		node.g = node.group
 		node.o = node.orbit
@@ -258,7 +246,7 @@ local PassiveTreeClass = newClass("PassiveTree", function(self, treeVersion)
 
 		node.__index = node
 		node.linkedId = { }
-		nodeMap[node.id] = node	
+		nodeMap[node.id] = node
 
 		-- Determine node type
 		if node.classesStart then
@@ -273,19 +261,8 @@ local PassiveTreeClass = newClass("PassiveTree", function(self, treeVersion)
 			node.type = "AscendClassStart"
 			local ascendClass = self.ascendNameMap[node.ascendancyName].ascendClass
 			ascendClass.startNodeId = node.id
-		elseif node.m or node.isMastery then
-			node.type = "Mastery"
-			if node.masteryEffects then
-				for _, effect in pairs(node.masteryEffects) do
-					if not self.masteryEffects[effect.effect] then
-						self.masteryEffects[effect.effect] = { id = effect.effect, sd = effect.stats }
-						self:ProcessStats(self.masteryEffects[effect.effect])
-					else
-						-- Copy multiline stats from an earlier ProcessStats call
-						effect.stats = self.masteryEffects[effect.effect].sd
-					end
-				end
-			end
+		elseif node.isOnlyImage then
+			node.type = "OnlyImage"
 		elseif node.isJewelSocket then
 			node.type = "Socket"
 			self.sockets[node.id] = node
@@ -361,7 +338,7 @@ local PassiveTreeClass = newClass("PassiveTree", function(self, treeVersion)
 		elseif node.type == "Notable" or node.type == "Keystone" then
 			self.clusterNodeMap[node.dn] = node
 		end
-		
+
 		self:ProcessNode(node)
 	end
 
@@ -377,10 +354,10 @@ local PassiveTreeClass = newClass("PassiveTree", function(self, treeVersion)
 				goto endconnection
 			end
 
-			if node.type == "Mastery" or other.type == "Mastery" then
+			if node.type == "OnlyImage" or other.type == "OnlyImage" then
 				goto endconnection
 			end
-			
+
 			if node.ascendancyName ~= other.ascendancyName then
 				goto endconnection
 			end
@@ -395,7 +372,7 @@ local PassiveTreeClass = newClass("PassiveTree", function(self, treeVersion)
 			if node.classesStart ~= nil or other.classesStart ~= nil then
 				goto endconnection
 			end
-			
+
 			local connectors = self:BuildConnector(node, other, connection)
 
 			if not connectors then
@@ -454,7 +431,7 @@ local PassiveTreeClass = newClass("PassiveTree", function(self, treeVersion)
 				for _, node in pairs(self.nodes) do
 					if node.x and node.x >= minX and node.x <= maxX and node.y and node.y >= minY and node.y <= maxY
 						and node ~= keystone and not node.isBlighted and node.group and not node.isProxy
-						and not node.group.isProxy and not node.isMastery and not node.isSocket then
+						and not node.group.isProxy and not node.OnlyImage and not node.isSocket then
 							local vX, vY = node.x - keystone.x, node.y - keystone.y
 							local distSquared = vX * vX + vY * vY
 							for radiusIndex, radiusInfo in ipairs(data.jewelRadius) do
@@ -561,11 +538,7 @@ end
 -- Common processing code for nodes (used for both real tree nodes and subgraph nodes)
 function PassiveTreeClass:ProcessNode(node)
 	-- Assign node artwork assets
-	if node.type == "Mastery" and (node.masteryEffects or self:IsPobGenerate()) then
-		node.masterySprites = { activeIcon = self.spriteMap[node.activeIcon], inactiveIcon = self.spriteMap[node.inactiveIcon], activeEffectImage = self.spriteMap[node.activeEffectImage] }
-	else
-		node.sprites = self.spriteMap[node.icon]
-	end
+	node.sprites = self.spriteMap[node.icon]
 	if not node.sprites then
 		--error("missing sprite "..node.icon)
 		node.sprites = self.spriteMap["Art/2DArt/SkillIcons/passives/MasteryBlank.png"]
@@ -573,7 +546,7 @@ function PassiveTreeClass:ProcessNode(node)
 
 	node.targetSize = self:GetNodeTargetSize(node)
 	node.overlay = self.nodeOverlay[node.type]
-	if node.overlay and node.type ~= "Mastery" then
+	if node.overlay then
 		node.rsq = node.targetSize.width * node.targetSize.height
 		node.size = node.targetSize.width
 	end
@@ -596,8 +569,8 @@ function PassiveTreeClass:ProcessNode(node)
 	if node.recipe then
 		node.infoRecipe = { }
 		for _, oil in ipairs(node.recipe) do
-			table.insert(node.infoRecipe, { 
-				name = oil, 
+			table.insert(node.infoRecipe, {
+				name = oil,
 				sprite = self:GetAssetByName(oil, "oil")
 			})
 		end
@@ -617,7 +590,7 @@ function PassiveTreeClass:ProcessNode(node)
 			switchNode.sprites = self.spriteMap[switchNode.icon]
 
 			self:ProcessStats(switchNode)
-		end 
+		end
 	end
 end
 
@@ -627,7 +600,7 @@ function PassiveTreeClass:LoadImage(imgName, data, ...)
 	if imgFile then
 		imgFile:close()
 	else
-		ConPrintf("Image '%s' not found...", imgName)	
+		ConPrintf("Image '%s' not found...", imgName)
 	end
 	data.handle = NewImageHandle()
 	data.handle:Load("TreeData/"..self.treeVersion.."/"..imgName, ...)
@@ -642,7 +615,7 @@ function PassiveTreeClass:BuildConnector(node1, node2, connection)
 		nodeId2 = node2.id,
 		c = { } -- This array will contain the quad's data: 1-8 are the vertex coordinates, 9-16 are the texture coordinates
 				-- Only the texture coords are filled in at this time; the vertex coords need to be converted from tree-space to screen-space first
-				-- This will occur when the tree is being drawn; .vert will map line state (Normal/Intermediate/Active) to the correct tree-space coordinates 
+				-- This will occur when the tree is being drawn; .vert will map line state (Normal/Intermediate/Active) to the correct tree-space coordinates
 	}
 
 	if connection.orbit ~= 0 and self.orbitRadii[math.abs(connection.orbit) + 1] then
@@ -656,8 +629,8 @@ function PassiveTreeClass:BuildConnector(node1, node2, connection)
 			local perp = m_sqrt(r * r - (dist * dist) / 4) * (connection.orbit > 0 and 1 or -1)
 			local cx = node1.x + dx / 2 + perp * (dy / dist)
 			local cy = node1.y + dy / 2 - perp * (dx / dist)
-			
-			local angle1 = m_atan2(node1.y - cy, node1.x - cx) 
+
+			local angle1 = m_atan2(node1.y - cy, node1.x - cx)
 			local angle2 = m_atan2(node2.y - cy, node2.x - cx)
 
 			-- Nodes are in the same orbit of the same group
@@ -735,7 +708,7 @@ function PassiveTreeClass:BuildConnector(node1, node2, connection)
 	local art = self:GetAssetByName("LineConnectorNormal", "line")
 	local vX, vY = node2.x - node1.x, node2.y - node1.y
 	local dist = m_sqrt(vX * vX + vY * vY)
-	local scale = 16 * self.scaleImage / dist
+	local scale = art.height * 0.5 * self.scaleImage / dist
 	local nX, nY = vX * scale, vY * scale
 	local endS = dist / (art.width * self.scaleImage)
 	connector[1], connector[2] = node1.x - nY, node1.y + nX
@@ -768,7 +741,8 @@ function PassiveTreeClass:BuildArc(arcAngle, orbit, xScale, yScale, angle, conne
 	connector.vert = { }
 	for _, state in pairs({ "Normal", "Intermediate", "Active" }) do
 		-- The different line states have differently-sized artwork, so the vertex coords must be calculated separately for each one
-		local size = self.orbitRadii[orbit + 1]  * self.scaleImage
+		local art  = self:GetAssetByName(connector.type .. state, "line")
+		local size =  art.width * self.scaleImage --self.orbitRadii[orbit + 1]  * self.scaleImage
 		local oX, oY = size * m_sqrt(2) * m_sin(angle + m_pi / 4), size * m_sqrt(2) * -m_cos(angle + m_pi / 4)
 		local cX, cY = xScale + oX, yScale + oY
 		local vert = { }
@@ -826,22 +800,36 @@ function PassiveTreeClass:IsPobGenerate()
 end
 
 function PassiveTreeClass:GetNodeTargetSize(node)
-	if node.type == "Notable" or (node.type == "AscendClassStart" and node.isNotable == true) then
-		return { 
+	if node.type == "Notable"then
+		return {
 			['effect'] =  { width = math.floor(380 * self.scaleImage), height = math.floor(380 * self.scaleImage) },
-			width = math.floor(80 * self.scaleImage), height = math.floor(80 * self.scaleImage) 
+			['overlay'] = { width = math.floor(80 * self.scaleImage), height = math.floor(80 * self.scaleImage) },
+			width = math.floor(54 * self.scaleImage), height = math.floor(54 * self.scaleImage)
 		}
-	elseif node.type == "Mastery" then
+	elseif node.type == "AscendClassStart" then
+		return {
+			['effect'] =  { width = math.floor(380 * self.scaleImage), height = math.floor(380 * self.scaleImage) },
+			['overlay'] = { width = math.floor(48 * 0.5 * self.scaleImage), height = math.floor(48 * 0.5 * self.scaleImage) },
+			width = math.floor(32 * 0.5 * self.scaleImage), height = math.floor(32 * 0.5 * self.scaleImage)
+		}
+	elseif node.type == "OnlyImage" then
 		return { width = math.floor(380 * self.scaleImage), height = math.floor(380 * self.scaleImage) }
 	elseif node.type == "Keystone" then
-		return { 
+		return {
 			['effect'] =  { width = math.floor(380 * self.scaleImage), height = math.floor(380 * self.scaleImage) },
-			width = math.floor(120 * self.scaleImage), height = math.floor(120 * self.scaleImage)
+			['overlay'] = { width = math.floor(120 * self.scaleImage), height = math.floor(120 * self.scaleImage) },
+			width = math.floor(82 * self.scaleImage), height = math.floor(82 * self.scaleImage)
 		}
-	elseif node.type == "Normal" or (node.type == "AscendClassStart" and node.isNotable == nil) then
-		return { width = math.floor(54  * self.scaleImage), height = math.floor( 54  * self.scaleImage) }
+	elseif node.type == "Normal" then
+		return {
+			['overlay'] = { width = math.floor(54 * self.scaleImage), height = math.floor(54 * self.scaleImage) },
+			width = math.floor(37  * self.scaleImage), height = math.floor( 37  * self.scaleImage)
+		}
 	elseif node.type == "Socket" then
-		return { width = math.floor(76 * self.scaleImage), height = math.floor(76 * self.scaleImage) }
+		return {
+			['overlay'] = {width = math.floor(76 * self.scaleImage), height = math.floor(76 * self.scaleImage) },
+			width = math.floor(76 * self.scaleImage), height = math.floor(76 * self.scaleImage)
+		}
 	elseif node.type == "ClassStart" then
 		return { width = math.floor(54 * self.scaleImage), height = math.floor(54 * self.scaleImage) }
 	else

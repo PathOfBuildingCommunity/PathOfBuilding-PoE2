@@ -291,11 +291,19 @@ function GGPKClass:GetNeededFiles()
 		"Data/startingpassiveskills.dat",
 		"Data/ClassPassiveSkillOverrides.dat",
 		"Data/passivejewelart.dat",
-		"Data/passivejeweluniqueart.dat"
+		"Data/passivejeweluniqueart.dat",
+		"Data/QuestStaticRewards.dat",
+		"Data/QuestFlags.dat",
+		"Data/Quest.dat",
+		"Data/QuestType.dat",
+		"Data/QuestRewards.dat",
+		"Data/QuestRewardOffers.dat",
+		"Data/QuestRewardType.dat",
 	}
 	local csdFiles = {
 		"^Metadata/StatDescriptions/specific_skill_stat_descriptions/\\w+.csd$",
 		"^Metadata/StatDescriptions/\\w+.csd$",
+		"^Metadata/StatDescriptions/specific_skill_stat_descriptions/\\w+/\\w+.csd$",
 	}
 	local itFiles = {
 		"Metadata/Items/Equipment.it",

@@ -15,6 +15,19 @@ return {
 						[2]="#"
 					}
 				},
+				text="Physical Attack Life Leech granted per Rage {0}%"
+			},
+			[2]={
+				[1]={
+					k="divide_by_one_hundred_2dp_if_required",
+					v=1
+				},
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
 				text="Grants {0}% of Physical Attack Leeched as Life per Rage"
 			}
 		},
@@ -25,6 +38,19 @@ return {
 	[2]={
 		[1]={
 			[1]={
+				[1]={
+					k="per_minute_to_per_second_2dp_if_required",
+					v=1
+				},
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Life Lost per Rage while not losing Rage {0}%"
+			},
+			[2]={
 				[1]={
 					k="per_minute_to_per_second_2dp_if_required",
 					v=1
@@ -47,13 +73,22 @@ return {
 			[1]={
 				limit={
 					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Rage effect modifier {0}%"
+			},
+			[2]={
+				limit={
+					[1]={
 						[1]=1,
 						[2]="#"
 					}
 				},
 				text="Grants {0}% increased Rage effect"
 			},
-			[2]={
+			[3]={
 				[1]={
 					k="negate",
 					v=1

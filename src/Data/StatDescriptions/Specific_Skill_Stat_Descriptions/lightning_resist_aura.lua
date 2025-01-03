@@ -11,6 +11,15 @@ return {
 						[2]="#"
 					}
 				},
+				text="Lightning Resistance granted {0}%"
+			},
+			[2]={
+				limit={
+					[1]={
+						[1]=1,
+						[2]="#"
+					}
+				},
 				text="Allies gain {0}% additional Lightning Resistance"
 			}
 		},

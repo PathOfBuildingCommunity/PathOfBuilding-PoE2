@@ -12,13 +12,22 @@ return {
 			[1]={
 				limit={
 					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Lightning Spell Chains granted {0}"
+			},
+			[2]={
+				limit={
+					[1]={
 						[1]=1,
 						[2]=1
 					}
 				},
 				text="Buff causes Lightning Spells that cost Mana to Chain an additional time"
 			},
-			[2]={
+			[3]={
 				limit={
 					[1]={
 						[1]=2,
@@ -37,13 +46,22 @@ return {
 			[1]={
 				limit={
 					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Additional Chain targets granted {0}"
+			},
+			[2]={
+				limit={
+					[1]={
 						[1]=1,
 						[2]=1
 					}
 				},
 				text="Buff causes Lightning Spells that cost Mana to also Chain to {0:+d} target when Chaining, but not Chain further from them"
 			},
-			[2]={
+			[3]={
 				limit={
 					[1]={
 						[1]="#",
@@ -66,6 +84,15 @@ return {
 						[2]="#"
 					}
 				},
+				text="Causes Lightning Spell Projectiles to Fork"
+			},
+			[2]={
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
 				text="Projectiles from Empowered Lightning Spells Fork"
 			}
 		},
@@ -76,6 +103,15 @@ return {
 	[5]={
 		[1]={
 			[1]={
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Mana cost inherited from skills used {0}%"
+			},
+			[2]={
 				limit={
 					[1]={
 						[1]="#",

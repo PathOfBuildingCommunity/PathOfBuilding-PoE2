@@ -11,6 +11,15 @@ return {
 						[2]="#"
 					}
 				},
+				text="Energy Shield recovered per Remnant {0}"
+			},
+			[2]={
+				limit={
+					[1]={
+						[1]=1,
+						[2]="#"
+					}
+				},
 				text="Grim Remnants recover {0} Energy Shield"
 			}
 		},
@@ -40,12 +49,21 @@ return {
 				limit={
 					[1]={
 						[1]=1,
+						[2]="#"
+					}
+				},
+				text="Remnant spawn on death chance {0}%"
+			},
+			[2]={
+				limit={
+					[1]={
+						[1]=1,
 						[2]=99
 					}
 				},
 				text="{0}% chance to spawn a Remnant when an enemy or Reviving Minion dies in your Presence"
 			},
-			[2]={
+			[3]={
 				limit={
 					[1]={
 						[1]=100,

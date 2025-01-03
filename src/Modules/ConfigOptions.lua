@@ -129,7 +129,62 @@ local function mapAffixDropDownFunction(val, modList, enemyModList, build)
 	end
 end
 
-return {
+local function questModsRewards(source, line, modList)
+	local strippedLine = StripEscapes(line):gsub("^[%s?]+", ""):gsub("[%s?]+$", "")
+	local mods, extra = modLib.parseMod(strippedLine)
+
+	if mods and not extra then
+		for i = 1, #mods do
+			local mod = mods[i]
+
+			if mod then
+				mod = modLib.setSource(mod, source)
+				modList:AddMod(mod)
+			end
+		end
+	end
+end
+
+local function addQuestModsRewardsConfigOptions(configSettings)
+	table.insert(configSettings, { section = "Quest Rewards", col = 1 })
+
+	for i, quest in ipairs(data.questRewards) do
+		local source = string.format("Quest:Act %d %s %s", quest.Act, quest.Type, quest.Area)
+		if quest.Stat then
+			table.insert(configSettings,{
+				var = "questAct".. quest.Act .. quest.Type .. quest.Area,
+				label = string.format("Act %d %s: %s", quest.Act, quest.Type, quest.Area),
+				type = "check",
+				defaultState = true,
+				tooltip = quest.Stat,
+				apply = function(val, modList, enemyModList)
+					questModsRewards(source, quest.Stat, modList)
+				end
+			})
+		elseif quest.Options then
+			local listOptions = { { label = "Nothing", val = "None" } }
+			for j, option in ipairs(quest.Options) do
+				table.insert(listOptions, { label = option, val = option })
+			end
+			table.insert(configSettings,{
+				var = "questAct".. quest.Act .. quest.Type .. quest.Area,
+				label = string.format("Act %d %s: %s", quest.Act, quest.Type, quest.Area),
+				type = "list",
+				list = listOptions,
+				defaultIndex = 1,
+				tooltip = "Choose one of the following options:\n" .. table.concat(quest.Options, "\n"),
+				apply = function(val, modList, enemyModList)
+					if val == "None" then
+						return
+					end
+					questModsRewards(source, val, modList)
+				end
+			})
+		end
+	end
+end
+
+local configSettings = {
 	-- Section: General options
 	{ section = "General", col = 1 },
 	{ var = "resistancePenalty", type = "list", label = "Resistance penalty:", list = {{val=0,label="None"},{val=-30,label="Act 5 (-30%)"},{val=-60,label="Act 10 (-60%)"}}, defaultIndex = 3 },
@@ -808,6 +863,9 @@ Huge sets the radius to 11.
 	{ var = "overrideBlitzCharges", type = "count", label = "# of Blitz Charges (if not maximum):", ifOption = "useBlitzCharges", apply = function(val, modList, enemyModList)
 		modList:NewMod("BlitzCharges", "OVERRIDE", val, "Config", { type = "Condition", var = "Combat" })
 	end },
+	{ var = "multiplierGaleForce", type = "count", label = "# of Gale Force:", ifFlag = "Condition:CanGainGaleForce", tooltip = "Base maximum Gale Force is 10.", apply = function(val, modList, enemyModList)
+		modList:NewMod("Multiplier:GaleForce", "BASE", val, "Config", { type = "IgnoreCond" }, { type = "Condition", var = "Combat" }, { type = "Condition", var = "CanGainGaleForce" })
+	end },
 	{ var = "overrideInspirationCharges", type = "countAllowZero", label = "# of Inspiration Charges (if not maximum):", ifMult = "InspirationCharge", apply = function(val, modList, enemyModList)
 		modList:NewMod("InspirationCharges", "OVERRIDE", val, "Config", { type = "Condition", var = "Combat" })
 	end },
@@ -903,8 +961,8 @@ Huge sets the radius to 11.
 	{ var = "overrideFortification", type = "count", label = "# of Fortification Stacks (if not maximum):", ifFlag = "Condition:Fortified", tooltip = "You have 1% less damage taken from hits per stack of fortification:\nHas a default cap of 20 stacks.", apply = function(val, modList, enemyModList)
 		modList:NewMod("FortificationStacks", "OVERRIDE", val, "Config", { type = "Condition", var = "Combat" })
 	end },
-	{ var = "multiplierTailwind", type = "count", label = "# of Tailwind Stacks:", ifFlag = "Condition:CanHaveTailwind", tooltip = "Tailwind grants the following, up to a base of 10 stacks:\n\t1% increased movement speed\n\t3% increased Skill Speed\n\t15% increased Evasion Rating", apply = function(val, modList, enemyModList)
-		modList:NewMod("Multiplier:Tailwind", "BASE", val, "Config", { type = "Condition", var = "Combat" })
+	{ var = "buffTailwind", type = "check", label = "Do you have Tailwind?", tooltip = "In addition to allowing any 'while you have Tailwind' modifiers to apply,\nthis will enable the Tailwind buff itself. (Grants 8% increased Action Speed)", apply = function(val, modList, enemyModList)
+		modList:NewMod("Condition:Tailwind", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
 	end },
 	{ var = "buffAdrenaline", type = "check", label = "Do you have Adrenaline?", tooltip = "This will enable the Adrenaline buff, which grants:\n\t100% increased Damage\n\t25% increased Attack, Cast and Movement Speed\n\t10% additional Physical Damage Reduction", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:Adrenaline", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
@@ -1243,9 +1301,6 @@ Huge sets the radius to 11.
 	{ var = "conditionBlockedSpellRecently", type = "check", label = "Have you Blocked a Spell Recently?", ifCond = "BlockedSpellRecently", implyCond = "BlockedRecently", tooltip = "This also implies that you have Blocked Recently.", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:BlockedSpellRecently", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
 		modList:NewMod("Condition:BlockedRecently", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
-	end },
-	{ var = "conditionDodgeRolledRecently", type = "check", label = "Have you Dodge Rolled Recently?", ifCond = "DodgeRolledRecently", apply = function(val, modList, enemyModList)
-		modList:NewMod("Condition:DodgeRolledRecently", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
 	end },
 	{ var = "conditionEnergyShieldRechargeRecently", type = "check", label = "^x88FFFFEnergy Shield ^7Recharge started Recently?", ifCond = "EnergyShieldRechargeRecently", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:EnergyShieldRechargeRecently", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
@@ -2115,3 +2170,7 @@ Huge sets the radius to 11.
 			return out
 		end},
 }
+
+addQuestModsRewardsConfigOptions(configSettings)
+
+return configSettings

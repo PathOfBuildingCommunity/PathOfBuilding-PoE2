@@ -26,6 +26,7 @@ local s_format = string.format
 local tempTable1 = { }
 local tempTable2 = { }
 local tempTable3 = { }
+local tempTable4 = { }
 
 local isElemental = { Fire = true, Cold = true, Lightning = true }
 
@@ -60,36 +61,59 @@ end })
 local globalOutput = nil
 local globalBreakdown = nil
 
+local function calcConvertedDamage(activeSkill, output, damageType)
+	-- Calculate conversions
+	local convertedMin, convertedMax = 0, 0
+	local conversionTable = activeSkill.conversionTable
+	for _, otherType in ipairs(dmgTypeList) do
+		local convMult = conversionTable[otherType][damageType]
+		if convMult > 0 then
+			-- Damage is being converted/gained from the other damage type
+			local min, max = output[otherType.."MinBase"], output[otherType.."MaxBase"]
+			convertedMin = convertedMin + min * convMult
+			convertedMax = convertedMax + max * convMult
+		end
+	end
+	if convertedMin ~= 0 and convertedMax ~= 0 then
+		convertedMin = round(convertedMin)
+		convertedMax = round(convertedMax)
+	end
+
+	return convertedMin, convertedMax
+end
+
+local function calcGainedDamage(activeSkill, output, damageType)
+	local gainTable = activeSkill.gainTable
+	
+	local gainedMin, gainedMax = 0, 0
+	for _, otherType in ipairs(dmgTypeList) do
+		local baseMin = m_floor(output[otherType.."MinBase"])
+		local baseMax = m_floor(output[otherType.."MaxBase"])
+		local gainMult = gainTable[otherType][damageType]
+		if gainMult > 0 then
+			-- Damage is being converted/gained from the other damage type
+			local convertedMin, convertedMax = calcConvertedDamage(activeSkill, output, otherType)
+			gainedMin = gainedMin + (baseMin + convertedMin) * gainMult
+			gainedMax = gainedMax + (baseMax + convertedMax) * gainMult
+		end
+	end
+	
+	return gainedMin, gainedMax
+end
+
 -- Calculate min/max damage for the given damage type
 local function calcDamage(activeSkill, output, cfg, breakdown, damageType, typeFlags, convDst)
 	local skillModList = activeSkill.skillModList
 
 	typeFlags = bor(typeFlags, dmgTypeFlags[damageType])
-
-	-- Calculate conversions
-	local addMin, addMax = 0, 0
+	
 	local conversionTable = activeSkill.conversionTable
-	for _, otherType in ipairs(dmgTypeList) do
-		if otherType == damageType then
-			-- Damage can only be converted from damage types that precede this one in the conversion sequence, so stop here
-			break
-		end
-		local convMult = conversionTable[otherType][damageType]
-		if convMult > 0 then
-			-- Damage is being converted/gained from the other damage type
-			local min, max = calcDamage(activeSkill, output, cfg, breakdown, otherType, typeFlags, damageType)
-			addMin = addMin + min * convMult
-			addMax = addMax + max * convMult
-		end
-	end
-	if addMin ~= 0 and addMax ~= 0 then
-		addMin = round(addMin)
-		addMax = round(addMax)
-	end
 
-	local baseMin = output[damageType.."MinBase"]
-	local baseMax = output[damageType.."MaxBase"]
-	if baseMin == 0 and baseMax == 0 then
+	local addMin, addMax = 0, 0
+	local summedMin = output[damageType.."SummedMinBase"]
+	local summedMax = output[damageType.."SummedMaxBase"]
+
+	if summedMin == 0 and summedMax == 0 then
 		-- No base damage for this type, don't need to calculate modifiers
 		if breakdown and (addMin ~= 0 or addMax ~= 0) then
 			t_insert(breakdown.damageTypes, {
@@ -114,29 +138,17 @@ local function calcDamage(activeSkill, output, cfg, breakdown, damageType, typeF
 	if breakdown then
 		t_insert(breakdown.damageTypes, {
 			source = damageType,
-			base = baseMin .. " to " .. baseMax,
+			base = summedMin .. " to " .. summedMax,
 			inc = (inc ~= 1 and "x "..inc),
 			more = (more ~= 1 and "x "..more),
 			convSrc = (addMin ~= 0 or addMax ~= 0) and (addMin .. " to " .. addMax),
-			total = (round(baseMin * inc * more) + addMin) .. " to " .. (round(baseMax * inc * more) + addMax),
+			total = (round(summedMin * inc * more) + addMin) .. " to " .. (round(summedMax * inc * more) + addMax),
 			convDst = convDst and conversionTable[damageType][convDst] > 0 and s_format("%d%% to %s", conversionTable[damageType][convDst] * 100, convDst),
 		})
 	end
-
-	return 	round(((baseMin * inc * more) * genericMoreMinDamage + addMin) * moreMinDamage),
-			round(((baseMax * inc * more) * genericMoreMaxDamage + addMax) * moreMaxDamage)
-end
-
-local function calcAilmentSourceDamage(activeSkill, output, cfg, breakdown, damageType, typeFlags)
-	local min, max = calcDamage(activeSkill, output, cfg, breakdown, damageType, typeFlags)
-	local convMult = activeSkill.conversionTable[damageType].mult
-	if breakdown and convMult ~= 1 then
-		t_insert(breakdown, "Source damage:")
-		t_insert(breakdown, s_format("%d to %d ^8(total damage)", min, max))
-		t_insert(breakdown, s_format("x %g ^8(%g%% converted to other damage types)", convMult, (1-convMult)*100))
-		t_insert(breakdown, s_format("= %d to %d", min * convMult, max * convMult))
-	end
-	return min * convMult, max * convMult
+	
+	return 	round(((summedMin * inc * more) * genericMoreMinDamage + addMin) * moreMinDamage),
+			round(((summedMax * inc * more) * genericMoreMaxDamage + addMax) * moreMaxDamage)
 end
 
 ---Calculates skill radius
@@ -1740,20 +1752,25 @@ function calcs.offence(env, actor, activeSkill)
 
 	-- Calculate damage conversion percentages
 	activeSkill.conversionTable = wipeTable(activeSkill.conversionTable)
-	for damageTypeIndex = 1, 4 do
+	activeSkill.gainTable = wipeTable(activeSkill.gainTable)
+	ConPrintf("CalOffenceRunning")
+	for damageTypeIndex = 1, 5 do
 		local damageType = dmgTypeList[damageTypeIndex]
 		local globalConv = wipeTable(tempTable1)
 		local skillConv = wipeTable(tempTable2)
-		local add = wipeTable(tempTable3)
+		local globalGain = wipeTable(tempTable3)
+		local skillGain = wipeTable(tempTable4)
 		local globalTotal, skillTotal = 0, 0
-		for otherTypeIndex = damageTypeIndex + 1, 5 do
+		for otherTypeIndex = 1, 5 do
 			-- For all possible destination types, check for global and skill conversions
 			otherType = dmgTypeList[otherTypeIndex]
+			-- ConPrintf(otherType)
 			globalConv[otherType] = m_max(skillModList:Sum("BASE", skillCfg, damageType.."DamageConvertTo"..otherType, isElemental[damageType] and "ElementalDamageConvertTo"..otherType or nil, damageType ~= "Chaos" and "NonChaosDamageConvertTo"..otherType or nil), 0)
 			globalTotal = globalTotal + globalConv[otherType]
 			skillConv[otherType] = m_max(skillModList:Sum("BASE", skillCfg, "Skill"..damageType.."DamageConvertTo"..otherType), 0)
 			skillTotal = skillTotal + skillConv[otherType]
-			add[otherType] = m_max(skillModList:Sum("BASE", skillCfg, damageType.."DamageGainAs"..otherType, isElemental[damageType] and "ElementalDamageGainAs"..otherType or nil, damageType ~= "Chaos" and "NonChaosDamageGainAs"..otherType or nil), 0)
+			globalGain[otherType] = m_max(skillModList:Sum("BASE", skillCfg, damageType.."DamageGainAs"..otherType, isElemental[damageType] and "ElementalDamageGainAs"..otherType or nil, damageType ~= "Chaos" and "NonChaosDamageGainAs"..otherType or nil), 0)
+			skillGain[otherType] = m_max(skillModList:Sum("BASE", skillCfg, "Skill"..damageType.."DamageGainAs"..otherType, isElemental[damageType] and "SkillElementalDamageGainAs"..otherType or nil, damageType ~= "Chaos" and "SkillNonChaosDamageGainAs"..otherType or nil), 0)
 		end
 		if skillTotal > 100 then
 			-- Skill conversion exceeds 100%, scale it down and remove non-skill conversions
@@ -1774,13 +1791,18 @@ function calcs.offence(env, actor, activeSkill)
 			globalTotal = globalTotal * factor
 		end
 		local dmgTable = { }
+		local gainTable = { }
 		for type, val in pairs(globalConv) do
-			dmgTable[type] = (globalConv[type] + skillConv[type] + add[type]) / 100
+			dmgTable[type] = (val + skillConv[type]) / 100
+		end
+		
+		for type, val in pairs(globalGain) do
+			gainTable[type] = (globalGain[type] + skillGain[type]) / 100
 		end
 		dmgTable.mult = 1 - m_min((globalTotal + skillTotal) / 100, 1)
 		activeSkill.conversionTable[damageType] = dmgTable
+		activeSkill.gainTable[damageType] = gainTable
 	end
-	activeSkill.conversionTable["Chaos"] = { mult = 1 }
 
 	-- Configure damage passes
 	local passList = { }
@@ -2863,13 +2885,13 @@ function calcs.offence(env, actor, activeSkill)
 			local addedMin = skillModList:Sum("BASE", cfg, damageTypeMin) + enemyDB:Sum("BASE", cfg, "Self"..damageTypeMin)
 			local addedMax = skillModList:Sum("BASE", cfg, damageTypeMax) + enemyDB:Sum("BASE", cfg, "Self"..damageTypeMax)
 			local addedMult = calcLib.mod(skillModList, cfg, "Added"..damageType.."Damage", "AddedDamage")
-			local baseMin = ((source[damageTypeMin] or 0) + (source[damageType.."BonusMin"] or 0)) * baseMultiplier + addedMin * damageEffectiveness * addedMult
-			local baseMax = ((source[damageTypeMax] or 0) + (source[damageType.."BonusMax"] or 0)) * baseMultiplier + addedMax * damageEffectiveness * addedMult
+			local baseMin = (((source[damageTypeMin] or 0) + (source[damageType.."BonusMin"] or 0)) * baseMultiplier + addedMin) * damageEffectiveness * addedMult
+			local baseMax = (((source[damageTypeMax] or 0) + (source[damageType.."BonusMax"] or 0)) * baseMultiplier + addedMax) * damageEffectiveness * addedMult
 			output[damageTypeMin.."Base"] = baseMin
 			output[damageTypeMax.."Base"] = baseMax
 			if breakdown then
 				breakdown[damageType] = { damageTypes = { } }
-				if baseMin ~= 0 and baseMax ~= 0 then
+				if baseMin ~= 0 or baseMax ~= 0 then
 					t_insert(breakdown[damageType], "Base damage:")
 					local plus = ""
 					if (source[damageTypeMin] or 0) ~= 0 or (source[damageTypeMax] or 0) ~= 0 then
@@ -2877,7 +2899,6 @@ function calcs.offence(env, actor, activeSkill)
 						if baseMultiplier ~= 1 then
 							t_insert(breakdown[damageType], s_format("x %.2f ^8(base damage multiplier)", baseMultiplier))
 						end
-						plus = "+ "
 					end
 					if addedMin ~= 0 or addedMax ~= 0 then
 						t_insert(breakdown[damageType], s_format("%s%d to %d ^8(added damage)", plus, addedMin, addedMax))
@@ -2888,8 +2909,36 @@ function calcs.offence(env, actor, activeSkill)
 							t_insert(breakdown[damageType], s_format("x %.2f ^8(added damage multiplier)", addedMult))
 						end
 					end
-					t_insert(breakdown[damageType], s_format("= %.1f to %.1f", baseMin, baseMax))
 				end
+			end
+		end
+		for _, damageType in ipairs(dmgTypeList) do
+			local damageTypeMin = damageType.."Min"
+			local damageTypeMax = damageType.."Max"
+			local convMult = activeSkill.conversionTable[damageType].mult
+			local convertedMin, convertedMax = calcConvertedDamage(activeSkill, output, damageType)
+			local gainedMin, gainedMax = calcGainedDamage(activeSkill, output, damageType)
+			local baseMin = output[damageTypeMin.."Base"]
+			local baseMax = output[damageTypeMax.."Base"]
+			local summedMin = baseMin * convMult + convertedMin + gainedMin 
+			local summedMax = baseMax * convMult + convertedMax + gainedMax
+			output[damageType.."SummedMinBase"] = m_floor(summedMin)
+			output[damageType.."SummedMaxBase"] = m_floor(summedMax)
+			if breakdown then
+				if (baseMin ~= 0 or baseMax ~= 0) then
+					if convMult ~= 1 then
+						t_insert(breakdown[damageType], s_format("x %g ^8(%g%% converted to other damage types)", convMult, (1-convMult)*100))
+					end
+				else  -- this means base damage header wasn't applied in the previous section
+					t_insert(breakdown[damageType], "Base damage:")
+				end
+				if convertedMin ~= 0 or convertedMax ~= 0 then
+					t_insert(breakdown[damageType], s_format("+ %d to %d ^8(damage converted from other damage types)", convertedMin, convertedMax))
+				end
+				if gainedMin ~= 0 or gainedMax ~= 0 then
+					t_insert(breakdown[damageType], s_format("+ %d to %d ^8(damage gained from other damage types)", gainedMin, gainedMax))
+				end
+				t_insert(breakdown[damageType], s_format("= %.1f to %.1f", summedMin, summedMax))
 			end
 		end
 
@@ -2917,13 +2966,9 @@ function calcs.offence(env, actor, activeSkill)
 				local damageTypeHitMin, damageTypeHitMax, damageTypeHitAvg, damageTypeLuckyChance, damageTypeHitAvgLucky, damageTypeHitAvgNotLucky = 0, 0, 0, 0, 0
 				if skillFlags.hit and canDeal[damageType] then
 					damageTypeHitMin, damageTypeHitMax = calcDamage(activeSkill, output, cfg, pass == 2 and breakdown and breakdown[damageType], damageType, 0)
-					local convMult = activeSkill.conversionTable[damageType].mult
 					if pass == 2 and breakdown then
 						t_insert(breakdown[damageType], "Hit damage:")
 						t_insert(breakdown[damageType], s_format("%d to %d ^8(total damage)", damageTypeHitMin, damageTypeHitMax))
-						if convMult ~= 1 then
-							t_insert(breakdown[damageType], s_format("x %g ^8(%g%% converted to other damage types)", convMult, (1-convMult)*100))
-						end
 						if output.DoubleDamageEffect ~= 0 then
 							if output.TripleDamageEffect ~= 0 then
 								t_insert(breakdown[damageType], s_format("x %.2f ^8(1 + %.2f + %.2f multiplier from %.1f%% chance to deal double damage and %d%% chance to deal triple damage)", 1 + output.DoubleDamageEffect + output.TripleDamageEffect, output.DoubleDamageEffect, output.TripleDamageEffect, output.DoubleDamageChance, output.TripleDamageChance))
@@ -2947,9 +2992,9 @@ function calcs.offence(env, actor, activeSkill)
 						end
 					end
 					if activeSkill.skillModList:Flag(nil, "Condition:WarcryMaxHit") then
-						output.allMult = convMult * output.ScaledDamageEffect * output.RuthlessBlowHitEffect * output.FistOfWarDamageEffect * globalOutput.MaxOffensiveWarcryEffect
+						output.allMult = output.ScaledDamageEffect * output.RuthlessBlowHitEffect * output.FistOfWarDamageEffect * globalOutput.MaxOffensiveWarcryEffect
 					else
-						output.allMult = convMult * output.ScaledDamageEffect * output.RuthlessBlowHitEffect * output.FistOfWarDamageEffect * globalOutput.OffensiveWarcryEffect
+						output.allMult = output.ScaledDamageEffect * output.RuthlessBlowHitEffect * output.FistOfWarDamageEffect * globalOutput.OffensiveWarcryEffect
 					end
 					local allMult = output.allMult
 					if pass == 1 then
@@ -3925,7 +3970,7 @@ function calcs.offence(env, actor, activeSkill)
 				else
 					dotCfg.skillCond["CriticalStrike"] = true
 				end
-				local min, max = calcAilmentSourceDamage(activeSkill, output, dotCfg, sub_pass == 1 and breakdown and breakdown.BleedPhysical, "Physical", 0)
+				local min, max = calcDamage(activeSkill, output, dotCfg, sub_pass == 1 and breakdown and breakdown.BleedPhysical, "Physical", 0)
 				output.BleedPhysicalMin = min
 				output.BleedPhysicalMax = max
 				if sub_pass == 2 then
@@ -4206,7 +4251,7 @@ function calcs.offence(env, actor, activeSkill)
 				end
 				local totalMin, totalMax = 0, 0
 				do
-					local min, max = calcAilmentSourceDamage(activeSkill, output, dotCfg, sub_pass == 1 and breakdown and breakdown.PoisonChaos, "Chaos", 0)
+					local min, max = calcDamage(activeSkill, output, dotCfg, sub_pass == 1 and breakdown and breakdown.PoisonChaos, "Chaos", 0)
 					output.PoisonChaosMin = min
 					output.PoisonChaosMax = max
 					totalMin = totalMin + min
@@ -4221,28 +4266,28 @@ function calcs.offence(env, actor, activeSkill)
 					output[chance] = chaosChance
 				end
 				if canDeal.Lightning and skillModList:Flag(cfg, "LightningCanPoison") then
-					local min, max = calcAilmentSourceDamage(activeSkill, output, dotCfg, sub_pass == 1 and breakdown and breakdown.PoisonLightning, "Lightning", dmgTypeFlags.Chaos)
+					local min, max = calcDamage(activeSkill, output, dotCfg, sub_pass == 1 and breakdown and breakdown.PoisonLightning, "Lightning", dmgTypeFlags.Chaos)
 					output.PoisonLightningMin = min
 					output.PoisonLightningMax = max
 					totalMin = totalMin + min * nonChaosMult
 					totalMax = totalMax + max * nonChaosMult
 				end
 				if canDeal.Cold and skillModList:Flag(cfg, "ColdCanPoison") then
-					local min, max = calcAilmentSourceDamage(activeSkill, output, dotCfg, sub_pass == 1 and breakdown and breakdown.PoisonCold, "Cold", dmgTypeFlags.Chaos)
+					local min, max = calcDamage(activeSkill, output, dotCfg, sub_pass == 1 and breakdown and breakdown.PoisonCold, "Cold", dmgTypeFlags.Chaos)
 					output.PoisonColdMin = min
 					output.PoisonColdMax = max
 					totalMin = totalMin + min * nonChaosMult
 					totalMax = totalMax + max * nonChaosMult
 				end
 				if canDeal.Fire and skillModList:Flag(cfg, "FireCanPoison") then
-					local min, max = calcAilmentSourceDamage(activeSkill, output, dotCfg, sub_pass == 1 and breakdown and breakdown.PoisonFire, "Fire", dmgTypeFlags.Chaos)
+					local min, max = calcDamage(activeSkill, output, dotCfg, sub_pass == 1 and breakdown and breakdown.PoisonFire, "Fire", dmgTypeFlags.Chaos)
 					output.PoisonFireMin = min
 					output.PoisonFireMax = max
 					totalMin = totalMin + min * nonChaosMult
 					totalMax = totalMax + max * nonChaosMult
 				end
 				if canDeal.Physical then
-					local min, max = calcAilmentSourceDamage(activeSkill, output, dotCfg, sub_pass == 1 and breakdown and breakdown.PoisonPhysical, "Physical", dmgTypeFlags.Chaos)
+					local min, max = calcDamage(activeSkill, output, dotCfg, sub_pass == 1 and breakdown and breakdown.PoisonPhysical, "Physical", dmgTypeFlags.Chaos)
 					output.PoisonPhysicalMin = min
 					output.PoisonPhysicalMax = max
 					totalMin = totalMin + min * nonChaosMult
@@ -4534,35 +4579,35 @@ function calcs.offence(env, actor, activeSkill)
 				end
 				local totalMin, totalMax = 0, 0
 				if canDeal.Physical and skillModList:Flag(cfg, "PhysicalCanIgnite") then
-					local min, max = calcAilmentSourceDamage(activeSkill, output, dotCfg, sub_pass == 1 and breakdown and breakdown.IgnitePhysical, "Physical", dmgTypeFlags.Fire)
+					local min, max = calcDamage(activeSkill, output, dotCfg, sub_pass == 1 and breakdown and breakdown.IgnitePhysical, "Physical", dmgTypeFlags.Fire)
 					output.IgnitePhysicalMin = min
 					output.IgnitePhysicalMax = max
 					totalMin = totalMin + min
 					totalMax = totalMax + max
 				end
 				if canDeal.Lightning and skillModList:Flag(cfg, "LightningCanIgnite") then
-					local min, max = calcAilmentSourceDamage(activeSkill, output, dotCfg, sub_pass == 1 and breakdown and breakdown.IgniteLightning, "Lightning", dmgTypeFlags.Fire)
+					local min, max = calcDamage(activeSkill, output, dotCfg, sub_pass == 1 and breakdown and breakdown.IgniteLightning, "Lightning", dmgTypeFlags.Fire)
 					output.IgniteLightningMin = min
 					output.IgniteLightningMax = max
 					totalMin = totalMin + min
 					totalMax = totalMax + max
 				end
 				if canDeal.Cold and skillModList:Flag(cfg, "ColdCanIgnite") then
-					local min, max = calcAilmentSourceDamage(activeSkill, output, dotCfg, sub_pass == 1 and breakdown and breakdown.IgniteCold, "Cold", dmgTypeFlags.Fire)
+					local min, max = calcDamage(activeSkill, output, dotCfg, sub_pass == 1 and breakdown and breakdown.IgniteCold, "Cold", dmgTypeFlags.Fire)
 					output.IgniteColdMin = min
 					output.IgniteColdMax = max
 					totalMin = totalMin + min
 					totalMax = totalMax + max
 				end
 				if canDeal.Fire and not skillModList:Flag(cfg, "FireCannotIgnite") then
-					local min, max = calcAilmentSourceDamage(activeSkill, output, dotCfg, sub_pass == 1 and breakdown and breakdown.IgniteFire, "Fire", 0)
+					local min, max = calcDamage(activeSkill, output, dotCfg, sub_pass == 1 and breakdown and breakdown.IgniteFire, "Fire", 0)
 					output.IgniteFireMin = min
 					output.IgniteFireMax = max
 					totalMin = totalMin + min
 					totalMax = totalMax + max
 				end
 				if canDeal.Chaos and skillModList:Flag(cfg, "ChaosCanIgnite") then
-					local min, max = calcAilmentSourceDamage(activeSkill, output, dotCfg, sub_pass == 1 and breakdown and breakdown.IgniteChaos, "Chaos", dmgTypeFlags.Fire)
+					local min, max = calcDamage(activeSkill, output, dotCfg, sub_pass == 1 and breakdown and breakdown.IgniteChaos, "Chaos", dmgTypeFlags.Fire)
 					output.IgniteChaosMin = min
 					output.IgniteChaosMax = max
 					totalMin = totalMin + min

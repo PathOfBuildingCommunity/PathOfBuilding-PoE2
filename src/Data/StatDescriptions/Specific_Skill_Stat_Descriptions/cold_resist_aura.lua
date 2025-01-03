@@ -11,6 +11,15 @@ return {
 						[2]="#"
 					}
 				},
+				text="Cold Resistance granted {0}%"
+			},
+			[2]={
+				limit={
+					[1]={
+						[1]=1,
+						[2]="#"
+					}
+				},
 				text="Allies gain {0}% additional Cold Resistance"
 			}
 		},

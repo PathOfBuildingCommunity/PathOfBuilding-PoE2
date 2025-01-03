@@ -4,6 +4,19 @@
 return {
 	[1]={
 		[1]={
+			[1]={
+				[1]={
+					k="divide_by_ten_1dp_if_required",
+					v=1
+				},
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Explosion radius {0}m"
+			}
 		},
 		stats={
 			[1]="active_skill_area_of_effect_radius"
@@ -88,6 +101,19 @@ return {
 						[2]="#"
 					}
 				},
+				text="Ignite damage from Overkill damage {0}%"
+			},
+			[2]={
+				[1]={
+					k="per_minute_to_per_second_2dp_if_required",
+					v=1
+				},
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
 				text="Base Ignite damage is {0}% of Overkill damage"
 			}
 		},
@@ -104,6 +130,15 @@ return {
 						[2]="#"
 					}
 				},
+				text="Overkill damage threshold {0}%"
+			},
+			[2]={
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
 				text="Ignite surrounding enemies if Overkill damage is at least {0}% of enemy's maximum Life"
 			}
 		},
@@ -113,6 +148,19 @@ return {
 	},
 	[6]={
 		[1]={
+			[1]={
+				[1]={
+					k="milliseconds_to_seconds_2dp_if_required",
+					v=1
+				},
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Ignite duration {0}s"
+			}
 		},
 		stats={
 			[1]="skill_effect_duration"
