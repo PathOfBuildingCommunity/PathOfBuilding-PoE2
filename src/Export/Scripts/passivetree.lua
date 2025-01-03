@@ -1,6 +1,7 @@
 local gimpbatch = require("gimpbatch.gimp_batch")
 local ddsfiles = require("ddsfiles")
 local nvtt = require("nvtt")
+local json = require("dkjson")
 
 -- by session we would like to dont extract the same file multiple times
 main.treeCacheExtract = main.treeCacheExtract or { }
@@ -1071,6 +1072,17 @@ out:write('return ')
 writeLuaTable(out, tree, 1)
 out:close()
 printf("File " .. fileTree .. " generated")
+
+local fileTreeJson = fileTree:gsub(".lua", ".json")
+printf("Generating json file in " .. fileTreeJson)
+local out, err = io.open(fileTreeJson, "w")
+if out == nil then
+	printf("Error opening file " .. fileTreeJson)
+	printf(err)
+	return
+end
+out:write(json.encode(tree))
+out:close()
 
 -- Here we should validate if we need to create assets real assets
 printf("Generating png from dds ...")
