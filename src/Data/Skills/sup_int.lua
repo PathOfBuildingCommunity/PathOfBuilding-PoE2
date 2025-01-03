@@ -10,13 +10,13 @@ skills["SupportAblationPlayer"] = {
 	name = "Ablation",
 	description = "Supports Offering Skills. Supported Skills Sacrifice a portion of your life on use, but deal much more damage and have more powerful Buffs in return.",
 	color = 3,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Offering, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Ablation",
@@ -41,13 +41,13 @@ skills["SupportAmbushPlayer"] = {
 	name = "Ambush",
 	description = "Supports any skill that Hits enemies, making it more likely to Critically Hit enemies on full life.",
 	color = 3,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Attack, SkillType.Damage, SkillType.CrossbowAmmoSkill, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Ambush",
@@ -70,13 +70,13 @@ skills["SupportArcaneSurgePlayer"] = {
 	name = "Arcane Surge",
 	description = "Supports Spells you cast yourself, tracking the mana you spend to cast them. Spending enough mana grants a burst of Mana Regeneration and Cast Speed.",
 	color = 3,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Spell, },
 	addSkillTypes = { SkillType.Duration, },
 	excludeSkillTypes = { SkillType.Trapped, SkillType.RemoteMined, SkillType.SummonsTotem, SkillType.UsedByTotem, SkillType.HasReservation, SkillType.ReservationBecomesCost, SkillType.NOT, SkillType.AND, },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Arcane Surge",
@@ -100,13 +100,13 @@ skills["SupportFasterCastPlayer"] = {
 	name = "Arcane Tempo",
 	description = "Supports Spells, causing them to cast faster.",
 	color = 3,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Spell, },
 	addSkillTypes = { },
 	excludeSkillTypes = { SkillType.Instant, SkillType.FixedCastTime, },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Arcane Tempo",
@@ -131,13 +131,13 @@ skills["SupportAstralProjectionPlayer"] = {
 	name = "Astral Projection",
 	description = "Supports Nova Skills, causing those Skills to take place at the targeted location when used instead of around you.",
 	color = 3,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Nova, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Astral Projection",
@@ -161,13 +161,13 @@ skills["SupportBiddingPlayer"] = {
 	name = "Bidding",
 	description = "Supports Minion Skills. Supported Minions deal significantly more damage with their Command Skills.",
 	color = 3,
-	levels = {
-		[1] = { manaMultiplier = 30, levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.CommandableMinion, SkillType.CommandsMinions, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { manaMultiplier = 30, levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Bidding",
@@ -190,13 +190,13 @@ skills["SupportBitingFrostPlayer"] = {
 	name = "Biting Frost",
 	description = "Supports any skill that Hits enemies, causing them to deal more damage to Frozen enemies but consume their Freeze. Cannot support skills that Consume Freeze.",
 	color = 3,
-	levels = {
-		[1] = { manaMultiplier = 20, levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Attack, SkillType.Damage, SkillType.CrossbowAmmoSkill, },
 	addSkillTypes = { },
 	excludeSkillTypes = { SkillType.SkillConsumesFreeze, SkillType.SupportedByElementalDischarge, },
+	levels = {
+		[1] = { manaMultiplier = 20, levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Biting Frost",
@@ -220,13 +220,13 @@ skills["SupportBurningRunesPlayer"] = {
 	name = "Burning Inscription",
 	description = "Supports any Skill which creates Runic Inscriptions when Cast, causing those Runic Inscriptions to trigger Burning Inscription when they expire. Burning Inscription is a Spell which creates Ignited Ground based off of your Maximum Mana.",
 	color = 3,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.AppliesCurse, SkillType.CreatesGroundRune, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Support",
@@ -245,51 +245,53 @@ skills["SupportBurningRunesPlayer"] = {
 }skills["TriggeredBurningRunesPlayer"] = {
 	name = "Burning Inscription",
 	hidden = true,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-		[2] = { levelRequirement = 0, actorLevel = 3.4519999027252, },
-		[3] = { levelRequirement = 0, actorLevel = 6.7670001983643, },
-		[4] = { levelRequirement = 0, actorLevel = 10.307999610901, },
-		[5] = { levelRequirement = 0, actorLevel = 14.074999809265, },
-		[6] = { levelRequirement = 0, actorLevel = 18.068000793457, },
-		[7] = { levelRequirement = 0, actorLevel = 22.287000656128, },
-		[8] = { levelRequirement = 0, actorLevel = 26.732000350952, },
-		[9] = { levelRequirement = 0, actorLevel = 31.40299987793, },
-		[10] = { levelRequirement = 0, actorLevel = 36.299999237061, },
-		[11] = { levelRequirement = 0, actorLevel = 41.423000335693, },
-		[12] = { levelRequirement = 0, actorLevel = 46.771999359131, },
-		[13] = { levelRequirement = 0, actorLevel = 52.34700012207, },
-		[14] = { levelRequirement = 0, actorLevel = 58.147998809814, },
-		[15] = { levelRequirement = 0, actorLevel = 64.175003051758, },
-		[16] = { levelRequirement = 0, actorLevel = 70.428001403809, },
-		[17] = { levelRequirement = 0, actorLevel = 76.906997680664, },
-		[18] = { levelRequirement = 0, actorLevel = 83.611999511719, },
-		[19] = { levelRequirement = 0, actorLevel = 90.542999267578, },
-		[20] = { levelRequirement = 0, actorLevel = 97.699996948242, },
-		[21] = { levelRequirement = 0, actorLevel = 105.08300018311, },
-		[22] = { levelRequirement = 0, actorLevel = 112.69200134277, },
-		[23] = { levelRequirement = 0, actorLevel = 120.52700042725, },
-		[24] = { levelRequirement = 0, actorLevel = 128.58799743652, },
-		[25] = { levelRequirement = 0, actorLevel = 136.875, },
-		[26] = { levelRequirement = 0, actorLevel = 145.38800048828, },
-		[27] = { levelRequirement = 0, actorLevel = 154.12699890137, },
-		[28] = { levelRequirement = 0, actorLevel = 163.09199523926, },
-		[29] = { levelRequirement = 0, actorLevel = 172.28300476074, },
-		[30] = { levelRequirement = 0, actorLevel = 181.69999694824, },
-		[31] = { levelRequirement = 0, actorLevel = 191.34300231934, },
-		[32] = { levelRequirement = 0, actorLevel = 201.21200561523, },
-		[33] = { levelRequirement = 0, actorLevel = 211.30700683594, },
-		[34] = { levelRequirement = 0, actorLevel = 221.62800598145, },
-		[35] = { levelRequirement = 0, actorLevel = 232.17500305176, },
-		[36] = { levelRequirement = 0, actorLevel = 242.94799804688, },
-		[37] = { levelRequirement = 0, actorLevel = 253.94700622559, },
-		[38] = { levelRequirement = 0, actorLevel = 265.17199707031, },
-		[39] = { levelRequirement = 0, actorLevel = 276.62298583984, },
-		[40] = { levelRequirement = 0, actorLevel = 288.29998779297, },
-	},
 	description = "Creates Ignited Ground Igniting Enemies based off a percentage of your Maximum Mana.",
 	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Fire] = true, [SkillType.SkillGrantedBySupport] = true, },
 	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { levelRequirement = 0, },
+		[2] = { levelRequirement = 0, },
+		[3] = { levelRequirement = 0, },
+		[4] = { levelRequirement = 0, },
+		[5] = { levelRequirement = 0, },
+		[6] = { levelRequirement = 0, },
+		[7] = { levelRequirement = 0, },
+		[8] = { levelRequirement = 0, },
+		[9] = { levelRequirement = 0, },
+		[10] = { levelRequirement = 0, },
+		[11] = { levelRequirement = 0, },
+		[12] = { levelRequirement = 0, },
+		[13] = { levelRequirement = 0, },
+		[14] = { levelRequirement = 0, },
+		[15] = { levelRequirement = 0, },
+		[16] = { levelRequirement = 0, },
+		[17] = { levelRequirement = 0, },
+		[18] = { levelRequirement = 0, },
+		[19] = { levelRequirement = 0, },
+		[20] = { levelRequirement = 0, },
+		[21] = { levelRequirement = 0, },
+		[22] = { levelRequirement = 0, },
+		[23] = { levelRequirement = 0, },
+		[24] = { levelRequirement = 0, },
+		[25] = { levelRequirement = 0, },
+		[26] = { levelRequirement = 0, },
+		[27] = { levelRequirement = 0, },
+		[28] = { levelRequirement = 0, },
+		[29] = { levelRequirement = 0, },
+		[30] = { levelRequirement = 0, },
+		[31] = { levelRequirement = 0, },
+		[32] = { levelRequirement = 0, },
+		[33] = { levelRequirement = 0, },
+		[34] = { levelRequirement = 0, },
+		[35] = { levelRequirement = 0, },
+		[36] = { levelRequirement = 0, },
+		[37] = { levelRequirement = 0, },
+		[38] = { levelRequirement = 0, },
+		[39] = { levelRequirement = 0, },
+		[40] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Burning Inscription",
@@ -355,13 +357,13 @@ skills["SupportCapacitorPlayer"] = {
 	name = "Capacitor",
 	description = "Supports Invocation Skills which Trigger other Skills. Supported Skills have significantly higher Maximum Energy.",
 	color = 3,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Invocation, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Capacitor",
@@ -384,52 +386,52 @@ skills["SupportAddedChaosDamagePlayer"] = {
 	name = "Chaos Infusion",
 	description = "Supports Attacks, causing them to Gain Chaos Damage but deal less Damage of other Types.",
 	color = 3,
-	levels = {
-		[1] = { manaMultiplier = 20, levelRequirement = 0, actorLevel = 1, },
-		[2] = { manaMultiplier = 20, levelRequirement = 3, actorLevel = 3.4519999027252, },
-		[3] = { manaMultiplier = 20, levelRequirement = 6, actorLevel = 6.7670001983643, },
-		[4] = { manaMultiplier = 20, levelRequirement = 10, actorLevel = 10.307999610901, },
-		[5] = { manaMultiplier = 20, levelRequirement = 14, actorLevel = 14.074999809265, },
-		[6] = { manaMultiplier = 20, levelRequirement = 18, actorLevel = 18.068000793457, },
-		[7] = { manaMultiplier = 20, levelRequirement = 22, actorLevel = 22.287000656128, },
-		[8] = { manaMultiplier = 20, levelRequirement = 26, actorLevel = 26.732000350952, },
-		[9] = { manaMultiplier = 20, levelRequirement = 31, actorLevel = 31.40299987793, },
-		[10] = { manaMultiplier = 20, levelRequirement = 36, actorLevel = 36.299999237061, },
-		[11] = { manaMultiplier = 20, levelRequirement = 41, actorLevel = 41.423000335693, },
-		[12] = { manaMultiplier = 20, levelRequirement = 46, actorLevel = 46.771999359131, },
-		[13] = { manaMultiplier = 20, levelRequirement = 52, actorLevel = 52.34700012207, },
-		[14] = { manaMultiplier = 20, levelRequirement = 58, actorLevel = 58.147998809814, },
-		[15] = { manaMultiplier = 20, levelRequirement = 64, actorLevel = 64.175003051758, },
-		[16] = { manaMultiplier = 20, levelRequirement = 66, actorLevel = 70.428001403809, },
-		[17] = { manaMultiplier = 20, levelRequirement = 72, actorLevel = 76.906997680664, },
-		[18] = { manaMultiplier = 20, levelRequirement = 78, actorLevel = 83.611999511719, },
-		[19] = { manaMultiplier = 20, levelRequirement = 84, actorLevel = 90.542999267578, },
-		[20] = { manaMultiplier = 20, levelRequirement = 90, actorLevel = 97.699996948242, },
-		[21] = { manaMultiplier = 20, levelRequirement = 90, actorLevel = 105.08300018311, },
-		[22] = { manaMultiplier = 20, levelRequirement = 90, actorLevel = 112.69200134277, },
-		[23] = { manaMultiplier = 20, levelRequirement = 90, actorLevel = 120.52700042725, },
-		[24] = { manaMultiplier = 20, levelRequirement = 90, actorLevel = 128.58799743652, },
-		[25] = { manaMultiplier = 20, levelRequirement = 90, actorLevel = 136.875, },
-		[26] = { manaMultiplier = 20, levelRequirement = 90, actorLevel = 145.38800048828, },
-		[27] = { manaMultiplier = 20, levelRequirement = 90, actorLevel = 154.12699890137, },
-		[28] = { manaMultiplier = 20, levelRequirement = 90, actorLevel = 163.09199523926, },
-		[29] = { manaMultiplier = 20, levelRequirement = 90, actorLevel = 172.28300476074, },
-		[30] = { manaMultiplier = 20, levelRequirement = 90, actorLevel = 181.69999694824, },
-		[31] = { manaMultiplier = 20, levelRequirement = 90, actorLevel = 191.34300231934, },
-		[32] = { manaMultiplier = 20, levelRequirement = 90, actorLevel = 201.21200561523, },
-		[33] = { manaMultiplier = 20, levelRequirement = 90, actorLevel = 211.30700683594, },
-		[34] = { manaMultiplier = 20, levelRequirement = 90, actorLevel = 221.62800598145, },
-		[35] = { manaMultiplier = 20, levelRequirement = 90, actorLevel = 232.17500305176, },
-		[36] = { manaMultiplier = 20, levelRequirement = 90, actorLevel = 242.94799804688, },
-		[37] = { manaMultiplier = 20, levelRequirement = 90, actorLevel = 253.94700622559, },
-		[38] = { manaMultiplier = 20, levelRequirement = 90, actorLevel = 265.17199707031, },
-		[39] = { manaMultiplier = 20, levelRequirement = 90, actorLevel = 276.62298583984, },
-		[40] = { manaMultiplier = 20, levelRequirement = 90, actorLevel = 288.29998779297, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Attack, SkillType.CrossbowAmmoSkill, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { manaMultiplier = 20, levelRequirement = 0, },
+		[2] = { manaMultiplier = 20, levelRequirement = 3, },
+		[3] = { manaMultiplier = 20, levelRequirement = 6, },
+		[4] = { manaMultiplier = 20, levelRequirement = 10, },
+		[5] = { manaMultiplier = 20, levelRequirement = 14, },
+		[6] = { manaMultiplier = 20, levelRequirement = 18, },
+		[7] = { manaMultiplier = 20, levelRequirement = 22, },
+		[8] = { manaMultiplier = 20, levelRequirement = 26, },
+		[9] = { manaMultiplier = 20, levelRequirement = 31, },
+		[10] = { manaMultiplier = 20, levelRequirement = 36, },
+		[11] = { manaMultiplier = 20, levelRequirement = 41, },
+		[12] = { manaMultiplier = 20, levelRequirement = 46, },
+		[13] = { manaMultiplier = 20, levelRequirement = 52, },
+		[14] = { manaMultiplier = 20, levelRequirement = 58, },
+		[15] = { manaMultiplier = 20, levelRequirement = 64, },
+		[16] = { manaMultiplier = 20, levelRequirement = 66, },
+		[17] = { manaMultiplier = 20, levelRequirement = 72, },
+		[18] = { manaMultiplier = 20, levelRequirement = 78, },
+		[19] = { manaMultiplier = 20, levelRequirement = 84, },
+		[20] = { manaMultiplier = 20, levelRequirement = 90, },
+		[21] = { manaMultiplier = 20, levelRequirement = 90, },
+		[22] = { manaMultiplier = 20, levelRequirement = 90, },
+		[23] = { manaMultiplier = 20, levelRequirement = 90, },
+		[24] = { manaMultiplier = 20, levelRequirement = 90, },
+		[25] = { manaMultiplier = 20, levelRequirement = 90, },
+		[26] = { manaMultiplier = 20, levelRequirement = 90, },
+		[27] = { manaMultiplier = 20, levelRequirement = 90, },
+		[28] = { manaMultiplier = 20, levelRequirement = 90, },
+		[29] = { manaMultiplier = 20, levelRequirement = 90, },
+		[30] = { manaMultiplier = 20, levelRequirement = 90, },
+		[31] = { manaMultiplier = 20, levelRequirement = 90, },
+		[32] = { manaMultiplier = 20, levelRequirement = 90, },
+		[33] = { manaMultiplier = 20, levelRequirement = 90, },
+		[34] = { manaMultiplier = 20, levelRequirement = 90, },
+		[35] = { manaMultiplier = 20, levelRequirement = 90, },
+		[36] = { manaMultiplier = 20, levelRequirement = 90, },
+		[37] = { manaMultiplier = 20, levelRequirement = 90, },
+		[38] = { manaMultiplier = 20, levelRequirement = 90, },
+		[39] = { manaMultiplier = 20, levelRequirement = 90, },
+		[40] = { manaMultiplier = 20, levelRequirement = 90, },
+	},
 	statSets = {
 		[1] = {
 			label = "Chaos Infusion",
@@ -463,13 +465,13 @@ skills["SupportChaosMasteryPlayer"] = {
 	name = "Chaos Mastery",
 	description = "Supports Chaos skills, granting them an additional level.",
 	color = 3,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Chaos, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Chaos Mastery",
@@ -492,13 +494,13 @@ skills["SupportChaoticFreezePlayer"] = {
 	name = "Chaotic Freeze",
 	description = "Supports Spells that deal non-Ailment Chaos damage over time. Enemies taking damage over time from Debuffs caused by supported skills will suffer Freeze build up from Chaos damage Hits from any source.",
 	color = 3,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Spell, SkillType.DamageOverTime, SkillType.Chaos, SkillType.AND, SkillType.AND, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Chaotic Freeze",
@@ -519,13 +521,13 @@ skills["SupportClarityPlayer"] = {
 	name = "Clarity",
 	description = "Supports Persistent Buff Skills, causing you to gain increased Mana Regeneration while the Skill is active.",
 	color = 3,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Persistent, SkillType.Buff, SkillType.AND, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Clarity",
@@ -548,13 +550,13 @@ skills["SupportColdExposurePlayer"] = {
 	name = "Cold Exposure",
 	description = "Supports any skill that Hits enemies, causing it to inflict Cold Exposure when it Critically Hits an enemy.",
 	color = 3,
-	levels = {
-		[1] = { manaMultiplier = 20, levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Attack, SkillType.Damage, SkillType.CrossbowAmmoSkill, },
 	addSkillTypes = { SkillType.Duration, },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { manaMultiplier = 20, levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Cold Exposure",
@@ -577,13 +579,13 @@ skills["SupportAddedColdDamagePlayer"] = {
 	name = "Cold Infusion",
 	description = "Supports Attacks, causing them to Gain Cold Damage but deal less Fire and Lightning Damage.",
 	color = 3,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Attack, SkillType.CrossbowAmmoSkill, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Cold Infusion",
@@ -615,13 +617,13 @@ skills["SupportColdMasteryPlayer"] = {
 	name = "Cold Mastery",
 	description = "Supports Cold skills, granting them an additional level.",
 	color = 3,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Cold, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Cold Mastery",
@@ -644,13 +646,13 @@ skills["SupportColdPenetrationPlayer"] = {
 	name = "Cold Penetration",
 	description = "Supports any skill that Hits enemies, making those Hits Penetrate enemy Cold resistance.",
 	color = 3,
-	levels = {
-		[1] = { manaMultiplier = 20, levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Damage, SkillType.Attack, SkillType.CrossbowAmmoSkill, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { manaMultiplier = 20, levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Cold Penetration",
@@ -673,13 +675,13 @@ skills["SupportConcentratedEffectPlayer"] = {
 	name = "Concentrated Effect",
 	description = "Supports any skill with an area of effect, causing that area to be smaller but any area damage it deals to be higher.",
 	color = 3,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Area, SkillType.MinionsCanExplode, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Concentrated Effect",
@@ -712,13 +714,13 @@ skills["SupportConsideredCastingPlayer"] = {
 	name = "Considered Casting",
 	description = "Supports Spell Skills that Hit Enemies and you cast yourself, boosting Damage at the cost of Cast Speed.",
 	color = 3,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Spell, },
 	addSkillTypes = { },
 	excludeSkillTypes = { SkillType.FixedCastTime, SkillType.Trapped, SkillType.RemoteMined, SkillType.SummonsTotem, SkillType.UsedByTotem, SkillType.HasReservation, SkillType.ReservationBecomesCost, SkillType.NOT, SkillType.AND, },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Considered Casting",
@@ -742,13 +744,13 @@ skills["SupportControlledDestructionPlayer"] = {
 	name = "Controlled Destruction",
 	description = "Supports Spells that Hit enemies, boosting their damage but preventing them from dealing Critical Hits.",
 	color = 3,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Damage, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Controlled Destruction",
@@ -772,13 +774,13 @@ skills["SupportCorpseConservationPlayer"] = {
 	name = "Corpse Conservation",
 	description = "Supports skills that consume Corpses, giving them a chance to take effect without destroying the Corpse.",
 	color = 3,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.TargetsDestructibleCorpses, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Corpse Conservation",
@@ -801,13 +803,13 @@ skills["SupportCoursingCurrentPlayer"] = {
 	name = "Coursing Current",
 	description = "Supports any skill that Hits enemies, giving it a chance to also Shock nearby enemies when you Shock an enemy.",
 	color = 3,
-	levels = {
-		[1] = { manaMultiplier = 20, levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Damage, SkillType.Attack, SkillType.CrossbowAmmoSkill, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { manaMultiplier = 20, levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Coursing Current",
@@ -831,13 +833,13 @@ skills["SupportCursedGroundPlayer"] = {
 	name = "Cursed Ground",
 	description = "Supports Curse Skills. Supported Curse Skills no longer have an activation delay, instead creating areas which Curse Enemies so long as they are within them.",
 	color = 3,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.AppliesCurse, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Cursed Ground",
@@ -858,13 +860,13 @@ skills["SupportDanseMacabrePlayer"] = {
 	name = "Danse Macabre",
 	description = "Supports Offering Skills. Supported Skills have increased Buff effect and deal more damage, but will target an additional skeletal Minion when cast. If there is not an additional skeletal Minion to target, no damage or Buff effect will be granted.",
 	color = 3,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Offering, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Danse Macabre",
@@ -889,13 +891,13 @@ skills["SupportDecayingHexPlayer"] = {
 	name = "Decaying Hex",
 	description = "Supports Curse skills. Cursed enemies' bodies decay, taking Chaos damage over time.",
 	color = 3,
-	levels = {
-		[1] = { manaMultiplier = 30, levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.AppliesCurse, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { manaMultiplier = 30, levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Decaying Hex",
@@ -918,13 +920,13 @@ skills["SupportLastingFrostPlayer"] = {
 	name = "Deep Freeze",
 	description = "Supports any skill that Hits enemies, causing Freeze it inflicts to last longer.",
 	color = 3,
-	levels = {
-		[1] = { manaMultiplier = 20, levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Damage, SkillType.Attack, SkillType.CrossbowAmmoSkill, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { manaMultiplier = 20, levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Deep Freeze",
@@ -947,13 +949,13 @@ skills["SupportDrainedAilmentPlayer"] = {
 	name = "Drain Ailments",
 	description = "Supports Spells that deal non-Ailment damage over time, causing them to consume Ailments on enemies it applies damage over time Debuffs to in order to deal substantially more damage over time.",
 	color = 3,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Spell, SkillType.DamageOverTime, SkillType.AND, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Drain Ailments",
@@ -976,13 +978,13 @@ skills["SupportElementalArmyPlayer"] = {
 	name = "Elemental Army",
 	description = "Supports skills which create Minions, bolstering the Elemental Resistances of those Minions.",
 	color = 3,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.CreatesMinion, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Elemental Army",
@@ -1005,14 +1007,14 @@ skills["SupportElementalDischargePlayer"] = {
 	name = "Elemental Discharge",
 	description = "Supports any Spell that Hits enemies, causing it to consume Elemental Ailments on hit to trigger an Elemental Discharge. Cannot support the skills of Minions.",
 	color = 3,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Spell, SkillType.Damage, SkillType.AND, },
 	addSkillTypes = { SkillType.SupportedByElementalDischarge, },
 	excludeSkillTypes = { SkillType.SkillConsumesFreeze, SkillType.SkillConsumesIgnite, SkillType.SkillConsumesShock, },
 	ignoreMinionTypes = true,
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Support",
@@ -1032,11 +1034,13 @@ skills["SupportElementalDischargePlayer"] = {
 }skills["TriggeredElementalDischargePlayer"] = {
 	name = "Elemental Discharge",
 	hidden = true,
-	levels = {
-		[1] = { storedUses = 1, levelRequirement = 0, cooldown = 1, actorLevel = 1, },
-	},
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.Triggerable] = true, [SkillType.Cooldown] = true, },
 	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { storedUses = 1, levelRequirement = 0, cooldown = 1, },
+	},
 	statSets = {
 		[1] = {
 			label = "Elemental Discharge",
@@ -1066,13 +1070,13 @@ skills["SupportElementalFocusPlayer"] = {
 	name = "Elemental Focus",
 	description = "Supports any skill that Hits enemies, causing it to deal more Elemental Damage but be unable to inflict Elemental Ailments.",
 	color = 3,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Damage, SkillType.Attack, SkillType.CrossbowAmmoSkill, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Elemental Focus",
@@ -1096,13 +1100,13 @@ skills["SupportEnergyBarrierPlayer"] = {
 	name = "Energy Barrier",
 	description = "Supports any skill that you can use, causing Energy Shield recharge to begin immediately if you are Stunned while using it.",
 	color = 3,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { },
 	addSkillTypes = { },
 	excludeSkillTypes = { SkillType.Instant, SkillType.Persistent, },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Energy Barrier",
@@ -1125,13 +1129,13 @@ skills["SupportEnergyRetentionPlayer"] = {
 	name = "Energy Retention",
 	description = "Supports Meta Skills. Supported Skills gain a chance to partially Refund a portion of Energy cost when Triggering or Invoking other Skills.",
 	color = 3,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.GeneratesEnergy, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Energy Retention",
@@ -1154,13 +1158,13 @@ skills["SupportExcisePlayer"] = {
 	name = "Excise",
 	description = "Supports any damaging Skill that you use yourself, granting it significantly higher chance to Critically Hit, but causing it to gain a long cooldown. Cannot support Skills which already have a cooldown.",
 	color = 3,
-	levels = {
-		[1] = { storedUses = 1, levelRequirement = 0, cooldown = 8, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Attack, SkillType.Damage, SkillType.CrossbowAmmoSkill, },
 	addSkillTypes = { SkillType.SupportedByExcise, SkillType.Cooldown, },
 	excludeSkillTypes = { SkillType.Cooldown, SkillType.SupportedByExcise, SkillType.NOT, SkillType.AND, SkillType.SummonsTotem, SkillType.UsedByTotem, SkillType.Trapped, SkillType.RemoteMined, SkillType.Persistent, SkillType.Vaal, },
+	levels = {
+		[1] = { storedUses = 1, levelRequirement = 0, cooldown = 8, },
+	},
 	statSets = {
 		[1] = {
 			label = "Excise",
@@ -1184,13 +1188,13 @@ skills["SupportExecratePlayer"] = {
 	name = "Execrate",
 	description = "Supports any damaging Skill that you use yourself, granting it significantly higher chance to inflict Ailments on hit, but causing it to gain a long cooldown. Cannot support Skills which already have a cooldown.",
 	color = 3,
-	levels = {
-		[1] = { storedUses = 1, levelRequirement = 0, cooldown = 8, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Attack, SkillType.Damage, SkillType.CrossbowAmmoSkill, },
 	addSkillTypes = { SkillType.SupportedByExecrate, SkillType.Cooldown, },
 	excludeSkillTypes = { SkillType.Cooldown, SkillType.SupportedByExecrate, SkillType.NOT, SkillType.AND, SkillType.SummonsTotem, SkillType.UsedByTotem, SkillType.Trapped, SkillType.RemoteMined, SkillType.Persistent, SkillType.Vaal, },
+	levels = {
+		[1] = { storedUses = 1, levelRequirement = 0, cooldown = 8, },
+	},
 	statSets = {
 		[1] = {
 			label = "Execrate",
@@ -1213,13 +1217,13 @@ skills["SupportExecratePlayer"] = {
 skills["SupportExpandingGroundPlayer"] = {
 	name = "Expanding Ground",
 	color = 3,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Expanding Ground",
@@ -1243,13 +1247,13 @@ skills["SupportExpansePlayer"] = {
 	name = "Expanse",
 	description = "Supports any Skill that you use yourself, granting it significantly higher Area of Effect but causing it to gain a long cooldown. Cannot support Skills which already have a cooldown.",
 	color = 3,
-	levels = {
-		[1] = { storedUses = 1, levelRequirement = 0, cooldown = 6, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Area, SkillType.MinionsCanExplode, },
 	addSkillTypes = { SkillType.SupportedByExpanse, SkillType.Cooldown, },
 	excludeSkillTypes = { SkillType.Cooldown, SkillType.SupportedByExpanse, SkillType.NOT, SkillType.AND, SkillType.SummonsTotem, SkillType.UsedByTotem, SkillType.Trapped, SkillType.RemoteMined, SkillType.Persistent, SkillType.Vaal, },
+	levels = {
+		[1] = { storedUses = 1, levelRequirement = 0, cooldown = 6, },
+	},
 	statSets = {
 		[1] = {
 			label = "Expanse",
@@ -1273,13 +1277,13 @@ skills["SupportExtractionPlayer"] = {
 	name = "Extraction",
 	description = "Supports Spell Skills. Using supported Spells will cause you to Sacrifice a portion of your Life on use, gaining extra Chaos Damage in exchange. Does not support Persistent Skills, Minion Skills, or Triggered Skills.",
 	color = 3,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Damage, },
 	addSkillTypes = { },
 	excludeSkillTypes = { SkillType.HasReservation, SkillType.Persistent, SkillType.Triggered, SkillType.Attack, SkillType.Minion, },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Extraction",
@@ -1303,13 +1307,13 @@ skills["SupportFeedingFrenzyPlayer"] = {
 	name = "Feeding Frenzy",
 	description = "Supports skills which create Minions, making them deal and take more damage.",
 	color = 3,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.CreatesMinion, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Feeding Frenzy",
@@ -1333,13 +1337,13 @@ skills["SupportFieryDeathPlayer"] = {
 	name = "Fiery Death",
 	description = "Supports any skill that Hits enemies, causing enemies it Ignites to have a chance to explode on death.",
 	color = 3,
-	levels = {
-		[1] = { manaMultiplier = 20, levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Damage, SkillType.Attack, SkillType.CrossbowAmmoSkill, },
 	addSkillTypes = { },
 	excludeSkillTypes = { SkillType.SkillGrantedBySupport, },
+	levels = {
+		[1] = { manaMultiplier = 20, levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Support",
@@ -1360,11 +1364,13 @@ skills["SupportFieryDeathPlayer"] = {
 }skills["TriggeredFieryDeathPlayer"] = {
 	name = "Fiery Death",
 	hidden = true,
-	levels = {
-		[1] = { manaMultiplier = 20, levelRequirement = 0, actorLevel = 1, },
-	},
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.Triggerable] = true, [SkillType.Fire] = true, [SkillType.TargetsDestructibleCorpses] = true, },
 	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { manaMultiplier = 20, levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Explosion",
@@ -1389,13 +1395,13 @@ skills["SupportFireMasteryPlayer"] = {
 	name = "Fire Mastery",
 	description = "Supports Fire skills, granting them an additional level.",
 	color = 3,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Fire, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Fire Mastery",
@@ -1418,13 +1424,13 @@ skills["SupportFocusedCursePlayer"] = {
 	name = "Focused Curse",
 	description = "Supports Curse skills, causing them to Curse enemies more quickly after being cast.",
 	color = 3,
-	levels = {
-		[1] = { manaMultiplier = 20, levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.AppliesCurse, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { manaMultiplier = 20, levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Focused Curse",
@@ -1447,13 +1453,13 @@ skills["SupportManaFountainPlayer"] = {
 	name = "Font of Mana",
 	description = "Supports Skills which create stationary objects. Objects created by supported Skills generate a Font of Mana, creating an Aura which grants Mana regeneration.",
 	color = 3,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.SupportedByFountains, SkillType.Orb, SkillType.SummonsTotem, SkillType.Offering, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Font of Mana",
@@ -1477,13 +1483,13 @@ skills["SupportWallFortressPlayer"] = {
 	name = "Fortress",
 	description = "Supports skills that create walls in a line, causing them to be created in a circle instead but deal less Hit damage.",
 	color = 3,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Wall, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Fortress",
@@ -1508,13 +1514,13 @@ skills["SupportChillingIcePlayer"] = {
 	name = "Frost Nexus",
 	description = "Supports any skill that Hits enemies, causing it to create patches of Chilled Ground around Frozen enemies.",
 	color = 3,
-	levels = {
-		[1] = { manaMultiplier = 20, levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Damage, SkillType.Attack, SkillType.CrossbowAmmoSkill, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { manaMultiplier = 20, levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Frost Nexus",
@@ -1538,13 +1544,13 @@ skills["SupportFrostfirePlayer"] = {
 	name = "Frostfire",
 	description = "Supports any skill that Hits enemies, causing it to Consume Freeze on Igniting a Frozen enemy to boost the effect of the Ignite.",
 	color = 3,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Attack, SkillType.Damage, SkillType.CrossbowAmmoSkill, },
 	addSkillTypes = { },
 	excludeSkillTypes = { SkillType.SkillConsumesIgnite, SkillType.SupportedByElementalDischarge, },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Frostfire",
@@ -1569,13 +1575,13 @@ skills["SupportFrozenVortexPlayer"] = {
 	name = "Frozen Vortex",
 	description = "Supports any skill that Hits enemies, causing it to create a chilling vortex on Shattering an enemy.",
 	color = 3,
-	levels = {
-		[1] = { manaMultiplier = 20, levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Damage, SkillType.Attack, SkillType.CrossbowAmmoSkill, },
 	addSkillTypes = { SkillType.DamageOverTime, SkillType.Area, SkillType.Duration, },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { manaMultiplier = 20, levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Frozen Vortex",
@@ -1600,13 +1606,13 @@ skills["SupportGlaciationPlayer"] = {
 	name = "Glaciation",
 	description = "Supports any skill that Hits enemies, making it more effective at Freezing enemies.",
 	color = 3,
-	levels = {
-		[1] = { manaMultiplier = 20, levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Damage, SkillType.Attack, SkillType.CrossbowAmmoSkill, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { manaMultiplier = 20, levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Glaciation",
@@ -1629,13 +1635,13 @@ skills["SupportGlacierPlayer"] = {
 	name = "Glacier",
 	description = "Supports any Skill which creates Ice Crystals, causing them to be created with higher Life.",
 	color = 3,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.IceCrystal, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Glacier",
@@ -1658,13 +1664,13 @@ skills["SupportCurseEffectPlayer"] = {
 	name = "Heightened Curse",
 	description = "Supports Curse Skills, magnifying their power.",
 	color = 3,
-	levels = {
-		[1] = { manaMultiplier = 40, levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.AppliesCurse, SkillType.IsBlasphemy, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { manaMultiplier = 40, levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Heightened Curse",
@@ -1687,13 +1693,13 @@ skills["SupportHexBloomPlayer"] = {
 	name = "Hex Bloom",
 	description = "Supports Curses, spreading their effects when a Cursed enemy dies.",
 	color = 3,
-	levels = {
-		[1] = { manaMultiplier = 20, levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.AppliesCurse, },
 	addSkillTypes = { SkillType.Area, },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { manaMultiplier = 20, levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Hex Bloom",
@@ -1716,13 +1722,13 @@ skills["SupportHinderPlayer"] = {
 	name = "Hinder",
 	description = "Supports Spells that deal non-Ailment Chaos damage over time, causing damage over time they inflict to also Hinder enemies.",
 	color = 3,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Spell, SkillType.DamageOverTime, SkillType.Chaos, SkillType.AND, SkillType.AND, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Hinder",
@@ -1743,13 +1749,13 @@ skills["SupportHourglassPlayer"] = {
 	name = "Hourglass",
 	description = "Supports any damaging skill that you use yourself, causing it to deal significantly more damage but gain a long cooldown. Cannot support Skills which already have a cooldown.",
 	color = 3,
-	levels = {
-		[1] = { storedUses = 1, levelRequirement = 0, cooldown = 10, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Attack, SkillType.Damage, SkillType.DegenOnlySpellDamage, SkillType.CrossbowAmmoSkill, },
 	addSkillTypes = { SkillType.Cooldown, SkillType.SupportedByHourglass, },
 	excludeSkillTypes = { SkillType.Cooldown, SkillType.SupportedByHourglass, SkillType.NOT, SkillType.AND, SkillType.SummonsTotem, SkillType.UsedByTotem, SkillType.Trapped, SkillType.RemoteMined, SkillType.Persistent, SkillType.Vaal, },
+	levels = {
+		[1] = { storedUses = 1, levelRequirement = 0, cooldown = 10, },
+	},
 	statSets = {
 		[1] = {
 			label = "Hourglass",
@@ -1773,14 +1779,14 @@ skills["SupportIceBitePlayer"] = {
 	name = "Ice Bite",
 	description = "Supports Attacks you use yourself. Freezing an enemy with supported skills infuses all of your Attacks with Cold damage for a short time.",
 	color = 3,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Attack, SkillType.CrossbowAmmoSkill, },
 	addSkillTypes = { SkillType.Duration, },
 	excludeSkillTypes = { SkillType.Trapped, SkillType.RemoteMined, SkillType.SummonsTotem, },
 	ignoreMinionTypes = true,
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Ice Bite",
@@ -1806,13 +1812,13 @@ skills["SupportIciclePlayer"] = {
 	name = "Icicle",
 	description = "Supports any Skill which creates Ice Crystals, causing them to be created with lower Life.",
 	color = 3,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.IceCrystal, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Icicle",
@@ -1835,13 +1841,13 @@ skills["ViciousHexSupportPlayer"] = {
 	name = "Impending Doom",
 	description = "Supports Curse skills you cast yourself, causing them to trigger Doom Blast on Cursed enemies when the Curse expires.",
 	color = 3,
-	levels = {
-		[1] = { manaMultiplier = 30, levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.AppliesCurse, },
 	addSkillTypes = { },
 	excludeSkillTypes = { SkillType.Triggered, SkillType.InbuiltTrigger, SkillType.Aura, },
+	levels = {
+		[1] = { manaMultiplier = 30, levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Support",
@@ -1860,12 +1866,14 @@ skills["ViciousHexSupportPlayer"] = {
 }skills["DoomBlastPlayer"] = {
 	name = "Doom Blast",
 	hidden = true,
-	levels = {
-		[1] = { storedUses = 3, levelRequirement = 0, cooldown = 0.15, actorLevel = 1, },
-	},
 	description = "Deals Chaos damage in an area around the previously Cursed enemy.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.AreaSpell] = true, [SkillType.Chaos] = true, [SkillType.Cooldown] = true, [SkillType.InbuiltTrigger] = true, [SkillType.SkillGrantedBySupport] = true, },
 	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { storedUses = 3, levelRequirement = 0, cooldown = 0.15, },
+	},
 	statSets = {
 		[1] = {
 			label = "Doom Blast",
@@ -1893,13 +1901,13 @@ skills["SupportImpetusPlayer"] = {
 	name = "Impetus",
 	description = "Supports Meta Skills. Supported Skills generate Energy significantly faster.",
 	color = 3,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.GeneratesEnergy, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Impetus",
@@ -1922,14 +1930,14 @@ skills["SupportInevitableCriticalsPlayer"] = {
 	name = "Inevitable Critical",
 	description = "Supports any skill you use yourself that Hits enemies, causing it to accumulate Critical Hit chance over time. ",
 	color = 3,
-	levels = {
-		[1] = { manaMultiplier = 20, levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Attack, SkillType.Damage, SkillType.CrossbowAmmoSkill, },
 	addSkillTypes = { },
 	excludeSkillTypes = { SkillType.Trapped, SkillType.RemoteMined, SkillType.SummonsTotem, },
 	ignoreMinionTypes = true,
+	levels = {
+		[1] = { manaMultiplier = 20, levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Inevitable Critical",
@@ -1954,13 +1962,13 @@ skills["SupportChaoticAssassinationPlayer"] = {
 	name = "Intense Agony",
 	description = "Supports Spells that deal non-Ailment damage over time, causing them to have a shorter duration but deal substantially more damage over time with Debuffs inflicted against enemies on full life.",
 	color = 3,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Spell, SkillType.DamageOverTime, SkillType.AND, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Intense Agony",
@@ -1984,13 +1992,13 @@ skills["SupportLastGaspPlayer"] = {
 	name = "Last Gasp",
 	description = "Supports skills that create Persistent Minions, causing those Minions to fight on for a short duration before dying when they are fatally wounded.",
 	color = 3,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.CreatesMinion, SkillType.Persistent, SkillType.AND, },
 	addSkillTypes = { SkillType.Duration, },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Last Gasp",
@@ -2013,13 +2021,13 @@ skills["SupportLightningMasteryPlayer"] = {
 	name = "Lightning Mastery",
 	description = "Supports Lightning skills, granting them an additional level.",
 	color = 3,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Lightning, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Lightning Mastery",
@@ -2042,13 +2050,13 @@ skills["SupportIncreasedAreaOfEffectPlayer"] = {
 	name = "Magnified Effect",
 	description = "Supports any skill with an area of effect, making it larger.",
 	color = 3,
-	levels = {
-		[1] = { manaMultiplier = 20, levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Area, SkillType.MinionsCanExplode, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { manaMultiplier = 20, levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Magnified Effect",
@@ -2073,14 +2081,14 @@ skills["SupportManaFlarePlayer"] = {
 	name = "Mana Flare",
 	description = "Supports any Spell that Hits enemies, causing it to trigger a Mana Flare on Critical Hit. The Mana Flare consumes your Mana to deal Fire damage. Cannot support the skills of Minions.",
 	color = 3,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Spell, SkillType.Damage, SkillType.AND, },
 	addSkillTypes = { },
 	excludeSkillTypes = { SkillType.SkillGrantedBySupport, },
 	ignoreMinionTypes = true,
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Support",
@@ -2099,11 +2107,13 @@ skills["SupportManaFlarePlayer"] = {
 }skills["TriggeredManaFlarePlayer"] = {
 	name = "Mana Flare",
 	hidden = true,
-	levels = {
-		[1] = { storedUses = 1, levelRequirement = 0, cooldown = 1, actorLevel = 1, },
-	},
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.Triggerable] = true, [SkillType.Cooldown] = true, },
 	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { storedUses = 1, levelRequirement = 0, cooldown = 1, },
+	},
 	statSets = {
 		[1] = {
 			label = "Mana Flare",
@@ -2128,13 +2138,13 @@ skills["SupportMinionInstabilityPlayer"] = {
 	name = "Minion Instability",
 	description = "Supports skills which create Minions, causing them to violently explode when reduced to Low Life.",
 	color = 3,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.CreatesMinion, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Minion Instability",
@@ -2157,13 +2167,13 @@ skills["SupportMinionMasteryPlayer"] = {
 	name = "Minion Mastery",
 	description = "Supports Minion skills, granting them an additional level.",
 	color = 3,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Minion, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Minion Mastery",
@@ -2186,14 +2196,14 @@ skills["SupportMinionPactPlayer"] = {
 	name = "Minion Pact",
 	description = "Supports damaging skills you use yourself, draining the life from one of your Minions on use in order to boost the skill's damage. Only takes effect if you have a Minion with enough life to drain the full amount.",
 	color = 3,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Damage, SkillType.Attack, SkillType.DamageOverTime, SkillType.CrossbowAmmoSkill, },
 	addSkillTypes = { },
 	excludeSkillTypes = { SkillType.Trapped, SkillType.RemoteMined, SkillType.SummonsTotem, },
 	ignoreMinionTypes = true,
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Minion Pact",
@@ -2217,13 +2227,13 @@ skills["SupportPhysicalMasteryPlayer"] = {
 	name = "Physical Mastery",
 	description = "Supports Physical skills, granting them an additional level.",
 	color = 3,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Physical, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Physical Mastery",
@@ -2246,13 +2256,13 @@ skills["SupportPotentialPlayer"] = {
 	name = "Potential",
 	description = "Supports Skills that you use yourself. Supported Skills will consume a Power Charge on use if possible, and will be much more likely to Critically Hit if they do. Supported Skills cannot generate Power Charges.",
 	color = 3,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Damage, SkillType.CrossbowAmmoSkill, SkillType.Attack, },
 	addSkillTypes = { SkillType.SkillConsumesPowerChargesOnUse, SkillType.SupportedByPotential, },
 	excludeSkillTypes = { SkillType.Minion, SkillType.SummonsTotem, SkillType.UsedByTotem, SkillType.Persistent, SkillType.SkillConsumesPowerChargesOnUse, SkillType.SupportedByPotential, SkillType.NOT, SkillType.AND, },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Potential",
@@ -2276,13 +2286,13 @@ skills["SupportTempestuousTempoPlayer"] = {
 	name = "Rising Tempest",
 	description = "Supports Skills which deal Damage, raising Elemental Damage dealt for each Skill used Recently of a different Elemental type. Cannot support Minion Skills.",
 	color = 3,
-	levels = {
-		[1] = { manaMultiplier = 20, levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Damage, SkillType.Attack, SkillType.CrossbowAmmoSkill, },
 	addSkillTypes = { },
 	excludeSkillTypes = { SkillType.Minion, SkillType.Persistent, },
+	levels = {
+		[1] = { manaMultiplier = 20, levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Rising Tempest",
@@ -2305,13 +2315,13 @@ skills["SupportRitualisticCursePlayer"] = {
 	name = "Ritualistic Curse",
 	description = "Supports Curse skills, causing them to cover a larger area but take longer to Curse enemies.",
 	color = 3,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.AppliesCurse, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Ritualistic Curse",
@@ -2335,13 +2345,13 @@ skills["SupportSacrificialLambPlayer"] = {
 	name = "Sacrificial Lamb",
 	description = "Supports skills which create Minions, causing your skills which can target Minions to prioritise targeting Minions from the Supported Skill.",
 	color = 3,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.CreatesMinion, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Sacrificial Lamb",
@@ -2365,13 +2375,13 @@ skills["SupportEnergyShieldOnShockKillPlayer"] = {
 	name = "Shock Siphon",
 	description = "Supports any skill that Hits enemies, causing you to recover Energy Shield when it kills a Shocked enemy.",
 	color = 3,
-	levels = {
-		[1] = { manaMultiplier = 20, levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Damage, SkillType.Attack, SkillType.CrossbowAmmoSkill, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { manaMultiplier = 20, levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Shock Siphon",
@@ -2396,13 +2406,13 @@ skills["SupportManaLeechPlayer"] = {
 	name = "Soul Thief",
 	description = "Supports Attacks, causing their Physical damage to Leech Mana.",
 	color = 3,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Attack, SkillType.CrossbowAmmoSkill, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Soul Thief",
@@ -2426,13 +2436,13 @@ skills["SupportSoulbreakerPlayer"] = {
 	name = "Soulbreaker",
 	description = "Supports skills you use yourself, causing them to trigger a Chaos Damage nova when breaking Enemy Energy Shield.",
 	color = 3,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { },
 	addSkillTypes = { },
 	excludeSkillTypes = { SkillType.Minion, SkillType.Totemable, SkillType.Trappable, SkillType.RemoteMined, },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Support",
@@ -2451,50 +2461,52 @@ skills["SupportSoulbreakerPlayer"] = {
 }skills["TriggeredSoulbreakerPlayer"] = {
 	name = "Soulbreaker",
 	hidden = true,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-		[2] = { levelRequirement = 0, actorLevel = 3.4519999027252, },
-		[3] = { levelRequirement = 0, actorLevel = 6.7670001983643, },
-		[4] = { levelRequirement = 0, actorLevel = 10.307999610901, },
-		[5] = { levelRequirement = 0, actorLevel = 14.074999809265, },
-		[6] = { levelRequirement = 0, actorLevel = 18.068000793457, },
-		[7] = { levelRequirement = 0, actorLevel = 22.287000656128, },
-		[8] = { levelRequirement = 0, actorLevel = 26.732000350952, },
-		[9] = { levelRequirement = 0, actorLevel = 31.40299987793, },
-		[10] = { levelRequirement = 0, actorLevel = 36.299999237061, },
-		[11] = { levelRequirement = 0, actorLevel = 41.423000335693, },
-		[12] = { levelRequirement = 0, actorLevel = 46.771999359131, },
-		[13] = { levelRequirement = 0, actorLevel = 52.34700012207, },
-		[14] = { levelRequirement = 0, actorLevel = 58.147998809814, },
-		[15] = { levelRequirement = 0, actorLevel = 64.175003051758, },
-		[16] = { levelRequirement = 0, actorLevel = 70.428001403809, },
-		[17] = { levelRequirement = 0, actorLevel = 76.906997680664, },
-		[18] = { levelRequirement = 0, actorLevel = 83.611999511719, },
-		[19] = { levelRequirement = 0, actorLevel = 90.542999267578, },
-		[20] = { levelRequirement = 0, actorLevel = 97.699996948242, },
-		[21] = { levelRequirement = 0, actorLevel = 105.08300018311, },
-		[22] = { levelRequirement = 0, actorLevel = 112.69200134277, },
-		[23] = { levelRequirement = 0, actorLevel = 120.52700042725, },
-		[24] = { levelRequirement = 0, actorLevel = 128.58799743652, },
-		[25] = { levelRequirement = 0, actorLevel = 136.875, },
-		[26] = { levelRequirement = 0, actorLevel = 145.38800048828, },
-		[27] = { levelRequirement = 0, actorLevel = 154.12699890137, },
-		[28] = { levelRequirement = 0, actorLevel = 163.09199523926, },
-		[29] = { levelRequirement = 0, actorLevel = 172.28300476074, },
-		[30] = { levelRequirement = 0, actorLevel = 181.69999694824, },
-		[31] = { levelRequirement = 0, actorLevel = 191.34300231934, },
-		[32] = { levelRequirement = 0, actorLevel = 201.21200561523, },
-		[33] = { levelRequirement = 0, actorLevel = 211.30700683594, },
-		[34] = { levelRequirement = 0, actorLevel = 221.62800598145, },
-		[35] = { levelRequirement = 0, actorLevel = 232.17500305176, },
-		[36] = { levelRequirement = 0, actorLevel = 242.94799804688, },
-		[37] = { levelRequirement = 0, actorLevel = 253.94700622559, },
-		[38] = { levelRequirement = 0, actorLevel = 265.17199707031, },
-		[39] = { levelRequirement = 0, actorLevel = 276.62298583984, },
-		[40] = { levelRequirement = 0, actorLevel = 288.29998779297, },
-	},
 	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Chaos] = true, [SkillType.SkillGrantedBySupport] = true, },
 	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { levelRequirement = 0, },
+		[2] = { levelRequirement = 0, },
+		[3] = { levelRequirement = 0, },
+		[4] = { levelRequirement = 0, },
+		[5] = { levelRequirement = 0, },
+		[6] = { levelRequirement = 0, },
+		[7] = { levelRequirement = 0, },
+		[8] = { levelRequirement = 0, },
+		[9] = { levelRequirement = 0, },
+		[10] = { levelRequirement = 0, },
+		[11] = { levelRequirement = 0, },
+		[12] = { levelRequirement = 0, },
+		[13] = { levelRequirement = 0, },
+		[14] = { levelRequirement = 0, },
+		[15] = { levelRequirement = 0, },
+		[16] = { levelRequirement = 0, },
+		[17] = { levelRequirement = 0, },
+		[18] = { levelRequirement = 0, },
+		[19] = { levelRequirement = 0, },
+		[20] = { levelRequirement = 0, },
+		[21] = { levelRequirement = 0, },
+		[22] = { levelRequirement = 0, },
+		[23] = { levelRequirement = 0, },
+		[24] = { levelRequirement = 0, },
+		[25] = { levelRequirement = 0, },
+		[26] = { levelRequirement = 0, },
+		[27] = { levelRequirement = 0, },
+		[28] = { levelRequirement = 0, },
+		[29] = { levelRequirement = 0, },
+		[30] = { levelRequirement = 0, },
+		[31] = { levelRequirement = 0, },
+		[32] = { levelRequirement = 0, },
+		[33] = { levelRequirement = 0, },
+		[34] = { levelRequirement = 0, },
+		[35] = { levelRequirement = 0, },
+		[36] = { levelRequirement = 0, },
+		[37] = { levelRequirement = 0, },
+		[38] = { levelRequirement = 0, },
+		[39] = { levelRequirement = 0, },
+		[40] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Soulbreaker",
@@ -2558,13 +2570,13 @@ skills["SupportSpellCascadePlayer"] = {
 	name = "Spell Cascade",
 	description = "Supports Spells that affect an area around you or a target location, causing those Spells to also target additional areas on either side of the target area, along a randomly chosen axis. Cannot support Channelling skills or Remote skills.",
 	color = 3,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Cascadable, },
 	addSkillTypes = { },
 	excludeSkillTypes = { SkillType.SummonsTotem, SkillType.UsedByTotem, SkillType.Trapped, SkillType.RemoteMined, SkillType.Vaal, SkillType.Channel, SkillType.Attack, },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Spell Cascade",
@@ -2590,13 +2602,13 @@ skills["SupportSpellEchoPlayer"] = {
 	name = "Spell Echo",
 	description = "Supports Spells that affect an area around you or a target location. Supported Spells echo, causing their effects to happen again after a short delay. Cannot support Channelling skills or Remote skills.",
 	color = 3,
-	levels = {
-		[1] = { manaMultiplier = 50, levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Cascadable, },
 	addSkillTypes = { },
 	excludeSkillTypes = { SkillType.SummonsTotem, SkillType.UsedByTotem, SkillType.Trapped, SkillType.RemoteMined, SkillType.Vaal, SkillType.Channel, SkillType.Attack, },
+	levels = {
+		[1] = { manaMultiplier = 50, levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Spell Echo",
@@ -2622,13 +2634,13 @@ skills["SupportStormfirePlayer"] = {
 	name = "Stormfire",
 	description = "Supports any skill that Hits enemies, prolonging Shocks they inflict on Ignited enemies.",
 	color = 3,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Attack, SkillType.Damage, SkillType.CrossbowAmmoSkill, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Stormfire",
@@ -2649,13 +2661,13 @@ skills["SupportStripAwayPlayer"] = {
 	name = "Strip Away",
 	description = "Supports Skills which apply Exposure to Enemies, increasing the effect of applied Exposure.",
 	color = 3,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Damage, SkillType.Spell, SkillType.DegenOnlySpellDamage, SkillType.CrossbowAmmoSkill, SkillType.Attack, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Strip Away",
@@ -2678,13 +2690,13 @@ skills["SupportIncreasedCriticalDamagePlayer"] = {
 	name = "Supercritical",
 	description = "Supports any skill that Hits enemies, causing it to deal more damage with Critical Hits but have less Critical Hit chance.",
 	color = 3,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Damage, SkillType.Attack, SkillType.CrossbowAmmoSkill, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Supercritical",
@@ -2709,13 +2721,13 @@ skills["SupportUnleashPlayer"] = {
 	name = "Unleash",
 	description = "Supports Spells you cast yourself, making their effect reoccur when cast. Cannot support Channelling Skills or Skills with a Cooldown.",
 	color = 3,
-	levels = {
-		[1] = { PvPDamageMultiplier = -40, levelRequirement = 0, manaMultiplier = 50, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.CanRapidFire, SkillType.Spell, },
 	addSkillTypes = { },
 	excludeSkillTypes = { SkillType.SummonsTotem, SkillType.UsedByTotem, SkillType.Trapped, SkillType.RemoteMined, SkillType.Triggered, SkillType.HasReservation, SkillType.Vaal, SkillType.Instant, SkillType.Channel, SkillType.Cooldown, SkillType.Attack, },
+	levels = {
+		[1] = { PvPDamageMultiplier = -40, levelRequirement = 0, manaMultiplier = 50, },
+	},
 	statSets = {
 		[1] = {
 			label = "Unleash",
@@ -2740,52 +2752,52 @@ skills["SupportWildfirePlayer"] = {
 	name = "Wildfire",
 	description = "Supports any skill that Hits enemies, Spreading Ignites it inflicts to nearby enemies after a delay.",
 	color = 3,
-	levels = {
-		[1] = { manaMultiplier = 20, levelRequirement = 0, actorLevel = 1, },
-		[2] = { manaMultiplier = 20, levelRequirement = 3, actorLevel = 3.4519999027252, },
-		[3] = { manaMultiplier = 20, levelRequirement = 6, actorLevel = 6.7670001983643, },
-		[4] = { manaMultiplier = 20, levelRequirement = 10, actorLevel = 10.307999610901, },
-		[5] = { manaMultiplier = 20, levelRequirement = 14, actorLevel = 14.074999809265, },
-		[6] = { manaMultiplier = 20, levelRequirement = 18, actorLevel = 18.068000793457, },
-		[7] = { manaMultiplier = 20, levelRequirement = 22, actorLevel = 22.287000656128, },
-		[8] = { manaMultiplier = 20, levelRequirement = 26, actorLevel = 26.732000350952, },
-		[9] = { manaMultiplier = 20, levelRequirement = 31, actorLevel = 31.40299987793, },
-		[10] = { manaMultiplier = 20, levelRequirement = 36, actorLevel = 36.299999237061, },
-		[11] = { manaMultiplier = 20, levelRequirement = 41, actorLevel = 41.423000335693, },
-		[12] = { manaMultiplier = 20, levelRequirement = 46, actorLevel = 46.771999359131, },
-		[13] = { manaMultiplier = 20, levelRequirement = 52, actorLevel = 52.34700012207, },
-		[14] = { manaMultiplier = 20, levelRequirement = 58, actorLevel = 58.147998809814, },
-		[15] = { manaMultiplier = 20, levelRequirement = 64, actorLevel = 64.175003051758, },
-		[16] = { manaMultiplier = 20, levelRequirement = 66, actorLevel = 70.428001403809, },
-		[17] = { manaMultiplier = 20, levelRequirement = 72, actorLevel = 76.906997680664, },
-		[18] = { manaMultiplier = 20, levelRequirement = 78, actorLevel = 83.611999511719, },
-		[19] = { manaMultiplier = 20, levelRequirement = 84, actorLevel = 90.542999267578, },
-		[20] = { manaMultiplier = 20, levelRequirement = 90, actorLevel = 97.699996948242, },
-		[21] = { manaMultiplier = 20, levelRequirement = 90, actorLevel = 105.08300018311, },
-		[22] = { manaMultiplier = 20, levelRequirement = 90, actorLevel = 112.69200134277, },
-		[23] = { manaMultiplier = 20, levelRequirement = 90, actorLevel = 120.52700042725, },
-		[24] = { manaMultiplier = 20, levelRequirement = 90, actorLevel = 128.58799743652, },
-		[25] = { manaMultiplier = 20, levelRequirement = 90, actorLevel = 136.875, },
-		[26] = { manaMultiplier = 20, levelRequirement = 90, actorLevel = 145.38800048828, },
-		[27] = { manaMultiplier = 20, levelRequirement = 90, actorLevel = 154.12699890137, },
-		[28] = { manaMultiplier = 20, levelRequirement = 90, actorLevel = 163.09199523926, },
-		[29] = { manaMultiplier = 20, levelRequirement = 90, actorLevel = 172.28300476074, },
-		[30] = { manaMultiplier = 20, levelRequirement = 90, actorLevel = 181.69999694824, },
-		[31] = { manaMultiplier = 20, levelRequirement = 90, actorLevel = 191.34300231934, },
-		[32] = { manaMultiplier = 20, levelRequirement = 90, actorLevel = 201.21200561523, },
-		[33] = { manaMultiplier = 20, levelRequirement = 90, actorLevel = 211.30700683594, },
-		[34] = { manaMultiplier = 20, levelRequirement = 90, actorLevel = 221.62800598145, },
-		[35] = { manaMultiplier = 20, levelRequirement = 90, actorLevel = 232.17500305176, },
-		[36] = { manaMultiplier = 20, levelRequirement = 90, actorLevel = 242.94799804688, },
-		[37] = { manaMultiplier = 20, levelRequirement = 90, actorLevel = 253.94700622559, },
-		[38] = { manaMultiplier = 20, levelRequirement = 90, actorLevel = 265.17199707031, },
-		[39] = { manaMultiplier = 20, levelRequirement = 90, actorLevel = 276.62298583984, },
-		[40] = { manaMultiplier = 20, levelRequirement = 90, actorLevel = 288.29998779297, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Damage, SkillType.Attack, SkillType.CrossbowAmmoSkill, },
 	addSkillTypes = { SkillType.Area, },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { manaMultiplier = 20, levelRequirement = 0, },
+		[2] = { manaMultiplier = 20, levelRequirement = 3, },
+		[3] = { manaMultiplier = 20, levelRequirement = 6, },
+		[4] = { manaMultiplier = 20, levelRequirement = 10, },
+		[5] = { manaMultiplier = 20, levelRequirement = 14, },
+		[6] = { manaMultiplier = 20, levelRequirement = 18, },
+		[7] = { manaMultiplier = 20, levelRequirement = 22, },
+		[8] = { manaMultiplier = 20, levelRequirement = 26, },
+		[9] = { manaMultiplier = 20, levelRequirement = 31, },
+		[10] = { manaMultiplier = 20, levelRequirement = 36, },
+		[11] = { manaMultiplier = 20, levelRequirement = 41, },
+		[12] = { manaMultiplier = 20, levelRequirement = 46, },
+		[13] = { manaMultiplier = 20, levelRequirement = 52, },
+		[14] = { manaMultiplier = 20, levelRequirement = 58, },
+		[15] = { manaMultiplier = 20, levelRequirement = 64, },
+		[16] = { manaMultiplier = 20, levelRequirement = 66, },
+		[17] = { manaMultiplier = 20, levelRequirement = 72, },
+		[18] = { manaMultiplier = 20, levelRequirement = 78, },
+		[19] = { manaMultiplier = 20, levelRequirement = 84, },
+		[20] = { manaMultiplier = 20, levelRequirement = 90, },
+		[21] = { manaMultiplier = 20, levelRequirement = 90, },
+		[22] = { manaMultiplier = 20, levelRequirement = 90, },
+		[23] = { manaMultiplier = 20, levelRequirement = 90, },
+		[24] = { manaMultiplier = 20, levelRequirement = 90, },
+		[25] = { manaMultiplier = 20, levelRequirement = 90, },
+		[26] = { manaMultiplier = 20, levelRequirement = 90, },
+		[27] = { manaMultiplier = 20, levelRequirement = 90, },
+		[28] = { manaMultiplier = 20, levelRequirement = 90, },
+		[29] = { manaMultiplier = 20, levelRequirement = 90, },
+		[30] = { manaMultiplier = 20, levelRequirement = 90, },
+		[31] = { manaMultiplier = 20, levelRequirement = 90, },
+		[32] = { manaMultiplier = 20, levelRequirement = 90, },
+		[33] = { manaMultiplier = 20, levelRequirement = 90, },
+		[34] = { manaMultiplier = 20, levelRequirement = 90, },
+		[35] = { manaMultiplier = 20, levelRequirement = 90, },
+		[36] = { manaMultiplier = 20, levelRequirement = 90, },
+		[37] = { manaMultiplier = 20, levelRequirement = 90, },
+		[38] = { manaMultiplier = 20, levelRequirement = 90, },
+		[39] = { manaMultiplier = 20, levelRequirement = 90, },
+		[40] = { manaMultiplier = 20, levelRequirement = 90, },
+	},
 	statSets = {
 		[1] = {
 			label = "Wildfire",
@@ -2808,13 +2820,13 @@ skills["SupportWildshardsPlayer"] = {
 	name = "Wildshards",
 	description = "Supports Spell Skills that fire Projectiles. Supported Skills have a chance to fire many additional Projectiles in a circle.",
 	color = 3,
-	levels = {
-		[1] = { manaMultiplier = 20, levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Spell, SkillType.Projectile, SkillType.AND, },
 	addSkillTypes = { },
 	excludeSkillTypes = { SkillType.ProjectilesNumberModifiersNotApplied, },
+	levels = {
+		[1] = { manaMultiplier = 20, levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Wildshards",
@@ -2837,13 +2849,13 @@ skills["SupportWitheringTouchPlayer"] = {
 	name = "Withering Touch",
 	description = "Supports any skill that Hits enemies, giving it a chance to Wither enemies on Hit.",
 	color = 3,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Damage, SkillType.Attack, SkillType.CrossbowAmmoSkill, },
 	addSkillTypes = { SkillType.Duration, },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Withering Touch",

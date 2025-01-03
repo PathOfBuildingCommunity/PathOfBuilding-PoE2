@@ -312,7 +312,7 @@ directiveTable.skill = function(state, args, out)
 	end
 	for indx = 1, #perLevel do
 		local levelRow = perLevel[indx]
-		local level = { extra = { }, statInterpolation = { }, actorLevel = 1, cost = { } }
+		local level = { extra = { }, cost = { } }
 		level.level = levelRow.Level
 		level.extra.levelRequirement = math.max(gemLevelProgression and gemLevelProgression[indx] and gemLevelProgression[indx].PlayerLevel or 0, nextGemLevelReqValue)
 		nextGemLevelReqValue = level.extra.levelRequirement
@@ -362,38 +362,15 @@ directiveTable.skill = function(state, args, out)
 		--if statRow.DamageEffectiveness ~= 0 then
 		--	level.extra.damageEffectiveness = statRow.DamageEffectiveness / 10000 + 1
 		--end
-		level.actorLevel = levelRow.ActorLevel
 		table.insert(skill.levels, level)
 	end
-	out:write('\tlevels = {\n')
-	for _, level in ipairs(skill.levels) do
-		out:write('\t\t[', level.level, '] = { ')
-		for _, statVal in ipairs(level) do
-			out:write(tostring(statVal), ', ')
-		end
-		for k, v in pairs(level.extra) do
-			out:write(k, ' = ', tostring(v), ', ')
-		end
-		if level.actorLevel ~= nil then
-			out:write('actorLevel = ', level.actorLevel, ', ')
-		end
-		if next(level.cost) ~= nil then
-			out:write('cost = { ')
-			for k, v in pairs(level.cost) do
-				out:write(k, ' = ', tostring(v), ', ')
-			end
-			out:write('}, ')
-		end
-		out:write('},\n')
-	end
-	out:write('\t},\n')
-	if not skill.qualityStats then
+	if not skill.qualityStats and not granted.IsSupport then
 		skill.qualityStats = { }
-		for i, qualityStatsRow in ipairs(dat("GrantedEffectQualityStats"):GetRowList("GrantedEffect", granted)) do
-			skill.qualityStats[i] = { }
-			for j, stat in ipairs(qualityStatsRow.GrantedStats) do
-				table.insert(skill.qualityStats[i], { stat.Id, qualityStatsRow.StatValues[j] / 1000 })
-				--ConPrintf("[%d] %s %s", i, granted.ActiveSkill.DisplayName, stat.Id)
+		local qualityStats = dat("GrantedEffectQualityStats"):GetRow("GrantedEffect", granted)
+		if qualityStats and qualityStats.GrantedStats then
+			for i, stat in ipairs(qualityStats.GrantedStats) do
+				table.insert(skill.qualityStats, { stat.Id, qualityStats.StatValues[i] / 1000 })
+				ConPrintf("[%d] %s %s", i, granted.ActiveSkill.DisplayName, stat.Id)
 			end
 		end
 	end
@@ -484,22 +461,35 @@ directiveTable.skill = function(state, args, out)
 			out:write('\tcannotBeSupported = true,\n')
 		end
 	end
-	if next(skill.qualityStats) ~= nil then
+	if skill.qualityStats then
 		out:write('\tqualityStats = {\n')
-		for i, alternates in ipairs(skill.qualityStats) do
-			if i == 1 then
-				out:write('\t\tDefault = {\n')
-			else
-				local value = i - 1
-				out:write('\t\tAlternate' .. value .. ' = {\n')
-			end
-			for _, stat in ipairs(alternates) do
-				out:write('\t\t\t{ "', stat[1], '", ', stat[2], ' },\n')
-			end
-			out:write('\t\t},\n')
+		for _, stat in ipairs(skill.qualityStats) do
+			out:write('\t\t{ "', stat[1], '", ', stat[2], ' },\n')
 		end
 		out:write('\t},\n')
 	end
+	out:write('\tlevels = {\n')
+	for _, level in ipairs(skill.levels) do
+		out:write('\t\t[', level.level, '] = { ')
+		for _, statVal in ipairs(level) do
+			out:write(tostring(statVal), ', ')
+		end
+		for k, v in pairs(level.extra) do
+			out:write(k, ' = ', tostring(v), ', ')
+		end
+		if level.actorLevel ~= nil then
+			out:write('actorLevel = ', level.actorLevel, ', ')
+		end
+		if next(level.cost) ~= nil then
+			out:write('cost = { ')
+			for k, v in pairs(level.cost) do
+				out:write(k, ' = ', tostring(v), ', ')
+			end
+			out:write('}, ')
+		end
+		out:write('},\n')
+	end
+	out:write('\t},\n')
 end
 
 directiveTable.startSets = function(state, args, out)

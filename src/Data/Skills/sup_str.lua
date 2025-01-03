@@ -9,13 +9,13 @@ skills["SupportAftershockChancePlayer"] = {
 	name = "Aftershock",
 	description = "Supports Slams you use yourself, giving them a chance to create an Aftershock.",
 	color = 1,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Slam, },
 	addSkillTypes = { },
 	excludeSkillTypes = { SkillType.SummonsTotem, SkillType.UsedByTotem, SkillType.Trapped, SkillType.RemoteMined, SkillType.Vaal, },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Aftershock",
@@ -38,13 +38,13 @@ skills["SupportAncestralUrgencyPlayer"] = {
 	name = "Ancestral Urgency",
 	description = "Supports Skills which place Totems, causing those skills to place Totems much more quickly.",
 	color = 1,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.SummonsTotem, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Ancestral Urgency",
@@ -67,13 +67,13 @@ skills["SupportArmourExplosionPlayer"] = {
 	name = "Armour Explosion",
 	description = "Supports Attacks, causing them to trigger a Fiery explosion when they Fully Break an enemy's Armour.",
 	color = 1,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Attack, SkillType.CrossbowAmmoSkill, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Support",
@@ -92,11 +92,13 @@ skills["SupportArmourExplosionPlayer"] = {
 }skills["ArmourExplosionPlayer"] = {
 	name = "",
 	hidden = true,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.Damage] = true, [SkillType.Triggered] = true, [SkillType.Triggerable] = true, [SkillType.SkillGrantedBySupport] = true, },
 	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Explosion",
@@ -123,13 +125,13 @@ skills["SupportAutoReloadPlayer"] = {
 	name = "Auto Reload",
 	description = "Supports Crossbow Ammunition Skills, causing them to automatically reload when they Heavy Stun an enemy.",
 	color = 1,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.CrossbowAmmoSkill, SkillType.CrossbowSkill, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Auto Reload",
@@ -150,13 +152,13 @@ skills["SupportBeheadPlayer"] = {
 	name = "Behead",
 	description = "Supports Strike skills, causing them to steal Modifiers from Rare monsters they kill.",
 	color = 1,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.MeleeSingleTarget, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Behead",
@@ -179,13 +181,13 @@ skills["SupportBloodlustPlayer"] = {
 	name = "Bloodlust",
 	description = "Supports Melee Attacks, causing them to deal more damage against Bleeding enemies, but preventing them from inflicting Bleeding.",
 	color = 1,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Melee, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Bloodlust",
@@ -214,13 +216,13 @@ skills["SupportKnockbackPlayer"] = {
 	name = "Bludgeon",
 	description = "Supports any skill that Hits enemies, causing it to Knock Back enemies.",
 	color = 1,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Damage, SkillType.Attack, SkillType.CrossbowAmmoSkill, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Bludgeon",
@@ -245,13 +247,13 @@ skills["SupportEnduranceChargeOnArmourBreak"] = {
 	name = "Break Endurance",
 	description = "Supports any skill that Hits enemies, giving it a chance to gain an Endurance Charge when it Fully Breaks an enemy's Armour.",
 	color = 1,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Attack, SkillType.Damage, SkillType.CrossbowAmmoSkill, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Break Endurance",
@@ -274,13 +276,13 @@ skills["SupportBrutalityPlayer"] = {
 	name = "Brutality",
 	description = "Supports any skill that deals damage, boosting its Physical damage at the expense of all other Damage Types.",
 	color = 1,
-	levels = {
-		[1] = { manaMultiplier = 20, levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Damage, SkillType.Attack, SkillType.DamageOverTime, SkillType.CrossbowAmmoSkill, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { manaMultiplier = 20, levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Brutality",
@@ -310,13 +312,13 @@ skills["SupportCannibalismPlayer"] = {
 	name = "Cannibalism",
 	description = "Supports Persistent Buff Skills, causing you to recover Life on kill while the Skill is active.",
 	color = 1,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Persistent, SkillType.Buff, SkillType.AND, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Cannibalism",
@@ -344,13 +346,13 @@ skills["SupportCorruptingCryPlayer"] = {
 	name = "Corrupting Cry",
 	description = "Supports Warcries, causing them to inflict Corrupted Blood on enemies in their area of effect.",
 	color = 1,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Warcry, },
 	addSkillTypes = { SkillType.DamageOverTime, SkillType.Duration, },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Corrupting Cry",
@@ -401,13 +403,13 @@ skills["SupportDazingCryPlayer"] = {
 	name = "Dazing Cry",
 	description = "Supports Warcries, causing them to Daze Enemies on use.",
 	color = 1,
-	levels = {
-		[1] = { manaMultiplier = 10, levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Warcry, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { manaMultiplier = 10, levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Dazing Cry",
@@ -431,13 +433,13 @@ skills["SupportDeepCutsPlayer"] = {
 	name = "Deep Cuts",
 	description = "Supports any skill that Hits enemies, causing it to deal less damage but inflict more potent Bleeding.",
 	color = 1,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Attack, SkillType.Damage, SkillType.CrossbowAmmoSkill, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Deep Cuts",
@@ -469,13 +471,13 @@ skills["SupportIncreasedArmourBreakPlayer"] = {
 	name = "Demolisher",
 	description = "Supports any skill, causing Armour Break it inflicts to be stronger.",
 	color = 1,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Spell, SkillType.Attack, SkillType.Damage, SkillType.CrossbowAmmoSkill, SkillType.DegenOnlySpellDamage, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Demolisher",
@@ -503,13 +505,13 @@ skills["SupportGroundEffectDurationPlayer"] = {
 	name = "Despoiler",
 	description = "Supports Skills that create Ground Surfaces, causing those surfaces to last longer.",
 	color = 1,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.CreatesGroundEffect, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Support",
@@ -532,13 +534,13 @@ skills["SupportDevastatePlayer"] = {
 	name = "Devastate",
 	description = "Supports any skill that Hits enemies, causing them to apply Broken Armour to enemies when causing a Heavy Stun to enemies.",
 	color = 1,
-	levels = {
-		[1] = { manaMultiplier = 20, levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Damage, SkillType.Attack, SkillType.CrossbowAmmoSkill, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { manaMultiplier = 20, levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Devastate",
@@ -564,13 +566,13 @@ skills["SupportDoubleBarrelPlayer"] = {
 	name = "Double Barrel",
 	description = "Supports Crossbow Ammunition Skills, causing them to load an extra bolt at the cost of reload speed.",
 	color = 1,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.CrossbowAmmoSkill, SkillType.CrossbowSkill, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Double Barrel",
@@ -594,13 +596,13 @@ skills["SupportEnragedWarcryPlayer"] = {
 	name = "Enraged Warcry",
 	description = "Supports Warcries, causing them to consume Rage to further boost Empowered Attacks.",
 	color = 1,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Warcry, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Enraged Warcry",
@@ -624,13 +626,13 @@ skills["SupportIgniteDurationPlayer"] = {
 	name = "Eternal Flame",
 	description = "Supports any skill that Hits enemies, causing its Ignites to be inflicted less often but last longer.",
 	color = 1,
-	levels = {
-		[1] = { manaMultiplier = 20, levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Damage, SkillType.Attack, SkillType.CrossbowAmmoSkill, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { manaMultiplier = 20, levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Eternal Flame",
@@ -659,13 +661,13 @@ skills["SupportExecutePlayer"] = {
 	name = "Execute",
 	description = "Supports any skill that Hits enemies, causing it to deal more damage against enemies on Low Life.",
 	color = 1,
-	levels = {
-		[1] = { manaMultiplier = 10, levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Damage, SkillType.Attack, SkillType.CrossbowAmmoSkill, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { manaMultiplier = 10, levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Execute",
@@ -693,13 +695,13 @@ skills["SupportExploitWeaknessPlayer"] = {
 	name = "Exploit Weakness",
 	description = "Supports any skill that Hits enemies, causing them to deal more Damage against enemies with Broken Armour but preventing them from Breaking Armour themselves. Cannot support skills that Consume Broken Armour.",
 	color = 1,
-	levels = {
-		[1] = { manaMultiplier = 30, levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Damage, SkillType.Attack, SkillType.CrossbowAmmoSkill, },
 	addSkillTypes = { },
 	excludeSkillTypes = { SkillType.ConsumesFullyBrokenArmour, },
+	levels = {
+		[1] = { manaMultiplier = 30, levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Exploit Weakness",
@@ -728,13 +730,13 @@ skills["LessDurationSupportPlayer"] = {
 	name = "Fast Forward",
 	description = "Supports any skill that has a duration, making that duration shorter.",
 	color = 1,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Duration, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Fast Forward",
@@ -763,13 +765,13 @@ skills["SupportFireExposurePlayer"] = {
 	name = "Fire Exposure",
 	description = "Supports any skill that Hits enemies, causing it to inflict Fire Exposure when it Ignites an enemy.",
 	color = 1,
-	levels = {
-		[1] = { manaMultiplier = 20, levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Attack, SkillType.Damage, SkillType.CrossbowAmmoSkill, },
 	addSkillTypes = { SkillType.Duration, },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { manaMultiplier = 20, levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Fire Exposure",
@@ -797,13 +799,13 @@ skills["SupportAddedFireDamagePlayer"] = {
 	name = "Fire Infusion",
 	description = "Supports Attacks, causing them to Gain Fire Damage but deal less Cold and Lightning Damage.",
 	color = 1,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Attack, SkillType.CrossbowAmmoSkill, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Fire Infusion",
@@ -834,13 +836,13 @@ skills["SupportFirePenetrationPlayer"] = {
 	name = "Fire Penetration",
 	description = "Supports any skill that Hits enemies, making those Hits Penetrate enemy Fire resistance.",
 	color = 1,
-	levels = {
-		[1] = { manaMultiplier = 20, levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Damage, SkillType.Attack, SkillType.CrossbowAmmoSkill, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { manaMultiplier = 20, levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Fire Penetration",
@@ -863,13 +865,13 @@ skills["FistOfWarSupportPlayer"] = {
 	name = "Fist of War",
 	description = "Supports Slams you use yourself, providing a powerful Ancestral Boost every few seconds.",
 	color = 1,
-	levels = {
-		[1] = { manaMultiplier = 40, levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Slam, },
 	addSkillTypes = { },
 	excludeSkillTypes = { SkillType.SummonsTotem, SkillType.UsedByTotem, SkillType.Trapped, SkillType.RemoteMined, SkillType.Vaal, },
+	levels = {
+		[1] = { manaMultiplier = 40, levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Fist of War",
@@ -903,13 +905,13 @@ skills["SupportBloodFountainPlayer"] = {
 	name = "Font of Blood",
 	description = "Supports Skills which create stationary objects. Objects created by supported Skills generate a Font of Blood, creating an Aura which grants Life regeneration.",
 	color = 1,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.SupportedByFountains, SkillType.Orb, SkillType.SummonsTotem, SkillType.Offering, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Font of Blood",
@@ -939,13 +941,13 @@ skills["SupportRageFountainPlayer"] = {
 	name = "Font of Rage",
 	description = "Supports Skills which create stationary objects. Objects created by supported Skills generate a Font of Rage, creating an Aura which grants Rage over time, as well as preventing Rage loss.",
 	color = 1,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.SupportedByFountains, SkillType.Orb, SkillType.SummonsTotem, SkillType.Offering, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Font of Rage",
@@ -975,13 +977,13 @@ skills["SupportFreshClipPlayer"] = {
 	name = "Fresh Clip",
 	description = "Supports Crossbow Skills, granting them more damage for each bolt reloaded by that Skill in the last 6 seconds.",
 	color = 1,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.CrossbowAmmoSkill, SkillType.CrossbowSkill, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Fresh Clip",
@@ -1004,13 +1006,13 @@ skills["SupportMeleePhysicalDamagePlayer"] = {
 	name = "Heavy Swing",
 	description = "Supports Melee Attacks, boosting their Physical damage at the cost of Attack Speed.",
 	color = 1,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Melee, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Heavy Swing",
@@ -1043,13 +1045,13 @@ skills["SupportHeftPlayer"] = {
 	name = "Heft",
 	description = "Supports Skills which deal Damage, increasing the maximum Physical Damage of their Hits.",
 	color = 1,
-	levels = {
-		[1] = { manaMultiplier = 20, levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Damage, SkillType.Attack, SkillType.CrossbowAmmoSkill, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { manaMultiplier = 20, levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Heft",
@@ -1077,13 +1079,13 @@ skills["SupportHerbalismPlayer"] = {
 	name = "Herbalism",
 	description = "Supports Persistent Buff Skills, causing you to gain increased Life recovery from Flasks while the Skill is active.",
 	color = 1,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Persistent, SkillType.Buff, SkillType.AND, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Herbalism",
@@ -1111,13 +1113,13 @@ skills["SupportHolyDescentPlayer"] = {
 	name = "Holy Descent",
 	description = "Supports Skills that leap into the air, causing them to create Consecrated Ground when you land",
 	color = 1,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Jumping, },
 	addSkillTypes = { SkillType.CreatesGroundEffect, },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Holy Descent",
@@ -1149,13 +1151,13 @@ skills["SupportChanceToIgnitePlayer"] = {
 	name = "Ignition",
 	description = "Supports any skill that Hits enemies, making it more likely to Ignite.",
 	color = 1,
-	levels = {
-		[1] = { manaMultiplier = 20, levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Damage, SkillType.Attack, SkillType.CrossbowAmmoSkill, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { manaMultiplier = 20, levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Ignition",
@@ -1183,13 +1185,13 @@ skills["SupportImmolatePlayer"] = {
 	name = "Immolate",
 	description = "Supports Attacks, granting them extra Fire damage against Ignited enemies but making them unable to Ignite enemies themselves.",
 	color = 1,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Attack, SkillType.CrossbowAmmoSkill, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Immolate",
@@ -1215,16 +1217,16 @@ skills["ImpactShockwaveSupportPlayer"] = {
 	name = "Impact Shockwave",
 	description = "Supports Melee Strike skills, causing them to create an Aftershock that damages enemies around the target when they Heavy Stun an enemy.",
 	color = 1,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-		[2] = { levelRequirement = 3, actorLevel = 3.4519999027252, },
-		[3] = { levelRequirement = 6, actorLevel = 6.7670001983643, },
-		[4] = { levelRequirement = 10, actorLevel = 10.307999610901, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.MeleeSingleTarget, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { levelRequirement = 0, },
+		[2] = { levelRequirement = 3, },
+		[3] = { levelRequirement = 6, },
+		[4] = { levelRequirement = 10, },
+	},
 	statSets = {
 		[1] = {
 			label = "Impact Shockwave",
@@ -1247,13 +1249,13 @@ skills["SupportInfernalLegionPlayer"] = {
 	name = "Infernal Legion",
 	description = "Supports skills which create Minions, causing them and enemies near them to Burn. Damage dealt by the Burning is based off the Life of the supported Minion.",
 	color = 1,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.CreatesMinion, },
 	addSkillTypes = { SkillType.CausesBurning, },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Infernal Legion",
@@ -1291,13 +1293,13 @@ skills["SupportInspirationPlayer"] = {
 	name = "Inspiration",
 	description = "Supports any skill, making it cost less to use. Cannot support skills which reserve Spirit.",
 	color = 1,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { },
 	addSkillTypes = { },
 	excludeSkillTypes = { SkillType.Persistent, },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Inspiration",
@@ -1326,13 +1328,13 @@ skills["SupportIronwoodPlayer"] = {
 	name = "Ironwood",
 	description = "Supports Skills which create Totems. Totems created by Supported Skills have additional Elemental Resistances.",
 	color = 1,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.SummonsTotem, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Ironwood",
@@ -1355,13 +1357,13 @@ skills["SupportJaggedGroundPlayer"] = {
 	name = "Jagged Ground",
 	description = "Supports Slam skills, granting them a chance to create patches of Jagged Ground.",
 	color = 1,
-	levels = {
-		[1] = { manaMultiplier = 20, levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Slam, },
 	addSkillTypes = { SkillType.Duration, SkillType.Area, SkillType.CreatesGroundEffect, },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { manaMultiplier = 20, levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Jagged Ground",
@@ -1386,13 +1388,13 @@ skills["SupportChanceToBleedPlayer"] = {
 	name = "Lacerate",
 	description = "Supports any skill that Hits enemies, giving it a chance to inflict Bleeding.",
 	color = 1,
-	levels = {
-		[1] = { manaMultiplier = 20, levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Damage, SkillType.Attack, SkillType.CrossbowAmmoSkill, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { manaMultiplier = 20, levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Lacerate",
@@ -1415,13 +1417,13 @@ skills["SupportLifeLeechPlayer"] = {
 	name = "Life Thief",
 	description = "Supports Attacks, causing their Physical damage to Leech Life.",
 	color = 1,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Attack, SkillType.CrossbowAmmoSkill, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Life Thief",
@@ -1445,13 +1447,13 @@ skills["SupportBloodMagicPlayer"] = {
 	name = "Lifetap",
 	description = "Supports any Skill, turning a portion of its Mana cost into a Life cost. Does not support Skills which reserve Spirit.",
 	color = 1,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { },
 	addSkillTypes = { },
 	excludeSkillTypes = { SkillType.Blessing, SkillType.Persistent, },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Lifetap",
@@ -1475,13 +1477,13 @@ skills["SupportLongFusePlayer"] = {
 	name = "Long Fuse",
 	description = "Supports Skills which fire Grenades, causing those Grenades to have much higher duration and damage.",
 	color = 1,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Grenade, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Long Fuse",
@@ -1506,13 +1508,13 @@ skills["SupportMeatShieldPlayer"] = {
 	name = "Meat Shield",
 	description = "Supports skills which create Minions, granting them more life but making them deal less damage.",
 	color = 1,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.CreatesMinion, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Meat Shield",
@@ -1544,13 +1546,13 @@ skills["SupportOverpowerPlayer"] = {
 	name = "Overpower",
 	description = "Supports any skill that hits enemies, causing it to build up Stun more quickly.",
 	color = 1,
-	levels = {
-		[1] = { manaMultiplier = 20, levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Attack, SkillType.Damage, SkillType.CrossbowAmmoSkill, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { manaMultiplier = 20, levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Overpower",
@@ -1578,15 +1580,15 @@ skills["MoreDurationSupportPlayer"] = {
 	name = "Persistence",
 	description = "Supports any skill that has a duration, making that duration longer.",
 	color = 1,
-	levels = {
-		[1] = { manaMultiplier = 20, levelRequirement = 0, actorLevel = 1, },
-		[2] = { manaMultiplier = 20, levelRequirement = 3, actorLevel = 3.4519999027252, },
-		[3] = { manaMultiplier = 20, levelRequirement = 6, actorLevel = 6.7670001983643, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Duration, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { manaMultiplier = 20, levelRequirement = 0, },
+		[2] = { manaMultiplier = 20, levelRequirement = 3, },
+		[3] = { manaMultiplier = 20, levelRequirement = 6, },
+	},
 	statSets = {
 		[1] = {
 			label = "Persistence",
@@ -1614,13 +1616,13 @@ skills["SupportEmpoweredDamagePlayer"] = {
 	name = "Premeditation",
 	description = "Supports skills that can Empower skills other than themselves, causing skills they Empower to deal more damage.",
 	color = 1,
-	levels = {
-		[1] = { manaMultiplier = 30, levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.EmpowersOtherSkill, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { manaMultiplier = 30, levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Premeditation",
@@ -1643,13 +1645,13 @@ skills["SupportWeaponElementalDamagePlayer"] = {
 	name = "Primal Armament",
 	description = "Supports Attacks that use a weapon, causing them to deal more weapon Elemental damage.",
 	color = 1,
-	levels = {
-		[1] = { manaMultiplier = 20, levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Attack, SkillType.CrossbowAmmoSkill, },
 	addSkillTypes = { },
 	excludeSkillTypes = { SkillType.NonWeaponAttack, },
+	levels = {
+		[1] = { manaMultiplier = 20, levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Primal Armament",
@@ -1677,16 +1679,16 @@ skills["SupportRagePlayer"] = {
 	name = "Rage",
 	description = "Supports Melee Attacks, causing them to grant Rage on Hit.",
 	color = 1,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-		[2] = { levelRequirement = 3, actorLevel = 3.4519999027252, },
-		[3] = { levelRequirement = 6, actorLevel = 6.7670001983643, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Melee, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	ignoreMinionTypes = true,
+	levels = {
+		[1] = { levelRequirement = 0, },
+		[2] = { levelRequirement = 3, },
+		[3] = { levelRequirement = 6, },
+	},
 	statSets = {
 		[1] = {
 			label = "Rage",
@@ -1712,13 +1714,13 @@ skills["SupportRageforgedPlayer"] = {
 	name = "Rageforged",
 	description = "Supports any damaging skill that you use or trigger yourself, causing it to consume Rage to deal more damage. If you don't have enough Rage to consume, the damage bonus will not apply.",
 	color = 1,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Damage, SkillType.Attack, SkillType.CrossbowAmmoSkill, },
 	addSkillTypes = { },
 	excludeSkillTypes = { SkillType.Trapped, SkillType.RemoteMined, SkillType.SummonsTotem, },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Rageforged",
@@ -1742,13 +1744,13 @@ skills["SupportRagingCryPlayer"] = {
 	name = "Raging Cry",
 	description = "Supports Warcry skills, causing them to grant you Rage on use depending on counted monster Power.",
 	color = 1,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Warcry, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Raging Cry",
@@ -1771,13 +1773,13 @@ skills["SupportRupturePlayer"] = {
 	name = "Rupture",
 	description = "Supports skills that Hit Enemies. Supported skills Aggravate Bleeding on Hitting Heavily Stunned Enemies.",
 	color = 1,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Attack, SkillType.Damage, SkillType.CrossbowAmmoSkill, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Rupture",
@@ -1798,13 +1800,13 @@ skills["RuthlessSupportPlayer"] = {
 	name = "Ruthless",
 	description = "Supports Attacks, causing repeated uses to be more effective at Stunning enemies.",
 	color = 1,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Attack, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Ruthless",
@@ -1828,13 +1830,13 @@ skills["SupportDeadlyIgnitesPlayer"] = {
 	name = "Searing Flame",
 	description = "Supports any skill that Hits enemies, causing inflicted Ignites to deal more damage but its Hits to deal less damage.",
 	color = 1,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Damage, SkillType.Attack, SkillType.CrossbowAmmoSkill, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Searing Flame",
@@ -1866,13 +1868,13 @@ skills["SupportArmourBreakPlayer"] = {
 	name = "Splinter",
 	description = "Supports Skills that Hit Enemies, causing those Hits to Break Armour based on a portion of Physical Damage dealt.",
 	color = 1,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Attack, SkillType.Damage, SkillType.CrossbowAmmoSkill, SkillType.Physical, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Splinter",
@@ -1895,13 +1897,13 @@ skills["SupportStompingGroundPlayer"] = {
 	name = "Stomping Ground",
 	description = "Supports Travel skills, causing your footsteps to crack the earth and emit damaging shockwaves while using the skill.",
 	color = 1,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Travel, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Support",
@@ -1920,11 +1922,13 @@ skills["SupportStompingGroundPlayer"] = {
 }skills["StompingGroundShockwavePlayer"] = {
 	name = "Stomping Ground Shockwave",
 	hidden = true,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.Damage] = true, [SkillType.Triggered] = true, [SkillType.Triggerable] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.UseGlobalStats] = true, },
 	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Shockwave",
@@ -1951,13 +1955,13 @@ skills["SupportTremorsPlayer"] = {
 	name = "Tremors",
 	description = "Supports Slam Skills you use yourself. Supported Skills gain multiple independent chances to cause Aftershocks, but deal less Damage.",
 	color = 1,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Slam, },
 	addSkillTypes = { },
 	excludeSkillTypes = { SkillType.Minion, SkillType.UsedByTotem, },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Tremors",
@@ -1983,13 +1987,13 @@ skills["UnbreakableSupportPlayer"] = {
 	name = "Unbreakable",
 	description = "Supports any skill that you can use, making you harder to Stun while using it.",
 	color = 1,
-	levels = {
-		[1] = { manaMultiplier = 10, levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { },
 	addSkillTypes = { },
 	excludeSkillTypes = { SkillType.Instant, SkillType.Persistent, },
+	levels = {
+		[1] = { manaMultiplier = 10, levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Unbreakable",
@@ -2017,13 +2021,13 @@ skills["SupportUpheavalPlayer"] = {
 	name = "Upheaval",
 	description = "Supports Melee Attacks which create fissures in the ground, causing them to create additional fissures at the cost of damage and attack speed.",
 	color = 1,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.CreatesFissure, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Upheaval",
@@ -2056,13 +2060,13 @@ skills["SupportVitalityPlayer"] = {
 	name = "Vitality",
 	description = "Supports Persistent Buff Skills, causing you to gain Life Regeneration while the Skill is active.",
 	color = 1,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Persistent, SkillType.Buff, SkillType.AND, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Vitality",

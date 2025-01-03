@@ -9,13 +9,13 @@ skills["SupportFasterProjectilesPlayer"] = {
 	name = "Acceleration",
 	description = "Supports Projectile skills, making those Projectiles travel faster.",
 	color = 2,
-	levels = {
-		[1] = { manaMultiplier = 20, levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Projectile, SkillType.ProjectileSpeed, },
 	addSkillTypes = { },
 	excludeSkillTypes = { SkillType.FixedSpeedProjectile, },
+	levels = {
+		[1] = { manaMultiplier = 20, levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Acceleration",
@@ -44,13 +44,13 @@ skills["SupportAmmoConservationPlayer"] = {
 	name = "Ammo Conservation",
 	description = "Supports Crossbow Ammunition Skills, granting a chance to not consume a Bolt when firing.",
 	color = 2,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.CrossbowAmmoSkill, SkillType.CrossbowSkill, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Ammo Conservation",
@@ -78,13 +78,13 @@ skills["SupportBlindPlayer"] = {
 	name = "Blind",
 	description = "Supports any skill that Hits enemies, causing them to Blind on Hit.",
 	color = 2,
-	levels = {
-		[1] = { manaMultiplier = 10, levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Damage, SkillType.Attack, SkillType.CrossbowAmmoSkill, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { manaMultiplier = 10, levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Blind",
@@ -107,13 +107,13 @@ skills["SupportDazedBreakPlayer"] = {
 	name = "Break Posture",
 	description = "Supports Attacks, causing them to Daze Enemies when they fully Break Armour.",
 	color = 2,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Attack, SkillType.CrossbowAmmoSkill, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Break Posture",
@@ -137,13 +137,13 @@ skills["SupportAdditionalAccuracyPlayer"] = {
 	name = "Bullseye",
 	description = "Supports Attacks, causing them to gain Accuracy.",
 	color = 2,
-	levels = {
-		[1] = { manaMultiplier = 10, levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Attack, SkillType.CrossbowAmmoSkill, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { manaMultiplier = 10, levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Bullseye",
@@ -172,14 +172,14 @@ skills["SupportBurstingPlaguePlayer"] = {
 	name = "Bursting Plague",
 	description = "Supports skills that can Poison enemies, causing Poisoned enemies to gain Plague over time and explode in a Plague Burst on death. Cannot support the skills of Minions.",
 	color = 2,
-	levels = {
-		[1] = { manaMultiplier = 20, levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Damage, SkillType.Attack, SkillType.CrossbowAmmoSkill, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	ignoreMinionTypes = true,
+	levels = {
+		[1] = { manaMultiplier = 20, levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Support",
@@ -201,12 +201,14 @@ skills["SupportBurstingPlaguePlayer"] = {
 }skills["PlagueBurstPlayer"] = {
 	name = "Plague Burst",
 	hidden = true,
-	levels = {
-		[1] = { storedUses = 1, levelRequirement = 0, cooldown = 0.1, actorLevel = 1, },
-	},
 	description = "Triggered when an enemy Poisoned by a supported skill dies, dealing Physical damage around them based on the built-up Plague.",
 	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Damage] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.Area] = true, [SkillType.Physical] = true, [SkillType.Chaos] = true, },
 	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { storedUses = 1, levelRequirement = 0, cooldown = 0.1, },
+	},
 	statSets = {
 		[1] = {
 			label = "Plague Burst",
@@ -233,13 +235,13 @@ skills["SupportChainPlayer"] = {
 	name = "Chain",
 	description = "Supports Projectile skills and any other skills that Chain, causing them to Chain additional times.",
 	color = 2,
-	levels = {
-		[1] = { PvPDamageMultiplier = -30, levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Chains, SkillType.Projectile, },
 	addSkillTypes = { },
 	excludeSkillTypes = { SkillType.CannotChain, SkillType.ProjectileNoCollision, },
+	levels = {
+		[1] = { PvPDamageMultiplier = -30, levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Chain",
@@ -269,14 +271,14 @@ skills["SupportCloseCombatPlayer"] = {
 	name = "Close Combat",
 	description = "Supports Attacks, causing them to deal more damage to enemies based on how close they are to you.",
 	color = 2,
-	levels = {
-		[1] = { manaMultiplier = 40, levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Attack, SkillType.CrossbowAmmoSkill, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	ignoreMinionTypes = true,
+	levels = {
+		[1] = { manaMultiplier = 40, levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Close Combat",
@@ -304,9 +306,6 @@ skills["SupportComboFinisherPlayer"] = {
 	name = "Combo Finisher",
 	description = "Supports Melee Attacks you use yourself. Supported Skills cannot be used until enough Combo has been built up, but deal massively more damage. Cannot support skills which already Combo, or Triggered Skills.",
 	color = 2,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Attack, SkillType.Damage, SkillType.CrossbowAmmoSkill, },
 	addSkillTypes = { SkillType.ComboStacking, SkillType.SupportedByComboFinisher, },
@@ -322,6 +321,9 @@ skills["SupportComboFinisherPlayer"] = {
 		["Two Handed Mace"] = true,
 		["One Handed Axe"] = true,
 		["One Handed Sword"] = true,
+	},
+	levels = {
+		[1] = { levelRequirement = 0, },
 	},
 	statSets = {
 		[1] = {
@@ -347,13 +349,13 @@ skills["SupportMultiplePoisonPlayer"] = {
 	name = "Comorbidity",
 	description = "Supports any skill that Hits enemies, allowing it to inflict an extra Poison on enemies but shortening the duration of those Poisons.",
 	color = 2,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Attack, SkillType.Damage, SkillType.CrossbowAmmoSkill, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Comorbidity",
@@ -386,13 +388,13 @@ skills["SupportChanceToShockPlayer"] = {
 	name = "Conduction",
 	description = "Supports any skill that Hits enemies, making it more likely to Shock.",
 	color = 2,
-	levels = {
-		[1] = { manaMultiplier = 20, levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Damage, SkillType.Attack, SkillType.CrossbowAmmoSkill, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { manaMultiplier = 20, levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Conduction",
@@ -420,13 +422,13 @@ skills["SupportCorrosionPlayer"] = {
 	name = "Corrosion",
 	description = "Supports any skill that Hits enemies, causing Poison it applies to also Break enemy Armour. Cannot support skills that Consume Fully Broken Armour.",
 	color = 2,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Damage, SkillType.Attack, SkillType.CrossbowAmmoSkill, },
 	addSkillTypes = { },
 	excludeSkillTypes = { SkillType.ConsumesFullyBrokenArmour, },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Corrosion",
@@ -449,13 +451,13 @@ skills["SupportCrescendoPlayer"] = {
 	name = "Crescendo",
 	description = "Supports Strikes that perform a Final Strike at the end of a combination of attacks, allowing you to use the Final Strike twice in succession.",
 	color = 2,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.PerformsFinalStrike, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Crescendo",
@@ -476,13 +478,13 @@ skills["SupportCullingStrikePlayer"] = {
 	name = "Culling Strike",
 	description = "Supports Attack Skills, causing them to Cull Rare and Unique Enemies on Hit.",
 	color = 2,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Attack, SkillType.CrossbowAmmoSkill, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Culling Strike",
@@ -509,13 +511,13 @@ skills["SupportCulminationPlayer"] = {
 	name = "Culmination",
 	description = "Supports Melee Attack Skills. Supported Skills gain Combo when you successfully Strike Enemies with other Melee Attacks. Supported Skills reset their Combo on use, dealing more Damage the higher Combo you had on use. Cannot support skills which already gain Combo. Cannot Support Skills used by Minions.",
 	color = 2,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Attack, SkillType.Melee, SkillType.AND, },
 	addSkillTypes = { SkillType.ComboStacking, SkillType.SupportedByComboMastery, },
 	excludeSkillTypes = { SkillType.ComboStacking, SkillType.SupportedByComboMastery, SkillType.NOT, SkillType.AND, },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Culmination",
@@ -540,13 +542,13 @@ skills["SupportDeadlyPoisonPlayer"] = {
 	name = "Deadly Poison",
 	description = "Supports any skill that Hits enemies, causing it to deal less damage but inflict more potent Poison.",
 	color = 2,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Attack, SkillType.Damage, SkillType.CrossbowAmmoSkill, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Deadly Poison",
@@ -578,13 +580,13 @@ skills["SupportSlowerProjectilesPlayer"] = {
 	name = "Deceleration",
 	description = "Supports Projectile skills, making those Projectiles travel more slowly.",
 	color = 2,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Projectile, SkillType.ProjectileSpeed, },
 	addSkillTypes = { },
 	excludeSkillTypes = { SkillType.FixedSpeedProjectile, },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Deceleration",
@@ -612,13 +614,13 @@ skills["SupportDazingPlayer"] = {
 	name = "Discombobulate",
 	description = "Supports Attacks, causing them to build up Daze based on a portion of Physical Damage dealt.",
 	color = 2,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Attack, SkillType.CrossbowAmmoSkill, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Discombobulate",
@@ -641,13 +643,13 @@ skills["SupportElectrocutePlayer"] = {
 	name = "Electrocute",
 	description = "Supports any Skill which can deal Damage. Lightning Damage from Supported Skills can inflict Electrocute, but Supported Skills cannot inflict Shock.",
 	color = 2,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Attack, SkillType.Damage, SkillType.CrossbowAmmoSkill, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Electrocute",
@@ -669,13 +671,13 @@ skills["SupportEncumberancePlayer"] = {
 	name = "Encumbrance",
 	description = "Supports any skill, causing inflicted Slows to be more powerful.",
 	color = 2,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Damage, SkillType.Attack, SkillType.Spell, SkillType.DegenOnlySpellDamage, SkillType.Minion, SkillType.CrossbowAmmoSkill, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Encumbrance",
@@ -698,13 +700,13 @@ skills["SupportChanceToPoisonPlayer"] = {
 	name = "Envenom",
 	description = "Supports any skill that Hits enemies, giving it a chance to Poison enemies.",
 	color = 2,
-	levels = {
-		[1] = { manaMultiplier = 20, levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Damage, SkillType.Attack, SkillType.CrossbowAmmoSkill, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { manaMultiplier = 20, levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Envenom",
@@ -727,13 +729,13 @@ skills["SupportFerocityPlayer"] = {
 	name = "Ferocity",
 	description = "Supports Skills that you use yourself. Supported Skills will consume a Frenzy Charge on use if possible, and will gain significant Skill Speed if they do. Supported Skills cannot generate Frenzy Charges.",
 	color = 2,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Damage, SkillType.CrossbowAmmoSkill, SkillType.Attack, },
 	addSkillTypes = { SkillType.SkillConsumesFrenzyChargesOnUse, SkillType.SupportedByFerocity, },
 	excludeSkillTypes = { SkillType.Minion, SkillType.SummonsTotem, SkillType.UsedByTotem, SkillType.Persistent, SkillType.SkillConsumesFrenzyChargesOnUse, SkillType.SupportedByFerocity, SkillType.NOT, SkillType.AND, },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Ferocity",
@@ -762,13 +764,13 @@ skills["SupportForkPlayer"] = {
 	name = "Fork",
 	description = "Supports Projectile skills, making their Projectiles Fork.",
 	color = 2,
-	levels = {
-		[1] = { manaMultiplier = 10, levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Projectile, },
 	addSkillTypes = { },
 	excludeSkillTypes = { SkillType.ProjectileNoCollision, },
+	levels = {
+		[1] = { manaMultiplier = 10, levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Fork",
@@ -797,13 +799,13 @@ skills["SupportForkPlayer"] = {
 skills["SupportFusilladePlayer"] = {
 	name = "Fusillade",
 	color = 2,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Projectile, SkillType.RangedAttack, SkillType.AND, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	weaponTypes = {
 		["Bow"] = true,
 	},
@@ -837,13 +839,13 @@ skills["SupportCooldownReductionPlayer"] = {
 	name = "Ingenuity",
 	description = "Supports skills with Cooldowns, increasing the rate at which those Cooldowns Recover.",
 	color = 2,
-	levels = {
-		[1] = { manaMultiplier = 10, levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Cooldown, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { manaMultiplier = 10, levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Ingenuity",
@@ -871,14 +873,14 @@ skills["SupportInnervatePlayer"] = {
 	name = "Innervate",
 	description = "Supports Attacks you use yourself. Killing a Shocked enemy with supported skills infuses all of your Attacks with Lightning damage for a short time.",
 	color = 2,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Attack, SkillType.CrossbowAmmoSkill, },
 	addSkillTypes = { SkillType.Duration, },
 	excludeSkillTypes = { SkillType.Trapped, SkillType.RemoteMined, SkillType.SummonsTotem, },
 	ignoreMinionTypes = true,
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Innervate",
@@ -907,13 +909,13 @@ skills["SupportLastingShockPlayer"] = {
 	name = "Lasting Shock",
 	description = "Supports any skill that Hits enemies or inflicts Shock, causing its Shocks to be inflicted less often but last longer.",
 	color = 2,
-	levels = {
-		[1] = { manaMultiplier = 20, levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Damage, SkillType.Attack, SkillType.CrossbowAmmoSkill, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { manaMultiplier = 20, levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Lasting Shock",
@@ -942,13 +944,13 @@ skills["SupportLeveragePlayer"] = {
 	name = "Leverage",
 	description = "Supports Skills which Hit Enemies. Supported Skills gain increased chance to Critically Hit against Immobilised Enemies.",
 	color = 2,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Damage, SkillType.CrossbowAmmoSkill, SkillType.Attack, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Leverage",
@@ -971,13 +973,13 @@ skills["SupportLifeFlaskPlayer"] = {
 	name = "Life Bounty",
 	description = "Supports any skill that Hits enemies, causing enemies it kills to grant more Life Flask charges.",
 	color = 2,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Attack, SkillType.Damage, SkillType.CrossbowAmmoSkill, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Life Bounty",
@@ -1000,13 +1002,13 @@ skills["SupportLifeOnCullPlayer"] = {
 	name = "Life Drain",
 	description = "Supports any skill that Hits enemies, causing you to recover Life when it Culls an enemy.",
 	color = 2,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Damage, SkillType.Attack, SkillType.CrossbowAmmoSkill, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Life Drain",
@@ -1029,13 +1031,13 @@ skills["SupportLightningExposurePlayer"] = {
 	name = "Lightning Exposure",
 	description = "Supports any skill that Hits enemies, causing it to inflict Lightning Exposure when it Shocks an enemy.",
 	color = 2,
-	levels = {
-		[1] = { manaMultiplier = 20, levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Attack, SkillType.Damage, SkillType.CrossbowAmmoSkill, },
 	addSkillTypes = { SkillType.Duration, },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { manaMultiplier = 20, levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Lightning Exposure",
@@ -1058,13 +1060,13 @@ skills["SupportAddedLightningDamagePlayer"] = {
 	name = "Lightning Infusion",
 	description = "Supports Attacks, causing them to Gain Lightning Damage but deal less Cold and Fire Damage.",
 	color = 2,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Attack, SkillType.CrossbowAmmoSkill, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Lightning Infusion",
@@ -1096,13 +1098,13 @@ skills["SupportLightningPenetrationPlayer"] = {
 	name = "Lightning Penetration",
 	description = "Supports any skill that Hits enemies, making those Hits Penetrate enemy Lightning resistance.",
 	color = 2,
-	levels = {
-		[1] = { manaMultiplier = 20, levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Damage, SkillType.Attack, SkillType.CrossbowAmmoSkill, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { manaMultiplier = 20, levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Lightning Penetration",
@@ -1125,13 +1127,13 @@ skills["SupportLockdownPlayer"] = {
 	name = "Lockdown",
 	description = "Supports any skill that Hits enemies, causing any Pin buildup it inflicts to be stronger the closer the enemy is to you.",
 	color = 2,
-	levels = {
-		[1] = { manaMultiplier = 20, levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Attack, SkillType.Damage, SkillType.CrossbowAmmoSkill, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { manaMultiplier = 20, levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Lockdown",
@@ -1154,14 +1156,14 @@ skills["SupportFarCombatPlayer"] = {
 	name = "Longshot",
 	description = "Supports Attacks, causing them to deal more damage from farther away.",
 	color = 2,
-	levels = {
-		[1] = { manaMultiplier = 20, levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Attack, SkillType.CrossbowAmmoSkill, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	ignoreMinionTypes = true,
+	levels = {
+		[1] = { manaMultiplier = 20, levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Longshot",
@@ -1184,15 +1186,15 @@ skills["SupportMaimPlayer"] = {
 	name = "Maim",
 	description = "Supports Attacks, causing them to Maim enemies.",
 	color = 2,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-		[2] = { levelRequirement = 3, actorLevel = 3.4519999027252, },
-		[3] = { levelRequirement = 6, actorLevel = 6.7670001983643, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Attack, SkillType.CrossbowAmmoSkill, },
 	addSkillTypes = { SkillType.AppliesMaim, },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { levelRequirement = 0, },
+		[2] = { levelRequirement = 3, },
+		[3] = { levelRequirement = 6, },
+	},
 	statSets = {
 		[1] = {
 			label = "Maim",
@@ -1215,13 +1217,13 @@ skills["SupportManaFlaskPlayer"] = {
 	name = "Mana Bounty",
 	description = "Supports any skill that Hits enemies, causing enemies it kills to grant more Mana Flask charges.",
 	color = 2,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Attack, SkillType.Damage, SkillType.CrossbowAmmoSkill, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Mana Bounty",
@@ -1244,13 +1246,13 @@ skills["SupportFasterAttackPlayer"] = {
 	name = "Martial Tempo",
 	description = "Supports Attacks, causing them to Attack faster.",
 	color = 2,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Attack, SkillType.CrossbowAmmoSkill, },
 	addSkillTypes = { },
 	excludeSkillTypes = { SkillType.Herald, },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Martial Tempo",
@@ -1275,13 +1277,13 @@ skills["SupportMobilityPlayer"] = {
 	name = "Mobility",
 	description = "Supports skills that can be used while moving, allowing you to move faster while using them.",
 	color = 2,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Nonpathing, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Mobility",
@@ -1305,14 +1307,14 @@ skills["SupportMomentumPlayer"] = {
 	name = "Momentum",
 	description = "Supports any damaging skill that you use yourself, causing it to deal more damage if you move a sufficient distance while using the skill. Teleportation does not count towards the distance travelled.",
 	color = 2,
-	levels = {
-		[1] = { manaMultiplier = 20, levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Damage, SkillType.Attack, SkillType.CrossbowAmmoSkill, },
 	addSkillTypes = { },
 	excludeSkillTypes = { SkillType.Triggered, SkillType.Trapped, SkillType.RemoteMined, SkillType.SummonsTotem, },
 	ignoreMinionTypes = true,
+	levels = {
+		[1] = { manaMultiplier = 20, levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Momentum",
@@ -1336,13 +1338,13 @@ skills["SupportEmpoweredCullPlayer"] = {
 	name = "Murderous Intent",
 	description = "Supports skills that can Empower skills other than themselves, causing skills they Empower to Cull enemies.",
 	color = 2,
-	levels = {
-		[1] = { manaMultiplier = 20, levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.EmpowersOtherSkill, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { manaMultiplier = 20, levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Murderous Intent",
@@ -1363,13 +1365,13 @@ skills["SupportNeuralOverloadPlayer"] = {
 	name = "Neural Overload",
 	description = "Supports any skill that Hits enemies. Nearby enemies are marked when they are Primed for Electrocution, and hitting a marked enemy with a supported skill will Electrocute them.",
 	color = 2,
-	levels = {
-		[1] = { manaMultiplier = 20, levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Damage, SkillType.Attack, SkillType.CrossbowAmmoSkill, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { manaMultiplier = 20, levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Neural Overload",
@@ -1391,13 +1393,13 @@ skills["SupportNimbleReloadPlayer"] = {
 	name = "Nimble Reload",
 	description = "Supports Crossbow Ammunition Skills, causing them to Reload bolts significantly faster.",
 	color = 2,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.CrossbowAmmoSkill, SkillType.CrossbowSkill, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Nimble Reload",
@@ -1420,13 +1422,13 @@ skills["SupportIncreaseLimitPlayer"] = {
 	name = "Overabundance",
 	description = "Supports skills which can have a Limited number of effects active at once, increasing that Limit at the cost of their duration. Only applies to restrictions that use the word \"Limit\".",
 	color = 2,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Limit, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Overabundance",
@@ -1450,13 +1452,13 @@ skills["SupportOverchargePlayer"] = {
 	name = "Overcharge",
 	description = "Supports any skill that Hits enemies, making its Shocks more effective but last for a shorter duration.",
 	color = 2,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Damage, SkillType.Attack, SkillType.CrossbowAmmoSkill, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Overcharge",
@@ -1480,13 +1482,13 @@ skills["SupportPayloadPlayer"] = {
 	name = "Payload",
 	description = "Supports Skills which fire Grenades, giving fired Grenades a chance to activate again, but lengthening their cooldowns.",
 	color = 2,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Grenade, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Payload",
@@ -1510,15 +1512,15 @@ skills["SupportPerpetualChargePlayer"] = {
 	name = "Perpetual Charge",
 	description = "Supports skills that consume Power, Frenzy or Endurance Charges on use, giving them a chance not to remove each Charge while still gaining the benefits of consuming them.",
 	color = 2,
-	levels = {
-		[1] = { manaMultiplier = 30, levelRequirement = 0, actorLevel = 1, },
-		[2] = { levelRequirement = 0, actorLevel = 3.4519999027252, },
-		[3] = { levelRequirement = 0, actorLevel = 6.7670001983643, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.ConsumesCharges, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { manaMultiplier = 30, levelRequirement = 0, },
+		[2] = { levelRequirement = 0, },
+		[3] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Perpetual Charge",
@@ -1541,13 +1543,13 @@ skills["SupportPiercePlayer"] = {
 	name = "Pierce",
 	description = "Supports Projectile skills, making their Projectiles Pierce an enemy but deal less damage after doing so.",
 	color = 2,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Projectile, },
 	addSkillTypes = { },
 	excludeSkillTypes = { SkillType.ProjectileNoCollision, },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Pierce",
@@ -1572,13 +1574,13 @@ skills["SupportPinPlayer"] = {
 	name = "Pin",
 	description = "Supports any skill that Hits enemies, allowing its Physical damage to Pin enemies but making it unable to Stun.",
 	color = 2,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Attack, SkillType.Damage, SkillType.CrossbowAmmoSkill, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Pin",
@@ -1603,13 +1605,13 @@ skills["SupportPracticedComboPlayer"] = {
 	name = "Practiced Combo",
 	description = "Supports Strike Skills. Supported Skills have a chance to build additional Combo on Hit. Cannot support Skills used by Minions.",
 	color = 2,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Attack, SkillType.MeleeSingleTarget, SkillType.AND, },
 	addSkillTypes = { },
 	excludeSkillTypes = { SkillType.Minion, },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Practiced Combo",
@@ -1632,13 +1634,13 @@ skills["SupportPrecisionPlayer"] = {
 	name = "Precision",
 	description = "Supports Persistent Buff Skills, causing you to gain increased Accuracy while the Skill is active.",
 	color = 2,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Persistent, SkillType.Buff, SkillType.AND, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Precision",
@@ -1661,13 +1663,13 @@ skills["SupportMultipleChargesPlayer"] = {
 	name = "Profusion",
 	description = "Supports skills that can generate Charges, giving them a chance to generate an additional Charge when they do so.",
 	color = 2,
-	levels = {
-		[1] = { manaMultiplier = 20, levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.GeneratesCharges, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { manaMultiplier = 20, levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Profusion",
@@ -1690,13 +1692,13 @@ skills["SupportRicochetPlayer"] = {
 	name = "Ricochet",
 	description = "Supports any Skill which creates Projectiles, giving those Projectiles a chance to Chain when impacting terrain.",
 	color = 2,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Projectile, },
 	addSkillTypes = { },
 	excludeSkillTypes = { SkillType.CannotChain, },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Ricochet",
@@ -1719,13 +1721,13 @@ skills["SupportMultipleProjectilesPlayer"] = {
 	name = "Scattershot",
 	description = "Supports Projectile skills, making them fire extra Projectiles. Also lowers Attack and Cast speed of supported skills, as well as lessening their damage.",
 	color = 2,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Projectile, SkillType.ProjectileNumber, },
 	addSkillTypes = { },
 	excludeSkillTypes = { SkillType.ProjectilesNumberModifiersNotApplied, },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Scattershot",
@@ -1752,13 +1754,13 @@ skills["SupportSecondWindPlayer"] = {
 	name = "Second Wind",
 	description = "Supports skills with cooldowns, giving them extra uses of that cooldown.\nCannot support instant or triggered skills.",
 	color = 2,
-	levels = {
-		[1] = { manaMultiplier = 50, levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Cooldown, },
 	addSkillTypes = { },
 	excludeSkillTypes = { SkillType.Triggered, SkillType.Instant, },
+	levels = {
+		[1] = { manaMultiplier = 50, levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Second Wind",
@@ -1782,13 +1784,13 @@ skills["SupportManaOnCullPlayer"] = {
 	name = "Soul Drain",
 	description = "Supports any skill that Hits enemies, causing you to recover Mana when it Culls an enemy.",
 	color = 2,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Damage, SkillType.Attack, SkillType.CrossbowAmmoSkill, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Soul Drain",
@@ -1811,13 +1813,13 @@ skills["SupportSwiftAfflictionPlayer"] = {
 	name = "Swift Affliction",
 	description = "Supports any skill that deals damage, causing it to deal more damage over time but have a shorter duration.",
 	color = 2,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.Damage, SkillType.Attack, SkillType.DamageOverTime, SkillType.CrossbowAmmoSkill, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Swift Affliction",
@@ -1841,13 +1843,13 @@ skills["SupportKnockbackWavePlayer"] = {
 	name = "Wind Wave",
 	description = "Supports any skill that you can use, triggering a blast of wind that Knocks Back enemies if you are Stunned while using it.",
 	color = 2,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { },
 	addSkillTypes = { },
 	excludeSkillTypes = { SkillType.Instant, SkillType.Persistent, },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Support",
@@ -1866,11 +1868,13 @@ skills["SupportKnockbackWavePlayer"] = {
 }skills["KnockbackWavePlayer"] = {
 	name = "Wind Wave",
 	hidden = true,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	skillTypes = { [SkillType.Area] = true, [SkillType.Triggered] = true, [SkillType.Triggerable] = true, [SkillType.InbuiltTrigger] = true, [SkillType.SkillGrantedBySupport] = true, },
 	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Wind Wave",
@@ -1900,13 +1904,13 @@ skills["SupportWindowOfOpportunityPlayer"] = {
 	name = "Window of Opportunity",
 	description = "Supports Channelling skills that have special effects if released with Perfect Timing, causing them to deal much more damage if released with Perfect Timing but reducing the Perfect Timing window.",
 	color = 2,
-	levels = {
-		[1] = { levelRequirement = 0, actorLevel = 1, },
-	},
 	support = true,
 	requireSkillTypes = { SkillType.PerfectTiming, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
 	statSets = {
 		[1] = {
 			label = "Window of Opportunity",
