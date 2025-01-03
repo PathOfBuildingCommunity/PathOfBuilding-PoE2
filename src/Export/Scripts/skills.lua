@@ -484,6 +484,22 @@ directiveTable.skill = function(state, args, out)
 			out:write('\tcannotBeSupported = true,\n')
 		end
 	end
+	if next(skill.qualityStats) ~= nil then
+		out:write('\tqualityStats = {\n')
+		for i, alternates in ipairs(skill.qualityStats) do
+			if i == 1 then
+				out:write('\t\tDefault = {\n')
+			else
+				local value = i - 1
+				out:write('\t\tAlternate' .. value .. ' = {\n')
+			end
+			for _, stat in ipairs(alternates) do
+				out:write('\t\t\t{ "', stat[1], '", ', stat[2], ' },\n')
+			end
+			out:write('\t\t},\n')
+		end
+		out:write('\t},\n')
+	end
 end
 
 directiveTable.startSets = function(state, args, out)
@@ -630,7 +646,6 @@ directiveTable.set = function(state, args, out)
 
 	-- Emitting statSet data
 	out:write('\t\t['..skill.setIndex..'] = {\n')
-	skill.setIndex = skill.setIndex + 1
 	out:write('\t\t\tlabel = "'..label..'",\n')
 	if grantedEffectStatSet.BaseEffectiveness ~= 1 then
 		out:write('\t\t\tbaseEffectiveness = ', grantedEffectStatSet.BaseEffectiveness, ',\n')
@@ -644,8 +659,11 @@ directiveTable.set = function(state, args, out)
 	if state.granted.IsSupport then
 		out:write('\tstatDescriptionScope = "gem_stat_descriptions",\n')
 	else
-		out:write('\t\t\tstatDescriptionScope = "', state.granted.ActiveSkill.StatDescription:gsub("^Metadata/StatDescriptions/", ""):gsub("specific_skill_stat_descriptions/", ""):gsub("/$", ""):gsub("/", "_"), '",\n')
+		out:write('\t\t\tstatDescriptionScope = "', state.granted.ActiveSkill.StatDescription:gsub("^Metadata/StatDescriptions/", ""):
+		-- Need to subtract 1 from setIndex because GGG indexes from 0
+		gsub("specific_skill_stat_descriptions/", ""):gsub("statset_0", "statset_"..(skill.setIndex - 1)):gsub("/$", ""):gsub("/", "_"), '",\n')
 	end
+	skill.setIndex = skill.setIndex + 1
 end
 
 -- #flags <flag>[ <flag>[...]]

@@ -60,6 +60,11 @@ skills["AncestralWarriorTotemPlayer"] = {
 	},
 	skillTotemId = 15,
 	castTime = 0.5,
+	qualityStats = {
+		Default = {
+			{ "base_totem_duration", 20 },
+		},
+	},
 	statSets = {
 		[1] = {
 			label = "Ancestral Warrior Totem",
@@ -297,6 +302,11 @@ skills["ArmourBreakerPlayer"] = {
 		["One Handed Mace"] = true,
 	},
 	castTime = 1,
+	qualityStats = {
+		Default = {
+			{ "armour_break_amount_+%", 1 },
+		},
+	},
 	statSets = {
 		[1] = {
 			label = "Armour Breaker",
@@ -413,6 +423,11 @@ skills["ArtilleryBallistaPlayer"] = {
 	},
 	skillTotemId = 19,
 	castTime = 1,
+	qualityStats = {
+		Default = {
+			{ "attack_speed_+%", 1 },
+		},
+	},
 	statSets = {
 		[1] = {
 			label = "Ballista",
@@ -725,6 +740,11 @@ skills["AttritionPlayer"] = {
 	description = "While active, causes you to deal more Hit damage to Rare and Unique enemies the longer you've been fighting them, and gain Culling Strike against them once you've been fighting them for long enough.",
 	skillTypes = { [SkillType.OngoingSkill] = true, [SkillType.HasReservation] = true, [SkillType.Buff] = true, [SkillType.Persistent] = true, },
 	castTime = 1,
+	qualityStats = {
+		Default = {
+			{ "skill_attrition_culling_strike_at_x_or_more_stacks", -0.25 },
+		},
+	},
 	statSets = {
 		[1] = {
 			label = "Attrition",
@@ -834,6 +854,11 @@ skills["BerserkPlayer"] = {
 	description = "While active, strengthens your Rage and grants you Life Leech based on your Rage, but causes you to lose Life while Raging.",
 	skillTypes = { [SkillType.OngoingSkill] = true, [SkillType.HasReservation] = true, [SkillType.Buff] = true, [SkillType.Persistent] = true, },
 	castTime = 1,
+	qualityStats = {
+		Default = {
+			{ "rage_effect_+%", 0.5 },
+		},
+	},
 	statSets = {
 		[1] = {
 			label = "Berserk",
@@ -947,6 +972,11 @@ skills["BoneshatterPlayer"] = {
 		["Two Handed Mace"] = true,
 	},
 	castTime = 1,
+	qualityStats = {
+		Default = {
+			{ "active_skill_attack_speed_+%_final", 1 },
+		},
+	},
 	statSets = {
 		[1] = {
 			label = "Initial Strike",
@@ -1118,6 +1148,11 @@ skills["MetaCastOnBlockPlayer"] = {
 	description = "While active, gains Energy when you Block and triggers socketed Spells on reaching maximum Energy.",
 	skillTypes = { [SkillType.HasReservation] = true, [SkillType.OngoingSkill] = true, [SkillType.Meta] = true, [SkillType.Persistent] = true, [SkillType.Buff] = true, [SkillType.CanHaveMultipleOngoingSkillInstances] = true, [SkillType.GeneratesEnergy] = true, },
 	castTime = 0,
+	qualityStats = {
+		Default = {
+			{ "cast_on_block_gain_X_centienergy_on_block", 0.25 },
+		},
+	},
 	statSets = {
 		[1] = {
 			label = "Cast on Block",
@@ -1470,6 +1505,11 @@ skills["ClusterGrenadePlayer"] = {
 		["Crossbow"] = true,
 	},
 	castTime = 1,
+	qualityStats = {
+		Default = {
+			{ "base_skill_effect_duration", -20 },
+		},
+	},
 	statSets = {
 		[1] = {
 			label = "Primary Grenade",
@@ -1599,6 +1639,11 @@ skills["ClusterGrenadeMiniPlayer"] = {
 		["Crossbow"] = true,
 	},
 	castTime = 1,
+	qualityStats = {
+		Default = {
+			{ "base_skill_effect_duration", -20 },
+		},
+	},
 	statSets = {
 		[1] = {
 			label = "Mini Grenades",
@@ -1726,61 +1771,6 @@ skills["DefianceBannerReservationPlayer"] = {
 	skillTypes = { [SkillType.OngoingSkill] = true, [SkillType.HasReservation] = true, [SkillType.Buff] = true, [SkillType.Persistent] = true, [SkillType.CanHaveMultipleOngoingSkillInstances] = true, [SkillType.Area] = true, [SkillType.Duration] = true, },
 	castTime = 1,
 	statSets = {
-		[1] = {
-			label = "Hidden",
-			incrementalEffectiveness = 0.054999999701977,
-			statDescriptionScope = "skill_stat_descriptions",
-			baseFlags = {
-			},
-			constantStats = {
-				{ "gain_x_valour_per_minute_while_unique_presence", 60 },
-			},
-			stats = {
-				"base_deal_no_damage",
-			},
-			levels = {
-				[1] = { actorLevel = 1, },
-				[2] = { actorLevel = 3.4519999027252, },
-				[3] = { actorLevel = 6.7670001983643, },
-				[4] = { actorLevel = 10.307999610901, },
-				[5] = { actorLevel = 14.074999809265, },
-				[6] = { actorLevel = 18.068000793457, },
-				[7] = { actorLevel = 22.287000656128, },
-				[8] = { actorLevel = 26.732000350952, },
-				[9] = { actorLevel = 31.40299987793, },
-				[10] = { actorLevel = 36.299999237061, },
-				[11] = { actorLevel = 41.423000335693, },
-				[12] = { actorLevel = 46.771999359131, },
-				[13] = { actorLevel = 52.34700012207, },
-				[14] = { actorLevel = 58.147998809814, },
-				[15] = { actorLevel = 64.175003051758, },
-				[16] = { actorLevel = 70.428001403809, },
-				[17] = { actorLevel = 76.906997680664, },
-				[18] = { actorLevel = 83.611999511719, },
-				[19] = { actorLevel = 90.542999267578, },
-				[20] = { actorLevel = 97.699996948242, },
-				[21] = { actorLevel = 105.08300018311, },
-				[22] = { actorLevel = 112.69200134277, },
-				[23] = { actorLevel = 120.52700042725, },
-				[24] = { actorLevel = 128.58799743652, },
-				[25] = { actorLevel = 136.875, },
-				[26] = { actorLevel = 145.38800048828, },
-				[27] = { actorLevel = 154.12699890137, },
-				[28] = { actorLevel = 163.09199523926, },
-				[29] = { actorLevel = 172.28300476074, },
-				[30] = { actorLevel = 181.69999694824, },
-				[31] = { actorLevel = 191.34300231934, },
-				[32] = { actorLevel = 201.21200561523, },
-				[33] = { actorLevel = 211.30700683594, },
-				[34] = { actorLevel = 221.62800598145, },
-				[35] = { actorLevel = 232.17500305176, },
-				[36] = { actorLevel = 242.94799804688, },
-				[37] = { actorLevel = 253.94700622559, },
-				[38] = { actorLevel = 265.17199707031, },
-				[39] = { actorLevel = 276.62298583984, },
-				[40] = { actorLevel = 288.29998779297, },
-			},
-		},
 	}
 }
 skills["DefianceBannerPlayer"] = {
@@ -1830,6 +1820,11 @@ skills["DefianceBannerPlayer"] = {
 	},
 	skillTypes = { [SkillType.Banner] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Nonpathing] = true, },
 	castTime = 1,
+	qualityStats = {
+		Default = {
+			{ "non_skill_base_all_damage_%_to_gain_as_lightning_with_spells_from_buff", 0.5 },
+		},
+	},
 	statSets = {
 		[1] = {
 			label = "Defiance Banner",
@@ -1946,61 +1941,6 @@ skills["DreadBannerReservationPlayer"] = {
 	skillTypes = { [SkillType.OngoingSkill] = true, [SkillType.HasReservation] = true, [SkillType.Buff] = true, [SkillType.Persistent] = true, [SkillType.CanHaveMultipleOngoingSkillInstances] = true, [SkillType.Area] = true, [SkillType.Duration] = true, },
 	castTime = 1,
 	statSets = {
-		[1] = {
-			label = "Hidden",
-			incrementalEffectiveness = 0.054999999701977,
-			statDescriptionScope = "skill_stat_descriptions",
-			baseFlags = {
-			},
-			constantStats = {
-				{ "gain_x_valour_per_minute_while_unique_presence", 60 },
-			},
-			stats = {
-				"base_deal_no_damage",
-			},
-			levels = {
-				[1] = { actorLevel = 1, },
-				[2] = { actorLevel = 3.4519999027252, },
-				[3] = { actorLevel = 6.7670001983643, },
-				[4] = { actorLevel = 10.307999610901, },
-				[5] = { actorLevel = 14.074999809265, },
-				[6] = { actorLevel = 18.068000793457, },
-				[7] = { actorLevel = 22.287000656128, },
-				[8] = { actorLevel = 26.732000350952, },
-				[9] = { actorLevel = 31.40299987793, },
-				[10] = { actorLevel = 36.299999237061, },
-				[11] = { actorLevel = 41.423000335693, },
-				[12] = { actorLevel = 46.771999359131, },
-				[13] = { actorLevel = 52.34700012207, },
-				[14] = { actorLevel = 58.147998809814, },
-				[15] = { actorLevel = 64.175003051758, },
-				[16] = { actorLevel = 70.428001403809, },
-				[17] = { actorLevel = 76.906997680664, },
-				[18] = { actorLevel = 83.611999511719, },
-				[19] = { actorLevel = 90.542999267578, },
-				[20] = { actorLevel = 97.699996948242, },
-				[21] = { actorLevel = 105.08300018311, },
-				[22] = { actorLevel = 112.69200134277, },
-				[23] = { actorLevel = 120.52700042725, },
-				[24] = { actorLevel = 128.58799743652, },
-				[25] = { actorLevel = 136.875, },
-				[26] = { actorLevel = 145.38800048828, },
-				[27] = { actorLevel = 154.12699890137, },
-				[28] = { actorLevel = 163.09199523926, },
-				[29] = { actorLevel = 172.28300476074, },
-				[30] = { actorLevel = 181.69999694824, },
-				[31] = { actorLevel = 191.34300231934, },
-				[32] = { actorLevel = 201.21200561523, },
-				[33] = { actorLevel = 211.30700683594, },
-				[34] = { actorLevel = 221.62800598145, },
-				[35] = { actorLevel = 232.17500305176, },
-				[36] = { actorLevel = 242.94799804688, },
-				[37] = { actorLevel = 253.94700622559, },
-				[38] = { actorLevel = 265.17199707031, },
-				[39] = { actorLevel = 276.62298583984, },
-				[40] = { actorLevel = 288.29998779297, },
-			},
-		},
 	}
 }
 skills["DreadBannerPlayer"] = {
@@ -2050,6 +1990,11 @@ skills["DreadBannerPlayer"] = {
 	},
 	skillTypes = { [SkillType.Banner] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Nonpathing] = true, },
 	castTime = 1,
+	qualityStats = {
+		Default = {
+			{ "banner_buff_effect_+%_final_per_resource", 0.1 },
+		},
+	},
 	statSets = {
 		[1] = {
 			label = "Dread Banner",
@@ -2169,6 +2114,11 @@ skills["EarthquakePlayer"] = {
 		["One Handed Mace"] = true,
 	},
 	castTime = 1,
+	qualityStats = {
+		Default = {
+			{ "base_number_of_earthquakes_allowed", 0.1 },
+		},
+	},
 	statSets = {
 		[1] = {
 			label = "Impact",
@@ -2251,7 +2201,7 @@ skills["EarthquakePlayer"] = {
 		[2] = {
 			label = "Aftershock",
 			incrementalEffectiveness = 0.054999999701977,
-			statDescriptionScope = "earthquake_statset_0",
+			statDescriptionScope = "earthquake_statset_1",
 	statMap = {
 		["jagged_ground_effect_+%"] = {
 			mod("Damage", "MORE", nil, 0, 0),
@@ -2372,6 +2322,11 @@ skills["EarthshatterPlayer"] = {
 		["One Handed Mace"] = true,
 	},
 	castTime = 1,
+	qualityStats = {
+		Default = {
+			{ "spike_slam_max_spikes", 0.15 },
+		},
+	},
 	statSets = {
 		[1] = {
 			label = "Slam",
@@ -2434,7 +2389,7 @@ skills["EarthshatterPlayer"] = {
 		[2] = {
 			label = "Explosion",
 			incrementalEffectiveness = 0.054999999701977,
-			statDescriptionScope = "spike_slam_statset_0",
+			statDescriptionScope = "spike_slam_statset_1",
 			baseFlags = {
 			},
 			constantStats = {
@@ -2539,6 +2494,11 @@ skills["EmergencyReloadPlayer"] = {
 		["Crossbow"] = true,
 	},
 	castTime = 0,
+	qualityStats = {
+		Default = {
+			{ "base_cooldown_speed_+%", 0.5 },
+		},
+	},
 	statSets = {
 		[1] = {
 			label = "Emergency Reload",
@@ -2654,6 +2614,11 @@ skills["ExplosiveGrenadePlayer"] = {
 		["Crossbow"] = true,
 	},
 	castTime = 1,
+	qualityStats = {
+		Default = {
+			{ "base_cooldown_speed_+%", 1 },
+		},
+	},
 	statSets = {
 		[1] = {
 			label = "Explosive Grenade",
@@ -2784,6 +2749,11 @@ skills["FlashGrenadePlayer"] = {
 		["Crossbow"] = true,
 	},
 	castTime = 1,
+	qualityStats = {
+		Default = {
+			{ "base_cooldown_speed_+%", 1 },
+		},
+	},
 	statSets = {
 		[1] = {
 			label = "Flash Grenade",
@@ -2916,6 +2886,12 @@ skills["ToxicGrenadePlayer"] = {
 		["Crossbow"] = true,
 	},
 	castTime = 1,
+	qualityStats = {
+		Default = {
+			{ "active_skill_ground_effect_area_of_effect_+%_final_per_second_max", 3 },
+			{ "active_skill_ground_effect_area_of_effect_+%_final_per_second", 0.5 },
+		},
+	},
 	statSets = {
 		[1] = {
 			label = "Impact",
@@ -2995,7 +2971,7 @@ skills["ToxicGrenadePlayer"] = {
 		[2] = {
 			label = "Poison Cloud",
 			incrementalEffectiveness = 0.054999999701977,
-			statDescriptionScope = "toxic_grenade_statset_0",
+			statDescriptionScope = "toxic_grenade_statset_1",
 			baseFlags = {
 				attack = true,
 				area = true,
@@ -3060,7 +3036,7 @@ skills["ToxicGrenadePlayer"] = {
 		[3] = {
 			label = "Explosion",
 			incrementalEffectiveness = 0.054999999701977,
-			statDescriptionScope = "toxic_grenade_statset_0",
+			statDescriptionScope = "toxic_grenade_statset_2",
 			baseFlags = {
 				attack = true,
 				area = true,
@@ -3171,6 +3147,11 @@ skills["HammerOfTheGodsPlayer"] = {
 		["Two Handed Mace"] = true,
 	},
 	castTime = 1,
+	qualityStats = {
+		Default = {
+			{ "base_cooldown_speed_+%", 1 },
+		},
+	},
 	statSets = {
 		[1] = {
 			label = "Hammer of the Gods",
@@ -3297,6 +3278,11 @@ skills["HeraldOfAshPlayer"] = {
 		["One Handed Sword"] = true,
 	},
 	castTime = 0,
+	qualityStats = {
+		Default = {
+			{ "herald_of_ash_overkill_threshold_%", 0.1 },
+		},
+	},
 	statSets = {
 		[1] = {
 			label = "Buff",
@@ -3461,6 +3447,12 @@ skills["InfernalCryPlayer"] = {
 	description = "Performs a warcry, Empowering subsequent Attacks. Consumes all Endurance Charges to Empower additional attacks. Enemies in the warcry's area are destabilised and will Combust on death.",
 	skillTypes = { [SkillType.Warcry] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Fire] = true, [SkillType.Damage] = true, [SkillType.Cooldown] = true, [SkillType.ConsumesCharges] = true, [SkillType.EmpowersOtherSkill] = true, [SkillType.Nonpathing] = true, [SkillType.SkillConsumesEnduranceChargesOnUse] = true, },
 	castTime = 0.8,
+	qualityStats = {
+		Default = {
+			{ "infernal_cry_exerted_attack_all_damage_%_to_gain_as_fire_per_5_power_up_to_cap%", 0.5 },
+			{ "infernal_cry_exerted_attack_all_damage_%_to_gain_as_fire_cap%", 2.5 },
+		},
+	},
 	statSets = {
 		[1] = {
 			label = "Infernal Cry",
@@ -3700,6 +3692,11 @@ skills["LeapSlamPlayer"] = {
 		["One Handed Mace"] = true,
 	},
 	castTime = 1.4,
+	qualityStats = {
+		Default = {
+			{ "active_skill_damage_+%_final_vs_fully_broken_armour", 1 },
+		},
+	},
 	statSets = {
 		[1] = {
 			label = "Leap Slam",
@@ -3939,6 +3936,11 @@ skills["ArmourPiercingBoltsPlayer"] = {
 		["Crossbow"] = true,
 	},
 	castTime = 1,
+	qualityStats = {
+		Default = {
+			{ "armour_break_amount_+%", 1.5 },
+		},
+	},
 	statSets = {
 		[1] = {
 			label = "Projectile",
@@ -4188,6 +4190,11 @@ skills["ExplosiveShotPlayer"] = {
 		["Crossbow"] = true,
 	},
 	castTime = 1,
+	qualityStats = {
+		Default = {
+			{ "active_skill_ignite_effect_+%_final", 1.5 },
+		},
+	},
 	statSets = {
 		[1] = {
 			label = "Projectile",
@@ -4498,6 +4505,11 @@ skills["FragmentationRoundsPlayer"] = {
 		["Crossbow"] = true,
 	},
 	castTime = 1,
+	qualityStats = {
+		Default = {
+			{ "active_skill_physical_damage_+%_final", 1 },
+		},
+	},
 	statSets = {
 		[1] = {
 			label = "Projectile",
@@ -4691,6 +4703,11 @@ skills["GalvanicShardsAmmoPlayer"] = {
 		["Crossbow"] = true,
 	},
 	castTime = 0.6,
+	qualityStats = {
+		Default = {
+			{ "base_number_of_crossbow_bolts", 0.1 },
+		},
+	},
 	statSets = {
 		[1] = {
 			label = "Ammunition",
@@ -5000,6 +5017,11 @@ skills["GlacialBoltAmmoPlayer"] = {
 		["Crossbow"] = true,
 	},
 	castTime = 1,
+	qualityStats = {
+		Default = {
+			{ "base_number_of_crossbow_bolts", 0.1 },
+		},
+	},
 	statSets = {
 		[1] = {
 			label = "Ammunition",
@@ -5434,6 +5456,11 @@ skills["HailstormRoundsPlayer"] = {
 		["Crossbow"] = true,
 	},
 	castTime = 1,
+	qualityStats = {
+		Default = {
+			{ "base_number_of_crossbow_bolts", 0.25 },
+		},
+	},
 	statSets = {
 		[1] = {
 			label = "Impact",
@@ -5676,6 +5703,11 @@ skills["HighVelocityRoundsPlayer"] = {
 		["Crossbow"] = true,
 	},
 	castTime = 0.8,
+	qualityStats = {
+		Default = {
+			{ "active_skill_projectile_damage_+%_final_if_pierced_enemy", 1 },
+		},
+	},
 	statSets = {
 		[1] = {
 			label = "Projectile",
@@ -5985,6 +6017,11 @@ skills["IceShardsPlayer"] = {
 		["Crossbow"] = true,
 	},
 	castTime = 1,
+	qualityStats = {
+		Default = {
+			{ "permafrost_shard_damage_+%_final_after_1_second", 10 },
+		},
+	},
 	statSets = {
 		[1] = {
 			label = "Projectile",
@@ -6299,6 +6336,11 @@ skills["IncendiaryShotPlayer"] = {
 		["Crossbow"] = true,
 	},
 	castTime = 1,
+	qualityStats = {
+		Default = {
+			{ "base_ignite_effect_+%", 1 },
+		},
+	},
 	statSets = {
 		[1] = {
 			label = "Projectile",
@@ -6386,62 +6428,6 @@ skills["IncendiaryShotPlayer"] = {
 				[38] = { baseMultiplier = 1.13, actorLevel = 265.17199707031, },
 				[39] = { baseMultiplier = 1.18, actorLevel = 276.62298583984, },
 				[40] = { baseMultiplier = 1.24, actorLevel = 288.29998779297, },
-			},
-		},
-		[2] = {
-			label = "Hidden",
-			incrementalEffectiveness = 0.054999999701977,
-			statDescriptionScope = "burst_shot_incendiary",
-			baseFlags = {
-				attack = true,
-				projectile = true,
-				area = true,
-			},
-			stats = {
-				"display_statset_hide_usage_stats",
-				"is_area_damage",
-			},
-			levels = {
-				[1] = { actorLevel = 1, },
-				[2] = { actorLevel = 3.4519999027252, },
-				[3] = { actorLevel = 6.7670001983643, },
-				[4] = { actorLevel = 10.307999610901, },
-				[5] = { actorLevel = 14.074999809265, },
-				[6] = { actorLevel = 18.068000793457, },
-				[7] = { actorLevel = 22.287000656128, },
-				[8] = { actorLevel = 26.732000350952, },
-				[9] = { actorLevel = 31.40299987793, },
-				[10] = { actorLevel = 36.299999237061, },
-				[11] = { actorLevel = 41.423000335693, },
-				[12] = { actorLevel = 46.771999359131, },
-				[13] = { actorLevel = 52.34700012207, },
-				[14] = { actorLevel = 58.147998809814, },
-				[15] = { actorLevel = 64.175003051758, },
-				[16] = { actorLevel = 70.428001403809, },
-				[17] = { actorLevel = 76.906997680664, },
-				[18] = { actorLevel = 83.611999511719, },
-				[19] = { actorLevel = 90.542999267578, },
-				[20] = { actorLevel = 97.699996948242, },
-				[21] = { actorLevel = 105.08300018311, },
-				[22] = { actorLevel = 112.69200134277, },
-				[23] = { actorLevel = 120.52700042725, },
-				[24] = { actorLevel = 128.58799743652, },
-				[25] = { actorLevel = 136.875, },
-				[26] = { actorLevel = 145.38800048828, },
-				[27] = { actorLevel = 154.12699890137, },
-				[28] = { actorLevel = 163.09199523926, },
-				[29] = { actorLevel = 172.28300476074, },
-				[30] = { actorLevel = 181.69999694824, },
-				[31] = { actorLevel = 191.34300231934, },
-				[32] = { actorLevel = 201.21200561523, },
-				[33] = { actorLevel = 211.30700683594, },
-				[34] = { actorLevel = 221.62800598145, },
-				[35] = { actorLevel = 232.17500305176, },
-				[36] = { actorLevel = 242.94799804688, },
-				[37] = { actorLevel = 253.94700622559, },
-				[38] = { actorLevel = 265.17199707031, },
-				[39] = { actorLevel = 276.62298583984, },
-				[40] = { actorLevel = 288.29998779297, },
 			},
 		},
 	}
@@ -6614,6 +6600,11 @@ skills["PermafrostBoltsPlayer"] = {
 		["Crossbow"] = true,
 	},
 	castTime = 1,
+	qualityStats = {
+		Default = {
+			{ "base_number_of_projectiles", 0.1 },
+		},
+	},
 	statSets = {
 		[1] = {
 			label = "Projectile",
@@ -6696,62 +6687,6 @@ skills["PermafrostBoltsPlayer"] = {
 				[38] = { baseMultiplier = 1.13, actorLevel = 265.17199707031, },
 				[39] = { baseMultiplier = 1.18, actorLevel = 276.62298583984, },
 				[40] = { baseMultiplier = 1.24, actorLevel = 288.29998779297, },
-			},
-		},
-		[2] = {
-			label = "Hidden",
-			incrementalEffectiveness = 0.054999999701977,
-			statDescriptionScope = "burst_shot_permafrost",
-			baseFlags = {
-				attack = true,
-				projectile = true,
-				area = true,
-			},
-			stats = {
-				"display_statset_hide_usage_stats",
-				"is_area_damage",
-			},
-			levels = {
-				[1] = { actorLevel = 1, },
-				[2] = { actorLevel = 3.4519999027252, },
-				[3] = { actorLevel = 6.7670001983643, },
-				[4] = { actorLevel = 10.307999610901, },
-				[5] = { actorLevel = 14.074999809265, },
-				[6] = { actorLevel = 18.068000793457, },
-				[7] = { actorLevel = 22.287000656128, },
-				[8] = { actorLevel = 26.732000350952, },
-				[9] = { actorLevel = 31.40299987793, },
-				[10] = { actorLevel = 36.299999237061, },
-				[11] = { actorLevel = 41.423000335693, },
-				[12] = { actorLevel = 46.771999359131, },
-				[13] = { actorLevel = 52.34700012207, },
-				[14] = { actorLevel = 58.147998809814, },
-				[15] = { actorLevel = 64.175003051758, },
-				[16] = { actorLevel = 70.428001403809, },
-				[17] = { actorLevel = 76.906997680664, },
-				[18] = { actorLevel = 83.611999511719, },
-				[19] = { actorLevel = 90.542999267578, },
-				[20] = { actorLevel = 97.699996948242, },
-				[21] = { actorLevel = 105.08300018311, },
-				[22] = { actorLevel = 112.69200134277, },
-				[23] = { actorLevel = 120.52700042725, },
-				[24] = { actorLevel = 128.58799743652, },
-				[25] = { actorLevel = 136.875, },
-				[26] = { actorLevel = 145.38800048828, },
-				[27] = { actorLevel = 154.12699890137, },
-				[28] = { actorLevel = 163.09199523926, },
-				[29] = { actorLevel = 172.28300476074, },
-				[30] = { actorLevel = 181.69999694824, },
-				[31] = { actorLevel = 191.34300231934, },
-				[32] = { actorLevel = 201.21200561523, },
-				[33] = { actorLevel = 211.30700683594, },
-				[34] = { actorLevel = 221.62800598145, },
-				[35] = { actorLevel = 232.17500305176, },
-				[36] = { actorLevel = 242.94799804688, },
-				[37] = { actorLevel = 253.94700622559, },
-				[38] = { actorLevel = 265.17199707031, },
-				[39] = { actorLevel = 276.62298583984, },
-				[40] = { actorLevel = 288.29998779297, },
 			},
 		},
 	}
@@ -6924,6 +6859,11 @@ skills["PlasmaBlastPlayer"] = {
 		["Crossbow"] = true,
 	},
 	castTime = 1,
+	qualityStats = {
+		Default = {
+			{ "active_skill_shock_duration_+%_final", 1.5 },
+		},
+	},
 	statSets = {
 		[1] = {
 			label = "Projectile",
@@ -7236,6 +7176,11 @@ skills["RapidShotPlayer"] = {
 		["Crossbow"] = true,
 	},
 	castTime = 1,
+	qualityStats = {
+		Default = {
+			{ "rapid_shot_maximum_num_of_stacks", 0.1 },
+		},
+	},
 	statSets = {
 		[1] = {
 			label = "Projectile",
@@ -7493,6 +7438,11 @@ skills["ShockburstRoundsPlayer"] = {
 		["Crossbow"] = true,
 	},
 	castTime = 1,
+	qualityStats = {
+		Default = {
+			{ "base_number_of_crossbow_bolts", 0.35 },
+		},
+	},
 	statSets = {
 		[1] = {
 			label = "Projectile",
@@ -7804,6 +7754,11 @@ skills["SiegeCascadePlayer"] = {
 		["Crossbow"] = true,
 	},
 	castTime = 1,
+	qualityStats = {
+		Default = {
+			{ "siege_cascade_damage_+%_final_vs_immobilised_enemies", 2 },
+		},
+	},
 	statSets = {
 		[1] = {
 			label = "Impact",
@@ -8108,6 +8063,11 @@ skills["StormblastBoltsPlayer"] = {
 		["Crossbow"] = true,
 	},
 	castTime = 1,
+	qualityStats = {
+		Default = {
+			{ "base_reduce_enemy_lightning_resistance_%", 1 },
+		},
+	},
 	statSets = {
 		[1] = {
 			label = "Impact",
@@ -8183,7 +8143,7 @@ skills["StormblastBoltsPlayer"] = {
 		[2] = {
 			label = "Explosion",
 			incrementalEffectiveness = 0.054999999701977,
-			statDescriptionScope = "siege_cascade_stormblast_statset_0",
+			statDescriptionScope = "siege_cascade_stormblast_statset_1",
 			baseFlags = {
 				attack = true,
 				projectile = true,
@@ -8291,6 +8251,11 @@ skills["MagmaBarrierPlayer"] = {
 	description = "When you raise your Shield it is infused with magma for a short time. Blocking during this time will spray magma at the attacker and grant you an Endurance Charge.",
 	skillTypes = { [SkillType.Buff] = true, [SkillType.OngoingSkill] = true, [SkillType.HasReservation] = true, [SkillType.Fire] = true, [SkillType.Duration] = true, [SkillType.Persistent] = true, },
 	castTime = 0,
+	qualityStats = {
+		Default = {
+			{ "igneous_shield_perfect_block_window_time_ms", 10 },
+		},
+	},
 	statSets = {
 		[1] = {
 			label = "Buff",
@@ -8517,6 +8482,11 @@ skills["MoltenBlastPlayer"] = {
 		["One Handed Mace"] = true,
 	},
 	castTime = 1,
+	qualityStats = {
+		Default = {
+			{ "base_inflict_fire_exposure_on_hit_%_chance", 1.5 },
+		},
+	},
 	statSets = {
 		[1] = {
 			label = "Projectile",
@@ -8586,7 +8556,7 @@ skills["MoltenBlastPlayer"] = {
 		[2] = {
 			label = "Shrapnel",
 			incrementalEffectiveness = 0.054999999701977,
-			statDescriptionScope = "molten_blast_statset_0",
+			statDescriptionScope = "molten_blast_statset_1",
 			baseFlags = {
 			},
 			constantStats = {
@@ -8696,6 +8666,11 @@ skills["OilGrenadePlayer"] = {
 		["Crossbow"] = true,
 	},
 	castTime = 1,
+	qualityStats = {
+		Default = {
+			{ "base_cooldown_speed_+%", 0.5 },
+		},
+	},
 	statSets = {
 		[1] = {
 			label = "Oil Grenade",
@@ -8830,6 +8805,12 @@ skills["OverwhelmingPresencePlayer"] = {
 	description = "While active, enemies in your Presence are easier to Stun and inflict Elemental Ailments upon.",
 	skillTypes = { [SkillType.OngoingSkill] = true, [SkillType.HasReservation] = true, [SkillType.Buff] = true, [SkillType.Persistent] = true, },
 	castTime = 1,
+	qualityStats = {
+		Default = {
+			{ "skill_overwhelming_pressure_aura_enemy_stun_threshold_+%", -0.25 },
+			{ "skill_overwhelming_pressure_aura_enemy_ailment_threshold_+%", -0.25 },
+		},
+	},
 	statSets = {
 		[1] = {
 			label = "Overwhelming Presence",
@@ -8940,6 +8921,11 @@ skills["PerfectStrikePlayer"] = {
 		["Two Handed Mace"] = true,
 	},
 	castTime = 1,
+	qualityStats = {
+		Default = {
+			{ "base_ignite_effect_+%", 1 },
+		},
+	},
 	statSets = {
 		[1] = {
 			label = "Normal Strikes",
@@ -9110,6 +9096,11 @@ skills["ResonatingShieldPlayer"] = {
 	description = "Repeatedly strike your Shield with your weapon causing damaging shockwaves in an area around you. Enemies hit by the shockwave lose Armour for a duration. While using Resonating Shield, your Shield is raised and you will Block all incoming Blockable hits.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.Physical] = true, [SkillType.Channel] = true, [SkillType.RequiresShield] = true, [SkillType.Nonpathing] = true, [SkillType.Area] = true, [SkillType.Sustained] = true, [SkillType.NonWeaponAttack] = true, },
 	castTime = 1,
+	qualityStats = {
+		Default = {
+			{ "armour_break_amount_+%", 1 },
+		},
+	},
 	statSets = {
 		[1] = {
 			label = "Resonating Shield",
@@ -9362,6 +9353,11 @@ skills["RipwireBallistaProjectilePlayer"] = {
 		["Crossbow"] = true,
 	},
 	castTime = 1,
+	qualityStats = {
+		Default = {
+			{ "active_skill_pins_as_though_dealt_damage_+%_final", 2.5 },
+		},
+	},
 	statSets = {
 		[1] = {
 			label = "Bolts",
@@ -9491,6 +9487,11 @@ skills["RollingSlamPlayer"] = {
 		["Two Handed Mace"] = true,
 	},
 	castTime = 1,
+	qualityStats = {
+		Default = {
+			{ "support_physical_damage_%_to_gain_as_daze_build_up", 2.5 },
+		},
+	},
 	statSets = {
 		[1] = {
 			label = "Rolling Slam",
@@ -9718,6 +9719,11 @@ skills["ScavengedPlatingPlayer"] = {
 	description = "Uses fragments of armour scavenged from enemies to bolster your own. Fully Breaking an enemy's Armour grants you a stack of Scavenged Plating for a duration, and you gain Armour and Thorns per stack.",
 	skillTypes = { [SkillType.Buff] = true, [SkillType.OngoingSkill] = true, [SkillType.HasReservation] = true, [SkillType.Duration] = true, [SkillType.Persistent] = true, [SkillType.Physical] = true, },
 	castTime = 1,
+	qualityStats = {
+		Default = {
+			{ "scavenged_plating_armour_+%_final_per_stack", 0.1 },
+		},
+	},
 	statSets = {
 		[1] = {
 			label = "Scavenged Plating",
@@ -9831,6 +9837,11 @@ skills["SeismicCryPlayer"] = {
 	description = "Performs a damaging warcry, Knocking Back nearby enemies. If a Heavy Stunned enemy is hit, your next Slam is Empowered to perform an additional Aftershock. If not, this skill's cooldown is reset. Only counts Heavily Stunned enemies for purposes of counting Power Gained.",
 	skillTypes = { [SkillType.Warcry] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Damage] = true, [SkillType.ConsumesCharges] = true, [SkillType.Cooldown] = true, [SkillType.ManualCooldownConsumption] = true, [SkillType.Physical] = true, [SkillType.EmpowersOtherSkill] = true, [SkillType.Nonpathing] = true, },
 	castTime = 0.8,
+	qualityStats = {
+		Default = {
+			{ "warcry_speed_+%", 2 },
+		},
+	},
 	statSets = {
 		[1] = {
 			label = "Seismic Cry",
@@ -9963,6 +9974,11 @@ skills["ShardScavengerPlayer"] = {
 		["Crossbow"] = true,
 	},
 	castTime = 1,
+	qualityStats = {
+		Default = {
+			{ "base_reservation_+%", -0.25 },
+		},
+	},
 	statSets = {
 		[1] = {
 			label = "Shard Scavenger",
@@ -10068,6 +10084,11 @@ skills["ShieldChargePlayer"] = {
 	description = "Channel to charge in the target direction. You will crash into enemies on your path, stopping your charge and dealing damage to enemies in an area, and extra damage to the enemies you collided with. While charging, your Shield is raised and you will Block all incoming Blockable hits.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RequiresShield] = true, [SkillType.Melee] = true, [SkillType.Area] = true, [SkillType.Physical] = true, [SkillType.Cooldown] = true, [SkillType.Channel] = true, [SkillType.Travel] = true, [SkillType.NonWeaponAttack] = true, },
 	castTime = 1,
+	qualityStats = {
+		Default = {
+			{ "base_cooldown_speed_+%", 0.5 },
+		},
+	},
 	statSets = {
 		[1] = {
 			label = "Area of Effect",
@@ -10250,6 +10271,11 @@ skills["ShieldWallPlayer"] = {
 	description = "Ram your Shield into the ground, throwing up a semi-circular wall of earth. Enemies can attack the walls and your Slams will instantly destroy them. Each wall segment explodes when destroyed, damaging enemies around it.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Wall] = true, [SkillType.Duration] = true, [SkillType.RequiresShield] = true, [SkillType.Physical] = true, [SkillType.Area] = true, [SkillType.SupportedByFountains] = true, [SkillType.NonWeaponAttack] = true, },
 	castTime = 1,
+	qualityStats = {
+		Default = {
+			{ "base_number_of_shield_walls_allowed", 0.1 },
+		},
+	},
 	statSets = {
 		[1] = {
 			label = "Shield Wall",
@@ -10385,6 +10411,11 @@ skills["ShockwaveTotemPlayer"] = {
 	},
 	skillTotemId = 5,
 	castTime = 0.6,
+	qualityStats = {
+		Default = {
+			{ "alt_attack_container_main_hand_base_weapon_attack_duration_ms", -27.5 },
+		},
+	},
 	statSets = {
 		[1] = {
 			label = "Totem",
@@ -10667,6 +10698,11 @@ skills["StampedePlayer"] = {
 		["Two Handed Mace"] = true,
 	},
 	castTime = 1,
+	qualityStats = {
+		Default = {
+			{ "slam_aftershock_chance_%", 1.5 },
+		},
+	},
 	statSets = {
 		[1] = {
 			label = "Footsteps",
@@ -10737,7 +10773,7 @@ skills["StampedePlayer"] = {
 		[2] = {
 			label = "Slam",
 			incrementalEffectiveness = 0.054999999701977,
-			statDescriptionScope = "channel_stampede_statset_0",
+			statDescriptionScope = "channel_stampede_statset_1",
 			baseFlags = {
 			},
 			constantStats = {
@@ -10792,7 +10828,7 @@ skills["StampedePlayer"] = {
 		[3] = {
 			label = "Explosion",
 			incrementalEffectiveness = 0.054999999701977,
-			statDescriptionScope = "channel_stampede_statset_0",
+			statDescriptionScope = "channel_stampede_statset_2",
 			baseFlags = {
 			},
 			stats = {
@@ -10896,6 +10932,11 @@ skills["SunderPlayer"] = {
 		["One Handed Mace"] = true,
 	},
 	castTime = 1,
+	qualityStats = {
+		Default = {
+			{ "accuracy_range_penalty_+%", -2.5 },
+		},
+	},
 	statSets = {
 		[1] = {
 			label = "Wave",
@@ -10968,7 +11009,7 @@ skills["SunderPlayer"] = {
 		[2] = {
 			label = "Shockwave",
 			incrementalEffectiveness = 0.054999999701977,
-			statDescriptionScope = "new_sunder_statset_0",
+			statDescriptionScope = "new_sunder_statset_1",
 			baseFlags = {
 			},
 			constantStats = {
@@ -11074,6 +11115,11 @@ skills["SuperchargedSlamPlayer"] = {
 		["Two Handed Mace"] = true,
 	},
 	castTime = 1,
+	qualityStats = {
+		Default = {
+			{ "channelled_slam_max_stages", 0.1 },
+		},
+	},
 	statSets = {
 		[1] = {
 			label = "Impact",
@@ -11140,7 +11186,7 @@ skills["SuperchargedSlamPlayer"] = {
 		[2] = {
 			label = "Aftershock",
 			incrementalEffectiveness = 0.092720001935959,
-			statDescriptionScope = "channelled_slam_statset_0",
+			statDescriptionScope = "channelled_slam_statset_1",
 			baseFlags = {
 			},
 			constantStats = {
@@ -11245,6 +11291,11 @@ skills["TimeOfNeedPlayer"] = {
 	description = "Invokes divine blessings, periodically healing you and removing Curses and Elemental Ailments from you.",
 	skillTypes = { [SkillType.OngoingSkill] = true, [SkillType.HasReservation] = true, [SkillType.Buff] = true, [SkillType.Persistent] = true, [SkillType.Duration] = true, },
 	castTime = 1,
+	qualityStats = {
+		Default = {
+			{ "skill_time_of_need_gain_x_life", 2 },
+		},
+	},
 	statSets = {
 		[1] = {
 			label = "Time of Need",
@@ -11355,6 +11406,11 @@ skills["VolcanicFissurePlayer"] = {
 		["Two Handed Mace"] = true,
 	},
 	castTime = 1,
+	qualityStats = {
+		Default = {
+			{ "base_skill_effect_duration", 200 },
+		},
+	},
 	statSets = {
 		[1] = {
 			label = "Volcanic Fissure",
@@ -11414,19 +11470,6 @@ skills["VolcanicFissurePlayer"] = {
 				[40] = { baseMultiplier = 4.97, actorLevel = 288.29998779297, },
 			},
 		},
-		[2] = {
-			label = "Hidden",
-			incrementalEffectiveness = 0.092720001935959,
-			statDescriptionScope = "volcanic_fissure",
-			baseFlags = {
-			},
-			stats = {
-				"base_is_projectile",
-			},
-			levels = {
-				[1] = { actorLevel = 1, },
-			},
-		},
 	}
 }
 skills["ShockGrenadePlayer"] = {
@@ -11481,6 +11524,11 @@ skills["ShockGrenadePlayer"] = {
 		["Crossbow"] = true,
 	},
 	castTime = 1,
+	qualityStats = {
+		Default = {
+			{ "base_cooldown_speed_+%", 0.5 },
+		},
+	},
 	statSets = {
 		[1] = {
 			label = "Voltaic Grenade",
@@ -11611,61 +11659,6 @@ skills["WarBannerReservationPlayer"] = {
 	skillTypes = { [SkillType.OngoingSkill] = true, [SkillType.HasReservation] = true, [SkillType.Buff] = true, [SkillType.Persistent] = true, [SkillType.CanHaveMultipleOngoingSkillInstances] = true, [SkillType.Area] = true, [SkillType.Duration] = true, },
 	castTime = 1,
 	statSets = {
-		[1] = {
-			label = "Hidden",
-			incrementalEffectiveness = 0.054999999701977,
-			statDescriptionScope = "skill_stat_descriptions",
-			baseFlags = {
-			},
-			constantStats = {
-				{ "gain_x_valour_per_minute_while_unique_presence", 60 },
-			},
-			stats = {
-				"base_deal_no_damage",
-			},
-			levels = {
-				[1] = { actorLevel = 1, },
-				[2] = { actorLevel = 3.4519999027252, },
-				[3] = { actorLevel = 6.7670001983643, },
-				[4] = { actorLevel = 10.307999610901, },
-				[5] = { actorLevel = 14.074999809265, },
-				[6] = { actorLevel = 18.068000793457, },
-				[7] = { actorLevel = 22.287000656128, },
-				[8] = { actorLevel = 26.732000350952, },
-				[9] = { actorLevel = 31.40299987793, },
-				[10] = { actorLevel = 36.299999237061, },
-				[11] = { actorLevel = 41.423000335693, },
-				[12] = { actorLevel = 46.771999359131, },
-				[13] = { actorLevel = 52.34700012207, },
-				[14] = { actorLevel = 58.147998809814, },
-				[15] = { actorLevel = 64.175003051758, },
-				[16] = { actorLevel = 70.428001403809, },
-				[17] = { actorLevel = 76.906997680664, },
-				[18] = { actorLevel = 83.611999511719, },
-				[19] = { actorLevel = 90.542999267578, },
-				[20] = { actorLevel = 97.699996948242, },
-				[21] = { actorLevel = 105.08300018311, },
-				[22] = { actorLevel = 112.69200134277, },
-				[23] = { actorLevel = 120.52700042725, },
-				[24] = { actorLevel = 128.58799743652, },
-				[25] = { actorLevel = 136.875, },
-				[26] = { actorLevel = 145.38800048828, },
-				[27] = { actorLevel = 154.12699890137, },
-				[28] = { actorLevel = 163.09199523926, },
-				[29] = { actorLevel = 172.28300476074, },
-				[30] = { actorLevel = 181.69999694824, },
-				[31] = { actorLevel = 191.34300231934, },
-				[32] = { actorLevel = 201.21200561523, },
-				[33] = { actorLevel = 211.30700683594, },
-				[34] = { actorLevel = 221.62800598145, },
-				[35] = { actorLevel = 232.17500305176, },
-				[36] = { actorLevel = 242.94799804688, },
-				[37] = { actorLevel = 253.94700622559, },
-				[38] = { actorLevel = 265.17199707031, },
-				[39] = { actorLevel = 276.62298583984, },
-				[40] = { actorLevel = 288.29998779297, },
-			},
-		},
 	}
 }
 skills["WarBannerPlayer"] = {
@@ -11715,6 +11708,11 @@ skills["WarBannerPlayer"] = {
 	},
 	skillTypes = { [SkillType.Banner] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Nonpathing] = true, },
 	castTime = 1,
+	qualityStats = {
+		Default = {
+			{ "banner_buff_effect_+%_final_per_resource", 0.1 },
+		},
+	},
 	statSets = {
 		[1] = {
 			label = "War Banner",
