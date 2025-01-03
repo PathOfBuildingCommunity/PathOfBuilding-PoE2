@@ -187,26 +187,7 @@ end
 local configSettings = {
 	-- Section: General options
 	{ section = "General", col = 1 },
-	{ var = "resistancePenalty", type = "list", label = "Resistance penalty:", list = {{val=0,label="None"},{val=-30,label="Act 5 (-30%)"},{val=-60,label="Act 10 (-60%)"}}, defaultIndex = 3 },
-	{ var = "bandit", type = "list", defaultIndex = 1, label = "Bandit quest:", tooltipFunc = banditTooltip, list = {{val="None",label="Kill all"},{val="Oak",label="Help Oak"},{val="Kraityn",label="Help Kraityn"},{val="Alira",label="Help Alira"}} },
-	{ var = "pantheonMajorGod", type = "list", defaultIndex = 1, label = "Major God:", tooltipFunc = applyPantheonDescription, list = {
-		{ label = "Nothing", val = "None" },
-		{ label = "Soul of the Brine King", val = "TheBrineKing" },
-		{ label = "Soul of Lunaris", val = "Lunaris" },
-		{ label = "Soul of Solaris", val = "Solaris" },
-		{ label = "Soul of Arakaali", val = "Arakaali" },
-	} },
-	{ var = "pantheonMinorGod", type = "list", defaultIndex = 1, label = "Minor God:", tooltipFunc = applyPantheonDescription, list = {
-		{ label = "Nothing", val = "None" },
-		{ label = "Soul of Gruthkul", val = "Gruthkul" },
-		{ label = "Soul of Yugul", val = "Yugul" },
-		{ label = "Soul of Abberath", val = "Abberath" },
-		{ label = "Soul of Tukohama", val = "Tukohama" },
-		{ label = "Soul of Garukhan", val = "Garukhan" },
-		{ label = "Soul of Ralakesh", val = "Ralakesh" },
-		{ label = "Soul of Ryslatha", val = "Ryslatha" },
-		{ label = "Soul of Shakari", val = "Shakari" },
-	} },
+	{ var = "resistancePenalty", type = "list", label = "Elemental Resistance penalty:", list = {{val=0,label="None"},{val=-30,label="Act 5 (-30%)"},{val=-60,label="Act 10 (-60%)"}}, defaultIndex = 3 },
 	{ var = "detonateDeadCorpseLife", type = "count", label = "Enemy Corpse ^xE05030Life:", ifSkillData = "explodeCorpse", tooltip = "Sets the maximum ^xE05030life ^7of the target corpse for Detonate Dead and similar skills.\nFor reference, a level 70 monster has "..data.monsterLifeTable[70].." base ^xE05030life^7, and a level 80 monster has "..data.monsterLifeTable[80]..".", apply = function(val, modList, enemyModList)
 		modList:NewMod("SkillData", "LIST", { key = "corpseLife", value = val }, "Config")
 	end },
