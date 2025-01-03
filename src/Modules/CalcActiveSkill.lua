@@ -52,30 +52,31 @@ end
 function calcs.mergeSkillInstanceMods(env, modList, skillEffect, extraStats)
 	calcLib.validateGemLevel(skillEffect)
 	local grantedEffect = skillEffect.grantedEffect	
-	-- TEMP FIX
-	local stats = calcLib.buildSkillInstanceStats(skillEffect, grantedEffect, grantedEffect.statSets[1])
-	if extraStats and extraStats[1] then
-		for _, stat in pairs(extraStats) do
-			stats[stat.key] = (stats[stat.key] or 0) + stat.value
+	for _, statSet in ipairs(grantedEffect.statSets) do 
+		local stats = calcLib.buildSkillInstanceStats(skillEffect, grantedEffect, statSet)
+		if extraStats and extraStats[1] then
+			for _, stat in pairs(extraStats) do
+				stats[stat.key] = (stats[stat.key] or 0) + stat.value
+			end
 		end
-	end
-	for stat, statValue in pairs(stats) do
-		local map = grantedEffect.statMap[stat]
-		if map then
-			-- Some mods need different scalars for different stats, but the same value.  Putting them in a group allows this
-			for _, modOrGroup in ipairs(map) do
-				-- Found a mod, since all mods have names
-				if modOrGroup.name then
-					mergeLevelMod(modList, modOrGroup, map.value or statValue * (map.mult or 1) / (map.div or 1) + (map.base or 0))
-				else
-					for _, mod in ipairs(modOrGroup) do
-						mergeLevelMod(modList, mod, modOrGroup.value or statValue * (modOrGroup.mult or 1) / (modOrGroup.div or 1) + (modOrGroup.base or 0))
+		for stat, statValue in pairs(stats) do
+			local map = statSet.statMap[stat]
+			if map then
+				-- Some mods need different scalars for different stats, but the same value.  Putting them in a group allows this
+				for _, modOrGroup in ipairs(map) do
+					-- Found a mod, since all mods have names
+					if modOrGroup.name then
+						mergeLevelMod(modList, modOrGroup, map.value or statValue * (map.mult or 1) / (map.div or 1) + (map.base or 0))
+					else
+						for _, mod in ipairs(modOrGroup) do
+							mergeLevelMod(modList, mod, modOrGroup.value or statValue * (modOrGroup.mult or 1) / (modOrGroup.div or 1) + (modOrGroup.base or 0))
+						end
 					end
 				end
 			end
 		end
+		modList:AddList(statSet.baseMods)
 	end
-	modList:AddList(grantedEffect.baseMods)
 end
 
 -- Create an active skill using the given active gem and list of support gems
@@ -162,7 +163,6 @@ function calcs.copyActiveSkill(env, mode, skill)
 		grantedEffect = skill.activeEffect.grantedEffect,
 		level = skill.activeEffect.srcInstance.level,
 		quality = skill.activeEffect.srcInstance.quality,
-		qualityId = skill.activeEffect.srcInstance.qualityId,
 		srcInstance = skill.activeEffect.srcInstance,
 		gemData = skill.activeEffect.srcInstance.gemData,
 	}
@@ -219,6 +219,8 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 	local skillFlags = activeSkill.skillFlags
 	local activeEffect = activeSkill.activeEffect
 	local activeGrantedEffect = activeEffect.grantedEffect
+	-- To implement
+	local activeStatSet = activeEffect.activeStatSet or { }
 	local effectiveRange = 0
 
 	-- Set mode flags
@@ -523,28 +525,30 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 	activeEffect.grantedEffectLevel = activeGrantedEffect.levels[activeEffect.level]
 
 	-- Add extra modifiers from granted effect level
-	local level = activeEffect.grantedEffectLevel
-	activeSkill.skillData.CritChance = level.critChance
-	if level.damageMultiplier then
-		skillModList:NewMod("Damage", "MORE", level.damageMultiplier, activeEffect.grantedEffect.modSource, ModFlag.Attack)
+	local effectLevel = activeEffect.grantedEffectLevel
+	-- TO IMPLEMENT
+	local setLevel = activeStatSet.statSetLevel or { } 
+	activeSkill.skillData.CritChance = setLevel.critChance
+	if effectLevel.damageMultiplier then
+		skillModList:NewMod("Damage", "MORE", effectLevel.damageMultiplier, activeEffect.grantedEffect.modSource, ModFlag.Attack)
 	end
-	if level.attackTime then
-		activeSkill.skillData.attackTime = level.attackTime
+	if effectLevel.attackTime then
+		activeSkill.skillData.attackTime = effectLevel.attackTime
 	end
-	if level.attackSpeedMultiplier then
-		skillModList:NewMod("Speed", "MORE", level.attackSpeedMultiplier, activeEffect.grantedEffect.modSource, ModFlag.Attack)
+	if effectLevel.attackSpeedMultiplier then
+		skillModList:NewMod("Speed", "MORE", effectLevel.attackSpeedMultiplier, activeEffect.grantedEffect.modSource, ModFlag.Attack)
 	end
-	if level.cooldown then
-		activeSkill.skillData.cooldown = level.cooldown
+	if effectLevel.cooldown then
+		activeSkill.skillData.cooldown = effectLevel.cooldown
 	end
-	if level.storedUses then
-		activeSkill.skillData.storedUses = level.storedUses
+	if effectLevel.storedUses then
+		activeSkill.skillData.storedUses = effectLevel.storedUses
 	end
-	if level.soulPreventionDuration then
-		activeSkill.skillData.soulPreventionDuration = level.soulPreventionDuration
+	if effectLevel.soulPreventionDuration then
+		activeSkill.skillData.soulPreventionDuration = effectLevel.soulPreventionDuration
 	end
-	if level.PvPDamageMultiplier then
-		skillModList:NewMod("PvpDamageMultiplier", "MORE", level.PvPDamageMultiplier, activeEffect.grantedEffect.modSource)
+	if effectLevel.PvPDamageMultiplier then
+		skillModList:NewMod("PvpDamageMultiplier", "MORE", effectLevel.PvPDamageMultiplier, activeEffect.grantedEffect.modSource)
 	end
 	
 	-- Add extra modifiers from other sources
