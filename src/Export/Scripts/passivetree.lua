@@ -356,18 +356,13 @@ local function commonMetadata(alias)
 	return metadata
 end
 
-local defaultMaxWidth = 86*14
+local defaultMaxWidth = 1500
 local sheets = {
 	newSheet("skills",  defaultMaxWidth, 100),
 	newSheet("skills-disabled", defaultMaxWidth, 60),
-	newSheet("mastery", defaultMaxWidth, 100),
-	newSheet("mastery-active-selected", defaultMaxWidth, 100),
-	newSheet("mastery-disabled", defaultMaxWidth, 60),
-	newSheet("mastery-connected", defaultMaxWidth, 100),
 	newSheet("background", defaultMaxWidth, 100),
 	newSheet("group-background", defaultMaxWidth, 100),
 	newSheet("mastery-active-effect", defaultMaxWidth, 100),
-	newSheet("ascendancy", defaultMaxWidth, 100),
 	newSheet("ascendancy-background", defaultMaxWidth, 100),
 	newSheet("oils", defaultMaxWidth, 100),
 	newSheet("lines", defaultMaxWidth, 100),
@@ -376,18 +371,13 @@ local sheets = {
 local sheetLocations = {
 	["skills"] = 1,
 	["skills-disabled"] = 2,
-	["mastery"] = 3,
-	["mastery-active-selected"] = 4,
-	["mastery-disabled"] = 5,
-	["mastery-connected"] = 6,
-	["background"] = 7,
-	["group-background"] = 8,
-	["mastery-active-effect"] = 9,
-	["ascendancy"] = 10,
-	["ascendancy-background"] = 11,
-	["oils"] = 12,
-	["lines"] = 13,
-	["jewelsockets"] = 14,
+	["background"] = 3,
+	["group-background"] = 4,
+	["mastery-active-effect"] = 5,
+	["ascendancy-background"] = 6,
+	["oils"] = 7,
+	["lines"] = 8,
+	["jewelsockets"] = 9,
 }
 local function getSheet(sheetLocation)
 	return sheets[sheetLocations[sheetLocation]]
@@ -426,8 +416,6 @@ addToSheet(getSheet("group-background"), pFrameActive, "frame", commonMetadata("
 
 local pFrameCanAllocate = uiImages[string.lower(uIArt.PassiveFrameCanAllocate)].path
 addToSheet(getSheet("group-background"), pFrameCanAllocate, "frame", commonMetadata("PSSkillFrameHighlighted"))
-
-addToSheet(getSheet("group-background"), "art/2dart/uieffects/passiveskillscreen/nodeframemask.dds", "frame", commonMetadata("PSSkillFrameMask"))
 
 printf("Getting KeystoneFrame")
 local kFrameNormal = uiImages[string.lower(uIArt.KeystoneFrameNormal)].path
@@ -582,7 +570,9 @@ for i, classId in ipairs(psg.passives) do
 
 		-- add assets
 		addToSheet(getSheet("ascendancy-background"), character.PassiveTreeImage, "ascendancyBackground", commonMetadata( "Classes" .. character.Name))
-		addToSheet(getSheet("group-background"), uiImages[string.lower(character.SkillTreeBackground)].path, "startNode", commonMetadata( "center" .. string.lower(character.Name)))
+
+		-- We are going to ignore for now, because current tree doesnt use that
+		--addToSheet(getSheet("group-background"), uiImages[string.lower(character.SkillTreeBackground)].path, "startNode", commonMetadata( "center" .. string.lower(character.Name)))
 
 		local ascendancies = dat("ascendancy"):GetRowList("Class", character)
 		for k, ascendency in ipairs(ascendancies) do
@@ -696,36 +686,8 @@ for i, group in ipairs(psg.groups) do
 				node["isNotable"] = true
 				addToSheet(getSheet("skills"), passiveRow.Icon, "notableActive", commonMetadata(nil))
 				addToSheet(getSheet("skills-disabled"), passiveRow.Icon, "notableInactive", commonMetadata(nil))
-			elseif passiveRow.Mastery then
-				node["isMastery"] = true
-				node["inactiveIcon"] = passiveRow.MasteryGroup.IconInactive
-				node["activeIcon"] = passiveRow.MasteryGroup.IconActive
-				
-				addToSheet(getSheet("mastery"), passiveRow.Icon, "mastery", commonMetadata(nil))
-				addToSheet(getSheet("mastery-disabled"), passiveRow.MasteryGroup.IconInactive, "masteryInactive", commonMetadata(nil))
-				addToSheet(getSheet("mastery-connected"), passiveRow.MasteryGroup.IconInactive, "masteryConnected", commonMetadata(nil))
-				addToSheet(getSheet("mastery-active-selected"), passiveRow.MasteryGroup.IconActive, "masteryActiveSelected", commonMetadata(nil))
-
-
-				-- node["masteryEffects"] = {}
-
-				-- for _, masteryEffect in ipairs(passiveRow.MasteryGroup.MasteryEffects) do
-				-- 	local effect = {
-				-- 		effect = masteryEffect.Hash,
-				-- 		stats = {},
-				-- 	}
-
-				-- 	local parseStats = {}
-				-- 	for k, stat in ipairs(masteryEffect.Stats) do
-				-- 		parseStats[stat.Id] = { min = masteryEffect["Stat" .. k], max = masteryEffect["Stat" .. k] }
-				-- 	end
-				-- 	local out, orders = describeStats(parseStats)
-				-- 	for k, line in ipairs(out) do
-				-- 		table.insert(effect.stats, line)
-				-- 	end
-
-				-- 	table.insert(node["masteryEffects"], effect)
-				-- end
+			elseif passiveRow.IsOnlyImage then
+				node["isOnlyImage"] = true
 			elseif passiveRow.JewelSocket then
 				node["isJewelSocket"] = true
 				addToSheet(getSheet("skills"), passiveRow.Icon, "socketActive", commonMetadata(nil))
@@ -764,7 +726,7 @@ for i, group in ipairs(psg.groups) do
 				end
 			end
 
-			-- add Mastery Effect to other type of nodes different than Mastery
+			-- support for images
 			if passiveRow.MasteryGroup ~= nil then
 				node["activeEffectImage"] = passiveRow.MasteryGroup.Background
 

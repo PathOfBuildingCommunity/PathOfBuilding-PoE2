@@ -2118,17 +2118,10 @@ return {
 			list=false,
 			name="BlightCraftingResultsKey",
 			refTo="BlightCraftingResults",
-			type="ShortKey",
+			type="Key",
 			width=150
 		},
 		[3]={
-			list=false,
-			name="",
-			refTo="",
-			type="ShortKey",
-			width=150
-		},
-		[4]={
 			list=true,
 			name="Recipe",
 			refTo="BlightCraftingItems",
@@ -2155,8 +2148,8 @@ return {
 			list=false,
 			name="PassiveSkillsKey",
 			refTo="PassiveSkills",
-			type="Key",
-			width=150
+			type="ShortKey",
+			width=260
 		}
 	},
 	blightcraftingtypes={
@@ -11092,7 +11085,7 @@ return {
 		},
 		[14]={
 			list=false,
-			name="Mastery",
+			name="IsOnlyImage",
 			refTo="",
 			type="Bool",
 			width=60

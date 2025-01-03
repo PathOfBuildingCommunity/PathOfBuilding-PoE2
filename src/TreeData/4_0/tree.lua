@@ -14165,13 +14165,11 @@ return {
 		},
 		[857]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryEnergyPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryEnergyActive.dds",
 			connections={
 			},
 			group=381,
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupEnergyShield.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryEnergyInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Energy Shield Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -14607,13 +14605,11 @@ return {
 		},
 		[1215]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryEvasionAndEnergyShieldPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryEvasionAndEnergyShieldActive.dds",
 			connections={
 			},
 			group=615,
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupEnergyShield.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryEvasionAndEnergyShieldInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Evasion and Energy Shield Mastery",
 			orbit=1,
 			orbitIndex=5,
@@ -14808,7 +14804,6 @@ return {
 		},
 		[1477]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryProjectilePattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryProjectileActive.dds",
 			connections={
 				[1]={
 					id=11037,
@@ -14817,8 +14812,7 @@ return {
 			},
 			group=534,
 			icon="Art/2DArt/SkillIcons/passives/MasteryProjectiles.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryProjectileInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Projectile Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -14828,7 +14822,6 @@ return {
 		},
 		[1514]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryAttackPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryAttackActive.dds",
 			connections={
 				[1]={
 					id=29527,
@@ -14837,8 +14830,7 @@ return {
 			},
 			group=945,
 			icon="Art/2DArt/SkillIcons/passives/AttackBlindMastery.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryAttackInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Attack Mastery",
 			orbit=1,
 			orbitIndex=7,
@@ -15181,7 +15173,6 @@ return {
 		},
 		[1922]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryCasterPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryCasterActive.dds",
 			connections={
 				[1]={
 					id=51184,
@@ -15190,8 +15181,7 @@ return {
 			},
 			group=484,
 			icon="Art/2DArt/SkillIcons/passives/AreaofEffectSpellsMastery.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryCasterInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Caster Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -15303,13 +15293,11 @@ return {
 		},
 		[2102]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryEnergyPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryEnergyActive.dds",
 			connections={
 			},
 			group=447,
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupEnergyShield.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryEnergyInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Energy Shield Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -15667,7 +15655,6 @@ return {
 		},
 		[2461]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryAccuracyPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryAccuracyActive.dds",
 			connections={
 				[1]={
 					id=44605,
@@ -15676,8 +15663,7 @@ return {
 			},
 			group=532,
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupAccuracy.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryAccuracyInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Accuracy Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -15972,13 +15958,11 @@ return {
 		},
 		[2841]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryLifePattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryLifeActive.dds",
 			connections={
 			},
 			group=631,
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupLife.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryLifeInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Life Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -16114,13 +16098,11 @@ return {
 		},
 		[2946]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryFirePattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryFireActive.dds",
 			connections={
 			},
 			group=130,
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupFire.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryFireInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Fire Resistance Mastery",
 			orbit=1,
 			orbitIndex=1,
@@ -16288,7 +16270,6 @@ return {
 		},
 		[3042]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryLifePattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryLifeActive.dds",
 			connections={
 				[1]={
 					id=51871,
@@ -16297,8 +16278,7 @@ return {
 			},
 			group=880,
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupLife.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryLifeInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Life Mastery",
 			orbit=2,
 			orbitIndex=19,
@@ -17601,13 +17581,11 @@ return {
 		},
 		[4139]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryLifePattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryLifeActive.dds",
 			connections={
 			},
 			group=63,
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupLife.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryLifeInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Life Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -18072,13 +18050,11 @@ return {
 		},
 		[4492]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryAttributesPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryAttributesActive.dds",
 			connections={
 			},
 			group=509,
 			icon="Art/2DArt/SkillIcons/passives/WarcryMastery.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryAttributesInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Attributes Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -18610,13 +18586,11 @@ return {
 		},
 		[4956]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryRecoveryPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryRecoveryActive.dds",
 			connections={
 			},
 			group=370,
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupLife.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryRecoveryInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Recovery Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -18969,13 +18943,11 @@ return {
 		},
 		[5348]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryElementalPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryElementalActive.dds",
 			connections={
 			},
 			group=875,
 			icon="Art/2DArt/SkillIcons/passives/MasteryElementalDamage.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryElementalInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Elemental Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -19002,7 +18974,6 @@ return {
 		},
 		[5407]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryAttackPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryAttackActive.dds",
 			connections={
 				[1]={
 					id=56910,
@@ -19011,8 +18982,7 @@ return {
 			},
 			group=488,
 			icon="Art/2DArt/SkillIcons/passives/AttackBlindMastery.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryAttackInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Attack Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -19271,13 +19241,11 @@ return {
 		},
 		[5726]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryElementalPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryElementalActive.dds",
 			connections={
 			},
 			group=475,
 			icon="Art/2DArt/SkillIcons/passives/MasteryElementalDamage.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryElementalInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Elemental Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -19856,7 +19824,6 @@ return {
 		},
 		[6338]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryEnergyPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryEnergyActive.dds",
 			connections={
 				[1]={
 					id=2254,
@@ -19865,8 +19832,7 @@ return {
 			},
 			group=533,
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupEnergyShield.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryEnergyInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Energy Shield Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -19932,13 +19898,11 @@ return {
 		},
 		[6502]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryMacePattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryFireActive.dds",
 			connections={
 			},
 			group=39,
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupStaff.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryFireInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Flail Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -20054,13 +20018,11 @@ return {
 		},
 		[6570]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryCursePattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryCurseActive.dds",
 			connections={
 			},
 			group=866,
 			icon="Art/2DArt/SkillIcons/passives/MasteryCurse.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryCurseInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Curse Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -20070,13 +20032,11 @@ return {
 		},
 		[6588]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryCasterPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryCasterActive.dds",
 			connections={
 			},
 			group=571,
 			icon="Art/2DArt/SkillIcons/passives/AreaofEffectSpellsMastery.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryCasterInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Caster Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -20569,7 +20529,6 @@ return {
 		},
 		[6988]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryElementalPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryFortifyActive.dds",
 			connections={
 				[1]={
 					id=28044,
@@ -20578,8 +20537,7 @@ return {
 			},
 			group=1017,
 			icon="Art/2DArt/SkillIcons/passives/AltMasteryChannelling.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryFortifyInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Herald Mastery",
 			orbit=2,
 			orbitIndex=12,
@@ -20589,13 +20547,11 @@ return {
 		},
 		[7023]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryColdPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryColdActive.dds",
 			connections={
 			},
 			group=978,
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupCold.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryColdInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Cold Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -21000,13 +20956,11 @@ return {
 		},
 		[7488]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryLeechPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryLeechActive.dds",
 			connections={
 			},
 			group=336,
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupEnergyShieldMana.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryLeechInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Leech Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -21611,7 +21565,6 @@ return {
 		},
 		[8154]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryElementalPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryFortifyActive.dds",
 			connections={
 				[1]={
 					id=3921,
@@ -21624,8 +21577,7 @@ return {
 			},
 			group=334,
 			icon="Art/2DArt/SkillIcons/passives/AltMasteryChannelling.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryFortifyInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Herald Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -21887,13 +21839,11 @@ return {
 		},
 		[8460]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryWarcryPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryWarcryActive.dds",
 			connections={
 			},
 			group=93,
 			icon="Art/2DArt/SkillIcons/passives/WarcryMastery.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryWarcryInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Warcry Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -22088,13 +22038,11 @@ return {
 		},
 		[8556]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryAttackPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryAttackActive.dds",
 			connections={
 			},
 			group=430,
 			icon="Art/2DArt/SkillIcons/passives/AttackBlindMastery.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryAttackInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Attack Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -22194,13 +22142,11 @@ return {
 		},
 		[8606]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryAttackPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryAttackActive.dds",
 			connections={
 			},
 			group=707,
 			icon="Art/2DArt/SkillIcons/passives/AttackBlindMastery.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryAttackInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Attack Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -22262,13 +22208,11 @@ return {
 		},
 		[8629]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryAttackPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryAttackActive.dds",
 			connections={
 			},
 			group=222,
 			icon="Art/2DArt/SkillIcons/passives/AttackBlindMastery.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryAttackInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Attack Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -22571,7 +22515,6 @@ return {
 		},
 		[8872]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryDualWieldPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryDualWieldActive.dds",
 			connections={
 				[1]={
 					id=2394,
@@ -22584,8 +22527,7 @@ return {
 			},
 			group=550,
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupDualWield.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryDualWieldInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Dual Wielding Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -22841,13 +22783,11 @@ return {
 		},
 		[9083]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryMinionDefencePattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryMinionDefenseActive.dds",
 			connections={
 			},
 			group=709,
 			icon="Art/2DArt/SkillIcons/passives/MinionMastery.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryMinionDefenseInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Minion Defence Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -23165,13 +23105,11 @@ return {
 		},
 		[9393]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryFlaskPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryFlaskActive.dds",
 			connections={
 			},
 			group=688,
 			icon="Art/2DArt/SkillIcons/passives/MasteryFlasks.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryFlaskInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Flask Mastery",
 			orbit=1,
 			orbitIndex=6,
@@ -23279,13 +23217,11 @@ return {
 		},
 		[9458]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryFlaskPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryFlaskActive.dds",
 			connections={
 			},
 			group=658,
 			icon="Art/2DArt/SkillIcons/passives/MasteryFlasks.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryFlaskInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Flask Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -23419,13 +23355,11 @@ return {
 		},
 		[9586]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryCriticalsPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryCriticalActive.dds",
 			connections={
 			},
 			group=780,
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupCrit.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryCriticalInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Critical Mastery",
 			orbit=4,
 			orbitIndex=10,
@@ -23480,13 +23414,11 @@ return {
 		},
 		[9698]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryCriticalsPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryCriticalActive.dds",
 			connections={
 			},
 			group=113,
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupCrit.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryCriticalInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Critical Mastery",
 			orbit=2,
 			orbitIndex=22,
@@ -23920,7 +23852,6 @@ return {
 		},
 		[10058]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryChaosPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryChaosActive.dds",
 			connections={
 				[1]={
 					id=55149,
@@ -23933,8 +23864,7 @@ return {
 			},
 			group=895,
 			icon="Art/2DArt/SkillIcons/passives/MasteryChaos.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryChaosInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Chaos Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -24136,13 +24066,11 @@ return {
 		},
 		[10162]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryChargesPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryChargesActive.dds",
 			connections={
 			},
 			group=977,
 			icon="Art/2DArt/SkillIcons/passives/EnduranceFrenzyChargeMastery.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryChargesInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Power Charge Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -24190,13 +24118,11 @@ return {
 		},
 		[10245]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryAttackPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryAttackActive.dds",
 			connections={
 			},
 			group=234,
 			icon="Art/2DArt/SkillIcons/passives/AttackBlindMastery.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryAttackInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Attack Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -24576,13 +24502,11 @@ return {
 		},
 		[10429]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryTrapsPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryTrapActive.dds",
 			connections={
 			},
 			group=610,
 			icon="Art/2DArt/SkillIcons/passives/MasteryTraps.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryTrapInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Trap Mastery",
 			orbit=1,
 			orbitIndex=11,
@@ -24634,13 +24558,11 @@ return {
 		},
 		[10495]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryManaPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryManaActive.dds",
 			connections={
 			},
 			group=892,
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupMana.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryManaInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Mana Mastery",
 			orbit=7,
 			orbitIndex=18,
@@ -24823,13 +24745,11 @@ return {
 		},
 		[10729]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryEnergyPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryEnergyActive.dds",
 			connections={
 			},
 			group=749,
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupEnergyShield.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryEnergyInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Energy Shield Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -24854,13 +24774,11 @@ return {
 		},
 		[10738]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryManaPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryManaActive.dds",
 			connections={
 			},
 			group=887,
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupMana.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryManaInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Mana Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -25107,13 +25025,11 @@ return {
 		},
 		[11014]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryTotemPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryTotemActive.dds",
 			connections={
 			},
 			group=177,
 			icon="Art/2DArt/SkillIcons/passives/MasteryTotem.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryTotemInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Totem Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -25140,13 +25056,11 @@ return {
 		},
 		[11032]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryEvasionAndEnergyShieldPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryEvasionAndEnergyShieldActive.dds",
 			connections={
 			},
 			group=767,
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupEnergyShield.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryEvasionAndEnergyShieldInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Evasion and Energy Shield Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -25571,13 +25485,11 @@ return {
 		},
 		[11505]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryFirePattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryFireActive.dds",
 			connections={
 			},
 			group=340,
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupFire.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryFireInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Fire Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -25878,13 +25790,11 @@ return {
 		},
 		[11762]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryLinkPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryLinkActive.dds",
 			connections={
 			},
 			group=255,
 			icon="Art/2DArt/SkillIcons/passives/MinionMastery.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryLinkInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Link Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -26228,13 +26138,11 @@ return {
 		},
 		[12125]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryLifePattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryLifeActive.dds",
 			connections={
 			},
 			group=211,
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupLife.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryLifeInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Life Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -26257,7 +26165,6 @@ return {
 		},
 		[12169]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryPhysicalPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryPhysicalActive.dds",
 			connections={
 				[1]={
 					id=60138,
@@ -26266,8 +26173,7 @@ return {
 			},
 			group=854,
 			icon="Art/2DArt/SkillIcons/passives/MasteryPhysicalDamage.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryPhysicalInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Physical Mastery",
 			orbit=2,
 			orbitIndex=13,
@@ -26294,7 +26200,6 @@ return {
 		},
 		[12239]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryPhysicalPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryPhysicalActive.dds",
 			connections={
 				[1]={
 					id=39881,
@@ -26307,8 +26212,7 @@ return {
 			},
 			group=935,
 			icon="Art/2DArt/SkillIcons/passives/MasteryPhysicalDamage.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryPhysicalInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Physical Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -26485,7 +26389,6 @@ return {
 		},
 		[12382]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryLifePattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryLifeActive.dds",
 			connections={
 				[1]={
 					id=35849,
@@ -26494,8 +26397,7 @@ return {
 			},
 			group=79,
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupLife.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryLifeInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Life Mastery",
 			orbit=1,
 			orbitIndex=3,
@@ -26781,7 +26683,6 @@ return {
 		},
 		[12786]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryReservationPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryAttributesActive.dds",
 			connections={
 				[1]={
 					id=5777,
@@ -26798,8 +26699,7 @@ return {
 			},
 			group=335,
 			icon="Art/2DArt/SkillIcons/passives/AltMasteryAuras.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryAttributesInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Aura Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -27346,13 +27246,11 @@ return {
 		},
 		[13387]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryElementalPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryElementalActive.dds",
 			connections={
 			},
 			group=411,
 			icon="Art/2DArt/SkillIcons/passives/MasteryElementalDamage.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryElementalInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Elemental Mastery",
 			orbit=5,
 			orbitIndex=0,
@@ -28091,13 +27989,11 @@ return {
 		},
 		[13862]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryManaPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryManaActive.dds",
 			connections={
 			},
 			group=761,
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupMana.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryManaInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Mana Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -28342,7 +28238,6 @@ return {
 		},
 		[14113]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryCasterPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryCasterActive.dds",
 			connections={
 				[1]={
 					id=10029,
@@ -28355,8 +28250,7 @@ return {
 			},
 			group=233,
 			icon="Art/2DArt/SkillIcons/passives/AreaofEffectSpellsMastery.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryCasterInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Caster Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -28537,13 +28431,11 @@ return {
 		},
 		[14272]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasterySpellSuppressionPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasterySpellSuppressionActive.dds",
 			connections={
 			},
 			group=815,
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupEnergyShieldMana.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasterySpellSuppressionInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Spell Suppression Mastery",
 			orbit=2,
 			orbitIndex=7,
@@ -28835,13 +28727,11 @@ return {
 		},
 		[14505]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryMinionOffencePattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryMinionOffenseActive.dds",
 			connections={
 			},
 			group=282,
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupMinions.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryMinionOffenseInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Minion Offence Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -29237,13 +29127,11 @@ return {
 		},
 		[14832]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryMacePattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryMaceActive.dds",
 			connections={
 			},
 			group=56,
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupMace.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryMaceInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Mace Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -29271,13 +29159,11 @@ return {
 		},
 		[14923]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryAttackPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryAttackActive.dds",
 			connections={
 			},
 			group=394,
 			icon="Art/2DArt/SkillIcons/passives/AttackBlindMastery.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryAttackInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Attack Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -29538,13 +29424,11 @@ return {
 		},
 		[15270]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryAttackPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryAttackActive.dds",
 			connections={
 			},
 			group=964,
 			icon="Art/2DArt/SkillIcons/passives/AttackBlindMastery.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryAttackInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Attack Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -30293,13 +30177,11 @@ return {
 		},
 		[16123]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryCriticalsPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryCriticalActive.dds",
 			connections={
 			},
 			group=671,
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupCrit.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryCriticalInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Critical Mastery",
 			orbit=3,
 			orbitIndex=22,
@@ -30774,13 +30656,11 @@ return {
 		},
 		[16647]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryManaPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryManaActive.dds",
 			connections={
 			},
 			group=321,
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupMana.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryManaInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Mana Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -31445,13 +31325,11 @@ return {
 		},
 		[17283]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryEvasionAndEnergyShieldPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryEvasionAndEnergyShieldActive.dds",
 			connections={
 			},
 			group=760,
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupEnergyShield.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryEvasionAndEnergyShieldInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Evasion and Energy Shield Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -31676,7 +31554,6 @@ return {
 		},
 		[17380]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryColdPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryColdActive.dds",
 			connections={
 				[1]={
 					id=41972,
@@ -31697,8 +31574,7 @@ return {
 			},
 			group=497,
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupCold.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryColdInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Cold Mastery",
 			orbit=1,
 			orbitIndex=6,
@@ -31725,13 +31601,11 @@ return {
 		},
 		[17411]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryCasterPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryCasterActive.dds",
 			connections={
 			},
 			group=262,
 			icon="Art/2DArt/SkillIcons/passives/AreaofEffectSpellsMastery.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryCasterInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Caster Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -32163,13 +32037,11 @@ return {
 		},
 		[17745]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryTotemPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryTotemActive.dds",
 			connections={
 			},
 			group=263,
 			icon="Art/2DArt/SkillIcons/passives/MasteryTotem.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryTotemInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Totem Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -32540,13 +32412,11 @@ return {
 		},
 		[18121]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryCasterPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryCasterActive.dds",
 			connections={
 			},
 			group=794,
 			icon="Art/2DArt/SkillIcons/passives/AreaofEffectSpellsMastery.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryCasterInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Caster Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -32624,13 +32494,11 @@ return {
 		},
 		[18240]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryEnergyPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryEnergyActive.dds",
 			connections={
 			},
 			group=193,
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupEnergyShield.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryEnergyInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Energy Shield Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -33212,13 +33080,11 @@ return {
 		},
 		[18750]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryFlaskPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryFlaskActive.dds",
 			connections={
 			},
 			group=771,
 			icon="Art/2DArt/SkillIcons/passives/MasteryFlasks.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryFlaskInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Flask Mastery",
 			orbit=2,
 			orbitIndex=12,
@@ -33633,13 +33499,11 @@ return {
 		},
 		[19074]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryAttackPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryAttackActive.dds",
 			connections={
 			},
 			group=946,
 			icon="Art/2DArt/SkillIcons/passives/AttackBlindMastery.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryAttackInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Attack Mastery",
 			orbit=7,
 			orbitIndex=8,
@@ -34106,13 +33970,11 @@ return {
 		},
 		[19658]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryLinkPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryLinkActive.dds",
 			connections={
 			},
 			group=237,
 			icon="Art/2DArt/SkillIcons/passives/MinionMastery.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryLinkInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Link Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -34201,13 +34063,11 @@ return {
 		},
 		[19750]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryArmourAndEvasionPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryArmourAndEvasionActive.dds",
 			connections={
 			},
 			group=444,
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupEvasion.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryArmourAndEvasionInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Armour and Evasion Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -34302,13 +34162,11 @@ return {
 		},
 		[19846]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryFirePattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryFireActive.dds",
 			connections={
 			},
 			group=196,
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupFire.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryFireInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Fire Mastery",
 			orbit=1,
 			orbitIndex=6,
@@ -34392,13 +34250,11 @@ return {
 		},
 		[20015]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryWarcryPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryWarcryActive.dds",
 			connections={
 			},
 			group=223,
 			icon="Art/2DArt/SkillIcons/passives/WarcryMastery.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryWarcryInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Warcry Mastery",
 			orbit=7,
 			orbitIndex=2,
@@ -34504,13 +34360,11 @@ return {
 		},
 		[20119]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryMinionOffencePattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryMinionOffenseActive.dds",
 			connections={
 			},
 			group=419,
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupMinions.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryMinionOffenseInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Minion Offence Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -34767,7 +34621,6 @@ return {
 		},
 		[20641]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryCasterPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryCasterActive.dds",
 			connections={
 				[1]={
 					id=51934,
@@ -34776,8 +34629,7 @@ return {
 			},
 			group=855,
 			icon="Art/2DArt/SkillIcons/passives/AreaofEffectSpellsMastery.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryCasterInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Caster Mastery",
 			orbit=1,
 			orbitIndex=1,
@@ -34887,13 +34739,11 @@ return {
 		},
 		[20744]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryProjectilePattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryProjectileActive.dds",
 			connections={
 			},
 			group=645,
 			icon="Art/2DArt/SkillIcons/passives/MasteryProjectiles.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryProjectileInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Projectile Mastery",
 			orbit=1,
 			orbitIndex=3,
@@ -35186,13 +35036,11 @@ return {
 		},
 		[21127]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryTotemPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryTotemActive.dds",
 			connections={
 			},
 			group=151,
 			icon="Art/2DArt/SkillIcons/passives/AttackTotemMastery.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryTotemInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Totem Mastery",
 			orbit=4,
 			orbitIndex=36,
@@ -37149,13 +36997,11 @@ return {
 		},
 		[22959]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryCursePattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryCurseActive.dds",
 			connections={
 			},
 			group=651,
 			icon="Art/2DArt/SkillIcons/passives/MasteryCurse.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryCurseInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Curse Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -37264,13 +37110,11 @@ return {
 		},
 		[23013]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryAttackPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryAttackActive.dds",
 			connections={
 			},
 			group=846,
 			icon="Art/2DArt/SkillIcons/passives/AttackBlindMastery.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryAttackInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Attack Mastery",
 			orbit=4,
 			orbitIndex=42,
@@ -38273,13 +38117,11 @@ return {
 		},
 		[24129]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryCriticalsPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryCriticalActive.dds",
 			connections={
 			},
 			group=831,
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupCrit.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryCriticalInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Critical Mastery",
 			orbit=1,
 			orbitIndex=0,
@@ -38367,13 +38209,11 @@ return {
 		},
 		[24224]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryAxePattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryAxeActive.dds",
 			connections={
 			},
 			group=78,
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupAxe.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryAxeInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Axe Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -38711,13 +38551,11 @@ return {
 		},
 		[24481]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryRecoveryPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryRecoveryActive.dds",
 			connections={
 			},
 			group=721,
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupLife.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryRecoveryInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Recovery Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -38768,13 +38606,11 @@ return {
 		},
 		[24551]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryManaPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryManaActive.dds",
 			connections={
 			},
 			group=147,
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupMana.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryManaInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Mana Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -39121,7 +38957,6 @@ return {
 		},
 		[24855]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryAttackPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryAttackActive.dds",
 			connections={
 				[1]={
 					id=39347,
@@ -39134,8 +38969,7 @@ return {
 			},
 			group=101,
 			icon="Art/2DArt/SkillIcons/passives/AttackBlindMastery.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryAttackInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Attack Mastery",
 			orbit=4,
 			orbitIndex=58,
@@ -39286,13 +39120,11 @@ return {
 		},
 		[25011]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryLifePattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryLifeActive.dds",
 			connections={
 			},
 			group=362,
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupLife.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryLifeInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Life Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -39319,13 +39151,11 @@ return {
 		},
 		[25029]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryCharmsPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryFlaskActive.dds",
 			connections={
 			},
 			group=915,
 			icon="Art/2DArt/SkillIcons/passives/ChannellingAttacksMasterySymbol.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryFlaskInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Charms Mastery",
 			orbit=5,
 			orbitIndex=51,
@@ -39335,13 +39165,11 @@ return {
 		},
 		[25031]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryWarcryPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryWarcryActive.dds",
 			connections={
 			},
 			group=166,
 			icon="Art/2DArt/SkillIcons/passives/WarcryMastery.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryWarcryInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Warcry Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -39504,13 +39332,11 @@ return {
 		},
 		[25281]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryLifePattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryLifeActive.dds",
 			connections={
 			},
 			group=677,
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupLife.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryLifeInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Life Mastery",
 			orbit=1,
 			orbitIndex=10,
@@ -39657,13 +39483,11 @@ return {
 		},
 		[25412]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryLinkPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryLinkActive.dds",
 			connections={
 			},
 			group=285,
 			icon="Art/2DArt/SkillIcons/passives/MinionMastery.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryLinkInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Link Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -39777,13 +39601,11 @@ return {
 		},
 		[25528]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryManaPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryManaActive.dds",
 			connections={
 			},
 			group=891,
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupMana.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryManaInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Mana Mastery",
 			orbit=3,
 			orbitIndex=15,
@@ -39793,13 +39615,11 @@ return {
 		},
 		[25535]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryShieldPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryShieldActive.dds",
 			connections={
 			},
 			group=980,
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupShield.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryShieldInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Shield Mastery",
 			orbit=3,
 			orbitIndex=8,
@@ -40122,13 +39942,11 @@ return {
 		},
 		[25857]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryFlaskPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryFlaskActive.dds",
 			connections={
 			},
 			group=972,
 			icon="Art/2DArt/SkillIcons/passives/MasteryFlasks.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryFlaskInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Flask Mastery",
 			orbit=3,
 			orbitIndex=12,
@@ -40331,7 +40149,6 @@ return {
 		},
 		[26148]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryAccuracyPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryAccuracyActive.dds",
 			connections={
 				[1]={
 					id=38969,
@@ -40340,8 +40157,7 @@ return {
 			},
 			group=804,
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupAccuracy.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryAccuracyInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Accuracy Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -40921,7 +40737,6 @@ return {
 		},
 		[26697]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasterySwordPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasterySwordActive.dds",
 			connections={
 				[1]={
 					id=59263,
@@ -40938,8 +40753,7 @@ return {
 			},
 			group=343,
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupSword.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasterySwordInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Sword Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -41159,13 +40973,11 @@ return {
 		},
 		[26895]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryDurationPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryDurationActive.dds",
 			connections={
 			},
 			group=294,
 			icon="Art/2DArt/SkillIcons/passives/MasteryDuration.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryDurationInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Duration Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -41426,13 +41238,11 @@ return {
 		},
 		[27274]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryColdPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryColdActive.dds",
 			connections={
 			},
 			group=727,
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupCold.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryColdInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Cold Mastery",
 			orbit=1,
 			orbitIndex=2,
@@ -41546,13 +41356,11 @@ return {
 		},
 		[27307]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryEnergyPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryEnergyActive.dds",
 			connections={
 			},
 			group=289,
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupEnergyShield.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryEnergyInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Energy Shield Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -42028,7 +41836,6 @@ return {
 		},
 		[27733]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryCasterPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryCasterActive.dds",
 			connections={
 				[1]={
 					id=44005,
@@ -42041,8 +41848,7 @@ return {
 			},
 			group=157,
 			icon="Art/2DArt/SkillIcons/passives/AreaofEffectSpellsMastery.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryCasterInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Caster Mastery",
 			orbit=4,
 			orbitIndex=30,
@@ -42942,13 +42748,11 @@ return {
 		},
 		[28623]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasterySpellSuppressionPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasterySpellSuppressionActive.dds",
 			connections={
 			},
 			group=874,
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupEnergyShieldMana.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasterySpellSuppressionInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Spell Suppression Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -42979,7 +42783,6 @@ return {
 		},
 		[28638]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryStaffPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryProjectileActive.dds",
 			connections={
 				[1]={
 					id=37514,
@@ -42992,8 +42795,7 @@ return {
 			},
 			group=1022,
 			icon="Art/2DArt/SkillIcons/passives/StaffMasterySymbol.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryProjectileInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Quarterstaff Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -43003,13 +42805,11 @@ return {
 		},
 		[28680]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryCasterPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryCasterActive.dds",
 			connections={
 			},
 			group=246,
 			icon="Art/2DArt/SkillIcons/passives/AreaofEffectSpellsMastery.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryCasterInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Caster Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -43151,13 +42951,11 @@ return {
 		},
 		[28862]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryLeechPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryLeechActive.dds",
 			connections={
 			},
 			group=281,
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupLifeMana.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryLeechInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Leech Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -43167,13 +42965,11 @@ return {
 		},
 		[28863]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryAttackPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryAttackActive.dds",
 			connections={
 			},
 			group=553,
 			icon="Art/2DArt/SkillIcons/passives/AttackBlindMastery.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryAttackInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Attack Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -43183,13 +42979,11 @@ return {
 		},
 		[28903]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryPoisonPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryPoisonActive.dds",
 			connections={
 			},
 			group=883,
 			icon="Art/2DArt/SkillIcons/passives/MasteryPoison.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryPoisonInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Poison Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -44268,13 +44062,11 @@ return {
 		},
 		[29993]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryDurationPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryDurationActive.dds",
 			connections={
 			},
 			group=158,
 			icon="Art/2DArt/SkillIcons/passives/MasteryDuration.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryDurationInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Duration Mastery",
 			orbit=1,
 			orbitIndex=8,
@@ -44759,13 +44551,11 @@ return {
 		},
 		[30459]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryMinionOffencePattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryMinionOffenseActive.dds",
 			connections={
 			},
 			group=456,
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupMinions.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryMinionOffenseInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Minion Offence Mastery",
 			orbit=1,
 			orbitIndex=6,
@@ -45393,13 +45183,11 @@ return {
 		},
 		[31039]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryCriticalsPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryCriticalActive.dds",
 			connections={
 			},
 			group=720,
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupCrit.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryCriticalInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Critical Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -45609,7 +45397,6 @@ return {
 		},
 		[31284]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryCriticalsPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryCriticalActive.dds",
 			connections={
 				[1]={
 					id=21380,
@@ -45618,8 +45405,7 @@ return {
 			},
 			group=762,
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupCrit.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryCriticalInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Critical Mastery",
 			orbit=1,
 			orbitIndex=11,
@@ -45646,13 +45432,11 @@ return {
 		},
 		[31292]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryMacePattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryMaceActive.dds",
 			connections={
 			},
 			group=315,
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupMace.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryMaceInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Mace Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -46640,13 +46424,11 @@ return {
 		},
 		[32233]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryDurationPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryDurationActive.dds",
 			connections={
 			},
 			group=545,
 			icon="Art/2DArt/SkillIcons/passives/MasteryDuration.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryDurationInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Duration Mastery",
 			orbit=2,
 			orbitIndex=21,
@@ -46656,13 +46438,11 @@ return {
 		},
 		[32241]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryLifePattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryLifeActive.dds",
 			connections={
 			},
 			group=836,
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupLife.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryLifeInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Life Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -46706,13 +46486,11 @@ return {
 		},
 		[32274]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryEvasionPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryEvasionActive.dds",
 			connections={
 			},
 			group=604,
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupEvasion.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryEvasionInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Evasion Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -46722,13 +46500,11 @@ return {
 		},
 		[32278]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryMinionOffencePattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryMinionOffenseActive.dds",
 			connections={
 			},
 			group=297,
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupMinions.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryMinionOffenseInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Minion Offence Mastery",
 			orbit=7,
 			orbitIndex=11,
@@ -46997,13 +46773,11 @@ return {
 		},
 		[32509]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryCasterPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryCasterActive.dds",
 			connections={
 			},
 			group=953,
 			icon="Art/2DArt/SkillIcons/passives/AreaofEffectSpellsMastery.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryCasterInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Caster Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -47384,13 +47158,11 @@ return {
 		},
 		[32777]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryMinionOffencePattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryResistancesAndAilmentProtectionActive.dds",
 			connections={
 			},
 			group=71,
 			icon="Art/2DArt/SkillIcons/passives/AltMinionDamageHeraldMastery.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryResistancesAndAilmentProtectionInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Shapeshifting Mastery",
 			orbit=2,
 			orbitIndex=0,
@@ -47752,7 +47524,6 @@ return {
 		},
 		[33221]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryColdPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryColdActive.dds",
 			connections={
 				[1]={
 					id=26331,
@@ -47769,8 +47540,7 @@ return {
 			},
 			group=863,
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupCold.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryColdInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Cold Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -47833,13 +47603,11 @@ return {
 		},
 		[33244]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryImpalePattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryProjectileActive.dds",
 			connections={
 			},
 			group=212,
 			icon="Art/2DArt/SkillIcons/passives/AltAttackDamageMastery.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryProjectileInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Rage Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -48113,13 +47881,11 @@ return {
 		},
 		[33596]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryBowPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryCriticalActive.dds",
 			connections={
 			},
 			group=605,
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupBow.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryCriticalInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Crossbow Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -48146,13 +47912,11 @@ return {
 		},
 		[33604]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryAttackPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryAttackActive.dds",
 			connections={
 			},
 			group=385,
 			icon="Art/2DArt/SkillIcons/passives/AttackBlindMastery.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryAttackInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Attack Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -48179,7 +47943,6 @@ return {
 		},
 		[33618]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryDurationPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryDurationActive.dds",
 			connections={
 				[1]={
 					id=39990,
@@ -48188,8 +47951,7 @@ return {
 			},
 			group=363,
 			icon="Art/2DArt/SkillIcons/passives/MasteryDuration.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryDurationInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Duration Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -48410,13 +48172,11 @@ return {
 		},
 		[33823]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryCriticalsPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryCriticalActive.dds",
 			connections={
 			},
 			group=757,
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupCrit.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryCriticalInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Critical Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -49259,13 +49019,11 @@ return {
 		},
 		[34401]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryBlindPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryBlindActive.dds",
 			connections={
 			},
 			group=961,
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupEvasion.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryBlindInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Blind Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -49381,13 +49139,11 @@ return {
 		},
 		[34487]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryTotemPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryTotemActive.dds",
 			connections={
 			},
 			group=314,
 			icon="Art/2DArt/SkillIcons/passives/AttackTotemMastery.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryTotemInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Totem Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -49500,13 +49256,11 @@ return {
 		},
 		[34552]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryMinionOffencePattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryMinionOffenseActive.dds",
 			connections={
 			},
 			group=278,
 			icon="Art/2DArt/SkillIcons/passives/MinionMastery.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryMinionOffenseInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Minion Offence Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -49746,13 +49500,11 @@ return {
 		},
 		[34927]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryFirePattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryFireActive.dds",
 			connections={
 			},
 			group=445,
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupFire.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryFireInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Fire Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -49762,13 +49514,11 @@ return {
 		},
 		[34984]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryEnergyPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryEnergyActive.dds",
 			connections={
 			},
 			group=663,
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupEnergyShield.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryEnergyInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Energy Shield Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -49848,13 +49598,11 @@ return {
 		},
 		[35085]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryCriticalsPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryCriticalActive.dds",
 			connections={
 			},
 			group=168,
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupCrit.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryCriticalInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Critical Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -49864,13 +49612,11 @@ return {
 		},
 		[35118]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryTwoHandsPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryTwoHandActive.dds",
 			connections={
 			},
 			group=685,
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupTwoHands.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryTwoHandInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Two Hand Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -50212,13 +49958,11 @@ return {
 		},
 		[35492]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryMinionOffencePattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryMinionOffenseActive.dds",
 			connections={
 			},
 			group=485,
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupMinions.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryMinionOffenseInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Minion Offence Mastery",
 			orbit=7,
 			orbitIndex=22,
@@ -50681,13 +50425,11 @@ return {
 		},
 		[35859]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryLeechPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryLeechActive.dds",
 			connections={
 			},
 			group=592,
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupLifeMana.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryLeechInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Leech Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -50895,13 +50637,11 @@ return {
 		},
 		[35977]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryWarcryPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryWarcryActive.dds",
 			connections={
 			},
 			group=187,
 			icon="Art/2DArt/SkillIcons/passives/WarcryMastery.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryWarcryInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Warcry Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -51017,13 +50757,11 @@ return {
 		},
 		[36071]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryDaggersPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryShieldActive.dds",
 			connections={
 			},
 			group=954,
 			icon="Art/2DArt/SkillIcons/passives/ImpaleMasterySymbol.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryShieldInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Spear Mastery",
 			orbit=5,
 			orbitIndex=12,
@@ -52449,13 +52187,11 @@ return {
 		},
 		[37532]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryLightningPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryLightningActive.dds",
 			connections={
 			},
 			group=843,
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupLightning.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryLightningInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Lightning Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -52596,13 +52332,11 @@ return {
 		},
 		[37616]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryTrapsPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryTrapActive.dds",
 			connections={
 			},
 			group=974,
 			icon="Art/2DArt/SkillIcons/passives/MasteryTraps.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryTrapInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Trap Mastery",
 			orbit=5,
 			orbitIndex=45,
@@ -52656,13 +52390,11 @@ return {
 		},
 		[37641]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryArmourAndEnergyShieldPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryArmourAndEnergyShieldActive.dds",
 			connections={
 			},
 			group=163,
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupArmour.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryArmourAndEnergyShieldInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Armour and Energy Shield Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -52817,13 +52549,11 @@ return {
 		},
 		[37795]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryShieldPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryShieldActive.dds",
 			connections={
 			},
 			group=790,
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupShield.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryShieldInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Shield Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -53319,13 +53049,11 @@ return {
 		},
 		[38235]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryLifePattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryLifeActive.dds",
 			connections={
 			},
 			group=322,
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupLife.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryLifeInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Life Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -54408,13 +54136,11 @@ return {
 		},
 		[38921]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryBlockPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryBlockActive.dds",
 			connections={
 			},
 			group=172,
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupShield.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryBlockInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Block Mastery",
 			orbit=2,
 			orbitIndex=1,
@@ -54597,13 +54323,11 @@ return {
 		},
 		[39116]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryPhysicalPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryPhysicalActive.dds",
 			connections={
 			},
 			group=593,
 			icon="Art/2DArt/SkillIcons/passives/MasteryPhysicalDamage.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryPhysicalInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Physical Mastery",
 			orbit=3,
 			orbitIndex=14,
@@ -54710,13 +54434,11 @@ return {
 		},
 		[39237]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryCriticalsPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryCriticalActive.dds",
 			connections={
 			},
 			group=903,
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupCrit.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryCriticalInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Critical Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -54880,13 +54602,11 @@ return {
 		},
 		[39431]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryBowPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryCriticalActive.dds",
 			connections={
 			},
 			group=469,
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupBow.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryCriticalInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Crossbow Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -55580,13 +55300,11 @@ return {
 		},
 		[40196]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryCasterPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryCasterActive.dds",
 			connections={
 			},
 			group=788,
 			icon="Art/2DArt/SkillIcons/passives/AreaofEffectSpellsMastery.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryCasterInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Caster Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -55880,13 +55598,11 @@ return {
 		},
 		[40550]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryTotemPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryTotemActive.dds",
 			connections={
 			},
 			group=209,
 			icon="Art/2DArt/SkillIcons/passives/AttackTotemMastery.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryTotemInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Totem Mastery",
 			orbit=4,
 			orbitIndex=0,
@@ -56178,13 +55894,11 @@ return {
 		},
 		[41016]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryFlaskPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryFlaskActive.dds",
 			connections={
 			},
 			group=785,
 			icon="Art/2DArt/SkillIcons/passives/MasteryFlasks.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryFlaskInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Flask Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -56355,13 +56069,11 @@ return {
 		},
 		[41062]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryProjectilePattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryProjectileActive.dds",
 			connections={
 			},
 			group=751,
 			icon="Art/2DArt/SkillIcons/passives/MasteryProjectiles.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryProjectileInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Projectile Mastery",
 			orbit=4,
 			orbitIndex=48,
@@ -56492,13 +56204,11 @@ return {
 		},
 		[41163]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryEvasionPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryEvasionActive.dds",
 			connections={
 			},
 			group=982,
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupEvasion.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryEvasionInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Evasion Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -56525,7 +56235,6 @@ return {
 		},
 		[41180]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryMinionOffencePattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryResistancesAndAilmentProtectionActive.dds",
 			connections={
 				[1]={
 					id=61703,
@@ -56542,8 +56251,7 @@ return {
 			},
 			group=106,
 			icon="Art/2DArt/SkillIcons/passives/AltMinionDamageHeraldMastery.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryResistancesAndAilmentProtectionInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Shapeshifting Mastery",
 			orbit=1,
 			orbitIndex=0,
@@ -56598,13 +56306,11 @@ return {
 		},
 		[41225]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryMinionDefencePattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryMinionDefenseActive.dds",
 			connections={
 			},
 			group=626,
 			icon="Art/2DArt/SkillIcons/passives/MinionMastery.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryMinionDefenseInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Minion Defence Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -56631,13 +56337,11 @@ return {
 		},
 		[41298]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryAttackPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryAttackActive.dds",
 			connections={
 			},
 			group=951,
 			icon="Art/2DArt/SkillIcons/passives/AttackBlindMastery.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryAttackInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Attack Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -56703,13 +56407,11 @@ return {
 		},
 		[41415]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryLifePattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryLifeActive.dds",
 			connections={
 			},
 			group=360,
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupLife.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryLifeInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Life Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -56776,13 +56478,11 @@ return {
 		},
 		[41522]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryDurationPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryDurationActive.dds",
 			connections={
 			},
 			group=735,
 			icon="Art/2DArt/SkillIcons/passives/MasteryDuration.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryDurationInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Duration Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -57506,13 +57206,11 @@ return {
 		},
 		[42205]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryElementalPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryElementalActive.dds",
 			connections={
 			},
 			group=197,
 			icon="Art/2DArt/SkillIcons/passives/MasteryElementalDamage.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryElementalInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Elemental Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -57727,13 +57425,11 @@ return {
 		},
 		[42361]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryChaosPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryChaosActive.dds",
 			connections={
 			},
 			group=867,
 			icon="Art/2DArt/SkillIcons/passives/MasteryChaos.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryChaosInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Chaos Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -57926,13 +57622,11 @@ return {
 		},
 		[42604]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryFirePattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryFireActive.dds",
 			connections={
 			},
 			group=243,
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupFire.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryFireInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Fire Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -58122,13 +57816,11 @@ return {
 		},
 		[42802]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryCriticalsPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryCriticalActive.dds",
 			connections={
 			},
 			group=1002,
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupCrit.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryCriticalInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Critical Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -58466,13 +58158,11 @@ return {
 		},
 		[43142]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryCriticalsPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryCriticalActive.dds",
 			connections={
 			},
 			group=184,
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupCrit.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryCriticalInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Critical Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -58828,7 +58518,6 @@ return {
 		},
 		[43579]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryManaPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryManaActive.dds",
 			connections={
 				[1]={
 					id=35369,
@@ -58837,8 +58526,7 @@ return {
 			},
 			group=117,
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupMana.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryManaInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Mana Mastery",
 			orbit=1,
 			orbitIndex=9,
@@ -58848,7 +58536,6 @@ return {
 		},
 		[43647]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryMinionOffencePattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryMinionOffenseActive.dds",
 			connections={
 				[1]={
 					id=32507,
@@ -58857,8 +58544,7 @@ return {
 			},
 			group=426,
 			icon="Art/2DArt/SkillIcons/passives/MinionMastery.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryMinionOffenseInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Minion Offence Mastery",
 			orbit=2,
 			orbitIndex=15,
@@ -59485,13 +59171,11 @@ return {
 		},
 		[44179]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryColdPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryColdActive.dds",
 			connections={
 			},
 			group=541,
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupCold.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryColdInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Cold Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -59597,7 +59281,6 @@ return {
 		},
 		[44298]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryElementalPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryElementalActive.dds",
 			connections={
 				[1]={
 					id=46024,
@@ -59606,8 +59289,7 @@ return {
 			},
 			group=140,
 			icon="Art/2DArt/SkillIcons/passives/MasteryElementalDamage.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryElementalInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Elemental Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -59649,13 +59331,11 @@ return {
 		},
 		[44316]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryLifePattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryLifeActive.dds",
 			connections={
 			},
 			group=169,
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupLife.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryLifeInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Life Mastery",
 			orbit=1,
 			orbitIndex=6,
@@ -59805,13 +59485,11 @@ return {
 		},
 		[44359]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryEnergyPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryEnergyActive.dds",
 			connections={
 			},
 			group=584,
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupEnergyShield.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryEnergyInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Energy Shield Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -59896,7 +59574,6 @@ return {
 		},
 		[44423]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryAttackPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryAttackActive.dds",
 			connections={
 				[1]={
 					id=25971,
@@ -59905,8 +59582,7 @@ return {
 			},
 			group=840,
 			icon="Art/2DArt/SkillIcons/passives/AttackBlindMastery.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryAttackInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Attack Mastery",
 			orbit=2,
 			orbitIndex=1,
@@ -60138,13 +59814,11 @@ return {
 		},
 		[44608]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryCriticalsPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryCriticalActive.dds",
 			connections={
 			},
 			group=602,
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupCrit.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryCriticalInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Critical Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -60154,13 +59828,11 @@ return {
 		},
 		[44612]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasterySpellSuppressionPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasterySpellSuppressionActive.dds",
 			connections={
 			},
 			group=734,
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupEnergyShieldMana.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasterySpellSuppressionInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Spell Suppression Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -60531,13 +60203,11 @@ return {
 		},
 		[44850]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryRecoveryPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryRecoveryActive.dds",
 			connections={
 			},
 			group=546,
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupLife.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryRecoveryInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Recovery Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -60568,13 +60238,11 @@ return {
 		},
 		[44875]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryEvasionPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryEvasionActive.dds",
 			connections={
 			},
 			group=668,
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupEvasion.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryEvasionInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Evasion Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -60754,13 +60422,11 @@ return {
 		},
 		[45019]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryFlaskPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryFlaskActive.dds",
 			connections={
 			},
 			group=648,
 			icon="Art/2DArt/SkillIcons/passives/MasteryFlasks.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryFlaskInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Flask Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -61310,13 +60976,11 @@ return {
 		},
 		[45576]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryProjectilePattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryProjectileActive.dds",
 			connections={
 			},
 			group=547,
 			icon="Art/2DArt/SkillIcons/passives/MasteryProjectiles.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryProjectileInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Projectile Mastery",
 			orbit=7,
 			orbitIndex=3,
@@ -62170,7 +61834,6 @@ return {
 		},
 		[46343]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryTwoHandsPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryTwoHandActive.dds",
 			connections={
 				[1]={
 					id=13708,
@@ -62187,8 +61850,7 @@ return {
 			},
 			group=467,
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupTwoHands.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryTwoHandInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Two Hand Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -62462,13 +62124,11 @@ return {
 		},
 		[46561]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryRecoveryPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryRecoveryActive.dds",
 			connections={
 			},
 			group=635,
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupLife.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryRecoveryInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Recovery Mastery",
 			orbit=2,
 			orbitIndex=6,
@@ -62739,13 +62399,11 @@ return {
 		},
 		[46761]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryFlaskPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryFlaskActive.dds",
 			connections={
 			},
 			group=737,
 			icon="Art/2DArt/SkillIcons/passives/MasteryFlasks.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryFlaskInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Flask Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -63114,13 +62772,11 @@ return {
 		},
 		[47173]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryWarcryPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryWarcryActive.dds",
 			connections={
 			},
 			group=90,
 			icon="Art/2DArt/SkillIcons/passives/WarcryMastery.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryWarcryInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Warcry Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -63248,13 +62904,11 @@ return {
 		},
 		[47242]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryMinionOffencePattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryMinionOffenseActive.dds",
 			connections={
 			},
 			group=75,
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupMinions.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryMinionOffenseInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Minion Offence Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -63869,13 +63523,11 @@ return {
 		},
 		[47833]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryCriticalsPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryCriticalActive.dds",
 			connections={
 			},
 			group=619,
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupCrit.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryCriticalInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Critical Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -64039,7 +63691,6 @@ return {
 		},
 		[48007]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryManaPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryManaActive.dds",
 			connections={
 				[1]={
 					id=36302,
@@ -64048,8 +63699,7 @@ return {
 			},
 			group=505,
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupMana.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryManaInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Mana Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -64319,13 +63969,11 @@ return {
 		},
 		[48267]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryFirePattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryFireActive.dds",
 			connections={
 			},
 			group=64,
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupFire.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryFireInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Fire Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -64335,7 +63983,6 @@ return {
 		},
 		[48290]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryMinionDefencePattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryMinionDefenseActive.dds",
 			connections={
 				[1]={
 					id=55180,
@@ -64348,8 +63995,7 @@ return {
 			},
 			group=609,
 			icon="Art/2DArt/SkillIcons/passives/MinionMastery.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryMinionDefenseInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Minion Defence Mastery",
 			orbit=2,
 			orbitIndex=15,
@@ -64520,13 +64166,11 @@ return {
 		},
 		[48505]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryLifePattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryLifeActive.dds",
 			connections={
 			},
 			group=269,
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupLife.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryLifeInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Life Mastery",
 			orbit=2,
 			orbitIndex=18,
@@ -64570,7 +64214,6 @@ return {
 		},
 		[48544]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryAttackPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryAttackActive.dds",
 			connections={
 				[1]={
 					id=40166,
@@ -64579,8 +64222,7 @@ return {
 			},
 			group=797,
 			icon="Art/2DArt/SkillIcons/passives/AttackBlindMastery.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryAttackInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Attack Mastery",
 			orbit=1,
 			orbitIndex=8,
@@ -64987,13 +64629,11 @@ return {
 		},
 		[48660]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryElementalPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryElementalActive.dds",
 			connections={
 			},
 			group=730,
 			icon="Art/2DArt/SkillIcons/passives/MasteryElementalDamage.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryElementalInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Elemental Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -65094,13 +64734,11 @@ return {
 		},
 		[48717]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryArmourPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryArmourActive.dds",
 			connections={
 			},
 			group=98,
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupArmour.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryArmourInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Armour Mastery",
 			orbit=7,
 			orbitIndex=16,
@@ -65458,13 +65096,11 @@ return {
 		},
 		[49111]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryAttackPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryAttackActive.dds",
 			connections={
 			},
 			group=37,
 			icon="Art/2DArt/SkillIcons/passives/AttackBlindMastery.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryAttackInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Attack Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -65800,13 +65436,11 @@ return {
 		},
 		[49391]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryBlockPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryBlockActive.dds",
 			connections={
 			},
 			group=354,
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupShield.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryBlockInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Block Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -66052,13 +65686,11 @@ return {
 		},
 		[49633]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryEnergyPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryEnergyActive.dds",
 			connections={
 			},
 			group=536,
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupEnergyShield.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryEnergyInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Energy Shield Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -66817,13 +66449,11 @@ return {
 		},
 		[50403]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryColdPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryColdActive.dds",
 			connections={
 			},
 			group=947,
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupCold.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryColdInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Cold Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -67066,7 +66696,6 @@ return {
 		},
 		[50540]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryCursePattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryCurseActive.dds",
 			connections={
 				[1]={
 					id=16499,
@@ -67075,8 +66704,7 @@ return {
 			},
 			group=566,
 			icon="Art/2DArt/SkillIcons/passives/MasteryCurse.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryCurseInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Curse Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -67718,13 +67346,11 @@ return {
 		},
 		[51210]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryCasterPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryCasterActive.dds",
 			connections={
 			},
 			group=115,
 			icon="Art/2DArt/SkillIcons/passives/AreaofEffectSpellsMastery.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryCasterInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Caster Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -68126,13 +67752,11 @@ return {
 		},
 		[51583]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryCriticalsPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryCriticalActive.dds",
 			connections={
 			},
 			group=1014,
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupCrit.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryCriticalInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Critical Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -68261,13 +67885,11 @@ return {
 		},
 		[51708]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryEvasionPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryEvasionActive.dds",
 			connections={
 			},
 			group=750,
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupEvasion.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryEvasionInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Evasion Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -68439,13 +68061,11 @@ return {
 		},
 		[51812]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryAttackPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryAttackActive.dds",
 			connections={
 			},
 			group=156,
 			icon="Art/2DArt/SkillIcons/passives/AttackBlindMastery.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryAttackInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Attack Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -68784,7 +68404,6 @@ return {
 		},
 		[51974]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryFortifyPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryFortifyActive.dds",
 			connections={
 				[1]={
 					id=25711,
@@ -68793,8 +68412,7 @@ return {
 			},
 			group=480,
 			icon="Art/2DArt/SkillIcons/passives/FortifyMasterySymbol.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryFortifyInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Fortify Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -68995,13 +68613,11 @@ return {
 		},
 		[52220]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryPhysicalPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryPhysicalActive.dds",
 			connections={
 			},
 			group=81,
 			icon="Art/2DArt/SkillIcons/passives/MasteryPhysicalDamage.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryPhysicalInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Physical Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -69402,13 +69018,11 @@ return {
 		},
 		[52462]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryArmourPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryArmourActive.dds",
 			connections={
 			},
 			group=272,
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupArmour.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryArmourInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Armour Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -69752,13 +69366,11 @@ return {
 		},
 		[52875]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryAttackPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryAttackActive.dds",
 			connections={
 			},
 			group=937,
 			icon="Art/2DArt/SkillIcons/passives/AttackBlindMastery.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryAttackInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Attack Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -69973,13 +69585,11 @@ return {
 		},
 		[53188]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryManaPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryManaActive.dds",
 			connections={
 			},
 			group=680,
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupMana.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryManaInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Mana Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -70044,13 +69654,11 @@ return {
 		},
 		[53216]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryLifePattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryLifeActive.dds",
 			connections={
 			},
 			group=136,
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupLife.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryLifeInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Life Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -71340,13 +70948,11 @@ return {
 		},
 		[54340]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryArmourPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryArmourActive.dds",
 			connections={
 			},
 			group=213,
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupArmour.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryArmourInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Armour Mastery",
 			orbit=2,
 			orbitIndex=3,
@@ -71373,13 +70979,11 @@ return {
 		},
 		[54413]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasterySpellSuppressionPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasterySpellSuppressionActive.dds",
 			connections={
 			},
 			group=694,
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupEnergyShieldMana.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasterySpellSuppressionInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Spell Suppression Mastery",
 			orbit=3,
 			orbitIndex=10,
@@ -71723,13 +71327,11 @@ return {
 		},
 		[54783]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryEnergyPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryEnergyActive.dds",
 			connections={
 			},
 			group=595,
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupEnergyShield.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryEnergyInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Energy Shield Mastery",
 			orbit=1,
 			orbitIndex=10,
@@ -71861,13 +71463,11 @@ return {
 		},
 		[54849]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryMinionOffencePattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryMinionOffenseActive.dds",
 			connections={
 			},
 			group=279,
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupMinions.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryMinionOffenseInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Minion Offence Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -72321,7 +71921,6 @@ return {
 		},
 		[55152]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryTotemPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryTotemActive.dds",
 			connections={
 				[1]={
 					id=5580,
@@ -72330,8 +71929,7 @@ return {
 			},
 			group=387,
 			icon="Art/2DArt/SkillIcons/passives/AttackTotemMastery.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryTotemInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Totem Mastery",
 			orbit=3,
 			orbitIndex=12,
@@ -72452,7 +72050,6 @@ return {
 		},
 		[55235]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryMarkPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryMarkActive.dds",
 			connections={
 				[1]={
 					id=63830,
@@ -72469,8 +72066,7 @@ return {
 			},
 			group=914,
 			icon="Art/2DArt/SkillIcons/passives/MarkMastery.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryMarkInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Mark Mastery",
 			orbit=1,
 			orbitIndex=4,
@@ -72657,7 +72253,6 @@ return {
 		},
 		[55348]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryAttackPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryAttackActive.dds",
 			connections={
 				[1]={
 					id=23227,
@@ -72666,8 +72261,7 @@ return {
 			},
 			group=379,
 			icon="Art/2DArt/SkillIcons/passives/AttackBlindMastery.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryAttackInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Attack Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -72800,13 +72394,11 @@ return {
 		},
 		[55491]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryReservationPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryReservationActive.dds",
 			connections={
 			},
 			group=257,
 			icon="Art/2DArt/SkillIcons/passives/MasteryAuras.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryReservationInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Reservation Mastery",
 			orbit=1,
 			orbitIndex=7,
@@ -73818,13 +73410,11 @@ return {
 		},
 		[56472]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryProjectilePattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryProjectileActive.dds",
 			connections={
 			},
 			group=690,
 			icon="Art/2DArt/SkillIcons/passives/MasteryProjectiles.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryProjectileInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Projectile Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -73868,13 +73458,11 @@ return {
 		},
 		[56595]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryAttackPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryAttackActive.dds",
 			connections={
 			},
 			group=254,
 			icon="Art/2DArt/SkillIcons/passives/AttackBlindMastery.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryAttackInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Attack Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -74329,13 +73917,11 @@ return {
 		},
 		[56926]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryMinionDefencePattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryMinionDefenseActive.dds",
 			connections={
 			},
 			group=630,
 			icon="Art/2DArt/SkillIcons/passives/MinionMastery.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryMinionDefenseInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Minion Defence Mastery",
 			orbit=2,
 			orbitIndex=3,
@@ -74363,13 +73949,11 @@ return {
 		},
 		[56934]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryFirePattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryFireActive.dds",
 			connections={
 			},
 			group=345,
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupFire.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryFireInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Fire Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -74851,13 +74435,11 @@ return {
 		},
 		[57320]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryArmourAndEvasionPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryArmourAndEvasionActive.dds",
 			connections={
 			},
 			group=428,
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupEvasion.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryArmourAndEvasionInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Armour and Evasion Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -75494,13 +75076,11 @@ return {
 		},
 		[57966]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryCriticalsPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryCriticalActive.dds",
 			connections={
 			},
 			group=695,
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupCrit.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryCriticalInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Critical Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -75783,13 +75363,11 @@ return {
 		},
 		[58138]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryArmourAndEnergyShieldPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryArmourAndEnergyShieldActive.dds",
 			connections={
 			},
 			group=52,
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupEnergyShield.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryArmourAndEnergyShieldInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Armour and Energy Shield Mastery",
 			orbit=1,
 			orbitIndex=6,
@@ -76299,13 +75877,11 @@ return {
 		},
 		[58884]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryTwoHandsPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryTwoHandActive.dds",
 			connections={
 			},
 			group=590,
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupTwoHands.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryTwoHandInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Two Hand Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -76693,13 +76269,11 @@ return {
 		},
 		[59355]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryAttackPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryAttackActive.dds",
 			connections={
 			},
 			group=802,
 			icon="Art/2DArt/SkillIcons/passives/AttackBlindMastery.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryAttackInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Attack Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -76709,13 +76283,11 @@ return {
 		},
 		[59356]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryFlaskPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryFlaskActive.dds",
 			connections={
 			},
 			group=858,
 			icon="Art/2DArt/SkillIcons/passives/MasteryFlasks.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryFlaskInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Flask Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -76912,7 +76484,6 @@ return {
 		},
 		[59501]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryBlindPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryBlindActive.dds",
 			connections={
 				[1]={
 					id=25619,
@@ -76925,8 +76496,7 @@ return {
 			},
 			group=568,
 			icon="Art/2DArt/SkillIcons/passives/AttackBlindMastery.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryBlindInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Blind Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -77826,13 +77396,11 @@ return {
 		},
 		[60170]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryColdPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryColdActive.dds",
 			connections={
 			},
 			group=860,
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupCold.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryColdInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Cold Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -77859,7 +77427,6 @@ return {
 		},
 		[60210]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryPoisonPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryPoisonActive.dds",
 			connections={
 				[1]={
 					id=63431,
@@ -77868,8 +77435,7 @@ return {
 			},
 			group=958,
 			icon="Art/2DArt/SkillIcons/passives/MasteryPoison.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryPoisonInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Poison Mastery",
 			orbit=1,
 			orbitIndex=9,
@@ -77989,13 +77555,11 @@ return {
 		},
 		[60313]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryChaosPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryChaosActive.dds",
 			connections={
 			},
 			group=448,
 			icon="Art/2DArt/SkillIcons/passives/MasteryChaos.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryChaosInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Chaos Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -79004,7 +78568,6 @@ return {
 		},
 		[61432]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryBowPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryCriticalActive.dds",
 			connections={
 				[1]={
 					id=6178,
@@ -79013,8 +78576,7 @@ return {
 			},
 			group=636,
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupBow.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryCriticalInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Crossbow Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -79774,13 +79336,11 @@ return {
 		},
 		[61992]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryMinionOffencePattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryMinionOffenseActive.dds",
 			connections={
 			},
 			group=544,
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupMinions.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryMinionOffenseInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Minion Offence Mastery",
 			orbit=1,
 			orbitIndex=6,
@@ -79809,13 +79369,11 @@ return {
 		},
 		[62015]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryWarcryPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryWarcryActive.dds",
 			connections={
 			},
 			group=204,
 			icon="Art/2DArt/SkillIcons/passives/WarcryMastery.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryWarcryInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Warcry Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -79825,13 +79383,11 @@ return {
 		},
 		[62023]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryAttackPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryAttackActive.dds",
 			connections={
 			},
 			group=159,
 			icon="Art/2DArt/SkillIcons/passives/AttackBlindMastery.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryAttackInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Attack Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -80034,13 +79590,11 @@ return {
 		},
 		[62235]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryArmourAndEvasionPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryArmourAndEvasionActive.dds",
 			connections={
 			},
 			group=618,
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupEvasion.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryArmourAndEvasionInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Armour and Evasion Mastery",
 			orbit=2,
 			orbitIndex=10,
@@ -80350,13 +79904,11 @@ return {
 		},
 		[62581]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryBlockPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryBlockActive.dds",
 			connections={
 			},
 			group=265,
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupShield.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryBlockInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Block Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -80366,7 +79918,6 @@ return {
 		},
 		[62588]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryLifePattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryLifeActive.dds",
 			connections={
 				[1]={
 					id=50609,
@@ -80375,8 +79926,7 @@ return {
 			},
 			group=482,
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupLife.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryLifeInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Life Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -80444,13 +79994,11 @@ return {
 		},
 		[62628]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryProjectilePattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryProjectileActive.dds",
 			connections={
 			},
 			group=620,
 			icon="Art/2DArt/SkillIcons/passives/MasteryProjectiles.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryProjectileInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Projectile Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -80477,13 +80025,11 @@ return {
 		},
 		[62670]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryMinionDefencePattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryMinionDefenseActive.dds",
 			connections={
 			},
 			group=70,
 			icon="Art/2DArt/SkillIcons/passives/MinionMastery.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryMinionDefenseInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Minion Defence Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -81389,13 +80935,11 @@ return {
 		},
 		[63608]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryFirePattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryFireActive.dds",
 			connections={
 			},
 			group=48,
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupFire.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryFireInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Fire Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -81587,13 +81131,11 @@ return {
 		},
 		[63861]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryCriticalsPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryCriticalActive.dds",
 			connections={
 			},
 			group=624,
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupCrit.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryCriticalInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Critical Mastery",
 			orbit=2,
 			orbitIndex=0,
@@ -82251,7 +81793,6 @@ return {
 		},
 		[64406]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryArmourPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryArmourActive.dds",
 			connections={
 				[1]={
 					id=17762,
@@ -82260,8 +81801,7 @@ return {
 			},
 			group=293,
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupArmour.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryArmourInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Armour Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -82468,13 +82008,11 @@ return {
 		},
 		[64683]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryArmourPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryArmourActive.dds",
 			connections={
 			},
 			group=408,
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupArmour.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryArmourInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Armour Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -82515,7 +82053,6 @@ return {
 		},
 		[64726]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryProjectilePattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryProjectileActive.dds",
 			connections={
 				[1]={
 					id=46296,
@@ -82528,8 +82065,7 @@ return {
 			},
 			group=613,
 			icon="Art/2DArt/SkillIcons/passives/MasteryProjectiles.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryProjectileInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Projectile Mastery",
 			orbit=2,
 			orbitIndex=8,
@@ -82770,13 +82306,11 @@ return {
 		},
 		[65154]={
 			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryTotemPattern",
-			activeIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryTotemActive.dds",
 			connections={
 			},
 			group=77,
 			icon="Art/2DArt/SkillIcons/passives/AttackTotemMastery.dds",
-			inactiveIcon="Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryTotemInactive.dds",
-			isMastery=true,
+			isOnlyImage=true,
 			name="Totem Mastery",
 			orbit=0,
 			orbitIndex=0,
@@ -83338,19 +82872,19 @@ return {
 				AscendancyFrameLargeAllocated={
 					h=208,
 					w=208,
-					x=208,
+					x=416,
 					y=516
 				},
 				AscendancyFrameLargeCanAllocate={
 					h=208,
 					w=208,
-					x=416,
+					x=0,
 					y=516
 				},
 				AscendancyFrameLargeNormal={
 					h=208,
 					w=208,
-					x=0,
+					x=208,
 					y=516
 				},
 				AscendancyFrameSmallAllocated={
@@ -83380,76 +82914,70 @@ return {
 				JewelFrameAllocated={
 					h=156,
 					w=152,
-					x=304,
+					x=760,
 					y=196
 				},
 				JewelFrameCanAllocate={
 					h=156,
 					w=152,
-					x=0,
+					x=608,
 					y=196
 				},
 				JewelFrameUnallocated={
 					h=156,
 					w=152,
-					x=608,
+					x=152,
 					y=196
 				},
 				KeystoneFrameAllocated={
 					h=224,
 					w=220,
-					x=440,
+					x=220,
 					y=724
 				},
 				KeystoneFrameCanAllocate={
 					h=224,
 					w=220,
-					x=0,
+					x=440,
 					y=724
 				},
 				KeystoneFrameUnallocated={
 					h=224,
 					w=220,
-					x=220,
+					x=0,
 					y=724
 				},
 				NotableFrameAllocated={
 					h=156,
 					w=152,
-					x=760,
+					x=456,
 					y=196
 				},
 				NotableFrameCanAllocate={
 					h=156,
 					w=152,
-					x=456,
+					x=304,
 					y=196
 				},
 				NotableFrameUnallocated={
 					h=156,
 					w=152,
-					x=152,
+					x=0,
 					y=196
 				},
 				PSSkillFrame={
 					h=104,
 					w=104,
-					x=208,
+					x=0,
 					y=92
 				},
 				PSSkillFrameActive={
 					h=104,
 					w=104,
-					x=312,
+					x=208,
 					y=92
 				},
 				PSSkillFrameHighlighted={
-					h=104,
-					w=104,
-					x=0,
-					y=92
-				},
-				PSSkillFrameMask={
 					h=104,
 					w=104,
 					x=104,
@@ -83457,7 +82985,7 @@ return {
 				}
 			},
 			filename="group-background.png",
-			h=8344,
+			h=4864,
 			w=952
 		},
 		groupBackground={
@@ -83484,13 +83012,13 @@ return {
 					h=988,
 					w=952,
 					x=0,
-					y=7356
+					y=3876
 				},
 				PSGroupBackgroundMediumBlank={
 					h=756,
 					w=756,
 					x=0,
-					y=6600
+					y=3120
 				},
 				PSGroupBackgroundSmallBlank={
 					h=440,
@@ -83500,7 +83028,7 @@ return {
 				}
 			},
 			filename="group-background.png",
-			h=8344,
+			h=4864,
 			w=952
 		},
 		jewelpassive={
@@ -83551,157 +83079,157 @@ return {
 				["Art/2DArt/SkillIcons/passives/BulwarkKeystone.dds"]={
 					h=128,
 					w=128,
-					x=128,
-					y=1088
+					x=256,
+					y=896
 				},
 				["Art/2DArt/SkillIcons/passives/DancewithDeathKeystone.dds"]={
 					h=128,
 					w=128,
-					x=640,
-					y=1728
+					x=896,
+					y=1408
 				},
 				["Art/2DArt/SkillIcons/passives/EternalYouth.dds"]={
 					h=128,
 					w=128,
 					x=512,
-					y=1856
+					y=1536
 				},
 				["Art/2DArt/SkillIcons/passives/GiantBloodKeystone.dds"]={
 					h=128,
 					w=128,
-					x=1024,
-					y=1216
+					x=896,
+					y=1024
 				},
 				["Art/2DArt/SkillIcons/passives/GlancingBlows.dds"]={
 					h=128,
 					w=128,
-					x=768,
-					y=704
+					x=256,
+					y=640
 				},
 				["Art/2DArt/SkillIcons/passives/HeartstopperKeystone.dds"]={
 					h=128,
 					w=128,
-					x=384,
-					y=1984
+					x=128,
+					y=1664
 				},
 				["Art/2DArt/SkillIcons/passives/KeystoneAcrobatics.dds"]={
 					h=128,
 					w=128,
-					x=128,
-					y=2880
+					x=896,
+					y=2304
 				},
 				["Art/2DArt/SkillIcons/passives/KeystoneAvatarOfFire.dds"]={
 					h=128,
 					w=128,
-					x=896,
-					y=576
+					x=640,
+					y=512
 				},
 				["Art/2DArt/SkillIcons/passives/KeystoneBloodMagic.dds"]={
 					h=128,
 					w=128,
-					x=128,
-					y=960
+					x=512,
+					y=768
 				},
 				["Art/2DArt/SkillIcons/passives/KeystoneChaosInoculation.dds"]={
 					h=128,
 					w=128,
-					x=128,
-					y=1472
+					x=896,
+					y=1152
 				},
 				["Art/2DArt/SkillIcons/passives/KeystoneConduit.dds"]={
 					h=128,
 					w=128,
-					x=256,
-					y=576
+					x=0,
+					y=512
 				},
 				["Art/2DArt/SkillIcons/passives/KeystoneEldritchBattery.dds"]={
 					h=128,
 					w=128,
-					x=896,
-					y=1728
+					x=1152,
+					y=1408
 				},
 				["Art/2DArt/SkillIcons/passives/KeystoneElementalEquilibrium.dds"]={
 					h=128,
 					w=128,
-					x=256,
-					y=1600
+					x=768,
+					y=1280
 				},
 				["Art/2DArt/SkillIcons/passives/KeystoneIronReflexes.dds"]={
 					h=128,
 					w=128,
-					x=0,
-					y=960
+					x=384,
+					y=768
 				},
 				["Art/2DArt/SkillIcons/passives/KeystonePainAttunement.dds"]={
 					h=128,
 					w=128,
-					x=1024,
-					y=2752
+					x=640,
+					y=2304
 				},
 				["Art/2DArt/SkillIcons/passives/KeystoneResoluteTechnique.dds"]={
 					h=128,
 					w=128,
-					x=128,
-					y=1728
+					x=384,
+					y=1408
 				},
 				["Art/2DArt/SkillIcons/passives/KeystoneUnwaveringStance.dds"]={
 					h=128,
 					w=128,
-					x=896,
-					y=704
+					x=384,
+					y=640
 				},
 				["Art/2DArt/SkillIcons/passives/KeystoneWhispersOfDoom.dds"]={
 					h=128,
 					w=128,
-					x=512,
-					y=1088
+					x=640,
+					y=896
 				},
 				["Art/2DArt/SkillIcons/passives/NecromanticTalismanKeystone.dds"]={
 					h=128,
 					w=128,
-					x=768,
-					y=2496
+					x=896,
+					y=2048
 				},
 				["Art/2DArt/SkillIcons/passives/OasisKeystone2.dds"]={
 					h=128,
 					w=128,
 					x=0,
-					y=448
+					y=384
 				},
 				["Art/2DArt/SkillIcons/passives/ResonanceKeystone.dds"]={
 					h=128,
 					w=128,
-					x=512,
-					y=2240
+					x=1152,
+					y=1792
 				},
 				["Art/2DArt/SkillIcons/passives/heroicspirit.dds"]={
 					h=128,
 					w=128,
-					x=384,
-					y=2368
+					x=768,
+					y=1920
 				},
 				["Art/2DArt/SkillIcons/passives/liferegentoenergyshield.dds"]={
 					h=128,
 					w=128,
-					x=128,
-					y=576
+					x=1280,
+					y=384
 				},
 				["Art/2DArt/SkillIcons/passives/totemmax.dds"]={
 					h=128,
 					w=128,
-					x=1024,
-					y=2240
+					x=256,
+					y=1920
 				},
 				["Art/2DArt/SkillIcons/passives/vaalpact.dds"]={
 					h=128,
 					w=128,
-					x=0,
-					y=1088
+					x=128,
+					y=896
 				}
 			},
 			filename="skills.png",
-			h=3356,
-			w=1152
+			h=2908,
+			w=1472
 		},
 		keystoneInactive={
 			coords={
@@ -83709,156 +83237,156 @@ return {
 					h=128,
 					w=128,
 					x=384,
-					y=448
+					y=384
 				},
 				["Art/2DArt/SkillIcons/passives/DancewithDeathKeystone.dds"]={
 					h=128,
 					w=128,
-					x=768,
-					y=1728
+					x=1024,
+					y=1408
 				},
 				["Art/2DArt/SkillIcons/passives/EternalYouth.dds"]={
 					h=128,
 					w=128,
 					x=640,
-					y=1856
+					y=1536
 				},
 				["Art/2DArt/SkillIcons/passives/GiantBloodKeystone.dds"]={
 					h=128,
 					w=128,
-					x=768,
-					y=2368
+					x=1152,
+					y=1920
 				},
 				["Art/2DArt/SkillIcons/passives/GlancingBlows.dds"]={
 					h=128,
 					w=128,
 					x=512,
-					y=448
+					y=384
 				},
 				["Art/2DArt/SkillIcons/passives/HeartstopperKeystone.dds"]={
 					h=128,
 					w=128,
-					x=384,
-					y=1728
+					x=640,
+					y=1408
 				},
 				["Art/2DArt/SkillIcons/passives/KeystoneAcrobatics.dds"]={
 					h=128,
 					w=128,
-					x=768,
-					y=2880
+					x=128,
+					y=2432
 				},
 				["Art/2DArt/SkillIcons/passives/KeystoneAvatarOfFire.dds"]={
 					h=128,
 					w=128,
-					x=128,
-					y=1344
+					x=1152,
+					y=1024
 				},
 				["Art/2DArt/SkillIcons/passives/KeystoneBloodMagic.dds"]={
 					h=128,
 					w=128,
-					x=640,
-					y=960
+					x=1024,
+					y=768
 				},
 				["Art/2DArt/SkillIcons/passives/KeystoneChaosInoculation.dds"]={
 					h=128,
 					w=128,
-					x=512,
-					y=1472
+					x=1280,
+					y=1152
 				},
 				["Art/2DArt/SkillIcons/passives/KeystoneConduit.dds"]={
 					h=128,
 					w=128,
-					x=0,
-					y=576
+					x=1152,
+					y=384
 				},
 				["Art/2DArt/SkillIcons/passives/KeystoneEldritchBattery.dds"]={
 					h=128,
 					w=128,
-					x=1024,
-					y=1728
+					x=1280,
+					y=1408
 				},
 				["Art/2DArt/SkillIcons/passives/KeystoneElementalEquilibrium.dds"]={
 					h=128,
 					w=128,
-					x=896,
-					y=1472
+					x=256,
+					y=1280
 				},
 				["Art/2DArt/SkillIcons/passives/KeystoneIronReflexes.dds"]={
 					h=128,
 					w=128,
-					x=512,
-					y=960
+					x=896,
+					y=768
 				},
 				["Art/2DArt/SkillIcons/passives/KeystonePainAttunement.dds"]={
 					h=128,
 					w=128,
-					x=256,
-					y=2240
+					x=896,
+					y=1792
 				},
 				["Art/2DArt/SkillIcons/passives/KeystoneResoluteTechnique.dds"]={
 					h=128,
 					w=128,
-					x=640,
-					y=1472
+					x=0,
+					y=1280
 				},
 				["Art/2DArt/SkillIcons/passives/KeystoneUnwaveringStance.dds"]={
 					h=128,
 					w=128,
-					x=896,
-					y=2496
+					x=1024,
+					y=2048
 				},
 				["Art/2DArt/SkillIcons/passives/KeystoneWhispersOfDoom.dds"]={
 					h=128,
 					w=128,
-					x=0,
-					y=1216
+					x=1280,
+					y=896
 				},
 				["Art/2DArt/SkillIcons/passives/NecromanticTalismanKeystone.dds"]={
 					h=128,
 					w=128,
-					x=896,
-					y=2752
+					x=512,
+					y=2304
 				},
 				["Art/2DArt/SkillIcons/passives/OasisKeystone2.dds"]={
 					h=128,
 					w=128,
-					x=768,
-					y=576
+					x=512,
+					y=512
 				},
 				["Art/2DArt/SkillIcons/passives/ResonanceKeystone.dds"]={
 					h=128,
 					w=128,
-					x=640,
-					y=2240
+					x=1280,
+					y=1792
 				},
 				["Art/2DArt/SkillIcons/passives/heroicspirit.dds"]={
 					h=128,
 					w=128,
-					x=384,
-					y=2368
+					x=768,
+					y=1920
 				},
 				["Art/2DArt/SkillIcons/passives/liferegentoenergyshield.dds"]={
 					h=128,
 					w=128,
-					x=1024,
-					y=960
+					x=0,
+					y=896
 				},
 				["Art/2DArt/SkillIcons/passives/totemmax.dds"]={
 					h=128,
 					w=128,
-					x=1024,
-					y=2240
+					x=256,
+					y=1920
 				},
 				["Art/2DArt/SkillIcons/passives/vaalpact.dds"]={
 					h=128,
 					w=128,
-					x=512,
-					y=1216
+					x=384,
+					y=1024
 				}
 			},
 			filename="skills-disabled.png",
-			h=3356,
-			w=1152
+			h=2908,
+			w=1472
 		},
 		line={
 			coords={
@@ -83866,13 +83394,13 @@ return {
 					h=1436,
 					w=1436,
 					x=0,
-					y=1436
+					y=2872
 				},
 				CurvesIntermediate={
 					h=1436,
 					w=1436,
-					x=1436,
-					y=0
+					x=0,
+					y=1436
 				},
 				CurvesNormal={
 					h=1436,
@@ -83882,297 +83410,8 @@ return {
 				}
 			},
 			filename="lines.png",
-			h=2872,
-			w=2872
-		},
-		mastery={
-			coords={
-				["Art/2DArt/SkillIcons/passives/AltAttackDamageMastery.dds"]={
-					h=256,
-					w=256,
-					x=512,
-					y=1024
-				},
-				["Art/2DArt/SkillIcons/passives/AltMasteryAuras.dds"]={
-					h=256,
-					w=256,
-					x=512,
-					y=2816
-				},
-				["Art/2DArt/SkillIcons/passives/AltMasteryChannelling.dds"]={
-					h=256,
-					w=256,
-					x=512,
-					y=768
-				},
-				["Art/2DArt/SkillIcons/passives/AltMinionDamageHeraldMastery.dds"]={
-					h=256,
-					w=256,
-					x=256,
-					y=2048
-				},
-				["Art/2DArt/SkillIcons/passives/AreaofEffectSpellsMastery.dds"]={
-					h=256,
-					w=256,
-					x=0,
-					y=1792
-				},
-				["Art/2DArt/SkillIcons/passives/AttackBlindMastery.dds"]={
-					h=256,
-					w=256,
-					x=0,
-					y=1280
-				},
-				["Art/2DArt/SkillIcons/passives/AttackTotemMastery.dds"]={
-					h=256,
-					w=256,
-					x=768,
-					y=256
-				},
-				["Art/2DArt/SkillIcons/passives/ChannellingAttacksMasterySymbol.dds"]={
-					h=256,
-					w=256,
-					x=0,
-					y=2304
-				},
-				["Art/2DArt/SkillIcons/passives/EnduranceFrenzyChargeMastery.dds"]={
-					h=256,
-					w=256,
-					x=512,
-					y=256
-				},
-				["Art/2DArt/SkillIcons/passives/FortifyMasterySymbol.dds"]={
-					h=256,
-					w=256,
-					x=768,
-					y=1280
-				},
-				["Art/2DArt/SkillIcons/passives/ImpaleMasterySymbol.dds"]={
-					h=256,
-					w=256,
-					x=0,
-					y=2560
-				},
-				["Art/2DArt/SkillIcons/passives/MarkMastery.dds"]={
-					h=256,
-					w=256,
-					x=256,
-					y=1792
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryAuras.dds"]={
-					h=256,
-					w=256,
-					x=256,
-					y=768
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryChaos.dds"]={
-					h=256,
-					w=256,
-					x=512,
-					y=1792
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryCurse.dds"]={
-					h=256,
-					w=256,
-					x=256,
-					y=2304
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryDuration.dds"]={
-					h=256,
-					w=256,
-					x=256,
-					y=1280
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryElementalDamage.dds"]={
-					h=256,
-					w=256,
-					x=768,
-					y=0
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryFlasks.dds"]={
-					h=256,
-					w=256,
-					x=512,
-					y=2560
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryGroupAccuracy.dds"]={
-					h=256,
-					w=256,
-					x=0,
-					y=1536
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryGroupArmour.dds"]={
-					h=256,
-					w=256,
-					x=512,
-					y=0
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryGroupAxe.dds"]={
-					h=256,
-					w=256,
-					x=768,
-					y=2048
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryGroupBow.dds"]={
-					h=256,
-					w=256,
-					x=768,
-					y=1536
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryGroupCold.dds"]={
-					h=256,
-					w=256,
-					x=512,
-					y=2048
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryGroupCrit.dds"]={
-					h=256,
-					w=256,
-					x=512,
-					y=512
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryGroupDualWield.dds"]={
-					h=256,
-					w=256,
-					x=512,
-					y=2304
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryGroupEnergyShield.dds"]={
-					h=256,
-					w=256,
-					x=0,
-					y=2048
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryGroupEnergyShieldMana.dds"]={
-					h=256,
-					w=256,
-					x=0,
-					y=0
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryGroupEvasion.dds"]={
-					h=256,
-					w=256,
-					x=256,
-					y=512
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryGroupFire.dds"]={
-					h=256,
-					w=256,
-					x=256,
-					y=0
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryGroupLife.dds"]={
-					h=256,
-					w=256,
-					x=768,
-					y=512
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryGroupLifeMana.dds"]={
-					h=256,
-					w=256,
-					x=256,
-					y=1024
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryGroupLightning.dds"]={
-					h=256,
-					w=256,
-					x=256,
-					y=2816
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryGroupMace.dds"]={
-					h=256,
-					w=256,
-					x=256,
-					y=256
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryGroupMana.dds"]={
-					h=256,
-					w=256,
-					x=0,
-					y=1024
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryGroupMinions.dds"]={
-					h=256,
-					w=256,
-					x=768,
-					y=768
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryGroupShield.dds"]={
-					h=256,
-					w=256,
-					x=768,
-					y=1024
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryGroupStaff.dds"]={
-					h=256,
-					w=256,
-					x=0,
-					y=768
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryGroupSword.dds"]={
-					h=256,
-					w=256,
-					x=256,
-					y=1536
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryGroupTwoHands.dds"]={
-					h=256,
-					w=256,
-					x=768,
-					y=1792
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPhysicalDamage.dds"]={
-					h=256,
-					w=256,
-					x=256,
-					y=2560
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPoison.dds"]={
-					h=256,
-					w=256,
-					x=0,
-					y=2816
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryProjectiles.dds"]={
-					h=256,
-					w=256,
-					x=768,
-					y=2304
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryTotem.dds"]={
-					h=256,
-					w=256,
-					x=512,
-					y=1280
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryTraps.dds"]={
-					h=256,
-					w=256,
-					x=768,
-					y=2560
-				},
-				["Art/2DArt/SkillIcons/passives/MinionMastery.dds"]={
-					h=256,
-					w=256,
-					x=0,
-					y=256
-				},
-				["Art/2DArt/SkillIcons/passives/StaffMasterySymbol.dds"]={
-					h=256,
-					w=256,
-					x=512,
-					y=1536
-				},
-				["Art/2DArt/SkillIcons/passives/WarcryMastery.dds"]={
-					h=256,
-					w=256,
-					x=0,
-					y=512
-				}
-			},
-			filename="mastery.png",
-			h=3072,
-			w=1024
+			h=4308,
+			w=1436
 		},
 		masteryActiveEffect={
 			coords={
@@ -84511,868 +83750,19 @@ return {
 			h=42240,
 			w=776
 		},
-		masteryActiveSelected={
-			coords={
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryAccuracyActive.dds"]={
-					h=256,
-					w=256,
-					x=0,
-					y=1536
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryArmourActive.dds"]={
-					h=256,
-					w=256,
-					x=0,
-					y=1024
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryArmourAndEnergyShieldActive.dds"]={
-					h=256,
-					w=256,
-					x=256,
-					y=2048
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryArmourAndEvasionActive.dds"]={
-					h=256,
-					w=256,
-					x=512,
-					y=1792
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryAttackActive.dds"]={
-					h=256,
-					w=256,
-					x=256,
-					y=256
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryAttributesActive.dds"]={
-					h=256,
-					w=256,
-					x=768,
-					y=768
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryAxeActive.dds"]={
-					h=256,
-					w=256,
-					x=256,
-					y=1024
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryBlindActive.dds"]={
-					h=256,
-					w=256,
-					x=256,
-					y=2560
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryBlockActive.dds"]={
-					h=256,
-					w=256,
-					x=0,
-					y=1280
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryCasterActive.dds"]={
-					h=256,
-					w=256,
-					x=768,
-					y=256
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryChaosActive.dds"]={
-					h=256,
-					w=256,
-					x=512,
-					y=2304
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryChargesActive.dds"]={
-					h=256,
-					w=256,
-					x=256,
-					y=1792
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryColdActive.dds"]={
-					h=256,
-					w=256,
-					x=512,
-					y=1280
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryCriticalActive.dds"]={
-					h=256,
-					w=256,
-					x=512,
-					y=2048
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryCurseActive.dds"]={
-					h=256,
-					w=256,
-					x=256,
-					y=2304
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryDualWieldActive.dds"]={
-					h=256,
-					w=256,
-					x=768,
-					y=2304
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryDurationActive.dds"]={
-					h=256,
-					w=256,
-					x=0,
-					y=768
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryElementalActive.dds"]={
-					h=256,
-					w=256,
-					x=0,
-					y=2560
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryEnergyActive.dds"]={
-					h=256,
-					w=256,
-					x=256,
-					y=1280
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryEvasionActive.dds"]={
-					h=256,
-					w=256,
-					x=768,
-					y=2560
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryEvasionAndEnergyShieldActive.dds"]={
-					h=256,
-					w=256,
-					x=768,
-					y=1792
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryFireActive.dds"]={
-					h=256,
-					w=256,
-					x=768,
-					y=512
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryFlaskActive.dds"]={
-					h=256,
-					w=256,
-					x=0,
-					y=2816
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryFortifyActive.dds"]={
-					h=256,
-					w=256,
-					x=512,
-					y=256
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryLeechActive.dds"]={
-					h=256,
-					w=256,
-					x=768,
-					y=1024
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryLifeActive.dds"]={
-					h=256,
-					w=256,
-					x=0,
-					y=256
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryLightningActive.dds"]={
-					h=256,
-					w=256,
-					x=0,
-					y=1792
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryLinkActive.dds"]={
-					h=256,
-					w=256,
-					x=256,
-					y=768
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryMaceActive.dds"]={
-					h=256,
-					w=256,
-					x=768,
-					y=0
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryManaActive.dds"]={
-					h=256,
-					w=256,
-					x=768,
-					y=1280
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryMarkActive.dds"]={
-					h=256,
-					w=256,
-					x=256,
-					y=1536
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryMinionDefenseActive.dds"]={
-					h=256,
-					w=256,
-					x=512,
-					y=0
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryMinionOffenseActive.dds"]={
-					h=256,
-					w=256,
-					x=0,
-					y=0
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryPhysicalActive.dds"]={
-					h=256,
-					w=256,
-					x=0,
-					y=512
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryPoisonActive.dds"]={
-					h=256,
-					w=256,
-					x=768,
-					y=1536
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryProjectileActive.dds"]={
-					h=256,
-					w=256,
-					x=512,
-					y=1024
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryRecoveryActive.dds"]={
-					h=256,
-					w=256,
-					x=512,
-					y=1536
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryReservationActive.dds"]={
-					h=256,
-					w=256,
-					x=256,
-					y=512
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryResistancesAndAilmentProtectionActive.dds"]={
-					h=256,
-					w=256,
-					x=256,
-					y=0
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryShieldActive.dds"]={
-					h=256,
-					w=256,
-					x=768,
-					y=2048
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasterySpellSuppressionActive.dds"]={
-					h=256,
-					w=256,
-					x=0,
-					y=2304
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasterySwordActive.dds"]={
-					h=256,
-					w=256,
-					x=512,
-					y=768
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryTotemActive.dds"]={
-					h=256,
-					w=256,
-					x=256,
-					y=2816
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryTrapActive.dds"]={
-					h=256,
-					w=256,
-					x=512,
-					y=2560
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryTwoHandActive.dds"]={
-					h=256,
-					w=256,
-					x=0,
-					y=2048
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryWarcryActive.dds"]={
-					h=256,
-					w=256,
-					x=512,
-					y=512
-				}
-			},
-			filename="mastery-active-selected.png",
-			h=3072,
-			w=1024
-		},
-		masteryConnected={
-			coords={
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryAccuracyInactive.dds"]={
-					h=256,
-					w=256,
-					x=768,
-					y=1280
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryArmourAndEnergyShieldInactive.dds"]={
-					h=256,
-					w=256,
-					x=0,
-					y=256
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryArmourAndEvasionInactive.dds"]={
-					h=256,
-					w=256,
-					x=768,
-					y=1536
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryArmourInactive.dds"]={
-					h=256,
-					w=256,
-					x=0,
-					y=512
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryAttackInactive.dds"]={
-					h=256,
-					w=256,
-					x=768,
-					y=512
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryAttributesInactive.dds"]={
-					h=256,
-					w=256,
-					x=0,
-					y=2816
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryAxeInactive.dds"]={
-					h=256,
-					w=256,
-					x=512,
-					y=2304
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryBlindInactive.dds"]={
-					h=256,
-					w=256,
-					x=768,
-					y=2304
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryBlockInactive.dds"]={
-					h=256,
-					w=256,
-					x=0,
-					y=1280
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryCasterInactive.dds"]={
-					h=256,
-					w=256,
-					x=512,
-					y=1024
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryChaosInactive.dds"]={
-					h=256,
-					w=256,
-					x=256,
-					y=2048
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryChargesInactive.dds"]={
-					h=256,
-					w=256,
-					x=512,
-					y=1792
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryColdInactive.dds"]={
-					h=256,
-					w=256,
-					x=512,
-					y=1536
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryCriticalInactive.dds"]={
-					h=256,
-					w=256,
-					x=512,
-					y=256
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryCurseInactive.dds"]={
-					h=256,
-					w=256,
-					x=0,
-					y=1536
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryDualWieldInactive.dds"]={
-					h=256,
-					w=256,
-					x=512,
-					y=2048
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryDurationInactive.dds"]={
-					h=256,
-					w=256,
-					x=0,
-					y=768
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryElementalInactive.dds"]={
-					h=256,
-					w=256,
-					x=256,
-					y=512
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryEnergyInactive.dds"]={
-					h=256,
-					w=256,
-					x=256,
-					y=1280
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryEvasionAndEnergyShieldInactive.dds"]={
-					h=256,
-					w=256,
-					x=768,
-					y=2560
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryEvasionInactive.dds"]={
-					h=256,
-					w=256,
-					x=256,
-					y=2304
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryFireInactive.dds"]={
-					h=256,
-					w=256,
-					x=512,
-					y=0
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryFlaskInactive.dds"]={
-					h=256,
-					w=256,
-					x=512,
-					y=2560
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryFortifyInactive.dds"]={
-					h=256,
-					w=256,
-					x=256,
-					y=768
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryLeechInactive.dds"]={
-					h=256,
-					w=256,
-					x=256,
-					y=1024
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryLifeInactive.dds"]={
-					h=256,
-					w=256,
-					x=768,
-					y=0
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryLightningInactive.dds"]={
-					h=256,
-					w=256,
-					x=0,
-					y=1792
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryLinkInactive.dds"]={
-					h=256,
-					w=256,
-					x=768,
-					y=1024
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryMaceInactive.dds"]={
-					h=256,
-					w=256,
-					x=256,
-					y=2816
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryManaInactive.dds"]={
-					h=256,
-					w=256,
-					x=256,
-					y=0
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryMarkInactive.dds"]={
-					h=256,
-					w=256,
-					x=256,
-					y=1792
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryMinionDefenseInactive.dds"]={
-					h=256,
-					w=256,
-					x=0,
-					y=1024
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryMinionOffenseInactive.dds"]={
-					h=256,
-					w=256,
-					x=0,
-					y=2048
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryPhysicalInactive.dds"]={
-					h=256,
-					w=256,
-					x=256,
-					y=256
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryPoisonInactive.dds"]={
-					h=256,
-					w=256,
-					x=256,
-					y=1536
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryProjectileInactive.dds"]={
-					h=256,
-					w=256,
-					x=512,
-					y=512
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryRecoveryInactive.dds"]={
-					h=256,
-					w=256,
-					x=768,
-					y=768
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryReservationInactive.dds"]={
-					h=256,
-					w=256,
-					x=0,
-					y=0
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryResistancesAndAilmentProtectionInactive.dds"]={
-					h=256,
-					w=256,
-					x=768,
-					y=1792
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryShieldInactive.dds"]={
-					h=256,
-					w=256,
-					x=768,
-					y=2048
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasterySpellSuppressionInactive.dds"]={
-					h=256,
-					w=256,
-					x=0,
-					y=2304
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasterySwordInactive.dds"]={
-					h=256,
-					w=256,
-					x=512,
-					y=1280
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryTotemInactive.dds"]={
-					h=256,
-					w=256,
-					x=512,
-					y=768
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryTrapInactive.dds"]={
-					h=256,
-					w=256,
-					x=256,
-					y=2560
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryTwoHandInactive.dds"]={
-					h=256,
-					w=256,
-					x=0,
-					y=2560
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryWarcryInactive.dds"]={
-					h=256,
-					w=256,
-					x=768,
-					y=256
-				}
-			},
-			filename="mastery-connected.png",
-			h=3072,
-			w=1024
-		},
-		masteryInactive={
-			coords={
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryAccuracyInactive.dds"]={
-					h=256,
-					w=256,
-					x=768,
-					y=1280
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryArmourAndEnergyShieldInactive.dds"]={
-					h=256,
-					w=256,
-					x=0,
-					y=256
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryArmourAndEvasionInactive.dds"]={
-					h=256,
-					w=256,
-					x=768,
-					y=1536
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryArmourInactive.dds"]={
-					h=256,
-					w=256,
-					x=0,
-					y=512
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryAttackInactive.dds"]={
-					h=256,
-					w=256,
-					x=768,
-					y=512
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryAttributesInactive.dds"]={
-					h=256,
-					w=256,
-					x=0,
-					y=2816
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryAxeInactive.dds"]={
-					h=256,
-					w=256,
-					x=512,
-					y=2304
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryBlindInactive.dds"]={
-					h=256,
-					w=256,
-					x=768,
-					y=2304
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryBlockInactive.dds"]={
-					h=256,
-					w=256,
-					x=0,
-					y=1280
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryCasterInactive.dds"]={
-					h=256,
-					w=256,
-					x=512,
-					y=1024
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryChaosInactive.dds"]={
-					h=256,
-					w=256,
-					x=256,
-					y=2048
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryChargesInactive.dds"]={
-					h=256,
-					w=256,
-					x=512,
-					y=1792
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryColdInactive.dds"]={
-					h=256,
-					w=256,
-					x=512,
-					y=1536
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryCriticalInactive.dds"]={
-					h=256,
-					w=256,
-					x=512,
-					y=256
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryCurseInactive.dds"]={
-					h=256,
-					w=256,
-					x=0,
-					y=1536
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryDualWieldInactive.dds"]={
-					h=256,
-					w=256,
-					x=512,
-					y=2048
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryDurationInactive.dds"]={
-					h=256,
-					w=256,
-					x=0,
-					y=768
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryElementalInactive.dds"]={
-					h=256,
-					w=256,
-					x=256,
-					y=512
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryEnergyInactive.dds"]={
-					h=256,
-					w=256,
-					x=256,
-					y=1280
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryEvasionAndEnergyShieldInactive.dds"]={
-					h=256,
-					w=256,
-					x=768,
-					y=2560
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryEvasionInactive.dds"]={
-					h=256,
-					w=256,
-					x=256,
-					y=2304
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryFireInactive.dds"]={
-					h=256,
-					w=256,
-					x=512,
-					y=0
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryFlaskInactive.dds"]={
-					h=256,
-					w=256,
-					x=512,
-					y=2560
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryFortifyInactive.dds"]={
-					h=256,
-					w=256,
-					x=256,
-					y=768
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryLeechInactive.dds"]={
-					h=256,
-					w=256,
-					x=256,
-					y=1024
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryLifeInactive.dds"]={
-					h=256,
-					w=256,
-					x=768,
-					y=0
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryLightningInactive.dds"]={
-					h=256,
-					w=256,
-					x=0,
-					y=1792
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryLinkInactive.dds"]={
-					h=256,
-					w=256,
-					x=768,
-					y=1024
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryMaceInactive.dds"]={
-					h=256,
-					w=256,
-					x=256,
-					y=2816
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryManaInactive.dds"]={
-					h=256,
-					w=256,
-					x=256,
-					y=0
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryMarkInactive.dds"]={
-					h=256,
-					w=256,
-					x=256,
-					y=1792
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryMinionDefenseInactive.dds"]={
-					h=256,
-					w=256,
-					x=0,
-					y=1024
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryMinionOffenseInactive.dds"]={
-					h=256,
-					w=256,
-					x=0,
-					y=2048
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryPhysicalInactive.dds"]={
-					h=256,
-					w=256,
-					x=256,
-					y=256
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryPoisonInactive.dds"]={
-					h=256,
-					w=256,
-					x=256,
-					y=1536
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryProjectileInactive.dds"]={
-					h=256,
-					w=256,
-					x=512,
-					y=512
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryRecoveryInactive.dds"]={
-					h=256,
-					w=256,
-					x=768,
-					y=768
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryReservationInactive.dds"]={
-					h=256,
-					w=256,
-					x=0,
-					y=0
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryResistancesAndAilmentProtectionInactive.dds"]={
-					h=256,
-					w=256,
-					x=768,
-					y=1792
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryShieldInactive.dds"]={
-					h=256,
-					w=256,
-					x=768,
-					y=2048
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasterySpellSuppressionInactive.dds"]={
-					h=256,
-					w=256,
-					x=0,
-					y=2304
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasterySwordInactive.dds"]={
-					h=256,
-					w=256,
-					x=512,
-					y=1280
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryTotemInactive.dds"]={
-					h=256,
-					w=256,
-					x=512,
-					y=768
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryTrapInactive.dds"]={
-					h=256,
-					w=256,
-					x=256,
-					y=2560
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryTwoHandInactive.dds"]={
-					h=256,
-					w=256,
-					x=0,
-					y=2560
-				},
-				["Art/2DArt/SkillIcons/passives/MasteryPassiveIcons/PassiveMasteryWarcryInactive.dds"]={
-					h=256,
-					w=256,
-					x=768,
-					y=256
-				}
-			},
-			filename="mastery-disabled.png",
-			h=3072,
-			w=1024
-		},
 		normalActive={
 			coords={
 				["Art/2DArt/SkillIcons/WitchBoneStorm.dds"]={
 					h=64,
 					w=64,
-					x=1024,
+					x=384,
 					y=128
 				},
 				["Art/2DArt/SkillIcons/icongroundslam.dds"]={
 					h=64,
 					w=64,
-					x=256,
-					y=128
+					x=1088,
+					y=64
 				},
 				["Art/2DArt/SkillIcons/passives/2handeddamage.dds"]={
 					h=64,
@@ -85389,55 +83779,55 @@ return {
 				["Art/2DArt/SkillIcons/passives/AreaDmgNode.dds"]={
 					h=64,
 					w=64,
-					x=704,
+					x=64,
 					y=128
 				},
 				["Art/2DArt/SkillIcons/passives/ArmourAndEnergyShieldNode.dds"]={
 					h=64,
 					w=64,
-					x=64,
-					y=256
+					x=256,
+					y=192
 				},
 				["Art/2DArt/SkillIcons/passives/ArmourAndEvasionNode.dds"]={
 					h=64,
 					w=64,
-					x=1088,
+					x=448,
 					y=128
 				},
 				["Art/2DArt/SkillIcons/passives/ArmourBreak1BuffIcon.dds"]={
 					h=64,
 					w=64,
-					x=448,
-					y=256
+					x=640,
+					y=192
 				},
 				["Art/2DArt/SkillIcons/passives/Ascendants/SkillPoint.dds"]={
 					h=64,
 					w=64,
-					x=1024,
-					y=256
+					x=1216,
+					y=192
 				},
 				["Art/2DArt/SkillIcons/passives/Blood2.dds"]={
 					h=128,
 					w=128,
-					x=256,
-					y=2752
+					x=1280,
+					y=2176
 				},
 				["Art/2DArt/SkillIcons/passives/Bloodmage/BloodMageNode.dds"]={
 					h=64,
 					w=64,
-					x=448,
-					y=320
+					x=320,
+					y=256
 				},
 				["Art/2DArt/SkillIcons/passives/BowDamage.dds"]={
 					h=128,
 					w=128,
-					x=256,
-					y=1088
+					x=384,
+					y=896
 				},
 				["Art/2DArt/SkillIcons/passives/ChannellingAttacksNode.dds"]={
 					h=64,
 					w=64,
-					x=960,
+					x=320,
 					y=128
 				},
 				["Art/2DArt/SkillIcons/passives/ChaosDamagenode.dds"]={
@@ -85449,91 +83839,91 @@ return {
 				["Art/2DArt/SkillIcons/passives/CharmNode1.dds"]={
 					h=64,
 					w=64,
-					x=320,
-					y=384
+					x=1344,
+					y=256
 				},
 				["Art/2DArt/SkillIcons/passives/ColdDamagenode.dds"]={
 					h=64,
 					w=64,
-					x=576,
-					y=256
+					x=768,
+					y=192
 				},
 				["Art/2DArt/SkillIcons/passives/ColdResistNode.dds"]={
 					h=64,
 					w=64,
-					x=64,
-					y=64
+					x=1216,
+					y=0
 				},
 				["Art/2DArt/SkillIcons/passives/CorpseDamage.dds"]={
 					h=64,
 					w=64,
-					x=832,
+					x=512,
 					y=64
 				},
 				["Art/2DArt/SkillIcons/passives/CurseEffectNode.dds"]={
 					h=64,
 					w=64,
-					x=960,
-					y=320
+					x=832,
+					y=256
 				},
 				["Art/2DArt/SkillIcons/passives/DeadEye/DeadeyeDealMoreProjectileDamageClose.dds"]={
 					h=128,
 					w=128,
-					x=512,
-					y=1984
+					x=256,
+					y=1664
 				},
 				["Art/2DArt/SkillIcons/passives/DeadEye/DeadeyeDealMoreProjectileDamageFarAway.dds"]={
 					h=128,
 					w=128,
-					x=768,
-					y=2624
+					x=640,
+					y=2176
 				},
 				["Art/2DArt/SkillIcons/passives/DeadEye/DeadeyeNode.dds"]={
 					h=64,
 					w=64,
-					x=384,
+					x=64,
 					y=64
 				},
 				["Art/2DArt/SkillIcons/passives/Deflection.dds"]={
 					h=128,
 					w=128,
-					x=0,
-					y=704
+					x=896,
+					y=512
 				},
 				["Art/2DArt/SkillIcons/passives/DragonStyle.dds"]={
 					h=128,
 					w=128,
-					x=512,
-					y=1344
+					x=128,
+					y=1152
 				},
 				["Art/2DArt/SkillIcons/passives/ElementalDamagenode.dds"]={
 					h=64,
 					w=64,
-					x=704,
+					x=384,
 					y=64
 				},
 				["Art/2DArt/SkillIcons/passives/ElementalDamagewithAttacks2.dds"]={
 					h=128,
 					w=128,
-					x=384,
-					y=704
+					x=1280,
+					y=512
 				},
 				["Art/2DArt/SkillIcons/passives/EnergyShieldNode.dds"]={
 					h=64,
 					w=64,
-					x=64,
-					y=320
+					x=1408,
+					y=192
 				},
 				["Art/2DArt/SkillIcons/passives/EvasionNode.dds"]={
 					h=64,
 					w=64,
-					x=832,
-					y=320
+					x=704,
+					y=256
 				},
 				["Art/2DArt/SkillIcons/passives/EvasionandEnergyShieldNode.dds"]={
 					h=64,
 					w=64,
-					x=960,
+					x=640,
 					y=64
 				},
 				["Art/2DArt/SkillIcons/passives/FireDamagenode.dds"]={
@@ -85545,68 +83935,68 @@ return {
 				["Art/2DArt/SkillIcons/passives/FireResistNode.dds"]={
 					h=64,
 					w=64,
-					x=256,
-					y=64
+					x=1408,
+					y=0
 				},
 				["Art/2DArt/SkillIcons/passives/Gemling/GemlingNode.dds"]={
 					h=64,
 					w=64,
-					x=192,
-					y=384
+					x=1216,
+					y=256
 				},
 				["Art/2DArt/SkillIcons/passives/GreenAttackSmallPassive.dds"]={
 					h=64,
 					w=64,
-					x=1024,
-					y=384
+					x=576,
+					y=320
 				},
 				["Art/2DArt/SkillIcons/passives/Harrier.dds"]={
 					h=128,
 					w=128,
-					x=256,
-					y=2368
+					x=640,
+					y=1920
 				},
 				["Art/2DArt/SkillIcons/passives/HeraldBuffEffectNode2.dds"]={
 					h=64,
 					w=64,
-					x=832,
+					x=192,
 					y=128
 				},
 				["Art/2DArt/SkillIcons/passives/HiredKiller2.dds"]={
 					h=128,
 					w=128,
 					x=128,
-					y=448
+					y=384
 				},
 				["Art/2DArt/SkillIcons/passives/IncreasedManaCostNotable.dds"]={
 					h=128,
 					w=128,
-					x=384,
-					y=1216
+					x=256,
+					y=1024
 				},
 				["Art/2DArt/SkillIcons/passives/IncreasedProjectileSpeedNode.dds"]={
 					h=64,
 					w=64,
-					x=704,
-					y=320
+					x=576,
+					y=256
 				},
 				["Art/2DArt/SkillIcons/passives/Infernalist/InfernalistNode.dds"]={
 					h=64,
 					w=64,
-					x=128,
-					y=256
+					x=320,
+					y=192
 				},
 				["Art/2DArt/SkillIcons/passives/Inquistitor/IncreasedElementalDamageAttackCasteSpeed.dds"]={
 					h=64,
 					w=64,
-					x=960,
-					y=256
+					x=1152,
+					y=192
 				},
 				["Art/2DArt/SkillIcons/passives/Invoker/InvokerNode.dds"]={
 					h=64,
 					w=64,
-					x=512,
-					y=256
+					x=704,
+					y=192
 				},
 				["Art/2DArt/SkillIcons/passives/LifeRecoupNode.dds"]={
 					h=64,
@@ -85617,110 +84007,110 @@ return {
 				["Art/2DArt/SkillIcons/passives/LightningDamagenode.dds"]={
 					h=64,
 					w=64,
-					x=576,
-					y=128
+					x=1408,
+					y=64
 				},
 				["Art/2DArt/SkillIcons/passives/LightningResistNode.dds"]={
 					h=64,
 					w=64,
-					x=768,
-					y=320
+					x=640,
+					y=256
 				},
 				["Art/2DArt/SkillIcons/passives/ManaLeechThemedNode.dds"]={
 					h=64,
 					w=64,
-					x=512,
-					y=192
+					x=1024,
+					y=128
 				},
 				["Art/2DArt/SkillIcons/passives/MarkNode.dds"]={
 					h=64,
 					w=64,
-					x=128,
-					y=192
+					x=640,
+					y=128
 				},
 				["Art/2DArt/SkillIcons/passives/MeleeAoENode.dds"]={
 					h=64,
 					w=64,
-					x=768,
+					x=128,
 					y=128
 				},
 				["Art/2DArt/SkillIcons/passives/MineAreaOfEffectNode.dds"]={
 					h=64,
 					w=64,
-					x=768,
+					x=448,
 					y=64
 				},
 				["Art/2DArt/SkillIcons/passives/MinionElementalResistancesNode.dds"]={
 					h=64,
 					w=64,
-					x=256,
-					y=320
+					x=128,
+					y=256
 				},
 				["Art/2DArt/SkillIcons/passives/MinionsandManaNode.dds"]={
 					h=64,
 					w=64,
-					x=512,
-					y=384
+					x=64,
+					y=320
 				},
 				["Art/2DArt/SkillIcons/passives/MiracleMaker.dds"]={
 					h=128,
 					w=128,
-					x=768,
-					y=2368
+					x=1152,
+					y=1920
 				},
 				["Art/2DArt/SkillIcons/passives/NodeDualWieldingDamage.dds"]={
 					h=64,
 					w=64,
-					x=512,
+					x=192,
 					y=64
 				},
 				["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderBrewConcoctionBleed.dds"]={
 					h=128,
 					w=128,
-					x=768,
-					y=2112
+					x=256,
+					y=1792
 				},
 				["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderBrewConcoctionCold.dds"]={
 					h=128,
 					w=128,
-					x=640,
-					y=2496
+					x=768,
+					y=2048
 				},
 				["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderBrewConcoctionFire.dds"]={
 					h=128,
 					w=128,
-					x=640,
-					y=2112
+					x=128,
+					y=1792
 				},
 				["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderBrewConcoctionLightning.dds"]={
 					h=128,
 					w=128,
-					x=896,
-					y=1984
+					x=640,
+					y=1664
 				},
 				["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderBrewConcoctionPoison.dds"]={
 					h=128,
 					w=128,
-					x=0,
-					y=2624
+					x=1280,
+					y=2048
 				},
 				["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderNode.dds"]={
 					h=64,
 					w=64,
-					x=576,
-					y=384
+					x=128,
+					y=320
 				},
 				["Art/2DArt/SkillIcons/passives/PhysicalDamageChaosNode.dds"]={
 					h=64,
 					w=64,
-					x=256,
-					y=384
+					x=1280,
+					y=256
 				},
 				["Art/2DArt/SkillIcons/passives/PhysicalDamageNode.dds"]={
 					h=64,
 					w=64,
-					x=640,
-					y=256
+					x=832,
+					y=192
 				},
 				["Art/2DArt/SkillIcons/passives/PhysicalDamageOverTimeNode.dds"]={
 					h=64,
@@ -85731,20 +84121,20 @@ return {
 				["Art/2DArt/SkillIcons/passives/Poison.dds"]={
 					h=128,
 					w=128,
-					x=256,
-					y=1472
+					x=1024,
+					y=1152
 				},
 				["Art/2DArt/SkillIcons/passives/Rage.dds"]={
 					h=64,
 					w=64,
-					x=128,
-					y=64
+					x=1280,
+					y=0
 				},
 				["Art/2DArt/SkillIcons/passives/ReducedSkillEffectDurationNode.dds"]={
 					h=64,
 					w=64,
-					x=832,
-					y=384
+					x=384,
+					y=320
 				},
 				["Art/2DArt/SkillIcons/passives/ShieldNodeOffensive.dds"]={
 					h=64,
@@ -85755,32 +84145,32 @@ return {
 				["Art/2DArt/SkillIcons/passives/SpellMultiplyer2.dds"]={
 					h=128,
 					w=128,
-					x=896,
-					y=832
+					x=128,
+					y=768
 				},
 				["Art/2DArt/SkillIcons/passives/SpellSuppresionNode.dds"]={
 					h=64,
 					w=64,
-					x=768,
-					y=384
+					x=320,
+					y=320
 				},
 				["Art/2DArt/SkillIcons/passives/SpellSupressionNotable1.dds"]={
 					h=128,
 					w=128,
-					x=256,
-					y=704
+					x=1152,
+					y=512
 				},
 				["Art/2DArt/SkillIcons/passives/Stormweaver/StormweaverNode.dds"]={
 					h=64,
 					w=64,
-					x=512,
-					y=128
+					x=1344,
+					y=64
 				},
 				["Art/2DArt/SkillIcons/passives/Temporalist/TemporalistNode.dds"]={
 					h=64,
 					w=64,
-					x=384,
-					y=384
+					x=1408,
+					y=256
 				},
 				["Art/2DArt/SkillIcons/passives/Titan/TitanNode.dds"]={
 					h=64,
@@ -85791,14 +84181,14 @@ return {
 				["Art/2DArt/SkillIcons/passives/WarCryEffect.dds"]={
 					h=64,
 					w=64,
-					x=320,
-					y=256
+					x=512,
+					y=192
 				},
 				["Art/2DArt/SkillIcons/passives/Warbringer/WarbringerNode.dds"]={
 					h=64,
 					w=64,
-					x=1088,
-					y=256
+					x=1280,
+					y=192
 				},
 				["Art/2DArt/SkillIcons/passives/Witchhunter/WitchunterNode.dds"]={
 					h=64,
@@ -85809,67 +84199,67 @@ return {
 				["Art/2DArt/SkillIcons/passives/accuracydex.dds"]={
 					h=64,
 					w=64,
-					x=1024,
+					x=64,
 					y=192
 				},
 				["Art/2DArt/SkillIcons/passives/accuracystr.dds"]={
 					h=64,
 					w=64,
-					x=384,
-					y=320
+					x=256,
+					y=256
 				},
 				["Art/2DArt/SkillIcons/passives/areaofeffect.dds"]={
 					h=64,
 					w=64,
-					x=256,
-					y=192
+					x=768,
+					y=128
 				},
 				["Art/2DArt/SkillIcons/passives/attackspeed.dds"]={
 					h=64,
 					w=64,
-					x=192,
-					y=256
+					x=384,
+					y=192
 				},
 				["Art/2DArt/SkillIcons/passives/attackspeedbow.dds"]={
 					h=64,
 					w=64,
-					x=576,
-					y=320
+					x=448,
+					y=256
 				},
 				["Art/2DArt/SkillIcons/passives/auraeffect.dds"]={
+					h=64,
+					w=64,
+					x=192,
+					y=192
+				},
+				["Art/2DArt/SkillIcons/passives/avoidchilling.dds"]={
+					h=64,
+					w=64,
+					x=1408,
+					y=128
+				},
+				["Art/2DArt/SkillIcons/passives/axedmgspeed.dds"]={
+					h=64,
+					w=64,
+					x=960,
+					y=64
+				},
+				["Art/2DArt/SkillIcons/passives/blankDex.dds"]={
+					h=64,
+					w=64,
+					x=384,
+					y=256
+				},
+				["Art/2DArt/SkillIcons/passives/blankInt.dds"]={
 					h=64,
 					w=64,
 					x=0,
 					y=256
 				},
-				["Art/2DArt/SkillIcons/passives/avoidchilling.dds"]={
-					h=64,
-					w=64,
-					x=896,
-					y=192
-				},
-				["Art/2DArt/SkillIcons/passives/axedmgspeed.dds"]={
-					h=64,
-					w=64,
-					x=128,
-					y=128
-				},
-				["Art/2DArt/SkillIcons/passives/blankDex.dds"]={
-					h=64,
-					w=64,
-					x=512,
-					y=320
-				},
-				["Art/2DArt/SkillIcons/passives/blankInt.dds"]={
-					h=64,
-					w=64,
-					x=128,
-					y=320
-				},
 				["Art/2DArt/SkillIcons/passives/blankStr.dds"]={
 					h=64,
 					w=64,
-					x=576,
+					x=256,
 					y=64
 				},
 				["Art/2DArt/SkillIcons/passives/blockstr.dds"]={
@@ -85887,8 +84277,8 @@ return {
 				["Art/2DArt/SkillIcons/passives/chargedex.dds"]={
 					h=64,
 					w=64,
-					x=448,
-					y=384
+					x=0,
+					y=320
 				},
 				["Art/2DArt/SkillIcons/passives/chargeint.dds"]={
 					h=64,
@@ -85899,68 +84289,68 @@ return {
 				["Art/2DArt/SkillIcons/passives/chargestr.dds"]={
 					h=64,
 					w=64,
-					x=64,
-					y=192
+					x=576,
+					y=128
 				},
 				["Art/2DArt/SkillIcons/passives/clustersLinknode2.dds"]={
 					h=64,
 					w=64,
-					x=832,
-					y=256
+					x=1024,
+					y=192
 				},
 				["Art/2DArt/SkillIcons/passives/colddamage.dds"]={
 					h=64,
 					w=64,
-					x=128,
-					y=384
+					x=1152,
+					y=256
 				},
 				["Art/2DArt/SkillIcons/passives/coldresist.dds"]={
 					h=64,
 					w=64,
-					x=768,
-					y=256
+					x=960,
+					y=192
 				},
 				["Art/2DArt/SkillIcons/passives/criticaldaggerint.dds"]={
 					h=64,
 					w=64,
-					x=64,
-					y=128
+					x=896,
+					y=64
 				},
 				["Art/2DArt/SkillIcons/passives/criticalstrikechance.dds"]={
 					h=64,
 					w=64,
-					x=768,
-					y=192
+					x=1280,
+					y=128
 				},
 				["Art/2DArt/SkillIcons/passives/criticalstrikechance2.dds"]={
 					h=64,
 					w=64,
-					x=1088,
+					x=128,
 					y=192
 				},
 				["Art/2DArt/SkillIcons/passives/damage.dds"]={
 					h=64,
 					w=64,
-					x=0,
-					y=64
+					x=1152,
+					y=0
 				},
 				["Art/2DArt/SkillIcons/passives/damage_blue.dds"]={
 					h=64,
 					w=64,
-					x=704,
-					y=192
+					x=1216,
+					y=128
 				},
 				["Art/2DArt/SkillIcons/passives/damageaxe.dds"]={
 					h=64,
 					w=64,
-					x=1024,
+					x=704,
 					y=64
 				},
 				["Art/2DArt/SkillIcons/passives/damagedualwield.dds"]={
 					h=64,
 					w=64,
-					x=0,
-					y=384
+					x=1024,
+					y=256
 				},
 				["Art/2DArt/SkillIcons/passives/damagespells.dds"]={
 					h=64,
@@ -85971,62 +84361,62 @@ return {
 				["Art/2DArt/SkillIcons/passives/damagestaff.dds"]={
 					h=64,
 					w=64,
-					x=0,
-					y=128
+					x=832,
+					y=64
 				},
 				["Art/2DArt/SkillIcons/passives/damagesword.dds"]={
 					h=64,
 					w=64,
-					x=640,
+					x=0,
 					y=128
 				},
 				["Art/2DArt/SkillIcons/passives/dmgreduction.dds"]={
 					h=64,
 					w=64,
-					x=320,
-					y=192
+					x=832,
+					y=128
 				},
 				["Art/2DArt/SkillIcons/passives/elementaldamage.dds"]={
 					h=64,
 					w=64,
-					x=832,
-					y=192
+					x=1344,
+					y=128
 				},
 				["Art/2DArt/SkillIcons/passives/energyshield.dds"]={
 					h=64,
 					w=64,
-					x=384,
-					y=128
+					x=1216,
+					y=64
 				},
 				["Art/2DArt/SkillIcons/passives/evade.dds"]={
 					h=64,
 					w=64,
-					x=320,
+					x=0,
 					y=64
 				},
 				["Art/2DArt/SkillIcons/passives/executioner.dds"]={
 					h=128,
 					w=128,
 					x=768,
-					y=448
+					y=384
 				},
 				["Art/2DArt/SkillIcons/passives/firedamage.dds"]={
 					h=64,
 					w=64,
-					x=1088,
+					x=768,
 					y=64
 				},
 				["Art/2DArt/SkillIcons/passives/firedamageint.dds"]={
 					h=64,
 					w=64,
-					x=576,
-					y=192
+					x=1088,
+					y=128
 				},
 				["Art/2DArt/SkillIcons/passives/firedamagestr.dds"]={
 					h=64,
 					w=64,
-					x=192,
-					y=192
+					x=704,
+					y=128
 				},
 				["Art/2DArt/SkillIcons/passives/fireresist.dds"]={
 					h=64,
@@ -86037,92 +84427,92 @@ return {
 				["Art/2DArt/SkillIcons/passives/flaskdex.dds"]={
 					h=64,
 					w=64,
-					x=960,
-					y=384
+					x=512,
+					y=320
 				},
 				["Art/2DArt/SkillIcons/passives/flaskint.dds"]={
 					h=64,
 					w=64,
-					x=1024,
-					y=320
+					x=896,
+					y=256
 				},
 				["Art/2DArt/SkillIcons/passives/flaskstr.dds"]={
 					h=64,
 					w=64,
-					x=448,
-					y=128
+					x=1280,
+					y=64
 				},
 				["Art/2DArt/SkillIcons/passives/icebite.dds"]={
 					h=128,
 					w=128,
-					x=1024,
-					y=2112
+					x=512,
+					y=1792
 				},
 				["Art/2DArt/SkillIcons/passives/increasedrunspeeddex.dds"]={
 					h=64,
 					w=64,
-					x=320,
-					y=320
+					x=192,
+					y=256
 				},
 				["Art/2DArt/SkillIcons/passives/knockback.dds"]={
 					h=64,
 					w=64,
-					x=704,
-					y=256
+					x=896,
+					y=192
 				},
 				["Art/2DArt/SkillIcons/passives/life1.dds"]={
 					h=64,
 					w=64,
-					x=0,
-					y=192
+					x=512,
+					y=128
 				},
 				["Art/2DArt/SkillIcons/passives/lifeleech.dds"]={
 					h=128,
 					w=128,
-					x=896,
-					y=2496
+					x=1024,
+					y=2048
 				},
 				["Art/2DArt/SkillIcons/passives/lifepercentage.dds"]={
 					h=64,
 					w=64,
-					x=448,
-					y=192
+					x=960,
+					y=128
 				},
 				["Art/2DArt/SkillIcons/passives/lightningint.dds"]={
 					h=64,
 					w=64,
-					x=640,
+					x=320,
 					y=64
 				},
 				["Art/2DArt/SkillIcons/passives/lightningstr.dds"]={
 					h=64,
 					w=64,
-					x=256,
-					y=256
+					x=448,
+					y=192
 				},
 				["Art/2DArt/SkillIcons/passives/macedmg.dds"]={
 					h=64,
 					w=64,
-					x=960,
+					x=0,
 					y=192
 				},
 				["Art/2DArt/SkillIcons/passives/mana.dds"]={
 					h=64,
 					w=64,
-					x=384,
-					y=192
+					x=896,
+					y=128
 				},
 				["Art/2DArt/SkillIcons/passives/manaregeneration.dds"]={
 					h=64,
 					w=64,
-					x=64,
-					y=384
+					x=1088,
+					y=256
 				},
 				["Art/2DArt/SkillIcons/passives/manastr.dds"]={
 					h=64,
 					w=64,
-					x=0,
-					y=320
+					x=1344,
+					y=192
 				},
 				["Art/2DArt/SkillIcons/passives/miniondamageBlue.dds"]={
 					h=64,
@@ -86133,14 +84523,14 @@ return {
 				["Art/2DArt/SkillIcons/passives/minionlife.dds"]={
 					h=64,
 					w=64,
-					x=192,
-					y=64
+					x=1344,
+					y=0
 				},
 				["Art/2DArt/SkillIcons/passives/onehanddamage.dds"]={
 					h=64,
 					w=64,
-					x=1088,
-					y=320
+					x=960,
+					y=256
 				},
 				["Art/2DArt/SkillIcons/passives/plusattribute.dds"]={
 					h=64,
@@ -86157,85 +84547,85 @@ return {
 				["Art/2DArt/SkillIcons/passives/plusintelligence.dds"]={
 					h=64,
 					w=64,
-					x=896,
+					x=256,
 					y=128
 				},
 				["Art/2DArt/SkillIcons/passives/plusintelligencedexterity.dds"]={
 					h=64,
 					w=64,
-					x=640,
-					y=384
+					x=192,
+					y=320
 				},
 				["Art/2DArt/SkillIcons/passives/plusstrength.dds"]={
 					h=64,
 					w=64,
-					x=448,
+					x=128,
 					y=64
 				},
 				["Art/2DArt/SkillIcons/passives/plusstrengthdexterity.dds"]={
 					h=64,
 					w=64,
-					x=896,
-					y=384
+					x=448,
+					y=320
 				},
 				["Art/2DArt/SkillIcons/passives/plusstrengthintelligence.dds"]={
 					h=64,
 					w=64,
-					x=192,
-					y=320
+					x=64,
+					y=256
 				},
 				["Art/2DArt/SkillIcons/passives/projectilespeed.dds"]={
 					h=64,
 					w=64,
-					x=1088,
-					y=384
+					x=640,
+					y=320
 				},
 				["Art/2DArt/SkillIcons/passives/shieldblock.dds"]={
 					h=64,
 					w=64,
-					x=704,
-					y=384
+					x=256,
+					y=320
 				},
 				["Art/2DArt/SkillIcons/passives/spellcritical.dds"]={
 					h=64,
 					w=64,
-					x=192,
-					y=128
+					x=1024,
+					y=64
 				},
 				["Art/2DArt/SkillIcons/passives/stun2h.dds"]={
 					h=64,
 					w=64,
-					x=320,
-					y=128
+					x=1152,
+					y=64
 				},
 				["Art/2DArt/SkillIcons/passives/stunstr.dds"]={
 					h=64,
 					w=64,
-					x=896,
-					y=256
+					x=1088,
+					y=192
 				},
 				["Art/2DArt/SkillIcons/passives/tempint.dds"]={
 					h=64,
 					w=64,
-					x=896,
-					y=320
+					x=768,
+					y=256
 				},
 				["Art/2DArt/SkillIcons/passives/totemandbrandlife.dds"]={
 					h=64,
 					w=64,
-					x=640,
-					y=192
+					x=1152,
+					y=128
 				},
 				["Art/2DArt/SkillIcons/passives/trapdamage.dds"]={
 					h=64,
 					w=64,
-					x=640,
-					y=320
+					x=512,
+					y=256
 				}
 			},
 			filename="skills.png",
-			h=3356,
-			w=1152
+			h=2908,
+			w=1472
 		},
 		normalInactive={
 			coords={
@@ -86248,7 +84638,7 @@ return {
 				["Art/2DArt/SkillIcons/icongroundslam.dds"]={
 					h=64,
 					w=64,
-					x=960,
+					x=320,
 					y=128
 				},
 				["Art/2DArt/SkillIcons/passives/2handeddamage.dds"]={
@@ -86266,13 +84656,13 @@ return {
 				["Art/2DArt/SkillIcons/passives/AreaDmgNode.dds"]={
 					h=64,
 					w=64,
-					x=704,
+					x=64,
 					y=128
 				},
 				["Art/2DArt/SkillIcons/passives/ArmourAndEnergyShieldNode.dds"]={
 					h=64,
 					w=64,
-					x=832,
+					x=192,
 					y=128
 				},
 				["Art/2DArt/SkillIcons/passives/ArmourAndEvasionNode.dds"]={
@@ -86290,98 +84680,98 @@ return {
 				["Art/2DArt/SkillIcons/passives/Ascendants/SkillPoint.dds"]={
 					h=64,
 					w=64,
-					x=768,
-					y=256
+					x=960,
+					y=192
 				},
 				["Art/2DArt/SkillIcons/passives/Blood2.dds"]={
 					h=128,
 					w=128,
-					x=896,
-					y=2112
+					x=384,
+					y=1792
 				},
 				["Art/2DArt/SkillIcons/passives/Bloodmage/BloodMageNode.dds"]={
+					h=64,
+					w=64,
+					x=448,
+					y=256
+				},
+				["Art/2DArt/SkillIcons/passives/BowDamage.dds"]={
+					h=128,
+					w=128,
+					x=640,
+					y=1024
+				},
+				["Art/2DArt/SkillIcons/passives/ChannellingAttacksNode.dds"]={
+					h=64,
+					w=64,
+					x=448,
+					y=192
+				},
+				["Art/2DArt/SkillIcons/passives/ChaosDamagenode.dds"]={
+					h=64,
+					w=64,
+					x=1216,
+					y=128
+				},
+				["Art/2DArt/SkillIcons/passives/CharmNode1.dds"]={
 					h=64,
 					w=64,
 					x=576,
 					y=320
 				},
-				["Art/2DArt/SkillIcons/passives/BowDamage.dds"]={
-					h=128,
-					w=128,
-					x=768,
-					y=1216
-				},
-				["Art/2DArt/SkillIcons/passives/ChannellingAttacksNode.dds"]={
-					h=64,
-					w=64,
-					x=256,
-					y=256
-				},
-				["Art/2DArt/SkillIcons/passives/ChaosDamagenode.dds"]={
-					h=64,
-					w=64,
-					x=704,
-					y=192
-				},
-				["Art/2DArt/SkillIcons/passives/CharmNode1.dds"]={
-					h=64,
-					w=64,
-					x=1024,
-					y=384
-				},
 				["Art/2DArt/SkillIcons/passives/ColdDamagenode.dds"]={
 					h=64,
 					w=64,
-					x=832,
+					x=512,
 					y=64
 				},
 				["Art/2DArt/SkillIcons/passives/ColdResistNode.dds"]={
 					h=64,
 					w=64,
-					x=448,
-					y=384
+					x=0,
+					y=320
 				},
 				["Art/2DArt/SkillIcons/passives/CorpseDamage.dds"]={
 					h=64,
 					w=64,
-					x=512,
+					x=192,
 					y=64
 				},
 				["Art/2DArt/SkillIcons/passives/CurseEffectNode.dds"]={
 					h=64,
 					w=64,
-					x=640,
+					x=320,
 					y=64
 				},
 				["Art/2DArt/SkillIcons/passives/DeadEye/DeadeyeDealMoreProjectileDamageClose.dds"]={
 					h=128,
 					w=128,
-					x=512,
-					y=1984
+					x=256,
+					y=1664
 				},
 				["Art/2DArt/SkillIcons/passives/DeadEye/DeadeyeDealMoreProjectileDamageFarAway.dds"]={
 					h=128,
 					w=128,
-					x=512,
-					y=2624
+					x=384,
+					y=2176
 				},
 				["Art/2DArt/SkillIcons/passives/DeadEye/DeadeyeNode.dds"]={
 					h=64,
 					w=64,
-					x=384,
+					x=64,
 					y=64
 				},
 				["Art/2DArt/SkillIcons/passives/Deflection.dds"]={
 					h=128,
 					w=128,
-					x=512,
-					y=576
+					x=256,
+					y=512
 				},
 				["Art/2DArt/SkillIcons/passives/DragonStyle.dds"]={
 					h=128,
 					w=128,
-					x=640,
-					y=1344
+					x=256,
+					y=1152
 				},
 				["Art/2DArt/SkillIcons/passives/ElementalDamagenode.dds"]={
 					h=64,
@@ -86392,146 +84782,146 @@ return {
 				["Art/2DArt/SkillIcons/passives/ElementalDamagewithAttacks2.dds"]={
 					h=128,
 					w=128,
-					x=128,
-					y=704
+					x=1024,
+					y=512
 				},
 				["Art/2DArt/SkillIcons/passives/EnergyShieldNode.dds"]={
 					h=64,
 					w=64,
-					x=256,
-					y=128
+					x=1088,
+					y=64
 				},
 				["Art/2DArt/SkillIcons/passives/EvasionNode.dds"]={
 					h=64,
 					w=64,
-					x=64,
-					y=320
+					x=1408,
+					y=192
 				},
 				["Art/2DArt/SkillIcons/passives/EvasionandEnergyShieldNode.dds"]={
 					h=64,
 					w=64,
-					x=896,
+					x=576,
 					y=64
 				},
 				["Art/2DArt/SkillIcons/passives/FireDamagenode.dds"]={
 					h=64,
 					w=64,
-					x=768,
+					x=128,
 					y=128
 				},
 				["Art/2DArt/SkillIcons/passives/FireResistNode.dds"]={
 					h=64,
 					w=64,
-					x=640,
+					x=0,
 					y=128
 				},
 				["Art/2DArt/SkillIcons/passives/Gemling/GemlingNode.dds"]={
 					h=64,
 					w=64,
-					x=0,
-					y=64
+					x=1152,
+					y=0
 				},
 				["Art/2DArt/SkillIcons/passives/GreenAttackSmallPassive.dds"]={
 					h=64,
 					w=64,
-					x=128,
-					y=256
+					x=320,
+					y=192
 				},
 				["Art/2DArt/SkillIcons/passives/Harrier.dds"]={
 					h=128,
 					w=128,
-					x=256,
-					y=1088
+					x=384,
+					y=896
 				},
 				["Art/2DArt/SkillIcons/passives/HeraldBuffEffectNode2.dds"]={
 					h=64,
 					w=64,
-					x=576,
-					y=128
+					x=1408,
+					y=64
 				},
 				["Art/2DArt/SkillIcons/passives/HiredKiller2.dds"]={
 					h=128,
 					w=128,
-					x=1024,
-					y=576
+					x=768,
+					y=512
 				},
 				["Art/2DArt/SkillIcons/passives/IncreasedManaCostNotable.dds"]={
 					h=128,
 					w=128,
-					x=640,
-					y=1216
+					x=512,
+					y=1024
 				},
 				["Art/2DArt/SkillIcons/passives/IncreasedProjectileSpeedNode.dds"]={
 					h=64,
 					w=64,
-					x=768,
-					y=320
+					x=640,
+					y=256
 				},
 				["Art/2DArt/SkillIcons/passives/Infernalist/InfernalistNode.dds"]={
 					h=64,
 					w=64,
-					x=448,
-					y=192
+					x=960,
+					y=128
 				},
 				["Art/2DArt/SkillIcons/passives/Inquistitor/IncreasedElementalDamageAttackCasteSpeed.dds"]={
 					h=64,
 					w=64,
-					x=832,
-					y=320
+					x=704,
+					y=256
 				},
 				["Art/2DArt/SkillIcons/passives/Invoker/InvokerNode.dds"]={
 					h=64,
 					w=64,
-					x=512,
-					y=256
+					x=704,
+					y=192
 				},
 				["Art/2DArt/SkillIcons/passives/LifeRecoupNode.dds"]={
 					h=64,
 					w=64,
-					x=896,
-					y=384
+					x=448,
+					y=320
 				},
 				["Art/2DArt/SkillIcons/passives/LightningDamagenode.dds"]={
 					h=64,
 					w=64,
-					x=448,
-					y=128
+					x=1280,
+					y=64
 				},
 				["Art/2DArt/SkillIcons/passives/LightningResistNode.dds"]={
 					h=64,
 					w=64,
-					x=1088,
-					y=320
+					x=960,
+					y=256
 				},
 				["Art/2DArt/SkillIcons/passives/ManaLeechThemedNode.dds"]={
 					h=64,
 					w=64,
-					x=512,
-					y=192
+					x=1024,
+					y=128
 				},
 				["Art/2DArt/SkillIcons/passives/MarkNode.dds"]={
 					h=64,
 					w=64,
-					x=0,
-					y=192
+					x=512,
+					y=128
 				},
 				["Art/2DArt/SkillIcons/passives/MeleeAoENode.dds"]={
 					h=64,
 					w=64,
-					x=704,
+					x=384,
 					y=64
 				},
 				["Art/2DArt/SkillIcons/passives/MineAreaOfEffectNode.dds"]={
 					h=64,
 					w=64,
-					x=576,
-					y=256
+					x=768,
+					y=192
 				},
 				["Art/2DArt/SkillIcons/passives/MinionElementalResistancesNode.dds"]={
 					h=64,
 					w=64,
-					x=960,
-					y=320
+					x=832,
+					y=256
 				},
 				["Art/2DArt/SkillIcons/passives/MinionsandManaNode.dds"]={
 					h=64,
@@ -86542,62 +84932,62 @@ return {
 				["Art/2DArt/SkillIcons/passives/MiracleMaker.dds"]={
 					h=128,
 					w=128,
-					x=640,
-					y=1088
+					x=768,
+					y=896
 				},
 				["Art/2DArt/SkillIcons/passives/NodeDualWieldingDamage.dds"]={
 					h=64,
 					w=64,
-					x=896,
-					y=320
+					x=768,
+					y=256
 				},
 				["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderBrewConcoctionBleed.dds"]={
 					h=128,
 					w=128,
-					x=768,
-					y=2240
+					x=0,
+					y=1920
 				},
 				["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderBrewConcoctionCold.dds"]={
 					h=128,
 					w=128,
-					x=768,
-					y=2624
+					x=640,
+					y=2176
 				},
 				["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderBrewConcoctionFire.dds"]={
 					h=128,
 					w=128,
-					x=1024,
-					y=2624
+					x=896,
+					y=2176
 				},
 				["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderBrewConcoctionLightning.dds"]={
 					h=128,
 					w=128,
-					x=896,
-					y=1984
+					x=640,
+					y=1664
 				},
 				["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderBrewConcoctionPoison.dds"]={
 					h=128,
 					w=128,
-					x=128,
-					y=2624
+					x=0,
+					y=2176
 				},
 				["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderNode.dds"]={
 					h=64,
 					w=64,
-					x=64,
-					y=384
+					x=1088,
+					y=256
 				},
 				["Art/2DArt/SkillIcons/passives/PhysicalDamageChaosNode.dds"]={
 					h=64,
 					w=64,
-					x=192,
-					y=320
+					x=64,
+					y=256
 				},
 				["Art/2DArt/SkillIcons/passives/PhysicalDamageNode.dds"]={
 					h=64,
 					w=64,
-					x=128,
-					y=192
+					x=640,
+					y=128
 				},
 				["Art/2DArt/SkillIcons/passives/PhysicalDamageOverTimeNode.dds"]={
 					h=64,
@@ -86608,56 +84998,56 @@ return {
 				["Art/2DArt/SkillIcons/passives/Poison.dds"]={
 					h=128,
 					w=128,
-					x=0,
-					y=1472
+					x=768,
+					y=1152
 				},
 				["Art/2DArt/SkillIcons/passives/Rage.dds"]={
 					h=64,
 					w=64,
-					x=384,
-					y=128
+					x=1216,
+					y=64
 				},
 				["Art/2DArt/SkillIcons/passives/ReducedSkillEffectDurationNode.dds"]={
 					h=64,
 					w=64,
-					x=0,
-					y=384
+					x=1024,
+					y=256
 				},
 				["Art/2DArt/SkillIcons/passives/ShieldNodeOffensive.dds"]={
 					h=64,
 					w=64,
-					x=640,
-					y=384
+					x=192,
+					y=320
 				},
 				["Art/2DArt/SkillIcons/passives/SpellMultiplyer2.dds"]={
 					h=128,
 					w=128,
-					x=256,
-					y=1216
+					x=128,
+					y=1024
 				},
 				["Art/2DArt/SkillIcons/passives/SpellSuppresionNode.dds"]={
 					h=64,
 					w=64,
-					x=1088,
-					y=384
+					x=640,
+					y=320
 				},
 				["Art/2DArt/SkillIcons/passives/SpellSupressionNotable1.dds"]={
 					h=128,
 					w=128,
-					x=384,
-					y=576
+					x=128,
+					y=512
 				},
 				["Art/2DArt/SkillIcons/passives/Stormweaver/StormweaverNode.dds"]={
 					h=64,
 					w=64,
-					x=640,
-					y=256
+					x=832,
+					y=192
 				},
 				["Art/2DArt/SkillIcons/passives/Temporalist/TemporalistNode.dds"]={
 					h=64,
 					w=64,
-					x=960,
-					y=384
+					x=512,
+					y=320
 				},
 				["Art/2DArt/SkillIcons/passives/Titan/TitanNode.dds"]={
 					h=64,
@@ -86668,14 +85058,14 @@ return {
 				["Art/2DArt/SkillIcons/passives/WarCryEffect.dds"]={
 					h=64,
 					w=64,
-					x=320,
-					y=192
+					x=832,
+					y=128
 				},
 				["Art/2DArt/SkillIcons/passives/Warbringer/WarbringerNode.dds"]={
 					h=64,
 					w=64,
-					x=704,
-					y=256
+					x=896,
+					y=192
 				},
 				["Art/2DArt/SkillIcons/passives/Witchhunter/WitchunterNode.dds"]={
 					h=64,
@@ -86686,14 +85076,14 @@ return {
 				["Art/2DArt/SkillIcons/passives/accuracydex.dds"]={
 					h=64,
 					w=64,
-					x=448,
+					x=128,
 					y=64
 				},
 				["Art/2DArt/SkillIcons/passives/accuracystr.dds"]={
 					h=64,
 					w=64,
-					x=768,
-					y=192
+					x=1280,
+					y=128
 				},
 				["Art/2DArt/SkillIcons/passives/areaofeffect.dds"]={
 					h=64,
@@ -86704,116 +85094,116 @@ return {
 				["Art/2DArt/SkillIcons/passives/attackspeed.dds"]={
 					h=64,
 					w=64,
-					x=192,
-					y=384
+					x=1216,
+					y=256
 				},
 				["Art/2DArt/SkillIcons/passives/attackspeedbow.dds"]={
 					h=64,
 					w=64,
-					x=256,
-					y=384
+					x=1280,
+					y=256
 				},
 				["Art/2DArt/SkillIcons/passives/auraeffect.dds"]={
 					h=64,
 					w=64,
-					x=512,
-					y=128
+					x=1344,
+					y=64
 				},
 				["Art/2DArt/SkillIcons/passives/avoidchilling.dds"]={
 					h=64,
 					w=64,
-					x=1088,
+					x=128,
 					y=192
 				},
 				["Art/2DArt/SkillIcons/passives/axedmgspeed.dds"]={
 					h=64,
 					w=64,
-					x=1088,
+					x=768,
 					y=64
 				},
 				["Art/2DArt/SkillIcons/passives/blankDex.dds"]={
 					h=64,
 					w=64,
-					x=704,
-					y=320
+					x=576,
+					y=256
 				},
 				["Art/2DArt/SkillIcons/passives/blankInt.dds"]={
 					h=64,
 					w=64,
-					x=0,
-					y=320
+					x=1344,
+					y=192
 				},
 				["Art/2DArt/SkillIcons/passives/blankStr.dds"]={
 					h=64,
 					w=64,
-					x=256,
-					y=64
+					x=1408,
+					y=0
 				},
 				["Art/2DArt/SkillIcons/passives/blockstr.dds"]={
 					h=64,
 					w=64,
-					x=960,
+					x=640,
 					y=64
 				},
 				["Art/2DArt/SkillIcons/passives/castspeed.dds"]={
 					h=64,
 					w=64,
-					x=384,
-					y=192
+					x=896,
+					y=128
 				},
 				["Art/2DArt/SkillIcons/passives/chargedex.dds"]={
 					h=64,
 					w=64,
-					x=576,
-					y=384
+					x=128,
+					y=320
 				},
 				["Art/2DArt/SkillIcons/passives/chargeint.dds"]={
 					h=64,
 					w=64,
-					x=320,
-					y=128
+					x=1152,
+					y=64
 				},
 				["Art/2DArt/SkillIcons/passives/chargestr.dds"]={
 					h=64,
 					w=64,
-					x=1088,
+					x=448,
 					y=128
 				},
 				["Art/2DArt/SkillIcons/passives/clustersLinknode2.dds"]={
 					h=64,
 					w=64,
-					x=256,
-					y=320
+					x=128,
+					y=256
 				},
 				["Art/2DArt/SkillIcons/passives/colddamage.dds"]={
 					h=64,
 					w=64,
-					x=640,
-					y=192
+					x=1152,
+					y=128
 				},
 				["Art/2DArt/SkillIcons/passives/coldresist.dds"]={
 					h=64,
 					w=64,
-					x=128,
-					y=64
+					x=1280,
+					y=0
 				},
 				["Art/2DArt/SkillIcons/passives/criticaldaggerint.dds"]={
 					h=64,
 					w=64,
-					x=0,
-					y=128
+					x=832,
+					y=64
 				},
 				["Art/2DArt/SkillIcons/passives/criticalstrikechance.dds"]={
 					h=64,
 					w=64,
-					x=192,
-					y=64
+					x=1344,
+					y=0
 				},
 				["Art/2DArt/SkillIcons/passives/criticalstrikechance2.dds"]={
 					h=64,
 					w=64,
-					x=448,
-					y=256
+					x=640,
+					y=192
 				},
 				["Art/2DArt/SkillIcons/passives/damage.dds"]={
 					h=64,
@@ -86824,8 +85214,8 @@ return {
 				["Art/2DArt/SkillIcons/passives/damage_blue.dds"]={
 					h=64,
 					w=64,
-					x=320,
-					y=256
+					x=512,
+					y=192
 				},
 				["Art/2DArt/SkillIcons/passives/damageaxe.dds"]={
 					h=64,
@@ -86836,38 +85226,38 @@ return {
 				["Art/2DArt/SkillIcons/passives/damagedualwield.dds"]={
 					h=64,
 					w=64,
-					x=832,
-					y=256
+					x=1024,
+					y=192
 				},
 				["Art/2DArt/SkillIcons/passives/damagespells.dds"]={
 					h=64,
 					w=64,
-					x=192,
-					y=192
+					x=704,
+					y=128
 				},
 				["Art/2DArt/SkillIcons/passives/damagestaff.dds"]={
 					h=64,
 					w=64,
-					x=128,
-					y=128
+					x=960,
+					y=64
 				},
 				["Art/2DArt/SkillIcons/passives/damagesword.dds"]={
 					h=64,
 					w=64,
-					x=64,
-					y=192
+					x=576,
+					y=128
 				},
 				["Art/2DArt/SkillIcons/passives/dmgreduction.dds"]={
 					h=64,
 					w=64,
-					x=576,
+					x=256,
 					y=64
 				},
 				["Art/2DArt/SkillIcons/passives/elementaldamage.dds"]={
 					h=64,
 					w=64,
-					x=576,
-					y=192
+					x=1088,
+					y=128
 				},
 				["Art/2DArt/SkillIcons/passives/energyshield.dds"]={
 					h=64,
@@ -86878,128 +85268,128 @@ return {
 				["Art/2DArt/SkillIcons/passives/evade.dds"]={
 					h=64,
 					w=64,
-					x=384,
-					y=384
+					x=1408,
+					y=256
 				},
 				["Art/2DArt/SkillIcons/passives/executioner.dds"]={
 					h=128,
 					w=128,
-					x=0,
-					y=704
+					x=896,
+					y=512
 				},
 				["Art/2DArt/SkillIcons/passives/firedamage.dds"]={
 					h=64,
 					w=64,
-					x=64,
-					y=128
+					x=896,
+					y=64
 				},
 				["Art/2DArt/SkillIcons/passives/firedamageint.dds"]={
 					h=64,
 					w=64,
-					x=1088,
-					y=256
+					x=1280,
+					y=192
 				},
 				["Art/2DArt/SkillIcons/passives/firedamagestr.dds"]={
 					h=64,
 					w=64,
-					x=192,
-					y=256
+					x=384,
+					y=192
 				},
 				["Art/2DArt/SkillIcons/passives/fireresist.dds"]={
 					h=64,
 					w=64,
-					x=384,
-					y=256
+					x=576,
+					y=192
 				},
 				["Art/2DArt/SkillIcons/passives/flaskdex.dds"]={
 					h=64,
 					w=64,
-					x=384,
-					y=320
+					x=256,
+					y=256
 				},
 				["Art/2DArt/SkillIcons/passives/flaskint.dds"]={
 					h=64,
 					w=64,
-					x=960,
-					y=256
+					x=1152,
+					y=192
 				},
 				["Art/2DArt/SkillIcons/passives/flaskstr.dds"]={
 					h=64,
 					w=64,
-					x=320,
+					x=0,
 					y=64
 				},
 				["Art/2DArt/SkillIcons/passives/icebite.dds"]={
 					h=128,
 					w=128,
-					x=384,
-					y=2240
+					x=1024,
+					y=1792
 				},
 				["Art/2DArt/SkillIcons/passives/increasedrunspeeddex.dds"]={
 					h=64,
 					w=64,
-					x=768,
-					y=384
+					x=320,
+					y=320
 				},
 				["Art/2DArt/SkillIcons/passives/knockback.dds"]={
 					h=64,
 					w=64,
-					x=896,
-					y=256
+					x=1088,
+					y=192
 				},
 				["Art/2DArt/SkillIcons/passives/life1.dds"]={
 					h=64,
 					w=64,
-					x=1024,
+					x=704,
 					y=64
 				},
 				["Art/2DArt/SkillIcons/passives/lifeleech.dds"]={
 					h=128,
 					w=128,
-					x=0,
-					y=2496
+					x=128,
+					y=2048
 				},
 				["Art/2DArt/SkillIcons/passives/lifepercentage.dds"]={
 					h=64,
 					w=64,
-					x=896,
+					x=256,
 					y=128
 				},
 				["Art/2DArt/SkillIcons/passives/lightningint.dds"]={
 					h=64,
 					w=64,
-					x=768,
+					x=448,
 					y=64
 				},
 				["Art/2DArt/SkillIcons/passives/lightningstr.dds"]={
 					h=64,
 					w=64,
-					x=320,
-					y=384
+					x=1344,
+					y=256
 				},
 				["Art/2DArt/SkillIcons/passives/macedmg.dds"]={
 					h=64,
 					w=64,
-					x=448,
-					y=320
+					x=320,
+					y=256
 				},
 				["Art/2DArt/SkillIcons/passives/mana.dds"]={
 					h=64,
 					w=64,
-					x=960,
+					x=0,
 					y=192
 				},
 				["Art/2DArt/SkillIcons/passives/manaregeneration.dds"]={
 					h=64,
 					w=64,
-					x=1024,
-					y=320
+					x=896,
+					y=256
 				},
 				["Art/2DArt/SkillIcons/passives/manastr.dds"]={
 					h=64,
 					w=64,
-					x=1024,
-					y=256
+					x=1216,
+					y=192
 				},
 				["Art/2DArt/SkillIcons/passives/miniondamageBlue.dds"]={
 					h=64,
@@ -87016,56 +85406,56 @@ return {
 				["Art/2DArt/SkillIcons/passives/onehanddamage.dds"]={
 					h=64,
 					w=64,
-					x=64,
-					y=64
+					x=1216,
+					y=0
 				},
 				["Art/2DArt/SkillIcons/passives/plusattribute.dds"]={
 					h=64,
 					w=64,
-					x=1024,
+					x=384,
 					y=128
 				},
 				["Art/2DArt/SkillIcons/passives/plusdexterity.dds"]={
 					h=64,
 					w=64,
-					x=640,
-					y=320
+					x=512,
+					y=256
 				},
 				["Art/2DArt/SkillIcons/passives/plusintelligence.dds"]={
 					h=64,
 					w=64,
-					x=64,
-					y=256
+					x=256,
+					y=192
 				},
 				["Art/2DArt/SkillIcons/passives/plusintelligencedexterity.dds"]={
 					h=64,
 					w=64,
-					x=512,
-					y=384
+					x=64,
+					y=320
 				},
 				["Art/2DArt/SkillIcons/passives/plusstrength.dds"]={
 					h=64,
 					w=64,
-					x=320,
-					y=320
+					x=192,
+					y=256
 				},
 				["Art/2DArt/SkillIcons/passives/plusstrengthdexterity.dds"]={
 					h=64,
 					w=64,
-					x=128,
-					y=384
+					x=1152,
+					y=256
 				},
 				["Art/2DArt/SkillIcons/passives/plusstrengthintelligence.dds"]={
 					h=64,
 					w=64,
-					x=128,
-					y=320
+					x=0,
+					y=256
 				},
 				["Art/2DArt/SkillIcons/passives/projectilespeed.dds"]={
 					h=64,
 					w=64,
-					x=832,
-					y=384
+					x=384,
+					y=320
 				},
 				["Art/2DArt/SkillIcons/passives/shieldblock.dds"]={
 					h=64,
@@ -87076,63 +85466,63 @@ return {
 				["Art/2DArt/SkillIcons/passives/spellcritical.dds"]={
 					h=64,
 					w=64,
-					x=192,
-					y=128
+					x=1024,
+					y=64
 				},
 				["Art/2DArt/SkillIcons/passives/stun2h.dds"]={
 					h=64,
 					w=64,
-					x=896,
-					y=192
+					x=1408,
+					y=128
 				},
 				["Art/2DArt/SkillIcons/passives/stunstr.dds"]={
 					h=64,
 					w=64,
-					x=832,
-					y=192
+					x=1344,
+					y=128
 				},
 				["Art/2DArt/SkillIcons/passives/tempint.dds"]={
 					h=64,
 					w=64,
-					x=512,
-					y=320
+					x=384,
+					y=256
 				},
 				["Art/2DArt/SkillIcons/passives/totemandbrandlife.dds"]={
 					h=64,
 					w=64,
-					x=0,
-					y=256
+					x=192,
+					y=192
 				},
 				["Art/2DArt/SkillIcons/passives/trapdamage.dds"]={
 					h=64,
 					w=64,
-					x=704,
-					y=384
+					x=256,
+					y=320
 				}
 			},
 			filename="skills-disabled.png",
-			h=3356,
-			w=1152
+			h=2908,
+			w=1472
 		},
 		notableActive={
 			coords={
 				["Art/2DArt/SkillIcons/ExplosiveGrenade.dds"]={
 					h=64,
 					w=64,
-					x=384,
-					y=256
+					x=576,
+					y=192
 				},
 				["Art/2DArt/SkillIcons/WitchBoneStorm.dds"]={
 					h=64,
 					w=64,
-					x=1024,
+					x=384,
 					y=128
 				},
 				["Art/2DArt/SkillIcons/icongroundslam.dds"]={
 					h=64,
 					w=64,
-					x=256,
-					y=128
+					x=1088,
+					y=64
 				},
 				["Art/2DArt/SkillIcons/passives/2handeddamage.dds"]={
 					h=64,
@@ -87143,79 +85533,79 @@ return {
 				["Art/2DArt/SkillIcons/passives/AcolyteofChayula/AcolyteOfChayulaBreachFlameDoubles.dds"]={
 					h=128,
 					w=128,
-					x=384,
-					y=1728
+					x=640,
+					y=1408
 				},
 				["Art/2DArt/SkillIcons/passives/AcolyteofChayula/AcolyteOfChayulaBreachWalk.dds"]={
 					h=128,
 					w=128,
-					x=0,
-					y=2752
+					x=1024,
+					y=2176
 				},
 				["Art/2DArt/SkillIcons/passives/AcolyteofChayula/AcolyteOfChayulaDarknessProtectsLonger.dds"]={
 					h=128,
 					w=128,
-					x=768,
-					y=1600
+					x=1280,
+					y=1280
 				},
 				["Art/2DArt/SkillIcons/passives/AcolyteofChayula/AcolyteOfChayulaExtraChaosDamage.dds"]={
 					h=128,
 					w=128,
-					x=1024,
-					y=1472
+					x=384,
+					y=1280
 				},
 				["Art/2DArt/SkillIcons/passives/AcolyteofChayula/AcolyteOfChayulaExtraChaosDamagePerDarkness.dds"]={
 					h=128,
 					w=128,
-					x=640,
-					y=1984
+					x=384,
+					y=1664
 				},
 				["Art/2DArt/SkillIcons/passives/AcolyteofChayula/AcolyteOfChayulaExtraChaosResistance.dds"]={
 					h=128,
 					w=128,
-					x=896,
-					y=1472
+					x=256,
+					y=1280
 				},
 				["Art/2DArt/SkillIcons/passives/AcolyteofChayula/AcolyteOfChayulaManaLeechEnergyShield.dds"]={
 					h=128,
 					w=128,
 					x=128,
-					y=1856
+					y=1536
 				},
 				["Art/2DArt/SkillIcons/passives/AcolyteofChayula/AcolyteOfChayulaManaLeechInstant.dds"]={
 					h=128,
 					w=128,
-					x=896,
-					y=1344
+					x=512,
+					y=1152
 				},
 				["Art/2DArt/SkillIcons/passives/AcolyteofChayula/AcolyteOfChayulaReplaceSpiritWithDarkness.dds"]={
 					h=128,
 					w=128,
-					x=1024,
-					y=2368
+					x=0,
+					y=2048
 				},
 				["Art/2DArt/SkillIcons/passives/Annihilation.dds"]={
 					h=128,
 					w=128,
-					x=512,
-					y=832
+					x=1152,
+					y=640
 				},
 				["Art/2DArt/SkillIcons/passives/AreaDmgNode.dds"]={
 					h=64,
 					w=64,
-					x=704,
+					x=64,
 					y=128
 				},
 				["Art/2DArt/SkillIcons/passives/ArmourAndEnergyShieldNode.dds"]={
 					h=64,
 					w=64,
-					x=64,
-					y=256
+					x=256,
+					y=192
 				},
 				["Art/2DArt/SkillIcons/passives/ArmourAndEvasionNode.dds"]={
 					h=64,
 					w=64,
-					x=1088,
+					x=448,
 					y=128
 				},
 				["Art/2DArt/SkillIcons/passives/ArmourBreak2BuffIcon.dds"]={
@@ -87227,86 +85617,86 @@ return {
 				["Art/2DArt/SkillIcons/passives/Ascendants/SkillPoint.dds"]={
 					h=64,
 					w=64,
-					x=1024,
-					y=256
+					x=1216,
+					y=192
 				},
 				["Art/2DArt/SkillIcons/passives/AspectOfTheLynx.dds"]={
 					h=128,
 					w=128,
-					x=640,
-					y=576
+					x=384,
+					y=512
 				},
 				["Art/2DArt/SkillIcons/passives/Blood2.dds"]={
 					h=128,
 					w=128,
-					x=256,
-					y=2752
+					x=1280,
+					y=2176
 				},
 				["Art/2DArt/SkillIcons/passives/Bloodmage/BloodMageCritDamagePerLife.dds"]={
 					h=128,
 					w=128,
-					x=1024,
-					y=704
+					x=512,
+					y=640
 				},
 				["Art/2DArt/SkillIcons/passives/Bloodmage/BloodMageCurseInfiniteDuration.dds"]={
 					h=128,
 					w=128,
 					x=768,
-					y=1856
+					y=1536
 				},
 				["Art/2DArt/SkillIcons/passives/Bloodmage/BloodMageDamageLeechedLife.dds"]={
 					h=128,
 					w=128,
-					x=512,
-					y=704
+					x=0,
+					y=640
 				},
 				["Art/2DArt/SkillIcons/passives/Bloodmage/BloodMageGainLifeEnergyShield.dds"]={
 					h=128,
 					w=128,
-					x=384,
-					y=1472
+					x=1152,
+					y=1152
 				},
 				["Art/2DArt/SkillIcons/passives/Bloodmage/BloodMageHigherSpellBaseCritStrike.dds"]={
 					h=128,
 					w=128,
-					x=128,
-					y=1600
+					x=640,
+					y=1280
 				},
 				["Art/2DArt/SkillIcons/passives/Bloodmage/BloodMageLeaveBloodOrbs.dds"]={
 					h=128,
 					w=128,
-					x=1024,
-					y=1728
+					x=1280,
+					y=1408
 				},
 				["Art/2DArt/SkillIcons/passives/Bloodmage/BloodMageLifeLoss.dds"]={
 					h=128,
 					w=128,
-					x=128,
-					y=1344
+					x=1152,
+					y=1024
 				},
 				["Art/2DArt/SkillIcons/passives/Bloodmage/BloodPhysicalDamageExtraGore.dds"]={
 					h=128,
 					w=128,
 					x=256,
-					y=448
+					y=384
 				},
 				["Art/2DArt/SkillIcons/passives/BowDamage.dds"]={
 					h=128,
 					w=128,
-					x=256,
-					y=1088
+					x=384,
+					y=896
 				},
 				["Art/2DArt/SkillIcons/passives/ChainingProjectiles.dds"]={
 					h=128,
 					w=128,
-					x=640,
-					y=832
+					x=1280,
+					y=640
 				},
 				["Art/2DArt/SkillIcons/passives/ChannellingAttacksNotable2.dds"]={
 					h=128,
 					w=128,
-					x=768,
-					y=1472
+					x=128,
+					y=1280
 				},
 				["Art/2DArt/SkillIcons/passives/ChaosDamagenode.dds"]={
 					h=64,
@@ -87318,138 +85708,138 @@ return {
 					h=128,
 					w=128,
 					x=384,
-					y=448
+					y=384
 				},
 				["Art/2DArt/SkillIcons/passives/ClawsOfTheMagpie.dds"]={
 					h=128,
 					w=128,
-					x=640,
-					y=704
+					x=128,
+					y=640
 				},
 				["Art/2DArt/SkillIcons/passives/ColdDamagenode.dds"]={
 					h=64,
 					w=64,
-					x=576,
-					y=256
+					x=768,
+					y=192
 				},
 				["Art/2DArt/SkillIcons/passives/CorpseDamage.dds"]={
 					h=64,
 					w=64,
-					x=832,
+					x=512,
 					y=64
 				},
 				["Art/2DArt/SkillIcons/passives/CriticalStrikesNotable.dds"]={
 					h=128,
 					w=128,
-					x=1024,
-					y=576
+					x=768,
+					y=512
 				},
 				["Art/2DArt/SkillIcons/passives/CurseEffectNode.dds"]={
 					h=64,
 					w=64,
-					x=960,
-					y=320
+					x=832,
+					y=256
 				},
 				["Art/2DArt/SkillIcons/passives/DeadEye/DeadeyeFrenzyChargesGeneration.dds"]={
 					h=128,
 					w=128,
-					x=896,
-					y=2624
+					x=768,
+					y=2176
 				},
 				["Art/2DArt/SkillIcons/passives/DeadEye/DeadeyeFrenzyChargesHaveMoreEffect.dds"]={
 					h=128,
 					w=128,
-					x=512,
-					y=2368
+					x=896,
+					y=1920
 				},
 				["Art/2DArt/SkillIcons/passives/DeadEye/DeadeyeGrantsTwoAdditionalProjectiles.dds"]={
 					h=128,
 					w=128,
-					x=256,
-					y=1984
+					x=0,
+					y=1664
 				},
 				["Art/2DArt/SkillIcons/passives/DeadEye/DeadeyeMarkEnemiesSpread.dds"]={
 					h=128,
 					w=128,
-					x=768,
-					y=832
+					x=0,
+					y=768
 				},
 				["Art/2DArt/SkillIcons/passives/DeadEye/DeadeyeMoreAccuracy.dds"]={
 					h=128,
 					w=128,
-					x=512,
-					y=2624
+					x=384,
+					y=2176
 				},
 				["Art/2DArt/SkillIcons/passives/DeadEye/DeadeyeProjectileDamageChoose.dds"]={
 					h=128,
 					w=128,
-					x=256,
-					y=1728
+					x=512,
+					y=1408
 				},
 				["Art/2DArt/SkillIcons/passives/DeadEye/DeadeyeTailwind.dds"]={
 					h=128,
 					w=128,
-					x=128,
-					y=2752
+					x=1152,
+					y=2176
 				},
 				["Art/2DArt/SkillIcons/passives/DeadEye/DeadeyeWindward.dds"]={
 					h=128,
 					w=128,
-					x=256,
-					y=2624
+					x=128,
+					y=2176
 				},
 				["Art/2DArt/SkillIcons/passives/Deflection.dds"]={
 					h=128,
 					w=128,
-					x=0,
-					y=704
+					x=896,
+					y=512
 				},
 				["Art/2DArt/SkillIcons/passives/DragonStyle.dds"]={
 					h=128,
 					w=128,
-					x=512,
-					y=1344
+					x=128,
+					y=1152
 				},
 				["Art/2DArt/SkillIcons/passives/ElementalDamagenode.dds"]={
 					h=64,
 					w=64,
-					x=704,
+					x=384,
 					y=64
 				},
 				["Art/2DArt/SkillIcons/passives/ElementalDamagewithAttacks2.dds"]={
 					h=128,
 					w=128,
-					x=384,
-					y=704
+					x=1280,
+					y=512
 				},
 				["Art/2DArt/SkillIcons/passives/ElementalResistance2.dds"]={
 					h=128,
 					w=128,
-					x=512,
-					y=2880
+					x=1280,
+					y=2304
 				},
 				["Art/2DArt/SkillIcons/passives/EnergyShieldNode.dds"]={
 					h=64,
 					w=64,
-					x=64,
-					y=320
+					x=1408,
+					y=192
 				},
 				["Art/2DArt/SkillIcons/passives/EvasionAndBlindNotable.dds"]={
 					h=128,
 					w=128,
-					x=1024,
-					y=1088
+					x=1152,
+					y=896
 				},
 				["Art/2DArt/SkillIcons/passives/EvasionNode.dds"]={
 					h=64,
 					w=64,
-					x=832,
-					y=320
+					x=704,
+					y=256
 				},
 				["Art/2DArt/SkillIcons/passives/EvasionandEnergyShieldNode.dds"]={
 					h=64,
 					w=64,
-					x=960,
+					x=640,
 					y=64
 				},
 				["Art/2DArt/SkillIcons/passives/FireDamagenode.dds"]={
@@ -87461,242 +85851,242 @@ return {
 				["Art/2DArt/SkillIcons/passives/FlaskNotableCritStrikeRecharge.dds"]={
 					h=128,
 					w=128,
-					x=768,
-					y=1728
+					x=1024,
+					y=1408
 				},
 				["Art/2DArt/SkillIcons/passives/FlaskNotableFlasksLastLonger.dds"]={
 					h=128,
 					w=128,
 					x=256,
-					y=1856
+					y=1536
 				},
 				["Art/2DArt/SkillIcons/passives/Gemling/GemlingBuffSkillsReserveLessSpirit.dds"]={
 					h=128,
 					w=128,
 					x=896,
-					y=1856
+					y=1536
 				},
 				["Art/2DArt/SkillIcons/passives/Gemling/GemlingHighestAttributeSatisfiesGemRequirements.dds"]={
 					h=128,
 					w=128,
 					x=0,
-					y=1856
+					y=1536
 				},
 				["Art/2DArt/SkillIcons/passives/Gemling/GemlingInherentBonusesFromAttributesDouble.dds"]={
 					h=128,
 					w=128,
-					x=384,
-					y=576
+					x=128,
+					y=512
 				},
 				["Art/2DArt/SkillIcons/passives/Gemling/GemlingLevelAllSkillGems.dds"]={
 					h=128,
 					w=128,
-					x=896,
-					y=2752
+					x=512,
+					y=2304
 				},
 				["Art/2DArt/SkillIcons/passives/Gemling/GemlingMaxElementalResistanceSupportColour.dds"]={
 					h=128,
 					w=128,
-					x=0,
-					y=1984
+					x=1152,
+					y=1536
 				},
 				["Art/2DArt/SkillIcons/passives/Gemling/GemlingSameSupportMultipleTimes.dds"]={
 					h=128,
 					w=128,
-					x=768,
-					y=2752
+					x=384,
+					y=2304
 				},
 				["Art/2DArt/SkillIcons/passives/Gemling/GemlingSkillGemQuality.dds"]={
 					h=128,
 					w=128,
 					x=640,
-					y=1856
+					y=1536
 				},
 				["Art/2DArt/SkillIcons/passives/Gemling/GemlingSkillsAdditionalSupport.dds"]={
 					h=128,
 					w=128,
-					x=384,
-					y=2624
+					x=256,
+					y=2176
 				},
 				["Art/2DArt/SkillIcons/passives/GreenAttackSmallPassive.dds"]={
 					h=64,
 					w=64,
-					x=1024,
-					y=384
+					x=576,
+					y=320
 				},
 				["Art/2DArt/SkillIcons/passives/Harrier.dds"]={
 					h=128,
 					w=128,
-					x=256,
-					y=2368
+					x=640,
+					y=1920
 				},
 				["Art/2DArt/SkillIcons/passives/Hearty.dds"]={
 					h=128,
 					w=128,
-					x=128,
-					y=832
+					x=768,
+					y=640
 				},
 				["Art/2DArt/SkillIcons/passives/HeraldBuffEffectNode2.dds"]={
 					h=64,
 					w=64,
-					x=832,
+					x=192,
 					y=128
 				},
 				["Art/2DArt/SkillIcons/passives/HiredKiller2.dds"]={
 					h=128,
 					w=128,
 					x=128,
-					y=448
+					y=384
 				},
 				["Art/2DArt/SkillIcons/passives/Hunter.dds"]={
 					h=128,
 					w=128,
 					x=1024,
-					y=448
+					y=384
 				},
 				["Art/2DArt/SkillIcons/passives/IncreasedManaCostNotable.dds"]={
 					h=128,
 					w=128,
-					x=384,
-					y=1216
+					x=256,
+					y=1024
 				},
 				["Art/2DArt/SkillIcons/passives/IncreasedMaximumLifeNotable.dds"]={
 					h=128,
 					w=128,
-					x=1024,
-					y=960
+					x=0,
+					y=896
 				},
 				["Art/2DArt/SkillIcons/passives/IncreasedProjectileSpeedNode.dds"]={
 					h=64,
 					w=64,
-					x=704,
-					y=320
+					x=576,
+					y=256
 				},
 				["Art/2DArt/SkillIcons/passives/Infernalist/Fireblood.dds"]={
 					h=176,
 					w=176,
 					x=0,
-					y=3180
+					y=2732
 				},
 				["Art/2DArt/SkillIcons/passives/Infernalist/FuryManifest.dds"]={
 					h=128,
 					w=128,
-					x=768,
-					y=960
+					x=1152,
+					y=768
 				},
 				["Art/2DArt/SkillIcons/passives/Infernalist/InfernalFamiliar.dds"]={
 					h=128,
 					w=128,
-					x=256,
-					y=2240
+					x=896,
+					y=1792
 				},
 				["Art/2DArt/SkillIcons/passives/Infernalist/InfernalistConvertLifeToEnergyShield.dds"]={
 					h=128,
 					w=128,
-					x=512,
-					y=576
+					x=256,
+					y=512
 				},
 				["Art/2DArt/SkillIcons/passives/Infernalist/InfernalistConvertLifeToMana.dds"]={
 					h=128,
 					w=128,
-					x=0,
-					y=576
+					x=1152,
+					y=384
 				},
 				["Art/2DArt/SkillIcons/passives/Infernalist/InfernalistConvertLifeToSpirit.dds"]={
 					h=128,
 					w=128,
-					x=768,
-					y=1216
+					x=640,
+					y=1024
 				},
 				["Art/2DArt/SkillIcons/passives/Infernalist/InfernalistInfernalHeat.dds"]={
 					h=128,
 					w=128,
-					x=256,
-					y=1344
+					x=1280,
+					y=1024
 				},
 				["Art/2DArt/SkillIcons/passives/Infernalist/InfernalistTransformIntoDemon1.dds"]={
 					h=128,
 					w=128,
-					x=896,
-					y=2368
+					x=1280,
+					y=1920
 				},
 				["Art/2DArt/SkillIcons/passives/Infernalist/InfernalistTransformIntoDemon2.dds"]={
 					h=128,
 					w=128,
-					x=0,
-					y=2240
+					x=640,
+					y=1792
 				},
 				["Art/2DArt/SkillIcons/passives/Infernalist/MoltenFury.dds"]={
 					h=128,
 					w=128,
-					x=256,
-					y=960
+					x=640,
+					y=768
 				},
 				["Art/2DArt/SkillIcons/passives/Infernalist/ScorchTheEarth.dds"]={
 					h=128,
 					w=128,
-					x=640,
-					y=2752
+					x=256,
+					y=2304
 				},
 				["Art/2DArt/SkillIcons/passives/Inquistitor/IncreasedElementalDamageAttackCasteSpeed.dds"]={
 					h=64,
 					w=64,
-					x=960,
-					y=256
+					x=1152,
+					y=192
 				},
 				["Art/2DArt/SkillIcons/passives/Invoker/InvokerChillChanceBasedOnDamage.dds"]={
 					h=128,
 					w=128,
-					x=640,
-					y=1088
+					x=768,
+					y=896
 				},
 				["Art/2DArt/SkillIcons/passives/Invoker/InvokerCriticalStrikesIgnoreResistances.dds"]={
 					h=128,
 					w=128,
-					x=384,
-					y=960
+					x=768,
+					y=768
 				},
 				["Art/2DArt/SkillIcons/passives/Invoker/InvokerEnergyDoubled.dds"]={
 					h=128,
 					w=128,
-					x=1024,
-					y=2624
+					x=896,
+					y=2176
 				},
 				["Art/2DArt/SkillIcons/passives/Invoker/InvokerEvasionEnergyShieldGrantsSpirit.dds"]={
 					h=128,
 					w=128,
-					x=384,
-					y=832
+					x=1024,
+					y=640
 				},
 				["Art/2DArt/SkillIcons/passives/Invoker/InvokerEvasionGrantsPhysicalDamageReduction.dds"]={
 					h=128,
 					w=128,
-					x=1024,
-					y=1344
+					x=640,
+					y=1152
 				},
 				["Art/2DArt/SkillIcons/passives/Invoker/InvokerGrantsMeditate.dds"]={
 					h=128,
 					w=128,
-					x=640,
-					y=2624
+					x=512,
+					y=2176
 				},
 				["Art/2DArt/SkillIcons/passives/Invoker/InvokerShockMagnitude.dds"]={
 					h=128,
 					w=128,
-					x=0,
-					y=1600
+					x=512,
+					y=1280
 				},
 				["Art/2DArt/SkillIcons/passives/Invoker/InvokerUnboundAvatar.dds"]={
 					h=128,
 					w=128,
-					x=128,
-					y=2368
+					x=512,
+					y=1920
 				},
 				["Art/2DArt/SkillIcons/passives/Invoker/InvokerWildStrike.dds"]={
 					h=128,
 					w=128,
-					x=0,
-					y=1216
+					x=1280,
+					y=896
 				},
 				["Art/2DArt/SkillIcons/passives/LifeRecoupNode.dds"]={
 					h=64,
@@ -87707,134 +86097,134 @@ return {
 				["Art/2DArt/SkillIcons/passives/LightningDamagenode.dds"]={
 					h=64,
 					w=64,
-					x=576,
-					y=128
+					x=1408,
+					y=64
 				},
 				["Art/2DArt/SkillIcons/passives/ManaLeechThemedNode.dds"]={
 					h=64,
 					w=64,
-					x=512,
-					y=192
+					x=1024,
+					y=128
 				},
 				["Art/2DArt/SkillIcons/passives/MarkNode.dds"]={
 					h=64,
 					w=64,
-					x=128,
-					y=192
+					x=640,
+					y=128
 				},
 				["Art/2DArt/SkillIcons/passives/MeleeAoENode.dds"]={
 					h=64,
 					w=64,
-					x=768,
+					x=128,
 					y=128
 				},
 				["Art/2DArt/SkillIcons/passives/Meleerange.dds"]={
 					h=128,
 					w=128,
-					x=128,
-					y=1216
+					x=0,
+					y=1024
 				},
 				["Art/2DArt/SkillIcons/passives/MineAreaOfEffectNode.dds"]={
 					h=64,
 					w=64,
-					x=768,
+					x=448,
 					y=64
 				},
 				["Art/2DArt/SkillIcons/passives/MineManaReservationNotable.dds"]={
 					h=128,
 					w=128,
-					x=640,
-					y=960
+					x=1024,
+					y=768
 				},
 				["Art/2DArt/SkillIcons/passives/MinionChaosResistanceNode.dds"]={
 					h=64,
 					w=64,
-					x=896,
+					x=576,
 					y=64
 				},
 				["Art/2DArt/SkillIcons/passives/MinionElementalResistancesNode.dds"]={
 					h=64,
 					w=64,
-					x=256,
-					y=320
+					x=128,
+					y=256
 				},
 				["Art/2DArt/SkillIcons/passives/MinionsandManaNode.dds"]={
 					h=64,
 					w=64,
-					x=512,
-					y=384
+					x=64,
+					y=320
 				},
 				["Art/2DArt/SkillIcons/passives/MiracleMaker.dds"]={
 					h=128,
 					w=128,
-					x=768,
-					y=2368
+					x=1152,
+					y=1920
 				},
 				["Art/2DArt/SkillIcons/passives/NodeDualWieldingDamage.dds"]={
 					h=64,
 					w=64,
-					x=512,
+					x=192,
 					y=64
 				},
 				["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds"]={
 					h=128,
 					w=128,
-					x=384,
-					y=1600
+					x=896,
+					y=1280
 				},
 				["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderBrewConcoction.dds"]={
 					h=128,
 					w=128,
-					x=0,
-					y=1728
+					x=256,
+					y=1408
 				},
 				["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderCannotBeSlowed.dds"]={
 					h=128,
 					w=128,
-					x=256,
-					y=832
+					x=896,
+					y=640
 				},
 				["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderEnemiesMultiplePoisons.dds"]={
 					h=128,
 					w=128,
-					x=1024,
-					y=1600
+					x=128,
+					y=1408
 				},
 				["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderFlasksConsumeLessCharges.dds"]={
 					h=128,
 					w=128,
-					x=128,
-					y=2112
+					x=1024,
+					y=1664
 				},
 				["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderLifeFlasks.dds"]={
 					h=128,
 					w=128,
-					x=128,
-					y=704
+					x=1024,
+					y=512
 				},
 				["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderMoreMovemenSpeedUsingSkills.dds"]={
 					h=128,
 					w=128,
-					x=0,
-					y=2112
+					x=896,
+					y=1664
 				},
 				["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderPoisonSpreadsNearbyEnemies.dds"]={
 					h=128,
 					w=128,
-					x=640,
-					y=1472
+					x=0,
+					y=1280
 				},
 				["Art/2DArt/SkillIcons/passives/PhysicalDamageChaosNode.dds"]={
 					h=64,
 					w=64,
-					x=256,
-					y=384
+					x=1280,
+					y=256
 				},
 				["Art/2DArt/SkillIcons/passives/PhysicalDamageNode.dds"]={
 					h=64,
 					w=64,
-					x=640,
-					y=256
+					x=832,
+					y=192
 				},
 				["Art/2DArt/SkillIcons/passives/PhysicalDamageOverTimeNode.dds"]={
 					h=64,
@@ -87845,38 +86235,38 @@ return {
 				["Art/2DArt/SkillIcons/passives/PhysicalDamageOverTimeNotable.dds"]={
 					h=128,
 					w=128,
-					x=128,
-					y=2624
+					x=0,
+					y=2176
 				},
 				["Art/2DArt/SkillIcons/passives/Poison.dds"]={
 					h=128,
 					w=128,
-					x=256,
-					y=1472
+					x=1024,
+					y=1152
 				},
 				["Art/2DArt/SkillIcons/passives/PressurePoints.dds"]={
 					h=128,
 					w=128,
 					x=640,
-					y=448
+					y=384
 				},
 				["Art/2DArt/SkillIcons/passives/ProjectilesNotable.dds"]={
 					h=128,
 					w=128,
-					x=0,
-					y=2496
+					x=128,
+					y=2048
 				},
 				["Art/2DArt/SkillIcons/passives/Rage.dds"]={
 					h=64,
 					w=64,
-					x=128,
-					y=64
+					x=1280,
+					y=0
 				},
 				["Art/2DArt/SkillIcons/passives/ReducedSkillEffectDurationNode.dds"]={
 					h=64,
 					w=64,
-					x=832,
-					y=384
+					x=384,
+					y=320
 				},
 				["Art/2DArt/SkillIcons/passives/ShieldNodeOffensive.dds"]={
 					h=64,
@@ -87887,326 +86277,326 @@ return {
 				["Art/2DArt/SkillIcons/passives/SpellSuppresionNode.dds"]={
 					h=64,
 					w=64,
-					x=768,
-					y=384
+					x=320,
+					y=320
 				},
 				["Art/2DArt/SkillIcons/passives/Storm Weaver.dds"]={
 					h=128,
 					w=128,
-					x=256,
-					y=1216
+					x=128,
+					y=1024
 				},
 				["Art/2DArt/SkillIcons/passives/Stormweaver/AllDamageCanChill.dds"]={
 					h=128,
 					w=128,
-					x=0,
-					y=2368
+					x=384,
+					y=1920
 				},
 				["Art/2DArt/SkillIcons/passives/Stormweaver/AllDamageCanShock.dds"]={
 					h=128,
 					w=128,
-					x=768,
-					y=2880
+					x=128,
+					y=2432
 				},
 				["Art/2DArt/SkillIcons/passives/Stormweaver/ChillAddditionalTime.dds"]={
 					h=128,
 					w=128,
-					x=512,
-					y=2752
+					x=128,
+					y=2304
 				},
 				["Art/2DArt/SkillIcons/passives/Stormweaver/ElementalDamageHealsYou.dds"]={
 					h=128,
 					w=128,
-					x=640,
-					y=1344
+					x=256,
+					y=1152
 				},
 				["Art/2DArt/SkillIcons/passives/Stormweaver/ElementalResistanceInverted.dds"]={
 					h=128,
 					w=128,
-					x=640,
-					y=2240
+					x=1280,
+					y=1792
 				},
 				["Art/2DArt/SkillIcons/passives/Stormweaver/GrantsArcaneSurge.dds"]={
 					h=128,
 					w=128,
-					x=896,
-					y=960
+					x=1280,
+					y=768
 				},
 				["Art/2DArt/SkillIcons/passives/Stormweaver/GrantsElementalStorm.dds"]={
 					h=128,
 					w=128,
-					x=512,
-					y=2112
+					x=0,
+					y=1792
 				},
 				["Art/2DArt/SkillIcons/passives/Stormweaver/ImprovedArcaneSurge.dds"]={
 					h=128,
 					w=128,
-					x=1024,
-					y=832
+					x=256,
+					y=768
 				},
 				["Art/2DArt/SkillIcons/passives/Stormweaver/ImprovedElementalStorm.dds"]={
 					h=128,
 					w=128,
-					x=128,
-					y=1984
+					x=1280,
+					y=1536
 				},
 				["Art/2DArt/SkillIcons/passives/Stormweaver/ShockAddditionalTime.dds"]={
 					h=128,
 					w=128,
-					x=384,
-					y=2880
+					x=1152,
+					y=2304
 				},
 				["Art/2DArt/SkillIcons/passives/Temporalist/TemporalistChanceSkillNoCooldownSkill.dds"]={
 					h=128,
 					w=128,
-					x=0,
-					y=2880
+					x=768,
+					y=2304
 				},
 				["Art/2DArt/SkillIcons/passives/Temporalist/TemporalistFasterRecoup.dds"]={
 					h=128,
 					w=128,
-					x=1024,
-					y=1984
+					x=768,
+					y=1664
 				},
 				["Art/2DArt/SkillIcons/passives/Temporalist/TemporalistGainMoreCastSpeed8Seconds.dds"]={
 					h=128,
 					w=128,
 					x=896,
-					y=448
+					y=384
 				},
 				["Art/2DArt/SkillIcons/passives/Temporalist/TemporalistGrantsReloadCooldownsSkill.dds"]={
 					h=128,
 					w=128,
-					x=640,
-					y=2368
+					x=1024,
+					y=1920
 				},
 				["Art/2DArt/SkillIcons/passives/Temporalist/TemporalistGrantsTemporalRiftSkill.dds"]={
 					h=128,
 					w=128,
-					x=256,
-					y=2112
+					x=1152,
+					y=1664
 				},
 				["Art/2DArt/SkillIcons/passives/Temporalist/TemporalistGrantsTimeStopSkill.dds"]={
 					h=128,
 					w=128,
-					x=512,
-					y=960
+					x=896,
+					y=768
 				},
 				["Art/2DArt/SkillIcons/passives/Temporalist/TemporalistLifeRecoup.dds"]={
 					h=128,
 					w=128,
-					x=512,
-					y=1472
+					x=1280,
+					y=1152
 				},
 				["Art/2DArt/SkillIcons/passives/Temporalist/TemporalistNearbyEnemiesProjectilesSlowed.dds"]={
 					h=128,
 					w=128,
-					x=384,
-					y=1088
+					x=512,
+					y=896
 				},
 				["Art/2DArt/SkillIcons/passives/Titan/TitanAdditionalInventory.dds"]={
 					h=128,
 					w=128,
-					x=256,
-					y=2496
+					x=384,
+					y=2048
 				},
 				["Art/2DArt/SkillIcons/passives/Titan/TitanMoreBodyArmour.dds"]={
 					h=128,
 					w=128,
-					x=768,
-					y=1344
+					x=384,
+					y=1152
 				},
 				["Art/2DArt/SkillIcons/passives/Titan/TitanMoreMaxLife.dds"]={
 					h=128,
 					w=128,
-					x=896,
-					y=1216
+					x=768,
+					y=1024
 				},
 				["Art/2DArt/SkillIcons/passives/Titan/TitanMoreStunBuildupEnemies.dds"]={
 					h=128,
 					w=128,
-					x=896,
-					y=1600
+					x=0,
+					y=1408
 				},
 				["Art/2DArt/SkillIcons/passives/Titan/TitanSlamSkillsAftershock.dds"]={
 					h=128,
 					w=128,
-					x=384,
-					y=2112
+					x=1280,
+					y=1664
 				},
 				["Art/2DArt/SkillIcons/passives/Titan/TitanSlamSkillsFistOfWar.dds"]={
 					h=128,
 					w=128,
-					x=128,
-					y=2496
+					x=256,
+					y=2048
 				},
 				["Art/2DArt/SkillIcons/passives/Titan/TitanSmallPassiveDoubled.dds"]={
 					h=128,
 					w=128,
-					x=512,
-					y=1600
+					x=1024,
+					y=1280
 				},
 				["Art/2DArt/SkillIcons/passives/Titan/TitanYourHitsCrushEnemies.dds"]={
 					h=128,
 					w=128,
-					x=640,
-					y=2880
+					x=0,
+					y=2432
 				},
 				["Art/2DArt/SkillIcons/passives/WarCryEffect.dds"]={
 					h=64,
 					w=64,
-					x=320,
-					y=256
+					x=512,
+					y=192
 				},
 				["Art/2DArt/SkillIcons/passives/Warbringer/WarbringerBlockChance.dds"]={
 					h=128,
 					w=128,
-					x=512,
-					y=1728
+					x=768,
+					y=1408
 				},
 				["Art/2DArt/SkillIcons/passives/Warbringer/WarbringerBreakEnemyArmour.dds"]={
 					h=128,
 					w=128,
 					x=384,
-					y=1856
+					y=1536
 				},
 				["Art/2DArt/SkillIcons/passives/Warbringer/WarbringerCanBlockAllDamageShieldNotRaised.dds"]={
 					h=128,
 					w=128,
-					x=512,
-					y=2496
+					x=640,
+					y=2048
 				},
 				["Art/2DArt/SkillIcons/passives/Warbringer/WarbringerDamageTakenByTotems.dds"]={
 					h=128,
 					w=128,
-					x=896,
-					y=2112
+					x=384,
+					y=1792
 				},
 				["Art/2DArt/SkillIcons/passives/Warbringer/WarbringerEncasedInJade.dds"]={
 					h=128,
 					w=128,
-					x=384,
-					y=2496
+					x=512,
+					y=2048
 				},
 				["Art/2DArt/SkillIcons/passives/Warbringer/WarbringerEnemyArmourBrokenBelowZero.dds"]={
 					h=128,
 					w=128,
-					x=384,
-					y=2752
+					x=0,
+					y=2304
 				},
 				["Art/2DArt/SkillIcons/passives/Warbringer/WarbringerTotemsDefendedByAncestors.dds"]={
 					h=128,
 					w=128,
-					x=768,
-					y=2240
+					x=0,
+					y=1920
 				},
 				["Art/2DArt/SkillIcons/passives/Warbringer/WarbringerWarcriesNoCooldown.dds"]={
 					h=128,
 					w=128,
-					x=0,
-					y=1344
+					x=1024,
+					y=1024
 				},
 				["Art/2DArt/SkillIcons/passives/Warbringer/WarbringerWarcryExplodesCorpses.dds"]={
 					h=128,
 					w=128,
-					x=768,
-					y=1984
+					x=512,
+					y=1664
 				},
 				["Art/2DArt/SkillIcons/passives/Warrior.dds"]={
 					h=128,
 					w=128,
-					x=1024,
-					y=2496
+					x=1152,
+					y=2048
 				},
 				["Art/2DArt/SkillIcons/passives/Witchhunter/WitchunterArmourEvasionConvertedSpellAegis.dds"]={
 					h=128,
 					w=128,
 					x=1024,
-					y=1856
+					y=1536
 				},
 				["Art/2DArt/SkillIcons/passives/Witchhunter/WitchunterCullingStrike.dds"]={
 					h=128,
 					w=128,
-					x=256,
-					y=2880
+					x=1024,
+					y=2304
 				},
 				["Art/2DArt/SkillIcons/passives/Witchhunter/WitchunterDamageMonsterMissingFocus.dds"]={
 					h=128,
 					w=128,
-					x=896,
-					y=2240
+					x=128,
+					y=1920
 				},
 				["Art/2DArt/SkillIcons/passives/Witchhunter/WitchunterDrainMonsterFocus.dds"]={
 					h=128,
 					w=128,
-					x=384,
-					y=1344
+					x=0,
+					y=1152
 				},
 				["Art/2DArt/SkillIcons/passives/Witchhunter/WitchunterMonsterHolyExplosion.dds"]={
 					h=128,
 					w=128,
-					x=0,
-					y=1472
+					x=768,
+					y=1152
 				},
 				["Art/2DArt/SkillIcons/passives/Witchhunter/WitchunterRemovePercentageFullLifeEnemies.dds"]={
 					h=128,
 					w=128,
 					x=512,
-					y=448
+					y=384
 				},
 				["Art/2DArt/SkillIcons/passives/Witchhunter/WitchunterSpecPoints.dds"]={
 					h=128,
 					w=128,
-					x=512,
-					y=1216
+					x=384,
+					y=1024
 				},
 				["Art/2DArt/SkillIcons/passives/Witchhunter/WitchunterStrongerSpellAegis.dds"]={
 					h=128,
 					w=128,
-					x=640,
-					y=1600
+					x=1152,
+					y=1280
 				},
 				["Art/2DArt/SkillIcons/passives/accuracydex.dds"]={
 					h=64,
 					w=64,
-					x=1024,
+					x=64,
 					y=192
 				},
 				["Art/2DArt/SkillIcons/passives/accuracystr.dds"]={
 					h=64,
 					w=64,
-					x=384,
-					y=320
+					x=256,
+					y=256
 				},
 				["Art/2DArt/SkillIcons/passives/areaofeffect.dds"]={
 					h=64,
 					w=64,
-					x=256,
-					y=192
+					x=768,
+					y=128
 				},
 				["Art/2DArt/SkillIcons/passives/attackspeed.dds"]={
 					h=64,
 					w=64,
-					x=192,
-					y=256
+					x=384,
+					y=192
 				},
 				["Art/2DArt/SkillIcons/passives/attackspeedbow.dds"]={
 					h=64,
 					w=64,
-					x=576,
-					y=320
+					x=448,
+					y=256
 				},
 				["Art/2DArt/SkillIcons/passives/auraeffect.dds"]={
 					h=64,
 					w=64,
-					x=0,
-					y=256
+					x=192,
+					y=192
 				},
 				["Art/2DArt/SkillIcons/passives/avoidchilling.dds"]={
 					h=64,
 					w=64,
-					x=896,
-					y=192
+					x=1408,
+					y=128
 				},
 				["Art/2DArt/SkillIcons/passives/blockstr.dds"]={
 					h=64,
@@ -88217,8 +86607,8 @@ return {
 				["Art/2DArt/SkillIcons/passives/bodysoul.dds"]={
 					h=128,
 					w=128,
-					x=896,
-					y=1088
+					x=1024,
+					y=896
 				},
 				["Art/2DArt/SkillIcons/passives/castspeed.dds"]={
 					h=64,
@@ -88229,8 +86619,8 @@ return {
 				["Art/2DArt/SkillIcons/passives/chargedex.dds"]={
 					h=64,
 					w=64,
-					x=448,
-					y=384
+					x=0,
+					y=320
 				},
 				["Art/2DArt/SkillIcons/passives/chargeint.dds"]={
 					h=64,
@@ -88241,49 +86631,49 @@ return {
 				["Art/2DArt/SkillIcons/passives/chargestr.dds"]={
 					h=64,
 					w=64,
-					x=64,
-					y=192
+					x=576,
+					y=128
 				},
 				["Art/2DArt/SkillIcons/passives/clustersLinknode2.dds"]={
 					h=64,
 					w=64,
-					x=832,
-					y=256
+					x=1024,
+					y=192
 				},
 				["Art/2DArt/SkillIcons/passives/colddamage.dds"]={
 					h=64,
 					w=64,
-					x=128,
-					y=384
+					x=1152,
+					y=256
 				},
 				["Art/2DArt/SkillIcons/passives/criticaldaggerint.dds"]={
 					h=64,
 					w=64,
-					x=64,
-					y=128
+					x=896,
+					y=64
 				},
 				["Art/2DArt/SkillIcons/passives/criticalstrikechance.dds"]={
 					h=64,
 					w=64,
-					x=768,
-					y=192
+					x=1280,
+					y=128
 				},
 				["Art/2DArt/SkillIcons/passives/damage.dds"]={
 					h=64,
 					w=64,
-					x=0,
-					y=64
+					x=1152,
+					y=0
 				},
 				["Art/2DArt/SkillIcons/passives/damage_blue.dds"]={
 					h=64,
 					w=64,
-					x=704,
-					y=192
+					x=1216,
+					y=128
 				},
 				["Art/2DArt/SkillIcons/passives/damageaxe.dds"]={
 					h=64,
 					w=64,
-					x=1024,
+					x=704,
 					y=64
 				},
 				["Art/2DArt/SkillIcons/passives/damagespells.dds"]={
@@ -88295,158 +86685,158 @@ return {
 				["Art/2DArt/SkillIcons/passives/damagestaff.dds"]={
 					h=64,
 					w=64,
-					x=0,
-					y=128
+					x=832,
+					y=64
 				},
 				["Art/2DArt/SkillIcons/passives/damagesword.dds"]={
 					h=64,
 					w=64,
-					x=640,
+					x=0,
 					y=128
 				},
 				["Art/2DArt/SkillIcons/passives/deepwisdom.dds"]={
 					h=128,
 					w=128,
-					x=384,
-					y=2240
+					x=1024,
+					y=1792
 				},
 				["Art/2DArt/SkillIcons/passives/dmgreduction.dds"]={
 					h=64,
 					w=64,
-					x=320,
-					y=192
+					x=832,
+					y=128
 				},
 				["Art/2DArt/SkillIcons/passives/eagleeye.dds"]={
 					h=128,
 					w=128,
-					x=768,
-					y=576
+					x=512,
+					y=512
 				},
 				["Art/2DArt/SkillIcons/passives/elementaldamage.dds"]={
 					h=64,
 					w=64,
-					x=832,
-					y=192
+					x=1344,
+					y=128
 				},
 				["Art/2DArt/SkillIcons/passives/energyshield.dds"]={
 					h=64,
 					w=64,
-					x=384,
-					y=128
+					x=1216,
+					y=64
 				},
 				["Art/2DArt/SkillIcons/passives/evade.dds"]={
 					h=64,
 					w=64,
-					x=320,
+					x=0,
 					y=64
 				},
 				["Art/2DArt/SkillIcons/passives/executioner.dds"]={
 					h=128,
 					w=128,
 					x=768,
-					y=448
+					y=384
 				},
 				["Art/2DArt/SkillIcons/passives/finesse.dds"]={
 					h=128,
 					w=128,
-					x=0,
-					y=832
+					x=640,
+					y=640
 				},
 				["Art/2DArt/SkillIcons/passives/firedamageint.dds"]={
 					h=64,
 					w=64,
-					x=576,
-					y=192
+					x=1088,
+					y=128
 				},
 				["Art/2DArt/SkillIcons/passives/firedamagestr.dds"]={
 					h=64,
 					w=64,
-					x=192,
-					y=192
+					x=704,
+					y=128
 				},
 				["Art/2DArt/SkillIcons/passives/flaskdex.dds"]={
 					h=64,
 					w=64,
-					x=960,
-					y=384
+					x=512,
+					y=320
 				},
 				["Art/2DArt/SkillIcons/passives/flaskint.dds"]={
 					h=64,
 					w=64,
-					x=1024,
-					y=320
+					x=896,
+					y=256
 				},
 				["Art/2DArt/SkillIcons/passives/flaskstr.dds"]={
 					h=64,
 					w=64,
-					x=448,
-					y=128
+					x=1280,
+					y=64
 				},
 				["Art/2DArt/SkillIcons/passives/icebite.dds"]={
 					h=128,
 					w=128,
-					x=1024,
-					y=2112
+					x=512,
+					y=1792
 				},
 				["Art/2DArt/SkillIcons/passives/increasedrunspeeddex.dds"]={
 					h=64,
 					w=64,
-					x=320,
-					y=320
+					x=192,
+					y=256
 				},
 				["Art/2DArt/SkillIcons/passives/knockback.dds"]={
 					h=64,
 					w=64,
-					x=704,
-					y=256
+					x=896,
+					y=192
 				},
 				["Art/2DArt/SkillIcons/passives/life1.dds"]={
 					h=64,
 					w=64,
-					x=0,
-					y=192
+					x=512,
+					y=128
 				},
 				["Art/2DArt/SkillIcons/passives/lifeleech.dds"]={
 					h=128,
 					w=128,
-					x=896,
-					y=2496
+					x=1024,
+					y=2048
 				},
 				["Art/2DArt/SkillIcons/passives/lifepercentage.dds"]={
 					h=64,
 					w=64,
-					x=448,
-					y=192
+					x=960,
+					y=128
 				},
 				["Art/2DArt/SkillIcons/passives/lightningint.dds"]={
 					h=64,
 					w=64,
-					x=640,
+					x=320,
 					y=64
 				},
 				["Art/2DArt/SkillIcons/passives/macedmg.dds"]={
 					h=64,
 					w=64,
-					x=960,
+					x=0,
 					y=192
 				},
 				["Art/2DArt/SkillIcons/passives/mana.dds"]={
 					h=64,
 					w=64,
-					x=384,
-					y=192
+					x=896,
+					y=128
 				},
 				["Art/2DArt/SkillIcons/passives/manaregeneration.dds"]={
 					h=64,
 					w=64,
-					x=64,
-					y=384
+					x=1088,
+					y=256
 				},
 				["Art/2DArt/SkillIcons/passives/manastr.dds"]={
 					h=64,
 					w=64,
-					x=0,
-					y=320
+					x=1344,
+					y=192
 				},
 				["Art/2DArt/SkillIcons/passives/miniondamageBlue.dds"]={
 					h=64,
@@ -88457,20 +86847,20 @@ return {
 				["Art/2DArt/SkillIcons/passives/minionlife.dds"]={
 					h=64,
 					w=64,
-					x=192,
-					y=64
+					x=1344,
+					y=0
 				},
 				["Art/2DArt/SkillIcons/passives/newnewattackspeed.dds"]={
 					h=128,
 					w=128,
-					x=128,
-					y=2240
+					x=768,
+					y=1792
 				},
 				["Art/2DArt/SkillIcons/passives/onehanddamage.dds"]={
 					h=64,
 					w=64,
-					x=1088,
-					y=320
+					x=960,
+					y=256
 				},
 				["Art/2DArt/SkillIcons/passives/plusdexterity.dds"]={
 					h=64,
@@ -88481,80 +86871,80 @@ return {
 				["Art/2DArt/SkillIcons/passives/plusintelligence.dds"]={
 					h=64,
 					w=64,
-					x=896,
+					x=256,
 					y=128
 				},
 				["Art/2DArt/SkillIcons/passives/plusstrength.dds"]={
 					h=64,
 					w=64,
-					x=448,
+					x=128,
 					y=64
 				},
 				["Art/2DArt/SkillIcons/passives/projectilespeed.dds"]={
 					h=64,
 					w=64,
-					x=1088,
-					y=384
+					x=640,
+					y=320
 				},
 				["Art/2DArt/SkillIcons/passives/shieldblock.dds"]={
 					h=64,
 					w=64,
-					x=704,
-					y=384
+					x=256,
+					y=320
 				},
 				["Art/2DArt/SkillIcons/passives/spellcritical.dds"]={
 					h=64,
 					w=64,
-					x=192,
-					y=128
+					x=1024,
+					y=64
 				},
 				["Art/2DArt/SkillIcons/passives/steelspan.dds"]={
 					h=128,
 					w=128,
-					x=768,
-					y=1088
+					x=896,
+					y=896
 				},
 				["Art/2DArt/SkillIcons/passives/strongarm.dds"]={
 					h=128,
 					w=128,
-					x=640,
-					y=1216
+					x=512,
+					y=1024
 				},
 				["Art/2DArt/SkillIcons/passives/stun2h.dds"]={
 					h=64,
 					w=64,
-					x=320,
-					y=128
+					x=1152,
+					y=64
 				},
 				["Art/2DArt/SkillIcons/passives/stunstr.dds"]={
 					h=64,
 					w=64,
-					x=896,
-					y=256
+					x=1088,
+					y=192
 				},
 				["Art/2DArt/SkillIcons/passives/totemandbrandlife.dds"]={
 					h=64,
 					w=64,
-					x=640,
-					y=192
+					x=1152,
+					y=128
 				},
 				["Art/2DArt/SkillIcons/passives/trapdamage.dds"]={
 					h=64,
 					w=64,
-					x=640,
-					y=320
+					x=512,
+					y=256
 				}
 			},
 			filename="skills.png",
-			h=3356,
-			w=1152
+			h=2908,
+			w=1472
 		},
 		notableInactive={
 			coords={
 				["Art/2DArt/SkillIcons/ExplosiveGrenade.dds"]={
 					h=64,
 					w=64,
-					x=1024,
+					x=64,
 					y=192
 				},
 				["Art/2DArt/SkillIcons/WitchBoneStorm.dds"]={
@@ -88566,7 +86956,7 @@ return {
 				["Art/2DArt/SkillIcons/icongroundslam.dds"]={
 					h=64,
 					w=64,
-					x=960,
+					x=320,
 					y=128
 				},
 				["Art/2DArt/SkillIcons/passives/2handeddamage.dds"]={
@@ -88578,73 +86968,73 @@ return {
 				["Art/2DArt/SkillIcons/passives/AcolyteofChayula/AcolyteOfChayulaBreachFlameDoubles.dds"]={
 					h=128,
 					w=128,
-					x=512,
-					y=1728
+					x=768,
+					y=1408
 				},
 				["Art/2DArt/SkillIcons/passives/AcolyteofChayula/AcolyteOfChayulaBreachWalk.dds"]={
 					h=128,
 					w=128,
-					x=640,
-					y=2624
+					x=512,
+					y=2176
 				},
 				["Art/2DArt/SkillIcons/passives/AcolyteofChayula/AcolyteOfChayulaDarknessProtectsLonger.dds"]={
 					h=128,
 					w=128,
-					x=0,
-					y=1600
+					x=512,
+					y=1280
 				},
 				["Art/2DArt/SkillIcons/passives/AcolyteofChayula/AcolyteOfChayulaExtraChaosDamage.dds"]={
 					h=128,
 					w=128,
-					x=128,
-					y=1728
+					x=384,
+					y=1408
 				},
 				["Art/2DArt/SkillIcons/passives/AcolyteofChayula/AcolyteOfChayulaExtraChaosDamagePerDarkness.dds"]={
 					h=128,
 					w=128,
-					x=640,
-					y=1984
+					x=384,
+					y=1664
 				},
 				["Art/2DArt/SkillIcons/passives/AcolyteofChayula/AcolyteOfChayulaExtraChaosResistance.dds"]={
 					h=128,
 					w=128,
-					x=128,
-					y=1600
+					x=640,
+					y=1280
 				},
 				["Art/2DArt/SkillIcons/passives/AcolyteofChayula/AcolyteOfChayulaManaLeechEnergyShield.dds"]={
 					h=128,
 					w=128,
 					x=256,
-					y=1856
+					y=1536
 				},
 				["Art/2DArt/SkillIcons/passives/AcolyteofChayula/AcolyteOfChayulaManaLeechInstant.dds"]={
 					h=128,
 					w=128,
-					x=256,
-					y=1472
+					x=1024,
+					y=1152
 				},
 				["Art/2DArt/SkillIcons/passives/AcolyteofChayula/AcolyteOfChayulaReplaceSpiritWithDarkness.dds"]={
 					h=128,
 					w=128,
-					x=256,
-					y=2496
+					x=384,
+					y=2048
 				},
 				["Art/2DArt/SkillIcons/passives/Annihilation.dds"]={
 					h=128,
 					w=128,
-					x=512,
-					y=832
+					x=1152,
+					y=640
 				},
 				["Art/2DArt/SkillIcons/passives/AreaDmgNode.dds"]={
 					h=64,
 					w=64,
-					x=704,
+					x=64,
 					y=128
 				},
 				["Art/2DArt/SkillIcons/passives/ArmourAndEnergyShieldNode.dds"]={
 					h=64,
 					w=64,
-					x=832,
+					x=192,
 					y=128
 				},
 				["Art/2DArt/SkillIcons/passives/ArmourAndEvasionNode.dds"]={
@@ -88662,188 +87052,188 @@ return {
 				["Art/2DArt/SkillIcons/passives/Ascendants/SkillPoint.dds"]={
 					h=64,
 					w=64,
-					x=768,
-					y=256
+					x=960,
+					y=192
 				},
 				["Art/2DArt/SkillIcons/passives/AspectOfTheLynx.dds"]={
 					h=128,
 					w=128,
-					x=1024,
-					y=1216
+					x=896,
+					y=1024
 				},
 				["Art/2DArt/SkillIcons/passives/Blood2.dds"]={
 					h=128,
 					w=128,
-					x=896,
-					y=2112
+					x=384,
+					y=1792
 				},
 				["Art/2DArt/SkillIcons/passives/Bloodmage/BloodMageCritDamagePerLife.dds"]={
 					h=128,
 					w=128,
-					x=0,
-					y=832
+					x=640,
+					y=640
 				},
 				["Art/2DArt/SkillIcons/passives/Bloodmage/BloodMageCurseInfiniteDuration.dds"]={
 					h=128,
 					w=128,
-					x=256,
-					y=1728
+					x=512,
+					y=1408
 				},
 				["Art/2DArt/SkillIcons/passives/Bloodmage/BloodMageDamageLeechedLife.dds"]={
 					h=128,
 					w=128,
-					x=512,
-					y=704
+					x=0,
+					y=640
 				},
 				["Art/2DArt/SkillIcons/passives/Bloodmage/BloodMageGainLifeEnergyShield.dds"]={
 					h=128,
 					w=128,
-					x=128,
-					y=1472
+					x=896,
+					y=1152
 				},
 				["Art/2DArt/SkillIcons/passives/Bloodmage/BloodMageHigherSpellBaseCritStrike.dds"]={
 					h=128,
 					w=128,
-					x=384,
-					y=2112
+					x=1280,
+					y=1664
 				},
 				["Art/2DArt/SkillIcons/passives/Bloodmage/BloodMageLeaveBloodOrbs.dds"]={
 					h=128,
 					w=128,
 					x=0,
-					y=1856
+					y=1536
 				},
 				["Art/2DArt/SkillIcons/passives/Bloodmage/BloodMageLifeLoss.dds"]={
 					h=128,
 					w=128,
-					x=256,
-					y=1344
+					x=1280,
+					y=1024
 				},
 				["Art/2DArt/SkillIcons/passives/Bloodmage/BloodPhysicalDamageExtraGore.dds"]={
 					h=128,
 					w=128,
-					x=896,
-					y=704
+					x=384,
+					y=640
 				},
 				["Art/2DArt/SkillIcons/passives/BowDamage.dds"]={
 					h=128,
 					w=128,
-					x=768,
-					y=1216
+					x=640,
+					y=1024
 				},
 				["Art/2DArt/SkillIcons/passives/ChainingProjectiles.dds"]={
 					h=128,
 					w=128,
-					x=768,
-					y=832
+					x=0,
+					y=768
 				},
 				["Art/2DArt/SkillIcons/passives/ChannellingAttacksNotable2.dds"]={
 					h=128,
 					w=128,
-					x=256,
-					y=1600
+					x=768,
+					y=1280
 				},
 				["Art/2DArt/SkillIcons/passives/ChaosDamagenode.dds"]={
 					h=64,
 					w=64,
-					x=704,
-					y=192
+					x=1216,
+					y=128
 				},
 				["Art/2DArt/SkillIcons/passives/CharmNotable1.dds"]={
 					h=128,
 					w=128,
-					x=256,
-					y=576
+					x=0,
+					y=512
 				},
 				["Art/2DArt/SkillIcons/passives/ClawsOfTheMagpie.dds"]={
 					h=128,
 					w=128,
-					x=0,
-					y=1728
+					x=256,
+					y=1408
 				},
 				["Art/2DArt/SkillIcons/passives/ColdDamagenode.dds"]={
 					h=64,
 					w=64,
-					x=832,
+					x=512,
 					y=64
 				},
 				["Art/2DArt/SkillIcons/passives/CorpseDamage.dds"]={
 					h=64,
 					w=64,
-					x=512,
+					x=192,
 					y=64
 				},
 				["Art/2DArt/SkillIcons/passives/CriticalStrikesNotable.dds"]={
 					h=128,
 					w=128,
 					x=896,
-					y=448
+					y=384
 				},
 				["Art/2DArt/SkillIcons/passives/CurseEffectNode.dds"]={
 					h=64,
 					w=64,
-					x=640,
+					x=320,
 					y=64
 				},
 				["Art/2DArt/SkillIcons/passives/DeadEye/DeadeyeFrenzyChargesGeneration.dds"]={
 					h=128,
 					w=128,
-					x=0,
-					y=2752
+					x=1024,
+					y=2176
 				},
 				["Art/2DArt/SkillIcons/passives/DeadEye/DeadeyeFrenzyChargesHaveMoreEffect.dds"]={
 					h=128,
 					w=128,
-					x=1024,
-					y=2368
+					x=0,
+					y=2048
 				},
 				["Art/2DArt/SkillIcons/passives/DeadEye/DeadeyeGrantsTwoAdditionalProjectiles.dds"]={
 					h=128,
 					w=128,
-					x=384,
-					y=1984
+					x=128,
+					y=1664
 				},
 				["Art/2DArt/SkillIcons/passives/DeadEye/DeadeyeMarkEnemiesSpread.dds"]={
 					h=128,
 					w=128,
-					x=0,
-					y=1088
+					x=128,
+					y=896
 				},
 				["Art/2DArt/SkillIcons/passives/DeadEye/DeadeyeMoreAccuracy.dds"]={
 					h=128,
 					w=128,
-					x=128,
-					y=2752
+					x=1152,
+					y=2176
 				},
 				["Art/2DArt/SkillIcons/passives/DeadEye/DeadeyeProjectileDamageChoose.dds"]={
 					h=128,
 					w=128,
 					x=896,
-					y=1856
+					y=1536
 				},
 				["Art/2DArt/SkillIcons/passives/DeadEye/DeadeyeTailwind.dds"]={
 					h=128,
 					w=128,
-					x=896,
-					y=2624
+					x=768,
+					y=2176
 				},
 				["Art/2DArt/SkillIcons/passives/DeadEye/DeadeyeWindward.dds"]={
 					h=128,
 					w=128,
-					x=256,
-					y=2752
+					x=1280,
+					y=2176
 				},
 				["Art/2DArt/SkillIcons/passives/Deflection.dds"]={
 					h=128,
 					w=128,
-					x=512,
-					y=576
+					x=256,
+					y=512
 				},
 				["Art/2DArt/SkillIcons/passives/DragonStyle.dds"]={
 					h=128,
 					w=128,
-					x=640,
-					y=1344
+					x=256,
+					y=1152
 				},
 				["Art/2DArt/SkillIcons/passives/ElementalDamagenode.dds"]={
 					h=64,
@@ -88854,344 +87244,344 @@ return {
 				["Art/2DArt/SkillIcons/passives/ElementalDamagewithAttacks2.dds"]={
 					h=128,
 					w=128,
-					x=128,
-					y=704
+					x=1024,
+					y=512
 				},
 				["Art/2DArt/SkillIcons/passives/ElementalResistance2.dds"]={
 					h=128,
 					w=128,
-					x=512,
-					y=2368
+					x=896,
+					y=1920
 				},
 				["Art/2DArt/SkillIcons/passives/EnergyShieldNode.dds"]={
 					h=64,
 					w=64,
-					x=256,
-					y=128
+					x=1088,
+					y=64
 				},
 				["Art/2DArt/SkillIcons/passives/EvasionAndBlindNotable.dds"]={
 					h=128,
 					w=128,
-					x=896,
-					y=1216
+					x=768,
+					y=1024
 				},
 				["Art/2DArt/SkillIcons/passives/EvasionNode.dds"]={
 					h=64,
 					w=64,
-					x=64,
-					y=320
+					x=1408,
+					y=192
 				},
 				["Art/2DArt/SkillIcons/passives/EvasionandEnergyShieldNode.dds"]={
 					h=64,
 					w=64,
-					x=896,
+					x=576,
 					y=64
 				},
 				["Art/2DArt/SkillIcons/passives/FireDamagenode.dds"]={
 					h=64,
 					w=64,
-					x=768,
+					x=128,
 					y=128
 				},
 				["Art/2DArt/SkillIcons/passives/FlaskNotableCritStrikeRecharge.dds"]={
 					h=128,
 					w=128,
-					x=896,
-					y=1728
+					x=1152,
+					y=1408
 				},
 				["Art/2DArt/SkillIcons/passives/FlaskNotableFlasksLastLonger.dds"]={
 					h=128,
 					w=128,
 					x=384,
-					y=1856
+					y=1536
 				},
 				["Art/2DArt/SkillIcons/passives/Gemling/GemlingBuffSkillsReserveLessSpirit.dds"]={
 					h=128,
 					w=128,
 					x=1024,
-					y=1856
+					y=1536
 				},
 				["Art/2DArt/SkillIcons/passives/Gemling/GemlingHighestAttributeSatisfiesGemRequirements.dds"]={
 					h=128,
 					w=128,
 					x=128,
-					y=1856
+					y=1536
 				},
 				["Art/2DArt/SkillIcons/passives/Gemling/GemlingInherentBonusesFromAttributesDouble.dds"]={
 					h=128,
 					w=128,
 					x=1024,
-					y=448
+					y=384
 				},
 				["Art/2DArt/SkillIcons/passives/Gemling/GemlingLevelAllSkillGems.dds"]={
 					h=128,
 					w=128,
-					x=768,
-					y=2752
+					x=384,
+					y=2304
 				},
 				["Art/2DArt/SkillIcons/passives/Gemling/GemlingMaxElementalResistanceSupportColour.dds"]={
 					h=128,
 					w=128,
-					x=128,
-					y=1984
+					x=1280,
+					y=1536
 				},
 				["Art/2DArt/SkillIcons/passives/Gemling/GemlingSameSupportMultipleTimes.dds"]={
 					h=128,
 					w=128,
-					x=128,
-					y=2880
+					x=896,
+					y=2304
 				},
 				["Art/2DArt/SkillIcons/passives/Gemling/GemlingSkillGemQuality.dds"]={
 					h=128,
 					w=128,
 					x=768,
-					y=1856
+					y=1536
 				},
 				["Art/2DArt/SkillIcons/passives/Gemling/GemlingSkillsAdditionalSupport.dds"]={
 					h=128,
 					w=128,
-					x=384,
-					y=2624
+					x=256,
+					y=2176
 				},
 				["Art/2DArt/SkillIcons/passives/GreenAttackSmallPassive.dds"]={
 					h=64,
 					w=64,
-					x=128,
-					y=256
+					x=320,
+					y=192
 				},
 				["Art/2DArt/SkillIcons/passives/Harrier.dds"]={
 					h=128,
 					w=128,
-					x=256,
-					y=1088
+					x=384,
+					y=896
 				},
 				["Art/2DArt/SkillIcons/passives/Hearty.dds"]={
 					h=128,
 					w=128,
 					x=640,
-					y=448
+					y=384
 				},
 				["Art/2DArt/SkillIcons/passives/HeraldBuffEffectNode2.dds"]={
 					h=64,
 					w=64,
-					x=576,
-					y=128
+					x=1408,
+					y=64
 				},
 				["Art/2DArt/SkillIcons/passives/HiredKiller2.dds"]={
 					h=128,
 					w=128,
-					x=1024,
-					y=576
+					x=768,
+					y=512
 				},
 				["Art/2DArt/SkillIcons/passives/Hunter.dds"]={
 					h=128,
 					w=128,
-					x=768,
-					y=1088
+					x=896,
+					y=896
 				},
 				["Art/2DArt/SkillIcons/passives/IncreasedManaCostNotable.dds"]={
 					h=128,
 					w=128,
-					x=640,
-					y=1216
+					x=512,
+					y=1024
 				},
 				["Art/2DArt/SkillIcons/passives/IncreasedMaximumLifeNotable.dds"]={
 					h=128,
 					w=128,
-					x=640,
-					y=832
+					x=1280,
+					y=640
 				},
 				["Art/2DArt/SkillIcons/passives/IncreasedProjectileSpeedNode.dds"]={
 					h=64,
 					w=64,
-					x=768,
-					y=320
+					x=640,
+					y=256
 				},
 				["Art/2DArt/SkillIcons/passives/Infernalist/Fireblood.dds"]={
 					h=176,
 					w=176,
 					x=0,
-					y=3180
+					y=2732
 				},
 				["Art/2DArt/SkillIcons/passives/Infernalist/FuryManifest.dds"]={
 					h=128,
 					w=128,
-					x=768,
-					y=960
+					x=1152,
+					y=768
 				},
 				["Art/2DArt/SkillIcons/passives/Infernalist/InfernalFamiliar.dds"]={
 					h=128,
 					w=128,
-					x=128,
-					y=2240
+					x=768,
+					y=1792
 				},
 				["Art/2DArt/SkillIcons/passives/Infernalist/InfernalistConvertLifeToEnergyShield.dds"]={
 					h=128,
 					w=128,
-					x=768,
-					y=704
+					x=256,
+					y=640
 				},
 				["Art/2DArt/SkillIcons/passives/Infernalist/InfernalistConvertLifeToMana.dds"]={
 					h=128,
 					w=128,
-					x=128,
-					y=576
+					x=1280,
+					y=384
 				},
 				["Art/2DArt/SkillIcons/passives/Infernalist/InfernalistConvertLifeToSpirit.dds"]={
 					h=128,
 					w=128,
-					x=128,
-					y=1216
+					x=0,
+					y=1024
 				},
 				["Art/2DArt/SkillIcons/passives/Infernalist/InfernalistInfernalHeat.dds"]={
 					h=128,
 					w=128,
-					x=768,
-					y=1344
+					x=384,
+					y=1152
 				},
 				["Art/2DArt/SkillIcons/passives/Infernalist/InfernalistTransformIntoDemon1.dds"]={
 					h=128,
 					w=128,
-					x=256,
-					y=960
+					x=640,
+					y=768
 				},
 				["Art/2DArt/SkillIcons/passives/Infernalist/InfernalistTransformIntoDemon2.dds"]={
 					h=128,
 					w=128,
-					x=1024,
-					y=2112
+					x=512,
+					y=1792
 				},
 				["Art/2DArt/SkillIcons/passives/Infernalist/MoltenFury.dds"]={
 					h=128,
 					w=128,
-					x=384,
-					y=960
+					x=768,
+					y=768
 				},
 				["Art/2DArt/SkillIcons/passives/Infernalist/ScorchTheEarth.dds"]={
 					h=128,
 					w=128,
-					x=512,
-					y=2752
+					x=128,
+					y=2304
 				},
 				["Art/2DArt/SkillIcons/passives/Inquistitor/IncreasedElementalDamageAttackCasteSpeed.dds"]={
 					h=64,
 					w=64,
-					x=832,
-					y=320
+					x=704,
+					y=256
 				},
 				["Art/2DArt/SkillIcons/passives/Invoker/InvokerChillChanceBasedOnDamage.dds"]={
 					h=128,
 					w=128,
 					x=768,
-					y=448
+					y=384
 				},
 				["Art/2DArt/SkillIcons/passives/Invoker/InvokerCriticalStrikesIgnoreResistances.dds"]={
 					h=128,
 					w=128,
-					x=0,
-					y=960
+					x=384,
+					y=768
 				},
 				["Art/2DArt/SkillIcons/passives/Invoker/InvokerEnergyDoubled.dds"]={
 					h=128,
 					w=128,
-					x=0,
-					y=2624
+					x=1280,
+					y=2048
 				},
 				["Art/2DArt/SkillIcons/passives/Invoker/InvokerEvasionEnergyShieldGrantsSpirit.dds"]={
 					h=128,
 					w=128,
-					x=256,
-					y=832
+					x=896,
+					y=640
 				},
 				["Art/2DArt/SkillIcons/passives/Invoker/InvokerEvasionGrantsPhysicalDamageReduction.dds"]={
 					h=128,
 					w=128,
-					x=384,
-					y=1472
+					x=1152,
+					y=1152
 				},
 				["Art/2DArt/SkillIcons/passives/Invoker/InvokerGrantsMeditate.dds"]={
 					h=128,
 					w=128,
-					x=1024,
-					y=2496
+					x=1152,
+					y=2048
 				},
 				["Art/2DArt/SkillIcons/passives/Invoker/InvokerShockMagnitude.dds"]={
 					h=128,
 					w=128,
-					x=512,
-					y=2112
+					x=0,
+					y=1792
 				},
 				["Art/2DArt/SkillIcons/passives/Invoker/InvokerUnboundAvatar.dds"]={
 					h=128,
 					w=128,
-					x=0,
-					y=2240
+					x=640,
+					y=1792
 				},
 				["Art/2DArt/SkillIcons/passives/Invoker/InvokerWildStrike.dds"]={
 					h=128,
 					w=128,
-					x=128,
-					y=1088
+					x=256,
+					y=896
 				},
 				["Art/2DArt/SkillIcons/passives/LifeRecoupNode.dds"]={
 					h=64,
 					w=64,
-					x=896,
-					y=384
+					x=448,
+					y=320
 				},
 				["Art/2DArt/SkillIcons/passives/LightningDamagenode.dds"]={
 					h=64,
 					w=64,
-					x=448,
-					y=128
+					x=1280,
+					y=64
 				},
 				["Art/2DArt/SkillIcons/passives/ManaLeechThemedNode.dds"]={
 					h=64,
 					w=64,
-					x=512,
-					y=192
+					x=1024,
+					y=128
 				},
 				["Art/2DArt/SkillIcons/passives/MarkNode.dds"]={
 					h=64,
 					w=64,
-					x=0,
-					y=192
+					x=512,
+					y=128
 				},
 				["Art/2DArt/SkillIcons/passives/MeleeAoENode.dds"]={
 					h=64,
 					w=64,
-					x=704,
+					x=384,
 					y=64
 				},
 				["Art/2DArt/SkillIcons/passives/Meleerange.dds"]={
 					h=128,
 					w=128,
-					x=896,
-					y=832
+					x=128,
+					y=768
 				},
 				["Art/2DArt/SkillIcons/passives/MineAreaOfEffectNode.dds"]={
 					h=64,
 					w=64,
-					x=576,
-					y=256
+					x=768,
+					y=192
 				},
 				["Art/2DArt/SkillIcons/passives/MineManaReservationNotable.dds"]={
 					h=128,
 					w=128,
-					x=128,
-					y=960
+					x=512,
+					y=768
 				},
 				["Art/2DArt/SkillIcons/passives/MinionChaosResistanceNode.dds"]={
 					h=64,
 					w=64,
-					x=256,
-					y=192
+					x=768,
+					y=128
 				},
 				["Art/2DArt/SkillIcons/passives/MinionElementalResistancesNode.dds"]={
 					h=64,
 					w=64,
-					x=960,
-					y=320
+					x=832,
+					y=256
 				},
 				["Art/2DArt/SkillIcons/passives/MinionsandManaNode.dds"]={
 					h=64,
@@ -89202,74 +87592,74 @@ return {
 				["Art/2DArt/SkillIcons/passives/MiracleMaker.dds"]={
 					h=128,
 					w=128,
-					x=640,
-					y=1088
+					x=768,
+					y=896
 				},
 				["Art/2DArt/SkillIcons/passives/NodeDualWieldingDamage.dds"]={
 					h=64,
 					w=64,
-					x=896,
-					y=320
+					x=768,
+					y=256
 				},
 				["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds"]={
 					h=128,
 					w=128,
-					x=1024,
-					y=1472
+					x=384,
+					y=1280
 				},
 				["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderBrewConcoction.dds"]={
 					h=128,
 					w=128,
-					x=640,
-					y=2112
+					x=128,
+					y=1792
 				},
 				["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderCannotBeSlowed.dds"]={
 					h=128,
 					w=128,
-					x=128,
-					y=832
+					x=768,
+					y=640
 				},
 				["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderEnemiesMultiplePoisons.dds"]={
 					h=128,
 					w=128,
-					x=896,
-					y=1600
+					x=0,
+					y=1408
 				},
 				["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderFlasksConsumeLessCharges.dds"]={
 					h=128,
 					w=128,
-					x=128,
-					y=2112
+					x=1024,
+					y=1664
 				},
 				["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderLifeFlasks.dds"]={
 					h=128,
 					w=128,
 					x=0,
-					y=448
+					y=384
 				},
 				["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderMoreMovemenSpeedUsingSkills.dds"]={
 					h=128,
 					w=128,
-					x=0,
-					y=2112
+					x=896,
+					y=1664
 				},
 				["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderPoisonSpreadsNearbyEnemies.dds"]={
 					h=128,
 					w=128,
-					x=768,
-					y=1600
+					x=1280,
+					y=1280
 				},
 				["Art/2DArt/SkillIcons/passives/PhysicalDamageChaosNode.dds"]={
 					h=64,
 					w=64,
-					x=192,
-					y=320
+					x=64,
+					y=256
 				},
 				["Art/2DArt/SkillIcons/passives/PhysicalDamageNode.dds"]={
 					h=64,
 					w=64,
-					x=128,
-					y=192
+					x=640,
+					y=128
 				},
 				["Art/2DArt/SkillIcons/passives/PhysicalDamageOverTimeNode.dds"]={
 					h=64,
@@ -89280,338 +87670,338 @@ return {
 				["Art/2DArt/SkillIcons/passives/PhysicalDamageOverTimeNotable.dds"]={
 					h=128,
 					w=128,
-					x=256,
-					y=2624
+					x=128,
+					y=2176
 				},
 				["Art/2DArt/SkillIcons/passives/Poison.dds"]={
 					h=128,
 					w=128,
-					x=0,
-					y=1472
+					x=768,
+					y=1152
 				},
 				["Art/2DArt/SkillIcons/passives/PressurePoints.dds"]={
 					h=128,
 					w=128,
 					x=256,
-					y=448
+					y=384
 				},
 				["Art/2DArt/SkillIcons/passives/ProjectilesNotable.dds"]={
 					h=128,
 					w=128,
-					x=512,
-					y=2496
+					x=640,
+					y=2048
 				},
 				["Art/2DArt/SkillIcons/passives/Rage.dds"]={
 					h=64,
 					w=64,
-					x=384,
-					y=128
+					x=1216,
+					y=64
 				},
 				["Art/2DArt/SkillIcons/passives/ReducedSkillEffectDurationNode.dds"]={
 					h=64,
 					w=64,
-					x=0,
-					y=384
+					x=1024,
+					y=256
 				},
 				["Art/2DArt/SkillIcons/passives/ShieldNodeOffensive.dds"]={
 					h=64,
 					w=64,
-					x=640,
-					y=384
+					x=192,
+					y=320
 				},
 				["Art/2DArt/SkillIcons/passives/SpellSuppresionNode.dds"]={
 					h=64,
 					w=64,
-					x=1088,
-					y=384
+					x=640,
+					y=320
 				},
 				["Art/2DArt/SkillIcons/passives/Storm Weaver.dds"]={
 					h=128,
 					w=128,
-					x=896,
-					y=576
+					x=640,
+					y=512
 				},
 				["Art/2DArt/SkillIcons/passives/Stormweaver/AllDamageCanChill.dds"]={
 					h=128,
 					w=128,
-					x=768,
-					y=2496
+					x=896,
+					y=2048
 				},
 				["Art/2DArt/SkillIcons/passives/Stormweaver/AllDamageCanShock.dds"]={
 					h=128,
 					w=128,
-					x=640,
-					y=2880
+					x=0,
+					y=2432
 				},
 				["Art/2DArt/SkillIcons/passives/Stormweaver/ChillAddditionalTime.dds"]={
 					h=128,
 					w=128,
-					x=512,
-					y=2880
+					x=1280,
+					y=2304
 				},
 				["Art/2DArt/SkillIcons/passives/Stormweaver/ElementalDamageHealsYou.dds"]={
 					h=128,
 					w=128,
-					x=768,
-					y=1472
+					x=128,
+					y=1280
 				},
 				["Art/2DArt/SkillIcons/passives/Stormweaver/ElementalResistanceInverted.dds"]={
 					h=128,
 					w=128,
-					x=640,
-					y=2496
+					x=768,
+					y=2048
 				},
 				["Art/2DArt/SkillIcons/passives/Stormweaver/GrantsArcaneSurge.dds"]={
 					h=128,
 					w=128,
-					x=896,
-					y=1088
+					x=1024,
+					y=896
 				},
 				["Art/2DArt/SkillIcons/passives/Stormweaver/GrantsElementalStorm.dds"]={
 					h=128,
 					w=128,
-					x=384,
-					y=2752
+					x=0,
+					y=2304
 				},
 				["Art/2DArt/SkillIcons/passives/Stormweaver/ImprovedArcaneSurge.dds"]={
 					h=128,
 					w=128,
-					x=384,
-					y=832
+					x=1024,
+					y=640
 				},
 				["Art/2DArt/SkillIcons/passives/Stormweaver/ImprovedElementalStorm.dds"]={
 					h=128,
 					w=128,
-					x=256,
-					y=1984
+					x=0,
+					y=1664
 				},
 				["Art/2DArt/SkillIcons/passives/Stormweaver/ShockAddditionalTime.dds"]={
 					h=128,
 					w=128,
-					x=256,
-					y=2880
+					x=1024,
+					y=2304
 				},
 				["Art/2DArt/SkillIcons/passives/Temporalist/TemporalistChanceSkillNoCooldownSkill.dds"]={
 					h=128,
 					w=128,
-					x=128,
-					y=2496
+					x=256,
+					y=2048
 				},
 				["Art/2DArt/SkillIcons/passives/Temporalist/TemporalistFasterRecoup.dds"]={
 					h=128,
 					w=128,
-					x=1024,
-					y=1984
+					x=768,
+					y=1664
 				},
 				["Art/2DArt/SkillIcons/passives/Temporalist/TemporalistGainMoreCastSpeed8Seconds.dds"]={
 					h=128,
 					w=128,
-					x=640,
-					y=576
+					x=384,
+					y=512
 				},
 				["Art/2DArt/SkillIcons/passives/Temporalist/TemporalistGrantsReloadCooldownsSkill.dds"]={
 					h=128,
 					w=128,
-					x=640,
-					y=2368
+					x=1024,
+					y=1920
 				},
 				["Art/2DArt/SkillIcons/passives/Temporalist/TemporalistGrantsTemporalRiftSkill.dds"]={
 					h=128,
 					w=128,
-					x=256,
-					y=2112
+					x=1152,
+					y=1664
 				},
 				["Art/2DArt/SkillIcons/passives/Temporalist/TemporalistGrantsTimeStopSkill.dds"]={
 					h=128,
 					w=128,
-					x=896,
-					y=960
+					x=1280,
+					y=768
 				},
 				["Art/2DArt/SkillIcons/passives/Temporalist/TemporalistLifeRecoup.dds"]={
 					h=128,
 					w=128,
-					x=384,
-					y=1600
+					x=896,
+					y=1280
 				},
 				["Art/2DArt/SkillIcons/passives/Temporalist/TemporalistNearbyEnemiesProjectilesSlowed.dds"]={
 					h=128,
 					w=128,
-					x=384,
-					y=704
+					x=1280,
+					y=512
 				},
 				["Art/2DArt/SkillIcons/passives/Titan/TitanAdditionalInventory.dds"]={
 					h=128,
 					w=128,
-					x=512,
-					y=1600
+					x=1024,
+					y=1280
 				},
 				["Art/2DArt/SkillIcons/passives/Titan/TitanMoreBodyArmour.dds"]={
 					h=128,
 					w=128,
-					x=384,
-					y=1344
+					x=0,
+					y=1152
 				},
 				["Art/2DArt/SkillIcons/passives/Titan/TitanMoreMaxLife.dds"]={
 					h=128,
 					w=128,
-					x=1024,
-					y=2752
+					x=640,
+					y=2304
 				},
 				["Art/2DArt/SkillIcons/passives/Titan/TitanMoreStunBuildupEnemies.dds"]={
 					h=128,
 					w=128,
-					x=384,
-					y=2880
+					x=1152,
+					y=2304
 				},
 				["Art/2DArt/SkillIcons/passives/Titan/TitanSlamSkillsAftershock.dds"]={
 					h=128,
 					w=128,
-					x=640,
-					y=1600
+					x=1152,
+					y=1280
 				},
 				["Art/2DArt/SkillIcons/passives/Titan/TitanSlamSkillsFistOfWar.dds"]={
 					h=128,
 					w=128,
-					x=128,
-					y=2368
+					x=512,
+					y=1920
 				},
 				["Art/2DArt/SkillIcons/passives/Titan/TitanSmallPassiveDoubled.dds"]={
 					h=128,
 					w=128,
-					x=896,
-					y=2368
+					x=1280,
+					y=1920
 				},
 				["Art/2DArt/SkillIcons/passives/Titan/TitanYourHitsCrushEnemies.dds"]={
 					h=128,
 					w=128,
-					x=0,
-					y=1344
+					x=1024,
+					y=1024
 				},
 				["Art/2DArt/SkillIcons/passives/WarCryEffect.dds"]={
 					h=64,
 					w=64,
-					x=320,
-					y=192
+					x=832,
+					y=128
 				},
 				["Art/2DArt/SkillIcons/passives/Warbringer/WarbringerBlockChance.dds"]={
 					h=128,
 					w=128,
-					x=640,
-					y=1728
+					x=896,
+					y=1408
 				},
 				["Art/2DArt/SkillIcons/passives/Warbringer/WarbringerBreakEnemyArmour.dds"]={
 					h=128,
 					w=128,
 					x=512,
-					y=1856
+					y=1536
 				},
 				["Art/2DArt/SkillIcons/passives/Warbringer/WarbringerCanBlockAllDamageShieldNotRaised.dds"]={
 					h=128,
 					w=128,
-					x=384,
-					y=2496
+					x=512,
+					y=2048
 				},
 				["Art/2DArt/SkillIcons/passives/Warbringer/WarbringerDamageTakenByTotems.dds"]={
 					h=128,
 					w=128,
-					x=512,
-					y=2240
+					x=1152,
+					y=1792
 				},
 				["Art/2DArt/SkillIcons/passives/Warbringer/WarbringerEncasedInJade.dds"]={
 					h=128,
 					w=128,
-					x=256,
-					y=2368
+					x=640,
+					y=1920
 				},
 				["Art/2DArt/SkillIcons/passives/Warbringer/WarbringerEnemyArmourBrokenBelowZero.dds"]={
 					h=128,
 					w=128,
-					x=640,
-					y=2752
+					x=256,
+					y=2304
 				},
 				["Art/2DArt/SkillIcons/passives/Warbringer/WarbringerTotemsDefendedByAncestors.dds"]={
 					h=128,
 					w=128,
-					x=896,
-					y=2240
+					x=128,
+					y=1920
 				},
 				["Art/2DArt/SkillIcons/passives/Warbringer/WarbringerWarcriesNoCooldown.dds"]={
 					h=128,
 					w=128,
-					x=512,
-					y=1344
+					x=128,
+					y=1152
 				},
 				["Art/2DArt/SkillIcons/passives/Warbringer/WarbringerWarcryExplodesCorpses.dds"]={
 					h=128,
 					w=128,
-					x=768,
-					y=1984
+					x=512,
+					y=1664
 				},
 				["Art/2DArt/SkillIcons/passives/Warrior.dds"]={
 					h=128,
 					w=128,
-					x=384,
-					y=1216
+					x=256,
+					y=1024
 				},
 				["Art/2DArt/SkillIcons/passives/Witchhunter/WitchunterArmourEvasionConvertedSpellAegis.dds"]={
 					h=128,
 					w=128,
-					x=0,
-					y=1984
+					x=1152,
+					y=1536
 				},
 				["Art/2DArt/SkillIcons/passives/Witchhunter/WitchunterCullingStrike.dds"]={
 					h=128,
 					w=128,
-					x=0,
-					y=2880
+					x=768,
+					y=2304
 				},
 				["Art/2DArt/SkillIcons/passives/Witchhunter/WitchunterDamageMonsterMissingFocus.dds"]={
 					h=128,
 					w=128,
-					x=0,
-					y=2368
+					x=384,
+					y=1920
 				},
 				["Art/2DArt/SkillIcons/passives/Witchhunter/WitchunterDrainMonsterFocus.dds"]={
 					h=128,
 					w=128,
-					x=896,
-					y=1344
+					x=512,
+					y=1152
 				},
 				["Art/2DArt/SkillIcons/passives/Witchhunter/WitchunterMonsterHolyExplosion.dds"]={
 					h=128,
 					w=128,
-					x=1024,
-					y=1344
+					x=640,
+					y=1152
 				},
 				["Art/2DArt/SkillIcons/passives/Witchhunter/WitchunterRemovePercentageFullLifeEnemies.dds"]={
 					h=128,
 					w=128,
 					x=128,
-					y=448
+					y=384
 				},
 				["Art/2DArt/SkillIcons/passives/Witchhunter/WitchunterSpecPoints.dds"]={
 					h=128,
 					w=128,
-					x=1024,
-					y=1088
+					x=1152,
+					y=896
 				},
 				["Art/2DArt/SkillIcons/passives/Witchhunter/WitchunterStrongerSpellAegis.dds"]={
 					h=128,
 					w=128,
-					x=1024,
-					y=1600
+					x=128,
+					y=1408
 				},
 				["Art/2DArt/SkillIcons/passives/accuracydex.dds"]={
 					h=64,
 					w=64,
-					x=448,
+					x=128,
 					y=64
 				},
 				["Art/2DArt/SkillIcons/passives/accuracystr.dds"]={
 					h=64,
 					w=64,
-					x=768,
-					y=192
+					x=1280,
+					y=128
 				},
 				["Art/2DArt/SkillIcons/passives/areaofeffect.dds"]={
 					h=64,
@@ -89622,86 +88012,86 @@ return {
 				["Art/2DArt/SkillIcons/passives/attackspeed.dds"]={
 					h=64,
 					w=64,
-					x=192,
-					y=384
+					x=1216,
+					y=256
 				},
 				["Art/2DArt/SkillIcons/passives/attackspeedbow.dds"]={
 					h=64,
 					w=64,
-					x=256,
-					y=384
+					x=1280,
+					y=256
 				},
 				["Art/2DArt/SkillIcons/passives/auraeffect.dds"]={
 					h=64,
 					w=64,
-					x=512,
-					y=128
+					x=1344,
+					y=64
 				},
 				["Art/2DArt/SkillIcons/passives/avoidchilling.dds"]={
 					h=64,
 					w=64,
-					x=1088,
+					x=128,
 					y=192
 				},
 				["Art/2DArt/SkillIcons/passives/blockstr.dds"]={
 					h=64,
 					w=64,
-					x=960,
+					x=640,
 					y=64
 				},
 				["Art/2DArt/SkillIcons/passives/bodysoul.dds"]={
 					h=128,
 					w=128,
-					x=1024,
-					y=704
+					x=512,
+					y=640
 				},
 				["Art/2DArt/SkillIcons/passives/castspeed.dds"]={
 					h=64,
 					w=64,
-					x=384,
-					y=192
+					x=896,
+					y=128
 				},
 				["Art/2DArt/SkillIcons/passives/chargedex.dds"]={
 					h=64,
 					w=64,
-					x=576,
-					y=384
+					x=128,
+					y=320
 				},
 				["Art/2DArt/SkillIcons/passives/chargeint.dds"]={
 					h=64,
 					w=64,
-					x=320,
-					y=128
+					x=1152,
+					y=64
 				},
 				["Art/2DArt/SkillIcons/passives/chargestr.dds"]={
 					h=64,
 					w=64,
-					x=1088,
+					x=448,
 					y=128
 				},
 				["Art/2DArt/SkillIcons/passives/clustersLinknode2.dds"]={
 					h=64,
 					w=64,
-					x=256,
-					y=320
+					x=128,
+					y=256
 				},
 				["Art/2DArt/SkillIcons/passives/colddamage.dds"]={
 					h=64,
 					w=64,
-					x=640,
-					y=192
+					x=1152,
+					y=128
 				},
 				["Art/2DArt/SkillIcons/passives/criticaldaggerint.dds"]={
 					h=64,
 					w=64,
-					x=0,
-					y=128
+					x=832,
+					y=64
 				},
 				["Art/2DArt/SkillIcons/passives/criticalstrikechance.dds"]={
 					h=64,
 					w=64,
-					x=192,
-					y=64
+					x=1344,
+					y=0
 				},
 				["Art/2DArt/SkillIcons/passives/damage.dds"]={
 					h=64,
@@ -89712,8 +88102,8 @@ return {
 				["Art/2DArt/SkillIcons/passives/damage_blue.dds"]={
 					h=64,
 					w=64,
-					x=320,
-					y=256
+					x=512,
+					y=192
 				},
 				["Art/2DArt/SkillIcons/passives/damageaxe.dds"]={
 					h=64,
@@ -89724,44 +88114,44 @@ return {
 				["Art/2DArt/SkillIcons/passives/damagespells.dds"]={
 					h=64,
 					w=64,
-					x=192,
-					y=192
+					x=704,
+					y=128
 				},
 				["Art/2DArt/SkillIcons/passives/damagestaff.dds"]={
 					h=64,
 					w=64,
-					x=128,
-					y=128
+					x=960,
+					y=64
 				},
 				["Art/2DArt/SkillIcons/passives/damagesword.dds"]={
 					h=64,
 					w=64,
-					x=64,
-					y=192
+					x=576,
+					y=128
 				},
 				["Art/2DArt/SkillIcons/passives/deepwisdom.dds"]={
 					h=128,
 					w=128,
-					x=1024,
-					y=832
+					x=256,
+					y=768
 				},
 				["Art/2DArt/SkillIcons/passives/dmgreduction.dds"]={
 					h=64,
 					w=64,
-					x=576,
+					x=256,
 					y=64
 				},
 				["Art/2DArt/SkillIcons/passives/eagleeye.dds"]={
 					h=128,
 					w=128,
-					x=640,
-					y=704
+					x=128,
+					y=640
 				},
 				["Art/2DArt/SkillIcons/passives/elementaldamage.dds"]={
 					h=64,
 					w=64,
-					x=576,
-					y=192
+					x=1088,
+					y=128
 				},
 				["Art/2DArt/SkillIcons/passives/energyshield.dds"]={
 					h=64,
@@ -89772,116 +88162,116 @@ return {
 				["Art/2DArt/SkillIcons/passives/evade.dds"]={
 					h=64,
 					w=64,
-					x=384,
-					y=384
+					x=1408,
+					y=256
 				},
 				["Art/2DArt/SkillIcons/passives/executioner.dds"]={
 					h=128,
 					w=128,
-					x=0,
-					y=704
+					x=896,
+					y=512
 				},
 				["Art/2DArt/SkillIcons/passives/finesse.dds"]={
 					h=128,
 					w=128,
-					x=384,
-					y=1088
+					x=512,
+					y=896
 				},
 				["Art/2DArt/SkillIcons/passives/firedamageint.dds"]={
 					h=64,
 					w=64,
-					x=1088,
-					y=256
+					x=1280,
+					y=192
 				},
 				["Art/2DArt/SkillIcons/passives/firedamagestr.dds"]={
 					h=64,
 					w=64,
-					x=192,
-					y=256
+					x=384,
+					y=192
 				},
 				["Art/2DArt/SkillIcons/passives/flaskdex.dds"]={
 					h=64,
 					w=64,
-					x=384,
-					y=320
+					x=256,
+					y=256
 				},
 				["Art/2DArt/SkillIcons/passives/flaskint.dds"]={
 					h=64,
 					w=64,
-					x=960,
-					y=256
+					x=1152,
+					y=192
 				},
 				["Art/2DArt/SkillIcons/passives/flaskstr.dds"]={
 					h=64,
 					w=64,
-					x=320,
+					x=0,
 					y=64
 				},
 				["Art/2DArt/SkillIcons/passives/icebite.dds"]={
 					h=128,
 					w=128,
-					x=384,
-					y=2240
+					x=1024,
+					y=1792
 				},
 				["Art/2DArt/SkillIcons/passives/increasedrunspeeddex.dds"]={
 					h=64,
 					w=64,
-					x=768,
-					y=384
+					x=320,
+					y=320
 				},
 				["Art/2DArt/SkillIcons/passives/knockback.dds"]={
 					h=64,
 					w=64,
-					x=896,
-					y=256
+					x=1088,
+					y=192
 				},
 				["Art/2DArt/SkillIcons/passives/life1.dds"]={
 					h=64,
 					w=64,
-					x=1024,
+					x=704,
 					y=64
 				},
 				["Art/2DArt/SkillIcons/passives/lifeleech.dds"]={
 					h=128,
 					w=128,
-					x=0,
-					y=2496
+					x=128,
+					y=2048
 				},
 				["Art/2DArt/SkillIcons/passives/lifepercentage.dds"]={
 					h=64,
 					w=64,
-					x=896,
+					x=256,
 					y=128
 				},
 				["Art/2DArt/SkillIcons/passives/lightningint.dds"]={
 					h=64,
 					w=64,
-					x=768,
+					x=448,
 					y=64
 				},
 				["Art/2DArt/SkillIcons/passives/macedmg.dds"]={
 					h=64,
 					w=64,
-					x=448,
-					y=320
+					x=320,
+					y=256
 				},
 				["Art/2DArt/SkillIcons/passives/mana.dds"]={
 					h=64,
 					w=64,
-					x=960,
+					x=0,
 					y=192
 				},
 				["Art/2DArt/SkillIcons/passives/manaregeneration.dds"]={
 					h=64,
 					w=64,
-					x=1024,
-					y=320
+					x=896,
+					y=256
 				},
 				["Art/2DArt/SkillIcons/passives/manastr.dds"]={
 					h=64,
 					w=64,
-					x=1024,
-					y=256
+					x=1216,
+					y=192
 				},
 				["Art/2DArt/SkillIcons/passives/miniondamageBlue.dds"]={
 					h=64,
@@ -89898,38 +88288,38 @@ return {
 				["Art/2DArt/SkillIcons/passives/newnewattackspeed.dds"]={
 					h=128,
 					w=128,
-					x=768,
-					y=2112
+					x=256,
+					y=1792
 				},
 				["Art/2DArt/SkillIcons/passives/onehanddamage.dds"]={
 					h=64,
 					w=64,
-					x=64,
-					y=64
+					x=1216,
+					y=0
 				},
 				["Art/2DArt/SkillIcons/passives/plusdexterity.dds"]={
 					h=64,
 					w=64,
-					x=640,
-					y=320
+					x=512,
+					y=256
 				},
 				["Art/2DArt/SkillIcons/passives/plusintelligence.dds"]={
 					h=64,
 					w=64,
-					x=64,
-					y=256
+					x=256,
+					y=192
 				},
 				["Art/2DArt/SkillIcons/passives/plusstrength.dds"]={
 					h=64,
 					w=64,
-					x=320,
-					y=320
+					x=192,
+					y=256
 				},
 				["Art/2DArt/SkillIcons/passives/projectilespeed.dds"]={
 					h=64,
 					w=64,
-					x=832,
-					y=384
+					x=384,
+					y=320
 				},
 				["Art/2DArt/SkillIcons/passives/shieldblock.dds"]={
 					h=64,
@@ -89940,49 +88330,49 @@ return {
 				["Art/2DArt/SkillIcons/passives/spellcritical.dds"]={
 					h=64,
 					w=64,
-					x=192,
-					y=128
+					x=1024,
+					y=64
 				},
 				["Art/2DArt/SkillIcons/passives/steelspan.dds"]={
 					h=128,
 					w=128,
-					x=256,
-					y=704
+					x=1152,
+					y=512
 				},
 				["Art/2DArt/SkillIcons/passives/strongarm.dds"]={
 					h=128,
 					w=128,
-					x=512,
-					y=1088
+					x=640,
+					y=896
 				},
 				["Art/2DArt/SkillIcons/passives/stun2h.dds"]={
 					h=64,
 					w=64,
-					x=896,
-					y=192
+					x=1408,
+					y=128
 				},
 				["Art/2DArt/SkillIcons/passives/stunstr.dds"]={
 					h=64,
 					w=64,
-					x=832,
-					y=192
+					x=1344,
+					y=128
 				},
 				["Art/2DArt/SkillIcons/passives/totemandbrandlife.dds"]={
 					h=64,
 					w=64,
-					x=0,
-					y=256
+					x=192,
+					y=192
 				},
 				["Art/2DArt/SkillIcons/passives/trapdamage.dds"]={
 					h=64,
 					w=64,
-					x=704,
-					y=384
+					x=256,
+					y=320
 				}
 			},
 			filename="skills-disabled.png",
-			h=3356,
-			w=1152
+			h=2908,
+			w=1472
 		},
 		oil={
 			coords={
@@ -90057,12 +88447,12 @@ return {
 					h=172,
 					w=172,
 					x=0,
-					y=3008
+					y=2560
 				}
 			},
 			filename="skills.png",
-			h=3356,
-			w=1152
+			h=2908,
+			w=1472
 		},
 		socketInactive={
 			coords={
@@ -90070,12 +88460,12 @@ return {
 					h=172,
 					w=172,
 					x=0,
-					y=3008
+					y=2560
 				}
 			},
 			filename="skills-disabled.png",
-			h=3356,
-			w=1152
+			h=2908,
+			w=1472
 		},
 		startNode={
 			coords={
@@ -90084,46 +88474,10 @@ return {
 					w=528,
 					x=0,
 					y=2592
-				},
-				centerduelist={
-					h=580,
-					w=632,
-					x=0,
-					y=3120
-				},
-				centermarauder={
-					h=580,
-					w=632,
-					x=0,
-					y=5440
-				},
-				centerranger={
-					h=580,
-					w=632,
-					x=0,
-					y=6020
-				},
-				centershadow={
-					h=580,
-					w=632,
-					x=0,
-					y=3700
-				},
-				centertemplar={
-					h=580,
-					w=632,
-					x=0,
-					y=4280
-				},
-				centerwitch={
-					h=580,
-					w=632,
-					x=0,
-					y=4860
 				}
 			},
 			filename="group-background.png",
-			h=8344,
+			h=4864,
 			w=952
 		}
 	},
