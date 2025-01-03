@@ -826,7 +826,10 @@ function PassiveTreeClass:GetNodeTargetSize(node)
 			width = math.floor(37  * self.scaleImage), height = math.floor( 37  * self.scaleImage)
 		}
 	elseif node.type == "Socket" then
-		return { width = math.floor(76 * self.scaleImage), height = math.floor(76 * self.scaleImage) }
+		return {
+			['overlay'] = {width = math.floor(76 * self.scaleImage), height = math.floor(76 * self.scaleImage) },
+			width = math.floor(76 * self.scaleImage), height = math.floor(76 * self.scaleImage)
+		}
 	elseif node.type == "ClassStart" then
 		return { width = math.floor(54 * self.scaleImage), height = math.floor(54 * self.scaleImage) }
 	else
