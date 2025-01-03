@@ -709,7 +709,7 @@ function PassiveTreeClass:BuildConnector(node1, node2, connection)
 	local art = self:GetAssetByName("LineConnectorNormal", "line")
 	local vX, vY = node2.x - node1.x, node2.y - node1.y
 	local dist = m_sqrt(vX * vX + vY * vY)
-	local scale = 16 * self.scaleImage / dist
+	local scale = art.height * 0.5 * self.scaleImage / dist
 	local nX, nY = vX * scale, vY * scale
 	local endS = dist / (art.width * self.scaleImage)
 	connector[1], connector[2] = node1.x - nY, node1.y + nX
@@ -742,7 +742,8 @@ function PassiveTreeClass:BuildArc(arcAngle, orbit, xScale, yScale, angle, conne
 	connector.vert = { }
 	for _, state in pairs({ "Normal", "Intermediate", "Active" }) do
 		-- The different line states have differently-sized artwork, so the vertex coords must be calculated separately for each one
-		local size = self.orbitRadii[orbit + 1]  * self.scaleImage
+		local art  = self:GetAssetByName(connector.type .. state, "line")
+		local size =  art.width * self.scaleImage --self.orbitRadii[orbit + 1]  * self.scaleImage
 		local oX, oY = size * m_sqrt(2) * m_sin(angle + m_pi / 4), size * m_sqrt(2) * -m_cos(angle + m_pi / 4)
 		local cX, cY = xScale + oX, yScale + oY
 		local vert = { }
