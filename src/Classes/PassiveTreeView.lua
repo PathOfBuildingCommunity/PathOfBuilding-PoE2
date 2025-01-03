@@ -707,7 +707,7 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 				SetDrawColor(1,1,1, 0.15)
 				self:DrawAsset(base, scrX, scrY, scale)
 			else
-				self:DrawAsset(base, scrX, scrY, scale * 0.68)
+				self:DrawAsset(base, scrX, scrY, scale)
 			end
 		end
 
@@ -757,9 +757,9 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 				additionalScale = 1.30
 			end
 			-- apply target size to the base image
-			if overlayImage and node.targetSize then
-				overlayImage.width = node.targetSize.width * additionalScale
-				overlayImage.height = node.targetSize.height * additionalScale
+			if overlayImage and node.targetSize and node.targetSize["overlay"] then
+				overlayImage.width = node.targetSize["overlay"].width * additionalScale
+				overlayImage.height = node.targetSize["overlay"].height * additionalScale
 			end
 			self:DrawAsset(overlayImage, scrX, scrY, scale)
 			SetDrawColor(1, 1, 1)
