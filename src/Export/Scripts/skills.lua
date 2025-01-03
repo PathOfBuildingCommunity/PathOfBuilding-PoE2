@@ -796,7 +796,8 @@ for skillGem in dat("SkillGems"):Rows() do
 			out:write('\t\treqStr = ', skillGem.Str, ',\n')
 			out:write('\t\treqDex = ', skillGem.Dex, ',\n')
 			out:write('\t\treqInt = ', skillGem.Int, ',\n')
-			local naturalMaxLevel = #dat("ItemExperiencePerLevel"):GetRowList("ItemExperienceType", skillGem.GemLevelProgression)
+			-- overriding level to 1 if support because dat currently has incorrect progression for most supports
+			local naturalMaxLevel = skillGem.IsSupport and 1 or #dat("ItemExperiencePerLevel"):GetRowList("ItemExperienceType", skillGem.GemLevelProgression)
 			out:write('\t\tnaturalMaxLevel = ', naturalMaxLevel > 0 and naturalMaxLevel or 1, ',\n')
 			out:write('\t},\n')
 		end

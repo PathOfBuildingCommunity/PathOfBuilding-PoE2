@@ -117,7 +117,7 @@ return {
 		reqStr = 100,
 		reqDex = 0,
 		reqInt = 0,
-		naturalMaxLevel = 20,
+		naturalMaxLevel = 1,
 	},
 	["Metadata/Items/Gems/SkillGemFasterAttackSupport"] = {
 		name = "Martial Tempo",
@@ -132,7 +132,7 @@ return {
 		reqStr = 0,
 		reqDex = 100,
 		reqInt = 0,
-		naturalMaxLevel = 20,
+		naturalMaxLevel = 1,
 	},
 	["Metadata/Items/Gems/SkillGemMultipleProjectilesSupport"] = {
 		name = "Scattershot",
@@ -147,7 +147,7 @@ return {
 		reqStr = 0,
 		reqDex = 100,
 		reqInt = 0,
-		naturalMaxLevel = 20,
+		naturalMaxLevel = 1,
 	},
 	["Metadata/Items/Gems/SkillGemFasterProjectilesSupport"] = {
 		name = "Acceleration",
@@ -162,7 +162,7 @@ return {
 		reqStr = 0,
 		reqDex = 100,
 		reqInt = 0,
-		naturalMaxLevel = 20,
+		naturalMaxLevel = 1,
 	},
 	["Metadata/Items/Gems/SkillGemAddedColdDamageSupport"] = {
 		name = "Cold Infusion",
@@ -178,7 +178,7 @@ return {
 		reqStr = 0,
 		reqDex = 0,
 		reqInt = 100,
-		naturalMaxLevel = 20,
+		naturalMaxLevel = 1,
 	},
 	["Metadata/Items/Gems/SkillGemAdditionalAccuracySupport"] = {
 		name = "Bullseye",
@@ -193,7 +193,7 @@ return {
 		reqStr = 0,
 		reqDex = 100,
 		reqInt = 0,
-		naturalMaxLevel = 20,
+		naturalMaxLevel = 1,
 	},
 	["Metadata/Items/Gems/SkillGemIncreasedAreaOfEffectSupport"] = {
 		name = "Magnified Effect",
@@ -208,7 +208,7 @@ return {
 		reqStr = 0,
 		reqDex = 0,
 		reqInt = 100,
-		naturalMaxLevel = 20,
+		naturalMaxLevel = 1,
 	},
 	["Metadata/Items/Gems/SkillGemAddedLightningDamageSupport"] = {
 		name = "Lightning Infusion",
@@ -224,7 +224,7 @@ return {
 		reqStr = 0,
 		reqDex = 100,
 		reqInt = 0,
-		naturalMaxLevel = 20,
+		naturalMaxLevel = 1,
 	},
 	["Metadata/Items/Gems/SkillGemRaiseZombie"] = {
 		name = "Raise Zombie",
@@ -271,7 +271,7 @@ return {
 		reqStr = 0,
 		reqDex = 0,
 		reqInt = 100,
-		naturalMaxLevel = 20,
+		naturalMaxLevel = 1,
 	},
 	["Metadata/Items/Gems/SkillGemKnockbackSupport"] = {
 		name = "Bludgeon",
@@ -285,7 +285,7 @@ return {
 		reqStr = 100,
 		reqDex = 0,
 		reqInt = 0,
-		naturalMaxLevel = 20,
+		naturalMaxLevel = 1,
 	},
 	["Metadata/Items/Gems/SkillGemLifeLeechSupport"] = {
 		name = "Life Thief",
@@ -301,7 +301,7 @@ return {
 		reqStr = 100,
 		reqDex = 0,
 		reqInt = 0,
-		naturalMaxLevel = 20,
+		naturalMaxLevel = 1,
 	},
 	["Metadata/Items/Gems/SkillGemManaLeechSupport"] = {
 		name = "Soul Thief",
@@ -317,7 +317,7 @@ return {
 		reqStr = 0,
 		reqDex = 0,
 		reqInt = 100,
-		naturalMaxLevel = 20,
+		naturalMaxLevel = 1,
 	},
 	["Metadata/Items/Gems/SkillGemAddedChaosDamageSupport"] = {
 		name = "Chaos Infusion",
@@ -333,7 +333,7 @@ return {
 		reqStr = 0,
 		reqDex = 0,
 		reqInt = 100,
-		naturalMaxLevel = 20,
+		naturalMaxLevel = 1,
 	},
 	["Metadata/Items/Gems/SkillGemFlickerStrike"] = {
 		name = "Flicker Strike",
@@ -386,7 +386,7 @@ return {
 		reqStr = 0,
 		reqDex = 100,
 		reqInt = 0,
-		naturalMaxLevel = 20,
+		naturalMaxLevel = 1,
 	},
 	["Metadata/Items/Gems/SkillGemFrostWall"] = {
 		name = "Frost Wall",
@@ -422,7 +422,7 @@ return {
 		reqStr = 100,
 		reqDex = 0,
 		reqInt = 0,
-		naturalMaxLevel = 20,
+		naturalMaxLevel = 1,
 	},
 	["Metadata/Items/Gems/SkillGemFasterCastSupport"] = {
 		name = "Arcane Tempo",
@@ -437,7 +437,7 @@ return {
 		reqStr = 0,
 		reqDex = 0,
 		reqInt = 100,
-		naturalMaxLevel = 20,
+		naturalMaxLevel = 1,
 	},
 	["Metadata/Items/Gems/SkillGemTemporalChains"] = {
 		name = "Temporal Chains",
@@ -586,7 +586,7 @@ return {
 		reqStr = 0,
 		reqDex = 0,
 		reqInt = 100,
-		naturalMaxLevel = 20,
+		naturalMaxLevel = 1,
 	},
 	["Metadata/Items/Gems/SkillGemBloodlustSupport"] = {
 		name = "Bloodlust",
@@ -603,7 +603,7 @@ return {
 		reqStr = 100,
 		reqDex = 0,
 		reqInt = 0,
-		naturalMaxLevel = 20,
+		naturalMaxLevel = 1,
 	},
 	["Metadata/Items/Gems/SkillGemFirestorm"] = {
 		name = "Firestorm",
@@ -741,7 +741,7 @@ return {
 		reqStr = 0,
 		reqDex = 100,
 		reqInt = 0,
-		naturalMaxLevel = 20,
+		naturalMaxLevel = 1,
 	},
 	["Metadata/Items/Gems/SkillGemArc"] = {
 		name = "Arc",
@@ -794,7 +794,7 @@ return {
 		reqStr = 100,
 		reqDex = 0,
 		reqInt = 0,
-		naturalMaxLevel = 20,
+		naturalMaxLevel = 1,
 	},
 	["Metadata/Items/Gems/SkillGemColdPenetrationSupport"] = {
 		name = "Cold Penetration",
@@ -809,7 +809,7 @@ return {
 		reqStr = 0,
 		reqDex = 0,
 		reqInt = 100,
-		naturalMaxLevel = 20,
+		naturalMaxLevel = 1,
 	},
 	["Metadata/Items/Gems/SkillGemLightningPenetrationSupport"] = {
 		name = "Lightning Penetration",
@@ -824,7 +824,7 @@ return {
 		reqStr = 0,
 		reqDex = 100,
 		reqInt = 0,
-		naturalMaxLevel = 20,
+		naturalMaxLevel = 1,
 	},
 	["Metadata/Items/Gems/SkillGemChainSupport"] = {
 		name = "Chain",
@@ -840,7 +840,7 @@ return {
 		reqStr = 0,
 		reqDex = 100,
 		reqInt = 0,
-		naturalMaxLevel = 20,
+		naturalMaxLevel = 1,
 	},
 	["Metadata/Items/Gems/SkillGemForkSupport"] = {
 		name = "Fork",
@@ -855,7 +855,7 @@ return {
 		reqStr = 0,
 		reqDex = 100,
 		reqInt = 0,
-		naturalMaxLevel = 20,
+		naturalMaxLevel = 1,
 	},
 	["Metadata/Items/Gems/SkillGemFlammability"] = {
 		name = "Flammability",
@@ -953,7 +953,7 @@ return {
 		reqStr = 0,
 		reqDex = 0,
 		reqInt = 100,
-		naturalMaxLevel = 20,
+		naturalMaxLevel = 1,
 	},
 	["Metadata/Items/Gems/SkillGemElementalArmySupport"] = {
 		name = "Elemental Army",
@@ -968,7 +968,7 @@ return {
 		reqStr = 0,
 		reqDex = 0,
 		reqInt = 100,
-		naturalMaxLevel = 20,
+		naturalMaxLevel = 1,
 	},
 	["Metadata/Items/Gems/SkillGemSlowerProjectilesSupport"] = {
 		name = "Deceleration",
@@ -983,7 +983,7 @@ return {
 		reqStr = 0,
 		reqDex = 100,
 		reqInt = 0,
-		naturalMaxLevel = 20,
+		naturalMaxLevel = 1,
 	},
 	["Metadata/Items/Gems/SkillGemPurityOfFire"] = {
 		name = "Purity of Fire",
@@ -1260,7 +1260,7 @@ return {
 		reqStr = 0,
 		reqDex = 0,
 		reqInt = 100,
-		naturalMaxLevel = 20,
+		naturalMaxLevel = 1,
 	},
 	["Metadata/Items/Gems/SkillGemChanceToShockSupport"] = {
 		name = "Conduction",
@@ -1275,7 +1275,7 @@ return {
 		reqStr = 0,
 		reqDex = 100,
 		reqInt = 0,
-		naturalMaxLevel = 20,
+		naturalMaxLevel = 1,
 	},
 	["Metadata/Items/Gems/SkillGemRollingMagma"] = {
 		name = "Rolling Magma",
@@ -1412,7 +1412,7 @@ return {
 		reqStr = 0,
 		reqDex = 0,
 		reqInt = 100,
-		naturalMaxLevel = 20,
+		naturalMaxLevel = 1,
 	},
 	["Metadata/Items/Gems/SkillGemSunder"] = {
 		name = "Sunder",
@@ -1468,7 +1468,7 @@ return {
 		reqStr = 0,
 		reqDex = 0,
 		reqInt = 100,
-		naturalMaxLevel = 20,
+		naturalMaxLevel = 1,
 	},
 	["Metadata/Items/Gems/SkillGemSkeletalWarrior"] = {
 		name = "Skeletal Warrior",
@@ -1635,7 +1635,7 @@ return {
 		reqStr = 0,
 		reqDex = 0,
 		reqInt = 100,
-		naturalMaxLevel = 20,
+		naturalMaxLevel = 1,
 	},
 	["Metadata/Items/Gems/SkillGemChanceToBleedSupport"] = {
 		name = "Lacerate",
@@ -1650,7 +1650,7 @@ return {
 		reqStr = 100,
 		reqDex = 0,
 		reqInt = 0,
-		naturalMaxLevel = 20,
+		naturalMaxLevel = 1,
 	},
 	["Metadata/Items/Gems/SkillGemChanceToPoisonSupport"] = {
 		name = "Envenom",
@@ -1665,7 +1665,7 @@ return {
 		reqStr = 0,
 		reqDex = 100,
 		reqInt = 0,
-		naturalMaxLevel = 20,
+		naturalMaxLevel = 1,
 	},
 	["Metadata/Items/Gems/SkillGemMaimSupport"] = {
 		name = "Maim",
@@ -1680,7 +1680,7 @@ return {
 		reqStr = 0,
 		reqDex = 100,
 		reqInt = 0,
-		naturalMaxLevel = 20,
+		naturalMaxLevel = 1,
 	},
 	["Metadata/Items/Gems/SkillGemImmolateSupport"] = {
 		name = "Immolate",
@@ -1711,7 +1711,7 @@ return {
 		reqStr = 0,
 		reqDex = 100,
 		reqInt = 0,
-		naturalMaxLevel = 20,
+		naturalMaxLevel = 1,
 	},
 	["Metadata/Items/Gems/SkillGemBrutalitySupport"] = {
 		name = "Brutality",
@@ -1726,7 +1726,7 @@ return {
 		reqStr = 100,
 		reqDex = 0,
 		reqInt = 0,
-		naturalMaxLevel = 20,
+		naturalMaxLevel = 1,
 	},
 	["Metadata/Items/Gems/SkillGemMomentumSupport"] = {
 		name = "Momentum",
@@ -1756,7 +1756,7 @@ return {
 		reqStr = 0,
 		reqDex = 0,
 		reqInt = 100,
-		naturalMaxLevel = 20,
+		naturalMaxLevel = 1,
 	},
 	["Metadata/Items/Gems/SkillGemVulnerability"] = {
 		name = "Vulnerability",
@@ -1792,7 +1792,7 @@ return {
 		reqStr = 0,
 		reqDex = 0,
 		reqInt = 100,
-		naturalMaxLevel = 20,
+		naturalMaxLevel = 1,
 	},
 	["Metadata/Items/Gems/SkillGemUnleashSupport"] = {
 		name = "Unleash",
@@ -1807,7 +1807,7 @@ return {
 		reqStr = 0,
 		reqDex = 0,
 		reqInt = 100,
-		naturalMaxLevel = 20,
+		naturalMaxLevel = 1,
 	},
 	["Metadata/Items/Gems/SkillGemCloseCombatSupport"] = {
 		name = "Close Combat",
@@ -1822,7 +1822,7 @@ return {
 		reqStr = 0,
 		reqDex = 100,
 		reqInt = 0,
-		naturalMaxLevel = 20,
+		naturalMaxLevel = 1,
 	},
 	["Metadata/Items/Gems/SkillGemRageSupport"] = {
 		name = "Rage",
@@ -1838,7 +1838,7 @@ return {
 		reqStr = 100,
 		reqDex = 0,
 		reqInt = 0,
-		naturalMaxLevel = 20,
+		naturalMaxLevel = 1,
 	},
 	["Metadata/Items/Gems/SkillGemPlagueBearer"] = {
 		name = "Plague Bearer",
@@ -1875,7 +1875,7 @@ return {
 		reqStr = 0,
 		reqDex = 0,
 		reqInt = 100,
-		naturalMaxLevel = 20,
+		naturalMaxLevel = 1,
 	},
 	["Metadata/Items/Gems/SkillGemMeatShieldSupport"] = {
 		name = "Meat Shield",
@@ -1890,7 +1890,7 @@ return {
 		reqStr = 100,
 		reqDex = 0,
 		reqInt = 0,
-		naturalMaxLevel = 20,
+		naturalMaxLevel = 1,
 	},
 	["Metadata/Items/Gems/SkillGemInfernalLegionSupport"] = {
 		name = "Infernal Legion",
@@ -1943,7 +1943,7 @@ return {
 		reqStr = 0,
 		reqDex = 100,
 		reqInt = 0,
-		naturalMaxLevel = 20,
+		naturalMaxLevel = 1,
 	},
 	["Metadata/Items/Gems/SkillGemSeismicCry"] = {
 		name = "Seismic Cry",
@@ -2074,7 +2074,7 @@ return {
 		reqStr = 100,
 		reqDex = 0,
 		reqInt = 0,
-		naturalMaxLevel = 20,
+		naturalMaxLevel = 1,
 	},
 	["Metadata/Items/Gems/SkillGemBeheadSupport"] = {
 		name = "Behead",
@@ -2091,7 +2091,7 @@ return {
 		reqStr = 100,
 		reqDex = 0,
 		reqInt = 0,
-		naturalMaxLevel = 20,
+		naturalMaxLevel = 1,
 	},
 	["Metadata/Items/Gems/SkillGemExecuteSupport"] = {
 		name = "Execute",
@@ -2105,7 +2105,7 @@ return {
 		reqStr = 100,
 		reqDex = 0,
 		reqInt = 0,
-		naturalMaxLevel = 20,
+		naturalMaxLevel = 1,
 	},
 	["Metadata/Items/Gems/SkillGemBoneshatter"] = {
 		name = "Boneshatter",
@@ -2158,7 +2158,7 @@ return {
 		reqStr = 0,
 		reqDex = 100,
 		reqInt = 0,
-		naturalMaxLevel = 20,
+		naturalMaxLevel = 1,
 	},
 	["Metadata/Items/Gems/SkillGemLightningConduit"] = {
 		name = "Lightning Conduit",
@@ -2380,7 +2380,7 @@ return {
 		reqStr = 100,
 		reqDex = 0,
 		reqInt = 0,
-		naturalMaxLevel = 20,
+		naturalMaxLevel = 1,
 	},
 	["Metadata/Items/Gems/SkillGemInevitableCriticalsSupport"] = {
 		name = "Inevitable Critical",
@@ -2395,7 +2395,7 @@ return {
 		reqStr = 0,
 		reqDex = 0,
 		reqInt = 100,
-		naturalMaxLevel = 20,
+		naturalMaxLevel = 1,
 	},
 	["Metadata/Items/Gems/SkillGemRuthlessSupport"] = {
 		name = "Ruthless",
@@ -2409,7 +2409,7 @@ return {
 		reqStr = 100,
 		reqDex = 0,
 		reqInt = 0,
-		naturalMaxLevel = 20,
+		naturalMaxLevel = 1,
 	},
 	["Metadata/Items/Gems/SkillGemLessDurationSupport"] = {
 		name = "Fast Forward",
@@ -2424,7 +2424,7 @@ return {
 		reqStr = 100,
 		reqDex = 0,
 		reqInt = 0,
-		naturalMaxLevel = 20,
+		naturalMaxLevel = 1,
 	},
 	["Metadata/Items/Gems/SkillGemFistOfWarSupport"] = {
 		name = "Fist of War",
@@ -2441,7 +2441,7 @@ return {
 		reqStr = 100,
 		reqDex = 0,
 		reqInt = 0,
-		naturalMaxLevel = 20,
+		naturalMaxLevel = 1,
 	},
 	["Metadata/Items/Gems/SkillGemUnbreakableSupport"] = {
 		name = "Unbreakable",
@@ -2455,7 +2455,7 @@ return {
 		reqStr = 100,
 		reqDex = 0,
 		reqInt = 0,
-		naturalMaxLevel = 20,
+		naturalMaxLevel = 1,
 	},
 	["Metadata/Items/Gems/SkillGemMoreDurationSupport"] = {
 		name = "Persistence",
@@ -2470,7 +2470,7 @@ return {
 		reqStr = 100,
 		reqDex = 0,
 		reqInt = 0,
-		naturalMaxLevel = 20,
+		naturalMaxLevel = 1,
 	},
 	["Metadata/Items/Gems/SkillGemImpactShockwaveSupport"] = {
 		name = "Impact Shockwave",
@@ -2487,7 +2487,7 @@ return {
 		reqStr = 100,
 		reqDex = 0,
 		reqInt = 0,
-		naturalMaxLevel = 20,
+		naturalMaxLevel = 1,
 	},
 	["Metadata/Items/Gems/SkillGemHexBloomSupport"] = {
 		name = "Hex Bloom",
@@ -2503,7 +2503,7 @@ return {
 		reqStr = 0,
 		reqDex = 0,
 		reqInt = 100,
-		naturalMaxLevel = 20,
+		naturalMaxLevel = 1,
 	},
 	["Metadata/Items/Gems/SkillGemGlacialCascade"] = {
 		name = "Glacial Cascade",
@@ -2638,7 +2638,7 @@ return {
 		reqStr = 0,
 		reqDex = 0,
 		reqInt = 100,
-		naturalMaxLevel = 20,
+		naturalMaxLevel = 1,
 	},
 	["Metadata/Items/Gems/SkillGemFrozenVortexSupport"] = {
 		name = "Frozen Vortex",
@@ -2655,7 +2655,7 @@ return {
 		reqStr = 0,
 		reqDex = 0,
 		reqInt = 100,
-		naturalMaxLevel = 20,
+		naturalMaxLevel = 1,
 	},
 	["Metadata/Items/Gems/SkillGemSpiralVolley"] = {
 		name = "Spiral Volley",
@@ -2706,7 +2706,7 @@ return {
 		reqStr = 0,
 		reqDex = 0,
 		reqInt = 100,
-		naturalMaxLevel = 20,
+		naturalMaxLevel = 1,
 	},
 	["Metadata/Items/Gems/SkillGemStaffUnleash"] = {
 		name = "Unleash",
@@ -2740,7 +2740,7 @@ return {
 		reqStr = 0,
 		reqDex = 0,
 		reqInt = 100,
-		naturalMaxLevel = 20,
+		naturalMaxLevel = 1,
 	},
 	["Metadata/Items/Gems/SkillGemLastingFrostSupport"] = {
 		name = "Deep Freeze",
@@ -2755,7 +2755,7 @@ return {
 		reqStr = 0,
 		reqDex = 0,
 		reqInt = 100,
-		naturalMaxLevel = 20,
+		naturalMaxLevel = 1,
 	},
 	["Metadata/Items/Gems/SkillGemChanceToIgniteSupport"] = {
 		name = "Ignition",
@@ -2770,7 +2770,7 @@ return {
 		reqStr = 100,
 		reqDex = 0,
 		reqInt = 0,
-		naturalMaxLevel = 20,
+		naturalMaxLevel = 1,
 	},
 	["Metadata/Items/Gems/SkillGemDeadlyIgnitesSupport"] = {
 		name = "Searing Flame",
@@ -2785,7 +2785,7 @@ return {
 		reqStr = 100,
 		reqDex = 0,
 		reqInt = 0,
-		naturalMaxLevel = 20,
+		naturalMaxLevel = 1,
 	},
 	["Metadata/Items/Gems/SkillGemIgniteDurationSupport"] = {
 		name = "Eternal Flame",
@@ -2800,7 +2800,7 @@ return {
 		reqStr = 100,
 		reqDex = 0,
 		reqInt = 0,
-		naturalMaxLevel = 20,
+		naturalMaxLevel = 1,
 	},
 	["Metadata/Items/Gems/SkillGemCastOnShock"] = {
 		name = "Cast on Shock",
@@ -4129,7 +4129,7 @@ return {
 		reqStr = 0,
 		reqDex = 0,
 		reqInt = 100,
-		naturalMaxLevel = 20,
+		naturalMaxLevel = 1,
 	},
 	["Metadata/Items/Gems/SkillGemLockdownSupport"] = {
 		name = "Lockdown",
@@ -5740,7 +5740,7 @@ return {
 		reqStr = 0,
 		reqDex = 100,
 		reqInt = 0,
-		naturalMaxLevel = 20,
+		naturalMaxLevel = 1,
 	},
 	["Metadata/Items/Gems/SkillGemDeepCutsSupport"] = {
 		name = "Deep Cuts",
@@ -5755,7 +5755,7 @@ return {
 		reqStr = 100,
 		reqDex = 0,
 		reqInt = 0,
-		naturalMaxLevel = 20,
+		naturalMaxLevel = 1,
 	},
 	["Metadata/Items/Gems/SkillGemCorruptingCrySupport"] = {
 		name = "Corrupting Cry",
@@ -5772,7 +5772,7 @@ return {
 		reqStr = 100,
 		reqDex = 0,
 		reqInt = 0,
-		naturalMaxLevel = 20,
+		naturalMaxLevel = 1,
 	},
 	["Metadata/Items/Gems/SkillGemWindowOfOpportunitySupport"] = {
 		name = "Window of Opportunity",
@@ -5787,7 +5787,7 @@ return {
 		reqStr = 0,
 		reqDex = 100,
 		reqInt = 0,
-		naturalMaxLevel = 20,
+		naturalMaxLevel = 1,
 	},
 	["Metadata/Items/Gems/SkillGemFireMasterySupport"] = {
 		name = "Fire Mastery",
@@ -5802,7 +5802,7 @@ return {
 		reqStr = 0,
 		reqDex = 0,
 		reqInt = 100,
-		naturalMaxLevel = 20,
+		naturalMaxLevel = 1,
 	},
 	["Metadata/Items/Gems/SkillGemColdMasterySupport"] = {
 		name = "Cold Mastery",
@@ -5817,7 +5817,7 @@ return {
 		reqStr = 0,
 		reqDex = 0,
 		reqInt = 100,
-		naturalMaxLevel = 20,
+		naturalMaxLevel = 1,
 	},
 	["Metadata/Items/Gems/SkillGemLightningMasterySupport"] = {
 		name = "Lightning Mastery",
@@ -5832,7 +5832,7 @@ return {
 		reqStr = 0,
 		reqDex = 0,
 		reqInt = 100,
-		naturalMaxLevel = 20,
+		naturalMaxLevel = 1,
 	},
 	["Metadata/Items/Gems/SkillGemChaosMasterySupport"] = {
 		name = "Chaos Mastery",
@@ -5847,7 +5847,7 @@ return {
 		reqStr = 0,
 		reqDex = 0,
 		reqInt = 100,
-		naturalMaxLevel = 20,
+		naturalMaxLevel = 1,
 	},
 	["Metadata/Items/Gems/SkillGemPhysicalMasterySupport"] = {
 		name = "Physical Mastery",
@@ -5862,7 +5862,7 @@ return {
 		reqStr = 0,
 		reqDex = 0,
 		reqInt = 100,
-		naturalMaxLevel = 20,
+		naturalMaxLevel = 1,
 	},
 	["Metadata/Items/Gems/SkillGemMinionMasterySupport"] = {
 		name = "Minion Mastery",
@@ -5877,7 +5877,7 @@ return {
 		reqStr = 0,
 		reqDex = 0,
 		reqInt = 100,
-		naturalMaxLevel = 20,
+		naturalMaxLevel = 1,
 	},
 	["Metadata/Items/Gems/SkillGemShockchainArrow"] = {
 		name = "Shockchain Arrow",
@@ -6066,7 +6066,7 @@ return {
 		reqStr = 0,
 		reqDex = 100,
 		reqInt = 0,
-		naturalMaxLevel = 20,
+		naturalMaxLevel = 1,
 	},
 	["Metadata/Items/Gems/SkillGemEncumberanceSupport"] = {
 		name = "Encumbrance",
@@ -6082,7 +6082,7 @@ return {
 		reqStr = 0,
 		reqDex = 100,
 		reqInt = 0,
-		naturalMaxLevel = 20,
+		naturalMaxLevel = 1,
 	},
 	["Metadata/Items/Gems/SkillGemPrecisionSupport"] = {
 		name = "Precision",
@@ -6098,7 +6098,7 @@ return {
 		reqStr = 0,
 		reqDex = 100,
 		reqInt = 0,
-		naturalMaxLevel = 20,
+		naturalMaxLevel = 1,
 	},
 	["Metadata/Items/Gems/SkillGemClaritySupport"] = {
 		name = "Clarity",
@@ -6114,7 +6114,7 @@ return {
 		reqStr = 0,
 		reqDex = 0,
 		reqInt = 100,
-		naturalMaxLevel = 20,
+		naturalMaxLevel = 1,
 	},
 	["Metadata/Items/Gems/SkillGemVitalitySupport"] = {
 		name = "Vitality",
@@ -6130,7 +6130,7 @@ return {
 		reqStr = 100,
 		reqDex = 0,
 		reqInt = 0,
-		naturalMaxLevel = 20,
+		naturalMaxLevel = 1,
 	},
 	["Metadata/Items/Gems/SkillGemHerbalismSupport"] = {
 		name = "Herbalism",
@@ -6146,7 +6146,7 @@ return {
 		reqStr = 100,
 		reqDex = 0,
 		reqInt = 0,
-		naturalMaxLevel = 20,
+		naturalMaxLevel = 1,
 	},
 	["Metadata/Items/Gems/SkillGemCannibalismSupport"] = {
 		name = "Cannibalism",
@@ -6162,7 +6162,7 @@ return {
 		reqStr = 100,
 		reqDex = 0,
 		reqInt = 0,
-		naturalMaxLevel = 20,
+		naturalMaxLevel = 1,
 	},
 	["Metadata/Items/Gems/SkillGemSoulbreakerSupport"] = {
 		name = "Soulbreaker",
@@ -6180,7 +6180,7 @@ return {
 		reqStr = 0,
 		reqDex = 0,
 		reqInt = 100,
-		naturalMaxLevel = 20,
+		naturalMaxLevel = 1,
 	},
 	["Metadata/Items/Gems/SkillGemRuptureSupport"] = {
 		name = "Rupture",
