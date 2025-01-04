@@ -97,6 +97,23 @@ function calcs.buildModListForNode(env, node)
 		modList:AddList(node.modList)
 	end
 
+	if node.allocMode and node.allocMode ~= 0 then
+		for i, mod in ipairs(modList) do
+			local added = false
+			for j, extra in ipairs(mod) do
+				-- if type conditional and start with WeaponSet then update the var to the current weapon set
+				if extra.type == "Condition" and extra.var:match("^WeaponSet") then
+					mod[j].var = "WeaponSet".. node.allocMode
+					added = true
+					break
+				end
+			end
+			if not added then
+				table.insert(mod, { type = "Condition", var = "WeaponSet".. node.allocMode })
+			end
+		end
+	end
+
 	-- Run first pass radius jewels
 	for _, rad in pairs(env.radiusJewelList) do
 		if rad.type == "Other" and rad.nodes[node.id] and rad.nodes[node.id].type ~= "Mastery" then

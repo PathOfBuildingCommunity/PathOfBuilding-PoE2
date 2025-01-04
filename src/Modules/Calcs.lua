@@ -467,6 +467,8 @@ function calcs.buildOutput(build, mode)
 		end
 	
 		output.ExtraPoints = env.modDB:Sum("BASE", nil, "ExtraPoints")
+		output.WeaponSetPassivePoints = env.modDB:Sum("BASE", nil, "WeaponSetPassivePoints")
+		output.PassivePointsToWeaponSetPoints = env.modDB:Sum("BASE", nil, "PassivePointsToWeaponSetPoints")
 
 		local specCfg = {
 			source = "Tree"

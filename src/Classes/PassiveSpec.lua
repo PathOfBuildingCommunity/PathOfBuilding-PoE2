@@ -32,6 +32,10 @@ function PassiveSpecClass:Init(treeVersion, convert)
 	self.tree = main:LoadTree(treeVersion)
 	self.ignoredNodes = { }
 	self.ignoreAllocatingSubgraph = false
+
+	-- we are going to support 3 modes, 0 normal allow, 1 alloc weaponset 1, 2 alloc weaponset 2
+	self.allocMode = 0
+
 	local previousTreeNodes = { }
 	if convert then
 		previousTreeNodes = self.build.spec.nodes
@@ -85,6 +89,7 @@ end
 
 function PassiveSpecClass:Load(xml, dbFileName)
 	self.title = xml.attrib.title
+	local weaponSets = {}
 	local url
 	for _, node in pairs(xml) do
 		if type(node) == "table" then
@@ -113,6 +118,15 @@ function PassiveSpecClass:Load(xml, dbFileName)
 							self.jewels[tonumber(child.attrib.nodeId)] = jewelIdNum
 						end
 					end
+				end
+			elseif node.elem and node.elem:match("^WeaponSet") then
+				if not node.attrib.nodes then
+					launch:ShowErrMsg("^1Error parsing '%s': 'WeaponSet1' element missing 'nodes' attribute", dbFileName)
+					return true
+				end
+				local weaponSet = tonumber(node.elem:match("^WeaponSet(%d)"))
+				for nodeId in node.attrib.nodes:gmatch("%d+") do
+					weaponSets[tonumber(nodeId)] = weaponSet
 				end
 			end
 		end
@@ -158,7 +172,7 @@ function PassiveSpecClass:Load(xml, dbFileName)
 				end
 			end
 		end
-		self:ImportFromNodeList(tonumber(xml.attrib.classId), tonumber(xml.attrib.ascendClassId), tonumber(xml.attrib.secondaryAscendClassId or 0), hashList,	copyTable(self.hashOverrides, true), masteryEffects)
+		self:ImportFromNodeList(tonumber(xml.attrib.classId), tonumber(xml.attrib.ascendClassId), tonumber(xml.attrib.secondaryAscendClassId or 0), hashList, weaponSets, copyTable(self.hashOverrides, true), masteryEffects)
 	elseif url then
 		self:DecodeURL(url)
 	end
@@ -167,8 +181,16 @@ end
 
 function PassiveSpecClass:Save(xml)
 	local allocNodeIdList = { }
+	local weaponSets = {}
 	for nodeId in pairs(self.allocNodes) do
 		t_insert(allocNodeIdList, nodeId)
+		if self.nodes[nodeId].allocMode and self.nodes[nodeId].allocMode ~= 0 then
+			local weaponSet = self.nodes[nodeId].allocMode
+			if not weaponSets[weaponSet] then
+				weaponSets[weaponSet] = { }
+			end
+			t_insert(weaponSets[weaponSet], nodeId)
+		end
 	end
 	local masterySelections = { }
 	for mastery, effect in pairs(self.masterySelections) do
@@ -189,6 +211,15 @@ function PassiveSpecClass:Save(xml)
 		elem = "URL",
 		[1] = self:EncodeURL("https://www.pathofexile.com/passive-skill-tree/")
 	})
+
+	if #weaponSets > 0 then
+		for weaponSet, nodes in pairs(weaponSets) do
+			t_insert(xml, {
+				elem = "WeaponSet"..weaponSet,
+				attrib = { nodes = table.concat(nodes, ",") }
+			})
+		end
+	end
 
 	local sockets = {
 		elem = "Sockets"
@@ -230,7 +261,7 @@ function PassiveSpecClass:PostLoad()
 end
 
 -- Import passive spec from the provided class IDs and node hash list
-function PassiveSpecClass:ImportFromNodeList(classId, ascendClassId, secondaryAscendClassId, hashList, hashOverrides, masteryEffects, treeVersion)
+function PassiveSpecClass:ImportFromNodeList(classId, ascendClassId, secondaryAscendClassId, hashList, weaponSets, hashOverrides, masteryEffects, treeVersion)
   if hashOverrides == nil then hashOverrides = {} end
 	if treeVersion and treeVersion ~= self.treeVersion then
 		self:Init(treeVersion)
@@ -264,6 +295,7 @@ function PassiveSpecClass:ImportFromNodeList(classId, ascendClassId, secondaryAs
 			-- check to make sure the mastery node has a corresponding selection, if not do not allocate
 			if node.type ~= "Mastery" or (node.type == "Mastery" and self.masterySelections[id]) then
 				node.alloc = true
+				node.allocMode = weaponSets[id] or 0
 				self.allocNodes[id] = node
 			end
 		else
@@ -670,14 +702,16 @@ function PassiveSpecClass:AllocNode(node, altPath)
 	-- Allocate all nodes along the path
 	if #node.intuitiveLeapLikesAffecting > 0 then
 		node.alloc = true
+		node.allocMode = node.ascendancyName and 0 or self.allocMode
 		self.allocNodes[node.id] = node
 	else
 		for _, pathNode in ipairs(altPath or node.path) do
+			pathNode.alloc = true
+			pathNode.allocMode = node.ascendancyName and 0 or self.allocMode
 			-- set path attribute nodes to latest chosen attribute or default to Strength if allocating before choosing an attribute
 			if pathNode.isAttribute then 
 				self:SwitchAttributeNode(pathNode.id, self.attributeIndex or 1)
 			end
-			pathNode.alloc = true
 			self.allocNodes[pathNode.id] = pathNode
 		end
 	end
@@ -688,6 +722,7 @@ function PassiveSpecClass:AllocNode(node, altPath)
 		for _, optNode in ipairs(parent.linked) do
 			if optNode.isMultipleChoiceOption and optNode.alloc and optNode ~= node then
 				optNode.alloc = false
+				optNode.allocMode = nil
 				self.allocNodes[optNode.id] = nil
 			end
 		end
@@ -699,6 +734,7 @@ end
 
 function PassiveSpecClass:DeallocSingleNode(node)
 	node.alloc = false
+	node.allocMode = nil
 	self.allocNodes[node.id] = nil
 	if node.type == "Mastery" then
 		self:AddMasteryEffectOptionsToNode(node)
@@ -722,7 +758,7 @@ end
 
 -- Count the number of allocated nodes and allocated ascendancy nodes
 function PassiveSpecClass:CountAllocNodes()
-	local used, ascUsed, secondaryAscUsed, sockets = 0, 0, 0, 0
+	local used, ascUsed, secondaryAscUsed, sockets, weaponSet1Used, weaponSet2Used = 0, 0, 0, 0, 0, 0
 	for _, node in pairs(self.allocNodes) do
 		if node.type ~= "ClassStart" and node.type ~= "AscendClassStart" then
 			if node.ascendancyName then
@@ -740,8 +776,14 @@ function PassiveSpecClass:CountAllocNodes()
 				sockets = sockets + 1
 			end
 		end
+
+		if node.allocMode and node.allocMode == 1 then
+			weaponSet1Used = weaponSet1Used + 1
+		elseif node.allocMode and node.allocMode == 2 then
+			weaponSet2Used = weaponSet2Used + 1
+		end
 	end
-	return used, ascUsed, secondaryAscUsed, sockets
+	return used, ascUsed, secondaryAscUsed, sockets, weaponSet1Used, weaponSet2Used
 end
 
 -- Attempt to find a class start node starting from the given node
@@ -1896,8 +1938,12 @@ end
 
 function PassiveSpecClass:CreateUndoState()
 	local allocNodeIdList = { }
+	local weaponSets = { }
 	for nodeId in pairs(self.allocNodes) do
 		t_insert(allocNodeIdList, nodeId)
+		if self.nodes[nodeId].allocMode and self.nodes[nodeId].allocMode ~= 0 then
+			weaponSets[nodeId] = self.nodes[nodeId].allocMode
+		end
 	end
 	local selections = { }
 	for mastery, effect in pairs(self.masterySelections) do
@@ -1908,6 +1954,7 @@ function PassiveSpecClass:CreateUndoState()
 		ascendClassId = self.curAscendClassId,
 		secondaryAscendClassId = self.secondaryAscendClassId,
 		hashList = allocNodeIdList,
+		weaponSets = weaponSets,
 		hashOverrides = self.hashOverrides,
 		masteryEffects = selections,
 		treeVersion = self.treeVersion
@@ -1915,7 +1962,7 @@ function PassiveSpecClass:CreateUndoState()
 end
 
 function PassiveSpecClass:RestoreUndoState(state, treeVersion)
-	self:ImportFromNodeList(state.classId, state.ascendClassId, state.secondaryAscendClassId, state.hashList, state.hashOverrides, state.masteryEffects, treeVersion or state.treeVersion)
+	self:ImportFromNodeList(state.classId, state.ascendClassId, state.secondaryAscendClassId, state.hashList, state.weaponSets, state.hashOverrides, state.masteryEffects, treeVersion or state.treeVersion)
 	self:SetWindowTitleWithBuildClass()
 end
 
