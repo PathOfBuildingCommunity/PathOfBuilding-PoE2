@@ -733,9 +733,9 @@ function TreeTabClass:ModifyAttributePopup(hoverNode)
 	end)
 	controls.hotkeyTooltip = new("LabelControl", nil, {0, 100, 0, 16}, 
 		"^8You can switch attributes quicker by holding hotkeys while allocating:\n"..colorCodes.INTELLIGENCE.."\"1\" or \"I\" for Intelligence, "
-		..colorCodes.STRENGTH.."\"2\" or \"S\" for Strength, "..colorCodes.DEXTERITY.."\"3\" or \"D\" for Dexterity\n\n"..
-		"^8After choosing an attribute here or using any hotkey, you can right-click\nan attribute node to instantly allocate with your last used attribute")
-	main:OpenPopup(550, 200, "Choose Attribute", controls, "save")
+		..colorCodes.STRENGTH.."\"2\" or \"S\" for Strength, "..colorCodes.DEXTERITY.."\"3\" or \"D\" for Dexterity\n\n"
+		..colorCodes.RARE.."Right-click ^8an attribute node to instantly allocate with your last used attribute")
+	main:OpenPopup(550, 185, "Choose Attribute", controls, "save")
 end
 
 function TreeTabClass:SaveMasteryPopup(node, listControl)
