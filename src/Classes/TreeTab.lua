@@ -118,6 +118,7 @@ local TreeTabClass = newClass("TreeTab", "ControlHost", function(self, build)
 		local buttonY = 65
 		controls.warningLabel = new("LabelControl", nil, { 0, 30, 0, 16 }, "^7Warning: resetting your passive tree cannot be undone.\n")
 		controls.reset = new("ButtonControl", nil, { -65, buttonY, 100, 20 }, "Reset", function()
+			wipeTable(self.build.spec.hashOverrides) -- reset attribute nodes to "Attribute"
 			self.build.spec:ResetNodes()
 			self.build.spec:BuildAllDependsAndPaths()
 			self.build.spec:AddUndoState()
