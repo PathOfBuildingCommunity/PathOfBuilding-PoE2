@@ -4611,6 +4611,11 @@ local specialModList = {
 		mod("FireDamageFromHitsTakenAsCold", "BASE", num, { type = "Condition", var = "UsingFlask" }), 
 		mod("LightningDamageFromHitsTakenAsCold", "BASE", num, { type = "Condition", var = "UsingFlask" }), 
 	} end,
+	["(%d+)%% of physical damage from hits taken as damage of a random element"] = function(num) return {
+		mod("PhysicalDamageFromHitsTakenAsFire", "BASE", num / 3),
+		mod("PhysicalDamageFromHitsTakenAsCold", "BASE", num / 3),
+		mod("PhysicalDamageFromHitsTakenAsLightning", "BASE", num / 3),
+	} end,
 	["items and gems have (%d+)%% reduced attribute requirements"] = function(num) return { mod("GlobalAttributeRequirements", "INC", -num) } end,
 	["items and gems have (%d+)%% increased attribute requirements"] = function(num) return { mod("GlobalAttributeRequirements", "INC", num) } end,
 	["mana reservation of herald skills is always (%d+)%%"] = function(num) return { mod("SkillData", "LIST", { key = "ManaReservationPercentForced", value = num }, { type = "SkillType", skillType = SkillType.Herald }) } end,
