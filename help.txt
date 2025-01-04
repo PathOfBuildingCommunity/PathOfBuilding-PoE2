@@ -48,13 +48,16 @@ Ctrl	While scrolling on a slider makes it 5* times slower
 
 Attribute Shortcuts:
 
-LMB + 1 / I	Allocate Intelligence for an unallocated Attribute node or
+LMB / RMB + 1 / I	Allocate Intelligence for an unallocated Attribute node or
 	    Hotswap an allocated attribute node to Intelligence*
-LMB + 2 / S	Allocate Strength for an unallocated Attribute node or
+LMB / RMB + 2 / S	Allocate Strength for an unallocated Attribute node or
 	    Hotswap an allocated attribute node to Strength*
-LMB + 3 / D	Allocate Dexterity for an unallocated Attribute node or
+LMB / RMB + 3 / D	Allocate Dexterity for an unallocated Attribute node or
 	    Hotswap an allocated attribute node to Dexterity*
-* if allocating a line/path of attribute nodes, all will be set to the selected attribute
+* if allocating a line/path of un-allocated attribute nodes, all will be set to the selected attribute
+
+If allocating an attribute node with LMB and no hotkey, a popup to select the attribute will show
+If allocating an attribute node with RMB and no hotkey, the last used hotkey will be the selected attribute
 
 If allocating a non-attribute node, either the last used hotkey (if no hotkey is pressed) or one of the hotkeys above
     will allocate any attribute nodes in the path to the selected attribute
