@@ -36,7 +36,9 @@ local function getScope(scopeName)
 end
 
 local function matchLimit(lang, val) 
-	for _, desc in ipairs(lang) do
+	-- iterate over lang in reverse because gem displays use the second table from specific skill stat descriptions 
+	for langIndex = #lang, 1, -1 do
+		local desc = lang[langIndex]
 		local match = true
 		for i, limit in ipairs(desc.limit) do
 			if limit[1] == "!" then
