@@ -157,6 +157,7 @@ local modNameList = {
 	["devotion"] = "Devotion",
 	-- Life/Mana/Spirit
 	["spirit"] = "Spirit",
+	["maximum spirit"] = "Spirit",
 	["life"] = "Life",
 	["maximum life"] = "Life",
 	["life regeneration"] = "LifeRegen",
