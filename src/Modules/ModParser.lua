@@ -609,7 +609,7 @@ local modNameList = {
 	["metre to melee strike range"] = { "MeleeWeaponRangeMetre", "UnarmedRangeMetre" },
 	["to deal double damage"] = "DoubleDamageChance",
 	["to deal triple damage"] = "TripleDamageChance",
-	-- Buffs
+	-- Effects
 	["onslaught effect"] = "OnslaughtEffect",
 	["effect of onslaught on you"] = "OnslaughtEffect",
 	["adrenaline duration"] = "AdrenalineDuration",
@@ -617,6 +617,9 @@ local modNameList = {
 	["elusive effect"] = "ElusiveEffect",
 	["effect of elusive on you"] = "ElusiveEffect",
 	["effect of infusion"] = "InfusionEffect",
+	["fire exposure effect"] = "FireExposureEffect",
+	["cold exposure effect"] = "ColdExposureEffect",
+	["lightning exposure effect"] = "LightningExposureEffect",
 	-- Basic damage types
 	["damage"] = "Damage",
 	["physical damage"] = "PhysicalDamage",
