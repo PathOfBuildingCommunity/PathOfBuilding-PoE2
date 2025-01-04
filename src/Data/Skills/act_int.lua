@@ -910,6 +910,14 @@ skills["BonestormPlayer"] = {
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Channel] = true, [SkillType.Projectile] = true, [SkillType.Physical] = true, [SkillType.Duration] = true, [SkillType.Nonpathing] = true, [SkillType.Area] = true, [SkillType.ConsumesCharges] = true, [SkillType.Damage] = true, [SkillType.SkillConsumesPowerChargesOnUse] = true, [SkillType.Sustained] = true, },
 	statDescriptionScope = "bone_spike_statset_0",
 	castTime = 0.75,
+	statMap = {
+		["bone_spear_minimum_added_attack_physical_damage_taken"] = {
+			mod("SelfPhysicalMin", "BASE", nil, ModFlag.Attack, 0, { type = "GlobalEffect", effectType = "Debuff", effectName = "Bonestorm", effectCond = "BonestormAddedDamage" }),
+		},
+		["bone_spear_maximum_added_attack_physical_damage_taken"] = {
+			mod("SelfPhysicalMax", "BASE", nil, ModFlag.Attack, 0, { type = "GlobalEffect", effectType = "Debuff", effectName = "Bonestorm", effectCond = "BonestormAddedDamage" }),
+		},
+	},
 	baseFlags = {
 	},
 	qualityStats = {
@@ -4081,6 +4089,14 @@ skills["FlameWallPlayer"] = {
 	skillTypes = { [SkillType.Spell] = true, [SkillType.DamageOverTime] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Trappable] = true, [SkillType.Mineable] = true, [SkillType.Triggerable] = true, [SkillType.AreaSpell] = true, [SkillType.Totemable] = true, [SkillType.Fire] = true, [SkillType.DegenOnlySpellDamage] = true, [SkillType.CanRapidFire] = true, [SkillType.Multicastable] = true, [SkillType.Cascadable] = true, [SkillType.CausesBurning] = true, [SkillType.Wall] = true, [SkillType.Nonpathing] = true, },
 	statDescriptionScope = "firewall",
 	castTime = 1,
+	statMap = {
+		["flame_wall_minimum_added_fire_damage"] = {
+			mod("FireMin", "BASE", nil, ModFlag.Projectile, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Flame Wall", effectCond = "FlameWallAddedDamage" }),
+		},
+		["flame_wall_maximum_added_fire_damage"] = {
+			mod("FireMax", "BASE", nil, ModFlag.Projectile, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Flame Wall", effectCond = "FlameWallAddedDamage" }),
+		},
+	},
 	baseFlags = {
 	},
 	qualityStats = {

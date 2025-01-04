@@ -59,6 +59,14 @@ local skills, mod, flag, skill = ...
 
 #skill BonestormPlayer
 #flags
+	statMap = {
+		["bone_spear_minimum_added_attack_physical_damage_taken"] = {
+			mod("SelfPhysicalMin", "BASE", nil, ModFlag.Attack, 0, { type = "GlobalEffect", effectType = "Debuff", effectName = "Bonestorm", effectCond = "BonestormAddedDamage" }),
+		},
+		["bone_spear_maximum_added_attack_physical_damage_taken"] = {
+			mod("SelfPhysicalMax", "BASE", nil, ModFlag.Attack, 0, { type = "GlobalEffect", effectType = "Debuff", effectName = "Bonestorm", effectCond = "BonestormAddedDamage" }),
+		},
+	},
 #mods
 
 #skill MetaCastOnCritPlayer
@@ -219,6 +227,14 @@ local skills, mod, flag, skill = ...
 
 #skill FlameWallPlayer
 #flags
+	statMap = {
+		["flame_wall_minimum_added_fire_damage"] = {
+			mod("FireMin", "BASE", nil, ModFlag.Projectile, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Flame Wall", effectCond = "FlameWallAddedDamage" }),
+		},
+		["flame_wall_maximum_added_fire_damage"] = {
+			mod("FireMax", "BASE", nil, ModFlag.Projectile, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Flame Wall", effectCond = "FlameWallAddedDamage" }),
+		},
+	},
 #mods
 
 #skill FlameblastPlayer
