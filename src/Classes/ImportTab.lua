@@ -678,8 +678,8 @@ function ImportTabClass:ImportPassiveTreeAndJewels(json, charData)
 		if type(self.build.Act) == "string" and self.build.Act == "Endgame" then resistancePenaltyIndex = 7
 		elseif type(self.build.Act) == "number" then 
 			if self.build.Act > 6 then resistancePenaltyIndex = 7
-			elseif self.build.Act < 1 then resistancePenaltyIndex = 0
-			else resistancePenaltyIndex = self.build.Act + 1 end
+			elseif self.build.Act < 1 then resistancePenaltyIndex = 1
+			else resistancePenaltyIndex = self.build.Act end
 		end
 	end
 	self.build.configTab.varControls["resistancePenalty"]:SetSel(resistancePenaltyIndex)
