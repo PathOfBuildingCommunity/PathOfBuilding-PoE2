@@ -2013,7 +2013,7 @@ local specialModList = {
 	["cannot deal critical hits with attacks"] = { flag("NeverCrit", nil, ModFlag.Attack), flag("Condition:NeverCrit", nil, ModFlag.Attack) },
 	["no critical damage bonus"] = { flag("NoCritMultiplier") },
 	["ailments never count as being from critical hits"] = { flag("AilmentsAreNeverFromCrit") },
-	["converts all evasion rating to armour%. dexterity provides no bonus to evasion rating"] = { flag("NoDexBonusToEvasion"), flag("IronReflexes") },
+	["converts all evasion rating to armour"] = { flag("IronReflexes"), mod("EvasionConvertToArmour", "BASE", 100) },
 	["30%% chance to dodge attack hits%. 50%% less armour, 30%% less energy shield, 30%% less chance to block spell and attack damage"] = {
 		mod("AttackDodgeChance", "BASE", 30),
 		mod("Armour", "MORE", -50),
@@ -2058,6 +2058,7 @@ local specialModList = {
 	["removes all mana%. spend life instead of mana for skills"] = { mod("Mana", "MORE", -100), flag("CostLifeInsteadOfMana") },
 	["removes all mana"] = { mod("Mana", "MORE", -100) },
 	["removes all energy shield"] = { mod("EnergyShield", "MORE", -100) },
+	["converts all energy shield to mana"] = { mod("EnergyShieldConvertToMana", "BASE", 100) },
 	["skills cost life instead of mana"] = { flag("CostLifeInsteadOfMana") },
 	["skills reserve life instead of mana"] = { flag("BloodMagicReserved") },
 	["non%-aura skills cost no mana or life while focus?sed"] = {
@@ -2182,9 +2183,6 @@ local specialModList = {
 	["gain additional elemental damage reduction equal to half your chaos resistance"] = {
 		mod("ElementalDamageReduction", "BASE", 1, { type = "PerStat", stat = "ChaosResist", div = 2 })
 	},
-	["(%d+)%% of maximum mana is converted to twice that much armour"] = function(num) return {
-		mod("ManaConvertToArmour", "BASE", num),
-	} end,
 	["life recovery from flasks also applies to energy shield"] = { flag("LifeFlaskAppliesToEnergyShield") },
 	["life recovery from flasks applies to energy shield instead"] = { flag("LifeFlaskAppliesToEnergyShield"), flag("LifeFlaskDoesNotApply") },
 	["non%-instant mana recovery from flasks is also recovered as life"] = { flag("ManaFlaskAppliesToLife") },

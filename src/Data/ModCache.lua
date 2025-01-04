@@ -2252,8 +2252,8 @@ c["Charms use no Charges"]={{[1]={flags=0,keywordFlags=0,name="CharmsUseNoCharge
 c["Cold Damage from Hits Contributes to Ignite Chance and Magnitude instead of Chill Magnitude"]={nil,"Cold Damage from Hits Contributes to Ignite Chance and Magnitude instead of Chill Magnitude "}
 c["Cold Damage from Hits Contributes to Ignite Chance and Magnitude instead of Chill Magnitude Lightning Damage from Hits Contributes to Freeze Buildup instead of Shock Chance"]={nil,"Cold Damage from Hits Contributes to Ignite Chance and Magnitude instead of Chill Magnitude Lightning Damage from Hits Contributes to Freeze Buildup instead of Shock Chance "}
 c["Cold Exposure you inflict lowers Total Cold Resistance by an extra 5%"]={nil,"Cold Exposure you inflict lowers Total Cold Resistance by an extra 5% "}
-c["Converts all Energy Shield to Mana"]={nil,"Converts all Energy Shield to Mana "}
-c["Converts all Evasion Rating to Armour"]={nil,"Converts all Evasion Rating to Armour "}
+c["Converts all Energy Shield to Mana"]={{[1]={flags=0,keywordFlags=0,name="EnergyShieldConvertToMana",type="BASE",value=100}},nil}
+c["Converts all Evasion Rating to Armour"]={{[1]={flags=0,keywordFlags=0,name="IronReflexes",type="FLAG",value=true},[2]={flags=0,keywordFlags=0,name="EvasionConvertToArmour",type="BASE",value=100}},nil}
 c["Corpses in your Presence Explode when you Warcry,"]={nil,"Corpses in your Presence Explode when you Warcry, "}
 c["Corpses in your Presence Explode when you Warcry, dealing 10% of their Life as Physical Damage"]={nil,"Corpses in your Presence Explode when you Warcry, dealing 10% of their Life as Physical Damage "}
 c["Corpses in your Presence Explode when you Warcry, dealing 25% of their Life as Physical Damage"]={nil,"Corpses in your Presence Explode when you Warcry, dealing 25% of their Life as Physical Damage "}

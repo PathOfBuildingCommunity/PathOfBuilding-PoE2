@@ -49,6 +49,201 @@ function calcs.armourReduction(armour, raw)
 	return round(calcs.armourReductionF(armour, raw))
 end
 
+-- Calculate life/mana/spirit pools
+---@param actor table
+function calcs.doActorLifeManaSpirit(actor)
+	local modDB = actor.modDB
+	local output = actor.output
+	local breakdown = actor.breakdown
+	local condList = modDB.conditions
+
+	local lowLifePerc = modDB:Sum("BASE", nil, "LowLifePercentage")
+	output.LowLifePercentage = 100.0 * (lowLifePerc > 0 and lowLifePerc or data.misc.LowPoolThreshold)
+	local fullLifePerc = modDB:Sum("BASE", nil, "FullLifePercentage")
+	output.FullLifePercentage = 100.0 * (fullLifePerc > 0 and fullLifePerc or 1.0)
+
+	output.ChaosInoculation = modDB:Flag(nil, "ChaosInoculation")
+
+	for _, res in ipairs({ "Life", "Mana", "Spirit" }) do
+		local base = modDB:Sum("BASE", nil, res)
+		local extra = modDB:Sum("BASE", nil, "Extra" .. res)
+		local inc = modDB:Sum("INC", nil, res)
+		local more = modDB:More(nil, res)
+		local conv = m_min(modDB:Sum("BASE", nil, res .. "ConvertToEnergyShield", res .. "ConvertToArmour", res .. "ConvertToEvasion"), 100)
+		output[res] = m_max(round((base * (1 - conv/100) + extra) * (1 + inc/100) * more), 1)
+		if breakdown then
+			if inc ~= 0 or more ~= 1 or conv ~= 0 or extra ~= 0 then
+				breakdown[res][1] = s_format("%g ^8(base)", base)
+				if conv ~= 0 then
+					t_insert(breakdown[res], s_format("x %.2f ^8(converted from)", 1 - conv/100))
+				end
+				if extra ~= 0 then
+					t_insert(breakdown[res], s_format("+ %g ^8(converted to)", extra))
+				end
+				if conv ~= 0 or extra ~= 0 then
+					t_insert(breakdown[res], s_format("= %g", round(base * (1 - conv/100) + extra)))
+				end
+				if inc ~= 0 then
+					t_insert(breakdown[res], s_format("x %.2f ^8(increased/reduced)", 1 + inc/100))
+				end
+				if more ~= 1 then
+					t_insert(breakdown[res], s_format("x %.2f ^8(more/less)", more))
+				end
+				if inc ~= 0 or more ~= 1 then
+					t_insert(breakdown[res], s_format("= %g", output[res]))
+				end
+			end
+		end
+	end
+	if output.ChaosInoculation then
+		output.Life = 1
+		condList["FullLife"] = true
+	end
+	output.LowestOfMaximumLifeAndMaximumMana = m_min(output.Life, output.Mana)
+end
+
+-- Calculate life/mana/spirit reservation
+---@param actor table
+function calcs.doActorLifeManaSpiritReservation(actor)
+	local modDB = actor.modDB
+	local output = actor.output
+	local condList = modDB.conditions
+	local breakdown = actor.breakdown
+
+	actor.reserved_LifeBase = 0
+	actor.reserved_LifePercent = modDB:Sum("BASE", nil, "ExtraLifeReserved")
+	actor.reserved_ManaBase = 0
+	actor.reserved_ManaPercent = 0
+	actor.uncancellable_LifeReservation = modDB:Sum("BASE", nil, "ExtraLifeReserved")
+	actor.uncancellable_ManaReservation = modDB:Sum("BASE", nil, "ExtraManaReserved")
+	if breakdown then
+		breakdown.LifeReserved = { reservations = { } }
+		breakdown.ManaReserved = { reservations = { } }
+	end
+	for _, activeSkill in ipairs(actor.activeSkillList) do
+		if (activeSkill.skillTypes[SkillType.HasReservation] or activeSkill.skillData.SupportedByAutoexertion) and not activeSkill.skillTypes[SkillType.ReservationBecomesCost] then
+			local skillModList = activeSkill.skillModList
+			local skillCfg = activeSkill.skillCfg
+			local mult = floor(skillModList:More(skillCfg, "SupportManaMultiplier"), 4)
+			local pool = { ["Mana"] = { }, ["Life"] = { } }
+			pool.Mana.baseFlat = activeSkill.skillData.manaReservationFlat or activeSkill.activeEffect.grantedEffectLevel.manaReservationFlat or 0
+			if skillModList:Flag(skillCfg, "ManaCostGainAsReservation") and activeSkill.activeEffect.grantedEffectLevel.cost then
+				pool.Mana.baseFlat = skillModList:Sum("BASE", skillCfg, "ManaCostBase") + (activeSkill.activeEffect.grantedEffectLevel.cost.Mana or 0)
+			end
+			pool.Mana.basePercent = activeSkill.skillData.manaReservationPercent or activeSkill.activeEffect.grantedEffectLevel.manaReservationPercent or 0
+			pool.Life.baseFlat = activeSkill.skillData.lifeReservationFlat or activeSkill.activeEffect.grantedEffectLevel.lifeReservationFlat or 0
+			if skillModList:Flag(skillCfg, "LifeCostGainAsReservation") and activeSkill.activeEffect.grantedEffectLevel.cost then
+				pool.Life.baseFlat = skillModList:Sum("BASE", skillCfg, "LifeCostBase") + (activeSkill.activeEffect.grantedEffectLevel.cost.Life or 0)
+			end
+			pool.Life.basePercent = activeSkill.skillData.lifeReservationPercent or activeSkill.activeEffect.grantedEffectLevel.lifeReservationPercent or 0
+			if skillModList:Flag(skillCfg, "BloodMagicReserved") then
+				pool.Life.baseFlat = pool.Life.baseFlat + pool.Mana.baseFlat
+				pool.Mana.baseFlat = 0
+				activeSkill.skillData["LifeReservationFlatForced"] = activeSkill.skillData["ManaReservationFlatForced"]
+				activeSkill.skillData["ManaReservationFlatForced"] = nil
+				pool.Life.basePercent = pool.Life.basePercent + pool.Mana.basePercent
+				pool.Mana.basePercent = 0
+				activeSkill.skillData["LifeReservationPercentForced"] = activeSkill.skillData["ManaReservationPercentForced"]
+				activeSkill.skillData["ManaReservationPercentForced"] = nil
+			end
+			for name, values in pairs(pool) do
+				values.more = skillModList:More(skillCfg, name.."Reserved", "Reserved")
+				values.inc = skillModList:Sum("INC", skillCfg, name.."Reserved", "Reserved")
+				values.efficiency = m_max(skillModList:Sum("INC", skillCfg, name.."ReservationEfficiency", "ReservationEfficiency"), -100)
+				-- used for Arcane Cloak calculations in ModStore.GetStat
+				actor[name.."Efficiency"] = values.efficiency
+				if activeSkill.skillData[name.."ReservationFlatForced"] then
+					values.reservedFlat = activeSkill.skillData[name.."ReservationFlatForced"]
+				else
+					local baseFlatVal = m_floor(values.baseFlat * mult)
+					values.reservedFlat = 0
+					if values.more > 0 and values.inc > -100 and baseFlatVal ~= 0 then
+						values.reservedFlat = m_max(round(baseFlatVal * (100 + values.inc) / 100 * values.more / (1 + values.efficiency / 100), 0), 0)
+					end
+				end
+				if activeSkill.skillData[name.."ReservationPercentForced"] then
+					values.reservedPercent = activeSkill.skillData[name.."ReservationPercentForced"]
+				else
+					local basePercentVal = values.basePercent * mult
+					values.reservedPercent = 0
+					if values.more > 0 and values.inc > -100 and basePercentVal ~= 0 then
+						values.reservedPercent = m_max(round(basePercentVal * (100 + values.inc) / 100 * values.more / (1 + values.efficiency / 100), 2), 0)
+					end
+				end
+				if activeSkill.activeMineCount then
+					values.reservedFlat = values.reservedFlat * activeSkill.activeMineCount
+					values.reservedPercent = values.reservedPercent * activeSkill.activeMineCount
+				end
+				-- Blood Sacrament increases reservation per stage channelled
+				if activeSkill.skillCfg.skillName == "Blood Sacrament" and activeSkill.activeStageCount then
+					values.reservedFlat = values.reservedFlat * (activeSkill.activeStageCount + 1)
+					values.reservedPercent = values.reservedPercent * (activeSkill.activeStageCount + 1)
+				end
+				if values.reservedFlat ~= 0 then
+					activeSkill.skillData[name.."ReservedBase"] = values.reservedFlat
+					actor["reserved_"..name.."Base"] = actor["reserved_"..name.."Base"] + values.reservedFlat
+					if breakdown then
+						t_insert(breakdown[name.."Reserved"].reservations, {
+							skillName = activeSkill.activeEffect.grantedEffect.name,
+							base = values.baseFlat,
+							mult = mult ~= 1 and ("x "..mult),
+							more = values.more ~= 1 and ("x "..values.more),
+							inc = values.inc ~= 0 and ("x "..(1 + values.inc / 100)),
+							efficiency = values.efficiency ~= 0 and ("x " .. round(100 / (100 + values.efficiency), 4)),
+							total = values.reservedFlat,
+						})
+					end
+				end
+				if values.reservedPercent ~= 0 then
+					activeSkill.skillData[name.."ReservedPercent"] = values.reservedPercent
+					activeSkill.skillData[name.."ReservedBase"] = (values.reservedFlat or 0) + m_ceil(output[name] * values.reservedPercent / 100)
+					actor["reserved_"..name.."Percent"] = actor["reserved_"..name.."Percent"] + values.reservedPercent
+					if breakdown then
+						t_insert(breakdown[name.."Reserved"].reservations, {
+							skillName = activeSkill.activeEffect.grantedEffect.name,
+							base = values.basePercent .. "%",
+							mult = mult ~= 1 and ("x "..mult),
+							more = values.more ~= 1 and ("x "..values.more),
+							inc = values.inc ~= 0 and ("x "..(1 + values.inc / 100)),
+							efficiency = values.efficiency ~= 0 and ("x " .. round(100 / (100 + values.efficiency), 4)),
+							total = values.reservedPercent .. "%",
+						})
+					end
+				end
+				if skillModList:Flag(skillCfg, "HasUncancellableReservation") then
+					actor["uncancellable_"..name.."Reservation"] = actor["uncancellable_"..name.."Reservation"] + values.reservedPercent
+				end
+			end
+		end
+	end
+
+	for _, pool in pairs({"Life", "Mana", "Spirit"}) do
+		local max = output[pool]
+		local reserved
+		if max > 0 then
+			local lowPerc = modDB:Sum("BASE", nil, "Low" .. pool .. "Percentage")
+			reserved = (actor["reserved_"..pool.."Base"] or 0) + m_ceil(max * (actor["reserved_"..pool.."Percent"] or 0) / 100)
+			uncancellableReservation = actor["uncancellable_"..pool.."Reservation"] or 0
+			output[pool.."Reserved"] = m_min(reserved, max)
+			output[pool.."ReservedPercent"] = m_min(reserved / max * 100, 100)
+			output[pool.."Unreserved"] = max - reserved
+			output[pool.."UnreservedPercent"] = (max - reserved) / max * 100
+			output[pool.."UncancellableReservation"] = m_min(uncancellableReservation, 0)
+			output[pool.."CancellableReservation"] = 100 - uncancellableReservation
+			if (max - reserved) / max <= (lowPerc > 0 and lowPerc or data.misc.LowPoolThreshold) then
+				condList["Low"..pool] = true
+			end
+		else
+			reserved = 0
+		end
+		for _, value in ipairs(modDB:List(nil, "GrantReserved"..pool.."AsAura")) do
+			local auraMod = copyTable(value.mod)
+			auraMod.value = m_floor(auraMod.value * m_min(reserved, max))
+			modDB:NewMod("ExtraAura", "LIST", { mod = auraMod })
+		end
+	end
+end
+
 -- Based on code from FR and BS found in act_*.txt
 ---@param activeSkill/output/breakdown references table passed in from calc offence
 ---@param sourceType string type of incoming damage - it will be converted (taken as) from this type if applicable
@@ -500,8 +695,8 @@ function calcs.defence(env, actor)
 	end
 
 	if actor == env.minion then
-		doActorLifeManaSpirit(env.minion)
-		doActorLifeManaSpiritReservation(env.minion)
+		calcs.doActorLifeManaSpirit(env.minion)
+		calcs.doActorLifeManaSpiritReservation(env.minion)
 	end
 
 	-- Block
@@ -640,7 +835,6 @@ function calcs.defence(env, actor)
 	end
 	-- Primary defences: Energy shield, evasion and armour
 	do
-		local ironReflexes = modDB:Flag(nil, "IronReflexes")
 		local ward = 0
 		local energyShield = 0
 		local armour = 0
@@ -650,6 +844,9 @@ function calcs.defence(env, actor)
 			breakdown.EnergyShield = { slots = { } }
 			breakdown.Armour = { slots = { } }
 			breakdown.Evasion = { slots = { } }
+			breakdown.Life = { slots = { } }
+			breakdown.Mana = { slots = { } }
+			breakdown.Spirit = { slots = { } }
 		end
 		local energyShieldBase, armourBase, evasionBase, wardBase
 		local gearWard = 0
@@ -696,7 +893,6 @@ function calcs.defence(env, actor)
 					end
 					if modDB:Flag(nil, "EnergyShieldToWard") then
 						local more = modDB:More(slotCfg, "EnergyShield", "Defences")
-						energyShield = energyShield + energyShieldBase * more
 						gearEnergyShield = gearEnergyShield + energyShieldBase
 						if breakdown then
 							t_insert(breakdown["EnergyShield"].slots, {
@@ -708,7 +904,6 @@ function calcs.defence(env, actor)
 							})
 						end
 					elseif not modDB:Flag(nil, "ConvertArmourESToLife") then
-						energyShield = energyShield + energyShieldBase * calcLib.mod(modDB, slotCfg, "EnergyShield", "Defences", slot.."ESAndArmour")
 						gearEnergyShield = gearEnergyShield + energyShieldBase
 						if breakdown then
 							breakdown.slot(slot, nil, slotCfg, energyShieldBase, nil, "EnergyShield", "Defences", slot.."ESAndArmour")
@@ -728,7 +923,6 @@ function calcs.defence(env, actor)
 							armourBase = armourBase * (1 - ((modDB:Sum("BASE", nil, "BodyArmourArmourEvasionToWardPercent") or 0) / 100))
 						end
 					end
-					armour = armour + armourBase * calcLib.mod(modDB, slotCfg, "Armour", "ArmourAndEvasion", "Defences", slot.."ESAndArmour")
 					gearArmour = gearArmour + armourBase
 					if breakdown then
 						breakdown.slot(slot, nil, slotCfg, armourBase, nil, "Armour", "ArmourAndEvasion", "Defences", slot.."ESAndArmour")
@@ -740,7 +934,7 @@ function calcs.defence(env, actor)
 						if modDB:Flag(nil, "DoubleBodyArmourDefence") then
 							evasionBase = evasionBase * 2
 						end
-						if modDB:Flag(nil, "Unbreakable") and ironReflexes then
+						if modDB:Flag(nil, "Unbreakable") and modDB:Flag(nil, "IronReflexes") then
 							evasionBase = evasionBase * 2
 						end
 						if modDB:Flag(nil, "ConvertBodyArmourArmourEvasionToWard") then
@@ -750,11 +944,6 @@ function calcs.defence(env, actor)
 					gearEvasion = gearEvasion + evasionBase
 					if breakdown then
 						breakdown.slot(slot, nil, slotCfg, evasionBase, nil, "Evasion", "ArmourAndEvasion", "Defences")
-					end
-					if ironReflexes then
-						armour = armour + evasionBase * calcLib.mod(modDB, slotCfg, "Armour", "Evasion", "ArmourAndEvasion", "Defences")
-					else
-						evasion = evasion + evasionBase * calcLib.mod(modDB, slotCfg, "Evasion", "ArmourAndEvasion", "Defences")
 					end
 				end
 			end
@@ -785,13 +974,8 @@ function calcs.defence(env, actor)
 		end
 		energyShieldBase = modDB:Sum("BASE", nil, "EnergyShield")
 		if energyShieldBase > 0 then
-			if modDB:Flag(nil, "EnergyShieldToWard") then
-				energyShield = energyShield + energyShieldBase * modDB:More(nil, "EnergyShield", "Defences")
-			else
-				energyShield = energyShield + energyShieldBase * calcLib.mod(modDB, nil, "EnergyShield", "Defences")
-			end
 			if breakdown then
-				local inc = modDB:Sum("INC", nil, "Defences", "EnergyShield")
+				local inc = modDB:Flag(nil, "EnergyShieldToWard") and 0 or modDB:Sum("INC", nil, "Defences", "EnergyShield")
 				local more = modDB:More(nil, "EnergyShield", "Defences")
 				t_insert(breakdown["EnergyShield"].slots, {
 					base = energyShieldBase,
@@ -805,86 +989,75 @@ function calcs.defence(env, actor)
 		end
 		armourBase = modDB:Sum("BASE", nil, "Armour", "ArmourAndEvasion")
 		if armourBase > 0 then
-			armour = armour + armourBase * calcLib.mod(modDB, nil, "Armour", "ArmourAndEvasion", "Defences")
 			if breakdown then
 				breakdown.slot("Global", nil, nil, armourBase, nil, "Armour", "ArmourAndEvasion", "Defences")
 			end
 		end
 		evasionBase = modDB:Sum("BASE", nil, "Evasion", "ArmourAndEvasion")
 		if evasionBase > 0 then
-			if ironReflexes then
-				armour = armour + evasionBase * calcLib.mod(modDB, nil, "Armour", "Evasion", "ArmourAndEvasion", "Defences")
-				if breakdown then
-					breakdown.slot("Conversion", "Evasion to Armour", nil, evasionBase, nil, "Armour", "Evasion", "ArmourAndEvasion", "Defences")
+			if breakdown then
+				breakdown.slot("Global", nil, nil, evasionBase, nil, "Evasion", "ArmourAndEvasion", "Defences")
+			end
+		end
+
+		local resourceList = {
+			{ name = "Armour", extraBase = gearArmour, conversionRate = { }, mods = { "Armour", "ArmourAndEvasion", "Defences" }, defence = true },
+			{ name = "Evasion", extraBase = gearEvasion, conversionRate = { }, mods = { "Evasion", "ArmourAndEvasion", "Defences" }, defence = true },
+			{ name = "EnergyShield", extraBase = gearEnergyShield, conversionRate = { }, mods = { "EnergyShield", "Defences" }, defence = true },
+			{ name = "Life", extraBase = 0, conversionRate = { }, mods = { "Life" }, },
+			{ name = "Mana", extraBase = 0, conversionRate = { }, mods = { "Mana" }, },
+		}
+		for _, source in ipairs(resourceList) do
+			output[source.name] = (output[source.name] or 0)
+			local totalConversion = 0
+			for _, target in ipairs(resourceList) do
+				source.conversionRate[target.name] = m_min(modDB:Sum("BASE", nil, source.name.."ConvertTo"..target.name), 100)
+				totalConversion = totalConversion + source.conversionRate[target.name]
+			end
+			if totalConversion > 100 then
+				local factor = 100 / totalConversion
+				totalConversion = 100
+				for name, val in ipairs(source.conversionRate) do
+					source.conversionRate[name] = val * factor
 				end
-			else
-				evasion = evasion + evasionBase * calcLib.mod(modDB, nil, "Evasion", "ArmourAndEvasion", "Defences")
-				if breakdown then
-					breakdown.slot("Global", nil, nil, evasionBase, nil, "Evasion", "ArmourAndEvasion", "Defences")
+			end
+			source.totalConversion = totalConversion
+		end
+		for _, source in ipairs(resourceList) do
+			local sourceBase = modDB:Sum("BASE", nil, unpack(source.mods)) + source.extraBase
+			if sourceBase > 0 then
+				for _, target in ipairs(resourceList) do
+					if source.name ~= target.name then
+						local gainRate = modDB:Sum("BASE", nil, source.name.."GainAs"..target.name)
+						local rate = source.conversionRate[target.name] + gainRate
+						if rate > 0 then
+							local targetBase = sourceBase * rate / 100
+							target.extraBase = target.extraBase + targetBase
+							if breakdown then
+								breakdown.slot("Conversion", source.name.." to "..target.name, nil, targetBase, nil, unpack(target.mods))
+							end
+						end
+					end
 				end
 			end
-		end
-		local convManaToArmour = modDB:Sum("BASE", nil, "ManaConvertToArmour")
-		if convManaToArmour > 0 then
-			armourBase = 2 * modDB:Sum("BASE", nil, "Mana") * convManaToArmour / 100
-			local total = armourBase * calcLib.mod(modDB, nil, "Mana", "Armour", "ArmourAndEvasion", "Defences")
-			armour = armour + total
-			if breakdown then
-				breakdown.slot("Conversion", "Mana to Armour", nil, armourBase, total, "Armour", "ArmourAndEvasion", "Defences", "Mana")
+			if source.defence then
+				source.extraBase = sourceBase * (100 - source.totalConversion) / 100
 			end
 		end
-		local convManaToES = modDB:Sum("BASE", nil, "ManaGainAsEnergyShield")
-		if convManaToES > 0 then
-			energyShieldBase = modDB:Sum("BASE", nil, "Mana") * convManaToES / 100
-			energyShield = energyShield + energyShieldBase * calcLib.mod(modDB, nil, "Mana", "EnergyShield", "Defences") 
-			if breakdown then
-				breakdown.slot("Conversion", "Mana to Energy Shield", nil, energyShieldBase, nil, "EnergyShield", "Defences", "Mana")
-			end
-		end
-		local convLifeToArmour = modDB:Sum("BASE", nil, "LifeGainAsArmour")
-		if convLifeToArmour > 0 then
-			armourBase = modDB:Sum("BASE", nil, "Life") * convLifeToArmour / 100
-			local total
-			if modDB:Flag(nil, "ChaosInoculation") then
-				total = 1
+		for _, res in ipairs(resourceList) do
+			if res.defence then
+				output[res.name] = output[res.name] + res.extraBase * calcLib.mod(modDB, nil, unpack(res.mods))
 			else
-				total = armourBase * calcLib.mod(modDB, nil, "Life", "Armour", "ArmourAndEvasion", "Defences") 
-			end
-			armour = armour + total
-			if breakdown then
-				breakdown.slot("Conversion", "Life to Armour", nil, armourBase, total, "Armour", "ArmourAndEvasion", "Defences", "Life")
+				modDB:NewMod("Extra"..res.name, "BASE", res.extraBase, "Conversion")
 			end
 		end
-		local convLifeToES = modDB:Sum("BASE", nil, "LifeConvertToEnergyShield", "LifeGainAsEnergyShield")
-		if convLifeToES > 0 then
-			energyShieldBase = modDB:Sum("BASE", nil, "Life") * convLifeToES / 100
-			local total
-			if modDB:Flag(nil, "ChaosInoculation") then
-				total = 1
-			else
-				total = energyShieldBase * calcLib.mod(modDB, nil, "Life", "EnergyShield", "Defences")
-			end
-			energyShield = energyShield + total
-			if breakdown then
-				breakdown.slot("Conversion", "Life to Energy Shield", nil, energyShieldBase, total, "EnergyShield", "Defences", "Life")
-			end
-		end
-		local convEvasionToArmour = modDB:Sum("BASE", nil, "EvasionGainAsArmour")
-		if convEvasionToArmour > 0 then
-			armourBase = (modDB:Sum("BASE", nil, "Evasion", "ArmourAndEvasion") + gearEvasion) * convEvasionToArmour / 100
-			local total = armourBase * calcLib.mod(modDB, nil, "Evasion", "Armour", "ArmourAndEvasion", "Defences")
-			armour = armour + total
-			if breakdown then
-				breakdown.slot("Conversion", "Evasion to Armour", nil, armourBase, total, "Armour", "ArmourAndEvasion", "Defences", "Evasion")
-			end
-		end
-		output.EnergyShield = modDB:Override(nil, "EnergyShield") or m_max(round(energyShield), 0)
-		output.Armour = m_max(round(armour), 0)
+		output.EnergyShield = modDB:Override(nil, "EnergyShield") or m_max(round(output.EnergyShield), 0)
+		output.Armour = m_max(round(output.Armour), 0)
 		output.ArmourDefense = (modDB:Max(nil, "ArmourDefense") or 0) / 100
 		output.RawArmourDefense = output.ArmourDefense > 0 and ((1 + output.ArmourDefense) * 100) or nil
-		output.Evasion = m_max(round(evasion), 0)
-		output.MeleeEvasion = m_max(round(evasion * calcLib.mod(modDB, nil, "MeleeEvasion")), 0)
-		output.ProjectileEvasion = m_max(round(evasion * calcLib.mod(modDB, nil, "ProjectileEvasion")), 0)
+		output.Evasion = m_max(round(output.Evasion), 0)
+		output.MeleeEvasion = m_max(round(output.Evasion * calcLib.mod(modDB, nil, "MeleeEvasion")), 0)
+		output.ProjectileEvasion = m_max(round(output.Evasion * calcLib.mod(modDB, nil, "ProjectileEvasion")), 0)
 		output.LowestOfArmourAndEvasion = m_min(output.Armour, output.Evasion)
 		output.Ward = m_max(m_floor(ward), 0)
 		output["Gear:Ward"] = gearWard
@@ -1006,6 +1179,22 @@ function calcs.defence(env, actor)
 			"Max: "..spellDodgeChanceMax.."%",
 			"Total: "..output.SpellDodgeChance+output.SpellDodgeChanceOverCap.."%",
 		}
+	end
+
+	-- Calculate life/mana pools
+	calcs.doActorLifeManaSpirit(actor)
+
+	-- Calculate life and mana reservations
+	calcs.doActorLifeManaSpiritReservation(actor)
+
+	-- Stormweaver's Force of Will adds effect per max mana. Needs to happen before mana regen is calculated
+	if modDB.conditions["AffectedByArcaneSurge"] or modDB:Flag(nil, "Condition:ArcaneSurge") then
+		modDB.conditions["AffectedByArcaneSurge"] = true
+		local effect = 1 + modDB:Sum("INC", nil, "ArcaneSurgeEffect", "BuffEffectOnSelf") / 100
+		modDB:NewMod("ManaRegen", "MORE", (modDB:Max(nil, "ArcaneSurgeManaRegen") or 20) * effect, "Arcane Surge")
+		modDB:NewMod("Speed", "MORE", (modDB:Max(nil, "ArcaneSurgeCastSpeed") or 10) * effect, "Arcane Surge", ModFlag.Cast)
+		local arcaneSurgeDamage = modDB:Max(nil, "ArcaneSurgeDamage") or 0
+		if arcaneSurgeDamage ~= 0 then modDB:NewMod("Damage", "MORE", arcaneSurgeDamage * effect, "Arcane Surge", ModFlag.Spell) end
 	end
 
 	-- Recovery modifiers

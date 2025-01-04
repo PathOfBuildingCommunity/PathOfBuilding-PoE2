@@ -78,70 +78,6 @@ local function mergeKeystones(env)
 	end
 end
 
-function doActorLifeManaSpirit(actor)
-	local modDB = actor.modDB
-	local output = actor.output
-	local breakdown = actor.breakdown
-	local condList = modDB.conditions
-
-	local lowLifePerc = modDB:Sum("BASE", nil, "LowLifePercentage")
-	output.LowLifePercentage = 100.0 * (lowLifePerc > 0 and lowLifePerc or data.misc.LowPoolThreshold)
-	local fullLifePerc = modDB:Sum("BASE", nil, "FullLifePercentage")
-	output.FullLifePercentage = 100.0 * (fullLifePerc > 0 and fullLifePerc or 1.0)
-
-	output.ChaosInoculation = modDB:Flag(nil, "ChaosInoculation")
-	-- Life/mana pools
-	if output.ChaosInoculation then
-		output.Life = 1
-		condList["FullLife"] = true
-	else
-		local base = modDB:Sum("BASE", nil, "Life")
-		local inc = modDB:Sum("INC", nil, "Life")
-		local more = modDB:More(nil, "Life")
-		local conv = modDB:Sum("BASE", nil, "LifeConvertToEnergyShield")
-		output.Life = m_max(round(base * (1 + inc/100) * more * (1 - conv/100)), 1)
-		if breakdown then
-			if inc ~= 0 or more ~= 1 or conv ~= 0 then
-				breakdown.Life = { }
-				breakdown.Life[1] = s_format("%g ^8(base)", base)
-				if inc ~= 0 then
-					t_insert(breakdown.Life, s_format("x %.2f ^8(increased/reduced)", 1 + inc/100))
-				end
-				if more ~= 1 then
-					t_insert(breakdown.Life, s_format("x %.2f ^8(more/less)", more))
-				end
-				if conv ~= 0 then
-					t_insert(breakdown.Life, s_format("x %.2f ^8(converted to Energy Shield)", 1 - conv/100))
-				end
-				t_insert(breakdown.Life, s_format("= %g", output.Life))
-			end
-		end
-	end
-	local manaConv = modDB:Sum("BASE", nil, "ManaConvertToArmour")
-	output.Mana = round(calcLib.val(modDB, "Mana") * (1 - manaConv / 100))
-	local base = modDB:Sum("BASE", nil, "Mana")
-	local inc = modDB:Sum("INC", nil, "Mana")
-	local more = modDB:More(nil, "Mana")
-	if breakdown then
-		if inc ~= 0 or more ~= 1 or manaConv ~= 0 then
-			breakdown.Mana = { }
-			breakdown.Mana[1] = s_format("%g ^8(base)", base)
-			if inc ~= 0 then
-				t_insert(breakdown.Mana, s_format("x %.2f ^8(increased/reduced)", 1 + inc/100))
-			end
-			if more ~= 1 then
-				t_insert(breakdown.Mana, s_format("x %.2f ^8(more/less)", more))
-			end
-			if manaConv ~= 0 then
-				t_insert(breakdown.Mana, s_format("x %.2f ^8(converted to Armour)", 1 - manaConv/100))
-			end
-			t_insert(breakdown.Mana, s_format("= %g", output.Mana))
-		end
-	end
-	output.LowestOfMaximumLifeAndMaximumMana = m_min(output.Life, output.Mana)
-	output.Spirit = modDB:Sum("BASE", nil, "Spirit")
-end
-
 -- Calculate attributes, and set conditions
 ---@param env table
 ---@param actor table
@@ -376,42 +312,6 @@ local function doActorAttribsConditions(env, actor)
 			end
 		end
 	end
-
-	doActorLifeManaSpirit(actor)
-end
-
--- Calculate life/mana reservation
----@param actor table
-function doActorLifeManaSpiritReservation(actor)
-	local modDB = actor.modDB
-	local output = actor.output
-	local condList = modDB.conditions
-
-	for _, pool in pairs({"Life", "Mana", "Spirit"}) do
-		local max = output[pool]
-		local reserved
-		if max > 0 then
-			local lowPerc = modDB:Sum("BASE", nil, "Low" .. pool .. "Percentage")
-			reserved = (actor["reserved_"..pool.."Base"] or 0) + m_ceil(max * (actor["reserved_"..pool.."Percent"] or 0) / 100)
-			uncancellableReservation = actor["uncancellable_"..pool.."Reservation"] or 0
-			output[pool.."Reserved"] = m_min(reserved, max)
-			output[pool.."ReservedPercent"] = m_min(reserved / max * 100, 100)
-			output[pool.."Unreserved"] = max - reserved
-			output[pool.."UnreservedPercent"] = (max - reserved) / max * 100
-			output[pool.."UncancellableReservation"] = m_min(uncancellableReservation, 0)
-			output[pool.."CancellableReservation"] = 100 - uncancellableReservation
-			if (max - reserved) / max <= (lowPerc > 0 and lowPerc or data.misc.LowPoolThreshold) then
-				condList["Low"..pool] = true
-			end
-		else
-			reserved = 0
-		end
-		for _, value in ipairs(modDB:List(nil, "GrantReserved"..pool.."AsAura")) do
-			local auraMod = copyTable(value.mod)
-			auraMod.value = m_floor(auraMod.value * m_min(reserved, max))
-			modDB:NewMod("ExtraAura", "LIST", { mod = auraMod })
-		end
-	end
 end
 
 -- Helper function to determine curse priority when processing curses beyond the curse limit
@@ -518,14 +418,6 @@ local function doActorMisc(env, actor)
 			modDB:NewMod("Speed", "INC", effect, "Onslaught", ModFlag.Attack)
 			modDB:NewMod("Speed", "INC", effect, "Onslaught", ModFlag.Cast)
 			modDB:NewMod("MovementSpeed", "INC", effect, "Onslaught")
-		end
-		if modDB.conditions["AffectedByArcaneSurge"] or modDB:Flag(nil, "Condition:ArcaneSurge") then
-			modDB.conditions["AffectedByArcaneSurge"] = true
-			local effect = 1 + modDB:Sum("INC", nil, "ArcaneSurgeEffect", "BuffEffectOnSelf") / 100
-			modDB:NewMod("ManaRegen", "MORE", (modDB:Max(nil, "ArcaneSurgeManaRegen") or 20) * effect, "Arcane Surge")
-			modDB:NewMod("Speed", "MORE", (modDB:Max(nil, "ArcaneSurgeCastSpeed") or 10) * effect, "Arcane Surge", ModFlag.Cast)
-			local arcaneSurgeDamage = modDB:Max(nil, "ArcaneSurgeDamage") or 0
-			if arcaneSurgeDamage ~= 0 then modDB:NewMod("Damage", "MORE", arcaneSurgeDamage * effect, "Arcane Surge", ModFlag.Spell) end
 		end
 		if modDB:Flag(nil, "Fanaticism") and actor.mainSkill and actor.mainSkill.skillFlags.selfCast then
 			local effect = m_floor(75 * (1 + modDB:Sum("INC", nil, "BuffEffectOnSelf") / 100))
@@ -864,12 +756,9 @@ end
 -- 3. Initialises the main skill's minion, if present
 -- 4. Merges flask effects
 -- 5. Sets conditions and calculates attributes (doActorAttribsConditions)
--- 6. Calculates life and mana (doActorLifeManaSpirit)
--- 6. Calculates reservations
--- 7. Sets life/mana reservation (doActorLifeManaSpiritReservation)
--- 8. Processes buffs and debuffs
--- 9. Processes charges and misc buffs (doActorCharges, doActorMisc)
--- 10. Calculates defence and offence stats (calcs.defence, calcs.offence)
+-- 6. Processes buffs and debuffs
+-- 7. Processes charges and misc buffs (doActorCharges, doActorMisc)
+-- 8. Calculates defence and offence stats (calcs.defence, calcs.offence)
 function calcs.perform(env, skipEHP)
 	local modDB = env.modDB
 	local enemyDB = env.enemyDB
@@ -1433,9 +1322,8 @@ function calcs.perform(env, skipEHP)
 		mergeKeystones(env)
 	end
 
-	-- Calculate attributes and life/mana pools
+	-- Calculate attributes
 	doActorAttribsConditions(env, env.player)
-	doActorLifeManaSpirit(env.player)
 	if env.minion then
 		for _, value in ipairs(env.player.mainSkill.skillModList:List(env.player.mainSkill.skillCfg, "MinionModifier")) do
 			if not value.type or env.minion.type == value.type then
@@ -1449,117 +1337,6 @@ function calcs.perform(env, skipEHP)
 		end
 		doActorAttribsConditions(env, env.minion)
 	end
-
-	-- Calculate skill life and mana reservations
-	env.player.reserved_LifeBase = 0
-	env.player.reserved_LifePercent = modDB:Sum("BASE", nil, "ExtraLifeReserved")
-	env.player.reserved_ManaBase = 0
-	env.player.reserved_ManaPercent = 0
-	env.player.uncancellable_LifeReservation = modDB:Sum("BASE", nil, "ExtraLifeReserved")
-	env.player.uncancellable_ManaReservation = modDB:Sum("BASE", nil, "ExtraManaReserved")
-	if breakdown then
-		breakdown.LifeReserved = { reservations = { } }
-		breakdown.ManaReserved = { reservations = { } }
-	end
-	for _, activeSkill in ipairs(env.player.activeSkillList) do
-		if (activeSkill.skillTypes[SkillType.HasReservation] or activeSkill.skillData.SupportedByAutoexertion) and not activeSkill.skillTypes[SkillType.ReservationBecomesCost] then
-			local skillModList = activeSkill.skillModList
-			local skillCfg = activeSkill.skillCfg
-			local mult = floor(skillModList:More(skillCfg, "SupportManaMultiplier"), 4)
-			local pool = { ["Mana"] = { }, ["Life"] = { } }
-			pool.Mana.baseFlat = activeSkill.skillData.manaReservationFlat or activeSkill.activeEffect.grantedEffectLevel.manaReservationFlat or 0
-			if skillModList:Flag(skillCfg, "ManaCostGainAsReservation") and activeSkill.activeEffect.grantedEffectLevel.cost then
-				pool.Mana.baseFlat = skillModList:Sum("BASE", skillCfg, "ManaCostBase") + (activeSkill.activeEffect.grantedEffectLevel.cost.Mana or 0)
-			end
-			pool.Mana.basePercent = activeSkill.skillData.manaReservationPercent or activeSkill.activeEffect.grantedEffectLevel.manaReservationPercent or 0
-			pool.Life.baseFlat = activeSkill.skillData.lifeReservationFlat or activeSkill.activeEffect.grantedEffectLevel.lifeReservationFlat or 0
-			if skillModList:Flag(skillCfg, "LifeCostGainAsReservation") and activeSkill.activeEffect.grantedEffectLevel.cost then
-				pool.Life.baseFlat = skillModList:Sum("BASE", skillCfg, "LifeCostBase") + (activeSkill.activeEffect.grantedEffectLevel.cost.Life or 0)
-			end
-			pool.Life.basePercent = activeSkill.skillData.lifeReservationPercent or activeSkill.activeEffect.grantedEffectLevel.lifeReservationPercent or 0
-			if skillModList:Flag(skillCfg, "BloodMagicReserved") then
-				pool.Life.baseFlat = pool.Life.baseFlat + pool.Mana.baseFlat
-				pool.Mana.baseFlat = 0
-				activeSkill.skillData["LifeReservationFlatForced"] = activeSkill.skillData["ManaReservationFlatForced"]
-				activeSkill.skillData["ManaReservationFlatForced"] = nil
-				pool.Life.basePercent = pool.Life.basePercent + pool.Mana.basePercent
-				pool.Mana.basePercent = 0
-				activeSkill.skillData["LifeReservationPercentForced"] = activeSkill.skillData["ManaReservationPercentForced"]
-				activeSkill.skillData["ManaReservationPercentForced"] = nil
-			end
-			for name, values in pairs(pool) do
-				values.more = skillModList:More(skillCfg, name.."Reserved", "Reserved")
-				values.inc = skillModList:Sum("INC", skillCfg, name.."Reserved", "Reserved")
-				values.efficiency = m_max(skillModList:Sum("INC", skillCfg, name.."ReservationEfficiency", "ReservationEfficiency"), -100)
-				-- used for Arcane Cloak calculations in ModStore.GetStat
-				env.player[name.."Efficiency"] = values.efficiency
-				if activeSkill.skillData[name.."ReservationFlatForced"] then
-					values.reservedFlat = activeSkill.skillData[name.."ReservationFlatForced"]
-				else
-					local baseFlatVal = m_floor(values.baseFlat * mult)
-					values.reservedFlat = 0
-					if values.more > 0 and values.inc > -100 and baseFlatVal ~= 0 then
-						values.reservedFlat = m_max(round(baseFlatVal * (100 + values.inc) / 100 * values.more / (1 + values.efficiency / 100), 0), 0)
-					end
-				end
-				if activeSkill.skillData[name.."ReservationPercentForced"] then
-					values.reservedPercent = activeSkill.skillData[name.."ReservationPercentForced"]
-				else
-					local basePercentVal = values.basePercent * mult
-					values.reservedPercent = 0
-					if values.more > 0 and values.inc > -100 and basePercentVal ~= 0 then
-						values.reservedPercent = m_max(round(basePercentVal * (100 + values.inc) / 100 * values.more / (1 + values.efficiency / 100), 2), 0)
-					end
-				end
-				if activeSkill.activeMineCount then
-					values.reservedFlat = values.reservedFlat * activeSkill.activeMineCount
-					values.reservedPercent = values.reservedPercent * activeSkill.activeMineCount
-				end
-				-- Blood Sacrament increases reservation per stage channelled
-				if activeSkill.skillCfg.skillName == "Blood Sacrament" and activeSkill.activeStageCount then
-					values.reservedFlat = values.reservedFlat * (activeSkill.activeStageCount + 1)
-					values.reservedPercent = values.reservedPercent * (activeSkill.activeStageCount + 1)
-				end
-				if values.reservedFlat ~= 0 then
-					activeSkill.skillData[name.."ReservedBase"] = values.reservedFlat
-					env.player["reserved_"..name.."Base"] = env.player["reserved_"..name.."Base"] + values.reservedFlat
-					if breakdown then
-						t_insert(breakdown[name.."Reserved"].reservations, {
-							skillName = activeSkill.activeEffect.grantedEffect.name,
-							base = values.baseFlat,
-							mult = mult ~= 1 and ("x "..mult),
-							more = values.more ~= 1 and ("x "..values.more),
-							inc = values.inc ~= 0 and ("x "..(1 + values.inc / 100)),
-							efficiency = values.efficiency ~= 0 and ("x " .. round(100 / (100 + values.efficiency), 4)),
-							total = values.reservedFlat,
-						})
-					end
-				end
-				if values.reservedPercent ~= 0 then
-					activeSkill.skillData[name.."ReservedPercent"] = values.reservedPercent
-					activeSkill.skillData[name.."ReservedBase"] = (values.reservedFlat or 0) + m_ceil(output[name] * values.reservedPercent / 100)
-					env.player["reserved_"..name.."Percent"] = env.player["reserved_"..name.."Percent"] + values.reservedPercent
-					if breakdown then
-						t_insert(breakdown[name.."Reserved"].reservations, {
-							skillName = activeSkill.activeEffect.grantedEffect.name,
-							base = values.basePercent .. "%",
-							mult = mult ~= 1 and ("x "..mult),
-							more = values.more ~= 1 and ("x "..values.more),
-							inc = values.inc ~= 0 and ("x "..(1 + values.inc / 100)),
-							efficiency = values.efficiency ~= 0 and ("x " .. round(100 / (100 + values.efficiency), 4)),
-							total = values.reservedPercent .. "%",
-						})
-					end
-				end
-				if skillModList:Flag(skillCfg, "HasUncancellableReservation") then
-					env.player["uncancellable_"..name.."Reservation"] = env.player["uncancellable_"..name.."Reservation"] + values.reservedPercent
-				end
-			end
-		end
-	end
-
-	-- Set the life/mana reservations
-	doActorLifeManaSpiritReservation(env.player)
 
 	-- Process attribute requirements
 	do
@@ -3152,10 +2929,6 @@ function calcs.perform(env, skipEHP)
 			end
 		end
 	end
-
-	-- We need to recalculate Spirit, Some Passive tree work with defences stats (Evasion, Energy Shield) from items
-	doActorLifeManaSpirit(env.player)
-	doActorLifeManaSpiritReservation(env.player)
 
 	cacheData(cacheSkillUUID(env.player.mainSkill, env), env)
 end
