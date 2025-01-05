@@ -278,9 +278,9 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 		end
 	end
 	
+	local hotkeyPressed = IsKeyDown("1") or IsKeyDown("I") or IsKeyDown("2") or IsKeyDown("S") or IsKeyDown("3") or IsKeyDown("D")
 	if treeClick == "LEFT" then
 		if hoverNode then
-			local hotkeyPressed = IsKeyDown("1") or IsKeyDown("I") or IsKeyDown("2") or IsKeyDown("S") or IsKeyDown("3") or IsKeyDown("D")
 			-- User left-clicked on a node
 			if hoverNode.alloc then
 				if hoverNode.isAttribute then
@@ -316,13 +316,27 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 			end
 		end
 	elseif treeClick == "RIGHT" then
-		if hoverNode and hoverNode.alloc and hoverNode.type == "Socket" then
-			local slot = build.itemsTab.sockets[hoverNode.id]
-			if slot:IsEnabled() then
-				-- User right-clicked a jewel socket, jump to the item page and focus the corresponding item slot control
-				slot.dropped = true
-				build.itemsTab:SelectControl(slot)
-				build.viewMode = "ITEMS"
+		if hoverNode then
+			if hoverNode.alloc and hoverNode.type == "Socket" then
+				local slot = build.itemsTab.sockets[hoverNode.id]
+				if slot:IsEnabled() then
+					-- User right-clicked a jewel socket, jump to the item page and focus the corresponding item slot control
+					slot.dropped = true
+					build.itemsTab:SelectControl(slot)
+					build.viewMode = "ITEMS"
+				end
+			else
+				-- a way for us to bypass the popup when allocating attribute nodes, last used hotkey + RMB
+				-- RMB + non attribute node logic
+				-- RMB hotswap logic
+				if hotkeyPressed then
+					processAttributeHotkeys(hoverNode.isAttribute)
+				elseif hoverNode.isAttribute then
+					spec:SwitchAttributeNode(hoverNode.id, spec.attributeIndex or 1)
+				end
+				spec:AllocNode(hoverNode, self.tracePath and hoverNode == self.tracePath[#self.tracePath] and self.tracePath)
+				spec:AddUndoState()
+				build.buildFlag = true
 			end
 		end
 	end

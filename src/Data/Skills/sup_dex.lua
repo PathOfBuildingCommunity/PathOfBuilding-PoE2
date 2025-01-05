@@ -1169,6 +1169,11 @@ skills["SupportFarCombatPlayer"] = {
 			label = "Longshot",
 			incrementalEffectiveness = 0.092720001935959,
 	statDescriptionScope = "gem_stat_descriptions",
+	statMap = {
+		["support_far_combat_attack_damage_+%_final_from_distance"] = {
+			mod("Damage", "MORE", nil, 0, 0, { type = "DistanceRamp", ramp = {{35,0},{70,1}} }),
+		},
+	},
 			baseFlags = {
 			},
 			constantStats = {
@@ -1259,6 +1264,11 @@ skills["SupportFasterAttackPlayer"] = {
 			baseEffectiveness = 0,
 			incrementalEffectiveness = 0.092720001935959,
 	statDescriptionScope = "gem_stat_descriptions",
+	statMap = {
+		["support_faster_attacks_attack_speed_+%_final"] = {
+			mod("Speed", "MORE", nil, ModFlag.Attack),
+		},
+	},
 			baseFlags = {
 			},
 			constantStats = {
@@ -1320,6 +1330,11 @@ skills["SupportMomentumPlayer"] = {
 			label = "Momentum",
 			incrementalEffectiveness = 0.054999999701977,
 	statDescriptionScope = "gem_stat_descriptions",
+	statMap = {
+		["support_momnetum_damage_+%_final_with_momentum"] = {
+			mod("Damage", "MORE", nil, 0, 0, { type = "Condition", var = "Moved2m" }),
+		},
+	},
 			baseFlags = {
 			},
 			constantStats = {

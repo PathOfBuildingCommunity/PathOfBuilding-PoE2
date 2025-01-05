@@ -472,7 +472,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 		modDB:NewMod("FireResist", "BASE", env.configInput.resistancePenalty or -60, "Base")
 		modDB:NewMod("ColdResist", "BASE", env.configInput.resistancePenalty or -60, "Base")
 		modDB:NewMod("LightningResist", "BASE", env.configInput.resistancePenalty or -60, "Base")
-		modDB:NewMod("ChaosResist", "BASE", env.configInput.resistancePenalty or -60, "Base")
+		modDB:NewMod("ChaosResist", "BASE", 0, "Base")
 		modDB:NewMod("TotemFireResist", "BASE", 40, "Base")
 		modDB:NewMod("TotemColdResist", "BASE", 40, "Base")
 		modDB:NewMod("TotemLightningResist", "BASE", 40, "Base")
@@ -513,19 +513,6 @@ function calcs.initEnv(build, mode, override, specEnv)
 		modDB:NewMod("Speed", "INC", 3, "Base", ModFlag.Cast, { type = "Multiplier", var = "Tailwind", limit = 10 })
 		modDB:NewMod("MovementSpeed", "INC", 1, "Base", { type = "Multiplier", var = "Tailwind", limit = 10 })
 		modDB:NewMod("Evasion", "INC", 15, "Base", { type = "Multiplier", var = "Tailwind", limit = 10 })
-
-		-- Add Pantheon mods
-		local parser = modLib.parseMod
-		-- Major Gods
-		if env.configInput.pantheonMajorGod ~= "None" then
-			local majorGod = env.data.pantheons[env.configInput.pantheonMajorGod]
-			pantheon.applySoulMod(modDB, parser, majorGod)
-		end
-		-- Minor Gods
-		if env.configInput.pantheonMinorGod ~= "None" then
-			local minorGod = env.data.pantheons[env.configInput.pantheonMinorGod]
-			pantheon.applySoulMod(modDB, parser, minorGod)
-		end
 
 		-- Initialise enemy modifier database
 		calcs.initModDB(env, enemyDB)

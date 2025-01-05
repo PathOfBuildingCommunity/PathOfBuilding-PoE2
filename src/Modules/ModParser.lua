@@ -157,6 +157,7 @@ local modNameList = {
 	["devotion"] = "Devotion",
 	-- Life/Mana/Spirit
 	["spirit"] = "Spirit",
+	["maximum spirit"] = "Spirit",
 	["life"] = "Life",
 	["maximum life"] = "Life",
 	["life regeneration"] = "LifeRegen",
@@ -608,7 +609,7 @@ local modNameList = {
 	["metre to melee strike range"] = { "MeleeWeaponRangeMetre", "UnarmedRangeMetre" },
 	["to deal double damage"] = "DoubleDamageChance",
 	["to deal triple damage"] = "TripleDamageChance",
-	-- Buffs
+	-- Effects
 	["onslaught effect"] = "OnslaughtEffect",
 	["effect of onslaught on you"] = "OnslaughtEffect",
 	["adrenaline duration"] = "AdrenalineDuration",
@@ -616,6 +617,9 @@ local modNameList = {
 	["elusive effect"] = "ElusiveEffect",
 	["effect of elusive on you"] = "ElusiveEffect",
 	["effect of infusion"] = "InfusionEffect",
+	["fire exposure effect"] = "FireExposureEffect",
+	["cold exposure effect"] = "ColdExposureEffect",
+	["lightning exposure effect"] = "LightningExposureEffect",
 	-- Basic damage types
 	["damage"] = "Damage",
 	["physical damage"] = "PhysicalDamage",
@@ -728,6 +732,7 @@ local modNameList = {
 	["duration of ailments inflicted on you"] = "SelfAilmentDuration",
 	["duration of damaging ailments on you"] = { "SelfIgniteDuration" , "SelfBleedDuration", "SelfPoisonDuration" },
 	-- Other ailments
+	["chance to inflict ailments"] = "AilmentChance",
 	["to poison"] = "PoisonChance",
 	["to cause poison"] = "PoisonChance",
 	["to poison on hit"] = "PoisonChance",
@@ -2012,7 +2017,7 @@ local specialModList = {
 	["cannot deal critical hits with attacks"] = { flag("NeverCrit", nil, ModFlag.Attack), flag("Condition:NeverCrit", nil, ModFlag.Attack) },
 	["no critical damage bonus"] = { flag("NoCritMultiplier") },
 	["ailments never count as being from critical hits"] = { flag("AilmentsAreNeverFromCrit") },
-	["converts all evasion rating to armour%. dexterity provides no bonus to evasion rating"] = { flag("NoDexBonusToEvasion"), flag("IronReflexes") },
+	["converts all evasion rating to armour"] = { flag("IronReflexes"), mod("EvasionConvertToArmour", "BASE", 100) },
 	["30%% chance to dodge attack hits%. 50%% less armour, 30%% less energy shield, 30%% less chance to block spell and attack damage"] = {
 		mod("AttackDodgeChance", "BASE", 30),
 		mod("Armour", "MORE", -50),
@@ -2057,6 +2062,7 @@ local specialModList = {
 	["removes all mana%. spend life instead of mana for skills"] = { mod("Mana", "MORE", -100), flag("CostLifeInsteadOfMana") },
 	["removes all mana"] = { mod("Mana", "MORE", -100) },
 	["removes all energy shield"] = { mod("EnergyShield", "MORE", -100) },
+	["converts all energy shield to mana"] = { mod("EnergyShieldConvertToMana", "BASE", 100) },
 	["skills cost life instead of mana"] = { flag("CostLifeInsteadOfMana") },
 	["skills reserve life instead of mana"] = { flag("BloodMagicReserved") },
 	["non%-aura skills cost no mana or life while focus?sed"] = {
@@ -2181,9 +2187,6 @@ local specialModList = {
 	["gain additional elemental damage reduction equal to half your chaos resistance"] = {
 		mod("ElementalDamageReduction", "BASE", 1, { type = "PerStat", stat = "ChaosResist", div = 2 })
 	},
-	["(%d+)%% of maximum mana is converted to twice that much armour"] = function(num) return {
-		mod("ManaConvertToArmour", "BASE", num),
-	} end,
 	["life recovery from flasks also applies to energy shield"] = { flag("LifeFlaskAppliesToEnergyShield") },
 	["life recovery from flasks applies to energy shield instead"] = { flag("LifeFlaskAppliesToEnergyShield"), flag("LifeFlaskDoesNotApply") },
 	["non%-instant mana recovery from flasks is also recovered as life"] = { flag("ManaFlaskAppliesToLife") },
@@ -4611,6 +4614,11 @@ local specialModList = {
 		mod("FireDamageFromHitsTakenAsCold", "BASE", num, { type = "Condition", var = "UsingFlask" }), 
 		mod("LightningDamageFromHitsTakenAsCold", "BASE", num, { type = "Condition", var = "UsingFlask" }), 
 	} end,
+	["(%d+)%% of physical damage from hits taken as damage of a random element"] = function(num) return {
+		mod("PhysicalDamageFromHitsTakenAsFire", "BASE", num / 3),
+		mod("PhysicalDamageFromHitsTakenAsCold", "BASE", num / 3),
+		mod("PhysicalDamageFromHitsTakenAsLightning", "BASE", num / 3),
+	} end,
 	["items and gems have (%d+)%% reduced attribute requirements"] = function(num) return { mod("GlobalAttributeRequirements", "INC", -num) } end,
 	["items and gems have (%d+)%% increased attribute requirements"] = function(num) return { mod("GlobalAttributeRequirements", "INC", num) } end,
 	["mana reservation of herald skills is always (%d+)%%"] = function(num) return { mod("SkillData", "LIST", { key = "ManaReservationPercentForced", value = num }, { type = "SkillType", skillType = SkillType.Herald }) } end,
@@ -4937,14 +4945,6 @@ local specialModList = {
 	-- Conditional Player Quantity / Rarity
 	["(%d+)%% increased quantity of items dropped by slain normal enemies"] = function(num) return { mod("LootQuantityNormalEnemies", "INC", num) } end,
 	["(%d+)%% increased rarity of items dropped by slain magic enemies"] = function(num) return { mod("LootRarityMagicEnemies", "INC", num) } end,
-	-- Pantheon: Soul of Tukohama support
-	["while stationary, gain ([%d%.]+)%% of life regenerated per second every second, up to a maximum of (%d+)%%"] = function(num, _, limit) return {
-		mod("LifeRegenPercent", "BASE", num, { type = "Multiplier", var = "StationarySeconds", limit = tonumber(limit), limitTotal = true }, { type = "Condition", var = "Stationary" }),
-	} end,
-	-- Pantheon: Soul of Ryslatha support
-	["life flasks gain (%d+) charges? every (%d+) seconds if you haven't used a life flask recently"] = function(num, _, div) return {
-		mod("LifeFlaskChargesGenerated", "BASE", num / div, { type = "Condition", var = "UsingLifeFlask", neg = true })
-	} end,
 	-- Skill-specific enchantment modifiers
 	["(%d+)%% increased decoy totem life"] = function(num) return { mod("TotemLife", "INC", num, { type = "SkillName", skillName = "Decoy Totem" }) } end,
 	["(%d+)%% increased ice spear critical hit chance in second form"] = function(num) return { mod("CritChance", "INC", num, { type = "SkillName", skillName = "Ice Spear", includeTransfigured = true }, { type = "SkillPart", skillPartList = { 2, 4 } }) } end,

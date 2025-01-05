@@ -313,6 +313,11 @@ local skills, mod, flag, skill = ...
 #skill SupportFarCombatPlayer
 #startSets
 #set SupportFarCombatPlayer
+	statMap = {
+		["support_far_combat_attack_damage_+%_final_from_distance"] = {
+			mod("Damage", "MORE", nil, 0, 0, { type = "DistanceRamp", ramp = {{35,0},{70,1}} }),
+		},
+	},
 #mods
 #skillEnd
 
@@ -331,6 +336,11 @@ local skills, mod, flag, skill = ...
 #skill SupportFasterAttackPlayer
 #startSets
 #set SupportFasterAttackPlayer
+	statMap = {
+		["support_faster_attacks_attack_speed_+%_final"] = {
+			mod("Speed", "MORE", nil, ModFlag.Attack),
+		},
+	},
 #mods
 #skillEnd
 
@@ -343,6 +353,11 @@ local skills, mod, flag, skill = ...
 #skill SupportMomentumPlayer
 #startSets
 #set SupportMomentumPlayer
+	statMap = {
+		["support_momnetum_damage_+%_final_with_momentum"] = {
+			mod("Damage", "MORE", nil, 0, 0, { type = "Condition", var = "Moved2m" }),
+		},
+	},
 #mods
 #skillEnd
 

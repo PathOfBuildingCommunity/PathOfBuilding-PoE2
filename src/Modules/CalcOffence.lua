@@ -3739,14 +3739,16 @@ function calcs.offence(env, actor, activeSkill)
 		if skillModList:Sum("BASE", cfg, "LightningExposureChance") > 0 then
 			skillFlags.applyLightningExposure = true
 		end
-		if env.mode_effective then
-			for _, ailment in ipairs(ailmentTypeList) do
-				local mult = enemyDB:Flag(nil, ailment.."Immune") and 0 or 1 - enemyDB:Sum("BASE", nil, "Avoid"..ailment) / 100
-				output[ailment.."ChanceOnHit"] = output[ailment.."ChanceOnHit"] * mult
-				output[ailment.."ChanceOnCrit"] = output[ailment.."ChanceOnCrit"] * mult
-				if ailment == "Poison" then
-					output.ChaosPoisonChance = output.ChaosPoisonChance * mult
-				end
+
+		for _, ailment in ipairs(ailmentTypeList) do
+			local mult = (1 + modDB:Sum("INC", nil, "AilmentChance") / 100)
+			if env.mode_effective then
+				mult = mult * (enemyDB:Flag(nil, ailment.."Immune") and 0 or 1 - enemyDB:Sum("BASE", nil, "Avoid"..ailment) / 100)
+			end
+			output[ailment.."ChanceOnHit"] = m_min(100, output[ailment.."ChanceOnHit"] * mult)
+			output[ailment.."ChanceOnCrit"] = m_min(100, output[ailment.."ChanceOnCrit"] * mult)
+			if ailment == "Poison" then
+				output.ChaosPoisonChance = m_min(100, output.ChaosPoisonChance * mult)
 			end
 		end
 

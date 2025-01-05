@@ -8,40 +8,6 @@ local m_min = math.min
 local m_max = math.max
 local s_format = string.format
 
-local function applyPantheonDescription(tooltip, mode, index, value)
-	tooltip:Clear()
-	if value.val == "None" then
-		return
-	end
-	local applyModes = { BODY = true, HOVER = true }
-	if applyModes[mode] then
-		local god = data.pantheons[value.val]
-		for _, soul in ipairs(god.souls) do
-			local name = soul.name
-			local lines = { }
-			for _, mod in ipairs(soul.mods) do
-				table.insert(lines, mod.line)
-			end
-			tooltip:AddLine(20, '^8'..name)
-			tooltip:AddLine(14, '^6'..table.concat(lines, '\n'))
-			tooltip:AddSeparator(10)
-		end
-	end
-end
-
-local function banditTooltip(tooltip, mode, index, value)
-	local banditBenefits = {
-		["None"] = "Grants 1 Passive Skill Point",
-		["Oak"] = "+40 to Maximum ^xE05030Life",
-		["Kraityn"] = "8% increased Movement Speed",
-		["Alira"] = "+15% to all Elemental Resistances",
-	}
-	local applyModes = { BODY = true, HOVER = true }
-	tooltip:Clear()
-	if applyModes[mode] then
-		tooltip:AddLine(14, '^8'..banditBenefits[value.val])
-	end
-end
 
 local function bossSkillsTooltip(tooltip, mode, index, value)
 	local applyModes = { BODY = true, HOVER = true }
@@ -69,64 +35,6 @@ local function FullLifeTooltip(modList, build)
 	out = out..'\nYou will automatically be considered to be on Full ^xE05030Life ^7if you have Chaos Inoculation,'
 	out = out..'\nbut you can use this option to force it if necessary.'
 	return out
-end
-
-local function mapAffixTooltip(tooltip, mode, index, value)
-	tooltip:Clear()
-	if value.val == "NONE" then
-		return
-	end
-	local applyModes = { BODY = true, HOVER = true }
-	if applyModes[mode] then
-		tooltip:AddLine(14, '^7'..value.val)
-		local affixData = data.mapMods.AffixData[value.val] or {}
-		if #affixData.tooltipLines > 0 then
-			if affixData.type == "check" then
-				for _, line in ipairs(affixData.tooltipLines) do
-					tooltip:AddLine(14, '^7'..line)
-				end
-			elseif affixData.type == "list" then
-				for i, tier in ipairs({"Low", "Med", "High"}) do
-					tooltip:AddLine(16, '^7'..tier..": ")
-					for j, line in ipairs(affixData.tooltipLines) do
-						local modValue = (#affixData.tooltipLines > 1) and affixData.values[i][j] or affixData.values[i]
-						if modValue == nil then
-							tooltip:AddLine(14, '   ^7'..line)
-						elseif modValue ~= 0 then
-							tooltip:AddLine(14, '   ^7'..s_format(line, modValue))
-						end
-					end
-				end
-			elseif affixData.type == "count" then
-				for i, tier in ipairs({"Low", "Med", "High"}) do
-					tooltip:AddLine(16, '^7'..tier..": ")
-					for j, line in ipairs(affixData.tooltipLines) do
-						local modValue = {(#affixData.tooltipLines > 1) and (affixData.values[i][j] and affixData.values[i][j][1] or nil) or affixData.values[i][1], (#affixData.tooltipLines > 1) and (affixData.values[i][j] and affixData.values[i][j][2] or nil) or affixData.values[i][2]}
-						if modValue[2] == nil then
-							tooltip:AddLine(14, '   ^7'..line)
-						elseif modValue[2] ~= 0 then
-							tooltip:AddLine(14, '   ^7'..s_format(line, modValue[1], modValue[2]))
-						end
-					end
-				end
-			end
-		end
-	end
-end
-
-local function mapAffixDropDownFunction(val, modList, enemyModList, build)
-	if val ~= "NONE" then
-		local affixData = data.mapMods.AffixData[val] or {}
-		if affixData.apply then
-			if affixData.type == "check" then
-				affixData.apply(var, (1 + (build.configTab.input['multiplierMapModEffect'] or 0)/100), modList, enemyModList)
-			elseif affixData.type == "list" then
-				affixData.apply(4 - (build.configTab.varControls['multiplierMapModTier'].selIndex or 1), (1 + (build.configTab.input['multiplierMapModEffect'] or 0)/100), affixData.values, modList, enemyModList)
-			elseif affixData.type == "count" then
-				affixData.apply(4 - (build.configTab.varControls['multiplierMapModTier'].selIndex or 1), 100, (1 + (build.configTab.input['multiplierMapModEffect'] or 0)/100), affixData.values, modList, enemyModList)
-			end
-		end
-	end
 end
 
 local function questModsRewards(source, line, modList)
@@ -187,26 +95,7 @@ end
 local configSettings = {
 	-- Section: General options
 	{ section = "General", col = 1 },
-	{ var = "resistancePenalty", type = "list", label = "Resistance penalty:", list = {{val=0,label="None"},{val=-30,label="Act 5 (-30%)"},{val=-60,label="Act 10 (-60%)"}}, defaultIndex = 3 },
-	{ var = "bandit", type = "list", defaultIndex = 1, label = "Bandit quest:", tooltipFunc = banditTooltip, list = {{val="None",label="Kill all"},{val="Oak",label="Help Oak"},{val="Kraityn",label="Help Kraityn"},{val="Alira",label="Help Alira"}} },
-	{ var = "pantheonMajorGod", type = "list", defaultIndex = 1, label = "Major God:", tooltipFunc = applyPantheonDescription, list = {
-		{ label = "Nothing", val = "None" },
-		{ label = "Soul of the Brine King", val = "TheBrineKing" },
-		{ label = "Soul of Lunaris", val = "Lunaris" },
-		{ label = "Soul of Solaris", val = "Solaris" },
-		{ label = "Soul of Arakaali", val = "Arakaali" },
-	} },
-	{ var = "pantheonMinorGod", type = "list", defaultIndex = 1, label = "Minor God:", tooltipFunc = applyPantheonDescription, list = {
-		{ label = "Nothing", val = "None" },
-		{ label = "Soul of Gruthkul", val = "Gruthkul" },
-		{ label = "Soul of Yugul", val = "Yugul" },
-		{ label = "Soul of Abberath", val = "Abberath" },
-		{ label = "Soul of Tukohama", val = "Tukohama" },
-		{ label = "Soul of Garukhan", val = "Garukhan" },
-		{ label = "Soul of Ralakesh", val = "Ralakesh" },
-		{ label = "Soul of Ryslatha", val = "Ryslatha" },
-		{ label = "Soul of Shakari", val = "Shakari" },
-	} },
+	{ var = "resistancePenalty", type = "list", label = "Elemental Resistance penalty:", list = {{val=0,label="Act 1 (0%)"},{val=-10,label="Act 2 (-10%)"},{val=-20,label="Act 3 (-20%)"},{val=-30,label="Act 4 (-30%)"},{val=-40,label="Act 5 (-40%)"},{val=-50,label="Act 6 (-50%)"},{val=-60,label="Endgame (-60%)"}}, defaultIndex = 7 },
 	{ var = "detonateDeadCorpseLife", type = "count", label = "Enemy Corpse ^xE05030Life:", ifSkillData = "explodeCorpse", tooltip = "Sets the maximum ^xE05030life ^7of the target corpse for Detonate Dead and similar skills.\nFor reference, a level 70 monster has "..data.monsterLifeTable[70].." base ^xE05030life^7, and a level 80 monster has "..data.monsterLifeTable[80]..".", apply = function(val, modList, enemyModList)
 		modList:NewMod("SkillData", "LIST", { key = "corpseLife", value = val }, "Config")
 	end },
@@ -450,6 +339,10 @@ local configSettings = {
 	{ var = "flameWallAddedDamage", type = "check", label = "Projectile Travelled through Flame Wall?", ifSkill = "Flame Wall", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:FlameWallAddedDamage", "FLAG", true, "Config")
 	end },
+	{ label = "Bonestorm:", ifSkill = "Bonestorm" },
+	{ var = "bonestormAddedDamage", type = "check", label = "Enemy has Bonestorm debuff?", ifSkill = "Bonestorm", apply = function(val, modList, enemyModList)
+		modList:NewMod("Condition:BonestormAddedDamage", "FLAG", true, "Config")
+	end },
 	{ label = "Flicker Strike:", ifSkill = "Flicker Strike", includeTransfigured = true },
 	{ var = "FlickerStrikeBypassCD", type = "check", label = "Bypass CD?", ifSkill = "Flicker Strike", includeTransfigured = true, defaultState = true, apply = function(val, modList, enemyModList)
 		modList:NewMod("CooldownRecovery", "OVERRIDE", 0, "Config", { type = "SkillName", skillName = "Flicker Strike", includeTransfigured = true })
@@ -517,11 +410,8 @@ local configSettings = {
 		modList:NewMod("Condition:MeatShieldEnemyNearYou", "FLAG", true, "Config")
 	end },
 	{ label = "Momentum:", ifSkill = "Momentum" },
-	{ var = "MomentumStacks", type = "count", label = "# of Momentum (if not average):", ifSkill = "Momentum", apply = function(val, modList, enemyModList)
-		modList:NewMod("Multiplier:MomentumStacks", "BASE", val, "Config", { type = "Condition", var = "Combat" })
-	end },
-	{ var = "MomentumSwiftnessStacks", type = "count", label = "Swiftness # of Momentum Removed:", ifSkill = "Momentum", apply = function(val, modList, enemyModList)
-		modList:NewMod("Multiplier:MomentumStacksRemoved", "BASE", val, "Config")
+	{ var = "momentumDamage", type = "check", label = "Moved 2m during Skill use?", ifSkill = "Momentum", ifFlag = "CanPerformSkillWhileMoving", apply = function(val, modList, enemyModList)
+		modList:NewMod("Condition:Moved2m", "FLAG", true, "Config")
 	end },
 	{ label = "Plague Bearer:", ifSkill = "Plague Bearer"},
 	{ var = "plagueBearerState", type = "list", label = "State:", ifSkill = "Plague Bearer", list = {{val="INC",label="Incubating"},{val="INF",label="Infecting"}}, apply = function(val, modList, enemyModList)
@@ -763,68 +653,6 @@ Huge sets the radius to 11.
 	{ var = "TotalVaalRejuvenationTotemLife", type = "integer", label = "Total Vaal Rejuvenation Totem Life:", ifSkill = { "Vaal Rejuvenation Totem" }, ifMod = "takenFromVaalRejuvenationTotemsBeforeYou", tooltip = "The total life of your Vaal Rejuvenation Totems that can be taken before yours", apply = function(val, modList, enemyModList)
 		modList:NewMod("TotalVaalRejuvenationTotemLife", "BASE", val, "Config")
 	end },
-	-- Section: Map modifiers/curses
-	{ section = "Map Modifiers and Player Debuffs", col = 2 },
-	{ var = "multiplierSextant", type = "count", label = "# of Sextants affecting the area", ifMult = "Sextant", apply = function(val, modList, enemyModList)
-		modList:NewMod("Multiplier:Sextant", "BASE", m_min(val, 5), "Config")
-	end },
-	{ var = "multiplierMapModEffect", type = "count", label = "% increased effect of map mods" },
-	{ var = "multiplierMapModTier", type = "list", label = "Map Tier", list = { {val = "HIGH", label = "Red"}, {val = "MED", label = "Yellow"}, {val = "LOW", label = "White"} } },
-	{ label = "Map Prefix Modifiers:" },
-	{ var = "MapPrefix1", type = "list", label = "Prefix", tooltipFunc = mapAffixTooltip, list = data.mapMods.Prefix, apply = mapAffixDropDownFunction },
-	{ var = "MapPrefix2", type = "list", label = "Prefix", tooltipFunc = mapAffixTooltip, list = data.mapMods.Prefix, apply = mapAffixDropDownFunction },
-	{ var = "MapPrefix3", type = "list", label = "Prefix", tooltipFunc = mapAffixTooltip, list = data.mapMods.Prefix, apply = mapAffixDropDownFunction },
-	{ var = "MapPrefix4", type = "list", label = "Prefix", tooltipFunc = mapAffixTooltip, list = data.mapMods.Prefix, apply = mapAffixDropDownFunction },
-	{ label = "Map Suffix Modifiers:" },
-	{ var = "MapSuffix1", type = "list", label = "Suffix", tooltipFunc = mapAffixTooltip, list = data.mapMods.Suffix, apply = mapAffixDropDownFunction },
-	{ var = "MapSuffix2", type = "list", label = "Suffix", tooltipFunc = mapAffixTooltip, list = data.mapMods.Suffix, apply = mapAffixDropDownFunction },
-	{ var = "MapSuffix3", type = "list", label = "Suffix", tooltipFunc = mapAffixTooltip, list = data.mapMods.Suffix, apply = mapAffixDropDownFunction },
-	{ var = "MapSuffix4", type = "list", label = "Suffix", tooltipFunc = mapAffixTooltip, list = data.mapMods.Suffix, apply = mapAffixDropDownFunction },
-	{ label = "Unique Map Modifiers:" },
-	{ var = "PvpScaling", type = "check", label = "PvP damage scaling in effect", tooltip = "'Hall of Grandmasters'", apply = function(val, modList, enemyModList)
-		modList:NewMod("HasPvpScaling", "FLAG", true, "Config")
-	end },
-	{ label = "Player is cursed by:" },
-	{ var = "playerCursedWithAssassinsMark", type = "count", label = "Assassin's Mark:", tooltip = "Sets the level of Assassin's Mark to apply to the player.", apply = function(val, modList, enemyModList)
-		modList:NewMod("ExtraCurse", "LIST", { skillId = "AssassinsMark", level = val, applyToPlayer = true })
-	end },
-	{ var = "playerCursedWithConductivity", type = "count", label = "Conductivity:", tooltip = "Sets the level of Conductivity to apply to the player.", apply = function(val, modList, enemyModList)
-		modList:NewMod("ExtraCurse", "LIST", { skillId = "Conductivity", level = val, applyToPlayer = true })
-	end },
-	{ var = "playerCursedWithDespair", type = "count", label = "Despair:", tooltip = "Sets the level of Despair to apply to the player.", apply = function(val, modList, enemyModList)
-		modList:NewMod("ExtraCurse", "LIST", { skillId = "Despair", level = val, applyToPlayer = true })
-	end },
-	{ var = "playerCursedWithElementalWeakness", type = "count", label = "Elemental Weakness:", tooltip = "Sets the level of Elemental Weakness to apply to the player.\nIn mid tier maps, 'of Elemental Weakness' applies level 10.\nIn high tier maps, 'of Elemental Weakness' applies level 15.", apply = function(val, modList, enemyModList)
-		modList:NewMod("ExtraCurse", "LIST", { skillId = "ElementalWeakness", level = val, applyToPlayer = true })
-	end },
-	{ var = "playerCursedWithEnfeeble", type = "count", label = "Enfeeble:", tooltip = "Sets the level of Enfeeble to apply to the player.\nIn mid tier maps, 'of Enfeeblement' applies level 10.\nIn high tier maps, 'of Enfeeblement' applies level 15.", apply = function(val, modList, enemyModList)
-		modList:NewMod("ExtraCurse", "LIST", { skillId = "Enfeeble", level = val, applyToPlayer = true })
-	end },
-	{ var = "playerCursedWithFlammability", type = "count", label = "Flammability:", tooltip = "Sets the level of Flammability to apply to the player.", apply = function(val, modList, enemyModList)
-		modList:NewMod("ExtraCurse", "LIST", { skillId = "Flammability", level = val, applyToPlayer = true })
-	end },
-	{ var = "playerCursedWithFrostbite", type = "count", label = "Frostbite:", tooltip = "Sets the level of Frostbite to apply to the player.", apply = function(val, modList, enemyModList)
-		modList:NewMod("ExtraCurse", "LIST", { skillId = "Frostbite", level = val, applyToPlayer = true })
-	end },
-	{ var = "playerCursedWithPoachersMark", type = "count", label = "Poacher's Mark:", tooltip = "Sets the level of Poacher's Mark to apply to the player.", apply = function(val, modList, enemyModList)
-		modList:NewMod("ExtraCurse", "LIST", { skillId = "PoachersMark", level = val, applyToPlayer = true })
-	end },
-	{ var = "playerCursedWithProjectileWeakness", type = "count", label = "Projectile Weakness:", tooltip = "Sets the level of Projectile Weakness to apply to the player.", apply = function(val, modList, enemyModList)
-		modList:NewMod("ExtraCurse", "LIST", { skillId = "ProjectileWeakness", level = val, applyToPlayer = true })
-	end },
-	{ var = "playerCursedWithPunishment", type = "count", label = "Punishment:", tooltip = "Sets the level of Punishment to apply to the player.", apply = function(val, modList, enemyModList)
-		modList:NewMod("ExtraCurse", "LIST", { skillId = "Punishment", level = val, applyToPlayer = true })
-	end },
-	{ var = "playerCursedWithTemporalChains", type = "count", label = "Temporal Chains:", tooltip = "Sets the level of Temporal Chains to apply to the player.\nIn mid tier maps, 'of Temporal Chains' applies level 10.\nIn high tier maps, 'of Temporal Chains' applies level 15.", apply = function(val, modList, enemyModList)
-		modList:NewMod("ExtraCurse", "LIST", { skillId = "TemporalChains", level = val, applyToPlayer = true })
-	end },
-	{ var = "playerCursedWithVulnerability", type = "count", label = "Vulnerability:", tooltip = "Sets the level of Vulnerability to apply to the player.\nIn mid tier maps, 'of Vulnerability' applies level 10.\nIn high tier maps, 'of Vulnerability' applies level 15.", apply = function(val, modList, enemyModList)
-		modList:NewMod("ExtraCurse", "LIST", { skillId = "Vulnerability", level = val, applyToPlayer = true })
-	end },
-	{ var = "playerCursedWithWarlordsMark", type = "count", label = "Warlord's Mark:", tooltip = "Sets the level of Warlord's Mark to apply to the player.", apply = function(val, modList, enemyModList)
-		modList:NewMod("ExtraCurse", "LIST", { skillId = "WarlordsMark", level = val, applyToPlayer = true })
-	end },
-
 	-- Section: Combat options
 	{ section = "When In Combat", col = 1 },
 	{ var = "usePowerCharges", type = "check", label = "Do you use Power Charges?", apply = function(val, modList, enemyModList)
@@ -862,9 +690,6 @@ Huge sets the radius to 11.
 	end },
 	{ var = "overrideBlitzCharges", type = "count", label = "# of Blitz Charges (if not maximum):", ifOption = "useBlitzCharges", apply = function(val, modList, enemyModList)
 		modList:NewMod("BlitzCharges", "OVERRIDE", val, "Config", { type = "Condition", var = "Combat" })
-	end },
-	{ var = "multiplierGaleForce", type = "count", label = "# of Gale Force:", ifFlag = "Condition:CanGainGaleForce", tooltip = "Base maximum Gale Force is 10.", apply = function(val, modList, enemyModList)
-		modList:NewMod("Multiplier:GaleForce", "BASE", val, "Config", { type = "IgnoreCond" }, { type = "Condition", var = "Combat" }, { type = "Condition", var = "CanGainGaleForce" })
 	end },
 	{ var = "overrideInspirationCharges", type = "countAllowZero", label = "# of Inspiration Charges (if not maximum):", ifMult = "InspirationCharge", apply = function(val, modList, enemyModList)
 		modList:NewMod("InspirationCharges", "OVERRIDE", val, "Config", { type = "Condition", var = "Combat" })
@@ -961,8 +786,8 @@ Huge sets the radius to 11.
 	{ var = "overrideFortification", type = "count", label = "# of Fortification Stacks (if not maximum):", ifFlag = "Condition:Fortified", tooltip = "You have 1% less damage taken from hits per stack of fortification:\nHas a default cap of 20 stacks.", apply = function(val, modList, enemyModList)
 		modList:NewMod("FortificationStacks", "OVERRIDE", val, "Config", { type = "Condition", var = "Combat" })
 	end },
-	{ var = "buffTailwind", type = "check", label = "Do you have Tailwind?", tooltip = "In addition to allowing any 'while you have Tailwind' modifiers to apply,\nthis will enable the Tailwind buff itself. (Grants 8% increased Action Speed)", apply = function(val, modList, enemyModList)
-		modList:NewMod("Condition:Tailwind", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
+	{ var = "multiplierTailwind", type = "count", label = "# of Tailwind Stacks:", ifFlag = "Condition:CanHaveTailwind", tooltip = "Tailwind grants the following, up to a base of 10 stacks:\n\t1% increased movement speed\n\t3% increased Skill Speed\n\t15% increased Evasion Rating", apply = function(val, modList, enemyModList)
+		modList:NewMod("Multiplier:Tailwind", "BASE", val, "Config", { type = "Condition", var = "Combat" })
 	end },
 	{ var = "buffAdrenaline", type = "check", label = "Do you have Adrenaline?", tooltip = "This will enable the Adrenaline buff, which grants:\n\t100% increased Damage\n\t25% increased Attack, Cast and Movement Speed\n\t10% additional Physical Damage Reduction", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:Adrenaline", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
@@ -1301,6 +1126,9 @@ Huge sets the radius to 11.
 	{ var = "conditionBlockedSpellRecently", type = "check", label = "Have you Blocked a Spell Recently?", ifCond = "BlockedSpellRecently", implyCond = "BlockedRecently", tooltip = "This also implies that you have Blocked Recently.", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:BlockedSpellRecently", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
 		modList:NewMod("Condition:BlockedRecently", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
+	end },
+	{ var = "conditionDodgeRolledRecently", type = "check", label = "Have you Dodge Rolled Recently?", ifCond = "DodgeRolledRecently", apply = function(val, modList, enemyModList)
+		modList:NewMod("Condition:DodgeRolledRecently", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
 	end },
 	{ var = "conditionEnergyShieldRechargeRecently", type = "check", label = "^x88FFFFEnergy Shield ^7Recharge started Recently?", ifCond = "EnergyShieldRechargeRecently", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:EnergyShieldRechargeRecently", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
@@ -1829,7 +1657,7 @@ Huge sets the radius to 11.
 		enemyModList:NewMod("LightningResist", "OVERRIDE", 0, "Config", { type = "Condition", var = "Effective"}, { type = "ActorCondition", actor = "enemy", var = "HaveTrickstersSmile" })
 	end },
 	-- Section: Enemy Stats
-	{ section = "Enemy Stats", col = 3 },
+	{ section = "Enemy Stats", col = 2 },
 	{ var = "enemyLevel", type = "count", label = "Enemy Level:", tooltip = "This overrides the default enemy level used to estimate your hit and ^x33FF77evade ^7chance.\n\nThe default level for normal enemies and standard bosses is 83.\nTheir default level is capped by your character level.\n\nThe default level for pinnacle bosses is 84, and the default level for uber pinnacle bosses is 85.\nTheir default level is not capped by your character level." },
 	{ var = "conditionEnemyRareOrUnique", type = "check", label = "Is the enemy Rare or Unique?", ifEnemyCond = "EnemyRareOrUnique", tooltip = "The enemy will automatically be considered to be Unique if they are a Boss,\nbut you can use this option to force it if necessary.", apply = function(val, modList, enemyModList)
 		enemyModList:NewMod("Condition:RareOrUnique", "FLAG", true, "Config", { type = "Condition", var = "Effective" })

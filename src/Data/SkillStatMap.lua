@@ -382,6 +382,9 @@ return {
 ["base_chance_to_dodge_spells_%"] = {
 	mod("SpellDodgeChance", "BASE", nil),
 },
+["can_perform_skill_while_moving"] = {
+	flag("CanPerformSkillWhileMoving")
+},
 ["base_movement_velocity_+%"] = {
 	mod("MovementSpeed", "INC", nil),
 },
