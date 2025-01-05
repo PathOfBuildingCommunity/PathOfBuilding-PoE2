@@ -2021,6 +2021,17 @@ skills["ChargedStaffPlayer"] = {
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Duration] = true, [SkillType.Buff] = true, [SkillType.ConsumesCharges] = true, [SkillType.QuarterstaffSkill] = true, [SkillType.SkillConsumesPowerChargesOnUse] = true, },
 	statDescriptionScope = "charged_staff",
 	castTime = 0.75,
+	statMap = {
+		["charged_staff_attack_minimum_added_lightning_damage_per_stack"] = {
+			mod("LightningMin", "BASE", nil, 0, 0, { type = "Multiplier", var = "RemovablePowerCharge" }, { type = "GlobalEffect", effectType = "Buff", effectName = "Charged Staff", effectCond = "UsePowerCharges" }),
+		},
+		["charged_staff_attack_maximum_added_lightning_damage_per_stack"] = {
+			mod("LightningMax", "BASE", nil, 0, 0, { type = "Multiplier", var = "RemovablePowerCharge" }, { type = "GlobalEffect", effectType = "Buff", effectName = "Charged Staff", effectCond = "UsePowerCharges" }),
+		},
+		["charged_staff_buff_duration_per_stack_ms"] = {
+			mod("ChargedStaffBuffDuration", "BASE", nil, 0, 0, { type = "Multiplier", var = "RemovablePowerCharge" }, { type = "GlobalEffect", effectType = "Buff", effectName = "Charged Staff", effectCond = "UsePowerCharges" }),
+		},
+	},
 	baseFlags = {
 	},
 	qualityStats = {

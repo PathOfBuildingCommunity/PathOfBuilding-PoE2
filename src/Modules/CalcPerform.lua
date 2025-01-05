@@ -650,7 +650,7 @@ local function doActorCharges(env, actor)
 	if modDB:Flag(nil, "MinimumPowerChargesIsMaximumPowerCharges") then
 		output.PowerChargesMin = output.PowerChargesMax
 	end
-	if modDB:Flag(nil, "UsePowerCharges") then
+	if modDB:Flag(nil, "Condition:UsePowerCharges") then
 		output.PowerCharges = modDB:Override(nil, "PowerCharges") or output.PowerChargesMax
 	end
 	if modDB:Flag(nil, "PowerChargesConvertToAbsorptionCharges") then
@@ -662,7 +662,7 @@ local function doActorCharges(env, actor)
 		output.PowerCharges = m_max(output.PowerCharges, m_min(output.PowerChargesMax, output.PowerChargesMin))
 	end
 	output.RemovablePowerCharges = m_max(output.PowerCharges - output.PowerChargesMin, 0)
-	if modDB:Flag(nil, "UseFrenzyCharges") then
+	if modDB:Flag(nil, "Condition:UseFrenzyCharges") then
 		output.FrenzyCharges = modDB:Override(nil, "FrenzyCharges") or output.FrenzyChargesMax
 	end
 	if modDB:Flag(nil, "FrenzyChargesConvertToAfflictionCharges") then
@@ -674,7 +674,7 @@ local function doActorCharges(env, actor)
 		output.FrenzyCharges = m_max(output.FrenzyCharges, m_min(output.FrenzyChargesMax, output.FrenzyChargesMin))
 	end
 	output.RemovableFrenzyCharges = m_max(output.FrenzyCharges - output.FrenzyChargesMin, 0)
-	if modDB:Flag(nil, "UseEnduranceCharges") then
+	if modDB:Flag(nil, "Condition:UseEnduranceCharges") then
 		output.EnduranceCharges = modDB:Override(nil, "EnduranceCharges") or output.EnduranceChargesMax
 	end
 	if modDB:Flag(nil, "EnduranceChargesConvertToBrutalCharges") then
@@ -2302,20 +2302,7 @@ function calcs.perform(env, skipEHP)
 	doActorCharges(env, env.player)
 
 	-- Process stats from alternate charges
-	if env.mode_combat then
-		if modDB:Flag(nil, "UseEnduranceCharges") and modDB:Flag(nil, "EnduranceChargesConvertToBrutalCharges") then
-			local tripleDmgChancePerEndurance = modDB:Sum("BASE", nil, "PerBrutalTripleDamageChance")
-			modDB:NewMod("TripleDamageChance", "BASE", tripleDmgChancePerEndurance, { type = "Multiplier", var = "BrutalCharge" } )
-		end
-		if modDB:Flag(nil, "UseFrenzyCharges") and modDB:Flag(nil, "FrenzyChargesConvertToAfflictionCharges") then
-			local dmgPerAffliction = modDB:Sum("BASE", nil, "PerAfflictionAilmentDamage")
-			local effectPerAffliction = modDB:Sum("BASE", nil, "PerAfflictionNonDamageEffect")
-			modDB:NewMod("Damage", "MORE", dmgPerAffliction, "Affliction Charges", 0, KeywordFlag.Ailment, { type = "Multiplier", var = "AfflictionCharge" } )
-			modDB:NewMod("EnemyChillMagnitude", "MORE", effectPerAffliction, "Affliction Charges", { type = "Multiplier", var = "AfflictionCharge" } )
-			modDB:NewMod("EnemyShockMagnitude", "MORE", effectPerAffliction, "Affliction Charges", { type = "Multiplier", var = "AfflictionCharge" } )
-			modDB:NewMod("EnemyFreezeEffect", "MORE", effectPerAffliction, "Affliction Charges", { type = "Multiplier", var = "AfflictionCharge" } )
-		end
-	end
+	-- None currently in PoE 2
 
 	-- Check for extra curses
 	for dest, modDB in pairs({[curses] = modDB, [minionCurses] = env.minion and env.minion.modDB}) do
