@@ -106,9 +106,21 @@ function calcs.createActiveSkill(activeEffect, supportList, actor, socketGroup, 
 	end
 
 	-- Initialise skill flag set ('attack', 'projectile', etc)
-	local skillFlags = copyTable(activeEffect.srcInstance.statSet.baseFlags)
-	activeEffect.srcInstance.skillFlags = skillFlags
-	skillFlags.hit = skillFlags.hit or activeSkill.skillTypes[SkillType.Attack] or activeSkill.skillTypes[SkillType.Damage] or activeSkill.skillTypes[SkillType.Projectile]
+	local mainSkillFlags, calcsSkillFlags
+	if activeEffect.srcInstance.statSetMain.statSet then
+		mainSkillFlags = copyTable(activeEffect.srcInstance.statSetMain.statSet.baseFlags)
+	else
+		mainSkillFlags = copyTable(activeEffect.grantedEffect.statSets[1].baseFlags)
+	end
+	if activeEffect.srcInstance.statSetCalcs.statSet then
+		calcsSkillFlags = copyTable(activeEffect.srcInstance.statSetCalcs.statSet.baseFlags)
+	else
+		calcsSkillFlags = copyTable(activeEffect.grantedEffect.statSets[1].baseFlags)
+	end
+	activeEffect.srcInstance.statSetMain.skillFlags = mainSkillFlags
+	activeEffect.srcInstance.statSetCalcs.skillFlags = calcsSkillFlags
+	mainSkillFlags.hit = mainSkillFlags.hit or activeSkill.skillTypes[SkillType.Attack] or activeSkill.skillTypes[SkillType.Damage] or activeSkill.skillTypes[SkillType.Projectile]
+	calcsSkillFlags.hit = calcsSkillFlags.hit or activeSkill.skillTypes[SkillType.Attack] or activeSkill.skillTypes[SkillType.Damage] or activeSkill.skillTypes[SkillType.Projectile]
 
 	-- Process support skills
 	activeSkill.effectList = { activeEffect }
@@ -152,7 +164,8 @@ function calcs.createActiveSkill(activeEffect, supportList, actor, socketGroup, 
 			if supportEffect.grantedEffect.addFlags and not summonSkill then
 				-- Support skill adds flags to supported skills (eg. Remote Mine adds 'mine')
 				for k in pairs(supportEffect.grantedEffect.addFlags) do
-					skillFlags[k] = true
+					mainSkillFlags[k] = true
+					calcsSkillFlags[k] = true
 				end
 			end
 		end
@@ -222,8 +235,14 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 	local skillTypes = activeSkill.skillTypes
 	local activeEffect = activeSkill.activeEffect
 	local activeGrantedEffect = activeEffect.grantedEffect
-	local activeStatSet = activeEffect.srcInstance.statSet
-	local skillFlags = activeEffect.srcInstance.skillFlags
+	local activeStatSet, skillFlags
+	if env.mode == "CALCS" then
+		activeStatSet = activeEffect.srcInstance.statSetCalcs.statSet
+		skillFlags = activeEffect.srcInstance.statSetCalcs.skillFlags
+	else
+		activeStatSet = activeEffect.srcInstance.statSetMain.statSet
+		skillFlags = activeEffect.srcInstance.statSetMain.skillFlags
+	end
 	local effectiveRange = 0
 
 	-- Set mode flags
@@ -524,12 +543,12 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 
 	-- Add active gem modifiers
 	activeEffect.actorLevel = activeSkill.actor.minionData and activeSkill.actor.level
-	calcs.mergeSkillInstanceMods(env, skillModList, activeEffect, activeEffect.srcInstance.statSet, skillModList:List(activeSkill.skillCfg, "ExtraSkillStat"))
+	calcs.mergeSkillInstanceMods(env, skillModList, activeEffect, activeStatSet, skillModList:List(activeSkill.skillCfg, "ExtraSkillStat"))
 	activeEffect.grantedEffectLevel = activeGrantedEffect.levels[activeEffect.level]
 
 	-- Add extra modifiers from granted effect level
 	local effectLevel = activeEffect.grantedEffectLevel
-	local setLevel = activeEffect.srcInstance.statSet.levels[activeEffect.level] 
+	local setLevel = activeStatSet.levels[activeEffect.level] 
 	-- THIS PROBABLY NEEDS TO BE FIXED TO INHERIT CRIT CHANCE SOMEHOW
 	activeSkill.skillData.CritChance = setLevel and setLevel.critChance or 0 
 	if effectLevel.damageMultiplier then

@@ -62,7 +62,8 @@ local CalcsTabClass = newClass("CalcsTab", "UndoHandler", "ControlHost", "Contro
 			control = new("DropDownControl", nil, {0, 0, 300, 16}, nil, function(index, value)
 				local mainSocketGroup = self.build.skillsTab.socketGroupList[self.input.skill_number]
 				local srcInstance = mainSocketGroup.displaySkillListCalcs[mainSocketGroup.mainActiveSkillCalcs].activeEffect.srcInstance
-				srcInstance.statSet = value.statSet
+				srcInstance.statSetCalcs = srcInstance.statSetCalcs or { }
+				srcInstance.statSetCalcs.statSet = value.statSet
 				self:AddUndoState()
 				self.build.buildFlag = true
 			end)
@@ -383,7 +384,7 @@ end
 
 function CalcsTabClass:CheckFlag(obj)
 	local actor = self.input.showMinion and self.calcsEnv.minion or self.calcsEnv.player
-	local skillFlags = actor.mainSkill.activeEffect.srcInstance.skillFlags
+	local skillFlags = actor.mainSkill.activeEffect.srcInstance.statSetCalcs.skillFlags
 	if obj.flag and not skillFlags[obj.flag] then
 		return
 	end
@@ -394,7 +395,7 @@ function CalcsTabClass:CheckFlag(obj)
 			end
 		end
 	end
-	if obj.playerFlag and not self.calcsEnv.player.mainSkill.activeEffect.srcInstance.skillFlags[obj.playerFlag] then
+	if obj.playerFlag and not self.calcsEnv.player.mainSkill.activeEffect.srcInstance.statSetCalcs.skillFlags[obj.playerFlag] then
 		return
 	end
 	if obj.notFlag and skillFlags[obj.notFlag] then

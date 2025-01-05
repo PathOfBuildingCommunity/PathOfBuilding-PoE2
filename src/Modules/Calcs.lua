@@ -268,8 +268,9 @@ function calcs.calcFullDPS(build, mode, override, specEnv)
 					if activeSkill.mirage.output.DecayDPS and activeSkill.mirage.output.DecayDPS > 0 then
 						fullDPS.decayDPS = fullDPS.decayDPS + activeSkill.mirage.output.DecayDPS
 					end
-					if activeSkill.mirage.output.TotalDot and activeSkill.mirage.output.TotalDot > 0 and (activeSkill.activeEffect.srcInstance.skillFlags.DotCanStack or (usedEnv.player.output.TotalDot and usedEnv.player.output.TotalDot == 0)) then
-						fullDPS.dotDPS = fullDPS.dotDPS + activeSkill.mirage.output.TotalDot * (activeSkill.activeEffect.srcInstance.skillFlags.DotCanStack and mirageCount or 1)
+					-- This will only take skillFlags from main env. Needs rework if trigger section is to be kept.
+					if activeSkill.mirage.output.TotalDot and activeSkill.mirage.output.TotalDot > 0 and (activeSkill.activeEffect.srcInstance.statSetMain.skillFlags.DotCanStack or (usedEnv.player.output.TotalDot and usedEnv.player.output.TotalDot == 0)) then
+						fullDPS.dotDPS = fullDPS.dotDPS + activeSkill.mirage.output.TotalDot * (activeSkill.activeEffect.srcInstance.statSetMain.skillFlags.DotCanStack and mirageCount or 1)
 					end
 					if activeSkill.mirage.output.CullMultiplier and activeSkill.mirage.output.CullMultiplier > 1 and activeSkill.mirage.output.CullMultiplier > fullDPS.cullingMulti then
 						fullDPS.cullingMulti = activeSkill.mirage.output.CullMultiplier
@@ -317,8 +318,9 @@ function calcs.calcFullDPS(build, mode, override, specEnv)
 				if usedEnv.player.output.DecayDPS and usedEnv.player.output.DecayDPS > 0 then
 					fullDPS.decayDPS = fullDPS.decayDPS + usedEnv.player.output.DecayDPS
 				end
+					-- This will only take skillFlags from main env. Needs rework.
 				if usedEnv.player.output.TotalDot and usedEnv.player.output.TotalDot > 0 then
-					fullDPS.dotDPS = fullDPS.dotDPS + usedEnv.player.output.TotalDot * (activeSkill.activeEffect.srcInstance.skillFlags.DotCanStack and activeSkillCount or 1)
+					fullDPS.dotDPS = fullDPS.dotDPS + usedEnv.player.output.TotalDot * (activeSkill.activeEffect.srcInstance.statSetMain.skillFlags.DotCanStack and activeSkillCount or 1)
 				end
 				if usedEnv.player.output.CullMultiplier and usedEnv.player.output.CullMultiplier > 1 and usedEnv.player.output.CullMultiplier > fullDPS.cullingMulti then
 					fullDPS.cullingMulti = usedEnv.player.output.CullMultiplier

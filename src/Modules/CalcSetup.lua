@@ -1460,9 +1460,11 @@ function calcs.initEnv(build, mode, override, specEnv)
 									srcInstance = gemInstance,
 									gemData = gemInstance.gemData,
 								}
-								-- to investigate how to better set this
-								if not activeEffect.srcInstance.statSet then
-									activeEffect.srcInstance.statSet = grantedEffect.statSets[1]
+								if not activeEffect.srcInstance.statSetMain then
+									activeEffect.srcInstance.statSetMain = { statSet = grantedEffect.statSets[1] }
+								end
+								if not activeEffect.srcInstance.statSetCalcs then
+									activeEffect.srcInstance.statSetCalcs = { statSet = grantedEffect.statSets[1] }
 								end
 								if gemInstance.gemData then
 									local playerItems = env.player.itemList
@@ -1628,7 +1630,12 @@ function calcs.initEnv(build, mode, override, specEnv)
 				quality = 0,
 				enabled = true,
 				srcInstance = {
-					statSet = env.data.skills.MeleeUnarmedPlayer.statSets[1]
+					statSetMain = {
+						statSet = env.data.skills.MeleeUnarmedPlayer.statSets[1]
+					},
+					statSetCalcs = {
+						statSet = env.data.skills.MeleeUnarmedPlayer.statSets[1]
+					}
 				}
 			}
 			env.player.mainSkill = calcs.createActiveSkill(defaultEffect, { }, env.player)
