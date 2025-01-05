@@ -324,7 +324,7 @@ function calcs.offence(env, actor, activeSkill)
 
 	local skillModList = activeSkill.skillModList
 	local skillData = activeSkill.skillData
-	local skillFlags = activeSkill.skillFlags
+	local skillFlags = activeSkill.activeEffect.srcInstance.skillFlags
 	local skillCfg = activeSkill.skillCfg
 	if skillData.showAverage then
 		skillFlags.showAverage = true
@@ -5429,7 +5429,7 @@ function calcs.offence(env, actor, activeSkill)
 					dmgType = string.gsub(" "..value.damageType, "%W%l", string.upper):sub(2)
 					break -- Only one mod of this kind is expected here
 				end
-				if activeSkill.skillFlags.ignite and dmgType and dmgVal then
+				if activeSkill.activeEffect.srcInstance.skillFlags.ignite and dmgType and dmgVal then
 					local dmgBreakdown, totalDmgTaken = calcs.applyDmgTakenConversion(activeSkill, output, breakdown, dmgType, dmgVal)
 					t_insert(dmgBreakdown, 1, s_format("Eye of Innocence base damage: %d", dmgVal))
 					t_insert(dmgBreakdown, 2, s_format(""))

@@ -48,11 +48,16 @@ local function mergeLevelMod(modList, mod, value)
 	end
 end
 
--- Merge skill modifiers with given mod list
-function calcs.mergeSkillInstanceMods(env, modList, skillEffect, extraStats)
+-- Merge skill effect modifiers with given mod list
+-- If a stat set is provided, only merge modifiers from that statset
+function calcs.mergeSkillInstanceMods(env, modList, skillEffect, statSet, extraStats)
 	calcLib.validateGemLevel(skillEffect)
+	-- Verify that statSet provided is from skillEffect
+	if statSet and not isValueInArray(skillEffect.grantedEffect.statSets, statSet) then
+		return
+	end
 	local grantedEffect = skillEffect.grantedEffect	
-	for _, statSet in ipairs(grantedEffect.statSets) do 
+	for _, statSet in ipairs(statSet and {statSet} or grantedEffect.statSets) do 
 		local stats = calcLib.buildSkillInstanceStats(skillEffect, grantedEffect, statSet)
 		if extraStats and extraStats[1] then
 			for _, stat in pairs(extraStats) do
@@ -101,9 +106,8 @@ function calcs.createActiveSkill(activeEffect, supportList, actor, socketGroup, 
 	end
 
 	-- Initialise skill flag set ('attack', 'projectile', etc)
-	-- TEMPORARY FIX JUST TO ALLOW CLIENT TO LOAD, NEED TO PROPERLY ACCOUNT FOR STATSETS
-	local skillFlags = copyTable(activeGrantedEffect.statSets[1].baseFlags)
-	activeSkill.skillFlags = skillFlags
+	local skillFlags = copyTable(activeEffect.srcInstance.statSet.baseFlags)
+	activeEffect.srcInstance.skillFlags = skillFlags
 	skillFlags.hit = skillFlags.hit or activeSkill.skillTypes[SkillType.Attack] or activeSkill.skillTypes[SkillType.Damage] or activeSkill.skillTypes[SkillType.Projectile]
 
 	-- Process support skills
@@ -216,11 +220,10 @@ end
 -- Build list of modifiers for given active skill
 function calcs.buildActiveSkillModList(env, activeSkill)
 	local skillTypes = activeSkill.skillTypes
-	local skillFlags = activeSkill.skillFlags
 	local activeEffect = activeSkill.activeEffect
 	local activeGrantedEffect = activeEffect.grantedEffect
-	-- To implement
-	local activeStatSet = activeEffect.activeStatSet or { }
+	local activeStatSet = activeEffect.srcInstance.statSet
+	local skillFlags = activeEffect.srcInstance.skillFlags
 	local effectiveRange = 0
 
 	-- Set mode flags
@@ -521,14 +524,14 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 
 	-- Add active gem modifiers
 	activeEffect.actorLevel = activeSkill.actor.minionData and activeSkill.actor.level
-	calcs.mergeSkillInstanceMods(env, skillModList, activeEffect, skillModList:List(activeSkill.skillCfg, "ExtraSkillStat"))
+	calcs.mergeSkillInstanceMods(env, skillModList, activeEffect, activeEffect.srcInstance.statSet, skillModList:List(activeSkill.skillCfg, "ExtraSkillStat"))
 	activeEffect.grantedEffectLevel = activeGrantedEffect.levels[activeEffect.level]
 
 	-- Add extra modifiers from granted effect level
 	local effectLevel = activeEffect.grantedEffectLevel
-	-- TO IMPLEMENT
-	local setLevel = activeStatSet.statSetLevel or { } 
-	activeSkill.skillData.CritChance = setLevel.critChance
+	local setLevel = activeEffect.srcInstance.statSet.levels[activeEffect.level] 
+	-- THIS PROBABLY NEEDS TO BE FIXED TO INHERIT CRIT CHANCE SOMEHOW
+	activeSkill.skillData.CritChance = setLevel and setLevel.critChance or 0 
 	if effectLevel.damageMultiplier then
 		skillModList:NewMod("Damage", "MORE", effectLevel.damageMultiplier, activeEffect.grantedEffect.modSource, ModFlag.Attack)
 	end

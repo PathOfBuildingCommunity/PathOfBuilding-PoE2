@@ -426,7 +426,14 @@ function buildMode:Init(dbFileName, buildName, buildXML, convertBuild, importLin
 		self.modFlag = true
 		self.buildFlag = true
 	end)
-	self.controls.mainSkillPart = new("DropDownControl", {"TOPLEFT",self.controls.mainSkill,"BOTTOMLEFT",true}, {0, 2, 300, 18}, nil, function(index, value)
+	self.controls.statSet = new("DropDownControl", {"TOPLEFT",self.controls.mainSkill,"BOTTOMLEFT"}, {0, 2, 300, 18}, nil, function(index, value)
+		local mainSocketGroup = self.skillsTab.socketGroupList[self.mainSocketGroup]
+		local srcInstance = mainSocketGroup.displaySkillList[mainSocketGroup.mainActiveSkill].activeEffect.srcInstance
+		srcInstance.statSet = value.statSet
+		self.modFlag = true
+		self.buildFlag = true
+	end)
+	self.controls.mainSkillPart = new("DropDownControl", {"TOPLEFT",self.controls.statSet,"BOTTOMLEFT",true}, {0, 2, 300, 18}, nil, function(index, value)
 		local mainSocketGroup = self.skillsTab.socketGroupList[self.mainSocketGroup]
 		local srcInstance = mainSocketGroup.displaySkillList[mainSocketGroup.mainActiveSkill].activeEffect.srcInstance
 		srcInstance.skillPart = index
@@ -952,7 +959,7 @@ function buildMode:Save(xml)
 	end
 	local addedStatNames = { }
 	for index, statData in ipairs(self.displayStats) do
-		if not statData.flag or self.calcsTab.mainEnv.player.mainSkill.skillFlags[statData.flag] then
+		if not statData.flag or self.calcsTab.mainEnv.player.mainSkill.activeEffect.srcInstance.skillFlags[statData.flag] then
 			local statName = statData.stat and statData.stat..(statData.childStat or "")
 			if statName and not addedStatNames[statName] then
 				if statData.stat == "SkillDPS" then
@@ -1358,6 +1365,7 @@ function buildMode:RefreshSkillSelectControls(controls, mainGroup, suffix)
 	if #controls.mainSocketGroup.list == 0 then
 		controls.mainSocketGroup.list[1] = { val = 1, label = "<No skills added yet>" }
 		controls.mainSkill.shown = false
+		controls.statSet.shown = false
 		controls.mainSkillPart.shown = false
 		controls.mainSkillMineCount.shown = false
 		controls.mainSkillStageCount.shown = false
@@ -1387,6 +1395,12 @@ function buildMode:RefreshSkillSelectControls(controls, mainGroup, suffix)
 			local activeSkill = displaySkillList[mainActiveSkill]
 			local activeEffect = activeSkill.activeEffect
 			if activeEffect then
+				wipeTable(controls.statSet.list)
+				for i, statSet in ipairs(activeEffect.grantedEffect.statSets) do
+					t_insert(controls.statSet.list, { val = i, label = statSet.label, statSet = statSet })
+				end
+				controls.statSet.enabled = #controls.statSet.list > 1
+				controls.statSet.shown = true
 				if activeEffect.grantedEffect.parts and #activeEffect.grantedEffect.parts > 1 then
 					controls.mainSkillPart.shown = true
 					wipeTable(controls.mainSkillPart.list)
@@ -1399,15 +1413,16 @@ function buildMode:RefreshSkillSelectControls(controls, mainGroup, suffix)
 						controls.mainSkillStageCount.buf = tostring(activeEffect.srcInstance["skillStageCount"..suffix] or activeEffect.grantedEffect.parts[controls.mainSkillPart.selIndex].stagesMin or 1)
 					end
 				end
-				if activeSkill.skillFlags.mine then
+				
+				if activeSkill.activeEffect.srcInstance.skillFlags.mine then
 					controls.mainSkillMineCount.shown = true
 					controls.mainSkillMineCount.buf = tostring(activeEffect.srcInstance["skillMineCount"..suffix] or "")
 				end
-				if activeSkill.skillFlags.multiStage and not (activeEffect.grantedEffect.parts and #activeEffect.grantedEffect.parts > 1) then
+				if activeSkill.activeEffect.srcInstance.skillFlags.multiStage and not (activeEffect.grantedEffect.parts and #activeEffect.grantedEffect.parts > 1) then
 					controls.mainSkillStageCount.shown = true
 					controls.mainSkillStageCount.buf = tostring(activeEffect.srcInstance["skillStageCount"..suffix] or activeSkill.skillData.stagesMin or 1)
 				end
-				if not activeSkill.skillFlags.disable and (activeEffect.grantedEffect.minionList or activeSkill.minionList[1]) then
+				if false then --not activeSkill.activeEffect.srcInstance.skillFlags.disable and (activeEffect.grantedEffect.minionList or activeSkill.minionList[1]) then
 					wipeTable(controls.mainSkillMinion.list)
 					if activeEffect.grantedEffect.minionHasItemSet then
 						for _, itemSetId in ipairs(self.itemsTab.itemSetOrderList) do
@@ -1473,7 +1488,7 @@ end
 function buildMode:AddDisplayStatList(statList, actor)
 	local statBoxList = self.controls.statBox.list
 	for index, statData in ipairs(statList) do
-		if not statData.flag or actor.mainSkill.skillFlags[statData.flag] then
+		if not statData.flag or actor.mainSkill.activeEffect.srcInstance.skillFlags[statData.flag] then
 			local labelColor = "^7"
 			if statData.color then
 				labelColor = statData.color
@@ -1622,7 +1637,7 @@ function buildMode:RefreshStatList()
 		t_insert(statBoxList, { height = 10 })
 		t_insert(statBoxList, { height = 18, "^7Player:" })
 	end
-	if self.calcsTab.mainEnv.player.mainSkill.skillFlags.disable then
+	if self.calcsTab.mainEnv.player.mainSkill.activeEffect.srcInstance.skillFlags.disable then
 		t_insert(statBoxList, { height = 16, "^7Skill disabled:" })
 		t_insert(statBoxList, { height = 14, align = "CENTER_X", x = 140, self.calcsTab.mainEnv.player.mainSkill.disableReason })
 	end
@@ -1633,7 +1648,7 @@ end
 function buildMode:CompareStatList(tooltip, statList, actor, baseOutput, compareOutput, header, nodeCount)
 	local count = 0
 	for _, statData in ipairs(statList) do
-		if statData.stat and (not statData.flag or actor.mainSkill.skillFlags[statData.flag]) and not statData.childStat and statData.stat ~= "SkillDPS" then
+		if statData.stat and (not statData.flag or actor.mainSkill.activeEffect.srcInstance.skillFlags[statData.flag]) and not statData.childStat and statData.stat ~= "SkillDPS" then
 			local statVal1 = compareOutput[statData.stat] or 0
 			local statVal2 = baseOutput[statData.stat] or 0
 			local diff = statVal1 - statVal2

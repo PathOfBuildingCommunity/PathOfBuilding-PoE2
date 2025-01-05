@@ -1473,6 +1473,10 @@ function calcs.initEnv(build, mode, override, specEnv)
 									srcInstance = gemInstance,
 									gemData = gemInstance.gemData,
 								}
+								-- to investigate how to better set this
+								if not activeEffect.srcInstance.statSet then
+									activeEffect.srcInstance.statSet = grantedEffect.statSets[1]
+								end
 								if gemInstance.gemData then
 									local playerItems = env.player.itemList
 									local socketedIn = playerItems[groupCfg.slotName] and playerItems[groupCfg.slotName].sockets and playerItems[groupCfg.slotName].sockets[gemIndex]
@@ -1628,6 +1632,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 			end
 		end
 
+		-- UPDATE THIS TO ADD DEFAULT SKILLS FOR EACH WEAPON
 		if not env.player.mainSkill then
 			-- Add a default main skill if none are specified
 			local defaultEffect = {
@@ -1635,6 +1640,9 @@ function calcs.initEnv(build, mode, override, specEnv)
 				level = 1,
 				quality = 0,
 				enabled = true,
+				srcInstance = {
+					statSet = env.data.skills.MeleeUnarmedPlayer.statSets[1]
+				}
 			}
 			env.player.mainSkill = calcs.createActiveSkill(defaultEffect, { }, env.player)
 			t_insert(env.player.activeSkillList, env.player.mainSkill)
