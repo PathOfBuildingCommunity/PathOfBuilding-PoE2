@@ -407,6 +407,8 @@ skills["DetonatingArrowPlayer"] = {
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "detonating_arrow",
 			baseFlags = {
+				attack = true,
+				projectile = true,
 			},
 			constantStats = {
 				{ "detonating_arrow_max_number_of_stages", 4 },
@@ -472,6 +474,7 @@ skills["DetonatingArrowPlayer"] = {
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "detonating_arrow",
 			baseFlags = {
+				area = true,
 			},
 			constantStats = {
 				{ "active_skill_base_secondary_area_of_effect_radius", 18 },
