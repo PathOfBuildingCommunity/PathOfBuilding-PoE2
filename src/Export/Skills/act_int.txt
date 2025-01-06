@@ -100,9 +100,6 @@ local skills, mod, flag, skill = ...
 #startSets
 #set BonestormPlayer
 #flags
-#mods
-#set BonestormExplosionPlayer
-#flags
 	statMap = {
 		["bone_spear_minimum_added_attack_physical_damage_taken"] = {
 			mod("SelfPhysicalMin", "BASE", nil, ModFlag.Attack, 0, { type = "GlobalEffect", effectType = "Debuff", effectName = "Bonestorm", effectCond = "BonestormAddedDamage" }),
@@ -111,6 +108,9 @@ local skills, mod, flag, skill = ...
 			mod("SelfPhysicalMax", "BASE", nil, ModFlag.Attack, 0, { type = "GlobalEffect", effectType = "Debuff", effectName = "Bonestorm", effectCond = "BonestormAddedDamage" }),
 		},
 	},
+#mods
+#set BonestormExplosionPlayer
+#flags
 #mods
 #skillEnd
 
