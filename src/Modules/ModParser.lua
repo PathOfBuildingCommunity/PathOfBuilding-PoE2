@@ -1781,6 +1781,7 @@ local modTagList = {
 	["to enemies which have energy shield"] = { tag = { type = "ActorCondition", actor = "enemy", var = "HaveEnergyShield" }, keywordFlags = bor(KeywordFlag.Hit, KeywordFlag.Ailment) },
 	["against cursed enemies"] = { tag = { type = "ActorCondition", actor = "enemy", var = "Cursed" } },
 	["against stunned enemies"] = { tag = { type = "ActorCondition", actor = "enemy", var = "Stunned" } },
+	["against heavy stunned enemies"] = { tag = { type = "ActorCondition", actor = "enemy", var = "HeavyStunned" } },
 	["on cursed enemies"] = { tag = { type = "ActorCondition", actor = "enemy", var = "Cursed" } },
 	["of cursed enemies'"] = { tag = { type = "ActorCondition", actor = "enemy", var = "Cursed" } },
 	["when hitting cursed enemies"] = { tag = { type = "ActorCondition", actor = "enemy", var = "Cursed" }, keywordFlags = KeywordFlag.Hit },
@@ -4365,7 +4366,8 @@ local specialModList = {
 	["culling strike against frozen enemies"] = { mod("CullPercent", "MAX", 10, { type = "ActorCondition", actor = "enemy", var = "Frozen" }) },
 	["culling strike against marked enemy"] = { mod("CullPercent", "MAX", 10, { type = "ActorCondition", actor = "enemy", var = "Marked" }) },
 	["nearby allies have culling strike"] = { mod("ExtraAura", "LIST", {onlyAllies = true, mod = mod("CullPercent", "MAX", 10) }) },
-	["hits that stun enemies have culling strike"] = { flag("Condition:maceMasteryStunCullSpecced") },
+	["hits that stun enemies have culling strike"] = { mod("CullPercent", "MAX", 10, { type = "Condition", var = "AlwaysStunning" }) },
+	["hits that heavy stun enemies have culling strike"] = { mod("CullPercent", "MAX", 10, { type = "Condition", var = "AlwaysHeavyStunning" }) },
 	-- Intimidate
 	["permanently intimidate enemies on block"] = { mod("EnemyModifier", "LIST", { mod = flag("Condition:Intimidated") }, { type = "Condition", var = "BlockedRecently" }) },
 	["with a murderous eye jewel socketed, intimidate enemies for (%d) seconds on hit with attacks"] = { mod("EnemyModifier", "LIST", { mod = flag("Condition:Intimidated") }, { type = "Condition", var = "HaveMurderousEyeJewelIn{SlotName}" }) },
