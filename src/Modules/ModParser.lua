@@ -643,6 +643,7 @@ local modNameList = {
 	["melee physical damage"] = { "PhysicalDamage", flags = ModFlag.Melee },
 	["projectile damage"] = { "Damage", flags = ModFlag.Projectile },
 	["projectile attack damage"] = { "Damage", flags = bor(ModFlag.Projectile, ModFlag.Attack) },
+	["attack area damage"] = { "Damage", flags = bor(ModFlag.Area, ModFlag.Attack) },
 	["bow damage"] = { "Damage", flags = bor(ModFlag.Bow, ModFlag.Hit) },
 	["damage with arrow hits"] = { "Damage", flags = bor(ModFlag.Bow, ModFlag.Hit) },
 	["wand damage"] = { "Damage", flags = bor(ModFlag.Wand, ModFlag.Hit) },
