@@ -449,19 +449,22 @@ data.unarmedWeaponData = {
 }
 
 data.setJewelRadiiGlobally = function(treeVersion)
-	local major, minor = treeVersion:match("(%d+)_(%d+)")
-	major, minor = tonumber(major), tonumber(minor)
+	local tMajor, tMinor = treeVersion:match("(%d+)_(%d+)")
+	tMajor, tMinor = tonumber(tMajor), tonumber(tMinor)
 
-	local selectedVersion = nil
+	local sMajor, sMinor = nil, nil
+
 	for version, _ in pairs(data.jewelRadii) do
-		local vMajor, vMinor = version:match("(%d+)_(%d+)")
-		vMajor, vMinor = tonumber(vMajor), tonumber(vMinor)
-		if not selectedVersion or (vMajor > major) or
-			(vMajor == major and vMinor > minor) then
-			selectedVersion = version
+		local jMajor, jMinor = version:match("(%d+)_(%d+)")
+		jMajor, jMinor = tonumber(jMajor), tonumber(jMinor)
+
+		if (jMajor < tMajor) or (jMajor == tMajor and jMinor <= tMinor) then
+			if not sMajor or (jMajor > sMajor) or (jMajor == sMajor and jMinor > sMinor) then
+				sMajor, sMinor = jMajor, jMinor
+			end
 		end
 	end
-	data.jewelRadius = data.jewelRadii[selectedVersion]
+	data.jewelRadius = data.jewelRadii[sMajor.."_"..sMinor]
 
 	local maxJewelRadius = 0
 	for _, radiusInfo in ipairs(data.jewelRadius) do
