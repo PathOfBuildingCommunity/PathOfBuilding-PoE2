@@ -86,11 +86,11 @@ end
 
 -- Create an active skill using the given active gem and list of support gems
 -- It will determine the base flag set, and check which of the support gems can support this skill
-function calcs.createActiveSkill(activeEffect, supportList, actor, socketGroup, summonSkill)
+function calcs.createActiveSkill(activeEffect, supportList, env, socketGroup, summonSkill)
 	local activeSkill = {
 		activeEffect = activeEffect,
 		supportList = supportList,
-		actor = actor,
+		actor = env.player,
 		summonSkill = summonSkill,
 		socketGroup = socketGroup,
 		skillData = { },
@@ -106,21 +106,23 @@ function calcs.createActiveSkill(activeEffect, supportList, actor, socketGroup, 
 	end
 
 	-- Initialise skill flag set ('attack', 'projectile', etc)
-	local mainSkillFlags, calcsSkillFlags
-	if activeEffect.srcInstance.statSetMain.statSet then
-		mainSkillFlags = copyTable(activeEffect.srcInstance.statSetMain.statSet.baseFlags)
-	else
-		mainSkillFlags = copyTable(activeEffect.grantedEffect.statSets[1].baseFlags)
+	local skillFlags
+	if env.mode == "CALCS" then 
+		if activeEffect.srcInstance.statSetCalcs.statSet then
+			skillFlags = copyTable(activeEffect.srcInstance.statSetCalcs.statSet.baseFlags)
+		else
+			skillFlags = copyTable(activeEffect.grantedEffect.statSets[1].baseFlags)
+		end
+		activeEffect.srcInstance.statSetCalcs.skillFlags = skillFlags
+	else 
+		if activeEffect.srcInstance.statSetMain.statSet then
+			skillFlags = copyTable(activeEffect.srcInstance.statSetMain.statSet.baseFlags)
+		else
+			skillFlags = copyTable(activeEffect.grantedEffect.statSets[1].baseFlags)
+		end
+		activeEffect.srcInstance.statSetMain.skillFlags = skillFlags
 	end
-	if activeEffect.srcInstance.statSetCalcs.statSet then
-		calcsSkillFlags = copyTable(activeEffect.srcInstance.statSetCalcs.statSet.baseFlags)
-	else
-		calcsSkillFlags = copyTable(activeEffect.grantedEffect.statSets[1].baseFlags)
-	end
-	activeEffect.srcInstance.statSetMain.skillFlags = mainSkillFlags
-	activeEffect.srcInstance.statSetCalcs.skillFlags = calcsSkillFlags
-	mainSkillFlags.hit = mainSkillFlags.hit or activeSkill.skillTypes[SkillType.Attack] or activeSkill.skillTypes[SkillType.Damage] or activeSkill.skillTypes[SkillType.Projectile]
-	calcsSkillFlags.hit = calcsSkillFlags.hit or activeSkill.skillTypes[SkillType.Attack] or activeSkill.skillTypes[SkillType.Damage] or activeSkill.skillTypes[SkillType.Projectile]
+	skillFlags.hit = skillFlags.hit or activeSkill.skillTypes[SkillType.Attack] or activeSkill.skillTypes[SkillType.Damage] or activeSkill.skillTypes[SkillType.Projectile]
 
 	-- Process support skills
 	activeSkill.effectList = { activeEffect }
@@ -183,7 +185,7 @@ function calcs.copyActiveSkill(env, mode, skill)
 		srcInstance = skill.activeEffect.srcInstance,
 		gemData = skill.activeEffect.srcInstance.gemData,
 	}
-	local newSkill = calcs.createActiveSkill(activeEffect, skill.supportList, skill.actor, skill.socketGroup, skill.summonSkill)
+	local newSkill = calcs.createActiveSkill(activeEffect, skill.supportList, env, skill.socketGroup, skill.summonSkill)
 	local newEnv, _, _, _ = calcs.initEnv(env.build, mode, env.override)
 	calcs.buildActiveSkillModList(newEnv, newSkill)
 	newSkill.skillModList = new("ModList", newSkill.baseSkillModList)

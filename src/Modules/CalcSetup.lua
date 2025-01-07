@@ -1529,7 +1529,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 										end
 									end
 								end
-								local activeSkill = calcs.createActiveSkill(activeEffect, appliedSupportList, env.player, group)
+								local activeSkill = calcs.createActiveSkill(activeEffect, appliedSupportList, env, group)
 								if gemInstance.gemData then
 									activeSkill.slotName = groupCfg.slotName
 								end
@@ -1638,7 +1638,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 					}
 				}
 			}
-			env.player.mainSkill = calcs.createActiveSkill(defaultEffect, { }, env.player)
+			env.player.mainSkill = calcs.createActiveSkill(defaultEffect, { }, env)
 			t_insert(env.player.activeSkillList, env.player.mainSkill)
 		end
 
