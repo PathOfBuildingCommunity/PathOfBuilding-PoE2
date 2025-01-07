@@ -4,6 +4,7 @@ local itemBases = ...
 
 itemBases["Golden Bracers"] = {
 	type = "Gloves",
+	quality = 20,
 	socketLimit = 2,
 	tags = { gloves = true, not_for_sale = true, armour = true, demigods = true, default = true, },
 	implicit = "+(20-30) to maximum Life",
@@ -13,6 +14,7 @@ itemBases["Golden Bracers"] = {
 }
 itemBases["Stocky Mitts"] = {
 	type = "Gloves",
+	quality = 20,
 	socketLimit = 2,
 	tags = { gloves = true, str_armour = true, armour = true, ezomyte_basetype = true, default = true, },
 	implicitModTypes = { },
@@ -21,6 +23,7 @@ itemBases["Stocky Mitts"] = {
 }
 itemBases["Riveted Mitts"] = {
 	type = "Gloves",
+	quality = 20,
 	socketLimit = 2,
 	tags = { gloves = true, str_armour = true, armour = true, ezomyte_basetype = true, default = true, },
 	implicitModTypes = { },
@@ -29,6 +32,7 @@ itemBases["Riveted Mitts"] = {
 }
 itemBases["Tempered Mitts"] = {
 	type = "Gloves",
+	quality = 20,
 	socketLimit = 2,
 	tags = { maraketh_basetype = true, gloves = true, str_armour = true, armour = true, default = true, },
 	implicitModTypes = { },
@@ -37,6 +41,7 @@ itemBases["Tempered Mitts"] = {
 }
 itemBases["Bolstered Mitts"] = {
 	type = "Gloves",
+	quality = 20,
 	socketLimit = 2,
 	tags = { maraketh_basetype = true, gloves = true, str_armour = true, armour = true, default = true, },
 	implicitModTypes = { },
@@ -45,6 +50,7 @@ itemBases["Bolstered Mitts"] = {
 }
 itemBases["Moulded Mitts"] = {
 	type = "Gloves",
+	quality = 20,
 	socketLimit = 2,
 	tags = { gloves = true, str_armour = true, armour = true, vaal_basetype = true, default = true, },
 	implicitModTypes = { },
@@ -53,6 +59,7 @@ itemBases["Moulded Mitts"] = {
 }
 itemBases["Detailed Mitts"] = {
 	type = "Gloves",
+	quality = 20,
 	socketLimit = 2,
 	tags = { gloves = true, armour = true, str_armour = true, default = true, },
 	implicitModTypes = { },
@@ -61,6 +68,7 @@ itemBases["Detailed Mitts"] = {
 }
 itemBases["Titan Mitts"] = {
 	type = "Gloves",
+	quality = 20,
 	socketLimit = 2,
 	tags = { gloves = true, armour = true, str_armour = true, default = true, },
 	implicitModTypes = { },
@@ -69,6 +77,7 @@ itemBases["Titan Mitts"] = {
 }
 itemBases["Grand Mitts"] = {
 	type = "Gloves",
+	quality = 20,
 	socketLimit = 2,
 	tags = { gloves = true, armour = true, str_armour = true, default = true, },
 	implicitModTypes = { },
@@ -77,6 +86,7 @@ itemBases["Grand Mitts"] = {
 }
 itemBases["Suede Bracers"] = {
 	type = "Gloves",
+	quality = 20,
 	socketLimit = 2,
 	tags = { gloves = true, ezomyte_basetype = true, dex_armour = true, armour = true, default = true, },
 	implicitModTypes = { },
@@ -85,6 +95,7 @@ itemBases["Suede Bracers"] = {
 }
 itemBases["Firm Bracers"] = {
 	type = "Gloves",
+	quality = 20,
 	socketLimit = 2,
 	tags = { gloves = true, ezomyte_basetype = true, dex_armour = true, armour = true, default = true, },
 	implicitModTypes = { },
@@ -93,6 +104,7 @@ itemBases["Firm Bracers"] = {
 }
 itemBases["Bound Bracers"] = {
 	type = "Gloves",
+	quality = 20,
 	socketLimit = 2,
 	tags = { maraketh_basetype = true, gloves = true, dex_armour = true, armour = true, default = true, },
 	implicitModTypes = { },
@@ -101,6 +113,7 @@ itemBases["Bound Bracers"] = {
 }
 itemBases["Sectioned Bracers"] = {
 	type = "Gloves",
+	quality = 20,
 	socketLimit = 2,
 	tags = { maraketh_basetype = true, gloves = true, dex_armour = true, armour = true, default = true, },
 	implicitModTypes = { },
@@ -109,6 +122,7 @@ itemBases["Sectioned Bracers"] = {
 }
 itemBases["Spined Bracers"] = {
 	type = "Gloves",
+	quality = 20,
 	socketLimit = 2,
 	tags = { gloves = true, dex_armour = true, armour = true, vaal_basetype = true, default = true, },
 	implicitModTypes = { },
@@ -117,6 +131,7 @@ itemBases["Spined Bracers"] = {
 }
 itemBases["Fine Bracers"] = {
 	type = "Gloves",
+	quality = 20,
 	socketLimit = 2,
 	tags = { dex_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
@@ -125,6 +140,7 @@ itemBases["Fine Bracers"] = {
 }
 itemBases["Hardened Bracers"] = {
 	type = "Gloves",
+	quality = 20,
 	socketLimit = 2,
 	tags = { dex_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
@@ -133,6 +149,7 @@ itemBases["Hardened Bracers"] = {
 }
 itemBases["Engraved Bracers"] = {
 	type = "Gloves",
+	quality = 20,
 	socketLimit = 2,
 	tags = { dex_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
@@ -141,6 +158,7 @@ itemBases["Engraved Bracers"] = {
 }
 itemBases["Torn Gloves"] = {
 	type = "Gloves",
+	quality = 20,
 	socketLimit = 2,
 	tags = { gloves = true, ezomyte_basetype = true, int_armour = true, armour = true, default = true, },
 	implicitModTypes = { },
@@ -149,6 +167,7 @@ itemBases["Torn Gloves"] = {
 }
 itemBases["Sombre Gloves"] = {
 	type = "Gloves",
+	quality = 20,
 	socketLimit = 2,
 	tags = { gloves = true, ezomyte_basetype = true, int_armour = true, armour = true, default = true, },
 	implicitModTypes = { },
@@ -157,6 +176,7 @@ itemBases["Sombre Gloves"] = {
 }
 itemBases["Stitched Gloves"] = {
 	type = "Gloves",
+	quality = 20,
 	socketLimit = 2,
 	tags = { maraketh_basetype = true, gloves = true, int_armour = true, armour = true, default = true, },
 	implicitModTypes = { },
@@ -165,6 +185,7 @@ itemBases["Stitched Gloves"] = {
 }
 itemBases["Jewelled Gloves"] = {
 	type = "Gloves",
+	quality = 20,
 	socketLimit = 2,
 	tags = { maraketh_basetype = true, gloves = true, int_armour = true, armour = true, default = true, },
 	implicitModTypes = { },
@@ -173,6 +194,7 @@ itemBases["Jewelled Gloves"] = {
 }
 itemBases["Intricate Gloves"] = {
 	type = "Gloves",
+	quality = 20,
 	socketLimit = 2,
 	tags = { gloves = true, int_armour = true, armour = true, vaal_basetype = true, default = true, },
 	implicitModTypes = { },
@@ -181,6 +203,7 @@ itemBases["Intricate Gloves"] = {
 }
 itemBases["Pauascale Gloves"] = {
 	type = "Gloves",
+	quality = 20,
 	socketLimit = 2,
 	tags = { int_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
@@ -189,6 +212,7 @@ itemBases["Pauascale Gloves"] = {
 }
 itemBases["Embroidered Gloves"] = {
 	type = "Gloves",
+	quality = 20,
 	socketLimit = 2,
 	tags = { int_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
@@ -197,6 +221,7 @@ itemBases["Embroidered Gloves"] = {
 }
 itemBases["Adorned Gloves"] = {
 	type = "Gloves",
+	quality = 20,
 	socketLimit = 2,
 	tags = { int_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
@@ -205,6 +230,7 @@ itemBases["Adorned Gloves"] = {
 }
 itemBases["Ringmail Gauntlets"] = {
 	type = "Gloves",
+	quality = 20,
 	socketLimit = 2,
 	tags = { str_dex_armour = true, ezomyte_basetype = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
@@ -213,6 +239,7 @@ itemBases["Ringmail Gauntlets"] = {
 }
 itemBases["Layered Gauntlets"] = {
 	type = "Gloves",
+	quality = 20,
 	socketLimit = 2,
 	tags = { maraketh_basetype = true, str_dex_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
@@ -221,6 +248,7 @@ itemBases["Layered Gauntlets"] = {
 }
 itemBases["Doubled Gauntlets"] = {
 	type = "Gloves",
+	quality = 20,
 	socketLimit = 2,
 	tags = { str_dex_armour = true, vaal_basetype = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
@@ -229,6 +257,7 @@ itemBases["Doubled Gauntlets"] = {
 }
 itemBases["Plate Gauntlets"] = {
 	type = "Gloves",
+	quality = 20,
 	socketLimit = 2,
 	tags = { str_dex_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
@@ -237,6 +266,7 @@ itemBases["Plate Gauntlets"] = {
 }
 itemBases["Burnished Gauntlets"] = {
 	type = "Gloves",
+	quality = 20,
 	socketLimit = 2,
 	tags = { str_dex_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
@@ -245,6 +275,7 @@ itemBases["Burnished Gauntlets"] = {
 }
 itemBases["Ornate Gauntlets"] = {
 	type = "Gloves",
+	quality = 20,
 	socketLimit = 2,
 	tags = { str_dex_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
@@ -253,6 +284,7 @@ itemBases["Ornate Gauntlets"] = {
 }
 itemBases["Rope Cuffs"] = {
 	type = "Gloves",
+	quality = 20,
 	socketLimit = 2,
 	tags = { str_int_armour = true, ezomyte_basetype = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
@@ -261,6 +293,7 @@ itemBases["Rope Cuffs"] = {
 }
 itemBases["Aged Cuffs"] = {
 	type = "Gloves",
+	quality = 20,
 	socketLimit = 2,
 	tags = { maraketh_basetype = true, str_int_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
@@ -269,6 +302,7 @@ itemBases["Aged Cuffs"] = {
 }
 itemBases["Goldcast Cuffs"] = {
 	type = "Gloves",
+	quality = 20,
 	socketLimit = 2,
 	tags = { str_int_armour = true, vaal_basetype = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
@@ -277,6 +311,7 @@ itemBases["Goldcast Cuffs"] = {
 }
 itemBases["Diviner Cuffs"] = {
 	type = "Gloves",
+	quality = 20,
 	socketLimit = 2,
 	tags = { str_int_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
@@ -285,6 +320,7 @@ itemBases["Diviner Cuffs"] = {
 }
 itemBases["Righteous Cuffs"] = {
 	type = "Gloves",
+	quality = 20,
 	socketLimit = 2,
 	tags = { str_int_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
@@ -293,6 +329,7 @@ itemBases["Righteous Cuffs"] = {
 }
 itemBases["Signet Cuffs"] = {
 	type = "Gloves",
+	quality = 20,
 	socketLimit = 2,
 	tags = { str_int_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
@@ -301,6 +338,7 @@ itemBases["Signet Cuffs"] = {
 }
 itemBases["Gauze Wraps"] = {
 	type = "Gloves",
+	quality = 20,
 	socketLimit = 2,
 	tags = { gloves = true, ezomyte_basetype = true, armour = true, default = true, dex_int_armour = true, },
 	implicitModTypes = { },
@@ -309,6 +347,7 @@ itemBases["Gauze Wraps"] = {
 }
 itemBases["Linen Wraps"] = {
 	type = "Gloves",
+	quality = 20,
 	socketLimit = 2,
 	tags = { maraketh_basetype = true, gloves = true, armour = true, default = true, dex_int_armour = true, },
 	implicitModTypes = { },
@@ -317,6 +356,7 @@ itemBases["Linen Wraps"] = {
 }
 itemBases["Spiral Wraps"] = {
 	type = "Gloves",
+	quality = 20,
 	socketLimit = 2,
 	tags = { gloves = true, vaal_basetype = true, armour = true, default = true, dex_int_armour = true, },
 	implicitModTypes = { },
@@ -325,6 +365,7 @@ itemBases["Spiral Wraps"] = {
 }
 itemBases["Buckled Wraps"] = {
 	type = "Gloves",
+	quality = 20,
 	socketLimit = 2,
 	tags = { dex_int_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
@@ -333,6 +374,7 @@ itemBases["Buckled Wraps"] = {
 }
 itemBases["Furtive Wraps"] = {
 	type = "Gloves",
+	quality = 20,
 	socketLimit = 2,
 	tags = { dex_int_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
@@ -341,6 +383,7 @@ itemBases["Furtive Wraps"] = {
 }
 itemBases["Utility Wraps"] = {
 	type = "Gloves",
+	quality = 20,
 	socketLimit = 2,
 	tags = { dex_int_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
@@ -349,6 +392,7 @@ itemBases["Utility Wraps"] = {
 }
 itemBases["Grand Manchettes"] = {
 	type = "Gloves",
+	quality = 20,
 	socketLimit = 2,
 	tags = { str_dex_int_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
@@ -357,6 +401,7 @@ itemBases["Grand Manchettes"] = {
 }
 itemBases["Advanced Riveted Mitts"] = {
 	type = "Gloves",
+	quality = 20,
 	socketLimit = 2,
 	tags = { gloves = true, armour = true, str_armour = true, default = true, },
 	implicitModTypes = { },
@@ -365,6 +410,7 @@ itemBases["Advanced Riveted Mitts"] = {
 }
 itemBases["Advanced Tempered Mitts"] = {
 	type = "Gloves",
+	quality = 20,
 	socketLimit = 2,
 	tags = { gloves = true, armour = true, str_armour = true, default = true, },
 	implicitModTypes = { },
@@ -373,6 +419,7 @@ itemBases["Advanced Tempered Mitts"] = {
 }
 itemBases["Advanced Bolstered Mitts"] = {
 	type = "Gloves",
+	quality = 20,
 	socketLimit = 2,
 	tags = { gloves = true, armour = true, str_armour = true, default = true, },
 	implicitModTypes = { },
@@ -381,6 +428,7 @@ itemBases["Advanced Bolstered Mitts"] = {
 }
 itemBases["Advanced Moulded Mitts"] = {
 	type = "Gloves",
+	quality = 20,
 	socketLimit = 2,
 	tags = { gloves = true, armour = true, str_armour = true, default = true, },
 	implicitModTypes = { },
@@ -389,6 +437,7 @@ itemBases["Advanced Moulded Mitts"] = {
 }
 itemBases["Advanced Firm Bracers"] = {
 	type = "Gloves",
+	quality = 20,
 	socketLimit = 2,
 	tags = { dex_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
@@ -397,6 +446,7 @@ itemBases["Advanced Firm Bracers"] = {
 }
 itemBases["Advanced Bound Bracers"] = {
 	type = "Gloves",
+	quality = 20,
 	socketLimit = 2,
 	tags = { dex_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
@@ -405,6 +455,7 @@ itemBases["Advanced Bound Bracers"] = {
 }
 itemBases["Advanced Sectioned Bracers"] = {
 	type = "Gloves",
+	quality = 20,
 	socketLimit = 2,
 	tags = { dex_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
@@ -413,6 +464,7 @@ itemBases["Advanced Sectioned Bracers"] = {
 }
 itemBases["Advanced Spined Bracers"] = {
 	type = "Gloves",
+	quality = 20,
 	socketLimit = 2,
 	tags = { dex_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
@@ -421,6 +473,7 @@ itemBases["Advanced Spined Bracers"] = {
 }
 itemBases["Advanced Sombre Gloves"] = {
 	type = "Gloves",
+	quality = 20,
 	socketLimit = 2,
 	tags = { int_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
@@ -429,6 +482,7 @@ itemBases["Advanced Sombre Gloves"] = {
 }
 itemBases["Advanced Stitched Gloves"] = {
 	type = "Gloves",
+	quality = 20,
 	socketLimit = 2,
 	tags = { int_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
@@ -437,6 +491,7 @@ itemBases["Advanced Stitched Gloves"] = {
 }
 itemBases["Advanced Jewelled Gloves"] = {
 	type = "Gloves",
+	quality = 20,
 	socketLimit = 2,
 	tags = { int_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
@@ -445,6 +500,7 @@ itemBases["Advanced Jewelled Gloves"] = {
 }
 itemBases["Advanced Intricate Gloves"] = {
 	type = "Gloves",
+	quality = 20,
 	socketLimit = 2,
 	tags = { int_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
@@ -453,6 +509,7 @@ itemBases["Advanced Intricate Gloves"] = {
 }
 itemBases["Advanced Ringmail Gauntlets"] = {
 	type = "Gloves",
+	quality = 20,
 	socketLimit = 2,
 	tags = { str_dex_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
@@ -461,6 +518,7 @@ itemBases["Advanced Ringmail Gauntlets"] = {
 }
 itemBases["Advanced Layered Gauntlets"] = {
 	type = "Gloves",
+	quality = 20,
 	socketLimit = 2,
 	tags = { str_dex_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
@@ -469,6 +527,7 @@ itemBases["Advanced Layered Gauntlets"] = {
 }
 itemBases["Advanced Doubled Gauntlets"] = {
 	type = "Gloves",
+	quality = 20,
 	socketLimit = 2,
 	tags = { str_dex_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
@@ -477,6 +536,7 @@ itemBases["Advanced Doubled Gauntlets"] = {
 }
 itemBases["Advanced Rope Cuffs"] = {
 	type = "Gloves",
+	quality = 20,
 	socketLimit = 2,
 	tags = { str_int_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
@@ -485,6 +545,7 @@ itemBases["Advanced Rope Cuffs"] = {
 }
 itemBases["Advanced Aged Cuffs"] = {
 	type = "Gloves",
+	quality = 20,
 	socketLimit = 2,
 	tags = { str_int_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
@@ -493,6 +554,7 @@ itemBases["Advanced Aged Cuffs"] = {
 }
 itemBases["Advanced Goldcast Cuffs"] = {
 	type = "Gloves",
+	quality = 20,
 	socketLimit = 2,
 	tags = { str_int_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
@@ -501,6 +563,7 @@ itemBases["Advanced Goldcast Cuffs"] = {
 }
 itemBases["Advanced Gauze Wraps"] = {
 	type = "Gloves",
+	quality = 20,
 	socketLimit = 2,
 	tags = { dex_int_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
@@ -509,6 +572,7 @@ itemBases["Advanced Gauze Wraps"] = {
 }
 itemBases["Advanced Linen Wraps"] = {
 	type = "Gloves",
+	quality = 20,
 	socketLimit = 2,
 	tags = { dex_int_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
@@ -517,6 +581,7 @@ itemBases["Advanced Linen Wraps"] = {
 }
 itemBases["Advanced Spiral Wraps"] = {
 	type = "Gloves",
+	quality = 20,
 	socketLimit = 2,
 	tags = { dex_int_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
@@ -525,6 +590,7 @@ itemBases["Advanced Spiral Wraps"] = {
 }
 itemBases["Expert Riveted Mitts"] = {
 	type = "Gloves",
+	quality = 20,
 	socketLimit = 2,
 	tags = { gloves = true, armour = true, str_armour = true, default = true, },
 	implicitModTypes = { },
@@ -533,6 +599,7 @@ itemBases["Expert Riveted Mitts"] = {
 }
 itemBases["Expert Bolstered Mitts"] = {
 	type = "Gloves",
+	quality = 20,
 	socketLimit = 2,
 	tags = { gloves = true, armour = true, str_armour = true, default = true, },
 	implicitModTypes = { },
@@ -541,6 +608,7 @@ itemBases["Expert Bolstered Mitts"] = {
 }
 itemBases["Expert Moulded Mitts"] = {
 	type = "Gloves",
+	quality = 20,
 	socketLimit = 2,
 	tags = { gloves = true, armour = true, str_armour = true, default = true, },
 	implicitModTypes = { },
@@ -549,6 +617,7 @@ itemBases["Expert Moulded Mitts"] = {
 }
 itemBases["Expert Firm Bracers"] = {
 	type = "Gloves",
+	quality = 20,
 	socketLimit = 2,
 	tags = { dex_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
@@ -557,6 +626,7 @@ itemBases["Expert Firm Bracers"] = {
 }
 itemBases["Expert Sectioned Bracers"] = {
 	type = "Gloves",
+	quality = 20,
 	socketLimit = 2,
 	tags = { dex_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
@@ -565,6 +635,7 @@ itemBases["Expert Sectioned Bracers"] = {
 }
 itemBases["Expert Spined Bracers"] = {
 	type = "Gloves",
+	quality = 20,
 	socketLimit = 2,
 	tags = { dex_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
@@ -573,6 +644,7 @@ itemBases["Expert Spined Bracers"] = {
 }
 itemBases["Expert Sombre Gloves"] = {
 	type = "Gloves",
+	quality = 20,
 	socketLimit = 2,
 	tags = { int_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
@@ -581,6 +653,7 @@ itemBases["Expert Sombre Gloves"] = {
 }
 itemBases["Expert Jewelled Gloves"] = {
 	type = "Gloves",
+	quality = 20,
 	socketLimit = 2,
 	tags = { int_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
@@ -589,6 +662,7 @@ itemBases["Expert Jewelled Gloves"] = {
 }
 itemBases["Expert Intricate Gloves"] = {
 	type = "Gloves",
+	quality = 20,
 	socketLimit = 2,
 	tags = { int_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
@@ -597,6 +671,7 @@ itemBases["Expert Intricate Gloves"] = {
 }
 itemBases["Expert Ringmail Gauntlets"] = {
 	type = "Gloves",
+	quality = 20,
 	socketLimit = 2,
 	tags = { str_dex_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
@@ -605,6 +680,7 @@ itemBases["Expert Ringmail Gauntlets"] = {
 }
 itemBases["Expert Layered Gauntlets"] = {
 	type = "Gloves",
+	quality = 20,
 	socketLimit = 2,
 	tags = { str_dex_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
@@ -613,6 +689,7 @@ itemBases["Expert Layered Gauntlets"] = {
 }
 itemBases["Expert Doubled Gauntlets"] = {
 	type = "Gloves",
+	quality = 20,
 	socketLimit = 2,
 	tags = { str_dex_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
@@ -621,6 +698,7 @@ itemBases["Expert Doubled Gauntlets"] = {
 }
 itemBases["Expert Rope Cuffs"] = {
 	type = "Gloves",
+	quality = 20,
 	socketLimit = 2,
 	tags = { str_int_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
@@ -629,6 +707,7 @@ itemBases["Expert Rope Cuffs"] = {
 }
 itemBases["Expert Aged Cuffs"] = {
 	type = "Gloves",
+	quality = 20,
 	socketLimit = 2,
 	tags = { str_int_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
@@ -637,6 +716,7 @@ itemBases["Expert Aged Cuffs"] = {
 }
 itemBases["Expert Goldcast Cuffs"] = {
 	type = "Gloves",
+	quality = 20,
 	socketLimit = 2,
 	tags = { str_int_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
@@ -645,6 +725,7 @@ itemBases["Expert Goldcast Cuffs"] = {
 }
 itemBases["Expert Gauze Wraps"] = {
 	type = "Gloves",
+	quality = 20,
 	socketLimit = 2,
 	tags = { dex_int_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
@@ -653,6 +734,7 @@ itemBases["Expert Gauze Wraps"] = {
 }
 itemBases["Expert Linen Wraps"] = {
 	type = "Gloves",
+	quality = 20,
 	socketLimit = 2,
 	tags = { dex_int_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
@@ -661,6 +743,7 @@ itemBases["Expert Linen Wraps"] = {
 }
 itemBases["Expert Spiral Wraps"] = {
 	type = "Gloves",
+	quality = 20,
 	socketLimit = 2,
 	tags = { dex_int_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },

@@ -4,6 +4,7 @@ local itemBases = ...
 
 itemBases["Rattling Sceptre"] = {
 	type = "Sceptre",
+	quality = 20,
 	spirit = 100,
 	tags = { default = true, onehand = true, sceptre = true, },
 	implicit = "Grants Skill: Level (1-20) Skeletal Warrior",
@@ -12,6 +13,7 @@ itemBases["Rattling Sceptre"] = {
 }
 itemBases["Stoic Sceptre"] = {
 	type = "Sceptre",
+	quality = 20,
 	spirit = 100,
 	tags = { default = true, onehand = true, sceptre = true, },
 	implicit = "Grants Skill: Level (1-20) Discipline",
@@ -20,6 +22,7 @@ itemBases["Stoic Sceptre"] = {
 }
 itemBases["Lupine Sceptre"] = {
 	type = "Sceptre",
+	quality = 20,
 	spirit = 100,
 	tags = { default = true, onehand = true, sceptre = true, },
 	implicit = "Grants Skill: Level (1-20) Skeletal Warrior",
@@ -28,6 +31,7 @@ itemBases["Lupine Sceptre"] = {
 }
 itemBases["Omen Sceptre"] = {
 	type = "Sceptre",
+	quality = 20,
 	spirit = 100,
 	tags = { default = true, onehand = true, sceptre = true, },
 	implicit = "Grants Skill: Level (1-20) Malice",
@@ -36,6 +40,7 @@ itemBases["Omen Sceptre"] = {
 }
 itemBases["Ochre Sceptre"] = {
 	type = "Sceptre",
+	quality = 20,
 	spirit = 100,
 	tags = { default = true, onehand = true, sceptre = true, },
 	implicit = "Grants Skill: Level (1-20) Skeletal Warrior",
@@ -44,6 +49,7 @@ itemBases["Ochre Sceptre"] = {
 }
 itemBases["Shrine Sceptre"] = {
 	type = "Sceptre",
+	quality = 20,
 	spirit = 100,
 	tags = { default = true, onehand = true, sceptre = true, },
 	implicit = "Grants Skill: Level (1-20) Purity of Fire",
@@ -52,6 +58,7 @@ itemBases["Shrine Sceptre"] = {
 }
 itemBases["Shrine Sceptre"] = {
 	type = "Sceptre",
+	quality = 20,
 	spirit = 100,
 	tags = { default = true, onehand = true, sceptre = true, },
 	implicit = "Grants Skill: Level (1-20) Purity of Ice",
@@ -60,6 +67,7 @@ itemBases["Shrine Sceptre"] = {
 }
 itemBases["Shrine Sceptre"] = {
 	type = "Sceptre",
+	quality = 20,
 	spirit = 100,
 	tags = { default = true, onehand = true, sceptre = true, },
 	implicit = "Grants Skill: Level (1-20) Purity of Lightning",
@@ -68,6 +76,7 @@ itemBases["Shrine Sceptre"] = {
 }
 itemBases["Devouring Sceptre"] = {
 	type = "Sceptre",
+	quality = 20,
 	spirit = 100,
 	tags = { default = true, onehand = true, sceptre = true, },
 	implicit = "Grants Skill: Level (1-20) Skeletal Warrior",
@@ -76,6 +85,7 @@ itemBases["Devouring Sceptre"] = {
 }
 itemBases["Clasped Sceptre"] = {
 	type = "Sceptre",
+	quality = 20,
 	spirit = 100,
 	tags = { default = true, onehand = true, sceptre = true, },
 	implicit = "Grants Skill: Level (1-20) Skeletal Warrior",
@@ -84,6 +94,7 @@ itemBases["Clasped Sceptre"] = {
 }
 itemBases["Devotional Sceptre"] = {
 	type = "Sceptre",
+	quality = 20,
 	spirit = 100,
 	tags = { default = true, onehand = true, sceptre = true, },
 	implicit = "Grants Skill: Level (1-20) Skeletal Warrior",
@@ -92,6 +103,7 @@ itemBases["Devotional Sceptre"] = {
 }
 itemBases["Wrath Sceptre"] = {
 	type = "Sceptre",
+	quality = 20,
 	spirit = 100,
 	tags = { default = true, onehand = true, sceptre = true, },
 	implicit = "Grants Skill: Level (1-20) Skeletal Warrior",
@@ -100,6 +112,7 @@ itemBases["Wrath Sceptre"] = {
 }
 itemBases["Aromatic Sceptre"] = {
 	type = "Sceptre",
+	quality = 20,
 	spirit = 100,
 	tags = { default = true, onehand = true, sceptre = true, },
 	implicit = "Grants Skill: Level (1-20) Skeletal Warrior",
@@ -108,6 +121,7 @@ itemBases["Aromatic Sceptre"] = {
 }
 itemBases["Pious Sceptre"] = {
 	type = "Sceptre",
+	quality = 20,
 	spirit = 100,
 	tags = { default = true, onehand = true, sceptre = true, },
 	implicit = "Grants Skill: Level (1-20) Skeletal Warrior",
@@ -116,6 +130,7 @@ itemBases["Pious Sceptre"] = {
 }
 itemBases["Hallowed Sceptre"] = {
 	type = "Sceptre",
+	quality = 20,
 	spirit = 100,
 	tags = { default = true, onehand = true, sceptre = true, },
 	implicit = "Grants Skill: Level (1-20) Skeletal Warrior",

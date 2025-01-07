@@ -877,11 +877,11 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 end
 
 function ItemClass:NormaliseQuality()
-	if self.base and (self.base.armour or self.base.weapon or self.base.flask) then
+	if self.base and self.base.quality then
 		if not self.quality then
 			self.quality = 0
-		elseif not self.uniqueID and not self.corrupted and not self.mirrored and self.quality < 20 then
-			self.quality = 20
+		elseif not self.uniqueID and not self.corrupted and not self.mirrored and not (self.base.type == "Charm") and self.quality < self.base.quality then -- charms cannot be modifed by quality currency.
+			self.quality = self.base.quality
 		end
 	end	
 end
@@ -1230,6 +1230,14 @@ function ItemClass:BuildModListForSlotNum(baseList, slotNum)
 	end
 	if self.quality then
 		modList:NewMod("Multiplier:QualityOn"..slotName, "BASE", self.quality, "Quality")
+	end
+	if self.spiritValue then
+		local spiritBase = self.base.spirit + calcLocal(modList, "Spirit", "BASE", 0)
+		local spiritInc = calcLocal(modList, "Spirit", "INC", 0)
+		self.spiritValue = round( spiritBase * (1 + spiritInc / 100) * (1 + ((self.quality or 0) / 100)))
+	end
+	if self.charmLimit then
+		self.charmLimit = self.base.charmLimit + calcLocal(modList, "CharmLimit", "BASE", 0)
 	end
 	if self.base.weapon then
 		local weaponData = { }

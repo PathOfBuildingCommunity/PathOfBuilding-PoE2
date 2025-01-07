@@ -4,6 +4,7 @@ local itemBases = ...
 
 itemBases["Golden Caligae"] = {
 	type = "Boots",
+	quality = 20,
 	socketLimit = 2,
 	tags = { boots = true, not_for_sale = true, armour = true, demigods = true, default = true, },
 	implicit = "+(8-16)% to all Elemental Resistances",
@@ -13,6 +14,7 @@ itemBases["Golden Caligae"] = {
 }
 itemBases["Rough Greaves"] = {
 	type = "Boots",
+	quality = 20,
 	socketLimit = 2,
 	tags = { boots = true, str_armour = true, armour = true, ezomyte_basetype = true, default = true, },
 	implicitModTypes = { },
@@ -21,6 +23,7 @@ itemBases["Rough Greaves"] = {
 }
 itemBases["Iron Greaves"] = {
 	type = "Boots",
+	quality = 20,
 	socketLimit = 2,
 	tags = { boots = true, str_armour = true, armour = true, ezomyte_basetype = true, default = true, },
 	implicitModTypes = { },
@@ -29,6 +32,7 @@ itemBases["Iron Greaves"] = {
 }
 itemBases["Bronze Greaves"] = {
 	type = "Boots",
+	quality = 20,
 	socketLimit = 2,
 	tags = { maraketh_basetype = true, boots = true, str_armour = true, armour = true, default = true, },
 	implicitModTypes = { },
@@ -37,6 +41,7 @@ itemBases["Bronze Greaves"] = {
 }
 itemBases["Trimmed Greaves"] = {
 	type = "Boots",
+	quality = 20,
 	socketLimit = 2,
 	tags = { maraketh_basetype = true, boots = true, str_armour = true, armour = true, default = true, },
 	implicitModTypes = { },
@@ -45,6 +50,7 @@ itemBases["Trimmed Greaves"] = {
 }
 itemBases["Stone Greaves"] = {
 	type = "Boots",
+	quality = 20,
 	socketLimit = 2,
 	tags = { boots = true, str_armour = true, armour = true, vaal_basetype = true, default = true, },
 	implicitModTypes = { },
@@ -53,6 +59,7 @@ itemBases["Stone Greaves"] = {
 }
 itemBases["Reefsteel Greaves"] = {
 	type = "Boots",
+	quality = 20,
 	socketLimit = 2,
 	tags = { boots = true, armour = true, str_armour = true, default = true, },
 	implicitModTypes = { },
@@ -61,6 +68,7 @@ itemBases["Reefsteel Greaves"] = {
 }
 itemBases["Monument Greaves"] = {
 	type = "Boots",
+	quality = 20,
 	socketLimit = 2,
 	tags = { boots = true, armour = true, str_armour = true, default = true, },
 	implicitModTypes = { },
@@ -69,6 +77,7 @@ itemBases["Monument Greaves"] = {
 }
 itemBases["Totemic Greaves"] = {
 	type = "Boots",
+	quality = 20,
 	socketLimit = 2,
 	tags = { boots = true, armour = true, str_armour = true, default = true, },
 	implicitModTypes = { },
@@ -77,6 +86,7 @@ itemBases["Totemic Greaves"] = {
 }
 itemBases["Rawhide Boots"] = {
 	type = "Boots",
+	quality = 20,
 	socketLimit = 2,
 	tags = { boots = true, ezomyte_basetype = true, dex_armour = true, armour = true, default = true, },
 	implicitModTypes = { },
@@ -85,6 +95,7 @@ itemBases["Rawhide Boots"] = {
 }
 itemBases["Laced Boots"] = {
 	type = "Boots",
+	quality = 20,
 	socketLimit = 2,
 	tags = { boots = true, ezomyte_basetype = true, dex_armour = true, armour = true, default = true, },
 	implicitModTypes = { },
@@ -93,6 +104,7 @@ itemBases["Laced Boots"] = {
 }
 itemBases["Embossed Boots"] = {
 	type = "Boots",
+	quality = 20,
 	socketLimit = 2,
 	tags = { maraketh_basetype = true, boots = true, dex_armour = true, armour = true, default = true, },
 	implicitModTypes = { },
@@ -101,6 +113,7 @@ itemBases["Embossed Boots"] = {
 }
 itemBases["Steeltoe Boots"] = {
 	type = "Boots",
+	quality = 20,
 	socketLimit = 2,
 	tags = { maraketh_basetype = true, boots = true, dex_armour = true, armour = true, default = true, },
 	implicitModTypes = { },
@@ -109,6 +122,7 @@ itemBases["Steeltoe Boots"] = {
 }
 itemBases["Lizardscale Boots"] = {
 	type = "Boots",
+	quality = 20,
 	socketLimit = 2,
 	tags = { boots = true, dex_armour = true, armour = true, vaal_basetype = true, default = true, },
 	implicitModTypes = { },
@@ -117,6 +131,7 @@ itemBases["Lizardscale Boots"] = {
 }
 itemBases["Flared Boots"] = {
 	type = "Boots",
+	quality = 20,
 	socketLimit = 2,
 	tags = { dex_armour = true, armour = true, boots = true, default = true, },
 	implicitModTypes = { },
@@ -125,6 +140,7 @@ itemBases["Flared Boots"] = {
 }
 itemBases["Leatherplate Boots"] = {
 	type = "Boots",
+	quality = 20,
 	socketLimit = 2,
 	tags = { dex_armour = true, armour = true, boots = true, default = true, },
 	implicitModTypes = { },
@@ -133,6 +149,7 @@ itemBases["Leatherplate Boots"] = {
 }
 itemBases["Embroidered Boots"] = {
 	type = "Boots",
+	quality = 20,
 	socketLimit = 2,
 	tags = { dex_armour = true, armour = true, boots = true, default = true, },
 	implicitModTypes = { },
@@ -141,6 +158,7 @@ itemBases["Embroidered Boots"] = {
 }
 itemBases["Straw Sandals"] = {
 	type = "Boots",
+	quality = 20,
 	socketLimit = 2,
 	tags = { boots = true, ezomyte_basetype = true, int_armour = true, armour = true, default = true, },
 	implicitModTypes = { },
@@ -149,6 +167,7 @@ itemBases["Straw Sandals"] = {
 }
 itemBases["Wrapped Sandals"] = {
 	type = "Boots",
+	quality = 20,
 	socketLimit = 2,
 	tags = { boots = true, ezomyte_basetype = true, int_armour = true, armour = true, default = true, },
 	implicitModTypes = { },
@@ -157,6 +176,7 @@ itemBases["Wrapped Sandals"] = {
 }
 itemBases["Lattice Sandals"] = {
 	type = "Boots",
+	quality = 20,
 	socketLimit = 2,
 	tags = { maraketh_basetype = true, boots = true, int_armour = true, armour = true, default = true, },
 	implicitModTypes = { },
@@ -165,6 +185,7 @@ itemBases["Lattice Sandals"] = {
 }
 itemBases["Silk Slippers"] = {
 	type = "Boots",
+	quality = 20,
 	socketLimit = 2,
 	tags = { maraketh_basetype = true, boots = true, int_armour = true, armour = true, default = true, },
 	implicitModTypes = { },
@@ -173,6 +194,7 @@ itemBases["Silk Slippers"] = {
 }
 itemBases["Feathered Sandals"] = {
 	type = "Boots",
+	quality = 20,
 	socketLimit = 2,
 	tags = { boots = true, int_armour = true, armour = true, vaal_basetype = true, default = true, },
 	implicitModTypes = { },
@@ -181,6 +203,7 @@ itemBases["Feathered Sandals"] = {
 }
 itemBases["Flax Sandals"] = {
 	type = "Boots",
+	quality = 20,
 	socketLimit = 2,
 	tags = { int_armour = true, armour = true, boots = true, default = true, },
 	implicitModTypes = { },
@@ -189,6 +212,7 @@ itemBases["Flax Sandals"] = {
 }
 itemBases["Studded Sandals"] = {
 	type = "Boots",
+	quality = 20,
 	socketLimit = 2,
 	tags = { int_armour = true, armour = true, boots = true, default = true, },
 	implicitModTypes = { },
@@ -197,6 +221,7 @@ itemBases["Studded Sandals"] = {
 }
 itemBases["Elaborate Sandals"] = {
 	type = "Boots",
+	quality = 20,
 	socketLimit = 2,
 	tags = { int_armour = true, armour = true, boots = true, default = true, },
 	implicitModTypes = { },
@@ -205,6 +230,7 @@ itemBases["Elaborate Sandals"] = {
 }
 itemBases["Mail Sabatons"] = {
 	type = "Boots",
+	quality = 20,
 	socketLimit = 2,
 	tags = { str_dex_armour = true, ezomyte_basetype = true, armour = true, boots = true, default = true, },
 	implicitModTypes = { },
@@ -213,6 +239,7 @@ itemBases["Mail Sabatons"] = {
 }
 itemBases["Braced Sabatons"] = {
 	type = "Boots",
+	quality = 20,
 	socketLimit = 2,
 	tags = { maraketh_basetype = true, str_dex_armour = true, armour = true, boots = true, default = true, },
 	implicitModTypes = { },
@@ -221,6 +248,7 @@ itemBases["Braced Sabatons"] = {
 }
 itemBases["Stacked Sabatons"] = {
 	type = "Boots",
+	quality = 20,
 	socketLimit = 2,
 	tags = { str_dex_armour = true, vaal_basetype = true, armour = true, boots = true, default = true, },
 	implicitModTypes = { },
@@ -229,6 +257,7 @@ itemBases["Stacked Sabatons"] = {
 }
 itemBases["Covered Sabatons"] = {
 	type = "Boots",
+	quality = 20,
 	socketLimit = 2,
 	tags = { str_dex_armour = true, armour = true, boots = true, default = true, },
 	implicitModTypes = { },
@@ -237,6 +266,7 @@ itemBases["Covered Sabatons"] = {
 }
 itemBases["Flexile Sabatons"] = {
 	type = "Boots",
+	quality = 20,
 	socketLimit = 2,
 	tags = { str_dex_armour = true, armour = true, boots = true, default = true, },
 	implicitModTypes = { },
@@ -245,6 +275,7 @@ itemBases["Flexile Sabatons"] = {
 }
 itemBases["Bold Sabatons"] = {
 	type = "Boots",
+	quality = 20,
 	socketLimit = 2,
 	tags = { str_dex_armour = true, armour = true, boots = true, default = true, },
 	implicitModTypes = { },
@@ -253,6 +284,7 @@ itemBases["Bold Sabatons"] = {
 }
 itemBases["Padded Leggings"] = {
 	type = "Boots",
+	quality = 20,
 	socketLimit = 2,
 	tags = { str_int_armour = true, ezomyte_basetype = true, armour = true, boots = true, default = true, },
 	implicitModTypes = { },
@@ -261,6 +293,7 @@ itemBases["Padded Leggings"] = {
 }
 itemBases["Secured Leggings"] = {
 	type = "Boots",
+	quality = 20,
 	socketLimit = 2,
 	tags = { maraketh_basetype = true, str_int_armour = true, armour = true, boots = true, default = true, },
 	implicitModTypes = { },
@@ -269,6 +302,7 @@ itemBases["Secured Leggings"] = {
 }
 itemBases["Pelt Leggings"] = {
 	type = "Boots",
+	quality = 20,
 	socketLimit = 2,
 	tags = { str_int_armour = true, vaal_basetype = true, armour = true, boots = true, default = true, },
 	implicitModTypes = { },
@@ -277,6 +311,7 @@ itemBases["Pelt Leggings"] = {
 }
 itemBases["Weaver Leggings"] = {
 	type = "Boots",
+	quality = 20,
 	socketLimit = 2,
 	tags = { str_int_armour = true, armour = true, boots = true, default = true, },
 	implicitModTypes = { },
@@ -285,6 +320,7 @@ itemBases["Weaver Leggings"] = {
 }
 itemBases["Gilt Leggings"] = {
 	type = "Boots",
+	quality = 20,
 	socketLimit = 2,
 	tags = { str_int_armour = true, armour = true, boots = true, default = true, },
 	implicitModTypes = { },
@@ -293,6 +329,7 @@ itemBases["Gilt Leggings"] = {
 }
 itemBases["Pious Leggings"] = {
 	type = "Boots",
+	quality = 20,
 	socketLimit = 2,
 	tags = { str_int_armour = true, armour = true, boots = true, default = true, },
 	implicitModTypes = { },
@@ -301,6 +338,7 @@ itemBases["Pious Leggings"] = {
 }
 itemBases["Frayed Shoes"] = {
 	type = "Boots",
+	quality = 20,
 	socketLimit = 2,
 	tags = { boots = true, ezomyte_basetype = true, armour = true, default = true, dex_int_armour = true, },
 	implicitModTypes = { },
@@ -309,6 +347,7 @@ itemBases["Frayed Shoes"] = {
 }
 itemBases["Threaded Shoes"] = {
 	type = "Boots",
+	quality = 20,
 	socketLimit = 2,
 	tags = { maraketh_basetype = true, boots = true, armour = true, default = true, dex_int_armour = true, },
 	implicitModTypes = { },
@@ -317,6 +356,7 @@ itemBases["Threaded Shoes"] = {
 }
 itemBases["Hunting Shoes"] = {
 	type = "Boots",
+	quality = 20,
 	socketLimit = 2,
 	tags = { boots = true, vaal_basetype = true, armour = true, default = true, dex_int_armour = true, },
 	implicitModTypes = { },
@@ -325,6 +365,7 @@ itemBases["Hunting Shoes"] = {
 }
 itemBases["Steelpoint Shoes"] = {
 	type = "Boots",
+	quality = 20,
 	socketLimit = 2,
 	tags = { dex_int_armour = true, armour = true, boots = true, default = true, },
 	implicitModTypes = { },
@@ -333,6 +374,7 @@ itemBases["Steelpoint Shoes"] = {
 }
 itemBases["Velour Shoes"] = {
 	type = "Boots",
+	quality = 20,
 	socketLimit = 2,
 	tags = { dex_int_armour = true, armour = true, boots = true, default = true, },
 	implicitModTypes = { },
@@ -341,6 +383,7 @@ itemBases["Velour Shoes"] = {
 }
 itemBases["Bladed Shoes"] = {
 	type = "Boots",
+	quality = 20,
 	socketLimit = 2,
 	tags = { dex_int_armour = true, armour = true, boots = true, default = true, },
 	implicitModTypes = { },
@@ -349,6 +392,7 @@ itemBases["Bladed Shoes"] = {
 }
 itemBases["Grand Cuisses"] = {
 	type = "Boots",
+	quality = 20,
 	socketLimit = 2,
 	tags = { str_dex_int_armour = true, armour = true, boots = true, default = true, },
 	implicitModTypes = { },
@@ -357,6 +401,7 @@ itemBases["Grand Cuisses"] = {
 }
 itemBases["Advanced Iron Greaves"] = {
 	type = "Boots",
+	quality = 20,
 	socketLimit = 2,
 	tags = { boots = true, armour = true, str_armour = true, default = true, },
 	implicitModTypes = { },
@@ -365,6 +410,7 @@ itemBases["Advanced Iron Greaves"] = {
 }
 itemBases["Advanced Bronze Greaves"] = {
 	type = "Boots",
+	quality = 20,
 	socketLimit = 2,
 	tags = { boots = true, armour = true, str_armour = true, default = true, },
 	implicitModTypes = { },
@@ -373,6 +419,7 @@ itemBases["Advanced Bronze Greaves"] = {
 }
 itemBases["Advanced Trimmed Greaves"] = {
 	type = "Boots",
+	quality = 20,
 	socketLimit = 2,
 	tags = { boots = true, armour = true, str_armour = true, default = true, },
 	implicitModTypes = { },
@@ -381,6 +428,7 @@ itemBases["Advanced Trimmed Greaves"] = {
 }
 itemBases["Advanced Stone Greaves"] = {
 	type = "Boots",
+	quality = 20,
 	socketLimit = 2,
 	tags = { boots = true, armour = true, str_armour = true, default = true, },
 	implicitModTypes = { },
@@ -389,6 +437,7 @@ itemBases["Advanced Stone Greaves"] = {
 }
 itemBases["Advanced Laced Boots"] = {
 	type = "Boots",
+	quality = 20,
 	socketLimit = 2,
 	tags = { dex_armour = true, armour = true, boots = true, default = true, },
 	implicitModTypes = { },
@@ -397,6 +446,7 @@ itemBases["Advanced Laced Boots"] = {
 }
 itemBases["Advanced Embossed Boots"] = {
 	type = "Boots",
+	quality = 20,
 	socketLimit = 2,
 	tags = { dex_armour = true, armour = true, boots = true, default = true, },
 	implicitModTypes = { },
@@ -405,6 +455,7 @@ itemBases["Advanced Embossed Boots"] = {
 }
 itemBases["Advanced Steeltoe Boots"] = {
 	type = "Boots",
+	quality = 20,
 	socketLimit = 2,
 	tags = { dex_armour = true, armour = true, boots = true, default = true, },
 	implicitModTypes = { },
@@ -413,6 +464,7 @@ itemBases["Advanced Steeltoe Boots"] = {
 }
 itemBases["Advanced Lizardscale Boots"] = {
 	type = "Boots",
+	quality = 20,
 	socketLimit = 2,
 	tags = { dex_armour = true, armour = true, boots = true, default = true, },
 	implicitModTypes = { },
@@ -421,6 +473,7 @@ itemBases["Advanced Lizardscale Boots"] = {
 }
 itemBases["Advanced Wrapped Sandals"] = {
 	type = "Boots",
+	quality = 20,
 	socketLimit = 2,
 	tags = { int_armour = true, armour = true, boots = true, default = true, },
 	implicitModTypes = { },
@@ -429,6 +482,7 @@ itemBases["Advanced Wrapped Sandals"] = {
 }
 itemBases["Advanced Lattice Sandals"] = {
 	type = "Boots",
+	quality = 20,
 	socketLimit = 2,
 	tags = { int_armour = true, armour = true, boots = true, default = true, },
 	implicitModTypes = { },
@@ -437,6 +491,7 @@ itemBases["Advanced Lattice Sandals"] = {
 }
 itemBases["Advanced Silk Slippers"] = {
 	type = "Boots",
+	quality = 20,
 	socketLimit = 2,
 	tags = { int_armour = true, armour = true, boots = true, default = true, },
 	implicitModTypes = { },
@@ -445,6 +500,7 @@ itemBases["Advanced Silk Slippers"] = {
 }
 itemBases["Advanced Feathered Sandals"] = {
 	type = "Boots",
+	quality = 20,
 	socketLimit = 2,
 	tags = { int_armour = true, armour = true, boots = true, default = true, },
 	implicitModTypes = { },
@@ -453,6 +509,7 @@ itemBases["Advanced Feathered Sandals"] = {
 }
 itemBases["Advanced Mail Sabatons"] = {
 	type = "Boots",
+	quality = 20,
 	socketLimit = 2,
 	tags = { str_dex_armour = true, armour = true, boots = true, default = true, },
 	implicitModTypes = { },
@@ -461,6 +518,7 @@ itemBases["Advanced Mail Sabatons"] = {
 }
 itemBases["Advanced Braced Sabatons"] = {
 	type = "Boots",
+	quality = 20,
 	socketLimit = 2,
 	tags = { str_dex_armour = true, armour = true, boots = true, default = true, },
 	implicitModTypes = { },
@@ -469,6 +527,7 @@ itemBases["Advanced Braced Sabatons"] = {
 }
 itemBases["Advanced Stacked Sabatons"] = {
 	type = "Boots",
+	quality = 20,
 	socketLimit = 2,
 	tags = { str_dex_armour = true, armour = true, boots = true, default = true, },
 	implicitModTypes = { },
@@ -477,6 +536,7 @@ itemBases["Advanced Stacked Sabatons"] = {
 }
 itemBases["Advanced Padded Leggings"] = {
 	type = "Boots",
+	quality = 20,
 	socketLimit = 2,
 	tags = { str_int_armour = true, armour = true, boots = true, default = true, },
 	implicitModTypes = { },
@@ -485,6 +545,7 @@ itemBases["Advanced Padded Leggings"] = {
 }
 itemBases["Advanced Secured Leggings"] = {
 	type = "Boots",
+	quality = 20,
 	socketLimit = 2,
 	tags = { str_int_armour = true, armour = true, boots = true, default = true, },
 	implicitModTypes = { },
@@ -493,6 +554,7 @@ itemBases["Advanced Secured Leggings"] = {
 }
 itemBases["Advanced Pelt Leggings"] = {
 	type = "Boots",
+	quality = 20,
 	socketLimit = 2,
 	tags = { str_int_armour = true, armour = true, boots = true, default = true, },
 	implicitModTypes = { },
@@ -501,6 +563,7 @@ itemBases["Advanced Pelt Leggings"] = {
 }
 itemBases["Advanced Frayed Shoes"] = {
 	type = "Boots",
+	quality = 20,
 	socketLimit = 2,
 	tags = { dex_int_armour = true, armour = true, boots = true, default = true, },
 	implicitModTypes = { },
@@ -509,6 +572,7 @@ itemBases["Advanced Frayed Shoes"] = {
 }
 itemBases["Advanced Threaded Shoes"] = {
 	type = "Boots",
+	quality = 20,
 	socketLimit = 2,
 	tags = { dex_int_armour = true, armour = true, boots = true, default = true, },
 	implicitModTypes = { },
@@ -517,6 +581,7 @@ itemBases["Advanced Threaded Shoes"] = {
 }
 itemBases["Advanced Hunting Shoes"] = {
 	type = "Boots",
+	quality = 20,
 	socketLimit = 2,
 	tags = { dex_int_armour = true, armour = true, boots = true, default = true, },
 	implicitModTypes = { },
@@ -525,6 +590,7 @@ itemBases["Advanced Hunting Shoes"] = {
 }
 itemBases["Expert Iron Greaves"] = {
 	type = "Boots",
+	quality = 20,
 	socketLimit = 2,
 	tags = { boots = true, armour = true, str_armour = true, default = true, },
 	implicitModTypes = { },
@@ -533,6 +599,7 @@ itemBases["Expert Iron Greaves"] = {
 }
 itemBases["Expert Trimmed Greaves"] = {
 	type = "Boots",
+	quality = 20,
 	socketLimit = 2,
 	tags = { boots = true, armour = true, str_armour = true, default = true, },
 	implicitModTypes = { },
@@ -541,6 +608,7 @@ itemBases["Expert Trimmed Greaves"] = {
 }
 itemBases["Expert Stone Greaves"] = {
 	type = "Boots",
+	quality = 20,
 	socketLimit = 2,
 	tags = { boots = true, armour = true, str_armour = true, default = true, },
 	implicitModTypes = { },
@@ -549,6 +617,7 @@ itemBases["Expert Stone Greaves"] = {
 }
 itemBases["Expert Laced Boots"] = {
 	type = "Boots",
+	quality = 20,
 	socketLimit = 2,
 	tags = { dex_armour = true, armour = true, boots = true, default = true, },
 	implicitModTypes = { },
@@ -557,6 +626,7 @@ itemBases["Expert Laced Boots"] = {
 }
 itemBases["Expert Steeltoe Boots"] = {
 	type = "Boots",
+	quality = 20,
 	socketLimit = 2,
 	tags = { dex_armour = true, armour = true, boots = true, default = true, },
 	implicitModTypes = { },
@@ -565,6 +635,7 @@ itemBases["Expert Steeltoe Boots"] = {
 }
 itemBases["Expert Lizardscale Boots"] = {
 	type = "Boots",
+	quality = 20,
 	socketLimit = 2,
 	tags = { dex_armour = true, armour = true, boots = true, default = true, },
 	implicitModTypes = { },
@@ -573,6 +644,7 @@ itemBases["Expert Lizardscale Boots"] = {
 }
 itemBases["Expert Wrapped Sandals"] = {
 	type = "Boots",
+	quality = 20,
 	socketLimit = 2,
 	tags = { int_armour = true, armour = true, boots = true, default = true, },
 	implicitModTypes = { },
@@ -581,6 +653,7 @@ itemBases["Expert Wrapped Sandals"] = {
 }
 itemBases["Expert Silk Slippers"] = {
 	type = "Boots",
+	quality = 20,
 	socketLimit = 2,
 	tags = { int_armour = true, armour = true, boots = true, default = true, },
 	implicitModTypes = { },
@@ -589,6 +662,7 @@ itemBases["Expert Silk Slippers"] = {
 }
 itemBases["Expert Feathered Sandals"] = {
 	type = "Boots",
+	quality = 20,
 	socketLimit = 2,
 	tags = { int_armour = true, armour = true, boots = true, default = true, },
 	implicitModTypes = { },
@@ -597,6 +671,7 @@ itemBases["Expert Feathered Sandals"] = {
 }
 itemBases["Expert Mail Sabatons"] = {
 	type = "Boots",
+	quality = 20,
 	socketLimit = 2,
 	tags = { str_dex_armour = true, armour = true, boots = true, default = true, },
 	implicitModTypes = { },
@@ -605,6 +680,7 @@ itemBases["Expert Mail Sabatons"] = {
 }
 itemBases["Expert Braced Sabatons"] = {
 	type = "Boots",
+	quality = 20,
 	socketLimit = 2,
 	tags = { str_dex_armour = true, armour = true, boots = true, default = true, },
 	implicitModTypes = { },
@@ -613,6 +689,7 @@ itemBases["Expert Braced Sabatons"] = {
 }
 itemBases["Expert Stacked Sabatons"] = {
 	type = "Boots",
+	quality = 20,
 	socketLimit = 2,
 	tags = { str_dex_armour = true, armour = true, boots = true, default = true, },
 	implicitModTypes = { },
@@ -621,6 +698,7 @@ itemBases["Expert Stacked Sabatons"] = {
 }
 itemBases["Expert Padded Leggings"] = {
 	type = "Boots",
+	quality = 20,
 	socketLimit = 2,
 	tags = { str_int_armour = true, armour = true, boots = true, default = true, },
 	implicitModTypes = { },
@@ -629,6 +707,7 @@ itemBases["Expert Padded Leggings"] = {
 }
 itemBases["Expert Secured Leggings"] = {
 	type = "Boots",
+	quality = 20,
 	socketLimit = 2,
 	tags = { str_int_armour = true, armour = true, boots = true, default = true, },
 	implicitModTypes = { },
@@ -637,6 +716,7 @@ itemBases["Expert Secured Leggings"] = {
 }
 itemBases["Expert Pelt Leggings"] = {
 	type = "Boots",
+	quality = 20,
 	socketLimit = 2,
 	tags = { str_int_armour = true, armour = true, boots = true, default = true, },
 	implicitModTypes = { },
@@ -645,6 +725,7 @@ itemBases["Expert Pelt Leggings"] = {
 }
 itemBases["Expert Frayed Shoes"] = {
 	type = "Boots",
+	quality = 20,
 	socketLimit = 2,
 	tags = { dex_int_armour = true, armour = true, boots = true, default = true, },
 	implicitModTypes = { },
@@ -653,6 +734,7 @@ itemBases["Expert Frayed Shoes"] = {
 }
 itemBases["Expert Threaded Shoes"] = {
 	type = "Boots",
+	quality = 20,
 	socketLimit = 2,
 	tags = { dex_int_armour = true, armour = true, boots = true, default = true, },
 	implicitModTypes = { },
@@ -661,6 +743,7 @@ itemBases["Expert Threaded Shoes"] = {
 }
 itemBases["Expert Hunting Shoes"] = {
 	type = "Boots",
+	quality = 20,
 	socketLimit = 2,
 	tags = { dex_int_armour = true, armour = true, boots = true, default = true, },
 	implicitModTypes = { },

@@ -4,6 +4,7 @@ local itemBases = ...
 
 itemBases["Ethereal Blade"] = {
 	type = "Dagger",
+	quality = 20,
 	hidden = true,
 	socketLimit = 2,
 	tags = { onehand = true, not_for_sale = true, one_hand_weapon = true, weapon = true, dagger = true, default = true, },
@@ -13,6 +14,7 @@ itemBases["Ethereal Blade"] = {
 }
 itemBases["Glass Shank"] = {
 	type = "Dagger",
+	quality = 20,
 	socketLimit = 2,
 	tags = { onehand = true, ezomyte_basetype = true, one_hand_weapon = true, weapon = true, dagger = true, default = true, },
 	implicitModTypes = { },
@@ -21,6 +23,7 @@ itemBases["Glass Shank"] = {
 }
 itemBases["Crone Knife"] = {
 	type = "Dagger",
+	quality = 20,
 	socketLimit = 2,
 	tags = { onehand = true, ezomyte_basetype = true, one_hand_weapon = true, weapon = true, dagger = true, default = true, },
 	implicit = "Leeches 4% of Physical Damage as Mana",
@@ -30,6 +33,7 @@ itemBases["Crone Knife"] = {
 }
 itemBases["Simple Dagger"] = {
 	type = "Dagger",
+	quality = 20,
 	socketLimit = 2,
 	tags = { onehand = true, ezomyte_basetype = true, one_hand_weapon = true, weapon = true, dagger = true, default = true, },
 	implicitModTypes = { },
@@ -38,6 +42,7 @@ itemBases["Simple Dagger"] = {
 }
 itemBases["Skinning Knife"] = {
 	type = "Dagger",
+	quality = 20,
 	socketLimit = 2,
 	tags = { maraketh_basetype = true, onehand = true, one_hand_weapon = true, weapon = true, dagger = true, default = true, },
 	implicitModTypes = { },
@@ -46,6 +51,7 @@ itemBases["Skinning Knife"] = {
 }
 itemBases["Moon Dagger"] = {
 	type = "Dagger",
+	quality = 20,
 	socketLimit = 2,
 	tags = { maraketh_basetype = true, onehand = true, one_hand_weapon = true, weapon = true, dagger = true, default = true, },
 	implicitModTypes = { },
@@ -54,6 +60,7 @@ itemBases["Moon Dagger"] = {
 }
 itemBases["Engraved Knife"] = {
 	type = "Dagger",
+	quality = 20,
 	socketLimit = 2,
 	tags = { maraketh_basetype = true, onehand = true, one_hand_weapon = true, weapon = true, dagger = true, default = true, },
 	implicitModTypes = { },
@@ -62,6 +69,7 @@ itemBases["Engraved Knife"] = {
 }
 itemBases["Obsidian Dagger"] = {
 	type = "Dagger",
+	quality = 20,
 	socketLimit = 2,
 	tags = { onehand = true, vaal_basetype = true, one_hand_weapon = true, weapon = true, dagger = true, default = true, },
 	implicitModTypes = { },
@@ -70,6 +78,7 @@ itemBases["Obsidian Dagger"] = {
 }
 itemBases["Bloodletting Dagger"] = {
 	type = "Dagger",
+	quality = 20,
 	socketLimit = 2,
 	tags = { onehand = true, vaal_basetype = true, one_hand_weapon = true, weapon = true, dagger = true, default = true, },
 	implicit = "25% of Spell Mana Cost Converted to Life Cost",
@@ -79,6 +88,7 @@ itemBases["Bloodletting Dagger"] = {
 }
 itemBases["Mail Breaker"] = {
 	type = "Dagger",
+	quality = 20,
 	socketLimit = 2,
 	tags = { onehand = true, one_hand_weapon = true, weapon = true, dagger = true, default = true, },
 	implicit = "Breaks (400-500) Armour on Critical Hit",
@@ -88,6 +98,7 @@ itemBases["Mail Breaker"] = {
 }
 itemBases["Kris Knife"] = {
 	type = "Dagger",
+	quality = 20,
 	socketLimit = 2,
 	tags = { onehand = true, one_hand_weapon = true, weapon = true, dagger = true, default = true, },
 	implicitModTypes = { },
@@ -96,6 +107,7 @@ itemBases["Kris Knife"] = {
 }
 itemBases["Parrying Dagger"] = {
 	type = "Dagger",
+	quality = 20,
 	socketLimit = 2,
 	tags = { onehand = true, one_hand_weapon = true, weapon = true, dagger = true, default = true, },
 	implicitModTypes = { },
@@ -104,6 +116,7 @@ itemBases["Parrying Dagger"] = {
 }
 itemBases["Arcane Dirk"] = {
 	type = "Dagger",
+	quality = 20,
 	socketLimit = 2,
 	tags = { onehand = true, one_hand_weapon = true, weapon = true, dagger = true, default = true, },
 	implicitModTypes = { },
@@ -112,6 +125,7 @@ itemBases["Arcane Dirk"] = {
 }
 itemBases["Cinquedea"] = {
 	type = "Dagger",
+	quality = 20,
 	socketLimit = 2,
 	tags = { onehand = true, one_hand_weapon = true, weapon = true, dagger = true, default = true, },
 	implicitModTypes = { },

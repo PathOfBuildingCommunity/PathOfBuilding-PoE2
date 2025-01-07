@@ -4,6 +4,7 @@ local itemBases = ...
 
 itemBases["Makeshift Crossbow"] = {
 	type = "Crossbow",
+	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, ezomyte_basetype = true, ranged = true, weapon = true, twohand = true, crossbow = true, default = true, },
 	implicitModTypes = { },
@@ -12,6 +13,7 @@ itemBases["Makeshift Crossbow"] = {
 }
 itemBases["Tense Crossbow"] = {
 	type = "Crossbow",
+	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, ezomyte_basetype = true, ranged = true, weapon = true, twohand = true, crossbow = true, default = true, },
 	implicit = "(20-30)% increased Bolt Speed",
@@ -21,6 +23,7 @@ itemBases["Tense Crossbow"] = {
 }
 itemBases["Sturdy Crossbow"] = {
 	type = "Crossbow",
+	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, ezomyte_basetype = true, ranged = true, weapon = true, twohand = true, crossbow = true, default = true, },
 	implicitModTypes = { },
@@ -29,6 +32,7 @@ itemBases["Sturdy Crossbow"] = {
 }
 itemBases["Varnished Crossbow"] = {
 	type = "Crossbow",
+	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, maraketh_basetype = true, ranged = true, weapon = true, twohand = true, crossbow = true, default = true, },
 	implicitModTypes = { },
@@ -37,6 +41,7 @@ itemBases["Varnished Crossbow"] = {
 }
 itemBases["Dyad Crossbow"] = {
 	type = "Crossbow",
+	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, maraketh_basetype = true, ranged = true, weapon = true, twohand = true, crossbow = true, default = true, },
 	implicit = "Loads an additional bolt",
@@ -46,6 +51,7 @@ itemBases["Dyad Crossbow"] = {
 }
 itemBases["Alloy Crossbow"] = {
 	type = "Crossbow",
+	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, maraketh_basetype = true, ranged = true, weapon = true, twohand = true, crossbow = true, default = true, },
 	implicitModTypes = { },
@@ -54,6 +60,7 @@ itemBases["Alloy Crossbow"] = {
 }
 itemBases["Bombard Crossbow"] = {
 	type = "Crossbow",
+	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, vaal_basetype = true, ranged = true, weapon = true, twohand = true, crossbow = true, default = true, },
 	implicit = "Grenade Skills Fire an additional Projectile",
@@ -63,6 +70,7 @@ itemBases["Bombard Crossbow"] = {
 }
 itemBases["Construct Crossbow"] = {
 	type = "Crossbow",
+	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, vaal_basetype = true, ranged = true, weapon = true, twohand = true, crossbow = true, default = true, },
 	implicitModTypes = { },
@@ -71,6 +79,7 @@ itemBases["Construct Crossbow"] = {
 }
 itemBases["Blackfire Crossbow"] = {
 	type = "Crossbow",
+	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, ranged = true, weapon = true, twohand = true, crossbow = true, default = true, },
 	implicitModTypes = { },
@@ -79,6 +88,7 @@ itemBases["Blackfire Crossbow"] = {
 }
 itemBases["Piercing Crossbow"] = {
 	type = "Crossbow",
+	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, ranged = true, weapon = true, twohand = true, crossbow = true, default = true, },
 	implicit = "(20-30)% chance to Pierce an Enemy",
@@ -88,6 +98,7 @@ itemBases["Piercing Crossbow"] = {
 }
 itemBases["Cumbrous Crossbow"] = {
 	type = "Crossbow",
+	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, ranged = true, weapon = true, twohand = true, crossbow = true, default = true, },
 	implicit = "+1 to maximum number of Summoned Ballista Totems",
@@ -97,6 +108,7 @@ itemBases["Cumbrous Crossbow"] = {
 }
 itemBases["Dedalian Crossbow"] = {
 	type = "Crossbow",
+	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, ranged = true, weapon = true, twohand = true, crossbow = true, default = true, },
 	implicitModTypes = { },
@@ -105,6 +117,7 @@ itemBases["Dedalian Crossbow"] = {
 }
 itemBases["Esoteric Crossbow"] = {
 	type = "Crossbow",
+	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, ranged = true, weapon = true, twohand = true, crossbow = true, default = true, },
 	implicitModTypes = { },
@@ -113,6 +126,7 @@ itemBases["Esoteric Crossbow"] = {
 }
 itemBases["Advanced Tense Crossbow"] = {
 	type = "Crossbow",
+	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, ranged = true, weapon = true, twohand = true, crossbow = true, default = true, },
 	implicit = "(20-30)% increased Bolt Speed",
@@ -122,6 +136,7 @@ itemBases["Advanced Tense Crossbow"] = {
 }
 itemBases["Advanced Sturdy Crossbow"] = {
 	type = "Crossbow",
+	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, ranged = true, weapon = true, twohand = true, crossbow = true, default = true, },
 	implicitModTypes = { },
@@ -130,6 +145,7 @@ itemBases["Advanced Sturdy Crossbow"] = {
 }
 itemBases["Advanced Varnished Crossbow"] = {
 	type = "Crossbow",
+	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, ranged = true, weapon = true, twohand = true, crossbow = true, default = true, },
 	implicitModTypes = { },
@@ -138,6 +154,7 @@ itemBases["Advanced Varnished Crossbow"] = {
 }
 itemBases["Advanced Dyad Crossbow"] = {
 	type = "Crossbow",
+	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, ranged = true, weapon = true, twohand = true, crossbow = true, default = true, },
 	implicit = "Loads an additional bolt",
@@ -147,6 +164,7 @@ itemBases["Advanced Dyad Crossbow"] = {
 }
 itemBases["Advanced Bombard Crossbow"] = {
 	type = "Crossbow",
+	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, ranged = true, weapon = true, twohand = true, crossbow = true, default = true, },
 	implicit = "Grenade Skills Fire an additional Projectile",
@@ -156,6 +174,7 @@ itemBases["Advanced Bombard Crossbow"] = {
 }
 itemBases["Advanced Forlorn Crossbow"] = {
 	type = "Crossbow",
+	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, ranged = true, weapon = true, twohand = true, crossbow = true, default = true, },
 	implicitModTypes = { },
@@ -164,6 +183,7 @@ itemBases["Advanced Forlorn Crossbow"] = {
 }
 itemBases["Expert Sturdy Crossbow"] = {
 	type = "Crossbow",
+	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, ranged = true, weapon = true, twohand = true, crossbow = true, default = true, },
 	implicitModTypes = { },
@@ -172,6 +192,7 @@ itemBases["Expert Sturdy Crossbow"] = {
 }
 itemBases["Expert Varnished Crossbow"] = {
 	type = "Crossbow",
+	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, ranged = true, weapon = true, twohand = true, crossbow = true, default = true, },
 	implicitModTypes = { },
@@ -180,6 +201,7 @@ itemBases["Expert Varnished Crossbow"] = {
 }
 itemBases["Expert Tense Crossbow"] = {
 	type = "Crossbow",
+	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, ranged = true, weapon = true, twohand = true, crossbow = true, default = true, },
 	implicit = "(20-30)% increased Bolt Speed",
@@ -189,6 +211,7 @@ itemBases["Expert Tense Crossbow"] = {
 }
 itemBases["Expert Dyad Crossbow"] = {
 	type = "Crossbow",
+	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, ranged = true, weapon = true, twohand = true, crossbow = true, default = true, },
 	implicit = "Loads an additional bolt",
@@ -198,6 +221,7 @@ itemBases["Expert Dyad Crossbow"] = {
 }
 itemBases["Expert Bombard Crossbow"] = {
 	type = "Crossbow",
+	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, ranged = true, weapon = true, twohand = true, crossbow = true, default = true, },
 	implicit = "Grenade Skills Fire an additional Projectile",
@@ -207,6 +231,7 @@ itemBases["Expert Bombard Crossbow"] = {
 }
 itemBases["Expert Forlorn Crossbow"] = {
 	type = "Crossbow",
+	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, ranged = true, weapon = true, twohand = true, crossbow = true, default = true, },
 	implicitModTypes = { },

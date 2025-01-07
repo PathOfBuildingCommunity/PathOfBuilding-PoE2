@@ -2,5 +2,4 @@
 local itemBases = ...
 
 #type Sceptre
-#influenceBaseTag sceptre
 #baseMatch BaseType Metadata/Items/Sceptres/AbstractSceptre

@@ -4,6 +4,7 @@ local itemBases = ...
 
 itemBases["Wooden Club"] = {
 	type = "One Handed Mace",
+	quality = 20,
 	socketLimit = 2,
 	tags = { onehand = true, ezomyte_basetype = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
 	implicitModTypes = { },
@@ -12,6 +13,7 @@ itemBases["Wooden Club"] = {
 }
 itemBases["Smithing Hammer"] = {
 	type = "One Handed Mace",
+	quality = 20,
 	socketLimit = 2,
 	tags = { onehand = true, ezomyte_basetype = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
 	implicitModTypes = { },
@@ -20,6 +22,7 @@ itemBases["Smithing Hammer"] = {
 }
 itemBases["Slim Mace"] = {
 	type = "One Handed Mace",
+	quality = 20,
 	socketLimit = 2,
 	tags = { onehand = true, ezomyte_basetype = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
 	implicitModTypes = { },
@@ -28,6 +31,7 @@ itemBases["Slim Mace"] = {
 }
 itemBases["Spiked Club"] = {
 	type = "One Handed Mace",
+	quality = 20,
 	socketLimit = 2,
 	tags = { maraketh_basetype = true, onehand = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
 	implicitModTypes = { },
@@ -36,6 +40,7 @@ itemBases["Spiked Club"] = {
 }
 itemBases["Warpick"] = {
 	type = "One Handed Mace",
+	quality = 20,
 	socketLimit = 2,
 	tags = { maraketh_basetype = true, onehand = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
 	implicit = "+(30-40)% to Critical Damage Bonus",
@@ -45,6 +50,7 @@ itemBases["Warpick"] = {
 }
 itemBases["Plated Mace"] = {
 	type = "One Handed Mace",
+	quality = 20,
 	socketLimit = 2,
 	tags = { maraketh_basetype = true, onehand = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
 	implicitModTypes = { },
@@ -53,6 +59,7 @@ itemBases["Plated Mace"] = {
 }
 itemBases["Brigand Mace"] = {
 	type = "One Handed Mace",
+	quality = 20,
 	socketLimit = 2,
 	tags = { onehand = true, vaal_basetype = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
 	implicitModTypes = { },
@@ -61,6 +68,7 @@ itemBases["Brigand Mace"] = {
 }
 itemBases["Construct Hammer"] = {
 	type = "One Handed Mace",
+	quality = 20,
 	socketLimit = 2,
 	tags = { onehand = true, vaal_basetype = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
 	implicit = "Causes Daze buildup equal to 100% of Damage dealt",
@@ -70,6 +78,7 @@ itemBases["Construct Hammer"] = {
 }
 itemBases["Morning Star"] = {
 	type = "One Handed Mace",
+	quality = 20,
 	socketLimit = 2,
 	tags = { onehand = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
 	implicitModTypes = { },
@@ -78,6 +87,7 @@ itemBases["Morning Star"] = {
 }
 itemBases["Jade Club"] = {
 	type = "One Handed Mace",
+	quality = 20,
 	socketLimit = 2,
 	tags = { onehand = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
 	implicit = "Always Hits",
@@ -87,6 +97,7 @@ itemBases["Jade Club"] = {
 }
 itemBases["Lumen Mace"] = {
 	type = "One Handed Mace",
+	quality = 20,
 	socketLimit = 2,
 	tags = { onehand = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
 	implicitModTypes = { },
@@ -95,6 +106,7 @@ itemBases["Lumen Mace"] = {
 }
 itemBases["Execratus Hammer"] = {
 	type = "One Handed Mace",
+	quality = 20,
 	socketLimit = 2,
 	tags = { onehand = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
 	implicitModTypes = { },
@@ -103,6 +115,7 @@ itemBases["Execratus Hammer"] = {
 }
 itemBases["Torment Club"] = {
 	type = "One Handed Mace",
+	quality = 20,
 	socketLimit = 2,
 	tags = { onehand = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
 	implicitModTypes = { },
@@ -111,6 +124,7 @@ itemBases["Torment Club"] = {
 }
 itemBases["Advanced Smithing Hammer"] = {
 	type = "One Handed Mace",
+	quality = 20,
 	socketLimit = 2,
 	tags = { onehand = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
 	implicitModTypes = { },
@@ -119,6 +133,7 @@ itemBases["Advanced Smithing Hammer"] = {
 }
 itemBases["Advanced Slim Mace"] = {
 	type = "One Handed Mace",
+	quality = 20,
 	socketLimit = 2,
 	tags = { onehand = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
 	implicitModTypes = { },
@@ -127,6 +142,7 @@ itemBases["Advanced Slim Mace"] = {
 }
 itemBases["Advanced Warpick"] = {
 	type = "One Handed Mace",
+	quality = 20,
 	socketLimit = 2,
 	tags = { onehand = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
 	implicit = "+(30-40)% to Critical Damage Bonus",
@@ -136,6 +152,7 @@ itemBases["Advanced Warpick"] = {
 }
 itemBases["Advanced Plated Mace"] = {
 	type = "One Handed Mace",
+	quality = 20,
 	socketLimit = 2,
 	tags = { onehand = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
 	implicitModTypes = { },
@@ -144,6 +161,7 @@ itemBases["Advanced Plated Mace"] = {
 }
 itemBases["Advanced Brigand Mace"] = {
 	type = "One Handed Mace",
+	quality = 20,
 	socketLimit = 2,
 	tags = { onehand = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
 	implicitModTypes = { },
@@ -152,6 +170,7 @@ itemBases["Advanced Brigand Mace"] = {
 }
 itemBases["Advanced Construct Hammer"] = {
 	type = "One Handed Mace",
+	quality = 20,
 	socketLimit = 2,
 	tags = { onehand = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
 	implicit = "Causes Daze buildup equal to 100% of Damage dealt",
@@ -161,6 +180,7 @@ itemBases["Advanced Construct Hammer"] = {
 }
 itemBases["Expert Slim Mace"] = {
 	type = "One Handed Mace",
+	quality = 20,
 	socketLimit = 2,
 	tags = { onehand = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
 	implicitModTypes = { },
@@ -169,6 +189,7 @@ itemBases["Expert Slim Mace"] = {
 }
 itemBases["Expert Plated Mace"] = {
 	type = "One Handed Mace",
+	quality = 20,
 	socketLimit = 2,
 	tags = { onehand = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
 	implicitModTypes = { },
@@ -177,6 +198,7 @@ itemBases["Expert Plated Mace"] = {
 }
 itemBases["Expert Smithing Hammer"] = {
 	type = "One Handed Mace",
+	quality = 20,
 	socketLimit = 2,
 	tags = { onehand = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
 	implicitModTypes = { },
@@ -185,6 +207,7 @@ itemBases["Expert Smithing Hammer"] = {
 }
 itemBases["Expert Warpick"] = {
 	type = "One Handed Mace",
+	quality = 20,
 	socketLimit = 2,
 	tags = { onehand = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
 	implicit = "+(30-40)% to Critical Damage Bonus",
@@ -194,6 +217,7 @@ itemBases["Expert Warpick"] = {
 }
 itemBases["Expert Construct Hammer"] = {
 	type = "One Handed Mace",
+	quality = 20,
 	socketLimit = 2,
 	tags = { onehand = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
 	implicit = "Causes Daze buildup equal to 100% of Damage dealt",
@@ -203,6 +227,7 @@ itemBases["Expert Construct Hammer"] = {
 }
 itemBases["Expert Brigand Mace"] = {
 	type = "One Handed Mace",
+	quality = 20,
 	socketLimit = 2,
 	tags = { onehand = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
 	implicitModTypes = { },
@@ -212,6 +237,7 @@ itemBases["Expert Brigand Mace"] = {
 
 itemBases["Felled Greatclub"] = {
 	type = "Two Handed Mace",
+	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, ezomyte_basetype = true, mace = true, weapon = true, twohand = true, default = true, },
 	implicitModTypes = { },
@@ -220,6 +246,7 @@ itemBases["Felled Greatclub"] = {
 }
 itemBases["Oak Greathammer"] = {
 	type = "Two Handed Mace",
+	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, ezomyte_basetype = true, mace = true, weapon = true, twohand = true, default = true, },
 	implicit = "Causes (30-50)% increased Stun Buildup",
@@ -229,6 +256,7 @@ itemBases["Oak Greathammer"] = {
 }
 itemBases["Forge Maul"] = {
 	type = "Two Handed Mace",
+	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, ezomyte_basetype = true, mace = true, weapon = true, twohand = true, default = true, },
 	implicitModTypes = { },
@@ -237,6 +265,7 @@ itemBases["Forge Maul"] = {
 }
 itemBases["Studded Greatclub"] = {
 	type = "Two Handed Mace",
+	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, maraketh_basetype = true, mace = true, weapon = true, twohand = true, default = true, },
 	implicitModTypes = { },
@@ -245,6 +274,7 @@ itemBases["Studded Greatclub"] = {
 }
 itemBases["Cultist Greathammer"] = {
 	type = "Two Handed Mace",
+	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, maraketh_basetype = true, mace = true, weapon = true, twohand = true, default = true, },
 	implicit = "Strikes deal Splash damage to targets within 1.8 metres",
@@ -254,6 +284,7 @@ itemBases["Cultist Greathammer"] = {
 }
 itemBases["Temple Maul"] = {
 	type = "Two Handed Mace",
+	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, maraketh_basetype = true, mace = true, weapon = true, twohand = true, default = true, },
 	implicitModTypes = { },
@@ -262,6 +293,7 @@ itemBases["Temple Maul"] = {
 }
 itemBases["Leaden Greathammer"] = {
 	type = "Two Handed Mace",
+	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, vaal_basetype = true, mace = true, weapon = true, twohand = true, default = true, },
 	implicitModTypes = { },
@@ -270,6 +302,7 @@ itemBases["Leaden Greathammer"] = {
 }
 itemBases["Crumbling Maul"] = {
 	type = "Two Handed Mace",
+	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, vaal_basetype = true, mace = true, weapon = true, twohand = true, default = true, },
 	implicit = "Causes Enemies to Explode on Critical kill, for 10% of their Life as Physical Damage",
@@ -279,6 +312,7 @@ itemBases["Crumbling Maul"] = {
 }
 itemBases["Pointed Maul"] = {
 	type = "Two Handed Mace",
+	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, mace = true, weapon = true, twohand = true, default = true, },
 	implicitModTypes = { },
@@ -287,6 +321,7 @@ itemBases["Pointed Maul"] = {
 }
 itemBases["Totemic Greatclub"] = {
 	type = "Two Handed Mace",
+	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, mace = true, weapon = true, twohand = true, default = true, },
 	implicit = "Crushes Enemies on Hit",
@@ -296,6 +331,7 @@ itemBases["Totemic Greatclub"] = {
 }
 itemBases["Greatmace"] = {
 	type = "Two Handed Mace",
+	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, mace = true, weapon = true, twohand = true, default = true, },
 	implicitModTypes = { },
@@ -304,6 +340,7 @@ itemBases["Greatmace"] = {
 }
 itemBases["Precise Greathammer"] = {
 	type = "Two Handed Mace",
+	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, mace = true, weapon = true, twohand = true, default = true, },
 	implicitModTypes = { },
@@ -312,6 +349,7 @@ itemBases["Precise Greathammer"] = {
 }
 itemBases["Giant Maul"] = {
 	type = "Two Handed Mace",
+	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, mace = true, weapon = true, twohand = true, default = true, },
 	implicitModTypes = { },
@@ -320,6 +358,7 @@ itemBases["Giant Maul"] = {
 }
 itemBases["Advanced Oak Greathammer"] = {
 	type = "Two Handed Mace",
+	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, mace = true, weapon = true, twohand = true, default = true, },
 	implicit = "Causes (30-50)% increased Stun Buildup",
@@ -329,6 +368,7 @@ itemBases["Advanced Oak Greathammer"] = {
 }
 itemBases["Advanced Forge Maul"] = {
 	type = "Two Handed Mace",
+	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, mace = true, weapon = true, twohand = true, default = true, },
 	implicitModTypes = { },
@@ -337,6 +377,7 @@ itemBases["Advanced Forge Maul"] = {
 }
 itemBases["Advanced Cultist Greathammer"] = {
 	type = "Two Handed Mace",
+	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, mace = true, weapon = true, twohand = true, default = true, },
 	implicit = "Strikes deal Splash damage to targets within 1.8 metres",
@@ -346,6 +387,7 @@ itemBases["Advanced Cultist Greathammer"] = {
 }
 itemBases["Advanced Temple Maul"] = {
 	type = "Two Handed Mace",
+	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, mace = true, weapon = true, twohand = true, default = true, },
 	implicitModTypes = { },
@@ -354,6 +396,7 @@ itemBases["Advanced Temple Maul"] = {
 }
 itemBases["Advanced Leaden Greathammer"] = {
 	type = "Two Handed Mace",
+	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, mace = true, weapon = true, twohand = true, default = true, },
 	implicitModTypes = { },
@@ -362,6 +405,7 @@ itemBases["Advanced Leaden Greathammer"] = {
 }
 itemBases["Advanced Crumbling Maul"] = {
 	type = "Two Handed Mace",
+	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, mace = true, weapon = true, twohand = true, default = true, },
 	implicit = "Causes Enemies to Explode on Critical kill, for 10% of their Life as Physical Damage",
@@ -371,6 +415,7 @@ itemBases["Advanced Crumbling Maul"] = {
 }
 itemBases["Expert Forge Maul"] = {
 	type = "Two Handed Mace",
+	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, mace = true, weapon = true, twohand = true, default = true, },
 	implicitModTypes = { },
@@ -379,6 +424,7 @@ itemBases["Expert Forge Maul"] = {
 }
 itemBases["Expert Temple Maul"] = {
 	type = "Two Handed Mace",
+	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, mace = true, weapon = true, twohand = true, default = true, },
 	implicitModTypes = { },
@@ -387,6 +433,7 @@ itemBases["Expert Temple Maul"] = {
 }
 itemBases["Expert Oak Greathammer"] = {
 	type = "Two Handed Mace",
+	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, mace = true, weapon = true, twohand = true, default = true, },
 	implicit = "Causes (30-50)% increased Stun Buildup",
@@ -396,6 +443,7 @@ itemBases["Expert Oak Greathammer"] = {
 }
 itemBases["Expert Cultist Greathammer"] = {
 	type = "Two Handed Mace",
+	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, mace = true, weapon = true, twohand = true, default = true, },
 	implicit = "Strikes deal Splash damage to targets within 1.8 metres",
@@ -405,6 +453,7 @@ itemBases["Expert Cultist Greathammer"] = {
 }
 itemBases["Expert Crumbling Maul"] = {
 	type = "Two Handed Mace",
+	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, mace = true, weapon = true, twohand = true, default = true, },
 	implicit = "Causes Enemies to Explode on Critical kill, for 10% of their Life as Physical Damage",
@@ -414,6 +463,7 @@ itemBases["Expert Crumbling Maul"] = {
 }
 itemBases["Expert Leaden Greathammer"] = {
 	type = "Two Handed Mace",
+	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, mace = true, weapon = true, twohand = true, default = true, },
 	implicitModTypes = { },

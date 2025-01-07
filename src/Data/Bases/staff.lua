@@ -4,6 +4,7 @@ local itemBases = ...
 
 itemBases["Ashen Staff"] = {
 	type = "Staff",
+	quality = 20,
 	tags = { no_physical_spell_mods = true, no_lightning_spell_mods = true, no_cold_spell_mods = true, no_chaos_spell_mods = true, staff = true, twohand = true, default = true, },
 	implicit = "Grants Skill: Level (1-20) Firebolt",
 	implicitModTypes = { },
@@ -11,6 +12,7 @@ itemBases["Ashen Staff"] = {
 }
 itemBases["Gelid Staff"] = {
 	type = "Staff",
+	quality = 20,
 	tags = { no_fire_spell_mods = true, no_lightning_spell_mods = true, staff = true, no_physical_spell_mods = true, no_chaos_spell_mods = true, twohand = true, default = true, },
 	implicit = "Grants Skill: Level (1-20) Freezing Shards",
 	implicitModTypes = { },
@@ -18,6 +20,7 @@ itemBases["Gelid Staff"] = {
 }
 itemBases["Voltaic Staff"] = {
 	type = "Staff",
+	quality = 20,
 	tags = { no_fire_spell_mods = true, no_physical_spell_mods = true, staff = true, no_chaos_spell_mods = true, no_cold_spell_mods = true, twohand = true, default = true, },
 	implicit = "Grants Skill: Level (1-20) Lightning Bolt",
 	implicitModTypes = { },
@@ -25,6 +28,7 @@ itemBases["Voltaic Staff"] = {
 }
 itemBases["Spriggan Staff"] = {
 	type = "Staff",
+	quality = 20,
 	tags = { default = true, twohand = true, staff = true, },
 	implicit = "Grants Skill: Level (1-20) Firebolt",
 	implicitModTypes = { },
@@ -32,6 +36,7 @@ itemBases["Spriggan Staff"] = {
 }
 itemBases["Pyrophyte Staff"] = {
 	type = "Staff",
+	quality = 20,
 	tags = { no_physical_spell_mods = true, no_lightning_spell_mods = true, no_cold_spell_mods = true, no_chaos_spell_mods = true, staff = true, twohand = true, default = true, },
 	implicit = "Grants Skill: Level (1-20) Living Bomb",
 	implicitModTypes = { },
@@ -39,6 +44,7 @@ itemBases["Pyrophyte Staff"] = {
 }
 itemBases["Chiming Staff"] = {
 	type = "Staff",
+	quality = 20,
 	tags = { default = true, twohand = true, staff = true, },
 	implicit = "Grants Skill: Level (1-20) Sigil of Power",
 	implicitModTypes = { },
@@ -46,6 +52,7 @@ itemBases["Chiming Staff"] = {
 }
 itemBases["Rending Staff"] = {
 	type = "Staff",
+	quality = 20,
 	tags = { no_fire_spell_mods = true, no_lightning_spell_mods = true, staff = true, no_physical_spell_mods = true, no_cold_spell_mods = true, twohand = true, default = true, },
 	implicit = "Grants Skill: Level (1-20) Soulrend",
 	implicitModTypes = { },
@@ -53,6 +60,7 @@ itemBases["Rending Staff"] = {
 }
 itemBases["Reaping Staff"] = {
 	type = "Staff",
+	quality = 20,
 	tags = { no_fire_spell_mods = true, no_lightning_spell_mods = true, staff = true, no_chaos_spell_mods = true, no_cold_spell_mods = true, twohand = true, default = true, },
 	implicit = "Grants Skill: Level (1-20) Reap",
 	implicitModTypes = { },
@@ -60,6 +68,7 @@ itemBases["Reaping Staff"] = {
 }
 itemBases["Icicle Staff"] = {
 	type = "Staff",
+	quality = 20,
 	tags = { no_fire_spell_mods = true, no_lightning_spell_mods = true, staff = true, no_physical_spell_mods = true, no_chaos_spell_mods = true, twohand = true, default = true, },
 	implicit = "Grants Skill: Level (1-20) Firebolt",
 	implicitModTypes = { },
@@ -67,6 +76,7 @@ itemBases["Icicle Staff"] = {
 }
 itemBases["Roaring Staff"] = {
 	type = "Staff",
+	quality = 20,
 	tags = { default = true, twohand = true, staff = true, },
 	implicit = "Grants Skill: Level (1-20) Unleash",
 	implicitModTypes = { },
@@ -74,6 +84,7 @@ itemBases["Roaring Staff"] = {
 }
 itemBases["Paralysing Staff"] = {
 	type = "Staff",
+	quality = 20,
 	tags = { no_fire_spell_mods = true, no_physical_spell_mods = true, staff = true, no_chaos_spell_mods = true, no_cold_spell_mods = true, twohand = true, default = true, },
 	implicit = "Grants Skill: Level (1-20) Shock Nova",
 	implicitModTypes = { },
@@ -81,6 +92,7 @@ itemBases["Paralysing Staff"] = {
 }
 itemBases["Cleric Staff"] = {
 	type = "Staff",
+	quality = 20,
 	tags = { default = true, twohand = true, staff = true, },
 	implicit = "Grants Skill: Level (1-20) Consecrate",
 	implicitModTypes = { },
@@ -88,6 +100,7 @@ itemBases["Cleric Staff"] = {
 }
 itemBases["Dark Staff"] = {
 	type = "Staff",
+	quality = 20,
 	tags = { default = true, twohand = true, staff = true, },
 	implicit = "Grants Skill: Level (1-20) Dark Pact",
 	implicitModTypes = { },
@@ -97,6 +110,7 @@ itemBases["Dark Staff"] = {
 itemBases["Wrapped Quarterstaff"] = {
 	type = "Staff",
 	subType = "Warstaff",
+	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, warstaff = true, ezomyte_basetype = true, weapon = true, twohand = true, default = true, },
 	implicitModTypes = { },
@@ -106,6 +120,7 @@ itemBases["Wrapped Quarterstaff"] = {
 itemBases["Long Quarterstaff"] = {
 	type = "Staff",
 	subType = "Warstaff",
+	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, warstaff = true, ezomyte_basetype = true, weapon = true, twohand = true, default = true, },
 	implicit = "16% increased Range",
@@ -116,6 +131,7 @@ itemBases["Long Quarterstaff"] = {
 itemBases["Gothic Quarterstaff"] = {
 	type = "Staff",
 	subType = "Warstaff",
+	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, warstaff = true, ezomyte_basetype = true, weapon = true, twohand = true, default = true, },
 	implicitModTypes = { },
@@ -125,6 +141,7 @@ itemBases["Gothic Quarterstaff"] = {
 itemBases["Crackling Quarterstaff"] = {
 	type = "Staff",
 	subType = "Warstaff",
+	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, warstaff = true, maraketh_basetype = true, weapon = true, twohand = true, default = true, },
 	implicitModTypes = { },
@@ -134,6 +151,7 @@ itemBases["Crackling Quarterstaff"] = {
 itemBases["Crescent Quarterstaff"] = {
 	type = "Staff",
 	subType = "Warstaff",
+	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, warstaff = true, maraketh_basetype = true, weapon = true, twohand = true, default = true, },
 	implicitModTypes = { },
@@ -143,6 +161,7 @@ itemBases["Crescent Quarterstaff"] = {
 itemBases["Steelpoint Quarterstaff"] = {
 	type = "Staff",
 	subType = "Warstaff",
+	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, warstaff = true, maraketh_basetype = true, weapon = true, twohand = true, default = true, },
 	implicitModTypes = { },
@@ -152,6 +171,7 @@ itemBases["Steelpoint Quarterstaff"] = {
 itemBases["Slicing Quarterstaff"] = {
 	type = "Staff",
 	subType = "Warstaff",
+	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, warstaff = true, vaal_basetype = true, weapon = true, twohand = true, default = true, },
 	implicitModTypes = { },
@@ -161,6 +181,7 @@ itemBases["Slicing Quarterstaff"] = {
 itemBases["Barrier Quarterstaff"] = {
 	type = "Staff",
 	subType = "Warstaff",
+	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, warstaff = true, vaal_basetype = true, weapon = true, twohand = true, default = true, },
 	implicit = "+(10-15)% to Block chance",
@@ -171,6 +192,7 @@ itemBases["Barrier Quarterstaff"] = {
 itemBases["Hefty Quarterstaff"] = {
 	type = "Staff",
 	subType = "Warstaff",
+	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, warstaff = true, weapon = true, twohand = true, default = true, },
 	implicitModTypes = { },
@@ -180,6 +202,7 @@ itemBases["Hefty Quarterstaff"] = {
 itemBases["Smooth Quarterstaff"] = {
 	type = "Staff",
 	subType = "Warstaff",
+	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, warstaff = true, weapon = true, twohand = true, default = true, },
 	implicitModTypes = { },
@@ -189,6 +212,7 @@ itemBases["Smooth Quarterstaff"] = {
 itemBases["Anima Quarterstaff"] = {
 	type = "Staff",
 	subType = "Warstaff",
+	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, warstaff = true, weapon = true, twohand = true, default = true, },
 	implicitModTypes = { },
@@ -198,6 +222,7 @@ itemBases["Anima Quarterstaff"] = {
 itemBases["Graceful Quarterstaff"] = {
 	type = "Staff",
 	subType = "Warstaff",
+	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, warstaff = true, weapon = true, twohand = true, default = true, },
 	implicitModTypes = { },
@@ -207,6 +232,7 @@ itemBases["Graceful Quarterstaff"] = {
 itemBases["Wyrm Quarterstaff"] = {
 	type = "Staff",
 	subType = "Warstaff",
+	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, warstaff = true, weapon = true, twohand = true, default = true, },
 	implicitModTypes = { },
@@ -216,6 +242,7 @@ itemBases["Wyrm Quarterstaff"] = {
 itemBases["Advanced Long Quarterstaff"] = {
 	type = "Staff",
 	subType = "Warstaff",
+	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, warstaff = true, weapon = true, twohand = true, default = true, },
 	implicit = "16% increased Range",
@@ -226,6 +253,7 @@ itemBases["Advanced Long Quarterstaff"] = {
 itemBases["Advanced Gothic Quarterstaff"] = {
 	type = "Staff",
 	subType = "Warstaff",
+	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, warstaff = true, weapon = true, twohand = true, default = true, },
 	implicitModTypes = { },
@@ -235,6 +263,7 @@ itemBases["Advanced Gothic Quarterstaff"] = {
 itemBases["Advanced Crackling Quarterstaff"] = {
 	type = "Staff",
 	subType = "Warstaff",
+	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, warstaff = true, weapon = true, twohand = true, default = true, },
 	implicitModTypes = { },
@@ -244,6 +273,7 @@ itemBases["Advanced Crackling Quarterstaff"] = {
 itemBases["Advanced Crescent Quarterstaff"] = {
 	type = "Staff",
 	subType = "Warstaff",
+	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, warstaff = true, weapon = true, twohand = true, default = true, },
 	implicitModTypes = { },
@@ -253,6 +283,7 @@ itemBases["Advanced Crescent Quarterstaff"] = {
 itemBases["Advanced Slicing Quarterstaff"] = {
 	type = "Staff",
 	subType = "Warstaff",
+	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, warstaff = true, weapon = true, twohand = true, default = true, },
 	implicitModTypes = { },
@@ -262,6 +293,7 @@ itemBases["Advanced Slicing Quarterstaff"] = {
 itemBases["Advanced Barrier Quarterstaff"] = {
 	type = "Staff",
 	subType = "Warstaff",
+	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, warstaff = true, weapon = true, twohand = true, default = true, },
 	implicit = "+(10-15)% to Block chance",
@@ -272,6 +304,7 @@ itemBases["Advanced Barrier Quarterstaff"] = {
 itemBases["Expert Gothic Quarterstaff"] = {
 	type = "Staff",
 	subType = "Warstaff",
+	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, warstaff = true, weapon = true, twohand = true, default = true, },
 	implicitModTypes = { },
@@ -281,6 +314,7 @@ itemBases["Expert Gothic Quarterstaff"] = {
 itemBases["Expert Crescent Quarterstaff"] = {
 	type = "Staff",
 	subType = "Warstaff",
+	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, warstaff = true, weapon = true, twohand = true, default = true, },
 	implicitModTypes = { },
@@ -290,6 +324,7 @@ itemBases["Expert Crescent Quarterstaff"] = {
 itemBases["Expert Long Quarterstaff"] = {
 	type = "Staff",
 	subType = "Warstaff",
+	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, warstaff = true, weapon = true, twohand = true, default = true, },
 	implicit = "16% increased Range",
@@ -300,6 +335,7 @@ itemBases["Expert Long Quarterstaff"] = {
 itemBases["Expert Crackling Quarterstaff"] = {
 	type = "Staff",
 	subType = "Warstaff",
+	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, warstaff = true, weapon = true, twohand = true, default = true, },
 	implicitModTypes = { },
@@ -309,6 +345,7 @@ itemBases["Expert Crackling Quarterstaff"] = {
 itemBases["Expert Barrier Quarterstaff"] = {
 	type = "Staff",
 	subType = "Warstaff",
+	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, warstaff = true, weapon = true, twohand = true, default = true, },
 	implicit = "+(10-15)% to Block chance",
@@ -319,6 +356,7 @@ itemBases["Expert Barrier Quarterstaff"] = {
 itemBases["Expert Slicing Quarterstaff"] = {
 	type = "Staff",
 	subType = "Warstaff",
+	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, warstaff = true, weapon = true, twohand = true, default = true, },
 	implicitModTypes = { },

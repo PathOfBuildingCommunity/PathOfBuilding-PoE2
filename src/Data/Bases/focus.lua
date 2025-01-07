@@ -5,6 +5,7 @@ local itemBases = ...
 
 itemBases["Twig Focus"] = {
 	type = "Focus",
+	quality = 20,
 	socketLimit = 2,
 	tags = { focus = true, ezomyte_basetype = true, int_armour = true, armour = true, default = true, },
 	implicitModTypes = { },
@@ -13,6 +14,7 @@ itemBases["Twig Focus"] = {
 }
 itemBases["Woven Focus"] = {
 	type = "Focus",
+	quality = 20,
 	socketLimit = 2,
 	tags = { focus = true, ezomyte_basetype = true, int_armour = true, armour = true, default = true, },
 	implicitModTypes = { },
@@ -21,6 +23,7 @@ itemBases["Woven Focus"] = {
 }
 itemBases["Antler Focus"] = {
 	type = "Focus",
+	quality = 20,
 	socketLimit = 2,
 	tags = { focus = true, ezomyte_basetype = true, int_armour = true, armour = true, default = true, },
 	implicitModTypes = { },
@@ -29,6 +32,7 @@ itemBases["Antler Focus"] = {
 }
 itemBases["Engraved Focus"] = {
 	type = "Focus",
+	quality = 20,
 	socketLimit = 2,
 	tags = { maraketh_basetype = true, focus = true, int_armour = true, armour = true, default = true, },
 	implicitModTypes = { },
@@ -37,6 +41,7 @@ itemBases["Engraved Focus"] = {
 }
 itemBases["Tonal Focus"] = {
 	type = "Focus",
+	quality = 20,
 	socketLimit = 2,
 	tags = { maraketh_basetype = true, focus = true, int_armour = true, armour = true, default = true, },
 	implicitModTypes = { },
@@ -45,6 +50,7 @@ itemBases["Tonal Focus"] = {
 }
 itemBases["Crystal Focus"] = {
 	type = "Focus",
+	quality = 20,
 	socketLimit = 2,
 	tags = { maraketh_basetype = true, focus = true, int_armour = true, armour = true, default = true, },
 	implicitModTypes = { },
@@ -53,6 +59,7 @@ itemBases["Crystal Focus"] = {
 }
 itemBases["Voodoo Focus"] = {
 	type = "Focus",
+	quality = 20,
 	socketLimit = 2,
 	tags = { focus = true, int_armour = true, armour = true, vaal_basetype = true, default = true, },
 	implicitModTypes = { },
@@ -61,6 +68,7 @@ itemBases["Voodoo Focus"] = {
 }
 itemBases["Plumed Focus"] = {
 	type = "Focus",
+	quality = 20,
 	socketLimit = 2,
 	tags = { focus = true, int_armour = true, armour = true, vaal_basetype = true, default = true, },
 	implicitModTypes = { },
@@ -69,6 +77,7 @@ itemBases["Plumed Focus"] = {
 }
 itemBases["Jade Focus"] = {
 	type = "Focus",
+	quality = 20,
 	socketLimit = 2,
 	tags = { int_armour = true, armour = true, focus = true, default = true, },
 	implicitModTypes = { },
@@ -77,6 +86,7 @@ itemBases["Jade Focus"] = {
 }
 itemBases["Paua Focus"] = {
 	type = "Focus",
+	quality = 20,
 	socketLimit = 2,
 	tags = { int_armour = true, armour = true, focus = true, default = true, },
 	implicitModTypes = { },
@@ -85,6 +95,7 @@ itemBases["Paua Focus"] = {
 }
 itemBases["Elegant Focus"] = {
 	type = "Focus",
+	quality = 20,
 	socketLimit = 2,
 	tags = { int_armour = true, armour = true, focus = true, default = true, },
 	implicitModTypes = { },
@@ -93,6 +104,7 @@ itemBases["Elegant Focus"] = {
 }
 itemBases["Attuned Focus"] = {
 	type = "Focus",
+	quality = 20,
 	socketLimit = 2,
 	tags = { int_armour = true, armour = true, focus = true, default = true, },
 	implicitModTypes = { },
@@ -101,6 +113,7 @@ itemBases["Attuned Focus"] = {
 }
 itemBases["Magus Focus"] = {
 	type = "Focus",
+	quality = 20,
 	socketLimit = 2,
 	tags = { int_armour = true, armour = true, focus = true, default = true, },
 	implicitModTypes = { },
@@ -109,6 +122,7 @@ itemBases["Magus Focus"] = {
 }
 itemBases["Advanced Woven Focus"] = {
 	type = "Focus",
+	quality = 20,
 	socketLimit = 2,
 	tags = { int_armour = true, armour = true, focus = true, default = true, },
 	implicitModTypes = { },
@@ -117,6 +131,7 @@ itemBases["Advanced Woven Focus"] = {
 }
 itemBases["Advanced Antler Focus"] = {
 	type = "Focus",
+	quality = 20,
 	socketLimit = 2,
 	tags = { int_armour = true, armour = true, focus = true, default = true, },
 	implicitModTypes = { },
@@ -125,6 +140,7 @@ itemBases["Advanced Antler Focus"] = {
 }
 itemBases["Advanced Tonal Focus"] = {
 	type = "Focus",
+	quality = 20,
 	socketLimit = 2,
 	tags = { int_armour = true, armour = true, focus = true, default = true, },
 	implicitModTypes = { },
@@ -133,6 +149,7 @@ itemBases["Advanced Tonal Focus"] = {
 }
 itemBases["Advanced Crystal Focus"] = {
 	type = "Focus",
+	quality = 20,
 	socketLimit = 2,
 	tags = { int_armour = true, armour = true, focus = true, default = true, },
 	implicitModTypes = { },
@@ -141,6 +158,7 @@ itemBases["Advanced Crystal Focus"] = {
 }
 itemBases["Advanced Voodoo Focus"] = {
 	type = "Focus",
+	quality = 20,
 	socketLimit = 2,
 	tags = { int_armour = true, armour = true, focus = true, default = true, },
 	implicitModTypes = { },
@@ -149,6 +167,7 @@ itemBases["Advanced Voodoo Focus"] = {
 }
 itemBases["Advanced Plumed Focus"] = {
 	type = "Focus",
+	quality = 20,
 	socketLimit = 2,
 	tags = { int_armour = true, armour = true, focus = true, default = true, },
 	implicitModTypes = { },
@@ -157,6 +176,7 @@ itemBases["Advanced Plumed Focus"] = {
 }
 itemBases["Expert Antler Focus"] = {
 	type = "Focus",
+	quality = 20,
 	socketLimit = 2,
 	tags = { int_armour = true, armour = true, focus = true, default = true, },
 	implicitModTypes = { },
@@ -165,6 +185,7 @@ itemBases["Expert Antler Focus"] = {
 }
 itemBases["Expert Crystal Focus"] = {
 	type = "Focus",
+	quality = 20,
 	socketLimit = 2,
 	tags = { int_armour = true, armour = true, focus = true, default = true, },
 	implicitModTypes = { },
@@ -173,6 +194,7 @@ itemBases["Expert Crystal Focus"] = {
 }
 itemBases["Expert Plumed Focus"] = {
 	type = "Focus",
+	quality = 20,
 	socketLimit = 2,
 	tags = { int_armour = true, armour = true, focus = true, default = true, },
 	implicitModTypes = { },
