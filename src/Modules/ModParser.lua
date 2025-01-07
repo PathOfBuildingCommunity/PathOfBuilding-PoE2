@@ -398,7 +398,6 @@ local modNameList = {
 	["stun threshold"] = "StunThreshold",
 	["block recovery"] = "BlockRecovery",
 	["enemy stun threshold"] = "EnemyStunThreshold",
-	["stun duration on enemies"] = "EnemyStunDuration",
 	["stun duration"] = "EnemyStunDuration",
 	["to double stun duration"] = "DoubleEnemyStunDurationChance",
 	["to knock enemies back on hit"] = "EnemyKnockbackChance",
@@ -732,6 +731,7 @@ local modNameList = {
 	["duration of ailments you inflict"] = "EnemyAilmentDuration",
 	["duration of ailments inflicted"] = "EnemyAilmentDuration",
 	["duration of ailments inflicted on you"] = "SelfAilmentDuration",
+	["duration of damaging ailments"] = { "EnemyIgniteDuration" , "EnemyBleedDuration", "EnemyPoisonDuration" },
 	["duration of damaging ailments on you"] = { "SelfIgniteDuration" , "SelfBleedDuration", "SelfPoisonDuration" },
 	-- Other ailments
 	["chance to inflict ailments"] = "AilmentChance",
