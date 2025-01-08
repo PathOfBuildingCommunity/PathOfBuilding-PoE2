@@ -1553,6 +1553,14 @@ skills["BonestormPlayer"] = {
 			incrementalEffectiveness = 0.14000000059605,
 			damageIncrementalEffectiveness = 0.0094999996945262,
 			statDescriptionScope = "bone_spike_statset_0",
+			statMap = {
+				["bone_spear_minimum_added_attack_physical_damage_taken"] = {
+					mod("SelfPhysicalMin", "BASE", nil, ModFlag.Attack, 0, { type = "GlobalEffect", effectType = "Debuff", effectName = "Bonestorm", effectCond = "BonestormAddedDamage" }),
+				},
+				["bone_spear_maximum_added_attack_physical_damage_taken"] = {
+					mod("SelfPhysicalMax", "BASE", nil, ModFlag.Attack, 0, { type = "GlobalEffect", effectType = "Debuff", effectName = "Bonestorm", effectCond = "BonestormAddedDamage" }),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -1629,14 +1637,6 @@ skills["BonestormPlayer"] = {
 			incrementalEffectiveness = 0.14000000059605,
 			damageIncrementalEffectiveness = 0.0094999996945262,
 			statDescriptionScope = "bone_spike_statset_1",
-	statMap = {
-		["bone_spear_minimum_added_attack_physical_damage_taken"] = {
-			mod("SelfPhysicalMin", "BASE", nil, ModFlag.Attack, 0, { type = "GlobalEffect", effectType = "Debuff", effectName = "Bonestorm", effectCond = "BonestormAddedDamage" }),
-		},
-		["bone_spear_maximum_added_attack_physical_damage_taken"] = {
-			mod("SelfPhysicalMax", "BASE", nil, ModFlag.Attack, 0, { type = "GlobalEffect", effectType = "Debuff", effectName = "Bonestorm", effectCond = "BonestormAddedDamage" }),
-		},
-	},
 			baseFlags = {
 			},
 			constantStats = {
