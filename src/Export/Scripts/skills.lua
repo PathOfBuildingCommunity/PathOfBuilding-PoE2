@@ -196,7 +196,6 @@ end
 local weaponClassMap = {
 	["Claw"] = "Claw",
 	["Dagger"] = "Dagger",
-	["Wand"] = "Wand",
 	["One Hand Sword"] = "One Handed Sword",
 	["Thrusting One Hand Sword"] = "Thrusting One Handed Sword",
 	["One Hand Axe"] = "One Handed Axe",
@@ -204,11 +203,13 @@ local weaponClassMap = {
 	["Bow"] = "Bow",
 	["Crossbow"] = "Crossbow",
 	["Fishing Rod"] = "Fishing Rod",
-	["Staff"] = "Staff",
+	["Warstaff"] = "Staff",
 	["Two Hand Sword"] = "Two Handed Sword",
 	["Two Hand Axe"] = "Two Handed Axe",
 	["Two Hand Mace"] = "Two Handed Mace",
 	["Unarmed"] = "None",
+	["Flail"] = "Flail",
+	["Spear"] = "Spear",
 }
 
 local gems = { }

@@ -12,9 +12,9 @@ local t_remove = table.remove
 local m_floor = math.floor
 local m_min = math.min
 local m_max = math.max
-local bor = bit.bor
-local band = bit.band
-local bnot = bit.bnot
+local bor = OR64 -- bit.bor
+local band = AND64 -- bit.band
+local bnot = NOT64 -- bit.bnot
 
 -- Merge level modifier with given mod list
 local mergeLevelCache = { }
@@ -207,14 +207,15 @@ local function getWeaponFlags(env, weaponData, weaponTypes)
 	if weaponTypes then
 		for _, types in ipairs(weaponTypes) do
 			if not types[weaponData.type] and
-			(not weaponData.countsAsAll1H or not (types["Claw"] or types["Dagger"] or types["One Handed Axe"] or types["One Handed Mace"] or types["One Handed Sword"])) then
+			(not weaponData.countsAsAll1H or not (types["Claw"] or types["Dagger"] or types["One Handed Axe"] or types["One Handed Mace"] or types["One Handed Sword"]
+			or types["Spear"])) then
 				return nil, info
 			end
 		end
 	end
 	local flags = ModFlag[info.flag]
 	if weaponData.countsAsAll1H then
-		flags = bor(ModFlag.Axe, ModFlag.Claw, ModFlag.Dagger, ModFlag.Mace, ModFlag.Sword)
+		flags = bor(ModFlag.Axe, ModFlag.Claw, ModFlag.Dagger, ModFlag.Mace, ModFlag.Sword, ModFlag.Spear)
 	end
 	if weaponData.type ~= "None" then
 		flags = bor(flags, ModFlag.Weapon)
@@ -338,7 +339,7 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 				activeSkill.disableReason = activeSkill.disableReason or "Off Hand weapon is not usable with this skill"
 			elseif skillFlags.disable then
 				-- Neither weapon is compatible
-				activeSkill.disableReason = "No usable weapon equipped"
+				activeSkill.disableReason = activeSkill.disableReason or "No usable weapon equipped"
 			end
 		end
 		if skillFlags.attack then

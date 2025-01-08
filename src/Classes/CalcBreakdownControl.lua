@@ -11,7 +11,7 @@ local m_floor = math.floor
 local m_sin = math.sin
 local m_cos = math.cos
 local m_pi = math.pi
-local band = bit.band
+local band = AND64  -- bit.band
 
 local CalcBreakdownClass = newClass("CalcBreakdownControl", "Control", "ControlHost", function(self, calcsTab)
 	self.Control()

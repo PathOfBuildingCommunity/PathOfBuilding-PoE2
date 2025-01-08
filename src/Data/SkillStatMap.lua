@@ -678,7 +678,7 @@ return {
 	mod("TripleDamageChance", "BASE", nil)
 },
 ["damage_+%_with_hits_and_ailments"] = {
-	mod("Damage", "INC", nil, 0, bit.bor(KeywordFlag.Hit, KeywordFlag.Ailment)),
+	mod("Damage", "INC", nil, 0, OR64(KeywordFlag.Hit, KeywordFlag.Ailment)),
 },
 ["physical_damage_+%"] = {
 	mod("PhysicalDamage", "INC", nil),
@@ -835,7 +835,7 @@ return {
 	mod("Damage", "INC", nil, 0, 0, { type = "Condition", var = "FullLife"})
 },
 ["damage_+%_vs_enemies_on_full_life"] = {
-	mod("Damage", "INC", nil, 0, bit.bor(KeywordFlag.Hit, KeywordFlag.Ailment), {type = "ActorCondition", actor = "enemy", var = "FullLife"})
+	mod("Damage", "INC", nil, 0, OR64(KeywordFlag.Hit, KeywordFlag.Ailment), {type = "ActorCondition", actor = "enemy", var = "FullLife"})
 },
 ["hit_damage_+%"] = {
 	mod("Damage", "INC", nil, ModFlag.Hit)
@@ -2232,7 +2232,7 @@ return {
 },
 --Elemental
 ["supported_elemental_skill_gem_level_+"] = {
-	mod("SupportedGemProperty", "LIST", { keyword = "grants_active_skill", key = "level", value = nil }, 0, bit.bor(KeywordFlag.Lightning, KeywordFlag.Cold, KeywordFlag.Fire)),
+	mod("SupportedGemProperty", "LIST", { keyword = "grants_active_skill", key = "level", value = nil }, 0, OR64(KeywordFlag.Lightning, KeywordFlag.Cold, KeywordFlag.Fire)),
 },
 --Minion
 ["supported_minion_skill_gem_level_+"] = {

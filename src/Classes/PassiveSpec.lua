@@ -13,8 +13,8 @@ local m_max = math.max
 local m_floor = math.floor
 local b_lshift = bit.lshift
 local b_rshift = bit.rshift
-local band = bit.band
-local bor = bit.bor
+local band = AND64 -- bit.band
+local bor = OR64 -- bit.bor
 
 local PassiveSpecClass = newClass("PassiveSpec", "UndoHandler", function(self, build, treeVersion, convert)
 	self.UndoHandler()

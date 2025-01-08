@@ -12,8 +12,8 @@ local t_sort = table.sort
 local m_floor = math.floor
 local m_abs = math.abs
 local s_format = string.format
-local band = bit.band
-local bor = bit.bor
+local band = AND64 -- bit.band
+local bor = OR64 -- bit.bor
 
 modLib = { }
 

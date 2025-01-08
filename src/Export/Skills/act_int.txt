@@ -984,7 +984,7 @@ local skills, mod, flag, skill = ...
 #skill StormWavePlayer
 #startSets
 #set StormWavePlayer
-#flags
+#flags attack melee area
 #mods
 #skillEnd
 

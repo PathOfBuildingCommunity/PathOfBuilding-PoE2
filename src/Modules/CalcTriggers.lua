@@ -16,8 +16,8 @@ local m_floor = math.floor
 local m_modf = math.modf
 local s_format = string.format
 local m_huge = math.huge
-local bor = bit.bor
-local band = bit.band
+local bor = OR64 -- bit.bor
+local band = AND64 -- bit.band
 
 -- Add trigger-based damage modifiers
 local function addTriggerIncMoreMods(activeSkill, sourceSkill)

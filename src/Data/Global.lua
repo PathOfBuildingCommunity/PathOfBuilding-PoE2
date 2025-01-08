@@ -93,39 +93,105 @@ function hexToRGB(hex)
 	return {r, g, b}
 end
 
+-- NOTE: the LuaJIT bitwise operations we have are not 64-bit
+-- so we need to implement them ourselves
+function OR64(a, b)
+    -- Split into high and low 32-bit parts
+    local ah = math.floor(a / 0x100000000)
+    local al = a % 0x100000000
+    local bh = math.floor(b / 0x100000000)
+    local bl = b % 0x100000000
+    
+    -- Perform OR operation on both parts
+    local high = bit.bor(ah, bh)
+    local low = bit.bor(al, bl)
+    
+    -- Combine the results
+    return high * 0x100000000 + low
+end
+
+function AND64(a, b)
+	-- Split into high and low 32-bit parts
+	local ah = math.floor(a / 0x100000000)
+	local al = a % 0x100000000
+	local bh = math.floor(b / 0x100000000)
+	local bl = b % 0x100000000
+	
+	-- Perform AND operation on both parts
+	local high = bit.band(ah, bh)
+	local low = bit.band(al, bl)
+	
+	-- Combine the results
+	return high * 0x100000000 + low
+end
+
+function XOR64(a, b)
+    -- Split into high and low 32-bit parts
+    local ah = math.floor(a / 0x100000000)
+    local al = a % 0x100000000
+    local bh = math.floor(b / 0x100000000)
+    local bl = b % 0x100000000
+    
+    -- Perform XOR operation on both parts
+    local high = bit.bxor(ah, bh)
+    local low = bit.bxor(al, bl)
+    
+    -- Combine the results
+    return high * 0x100000000 + low
+end
+
+function NOT64(a)
+	-- Split into high and low 32-bit parts
+	local ah = math.floor(a / 0x100000000)
+	local al = a % 0x100000000
+	
+	-- Perform NOT operation on both parts
+	local high = bit.bnot(ah)
+	local low = bit.bnot(al)
+	
+	-- Since bit.bnot returns signed 32-bit integers, we need to handle negative numbers
+	if high < 0 then high = high + 0x100000000 end
+	if low < 0 then low = low + 0x100000000 end
+	
+	-- Combine the results
+	return high * 0x100000000 + low
+end
+
 ModFlag = { }
 -- Damage modes
-ModFlag.Attack =	 0x00000001
-ModFlag.Spell =		 0x00000002
-ModFlag.Hit =		 0x00000004
-ModFlag.Dot =		 0x00000008
-ModFlag.Cast =		 0x00000010
+ModFlag.Attack =	 0x0000000000000001
+ModFlag.Spell =		 0x0000000000000002
+ModFlag.Hit =		 0x0000000000000004
+ModFlag.Dot =		 0x0000000000000008
+ModFlag.Cast =		 0x0000000000000010
 -- Damage sources
-ModFlag.Melee =		 0x00000100
-ModFlag.Area =		 0x00000200
-ModFlag.Projectile = 0x00000400
-ModFlag.SourceMask = 0x00000600
-ModFlag.Ailment =	 0x00000800
-ModFlag.MeleeHit =	 0x00001000
-ModFlag.Weapon =	 0x00002000
+ModFlag.Melee =		 0x0000000000000100
+ModFlag.Area =		 0x0000000000000200
+ModFlag.Projectile = 0x0000000000000400
+ModFlag.SourceMask = 0x0000000000000600
+ModFlag.Ailment =	 0x0000000000000800
+ModFlag.MeleeHit =	 0x0000000000001000
+ModFlag.Weapon =	 0x0000000000002000
 -- Weapon types
-ModFlag.Axe =		 0x00010000
-ModFlag.Bow =		 0x00020000
-ModFlag.Claw =		 0x00040000
-ModFlag.Dagger =	 0x00080000
-ModFlag.Mace =		 0x00100000
-ModFlag.Staff =		 0x00200000
-ModFlag.Sword =		 0x00400000
-ModFlag.Wand =		 0x00800000
-ModFlag.Unarmed =	 0x01000000
-ModFlag.Fishing =	 0x02000000
-ModFlag.Crossbow =	 0x40000000
+ModFlag.Axe =		 0x0000000000010000
+ModFlag.Bow =		 0x0000000000020000
+ModFlag.Claw =		 0x0000000000040000
+ModFlag.Dagger =	 0x0000000000080000
+ModFlag.Mace =		 0x0000000000100000
+ModFlag.Staff =		 0x0000000000200000
+ModFlag.Sword =		 0x0000000000400000
+ModFlag.Wand =		 0x0000000000800000
+ModFlag.Unarmed =	 0x0000000001000000
+ModFlag.Fishing =	 0x0000000002000000
+ModFlag.Crossbow =	 0x0000000004000000
+ModFlag.Flail =		 0x0000000008000000
+ModFlag.Spear =		 0x0000000010000000
 -- Weapon classes
-ModFlag.WeaponMelee =0x04000000
-ModFlag.WeaponRanged=0x08000000
-ModFlag.Weapon1H =	 0x10000000
-ModFlag.Weapon2H =	 0x20000000
-ModFlag.WeaponMask = 0x7FFF0000
+ModFlag.WeaponMelee =0x0000000100000000
+ModFlag.WeaponRanged=0x0000000200000000
+ModFlag.Weapon1H =	 0x0000000400000000
+ModFlag.Weapon2H =	 0x0000000800000000
+ModFlag.WeaponMask = 0x0000000F1FFF0000
 
 KeywordFlag = { }
 -- Skill keywords
@@ -165,8 +231,9 @@ KeywordFlag.ChaosDot =	0x10000000
 KeywordFlag.MatchAll =	0x40000000
 
 -- Helper function to compare KeywordFlags
-local band = bit.band
-local MatchAllMask = bit.bnot(KeywordFlag.MatchAll)
+local band = AND64
+local bnot = NOT64
+local MatchAllMask = bnot(KeywordFlag.MatchAll)
 ---@param keywordFlags number The KeywordFlags to be compared to.
 ---@param modKeywordFlags number The KeywordFlags stored in the mod.
 ---@return boolean Whether the KeywordFlags in the mod are satisfied.

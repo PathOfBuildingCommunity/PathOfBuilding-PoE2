@@ -16,9 +16,6 @@ local m_floor = math.floor
 local m_modf = math.modf
 local s_format = string.format
 local m_huge = math.huge
-local bor = bit.bor
-local band = bit.band
-local bnot = bit.bnot
 
 --- getCachedOutputValue
 ---  retrieves a value specified by key from a cached version of skill
@@ -112,6 +109,8 @@ local function doActorAttribsConditions(env, actor)
 			condList["UsingMace"] = true
 			actor.weaponData1["AddedUsingClaw"] = not condList["UsingClaw"]
 			condList["UsingClaw"] = true
+			actor.weaponData1["AddedUsingSpear"] = not condList["UsingSpear"]
+			condList["UsingSpear"] = true
 			-- GGG stated that a single Varunastra satisfied requirement for wielding two different weapons
 			condList["WieldingDifferentWeaponTypes"] = true
 		end
@@ -144,6 +143,8 @@ local function doActorAttribsConditions(env, actor)
 			condList["UsingMace"] = true
 			actor.weaponData2["AddedUsingClaw"] = not condList["UsingClaw"]
 			condList["UsingClaw"] = true
+			actor.weaponData2["AddedUsingSpear"] = not condList["UsingSpear"]
+			condList["UsingSpear"] = true
 			-- GGG stated that a single Varunastra satisfied requirement for wielding two different weapons
 			condList["WieldingDifferentWeaponTypes"] = true
 		end

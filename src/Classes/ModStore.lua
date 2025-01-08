@@ -12,8 +12,8 @@ local m_ceil = math.ceil
 local m_min = math.min
 local m_max = math.max
 local m_modf = math.modf
-local band = bit.band
-local bor = bit.bor
+local band = AND64 -- bit.band
+local bor = OR64 -- bit.bor
 
 local mod_createMod = modLib.createMod
 

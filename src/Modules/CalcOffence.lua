@@ -18,9 +18,9 @@ local m_max = math.max
 local m_sqrt = math.sqrt
 local m_pow = math.pow
 local m_huge = math.huge
-local bor = bit.bor
-local band = bit.band
-local bnot = bit.bnot
+local bor = OR64 -- bit.bor
+local band = AND64 -- bit.band
+local bnot = NOT64 -- bit.bnot
 local s_format = string.format
 
 local tempTable1 = { }
@@ -1758,7 +1758,6 @@ function calcs.offence(env, actor, activeSkill)
 	-- Calculate damage conversion percentages
 	activeSkill.conversionTable = wipeTable(activeSkill.conversionTable)
 	activeSkill.gainTable = wipeTable(activeSkill.gainTable)
-	ConPrintf("CalOffenceRunning")
 	for damageTypeIndex = 1, 5 do
 		local damageType = dmgTypeList[damageTypeIndex]
 		local globalConv = wipeTable(tempTable1)

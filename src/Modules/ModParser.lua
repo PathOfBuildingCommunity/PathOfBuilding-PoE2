@@ -6,9 +6,9 @@
 local pairs = pairs
 local ipairs = ipairs
 local t_insert = table.insert
-local band = bit.band
-local bor = bit.bor
-local bnot = bit.bnot
+local band = AND64 --bit.band
+local bor = OR64 --bit.bor
+local bnot = NOT64 --bit.bnot
 local m_huge = math.huge
 local function firstToUpper(str)
 	return (str:gsub("^%l", string.upper))
@@ -857,9 +857,18 @@ local modFlagList = {
 	["with staves"] = { flags = bor(ModFlag.Staff, ModFlag.Hit) },
 	["to staff attacks"] = { flags = bor(ModFlag.Staff, ModFlag.Hit) },
 	["with staff attacks"] = { flags = bor(ModFlag.Staff, ModFlag.Hit) },
+	["with quarterstaves"] = { flags = bor(ModFlag.Staff, ModFlag.Hit) },
+	["to quarterstaff attacks"] = { flags = bor(ModFlag.Staff, ModFlag.Hit) },
+	["with quarterstaff attacks"] = { flags = bor(ModFlag.Staff, ModFlag.Hit) },
 	["with swords"] = { flags = bor(ModFlag.Sword, ModFlag.Hit) },
 	["to sword attacks"] = { flags = bor(ModFlag.Sword, ModFlag.Hit) },
 	["with sword attacks"] = { flags = bor(ModFlag.Sword, ModFlag.Hit) },
+	["with flails"] = { flags = bor(ModFlag.Flail, ModFlag.Hit) },
+	["to flail attacks"] = { flags = bor(ModFlag.Flail, ModFlag.Hit) },
+	["with flail attacks"] = { flags = bor(ModFlag.Flail, ModFlag.Hit) },
+	["with spears"] = { flags = bor(ModFlag.Spear, ModFlag.Hit) },
+	["to spear attacks"] = { flags = bor(ModFlag.Spear, ModFlag.Hit) },
+	["with spear attacks"] = { flags = bor(ModFlag.Spear, ModFlag.Hit) },
 	["with wands"] = { flags = bor(ModFlag.Wand, ModFlag.Hit) },
 	["to wand attacks"] = { flags = bor(ModFlag.Wand, ModFlag.Hit) },
 	["with wand attacks"] = { flags = bor(ModFlag.Wand, ModFlag.Hit) },
@@ -4332,7 +4341,7 @@ local specialModList = {
 	["(%a+) resistance cannot be penetrated"] = function(_, res) return { flag("EnemyCannotPen"..(res:gsub("^%l", string.upper)).."Resistance") } end,
 	-- Knockback
 	["cannot knock enemies back"] = { flag("CannotKnockback") },
-	["knocks back enemies if you get a critical hit with a staff"] = { mod("EnemyKnockbackChance", "BASE", 100, nil, ModFlag.Staff, { type = "Condition", var = "CriticalStrike" }) },
+	["knocks back enemies if you get a critical hit with a q?u?a?r?t?e?r?staff"] = { mod("EnemyKnockbackChance", "BASE", 100, nil, ModFlag.Staff, { type = "Condition", var = "CriticalStrike" }) },
 	["knocks back enemies if you get a critical hit with a bow"] = { mod("EnemyKnockbackChance", "BASE", 100, nil, ModFlag.Bow, { type = "Condition", var = "CriticalStrike" }) },
 	["bow knockback at close range"] = { mod("EnemyKnockbackChance", "BASE", 100, nil, ModFlag.Bow, { type = "Condition", var = "AtCloseRange" }) },
 	["adds knockback during f?l?a?s?k? ?effect"] = { mod("EnemyKnockbackChance", "BASE", 100, { type = "Condition", var = "UsingFlask" }) },

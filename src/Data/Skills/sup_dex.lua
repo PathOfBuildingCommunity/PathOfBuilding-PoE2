@@ -314,12 +314,15 @@ skills["SupportComboFinisherPlayer"] = {
 	weaponTypes = {
 		["None"] = true,
 		["One Handed Mace"] = true,
+		["Flail"] = true,
 		["Two Handed Sword"] = true,
 		["Dagger"] = true,
-		["Claw"] = true,
+		["Staff"] = true,
+		["Spear"] = true,
 		["Two Handed Axe"] = true,
 		["Two Handed Mace"] = true,
 		["One Handed Axe"] = true,
+		["Claw"] = true,
 		["One Handed Sword"] = true,
 	},
 	levels = {
