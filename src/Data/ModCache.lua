@@ -15,7 +15,7 @@ c["+1 to Maximum Energy Shield per 8 Maximum Life"]={{[1]={[1]={div=8,stat="Life
 c["+1 to Maximum Frenzy Charges"]={{[1]={flags=0,keywordFlags=0,name="FrenzyChargesMax",type="BASE",value=1}},nil}
 c["+1 to Maximum Mana per 6 Maximum Life"]={{[1]={[1]={div=6,stat="Life",type="PerStat"},flags=0,keywordFlags=0,name="Mana",type="BASE",value=1}},nil}
 c["+1 to Maximum Power Charges"]={{[1]={flags=0,keywordFlags=0,name="PowerChargesMax",type="BASE",value=1}},nil}
-c["+1 to Maximum Spirit per 25 Maximum Life"]={{[1]={[1]={div=25,stat="Life",type="PerStat"},flags=0,keywordFlags=0,name="Spirit",type="BASE",value=1}}," Maximum   "}
+c["+1 to Maximum Spirit per 25 Maximum Life"]={{[1]={[1]={div=25,stat="Life",type="PerStat"},flags=0,keywordFlags=0,name="Spirit",type="BASE",value=1}},nil}
 c["+1% to Maximum Cold Resistance"]={{[1]={flags=0,keywordFlags=0,name="ColdResistMax",type="BASE",value=1}},nil}
 c["+1% to Maximum Cold Resistance per 4 Blue Support Gems Socketed"]={{[1]={flags=0,keywordFlags=0,name="ColdResistMax",type="BASE",value=1}},"  per 4 Blue Support Gems Socketed "}
 c["+1% to Maximum Cold Resistance per 4 Blue Support Gems Socketed +1% to Maximum Fire Resistance per 4 Red Support Gems Socketed"]={{[1]={flags=0,keywordFlags=0,name="ColdResistMax",type="BASE",value=1}},"  per 4 Blue Support Gems Socketed +1% to Maximum Fire Resistance per 4 Red Support Gems Socketed "}
@@ -602,9 +602,7 @@ c["10% increased Charm Effect Duration"]={{[1]={flags=0,keywordFlags=0,name="Cha
 c["10% increased Chill Duration on Enemies"]={{[1]={flags=0,keywordFlags=0,name="EnemyChillDuration",type="INC",value=10}},nil}
 c["10% increased Chill and Freeze Duration on Enemies"]={{[1]={flags=0,keywordFlags=0,name="EnemyFreezeDuration",type="INC",value=10}}," Chill and   "}
 c["10% increased Cold Damage"]={{[1]={flags=0,keywordFlags=0,name="ColdDamage",type="INC",value=10}},nil}
-c["10% increased Cold Exposure Effect"]={{[1]={flags=0,keywordFlags=0,name="LocalEffect",type="INC",value=10}}," Cold Exposure  "}
-c["10% increased Cold Exposure Effect 10% increased Fire Exposure Effect"]={{[1]={flags=0,keywordFlags=0,name="LocalEffect",type="INC",value=10}}," Cold Exposure  10% increased Fire Exposure Effect "}
-c["10% increased Cold Exposure Effect 10% increased Fire Exposure Effect 10% increased Lightning Exposure Effect"]={{[1]={flags=0,keywordFlags=0,name="LocalEffect",type="INC",value=10}}," Cold Exposure  10% increased Fire Exposure Effect 10% increased Lightning Exposure Effect "}
+c["10% increased Cold Exposure Effect"]={{[1]={flags=0,keywordFlags=0,name="ColdExposureEffect",type="INC",value=10}},nil}
 c["10% increased Cooldown Recovery Rate"]={{[1]={flags=0,keywordFlags=0,name="CooldownRecovery",type="INC",value=10}},nil}
 c["10% increased Critical Damage Bonus"]={{[1]={flags=0,keywordFlags=0,name="CritMultiplier",type="INC",value=10}},nil}
 c["10% increased Critical Damage Bonus with Daggers"]={{[1]={flags=524292,keywordFlags=0,name="CritMultiplier",type="INC",value=10}},nil}
@@ -636,8 +634,7 @@ c["10% increased Elemental Damage"]={{[1]={flags=0,keywordFlags=0,name="Elementa
 c["10% increased Energy Shield Recharge Rate"]={{[1]={flags=0,keywordFlags=0,name="EnergyShieldRecharge",type="INC",value=10}},nil}
 c["10% increased Evasion Rating"]={{[1]={flags=0,keywordFlags=0,name="Evasion",type="INC",value=10}},nil}
 c["10% increased Fire Damage"]={{[1]={flags=0,keywordFlags=0,name="FireDamage",type="INC",value=10}},nil}
-c["10% increased Fire Exposure Effect"]={{[1]={flags=0,keywordFlags=0,name="LocalEffect",type="INC",value=10}}," Fire Exposure  "}
-c["10% increased Fire Exposure Effect 10% increased Lightning Exposure Effect"]={{[1]={flags=0,keywordFlags=0,name="LocalEffect",type="INC",value=10}}," Fire Exposure  10% increased Lightning Exposure Effect "}
+c["10% increased Fire Exposure Effect"]={{[1]={flags=0,keywordFlags=0,name="FireExposureEffect",type="INC",value=10}},nil}
 c["10% increased Flask Charges gained"]={{[1]={flags=0,keywordFlags=0,name="FlaskChargesGained",type="INC",value=10}},nil}
 c["10% increased Flask Effect Duration"]={{[1]={flags=0,keywordFlags=0,name="FlaskDuration",type="INC",value=10}},nil}
 c["10% increased Freeze Buildup"]={{}," Freeze Buildup "}
@@ -652,7 +649,7 @@ c["10% increased Life Recovery from Flasks"]={{[1]={flags=0,keywordFlags=0,name=
 c["10% increased Life Regeneration rate"]={{[1]={flags=0,keywordFlags=0,name="LifeRegen",type="INC",value=10}},nil}
 c["10% increased Life and Mana Recovery from Flasks"]={{[1]={flags=0,keywordFlags=0,name="FlaskLifeRecovery",type="INC",value=10},[2]={flags=0,keywordFlags=0,name="FlaskManaRecovery",type="INC",value=10}},nil}
 c["10% increased Lightning Damage"]={{[1]={flags=0,keywordFlags=0,name="LightningDamage",type="INC",value=10}},nil}
-c["10% increased Lightning Exposure Effect"]={{[1]={flags=0,keywordFlags=0,name="LocalEffect",type="INC",value=10}}," Lightning Exposure  "}
+c["10% increased Lightning Exposure Effect"]={{[1]={flags=0,keywordFlags=0,name="LightningExposureEffect",type="INC",value=10}},nil}
 c["10% increased Magnitude of Ailments you inflict"]={{[1]={flags=0,keywordFlags=14680064,name="AilmentMagnitude",type="INC",value=10}},nil}
 c["10% increased Magnitude of Bleeding you inflict"]={{[1]={flags=0,keywordFlags=4194304,name="AilmentMagnitude",type="INC",value=10}},nil}
 c["10% increased Magnitude of Chill you inflict"]={{[1]={flags=0,keywordFlags=0,name="EnemyChillMagnitude",type="INC",value=10}},nil}
@@ -1019,8 +1016,7 @@ c["16% increased Mana Regeneration Rate while not on Low Mana"]={{[1]={[1]={neg=
 c["16% increased Mana Regeneration Rate while stationary"]={{[1]={[1]={type="Condition",var="Stationary"},flags=0,keywordFlags=0,name="ManaRegen",type="INC",value=16}},nil}
 c["16% increased Melee Damage"]={{[1]={flags=256,keywordFlags=0,name="Damage",type="INC",value=16}},nil}
 c["16% increased Projectile Damage"]={{[1]={flags=1024,keywordFlags=0,name="Damage",type="INC",value=16}},nil}
-c["16% increased Range"]={{}," Range "}
-c["16% increased Range 2% increased Area of Effect for Attacks per 5 Intelligence"]={{[1]={[1]={div=5,stat="Int",type="PerStat"},flags=1,keywordFlags=0,name="AreaOfEffect",type="INC",value=16}}," Range 2% increased    "}
+c["16% increased Range"]={{[1]={flags=0,keywordFlags=0,name="WeaponRange",type="INC",value=16}},nil}
 c["16% increased Rarity of Items found"]={{[1]={flags=0,keywordFlags=0,name="LootRarity",type="INC",value=16}},nil}
 c["16% increased Skill Effect Duration"]={{[1]={flags=0,keywordFlags=0,name="Duration",type="INC",value=16}},nil}
 c["16% increased Spell Damage"]={{[1]={flags=2,keywordFlags=0,name="Damage",type="INC",value=16}},nil}
@@ -1189,7 +1185,7 @@ c["20% increased Stun Threshold if you haven't been Stunned Recently"]={{[1]={fl
 c["20% increased Stun Threshold while on Full Life"]={{[1]={[1]={type="Condition",var="FullLife"},flags=0,keywordFlags=0,name="StunThreshold",type="INC",value=20}},nil}
 c["20% increased Totem Damage"]={{[1]={flags=0,keywordFlags=16384,name="Damage",type="INC",value=20}},nil}
 c["20% increased Totem Life"]={{[1]={flags=0,keywordFlags=0,name="TotemLife",type="INC",value=20}},nil}
-c["20% increased Totem Placement range"]={{},"  Placement range "}
+c["20% increased Totem Placement range"]={{[1]={flags=0,keywordFlags=16384,name="WeaponRange",type="INC",value=20}},"  Placement  "}
 c["20% increased Totem Placement speed"]={{[1]={flags=0,keywordFlags=0,name="TotemPlacementSpeed",type="INC",value=20}},nil}
 c["20% increased Unarmed Attack Speed"]={{[1]={flags=16777221,keywordFlags=0,name="Speed",type="INC",value=20}},nil}
 c["20% increased Warcry Speed"]={{[1]={flags=0,keywordFlags=4,name="WarcrySpeed",type="INC",value=20}},nil}
@@ -1282,7 +1278,7 @@ c["25% increased Charm Charges gained"]={{[1]={flags=0,keywordFlags=0,name="Char
 c["25% increased Charm Effect Duration"]={{[1]={flags=0,keywordFlags=0,name="CharmDuration",type="INC",value=25}},nil}
 c["25% increased Chill Duration on Enemies"]={{[1]={flags=0,keywordFlags=0,name="EnemyChillDuration",type="INC",value=25}},nil}
 c["25% increased Cold Damage"]={{[1]={flags=0,keywordFlags=0,name="ColdDamage",type="INC",value=25}},nil}
-c["25% increased Cold Exposure Effect"]={{[1]={flags=0,keywordFlags=0,name="LocalEffect",type="INC",value=25}}," Cold Exposure  "}
+c["25% increased Cold Exposure Effect"]={{[1]={flags=0,keywordFlags=0,name="ColdExposureEffect",type="INC",value=25}},nil}
 c["25% increased Critical Damage Bonus"]={{[1]={flags=0,keywordFlags=0,name="CritMultiplier",type="INC",value=25}},nil}
 c["25% increased Critical Damage Bonus against Burning Enemies"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Burning"},flags=0,keywordFlags=0,name="CritMultiplier",type="INC",value=25}},nil}
 c["25% increased Critical Damage Bonus for Attack Damage"]={{[1]={flags=1,keywordFlags=0,name="CritMultiplier",type="INC",value=25}},nil}
@@ -1320,7 +1316,7 @@ c["25% increased Evasion Rating"]={{[1]={flags=0,keywordFlags=0,name="Evasion",t
 c["25% increased Evasion Rating if you've Dodge Rolled Recently"]={{[1]={[1]={type="Condition",var="DodgeRolledRecently"},flags=0,keywordFlags=0,name="Evasion",type="INC",value=25}},nil}
 c["25% increased Evasion if you have Hit an Enemy Recently"]={{[1]={[1]={type="Condition",var="HitRecently"},flags=0,keywordFlags=0,name="Evasion",type="INC",value=25}},nil}
 c["25% increased Fire Damage"]={{[1]={flags=0,keywordFlags=0,name="FireDamage",type="INC",value=25}},nil}
-c["25% increased Fire Exposure Effect"]={{[1]={flags=0,keywordFlags=0,name="LocalEffect",type="INC",value=25}}," Fire Exposure  "}
+c["25% increased Fire Exposure Effect"]={{[1]={flags=0,keywordFlags=0,name="FireExposureEffect",type="INC",value=25}},nil}
 c["25% increased Flask Charges gained"]={{[1]={flags=0,keywordFlags=0,name="FlaskChargesGained",type="INC",value=25}},nil}
 c["25% increased Flask Effect Duration"]={{[1]={flags=0,keywordFlags=0,name="FlaskDuration",type="INC",value=25}},nil}
 c["25% increased Flask Life Recovery rate"]={{[1]={flags=0,keywordFlags=0,name="FlaskLifeRecoveryRate",type="INC",value=25}},nil}
@@ -1335,7 +1331,7 @@ c["25% increased Life Recovery from Flasks"]={{[1]={flags=0,keywordFlags=0,name=
 c["25% increased Life Recovery from Flasks used when on Low Life"]={{[1]={[1]={type="Condition",var="LowLife"},flags=0,keywordFlags=0,name="FlaskLifeRecovery",type="INC",value=25}},nil}
 c["25% increased Light Radius"]={{[1]={flags=0,keywordFlags=0,name="LightRadius",type="INC",value=25}},nil}
 c["25% increased Lightning Damage"]={{[1]={flags=0,keywordFlags=0,name="LightningDamage",type="INC",value=25}},nil}
-c["25% increased Lightning Exposure Effect"]={{[1]={flags=0,keywordFlags=0,name="LocalEffect",type="INC",value=25}}," Lightning Exposure  "}
+c["25% increased Lightning Exposure Effect"]={{[1]={flags=0,keywordFlags=0,name="LightningExposureEffect",type="INC",value=25}},nil}
 c["25% increased Magnitude of Chill you inflict"]={{[1]={flags=0,keywordFlags=0,name="EnemyChillMagnitude",type="INC",value=25}},nil}
 c["25% increased Magnitude of Ignite you inflict"]={{[1]={flags=0,keywordFlags=8388608,name="AilmentMagnitude",type="INC",value=25}},nil}
 c["25% increased Magnitude of Poison you inflict"]={{[1]={flags=0,keywordFlags=2097152,name="AilmentMagnitude",type="INC",value=25}},nil}
@@ -1459,9 +1455,7 @@ c["30% increased Bolt Speed 60% increased Physical Damage"]={{[1]={flags=0,keywo
 c["30% increased Cast Speed"]={{[1]={flags=16,keywordFlags=0,name="Speed",type="INC",value=30}},nil}
 c["30% increased Charm Charges used"]={{[1]={flags=0,keywordFlags=0,name="CharmChargesUsed",type="INC",value=30}},nil}
 c["30% increased Cold Damage"]={{[1]={flags=0,keywordFlags=0,name="ColdDamage",type="INC",value=30}},nil}
-c["30% increased Cold Exposure Effect"]={{[1]={flags=0,keywordFlags=0,name="LocalEffect",type="INC",value=30}}," Cold Exposure  "}
-c["30% increased Cold Exposure Effect 30% increased Fire Exposure Effect"]={{[1]={flags=0,keywordFlags=0,name="LocalEffect",type="INC",value=30}}," Cold Exposure  30% increased Fire Exposure Effect "}
-c["30% increased Cold Exposure Effect 30% increased Fire Exposure Effect 30% increased Lightning Exposure Effect"]={{[1]={flags=0,keywordFlags=0,name="LocalEffect",type="INC",value=30}}," Cold Exposure  30% increased Fire Exposure Effect 30% increased Lightning Exposure Effect "}
+c["30% increased Cold Exposure Effect"]={{[1]={flags=0,keywordFlags=0,name="ColdExposureEffect",type="INC",value=30}},nil}
 c["30% increased Critical Damage Bonus"]={{[1]={flags=0,keywordFlags=0,name="CritMultiplier",type="INC",value=30}},nil}
 c["30% increased Critical Hit Chance"]={{[1]={flags=0,keywordFlags=0,name="CritChance",type="INC",value=30}},nil}
 c["30% increased Critical Hit Chance against Bleeding Enemies"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Bleeding"},flags=0,keywordFlags=0,name="CritChance",type="INC",value=30}},nil}
@@ -1501,8 +1495,7 @@ c["30% increased Evasion Rating while Surrounded"]={{[1]={flags=0,keywordFlags=0
 c["30% increased Evasion Rating while you have Energy Shield"]={{[1]={[1]={type="Condition",var="HaveEnergyShield"},flags=0,keywordFlags=0,name="Evasion",type="INC",value=30}},nil}
 c["30% increased Evasion from Equipped Shield"]={{[1]={[1]={slotName="Weapon 2",type="SlotName"},flags=0,keywordFlags=0,name="Evasion",type="INC",value=30}},nil}
 c["30% increased Fire Damage"]={{[1]={flags=0,keywordFlags=0,name="FireDamage",type="INC",value=30}},nil}
-c["30% increased Fire Exposure Effect"]={{[1]={flags=0,keywordFlags=0,name="LocalEffect",type="INC",value=30}}," Fire Exposure  "}
-c["30% increased Fire Exposure Effect 30% increased Lightning Exposure Effect"]={{[1]={flags=0,keywordFlags=0,name="LocalEffect",type="INC",value=30}}," Fire Exposure  30% increased Lightning Exposure Effect "}
+c["30% increased Fire Exposure Effect"]={{[1]={flags=0,keywordFlags=0,name="FireExposureEffect",type="INC",value=30}},nil}
 c["30% increased Flask Charges gained"]={{[1]={flags=0,keywordFlags=0,name="FlaskChargesGained",type="INC",value=30}},nil}
 c["30% increased Flask Effect Duration"]={{[1]={flags=0,keywordFlags=0,name="FlaskDuration",type="INC",value=30}},nil}
 c["30% increased Flask Life Recovery rate"]={{[1]={flags=0,keywordFlags=0,name="FlaskLifeRecoveryRate",type="INC",value=30}},nil}
@@ -1514,7 +1507,7 @@ c["30% increased Freeze Buildup with Quarterstaves 30% increased Stun Buildup wi
 c["30% increased Life Recovery from Flasks"]={{[1]={flags=0,keywordFlags=0,name="FlaskLifeRecovery",type="INC",value=30}},nil}
 c["30% increased Life Regeneration rate during Effect of any Life Flask"]={{[1]={[1]={type="Condition",var="UsingLifeFlask"},flags=0,keywordFlags=0,name="LifeRegen",type="INC",value=30}},nil}
 c["30% increased Light Radius"]={{[1]={flags=0,keywordFlags=0,name="LightRadius",type="INC",value=30}},nil}
-c["30% increased Lightning Exposure Effect"]={{[1]={flags=0,keywordFlags=0,name="LocalEffect",type="INC",value=30}}," Lightning Exposure  "}
+c["30% increased Lightning Exposure Effect"]={{[1]={flags=0,keywordFlags=0,name="LightningExposureEffect",type="INC",value=30}},nil}
 c["30% increased Magnitude of Ailments you inflict"]={{[1]={flags=0,keywordFlags=14680064,name="AilmentMagnitude",type="INC",value=30}},nil}
 c["30% increased Magnitude of Chill you inflict"]={{[1]={flags=0,keywordFlags=0,name="EnemyChillMagnitude",type="INC",value=30}},nil}
 c["30% increased Magnitude of Non-Damaging Ailments you inflict"]={{}," Magnitude of Non-Damaging Ailments you inflict "}
@@ -1852,7 +1845,7 @@ c["50% increased Shock Duration"]={{[1]={flags=0,keywordFlags=0,name="EnemyShock
 c["50% increased Skill Effect Duration"]={{[1]={flags=0,keywordFlags=0,name="Duration",type="INC",value=50}},nil}
 c["50% increased Spirit"]={{[1]={flags=0,keywordFlags=0,name="Spirit",type="INC",value=50}},nil}
 c["50% increased Strength Requirement"]={{[1]={flags=0,keywordFlags=0,name="StrRequirement",type="INC",value=50}},nil}
-c["50% increased Totem Placement range"]={{},"  Placement range "}
+c["50% increased Totem Placement range"]={{[1]={flags=0,keywordFlags=16384,name="WeaponRange",type="INC",value=50}},"  Placement  "}
 c["50% increased Weapon Swap Speed"]={{[1]={flags=0,keywordFlags=0,name="WeaponSwapSpeed",type="INC",value=50}},nil}
 c["50% increased amount of Mana Leeched"]={{[1]={flags=0,keywordFlags=0,name="ManaLeech",type="INC",value=50}},nil}
 c["50% increased chance to Ignite"]={{[1]={flags=0,keywordFlags=0,name="EnemyIgniteChance",type="INC",value=50}},nil}
@@ -2577,10 +2570,8 @@ c["Herald Skills have 30% increased Area of Effect"]={{[1]={[1]={skillType=62,ty
 c["Historic"]={{},nil}
 c["Hits Break 50 Armour"]={nil,"Hits Break 50 Armour "}
 c["Hits Break 50 Armour Apply Fire Exposure when fully breaking enemy Armour"]={nil,"Hits Break 50 Armour Apply Fire Exposure when fully breaking enemy Armour "}
-c["Hits against you have 20% reduced Critical Damage Bonus"]={nil,"20% reduced Critical Damage Bonus "}
-c["Hits against you have 20% reduced Critical Damage Bonus 20% increased Armour and Evasion Rating"]={nil,"20% reduced Critical Damage Bonus 20% increased Armour and Evasion Rating "}
-c["Hits against you have 20% reduced Critical Damage Bonus 20% increased Armour and Evasion Rating +5 to Strength and Dexterity"]={nil,"20% reduced Critical Damage Bonus 20% increased Armour and Evasion Rating +5 to Strength and Dexterity "}
-c["Hits against you have 25% reduced Critical Damage Bonus"]={nil,"25% reduced Critical Damage Bonus "}
+c["Hits against you have 20% reduced Critical Damage Bonus"]={{[1]={flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={flags=4,keywordFlags=0,name="CritMultiplier",type="INC",value=-20}}}},nil}
+c["Hits against you have 25% reduced Critical Damage Bonus"]={{[1]={flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={flags=4,keywordFlags=0,name="CritMultiplier",type="INC",value=-25}}}},nil}
 c["Hits have 25% reduced Critical Hit Chance against you"]={nil,"Hits have 25% reduced Critical Hit Chance  "}
 c["Hits ignore non-negative Elemental Resistances of Frozen Enemies"]={nil,"Hits ignore non-negative Elemental Resistances of Frozen Enemies "}
 c["Hits that Heavy Stun Enemies have Culling Strike"]={nil,"Hits that Heavy Stun Enemies have Culling Strike "}

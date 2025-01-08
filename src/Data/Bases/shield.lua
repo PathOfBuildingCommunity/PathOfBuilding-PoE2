@@ -5,6 +5,7 @@ local itemBases = ...
 
 itemBases["Golden Flame"] = {
 	type = "Shield",
+	quality = 20,
 	socketLimit = 2,
 	tags = { not_for_sale = true, demigods = true, armour = true, default = true, shield = true, },
 	implicit = "+(11-19)% to Chaos Resistance",
@@ -14,6 +15,7 @@ itemBases["Golden Flame"] = {
 }
 itemBases["Splintered Tower Shield"] = {
 	type = "Shield",
+	quality = 20,
 	socketLimit = 2,
 	tags = { str_armour = true, ezomyte_basetype = true, str_shield = true, armour = true, default = true, shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
@@ -23,6 +25,7 @@ itemBases["Splintered Tower Shield"] = {
 }
 itemBases["Painted Tower Shield"] = {
 	type = "Shield",
+	quality = 20,
 	socketLimit = 2,
 	tags = { str_armour = true, ezomyte_basetype = true, str_shield = true, armour = true, default = true, shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
@@ -32,6 +35,7 @@ itemBases["Painted Tower Shield"] = {
 }
 itemBases["Braced Tower Shield"] = {
 	type = "Shield",
+	quality = 20,
 	socketLimit = 2,
 	tags = { str_armour = true, ezomyte_basetype = true, str_shield = true, armour = true, default = true, shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
@@ -41,6 +45,7 @@ itemBases["Braced Tower Shield"] = {
 }
 itemBases["Barricade Tower Shield"] = {
 	type = "Shield",
+	quality = 20,
 	socketLimit = 2,
 	tags = { maraketh_basetype = true, str_armour = true, str_shield = true, armour = true, default = true, shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
@@ -50,6 +55,7 @@ itemBases["Barricade Tower Shield"] = {
 }
 itemBases["Effigial Tower Shield"] = {
 	type = "Shield",
+	quality = 20,
 	socketLimit = 2,
 	tags = { maraketh_basetype = true, str_armour = true, str_shield = true, armour = true, default = true, shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
@@ -59,6 +65,7 @@ itemBases["Effigial Tower Shield"] = {
 }
 itemBases["Rampart Tower Shield"] = {
 	type = "Shield",
+	quality = 20,
 	socketLimit = 2,
 	tags = { maraketh_basetype = true, str_armour = true, str_shield = true, armour = true, default = true, shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
@@ -68,6 +75,7 @@ itemBases["Rampart Tower Shield"] = {
 }
 itemBases["Heraldric Tower Shield"] = {
 	type = "Shield",
+	quality = 20,
 	socketLimit = 2,
 	tags = { str_armour = true, vaal_basetype = true, str_shield = true, armour = true, default = true, shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
@@ -77,6 +85,7 @@ itemBases["Heraldric Tower Shield"] = {
 }
 itemBases["Stone Tower Shield"] = {
 	type = "Shield",
+	quality = 20,
 	socketLimit = 2,
 	tags = { str_armour = true, vaal_basetype = true, str_shield = true, armour = true, default = true, shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
@@ -86,6 +95,7 @@ itemBases["Stone Tower Shield"] = {
 }
 itemBases["Crucible Tower Shield"] = {
 	type = "Shield",
+	quality = 20,
 	socketLimit = 2,
 	tags = { str_armour = true, str_shield = true, armour = true, default = true, shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
@@ -95,6 +105,7 @@ itemBases["Crucible Tower Shield"] = {
 }
 itemBases["Ancestor Tower Shield"] = {
 	type = "Shield",
+	quality = 20,
 	socketLimit = 2,
 	tags = { str_armour = true, str_shield = true, armour = true, default = true, shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
@@ -104,6 +115,7 @@ itemBases["Ancestor Tower Shield"] = {
 }
 itemBases["Phalanx Tower Shield"] = {
 	type = "Shield",
+	quality = 20,
 	socketLimit = 2,
 	tags = { str_armour = true, str_shield = true, armour = true, default = true, shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
@@ -113,6 +125,7 @@ itemBases["Phalanx Tower Shield"] = {
 }
 itemBases["Defiant Tower Shield"] = {
 	type = "Shield",
+	quality = 20,
 	socketLimit = 2,
 	tags = { str_armour = true, str_shield = true, armour = true, default = true, shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
@@ -122,6 +135,7 @@ itemBases["Defiant Tower Shield"] = {
 }
 itemBases["Blacksteel Tower Shield"] = {
 	type = "Shield",
+	quality = 20,
 	socketLimit = 2,
 	tags = { str_armour = true, str_shield = true, armour = true, default = true, shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
@@ -131,6 +145,7 @@ itemBases["Blacksteel Tower Shield"] = {
 }
 itemBases["Hardwood Targe"] = {
 	type = "Shield",
+	quality = 20,
 	socketLimit = 2,
 	tags = { str_dex_armour = true, ezomyte_basetype = true, str_dex_shield = true, armour = true, default = true, shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
@@ -140,6 +155,7 @@ itemBases["Hardwood Targe"] = {
 }
 itemBases["Pelage Targe"] = {
 	type = "Shield",
+	quality = 20,
 	socketLimit = 2,
 	tags = { str_dex_armour = true, ezomyte_basetype = true, str_dex_shield = true, armour = true, default = true, shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
@@ -149,6 +165,7 @@ itemBases["Pelage Targe"] = {
 }
 itemBases["Studded Targe"] = {
 	type = "Shield",
+	quality = 20,
 	socketLimit = 2,
 	tags = { maraketh_basetype = true, str_dex_armour = true, str_dex_shield = true, armour = true, default = true, shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
@@ -158,6 +175,7 @@ itemBases["Studded Targe"] = {
 }
 itemBases["Crescent Targe"] = {
 	type = "Shield",
+	quality = 20,
 	socketLimit = 2,
 	tags = { maraketh_basetype = true, str_dex_armour = true, str_dex_shield = true, armour = true, default = true, shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
@@ -167,6 +185,7 @@ itemBases["Crescent Targe"] = {
 }
 itemBases["Chiseled Targe"] = {
 	type = "Shield",
+	quality = 20,
 	socketLimit = 2,
 	tags = { str_dex_armour = true, vaal_basetype = true, str_dex_shield = true, armour = true, default = true, shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
@@ -176,6 +195,7 @@ itemBases["Chiseled Targe"] = {
 }
 itemBases["Feathered Targe"] = {
 	type = "Shield",
+	quality = 20,
 	socketLimit = 2,
 	tags = { str_dex_armour = true, vaal_basetype = true, str_dex_shield = true, armour = true, default = true, shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
@@ -185,6 +205,7 @@ itemBases["Feathered Targe"] = {
 }
 itemBases["Stratified Targe"] = {
 	type = "Shield",
+	quality = 20,
 	socketLimit = 2,
 	tags = { str_dex_armour = true, str_dex_shield = true, armour = true, default = true, shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
@@ -194,6 +215,7 @@ itemBases["Stratified Targe"] = {
 }
 itemBases["Carved Targe"] = {
 	type = "Shield",
+	quality = 20,
 	socketLimit = 2,
 	tags = { str_dex_armour = true, str_dex_shield = true, armour = true, default = true, shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
@@ -203,6 +225,7 @@ itemBases["Carved Targe"] = {
 }
 itemBases["Mosaic Targe"] = {
 	type = "Shield",
+	quality = 20,
 	socketLimit = 2,
 	tags = { str_dex_armour = true, str_dex_shield = true, armour = true, default = true, shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
@@ -212,6 +235,7 @@ itemBases["Mosaic Targe"] = {
 }
 itemBases["Aureate Targe"] = {
 	type = "Shield",
+	quality = 20,
 	socketLimit = 2,
 	tags = { str_dex_armour = true, str_dex_shield = true, armour = true, default = true, shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
@@ -221,6 +245,7 @@ itemBases["Aureate Targe"] = {
 }
 itemBases["Grand Targe"] = {
 	type = "Shield",
+	quality = 20,
 	socketLimit = 2,
 	tags = { str_dex_armour = true, str_dex_shield = true, armour = true, default = true, shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
@@ -230,6 +255,7 @@ itemBases["Grand Targe"] = {
 }
 itemBases["Blazon Crest Shield"] = {
 	type = "Shield",
+	quality = 20,
 	socketLimit = 2,
 	tags = { str_int_armour = true, ezomyte_basetype = true, str_int_shield = true, armour = true, default = true, shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
@@ -239,6 +265,7 @@ itemBases["Blazon Crest Shield"] = {
 }
 itemBases["Sigil Crest Shield"] = {
 	type = "Shield",
+	quality = 20,
 	socketLimit = 2,
 	tags = { str_int_armour = true, ezomyte_basetype = true, str_int_shield = true, armour = true, default = true, shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
@@ -248,6 +275,7 @@ itemBases["Sigil Crest Shield"] = {
 }
 itemBases["Emblem Crest Shield"] = {
 	type = "Shield",
+	quality = 20,
 	socketLimit = 2,
 	tags = { maraketh_basetype = true, str_int_armour = true, str_int_shield = true, armour = true, default = true, shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
@@ -257,6 +285,7 @@ itemBases["Emblem Crest Shield"] = {
 }
 itemBases["Jingling Crest Shield"] = {
 	type = "Shield",
+	quality = 20,
 	socketLimit = 2,
 	tags = { maraketh_basetype = true, str_int_armour = true, str_int_shield = true, armour = true, default = true, shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
@@ -266,6 +295,7 @@ itemBases["Jingling Crest Shield"] = {
 }
 itemBases["Sectarian Crest Shield"] = {
 	type = "Shield",
+	quality = 20,
 	socketLimit = 2,
 	tags = { str_int_armour = true, vaal_basetype = true, str_int_shield = true, armour = true, default = true, shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
@@ -275,6 +305,7 @@ itemBases["Sectarian Crest Shield"] = {
 }
 itemBases["Omen Crest Shield"] = {
 	type = "Shield",
+	quality = 20,
 	socketLimit = 2,
 	tags = { str_int_armour = true, vaal_basetype = true, str_int_shield = true, armour = true, default = true, shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
@@ -284,6 +315,7 @@ itemBases["Omen Crest Shield"] = {
 }
 itemBases["Wayward Crest Shield"] = {
 	type = "Shield",
+	quality = 20,
 	socketLimit = 2,
 	tags = { str_int_armour = true, str_int_shield = true, armour = true, default = true, shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
@@ -293,6 +325,7 @@ itemBases["Wayward Crest Shield"] = {
 }
 itemBases["Seer Crest Shield"] = {
 	type = "Shield",
+	quality = 20,
 	socketLimit = 2,
 	tags = { str_int_armour = true, str_int_shield = true, armour = true, default = true, shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
@@ -302,6 +335,7 @@ itemBases["Seer Crest Shield"] = {
 }
 itemBases["Stoic Crest Shield"] = {
 	type = "Shield",
+	quality = 20,
 	socketLimit = 2,
 	tags = { str_int_armour = true, str_int_shield = true, armour = true, default = true, shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
@@ -311,6 +345,7 @@ itemBases["Stoic Crest Shield"] = {
 }
 itemBases["Empyreal Crest Shield"] = {
 	type = "Shield",
+	quality = 20,
 	socketLimit = 2,
 	tags = { str_int_armour = true, str_int_shield = true, armour = true, default = true, shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
@@ -320,6 +355,7 @@ itemBases["Empyreal Crest Shield"] = {
 }
 itemBases["Deified Crest Shield"] = {
 	type = "Shield",
+	quality = 20,
 	socketLimit = 2,
 	tags = { str_int_armour = true, str_int_shield = true, armour = true, default = true, shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
@@ -329,6 +365,7 @@ itemBases["Deified Crest Shield"] = {
 }
 itemBases["Leather Buckler"] = {
 	type = "Shield",
+	quality = 20,
 	socketLimit = 2,
 	tags = { dex_shield = true, dex_armour = true, ezomyte_basetype = true, armour = true, default = true, shield = true, },
 	implicitModTypes = { },
@@ -337,6 +374,7 @@ itemBases["Leather Buckler"] = {
 }
 itemBases["Wooden Buckler"] = {
 	type = "Shield",
+	quality = 20,
 	socketLimit = 2,
 	tags = { dex_shield = true, dex_armour = true, ezomyte_basetype = true, armour = true, default = true, shield = true, },
 	implicitModTypes = { },
@@ -345,6 +383,7 @@ itemBases["Wooden Buckler"] = {
 }
 itemBases["Plated Buckler"] = {
 	type = "Shield",
+	quality = 20,
 	socketLimit = 2,
 	tags = { dex_shield = true, dex_armour = true, ezomyte_basetype = true, armour = true, default = true, shield = true, },
 	implicitModTypes = { },
@@ -353,6 +392,7 @@ itemBases["Plated Buckler"] = {
 }
 itemBases["Iron Buckler"] = {
 	type = "Shield",
+	quality = 20,
 	socketLimit = 2,
 	tags = { maraketh_basetype = true, dex_shield = true, dex_armour = true, armour = true, default = true, shield = true, },
 	implicitModTypes = { },
@@ -361,6 +401,7 @@ itemBases["Iron Buckler"] = {
 }
 itemBases["Ridged Buckler"] = {
 	type = "Shield",
+	quality = 20,
 	socketLimit = 2,
 	tags = { maraketh_basetype = true, dex_shield = true, dex_armour = true, armour = true, default = true, shield = true, },
 	implicitModTypes = { },
@@ -369,6 +410,7 @@ itemBases["Ridged Buckler"] = {
 }
 itemBases["Spiked Buckler"] = {
 	type = "Shield",
+	quality = 20,
 	socketLimit = 2,
 	tags = { maraketh_basetype = true, dex_shield = true, dex_armour = true, armour = true, default = true, shield = true, },
 	implicitModTypes = { },
@@ -377,6 +419,7 @@ itemBases["Spiked Buckler"] = {
 }
 itemBases["Ringed Buckler"] = {
 	type = "Shield",
+	quality = 20,
 	socketLimit = 2,
 	tags = { dex_shield = true, dex_armour = true, vaal_basetype = true, armour = true, default = true, shield = true, },
 	implicitModTypes = { },
@@ -385,6 +428,7 @@ itemBases["Ringed Buckler"] = {
 }
 itemBases["Edged Buckler"] = {
 	type = "Shield",
+	quality = 20,
 	socketLimit = 2,
 	tags = { dex_shield = true, dex_armour = true, vaal_basetype = true, armour = true, default = true, shield = true, },
 	implicitModTypes = { },
@@ -393,6 +437,7 @@ itemBases["Edged Buckler"] = {
 }
 itemBases["Laminate Buckler"] = {
 	type = "Shield",
+	quality = 20,
 	socketLimit = 2,
 	tags = { dex_shield = true, dex_armour = true, armour = true, default = true, shield = true, },
 	implicitModTypes = { },
@@ -401,6 +446,7 @@ itemBases["Laminate Buckler"] = {
 }
 itemBases["Pearl Buckler"] = {
 	type = "Shield",
+	quality = 20,
 	socketLimit = 2,
 	tags = { dex_shield = true, dex_armour = true, armour = true, default = true, shield = true, },
 	implicitModTypes = { },
@@ -409,6 +455,7 @@ itemBases["Pearl Buckler"] = {
 }
 itemBases["Ornate Buckler"] = {
 	type = "Shield",
+	quality = 20,
 	socketLimit = 2,
 	tags = { dex_shield = true, dex_armour = true, armour = true, default = true, shield = true, },
 	implicitModTypes = { },
@@ -417,6 +464,7 @@ itemBases["Ornate Buckler"] = {
 }
 itemBases["Array Buckler"] = {
 	type = "Shield",
+	quality = 20,
 	socketLimit = 2,
 	tags = { dex_shield = true, dex_armour = true, armour = true, default = true, shield = true, },
 	implicitModTypes = { },
@@ -425,6 +473,7 @@ itemBases["Array Buckler"] = {
 }
 itemBases["Aegis Buckler"] = {
 	type = "Shield",
+	quality = 20,
 	socketLimit = 2,
 	tags = { dex_shield = true, dex_armour = true, armour = true, default = true, shield = true, },
 	implicitModTypes = { },
@@ -433,6 +482,7 @@ itemBases["Aegis Buckler"] = {
 }
 itemBases["Advanced Painted Tower Shield"] = {
 	type = "Shield",
+	quality = 20,
 	socketLimit = 2,
 	tags = { str_armour = true, str_shield = true, armour = true, default = true, shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
@@ -442,6 +492,7 @@ itemBases["Advanced Painted Tower Shield"] = {
 }
 itemBases["Advanced Braced Tower Shield"] = {
 	type = "Shield",
+	quality = 20,
 	socketLimit = 2,
 	tags = { str_armour = true, str_shield = true, armour = true, default = true, shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
@@ -451,6 +502,7 @@ itemBases["Advanced Braced Tower Shield"] = {
 }
 itemBases["Advanced Effigial Tower Shield"] = {
 	type = "Shield",
+	quality = 20,
 	socketLimit = 2,
 	tags = { str_armour = true, str_shield = true, armour = true, default = true, shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
@@ -460,6 +512,7 @@ itemBases["Advanced Effigial Tower Shield"] = {
 }
 itemBases["Advanced Rampart Tower Shield"] = {
 	type = "Shield",
+	quality = 20,
 	socketLimit = 2,
 	tags = { str_armour = true, str_shield = true, armour = true, default = true, shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
@@ -469,6 +522,7 @@ itemBases["Advanced Rampart Tower Shield"] = {
 }
 itemBases["Advanced Heraldric Tower Shield"] = {
 	type = "Shield",
+	quality = 20,
 	socketLimit = 2,
 	tags = { str_armour = true, str_shield = true, armour = true, default = true, shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
@@ -478,6 +532,7 @@ itemBases["Advanced Heraldric Tower Shield"] = {
 }
 itemBases["Advanced Stone Tower Shield"] = {
 	type = "Shield",
+	quality = 20,
 	socketLimit = 2,
 	tags = { str_armour = true, str_shield = true, armour = true, default = true, shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
@@ -487,6 +542,7 @@ itemBases["Advanced Stone Tower Shield"] = {
 }
 itemBases["Advanced Hardwood Targe"] = {
 	type = "Shield",
+	quality = 20,
 	socketLimit = 2,
 	tags = { str_dex_armour = true, str_dex_shield = true, armour = true, default = true, shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
@@ -496,6 +552,7 @@ itemBases["Advanced Hardwood Targe"] = {
 }
 itemBases["Advanced Pelage Targe"] = {
 	type = "Shield",
+	quality = 20,
 	socketLimit = 2,
 	tags = { str_dex_armour = true, str_dex_shield = true, armour = true, default = true, shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
@@ -505,6 +562,7 @@ itemBases["Advanced Pelage Targe"] = {
 }
 itemBases["Advanced Studded Targe"] = {
 	type = "Shield",
+	quality = 20,
 	socketLimit = 2,
 	tags = { str_dex_armour = true, str_dex_shield = true, armour = true, default = true, shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
@@ -514,6 +572,7 @@ itemBases["Advanced Studded Targe"] = {
 }
 itemBases["Advanced Crescent Targe"] = {
 	type = "Shield",
+	quality = 20,
 	socketLimit = 2,
 	tags = { str_dex_armour = true, str_dex_shield = true, armour = true, default = true, shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
@@ -523,6 +582,7 @@ itemBases["Advanced Crescent Targe"] = {
 }
 itemBases["Advanced Chiseled Targe"] = {
 	type = "Shield",
+	quality = 20,
 	socketLimit = 2,
 	tags = { str_dex_armour = true, str_dex_shield = true, armour = true, default = true, shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
@@ -532,6 +592,7 @@ itemBases["Advanced Chiseled Targe"] = {
 }
 itemBases["Advanced Feathered Targe"] = {
 	type = "Shield",
+	quality = 20,
 	socketLimit = 2,
 	tags = { str_dex_armour = true, str_dex_shield = true, armour = true, default = true, shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
@@ -541,6 +602,7 @@ itemBases["Advanced Feathered Targe"] = {
 }
 itemBases["Advanced Blazon Crest Shield"] = {
 	type = "Shield",
+	quality = 20,
 	socketLimit = 2,
 	tags = { str_int_armour = true, str_int_shield = true, armour = true, default = true, shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
@@ -550,6 +612,7 @@ itemBases["Advanced Blazon Crest Shield"] = {
 }
 itemBases["Advanced Sigil Crest Shield"] = {
 	type = "Shield",
+	quality = 20,
 	socketLimit = 2,
 	tags = { str_int_armour = true, str_int_shield = true, armour = true, default = true, shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
@@ -559,6 +622,7 @@ itemBases["Advanced Sigil Crest Shield"] = {
 }
 itemBases["Advanced Emblem Crest Shield"] = {
 	type = "Shield",
+	quality = 20,
 	socketLimit = 2,
 	tags = { str_int_armour = true, str_int_shield = true, armour = true, default = true, shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
@@ -568,6 +632,7 @@ itemBases["Advanced Emblem Crest Shield"] = {
 }
 itemBases["Advanced Jingling Crest Shield"] = {
 	type = "Shield",
+	quality = 20,
 	socketLimit = 2,
 	tags = { str_int_armour = true, str_int_shield = true, armour = true, default = true, shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
@@ -577,6 +642,7 @@ itemBases["Advanced Jingling Crest Shield"] = {
 }
 itemBases["Advanced Sectarian Crest Shield"] = {
 	type = "Shield",
+	quality = 20,
 	socketLimit = 2,
 	tags = { str_int_armour = true, str_int_shield = true, armour = true, default = true, shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
@@ -586,6 +652,7 @@ itemBases["Advanced Sectarian Crest Shield"] = {
 }
 itemBases["Advanced Omen Crest Shield"] = {
 	type = "Shield",
+	quality = 20,
 	socketLimit = 2,
 	tags = { str_int_armour = true, str_int_shield = true, armour = true, default = true, shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
@@ -595,6 +662,7 @@ itemBases["Advanced Omen Crest Shield"] = {
 }
 itemBases["Advanced Wooden Buckler"] = {
 	type = "Shield",
+	quality = 20,
 	socketLimit = 2,
 	tags = { dex_shield = true, dex_armour = true, armour = true, default = true, shield = true, },
 	implicitModTypes = { },
@@ -603,6 +671,7 @@ itemBases["Advanced Wooden Buckler"] = {
 }
 itemBases["Advanced Plated Buckler"] = {
 	type = "Shield",
+	quality = 20,
 	socketLimit = 2,
 	tags = { dex_shield = true, dex_armour = true, armour = true, default = true, shield = true, },
 	implicitModTypes = { },
@@ -611,6 +680,7 @@ itemBases["Advanced Plated Buckler"] = {
 }
 itemBases["Advanced Ridged Buckler"] = {
 	type = "Shield",
+	quality = 20,
 	socketLimit = 2,
 	tags = { dex_shield = true, dex_armour = true, armour = true, default = true, shield = true, },
 	implicitModTypes = { },
@@ -619,6 +689,7 @@ itemBases["Advanced Ridged Buckler"] = {
 }
 itemBases["Advanced Spiked Buckler"] = {
 	type = "Shield",
+	quality = 20,
 	socketLimit = 2,
 	tags = { dex_shield = true, dex_armour = true, armour = true, default = true, shield = true, },
 	implicitModTypes = { },
@@ -627,6 +698,7 @@ itemBases["Advanced Spiked Buckler"] = {
 }
 itemBases["Advanced Ringed Buckler"] = {
 	type = "Shield",
+	quality = 20,
 	socketLimit = 2,
 	tags = { dex_shield = true, dex_armour = true, armour = true, default = true, shield = true, },
 	implicitModTypes = { },
@@ -635,6 +707,7 @@ itemBases["Advanced Ringed Buckler"] = {
 }
 itemBases["Advanced Edged Buckler"] = {
 	type = "Shield",
+	quality = 20,
 	socketLimit = 2,
 	tags = { dex_shield = true, dex_armour = true, armour = true, default = true, shield = true, },
 	implicitModTypes = { },
@@ -643,6 +716,7 @@ itemBases["Advanced Edged Buckler"] = {
 }
 itemBases["Expert Braced Tower Shield"] = {
 	type = "Shield",
+	quality = 20,
 	socketLimit = 2,
 	tags = { str_armour = true, str_shield = true, armour = true, default = true, shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
@@ -652,6 +726,7 @@ itemBases["Expert Braced Tower Shield"] = {
 }
 itemBases["Expert Rampart Tower Shield"] = {
 	type = "Shield",
+	quality = 20,
 	socketLimit = 2,
 	tags = { str_armour = true, str_shield = true, armour = true, default = true, shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
@@ -661,6 +736,7 @@ itemBases["Expert Rampart Tower Shield"] = {
 }
 itemBases["Expert Stone Tower Shield"] = {
 	type = "Shield",
+	quality = 20,
 	socketLimit = 2,
 	tags = { str_armour = true, str_shield = true, armour = true, default = true, shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
@@ -670,6 +746,7 @@ itemBases["Expert Stone Tower Shield"] = {
 }
 itemBases["Expert Pelage Targe"] = {
 	type = "Shield",
+	quality = 20,
 	socketLimit = 2,
 	tags = { str_dex_armour = true, str_dex_shield = true, armour = true, default = true, shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
@@ -679,6 +756,7 @@ itemBases["Expert Pelage Targe"] = {
 }
 itemBases["Expert Crescent Targe"] = {
 	type = "Shield",
+	quality = 20,
 	socketLimit = 2,
 	tags = { str_dex_armour = true, str_dex_shield = true, armour = true, default = true, shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
@@ -688,6 +766,7 @@ itemBases["Expert Crescent Targe"] = {
 }
 itemBases["Expert Feathered Targe"] = {
 	type = "Shield",
+	quality = 20,
 	socketLimit = 2,
 	tags = { str_dex_armour = true, str_dex_shield = true, armour = true, default = true, shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
@@ -697,6 +776,7 @@ itemBases["Expert Feathered Targe"] = {
 }
 itemBases["Expert Sigil Crest Shield"] = {
 	type = "Shield",
+	quality = 20,
 	socketLimit = 2,
 	tags = { str_int_armour = true, str_int_shield = true, armour = true, default = true, shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
@@ -706,6 +786,7 @@ itemBases["Expert Sigil Crest Shield"] = {
 }
 itemBases["Expert Jingling Crest Shield"] = {
 	type = "Shield",
+	quality = 20,
 	socketLimit = 2,
 	tags = { str_int_armour = true, str_int_shield = true, armour = true, default = true, shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
@@ -715,6 +796,7 @@ itemBases["Expert Jingling Crest Shield"] = {
 }
 itemBases["Expert Omen Crest Shield"] = {
 	type = "Shield",
+	quality = 20,
 	socketLimit = 2,
 	tags = { str_int_armour = true, str_int_shield = true, armour = true, default = true, shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
@@ -724,6 +806,7 @@ itemBases["Expert Omen Crest Shield"] = {
 }
 itemBases["Expert Plated Buckler"] = {
 	type = "Shield",
+	quality = 20,
 	socketLimit = 2,
 	tags = { dex_shield = true, dex_armour = true, armour = true, default = true, shield = true, },
 	implicitModTypes = { },
@@ -732,6 +815,7 @@ itemBases["Expert Plated Buckler"] = {
 }
 itemBases["Expert Spiked Buckler"] = {
 	type = "Shield",
+	quality = 20,
 	socketLimit = 2,
 	tags = { dex_shield = true, dex_armour = true, armour = true, default = true, shield = true, },
 	implicitModTypes = { },
@@ -740,6 +824,7 @@ itemBases["Expert Spiked Buckler"] = {
 }
 itemBases["Expert Edged Buckler"] = {
 	type = "Shield",
+	quality = 20,
 	socketLimit = 2,
 	tags = { dex_shield = true, dex_armour = true, armour = true, default = true, shield = true, },
 	implicitModTypes = { },

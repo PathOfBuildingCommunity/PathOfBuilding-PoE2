@@ -4168,7 +4168,7 @@ function calcs.offence(env, actor, activeSkill)
 			-- For poisons we will be using a weighted average calculation
 			local maxStacks = 1
 			if skillFlags.poisonCanStack then
-				maxStacks = skillModList:Override(cfg, "PoisonStacks") or (maxStacks + skillModList:Sum("BASE", cfg, "PoisonStacks"))
+				maxStacks = skillModList:Override(cfg, "PoisonStacks") or ((maxStacks + skillModList:Sum("BASE", cfg, "PoisonStacks")) * skillModList:More(cfg, "PoisonStacks"))
 			end
 			local overrideStackPotential = skillModList:Override(nil, "PoisonStackPotentialOverride") and skillModList:Override(nil, "PoisonStackPotentialOverride") / maxStacks
 			globalOutput.PoisonStacksMax = maxStacks

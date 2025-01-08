@@ -1001,32 +1001,21 @@ function calcs.initEnv(build, mode, override, specEnv)
 							for _, tag in ipairs(mod) do
 								if tag.type == "SocketedIn" then
 									if tag.slotType == "Armour" then
-										if slotName == "Helmet" or slotName == "Body Armour" or slotName == "Gloves" or slotName == "Boots"
-											or parentItem.weaponData and (parentItem.weaponData[2].type == "Shield" or parentItem.weaponData[2].type == "Focus") then
+										if parentItem.base.armour then
 											local modCopy = copyTable(mod)
 											modCopy[1] = nil
 											modLib.setSource(modCopy, item.modSource)
 											env.itemModDB:ScaleAddMod(modCopy, scale)
 										end
 									elseif tag.slotType == "Martial Weapons" then
-										local type = nil
-										local subtype = nil
-										if slotName:match("Weapon") then
-											type = parentItem.weaponData and parentItem.weaponData[1].type
-											subtype = parentItem.weaponData and parentItem.weaponData[1].subType or nil
-										elseif slotName:match("Offhand") then
-											type = parentItem.weaponData and parentItem.weaponData[2].type
-											subtype = parentItem.weaponData and parentItem.weaponData[2].subType or nil
-										end
-										if type and (type == "Dagger" or type == "Bow" or type == "Crossbow" or type == "Spear" or type == "Claw"
-											or type:match("Axe") or type:match("Mace") or type:match("Sword") or type:match("Flail") 
-											or (subtype and subtype == "Warstaff") or type == "Fishing Rod") then
+										if parentItem.base.weapon then
 											env.itemModDB:ScaleAddMod(mod, scale)
 										end
 									end
 								end
 							end
 						end
+						env.itemModDB.multipliers["SocketedItemsIn"..slotName] = (env.itemModDB.multipliers["SocketedItemsIn"..slotName] or 0) + 1
 					end
 				else
 					env.itemModDB:ScaleAddList(srcList, scale)
@@ -1062,33 +1051,9 @@ function calcs.initEnv(build, mode, override, specEnv)
 					end
 
 					env.itemModDB.multipliers[item.type:gsub(" ", ""):gsub(".+Handed", "").."Item"] = (env.itemModDB.multipliers[item.type:gsub(" ", ""):gsub(".+Handed", "").."Item"] or 0) + 1
-					-- Calculate socket counts
-					local slotEmptySocketsCount = { R = 0, G = 0, B = 0, W = 0}	
-					local slotGemSocketsCount = 0
-					local socketedGems = 0
-					-- Loop through socket groups to calculate number of socketed gems
-					for _, socketGroup in pairs(env.build.skillsTab.socketGroupList) do
-						if (not socketGroup.source and socketGroup.enabled and socketGroup.slot and socketGroup.slot == slotName and socketGroup.gemList) then
-							for _, gem in pairs(socketGroup.gemList) do
-								if (gem.gemData and gem.enabled) then
-									socketedGems = socketedGems + 1
-								end
-							end
-						end
-					end
-					-- Warn if socketed gems over socket limit
-					if socketedGems > slotGemSocketsCount then
-						env.itemWarnings.socketLimitWarning = env.itemWarnings.socketLimitWarning or { }
-						t_insert(env.itemWarnings.socketLimitWarning, slotName)
-					end
 				end
 			end
 		end
-		-- Override empty socket calculation if set in config
-		env.itemModDB.multipliers.EmptyRedSocketsInAnySlot = (env.configInput.overrideEmptyRedSockets or env.itemModDB.multipliers.EmptyRedSocketsInAnySlot)
-		env.itemModDB.multipliers.EmptyGreenSocketsInAnySlot = (env.configInput.overrideEmptyGreenSockets or env.itemModDB.multipliers.EmptyGreenSocketsInAnySlot)
-		env.itemModDB.multipliers.EmptyBlueSocketsInAnySlot = (env.configInput.overrideEmptyBlueSockets or env.itemModDB.multipliers.EmptyBlueSocketsInAnySlot)
-		env.itemModDB.multipliers.EmptyWhiteSocketsInAnySlot = (env.configInput.overrideEmptyWhiteSockets or env.itemModDB.multipliers.EmptyWhiteSocketsInAnySlot)
 		if override.toggleFlask then
 			if env.flasks[override.toggleFlask] then
 				env.flasks[override.toggleFlask] = nil
@@ -1671,6 +1636,37 @@ function calcs.initEnv(build, mode, override, specEnv)
 
 	-- Merge Requirements Tables
 	env.requirementsTable = tableConcat(env.requirementsTableItems, env.requirementsTableGems)
+
+	-- This needs to be done here at the end as otherwise we will only consider gems in the
+	-- selected active skill group
+	-- Calculate skill gem and support gem counts
+	local slotSupportGemSocketsCount = { R = 0, G = 0, B = 0 }
+	-- Loop through socket groups to calculate number of socketed gems
+	for _, socketGroup in pairs(env.build.skillsTab.socketGroupList) do
+		local socketedSupportGems = 0
+		if (socketGroup.enabled and socketGroup.gemList) then
+			for _, gem in pairs(socketGroup.gemList) do
+				if gem.supportEffect and gem.supportEffect.grantedEffect then
+					socketedSupportGems = socketedSupportGems + 1
+					if gem.supportEffect.grantedEffect.color == 1 then
+						slotSupportGemSocketsCount.R = slotSupportGemSocketsCount.R + 1
+					elseif gem.supportEffect.grantedEffect.color == 2 then
+						slotSupportGemSocketsCount.G = slotSupportGemSocketsCount.G + 1
+					elseif gem.supportEffect.grantedEffect.color == 3 then
+						slotSupportGemSocketsCount.B = slotSupportGemSocketsCount.B + 1
+					end
+				end
+			end
+		end
+		-- Warn if socketed gems over socket limit
+		if socketedSupportGems > 5 then
+			env.itemWarnings.socketLimitWarning = env.itemWarnings.socketLimitWarning or { }
+			t_insert(env.itemWarnings.socketLimitWarning, gemName)
+		end
+	end
+	env.modDB.multipliers.RedSupportGems = (env.modDB.multipliers.RedSupportGems or 0) + slotSupportGemSocketsCount.R
+	env.modDB.multipliers.GreenSupportGems = (env.modDB.multipliers.GreenSupportGems or 0) + slotSupportGemSocketsCount.G
+	env.modDB.multipliers.BlueSupportGems = (env.modDB.multipliers.BlueSupportGems or 0) + slotSupportGemSocketsCount.B
 
 	return env, cachedPlayerDB, cachedEnemyDB, cachedMinionDB
 end

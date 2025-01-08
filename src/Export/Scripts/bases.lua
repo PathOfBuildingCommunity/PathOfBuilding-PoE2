@@ -63,7 +63,28 @@ directiveTable.base = function(state, args, out)
 		end
 		return tags
 	end
+
+	local function getMaximumQuality(baseItemType)
+		if baseItemType == "nothing" then -- base case
+			return 0
+		end
+		local file = getFile(baseItemType .. ".it")
+		if not file then return nil end
+		local text = convertUTF16to8(file)
+		local superClassQuality
+		for line in text:gmatch("[^\r\n]+") do
+			local superClass = line:match("extends \"(.+)\"")
+			if superClass then
+				superClassQuality = getMaximumQuality(superClass)
+			elseif line:match("max_quality") then
+				return line:match("max_quality = (.+)")
+			end
+		end
+		return superClassQuality
+	end
+
 	local baseItemTags = getBaseItemTags(baseItemType.BaseType)
+	local maximumQuality = getMaximumQuality(baseItemType.BaseType)
 	if not displayName then
 		displayName = baseItemType.Name
 	end
@@ -74,6 +95,9 @@ directiveTable.base = function(state, args, out)
 	out:write('\ttype = "', state.type, '",\n')
 	if state.subType and #state.subType > 0 then
 		out:write('\tsubType = "', state.subType, '",\n')
+	end
+	if maximumQuality ~= 0 then
+		out:write('\tquality = ', maximumQuality, ',\n')
 	end
 	if state.type == "Belt" then
 		local beltType = dat("BeltTypes"):GetRow("BaseItemType", baseItemType)

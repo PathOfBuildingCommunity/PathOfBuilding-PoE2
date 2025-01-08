@@ -853,7 +853,7 @@ function ImportTabClass:ImportItem(itemData, slotName)
 	if itemData.ilvl > 0 then
 		item.itemLevel = itemData.ilvl
 	end
-	if item.base.weapon or item.base.armour or item.base.flask or item.base.type == "Wand" or item.base.type == "Sceptre" or item.base.type == "Staff" then
+	if item.base.quality then
 		item.quality = 0
 	end
 	if itemData.properties then

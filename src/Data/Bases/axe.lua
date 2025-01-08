@@ -4,6 +4,7 @@ local itemBases = ...
 
 itemBases["Dull Hatchet"] = {
 	type = "One Handed Axe",
+	quality = 20,
 	socketLimit = 2,
 	tags = { axe = true, onehand = true, ezomyte_basetype = true, weapon = true, one_hand_weapon = true, default = true, },
 	implicitModTypes = { },
@@ -12,6 +13,7 @@ itemBases["Dull Hatchet"] = {
 }
 itemBases["Hook Axe"] = {
 	type = "One Handed Axe",
+	quality = 20,
 	socketLimit = 2,
 	tags = { axe = true, onehand = true, ezomyte_basetype = true, weapon = true, one_hand_weapon = true, default = true, },
 	implicit = "Gain 1 Rage on Hit",
@@ -21,6 +23,7 @@ itemBases["Hook Axe"] = {
 }
 itemBases["Bearded Axe"] = {
 	type = "One Handed Axe",
+	quality = 20,
 	socketLimit = 2,
 	tags = { axe = true, onehand = true, ezomyte_basetype = true, weapon = true, one_hand_weapon = true, default = true, },
 	implicitModTypes = { },
@@ -29,6 +32,7 @@ itemBases["Bearded Axe"] = {
 }
 itemBases["Extended Cleaver"] = {
 	type = "One Handed Axe",
+	quality = 20,
 	socketLimit = 2,
 	tags = { axe = true, onehand = true, maraketh_basetype = true, weapon = true, one_hand_weapon = true, default = true, },
 	implicit = "Has no Accuracy Penalty from Range",
@@ -38,6 +42,7 @@ itemBases["Extended Cleaver"] = {
 }
 itemBases["Bandit Hatchet"] = {
 	type = "One Handed Axe",
+	quality = 20,
 	socketLimit = 2,
 	tags = { axe = true, onehand = true, maraketh_basetype = true, weapon = true, one_hand_weapon = true, default = true, },
 	implicitModTypes = { },
@@ -46,6 +51,7 @@ itemBases["Bandit Hatchet"] = {
 }
 itemBases["Crescent Axe"] = {
 	type = "One Handed Axe",
+	quality = 20,
 	socketLimit = 2,
 	tags = { axe = true, onehand = true, maraketh_basetype = true, weapon = true, one_hand_weapon = true, default = true, },
 	implicitModTypes = { },
@@ -54,6 +60,7 @@ itemBases["Crescent Axe"] = {
 }
 itemBases["Carving Hatchet"] = {
 	type = "One Handed Axe",
+	quality = 20,
 	socketLimit = 2,
 	tags = { axe = true, onehand = true, vaal_basetype = true, weapon = true, one_hand_weapon = true, default = true, },
 	implicitModTypes = { },
@@ -62,6 +69,7 @@ itemBases["Carving Hatchet"] = {
 }
 itemBases["Sacrificial Axe"] = {
 	type = "One Handed Axe",
+	quality = 20,
 	socketLimit = 2,
 	tags = { axe = true, onehand = true, vaal_basetype = true, weapon = true, one_hand_weapon = true, default = true, },
 	implicit = "Gain (28-35) Mana per Enemy Killed",
@@ -71,6 +79,7 @@ itemBases["Sacrificial Axe"] = {
 }
 itemBases["Boarding Hatchet"] = {
 	type = "One Handed Axe",
+	quality = 20,
 	socketLimit = 2,
 	tags = { axe = true, onehand = true, weapon = true, one_hand_weapon = true, default = true, },
 	implicitModTypes = { },
@@ -79,6 +88,7 @@ itemBases["Boarding Hatchet"] = {
 }
 itemBases["Fury Cleaver"] = {
 	type = "One Handed Axe",
+	quality = 20,
 	socketLimit = 2,
 	tags = { axe = true, onehand = true, weapon = true, one_hand_weapon = true, default = true, },
 	implicit = "10% increased Damage taken",
@@ -88,6 +98,7 @@ itemBases["Fury Cleaver"] = {
 }
 itemBases["Battle Axe"] = {
 	type = "One Handed Axe",
+	quality = 20,
 	socketLimit = 2,
 	tags = { axe = true, onehand = true, weapon = true, one_hand_weapon = true, default = true, },
 	implicitModTypes = { },
@@ -96,6 +107,7 @@ itemBases["Battle Axe"] = {
 }
 itemBases["Profane Cleaver"] = {
 	type = "One Handed Axe",
+	quality = 20,
 	socketLimit = 2,
 	tags = { axe = true, onehand = true, weapon = true, one_hand_weapon = true, default = true, },
 	implicitModTypes = { },
@@ -104,6 +116,7 @@ itemBases["Profane Cleaver"] = {
 }
 itemBases["Dread Hatchet"] = {
 	type = "One Handed Axe",
+	quality = 20,
 	socketLimit = 2,
 	tags = { axe = true, onehand = true, weapon = true, one_hand_weapon = true, default = true, },
 	implicitModTypes = { },
@@ -113,6 +126,7 @@ itemBases["Dread Hatchet"] = {
 
 itemBases["Splitting Greataxe"] = {
 	type = "Two Handed Axe",
+	quality = 20,
 	socketLimit = 3,
 	tags = { axe = true, ezomyte_basetype = true, two_hand_weapon = true, weapon = true, twohand = true, default = true, },
 	implicitModTypes = { },
@@ -121,6 +135,7 @@ itemBases["Splitting Greataxe"] = {
 }
 itemBases["Light Halberd"] = {
 	type = "Two Handed Axe",
+	quality = 20,
 	socketLimit = 3,
 	tags = { axe = true, ezomyte_basetype = true, two_hand_weapon = true, weapon = true, twohand = true, default = true, },
 	implicitModTypes = { },
@@ -129,6 +144,7 @@ itemBases["Light Halberd"] = {
 }
 itemBases["Executioner Greataxe"] = {
 	type = "Two Handed Axe",
+	quality = 20,
 	socketLimit = 3,
 	tags = { axe = true, ezomyte_basetype = true, two_hand_weapon = true, weapon = true, twohand = true, default = true, },
 	implicit = "Culling Strike",
@@ -138,6 +154,7 @@ itemBases["Executioner Greataxe"] = {
 }
 itemBases["Arched Greataxe"] = {
 	type = "Two Handed Axe",
+	quality = 20,
 	socketLimit = 3,
 	tags = { axe = true, maraketh_basetype = true, two_hand_weapon = true, weapon = true, twohand = true, default = true, },
 	implicitModTypes = { },
@@ -146,6 +163,7 @@ itemBases["Arched Greataxe"] = {
 }
 itemBases["Elegant Glaive"] = {
 	type = "Two Handed Axe",
+	quality = 20,
 	socketLimit = 3,
 	tags = { axe = true, maraketh_basetype = true, two_hand_weapon = true, weapon = true, twohand = true, default = true, },
 	implicitModTypes = { },
@@ -154,6 +172,7 @@ itemBases["Elegant Glaive"] = {
 }
 itemBases["Savage Greataxe"] = {
 	type = "Two Handed Axe",
+	quality = 20,
 	socketLimit = 3,
 	tags = { axe = true, maraketh_basetype = true, two_hand_weapon = true, weapon = true, twohand = true, default = true, },
 	implicit = "Gain (34-43) Life per Enemy Killed",
@@ -163,6 +182,7 @@ itemBases["Savage Greataxe"] = {
 }
 itemBases["Rending Halberd"] = {
 	type = "Two Handed Axe",
+	quality = 20,
 	socketLimit = 3,
 	tags = { axe = true, vaal_basetype = true, two_hand_weapon = true, weapon = true, twohand = true, default = true, },
 	implicitModTypes = { },
@@ -171,6 +191,7 @@ itemBases["Rending Halberd"] = {
 }
 itemBases["Jagged Greataxe"] = {
 	type = "Two Handed Axe",
+	quality = 20,
 	socketLimit = 3,
 	tags = { axe = true, vaal_basetype = true, two_hand_weapon = true, weapon = true, twohand = true, default = true, },
 	implicit = "(15-25)% chance to cause Bleeding on Hit",
@@ -180,6 +201,7 @@ itemBases["Jagged Greataxe"] = {
 }
 itemBases["Reaver Glaive"] = {
 	type = "Two Handed Axe",
+	quality = 20,
 	socketLimit = 3,
 	tags = { axe = true, two_hand_weapon = true, weapon = true, twohand = true, default = true, },
 	implicitModTypes = { },
@@ -188,6 +210,7 @@ itemBases["Reaver Glaive"] = {
 }
 itemBases["Ember Greataxe"] = {
 	type = "Two Handed Axe",
+	quality = 20,
 	socketLimit = 3,
 	tags = { axe = true, two_hand_weapon = true, weapon = true, twohand = true, default = true, },
 	implicitModTypes = { },
@@ -196,6 +219,7 @@ itemBases["Ember Greataxe"] = {
 }
 itemBases["Ceremonial Halberd"] = {
 	type = "Two Handed Axe",
+	quality = 20,
 	socketLimit = 3,
 	tags = { axe = true, two_hand_weapon = true, weapon = true, twohand = true, default = true, },
 	implicitModTypes = { },
@@ -204,6 +228,7 @@ itemBases["Ceremonial Halberd"] = {
 }
 itemBases["Monument Greataxe"] = {
 	type = "Two Handed Axe",
+	quality = 20,
 	socketLimit = 3,
 	tags = { axe = true, two_hand_weapon = true, weapon = true, twohand = true, default = true, },
 	implicitModTypes = { },
@@ -212,6 +237,7 @@ itemBases["Monument Greataxe"] = {
 }
 itemBases["Vile Greataxe"] = {
 	type = "Two Handed Axe",
+	quality = 20,
 	socketLimit = 3,
 	tags = { axe = true, two_hand_weapon = true, weapon = true, twohand = true, default = true, },
 	implicitModTypes = { },

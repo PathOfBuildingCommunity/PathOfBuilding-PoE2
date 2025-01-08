@@ -2,11 +2,9 @@
 local itemBases = ...
 
 #type One Handed Mace
-#influenceBaseTag mace
 #socketLimit 2
 #baseMatch BaseType Metadata/Items/Weapons/OneHandWeapons/OneHandMaces/AbstractOneHandMace
 
 #type Two Handed Mace
-#influenceBaseTag 2h_mace
 #socketLimit 3
 #baseMatch BaseType Metadata/Items/Weapons/TwoHandWeapons/TwoHandMaces/AbstractTwoHandMace

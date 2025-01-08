@@ -5,6 +5,7 @@ local itemBases = ...
 
 itemBases["Golden Wreath"] = {
 	type = "Helmet",
+	quality = 20,
 	socketLimit = 2,
 	tags = { not_for_sale = true, helmet = true, armour = true, demigods = true, default = true, },
 	implicit = "+(16-24) to all Attributes",
@@ -14,6 +15,7 @@ itemBases["Golden Wreath"] = {
 }
 itemBases["Golden Visage"] = {
 	type = "Helmet",
+	quality = 20,
 	socketLimit = 2,
 	tags = { not_for_sale = true, helmet = true, armour = true, demigods = true, default = true, },
 	implicit = "+(8-16)% to all Elemental Resistances",
@@ -23,6 +25,7 @@ itemBases["Golden Visage"] = {
 }
 itemBases["Rusted Greathelm"] = {
 	type = "Helmet",
+	quality = 20,
 	socketLimit = 2,
 	tags = { str_armour = true, helmet = true, armour = true, ezomyte_basetype = true, default = true, },
 	implicitModTypes = { },
@@ -31,6 +34,7 @@ itemBases["Rusted Greathelm"] = {
 }
 itemBases["Soldier Greathelm"] = {
 	type = "Helmet",
+	quality = 20,
 	socketLimit = 2,
 	tags = { str_armour = true, helmet = true, armour = true, ezomyte_basetype = true, default = true, },
 	implicitModTypes = { },
@@ -39,6 +43,7 @@ itemBases["Soldier Greathelm"] = {
 }
 itemBases["Wrapped Greathelm"] = {
 	type = "Helmet",
+	quality = 20,
 	socketLimit = 2,
 	tags = { maraketh_basetype = true, str_armour = true, helmet = true, armour = true, default = true, },
 	implicitModTypes = { },
@@ -47,6 +52,7 @@ itemBases["Wrapped Greathelm"] = {
 }
 itemBases["Spired Greathelm"] = {
 	type = "Helmet",
+	quality = 20,
 	socketLimit = 2,
 	tags = { maraketh_basetype = true, str_armour = true, helmet = true, armour = true, default = true, },
 	implicitModTypes = { },
@@ -55,6 +61,7 @@ itemBases["Spired Greathelm"] = {
 }
 itemBases["Elite Greathelm"] = {
 	type = "Helmet",
+	quality = 20,
 	socketLimit = 2,
 	tags = { str_armour = true, helmet = true, armour = true, vaal_basetype = true, default = true, },
 	implicitModTypes = { },
@@ -63,6 +70,7 @@ itemBases["Elite Greathelm"] = {
 }
 itemBases["Warrior Greathelm"] = {
 	type = "Helmet",
+	quality = 20,
 	socketLimit = 2,
 	tags = { str_armour = true, helmet = true, armour = true, vaal_basetype = true, default = true, },
 	implicitModTypes = { },
@@ -71,6 +79,7 @@ itemBases["Warrior Greathelm"] = {
 }
 itemBases["Commander Greathelm"] = {
 	type = "Helmet",
+	quality = 20,
 	socketLimit = 2,
 	tags = { helmet = true, armour = true, str_armour = true, default = true, },
 	implicitModTypes = { },
@@ -79,6 +88,7 @@ itemBases["Commander Greathelm"] = {
 }
 itemBases["Fierce Greathelm"] = {
 	type = "Helmet",
+	quality = 20,
 	socketLimit = 2,
 	tags = { helmet = true, armour = true, str_armour = true, default = true, },
 	implicitModTypes = { },
@@ -87,6 +97,7 @@ itemBases["Fierce Greathelm"] = {
 }
 itemBases["Dueling Greathelm"] = {
 	type = "Helmet",
+	quality = 20,
 	socketLimit = 2,
 	tags = { helmet = true, armour = true, str_armour = true, default = true, },
 	implicitModTypes = { },
@@ -95,6 +106,7 @@ itemBases["Dueling Greathelm"] = {
 }
 itemBases["Goliath Greathelm"] = {
 	type = "Helmet",
+	quality = 20,
 	socketLimit = 2,
 	tags = { helmet = true, armour = true, str_armour = true, default = true, },
 	implicitModTypes = { },
@@ -103,6 +115,7 @@ itemBases["Goliath Greathelm"] = {
 }
 itemBases["Guardian Greathelm"] = {
 	type = "Helmet",
+	quality = 20,
 	socketLimit = 2,
 	tags = { helmet = true, armour = true, str_armour = true, default = true, },
 	implicitModTypes = { },
@@ -111,6 +124,7 @@ itemBases["Guardian Greathelm"] = {
 }
 itemBases["Shabby Hood"] = {
 	type = "Helmet",
+	quality = 20,
 	socketLimit = 2,
 	tags = { ezomyte_basetype = true, dex_armour = true, helmet = true, armour = true, default = true, },
 	implicitModTypes = { },
@@ -119,6 +133,7 @@ itemBases["Shabby Hood"] = {
 }
 itemBases["Felt Cap"] = {
 	type = "Helmet",
+	quality = 20,
 	socketLimit = 2,
 	tags = { ezomyte_basetype = true, dex_armour = true, helmet = true, armour = true, default = true, },
 	implicitModTypes = { },
@@ -127,6 +142,7 @@ itemBases["Felt Cap"] = {
 }
 itemBases["Lace Hood"] = {
 	type = "Helmet",
+	quality = 20,
 	socketLimit = 2,
 	tags = { maraketh_basetype = true, dex_armour = true, helmet = true, armour = true, default = true, },
 	implicitModTypes = { },
@@ -135,6 +151,7 @@ itemBases["Lace Hood"] = {
 }
 itemBases["Swathed Cap"] = {
 	type = "Helmet",
+	quality = 20,
 	socketLimit = 2,
 	tags = { maraketh_basetype = true, dex_armour = true, helmet = true, armour = true, default = true, },
 	implicitModTypes = { },
@@ -143,6 +160,7 @@ itemBases["Swathed Cap"] = {
 }
 itemBases["Hunter Hood"] = {
 	type = "Helmet",
+	quality = 20,
 	socketLimit = 2,
 	tags = { dex_armour = true, helmet = true, armour = true, vaal_basetype = true, default = true, },
 	implicitModTypes = { },
@@ -151,6 +169,7 @@ itemBases["Hunter Hood"] = {
 }
 itemBases["Viper Cap"] = {
 	type = "Helmet",
+	quality = 20,
 	socketLimit = 2,
 	tags = { dex_armour = true, helmet = true, armour = true, vaal_basetype = true, default = true, },
 	implicitModTypes = { },
@@ -159,6 +178,7 @@ itemBases["Viper Cap"] = {
 }
 itemBases["Corsair Cap"] = {
 	type = "Helmet",
+	quality = 20,
 	socketLimit = 2,
 	tags = { helmet = true, armour = true, dex_armour = true, default = true, },
 	implicitModTypes = { },
@@ -167,6 +187,7 @@ itemBases["Corsair Cap"] = {
 }
 itemBases["Leatherbound Hood"] = {
 	type = "Helmet",
+	quality = 20,
 	socketLimit = 2,
 	tags = { helmet = true, armour = true, dex_armour = true, default = true, },
 	implicitModTypes = { },
@@ -175,6 +196,7 @@ itemBases["Leatherbound Hood"] = {
 }
 itemBases["Velvet Cap"] = {
 	type = "Helmet",
+	quality = 20,
 	socketLimit = 2,
 	tags = { helmet = true, armour = true, dex_armour = true, default = true, },
 	implicitModTypes = { },
@@ -183,6 +205,7 @@ itemBases["Velvet Cap"] = {
 }
 itemBases["Covert Hood"] = {
 	type = "Helmet",
+	quality = 20,
 	socketLimit = 2,
 	tags = { helmet = true, armour = true, dex_armour = true, default = true, },
 	implicitModTypes = { },
@@ -191,6 +214,7 @@ itemBases["Covert Hood"] = {
 }
 itemBases["Armoured Cap"] = {
 	type = "Helmet",
+	quality = 20,
 	socketLimit = 2,
 	tags = { helmet = true, armour = true, dex_armour = true, default = true, },
 	implicitModTypes = { },
@@ -199,6 +223,7 @@ itemBases["Armoured Cap"] = {
 }
 itemBases["Twig Circlet"] = {
 	type = "Helmet",
+	quality = 20,
 	socketLimit = 2,
 	tags = { ezomyte_basetype = true, int_armour = true, helmet = true, armour = true, default = true, },
 	implicitModTypes = { },
@@ -207,6 +232,7 @@ itemBases["Twig Circlet"] = {
 }
 itemBases["Wicker Tiara"] = {
 	type = "Helmet",
+	quality = 20,
 	socketLimit = 2,
 	tags = { ezomyte_basetype = true, int_armour = true, helmet = true, armour = true, default = true, },
 	implicitModTypes = { },
@@ -215,6 +241,7 @@ itemBases["Wicker Tiara"] = {
 }
 itemBases["Beaded Circlet"] = {
 	type = "Helmet",
+	quality = 20,
 	socketLimit = 2,
 	tags = { maraketh_basetype = true, int_armour = true, helmet = true, armour = true, default = true, },
 	implicitModTypes = { },
@@ -223,6 +250,7 @@ itemBases["Beaded Circlet"] = {
 }
 itemBases["Chain Tiara"] = {
 	type = "Helmet",
+	quality = 20,
 	socketLimit = 2,
 	tags = { maraketh_basetype = true, int_armour = true, helmet = true, armour = true, default = true, },
 	implicitModTypes = { },
@@ -231,6 +259,7 @@ itemBases["Chain Tiara"] = {
 }
 itemBases["Feathered Tiara"] = {
 	type = "Helmet",
+	quality = 20,
 	socketLimit = 2,
 	tags = { int_armour = true, helmet = true, armour = true, vaal_basetype = true, default = true, },
 	implicitModTypes = { },
@@ -239,6 +268,7 @@ itemBases["Feathered Tiara"] = {
 }
 itemBases["Gold Circlet"] = {
 	type = "Helmet",
+	quality = 20,
 	socketLimit = 2,
 	tags = { int_armour = true, helmet = true, armour = true, vaal_basetype = true, default = true, },
 	implicitModTypes = { },
@@ -247,6 +277,7 @@ itemBases["Gold Circlet"] = {
 }
 itemBases["Coral Circlet"] = {
 	type = "Helmet",
+	quality = 20,
 	socketLimit = 2,
 	tags = { helmet = true, armour = true, int_armour = true, default = true, },
 	implicitModTypes = { },
@@ -255,6 +286,7 @@ itemBases["Coral Circlet"] = {
 }
 itemBases["Jade Tiara"] = {
 	type = "Helmet",
+	quality = 20,
 	socketLimit = 2,
 	tags = { helmet = true, armour = true, int_armour = true, default = true, },
 	implicitModTypes = { },
@@ -263,6 +295,7 @@ itemBases["Jade Tiara"] = {
 }
 itemBases["Noble Circlet"] = {
 	type = "Helmet",
+	quality = 20,
 	socketLimit = 2,
 	tags = { helmet = true, armour = true, int_armour = true, default = true, },
 	implicitModTypes = { },
@@ -271,6 +304,7 @@ itemBases["Noble Circlet"] = {
 }
 itemBases["Twilight Tiara"] = {
 	type = "Helmet",
+	quality = 20,
 	socketLimit = 2,
 	tags = { helmet = true, armour = true, int_armour = true, default = true, },
 	implicitModTypes = { },
@@ -279,6 +313,7 @@ itemBases["Twilight Tiara"] = {
 }
 itemBases["Magus Tiara"] = {
 	type = "Helmet",
+	quality = 20,
 	socketLimit = 2,
 	tags = { helmet = true, armour = true, int_armour = true, default = true, },
 	implicitModTypes = { },
@@ -287,6 +322,7 @@ itemBases["Magus Tiara"] = {
 }
 itemBases["Brimmed Helm"] = {
 	type = "Helmet",
+	quality = 20,
 	socketLimit = 2,
 	tags = { str_dex_armour = true, ezomyte_basetype = true, helmet = true, armour = true, default = true, },
 	implicitModTypes = { },
@@ -295,6 +331,7 @@ itemBases["Brimmed Helm"] = {
 }
 itemBases["Guarded Helm"] = {
 	type = "Helmet",
+	quality = 20,
 	socketLimit = 2,
 	tags = { str_dex_armour = true, ezomyte_basetype = true, helmet = true, armour = true, default = true, },
 	implicitModTypes = { },
@@ -303,6 +340,7 @@ itemBases["Guarded Helm"] = {
 }
 itemBases["Visored Helm"] = {
 	type = "Helmet",
+	quality = 20,
 	socketLimit = 2,
 	tags = { maraketh_basetype = true, str_dex_armour = true, helmet = true, armour = true, default = true, },
 	implicitModTypes = { },
@@ -311,6 +349,7 @@ itemBases["Visored Helm"] = {
 }
 itemBases["Cowled Helm"] = {
 	type = "Helmet",
+	quality = 20,
 	socketLimit = 2,
 	tags = { maraketh_basetype = true, str_dex_armour = true, helmet = true, armour = true, default = true, },
 	implicitModTypes = { },
@@ -319,6 +358,7 @@ itemBases["Cowled Helm"] = {
 }
 itemBases["Shielded Helm"] = {
 	type = "Helmet",
+	quality = 20,
 	socketLimit = 2,
 	tags = { str_dex_armour = true, helmet = true, armour = true, vaal_basetype = true, default = true, },
 	implicitModTypes = { },
@@ -327,6 +367,7 @@ itemBases["Shielded Helm"] = {
 }
 itemBases["Closed Helm"] = {
 	type = "Helmet",
+	quality = 20,
 	socketLimit = 2,
 	tags = { helmet = true, armour = true, str_dex_armour = true, default = true, },
 	implicitModTypes = { },
@@ -335,6 +376,7 @@ itemBases["Closed Helm"] = {
 }
 itemBases["Decorated Helm"] = {
 	type = "Helmet",
+	quality = 20,
 	socketLimit = 2,
 	tags = { helmet = true, armour = true, str_dex_armour = true, default = true, },
 	implicitModTypes = { },
@@ -343,6 +385,7 @@ itemBases["Decorated Helm"] = {
 }
 itemBases["Gallant Helm"] = {
 	type = "Helmet",
+	quality = 20,
 	socketLimit = 2,
 	tags = { helmet = true, armour = true, str_dex_armour = true, default = true, },
 	implicitModTypes = { },
@@ -351,6 +394,7 @@ itemBases["Gallant Helm"] = {
 }
 itemBases["Iron Crown"] = {
 	type = "Helmet",
+	quality = 20,
 	socketLimit = 2,
 	tags = { str_int_armour = true, ezomyte_basetype = true, helmet = true, armour = true, default = true, },
 	implicitModTypes = { },
@@ -359,6 +403,7 @@ itemBases["Iron Crown"] = {
 }
 itemBases["Horned Crown"] = {
 	type = "Helmet",
+	quality = 20,
 	socketLimit = 2,
 	tags = { str_int_armour = true, ezomyte_basetype = true, helmet = true, armour = true, default = true, },
 	implicitModTypes = { },
@@ -367,6 +412,7 @@ itemBases["Horned Crown"] = {
 }
 itemBases["Cultist Crown"] = {
 	type = "Helmet",
+	quality = 20,
 	socketLimit = 2,
 	tags = { maraketh_basetype = true, str_int_armour = true, helmet = true, armour = true, default = true, },
 	implicitModTypes = { },
@@ -375,6 +421,7 @@ itemBases["Cultist Crown"] = {
 }
 itemBases["Martyr Crown"] = {
 	type = "Helmet",
+	quality = 20,
 	socketLimit = 2,
 	tags = { maraketh_basetype = true, str_int_armour = true, helmet = true, armour = true, default = true, },
 	implicitModTypes = { },
@@ -383,6 +430,7 @@ itemBases["Martyr Crown"] = {
 }
 itemBases["Heavy Crown"] = {
 	type = "Helmet",
+	quality = 20,
 	socketLimit = 2,
 	tags = { str_int_armour = true, helmet = true, armour = true, vaal_basetype = true, default = true, },
 	implicitModTypes = { },
@@ -391,6 +439,7 @@ itemBases["Heavy Crown"] = {
 }
 itemBases["Spiritbone Crown"] = {
 	type = "Helmet",
+	quality = 20,
 	socketLimit = 2,
 	tags = { helmet = true, armour = true, str_int_armour = true, default = true, },
 	implicitModTypes = { },
@@ -399,6 +448,7 @@ itemBases["Spiritbone Crown"] = {
 }
 itemBases["Lavish Crown"] = {
 	type = "Helmet",
+	quality = 20,
 	socketLimit = 2,
 	tags = { helmet = true, armour = true, str_int_armour = true, default = true, },
 	implicitModTypes = { },
@@ -407,6 +457,7 @@ itemBases["Lavish Crown"] = {
 }
 itemBases["Templar Crown"] = {
 	type = "Helmet",
+	quality = 20,
 	socketLimit = 2,
 	tags = { helmet = true, armour = true, str_int_armour = true, default = true, },
 	implicitModTypes = { },
@@ -415,6 +466,7 @@ itemBases["Templar Crown"] = {
 }
 itemBases["Hewn Mask"] = {
 	type = "Helmet",
+	quality = 20,
 	socketLimit = 2,
 	tags = { ezomyte_basetype = true, helmet = true, armour = true, default = true, dex_int_armour = true, },
 	implicitModTypes = { },
@@ -423,6 +475,7 @@ itemBases["Hewn Mask"] = {
 }
 itemBases["Face Mask"] = {
 	type = "Helmet",
+	quality = 20,
 	socketLimit = 2,
 	tags = { ezomyte_basetype = true, helmet = true, armour = true, default = true, dex_int_armour = true, },
 	implicitModTypes = { },
@@ -431,6 +484,7 @@ itemBases["Face Mask"] = {
 }
 itemBases["Hooded Mask"] = {
 	type = "Helmet",
+	quality = 20,
 	socketLimit = 2,
 	tags = { maraketh_basetype = true, helmet = true, armour = true, default = true, dex_int_armour = true, },
 	implicitModTypes = { },
@@ -439,6 +493,7 @@ itemBases["Hooded Mask"] = {
 }
 itemBases["Veiled Mask"] = {
 	type = "Helmet",
+	quality = 20,
 	socketLimit = 2,
 	tags = { maraketh_basetype = true, helmet = true, armour = true, default = true, dex_int_armour = true, },
 	implicitModTypes = { },
@@ -447,6 +502,7 @@ itemBases["Veiled Mask"] = {
 }
 itemBases["Tribal Mask"] = {
 	type = "Helmet",
+	quality = 20,
 	socketLimit = 2,
 	tags = { vaal_basetype = true, helmet = true, armour = true, default = true, dex_int_armour = true, },
 	implicitModTypes = { },
@@ -455,6 +511,7 @@ itemBases["Tribal Mask"] = {
 }
 itemBases["Solid Mask"] = {
 	type = "Helmet",
+	quality = 20,
 	socketLimit = 2,
 	tags = { helmet = true, armour = true, dex_int_armour = true, default = true, },
 	implicitModTypes = { },
@@ -463,6 +520,7 @@ itemBases["Solid Mask"] = {
 }
 itemBases["Shaded Mask"] = {
 	type = "Helmet",
+	quality = 20,
 	socketLimit = 2,
 	tags = { helmet = true, armour = true, dex_int_armour = true, default = true, },
 	implicitModTypes = { },
@@ -471,6 +529,7 @@ itemBases["Shaded Mask"] = {
 }
 itemBases["Death Mask"] = {
 	type = "Helmet",
+	quality = 20,
 	socketLimit = 2,
 	tags = { helmet = true, armour = true, dex_int_armour = true, default = true, },
 	implicitModTypes = { },
@@ -479,6 +538,7 @@ itemBases["Death Mask"] = {
 }
 itemBases["Grand Visage"] = {
 	type = "Helmet",
+	quality = 20,
 	socketLimit = 2,
 	tags = { helmet = true, armour = true, str_dex_int_armour = true, default = true, },
 	implicitModTypes = { },
@@ -487,6 +547,7 @@ itemBases["Grand Visage"] = {
 }
 itemBases["Advanced Rusted Greathelm"] = {
 	type = "Helmet",
+	quality = 20,
 	socketLimit = 2,
 	tags = { helmet = true, armour = true, str_armour = true, default = true, },
 	implicitModTypes = { },
@@ -495,6 +556,7 @@ itemBases["Advanced Rusted Greathelm"] = {
 }
 itemBases["Advanced Soldier Greathelm"] = {
 	type = "Helmet",
+	quality = 20,
 	socketLimit = 2,
 	tags = { helmet = true, armour = true, str_armour = true, default = true, },
 	implicitModTypes = { },
@@ -503,6 +565,7 @@ itemBases["Advanced Soldier Greathelm"] = {
 }
 itemBases["Advanced Wrapped Greathelm"] = {
 	type = "Helmet",
+	quality = 20,
 	socketLimit = 2,
 	tags = { helmet = true, armour = true, str_armour = true, default = true, },
 	implicitModTypes = { },
@@ -511,6 +574,7 @@ itemBases["Advanced Wrapped Greathelm"] = {
 }
 itemBases["Advanced Spired Greathelm"] = {
 	type = "Helmet",
+	quality = 20,
 	socketLimit = 2,
 	tags = { helmet = true, armour = true, str_armour = true, default = true, },
 	implicitModTypes = { },
@@ -519,6 +583,7 @@ itemBases["Advanced Spired Greathelm"] = {
 }
 itemBases["Advanced Elite Greathelm"] = {
 	type = "Helmet",
+	quality = 20,
 	socketLimit = 2,
 	tags = { helmet = true, armour = true, str_armour = true, default = true, },
 	implicitModTypes = { },
@@ -527,6 +592,7 @@ itemBases["Advanced Elite Greathelm"] = {
 }
 itemBases["Advanced Shabby Hood"] = {
 	type = "Helmet",
+	quality = 20,
 	socketLimit = 2,
 	tags = { helmet = true, armour = true, dex_armour = true, default = true, },
 	implicitModTypes = { },
@@ -535,6 +601,7 @@ itemBases["Advanced Shabby Hood"] = {
 }
 itemBases["Advanced Felt Cap"] = {
 	type = "Helmet",
+	quality = 20,
 	socketLimit = 2,
 	tags = { helmet = true, armour = true, dex_armour = true, default = true, },
 	implicitModTypes = { },
@@ -543,6 +610,7 @@ itemBases["Advanced Felt Cap"] = {
 }
 itemBases["Advanced Lace Hood"] = {
 	type = "Helmet",
+	quality = 20,
 	socketLimit = 2,
 	tags = { helmet = true, armour = true, dex_armour = true, default = true, },
 	implicitModTypes = { },
@@ -551,6 +619,7 @@ itemBases["Advanced Lace Hood"] = {
 }
 itemBases["Advanced Swathed Cap"] = {
 	type = "Helmet",
+	quality = 20,
 	socketLimit = 2,
 	tags = { helmet = true, armour = true, dex_armour = true, default = true, },
 	implicitModTypes = { },
@@ -559,6 +628,7 @@ itemBases["Advanced Swathed Cap"] = {
 }
 itemBases["Advanced Hunter Hood"] = {
 	type = "Helmet",
+	quality = 20,
 	socketLimit = 2,
 	tags = { helmet = true, armour = true, dex_armour = true, default = true, },
 	implicitModTypes = { },
@@ -567,6 +637,7 @@ itemBases["Advanced Hunter Hood"] = {
 }
 itemBases["Advanced Twig Circlet"] = {
 	type = "Helmet",
+	quality = 20,
 	socketLimit = 2,
 	tags = { helmet = true, armour = true, int_armour = true, default = true, },
 	implicitModTypes = { },
@@ -575,6 +646,7 @@ itemBases["Advanced Twig Circlet"] = {
 }
 itemBases["Advanced Wicker Tiara"] = {
 	type = "Helmet",
+	quality = 20,
 	socketLimit = 2,
 	tags = { helmet = true, armour = true, int_armour = true, default = true, },
 	implicitModTypes = { },
@@ -583,6 +655,7 @@ itemBases["Advanced Wicker Tiara"] = {
 }
 itemBases["Advanced Beaded Circlet"] = {
 	type = "Helmet",
+	quality = 20,
 	socketLimit = 2,
 	tags = { helmet = true, armour = true, int_armour = true, default = true, },
 	implicitModTypes = { },
@@ -591,6 +664,7 @@ itemBases["Advanced Beaded Circlet"] = {
 }
 itemBases["Advanced Chain Tiara"] = {
 	type = "Helmet",
+	quality = 20,
 	socketLimit = 2,
 	tags = { helmet = true, armour = true, int_armour = true, default = true, },
 	implicitModTypes = { },
@@ -599,6 +673,7 @@ itemBases["Advanced Chain Tiara"] = {
 }
 itemBases["Advanced Feathered Tiara"] = {
 	type = "Helmet",
+	quality = 20,
 	socketLimit = 2,
 	tags = { helmet = true, armour = true, int_armour = true, default = true, },
 	implicitModTypes = { },
@@ -607,6 +682,7 @@ itemBases["Advanced Feathered Tiara"] = {
 }
 itemBases["Advanced Brimmed Helm"] = {
 	type = "Helmet",
+	quality = 20,
 	socketLimit = 2,
 	tags = { helmet = true, armour = true, str_dex_armour = true, default = true, },
 	implicitModTypes = { },
@@ -615,6 +691,7 @@ itemBases["Advanced Brimmed Helm"] = {
 }
 itemBases["Advanced Guarded Helm"] = {
 	type = "Helmet",
+	quality = 20,
 	socketLimit = 2,
 	tags = { helmet = true, armour = true, str_dex_armour = true, default = true, },
 	implicitModTypes = { },
@@ -623,6 +700,7 @@ itemBases["Advanced Guarded Helm"] = {
 }
 itemBases["Advanced Visored Helm"] = {
 	type = "Helmet",
+	quality = 20,
 	socketLimit = 2,
 	tags = { helmet = true, armour = true, str_dex_armour = true, default = true, },
 	implicitModTypes = { },
@@ -631,6 +709,7 @@ itemBases["Advanced Visored Helm"] = {
 }
 itemBases["Advanced Cowled Helm"] = {
 	type = "Helmet",
+	quality = 20,
 	socketLimit = 2,
 	tags = { helmet = true, armour = true, str_dex_armour = true, default = true, },
 	implicitModTypes = { },
@@ -639,6 +718,7 @@ itemBases["Advanced Cowled Helm"] = {
 }
 itemBases["Advanced Shielded Helm"] = {
 	type = "Helmet",
+	quality = 20,
 	socketLimit = 2,
 	tags = { helmet = true, armour = true, str_dex_armour = true, default = true, },
 	implicitModTypes = { },
@@ -647,6 +727,7 @@ itemBases["Advanced Shielded Helm"] = {
 }
 itemBases["Advanced Iron Crown"] = {
 	type = "Helmet",
+	quality = 20,
 	socketLimit = 2,
 	tags = { helmet = true, armour = true, str_int_armour = true, default = true, },
 	implicitModTypes = { },
@@ -655,6 +736,7 @@ itemBases["Advanced Iron Crown"] = {
 }
 itemBases["Advanced Horned Crown"] = {
 	type = "Helmet",
+	quality = 20,
 	socketLimit = 2,
 	tags = { helmet = true, armour = true, str_int_armour = true, default = true, },
 	implicitModTypes = { },
@@ -663,6 +745,7 @@ itemBases["Advanced Horned Crown"] = {
 }
 itemBases["Advanced Cultist Crown"] = {
 	type = "Helmet",
+	quality = 20,
 	socketLimit = 2,
 	tags = { helmet = true, armour = true, str_int_armour = true, default = true, },
 	implicitModTypes = { },
@@ -671,6 +754,7 @@ itemBases["Advanced Cultist Crown"] = {
 }
 itemBases["Advanced Martyr Crown"] = {
 	type = "Helmet",
+	quality = 20,
 	socketLimit = 2,
 	tags = { helmet = true, armour = true, str_int_armour = true, default = true, },
 	implicitModTypes = { },
@@ -679,6 +763,7 @@ itemBases["Advanced Martyr Crown"] = {
 }
 itemBases["Advanced Heavy Crown"] = {
 	type = "Helmet",
+	quality = 20,
 	socketLimit = 2,
 	tags = { helmet = true, armour = true, str_int_armour = true, default = true, },
 	implicitModTypes = { },
@@ -687,6 +772,7 @@ itemBases["Advanced Heavy Crown"] = {
 }
 itemBases["Advanced Hewn Mask"] = {
 	type = "Helmet",
+	quality = 20,
 	socketLimit = 2,
 	tags = { helmet = true, armour = true, dex_int_armour = true, default = true, },
 	implicitModTypes = { },
@@ -695,6 +781,7 @@ itemBases["Advanced Hewn Mask"] = {
 }
 itemBases["Advanced Face Mask"] = {
 	type = "Helmet",
+	quality = 20,
 	socketLimit = 2,
 	tags = { helmet = true, armour = true, dex_int_armour = true, default = true, },
 	implicitModTypes = { },
@@ -703,6 +790,7 @@ itemBases["Advanced Face Mask"] = {
 }
 itemBases["Advanced Hooded Mask"] = {
 	type = "Helmet",
+	quality = 20,
 	socketLimit = 2,
 	tags = { helmet = true, armour = true, dex_int_armour = true, default = true, },
 	implicitModTypes = { },
@@ -711,6 +799,7 @@ itemBases["Advanced Hooded Mask"] = {
 }
 itemBases["Advanced Veiled Mask"] = {
 	type = "Helmet",
+	quality = 20,
 	socketLimit = 2,
 	tags = { helmet = true, armour = true, dex_int_armour = true, default = true, },
 	implicitModTypes = { },
@@ -719,6 +808,7 @@ itemBases["Advanced Veiled Mask"] = {
 }
 itemBases["Advanced Tribal Mask"] = {
 	type = "Helmet",
+	quality = 20,
 	socketLimit = 2,
 	tags = { helmet = true, armour = true, dex_int_armour = true, default = true, },
 	implicitModTypes = { },
@@ -727,6 +817,7 @@ itemBases["Advanced Tribal Mask"] = {
 }
 itemBases["Expert Soldier Greathelm"] = {
 	type = "Helmet",
+	quality = 20,
 	socketLimit = 2,
 	tags = { helmet = true, armour = true, str_armour = true, default = true, },
 	implicitModTypes = { },
@@ -735,6 +826,7 @@ itemBases["Expert Soldier Greathelm"] = {
 }
 itemBases["Expert Spired Greathelm"] = {
 	type = "Helmet",
+	quality = 20,
 	socketLimit = 2,
 	tags = { helmet = true, armour = true, str_armour = true, default = true, },
 	implicitModTypes = { },
@@ -743,6 +835,7 @@ itemBases["Expert Spired Greathelm"] = {
 }
 itemBases["Expert Elite Greathelm"] = {
 	type = "Helmet",
+	quality = 20,
 	socketLimit = 2,
 	tags = { helmet = true, armour = true, str_armour = true, default = true, },
 	implicitModTypes = { },
@@ -751,6 +844,7 @@ itemBases["Expert Elite Greathelm"] = {
 }
 itemBases["Expert Felt Cap"] = {
 	type = "Helmet",
+	quality = 20,
 	socketLimit = 2,
 	tags = { helmet = true, armour = true, dex_armour = true, default = true, },
 	implicitModTypes = { },
@@ -759,6 +853,7 @@ itemBases["Expert Felt Cap"] = {
 }
 itemBases["Expert Swathed Cap"] = {
 	type = "Helmet",
+	quality = 20,
 	socketLimit = 2,
 	tags = { helmet = true, armour = true, dex_armour = true, default = true, },
 	implicitModTypes = { },
@@ -767,6 +862,7 @@ itemBases["Expert Swathed Cap"] = {
 }
 itemBases["Expert Hunter Hood"] = {
 	type = "Helmet",
+	quality = 20,
 	socketLimit = 2,
 	tags = { helmet = true, armour = true, dex_armour = true, default = true, },
 	implicitModTypes = { },
@@ -775,6 +871,7 @@ itemBases["Expert Hunter Hood"] = {
 }
 itemBases["Expert Wicker Tiara"] = {
 	type = "Helmet",
+	quality = 20,
 	socketLimit = 2,
 	tags = { helmet = true, armour = true, int_armour = true, default = true, },
 	implicitModTypes = { },
@@ -783,6 +880,7 @@ itemBases["Expert Wicker Tiara"] = {
 }
 itemBases["Expert Chain Tiara"] = {
 	type = "Helmet",
+	quality = 20,
 	socketLimit = 2,
 	tags = { helmet = true, armour = true, int_armour = true, default = true, },
 	implicitModTypes = { },
@@ -791,6 +889,7 @@ itemBases["Expert Chain Tiara"] = {
 }
 itemBases["Expert Feathered Tiara"] = {
 	type = "Helmet",
+	quality = 20,
 	socketLimit = 2,
 	tags = { helmet = true, armour = true, int_armour = true, default = true, },
 	implicitModTypes = { },
@@ -799,6 +898,7 @@ itemBases["Expert Feathered Tiara"] = {
 }
 itemBases["Expert Guarded Helm"] = {
 	type = "Helmet",
+	quality = 20,
 	socketLimit = 2,
 	tags = { helmet = true, armour = true, str_dex_armour = true, default = true, },
 	implicitModTypes = { },
@@ -807,6 +907,7 @@ itemBases["Expert Guarded Helm"] = {
 }
 itemBases["Expert Cowled Helm"] = {
 	type = "Helmet",
+	quality = 20,
 	socketLimit = 2,
 	tags = { helmet = true, armour = true, str_dex_armour = true, default = true, },
 	implicitModTypes = { },
@@ -815,6 +916,7 @@ itemBases["Expert Cowled Helm"] = {
 }
 itemBases["Expert Shielded Helm"] = {
 	type = "Helmet",
+	quality = 20,
 	socketLimit = 2,
 	tags = { helmet = true, armour = true, str_dex_armour = true, default = true, },
 	implicitModTypes = { },
@@ -823,6 +925,7 @@ itemBases["Expert Shielded Helm"] = {
 }
 itemBases["Expert Horned Crown"] = {
 	type = "Helmet",
+	quality = 20,
 	socketLimit = 2,
 	tags = { helmet = true, armour = true, str_int_armour = true, default = true, },
 	implicitModTypes = { },
@@ -831,6 +934,7 @@ itemBases["Expert Horned Crown"] = {
 }
 itemBases["Expert Martyr Crown"] = {
 	type = "Helmet",
+	quality = 20,
 	socketLimit = 2,
 	tags = { helmet = true, armour = true, str_int_armour = true, default = true, },
 	implicitModTypes = { },
@@ -839,6 +943,7 @@ itemBases["Expert Martyr Crown"] = {
 }
 itemBases["Expert Heavy Crown"] = {
 	type = "Helmet",
+	quality = 20,
 	socketLimit = 2,
 	tags = { helmet = true, armour = true, str_int_armour = true, default = true, },
 	implicitModTypes = { },
@@ -847,6 +952,7 @@ itemBases["Expert Heavy Crown"] = {
 }
 itemBases["Expert Face Mask"] = {
 	type = "Helmet",
+	quality = 20,
 	socketLimit = 2,
 	tags = { helmet = true, armour = true, dex_int_armour = true, default = true, },
 	implicitModTypes = { },
@@ -855,6 +961,7 @@ itemBases["Expert Face Mask"] = {
 }
 itemBases["Expert Veiled Mask"] = {
 	type = "Helmet",
+	quality = 20,
 	socketLimit = 2,
 	tags = { helmet = true, armour = true, dex_int_armour = true, default = true, },
 	implicitModTypes = { },
@@ -863,6 +970,7 @@ itemBases["Expert Veiled Mask"] = {
 }
 itemBases["Expert Tribal Mask"] = {
 	type = "Helmet",
+	quality = 20,
 	socketLimit = 2,
 	tags = { helmet = true, armour = true, dex_int_armour = true, default = true, },
 	implicitModTypes = { },

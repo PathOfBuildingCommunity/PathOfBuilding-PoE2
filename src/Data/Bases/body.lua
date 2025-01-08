@@ -4,6 +4,7 @@ local itemBases = ...
 
 itemBases["Golden Mantle"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, str_dex_int_armour = true, demigods = true, armour = true, not_for_sale = true, default = true, },
 	implicit = "+(15-25)% to all Elemental Resistances",
@@ -13,6 +14,7 @@ itemBases["Golden Mantle"] = {
 }
 itemBases["Rusted Cuirass"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, str_armour = true, armour = true, ezomyte_basetype = true, default = true, },
 	implicitModTypes = { },
@@ -21,6 +23,7 @@ itemBases["Rusted Cuirass"] = {
 }
 itemBases["Fur Plate"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, str_armour = true, armour = true, ezomyte_basetype = true, default = true, },
 	implicitModTypes = { },
@@ -29,6 +32,7 @@ itemBases["Fur Plate"] = {
 }
 itemBases["Iron Cuirass"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, str_armour = true, armour = true, ezomyte_basetype = true, default = true, },
 	implicitModTypes = { },
@@ -37,6 +41,7 @@ itemBases["Iron Cuirass"] = {
 }
 itemBases["Raider Plate"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, str_armour = true, armour = true, maraketh_basetype = true, default = true, },
 	implicitModTypes = { },
@@ -45,6 +50,7 @@ itemBases["Raider Plate"] = {
 }
 itemBases["Maraketh Cuirass"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, str_armour = true, armour = true, maraketh_basetype = true, default = true, },
 	implicitModTypes = { },
@@ -53,6 +59,7 @@ itemBases["Maraketh Cuirass"] = {
 }
 itemBases["Steel Plate"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, str_armour = true, armour = true, maraketh_basetype = true, default = true, },
 	implicitModTypes = { },
@@ -61,6 +68,7 @@ itemBases["Steel Plate"] = {
 }
 itemBases["Full Plate"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, str_armour = true, armour = true, vaal_basetype = true, default = true, },
 	implicitModTypes = { },
@@ -69,6 +77,7 @@ itemBases["Full Plate"] = {
 }
 itemBases["Vaal Cuirass"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, str_armour = true, armour = true, vaal_basetype = true, default = true, },
 	implicitModTypes = { },
@@ -77,6 +86,7 @@ itemBases["Vaal Cuirass"] = {
 }
 itemBases["Juggernaut Plate"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, armour = true, str_armour = true, default = true, },
 	implicitModTypes = { },
@@ -85,6 +95,7 @@ itemBases["Juggernaut Plate"] = {
 }
 itemBases["Chieftain Cuirass"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, armour = true, str_armour = true, default = true, },
 	implicitModTypes = { },
@@ -93,6 +104,7 @@ itemBases["Chieftain Cuirass"] = {
 }
 itemBases["Colosseum Plate"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, armour = true, str_armour = true, default = true, },
 	implicitModTypes = { },
@@ -101,6 +113,7 @@ itemBases["Colosseum Plate"] = {
 }
 itemBases["Champion Cuirass"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, armour = true, str_armour = true, default = true, },
 	implicitModTypes = { },
@@ -109,6 +122,7 @@ itemBases["Champion Cuirass"] = {
 }
 itemBases["Glorious Plate"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, armour = true, str_armour = true, default = true, },
 	implicitModTypes = { },
@@ -117,6 +131,7 @@ itemBases["Glorious Plate"] = {
 }
 itemBases["Conqueror Plate"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, armour = true, str_armour = true, default = true, },
 	implicit = "(30-40)% increased Stun Threshold",
@@ -126,6 +141,7 @@ itemBases["Conqueror Plate"] = {
 }
 itemBases["Abyssal Cuirass"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, armour = true, str_armour = true, default = true, },
 	implicit = "Regenerate (1.5-2.5)% of Life per second",
@@ -135,6 +151,7 @@ itemBases["Abyssal Cuirass"] = {
 }
 itemBases["Leather Vest"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, ezomyte_basetype = true, dex_armour = true, armour = true, default = true, },
 	implicitModTypes = { },
@@ -143,6 +160,7 @@ itemBases["Leather Vest"] = {
 }
 itemBases["Quilted Vest"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, ezomyte_basetype = true, dex_armour = true, armour = true, default = true, },
 	implicitModTypes = { },
@@ -151,6 +169,7 @@ itemBases["Quilted Vest"] = {
 }
 itemBases["Pathfinder Coat"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, ezomyte_basetype = true, dex_armour = true, armour = true, default = true, },
 	implicitModTypes = { },
@@ -159,6 +178,7 @@ itemBases["Pathfinder Coat"] = {
 }
 itemBases["Shrouded Vest"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, dex_armour = true, armour = true, maraketh_basetype = true, default = true, },
 	implicitModTypes = { },
@@ -167,6 +187,7 @@ itemBases["Shrouded Vest"] = {
 }
 itemBases["Rhoahide Coat"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, dex_armour = true, armour = true, maraketh_basetype = true, default = true, },
 	implicitModTypes = { },
@@ -175,6 +196,7 @@ itemBases["Rhoahide Coat"] = {
 }
 itemBases["Studded Vest"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, dex_armour = true, armour = true, maraketh_basetype = true, default = true, },
 	implicitModTypes = { },
@@ -183,6 +205,7 @@ itemBases["Studded Vest"] = {
 }
 itemBases["Scout's Vest"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, dex_armour = true, armour = true, vaal_basetype = true, default = true, },
 	implicitModTypes = { },
@@ -191,6 +214,7 @@ itemBases["Scout's Vest"] = {
 }
 itemBases["Serpentscale Coat"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, dex_armour = true, armour = true, vaal_basetype = true, default = true, },
 	implicitModTypes = { },
@@ -199,6 +223,7 @@ itemBases["Serpentscale Coat"] = {
 }
 itemBases["Corsair Vest"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, armour = true, dex_armour = true, default = true, },
 	implicitModTypes = { },
@@ -207,6 +232,7 @@ itemBases["Corsair Vest"] = {
 }
 itemBases["Smuggler Coat"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, armour = true, dex_armour = true, default = true, },
 	implicitModTypes = { },
@@ -215,6 +241,7 @@ itemBases["Smuggler Coat"] = {
 }
 itemBases["Strider Vest"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, armour = true, dex_armour = true, default = true, },
 	implicitModTypes = { },
@@ -223,6 +250,7 @@ itemBases["Strider Vest"] = {
 }
 itemBases["Hardleather Coat"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, armour = true, dex_armour = true, default = true, },
 	implicitModTypes = { },
@@ -231,6 +259,7 @@ itemBases["Hardleather Coat"] = {
 }
 itemBases["Exquisite Vest"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, armour = true, dex_armour = true, default = true, },
 	implicitModTypes = { },
@@ -239,6 +268,7 @@ itemBases["Exquisite Vest"] = {
 }
 itemBases["Mail Coat"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, armour = true, dex_armour = true, default = true, },
 	implicit = "(20-30)% reduced Slowing Potency of Debuffs on You",
@@ -248,6 +278,7 @@ itemBases["Mail Coat"] = {
 }
 itemBases["Armoured Vest"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, armour = true, dex_armour = true, default = true, },
 	implicit = "(30-40)% increased Elemental Ailment Threshold",
@@ -257,6 +288,7 @@ itemBases["Armoured Vest"] = {
 }
 itemBases["Tattered Robe"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, ezomyte_basetype = true, int_armour = true, armour = true, default = true, },
 	implicitModTypes = { },
@@ -265,6 +297,7 @@ itemBases["Tattered Robe"] = {
 }
 itemBases["Feathered Robe"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, ezomyte_basetype = true, int_armour = true, armour = true, default = true, },
 	implicitModTypes = { },
@@ -273,6 +306,7 @@ itemBases["Feathered Robe"] = {
 }
 itemBases["Hexer's Robe"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, ezomyte_basetype = true, int_armour = true, armour = true, default = true, },
 	implicitModTypes = { },
@@ -281,6 +315,7 @@ itemBases["Hexer's Robe"] = {
 }
 itemBases["Bone Raiment"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, int_armour = true, armour = true, maraketh_basetype = true, default = true, },
 	implicitModTypes = { },
@@ -289,6 +324,7 @@ itemBases["Bone Raiment"] = {
 }
 itemBases["Silk Robe"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, int_armour = true, armour = true, maraketh_basetype = true, default = true, },
 	implicitModTypes = { },
@@ -297,6 +333,7 @@ itemBases["Silk Robe"] = {
 }
 itemBases["Keth Raiment"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, int_armour = true, armour = true, maraketh_basetype = true, default = true, },
 	implicitModTypes = { },
@@ -305,6 +342,7 @@ itemBases["Keth Raiment"] = {
 }
 itemBases["Votive Raiment"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, int_armour = true, armour = true, vaal_basetype = true, default = true, },
 	implicitModTypes = { },
@@ -313,6 +351,7 @@ itemBases["Votive Raiment"] = {
 }
 itemBases["Altar Robe"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, int_armour = true, armour = true, vaal_basetype = true, default = true, },
 	implicitModTypes = { },
@@ -321,6 +360,7 @@ itemBases["Altar Robe"] = {
 }
 itemBases["Elementalist Robe"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, armour = true, int_armour = true, default = true, },
 	implicitModTypes = { },
@@ -329,6 +369,7 @@ itemBases["Elementalist Robe"] = {
 }
 itemBases["Mystic Raiment"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, armour = true, int_armour = true, default = true, },
 	implicitModTypes = { },
@@ -337,6 +378,7 @@ itemBases["Mystic Raiment"] = {
 }
 itemBases["Imperial Robe"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, armour = true, int_armour = true, default = true, },
 	implicitModTypes = { },
@@ -345,6 +387,7 @@ itemBases["Imperial Robe"] = {
 }
 itemBases["Plated Raiment"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, armour = true, int_armour = true, default = true, },
 	implicitModTypes = { },
@@ -353,6 +396,7 @@ itemBases["Plated Raiment"] = {
 }
 itemBases["Havoc Raiment"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, armour = true, int_armour = true, default = true, },
 	implicitModTypes = { },
@@ -361,6 +405,7 @@ itemBases["Havoc Raiment"] = {
 }
 itemBases["Enlightened Robe"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, armour = true, int_armour = true, default = true, },
 	implicit = "(40-50)% increased Mana Regeneration Rate",
@@ -370,6 +415,7 @@ itemBases["Enlightened Robe"] = {
 }
 itemBases["Arcane Robe"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, armour = true, int_armour = true, default = true, },
 	implicit = "(40-50)% faster start of Energy Shield Recharge",
@@ -379,6 +425,7 @@ itemBases["Arcane Robe"] = {
 }
 itemBases["Chain Mail"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, str_dex_armour = true, ezomyte_basetype = true, armour = true, default = true, },
 	implicitModTypes = { },
@@ -387,6 +434,7 @@ itemBases["Chain Mail"] = {
 }
 itemBases["Rogue Armour"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, str_dex_armour = true, ezomyte_basetype = true, armour = true, default = true, },
 	implicitModTypes = { },
@@ -395,6 +443,7 @@ itemBases["Rogue Armour"] = {
 }
 itemBases["Vagabond Armour"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, str_dex_armour = true, armour = true, maraketh_basetype = true, default = true, },
 	implicitModTypes = { },
@@ -403,6 +452,7 @@ itemBases["Vagabond Armour"] = {
 }
 itemBases["Cloaked Mail"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, str_dex_armour = true, armour = true, maraketh_basetype = true, default = true, },
 	implicitModTypes = { },
@@ -411,6 +461,7 @@ itemBases["Cloaked Mail"] = {
 }
 itemBases["Explorer Armour"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, str_dex_armour = true, armour = true, vaal_basetype = true, default = true, },
 	implicitModTypes = { },
@@ -419,6 +470,7 @@ itemBases["Explorer Armour"] = {
 }
 itemBases["Scale Mail"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, str_dex_armour = true, armour = true, vaal_basetype = true, default = true, },
 	implicitModTypes = { },
@@ -427,6 +479,7 @@ itemBases["Scale Mail"] = {
 }
 itemBases["Knight Armour"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, armour = true, str_dex_armour = true, default = true, },
 	implicitModTypes = { },
@@ -435,6 +488,7 @@ itemBases["Knight Armour"] = {
 }
 itemBases["Ancestral Mail"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, armour = true, str_dex_armour = true, default = true, },
 	implicitModTypes = { },
@@ -443,6 +497,7 @@ itemBases["Ancestral Mail"] = {
 }
 itemBases["Lamellar Mail"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, armour = true, str_dex_armour = true, default = true, },
 	implicitModTypes = { },
@@ -451,6 +506,7 @@ itemBases["Lamellar Mail"] = {
 }
 itemBases["Gladiator Armour"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, armour = true, str_dex_armour = true, default = true, },
 	implicitModTypes = { },
@@ -459,6 +515,7 @@ itemBases["Gladiator Armour"] = {
 }
 itemBases["Heroic Armour"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, armour = true, str_dex_armour = true, default = true, },
 	implicit = "+(60-80) to maximum Life",
@@ -468,6 +525,7 @@ itemBases["Heroic Armour"] = {
 }
 itemBases["Tournament Mail"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, armour = true, str_dex_armour = true, default = true, },
 	implicit = "+(20-25)% to Fire Resistance",
@@ -477,6 +535,7 @@ itemBases["Tournament Mail"] = {
 }
 itemBases["Tournament Mail"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, armour = true, str_dex_armour = true, default = true, },
 	implicit = "+(20-25)% to Cold Resistance",
@@ -486,6 +545,7 @@ itemBases["Tournament Mail"] = {
 }
 itemBases["Tournament Mail"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, armour = true, str_dex_armour = true, default = true, },
 	implicit = "+(20-25)% to Lightning Resistance",
@@ -495,6 +555,7 @@ itemBases["Tournament Mail"] = {
 }
 itemBases["Slayer Armour"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, armour = true, str_dex_armour = true, default = true, },
 	implicitModTypes = { },
@@ -503,6 +564,7 @@ itemBases["Slayer Armour"] = {
 }
 itemBases["Pilgrim Vestments"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, str_int_armour = true, ezomyte_basetype = true, armour = true, default = true, },
 	implicitModTypes = { },
@@ -511,6 +573,7 @@ itemBases["Pilgrim Vestments"] = {
 }
 itemBases["Pelt Mantle"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, str_int_armour = true, ezomyte_basetype = true, armour = true, default = true, },
 	implicitModTypes = { },
@@ -519,6 +582,7 @@ itemBases["Pelt Mantle"] = {
 }
 itemBases["Mail Vestments"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, str_int_armour = true, armour = true, maraketh_basetype = true, default = true, },
 	implicitModTypes = { },
@@ -527,6 +591,7 @@ itemBases["Mail Vestments"] = {
 }
 itemBases["Shaman Mantle"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, str_int_armour = true, armour = true, maraketh_basetype = true, default = true, },
 	implicitModTypes = { },
@@ -535,6 +600,7 @@ itemBases["Shaman Mantle"] = {
 }
 itemBases["Ironclad Vestments"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, str_int_armour = true, armour = true, vaal_basetype = true, default = true, },
 	implicitModTypes = { },
@@ -543,6 +609,7 @@ itemBases["Ironclad Vestments"] = {
 }
 itemBases["Sacrificial Mantle"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, str_int_armour = true, armour = true, vaal_basetype = true, default = true, },
 	implicitModTypes = { },
@@ -551,6 +618,7 @@ itemBases["Sacrificial Mantle"] = {
 }
 itemBases["Cleric Vestments"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, armour = true, str_int_armour = true, default = true, },
 	implicitModTypes = { },
@@ -559,6 +627,7 @@ itemBases["Cleric Vestments"] = {
 }
 itemBases["Tideseer Mantle"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, armour = true, str_int_armour = true, default = true, },
 	implicitModTypes = { },
@@ -567,6 +636,7 @@ itemBases["Tideseer Mantle"] = {
 }
 itemBases["Gilded Vestments"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, armour = true, str_int_armour = true, default = true, },
 	implicitModTypes = { },
@@ -575,6 +645,7 @@ itemBases["Gilded Vestments"] = {
 }
 itemBases["Venerated Mantle"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, armour = true, str_int_armour = true, default = true, },
 	implicitModTypes = { },
@@ -583,6 +654,7 @@ itemBases["Venerated Mantle"] = {
 }
 itemBases["Revered Vestments"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, armour = true, str_int_armour = true, default = true, },
 	implicit = "+1% to all Maximum Elemental Resistances",
@@ -592,6 +664,7 @@ itemBases["Revered Vestments"] = {
 }
 itemBases["Corvus Mantle"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, armour = true, str_int_armour = true, default = true, },
 	implicit = "+(20-30) to Spirit",
@@ -601,6 +674,7 @@ itemBases["Corvus Mantle"] = {
 }
 itemBases["Zenith Vestments"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, armour = true, str_int_armour = true, default = true, },
 	implicitModTypes = { },
@@ -609,6 +683,7 @@ itemBases["Zenith Vestments"] = {
 }
 itemBases["Hermit Garb"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, ezomyte_basetype = true, armour = true, default = true, dex_int_armour = true, },
 	implicitModTypes = { },
@@ -617,6 +692,7 @@ itemBases["Hermit Garb"] = {
 }
 itemBases["Waxed Jacket"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, ezomyte_basetype = true, armour = true, default = true, dex_int_armour = true, },
 	implicitModTypes = { },
@@ -625,6 +701,7 @@ itemBases["Waxed Jacket"] = {
 }
 itemBases["Marabout Garb"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, maraketh_basetype = true, armour = true, default = true, dex_int_armour = true, },
 	implicitModTypes = { },
@@ -633,6 +710,7 @@ itemBases["Marabout Garb"] = {
 }
 itemBases["Wayfarer Jacket"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, maraketh_basetype = true, armour = true, default = true, dex_int_armour = true, },
 	implicitModTypes = { },
@@ -641,6 +719,7 @@ itemBases["Wayfarer Jacket"] = {
 }
 itemBases["Anchorite Garb"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, vaal_basetype = true, armour = true, default = true, dex_int_armour = true, },
 	implicitModTypes = { },
@@ -649,6 +728,7 @@ itemBases["Anchorite Garb"] = {
 }
 itemBases["Scalper's Jacket"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, vaal_basetype = true, armour = true, default = true, dex_int_armour = true, },
 	implicitModTypes = { },
@@ -657,6 +737,7 @@ itemBases["Scalper's Jacket"] = {
 }
 itemBases["Scoundrel Jacket"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, armour = true, dex_int_armour = true, default = true, },
 	implicitModTypes = { },
@@ -665,6 +746,7 @@ itemBases["Scoundrel Jacket"] = {
 }
 itemBases["Ascetic Garb"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, armour = true, dex_int_armour = true, default = true, },
 	implicitModTypes = { },
@@ -673,6 +755,7 @@ itemBases["Ascetic Garb"] = {
 }
 itemBases["Clandestine Jacket"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, armour = true, dex_int_armour = true, default = true, },
 	implicitModTypes = { },
@@ -681,6 +764,7 @@ itemBases["Clandestine Jacket"] = {
 }
 itemBases["Monastic Garb"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, armour = true, dex_int_armour = true, default = true, },
 	implicitModTypes = { },
@@ -689,6 +773,7 @@ itemBases["Monastic Garb"] = {
 }
 itemBases["Torment Jacket"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, armour = true, dex_int_armour = true, default = true, },
 	implicitModTypes = { },
@@ -697,6 +782,7 @@ itemBases["Torment Jacket"] = {
 }
 itemBases["Devout Garb"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, armour = true, dex_int_armour = true, default = true, },
 	implicit = "+(7-13)% to Chaos Resistance",
@@ -706,6 +792,7 @@ itemBases["Devout Garb"] = {
 }
 itemBases["Assassin Garb"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, armour = true, dex_int_armour = true, default = true, },
 	implicit = "5% increased Movement Speed",
@@ -715,6 +802,7 @@ itemBases["Assassin Garb"] = {
 }
 itemBases["Garment"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, armour = true, str_dex_int_armour = true, default = true, },
 	implicitModTypes = { },
@@ -723,6 +811,7 @@ itemBases["Garment"] = {
 }
 itemBases["Grand Regalia"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, armour = true, str_dex_int_armour = true, default = true, },
 	implicitModTypes = { },
@@ -731,6 +820,7 @@ itemBases["Grand Regalia"] = {
 }
 itemBases["Advanced Fur Plate"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, armour = true, str_armour = true, default = true, },
 	implicitModTypes = { },
@@ -739,6 +829,7 @@ itemBases["Advanced Fur Plate"] = {
 }
 itemBases["Advanced Iron Cuirass"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, armour = true, str_armour = true, default = true, },
 	implicitModTypes = { },
@@ -747,6 +838,7 @@ itemBases["Advanced Iron Cuirass"] = {
 }
 itemBases["Advanced Maraketh Cuirass"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, armour = true, str_armour = true, default = true, },
 	implicitModTypes = { },
@@ -755,6 +847,7 @@ itemBases["Advanced Maraketh Cuirass"] = {
 }
 itemBases["Advanced Steel Plate"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, armour = true, str_armour = true, default = true, },
 	implicitModTypes = { },
@@ -763,6 +856,7 @@ itemBases["Advanced Steel Plate"] = {
 }
 itemBases["Advanced Full Plate"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, armour = true, str_armour = true, default = true, },
 	implicitModTypes = { },
@@ -771,6 +865,7 @@ itemBases["Advanced Full Plate"] = {
 }
 itemBases["Advanced Vaal Cuirass"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, armour = true, str_armour = true, default = true, },
 	implicitModTypes = { },
@@ -779,6 +874,7 @@ itemBases["Advanced Vaal Cuirass"] = {
 }
 itemBases["Advanced Quilted Vest"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, armour = true, dex_armour = true, default = true, },
 	implicitModTypes = { },
@@ -787,6 +883,7 @@ itemBases["Advanced Quilted Vest"] = {
 }
 itemBases["Advanced Pathfinder Coat"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, armour = true, dex_armour = true, default = true, },
 	implicitModTypes = { },
@@ -795,6 +892,7 @@ itemBases["Advanced Pathfinder Coat"] = {
 }
 itemBases["Advanced Rhoahide Coat"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, armour = true, dex_armour = true, default = true, },
 	implicitModTypes = { },
@@ -803,6 +901,7 @@ itemBases["Advanced Rhoahide Coat"] = {
 }
 itemBases["Advanced Studded Vest"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, armour = true, dex_armour = true, default = true, },
 	implicitModTypes = { },
@@ -811,6 +910,7 @@ itemBases["Advanced Studded Vest"] = {
 }
 itemBases["Advanced Scout's Vest"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, armour = true, dex_armour = true, default = true, },
 	implicitModTypes = { },
@@ -819,6 +919,7 @@ itemBases["Advanced Scout's Vest"] = {
 }
 itemBases["Advanced Serpentscale Coat"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, armour = true, dex_armour = true, default = true, },
 	implicitModTypes = { },
@@ -827,6 +928,7 @@ itemBases["Advanced Serpentscale Coat"] = {
 }
 itemBases["Advanced Feathered Robe"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, armour = true, int_armour = true, default = true, },
 	implicitModTypes = { },
@@ -835,6 +937,7 @@ itemBases["Advanced Feathered Robe"] = {
 }
 itemBases["Advanced Hexer's Robe"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, armour = true, int_armour = true, default = true, },
 	implicitModTypes = { },
@@ -843,6 +946,7 @@ itemBases["Advanced Hexer's Robe"] = {
 }
 itemBases["Advanced Silk Robe"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, armour = true, int_armour = true, default = true, },
 	implicitModTypes = { },
@@ -851,6 +955,7 @@ itemBases["Advanced Silk Robe"] = {
 }
 itemBases["Advanced Keth Raiment"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, armour = true, int_armour = true, default = true, },
 	implicitModTypes = { },
@@ -859,6 +964,7 @@ itemBases["Advanced Keth Raiment"] = {
 }
 itemBases["Advanced Votive Raiment"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, armour = true, int_armour = true, default = true, },
 	implicitModTypes = { },
@@ -867,6 +973,7 @@ itemBases["Advanced Votive Raiment"] = {
 }
 itemBases["Advanced Altar Robe"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, armour = true, int_armour = true, default = true, },
 	implicitModTypes = { },
@@ -875,6 +982,7 @@ itemBases["Advanced Altar Robe"] = {
 }
 itemBases["Advanced Chain Mail"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, armour = true, str_dex_armour = true, default = true, },
 	implicitModTypes = { },
@@ -883,6 +991,7 @@ itemBases["Advanced Chain Mail"] = {
 }
 itemBases["Advanced Rogue Armour"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, armour = true, str_dex_armour = true, default = true, },
 	implicitModTypes = { },
@@ -891,6 +1000,7 @@ itemBases["Advanced Rogue Armour"] = {
 }
 itemBases["Advanced Vagabond Armour"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, armour = true, str_dex_armour = true, default = true, },
 	implicitModTypes = { },
@@ -899,6 +1009,7 @@ itemBases["Advanced Vagabond Armour"] = {
 }
 itemBases["Advanced Cloaked Mail"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, armour = true, str_dex_armour = true, default = true, },
 	implicitModTypes = { },
@@ -907,6 +1018,7 @@ itemBases["Advanced Cloaked Mail"] = {
 }
 itemBases["Advanced Explorer Armour"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, armour = true, str_dex_armour = true, default = true, },
 	implicitModTypes = { },
@@ -915,6 +1027,7 @@ itemBases["Advanced Explorer Armour"] = {
 }
 itemBases["Advanced Scale Mail"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, armour = true, str_dex_armour = true, default = true, },
 	implicitModTypes = { },
@@ -923,6 +1036,7 @@ itemBases["Advanced Scale Mail"] = {
 }
 itemBases["Advanced Pilgrim Vestments"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, armour = true, str_int_armour = true, default = true, },
 	implicitModTypes = { },
@@ -931,6 +1045,7 @@ itemBases["Advanced Pilgrim Vestments"] = {
 }
 itemBases["Advanced Pelt Mantle"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, armour = true, str_int_armour = true, default = true, },
 	implicitModTypes = { },
@@ -939,6 +1054,7 @@ itemBases["Advanced Pelt Mantle"] = {
 }
 itemBases["Advanced Mail Vestments"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, armour = true, str_int_armour = true, default = true, },
 	implicitModTypes = { },
@@ -947,6 +1063,7 @@ itemBases["Advanced Mail Vestments"] = {
 }
 itemBases["Advanced Shaman Mantle"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, armour = true, str_int_armour = true, default = true, },
 	implicitModTypes = { },
@@ -955,6 +1072,7 @@ itemBases["Advanced Shaman Mantle"] = {
 }
 itemBases["Advanced Ironclad Vestments"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, armour = true, str_int_armour = true, default = true, },
 	implicitModTypes = { },
@@ -963,6 +1081,7 @@ itemBases["Advanced Ironclad Vestments"] = {
 }
 itemBases["Advanced Sacrificial Mantle"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, armour = true, str_int_armour = true, default = true, },
 	implicitModTypes = { },
@@ -971,6 +1090,7 @@ itemBases["Advanced Sacrificial Mantle"] = {
 }
 itemBases["Advanced Hermit Garb"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, armour = true, dex_int_armour = true, default = true, },
 	implicitModTypes = { },
@@ -979,6 +1099,7 @@ itemBases["Advanced Hermit Garb"] = {
 }
 itemBases["Advanced Waxed Jacket"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, armour = true, dex_int_armour = true, default = true, },
 	implicitModTypes = { },
@@ -987,6 +1108,7 @@ itemBases["Advanced Waxed Jacket"] = {
 }
 itemBases["Advanced Marabout Garb"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, armour = true, dex_int_armour = true, default = true, },
 	implicitModTypes = { },
@@ -995,6 +1117,7 @@ itemBases["Advanced Marabout Garb"] = {
 }
 itemBases["Advanced Wayfarer Jacket"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, armour = true, dex_int_armour = true, default = true, },
 	implicitModTypes = { },
@@ -1003,6 +1126,7 @@ itemBases["Advanced Wayfarer Jacket"] = {
 }
 itemBases["Advanced Anchorite Garb"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, armour = true, dex_int_armour = true, default = true, },
 	implicitModTypes = { },
@@ -1011,6 +1135,7 @@ itemBases["Advanced Anchorite Garb"] = {
 }
 itemBases["Advanced Scalper's Jacket"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, armour = true, dex_int_armour = true, default = true, },
 	implicitModTypes = { },
@@ -1019,6 +1144,7 @@ itemBases["Advanced Scalper's Jacket"] = {
 }
 itemBases["Expert Iron Cuirass"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, armour = true, str_armour = true, default = true, },
 	implicitModTypes = { },
@@ -1027,6 +1153,7 @@ itemBases["Expert Iron Cuirass"] = {
 }
 itemBases["Expert Steel Plate"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, armour = true, str_armour = true, default = true, },
 	implicit = "Regenerate (1.5-2.5)% of Life per second",
@@ -1036,6 +1163,7 @@ itemBases["Expert Steel Plate"] = {
 }
 itemBases["Expert Vaal Cuirass"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, armour = true, str_armour = true, default = true, },
 	implicit = "(30-40)% increased Stun Threshold",
@@ -1045,6 +1173,7 @@ itemBases["Expert Vaal Cuirass"] = {
 }
 itemBases["Expert Pathfinder Coat"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, armour = true, dex_armour = true, default = true, },
 	implicit = "(20-30)% reduced Slowing Potency of Debuffs on You",
@@ -1054,6 +1183,7 @@ itemBases["Expert Pathfinder Coat"] = {
 }
 itemBases["Expert Studded Vest"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, armour = true, dex_armour = true, default = true, },
 	implicitModTypes = { },
@@ -1062,6 +1192,7 @@ itemBases["Expert Studded Vest"] = {
 }
 itemBases["Expert Serpentscale Coat"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, armour = true, dex_armour = true, default = true, },
 	implicit = "(30-40)% increased Elemental Ailment Threshold",
@@ -1071,6 +1202,7 @@ itemBases["Expert Serpentscale Coat"] = {
 }
 itemBases["Expert Hexer's Robe"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, armour = true, int_armour = true, default = true, },
 	implicitModTypes = { },
@@ -1079,6 +1211,7 @@ itemBases["Expert Hexer's Robe"] = {
 }
 itemBases["Expert Keth Raiment"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, armour = true, int_armour = true, default = true, },
 	implicit = "(40-50)% increased Mana Regeneration Rate",
@@ -1088,6 +1221,7 @@ itemBases["Expert Keth Raiment"] = {
 }
 itemBases["Expert Altar Robe"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, armour = true, int_armour = true, default = true, },
 	implicit = "(40-50)% faster start of Energy Shield Recharge",
@@ -1097,6 +1231,7 @@ itemBases["Expert Altar Robe"] = {
 }
 itemBases["Expert Rogue Armour"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, armour = true, str_dex_armour = true, default = true, },
 	implicit = "+(60-80) to maximum Life",
@@ -1106,6 +1241,7 @@ itemBases["Expert Rogue Armour"] = {
 }
 itemBases["Expert Cloaked Mail"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, armour = true, str_dex_armour = true, default = true, },
 	implicit = "+(20-25)% to Fire Resistance",
@@ -1115,6 +1251,7 @@ itemBases["Expert Cloaked Mail"] = {
 }
 itemBases["Expert Cloaked Mail"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, armour = true, str_dex_armour = true, default = true, },
 	implicit = "+(20-25)% to Cold Resistance",
@@ -1124,6 +1261,7 @@ itemBases["Expert Cloaked Mail"] = {
 }
 itemBases["Expert Cloaked Mail"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, armour = true, str_dex_armour = true, default = true, },
 	implicit = "+(20-25)% to Lightning Resistance",
@@ -1133,6 +1271,7 @@ itemBases["Expert Cloaked Mail"] = {
 }
 itemBases["Expert Scale Mail"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, armour = true, str_dex_armour = true, default = true, },
 	implicitModTypes = { },
@@ -1141,6 +1280,7 @@ itemBases["Expert Scale Mail"] = {
 }
 itemBases["Expert Pelt Mantle"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, armour = true, str_int_armour = true, default = true, },
 	implicitModTypes = { },
@@ -1149,6 +1289,7 @@ itemBases["Expert Pelt Mantle"] = {
 }
 itemBases["Expert Shaman Mantle"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, armour = true, str_int_armour = true, default = true, },
 	implicit = "+(20-30) to Spirit",
@@ -1158,6 +1299,7 @@ itemBases["Expert Shaman Mantle"] = {
 }
 itemBases["Expert Sacrificial Mantle"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, armour = true, str_int_armour = true, default = true, },
 	implicit = "+1% to all Maximum Elemental Resistances",
@@ -1167,6 +1309,7 @@ itemBases["Expert Sacrificial Mantle"] = {
 }
 itemBases["Expert Waxed Jacket"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, armour = true, dex_int_armour = true, default = true, },
 	implicitModTypes = { },
@@ -1175,6 +1318,7 @@ itemBases["Expert Waxed Jacket"] = {
 }
 itemBases["Expert Wayfarer Jacket"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, armour = true, dex_int_armour = true, default = true, },
 	implicit = "+(7-13)% to Chaos Resistance",
@@ -1184,6 +1328,7 @@ itemBases["Expert Wayfarer Jacket"] = {
 }
 itemBases["Expert Scalper's Jacket"] = {
 	type = "Body Armour",
+	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, armour = true, dex_int_armour = true, default = true, },
 	implicit = "5% increased Movement Speed",

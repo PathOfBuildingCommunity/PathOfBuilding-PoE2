@@ -2,6 +2,5 @@
 local itemBases = ...
 
 #type TrapTool
-#socketLimit 1
 
 #baseMatch BaseType Metadata/Items/TrapTools/AbstractTrapTool

@@ -5,6 +5,7 @@ local itemBases = ...
 
 itemBases["Golden Blade"] = {
 	type = "One Handed Sword",
+	quality = 20,
 	socketLimit = 3,
 	tags = { demigods = true, onehand = true, not_for_sale = true, weapon = true, sword = true, one_hand_weapon = true, default = true, },
 	implicit = "+(16-24) to all Attributes",
@@ -14,6 +15,7 @@ itemBases["Golden Blade"] = {
 }
 itemBases["Energy Blade One Handed"] = {
 	type = "One Handed Sword",
+	quality = 20,
 	hidden = true,
 	socketLimit = 3,
 	tags = { onehand = true, not_for_sale = true, weapon = true, sword = true, one_hand_weapon = true, default = true, },
@@ -23,6 +25,7 @@ itemBases["Energy Blade One Handed"] = {
 }
 itemBases["Shortsword"] = {
 	type = "One Handed Sword",
+	quality = 20,
 	socketLimit = 3,
 	tags = { onehand = true, ezomyte_basetype = true, weapon = true, sword = true, one_hand_weapon = true, default = true, },
 	implicitModTypes = { },
@@ -31,6 +34,7 @@ itemBases["Shortsword"] = {
 }
 itemBases["Broadsword"] = {
 	type = "One Handed Sword",
+	quality = 20,
 	socketLimit = 3,
 	tags = { onehand = true, ezomyte_basetype = true, weapon = true, sword = true, one_hand_weapon = true, default = true, },
 	implicitModTypes = { },
@@ -39,6 +43,7 @@ itemBases["Broadsword"] = {
 }
 itemBases["Vampiric Blade"] = {
 	type = "One Handed Sword",
+	quality = 20,
 	socketLimit = 3,
 	tags = { onehand = true, ezomyte_basetype = true, weapon = true, sword = true, one_hand_weapon = true, default = true, },
 	implicitModTypes = { },
@@ -47,6 +52,7 @@ itemBases["Vampiric Blade"] = {
 }
 itemBases["Scimitar"] = {
 	type = "One Handed Sword",
+	quality = 20,
 	socketLimit = 3,
 	tags = { maraketh_basetype = true, onehand = true, weapon = true, sword = true, one_hand_weapon = true, default = true, },
 	implicitModTypes = { },
@@ -55,6 +61,7 @@ itemBases["Scimitar"] = {
 }
 itemBases["Charred Shortsword"] = {
 	type = "One Handed Sword",
+	quality = 20,
 	socketLimit = 3,
 	tags = { maraketh_basetype = true, onehand = true, weapon = true, sword = true, one_hand_weapon = true, default = true, },
 	implicitModTypes = { },
@@ -63,6 +70,7 @@ itemBases["Charred Shortsword"] = {
 }
 itemBases["Sickle Sword"] = {
 	type = "One Handed Sword",
+	quality = 20,
 	socketLimit = 3,
 	tags = { maraketh_basetype = true, onehand = true, weapon = true, sword = true, one_hand_weapon = true, default = true, },
 	implicitModTypes = { },
@@ -71,6 +79,7 @@ itemBases["Sickle Sword"] = {
 }
 itemBases["Falchion"] = {
 	type = "One Handed Sword",
+	quality = 20,
 	socketLimit = 3,
 	tags = { onehand = true, vaal_basetype = true, weapon = true, sword = true, one_hand_weapon = true, default = true, },
 	implicitModTypes = { },
@@ -79,6 +88,7 @@ itemBases["Falchion"] = {
 }
 itemBases["Treasured Blade"] = {
 	type = "One Handed Sword",
+	quality = 20,
 	socketLimit = 3,
 	tags = { onehand = true, vaal_basetype = true, weapon = true, sword = true, one_hand_weapon = true, default = true, },
 	implicitModTypes = { },
@@ -87,6 +97,7 @@ itemBases["Treasured Blade"] = {
 }
 itemBases["Cutlass"] = {
 	type = "One Handed Sword",
+	quality = 20,
 	socketLimit = 3,
 	tags = { onehand = true, weapon = true, sword = true, one_hand_weapon = true, default = true, },
 	implicitModTypes = { },
@@ -95,6 +106,7 @@ itemBases["Cutlass"] = {
 }
 itemBases["Runic Shortsword"] = {
 	type = "One Handed Sword",
+	quality = 20,
 	socketLimit = 3,
 	tags = { onehand = true, weapon = true, sword = true, one_hand_weapon = true, default = true, },
 	implicitModTypes = { },
@@ -103,6 +115,7 @@ itemBases["Runic Shortsword"] = {
 }
 itemBases["Messer"] = {
 	type = "One Handed Sword",
+	quality = 20,
 	socketLimit = 3,
 	tags = { onehand = true, weapon = true, sword = true, one_hand_weapon = true, default = true, },
 	implicitModTypes = { },
@@ -111,6 +124,7 @@ itemBases["Messer"] = {
 }
 itemBases["Commander Sword"] = {
 	type = "One Handed Sword",
+	quality = 20,
 	socketLimit = 3,
 	tags = { onehand = true, weapon = true, sword = true, one_hand_weapon = true, default = true, },
 	implicitModTypes = { },
@@ -119,6 +133,7 @@ itemBases["Commander Sword"] = {
 }
 itemBases["Dark Blade"] = {
 	type = "One Handed Sword",
+	quality = 20,
 	socketLimit = 3,
 	tags = { onehand = true, weapon = true, sword = true, one_hand_weapon = true, default = true, },
 	implicitModTypes = { },
@@ -128,6 +143,7 @@ itemBases["Dark Blade"] = {
 
 itemBases["Energy Blade One Handed"] = {
 	type = "One Handed Sword",
+	quality = 20,
 	hidden = true,
 	socketLimit = 3,
 	tags = { onehand = true, not_for_sale = true, weapon = true, sword = true, one_hand_weapon = true, default = true, },
@@ -138,6 +154,7 @@ itemBases["Energy Blade One Handed"] = {
 
 itemBases["Keyblade"] = {
 	type = "Two Handed Sword",
+	quality = 20,
 	hidden = true,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, not_for_sale = true, weapon = true, sword = true, twohand = true, default = true, },
@@ -147,6 +164,7 @@ itemBases["Keyblade"] = {
 }
 itemBases["Energy Blade Two Handed"] = {
 	type = "Two Handed Sword",
+	quality = 20,
 	hidden = true,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, not_for_sale = true, weapon = true, sword = true, twohand = true, default = true, },
@@ -156,6 +174,7 @@ itemBases["Energy Blade Two Handed"] = {
 }
 itemBases["Corroded Longsword"] = {
 	type = "Two Handed Sword",
+	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, ezomyte_basetype = true, weapon = true, sword = true, twohand = true, default = true, },
 	implicitModTypes = { },
@@ -164,6 +183,7 @@ itemBases["Corroded Longsword"] = {
 }
 itemBases["Iron Greatsword"] = {
 	type = "Two Handed Sword",
+	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, ezomyte_basetype = true, weapon = true, sword = true, twohand = true, default = true, },
 	implicitModTypes = { },
@@ -172,6 +192,7 @@ itemBases["Iron Greatsword"] = {
 }
 itemBases["Blessed Claymore"] = {
 	type = "Two Handed Sword",
+	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, ezomyte_basetype = true, weapon = true, sword = true, twohand = true, default = true, },
 	implicitModTypes = { },
@@ -180,6 +201,7 @@ itemBases["Blessed Claymore"] = {
 }
 itemBases["Broad Greatsword"] = {
 	type = "Two Handed Sword",
+	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, maraketh_basetype = true, weapon = true, sword = true, twohand = true, default = true, },
 	implicitModTypes = { },
@@ -188,6 +210,7 @@ itemBases["Broad Greatsword"] = {
 }
 itemBases["Rippled Greatsword"] = {
 	type = "Two Handed Sword",
+	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, maraketh_basetype = true, weapon = true, sword = true, twohand = true, default = true, },
 	implicitModTypes = { },
@@ -196,6 +219,7 @@ itemBases["Rippled Greatsword"] = {
 }
 itemBases["Arced Longsword"] = {
 	type = "Two Handed Sword",
+	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, maraketh_basetype = true, weapon = true, sword = true, twohand = true, default = true, },
 	implicitModTypes = { },
@@ -204,6 +228,7 @@ itemBases["Arced Longsword"] = {
 }
 itemBases["Stone Greatsword"] = {
 	type = "Two Handed Sword",
+	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, vaal_basetype = true, weapon = true, sword = true, twohand = true, default = true, },
 	implicitModTypes = { },
@@ -212,6 +237,7 @@ itemBases["Stone Greatsword"] = {
 }
 itemBases["Obsidian Greatsword"] = {
 	type = "Two Handed Sword",
+	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, vaal_basetype = true, weapon = true, sword = true, twohand = true, default = true, },
 	implicitModTypes = { },
@@ -220,6 +246,7 @@ itemBases["Obsidian Greatsword"] = {
 }
 itemBases["Keen Greatsword"] = {
 	type = "Two Handed Sword",
+	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, weapon = true, sword = true, twohand = true, default = true, },
 	implicitModTypes = { },
@@ -228,6 +255,7 @@ itemBases["Keen Greatsword"] = {
 }
 itemBases["Ancient Greatblade"] = {
 	type = "Two Handed Sword",
+	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, weapon = true, sword = true, twohand = true, default = true, },
 	implicitModTypes = { },
@@ -236,6 +264,7 @@ itemBases["Ancient Greatblade"] = {
 }
 itemBases["Flanged Greatblade"] = {
 	type = "Two Handed Sword",
+	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, weapon = true, sword = true, twohand = true, default = true, },
 	implicitModTypes = { },
@@ -244,6 +273,7 @@ itemBases["Flanged Greatblade"] = {
 }
 itemBases["Regalia Longsword"] = {
 	type = "Two Handed Sword",
+	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, weapon = true, sword = true, twohand = true, default = true, },
 	implicitModTypes = { },
@@ -252,6 +282,7 @@ itemBases["Regalia Longsword"] = {
 }
 itemBases["Ultra Greatsword"] = {
 	type = "Two Handed Sword",
+	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, weapon = true, sword = true, twohand = true, default = true, },
 	implicitModTypes = { },
@@ -261,6 +292,7 @@ itemBases["Ultra Greatsword"] = {
 
 itemBases["Energy Blade Two Handed"] = {
 	type = "Two Handed Sword",
+	quality = 20,
 	hidden = true,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, not_for_sale = true, weapon = true, sword = true, twohand = true, default = true, },

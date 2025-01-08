@@ -4,6 +4,7 @@ local itemBases = ...
 
 itemBases["Crude Bow"] = {
 	type = "Bow",
+	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, ezomyte_basetype = true, ranged = true, weapon = true, default = true, twohand = true, bow = true, },
 	implicitModTypes = { },
@@ -12,6 +13,7 @@ itemBases["Crude Bow"] = {
 }
 itemBases["Shortbow"] = {
 	type = "Bow",
+	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, ezomyte_basetype = true, ranged = true, weapon = true, default = true, twohand = true, bow = true, },
 	implicitModTypes = { },
@@ -20,6 +22,7 @@ itemBases["Shortbow"] = {
 }
 itemBases["Warden Bow"] = {
 	type = "Bow",
+	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, ezomyte_basetype = true, ranged = true, weapon = true, default = true, twohand = true, bow = true, },
 	implicit = "(20-30)% chance to Chain an additional time",
@@ -29,6 +32,7 @@ itemBases["Warden Bow"] = {
 }
 itemBases["Recurve Bow"] = {
 	type = "Bow",
+	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, maraketh_basetype = true, ranged = true, weapon = true, default = true, twohand = true, bow = true, },
 	implicitModTypes = { },
@@ -37,6 +41,7 @@ itemBases["Recurve Bow"] = {
 }
 itemBases["Composite Bow"] = {
 	type = "Bow",
+	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, maraketh_basetype = true, ranged = true, weapon = true, default = true, twohand = true, bow = true, },
 	implicitModTypes = { },
@@ -45,6 +50,7 @@ itemBases["Composite Bow"] = {
 }
 itemBases["Dualstring Bow"] = {
 	type = "Bow",
+	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, maraketh_basetype = true, ranged = true, weapon = true, default = true, twohand = true, bow = true, },
 	implicit = "Bow Attacks fire an additional Arrow",
@@ -54,6 +60,7 @@ itemBases["Dualstring Bow"] = {
 }
 itemBases["Cultist Bow"] = {
 	type = "Bow",
+	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, vaal_basetype = true, ranged = true, weapon = true, default = true, twohand = true, bow = true, },
 	implicitModTypes = { },
@@ -62,6 +69,7 @@ itemBases["Cultist Bow"] = {
 }
 itemBases["Zealot Bow"] = {
 	type = "Bow",
+	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, vaal_basetype = true, ranged = true, weapon = true, default = true, twohand = true, bow = true, },
 	implicitModTypes = { },
@@ -70,6 +78,7 @@ itemBases["Zealot Bow"] = {
 }
 itemBases["Artillery Bow"] = {
 	type = "Bow",
+	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, ranged = true, weapon = true, default = true, twohand = true, bow = true, },
 	implicit = "50% reduced Projectile Range",
@@ -79,6 +88,7 @@ itemBases["Artillery Bow"] = {
 }
 itemBases["Tribal Bow"] = {
 	type = "Bow",
+	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, ranged = true, weapon = true, default = true, twohand = true, bow = true, },
 	implicitModTypes = { },
@@ -87,6 +97,7 @@ itemBases["Tribal Bow"] = {
 }
 itemBases["Greatbow"] = {
 	type = "Bow",
+	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, ranged = true, weapon = true, default = true, twohand = true, bow = true, },
 	implicitModTypes = { },
@@ -95,6 +106,7 @@ itemBases["Greatbow"] = {
 }
 itemBases["Double Limb Bow"] = {
 	type = "Bow",
+	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, ranged = true, weapon = true, default = true, twohand = true, bow = true, },
 	implicitModTypes = { },
@@ -103,6 +115,7 @@ itemBases["Double Limb Bow"] = {
 }
 itemBases["Heavy Bow"] = {
 	type = "Bow",
+	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, ranged = true, weapon = true, default = true, twohand = true, bow = true, },
 	implicitModTypes = { },
@@ -111,6 +124,7 @@ itemBases["Heavy Bow"] = {
 }
 itemBases["Advanced Shortbow"] = {
 	type = "Bow",
+	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, ranged = true, weapon = true, default = true, twohand = true, bow = true, },
 	implicitModTypes = { },
@@ -119,6 +133,7 @@ itemBases["Advanced Shortbow"] = {
 }
 itemBases["Advanced Warden Bow"] = {
 	type = "Bow",
+	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, ranged = true, weapon = true, default = true, twohand = true, bow = true, },
 	implicit = "(20-30)% chance to Chain an additional time",
@@ -128,6 +143,7 @@ itemBases["Advanced Warden Bow"] = {
 }
 itemBases["Advanced Composite Bow"] = {
 	type = "Bow",
+	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, ranged = true, weapon = true, default = true, twohand = true, bow = true, },
 	implicitModTypes = { },
@@ -136,6 +152,7 @@ itemBases["Advanced Composite Bow"] = {
 }
 itemBases["Advanced Dualstring Bow"] = {
 	type = "Bow",
+	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, ranged = true, weapon = true, default = true, twohand = true, bow = true, },
 	implicit = "Bow Attacks fire an additional Arrow",
@@ -145,6 +162,7 @@ itemBases["Advanced Dualstring Bow"] = {
 }
 itemBases["Advanced Cultist Bow"] = {
 	type = "Bow",
+	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, ranged = true, weapon = true, default = true, twohand = true, bow = true, },
 	implicitModTypes = { },
@@ -153,6 +171,7 @@ itemBases["Advanced Cultist Bow"] = {
 }
 itemBases["Advanced Zealot Bow"] = {
 	type = "Bow",
+	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, ranged = true, weapon = true, default = true, twohand = true, bow = true, },
 	implicitModTypes = { },
@@ -161,6 +180,7 @@ itemBases["Advanced Zealot Bow"] = {
 }
 itemBases["Expert Shortbow"] = {
 	type = "Bow",
+	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, ranged = true, weapon = true, default = true, twohand = true, bow = true, },
 	implicitModTypes = { },
@@ -169,6 +189,7 @@ itemBases["Expert Shortbow"] = {
 }
 itemBases["Expert Composite Bow"] = {
 	type = "Bow",
+	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, ranged = true, weapon = true, default = true, twohand = true, bow = true, },
 	implicitModTypes = { },
@@ -177,6 +198,7 @@ itemBases["Expert Composite Bow"] = {
 }
 itemBases["Expert Warden Bow"] = {
 	type = "Bow",
+	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, ranged = true, weapon = true, default = true, twohand = true, bow = true, },
 	implicit = "(20-30)% chance to Chain an additional time",
@@ -186,6 +208,7 @@ itemBases["Expert Warden Bow"] = {
 }
 itemBases["Expert Dualstring Bow"] = {
 	type = "Bow",
+	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, ranged = true, weapon = true, default = true, twohand = true, bow = true, },
 	implicit = "Bow Attacks fire an additional Arrow",
@@ -195,6 +218,7 @@ itemBases["Expert Dualstring Bow"] = {
 }
 itemBases["Expert Cultist Bow"] = {
 	type = "Bow",
+	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, ranged = true, weapon = true, default = true, twohand = true, bow = true, },
 	implicitModTypes = { },
@@ -203,6 +227,7 @@ itemBases["Expert Cultist Bow"] = {
 }
 itemBases["Expert Zealot Bow"] = {
 	type = "Bow",
+	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, ranged = true, weapon = true, default = true, twohand = true, bow = true, },
 	implicitModTypes = { },
