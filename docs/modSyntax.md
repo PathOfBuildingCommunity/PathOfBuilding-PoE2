@@ -18,9 +18,9 @@ This represents the raw value of the mod.  When it's used in the skills to map f
 ### Source
 This is where the mod comes from.  Often it will be automatically filled in, coming from a tree node, gem, or item.  If you do need to specify it for some reason, it's a string, and you can use "Tree:[nodeId]" as a special value to show a tree inset on hover.
 ### Mod Flags
-These are bitwise flags that say what the mod can apply to.  See a full list [here](../src/Data/Global.lua) under `ModFlag`.  If you want to use several flags at once, make use of `bit.bor` and `bor` (ModParser.lua uses this alias) to combine them.  When combined, all of the flags have to match.  If you only need one to match, use the "ModFlagOr" tag instead.
+These are bitwise flags that say what the mod can apply to.  See a full list [here](../src/Data/Global.lua) under `ModFlag`.  If you want to use several flags at once, make use of `OR64` and `bor` (ModParser.lua uses this alias) to combine them.  When combined, all of the flags have to match.  If you only need one to match, use the "ModFlagOr" tag instead.
 ### Keyword Flags
-These function similarly to the mod flags, and use the `KeywordFlag` group in `Global.lua`.  These are usually based off of the flags on the gem itself. If you want to use several flags at once, make use of `bit.bor` and `bor` (ModParser.lua uses this alias) to combine them.  When combined, only one of the flags has to match.  If you need them all to match, use the "KeywordFlagAnd" tag instead. 
+These function similarly to the mod flags, and use the `KeywordFlag` group in `Global.lua`.  These are usually based off of the flags on the gem itself. If you want to use several flags at once, make use of `OR64` and `bor` (ModParser.lua uses this alias) to combine them.  When combined, only one of the flags has to match.  If you need them all to match, use the "KeywordFlagAnd" tag instead. 
 ### Extra Tags
 Often a mod will only apply under certain conditions, apply multiple times based on other stats, etc.  The syntax for that depends heavily on the first parameter, "type".  There can be an infinite number of these tags at the end of a mod, so multiple can apply at one time.  Some parameters, like `actor` or `neg` can be used on all of the types.  Below are different types and the other parameters they need to function.
 

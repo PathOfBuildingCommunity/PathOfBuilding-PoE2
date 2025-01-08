@@ -4861,11 +4861,11 @@ skills["HeistThugRangedExplosiveArrow"] = {
 			skill("radiusExtra", nil, { type = "Multiplier", var = "ExplosiveArrowFuse" }),
 		},
 		["explosive_arrow_explosion_base_damage_+permyriad"] = {
-			mod("Damage", "MORE", nil, 0, bit.bor(KeywordFlag.Hit, KeywordFlag.Ailment)),
+			mod("Damage", "MORE", nil, 0, OR64(KeywordFlag.Hit, KeywordFlag.Ailment)),
 			div = 100,
 		},
 		["explosive_arrow_hit_and_ailment_damage_+%_final_per_stack"] = {
-			mod("Damage", "MORE", nil, 0, bit.bor(KeywordFlag.Hit, KeywordFlag.Ailment), { type = "Multiplier", var = "ExplosiveArrowFuse" }),
+			mod("Damage", "MORE", nil, 0, OR64(KeywordFlag.Hit, KeywordFlag.Ailment), { type = "Multiplier", var = "ExplosiveArrowFuse" }),
 		},
 	},
 	baseFlags = {
