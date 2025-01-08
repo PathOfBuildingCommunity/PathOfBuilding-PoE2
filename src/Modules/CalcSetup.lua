@@ -513,6 +513,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 		modDB:NewMod("Speed", "INC", 3, "Base", ModFlag.Cast, { type = "Multiplier", var = "Tailwind", limit = 10 })
 		modDB:NewMod("MovementSpeed", "INC", 1, "Base", { type = "Multiplier", var = "Tailwind", limit = 10 })
 		modDB:NewMod("Evasion", "INC", 15, "Base", { type = "Multiplier", var = "Tailwind", limit = 10 })
+		modDB:NewMod("SkillSlots", "BASE", 9, "Base")
 
 		-- Initialise enemy modifier database
 		calcs.initModDB(env, enemyDB)

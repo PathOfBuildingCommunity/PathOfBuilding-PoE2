@@ -83,6 +83,7 @@ local formList = {
 	["^lose ([%d%.]+)"] = "LOSE",
 	["^lose %+(%d+)%% to"] = "LOSE",
 	["^grants ([%d%.]+)"] = "GRANTS",    -- local
+	["^grants ([%d%.]+) additional"] = "GRANTS",
 	["^removes? ([%d%.]+) ?o?f? ?y?o?u?r?"] = "REMOVES", -- local
 	["^(%d+)"] = "BASE",
 	["^([%+%-]?%d+)%% chance"] = "CHANCE",
@@ -829,6 +830,8 @@ local modNameList = {
 	["lesser massive shrine buff"] = "Condition:LesserMassiveShrine",
 	["diamond shrine buff"] = "Condition:DiamondShrine",
 	["massive shrine buff"] = "Condition:MassiveShrine",
+	-- Count related
+	["skill slots"] = "SkillSlots",
 }
 
 -- List of modifier flags
