@@ -229,6 +229,17 @@ local skills, mod, flag, skill = ...
 #skill ChargedStaffPlayer
 #startSets
 #set ChargedStaffPlayer
+				statMap = {
+					["charged_staff_attack_minimum_added_lightning_damage_per_stack"] = {
+						mod("LightningMin", "BASE", nil, 0, 0, { type = "Multiplier", var = "RemovablePowerCharge" }, { type = "GlobalEffect", effectType = "Buff", effectName = "Charged Staff", effectCond = "UsePowerCharges" }),
+					},
+					["charged_staff_attack_maximum_added_lightning_damage_per_stack"] = {
+						mod("LightningMax", "BASE", nil, 0, 0, { type = "Multiplier", var = "RemovablePowerCharge" }, { type = "GlobalEffect", effectType = "Buff", effectName = "Charged Staff", effectCond = "UsePowerCharges" }),
+					},
+					["charged_staff_buff_duration_per_stack_ms"] = {
+						mod("ChargedStaffBuffDuration", "BASE", nil, 0, 0, { type = "Multiplier", var = "RemovablePowerCharge" }, { type = "GlobalEffect", effectType = "Buff", effectName = "Charged Staff", effectCond = "UsePowerCharges" }),
+					},
+				},
 #flags
 #mods
 #skillEnd
@@ -236,7 +247,7 @@ local skills, mod, flag, skill = ...
 #skill ChargedStaffShockwavePlayer
 #startSets
 #set ChargedStaffShockwavePlayer
-#flags
+#flags attack area
 #mods
 #skillEnd
 

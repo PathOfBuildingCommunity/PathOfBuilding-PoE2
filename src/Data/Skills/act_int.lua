@@ -1553,14 +1553,14 @@ skills["BonestormPlayer"] = {
 			incrementalEffectiveness = 0.14000000059605,
 			damageIncrementalEffectiveness = 0.0094999996945262,
 			statDescriptionScope = "bone_spike_statset_0",
-			statMap = {
-				["bone_spear_minimum_added_attack_physical_damage_taken"] = {
-					mod("SelfPhysicalMin", "BASE", nil, ModFlag.Attack, 0, { type = "GlobalEffect", effectType = "Debuff", effectName = "Bonestorm", effectCond = "BonestormAddedDamage" }),
+				statMap = {
+					["bone_spear_minimum_added_attack_physical_damage_taken"] = {
+						mod("SelfPhysicalMin", "BASE", nil, ModFlag.Attack, 0, { type = "GlobalEffect", effectType = "Debuff", effectName = "Bonestorm", effectCond = "BonestormAddedDamage" }),
+					},
+					["bone_spear_maximum_added_attack_physical_damage_taken"] = {
+						mod("SelfPhysicalMax", "BASE", nil, ModFlag.Attack, 0, { type = "GlobalEffect", effectType = "Debuff", effectName = "Bonestorm", effectCond = "BonestormAddedDamage" }),
+					},
 				},
-				["bone_spear_maximum_added_attack_physical_damage_taken"] = {
-					mod("SelfPhysicalMax", "BASE", nil, ModFlag.Attack, 0, { type = "GlobalEffect", effectType = "Debuff", effectName = "Bonestorm", effectCond = "BonestormAddedDamage" }),
-				},
-			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -3392,6 +3392,17 @@ skills["ChargedStaffPlayer"] = {
 			incrementalEffectiveness = 0.072530001401901,
 			damageIncrementalEffectiveness = 0.0049000000581145,
 			statDescriptionScope = "charged_staff",
+				statMap = {
+					["charged_staff_attack_minimum_added_lightning_damage_per_stack"] = {
+						mod("LightningMin", "BASE", nil, 0, 0, { type = "Multiplier", var = "RemovablePowerCharge" }, { type = "GlobalEffect", effectType = "Buff", effectName = "Charged Staff", effectCond = "UsePowerCharges" }),
+					},
+					["charged_staff_attack_maximum_added_lightning_damage_per_stack"] = {
+						mod("LightningMax", "BASE", nil, 0, 0, { type = "Multiplier", var = "RemovablePowerCharge" }, { type = "GlobalEffect", effectType = "Buff", effectName = "Charged Staff", effectCond = "UsePowerCharges" }),
+					},
+					["charged_staff_buff_duration_per_stack_ms"] = {
+						mod("ChargedStaffBuffDuration", "BASE", nil, 0, 0, { type = "Multiplier", var = "RemovablePowerCharge" }, { type = "GlobalEffect", effectType = "Buff", effectName = "Charged Staff", effectCond = "UsePowerCharges" }),
+					},
+				},
 			baseFlags = {
 			},
 			constantStats = {
@@ -3502,6 +3513,8 @@ skills["ChargedStaffShockwavePlayer"] = {
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "charged_staff_shockwave",
 			baseFlags = {
+				attack = true,
+				area = true,
 			},
 			constantStats = {
 				{ "active_skill_base_area_of_effect_radius", 50 },
