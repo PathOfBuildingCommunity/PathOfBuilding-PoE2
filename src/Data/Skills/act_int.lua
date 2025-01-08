@@ -3339,6 +3339,9 @@ skills["ChargedStaffPlayer"] = {
 	color = 4,
 	description = "Consume all Power Charges to infuse your Quarterstaff with electricity, adding Lightning damage and a Lightning shockwave to your Quarterstaff Attacks. Reusing this skill while the Buff is active adds to the Buff's duration and damage.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Duration] = true, [SkillType.Buff] = true, [SkillType.ConsumesCharges] = true, [SkillType.QuarterstaffSkill] = true, [SkillType.SkillConsumesPowerChargesOnUse] = true, },
+	weaponTypes = {
+		["Staff"] = true,
+	},
 	castTime = 0.75,
 	qualityStats = {
 		{ "skill_effect_duration_+%", 1 },
@@ -3462,6 +3465,9 @@ skills["ChargedStaffShockwavePlayer"] = {
 	name = "Charged Shockwave",
 	hidden = true,
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.QuarterstaffSkill] = true, },
+	weaponTypes = {
+		["Staff"] = true,
+	},
 	castTime = 0.75,
 	qualityStats = {
 	},
@@ -5752,6 +5758,9 @@ skills["FallingThunderPlayer"] = {
 	color = 4,
 	description = "Infuses your Quarterstaff with electrical energies, then Slams the ground to deal damage in a large cone in front of you. Consumes your Power Charges to fire Lightning Projectiles forwards from the impact.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.Area] = true, [SkillType.Slam] = true, [SkillType.Multistrikeable] = true, [SkillType.Projectile] = true, [SkillType.RangedAttack] = true, [SkillType.ProjectilesNotFromUser] = true, [SkillType.Lightning] = true, [SkillType.ConsumesCharges] = true, [SkillType.QuarterstaffSkill] = true, [SkillType.SkillConsumesPowerChargesOnUse] = true, },
+	weaponTypes = {
+		["Staff"] = true,
+	},
 	castTime = 1,
 	qualityStats = {
 		{ "charge_skip_consume_chance_%", 0.5 },
@@ -6869,6 +6878,9 @@ skills["FlickerStrikePlayer"] = {
 	color = 4,
 	description = "Teleport to a enemy and Strike them. Consumes Power Charges to perform additional teleporting Strikes on nearby enemies.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Area] = true, [SkillType.Multistrikeable] = true, [SkillType.ConsumesCharges] = true, [SkillType.QuarterstaffSkill] = true, [SkillType.SkillConsumesPowerChargesOnUse] = true, },
+	weaponTypes = {
+		["Staff"] = true,
+	},
 	castTime = 1,
 	qualityStats = {
 		{ "charge_skip_consume_chance_%", 1 },
@@ -7886,6 +7898,9 @@ skills["FrozenLocusPlayer"] = {
 	color = 4,
 	description = "Leap backward and crack the ground with your staff to call forth an Ice Crystal, which creates Chilled Ground around it and can be damaged by you and enemies. If the Crystal is destroyed it causes an icy explosion that deals Attack damage but does not use your weapon's damage.",
 	skillTypes = { [SkillType.Melee] = true, [SkillType.Attack] = true, [SkillType.Duration] = true, [SkillType.Cold] = true, [SkillType.QuarterstaffSkill] = true, [SkillType.NonWeaponAttack] = true, [SkillType.CreatesGroundEffect] = true, [SkillType.IceCrystal] = true, },
+	weaponTypes = {
+		["Staff"] = true,
+	},
 	castTime = 1,
 	qualityStats = {
 		{ "active_skill_chill_effect_+%_final", 1 },
@@ -8265,6 +8280,9 @@ skills["GatheringStormPlayer"] = {
 	color = 4,
 	description = "Flips backward and Channels to charge your Quarterstaff with Lightning. Releasing dashes towards the target location, damaging enemies along the way. Releasing with perfect timing performs a Lightning-infused dash that releases shockwaves from enemies you dash through and leaves a trail of Shocked Ground in your wake.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Channel] = true, [SkillType.Travel] = true, [SkillType.PerfectTiming] = true, [SkillType.Lightning] = true, [SkillType.Area] = true, [SkillType.Melee] = true, [SkillType.MeleeSingleTarget] = true, },
+	weaponTypes = {
+		["Staff"] = true,
+	},
 	castTime = 1,
 	qualityStats = {
 		{ "gathering_storm_perfect_aoe_limit", 0.1 },
@@ -8611,6 +8629,9 @@ skills["GlacialCascadePlayer"] = {
 	color = 4,
 	description = "Sweep your Quarterstaff upwards, releasing an icy fissure which deals damage in a series of bursts culminating in a large spike. Frozen enemies hit by the final spike are dealt heavy damage but the Freeze is Consumed. Ice Crystals hit by the final spike explode.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.Area] = true, [SkillType.Cold] = true, [SkillType.Multistrikeable] = true, [SkillType.Area] = true, [SkillType.Nonpathing] = true, [SkillType.QuarterstaffSkill] = true, [SkillType.SkillConsumesFreeze] = true, [SkillType.CreatesFissure] = true, },
+	weaponTypes = {
+		["Staff"] = true,
+	},
 	castTime = 1,
 	qualityStats = {
 		{ "attack_speed_+%", 0.5 },
@@ -8904,6 +8925,7 @@ skills["HandOfChayulaPlayer"] = {
 	skillTypes = { [SkillType.Meta] = true, [SkillType.Attack] = true, [SkillType.UseGlobalStats] = true, [SkillType.Melee] = true, [SkillType.Area] = true, [SkillType.Chaos] = true, [SkillType.MeleeSingleTarget] = true, },
 	weaponTypes = {
 		["None"] = true,
+		["Staff"] = true,
 	},
 	castTime = 1,
 	qualityStats = {
@@ -9129,14 +9151,17 @@ skills["HeraldOfIcePlayer"] = {
 	skillTypes = { [SkillType.Buff] = true, [SkillType.HasReservation] = true, [SkillType.Area] = true, [SkillType.Cold] = true, [SkillType.Attack] = true, [SkillType.Herald] = true, [SkillType.OngoingSkill] = true, [SkillType.Persistent] = true, },
 	weaponTypes = {
 		["One Handed Mace"] = true,
+		["Flail"] = true,
 		["Two Handed Sword"] = true,
 		["Dagger"] = true,
 		["Claw"] = true,
 		["Crossbow"] = true,
+		["Bow"] = true,
+		["Spear"] = true,
 		["Two Handed Axe"] = true,
 		["Two Handed Mace"] = true,
 		["One Handed Axe"] = true,
-		["Bow"] = true,
+		["Staff"] = true,
 		["One Handed Sword"] = true,
 	},
 	castTime = 0,
@@ -9567,6 +9592,9 @@ skills["IceStrikePlayer"] = {
 	color = 4,
 	description = "Perform a fast icy Strike. Using this Attack three times in quick succession causes a final strike that is slower and more powerful.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Multistrikeable] = true, [SkillType.Melee] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Area] = true, [SkillType.Cold] = true, [SkillType.PerformsFinalStrike] = true, [SkillType.QuarterstaffSkill] = true, },
+	weaponTypes = {
+		["Staff"] = true,
+	},
 	castTime = 1,
 	qualityStats = {
 		{ "active_skill_attack_speed_+%_final", 0.5 },
@@ -9925,6 +9953,7 @@ skills["KillingPalmPlayer"] = {
 	skillTypes = { [SkillType.Attack] = true, [SkillType.UseGlobalStats] = true, [SkillType.Melee] = true, [SkillType.Area] = true, [SkillType.Physical] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.GeneratesCharges] = true, },
 	weaponTypes = {
 		["None"] = true,
+		["Staff"] = true,
 	},
 	castTime = 1,
 	qualityStats = {
@@ -11204,6 +11233,9 @@ skills["MantraOfDestructionPlayer"] = {
 	color = 4,
 	description = "Build Combo by successfully Striking Enemies with other skills. After reaching maximum Combo, use this skill to Empower your next Quarterstaff Attack, causing it to deal additional Chaos damage. Each kill with the Empowered Attack grants\nPurple Flames of Chayula for a duration.",
 	skillTypes = { [SkillType.ComboStacking] = true, [SkillType.Buff] = true, [SkillType.Duration] = true, [SkillType.Nonpathing] = true, [SkillType.EmpowersOtherSkill] = true, [SkillType.Chaos] = true, },
+	weaponTypes = {
+		["Staff"] = true,
+	},
 	castTime = 0.6,
 	qualityStats = {
 		{ "active_skill_required_number_of_combo_stacks", -0.1 },
@@ -12846,6 +12878,7 @@ skills["ShatteringPalmPlayer"] = {
 	skillTypes = { [SkillType.Attack] = true, [SkillType.UseGlobalStats] = true, [SkillType.Melee] = true, [SkillType.Area] = true, [SkillType.Cold] = true, [SkillType.MeleeSingleTarget] = true, },
 	weaponTypes = {
 		["None"] = true,
+		["Staff"] = true,
 	},
 	castTime = 1,
 	qualityStats = {
@@ -12966,6 +12999,7 @@ skills["ShatteringPalmExplosionPlayer"] = {
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.Nova] = true, [SkillType.Cold] = true, [SkillType.UseGlobalStats] = true, },
 	weaponTypes = {
 		["None"] = true,
+		["Staff"] = true,
 	},
 	castTime = 1,
 	qualityStats = {
@@ -13207,6 +13241,9 @@ skills["SiphoningStrikePlayer"] = {
 	color = 4,
 	description = "Dash to a target and Strike them with your Quarterstaff. If the target is Shocked, consumes the Shock to release a Lightning shockwave around the target and grant you a Power Charge.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.Area] = true, [SkillType.Lightning] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.SkillConsumesShock] = true, [SkillType.GeneratesCharges] = true, [SkillType.QuarterstaffSkill] = true, },
+	weaponTypes = {
+		["Staff"] = true,
+	},
 	castTime = 1,
 	qualityStats = {
 		{ "active_skill_hit_damage_stun_multiplier_+%_final", 2 },
@@ -15389,6 +15426,7 @@ skills["StaggeringPalmPlayer"] = {
 	skillTypes = { [SkillType.Attack] = true, [SkillType.UseGlobalStats] = true, [SkillType.Area] = true, [SkillType.Physical] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Duration] = true, },
 	weaponTypes = {
 		["None"] = true,
+		["Staff"] = true,
 	},
 	castTime = 1,
 	qualityStats = {
@@ -15509,6 +15547,7 @@ skills["StaggeringPalmProjectilePlayer"] = {
 	skillTypes = { [SkillType.RangedAttack] = true, [SkillType.Physical] = true, [SkillType.Attack] = true, [SkillType.Triggerable] = true, [SkillType.Projectile] = true, },
 	weaponTypes = {
 		["None"] = true,
+		["Staff"] = true,
 	},
 	castTime = 1,
 	qualityStats = {
@@ -15624,6 +15663,7 @@ skills["StaggeringPalmUnarmedProjectilePlayer"] = {
 	skillTypes = { [SkillType.UseGlobalStats] = true, [SkillType.RangedAttack] = true, [SkillType.Physical] = true, [SkillType.Attack] = true, [SkillType.Triggerable] = true, [SkillType.Projectile] = true, },
 	weaponTypes = {
 		["None"] = true,
+		["Staff"] = true,
 	},
 	castTime = 1,
 	qualityStats = {
@@ -15744,6 +15784,9 @@ skills["StormWavePlayer"] = {
 	color = 4,
 	description = "Sweep your Quarterstaff, projecting a bolt of Lightning through the ground in a long wave ahead of you.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Multistrikeable] = true, [SkillType.Melee] = true, [SkillType.Area] = true, [SkillType.Lightning] = true, [SkillType.Nonpathing] = true, [SkillType.QuarterstaffSkill] = true, [SkillType.CreatesFissure] = true, },
+	weaponTypes = {
+		["Staff"] = true,
+	},
 	castTime = 1,
 	qualityStats = {
 		{ "active_skill_base_secondary_area_of_effect_radius", 0.5 },
@@ -15796,6 +15839,9 @@ skills["StormWavePlayer"] = {
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "storm_wave",
 			baseFlags = {
+				attack = true,
+				melee = true,
+				area = true,
 			},
 			constantStats = {
 				{ "active_skill_base_area_of_effect_radius", 80 },
@@ -15860,6 +15906,9 @@ skills["TempestBellPlayer"] = {
 	color = 4,
 	description = "Build Combo by successfully Striking Enemies with other skills. After reaching maximum Combo, use this skill to cause the Bell on your staff to grow to massive size as you drop it on the ground. The Bell damages enemies on impact and can be Hit by your skills, creating a damaging shockwave. Elemental Ailments applied to the Bell cause its shockwaves to deal extra damage of the corresponding type, and Hits which would have caused Knockback increase the area of effect of the shockwaves.",
 	skillTypes = { [SkillType.ComboStacking] = true, [SkillType.Melee] = true, [SkillType.RangedAttack] = true, [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.ManualCooldownConsumption] = true, [SkillType.Duration] = true, [SkillType.Nova] = true, [SkillType.Limit] = true, [SkillType.Sustained] = true, [SkillType.QuarterstaffSkill] = true, [SkillType.SupportedByFountains] = true, },
+	weaponTypes = {
+		["Staff"] = true,
+	},
 	castTime = 1,
 	qualityStats = {
 		{ "tempest_bell_hit_limit", 0.3 },
@@ -16099,6 +16148,9 @@ skills["TempestFlurryPlayer"] = {
 	color = 4,
 	description = "Perform a series of aggressive Strikes. When used in quick succession, the third use Strikes three times, and the fourth use performs a Final Strike that calls down a powerful Shocking bolt.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Multistrikeable] = true, [SkillType.Melee] = true, [SkillType.Lightning] = true, [SkillType.Area] = true, [SkillType.PerformsFinalStrike] = true, [SkillType.QuarterstaffSkill] = true, },
+	weaponTypes = {
+		["Staff"] = true,
+	},
 	castTime = 1,
 	qualityStats = {
 		{ "melee_range_+", 0.2 },
@@ -16604,6 +16656,9 @@ skills["VaultingImpactPlayer"] = {
 	color = 4,
 	description = "Leaps forward and Slams the ground, sending out a Stunning shockwave that is especially potent against Dazed enemies.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Multistrikeable] = true, [SkillType.Melee] = true, [SkillType.Slam] = true, [SkillType.Area] = true, [SkillType.QuarterstaffSkill] = true, [SkillType.Jumping] = true, [SkillType.Travel] = true, },
+	weaponTypes = {
+		["Staff"] = true,
+	},
 	castTime = 1,
 	qualityStats = {
 		{ "slam_aftershock_chance_%", 1 },
@@ -16958,6 +17013,9 @@ skills["WaveOfFrostPlayer"] = {
 	color = 4,
 	description = "Flips backwards and sends forth a Freezing wave in front of you.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.Area] = true, [SkillType.Multistrikeable] = true, [SkillType.Cold] = true, [SkillType.AttackInPlaceIsDefault] = true, [SkillType.QuarterstaffSkill] = true, [SkillType.Movement] = true, [SkillType.Jumping] = true, },
+	weaponTypes = {
+		["Staff"] = true,
+	},
 	castTime = 1,
 	qualityStats = {
 		{ "base_reduce_enemy_cold_resistance_%", 1 },
@@ -17071,6 +17129,9 @@ skills["WhirlingAssaultPlayer"] = {
 	color = 4,
 	description = "Advance while hitting enemies around you with a series of spinning Strikes.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Multistrikeable] = true, [SkillType.Melee] = true, [SkillType.Area] = true, [SkillType.QuarterstaffSkill] = true, },
+	weaponTypes = {
+		["Staff"] = true,
+	},
 	castTime = 1,
 	qualityStats = {
 		{ "active_skill_attack_speed_+%_final", 0.75 },
@@ -17187,6 +17248,9 @@ skills["GaleStrikePlayer"] = {
 	color = 4,
 	description = "Strike enemies at range by generating a gust of wind as you swing. Enemies will be Knocked Back based on how close they are to you.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.Area] = true, [SkillType.QuarterstaffSkill] = true, },
+	weaponTypes = {
+		["Staff"] = true,
+	},
 	castTime = 1,
 	qualityStats = {
 		{ "knockback_distance_+%", 1.5 },

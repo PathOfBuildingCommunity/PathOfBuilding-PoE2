@@ -2493,6 +2493,9 @@ skills["MeleeQuarterstaffPlayer"] = {
 	color = 4,
 	description = "Strike with your Quarterstaff.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Multistrikeable] = true, [SkillType.Melee] = true, [SkillType.Area] = true, [SkillType.QuarterstaffSkill] = true, },
+	weaponTypes = {
+		["Staff"] = true,
+	},
 	castTime = 1,
 	qualityStats = {
 	},
@@ -2545,6 +2548,9 @@ skills["MeleeQuarterstaffPlayer"] = {
 			statDescriptionScope = "skill_stat_descriptions",
 	fromItem = true,
 			baseFlags = {
+				attack = true,
+				melee = true,
+				area = true,
 			},
 			constantStats = {
 				{ "melee_conditional_step_distance", 10 },
