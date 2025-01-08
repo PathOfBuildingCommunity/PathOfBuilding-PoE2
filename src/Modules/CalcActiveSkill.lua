@@ -183,9 +183,6 @@ local function getWeaponFlags(env, weaponData, weaponTypes)
 	if not info then
 		return
 	end
-	if weaponData.type == "Staff" and weaponData.name:match("Quarterstaff") then
-		info.melee = true
-	end
 	if weaponTypes then
 		for _, types in ipairs(weaponTypes) do
 			if not types[weaponData.type] and

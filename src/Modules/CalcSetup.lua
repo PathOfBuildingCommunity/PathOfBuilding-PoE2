@@ -881,13 +881,9 @@ function calcs.initEnv(build, mode, override, specEnv)
 					end
 				elseif (slotName == "Weapon 1" or slotName == "Weapon 2") and modDB.conditions["AffectedByEnergyBlade"] then
 					local previousItem = env.player.itemList[slotName]
-					local prevType = previousItem and previousItem.weaponData and previousItem.weaponData[1].type
-					local prevName = previousItem and previousItem.weaponData and previousItem.weaponData[1].name
+					local type = previousItem and previousItem.weaponData and previousItem.weaponData[1].type
 					local info = env.data.weaponTypeInfo[type]
-					if prevType == "Staff" and prevName:match("Quarterstaff") then
-						info.melee = true
-					end
-					if info and prevType ~= "Bow" then
+					if info and type ~= "Bow" then
 						local name = info.oneHand and "Energy Blade One Handed" or "Energy Blade Two Handed"
 						local item = new("Item")
 						item.name = name
