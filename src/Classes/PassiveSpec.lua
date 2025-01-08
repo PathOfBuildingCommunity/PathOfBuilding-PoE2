@@ -900,8 +900,8 @@ function PassiveSpecClass:NodesInIntuitiveLeapLikeRadius(node)
 			end
 		end
 
-		if item.jewelData and item.jewelData.impossibleEscapeKeystone then
-			for keyName, keyNode in pairs(item.jewelData.impossibleEscapeKeystones) do
+		if item.jewelData and item.jewelData.fromNothingKeystone then
+			for keyName, keyNode in pairs(item.jewelData.fromNothingKeystones) do
 				if self.tree.keystoneMap[keyName] and self.tree.keystoneMap[keyName].nodesInRadius then
 					for affectedNodeId in pairs(self.tree.keystoneMap[keyName].nodesInRadius[radiusIndex]) do
 						if self.nodes[affectedNodeId].alloc then
@@ -956,9 +956,9 @@ function PassiveSpecClass:BuildAllDependsAndPaths()
 						end
 					end
 
-					if item.jewelData and item.jewelData.impossibleEscapeKeystone then
+					if item.jewelData and item.jewelData.fromNothingKeystone then
 						for keyName, keyNode in pairs(self.tree.keystoneMap) do
-							if item.jewelData.impossibleEscapeKeystones[keyName] and keyNode.nodesInRadius then
+							if item.jewelData.fromNothingKeystones[keyName] and keyNode.nodesInRadius then
 								if keyNode.nodesInRadius[radiusIndex][node.id] then
 									t_insert(node.intuitiveLeapLikesAffecting, self.nodes[nodeId])
 								end
@@ -1295,8 +1295,8 @@ function PassiveSpecClass:BuildAllDependsAndPaths()
 									and self.nodes[nodeId].nodesInRadius[self.build.itemsTab.items[itemId].jewelRadiusIndex][depNode.id]
 							) or (
 								self.build.itemsTab.items[itemId].jewelData
-									and self.build.itemsTab.items[itemId].jewelData.impossibleEscapeKeystones
-									and self:NodeInKeystoneRadius(self.build.itemsTab.items[itemId].jewelData.impossibleEscapeKeystones, depNode.id, self.build.itemsTab.items[itemId].jewelRadiusIndex)
+									and self.build.itemsTab.items[itemId].jewelData.fromNothingKeystones
+									and self:NodeInKeystoneRadius(self.build.itemsTab.items[itemId].jewelData.fromNothingKeystones, depNode.id, self.build.itemsTab.items[itemId].jewelRadiusIndex)
 							)
 						) then
 							-- Hold off on the pruning; this node could be supported by Intuitive Leap-like jewel
