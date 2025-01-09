@@ -1351,15 +1351,15 @@ return {
 } },
 -- attributes/resists
 { 1, "Attributes", 2, colorCodes.NORMAL, {{ defaultCollapsed = false, label = "Attributes", data = {
-	extra = colorCodes.STRENGTH.."{0:output:Str}^7, "..colorCodes.DEXTERITY.."{0:output:Dex}^7, "..colorCodes.INTELLIGENCE.."{0:output:Int}^7, "..colorCodes.RARE.."{0:output:Omni}",
+	extra = colorCodes.STRENGTH.."{0:output:Str}^7, "..colorCodes.DEXTERITY.."{0:output:Dex}^7, "..colorCodes.INTELLIGENCE.."{0:output:Int}^7",
 	{ label = "Strength", { format = "{0:output:Str}", { breakdown = "Str" }, { modName = "Str" }, }, },
 	{ label = "Dexterity", { format = "{0:output:Dex}", { breakdown = "Dex" }, { modName = "Dex" }, }, },
 	{ label = "Intelligence", { format = "{0:output:Int}", { breakdown = "Int" }, { modName = "Int" }, }, },
-	{ label = "Omniscience", haveOutput = "Omni", { format = "{0:output:Omni}", { breakdown = "Omni" }, { modName = "Omni" }, }, },
+	{ label = "Gem Req Mod", { format = "{2:output:GlobalGemAttributeRequirements}", { modName = { "GlobalGemAttributeRequirements", "GlobalAttributeRequirements"} }, }, },
+	{ label = "Item Req Mod", { format = "{2:output:GlobalItemAttributeRequirements}", { modName = { "GlobalItemAttributeRequirements", "GlobalAttributeRequirements"} }, }, },
 	{ notFlag = "minionSkill", label = "Str. Required", { format = "{output:ReqStrString}", { breakdown = "ReqStr" }, }, },
 	{ notFlag = "minionSkill", label = "Dex. Required", { format = "{output:ReqDexString}", { breakdown = "ReqDex" }, }, },
 	{ notFlag = "minionSkill", label = "Int. Required", { format = "{output:ReqIntString}", { breakdown = "ReqInt" }, }, },
-	{ notFlag = "minionSkill", label = "Omni. Required", haveOutput = "Omni", { format = "{output:ReqOmniString}", { breakdown = "ReqOmni" }, }, },
 } }
 } },
 -- primary defenses

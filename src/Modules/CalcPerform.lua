@@ -1353,12 +1353,14 @@ function calcs.perform(env, skipEHP)
 
 	-- Process attribute requirements
 	do
-		local reqMult = calcLib.mod(modDB, nil, "GlobalAttributeRequirements")
-		local omniRequirements = modDB:Flag(nil, "OmniscienceRequirements") and calcLib.mod(modDB, nil, "OmniAttributeRequirements")
+		local reqMultItem = calcLib.mod(modDB, nil, "GlobalAttributeRequirements", "GlobalItemAttributeRequirements")
+		local reqMultGem = calcLib.mod(modDB, nil, "GlobalAttributeRequirements", "GlobalGemAttributeRequirements")
+		output.GlobalItemAttributeRequirements = reqMultItem
+		output.GlobalGemAttributeRequirements = reqMultGem
 		local ignoreAttrReq = modDB:Flag(nil, "IgnoreAttributeRequirements")
-		local attrTable = omniRequirements and {"Omni","Str","Dex","Int"} or {"Str","Dex","Int"}
+		local attrTable = {"Str","Dex","Int"}
 		for _, attr in ipairs(attrTable) do
-			local breakdownAttr = omniRequirements and "Omni" or attr
+			local breakdownAttr = attr
 			if breakdown then
 				breakdown["Req"..attr] = {
 					rowList = { },
@@ -1372,11 +1374,11 @@ function calcs.perform(env, skipEHP)
 			local out = {val = 0, source = nil}
 			for _, reqSource in ipairs(env.requirementsTable) do
 				if reqSource[attr] and reqSource[attr] > 0 then
-					local req = m_floor(reqSource[attr] * reqMult)
-					if omniRequirements then
-						local omniReqMult = 1 / (omniRequirements - 1)
-						local attributereq =  m_floor(reqSource[attr] * reqMult)
-						req = m_floor(attributereq * omniReqMult)
+					local req = 0
+					if reqSource.source == "Item" then
+						req = m_floor(reqSource[attr] * reqMultItem)
+					elseif reqSource.source == "Gem" then
+						req = m_floor(reqSource[attr] * reqMultGem)
 					end
 					if req > out.val then
 						out.val = req
