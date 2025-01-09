@@ -3404,6 +3404,7 @@ skills["ChargedStaffPlayer"] = {
 					},
 					["charged_staff_buff_duration_per_stack_ms"] = {
 						mod("ChargedStaffBuffDuration", "BASE", nil, 0, 0, { type = "Multiplier", var = "RemovablePowerCharge" }, { type = "GlobalEffect", effectType = "Buff", effectName = "Charged Staff", effectCond = "UsePowerCharges" }),
+						div = 1000,
 					},
 				},
 			baseFlags = {
