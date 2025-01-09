@@ -1661,8 +1661,10 @@ function calcs.initEnv(build, mode, override, specEnv)
 		end
 		-- Warn if socketed gems over socket limit
 		if socketedSupportGems > 5 then
-			env.itemWarnings.socketLimitWarning = env.itemWarnings.socketLimitWarning or { }
-			t_insert(env.itemWarnings.socketLimitWarning, gemName)
+			if env.build.calcsTab.mainEnv then
+				env.build.calcsTab.mainEnv.itemWarnings.socketLimitWarning = env.build.calcsTab.mainEnv.itemWarnings.socketLimitWarning or { }
+				t_insert(env.build.calcsTab.mainEnv.itemWarnings.socketLimitWarning, socketGroup.displayLabel)
+			end
 		end
 	end
 	env.modDB.multipliers.RedSupportGems = (env.modDB.multipliers.RedSupportGems or 0) + slotSupportGemSocketsCount.R

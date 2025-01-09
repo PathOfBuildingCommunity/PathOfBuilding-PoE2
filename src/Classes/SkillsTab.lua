@@ -890,6 +890,7 @@ function SkillsTabClass:UpdateGemSlots()
 			slot.nameSpec.inactiveCol = self.displayGroup.gemList[slotIndex].color
 		end
 	end
+	self:UpdateGlobalGemCountAssignments()
 end
 
 -- Find the skill gem matching the given specification
@@ -1229,3 +1230,24 @@ function SkillsTabClass:SetActiveSkillSet(skillSetId)
 	self:SetDisplayGroup(self.socketGroupList[1])
 	self.build:SyncLoadouts()
 end
+
+-- Loop over all socket groups and gem instances
+-- to udpated global gem count assignments
+function SkillsTabClass:UpdateGlobalGemCountAssignments()
+	wipeTable(GlobalGemAssignments)
+	for _, socketGroup in ipairs(self.socketGroupList) do
+		for _, gemInstance in ipairs(socketGroup.gemList) do
+			if gemInstance.gemData then
+				if GlobalGemAssignments[gemInstance.gemData.name] then
+					GlobalGemAssignments[gemInstance.gemData.name].count = GlobalGemAssignments[gemInstance.gemData.name].count + 1
+					if GlobalGemAssignments[gemInstance.gemData.name].support then
+						supportCountInGroup = supportCountInGroup + 1
+					end
+				else
+					GlobalGemAssignments[gemInstance.gemData.name] = { count = 1, support = gemInstance.gemData.grantedEffect and gemInstance.gemData.grantedEffect.support or false }
+				end
+			end
+		end
+	end
+end
+

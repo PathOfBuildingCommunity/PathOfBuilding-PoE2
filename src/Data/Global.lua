@@ -450,3 +450,4 @@ GlobalCache = {
 	cachedData = { MAIN = {}, CALCS = {}, CALCULATOR = {}, CACHE = {}, },
 }
 
+GlobalGemAssignments = { }
