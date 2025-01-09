@@ -1407,25 +1407,40 @@ function calcs.perform(env, skipEHP)
 				out.val = 0
 			end
 			output["Req"..attr.."String"] = 0
-			if out.val > (output["Req"..breakdownAttr] or 0) then
-				output["Req"..breakdownAttr.."String"] = out.val
-				output["Req"..breakdownAttr] = out.val
-				output["Req"..breakdownAttr.."Item"] = out.source
+			local checkedAttributeStr = "Req"..breakdownAttr
+			local checkedAttributeValue = output[breakdownAttr] or 0
+			if out.val > (output[checkedAttributeStr] or 0) then
+				output[checkedAttributeStr.."String"] = out.val
+				output[checkedAttributeStr] = out.val
+				output[checkedAttributeStr.."Item"] = out.source
 				if breakdown then
-					output["Req"..breakdownAttr.."String"] = out.val > (output[breakdownAttr] or 0) and colorCodes.NEGATIVE..(out.val) or out.val
+					output[checkedAttributeStr.."String"] = out.val > checkedAttributeValue and colorCodes.NEGATIVE..(out.val) or out.val
 				end
 			end
 		end
-		if breakdown and breakdown["ReqOmni"] then
-			table.sort(breakdown["ReqOmni"].rowList, function(a, b)
-				if a.reqNum ~= b.reqNum then
-					return a.reqNum > b.reqNum
-				elseif a.source ~= b.source then
-					return a.source < b.source
-				else
-					return a.sourceName < b.sourceName
+		local gemAttributeRequirementsSatisfiedByHighestAttribute = modDB:Flag(nil, "GemAttributeRequirementsSatisfiedByHighestAttribute")
+		if gemAttributeRequirementsSatisfiedByHighestAttribute then
+			local highestAttributeValue = 0
+			local highestAttributeStr = ""
+			-- find highest attribute
+			for _, attr in ipairs(attrTable) do
+				local checkedAttributeValue = output[attr] or 0
+				if checkedAttributeValue > highestAttributeValue then
+					highestAttributeValue = checkedAttributeValue
+					highestAttributeStr = attr
 				end
-			end)
+			end
+			-- over-write attribute requirement checks with highest attribute
+			for _, attr in ipairs(attrTable) do
+				local checkedAttributeStr = "Req"..attr
+				local checkedAttributeValue = output[checkedAttributeStr] or 0
+				if breakdown then
+					output[checkedAttributeStr.."String"] = checkedAttributeValue > highestAttributeValue and colorCodes.NEGATIVE..(checkedAttributeValue) or checkedAttributeValue
+				end
+				if output[checkedAttributeStr] <= highestAttributeValue then
+					output[checkedAttributeStr] = 0
+				end
+			end
 		end
 	end
 
