@@ -11077,7 +11077,7 @@ skills["SuperchargedSlamPlayer"] = {
 			},
 			constantStats = {
 				{ "active_skill_base_area_of_effect_radius", 16 },
-				{ "channelled_slam_damage_+%_final_per_stage", 20 },
+				{ "channelled_slam_damage_+%_final_per_stage", 40 },
 				{ "channelled_slam_max_stages", 3 },
 				{ "skill_animation_duration_multiplier_override", 3 },
 				{ "channel_skill_end_animation_duration_override_ms", 1000 },
