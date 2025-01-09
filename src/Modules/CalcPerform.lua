@@ -1357,8 +1357,19 @@ function calcs.perform(env, skipEHP)
 		local reqMultGem = calcLib.mod(modDB, nil, "GlobalAttributeRequirements", "GlobalGemAttributeRequirements")
 		output.GlobalItemAttributeRequirements = reqMultItem
 		output.GlobalGemAttributeRequirements = reqMultGem
-		local ignoreAttrReq = modDB:Flag(nil, "IgnoreAttributeRequirements")
+		local gemAttributeRequirementsSatisfiedByHighestAttribute = modDB:Flag(nil, "GemAttributeRequirementsSatisfiedByHighestAttribute")
 		local attrTable = {"Str","Dex","Int"}
+		local highestAttributeValue = 0
+		if gemAttributeRequirementsSatisfiedByHighestAttribute then
+			-- find highest attribute
+			for _, attr in ipairs(attrTable) do
+				local checkedAttributeValue = output[attr] or 0
+				if checkedAttributeValue > highestAttributeValue then
+					highestAttributeValue = checkedAttributeValue
+				end
+			end
+		end
+		local ignoreAttrReq = modDB:Flag(nil, "IgnoreAttributeRequirements")
 		for _, attr in ipairs(attrTable) do
 			local breakdownAttr = attr
 			if breakdown then
@@ -1380,13 +1391,13 @@ function calcs.perform(env, skipEHP)
 					elseif reqSource.source == "Gem" then
 						req = m_floor(reqSource[attr] * reqMultGem)
 					end
-					if req > out.val then
+					if req > (gemAttributeRequirementsSatisfiedByHighestAttribute and reqSource.source == "Gem" and highestAttributeValue or out.val) then
 						out.val = req
 						out.source = reqSource
 					end
 					if breakdown then
 						local row = {
-							req = req > output[breakdownAttr] and colorCodes.NEGATIVE..req or req,
+							req = req > (gemAttributeRequirementsSatisfiedByHighestAttribute and reqSource.source == "Gem" and highestAttributeValue or output[breakdownAttr]) and colorCodes.NEGATIVE..req or req,
 							reqNum = req,
 							source = reqSource.source,
 						}
@@ -1414,31 +1425,7 @@ function calcs.perform(env, skipEHP)
 				output[checkedAttributeStr] = out.val
 				output[checkedAttributeStr.."Item"] = out.source
 				if breakdown then
-					output[checkedAttributeStr.."String"] = out.val > checkedAttributeValue and colorCodes.NEGATIVE..(out.val) or out.val
-				end
-			end
-		end
-		local gemAttributeRequirementsSatisfiedByHighestAttribute = modDB:Flag(nil, "GemAttributeRequirementsSatisfiedByHighestAttribute")
-		if gemAttributeRequirementsSatisfiedByHighestAttribute then
-			local highestAttributeValue = 0
-			local highestAttributeStr = ""
-			-- find highest attribute
-			for _, attr in ipairs(attrTable) do
-				local checkedAttributeValue = output[attr] or 0
-				if checkedAttributeValue > highestAttributeValue then
-					highestAttributeValue = checkedAttributeValue
-					highestAttributeStr = attr
-				end
-			end
-			-- over-write attribute requirement checks with highest attribute
-			for _, attr in ipairs(attrTable) do
-				local checkedAttributeStr = "Req"..attr
-				local checkedAttributeValue = output[checkedAttributeStr] or 0
-				if breakdown then
-					output[checkedAttributeStr.."String"] = checkedAttributeValue > highestAttributeValue and colorCodes.NEGATIVE..(checkedAttributeValue) or checkedAttributeValue
-				end
-				if output[checkedAttributeStr] <= highestAttributeValue then
-					output[checkedAttributeStr] = 0
+					output[checkedAttributeStr.."String"] = out.val > (gemAttributeRequirementsSatisfiedByHighestAttribute and out.source == "Gem" and highestAttributeValue or checkedAttributeValue) and colorCodes.NEGATIVE..(out.val) or out.val
 				end
 			end
 		end
