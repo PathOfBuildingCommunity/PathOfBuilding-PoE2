@@ -1235,19 +1235,35 @@ end
 -- to udpated global gem count assignments
 function SkillsTabClass:UpdateGlobalGemCountAssignments()
 	wipeTable(GlobalGemAssignments)
+	local countSocketGroups = 0
 	for _, socketGroup in ipairs(self.socketGroupList) do
+		local countGroup = true
 		for _, gemInstance in ipairs(socketGroup.gemList) do
+			if gemInstance.fromItem then
+				countGroup = false
+			end
 			if gemInstance.gemData then
 				if GlobalGemAssignments[gemInstance.gemData.name] then
 					GlobalGemAssignments[gemInstance.gemData.name].count = GlobalGemAssignments[gemInstance.gemData.name].count + 1
-					if GlobalGemAssignments[gemInstance.gemData.name].support then
-						supportCountInGroup = supportCountInGroup + 1
+					if socketGroup.displayLabel then
+						t_insert(GlobalGemAssignments[gemInstance.gemData.name].groups, socketGroup.displayLabel)
 					end
 				else
-					GlobalGemAssignments[gemInstance.gemData.name] = { count = 1, support = gemInstance.gemData.grantedEffect and gemInstance.gemData.grantedEffect.support or false }
+					GlobalGemAssignments[gemInstance.gemData.name] = { 
+						count = 1,
+						support = gemInstance.gemData.grantedEffect and gemInstance.gemData.grantedEffect.support or false,
+						groups = { } 
+					}
+					if socketGroup.displayLabel then
+						t_insert(GlobalGemAssignments[gemInstance.gemData.name].groups, socketGroup.displayLabel)
+					end
 				end
 			end
 		end
+		if countGroup then
+			countSocketGroups = countSocketGroups + 1
+		end
 	end
+	GlobalGemAssignments["GemGroupCount"] = countSocketGroups
 end
 

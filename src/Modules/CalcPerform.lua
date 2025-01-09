@@ -2973,13 +2973,22 @@ function calcs.perform(env, skipEHP)
 	end
 
 	-- check for warnings to add
-	for gemName, gemCount in pairs(GlobalGemAssignments) do
-		local allowedSupportCount = env.modDB:HasMod("OVERRIDE", nil, "MaxSupportGemCopies") and env.modDB:Override(nil, "MaxSupportGemCopies") or 1
-		if gemCount.support and gemCount.count > allowedSupportCount then
-			env.itemWarnings.supportGemLimitWarning = env.itemWarnings.supportGemLimitWarning or { }
-			t_insert(env.itemWarnings.supportGemLimitWarning, { gemName, allowedSupportCount })
+	for gemName, gemInfo in pairs(GlobalGemAssignments) do
+		if gemName == "GemGroupCount" then
+			local allowedGemGroups = env.modDB:Sum("BASE", nil, "SkillSlots")
+			if gemInfo > allowedGemGroups then
+				env.itemWarnings.gemGroupCountWarning = env.itemWarnings.gemGroupCountWarning or { }
+				t_insert(env.itemWarnings.gemGroupCountWarning, { allowedGemGroups, gemInfo })
+			end
+		else
+			local allowedSupportCount = env.modDB:HasMod("OVERRIDE", nil, "MaxSupportGemCopies") and env.modDB:Override(nil, "MaxSupportGemCopies") or 1
+			if gemInfo.support and gemInfo.count > allowedSupportCount then
+				env.itemWarnings.supportGemLimitWarning = env.itemWarnings.supportGemLimitWarning or { }
+				t_insert(env.itemWarnings.supportGemLimitWarning, { gemName, allowedSupportCount, gemInfo.groups })
+			end
 		end
 	end
+
 	-- Cache skill data
 	cacheData(cacheSkillUUID(env.player.mainSkill, env), env)
 end
