@@ -480,7 +480,7 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 	local skillModList = new("ModList", activeSkill.actor.modDB)
 	activeSkill.skillModList = skillModList
 	activeSkill.baseSkillModList = skillModList
-	
+
 	-- The damage fixup stat applies x% less base Attack Damage and x% more base Attack Speed as confirmed by Openarl Jan 4th 2024
 	-- Implemented in this manner as the stat exists on the minion not the skills 
 	if activeSkill.actor and activeSkill.actor.minionData and activeSkill.actor.minionData.damageFixup then
@@ -497,7 +497,13 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 		wipeTable(skillFlags)
 		skillFlags.disable = true
 		calcLib.validateGemLevel(activeEffect)
-		activeEffect.grantedEffectLevel = activeGrantedEffect.levels[activeEffect.level]
+		local grantedEffectLevel = copyTable(activeGrantedEffect.levels[activeEffect.level])
+		if activeStatSet and activeStatSet.levels then
+			for k, v in pairs(activeStatSet.levels[activeEffect.level]) do
+				grantedEffectLevel[k] = v
+			end
+		end
+		activeEffect.grantedEffectLevel = grantedEffectLevel
 		return
 	end
 
@@ -549,35 +555,39 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 	-- Add active gem modifiers
 	activeEffect.actorLevel = activeSkill.actor.minionData and activeSkill.actor.level
 	calcs.mergeSkillInstanceMods(env, skillModList, activeEffect, activeStatSet, skillModList:List(activeSkill.skillCfg, "ExtraSkillStat"))
-	activeEffect.grantedEffectLevel = activeGrantedEffect.levels[activeEffect.level]
+	local grantedEffectLevel = copyTable(activeGrantedEffect.levels[activeEffect.level])
+	if activeStatSet and activeStatSet.levels then
+		for k, v in pairs(activeStatSet.levels[activeEffect.level]) do
+			grantedEffectLevel[k] = v
+		end
+	end
+	activeEffect.grantedEffectLevel = grantedEffectLevel
 
 	-- Add extra modifiers from granted effect level
-	local effectLevel = activeEffect.grantedEffectLevel
-	local setLevel = activeStatSet.levels[activeEffect.level] 
-	-- THIS PROBABLY NEEDS TO BE FIXED TO INHERIT CRIT CHANCE SOMEHOW
-	activeSkill.skillData.CritChance = setLevel and setLevel.critChance or 0 
-	if effectLevel.damageMultiplier then
-		skillModList:NewMod("Damage", "MORE", effectLevel.damageMultiplier, activeEffect.grantedEffect.modSource, ModFlag.Attack)
+	local level = activeEffect.grantedEffectLevel
+	activeSkill.skillData.CritChance = level.critChance
+	if level.damageMultiplier then
+		skillModList:NewMod("Damage", "MORE", level.damageMultiplier, activeEffect.grantedEffect.modSource, ModFlag.Attack)
 	end
-	if effectLevel.attackTime then
-		activeSkill.skillData.attackTime = effectLevel.attackTime
+	if level.attackTime then
+		activeSkill.skillData.attackTime = level.attackTime
 	end
-	if effectLevel.attackSpeedMultiplier then
-		skillModList:NewMod("Speed", "MORE", effectLevel.attackSpeedMultiplier, activeEffect.grantedEffect.modSource, ModFlag.Attack)
+	if level.attackSpeedMultiplier then
+		skillModList:NewMod("Speed", "MORE", level.attackSpeedMultiplier, activeEffect.grantedEffect.modSource, ModFlag.Attack)
 	end
-	if effectLevel.cooldown then
-		activeSkill.skillData.cooldown = effectLevel.cooldown
+	if level.cooldown then
+		activeSkill.skillData.cooldown = level.cooldown
 	end
-	if effectLevel.storedUses then
-		activeSkill.skillData.storedUses = effectLevel.storedUses
+	if level.storedUses then
+		activeSkill.skillData.storedUses = level.storedUses
 	end
-	if effectLevel.soulPreventionDuration then
-		activeSkill.skillData.soulPreventionDuration = effectLevel.soulPreventionDuration
+	if level.soulPreventionDuration then
+		activeSkill.skillData.soulPreventionDuration = level.soulPreventionDuration
 	end
-	if effectLevel.PvPDamageMultiplier then
-		skillModList:NewMod("PvpDamageMultiplier", "MORE", effectLevel.PvPDamageMultiplier, activeEffect.grantedEffect.modSource)
+	if level.PvPDamageMultiplier then
+		skillModList:NewMod("PvpDamageMultiplier", "MORE", level.PvPDamageMultiplier, activeEffect.grantedEffect.modSource)
 	end
-	
+
 	-- Add extra modifiers from other sources
 	activeSkill.extraSkillModList = { }
 	for _, value in ipairs(skillModList:List(activeSkill.skillCfg, "ExtraSkillMod")) do
@@ -601,7 +611,7 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 		activeEffect.srcInstance.skillMineCountCalcs = nil
 		activeEffect.srcInstance.skillMineCount = nil
 	end
-	
+
 
 	-- Determine if it possible to have a stage on this skill based upon skill parts.
 	local noPotentialStage = true
