@@ -71,9 +71,11 @@ function calcs.mergeSkillInstanceMods(env, modList, skillEffect, statSet, extraS
 				for _, modOrGroup in ipairs(map) do
 					-- Found a mod, since all mods have names
 					if modOrGroup.name then
+						modOrGroup.source = string.format("Skill:%s", grantedEffect.id)
 						mergeLevelMod(modList, modOrGroup, map.value or statValue * (map.mult or 1) / (map.div or 1) + (map.base or 0))
 					else
 						for _, mod in ipairs(modOrGroup) do
+							mod.source = string.format("Skill:%s", grantedEffect.id)
 							mergeLevelMod(modList, mod, modOrGroup.value or statValue * (modOrGroup.mult or 1) / (modOrGroup.div or 1) + (modOrGroup.base or 0))
 						end
 					end
