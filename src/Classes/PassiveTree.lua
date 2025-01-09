@@ -121,50 +121,24 @@ local PassiveTreeClass = newClass("PassiveTree", function(self, treeVersion)
 
 	ConPrintf("Loading passive tree assets...")
 	for name, data in pairs(self.assets) do
-		self:LoadImage(data[1], data)
+		self:LoadImage(data[1], data, "MIPMAP")
 	end
 
-	-- Load sprite sheets and build sprite map
-	self.spriteMap = { }
-	local spriteSheets = { }
-	if not self.skillSprites then
-		self.skillSprites = self.sprites
-	end
-
-	for type, data in pairs(self.skillSprites) do
-		local maxZoom = data
-
-		local sheet = spriteSheets[maxZoom.filename]
-		if not sheet then
-			sheet = { }
-			self:LoadImage(maxZoom.filename, sheet)
-			spriteSheets[maxZoom.filename] = sheet
-		end
-		for name, coords in pairs(maxZoom.coords) do
-			if not self.spriteMap[name] then
-				self.spriteMap[name] = { }
-			end
-			self.spriteMap[name][type] = {
-				handle = sheet.handle,
-				width = coords.w,
-				height = coords.h,
-				[1] = coords.x / sheet.width,
-				[2] = coords.y / sheet.height,
-				[3] = (coords.x + coords.w) / sheet.width,
-				[4] = (coords.y + coords.h) / sheet.height
+	self.ddsMap = { }
+	self.ddsCoords = self.ddsCoords or { }
+	for file, fileInfo in pairs(self.ddsCoords) do
+		local data = { }
+		self:LoadImage(file, data, "CLAMP")
+		for name, position in pairs(fileInfo) do
+			self.ddsMap[name] = {
+				handle = data.handle,
+				width = data.width,
+				height = data.height,
+				[1] = position
 			}
 		end
 	end
 
-	local classArt = {
-		[0] = "centerscion",
-		[1] = "centermarauder",
-		[2] = "centerranger",
-		[3] = "centerwitch",
-		[4] = "centerduelist",
-		[5] = "centertemplar",
-		[6] = "centershadow"
-	}
 	self.nodeOverlay = {
 		Normal = {
 			artWidth = 70,
@@ -207,7 +181,7 @@ local PassiveTreeClass = newClass("PassiveTree", function(self, treeVersion)
 		},
 	}
 	for type, data in pairs(self.nodeOverlay) do
-		local asset = self:GetAssetByName(data.alloc, "frame")
+		local asset = self:GetAssetByName(data.alloc)
 		local artWidth = asset.width * self.scaleImage
 		data.artWidth = artWidth
 		data.size = artWidth
@@ -537,12 +511,6 @@ end
 
 -- Common processing code for nodes (used for both real tree nodes and subgraph nodes)
 function PassiveTreeClass:ProcessNode(node)
-	-- Assign node artwork assets
-	node.sprites = self.spriteMap[node.icon]
-	if not node.sprites then
-		--error("missing sprite "..node.icon)
-		node.sprites = self.spriteMap["Art/2DArt/SkillIcons/passives/MasteryBlank.png"]
-	end
 
 	node.targetSize = self:GetNodeTargetSize(node)
 	node.overlay = self.nodeOverlay[node.type]
@@ -553,12 +521,6 @@ function PassiveTreeClass:ProcessNode(node)
 
 	-- Derive the true position of the node
 	if node.group then
-		-- node.angle = ((self.orbitAnglesByOrbit[node.o + 1][node.oidx + 1]) - 90) * math.pi / 180
-
-		-- local orbitRadius = self.orbitRadii[node.o + 1] * self.scaleImage
-		-- node.x = (node.group.x * self.scaleImage) + m_cos(node.angle) * orbitRadius
-		-- node.y = (node.group.y * self.scaleImage) + m_sin(node.angle) * orbitRadius
-
 		node.angle = self.orbitAnglesByOrbit[node.o + 1][node.oidx + 1]
 		local orbitRadius = self.orbitRadii[node.o + 1]  * self.scaleImage
 		node.x = (node.group.x * self.scaleImage) + m_sin(node.angle) * orbitRadius
@@ -571,7 +533,7 @@ function PassiveTreeClass:ProcessNode(node)
 		for _, oil in ipairs(node.recipe) do
 			table.insert(node.infoRecipe, {
 				name = oil,
-				sprite = self:GetAssetByName(oil, "oil")
+				sprite = self:GetAssetByName(oil)
 			})
 		end
 	end
@@ -587,7 +549,6 @@ function PassiveTreeClass:ProcessNode(node)
 			end
 			switchNode.dn = switchNode.name
 			switchNode.sd = switchNode.stats
-			switchNode.sprites = self.spriteMap[switchNode.icon]
 
 			self:ProcessStats(switchNode)
 		end
@@ -705,7 +666,7 @@ function PassiveTreeClass:BuildConnector(node1, node2, connection)
 
 	-- Generate a straight line
 	connector.type = "LineConnector"
-	local art = self:GetAssetByName("LineConnectorNormal", "line")
+	local art = self:GetAssetByName("LineConnectorNormal")
 	local vX, vY = node2.x - node1.x, node2.y - node1.y
 	local dist = m_sqrt(vX * vX + vY * vY)
 	local scale = art.height * 0.5 * self.scaleImage / dist
@@ -741,7 +702,7 @@ function PassiveTreeClass:BuildArc(arcAngle, orbit, xScale, yScale, angle, conne
 	connector.vert = { }
 	for _, state in pairs({ "Normal", "Intermediate", "Active" }) do
 		-- The different line states have differently-sized artwork, so the vertex coords must be calculated separately for each one
-		local art  = self:GetAssetByName(connector.type .. state, "line")
+		local art  = self:GetAssetByName(connector.type .. state)
 		local size =  art.width * self.scaleImage --self.orbitRadii[orbit + 1]  * self.scaleImage
 		local oX, oY = size * m_sqrt(2) * m_sin(angle + m_pi / 4), size * m_sqrt(2) * -m_cos(angle + m_pi / 4)
 		local cX, cY = xScale + oX, yScale + oY
@@ -789,18 +750,24 @@ function PassiveTreeClass:CalcOrbitAngles(nodesInOrbit)
 end
 
 function PassiveTreeClass:GetAssetByName(name, type)
-	if self.spriteMap[name] then
-		return self.spriteMap[name][type]
+	if self.ddsMap[name] then
+		return self.ddsMap[name]
 	end
 	return self.assets[name]
 end
 
-function PassiveTreeClass:IsPobGenerate()
-	return self.pob == 1
-end
-
 function PassiveTreeClass:GetNodeTargetSize(node)
-	if node.type == "Notable"then
+	if node.type == "Normal" and node.ascendancyName then
+		return {
+			['overlay'] = { width = math.floor(80 * self.scaleImage), height = math.floor(80 * self.scaleImage) },
+			width = math.floor(37  * self.scaleImage), height = math.floor( 37  * self.scaleImage)
+		}
+	elseif node.ascendancyName then
+		return {
+			['overlay'] = { width = math.floor(100 * self.scaleImage), height = math.floor(100 * self.scaleImage) },
+			width = math.floor(54  * self.scaleImage), height = math.floor( 54  * self.scaleImage)
+		}
+	elseif node.type == "Notable"then
 		return {
 			['effect'] =  { width = math.floor(380 * self.scaleImage), height = math.floor(380 * self.scaleImage) },
 			['overlay'] = { width = math.floor(80 * self.scaleImage), height = math.floor(80 * self.scaleImage) },
@@ -831,7 +798,10 @@ function PassiveTreeClass:GetNodeTargetSize(node)
 			width = math.floor(76 * self.scaleImage), height = math.floor(76 * self.scaleImage)
 		}
 	elseif node.type == "ClassStart" then
-		return { width = math.floor(54 * self.scaleImage), height = math.floor(54 * self.scaleImage) }
+		return {
+			['overlay'] = { width = math.floor(54 * self.scaleImage), height = math.floor(54 * self.scaleImage) },
+			width = math.floor(37  * self.scaleImage), height = math.floor( 37  * self.scaleImage)
+		}
 	else
 		return { width = 0, height = 0 }
 	end

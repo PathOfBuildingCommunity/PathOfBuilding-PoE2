@@ -1,6 +1,5 @@
-local gimpbatch = require("gimpbatch.gimp_batch")
-local ddsfiles = require("ddsfiles")
-local nvtt = require("nvtt")
+local gimpbatch = require("Tree/gimpbatch/gimp_batch")
+local nvtt = LoadModule("Tree/nvtt")
 local json = require("dkjson")
 
 -- by session we would like to dont extract the same file multiple times
@@ -111,80 +110,85 @@ end
 local function addToSheet(sheet, icon, section, metadata)
 	sheet.files[icon] = sheet.files[icon] or {}
 	if sheet.files[icon][section] then
-		return
+		-- check if metadata alias already exists
+		if metadata.alias then
+			for _, meta in pairs(sheet.files[icon][section]) do
+				if meta.alias == metadata.alias then
+					return
+				end
+			end
+		else
+			for _, meta in pairs(sheet.files[icon][section]) do
+				if meta.alias == nil then
+					return
+				end
+			end
+		end
 	end
-	sheet.files[icon][section] = metadata
+	sheet.files[icon][section] = sheet.files[icon][section] or {}
+	table.insert(sheet.files[icon][section], metadata)
 end
-local function calculateSheetCoords(sheet, path_base)
-	local coords = { }
-	local sortedFiles = { }
-	local lastHeight = 0
-	local maxWidthFound = 0
-	local sprite = {
-		x=0, 
-		y=0,
-		w = sheet.startWidth,
-		h = 0,
-		filename = sheet.name .. ".png",
-	}
+
+local function calculateDDSPack(sheet, from_base, to_base, is4kEnabled)
+	local stackTextures = {}
+	local ddsCoords = {}
 
 	-- stract all files first from GGG pack
 	local filesToExtract = { }
 	for icon, _ in pairs(sheet.files) do
 		table.insert(filesToExtract, icon)
+
+		if is4kEnabled then
+			local icon4k = icon:gsub("(.*/)([^/]+)$", "%14k/%2")
+			table.insert(filesToExtract, icon4k)
+		end
 	end
 	extractFromGgpk(filesToExtract)
 
 	for icon, sections in pairs(sheet.files) do
-		local width, height = ddsfiles.getMaxSize(path_base .. string.lower(icon))
+		local tex = Texture.new()
+		local rc
+		if is4kEnabled then
+			local icon4k = icon:gsub("(.*/)([^/]+)$", "%14k/%2")
+			rc = tex:Load(from_base .. string.lower(icon4k))
+		end
+		if not rc then
+			rc = tex:Load(from_base .. string.lower(icon))
+		end
 
-		table.insert(sortedFiles, {
+		local info = tex:Info()
+		local ident = string.format("%d_%d_%s", info.width, info.height, info.formatStr)
+
+		if not stackTextures[ident] then
+			stackTextures[ident] = {}
+		end
+
+		table.insert(stackTextures[ident], {
+			tex = tex,
 			icon = icon,
-			sections = sections,
-			width = width,
-			height = height,
+			sections = sections
 		})
 	end
 
-	table.sort(sortedFiles, function(a, b)
-		return a.height < b.height
-	end)
 
-	-- validate if we have a file bigger than the sheet and update to use the max new size * 2
-	for _, iconInfo in pairs(sortedFiles) do
-		if iconInfo.width > sprite.w then
-			sprite.w = iconInfo.width * 2
+	for iden, stackInfo in pairs(stackTextures) do
+		local stacks = {}
+		local file = sheet.name .. "_" .. iden .. ".dds.zst"
+		ddsCoords[file] = {}
+		for position, stack in ipairs(stackInfo) do
+			for _, metadatas in pairs(stack.sections) do
+				for _, meta in ipairs(metadatas) do
+					local icon = meta.alias or stack.icon
+					ddsCoords[file][icon] = position
+				end
+			end
+			table.insert(stacks, stack.tex)
 		end
+		local stackTex = Texture.new()
+		local rc = stackTex:StackTextures(stacks)
+		rc = stackTex:Save(to_base .. file)
 	end
-
-	for _, iconInfo in pairs(sortedFiles) do
-		if sprite.x + iconInfo.width > sprite.w or iconInfo.height ~= lastHeight then
-			sprite.x = 0
-			sprite.y = sprite.y + lastHeight
-			sprite.h = sprite.y + iconInfo.height
-		end
-		table.insert(coords, {
-			icon = iconInfo.icon,
-			x = sprite.x,
-			y = sprite.y,
-			w = iconInfo.width,
-			h = iconInfo.height,
-			sections = iconInfo.sections,
-		})
-		sprite.x = sprite.x + iconInfo.width
-		maxWidthFound = math.max(maxWidthFound, sprite.x)
-		lastHeight = iconInfo.height
-	end
-	sprite.x = 0
-	sprite.y = 0
-	sprite.coords = coords
-
-	if maxWidthFound > 0 and maxWidthFound < sprite.w then
-		sprite.w = maxWidthFound
-	end
-
-	sheet.sprite = sprite
-	sheet.files = {}
+	sheet.ddsCoords = ddsCoords
 end
 
 local function parseUIImages()
@@ -243,6 +247,7 @@ local uiImages = parseUIImages()
 
 -- Set to true if you want to generate assets
 local generateAssets = false
+local use4kIfPossible = false
 -- Find a way to get the default passive tree
 local idPassiveTree = 'Default'
 -- Find a way to get version
@@ -496,12 +501,12 @@ addToSheet(getSheet("lines"), "art/2dart/passivetree/passiveskillscreencurvesnor
 local jewelArt = dat("passivejewelart")
 for jewel in jewelArt:Rows() do
 	local asset = uiImages[string.lower(jewel.JewelArt)]
+	printf("Adding jewel socket " .. jewel.Item.Name .. " " .. asset.path .. " to sprite")
 	local name = jewel.Item.Name
 	addToSheet(getSheet("jewelsockets"), asset.path, "jewelpassive", commonMetadata(name))
 end
 
 local tree = {
-	["pob"] = 1,
 	["tree"] = idPassiveTree,
 	["min_x"]= 0,
     ["min_y"]= 0,
@@ -511,7 +516,7 @@ local tree = {
 	["groups"] = { },
 	["nodes"]= { },
 	["assets"]={},
-	["sprites"] = {},
+	["ddsCoords"] = {},
 	["constants"]= { -- calculate this
         ["classes"]= {
             ["StrDexIntClass"]= 0,
@@ -943,38 +948,14 @@ end
 MakeDir(basePath .. version)
 
 printf("Generating sprite info...")
-local sections = {}
 for i, sheet in ipairs(sheets) do
 	printf("Calculating sprite dimensions for " .. sheet.name)
-	calculateSheetCoords(sheet, main.ggpk.oozPath, basePath .. version .. "/")
+	calculateDDSPack(sheet, main.ggpk.oozPath, basePath .. version .. "/", use4kIfPossible)
 
-	printf("Generating sprite info for " .. sheet.name)
-	-- now we are going to creeate sprites base on section and zoom level
-	for _, coord in pairs(sheet.sprite.coords) do
-		for section, metadata in pairs(coord.sections) do
-			if sections[section] == nil then
-				sections[section] = {
-					filename = sheet.sprite.filename,
-					w = sheet.sprite.w,
-					h = sheet.sprite.h,
-					coords = { },
-				}
-			end
-
-			local icon = metadata.alias or coord.icon
-			local sprite = {
-				x = coord.x,
-				y = coord.y,
-				w = coord.w,
-				h = coord.h,
-			}
-
-			sections[section].coords[icon] = sprite
-		end
+	for file, fileInfo in pairs(sheet.ddsCoords) do
+		tree.ddsCoords[file] = fileInfo
 	end
 end
-
-tree.sprites = sections
 
 printf("Generating decompose lines images...")
 local linesFiles = {
@@ -1028,7 +1009,7 @@ for _, lines in ipairs(linesFiles) do
 	lines.mask = lines.mask:gsub(".dds", ".png")
 end
 
-gimpbatch.extract_lines_from_image("lines_extract", linesFiles, main.ggpk.oozPath, basePath .. version .. "/", GetRuntimePath() .. "/lua/gimpbatch/extract_lines.scm", generateAssets)
+gimpbatch.extract_lines_from_image("lines_extract", linesFiles, main.ggpk.oozPath, basePath .. version .. "/", GetScriptPath() .. "/Tree/gimpbatch/extract_lines.scm", generateAssets)
 
 printf("generate lines info into assets")
 -- Generate sprites
@@ -1083,33 +1064,4 @@ if out == nil then
 end
 out:write(json.encode(tree))
 out:close()
-
--- Here we should validate if we need to create assets real assets
-printf("Generating png from dds ...")
-local ddsFiles = {}
-for _, sheet in ipairs(sheets) do
-	for _, coord in pairs(sheet.sprite.coords) do
-		table.insert( ddsFiles,  coord.icon)
-	end
-end
-
-nvtt.ExportDDSToPng(main.ggpk.oozPath, basePath .. version .. "/", "assets", ddsFiles, true)
-
-printf("Generating sprite sheet images...")
-for _, sheet in ipairs(sheets) do
-	-- update coord.icon from .dds to .png
-	for _, coord in pairs(sheet.sprite.coords) do
-		coord.icon = coord.icon:gsub(".dds", ".png")
-	end
-
-	gimpbatch.combine_images_to_sprite(
-		sheet.name ,
-		sheet.sprite,
-		main.ggpk.oozPath,
-		basePath .. version .. "/",
-		GetRuntimePath() .. "/lua/gimpbatch/combine_images.scm",
-		sheet.saturation,
-		generateAssets
-	)
-end
 :: final ::
