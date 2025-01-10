@@ -1067,7 +1067,7 @@ function calcs.perform(env, skipEHP)
 			end
 		end
 		if env.player.itemList["Ring 2"] then
-			for _, mod in ipairs(env.player.itemList["Ring 2"].modList or env.player.itemList["Ring 2"].slotModList[1]) do
+			for _, mod in ipairs(env.player.itemList["Ring 2"].modList or env.player.itemList["Ring 2"].slotModList[2]) do
 				-- Filter out SocketedIn type mods
 				for _, tag in ipairs(mod) do
 					if tag.type == "SocketedIn" then
