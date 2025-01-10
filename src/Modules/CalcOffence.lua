@@ -61,17 +61,20 @@ end })
 local globalOutput = nil
 local globalBreakdown = nil
 
-local function calcConvertedDamage(activeSkill, output, damageType)
+local function calcConvertedDamage(activeSkill, output, cfg, damageType)
+	local skillModList = activeSkill.skillModList
 	-- Calculate conversions
 	local convertedMin, convertedMax = 0, 0
 	local conversionTable = activeSkill.conversionTable
 	for _, otherType in ipairs(dmgTypeList) do
 		local convMult = conversionTable[otherType][damageType]
+		local moreMinDamage = skillModList:More(cfg, "Min"..otherType.."Damage")
+		local moreMaxDamage = skillModList:More(cfg, "Max"..otherType.."Damage")
 		if convMult > 0 then
 			-- Damage is being converted/gained from the other damage type
 			local min, max = output[otherType.."MinBase"], output[otherType.."MaxBase"]
-			convertedMin = convertedMin + min * convMult
-			convertedMax = convertedMax + max * convMult
+			convertedMin = convertedMin + (min or 0) * convMult * moreMinDamage
+			convertedMax = convertedMax + (max or 0) * convMult * moreMaxDamage
 		end
 	end
 	if convertedMin ~= 0 and convertedMax ~= 0 then
@@ -82,7 +85,7 @@ local function calcConvertedDamage(activeSkill, output, damageType)
 	return convertedMin, convertedMax
 end
 
-local function calcGainedDamage(activeSkill, output, damageType)
+local function calcGainedDamage(activeSkill, output, cfg, damageType)
 	local gainTable = activeSkill.gainTable
 	
 	local gainedMin, gainedMax = 0, 0
@@ -92,7 +95,7 @@ local function calcGainedDamage(activeSkill, output, damageType)
 		local gainMult = gainTable[otherType][damageType]
 		if gainMult > 0 then
 			-- Damage is being converted/gained from the other damage type
-			local convertedMin, convertedMax = calcConvertedDamage(activeSkill, output, otherType)
+			local convertedMin, convertedMax = calcConvertedDamage(activeSkill, cfg, output, otherType)
 			gainedMin = gainedMin + (baseMin + convertedMin) * gainMult
 			gainedMax = gainedMax + (baseMax + convertedMax) * gainMult
 		end
@@ -130,8 +133,6 @@ local function calcDamage(activeSkill, output, cfg, breakdown, damageType, typeF
 	local modNames = damageStatsForTypes[typeFlags]
 	local inc = 1 + skillModList:Sum("INC", cfg, unpack(modNames)) / 100
 	local more = skillModList:More(cfg, unpack(modNames))
-	local genericMoreMinDamage = skillModList:More(cfg, "MinDamage")
-	local genericMoreMaxDamage = skillModList:More(cfg, "MaxDamage")
 	local moreMinDamage = skillModList:More(cfg, "Min"..damageType.."Damage")
 	local moreMaxDamage = skillModList:More(cfg, "Max"..damageType.."Damage")
 
@@ -147,8 +148,8 @@ local function calcDamage(activeSkill, output, cfg, breakdown, damageType, typeF
 		})
 	end
 	
-	return 	round(((summedMin * inc * more) * genericMoreMinDamage + addMin) * moreMinDamage),
-			round(((summedMax * inc * more) * genericMoreMaxDamage + addMax) * moreMaxDamage)
+	return 	round(summedMin * inc * more * moreMinDamage + addMin),
+			round(summedMax * inc * more * moreMaxDamage + addMax)
 end
 
 ---Calculates skill radius
@@ -2916,8 +2917,8 @@ function calcs.offence(env, actor, activeSkill)
 			local damageTypeMin = damageType.."Min"
 			local damageTypeMax = damageType.."Max"
 			local convMult = activeSkill.conversionTable[damageType].mult
-			local convertedMin, convertedMax = calcConvertedDamage(activeSkill, output, damageType)
-			local gainedMin, gainedMax = calcGainedDamage(activeSkill, output, damageType)
+			local convertedMin, convertedMax = calcConvertedDamage(activeSkill, output, cfg, damageType)
+			local gainedMin, gainedMax = calcGainedDamage(activeSkill, output, cfg, damageType)
 			local baseMin = output[damageTypeMin.."Base"]
 			local baseMax = output[damageTypeMax.."Base"]
 			local summedMin = baseMin * convMult + convertedMin + gainedMin 
