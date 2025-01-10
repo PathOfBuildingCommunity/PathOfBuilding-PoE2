@@ -88,11 +88,11 @@ end
 
 -- Create an active skill using the given active gem and list of support gems
 -- It will determine the base flag set, and check which of the support gems can support this skill
-function calcs.createActiveSkill(activeEffect, supportList, env, socketGroup, summonSkill)
+function calcs.createActiveSkill(activeEffect, supportList, env, actor, socketGroup, summonSkill)
 	local activeSkill = {
 		activeEffect = activeEffect,
 		supportList = supportList,
-		actor = env.player,
+		actor = actor,
 		summonSkill = summonSkill,
 		socketGroup = socketGroup,
 		skillData = { },
@@ -187,7 +187,7 @@ function calcs.copyActiveSkill(env, mode, skill)
 		srcInstance = skill.activeEffect.srcInstance,
 		gemData = skill.activeEffect.srcInstance.gemData,
 	}
-	local newSkill = calcs.createActiveSkill(activeEffect, skill.supportList, env, skill.socketGroup, skill.summonSkill)
+	local newSkill = calcs.createActiveSkill(activeEffect, skill.supportList, env, env.player, skill.socketGroup, skill.summonSkill)
 	local newEnv, _, _, _ = calcs.initEnv(env.build, mode, env.override)
 	calcs.buildActiveSkillModList(newEnv, newSkill)
 	newSkill.skillModList = new("ModList", newSkill.baseSkillModList)
@@ -864,6 +864,16 @@ function calcs.createMinionSkills(env, activeSkill)
 			level = 1,
 			quality = 0,
 		}
+		activeEffect.srcInstance = {
+			statSetMain = {
+				statSet = activeEffect.grantedEffect.statSets[1],
+				skillFlags = copyTable(activeEffect.grantedEffect.statSets[1].baseFlags)
+			},
+			statSetCalcs = {
+				statSet = activeEffect.grantedEffect.statSets[1],
+				skillFlags = copyTable(activeEffect.grantedEffect.statSets[1].baseFlags)
+			}
+		}
 		if #activeEffect.grantedEffect.levels > 1 then
 			for level, levelData in ipairs(activeEffect.grantedEffect.levels) do
 				if levelData.levelRequirement > minion.level then
@@ -873,12 +883,17 @@ function calcs.createMinionSkills(env, activeSkill)
 				end
 			end
 		end
-		local minionSkill = calcs.createActiveSkill(activeEffect, activeSkill.supportList, minion, nil, activeSkill)
+		local minionSkill = calcs.createActiveSkill(activeEffect, activeSkill.supportList, env, minion, nil, activeSkill)
 		calcs.buildActiveSkillModList(env, minionSkill)
-		minionSkill.skillFlags.minion = true
-		minionSkill.skillFlags.minionSkill = true
-		minionSkill.skillFlags.haveMinion = true
-		minionSkill.skillFlags.spectre = activeSkill.skillFlags.spectre
+		local skillFlags
+		if env.mode == "CALCS" then
+			skillFlags = minionSkill.activeEffect.srcInstance.statSetCalcs.skillFlags
+		else 
+			skillFlags = minionSkill.activeEffect.srcInstance.statSetMain.skillFlags
+		end
+		skillFlags.minion = true
+		skillFlags.minionSkill = true
+		skillFlags.haveMinion = true
 		minionSkill.skillData.damageEffectiveness = 1 + (activeSkill.skillData.minionDamageEffectiveness or 0) / 100
 		t_insert(minion.activeSkillList, minionSkill)
 	end

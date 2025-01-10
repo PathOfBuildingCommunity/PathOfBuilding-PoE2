@@ -127,6 +127,15 @@ local CalcsTabClass = newClass("CalcsTab", "UndoHandler", "ControlHost", "Contro
 				self.build.buildFlag = true
 			end)
 		} },
+		{ label = "Minion Skill Stat Set", flag = "minion", { controlName = "mainSkillMinionSkillStatSet",
+			control = new("DropDownControl", nil, {0, 0, 200, 16}, nil, function(index, value)
+				local mainSocketGroup = self.build.skillsTab.socketGroupList[self.input.skill_number]
+				local srcInstance = mainSocketGroup.displaySkillListCalcs[mainSocketGroup.mainActiveSkillCalcs].activeEffect.srcInstance
+				srcInstance.skillMinionSkillStatSetCalcs = index
+				self:AddUndoState()
+				self.build.buildFlag = true
+			end)
+		} },
 		{ label = "Calculation Mode", { 
 			controlName = "mode", 
 			control = new("DropDownControl", nil, {0, 0, 100, 16}, buffModeDropList, function(index, value) 
