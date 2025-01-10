@@ -827,6 +827,14 @@ for i, group in ipairs(psg.groups) do
 					end
 				end
 			end
+
+			-- Multiple Choice and MultipleChoiceOption support
+			if passiveRow.MultipleChoice then
+				node["isMultipleChoice"] = true
+			end
+			if passiveRow.MultipleChoiceOption then
+				node["isMultipleChoiceOption"] = true
+			end
 		end
 		
 		for k, connection in ipairs(passive.connections) do
