@@ -59,6 +59,12 @@ skills["AncestralSpiritsPlayer"] = {
 		[39] = { levelRequirement = 90, },
 		[40] = { levelRequirement = 90, },
 	},
+	minionList = {
+		--"AncestralSpiritTurtle",
+		--"AncestralSpiritHulk",
+		--"AncestralSpiritCaster",
+		--"AncestralSpiritWarhorn",
+	},
 	statSets = {
 		[1] = {
 			label = "Ancestral Spirits",
@@ -66,6 +72,8 @@ skills["AncestralSpiritsPlayer"] = {
 			statDescriptionScope = "skill_stat_descriptions",
 	fromTree = true,
 			baseFlags = {
+				spell = true,
+				minion = true,
 			},
 			stats = {
 				"display_modifiers_to_totem_life_effect_these_minions",
@@ -2899,6 +2907,9 @@ skills["SummonInfernalHoundPlayer"] = {
 		[39] = { levelRequirement = 90, },
 		[40] = { levelRequirement = 90, },
 	},
+	minionList = {
+		--"SummonedHellhound",
+	},
 	statSets = {
 		[1] = {
 			label = "Summon Infernal Hound",
@@ -2906,6 +2917,9 @@ skills["SummonInfernalHoundPlayer"] = {
 			statDescriptionScope = "summon_infernal_familiar",
 	fromTree = true,
 			baseFlags = {
+				spell = true,
+				minion = true,
+				permanentMinion = true,
 			},
 			constantStats = {
 				{ "display_minion_monster_type", 8 },

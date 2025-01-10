@@ -46,13 +46,19 @@ local minions, mod = ...
 #emit
 
 #monster Metadata/Monsters/Hellhound/HellhoundPlayerSummoned SummonedHellhound
-#limit ActiveSkeletonLimit
 #emit
 
-#monster Metadata/Monsters/Totems/ancestor_totem/AncestralWarriorSpirit SummonedHellhound
-#limit ActiveSkeletonLimit
+#monster Metadata/Monsters/LeagueAncestral/AncestralTurtleTotemSpirit AncestralSpiritTurtle
+#emit
+
+#monster Metadata/Monsters/LeagueAncestral/AncestralJadeHulkTotemSpirit AncestralSpiritHulk
+#emit
+
+#monster Metadata/Monsters/LeagueAncestral/AncestralSpiritCasterTotemSpirit AncestralSpiritCaster
+#emit
+
+#monster Metadata/Monsters/LeagueAncestral/AncestralKaruiHornTotemSpirit AncestralSpiritWarhorn
 #emit
 
 #monster Metadata/Monsters/SkeletalConstruct/BoneConstructPlayerSummoned UnearthBoneConstruct
-#limit ActiveSkeletonLimit
 #emit

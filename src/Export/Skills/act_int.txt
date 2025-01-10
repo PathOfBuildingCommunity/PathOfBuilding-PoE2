@@ -766,15 +766,18 @@ local skills, mod, flag, skill = ...
 #skillEnd
 
 #skill RagingSpiritsPlayer
+	minionList = {
+		--"SummonedRagingSpirit",
+	},
 #startSets
 #set RagingSpiritsPlayer
-#flags
+#flags spell minion permanentMinion
 #mods
 #skillEnd
 
 #skill RaiseZombiePlayer
 	minionList = {
-		"RaisedZombie",
+		--"RaisedZombie",
 	},
 #startSets
 #set RaiseZombiePlayer
@@ -842,100 +845,82 @@ local skills, mod, flag, skill = ...
 #skillEnd
 
 #skill SummonSkeletalArsonistsPlayer
+	minionList = {
+		--"RaisedSkeletonArsonist",
+	},
 #startSets
 #set SummonSkeletalArsonistsPlayer
-#flags
-#mods
-#skillEnd
-
-#skill CommandSkeletalArsonistPlayer
-#startSets
-#set CommandSkeletalArsonistPlayer
-#flags
+#flags spell minion permanentMinion
 #mods
 #skillEnd
 
 #skill SummonSkeletalBrutesPlayer
+	minionList = {
+		--"RaisedSkeletonBrute",
+	},
 #startSets
 #set SummonSkeletalBrutesPlayer
-#flags
+#flags spell minion permanentMinion
 #mods
 #skillEnd
 
 #skill SummonSkeletalClericsPlayer
+	minionList = {
+		--"RaisedSkeletonCleric",
+	},
 #startSets
 #set SummonSkeletalClericsPlayer
-#flags
+#flags spell minion permanentMinion
 #mods
 #skillEnd
 
 #skill SummonSkeletalFrostMagesPlayer
+	minionList = {
+		--"RaisedSkeletonFrostMage",
+	},
 #startSets
 #set SummonSkeletalFrostMagesPlayer
-#flags
-#mods
-#skillEnd
-
-#skill CommandSkeletalFrostMagePlayer
-#startSets
-#set CommandSkeletalFrostMagePlayer
-#flags
+#flags spell minion permanentMinion
 #mods
 #skillEnd
 
 #skill SummonSkeletalReaversPlayer
+	minionList = {
+		--"RaisedSkeletonReaver",
+	},
 #startSets
 #set SummonSkeletalReaversPlayer
-#flags
-#mods
-#skillEnd
-
-#skill CommandSkeletalReaversPlayer
-#startSets
-#set CommandSkeletalReaversPlayer
-#flags
+#flags spell minion permanentMinion
 #mods
 #skillEnd
 
 #skill SummonSkeletalSnipersPlayer
+	minionList = {
+		--"RaisedSkeletonSniper",
+	},
 #startSets
 #set SummonSkeletalSnipersPlayer
-#flags
-#mods
-#skillEnd
-
-#skill CommandSkeletalSniperPlayer
-#startSets
-#set CommandSkeletalSniperPlayer
-#flags
+#flags spell minion permanentMinion
 #mods
 #skillEnd
 
 #skill SummonSkeletalStormMagesPlayer
+	minionList = {
+		--"RaisedSkeletonStormMage",
+	},
 #startSets
 #set SummonSkeletalStormMagesPlayer
-#flags
-#mods
-#skillEnd
-
-#skill CommandSkeletalStormMagePlayer
-#startSets
-#set CommandSkeletalStormMagePlayer
-#flags
+#flags spell minion permanentMinion
 #mods
 #skillEnd
 
 #skill SummonSkeletalWarriorsPlayer
+	minionList = {
+		--"RaisedSkeletonWarrior",
+	},
 #startSets
 #set SummonSkeletalWarriorsPlayer
-#flags
-#mods
-#skillEnd
-
-#skill WeaponGrantedSummonSkeletalWarriorsPlayer
-#startSets
-#set WeaponGrantedSummonSkeletalWarriorsPlayer
-#flags
+#flags spell minion permanentMinion
 #mods
 #skillEnd
 
@@ -1025,9 +1010,12 @@ local skills, mod, flag, skill = ...
 #skillEnd
 
 #skill UnearthPlayer
+	minionList = {
+		--"UnearthBoneConstruct",
+	},
 #startSets
 #set UnearthPlayer
-#flags
+#flags spell minion
 #mods
 #skillEnd
 

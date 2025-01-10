@@ -5,9 +5,136 @@
 --
 local skills, mod, flag, skill = ...
 
+#skill MeleeAtAnimationSpeed
+#startSets
+#set MeleeAtAnimationSpeed
+#flags attack melee
+#mods
+#skillEnd
+
+#skill MinionMelee
+#startSets
+#set MinionMelee
+#flags attack melee
+#mods
+#skillEnd
+
 #skill MinionMeleeStep
 #startSets
 #set MinionMeleeStep
-#flags attack
+#flags attack melee
+#mods
+#skillEnd
+
+#skill MinionMeleeBow
+#startSets
+#set MinionMeleeBow
+#flags attack projectile
+#mods
+#skillEnd
+
+#skill GasShotSkeletonSniperMinion
+#startSets
+#set GasShotSkeletonSniperMinion
+#flags attack projectile area
+#mods
+#set GasShotCloudSkeletonSniperMinion
+#flags attack area duration
+#mods
+#set GasShotCloudExplodeSkeletonSniperMinion
+#flags hit area
+#mods
+#skillEnd
+
+#skill BoneshatterBruteMinion
+#startSets
+#set BoneshatterBruteMinion
+#flags attack melee
+#mods
+#set BoneshatterShockwaveBruteMinion
+#flags attack area
+#mods
+#skillEnd
+
+#skill ArcSkeletonMageMinion
+#startSets
+#set ArcSkeletonMageMinion
+#flags spell chaining
+#mods
+#skillEnd
+
+#skill DeathStormSkeletonStormMageMinion
+#startSets
+#set DeathStormSkeletonStormMageMinion
+#flags spell area
+#mods
+#skillEnd
+
+#skill FrostBoltSkeletonMageMinion
+#startSets
+#set FrostBoltSkeletonMageMinion
+#flags spell projectile
+#mods
+#set FrostBoltSkeletonMageMinionExplosion
+#flags area hit
+#mods
+#skillEnd
+
+#skill IceBombSkeletonMageMinion
+#startSets
+#set IceBombSkeletonMageMinion
+#flags spell duration
+#mods
+#skillEnd
+
+#skill HealSkeletonClericMinion Heal Buff
+#startSets
+#set HealSkeletonClericMinion
+#flags
+#mods
+#skillEnd
+
+#skill FireBombSkeletonMinion
+#startSets
+#set FireBombSkeletonMinion
+#flags attack area duration
+#mods
+#set FireBombBurningGroundSkeletonMinion
+#flags
+#mods
+#skillEnd
+
+#skill DestructiveLinkSkeletonBombadierMinion
+#startSets
+#set DestructiveLinkSkeletonBombadierMinion
+#flags area spell
+#mods
+#skillEnd
+
+#skill EnrageSkeletonReaverMinion
+#startSets
+#set EnrageSkeletonReaverMinion
+#flags
+#mods
+#skillEnd
+
+#skill GAAncestralJadeHulkLeapImpact Leap Slam
+#startSets
+#set GAAncestralJadeHulkLeapImpact
+#flags attack area
+#mods
+#skillEnd
+
+#skill TCAncestralLeagueKaruiHulk Shield Charge
+#startSets
+#set TCAncestralLeagueKaruiHulk
+#flags attack melee area
+#mods
+#skillEnd
+
+#skill MPSAncestralTotemSpiritSoulCasterProjectile Projectile Spell
+#startSets
+#set MPSAncestralTotemSpiritSoulCasterProjectile
+#flags spell projectile
 #mods
 #skillEnd

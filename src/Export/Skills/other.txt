@@ -6,9 +6,15 @@
 local skills, mod, flag, skill = ...
 
 #skill AncestralSpiritsPlayer
+	minionList = {
+		--"AncestralSpiritTurtle",
+		--"AncestralSpiritHulk",
+		--"AncestralSpiritCaster",
+		--"AncestralSpiritWarhorn",
+	},
 #startSets
 #set AncestralSpiritsPlayer
-#flags
+#flags spell minion
 	fromTree = true,
 #mods
 #skillEnd
@@ -198,9 +204,12 @@ local skills, mod, flag, skill = ...
 #skillEnd
 
 #skill SummonInfernalHoundPlayer
+	minionList = {
+		--"SummonedHellhound",
+	},
 #startSets
 #set SummonInfernalHoundPlayer
-#flags
+#flags spell minion permanentMinion
 	fromTree = true,
 #mods
 #skillEnd
