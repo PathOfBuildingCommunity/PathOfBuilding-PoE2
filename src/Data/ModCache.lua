@@ -3003,7 +3003,7 @@ c["While on High Infernal Flame, you and Allies in your"]={nil,"While on High In
 c["While on High Infernal Flame, you and Allies in your Presence Gain 20% of Damage as Fire Damage"]={nil,"While on High Infernal Flame, you and Allies in your Presence Gain 20% of Damage as Fire Damage "}
 c["You can Break Enemy Armour to below 0"]={nil,"You can Break Enemy Armour to below 0 "}
 c["You can apply an additional Curse"]={{[1]={flags=0,keywordFlags=0,name="EnemyCurseLimit",type="BASE",value=1}},nil}
-c["You can apply an additional Mark"]={{[1]={flags=0,keywordFlags=0,name="EnemyCurseLimit",type="BASE",value=1}},nil}
+c["You can apply an additional Mark"]={{[1]={flags=0,keywordFlags=0,name="EnemyMarkLimit",type="BASE",value=1}},nil}
 c["You can only Socket Emerald Jewels in this item"]={nil,"You can only Socket Emerald Jewels in this item "}
 c["You can only Socket Emerald Jewels in this item You can only Socket Sapphire Jewels in this item"]={nil,"You can only Socket Emerald Jewels in this item You can only Socket Sapphire Jewels in this item "}
 c["You can only Socket Ruby Jewels in this item"]={nil,"You can only Socket Ruby Jewels in this item "}

@@ -1483,7 +1483,7 @@ function calcs.perform(env, skipEHP)
 		local spectreData = data.minions[env.spec.build.spectreList[spectreId]]
 		for modId = 1, #spectreData.modList do
 			local modData = spectreData.modList[modId]
-			if modData.name == "EnemyCurseLimit" then
+			if modData.name == "EnemyCurseLimit" or modData.name == "EnemyMarkLimit" then
 				minionCurses.limit = modData.value + 1
 				break
 			elseif modData.name == "AllyModifier" and modData.type == "LIST" then
@@ -2415,13 +2415,13 @@ function calcs.perform(env, skipEHP)
 
 	-- Set curse limit
 	output.EnemyCurseLimit = modDB:Flag(nil, "CurseLimitIsMaximumPowerCharges") and output.PowerChargesMax or modDB:Sum("BASE", nil, "EnemyCurseLimit")
-	curses.limit = output.EnemyCurseLimit
+	output.EnemyMarkLimit = modDB:Sum("BASE", nil, "EnemyMarkLimit")
+	curses.limit = output.EnemyCurseLimit + output.EnemyMarkLimit
 	buffExports["CurseLimit"] = curses.limit
 	-- Assign curses to slots
 	local curseSlots = { }
 	env.curseSlots = curseSlots
-	-- Currently assume only 1 mark is possible
-	local markSlotted = false
+	local markCount = 0
 	for _, source in ipairs({curses, minionCurses, allyCurses}) do
 		for _, curse in ipairs(source) do
 			-- Calculate curses that ignore hex limit after
@@ -2440,7 +2440,7 @@ function calcs.perform(env, skipEHP)
 				for i = 1, source.limit do
 					-- Prevent multiple marks from being considered
 					if curse.isMark then
-						if markSlotted then
+						if markCount >= output.EnemyMarkLimit then
 							slot = nil
 							break
 						end
@@ -2461,13 +2461,12 @@ function calcs.perform(env, skipEHP)
 				end
 				if slot then
 					if curseSlots[slot] and curseSlots[slot].isMark then
-						markSlotted = false
+						markCount = markCount + 1
+					elseif curse.isMark then
+						markCount = markCount + 1
 					end
 					if skipAddingCurse == false then
 						curseSlots[slot] = curse
-					end
-					if curse.isMark then
-						markSlotted = true
 					end
 				end
 			end
