@@ -6130,7 +6130,7 @@ return {
 			name="AdditionalStatSets",
 			refTo="GrantedEffectStatSets",
 			type="Key",
-			width=150
+			width=500
 		},
 		[28]={
 			list=false,
@@ -8055,14 +8055,14 @@ return {
 	miniongemlevelscaling={
 		[1]={
 			list=false,
-			name="Gem Level",
+			name="GemLevel",
 			refTo="",
 			type="Int",
 			width=150
 		},
 		[2]={
 			list=false,
-			name="Minion Level",
+			name="MinionLevel",
 			refTo="",
 			type="Int",
 			width=150
@@ -9551,7 +9551,7 @@ return {
 			name="Type",
 			refTo="MonsterTypes",
 			type="Key",
-			width=150
+			width=260
 		},
 		[3]={
 			list=false,
@@ -10297,7 +10297,7 @@ return {
 		},
 		[109]={
 			list=false,
-			name="A",
+			name="",
 			refTo="",
 			type="Int",
 			width=150
@@ -10357,6 +10357,27 @@ return {
 			refTo="",
 			type="Int",
 			width=150
+		},
+		[118]={
+			list=false,
+			name="",
+			refTo="",
+			type="Float",
+			width=150
+		},
+		[119]={
+			list=false,
+			name="",
+			refTo="",
+			type="Key",
+			width=150
+		},
+		[120]={
+			list=false,
+			name="",
+			refTo="",
+			type="Int",
+			width=60
 		}
 	},
 	monstervarietiesartvariations={

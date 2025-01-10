@@ -60,10 +60,10 @@ skills["AncestralSpiritsPlayer"] = {
 		[40] = { levelRequirement = 90, },
 	},
 	minionList = {
-		--"AncestralSpiritTurtle",
-		--"AncestralSpiritHulk",
-		--"AncestralSpiritCaster",
-		--"AncestralSpiritWarhorn",
+		"AncestralSpiritTurtle",
+		"AncestralSpiritHulk",
+		"AncestralSpiritCaster",
+		"AncestralSpiritWarhorn",
 	},
 	statSets = {
 		[1] = {
@@ -2908,7 +2908,7 @@ skills["SummonInfernalHoundPlayer"] = {
 		[40] = { levelRequirement = 90, },
 	},
 	minionList = {
-		--"SummonedHellhound",
+		"SummonedHellhound",
 	},
 	statSets = {
 		[1] = {

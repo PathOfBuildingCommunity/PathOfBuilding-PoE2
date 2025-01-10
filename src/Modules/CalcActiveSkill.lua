@@ -108,18 +108,18 @@ function calcs.createActiveSkill(activeEffect, supportList, env, actor, socketGr
 	end
 
 	-- Initialise skill flag set ('attack', 'projectile', etc)
-	local skillFlags
+	local skillFlags = { }
 	if env.mode == "CALCS" then 
 		if activeEffect.srcInstance.statSetCalcs.statSet then
 			skillFlags = copyTable(activeEffect.srcInstance.statSetCalcs.statSet.baseFlags)
-		else
+		elseif activeEffect.grantedEffect.statSets[1] then
 			skillFlags = copyTable(activeEffect.grantedEffect.statSets[1].baseFlags)
 		end
 		activeEffect.srcInstance.statSetCalcs.skillFlags = skillFlags
 	else 
 		if activeEffect.srcInstance.statSetMain.statSet then
 			skillFlags = copyTable(activeEffect.srcInstance.statSetMain.statSet.baseFlags)
-		else
+		elseif activeEffect.grantedEffect.statSets[1] then
 			skillFlags = copyTable(activeEffect.grantedEffect.statSets[1].baseFlags)
 		end
 		activeEffect.srcInstance.statSetMain.skillFlags = skillFlags
@@ -689,7 +689,7 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 			minion.minionData = env.data.minions[minionType]
 			minion.level = activeSkill.skillData.minionLevelIsEnemyLevel and env.enemyLevel or 
 								activeSkill.skillData.minionLevelIsPlayerLevel and (m_min(env.build and env.build.characterLevel or activeSkill.skillData.minionLevel or activeEffect.grantedEffectLevel.levelRequirement, activeSkill.skillData.minionLevelIsPlayerLevel)) or 
-								activeSkill.skillData.minionLevel or activeEffect.grantedEffectLevel.levelRequirement
+								activeSkill.skillData.minionLevel or data.minionLevelTable[activeSkill.activeEffect.level] or 1
 			-- fix minion level between 1 and 100
 			minion.level = m_min(m_max(minion.level,1),100) 
 			minion.itemList = { }

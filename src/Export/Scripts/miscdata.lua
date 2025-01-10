@@ -11,6 +11,7 @@ local allyDamage = ""
 local damage = ""
 local armour = ""
 local ailmentThreshold = ""
+local minionLevel = ""
 for stats in dat("DefaultMonsterStats"):Rows() do
 	evasion = evasion .. stats.Evasion .. ", "
 	accuracy = accuracy .. stats.Accuracy .. ", "
@@ -38,6 +39,14 @@ out:write('data.monsterDamageTable = { '..damage..'}\n')
 out:write('data.monsterAllyDamageTable = { '..allyDamage..'}\n')
 out:write('data.monsterArmourTable = { '..armour..'}\n')
 out:write('data.monsterAilmentThresholdTable = { '..ailmentThreshold..'}\n')
+out:write('\n')
+
+out:write('-- From MinionGemLevelScaling.dat\n')
+for level in dat("MinionGemLevelScaling"):Rows() do
+		minionLevel = minionLevel .. level.MinionLevel .. ", "
+end
+out:write('data.minionLevelTable = { '..minionLevel..'}\n')
+out:write('\n')
 
 out:write('-- From GameConstants.dat\n')
 out:write('data.gameConstants = {\n')

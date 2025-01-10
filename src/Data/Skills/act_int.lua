@@ -12224,7 +12224,7 @@ skills["RagingSpiritsPlayer"] = {
 		[40] = { spiritReservationFlat = 30, levelRequirement = 90, },
 	},
 	minionList = {
-		--"SummonedRagingSpirit",
+		"SummonedRagingSpirit",
 	},
 	statSets = {
 		[1] = {
@@ -12346,7 +12346,7 @@ skills["RaiseZombiePlayer"] = {
 		[40] = { levelRequirement = 90, cost = { Mana = 1388, }, },
 	},
 	minionList = {
-		--"RaisedZombie",
+		"RaisedZombie",
 	},
 	statSets = {
 		[1] = {
@@ -13476,7 +13476,7 @@ skills["SummonSkeletalArsonistsPlayer"] = {
 		[40] = { spiritReservationFlat = 35, levelRequirement = 90, },
 	},
 	minionList = {
-		--"RaisedSkeletonArsonist",
+		"RaisedSkeletonArsonist",
 	},
 	statSets = {
 		[1] = {
@@ -13595,7 +13595,7 @@ skills["SummonSkeletalBrutesPlayer"] = {
 		[40] = { spiritReservationFlat = 43, levelRequirement = 90, },
 	},
 	minionList = {
-		--"RaisedSkeletonBrute",
+		"RaisedSkeletonBrute",
 	},
 	statSets = {
 		[1] = {
@@ -13714,7 +13714,7 @@ skills["SummonSkeletalClericsPlayer"] = {
 		[40] = { spiritReservationFlat = 16, levelRequirement = 90, },
 	},
 	minionList = {
-		--"RaisedSkeletonCleric",
+		"RaisedSkeletonCleric",
 	},
 	statSets = {
 		[1] = {
@@ -13833,7 +13833,7 @@ skills["SummonSkeletalFrostMagesPlayer"] = {
 		[40] = { spiritReservationFlat = 35, levelRequirement = 90, },
 	},
 	minionList = {
-		--"RaisedSkeletonFrostMage",
+		"RaisedSkeletonFrostMage",
 	},
 	statSets = {
 		[1] = {
@@ -13952,7 +13952,7 @@ skills["SummonSkeletalReaversPlayer"] = {
 		[40] = { spiritReservationFlat = 26, levelRequirement = 90, },
 	},
 	minionList = {
-		--"RaisedSkeletonReaver",
+		"RaisedSkeletonReaver",
 	},
 	statSets = {
 		[1] = {
@@ -14072,7 +14072,7 @@ skills["SummonSkeletalSnipersPlayer"] = {
 		[40] = { spiritReservationFlat = 26, levelRequirement = 90, },
 	},
 	minionList = {
-		--"RaisedSkeletonSniper",
+		"RaisedSkeletonSniper",
 	},
 	statSets = {
 		[1] = {
@@ -14191,7 +14191,7 @@ skills["SummonSkeletalStormMagesPlayer"] = {
 		[40] = { spiritReservationFlat = 35, levelRequirement = 90, },
 	},
 	minionList = {
-		--"RaisedSkeletonStormMage",
+		"RaisedSkeletonStormMage",
 	},
 	statSets = {
 		[1] = {
@@ -14310,7 +14310,7 @@ skills["SummonSkeletalWarriorsPlayer"] = {
 		[40] = { spiritReservationFlat = 16, levelRequirement = 90, },
 	},
 	minionList = {
-		--"RaisedSkeletonWarrior",
+		"RaisedSkeletonWarrior",
 	},
 	statSets = {
 		[1] = {
@@ -15927,7 +15927,7 @@ skills["UnearthPlayer"] = {
 		[40] = { levelRequirement = 90, cost = { Mana = 1039, }, },
 	},
 	minionList = {
-		--"UnearthBoneConstruct",
+		"UnearthBoneConstruct",
 	},
 	statSets = {
 		[1] = {

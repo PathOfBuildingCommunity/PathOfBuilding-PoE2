@@ -2029,6 +2029,9 @@ return {
 	mod("MinionModifier", "LIST", { mod = mod("CritChance", "OVERRIDE", nil) }),
 	value = 100,
 },
+["minion_skill_physical_damage_%_to_convert_to_fire"] = {
+	mod("MinionModifier", "LIST", { mod = mod("SkillPhysicalDamageConvertToFire", "BASE", nil) })
+},
 --Golem
 ["golem_buff_effect_+%"] = {
 	mod("BuffEffect", "INC", nil, 0, 0)

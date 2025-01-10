@@ -767,7 +767,7 @@ local skills, mod, flag, skill = ...
 
 #skill RagingSpiritsPlayer
 	minionList = {
-		--"SummonedRagingSpirit",
+		"SummonedRagingSpirit",
 	},
 #startSets
 #set RagingSpiritsPlayer
@@ -777,7 +777,7 @@ local skills, mod, flag, skill = ...
 
 #skill RaiseZombiePlayer
 	minionList = {
-		--"RaisedZombie",
+		"RaisedZombie",
 	},
 #startSets
 #set RaiseZombiePlayer
@@ -846,7 +846,7 @@ local skills, mod, flag, skill = ...
 
 #skill SummonSkeletalArsonistsPlayer
 	minionList = {
-		--"RaisedSkeletonArsonist",
+		"RaisedSkeletonArsonist",
 	},
 #startSets
 #set SummonSkeletalArsonistsPlayer
@@ -856,7 +856,7 @@ local skills, mod, flag, skill = ...
 
 #skill SummonSkeletalBrutesPlayer
 	minionList = {
-		--"RaisedSkeletonBrute",
+		"RaisedSkeletonBrute",
 	},
 #startSets
 #set SummonSkeletalBrutesPlayer
@@ -866,7 +866,7 @@ local skills, mod, flag, skill = ...
 
 #skill SummonSkeletalClericsPlayer
 	minionList = {
-		--"RaisedSkeletonCleric",
+		"RaisedSkeletonCleric",
 	},
 #startSets
 #set SummonSkeletalClericsPlayer
@@ -876,7 +876,7 @@ local skills, mod, flag, skill = ...
 
 #skill SummonSkeletalFrostMagesPlayer
 	minionList = {
-		--"RaisedSkeletonFrostMage",
+		"RaisedSkeletonFrostMage",
 	},
 #startSets
 #set SummonSkeletalFrostMagesPlayer
@@ -886,7 +886,7 @@ local skills, mod, flag, skill = ...
 
 #skill SummonSkeletalReaversPlayer
 	minionList = {
-		--"RaisedSkeletonReaver",
+		"RaisedSkeletonReaver",
 	},
 #startSets
 #set SummonSkeletalReaversPlayer
@@ -896,7 +896,7 @@ local skills, mod, flag, skill = ...
 
 #skill SummonSkeletalSnipersPlayer
 	minionList = {
-		--"RaisedSkeletonSniper",
+		"RaisedSkeletonSniper",
 	},
 #startSets
 #set SummonSkeletalSnipersPlayer
@@ -906,7 +906,7 @@ local skills, mod, flag, skill = ...
 
 #skill SummonSkeletalStormMagesPlayer
 	minionList = {
-		--"RaisedSkeletonStormMage",
+		"RaisedSkeletonStormMage",
 	},
 #startSets
 #set SummonSkeletalStormMagesPlayer
@@ -916,7 +916,7 @@ local skills, mod, flag, skill = ...
 
 #skill SummonSkeletalWarriorsPlayer
 	minionList = {
-		--"RaisedSkeletonWarrior",
+		"RaisedSkeletonWarrior",
 	},
 #startSets
 #set SummonSkeletalWarriorsPlayer
@@ -1011,7 +1011,7 @@ local skills, mod, flag, skill = ...
 
 #skill UnearthPlayer
 	minionList = {
-		--"UnearthBoneConstruct",
+		"UnearthBoneConstruct",
 	},
 #startSets
 #set UnearthPlayer

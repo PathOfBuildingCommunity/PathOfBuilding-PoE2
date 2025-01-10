@@ -7,10 +7,10 @@ local skills, mod, flag, skill = ...
 
 #skill AncestralSpiritsPlayer
 	minionList = {
-		--"AncestralSpiritTurtle",
-		--"AncestralSpiritHulk",
-		--"AncestralSpiritCaster",
-		--"AncestralSpiritWarhorn",
+		"AncestralSpiritTurtle",
+		"AncestralSpiritHulk",
+		"AncestralSpiritCaster",
+		"AncestralSpiritWarhorn",
 	},
 #startSets
 #set AncestralSpiritsPlayer
@@ -205,7 +205,7 @@ local skills, mod, flag, skill = ...
 
 #skill SummonInfernalHoundPlayer
 	minionList = {
-		--"SummonedHellhound",
+		"SummonedHellhound",
 	},
 #startSets
 #set SummonInfernalHoundPlayer
