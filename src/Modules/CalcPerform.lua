@@ -2461,12 +2461,13 @@ function calcs.perform(env, skipEHP)
 				end
 				if slot then
 					if curseSlots[slot] and curseSlots[slot].isMark then
-						markCount = markCount + 1
-					elseif curse.isMark then
-						markCount = markCount + 1
+						markCount = markCount - 1
 					end
 					if skipAddingCurse == false then
 						curseSlots[slot] = curse
+					end
+					if curse.isMark then
+						markCount = markCount + 1
 					end
 				end
 			end
