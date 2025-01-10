@@ -624,7 +624,7 @@ c["10% increased Duration of Elemental Ailments on Enemies"]={{[1]={flags=0,keyw
 c["10% increased Duration of Ignite, Shock and Chill on Enemies"]={{[1]={flags=0,keywordFlags=0,name="Duration",type="INC",value=10}},"  of Ignite, Shock and Chill  "}
 c["10% increased Effect of Withered"]={{[1]={flags=0,keywordFlags=0,name="WitherEffect",type="INC",value=10}},nil}
 c["10% increased Effect of your Curses"]={{[1]={flags=0,keywordFlags=0,name="CurseEffect",type="INC",value=10}},nil}
-c["10% increased Effect of your Mark Skills"]={{[1]={[1]={skillType=109,type="SkillType"},flags=0,keywordFlags=0,name="LocalEffect",type="INC",value=10}},"  of your  "}
+c["10% increased Effect of your Mark Skills"]={{[1]={[1]={skillType=109,type="SkillType"},flags=0,keywordFlags=0,name="LocalEffect",type="INC",value=10}},nil}
 c["10% increased Electrocute Buildup"]={{}," Electrocute Buildup "}
 c["10% increased Elemental Damage"]={{[1]={flags=0,keywordFlags=0,name="ElementalDamage",type="INC",value=10}},nil}
 c["10% increased Energy Shield Recharge Rate"]={{[1]={flags=0,keywordFlags=0,name="EnergyShieldRecharge",type="INC",value=10}},nil}
@@ -787,7 +787,7 @@ c["12% increased Damage with Bows"]={{[1]={flags=131076,keywordFlags=0,name="Dam
 c["12% increased Damage with Crossbows"]={{[1]={flags=67108868,keywordFlags=0,name="Damage",type="INC",value=12}},nil}
 c["12% increased Damage with Hits against Enemies affected by Elemental Ailments"]={{[1]={[1]={actor="enemy",type="ActorCondition",varList={[1]="Frozen",[2]="Chilled",[3]="Shocked",[4]="Ignited",[5]="Scorched",[6]="Brittle",[7]="Sapped"}},flags=0,keywordFlags=262144,name="Damage",type="INC",value=12}},nil}
 c["12% increased Damage with Two Handed Weapons"]={{[1]={flags=34359738372,keywordFlags=0,name="Damage",type="INC",value=12}},nil}
-c["12% increased Effect of your Mark Skills"]={{[1]={[1]={skillType=109,type="SkillType"},flags=0,keywordFlags=0,name="LocalEffect",type="INC",value=12}},"  of your  "}
+c["12% increased Effect of your Mark Skills"]={{[1]={[1]={skillType=109,type="SkillType"},flags=0,keywordFlags=0,name="LocalEffect",type="INC",value=12}},nil}
 c["12% increased Elemental Damage"]={{[1]={flags=0,keywordFlags=0,name="ElementalDamage",type="INC",value=12}},nil}
 c["12% increased Elemental Damage with Attacks"]={{[1]={flags=0,keywordFlags=65536,name="ElementalDamage",type="INC",value=12}},nil}
 c["12% increased Evasion Rating"]={{[1]={flags=0,keywordFlags=0,name="Evasion",type="INC",value=12}},nil}
@@ -905,7 +905,7 @@ c["15% increased Defences from Equipped Shield"]={{[1]={[1]={slotName="Weapon 2"
 c["15% increased Dexterity"]={{[1]={flags=0,keywordFlags=0,name="Dex",type="INC",value=15}},nil}
 c["15% increased Duration of Damaging Ailments on Enemies"]={{[1]={flags=0,keywordFlags=0,name="EnemyIgniteDuration",type="INC",value=15},[2]={flags=0,keywordFlags=0,name="EnemyBleedDuration",type="INC",value=15},[3]={flags=0,keywordFlags=0,name="EnemyPoisonDuration",type="INC",value=15}},nil}
 c["15% increased Duration of Ignite, Shock and Chill on Enemies"]={{[1]={flags=0,keywordFlags=0,name="Duration",type="INC",value=15}},"  of Ignite, Shock and Chill  "}
-c["15% increased Effect of your Mark Skills"]={{[1]={[1]={skillType=109,type="SkillType"},flags=0,keywordFlags=0,name="LocalEffect",type="INC",value=15}},"  of your  "}
+c["15% increased Effect of your Mark Skills"]={{[1]={[1]={skillType=109,type="SkillType"},flags=0,keywordFlags=0,name="LocalEffect",type="INC",value=15}},nil}
 c["15% increased Electrocute Buildup"]={{}," Electrocute Buildup "}
 c["15% increased Elemental Ailment Threshold"]={{}," Elemental Ailment Threshold "}
 c["15% increased Energy Shield Recharge Rate"]={{[1]={flags=0,keywordFlags=0,name="EnergyShieldRecharge",type="INC",value=15}},nil}
@@ -1988,9 +1988,7 @@ c["8% increased Damage for each time you've Warcried Recently"]={{[1]={[1]={type
 c["8% increased Dexterity"]={{[1]={flags=0,keywordFlags=0,name="Dex",type="INC",value=8}},nil}
 c["8% increased Effect of Auras from your Skills"]={{[1]={flags=0,keywordFlags=0,name="LocalEffect",type="INC",value=8}},"  of Auras from your Skills "}
 c["8% increased Effect of your Curses"]={{[1]={flags=0,keywordFlags=0,name="CurseEffect",type="INC",value=8}},nil}
-c["8% increased Effect of your Mark Skills"]={{[1]={[1]={skillType=109,type="SkillType"},flags=0,keywordFlags=0,name="LocalEffect",type="INC",value=8}},"  of your  "}
-c["8% increased Effect of your Mark Skills 10% increased Blind Effect"]={{[1]={[1]={skillType=109,type="SkillType"},flags=0,keywordFlags=0,name="LocalEffect",type="INC",value=8}},"  of your  10% increased Blind Effect "}
-c["8% increased Effect of your Mark Skills 5% chance to Blind Enemies on Hit with Attacks"]={{[1]={[1]={skillType=109,type="SkillType"},flags=0,keywordFlags=0,name="LocalEffect",type="INC",value=8}},"  of your  5% chance to Blind Enemies on Hit with Attacks "}
+c["8% increased Effect of your Mark Skills"]={{[1]={[1]={skillType=109,type="SkillType"},flags=0,keywordFlags=0,name="LocalEffect",type="INC",value=8}},nil}
 c["8% increased Elemental Damage"]={{[1]={flags=0,keywordFlags=0,name="ElementalDamage",type="INC",value=8}},nil}
 c["8% increased Fire Damage"]={{[1]={flags=0,keywordFlags=0,name="FireDamage",type="INC",value=8}},nil}
 c["8% increased Flask and Charm Charges gained"]={{[1]={flags=0,keywordFlags=0,name="CharmChargesGained",type="INC",value=8}}," Flask and  "}
@@ -2242,7 +2240,7 @@ c["Critical Hits ignore Enemy Monster Elemental Resistances"]={{[1]={[1]={type="
 c["Critical Hits ignore non-negative Enemy Monster Elemental Resistances"]={nil,"Critical Hits ignore non-negative Enemy Monster Elemental Resistances "}
 c["Critical Hits with Daggers have a 25% chance to Poison the Enemy"]={{[1]={[1]={type="Condition",var="CriticalStrike"},flags=524288,keywordFlags=0,name="PoisonChance",type="BASE",value=25}},nil}
 c["Culling Strike"]={{[1]={[1]={effectType="Global",type="GlobalEffect",unscalable=true},flags=0,keywordFlags=0,name="CullPercent",type="MAX",value=10}},nil}
-c["Culling Strike against Enemies you Mark"]={nil,"Culling Strike against Enemies you Mark "}
+c["Culling Strike against Enemies you Mark"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Marked"},flags=0,keywordFlags=0,name="CullPercent",type="MAX",value=10}},nil}
 c["Culling Strike against Frozen Enemies"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Frozen"},flags=0,keywordFlags=0,name="CullPercent",type="MAX",value=10}},nil}
 c["Curses have no Activation Delay"]={nil,"Curses have no Activation Delay "}
 c["Curses you inflict are reflected back to you"]={nil,"Curses you inflict are reflected back to you "}
@@ -2353,9 +2351,9 @@ c["Enemies you Curse are Hindered, with 15% reduced Movement Speed"]={{[1]={flag
 c["Enemies you Curse cannot Recharge Energy Shield"]={nil,"cannot Recharge Energy Shield "}
 c["Enemies you Curse have -3% to Chaos Resistance"]={nil,"-3% to Chaos Resistance "}
 c["Enemies you Electrocute have 20% increased Damage taken"]={nil,"Enemies you Electrocute have 20% increased Damage taken "}
-c["Enemies you Mark cannot deal Critical Hits"]={nil,"Enemies you Mark cannot deal Critical Hits "}
-c["Enemies you Mark have 15% reduced Accuracy Rating"]={nil,"Enemies you Mark have 15% reduced Accuracy Rating "}
-c["Enemies you Mark take 10% increased Damage"]={nil,"Enemies you Mark take 10% increased Damage "}
+c["Enemies you Mark cannot deal Critical Hits"]={{[1]={flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={[1]={type="Condition",var="Marked"},flags=0,keywordFlags=0,name="NeverCrit",type="FLAG",value=true}}},[2]={flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={[1]={type="Condition",var="Marked"},flags=0,keywordFlags=0,name="Condition:NeverCrit",type="FLAG",value=true}}}},nil}
+c["Enemies you Mark have 15% reduced Accuracy Rating"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Marked"},flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Accuracy",type="INC",value=-15}}}},nil}
+c["Enemies you Mark take 10% increased Damage"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Marked"},flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="DamageTaken",type="INC",value=10}}}},nil}
 c["Energy Generation is doubled"]={nil,"Energy Generation is doubled "}
 c["Energy Shield Recharge is not interrupted by Damage if Recharge began Recently"]={nil,"Energy Shield Recharge is not interrupted by Damage if Recharge began Recently "}
 c["Energy Shield Recharge starts when you use a Mana Flask"]={nil,"Energy Shield Recharge starts when you use a Mana Flask "}
@@ -2811,10 +2809,10 @@ c["Presence Radius is doubled"]={nil,"Presence Radius is doubled "}
 c["Projectiles Pierce all Ignited enemies"]={nil,"Projectiles Pierce all Ignited enemies "}
 c["Projectiles Pierce all Ignited enemies Attacks Gain 10% of Damage as Extra Fire Damage"]={nil,"Projectiles Pierce all Ignited enemies Attacks Gain 10% of Damage as Extra Fire Damage "}
 c["Projectiles Split towards +2 targets"]={{[1]={flags=0,keywordFlags=0,name="SplitCount",type="BASE",value=2}},nil}
-c["Projectiles deal 0% more Hit damage to targets in the first 3.5 metres of their movement, scaling up with distance travelled to reach 20% after 7 metres"]={{[1]={flags=1024,keywordFlags=0,name="Damage",type="MORE",value=0}}," Hit  to targets in the first 3.5 metres of their movement, scaling up with distance travelled to reach 20% after 7 metres "}
+c["Projectiles deal 0% more Hit damage to targets in the first 3.5 metres of their movement, scaling up with distance travelled to reach 20% after 7 metres"]={{[1]={[1]={ramp={[1]={[1]=35,[2]=0},[2]={[1]=70,[2]=0.2}},type="DistanceRamp"},flags=1028,keywordFlags=0,name="Damage",type="MORE",value=100}},nil}
 c["Projectiles deal 12% increased Damage with Hits against Enemies further than 6m"]={{[1]={flags=1024,keywordFlags=262144,name="Damage",type="INC",value=12}},"   against Enemies further than 6m "}
 c["Projectiles deal 12% increased Damage with Hits against Enemies within 2m"]={{[1]={flags=1024,keywordFlags=262144,name="Damage",type="INC",value=12}},"   against Enemies within 2m "}
-c["Projectiles deal 20% more Hit damage to targets in the first 3.5 metres of their movement, scaling down with distance travelled to reach 0% after 7 metres"]={{[1]={flags=1024,keywordFlags=0,name="Damage",type="MORE",value=20}}," Hit  to targets in the first 3.5 metres of their movement, scaling down with distance travelled to reach 0% after 7 metres "}
+c["Projectiles deal 20% more Hit damage to targets in the first 3.5 metres of their movement, scaling down with distance travelled to reach 0% after 7 metres"]={{[1]={[1]={ramp={[1]={[1]=35,[2]=0.2},[2]={[1]=70,[2]=0}},type="DistanceRamp"},flags=1028,keywordFlags=0,name="Damage",type="MORE",value=100}},nil}
 c["Projectiles deal 25% increased Damage with Hits against Enemies further than 6m"]={{[1]={flags=1024,keywordFlags=262144,name="Damage",type="INC",value=25}},"   against Enemies further than 6m "}
 c["Projectiles deal 25% increased Damage with Hits against Enemies within 2m"]={{[1]={flags=1024,keywordFlags=262144,name="Damage",type="INC",value=25}},"   against Enemies within 2m "}
 c["Projectiles from Spells cannot Pierce"]={{[1]={flags=2,keywordFlags=0,name="CannotPierce",type="FLAG",value=true}},nil}
@@ -3005,7 +3003,7 @@ c["While on High Infernal Flame, you and Allies in your"]={nil,"While on High In
 c["While on High Infernal Flame, you and Allies in your Presence Gain 20% of Damage as Fire Damage"]={nil,"While on High Infernal Flame, you and Allies in your Presence Gain 20% of Damage as Fire Damage "}
 c["You can Break Enemy Armour to below 0"]={nil,"You can Break Enemy Armour to below 0 "}
 c["You can apply an additional Curse"]={{[1]={flags=0,keywordFlags=0,name="EnemyCurseLimit",type="BASE",value=1}},nil}
-c["You can apply an additional Mark"]={nil,"You can apply an additional Mark "}
+c["You can apply an additional Mark"]={{[1]={flags=0,keywordFlags=0,name="EnemyCurseLimit",type="BASE",value=1}},nil}
 c["You can only Socket Emerald Jewels in this item"]={nil,"You can only Socket Emerald Jewels in this item "}
 c["You can only Socket Emerald Jewels in this item You can only Socket Sapphire Jewels in this item"]={nil,"You can only Socket Emerald Jewels in this item You can only Socket Sapphire Jewels in this item "}
 c["You can only Socket Ruby Jewels in this item"]={nil,"You can only Socket Ruby Jewels in this item "}

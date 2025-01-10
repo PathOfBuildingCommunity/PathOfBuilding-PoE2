@@ -986,6 +986,7 @@ local modFlagList = {
 	["of stance skills"] = { tag = { type = "SkillType", skillType = SkillType.Stance } },
 	["mark skills"] = { tag = { type = "SkillType", skillType = SkillType.Mark } },
 	["of mark skills"] = { tag = { type = "SkillType", skillType = SkillType.Mark } },
+	["of your mark skills"] = { tag = { type = "SkillType", skillType = SkillType.Mark } },
 	["with skills that cost life"] = { tag = { type = "StatThreshold", stat = "LifeCost", threshold = 1 } },
 	["minion"] = { addToMinion = true },
 	["zombie"] = { addToMinion = true, addToMinionTag = { type = "SkillName", skillName = "Raise Zombie", includeTransfigured = true } },
@@ -2405,6 +2406,9 @@ local specialModList = {
 	["(%d+)%% increased mirage archer duration"] = function(num) return { mod("MirageArcherDuration", "INC", num), } end,
 	["([%-%+]%d+) to maximum number of summoned mirage archers"] = function(num) return { mod("MirageArcherMaxCount", "BASE", num),	} end,
 	["([%-%+]%d+) to maximum number of sacred wisps"] = function(num) return { mod("SacredWispsMaxCount", "BASE", num),	} end,
+	["projectiles deal (%d+)%% more hit damage to targets in the first ([%d%.]+) metres of their movement, scaling [du][op]w?n? with distance travelled to reach (%d+)%% after ([%d%.]+) metres"] = function(num, _, strFirstDist, strLowPrct, strSecondDist) return { 
+		mod("Damage", "MORE", 100, nil, bor(ModFlag.Hit, ModFlag.Projectile), { type = "DistanceRamp", ramp = { { 10*tonumber(strFirstDist), num / 100}, {10*tonumber(strSecondDist), tonumber(strLowPrct) / 100} } }),
+	} end,
 	-- Elementalist
 	["gain (%d+)%% increased area of effect for %d+ seconds"] = function(num) return { mod("AreaOfEffect", "INC", num, { type = "Condition", var = "PendulumOfDestructionAreaOfEffect" }) } end,
 	["gain (%d+)%% increased elemental damage for %d+ seconds"] = function(num) return { mod("ElementalDamage", "INC", num, { type = "Condition", var = "PendulumOfDestructionElementalDamage" }) } end,
@@ -3055,7 +3059,7 @@ local specialModList = {
 	["gain a flask charge when you deal a critical hit while affected by precision"] = { mod("FlaskChargeOnCritChance", "BASE", 100, { type = "Condition", var = "AffectedByPrecision" }) },
 	["gain a flask charge when you deal a critical hit while at maximum frenzy charges"] = { mod("FlaskChargeOnCritChance", "BASE", 100, { type = "StatThreshold", stat = "FrenzyCharges", thresholdStat = "FrenzyChargesMax" }) },
 	["enemies poisoned by you cannot deal critical hits"] = { mod("EnemyModifier", "LIST", { mod = flag("NeverCrit", { type = "Condition", var = "Poisoned" }) }), mod("EnemyModifier", "LIST", { mod = flag("Condition:NeverCrit", { type = "Condition", var = "Poisoned" })}) },
-	["marked enemy cannot deal critical hits"] =  { mod("EnemyModifier", "LIST", { mod = flag("NeverCrit", { type = "Condition", var = "Marked" }) }), mod("EnemyModifier", "LIST", { mod = flag("Condition:NeverCrit", { type = "Condition", var = "Marked" })}) },
+	["enemies you mark cannot deal critical hits"] =  { mod("EnemyModifier", "LIST", { mod = flag("NeverCrit", { type = "Condition", var = "Marked" }) }), mod("EnemyModifier", "LIST", { mod = flag("Condition:NeverCrit", { type = "Condition", var = "Marked" })}) },
 	["hits against you cannot be critical hits if you've been stunned recently"] =  { mod("EnemyModifier", "LIST", { mod = flag("NeverCrit") }, {type = "Condition", var = "StunnedRecently" }), mod("EnemyModifier", "LIST", { mod = flag("Condition:NeverCrit")}, {type = "Condition", var = "StunnedRecently" })},
 	["nearby enemies cannot deal critical hits"] = { mod("EnemyModifier", "LIST", { mod = flag("NeverCrit")  }), mod("EnemyModifier", "LIST", { mod = flag("Condition:NeverCrit") }) },
 	["hits against you are always critical hits"] = { mod("EnemyModifier", "LIST", { mod = flag("AlwaysCrit")  }), mod("EnemyModifier", "LIST", { mod = flag("Condition:AlwaysCrit") }) },
@@ -3469,6 +3473,7 @@ local specialModList = {
 	["you can apply an additional curse while affected by malevolence"] = { mod("EnemyCurseLimit", "BASE", 1, { type = "Condition", var = "AffectedByMalevolence" }) },
 	["you can apply an additional curse while at maximum power charges"] = { mod("EnemyCurseLimit", "BASE", 1, { type = "StatThreshold", stat = "PowerCharges", thresholdStat = "PowerChargesMax" }) },
 	["you can apply one fewer curse"] = { mod("EnemyCurseLimit", "BASE", -1) },
+	["you can apply an additional mark"] = { mod("EnemyCurseLimit", "BASE", 1) },
 	["curses on enemies in your chilling areas have (%d+)%% increased effect"] = function(num) return { mod("CurseEffect", "INC", num, { type = "ActorCondition", actor = "enemy", var = "InChillingArea" }) } end,
 	["hexes you inflict have their effect increased by twice their doom instead"] = { mod("DoomEffect", "MORE", 100) },
 	["nearby enemies have an additional (%d+)%% chance to receive a critical hit"] = function(num) return { mod("EnemyModifier", "LIST", { mod = mod("SelfExtraCritChance", "BASE", num) }) } end,
@@ -3496,10 +3501,10 @@ local specialModList = {
 	["([%+%-][%d%.]+) seconds to avian's flight duration"] = function(num) return { mod("SecondaryDuration", "BASE", num, { type = "SkillName", skillName = "Aspect of the Avian" }) } end,
 	["aspect of the spider can inflict spider's web on enemies an additional time"] = { mod("ExtraSkillMod", "LIST", { mod = mod("Multiplier:SpiderWebApplyStackMax", "BASE", 1) }, { type = "SkillName", skillName = "Aspect of the Spider" }) },
 	["aspect of the avian also grants avian's might and avian's flight to nearby allies"] = { mod("ExtraSkillMod", "LIST", { mod = flag("BuffAppliesToAllies") }, { type = "SkillName", skillName = "Aspect of the Avian" }) },
-	["marked enemy takes (%d+)%% increased damage"] = function(num) return {
+	["enemies you mark take (%d+)%% increased damage"] = function(num) return {
 		mod("EnemyModifier", "LIST", { mod = mod("DamageTaken", "INC", num) }, {type = "ActorCondition", actor = "enemy", var = "Marked" }),
 	} end,
-	["marked enemy has (%d+)%% reduced accuracy rating"] = function(num) return {
+	["enemies you mark have (%d+)%% reduced accuracy rating"] = function(num) return {
 		mod("EnemyModifier", "LIST", { mod = mod("Accuracy", "INC", -num) }, {type = "ActorCondition", actor = "enemy", var = "Marked" }),
 	} end,
 	["you are cursed with level (%d+) (%D+)"] = function(num, _, name) return { mod("ExtraCurse", "LIST", { skillId = gemIdLookup[name], level = num, applyToPlayer = true }) } end,
@@ -4364,7 +4369,7 @@ local specialModList = {
 	["bow attacks have culling strike"] = { mod("CullPercent", "MAX", 10, nil, bor(ModFlag.Attack, ModFlag.Bow)) },
 	["culling strike against burning enemies"] = { mod("CullPercent", "MAX", 10, { type = "ActorCondition", actor = "enemy", var = "Burning" }) },
 	["culling strike against frozen enemies"] = { mod("CullPercent", "MAX", 10, { type = "ActorCondition", actor = "enemy", var = "Frozen" }) },
-	["culling strike against marked enemy"] = { mod("CullPercent", "MAX", 10, { type = "ActorCondition", actor = "enemy", var = "Marked" }) },
+	["culling strike against enemies you mark"] = { mod("CullPercent", "MAX", 10, { type = "ActorCondition", actor = "enemy", var = "Marked" }) },
 	["nearby allies have culling strike"] = { mod("ExtraAura", "LIST", {onlyAllies = true, mod = mod("CullPercent", "MAX", 10) }) },
 	["hits that stun enemies have culling strike"] = { mod("CullPercent", "MAX", 10, { type = "Condition", var = "AlwaysStunning" }) },
 	["hits that heavy stun enemies have culling strike"] = { mod("CullPercent", "MAX", 10, { type = "Condition", var = "AlwaysHeavyStunning" }) },
@@ -4551,8 +4556,8 @@ local specialModList = {
 	["gain accuracy rating equal to your intelligence"] = { mod("Accuracy", "BASE", 1, { type = "PerStat", stat = "Int" }) },
 	["intelligence is added to accuracy rating with wands"] = { mod("Accuracy", "BASE", 1, nil, ModFlag.Wand, { type = "PerStat", stat = "Int" }) },
 	["dexterity's accuracy bonus instead grants %+(%d+) to accuracy rating per dexterity"] = function(num) return { mod("DexAccBonusOverride", "OVERRIDE", num ) } end,
-	["(%d+)%% increased accuracy rating against marked enemy"] = function(num) return { mod("AccuracyVsEnemy", "INC", num, { type = "ActorCondition", actor = "enemy", var = "Marked" } ) } end,
-	["(%d+)%% more accuracy rating against marked enemy"] = function(num) return { mod("AccuracyVsEnemy", "MORE", num, { type = "ActorCondition", actor = "enemy", var = "Marked" } ) } end,
+	["(%d+)%% increased accuracy rating against enemies you mark"] = function(num) return { mod("AccuracyVsEnemy", "INC", num, { type = "ActorCondition", actor = "enemy", var = "Marked" } ) } end,
+	["(%d+)%% more accuracy rating against enemies you mark"] = function(num) return { mod("AccuracyVsEnemy", "MORE", num, { type = "ActorCondition", actor = "enemy", var = "Marked" } ) } end,
 	["%+(%d+) to accuracy against bleeding enemies"] = function(num) return { mod("AccuracyVsEnemy", "BASE", num, { type = "ActorCondition", actor = "enemy", var = "Bleeding" } ) } end,
 	["cannot recover energy shield to above armour"] = { flag("ArmourESRecoveryCap") },
 	["cannot recover energy shield to above evasion rating"] = { flag("EvasionESRecoveryCap") },
