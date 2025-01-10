@@ -1048,6 +1048,42 @@ function calcs.perform(env, skipEHP)
 		end
 	end
 
+	local ringsEffectMod = modDB:Sum("INC", nil, "EffectOfBonusesFromRings") / 100
+	if ringsEffectMod > 0 then
+		if env.player.itemList["Ring 1"] then
+			for _, mod in ipairs(env.player.itemList["Ring 1"].modList or env.player.itemList["Ring 1"].slotModList[1]) do
+				-- Filter out SocketedIn type mods
+				for _, tag in ipairs(mod) do
+					if tag.type == "SocketedIn" then
+						goto skip_mod
+					end
+				end
+
+				local modCopy = copyTable(mod)
+				modCopy.source = "Many Sources:".. colorCodes.UNIQUE .. "Ingenuity " .. colorCodes.SOURCE .. tostring(ringsEffectMod * 100) .. "% Ring 1 Bonus Effect"
+				modDB:ScaleAddMod(modCopy, ringsEffectMod)
+
+				::skip_mod::
+			end
+		end
+		if env.player.itemList["Ring 2"] then
+			for _, mod in ipairs(env.player.itemList["Ring 2"].modList or env.player.itemList["Ring 2"].slotModList[1]) do
+				-- Filter out SocketedIn type mods
+				for _, tag in ipairs(mod) do
+					if tag.type == "SocketedIn" then
+						goto skip_mod
+					end
+				end
+
+				local modCopy = copyTable(mod)
+				modCopy.source = "Many Sources:".. colorCodes.UNIQUE .. "Ingenuity " .. colorCodes.SOURCE .. tostring(ringsEffectMod * 100) .. "% Ring 2 Bonus Effect"
+				modDB:ScaleAddMod(modCopy, ringsEffectMod)
+
+				::skip_mod::
+			end
+		end
+	end
+
 	if modDB:Flag(nil, "ConvertBodyArmourArmourEvasionToWard") then
 		local ward
 		local armourData = env.player.itemList["Body Armour"] and env.player.itemList["Body Armour"].armourData
