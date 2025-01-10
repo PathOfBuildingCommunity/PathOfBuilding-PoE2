@@ -2461,7 +2461,7 @@ function calcs.perform(env, skipEHP)
 				end
 				if slot then
 					if curseSlots[slot] and curseSlots[slot].isMark then
-						markCount = markCount - 1
+						markCount = m_max(markCount - 1, 0)
 					end
 					if skipAddingCurse == false then
 						curseSlots[slot] = curse
