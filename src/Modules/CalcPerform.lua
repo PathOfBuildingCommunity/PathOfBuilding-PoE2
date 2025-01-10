@@ -2438,7 +2438,7 @@ function calcs.perform(env, skipEHP)
 					end
 				end
 				for i = 1, source.limit do
-					-- Prevent multiple marks from being considered
+					-- Prevent more than allowed marks from being considered
 					if curse.isMark then
 						if markCount >= output.EnemyMarkLimit then
 							slot = nil
