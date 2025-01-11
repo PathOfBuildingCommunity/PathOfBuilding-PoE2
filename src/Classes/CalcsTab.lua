@@ -63,7 +63,6 @@ local CalcsTabClass = newClass("CalcsTab", "UndoHandler", "ControlHost", "Contro
 				local mainSocketGroup = self.build.skillsTab.socketGroupList[self.input.skill_number]
 				local srcInstance = mainSocketGroup.displaySkillListCalcs[mainSocketGroup.mainActiveSkillCalcs].activeEffect.srcInstance
 				srcInstance.statSetCalcs = srcInstance.statSetCalcs or { }
-				srcInstance.statSetCalcs.index = index
 				srcInstance.statSetCalcs.statSet = value.statSet
 				self:AddUndoState()
 				self.build.buildFlag = true
@@ -132,7 +131,8 @@ local CalcsTabClass = newClass("CalcsTab", "UndoHandler", "ControlHost", "Contro
 			control = new("DropDownControl", nil, {0, 0, 200, 16}, nil, function(index, value)
 				local mainSocketGroup = self.build.skillsTab.socketGroupList[self.input.skill_number]
 				local srcInstance = mainSocketGroup.displaySkillListCalcs[mainSocketGroup.mainActiveSkillCalcs].activeEffect.srcInstance
-				srcInstance.skillMinionSkillStatSetCalcs = index
+				srcInstance.skillMinionSkillStatSetIndexLookupCalcs = srcInstance.skillMinionSkillStatSetIndexLookupCalcs or { }
+				srcInstance.skillMinionSkillStatSetIndexLookupCalcs[srcInstance.skillMinionSkillCalcs] = index
 				self:AddUndoState()
 				self.build.buildFlag = true
 			end)

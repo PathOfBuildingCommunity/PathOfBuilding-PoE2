@@ -108,19 +108,18 @@ function calcs.createActiveSkill(activeEffect, supportList, env, actor, socketGr
 	end
 
 	-- Initialise skill flag set ('attack', 'projectile', etc)
-	local skillFlags = { }
-	local statSetIndex
+	local skillFlags
 	if env.mode == "CALCS" then 
 		if activeEffect.srcInstance.statSetCalcs.statSet then
 			skillFlags = copyTable(activeEffect.srcInstance.statSetCalcs.statSet.baseFlags)
-		elseif activeEffect.grantedEffect.statSets[1] then
+		else
 			skillFlags = copyTable(activeEffect.grantedEffect.statSets[1].baseFlags)
 		end
 		activeEffect.srcInstance.statSetCalcs.skillFlags = skillFlags
 	else 
 		if activeEffect.srcInstance.statSetMain.statSet then
 			skillFlags = copyTable(activeEffect.srcInstance.statSetMain.statSet.baseFlags)
-		elseif activeEffect.grantedEffect.statSets[1] then
+		else
 			skillFlags = copyTable(activeEffect.grantedEffect.statSets[1].baseFlags)
 		end
 		activeEffect.srcInstance.statSetMain.skillFlags = skillFlags
@@ -865,16 +864,16 @@ function calcs.createMinionSkills(env, activeSkill)
 			level = 1,
 			quality = 0,
 		}
-		local minionStatSet = activeEffect.grantedEffect.statSets[activeSkill.activeEffect.srcInstance.minionStatSet or 1]
-		local minionStatSetCalcs = activeEffect.grantedEffect.statSets[activeSkill.activeEffect.srcInstance.minionStatSetCalcs or 1]
+		local minionSkillIndex = activeSkill.activeEffect.srcInstance.skillMinionSkill
+		local minionSkillIndexCalcs = activeSkill.activeEffect.srcInstance.skillMinionSkillCalcs
+		local minionStatSet = activeEffect.grantedEffect.statSets[activeSkill.activeEffect.srcInstance.minionStatSet and activeSkill.activeEffect.srcInstance.minionStatSet[minionSkillIndex] or 1]
+		local minionStatSetCalcs = activeEffect.grantedEffect.statSets[activeSkill.activeEffect.srcInstance.minionStatSetCalcs and activeSkill.activeEffect.srcInstance.minionStatSetCalcs[minionSkillIndexCalcs] or 1]
 		activeEffect.srcInstance = {
 			statSetMain = {
 				statSet = minionStatSet,
-				skillFlags = copyTable(minionStatSet.baseFlags)
 			},
 			statSetCalcs = {
 				statSet = minionStatSetCalcs,
-				skillFlags = copyTable(minionStatSetCalcs.baseFlags)
 			}
 		}
 		if #activeEffect.grantedEffect.levels > 1 then

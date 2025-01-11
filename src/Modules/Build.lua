@@ -506,7 +506,8 @@ function buildMode:Init(dbFileName, buildName, buildXML, convertBuild, importLin
 	self.controls.mainSkillMinionSkillStatSet = new("DropDownControl", {"TOPLEFT",self.controls.mainSkillMinionSkill,"BOTTOMLEFT",true}, {0, 2, 200, 16}, nil, function(index, value)
 		local mainSocketGroup = self.skillsTab.socketGroupList[self.mainSocketGroup]
 		local srcInstance = mainSocketGroup.displaySkillList[mainSocketGroup.mainActiveSkill].activeEffect.srcInstance
-		srcInstance.skillMinionSkillStatSet = index
+		srcInstance.skillMinionSkillStatSetIndexLookup = srcInstance.skillMinionSkillStatSetIndexLookup or { }
+		srcInstance.skillMinionSkillStatSetIndexLookup[srcInstance.skillMinionSkill] = index
 		self.modFlag = true
 		self.buildFlag = true
 	end)
@@ -1456,7 +1457,8 @@ function buildMode:RefreshSkillSelectControls(controls, mainGroup, suffix)
 						for _, statSet in ipairs(activeSkill.minion.activeSkillList[controls.mainSkillMinionSkill.selIndex].activeEffect.grantedEffect.statSets) do
 							t_insert(controls.mainSkillMinionSkillStatSet.list, statSet.label)
 						end
-						controls.mainSkillMinionSkillStatSet.selIndex = activeEffect.srcInstance["skillMinionSkillStatSet"..suffix] or 1
+						local minionStatSetIndexLookup = activeEffect.srcInstance["skillMinionSkillStatSetIndexLookup"..suffix]
+						controls.mainSkillMinionSkillStatSet.selIndex = minionStatSetIndexLookup and minionStatSetIndexLookup[controls.mainSkillMinionSkill.selIndex] or 1
 						controls.mainSkillMinionSkillStatSet.shown = true
 						controls.mainSkillMinionSkillStatSet.enabled = #controls.mainSkillMinionSkillStatSet.list > 1
 					else
