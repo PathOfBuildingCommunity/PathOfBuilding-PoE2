@@ -3155,17 +3155,17 @@ local specialModList = {
 	["you can inflict an additional ignite on [ea][an]c?h? enemy"] = { flag("IgniteCanStack"), mod("IgniteStacks", "BASE", 1) },
 	["targets can be affected by %+(%d+) of your poisons at the same time"] =  function(num) return { flag("PoisonCanStack"), mod("PoisonStacks", "BASE", num) } end,
 	["enemies chilled by you take (%d+)%% increased burning damage"] = function(num) return { mod("EnemyModifier", "LIST", { mod = mod("FireDamageTakenOverTime", "INC", num) }, { type = "ActorCondition", actor = "enemy", var = "Chilled" }) } end,
-	["damaging ailments deal damage (%d+)%% faster"] = function(num) return { mod("IgniteBurnFaster", "INC", num), mod("BleedFaster", "INC", num), mod("PoisonFaster", "INC", num) } end,
+	["damaging ailments deal damage (%d+)%% faster"] = function(num) return { mod("IgniteFaster", "INC", num), mod("BleedFaster", "INC", num), mod("PoisonFaster", "INC", num) } end,
 	["damaging ailments you inflict deal damage (%d+)%% faster while affected by malevolence"] = function(num) return {
-		mod("IgniteBurnFaster", "INC", num, { type = "Condition", var = "AffectedByMalevolence" }),
+		mod("IgniteFaster", "INC", num, { type = "Condition", var = "AffectedByMalevolence" }),
 		mod("BleedFaster", "INC", num, { type = "Condition", var = "AffectedByMalevolence" }),
 		mod("PoisonFaster", "INC", num, { type = "Condition", var = "AffectedByMalevolence" }),
 	} end,
-	["ignited enemies burn (%d+)%% faster"] = function(num) return { mod("IgniteBurnFaster", "INC", num) } end,
-	["ignited enemies burn (%d+)%% slower"] = function(num) return { mod("IgniteBurnSlower", "INC", num) } end,
-	["enemies ignited by an attack burn (%d+)%% faster"] = function(num) return { mod("IgniteBurnFaster", "INC", num, nil, ModFlag.Attack) } end,
-	["ignites you inflict with attacks deal damage (%d+)%% faster"] = function(num) return { mod("IgniteBurnFaster", "INC", num, nil, ModFlag.Attack) } end,
-	["ignites you inflict deal damage (%d+)%% faster"] = function(num) return { mod("IgniteBurnFaster", "INC", num) } end,
+	["ignited enemies burn (%d+)%% faster"] = function(num) return { mod("IgniteFaster", "INC", num) } end,
+	["ignited enemies burn (%d+)%% slower"] = function(num) return { mod("IgniteSlower", "INC", num) } end,
+	["enemies ignited by an attack burn (%d+)%% faster"] = function(num) return { mod("IgniteFaster", "INC", num, nil, ModFlag.Attack) } end,
+	["ignites you inflict with attacks deal damage (%d+)%% faster"] = function(num) return { mod("IgniteFaster", "INC", num, nil, ModFlag.Attack) } end,
+	["ignites you inflict deal damage (%d+)%% faster"] = function(num) return { mod("IgniteFaster", "INC", num) } end,
 	["(%d+)%% chance for ignites inflicted with lightning strike or frost blades to deal (%d+)%% more damage"] = function(num, _, more) return {
 		mod("Damage", "MORE", tonumber(more) * num / 100, nil, 0, KeywordFlag.Ignite, { type = "SkillName", skillNameList = { "Lightning Strike", "Frost Blades" }, includeTransfigured = true }),
 	} end,
@@ -3308,6 +3308,11 @@ local specialModList = {
 	["rain of arrows and toxic rain deal (%d+)%% more damage with bleeding"] = function(num) return {
 		mod("Damage", "MORE", num, nil, 0, KeywordFlag.Bleed, { type = "SkillName", skillNameList = { "Rain of Arrows", "Toxic Rain" }, includeTransfigured = true }),
 	} end,
+	["elemental damage also contributes to bleeding magnitude"] = {
+		flag("FireCanBleed"),
+		flag("ColdCanBleed"),
+		flag("LightningCanBleed"),
+	},
 	-- Impale and Bleed
 	["(%d+)%% increased effect of impales inflicted by hits that also inflict bleeding"] = function(num) return {
 		mod("ImpaleEffectOnBleed", "INC", num, nil, 0, KeywordFlag.Hit)
@@ -3355,6 +3360,11 @@ local specialModList = {
 		flag("FireCanPoison", { type = "SkillName", skillNameList = { "Freezing Pulse", "Eye of Winter" }, includeTransfigured = true }),
 		flag("ColdCanPoison", { type = "SkillName", skillNameList = { "Freezing Pulse", "Eye of Winter" }, includeTransfigured = true }),
 		flag("LightningCanPoison", { type = "SkillName", skillNameList = { "Freezing Pulse", "Eye of Winter" }, includeTransfigured = true })
+	},
+	["all damage from hits contributes to poison magnitude"] = {
+		flag("FireCanPoison"),
+		flag("ColdCanPoison"),
+		flag("LightningCanPoison"),
 	},
 	["your chaos damage poisons enemies"] = { mod("ChaosPoisonChance", "BASE", 100) },
 	["your chaos damage has (%d+)%% chance to poison enemies"] = function(num) return { mod("ChaosPoisonChance", "BASE", num) } end,

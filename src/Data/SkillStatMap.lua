@@ -708,7 +708,7 @@ return {
 	mod("FireDamage", "INC", nil, 0, KeywordFlag.FireDot),
 },
 ["faster_burn_%"] = {
-	mod("IgniteBurnFaster", "INC", nil)
+	mod("IgniteFaster", "INC", nil)
 },
 ["faster_poison_%"] = {
 	mod("PoisonFaster", "INC", nil)
@@ -1210,7 +1210,7 @@ return {
 ["damaging_ailments_deal_damage_+%_faster"] = {
 	mod("BleedFaster", "INC", nil),
 	mod("PoisonFaster", "INC", nil),
-	mod("IgniteBurnFaster", "INC", nil),
+	mod("IgniteFaster", "INC", nil),
 },
 ["active_skill_shock_as_though_damage_+%_final"] = {
 	mod("ShockAsThoughDealing", "MORE", nil),

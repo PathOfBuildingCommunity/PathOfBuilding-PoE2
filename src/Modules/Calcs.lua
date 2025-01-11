@@ -195,12 +195,13 @@ function calcs.calcFullDPS(build, mode, override, specEnv)
 		cullingMulti = 0
 	}
 
+	local poisonSource = ""
 	local bleedSource = ""
 	local corruptingBloodSource = ""
 	local igniteSource = ""
 	local burningGroundSource = ""
 	local causticGroundSource = ""
-	
+
 	for _, activeSkill in ipairs(fullEnv.player.activeSkillList) do
 		if activeSkill.socketGroup and activeSkill.socketGroup.includeInFullDPS then
 			local activeSkillCount, enabled = getActiveSkillCount(activeSkill)
@@ -223,8 +224,9 @@ function calcs.calcFullDPS(build, mode, override, specEnv)
 						fullDPS.igniteDPS = usedEnv.minion.output.IgniteDPS
 						igniteSource = activeSkill.activeEffect.grantedEffect.name
 					end
-					if usedEnv.minion.output.PoisonDPS and usedEnv.minion.output.PoisonDPS > 0 then
-						fullDPS.poisonDPS = fullDPS.poisonDPS + usedEnv.minion.output.PoisonDPS * activeSkillCount
+					if usedEnv.minion.output.PoisonDPS and usedEnv.minion.output.PoisonDPS > fullDPS.poisonDPS then
+						fullDPS.poisonDPS = usedEnv.minion.output.PoisonDPS
+						poisonSource = activeSkill.activeEffect.grantedEffect.name
 					end
 					if usedEnv.minion.output.ImpaleDPS and usedEnv.minion.output.ImpaleDPS > 0 then
 						fullDPS.impaleDPS = fullDPS.impaleDPS + usedEnv.minion.output.ImpaleDPS * activeSkillCount
@@ -259,8 +261,9 @@ function calcs.calcFullDPS(build, mode, override, specEnv)
 						fullDPS.igniteDPS = activeSkill.mirage.output.IgniteDPS
 						igniteSource = activeSkill.activeEffect.grantedEffect.name .. " (Mirage)"
 					end
-					if activeSkill.mirage.output.PoisonDPS and activeSkill.mirage.output.PoisonDPS > 0 then
-						fullDPS.poisonDPS = fullDPS.poisonDPS + activeSkill.mirage.output.PoisonDPS * mirageCount
+					if activeSkill.mirage.output.PoisonDPS and activeSkill.mirage.output.PoisonDPS > fullDPS.poisonDPS then
+						fullDPS.poisonDPS = activeSkill.mirage.output.PoisonDPS
+						poisonSource = activeSkill.activeEffect.grantedEffect.name .. " (Mirage)"
 					end
 					if activeSkill.mirage.output.ImpaleDPS and activeSkill.mirage.output.ImpaleDPS > 0 then
 						fullDPS.impaleDPS = fullDPS.impaleDPS + activeSkill.mirage.output.ImpaleDPS * mirageCount
@@ -305,8 +308,9 @@ function calcs.calcFullDPS(build, mode, override, specEnv)
 					fullDPS.burningGroundDPS = usedEnv.player.output.BurningGroundDPS
 					burningGroundSource = activeSkill.activeEffect.grantedEffect.name
 				end
-				if usedEnv.player.output.PoisonDPS and usedEnv.player.output.PoisonDPS > 0 then
-					fullDPS.poisonDPS = fullDPS.poisonDPS + usedEnv.player.output.PoisonDPS * activeSkillCount
+				if usedEnv.player.output.PoisonDPS and usedEnv.player.output.PoisonDPS > fullDPS.poisonDPS then
+					fullDPS.poisonDPS = usedEnv.player.output.PoisonDPS
+					poisonSource = activeSkill.activeEffect.grantedEffect.name
 				end
 				if usedEnv.player.output.CausticGroundDPS and usedEnv.player.output.CausticGroundDPS > fullDPS.causticGroundDPS then
 					fullDPS.causticGroundDPS = usedEnv.player.output.CausticGroundDPS
@@ -346,7 +350,7 @@ function calcs.calcFullDPS(build, mode, override, specEnv)
 		fullDPS.TotalDotDPS = fullDPS.TotalDotDPS + fullDPS.bleedDPS
 	end
 	if fullDPS.corruptingBloodDPS > 0 then
-		t_insert(fullDPS.skills, { name = "Corrupting Blood DPS", dps = fullDPS.corruptingBloodDPS, count = 1, source = corruptingBloodSource })
+		t_insert(fullDPS.skills, { name = "Best Corr. Blood DPS", dps = fullDPS.corruptingBloodDPS, count = 1, source = corruptingBloodSource })
 		fullDPS.TotalDotDPS = fullDPS.TotalDotDPS + fullDPS.corruptingBloodDPS
 	end
 	if fullDPS.igniteDPS > 0 then
@@ -358,8 +362,7 @@ function calcs.calcFullDPS(build, mode, override, specEnv)
 		fullDPS.TotalDotDPS = fullDPS.TotalDotDPS + fullDPS.burningGroundDPS
 	end
 	if fullDPS.poisonDPS > 0 then
-		fullDPS.poisonDPS = m_min(fullDPS.poisonDPS, data.misc.DotDpsCap)
-		t_insert(fullDPS.skills, { name = "Full Poison DPS", dps = fullDPS.poisonDPS, count = 1 })
+		t_insert(fullDPS.skills, { name = "Best Poison DPS", dps = fullDPS.poisonDPS, count = 1, source = poisonSource })
 		fullDPS.TotalDotDPS = fullDPS.TotalDotDPS + fullDPS.poisonDPS
 	end
 	if fullDPS.causticGroundDPS > 0 then
