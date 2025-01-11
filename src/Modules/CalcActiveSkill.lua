@@ -117,12 +117,12 @@ function calcs.createActiveSkill(activeEffect, supportList, env, actor, socketGr
 		end
 		activeEffect.srcInstance.statSetCalcs.skillFlags = skillFlags
 	else 
-		if activeEffect.srcInstance.statSetMain.statSet then
-			skillFlags = copyTable(activeEffect.srcInstance.statSetMain.statSet.baseFlags)
+		if activeEffect.srcInstance.statSet.statSet then
+			skillFlags = copyTable(activeEffect.srcInstance.statSet.statSet.baseFlags)
 		else
 			skillFlags = copyTable(activeEffect.grantedEffect.statSets[1].baseFlags)
 		end
-		activeEffect.srcInstance.statSetMain.skillFlags = skillFlags
+		activeEffect.srcInstance.statSet.skillFlags = skillFlags
 	end
 	skillFlags.hit = skillFlags.hit or activeSkill.skillTypes[SkillType.Attack] or activeSkill.skillTypes[SkillType.Damage] or activeSkill.skillTypes[SkillType.Projectile]
 
@@ -245,8 +245,8 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 		activeStatSet = activeEffect.srcInstance.statSetCalcs.statSet
 		skillFlags = activeEffect.srcInstance.statSetCalcs.skillFlags
 	else
-		activeStatSet = activeEffect.srcInstance.statSetMain.statSet
-		skillFlags = activeEffect.srcInstance.statSetMain.skillFlags
+		activeStatSet = activeEffect.srcInstance.statSet.statSet
+		skillFlags = activeEffect.srcInstance.statSet.skillFlags
 	end
 	local effectiveRange = 0
 
@@ -869,7 +869,7 @@ function calcs.createMinionSkills(env, activeSkill)
 		local minionStatSet = activeEffect.grantedEffect.statSets[activeSkill.activeEffect.srcInstance.minionStatSet and activeSkill.activeEffect.srcInstance.minionStatSet[minionSkillIndex] or 1]
 		local minionStatSetCalcs = activeEffect.grantedEffect.statSets[activeSkill.activeEffect.srcInstance.minionStatSetCalcs and activeSkill.activeEffect.srcInstance.minionStatSetCalcs[minionSkillIndexCalcs] or 1]
 		activeEffect.srcInstance = {
-			statSetMain = {
+			statSet = {
 				statSet = minionStatSet,
 			},
 			statSetCalcs = {
@@ -891,7 +891,7 @@ function calcs.createMinionSkills(env, activeSkill)
 		if env.mode == "CALCS" then
 			skillFlags = minionSkill.activeEffect.srcInstance.statSetCalcs.skillFlags
 		else 
-			skillFlags = minionSkill.activeEffect.srcInstance.statSetMain.skillFlags
+			skillFlags = minionSkill.activeEffect.srcInstance.statSet.skillFlags
 		end
 		skillFlags.minion = true
 		skillFlags.minionSkill = true

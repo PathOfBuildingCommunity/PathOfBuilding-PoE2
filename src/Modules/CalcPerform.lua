@@ -181,7 +181,7 @@ local function doActorAttribsConditions(env, actor)
 		if env.mode == "CALCS" then
 			skillFlags = actor.mainSkill.activeEffect.srcInstance.statSetCalcs.skillFlags 
 		else 
-			skillFlags = actor.mainSkill.activeEffect.srcInstance.statSetMain.skillFlags 
+			skillFlags = actor.mainSkill.activeEffect.srcInstance.statSet.skillFlags 
 		end
 		if not actor.mainSkill.skillData.triggered and not skillFlags.trap and not skillFlags.mine and not skillFlags.totem then
 			if skillFlags.attack then
@@ -905,7 +905,7 @@ function calcs.perform(env, skipEHP)
 		if env.mode == "CALCS" then
 			skillFlags = activeSkill.activeEffect.srcInstance.statSetCalcs.skillFlags 
 		else 
-			skillFlags = activeSkill.activeEffect.srcInstance.statSetMain.skillFlags 
+			skillFlags = activeSkill.activeEffect.srcInstance.statSet.skillFlags 
 		end
 		if skillFlags.brand then
 			local attachLimit = activeSkill.skillModList:Sum("BASE", activeSkill.skillCfg, "BrandsAttachedLimit")
@@ -1512,7 +1512,7 @@ function calcs.perform(env, skipEHP)
 		if env.mode == "CALCS" then
 			disabledFlag = activeSkill.activeEffect.srcInstance.statSetCalcs.skillFlags.disable 
 		else 
-			disabledFlag = activeSkill.activeEffect.srcInstance.statSetMain.skillFlags.disable 
+			disabledFlag = activeSkill.activeEffect.srcInstance.statSet.skillFlags.disable 
 		end
 		if not disabledFlag and not (env.limitedSkills and env.limitedSkills[cacheSkillUUID(activeSkill, env)]) then
 			if (activeSkill.activeEffect.grantedEffect.name == "Blight" or activeSkill.activeEffect.grantedEffect.name == "Blight of Contagion" or activeSkill.activeEffect.grantedEffect.name == "Blight of Atrophy") and activeSkill.skillPart == 2 then
@@ -1547,7 +1547,7 @@ function calcs.perform(env, skipEHP)
 		if env.mode == "CALCS" then
 			skillFlags = activeSkill.activeEffect.srcInstance.statSetCalcs.skillFlags 
 		else 
-			skillFlags = activeSkill.activeEffect.srcInstance.statSetMain.skillFlags 
+			skillFlags = activeSkill.activeEffect.srcInstance.statSet.skillFlags 
 		end
 		local skillModList = activeSkill.skillModList
 		local skillCfg = activeSkill.skillCfg
@@ -1743,7 +1743,7 @@ function calcs.perform(env, skipEHP)
 					if env.mode == "CALCS" then
 						totemFlag = env.player.mainSkill.activeEffect.srcInstance.statSetCalcs.skillFlags.totem 
 					else 
-						totemFlag = env.player.mainSkill.activeEffect.srcInstance.statSetMain.skillFlags.totem 
+						totemFlag = env.player.mainSkill.activeEffect.srcInstance.statSet.skillFlags.totem 
 					end
 					if totemFlag and not (modDB:Flag(nil, "SelfAurasCannotAffectAllies") or modDB:Flag(nil, "SelfAuraSkillsCannotAffectAllies")) then
 						activeSkill.totemBuffSkill = true
@@ -2105,7 +2105,7 @@ function calcs.perform(env, skipEHP)
 								if env.mode == "CALCS" then
 									totemFlag = env.player.mainSkill.activeEffect.srcInstance.statSetCalcs.skillFlags.totem 
 								else 
-									totemFlag = env.player.mainSkill.activeEffect.srcInstance.statSetMain.skillFlags.totem 
+									totemFlag = env.player.mainSkill.activeEffect.srcInstance.statSet.skillFlags.totem 
 								end
 								if totemFlag and not env.player.mainSkill.skillModList.conditions["AffectedBy"..buff.name:gsub(" ","")] then
 									activeMinionSkill.totemBuffSkill = true
@@ -2604,7 +2604,7 @@ function calcs.perform(env, skipEHP)
 			if env.mode == "CALCS" then
 				totemFlag = env.player.mainSkill.activeEffect.srcInstance.statSetCalcs.skillFlags.totem 
 			else 
-				totemFlag = env.player.mainSkill.activeEffect.srcInstance.statSetMain.skillFlags.totem 
+				totemFlag = env.player.mainSkill.activeEffect.srcInstance.statSet.skillFlags.totem 
 			end
 			if totemFlag and not totemModBlacklist then
 				local totemMod = copyTable(value.mod)
@@ -2698,7 +2698,7 @@ function calcs.perform(env, skipEHP)
 	if env.mode == "CALCS" then
 		hitFlag = env.player.mainSkill.activeEffect.srcInstance.statSetCalcs.skillFlags.hit 
 	else 
-		hitFlag = env.player.mainSkill.activeEffect.srcInstance.statSetMain.skillFlags.hit
+		hitFlag = env.player.mainSkill.activeEffect.srcInstance.statSet.skillFlags.hit
 	end
 	for ailment, val in pairs(ailments) do
 		if (enemyDB:Sum("BASE", nil, ailment.."Val") > 0

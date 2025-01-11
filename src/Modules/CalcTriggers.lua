@@ -1436,7 +1436,7 @@ function calcs.triggers(env, actor)
 	if env.mode == "CALCS" then
 		skillFlags = actor.mainSkill.activeEffect.srcInstance.statSetCalcs.skillFlags
 	else
-		skillFlags = actor.mainSkill.activeEffect.srcInstance.statSetMain.skillFlags
+		skillFlags = actor.mainSkill.activeEffect.srcInstance.statSet.skillFlags
 	end
 	if actor and not skillFlags.disable and not (env.limitedSkills and env.limitedSkills[cacheSkillUUID(actor.mainSkill, env)]) then
 		local skillName = actor.mainSkill.activeEffect.grantedEffect.name

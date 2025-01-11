@@ -1426,8 +1426,8 @@ function calcs.initEnv(build, mode, override, specEnv)
 									srcInstance = gemInstance,
 									gemData = gemInstance.gemData,
 								}
-								if not activeEffect.srcInstance.statSetMain then
-									activeEffect.srcInstance.statSetMain = { statSet = grantedEffect.statSets[1] }
+								if not activeEffect.srcInstance.statSet then
+									activeEffect.srcInstance.statSet = { statSet = grantedEffect.statSets[1] }
 								end
 								if not activeEffect.srcInstance.statSetCalcs then
 									activeEffect.srcInstance.statSetCalcs = { statSet = grantedEffect.statSets[1] }
@@ -1596,7 +1596,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 				quality = 0,
 				enabled = true,
 				srcInstance = {
-					statSetMain = {
+					statSet = {
 						statSet = env.data.skills.MeleeUnarmedPlayer.statSets[1]
 					},
 					statSetCalcs = {
