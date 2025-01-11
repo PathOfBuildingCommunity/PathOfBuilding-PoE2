@@ -542,6 +542,9 @@ return {
 ["active_skill_area_of_effect_+%_final"] = {
 	mod("AreaOfEffect", "MORE", nil),
 },
+["support_area_of_effect_+%_final"] = {
+	mod("AreaOfEffect", "MORE", nil),
+},
 ["area_of_effect_+%_per_50_strength"] = {
 	skill("AreaOfEffect", nil, { type = "PerStat", stat = "Str", div = 50 }),
 },
@@ -1150,6 +1153,9 @@ return {
 ["shock_duration_+%"] = {
 	mod("EnemyShockDuration", "INC", nil),
 },
+["support_pure_shock_shock_duration_+%_final"] = {
+	mod("EnemyShockDuration", "MORE", nil),
+},
 ["chill_duration_+%"] = {
 	mod("EnemyChillDuration", "INC", nil),
 },
@@ -1345,6 +1351,9 @@ return {
 },
 ["base_inflict_lightning_exposure_on_hit_%_chance"] = {
 	mod("LightningExposureChance", "BASE", nil),
+},
+["inflict_lightning_exposure_for_x_ms_on_shock"] = {
+	mod("LightningExposureChance", "BASE", 100, ModFlag.Hit, 0, { type = "Condition", var = "Shocked" }),
 },
 ["base_inflict_fire_exposure_on_hit_%_chance"] = {
 	mod("FireExposureChance", "BASE", nil),
