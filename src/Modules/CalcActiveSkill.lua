@@ -108,18 +108,18 @@ function calcs.createActiveSkill(activeEffect, supportList, env, socketGroup, su
 	end
 
 	-- Initialise skill flag set ('attack', 'projectile', etc)
-	local skillFlags
+	local skillFlags = {}
 	if env.mode == "CALCS" then 
 		if activeEffect.srcInstance.statSetCalcs.statSet then
 			skillFlags = copyTable(activeEffect.srcInstance.statSetCalcs.statSet.baseFlags)
-		else
+		elseif activeEffect.grantedEffect.statSets[1] then
 			skillFlags = copyTable(activeEffect.grantedEffect.statSets[1].baseFlags)
 		end
 		activeEffect.srcInstance.statSetCalcs.skillFlags = skillFlags
 	else 
 		if activeEffect.srcInstance.statSetMain.statSet then
 			skillFlags = copyTable(activeEffect.srcInstance.statSetMain.statSet.baseFlags)
-		else
+		elseif activeEffect.grantedEffect.statSets[1] then
 			skillFlags = copyTable(activeEffect.grantedEffect.statSets[1].baseFlags)
 		end
 		activeEffect.srcInstance.statSetMain.skillFlags = skillFlags
