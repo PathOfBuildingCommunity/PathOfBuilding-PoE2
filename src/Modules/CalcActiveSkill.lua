@@ -109,6 +109,7 @@ function calcs.createActiveSkill(activeEffect, supportList, env, actor, socketGr
 
 	-- Initialise skill flag set ('attack', 'projectile', etc)
 	local skillFlags = { }
+	local statSetIndex
 	if env.mode == "CALCS" then 
 		if activeEffect.srcInstance.statSetCalcs.statSet then
 			skillFlags = copyTable(activeEffect.srcInstance.statSetCalcs.statSet.baseFlags)
@@ -864,14 +865,16 @@ function calcs.createMinionSkills(env, activeSkill)
 			level = 1,
 			quality = 0,
 		}
+		local minionStatSet = activeEffect.grantedEffect.statSets[activeSkill.activeEffect.srcInstance.minionStatSet or 1]
+		local minionStatSetCalcs = activeEffect.grantedEffect.statSets[activeSkill.activeEffect.srcInstance.minionStatSetCalcs or 1]
 		activeEffect.srcInstance = {
 			statSetMain = {
-				statSet = activeEffect.grantedEffect.statSets[1],
-				skillFlags = copyTable(activeEffect.grantedEffect.statSets[1].baseFlags)
+				statSet = minionStatSet,
+				skillFlags = copyTable(minionStatSet.baseFlags)
 			},
 			statSetCalcs = {
-				statSet = activeEffect.grantedEffect.statSets[1],
-				skillFlags = copyTable(activeEffect.grantedEffect.statSets[1].baseFlags)
+				statSet = minionStatSetCalcs,
+				skillFlags = copyTable(minionStatSetCalcs.baseFlags)
 			}
 		}
 		if #activeEffect.grantedEffect.levels > 1 then

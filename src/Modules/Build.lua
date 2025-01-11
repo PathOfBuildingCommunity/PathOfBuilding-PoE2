@@ -428,6 +428,7 @@ function buildMode:Init(dbFileName, buildName, buildXML, convertBuild, importLin
 		local mainSocketGroup = self.skillsTab.socketGroupList[self.mainSocketGroup]
 		local srcInstance = mainSocketGroup.displaySkillList[mainSocketGroup.mainActiveSkill].activeEffect.srcInstance
 		srcInstance.statSetMain = srcInstance.statSetMain or { }
+		srcInstance.statSetMain.index = index
 		srcInstance.statSetMain.statSet = value.statSet
 		self.modFlag = true
 		self.buildFlag = true
@@ -1366,6 +1367,7 @@ function buildMode:RefreshSkillSelectControls(controls, mainGroup, suffix)
 		controls.mainSkillStageCount.shown = false
 		controls.mainSkillMinion.shown = false
 		controls.mainSkillMinionSkill.shown = false
+		controls.mainSkillMinionSkillStatSet.shown = false
 	else
 		local mainSocketGroup = self.skillsTab.socketGroupList[mainGroup]
 		local displaySkillList = mainSocketGroup["displaySkillList"..suffix]
@@ -1386,6 +1388,7 @@ function buildMode:RefreshSkillSelectControls(controls, mainGroup, suffix)
 		controls.mainSkillMinion.shown = false
 		controls.mainSkillMinionLibrary.shown = false
 		controls.mainSkillMinionSkill.shown = false
+		controls.mainSkillMinionSkillStatSet.shown = false
 		if displaySkillList[1] then
 			local activeSkill = displaySkillList[mainActiveSkill]
 			local activeEffect = activeSkill.activeEffect
@@ -1453,7 +1456,7 @@ function buildMode:RefreshSkillSelectControls(controls, mainGroup, suffix)
 						for _, statSet in ipairs(activeSkill.minion.activeSkillList[controls.mainSkillMinionSkill.selIndex].activeEffect.grantedEffect.statSets) do
 							t_insert(controls.mainSkillMinionSkillStatSet.list, statSet.label)
 						end
-						controls.mainSkillMinionSkillStatSet.selIndex = activeEffect.srcInstance["skillMinionSkillStateSet"..suffix] or 1
+						controls.mainSkillMinionSkillStatSet.selIndex = activeEffect.srcInstance["skillMinionSkillStatSet"..suffix] or 1
 						controls.mainSkillMinionSkillStatSet.shown = true
 						controls.mainSkillMinionSkillStatSet.enabled = #controls.mainSkillMinionSkillStatSet.list > 1
 					else
