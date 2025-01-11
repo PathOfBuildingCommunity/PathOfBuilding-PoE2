@@ -1071,6 +1071,9 @@ return {
 ["base_chance_to_shock_%"] = {
 	mod("EnemyShockChance", "BASE", nil),
 },
+["active_skill_shock_chance_+%_final"] = {
+	mod("EnemyShockChance", "MORE", nil),
+},
 ["always_shock"] = {
 	mod("EnemyShockChance", "BASE", nil),
 	value = 100,
@@ -1596,6 +1599,9 @@ return {
 },
 ["active_skill_attack_speed_+%_final_while_dual_wielding"] = {
 	mod("Speed", "MORE", nil, ModFlag.Attack, 0, { type = "Condition", var = "DualWielding"})
+},
+["supplementary_stat_container_attack_speed_+%_final"] = {
+	mod("Speed", "MORE", nil, ModFlag.Attack),
 },
 ["damage_+%_per_power_charge"] = {
 	mod("Damage", "INC", nil, 0, 0, { type = "Multiplier", var = "PowerCharge" })

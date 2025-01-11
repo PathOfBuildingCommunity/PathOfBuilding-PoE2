@@ -964,7 +964,7 @@ c["15% increased effect of Arcane Surge on you"]={{[1]={flags=0,keywordFlags=0,n
 c["15% increased maximum Energy Shield"]={{[1]={[1]={type="Global"},flags=0,keywordFlags=0,name="EnergyShield",type="INC",value=15}},nil}
 c["15% increased maximum Life"]={{[1]={flags=0,keywordFlags=0,name="Life",type="INC",value=15}},nil}
 c["15% more Maximum Life"]={{[1]={flags=0,keywordFlags=0,name="Life",type="MORE",value=15}},nil}
-c["15% more Maximum Lightning Damage"]={{[1]={flags=0,keywordFlags=0,name="LightningDamage",type="MORE",value=15}}," Maximum  "}
+c["15% more Maximum Lightning Damage"]={{[1]={flags=0,keywordFlags=0,name="MaxLightningDamage",type="MORE",value=15}},nil}
 c["15% of Elemental Damage taken Recouped as Life"]={{[1]={flags=0,keywordFlags=0,name="ElementalDamageTaken",type="BASE",value=15}},"  Recouped as Life "}
 c["15% of Physical Damage prevented Recouped as Life"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamage",type="BASE",value=15}},"  prevented Recouped as Life "}
 c["15% of Physical Damage taken Recouped as Life"]={{[1]={flags=0,keywordFlags=0,name="PhysicalLifeRecoup",type="BASE",value=15}},nil}
@@ -1348,7 +1348,7 @@ c["25% increased amount of Mana Leeched"]={{[1]={flags=0,keywordFlags=0,name="Ma
 c["25% increased chance to Ignite"]={{[1]={flags=0,keywordFlags=0,name="EnemyIgniteChance",type="INC",value=25}},nil}
 c["25% increased chance to Shock"]={{[1]={flags=0,keywordFlags=0,name="EnemyShockChance",type="INC",value=25}},nil}
 c["25% increased chance to inflict Ailments against Rare or Unique Enemies"]={{[1]={flags=0,keywordFlags=0,name="AilmentChance",type="INC",value=25}},"  against Rare or Unique Enemies "}
-c["25% increased chance to inflict Ailments with Projectiles"]={{[1]={flags=0,keywordFlags=0,name="AilmentChance",type="INC",value=25}},"  with Projectiles "}
+c["25% increased chance to inflict Ailments with Projectiles"]={{[1]={flags=1024,keywordFlags=0,name="AilmentChance",type="INC",value=25}},nil}
 c["25% increased maximum Energy Shield"]={{[1]={[1]={type="Global"},flags=0,keywordFlags=0,name="EnergyShield",type="INC",value=25}},nil}
 c["25% increased speed of Recoup Effects"]={{[1]={flags=0,keywordFlags=0,name="LocalEffect",type="INC",value=25}}," speed of Recoup s "}
 c["25% less Magnitude of Chill you inflict"]={{[1]={flags=0,keywordFlags=0,name="EnemyChillMagnitude",type="MORE",value=-25}},nil}
