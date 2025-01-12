@@ -588,7 +588,7 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 		local isAlloc = node.alloc or build.calcsTab.mainEnv.grantedPassives[nodeId] or (compareNode and compareNode.alloc)
 		SetDrawLayer(nil, 25)
 		if node.type == "ClassStart" then
-			overlay = isAlloc and node.startArt or "PSStartNodeBackgroundInactive"
+			overlay = nil
 		elseif node.type == "AscendClassStart" then
 			overlay = "AscendancyMiddle"
 			if node.ascendancyName and tree.secondaryAscendNameMap and tree.secondaryAscendNameMap[node.ascendancyName] then
