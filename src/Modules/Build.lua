@@ -842,9 +842,9 @@ function buildMode:EstimatePlayerProgress()
 		"%s%3d / %3d %s%2d / %2d %s%2d / %2d   %s%d / %d", 
 		PointsUsed > usedMax and colorCodes.NEGATIVE or "^7", 
 		PointsUsed, usedMax,
-		colorCodes.WEAPONSET1,
+		colorCodes.NEGATIVE,
 		weaponSet1Used, maxWeaponSets + extraWeaponSets,
-		colorCodes.WEAPONSET2,
+		colorCodes.POSITIVE,
 		weaponSet2Used, maxWeaponSets + extraWeaponSets,
 		AscUsed > ascMax and colorCodes.NEGATIVE or "^7", 
 		AscUsed, ascMax

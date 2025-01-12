@@ -467,13 +467,19 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 		end
 
 		if baseState == "Intermediate" and spec.allocMode > 0 and not connector.ascendancyName then
-			setConnectorColor(unpack(hexToRGB(colorCodes["WEAPONSET" .. spec.allocMode]:sub(3))))
+			if spec.allocMode == 1 then
+				setConnectorColor(unpack(hexToRGB(colorCodes["NEGATIVE"]:sub(3))))
+			elseif spec.allocMode == 2 then
+				setConnectorColor(unpack(hexToRGB(colorCodes["POSITIVE"]:sub(3))))
+			end
 		end
 
 		if baseState == "Active" and state == "Active" and not connector.ascendancyName then
 			local allocMode =  (node1 and node1.allocMode and node1.allocMode ~= 0 and node1.allocMode) or (node2 and node2.allocMode and node2.allocMode ~= 0 and node2.allocMode) or 0
-			if allocMode > 0 then
-				setConnectorColor(unpack(hexToRGB(colorCodes["WEAPONSET" ..allocMode]:sub(3))))
+			if allocMode == 1 then
+				setConnectorColor(unpack(hexToRGB(colorCodes["NEGATIVE"]:sub(3))))
+			elseif allocMode == 2 then
+				setConnectorColor(unpack(hexToRGB(colorCodes["POSITIVE"]:sub(3))))
 			end
 		end
 
@@ -1275,11 +1281,14 @@ function PassiveTreeViewClass:AddNodeTooltip(tooltip, node, build)
 end
 
 function PassiveTreeViewClass:DrawAllocMode(allocMode, viewPort)
+	local rgbColor
 	if allocMode == 0 then
 		return
+	elseif allocMode == 1 then
+		rgbColor = hexToRGB(colorCodes["NEGATIVE"]:sub(3))
+	elseif allocMode == 2 then
+		rgbColor = hexToRGB(colorCodes["POSITIVE"]:sub(3))
 	end
-	local color = colorCodes["WEAPONSET" .. allocMode]
-	local rgbColor = hexToRGB(color:sub(3))
 
 	SetDrawLayer(nil, 80)
 	SetDrawColor(rgbColor[1], rgbColor[2], rgbColor[3], 0.4)

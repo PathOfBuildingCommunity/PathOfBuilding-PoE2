@@ -33,7 +33,7 @@ function PassiveSpecClass:Init(treeVersion, convert)
 	self.ignoredNodes = { }
 	self.ignoreAllocatingSubgraph = false
 
-	-- we are going to support 3 modes, 0 normal allow, 1 alloc weaponset 1, 2 alloc weaponset 2
+	-- There are 3 allocation modes, [0] normal points, [1] weapon set 1, [2] weapon set 2
 	self.allocMode = 0
 
 	local previousTreeNodes = { }

@@ -56,8 +56,6 @@ colorCodes = {
 	SAPBG = "^x261500",
 	SCOURGE = "^xFF6E25",
 	CRUCIBLE = "^xFFA500",
-	WEAPONSET1 = "^xDD0022",
-	WEAPONSET2 = "^x33FF77",
 }
 colorCodes.STRENGTH = colorCodes.MARAUDER
 colorCodes.DEXTERITY = colorCodes.RANGER
