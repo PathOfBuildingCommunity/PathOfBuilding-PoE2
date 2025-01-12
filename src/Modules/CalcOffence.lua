@@ -1112,7 +1112,7 @@ function calcs.offence(env, actor, activeSkill)
 			end
 		end
 	end
-	if activeSkill.skillTypes[SkillType.Hex] then
+	if activeSkill.skillTypes[SkillType.AppliesCurse] then
 		output.CurseEffectMod = calcLib.mod(skillModList, skillCfg, "CurseEffect")
 		if breakdown then
 			breakdown.CurseEffectMod = breakdown.mod(skillModList, skillCfg, "CurseEffect")
