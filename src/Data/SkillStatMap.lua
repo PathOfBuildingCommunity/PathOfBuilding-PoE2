@@ -542,6 +542,9 @@ return {
 ["active_skill_area_of_effect_+%_final"] = {
 	mod("AreaOfEffect", "MORE", nil),
 },
+["support_area_of_effect_+%_final"] = {
+	mod("AreaOfEffect", "MORE", nil),
+},
 ["area_of_effect_+%_per_50_strength"] = {
 	skill("AreaOfEffect", nil, { type = "PerStat", stat = "Str", div = 50 }),
 },
@@ -705,7 +708,7 @@ return {
 	mod("FireDamage", "INC", nil, 0, KeywordFlag.FireDot),
 },
 ["faster_burn_%"] = {
-	mod("IgniteBurnFaster", "INC", nil)
+	mod("IgniteFaster", "INC", nil)
 },
 ["faster_poison_%"] = {
 	mod("PoisonFaster", "INC", nil)
@@ -1068,6 +1071,9 @@ return {
 ["base_chance_to_shock_%"] = {
 	mod("EnemyShockChance", "BASE", nil),
 },
+["active_skill_shock_chance_+%_final"] = {
+	mod("EnemyShockChance", "MORE", nil),
+},
 ["always_shock"] = {
 	mod("EnemyShockChance", "BASE", nil),
 	value = 100,
@@ -1150,6 +1156,9 @@ return {
 ["shock_duration_+%"] = {
 	mod("EnemyShockDuration", "INC", nil),
 },
+["support_pure_shock_shock_duration_+%_final"] = {
+	mod("EnemyShockDuration", "MORE", nil),
+},
 ["chill_duration_+%"] = {
 	mod("EnemyChillDuration", "INC", nil),
 },
@@ -1201,7 +1210,7 @@ return {
 ["damaging_ailments_deal_damage_+%_faster"] = {
 	mod("BleedFaster", "INC", nil),
 	mod("PoisonFaster", "INC", nil),
-	mod("IgniteBurnFaster", "INC", nil),
+	mod("IgniteFaster", "INC", nil),
 },
 ["active_skill_shock_as_though_damage_+%_final"] = {
 	mod("ShockAsThoughDealing", "MORE", nil),
@@ -1345,6 +1354,9 @@ return {
 },
 ["base_inflict_lightning_exposure_on_hit_%_chance"] = {
 	mod("LightningExposureChance", "BASE", nil),
+},
+["inflict_lightning_exposure_for_x_ms_on_shock"] = {
+	mod("LightningExposureChance", "BASE", 100, ModFlag.Hit, 0, { type = "Condition", var = "Shocked" }),
 },
 ["base_inflict_fire_exposure_on_hit_%_chance"] = {
 	mod("FireExposureChance", "BASE", nil),
@@ -1587,6 +1599,9 @@ return {
 },
 ["active_skill_attack_speed_+%_final_while_dual_wielding"] = {
 	mod("Speed", "MORE", nil, ModFlag.Attack, 0, { type = "Condition", var = "DualWielding"})
+},
+["supplementary_stat_container_attack_speed_+%_final"] = {
+	mod("Speed", "MORE", nil, ModFlag.Attack),
 },
 ["damage_+%_per_power_charge"] = {
 	mod("Damage", "INC", nil, 0, 0, { type = "Multiplier", var = "PowerCharge" })

@@ -550,7 +550,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 					self.requirements[specName:sub(1,3):lower()] = specToNumber(specVal)
 				elseif specName == "Critical Hit Range" or specName == "Attacks per Second" or specName == "Weapon Range" or
 				       specName == "Critical Hit Chance" or specName == "Physical Damage" or specName == "Elemental Damage" or
-				       specName == "Chaos Damage" or specName == "Chance to Block" or specName == "Armour" or
+				       specName == "Chaos Damage" or specName == "Reload Time" or specName == "Chance to Block" or specName == "Armour" or
 					   specName == "Energy Shield" or specName == "Evasion" then
 					self.hidden_specs = true
 				-- Anything else is an explicit with a colon in it (Fortress Covenant, Pure Talent, etc) unless it's part of the custom name

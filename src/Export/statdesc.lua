@@ -429,11 +429,20 @@ function describeScalability(fileName)
 						end
 					end
 				end
-				out[wordings.text:gsub("(%b{})", function(num)
+				local strippedLine = wordings.text:gsub("[%+%-]?(%b{})", function(num)
 					local statNum = (num:match("%d") or 0) + 1
 					table.insert(inOrderScalability, { isScalable = scalability[statNum], formats = wordingFormats[statNum] })
 					return "#"
-				end)] = inOrderScalability
+				end)
+				if out[strippedLine] then -- we want to use the format with the least oddites in it. If their are less formats then that will be used instead.
+					for j, priorScalability in ipairs(out[strippedLine]) do
+						if (priorScalability.formats and #priorScalability.formats or 0) > (wordingFormats[j] and #wordingFormats[j] or 0) then 
+							out[strippedLine][j] = inOrderScalability[j]
+						end
+					end
+				else -- no present
+					out[strippedLine] = inOrderScalability
+				end
 			end
 		end
 	end

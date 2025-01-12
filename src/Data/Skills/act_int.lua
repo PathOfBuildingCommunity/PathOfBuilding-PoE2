@@ -15585,6 +15585,9 @@ skills["TempestFlurryPlayer"] = {
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
+				attack = true,
+				area = true,
+				melee = true,
 			},
 			constantStats = {
 				{ "statset_index_for_third_animation_combo_index", 1 },
@@ -15645,6 +15648,8 @@ skills["TempestFlurryPlayer"] = {
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
+				attack = true,
+				melee = true,
 			},
 			constantStats = {
 				{ "supplementary_stat_container_attack_speed_+%_final", -35 },
@@ -15699,6 +15704,8 @@ skills["TempestFlurryPlayer"] = {
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
+				attack = true,
+				melee = true,
 			},
 			constantStats = {
 				{ "supplementary_stat_container_attack_speed_+%_final", -45 },

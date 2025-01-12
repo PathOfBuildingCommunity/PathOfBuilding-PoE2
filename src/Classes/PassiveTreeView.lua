@@ -110,6 +110,12 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 					-- Dragging won't actually commence unless the cursor moves far enough
 					self.dragX, self.dragY = cursorX, cursorY
 				end
+			elseif mOver then
+				if IsKeyDown("ALT") and event.key == "WHEELDOWN" then
+					spec.allocMode = math.max(0, spec.allocMode - 1)
+				elseif IsKeyDown("ALT") and event.key == "WHEELUP" then
+					spec.allocMode = math.min(2, spec.allocMode + 1)
+				end
 			elseif event.key == "p" then
 				self.showHeatMap = not self.showHeatMap
 			elseif event.key == "d" and IsKeyDown("CTRL") then
@@ -130,9 +136,9 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 			elseif mOver then
 				if event.key == "RIGHTBUTTON" then
 					treeClick = "RIGHT"
-				elseif event.key == "WHEELUP" then
+				elseif event.key == "WHEELUP" and not IsKeyDown("ALT") then
 					self:Zoom(IsKeyDown("SHIFT") and 3 or 1, viewPort)
-				elseif event.key == "WHEELDOWN" then
+				elseif event.key == "WHEELDOWN" and not IsKeyDown("ALT") then
 					self:Zoom(IsKeyDown("SHIFT") and -3 or -1, viewPort)
 				end	
 			end
@@ -351,8 +357,11 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 		DrawImage(bg.handle, viewPort.x, viewPort.y, viewPort.width, viewPort.height, 0, 0, viewPort.width / 100, viewPort.height / 100)
 	end
 
-	
+	-- draw allocMode text
+	self:DrawAllocMode(spec.allocMode, viewPort)
+
 	-- TODO: More dynamic
+	SetDrawLayer(nil, 10)
 	local treeCenter = tree:GetAssetByName("BGTree", "ascendancyBackground")
 	local treeCenterActive = tree:GetAssetByName("BGTreeActive", "ascendancyBackground")
 	-- draw background artwork base on current class
@@ -455,6 +464,23 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 		end
 		if baseState ~= "Active" and state == "Active" then
 			setConnectorColor(1, 0, 0)
+		end
+
+		if baseState == "Intermediate" and spec.allocMode > 0 and not connector.ascendancyName then
+			if spec.allocMode == 1 then
+				setConnectorColor(unpack(hexToRGB(colorCodes["NEGATIVE"]:sub(3))))
+			elseif spec.allocMode == 2 then
+				setConnectorColor(unpack(hexToRGB(colorCodes["POSITIVE"]:sub(3))))
+			end
+		end
+
+		if baseState == "Active" and state == "Active" and not connector.ascendancyName then
+			local allocMode =  (node1 and node1.allocMode and node1.allocMode ~= 0 and node1.allocMode) or (node2 and node2.allocMode and node2.allocMode ~= 0 and node2.allocMode) or 0
+			if allocMode == 1 then
+				setConnectorColor(unpack(hexToRGB(colorCodes["NEGATIVE"]:sub(3))))
+			elseif allocMode == 2 then
+				setConnectorColor(unpack(hexToRGB(colorCodes["POSITIVE"]:sub(3))))
+			end
 		end
 
 		-- Convert vertex coordinates to screen-space and add them to the coordinate array
@@ -827,8 +853,8 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 				local isThreadOfHope = jewel and jewel.jewelRadiusLabel == "Variable"
 				if isThreadOfHope then
 					for _, radData in ipairs(build.data.jewelRadius) do
-						local outerSize = radData.outer * scale
-						local innerSize = radData.inner * scale
+						local outerSize = radData.outer * data.gameConstants["PassiveTreeJewelDistanceMultiplier"] * scale
+						local innerSize = radData.inner * data.gameConstants["PassiveTreeJewelDistanceMultiplier"] * scale
 						-- Jewel in socket is Thread of Hope or similar, draw it's annulus
 						if innerSize ~= 0 then
 							SetDrawColor(radData.col)
@@ -838,8 +864,8 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 					end
 				else
 					for _, radData in ipairs(build.data.jewelRadius) do
-						local outerSize = radData.outer * scale
-						local innerSize = radData.inner * scale
+						local outerSize = radData.outer * data.gameConstants["PassiveTreeJewelDistanceMultiplier"] * scale
+						local innerSize = radData.inner * data.gameConstants["PassiveTreeJewelDistanceMultiplier"] * scale
 						-- Jewel in socket is not Thread of Hope or similar, draw normal jewel radius
 						if innerSize == 0 then
 							SetDrawColor(radData.col)
@@ -851,8 +877,8 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 				if jewel and jewel.jewelRadiusIndex then
 					-- Draw only the selected jewel radius
 					local radData = build.data.jewelRadius[jewel.jewelRadiusIndex]
-					local outerSize = radData.outer * scale
-					local innerSize = radData.inner * scale * 1.06
+					local outerSize = radData.outer * data.gameConstants["PassiveTreeJewelDistanceMultiplier"] * scale
+					local innerSize = radData.inner * data.gameConstants["PassiveTreeJewelDistanceMultiplier"] * scale * 1.06
 					SetDrawColor(1,1,1,0.7)
 					if jewel.title == "From Nothing" then
 						-- From Nothing ring shows on the allocated Keystone
@@ -1132,6 +1158,7 @@ function PassiveTreeViewClass:AddNodeTooltip(tooltip, node, build)
 		tooltip:AddLine(16, string.format("Angle: %f", node.angle))
 		tooltip:AddLine(16, string.format("Orbit: %d, Orbit Index: %d", node.orbit, node.orbitIndex))
 		tooltip:AddLine(16, string.format("Group: %d", node.g))
+		tooltip:AddLine(16, string.format("AllocMode: %d", node.allocMode or 0))
 		tooltip:AddSeparator(14)
 
 		-- add conection info for debugging
@@ -1251,4 +1278,24 @@ function PassiveTreeViewClass:AddNodeTooltip(tooltip, node, build)
 	else
 		tooltip:AddLine(14, colorCodes.TIP.."Tip: Hold Ctrl to hide this tooltip.")
 	end
+end
+
+function PassiveTreeViewClass:DrawAllocMode(allocMode, viewPort)
+	local rgbColor
+	if allocMode == 0 then
+		return
+	elseif allocMode == 1 then
+		rgbColor = hexToRGB(colorCodes["NEGATIVE"]:sub(3))
+	elseif allocMode == 2 then
+		rgbColor = hexToRGB(colorCodes["POSITIVE"]:sub(3))
+	end
+
+	SetDrawLayer(nil, 80)
+	SetDrawColor(rgbColor[1], rgbColor[2], rgbColor[3], 0.4)
+	DrawImage(nil, viewPort.x, viewPort.y + viewPort.height - 20 , viewPort.width, 20)
+
+	SetDrawColor(1, 1, 1, 1)
+	DrawString(viewPort.x + 2, viewPort.y + viewPort.height - 20 + 2, "LEFT", 16, "VAR", string.format("^7Allocating Weapon set %d Mode", allocMode))
+
+	SetDrawColor(1, 1, 1, 1)
 end

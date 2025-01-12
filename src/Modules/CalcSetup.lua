@@ -97,6 +97,23 @@ function calcs.buildModListForNode(env, node)
 		modList:AddList(node.modList)
 	end
 
+	if node.allocMode and node.allocMode ~= 0 then
+		for i, mod in ipairs(modList) do
+			local added = false
+			for j, extra in ipairs(mod) do
+				-- if type conditional and start with WeaponSet then update the var to the current weapon set
+				if extra.type == "Condition" and extra.var:match("^WeaponSet") then
+					mod[j].var = "WeaponSet".. node.allocMode
+					added = true
+					break
+				end
+			end
+			if not added then
+				table.insert(mod, { type = "Condition", var = "WeaponSet".. node.allocMode })
+			end
+		end
+	end
+
 	-- Run first pass radius jewels
 	for _, rad in pairs(env.radiusJewelList) do
 		if rad.type == "Other" and rad.nodes[node.id] and rad.nodes[node.id].type ~= "Mastery" then
@@ -492,6 +509,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 		modDB:NewMod("TrapThrowCount", "BASE", 1, "Base")
 		modDB:NewMod("ActiveBrandLimit", "BASE", 3, "Base")
 		modDB:NewMod("EnemyCurseLimit", "BASE", 1, "Base")
+		modDB:NewMod("EnemyMarkLimit", "BASE", 1, "Base")
 		modDB:NewMod("SocketedCursesHexLimitValue", "BASE", 1, "Base")
 		modDB:NewMod("ProjectileCount", "BASE", 1, "Base")
 		modDB:NewMod("Speed", "MORE", 10, "Base", ModFlag.Attack, { type = "Condition", var = "DualWielding" }, { type = "Condition", var = "DoubledInherentDualWieldingSpeed", neg = true })
@@ -946,43 +964,6 @@ function calcs.initEnv(build, mode, override, specEnv)
 						if add then
 							env.weaponModList1:ScaleAddMod(mod, scale)
 						else
-							env.itemModDB:ScaleAddMod(mod, scale)
-						end
-					end
-				elseif item.name:match("Kalandra's Touch") then
-					-- Reset mult counters since they don't work for kalandra
-					if item["corrupted"] then
-						env.itemModDB.multipliers["CorruptedItem"] = (env.itemModDB.multipliers["CorruptedItem"] or 0) - 1
-					else
-						env.itemModDB.multipliers["NonCorruptedItem"] = (env.itemModDB.multipliers["NonCorruptedItem"] or 0) + 1
-					end
-					local otherRing = items[(slotName == "Ring 1" and "Ring 2") or (slotName == "Ring 2" and "Ring 1")]
-					if otherRing and not otherRing.name:match("Kalandra's Touch") then
-						for _, mod in ipairs(otherRing.modList or otherRing.slotModList[slot.slotNum] or {}) do
-							-- Filter out SocketedIn type mods
-							for _, tag in ipairs(mod) do
-								if tag.type == "SocketedIn" then
-									goto skip_mod
-								end
-							end
-
-							local modCopy = copyTable(mod)
-							modLib.setSource(modCopy, item.modSource)
-							env.itemModDB:ScaleAddMod(modCopy, scale)
-
-							::skip_mod::
-						end
-						-- Adjust multipliers based on other ring
-						if item["corrupted"] then
-							env.itemModDB.multipliers["CorruptedItem"] = (env.itemModDB.multipliers["CorruptedItem"] or 0) + 1
-						else
-							env.itemModDB.multipliers["NonCorruptedItem"] = (env.itemModDB.multipliers["NonCorruptedItem"] or 0) - 1
-						end
-					end
-
-					-- Only ExtraSkill implicit mods work (none should but this is likely an in game bug)
-					for _, mod in ipairs(srcList) do
-						if mod.name == "ExtraSkill" then
 							env.itemModDB:ScaleAddMod(mod, scale)
 						end
 					end

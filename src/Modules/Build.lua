@@ -666,48 +666,6 @@ function buildMode:Init(dbFileName, buildName, buildXML, convertBuild, importLin
 	self:SyncLoadouts()
 end
 
-local acts = {
-	-- https://www.poewiki.net/wiki/Passive_skill
-	[1] = { level = 1, questPoints = 0 },
-	-- Act 1   : The Dweller of the Deep
-	-- Act 1   : The Marooned Mariner
-	[2] = { level = 12, questPoints = 2 },
-	-- Act 1,2 : The Way Forward (Reward after reaching Act 2)
-	-- Act 2   : Through Sacred Ground (Fellshrine Reward 3.25)
-	[3] = { level = 22, questPoints = 4 },
-	-- Act 3   : Victario's Secrets
-	-- Act 3   : Piety's Pets
-	[4] = { level = 32, questPoints = 6 },
-	-- Act 4   : An Indomitable Spirit
-	[5] = { level = 40, questPoints = 7 },
-	-- Act 5   : In Service to Science
-	-- Act 5   : Kitava's Torments
-	[6] = { level = 44, questPoints = 9 },
-	-- Act 6   : The Father of War
-	-- Act 6   : The Puppet Mistress
-	-- Act 6   : The Cloven One
-	[7] = { level = 50, questPoints = 12 },
-	-- Act 7   : The Master of a Million Faces
-	-- Act 7   : Queen of Despair
-	-- Act 7   : Kishara's Star
-	[8] = { level = 54, questPoints = 15 },
-	-- Act 8   : Love is Dead
-	-- Act 8   : Reflection of Terror
-	-- Act 8   : The Gemling Legion
-	[9] = { level = 60, questPoints = 18 },
-	-- Act 9   : Queen of the Sands
-	-- Act 9   : The Ruler of Highgate
-	[10] = { level = 64, questPoints = 20 },
-	-- Act 10  : Vilenta's Vengeance
-	-- Act 10  : An End to Hunger (+2)
-	[11] = { level = 67, questPoints = 23 },
-}
-
-local function actExtra(act, extra)
-	-- Act 2 : Deal With The Bandits (+1 if the player kills all bandits)
-	return act > 2 and extra or 0
-end
-
 function buildMode:SyncLoadouts()
 	self.controls.buildLoadouts.list = {"No Loadouts"}
 
@@ -836,15 +794,12 @@ function buildMode:SyncLoadouts()
 end
 
 function buildMode:EstimatePlayerProgress()
-	local PointsUsed, AscUsed, SecondaryAscUsed = self.spec:CountAllocNodes()
+	local PointsUsed, AscUsed, SecondaryAscUsed, socketsUsed, weaponSet1Used, weaponSet2Used = self.spec:CountAllocNodes()
 	local extra = self.calcsTab.mainOutput and self.calcsTab.mainOutput.ExtraPoints or 0
-	local usedMax, ascMax, secondaryAscMax, level, act = 99 + 23 + extra, 8, 8, 1, 0
-
-	-- Find estimated act and level based on points used
-	repeat
-		act = act + 1
-		level = m_min(m_max(PointsUsed + 1 - acts[act].questPoints - actExtra(act, extra), acts[act].level), 100)
-	until act == 11 or level <= acts[act + 1].level
+	local maxWeaponSets = self.calcsTab.mainOutput and self.calcsTab.mainOutput.WeaponSetPassivePoints or 0
+	local extraWeaponSets = self.calcsTab.mainOutput and self.calcsTab.mainOutput.PassivePointsToWeaponSetPoints or 0
+	local usedMax, ascMax, secondaryAscMax = 100 - (maxWeaponSets > 0 and 1 or 0) + extra + maxWeaponSets, 8, 8
+	local level = m_max(1, m_min( 1 + PointsUsed - maxWeaponSets - extra - math.max(weaponSet1Used, weaponSet2Used), 100))
 	
 	if self.characterLevelAutoMode and self.characterLevel ~= level then
 		self.characterLevel = level
@@ -864,10 +819,48 @@ function buildMode:EstimatePlayerProgress()
 	if PointsUsed > usedMax then InsertIfNew(self.controls.warnings.lines, "You have too many passive points allocated") end
 	if AscUsed > ascMax then InsertIfNew(self.controls.warnings.lines, "You have too many ascendancy points allocated") end
 	if SecondaryAscUsed > secondaryAscMax then InsertIfNew(self.controls.warnings.lines, "You have too many secondary ascendancy points allocated") end
-	self.Act = level < 90 and act <= 10 and act or "Endgame"
+
+	-- if you are using more than maxWeaponSets + extraWeaponSets, you are using too many weapon sets
+	local warningsWeaponset = false
+	if weaponSet1Used > (maxWeaponSets + extraWeaponSets) then
+		warningsWeaponset = true
+		InsertIfNew(self.controls.warnings.lines, string.format(
+			"You have allocated %d too many weapon set 1 passives",
+			math.abs((maxWeaponSets + extraWeaponSets) - weaponSet1Used)
+		))
+	end
+	if weaponSet2Used > (maxWeaponSets + extraWeaponSets) then
+		warningsWeaponset = true
+		InsertIfNew(self.controls.warnings.lines, string.format(
+			"You have allocated %d too many weapon set 2 passives",
+			math.abs((maxWeaponSets + extraWeaponSets) - weaponSet2Used)
+		))
+	end
+
+	if not warningsWeaponset and weaponSet1Used ~= weaponSet2Used then
+		InsertIfNew(self.controls.warnings.lines, string.format(
+			"You have %d Weapon set 2 passives available",
+			math.abs(weaponSet2Used - weaponSet1Used)
+		))
+	end
 	
-	return string.format("%s%3d / %3d   %s%d / %d", PointsUsed > usedMax and colorCodes.NEGATIVE or "^7", PointsUsed, usedMax, AscUsed > ascMax and colorCodes.NEGATIVE or "^7", AscUsed, ascMax),
-		"Required Level: "..level.."\nEstimated Progress:\nAct: "..self.Act.."\nQuestpoints: "..acts[act].questPoints.."\nExtra Skillpoints: "..actExtra(act, extra)..labSuggest
+	self.Act = "Endgame"
+	
+	return string.format(
+		"%s%3d / %3d %s%2d / %2d %s%2d / %2d   %s%d / %d", 
+		PointsUsed > usedMax and colorCodes.NEGATIVE or "^7", 
+		PointsUsed, usedMax,
+		colorCodes.NEGATIVE,
+		weaponSet1Used, maxWeaponSets + extraWeaponSets,
+		colorCodes.POSITIVE,
+		weaponSet2Used, maxWeaponSets + extraWeaponSets,
+		AscUsed > ascMax and colorCodes.NEGATIVE or "^7", 
+		AscUsed, ascMax
+		), 
+		string.format(
+			"Required Level: %d\nEstimated Progress:\nAct: %s\nExtra Skillpoints: %d%s",
+			level, self.Act, extra, labSuggest
+		)
 end
 
 function buildMode:CanExit(mode)
@@ -908,7 +901,7 @@ function buildMode:Load(xml, fileName)
 	if xml.attrib.viewMode then
 		self.viewMode = xml.attrib.viewMode
 	end
-	self.characterLevel = tonumber(xml.attrib.level) or 1
+	self.characterLevel = m_max(1 ,m_min(100, tonumber(xml.attrib.level) or 1))
 	self.characterLevelAutoMode = xml.attrib.characterLevelAutoMode == "true"
 	self.mainSocketGroup = tonumber(xml.attrib.mainSkillIndex) or tonumber(xml.attrib.mainSocketGroup) or 1
 	wipeTable(self.spectreList)

@@ -992,13 +992,13 @@ local skills, mod, flag, skill = ...
 #skill TempestFlurryPlayer
 #startSets
 #set TempestFlurryPlayer
-#flags
+#flags attack area melee
 #mods
 #set TempestFlurryPlayerThirdStrike
-#flags
+#flags attack melee
 #mods
 #set TempestFlurryPlayerFinalStrike
-#flags
+#flags attack melee
 #mods
 #skillEnd
 
