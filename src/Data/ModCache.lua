@@ -444,7 +444,7 @@ c["+5 to Strength"]={{[1]={flags=0,keywordFlags=0,name="Str",type="BASE",value=5
 c["+5 to Strength and Dexterity"]={{[1]={flags=0,keywordFlags=0,name="Str",type="BASE",value=5},[2]={flags=0,keywordFlags=0,name="Dex",type="BASE",value=5},[3]={flags=0,keywordFlags=0,name="StrDex",type="BASE",value=5}},nil}
 c["+5 to Strength and Intelligence"]={{[1]={flags=0,keywordFlags=0,name="Str",type="BASE",value=5},[2]={flags=0,keywordFlags=0,name="Int",type="BASE",value=5},[3]={flags=0,keywordFlags=0,name="StrInt",type="BASE",value=5}},nil}
 c["+5 to all Attributes"]={{[1]={flags=0,keywordFlags=0,name="Str",type="BASE",value=5},[2]={flags=0,keywordFlags=0,name="Dex",type="BASE",value=5},[3]={flags=0,keywordFlags=0,name="Int",type="BASE",value=5},[4]={flags=0,keywordFlags=0,name="All",type="BASE",value=5}},nil}
-c["+5 to any Attribute"]={{}," any Attribute "}
+c["+5 to any Attribute"]={{},nil}
 c["+5 to maximum Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="EnergyShield",type="BASE",value=5}},nil}
 c["+5 to maximum Mana"]={{[1]={flags=0,keywordFlags=0,name="Mana",type="BASE",value=5}},nil}
 c["+5% to Cold Resistance"]={{[1]={flags=0,keywordFlags=0,name="ColdResist",type="BASE",value=5}},nil}
@@ -927,7 +927,7 @@ c["15% increased Life and Mana Recovery from Flasks"]={{[1]={flags=0,keywordFlag
 c["15% increased Magnitude of Bleeding you inflict"]={{[1]={flags=0,keywordFlags=4194304,name="AilmentMagnitude",type="INC",value=15}},nil}
 c["15% increased Magnitude of Bleeding you inflict with Critical Hits"]={{[1]={[1]={type="Condition",var="CriticalStrike"},flags=0,keywordFlags=4194304,name="AilmentMagnitude",type="INC",value=15}},nil}
 c["15% increased Magnitude of Chill you inflict"]={{[1]={flags=0,keywordFlags=0,name="EnemyChillMagnitude",type="INC",value=15}},nil}
-c["15% increased Magnitude of Damaging Ailments you inflict with Critical Hits"]={{}," Magnitude of Damaging Ailments you inflict  "}
+c["15% increased Magnitude of Damaging Ailments you inflict with Critical Hits"]={{[1]={[1]={type="Condition",var="CriticalStrike"},flags=0,keywordFlags=6291456,name="AilmentMagnitude",type="INC",value=15}},nil}
 c["15% increased Magnitude of Ignite you inflict with Critical Hits"]={{[1]={[1]={type="Condition",var="CriticalStrike"},flags=0,keywordFlags=8388608,name="AilmentMagnitude",type="INC",value=15}},nil}
 c["15% increased Magnitude of Jagged Ground you create"]={{[1]={flags=0,keywordFlags=0,name="EnemyJaggedGroundMagnitude",type="INC",value=15}},nil}
 c["15% increased Magnitude of Shock you inflict"]={{[1]={flags=0,keywordFlags=0,name="EnemyShockMagnitude",type="INC",value=15}},nil}
@@ -1141,7 +1141,7 @@ c["20% increased Life Regeneration Rate while moving"]={{[1]={[1]={type="Conditi
 c["20% increased Life Regeneration rate"]={{[1]={flags=0,keywordFlags=0,name="LifeRegen",type="INC",value=20}},nil}
 c["20% increased Life and Mana Recovery from Flasks"]={{[1]={flags=0,keywordFlags=0,name="FlaskLifeRecovery",type="INC",value=20},[2]={flags=0,keywordFlags=0,name="FlaskManaRecovery",type="INC",value=20}},nil}
 c["20% increased Light Radius"]={{[1]={flags=0,keywordFlags=0,name="LightRadius",type="INC",value=20}},nil}
-c["20% increased Magnitude of Damaging Ailments you inflict"]={{}," Magnitude of Damaging Ailments you inflict "}
+c["20% increased Magnitude of Damaging Ailments you inflict"]={{[1]={flags=0,keywordFlags=6291456,name="AilmentMagnitude",type="INC",value=20}},nil}
 c["20% increased Magnitude of Ignite you inflict"]={{[1]={flags=0,keywordFlags=8388608,name="AilmentMagnitude",type="INC",value=20}},nil}
 c["20% increased Magnitude of Non-Damaging Ailments you inflict with Critical Hits"]={{}," Magnitude of Non-Damaging Ailments you inflict  "}
 c["20% increased Magnitude of Shock you inflict"]={{[1]={flags=0,keywordFlags=0,name="EnemyShockMagnitude",type="INC",value=20}},nil}
@@ -1887,7 +1887,7 @@ c["6% increased Critical Hit Chance"]={{[1]={flags=0,keywordFlags=0,name="CritCh
 c["6% increased Effect of your Curses"]={{[1]={flags=0,keywordFlags=0,name="CurseEffect",type="INC",value=6}},nil}
 c["6% increased Fire Damage"]={{[1]={flags=0,keywordFlags=0,name="FireDamage",type="INC",value=6}},nil}
 c["6% increased Intelligence"]={{[1]={flags=0,keywordFlags=0,name="Int",type="INC",value=6}},nil}
-c["6% increased Magnitude of Damaging Ailments you inflict"]={{}," Magnitude of Damaging Ailments you inflict "}
+c["6% increased Magnitude of Damaging Ailments you inflict"]={{[1]={flags=0,keywordFlags=6291456,name="AilmentMagnitude",type="INC",value=6}},nil}
 c["6% increased Mana Regeneration Rate"]={{[1]={flags=0,keywordFlags=0,name="ManaRegen",type="INC",value=6}},nil}
 c["6% increased Movement Speed while you have an active Charm"]={{[1]={flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=6}},"  while you have an active Charm "}
 c["6% increased Physical Damage"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamage",type="INC",value=6}},nil}
@@ -2083,7 +2083,7 @@ c["Aggravate Bleeding on Enemies when they Enter your Presence"]={nil,"Aggravate
 c["Aggravate Bleeding on Enemies when they Enter your Presence 100% increased Thorns damage"]={nil,"Aggravate Bleeding on Enemies when they Enter your Presence 100% increased Thorns damage "}
 c["Aggravate Bleeding on targets you Critically Hit with Attacks"]={nil,"Aggravate Bleeding on targets you Critically Hit with Attacks "}
 c["All Damage from Hits Contributes to Chill Magnitude"]={nil,"All Damage from Hits Contributes to Chill Magnitude "}
-c["All Damage from Hits Contributes to Poison Magnitude"]={nil,"All Damage from Hits Contributes to Poison Magnitude "}
+c["All Damage from Hits Contributes to Poison Magnitude"]={{[1]={flags=0,keywordFlags=0,name="FireCanPoison",type="FLAG",value=true},[2]={flags=0,keywordFlags=0,name="ColdCanPoison",type="FLAG",value=true},[3]={flags=0,keywordFlags=0,name="LightningCanPoison",type="FLAG",value=true}},nil}
 c["All Damage from Hits Contributes to Shock Chance"]={nil,"All Damage from Hits Contributes to Shock Chance "}
 c["All Damage from Hits with this Weapon Contributes to Freeze Buildup"]={nil,"All Damage from Hits with this Weapon Contributes to Freeze Buildup "}
 c["All Damage from Hits with this Weapon Contributes to Freeze Buildup Culling Strike against Frozen Enemies"]={nil,"All Damage from Hits with this Weapon Contributes to Freeze Buildup Culling Strike against Frozen Enemies "}
@@ -2274,8 +2274,8 @@ c["Damage with Hits is Lucky against Enemies that are on Low Life"]={nil,"Damage
 c["Damage with Hits is Lucky against Heavy Stunned Enemies"]={nil,"Damage with Hits is Lucky against Heavy Stunned Enemies "}
 c["Damaging Ailments Cannot Be inflicted on you while you already have one"]={nil,"Damaging Ailments Cannot Be inflicted on you while you already have one "}
 c["Damaging Ailments Cannot Be inflicted on you while you already have one 20% increased Magnitude of Damaging Ailments you inflict"]={nil,"Damaging Ailments Cannot Be inflicted on you while you already have one 20% increased Magnitude of Damaging Ailments you inflict "}
-c["Damaging Ailments deal damage 12% faster"]={{[1]={flags=0,keywordFlags=0,name="IgniteBurnFaster",type="INC",value=12},[2]={flags=0,keywordFlags=0,name="BleedFaster",type="INC",value=12},[3]={flags=0,keywordFlags=0,name="PoisonFaster",type="INC",value=12}},nil}
-c["Damaging Ailments deal damage 5% faster"]={{[1]={flags=0,keywordFlags=0,name="IgniteBurnFaster",type="INC",value=5},[2]={flags=0,keywordFlags=0,name="BleedFaster",type="INC",value=5},[3]={flags=0,keywordFlags=0,name="PoisonFaster",type="INC",value=5}},nil}
+c["Damaging Ailments deal damage 12% faster"]={{[1]={flags=0,keywordFlags=0,name="IgniteFaster",type="INC",value=12},[2]={flags=0,keywordFlags=0,name="BleedFaster",type="INC",value=12},[3]={flags=0,keywordFlags=0,name="PoisonFaster",type="INC",value=12}},nil}
+c["Damaging Ailments deal damage 5% faster"]={{[1]={flags=0,keywordFlags=0,name="IgniteFaster",type="INC",value=5},[2]={flags=0,keywordFlags=0,name="BleedFaster",type="INC",value=5},[3]={flags=0,keywordFlags=0,name="PoisonFaster",type="INC",value=5}},nil}
 c["Darkness Reservation lasts for 10 seconds"]={nil,"Darkness Reservation lasts for 10 seconds "}
 c["Darkness Reservation lasts for 10 seconds +5 to Maximum Darkness per Level"]={nil,"Darkness Reservation lasts for 10 seconds +5 to Maximum Darkness per Level "}
 c["Deal 30% of Overkill damage to enemies within 2 metres of the enemy killed"]={{[1]={flags=0,keywordFlags=0,name="Damage",type="BASE",value=30}}," Overkill  to enemies within 2 metres of the enemy killed "}
@@ -2312,7 +2312,7 @@ c["Effect is not removed when Unreserved Mana is Filled"]={{[1]={flags=0,keyword
 c["Eldritch Battery"]={{[1]={flags=0,keywordFlags=0,name="Keystone",type="LIST",value="Eldritch Battery"}},nil}
 c["Elemental Ailment Threshold is increased by Overcapped Chaos Resistance"]={nil,"Elemental Ailment Threshold is increased by Overcapped Chaos Resistance "}
 c["Elemental Ailment Threshold is increased by Overcapped Chaos Resistance Armour is increased by Overcapped Fire Resistance"]={nil,"Elemental Ailment Threshold is increased by Overcapped Chaos Resistance Armour is increased by Overcapped Fire Resistance "}
-c["Elemental Damage also Contributes to Bleeding Magnitude"]={nil,"Elemental Damage also Contributes to Bleeding Magnitude "}
+c["Elemental Damage also Contributes to Bleeding Magnitude"]={{[1]={flags=0,keywordFlags=0,name="FireCanBleed",type="FLAG",value=true},[2]={flags=0,keywordFlags=0,name="ColdCanBleed",type="FLAG",value=true},[3]={flags=0,keywordFlags=0,name="LightningCanBleed",type="FLAG",value=true}},nil}
 c["Elemental Storm has 150% more Cooldown Recovery Rate"]={{[1]={[1]={includeTransfigured=true,skillName="Elemental Storm",type="SkillName"},flags=0,keywordFlags=0,name="CooldownRecovery",type="MORE",value=150}},nil}
 c["Empowered Attacks deal 10% increased Damage"]={nil,"Empowered Attacks deal 10% increased Damage "}
 c["Empowered Attacks deal 16% increased Damage"]={nil,"Empowered Attacks deal 16% increased Damage "}
@@ -2565,7 +2565,7 @@ c["Hits that deal Fire Damage remove Fire Exposure and inflict Lightning Exposur
 c["Hits that deal Fire Damage remove Fire Exposure and inflict Lightning Exposure Hits that deal Cold Damage remove Cold Exposure and inflict Fire Exposure Hits that deal Lightning Damage remove Lightning Exposure and inflict Cold Exposure"]={nil,"Hits that deal Fire Damage remove Fire Exposure and inflict Lightning Exposure Hits that deal Cold Damage remove Cold Exposure and inflict Fire Exposure Hits that deal Lightning Damage remove Lightning Exposure and inflict Cold Exposure "}
 c["Hits that deal Lightning Damage remove Lightning Exposure and inflict Cold Exposure"]={nil,"Hits that deal Lightning Damage remove Lightning Exposure and inflict Cold Exposure "}
 c["If you would gain a Charge, Allies in your Presence gain that Charge instead"]={nil,"If you would gain a Charge, Allies in your Presence gain that Charge instead "}
-c["Ignites you inflict deal Damage 15% faster"]={{[1]={flags=0,keywordFlags=0,name="IgniteBurnFaster",type="INC",value=15}},nil}
+c["Ignites you inflict deal Damage 15% faster"]={{[1]={flags=0,keywordFlags=0,name="IgniteFaster",type="INC",value=15}},nil}
 c["Ignites you inflict spread to other Enemies that stay within 1.5 metres for 2 seconds"]={nil,"Ignites you inflict spread to other Enemies that stay within 1.5 metres for 2 seconds "}
 c["Ignore Warcry Cooldowns"]={nil,"Ignore Warcry Cooldowns "}
 c["Immobilise enemies at 50% buildup instead of 100%"]={nil,"Immobilise enemies at 50% buildup instead of 100% "}
