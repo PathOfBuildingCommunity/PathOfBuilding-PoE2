@@ -803,7 +803,7 @@ function PassiveTreeClass:GetNodeTargetSize(node)
 		}
 	elseif node.type == "ClassStart" then
 		return {
-			['overlay'] = { width = math.floor(54 * self.scaleImage), height = math.floor(54 * self.scaleImage) },
+			['overlay'] = { width = math.floor(1 * self.scaleImage), height = math.floor(1 * self.scaleImage) },
 			width = math.floor(37  * self.scaleImage), height = math.floor( 37  * self.scaleImage)
 		}
 	else
