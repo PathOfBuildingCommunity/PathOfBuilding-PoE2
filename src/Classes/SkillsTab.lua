@@ -318,6 +318,8 @@ function SkillsTabClass:LoadSkill(node, skillSetId)
 		gemInstance.enableGlobal1 = not child.attrib.enableGlobal1 or child.attrib.enableGlobal1 == "true"
 		gemInstance.enableGlobal2 = child.attrib.enableGlobal2 == "true"
 		gemInstance.count = tonumber(child.attrib.count) or 1
+		gemInstance.statSet = { index = tonumber(child.attrib.statSetIndex) or 1 }
+		gemInstance.statSetCalcs = { index = tonumber(child.attrib.statSetIndexCalcs) or 1 }
 		gemInstance.skillPart = tonumber(child.attrib.skillPart)
 		gemInstance.skillPartCalcs = tonumber(child.attrib.skillPartCalcs)
 		gemInstance.skillStageCount = tonumber(child.attrib.skillStageCount)
@@ -330,6 +332,20 @@ function SkillsTabClass:LoadSkill(node, skillSetId)
 		gemInstance.skillMinionItemSetCalcs = tonumber(child.attrib.skillMinionItemSetCalcs)
 		gemInstance.skillMinionSkill = tonumber(child.attrib.skillMinionSkill)
 		gemInstance.skillMinionSkillCalcs = tonumber(child.attrib.skillMinionSkillCalcs)
+		for _, child in ipairs(child) do
+			if child.elem == "MinionSkillIndexLookup" then
+				gemInstance.skillMinionSkillStatSetIndexLookup = { }
+				for _, child in ipairs(child) do
+					gemInstance.skillMinionSkillStatSetIndexLookup[tonumber(child.attrib.skillIndex)] = tonumber(child.attrib.statSetIndex)
+				end
+			elseif child.elem == "MinionSkillIndexLookupCalcs" then
+				gemInstance.skillMinionSkillStatSetIndexLookupCalcs = { }
+				for _, child in ipairs(child) do
+					gemInstance.skillMinionSkillStatSetIndexLookupCalcs[tonumber(child.attrib.skillIndex)] = tonumber(child.attrib.statSetIndex)
+				end
+			end
+		end
+
 		t_insert(socketGroup.gemList, gemInstance)
 	end
 	if node.attrib.skillPart and socketGroup.gemList[1] then
@@ -411,7 +427,7 @@ function SkillsTabClass:Save(xml)
 				mainActiveSkillCalcs = tostring(socketGroup.mainActiveSkillCalcs),
 			} }
 			for _, gemInstance in ipairs(socketGroup.gemList) do
-				t_insert(node, { elem = "Gem", attrib = {
+				local gemInfo =  { elem = "Gem", attrib = {
 					nameSpec = gemInstance.nameSpec,
 					skillId = gemInstance.skillId,
 					gemId = gemInstance.gemData and gemInstance.gemData.gameId,
@@ -422,6 +438,8 @@ function SkillsTabClass:Save(xml)
 					enableGlobal1 = tostring(gemInstance.enableGlobal1),
 					enableGlobal2 = tostring(gemInstance.enableGlobal2),
 					count = tostring(gemInstance.count),
+					statSetIndex = gemInstance.statSet and tostring(gemInstance.statSet.index),
+					statSetIndexCalcs = gemInstance.statSetCalcs and tostring(gemInstance.statSetCalcs.index),
 					skillPart = gemInstance.skillPart and tostring(gemInstance.skillPart),
 					skillPartCalcs = gemInstance.skillPartCalcs and tostring(gemInstance.skillPartCalcs),
 					skillStageCount = gemInstance.skillStageCount and tostring(gemInstance.skillStageCount),
@@ -434,7 +452,28 @@ function SkillsTabClass:Save(xml)
 					skillMinionItemSetCalcs = gemInstance.skillMinionItemSetCalcs and tostring(gemInstance.skillMinionItemSetCalcs),
 					skillMinionSkill = gemInstance.skillMinionSkill and tostring(gemInstance.skillMinionSkill),
 					skillMinionSkillCalcs = gemInstance.skillMinionSkillCalcs and tostring(gemInstance.skillMinionSkillCalcs),
-				} })
+				} }
+				local minionSkillStatSetIndexLookup = { elem = "MinionSkillIndexLookup", attrib = { }}
+				local minionSkillStatSetIndexLookupCalcs = { elem = "MinionSkillIndexLookupCalcs", attrib = { } }
+				if gemInstance.skillMinionSkillStatSetIndexLookup then 
+					for k,v in pairs(gemInstance.skillMinionSkillStatSetIndexLookup or { }) do
+						t_insert(minionSkillStatSetIndexLookup, { elem = "MinionSkillIndexMap",  attrib = {
+							skillIndex = tostring(k),
+							statSetIndex = tostring(v)
+						} } )
+					end
+					t_insert(gemInfo, minionSkillStatSetIndexLookup)
+				end
+				if gemInstance.skillMinionSkillStatSetIndexLookupCalcs then 
+					for k,v in pairs(gemInstance.skillMinionSkillStatSetIndexLookupCalcs or { }) do
+						t_insert(minionSkillStatSetIndexLookupCalcs, { elem = "MinionSkillIndexMap",  attrib = {
+							skillIndex = tostring(k),
+							statSetIndex = tostring(v)
+						} } )
+					end
+					t_insert(gemInfo, minionSkillStatSetIndexLookupCalcs)
+				end
+				t_insert(node, gemInfo)
 			end
 			t_insert(child, node)
 		end

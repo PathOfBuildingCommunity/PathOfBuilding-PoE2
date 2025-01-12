@@ -429,7 +429,6 @@ function buildMode:Init(dbFileName, buildName, buildXML, convertBuild, importLin
 		local srcInstance = mainSocketGroup.displaySkillList[mainSocketGroup.mainActiveSkill].activeEffect.srcInstance
 		srcInstance.statSet = srcInstance.statSet or { }
 		srcInstance.statSet.index = index
-		srcInstance.statSet.statSet = value.statSet
 		self.modFlag = true
 		self.buildFlag = true
 	end)
@@ -1398,7 +1397,7 @@ function buildMode:RefreshSkillSelectControls(controls, mainGroup, suffix)
 				for i, statSet in ipairs(activeEffect.grantedEffect.statSets) do
 					t_insert(controls.statSet.list, { val = i, label = statSet.label, statSet = statSet })
 				end
-				-- controls.statSet.selIndex = activeEffect.srcInstance["statSetIndex"..suffix] or 1
+				controls.statSet.selIndex = activeEffect.srcInstance["statSet"..suffix] and activeEffect.srcInstance["statSet"..suffix].index or 1
 				controls.statSet.enabled = #controls.statSet.list > 1
 				controls.statSet.shown = true
 				if activeEffect.grantedEffect.parts and #activeEffect.grantedEffect.parts > 1 then

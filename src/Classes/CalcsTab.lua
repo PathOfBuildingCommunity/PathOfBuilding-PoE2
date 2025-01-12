@@ -63,7 +63,7 @@ local CalcsTabClass = newClass("CalcsTab", "UndoHandler", "ControlHost", "Contro
 				local mainSocketGroup = self.build.skillsTab.socketGroupList[self.input.skill_number]
 				local srcInstance = mainSocketGroup.displaySkillListCalcs[mainSocketGroup.mainActiveSkillCalcs].activeEffect.srcInstance
 				srcInstance.statSetCalcs = srcInstance.statSetCalcs or { }
-				srcInstance.statSetCalcs.statSet = value.statSet
+				srcInstance.statSetCalcs.index = index
 				self:AddUndoState()
 				self.build.buildFlag = true
 			end)
