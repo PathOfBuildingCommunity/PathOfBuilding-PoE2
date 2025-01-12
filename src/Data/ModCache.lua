@@ -964,7 +964,7 @@ c["15% increased effect of Arcane Surge on you"]={{[1]={flags=0,keywordFlags=0,n
 c["15% increased maximum Energy Shield"]={{[1]={[1]={type="Global"},flags=0,keywordFlags=0,name="EnergyShield",type="INC",value=15}},nil}
 c["15% increased maximum Life"]={{[1]={flags=0,keywordFlags=0,name="Life",type="INC",value=15}},nil}
 c["15% more Maximum Life"]={{[1]={flags=0,keywordFlags=0,name="Life",type="MORE",value=15}},nil}
-c["15% more Maximum Lightning Damage"]={{[1]={flags=0,keywordFlags=0,name="LightningDamage",type="MORE",value=15}}," Maximum  "}
+c["15% more Maximum Lightning Damage"]={{[1]={flags=0,keywordFlags=0,name="MaxLightningDamage",type="MORE",value=15}},nil}
 c["15% of Elemental Damage taken Recouped as Life"]={{[1]={flags=0,keywordFlags=0,name="ElementalDamageTaken",type="BASE",value=15}},"  Recouped as Life "}
 c["15% of Physical Damage prevented Recouped as Life"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamage",type="BASE",value=15}},"  prevented Recouped as Life "}
 c["15% of Physical Damage taken Recouped as Life"]={{[1]={flags=0,keywordFlags=0,name="PhysicalLifeRecoup",type="BASE",value=15}},nil}
@@ -1348,7 +1348,7 @@ c["25% increased amount of Mana Leeched"]={{[1]={flags=0,keywordFlags=0,name="Ma
 c["25% increased chance to Ignite"]={{[1]={flags=0,keywordFlags=0,name="EnemyIgniteChance",type="INC",value=25}},nil}
 c["25% increased chance to Shock"]={{[1]={flags=0,keywordFlags=0,name="EnemyShockChance",type="INC",value=25}},nil}
 c["25% increased chance to inflict Ailments against Rare or Unique Enemies"]={{[1]={flags=0,keywordFlags=0,name="AilmentChance",type="INC",value=25}},"  against Rare or Unique Enemies "}
-c["25% increased chance to inflict Ailments with Projectiles"]={{[1]={flags=0,keywordFlags=0,name="AilmentChance",type="INC",value=25}},"  with Projectiles "}
+c["25% increased chance to inflict Ailments with Projectiles"]={{[1]={flags=1024,keywordFlags=0,name="AilmentChance",type="INC",value=25}},nil}
 c["25% increased maximum Energy Shield"]={{[1]={[1]={type="Global"},flags=0,keywordFlags=0,name="EnergyShield",type="INC",value=25}},nil}
 c["25% increased speed of Recoup Effects"]={{[1]={flags=0,keywordFlags=0,name="LocalEffect",type="INC",value=25}}," speed of Recoup s "}
 c["25% less Magnitude of Chill you inflict"]={{[1]={flags=0,keywordFlags=0,name="EnemyChillMagnitude",type="MORE",value=-25}},nil}
@@ -1924,6 +1924,7 @@ c["60% increased Freeze Threshold"]={{}," Freeze Threshold "}
 c["60% increased Physical Damage"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamage",type="INC",value=60}},nil}
 c["60% increased Rarity of Items found"]={{[1]={flags=0,keywordFlags=0,name="LootRarity",type="INC",value=60}},nil}
 c["60% increased Stun Threshold for each time you've been Stunned Recently"]={{[1]={flags=0,keywordFlags=0,name="StunThreshold",type="INC",value=60}},"  for each time you've been Stunned Recently "}
+c["60% increased bonuses gained from Equipped Rings"]={{[1]={flags=0,keywordFlags=0,name="EffectOfBonusesFromRings",type="INC",value=60}},nil}
 c["60% increased maximum Energy Shield"]={{[1]={[1]={type="Global"},flags=0,keywordFlags=0,name="EnergyShield",type="INC",value=60}},nil}
 c["60% reduced Bleeding Duration on you"]={{[1]={flags=0,keywordFlags=0,name="EnemyBleedDuration",type="INC",value=-60}},"  on you "}
 c["60% reduced Bleeding Duration on you Bleeding you inflict is Aggravated"]={{[1]={flags=0,keywordFlags=0,name="EnemyBleedDuration",type="INC",value=-60}},"  on you Bleeding you inflict is Aggravated "}
@@ -2031,7 +2032,7 @@ c["80% increased Evasion and Energy Shield"]={{[1]={flags=0,keywordFlags=0,name=
 c["80% increased Physical Damage"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamage",type="INC",value=80}},nil}
 c["80% increased Spell Damage"]={{[1]={flags=2,keywordFlags=0,name="Damage",type="INC",value=80}},nil}
 c["80% increased Stun Recovery"]={{[1]={flags=0,keywordFlags=0,name="StunRecovery",type="INC",value=80}},nil}
-c["80% increased bonuses gained from Equipped Rings"]={{}," bonuses gained from Equipped Rings "}
+c["80% increased bonuses gained from Equipped Rings"]={{[1]={flags=0,keywordFlags=0,name="EffectOfBonusesFromRings",type="INC",value=80}},nil}
 c["80% less Knockback Distance for Blocked Hits"]={{[1]={flags=0,keywordFlags=0,name="EnemyKnockbackDistance",type="MORE",value=-80}},"  for Blocked Hits "}
 c["9% increased Cast Speed"]={{[1]={flags=16,keywordFlags=0,name="Speed",type="INC",value=9}},nil}
 c["9.5 Life Regeneration per second"]={{[1]={flags=0,keywordFlags=0,name="LifeRegen",type="BASE",value=9.5}},nil}

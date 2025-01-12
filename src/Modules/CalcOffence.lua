@@ -3741,7 +3741,7 @@ function calcs.offence(env, actor, activeSkill)
 		end
 
 		for _, ailment in ipairs(ailmentTypeList) do
-			local mult = (1 + modDB:Sum("INC", nil, "AilmentChance") / 100)
+			local mult = (1 + modDB:Sum("INC", skillCfg, "AilmentChance") / 100)
 			if env.mode_effective then
 				mult = mult * (enemyDB:Flag(nil, ailment.."Immune") and 0 or 1 - enemyDB:Sum("BASE", nil, "Avoid"..ailment) / 100)
 			end

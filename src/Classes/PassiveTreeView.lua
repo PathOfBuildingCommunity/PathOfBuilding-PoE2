@@ -853,8 +853,8 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 				local isThreadOfHope = jewel and jewel.jewelRadiusLabel == "Variable"
 				if isThreadOfHope then
 					for _, radData in ipairs(build.data.jewelRadius) do
-						local outerSize = radData.outer * scale
-						local innerSize = radData.inner * scale
+						local outerSize = radData.outer * data.gameConstants["PassiveTreeJewelDistanceMultiplier"] * scale
+						local innerSize = radData.inner * data.gameConstants["PassiveTreeJewelDistanceMultiplier"] * scale
 						-- Jewel in socket is Thread of Hope or similar, draw it's annulus
 						if innerSize ~= 0 then
 							SetDrawColor(radData.col)
@@ -864,8 +864,8 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 					end
 				else
 					for _, radData in ipairs(build.data.jewelRadius) do
-						local outerSize = radData.outer * scale
-						local innerSize = radData.inner * scale
+						local outerSize = radData.outer * data.gameConstants["PassiveTreeJewelDistanceMultiplier"] * scale
+						local innerSize = radData.inner * data.gameConstants["PassiveTreeJewelDistanceMultiplier"] * scale
 						-- Jewel in socket is not Thread of Hope or similar, draw normal jewel radius
 						if innerSize == 0 then
 							SetDrawColor(radData.col)
@@ -877,8 +877,8 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 				if jewel and jewel.jewelRadiusIndex then
 					-- Draw only the selected jewel radius
 					local radData = build.data.jewelRadius[jewel.jewelRadiusIndex]
-					local outerSize = radData.outer * scale
-					local innerSize = radData.inner * scale * 1.06
+					local outerSize = radData.outer * data.gameConstants["PassiveTreeJewelDistanceMultiplier"] * scale
+					local innerSize = radData.inner * data.gameConstants["PassiveTreeJewelDistanceMultiplier"] * scale * 1.06
 					SetDrawColor(1,1,1,0.7)
 					if jewel.title == "From Nothing" then
 						-- From Nothing ring shows on the allocated Keystone

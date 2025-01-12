@@ -292,6 +292,11 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 		activeSkill.disableReason = "This skill requires a Shield"
 	end
 
+	-- initialize weapon flags
+	activeSkill.weapon1Flags = 0
+	activeSkill.weapon2Flags = 0
+
+	-- Handle Spectral Shield Throw
 	if skillFlags.shieldAttack then
 		-- Special handling for Spectral Shield Throw
 		skillFlags.weapon2Attack = true

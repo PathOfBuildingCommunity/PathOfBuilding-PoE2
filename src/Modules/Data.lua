@@ -467,11 +467,11 @@ data.setJewelRadiiGlobally = function(treeVersion)
 
 	local maxJewelRadius = 0
 	for _, radiusInfo in ipairs(data.jewelRadius) do
-		radiusInfo.outerSquared = radiusInfo.outer * radiusInfo.outer
-		radiusInfo.innerSquared = radiusInfo.inner * radiusInfo.inner
+		radiusInfo.outerSquared = radiusInfo.outer * radiusInfo.outer * data.gameConstants["PassiveTreeJewelDistanceMultiplier"] * data.gameConstants["PassiveTreeJewelDistanceMultiplier"]
+		radiusInfo.innerSquared = radiusInfo.inner * radiusInfo.inner * data.gameConstants["PassiveTreeJewelDistanceMultiplier"] * data.gameConstants["PassiveTreeJewelDistanceMultiplier"]
 
 		if radiusInfo.outer > maxJewelRadius then
-			maxJewelRadius = radiusInfo.outer
+			maxJewelRadius = radiusInfo.outer * data.gameConstants["PassiveTreeJewelDistanceMultiplier"]
 		end
 	end
 	data.maxJewelRadius = maxJewelRadius

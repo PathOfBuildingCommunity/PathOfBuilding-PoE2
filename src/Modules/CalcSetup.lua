@@ -966,43 +966,6 @@ function calcs.initEnv(build, mode, override, specEnv)
 							env.itemModDB:ScaleAddMod(mod, scale)
 						end
 					end
-				elseif item.name:match("Kalandra's Touch") then
-					-- Reset mult counters since they don't work for kalandra
-					if item["corrupted"] then
-						env.itemModDB.multipliers["CorruptedItem"] = (env.itemModDB.multipliers["CorruptedItem"] or 0) - 1
-					else
-						env.itemModDB.multipliers["NonCorruptedItem"] = (env.itemModDB.multipliers["NonCorruptedItem"] or 0) + 1
-					end
-					local otherRing = items[(slotName == "Ring 1" and "Ring 2") or (slotName == "Ring 2" and "Ring 1")]
-					if otherRing and not otherRing.name:match("Kalandra's Touch") then
-						for _, mod in ipairs(otherRing.modList or otherRing.slotModList[slot.slotNum] or {}) do
-							-- Filter out SocketedIn type mods
-							for _, tag in ipairs(mod) do
-								if tag.type == "SocketedIn" then
-									goto skip_mod
-								end
-							end
-
-							local modCopy = copyTable(mod)
-							modLib.setSource(modCopy, item.modSource)
-							env.itemModDB:ScaleAddMod(modCopy, scale)
-
-							::skip_mod::
-						end
-						-- Adjust multipliers based on other ring
-						if item["corrupted"] then
-							env.itemModDB.multipliers["CorruptedItem"] = (env.itemModDB.multipliers["CorruptedItem"] or 0) + 1
-						else
-							env.itemModDB.multipliers["NonCorruptedItem"] = (env.itemModDB.multipliers["NonCorruptedItem"] or 0) - 1
-						end
-					end
-
-					-- Only ExtraSkill implicit mods work (none should but this is likely an in game bug)
-					for _, mod in ipairs(srcList) do
-						if mod.name == "ExtraSkill" then
-							env.itemModDB:ScaleAddMod(mod, scale)
-						end
-					end
 				elseif env.modDB.multipliers["CorruptedMagicJewelEffect"] and item.type == "Jewel" and item.rarity == "MAGIC" and item.corrupted and slot.nodeId and item.base.subType ~= "Charm" then
 					scale = scale + env.modDB.multipliers["CorruptedMagicJewelEffect"]
 					local combinedList = new("ModList")
