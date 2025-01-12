@@ -757,7 +757,11 @@ function PassiveTreeClass:GetAssetByName(name, type)
 end
 
 function PassiveTreeClass:GetNodeTargetSize(node)
-	if node.type == "Normal" and node.ascendancyName then
+	if node.isAscendancyStart then
+		return {
+			['overlay'] = { width = math.floor(50 * self.scaleImage), height = math.floor(50 * self.scaleImage) },
+		}
+	elseif node.type == "Normal" and node.ascendancyName then
 		return {
 			['overlay'] = { width = math.floor(80 * self.scaleImage), height = math.floor(80 * self.scaleImage) },
 			width = math.floor(37  * self.scaleImage), height = math.floor( 37  * self.scaleImage)
