@@ -3046,7 +3046,7 @@ c["Your Chills can Slow targets by up to a maximum of 35%"]={nil,"Your Chills ca
 c["Your Chills can Slow targets by up to a maximum of 35% 25% less Magnitude of Chill you inflict"]={nil,"Your Chills can Slow targets by up to a maximum of 35% 25% less Magnitude of Chill you inflict "}
 c["Your Critical Damage Bonus is 300%"]={{[1]={flags=0,keywordFlags=0,name="CritMultiplier",type="OVERRIDE",value=300}},nil}
 c["Your Critical Hits do not deal extra Damage"]={{[1]={flags=0,keywordFlags=0,name="NoCritMultiplier",type="FLAG",value=true}},nil}
-c["Your Curses have 20% increased Effect if 50% of Curse Duration expired"]={{[1]={[1]={actor="enemy",threshold=50,type="MultiplierThreshold",var="CurseExpired"},[2]={skillType=108,type="SkillType"},flags=0,keywordFlags=0,name="CurseEffect",type="INC",value=20}},nil}
+c["Your Curses have 20% increased Effect if 50% of Curse Duration expired"]={{[1]={[1]={actor="enemy",threshold=50,type="MultiplierThreshold",var="CurseExpired"},[2]={skillType=79,type="SkillType"},flags=0,keywordFlags=0,name="CurseEffect",type="INC",value=20}},nil}
 c["Your Curses have infinite Duration"]={nil,"Your Curses have infinite Duration "}
 c["Your Dexterity is added to your Minions"]={nil,"Your Dexterity is added to your Minions "}
 c["Your Hits are Crushing Blows"]={nil,"Your Hits are Crushing Blows "}
