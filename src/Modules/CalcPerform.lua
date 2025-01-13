@@ -490,11 +490,11 @@ local function doActorMisc(env, actor)
 		if modDB:Max(nil, "WitherEffectStack") then
 			modDB:NewMod("Condition:CanWither", "FLAG", true, "Config")
 			local effect = modDB:Max(nil, "WitherEffectStack")
-			enemyDB:NewMod("ChaosDamageTaken", "INC", effect, "Withered", { type = "Multiplier", var = "WitheredStack", limit = 15 } )
+			enemyDB:NewMod("ChaosDamageTaken", "INC", effect, "Withered", { type = "Multiplier", var = "WitheredStack", limit = 10 } )
 		end
 		if modDB:Flag(nil, "Condition:CanBeWithered") then
-			local effect = 6 * (100 + modDB:Sum("INC", nil, "WitherEffectOnSelf")) / 100 * modDB:More(nil, "WitherEffectOnSelf")
-			modDB:NewMod("ChaosDamageTaken", "INC", effect, "Withered", { type = "Multiplier", var = "WitheredStack", limit = 15 } )
+			local effect = 5 * (100 + modDB:Sum("INC", nil, "WitherEffectOnSelf")) / 100 * modDB:More(nil, "WitherEffectOnSelf")
+			modDB:NewMod("ChaosDamageTaken", "INC", effect, "Withered", { type = "Multiplier", var = "WitheredStack", limit = 10 } )
 		end
 		if modDB:Flag(nil, "Blind") and not modDB:Flag(nil, "CannotBeBlinded") then
 			if not modDB:Flag(nil, "IgnoreBlindHitChance") then
@@ -2014,7 +2014,7 @@ function calcs.perform(env, skipEHP)
 			end
 		end
 		if activeSkill.skillModList:Flag(nil, "Condition:CanWither") or (activeSkill.minion and env.minion and env.minion.modDB:Flag(nil, "Condition:CanWither")) then
-			local effect = activeSkill.minion and 6 or m_floor(6 * (1 + modDB:Sum("INC", nil, "WitherEffect") / 100))
+			local effect = activeSkill.minion and 5 or m_floor(5 * (1 + modDB:Sum("INC", nil, "WitherEffect") / 100))
 			modDB:NewMod("WitherEffectStack", "MAX", effect)
 		end
 		--Handle combustion
