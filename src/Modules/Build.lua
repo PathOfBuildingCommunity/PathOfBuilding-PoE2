@@ -70,6 +70,27 @@ function buildMode:Init(dbFileName, buildName, buildXML, convertBuild, importLin
 
 	self.abortSave = true
 
+	-- calculate atcs Table based on data.questRewards
+	self.acts = { { level = 1 , questPoints = 0 } }
+	for _, quest in ipairs(data.questRewards) do
+		if not quest.questPoints then
+			goto nextquest
+		end
+		local act = quest.Act + (quest.Type == "Cruel" and 3 or 0) + 1
+		if not self.acts[act] then
+			self.acts[act] = {
+				level = quest.AreaLevel,
+				questPoints = quest.questPoints + self.acts[act - 1].questPoints,
+			}
+		else
+			self.acts[act].questPoints = self.acts[act].questPoints + quest.questPoints
+			self.acts[act].level = m_max(self.acts[act].level, quest.AreaLevel)
+		end
+		:: nextquest ::
+	end
+	self.maxActs = #self.acts
+	self.maxWeaponSets = self.acts[self.maxActs].questPoints
+
 	wipeTable(self.controls)
 
 	local miscTooltip = new("Tooltip")
@@ -796,10 +817,14 @@ end
 function buildMode:EstimatePlayerProgress()
 	local PointsUsed, AscUsed, SecondaryAscUsed, socketsUsed, weaponSet1Used, weaponSet2Used = self.spec:CountAllocNodes()
 	local extra = self.calcsTab.mainOutput and self.calcsTab.mainOutput.ExtraPoints or 0
-	local maxWeaponSets = self.calcsTab.mainOutput and self.calcsTab.mainOutput.WeaponSetPassivePoints or 0
+	local maxWeaponSets = self.maxWeaponSets
 	local extraWeaponSets = self.calcsTab.mainOutput and self.calcsTab.mainOutput.PassivePointsToWeaponSetPoints or 0
-	local usedMax, ascMax, secondaryAscMax = 100 - (maxWeaponSets > 0 and 1 or 0) + extra + maxWeaponSets, 8, 8
-	local level = m_max(1, m_min( 1 + PointsUsed - maxWeaponSets - extra - math.max(weaponSet1Used, weaponSet2Used), 100))
+	local usedMax, ascMax, secondaryAscMax, level, act = 99 + maxWeaponSets + extra, 8, 8, 1, 0
+
+	repeat
+		act = act + 1
+		level = m_min(m_max(PointsUsed + 1 -  self.acts[act].questPoints - extra - m_min(weaponSet1Used, weaponSet2Used), self.acts[act].level), 100)
+	until act == self.maxActs or level <= self.acts[act + 1].level
 	
 	if self.characterLevelAutoMode and self.characterLevel ~= level then
 		self.characterLevel = level
@@ -816,7 +841,8 @@ function buildMode:EstimatePlayerProgress()
 		or level < 90 and "\nLabyrinth: Uber Lab"
 		or ""
 	
-	if PointsUsed > usedMax then InsertIfNew(self.controls.warnings.lines, "You have too many passive points allocated") end
+	local normalPassives = PointsUsed - m_min(weaponSet1Used, weaponSet2Used)
+	if normalPassives > usedMax then InsertIfNew(self.controls.warnings.lines, "You have too many passive points allocated") end
 	if AscUsed > ascMax then InsertIfNew(self.controls.warnings.lines, "You have too many ascendancy points allocated") end
 	if SecondaryAscUsed > secondaryAscMax then InsertIfNew(self.controls.warnings.lines, "You have too many secondary ascendancy points allocated") end
 
@@ -844,17 +870,17 @@ function buildMode:EstimatePlayerProgress()
 		))
 	end
 	
-	self.Act = "Endgame"
+	self.Act = act == self.maxActs and "Endgame" or "Act " .. act
 	
 	return string.format(
-		"%s%3d / %3d %s%2d / %2d %s%2d / %2d   %s%d / %d", 
-		PointsUsed > usedMax and colorCodes.NEGATIVE or "^7", 
-		PointsUsed, usedMax,
+		"%s%3d / %3d %s%2d / %2d %s%2d / %2d   %s%d / %d",
+		normalPassives > usedMax and colorCodes.NEGATIVE or "^7",
+		normalPassives, usedMax,
 		colorCodes.NEGATIVE,
 		weaponSet1Used, maxWeaponSets + extraWeaponSets,
 		colorCodes.POSITIVE,
 		weaponSet2Used, maxWeaponSets + extraWeaponSets,
-		AscUsed > ascMax and colorCodes.NEGATIVE or "^7", 
+		AscUsed > ascMax and colorCodes.NEGATIVE or "^7",
 		AscUsed, ascMax
 		), 
 		string.format(
