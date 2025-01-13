@@ -1028,7 +1028,10 @@ function calcs.initEnv(build, mode, override, specEnv)
 										end
 									elseif tag.slotType == "Martial Weapons" then
 										if parentItem.base.weapon then
-											env.itemModDB:ScaleAddMod(mod, scale)
+											local modCopy = copyTable(mod)
+											modCopy[1] = nil
+											modLib.setSource(modCopy, item.modSource)
+											env.itemModDB:ScaleAddMod(modCopy, scale)
 										end
 									end
 								end

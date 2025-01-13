@@ -1235,6 +1235,7 @@ local preFlagList = {
 	-- Rune and SoulCore related
 	["^armour: "] = { tag = { type = "SocketedIn", slotType = "Armour" } },
 	["^martial weapons: "] = { tag = { type = "SocketedIn", slotType = "Martial Weapons" } },
+	["^martial weapons: attacks with this weapon "] = { tagList = { { type = "SocketedIn", slotType = "Martial Weapons" }, { type = "Condition", var = "{Hand}Attack" }, { type = "SkillType", skillType = SkillType.Attack } } },
 }
 
 -- List of modifier tags
