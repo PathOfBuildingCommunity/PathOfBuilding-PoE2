@@ -122,7 +122,11 @@ function main:Init()
 					printf("Unknown directive '%s'", spec)
 				end
 			else
-				out:write("\t\t\t"..line, "\n")
+				if line:match("^--") or line:match("^local") or line == "" then
+					out:write(line, "\n")
+				else
+					out:write("\t\t\t"..line, "\n")
+				end
 			end
 		end
 		out:close()
