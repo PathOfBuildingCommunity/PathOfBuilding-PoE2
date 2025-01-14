@@ -111,12 +111,12 @@ function calcs.createActiveSkill(activeEffect, supportList, env, actor, socketGr
 	local statSet, skillFlags
 	if env.mode == "CALCS" then 
 		statSet = activeEffect.grantedEffect.statSets[activeEffect.statSetCalcs.index]
-		skillFlags = copyTable(statSet.baseFlags)
+		skillFlags = statSet and copyTable(statSet.baseFlags) or { }
 		activeEffect.statSetCalcs.statSet = statSet
 		activeEffect.statSetCalcs.skillFlags = skillFlags
 	else 
 		statSet = activeEffect.grantedEffect.statSets[activeEffect.statSet.index]
-		skillFlags = copyTable(statSet.baseFlags)
+		skillFlags = statSet and copyTable(statSet.baseFlags) or { }
 		activeEffect.statSet.statSet = statSet
 		activeEffect.statSet.skillFlags = skillFlags
 	end
