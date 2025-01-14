@@ -255,9 +255,21 @@ directiveTable.skill = function(state, args, out)
 		end
 	end
 	local skillGem
+	local gemColor
+	local gemTier
 	if gemEffect then
 		for gem in dat("SkillGems"):Rows() do
 			for _, variant in ipairs(gem.GemEffects) do
+				if gem.Str >= 50 then
+					gemColor = 1
+				elseif gem.Int >= 50 then
+					gemColor = 3
+				elseif gem.Dex >= 50 then
+					gemColor = 2
+				else
+					gemColor = 4
+				end
+				gemTier = gem.Tier
 				if gemEffect.Id == variant.Id then
 					skillGem = gem
 					local trueGemNameObj = dat("GemEffects"):GetRow("Id", gemEffect.Id)
@@ -273,7 +285,7 @@ directiveTable.skill = function(state, args, out)
 	local skill = { }
 	state.skill = skill
 	state.granted = granted
-	if skillGem and not state.noGem then
+	if skillGem and gemTier ~= 0 and not state.noGem then
 		gems[gemEffect.Id] = true
 		if granted.IsSupport then
 			skill.displayName = fullNameGems[skillGem.BaseItemType.Id] and skillGem.BaseItemType.Name or skillGem.BaseItemType.Name:gsub(" Support", "")
@@ -297,22 +309,26 @@ directiveTable.skill = function(state, args, out)
 	end
 	state.noGem = false
 	skill.baseFlags = { }
+	skill.baseConstantStats = { }
 	skill.levels = { }
 	skill.sets = { }
 	skill.setIndex = 1
 	skill.addSkillTypes = state.addSkillTypes
 	state.addSkillTypes = nil
 	if skillGem and not state.noGem then
-		out:write('\tcolor = ', skillGem.GemColour, ',\n')
+		out:write('\tcolor = ', gemColor, ',\n')
 	end
 	local nextGemLevelReqValue = 0
 	local perLevel = dat("GrantedEffectsPerLevel"):GetRowList("GrantedEffect", granted)
+	local grantedEffectStatSet = dat("GrantedEffectStatSets"):GetRow("Id", grantedId)
+	local statsPerLevel = dat("GrantedEffectStatSetsPerLevel"):GetRowList("GrantedEffectStatSets", grantedEffectStatSet)
 	local gemLevelProgression = nil
 	if skillGem and not state.noGem then
 		gemLevelProgression = dat("ItemExperiencePerLevel"):GetRowList("ItemExperienceType", skillGem.GemLevelProgression)
 	end
 	for indx = 1, #perLevel do
 		local levelRow = perLevel[indx]
+		local statRow = statsPerLevel[indx]
 		local level = { extra = { }, cost = { } }
 		level.level = levelRow.Level
 		level.extra.levelRequirement = math.max(gemLevelProgression and gemLevelProgression[indx] and gemLevelProgression[indx].PlayerLevel or 0, nextGemLevelReqValue)
@@ -352,6 +368,15 @@ directiveTable.skill = function(state, args, out)
 		end
 		if levelRow.StoredUses ~= 0 then
 			level.extra.storedUses = levelRow.StoredUses
+		end
+		if statRow and statRow.AttackCritChance ~= 0 then
+			level.extra.critChance = statRow.AttackCritChance / 100
+		end
+		if statRow and statRow.OffhandCritChance ~= 0 then
+			level.extra.critChance = statRow.OffhandCritChance / 100
+		end
+		if statRow and statRow.BaseMultiplier and statRow.BaseMultiplier ~= 0 then
+			level.extra.baseMultiplier = statRow.BaseMultiplier / 10000 + 1
 		end
 		if levelRow.VaalSouls ~= 0 then
 			level.cost.Soul = levelRow.VaalSouls
@@ -528,13 +553,13 @@ directiveTable.set = function(state, args, out)
 		--if statRow.DamageEffectiveness ~= 0 then
 		--	level.extra.damageEffectiveness = statRow.DamageEffectiveness / 10000 + 1
 		--end
-		if statRow.AttackCritChance ~= 0 then
+		if state.skill.setIndex ~= 1 and statRow.AttackCritChance ~= 0 then
 			level.extra.critChance = statRow.AttackCritChance / 100
 		end
-		if statRow.OffhandCritChance ~= 0 then
+		if state.skill.setIndex ~= 1 and statRow.OffhandCritChance ~= 0 then
 			level.extra.critChance = statRow.OffhandCritChance / 100
 		end
-		if statRow.BaseMultiplier and statRow.BaseMultiplier ~= 0 then
+		if state.skill.setIndex ~= 1 and statRow.BaseMultiplier and statRow.BaseMultiplier ~= 0 then
 			level.extra.baseMultiplier = statRow.BaseMultiplier / 10000 + 1
 		end
 		level.statInterpolation = statRow.StatInterpolations
@@ -637,6 +662,11 @@ directiveTable.set = function(state, args, out)
 			table.insert(set.constantStats, { stat.Id, grantedEffectStatSet.ConstantStatsValues[i] })
 		end
 	end
+	if state.skill.setIndex == 1 then
+		skill.baseConstantStats = set.constantStats
+	else
+		set.constantStats = tableConcat(set.constantStats, skill.baseConstantStats)
+	end
 
 	-- Emitting statSet data
 	out:write('\t\t['..skill.setIndex..'] = {\n')
@@ -651,7 +681,7 @@ directiveTable.set = function(state, args, out)
 		out:write('\t\t\tdamageIncrementalEffectiveness = ', grantedEffectStatSet.DamageIncrementalEffectiveness, ',\n')
 	end
 	if state.granted.IsSupport then
-		out:write('\tstatDescriptionScope = "gem_stat_descriptions",\n')
+		out:write('\t\t\tstatDescriptionScope = "gem_stat_descriptions",\n')
 	else
 		out:write('\t\t\tstatDescriptionScope = "', state.granted.ActiveSkill.StatDescription:gsub("^Metadata/StatDescriptions/", ""):
 		-- Need to subtract 1 from setIndex because GGG indexes from 0
@@ -786,20 +816,27 @@ for skillGem in dat("SkillGems"):Rows() do
 			if skillGem.IsVaalGem then
 				out:write('\t\tvaalGem = true,\n')
 			end
+			local gemType
 			local tagNames = { }
 			out:write('\t\ttags = {\n')
-			for _, tag in ipairs(gemEffect.Tags) do
+			for i, tag in ipairs(gemEffect.Tags) do
 				out:write('\t\t\t', tag.Id, ' = true,\n')
 				if #tag.Name > 0 then
 					tag.Name = escapeGGGString(tag.Name) --Remove the words in brackets e.g. [DurationSkill|Duration] -> Duration
-					table.insert(tagNames, tag.Name)
+					if not gemType then
+						gemType = tag.Name
+					else
+						table.insert(tagNames, tag.Name)
+					end
 				end
 			end
 			out:write('\t\t},\n')
+			out:write('\t\tgemType = "', gemType, '",\n')
 			out:write('\t\ttagString = "', table.concat(tagNames, ", "), '",\n')
 			out:write('\t\treqStr = ', skillGem.Str, ',\n')
 			out:write('\t\treqDex = ', skillGem.Dex, ',\n')
 			out:write('\t\treqInt = ', skillGem.Int, ',\n')
+			out:write('\t\tTier = ', skillGem.Tier, ',\n')
 			-- overriding level to 1 if support because dat currently has incorrect progression for most supports
 			local naturalMaxLevel = skillGem.IsSupport and 1 or #dat("ItemExperiencePerLevel"):GetRowList("ItemExperienceType", skillGem.GemLevelProgression)
 			out:write('\t\tnaturalMaxLevel = ', naturalMaxLevel > 0 and naturalMaxLevel or 1, ',\n')

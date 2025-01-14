@@ -149,7 +149,7 @@ skills["GasShotSkeletonSniperMinion"] = {
 	qualityStats = {
 	},
 	levels = {
-		[1] = { attackSpeedMultiplier = 20, storedUses = 1, cooldown = 8, levelRequirement = 0, },
+		[1] = { attackSpeedMultiplier = 20, storedUses = 1, baseMultiplier = 0.7, cooldown = 8, levelRequirement = 0, },
 	},
 	statSets = {
 		[1] = {
@@ -177,7 +177,7 @@ skills["GasShotSkeletonSniperMinion"] = {
 				"skill_cannot_be_stunned",
 			},
 			levels = {
-				[1] = { baseMultiplier = 0.7, actorLevel = 1, },
+				[1] = { actorLevel = 1, },
 			},
 		},
 		[2] = {
@@ -195,6 +195,9 @@ skills["GasShotSkeletonSniperMinion"] = {
 				{ "base_skill_effect_duration", 8000 },
 				{ "active_skill_ground_effect_area_of_effect_+%_final_per_second", 40 },
 				{ "active_skill_ground_effect_area_of_effect_+%_final_per_second_max", 200 },
+				{ "active_skill_base_area_of_effect_radius", 14 },
+				{ "active_skill_base_secondary_area_of_effect_radius", 20 },
+				{ "command_minion_marker_additional_time_ms", 300 },
 			},
 			stats = {
 				"is_area_damage",
@@ -217,6 +220,9 @@ skills["GasShotSkeletonSniperMinion"] = {
 			},
 			constantStats = {
 				{ "active_skill_base_physical_damage_%_to_convert_to_fire", 100 },
+				{ "active_skill_base_area_of_effect_radius", 14 },
+				{ "active_skill_base_secondary_area_of_effect_radius", 20 },
+				{ "command_minion_marker_additional_time_ms", 300 },
 			},
 			stats = {
 			},
@@ -235,7 +241,7 @@ skills["BoneshatterBruteMinion"] = {
 	qualityStats = {
 	},
 	levels = {
-		[1] = { attackSpeedMultiplier = 20, storedUses = 1, cooldown = 4, levelRequirement = 0, },
+		[1] = { attackSpeedMultiplier = 20, storedUses = 1, baseMultiplier = 0.5, cooldown = 4, levelRequirement = 0, },
 	},
 	statSets = {
 		[1] = {
@@ -256,7 +262,7 @@ skills["BoneshatterBruteMinion"] = {
 				"crushing_blow",
 			},
 			levels = {
-				[1] = { baseMultiplier = 0.5, actorLevel = 1, },
+				[1] = { actorLevel = 1, },
 			},
 		},
 		[2] = {
@@ -272,6 +278,8 @@ skills["BoneshatterBruteMinion"] = {
 			constantStats = {
 				{ "active_skill_base_area_of_effect_radius", 20 },
 				{ "active_skill_damage_+%_final", 300 },
+				{ "melee_range_+", 2 },
+				{ "melee_conditional_step_distance", 3 },
 			},
 			stats = {
 				"is_area_damage",
@@ -291,7 +299,7 @@ skills["ArcSkeletonMageMinion"] = {
 	qualityStats = {
 	},
 	levels = {
-		[1] = { levelRequirement = 0, },
+		[1] = { critChance = 9, levelRequirement = 0, },
 	},
 	statSets = {
 		[1] = {
@@ -315,7 +323,7 @@ skills["ArcSkeletonMageMinion"] = {
 				"disable_visual_hit_effect",
 			},
 			levels = {
-				[1] = { 0.10000000149012, 1.8999999761581, critChance = 9, statInterpolation = { 3, 3, }, actorLevel = 1, },
+				[1] = { 0.10000000149012, 1.8999999761581, statInterpolation = { 3, 3, }, actorLevel = 1, },
 			},
 		},
 	}
@@ -329,7 +337,7 @@ skills["DeathStormSkeletonStormMageMinion"] = {
 	qualityStats = {
 	},
 	levels = {
-		[1] = { storedUses = 1, levelRequirement = 0, cooldown = 5, },
+		[1] = { critChance = 10, storedUses = 1, levelRequirement = 0, cooldown = 5, },
 	},
 	statSets = {
 		[1] = {
@@ -358,7 +366,7 @@ skills["DeathStormSkeletonStormMageMinion"] = {
 				"skill_cannot_be_stunned",
 			},
 			levels = {
-				[1] = { 0.30000001192093, 1.7000000476837, critChance = 10, statInterpolation = { 3, 3, }, actorLevel = 1, },
+				[1] = { 0.30000001192093, 1.7000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
 			},
 		},
 	}
@@ -371,7 +379,7 @@ skills["FrostBoltSkeletonMageMinion"] = {
 	qualityStats = {
 	},
 	levels = {
-		[1] = { levelRequirement = 0, },
+		[1] = { critChance = 11, levelRequirement = 0, },
 	},
 	statSets = {
 		[1] = {
@@ -399,7 +407,7 @@ skills["FrostBoltSkeletonMageMinion"] = {
 				"maintain_projectile_direction_when_using_contact_position",
 			},
 			levels = {
-				[1] = { 0.80000001192093, 1.2000000476837, critChance = 11, statInterpolation = { 3, 3, }, actorLevel = 1, },
+				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
 			},
 		},
 		[2] = {
@@ -414,6 +422,10 @@ skills["FrostBoltSkeletonMageMinion"] = {
 			},
 			constantStats = {
 				{ "active_skill_base_area_of_effect_radius", 8 },
+				{ "monster_projectile_variation", 1064 },
+				{ "base_chance_to_freeze_%", 100 },
+				{ "active_skill_hit_damage_freeze_multiplier_+%_final", 100 },
+				{ "projectile_maximum_duration_override_ms", 180 },
 			},
 			stats = {
 				"is_area_damage",
@@ -434,7 +446,7 @@ skills["IceBombSkeletonMageMinion"] = {
 	qualityStats = {
 	},
 	levels = {
-		[1] = { storedUses = 1, levelRequirement = 0, cooldown = 6, },
+		[1] = { critChance = 12, storedUses = 1, levelRequirement = 0, cooldown = 6, },
 	},
 	statSets = {
 		[1] = {
@@ -461,7 +473,7 @@ skills["IceBombSkeletonMageMinion"] = {
 				"skill_cannot_be_stunned",
 			},
 			levels = {
-				[1] = { 0.80000001192093, 1.2000000476837, critChance = 12, statInterpolation = { 3, 3, }, actorLevel = 1, },
+				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
 			},
 		},
 	}
@@ -581,6 +593,9 @@ skills["FireBombSkeletonMinion"] = {
 			},
 			constantStats = {
 				{ "base_secondary_skill_effect_duration", 0 },
+				{ "base_skill_effect_duration", 2000 },
+				{ "active_skill_base_physical_damage_%_to_convert_to_fire", 70 },
+				{ "active_skill_base_area_of_effect_radius", 16 },
 			},
 			stats = {
 				"base_fire_damage_to_deal_per_minute",
@@ -593,7 +608,7 @@ skills["FireBombSkeletonMinion"] = {
 }
 skills["DestructiveLinkSkeletonBombadierMinion"] = {
 	name = "Explosive Demise",
-	baseTypeName = "Explosive Demise",
+	hidden = true,
 	color = 2,
 	description = "Detonates an allied Minion whose current Life is below a threshold, dealing heavy damage to nearby enemies.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Cooldown] = true, [SkillType.Area] = true, [SkillType.Fire] = true, [SkillType.Damage] = true, },
@@ -602,46 +617,46 @@ skills["DestructiveLinkSkeletonBombadierMinion"] = {
 		{ "arsonist_destructive_link_%_of_life_as_fire_damage", 0.2 },
 	},
 	levels = {
-		[1] = { storedUses = 1, levelRequirement = 0, cooldown = 3, },
-		[2] = { storedUses = 1, levelRequirement = 0, cooldown = 3, },
-		[3] = { storedUses = 1, levelRequirement = 0, cooldown = 3, },
-		[4] = { storedUses = 1, levelRequirement = 0, cooldown = 3, },
-		[5] = { storedUses = 1, levelRequirement = 0, cooldown = 3, },
-		[6] = { storedUses = 1, levelRequirement = 0, cooldown = 3, },
-		[7] = { storedUses = 1, levelRequirement = 0, cooldown = 3, },
-		[8] = { storedUses = 1, levelRequirement = 0, cooldown = 3, },
-		[9] = { storedUses = 1, levelRequirement = 0, cooldown = 3, },
-		[10] = { storedUses = 1, levelRequirement = 0, cooldown = 3, },
-		[11] = { storedUses = 1, levelRequirement = 0, cooldown = 3, },
-		[12] = { storedUses = 1, levelRequirement = 0, cooldown = 3, },
-		[13] = { storedUses = 1, levelRequirement = 0, cooldown = 3, },
-		[14] = { storedUses = 1, levelRequirement = 0, cooldown = 3, },
-		[15] = { storedUses = 1, levelRequirement = 0, cooldown = 3, },
-		[16] = { storedUses = 1, levelRequirement = 0, cooldown = 3, },
-		[17] = { storedUses = 1, levelRequirement = 0, cooldown = 3, },
-		[18] = { storedUses = 1, levelRequirement = 0, cooldown = 3, },
-		[19] = { storedUses = 1, levelRequirement = 0, cooldown = 3, },
-		[20] = { storedUses = 1, levelRequirement = 0, cooldown = 3, },
-		[21] = { storedUses = 1, levelRequirement = 0, cooldown = 3, },
-		[22] = { storedUses = 1, levelRequirement = 0, cooldown = 3, },
-		[23] = { storedUses = 1, levelRequirement = 0, cooldown = 3, },
-		[24] = { storedUses = 1, levelRequirement = 0, cooldown = 3, },
-		[25] = { storedUses = 1, levelRequirement = 0, cooldown = 3, },
-		[26] = { storedUses = 1, levelRequirement = 0, cooldown = 3, },
-		[27] = { storedUses = 1, levelRequirement = 0, cooldown = 3, },
-		[28] = { storedUses = 1, levelRequirement = 0, cooldown = 3, },
-		[29] = { storedUses = 1, levelRequirement = 0, cooldown = 3, },
-		[30] = { storedUses = 1, levelRequirement = 0, cooldown = 3, },
-		[31] = { storedUses = 1, levelRequirement = 0, cooldown = 3, },
-		[32] = { storedUses = 1, levelRequirement = 0, cooldown = 3, },
-		[33] = { storedUses = 1, levelRequirement = 0, cooldown = 3, },
-		[34] = { storedUses = 1, levelRequirement = 0, cooldown = 3, },
-		[35] = { storedUses = 1, levelRequirement = 0, cooldown = 3, },
-		[36] = { storedUses = 1, levelRequirement = 0, cooldown = 3, },
-		[37] = { storedUses = 1, levelRequirement = 0, cooldown = 3, },
-		[38] = { storedUses = 1, levelRequirement = 0, cooldown = 3, },
-		[39] = { storedUses = 1, levelRequirement = 0, cooldown = 3, },
-		[40] = { storedUses = 1, levelRequirement = 0, cooldown = 3, },
+		[1] = { critChance = 8, storedUses = 1, levelRequirement = 0, cooldown = 3, },
+		[2] = { critChance = 8, storedUses = 1, levelRequirement = 0, cooldown = 3, },
+		[3] = { critChance = 8, storedUses = 1, levelRequirement = 0, cooldown = 3, },
+		[4] = { critChance = 8, storedUses = 1, levelRequirement = 0, cooldown = 3, },
+		[5] = { critChance = 8, storedUses = 1, levelRequirement = 0, cooldown = 3, },
+		[6] = { critChance = 8, storedUses = 1, levelRequirement = 0, cooldown = 3, },
+		[7] = { critChance = 8, storedUses = 1, levelRequirement = 0, cooldown = 3, },
+		[8] = { critChance = 8, storedUses = 1, levelRequirement = 0, cooldown = 3, },
+		[9] = { critChance = 8, storedUses = 1, levelRequirement = 0, cooldown = 3, },
+		[10] = { critChance = 8, storedUses = 1, levelRequirement = 0, cooldown = 3, },
+		[11] = { critChance = 8, storedUses = 1, levelRequirement = 0, cooldown = 3, },
+		[12] = { critChance = 8, storedUses = 1, levelRequirement = 0, cooldown = 3, },
+		[13] = { critChance = 8, storedUses = 1, levelRequirement = 0, cooldown = 3, },
+		[14] = { critChance = 8, storedUses = 1, levelRequirement = 0, cooldown = 3, },
+		[15] = { critChance = 8, storedUses = 1, levelRequirement = 0, cooldown = 3, },
+		[16] = { critChance = 8, storedUses = 1, levelRequirement = 0, cooldown = 3, },
+		[17] = { critChance = 8, storedUses = 1, levelRequirement = 0, cooldown = 3, },
+		[18] = { critChance = 8, storedUses = 1, levelRequirement = 0, cooldown = 3, },
+		[19] = { critChance = 8, storedUses = 1, levelRequirement = 0, cooldown = 3, },
+		[20] = { critChance = 8, storedUses = 1, levelRequirement = 0, cooldown = 3, },
+		[21] = { critChance = 8, storedUses = 1, levelRequirement = 0, cooldown = 3, },
+		[22] = { critChance = 8, storedUses = 1, levelRequirement = 0, cooldown = 3, },
+		[23] = { critChance = 8, storedUses = 1, levelRequirement = 0, cooldown = 3, },
+		[24] = { critChance = 8, storedUses = 1, levelRequirement = 0, cooldown = 3, },
+		[25] = { critChance = 8, storedUses = 1, levelRequirement = 0, cooldown = 3, },
+		[26] = { critChance = 8, storedUses = 1, levelRequirement = 0, cooldown = 3, },
+		[27] = { critChance = 8, storedUses = 1, levelRequirement = 0, cooldown = 3, },
+		[28] = { critChance = 8, storedUses = 1, levelRequirement = 0, cooldown = 3, },
+		[29] = { critChance = 8, storedUses = 1, levelRequirement = 0, cooldown = 3, },
+		[30] = { critChance = 8, storedUses = 1, levelRequirement = 0, cooldown = 3, },
+		[31] = { critChance = 8, storedUses = 1, levelRequirement = 0, cooldown = 3, },
+		[32] = { critChance = 8, storedUses = 1, levelRequirement = 0, cooldown = 3, },
+		[33] = { critChance = 8, storedUses = 1, levelRequirement = 0, cooldown = 3, },
+		[34] = { critChance = 8, storedUses = 1, levelRequirement = 0, cooldown = 3, },
+		[35] = { critChance = 8, storedUses = 1, levelRequirement = 0, cooldown = 3, },
+		[36] = { critChance = 8, storedUses = 1, levelRequirement = 0, cooldown = 3, },
+		[37] = { critChance = 8, storedUses = 1, levelRequirement = 0, cooldown = 3, },
+		[38] = { critChance = 8, storedUses = 1, levelRequirement = 0, cooldown = 3, },
+		[39] = { critChance = 8, storedUses = 1, levelRequirement = 0, cooldown = 3, },
+		[40] = { critChance = 8, storedUses = 1, levelRequirement = 0, cooldown = 3, },
 	},
 	statSets = {
 		[1] = {
@@ -671,46 +686,46 @@ skills["DestructiveLinkSkeletonBombadierMinion"] = {
 				"skill_cannot_be_stunned",
 			},
 			levels = {
-				[1] = { 0.80000001192093, 1.2000000476837, 27, critChance = 8, statInterpolation = { 3, 3, 1, }, actorLevel = 1, },
-				[2] = { 0.80000001192093, 1.2000000476837, 49, critChance = 8, statInterpolation = { 3, 3, 1, }, actorLevel = 3, },
-				[3] = { 0.80000001192093, 1.2000000476837, 73, critChance = 8, statInterpolation = { 3, 3, 1, }, actorLevel = 5, },
-				[4] = { 0.80000001192093, 1.2000000476837, 100, critChance = 8, statInterpolation = { 3, 3, 1, }, actorLevel = 7, },
-				[5] = { 0.80000001192093, 1.2000000476837, 130, critChance = 8, statInterpolation = { 3, 3, 1, }, actorLevel = 9, },
-				[6] = { 0.80000001192093, 1.2000000476837, 164, critChance = 8, statInterpolation = { 3, 3, 1, }, actorLevel = 11, },
-				[7] = { 0.80000001192093, 1.2000000476837, 201, critChance = 8, statInterpolation = { 3, 3, 1, }, actorLevel = 13, },
-				[8] = { 0.80000001192093, 1.2000000476837, 243, critChance = 8, statInterpolation = { 3, 3, 1, }, actorLevel = 15, },
-				[9] = { 0.80000001192093, 1.2000000476837, 289, critChance = 8, statInterpolation = { 3, 3, 1, }, actorLevel = 17, },
-				[10] = { 0.80000001192093, 1.2000000476837, 340, critChance = 8, statInterpolation = { 3, 3, 1, }, actorLevel = 19, },
-				[11] = { 0.80000001192093, 1.2000000476837, 396, critChance = 8, statInterpolation = { 3, 3, 1, }, actorLevel = 21, },
-				[12] = { 0.80000001192093, 1.2000000476837, 459, critChance = 8, statInterpolation = { 3, 3, 1, }, actorLevel = 23, },
-				[13] = { 0.80000001192093, 1.2000000476837, 528, critChance = 8, statInterpolation = { 3, 3, 1, }, actorLevel = 25, },
-				[14] = { 0.80000001192093, 1.2000000476837, 603, critChance = 8, statInterpolation = { 3, 3, 1, }, actorLevel = 27, },
-				[15] = { 0.80000001192093, 1.2000000476837, 688, critChance = 8, statInterpolation = { 3, 3, 1, }, actorLevel = 29, },
-				[16] = { 0.80000001192093, 1.2000000476837, 780, critChance = 8, statInterpolation = { 3, 3, 1, }, actorLevel = 31, },
-				[17] = { 0.80000001192093, 1.2000000476837, 883, critChance = 8, statInterpolation = { 3, 3, 1, }, actorLevel = 33, },
-				[18] = { 0.80000001192093, 1.2000000476837, 994, critChance = 8, statInterpolation = { 3, 3, 1, }, actorLevel = 35, },
-				[19] = { 0.80000001192093, 1.2000000476837, 1118, critChance = 8, statInterpolation = { 3, 3, 1, }, actorLevel = 37, },
-				[20] = { 0.80000001192093, 1.2000000476837, 1253, critChance = 8, statInterpolation = { 3, 3, 1, }, actorLevel = 39, },
-				[21] = { 0.80000001192093, 1.2000000476837, 1403, critChance = 8, statInterpolation = { 3, 3, 1, }, actorLevel = 41, },
-				[22] = { 0.80000001192093, 1.2000000476837, 1566, critChance = 8, statInterpolation = { 3, 3, 1, }, actorLevel = 43, },
-				[23] = { 0.80000001192093, 1.2000000476837, 1744, critChance = 8, statInterpolation = { 3, 3, 1, }, actorLevel = 45, },
-				[24] = { 0.80000001192093, 1.2000000476837, 1940, critChance = 8, statInterpolation = { 3, 3, 1, }, actorLevel = 47, },
-				[25] = { 0.80000001192093, 1.2000000476837, 2156, critChance = 8, statInterpolation = { 3, 3, 1, }, actorLevel = 49, },
-				[26] = { 0.80000001192093, 1.2000000476837, 2391, critChance = 8, statInterpolation = { 3, 3, 1, }, actorLevel = 51, },
-				[27] = { 0.80000001192093, 1.2000000476837, 2649, critChance = 8, statInterpolation = { 3, 3, 1, }, actorLevel = 53, },
-				[28] = { 0.80000001192093, 1.2000000476837, 2932, critChance = 8, statInterpolation = { 3, 3, 1, }, actorLevel = 55, },
-				[29] = { 0.80000001192093, 1.2000000476837, 3241, critChance = 8, statInterpolation = { 3, 3, 1, }, actorLevel = 57, },
-				[30] = { 0.80000001192093, 1.2000000476837, 3578, critChance = 8, statInterpolation = { 3, 3, 1, }, actorLevel = 59, },
-				[31] = { 0.80000001192093, 1.2000000476837, 3948, critChance = 8, statInterpolation = { 3, 3, 1, }, actorLevel = 61, },
-				[32] = { 0.80000001192093, 1.2000000476837, 4352, critChance = 8, statInterpolation = { 3, 3, 1, }, actorLevel = 63, },
-				[33] = { 0.80000001192093, 1.2000000476837, 4793, critChance = 8, statInterpolation = { 3, 3, 1, }, actorLevel = 65, },
-				[34] = { 0.80000001192093, 1.2000000476837, 5275, critChance = 8, statInterpolation = { 3, 3, 1, }, actorLevel = 67, },
-				[35] = { 0.80000001192093, 1.2000000476837, 5801, critChance = 8, statInterpolation = { 3, 3, 1, }, actorLevel = 69, },
-				[36] = { 0.80000001192093, 1.2000000476837, 6375, critChance = 8, statInterpolation = { 3, 3, 1, }, actorLevel = 71, },
-				[37] = { 0.80000001192093, 1.2000000476837, 7003, critChance = 8, statInterpolation = { 3, 3, 1, }, actorLevel = 73, },
-				[38] = { 0.80000001192093, 1.2000000476837, 7688, critChance = 8, statInterpolation = { 3, 3, 1, }, actorLevel = 75, },
-				[39] = { 0.80000001192093, 1.2000000476837, 8434, critChance = 8, statInterpolation = { 3, 3, 1, }, actorLevel = 77, },
-				[40] = { 0.80000001192093, 1.2000000476837, 9249, critChance = 8, statInterpolation = { 3, 3, 1, }, actorLevel = 79, },
+				[1] = { 0.80000001192093, 1.2000000476837, 27, statInterpolation = { 3, 3, 1, }, actorLevel = 1, },
+				[2] = { 0.80000001192093, 1.2000000476837, 49, statInterpolation = { 3, 3, 1, }, actorLevel = 3, },
+				[3] = { 0.80000001192093, 1.2000000476837, 73, statInterpolation = { 3, 3, 1, }, actorLevel = 5, },
+				[4] = { 0.80000001192093, 1.2000000476837, 100, statInterpolation = { 3, 3, 1, }, actorLevel = 7, },
+				[5] = { 0.80000001192093, 1.2000000476837, 130, statInterpolation = { 3, 3, 1, }, actorLevel = 9, },
+				[6] = { 0.80000001192093, 1.2000000476837, 164, statInterpolation = { 3, 3, 1, }, actorLevel = 11, },
+				[7] = { 0.80000001192093, 1.2000000476837, 201, statInterpolation = { 3, 3, 1, }, actorLevel = 13, },
+				[8] = { 0.80000001192093, 1.2000000476837, 243, statInterpolation = { 3, 3, 1, }, actorLevel = 15, },
+				[9] = { 0.80000001192093, 1.2000000476837, 289, statInterpolation = { 3, 3, 1, }, actorLevel = 17, },
+				[10] = { 0.80000001192093, 1.2000000476837, 340, statInterpolation = { 3, 3, 1, }, actorLevel = 19, },
+				[11] = { 0.80000001192093, 1.2000000476837, 396, statInterpolation = { 3, 3, 1, }, actorLevel = 21, },
+				[12] = { 0.80000001192093, 1.2000000476837, 459, statInterpolation = { 3, 3, 1, }, actorLevel = 23, },
+				[13] = { 0.80000001192093, 1.2000000476837, 528, statInterpolation = { 3, 3, 1, }, actorLevel = 25, },
+				[14] = { 0.80000001192093, 1.2000000476837, 603, statInterpolation = { 3, 3, 1, }, actorLevel = 27, },
+				[15] = { 0.80000001192093, 1.2000000476837, 688, statInterpolation = { 3, 3, 1, }, actorLevel = 29, },
+				[16] = { 0.80000001192093, 1.2000000476837, 780, statInterpolation = { 3, 3, 1, }, actorLevel = 31, },
+				[17] = { 0.80000001192093, 1.2000000476837, 883, statInterpolation = { 3, 3, 1, }, actorLevel = 33, },
+				[18] = { 0.80000001192093, 1.2000000476837, 994, statInterpolation = { 3, 3, 1, }, actorLevel = 35, },
+				[19] = { 0.80000001192093, 1.2000000476837, 1118, statInterpolation = { 3, 3, 1, }, actorLevel = 37, },
+				[20] = { 0.80000001192093, 1.2000000476837, 1253, statInterpolation = { 3, 3, 1, }, actorLevel = 39, },
+				[21] = { 0.80000001192093, 1.2000000476837, 1403, statInterpolation = { 3, 3, 1, }, actorLevel = 41, },
+				[22] = { 0.80000001192093, 1.2000000476837, 1566, statInterpolation = { 3, 3, 1, }, actorLevel = 43, },
+				[23] = { 0.80000001192093, 1.2000000476837, 1744, statInterpolation = { 3, 3, 1, }, actorLevel = 45, },
+				[24] = { 0.80000001192093, 1.2000000476837, 1940, statInterpolation = { 3, 3, 1, }, actorLevel = 47, },
+				[25] = { 0.80000001192093, 1.2000000476837, 2156, statInterpolation = { 3, 3, 1, }, actorLevel = 49, },
+				[26] = { 0.80000001192093, 1.2000000476837, 2391, statInterpolation = { 3, 3, 1, }, actorLevel = 51, },
+				[27] = { 0.80000001192093, 1.2000000476837, 2649, statInterpolation = { 3, 3, 1, }, actorLevel = 53, },
+				[28] = { 0.80000001192093, 1.2000000476837, 2932, statInterpolation = { 3, 3, 1, }, actorLevel = 55, },
+				[29] = { 0.80000001192093, 1.2000000476837, 3241, statInterpolation = { 3, 3, 1, }, actorLevel = 57, },
+				[30] = { 0.80000001192093, 1.2000000476837, 3578, statInterpolation = { 3, 3, 1, }, actorLevel = 59, },
+				[31] = { 0.80000001192093, 1.2000000476837, 3948, statInterpolation = { 3, 3, 1, }, actorLevel = 61, },
+				[32] = { 0.80000001192093, 1.2000000476837, 4352, statInterpolation = { 3, 3, 1, }, actorLevel = 63, },
+				[33] = { 0.80000001192093, 1.2000000476837, 4793, statInterpolation = { 3, 3, 1, }, actorLevel = 65, },
+				[34] = { 0.80000001192093, 1.2000000476837, 5275, statInterpolation = { 3, 3, 1, }, actorLevel = 67, },
+				[35] = { 0.80000001192093, 1.2000000476837, 5801, statInterpolation = { 3, 3, 1, }, actorLevel = 69, },
+				[36] = { 0.80000001192093, 1.2000000476837, 6375, statInterpolation = { 3, 3, 1, }, actorLevel = 71, },
+				[37] = { 0.80000001192093, 1.2000000476837, 7003, statInterpolation = { 3, 3, 1, }, actorLevel = 73, },
+				[38] = { 0.80000001192093, 1.2000000476837, 7688, statInterpolation = { 3, 3, 1, }, actorLevel = 75, },
+				[39] = { 0.80000001192093, 1.2000000476837, 8434, statInterpolation = { 3, 3, 1, }, actorLevel = 77, },
+				[40] = { 0.80000001192093, 1.2000000476837, 9249, statInterpolation = { 3, 3, 1, }, actorLevel = 79, },
 			},
 		},
 	}
@@ -761,7 +776,7 @@ skills["GAAncestralJadeHulkLeapImpact"] = {
 	qualityStats = {
 	},
 	levels = {
-		[1] = { levelRequirement = 0, },
+		[1] = { baseMultiplier = 1.5, levelRequirement = 0, },
 	},
 	statSets = {
 		[1] = {
@@ -776,7 +791,7 @@ skills["GAAncestralJadeHulkLeapImpact"] = {
 				"is_area_damage",
 			},
 			levels = {
-				[1] = { baseMultiplier = 1.5, actorLevel = 1, },
+				[1] = { actorLevel = 1, },
 			},
 		},
 	}

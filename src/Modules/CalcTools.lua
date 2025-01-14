@@ -119,40 +119,10 @@ function calcLib.gemIsType(gem, type, includeTransfigured)
 			((type ~= "active skill" and type ~= "grants_active_skill" and type ~= "skill") and gem.tags[type]))
 end
 
--- From PyPoE's formula.py
-function calcLib.getGemStatRequirement(level, isSupport, multi)
-	if multi == 0 then
-		return 0
-	end
-	local a, b
-	if isSupport then
-		b = 6 * multi / 100
-		if multi == 100 then
-			a = 1.495
-		elseif multi == 60 then
-			a = 0.945
-		elseif multi == 40 then
-			a = 0.6575
-		else
-			return 0
-		end
-	else
-		b = 8 * multi / 100
-		if multi == 100 then
-			a = 2.1
-			b = 7.75
-		elseif multi == 75 then
-			a = 1.619
-		elseif multi == 60 then
-			a = 1.325
-		elseif multi == 40 then
-			a = 0.924
-		else
-			return 0
-		end
-	end
-	local req = round(level * a + b)
-	return req < 14 and 0 or req
+-- In-game formula
+function calcLib.getGemStatRequirement(level, multi)
+	local req = round( ( 5 + ( level - 3 ) * 2.25 ) * ( multi / 100 ) ^ 0.9 ) + 4
+	return req < 8 and 0 or req
 end
 
 -- Build table of stats for the given skill instance statset

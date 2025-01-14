@@ -284,8 +284,6 @@ function PassiveSpecClass:ImportFromNodeList(classId, ascendClassId, secondaryAs
 		local node = self.nodes[id]
 		
 		if node then
-			override.effectSprites = self.tree.spriteMap[override.activeEffectImage]
-			override.sprites = self.tree.spriteMap[override.icon]
 			self:ReplaceNode(node, override)
 		end
 	end
@@ -1428,8 +1426,6 @@ function PassiveSpecClass:ReplaceNode(old, newNode)
 	old.modKey = newNode.modKey
 	old.modList = new("ModList")
 	old.modList:AddList(newNode.modList)
-	old.sprites = newNode.sprites
-	old.effectSprites = newNode.effectSprites
 	old.keystoneMod = newNode.keystoneMod
 	old.icon = newNode.icon
 	old.spriteId = newNode.spriteId

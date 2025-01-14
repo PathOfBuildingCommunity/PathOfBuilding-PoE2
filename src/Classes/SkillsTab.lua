@@ -446,6 +446,8 @@ function SkillsTabClass:Save(xml)
 					enableGlobal1 = tostring(gemInstance.enableGlobal1),
 					enableGlobal2 = tostring(gemInstance.enableGlobal2),
 					count = tostring(gemInstance.count),
+					statSetIndex = gemInstance.statSet and tostring(gemInstance.statSet.index),
+					statSetIndexCalcs = gemInstance.statSetCalcs and tostring(gemInstance.statSetCalcs.index),
 					skillPart = gemInstance.skillPart and tostring(gemInstance.skillPart),
 					skillPartCalcs = gemInstance.skillPartCalcs and tostring(gemInstance.skillPartCalcs),
 					skillStageCount = gemInstance.skillStageCount and tostring(gemInstance.skillStageCount),
@@ -1059,12 +1061,12 @@ function SkillsTabClass:ProcessSocketGroup(socketGroup)
 		if gemInstance.gemData or gemInstance.grantedEffect then
 			gemInstance.new = nil
 			local grantedEffect = gemInstance.grantedEffect or gemInstance.gemData.grantedEffect
-			if gemInstance.gemData and gemInstance.gemData.reqStr >= 50 then
+			if grantedEffect.color == 1 then
 				gemInstance.color = colorCodes.STRENGTH
-			elseif gemInstance.gemData and gemInstance.gemData.reqInt >= 50 then
-				gemInstance.color = colorCodes.INTELLIGENCE
-			elseif gemInstance.gemData and gemInstance.gemData.reqDex >= 50 then
+			elseif grantedEffect.color == 2 then
 				gemInstance.color = colorCodes.DEXTERITY
+			elseif grantedEffect.color == 3 then
+				gemInstance.color = colorCodes.INTELLIGENCE
 			else
 				gemInstance.color = colorCodes.NORMAL
 			end
@@ -1075,9 +1077,9 @@ function SkillsTabClass:ProcessSocketGroup(socketGroup)
 			calcLib.validateGemLevel(gemInstance)
 			if gemInstance.gemData then
 				gemInstance.reqLevel = grantedEffect.levels[gemInstance.level].levelRequirement
-				gemInstance.reqStr = calcLib.getGemStatRequirement(gemInstance.reqLevel, grantedEffect.support, gemInstance.gemData.reqStr)
-				gemInstance.reqDex = calcLib.getGemStatRequirement(gemInstance.reqLevel, grantedEffect.support, gemInstance.gemData.reqDex)
-				gemInstance.reqInt = calcLib.getGemStatRequirement(gemInstance.reqLevel, grantedEffect.support, gemInstance.gemData.reqInt)
+				gemInstance.reqStr = calcLib.getGemStatRequirement(gemInstance.reqLevel, gemInstance.gemData.reqStr)
+				gemInstance.reqDex = calcLib.getGemStatRequirement(gemInstance.reqLevel, gemInstance.gemData.reqDex)
+				gemInstance.reqInt = calcLib.getGemStatRequirement(gemInstance.reqLevel, gemInstance.gemData.reqInt)
 			end
 		end
 	end

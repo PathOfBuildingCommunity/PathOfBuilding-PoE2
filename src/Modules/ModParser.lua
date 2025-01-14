@@ -778,6 +778,7 @@ local modNameList = {
 	["to apply lightning exposure on hit"] = "LightningExposureChance",
 	["to ignore enemy physical damage reduction"] = "ChanceToIgnoreEnemyPhysicalDamageReduction",
 	["weapon swap speed"] = "WeaponSwapSpeed",
+	["to chain an additional time from terrain"] = "TerrainChainChance",
 	-- Flask and Charm modifiers
 	["effect"] = "LocalEffect",
 	["effect of flasks"] = "FlaskEffect",
@@ -2347,6 +2348,15 @@ local specialModList = {
 	["exerted attacks deal (%d+)%% more attack damage if a warcry sacrificed rage recently"] = function(num) return { mod("ExertAttackIncrease", "MORE", num, nil, ModFlag.Attack, 0) } end,
 	["deal (%d+)%% less damage"] = function(num) return { mod("Damage", "MORE", -num) } end,
 	["warcries exert twice as many attacks"] = { mod("ExtraExertedAttacks", "MORE", 100) },
+	--Blood Mage
+	["skills gain a base life cost equal to base mana cost"] = { mod("ManaCostAsLifeCost", "BASE", 100) },
+	["gain (%d+)%% of damage as extra physical damage"] = function(num) return {
+		mod("PhysicalDamageGainAsPhysical", "BASE", num),
+		mod("ColdDamageGainAsPhysical", "BASE", num),
+		mod("LightningDamageGainAsPhysical", "BASE", num),
+		mod("FireDamageGainAsPhysical", "BASE", num),
+		mod("ChaosDamageGainAsPhysical", "BASE", num),
+	} end,
 	-- Champion
 	["cannot be stunned while you have fortify"] = { flag("StunImmune", { type = "Condition", var = "Fortified" }) },
 	["cannot be stunned while fortified"] = { flag("StunImmune", { type = "Condition", var = "Fortified" }) },
@@ -2797,7 +2807,7 @@ local specialModList = {
 	["has no attribute requirements"] = { flag("NoAttributeRequirements") },
 	-- Skill modifiers
 	["([%+%-]%d+)%% to quality of all skills"] = function(num) return { mod("GemProperty", "LIST", { keyword = "grants_active_skill", key = "quality", value = num }) } end,
-	["([%+%-]%d+)%%? to (%a+) of ?([%a%- ]*) skills"] = function(num, _, property, type)
+	["([%+%-]%d+)%%? to (%a+) of all ?([%a%- ]*) skills"] = function(num, _, property, type)
 		if type == "" then type = "all" end
 		return { mod("GemProperty", "LIST", { keyword = type, key = property, value = num }) }
 	end,
@@ -4919,6 +4929,9 @@ local specialModList = {
     ["skills cost life instead of (%d+)%% of mana cost"] = function(num) return {
         mod("HybridManaAndLifeCost_Life", "BASE", num),
     } end,
+	["(%d+)%% of skill mana costs converted to life costs"] = function(num) return {
+        mod("HybridManaAndLifeCost_Life", "BASE", num),
+    } end,
 	["(%d+)%% increased cost of arc and crackling lance"] = function(num) return {
 		mod("Cost", "INC", num, { type = "SkillName", skillNameList = { "Arc", "Crackling Lance" }, includeTransfigured = true }),
 	} end,
@@ -4969,6 +4982,7 @@ local specialModList = {
 	["regenerate (%d+) mana per second while any enemy is in your righteous fire or scorching ray"] = function( num) return { mod("ManaRegen", "BASE", num, { type = "Condition", var = "InRFOrScorchingRay" }) } end,
 	["%+(%d+)%% to wave of conviction damage over time multiplier per ([%d%.]+) seconds of duration expired"] = function(num) return { mod("WaveOfConvictionDurationDotMulti", "INC", num) } end,
 	["when an enemy hit deals elemental damage to you, their resistance to those elements becomes zero for (%d+) seconds"] = { flag("Condition:HaveTrickstersSmile"), },
+	["skills have a (%d+)%% longer perfect timing window"] = function(num) return { mod("PerfectTiming", "INC", num) } end,
 	-- Conditional Player Quantity / Rarity
 	["(%d+)%% increased quantity of items dropped by slain normal enemies"] = function(num) return { mod("LootQuantityNormalEnemies", "INC", num) } end,
 	["(%d+)%% increased rarity of items dropped by slain magic enemies"] = function(num) return { mod("LootRarityMagicEnemies", "INC", num) } end,

@@ -27,27 +27,6 @@ local PassiveTreeViewClass = newClass("PassiveTreeView", function(self)
 	self.jewelShadedInnerRing:Load("Assets/ShadedInnerRing.png", "CLAMP")
 	self.jewelShadedInnerRingFlipped = NewImageHandle()
 	self.jewelShadedInnerRingFlipped:Load("Assets/ShadedInnerRingFlipped.png", "CLAMP")
-	
-	self.eternal1 = NewImageHandle()
-	self.eternal1:Load("TreeData/PassiveSkillScreenEternalEmpireJewelCircle1.png", "CLAMP")
-	self.eternal2 = NewImageHandle()
-	self.eternal2:Load("TreeData/PassiveSkillScreenEternalEmpireJewelCircle2.png", "CLAMP")
-	self.karui1 = NewImageHandle()
-	self.karui1:Load("TreeData/PassiveSkillScreenKaruiJewelCircle1.png", "CLAMP")
-	self.karui2 = NewImageHandle()
-	self.karui2:Load("TreeData/PassiveSkillScreenKaruiJewelCircle2.png", "CLAMP")
-	self.maraketh1 = NewImageHandle()
-	self.maraketh1:Load("TreeData/PassiveSkillScreenMarakethJewelCircle1.png", "CLAMP")
-	self.maraketh2 = NewImageHandle()
-	self.maraketh2:Load("TreeData/PassiveSkillScreenMarakethJewelCircle2.png", "CLAMP")
-	self.templar1 = NewImageHandle()
-	self.templar1:Load("TreeData/PassiveSkillScreenTemplarJewelCircle1.png", "CLAMP")
-	self.templar2 = NewImageHandle()
-	self.templar2:Load("TreeData/PassiveSkillScreenTemplarJewelCircle2.png", "CLAMP")
-	self.vaal1 = NewImageHandle()
-	self.vaal1:Load("TreeData/PassiveSkillScreenVaalJewelCircle1.png", "CLAMP")
-	self.vaal2 = NewImageHandle()
-	self.vaal2:Load("TreeData/PassiveSkillScreenVaalJewelCircle2.png", "CLAMP")
 
 	self.tooltip = new("Tooltip")
 
@@ -348,7 +327,7 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 	end
 
 	-- Draw the background artwork
-	local bg = tree:GetAssetByName("Background2", "background") or tree:GetAssetByName("Background1", "background")
+	local bg = tree:GetAssetByName("Background2")
 	if bg.width == 0 then
 		bg.width, bg.height = bg.handle:ImageSize()
 	end
@@ -361,19 +340,16 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 	self:DrawAllocMode(spec.allocMode, viewPort)
 
 	-- TODO: More dynamic
-	SetDrawLayer(nil, 10)
-	local treeCenter = tree:GetAssetByName("BGTree", "ascendancyBackground")
-	local treeCenterActive = tree:GetAssetByName("BGTreeActive", "ascendancyBackground")
+	local treeCenter = tree:GetAssetByName("BGTree")
+	local treeCenterActive = tree:GetAssetByName("BGTreeActive")
 	-- draw background artwork base on current class
 	local class = tree.classes[spec.curClassId]
 	if class and class.background then
 		local bgAssetName = class.background.image
-		local bgSection = class.background.section
 		if spec.curAscendClassId ~= 0 then
 			bgAssetName = class.classes[spec.curAscendClassId].background.image
-			bgSection = class.classes[spec.curAscendClassId].background.section
 		end
-		local bg = tree:GetAssetByName(bgAssetName, bgSection or "groupBackground")
+		local bg = tree:GetAssetByName(bgAssetName)
 		local scrX, scrY = treeToScreen(class.background.x * tree.scaleImage, class.background.y * tree.scaleImage)
 		bg.width =  class.background.width
 		bg.height = class.background.height
@@ -398,7 +374,7 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 	for name, data in pairs(tree.ascendNameMap) do
 		local ascendancy = data.ascendClass
 		if ascendancy.background then
-			local bg = tree:GetAssetByName(ascendancy.background.image, ascendancy.background.section or "groupBackground")
+			local bg = tree:GetAssetByName(ascendancy.background.image)
 			local scrX, scrY = treeToScreen(ascendancy.background.x * tree.scaleImage, ascendancy.background.y * tree.scaleImage)
 			bg.width = ascendancy.background.width
 			bg.height = ascendancy.background.height
@@ -414,8 +390,7 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 	local function renderGroup(group)
 		if group.background then
 			local scrX, scrY = treeToScreen(group.x * tree.scaleImage, group.y * tree.scaleImage)
-			local section = group.background.section or "groupBackground"
-			local bgAsset = tree:GetAssetByName(group.background.image, section)
+			local bgAsset = tree:GetAssetByName(group.background.image)
 			if group.background.offsetX and group.background.offsetY then
 				scrX, scrY = treeToScreen(group.x + group.background.offsetX, group.y + group.background.offsetY)
 			end
@@ -498,7 +473,7 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 			setConnectorColor(0.75, 0.75, 0.75)
 		end
 		SetDrawColor(unpack(connectorColor))
-		handle = tree:GetAssetByName(connector.type..state, "line").handle
+		handle = tree:GetAssetByName(connector.type..state).handle
 		DrawImageQuad(handle, unpack(connector.c))
 	end
 
@@ -589,11 +564,10 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 		local compareNode = self.compareSpec and self.compareSpec.nodes[nodeId] or nil
 
 		local base, overlay, effect
-		local overlaySection =  "frame"
 		local isAlloc = node.alloc or build.calcsTab.mainEnv.grantedPassives[nodeId] or (compareNode and compareNode.alloc)
 		SetDrawLayer(nil, 25)
 		if node.type == "ClassStart" then
-			overlay = isAlloc and node.startArt or "PSStartNodeBackgroundInactive"
+			overlay = nil
 		elseif node.type == "AscendClassStart" then
 			overlay = "AscendancyMiddle"
 			if node.ascendancyName and tree.secondaryAscendNameMap and tree.secondaryAscendNameMap[node.ascendancyName] then
@@ -612,24 +586,24 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 			end
 			if node.type == "Socket" then
 				-- Node is a jewel socket, retrieve the socketed jewel (if present) so we can display the correct art
-				base = tree:GetAssetByName(node.overlay[state], "frame")
+				base = tree:GetAssetByName(node.overlay[state])
 
 				local socket, jewel = build.itemsTab:GetSocketAndJewelForNodeID(nodeId)
 				if isAlloc and jewel then
 					overlay = jewel.baseName
-					overlaySection = "jewelpassive"
 				end
 			elseif node.type == "OnlyImage" then
 				-- This is the icon that appears in the center of many groups
-				base = tree:GetAssetByName(node.activeEffectImage, "masteryActiveEffect")
+				base = tree:GetAssetByName(node.activeEffectImage)
 
 				SetDrawLayer(nil, 15)
 			else
 				-- Normal node (includes keystones and notables)
 				if node.activeEffectImage then
-					effect = tree:GetAssetByName(node.activeEffectImage, "masteryActiveEffect")
+					effect = tree:GetAssetByName(node.activeEffectImage)
 				end
-				base = node.sprites[node.type:lower()..(isAlloc and "Active" or "Inactive")]
+
+				base = tree:GetAssetByName(node.icon)
 
 				overlay = node.overlay[state .. (node.ascendancyName and "Ascend" or "") .. (node.isBlighted and "Blighted" or "")]
 				
@@ -747,7 +721,13 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 				SetDrawColor(1,1,1, 0.15)
 				self:DrawAsset(base, scrX, scrY, scale)
 			else
+
+				if  not node.alloc then
+					self:LessLuminance()
+				end
+
 				self:DrawAsset(base, scrX, scrY, scale)
+				SetDrawColor(1, 1, 1, 1);
 			end
 		end
 
@@ -790,16 +770,16 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 				end
 			end
 
-			local overlayImage = tree:GetAssetByName(overlay, overlaySection)
+			local overlayImage = tree:GetAssetByName(overlay)
 
-			local additionalScale = 1
-			if node.ascendancyName then
-				additionalScale = 1.30
-			end
 			-- apply target size to the base image
 			if overlayImage and node.targetSize and node.targetSize["overlay"] then
-				overlayImage.width = node.targetSize["overlay"].width * additionalScale
-				overlayImage.height = node.targetSize["overlay"].height * additionalScale
+				overlayImage.width = node.targetSize["overlay"].width
+				overlayImage.height = node.targetSize["overlay"].height
+			end
+
+			if not node.alloc and (node.type == "AscendClassStart" or node.type == "ClassStart") then
+				self:LessLuminance()
 			end
 			self:DrawAsset(overlayImage, scrX, scrY, scale)
 			SetDrawColor(1, 1, 1)
@@ -893,21 +873,6 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 								DrawImage(self.jewelShadedInnerRingFlipped, keyX - innerSize, keyY - innerSize, innerSize * 2, innerSize * 2)
 							end
 						end
-					elseif jewel.title:match("^Brutal Restraint") then
-						DrawImage(self.maraketh1, scrX - outerSize, scrY - outerSize, outerSize * 2, outerSize * 2)
-						DrawImage(self.maraketh2, scrX - outerSize, scrY - outerSize, outerSize * 2, outerSize * 2)
-					elseif jewel.title:match("^Elegant Hubris") then
-						DrawImage(self.eternal1, scrX - outerSize, scrY - outerSize, outerSize * 2, outerSize * 2)
-						DrawImage(self.eternal2, scrX - outerSize, scrY - outerSize, outerSize * 2, outerSize * 2)
-					elseif jewel.title:match("^Glorious Vanity") then
-						DrawImage(self.vaal1, scrX - outerSize, scrY - outerSize, outerSize * 2, outerSize * 2)
-						DrawImage(self.vaal2, scrX - outerSize, scrY - outerSize, outerSize * 2, outerSize * 2)
-					elseif jewel.title:match("^Lethal Pride") then
-						DrawImage(self.karui1, scrX - outerSize, scrY - outerSize, outerSize * 2, outerSize * 2)
-						DrawImage(self.karui2, scrX - outerSize, scrY - outerSize, outerSize * 2, outerSize * 2)
-					elseif jewel.title:match("^Militant Faith") then
-						DrawImage(self.templar1, scrX - outerSize, scrY - outerSize, outerSize * 2, outerSize * 2)
-						DrawImage(self.templar2, scrX - outerSize, scrY - outerSize, outerSize * 2, outerSize * 2)
 					else
 						DrawImage(self.jewelShadedOuterRing, scrX - outerSize, scrY - outerSize, outerSize * 2, outerSize * 2)
 						DrawImage(self.jewelShadedOuterRingFlipped, scrX - outerSize, scrY - outerSize, outerSize * 2, outerSize * 2)
@@ -965,13 +930,6 @@ function PassiveTreeViewClass:DrawQuadAndRotate(data, xTree, yTree, angleRad, tr
 		vertActive[5], vertActive[6] = xActive + widthActive, yActive + heightActive
 		vertActive[7], vertActive[8] = xActive - widthActive, yActive + heightActive
 		vertActive[9] = data[1] -- s1
-		vertActive[10] = data[2] -- t1
-		vertActive[11] = data[3] -- s2
-		vertActive[12] = data[2] -- t1
-		vertActive[13] = data[3] -- s2
-		vertActive[14] = data[4] -- t2
-		vertActive[15] = data[1] -- s1
-		vertActive[16] = data[4] -- t2
 
 		-- rotate the quad
 		vertActive[1], vertActive[2] = treeToScreen(rotate(vertActive[1], vertActive[2], xActive, yActive, angleRad))
@@ -1298,4 +1256,27 @@ function PassiveTreeViewClass:DrawAllocMode(allocMode, viewPort)
 	DrawString(viewPort.x + 2, viewPort.y + viewPort.height - 20 + 2, "LEFT", 16, "VAR", string.format("^7Allocating Weapon set %d Mode", allocMode))
 
 	SetDrawColor(1, 1, 1, 1)
+
+	SetDrawLayer(nil, 10)
+end
+
+function PassiveTreeViewClass:LessLuminance()
+	local luminanceFactor = 0.5
+	local r,g,b,a = 1, 1, 1, 1
+	local desaturationFactor = 0.5;
+	local alphaFactor = 1;
+	local luminance = 0.2126 * r + 0.7152 * g  + 0.0722 * b;
+
+	-- Blend with original color
+	local newR = (1.0 - desaturationFactor) * r + desaturationFactor * luminance;
+	local newG = (1.0 - desaturationFactor) * g + desaturationFactor * luminance;
+	local newB = (1.0 - desaturationFactor) * b + desaturationFactor * luminance;
+
+	-- Apply luminance adjustment
+	newR = newR * luminanceFactor;
+	newG = newG * luminanceFactor;
+	newB = newB * luminanceFactor;
+
+	local newA = a * alphaFactor;
+	SetDrawColor(newR, newG, newB, newA)
 end

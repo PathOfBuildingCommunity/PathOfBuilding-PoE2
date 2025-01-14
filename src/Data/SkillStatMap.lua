@@ -501,6 +501,9 @@ return {
 	mod("CooldownRecovery", "BASE", nil),
 	div = 1000,
 },
+["base_cooldown_speed_+%_final"] = {
+	mod("CooldownRecovery", "MORE", nil),
+},
 ["additional_weapon_base_attack_time_ms"] = {
 	mod("Speed", "BASE", nil, ModFlag.Attack),
 	div = 1000,
@@ -570,6 +573,10 @@ return {
 },
 ["attack_critical_strike_chance_+%"] = {
 	mod("CritChance", "INC", nil, ModFlag.Attack),
+},
+["always_crit"] = {
+	mod("CritChance", "OVERRIDE", nil),
+	value = 100,
 },
 ["base_critical_strike_multiplier_+"] = {
 	mod("CritMultiplier", "BASE", nil),
@@ -1386,6 +1393,10 @@ return {
 ["pierce_%"] = {
 	mod("PierceChance", "BASE", nil),
 },
+["base_chance_to_pierce_%"] = {
+	mod("PierceCount", "BASE", nil),
+	div = 100,
+},
 ["always_pierce"] = {
 	flag("PierceAllTargets"),
 },
@@ -1396,6 +1407,9 @@ return {
 	mod("Damage", "INC", nil, ModFlag.Projectile, 0, { type = "StatThreshold", stat = "PiercedCount", threshold = 1 }),
 },
 ["projectile_damage_+%_final_if_pierced_enemy"] = {
+	mod("Damage", "MORE", nil, ModFlag.Projectile, 0, { type = "StatThreshold", stat = "PiercedCount", threshold = 1 }),
+},
+["support_pierce_projectile_damage_+%_final_if_pierced_enemy"] = {
 	mod("Damage", "MORE", nil, ModFlag.Projectile, 0, { type = "StatThreshold", stat = "PiercedCount", threshold = 1 }),
 },
 ["projectile_behaviour_only_explode"] = {
@@ -1446,6 +1460,9 @@ return {
 ["chains_hit_X_more_times"] = {
 	mod("ChainCountMax", "MORE", nil),
 	mult = 100,
+},
+["projectile_chance_to_chain_1_extra_time_from_terrain_%"] = {
+	mod("TerrainChainChance", "BASE", nil),
 },
 ["additional_beam_only_chains"] = {
 	mod("BeamChainCountMax", "BASE", nil),
@@ -1602,6 +1619,13 @@ return {
 },
 ["supplementary_stat_container_attack_speed_+%_final"] = {
 	mod("Speed", "MORE", nil, ModFlag.Attack),
+},
+["perfect_timing_window_ms_+%"] = {
+	mod("PerfectTiming", "INC", nil),
+},
+["perfect_strike_timing_window_base_ms"] = {
+	mod("PerfectTimingBase", "BASE", nil),
+	div = 1000,
 },
 ["damage_+%_per_power_charge"] = {
 	mod("Damage", "INC", nil, 0, 0, { type = "Multiplier", var = "PowerCharge" })
@@ -2141,8 +2165,14 @@ return {
 ["banner_buff_effect_+%_final_per_resource"] = {
 	mod("AuraEffect", "MORE", nil, 0, 0, { type = "Multiplier", var = "BannerValour" }, { type = "Condition", var = "BannerPlanted" }),
 },
-["banner_area_of_effect_+%_final_per_resource"] = {
-	mod("AreaOfEffect", "MORE", nil, 0, 0, { type = "Multiplier", var = "BannerValour" }, { type = "Condition", var = "BannerPlanted" }),
+
+-- Crossbow
+["reload_speed_+%"] = {
+	mod("ReloadSpeed", "INC", nil),
+},
+-- Grenade
+["grenade_skill_%_chance_to_explode_twice"] = {
+	mod("GrenadeExplodeTwice", "INC", nil),
 },
 -- Other
 ["triggered_skill_damage_+%"] = {
@@ -2170,6 +2200,9 @@ return {
 	mod("MinionModifier", "LIST", { mod = flag("Condition:CanWither") }),
 },
 ["withered_on_hit_for_2_seconds_%_chance"] = {
+	flag("Condition:CanWither"),
+},
+["withered_on_chaos_damage_hit_chance_%"] = {
 	flag("Condition:CanWither"),
 },
 ["discharge_damage_+%_if_3_charge_types_removed"] = {

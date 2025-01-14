@@ -21,12 +21,12 @@ skills["SupportFasterProjectilesPlayer"] = {
 			label = "Acceleration",
 			baseEffectiveness = 0,
 			incrementalEffectiveness = 0.092720001935959,
-	statDescriptionScope = "gem_stat_descriptions",
-	statMap = {
-		["support_faster_projectiles_projectile_speed_+%_final"] = {
-			mod("ProjectileSpeed", "MORE", nil),
-		},
-	},
+			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_faster_projectiles_projectile_speed_+%_final"] = {
+					mod("ProjectileSpeed", "MORE", nil),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -55,12 +55,12 @@ skills["SupportAmmoConservationPlayer"] = {
 		[1] = {
 			label = "Ammo Conservation",
 			incrementalEffectiveness = 0.054999999701977,
-	statDescriptionScope = "gem_stat_descriptions",
-	statMap = {
-		["crossbow_attack_%_chance_to_not_consume_ammo"] = {
-			mod("ChanceToNotConsumeAmmo", "BASE", nil),
-		},
-	},
+			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["crossbow_attack_%_chance_to_not_consume_ammo"] = {
+					mod("ChanceToNotConsumeAmmo", "BASE", nil),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -89,7 +89,7 @@ skills["SupportBlindPlayer"] = {
 		[1] = {
 			label = "Blind",
 			incrementalEffectiveness = 0.092720001935959,
-	statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -118,7 +118,7 @@ skills["SupportDazedBreakPlayer"] = {
 		[1] = {
 			label = "Break Posture",
 			incrementalEffectiveness = 0.054999999701977,
-	statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -149,12 +149,12 @@ skills["SupportAdditionalAccuracyPlayer"] = {
 			label = "Bullseye",
 			baseEffectiveness = 0,
 			incrementalEffectiveness = 0.092720001935959,
-	statDescriptionScope = "gem_stat_descriptions",
-	statMap = {
-		["support_additional_accurary_rating_+%_final"] = {
-			mod("Accuracy", "MORE", nil),
-		},
-	},
+			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_additional_accurary_rating_+%_final"] = {
+					mod("Accuracy", "MORE", nil),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -184,7 +184,7 @@ skills["SupportBurstingPlaguePlayer"] = {
 		[1] = {
 			label = "Support",
 			incrementalEffectiveness = 0.054999999701977,
-	statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -246,12 +246,12 @@ skills["SupportChainPlayer"] = {
 		[1] = {
 			label = "Chain",
 			incrementalEffectiveness = 0.092720001935959,
-	statDescriptionScope = "gem_stat_descriptions",
-	statMap = {
-		["support_chain_hit_damage_+%_final"] = {
-			mod("Damage", "MORE", nil),
-		},
-	},
+			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_chain_hit_damage_+%_final"] = {
+					mod("Damage", "MORE", nil),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -283,12 +283,12 @@ skills["SupportCloseCombatPlayer"] = {
 		[1] = {
 			label = "Close Combat",
 			incrementalEffectiveness = 0.092720001935959,
-	statDescriptionScope = "gem_stat_descriptions",
-	statMap = {
-		["support_close_combat_attack_damage_+%_final_from_distance"] = {
-			mod("Damage", "MORE", nil, 0, 0, { type = "DistanceRamp", ramp = {{10,1},{35,0}} }),
-		},
-	},
+			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_close_combat_attack_damage_+%_final_from_distance"] = {
+					mod("Damage", "MORE", nil, 0, 0, { type = "DistanceRamp", ramp = {{10,1},{35,0}} }),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -332,7 +332,7 @@ skills["SupportComboFinisherPlayer"] = {
 		[1] = {
 			label = "Combo Finisher",
 			incrementalEffectiveness = 0.054999999701977,
-	statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -363,16 +363,16 @@ skills["SupportMultiplePoisonPlayer"] = {
 		[1] = {
 			label = "Comorbidity",
 			incrementalEffectiveness = 0.054999999701977,
-	statDescriptionScope = "gem_stat_descriptions",
-	statMap = {
-		["support_multi_poison_poison_duration_+%_final"] = {
-			mod("EnemyPoisonDuration", "MORE", nil),
-		},
-		["number_of_additional_poison_stacks"] = {
-			mod("PoisonStacks", "BASE", nil),
-			flag("PoisonCanStack"),
-		},
-	},
+			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_multi_poison_poison_duration_+%_final"] = {
+					mod("EnemyPoisonDuration", "MORE", nil),
+				},
+				["number_of_additional_poison_stacks"] = {
+					mod("PoisonStacks", "BASE", nil),
+					flag("PoisonCanStack"),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -402,12 +402,12 @@ skills["SupportChanceToShockPlayer"] = {
 		[1] = {
 			label = "Conduction",
 			incrementalEffectiveness = 0.092720001935959,
-	statDescriptionScope = "gem_stat_descriptions",
-	statMap = {
-		["support_conduction_chance_to_shock_+%_final"] = {
-			mod("EnemyShockChance", "MORE", nil),
-		},
-	},
+			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_conduction_chance_to_shock_+%_final"] = {
+					mod("EnemyShockChance", "MORE", nil),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -436,7 +436,7 @@ skills["SupportCorrosionPlayer"] = {
 		[1] = {
 			label = "Corrosion",
 			incrementalEffectiveness = 0.054999999701977,
-	statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -465,7 +465,7 @@ skills["SupportCrescendoPlayer"] = {
 		[1] = {
 			label = "Crescendo",
 			incrementalEffectiveness = 0.054999999701977,
-	statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			stats = {
@@ -492,13 +492,13 @@ skills["SupportCullingStrikePlayer"] = {
 		[1] = {
 			label = "Culling Strike",
 			incrementalEffectiveness = 0.054999999701977,
-	statDescriptionScope = "gem_stat_descriptions",
-	statMap = {
-		["support_culling_strike_vs_rare_or_unique_enemy"] = {
-			mod("CullPercent", "MAX", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "RareOrUnique" }),
-			value = 10
-		},
-	},
+			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_culling_strike_vs_rare_or_unique_enemy"] = {
+					mod("CullPercent", "MAX", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "RareOrUnique" }),
+					value = 10
+				},
+			},
 			baseFlags = {
 			},
 			stats = {
@@ -525,7 +525,7 @@ skills["SupportCulminationPlayer"] = {
 		[1] = {
 			label = "Culmination",
 			incrementalEffectiveness = 0.054999999701977,
-	statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -556,15 +556,15 @@ skills["SupportDeadlyPoisonPlayer"] = {
 		[1] = {
 			label = "Deadly Poison",
 			incrementalEffectiveness = 0.054999999701977,
-	statDescriptionScope = "gem_stat_descriptions",
-	statMap = {
-		["support_deadly_poison_hit_damage_+%_final"] = {
-			mod("Damage", "MORE", nil, ModFlag.Hit, KeywordFlag.Poison),
-		},
-		["support_deadly_poison_poison_effect_+%_final"] = {
-			mod("AilmentMagnitude", "MORE", nil, 0, KeywordFlag.Poison),
-		},
-	},
+			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_deadly_poison_hit_damage_+%_final"] = {
+					mod("Damage", "MORE", nil, ModFlag.Hit, KeywordFlag.Poison),
+				},
+				["support_deadly_poison_poison_effect_+%_final"] = {
+					mod("AilmentMagnitude", "MORE", nil, 0, KeywordFlag.Poison),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -594,12 +594,12 @@ skills["SupportSlowerProjectilesPlayer"] = {
 		[1] = {
 			label = "Deceleration",
 			incrementalEffectiveness = 0.092720001935959,
-	statDescriptionScope = "gem_stat_descriptions",
-	statMap = {
-		["support_slower_projectiles_projectile_speed_+%_final"] = {
-			mod("ProjectileSpeed", "MORE", nil),
-		},
-	},
+			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_slower_projectiles_projectile_speed_+%_final"] = {
+					mod("ProjectileSpeed", "MORE", nil),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -628,7 +628,7 @@ skills["SupportDazingPlayer"] = {
 		[1] = {
 			label = "Discombobulate",
 			incrementalEffectiveness = 0.054999999701977,
-	statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -657,7 +657,7 @@ skills["SupportElectrocutePlayer"] = {
 		[1] = {
 			label = "Electrocute",
 			incrementalEffectiveness = 0.054999999701977,
-	statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			stats = {
@@ -685,7 +685,7 @@ skills["SupportEncumberancePlayer"] = {
 		[1] = {
 			label = "Encumbrance",
 			incrementalEffectiveness = 0.054999999701977,
-	statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -714,7 +714,7 @@ skills["SupportChanceToPoisonPlayer"] = {
 		[1] = {
 			label = "Envenom",
 			incrementalEffectiveness = 0.092720001935959,
-	statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -743,12 +743,12 @@ skills["SupportFerocityPlayer"] = {
 		[1] = {
 			label = "Ferocity",
 			incrementalEffectiveness = 0.054999999701977,
-	statDescriptionScope = "gem_stat_descriptions",
-	statMap = {
-		["skill_consume_frenzy_charge_to_gain_skill_speed_+%_final"] = {
-			mod("Speed", "MORE", nil, 0, 0, { type = "MultiplierThreshold", var = "RemovableFrenzyCharge", threshold = 1 }),
-		},
-	},
+			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["skill_consume_frenzy_charge_to_gain_skill_speed_+%_final"] = {
+					mod("Speed", "MORE", nil, 0, 0, { type = "MultiplierThreshold", var = "RemovableFrenzyCharge", threshold = 1 }),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -778,12 +778,12 @@ skills["SupportForkPlayer"] = {
 		[1] = {
 			label = "Fork",
 			incrementalEffectiveness = 0.092720001935959,
-	statDescriptionScope = "gem_stat_descriptions",
-	statMap = {
-		["support_fork_forked_projectile_damage_+%_final"] = {
-			mod("Damage", "MORE", nil, 0, 0, { type = "StatThreshold", stat = "ForkedCount", threshold = 1 }),
-		},
-	},
+			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_fork_forked_projectile_damage_+%_final"] = {
+					mod("Damage", "MORE", nil, 0, 0, { type = "StatThreshold", stat = "ForkedCount", threshold = 1 }),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -800,7 +800,8 @@ skills["SupportForkPlayer"] = {
 	}
 }
 skills["SupportFusilladePlayer"] = {
-	name = "Fusillade",
+	name = "SupportFusilladePlayer",
+	hidden = true,
 	color = 2,
 	support = true,
 	requireSkillTypes = { SkillType.Projectile, SkillType.RangedAttack, SkillType.AND, },
@@ -814,14 +815,14 @@ skills["SupportFusilladePlayer"] = {
 	},
 	statSets = {
 		[1] = {
-			label = "Fusillade",
+			label = "SupportFusilladePlayer",
 			incrementalEffectiveness = 0.054999999701977,
-	statDescriptionScope = "gem_stat_descriptions",
-	statMap = {
-		["skill_can_only_use_bow"] = {
-			-- Display only
-		},
-	},
+			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["skill_can_only_use_bow"] = {
+					-- Display only
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -853,12 +854,12 @@ skills["SupportCooldownReductionPlayer"] = {
 		[1] = {
 			label = "Ingenuity",
 			incrementalEffectiveness = 0.054999999701977,
-	statDescriptionScope = "gem_stat_descriptions",
-	statMap = {
-		["support_cooldown_reduction_cooldown_recovery_+%"] = {
-			mod("CooldownRecovery", "INC", nil),
-		},
-	},
+			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_cooldown_reduction_cooldown_recovery_+%"] = {
+					mod("CooldownRecovery", "INC", nil),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -888,12 +889,12 @@ skills["SupportInnervatePlayer"] = {
 		[1] = {
 			label = "Innervate",
 			incrementalEffectiveness = 0.054999999701977,
-	statDescriptionScope = "gem_stat_descriptions",
-	statMap = {
-		["support_innervate_buff_base_duration_ms"] = {
-			-- Display only
-		},
-	},
+			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_innervate_buff_base_duration_ms"] = {
+					-- Display only
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -923,12 +924,12 @@ skills["SupportLastingShockPlayer"] = {
 		[1] = {
 			label = "Lasting Shock",
 			incrementalEffectiveness = 0.092720001935959,
-	statDescriptionScope = "gem_stat_descriptions",
-	statMap = {
-		["support_lasting_shock_chance_to_shock_+%_final"] = {
-			mod("EnemyShockChance", "MORE", nil),
-		},
-	},
+			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_lasting_shock_chance_to_shock_+%_final"] = {
+					mod("EnemyShockChance", "MORE", nil),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -958,7 +959,7 @@ skills["SupportLeveragePlayer"] = {
 		[1] = {
 			label = "Leverage",
 			incrementalEffectiveness = 0.054999999701977,
-	statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -987,7 +988,7 @@ skills["SupportLifeFlaskPlayer"] = {
 		[1] = {
 			label = "Life Bounty",
 			incrementalEffectiveness = 0.054999999701977,
-	statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -1016,7 +1017,7 @@ skills["SupportLifeOnCullPlayer"] = {
 		[1] = {
 			label = "Life Drain",
 			incrementalEffectiveness = 0.054999999701977,
-	statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -1045,7 +1046,7 @@ skills["SupportLightningExposurePlayer"] = {
 		[1] = {
 			label = "Lightning Exposure",
 			incrementalEffectiveness = 0.054999999701977,
-	statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -1076,13 +1077,13 @@ skills["SupportAddedLightningDamagePlayer"] = {
 			baseEffectiveness = 0.52710002660751,
 			incrementalEffectiveness = 0.092720001935959,
 			damageIncrementalEffectiveness = 0.037200000137091,
-	statDescriptionScope = "gem_stat_descriptions",
-	statMap = {
-		["support_cold_and_fire_damage_+%_final"] = {
-			mod("ColdDamage", "MORE", nil),
-			mod("FireDamage", "MORE", nil),
-		},
-	},
+			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_cold_and_fire_damage_+%_final"] = {
+					mod("ColdDamage", "MORE", nil),
+					mod("FireDamage", "MORE", nil),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -1112,7 +1113,7 @@ skills["SupportLightningPenetrationPlayer"] = {
 		[1] = {
 			label = "Lightning Penetration",
 			incrementalEffectiveness = 0.092720001935959,
-	statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -1141,7 +1142,7 @@ skills["SupportLockdownPlayer"] = {
 		[1] = {
 			label = "Lockdown",
 			incrementalEffectiveness = 0.054999999701977,
-	statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -1171,12 +1172,12 @@ skills["SupportFarCombatPlayer"] = {
 		[1] = {
 			label = "Longshot",
 			incrementalEffectiveness = 0.092720001935959,
-	statDescriptionScope = "gem_stat_descriptions",
-	statMap = {
-		["support_far_combat_attack_damage_+%_final_from_distance"] = {
-			mod("Damage", "MORE", nil, 0, 0, { type = "DistanceRamp", ramp = {{35,0},{70,1}} }),
-		},
-	},
+			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_far_combat_attack_damage_+%_final_from_distance"] = {
+					mod("Damage", "MORE", nil, 0, 0, { type = "DistanceRamp", ramp = {{35,0},{70,1}} }),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -1207,7 +1208,7 @@ skills["SupportMaimPlayer"] = {
 		[1] = {
 			label = "Maim",
 			incrementalEffectiveness = 0.092720001935959,
-	statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -1236,7 +1237,7 @@ skills["SupportManaFlaskPlayer"] = {
 		[1] = {
 			label = "Mana Bounty",
 			incrementalEffectiveness = 0.054999999701977,
-	statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -1266,12 +1267,12 @@ skills["SupportFasterAttackPlayer"] = {
 			label = "Martial Tempo",
 			baseEffectiveness = 0,
 			incrementalEffectiveness = 0.092720001935959,
-	statDescriptionScope = "gem_stat_descriptions",
-	statMap = {
-		["support_faster_attacks_attack_speed_+%_final"] = {
-			mod("Speed", "MORE", nil, ModFlag.Attack),
-		},
-	},
+			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_faster_attacks_attack_speed_+%_final"] = {
+					mod("Speed", "MORE", nil, ModFlag.Attack),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -1301,7 +1302,7 @@ skills["SupportMobilityPlayer"] = {
 		[1] = {
 			label = "Mobility",
 			incrementalEffectiveness = 0.054999999701977,
-	statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -1332,12 +1333,12 @@ skills["SupportMomentumPlayer"] = {
 		[1] = {
 			label = "Momentum",
 			incrementalEffectiveness = 0.054999999701977,
-	statDescriptionScope = "gem_stat_descriptions",
-	statMap = {
-		["support_momnetum_damage_+%_final_with_momentum"] = {
-			mod("Damage", "MORE", nil, 0, 0, { type = "Condition", var = "Moved2m" }),
-		},
-	},
+			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_momnetum_damage_+%_final_with_momentum"] = {
+					mod("Damage", "MORE", nil, 0, 0, { type = "Condition", var = "Moved2m" }),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -1367,7 +1368,7 @@ skills["SupportEmpoweredCullPlayer"] = {
 		[1] = {
 			label = "Murderous Intent",
 			incrementalEffectiveness = 0.054999999701977,
-	statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			stats = {
@@ -1394,7 +1395,7 @@ skills["SupportNeuralOverloadPlayer"] = {
 		[1] = {
 			label = "Neural Overload",
 			incrementalEffectiveness = 0.054999999701977,
-	statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			stats = {
@@ -1422,7 +1423,7 @@ skills["SupportNimbleReloadPlayer"] = {
 		[1] = {
 			label = "Nimble Reload",
 			incrementalEffectiveness = 0.054999999701977,
-	statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -1451,7 +1452,12 @@ skills["SupportIncreaseLimitPlayer"] = {
 		[1] = {
 			label = "Overabundance",
 			incrementalEffectiveness = 0.054999999701977,
-	statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_limit_skill_effect_duration_+%_final"] = {
+					mod("Duration", "MORE", nil),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -1481,7 +1487,7 @@ skills["SupportOverchargePlayer"] = {
 		[1] = {
 			label = "Overcharge",
 			incrementalEffectiveness = 0.092720001935959,
-	statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -1511,7 +1517,7 @@ skills["SupportPayloadPlayer"] = {
 		[1] = {
 			label = "Payload",
 			incrementalEffectiveness = 0.054999999701977,
-	statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -1543,7 +1549,7 @@ skills["SupportPerpetualChargePlayer"] = {
 		[1] = {
 			label = "Perpetual Charge",
 			incrementalEffectiveness = 0.054999999701977,
-	statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -1573,7 +1579,7 @@ skills["SupportPiercePlayer"] = {
 			label = "Pierce",
 			baseEffectiveness = 0,
 			incrementalEffectiveness = 0.092720001935959,
-	statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -1603,7 +1609,7 @@ skills["SupportPinPlayer"] = {
 		[1] = {
 			label = "Pin",
 			incrementalEffectiveness = 0.054999999701977,
-	statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -1634,7 +1640,7 @@ skills["SupportPracticedComboPlayer"] = {
 		[1] = {
 			label = "Practiced Combo",
 			incrementalEffectiveness = 0.054999999701977,
-	statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -1663,7 +1669,12 @@ skills["SupportPrecisionPlayer"] = {
 		[1] = {
 			label = "Precision",
 			incrementalEffectiveness = 0.054999999701977,
-	statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_precision_accuracy_rating_+%"] = {
+					mod("Accuracy", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Precision" } ),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -1692,7 +1703,7 @@ skills["SupportMultipleChargesPlayer"] = {
 		[1] = {
 			label = "Profusion",
 			incrementalEffectiveness = 0.054999999701977,
-	statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -1721,7 +1732,7 @@ skills["SupportRicochetPlayer"] = {
 		[1] = {
 			label = "Ricochet",
 			incrementalEffectiveness = 0.054999999701977,
-	statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -1751,7 +1762,15 @@ skills["SupportMultipleProjectilesPlayer"] = {
 			label = "Scattershot",
 			baseEffectiveness = 0,
 			incrementalEffectiveness = 0.092720001935959,
-	statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_multiple_damage_+%_final"] = {
+					mod("Damage", "MORE", nil),
+				},
+				["support_multiple_attack_and_cast_speed_+%_final"] = {
+					mod("Speed", "INC", nil),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -1783,7 +1802,7 @@ skills["SupportSecondWindPlayer"] = {
 		[1] = {
 			label = "Second Wind",
 			incrementalEffectiveness = 0.092720001935959,
-	statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -1813,7 +1832,7 @@ skills["SupportManaOnCullPlayer"] = {
 		[1] = {
 			label = "Soul Drain",
 			incrementalEffectiveness = 0.054999999701977,
-	statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -1842,7 +1861,12 @@ skills["SupportSwiftAfflictionPlayer"] = {
 		[1] = {
 			label = "Swift Affliction",
 			incrementalEffectiveness = 0.054999999701977,
-	statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_rapid_decay_damage_over_time_+%_final"] = {
+					mod("Damage", "MORE", nil, ModFlag.Dot),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -1872,7 +1896,7 @@ skills["SupportKnockbackWavePlayer"] = {
 		[1] = {
 			label = "Support",
 			incrementalEffectiveness = 0.054999999701977,
-	statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			stats = {
@@ -1933,7 +1957,12 @@ skills["SupportWindowOfOpportunityPlayer"] = {
 		[1] = {
 			label = "Window of Opportunity",
 			incrementalEffectiveness = 0.054999999701977,
-	statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_window_of_opportunity_perfect_timing_damage_+%_final"] = {
+					mod("Damage", "MORE", nil, 0, 0, { type = "Condition", var = "PerfectTiming" }),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {

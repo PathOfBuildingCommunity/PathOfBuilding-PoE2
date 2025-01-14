@@ -93,6 +93,11 @@ local skills, mod, flag, skill = ...
 #skill SupportClarityPlayer
 #startSets
 #set SupportClarityPlayer
+			statMap = {
+				["support_clarity_mana_regeneration_rate_+%"] = {
+					mod("ManaRegen", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Clarity" }),
+				},
+			},
 #mods
 #skillEnd
 

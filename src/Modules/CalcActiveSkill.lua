@@ -518,6 +518,9 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 			end
 			if level.manaReservationPercent then
 				activeSkill.skillData.manaReservationPercent = level.manaReservationPercent
+			end
+			if level.spiritReservationFlat then
+				skillModList:NewMod("ExtraSpirit", "BASE", level.spiritReservationFlat, skillEffect.grantedEffect.modSource)
 			end	
 			-- Handle multiple triggers situation and if triggered by a trigger skill save a reference to the trigger.
 			local match = skillEffect.grantedEffect.addSkillTypes and (not skillFlags.disable)

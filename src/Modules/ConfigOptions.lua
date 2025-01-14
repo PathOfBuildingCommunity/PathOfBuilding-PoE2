@@ -54,9 +54,12 @@ local function questModsRewards(source, line, modList)
 end
 
 local function addQuestModsRewardsConfigOptions(configSettings)
-	table.insert(configSettings, { section = "Quest Rewards", col = 1 })
+	table.insert(configSettings, { section = "Quest Rewards", col = 3 })
 
 	for i, quest in ipairs(data.questRewards) do
+		if quest.useConfig == false then
+			goto continue
+		end
 		local source = string.format("Quest:Act %d %s %s", quest.Act, quest.Type, quest.Area)
 		if quest.Stat then
 			table.insert(configSettings,{
@@ -89,6 +92,7 @@ local function addQuestModsRewardsConfigOptions(configSettings)
 				end
 			})
 		end
+		::continue::
 	end
 end
 
@@ -929,7 +933,7 @@ Huge sets the radius to 11.
 	{ var = "multiplierPoisonOnSelf", type = "count", label = "# of Poison on You:", ifMult = "PoisonStack", implyCond = "Poisoned", tooltip = "This also implies that you are Poisoned.", apply = function(val, modList, enemyModList)
 		modList:NewMod("Multiplier:PoisonStack", "BASE", val, "Config", { type = "Condition", var = "Effective" })
 	end },
-	{ var = "multiplierWitheredStackCountSelf", type = "countAllowZero", label = "# of Withered Stacks on you:", ifFlag = "Condition:CanBeWithered", tooltip = "Withered applies 6% increased ^xD02090Chaos ^7Damage Taken to the self, up to 15 stacks.", defaultPlaceholderState = 15, apply = function(val, modList, enemyModList)
+	{ var = "multiplierWitheredStackCountSelf", type = "countAllowZero", label = "# of Withered Stacks on you:", ifFlag = "Condition:CanBeWithered", tooltip = "Withered applies 5% increased ^xD02090Chaos ^7Damage Taken to the self, up to 10 stacks.", defaultPlaceholderState = 15, apply = function(val, modList, enemyModList)
 		modList:NewMod("Multiplier:WitheredStack", "BASE", val, "Config", { type = "Condition", var = "Effective" })
 	end },
 	{ var = "multiplierNearbyEnemies", type = "count", label = "# of nearby Enemies:", ifMult = "NearbyEnemies", apply = function(val, modList, enemyModList)
@@ -1455,7 +1459,7 @@ Huge sets the radius to 11.
 	{ var = "multiplierCurseDurationExpiredOnEnemy", type = "count", label = "Curse Duration Expired on enemy:", ifEnemyMult = "CurseDurationExpired", apply = function(val, modList, enemyModList)
 		enemyModList:NewMod("Multiplier:CurseDurationExpired", "BASE", val, "Config", { type = "Condition", var = "Effective" })
 	end },
-	{ var = "multiplierWitheredStackCount", type = "count", label = "# of Withered Stacks:", ifFlag = "Condition:CanWither", tooltip = "Withered applies 6% increased ^xD02090Chaos ^7Damage Taken to the enemy, up to 15 stacks.", apply = function(val, modList, enemyModList)
+	{ var = "multiplierWitheredStackCount", type = "count", label = "# of Withered Stacks:", ifFlag = "Condition:CanWither", tooltip = "Withered applies 5% increased ^xD02090Chaos ^7Damage Taken to the enemy, up to 10 stacks.", apply = function(val, modList, enemyModList)
 		enemyModList:NewMod("Multiplier:WitheredStack", "BASE", val, "Config", { type = "Condition", var = "Effective" })
 	end },
 	{ var = "multiplierCorrosionStackCount", type = "count", label = "# of Corrosion Stacks:", ifFlag = "Condition:CanCorrode", tooltip = "Each stack of Corrosion applies -5000 to total Armour and -1000 to total ^x33FF77Evasion Rating ^7to the enemy.\nCorrosion lasts 4 seconds and refreshes the duration of existing Corrosion stacks\nCorrosion has no stack limit", apply = function(val, modList, enemyModList)

@@ -78,7 +78,7 @@ function itemLib.applyRange(line, range, valueScalar, baseValueScalar)
 		if sign == "-" then value = value * -1 end
 		return (sign == "+" and value > 0 ) and sign..tostring(value) or tostring(value)
 	end)
-	:gsub("%-(%d+%%) (%a+)", antonymFunc)
+	:gsub("%-(%d+%.?%d*%%) (%a+)", antonymFunc)
 	:gsub("(%-?%d+%.?%d*)", function(value)
 		t_insert(values, value)
 		return "#"
@@ -260,7 +260,7 @@ function itemLib.applyRange(line, range, valueScalar, baseValueScalar)
 			end
 		end
 		for _, replacement in ipairs(scalableValues) do
-			scalableLine = scalableLine:gsub("#", replacement)
+			scalableLine = scalableLine:gsub("#", replacement, 1)
 		end
 		return scalableLine
 	else -- fallback to old method for determining scalability

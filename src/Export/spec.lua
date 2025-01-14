@@ -13699,39 +13699,39 @@ return {
 			name="",
 			refTo="",
 			type="Int",
-			width=150
+			width=80
 		},
 		[26]={
 			list=false,
-			name="",
+			name="Tier",
 			refTo="",
 			type="Int",
-			width=150
+			width=80
 		},
 		[27]={
 			list=false,
 			name="",
 			refTo="",
 			type="Bool",
-			width=150
+			width=80
 		},
 		[28]={
 			list=false,
 			name="",
 			refTo="",
 			type="Int",
-			width=150
+			width=80
 		},
 		[29]={
 			list=false,
 			name="",
 			refTo="",
 			type="Bool",
-			width=150
+			width=80
 		},
 		[30]={
 			list=false,
-			name="",
+			name="StatAffinity",
 			refTo="",
 			type="String",
 			width=150

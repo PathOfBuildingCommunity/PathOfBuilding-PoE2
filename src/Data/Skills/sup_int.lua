@@ -21,7 +21,7 @@ skills["SupportAblationPlayer"] = {
 		[1] = {
 			label = "Ablation",
 			incrementalEffectiveness = 0.054999999701977,
-	statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -52,7 +52,7 @@ skills["SupportAmbushPlayer"] = {
 		[1] = {
 			label = "Ambush",
 			incrementalEffectiveness = 0.054999999701977,
-	statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -81,7 +81,7 @@ skills["SupportArcaneSurgePlayer"] = {
 		[1] = {
 			label = "Arcane Surge",
 			incrementalEffectiveness = 0.092720001935959,
-	statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -112,7 +112,7 @@ skills["SupportFasterCastPlayer"] = {
 			label = "Arcane Tempo",
 			baseEffectiveness = 0,
 			incrementalEffectiveness = 0.092720001935959,
-	statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -142,7 +142,7 @@ skills["SupportAstralProjectionPlayer"] = {
 		[1] = {
 			label = "Astral Projection",
 			incrementalEffectiveness = 0.054999999701977,
-	statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -172,7 +172,7 @@ skills["SupportBiddingPlayer"] = {
 		[1] = {
 			label = "Bidding",
 			incrementalEffectiveness = 0.054999999701977,
-	statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -201,7 +201,7 @@ skills["SupportBitingFrostPlayer"] = {
 		[1] = {
 			label = "Biting Frost",
 			incrementalEffectiveness = 0.054999999701977,
-	statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -231,7 +231,7 @@ skills["SupportBurningRunesPlayer"] = {
 		[1] = {
 			label = "Support",
 			incrementalEffectiveness = 0.054999999701977,
-	statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			stats = {
@@ -368,7 +368,7 @@ skills["SupportCapacitorPlayer"] = {
 		[1] = {
 			label = "Capacitor",
 			incrementalEffectiveness = 0.054999999701977,
-	statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -438,7 +438,7 @@ skills["SupportAddedChaosDamagePlayer"] = {
 			baseEffectiveness = 0.47119998931885,
 			incrementalEffectiveness = 0.092720001935959,
 			damageIncrementalEffectiveness = 0.039200000464916,
-	statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "gem_stat_descriptions",
 	statMap = {
 		["support_chaos_support_non_chaos_damage_+%_final"] = {
 			mod("ColdDamage", "MORE", nil),
@@ -476,7 +476,7 @@ skills["SupportChaosMasteryPlayer"] = {
 		[1] = {
 			label = "Chaos Mastery",
 			incrementalEffectiveness = 0.054999999701977,
-	statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -505,7 +505,7 @@ skills["SupportChaoticFreezePlayer"] = {
 		[1] = {
 			label = "Chaotic Freeze",
 			incrementalEffectiveness = 0.054999999701977,
-	statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			stats = {
@@ -532,7 +532,12 @@ skills["SupportClarityPlayer"] = {
 		[1] = {
 			label = "Clarity",
 			incrementalEffectiveness = 0.054999999701977,
-	statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_clarity_mana_regeneration_rate_+%"] = {
+					mod("ManaRegen", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Clarity" }),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -561,7 +566,7 @@ skills["SupportColdExposurePlayer"] = {
 		[1] = {
 			label = "Cold Exposure",
 			incrementalEffectiveness = 0.054999999701977,
-	statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -592,7 +597,7 @@ skills["SupportAddedColdDamagePlayer"] = {
 			baseEffectiveness = 0.58050000667572,
 			incrementalEffectiveness = 0.092720001935959,
 			damageIncrementalEffectiveness = 0.035900000482798,
-	statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "gem_stat_descriptions",
 	statMap = {
 		["support_fire_and_lightning_damage_+%_final"] = {
 			mod("FireDamage", "MORE", nil),
@@ -628,7 +633,7 @@ skills["SupportColdMasteryPlayer"] = {
 		[1] = {
 			label = "Cold Mastery",
 			incrementalEffectiveness = 0.054999999701977,
-	statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -657,7 +662,7 @@ skills["SupportColdPenetrationPlayer"] = {
 		[1] = {
 			label = "Cold Penetration",
 			incrementalEffectiveness = 0.092720001935959,
-	statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -687,7 +692,7 @@ skills["SupportConcentratedEffectPlayer"] = {
 			label = "Concentrated Effect",
 			baseEffectiveness = 0,
 			incrementalEffectiveness = 0.092720001935959,
-	statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "gem_stat_descriptions",
 	statMap = {
 		["support_concentrated_effect_skill_area_of_effect_+%_final"] = {
 			mod("AreaOfEffect", "MORE", nil),
@@ -725,7 +730,7 @@ skills["SupportConsideredCastingPlayer"] = {
 		[1] = {
 			label = "Considered Casting",
 			incrementalEffectiveness = 0.054999999701977,
-	statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -755,7 +760,7 @@ skills["SupportControlledDestructionPlayer"] = {
 		[1] = {
 			label = "Controlled Destruction",
 			incrementalEffectiveness = 0.092720001935959,
-	statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -785,7 +790,7 @@ skills["SupportCorpseConservationPlayer"] = {
 		[1] = {
 			label = "Corpse Conservation",
 			incrementalEffectiveness = 0.054999999701977,
-	statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -814,7 +819,7 @@ skills["SupportCoursingCurrentPlayer"] = {
 		[1] = {
 			label = "Coursing Current",
 			incrementalEffectiveness = 0.054999999701977,
-	statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -844,7 +849,7 @@ skills["SupportCursedGroundPlayer"] = {
 		[1] = {
 			label = "Cursed Ground",
 			incrementalEffectiveness = 0.054999999701977,
-	statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			stats = {
@@ -871,7 +876,7 @@ skills["SupportDanseMacabrePlayer"] = {
 		[1] = {
 			label = "Danse Macabre",
 			incrementalEffectiveness = 0.054999999701977,
-	statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -902,7 +907,7 @@ skills["SupportDecayingHexPlayer"] = {
 		[1] = {
 			label = "Decaying Hex",
 			incrementalEffectiveness = 0.054999999701977,
-	statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -931,7 +936,7 @@ skills["SupportLastingFrostPlayer"] = {
 		[1] = {
 			label = "Deep Freeze",
 			incrementalEffectiveness = 0.054999999701977,
-	statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -960,7 +965,7 @@ skills["SupportDrainedAilmentPlayer"] = {
 		[1] = {
 			label = "Drain Ailments",
 			incrementalEffectiveness = 0.054999999701977,
-	statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -989,7 +994,7 @@ skills["SupportElementalArmyPlayer"] = {
 		[1] = {
 			label = "Elemental Army",
 			incrementalEffectiveness = 0.092720001935959,
-	statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -1019,7 +1024,7 @@ skills["SupportElementalDischargePlayer"] = {
 		[1] = {
 			label = "Support",
 			incrementalEffectiveness = 0.054999999701977,
-	statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			stats = {
@@ -1039,7 +1044,7 @@ skills["SupportElementalDischargePlayer"] = {
 	qualityStats = {
 	},
 	levels = {
-		[1] = { storedUses = 1, levelRequirement = 0, cooldown = 1, },
+		[1] = { critChance = 10, storedUses = 1, levelRequirement = 0, cooldown = 1, },
 	},
 	statSets = {
 		[1] = {
@@ -1061,7 +1066,7 @@ skills["SupportElementalDischargePlayer"] = {
 				"spell_maximum_base_lightning_damage_as_%_of_intelligence",
 			},
 			levels = {
-				[1] = { 35, 55, 30, 50, 1, 80, critChance = 10, statInterpolation = { 1, 1, 1, 1, 1, 1, }, actorLevel = 1, },
+				[1] = { 35, 55, 30, 50, 1, 80, statInterpolation = { 1, 1, 1, 1, 1, 1, }, actorLevel = 1, },
 			},
 		},
 	}
@@ -1081,7 +1086,7 @@ skills["SupportElementalFocusPlayer"] = {
 		[1] = {
 			label = "Elemental Focus",
 			incrementalEffectiveness = 0.092720001935959,
-	statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -1111,7 +1116,7 @@ skills["SupportEnergyBarrierPlayer"] = {
 		[1] = {
 			label = "Energy Barrier",
 			incrementalEffectiveness = 0.054999999701977,
-	statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -1140,7 +1145,7 @@ skills["SupportEnergyRetentionPlayer"] = {
 		[1] = {
 			label = "Energy Retention",
 			incrementalEffectiveness = 0.054999999701977,
-	statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -1169,7 +1174,7 @@ skills["SupportExcisePlayer"] = {
 		[1] = {
 			label = "Excise",
 			incrementalEffectiveness = 0.054999999701977,
-	statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -1199,7 +1204,7 @@ skills["SupportExecratePlayer"] = {
 		[1] = {
 			label = "Execrate",
 			incrementalEffectiveness = 0.054999999701977,
-	statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -1215,7 +1220,8 @@ skills["SupportExecratePlayer"] = {
 	}
 }
 skills["SupportExpandingGroundPlayer"] = {
-	name = "Expanding Ground",
+	name = "SupportExpandingGroundPlayer",
+	hidden = true,
 	color = 3,
 	support = true,
 	requireSkillTypes = { },
@@ -1226,9 +1232,9 @@ skills["SupportExpandingGroundPlayer"] = {
 	},
 	statSets = {
 		[1] = {
-			label = "Expanding Ground",
+			label = "SupportExpandingGroundPlayer",
 			incrementalEffectiveness = 0.054999999701977,
-	statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -1258,7 +1264,7 @@ skills["SupportExpansePlayer"] = {
 		[1] = {
 			label = "Expanse",
 			incrementalEffectiveness = 0.054999999701977,
-	statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -1288,7 +1294,7 @@ skills["SupportExtractionPlayer"] = {
 		[1] = {
 			label = "Extraction",
 			incrementalEffectiveness = 0.054999999701977,
-	statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -1318,7 +1324,7 @@ skills["SupportFeedingFrenzyPlayer"] = {
 		[1] = {
 			label = "Feeding Frenzy",
 			incrementalEffectiveness = 0.092720001935959,
-	statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -1348,7 +1354,7 @@ skills["SupportFieryDeathPlayer"] = {
 		[1] = {
 			label = "Support",
 			incrementalEffectiveness = 0.054999999701977,
-	statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -1369,7 +1375,7 @@ skills["SupportFieryDeathPlayer"] = {
 	qualityStats = {
 	},
 	levels = {
-		[1] = { manaMultiplier = 20, levelRequirement = 0, },
+		[1] = { critChance = 8, levelRequirement = 0, manaMultiplier = 20, },
 	},
 	statSets = {
 		[1] = {
@@ -1386,7 +1392,7 @@ skills["SupportFieryDeathPlayer"] = {
 			stats = {
 			},
 			levels = {
-				[1] = { critChance = 8, actorLevel = 1, },
+				[1] = { actorLevel = 1, },
 			},
 		},
 	}
@@ -1406,7 +1412,7 @@ skills["SupportFireMasteryPlayer"] = {
 		[1] = {
 			label = "Fire Mastery",
 			incrementalEffectiveness = 0.054999999701977,
-	statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -1435,7 +1441,7 @@ skills["SupportFocusedCursePlayer"] = {
 		[1] = {
 			label = "Focused Curse",
 			incrementalEffectiveness = 0.054999999701977,
-	statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -1464,7 +1470,7 @@ skills["SupportManaFountainPlayer"] = {
 		[1] = {
 			label = "Font of Mana",
 			incrementalEffectiveness = 0.054999999701977,
-	statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -1494,7 +1500,7 @@ skills["SupportWallFortressPlayer"] = {
 		[1] = {
 			label = "Fortress",
 			incrementalEffectiveness = 0.054999999701977,
-	statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -1525,7 +1531,7 @@ skills["SupportChillingIcePlayer"] = {
 		[1] = {
 			label = "Frost Nexus",
 			incrementalEffectiveness = 0.092720001935959,
-	statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -1555,7 +1561,7 @@ skills["SupportFrostfirePlayer"] = {
 		[1] = {
 			label = "Frostfire",
 			incrementalEffectiveness = 0.054999999701977,
-	statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -1572,8 +1578,8 @@ skills["SupportFrostfirePlayer"] = {
 	}
 }
 skills["SupportFrozenVortexPlayer"] = {
-	name = "Frozen Vortex",
-	description = "Supports any skill that Hits enemies, causing it to create a chilling vortex on Shattering an enemy.",
+	name = "SupportFrozenVortexPlayer",
+	hidden = true,
 	color = 3,
 	support = true,
 	requireSkillTypes = { SkillType.Damage, SkillType.Attack, SkillType.CrossbowAmmoSkill, },
@@ -1584,9 +1590,9 @@ skills["SupportFrozenVortexPlayer"] = {
 	},
 	statSets = {
 		[1] = {
-			label = "Frozen Vortex",
+			label = "SupportFrozenVortexPlayer",
 			incrementalEffectiveness = 0.092720001935959,
-	statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -1617,7 +1623,7 @@ skills["SupportGlaciationPlayer"] = {
 		[1] = {
 			label = "Glaciation",
 			incrementalEffectiveness = 0.092720001935959,
-	statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -1646,7 +1652,7 @@ skills["SupportGlacierPlayer"] = {
 		[1] = {
 			label = "Glacier",
 			incrementalEffectiveness = 0.054999999701977,
-	statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -1675,7 +1681,7 @@ skills["SupportCurseEffectPlayer"] = {
 		[1] = {
 			label = "Heightened Curse",
 			incrementalEffectiveness = 0.054999999701977,
-	statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -1704,7 +1710,7 @@ skills["SupportHexBloomPlayer"] = {
 		[1] = {
 			label = "Hex Bloom",
 			incrementalEffectiveness = 0.092720001935959,
-	statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -1733,7 +1739,7 @@ skills["SupportHinderPlayer"] = {
 		[1] = {
 			label = "Hinder",
 			incrementalEffectiveness = 0.054999999701977,
-	statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			stats = {
@@ -1760,7 +1766,7 @@ skills["SupportHourglassPlayer"] = {
 		[1] = {
 			label = "Hourglass",
 			incrementalEffectiveness = 0.054999999701977,
-	statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -1793,7 +1799,7 @@ skills["SupportIceBitePlayer"] = {
 			baseEffectiveness = 0.51819998025894,
 			incrementalEffectiveness = 0.092720001935959,
 			damageIncrementalEffectiveness = 0.03770000115037,
-	statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -1823,7 +1829,7 @@ skills["SupportIciclePlayer"] = {
 		[1] = {
 			label = "Icicle",
 			incrementalEffectiveness = 0.054999999701977,
-	statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -1852,7 +1858,7 @@ skills["ViciousHexSupportPlayer"] = {
 		[1] = {
 			label = "Support",
 			incrementalEffectiveness = 0.092720001935959,
-	statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			stats = {
@@ -1872,7 +1878,7 @@ skills["ViciousHexSupportPlayer"] = {
 	qualityStats = {
 	},
 	levels = {
-		[1] = { storedUses = 3, levelRequirement = 0, cooldown = 0.15, },
+		[1] = { critChance = 5, storedUses = 3, levelRequirement = 0, cooldown = 0.15, },
 	},
 	statSets = {
 		[1] = {
@@ -1892,7 +1898,7 @@ skills["ViciousHexSupportPlayer"] = {
 				"is_area_damage",
 			},
 			levels = {
-				[1] = { critChance = 5, actorLevel = 1, },
+				[1] = { actorLevel = 1, },
 			},
 		},
 	}
@@ -1912,7 +1918,7 @@ skills["SupportImpetusPlayer"] = {
 		[1] = {
 			label = "Impetus",
 			incrementalEffectiveness = 0.054999999701977,
-	statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -1942,7 +1948,7 @@ skills["SupportInevitableCriticalsPlayer"] = {
 		[1] = {
 			label = "Inevitable Critical",
 			incrementalEffectiveness = 0.092720001935959,
-	statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -1973,7 +1979,7 @@ skills["SupportChaoticAssassinationPlayer"] = {
 		[1] = {
 			label = "Intense Agony",
 			incrementalEffectiveness = 0.054999999701977,
-	statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -2003,7 +2009,7 @@ skills["SupportLastGaspPlayer"] = {
 		[1] = {
 			label = "Last Gasp",
 			incrementalEffectiveness = 0.054999999701977,
-	statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -2032,7 +2038,7 @@ skills["SupportLightningMasteryPlayer"] = {
 		[1] = {
 			label = "Lightning Mastery",
 			incrementalEffectiveness = 0.054999999701977,
-	statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -2062,7 +2068,7 @@ skills["SupportIncreasedAreaOfEffectPlayer"] = {
 			label = "Magnified Effect",
 			baseEffectiveness = 0,
 			incrementalEffectiveness = 0.092720001935959,
-	statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -2093,7 +2099,7 @@ skills["SupportManaFlarePlayer"] = {
 		[1] = {
 			label = "Support",
 			incrementalEffectiveness = 0.054999999701977,
-	statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			stats = {
@@ -2112,7 +2118,7 @@ skills["SupportManaFlarePlayer"] = {
 	qualityStats = {
 	},
 	levels = {
-		[1] = { storedUses = 1, levelRequirement = 0, cooldown = 1, },
+		[1] = { critChance = 7, storedUses = 1, levelRequirement = 0, cooldown = 1, },
 	},
 	statSets = {
 		[1] = {
@@ -2129,7 +2135,7 @@ skills["SupportManaFlarePlayer"] = {
 			stats = {
 			},
 			levels = {
-				[1] = { critChance = 7, actorLevel = 1, },
+				[1] = { actorLevel = 1, },
 			},
 		},
 	}
@@ -2149,7 +2155,7 @@ skills["SupportMinionInstabilityPlayer"] = {
 		[1] = {
 			label = "Minion Instability",
 			incrementalEffectiveness = 0.054999999701977,
-	statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -2178,7 +2184,7 @@ skills["SupportMinionMasteryPlayer"] = {
 		[1] = {
 			label = "Minion Mastery",
 			incrementalEffectiveness = 0.054999999701977,
-	statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -2208,7 +2214,7 @@ skills["SupportMinionPactPlayer"] = {
 		[1] = {
 			label = "Minion Pact",
 			incrementalEffectiveness = 0.054999999701977,
-	statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -2238,7 +2244,7 @@ skills["SupportPhysicalMasteryPlayer"] = {
 		[1] = {
 			label = "Physical Mastery",
 			incrementalEffectiveness = 0.054999999701977,
-	statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -2267,7 +2273,7 @@ skills["SupportPotentialPlayer"] = {
 		[1] = {
 			label = "Potential",
 			incrementalEffectiveness = 0.054999999701977,
-	statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -2297,7 +2303,7 @@ skills["SupportTempestuousTempoPlayer"] = {
 		[1] = {
 			label = "Rising Tempest",
 			incrementalEffectiveness = 0.054999999701977,
-	statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -2326,7 +2332,7 @@ skills["SupportRitualisticCursePlayer"] = {
 		[1] = {
 			label = "Ritualistic Curse",
 			incrementalEffectiveness = 0.054999999701977,
-	statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -2342,8 +2348,8 @@ skills["SupportRitualisticCursePlayer"] = {
 	}
 }
 skills["SupportSacrificialLambPlayer"] = {
-	name = "Sacrificial Lamb",
-	description = "Supports skills which create Minions, causing your skills which can target Minions to prioritise targeting Minions from the Supported Skill.",
+	name = "SupportSacrificialLambPlayer",
+	hidden = true,
 	color = 3,
 	support = true,
 	requireSkillTypes = { SkillType.CreatesMinion, },
@@ -2354,9 +2360,9 @@ skills["SupportSacrificialLambPlayer"] = {
 	},
 	statSets = {
 		[1] = {
-			label = "Sacrificial Lamb",
+			label = "SupportSacrificialLambPlayer",
 			incrementalEffectiveness = 0.054999999701977,
-	statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -2388,7 +2394,7 @@ skills["SupportEnergyShieldOnShockKillPlayer"] = {
 			baseEffectiveness = 0.3740000128746,
 			incrementalEffectiveness = 0.012699999846518,
 			damageIncrementalEffectiveness = 0.061500001698732,
-	statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -2418,7 +2424,7 @@ skills["SupportManaLeechPlayer"] = {
 			label = "Soul Thief",
 			baseEffectiveness = 0,
 			incrementalEffectiveness = 0.092720001935959,
-	statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -2433,8 +2439,8 @@ skills["SupportManaLeechPlayer"] = {
 	}
 }
 skills["SupportSoulbreakerPlayer"] = {
-	name = "Soulbreaker",
-	description = "Supports skills you use yourself, causing them to trigger a Chaos Damage nova when breaking Enemy Energy Shield.",
+	name = "SupportSoulbreakerPlayer",
+	hidden = true,
 	color = 3,
 	support = true,
 	requireSkillTypes = { },
@@ -2447,7 +2453,7 @@ skills["SupportSoulbreakerPlayer"] = {
 		[1] = {
 			label = "Support",
 			incrementalEffectiveness = 0.054999999701977,
-	statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			stats = {
@@ -2466,7 +2472,7 @@ skills["SupportSoulbreakerPlayer"] = {
 	qualityStats = {
 	},
 	levels = {
-		[1] = { levelRequirement = 0, },
+		[1] = { critChance = 11, levelRequirement = 0, },
 		[2] = { levelRequirement = 0, },
 		[3] = { levelRequirement = 0, },
 		[4] = { levelRequirement = 0, },
@@ -2522,7 +2528,7 @@ skills["SupportSoulbreakerPlayer"] = {
 			stats = {
 			},
 			levels = {
-				[1] = { critChance = 11, actorLevel = 1, },
+				[1] = { actorLevel = 1, },
 				[2] = { actorLevel = 3.4519999027252, },
 				[3] = { actorLevel = 6.7670001983643, },
 				[4] = { actorLevel = 10.307999610901, },
@@ -2581,7 +2587,7 @@ skills["SupportSpellCascadePlayer"] = {
 		[1] = {
 			label = "Spell Cascade",
 			incrementalEffectiveness = 0.054999999701977,
-	statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -2613,7 +2619,7 @@ skills["SupportSpellEchoPlayer"] = {
 		[1] = {
 			label = "Spell Echo",
 			incrementalEffectiveness = 0.092720001935959,
-	statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -2645,7 +2651,7 @@ skills["SupportStormfirePlayer"] = {
 		[1] = {
 			label = "Stormfire",
 			incrementalEffectiveness = 0.054999999701977,
-	statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			stats = {
@@ -2672,7 +2678,7 @@ skills["SupportStripAwayPlayer"] = {
 		[1] = {
 			label = "Strip Away",
 			incrementalEffectiveness = 0.054999999701977,
-	statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -2702,7 +2708,7 @@ skills["SupportIncreasedCriticalDamagePlayer"] = {
 			label = "Supercritical",
 			baseEffectiveness = 0,
 			incrementalEffectiveness = 0.092720001935959,
-	statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -2732,7 +2738,7 @@ skills["SupportUnleashPlayer"] = {
 		[1] = {
 			label = "Unleash",
 			incrementalEffectiveness = 0.092720001935959,
-	statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -2802,7 +2808,7 @@ skills["SupportWildfirePlayer"] = {
 		[1] = {
 			label = "Wildfire",
 			incrementalEffectiveness = 0.092720001935959,
-	statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -2831,7 +2837,7 @@ skills["SupportWildshardsPlayer"] = {
 		[1] = {
 			label = "Wildshards",
 			incrementalEffectiveness = 0.054999999701977,
-	statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -2860,7 +2866,7 @@ skills["SupportWitheringTouchPlayer"] = {
 		[1] = {
 			label = "Withering Touch",
 			incrementalEffectiveness = 0.092720001935959,
-	statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {

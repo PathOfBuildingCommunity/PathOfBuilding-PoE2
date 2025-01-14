@@ -84,7 +84,7 @@ local skills, mod, flag, skill = ...
 #flags
 #mods
 #set HeraldOfThunderOnKillPlayer
-#flags
+#flags attack
 #mods
 #skillEnd
 
@@ -176,6 +176,7 @@ local skills, mod, flag, skill = ...
 #mods
 #set SnipeExplosionPlayer
 #flags attack projectile area
+#baseMod mod("Condition:PerfectTiming", "FLAG", true)
 #mods
 #skillEnd
 

@@ -640,6 +640,7 @@ return {
 	{ label = "Skill Duration", flag = "duration", haveOutput = "Duration", { format = "{3:output:Duration}s", { breakdown = "Duration" }, }, },
 	{ label = "Secondary Duration", flag = "duration", haveOutput = "DurationSecondary", { format = "{3:output:DurationSecondary}s", { breakdown = "DurationSecondary" }, }, },
 	{ label = "Tertiary Duration", flag = "duration", haveOutput = "DurationTertiary", { format = "{3:output:DurationTertiary}s", { breakdown = "DurationTertiary" }, }, },
+	{ label = "Perfect Timing", haveOutput = "PerfectTiming", { format = "{3:output:PerfectTiming}s", { breakdown = "PerfectTiming" }, { modName = "PerfectTiming", cfg = "skill" }}, },
 	{ label = "Aura Duration", haveOutput = "AuraDuration", { format = "{3:output:AuraDuration}s", { breakdown = "AuraDuration" }, }, },
 	{ label = "Reserve Duration", haveOutput = "ReserveDuration", { format = "{3:output:ReserveDuration}s", { breakdown = "ReserveDuration" }, }, },
 	{ label = "Soul Gain Prevent.", haveOutput = "SoulGainPreventionDuration", { format = "{3:output:SoulGainPreventionDuration}s", { breakdown = "SoulGainPreventionDuration" }, }, },
@@ -654,6 +655,7 @@ return {
 	{ label = "Pierce Count", haveOutput = "PierceCount", { format = "{output:PierceCountString}", { modName = { "CannotPierce", "PierceCount", "PierceAllTargets" }, cfg = "skill" }, }, },
 	{ label = "Fork Count", haveOutput = "ForkCountMax", { format = "{output:ForkCountString}", { modName = { "CannotFork", "ForkCountMax" }, cfg = "skill" }, }, },
 	{ label = "Max Chain Count", haveOutput = "ChainMax", { format = "{output:ChainMaxString}", { modName = { "CannotChain", "ChainCountMax", "NoAdditionalChains" }, cfg = "skill" }, }, },
+	{ label = "Terrain Chain", haveOutput = "TerrainChain", { format = "{output:TerrainChain}%", { modName = { "TerrainChainChance", "NoAdditionalChains" }, cfg = "skill" }, }, },
 	{ label = "Split Count", haveOutput = "SplitCountString", { format = "{output:SplitCountString}", 
 		{ label = "Player modifiers", modName = { "CannotSplit", "SplitCount", "AdditionalProjectilesAddSplitsInstead", "AdditionalChainsAddSplitsInstead" }, cfg = "skill" },
 		{ label = "Enemy modifiers", modName = { "SelfSplitCount" }, enemy = true, cfg = "skill" }, 
@@ -678,7 +680,7 @@ return {
 	}, },
 	{ label = "Spirit Reserve Mod", haveOutput = "SpiritReservedMod", { format = "x {2:output:SpiritReservedMod}",
 		{ breakdown = "SpiritReservedMod" },
-		{ modName = { "SpiritReserved", "Reserved", "SupportManaMultiplier", "SpiritReservationEfficiency", "ReservationEfficiency"  }, cfg = "skill"}
+		{ modName = { "SpiritReserved", "Reserved", "SupportManaMultiplier", "SpiritReservationEfficiency", "ReservationEfficiency", "ExtraSpirit"  }, cfg = "skill"}
 	}, },
 	{ label = "Curse Effect Mod", haveOutput = "CurseEffectMod", { format = "x {2:output:CurseEffectMod}",
 		{ breakdown = "CurseEffectMod" },
