@@ -337,16 +337,16 @@ function SkillsTabClass:LoadSkill(node, skillSetId)
 		gemInstance.skillMinionSkillStatSetIndexLookup = { }
 		gemInstance.skillMinionSkillStatSetIndexLookupCalcs = { }
 		for _, child in ipairs(child) do
-			if child.elem == "StatSetIndex" then 
+			if child.elem == "StatSetIndex" and child.attrib.grantedEffect then 
 				gemInstance.statSet[child.attrib.grantedEffect] = tonumber(child.attrib.index)
-			elseif child.elem == "StatSetCalcsIndex" then
+			elseif child.elem == "StatSetCalcsIndex" and child.attrib.grantedEffect then
 				gemInstance.statSetCalcs[child.attrib.grantedEffect] = tonumber(child.attrib.index)
-			elseif child.elem == "MinionSkillIndexLookup" then
+			elseif child.elem == "MinionSkillIndexLookup" and child.attrib.grantedEffect then
 				gemInstance.skillMinionSkillStatSetIndexLookup[child.attrib.grantedEffect] = { }
 				for _, map in ipairs(child) do
 					gemInstance.skillMinionSkillStatSetIndexLookup[child.attrib.grantedEffect][tonumber(map.attrib.skillIndex)] = tonumber(map.attrib.statSetIndex)
 				end
-			elseif child.elem == "MinionSkillIndexLookupCalcs" then
+			elseif child.elem == "MinionSkillIndexLookupCalcs" and child.attrib.grantedEffect then
 				gemInstance.skillMinionSkillStatSetIndexLookupCalcs[child.attrib.grantedEffect] = { }
 				for _, map in ipairs(child) do
 					gemInstance.skillMinionSkillStatSetIndexLookupCalcs[child.attrib.grantedEffect][tonumber(map.attrib.skillIndex)] = tonumber(map.attrib.statSetIndex)
