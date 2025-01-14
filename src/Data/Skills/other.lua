@@ -65,12 +65,12 @@ skills["AncestralSpiritsPlayer"] = {
 		"AncestralSpiritCaster",
 		"AncestralSpiritWarhorn",
 	},
+	fromTree = true,
 	statSets = {
 		[1] = {
 			label = "Ancestral Spirits",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "skill_stat_descriptions",
-fromTree = true,
 			baseFlags = {
 				spell = true,
 				minion = true,
@@ -177,6 +177,7 @@ skills["BleedingConcoctionPlayer"] = {
 		[39] = { baseMultiplier = 2.42, levelRequirement = 90, },
 		[40] = { baseMultiplier = 2.47, levelRequirement = 90, },
 	},
+	fromTree = true,
 	statSets = {
 		[1] = {
 			label = "Bleeding Concoction",
@@ -184,7 +185,6 @@ skills["BleedingConcoctionPlayer"] = {
 			incrementalEffectiveness = 0.14000000059605,
 			damageIncrementalEffectiveness = 0.0065000001341105,
 			statDescriptionScope = "throw_flask_bleed",
-fromTree = true,
 			baseFlags = {
 			},
 			constantStats = {
@@ -307,12 +307,12 @@ skills["MeleeBowPlayer"] = {
 		[39] = { baseMultiplier = 7.88, levelRequirement = 90, },
 		[40] = { baseMultiplier = 8.28, levelRequirement = 90, },
 	},
+	fromItem = true,
 	statSets = {
 		[1] = {
 			label = "Bow Shot",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "skill_stat_descriptions",
-fromItem = true,
 			baseFlags = {
 			},
 			constantStats = {
@@ -428,12 +428,12 @@ skills["MeleeCrossbowPlayer"] = {
 		[39] = { baseMultiplier = 7.88, levelRequirement = 90, },
 		[40] = { baseMultiplier = 8.28, levelRequirement = 90, },
 	},
+	fromItem = true,
 	statSets = {
 		[1] = {
 			label = "Crossbow Shot",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "skill_stat_descriptions",
-fromItem = true,
 			baseFlags = {
 				attack = true,
 				area = true,
@@ -558,12 +558,12 @@ skills["DemonFormPlayer"] = {
 		[39] = { storedUses = 1, levelRequirement = 90, cooldown = 20, cost = { Mana = 1355, }, },
 		[40] = { storedUses = 1, levelRequirement = 90, cooldown = 20, cost = { Mana = 1556, }, },
 	},
+	fromTree = true,
 	statSets = {
 		[1] = {
 			label = "Demon Form",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "demon_transformation",
-fromTree = true,
 			baseFlags = {
 			},
 			constantStats = {
@@ -672,12 +672,12 @@ skills["ElementalExpressionTriggeredPlayer"] = {
 		[39] = { storedUses = 1, levelRequirement = 90, cooldown = 0.25, cost = { Mana = 818, }, },
 		[40] = { storedUses = 1, levelRequirement = 90, cooldown = 0.25, cost = { Mana = 940, }, },
 	},
+	fromTree = true,
 	statSets = {
 		[1] = {
 			label = "Elemental Expression",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "skill_stat_descriptions",
-fromTree = true,
 			baseFlags = {
 			},
 			stats = {
@@ -733,7 +733,6 @@ fromTree = true,
 			incrementalEffectiveness = 0.14000000059605,
 			damageIncrementalEffectiveness = 0.0065000001341105,
 			statDescriptionScope = "skill_stat_descriptions",
-fromTree = true,
 			baseFlags = {
 			},
 			constantStats = {
@@ -793,7 +792,6 @@ fromTree = true,
 			incrementalEffectiveness = 0.14000000059605,
 			damageIncrementalEffectiveness = 0.0065000001341105,
 			statDescriptionScope = "skill_stat_descriptions",
-fromTree = true,
 			baseFlags = {
 			},
 			constantStats = {
@@ -856,7 +854,6 @@ fromTree = true,
 			incrementalEffectiveness = 0.14000000059605,
 			damageIncrementalEffectiveness = 0.0065000001341105,
 			statDescriptionScope = "skill_stat_descriptions",
-fromTree = true,
 			baseFlags = {
 			},
 			constantStats = {
@@ -963,6 +960,7 @@ skills["ElementalStormPlayer"] = {
 		[39] = { storedUses = 1, levelRequirement = 90, cooldown = 5, cost = { Mana = 531, }, },
 		[40] = { storedUses = 1, levelRequirement = 90, cooldown = 5, cost = { Mana = 592, }, },
 	},
+	fromTree = true,
 	statSets = {
 		[1] = {
 			label = "Elemental Storm",
@@ -970,7 +968,6 @@ skills["ElementalStormPlayer"] = {
 			incrementalEffectiveness = 0.14000000059605,
 			damageIncrementalEffectiveness = 0.0065000001341105,
 			statDescriptionScope = "tornado_triggered",
-fromTree = true,
 			baseFlags = {
 			},
 			constantStats = {
@@ -1037,7 +1034,6 @@ fromTree = true,
 			incrementalEffectiveness = 0.14000000059605,
 			damageIncrementalEffectiveness = 0.0065000001341105,
 			statDescriptionScope = "tornado_triggered",
-fromTree = true,
 			baseFlags = {
 			},
 			constantStats = {
@@ -1100,7 +1096,6 @@ fromTree = true,
 			incrementalEffectiveness = 0.14000000059605,
 			damageIncrementalEffectiveness = 0.0065000001341105,
 			statDescriptionScope = "tornado_triggered",
-fromTree = true,
 			baseFlags = {
 			},
 			constantStats = {
@@ -1163,7 +1158,6 @@ fromTree = true,
 			incrementalEffectiveness = 0.14000000059605,
 			damageIncrementalEffectiveness = 0.0065000001341105,
 			statDescriptionScope = "tornado_triggered",
-fromTree = true,
 			baseFlags = {
 			},
 			constantStats = {
@@ -1274,12 +1268,12 @@ skills["EncaseInJadePlayer"] = {
 		[39] = { levelRequirement = 90, },
 		[40] = { levelRequirement = 90, },
 	},
+	fromTree = true,
 	statSets = {
 		[1] = {
 			label = "Encase in Jade",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "encase_in_jade",
-fromTree = true,
 			baseFlags = {
 			},
 			constantStats = {
@@ -1386,6 +1380,7 @@ skills["ExplosiveConcoctionPlayer"] = {
 		[39] = { baseMultiplier = 2.42, levelRequirement = 90, },
 		[40] = { baseMultiplier = 2.47, levelRequirement = 90, },
 	},
+	fromTree = true,
 	statSets = {
 		[1] = {
 			label = "Explosive Concoction",
@@ -1393,7 +1388,6 @@ skills["ExplosiveConcoctionPlayer"] = {
 			incrementalEffectiveness = 0.14000000059605,
 			damageIncrementalEffectiveness = 0.0065000001341105,
 			statDescriptionScope = "throw_flask_fire",
-fromTree = true,
 			baseFlags = {
 			},
 			constantStats = {
@@ -1514,6 +1508,7 @@ skills["FulminatingConcoctionPlayer"] = {
 		[39] = { baseMultiplier = 2.42, levelRequirement = 90, },
 		[40] = { baseMultiplier = 2.47, levelRequirement = 90, },
 	},
+	fromTree = true,
 	statSets = {
 		[1] = {
 			label = "Fulminating Concoction",
@@ -1521,7 +1516,6 @@ skills["FulminatingConcoctionPlayer"] = {
 			incrementalEffectiveness = 0.14000000059605,
 			damageIncrementalEffectiveness = 0.0065000001341105,
 			statDescriptionScope = "throw_flask_lightning",
-fromTree = true,
 			baseFlags = {
 			},
 			constantStats = {
@@ -1642,12 +1636,12 @@ skills["IntoTheBreachPlayer"] = {
 		[39] = { levelRequirement = 90, },
 		[40] = { levelRequirement = 90, },
 	},
+	fromTree = true,
 	statSets = {
 		[1] = {
 			label = "Into the Breach",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "skill_stat_descriptions",
-fromTree = true,
 			baseFlags = {
 			},
 			constantStats = {
@@ -1757,12 +1751,12 @@ skills["LifeRemnantsPlayer"] = {
 		[39] = { levelRequirement = 90, },
 		[40] = { levelRequirement = 90, },
 	},
+	fromTree = true,
 	statSets = {
 		[1] = {
 			label = "Life Remnants",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "life_remnants",
-fromTree = true,
 			baseFlags = {
 			},
 			constantStats = {
@@ -1873,12 +1867,12 @@ skills["Melee1HMacePlayer"] = {
 		[39] = { baseMultiplier = 7.88, levelRequirement = 90, },
 		[40] = { baseMultiplier = 8.28, levelRequirement = 90, },
 	},
+	fromItem = true,
 	statSets = {
 		[1] = {
 			label = "Mace Strike",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "skill_stat_descriptions",
-fromItem = true,
 			baseFlags = {
 			},
 			constantStats = {
@@ -1986,12 +1980,12 @@ skills["Melee2HMacePlayer"] = {
 		[39] = { baseMultiplier = 7.88, levelRequirement = 90, },
 		[40] = { baseMultiplier = 8.28, levelRequirement = 90, },
 	},
+	fromItem = true,
 	statSets = {
 		[1] = {
 			label = "Mace Strike",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "skill_stat_descriptions",
-fromItem = true,
 			baseFlags = {
 			},
 			constantStats = {
@@ -2100,12 +2094,12 @@ skills["MeleeMaceMacePlayer"] = {
 		[39] = { baseMultiplier = 7.88, levelRequirement = 90, },
 		[40] = { baseMultiplier = 8.28, levelRequirement = 90, },
 	},
+	fromItem = true,
 	statSets = {
 		[1] = {
 			label = "Mace Strike",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "skill_stat_descriptions",
-fromItem = true,
 			baseFlags = {
 			},
 			constantStats = {
@@ -2213,12 +2207,12 @@ skills["MeditatePlayer"] = {
 		[39] = { storedUses = 1, levelRequirement = 90, cooldown = 6.65, },
 		[40] = { storedUses = 1, levelRequirement = 90, cooldown = 6.6, },
 	},
+	fromTree = true,
 	statSets = {
 		[1] = {
 			label = "Meditate",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "skill_stat_descriptions",
-fromTree = true,
 			baseFlags = {
 			},
 			constantStats = {
@@ -2328,6 +2322,7 @@ skills["PoisonousConcoctionPlayer"] = {
 		[39] = { baseMultiplier = 2.42, levelRequirement = 90, },
 		[40] = { baseMultiplier = 2.47, levelRequirement = 90, },
 	},
+	fromTree = true,
 	statSets = {
 		[1] = {
 			label = "Poisonous Concoction",
@@ -2335,7 +2330,6 @@ skills["PoisonousConcoctionPlayer"] = {
 			incrementalEffectiveness = 0.14000000059605,
 			damageIncrementalEffectiveness = 0.0065000001341105,
 			statDescriptionScope = "throw_flask_poison",
-fromTree = true,
 			baseFlags = {
 			},
 			constantStats = {
@@ -2570,12 +2564,12 @@ skills["MeleeQuarterstaffPlayer"] = {
 		[39] = { baseMultiplier = 7.88, levelRequirement = 90, },
 		[40] = { baseMultiplier = 8.28, levelRequirement = 90, },
 	},
+	fromItem = true,
 	statSets = {
 		[1] = {
 			label = "Quarterstaff Strike",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "skill_stat_descriptions",
-fromItem = true,
 			baseFlags = {
 				attack = true,
 				melee = true,
@@ -2684,6 +2678,7 @@ skills["ShatteringConcoctionPlayer"] = {
 		[39] = { baseMultiplier = 2.42, levelRequirement = 90, },
 		[40] = { baseMultiplier = 2.47, levelRequirement = 90, },
 	},
+	fromTree = true,
 	statSets = {
 		[1] = {
 			label = "Shattering Concoction",
@@ -2691,7 +2686,6 @@ skills["ShatteringConcoctionPlayer"] = {
 			incrementalEffectiveness = 0.14000000059605,
 			damageIncrementalEffectiveness = 0.0065000001341105,
 			statDescriptionScope = "throw_flask_cold",
-fromTree = true,
 			baseFlags = {
 			},
 			constantStats = {
@@ -2812,12 +2806,12 @@ skills["SorceryWardPlayer"] = {
 		[39] = { levelRequirement = 90, },
 		[40] = { levelRequirement = 90, },
 	},
+	fromTree = true,
 	statSets = {
 		[1] = {
 			label = "Sorcery Ward",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "sorcery_ward",
-fromTree = true,
 			baseFlags = {
 			},
 			constantStats = {
@@ -2931,12 +2925,12 @@ skills["SummonInfernalHoundPlayer"] = {
 	minionList = {
 		"SummonedHellhound",
 	},
+	fromTree = true,
 	statSets = {
 		[1] = {
 			label = "Summon Infernal Hound",
 			incrementalEffectiveness = 0.092720001935959,
 			statDescriptionScope = "summon_infernal_familiar",
-fromTree = true,
 			baseFlags = {
 				spell = true,
 				minion = true,
@@ -3047,12 +3041,12 @@ skills["TemporalRiftPlayer"] = {
 		[39] = { storedUses = 1, levelRequirement = 90, cooldown = 3.65, },
 		[40] = { storedUses = 1, levelRequirement = 90, cooldown = 3.6, },
 	},
+	fromTree = true,
 	statSets = {
 		[1] = {
 			label = "Temporal Rift",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "temporal_rift",
-fromTree = true,
 			baseFlags = {
 			},
 			constantStats = {
@@ -3160,12 +3154,12 @@ skills["TimeFreezePlayer"] = {
 		[39] = { storedUses = 1, levelRequirement = 90, cooldown = 48.25, cost = { Mana = 20, }, },
 		[40] = { storedUses = 1, levelRequirement = 90, cooldown = 48, cost = { Mana = 20, }, },
 	},
+	fromTree = true,
 	statSets = {
 		[1] = {
 			label = "Time Freeze",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "time_stop",
-fromTree = true,
 			baseFlags = {
 			},
 			constantStats = {
@@ -3273,12 +3267,12 @@ skills["TimeSnapPlayer"] = {
 		[39] = { storedUses = 1, levelRequirement = 90, cooldown = 26.6, cost = { Mana = 20, }, },
 		[40] = { storedUses = 1, levelRequirement = 90, cooldown = 26.4, cost = { Mana = 20, }, },
 	},
+	fromTree = true,
 	statSets = {
 		[1] = {
 			label = "Time Snap",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "skill_stat_descriptions",
-fromTree = true,
 			baseFlags = {
 			},
 			stats = {
@@ -3380,12 +3374,12 @@ skills["UnboundAvatarPlayer"] = {
 		[39] = { storedUses = 1, levelRequirement = 90, cooldown = 0.5, },
 		[40] = { storedUses = 1, levelRequirement = 90, cooldown = 0.5, },
 	},
+	fromTree = true,
 	statSets = {
 		[1] = {
 			label = "Unbound Avatar",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "ailment_bearer",
-fromTree = true,
 			baseFlags = {
 			},
 			constantStats = {

@@ -12,162 +12,156 @@ local skills, mod, flag, skill = ...
 		"AncestralSpiritCaster",
 		"AncestralSpiritWarhorn",
 	},
+	fromTree = true,
 #startSets
 #set AncestralSpiritsPlayer
 #flags spell minion
-fromTree = true,
 #mods
 #skillEnd
 
 #skill BleedingConcoctionPlayer
+	fromTree = true,
 #startSets
 #set BleedingConcoctionPlayer
 #flags
-fromTree = true,
 #mods
 #skillEnd
 
 #skill MeleeBowPlayer
+	fromItem = true,
 #startSets
 #set MeleeBowPlayer
 #flags
-fromItem = true,
 #mods
 #skillEnd
 
 #skill MeleeCrossbowPlayer
+	fromItem = true,
 #startSets
 #set MeleeCrossbowPlayer
 #flags attack area projectile
-fromItem = true,
 #mods
 #skillEnd
 
 #skill DemonFormPlayer
+	fromTree = true,
 #startSets
 #set DemonFormPlayer
 #flags
-fromTree = true,
 #mods
 #skillEnd
 
 #skill ElementalExpressionTriggeredPlayer
+	fromTree = true,
 #startSets
 #set ElementalExpressionTriggeredPlayer
 #flags
-fromTree = true,
 #mods
 #set ElementalExpressionFirePlayer
 #flags
-fromTree = true,
 #mods
 #set ElementalExpressionColdPlayer
 #flags
-fromTree = true,
 #mods
 #set ElementalExpressionLightningPlayer
 #flags
-fromTree = true,
 #mods
 #skillEnd
 
 #skill ElementalStormPlayer
+	fromTree = true,
 #startSets
 #set ElementalStormPlayer
 #flags
-fromTree = true,
 #mods
 #set ElementalStormFirePlayer
 #flags
-fromTree = true,
 #mods
 #set ElementalStormLightningPlayer
 #flags
-fromTree = true,
 #mods
 #set ElementalStormColdPlayer
 #flags
-fromTree = true,
 #mods
 #skillEnd
 
 #skill EncaseInJadePlayer
+	fromTree = true,
 #startSets
 #set EncaseInJadePlayer
 #flags
-fromTree = true,
 #mods
 #skillEnd
 
 #skill ExplosiveConcoctionPlayer
+	fromTree = true,
 #startSets
 #set ExplosiveConcoctionPlayer
 #flags
-fromTree = true,
 #mods
 #skillEnd
 
 #skill FulminatingConcoctionPlayer
+	fromTree = true,
 #startSets
 #set FulminatingConcoctionPlayer
 #flags
-fromTree = true,
 #mods
 #skillEnd
 
 #skill IntoTheBreachPlayer
+	fromTree = true,
 #startSets
 #set IntoTheBreachPlayer
 #flags
-fromTree = true,
 #mods
 #skillEnd
 
 #skill LifeRemnantsPlayer
+	fromTree = true,
 #startSets
 #set LifeRemnantsPlayer
 #flags
-fromTree = true,
 #mods
 #skillEnd
 
 #skill Melee1HMacePlayer
+	fromItem = true,
 #startSets
 #set Melee1HMacePlayer
 #flags
-fromItem = true,
 #mods
 #skillEnd
 
 #skill Melee2HMacePlayer
+	fromItem = true,
 #startSets
 #set Melee2HMacePlayer
 #flags
-fromItem = true,
 #mods
 #skillEnd
 
 #skill MeleeMaceMacePlayer
+	fromItem = true,
 #startSets
 #set MeleeMaceMacePlayer
 #flags
-fromItem = true,
 #mods
 #skillEnd
 
 #skill MeditatePlayer
+	fromTree = true,
 #startSets
 #set MeditatePlayer
 #flags
-fromTree = true,
 #mods
 #skillEnd
 
 #skill PoisonousConcoctionPlayer
+	fromTree = true,
 #startSets
 #set PoisonousConcoctionPlayer
 #flags
-fromTree = true,
 #mods
 #skillEnd
 
@@ -180,26 +174,26 @@ fromTree = true,
 #skillEnd
 
 #skill MeleeQuarterstaffPlayer
+	fromItem = true,
 #startSets
 #set MeleeQuarterstaffPlayer
 #flags attack melee area
-fromItem = true,
 #mods
 #skillEnd
 
 #skill ShatteringConcoctionPlayer
+	fromTree = true,
 #startSets
 #set ShatteringConcoctionPlayer
 #flags
-fromTree = true,
 #mods
 #skillEnd
 
 #skill SorceryWardPlayer
+	fromTree = true,
 #startSets
 #set SorceryWardPlayer
 #flags
-fromTree = true,
 #mods
 #skillEnd
 
@@ -207,41 +201,41 @@ fromTree = true,
 	minionList = {
 		"SummonedHellhound",
 	},
+	fromTree = true,
 #startSets
 #set SummonInfernalHoundPlayer
 #flags spell minion permanentMinion
-fromTree = true,
 #mods
 #skillEnd
 
 #skill TemporalRiftPlayer
+	fromTree = true,
 #startSets
 #set TemporalRiftPlayer
 #flags
-fromTree = true,
 #mods
 #skillEnd
 
 #skill TimeFreezePlayer
+	fromTree = true,
 #startSets
 #set TimeFreezePlayer
 #flags
-fromTree = true,
 #mods
 #skillEnd
 
 #skill TimeSnapPlayer
+	fromTree = true,
 #startSets
 #set TimeSnapPlayer
 #flags
-fromTree = true,
 #mods
 #skillEnd
 
 #skill UnboundAvatarPlayer
+	fromTree = true,
 #startSets
 #set UnboundAvatarPlayer
 #flags
-fromTree = true,
 #mods
 #skillEnd
