@@ -867,8 +867,8 @@ function calcs.createMinionSkills(env, activeSkill)
 		}
 		local minionSkillIndex = activeSkill.activeEffect.srcInstance.skillMinionSkill
 		local minionSkillIndexCalcs = activeSkill.activeEffect.srcInstance.skillMinionSkillCalcs
-		local minionStatSetIndex = activeSkill.activeEffect.srcInstance.minionStatSet and activeSkill.activeEffect.srcInstance.minionStatSet[minionSkillIndex] or 1
-		local minionStatSetCalcsIndex = activeSkill.activeEffect.srcInstance.minionStatSetCalcs and activeSkill.activeEffect.srcInstance.minionStatSetCalcs[minionSkillIndexCalcs] or 1
+		local minionStatSetIndex = activeSkill.activeEffect.srcInstance.minionStatSet and activeSkill.activeEffect.srcInstance.minionStatSet[activeSkill.activeEffect.grantedEffect.id][minionSkillIndex] or 1
+		local minionStatSetCalcsIndex = activeSkill.activeEffect.srcInstance.minionStatSetCalcs and activeSkill.activeEffect.srcInstance.minionStatSetCalcs[activeSkill.activeEffect.grantedEffect.id][minionSkillIndexCalcs] or 1
 		activeEffect.statSet = {
 			index = minionStatSetIndex,
 		}

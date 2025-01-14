@@ -132,7 +132,8 @@ local CalcsTabClass = newClass("CalcsTab", "UndoHandler", "ControlHost", "Contro
 				local mainSocketGroup = self.build.skillsTab.socketGroupList[self.input.skill_number]
 				local srcInstance = mainSocketGroup.displaySkillListCalcs[mainSocketGroup.mainActiveSkillCalcs].activeEffect.srcInstance
 				srcInstance.skillMinionSkillStatSetIndexLookupCalcs = srcInstance.skillMinionSkillStatSetIndexLookupCalcs or { }
-				srcInstance.skillMinionSkillStatSetIndexLookupCalcs[srcInstance.skillMinionSkillCalcs] = index
+				srcInstance.skillMinionSkillStatSetIndexLookupCalcs[value.grantedEffectId] = srcInstance.skillMinionSkillStatSetIndexLookupCalcs[value.grantedEffectId] or { }
+				srcInstance.skillMinionSkillStatSetIndexLookupCalcs[value.grantedEffectId][srcInstance.skillMinionSkillCalcs] = index
 				self:AddUndoState()
 				self.build.buildFlag = true
 			end)

@@ -506,7 +506,8 @@ function buildMode:Init(dbFileName, buildName, buildXML, convertBuild, importLin
 		local mainSocketGroup = self.skillsTab.socketGroupList[self.mainSocketGroup]
 		local srcInstance = mainSocketGroup.displaySkillList[mainSocketGroup.mainActiveSkill].activeEffect.srcInstance
 		srcInstance.skillMinionSkillStatSetIndexLookup = srcInstance.skillMinionSkillStatSetIndexLookup or { }
-		srcInstance.skillMinionSkillStatSetIndexLookup[srcInstance.skillMinionSkill] = index
+		srcInstance.skillMinionSkillStatSetIndexLookup[value.grantedEffectId] = srcInstance.skillMinionSkillStatSetIndexLookup[value.grantedEffectId] or { }
+		srcInstance.skillMinionSkillStatSetIndexLookup[value.grantedEffectId][srcInstance.skillMinionSkill] = index
 		self.modFlag = true
 		self.buildFlag = true
 	end)
@@ -1390,7 +1391,7 @@ function buildMode:RefreshSkillSelectControls(controls, mainGroup, suffix)
 				for i, statSet in ipairs(activeEffect.grantedEffect.statSets) do
 					t_insert(controls.statSet.list, { val = i, label = statSet.label, grantedEffectId = activeEffect.grantedEffect.id })
 				end
-				controls.statSet.selIndex = activeEffect.srcInstance["statSet"..suffix] and activeEffect["statSet"..suffix][activeEffect.grantedEffect.id] or 1
+				controls.statSet.selIndex = activeEffect.srcInstance["statSet"..suffix] and activeEffect.srcInstance["statSet"..suffix][activeEffect.grantedEffect.id] or 1
 				controls.statSet.enabled = #controls.statSet.list > 1
 				controls.statSet.shown = true
 				if activeEffect.grantedEffect.parts and #activeEffect.grantedEffect.parts > 1 then
@@ -1448,10 +1449,10 @@ function buildMode:RefreshSkillSelectControls(controls, mainGroup, suffix)
 						controls.mainSkillMinionSkill.enabled = #controls.mainSkillMinionSkill.list > 1
 						wipeTable(controls.mainSkillMinionSkillStatSet.list)
 						for _, statSet in ipairs(activeSkill.minion.activeSkillList[controls.mainSkillMinionSkill.selIndex].activeEffect.grantedEffect.statSets) do
-							t_insert(controls.mainSkillMinionSkillStatSet.list, statSet.label)
+							t_insert(controls.mainSkillMinionSkillStatSet.list, {label =  statSet.label, grantedEffectId = activeEffect.grantedEffect.id})
 						end
 						local minionStatSetIndexLookup = activeEffect.srcInstance["skillMinionSkillStatSetIndexLookup"..suffix]
-						controls.mainSkillMinionSkillStatSet.selIndex = minionStatSetIndexLookup and minionStatSetIndexLookup[controls.mainSkillMinionSkill.selIndex] or 1
+						controls.mainSkillMinionSkillStatSet.selIndex = minionStatSetIndexLookup and minionStatSetIndexLookup[activeEffect.grantedEffect.id] and minionStatSetIndexLookup[activeEffect.grantedEffect.id][controls.mainSkillMinionSkill.selIndex] or 1
 						controls.mainSkillMinionSkillStatSet.shown = true
 						controls.mainSkillMinionSkillStatSet.enabled = #controls.mainSkillMinionSkillStatSet.list > 1
 					else
