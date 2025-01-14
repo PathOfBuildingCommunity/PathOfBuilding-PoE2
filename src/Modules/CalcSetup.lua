@@ -1443,13 +1443,17 @@ function calcs.initEnv(build, mode, override, specEnv)
 									qualityId = gemInstance.qualityId,
 									srcInstance = gemInstance,
 									gemData = gemInstance.gemData,
+									statSet = {skillFlags={}, stateSet ={}},
+									statSetCalcs = {skillFlags={}, stateSet ={}},
 								}
+
 								if not activeEffect.srcInstance.statSet then
-									activeEffect.srcInstance.statSet = { statSet = grantedEffect.statSets[1] }
+									activeEffect.srcInstance.statSet = { }
 								end
 								if not activeEffect.srcInstance.statSetCalcs then
-									activeEffect.srcInstance.statSetCalcs = { statSet = grantedEffect.statSets[1] }
+									activeEffect.srcInstance.statSetCalcs = { }
 								end
+
 								if gemInstance.gemData then
 									local playerItems = env.player.itemList
 									local socketedIn = playerItems[groupCfg.slotName] and playerItems[groupCfg.slotName].sockets and playerItems[groupCfg.slotName].sockets[gemIndex]

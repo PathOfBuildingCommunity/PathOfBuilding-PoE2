@@ -179,9 +179,9 @@ local function doActorAttribsConditions(env, actor)
 		end
 		local skillFlags
 		if env.mode == "CALCS" then
-			skillFlags = actor.mainSkill.activeEffect.srcInstance.statSetCalcs.skillFlags 
+			skillFlags = actor.mainSkill.activeEffect.statSetCalcs.skillFlags
 		else 
-			skillFlags = actor.mainSkill.activeEffect.srcInstance.statSet.skillFlags 
+			skillFlags = actor.mainSkill.activeEffect.statSet.skillFlags
 		end
 		if not actor.mainSkill.skillData.triggered and not skillFlags.trap and not skillFlags.mine and not skillFlags.totem then
 			if skillFlags.attack then
@@ -903,9 +903,9 @@ function calcs.perform(env, skipEHP)
 	for _, activeSkill in ipairs(env.player.activeSkillList) do
 		local skillFlags
 		if env.mode == "CALCS" then
-			skillFlags = activeSkill.activeEffect.srcInstance.statSetCalcs.skillFlags 
+			skillFlags = activeSkill.activeEffect.statSetCalcs.skillFlags
 		else 
-			skillFlags = activeSkill.activeEffect.srcInstance.statSet.skillFlags 
+			skillFlags = activeSkill.activeEffect.statSet.skillFlags
 		end
 		if skillFlags.brand then
 			local attachLimit = activeSkill.skillModList:Sum("BASE", activeSkill.skillCfg, "BrandsAttachedLimit")
@@ -1546,9 +1546,9 @@ function calcs.perform(env, skipEHP)
 	for _, activeSkill in ipairs(env.player.activeSkillList) do
 		local disabledFlag
 		if env.mode == "CALCS" then
-			disabledFlag = activeSkill.activeEffect.srcInstance.statSetCalcs.skillFlags.disable 
+			disabledFlag = activeSkill.activeEffect.statSetCalcs.skillFlags.disable
 		else 
-			disabledFlag = activeSkill.activeEffect.srcInstance.statSet.skillFlags.disable 
+			disabledFlag = activeSkill.activeEffect.statSet.skillFlags.disable
 		end
 		if not disabledFlag and not (env.limitedSkills and env.limitedSkills[cacheSkillUUID(activeSkill, env)]) then
 			if (activeSkill.activeEffect.grantedEffect.name == "Blight" or activeSkill.activeEffect.grantedEffect.name == "Blight of Contagion" or activeSkill.activeEffect.grantedEffect.name == "Blight of Atrophy") and activeSkill.skillPart == 2 then
@@ -1581,9 +1581,9 @@ function calcs.perform(env, skipEHP)
 	for _, activeSkill in ipairs(env.player.activeSkillList) do
 		local skillFlags
 		if env.mode == "CALCS" then
-			skillFlags = activeSkill.activeEffect.srcInstance.statSetCalcs.skillFlags 
+			skillFlags = activeSkill.activeEffect.statSetCalcs.skillFlags
 		else 
-			skillFlags = activeSkill.activeEffect.srcInstance.statSet.skillFlags 
+			skillFlags = activeSkill.activeEffect.statSet.skillFlags
 		end
 		local skillModList = activeSkill.skillModList
 		local skillCfg = activeSkill.skillCfg
@@ -1777,9 +1777,9 @@ function calcs.perform(env, skipEHP)
 					end
 					local totemFlag
 					if env.mode == "CALCS" then
-						totemFlag = env.player.mainSkill.activeEffect.srcInstance.statSetCalcs.skillFlags.totem 
+						totemFlag = env.player.mainSkill.activeEffect.statSetCalcs.skillFlags.totem
 					else 
-						totemFlag = env.player.mainSkill.activeEffect.srcInstance.statSet.skillFlags.totem 
+						totemFlag = env.player.mainSkill.activeEffect.statSet.skillFlags.totem
 					end
 					if totemFlag and not (modDB:Flag(nil, "SelfAurasCannotAffectAllies") or modDB:Flag(nil, "SelfAuraSkillsCannotAffectAllies")) then
 						activeSkill.totemBuffSkill = true
@@ -2139,9 +2139,9 @@ function calcs.perform(env, skipEHP)
 								buffExports["Aura"][buff.name] = { effectMult = mult, modList = newModList }
 								local totemFlag
 								if env.mode == "CALCS" then
-									totemFlag = env.player.mainSkill.activeEffect.srcInstance.statSetCalcs.skillFlags.totem 
-								else 
-									totemFlag = env.player.mainSkill.activeEffect.srcInstance.statSet.skillFlags.totem 
+									totemFlag = env.player.mainSkill.activeEffect.statSetCalcs.skillFlags.totem
+								else
+									totemFlag = env.player.mainSkill.activeEffect.statSet.skillFlags.totem
 								end
 								if totemFlag and not env.player.mainSkill.skillModList.conditions["AffectedBy"..buff.name:gsub(" ","")] then
 									activeMinionSkill.totemBuffSkill = true
@@ -2638,9 +2638,9 @@ function calcs.perform(env, skipEHP)
 			local totemModBlacklist = value.mod.name and (value.mod.name == "Speed" or value.mod.name == "CritMultiplier" or value.mod.name == "CritChance")
 			local totemFlag
 			if env.mode == "CALCS" then
-				totemFlag = env.player.mainSkill.activeEffect.srcInstance.statSetCalcs.skillFlags.totem 
+				totemFlag = env.player.mainSkill.activeEffect.statSetCalcs.skillFlags.totem
 			else 
-				totemFlag = env.player.mainSkill.activeEffect.srcInstance.statSet.skillFlags.totem 
+				totemFlag = env.player.mainSkill.activeEffect.statSet.skillFlags.totem
 			end
 			if totemFlag and not totemModBlacklist then
 				local totemMod = copyTable(value.mod)
@@ -2732,9 +2732,9 @@ function calcs.perform(env, skipEHP)
 
 	local hitFlag
 	if env.mode == "CALCS" then
-		hitFlag = env.player.mainSkill.activeEffect.srcInstance.statSetCalcs.skillFlags.hit 
+		hitFlag = env.player.mainSkill.activeEffect.statSetCalcs.skillFlags.hit
 	else 
-		hitFlag = env.player.mainSkill.activeEffect.srcInstance.statSet.skillFlags.hit
+		hitFlag = env.player.mainSkill.activeEffect.statSet.skillFlags.hit
 	end
 	for ailment, val in pairs(ailments) do
 		if (enemyDB:Sum("BASE", nil, ailment.."Val") > 0

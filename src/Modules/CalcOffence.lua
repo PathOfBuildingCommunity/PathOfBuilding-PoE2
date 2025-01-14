@@ -327,9 +327,9 @@ function calcs.offence(env, actor, activeSkill)
 	local skillData = activeSkill.skillData
 	local skillFlags
 	if env.mode == "CALCS" then
-		skillFlags = activeSkill.activeEffect.srcInstance.statSetCalcs.skillFlags
+		skillFlags = activeSkill.activeEffect.statSetCalcs.skillFlags
 	else 
-		skillFlags = activeSkill.activeEffect.srcInstance.statSet.skillFlags
+		skillFlags = activeSkill.activeEffect.statSet.skillFlags
 	end
 	local skillCfg = activeSkill.skillCfg
 	if skillData.showAverage then
