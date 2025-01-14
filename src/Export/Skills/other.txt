@@ -15,7 +15,7 @@ local skills, mod, flag, skill = ...
 #startSets
 #set AncestralSpiritsPlayer
 #flags spell minion
-	fromTree = true,
+fromTree = true,
 #mods
 #skillEnd
 
@@ -23,7 +23,7 @@ local skills, mod, flag, skill = ...
 #startSets
 #set BleedingConcoctionPlayer
 #flags
-	fromTree = true,
+fromTree = true,
 #mods
 #skillEnd
 
@@ -31,7 +31,7 @@ local skills, mod, flag, skill = ...
 #startSets
 #set MeleeBowPlayer
 #flags
-	fromItem = true,
+fromItem = true,
 #mods
 #skillEnd
 
@@ -39,7 +39,7 @@ local skills, mod, flag, skill = ...
 #startSets
 #set MeleeCrossbowPlayer
 #flags attack area projectile
-	fromItem = true,
+fromItem = true,
 #mods
 #skillEnd
 
@@ -47,7 +47,7 @@ local skills, mod, flag, skill = ...
 #startSets
 #set DemonFormPlayer
 #flags
-	fromTree = true,
+fromTree = true,
 #mods
 #skillEnd
 
@@ -55,19 +55,19 @@ local skills, mod, flag, skill = ...
 #startSets
 #set ElementalExpressionTriggeredPlayer
 #flags
-	fromTree = true,
+fromTree = true,
 #mods
 #set ElementalExpressionFirePlayer
 #flags
-	fromTree = true,
+fromTree = true,
 #mods
 #set ElementalExpressionColdPlayer
 #flags
-	fromTree = true,
+fromTree = true,
 #mods
 #set ElementalExpressionLightningPlayer
 #flags
-	fromTree = true,
+fromTree = true,
 #mods
 #skillEnd
 
@@ -75,19 +75,19 @@ local skills, mod, flag, skill = ...
 #startSets
 #set ElementalStormPlayer
 #flags
-	fromTree = true,
+fromTree = true,
 #mods
 #set ElementalStormFirePlayer
 #flags
-	fromTree = true,
+fromTree = true,
 #mods
 #set ElementalStormLightningPlayer
 #flags
-	fromTree = true,
+fromTree = true,
 #mods
 #set ElementalStormColdPlayer
 #flags
-	fromTree = true,
+fromTree = true,
 #mods
 #skillEnd
 
@@ -95,7 +95,7 @@ local skills, mod, flag, skill = ...
 #startSets
 #set EncaseInJadePlayer
 #flags
-	fromTree = true,
+fromTree = true,
 #mods
 #skillEnd
 
@@ -103,7 +103,7 @@ local skills, mod, flag, skill = ...
 #startSets
 #set ExplosiveConcoctionPlayer
 #flags
-	fromTree = true,
+fromTree = true,
 #mods
 #skillEnd
 
@@ -111,7 +111,7 @@ local skills, mod, flag, skill = ...
 #startSets
 #set FulminatingConcoctionPlayer
 #flags
-	fromTree = true,
+fromTree = true,
 #mods
 #skillEnd
 
@@ -119,7 +119,7 @@ local skills, mod, flag, skill = ...
 #startSets
 #set IntoTheBreachPlayer
 #flags
-	fromTree = true,
+fromTree = true,
 #mods
 #skillEnd
 
@@ -127,7 +127,7 @@ local skills, mod, flag, skill = ...
 #startSets
 #set LifeRemnantsPlayer
 #flags
-	fromTree = true,
+fromTree = true,
 #mods
 #skillEnd
 
@@ -135,7 +135,7 @@ local skills, mod, flag, skill = ...
 #startSets
 #set Melee1HMacePlayer
 #flags
-	fromItem = true,
+fromItem = true,
 #mods
 #skillEnd
 
@@ -143,7 +143,7 @@ local skills, mod, flag, skill = ...
 #startSets
 #set Melee2HMacePlayer
 #flags
-	fromItem = true,
+fromItem = true,
 #mods
 #skillEnd
 
@@ -151,7 +151,7 @@ local skills, mod, flag, skill = ...
 #startSets
 #set MeleeMaceMacePlayer
 #flags
-	fromItem = true,
+fromItem = true,
 #mods
 #skillEnd
 
@@ -159,7 +159,7 @@ local skills, mod, flag, skill = ...
 #startSets
 #set MeditatePlayer
 #flags
-	fromTree = true,
+fromTree = true,
 #mods
 #skillEnd
 
@@ -167,7 +167,7 @@ local skills, mod, flag, skill = ...
 #startSets
 #set PoisonousConcoctionPlayer
 #flags
-	fromTree = true,
+fromTree = true,
 #mods
 #skillEnd
 
@@ -183,7 +183,7 @@ local skills, mod, flag, skill = ...
 #startSets
 #set MeleeQuarterstaffPlayer
 #flags attack melee area
-	fromItem = true,
+fromItem = true,
 #mods
 #skillEnd
 
@@ -191,7 +191,7 @@ local skills, mod, flag, skill = ...
 #startSets
 #set ShatteringConcoctionPlayer
 #flags
-	fromTree = true,
+fromTree = true,
 #mods
 #skillEnd
 
@@ -199,7 +199,7 @@ local skills, mod, flag, skill = ...
 #startSets
 #set SorceryWardPlayer
 #flags
-	fromTree = true,
+fromTree = true,
 #mods
 #skillEnd
 
@@ -210,7 +210,7 @@ local skills, mod, flag, skill = ...
 #startSets
 #set SummonInfernalHoundPlayer
 #flags spell minion permanentMinion
-	fromTree = true,
+fromTree = true,
 #mods
 #skillEnd
 
@@ -218,7 +218,7 @@ local skills, mod, flag, skill = ...
 #startSets
 #set TemporalRiftPlayer
 #flags
-	fromTree = true,
+fromTree = true,
 #mods
 #skillEnd
 
@@ -226,7 +226,7 @@ local skills, mod, flag, skill = ...
 #startSets
 #set TimeFreezePlayer
 #flags
-	fromTree = true,
+fromTree = true,
 #mods
 #skillEnd
 
@@ -234,7 +234,7 @@ local skills, mod, flag, skill = ...
 #startSets
 #set TimeSnapPlayer
 #flags
-	fromTree = true,
+fromTree = true,
 #mods
 #skillEnd
 
@@ -242,6 +242,6 @@ local skills, mod, flag, skill = ...
 #startSets
 #set UnboundAvatarPlayer
 #flags
-	fromTree = true,
+fromTree = true,
 #mods
 #skillEnd

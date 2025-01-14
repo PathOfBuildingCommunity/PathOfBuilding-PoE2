@@ -122,7 +122,7 @@ function main:Init()
 					printf("Unknown directive '%s'", spec)
 				end
 			else
-				out:write(line, "\n")
+				out:write("\t\t\t"..line, "\n")
 			end
 		end
 		out:close()

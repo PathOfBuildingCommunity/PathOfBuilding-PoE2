@@ -67,14 +67,14 @@ local skills, mod, flag, skill = ...
 #skill SupportAddedChaosDamagePlayer
 #startSets
 #set SupportAddedChaosDamagePlayer
-	statMap = {
-		["support_chaos_support_non_chaos_damage_+%_final"] = {
-			mod("ColdDamage", "MORE", nil),
-			mod("LightningDamage", "MORE", nil),
-			mod("FireDamage", "MORE", nil),
-			mod("PhysicalDamage", "MORE", nil),
-		},
+statMap = {
+	["support_chaos_support_non_chaos_damage_+%_final"] = {
+		mod("ColdDamage", "MORE", nil),
+		mod("LightningDamage", "MORE", nil),
+		mod("FireDamage", "MORE", nil),
+		mod("PhysicalDamage", "MORE", nil),
 	},
+},
 #mods
 #skillEnd
 
@@ -93,11 +93,11 @@ local skills, mod, flag, skill = ...
 #skill SupportClarityPlayer
 #startSets
 #set SupportClarityPlayer
-			statMap = {
-				["support_clarity_mana_regeneration_rate_+%"] = {
-					mod("ManaRegen", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Clarity" }),
-				},
-			},
+statMap = {
+	["support_clarity_mana_regeneration_rate_+%"] = {
+		mod("ManaRegen", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Clarity" }),
+	},
+},
 #mods
 #skillEnd
 
@@ -110,12 +110,12 @@ local skills, mod, flag, skill = ...
 #skill SupportAddedColdDamagePlayer
 #startSets
 #set SupportAddedColdDamagePlayer
-	statMap = {
-		["support_fire_and_lightning_damage_+%_final"] = {
-			mod("FireDamage", "MORE", nil),
-			mod("LightningDamage", "MORE", nil),
-		},
+statMap = {
+	["support_fire_and_lightning_damage_+%_final"] = {
+		mod("FireDamage", "MORE", nil),
+		mod("LightningDamage", "MORE", nil),
 	},
+},
 #mods
 #skillEnd
 
@@ -134,14 +134,14 @@ local skills, mod, flag, skill = ...
 #skill SupportConcentratedEffectPlayer
 #startSets
 #set SupportConcentratedEffectPlayer
-	statMap = {
-		["support_concentrated_effect_skill_area_of_effect_+%_final"] = {
-			mod("AreaOfEffect", "MORE", nil),
-		},
-		["support_area_concentrate_area_damage_+%_final"] = {
-			mod("Damage", "MORE", nil, ModFlag.Area),
-		},
+statMap = {
+	["support_concentrated_effect_skill_area_of_effect_+%_final"] = {
+		mod("AreaOfEffect", "MORE", nil),
 	},
+	["support_area_concentrate_area_damage_+%_final"] = {
+		mod("Damage", "MORE", nil, ModFlag.Area),
+	},
+},
 #mods
 #skillEnd
 
