@@ -449,7 +449,7 @@ local ConfigTabClass = newClass("ConfigTab", "UndoHandler", "ControlHost", "Cont
 				t_insert(shownFuncs, listOrSingleIfOption(varData.ifFlag, function(ifOption)
 					local skillModList = self.build.calcsTab.mainEnv.player.mainSkill.skillModList
 					-- only checking flags of skill in main env. rework may be required
-					local skillFlags = self.build.calcsTab.mainEnv.player.mainSkill.activeEffect.srcInstance.statSet.skillFlags
+					local skillFlags = self.build.calcsTab.mainEnv.player.mainSkill.activeEffect.statSet.skillFlags
 					-- Check both the skill mods for flags and flags that are set via calcPerform
 					return skillFlags[ifOption] or skillModList:Flag(nil, ifOption)
 				end))
@@ -499,7 +499,7 @@ local ConfigTabClass = newClass("ConfigTab", "UndoHandler", "ControlHost", "Cont
 				t_insert(shownFuncs, listOrSingleIfOption(varData.ifSkillFlag, function(ifOption)
 					for _, activeSkill in ipairs(self.build.calcsTab.mainEnv.player.activeSkillList) do
 						-- only checking flags of skill in main env. rework may be required
-						if activeSkill.activeEffect.srcInstance.statSet.skillFlags[ifOption] then
+						if activeSkill.activeEffect.statSet.skillFlags[ifOption] then
 							return true
 						end
 					end

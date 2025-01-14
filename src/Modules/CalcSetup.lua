@@ -1407,11 +1407,10 @@ function calcs.initEnv(build, mode, override, specEnv)
 									srcInstance = gemInstance,
 									gemData = gemInstance.gemData,
 								}
-								if not activeEffect.srcInstance.statSet then
-									activeEffect.srcInstance.statSet = { statSet = grantedEffect.statSets[1] }
-								end
-								if not activeEffect.srcInstance.statSetCalcs then
-									activeEffect.srcInstance.statSetCalcs = { statSet = grantedEffect.statSets[1] }
+								if env.mode == "CALCS" then
+									activeEffect.statSetCalcs = { index = gemInstance.statSetCalcs and gemInstance.statSetCalcs[grantedEffect.id] or 1}
+								else
+									activeEffect.statSet = { index = gemInstance.statSet and gemInstance.statSetCalcs[grantedEffect.id] or 1}
 								end
 								if gemInstance.gemData then
 									local playerItems = env.player.itemList
