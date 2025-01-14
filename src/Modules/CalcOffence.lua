@@ -3882,23 +3882,21 @@ function calcs.offence(env, actor, activeSkill)
 		-- Calculates damage to be used in damaging ailment calculations
 		local function calcAilmentSourceDamage(ailment, defaultDamageTypes)
 			local canCrit = not skillModList:Flag(cfg, "AilmentsAreNeverFromCrit")
-			local hitMin, hitMax, hitAvg = 0, 0, 0
-			local critMin, critMax, critAvg = 0, 0, 0
+			local hitMin, hitMax = 0, 0, 0
+			local critMin, critMax = 0, 0, 0
 			for _, damageType in ipairs(dmgTypeList) do
 				if canDoAilment(ailment, damageType, defaultDamageTypes) then
 					hitMin = hitMin + output[damageType.."StoredHitMin"]
 					hitMax = hitMax + output[damageType.."StoredHitMax"]
-					hitAvg = hitAvg + output[damageType.."StoredHitAvg"]
 					output[ailment .. damageType .. "Min"] = output[damageType.."StoredHitMin"]
 					output[ailment .. damageType .. "Max"] = output[damageType.."StoredHitMax"]
 					if canCrit then
 						critMin = critMin + output[damageType.."StoredCritMin"]
 						critMax = critMax + output[damageType.."StoredCritMax"]
-						critAvg = critAvg + output[damageType.."StoredCritAvg"]
 					end
 				end
 			end
-			return hitMin, hitMax, hitAvg, critMin, critMax, critAvg
+			return hitMin, hitMax, critMin, critMax
 		end
 
 		-- Calculate the inflict chance and base damage of a secondary effect (bleed/poison/ignite/shock/freeze)
@@ -4020,7 +4018,6 @@ function calcs.offence(env, actor, activeSkill)
 				skillFlags[ailment:lower() .. "CanStack"] = true
 				maxStacks = skillModList:Override(cfg, ailment .. "Stacks") or ((maxStacks + skillModList:Sum("BASE", cfg, ailment .. "Stacks")) * skillModList:More(cfg, ailment .. "Stacks"))
 			end
-			local overrideStackPotential = skillModList:Override(nil, ailment .. "StackPotentialOverride") and skillModList:Override(nil, ailment .. "StackPotentialOverride") / maxStacks
 			globalOutput[ailment .. "StacksMax"] = maxStacks
 
 			-- The ailment duration
@@ -4041,6 +4038,7 @@ function calcs.offence(env, actor, activeSkill)
 
 			-- The average number of ailment that will be active on the enemy at once
 			local ailmentStacks = output.HitChance / 100 * ailmentChance * skillData.dpsMultiplier
+			local configStacks = enemyDB:Sum("BASE", nil, "Multiplier:" .. ailment .. "Stacks")
 			if not skillData.triggeredOnDeath then
 				if output.Cooldown then
 					ailmentStacks = ailmentStacks * globalOutput[ailment .. "Duration"] / m_max(output.Cooldown, (output.HitTime or output.Time))
@@ -4053,29 +4051,23 @@ function calcs.offence(env, actor, activeSkill)
 				if skillFlags.totem then
 					ailmentStacks = ailmentStacks * activeTotems
 				end
-				local configStacks = enemyDB:Sum("BASE", nil, "Multiplier:" .. ailment .. "Stacks")
 				if configStacks > 0 then
 					ailmentStacks = configStacks
 				end
-				if ailmentStacks < 1 and (overrideStackPotential or 0) <= 1 then
+				if ailmentStacks <= 1 then
 					skillModList:NewMod("Condition:Single" .. ailment, "FLAG", true, ailment:lower())
 				end
 			end
 
 			-- Ratio of ailments applied : max effective ailments
-			globalOutput[ailment .. "StackPotential"] = overrideStackPotential or (ailmentStacks / maxStacks)
+			globalOutput[ailment .. "StackPotential"] = ailmentStacks / maxStacks
 			if globalBreakdown then
 				globalBreakdown[ailment .. "StackPotential"] = {
 					s_format(colorCodes.CUSTOM.."NOTE: Calculation uses a Weighted Avg formula"),
 					s_format(""),
 				}
-				if skillModList:Override(nil, ailment .. "StackPotentialOverride") then
-					if maxStacks ~= 1 then
-						t_insert(globalBreakdown[ailment .. "StackPotential"], s_format("= %d / %d ^8(stack potential override / max stacks)", skillModList:Override(nil, ailment .. "StackPotentialOverride"), maxStacks))
-						t_insert(globalBreakdown[ailment .. "StackPotential"], s_format("= %g ^8(stack potential)", overrideStackPotential))
-					else
-						t_insert(globalBreakdown[ailment .. "StackPotential"], s_format("= %g ^8(stack potential override)", overrideStackPotential))
-					end
+				if configStacks > 0 then
+					t_insert(globalBreakdown[ailment .. "StackPotential"], s_format("%.2f ^8(ailment stacks config override)", configStacks))
 				else
 					t_insert(globalBreakdown[ailment .. "StackPotential"], s_format("%.2f ^8(chance to hit)", output.HitChance / 100))
 					t_insert(globalBreakdown[ailment .. "StackPotential"], s_format("* %.2f ^8(chance to apply)", ailmentChance))
@@ -4089,9 +4081,9 @@ function calcs.offence(env, actor, activeSkill)
 					if skillData.dpsMultiplier ~= 1 then
 						t_insert(globalBreakdown[ailment .. "StackPotential"], s_format("* %g ^8(DPS multiplier for this skill)", skillData.dpsMultiplier))
 					end
-					t_insert(globalBreakdown[ailment .. "StackPotential"], s_format("/ %d ^8(max number of stacks)", maxStacks))
-					t_insert(globalBreakdown[ailment .. "StackPotential"], s_format("= %.2f", globalOutput[ailment .. "StackPotential"]))
 				end
+				t_insert(globalBreakdown[ailment .. "StackPotential"], s_format("/ %d ^8(max number of stacks)", maxStacks))
+				t_insert(globalBreakdown[ailment .. "StackPotential"], s_format("= %.2f", globalOutput[ailment .. "StackPotential"]))
 			end
 
 			-- the amount of damage each application does as % maximum
@@ -4121,7 +4113,9 @@ function calcs.offence(env, actor, activeSkill)
 				end
 			end
 
-			local hitMin, hitMax, hitAvg, critMin, critMax, critAvg = calcAilmentSourceDamage(ailment, defaultDamageTypes)
+			local hitMin, hitMax, critMin, critMax = calcAilmentSourceDamage(ailment, defaultDamageTypes)
+			local hitAvg = hitMin + ((hitMax - hitMin) * ailmentRollAverage / 100)
+			local critAvg = critMin + ((critMax - critMin) * ailmentRollAverage / 100)
 			if globalBreakdown then
 				globalBreakdown[ailment .. "DPS"] = {
 					s_format("Non-Crit Dmg Derivation:"),
@@ -4139,7 +4133,7 @@ function calcs.offence(env, actor, activeSkill)
 			end
 
 			-- Over-stacking stacks increases the chance a critical is present
-			local ailmentCritChance = 100 * (1 - m_pow(1 - output.CritChance / 100, m_max(1, ailmentStacks)))
+			local ailmentCritChance = 100 * (1 - m_pow(1 - output.CritChance / 100, m_max(globalOutput[ailment .. "StackPotential"], 1)))
 			globalOutput[ailment .. "MagnitudeEffect"] = calcLib.mod(skillModList, dotCfg, "AilmentMagnitude")
 			local ailmentPercentBase = data.misc[ailment .. "PercentBase"] * globalOutput[ailment .. "MagnitudeEffect"]
 			local baseMinVal = calcAilmentDamage(ailment, ailmentCritChance, hitMin, 0, true) * ailmentPercentBase
