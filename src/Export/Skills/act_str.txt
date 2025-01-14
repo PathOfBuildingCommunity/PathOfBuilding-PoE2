@@ -67,48 +67,48 @@ local skills, mod, flag, skill = ...
 #mods
 #skillEnd
 
+#from item
 #skill MetaCastOnBlockPlayer
-fromItem = true,
 #startSets
 #set MetaCastOnBlockPlayer
 #flags
 #mods
 #skillEnd
 
+#from item
 #skill SupportMetaCastOnBlockPlayer
-fromItem = true,
 #startSets
 #set SupportMetaCastOnBlockPlayer
 #flags
 #mods
 #skillEnd
 
+#from item
 #skill MetaCastOnMeleeKillPlayer
-fromItem = true,
 #startSets
 #set MetaCastOnMeleeKillPlayer
 #flags
 #mods
 #skillEnd
 
+#from item
 #skill SupportMetaCastOnMeleeKillPlayer
-fromItem = true,
 #startSets
 #set SupportMetaCastOnMeleeKillPlayer
 #flags
 #mods
 #skillEnd
 
+#from item
 #skill MetaCastOnMeleeStunPlayer
-fromItem = true,
 #startSets
 #set MetaCastOnMeleeStunPlayer
 #flags
 #mods
 #skillEnd
 
+#from item
 #skill SupportMetaCastOnMeleeStunPlayer
-fromItem = true,
 #startSets
 #set SupportMetaCastOnMeleeStunPlayer
 #flags

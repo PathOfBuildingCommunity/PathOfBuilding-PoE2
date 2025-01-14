@@ -305,6 +305,16 @@ directiveTable.skill = function(state, args, out)
 		out:write('\tname = "', displayName, '",\n')
 		out:write('\thidden = true,\n')
 	end
+	if state.from then
+		out:write('\tfrom' .. state.from:gsub("^%l", string.upper) .. ' = true,\n')
+	end
+	if state.minionList then
+		out:write('\tminionList = { ')
+		for _, minion in ipairs(state.minionList) do
+			out:write('\t\t"', minion, '", ')
+		end
+		out:write('\t},\n')
+	end
 	state.noGem = false
 	skill.baseFlags = { }
 	skill.baseConstantStats = { }
@@ -688,6 +698,23 @@ directiveTable.set = function(state, args, out)
 	skill.setIndex = skill.setIndex + 1
 end
 
+-- #from <tree | item>
+-- Sets an optional from specifier if skill is granted by tree or item
+directiveTable.from = function(state, args, out)
+	local set = state.from
+	set.from = args
+end
+
+-- #minionList <minion>[ <minion>[...]]
+-- Sets the minion list for this active set
+directiveTable.minionList = function(state, args, out)
+	local set = state.set
+	set.minionList = { }
+	for minion in args:gmatch("%a+") do
+		table.insert(set.minionList, minion)
+	end
+end
+
 -- #flags <flag>[ <flag>[...]]
 -- Sets the base flags for this active set
 directiveTable.flags = function(state, args, out)
@@ -777,6 +804,8 @@ directiveTable.skillEnd = function(state, args, out)
 	out:write('\t}\n')
 	out:write('}')
 	state.skill = nil
+	state.from = nil
+	state.minionList = nil
 end
 
 for _, name in pairs({"act_str","act_dex","act_int","other","minion","sup_str","sup_dex","sup_int"}) do
