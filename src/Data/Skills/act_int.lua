@@ -12010,9 +12010,11 @@ skills["PurityOfFirePlayer"] = {
 			},
 			baseFlags = {
 				spell = true,
-				curse = true,
+				aura = true,
 				area = true,
-				duration = true,
+			},
+			baseMods = {
+				skill("auraCannotAffectSelf", true),
 			},
 			constantStats = {
 				{ "skill_desired_amount_override", 1 },
@@ -12131,9 +12133,11 @@ skills["PurityOfIcePlayer"] = {
 			},
 			baseFlags = {
 				spell = true,
-				curse = true,
+				aura = true,
 				area = true,
-				duration = true,
+			},
+			baseMods = {
+				skill("auraCannotAffectSelf", true),
 			},
 			constantStats = {
 				{ "skill_desired_amount_override", 1 },
@@ -12252,9 +12256,11 @@ skills["PurityOfLightningPlayer"] = {
 			},
 			baseFlags = {
 				spell = true,
-				curse = true,
+				aura = true,
 				area = true,
-				duration = true,
+			},
+			baseMods = {
+				skill("auraCannotAffectSelf", true),
 			},
 			constantStats = {
 				{ "skill_desired_amount_override", 1 },

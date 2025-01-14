@@ -766,12 +766,13 @@ fromItem = true,
 fromItem = true,
 #startSets
 #set PurityOfFirePlayer
-#flags spell curse area duration
+#flags  spell aura area
 statMap = {
 	["skill_granted_fire_damage_resistance_%"] = {
 		mod("FireResist", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Aura" }),
 	},
 },
+#baseMod skill("auraCannotAffectSelf", true)
 #mods
 #skillEnd
 
@@ -779,12 +780,13 @@ statMap = {
 fromItem = true,
 #startSets
 #set PurityOfIcePlayer
-#flags spell curse area duration
+#flags  spell aura area
 statMap = {
 	["skill_granted_cold_damage_resistance_%"] = {
 		mod("ColdResist", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Aura" }),
 	},
 },
+#baseMod skill("auraCannotAffectSelf", true)
 #mods
 #skillEnd
 
@@ -792,12 +794,13 @@ statMap = {
 fromItem = true,
 #startSets
 #set PurityOfLightningPlayer
-#flags spell curse area duration
+#flags  spell aura area
 statMap = {
 	["skill_granted_lightning_damage_resistance_%"] = {
 		mod("LightningResist", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Aura" }),
 	},
 },
+#baseMod skill("auraCannotAffectSelf", true)
 #mods
 #skillEnd
 
