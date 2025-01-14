@@ -20,26 +20,27 @@ local fireHitTaken = {
 local chaosHitTaken = {
 	"DamageTaken", "ChaosDamageTaken", "ChaosResist", "CurseEffectOnSelf"
 }
-local physicalConvert = { 
-	"SkillPhysicalDamageConvertToLightning", "SkillPhysicalDamageConvertToCold", "SkillPhysicalDamageConvertToFire", "SkillPhysicalDamageConvertToChaos", 
-	"PhysicalDamageConvertToLightning", "PhysicalDamageConvertToCold", "PhysicalDamageConvertToFire", "PhysicalDamageConvertToChaos", "NonChaosDamageConvertToChaos", 
-	"PhysicalDamageGainAsLightning", "PhysicalDamageGainAsCold", "PhysicalDamageGainAsFire", "PhysicalDamageGainAsChaos", "NonChaosDamageGainAsChaos" 
-}
-local lightningConvert = {
-	"SkillLightningDamageConvertToCold", "SkillLightningDamageConvertToFire", "SkillLightningDamageConvertToChaos",
-	"LightningDamageConvertToCold", "LightningDamageConvertToFire", "LightningDamageConvertToChaos", "ElementalDamageConvertToChaos", "NonChaosDamageConvertToChaos", 
-	"LightningDamageGainAsCold", "LightningDamageGainAsFire", "LightningDamageGainAsChaos", "ElementalDamageGainAsChaos", "NonChaosDamageGainAsChaos"
-}
-local coldConvert = { 
-	"SkillColdDamageConvertToFire", "SkillColdDamageConvertToChaos",
-	"ColdDamageConvertToFire", "ColdDamageConvertToChaos", "ElementalDamageConvertToChaos", "NonChaosDamageConvertToChaos",
-	"ColdDamageGainAsFire", "ColdDamageGainAsChaos", "ElementalDamageGainAsChaos", "NonChaosDamageGainAsChaos"
-}
-local fireConvert = {
-	"SkillFireDamageConvertToChaos",
-	"FireDamageConvertToChaos", "ElementalDamageConvertToChaos", "NonChaosDamageConvertToChaos", 
-	"FireDamageGainAsChaos", "ElementalDamageGainAsChaos", "NonChaosDamageGainAsChaos"
-}
+
+local function fillConvert(damageType)
+	local convert = {}
+	for _, type in ipairs({ "Physical", "Lightning", "Cold", "Fire", "Chaos" }) do
+		table.insert(convert, "Skill"..damageType.."DamageConvertTo"..type)
+		table.insert(convert, damageType.."DamageConvertTo"..type)
+		table.insert(convert, damageType.."DamageGainAs"..type)
+
+		if type ~= "Chaos" and type ~= "Physical" then
+			table.insert(convert, "ElementalDamageConvertTo"..type)
+			table.insert(convert, "ElementalDamageGainAs"..type)
+		end
+	end
+	return convert
+end
+
+local physicalConvert = fillConvert("Physical")
+local lightningConvert = fillConvert("Lightning")
+local coldConvert = fillConvert("Cold")
+local fireConvert = fillConvert("Fire")
+local chaosConvert = fillConvert("Chaos")
 
 -- format {width, id, group, color, subsection:{default hidden, label, data:{}}}
 return {
@@ -165,6 +166,7 @@ return {
 		},
 		{ format = "{0:output:ChaosMin} to {0:output:ChaosMax}", 
 			{ breakdown = "Chaos" }, 
+			{ label = "Conversions", modType = "BASE", cfg = "skill", modName = chaosConvert }, 
 		},
 	},
 	{ label = "Skill Average Hit", notFlag = "attack", { format = "{1:output:AverageHit}", { breakdown = "AverageHit" }, }, },
@@ -236,6 +238,7 @@ return {
 		},
 		{ format = "{0:output:MainHand.ChaosMin} to {0:output:MainHand.ChaosMax}", 
 			{ breakdown = "MainHand.Chaos" }, 
+			{ label = "Conversions", modType = "BASE", cfg = "weapon1", modName = chaosConvert },
 		},
 	},
 	{ label = "MH Average Hit", bgCol = colorCodes.MAINHANDBG, flag = "weapon1Attack", { format = "{1:output:MainHand.AverageHit}", { breakdown = "MainHand.AverageHit" }, }, },
@@ -307,6 +310,7 @@ return {
 		},
 		{ format = "{0:output:OffHand.ChaosMin} to {0:output:OffHand.ChaosMax}", 
 			{ breakdown = "OffHand.Chaos" },
+			{ label = "Conversions", modType = "BASE", cfg = "weapon2", modName = chaosConvert }, 
 		},
 	},
 	{ label = "OH Average Hit", bgCol = colorCodes.OFFHANDBG, flag = "weapon2Attack", { format = "{1:output:OffHand.AverageHit}", { breakdown = "OffHand.AverageHit" }, }, },

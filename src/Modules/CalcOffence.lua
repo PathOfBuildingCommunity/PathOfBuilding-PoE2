@@ -1878,6 +1878,20 @@ function calcs.offence(env, actor, activeSkill)
 					(activeSkill.conversionTable[damageType][toType] or 0) + amount
 			end
 		end
+
+		-- Handle gains
+		activeSkill.gainTable[damageType] = {}
+		for _, toType in ipairs(dmgTypeList) do
+			local globalGain = m_max(skillModList:Sum("BASE", skillCfg,
+				damageType.."DamageGainAs"..toType,
+				isElemental[damageType] and "ElementalDamageGainAs"..toType or nil,
+				damageType ~= "Chaos" and "NonChaosDamageGainAs"..toType or nil), 0)
+			local skillGain = m_max(skillModList:Sum("BASE", skillCfg,
+				"Skill"..damageType.."DamageGainAs"..toType,
+				isElemental[damageType] and "SkillElementalDamageGainAs"..toType or nil,
+				damageType ~= "Chaos" and "SkillNonChaosDamageGainAs"..toType or nil), 0)
+			activeSkill.gainTable[damageType][toType] = (globalGain + skillGain) / 100
+		end
 	end
 
 	-- Configure damage passes
