@@ -256,7 +256,7 @@ statMap = {
 #skill ConductivityPlayer
 #startSets
 #set ConductivityPlayer
-#flags
+#flags spell curse area duration
 statMap = {
 	["skill_granted_lightning_damage_resistance_%"] = {
 		mod("LightningResist", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Curse" }),
@@ -300,7 +300,7 @@ fromItem = true,
 #skill DespairPlayer
 #startSets
 #set DespairPlayer
-#flags
+#flags spell curse area duration
 statMap = {
 	["skill_granted_chaos_damage_resistance_%"] = {
 		mod("ChaosResist", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Curse" }),
@@ -448,7 +448,7 @@ statMap = {
 #skill FlammabilityPlayer
 #startSets
 #set FlammabilityPlayer
-#flags
+#flags spell curse area duration
 statMap = {
 	["skill_granted_fire_damage_resistance_%"] = {
 		mod("FireResist", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Curse" }),
@@ -503,7 +503,7 @@ fromItem = true,
 #skill HypothermiaPlayer
 #startSets
 #set HypothermiaPlayer
-#flags
+#flags spell curse area duration
 statMap = {
 	["skill_granted_cold_damage_resistance_%"] = {
 		mod("ColdResist", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Curse" }),
@@ -766,7 +766,7 @@ fromItem = true,
 fromItem = true,
 #startSets
 #set PurityOfFirePlayer
-#flags
+#flags spell curse area duration
 statMap = {
 	["skill_granted_fire_damage_resistance_%"] = {
 		mod("FireResist", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Aura" }),
@@ -779,7 +779,7 @@ statMap = {
 fromItem = true,
 #startSets
 #set PurityOfIcePlayer
-#flags
+#flags spell curse area duration
 statMap = {
 	["skill_granted_cold_damage_resistance_%"] = {
 		mod("ColdResist", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Aura" }),
@@ -792,7 +792,7 @@ statMap = {
 fromItem = true,
 #startSets
 #set PurityOfLightningPlayer
-#flags
+#flags spell curse area duration
 statMap = {
 	["skill_granted_lightning_damage_resistance_%"] = {
 		mod("LightningResist", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Aura" }),

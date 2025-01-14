@@ -3827,6 +3827,10 @@ skills["ConductivityPlayer"] = {
 				},
 			},
 			baseFlags = {
+				spell = true,
+				curse = true,
+				area = true,
+				duration = true,
 			},
 			constantStats = {
 				{ "curse_delay_duration_ms", 1000 },
@@ -4494,6 +4498,10 @@ skills["DespairPlayer"] = {
 				},
 			},
 			baseFlags = {
+				spell = true,
+				curse = true,
+				area = true,
+				duration = true,
 			},
 			constantStats = {
 				{ "curse_delay_duration_ms", 1000 },
@@ -6826,6 +6834,10 @@ skills["FlammabilityPlayer"] = {
 				},
 			},
 			baseFlags = {
+				spell = true,
+				curse = true,
+				area = true,
+				duration = true,
 			},
 			constantStats = {
 				{ "curse_delay_duration_ms", 1000 },
@@ -7670,6 +7682,10 @@ skills["HypothermiaPlayer"] = {
 				},
 			},
 			baseFlags = {
+				spell = true,
+				curse = true,
+				area = true,
+				duration = true,
 			},
 			constantStats = {
 				{ "curse_delay_duration_ms", 1000 },
@@ -11993,6 +12009,10 @@ skills["PurityOfFirePlayer"] = {
 				},
 			},
 			baseFlags = {
+				spell = true,
+				curse = true,
+				area = true,
+				duration = true,
 			},
 			constantStats = {
 				{ "skill_desired_amount_override", 1 },
@@ -12110,6 +12130,10 @@ skills["PurityOfIcePlayer"] = {
 				},
 			},
 			baseFlags = {
+				spell = true,
+				curse = true,
+				area = true,
+				duration = true,
 			},
 			constantStats = {
 				{ "skill_desired_amount_override", 1 },
@@ -12227,6 +12251,10 @@ skills["PurityOfLightningPlayer"] = {
 				},
 			},
 			baseFlags = {
+				spell = true,
+				curse = true,
+				area = true,
+				duration = true,
 			},
 			constantStats = {
 				{ "skill_desired_amount_override", 1 },
