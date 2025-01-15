@@ -26,12 +26,25 @@ local skills, mod, flag, skill = ...
 #skill SupportFasterCastPlayer
 #startSets
 #set SupportFasterCastPlayer
+statMap = {
+	["support_faster_casting_cast_speed_+%_final"] = {
+		mod("Speed", "MORE", nil, ModFlag.Cast),
+	},
+	["support_faster_casting_damage_+%_final"] = {
+		mod("Damage", "MORE", nil, ModFlag.Cast),
+	},
+},
 #mods
 #skillEnd
 
 #skill SupportAstralProjectionPlayer
 #startSets
 #set SupportAstralProjectionPlayer
+statMap = {
+	["support_astral_projection_aoe_+%_final"] = {
+		mod("AreaOfEffect", "MORE", nil),
+	},
+},
 #mods
 #skillEnd
 
@@ -44,6 +57,11 @@ local skills, mod, flag, skill = ...
 #skill SupportBitingFrostPlayer
 #startSets
 #set SupportBitingFrostPlayer
+statMap = {
+	["support_active_skill_consume_enemy_freeze_to_gain_damage_+%_final"] = {
+		mod("Damage", "MORE", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "Frozen" }),
+	},
+},
 #mods
 #skillEnd
 
@@ -55,6 +73,15 @@ local skills, mod, flag, skill = ...
 #skill TriggeredBurningRunesPlayer
 #startSets
 #set TriggeredBurningRunesPlayer
+statMap = {
+	["support_burning_runes_base_fire_damage_equal_to_%_maximum_mana"] = {
+		mod("IgniteFireHitDamage", "OVERRIDE", nil, 0, 0, { type = "PercentStat", stat = "Mana", percent = 1 }),
+	},
+},
+#flags duration
+#baseMod mod("EnemyIgniteChance", "BASE", 100)
+#baseMod mod("IgniteStacks", "OVERRIDE", 1)
+#baseMod flag("NeverCrit")
 #mods
 #skillEnd
 
@@ -148,6 +175,14 @@ statMap = {
 #skill SupportConsideredCastingPlayer
 #startSets
 #set SupportConsideredCastingPlayer
+statMap = {
+	["support_slow_cast_cast_speed_+%_final"] = {
+		mod("Speed", "MORE", nil, ModFlag.Cast),
+	},
+	["support_slow_cast_spell_damage_+%_final"] = {
+		mod("Damage", "MORE", nil, ModFlag.Spell),
+	},
+},
 #mods
 #skillEnd
 
@@ -184,6 +219,12 @@ statMap = {
 #skill SupportDecayingHexPlayer
 #startSets
 #set SupportDecayingHexPlayer
+statMap = {
+	["support_decaying_hex_base_chaos_damage_per_minute_as_%_of_intelligence_for_8_seconds"] = {
+		skill("decay", nil, { type = "PercentStat", stat = "Int", percent = 1 }),
+		div = 60,
+	},
+},
 #mods
 #skillEnd
 

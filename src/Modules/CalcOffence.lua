@@ -3889,13 +3889,15 @@ function calcs.offence(env, actor, activeSkill)
 			local critMin, critMax = 0, 0, 0
 			for _, damageType in ipairs(dmgTypeList) do
 				if canDoAilment(ailment, damageType, defaultDamageTypes) then
-					hitMin = hitMin + output[damageType.."StoredHitMin"]
-					hitMax = hitMax + output[damageType.."StoredHitMax"]
-					output[ailment .. damageType .. "Min"] = output[damageType.."StoredHitMin"]
-					output[ailment .. damageType .. "Max"] = output[damageType.."StoredHitMax"]
+					local override = skillModList:Override(cfg, ailment .. damageType .. "HitDamage")
+					hitMin = hitMin + (override or output[damageType.."StoredHitMin"])
+					hitMax = hitMax + (override or output[damageType.."StoredHitMax"])
+					output[ailment .. damageType .. "Min"] = (override or output[damageType.."StoredHitMin"])
+					output[ailment .. damageType .. "Max"] = (override or output[damageType.."StoredHitMin"])
 					if canCrit then
-						critMin = critMin + output[damageType.."StoredCritMin"]
-						critMax = critMax + output[damageType.."StoredCritMax"]
+						local override = skillModList:Override(cfg, ailment .. damageType .. "CritDamage")
+						critMin = critMin + (override or output[damageType.."StoredCritMin"])
+						critMax = critMax + (override or output[damageType.."StoredCritMax"])
 					end
 				end
 			end
@@ -4617,8 +4619,8 @@ function calcs.offence(env, actor, activeSkill)
 		combineStat("ImpaleModifier", "CHANCE", "ImpaleChance")
 	end
 
-	if skillFlags.hit and skillData.decay and canDeal.Chaos then
-		-- Calculate DPS for Essence of Delirium's Decay effect
+	if skillData.decay and canDeal.Chaos then
+		-- Calculate DPS for Decay effect
 		skillFlags.decay = true
 		activeSkill.decayCfg = {
 			skillName = skillCfg.skillName,

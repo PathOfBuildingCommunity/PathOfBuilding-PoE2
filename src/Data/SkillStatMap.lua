@@ -578,6 +578,9 @@ return {
 	mod("CritChance", "OVERRIDE", nil),
 	value = 100,
 },
+["global_cannot_crit"] = {
+	flag("NeverCrit"),
+},
 ["base_critical_strike_multiplier_+"] = {
 	mod("CritMultiplier", "BASE", nil),
 },
@@ -2324,4 +2327,7 @@ return {
 ["retaliation_base_use_window_duration_ms"] = {
 	-- Display only
 },
+["nova_skills_cast_at_target_location"] = {
+	-- Display only
+}
 }
