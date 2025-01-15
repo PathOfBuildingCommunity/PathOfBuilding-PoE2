@@ -5504,6 +5504,56 @@ local jewelOtherFuncs = {
 			out:NewMod("NodeModifier", "LIST", { mod = mod("MinionModifier", "LIST", { mod = mod("MovementSpeed", "INC", -25, data.modSource) }) }, data.modSource)
 		end
 	end,
+	["Notable Passive Skills in Radius also grant %+(%d+)%% to Maximum (%a+) Resistance"] = function(num, type)
+        return function(node, out, data)
+            if node and node.type == "Notable" then
+                out:NewMod(firstToUpper(type).."ResistMax", "BASE", num, data.modSource)
+            end
+        end
+    end,
+	["Notable Passive Skills in Radius also grant (%d+)%% increased (%a+)"] = function(num, type)
+        return function(node, out, data)
+            if node and node.type == "Notable" then
+				-- take first 3 letters of attribute: Int, Str, Dex
+                out:NewMod(firstToUpper(type):sub(1, 3), "INC", num, data.modSource)
+            end
+        end
+    end,
+    ["Notable Passive Skills in Radius also grant Gain (%d+)%% of Damage as Extra (%a+) Damage"] = function(num, type)
+        return function(node, out, data)
+            if node and node.type == "Notable" then
+                out:NewMod("GainAs"..type, "BASE", num, data.modSource)
+            end
+        end
+    end,
+	["Notable Passive Skills in Radius also grant %+(%d+) to Spirit"] = function(num)
+        return function(node, out, data)
+            if node and node.type == "Notable" then
+                out:NewMod("Spirit", "BASE", num, data.modSource)
+            end
+        end
+    end,
+	["Small Passive Skills in Radius also grant %+(%d+)%% to (%a+) Resistance"] = function(num, type)
+		return function(node, out, data)
+			if node and node.type == "Normal" then
+				out:NewMod(firstToUpper(type).."Resist", "BASE", num, data.modSource)
+			end
+		end
+	end,
+	["Small Passive Skills in Radius also grant (%d+)%% increased maximum (%a+)"] = function(num, type)
+		return function(node, out, data)
+			if node and node.type == "Normal" then
+				out:NewMod(firstToUpper(type), "INC", num, data.modSource)
+			end
+		end
+	end,
+	["Small Passive Skills in Radius also grant (%d+)%% reduced (%a+) Duration on you"] = function(num, type)
+		return function(node, out, data)
+			if node and node.type == "Normal" then
+				out:NewMod("Self"..firstToUpper(type).."Duration", "INC", num, data.modSource)
+			end
+		end
+	end,
 }
 
 -- Radius jewels that modify the jewel itself based on nearby allocated nodes

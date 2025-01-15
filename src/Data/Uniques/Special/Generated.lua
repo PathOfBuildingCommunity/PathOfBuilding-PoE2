@@ -16,26 +16,32 @@ do
 	for modName, mod in pairs(uniqueMods) do
 		local name = modName:match("^UniqueJewelRadius(.+)$")
 		if name then
-			table.insert(againstMods, { mod = mod, name = name:gsub("[%u%d]", " %1"):gsub("_", ""):gsub("E S", "ES") })
+			table.insert(againstMods, { mod = mod, name = name:gsub("UniqueJewelRadius", "") })
 		end
 	end
-	table.sort(uniqueMods, function(a, b) return a.mod.statOrder[1] > b.mod.statOrder[1] end)
+	table.sort(againstMods, function(a, b) return a.mod.statOrder[1] > b.mod.statOrder[1] end)
 	local against = {
 		"Against the Darkness",
 		"Time-Lost Diamond",
 		"Limited to: 1",
-		"Radius: Large",
 		"Has Alt Variant: true",
-		"Selected Variant: 1",
-		"Selected Alt Variant: 2",
 	}
 	for _, mod in ipairs(againstMods) do
-		table.insert(against, "Variant:" .. mod.name)
+		table.insert(against, "Variant: " .. mod.name)
 	end
+	local variantCount = #against
+	table.insert(against, "Selected Variant: 1")
+	table.insert(against, "Selected Alt Variant: 2")
+	table.insert(against, "Radius: Large")
+	table.insert(against, "Implicits: 0")
 	local smallLine = "Small Passive Skills in Radius also grant "
 	local notableLine = "Notable Passive Skills in Radius also grant "
 	for index, mod in ipairs(againstMods) do
-		table.insert(against, "{variant:" .. index .. "}" .. (mod.mod.nodeType == 1 and smallLine or notableLine) .. mod.mod[1])
+		if mod.mod.nodeType == 1 then
+			table.insert(against, "{variant:" .. index .. "," .. variantCount .. "}" .. smallLine .. mod.mod[1])
+		else
+			table.insert(against, "{variant:" .. index .. "," .. variantCount .. "}" .. notableLine .. mod.mod[1])
+		end
 	end
 	table.insert(data.uniques.generated, table.concat(against, "\n"))
 end
