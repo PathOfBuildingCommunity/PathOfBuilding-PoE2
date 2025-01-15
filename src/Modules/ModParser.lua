@@ -5505,34 +5505,34 @@ local jewelOtherFuncs = {
 		end
 	end,
 	["Notable Passive Skills in Radius also grant %+(%d+)%% to Maximum (%a+) Resistance"] = function(num, type)
-        return function(node, out, data)
-            if node and node.type == "Notable" then
-                out:NewMod(firstToUpper(type).."ResistMax", "BASE", num, data.modSource)
-            end
-        end
-    end,
+		return function(node, out, data)
+			if node and node.type == "Notable" then
+				out:NewMod(firstToUpper(type).."ResistMax", "BASE", num, data.modSource)
+			end
+		end
+	end,
 	["Notable Passive Skills in Radius also grant (%d+)%% increased (%a+)"] = function(num, type)
-        return function(node, out, data)
-            if node and node.type == "Notable" then
+		return function(node, out, data)
+			if node and node.type == "Notable" then
 				-- take first 3 letters of attribute: Int, Str, Dex
-                out:NewMod(firstToUpper(type):sub(1, 3), "INC", num, data.modSource)
-            end
-        end
-    end,
-    ["Notable Passive Skills in Radius also grant Gain (%d+)%% of Damage as Extra (%a+) Damage"] = function(num, type)
-        return function(node, out, data)
-            if node and node.type == "Notable" then
-                out:NewMod("GainAs"..type, "BASE", num, data.modSource)
-            end
-        end
-    end,
+				out:NewMod(firstToUpper(type):sub(1, 3), "INC", num, data.modSource)
+			end
+		end
+	end,
+	["Notable Passive Skills in Radius also grant Gain (%d+)%% of Damage as Extra (%a+) Damage"] = function(num, type)
+		return function(node, out, data)
+			if node and node.type == "Notable" then
+				out:NewMod("GainAs"..type, "BASE", num, data.modSource)
+			end
+		end
+	end,
 	["Notable Passive Skills in Radius also grant %+(%d+) to Spirit"] = function(num)
-        return function(node, out, data)
-            if node and node.type == "Notable" then
-                out:NewMod("Spirit", "BASE", num, data.modSource)
-            end
-        end
-    end,
+		return function(node, out, data)
+			if node and node.type == "Notable" then
+				out:NewMod("Spirit", "BASE", num, data.modSource)
+			end
+		end
+	end,
 	["Small Passive Skills in Radius also grant %+(%d+)%% to (%a+) Resistance"] = function(num, type)
 		return function(node, out, data)
 			if node and node.type == "Normal" then

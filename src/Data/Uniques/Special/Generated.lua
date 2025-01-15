@@ -16,7 +16,7 @@ do
 	for modName, mod in pairs(uniqueMods) do
 		local name = modName:match("^UniqueJewelRadius(.+)$")
 		if name then
-			table.insert(againstMods, { mod = mod, name = name:gsub("UniqueJewelRadius", "") })
+			table.insert(againstMods, { mod = mod, name = name:gsub("UniqueJewelRadius", ""):gsub("Strenth", "Strength") })
 		end
 	end
 	table.sort(againstMods, function(a, b) return a.mod.statOrder[1] > b.mod.statOrder[1] end)
