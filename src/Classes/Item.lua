@@ -1538,7 +1538,11 @@ function ItemClass:BuildModList()
 						local list, extra = modLib.parseMod(line)
 						if list and not extra then
 							modLine.modList = list
-							t_insert(self.rangeLineList, modLine)
+							-- Against the Darkness specific // a way to cut down on really long modLines in the range dropdown
+							-- copy the modLine so we don't actually change the mod, only the display
+							local rangeLine = copyTable(modLine)
+							rangeLine.line = rangeLine.line:gsub(" Passive Skills in Radius also grant", ":")
+							t_insert(self.rangeLineList, rangeLine)
 						end
 					end
 				end
