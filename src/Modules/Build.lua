@@ -43,7 +43,6 @@ function buildMode:Init(dbFileName, buildName, buildXML, convertBuild, importLin
 	self.viewMode = "TREE"
 	self.characterLevel = m_min(m_max(main.defaultCharLevel or 1, 1), 100)
 	self.targetVersion = liveTargetVersion
-	self.bandit = "None"
 	self.characterLevelAutoMode = main.defaultCharLevel == 1 or main.defaultCharLevel == nil
 	if buildXML then
 		if self:LoadDB(buildXML, "Unnamed build") then
@@ -69,7 +68,6 @@ function buildMode:Init(dbFileName, buildName, buildXML, convertBuild, importLin
 	end
 
 	self.abortSave = true
-
 	-- calculate atcs Table based on data.questRewards
 	self.acts = { { level = 1 , questPoints = 0 } }
 	for _, quest in ipairs(data.questRewards) do
@@ -1021,6 +1019,15 @@ function buildMode:Save(xml)
 			end
 		end
 	end
+	local buffs = {
+		elem = "Buffs",
+		attrib = {
+			buffList = self.calcsTab.calcsOutput.BuffList,
+			combatList = self.calcsTab.calcsOutput.CombatList,
+			curseList = self.calcsTab.calcsOutput.CurseList,
+		}
+	}
+	t_insert(xml, buffs)
 	local timelessData = {
 		elem = "TimelessData",
 		attrib = {

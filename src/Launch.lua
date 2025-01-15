@@ -6,7 +6,7 @@
 --
 
 local startTime = GetTime()
-APP_NAME = "Path of Building"
+APP_NAME = "Path of Building (PoE2)"
 
 SetWindowTitle(APP_NAME)
 ConExecute("set vid_mode 8")

@@ -66,6 +66,8 @@ skills["ArcPlayer"] = {
 			damageIncrementalEffectiveness = 0.0065000001341105,
 			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
+				spell = true,
+				chaining = true,
 			},
 			constantStats = {
 				{ "arc_chain_distance", 35 },
@@ -3819,7 +3821,16 @@ skills["ConductivityPlayer"] = {
 			label = "Conductivity",
 			incrementalEffectiveness = 0.092720001935959,
 			statDescriptionScope = "lightning_weakness",
+			statMap = {
+				["skill_granted_lightning_damage_resistance_%"] = {
+					mod("LightningResist", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Curse" }),
+				},
+			},
 			baseFlags = {
+				spell = true,
+				curse = true,
+				area = true,
+				duration = true,
 			},
 			constantStats = {
 				{ "curse_delay_duration_ms", 1000 },
@@ -4481,7 +4492,16 @@ skills["DespairPlayer"] = {
 			label = "Despair",
 			incrementalEffectiveness = 0.092720001935959,
 			statDescriptionScope = "despair",
+			statMap = {
+				["skill_granted_chaos_damage_resistance_%"] = {
+					mod("ChaosResist", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Curse" }),
+				},
+			},
 			baseFlags = {
+				spell = true,
+				curse = true,
+				area = true,
+				duration = true,
 			},
 			constantStats = {
 				{ "curse_delay_duration_ms", 1000 },
@@ -6808,7 +6828,16 @@ skills["FlammabilityPlayer"] = {
 			label = "Flammability",
 			incrementalEffectiveness = 0.092720001935959,
 			statDescriptionScope = "fire_weakness",
+			statMap = {
+				["skill_granted_fire_damage_resistance_%"] = {
+					mod("FireResist", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Curse" }),
+				},
+			},
 			baseFlags = {
+				spell = true,
+				curse = true,
+				area = true,
+				duration = true,
 			},
 			constantStats = {
 				{ "curse_delay_duration_ms", 1000 },
@@ -7220,7 +7249,7 @@ skills["TriggeredFreezingMarkNovaPlayer"] = {
 }
 skills["FreezingShardsPlayer"] = {
 	name = "Freezing Shards",
-	hidden = true,
+	baseTypeName = "Freezing Shards",
 	color = 3,
 	description = "Launches icy Projectiles in a sweeping arc. Multiple Projectiles can hit the same enemy.",
 	skillTypes = { [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.AreaSpell] = true, [SkillType.Invokable] = true, [SkillType.Cold] = true, [SkillType.CanRapidFire] = true, [SkillType.Nonpathing] = true, },
@@ -7270,7 +7299,7 @@ skills["FreezingShardsPlayer"] = {
 		[39] = { critChance = 11, levelRequirement = 90, },
 		[40] = { critChance = 11, levelRequirement = 90, },
 	},
-				fromItem = true,
+			fromItem = true,
 	statSets = {
 		[1] = {
 			label = "Freezing Shards",
@@ -7647,7 +7676,16 @@ skills["HypothermiaPlayer"] = {
 			label = "Frostbite",
 			incrementalEffectiveness = 0.092720001935959,
 			statDescriptionScope = "cold_weakness",
+			statMap = {
+				["skill_granted_cold_damage_resistance_%"] = {
+					mod("ColdResist", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Curse" }),
+				},
+			},
 			baseFlags = {
+				spell = true,
+				curse = true,
+				area = true,
+				duration = true,
 			},
 			constantStats = {
 				{ "curse_delay_duration_ms", 1000 },
@@ -11965,7 +12003,18 @@ skills["PurityOfFirePlayer"] = {
 			label = "Purity of Fire",
 			incrementalEffectiveness = 0.092720001935959,
 			statDescriptionScope = "fire_resist_aura",
+			statMap = {
+				["skill_granted_fire_damage_resistance_%"] = {
+					mod("FireResist", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Aura" }),
+				},
+			},
 			baseFlags = {
+				spell = true,
+				aura = true,
+				area = true,
+			},
+			baseMods = {
+				skill("auraCannotAffectSelf", true),
 			},
 			constantStats = {
 				{ "skill_desired_amount_override", 1 },
@@ -12077,7 +12126,18 @@ skills["PurityOfIcePlayer"] = {
 			label = "Purity of Ice",
 			incrementalEffectiveness = 0.092720001935959,
 			statDescriptionScope = "cold_resist_aura",
+			statMap = {
+				["skill_granted_cold_damage_resistance_%"] = {
+					mod("ColdResist", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Aura" }),
+				},
+			},
 			baseFlags = {
+				spell = true,
+				aura = true,
+				area = true,
+			},
+			baseMods = {
+				skill("auraCannotAffectSelf", true),
 			},
 			constantStats = {
 				{ "skill_desired_amount_override", 1 },
@@ -12189,7 +12249,18 @@ skills["PurityOfLightningPlayer"] = {
 			label = "Purity of Lightning",
 			incrementalEffectiveness = 0.092720001935959,
 			statDescriptionScope = "lightning_resist_aura",
+			statMap = {
+				["skill_granted_lightning_damage_resistance_%"] = {
+					mod("LightningResist", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Aura" }),
+				},
+			},
 			baseFlags = {
+				spell = true,
+				aura = true,
+				area = true,
+			},
+			baseMods = {
+				skill("auraCannotAffectSelf", true),
 			},
 			constantStats = {
 				{ "skill_desired_amount_override", 1 },

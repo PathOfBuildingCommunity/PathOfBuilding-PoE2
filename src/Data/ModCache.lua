@@ -542,7 +542,7 @@ c["0.500000% of Life Regenerated per second per Fragile Regrowth"]={{[1]={[1]={t
 c["1% increased Attack Damage per 75 Armour or Evasion Rating on Shield"]={{[1]={[1]={div=75,statList={[1]="ArmourOnWeapon 2",[2]="EvasionOnWeapon 2"},type="PerStat"},flags=1,keywordFlags=0,name="Damage",type="INC",value=1}},nil}
 c["1% increased Attack Speed per 15 Dexterity"]={{[1]={[1]={div=15,stat="Dex",type="PerStat"},flags=1,keywordFlags=0,name="Speed",type="INC",value=1}},nil}
 c["1% increased Attack Speed per 250 Accuracy Rating"]={{[1]={[1]={div=250,stat="Accuracy",type="PerStat"},flags=1,keywordFlags=0,name="Speed",type="INC",value=1}},nil}
-c["1% increased Critical Damage Bonus per 40 Life"]={{[1]={flags=0,keywordFlags=0,name="CritMultiplier",type="INC",value=1}},"  per 40 Life "}
+c["1% increased Critical Damage Bonus per 40 Life"]={{[1]={[1]={div=40,stat="Life",type="PerStat"},flags=0,keywordFlags=0,name="CritMultiplier",type="INC",value=1}},nil}
 c["1% increased Damage per 1% Chance to Block"]={{[1]={flags=0,keywordFlags=0,name="Damage",type="INC",value=1}},"  per 1% Chance to Block "}
 c["1% increased Damage per 15 Strength"]={{[1]={[1]={div=15,stat="Str",type="PerStat"},flags=0,keywordFlags=0,name="Damage",type="INC",value=1}},nil}
 c["1% increased Effect of Arcane Surge on you per 15 maximum Mana"]={{[1]={[1]={div=15,stat="Mana",type="PerStat"},flags=0,keywordFlags=0,name="ArcaneSurgeEffect",type="INC",value=1}},nil}
@@ -1350,7 +1350,7 @@ c["25% more Skill Speed while Off Hand is empty and you have a One-Handed Martia
 c["25% of Armour also applies to Fire Damage taken from Hits"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="BASE",value=25}},"  also applies to Fire Damage taken from Hits "}
 c["25% of Damage taken bypasses Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="DamageTaken",type="BASE",value=25}},"  bypasses Energy Shield "}
 c["25% of Damage taken bypasses Energy Shield Gain 30% of Maximum Life as Extra Maximum Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="DamageTakenGainAsEnergyShield",type="BASE",value=25}},"  bypasses Energy Shield Gain 30% of Maximum Life  "}
-c["25% of Life Loss from Hits is prevented, then that much Life is lost over 4 seconds instead"]={{[1]={flags=0,keywordFlags=0,name="Life",type="BASE",value=25}},"  Loss from Hits is prevented, then that much Life is lost over 4 seconds instead "}
+c["25% of Life Loss from Hits is prevented, then that much Life is lost over 4 seconds instead"]={{[1]={flags=0,keywordFlags=0,name="LifeLossPrevented",type="BASE",value=25}},nil}
 c["25% of Spell Mana Cost Converted to Life Cost"]={{[1]={flags=2,keywordFlags=0,name="ManaCost",type="BASE",value=25}},"   Converted to Life Cost "}
 c["25% reduced Attribute Requirements"]={{[1]={flags=0,keywordFlags=0,name="StrRequirement",type="INC",value=-25},[2]={flags=0,keywordFlags=0,name="DexRequirement",type="INC",value=-25},[3]={flags=0,keywordFlags=0,name="IntRequirement",type="INC",value=-25}},nil}
 c["25% reduced Cast Speed"]={{[1]={flags=16,keywordFlags=0,name="Speed",type="INC",value=-25}},nil}
@@ -2074,7 +2074,7 @@ c["Aggravate Bleeding on Enemies when they Enter your Presence 100% increased Th
 c["Aggravate Bleeding on targets you Critically Hit with Attacks"]={nil,"Aggravate Bleeding on targets you Critically Hit with Attacks "}
 c["All Damage from Hits Contributes to Chill Magnitude"]={nil,"All Damage from Hits Contributes to Chill Magnitude "}
 c["All Damage from Hits Contributes to Poison Magnitude"]={{[1]={flags=0,keywordFlags=0,name="FireCanPoison",type="FLAG",value=true},[2]={flags=0,keywordFlags=0,name="ColdCanPoison",type="FLAG",value=true},[3]={flags=0,keywordFlags=0,name="LightningCanPoison",type="FLAG",value=true}},nil}
-c["All Damage from Hits Contributes to Shock Chance"]={nil,"All Damage from Hits Contributes to Shock Chance "}
+c["All Damage from Hits Contributes to Shock Chance"]={{[1]={flags=0,keywordFlags=0,name="PhysicalCanShock",type="FLAG",value=true},[2]={flags=0,keywordFlags=0,name="FireCanShock",type="FLAG",value=true},[3]={flags=0,keywordFlags=0,name="ColdCanShock",type="FLAG",value=true},[4]={flags=0,keywordFlags=0,name="ChaosCanShock",type="FLAG",value=true}},nil}
 c["All Damage from Hits with this Weapon Contributes to Freeze Buildup"]={nil,"All Damage from Hits with this Weapon Contributes to Freeze Buildup "}
 c["All Damage from Hits with this Weapon Contributes to Freeze Buildup Culling Strike against Frozen Enemies"]={nil,"All Damage from Hits with this Weapon Contributes to Freeze Buildup Culling Strike against Frozen Enemies "}
 c["All Damage is taken from Mana before Life"]={{[1]={flags=0,keywordFlags=0,name="DamageTakenFromManaBeforeLife",type="BASE",value=100}},nil}
@@ -2133,7 +2133,7 @@ c["Attacks have 25% chance to Maim on Hit"]={{}," to Maim  "}
 c["Attacks used by Totems have 4% increased Attack Speed"]={{[1]={flags=1,keywordFlags=16384,name="Speed",type="INC",value=4}},nil}
 c["Attribute Requirements of Gems can be satisified by your highest Attribute"]={{[1]={flags=0,keywordFlags=0,name="GemAttributeRequirementsSatisfiedByHighestAttribute",type="FLAG",value=true}},nil}
 c["Base Critical Hit Chance for Attacks with Weapons is 8%"]={{[1]={flags=0,keywordFlags=0,name="WeaponBaseCritChance",type="OVERRIDE",value=8}},nil}
-c["Base Critical Hit Chance for Spells is 15%"]={{[1]={flags=2,keywordFlags=0,name="CritChance",type="OVERRIDE",value=15}},"Base   "}
+c["Base Critical Hit Chance for Spells is 15%"]={{[1]={[1]={skillType=2,type="SkillType"},flags=0,keywordFlags=0,name="CritChanceBase",type="OVERRIDE",value=15}},nil}
 c["Base Maximum Darkness is 100"]={{},"Base Maximum Darkness "}
 c["Base Maximum Darkness is 100 Damage taken is Reserved from Darkness before being taken from Life or Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="DamageTaken",type="OVERRIDE",value=100}},"Base Maximum Darkness  is Reserved from Darkness before being taken from Life or Energy Shield "}
 c["Base Maximum Darkness is 100 Damage taken is Reserved from Darkness before being taken from Life or Energy Shield Darkness Reservation lasts for 10 seconds"]={{[1]={flags=0,keywordFlags=0,name="DamageTaken",type="OVERRIDE",value=100}},"Base Maximum Darkness  is Reserved from Darkness before being taken from Life or Energy Shield Darkness Reservation lasts  "}
@@ -2445,7 +2445,7 @@ c["Gain Accuracy Rating equal to your Intelligence"]={{[1]={[1]={stat="Int",type
 c["Gain Accuracy Rating equal to your Strength"]={{[1]={[1]={stat="Str",type="PerStat"},flags=0,keywordFlags=0,name="Accuracy",type="BASE",value=1}},nil}
 c["Gain Ailment Threshold equal to the lowest of Evasion and Armour on your Boots"]={nil,"Ailment Threshold equal to the lowest of Evasion and Armour on your Boots "}
 c["Gain Endurance Charges instead of Power Charges"]={nil,"Endurance Charges instead of Power Charges "}
-c["Gain Energy Shield from equipped Body Armour as extra maximum Life"]={nil,"Energy Shield from equipped Body Armour as extra maximum Life "}
+c["Gain Energy Shield from equipped Body Armour as extra maximum Life"]={{[1]={[1]={div=1,stat="EnergyShieldOnBody Armour",type="PerStat"},flags=0,keywordFlags=0,name="Life",type="BASE",value=1}},nil}
 c["Gain Frenzy Charges instead of Endurance Charges"]={nil,"Frenzy Charges instead of Endurance Charges "}
 c["Gain Frenzy Charges instead of Endurance Charges Gain Endurance Charges instead of Power Charges"]={nil,"Frenzy Charges instead of Endurance Charges Gain Endurance Charges instead of Power Charges "}
 c["Gain Infernal Flame instead of spending Mana for Skill costs"]={nil,"Infernal Flame instead of spending Mana for Skill costs "}
@@ -2888,7 +2888,7 @@ c["Skill Mana Costs Converted to Life Costs Skills gain 1% of Damage as Chaos Da
 c["Skills Supported by Unleash have 10% increased Seal gain frequency"]={{[1]={flags=0,keywordFlags=0,name="SealGainFrequency",type="INC",value=10}},nil}
 c["Skills Supported by Unleash have 25% increased Seal gain frequency"]={{[1]={flags=0,keywordFlags=0,name="SealGainFrequency",type="INC",value=25}},nil}
 c["Skills fire an additional Projectile"]={{[1]={flags=0,keywordFlags=0,name="ProjectileCount",type="BASE",value=1}},nil}
-c["Skills gain 1% of Damage as Chaos Damage per 3 Life Cost"]={{[1]={flags=0,keywordFlags=0,name="DamageAsChaos",type="BASE",value=1}},"   per 3 Life Cost "}
+c["Skills gain 1% of Damage as Chaos Damage per 3 Life Cost"]={{[1]={[1]={div=3,stat="Life",type="PerStat"},flags=0,keywordFlags=0,name="DamageAsChaos",type="BASE",value=1}},"    Cost "}
 c["Skills gain a Base Life Cost equal to 50% of Base Mana Cost"]={{[1]={flags=0,keywordFlags=0,name="ManaCostAsLifeCost",type="BASE",value=50}},nil}
 c["Skills gain a Base Life Cost equal to Base Mana Cost"]={{[1]={flags=0,keywordFlags=0,name="ManaCostAsLifeCost",type="BASE",value=100}},nil}
 c["Skills have +1 to Limit"]={{}," Limit "}
@@ -3039,7 +3039,7 @@ c["Your Chills can Slow targets by up to a maximum of 35% 25% less Magnitude of 
 c["Your Critical Damage Bonus is 300%"]={{[1]={flags=0,keywordFlags=0,name="CritMultiplier",type="OVERRIDE",value=300}},nil}
 c["Your Critical Hits do not deal extra Damage"]={{[1]={flags=0,keywordFlags=0,name="NoCritMultiplier",type="FLAG",value=true}},nil}
 c["Your Curses have 20% increased Effect if 50% of Curse Duration expired"]={{[1]={[1]={actor="enemy",threshold=50,type="MultiplierThreshold",var="CurseExpired"},[2]={skillType=79,type="SkillType"},flags=0,keywordFlags=0,name="CurseEffect",type="INC",value=20}},nil}
-c["Your Curses have infinite Duration"]={nil,"Your Curses have infinite Duration "}
+c["Your Curses have infinite Duration"]={{[1]={[1]={skillType=79,type="SkillType"},flags=0,keywordFlags=0,name="Duration",type="BASE",value=math.huge}},nil}
 c["Your Dexterity is added to your Minions"]={nil,"Your Dexterity is added to your Minions "}
 c["Your Hits are Crushing Blows"]={nil,"Your Hits are Crushing Blows "}
 c["Your Hits can't be Evaded"]={{[1]={flags=0,keywordFlags=0,name="CannotBeEvaded",type="FLAG",value=true}},nil}

@@ -82,7 +82,7 @@ function main:Init()
 		if not self.userPath then
 			self:OpenPathPopup(invalidPath, ignoreBuild)
 		else
-			self.userPath = self.userPath.."/Path of Building/"
+			self.userPath = self.userPath.."/Path of Building (PoE2)/"
 		end
 	end
 

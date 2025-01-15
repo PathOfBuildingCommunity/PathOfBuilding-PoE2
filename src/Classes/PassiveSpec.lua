@@ -424,10 +424,6 @@ function PassiveSpecClass:DecodePoePlannerURL(url, return_tree_version_only)
 	local ascendClassId = b:byte(9)
 	-- print("classId, ascendClassId", classId, ascendClassId)
 
-	-- 9 is Bandit
-	-- bandit = b[9]
-	-- print("bandit", bandit, bandit_list[bandit])
-
 	self:ResetNodes()
 	self:SelectClass(classId)
 	self:SelectAscendClass(ascendClassId)
