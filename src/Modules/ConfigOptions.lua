@@ -282,6 +282,20 @@ local configSettings = {
 	{ var = "ConcPathBypassCD", type = "check", label = "Bypass CD?", ifSkill = "Consecrated Path of Endurance", defaultState = true, apply = function(val, modList, enemyModList)
 		modList:NewMod("CooldownRecovery", "OVERRIDE", 0, "Config", { type = "SkillName", skillName = "Consecrated Path of Endurance" })
 	end },
+	{ label = "Drain Ailments:", ifSkill = "Drain Ailments" },
+	{ var = "conditionAilmentConsumed", type = "check", label = "Consumed an Ailment?", ifSkill = "Drain Ailments", apply = function(val, modList, enemyModList)
+		modList:NewMod("Condition:AilmentConsumed", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
+	end },
+	{ label = "Elemental Discharge:", ifSkill = "Elemental Discharge" },
+	{ var = "conditionIgniteConsumed", type = "check", label = "Consumed Ignite", ifSkill = "Elemental Discharge", apply = function(val, modList, enemyModList)
+		modList:NewMod("Condition:IgniteConsumed", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
+	end },
+	{ var = "conditionFreezeConsumed", type = "check", label = "Consumed Freeze", ifSkill = "Elemental Discharge", apply = function(val, modList, enemyModList)
+		modList:NewMod("Condition:FreezeConsumed", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
+	end },
+	{ var = "conditionShockConsumed", type = "check", label = "Consumed Shock", ifSkill = "Elemental Discharge", apply = function(val, modList, enemyModList)
+		modList:NewMod("Condition:ShockConsumed", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
+	end },
 	{ label = "Corrupting Cry:", ifSkill = "Corrupting Cry" },
 	{ var = "conditionCorruptingCryStages", type = "count", label = "# of Corrupting Cry stacks on enemy", ifSkill = "Corrupting Cry", defaultState = 1, apply = function(val, modList, enemyModList)
 		-- 10 is the maximum amount of Corrupting Blood Stages. modList does not contain skill base mods at this point so hard coding it here is the cleanest way to handle the cap.
@@ -305,15 +319,8 @@ local configSettings = {
 	{ var = "curseOverlaps", type = "count", label = "Curse overlaps:", ifSkill = "Doom Blast", ifFlag = "UsesCurseOverlaps", apply = function(val, modList, enemyModList)
 		modList:NewMod("Multiplier:CurseOverlaps", "BASE", val, "Config", { type = "Condition", var = "Effective" })
 	end },
-	{ label = "Elemental Army:", ifSkill = "Elemental Army" },
-	{ var = "elementalArmyExposureType", type = "list", label = "Exposure Type:", ifSkill = "Elemental Army", list = {{val=0,label="None"},{val="Fire",label="^xB97123Fire"},{val="Cold",label="^x3F6DB3Cold"},{val="Lightning",label="^xADAA47Lightning"}}, apply = function(val, modList, enemyModList)
-		if val == "Fire" then
-			modList:NewMod("FireExposureChance", "BASE", 100, "Config")
-		elseif val == "Cold" then
-			modList:NewMod("ColdExposureChance", "BASE", 100, "Config")
-		elseif val == "Lightning" then
-			modList:NewMod("LightningExposureChance", "BASE", 100, "Config")
-		end
+	{ var = "doomBlastManaPercentage", type = "count", label = "Current ^x7070FFMana^7 %:", tooltip = "Ignores values outside the 0-100 range, defaults to 100% if not specified.", ifSkill = "Doom Blast", apply = function(val, modList, enemyModList)
+		modList:NewMod("Multiplier:DoomBlastManaPercentage", "BASE", m_max(m_min(val,100), 0), "Config", { type = "SkillName", skillName = "Doom Blast" })
 	end },
 	{ label = "Embrace Madness:", ifSkill = "Embrace Madness" },
 	{ var = "embraceMadnessActive", type = "check", label = "Is Embrace Madness active?", ifSkill = "Embrace Madness", apply = function(val, modList, enemyModList)

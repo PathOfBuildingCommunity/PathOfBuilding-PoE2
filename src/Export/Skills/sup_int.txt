@@ -234,6 +234,11 @@ statMap = {
 #skill SupportDrainedAilmentPlayer
 #startSets
 #set SupportDrainedAilmentPlayer
+statMap = {
+	["support_drained_ailment_damage_over_time_+%_final_if_ailment_consumed"] = {
+		mod("Damage", "MORE", nil, ModFlag.Dot, 0, { type = "Condition", var = "AilmentConsumed" }),
+	},
+},
 #mods
 #skillEnd
 
@@ -251,12 +256,38 @@ statMap = {
 #skill TriggeredElementalDischargePlayer
 #startSets
 #set TriggeredElementalDischargePlayer
+#flags spell
+statMap = {
+	["spell_minimum_base_fire_damage_as_%_of_intelligence"] = {
+		mod("FireMin", "BASE", nil, 0, KeywordFlag.Spell, { type = "PercentStat", stat = "Int", percent = 1 }, { type = "Condition", var = "IgniteConsumed" }),
+	},
+	["spell_maximum_base_fire_damage_as_%_of_intelligence"] = {
+		mod("FireMax", "BASE", nil, 0, KeywordFlag.Spell, { type = "PercentStat", stat = "Int", percent = 1 }, { type = "Condition", var = "IgniteConsumed" }),
+	},
+	["spell_minimum_base_cold_damage_as_%_of_intelligence"] = {
+		mod("ColdMin", "BASE", nil, 0, KeywordFlag.Spell, { type = "PercentStat", stat = "Int", percent = 1 }, { type = "Condition", var = "FreezeConsumed" }),
+	},
+	["spell_maximum_base_cold_damage_as_%_of_intelligence"] = {
+		mod("ColdMax", "BASE", nil, 0, KeywordFlag.Spell, { type = "PercentStat", stat = "Int", percent = 1 }, { type = "Condition", var = "FreezeConsumed" }),
+	},
+	["spell_minimum_base_lightning_damage_as_%_of_intelligence"] = {
+		mod("LightningMin", "BASE", nil, 0, KeywordFlag.Spell, { type = "PercentStat", stat = "Int", percent = 1 }, { type = "Condition", var = "ShockConsumed" }),
+	},
+	["spell_maximum_base_lightning_damage_as_%_of_intelligence"] = {
+		mod("LightningMax", "BASE", nil, 0, KeywordFlag.Spell, { type = "PercentStat", stat = "Int", percent = 1 }, { type = "Condition", var = "ShockConsumed" }),
+	},
+},
 #mods
 #skillEnd
 
 #skill SupportElementalFocusPlayer
 #startSets
 #set SupportElementalFocusPlayer
+statMap = {
+	["support_gem_elemental_damage_+%_final"] = {
+		mod("ElementalDamage", "MORE", nil),
+	},
+},
 #mods
 #skillEnd
 
@@ -275,18 +306,36 @@ statMap = {
 #skill SupportExcisePlayer
 #startSets
 #set SupportExcisePlayer
+statMap = {
+	["support_crit_cooldown_crit_chance_+%_final"] = {
+		mod("CritChance", "MORE", nil),
+	},
+},
 #mods
 #skillEnd
 
 #skill SupportExecratePlayer
 #startSets
 #set SupportExecratePlayer
+statMap = {
+	["support_ailment_cooldown_ailment_chance_+%_final"] = {
+		mod("EnemyIgniteChance", "MORE", nil),
+		mod("EnemyShockChance", "MORE", nil),
+		mod("EnemyBleedChance", "MORE", nil),
+		mod("EnemyPoisonChance", "MORE", nil),
+	},
+},
 #mods
 #skillEnd
 
 #skill SupportExpansePlayer
 #startSets
 #set SupportExpansePlayer
+statMap = {
+	["support_aoe_cooldown_aoe_+%_final"] = {
+		mod("AreaOfEffect", "MORE", nil),
+	},
+},
 #mods
 #skillEnd
 
@@ -310,6 +359,8 @@ statMap = {
 #skill TriggeredFieryDeathPlayer
 #startSets
 #set TriggeredFieryDeathPlayer
+#flags spell area
+#baseMod skill("explodeCorpse", true)
 #mods
 #skillEnd
 
@@ -328,12 +379,22 @@ statMap = {
 #skill SupportManaFountainPlayer
 #startSets
 #set SupportManaFountainPlayer
+statMap = {
+	["support_mana_fountain_mana_regeneration_rate_+%"] = {
+		mod("ManaRegen", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Aura" }),
+	},
+},
 #mods
 #skillEnd
 
 #skill SupportWallFortressPlayer
 #startSets
 #set SupportWallFortressPlayer
+statMap = {
+	["support_wall_fortress_hit_damage_+%_final"] = {
+		mod("Damage", "MORE", nil),
+	},
+},
 #mods
 #skillEnd
 
@@ -346,6 +407,11 @@ statMap = {
 #skill SupportFrostfirePlayer
 #startSets
 #set SupportFrostfirePlayer
+statMap = {
+	["ignite_effect_+%_final_against_frozen_enemies"] = {
+		mod("AilmentMagnitude", "MORE", nil, 0, KeywordFlag.Ignite, { type = "ActorCondition", actor = "enemy", var = "Frozen" }),
+	},
+},
 #mods
 #skillEnd
 
@@ -382,12 +448,26 @@ statMap = {
 #skill SupportHourglassPlayer
 #startSets
 #set SupportHourglassPlayer
+statMap = {
+	["support_hourglass_damage_+%_final"] = {
+		mod("Damage", "MORE", nil),
+	},
+},
 #mods
 #skillEnd
 
 #skill SupportIceBitePlayer
 #startSets
 #set SupportIceBitePlayer
+statMap = {
+	["support_ice_bite_buff_grant_%_added_cold_attack_damage"] = {
+		mod("DamageGainAsCold", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff" }),
+	},
+	["support_ice_bite_base_buff_duration"] = {
+		mod("Duration", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff" }),
+		div = 1000,
+	},
+},
 #mods
 #skillEnd
 
@@ -405,6 +485,14 @@ statMap = {
 #skill DoomBlastPlayer
 #startSets
 #set DoomBlastPlayer
+#flags spell area
+statMap = {
+	["impending_doom_base_added_chaos_damage_%_of_current_mana"] = {
+		mod("ChaosMin", "BASE", nil, 0, 0, { type = "PercentStat", stat = "Mana", percentVar = "DoomBlastManaPercentage" }),
+		mod("ChaosMax", "BASE", nil, 0, 0, { type = "PercentStat", stat = "Mana", percentVar = "DoomBlastManaPercentage" }),
+		div = 100,
+	},
+},
 #mods
 #skillEnd
 
@@ -423,6 +511,14 @@ statMap = {
 #skill SupportChaoticAssassinationPlayer
 #startSets
 #set SupportChaoticAssassinationPlayer
+statMap = {
+	["support_chaotic_assassination_damage_over_time_+%_final_against_full_life_enemies"] = {
+		mod("Damage", "MORE", nil, ModFlag.Dot, 0, { type = "ActorCondition", actor = "enemy", var = "FullLife" }),
+	},
+	["support_chaotic_assassination_skill_effect_duration_+%_final"] = {
+		mod("Duration", "MORE", nil),
+	},
+},
 #mods
 #skillEnd
 
