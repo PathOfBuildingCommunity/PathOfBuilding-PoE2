@@ -24,15 +24,18 @@ local ImportTabClass = newClass("ImportTab", "ControlHost", "Control", function(
 	self.build = build
 
 	self.charImportMode = "GETACCOUNTNAME"
-	self.charImportStatus = "Idle"
+	self.charImportStatus = colorCodes.WARNING.."Disabled by GGG"
 	self.controls.sectionCharImport = new("SectionControl", {"TOPLEFT",self,"TOPLEFT"}, {10, 18, 650, 250}, "Character Import")
-	self.controls.sectionCharImport.shown = false
 	self.controls.charImportStatusLabel = new("LabelControl", {"TOPLEFT",self.controls.sectionCharImport,"TOPLEFT"}, {6, 14, 200, 16}, function()
 		return "^7Character import status: "..self.charImportStatus
 	end)
+	
+	self.controls.characterImportAnchor = new("Control", {"TOPLEFT",self.controls.sectionCharImport,"TOPLEFT"}, {6, 40, 200, 16})
+	self.controls.characterImportAnchor.shown = false
+	self.controls.sectionCharImport.height = function() return self.controls.characterImportAnchor.shown and 650 or 38 end
 
 	-- Stage: input account name
-	self.controls.accountNameHeader = new("LabelControl", {"TOPLEFT",self.controls.sectionCharImport,"TOPLEFT"}, {6, 40, 200, 16}, "^7To start importing a character, enter the character's account name:")
+	self.controls.accountNameHeader = new("LabelControl", {"TOPLEFT",self.controls.characterImportAnchor,"TOPLEFT"}, {0, 0, 200, 16}, "^7To start importing a character, enter the character's account name:")
 	self.controls.accountNameHeader.shown = function()
 		return self.charImportMode == "GETACCOUNTNAME"
 	end
