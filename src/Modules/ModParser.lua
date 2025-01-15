@@ -4319,17 +4319,17 @@ local specialModList = {
 		}
 	end,
 	["gain stun threshold equal to the lowest of evasion and armour on your helmet"] = {
-		mod("StunThreshold", "BASE", 1, { type = "PerStat", var="LowestOfArmourAndEvasionOnHelmet", div=1 }),
+		mod("StunThreshold", "BASE", 1, { type = "PerStat", stat = "LowestOfArmourAndEvasionOnHelmet" }),
 	},
 	["your stun threshold is doubled"] = {
 		mod("StunThreshold", "MORE", 100),
 	},
 	["(%d+)%% of base armour from equipment also added to stun threshold"] = function(num)
 		return {
-			mod("StunThreshold", "BASE", 1, { type = "PerStat", stat = "ArmourOnHelmet", div = 1, modType = "BASE", percent = num }),
-			mod("StunThreshold", "BASE", 1, { type = "PerStat", stat = "ArmourOnGloves", div = 1, modType = "BASE", percent = num }),
-			mod("StunThreshold", "BASE", 1, { type = "PerStat", stat = "ArmourOnBoots", div = 1, modType = "BASE", percent = num }),
-			mod("StunThreshold", "BASE", 1, { type = "PerStat", stat = "ArmourOnBody Armour", div = 1, modType = "BASE", percent = num }),
+			mod("StunThreshold", "BASE", 1, { type = "PerStat", stat = "ArmourOnHelmet", percent = num }),
+			mod("StunThreshold", "BASE", 1, { type = "PerStat", stat = "ArmourOnGloves", percent = num }),
+			mod("StunThreshold", "BASE", 1, { type = "PerStat", stat = "ArmourOnBoots", percent = num }),
+			mod("StunThreshold", "BASE", 1, { type = "PerStat", stat = "ArmourOnBody Armour", percent = num }),
 		}
 	end,
 	-- This mod doesn't work the way it should. It prevents self-chill among other issues.
