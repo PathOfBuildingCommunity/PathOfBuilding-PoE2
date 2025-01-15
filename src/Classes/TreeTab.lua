@@ -513,6 +513,8 @@ function TreeTabClass:OpenSpecManagePopup()
 		new("ButtonControl", {"LEFT", importTree, "RIGHT"}, {8, 0, 90, 20}, "Export Tree", function()
 			self:OpenExportPopup()
 		end)
+	importTree.enabled = false
+	exportTree.enabled = false
 
 	main:OpenPopup(370, 290, "Manage Passive Trees", {
 		new("PassiveSpecListControl", nil, {0, 50, 350, 200}, self),
