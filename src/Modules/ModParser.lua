@@ -1251,7 +1251,7 @@ local modTagList = {
 	-- Multipliers
 	["per power charge"] = { tag = { type = "Multiplier", var = "PowerCharge" } },
 	["per frenzy charge"] = { tag = { type = "Multiplier", var = "FrenzyCharge" } },
-	["per strength"] = { tag = { type = "Multiplier", var = "Str" } },
+	["per strength"] = { tag = { type = "PerStat", stat = "Str"} },
 	["per endurance charge"] = { tag = { type = "Multiplier", var = "EnduranceCharge" } },
 	["per siphoning charge"] = { tag = { type = "Multiplier", var = "SiphoningCharge" } },
 	["per spirit charge"] = { tag = { type = "Multiplier", var = "SpiritCharge" } },
