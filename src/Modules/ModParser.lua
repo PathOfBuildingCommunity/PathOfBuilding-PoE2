@@ -1251,6 +1251,7 @@ local modTagList = {
 	-- Multipliers
 	["per power charge"] = { tag = { type = "Multiplier", var = "PowerCharge" } },
 	["per frenzy charge"] = { tag = { type = "Multiplier", var = "FrenzyCharge" } },
+	["per strength"] = { tag = { type = "Multiplier", var = "Str" } },
 	["per endurance charge"] = { tag = { type = "Multiplier", var = "EnduranceCharge" } },
 	["per siphoning charge"] = { tag = { type = "Multiplier", var = "SiphoningCharge" } },
 	["per spirit charge"] = { tag = { type = "Multiplier", var = "SpiritCharge" } },
@@ -1624,6 +1625,8 @@ local modTagList = {
 	["while not cursed"] = { tag = { type = "Condition", var = "Cursed", neg = true } },
 	["while there is only one nearby enemy"] = { tagList = { { type = "Multiplier", var = "NearbyEnemies", limit = 1 }, { type = "Condition", var = "OnlyOneNearbyEnemy" } } },
 	["while t?h?e?r?e? ?i?s? ?a rare or unique enemy i?s? ?nearby"] = { tag = { type = "ActorCondition", actor = "enemy", varList = { "NearbyRareOrUniqueEnemy", "RareOrUnique" } } },
+	["if you have been stunned recently"] = { tag = { type = "Condition", var = "StunnedRecently" } },
+	["if you haven't been stunned recently"] = { tag = { type = "Condition", var = "StunnedRecently", neg = true } },
 	["if you[' ]h?a?ve hit recently"] = { tag = { type = "Condition", var = "HitRecently" } },
 	["if you[' ]h?a?ve hit an enemy recently"] = { tag = { type = "Condition", var = "HitRecently" } },
 	["if you[' ]h?a?ve hit with your main hand weapon recently"] = { tag = { type = "Condition", var = "HitRecentlyWithWeapon" } },
@@ -4305,6 +4308,30 @@ local specialModList = {
 		flag("CurseImmune", { type = "Condition", var = "UsingFlask" }),
 		flag("StunImmune", { type = "Condition", var = "UsingFlask" }),
 	},
+	["gain (%d+)%% of maximum energy shield as additional (%a+) threshold"] = function(num, _, statType)
+		return { mod(firstToUpper(statType) .. "Threshold", "BASE", 1, { type = "PercentStat", stat = "EnergyShield", percent = num }) }
+	end,
+	["(%d+)%% increased maximum life, mana and energy shield"] = function(num)
+		return {
+			mod("Life", "INC", num),
+			mod("Mana", "INC", num),
+			mod("EnergyShield", "INC", num),
+		}
+	end,
+	["gain stun threshold equal to the lowest of evasion and armour on your helmet"] = {
+		mod("StunThreshold", "BASE", 1, { type = "PerStat", var="LowestOfArmourAndEvasionOnHelmet", div=1 }),
+	},
+	["your stun threshold is doubled"] = {
+		mod("StunThreshold", "MORE", 100),
+	},
+	["(%d+)%% of base armour from equipment also added to stun threshold"] = function(num)
+		return {
+			mod("StunThreshold", "BASE", 1, { type = "PerStat", stat = "ArmourOnHelmet", div = 1, modType = "BASE", percent = num }),
+			mod("StunThreshold", "BASE", 1, { type = "PerStat", stat = "ArmourOnGloves", div = 1, modType = "BASE", percent = num }),
+			mod("StunThreshold", "BASE", 1, { type = "PerStat", stat = "ArmourOnBoots", div = 1, modType = "BASE", percent = num }),
+			mod("StunThreshold", "BASE", 1, { type = "PerStat", stat = "ArmourOnBody Armour", div = 1, modType = "BASE", percent = num }),
+		}
+	end,
 	-- This mod doesn't work the way it should. It prevents self-chill among other issues.
 	--Since we don't currently really do anything with enemy ailment infliction, this should probably be removed
 	--["cursed enemies cannot inflict elemental ailments on you"] = {

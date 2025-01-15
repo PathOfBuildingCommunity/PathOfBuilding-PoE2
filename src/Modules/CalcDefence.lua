@@ -575,6 +575,8 @@ function calcs.defence(env, actor)
 				end
 				output["EvasionOn"..slot] = evasionBase
 			end
+
+			output["LowestOfArmourAndEvasionOn"..slot] = m_min(armourBase, evasionBase)
 		end
 	end
 
