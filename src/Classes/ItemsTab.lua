@@ -2512,7 +2512,7 @@ function ItemsTabClass:CorruptDisplayItem() -- todo implement vaal orb new outco
 	for i = 1, 8 do
 		if i == 1 then
 			controls.enchant1Label = new("LabelControl", {"TOPRIGHT",nil,"TOPLEFT"}, {95, 55, 0, 16}, function()
-				if enchantNum == 1 then -- update label so reduant 1 doesn't appear in case of 1 enchant.
+				if enchantNum == 1 then -- update label so 1 doesn't appear in case of 1 enchant.
 					return "^7Enchant:"
 				else
 					return "^7Enchant #1:"

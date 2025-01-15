@@ -911,7 +911,7 @@ function ItemClass:NormaliseQuality()
 	if self.base and self.base.quality then
 		if not self.quality then
 			self.quality = 0
-		elseif not self.uniqueID and not self.corrupted and not self.mirrored and not (self.base.type == "Charm") and self.quality < self.base.quality then -- charms cannot be modifed by quality currency.
+		elseif not self.uniqueID and not self.corrupted and not self.mirrored and not (self.base.type == "Charm") and self.quality < self.base.quality then -- charms cannot be modified by quality currency.
 			self.quality = self.base.quality
 		end
 	end	
