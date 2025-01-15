@@ -1135,6 +1135,7 @@ skills["BlinkPlayer"] = {
 skills["BoneBlastPlayer"] = {
 	name = "Bone Blast",
 	baseTypeName = "Bone Blast",
+	fromItem = true,
 	color = 3,
 	description = "Conjures a circle of ritual inscriptions that last for a short duration. When the duration ends, spikes of bone erupt from enemies in the area, damaging them and potentially causing Bleeding.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Duration] = true, [SkillType.Area] = true, [SkillType.Physical] = true, [SkillType.CanRapidFire] = true, [SkillType.Nonpathing] = true, [SkillType.Damage] = true, [SkillType.Cascadable] = true, [SkillType.CreatesGroundRune] = true, },
@@ -1184,7 +1185,6 @@ skills["BoneBlastPlayer"] = {
 		[39] = { critChance = 14, levelRequirement = 90, },
 		[40] = { critChance = 14, levelRequirement = 90, },
 	},
-			fromItem = true,
 	statSets = {
 		[1] = {
 			label = "Bone Blast",
@@ -3050,6 +3050,7 @@ skills["SupportMetaCastOnShockPlayer"] = {
 skills["WeaponGrantedChaosboltPlayer"] = {
 	name = "Chaos Bolt",
 	baseTypeName = "Chaos Bolt",
+	fromItem = true,
 	color = 3,
 	description = "Fires a burst of Chaos energy at the target.",
 	skillTypes = { [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Chaos] = true, [SkillType.CanRapidFire] = true, [SkillType.Invokable] = true, [SkillType.Nonpathing] = true, },
@@ -3099,7 +3100,6 @@ skills["WeaponGrantedChaosboltPlayer"] = {
 		[39] = { critChance = 7, levelRequirement = 90, },
 		[40] = { critChance = 7, levelRequirement = 90, },
 	},
-			fromItem = true,
 	statSets = {
 		[1] = {
 			label = "Chaos Bolt",
@@ -4248,6 +4248,7 @@ skills["DarkEffigyProjectilePlayer"] = {
 skills["CorpseCloudPlayer"] = {
 	name = "Decompose",
 	baseTypeName = "Decompose",
+	fromItem = true,
 	color = 3,
 	description = "Consumes a Corpse to create a cloud of flammable Poisonous gas. Any Burning effects or Detonator skills will explode the gas cloud, creating a fiery explosion.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Fire] = true, [SkillType.Cascadable] = true, [SkillType.TargetsDestructibleCorpses] = true, [SkillType.CanRapidFire] = true, [SkillType.AreaSpell] = true, [SkillType.Chaos] = true, [SkillType.Nonpathing] = true, [SkillType.Duration] = true, },
@@ -4298,7 +4299,6 @@ skills["CorpseCloudPlayer"] = {
 		[39] = { levelRequirement = 90, },
 		[40] = { levelRequirement = 90, },
 	},
-			fromItem = true,
 	statSets = {
 		[1] = {
 			label = "Poison Cloud",
@@ -4685,6 +4685,7 @@ skills["DetonateDeadPlayer"] = {
 skills["DisciplinePlayer"] = {
 	name = "Discipline",
 	baseTypeName = "Discipline",
+	fromItem = true,
 	color = 3,
 	description = "Emits an Aura that grants Allies in your Presence additional Total Energy Shield. The Aura does not affect you.",
 	skillTypes = { [SkillType.Buff] = true, [SkillType.HasReservation] = true, [SkillType.Aura] = true, [SkillType.OngoingSkill] = true, [SkillType.Persistent] = true, },
@@ -4734,7 +4735,6 @@ skills["DisciplinePlayer"] = {
 		[39] = { levelRequirement = 90, },
 		[40] = { levelRequirement = 90, },
 	},
-			fromItem = true,
 	statSets = {
 		[1] = {
 			label = "Discipline",
@@ -6140,6 +6140,7 @@ skills["FireballPlayer"] = {
 skills["FireboltPlayer"] = {
 	name = "Firebolt",
 	baseTypeName = "Firebolt",
+	fromItem = true,
 	color = 3,
 	description = "Launches a fiery Projectile towards a target. The Projectile explodes on impact, damaging foes in a small area.",
 	skillTypes = { [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Fire] = true, [SkillType.CanRapidFire] = true, [SkillType.AreaSpell] = true, [SkillType.Invokable] = true, [SkillType.Nonpathing] = true, },
@@ -6189,7 +6190,6 @@ skills["FireboltPlayer"] = {
 		[39] = { critChance = 8, levelRequirement = 90, },
 		[40] = { critChance = 8, levelRequirement = 90, },
 	},
-			fromItem = true,
 	statSets = {
 		[1] = {
 			label = "Projectile",
@@ -7250,6 +7250,7 @@ skills["TriggeredFreezingMarkNovaPlayer"] = {
 skills["FreezingShardsPlayer"] = {
 	name = "Freezing Shards",
 	baseTypeName = "Freezing Shards",
+	fromItem = true,
 	color = 3,
 	description = "Launches icy Projectiles in a sweeping arc. Multiple Projectiles can hit the same enemy.",
 	skillTypes = { [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.AreaSpell] = true, [SkillType.Invokable] = true, [SkillType.Cold] = true, [SkillType.CanRapidFire] = true, [SkillType.Nonpathing] = true, },
@@ -7299,7 +7300,6 @@ skills["FreezingShardsPlayer"] = {
 		[39] = { critChance = 11, levelRequirement = 90, },
 		[40] = { critChance = 11, levelRequirement = 90, },
 	},
-			fromItem = true,
 	statSets = {
 		[1] = {
 			label = "Freezing Shards",
@@ -8199,6 +8199,7 @@ skills["FrozenLocusExplodePlayer"] = {
 skills["GalvanicFieldPlayer"] = {
 	name = "Galvanic Field",
 	baseTypeName = "Galvanic Field",
+	fromItem = true,
 	color = 3,
 	description = "Grants a Buff that boosts your Shock chance. Shocking an enemy consumes the Buff to attach an Orb of electricity to that enemy. The Orb fires bolts of electricity at nearby enemies until it expires.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Buff] = true, [SkillType.Duration] = true, [SkillType.Lightning] = true, [SkillType.Chains] = true, [SkillType.Orb] = true, [SkillType.Triggerable] = true, [SkillType.Nonpathing] = true, [SkillType.Limit] = true, },
@@ -8248,7 +8249,6 @@ skills["GalvanicFieldPlayer"] = {
 		[39] = { critChance = 9, levelRequirement = 90, },
 		[40] = { critChance = 9, levelRequirement = 90, },
 	},
-			fromItem = true,
 	statSets = {
 		[1] = {
 			label = "Galvanic Field",
@@ -10176,6 +10176,7 @@ skills["KillingPalmPlayer"] = {
 skills["LightningBoltPlayer"] = {
 	name = "Lightning Bolt",
 	baseTypeName = "Lightning Bolt",
+	fromItem = true,
 	color = 3,
 	description = "Call down a Shocking bolt of Lightning to strike enemies in a small area.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Lightning] = true, [SkillType.CanRapidFire] = true, [SkillType.Area] = true, [SkillType.AreaSpell] = true, [SkillType.Cascadable] = true, [SkillType.Nonpathing] = true, },
@@ -10225,7 +10226,6 @@ skills["LightningBoltPlayer"] = {
 		[39] = { critChance = 10, levelRequirement = 90, },
 		[40] = { critChance = 10, levelRequirement = 90, },
 	},
-			fromItem = true,
 	statSets = {
 		[1] = {
 			label = "Lightning Bolt",
@@ -10753,6 +10753,7 @@ skills["LingeringIllusionSpawnPlayer"] = {
 skills["LivingBombPlayer"] = {
 	name = "Living Bomb",
 	baseTypeName = "Living Bomb",
+	fromItem = true,
 	color = 3,
 	description = "Plant a seed of Fire inside an enemy, which grows over a duration. When the duration expires, the seed explodes, damaging the enemy and all other enemies nearby.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.AreaSpell] = true, [SkillType.Limit] = true, [SkillType.Fire] = true, [SkillType.Nonpathing] = true, [SkillType.Duration] = true, },
@@ -10802,7 +10803,6 @@ skills["LivingBombPlayer"] = {
 		[39] = { critChance = 9, levelRequirement = 90, },
 		[40] = { critChance = 9, levelRequirement = 90, },
 	},
-			fromItem = true,
 	statSets = {
 		[1] = {
 			label = "Living Bomb",
@@ -10875,6 +10875,7 @@ skills["LivingBombPlayer"] = {
 skills["MalicePlayer"] = {
 	name = "Malice",
 	baseTypeName = "Malice",
+	fromItem = true,
 	color = 3,
 	description = "Emits an Aura that continuously inflicts Critical Weakness on enemies in your Presence.",
 	skillTypes = { [SkillType.Buff] = true, [SkillType.HasReservation] = true, [SkillType.Aura] = true, [SkillType.OngoingSkill] = true, [SkillType.Persistent] = true, [SkillType.Duration] = true, },
@@ -10924,7 +10925,6 @@ skills["MalicePlayer"] = {
 		[39] = { levelRequirement = 90, },
 		[40] = { levelRequirement = 90, },
 	},
-			fromItem = true,
 	statSets = {
 		[1] = {
 			label = "Malice",
@@ -10988,6 +10988,7 @@ skills["MalicePlayer"] = {
 skills["ManaDrainPlayer"] = {
 	name = "Mana Drain",
 	baseTypeName = "Mana Drain",
+	fromItem = true,
 	color = 3,
 	description = "Siphons power from an enemy, briefly Hindering them and Leeching Mana.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Totemable] = true, [SkillType.Trappable] = true, [SkillType.Mineable] = true, [SkillType.Nonpathing] = true, },
@@ -11037,7 +11038,6 @@ skills["ManaDrainPlayer"] = {
 		[39] = { levelRequirement = 90, },
 		[40] = { levelRequirement = 90, },
 	},
-			fromItem = true,
 	statSets = {
 		[1] = {
 			label = "Mana Drain",
@@ -11709,6 +11709,7 @@ skills["PainOfferingPlayer"] = {
 skills["PowerSiphonPlayer"] = {
 	name = "Power Siphon",
 	baseTypeName = "Power Siphon",
+	fromItem = true,
 	color = 3,
 	description = "Attempts to rip the lifeforce from an enemy. Enemies within Culling range will be highlighted and instantly killed on Hit, granting a Power Charge. Can only target Enemies in Culling range.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Totemable] = true, [SkillType.Trappable] = true, [SkillType.Mineable] = true, [SkillType.Nonpathing] = true, [SkillType.Damage] = true, [SkillType.GeneratesCharges] = true, [SkillType.Physical] = true, },
@@ -11758,7 +11759,6 @@ skills["PowerSiphonPlayer"] = {
 		[39] = { critChance = 15, levelRequirement = 90, },
 		[40] = { critChance = 15, levelRequirement = 90, },
 	},
-			fromItem = true,
 	statSets = {
 		[1] = {
 			label = "Power Siphon",
@@ -11948,6 +11948,7 @@ skills["ProfaneRitualPlayer"] = {
 skills["PurityOfFirePlayer"] = {
 	name = "Purity of Fire",
 	baseTypeName = "Purity of Fire",
+	fromItem = true,
 	color = 3,
 	description = "Emits an Aura that boosts the Fire Resistance of Allies in your Presence. The Aura does not affect you.",
 	skillTypes = { [SkillType.Buff] = true, [SkillType.HasReservation] = true, [SkillType.Aura] = true, [SkillType.OngoingSkill] = true, [SkillType.Persistent] = true, [SkillType.Fire] = true, },
@@ -11997,7 +11998,6 @@ skills["PurityOfFirePlayer"] = {
 		[39] = { manaMultiplier = -100, levelRequirement = 90, },
 		[40] = { manaMultiplier = -100, levelRequirement = 90, },
 	},
-			fromItem = true,
 	statSets = {
 		[1] = {
 			label = "Purity of Fire",
@@ -12071,6 +12071,7 @@ skills["PurityOfFirePlayer"] = {
 skills["PurityOfIcePlayer"] = {
 	name = "Purity of Ice",
 	baseTypeName = "Purity of Ice",
+	fromItem = true,
 	color = 3,
 	description = "Emits an Aura that boosts the Cold Resistance of Allies in your Presence. The Aura does not affect you.",
 	skillTypes = { [SkillType.Buff] = true, [SkillType.HasReservation] = true, [SkillType.Aura] = true, [SkillType.OngoingSkill] = true, [SkillType.Persistent] = true, [SkillType.Cold] = true, },
@@ -12120,7 +12121,6 @@ skills["PurityOfIcePlayer"] = {
 		[39] = { manaMultiplier = -100, levelRequirement = 90, },
 		[40] = { manaMultiplier = -100, levelRequirement = 90, },
 	},
-			fromItem = true,
 	statSets = {
 		[1] = {
 			label = "Purity of Ice",
@@ -12194,6 +12194,7 @@ skills["PurityOfIcePlayer"] = {
 skills["PurityOfLightningPlayer"] = {
 	name = "Purity of Lightning",
 	baseTypeName = "Purity of Lightning",
+	fromItem = true,
 	color = 3,
 	description = "Emits an Aura that boosts the Lightning Resistance of Allies in your Presence. The Aura does not affect you.",
 	skillTypes = { [SkillType.Buff] = true, [SkillType.HasReservation] = true, [SkillType.Aura] = true, [SkillType.OngoingSkill] = true, [SkillType.Persistent] = true, [SkillType.Lightning] = true, },
@@ -12243,7 +12244,6 @@ skills["PurityOfLightningPlayer"] = {
 		[39] = { manaMultiplier = -100, levelRequirement = 90, },
 		[40] = { manaMultiplier = -100, levelRequirement = 90, },
 	},
-			fromItem = true,
 	statSets = {
 		[1] = {
 			label = "Purity of Lightning",
@@ -12317,6 +12317,9 @@ skills["PurityOfLightningPlayer"] = {
 skills["RagingSpiritsPlayer"] = {
 	name = "Raging Spirits",
 	baseTypeName = "Raging Spirits",
+	minionList = {
+		"SummonedRagingSpirit",
+	},
 	color = 3,
 	description = "While active, your Fire Spells will also summon Raging Spirits, which are short-lived flaming skulls that rush at nearby enemies and rapidly Attack them. Enemies will not directly engage these Minions, and can pass through them.",
 	skillTypes = { [SkillType.Buff] = true, [SkillType.Minion] = true, [SkillType.Fire] = true, [SkillType.CreatesMinion] = true, [SkillType.HasReservation] = true, [SkillType.OngoingSkill] = true, [SkillType.Duration] = true, [SkillType.Persistent] = true, [SkillType.Limit] = true, },
@@ -12367,9 +12370,6 @@ skills["RagingSpiritsPlayer"] = {
 		[39] = { spiritReservationFlat = 30, levelRequirement = 90, },
 		[40] = { spiritReservationFlat = 30, levelRequirement = 90, },
 	},
-			minionList = {
-				"SummonedRagingSpirit",
-			},
 	statSets = {
 		[1] = {
 			label = "Raging Spirits",
@@ -12439,6 +12439,9 @@ skills["RagingSpiritsPlayer"] = {
 skills["RaiseZombiePlayer"] = {
 	name = "Raise Zombie",
 	baseTypeName = "Raise Zombie",
+	minionList = {
+		"RaisedZombie",
+	},
 	color = 3,
 	description = "Consumes a Corpse or Power Charge to create a short-lived Zombie. Zombies created from Power Charges are Empowered.",
 	skillTypes = { [SkillType.Minion] = true, [SkillType.MinionsCanExplode] = true, [SkillType.Totemable] = true, [SkillType.CreatesMinion] = true, [SkillType.Nonpathing] = true, [SkillType.Duration] = true, [SkillType.TargetsDestructibleCorpses] = true, [SkillType.Physical] = true, [SkillType.ConsumesCharges] = true, [SkillType.Limit] = true, [SkillType.SkillConsumesPowerChargesOnUse] = true, },
@@ -12489,9 +12492,6 @@ skills["RaiseZombiePlayer"] = {
 		[39] = { levelRequirement = 90, cost = { Mana = 1226, }, },
 		[40] = { levelRequirement = 90, cost = { Mana = 1388, }, },
 	},
-			minionList = {
-				"RaisedZombie",
-			},
 	statSets = {
 		[1] = {
 			label = "Minion Info",
@@ -13142,6 +13142,7 @@ skills["ShatteringPalmExplosionPlayer"] = {
 skills["SigilOfPowerPlayer"] = {
 	name = "Sigil of Power",
 	baseTypeName = "Sigil of Power",
+	fromItem = true,
 	color = 3,
 	description = "Places a Sigil on the ground, providing a powerful Spell Damage Buff to you and Allies while standing in it. The Buff becomes more powerful the more mana you spend while standing in the Sigil.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Trappable] = true, [SkillType.Mineable] = true, [SkillType.Triggerable] = true, [SkillType.AreaSpell] = true, [SkillType.Cooldown] = true, [SkillType.Totemable] = true, [SkillType.Nonpathing] = true, [SkillType.Limit] = true, },
@@ -13191,7 +13192,6 @@ skills["SigilOfPowerPlayer"] = {
 		[39] = { storedUses = 1, levelRequirement = 90, cooldown = 10, },
 		[40] = { storedUses = 1, levelRequirement = 90, cooldown = 10, },
 	},
-			fromItem = true,
 	statSets = {
 		[1] = {
 			label = "Sigil of Power",
@@ -13444,6 +13444,9 @@ skills["SiphoningStrikePlayer"] = {
 skills["SummonSkeletalArsonistsPlayer"] = {
 	name = "Skeletal Arsonist Minion",
 	baseTypeName = "Skeletal Arsonist Minion",
+	minionList = {
+		"RaisedSkeletonArsonist",
+	},
 	color = 3,
 	description = "Summons bomb-throwing, Reviving Skeletal Arsonists that can detonate other Minions on Command.",
 	skillTypes = { [SkillType.Minion] = true, [SkillType.MinionsCanExplode] = true, [SkillType.CreatesMinion] = true, [SkillType.CreatesUndeadMinion] = true, [SkillType.CreatesSkeletonMinion] = true, [SkillType.HasReservation] = true, [SkillType.Persistent] = true, [SkillType.MultipleReservation] = true, [SkillType.Fire] = true, [SkillType.CommandableMinion] = true, },
@@ -13493,9 +13496,6 @@ skills["SummonSkeletalArsonistsPlayer"] = {
 		[39] = { spiritReservationFlat = 35, levelRequirement = 90, },
 		[40] = { spiritReservationFlat = 35, levelRequirement = 90, },
 	},
-			minionList = {
-				"RaisedSkeletonArsonist",
-			},
 	statSets = {
 		[1] = {
 			label = "Minion Info",
@@ -13562,6 +13562,9 @@ skills["SummonSkeletalArsonistsPlayer"] = {
 skills["SummonSkeletalBrutesPlayer"] = {
 	name = "Skeletal Brute Minion",
 	baseTypeName = "Skeletal Brute Minion",
+	minionList = {
+		"RaisedSkeletonBrute",
+	},
 	color = 3,
 	description = "Summons hard-hitting, Reviving Skeletal Brutes that can Stun Primed enemies.",
 	skillTypes = { [SkillType.Minion] = true, [SkillType.MinionsCanExplode] = true, [SkillType.CreatesMinion] = true, [SkillType.CreatesUndeadMinion] = true, [SkillType.CreatesSkeletonMinion] = true, [SkillType.HasReservation] = true, [SkillType.Persistent] = true, [SkillType.MultipleReservation] = true, [SkillType.Physical] = true, },
@@ -13612,9 +13615,6 @@ skills["SummonSkeletalBrutesPlayer"] = {
 		[39] = { spiritReservationFlat = 43, levelRequirement = 90, },
 		[40] = { spiritReservationFlat = 43, levelRequirement = 90, },
 	},
-			minionList = {
-				"RaisedSkeletonBrute",
-			},
 	statSets = {
 		[1] = {
 			label = "Minion Info",
@@ -13681,6 +13681,9 @@ skills["SummonSkeletalBrutesPlayer"] = {
 skills["SummonSkeletalClericsPlayer"] = {
 	name = "Skeletal Cleric Minion",
 	baseTypeName = "Skeletal Cleric Minion",
+	minionList = {
+		"RaisedSkeletonCleric",
+	},
 	color = 3,
 	description = "Summons Reviving Skeletal Clerics that heal other minions and revive fallen Skeletons.",
 	skillTypes = { [SkillType.Minion] = true, [SkillType.MinionsCanExplode] = true, [SkillType.CreatesMinion] = true, [SkillType.CreatesUndeadMinion] = true, [SkillType.CreatesSkeletonMinion] = true, [SkillType.HasReservation] = true, [SkillType.Persistent] = true, [SkillType.MultipleReservation] = true, },
@@ -13731,9 +13734,6 @@ skills["SummonSkeletalClericsPlayer"] = {
 		[39] = { spiritReservationFlat = 16, levelRequirement = 90, },
 		[40] = { spiritReservationFlat = 16, levelRequirement = 90, },
 	},
-			minionList = {
-				"RaisedSkeletonCleric",
-			},
 	statSets = {
 		[1] = {
 			label = "Minion Info",
@@ -13800,6 +13800,9 @@ skills["SummonSkeletalClericsPlayer"] = {
 skills["SummonSkeletalFrostMagesPlayer"] = {
 	name = "Skeletal Frost Mage Minion",
 	baseTypeName = "Skeletal Frost Mage Minion",
+	minionList = {
+		"RaisedSkeletonFrostMage",
+	},
 	color = 3,
 	description = "Summons Reviving Skeletal Frost Mages that can be Commanded to cast icy explosions.",
 	skillTypes = { [SkillType.Minion] = true, [SkillType.MinionsCanExplode] = true, [SkillType.CreatesMinion] = true, [SkillType.CreatesUndeadMinion] = true, [SkillType.CreatesSkeletonMinion] = true, [SkillType.HasReservation] = true, [SkillType.Persistent] = true, [SkillType.MultipleReservation] = true, [SkillType.Cold] = true, [SkillType.CommandableMinion] = true, },
@@ -13850,9 +13853,6 @@ skills["SummonSkeletalFrostMagesPlayer"] = {
 		[39] = { spiritReservationFlat = 35, levelRequirement = 90, },
 		[40] = { spiritReservationFlat = 35, levelRequirement = 90, },
 	},
-			minionList = {
-				"RaisedSkeletonFrostMage",
-			},
 	statSets = {
 		[1] = {
 			label = "Minion Info",
@@ -13919,6 +13919,9 @@ skills["SummonSkeletalFrostMagesPlayer"] = {
 skills["SummonSkeletalReaversPlayer"] = {
 	name = "Skeletal Reaver Minion",
 	baseTypeName = "Skeletal Reaver Minion",
+	minionList = {
+		"RaisedSkeletonReaver",
+	},
 	color = 3,
 	description = "Summons aggressive, Reviving Skeletal Reavers that can enrage on Command.",
 	skillTypes = { [SkillType.Minion] = true, [SkillType.MinionsCanExplode] = true, [SkillType.CreatesMinion] = true, [SkillType.CreatesUndeadMinion] = true, [SkillType.CreatesSkeletonMinion] = true, [SkillType.HasReservation] = true, [SkillType.Persistent] = true, [SkillType.MultipleReservation] = true, [SkillType.Physical] = true, [SkillType.CommandableMinion] = true, },
@@ -13969,9 +13972,6 @@ skills["SummonSkeletalReaversPlayer"] = {
 		[39] = { spiritReservationFlat = 26, levelRequirement = 90, },
 		[40] = { spiritReservationFlat = 26, levelRequirement = 90, },
 	},
-			minionList = {
-				"RaisedSkeletonReaver",
-			},
 	statSets = {
 		[1] = {
 			label = "Minion Info",
@@ -14039,6 +14039,9 @@ skills["SummonSkeletalReaversPlayer"] = {
 skills["SummonSkeletalSnipersPlayer"] = {
 	name = "Skeletal Sniper Minion",
 	baseTypeName = "Skeletal Sniper Minion",
+	minionList = {
+		"RaisedSkeletonSniper",
+	},
 	color = 3,
 	description = "Summons long-ranged, Reviving Skeletal Snipers that can fire a gas arrow on Command.",
 	skillTypes = { [SkillType.Minion] = true, [SkillType.MinionsCanExplode] = true, [SkillType.CreatesMinion] = true, [SkillType.CreatesUndeadMinion] = true, [SkillType.CreatesSkeletonMinion] = true, [SkillType.HasReservation] = true, [SkillType.Persistent] = true, [SkillType.MultipleReservation] = true, [SkillType.Physical] = true, [SkillType.Chaos] = true, [SkillType.Fire] = true, [SkillType.CommandableMinion] = true, },
@@ -14089,9 +14092,6 @@ skills["SummonSkeletalSnipersPlayer"] = {
 		[39] = { spiritReservationFlat = 26, levelRequirement = 90, },
 		[40] = { spiritReservationFlat = 26, levelRequirement = 90, },
 	},
-			minionList = {
-				"RaisedSkeletonSniper",
-			},
 	statSets = {
 		[1] = {
 			label = "Minion Info",
@@ -14158,6 +14158,9 @@ skills["SummonSkeletalSnipersPlayer"] = {
 skills["SummonSkeletalStormMagesPlayer"] = {
 	name = "Skeletal Storm Mage Minion",
 	baseTypeName = "Skeletal Storm Mage Minion",
+	minionList = {
+		"RaisedSkeletonStormMage",
+	},
 	color = 3,
 	description = "Summons Reviving Skeletal Storm Mages that can call down a lightning storm on dead Skeletons on Command.",
 	skillTypes = { [SkillType.Minion] = true, [SkillType.MinionsCanExplode] = true, [SkillType.CreatesMinion] = true, [SkillType.CreatesUndeadMinion] = true, [SkillType.CreatesSkeletonMinion] = true, [SkillType.HasReservation] = true, [SkillType.Persistent] = true, [SkillType.MultipleReservation] = true, [SkillType.Lightning] = true, [SkillType.CommandableMinion] = true, },
@@ -14208,9 +14211,6 @@ skills["SummonSkeletalStormMagesPlayer"] = {
 		[39] = { spiritReservationFlat = 35, levelRequirement = 90, },
 		[40] = { spiritReservationFlat = 35, levelRequirement = 90, },
 	},
-			minionList = {
-				"RaisedSkeletonStormMage",
-			},
 	statSets = {
 		[1] = {
 			label = "Minion Info",
@@ -14277,6 +14277,9 @@ skills["SummonSkeletalStormMagesPlayer"] = {
 skills["SummonSkeletalWarriorsPlayer"] = {
 	name = "Skeletal Warrior Minion",
 	baseTypeName = "Skeletal Warrior Minion",
+	minionList = {
+		"RaisedSkeletonWarrior",
+	},
 	color = 3,
 	description = "Summons Reviving Skeletal Warriors.",
 	skillTypes = { [SkillType.Minion] = true, [SkillType.MinionsCanExplode] = true, [SkillType.CreatesMinion] = true, [SkillType.CreatesUndeadMinion] = true, [SkillType.CreatesSkeletonMinion] = true, [SkillType.HasReservation] = true, [SkillType.Persistent] = true, [SkillType.MultipleReservation] = true, [SkillType.Physical] = true, },
@@ -14327,9 +14330,6 @@ skills["SummonSkeletalWarriorsPlayer"] = {
 		[39] = { spiritReservationFlat = 16, levelRequirement = 90, },
 		[40] = { spiritReservationFlat = 16, levelRequirement = 90, },
 	},
-			minionList = {
-				"RaisedSkeletonWarrior",
-			},
 	statSets = {
 		[1] = {
 			label = "Minion Info",
@@ -15936,6 +15936,9 @@ skills["TemporalChainsPlayer"] = {
 skills["UnearthPlayer"] = {
 	name = "Unearth",
 	baseTypeName = "Unearth",
+	minionList = {
+		"UnearthBoneConstruct",
+	},
 	color = 3,
 	description = "Raises spikes of bone from the earth in front of you, damaging enemies. The bones of Corpses in the area are ripped out and reassembled into short-lived Bone Construct Minions that fight for you.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Physical] = true, [SkillType.Duration] = true, [SkillType.Area] = true, [SkillType.Minion] = true, [SkillType.CanRapidFire] = true, [SkillType.Nonpathing] = true, [SkillType.CreatesMinion] = true, [SkillType.Damage] = true, [SkillType.TargetsDestructibleCorpses] = true, [SkillType.Limit] = true, [SkillType.Triggerable] = true, },
@@ -15986,9 +15989,6 @@ skills["UnearthPlayer"] = {
 		[39] = { critChance = 15, levelRequirement = 90, cost = { Mana = 918, }, },
 		[40] = { critChance = 15, levelRequirement = 90, cost = { Mana = 1039, }, },
 	},
-			minionList = {
-				"UnearthBoneConstruct",
-			},
 	statSets = {
 		[1] = {
 			label = "Unearth",
@@ -16063,6 +16063,7 @@ skills["UnearthPlayer"] = {
 skills["StaffUnleashNextSpellPlayer"] = {
 	name = "Unleash",
 	baseTypeName = "Unleash",
+	fromItem = true,
 	color = 3,
 	description = "Infuses your staff arcane energy for a short duration, Empowering the next spell you cast to reoccur.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Cooldown] = true, [SkillType.Buff] = true, [SkillType.ModifiesNextSkill] = true, [SkillType.Duration] = true, [SkillType.EmpowersOtherSkill] = true, [SkillType.Nonpathing] = true, },
@@ -16073,7 +16074,6 @@ skills["StaffUnleashNextSpellPlayer"] = {
 	levels = {
 		[1] = { storedUses = 1, levelRequirement = 0, cooldown = 0.5, },
 	},
-			fromItem = true,
 	statSets = {
 		[1] = {
 			label = "Unleash",
@@ -16220,6 +16220,7 @@ skills["VaultingImpactPlayer"] = {
 skills["VolatileDeadPlayer"] = {
 	name = "Volatile Dead",
 	baseTypeName = "Volatile Dead",
+	fromItem = true,
 	color = 3,
 	description = "Consumes a Corpse to create a fireball that seeks out enemies and explodes. ",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Fire] = true, [SkillType.Cascadable] = true, [SkillType.CanRapidFire] = true, [SkillType.AreaSpell] = true, [SkillType.Nonpathing] = true, [SkillType.TargetsDestructibleCorpses] = true, },
@@ -16269,7 +16270,6 @@ skills["VolatileDeadPlayer"] = {
 		[39] = { critChance = 7, PvPDamageMultiplier = -80, levelRequirement = 90, },
 		[40] = { critChance = 7, PvPDamageMultiplier = -80, levelRequirement = 90, },
 	},
-			fromItem = true,
 	statSets = {
 		[1] = {
 			label = "Volatile Dead",

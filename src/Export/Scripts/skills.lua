@@ -216,6 +216,8 @@ local gems = { }
 local trueGemNames = { }
 
 local directiveTable = { }
+local fromSpec = nil
+local minionList = nil
 
 -- #noGem
 -- Disables the gem component of the next skill
@@ -305,13 +307,13 @@ directiveTable.skill = function(state, args, out)
 		out:write('\tname = "', displayName, '",\n')
 		out:write('\thidden = true,\n')
 	end
-	if state.from then
-		out:write('\tfrom' .. state.from:gsub("^%l", string.upper) .. ' = true,\n')
+	if fromSpec then
+		out:write('\tfrom' .. fromSpec:gsub("^%l", string.upper) .. ' = true,\n')
 	end
-	if state.minionList then
-		out:write('\tminionList = { ')
-		for _, minion in ipairs(state.minionList) do
-			out:write('\t\t"', minion, '", ')
+	if minionList then
+		out:write('\tminionList = {\n')
+		for _, minion in ipairs(minionList) do
+			out:write('\t\t"', minion, '",\n')
 		end
 		out:write('\t},\n')
 	end
@@ -701,17 +703,16 @@ end
 -- #from <tree | item>
 -- Sets an optional from specifier if skill is granted by tree or item
 directiveTable.from = function(state, args, out)
-	local set = state.from
-	set.from = args
+	fromSpec = args
 end
 
 -- #minionList <minion>[ <minion>[...]]
 -- Sets the minion list for this active set
 directiveTable.minionList = function(state, args, out)
 	local set = state.set
-	set.minionList = { }
+	minionList = { }
 	for minion in args:gmatch("%a+") do
-		table.insert(set.minionList, minion)
+		table.insert(minionList, minion)
 	end
 end
 
@@ -804,8 +805,8 @@ directiveTable.skillEnd = function(state, args, out)
 	out:write('\t}\n')
 	out:write('}')
 	state.skill = nil
-	state.from = nil
-	state.minionList = nil
+	fromSpec = nil
+	minionList = nil
 end
 
 for _, name in pairs({"act_str","act_dex","act_int","other","minion","sup_str","sup_dex","sup_int"}) do

@@ -1106,6 +1106,7 @@ skills["BoneshatterPlayer"] = {
 skills["MetaCastOnBlockPlayer"] = {
 	name = "Cast on Block",
 	baseTypeName = "Cast on Block",
+	fromItem = true,
 	color = 1,
 	description = "While active, gains Energy when you Block and triggers socketed Spells on reaching maximum Energy.",
 	skillTypes = { [SkillType.HasReservation] = true, [SkillType.OngoingSkill] = true, [SkillType.Meta] = true, [SkillType.Persistent] = true, [SkillType.Buff] = true, [SkillType.CanHaveMultipleOngoingSkillInstances] = true, [SkillType.GeneratesEnergy] = true, },
@@ -1155,7 +1156,6 @@ skills["MetaCastOnBlockPlayer"] = {
 		[39] = { levelRequirement = 90, },
 		[40] = { levelRequirement = 90, },
 	},
-			fromItem = true,
 	statSets = {
 		[1] = {
 			label = "Cast on Block",
@@ -1221,6 +1221,7 @@ skills["MetaCastOnBlockPlayer"] = {
 skills["SupportMetaCastOnBlockPlayer"] = {
 	name = "SupportMetaCastOnBlockPlayer",
 	hidden = true,
+	fromItem = true,
 	support = true,
 	requireSkillTypes = { SkillType.Spell, SkillType.Triggerable, SkillType.AND, },
 	addSkillTypes = { SkillType.Triggered, SkillType.Cooldown, },
@@ -1268,7 +1269,6 @@ skills["SupportMetaCastOnBlockPlayer"] = {
 		[39] = { levelRequirement = 0, },
 		[40] = { levelRequirement = 0, },
 	},
-			fromItem = true,
 	statSets = {
 		[1] = {
 			label = "SupportMetaCastOnBlockPlayer",
@@ -1332,6 +1332,7 @@ skills["SupportMetaCastOnBlockPlayer"] = {
 skills["MetaCastOnMeleeKillPlayer"] = {
 	name = "Cast on Melee Kill",
 	baseTypeName = "Cast on Melee Kill",
+	fromItem = true,
 	color = 1,
 	description = "While active, gains Energy when you kill enemies with Melee Attacks and triggers socketed spells on reaching maximum Energy.",
 	skillTypes = { [SkillType.HasReservation] = true, [SkillType.OngoingSkill] = true, [SkillType.Meta] = true, [SkillType.Persistent] = true, [SkillType.Buff] = true, [SkillType.CanHaveMultipleOngoingSkillInstances] = true, [SkillType.GeneratesEnergy] = true, },
@@ -1341,7 +1342,6 @@ skills["MetaCastOnMeleeKillPlayer"] = {
 	levels = {
 		[8] = { spiritReservationFlat = 60, levelRequirement = 26, },
 	},
-			fromItem = true,
 	statSets = {
 		[1] = {
 			label = "Cast on Melee Kill",
@@ -1366,6 +1366,7 @@ skills["MetaCastOnMeleeKillPlayer"] = {
 skills["SupportMetaCastOnMeleeKillPlayer"] = {
 	name = "SupportMetaCastOnMeleeKillPlayer",
 	hidden = true,
+	fromItem = true,
 	support = true,
 	requireSkillTypes = { SkillType.Spell, SkillType.Triggerable, SkillType.AND, },
 	addSkillTypes = { SkillType.Triggered, SkillType.Cooldown, },
@@ -1374,7 +1375,6 @@ skills["SupportMetaCastOnMeleeKillPlayer"] = {
 	levels = {
 		[8] = { storedUses = 1, levelRequirement = 0, cooldown = 0.2, },
 	},
-			fromItem = true,
 	statSets = {
 		[1] = {
 			label = "SupportMetaCastOnMeleeKillPlayer",
@@ -1400,6 +1400,7 @@ skills["SupportMetaCastOnMeleeKillPlayer"] = {
 skills["MetaCastOnMeleeStunPlayer"] = {
 	name = "Cast on Melee Stun",
 	baseTypeName = "Cast on Melee Stun",
+	fromItem = true,
 	color = 1,
 	description = "While active, gains Energy when you Stun enemies with Melee Attacks and triggers socketed spells on reaching maximum Energy.",
 	skillTypes = { [SkillType.HasReservation] = true, [SkillType.OngoingSkill] = true, [SkillType.Meta] = true, [SkillType.Persistent] = true, [SkillType.Buff] = true, [SkillType.CanHaveMultipleOngoingSkillInstances] = true, [SkillType.GeneratesEnergy] = true, },
@@ -1409,7 +1410,6 @@ skills["MetaCastOnMeleeStunPlayer"] = {
 	levels = {
 		[8] = { spiritReservationFlat = 60, levelRequirement = 26, },
 	},
-			fromItem = true,
 	statSets = {
 		[1] = {
 			label = "Cast on Melee Stun",
@@ -1435,6 +1435,7 @@ skills["MetaCastOnMeleeStunPlayer"] = {
 skills["SupportMetaCastOnMeleeStunPlayer"] = {
 	name = "SupportMetaCastOnMeleeStunPlayer",
 	hidden = true,
+	fromItem = true,
 	support = true,
 	requireSkillTypes = { SkillType.Spell, SkillType.Triggerable, SkillType.AND, },
 	addSkillTypes = { SkillType.Triggered, SkillType.Cooldown, },
@@ -1443,7 +1444,6 @@ skills["SupportMetaCastOnMeleeStunPlayer"] = {
 	levels = {
 		[8] = { storedUses = 1, levelRequirement = 0, cooldown = 0.2, },
 	},
-			fromItem = true,
 	statSets = {
 		[1] = {
 			label = "SupportMetaCastOnMeleeStunPlayer",
