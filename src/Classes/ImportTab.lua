@@ -24,7 +24,7 @@ local ImportTabClass = newClass("ImportTab", "ControlHost", "Control", function(
 	self.build = build
 
 	self.charImportMode = "GETACCOUNTNAME"
-	self.charImportStatus = colorCodes.WARNING.."Disabled by GGG"
+	self.charImportStatus = colorCodes.WARNING.."Not yet Enabled by GGG"
 	self.controls.sectionCharImport = new("SectionControl", {"TOPLEFT",self,"TOPLEFT"}, {10, 18, 650, 250}, "Character Import")
 	self.controls.charImportStatusLabel = new("LabelControl", {"TOPLEFT",self.controls.sectionCharImport,"TOPLEFT"}, {6, 14, 200, 16}, function()
 		return "^7Character import status: "..self.charImportStatus
