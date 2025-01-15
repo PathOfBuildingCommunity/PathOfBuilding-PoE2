@@ -24,7 +24,7 @@ local ImportTabClass = newClass("ImportTab", "ControlHost", "Control", function(
 	self.build = build
 
 	self.charImportMode = "GETACCOUNTNAME"
-	self.charImportStatus = colorCodes.WARNING.."Not yet Enabled by GGG"
+	self.charImportStatus = colorCodes.WARNING.."Not yet Enabled by GGG\n^7We are waiting on GGG to create the API to let us import characters from in-game"
 	self.controls.sectionCharImport = new("SectionControl", {"TOPLEFT",self,"TOPLEFT"}, {10, 18, 650, 250}, "Character Import")
 	self.controls.charImportStatusLabel = new("LabelControl", {"TOPLEFT",self.controls.sectionCharImport,"TOPLEFT"}, {6, 14, 200, 16}, function()
 		return "^7Character import status: "..self.charImportStatus
@@ -32,7 +32,7 @@ local ImportTabClass = newClass("ImportTab", "ControlHost", "Control", function(
 	
 	self.controls.characterImportAnchor = new("Control", {"TOPLEFT",self.controls.sectionCharImport,"TOPLEFT"}, {6, 40, 200, 16})
 	self.controls.characterImportAnchor.shown = false
-	self.controls.sectionCharImport.height = function() return self.controls.characterImportAnchor.shown and 650 or 38 end
+	self.controls.sectionCharImport.height = function() return self.controls.characterImportAnchor.shown and 650 or 60 end
 
 	-- Stage: input account name
 	self.controls.accountNameHeader = new("LabelControl", {"TOPLEFT",self.controls.characterImportAnchor,"TOPLEFT"}, {0, 0, 200, 16}, "^7To start importing a character, enter the character's account name:")
