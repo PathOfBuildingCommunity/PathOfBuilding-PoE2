@@ -25,7 +25,10 @@ local function fillConvert(damageType)
 	local convert = {}
 	for _, type in ipairs({ "Physical", "Lightning", "Cold", "Fire", "Chaos" }) do
 		table.insert(convert, "Skill"..damageType.."DamageConvertTo"..type)
+		table.insert(convert, "SkillDamageGainAs"..type)
+		table.insert(convert, "Skill"..damageType.."DamageGainAs"..type)
 		table.insert(convert, damageType.."DamageConvertTo"..type)
+		table.insert(convert, "DamageGainAs"..type)
 		table.insert(convert, damageType.."DamageGainAs"..type)
 
 		if type ~= "Chaos" and type ~= "Physical" then

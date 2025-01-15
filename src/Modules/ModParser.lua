@@ -2349,13 +2349,6 @@ local specialModList = {
 	["warcries exert twice as many attacks"] = { mod("ExtraExertedAttacks", "MORE", 100) },
 	--Blood Mage
 	["skills gain a base life cost equal to base mana cost"] = { mod("ManaCostAsLifeCost", "BASE", 100) },
-	["gain (%d+)%% of damage as extra physical damage"] = function(num) return {
-		mod("PhysicalDamageGainAsPhysical", "BASE", num),
-		mod("ColdDamageGainAsPhysical", "BASE", num),
-		mod("LightningDamageGainAsPhysical", "BASE", num),
-		mod("FireDamageGainAsPhysical", "BASE", num),
-		mod("ChaosDamageGainAsPhysical", "BASE", num),
-	} end,
 	["gain energy shield from equipped body armour as extra maximum life"] = {
 		mod("Life", "BASE", 1, { type = "PerStat", stat = "EnergyShieldOnBody Armour", div = 1 }),
 	},
@@ -5148,6 +5141,9 @@ local unsupportedModList = {
 
 -- Special lookups used for various modifier forms
 local suffixTypes = {
+	["as extra physical damage"] = "GainAsPhysical",
+	["added as physical damage"] = "GainAsPhysical",
+	["gained as extra physical damage"] = "GainAsPhysical",
 	["as extra lightning damage"] = "GainAsLightning",
 	["added as lightning damage"] = "GainAsLightning",
 	["gained as extra lightning damage"] = "GainAsLightning",
