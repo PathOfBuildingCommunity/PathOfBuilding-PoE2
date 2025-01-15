@@ -746,7 +746,17 @@ statMap = {
 #skill PurityOfFirePlayer
 #startSets
 #set PurityOfFirePlayer
+<<<<<<< Updated upstream
 #flags
+=======
+#flags spell aura area
+statMap = {
+	["skill_granted_fire_damage_resistance_%"] = {
+		mod("FireResist", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Aura" }),
+	},
+},
+#baseMod skill("auraCannotAffectSelf", true)
+>>>>>>> Stashed changes
 #mods
 #skillEnd
 
@@ -754,7 +764,17 @@ statMap = {
 #skill PurityOfIcePlayer
 #startSets
 #set PurityOfIcePlayer
+<<<<<<< Updated upstream
 #flags
+=======
+#flags spell aura area
+statMap = {
+	["skill_granted_cold_damage_resistance_%"] = {
+		mod("ColdResist", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Aura" }),
+	},
+},
+#baseMod skill("auraCannotAffectSelf", true)
+>>>>>>> Stashed changes
 #mods
 #skillEnd
 
@@ -762,7 +782,17 @@ statMap = {
 #skill PurityOfLightningPlayer
 #startSets
 #set PurityOfLightningPlayer
+<<<<<<< Updated upstream
 #flags
+=======
+#flags spell aura area
+statMap = {
+	["skill_granted_lightning_damage_resistance_%"] = {
+		mod("LightningResist", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Aura" }),
+	},
+},
+#baseMod skill("auraCannotAffectSelf", true)
+>>>>>>> Stashed changes
 #mods
 #skillEnd
 
