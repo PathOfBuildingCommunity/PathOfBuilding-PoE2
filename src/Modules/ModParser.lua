@@ -1251,7 +1251,6 @@ local modTagList = {
 	-- Multipliers
 	["per power charge"] = { tag = { type = "Multiplier", var = "PowerCharge" } },
 	["per frenzy charge"] = { tag = { type = "Multiplier", var = "FrenzyCharge" } },
-	["per strength"] = { tag = { type = "PerStat", stat = "Str"} },
 	["per endurance charge"] = { tag = { type = "Multiplier", var = "EnduranceCharge" } },
 	["per siphoning charge"] = { tag = { type = "Multiplier", var = "SiphoningCharge" } },
 	["per spirit charge"] = { tag = { type = "Multiplier", var = "SpiritCharge" } },
@@ -1359,6 +1358,7 @@ local modTagList = {
 	["per tailwind"] = { tag = { type = "Multiplier", var = "Tailwind" } },
 	-- Per stat
 	["per (%d+)%% of maximum mana they reserve"] = function(num) return { tag = { type = "PerStat", stat = "ManaReservedPercent", div = num } } end,
+	["per strength"] = { tag = { type = "PerStat", stat = "Str"} },
 	["per (%d+) strength"] = function(num) return { tag = { type = "PerStat", stat = "Str", div = num } } end,
 	["per (%d+) dexterity"] = function(num) return { tag = { type = "PerStat", stat = "Dex", div = num } } end,
 	["per (%d+) intelligence"] = function(num) return { tag = { type = "PerStat", stat = "Int", div = num } } end,
@@ -4311,27 +4311,23 @@ local specialModList = {
 	["gain (%d+)%% of maximum energy shield as additional (%a+) threshold"] = function(num, _, statType)
 		return { mod(firstToUpper(statType) .. "Threshold", "BASE", 1, { type = "PercentStat", stat = "EnergyShield", percent = num }) }
 	end,
-	["(%d+)%% increased maximum life, mana and energy shield"] = function(num)
-		return {
-			mod("Life", "INC", num),
-			mod("Mana", "INC", num),
-			mod("EnergyShield", "INC", num),
-		}
-	end,
+	["(%d+)%% increased maximum life, mana and energy shield"] = function(num) return {
+		mod("Life", "INC", num),
+		mod("Mana", "INC", num),
+		mod("EnergyShield", "INC", num),
+	} end,
 	["gain stun threshold equal to the lowest of evasion and armour on your helmet"] = {
 		mod("StunThreshold", "BASE", 1, { type = "PerStat", stat = "LowestOfArmourAndEvasionOnHelmet" }),
 	},
 	["your stun threshold is doubled"] = {
 		mod("StunThreshold", "MORE", 100),
 	},
-	["(%d+)%% of base armour from equipment also added to stun threshold"] = function(num)
-		return {
-			mod("StunThreshold", "BASE", 1, { type = "PerStat", stat = "ArmourOnHelmet", percent = num }),
-			mod("StunThreshold", "BASE", 1, { type = "PerStat", stat = "ArmourOnGloves", percent = num }),
-			mod("StunThreshold", "BASE", 1, { type = "PerStat", stat = "ArmourOnBoots", percent = num }),
-			mod("StunThreshold", "BASE", 1, { type = "PerStat", stat = "ArmourOnBody Armour", percent = num }),
-		}
-	end,
+	["(%d+)%% of base armour from equipment also added to stun threshold"] = function(num) return {
+		mod("StunThreshold", "BASE", 1, { type = "PerStat", stat = "ArmourOnHelmet", percent = num }),
+		mod("StunThreshold", "BASE", 1, { type = "PerStat", stat = "ArmourOnGloves", percent = num }),
+		mod("StunThreshold", "BASE", 1, { type = "PerStat", stat = "ArmourOnBoots", percent = num }),
+		mod("StunThreshold", "BASE", 1, { type = "PerStat", stat = "ArmourOnBody Armour", percent = num }),
+	} end,
 	-- This mod doesn't work the way it should. It prevents self-chill among other issues.
 	--Since we don't currently really do anything with enemy ailment infliction, this should probably be removed
 	--["cursed enemies cannot inflict elemental ailments on you"] = {
