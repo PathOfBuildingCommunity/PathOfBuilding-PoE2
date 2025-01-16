@@ -171,6 +171,8 @@ local function writeMods(outName, condFunc)
 				if mod.NodeType ~= 3 then
 					out:write('nodeType = ', mod.NodeType, ', ')
 				end
+				local trade_hash = murmurHash2(intToBytes(mod.Stat1.Hash), 0x02312233)
+				out:write('tradeHash = ', trade_hash, ', ')
 				out:write('},\n')
 			else
 				print("Mod '"..mod.Id.."' has no stats")
