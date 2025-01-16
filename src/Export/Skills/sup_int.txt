@@ -452,6 +452,10 @@ statMap = {
 	["support_hourglass_damage_+%_final"] = {
 		mod("Damage", "MORE", nil),
 	},
+	["support_hourglass_display_cooldown_time_ms"] = {
+		mod("CooldownRecovery", "BASE", nil),
+		div = 1000,
+	},
 },
 #mods
 #skillEnd

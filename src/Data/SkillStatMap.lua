@@ -508,10 +508,6 @@ return {
 	mod("Speed", "BASE", nil, ModFlag.Attack),
 	div = 1000,
 },
-["support_hourglass_display_cooldown_time_ms"] = {
-	mod("CooldownRecovery", "BASE", nil),
-	div = 1000,
-},
 ["warcry_speed_+%"] = {
 	mod("WarcrySpeed", "INC", nil, 0, KeywordFlag.Warcry),
 },
