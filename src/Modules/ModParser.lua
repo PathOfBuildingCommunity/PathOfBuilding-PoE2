@@ -1025,6 +1025,8 @@ local modFlagList = {
 	["from equipped body armour"] = { tag = { type = "SlotName", slotName = "Body Armour" } },
 	["from body armour"] = { tag = { type = "SlotName", slotName = "Body Armour" } },
 	["from your body armour"] = { tag = { type = "SlotName", slotName = "Body Armour" } },
+	-- Surrounded
+	["while surrounded"] = { tag = { type = "Condition", var = "Surrounded" } }
 }
 
 -- List of modifier flags/tags that appear at the start of a line
