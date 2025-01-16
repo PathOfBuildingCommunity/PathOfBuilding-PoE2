@@ -1135,6 +1135,9 @@ function ItemsTabClass:Draw(viewPort, inputEvents)
 	end
 
 	self:UpdateSockets()
+	-- Update weapon slots in case we got Giant's Blood from somewhere
+	self.slots["Weapon 2"]:Populate()
+	self.slots["Weapon 2 Swap"]:Populate()
 
 	self:DrawControls(viewPort)
 	if self.controls.scrollBarH:IsShown() then
@@ -1822,8 +1825,11 @@ function ItemsTabClass:IsItemValidForSlot(item, slotName, itemSet)
 	elseif slotName == "Weapon 2" or slotName == "Weapon 2 Swap" then
 		local weapon1Sel = itemSet[slotName == "Weapon 2" and "Weapon 1" or "Weapon 1 Swap"].selItemId or 0
 		local weapon1Base = self.items[weapon1Sel] and self.items[weapon1Sel].base or "Unarmed"
-		-- Calc tab isn't loaded yet when the items tab gets loaded, so this prevents a crash screen
-		local giantsBlood = self.build.calcsTab and self.build.calcsTab.mainEnv and self.build.calcsTab.mainEnv.modDB:Flag(nil, "GiantsBlood") or false
+		-- Calcs tab isn't loaded yet when the items tab gets loaded, so assume we have Giant's Blood until proven wrong
+		local giantsBlood = true
+		if self.build.calcsTab and self.build.calcsTab.mainEnv then
+			giantsBlood = self.build.calcsTab.mainEnv.modDB:Flag(nil, "GiantsBlood")
+		end
 		if weapon1Base.type == "Bow" then
 			return item.type == "Quiver"
 		elseif weapon1Base == "Unarmed" or weapon1Base.tags.onehand or (giantsBlood and (weapon1Base.tags.axe or weapon1Base.tags.mace or weapon1Base.tags.sword)) then
@@ -2514,7 +2520,7 @@ function ItemsTabClass:AddItemSetTooltip(tooltip, itemSet)
 		if not slot.nodeId then
 			local item = self.items[itemSet[slot.slotName].selItemId]
 			if item then
-				tooltip:AddLine(16, s_format("^7%s: %s%s", slot.label, colorCodes[item.rarity], item.name))
+				tooltip:AddLine(16, s_format("^7%s: %s%s", slot.slotName, colorCodes[item.rarity], item.name))
 			end
 		end
 	end
