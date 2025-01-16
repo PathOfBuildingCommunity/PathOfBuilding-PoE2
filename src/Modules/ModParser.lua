@@ -1025,8 +1025,6 @@ local modFlagList = {
 	["from equipped body armour"] = { tag = { type = "SlotName", slotName = "Body Armour" } },
 	["from body armour"] = { tag = { type = "SlotName", slotName = "Body Armour" } },
 	["from your body armour"] = { tag = { type = "SlotName", slotName = "Body Armour" } },
-	-- Surrounded
-	["while surrounded"] = { tag = { type = "Condition", var = "Surrounded" } }
 }
 
 -- List of modifier flags/tags that appear at the start of a line
@@ -1491,6 +1489,7 @@ local modTagList = {
 	["while wielding two different weapon types"] = { tag = { type = "Condition", var = "WieldingDifferentWeaponTypes" } },
 	["while unarmed"] = { tag = { type = "Condition", var = "Unarmed" } },
 	["while you are unencumbered"] = { tag = { type = "Condition", var = "Unencumbered" } },
+	["while surrounded"] = { tag = { type = "Condition", var = "Surrounded" } }
 	["equipped bow"] = { tag = { type = "Condition", var = "UsingBow" } },
 	["if equipped ([%a%s]+) has an ([%a%s]+) modifier"] = function (_, itemSlotName, conditionSubstring) return { tag = { type = "ItemCondition", searchCond = conditionSubstring, itemSlot = itemSlotName } } end,
 	["if both equipped ([%a%s]+) have a?n? ?([%a%s]+) modifiers?"] = function (_, itemSlotName, conditionSubstring) return { tag = { type = "ItemCondition", searchCond = conditionSubstring, itemSlot = itemSlotName:sub(1, #itemSlotName - 1), bothSlots = true } } end,
