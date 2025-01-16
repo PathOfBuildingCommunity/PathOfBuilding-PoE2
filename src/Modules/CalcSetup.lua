@@ -90,7 +90,7 @@ function calcs.initModDB(env, modDB)
 	modDB.conditions["Effective"] = env.mode_effective
 end
 
-function calcs.buildModListForNode(env, node)
+function calcs.buildModListForNode(env, node, incSmallPassiveSkill)
 	local modList = new("ModList")
 	if node.type == "Keystone" then
 		modList:AddMod(node.keystoneMod)
@@ -164,6 +164,14 @@ function calcs.buildModListForNode(env, node)
 		t_insert(env.explodeSources, node)
 	end
 
+	-- Apply Inc Node scaling from Hulking Form
+	if node.type == "Normal" and not node.isAttribute and not node.ascendancyName and incSmallPassiveSkill > 0 then
+		local scale = 1 + incSmallPassiveSkill / 100
+		local scaledList = new("ModList")
+		scaledList:ScaleAddList(modList, scale)
+		modList = scaledList
+	end
+
 	return modList
 end
 
@@ -175,10 +183,16 @@ function calcs.buildModListForNodeList(env, nodeList, finishJewels)
 		rad.data.modSource = "Tree:"..rad.nodeId
 	end
 
+	-- calculate inc from SmallPassiveSkillEffect
+	local inc = 0
+	for _, node in pairs(nodeList) do
+		inc = inc + node.modList:Sum("INC", nil ,"SmallPassiveSkillEffect")
+	end
+
 	-- Add node modifiers
 	local modList = new("ModList")
 	for _, node in pairs(nodeList) do
-		local nodeModList = calcs.buildModListForNode(env, node)
+		local nodeModList = calcs.buildModListForNode(env, node, inc)
 		modList:AddList(nodeModList)
 		if env.mode == "MAIN" then
 			node.finalModList = nodeModList
@@ -188,7 +202,7 @@ function calcs.buildModListForNodeList(env, nodeList, finishJewels)
 	if finishJewels then
 		-- Process extra radius nodes; these are unallocated nodes near conversion or threshold jewels that need to be processed
 		for _, node in pairs(env.extraRadiusNodeList) do
-			local nodeModList = calcs.buildModListForNode(env, node)
+			local nodeModList = calcs.buildModListForNode(env, node, inc)
 			if env.mode == "MAIN" then
 				node.finalModList = nodeModList
 			end

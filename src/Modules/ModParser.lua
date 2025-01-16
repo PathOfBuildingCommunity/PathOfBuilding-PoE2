@@ -5156,6 +5156,8 @@ local specialModList = {
 	["%+(%d) weapon set passive skill points"] = function(num) return { mod("WeaponSetPassivePoints", "BASE", num) } end,
 	-- 20 Passive Skill Points become Weapon Set Skill Points
 	["(%d+) passive skill points become weapon set skill points"] = function(num) return { mod("PassivePointsToWeaponSetPoints", "BASE", num) } end,
+	-- Hulking ascendancy support
+	["(%d+)%% increased effect of small passive skills"] = function(num) return { mod("SmallPassiveSkillEffect", "INC", num) } end,
 }
 for _, name in pairs(data.keystones) do
 	specialModList[name:lower()] = { mod("Keystone", "LIST", name) }
