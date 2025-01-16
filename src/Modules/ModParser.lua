@@ -1847,6 +1847,8 @@ local modTagList = {
 	["per poison affecting enemy"] = { tag = { type = "Multiplier", actor = "enemy", var = "PoisonStack" } },
 	["per poison affecting enemy, up to %+([%d%.]+)%%"] = function(num) return { tag = { type = "Multiplier", actor = "enemy", var = "PoisonStack", limit = num, limitTotal = true } } end,
 	["for each spider's web on the enemy"] = { tag = { type = "Multiplier", actor = "enemy", var = "Spider's WebStack" } },
+	-- Empower
+	["during empowered attacks"] = { tag = { type = "Condition", var = "Empower" } },
 }
 
 local mod = modLib.createMod
@@ -5154,6 +5156,12 @@ local specialModList = {
 	["%+(%d) weapon set passive skill points"] = function(num) return { mod("WeaponSetPassivePoints", "BASE", num) } end,
 	-- 20 Passive Skill Points become Weapon Set Skill Points
 	["(%d+) passive skill points become weapon set skill points"] = function(num) return { mod("PassivePointsToWeaponSetPoints", "BASE", num) } end,
+	-- Empower attack
+	["empowered attacks deal (%d+)%% increased damage"] = function(num)
+		return {
+			mod("Damage", "INC", num, nil , ModFlag.Attack, { type = "Condition", var = "Empower" })
+		}
+	end,
 }
 for _, name in pairs(data.keystones) do
 	specialModList[name:lower()] = { mod("Keystone", "LIST", name) }
