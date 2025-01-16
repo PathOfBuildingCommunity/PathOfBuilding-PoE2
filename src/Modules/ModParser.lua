@@ -1849,6 +1849,7 @@ local modTagList = {
 	["for each spider's web on the enemy"] = { tag = { type = "Multiplier", actor = "enemy", var = "Spider's WebStack" } },
 	-- Empower
 	["during empowered attacks"] = { tag = { type = "Condition", var = "Empower" } },
+	["with empowered attacks"] = { tag = { type = "Condition", var = "Empower" } },
 }
 
 local mod = modLib.createMod
