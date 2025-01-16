@@ -582,6 +582,11 @@ statMap = {
 #skill SupportMinionPactPlayer
 #startSets
 #set SupportMinionPactPlayer
+statMap = {
+	["support_minion_pact_damage_+%_final"] = {
+		mod("Damage", "MORE", nil),
+	},
+},
 #mods
 #skillEnd
 

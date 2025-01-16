@@ -2314,6 +2314,11 @@ skills["SupportMinionPactPlayer"] = {
 			label = "Minion Pact",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_minion_pact_damage_+%_final"] = {
+					mod("Damage", "MORE", nil),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
