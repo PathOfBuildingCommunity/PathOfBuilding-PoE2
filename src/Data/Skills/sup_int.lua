@@ -2249,6 +2249,12 @@ skills["SupportMinionInstabilityPlayer"] = {
 			label = "Minion Instability",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["explode_on_low_life_%_maximum_life_to_deal"] = {
+					mod("MinionModifier", "LIST", { mod = mod("Multiplier:MinionInstabilityBaseDamage", "BASE", nil) }),
+					mod("ExtraMinionSkill", "LIST", { skillId = "MinionInstability" }),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {

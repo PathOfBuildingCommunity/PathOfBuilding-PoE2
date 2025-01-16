@@ -564,6 +564,12 @@ statMap = {
 #skill SupportMinionInstabilityPlayer
 #startSets
 #set SupportMinionInstabilityPlayer
+statMap = {
+	["explode_on_low_life_%_maximum_life_to_deal"] = {
+		mod("MinionModifier", "LIST", { mod = mod("Multiplier:MinionInstabilityBaseDamage", "BASE", nil) }),
+		mod("ExtraMinionSkill", "LIST", { skillId = "MinionInstability" }),
+	},
+},
 #mods
 #skillEnd
 

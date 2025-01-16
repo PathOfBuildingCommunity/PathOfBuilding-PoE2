@@ -900,3 +900,38 @@ skills["MPSAncestralTotemSpiritSoulCasterProjectile"] = {
 		},
 	}
 }
+			skills["MinionInstability"] = {
+				name = "Minion Instability",
+				hidden = true,
+				skillTypes = { [SkillType.Damage] = true, },
+				qualityStats = {
+				},
+				levels = {
+					[1] = { levelRequirement = 0, },
+				},
+				preDamageFunc = function(activeSkill, output)
+					local skillData = activeSkill.skillData
+					skillData.FireBonusMin = output.Life * skillData.selfFireExplosionLifeMultiplier
+					skillData.FireBonusMax = output.Life * skillData.selfFireExplosionLifeMultiplier
+				end,
+				statSets = {
+					[1] = {
+						label = "Minion Instability",
+						incrementalEffectiveness = 0,
+						statDescriptionScope = "skill_stat_descriptions",
+						baseFlags = {
+						},
+						baseMods = {
+							skill("selfFireExplosionLifeMultiplier", 0.01, { type = "Multiplier", var = "MinionInstabilityBaseDamage" }),
+							skill("showAverage", true),
+						},
+						constantStats = {
+						},
+						stats = {
+						},
+						levels = {
+							[1] = { },
+						},
+					},
+				}
+			}
