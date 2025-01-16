@@ -45,7 +45,7 @@ local itemTypes = {
 	"soulcore",
 }
 
-local uniqueMods = LoadModule("../Data/ModUnique.lua")
+local uniqueMods = LoadModule("../Data/ModItemExlusive.lua")
 for _, name in ipairs(itemTypes) do
 	local out = io.open("../Data/Uniques/"..name..".lua", "w")
 	for line in io.lines("Uniques/"..name..".lua") do

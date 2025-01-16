@@ -64,7 +64,22 @@ skills["AlchemistsBoonPlayer"] = {
 			label = "Alchemist's Boon",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "alchemist_boon",
+			statMap = {
+				["skill_alchemists_boon_generate_x_charges_for_any_flask_per_minute"] = {
+					mod("FlaskChargesGenerated", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Aura", effectName = "Alchemists Boon" }),
+					div = 60,
+				},
+				--["recovery_from_flasks_applies_to_allies_in_presence_%"] = {
+				-- how to apply this in calc perform?
+					--mod("FlasksApplyToMinionPercent", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Aura" }),
+				--},
+			},
 			baseFlags = {
+				area = true,
+				aura = true,
+			},
+			baseMods = {
+				skill("radius", 60),
 			},
 			stats = {
 				"skill_alchemists_boon_generate_x_charges_for_any_flask_per_minute",
@@ -176,7 +191,32 @@ skills["BarragePlayer"] = {
 			label = "Barrage",
 			incrementalEffectiveness = 0.092720001935959,
 			statDescriptionScope = "empower_barrage",
+			statMap = {
+				--["empower_barrage_maximum_cooldown_ms"] = {
+					-- how to implement max cooldown?
+					--mod("Cooldown", "MAX", nil),
+					--div = 1000,
+				--},
+				["empower_barrage_base_number_of_barrage_repeats"] = {
+					-- need to implement BarrageRepeats
+					mod("BarrageRepeats", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Barrage" }),
+					flag("SequentialProjectiles", { type = "GlobalEffect", effectType = "Buff", effectName = "Barrage" }),
+				},
+				["empower_barrage_number_of_barrage_repeats_per_frenzy_charge"] = {
+					mod("BarrageRepeats", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Barrage" }, { type = "Multiplier", var = "RemovableFrenzyCharge"}),
+				},
+				["empower_barrage_cooldown_%of_attack_time"] = {
+					-- how to set attack time for this cooldown?
+				},
+				["empower_barrage_damage_-%_final_with_repeated_projectiles"] = {
+					mod("BarrageRepeatDamage", "MORE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Barrage" }),
+					mult = -1
+				},
+			},
 			baseFlags = {
+				spell = true,
+				duration = true,
+				buff = true,
 			},
 			constantStats = {
 				{ "base_skill_effect_duration", 5000 },
@@ -295,7 +335,14 @@ skills["CombatFrenzyPlayer"] = {
 			label = "Combat Frenzy",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "combat_frenzy",
+			statMap = {
+				["skill_combat_frenzy_x_ms_cooldown"] = {
+					mod("CombatFrenzyCooldown", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Combat Frenzy" }),
+					div = 1000,
+				},
+			},
 			baseFlags = {
+				buff = true,
 			},
 			stats = {
 				"skill_combat_frenzy_x_ms_cooldown",
@@ -401,14 +448,26 @@ skills["DetonatingArrowPlayer"] = {
 		[39] = { attackSpeedMultiplier = -55, baseMultiplier = 2.36, levelRequirement = 90, cost = { ManaPerMinute = 31516, }, },
 		[40] = { attackSpeedMultiplier = -55, baseMultiplier = 2.48, levelRequirement = 90, cost = { ManaPerMinute = 35305, }, },
 	},
+			preDamageFunc = function(activeSkill, output)
+				activeSkill.skillData.hitTimeMultiplier = activeSkill.skillModList:Sum("BASE", activeSkill.skillCfg, "Multiplier:DetonatingArrowStage")
+			end,
 	statSets = {
 		[1] = {
 			label = "Arrow",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "detonating_arrow",
+			statMap = {
+				["detonating_arrow_all_damage_%_to_gain_as_fire_per_stage"] = {
+					mod("DamageGainAsFire", "BASE", nil, 0, 0, { type = "Multiplier", var = "DetonatingArrowStage" }),
+				},
+				["detonating_arrow_max_number_of_stages"] = {
+					mod("Multiplier:DetonatingArrowMaxStages", "BASE", nil),
+				},
+			},
 			baseFlags = {
 				attack = true,
 				projectile = true,
+				channelRelease = true,
 			},
 			constantStats = {
 				{ "detonating_arrow_max_number_of_stages", 4 },
@@ -473,19 +532,31 @@ skills["DetonatingArrowPlayer"] = {
 			label = "Explosion",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "detonating_arrow",
+			statMap = {
+				["detonating_arrow_max_number_of_stages"] = {
+					mod("Multiplier:DetonatingArrowMaxStages", "BASE", nil),
+				},
+			},
 			baseFlags = {
+				attack = true,
 				area = true,
+				channelRelease = true,
 			},
 			constantStats = {
 				{ "active_skill_base_secondary_area_of_effect_radius", 18 },
-				{ "detonating_arrow_max_number_of_stages", 4 },
 				{ "active_skill_override_turn_duration_ms", 120 },
 				{ "detonating_arrow_all_damage_%_to_gain_as_fire_per_stage", 120 },
-				{ "channel_start_lock_cancelling_of_attack_time_%", 20 },
 				{ "channel_skill_end_animation_duration_multiplier_permyriad", 2344 },
 			},
 			stats = {
 				"is_area_damage",
+				"base_is_projectile",
+				"projectile_uses_contact_position",
+				"projectile_uses_contact_direction",
+				"check_for_targets_between_initiator_and_projectile_source",
+				"skill_can_fire_arrows",
+				"has_modular_projectiles_enabled",
+				"attack_speed_modifiers_apply_to_over_time_cost",
 			},
 			levels = {
 				[1] = { actorLevel = 1, },
@@ -554,6 +625,8 @@ skills["ElectrocutingArrowPlayer"] = {
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "electrocuting_arrow",
 			baseFlags = {
+				attack = true,
+				projectile = true,
 			},
 			constantStats = {
 				{ "attack_maximum_action_distance_+", -95 },
@@ -807,6 +880,9 @@ skills["FreezingSalvoPlayer"] = {
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "freezing_salvo",
 			baseFlags = {
+				attack = true,
+				projectile = true,
+				area = true,
 			},
 			constantStats = {
 				{ "base_number_of_projectiles", 1 },
@@ -933,6 +1009,9 @@ skills["GasArrowPlayer"] = {
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gas_cloud_arrow_statset_0",
 			baseFlags = {
+				attack = true,
+				projectile = true,
+				area = true,
 			},
 			constantStats = {
 				{ "active_skill_base_area_of_effect_radius", 18 },
@@ -1000,6 +1079,9 @@ skills["GasArrowPlayer"] = {
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gas_cloud_arrow_statset_1",
 			baseFlags = {
+				attack = true,
+				area = true,
+				duration = true,
 			},
 			constantStats = {
 				{ "base_skill_effect_duration", 4000 },
@@ -1015,6 +1097,17 @@ skills["GasArrowPlayer"] = {
 				"display_statset_hide_usage_stats",
 				"display_fake_attack_hit_poison",
 				"display_skill_poisons_without_hit",
+				"base_is_projectile",
+				"projectile_uses_contact_position",
+				"projectile_uses_contact_direction",
+				"check_for_targets_between_initiator_and_projectile_source",
+				"skill_can_fire_arrows",
+				"has_modular_projectiles_enabled",
+				"can_perform_skill_while_moving",
+				"projectiles_fire_at_ground",
+				"disable_visual_hit_effect",
+				"should_use_additive_aiming_animation",
+				"is_area_damage",
 			},
 			levels = {
 				[1] = { baseMultiplier = 1.1, actorLevel = 1, },
@@ -1064,6 +1157,8 @@ skills["GasArrowPlayer"] = {
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gas_cloud_arrow_statset_2",
 			baseFlags = {
+				attack = true,
+				area = true,
 			},
 			constantStats = {
 				{ "active_skill_base_physical_damage_%_to_convert_to_fire", 100 },
@@ -1074,6 +1169,17 @@ skills["GasArrowPlayer"] = {
 			stats = {
 				"is_area_damage",
 				"display_statset_hide_usage_stats",
+				"base_is_projectile",
+				"projectile_uses_contact_position",
+				"projectile_uses_contact_direction",
+				"check_for_targets_between_initiator_and_projectile_source",
+				"skill_can_fire_arrows",
+				"has_modular_projectiles_enabled",
+				"can_perform_skill_while_moving",
+				"projectiles_fire_at_ground",
+				"disable_visual_hit_effect",
+				"should_use_additive_aiming_animation",
+				"is_area_damage",
 			},
 			levels = {
 				[1] = { actorLevel = 1, },
@@ -1177,6 +1283,11 @@ skills["HeraldOfPlaguePlayer"] = {
 			label = "Herald of Plague",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "herald_of_agony",
+			statMap = {
+				["herald_of_agony_poison_on_enemies_you_kill_spread_to_enemies_within_x"] = {
+					mod("PoisonProlifRange", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Herald of Plague" }),
+				},
+			},
 			baseFlags = {
 			},
 			stats = {
@@ -1301,6 +1412,11 @@ skills["HeraldOfThunderPlayer"] = {
 			label = "Buff",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "herald_of_thunder_statset_0",
+			statMap = {
+				["herald_of_thunder_storm_max_hits"] = {
+					mod("HeraldOfThunderHits", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Herald of Thunder" }),
+				},
+			},
 			baseFlags = {
 			},
 			stats = {
@@ -1365,6 +1481,7 @@ skills["HeraldOfThunderPlayer"] = {
 				"base_skill_show_average_damage_instead_of_dps",
 				"never_shock",
 				"attack_is_not_melee_override",
+				"herald_of_thunder_storm_max_hits",
 			},
 			levels = {
 				[1] = { baseMultiplier = 0.7, actorLevel = 1, },
@@ -1472,6 +1589,8 @@ skills["IceShotPlayer"] = {
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "ice_shot",
 			baseFlags = {
+				attack = true,
+				projectile = true,
 			},
 			constantStats = {
 				{ "active_skill_chill_effect_+%_final", 50 },
@@ -1539,12 +1658,13 @@ skills["IceShotPlayer"] = {
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "ice_shot",
 			baseFlags = {
+				attack = true,
+				projectile = true,
 			},
 			constantStats = {
 				{ "projectile_spread_radius", 45 },
 				{ "active_skill_base_physical_damage_%_to_convert_to_cold", 30 },
 				{ "active_skill_projectile_speed_+%_variation_final", 50 },
-				{ "active_skill_chill_effect_+%_final", 50 },
 				{ "movement_speed_+%_final_while_performing_action", -70 },
 				{ "movement_speed_acceleration_+%_per_second_while_performing_action", 160 },
 				{ "movement_speed_while_performing_action_locked_duration_%", 60 },
@@ -1553,6 +1673,10 @@ skills["IceShotPlayer"] = {
 			stats = {
 				"base_number_of_projectiles",
 				"display_statset_hide_usage_stats",
+				"base_is_projectile",
+				"check_for_targets_between_initiator_and_projectile_source",
+				"can_perform_skill_while_moving",
+				"should_use_additive_aiming_animation",
 			},
 			levels = {
 				[1] = { 5, baseMultiplier = 0.75, statInterpolation = { 1, }, actorLevel = 1, },
@@ -1662,6 +1786,8 @@ skills["LightningArrowPlayer"] = {
 			damageIncrementalEffectiveness = 0.023299999535084,
 			statDescriptionScope = "lightning_arrow_statset_0",
 			baseFlags = {
+				attack = true,
+				projectile = true,
 			},
 			constantStats = {
 				{ "active_skill_base_physical_damage_%_to_convert_to_lightning", 40 },
@@ -1730,18 +1856,27 @@ skills["LightningArrowPlayer"] = {
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "lightning_arrow_statset_1",
 			baseFlags = {
+				attack = true,
+				projectile = true,
 			},
 			constantStats = {
 				{ "active_skill_base_physical_damage_%_to_convert_to_lightning", 60 },
 				{ "number_of_chains", 2 },
 				{ "active_skill_base_physical_damage_%_to_convert_to_lightning", 40 },
-				{ "lightning_arrow_maximum_number_of_extra_targets", 2 },
 				{ "active_skill_base_area_of_effect_radius", 24 },
 				{ "movement_speed_+%_final_while_performing_action", -70 },
 				{ "movement_speed_acceleration_+%_per_second_while_performing_action", 160 },
 				{ "movement_speed_while_performing_action_locked_duration_%", 60 },
 			},
 			stats = {
+				"base_is_projectile",
+				"projectile_uses_contact_position",
+				"projectile_uses_contact_direction",
+				"check_for_targets_between_initiator_and_projectile_source",
+				"skill_can_fire_arrows",
+				"has_modular_projectiles_enabled",
+				"can_perform_skill_while_moving",
+				"should_use_additive_aiming_animation",
 			},
 			levels = {
 				[1] = { actorLevel = 1, },
@@ -1849,6 +1984,9 @@ skills["LightningRodPlayer"] = {
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "lightning_rod_rain",
 			baseFlags = {
+				attack = true,
+				projectile = true,
+				area = true,
 			},
 			constantStats = {
 				{ "base_skill_effect_duration", 12000 },
@@ -1974,6 +2112,8 @@ skills["MagneticSalvoPlayer"] = {
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "magnetic_salvo_statset_0",
 			baseFlags = {
+				attack = true,
+				projectile = true,
 			},
 			constantStats = {
 				{ "active_skill_base_area_of_effect_radius", 10 },
@@ -2033,6 +2173,8 @@ skills["MagneticSalvoPlayer"] = {
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "magnetic_salvo_statset_1",
 			baseFlags = {
+				attack = true,
+				projectile = true,
 			},
 			constantStats = {
 				{ "active_skill_base_area_of_effect_radius", 14 },
@@ -2040,6 +2182,10 @@ skills["MagneticSalvoPlayer"] = {
 				{ "active_skill_base_physical_damage_%_to_convert_to_lightning", 80 },
 			},
 			stats = {
+				"base_number_of_projectiles",
+				"base_is_projectile",
+				"skill_can_fire_arrows",
+				"projectile_uses_contact_position",
 			},
 			levels = {
 				[1] = { baseMultiplier = 0.8, actorLevel = 1, },
@@ -2145,6 +2291,11 @@ skills["PlagueBearerPlayer"] = {
 			incrementalEffectiveness = 0.12517000734806,
 			damageIncrementalEffectiveness = 0.032000001519918,
 			statDescriptionScope = "skill_stat_descriptions",
+			statMap = {
+				["plague_bearer_maximum_stored_poison_damage"] = {
+					mod("PlagueBearerMaxDamage", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Plague Bearer" }),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -2381,6 +2532,8 @@ skills["PoisonBurstArrowPlayer"] = {
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "poison_burst_arrow",
 			baseFlags = {
+				attack = true,
+				projectile = true,
 			},
 			constantStats = {
 				{ "movement_speed_+%_final_while_performing_action", -70 },
@@ -2448,6 +2601,9 @@ skills["PoisonBurstArrowPlayer"] = {
 			damageIncrementalEffectiveness = 0.032000001519918,
 			statDescriptionScope = "poison_burst_arrow",
 			baseFlags = {
+				attack = true,
+				projectile = true,
+				area = true,
 			},
 			constantStats = {
 				{ "base_skill_effect_duration", 3000 },
@@ -2463,6 +2619,15 @@ skills["PoisonBurstArrowPlayer"] = {
 				"display_fake_attack_hit_poison",
 				"display_skill_poisons_without_hit",
 				"poison_duration_is_skill_duration",
+				"base_is_projectile",
+				"projectile_uses_contact_position",
+				"projectile_uses_contact_direction",
+				"check_for_targets_between_initiator_and_projectile_source",
+				"skill_can_fire_arrows",
+				"has_modular_projectiles_enabled",
+				"can_perform_skill_while_moving",
+				"should_use_additive_aiming_animation",
+				"disable_visual_hit_effect",
 			},
 			levels = {
 				[1] = { 15, statInterpolation = { 1, }, actorLevel = 1, },
@@ -2570,6 +2735,14 @@ skills["RainOfArrowsPlayer"] = {
 			baseEffectiveness = 0,
 			incrementalEffectiveness = 0.092720001935959,
 			statDescriptionScope = "rain_of_arrows_new",
+			statMap = {
+				["rain_of_arrows_projectile_count_multiplier_if_any_frenzy_charge_spent"] = {
+					mod("ProjectileNumber", "MORE", nil, 0, 0, { type = "Multiplier", var = "RemovableFrenzyCharge", limit = 1 }),
+				},
+				["rain_of_arrows_projectile_count_multiplier_per_frenzy_charge"] = {
+					mod("ProjectileNumber", "MORE", nil, 0, 0, { type = "Multiplier", var = "RemovableFrenzyCharge" }),
+				},
+			},
 			baseFlags = {
 				attack = true,
 				projectile = true,
@@ -2702,6 +2875,8 @@ skills["ShockchainArrowPlayer"] = {
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "trick_shot",
 			baseFlags = {
+				attack = true,
+				projectile = true,
 			},
 			constantStats = {
 				{ "active_skill_base_physical_damage_%_to_convert_to_lightning", 20 },
@@ -2771,6 +2946,8 @@ skills["ShockchainArrowPlayer"] = {
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "trick_shot",
 			baseFlags = {
+				attack = true,
+				projectile = true,
 			},
 			constantStats = {
 				{ "active_skill_base_physical_damage_%_to_convert_to_lightning", 80 },
@@ -2782,6 +2959,16 @@ skills["ShockchainArrowPlayer"] = {
 			},
 			stats = {
 				"display_statset_hide_usage_stats",
+				"base_is_projectile",
+				"projectile_uses_contact_position",
+				"projectile_uses_contact_direction",
+				"check_for_targets_between_initiator_and_projectile_source",
+				"skill_can_fire_arrows",
+				"has_modular_projectiles_enabled",
+				"can_perform_skill_while_moving",
+				"should_use_additive_aiming_animation",
+				"base_consume_enemy_shock_on_hit",
+				"never_shock",
 			},
 			levels = {
 				[1] = { baseMultiplier = 0.4, actorLevel = 1, },
@@ -2831,6 +3018,8 @@ skills["ShockchainArrowPlayer"] = {
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "trick_shot",
 			baseFlags = {
+				attack = true,
+				projectile = true,
 			},
 			constantStats = {
 				{ "active_skill_base_area_of_effect_radius", 25 },
@@ -2842,6 +3031,15 @@ skills["ShockchainArrowPlayer"] = {
 			},
 			stats = {
 				"display_statset_hide_usage_stats",
+				"base_is_projectile",
+				"projectile_uses_contact_position",
+				"projectile_uses_contact_direction",
+				"check_for_targets_between_initiator_and_projectile_source",
+				"skill_can_fire_arrows",
+				"has_modular_projectiles_enabled",
+				"can_perform_skill_while_moving",
+				"should_use_additive_aiming_animation",
+				"never_shock",
 			},
 			levels = {
 				[1] = { baseMultiplier = 1.2, actorLevel = 1, },
@@ -2943,6 +3141,9 @@ skills["SnipePlayer"] = {
 		[39] = { attackSpeedMultiplier = 40, baseMultiplier = 8.67, levelRequirement = 90, cost = { ManaPerMinute = 27035, }, },
 		[40] = { attackSpeedMultiplier = 40, baseMultiplier = 9.1, levelRequirement = 90, cost = { ManaPerMinute = 30285, }, },
 	},
+			preDamageFunc = function(activeSkill, output)
+				activeSkill.skillData.hitTimeMultiplier = activeSkill.skillData.channelPercentOfAttackTime
+			end,
 	statSets = {
 		[1] = {
 			label = "Arrow",
@@ -2951,6 +3152,7 @@ skills["SnipePlayer"] = {
 			baseFlags = {
 				attack = true,
 				projectile = true,
+				channelRelease = true,
 			},
 			constantStats = {
 				{ "active_skill_override_turn_duration_ms", 120 },
@@ -3033,8 +3235,6 @@ skills["SnipePlayer"] = {
 				{ "active_skill_override_turn_duration_ms", 120 },
 				{ "skill_animation_duration_multiplier_override", 6 },
 				{ "perfect_strike_timing_window_base_ms", 300 },
-				{ "channel_start_lock_cancelling_of_attack_time_%", 16 },
-				{ "base_minimum_channel_time_ms", 300 },
 				{ "base_critical_strike_multiplier_+", 200 },
 				{ "channel_skill_end_animation_duration_multiplier_permyriad", 2500 },
 				{ "channel_end_duration_as_%_of_attack_time", 400 },
@@ -3043,6 +3243,15 @@ skills["SnipePlayer"] = {
 				"is_area_damage",
 				"always_crit",
 				"display_statset_hide_usage_stats",
+				"base_is_projectile",
+				"projectile_uses_contact_position",
+				"projectile_uses_contact_direction",
+				"check_for_targets_between_initiator_and_projectile_source",
+				"skill_can_fire_arrows",
+				"has_modular_projectiles_enabled",
+				"attack_speed_modifiers_apply_to_over_time_cost",
+				"channel_start_lock_cancelling_scales_with_attack_speed",
+				"skill_moving_start_slowdown",
 			},
 			levels = {
 				[1] = { actorLevel = 1, },
@@ -3108,7 +3317,18 @@ skills["SnipersMarkPlayer"] = {
 			baseEffectiveness = 0,
 			incrementalEffectiveness = 0.092720001935959,
 			statDescriptionScope = "snipers_mark",
+			statMap = {
+				["enemy_additional_critical_strike_multiplier_against_self"] = {
+					mod("SelfCritMultiplier", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Curse" }),
+				},
+			},
 			baseFlags = {
+				spell = true,
+				duration = true,
+				mark = true,
+			},
+			baseMods = {
+				skill("debuff", true),
 			},
 			constantStats = {
 				{ "base_skill_effect_duration", 8000 },
@@ -3364,6 +3584,8 @@ skills["StormcallerArrowPlayer"] = {
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "shocking_arrow",
 			baseFlags = {
+				attack = true,
+				projectile = true,
 			},
 			constantStats = {
 				{ "active_skill_base_physical_damage_%_to_convert_to_lightning", 20 },
@@ -3430,6 +3652,8 @@ skills["StormcallerArrowPlayer"] = {
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "shocking_arrow",
 			baseFlags = {
+				attack = true,
+				area = true,
 			},
 			constantStats = {
 				{ "active_skill_base_area_of_effect_radius", 10 },
@@ -3445,6 +3669,14 @@ skills["StormcallerArrowPlayer"] = {
 				"active_skill_base_area_of_effect_radius",
 				"is_area_damage",
 				"display_statset_hide_usage_stats",
+				"base_is_projectile",
+				"projectile_uses_contact_position",
+				"projectile_uses_contact_direction",
+				"check_for_targets_between_initiator_and_projectile_source",
+				"skill_can_fire_arrows",
+				"has_modular_projectiles_enabled",
+				"can_perform_skill_while_moving",
+				"should_use_additive_aiming_animation",
 			},
 			levels = {
 				[1] = { 0, baseMultiplier = 1.4, statInterpolation = { 1, }, actorLevel = 1, },
@@ -3552,6 +3784,9 @@ skills["TornadoShotPlayer"] = {
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "tornado_shot_statset_0",
 			baseFlags = {
+				attack = true,
+				projectile = true,
+				area = true,
 			},
 			constantStats = {
 				{ "active_skill_base_area_of_effect_radius", 10 },
@@ -3619,6 +3854,11 @@ skills["TornadoShotPlayer"] = {
 			damageIncrementalEffectiveness = 0.0065000001341105,
 			statDescriptionScope = "tornado_shot_statset_1",
 			baseFlags = {
+				duration = true,
+				area = true,
+			},
+			baseMods = {
+				skill("dotIsArea", true),
 			},
 			constantStats = {
 				{ "base_number_of_projectiles", 3 },
@@ -3638,6 +3878,12 @@ skills["TornadoShotPlayer"] = {
 				"projectile_damage_modifiers_apply_to_skill_dot",
 				"display_statset_no_hit_damage",
 				"display_statset_hide_usage_stats",
+				"tornado_shot_number_of_hits_allowed",
+				"base_is_projectile",
+				"skill_can_fire_arrows",
+				"has_modular_projectiles_enabled",
+				"can_perform_skill_while_moving",
+				"is_area_damage",
 			},
 			levels = {
 				[1] = { 16.666667039196, -60, 6000, statInterpolation = { 3, 1, 1, }, actorLevel = 1, },
@@ -3680,133 +3926,6 @@ skills["TornadoShotPlayer"] = {
 				[38] = { 16.666667039196, -23, 9700, statInterpolation = { 3, 1, 1, }, actorLevel = 265.17199707031, },
 				[39] = { 16.666667039196, -22, 9800, statInterpolation = { 3, 1, 1, }, actorLevel = 276.62298583984, },
 				[40] = { 0.83333336437742, -21, 9900, statInterpolation = { 3, 1, 1, }, actorLevel = 288.29998779297, },
-			},
-		},
-	}
-}
-skills["TornadoPlayer"] = {
-	name = "Tornado",
-	baseTypeName = "Tornado",
-	fromGem = true,
-	color = 1,
-	description = "Creates a Tornado that chases enemies for a duration, while hindering and repeatedly damaging enemies around it.",
-	skillTypes = { [SkillType.Spell] = true, [SkillType.Duration] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, [SkillType.Physical] = true, [SkillType.Area] = true, [SkillType.Orb] = true, [SkillType.AreaSpell] = true, [SkillType.Nonpathing] = true, },
-	castTime = 0.75,
-	qualityStats = {
-	},
-	levels = {
-		[1] = { critChance = 10, levelRequirement = 0, cost = { Mana = 12, }, },
-		[2] = { critChance = 10, levelRequirement = 3, cost = { Mana = 13, }, },
-		[3] = { critChance = 10, levelRequirement = 6, cost = { Mana = 15, }, },
-		[4] = { critChance = 10, levelRequirement = 10, cost = { Mana = 18, }, },
-		[5] = { critChance = 10, levelRequirement = 14, cost = { Mana = 20, }, },
-		[6] = { critChance = 10, levelRequirement = 18, cost = { Mana = 23, }, },
-		[7] = { critChance = 10, levelRequirement = 22, cost = { Mana = 27, }, },
-		[8] = { critChance = 10, levelRequirement = 26, cost = { Mana = 31, }, },
-		[9] = { critChance = 10, levelRequirement = 31, cost = { Mana = 36, }, },
-		[10] = { critChance = 10, levelRequirement = 36, cost = { Mana = 41, }, },
-		[11] = { critChance = 10, levelRequirement = 41, cost = { Mana = 47, }, },
-		[12] = { critChance = 10, levelRequirement = 46, cost = { Mana = 54, }, },
-		[13] = { critChance = 10, levelRequirement = 52, cost = { Mana = 62, }, },
-		[14] = { critChance = 10, levelRequirement = 58, cost = { Mana = 72, }, },
-		[15] = { critChance = 10, levelRequirement = 64, cost = { Mana = 82, }, },
-		[16] = { critChance = 10, levelRequirement = 66, cost = { Mana = 95, }, },
-		[17] = { critChance = 10, levelRequirement = 72, cost = { Mana = 109, }, },
-		[18] = { critChance = 10, levelRequirement = 78, cost = { Mana = 125, }, },
-		[19] = { critChance = 10, levelRequirement = 84, cost = { Mana = 143, }, },
-		[20] = { critChance = 10, levelRequirement = 90, cost = { Mana = 165, }, },
-		[21] = { critChance = 10, levelRequirement = 90, cost = { Mana = 189, }, },
-		[22] = { critChance = 10, levelRequirement = 90, cost = { Mana = 217, }, },
-		[23] = { critChance = 10, levelRequirement = 90, cost = { Mana = 249, }, },
-		[24] = { critChance = 10, levelRequirement = 90, cost = { Mana = 286, }, },
-		[25] = { critChance = 10, levelRequirement = 90, cost = { Mana = 329, }, },
-		[26] = { critChance = 10, levelRequirement = 90, cost = { Mana = 378, }, },
-		[27] = { critChance = 10, levelRequirement = 90, cost = { Mana = 434, }, },
-		[28] = { critChance = 10, levelRequirement = 90, cost = { Mana = 498, }, },
-		[29] = { critChance = 10, levelRequirement = 90, cost = { Mana = 572, }, },
-		[30] = { critChance = 10, levelRequirement = 90, cost = { Mana = 656, }, },
-		[31] = { critChance = 10, levelRequirement = 90, cost = { Mana = 754, }, },
-		[32] = { critChance = 10, levelRequirement = 90, cost = { Mana = 865, }, },
-		[33] = { critChance = 10, levelRequirement = 90, cost = { Mana = 993, }, },
-		[34] = { critChance = 10, levelRequirement = 90, cost = { Mana = 1140, }, },
-		[35] = { critChance = 10, levelRequirement = 90, cost = { Mana = 1309, }, },
-		[36] = { critChance = 10, levelRequirement = 90, cost = { Mana = 1503, }, },
-		[37] = { critChance = 10, levelRequirement = 90, cost = { Mana = 1726, }, },
-		[38] = { critChance = 10, levelRequirement = 90, cost = { Mana = 1981, }, },
-		[39] = { critChance = 10, levelRequirement = 90, cost = { Mana = 2274, }, },
-		[40] = { critChance = 10, levelRequirement = 90, cost = { Mana = 2611, }, },
-	},
-	statSets = {
-		[1] = {
-			label = "Tornado",
-			baseEffectiveness = 1.5,
-			incrementalEffectiveness = 0.067299999296665,
-			damageIncrementalEffectiveness = 0.026100000366569,
-			statDescriptionScope = "skill_stat_descriptions",
-			baseFlags = {
-			},
-			constantStats = {
-				{ "number_of_tornados_allowed", 1 },
-				{ "skill_override_pvp_scaling_time_ms", 1000 },
-				{ "base_skill_effect_duration", 6000 },
-				{ "active_skill_base_area_of_effect_radius", 30 },
-				{ "tornado_pull_interval_ms", 100 },
-				{ "tornado_slow_amount", 60 },
-				{ "tornado_slow_%_at_max_range", 50 },
-				{ "movement_speed_+%_final_while_performing_action", -70 },
-				{ "movement_speed_acceleration_+%_per_second_while_performing_action", 160 },
-				{ "movement_speed_while_performing_action_locked_duration_%", 50 },
-			},
-			stats = {
-				"base_physical_damage_to_deal_per_minute",
-				"skill_can_add_multiple_charges_per_action",
-				"damage_cannot_be_reflected_or_leech_if_used_by_other_object",
-				"is_area_damage",
-				"tornado_hinder",
-				"visual_hit_effect_physical_is_wind",
-				"can_perform_skill_while_moving",
-			},
-			levels = {
-				[1] = { 16.666667039196, statInterpolation = { 3, }, actorLevel = 1, },
-				[2] = { 16.666667039196, statInterpolation = { 3, }, actorLevel = 3.4519999027252, },
-				[3] = { 16.666667039196, statInterpolation = { 3, }, actorLevel = 6.7670001983643, },
-				[4] = { 16.666667039196, statInterpolation = { 3, }, actorLevel = 10.307999610901, },
-				[5] = { 16.666667039196, statInterpolation = { 3, }, actorLevel = 14.074999809265, },
-				[6] = { 16.666667039196, statInterpolation = { 3, }, actorLevel = 18.068000793457, },
-				[7] = { 16.666667039196, statInterpolation = { 3, }, actorLevel = 22.287000656128, },
-				[8] = { 16.666667039196, statInterpolation = { 3, }, actorLevel = 26.732000350952, },
-				[9] = { 16.666667039196, statInterpolation = { 3, }, actorLevel = 31.40299987793, },
-				[10] = { 16.666667039196, statInterpolation = { 3, }, actorLevel = 36.299999237061, },
-				[11] = { 16.666667039196, statInterpolation = { 3, }, actorLevel = 41.423000335693, },
-				[12] = { 16.666667039196, statInterpolation = { 3, }, actorLevel = 46.771999359131, },
-				[13] = { 16.666667039196, statInterpolation = { 3, }, actorLevel = 52.34700012207, },
-				[14] = { 16.666667039196, statInterpolation = { 3, }, actorLevel = 58.147998809814, },
-				[15] = { 16.666667039196, statInterpolation = { 3, }, actorLevel = 64.175003051758, },
-				[16] = { 16.666667039196, statInterpolation = { 3, }, actorLevel = 70.428001403809, },
-				[17] = { 16.666667039196, statInterpolation = { 3, }, actorLevel = 76.906997680664, },
-				[18] = { 16.666667039196, statInterpolation = { 3, }, actorLevel = 83.611999511719, },
-				[19] = { 16.666667039196, statInterpolation = { 3, }, actorLevel = 90.542999267578, },
-				[20] = { 16.666667039196, statInterpolation = { 3, }, actorLevel = 97.699996948242, },
-				[21] = { 16.666667039196, statInterpolation = { 3, }, actorLevel = 105.08300018311, },
-				[22] = { 16.666667039196, statInterpolation = { 3, }, actorLevel = 112.69200134277, },
-				[23] = { 16.666667039196, statInterpolation = { 3, }, actorLevel = 120.52700042725, },
-				[24] = { 16.666667039196, statInterpolation = { 3, }, actorLevel = 128.58799743652, },
-				[25] = { 16.666667039196, statInterpolation = { 3, }, actorLevel = 136.875, },
-				[26] = { 16.666667039196, statInterpolation = { 3, }, actorLevel = 145.38800048828, },
-				[27] = { 16.666667039196, statInterpolation = { 3, }, actorLevel = 154.12699890137, },
-				[28] = { 16.666667039196, statInterpolation = { 3, }, actorLevel = 163.09199523926, },
-				[29] = { 16.666667039196, statInterpolation = { 3, }, actorLevel = 172.28300476074, },
-				[30] = { 16.666667039196, statInterpolation = { 3, }, actorLevel = 181.69999694824, },
-				[31] = { 16.666667039196, statInterpolation = { 3, }, actorLevel = 191.34300231934, },
-				[32] = { 16.666667039196, statInterpolation = { 3, }, actorLevel = 201.21200561523, },
-				[33] = { 16.666667039196, statInterpolation = { 3, }, actorLevel = 211.30700683594, },
-				[34] = { 16.666667039196, statInterpolation = { 3, }, actorLevel = 221.62800598145, },
-				[35] = { 16.666667039196, statInterpolation = { 3, }, actorLevel = 232.17500305176, },
-				[36] = { 16.666667039196, statInterpolation = { 3, }, actorLevel = 242.94799804688, },
-				[37] = { 16.666667039196, statInterpolation = { 3, }, actorLevel = 253.94700622559, },
-				[38] = { 16.666667039196, statInterpolation = { 3, }, actorLevel = 265.17199707031, },
-				[39] = { 16.666667039196, statInterpolation = { 3, }, actorLevel = 276.62298583984, },
-				[40] = { 16.666667039196, statInterpolation = { 3, }, actorLevel = 288.29998779297, },
 			},
 		},
 	}
@@ -4008,6 +4127,8 @@ skills["VineArrowPlayer"] = {
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "poison_vine_arrow_statset_0",
 			baseFlags = {
+				attack = true,
+				projectile = true,
 			},
 			constantStats = {
 				{ "base_skill_effect_duration", 6000 },
@@ -4073,7 +4194,13 @@ skills["VineArrowPlayer"] = {
 			incrementalEffectiveness = 0.14000000059605,
 			damageIncrementalEffectiveness = 0.0065000001341105,
 			statDescriptionScope = "poison_vine_arrow_statset_1",
+			statMap = {
+				["active_skill_base_slow_debuff_movement_speed_+%_final"] = {
+					mod("MovementSpeed", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Debuff", effectName = "Vine Arrow"}),
+				},
+			},
 			baseFlags = {
+				duration = true,
 			},
 			constantStats = {
 				{ "active_skill_base_area_of_effect_radius", 24 },
@@ -4081,8 +4208,6 @@ skills["VineArrowPlayer"] = {
 				{ "active_skill_base_slow_debuff_movement_speed_+%_final", -40 },
 				{ "poison_vine_arrow_vine_stored_poison_damage_+%_final", -50 },
 				{ "base_skill_effect_duration", 6000 },
-				{ "active_skill_base_area_of_effect_radius", 8 },
-				{ "active_skill_base_secondary_area_of_effect_radius", 20 },
 				{ "movement_speed_+%_final_while_performing_action", -70 },
 				{ "movement_speed_acceleration_+%_per_second_while_performing_action", 160 },
 				{ "movement_speed_while_performing_action_locked_duration_%", 60 },
@@ -4090,6 +4215,11 @@ skills["VineArrowPlayer"] = {
 			stats = {
 				"base_chaos_damage_to_deal_per_minute",
 				"poison_vine_arrow_visual_max_poison",
+				"base_is_projectile",
+				"skill_can_fire_arrows",
+				"has_modular_projectiles_enabled",
+				"can_perform_skill_while_moving",
+				"disable_visual_hit_effect",
 			},
 			levels = {
 				[1] = { 16.666667039196, 166.66667039196, statInterpolation = { 3, 3, }, actorLevel = 1, },
@@ -4193,7 +4323,13 @@ skills["VoltaicMarkPlayer"] = {
 			label = "Mark",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "thaumaturgist_mark",
+			statMap = {
+				["thaumaturgist_mark_enemies_shocked_chance_+%_final"] = {
+					mod("EnemyShockChance", "MORE", nil, 0, 0, { type = "GlobalEffect", effectType = "Curse" }),
+				},
+			},
 			baseFlags = {
+				spell = true,
 			},
 			constantStats = {
 				{ "base_skill_effect_duration", 8000 },
@@ -4310,6 +4446,8 @@ skills["TriggeredVoltaicMarkNovaPlayer"] = {
 			damageIncrementalEffectiveness = 0.006699999794364,
 			statDescriptionScope = "thaumaturgist_mark_nova",
 			baseFlags = {
+				attack = true,
+				area = true,
 			},
 			constantStats = {
 				{ "active_skill_base_area_of_effect_radius", 26 },
@@ -4441,6 +4579,14 @@ skills["WindDancerPlayer"] = {
 			label = "Buff",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "wind_dancer",
+			statMap = {
+				["wind_dancer_evasion_rating_+%_final_per_stage"] = {
+					mod("Evasion", "MORE", nil, 0, 0, { type = "Multiplier", var = "WindDancerStacks", limitVar = "WindDancerStacksLimit" }, { type = "GlobalEffect", effectType = "Buff", effectName = "Wind Dancer"}),
+				},
+				["wind_dancer_maximum_number_of_stages"] = {
+					mod("Multiplier:WindDancerStacksLimit", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Wind Dancer"}),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -4565,7 +4711,21 @@ skills["TriggeredWindDancerPlayer"] = {
 			label = "Gale Force",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "skill_stat_descriptions",
+			statMap = {
+				["wind_dancer_damage_+%_final_per_stage"] = {
+					mod("Damage", "MORE", nil, 0, 0, { type = "Multiplier", var = "WindDancerStacks", limitVar = "WindDancerStacksLimit" }),
+				},
+				["wind_dancer_area_of_effect_+%_final_per_stage"] = {
+					mod("AreaOfEffect", "MORE", nil, 0, 0, { type = "Multiplier", var = "WindDancerStacks", limitVar = "WindDancerStacksLimit" }),
+				},
+				["wind_dancer_knockback_+%_final_per_stage"] = {
+					mod("EnemyKnockbackDistance", "MORE", nil, 0, 0, { type = "Multiplier", var = "WindDancerStacks", limitVar = "WindDancerStacksLimit" }),
+				},
+			},
 			baseFlags = {
+				attack = true,
+				area = true,
+				melee = true,
 			},
 			constantStats = {
 				{ "chance_to_trigger_wind_dancer_on_taken_melee_hit_%", 100 },

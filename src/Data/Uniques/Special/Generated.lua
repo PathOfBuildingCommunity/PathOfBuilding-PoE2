@@ -9,17 +9,17 @@ data.uniques.generated = { }
 local excludedItemKeystones = {
 }
 
-local uniqueMods = LoadModule("Data/ModUnique")
+local uniqueMods = LoadModule("Data/ModItemExlusive")
 
 do
 	local againstMods = { }
 	for modName, mod in pairs(uniqueMods) do
 		local name = modName:match("^UniqueJewelRadius(.+)$")
 		if name then
-			table.insert(againstMods, { mod = mod, name = name:gsub("UniqueJewelRadius", ""):gsub("Strenth", "Strength") })
+			table.insert(againstMods, { mod = mod, name = name:gsub("([a-z])([A-Z])", "%1 %2"):gsub("Strenth", "Strength") })
 		end
 	end
-	table.sort(againstMods, function(a, b) return a.mod.statOrder[1] > b.mod.statOrder[1] end)
+	table.sort(againstMods, function(a, b) return a.name < b.name end)
 	local against = {
 		"Against the Darkness",
 		"Time-Lost Diamond",

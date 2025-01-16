@@ -320,6 +320,7 @@ directiveTable.skill = function(state, args, out)
 	state.noGem = false
 	skill.baseFlags = { }
 	skill.baseConstantStats = { }
+	skill.baseStats = { }
 	skill.levels = { }
 	skill.sets = { }
 	skill.setIndex = 1
@@ -409,7 +410,7 @@ directiveTable.skill = function(state, args, out)
 		if qualityStats and qualityStats.GrantedStats then
 			for i, stat in ipairs(qualityStats.GrantedStats) do
 				table.insert(skill.qualityStats, { stat.Id, qualityStats.StatValues[i] / 1000 })
-				ConPrintf("[%d] %s %s", i, granted.ActiveSkill.DisplayName, stat.Id)
+				--ConPrintf("[%d] %s %s", i, granted.ActiveSkill.DisplayName, stat.Id)
 			end
 		end
 	end
@@ -560,16 +561,19 @@ directiveTable.set = function(state, args, out)
 		local level = { extra = { }, statInterpolation = { }, actorLevel = 1 } 
 		level.level = statRow.GemLevel
 		-- stat based level info
-		--if statRow.DamageEffectiveness ~= 0 then
-		--	level.extra.damageEffectiveness = statRow.DamageEffectiveness / 10000 + 1
-		--end
 		if state.skill.setIndex ~= 1 and statRow.AttackCritChance ~= 0 then
 			level.extra.critChance = statRow.AttackCritChance / 100
 		end
 		if state.skill.setIndex ~= 1 and statRow.OffhandCritChance ~= 0 then
 			level.extra.critChance = statRow.OffhandCritChance / 100
 		end
-		if state.skill.setIndex ~= 1 and statRow.BaseMultiplier and statRow.BaseMultiplier ~= 0 then
+		-- If UseSetAttackMulti is true, then take the multi from the stat set, otherwise add the value from base set and current set
+		if state.skill.setIndex ~= 1 and grantedEffectStatSet.UseSetAttackMulti and statRow.BaseMultiplier and statRow.BaseMultiplier ~= 0 then
+			level.extra.baseMultiplier = statRow.BaseMultiplier / 10000 + 1
+		elseif state.skill.setIndex ~= 1 and not grantedEffectStatSet.UseSetAttackMulti and statRow.BaseMultiplier and statRow.BaseMultiplier ~= 0 then
+			if skill.levels[indx].extra.baseMultiplier then
+				level.extra.baseMultiplier = skill.levels[indx].extra.baseMultiplier + statRow.BaseMultiplier / 10000
+			end
 			level.extra.baseMultiplier = statRow.BaseMultiplier / 10000 + 1
 		end
 		level.statInterpolation = statRow.StatInterpolations
@@ -674,8 +678,36 @@ directiveTable.set = function(state, args, out)
 	end
 	if state.skill.setIndex == 1 then
 		skill.baseConstantStats = set.constantStats
+		skill.baseStats = set.stats
+	elseif grantedEffectStatSet and next(grantedEffectStatSet.RemoveStats) ~= nil then
+		-- If a stat exists in RemoveStats we need to not copy the value from baseConstantStats and add it to set.constantStats
+		for _, stat in ipairs(skill.baseConstantStats) do
+			local copy = true
+			for k, v in pairs(grantedEffectStatSet.RemoveStats) do
+				if stat[1] == v.Id then
+					copy = false
+					break
+				end
+			end
+			if copy then
+				table.insert(set.constantStats, stat)
+			end
+		end
+		for _, stat in ipairs(skill.baseStats) do
+			local copy = true
+			for k, v in pairs(grantedEffectStatSet.RemoveStats) do
+				if stat.id == v.Id then
+					copy = false
+					break
+				end
+			end
+			if copy then
+				table.insert(set.stats, stat)
+			end
+		end
 	else
 		set.constantStats = tableConcat(set.constantStats, skill.baseConstantStats)
+		set.stats = tableConcat(set.stats, skill.baseStats)
 	end
 
 	-- Emitting statSet data

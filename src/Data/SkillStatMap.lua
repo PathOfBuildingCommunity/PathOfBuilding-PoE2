@@ -81,6 +81,12 @@ return {
 ["secondary_maximum_base_chaos_damage"] = {
 	skill("ChaosMax", nil),
 },
+["main_hand_weapon_minimum_lightning_damage"] = {
+	skill("LightningMin", nil, { type = "Condition", var = "MainHandAttack" })
+},
+["main_hand_weapon_maximum_lightning_damage"] = {
+	skill("LightningMax", nil, { type = "Condition", var = "MainHandAttack" })
+},
 ["spell_minimum_base_lightning_damage_per_removable_power_charge"] = {
 	skill("LightningMin", nil, { type = "Multiplier", var = "RemovablePowerCharge" }),
 },
@@ -370,6 +376,9 @@ return {
 ["base_life_cost_+%"] = {
 	mod("LifeCost", "INC", nil),
 },
+["attack_speed_modifiers_apply_to_over_time_cost"] = {
+	flag("AttackSpeedScalesCost"),
+},
 ["flask_mana_to_recover_+%"] = {
 	mod("FlaskManaRecovery", "INC", nil),
 },
@@ -498,6 +507,10 @@ return {
 	mod("CooldownRecovery", "INC", nil),
 },
 ["base_cooldown_modifier_ms"] = {
+	mod("CooldownRecovery", "BASE", nil),
+	div = 1000,
+},
+["support_hourglass_display_cooldown_time_ms"] = {
 	mod("CooldownRecovery", "BASE", nil),
 	div = 1000,
 },
@@ -699,6 +712,9 @@ return {
 ["lightning_damage_+%"] = {
 	mod("LightningDamage", "INC", nil),
 },
+["active_skill_lightning_damage_+%_final"] = {
+	mod("LightningDamage", "MORE", nil),
+},
 ["cold_damage_+%"] = {
 	mod("ColdDamage", "INC", nil),
 },
@@ -899,6 +915,9 @@ return {
 ["lightning_damage_%_to_add_as_chaos"] = {
 	mod("LightningDamageGainAsChaos", "BASE", nil),
 },
+["non_skill_base_all_damage_%_to_gain_as_chaos"] = {
+	mod("DamageGainAsChaos", "BASE", nil),
+},
 ["non_skill_base_all_damage_%_to_gain_as_lightning_with_attacks"] = {
 	mod("DamageGainAsLightning", "BASE", nil, ModFlag.Attack),
 },
@@ -1088,6 +1107,18 @@ return {
 	flag("CannotFreeze"),
 	flag("CannotIgnite"),
 },
+["cannot_inflict_elemental_ailments"] = {
+	flag("CannotShock"),
+	flag("CannotChill"),
+	flag("CannotFreeze"),
+	flag("CannotIgnite"),
+	flag("CannotElectrocute"),
+},
+["active_skill_never_freeze_shock_ignite"] = {
+	flag("CannotFreeze"),
+	flag("CannotShock"),
+	flag("CannotIgnite"),
+},
 ["lightning_damage_cannot_shock"] = {
 	flag("LightningCannotShock"),
 },
@@ -1096,6 +1127,9 @@ return {
 },
 ["active_skill_chill_effect_+%_final"] = {
 	mod("EnemyChillMagnitude", "MORE", nil),
+},
+["active_skill_shock_chance_+%_final"] = {
+	mod("EnemyShockChance", "MORE", nil),
 },
 ["shock_effect_+%"] = {
 	mod("EnemyShockMagnitude", "INC", nil),
@@ -1125,6 +1159,9 @@ return {
 },
 ["active_skill_hit_damage_freeze_multiplier_+%_final"] = {
 	mod("EnemyFreezeEffect", "MORE", nil),
+},
+["base_poison_effect_+%"] = {
+	mod("AilmentEffect", "INC", nil),
 },
 ["base_poison_duration_+%"] = {
 	mod("EnemyPoisonDuration", "INC", nil),
@@ -1428,6 +1465,9 @@ return {
 },
 ["number_of_additional_projectiles"] = {
 	mod("ProjectileCount", "BASE", nil),
+},
+["base_projectiles_cannot_chain"] = {
+	flag("BaseProjectilesCannotChain"),
 },
 ["projectile_damage_+%_per_remaining_chain"] = {
 	mod("Damage", "INC", nil, ModFlag.Projectile, 0, { type = "PerStat", stat = "ChainRemaining" }),
@@ -2160,6 +2200,10 @@ return {
 ["channelled_skill_damage_+%"] = {
 	mod("Damage", "INC", nil, 0, 0, { type = "SkillType", skillType = SkillType.Channel }),
 },
+["channel_end_duration_as_%_of_attack_time"] = {
+	skill("channelPercentOfAttackTime", nil),
+	div = 100,
+},
 ["snipe_triggered_skill_ailment_damage_+%_final_per_stage"] = {
 	mod("snipeAilmentMulti", "BASE", nil),
 },
@@ -2211,6 +2255,9 @@ return {
 },
 ["warcry_count_power_from_enemies"] = {
 	flag("UsesWarcryPower", { type = "GlobalEffect", effectType = "Buff" })
+},
+["chance_to_gain_1_more_charge_%"] = {
+	mod("AdditionalChargeChance", "BASE", nil)
 },
 --
 -- Spectre or Minion-specific stats

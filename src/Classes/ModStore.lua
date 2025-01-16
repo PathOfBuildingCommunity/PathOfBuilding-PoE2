@@ -238,7 +238,7 @@ function ModStoreClass:GetStat(stat, cfg)
 		local totalMana = self.actor.output["Mana"]
 		if totalMana == 0 then return 0 else
 			for _, activeSkill in ipairs(self.actor.activeSkillList) do
-				-- currently only checks main statset for skill flags. rework if required
+				-- currently only checks main statSet for skill flags. rework if required
 				if (activeSkill.skillTypes[SkillType.Aura] and not activeSkill.activeEffect.statSet.skillFlags.disable and activeSkill.buffList and activeSkill.buffList[1] and activeSkill.buffList[1].name == cfg.skillName) then
 					local manaBase = activeSkill.skillData["ManaReservedBase"] or 0
 					reservedPercentMana = manaBase / totalMana * 100

@@ -6336,7 +6336,7 @@ return {
 			name="Id",
 			refTo="",
 			type="String",
-			width=380
+			width=300
 		},
 		[2]={
 			list=false,
@@ -6350,14 +6350,14 @@ return {
 			name="ImplicitStats",
 			refTo="Stats",
 			type="Key",
-			width=750
+			width=600
 		},
 		[4]={
 			list=true,
 			name="ConstantStats",
 			refTo="Stats",
 			type="Key",
-			width=1400
+			width=1000
 		},
 		[5]={
 			list=true,
@@ -6378,28 +6378,28 @@ return {
 			name="IncrementalEffectiveness",
 			refTo="",
 			type="Float",
-			width=150
+			width=100
 		},
 		[8]={
 			list=false,
 			name="DamageIncrementalEffectiveness",
 			refTo="",
 			type="Float",
-			width=200
+			width=100
 		},
 		[9]={
 			list=true,
-			name="",
+			name="RemoveStats",
 			refTo="Stats",
 			type="Key",
-			width=500
+			width=1000
 		},
 		[10]={
 			list=false,
-			name="",
+			name="UseSetAttackMulti",
 			refTo="",
 			type="Bool",
-			width=150
+			width=130
 		}
 	},
 	grantedeffectstatsetsperlevel={
@@ -6415,7 +6415,7 @@ return {
 			name="GemLevel",
 			refTo="",
 			type="Int",
-			width=100
+			width=70
 		},
 		[3]={
 			list=false,
@@ -6429,7 +6429,7 @@ return {
 			name="OffhandCritChance",
 			refTo="",
 			type="Int",
-			width=150
+			width=120
 		},
 		[5]={
 			list=true,
@@ -6443,7 +6443,7 @@ return {
 			name="AdditionalStatsValues",
 			refTo="Stats",
 			type="Int",
-			width=200
+			width=150
 		},
 		[7]={
 			list=true,
@@ -6457,7 +6457,7 @@ return {
 			name="",
 			refTo="",
 			type="Bool",
-			width=150
+			width=70
 		},
 		[9]={
 			list=false,
@@ -6478,21 +6478,21 @@ return {
 			name="FloatStats",
 			refTo="Stats",
 			type="Key",
-			width=500
+			width=400
 		},
 		[12]={
 			list=true,
 			name="InterpolationBases",
 			refTo="EffectivenessCostConstants",
 			type="Key",
-			width=200
+			width=150
 		},
 		[13]={
 			list=true,
 			name="AdditionalStats",
 			refTo="Stats",
 			type="Key",
-			width=500
+			width=400
 		},
 		[14]={
 			list=true,
@@ -8834,12 +8834,12 @@ return {
 			list=false,
 			name="HASH32",
 			refTo="",
-			type="Int",
+			type="UInt",
 			width=150
 		},
 		[61]={
 			list=true,
-			name="BuffTemplate",
+			name="BuffTemplate2",
 			refTo="BuffTemplates",
 			type="Key",
 			width=150

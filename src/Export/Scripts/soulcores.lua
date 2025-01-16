@@ -42,7 +42,9 @@ directiveTable.base = function(state, args, out)
 		local function writeStats(stats, out)
 			local stats, orders = describeStats(stats)
 			if #orders > 0 then
-				out:write('{ "', table.concat(stats, '", "'), '", ')
+				out:write('{ ')
+				out:write('type = "Rune", ')
+				out:write('"'..table.concat(stats, '", "'), '", ')
 				out:write('statOrder = { ', table.concat(orders, ', '), ' }, ')						
 				out:write('},\n')
 			end

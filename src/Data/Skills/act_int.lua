@@ -65,6 +65,11 @@ skills["ArcPlayer"] = {
 			incrementalEffectiveness = 0.14000000059605,
 			damageIncrementalEffectiveness = 0.0065000001341105,
 			statDescriptionScope = "skill_stat_descriptions",
+			statMap = {
+				["arc_damage_+%_final_for_each_remaining_chain"] = {
+					mod("Damage", "MORE", nil, 0, 0, { type = "PerStat", stat = "ChainRemaining" }),
+				},
+			},
 			baseFlags = {
 				spell = true,
 				chaining = true,
@@ -1646,7 +1651,6 @@ skills["BonestormPlayer"] = {
 				{ "active_skill_base_area_of_effect_radius", 5 },
 				{ "bone_spear_power_charged_aoe_+", 7 },
 				{ "bone_spear_power_charged_aoe_+%_final_per_additional_power_charge", 40 },
-				{ "base_number_of_projectiles", 1 },
 				{ "bone_storm_maximum_spikes_in_a_target", 60 },
 				{ "base_skill_effect_duration", 10000 },
 				{ "movement_speed_+%_final_while_performing_action", -70 },
@@ -1662,6 +1666,15 @@ skills["BonestormPlayer"] = {
 				"spell_maximum_base_physical_damage",
 				"display_statset_hide_usage_stats",
 				"is_area_damage",
+				"bone_spear_minimum_added_attack_physical_damage_taken",
+				"bone_spear_maximum_added_attack_physical_damage_taken",
+				"base_is_projectile",
+				"projectile_uses_contact_position",
+				"maintain_projectile_direction_when_using_contact_position",
+				"can_perform_skill_while_moving",
+				"channel_start_lock_cancelling_scales_with_cast_speed",
+				"projectiles_fire_at_ground",
+				"cast_speed_modifiers_apply_to_over_time_cost",
 			},
 			levels = {
 				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
@@ -4378,8 +4391,6 @@ skills["CorpseCloudPlayer"] = {
 			constantStats = {
 				{ "active_skill_base_area_of_effect_radius", 16 },
 				{ "base_skill_effect_duration", 4000 },
-				{ "active_skill_ground_effect_area_of_effect_+%_final_per_second", 50 },
-				{ "active_skill_ground_effect_area_of_effect_+%_final_per_second_max", 200 },
 				{ "movement_speed_+%_final_while_performing_action", -70 },
 				{ "movement_speed_acceleration_+%_per_second_while_performing_action", 160 },
 				{ "movement_speed_while_performing_action_locked_duration_%", 80 },
@@ -4389,6 +4400,8 @@ skills["CorpseCloudPlayer"] = {
 			stats = {
 				"spell_minimum_base_fire_damage",
 				"spell_maximum_base_fire_damage",
+				"is_area_damage",
+				"can_perform_skill_while_moving",
 			},
 			levels = {
 				[1] = { 0.80000001192093, 1.2000000476837, critChance = 8, statInterpolation = { 3, 3, }, actorLevel = 1, },
@@ -5258,7 +5271,6 @@ skills["BlazingClusterPlayer"] = {
 			},
 			constantStats = {
 				{ "active_skill_base_area_of_effect_radius", 9 },
-				{ "base_skill_effect_duration", 1300 },
 				{ "blazing_cluster_delay_between_projectiles_ms", 100 },
 				{ "movement_speed_+%_final_while_performing_action", -70 },
 				{ "movement_speed_acceleration_+%_per_second_while_performing_action", 160 },
@@ -5268,6 +5280,12 @@ skills["BlazingClusterPlayer"] = {
 			},
 			stats = {
 				"is_area_damage",
+				"spell_minimum_base_fire_damage",
+				"spell_maximum_base_fire_damage",
+				"blazing_cluster_maximum_number_of_projectiles_allowed",
+				"base_is_projectile",
+				"can_perform_skill_while_moving",
+				"projectile_uses_contact_position",
 			},
 			levels = {
 				[1] = { actorLevel = 1, },
@@ -5493,6 +5511,8 @@ skills["EssenceDrainPlayer"] = {
 			damageIncrementalEffectiveness = 0.0087000001221895,
 			statDescriptionScope = "essence_drain",
 			baseFlags = {
+				spell = true,
+				projectile = true,
 			},
 			constantStats = {
 				{ "movement_speed_+%_final_while_performing_action", -70 },
@@ -5561,6 +5581,12 @@ skills["EssenceDrainPlayer"] = {
 			damageIncrementalEffectiveness = 0.0087000001221895,
 			statDescriptionScope = "essence_drain",
 			baseFlags = {
+				spell = true,
+				projectile = true,
+				duration = true,
+			},
+			baseMods = {
+				skill("debuff", true),
 			},
 			constantStats = {
 				{ "base_skill_effect_duration", 4000 },
@@ -5573,6 +5599,13 @@ skills["EssenceDrainPlayer"] = {
 				"base_chaos_damage_to_deal_per_minute",
 				"spell_damage_modifiers_apply_to_skill_dot",
 				"display_statset_hide_usage_stats",
+				"base_is_projectile",
+				"projectile_uses_contact_position",
+				"check_for_targets_between_initiator_and_projectile_source",
+				"maintain_projectile_direction_when_using_contact_position",
+				"can_perform_skill_while_moving",
+				"disable_visual_hit_effect",
+				"should_use_additive_aiming_animation",
 			},
 			levels = {
 				[1] = { 16.666667039196, statInterpolation = { 3, }, actorLevel = 1, },
@@ -5875,7 +5908,6 @@ skills["FallingThunderPlayer"] = {
 				{ "active_skill_base_physical_damage_%_to_convert_to_lightning", 60 },
 				{ "melee_conditional_step_distance", 21 },
 				{ "lightning_strike_maximum_action_distance_+_when_empowered", 120 },
-				{ "active_skill_base_area_of_effect_radius", 40 },
 			},
 			stats = {
 				"is_area_damage",
@@ -5887,6 +5919,7 @@ skills["FallingThunderPlayer"] = {
 				"check_for_targets_between_initiator_and_projectile_source",
 				"zero_projectiles_if_no_power_charges",
 				"display_statset_hide_usage_stats",
+				"is_area_damage",
 			},
 			levels = {
 				[1] = { -1, statInterpolation = { 1, }, actorLevel = 1, },
@@ -6028,6 +6061,13 @@ skills["FireballPlayer"] = {
 			},
 			stats = {
 				"is_area_damage",
+				"spell_minimum_base_fire_damage",
+				"spell_maximum_base_fire_damage",
+				"base_is_projectile",
+				"projectile_uses_contact_position",
+				"maintain_projectile_direction_when_using_contact_position",
+				"can_perform_skill_while_moving",
+				"should_use_additive_aiming_animation",
 			},
 			levels = {
 				[1] = { actorLevel = 1, },
@@ -6091,6 +6131,11 @@ skills["FireballPlayer"] = {
 			stats = {
 				"spell_minimum_base_fire_damage",
 				"spell_maximum_base_fire_damage",
+				"base_is_projectile",
+				"projectile_uses_contact_position",
+				"maintain_projectile_direction_when_using_contact_position",
+				"can_perform_skill_while_moving",
+				"should_use_additive_aiming_animation",
 			},
 			levels = {
 				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
@@ -6274,6 +6319,14 @@ skills["FireboltPlayer"] = {
 			stats = {
 				"is_area_damage",
 				"display_statset_hide_usage_stats",
+				"spell_minimum_base_fire_damage",
+				"spell_maximum_base_fire_damage",
+				"base_is_projectile",
+				"projectile_uses_contact_position",
+				"check_for_targets_between_initiator_and_projectile_source",
+				"can_perform_skill_while_moving",
+				"projectile_uses_contact_direction",
+				"should_use_additive_aiming_animation",
 			},
 			levels = {
 				[1] = { actorLevel = 1, },
@@ -6453,11 +6506,6 @@ skills["FirestormPlayer"] = {
 			},
 			constantStats = {
 				{ "active_skill_base_area_of_effect_radius", 18 },
-				{ "fire_storm_fireball_delay_ms", 100 },
-				{ "firestorm_max_number_of_storms", 1 },
-				{ "base_skill_effect_duration", 6000 },
-				{ "active_skill_base_area_of_effect_radius", 10 },
-				{ "active_skill_base_secondary_area_of_effect_radius", 56 },
 				{ "movement_speed_+%_final_while_performing_action", -70 },
 				{ "movement_speed_acceleration_+%_per_second_while_performing_action", 160 },
 				{ "movement_speed_while_performing_action_locked_duration_%", 60 },
@@ -6467,6 +6515,10 @@ skills["FirestormPlayer"] = {
 				"spell_minimum_base_fire_damage",
 				"spell_maximum_base_fire_damage",
 				"display_statset_hide_usage_stats",
+				"base_skill_show_average_damage_instead_of_dps",
+				"is_area_damage",
+				"can_perform_skill_while_moving",
+				"never_ignite",
 			},
 			levels = {
 				[1] = { 1.2000000476837, 1.7999999523163, critChance = 7, statInterpolation = { 3, 3, }, actorLevel = 1, },
@@ -7876,17 +7928,20 @@ skills["FrostboltPlayer"] = {
 			},
 			constantStats = {
 				{ "active_skill_base_area_of_effect_radius", 16 },
-				{ "base_skill_effect_duration", 4000 },
-				{ "active_skill_base_secondary_area_of_effect_radius", 9 },
 				{ "movement_speed_+%_final_while_performing_action", -70 },
 				{ "movement_speed_acceleration_+%_per_second_while_performing_action", 160 },
 				{ "movement_speed_while_performing_action_locked_duration_%", 60 },
-				{ "chill_effect_+%", 100 },
 			},
 			stats = {
 				"spell_minimum_base_cold_damage",
 				"spell_maximum_base_cold_damage",
 				"is_area_damage",
+				"spell_minimum_base_cold_damage",
+				"spell_maximum_base_cold_damage",
+				"base_is_projectile",
+				"projectile_uses_contact_position",
+				"maintain_projectile_direction_when_using_contact_position",
+				"can_perform_skill_while_moving",
 			},
 			levels = {
 				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
@@ -8071,6 +8126,14 @@ skills["FrozenLocusPlayer"] = {
 			},
 			stats = {
 				"display_fake_attack_hit_chill",
+				"frost_wall_maximum_life",
+				"frost_wall_damage_taken_+%_final_from_own_team",
+				"frozen_locus_crystal_display_stat",
+				"active_skill_is_ignored_by_staggering_palm",
+				"active_skill_is_ignored_by_charged_staff",
+				"base_skill_show_average_damage_instead_of_dps",
+				"frozen_locus_stat_suppression",
+				"active_skill_is_ignored_by_mantra_of_destruction",
 			},
 			levels = {
 				[1] = { actorLevel = 1, },
@@ -8374,12 +8437,19 @@ skills["GatheringStormPlayer"] = {
 		[39] = { baseMultiplier = 7.88, levelRequirement = 90, cost = { ManaPerMinute = 36520, }, },
 		[40] = { baseMultiplier = 8.28, levelRequirement = 90, cost = { ManaPerMinute = 40910, }, },
 	},
+			preDamageFunc = function(activeSkill, output)
+				activeSkill.skillData.hitTimeMultiplier = activeSkill.skillData.channelPercentOfAttackTime
+			end,
 	statSets = {
 		[1] = {
 			label = "Normal Dash",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gathering_storm_statset_0",
 			baseFlags = {
+				attack = true,
+				area = true,
+				melee = true,
+				channelRelease = true,
 			},
 			constantStats = {
 				{ "active_skill_override_turn_duration_ms", 360 },
@@ -8446,6 +8516,13 @@ skills["GatheringStormPlayer"] = {
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gathering_storm_statset_1",
 			baseFlags = {
+				attack = true,
+				area = true,
+				melee = true,
+				channelRelease = true,
+			},
+			baseMods = {
+				mod("Condition:PerfectTiming", "FLAG", true),
 			},
 			constantStats = {
 				{ "base_melee_dash_range", 25 },
@@ -8454,7 +8531,6 @@ skills["GatheringStormPlayer"] = {
 				{ "active_skill_override_turn_duration_ms", 360 },
 				{ "perfect_strike_timing_window_base_ms", 300 },
 				{ "base_melee_dash_range", 35 },
-				{ "attack_maximum_action_distance_+", 20 },
 				{ "active_skill_base_area_of_effect_radius", 18 },
 				{ "channel_start_lock_cancelling_of_attack_time_%", 50 },
 				{ "added_attack_time_ms", 800 },
@@ -8465,6 +8541,8 @@ skills["GatheringStormPlayer"] = {
 			},
 			stats = {
 				"display_statset_hide_usage_stats",
+				"is_area_damage",
+				"base_skill_show_average_damage_instead_of_dps",
 			},
 			levels = {
 				[1] = { baseMultiplier = 2.3, actorLevel = 1, },
@@ -8514,6 +8592,10 @@ skills["GatheringStormPlayer"] = {
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gathering_storm_statset_2",
 			baseFlags = {
+				attack = true,
+				area = true,
+				melee = true,
+				channelRelease = true,
 			},
 			constantStats = {
 				{ "active_skill_base_area_of_effect_radius", 22 },
@@ -8522,7 +8604,6 @@ skills["GatheringStormPlayer"] = {
 				{ "perfect_strike_timing_window_base_ms", 300 },
 				{ "base_melee_dash_range", 35 },
 				{ "attack_maximum_action_distance_+", 20 },
-				{ "active_skill_base_area_of_effect_radius", 18 },
 				{ "channel_start_lock_cancelling_of_attack_time_%", 50 },
 				{ "added_attack_time_ms", 800 },
 				{ "gathering_storm_perfect_aoe_limit", 8 },
@@ -8532,6 +8613,8 @@ skills["GatheringStormPlayer"] = {
 			},
 			stats = {
 				"display_statset_hide_usage_stats",
+				"is_area_damage",
+				"base_skill_show_average_damage_instead_of_dps",
 			},
 			levels = {
 				[1] = { baseMultiplier = 1.1, actorLevel = 1, },
@@ -8821,11 +8904,9 @@ skills["GlacialCascadePlayer"] = {
 				{ "glacial_cascade_attack_final_spike_rect_length", 20 },
 				{ "active_skill_base_area_of_effect_radius", 2 },
 				{ "active_skill_consume_enemy_freeze_to_gain_damage_+%_final", 350 },
-				{ "upheaval_number_of_spikes", 8 },
 				{ "active_skill_base_physical_damage_%_to_convert_to_cold", 60 },
 				{ "active_skill_base_area_of_effect_radius", 5 },
 				{ "cascade_attack_radius_per_stage_+1_per_100", 30 },
-				{ "cascade_attack_base_total_distance", 48 },
 				{ "cascade_attack_starting_distance_offset", 6 },
 				{ "cascade_attack_ease_in_exponent_%", 125 },
 				{ "movement_speed_+%_final_while_performing_action", -70 },
@@ -8837,6 +8918,8 @@ skills["GlacialCascadePlayer"] = {
 				"cannot_knockback",
 				"destroy_frost_wall_segment_on_hit",
 				"display_statset_hide_usage_stats",
+				"is_area_damage",
+				"can_perform_skill_while_moving",
 			},
 			levels = {
 				[1] = { baseMultiplier = 1.2, actorLevel = 1, },
@@ -9665,6 +9748,11 @@ skills["IceNovaPlayer"] = {
 				{ "movement_speed_while_performing_action_locked_duration_%", 60 },
 			},
 			stats = {
+				"spell_minimum_base_cold_damage",
+				"spell_maximum_base_cold_damage",
+				"is_area_damage",
+				"global_knockback",
+				"can_perform_skill_while_moving",
 			},
 			levels = {
 				[1] = { actorLevel = 1, },
@@ -9802,6 +9890,7 @@ skills["IceStrikePlayer"] = {
 			},
 			stats = {
 				"display_statset_is_final_strike",
+				"is_area_damage",
 			},
 			levels = {
 				[1] = { baseMultiplier = 1.45, actorLevel = 1, },
@@ -9988,20 +10077,26 @@ skills["IncineratePlayer"] = {
 				{ "active_skill_base_secondary_area_of_effect_radius", 8 },
 				{ "incinerate_cone_angle", 20 },
 				{ "active_skill_base_area_of_effect_radius", 46 },
-				{ "base_skill_effect_duration", 2000 },
 				{ "incinerate_maximum_exposure_magnitude", 50 },
 				{ "incinerate_maximum_stages", 8 },
 				{ "base_minimum_channel_time_ms", 600 },
 				{ "movement_speed_+%_final_while_performing_action", -70 },
 				{ "movement_speed_acceleration_+%_per_second_while_performing_action", 160 },
 				{ "movement_speed_while_performing_action_locked_duration_%", 60 },
-				{ "active_skill_ignite_duration_+%_final", -50 },
 				{ "active_skill_override_turn_duration_ms", 360 },
 				{ "incinerate_damage_+%_final_per_stage", 40 },
 				{ "active_skill_energy_generated_+%_final", -98 },
 			},
 			stats = {
 				"display_statset_hide_usage_stats",
+				"spell_minimum_base_fire_damage",
+				"spell_maximum_base_fire_damage",
+				"incinerate_buff_exposure_-_to_total_fire_resistance_per_stack",
+				"is_area_damage",
+				"can_perform_skill_while_moving",
+				"channel_start_lock_cancelling_scales_with_cast_speed",
+				"cast_speed_modifiers_apply_to_over_time_cost",
+				"base_skill_show_average_damage_instead_of_dps",
 			},
 			levels = {
 				[1] = { actorLevel = 1, },
@@ -13510,11 +13605,14 @@ skills["SiphoningStrikePlayer"] = {
 				{ "active_skill_base_physical_damage_%_to_convert_to_lightning", 100 },
 				{ "melee_conditional_step_distance", 10 },
 				{ "base_melee_dash_range", 65 },
-				{ "melee_range_+", 6 },
 				{ "active_skill_hit_damage_stun_multiplier_+%_final", 50 },
 			},
 			stats = {
 				"display_statset_hide_usage_stats",
+				"skill_can_add_multiple_charges_per_action",
+				"is_area_damage",
+				"never_shock",
+				"base_consume_enemy_shock_on_hit",
 			},
 			levels = {
 				[1] = { actorLevel = 1, },
@@ -14645,18 +14743,16 @@ skills["SolarOrbPlayer"] = {
 			constantStats = {
 				{ "active_skill_base_area_of_effect_radius", 10 },
 				{ "active_skill_energy_generated_+%_final", -80 },
-				{ "base_skill_effect_duration", 10000 },
-				{ "active_skill_base_area_of_effect_radius", 25 },
-				{ "solar_orb_base_pulse_frequency_ms", 1400 },
-				{ "solar_orb_base_maximum_number_of_orbs", 1 },
-				{ "movement_speed_+%_final_while_performing_action", -70 },
-				{ "movement_speed_acceleration_+%_per_second_while_performing_action", 160 },
-				{ "movement_speed_while_performing_action_locked_duration_%", 60 },
 			},
 			stats = {
 				"spell_minimum_base_fire_damage",
 				"spell_maximum_base_fire_damage",
 				"display_statset_hide_usage_stats",
+				"spell_minimum_base_fire_damage",
+				"spell_maximum_base_fire_damage",
+				"is_area_damage",
+				"base_skill_show_average_damage_instead_of_dps",
+				"can_perform_skill_while_moving",
 			},
 			levels = {
 				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
@@ -15685,17 +15781,18 @@ skills["TempestBellPlayer"] = {
 			},
 			constantStats = {
 				{ "active_skill_base_area_of_effect_radius", 18 },
-				{ "active_skill_required_number_of_combo_stacks", 4 },
-				{ "tempest_bell_damage_+%_final_per_elemental_ailment", 30 },
-				{ "tempest_bell_physical_damage_%_to_elemental_ailment", 60 },
 				{ "melee_conditional_step_distance", 21 },
-				{ "base_skill_effect_duration", 6000 },
-				{ "base_combo_stacks_decay_delay_ms", 8000 },
 				{ "dps_display_statset_index", 2 },
-				{ "base_number_of_tempest_bells_allowed", 1 },
 			},
 			stats = {
 				"display_statset_hide_usage_stats",
+				"tempest_bell_hit_limit",
+				"is_area_damage",
+				"skill_show_tempest_bell_on_staff",
+				"cannot_damage_tempest_bell",
+				"skill_cannot_be_stunned",
+				"base_skill_show_average_damage_instead_of_dps",
+				"combo_only_stacks_from_hits_with_weapon_restriction",
 			},
 			levels = {
 				[1] = { baseMultiplier = 1.2, actorLevel = 1, },
@@ -15750,19 +15847,22 @@ skills["TempestBellPlayer"] = {
 				{ "active_skill_base_area_of_effect_radius", 24 },
 				{ "tempest_bell_area_of_effect_+%_final_per_1_unit_of_knockback", 30 },
 				{ "tempest_bell_distance_limit_for_recall", 90 },
-				{ "active_skill_required_number_of_combo_stacks", 4 },
 				{ "tempest_bell_damage_+%_final_per_elemental_ailment", 30 },
 				{ "tempest_bell_physical_damage_%_to_elemental_ailment", 60 },
 				{ "melee_conditional_step_distance", 21 },
-				{ "base_skill_effect_duration", 6000 },
-				{ "base_combo_stacks_decay_delay_ms", 8000 },
 				{ "dps_display_statset_index", 2 },
-				{ "base_number_of_tempest_bells_allowed", 1 },
 			},
 			stats = {
 				"tempest_bell_ailment_threshold",
 				"tempest_bell_poise_threshold",
 				"display_statset_hide_usage_stats",
+				"tempest_bell_hit_limit",
+				"is_area_damage",
+				"skill_show_tempest_bell_on_staff",
+				"cannot_damage_tempest_bell",
+				"skill_cannot_be_stunned",
+				"base_skill_show_average_damage_instead_of_dps",
+				"combo_only_stacks_from_hits_with_weapon_restriction",
 			},
 			levels = {
 				[1] = { 18, 18, baseMultiplier = 0.8, statInterpolation = { 1, 1, }, actorLevel = 1, },
@@ -15946,6 +16046,7 @@ skills["TempestFlurryPlayer"] = {
 				{ "active_skill_override_turn_duration_ms", 200 },
 			},
 			stats = {
+				"is_area_damage",
 			},
 			levels = {
 				[1] = { actorLevel = 1, },
@@ -16012,6 +16113,7 @@ skills["TempestFlurryPlayer"] = {
 			},
 			stats = {
 				"display_statset_is_final_strike",
+				"is_area_damage",
 			},
 			levels = {
 				[1] = { baseMultiplier = 1.5, actorLevel = 1, },

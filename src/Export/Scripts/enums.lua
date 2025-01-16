@@ -96,7 +96,7 @@ writeEnum("modDomains.datc64", modDomains)
 local modGenerationTypes = {
 	"Prefix",
 	"Suffix",
-	"Hybrid & Unique",
+	"Item Exclusive", -- uniques explicits, item implicits, glimpse of chaos corruptions,
 	"Nemesis",
 	"Corruption",
 	"Bloodline",

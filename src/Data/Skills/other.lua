@@ -742,6 +742,8 @@ skills["ElementalExpressionTriggeredPlayer"] = {
 				"spell_minimum_base_fire_damage",
 				"spell_maximum_base_fire_damage",
 				"is_area_damage",
+				"is_triggerable_strike",
+				"triggerable_in_any_set",
 			},
 			levels = {
 				[1] = { 0.80000001192093, 1.2000000476837, critChance = 7, statInterpolation = { 3, 3, }, actorLevel = 1, },
@@ -804,6 +806,8 @@ skills["ElementalExpressionTriggeredPlayer"] = {
 				"always_pierce",
 				"show_number_of_projectiles",
 				"base_is_projectile",
+				"is_triggerable_strike",
+				"triggerable_in_any_set",
 			},
 			levels = {
 				[1] = { 0.80000001192093, 1.2000000476837, critChance = 12, statInterpolation = { 3, 3, }, actorLevel = 1, },
@@ -862,6 +866,8 @@ skills["ElementalExpressionTriggeredPlayer"] = {
 			stats = {
 				"spell_minimum_base_lightning_damage",
 				"spell_maximum_base_lightning_damage",
+				"is_triggerable_strike",
+				"triggerable_in_any_set",
 			},
 			levels = {
 				[1] = { 0.30000001192093, 1.7000000476837, critChance = 9, statInterpolation = { 3, 3, }, actorLevel = 1, },
@@ -1046,6 +1052,12 @@ skills["ElementalStormPlayer"] = {
 			stats = {
 				"spell_minimum_base_fire_damage",
 				"spell_maximum_base_fire_damage",
+				"skill_can_add_multiple_charges_per_action",
+				"damage_cannot_be_reflected_or_leech_if_used_by_other_object",
+				"is_area_damage",
+				"tornado_hinder",
+				"is_triggerable_elemental_storm",
+				"global_cannot_crit",
 			},
 			levels = {
 				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
@@ -1108,6 +1120,12 @@ skills["ElementalStormPlayer"] = {
 			stats = {
 				"spell_minimum_base_lightning_damage",
 				"spell_maximum_base_lightning_damage",
+				"skill_can_add_multiple_charges_per_action",
+				"damage_cannot_be_reflected_or_leech_if_used_by_other_object",
+				"is_area_damage",
+				"tornado_hinder",
+				"is_triggerable_elemental_storm",
+				"global_cannot_crit",
 			},
 			levels = {
 				[1] = { 0.30000001192093, 1.7000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
@@ -1170,6 +1188,12 @@ skills["ElementalStormPlayer"] = {
 			stats = {
 				"spell_minimum_base_cold_damage",
 				"spell_maximum_base_cold_damage",
+				"skill_can_add_multiple_charges_per_action",
+				"damage_cannot_be_reflected_or_leech_if_used_by_other_object",
+				"is_area_damage",
+				"tornado_hinder",
+				"is_triggerable_elemental_storm",
+				"global_cannot_crit",
 			},
 			levels = {
 				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },

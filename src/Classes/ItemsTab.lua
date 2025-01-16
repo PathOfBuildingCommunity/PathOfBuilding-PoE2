@@ -215,9 +215,10 @@ local ItemsTabClass = newClass("ItemsTab", "UndoHandler", "ControlHost", "Contro
 
 	-- Database selector
 	self.controls.selectDBLabel = new("LabelControl", {"TOPLEFT",self.controls.itemList,"BOTTOMLEFT"}, {0, 14, 0, 16}, "^7Import from:")
-	self.controls.selectDBLabel.shown = function()
-		return self.height < 980
-	end
+	self.controls.selectDBLabel.shown = false
+	--function()
+	--	return self.height < 980
+	--end
 	self.controls.selectDB = new("DropDownControl", {"LEFT",self.controls.selectDBLabel,"RIGHT"}, {4, 0, 150, 18}, { "Uniques", "Rare Templates" })
 
 	-- Unique database
@@ -234,9 +235,10 @@ local ItemsTabClass = newClass("ItemsTab", "UndoHandler", "ControlHost", "Contro
 	self.controls.rareDB.y = function()
 		return self.controls.selectDBLabel:IsShown() and 78 or 396
 	end
-	self.controls.rareDB.shown = function()
-		return not self.controls.selectDBLabel:IsShown() or self.controls.selectDB.selIndex == 2
-	end
+	self.controls.rareDB.shown = false
+	--function()
+	--	return not self.controls.selectDBLabel:IsShown() or self.controls.selectDB.selIndex == 2
+	--end
 	-- Create/import item
 	self.controls.craftDisplayItem = new("ButtonControl", {"TOPLEFT",main.portraitMode and self.controls.setManage or self.controls.itemList,"TOPRIGHT"}, {20, main.portraitMode and 0 or -20, 120, 20}, "Craft item...", function()
 		self:CraftItem()
@@ -807,15 +809,15 @@ holding Shift will put it in the second.]])
 	t_insert(self.controls.uniqueDB.dragTargetList, self.controls.itemList)
 	t_insert(self.controls.uniqueDB.dragTargetList, self.controls.sharedItemList)
 	t_insert(self.controls.uniqueDB.dragTargetList, build.controls.mainSkillMinion)
-	t_insert(self.controls.rareDB.dragTargetList, self.controls.itemList)
-	t_insert(self.controls.rareDB.dragTargetList, self.controls.sharedItemList)
-	t_insert(self.controls.rareDB.dragTargetList, build.controls.mainSkillMinion)
+	--t_insert(self.controls.rareDB.dragTargetList, self.controls.itemList)
+	--t_insert(self.controls.rareDB.dragTargetList, self.controls.sharedItemList)
+	--t_insert(self.controls.rareDB.dragTargetList, build.controls.mainSkillMinion)
 	t_insert(self.controls.sharedItemList.dragTargetList, self.controls.itemList)
 	t_insert(self.controls.sharedItemList.dragTargetList, build.controls.mainSkillMinion)
 	for _, slot in pairs(self.slots) do
 		t_insert(self.controls.itemList.dragTargetList, slot)
 		t_insert(self.controls.uniqueDB.dragTargetList, slot)
-		t_insert(self.controls.rareDB.dragTargetList, slot)
+		--t_insert(self.controls.rareDB.dragTargetList, slot)
 		t_insert(self.controls.sharedItemList.dragTargetList, slot)
 	end
 
@@ -2358,7 +2360,7 @@ function ItemsTabClass:CorruptDisplayItem() -- todo implement vaal orb new outco
 	for i = 1, 8 do
 		if i == 1 then
 			controls.enchant1Label = new("LabelControl", {"TOPRIGHT",nil,"TOPLEFT"}, {95, 55, 0, 16}, function()
-				if enchantNum == 1 then -- update label so reduant 1 doesn't appear in case of 1 enchant.
+				if enchantNum == 1 then -- update label so 1 doesn't appear in case of 1 enchant.
 					return "^7Enchant:"
 				else
 					return "^7Enchant #1:"

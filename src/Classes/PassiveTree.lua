@@ -325,38 +325,38 @@ local PassiveTreeClass = newClass("PassiveTree", function(self, treeVersion)
 
 			if not other then
 				ConPrintf("missing node "..otherId)
-				goto endconnection
+				goto endConnection
 			end
 
 			if node.type == "OnlyImage" or other.type == "OnlyImage" then
-				goto endconnection
+				goto endConnection
 			end
 
 			if node.ascendancyName ~= other.ascendancyName then
-				goto endconnection
+				goto endConnection
 			end
 
 			if node.id == otherId then
-				goto endconnection
+				goto endConnection
 			end
 
 			t_insert(other.linkedId, node.id)
 			t_insert(node.linkedId, otherId)
 
 			if node.classesStart ~= nil or other.classesStart ~= nil then
-				goto endconnection
+				goto endConnection
 			end
 
 			local connectors = self:BuildConnector(node, other, connection)
 
 			if not connectors then
-				goto endconnection
+				goto endConnection
 			end
 			t_insert(self.connectors, connectors[1])
 			if connectors[2] then
 				t_insert(self.connectors, connectors[2])
 			end
-			:: endconnection ::
+			:: endConnection ::
 		end
 	end
 

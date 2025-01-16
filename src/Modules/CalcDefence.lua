@@ -575,6 +575,7 @@ function calcs.defence(env, actor)
 				end
 				output["EvasionOn"..slot] = evasionBase
 			end
+			output["LowestOfArmourAndEvasionOn"..slot] = m_min(armourBase, evasionBase)
 		end
 	end
 
@@ -2116,7 +2117,8 @@ function calcs.buildDefenceEstimations(env, actor)
 		end
 		local StunThresholdInc = 1 + modDB:Sum("INC", nil, "StunThreshold") / 100
 		local StunThresholdMore = modDB:More("INC", nil, "StunThreshold")
-		output.StunThreshold = stunThresholdBase * StunThresholdInc * StunThresholdMore
+		local StunThresholdModBase = modDB:Sum("BASE", nil, "StunThreshold")
+		output.StunThreshold = (stunThresholdBase + StunThresholdModBase) * StunThresholdInc * StunThresholdMore
 		
 		local notAvoidChance = modDB:Flag(nil, "StunImmune") and 0 or 100 - m_min(modDB:Sum("BASE", nil, "AvoidStun"), 100)
 		if output.EnergyShield > output["totalTakenHit"] and not env.modDB:Flag(nil, "EnergyShieldProtectsMana") then
@@ -2126,6 +2128,12 @@ function calcs.buildDefenceEstimations(env, actor)
 		
 		if breakdown then
 			breakdown.StunThreshold = { s_format("%d ^8(base from %s)", stunThresholdBase, stunThresholdSource) }
+			for _, source in ipairs({"Tree", "Item", "Skill"}) do
+				local sourceVal = modDB:Sum("BASE", { source = source }, "StunThreshold")
+				if sourceVal > 0 then
+					t_insert(breakdown.StunThreshold, s_format("+ %d ^8(base from %s)", sourceVal, source))
+				end
+			end
 			if StunThresholdInc ~= 1 then
 				t_insert(breakdown.StunThreshold, s_format("* %.2f ^8(increased threshold)", StunThresholdInc))
 			end

@@ -282,6 +282,20 @@ local configSettings = {
 	{ var = "ConcPathBypassCD", type = "check", label = "Bypass CD?", ifSkill = "Consecrated Path of Endurance", defaultState = true, apply = function(val, modList, enemyModList)
 		modList:NewMod("CooldownRecovery", "OVERRIDE", 0, "Config", { type = "SkillName", skillName = "Consecrated Path of Endurance" })
 	end },
+	{ label = "Drain Ailments:", ifSkill = "Drain Ailments" },
+	{ var = "conditionAilmentConsumed", type = "check", label = "Consumed an Ailment?", ifSkill = "Drain Ailments", apply = function(val, modList, enemyModList)
+		modList:NewMod("Condition:AilmentConsumed", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
+	end },
+	{ label = "Elemental Discharge:", ifSkill = "Elemental Discharge" },
+	{ var = "conditionIgniteConsumed", type = "check", label = "Consumed Ignite", ifSkill = "Elemental Discharge", apply = function(val, modList, enemyModList)
+		modList:NewMod("Condition:IgniteConsumed", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
+	end },
+	{ var = "conditionFreezeConsumed", type = "check", label = "Consumed Freeze", ifSkill = "Elemental Discharge", apply = function(val, modList, enemyModList)
+		modList:NewMod("Condition:FreezeConsumed", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
+	end },
+	{ var = "conditionShockConsumed", type = "check", label = "Consumed Shock", ifSkill = "Elemental Discharge", apply = function(val, modList, enemyModList)
+		modList:NewMod("Condition:ShockConsumed", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
+	end },
 	{ label = "Corrupting Cry:", ifSkill = "Corrupting Cry" },
 	{ var = "conditionCorruptingCryStages", type = "count", label = "# of Corrupting Cry stacks on enemy", ifSkill = "Corrupting Cry", defaultState = 1, apply = function(val, modList, enemyModList)
 		-- 10 is the maximum amount of Corrupting Blood Stages. modList does not contain skill base mods at this point so hard coding it here is the cleanest way to handle the cap.
@@ -305,15 +319,8 @@ local configSettings = {
 	{ var = "curseOverlaps", type = "count", label = "Curse overlaps:", ifSkill = "Doom Blast", ifFlag = "UsesCurseOverlaps", apply = function(val, modList, enemyModList)
 		modList:NewMod("Multiplier:CurseOverlaps", "BASE", val, "Config", { type = "Condition", var = "Effective" })
 	end },
-	{ label = "Elemental Army:", ifSkill = "Elemental Army" },
-	{ var = "elementalArmyExposureType", type = "list", label = "Exposure Type:", ifSkill = "Elemental Army", list = {{val=0,label="None"},{val="Fire",label="^xB97123Fire"},{val="Cold",label="^x3F6DB3Cold"},{val="Lightning",label="^xADAA47Lightning"}}, apply = function(val, modList, enemyModList)
-		if val == "Fire" then
-			modList:NewMod("FireExposureChance", "BASE", 100, "Config")
-		elseif val == "Cold" then
-			modList:NewMod("ColdExposureChance", "BASE", 100, "Config")
-		elseif val == "Lightning" then
-			modList:NewMod("LightningExposureChance", "BASE", 100, "Config")
-		end
+	{ var = "doomBlastManaPercentage", type = "count", label = "Current ^x7070FFMana^7 %:", tooltip = "Ignores values outside the 0-100 range, defaults to 100% if not specified.", ifSkill = "Doom Blast", apply = function(val, modList, enemyModList)
+		modList:NewMod("Multiplier:DoomBlastManaPercentage", "BASE", m_max(m_min(val,100), 0), "Config", { type = "SkillName", skillName = "Doom Blast" })
 	end },
 	{ label = "Embrace Madness:", ifSkill = "Embrace Madness" },
 	{ var = "embraceMadnessActive", type = "check", label = "Is Embrace Madness active?", ifSkill = "Embrace Madness", apply = function(val, modList, enemyModList)
@@ -494,10 +501,6 @@ local configSettings = {
 		modList:NewMod("Multiplier:EnemyAffectedBySiphoningTrap", "BASE", val, "Config")
 		modList:NewMod("Condition:SiphoningTrapSiphoning", "FLAG", true, "Config")
 	end },
-	{ label = "Snipe:", ifSkill = "Snipe" },
-	{ var = "configSnipeStages", type = "count", label = "# of Snipe stages:", ifSkill = "Snipe", tooltip = "Sets the number of stages reached before releasing Snipe.", apply = function(val, modList, enemyModList)
-		modList:NewMod("Multiplier:SnipeStage", "BASE", val, "Config")
-	end },
 	{ label = "Spectral Wolf:", ifSkill = "Summon Spectral Wolf" },
 	{ var = "configSpectralWolfCount", type = "count", label = "# of Active Spectral Wolves:", ifSkill = "Summon Spectral Wolf", tooltip = "Sets the number of active Spectral Wolves.\nThe maximum number of Spectral Wolves is 10.", apply = function(val, modList, enemyModList)
 		modList:NewMod("Multiplier:SpectralWolfCount", "BASE", m_min(val, 10), "Config")
@@ -597,6 +600,10 @@ local configSettings = {
 		elseif val == "Lightning" then
 			modList:NewMod("Condition:WaveOfConvictionLightningExposureActive", "FLAG", true, "Config")
 		end
+	end },
+	{ label = "Wind Dancer:", ifSkill = "Wind Dancer" },
+	{ var = "windDancerStacks", type = "count", label = "# of Wind Dancer Stacks:", ifSkill = "Wind Dancer", apply = function(val, modList, enemyModList)
+		modList:NewMod("Multiplier:WindDancerStacks", "BASE", val, "Config")
 	end },
 	{ var = "multiplierWoCExpiredDuration", type = "count", label = "% Wave of Conviction duration expired:", ifMod = "WaveOfConvictionDurationDotMulti", apply = function(val, modList, enemyModList)
 		modList:NewMod("Multiplier:WoCDurationExpired", "BASE", m_min(val, 100), "Config", { type = "Condition", var = "Effective" })
@@ -945,6 +952,9 @@ Huge sets the radius to 11.
 		modList:NewMod("Multiplier:NearbyEnemies", "BASE", val, "Config", { type = "Condition", var = "Combat" })
 		modList:NewMod("Condition:AtMostOneNearbyRareOrUniqueEnemy", "FLAG", val <= 1, "Config", { type = "Condition", var = "Combat" })
 		enemyModList:NewMod("Condition:NearbyRareOrUniqueEnemy", "FLAG", val >= 1, "Config", { type = "Condition", var = "Combat" })
+	end },
+	{ var = "conditionSurrounded", type = "check", label = "Are you surrounded?", ifCond = "Surrounded", tooltip = "You are surrounded if there are at least 5 Enemies within 3 metres of you", apply = function(val, modList, enemyModList)
+		modList:NewMod("Condition:Surrounded", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
 	end },
 	{ var = "conditionHitRecently", type = "check", label = "Have you Hit Recently?", ifCond = "HitRecently", tooltip = "You will automatically be considered to have Hit Recently if your main skill Hits and is self-cast,\nbut you can use this option to force it if necessary.", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:HitRecently", "FLAG", true, "Config", { type = "Condition", var = "Combat" })

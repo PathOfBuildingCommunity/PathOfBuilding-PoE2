@@ -9,6 +9,11 @@ local skills, mod, flag, skill = ...
 #startSets
 #set ArcPlayer
 #flags spell chaining
+statMap = {
+	["arc_damage_+%_final_for_each_remaining_chain"] = {
+		mod("Damage", "MORE", nil, 0, 0, { type = "PerStat", stat = "ChainRemaining" }),
+	},
+},
 #mods
 #skillEnd
 
@@ -365,10 +370,11 @@ statMap = {
 #skill EssenceDrainPlayer
 #startSets
 #set EssenceDrainPlayer
-#flags
+#flags spell projectile
 #mods
 #set EssenceDrainDotPlayer
-#flags
+#flags spell projectile duration
+#baseMod skill("debuff", true)
 #mods
 #skillEnd
 
@@ -548,15 +554,19 @@ statMap = {
 #skillEnd
 
 #skill GatheringStormPlayer
+preDamageFunc = function(activeSkill, output)
+	activeSkill.skillData.hitTimeMultiplier = activeSkill.skillData.channelPercentOfAttackTime
+end,
 #startSets
 #set GatheringStormPlayer
-#flags
+#flags attack area melee channelRelease
 #mods
 #set GatheringStormPerfectPlayer
-#flags
+#flags attack area melee channelRelease
+#baseMod mod("Condition:PerfectTiming", "FLAG", true)
 #mods
 #set GatheringStormExplodePlayer
-#flags
+#flags attack area melee channelRelease
 #mods
 #skillEnd
 

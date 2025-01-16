@@ -171,6 +171,37 @@ local function writeMods(outName, condFunc)
 				if mod.NodeType ~= 3 then
 					out:write('nodeType = ', mod.NodeType, ', ')
 				end
+
+				if mod.Stat5 and mod.Stat4 and mod.Stat3 and mod.Stat2 then
+					local part_1 = intToBytes(mod.Stat1.Hash)
+					local part_2 = intToBytes(mod.Stat2.Hash)
+					local part_3 = intToBytes(mod.Stat3.Hash)
+					local part_4 = intToBytes(mod.Stat4.Hash)
+					local part_5 = intToBytes(mod.Stat5.Hash)
+					local trade_hash = murmurHash2(part_1..part_2..part_3..part_4..part_5, 0x02312233)
+					out:write('tradeHash = ', trade_hash, ', ')
+				elseif mod.Stat4 and mod.Stat3 and mod.Stat2 then
+					local part_1 = intToBytes(mod.Stat1.Hash)
+					local part_2 = intToBytes(mod.Stat2.Hash)
+					local part_3 = intToBytes(mod.Stat3.Hash)
+					local part_4 = intToBytes(mod.Stat4.Hash)
+					local trade_hash = murmurHash2(part_1..part_2..part_3..part_4, 0x02312233)
+					out:write('tradeHash = ', trade_hash, ', ')
+				elseif mod.Stat3 and mod.Stat2 then
+					local part_1 = intToBytes(mod.Stat1.Hash)
+					local part_2 = intToBytes(mod.Stat2.Hash)
+					local part_3 = intToBytes(mod.Stat3.Hash)
+					local trade_hash = murmurHash2(part_1..part_2..part_3, 0x02312233)
+					out:write('tradeHash = ', trade_hash, ', ')
+				elseif mod.Stat2 then
+					local part_1 = intToBytes(mod.Stat1.Hash)
+					local part_2 = intToBytes(mod.Stat2.Hash)
+					local trade_hash = murmurHash2(part_1..part_2, 0x02312233)
+					out:write('tradeHash = ', trade_hash, ', ')
+				elseif mod.Stat1 then
+					local trade_hash = murmurHash2(intToBytes(mod.Stat1.Hash), 0x02312233)
+					out:write('tradeHash = ', trade_hash, ', ')
+				end
 				out:write('},\n')
 			else
 				print("Mod '"..mod.Id.."' has no stats")
@@ -185,8 +216,8 @@ end
 
 
 writeMods("../Data/ModItem.lua", function(mod)
-	return mod.Domain == 1 and (mod.GenerationType == 1 or mod.GenerationType == 2 or mod.GenerationType == 3)
-	and (mod.Family[1] and mod.Family[1].Id ~= "AuraBonus" or not mod.Family[1]) and (not mod.Id:match("Cowards"))
+	return mod.Domain == 1 and (mod.GenerationType == 1 or mod.GenerationType == 2)
+	and (mod.Family[1] and mod.Family[1].Id ~= "AuraBonus" or not mod.Family[1]) and (not mod.Id:match("Cowards")) and not mod.IsEssence and not mod.Id:match("Master")
 end)
 writeMods("../Data/ModCorrupted.lua", function(mod)
 	return (mod.Domain == 11 or mod.Domain == 1) and (mod.GenerationType == 3 and mod.Id:match("SpecialCorruption") or mod.GenerationType == 5)
@@ -201,7 +232,7 @@ end)
 writeMods("../Data/ModJewel.lua", function(mod)
 	return (mod.Domain == 11 and (mod.GenerationType == 1 or mod.GenerationType == 2)) or (mod.Domain == 21 and mod.GenerationType == 3)
 end)
-writeMods("../Data/ModUnique.lua", function(mod)
+writeMods("../Data/ModItemExlusive.lua", function(mod) -- contains primarly uniques and items implicits but also other mods only avaliable on a single base or unique.
 	return (mod.Domain == 1 or mod.Domain == 2 or mod.Domain == 11 or mod.Domain == 22) and mod.GenerationType == 3
 	and (mod.Family[1] and mod.Family[1].Id ~= "AuraBonus" or not mod.Family[1])
 	and not mod.Id:match("^Synthesis") and not mod.Id:match("Royale") and not mod.Id:match("Cowards") and not mod.Id:match("Map") and not mod.Id:match("Ultimatum") and not mod.Id:match("SpecialCorruption")

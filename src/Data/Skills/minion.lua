@@ -205,6 +205,14 @@ skills["GasShotSkeletonSniperMinion"] = {
 				"display_statset_hide_usage_stats",
 				"display_fake_attack_hit_poison",
 				"display_skill_poisons_without_hit",
+				"is_commandable_skill",
+				"base_is_projectile",
+				"is_area_damage",
+				"visual_hit_effect_chaos_is_green",
+				"skill_cannot_be_frozen",
+				"skill_cannot_be_electrocuted",
+				"skill_cannot_be_knocked_back",
+				"skill_cannot_be_stunned",
 			},
 			levels = {
 				[1] = { baseMultiplier = 2.2, actorLevel = 1, },
@@ -225,6 +233,14 @@ skills["GasShotSkeletonSniperMinion"] = {
 				{ "command_minion_marker_additional_time_ms", 300 },
 			},
 			stats = {
+				"is_commandable_skill",
+				"base_is_projectile",
+				"is_area_damage",
+				"visual_hit_effect_chaos_is_green",
+				"skill_cannot_be_frozen",
+				"skill_cannot_be_electrocuted",
+				"skill_cannot_be_knocked_back",
+				"skill_cannot_be_stunned",
 			},
 			levels = {
 				[1] = { baseMultiplier = 6.3, actorLevel = 1, },
@@ -283,6 +299,7 @@ skills["BoneshatterBruteMinion"] = {
 			},
 			stats = {
 				"is_area_damage",
+				"crushing_blow",
 			},
 			levels = {
 				[1] = { actorLevel = 1, },
@@ -430,6 +447,12 @@ skills["FrostBoltSkeletonMageMinion"] = {
 			stats = {
 				"is_area_damage",
 				"display_statset_hide_usage_stats",
+				"spell_minimum_base_cold_damage",
+				"spell_maximum_base_cold_damage",
+				"base_is_projectile",
+				"projectile_uses_contact_position",
+				"check_for_targets_between_initiator_and_projectile_source",
+				"maintain_projectile_direction_when_using_contact_position",
 			},
 			levels = {
 				[1] = { actorLevel = 1, },
@@ -599,6 +622,10 @@ skills["FireBombSkeletonMinion"] = {
 			},
 			stats = {
 				"base_fire_damage_to_deal_per_minute",
+				"base_is_projectile",
+				"projectile_ballistic_angle_from_reference_event",
+				"is_area_damage",
+				"grenades_target_at_half_monster_height",
 			},
 			levels = {
 				[1] = { 16.666667039196, statInterpolation = { 3, }, actorLevel = 1, },

@@ -1006,6 +1006,11 @@ skills["SupportDrainedAilmentPlayer"] = {
 			label = "Drain Ailments",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_drained_ailment_damage_over_time_+%_final_if_ailment_consumed"] = {
+					mod("Damage", "MORE", nil, ModFlag.Dot, 0, { type = "Condition", var = "AilmentConsumed" }),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -1091,7 +1096,28 @@ skills["SupportElementalDischargePlayer"] = {
 			label = "Elemental Discharge",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "skill_stat_descriptions",
+			statMap = {
+				["spell_minimum_base_fire_damage_as_%_of_intelligence"] = {
+					mod("FireMin", "BASE", nil, 0, KeywordFlag.Spell, { type = "PercentStat", stat = "Int", percent = 1 }, { type = "Condition", var = "IgniteConsumed" }),
+				},
+				["spell_maximum_base_fire_damage_as_%_of_intelligence"] = {
+					mod("FireMax", "BASE", nil, 0, KeywordFlag.Spell, { type = "PercentStat", stat = "Int", percent = 1 }, { type = "Condition", var = "IgniteConsumed" }),
+				},
+				["spell_minimum_base_cold_damage_as_%_of_intelligence"] = {
+					mod("ColdMin", "BASE", nil, 0, KeywordFlag.Spell, { type = "PercentStat", stat = "Int", percent = 1 }, { type = "Condition", var = "FreezeConsumed" }),
+				},
+				["spell_maximum_base_cold_damage_as_%_of_intelligence"] = {
+					mod("ColdMax", "BASE", nil, 0, KeywordFlag.Spell, { type = "PercentStat", stat = "Int", percent = 1 }, { type = "Condition", var = "FreezeConsumed" }),
+				},
+				["spell_minimum_base_lightning_damage_as_%_of_intelligence"] = {
+					mod("LightningMin", "BASE", nil, 0, KeywordFlag.Spell, { type = "PercentStat", stat = "Int", percent = 1 }, { type = "Condition", var = "ShockConsumed" }),
+				},
+				["spell_maximum_base_lightning_damage_as_%_of_intelligence"] = {
+					mod("LightningMax", "BASE", nil, 0, KeywordFlag.Spell, { type = "PercentStat", stat = "Int", percent = 1 }, { type = "Condition", var = "ShockConsumed" }),
+				},
+			},
 			baseFlags = {
+				spell = true,
 			},
 			constantStats = {
 				{ "triggered_by_supported_spell_consuming_ignite_freeze_shock_on_hit_%", 100 },
@@ -1127,6 +1153,11 @@ skills["SupportElementalFocusPlayer"] = {
 			label = "Elemental Focus",
 			incrementalEffectiveness = 0.092720001935959,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_gem_elemental_damage_+%_final"] = {
+					mod("ElementalDamage", "MORE", nil),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -1215,6 +1246,11 @@ skills["SupportExcisePlayer"] = {
 			label = "Excise",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_crit_cooldown_crit_chance_+%_final"] = {
+					mod("CritChance", "MORE", nil),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -1245,6 +1281,14 @@ skills["SupportExecratePlayer"] = {
 			label = "Execrate",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_ailment_cooldown_ailment_chance_+%_final"] = {
+					mod("EnemyIgniteChance", "MORE", nil),
+					mod("EnemyShockChance", "MORE", nil),
+					mod("EnemyBleedChance", "MORE", nil),
+					mod("EnemyPoisonChance", "MORE", nil),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -1275,6 +1319,11 @@ skills["SupportExpansePlayer"] = {
 			label = "Expanse",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_aoe_cooldown_aoe_+%_final"] = {
+					mod("AreaOfEffect", "MORE", nil),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -1393,6 +1442,11 @@ skills["SupportFieryDeathPlayer"] = {
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
+				spell = true,
+				area = true,
+			},
+			baseMods = {
+				skill("explodeCorpse", true),
 			},
 			constantStats = {
 				{ "triggered_by_fiery_death_support_%", 100 },
@@ -1481,6 +1535,11 @@ skills["SupportManaFountainPlayer"] = {
 			label = "Font of Mana",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_mana_fountain_mana_regeneration_rate_+%"] = {
+					mod("ManaRegen", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Aura" }),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -1511,6 +1570,11 @@ skills["SupportWallFortressPlayer"] = {
 			label = "Fortress",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_wall_fortress_hit_damage_+%_final"] = {
+					mod("Damage", "MORE", nil),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -1572,6 +1636,11 @@ skills["SupportFrostfirePlayer"] = {
 			label = "Frostfire",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["ignite_effect_+%_final_against_frozen_enemies"] = {
+					mod("AilmentMagnitude", "MORE", nil, 0, KeywordFlag.Ignite, { type = "ActorCondition", actor = "enemy", var = "Frozen" }),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -1746,6 +1815,11 @@ skills["SupportHourglassPlayer"] = {
 			label = "Hourglass",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_hourglass_damage_+%_final"] = {
+					mod("Damage", "MORE", nil),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -1779,6 +1853,15 @@ skills["SupportIceBitePlayer"] = {
 			incrementalEffectiveness = 0.092720001935959,
 			damageIncrementalEffectiveness = 0.03770000115037,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_ice_bite_buff_grant_%_added_cold_attack_damage"] = {
+					mod("DamageGainAsCold", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff" }),
+				},
+				["support_ice_bite_base_buff_duration"] = {
+					mod("Duration", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff" }),
+					div = 1000,
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -1866,7 +1949,16 @@ skills["ViciousHexSupportPlayer"] = {
 			incrementalEffectiveness = 0.092720001935959,
 			damageIncrementalEffectiveness = 0.055599998682737,
 			statDescriptionScope = "skill_stat_descriptions",
+			statMap = {
+				["impending_doom_base_added_chaos_damage_%_of_current_mana"] = {
+					mod("ChaosMin", "BASE", nil, 0, 0, { type = "PercentStat", stat = "Mana", percentVar = "DoomBlastManaPercentage" }),
+					mod("ChaosMax", "BASE", nil, 0, 0, { type = "PercentStat", stat = "Mana", percentVar = "DoomBlastManaPercentage" }),
+					div = 100,
+				},
+			},
 			baseFlags = {
+				spell = true,
+				area = true,
 			},
 			constantStats = {
 				{ "impending_doom_base_added_chaos_damage_%_of_current_mana", 15 },
@@ -1959,6 +2051,14 @@ skills["SupportChaoticAssassinationPlayer"] = {
 			label = "Intense Agony",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_chaotic_assassination_damage_over_time_+%_final_against_full_life_enemies"] = {
+					mod("Damage", "MORE", nil, ModFlag.Dot, 0, { type = "ActorCondition", actor = "enemy", var = "FullLife" }),
+				},
+				["support_chaotic_assassination_skill_effect_duration_+%_final"] = {
+					mod("Duration", "MORE", nil),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {

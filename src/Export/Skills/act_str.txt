@@ -445,10 +445,10 @@ statMap = {
 #skill PlasmaBlastPlayer
 #startSets
 #set PlasmaBlastPlayer
-#flags attack projectile area
+#flags attack projectile channelRelease
 #mods
 #set PlasmaBlastExplosionPlayer
-#flags attack projectile area
+#flags attack projectile area channelRelease
 #mods
 #skillEnd
 
@@ -556,12 +556,16 @@ statMap = {
 #skillEnd
 
 #skill PerfectStrikePlayer
+preDamageFunc = function(activeSkill, output)
+	activeSkill.skillData.hitTimeMultiplier = activeSkill.skillData.channelPercentOfAttackTime
+end,
 #startSets
 #set PerfectStrikePlayer
-#flags
+#flags attack area melee duration channelRelease
 #mods
 #set PerfectStrikeShockwavePlayer
-#flags
+#flags attack area melee duration channelRelease
+#baseMod mod("Condition:PerfectTiming", "FLAG", true)
 #mods
 #skillEnd
 

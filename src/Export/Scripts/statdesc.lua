@@ -159,7 +159,7 @@ local specificSkillDirectoryList = {
 	"spike_slam",
 	"tempest_bell",
 	"tornado_shot",
-	"toxic_grenate",
+	"toxic_grenade",
 }
 
 for _, name in ipairs(specificSkillDirectoryList) do
