@@ -2126,6 +2126,13 @@ return {
 ["curse_cast_speed_+%"] = {
 	mod("Speed", "INC", nil, ModFlag.Cast),
 },
+["curse_delay_duration_ms"] = {
+	skill("curseDelay", nil),
+	div = 1000,
+},
+["base_curse_delay_+%"] = {
+	mod("CurseFrequency", "INC", nil),
+},
 -- Hex
 ["curse_maximum_doom"] = {
 	mod("MaxDoom", "BASE", nil),

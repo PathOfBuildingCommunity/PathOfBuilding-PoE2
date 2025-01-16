@@ -693,6 +693,7 @@ return {
 		{ breakdown = "CurseEffectMod" },
 		{ modName = "CurseEffect", cfg = "skill" },
 	}, },
+	{ label = "Curse Delay", haveOutput = "CurseDelay", { format = "{3:output:CurseDelay}s", { breakdown = "CurseDelay" }, { modName = { "CurseFrequency" }, cfg = "skill" }, { modName = { "CurseDelay" }, cfg = "skill" } }, },
 	{ label = "Curse Limit", haveOutput = "CurseEffectMod", { format = "{0:output:EnemyCurseLimit}",
 		{ breakdown = "EnemyCurseLimit" },
 		{ modName = { "CurseLimitIsMaximumPowerCharges", "EnemyCurseLimit" } },

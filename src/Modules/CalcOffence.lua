@@ -1119,6 +1119,25 @@ function calcs.offence(env, actor, activeSkill)
 		if breakdown then
 			breakdown.CurseEffectMod = breakdown.mod(skillModList, skillCfg, "CurseEffect")
 		end
+
+		local curseFrequencyMod = calcLib.mod(skillModList, skillCfg, "CurseFrequency")
+		local curseDelayMod = calcLib.mod(skillModList, skillCfg, "CurseDelay")
+		local delayBase = (skillData.curseDelay or 0) + skillModList:Sum("BASE", skillCfg, "CurseDelay")
+		output.CurseDelay = delayBase / curseFrequencyMod * curseDelayMod
+		output.CurseDelay = m_ceil(output.CurseDelay * data.misc.ServerTickRate) / data.misc.ServerTickRate
+		if breakdown and output.CurseDelay ~= delayBase then
+			breakdown.CurseDelay = {
+				s_format("%.2fs ^8(base)", delayBase),
+			}
+			if curseFrequencyMod ~= 1 then
+				t_insert(breakdown.CurseDelay, s_format("x %.4f ^8(frequency modifier)", curseFrequencyMod))
+			end
+			if curseDelayMod ~= 1 then
+				t_insert(breakdown.CurseDelay, s_format("x %.4f ^8(delay modifier)", curseDelayMod))
+			end
+			t_insert(breakdown.CurseDelay, s_format("rounded up to nearest server tick"))
+			t_insert(breakdown.CurseDelay, s_format("= %.3fs", output.CurseDelay))
+		end
 	end
 	if activeSkill.skillTypes[SkillType.Mark] then
 		output.MarkEffectMod = calcLib.mod(skillModList, skillCfg, "MarkEffect")
