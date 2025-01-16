@@ -1951,14 +1951,17 @@ skills["ViciousHexSupportPlayer"] = {
 			statDescriptionScope = "skill_stat_descriptions",
 			statMap = {
 				["impending_doom_base_added_chaos_damage_%_of_current_mana"] = {
-					mod("ChaosMin", "BASE", nil, 0, 0, { type = "PercentStat", stat = "Mana", percentVar = "DoomBlastManaPercentage" }),
-					mod("ChaosMax", "BASE", nil, 0, 0, { type = "PercentStat", stat = "Mana", percentVar = "DoomBlastManaPercentage" }),
+					mod("ChaosMin", "BASE", nil, 0, 0, { type = "PercentStat", stat = "Mana", percentVar = "CurrentManaPercentage" }),
+					mod("ChaosMax", "BASE", nil, 0, 0, { type = "PercentStat", stat = "Mana", percentVar = "CurrentManaPercentage" }),
 					div = 100,
 				},
 			},
 			baseFlags = {
 				spell = true,
 				area = true,
+			},
+			baseMods = {
+				skill("currentManaPercentage", true),
 			},
 			constantStats = {
 				{ "impending_doom_base_added_chaos_damage_%_of_current_mana", 15 },
@@ -2204,7 +2207,18 @@ skills["SupportManaFlarePlayer"] = {
 			label = "Mana Flare",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "skill_stat_descriptions",
+			statMap = {
+				["support_mana_flare_%_of_current_mana_consumed"] = {
+					mod("FireMin", "BASE", nil, 0, 0, { type = "PercentStat", stat = "Mana", percentVar = "CurrentManaPercentage" }),
+					mod("FireMax", "BASE", nil, 0, 0, { type = "PercentStat", stat = "Mana", percentVar = "CurrentManaPercentage" }),
+					div = 100,
+				},
+			},
 			baseFlags = {
+				spell = true,
+			},
+			baseMods = {
+				skill("currentManaPercentage", true),
 			},
 			constantStats = {
 				{ "triggered_by_mana_flare_support_%", 100 },

@@ -486,10 +486,11 @@ statMap = {
 #startSets
 #set DoomBlastPlayer
 #flags spell area
+#baseMod skill("currentManaPercentage", true)
 statMap = {
 	["impending_doom_base_added_chaos_damage_%_of_current_mana"] = {
-		mod("ChaosMin", "BASE", nil, 0, 0, { type = "PercentStat", stat = "Mana", percentVar = "DoomBlastManaPercentage" }),
-		mod("ChaosMax", "BASE", nil, 0, 0, { type = "PercentStat", stat = "Mana", percentVar = "DoomBlastManaPercentage" }),
+		mod("ChaosMin", "BASE", nil, 0, 0, { type = "PercentStat", stat = "Mana", percentVar = "CurrentManaPercentage" }),
+		mod("ChaosMax", "BASE", nil, 0, 0, { type = "PercentStat", stat = "Mana", percentVar = "CurrentManaPercentage" }),
 		div = 100,
 	},
 },
@@ -548,6 +549,15 @@ statMap = {
 #skill TriggeredManaFlarePlayer
 #startSets
 #set TriggeredManaFlarePlayer
+#flags spell
+#baseMod skill("currentManaPercentage", true)
+statMap = {
+	["support_mana_flare_%_of_current_mana_consumed"] = {
+		mod("FireMin", "BASE", nil, 0, 0, { type = "PercentStat", stat = "Mana", percentVar = "CurrentManaPercentage" }),
+		mod("FireMax", "BASE", nil, 0, 0, { type = "PercentStat", stat = "Mana", percentVar = "CurrentManaPercentage" }),
+		div = 100,
+	},
+},
 #mods
 #skillEnd
 

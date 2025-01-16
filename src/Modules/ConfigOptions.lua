@@ -103,6 +103,9 @@ local configSettings = {
 	{ var = "detonateDeadCorpseLife", type = "count", label = "Enemy Corpse ^xE05030Life:", ifSkillData = "explodeCorpse", tooltip = "Sets the maximum ^xE05030life ^7of the target corpse for Detonate Dead and similar skills.\nFor reference, a level 70 monster has "..data.monsterLifeTable[70].." base ^xE05030life^7, and a level 80 monster has "..data.monsterLifeTable[80]..".", apply = function(val, modList, enemyModList)
 		modList:NewMod("SkillData", "LIST", { key = "corpseLife", value = val }, "Config")
 	end },
+	{ var = "multiplierCurrentManaPercentage", type = "count", label = "Current ^x7070FFMana^7 %:", ifSkillData = "currentManaPercentage", defaultState = 100, apply = function(val, modList, enemyModList)
+		modList:NewMod("Multiplier:CurrentManaPercentage", "BASE", m_max(m_min(val,100), 0), "Config")
+	end },
 	{ var = "conditionStationary", type = "count", label = "Time spent stationary", ifCond = "Stationary",
 		tooltip = "Applies mods that use `while stationary` and `per / every second while stationary`",
 		apply = function(val, modList, enemyModList)
@@ -318,9 +321,6 @@ local configSettings = {
 	{ var = "doomBlastSource", type = "list", label = "Doom Blast Trigger Source:", ifSkill = "Doom Blast", list = {{val="expiration",label="Curse Expiration"},{val="replacement",label="Curse Replacement"},{val="vixen",label="Vixen's Curse"},{val="hexblast",label="Hexblast Replacement"}}, defaultIndex = 3},
 	{ var = "curseOverlaps", type = "count", label = "Curse overlaps:", ifSkill = "Doom Blast", ifFlag = "UsesCurseOverlaps", apply = function(val, modList, enemyModList)
 		modList:NewMod("Multiplier:CurseOverlaps", "BASE", val, "Config", { type = "Condition", var = "Effective" })
-	end },
-	{ var = "doomBlastManaPercentage", type = "count", label = "Current ^x7070FFMana^7 %:", tooltip = "Ignores values outside the 0-100 range, defaults to 100% if not specified.", ifSkill = "Doom Blast", apply = function(val, modList, enemyModList)
-		modList:NewMod("Multiplier:DoomBlastManaPercentage", "BASE", m_max(m_min(val,100), 0), "Config", { type = "SkillName", skillName = "Doom Blast" })
 	end },
 	{ label = "Embrace Madness:", ifSkill = "Embrace Madness" },
 	{ var = "embraceMadnessActive", type = "check", label = "Is Embrace Madness active?", ifSkill = "Embrace Madness", apply = function(val, modList, enemyModList)
