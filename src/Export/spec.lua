@@ -8834,12 +8834,12 @@ return {
 			list=false,
 			name="HASH32",
 			refTo="",
-			type="Int",
+			type="UInt",
 			width=150
 		},
 		[61]={
 			list=true,
-			name="BuffTemplate",
+			name="BuffTemplate2",
 			refTo="BuffTemplates",
 			type="Key",
 			width=150
