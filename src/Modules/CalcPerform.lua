@@ -1382,8 +1382,10 @@ function calcs.perform(env, skipEHP)
 	do
 		local reqMultItem = calcLib.mod(modDB, nil, "GlobalAttributeRequirements", "GlobalItemAttributeRequirements")
 		local reqMultGem = calcLib.mod(modDB, nil, "GlobalAttributeRequirements", "GlobalGemAttributeRequirements")
+		local reqMultWeapon = calcLib.mod(modDB, nil, "GlobalAttributeRequirements", "GlobalItemAttributeRequirements", "GlobalWeaponAttributeRequirements")
 		output.GlobalItemAttributeRequirements = reqMultItem
 		output.GlobalGemAttributeRequirements = reqMultGem
+		output.GlobalWeaponAttributeRequirements = reqMultWeapon
 		local gemAttributeRequirementsSatisfiedByHighestAttribute = modDB:Flag(nil, "GemAttributeRequirementsSatisfiedByHighestAttribute")
 		local attrTable = {"Str","Dex","Int"}
 		local highestAttributeValue = 0
@@ -1414,7 +1416,11 @@ function calcs.perform(env, skipEHP)
 				if reqSource[attr] and reqSource[attr] > 0 then
 					local req = 0
 					if reqSource.source == "Item" then
-						req = m_floor(reqSource[attr] * reqMultItem)
+						if reqSource.sourceItem.base.weapon then
+							req = m_floor(reqSource[attr] * reqMultWeapon)
+						else
+							req = m_floor(reqSource[attr] * reqMultItem)
+						end
 					elseif reqSource.source == "Gem" then
 						req = m_floor(reqSource[attr] * reqMultGem)
 					end

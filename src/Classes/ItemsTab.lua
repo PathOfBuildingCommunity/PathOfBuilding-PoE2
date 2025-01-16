@@ -1822,10 +1822,14 @@ function ItemsTabClass:IsItemValidForSlot(item, slotName, itemSet)
 	elseif slotName == "Weapon 2" or slotName == "Weapon 2 Swap" then
 		local weapon1Sel = itemSet[slotName == "Weapon 2" and "Weapon 1" or "Weapon 1 Swap"].selItemId or 0
 		local weapon1Base = self.items[weapon1Sel] and self.items[weapon1Sel].base or "Unarmed"
+		-- Calc tab isn't loaded yet when the items tab gets loaded, so this prevents a crash screen
+		local giantsBlood = self.build.calcsTab and self.build.calcsTab.mainEnv and self.build.calcsTab.mainEnv.modDB:Flag(nil, "GiantsBlood") or false
 		if weapon1Base.type == "Bow" then
 			return item.type == "Quiver"
-		elseif weapon1Base == "Unarmed" or weapon1Base.tags.onehand then
-			return item.type == "Shield" or item.type == "Focus" or item.type == "Sceptre" or (item.base.tags.one_hand_weapon and weapon1Base.type ~= "Wand" and weapon1Base.type ~= "Sceptre")
+		elseif weapon1Base == "Unarmed" or weapon1Base.tags.onehand or (giantsBlood and (weapon1Base.tags.axe or weapon1Base.tags.mace or weapon1Base.tags.sword)) then
+			return item.type == "Shield" or item.type == "Focus" or item.type == "Sceptre"
+					or (item.base.tags.one_hand_weapon and weapon1Base.type ~= "Wand" and weapon1Base.type ~= "Sceptre")
+					or (giantsBlood and (item.base.tags.axe or item.base.tags.mace or item.base.tags.sword))
 		end
 	end
 end

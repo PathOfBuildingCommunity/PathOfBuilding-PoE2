@@ -2929,7 +2929,7 @@ c["Trigger skills refund half of Energy spent"]={nil,"Trigger skills refund half
 c["Triggered Spells deal 14% increased Spell Damage"]={nil,"Triggered Spells deal 14% increased Spell Damage "}
 c["Triggered Spells deal 16% increased Spell Damage"]={nil,"Triggered Spells deal 16% increased Spell Damage "}
 c["Triggered Spells deal 45% increased Spell Damage"]={nil,"Triggered Spells deal 45% increased Spell Damage "}
-c["Triple Attribute requirements of weapons"]={nil,"Triple Attribute requirements of weapons "}
+c["Triple Attribute requirements of weapons"]={{[1]={flags=0,keywordFlags=0,name="GlobalWeaponAttributeRequirements",type="MORE",value=200}},nil}
 c["Unaffected by Chill during Dodge Roll"]={nil,"Unaffected by Chill during Dodge Roll "}
 c["Unaffected by Chill while Leeching Mana"]={{[1]={[1]={type="Condition",var="LeechingMana"},flags=0,keywordFlags=0,name="SelfChillEffect",type="MORE",value=-100}},nil}
 c["Undead Minions have 20% reduced Reservation"]={nil,"Undead Minions have 20% reduced Reservation "}
@@ -2959,8 +2959,7 @@ c["You can only Socket Ruby Jewels in this item"]={nil,"You can only Socket Ruby
 c["You can only Socket Ruby Jewels in this item You can only Socket Emerald Jewels in this item"]={nil,"You can only Socket Ruby Jewels in this item You can only Socket Emerald Jewels in this item "}
 c["You can only Socket Sapphire Jewels in this item"]={nil,"You can only Socket Sapphire Jewels in this item "}
 c["You can use two copies of the same Support Gem in different Skills"]={{[1]={flags=0,keywordFlags=0,name="MaxSupportGemCopies",type="OVERRIDE",value=2}},nil}
-c["You can wield Two-Handed Axes, Maces and Swords in one hand"]={nil,"You can wield Two-Handed Axes, Maces and Swords in one hand "}
-c["You can wield Two-Handed Axes, Maces and Swords in one hand Triple Attribute requirements of weapons"]={nil,"You can wield Two-Handed Axes, Maces and Swords in one hand Triple Attribute requirements of weapons "}
+c["You can wield Two-Handed Axes, Maces and Swords in one hand"]={{[1]={flags=0,keywordFlags=0,name="GiantsBlood",type="FLAG",value=true}},nil}
 c["You cannot Block"]={nil,"You cannot Block "}
 c["You cannot Block No Chance to Block"]={nil,"You cannot Block No Chance to Block "}
 c["You cannot Recharge Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="NoEnergyShieldRecharge",type="FLAG",value=true}},nil}

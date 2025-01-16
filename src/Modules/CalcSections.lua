@@ -1382,6 +1382,7 @@ return {
 	{ label = "Intelligence", { format = "{0:output:Int}", { breakdown = "Int" }, { modName = "Int" }, }, },
 	{ label = "Gem Req Mod", { format = "{2:output:GlobalGemAttributeRequirements}", { modName = { "GlobalGemAttributeRequirements", "GlobalAttributeRequirements"} }, }, },
 	{ label = "Item Req Mod", { format = "{2:output:GlobalItemAttributeRequirements}", { modName = { "GlobalItemAttributeRequirements", "GlobalAttributeRequirements"} }, }, },
+	{ label = "Weapon Req Mod", { format = "{2:output:GlobalWeaponAttributeRequirements}", { modName = { "GlobalWeaponAttributeRequirements", "GlobalItemAttributeRequirements", "GlobalAttributeRequirements"} }, }, },
 	{ notFlag = "minionSkill", label = "Str. Required", { format = "{output:ReqStrString}", { breakdown = "ReqStr" }, }, },
 	{ notFlag = "minionSkill", label = "Dex. Required", { format = "{output:ReqDexString}", { breakdown = "ReqDex" }, }, },
 	{ notFlag = "minionSkill", label = "Int. Required", { format = "{output:ReqIntString}", { breakdown = "ReqInt" }, }, },
