@@ -90,6 +90,57 @@ function calcs.initModDB(env, modDB)
 	modDB.conditions["Effective"] = env.mode_effective
 end
 
+-- grab the stat lines from the selected variants on the jewel to add to the nodes
+-- e.g. Against the Darkness
+local function setRadiusJewelStats(radiusJewel, radiusJewelStats)
+	local jewel = radiusJewel.item
+	if jewel.title == "Against the Darkness" then
+		radiusJewelStats.source = radiusJewel.data.modSource
+		local range = jewel.explicitModLines[jewel.variant].range
+		local value = 0
+		jewel.explicitModLines[jewel.variant].line:gsub("%((%d+)%-(%d+)%)",
+			function(num1, num2)
+				value = round((num1+num2)*range)
+			end
+		)
+		radiusJewelStats[1] = {
+			isNotable = (jewel.explicitModLines[jewel.variant].line:match("^(%S+)") == "Notable"),
+			sd = jewel.explicitModLines[jewel.variant].line:gsub(".*grant ", ""):gsub("%(.-%)", value)
+		}
+
+		local rangeAlt = jewel.explicitModLines[jewel.variant].range
+		local valueAlt = 0
+		jewel.explicitModLines[jewel.variantAlt].line:gsub("%((%d+)%-(%d+)%)",
+			function(num1, num2)
+				valueAlt = round((num1+num2)*rangeAlt)
+			end
+		)
+		radiusJewelStats[2] = {
+			isNotable = (jewel.explicitModLines[jewel.variantAlt].line:match("^(%S+)") == "Notable"),
+			sd = jewel.explicitModLines[jewel.variantAlt].line:gsub(".*grant ", ""):gsub("%(.-%)", valueAlt)
+		}
+	end
+end
+
+local function addStatsFromJewelToNode(jewel, node, spec)
+	-- reset node stats to base or override for attributes
+	if spec.hashOverrides and spec.hashOverrides[node.id] then
+		node.sd = copyTable(spec.hashOverrides[node.id].sd, true)
+	else
+		node.sd = copyTable(spec.tree.nodes[node.id].sd, true)
+	end
+	
+	local radiusJewelStats = { }
+	setRadiusJewelStats(jewel, radiusJewelStats)
+	for _, stat in ipairs(radiusJewelStats) do
+		-- the node and jewelStat types match, add sd to node if it's not already there
+		if not isValueInTable(node.sd, stat.sd) and ((node.type == "Notable" and stat.isNotable) or (node.type ~= "Notable" and not stat.isNotable)) then
+			t_insert(node.sd, stat.sd)
+		end
+	end
+	spec.tree:ProcessStats(node)
+end
+
 function calcs.buildModListForNode(env, node)
 	local modList = new("ModList")
 	if node.type == "Keystone" then
@@ -118,7 +169,11 @@ function calcs.buildModListForNode(env, node)
 	-- Run first pass radius jewels
 	for _, rad in pairs(env.radiusJewelList) do
 		if rad.type == "Other" and rad.nodes[node.id] and rad.nodes[node.id].type ~= "Mastery" then
-			rad.func(node, modList, rad.data)
+			if rad.item.title ~= "Against the Darkness" then
+				rad.func(node, modList, rad.data)
+			else
+				addStatsFromJewelToNode(rad, node, env.build.spec)
+			end
 		end
 	end
 
@@ -137,7 +192,11 @@ function calcs.buildModListForNode(env, node)
 	-- Run second pass radius jewels
 	for _, rad in pairs(env.radiusJewelList) do
 		if rad.nodes[node.id] and rad.nodes[node.id].type ~= "Mastery" and (rad.type == "Threshold" or (rad.type == "Self" and env.allocNodes[node.id]) or (rad.type == "SelfUnalloc" and not env.allocNodes[node.id])) then
-			rad.func(node, modList, rad.data)
+			if rad.item.title ~= "Against the Darkness" then
+				rad.func(node, modList, rad.data)
+			else
+				addStatsFromJewelToNode(rad, node, env.build.spec)
+			end
 		end
 	end
 
