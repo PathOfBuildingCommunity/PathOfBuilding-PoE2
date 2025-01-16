@@ -172,7 +172,14 @@ local function writeMods(outName, condFunc)
 					out:write('nodeType = ', mod.NodeType, ', ')
 				end
 
-				if mod.Stat3 and mod.Stat2 then
+				if mod.Stat4 and mod.Stat3 and mod.Stat2 then
+					local part_1 = intToBytes(mod.Stat1.Hash)
+					local part_2 = intToBytes(mod.Stat2.Hash)
+					local part_3 = intToBytes(mod.Stat3.Hash)
+					local part_4 = intToBytes(mod.Stat4.Hash)
+					local trade_hash = murmurHash2(part_1..part_2..part_3..part_4, 0x02312233)
+					out:write('tradeHash = ', trade_hash, ', ')
+				elseif mod.Stat3 and mod.Stat2 then
 					local part_1 = intToBytes(mod.Stat1.Hash)
 					local part_2 = intToBytes(mod.Stat2.Hash)
 					local part_3 = intToBytes(mod.Stat3.Hash)
