@@ -1830,7 +1830,7 @@ c["50% increased Totem Placement range"]={{[1]={flags=0,keywordFlags=16384,name=
 c["50% increased Weapon Swap Speed"]={{[1]={flags=0,keywordFlags=0,name="WeaponSwapSpeed",type="INC",value=50}},nil}
 c["50% increased amount of Mana Leeched"]={{[1]={flags=0,keywordFlags=0,name="ManaLeech",type="INC",value=50}},nil}
 c["50% increased chance to Ignite"]={{[1]={flags=0,keywordFlags=0,name="EnemyIgniteChance",type="INC",value=50}},nil}
-c["50% increased effect of Small Passive Skills"]={{[1]={flags=0,keywordFlags=0,name="LocalEffect",type="INC",value=50}},"  of Small Passive Skills "}
+c["50% increased effect of Small Passive Skills"]={{[1]={flags=0,keywordFlags=0,name="SmallPassiveSkillEffect",type="INC",value=50}},nil}
 c["50% increased effect of Sorcery Ward"]={{[1]={[1]={includeTransfigured=true,skillName="Sorcery Ward",type="SkillName"},flags=0,keywordFlags=0,name="LocalEffect",type="INC",value=50}},"  of"}
 c["50% increased effect of Sorcery Ward Sorcery Ward recovers 50% faster"]={{[1]={[1]={includeTransfigured=true,skillName="Sorcery Ward",type="SkillName"},flags=0,keywordFlags=0,name="LocalEffect",type="INC",value=50}},"  ofSorcery Ward recovers 50% faster "}
 c["50% increased maximum Dash Distance with Unarmed Attack Skills"]={{}," maximum Dash Distance with  Attack Skills "}

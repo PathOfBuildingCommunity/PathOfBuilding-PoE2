@@ -165,7 +165,7 @@ function calcs.buildModListForNode(env, node, incSmallPassiveSkill)
 	end
 
 	-- Apply Inc Node scaling from Hulking Form
-	if node.type == "Normal" and not node.isAttribute and not node.ascendancyName and incSmallPassiveSkill > 0 then
+	if incSmallPassiveSkill > 0 and node.type == "Normal" and not node.isAttribute and not node.ascendancyName then
 		local scale = 1 + incSmallPassiveSkill / 100
 		local scaledList = new("ModList")
 		scaledList:ScaleAddList(modList, scale)
