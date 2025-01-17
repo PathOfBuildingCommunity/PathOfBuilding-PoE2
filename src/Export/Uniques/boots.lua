@@ -5,9 +5,13 @@ return {
 [[
 Birth of Fury
 Stone Greaves
-UniqueMovementVelocity13
+Variant: Pre 0.1.1
+Variant: Current
+{variant:1}UniqueMovementVelocity20[15,15]
+{variant:2}UniqueMovementVelocity20
 UniqueIncreasedLife3
-UniqueFireResist14
+{variant:1}UniqueFireResist14[10,20]
+{variant:2}UniqueFireResist14
 UniqueBurningGroundWhileMovingMaximumLife1
 ]],[[
 Corpsewade
@@ -21,22 +25,32 @@ UniqueTriggerDecomposeOnStep1
 ]],[[
 The Infinite Pursuit
 Bronze Greaves
+Variant: Pre 0.1.1
+Variant: Current
 UniqueMovementVelocity1
 UniqueLocalIncreasedPhysicalDamageReductionRatingPercent2
 UniqueIncreasedLife7
 UniqueAilmentChanceRecieved1
-UniqueMovementVelocityWithAilment1
+{variant:1}UniqueMovementVelocityWithAilment1[20,20]
+{variant:2}UniqueMovementVelocityWithAilment1
 ]],[[
 Legionstride
 Rough Greaves
-UniqueLocalIncreasedPhysicalDamageReductionRatingPercent4
-UniqueStunThreshold2
+Variant: Pre 0.1.1
+Variant: Current
+{variant:1}UniqueLocalIncreasedPhysicalDamageReductionRatingPercent4
+{variant:2}UniqueLocalIncreasedPhysicalDamageReductionRating4
+{variant:1}UniqueStunThreshold5[30,50]
+{variant:2}UniqueStunThreshold5
 UniqueRangedAttackDamageTaken1
 UniqueBlockPercent1
 ]],[[
 Trampletoe
 Trimmed Greaves
-UniqueMovementVelocity1
+Variant: Pre 0.1.1
+Variant: Current
+{variant:1}UniqueMovementVelocity5[10,10]
+{variant:2}UniqueMovementVelocity5
 UniqueLocalIncreasedPhysicalDamageReductionRatingPercent7
 UniqueReducedLocalAttributeRequirements3
 UniqueOverkillDamagePhysical1
@@ -45,10 +59,14 @@ UniqueOverkillDamagePhysical1
 [[
 Briarpatch
 Laced Boots
+Variant: Pre 0.1.1
+Variant: Current
 UniqueMovementVelocity19
 UniqueIncreasedLife3
 UniqueStunThreshold7
-UniqueThornsCriticalStrikeChance1
+{variant:1}UniqueThornsCriticalStrikeChance1[15,15]
+{variant:2}UniqueThornsCriticalStrikeChance1
+{variant:2}UniqueAttackerTakesDamage4
 ]],[[
 Bushwhack
 Lizardscale Boots
@@ -59,30 +77,46 @@ UniquePhysicalDamagePin1
 ]],[[
 Gamblesprint
 Embossed Boots
+Variant: Pre 0.1.1
+Variant: Current
 UniqueLocalIncreasedEvasionRatingPercent13
+{variant:2}UniqueItemFoundRarityIncrease18
 UniqueDexterity20
+{variant:1}UniqueLightningResist11[5,15]
+{variant:2}UniqueLightningResist11
 UniqueLightningResist11
 UniqueRandomMovementVelocityOnHit1
 ]],[[
 Thunderstep
 Steeltoe Boots
-UniqueMovementVelocity2
+Variant: Pre 0.1.1
+Variant: Current
+{variant:1}UniqueMovementVelocity2[10,15]
+{variant:2}UniqueMovementVelocity2
 UniqueLocalIncreasedEvasionRatingPercent3
 UniqueMaximumLightningResist1
-UniqueLightningResist6
+{variant:1}UniqueLightningResist6[25,35]
+{variant:2}UniqueLightningResist6
 ]],
 -- Boots: Energy Shield
 [[
 Bones of Ullr
 Lattice Sandals
+Variant: Pre 0.1.1
+Variant: Current
 UniqueLocalIncreasedEnergyShieldPercent5
-UniqueIncreasedLife8
-UniqueIncreasedMana6
+{variant:1}UniqueIncreasedLife8[25,25]
+{variant:2}UniqueIncreasedLife8
+{variant:1}UniqueIncreasedMana6[25,25]
+{variant:2}UniqueIncreasedMana6
 UniqueUndeadMinionReservation1
 ]],[[
 Luminous Pace
 Straw Sandals
+Variant: Pre 0.1.1
+Variant: Current
 UniqueMovementVelocity1
+{variant:2}UniqueLocalIncreasedEnergyShield10
 UniqueIntelligence3
 UniqueEnergyShieldRechargeRate1
 UniqueEnergyShieldDelay3
@@ -96,17 +130,28 @@ UniqueNoSlowPotency1
 ]],[[
 Windscream
 Feathered Sandals
-UniqueMovementVelocity2
+Variant: Pre 0.1.1
+Variant: Current
+{variant:1}UniqueMovementVelocity2[10,15]
+{variant:2}UniqueMovementVelocity2
 UniqueLocalIncreasedEnergyShieldPercent10
 UniqueIntelligence6
+{variant:2}UniqueCurseCastSpeed1
 UniqueCurseNoActivationDelay1
 ]],[[
 Wondertrap
 Silk Slippers
-UniqueMovementVelocity3
-UniqueStrength5
-UniqueDexterity9
-UniqueIntelligence4
+Variant: Pre 0.1.1
+Variant: Current
+{variant:1}UniqueMovementVelocity3[5,15]
+{variant:2}UniqueMovementVelocity3
+{variant:2}UniqueLocalIncreasedEnergyShield13
+{variant:1}UniqueStrength9[5,15]
+{variant:2}UniqueStrength9
+{variant:1}UniqueDexterity9[5.15]
+{variant:2}UniqueDexterity9
+{variant:1}UniqueIntelligence8[5,15]
+{variant:2}UniqueIntelligence8
 UniqueItemRarityOnLowLife1
 ]],
 -- Boots: Armour/Evasion
@@ -121,9 +166,12 @@ MaximumFrenzyChargesUniqueBootsStrDex2_
 ]],[[
 The Knight-errant
 Mail Sabatons
+Variant: Pre 0.1.1
+Variant: Current
 UniqueMovementVelocity1
 UniqueLocalIncreasedArmourAndEvasion3
 UniqueStunThreshold2
+{variant:2}UniqueAilmentThreshold1
 UniqueIronReflexes1
 ]],[[
 Obern's Bastion
@@ -139,6 +187,9 @@ UniqueReducedShockDuration1
 [[
 Wake of Destruction
 Secured Leggings
+Variant: Pre 0.1.1
+Variant: Current
+{variant:2}UniqueMovementVelocity24
 UniqueLocalIncreasedArmourAndEnergyShield1
 UniqueAddedLightningDamage1
 UniqueShockedGroundWhileMoving1
@@ -161,11 +212,14 @@ UniqueDodgeRollPhasing1
 ]],[[
 Powertread
 Hunting Shoes
-UniqueMovementVelocity2
+Variant: Pre 0.1.1
+Variant: Current
+UniqueMovementVelocity17
 UniqueLocalIncreasedEvasionAndEnergyShield9
 UniqueIntelligence6
 UniqueMaximumPowerCharges1
-UniqueCriticalMultiplierPerPowerCharge1
+{variant:1}UniqueCriticalMultiplierPerPowerCharge1[8,8]
+{variant:2}UniqueCriticalMultiplierPerPowerCharge1
 ]],
 -- Boots: Armour/Evasion/Energy Shield
 [[

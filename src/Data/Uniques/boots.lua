@@ -5,9 +5,13 @@ return {
 [[
 Birth of Fury
 Stone Greaves
-15% increased Movement Speed
+Variant: Pre 0.1.1
+Variant: Current
+{variant:1}15% increased Movement Speed
+{variant:2}20% increased Movement Speed
 +(40-60) to maximum Life
-+(10-20)% to Fire Resistance
+{variant:1}+(10-20)% to Fire Resistance
+{variant:2}+(20-30)% to Fire Resistance
 Drop Ignited Ground while moving, which lasts 8 seconds and Ignites as though dealing Fire Damage equal to 10% of your maximum Life
 ]],[[
 Corpsewade
@@ -21,22 +25,32 @@ Trigger Decompose Skill on Step
 ]],[[
 The Infinite Pursuit
 Bronze Greaves
+Variant: Pre 0.1.1
+Variant: Current
 10% increased Movement Speed
 (100-150)% increased Armour
 +(80-100) to maximum Life
 (80-100)% increased Chance to be afflicted by Ailments when Hit
-20% increased Movement Speed while affected by an Ailment
+{variant:1}20% increased Movement Speed while affected by an Ailment
+{variant:2}25% increased Movement Speed while affected by an Ailment
 ]],[[
 Legionstride
 Rough Greaves
-(50-80)% increased Armour
-+(30-50) to Stun Threshold
+Variant: Pre 0.1.1
+Variant: Current
+{variant:1}(50-80)% increased Armour
+{variant:2}+(50-70) to Armour
+{variant:1}+(30-50) to Stun Threshold
+{variant:2}+(50-70) to Stun Threshold
 -10 Physical damage taken from Projectile Attacks
 +10% to Block chance
 ]],[[
 Trampletoe
 Trimmed Greaves
-10% increased Movement Speed
+Variant: Pre 0.1.1
+Variant: Current
+{variant:1}10% increased Movement Speed
+{variant:2}15% increased Movement Speed
 (50-100)% increased Armour
 50% increased Attribute Requirements
 Deal 30% of Overkill damage to enemies within 2 metres of the enemy killed
@@ -45,10 +59,14 @@ Deal 30% of Overkill damage to enemies within 2 metres of the enemy killed
 [[
 Briarpatch
 Laced Boots
+Variant: Pre 0.1.1
+Variant: Current
 (10-20)% increased Movement Speed
 +(40-60) to maximum Life
 +(60-80) to Stun Threshold
-+15% to Thorns Critical Hit Chance
+{variant:1}+0.15% to Thorns Critical Hit Chance
+{variant:2}+25% to Thorns Critical Hit Chance
+{variant:2}(10-15) to (20-25) Physical Thorns damage
 ]],[[
 Bushwhack
 Lizardscale Boots
@@ -59,30 +77,46 @@ Physical Damage is Pinning
 ]],[[
 Gamblesprint
 Embossed Boots
+Variant: Pre 0.1.1
+Variant: Current
 (100-140)% increased Evasion Rating
+{variant:2}(10-15)% increased Rarity of Items found
 +(10-15) to Dexterity
-+(5-15)% to Lightning Resistance
+{variant:1}+(5-15)% to Lightning Resistance
+{variant:2}+(15-25)% to Lightning Resistance
++(15-25)% to Lightning Resistance
 Gain 0% to 40% increased Movement Speed at random when Hit, until Hit again
 ]],[[
 Thunderstep
 Steeltoe Boots
-(10-15)% increased Movement Speed
+Variant: Pre 0.1.1
+Variant: Current
+{variant:1}(10-15)% increased Movement Speed
+{variant:2}(10-20)% increased Movement Speed
 (40-60)% increased Evasion Rating
 +(3-5)% to Maximum Lightning Resistance
-+(25-35)% to Lightning Resistance
+{variant:1}+(25-35)% to Lightning Resistance
+{variant:2}+(30-50)% to Lightning Resistance
 ]],
 -- Boots: Energy Shield
 [[
 Bones of Ullr
 Lattice Sandals
+Variant: Pre 0.1.1
+Variant: Current
 (40-60)% increased Energy Shield
-+25 to maximum Life
-+25 to maximum Mana
+{variant:1}+25 to maximum Life
+{variant:2}+(20-40) to maximum Life
+{variant:1}+25 to maximum Mana
+{variant:2}+(20-40) to maximum Mana
 Undead Minions have 20% reduced Reservation
 ]],[[
 Luminous Pace
 Straw Sandals
+Variant: Pre 0.1.1
+Variant: Current
 10% increased Movement Speed
+{variant:2}+(20-30) to maximum Energy Shield
 +(5-10) to Intelligence
 (20-30)% reduced Energy Shield Recharge Rate
 100% faster start of Energy Shield Recharge
@@ -96,17 +130,28 @@ Your speed is unaffected by Slows
 ]],[[
 Windscream
 Feathered Sandals
-(10-15)% increased Movement Speed
+Variant: Pre 0.1.1
+Variant: Current
+{variant:1}(10-15)% increased Movement Speed
+{variant:2}(10-20)% increased Movement Speed
 (50-100)% increased Energy Shield
 +(10-20) to Intelligence
+{variant:2}Curse Skills have (10-20)% increased Cast Speed
 Curses have no Activation Delay
 ]],[[
 Wondertrap
 Silk Slippers
-(5-15)% increased Movement Speed
-+(5-15) to Strength
-+(5-15) to Dexterity
-+(5-15) to Intelligence
+Variant: Pre 0.1.1
+Variant: Current
+{variant:1}(5-15)% increased Movement Speed
+{variant:2}(10-20)% increased Movement Speed
+{variant:2}+(30-50) to maximum Energy Shield
+{variant:1}+(5-15) to Strength
+{variant:2}+(10-20) to Strength
+{variant:1}
+{variant:2}+(10-20) to Dexterity
+{variant:1}+(5-15) to Intelligence
+{variant:2}+(10-20) to Intelligence
 50% increased Rarity of Items found when on Low Life
 ]],
 -- Boots: Armour/Evasion
@@ -121,9 +166,12 @@ Braced Sabatons
 ]],[[
 The Knight-errant
 Mail Sabatons
+Variant: Pre 0.1.1
+Variant: Current
 10% increased Movement Speed
 (30-50)% increased Armour and Evasion
 +(30-50) to Stun Threshold
+{variant:2}+(30-50) to Ailment Threshold
 Iron Reflexes
 ]],[[
 Obern's Bastion
@@ -139,6 +187,9 @@ Stacked Sabatons
 [[
 Wake of Destruction
 Secured Leggings
+Variant: Pre 0.1.1
+Variant: Current
+{variant:2}10% increased Movement Speed
 (30-60)% increased Armour and Energy Shield
 Adds 1 to (30-50) Lightning damage to Attacks
 Drop Shocked Ground while moving, lasting 8 seconds
@@ -161,11 +212,14 @@ Dodge Roll passes through Enemies
 ]],[[
 Powertread
 Hunting Shoes
+Variant: Pre 0.1.1
+Variant: Current
 (10-15)% increased Movement Speed
 (60-80)% increased Evasion and Energy Shield
 +(10-20) to Intelligence
 +1 to Maximum Power Charges
-+8% to Critical Damage Bonus per Power Charge
+{variant:1}+8% to Critical Damage Bonus per Power Charge
+{variant:2}+12% to Critical Damage Bonus per Power Charge
 ]],
 -- Boots: Armour/Evasion/Energy Shield
 [[
