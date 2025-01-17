@@ -96,28 +96,31 @@ local function setRadiusJewelStats(radiusJewel, radiusJewelStats)
 	local jewel = radiusJewel.item
 	if jewel.title == "Against the Darkness" then
 		radiusJewelStats.source = radiusJewel.data.modSource
-		local range = jewel.explicitModLines[jewel.variant].range
+
+		local variant = jewel.variant or 1
+		local range = jewel.explicitModLines[variant].range
 		local value = 0
-		jewel.explicitModLines[jewel.variant].line:gsub("%((%d+)%-(%d+)%)",
+		jewel.explicitModLines[variant].line:gsub("%((%d+)%-(%d+)%)",
 			function(num1, num2)
-				value = round((num1+num2)*range)
+				value = round(num1 + (num2-num1) * range)
 			end
 		)
 		radiusJewelStats[1] = {
-			isNotable = (jewel.explicitModLines[jewel.variant].line:match("^(%S+)") == "Notable"),
-			sd = jewel.explicitModLines[jewel.variant].line:gsub(".*grant ", ""):gsub("%(.-%)", value)
+			isNotable = (jewel.explicitModLines[variant].line:match("^(%S+)") == "Notable"),
+			sd = jewel.explicitModLines[variant].line:gsub(".*grant ", ""):gsub("%(.-%)", value)
 		}
-
-		local rangeAlt = jewel.explicitModLines[jewel.variant].range
+		
+		local variantAlt = jewel.variantAlt or 2
+		local rangeAlt = jewel.explicitModLines[variantAlt].range
 		local valueAlt = 0
-		jewel.explicitModLines[jewel.variantAlt].line:gsub("%((%d+)%-(%d+)%)",
+		jewel.explicitModLines[variantAlt].line:gsub("%((%d+)%-(%d+)%)",
 			function(num1, num2)
-				valueAlt = round((num1+num2)*rangeAlt)
+				valueAlt = round(num1 + (num2-num1) * rangeAlt)
 			end
 		)
 		radiusJewelStats[2] = {
-			isNotable = (jewel.explicitModLines[jewel.variantAlt].line:match("^(%S+)") == "Notable"),
-			sd = jewel.explicitModLines[jewel.variantAlt].line:gsub(".*grant ", ""):gsub("%(.-%)", valueAlt)
+			isNotable = (jewel.explicitModLines[variantAlt].line:match("^(%S+)") == "Notable"),
+			sd = jewel.explicitModLines[variantAlt].line:gsub(".*grant ", ""):gsub("%(.-%)", valueAlt)
 		}
 	end
 end
