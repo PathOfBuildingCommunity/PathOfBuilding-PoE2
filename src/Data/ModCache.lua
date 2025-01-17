@@ -752,7 +752,7 @@ c["100% increased Magnitude of Ignite you inflict"]={{[1]={flags=0,keywordFlags=
 c["100% increased Mana Regeneration Rate"]={{[1]={flags=0,keywordFlags=0,name="ManaRegen",type="INC",value=100}},nil}
 c["100% increased Physical Damage"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamage",type="INC",value=100}},nil}
 c["100% increased Spell Damage"]={{[1]={flags=2,keywordFlags=0,name="Damage",type="INC",value=100}},nil}
-c["100% increased Stun Threshold during Empowered Attacks"]={{[1]={[1]={type="Condition",var="SkillEmpowered"},flags=0,keywordFlags=0,name="StunThreshold",type="INC",value=100}},nil}
+c["100% increased Stun Threshold during Empowered Attacks"]={{[1]={flags=0,keywordFlags=0,name="StunThreshold",type="INC",value=100}},"  during Empowered Attacks "}
 c["100% increased Thorns damage"]={{[1]={flags=0,keywordFlags=0,name="Damage",type="INC",value=100}}," Thorns  "}
 c["100% increased amount of Life Leeched"]={{[1]={flags=0,keywordFlags=0,name="LifeLeech",type="INC",value=100}},nil}
 c["100% increased chance to Ignite"]={{[1]={flags=0,keywordFlags=0,name="EnemyIgniteChance",type="INC",value=100}},nil}
@@ -1063,8 +1063,8 @@ c["20% chance for Flasks you use to not consume Charges"]={{[1]={flags=0,keyword
 c["20% chance for Lightning Skills to Chain an additional time"]={{}," for Lightning Skills to Chain an additional time "}
 c["20% chance for Slam Skills you use yourself to cause Aftershocks"]={{}," for Slam Skills you use yourself to cause Aftershocks "}
 c["20% chance to Aggravate Bleeding on targets you Critically Hit with Attacks"]={{}," to Aggravate Bleeding on targets you Critically Hit  "}
-c["20% chance to Aggravate Bleeding on targets you Hit with Empowered Attacks"]={{}," to Aggravate Bleeding on targets you Hit  "}
-c["20% chance to Aggravate Bleeding on targets you Hit with Empowered Attacks Empowered Attacks deal 30% increased Damage"]={{[1]={[1]={type="Condition",var="SkillEmpowered"},flags=0,keywordFlags=0,name="Damage",type="BASE",value=20}}," to Aggravate Bleeding on targets you Hit  Empowered Attacks deal 30% increased  "}
+c["20% chance to Aggravate Bleeding on targets you Hit with Empowered Attacks"]={{}," to Aggravate Bleeding on targets you Hit with Empowered Attacks "}
+c["20% chance to Aggravate Bleeding on targets you Hit with Empowered Attacks Empowered Attacks deal 30% increased Damage"]={{[1]={flags=0,keywordFlags=0,name="Damage",type="BASE",value=20}}," to Aggravate Bleeding on targets you Hit with Empowered Attacks Empowered Attacks deal 30% increased  "}
 c["20% chance to Poison on Hit"]={{[1]={flags=0,keywordFlags=0,name="PoisonChance",type="BASE",value=20}},nil}
 c["20% chance to gain a Power Charge on Hit"]={nil,"a Power Charge on Hit "}
 c["20% chance to gain a Power Charge on Hit Lose all Power Charges on reaching maximum Power Charges"]={nil,"a Power Charge on Hit Lose all Power Charges on reaching maximum Power Charges "}
@@ -2309,11 +2309,12 @@ c["Elemental Ailment Threshold is increased by Overcapped Chaos Resistance"]={ni
 c["Elemental Ailment Threshold is increased by Overcapped Chaos Resistance Armour is increased by Overcapped Fire Resistance"]={nil,"Elemental Ailment Threshold is increased by Overcapped Chaos Resistance Armour is increased by Overcapped Fire Resistance "}
 c["Elemental Damage also Contributes to Bleeding Magnitude"]={{[1]={flags=0,keywordFlags=0,name="FireCanBleed",type="FLAG",value=true},[2]={flags=0,keywordFlags=0,name="ColdCanBleed",type="FLAG",value=true},[3]={flags=0,keywordFlags=0,name="LightningCanBleed",type="FLAG",value=true}},nil}
 c["Elemental Storm has 150% more Cooldown Recovery Rate"]={{[1]={[1]={includeTransfigured=true,skillName="Elemental Storm",type="SkillName"},flags=0,keywordFlags=0,name="CooldownRecovery",type="MORE",value=150}},nil}
-c["Empowered Attacks deal 10% increased Damage"]={{[1]={[1]={type="Condition",var="SkillEmpowered"},flags=1,keywordFlags=0,name="Damage",type="INC",value=10}},nil}
-c["Empowered Attacks deal 16% increased Damage"]={{[1]={[1]={type="Condition",var="SkillEmpowered"},flags=1,keywordFlags=0,name="Damage",type="INC",value=16}},nil}
-c["Empowered Attacks deal 30% increased Damage"]={{[1]={[1]={type="Condition",var="SkillEmpowered"},flags=1,keywordFlags=0,name="Damage",type="INC",value=30}},nil}
-c["Empowered Attacks have 50% increased Stun Buildup"]={{}," Stun Buildup "}
-c["Empowered Attacks have 50% increased Stun Buildup 100% increased Stun Threshold during Empowered Attacks"]={{[1]={[1]={type="Condition",var="SkillEmpowered"},[2]={type="Condition",var="SkillEmpowered"},flags=1,keywordFlags=0,name="StunThreshold",type="INC",value=50}}," Stun Buildup 100% increased   "}
+c["Empowered Attacks deal 10% increased Damage"]={nil,"Empowered Attacks deal 10% increased Damage "}
+c["Empowered Attacks deal 16% increased Damage"]={nil,"Empowered Attacks deal 16% increased Damage "}
+c["Empowered Attacks deal 30% increased Damage"]={nil,"Empowered Attacks deal 30% increased Damage "}
+c["Empowered Attacks deal 30% increased Damage Warcry Skills have 30% increased Area of Effect"]={nil,"Empowered Attacks deal 30% increased Damage Warcry Skills have 30% increased Area of Effect "}
+c["Empowered Attacks have 50% increased Stun Buildup"]={nil,"Empowered Attacks have 50% increased Stun Buildup "}
+c["Empowered Attacks have 50% increased Stun Buildup 100% increased Stun Threshold during Empowered Attacks"]={nil,"Empowered Attacks have 50% increased Stun Buildup 100% increased Stun Threshold during Empowered Attacks "}
 c["Enemies Chilled by your Hits can be Shattered as though Frozen"]={nil,"your Hits can be Shattered as though Frozen "}
 c["Enemies Chilled by your Hits increase damage taken by Chill Magnitude"]={nil,"your Hits increase damage taken by Chill Magnitude "}
 c["Enemies Chilled by your Hits increase damage taken by Chill Magnitude Attacks Gain 10% of Damage as Extra Cold Damage"]={nil,"your Hits increase damage taken by Chill Magnitude Attacks Gain 10% of Damage as Extra Cold Damage "}
