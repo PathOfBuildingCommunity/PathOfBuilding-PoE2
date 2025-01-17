@@ -1232,6 +1232,7 @@ local preFlagList = {
 	["^for each nearby corpse, "] = { tag = { type = "Multiplier", var = "NearbyCorpse" } },
 	["^enemies in your link beams have "] = { tag = { type = "Condition", var = "BetweenYouAndLinkedTarget" }, applyToEnemy = true },
 	["^consecrated ground you create also grants "] = { tag = { type = "Condition", var = "OnConsecratedGround" } },
+	["^empowered attacks [hgd][ae][via][enl] "] = { flags = ModFlag.Attack, tag = { type = "Condition", var = "SkillEmpowered" } },
 	-- While in the presence of...
 	["^while a unique enemy is in your presence, "] = { tag = { type = "ActorCondition", actor = "enemy", var = "RareOrUnique" } },
 	["^while a pinnacle atlas boss is in your presence, "] = { tag = { type = "ActorCondition", actor = "enemy", var = "PinnacleBoss" } },
@@ -1248,6 +1249,8 @@ local modTagList = {
 	["with critical hits"] = { tag = { type = "Condition", var = "CriticalStrike" } },
 	["while affected by auras you cast"] = { tag = { type = "Condition", var = "AffectedByAura" } },
 	["for you and nearby allies"] = { newAura = true },
+	["with empowered attacks"] = { tag = { type = "Condition", var = "SkillEmpowered" } },
+	["during empowered attacks"] = { tag = { type = "Condition", var = "SkillEmpowered" } },
 	-- Multipliers
 	["per power charge"] = { tag = { type = "Multiplier", var = "PowerCharge" } },
 	["per frenzy charge"] = { tag = { type = "Multiplier", var = "FrenzyCharge" } },
@@ -1847,9 +1850,6 @@ local modTagList = {
 	["per poison affecting enemy"] = { tag = { type = "Multiplier", actor = "enemy", var = "PoisonStack" } },
 	["per poison affecting enemy, up to %+([%d%.]+)%%"] = function(num) return { tag = { type = "Multiplier", actor = "enemy", var = "PoisonStack", limit = num, limitTotal = true } } end,
 	["for each spider's web on the enemy"] = { tag = { type = "Multiplier", actor = "enemy", var = "Spider's WebStack" } },
-	-- Empower
-	["during empowered attacks"] = { tag = { type = "Condition", var = "Empower" } },
-	["with empowered attacks"] = { tag = { type = "Condition", var = "Empower" } },
 }
 
 local mod = modLib.createMod
@@ -5157,12 +5157,6 @@ local specialModList = {
 	["%+(%d) weapon set passive skill points"] = function(num) return { mod("WeaponSetPassivePoints", "BASE", num) } end,
 	-- 20 Passive Skill Points become Weapon Set Skill Points
 	["(%d+) passive skill points become weapon set skill points"] = function(num) return { mod("PassivePointsToWeaponSetPoints", "BASE", num) } end,
-	-- Empower attack
-	["empowered attacks deal (%d+)%% increased damage"] = function(num)
-		return {
-			mod("Damage", "INC", num, nil , ModFlag.Attack, { type = "Condition", var = "Empower" })
-		}
-	end,
 }
 for _, name in pairs(data.keystones) do
 	specialModList[name:lower()] = { mod("Keystone", "LIST", name) }

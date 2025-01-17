@@ -615,6 +615,9 @@ local configSettings = {
 	{ var = "windDancerStacks", type = "count", label = "# of Wind Dancer Stacks:", ifSkill = "Wind Dancer", apply = function(val, modList, enemyModList)
 		modList:NewMod("Multiplier:WindDancerStacks", "BASE", val, "Config")
 	end },
+	{ var = "conditionSkillEmpowered", type = "check", label = "Is the skill Empowered?", ifCond = "SkillEmpowered", tooltip = "Skills can be temporarily Empowered by certain buff skills.", apply = function(val, modList, enemyModList)
+		modList:NewMod("Condition:SkillEmpowered", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
+	end },
 	{ var = "multiplierWoCExpiredDuration", type = "count", label = "% Wave of Conviction duration expired:", ifMod = "WaveOfConvictionDurationDotMulti", apply = function(val, modList, enemyModList)
 		modList:NewMod("Multiplier:WoCDurationExpired", "BASE", m_min(val, 100), "Config", { type = "Condition", var = "Effective" })
 	end },
@@ -965,9 +968,6 @@ Huge sets the radius to 11.
 	end },
 	{ var = "conditionSurrounded", type = "check", label = "Are you surrounded?", ifCond = "Surrounded", tooltip = "You are surrounded if there are at least 5 Enemies within 3 metres of you", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:Surrounded", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
-	end },
-	{ var = "conditionEmpowered", type = "check", label = "Are you using Empowered Attacks?", ifCond = "Empower", apply = function(val, modList, enemyModList)
-		modList:NewMod("Condition:Empower", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
 	end },
 	{ var = "conditionHitRecently", type = "check", label = "Have you Hit Recently?", ifCond = "HitRecently", tooltip = "You will automatically be considered to have Hit Recently if your main skill Hits and is self-cast,\nbut you can use this option to force it if necessary.", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:HitRecently", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
