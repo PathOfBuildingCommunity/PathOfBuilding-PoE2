@@ -200,27 +200,12 @@ function TradeQueryGeneratorClass:ProcessMod(mod, tradeQueryStatsParsed, itemCat
 
 		-- Special cases
 		local specialCaseData = { }
-		if mod.group and (mod.group:find("Local") or mod.group:find("Shield")) and modLine:gsub("[#()0-9%-%+%.]","") == "% Chance to Block" then
-			specialCaseData.overrideModLine = "+#% Chance to Block"
-			modLine = modLine .. " (Shields)"
-		elseif modType == "Implicit" and modLine:find("Chance to Block Attack Damage while wielding a Staff$") then
-			specialCaseData.overrideModLine = "+#% Chance to Block Attack Damage while wielding a Staff"
-			modLine = modLine .. " (Staves)"
-		elseif modLine == "You can apply an additional Curse" then
+		if modLine == "You can apply an additional Curse" then
 			specialCaseData.overrideModLineSingular = "You can apply an additional Curse"
 			modLine = "You can apply 1 additional Curses"
 		elseif modLine == "Bow Attacks fire an additional Arrow" then
 			specialCaseData.overrideModLineSingular = "Bow Attacks fire an additional Arrow"
 			modLine = "Bow Attacks fire 1 additional Arrows"
-		elseif modLine == "Projectiles Pierce an additional Target" then
-			specialCaseData.overrideModLineSingular = "Projectiles Pierce an additional Target"
-			modLine = "Projectiles Pierce 1 additional Targets"
-		elseif modLine == "Has 1 Abyssal Socket" then
-			specialCaseData.overrideModLineSingular = "Has 1 Abyssal Socket"
-			modLine = "Has 1 Abyssal Sockets"
-		elseif modLine:find("Modifiers allowed") then
-			specialCaseData.overrideModLinePlural = "+# "..modLine:match(" (%a+) Modifiers allowed").." Modifiers allowed"
-			modLine = modLine:gsub("Modifiers", "Modifier")
 		elseif modLine:find("Charm Slots") then
 			specialCaseData.overrideModLinePlural = "+# Charm Slots"
 			modLine = modLine:gsub("Slots", "Slot")
