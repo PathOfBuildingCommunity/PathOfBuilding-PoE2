@@ -13,14 +13,20 @@ Wrapped Greathelm
 ]],[[
 Corona of the Red Sun
 Warrior Greathelm
+Variant: Pre 0.1.1
+Variant: Current
 +(100-150) to Accuracy Rating
 +(60-80) to maximum Life
+{variant:2}+(20-25)% to Fire Resistance
 25% increased Light Radius
 When you Leech Life from a Hit, Allies in your Presence also Leech the same amount of Life
 ]],[[
 Deidbell
 Elite Greathelm
+Variant: Pre 0.1.1
+Variant: Current
 (60-100)% increased Armour
+{variant:2}+(10-20) to Strength
 (20-30)% increased Warcry Speed
 Corpses in your Presence Explode when you Warcry,
 dealing 10% of their Life as Physical Damage
@@ -28,13 +34,20 @@ Warcry Skills have (20-30)% increased Area of Effect
 ]],[[
 Ezomyte Peak
 Soldier Greathelm
+Variant: Pre 0.1.1
+Variant: Current
 (50-100)% increased Armour
-+(30-50) to maximum Life
+{variant:1}+(30-50) to maximum Life
+{variant:2}+(50-80) to maximum Life
+{variant:2}(3-6) Life Regeneration per second
 (10-20)% increased Area of Effect
 Unwavering Stance
 ]],[[
 Horns of Bynden
 Rusted Greathelm
+Variant: Pre 0.1.1
+Variant: Current
+{variant:2}+20 to Armour
 (5-15)% increased Rarity of Items found
 +(20-30) to Strength
 Gain 1 Rage on Melee Hit
@@ -46,6 +59,9 @@ Onslaught
 ]],[[
 Wings of Caelyn
 Rusted Greathelm
+Variant: Pre 0.1.1
+Variant: Current
+{variant:2}+20 to Armour
 (5-15)% increased Rarity of Items found
 +(20-30) to Dexterity
 Gain 1 Rage on Melee Hit
@@ -62,9 +78,13 @@ Presence Radius is doubled
 ]],[[
 Elevore
 Hunter Hood
+Variant: Pre 0.1.1
+Variant: Current
 (50-80)% increased Evasion Rating
-+(10-20) to Dexterity
+{variant:1}+(10-20) to Dexterity
+{variant:2}+(20-30) to Dexterity
 Charms gain 0.5 charges per Second
+{variant:2}+1 Charm Slot
 ]],[[
 Goldrim
 Felt Cap
@@ -74,6 +94,9 @@ Felt Cap
 ]],[[
 Innsmouth
 Shabby Hood
+Variant: Pre 0.1.1
+Variant: Current
+{variant:2}+(20-30) to Evasion Rating
 25% reduced maximum Mana
 +(10-20)% to Cold Resistance
 +(13-19)% to Chaos Resistance
@@ -111,16 +134,22 @@ Pain Attunement
 ]],[[
 The Devouring Diadem
 Wicker Tiara
+Variant: Pre 0.1.1
+Variant: Current
 (60-100)% increased Energy Shield
+{variant:2}+(40-60) to maximum Life
 +(10-20) to Intelligence
 +(13-19)% to Chaos Resistance
 Every 3 seconds, Consume a nearby Corpse to Recover 20% of Life
 ]],[[
 Forbidden Gaze
 Chain Tiara
+Variant: Pre 0.1.1
+Variant: Current
 (60-100)% increased Energy Shield
 +(3-5)% to Maximum Cold Resistance
-+(25-35)% to Cold Resistance
+{variant:1}+(25-35)% to Cold Resistance
+{variant:2}+(30-50)% to Cold Resistance
 25% reduced Light Radius
 ]],[[
 Mask of the Stitched Demon
@@ -139,9 +168,12 @@ Enemies in your Presence gain Critical Weakness every second
 ]],[[
 Visage of Ayah
 Beaded Circlet
+Variant: Pre 0.1.1
+Variant: Current
 (50-80)% increased Energy Shield
 (10-15)% increased Rarity of Items found
 (20-30)% increased Critical Hit Chance
+{variant:2}+(10-20)% to Lightning Resistance
 Eldritch Battery
 ]],
 -- Helmet: Armour/Evasion
@@ -155,21 +187,38 @@ Skills have a (100-150)% longer Perfect Timing window
 ]],[[
 Erian's Cobble
 Guarded Helm
-+(0-20) to Armour
-+(0-15) to Evasion Rating
-+(0-10) to maximum Energy Shield
-+(0-30) to Accuracy Rating
-+(0-15) to maximum Life
-+(0-10) to maximum Mana
-(0-10)% increased Rarity of Items found
-(0-15)% increased Critical Hit Chance
-+(0-5) to Strength
-+(0-5) to Dexterity
-+(0-5) to Intelligence
-+(0-5)% to Fire Resistance
-+(0-5)% to Cold Resistance
-+(0-5)% to Lightning Resistance
-(0-3) Life Regeneration per second
+Variant: Pre 0.1.1
+Variant: Current
+{variant:1}+(0-20) to Armour
+{variant:1}+(0-15) to Evasion Rating
+{variant:1}+(0-10) to maximum Energy Shield
+{variant:1}+(0-30) to Accuracy Rating
+{variant:1}+(0-15) to maximum Life
+{variant:1}+(0-10) to maximum Mana
+{variant:1}(0-10)% increased Rarity of Items found
+{variant:1}(0-15)% increased Critical Hit Chance
+{variant:1}+(0-5) to Strength
+{variant:1}+(0-5) to Dexterity
+{variant:1}+(0-5) to Intelligence
+{variant:1}+(0-5)% to Fire Resistance
+{variant:1}+(0-5)% to Cold Resistance
+{variant:1}+(0-5)% to Lightning Resistance
+{variant:1}(0-0.05) Life Regeneration per second
+{variant:2}+(0-40) to Armour
+{variant:2}+(0-30) to Evasion Rating
+{variant:2}+(0-20) to maximum Energy Shield
+{variant:2}+(0-60) to Accuracy Rating
+{variant:2}+(0-30) to maximum Life
+{variant:2}+(0-20) to maximum Mana
+{variant:2}(0-20)% increased Rarity of Items found
+{variant:2}(0-30)% increased Critical Hit Chance
+{variant:2}+(0-10) to Strength
+{variant:2}+(0-10) to Dexterity
+{variant:2}+(0-10) to Intelligence
+{variant:2}+(0-10)% to Fire Resistance
+{variant:2}+(0-10)% to Cold Resistance
+{variant:2}+(0-10)% to Lightning Resistance
+{variant:2}(0-6) Life Regeneration per second
 ]],[[
 Greymake
 Brimmed Helm
@@ -180,14 +229,20 @@ Brimmed Helm
 ]],[[
 Ironride
 Visored Helm
+Variant: Pre 0.1.1
+Variant: Current
 (60-80)% increased Armour and Evasion
+{variant:2}+(30-50) to maximum Life
 +(30-50) to maximum Mana
 +(10-15)% to Lightning Resistance
 You have no Accuracy Penalty at Distance
 ]],[[
 The Smiling Knight
 Cowled Helm
-(30-50)% increased Armour and Evasion
+Variant: Pre 0.1.1
+Variant: Current
+{variant:1}(30-50)% increased Armour and Evasion
+{variant:2}(150-200)% increased Armour and Evasion
 +(50-100) to Accuracy Rating
 (15-25)% increased Critical Hit Chance
 Aggravate Bleeding on targets you Critically Hit with Attacks
@@ -203,9 +258,12 @@ Deal 4% increased Damage with Hits to Rare or Unique Enemies for each second the
 [[
 Bronzebeard
 Horned Crown
+Variant: Pre 0.1.1
+Variant: Current
 10% reduced Movement Speed
 (50-100)% increased Armour and Energy Shield
-+(40-60) to maximum Life
+{variant:1}+(40-60) to maximum Life
+{variant:2}+100 to maximum Life
 (35-50)% reduced Effect of Chill on you
 (35-50)% reduced effect of Ignite on you
 (35-50)% reduced effect of Shock on you
@@ -219,9 +277,12 @@ Heavy Crown
 ]],[[
 Crown of the Pale King
 Cultist Crown
+Variant: Pre 0.1.1
+Variant: Current
 (50-100)% increased Armour and Energy Shield
 +(40-80) to maximum Life
 10% increased Rarity of Items found
+{variant:2}(10-15) to (20-25) Physical Thorns damage
 Thorns damage is triggered by all Hits
 ]],[[
 Crown of the Victor
@@ -251,22 +312,32 @@ You have no Elemental Resistances
 [[
 Atsak's Sight
 Veiled Mask
-(20-40)% increased Critical Hit Chance
+Variant: Pre 0.1.1
+Variant: Current
+{variant:2}(100-150)% increased Evasion and Energy Shield
+{variant:1}(20-40)% increased Critical Hit Chance
+{variant:2}(30-40)% increased Critical Hit Chance
 +(10-20) to Dexterity
 +(10-20) to Intelligence
 Critical Hits Poison the enemy
 ]],[[
 The Hollow Mask
 Hewn Mask
+Variant: Pre 0.1.1
+Variant: Current
 +(60-80) to maximum Life
 15% additional Physical Damage Reduction
 -10% to all Elemental Resistances
+{variant:2}+13% to Chaos Resistance
 ]],[[
 Leer Cast
 Hooded Mask
+Variant: Pre 0.1.1
+Variant: Current
 +(30-50) to maximum Life
 +(30-50) to maximum Mana
 Allies in your Presence deal 50% increased Damage
+{variant:2}+(10-20) to Dexterity
 25% reduced Damage
 ]],[[
 The Three Dragons
