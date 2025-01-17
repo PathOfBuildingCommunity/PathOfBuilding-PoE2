@@ -95,6 +95,8 @@ end
 
 -- NOTE: the LuaJIT bitwise operations we have are not 64-bit
 -- so we need to implement them ourselves
+-- NOTE: the LuaJIT bitwise operations we have are not 64-bit
+-- so we need to implement them ourselves
 function OR64(a, b)
     -- Split into high and low 32-bit parts
     local ah = math.floor(a / 0x100000000)
@@ -107,7 +109,7 @@ function OR64(a, b)
     local low = bit.bor(al, bl)
     
     -- Combine the results
-    return high * 0x100000000 + low
+    return bit.band(high, 0x7FF) * 0x100000000 + low
 end
 
 function AND64(a, b)
@@ -122,7 +124,7 @@ function AND64(a, b)
 	local low = bit.band(al, bl)
 	
 	-- Combine the results
-	return high * 0x100000000 + low
+	return bit.band(high, 0x7FF) * 0x100000000 + low
 end
 
 function XOR64(a, b)
@@ -137,11 +139,11 @@ function XOR64(a, b)
     local low = bit.bxor(al, bl)
     
     -- Combine the results
-    return high * 0x100000000 + low
+    return bit.band(high, 0x7FF) * 0x100000000 + low
 end
 
 function NOT64(a)
-	-- Split into high and low 32-bit parts
+    -- Split into high and low 32-bit parts
     local ah = math.floor(a / 0x100000000)
     local al = a % 0x100000000
     
@@ -149,8 +151,13 @@ function NOT64(a)
     local high = bit.bnot(ah)
     local low = bit.bnot(al)
     
-    -- Combine the results
-    return high * 0x100000000 + low
+    -- Convert negative numbers to their unsigned equivalents
+    if high < 0 then high = high + 0x100000000 end
+    if low < 0 then low = low + 0x100000000 end
+    
+    -- Use bit operations to combine the results
+    -- This avoids potential floating-point precision issues
+    return bit.band(high, 0x7FF) * 0x100000000 + low
 end
 
 ModFlag = { }
