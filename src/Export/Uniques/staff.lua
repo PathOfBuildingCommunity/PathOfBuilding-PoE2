@@ -53,7 +53,10 @@ UniqueFrozenMonstersTakeIncreasedDamage1
 [[
 The Blood Thorn
 Wrapped Quarterstaff
-UniqueLocalAddedPhysicalDamage2
+Variant: Pre 0.1.1
+Variant: Current
+{variant:1}UniqueLocalAddedPhysicalDamage2[3,5][9,11]
+{variant:2}UniqueLocalAddedPhysicalDamage2
 UniqueStrength3
 UniqueCausesBleeding1
 UniqueAttackerTakesDamage1
@@ -67,6 +70,10 @@ UniqueTriggersRefundEnergySpent1
 ]],[[
 Matsya
 Crescent Quarterstaff
+Variant: Pre 0.1.1
+Variant: Current
+{variant:2}UniqueLocalAddedColdDamage5
+{variant:2}UniqueLocalAddedLightningDamage5
 UniqueLocalCriticalStrikeChance2
 UniqueLocalIncreasedAttackSpeed9
 UniqueManaRegeneration13
@@ -74,7 +81,10 @@ UniqueHalvedSpiritReservation1
 ]],[[
 Nazir's Judgement
 Steelpoint Quarterstaff
-UniqueLocalIncreasedPhysicalDamagePercent4
+Variant: Pre 0.1.1
+Variant: Current
+{variant:1}UniqueLocalIncreasedPhysicalDamagePercent4
+{variant:2}UniqueLocalAddedPhysicalDamage13
 UniqueIncreasedAccuracy2
 UniqueStunDuration1
 UniqueLocalDazeBuildup1
@@ -89,7 +99,12 @@ UniqueWeaponDamagePerStrength1
 ]],[[
 The Sentry
 Gothic Quarterstaff
-UniqueLocalAddedFireDamage3
+Variant: Pre 0.1.1
+Variant: Current
+{variant:2}UniqueLocalNoWeaponPhysicalDamage3
+{variant:1}UniqueLocalAddedFireDamage3[8,12][16,20]
+{variant:2}UniqueLocalAddedFireDamage3
+{variant:2}UniqueLocalIncreasedAccuracy6
 UniqueFireResist13
 UniqueIgniteChanceIncrease1
 UniqueLightRadius7

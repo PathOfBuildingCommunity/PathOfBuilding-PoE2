@@ -5,30 +5,40 @@ return {
 [[
 Dionadair
 Splintered Tower Shield
+Variant: Pre 0.1.1
+Variant: Current
 Implicits: 1
 Grants Skill: Raise Shield
 UniqueLocalIncreasedPhysicalDamageReductionRatingPercent17
 UniqueStrength3
-UniqueIncreasedStunThreshold1
+{variant:2}UniqueLifeRegeneration15
+{variant:1}UniqueIncreasedStunThreshold1[30,30]
+{variant:2}UniqueIncreasedStunThreshold1
 UniqueDoubleStunThresholdWhileActiveBlock1
 ]],[[
 Doomgate
 Braced Tower Shield
+Variant: Pre 0.1.1
+Variant: Current
 Implicits: 1
 Grants Skill: Raise Shield
 UniqueLocalBlockChance2
 UniqueLocalIncreasedPhysicalDamageReductionRatingPercent2
+{variant:2}UniqueChaosResist22
 UniqueBaseBlockDamageTaken1
 UniqueCullingStrikeOnBlock1
 ]],[[
 Lycosidae
 Rampart Tower Shield
+Variant: Pre 0.1.1
+Variant: Current
 Implicits: 1
 Grants Skill: Raise Shield
 UniqueLocalBlockChance1
 UniqueLocalIncreasedPhysicalDamageReductionRatingPercent1
 UniqueDoubleAccuracyRating1
-UniquePoisonOnBlock1
+{variant:1}UniquePoisonOnBlock1[100,100]
+{variant:2}UniquePoisonOnBlock1
 ]],[[
 The Surrender
 Stone Tower Shield
@@ -75,22 +85,32 @@ UniqueEnemiesBlockedAreIntimidated1
 [[
 Arvil's Wheel
 Hardwood Targe
+Variant: Pre 0.1.1
+Variant: Current
 Implicits: 1
 Grants Skill: Raise Shield
-UniqueLocalBlockChance5
+{variant:1}UniqueLocalBlockChance5
 UniqueLocalIncreasedArmourAndEvasion2
+{variant:2}UniqueIncreasedLife43
+{variant:2}UniqueIncreasedMana36
 UniqueMaximumLifeOnKillPercent2
 UniqueMaximumManaOnKillPercent1
 UniqueSkillEffectDuration1
 ]],[[
 Feathered Fortress
 Crescent Targe
+Variant: Pre 0.1.1
+Variant: Current
 Implicits: 1
 Grants Skill: Raise Shield
-UniqueStrength2
-UniqueDexterity2
-UniqueFireResist14
-UniqueColdResist3
+{variant:1}UniqueStrength18[10,20]
+{variant:2}UniqueStrength18
+{variant:1}UniqueDexterity18[10,20]
+{variant:2}UniqueDexterity18
+{variant:1}UniqueFireResist14[10,20]
+{variant:2}UniqueFireResist14
+{variant:1}UniqueColdResist14[10,20]
+{variant:2}UniqueColdResist14
 UniqueNoMovementPenaltyRaisedShield1
 ]],[[
 Merit of Service
@@ -106,11 +126,14 @@ UniqueBlockChanceToAllies1
 [[
 Alkem Eira
 Blazon Crest Shield
+Variant: Pre 0.1.1
+Variant: Current
 Implicits: 1
 Grants Skill: Raise Shield
 UniqueLocalBlockChance1
 UniqueLocalIncreasedArmourAndEnergyShield2
-UniqueIncreasedMana4
+{variant:1}UniqueIncreasedMana4[15,30]
+{variant:2}UniqueIncreasedMana4
 UniqueDamageBlockedRecoupedAsMana1
 ]],[[
 Crest of Ardura

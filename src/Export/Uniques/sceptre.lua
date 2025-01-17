@@ -5,12 +5,15 @@ return {
 [[
 The Dark Defiler
 Rattling Sceptre
+Variant: Pre 0.1.1
+Variant: Current
 Implicits: 1
 Grants Skill: Level (1-20) Skeletal Warrior Minion
 UniqueIncreasedMana2
 UniqueIntelligence3
 UniqueManaRegeneration1
-UniqueExtraChaosDamagePerUndeadMinion1
+{variant:1}UniqueExtraChaosDamagePerUndeadMinion1[3,3]
+{variant:2}UniqueExtraChaosDamagePerUndeadMinion1
 ]],[[
 Font of Power
 Omen Sceptre

@@ -22,10 +22,13 @@ UniqueIgniteEffect1
 ]],[[
 Blackheart
 Iron Ring
+Variant: Pre 0.1.1
+Vartiant: Current
 Implicits: 1
 RingImplicitPhysicalDamage1
 UniqueLifeRegeneration4
-UniqueAddedChaosDamage1
+{variant:1}UniqueAddedChaosDamage1[2,3][4,5]
+{variant:2}UniqueAddedChaosDamage1
 UniqueChanceToIntimidateOnHit1
 ]],[[
 Blistering Bond
@@ -33,17 +36,21 @@ Ruby Ring
 Implicits: 1
 RingImplicitFireResistance1
 UniqueIncreasedLife3
-UniqueFireResist8
+UniqueFireResist18
 UniqueColdResist22
 UniqueSelfBleedFireDamage1
 ]],[[
 The Burrower
 Topaz Ring
+Variant: Pre 0.1.1
+Vartiant: Current
 Implicits: 1
 RingImplicitLightningResistance1
-UniqueColdResist23
+{variant:1}UniqueColdResist23[-15,-10]
+{variant:2}UniqueColdResist23
 UniqueLightningResist4
-UniqueManaRegeneration18
+{variant:1}UniqueManaRegeneration27[25,35]
+{variant:2}UniqueManaRegeneration27
 UniqueEnemyExtraDamageRollsWithLightningDamage1
 ]],[[
 Call of the Brotherhood
@@ -131,10 +138,13 @@ UniqueAllDefences1
 ]],[[
 Original Sin
 Amethyst Ring
+Variant: Pre 0.1.1
+Vartiant: Current
 Implicits: 1
 BodyArmourImplicitChaosResistance1
+{variant:2}UniqueChaosResist21
 UniqueElementalDamageConvertToChaos1
-UniqueChaosResistanceIsZero1
+{variant:1}UniqueChaosResistanceIsZero1
 ]],[[
 Perandus Seal
 Gold Ring

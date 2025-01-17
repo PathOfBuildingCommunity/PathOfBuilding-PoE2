@@ -53,7 +53,10 @@ Enemies Frozen by you take 50% increased Damage
 [[
 The Blood Thorn
 Wrapped Quarterstaff
-Adds (8-12) to (16-18) Physical Damage
+Variant: Pre 0.1.1
+Variant: Current
+{variant:1}Adds (3-5) to (9-11) Physical Damage
+{variant:2}Adds (8-12) to (16-18) Physical Damage
 +(10-15) to Strength
 Causes Bleeding on Hit
 (4-5) to (8-10) Physical Thorns damage
@@ -67,6 +70,10 @@ Trigger skills refund half of Energy spent
 ]],[[
 Matsya
 Crescent Quarterstaff
+Variant: Pre 0.1.1
+Variant: Current
+{variant:2}Adds (6-9) to (10-15) Cold Damage
+{variant:2}Adds 1 to (19-29) Lightning Damage
 +(3-5)% to Critical Hit Chance
 (15-20)% increased Attack Speed
 (25-40)% increased Mana Regeneration Rate
@@ -74,7 +81,10 @@ Skills reserve 50% less Spirit
 ]],[[
 Nazir's Judgement
 Steelpoint Quarterstaff
-(80-120)% increased Physical Damage
+Variant: Pre 0.1.1
+Variant: Current
+{variant:1}(80-120)% increased Physical Damage
+{variant:2}Adds (30-36) to (75-81) Physical Damage
 +(50-100) to Accuracy Rating
 (10-20)% increased Stun Duration
 Causes Daze buildup equal to 100% of Damage dealt
@@ -89,7 +99,12 @@ Implicits: 1
 ]],[[
 The Sentry
 Gothic Quarterstaff
-Adds (25-32) to (40-50) Fire Damage
+Variant: Pre 0.1.1
+Variant: Current
+{variant:2}No Physical Damage
+{variant:1}Adds (8-12) to (16-20) Fire Damage
+{variant:2}Adds (25-32) to (40-50) Fire Damage
+{variant:2}+(30-50) to Accuracy Rating
 +20% to Fire Resistance
 100% increased chance to Ignite
 30% increased Light Radius

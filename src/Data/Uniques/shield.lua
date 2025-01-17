@@ -5,30 +5,40 @@ return {
 [[
 Dionadair
 Splintered Tower Shield
+Variant: Pre 0.1.1
+Variant: Current
 Implicits: 1
 Grants Skill: Raise Shield
 (60-80)% increased Armour
 +(10-15) to Strength
-20% reduced Stun Threshold
+{variant:2}(3-5) Life Regeneration per second
+{variant:1}30% increased Stun Threshold
+{variant:2}20% reduced Stun Threshold
 Double Stun Threshold while Shield is Raised
 ]],[[
 Doomgate
 Braced Tower Shield
+Variant: Pre 0.1.1
+Variant: Current
 Implicits: 1
 Grants Skill: Raise Shield
 80% increased Block chance
 (100-150)% increased Armour
+{variant:2}+(13-17)% to Chaos Resistance
 You take 20% of damage from Blocked Hits
 Enemies are Culled on Block
 ]],[[
 Lycosidae
 Rampart Tower Shield
+Variant: Pre 0.1.1
+Variant: Current
 Implicits: 1
 Grants Skill: Raise Shield
 (30-40)% increased Block chance
 (60-100)% increased Armour
 Accuracy Rating is Doubled
-Blocking Damage Poisons the Enemy as though dealing 200 Base Chaos Damage
+{variant:1}Blocking Damage Poisons the Enemy as though dealing 100 Base Chaos Damage
+{variant:2}Blocking Damage Poisons the Enemy as though dealing 200 Base Chaos Damage
 ]],[[
 The Surrender
 Stone Tower Shield
@@ -75,22 +85,32 @@ Permanently Intimidate enemies on Block
 [[
 Arvil's Wheel
 Hardwood Targe
+Variant: Pre 0.1.1
+Variant: Current
 Implicits: 1
 Grants Skill: Raise Shield
-(40-60)% increased Block chance
+{variant:1}(40-60)% increased Block chance
 (60-100)% increased Armour and Evasion
+{variant:2}+(40-60) to maximum Life
+{variant:2}+(40-60) to maximum Mana
 Lose 1% of Life on Kill
 Lose 1% of Mana on Kill
 (30-50)% increased Skill Effect Duration
 ]],[[
 Feathered Fortress
 Crescent Targe
+Variant: Pre 0.1.1
+Variant: Current
 Implicits: 1
 Grants Skill: Raise Shield
-+(10-20) to Strength
-+(10-20) to Dexterity
-+(20-30)% to Fire Resistance
-+(10-20)% to Cold Resistance
+{variant:1}+(10-20) to Strength
+{variant:2}+(20-30) to Strength
+{variant:1}+(10-20) to Dexterity
+{variant:2}+(20-30) to Dexterity
+{variant:1}+(10-20)% to Fire Resistance
+{variant:2}+(20-30)% to Fire Resistance
+{variant:1}+(10-20)% to Cold Resistance
+{variant:2}+(20-30)% to Cold Resistance
 No Movement Speed Penalty while Shield is Raised
 ]],[[
 Merit of Service
@@ -106,11 +126,14 @@ Allies in your Presence have Block Chance equal to yours
 [[
 Alkem Eira
 Blazon Crest Shield
+Variant: Pre 0.1.1
+Variant: Current
 Implicits: 1
 Grants Skill: Raise Shield
 (30-40)% increased Block chance
 (30-50)% increased Armour and Energy Shield
-+(50-70) to maximum Mana
+{variant:1}+(15-30) to maximum Mana
+{variant:2}+(50-70) to maximum Mana
 Damage Blocked is Recouped as Mana
 ]],[[
 Crest of Ardura

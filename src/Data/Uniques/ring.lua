@@ -22,10 +22,13 @@ Implicits: 1
 ]],[[
 Blackheart
 Iron Ring
+Variant: Pre 0.1.1
+Vartiant: Current
 Implicits: 1
 {tags:physical,attack}Adds 1 to 4 Physical Damage to Attacks
 {tags:life}(3-6) Life Regeneration per second
-{tags:chaos,attack}Adds (4-6) to (8-10) Chaos Damage to Attacks
+{variant:1}{tags:chaos,attack}Adds (2-3) to (4-5) Chaos Damage to Attacks
+{variant:2}{tags:chaos,attack}Adds (4-6) to (8-10) Chaos Damage to Attacks
 25% chance to Intimidate Enemies for 4 seconds on Hit
 ]],[[
 Blistering Bond
@@ -39,11 +42,15 @@ You take Fire Damage instead of Physical Damage from Bleeding
 ]],[[
 The Burrower
 Topaz Ring
+Variant: Pre 0.1.1
+Vartiant: Current
 Implicits: 1
 {tags:lightning}+(20-30)% to Lightning Resistance
-{tags:cold}-10% to Cold Resistance
+{variant:1}{tags:cold}-(15-10)% to Cold Resistance
+{variant:2}{tags:cold}-10% to Cold Resistance
 {tags:lightning}+(20-30)% to Lightning Resistance
-{tags:mana}(25-35)% increased Mana Regeneration Rate
+{variant:1}{tags:mana}(25-35)% increased Mana Regeneration Rate
+{variant:2}{tags:mana}(30-50)% increased Mana Regeneration Rate
 {tags:lightning}Lightning Damage of Enemies Hitting you is Unlucky
 ]],[[
 Call of the Brotherhood
@@ -131,10 +138,13 @@ Gain (30-40)% of Damage as Extra Chaos Damage
 ]],[[
 Original Sin
 Amethyst Ring
+Variant: Pre 0.1.1
+Vartiant: Current
 Implicits: 1
 {tags:chaos}+(7-13)% to Chaos Resistance
+{variant:2}{tags:chaos}+(17-23)% to Chaos Resistance
 100% of Elemental Damage Converted to Chaos Damage
-{tags:chaos}Chaos Resistance is Zero
+{variant:1}{tags:chaos}Chaos Resistance is Zero
 ]],[[
 Perandus Seal
 Gold Ring
