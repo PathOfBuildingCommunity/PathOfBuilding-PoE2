@@ -5,15 +5,25 @@ return {
 [[
 Brynhand's Mark
 Wooden Club
-Adds (3-4) to (6-8) Physical Damage
+Variant: Pre 0.1.1
+Variant: Current
+{variant:1}Adds (3-4) to (6-8) Physical Damage
+{variant:2}Adds (10-14) to (16-20) Physical Damage
 +(30-50) to Accuracy Rating
-+(5-10) to Strength
+{variant:2}20% reduced Attack Speed
+{variant:1}+(5-10) to Strength
+{variant:2}+(10-20) to Strength
 Causes Double Stun Buildup
 ]],[[
 Frostbreath
 Slim Mace
-Adds (4-6) to (8-12) Physical Damage
-Adds (4-6) to (8-12) Cold Damage
+Variant: Pre 0.1.1
+Variant: Current
+{variant:1}Adds (4-6) to (8-12) Physical Damage
+{variant:2}Adds (8-12) to (16-20) Physical Damage
+{variant:1}Adds (4-6) to (8-12) Cold Damage
+{variant:2}Adds (8-12) to (16-20) Cold Damage
+{variant:2}+5% to Critical Hit Chance
 All Damage from Hits with this Weapon Contributes to Freeze Buildup
 Culling Strike against Frozen Enemies
 ]],[[
@@ -27,22 +37,35 @@ the enemy's Power for 6 seconds, up to a total of 500
 ]],[[
 Seeing Stars
 Plated Mace
-Adds (9-12) to (18-22) Cold Damage
-Adds 1 to (30-35) Lightning Damage
+Variant: Pre 0.1.1
+Variant: Current
+{variant:1}Adds (9-12) to (18-22) Cold Damage
+{variant:2}Adds (12-16) to (22-25) Cold Damage
+{variant:1}Adds 1 to (30-35) Lightning Damage
+{variant:2}Adds 1 to (40-45) Lightning Damage
 (10-20)% increased Attack Speed
 Energy Generation is doubled
 ]],[[
 Trenchtimbre
 Spiked Club
-Adds (10-12) to (18-22) Physical Damage
+Variant: Pre 0.1.1
+Variant: Current
+{variant:1}Adds (10-12) to (18-35) Physical Damage
+{variant:2}Adds (13-15) to (22-25) Physical Damage
 (20-30)% increased Attack Speed
 +(1-3) to Level of all Minion Skills
 Increases and Reductions to Minion Attack Speed also affect you
 ]],[[
 Wylund's Stake
 Smithing Hammer
-Adds (2-3) to (4-5) Physical Damage
-Adds (2-3) to (4-5) Fire Damage
+Variant: Pre 0.1.1
+Variant: Current
+{variant:1}Adds (2-3) to (4-5) Physical Damage
+{variant:2}Adds (4-6) to (8-10) Physical Damage
+{variant:1}Adds (2-3) to (4-5) Fire Damage
+{variant:2}Adds (4-6) to (8-10) Fire Damage
+{variant:2}+(20-30)% to Fire Resistance
+{variant:2}+(10-20) to Strength
 Hits Break (30-50) Armour
 Apply Fire Exposure when fully breaking enemy Armour
 ]],
@@ -50,22 +73,33 @@ Apply Fire Exposure when fully breaking enemy Armour
 [[
 Brain Rattler
 Studded Greatclub
-Adds (10-12) to (18-22) Physical Damage
-Adds 1 to (36-42) Lightning Damage
+Variant: Pre 0.1.1
+Variant: Current
+{variant:1}Adds (10-12) to (18-22) Physical Damage
+{variant:2}Adds (18-22) to (24-28) Physical Damage
+{variant:1}Adds 1 to (36-42) Lightning Damage
+{variant:2}Adds 1 to (50-55) Lightning Damage
 (10-15)% increased Attack Speed
 All damage with this Weapon causes Electrocution buildup
 ]],[[
 Chober Chaber
 Leaden Greathammer
+Variant: Pre 0.1.1
+Variant: Current
 +100 Intelligence Requirement
-(80-120)% increased Physical Damage
+{variant:1}(80-120)% increased Physical Damage
+{variant:2}Adds (58-65) to (102-110) Physical Damage
 +(80-100) to maximum Mana
-+5% to Critical Hit Chance
+{variant:2}+50 to Spirit
+{variant:1}+5% to Critical Hit Chance
 Increases and Reductions to Minion Damage also affect you
 ]],[[
 Hoghunt
 Felled Greatclub
-(100-150)% increased Physical Damage
+Variant: Pre 0.1.1
+Variant: Current
+{variant:1}(100-150)% increased Physical Damage
+{variant:2}Adds (16-20) to (23-27) Physical Damage
 +15% to Critical Hit Chance
 10% reduced Attack Speed
 +10 to Strength
@@ -73,9 +107,12 @@ Maim on Critical Hit
 ]],[[
 Hrimnor's Hymn
 Oak Greathammer
+Variant: Pre 0.1.1
+Variant: Current
 Implicits: 1
 Causes (30-50)% increased Stun Buildup
-(60-80)% increased Physical Damage
+{variant:1}(60-80)% increased Physical Damage
+{variant:2}(80-120)% increased Physical Damage
 +(10-15) to Strength
 Gain (10-20) Life per Enemy Killed
 Slam Skills you use yourself cause Aftershocks
@@ -92,7 +129,10 @@ Critical Hits do not deal extra Damage
 ]],[[
 Trephina
 Forge Maul
-Adds (7-10) to (12-18) Physical Damage
+Variant: Pre 0.1.1
+Variant: Current
+{variant:1}Adds (7-10) to (12-18) Physical Damage
+{variant:2}Adds (12-15) to (22-25) Physical Damage
 (10-15)% increased Attack Speed
 Causes (30-50)% increased Stun Buildup
 Always deals Critical Hits against Heavy Stunned Enemies

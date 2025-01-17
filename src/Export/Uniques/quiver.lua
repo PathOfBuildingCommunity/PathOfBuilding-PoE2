@@ -5,8 +5,11 @@ return {
 [[
 Asphyxia's Wrath
 Broadhead Quiver
+Variant: Pre 0.1.1
+Variant: Current
 Implicits: 1
 QuiverImplicitPhysicalDamage1
+{variant:2}UniqueAddedColdDamage2
 UniqueIncreasedAttackSpeed4
 UniqueColdResist4
 UniqueEnemiesChilledIncreasedDamageTaken1
@@ -23,8 +26,11 @@ UniquePhysicalDamageAddedAsChaosAttacks1
 ]],[[
 Blackgleam
 Fire Quiver
+Variant: Pre 0.1.1
+Variant: Current
 Implicits: 1
 QuiverImplicitFireDamage1
+{variant:2}UniqueAddedFireDamage1
 UniqueIncreasedMana5
 UniqueIgniteChanceIncrease3
 UniqueAlwaysPierceBurningEnemies1
