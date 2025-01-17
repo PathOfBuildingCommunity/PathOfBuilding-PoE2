@@ -21,7 +21,10 @@ Shortbow
 ]],[[
 Splinterheart
 Recurve Bow
-(60-80)% increased Physical Damage
+Variant: Pre 0.1.1
+Variant: Current
+{variant:1}(60-80)% increased Physical Damage
+{variant:2}(120-160)% increased Physical Damage
 +(50-70) to Accuracy Rating
 (20-30)% increased Projectile Speed
 Projectiles Split towards +2 targets

@@ -21,7 +21,10 @@ UniqueWeaponDamageFinalPercent1
 ]],[[
 Splinterheart
 Recurve Bow
-UniqueLocalIncreasedPhysicalDamagePercent3
+Variant: Pre 0.1.1
+Variant: Current
+{variant:1}UniqueLocalIncreasedPhysicalDamagePercent3[60,80]
+{variant:2}UniqueLocalIncreasedPhysicalDamagePercent3
 UniqueLocalIncreasedAccuracy3
 UniqueProjectileSpeed2
 UniqueProjectilesSplitCount1
