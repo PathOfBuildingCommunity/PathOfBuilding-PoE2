@@ -169,7 +169,11 @@ function calcs.buildModListForNode(env, node, incSmallPassiveSkill)
 	-- Run first pass radius jewels
 	for _, rad in pairs(env.radiusJewelList) do
 		if rad.type == "Other" and rad.nodes[node.id] and rad.nodes[node.id].type ~= "Mastery" then
-			rad.func(node, modList, rad.data)
+			if rad.item.title ~= "Against the Darkness" then
+				rad.func(node, modList, rad.data)
+			else
+				addStatsFromJewelToNode(rad, node, env.build.spec)
+			end
 		end
 	end
 
@@ -188,7 +192,11 @@ function calcs.buildModListForNode(env, node, incSmallPassiveSkill)
 	-- Run second pass radius jewels
 	for _, rad in pairs(env.radiusJewelList) do
 		if rad.nodes[node.id] and rad.nodes[node.id].type ~= "Mastery" and (rad.type == "Threshold" or (rad.type == "Self" and env.allocNodes[node.id]) or (rad.type == "SelfUnalloc" and not env.allocNodes[node.id])) then
-			rad.func(node, modList, rad.data)
+			if rad.item.title ~= "Against the Darkness" then
+				rad.func(node, modList, rad.data)
+			else
+				addStatsFromJewelToNode(rad, node, env.build.spec)
+			end
 		end
 	end
 
