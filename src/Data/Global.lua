@@ -95,6 +95,7 @@ end
 
 -- NOTE: the LuaJIT bitwise operations we have are not 64-bit
 -- so we need to implement them ourselves. Lua uses 53-bit doubles.
+HIGH_MASK_53 = 0x1FFFFF
 function OR64(a, b)
     -- Split into high and low 32-bit parts
     local ah = math.floor(a / 0x100000000)
@@ -107,7 +108,7 @@ function OR64(a, b)
     local low = bit.bor(al, bl)
     
     -- Combine the results
-    return bit.band(high, 0x7FF) * 0x100000000 + low
+    return bit.band(high, HIGH_MASK_53) * 0x100000000 + low
 end
 
 function AND64(a, b)
@@ -122,7 +123,7 @@ function AND64(a, b)
 	local low = bit.band(al, bl)
 	
 	-- Combine the results
-	return bit.band(high, 0x7FF) * 0x100000000 + low
+	return bit.band(high, HIGH_MASK_53) * 0x100000000 + low
 end
 
 function XOR64(a, b)
@@ -137,7 +138,7 @@ function XOR64(a, b)
     local low = bit.bxor(al, bl)
     
     -- Combine the results
-    return bit.band(high, 0x7FF) * 0x100000000 + low
+    return bit.band(high, HIGH_MASK_53) * 0x100000000 + low
 end
 
 function NOT64(a)
@@ -155,7 +156,16 @@ function NOT64(a)
     
     -- Use bit operations to combine the results
     -- This avoids potential floating-point precision issues
-    return bit.band(high, 0x7FF) * 0x100000000 + low
+    return bit.band(high, HIGH_MASK_53) * 0x100000000 + low
+end
+
+function strHex64(value)
+    -- Split into high and low 32-bit parts
+    local high = math.floor(value / 0x100000000)
+    local low = value % 0x100000000
+    
+    -- Stringify as two 8-digit hex values
+    return string.format("0x%08X%08X", high, low)
 end
 
 ModFlag = { }
