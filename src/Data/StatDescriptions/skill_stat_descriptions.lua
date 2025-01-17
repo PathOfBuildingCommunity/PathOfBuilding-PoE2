@@ -10262,6 +10262,10 @@ return {
 					[1]={
 						[1]="#",
 						[2]="#"
+					},
+					[2]={
+						[1]="#",
+						[2]="#"
 					}
 				},
 				text="Pin buildup modifier {0}%"
@@ -10269,13 +10273,30 @@ return {
 			[2]={
 				limit={
 					[1]={
+						[1]="#",
+						[2]="#"
+					},
+					[2]={
+						[1]=0,
+						[2]=0
+					}
+				},
+				text="Pins Enemies as though dealing {0:+d}% more Damage"
+			},
+			[3]={
+				limit={
+					[1]={
 						[1]=1,
+						[2]="#"
+					},
+					[2]={
+						[1]="#",
 						[2]="#"
 					}
 				},
 				text="Pins Enemies as though dealing {0}% more Damage"
 			},
-			[3]={
+			[4]={
 				[1]={
 					k="negate",
 					v=1
@@ -10284,13 +10305,18 @@ return {
 					[1]={
 						[1]="#",
 						[2]=-1
+					},
+					[2]={
+						[1]="#",
+						[2]="#"
 					}
 				},
 				text="Pins Enemies as though dealing {0}% less Damage"
 			}
 		},
 		stats={
-			[1]="active_skill_pins_as_though_dealt_damage_+%_final"
+			[1]="active_skill_pins_as_though_dealt_damage_+%_final",
+			[2]="quality_display_active_skill_pins_as_though_dealt_damage_+%_final_is_gem"
 		}
 	},
 	[427]={
@@ -12168,14 +12194,48 @@ return {
 					[1]={
 						[1]=1,
 						[2]=1
+					},
+					[2]={
+						[1]=0,
+						[2]=0
 					}
 				},
-				text="{0} Bolt loaded per clip"
+				text="{0:+d} Bolt loaded per clip"
 			},
 			[2]={
 				limit={
 					[1]={
 						[1]=2,
+						[2]="#"
+					},
+					[2]={
+						[1]=0,
+						[2]=0
+					}
+				},
+				text="{0:+d} Bolts loaded per clip"
+			},
+			[3]={
+				limit={
+					[1]={
+						[1]=1,
+						[2]=1
+					},
+					[2]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="{0} Bolt loaded per clip"
+			},
+			[4]={
+				limit={
+					[1]={
+						[1]=2,
+						[2]="#"
+					},
+					[2]={
+						[1]="#",
 						[2]="#"
 					}
 				},
@@ -12183,7 +12243,8 @@ return {
 			}
 		},
 		stats={
-			[1]="base_number_of_crossbow_bolts"
+			[1]="base_number_of_crossbow_bolts",
+			[2]="quality_display_base_number_of_crossbow_bolts_is_gem"
 		}
 	},
 	[508]={
@@ -12222,6 +12283,10 @@ return {
 					[2]={
 						[1]=0,
 						[2]=0
+					},
+					[3]={
+						[1]="#",
+						[2]="#"
 					}
 				},
 				text="Fires {0} Projectiles"
@@ -12235,6 +12300,10 @@ return {
 					[2]={
 						[1]=1,
 						[2]=1
+					},
+					[3]={
+						[1]="#",
+						[2]="#"
 					}
 				},
 				text="Fires {0} Arrows"
@@ -12242,7 +12311,8 @@ return {
 		},
 		stats={
 			[1]="base_number_of_projectiles",
-			[2]="skill_can_fire_arrows"
+			[2]="skill_can_fire_arrows",
+			[3]="quality_display_base_number_of_projectiles_is_gem"
 		}
 	},
 	[510]={
@@ -21737,9 +21807,13 @@ return {
 					[2]={
 						[1]="#",
 						[2]="#"
+					},
+					[3]={
+						[1]=0,
+						[2]=0
 					}
 				},
-				text="More Area of Effect per second (maximum {1}%) {0}%"
+				text="Gains {0:+d} more Area of Effect per second, up to a maximum of {1:+d}%"
 			},
 			[2]={
 				limit={
@@ -21750,6 +21824,27 @@ return {
 					[2]={
 						[1]="#",
 						[2]="#"
+					},
+					[3]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="More Area of Effect per second (maximum {1}%) {0}%"
+			},
+			[3]={
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					},
+					[2]={
+						[1]="#",
+						[2]="#"
+					},
+					[3]={
+						[1]="#",
+						[2]="#"
 					}
 				},
 				text="Gains {0}% more Area of Effect per second, up to a maximum of {1}%"
@@ -21757,7 +21852,8 @@ return {
 		},
 		stats={
 			[1]="active_skill_ground_effect_area_of_effect_+%_final_per_second",
-			[2]="active_skill_ground_effect_area_of_effect_+%_final_per_second_max"
+			[2]="active_skill_ground_effect_area_of_effect_+%_final_per_second_max",
+			[3]="quality_display_active_skill_ground_effect_area_of_effect_+%_final_per_second_max_is_gem"
 		}
 	},
 	[920]={
@@ -26596,7 +26692,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="[Limit {0} Orbs"
+				text="Limit {0} Orbs"
 			}
 		},
 		stats={
@@ -28052,13 +28148,31 @@ return {
 					[1]={
 						[1]="#",
 						[2]="#"
+					},
+					[2]={
+						[1]=0,
+						[2]=0
+					}
+				},
+				text="{0:+d} to Maximum Heat"
+			},
+			[2]={
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					},
+					[2]={
+						[1]="#",
+						[2]="#"
 					}
 				},
 				text="Maximum {0} Heat"
 			}
 		},
 		stats={
-			[1]="rapid_shot_maximum_num_of_stacks"
+			[1]="rapid_shot_maximum_num_of_stacks",
+			[2]="quality_display_rapid_shot_maximum_num_of_stacks_is_gem"
 		}
 	},
 	[1193]={
@@ -33232,7 +33346,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Maixmum more Pin Buildup against enemies within 2m@{0}%"
+				text="Maximum more Pin Buildup against enemies within 2m@{0}%"
 			}
 		},
 		stats={
@@ -40753,12 +40867,17 @@ return {
 	["purge_expose_resist_%_matching_highest_element_damage"]=1179,
 	["purifying_flame_%_chance_to_create_consecrated_ground_around_you"]=1180,
 	["quake_slam_fully_charged_explosion_damage_+%_final"]=342,
+	["quality_display_active_skill_ground_effect_area_of_effect_+%_final_per_second_max_is_gem"]=919,
 	["quality_display_active_skill_ignite_effect_is_gem"]=423,
+	["quality_display_active_skill_pins_as_though_dealt_damage_+%_final_is_gem"]=426,
 	["quality_display_active_skill_returning_damage_is_gem"]=369,
+	["quality_display_base_number_of_crossbow_bolts_is_gem"]=507,
+	["quality_display_base_number_of_projectiles_is_gem"]=509,
 	["quality_display_exsanguinate_beam_targets_is_gem"]=550,
 	["quality_display_ice_crash_is_gem"]=316,
 	["quality_display_immortal_call_is_gem"]=1087,
 	["quality_display_incinerate_is_gem_hit"]=814,
+	["quality_display_rapid_shot_maximum_num_of_stacks_is_gem"]=1192,
 	["quality_display_rune_paint_is_gem"]=1213,
 	["queens_demand_effect"]=755,
 	["quick_guard_damage_absorb_limit"]=1181,

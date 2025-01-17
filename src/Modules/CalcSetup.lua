@@ -141,7 +141,7 @@ local function addStatsFromJewelToNode(jewel, node, spec)
 	spec.tree:ProcessStats(node)
 end
 
-function calcs.buildModListForNode(env, node)
+function calcs.buildModListForNode(env, node, incSmallPassiveSkill)
 	local modList = new("ModList")
 	if node.type == "Keystone" then
 		modList:AddMod(node.keystoneMod)
@@ -169,11 +169,7 @@ function calcs.buildModListForNode(env, node)
 	-- Run first pass radius jewels
 	for _, rad in pairs(env.radiusJewelList) do
 		if rad.type == "Other" and rad.nodes[node.id] and rad.nodes[node.id].type ~= "Mastery" then
-			if rad.item.title ~= "Against the Darkness" then
-				rad.func(node, modList, rad.data)
-			else
-				addStatsFromJewelToNode(rad, node, env.build.spec)
-			end
+			rad.func(node, modList, rad.data)
 		end
 	end
 
@@ -192,11 +188,7 @@ function calcs.buildModListForNode(env, node)
 	-- Run second pass radius jewels
 	for _, rad in pairs(env.radiusJewelList) do
 		if rad.nodes[node.id] and rad.nodes[node.id].type ~= "Mastery" and (rad.type == "Threshold" or (rad.type == "Self" and env.allocNodes[node.id]) or (rad.type == "SelfUnalloc" and not env.allocNodes[node.id])) then
-			if rad.item.title ~= "Against the Darkness" then
-				rad.func(node, modList, rad.data)
-			else
-				addStatsFromJewelToNode(rad, node, env.build.spec)
-			end
+			rad.func(node, modList, rad.data)
 		end
 	end
 
@@ -223,6 +215,14 @@ function calcs.buildModListForNode(env, node)
 		t_insert(env.explodeSources, node)
 	end
 
+	-- Apply Inc Node scaling from Hulking Form
+	if incSmallPassiveSkill > 0 and node.type == "Normal" and not node.isAttribute and not node.ascendancyName then
+		local scale = 1 + incSmallPassiveSkill / 100
+		local scaledList = new("ModList")
+		scaledList:ScaleAddList(modList, scale)
+		modList = scaledList
+	end
+
 	return modList
 end
 
@@ -234,10 +234,16 @@ function calcs.buildModListForNodeList(env, nodeList, finishJewels)
 		rad.data.modSource = "Tree:"..rad.nodeId
 	end
 
+	-- calculate inc from SmallPassiveSkillEffect
+	local inc = 0
+	for _, node in pairs(nodeList) do
+		inc = inc + node.modList:Sum("INC", nil ,"SmallPassiveSkillEffect")
+	end
+
 	-- Add node modifiers
 	local modList = new("ModList")
 	for _, node in pairs(nodeList) do
-		local nodeModList = calcs.buildModListForNode(env, node)
+		local nodeModList = calcs.buildModListForNode(env, node, inc)
 		modList:AddList(nodeModList)
 		if env.mode == "MAIN" then
 			node.finalModList = nodeModList
@@ -247,7 +253,7 @@ function calcs.buildModListForNodeList(env, nodeList, finishJewels)
 	if finishJewels then
 		-- Process extra radius nodes; these are unallocated nodes near conversion or threshold jewels that need to be processed
 		for _, node in pairs(env.extraRadiusNodeList) do
-			local nodeModList = calcs.buildModListForNode(env, node)
+			local nodeModList = calcs.buildModListForNode(env, node, inc)
 			if env.mode == "MAIN" then
 				node.finalModList = nodeModList
 			end

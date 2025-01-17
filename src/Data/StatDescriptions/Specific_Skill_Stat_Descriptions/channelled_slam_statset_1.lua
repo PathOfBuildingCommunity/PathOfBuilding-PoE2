@@ -86,7 +86,7 @@ return {
 						[2]=10
 					}
 				},
-				text="Each successive aftershock gains {0:+d} metre to radius"
+				text="Each successive aftershock gains {0:+d} metre to radius, up to 3 metres"
 			},
 			[3]={
 				[1]={
@@ -99,7 +99,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Each successive aftershock gains {0:+d} metres to radius"
+				text="Each successive aftershock gains {0:+d} metres to radius, up to 3 metres"
 			}
 		},
 		stats={

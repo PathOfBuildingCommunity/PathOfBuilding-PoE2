@@ -4070,7 +4070,7 @@ skills["VineArrowPlayer"] = {
 	name = "Vine Arrow",
 	baseTypeName = "Vine Arrow",
 	color = 2,
-	description = "Fire an arrow into the air that lands after a short delay, causing a plant to spring up at the impact location. The plant sprouts vines that latch onto nearby enemies, Slowing their movement speed and dealing Chaos damage over time. The plant can be Poisoned, causing it to deal more damage.",
+	description = "Fire an arrow into the air that lands after a short delay, damaging enemies and causing a plant to spring up at the impact location. The plant sprouts vines that latch onto nearby enemies, Slowing their movement speed and dealing Chaos damage over time. The plant can be Poisoned, causing it to deal more damage.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Rain] = true, [SkillType.Area] = true, [SkillType.CanRapidFire] = true, [SkillType.ProjectileSpeed] = true, [SkillType.ProjectileNumber] = true, [SkillType.Duration] = true, [SkillType.Nonpathing] = true, [SkillType.Chaos] = true, [SkillType.SupportedByFountains] = true, [SkillType.ProjectileNoCollision] = true, },
 	weaponTypes = {
 		["Bow"] = true,
@@ -4215,6 +4215,8 @@ skills["VineArrowPlayer"] = {
 			stats = {
 				"base_chaos_damage_to_deal_per_minute",
 				"poison_vine_arrow_visual_max_poison",
+				"display_statset_no_hit_damage",
+				"display_statset_hide_usage_stats",
 				"base_is_projectile",
 				"skill_can_fire_arrows",
 				"has_modular_projectiles_enabled",

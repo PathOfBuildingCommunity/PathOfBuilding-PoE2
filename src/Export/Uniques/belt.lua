@@ -15,10 +15,13 @@ UniqueInstantManaFlaskOnLowMana1
 ]],[[
 Brynabas
 Wide Belt
+Variant: Pre 0.1.1
+Variant: Current
 Implicits: 1
 BeltImplicitIncreasedFlaskChargesGained1
 UniqueIncreasedMana7
-RingImplicitLightningResistance1
+{variant:1}UniqueLightningResist7[20,30]
+{variant:2}UniqueLightningResist7
 UniqueLifeRegeneration2
 Cannot be Shocked
 ]],[[
@@ -42,12 +45,15 @@ UniqueGainRareMonsterModsOnKill1
 ]],[[
 Infernoclasp
 Plate Belt
+Variant: Pre 0.1.1
+Variant: Current
 Implicits: 1
 BeltImplicitPhysicalDamageReductionRating1
 UniqueIncreasedPhysicalDamageReductionRating1
 UniqueStrength2
 UniqueMaximumFireResist1
-UniqueFireResist3
+{variant:1}UniqueFireResist3[25,35]
+{variant:2}UniqueFireResist3
 ]],[[
 Ingenuity
 Utility Belt
@@ -57,12 +63,16 @@ UniqueIncreasedRingBonuses1
 ]],[[
 Keelhaul
 Linen Belt
+Variant: Pre 0.1.1
+Variant: Current
 Implicits: 1
 BeltImplicitFlaskManaRecovery1
 UniqueFlaskLifeRecoveryRate4
 UniqueFlaskManaRecoveryRate2
-UniqueLifeFlaskChargeGeneration1
-UniqueManaFlaskChargeGeneration1
+{variant:1}UniqueLifeFlaskChargeGeneration1[0,15]
+{variant:2}UniqueLifeFlaskChargeGeneration1
+{variant:1}UniqueManaFlaskChargeGeneration1[0,15]
+{variant:2}UniqueManaFlaskChargeGeneration1
 ]],[[
 Meginord's Girdle
 Rawhide Belt

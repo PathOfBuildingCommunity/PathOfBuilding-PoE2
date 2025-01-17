@@ -27293,7 +27293,7 @@ return {
 			orbitIndex=20,
 			skill=12462,
 			stats={
-				[1]="8% increased Effect of Auras from your Skills"
+				[1]="8% increased Effect of Auras from your Aura Skills"
 			}
 		},
 		[12488]={
@@ -32699,7 +32699,7 @@ return {
 			orbitIndex=0,
 			skill=17655,
 			stats={
-				[1]="8% increased Effect of Auras from your Skills"
+				[1]="8% increased Effect of Auras from your Aura Skills"
 			}
 		},
 		[17686]={
@@ -67539,7 +67539,7 @@ return {
 			orbitIndex=60,
 			skill=50558,
 			stats={
-				[1]="8% increased Effect of Auras from your Skills"
+				[1]="8% increased Effect of Auras from your Aura Skills"
 			}
 		},
 		[50561]={
@@ -75710,7 +75710,7 @@ return {
 			skill=57805,
 			stats={
 				[1]="20% increased Knockback Distance",
-				[2]="20% chance toKnock Enemies Back with Hits at Close Range"
+				[2]="20% chance to Knock Enemies Back with Hits at Close Range"
 			}
 		},
 		[57810]={
@@ -82379,7 +82379,7 @@ return {
 			},
 			skill=64299,
 			stats={
-				[1]="20% increased Effect of Auras from your Skills"
+				[1]="20% increased Effect of Auras from your Aura Skills"
 			}
 		},
 		[64312]={

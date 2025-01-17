@@ -3,6 +3,11 @@
 
 return {
 	[1]={
+		stats={
+			[1]="quality_display_base_number_of_projectiles_is_gem"
+		}
+	},
+	[2]={
 		[1]={
 			[1]={
 				[1]={
@@ -22,7 +27,7 @@ return {
 			[1]="active_skill_area_of_effect_radius"
 		}
 	},
-	[2]={
+	[3]={
 		[1]={
 			[1]={
 				[1]={
@@ -42,7 +47,7 @@ return {
 			[1]="active_skill_base_area_of_effect_radius"
 		}
 	},
-	[3]={
+	[4]={
 		[1]={
 			[1]={
 				limit={
@@ -63,7 +68,7 @@ return {
 			[2]="skill_can_fire_arrows"
 		}
 	},
-	[4]={
+	[5]={
 		[1]={
 			[1]={
 				limit={
@@ -88,10 +93,11 @@ return {
 			[1]="projectiles_can_shotgun"
 		}
 	},
-	["active_skill_area_of_effect_radius"]=1,
-	["active_skill_base_area_of_effect_radius"]=2,
-	["base_number_of_projectiles"]=3,
+	["active_skill_area_of_effect_radius"]=2,
+	["active_skill_base_area_of_effect_radius"]=3,
+	["base_number_of_projectiles"]=4,
 	parent="skill_stat_descriptions",
-	["projectiles_can_shotgun"]=4,
-	["skill_can_fire_arrows"]=3
+	["projectiles_can_shotgun"]=5,
+	["quality_display_base_number_of_projectiles_is_gem"]=1,
+	["skill_can_fire_arrows"]=4
 }

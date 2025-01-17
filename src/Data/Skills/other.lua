@@ -131,7 +131,7 @@ skills["BleedingConcoctionPlayer"] = {
 	fromTree = true,
 	color = 4,
 	description = "Consume charges from your Mana Flask to throw a bottle that explodes, dealing unarmed Physical attack damage in an area. Bleeding inflicted by this skill has more effect.",
-	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Area] = true, [SkillType.Projectile] = true, [SkillType.UseGlobalStats] = true, [SkillType.Physical] = true, [SkillType.Nonpathing] = true, [SkillType.ProjectileNoCollision] = true, },
+	skillTypes = { [SkillType.Attack] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Area] = true, [SkillType.Projectile] = true, [SkillType.UseGlobalStats] = true, [SkillType.Physical] = true, [SkillType.Nonpathing] = true, [SkillType.ProjectileNoCollision] = true, },
 	castTime = 1,
 	qualityStats = {
 		{ "faster_bleed_%", 1 },
@@ -920,7 +920,7 @@ skills["ElementalStormPlayer"] = {
 	fromTree = true,
 	color = 4,
 	description = "Creates a stationary Fire, Cold or Lightning storm at a target location for a duration, based on the highest Elemental Damage type for the Hit that Triggered the storm. Hits which do not deal Elemental Damage will not Trigger the storm.",
-	skillTypes = { [SkillType.Spell] = true, [SkillType.Duration] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, [SkillType.Physical] = true, [SkillType.Area] = true, [SkillType.Orb] = true, [SkillType.AreaSpell] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Cooldown] = true, [SkillType.Fire] = true, [SkillType.Cold] = true, [SkillType.Lightning] = true, },
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Duration] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Orb] = true, [SkillType.AreaSpell] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Cooldown] = true, [SkillType.Fire] = true, [SkillType.Cold] = true, [SkillType.Lightning] = true, },
 	castTime = 0,
 	qualityStats = {
 		{ "base_cooldown_speed_+%", 0.5 },
@@ -1358,7 +1358,7 @@ skills["ExplosiveConcoctionPlayer"] = {
 	fromTree = true,
 	color = 4,
 	description = "Consume charges from your Mana Flask to throw a bottle that explodes, dealing unarmed Fire attack damage in an area and inflicting Fire Exposure.",
-	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Area] = true, [SkillType.Projectile] = true, [SkillType.UseGlobalStats] = true, [SkillType.Duration] = true, [SkillType.Fire] = true, [SkillType.Nonpathing] = true, [SkillType.ProjectileNoCollision] = true, },
+	skillTypes = { [SkillType.Attack] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Area] = true, [SkillType.Projectile] = true, [SkillType.UseGlobalStats] = true, [SkillType.Duration] = true, [SkillType.Fire] = true, [SkillType.Nonpathing] = true, [SkillType.ProjectileNoCollision] = true, },
 	castTime = 1,
 	qualityStats = {
 		{ "fire_exposure_effect_+%", 1 },
@@ -1486,7 +1486,7 @@ skills["FulminatingConcoctionPlayer"] = {
 	fromTree = true,
 	color = 4,
 	description = "Consume charges from your Mana Flask to throw a bottle that explodes, dealing unarmed Lightning attack damage in an area and inflicting Lightning Exposure.",
-	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Area] = true, [SkillType.Projectile] = true, [SkillType.UseGlobalStats] = true, [SkillType.Duration] = true, [SkillType.Lightning] = true, [SkillType.Nonpathing] = true, [SkillType.ProjectileNoCollision] = true, },
+	skillTypes = { [SkillType.Attack] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Area] = true, [SkillType.Projectile] = true, [SkillType.UseGlobalStats] = true, [SkillType.Duration] = true, [SkillType.Lightning] = true, [SkillType.Nonpathing] = true, [SkillType.ProjectileNoCollision] = true, },
 	castTime = 1,
 	qualityStats = {
 		{ "lightning_exposure_effect_+%", 1 },
@@ -2300,7 +2300,7 @@ skills["PoisonousConcoctionPlayer"] = {
 	fromTree = true,
 	color = 4,
 	description = "Consume charges from your Mana Flask to throw a bottle that explodes, dealing unarmed Chaos attack damage in an area. Poison inflicted by this skill has more effect.",
-	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Area] = true, [SkillType.Projectile] = true, [SkillType.UseGlobalStats] = true, [SkillType.Chaos] = true, [SkillType.Nonpathing] = true, [SkillType.ProjectileNoCollision] = true, },
+	skillTypes = { [SkillType.Attack] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Area] = true, [SkillType.Projectile] = true, [SkillType.UseGlobalStats] = true, [SkillType.Chaos] = true, [SkillType.Nonpathing] = true, [SkillType.ProjectileNoCollision] = true, },
 	castTime = 1,
 	qualityStats = {
 		{ "faster_poison_%", 1 },
@@ -2697,7 +2697,7 @@ skills["ShatteringConcoctionPlayer"] = {
 	fromTree = true,
 	color = 4,
 	description = "Consume charges from your Mana Flask to throw a bottle that explodes, dealing unarmed Cold attack damage in an area and inflicting Cold Exposure.",
-	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Area] = true, [SkillType.Projectile] = true, [SkillType.UseGlobalStats] = true, [SkillType.Duration] = true, [SkillType.Cold] = true, [SkillType.Nonpathing] = true, [SkillType.ProjectileNoCollision] = true, },
+	skillTypes = { [SkillType.Attack] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Area] = true, [SkillType.Projectile] = true, [SkillType.UseGlobalStats] = true, [SkillType.Duration] = true, [SkillType.Cold] = true, [SkillType.Nonpathing] = true, [SkillType.ProjectileNoCollision] = true, },
 	castTime = 1,
 	qualityStats = {
 		{ "cold_exposure_effect_+%", 1 },

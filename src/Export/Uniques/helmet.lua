@@ -13,27 +13,40 @@ UniquePercentageIntelligence1
 ]],[[
 Corona of the Red Sun
 Warrior Greathelm
+Variant: Pre 0.1.1
+Variant: Current
 UniqueIncreasedAccuracy5
 UniqueIncreasedLife14
+{variant:2}UniqueFireResist28
 UniqueLightRadius9
 UniqueLifeLeechToAllies1
 ]],[[
 Deidbell
 Elite Greathelm
+Variant: Pre 0.1.1
+Variant: Current
 UniqueLocalIncreasedPhysicalDamageReductionRatingPercent1
+{variant:2}UniqueStrength31
 UniqueWarcrySpeed1
 UniqueWarcryCorpseExplosion1
 UniqueWarcryAreaOfEffect1
 ]],[[
 Ezomyte Peak
 Soldier Greathelm
+Variant: Pre 0.1.1
+Variant: Current
 UniqueLocalIncreasedPhysicalDamageReductionRatingPercent7
-UniqueIncreasedLife1
+{variant:1}UniqueIncreasedLife11[30,50]
+{variant:2}UniqueIncreasedLife11
+{variant:2}UniqueLifeRegeneration13
 UniqueAreaOfEffect1
 UniqueUnwaveringStance1
 ]],[[
 Horns of Bynden
 Rusted Greathelm
+Variant: Pre 0.1.1
+Variant: Current
+{variant:2}UniqueLocalIncreasedPhysicalDamageReductionRating5
 UniqueItemFoundRarityIncrease4
 UniqueStrength10
 UniqueRageOnHit1
@@ -45,6 +58,9 @@ UniqueHasOnslaught1
 ]],[[
 Wings of Caelyn
 Rusted Greathelm
+Variant: Pre 0.1.1
+Variant: Current
+{variant:2}UniqueLocalIncreasedPhysicalDamageReductionRating5
 UniqueItemFoundRarityIncrease4
 UniqueDexterity3
 UniqueRageOnHit1
@@ -61,9 +77,13 @@ UniqueDoublePresenceRadius1
 ]],[[
 Elevore
 Hunter Hood
+Variant: Pre 0.1.1
+Variant: Current
 UniqueLocalIncreasedEvasionRatingPercent2
-UniqueDexterity2
+{variant:1}UniqueDexterity26[10,20]
+{variant:2}UniqueDexterity26
 UniqueCharmChargeGeneration1
+{variant:2}UniqueGlobalAdditionalCharm1
 ]],[[
 Goldrim
 Felt Cap
@@ -73,6 +93,9 @@ UniqueAllResistances1
 ]],[[
 Innsmouth
 Shabby Hood
+Variant: Pre 0.1.1
+Variant: Current
+{variant:2}UniqueLocalIncreasedEvasionRating5
 UniqueMaximumManaIncrease2
 UniqueColdResist3
 UniqueChaosResist3
@@ -110,16 +133,22 @@ UniquePainAttunement1
 ]],[[
 The Devouring Diadem
 Wicker Tiara
+Variant: Pre 0.1.1
+Variant: Current
 UniqueLocalIncreasedEnergyShieldPercent1
+{variant:2}UniqueIncreasedLife42
 UniqueIntelligence6
 UniqueChaosResist3
 UniqueConsumeCorpseRecoverLife1
 ]],[[
 Forbidden Gaze
 Chain Tiara
+Variant: Pre 0.1.1
+Variant: Current
 UniqueLocalIncreasedEnergyShieldPercent1
 UniqueMaximumColdResist1
-UniqueColdResist8
+{variant:1}UniqueColdResist8[25,35]
+{variant:2}UniqueColdResist8
 UniqueLightRadius1
 ]],[[
 Mask of the Stitched Demon
@@ -138,9 +167,12 @@ UniqueEnemiesInPresenceGainCritWeakness1
 ]],[[
 Visage of Ayah
 Beaded Circlet
+Variant: Pre 0.1.1
+Variant: Current
 UniqueLocalIncreasedEnergyShieldPercent2
 UniqueItemFoundRarityIncrease8
 UniqueCriticalStrikeChance1
+{variant:2}UniqueLightningResist22
 UniqueEldritchBattery1
 ]],
 -- Helmet: Armour/Evasion
@@ -154,21 +186,38 @@ UniquePerfectTimingWindow1
 ]],[[
 Erian's Cobble
 Guarded Helm
-UniqueLocalIncreasedPhysicalDamageReductionRating1
-UniqueLocalIncreasedEvasionRating3
-UniqueLocalIncreasedEnergyShield5
-UniqueIncreasedAccuracy3
-UniqueIncreasedLife21
-UniqueIncreasedMana11
-UniqueItemFoundRarityIncrease11
-UniqueCriticalStrikeChance4
-UniqueStrength14
-UniqueDexterity14
-UniqueIntelligence17
-UniqueFireResist11
-UniqueColdResist13
-UniqueLightningResist9
-UniqueLifeRegeneration5
+Variant: Pre 0.1.1
+Variant: Current
+{variant:1}UniqueLocalIncreasedPhysicalDamageReductionRating1[0,20]
+{variant:1}UniqueLocalIncreasedEvasionRating3[0,15]
+{variant:1}UniqueLocalIncreasedEnergyShield5[0,10]
+{variant:1}UniqueIncreasedAccuracy3[0,30]
+{variant:1}UniqueIncreasedLife21[0,15]
+{variant:1}UniqueIncreasedMana11[0,10]
+{variant:1}UniqueItemFoundRarityIncrease11[0,10]
+{variant:1}UniqueCriticalStrikeChance4[0,15]
+{variant:1}UniqueStrength14[0,5]
+{variant:1}UniqueDexterity14[0,5]
+{variant:1}UniqueIntelligence17[0,5]
+{variant:1}UniqueFireResist11[0,5]
+{variant:1}UniqueColdResist13[0,5]
+{variant:1}UniqueLightningResist9[0,5]
+{variant:1}UniqueLifeRegeneration5[0,3]
+{variant:2}UniqueLocalIncreasedPhysicalDamageReductionRating1
+{variant:2}UniqueLocalIncreasedEvasionRating3
+{variant:2}UniqueLocalIncreasedEnergyShield5
+{variant:2}UniqueIncreasedAccuracy3
+{variant:2}UniqueIncreasedLife21
+{variant:2}UniqueIncreasedMana11
+{variant:2}UniqueItemFoundRarityIncrease11
+{variant:2}UniqueCriticalStrikeChance4
+{variant:2}UniqueStrength14
+{variant:2}UniqueDexterity14
+{variant:2}UniqueIntelligence17
+{variant:2}UniqueFireResist11
+{variant:2}UniqueColdResist13
+{variant:2}UniqueLightningResist9
+{variant:2}UniqueLifeRegeneration5
 ]],[[
 Greymake
 Brimmed Helm
@@ -179,14 +228,20 @@ UniqueAllAttributesPerLevel1
 ]],[[
 Ironride
 Visored Helm
+Variant: Pre 0.1.1
+Variant: Current
 UniqueLocalIncreasedArmourAndEvasion11
+{variant:2}UniqueIncreasedLife44
 UniqueIncreasedMana5
 UniqueLightningResist14
 UniqueAccuracyUnaffectedDistance1
 ]],[[
 The Smiling Knight
 Cowled Helm
-UniqueLocalIncreasedArmourAndEvasion3
+Variant: Pre 0.1.1
+Variant: Current
+{variant:1}UniqueLocalIncreasedArmourAndEvasion5[30,50]
+{variant:2}UniqueLocalIncreasedArmourAndEvasion5
 UniqueIncreasedAccuracy2
 UniqueCriticalStrikeChance6
 UniqueAggravateBleedOnCrit1
@@ -202,9 +257,12 @@ UniqueBuildDamageAgainstRareAndUnique1
 [[
 Bronzebeard
 Horned Crown
+Variant: Pre 0.1.1
+Variant: Current
 UniqueMovementVelocity6
 UniqueLocalIncreasedArmourAndEnergyShield5
-UniqueIncreasedLife3
+{variant:1}UniqueIncreasedLife12[40,60]
+{variant:2}UniqueIncreasedLife12
 UniqueReducedChillEffectOnSelf1
 UniqueReducedIgniteEffectOnSelf1
 UniqueReducedShockEffectOnSelf1
@@ -218,9 +276,12 @@ UniqueExperienceIncrease1
 ]],[[
 Crown of the Pale King
 Cultist Crown
+Variant: Pre 0.1.1
+Variant: Current
 UniqueLocalIncreasedArmourAndEnergyShield5
 UniqueIncreasedLife13
 UniqueItemFoundRarityIncrease3
+{variant:2}UniqueAttackerTakesDamage5
 UniqueThornsOnAnyHit1
 ]],[[
 Crown of the Victor
@@ -248,22 +309,32 @@ UniqueSetElementalResistances1
 [[
 Atsak's Sight
 Veiled Mask
-UniqueCriticalStrikeChance3
+Variant: Pre 0.1.1
+Variant: Current
+{variant:2}UniqueLocalIncreasedEvasionAndEnergyShield14
+{variant:1}UniqueCriticalStrikeChance3[20,40]
+{variant:2}UniqueCriticalStrikeChance3
 UniqueDexterity2
 UniqueIntelligence6
 Critical Hits Poison the enemy
 ]],[[
 The Hollow Mask
 Hewn Mask
+Variant: Pre 0.1.1
+Variant: Current
 UniqueIncreasedLife14
 UniqueAdditionalPhysicalDamageReduction1
 UniqueAllResistances4
+{variant:2}UniqueChaosResist23
 ]],[[
 Leer Cast
 Hooded Mask
-UniqueIncreasedLife1
+Variant: Pre 0.1.1
+Variant: Current
+UniqueIncreasedLife32
 UniqueIncreasedMana5
 UniqueNearbyAlliesAllDamage1
+{variant:2}UniqueDexterity32
 UniqueAllDamage1
 ]],[[
 The Three Dragons

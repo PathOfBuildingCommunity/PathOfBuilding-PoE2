@@ -5,9 +5,12 @@ return {
 [[
 Carrion Call
 Engraved Focus
+Variant: Pre 0.1.1
+Variant: Current
 +(30-40) to maximum Energy Shield
 Minions have (20-30)% increased maximum Life
 (20-30)% increased Mana Regeneration Rate
+{variant:2}Minions deal (20-30)% increased Damage
 Minions' Resistances are equal to yours
 ]],[[
 Deathrattle
@@ -19,10 +22,14 @@ Twig Focus
 ]],[[
 The Eternal Spark
 Crystal Focus
+Variant: Pre 0.1.1
+Variant: Current
 (50-70)% increased Energy Shield
 +5% to Maximum Lightning Resistance
 +(20-30)% to Lightning Resistance
-50% increased Mana Regeneration Rate while stationary
+{variant:2}40% increased Mana Regeneration Rate
+{variant:1}50% increased Mana Regeneration Rate while stationary
+{variant:2}40% increased Mana Regeneration Rate while stationary
 ]],[[
 Serpent's Lesson
 Tonal Focus

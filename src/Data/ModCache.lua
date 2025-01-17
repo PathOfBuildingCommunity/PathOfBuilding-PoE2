@@ -1065,10 +1065,10 @@ c["20% chance for Slam Skills you use yourself to cause Aftershocks"]={{}," for 
 c["20% chance to Aggravate Bleeding on targets you Critically Hit with Attacks"]={{}," to Aggravate Bleeding on targets you Critically Hit  "}
 c["20% chance to Aggravate Bleeding on targets you Hit with Empowered Attacks"]={{}," to Aggravate Bleeding on targets you Hit with Empowered Attacks "}
 c["20% chance to Aggravate Bleeding on targets you Hit with Empowered Attacks Empowered Attacks deal 30% increased Damage"]={{[1]={flags=0,keywordFlags=0,name="Damage",type="BASE",value=20}}," to Aggravate Bleeding on targets you Hit with Empowered Attacks Empowered Attacks deal 30% increased  "}
+c["20% chance to Knock Enemies Back with Hits at Close Range"]={{}," to Knock Enemies Back   "}
 c["20% chance to Poison on Hit"]={{[1]={flags=0,keywordFlags=0,name="PoisonChance",type="BASE",value=20}},nil}
 c["20% chance to gain a Power Charge on Hit"]={nil,"a Power Charge on Hit "}
 c["20% chance to gain a Power Charge on Hit Lose all Power Charges on reaching maximum Power Charges"]={nil,"a Power Charge on Hit Lose all Power Charges on reaching maximum Power Charges "}
-c["20% chance toKnock Enemies Back with Hits at Close Range"]={{}," toKnock Enemies Back   "}
 c["20% faster start of Energy Shield Recharge"]={{[1]={flags=0,keywordFlags=0,name="EnergyShieldRechargeFaster",type="INC",value=20}},nil}
 c["20% increased Accuracy Rating against Rare or Unique Enemies"]={{[1]={flags=0,keywordFlags=0,name="Accuracy",type="INC",value=20}},"  against Rare or Unique Enemies "}
 c["20% increased Accuracy Rating against Rare or Unique Enemies 20% increased chance to inflict Ailments against Rare or Unique Enemies"]={{[1]={flags=0,keywordFlags=0,name="Accuracy",type="INC",value=20}},"  against Rare or Unique Enemies 20% increased chance to inflict Ailments against Rare or Unique Enemies "}
@@ -1114,7 +1114,7 @@ c["20% increased Daze Buildup"]={{}," Daze Buildup "}
 c["20% increased Daze Buildup with Quarterstaves"]={{}," Daze Buildup  "}
 c["20% increased Daze Buildup with Quarterstaves 20% increased Freeze Buildup with Quarterstaves"]={{}," Daze Buildup  20% increased Freeze Buildup with Quarterstaves "}
 c["20% increased Duration of Damaging Ailments on Enemies"]={{[1]={flags=0,keywordFlags=0,name="EnemyIgniteDuration",type="INC",value=20},[2]={flags=0,keywordFlags=0,name="EnemyBleedDuration",type="INC",value=20},[3]={flags=0,keywordFlags=0,name="EnemyPoisonDuration",type="INC",value=20}},nil}
-c["20% increased Effect of Auras from your Skills"]={{[1]={flags=0,keywordFlags=0,name="LocalEffect",type="INC",value=20}},"  of Auras from your Skills "}
+c["20% increased Effect of Auras from your Aura Skills"]={{[1]={flags=0,keywordFlags=0,name="LocalEffect",type="INC",value=20}},"  of Auras from your Aura Skills "}
 c["20% increased Effect of Withered"]={{[1]={flags=0,keywordFlags=0,name="WitherEffect",type="INC",value=20}},nil}
 c["20% increased Elemental Damage with Attacks"]={{[1]={flags=0,keywordFlags=65536,name="ElementalDamage",type="INC",value=20}},nil}
 c["20% increased Endurance Charge Duration"]={{[1]={flags=0,keywordFlags=0,name="EnduranceChargesDuration",type="INC",value=20}},nil}
@@ -1830,7 +1830,7 @@ c["50% increased Totem Placement range"]={{[1]={flags=0,keywordFlags=16384,name=
 c["50% increased Weapon Swap Speed"]={{[1]={flags=0,keywordFlags=0,name="WeaponSwapSpeed",type="INC",value=50}},nil}
 c["50% increased amount of Mana Leeched"]={{[1]={flags=0,keywordFlags=0,name="ManaLeech",type="INC",value=50}},nil}
 c["50% increased chance to Ignite"]={{[1]={flags=0,keywordFlags=0,name="EnemyIgniteChance",type="INC",value=50}},nil}
-c["50% increased effect of Small Passive Skills"]={{[1]={flags=0,keywordFlags=0,name="LocalEffect",type="INC",value=50}},"  of Small Passive Skills "}
+c["50% increased effect of Small Passive Skills"]={{[1]={flags=0,keywordFlags=0,name="SmallPassiveSkillEffect",type="INC",value=50}},nil}
 c["50% increased effect of Sorcery Ward"]={{[1]={[1]={includeTransfigured=true,skillName="Sorcery Ward",type="SkillName"},flags=0,keywordFlags=0,name="LocalEffect",type="INC",value=50}},"  of"}
 c["50% increased effect of Sorcery Ward Sorcery Ward recovers 50% faster"]={{[1]={[1]={includeTransfigured=true,skillName="Sorcery Ward",type="SkillName"},flags=0,keywordFlags=0,name="LocalEffect",type="INC",value=50}},"  ofSorcery Ward recovers 50% faster "}
 c["50% increased maximum Dash Distance with Unarmed Attack Skills"]={{}," maximum Dash Distance with  Attack Skills "}
@@ -1983,7 +1983,7 @@ c["8% increased Critical Hit Chance"]={{[1]={flags=0,keywordFlags=0,name="CritCh
 c["8% increased Critical Hit Chance for Attacks"]={{[1]={flags=1,keywordFlags=0,name="CritChance",type="INC",value=8}},nil}
 c["8% increased Damage for each time you've Warcried Recently"]={{[1]={[1]={type="Multiplier",var="WarcryUsedRecently"},flags=0,keywordFlags=0,name="Damage",type="INC",value=8}},nil}
 c["8% increased Dexterity"]={{[1]={flags=0,keywordFlags=0,name="Dex",type="INC",value=8}},nil}
-c["8% increased Effect of Auras from your Skills"]={{[1]={flags=0,keywordFlags=0,name="LocalEffect",type="INC",value=8}},"  of Auras from your Skills "}
+c["8% increased Effect of Auras from your Aura Skills"]={{[1]={flags=0,keywordFlags=0,name="LocalEffect",type="INC",value=8}},"  of Auras from your Aura Skills "}
 c["8% increased Effect of your Curses"]={{[1]={flags=0,keywordFlags=0,name="CurseEffect",type="INC",value=8}},nil}
 c["8% increased Effect of your Mark Skills"]={{[1]={[1]={skillType=109,type="SkillType"},flags=0,keywordFlags=0,name="LocalEffect",type="INC",value=8}},nil}
 c["8% increased Elemental Damage"]={{[1]={flags=0,keywordFlags=0,name="ElementalDamage",type="INC",value=8}},nil}

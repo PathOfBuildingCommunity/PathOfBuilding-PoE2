@@ -649,6 +649,60 @@ function floor(val, dec)
 	end
 end
 
+-- Symmetric round with precision: Rounds towards zero to <dec> decimal places.
+function roundSymmetric(val, dec)
+    if dec then
+        local factor = 10 ^ dec
+        if val >= 0 then
+            return m_floor(val * factor + 0.5) / factor
+        else
+            return m_ceil(val * factor - 0.5) / factor
+        end
+    else
+        if val >= 0 then
+            return m_floor(val + 0.5)
+        else
+            return m_ceil(val - 0.5)
+        end
+    end
+end
+
+-- Symmetric floor with precision: Rounds down towards zero to <dec> decimal places.
+function floorSymmetric(val, dec)
+    if dec then
+        local factor = 10 ^ dec
+        if val >= 0 then
+            return m_floor(val * factor) / factor
+        else
+            return m_ceil(val * factor) / factor
+        end
+    else
+        if val >= 0 then
+            return m_floor(val)
+        else
+            return m_ceil(val)
+		end
+    end
+end
+
+-- Symmetric ceil with precision: Rounds up towards zero to <dec> decimal places.
+function ceilSymmetric(val, dec)
+    if dec then
+        local factor = 10 ^ dec
+        if val >= 0 then
+            return m_ceil(val * factor) / factor
+        else
+            return m_floor(val * factor) / factor
+        end
+    else
+        if val >= 0 then
+            return m_ceil(val)
+        else
+            return m_floor(val)
+        end
+    end
+end
+
 ---@param n number
 ---@return number
 function triangular(n)

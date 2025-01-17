@@ -5,9 +5,12 @@ return {
 [[
 Carrion Call
 Engraved Focus
+Variant: Pre 0.1.1
+Variant: Current
 UniqueIncreasedEnergyShield3
 UniqueMinionLife1
 UniqueManaRegeneration6
+{variant:2}UniqueMinionDamage1
 UniqueMinionResistanceEqualYours1
 ]],[[
 Deathrattle
@@ -19,10 +22,14 @@ UniqueEnergyShieldRechargeOnKill1
 ]],[[
 The Eternal Spark
 Crystal Focus
+Variant: Pre 0.1.1
+Variant: Current
 UniqueLocalIncreasedEnergyShieldPercent3
 UniqueMaximumLightningResist2
 RingImplicitLightningResistance1
-UniqueManaRegenerationWhileStationary1
+{variant:2}UniqueManaRegeneration28
+{variant:1}UniqueManaRegenerationWhileStationary1[50,50]
+{variant:2}UniqueManaRegenerationWhileStationary1
 ]],[[
 Serpent's Lesson
 Tonal Focus

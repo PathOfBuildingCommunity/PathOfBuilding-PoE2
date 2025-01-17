@@ -5,8 +5,11 @@ return {
 [[
 Asphyxia's Wrath
 Broadhead Quiver
+Variant: Pre 0.1.1
+Variant: Current
 Implicits: 1
 Adds 1 to 3 Physical Damage to Attacks
+{variant:2}Adds (3-4) to (5-8) Cold damage to Attacks
 (5-10)% increased Attack Speed
 +(5-10)% to Cold Resistance
 Enemies Chilled by your Hits increase damage taken by Chill Magnitude
@@ -23,8 +26,11 @@ Attacks Gain (10-20)% of Physical Damage as extra Chaos Damage
 ]],[[
 Blackgleam
 Fire Quiver
+Variant: Pre 0.1.1
+Variant: Current
 Implicits: 1
 Adds 3 to 5 Fire damage to Attacks
+{variant:2}Adds (3-5) to (6-9) Fire damage to Attacks
 +(30-50) to maximum Mana
 50% increased chance to Ignite
 Projectiles Pierce all Ignited enemies

@@ -83,7 +83,7 @@ skills["SupportArcaneSurgePlayer"] = {
 	support = true,
 	requireSkillTypes = { SkillType.Spell, },
 	addSkillTypes = { SkillType.Duration, },
-	excludeSkillTypes = { SkillType.Trapped, SkillType.RemoteMined, SkillType.SummonsTotem, SkillType.UsedByTotem, SkillType.HasReservation, SkillType.ReservationBecomesCost, SkillType.NOT, SkillType.AND, },
+	excludeSkillTypes = { SkillType.Trapped, SkillType.RemoteMined, SkillType.SummonsTotem, SkillType.UsedByTotem, SkillType.Triggered, SkillType.HasReservation, SkillType.ReservationBecomesCost, SkillType.NOT, SkillType.AND, },
 	levels = {
 		[1] = { levelRequirement = 0, },
 	},
@@ -271,7 +271,7 @@ skills["SupportBurningRunesPlayer"] = {
 	name = "Burning Inscription",
 	hidden = true,
 	description = "Creates Ignited Ground Igniting Enemies based off a percentage of your Maximum Mana.",
-	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Fire] = true, [SkillType.SkillGrantedBySupport] = true, },
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Fire] = true, [SkillType.SkillGrantedBySupport] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -758,7 +758,7 @@ skills["SupportConsideredCastingPlayer"] = {
 	support = true,
 	requireSkillTypes = { SkillType.Spell, },
 	addSkillTypes = { },
-	excludeSkillTypes = { SkillType.FixedCastTime, SkillType.Trapped, SkillType.RemoteMined, SkillType.SummonsTotem, SkillType.UsedByTotem, SkillType.HasReservation, SkillType.ReservationBecomesCost, SkillType.NOT, SkillType.AND, },
+	excludeSkillTypes = { SkillType.FixedCastTime, SkillType.Trapped, SkillType.RemoteMined, SkillType.SummonsTotem, SkillType.Triggered, SkillType.UsedByTotem, SkillType.HasReservation, SkillType.ReservationBecomesCost, SkillType.NOT, SkillType.AND, },
 	levels = {
 		[1] = { levelRequirement = 0, },
 	},
@@ -1102,7 +1102,7 @@ skills["SupportElementalDischargePlayer"] = {
 }skills["TriggeredElementalDischargePlayer"] = {
 	name = "Elemental Discharge",
 	hidden = true,
-	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.Triggerable] = true, [SkillType.Cooldown] = true, },
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.Triggerable] = true, [SkillType.Cooldown] = true, [SkillType.Triggered] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -2213,7 +2213,7 @@ skills["SupportManaFlarePlayer"] = {
 }skills["TriggeredManaFlarePlayer"] = {
 	name = "Mana Flare",
 	hidden = true,
-	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.Triggerable] = true, [SkillType.Cooldown] = true, },
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.Triggerable] = true, [SkillType.Cooldown] = true, [SkillType.Triggered] = true, },
 	castTime = 1,
 	qualityStats = {
 	},

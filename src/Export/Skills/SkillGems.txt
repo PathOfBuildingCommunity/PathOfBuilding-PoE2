@@ -8,9 +8,9 @@ Artillery Ballista            		----		ArtilleryBallistaPlayer	ArtilleryBallistaP
 Attrition                     		----		AttritionPlayer
 Berserk                       		----		BerserkPlayer
 Boneshatter                   		----		BoneshatterPlayer
-Cast on Block                 		----		MetaCastOnBlockPlayer	SupportMetaCastOnBlockPlayer
-Cast on Melee Kill            		----		MetaCastOnMeleeKillPlayer	SupportMetaCastOnMeleeKillPlayer
-Cast on Melee Stun            		----		MetaCastOnMeleeStunPlayer	SupportMetaCastOnMeleeStunPlayer
+Cast on Block                 		----		MetaCastOnBlockPlayer	SupportMetaCastOnBlockPlayer	SupportInvisibleMetaGemSupport
+Cast on Melee Kill            		----		MetaCastOnMeleeKillPlayer	SupportMetaCastOnMeleeKillPlayer	SupportInvisibleMetaGemSupport
+Cast on Melee Stun            		----		MetaCastOnMeleeStunPlayer	SupportMetaCastOnMeleeStunPlayer	SupportInvisibleMetaGemSupport
 Cluster Grenade               		----		ClusterGrenadePlayer	ClusterGrenadeMiniPlayer
 Defiance Banner               		----		DefianceBannerReservationPlayer	DefianceBannerPlayer
 Dread Banner                  		----		DreadBannerReservationPlayer	DreadBannerPlayer
@@ -219,20 +219,20 @@ Arc                           		----		ArcPlayer
 Archmage                      		----		ArchmagePlayer
 Arctic Armour                 		----		ArcticArmourPlayer
 Ball Lightning                		----		BallLightningPlayer
-Barrier Invocation            		----		MetaBarrierInvocationPlayer	SupportBarrierInvocationPlayer
+Barrier Invocation            		----		MetaBarrierInvocationPlayer	SupportBarrierInvocationPlayer	SupportInvisibleMetaGemSupport
 Blasphemy                     		----		BlasphemyPlayer	SupportBlasphemyPlayer
 Blink                         		----		BlinkReservationPlayer	BlinkPlayer
 Bone Blast                    		----		BoneBlastPlayer
 Bone Cage                     		----		BoneCagePlayer
 Bone Offering                 		----		BoneOfferingPlayer
 Bonestorm                     		----		BonestormPlayer
-Cast on Critical              		----		MetaCastOnCritPlayer	SupportMetaCastOnCritPlayer
-Cast on Death                 		----		MetaCastOnDeathPlayer	SupportMetaCastOnDeathPlayer
-Cast on Dodge                 		----		MetaCastOnDodgePlayer	SupportMetaCastOnDodgePlayer
-Cast on Freeze                		----		MetaCastOnFreezePlayer	SupportMetaCastOnFreezePlayer
-Cast on Ignite                		----		MetaCastOnIgnitePlayer	SupportMetaCastOnIgnitePlayer
-Cast on Minion Death          		----		MetaCastOnMinionDeathPlayer	SupportMetaCastOnMinionDeathPlayer
-Cast on Shock                 		----		MetaCastOnShockPlayer	SupportMetaCastOnShockPlayer
+Cast on Critical              		----		MetaCastOnCritPlayer	SupportMetaCastOnCritPlayer	SupportInvisibleMetaGemSupport
+Cast on Death                 		----		MetaCastOnDeathPlayer	SupportMetaCastOnDeathPlayer	SupportInvisibleMetaGemSupport
+Cast on Dodge                 		----		MetaCastOnDodgePlayer	SupportMetaCastOnDodgePlayer	SupportInvisibleMetaGemSupport
+Cast on Freeze                		----		MetaCastOnFreezePlayer	SupportMetaCastOnFreezePlayer	SupportInvisibleMetaGemSupport
+Cast on Ignite                		----		MetaCastOnIgnitePlayer	SupportMetaCastOnIgnitePlayer	SupportInvisibleMetaGemSupport
+Cast on Minion Death          		----		MetaCastOnMinionDeathPlayer	SupportMetaCastOnMinionDeathPlayer	SupportInvisibleMetaGemSupport
+Cast on Shock                 		----		MetaCastOnShockPlayer	SupportMetaCastOnShockPlayer	SupportInvisibleMetaGemSupport
 Chaos Bolt                    		----		WeaponGrantedChaosboltPlayer
 Charge Infusion               		----		ChargeInfusionPlayer
 Charged Staff                 		----		ChargedStaffPlayer	ChargedStaffShockwavePlayer
@@ -246,7 +246,7 @@ Despair                       		----		DespairPlayer
 Detonate Dead                 		----		DetonateDeadPlayer
 Discipline                    		----		DisciplinePlayer
 Elemental Conflux             		----		ElementalConfluxPlayer
-Elemental Invocation          		----		MetaElementalInvocationPlayer	SupportElementalInvocationPlayer
+Elemental Invocation          		----		MetaElementalInvocationPlayer	SupportElementalInvocationPlayer	SupportInvisibleMetaGemSupport
 Ember Fusillade               		----		BlazingClusterPlayer
 Enfeeble                      		----		EnfeeblePlayer
 Essence Drain                 		----		EssenceDrainPlayer
@@ -263,7 +263,6 @@ Freezing Mark                 		----		FreezingMarkPlayer	TriggeredFreezingMarkNo
 Freezing Shards               		----		FreezingShardsPlayer
 Frost Bomb                    		----		FrostBombPlayer
 Frost Wall                    		----		FrostWallPlayer
-Frostbite                     		----		HypothermiaPlayer
 Frostbolt                     		----		FrostboltPlayer
 Frozen Locus                  		----		FrozenLocusPlayer	FrozenLocusExplodePlayer
 Galvanic Field                		----		GalvanicFieldPlayer
@@ -274,6 +273,7 @@ Grim Feast                    		----		GrimFeastPlayer
 Hand of Chayula               		----		HandOfChayulaPlayer	SupportHandOfChayulaPlayer
 Herald of Ice                 		----		HeraldOfIcePlayer
 Hexblast                      		----		HexblastPlayer
+Hypothermia                   		----		HypothermiaPlayer
 Ice Nova                      		----		IceNovaPlayer
 Ice Strike                    		----		IceStrikePlayer
 Incinerate                    		----		IncineratePlayer
@@ -297,7 +297,7 @@ Purity of Ice                 		----		PurityOfIcePlayer
 Purity of Lightning           		----		PurityOfLightningPlayer
 Raging Spirits                		----		RagingSpiritsPlayer
 Raise Zombie                  		----		RaiseZombiePlayer
-Reaper's Invocation           		----		MetaReapersInvocationPlayer	SupportReapersInvocationPlayer
+Reaper's Invocation           		----		MetaReapersInvocationPlayer	SupportReapersInvocationPlayer	SupportInvisibleMetaGemSupport
 Rolling Magma                 		----		RollingMagmaPlayer
 Sacrifice                     		----		SacrificePlayer
 Shattering Palm               		----		ShatteringPalmPlayer	ShatteringPalmExplosionPlayer

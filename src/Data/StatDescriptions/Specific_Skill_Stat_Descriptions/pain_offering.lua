@@ -20,7 +20,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Aura radius {0}m"
+				text="Minion Aura radius {0}m"
 			}
 		},
 		stats={
@@ -40,7 +40,7 @@ return {
 						[2]=10
 					}
 				},
-				text="Aura radius is {0} metre"
+				text="Minion Aura radius is {0} metre"
 			},
 			[2]={
 				[1]={
@@ -53,7 +53,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Aura radius is {0} metres"
+				text="Minion Aura radius is {0} metres"
 			}
 		},
 		stats={

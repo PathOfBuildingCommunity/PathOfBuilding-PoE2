@@ -5,8 +5,11 @@ return {
 [[
 Atziri's Acuity
 Moulded Mitts
+Variant: Pre 0.1.1
+Variant: Current
 UniqueLocalIncreasedPhysicalDamageReductionRatingPercent11
-UniqueCriticalStrikeChance1
+{variant:1}UniqueCriticalStrikeChance2[20,30]
+{variant:2}UniqueCriticalStrikeChance2
 UniqueIntelligence9
 UniqueCriticalStrikesLeechIsInstant1
 ]],[[
@@ -18,23 +21,34 @@ UniqueLoseRageOnMaximumRage1
 ]],[[
 Lochtonial Caress
 Tempered Mitts
+Variant: Pre 0.1.1
+Variant: Current
 UniqueIncreasedSkillSpeed1
+{variant:2}UniqueLocalIncreasedPhysicalDamageReductionRating3
 UniqueIncreasedLife3
 UniqueMaximumManaIncrease3
 UniqueShareChargesWithAllies1
 ]],[[
 Treefingers
 Riveted Mitts
+Variant: Pre 0.1.1
+Variant: Current
 UniqueLocalIncreasedPhysicalDamageReductionRatingPercent5
-UniqueAddedPhysicalDamage4
+{variant:1}UniqueAddedPhysicalDamage4[3,5][6,8]
+{variant:2}UniqueAddedPhysicalDamage4
+{variant:2}UniqueIncreasedAttackSpeed7
+{variant:2}UniqueStunDamageIncrease2
 UniqueGiantsBlood1
 ]],
 -- Gloves: Evasion
 [[
 Grip of Winter
 Firm Bracers
+Variant: Pre 0.1.1
+Variant: Current
 UniqueLocalIncreasedEvasionRatingPercent6
 UniqueAddedColdDamage1
+{variant:2}UniqueColdResist24
 UniqueFreezeDamageIncrease2
 UniqueChillEffect1
 ]],[[
@@ -56,24 +70,38 @@ UniqueCriticalStrikeMultiplierOverride1
 ]],[[
 Northpaw
 Suede Bracers
-UniqueAddedPhysicalDamage2
+Variant: Pre 0.1.1
+Variant: Current
+{variant:2}UniqueLocalIncreasedEvasionRating4
+{variant:1}UniqueAddedPhysicalDamage2[2,3][5,6]
+{variant:2}UniqueAddedPhysicalDamage2
 UniqueCriticalMultiplier1
 UniqueOverrideWeaponBaseCritical1
 ]],[[
 Snakebite
 Spined Bracers
+Variant: Pre 0.1.1
+Variant: Current
 UniqueLocalIncreasedEvasionRatingPercent3
 UniqueChaosResist6
-UniqueLocalChanceToPoison1
+{variant:2}UniqueLifeRegeneration12
+{variant:1}UniqueBaseChanceToPoison1[20,20]
+{variant:2}UniqueBaseChanceToPoison1
 UniquePoisonStackCount1
 ]],
 -- Gloves: Energy Shield
 [[
 Candlemaker
 Sombre Gloves
+Variant: Pre 0.1.1
+Variant: Current
 UniqueLocalIncreasedEnergyShieldPercent2
-UniqueFireResist2
-UniqueColdResist1
+{variant:2}UniqueFireDamagePercent2
+{variant:2}UniqueColdDamagePercent2
+{variant:1}UniqueFireResist2[15,30]
+{variant:2}UniqueFireResist2
+{variant:1}UniqueColdResist1[-30,-15]
+{variant:2}UniqueColdResist1
 UniqueDoubleIgniteChance1
 ]],[[
 Demon Stitcher
@@ -85,6 +113,9 @@ UniqueSacrificeLifeToGainEnergyShield1
 ]],[[
 Doedre's Tenure
 Stitched Gloves
+Variant: Pre 0.1.1
+Variant: Current
+{variant:2}UniqueLocalIncreasedEnergyShield12
 UniqueSpellDamage1
 UniqueIncreasedCastSpeed6
 AmuletImplicitIntelligence1
@@ -98,9 +129,14 @@ UniqueLightningDamageCanElectrocute1
 ]],[[
 Painter's Servant
 Torn Gloves
-UniqueFireResist5
-UniqueColdResist4
-UniqueLightningResist1
+Variant: Pre 0.1.1
+Variant: Current
+{variant:1}UniqueFireResist5
+{variant:1}UniqueColdResist4
+{variant:1}UniqueLightningResist1
+{variant:2}UniqueElementalDamageGainedAsCold1
+{variant:2}UniqueElementalDamageGainedAsFire1
+{variant:2}UniqueElementalDamageGainedAsLightning1
 UniqueElementalDamageConvertToCold1
 UniqueElementalDamageConvertToFire1
 UniqueElementalDamageConvertToLightning1
@@ -122,15 +158,21 @@ UniqueMaximumLifeOnKillPercent1
 ]],[[
 Deathblow
 Doubled Gauntlets
+Variant: Pre 0.1.1
+Variant: Current
 UniqueLocalIncreasedArmourAndEvasion7
+{variant:2}UniqueIncreasedAttackSpeed8
 UniqueLifeGainedFromEnemyDeath4
 UniqueManaGainedFromEnemyDeath5
 UniqueCullingStrike1
 ]],[[
 Jarngreipr
 Ringmail Gauntlets
-UniqueAddedPhysicalDamage2
-UniqueIncreasedLife1
+Variant: Pre 0.1.1
+Variant: Current
+{variant:2}UniqueLocalIncreasedArmourAndEvasion25
+UniqueAddedPhysicalDamage3
+UniqueIncreasedLife6
 UniqueIncreasedAttackSpeed2
 UniqueStrengthSatisfiesAllWeaponRequirements1
 ]],
@@ -138,6 +180,9 @@ UniqueStrengthSatisfiesAllWeaponRequirements1
 [[
 Blueflame Bracers
 Goldcast Cuffs
+Variant: Pre 0.1.1
+Variant: Current
+{variant:2}UniqueLocalIncreasedEnergyShield11
 UniqueIntelligence6
 UniqueFireResist7
 UniqueColdResist9
@@ -145,7 +190,10 @@ UniqueFireDamageConvertToCold1
 ]],[[
 Gravebind
 Rope Cuffs
+Variant: Pre 0.1.1
+Variant: Current
 UniqueLocalIncreasedArmourAndEnergyShield4
+{variant:2}UniqueColdResist25
 UniqueLifeGainedFromEnemyDeath3
 UniqueManaGainedFromEnemyDeath4
 UniqueEnemiesKilledCountAsYours1
@@ -178,16 +226,22 @@ UniqueLightningDamageToAttacksPerIntelligence1
 ]],[[
 Killjoy
 Linen Wraps
+Variant: Pre 0.1.1
+Variant: Current
 UniqueLocalIncreasedEvasionAndEnergyShield2
-UniqueIncreasedLife1
+UniqueIncreasedLife10
+{variant:2}UniqueCriticalMultiplier3
 UniqueLifeFlaskNoRecovery1
 UniqueDoubleOnKillEffects1
 ]],[[
 Plaguefinger
 Gauze Wraps
+Variant: Pre 0.1.1
+Variant: Current
 UniqueLocalIncreasedEvasionAndEnergyShield1
 UniqueIncreasedAttackSpeed1
-UniqueBaseChanceToPoison2
+{variant:1}UniqueBaseChanceToPoison2[5,10]
+{variant:2}UniqueBaseChanceToPoison2
 UniqueAllDamageCanPoison1
 ]],
 -- Gloves: Armour/Evasion/Energy Shield

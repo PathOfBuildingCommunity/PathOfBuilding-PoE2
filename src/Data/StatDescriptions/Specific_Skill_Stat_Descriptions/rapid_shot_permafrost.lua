@@ -62,6 +62,10 @@ return {
 					[1]={
 						[1]="#",
 						[2]="#"
+					},
+					[2]={
+						[1]="#",
+						[2]="#"
 					}
 				},
 				text="More damage after one second {0}%"
@@ -70,6 +74,10 @@ return {
 				limit={
 					[1]={
 						[1]=1,
+						[2]="#"
+					},
+					[2]={
+						[1]="#",
 						[2]="#"
 					}
 				},
@@ -84,13 +92,31 @@ return {
 					[1]={
 						[1]="#",
 						[2]=-1
+					},
+					[2]={
+						[1]="#",
+						[2]="#"
 					}
 				},
 				text="Shards that have existed for at\nleast one second deal {0}% less Damage"
+			},
+			[4]={
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					},
+					[2]={
+						[1]=0,
+						[2]=0
+					}
+				},
+				text="Shards that have existed for at\nleast one second deal {0:+d}% more Damage"
 			}
 		},
 		stats={
-			[1]="permafrost_shard_damage_+%_final_after_1_second"
+			[1]="permafrost_shard_damage_+%_final_after_1_second",
+			[2]="quality_display_permafrost_shard_damage_+%_final_after_1_second_is_gem"
 		}
 	},
 	[4]={
@@ -131,5 +157,6 @@ return {
 	["active_skill_base_area_of_effect_radius"]=2,
 	parent="skill_stat_descriptions",
 	["permafrost_shard_damage_+%_final_after_1_second"]=3,
-	["permafrost_shard_limit"]=4
+	["permafrost_shard_limit"]=4,
+	["quality_display_permafrost_shard_damage_+%_final_after_1_second_is_gem"]=3
 }

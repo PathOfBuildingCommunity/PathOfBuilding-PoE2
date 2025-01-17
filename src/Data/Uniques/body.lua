@@ -5,28 +5,44 @@ return {
 [[
 Blackbraid
 Fur Plate
+Variant: Pre 0.1.1
+Variant: Current
+{variant:2}+(40-60) to Armour
 +(5-15) to Strength
 +(5-15) to Intelligence
+{variant:2}+10% to all Elemental Resistances
 +(40-60) to Stun Threshold
 Armour applies to Elemental Damage
 ]],[[
 Bramblejack
 Rusted Cuirass
-+(50-80) to maximum Life
+Variant: Pre 0.1.1
+Variant: Current
+{variant:1}+(50-80) to maximum Life
+{variant:2}+(60-100) to maximum Life
 +(60-100) to Stun Threshold
+{variant:2}Cannot Evade Enemy Attacks
 250% of Melee Physical Damage taken reflected to Attacker
+{variant:2}Regenerate 5% of Life per second while Surrounded
 ]],[[
 The Brass Dome
 Champion Cuirass
-(300-400)% increased Armour
--5% to all Maximum Elemental Resistances
+Variant: Pre 0.1.1
+Variant: Current
+{variant:1}(300-400)% increased Armour
+{variant:2}(400-500)% increased Armour
+{variant:1}+5% to all Maximum Elemental Resistances
+{variant:2}-(5-1)% to all Maximum Elemental Resistances
 +(200-300) to Stun Threshold
 Take no Extra Damage from Critical Hits
 ]],[[
 Edyrn's Tusks
 Iron Cuirass
+Variant: Pre 0.1.1
+Variant: Current
 (120-160)% increased Armour
-10% chance to inflict Bleeding on Hit
+{variant:1}10% chance to inflict Bleeding on Hit
+{variant:2}50% chance to inflict Bleeding on Hit
 50% reduced Slowing Potency of Debuffs on You
 (15-20) to (25-30) Physical Thorns damage
 ]],[[
@@ -38,11 +54,17 @@ Vaal Cuirass
 (30-50)% increased Rarity of Items found
 +(20-30)% to Fire Resistance
 ]],[[
-The Immortan
+The Road Warrior
 Raider Plate
-(50-100)% increased Armour
-+(15-25)% to Fire Resistance
-+(15-25)% to Lightning Resistance
+Variant: Pre 0.1.1
+Variant: Current
+{variant:1}(50-100)% increased Armour
+{variant:2}+(10-15) to all Attributes
+{variant:1}+(15-25)% to Fire Resistance
+{variant:2}+(15-30)% to Fire Resistance
+{variant:1}+(15-25)% to Lightning Resistance
+{variant:2}+(15-30)% to Lightning Resistance
+{variant:2}(10-15) Life Regeneration per second
 Moving while Bleeding doesn't cause you to take extra damage
 ]],[[
 Kaom's Heart
@@ -62,30 +84,44 @@ Recover 5% of Life for each Endurance Charge consumed
 ]],[[
 Titanrot Cataphract
 Maraketh Cuirass
-(200-300)% increased Armour
-(10-20)% increased Strength
+Variant: Pre 0.1.1
+Variant: Current
+{variant:1}(200-300)% increased Armour
+{variant:2}(400-500)% increased Armour
+{variant:1}(10-20)% increased Strength
+{variant:2}(15-30)% increased Strength
 10% reduced Dexterity
 10% reduced Intelligence
 You have no Life Regeneration
 ]],[[
 Wandering Reliquary
 Steel Plate
+Variant: Pre 0.1.1
+Variant: Current
 (50-100)% increased Armour
 +(40-60) to maximum Mana
 +(10-20) to Strength
+{variant:2}+(60-80) to Stun Threshold
 50% of Physical Damage prevented Recouped as Life
 ]],
 -- Body: Evasion
 [[
 Ashrend
 Pathfinder Coat
+Variant: Pre 0.1.1
+Variant: Current
 +(40-60) to maximum Life
-+(20-30)% to Fire Resistance
+{variant:2}+(10-20) to Strength
+{variant:1}+(20-30)% to Fire Resistance
+{variant:2}+(30-40)% to Fire Resistance
 Cannot be Ignited
 -10 Physical Damage taken from Attack Hits
 ]],[[
 Briskwrap
 Rhoahide Coat
+Variant: Pre 0.1.1
+Variant: Current
+{variant:2}(60-100)% increased Evasion Rating
 (40-60)% increased Flask Life Recovery rate
 (40-60)% increased Flask Mana Recovery rate
 +(20-30) to Dexterity
@@ -93,9 +129,14 @@ Rhoahide Coat
 ]],[[
 Bristleboar
 Leather Vest
-(40-80)% increased Evasion Rating
+Variant: Pre 0.1.1
+Variant: Current
+{variant:1}(40-80)% increased Evasion Rating
+{variant:2}50% reduced Evasion Rating
 +(40-60) to maximum Life
-Gain 3 Rage when Hit by an Enemy
+{variant:2}(3-5) Life Regeneration per second
+{variant:1}Gain 3 Rage when Hit by an Enemy
+{variant:2}Gain 5 Rage when Hit by an Enemy
 Gain 10 Rage when Critically Hit by an Enemy
 ]],[[
 Dustbloom
@@ -117,7 +158,11 @@ Quilted Vest
 ]],[[
 Quatl's Molt
 Serpentscale Coat
-+(30-50) to maximum Life
+Variant: Pre 0.1.1
+Variant: Current
+{variant:2}(60-80)% increased Evasion Rating
+{variant:1}+(30-50) to maximum Life
+{variant:2}+(60-80) to maximum Life
 +(17-23)% to Chaos Resistance
 (10-20) Life Regeneration per second
 Cannot be Poisoned
@@ -149,8 +194,11 @@ Energy Shield Recharge starts when you use a Mana Flask
 ]],[[
 The Black Doubt
 Hexer's Robe
+Variant: Pre 0.1.1
+Variant: Current
 (60-100)% increased Energy Shield
 +(10-30) to Intelligence
+{variant:2}+(10-20)% to Cold Resistance
 Damage over Time bypasses your Energy Shield
 While not on Full Life, Sacrifice 10% of Mana per Second to Recover that much Life
 ]],[[
@@ -176,15 +224,21 @@ Tattered Robe
 ]],[[
 Necromantle
 Bone Raiment
+Variant: Pre 0.1.1
+Variant: Current
 +(40-60) to maximum Life
 +(30-50) to maximum Mana
+{variant:2}Minions have +(17-23)% to Chaos Resistance
 Minions gain (20-30)% of their Maximum Life as Extra Maximum Energy Shield
 Minions Revive 50% faster
 ]],[[
 Prayers for Rain
 Keth Raiment
+Variant: Pre 0.1.1
+Variant: Current
 (60-100)% increased Energy Shield
 +(10-15) to Intelligence
+{variant:2}+(10-20)% to Lightning Resistance
 30% slower start of Energy Shield Recharge
 Energy Shield Recharge is not interrupted by Damage if Recharge began Recently
 ]],[[
@@ -198,8 +252,11 @@ Skills have -(4-2) seconds to Cooldown
 ]],[[
 Tetzlapokal's Desire
 Votive Raiment
+Variant: Pre 0.1.1
+Variant: Current
 (100-150)% increased Energy Shield
 +(20-30) to Strength
+{variant:2}+(20-30) to Intelligence
 +(17-23)% to Chaos Resistance
 Life Recharges
 ]],
@@ -207,17 +264,23 @@ Life Recharges
 [[
 The Barrow Dweller
 Rogue Armour
+Variant: Pre 0.1.1
+Variant: Current
 (60-100)% increased Armour and Evasion
 -(20-10)% to Fire Resistance
 +50% to Cold Resistance
+{variant:2}Damage of Enemies Hitting you is Unlucky while you are on Low Life
 50% chance to Avoid Death from Hits
 ]],[[
 Belly of the Beast
 Explorer Armour
+Variant: Pre 0.1.1
+Variant: Current
 (100-150)% increased Armour and Evasion
 +(100-150) to maximum Life
 +(100-150) to Stun Threshold
 Life Recovery from Flasks is instant
+{variant:2}(25-30) to (35-40) Physical Thorns damage
 ]],[[
 Coat of Red
 Chain Mail
@@ -236,15 +299,21 @@ Lightning Resistance does not affect Lightning damage taken
 ]],[[
 Irongrasp
 Vagabond Armour
+Variant: Pre 0.1.1
+Variant: Current
 (100-150)% increased Armour and Evasion
+{variant:2}+(20-30) to Strength
 +(100-150) to Stun Threshold
 Iron Grip
 Iron Will
 ]],[[
 Pariah's Embrace
 Cloaked Mail
+Variant: Pre 0.1.1
+Variant: Current
 (50-80)% increased Armour and Evasion
 +50 to Spirit
+{variant:2}+(10-15) to all Attributes
 (10-15) Life Regeneration per second
 20% reduced Mana Cost of Skills
 ]],[[
@@ -280,10 +349,14 @@ Intelligence provides no inherent bonus to Maximum Mana
 ]],[[
 Husk of Dreams
 Shaman Mantle
+Variant: Pre 0.1.1
+Variant: Current
 (100-150)% increased Armour and Energy Shield
 -10% to Fire Resistance
-+(13-17)% to Chaos Resistance
-(25-50)% increased Flask Charges used
+{variant:1}+(13-17)% to Chaos Resistance
+{variant:2}+(13-17)% to Chaos Resistance
+{variant:1}(25-50)% increased Flask Charges used
+{variant:2}(20-30)% increased Flask Charges used
 50% chance for Flasks you use to not consume Charges
 ]],[[
 Icetomb
@@ -295,8 +368,11 @@ Freeze as though dealing Cold damage equal to 10% of your maximum Mana when Hit
 ]],[[
 Voll's Protector
 Ironclad Vestments
+Variant: Pre 0.1.1
+Variant: Current
 (100-150)% increased Armour and Energy Shield
 25% reduced maximum Mana
+{variant:2}+(13-17)% to Chaos Resistance
 25% chance to gain a Power Charge on Critical Hit
 ]],
 -- Body: Evasion/Energy Shield
@@ -310,22 +386,32 @@ Bleeding you inflict is Aggravated
 ]],[[
 The Dancing Mirage
 Wayfarer Jacket
-(60-100)% increased Evasion and Energy Shield
+Variant: Pre 0.1.1
+Variant: Current
+{variant:1}(60-100)% increased Evasion and Energy Shield
+{variant:2}(150-200)% increased Evasion and Energy Shield
 +(10-20)% to Lightning Resistance
 20% less Damage taken if you have not been Hit Recently
 100% increased Evasion Rating if you have been Hit Recently
 ]],[[
 Gloomform
 Waxed Jacket
+Variant: Pre 0.1.1
+Variant: Current
 (100-150)% increased Evasion Rating
 +(10-20) to Dexterity
+{variant:2}+(10-20)% to Fire Resistance
 20% reduced Light Radius
 You have a Smoke Cloud around you while stationary
 ]],[[
 Redflare Conduit
 Anchorite Garb
+Variant: Pre 0.1.1
+Variant: Current
 +(50-70) to maximum Mana
-+(20-30)% to Lightning Resistance
+{variant:2}-15% to Cold Resistance
+{variant:1}+(20-30)% to Lightning Resistance
+{variant:2}+(30-40)% to Lightning Resistance
 20% chance to gain a Power Charge on Hit
 Lose all Power Charges on reaching maximum Power Charges
 Shocks you when you reach maximum Power Charges

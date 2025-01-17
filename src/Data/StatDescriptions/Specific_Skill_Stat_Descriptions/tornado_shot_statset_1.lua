@@ -8,6 +8,11 @@ return {
 		}
 	},
 	[2]={
+		stats={
+			[1]="quality_display_base_number_of_projectiles_is_gem"
+		}
+	},
+	[3]={
 		[1]={
 			[1]={
 				limit={
@@ -28,7 +33,7 @@ return {
 			[2]="skill_can_fire_arrows"
 		}
 	},
-	[3]={
+	[4]={
 		[1]={
 			[1]={
 				limit={
@@ -53,7 +58,7 @@ return {
 			[1]="base_number_of_tornado_shots_allowed"
 		}
 	},
-	[4]={
+	[5]={
 		[1]={
 			[1]={
 				[1]={
@@ -86,7 +91,7 @@ return {
 			[1]="base_skill_effect_duration"
 		}
 	},
-	[5]={
+	[6]={
 		[1]={
 			[1]={
 				limit={
@@ -102,7 +107,7 @@ return {
 			[1]="number_of_tornado_shots_allowed"
 		}
 	},
-	[6]={
+	[7]={
 		[1]={
 			[1]={
 				[1]={
@@ -122,7 +127,7 @@ return {
 			[1]="skill_effect_duration"
 		}
 	},
-	[7]={
+	[8]={
 		[1]={
 			[1]={
 				limit={
@@ -156,7 +161,7 @@ return {
 			[1]="tornado_shot_number_of_hits_allowed"
 		}
 	},
-	[8]={
+	[9]={
 		[1]={
 			[1]={
 				[1]={
@@ -198,7 +203,7 @@ return {
 			[1]="tornado_shot_projectile_damage_+%_final"
 		}
 	},
-	[9]={
+	[10]={
 		[1]={
 			[1]={
 				[1]={
@@ -231,7 +236,7 @@ return {
 			[1]="tornado_shot_projectile_range"
 		}
 	},
-	[10]={
+	[11]={
 		[1]={
 			[1]={
 				limit={
@@ -248,15 +253,16 @@ return {
 		}
 	},
 	["active_skill_base_area_of_effect_radius"]=1,
-	["base_number_of_projectiles"]=2,
-	["base_number_of_tornado_shots_allowed"]=3,
-	["base_skill_effect_duration"]=4,
-	["number_of_tornado_shots_allowed"]=5,
+	["base_number_of_projectiles"]=3,
+	["base_number_of_tornado_shots_allowed"]=4,
+	["base_skill_effect_duration"]=5,
+	["number_of_tornado_shots_allowed"]=6,
 	parent="specific_skill_stat_descriptions/tornado_shot_statset_0",
-	["skill_can_fire_arrows"]=2,
-	["skill_effect_duration"]=6,
-	["tornado_shot_number_of_hits_allowed"]=7,
-	["tornado_shot_projectile_damage_+%_final"]=8,
-	["tornado_shot_projectile_range"]=9,
-	["total_number_of_projectiles_to_fire"]=10
+	["quality_display_base_number_of_projectiles_is_gem"]=2,
+	["skill_can_fire_arrows"]=3,
+	["skill_effect_duration"]=7,
+	["tornado_shot_number_of_hits_allowed"]=8,
+	["tornado_shot_projectile_damage_+%_final"]=9,
+	["tornado_shot_projectile_range"]=10,
+	["total_number_of_projectiles_to_fire"]=11
 }

@@ -1000,7 +1000,7 @@ return {
 	},
 	["Metadata/Items/Gems/SkillGemHypothermia"] = {
 		name = "Hypothermia",
-		baseTypeName = "Frostbite",
+		baseTypeName = "Hypothermia",
 		gameId = "Metadata/Items/Gems/SkillGemHypothermia",
 		variantId = "Hypothermia",
 		grantedEffectId = "HypothermiaPlayer",
@@ -3211,6 +3211,7 @@ return {
 		variantId = "CastOnShock",
 		grantedEffectId = "MetaCastOnShockPlayer",
 		additionalGrantedEffectId1 = "SupportMetaCastOnShockPlayer",
+		additionalGrantedEffectId2 = "SupportInvisibleMetaGemSupport",
 		tags = {
 			grants_active_skill = true,
 			buff = true,
@@ -3234,6 +3235,7 @@ return {
 		variantId = "CastOnFreeze",
 		grantedEffectId = "MetaCastOnFreezePlayer",
 		additionalGrantedEffectId1 = "SupportMetaCastOnFreezePlayer",
+		additionalGrantedEffectId2 = "SupportInvisibleMetaGemSupport",
 		tags = {
 			grants_active_skill = true,
 			buff = true,
@@ -3257,6 +3259,7 @@ return {
 		variantId = "CastOnIgnite",
 		grantedEffectId = "MetaCastOnIgnitePlayer",
 		additionalGrantedEffectId1 = "SupportMetaCastOnIgnitePlayer",
+		additionalGrantedEffectId2 = "SupportInvisibleMetaGemSupport",
 		tags = {
 			grants_active_skill = true,
 			buff = true,
@@ -3280,6 +3283,7 @@ return {
 		variantId = "CastOnMeleeKill",
 		grantedEffectId = "MetaCastOnMeleeKillPlayer",
 		additionalGrantedEffectId1 = "SupportMetaCastOnMeleeKillPlayer",
+		additionalGrantedEffectId2 = "SupportInvisibleMetaGemSupport",
 		tags = {
 			grants_active_skill = true,
 			buff = true,
@@ -3302,6 +3306,7 @@ return {
 		variantId = "CastOnCriticalStrike",
 		grantedEffectId = "MetaCastOnCritPlayer",
 		additionalGrantedEffectId1 = "SupportMetaCastOnCritPlayer",
+		additionalGrantedEffectId2 = "SupportInvisibleMetaGemSupport",
 		tags = {
 			grants_active_skill = true,
 			buff = true,
@@ -3357,6 +3362,7 @@ return {
 		variantId = "BarrierInvocation",
 		grantedEffectId = "MetaBarrierInvocationPlayer",
 		additionalGrantedEffectId1 = "SupportBarrierInvocationPlayer",
+		additionalGrantedEffectId2 = "SupportInvisibleMetaGemSupport",
 		tags = {
 			grants_active_skill = true,
 			buff = true,
@@ -3379,6 +3385,7 @@ return {
 		variantId = "CastOnDodge",
 		grantedEffectId = "MetaCastOnDodgePlayer",
 		additionalGrantedEffectId1 = "SupportMetaCastOnDodgePlayer",
+		additionalGrantedEffectId2 = "SupportInvisibleMetaGemSupport",
 		tags = {
 			grants_active_skill = true,
 			buff = true,
@@ -3401,6 +3408,7 @@ return {
 		variantId = "CastOnMeleeStun",
 		grantedEffectId = "MetaCastOnMeleeStunPlayer",
 		additionalGrantedEffectId1 = "SupportMetaCastOnMeleeStunPlayer",
+		additionalGrantedEffectId2 = "SupportInvisibleMetaGemSupport",
 		tags = {
 			grants_active_skill = true,
 			buff = true,
@@ -3628,11 +3636,10 @@ return {
 			minion = true,
 			buff = true,
 			area = true,
-			aura = true,
 			duration = true,
 		},
 		gemType = "Minion",
-		tagString = "Buff, AoE, Aura, Duration",
+		tagString = "Buff, AoE, Duration",
 		reqStr = 0,
 		reqDex = 0,
 		reqInt = 100,
@@ -5098,6 +5105,7 @@ return {
 		variantId = "CastOnMinionDeath",
 		grantedEffectId = "MetaCastOnMinionDeathPlayer",
 		additionalGrantedEffectId1 = "SupportMetaCastOnMinionDeathPlayer",
+		additionalGrantedEffectId2 = "SupportInvisibleMetaGemSupport",
 		tags = {
 			buff = true,
 			grants_active_skill = true,
@@ -6100,7 +6108,6 @@ return {
 			spell = true,
 			area = true,
 			trigger = true,
-			physical = true,
 			lightning = true,
 			cold = true,
 			fire = true,
@@ -6108,7 +6115,7 @@ return {
 			orb = true,
 		},
 		gemType = "Spell",
-		tagString = "AoE, Trigger, Physical, Lightning, Cold, Fire, Duration, Orb",
+		tagString = "AoE, Trigger, Lightning, Cold, Fire, Duration, Orb",
 		reqStr = 0,
 		reqDex = 0,
 		reqInt = 0,
@@ -7314,6 +7321,7 @@ return {
 		variantId = "ElementalInvocation",
 		grantedEffectId = "MetaElementalInvocationPlayer",
 		additionalGrantedEffectId1 = "SupportElementalInvocationPlayer",
+		additionalGrantedEffectId2 = "SupportInvisibleMetaGemSupport",
 		tags = {
 			grants_active_skill = true,
 			buff = true,
@@ -7715,6 +7723,7 @@ return {
 		variantId = "ReapersInvocation",
 		grantedEffectId = "MetaReapersInvocationPlayer",
 		additionalGrantedEffectId1 = "SupportReapersInvocationPlayer",
+		additionalGrantedEffectId2 = "SupportInvisibleMetaGemSupport",
 		tags = {
 			grants_active_skill = true,
 			buff = true,
@@ -7900,6 +7909,7 @@ return {
 		variantId = "CastOnBlock",
 		grantedEffectId = "MetaCastOnBlockPlayer",
 		additionalGrantedEffectId1 = "SupportMetaCastOnBlockPlayer",
+		additionalGrantedEffectId2 = "SupportInvisibleMetaGemSupport",
 		tags = {
 			buff = true,
 			grants_active_skill = true,

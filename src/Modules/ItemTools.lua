@@ -43,17 +43,17 @@ end
 -- precision is express a multiplier/divide and displayPrecision is expresed as decimal precision on rounding.
 -- ifRequired determines whether trailing zeros are displayed or not.
 function itemLib.formatValue(value, baseValueScalar, valueScalar, precision, displayPrecision, ifRequired)
-	value = round(value * precision) -- resolve range to internal value
-	if baseValueScalar and baseValueScalar ~= 1 then value = round(value * baseValueScalar) end -- apply corrupted mult
-	if valueScalar and valueScalar ~= 1 then value = m_floor(value * valueScalar) end -- apply modifier magnitude
+	value = roundSymmetric(value * precision) -- resolve range to internal value
+	if baseValueScalar and baseValueScalar ~= 1 then value = roundSymmetric(value * baseValueScalar) end -- apply corrupted mult
+	if valueScalar and valueScalar ~= 1 then value = floorSymmetric(value * valueScalar) end -- apply modifier magnitude
 	value = value / precision -- convert back to display space
-	if displayPrecision then value = round(value, displayPrecision) end -- presentation
+	if displayPrecision then value = roundSymmetric(value, displayPrecision) end -- presentation
 	if displayPrecision and not ifRequired then -- whitespace is needed
 		return string.format("%"..displayPrecision.."f", value)
 	elseif displayPrecision then
-		return tostring(round(value, displayPrecision))
+		return tostring(roundSymmetric(value, displayPrecision))
 	else
-		return tostring(round(value,  precision and m_min(2, m_floor(math.log(precision, 10))) or 2)) -- max decimals ingame is 2 
+		return tostring(roundSymmetric(value,  precision and m_min(2, m_floor(math.log(precision, 10))) or 2)) -- max decimals ingame is 2 
 	end
 end
 

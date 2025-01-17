@@ -9,13 +9,31 @@ return {
 					[1]={
 						[1]=2,
 						[2]="#"
+					},
+					[2]={
+						[1]=0,
+						[2]=0
+					}
+				},
+				text="Can store {0:+d} Bolts"
+			},
+			[2]={
+				limit={
+					[1]={
+						[1]=2,
+						[2]="#"
+					},
+					[2]={
+						[1]="#",
+						[2]="#"
 					}
 				},
 				text="Can store up to {0} Bolts"
 			}
 		},
 		stats={
-			[1]="base_number_of_crossbow_bolts"
+			[1]="base_number_of_crossbow_bolts",
+			[2]="quality_display_base_number_of_crossbow_bolts_is_gem"
 		}
 	},
 	[2]={
@@ -36,5 +54,6 @@ return {
 	},
 	["base_number_of_crossbow_bolts"]=1,
 	["number_of_crossbow_bolts"]=2,
-	parent="skill_stat_descriptions"
+	parent="skill_stat_descriptions",
+	["quality_display_base_number_of_crossbow_bolts_is_gem"]=1
 }

@@ -49,13 +49,16 @@ UniqueTriggerLightningBoltOnCriticalStrike1
 ]],[[
 Defiance of Destiny
 Jade Amulet
+Variant: Pre 0.1.1
+Variant: Current
 Requires Level 56
 Implicits: 1
 AmuletImplicitDexterity1
 UniqueMaximumLifeIncrease6
 UniqueStrength2
 UniqueManaRegeneration13
-UniqueGainMissingLifeBeforeHit1
+{variant:1}UniqueGainMissingLifeBeforeHit1[5,5]
+{variant:2}UniqueGainMissingLifeBeforeHit1
 ]],[[
 The Everlasting Gaze
 Azure Amulet
@@ -107,7 +110,7 @@ Igniferis
 Crimson Amulet
 Implicits: 1
 AmuletImplicitLifeRegeneration1
-UniqueFireResist14
+UniqueFireResist23
 UniqueManaRegeneration6
 UniqueLightRadius1
 UniqueLifeRegenerationNotApplied1
@@ -163,18 +166,21 @@ Jade Amulet
 Implicits: 1
 AmuletImplicitDexterity1
 UniqueIncreasedLife3
-UniqueDexterity9
+UniqueDexterity28
 UniqueDodgeRollDistance1
 UniqueEvasionRatingDodgeRoll1
 ]],[[
 Ungil's Harmony
 Azure Amulet
+Variant: Pre 0.1.1
+Variant: Current
 Requires Level 25
 Implicits: 1
 AmuletImplicitManaRegeneration1
-UniqueIncreasedLife1
+UniqueIncreasedLife5
 UniqueIncreasedMana5
-UniqueCriticalStrikeChance9
+{variant:1}UniqueCriticalStrikeChance9[100,100]
+{variant:2}UniqueCriticalStrikeChance9
 UniqueStunThreshold6
 UniqueNoCriticalStrikeMultiplier1
 ]],[[
@@ -183,7 +189,7 @@ Amber Amulet
 Implicits: 1
 AmuletImplicitStrength1
 UniqueMaximumLifeIncrease7
-UniqueFireResist8
+UniqueFireResist12
 UniqueEnemiesInPresenceFireExposure1
 ]],
 }

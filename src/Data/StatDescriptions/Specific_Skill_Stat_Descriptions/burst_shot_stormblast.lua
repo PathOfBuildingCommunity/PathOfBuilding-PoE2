@@ -8,6 +8,11 @@ return {
 		}
 	},
 	[2]={
+		stats={
+			[1]="quality_display_base_number_of_projectiles_is_gem"
+		}
+	},
+	[3]={
 		[1]={
 			[1]={
 				limit={
@@ -28,7 +33,7 @@ return {
 			[2]="skill_can_fire_arrows"
 		}
 	},
-	[3]={
+	[4]={
 		[1]={
 			[1]={
 				limit={
@@ -53,7 +58,7 @@ return {
 			[1]="number_of_chains"
 		}
 	},
-	[4]={
+	[5]={
 		[1]={
 			[1]={
 				limit={
@@ -78,10 +83,11 @@ return {
 			[1]="projectiles_can_shotgun"
 		}
 	},
-	["base_number_of_projectiles"]=2,
+	["base_number_of_projectiles"]=3,
 	["base_projectiles_cannot_chain"]=1,
-	["number_of_chains"]=3,
+	["number_of_chains"]=4,
 	parent="skill_stat_descriptions",
-	["projectiles_can_shotgun"]=4,
-	["skill_can_fire_arrows"]=2
+	["projectiles_can_shotgun"]=5,
+	["quality_display_base_number_of_projectiles_is_gem"]=2,
+	["skill_can_fire_arrows"]=3
 }

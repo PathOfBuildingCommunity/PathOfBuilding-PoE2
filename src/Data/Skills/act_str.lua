@@ -1535,6 +1535,7 @@ skills["ClusterGrenadePlayer"] = {
 				duration = true,
 			},
 			constantStats = {
+				{ "action_allowed_queue_time_override_ms", 1000 },
 				{ "action_required_target_facing_angle_tolerance_degrees", 90 },
 				{ "base_skill_effect_duration", 2000 },
 				{ "active_skill_base_physical_damage_%_to_convert_to_fire", 20 },
@@ -1667,6 +1668,7 @@ skills["ClusterGrenadeMiniPlayer"] = {
 				duration = true,
 			},
 			constantStats = {
+				{ "action_allowed_queue_time_override_ms", 1000 },
 				{ "base_skill_effect_duration", 3000 },
 				{ "active_skill_base_area_of_effect_radius", 12 },
 				{ "base_number_of_projectiles", 14 },
@@ -2764,6 +2766,7 @@ skills["ExplosiveGrenadePlayer"] = {
 				duration = true,
 			},
 			constantStats = {
+				{ "action_allowed_queue_time_override_ms", 1000 },
 				{ "action_required_target_facing_angle_tolerance_degrees", 90 },
 				{ "base_skill_effect_duration", 2500 },
 				{ "active_skill_base_physical_damage_%_to_convert_to_fire", 80 },
@@ -3021,6 +3024,7 @@ skills["FlashGrenadePlayer"] = {
 				duration = true,
 			},
 			constantStats = {
+				{ "action_allowed_queue_time_override_ms", 1000 },
 				{ "action_required_target_facing_angle_tolerance_degrees", 90 },
 				{ "base_skill_effect_duration", 850 },
 				{ "attacks_chance_to_blind_on_hit_%", 100 },
@@ -3157,6 +3161,7 @@ skills["ToxicGrenadePlayer"] = {
 				duration = true,
 			},
 			constantStats = {
+				{ "action_allowed_queue_time_override_ms", 1000 },
 				{ "action_required_target_facing_angle_tolerance_degrees", 90 },
 				{ "base_skill_effect_duration", 2000 },
 				{ "movement_speed_+%_final_while_performing_action", -70 },
@@ -3177,6 +3182,7 @@ skills["ToxicGrenadePlayer"] = {
 				"base_skill_show_average_damage_instead_of_dps",
 				"visual_hit_effect_physical_is_green",
 				"projectiles_cannot_fork",
+				"quality_display_active_skill_ground_effect_area_of_effect_+%_final_per_second_max_is_gem",
 			},
 			levels = {
 				[1] = { 14, statInterpolation = { 1, }, actorLevel = 1, },
@@ -3232,9 +3238,11 @@ skills["ToxicGrenadePlayer"] = {
 				duration = true,
 			},
 			constantStats = {
+				{ "action_allowed_queue_time_override_ms", 1000 },
 				{ "base_skill_effect_duration", 6000 },
 				{ "active_skill_ground_effect_area_of_effect_+%_final_per_second", 20 },
 				{ "active_skill_ground_effect_area_of_effect_+%_final_per_second_max", 160 },
+				{ "action_allowed_queue_time_override_ms", 1000 },
 				{ "action_required_target_facing_angle_tolerance_degrees", 90 },
 				{ "movement_speed_+%_final_while_performing_action", -70 },
 				{ "movement_speed_acceleration_+%_per_second_while_performing_action", 160 },
@@ -3259,6 +3267,7 @@ skills["ToxicGrenadePlayer"] = {
 				"base_skill_show_average_damage_instead_of_dps",
 				"visual_hit_effect_physical_is_green",
 				"projectiles_cannot_fork",
+				"quality_display_active_skill_ground_effect_area_of_effect_+%_final_per_second_max_is_gem",
 			},
 			levels = {
 				[1] = { baseMultiplier = 1.2, actorLevel = 1, },
@@ -3314,6 +3323,7 @@ skills["ToxicGrenadePlayer"] = {
 			},
 			constantStats = {
 				{ "active_skill_base_physical_damage_%_to_convert_to_fire", 100 },
+				{ "action_allowed_queue_time_override_ms", 1000 },
 				{ "action_required_target_facing_angle_tolerance_degrees", 90 },
 				{ "movement_speed_+%_final_while_performing_action", -70 },
 				{ "movement_speed_acceleration_+%_per_second_while_performing_action", 160 },
@@ -3335,6 +3345,7 @@ skills["ToxicGrenadePlayer"] = {
 				"base_skill_show_average_damage_instead_of_dps",
 				"visual_hit_effect_physical_is_green",
 				"projectiles_cannot_fork",
+				"quality_display_active_skill_ground_effect_area_of_effect_+%_final_per_second_max_is_gem",
 			},
 			levels = {
 				[1] = { baseMultiplier = 1.5, actorLevel = 1, },
@@ -5057,6 +5068,7 @@ skills["GalvanicShardsAmmoPlayer"] = {
 				"can_perform_skill_while_moving",
 				"base_deal_no_damage",
 				"display_statset_hide_usage_stats",
+				"quality_display_base_number_of_crossbow_bolts_is_gem",
 			},
 			levels = {
 				[1] = { actorLevel = 1, },
@@ -5192,6 +5204,7 @@ skills["GalvanicShardsPlayer"] = {
 				"disable_visual_hit_effect",
 				"can_perform_skill_while_moving",
 				"base_projectiles_cannot_chain",
+				"quality_display_base_number_of_crossbow_bolts_is_gem",
 			},
 			levels = {
 				[1] = { actorLevel = 1, },
@@ -5269,6 +5282,7 @@ skills["GalvanicShardsPlayer"] = {
 				"check_for_targets_between_initiator_and_projectile_source",
 				"cannot_cancel_skill_before_contact_point",
 				"can_perform_skill_while_moving",
+				"quality_display_base_number_of_crossbow_bolts_is_gem",
 			},
 			levels = {
 				[1] = { baseMultiplier = 0.6, actorLevel = 1, },
@@ -5667,6 +5681,7 @@ skills["HailstormRoundsAmmoPlayer"] = {
 	},
 	castTime = 1,
 	qualityStats = {
+		{ "base_number_of_crossbow_bolts", 0.25 },
 	},
 	levels = {
 		[1] = { levelRequirement = 0, cost = { Mana = 29, }, },
@@ -5733,6 +5748,7 @@ skills["HailstormRoundsAmmoPlayer"] = {
 				"base_deal_no_damage",
 				"crossbow_ammo_skill_has_passive_reloading",
 				"display_statset_hide_usage_stats",
+				"quality_display_base_number_of_crossbow_bolts_is_gem",
 			},
 			levels = {
 				[1] = { 16, statInterpolation = { 1, }, actorLevel = 1, },
@@ -5789,7 +5805,6 @@ skills["HailstormRoundsPlayer"] = {
 	},
 	castTime = 1,
 	qualityStats = {
-		{ "base_number_of_crossbow_bolts", 0.25 },
 	},
 	levels = {
 		[1] = { attackSpeedMultiplier = -45, baseMultiplier = 0.5, levelRequirement = 0, cost = { Mana = 25, }, },
@@ -6458,6 +6473,7 @@ skills["IceShardsPlayer"] = {
 				"action_do_not_face_target",
 				"can_perform_skill_while_moving",
 				"should_use_additive_aiming_animation",
+				"quality_display_permafrost_shard_damage_+%_final_after_1_second_is_gem",
 			},
 			levels = {
 				[1] = { actorLevel = 1, },
@@ -6543,6 +6559,7 @@ skills["IceShardsPlayer"] = {
 				"action_do_not_face_target",
 				"can_perform_skill_while_moving",
 				"should_use_additive_aiming_animation",
+				"quality_display_permafrost_shard_damage_+%_final_after_1_second_is_gem",
 			},
 			levels = {
 				[1] = { 200, statInterpolation = { 1, }, actorLevel = 1, },
@@ -7185,6 +7202,7 @@ skills["PlasmaBlastAmmoPlayer"] = {
 				"can_perform_skill_while_moving",
 				"base_deal_no_damage",
 				"display_statset_hide_usage_stats",
+				"quality_display_base_number_of_crossbow_bolts_is_gem",
 			},
 			levels = {
 				[1] = { actorLevel = 1, },
@@ -7665,6 +7683,7 @@ skills["RapidShotPlayer"] = {
 				"disable_visual_hit_effect",
 				"action_do_not_face_target",
 				"can_perform_skill_while_moving",
+				"quality_display_rapid_shot_maximum_num_of_stacks_is_gem",
 			},
 			levels = {
 				[1] = { 15, statInterpolation = { 1, }, actorLevel = 1, },
@@ -7722,6 +7741,7 @@ skills["ShockburstRoundsAmmoPlayer"] = {
 	},
 	castTime = 0.8,
 	qualityStats = {
+		{ "base_number_of_crossbow_bolts", 0.35 },
 	},
 	levels = {
 		[1] = { levelRequirement = 0, cost = { Mana = 15, }, },
@@ -7785,6 +7805,7 @@ skills["ShockburstRoundsAmmoPlayer"] = {
 				"can_perform_skill_while_moving",
 				"base_deal_no_damage",
 				"display_statset_hide_usage_stats",
+				"quality_display_base_number_of_crossbow_bolts_is_gem",
 			},
 			levels = {
 				[1] = { 10, statInterpolation = { 1, }, actorLevel = 1, },
@@ -7841,7 +7862,6 @@ skills["ShockburstRoundsPlayer"] = {
 	},
 	castTime = 1,
 	qualityStats = {
-		{ "base_number_of_crossbow_bolts", 0.35 },
 	},
 	levels = {
 		[1] = { attackSpeedMultiplier = 350, baseMultiplier = 0.15, levelRequirement = 0, },
@@ -8253,6 +8273,7 @@ skills["SiegeCascadePlayer"] = {
 				"has_modular_projectiles_enabled",
 				"action_requires_upward_aiming_stance",
 				"never_freeze",
+				"quality_display_siege_cascade_damage_+%_final_vs_immobilised_enemies_is_gem",
 			},
 			levels = {
 				[1] = { actorLevel = 1, },
@@ -8328,6 +8349,7 @@ skills["SiegeCascadePlayer"] = {
 				"has_modular_projectiles_enabled",
 				"action_requires_upward_aiming_stance",
 				"never_freeze",
+				"quality_display_siege_cascade_damage_+%_final_vs_immobilised_enemies_is_gem",
 			},
 			levels = {
 				[1] = { baseMultiplier = 0.8, actorLevel = 1, },
@@ -8449,6 +8471,7 @@ skills["StormblastBoltsAmmoPlayer"] = {
 				"can_perform_skill_while_moving",
 				"base_deal_no_damage",
 				"display_statset_hide_usage_stats",
+				"quality_display_base_number_of_crossbow_bolts_is_gem",
 			},
 			levels = {
 				[1] = { actorLevel = 1, },
@@ -9183,6 +9206,7 @@ skills["OilGrenadePlayer"] = {
 				duration = true,
 			},
 			constantStats = {
+				{ "action_allowed_queue_time_override_ms", 1000 },
 				{ "ground_oil_art_variation", 2000 },
 				{ "action_required_target_facing_angle_tolerance_degrees", 90 },
 				{ "base_skill_effect_duration", 1600 },
@@ -10021,6 +10045,7 @@ skills["RipwireBallistaProjectilePlayer"] = {
 				"check_for_targets_between_initiator_and_projectile_source",
 				"base_all_damage_can_pin",
 				"base_skill_is_totemified",
+				"quality_display_active_skill_pins_as_though_dealt_damage_+%_final_is_gem",
 			},
 			levels = {
 				[1] = { actorLevel = 1, },
@@ -10323,7 +10348,7 @@ skills["ScavengedPlatingPlayer"] = {
 	name = "Scavenged Plating",
 	baseTypeName = "Scavenged Plating",
 	color = 1,
-	description = "Uses fragments of armour scavenged from enemies to bolster your own. Fully Breaking an enemy's Armour grants you a stack of Scavenged Plating for a duration, and you gain Armour and Thorns per stack.",
+	description = "Uses fragments of armour scavenged from enemies to bolster your own. Fully Breaking an enemy's Armour grants you stacks of Scavenged Plating for a duration based on the enemy's rarity, and you gain Armour and Thorns per stack. Normal enemies grant 1 stack, Magic enemies grant 2 stacks, Rare enemies grant 5 stacks and Unique enemies grant 10 stacks.",
 	skillTypes = { [SkillType.Buff] = true, [SkillType.OngoingSkill] = true, [SkillType.HasReservation] = true, [SkillType.Duration] = true, [SkillType.Persistent] = true, [SkillType.Physical] = true, },
 	castTime = 1,
 	qualityStats = {
@@ -10747,9 +10772,9 @@ skills["ShieldChargePlayer"] = {
 				{ "shield_charge_extra_distance", 80 },
 				{ "shield_charge_acceleration_duration_ms", 0 },
 				{ "shield_charge_hit_damage_stun_multiplier_when_fully_charged_+%_final", 400 },
-				{ "shield_charge_pushiness_size_+", 1 },
-				{ "shield_charge_pushiness_size_+_while_fully_charged", -2 },
-				{ "shield_charge_pushiness_size_+_while_decelerating", 0 },
+				{ "shield_charge_pushiness_+", 10 },
+				{ "shield_charge_pushiness_+_while_fully_charged", -20 },
+				{ "shield_charge_pushiness_+_while_decelerating", 0 },
 			},
 			stats = {
 				"off_hand_weapon_minimum_physical_damage",
@@ -10818,9 +10843,9 @@ skills["ShieldChargePlayer"] = {
 				{ "shield_charge_extra_distance", 80 },
 				{ "shield_charge_acceleration_duration_ms", 0 },
 				{ "shield_charge_hit_damage_stun_multiplier_when_fully_charged_+%_final", 400 },
-				{ "shield_charge_pushiness_size_+", 1 },
-				{ "shield_charge_pushiness_size_+_while_fully_charged", -2 },
-				{ "shield_charge_pushiness_size_+_while_decelerating", 0 },
+				{ "shield_charge_pushiness_+", 10 },
+				{ "shield_charge_pushiness_+_while_fully_charged", -20 },
+				{ "shield_charge_pushiness_+_while_decelerating", 0 },
 			},
 			stats = {
 				"off_hand_minimum_added_physical_damage_per_15_shield_armour",
@@ -11093,6 +11118,7 @@ skills["ShockwaveTotemPlayer"] = {
 				"is_totem",
 				"skill_is_deploy_skill",
 				"active_skill_has_alt_attack_container",
+				"totem_targets_ignoring_action_distance",
 			},
 			levels = {
 				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
@@ -11376,7 +11402,7 @@ skills["StampedePlayer"] = {
 				{ "shield_charge_base_movement_speed", 70 },
 				{ "shield_charge_extra_distance", 53 },
 				{ "shield_charge_acceleration_duration_ms", 0 },
-				{ "stampede_pushiness_size_+", 2 },
+				{ "stampede_pushiness_+", 20 },
 				{ "active_skill_base_area_of_effect_radius", 12 },
 				{ "active_skill_damage_+%_final_while_dual_wielding", -30 },
 				{ "active_skill_base_secondary_area_of_effect_radius", 32 },
@@ -11443,7 +11469,7 @@ skills["StampedePlayer"] = {
 				{ "shield_charge_base_movement_speed", 70 },
 				{ "shield_charge_extra_distance", 53 },
 				{ "shield_charge_acceleration_duration_ms", 0 },
-				{ "stampede_pushiness_size_+", 2 },
+				{ "stampede_pushiness_+", 20 },
 				{ "active_skill_damage_+%_final_while_dual_wielding", -30 },
 				{ "active_skill_base_secondary_area_of_effect_radius", 32 },
 				{ "attack_maximum_action_distance_+", 45 },
@@ -11508,7 +11534,7 @@ skills["StampedePlayer"] = {
 				{ "shield_charge_base_movement_speed", 70 },
 				{ "shield_charge_extra_distance", 53 },
 				{ "shield_charge_acceleration_duration_ms", 0 },
-				{ "stampede_pushiness_size_+", 2 },
+				{ "stampede_pushiness_+", 20 },
 				{ "active_skill_base_area_of_effect_radius", 12 },
 				{ "active_skill_damage_+%_final_while_dual_wielding", -30 },
 				{ "active_skill_base_secondary_area_of_effect_radius", 32 },
@@ -12238,6 +12264,7 @@ skills["ShockGrenadePlayer"] = {
 				duration = true,
 			},
 			constantStats = {
+				{ "action_allowed_queue_time_override_ms", 1000 },
 				{ "action_required_target_facing_angle_tolerance_degrees", 90 },
 				{ "base_skill_effect_duration", 1200 },
 				{ "active_skill_base_physical_damage_%_to_convert_to_lightning", 80 },

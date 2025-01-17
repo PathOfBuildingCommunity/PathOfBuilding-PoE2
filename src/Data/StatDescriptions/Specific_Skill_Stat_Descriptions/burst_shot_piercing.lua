@@ -8,6 +8,11 @@ return {
 		}
 	},
 	[2]={
+		stats={
+			[1]="quality_display_base_number_of_projectiles_is_gem"
+		}
+	},
+	[3]={
 		[1]={
 			[1]={
 				[1]={
@@ -27,7 +32,7 @@ return {
 			[1]="active_skill_area_of_effect_radius"
 		}
 	},
-	[3]={
+	[4]={
 		[1]={
 			[1]={
 				[1]={
@@ -60,7 +65,7 @@ return {
 			[1]="active_skill_base_area_of_effect_radius"
 		}
 	},
-	[4]={
+	[5]={
 		[1]={
 			[1]={
 				limit={
@@ -81,7 +86,7 @@ return {
 			[2]="skill_can_fire_arrows"
 		}
 	},
-	[5]={
+	[6]={
 		[1]={
 			[1]={
 				limit={
@@ -110,7 +115,7 @@ return {
 			[1]="projectile_base_number_of_targets_to_pierce"
 		}
 	},
-	[6]={
+	[7]={
 		[1]={
 			[1]={
 				limit={
@@ -135,12 +140,13 @@ return {
 			[1]="projectiles_can_shotgun"
 		}
 	},
-	["active_skill_area_of_effect_radius"]=2,
-	["active_skill_base_area_of_effect_radius"]=3,
-	["base_number_of_projectiles"]=4,
+	["active_skill_area_of_effect_radius"]=3,
+	["active_skill_base_area_of_effect_radius"]=4,
+	["base_number_of_projectiles"]=5,
 	["never_freeze"]=1,
 	parent="skill_stat_descriptions",
-	["projectile_base_number_of_targets_to_pierce"]=5,
-	["projectiles_can_shotgun"]=6,
-	["skill_can_fire_arrows"]=4
+	["projectile_base_number_of_targets_to_pierce"]=6,
+	["projectiles_can_shotgun"]=7,
+	["quality_display_base_number_of_projectiles_is_gem"]=2,
+	["skill_can_fire_arrows"]=5
 }
