@@ -45,17 +45,20 @@ Implicits: 2
 Grants Skill: Level (1-20) Lightning Bolt
 {tags:lightning}+(20-30)% to Lightning Resistance
 Critical Hits Ignore Enemy Monster Lightning Resistance
-Trigger Lightning Bolt Skill on Critical Hit
+Trigger Greater Lightning Bolt Skill on Critical Hit
 ]],[[
 Defiance of Destiny
 Jade Amulet
+Variant: Pre 0.1.1
+Variant: Current
 Requires Level 56
 Implicits: 1
 {tags:attribute}+(10-15) to Dexterity
 {tags:life}(6-10)% increased maximum Life
 {tags:attribute}+(10-20) to Strength
 {tags:mana}(25-40)% increased Mana Regeneration Rate
-{tags:life}Recover 5% of Missing Life before being Hit by an Enemy
+{variant:1}{tags:life}Recover 5% of Missing Life before being Hit by an Enemy
+{variant:2}{tags:life}Recover 10% of Missing Life before being Hit by an Enemy
 ]],[[
 The Everlasting Gaze
 Azure Amulet
@@ -169,12 +172,15 @@ Implicits: 1
 ]],[[
 Ungil's Harmony
 Azure Amulet
+Variant: Pre 0.1.1
+Variant: Current
 Requires Level 25
 Implicits: 1
 {tags:mana}(20-30)% increased Mana Regeneration Rate
 {tags:life}+(30-50) to maximum Life
 {tags:mana}+(30-50) to maximum Mana
-100% increased Critical Hit Chance
+{variant:1}100% increased Critical Hit Chance
+{variant:2}(100-200)% increased Critical Hit Chance
 +(60-100) to Stun Threshold
 Your Critical Hits do not deal extra Damage
 ]],[[

@@ -15,10 +15,13 @@ Mana Flasks used while on Low Mana apply Recovery Instantly
 ]],[[
 Brynabas
 Wide Belt
+Variant: Pre 0.1.1
+Variant: Current
 Implicits: 1
 (20-30)% increased Flask Charges gained
 +(40-60) to maximum Mana
-+(20-30)% to Lightning Resistance
+{variant:1}+(20-30)% to Lightning Resistance
+{variant:2}+(30-40)% to Lightning Resistance
 (7-12) Life Regeneration per second
 Cannot be Shocked
 ]],[[
@@ -42,12 +45,15 @@ When you Kill a Rare monster, you gain its Modifiers for 20 seconds
 ]],[[
 Infernoclasp
 Plate Belt
+Variant: Pre 0.1.1
+Variant: Current
 Implicits: 1
 +(100-140) to Armour
 +(100-150) to Armour
 +(10-20) to Strength
 +(3-5)% to Maximum Fire Resistance
-+(25-35)% to Fire Resistance
+{variant:1}+(25-35)% to Fire Resistance
+{variant:2}+(30-50)% to Fire Resistance
 ]],[[
 Ingenuity
 Utility Belt
@@ -57,12 +63,16 @@ Implicits: 1
 ]],[[
 Keelhaul
 Linen Belt
+Variant: Pre 0.1.1
+Variant: Current
 Implicits: 1
 (20-30)% increased Mana Recovery from Flasks
 (-25-25)% reduced Flask Life Recovery rate
 (-25-25)% reduced Flask Mana Recovery rate
-Life Flasks gain (0-0.25) charges per Second
-Mana Flasks gain (0-0.25) charges per Second
+{variant:1}Life Flasks gain (0-0.25) charges per Second
+{variant:2}Life Flasks gain 0.25 charges per Second
+{variant:1}Mana Flasks gain (0-0.25) charges per Second
+{variant:2}Mana Flasks gain 0.25 charges per Second
 ]],[[
 Meginord's Girdle
 Rawhide Belt
