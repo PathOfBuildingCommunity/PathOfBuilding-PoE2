@@ -94,9 +94,7 @@ function hexToRGB(hex)
 end
 
 -- NOTE: the LuaJIT bitwise operations we have are not 64-bit
--- so we need to implement them ourselves
--- NOTE: the LuaJIT bitwise operations we have are not 64-bit
--- so we need to implement them ourselves
+-- so we need to implement them ourselves. Lua uses 53-bit doubles.
 function OR64(a, b)
     -- Split into high and low 32-bit parts
     local ah = math.floor(a / 0x100000000)
