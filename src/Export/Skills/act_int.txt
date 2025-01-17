@@ -66,16 +66,6 @@ statMap = {
 #mods
 #skillEnd
 
-#skill BlazingClusterPlayer
-#startSets
-#set BlazingClusterPlayer
-#flags spell duration projectile
-#mods
-#set BlazingClusterExplosionPlayer
-#flags spell area
-#mods
-#skillEnd
-
 #skill BlinkReservationPlayer
 #startSets
 #set BlinkReservationPlayer
@@ -294,17 +284,6 @@ statMap = {
 #mods
 #skillEnd
 
-#from item
-#skill CorpseCloudPlayer
-#startSets
-#set CorpseCloudPlayer
-#flags spell area duration
-#mods
-#set CorpseCloudExplosionPlayer
-#flags spell area
-#mods
-#skillEnd
-
 #skill DarkEffigyPlayer
 #startSets
 #set DarkEffigyPlayer
@@ -316,6 +295,17 @@ statMap = {
 #startSets
 #set DarkEffigyProjectilePlayer
 #flags spell area projectile
+#mods
+#skillEnd
+
+#from item
+#skill CorpseCloudPlayer
+#startSets
+#set CorpseCloudPlayer
+#flags spell area duration
+#mods
+#set CorpseCloudExplosionPlayer
+#flags spell area
 #mods
 #skillEnd
 
@@ -364,6 +354,16 @@ statMap = {
 #startSets
 #set SupportElementalInvocationPlayer
 #flags
+#mods
+#skillEnd
+
+#skill BlazingClusterPlayer
+#startSets
+#set BlazingClusterPlayer
+#flags spell duration projectile
+#mods
+#set BlazingClusterExplosionPlayer
+#flags spell area
 #mods
 #skillEnd
 
