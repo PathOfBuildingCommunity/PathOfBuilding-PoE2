@@ -249,7 +249,7 @@ skills["SupportChainPlayer"] = {
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
 				["support_chain_hit_damage_+%_final"] = {
-					mod("Damage", "MORE", nil),
+					mod("Damage", "MORE", nil, ModFlag.Hit),
 				},
 			},
 			baseFlags = {

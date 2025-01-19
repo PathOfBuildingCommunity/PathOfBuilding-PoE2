@@ -65,7 +65,7 @@ statMap = {
 #set SupportChainPlayer
 statMap = {
 	["support_chain_hit_damage_+%_final"] = {
-		mod("Damage", "MORE", nil),
+		mod("Damage", "MORE", nil, ModFlag.Hit),
 	},
 },
 #mods
