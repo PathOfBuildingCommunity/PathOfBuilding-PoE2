@@ -253,8 +253,8 @@ function calcs.buildModListForNode(env, node, incSmallPassiveSkill)
 	if node.allocMode then
 		for i, mod in ipairs(modList) do
 			local added = false
-			for j, extra in ipairs(mod) do
-				if extra.type == "Condition" and extra.var and extra.var:match("^WeaponSet") then
+			for j = #mod, 1, -1 do
+				if mod[j].type == "Condition" and mod[j].var and mod[j].var:match("^WeaponSet") then
 					if node.allocMode ~= 0 then -- only update the conditional for WS1/WS2
 						mod[j].var = "WeaponSet".. node.allocMode
 						added = true
