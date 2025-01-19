@@ -671,11 +671,11 @@ function calcs.defence(env, actor)
 		-- Unnatural Resilience needs FireResistTotal before we calc FireResistMax
 		output[elem.."ResistTotal"] = total
 		max = modDB:Override(nil, elem.."ResistMax") or m_min(data.misc.MaxResistCap, modDB:Sum("BASE", nil, elem.."ResistMax", isElemental[elem] and "ElementalResistMax"))
-		max = m_modf(max)
 		
 		dotTotal = dotTotal and m_modf(dotTotal) or total
 		totemTotal = m_modf(totemTotal)
 		min = m_modf(min)
+		max = m_modf(max)
 		totemMax = m_modf(totemMax)
 		
 		local final = m_max(m_min(total, max), min)
