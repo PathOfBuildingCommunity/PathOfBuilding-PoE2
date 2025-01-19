@@ -1465,18 +1465,18 @@ function calcs.defence(env, actor)
 			end
 		end
 		
-		-- pseudo recoup (eg % physical damage prevented from hits recouped)
+		-- mitigation recoup (eg % physical damage prevented from hits recouped)
 		for _, resource in ipairs(recoupTypeList) do
-			-- note: tested NoLifeRegen effect on pseudo recoup in PoE2 (using Titanrot Cataphract) on Jan 18 2025 and it does block pseudo recoup, so confirmed
+			-- note: tested NoLifeRegen effect on mitigation recoup in PoE2 (using Titanrot Cataphract) on Jan 18 2025 and it does block mitigation recoup
 			if not modDB:Flag(nil, "No"..resource.."Regen") and not modDB:Flag(nil, "CannotGain"..resource) then
-				local PhysicalDamageMitigatedPseudoRecoup = modDB:Sum("BASE", nil, "PhysicalDamageMitigated"..resource.."PseudoRecoup")
-				if PhysicalDamageMitigatedPseudoRecoup > 0 then
-					output["PhysicalDamageMitigated"..resource.."PseudoRecoup"] = PhysicalDamageMitigatedPseudoRecoup * output[resource.."RecoveryRateMod"]
-					output["anyRecoup"] = output["anyRecoup"] + output["PhysicalDamageMitigated"..resource.."PseudoRecoup"]
+				local PhysicalDamageMitigatedRecoup = modDB:Sum("BASE", nil, "PhysicalDamageMitigated"..resource.."Recoup")
+				if PhysicalDamageMitigatedRecoup > 0 then
+					output["PhysicalDamageMitigated"..resource.."Recoup"] = PhysicalDamageMitigatedRecoup * output[resource.."RecoveryRateMod"]
+					output["anyRecoup"] = output["anyRecoup"] + output["PhysicalDamageMitigated"..resource.."Recoup"]
 					if breakdown then
-						breakdown["PhysicalDamageMitigated"..resource.."PseudoRecoup"] = { }
-						t_insert(breakdown["PhysicalDamageMitigated"..resource.."PseudoRecoup"], s_format("%d%% ^8(base)", PhysicalDamageMitigatedPseudoRecoup))
-						t_insert(breakdown["PhysicalDamageMitigated"..resource.."PseudoRecoup"], s_format("= %.1f%% over %.2f seconds", output["PhysicalDamageMitigated"..resource.."PseudoRecoup"], effectiveRecoupTime))
+						breakdown["PhysicalDamageMitigated"..resource.."Recoup"] = { }
+						t_insert(breakdown["PhysicalDamageMitigated"..resource.."Recoup"], s_format("%d%% ^8(base)", PhysicalDamageMitigatedRecoup))
+						t_insert(breakdown["PhysicalDamageMitigated"..resource.."Recoup"], s_format("= %.1f%% over %.2f seconds", output["PhysicalDamageMitigated"..resource.."Recoup"], effectiveRecoupTime))
 					end
 				end
 			end
@@ -2906,11 +2906,11 @@ function calcs.buildDefenceEstimations(env, actor)
 				end
 			end
 
-			output["Total"..recoupType.."PseudoRecoup"] = (output["PhysicalDamageMitigated"..recoupType.."PseudoRecoup"] or 0) / 100 * totalPhysicalDamageMitigated
+			output["Total"..recoupType.."Recoup"] = (output["PhysicalDamageMitigated"..recoupType.."Recoup"] or 0) / 100 * totalPhysicalDamageMitigated
 
 			local totalRecoup = output["Total"..recoupType.."RecoupRecovery"]
-			if output["Total"..recoupType.."PseudoRecoup"] > 0 then 
-				totalRecoup = totalRecoup + output["Total"..recoupType.."PseudoRecoup"]
+			if output["Total"..recoupType.."Recoup"] > 0 then 
+				totalRecoup = totalRecoup + output["Total"..recoupType.."Recoup"]
 			end
 
 			output[recoupType.."RecoupRecoveryMax"] = totalRecoup / effectiveRecoupTime
@@ -2945,11 +2945,11 @@ function calcs.buildDefenceEstimations(env, actor)
 					end
 				end
 
-				if output["Total"..recoupType.."PseudoRecoup"] > 0 then
+				if output["Total"..recoupType.."Recoup"] > 0 then
 					t_insert(breakdown[recoupType.."RecoupRecoveryMax"], s_format(""))
 					t_insert(breakdown[recoupType.."RecoupRecoveryMax"], s_format("+ %.2f ^8(total Physical damage mitigated)", totalPhysicalDamageMitigated))
-					t_insert(breakdown[recoupType.."RecoupRecoveryMax"], s_format("* %.2f ^8(percent Physical mitigated as %s)", output["PhysicalDamageMitigated"..recoupType.."PseudoRecoup"] / 100, recoupType))
-					-- t_insert(breakdown[recoupType.."RecoupRecoveryMax"], s_format("+ %.2f ^8(total damage mitigated pseudo recoup amount)", output["Total"..recoupType.."PseudoRecoup"]))
+					t_insert(breakdown[recoupType.."RecoupRecoveryMax"], s_format("* %.2f ^8(percent Physical mitigated as %s)", output["PhysicalDamageMitigated"..recoupType.."Recoup"] / 100, recoupType))
+					-- t_insert(breakdown[recoupType.."RecoupRecoveryMax"], s_format("+ %.2f ^8(total damage mitigated recoup amount)", output["Total"..recoupType.."Recoup"]))
 				end
 				t_insert(breakdown[recoupType.."RecoupRecoveryMax"], s_format(""))
 				t_insert(breakdown[recoupType.."RecoupRecoveryMax"], s_format("= %d ^8(total damage recoup amount)", totalRecoup))
