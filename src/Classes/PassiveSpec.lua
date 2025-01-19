@@ -53,6 +53,8 @@ function PassiveSpecClass:Init(treeVersion, convert)
 		end
 	end
 	for id, node in pairs(self.nodes) do
+		-- init all nodes as normal allocationMode
+		node.allocMode = 0
 		-- if the node is allocated and between the old and new tree has the same ID but does not share the same name, add to list of nodes to be ignored
 		if convert and previousTreeNodes[id] and self.build.spec.allocNodes[id] and node.name ~= previousTreeNodes[id].name then
 			self.ignoredNodes[id] = previousTreeNodes[id]
@@ -304,6 +306,7 @@ function PassiveSpecClass:ImportFromNodeList(classId, ascendClassId, secondaryAs
 		local node = self.nodes[id]
 		if node then
 			node.alloc = true
+			node.allocMode = weaponSets[id] or 0
 			self.allocNodes[id] = node
 		end
 	end
@@ -728,7 +731,7 @@ end
 
 function PassiveSpecClass:DeallocSingleNode(node)
 	node.alloc = false
-	node.allocMode = nil
+	node.allocMode = 0
 	self.allocNodes[node.id] = nil
 	if node.type == "Mastery" then
 		self:AddMasteryEffectOptionsToNode(node)
@@ -771,9 +774,9 @@ function PassiveSpecClass:CountAllocNodes()
 			end
 		end
 
-		if node.allocMode and node.allocMode == 1 then
+		if node.allocMode == 1 then
 			weaponSet1Used = weaponSet1Used + 1
-		elseif node.allocMode and node.allocMode == 2 then
+		elseif node.allocMode == 2 then
 			weaponSet2Used = weaponSet2Used + 1
 		end
 	end

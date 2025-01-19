@@ -249,25 +249,22 @@ function calcs.buildModListForNode(env, node, incSmallPassiveSkill)
 	if modList:Flag(nil, "CanExplode") then
 		t_insert(env.explodeSources, node)
 	end
-
-	if node.allocMode then
-		for i, mod in ipairs(modList) do
-			local added = false
-			for j = #mod, 1, -1 do
-				if mod[j].type == "Condition" and mod[j].var and mod[j].var:match("^WeaponSet") then
-					if node.allocMode ~= 0 then -- only update the conditional for WS1/WS2
-						mod[j].var = "WeaponSet".. node.allocMode
-						added = true
-					else -- if normal and conditional exists, remove it
-						t_remove(mod, j)
-					end
-					break
+	
+	for i, mod in ipairs(modList) do
+		local added = false
+		for j = #mod, 1, -1 do
+			if mod[j].type == "Condition" and mod[j].var and mod[j].var:match("^WeaponSet") then
+				added = true
+				if node.allocMode ~= 0 then -- only update the conditional for WS1/WS2
+					mod[j].var = "WeaponSet".. node.allocMode
+				else -- if normal and conditional exists, remove it
+					t_remove(mod, j)
 				end
 			end
-			-- only add the conditional for WS1/WS2
-			if not added and node.allocMode ~= 0 then
-				table.insert(mod, { type = "Condition", var = "WeaponSet".. node.allocMode })
-			end
+		end
+		-- only add the conditional for WS1/WS2
+		if not added and node.allocMode ~= 0 then
+			table.insert(mod, { type = "Condition", var = "WeaponSet".. node.allocMode })
 		end
 	end
 

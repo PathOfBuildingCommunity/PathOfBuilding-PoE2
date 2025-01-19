@@ -1126,7 +1126,7 @@ function PassiveTreeViewClass:AddNodeTooltip(tooltip, node, build, incSmallPassi
 		tooltip:AddLine(16, string.format("Angle: %f", node.angle))
 		tooltip:AddLine(16, string.format("Orbit: %d, Orbit Index: %d", node.orbit, node.orbitIndex))
 		tooltip:AddLine(16, string.format("Group: %d", node.g))
-		tooltip:AddLine(16, string.format("AllocMode: %d", node.allocMode or 0))
+		tooltip:AddLine(16, string.format("AllocMode: %d", node.allocMode))
 		tooltip:AddSeparator(14)
 
 		-- add connection info for debugging
