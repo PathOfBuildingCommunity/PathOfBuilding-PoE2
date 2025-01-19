@@ -2894,7 +2894,7 @@ function calcs.buildDefenceEstimations(env, actor)
 		local totalDamage = 0
 		local totalElementalDamage = 0
 		local totalPhysicalDamageMitigated = output["NumberOfMitigatedDamagingHits"] * (output.PhysicalTakenDamage - output.PhysicalTakenHit)
-		local extraPseudoRecoup = {}
+		local recoupAvgTime = output["EHPSurvivalTime"] + effectiveRecoupTime
 
 		for _, damageType in ipairs(dmgTypeList) do
 			totalDamage = totalDamage + output[damageType.."PoolLost"]
@@ -2925,15 +2925,15 @@ function calcs.buildDefenceEstimations(env, actor)
 			-- "max" and "avg" recoup recovery for Calcs report
 			output[recoupType.."RecoupRecoveryMax"] = (
 				(output["Total"..recoupType.."RecoupRecovery"] + output["Total"..recoupType.."PseudoRecoup"]) / effectiveRecoupTime
-				+ (extraPseudoRecoup[recoupType] and (extraPseudoRecoup[recoupType][1] / extraPseudoRecoup[recoupType][2]) or 0)
 			)
 			output[recoupType.."RecoupRecoveryAvg"] = (
-				(output["Total"..recoupType.."RecoupRecovery"] + output["Total"..recoupType.."PseudoRecoup"]) / (output["EHPSurvivalTime"] + effectiveRecoupTime)
-				+ (extraPseudoRecoup[recoupType] and (extraPseudoRecoup[recoupType][1] / (output["EHPSurvivalTime"] + extraPseudoRecoup[recoupType][2])) or 0)
+				(output["Total"..recoupType.."RecoupRecovery"] + output["Total"..recoupType.."PseudoRecoup"]) / recoupAvgTime
 			)
 
 			if breakdown then
 				local multipleTypes = 0
+
+				-- standard recoup types
 				breakdown[recoupType.."RecoupRecoveryMax"] = { }
 				if (output[recoupType.."Recoup"] or 0) > 0 then
 					t_insert(breakdown[recoupType.."RecoupRecoveryMax"], s_format("%d ^8(total damage taken during ehp calcs)", totalDamage))
@@ -2958,27 +2958,20 @@ function calcs.buildDefenceEstimations(env, actor)
 						multipleTypes = multipleTypes + 1
 					end
 				end
-				t_insert(breakdown[recoupType.."RecoupRecoveryMax"], s_format("= %d ^8(total damage recoup amount)", output["Total"..recoupType.."RecoupRecovery"]))
-				breakdown[recoupType.."RecoupRecoveryAvg"] = copyTable(breakdown[recoupType.."RecoupRecoveryMax"])
-				t_insert(breakdown[recoupType.."RecoupRecoveryMax"], s_format("/ %.2f ^8(over %d seconds)", effectiveRecoupTime, effectiveRecoupTime))
+
+				local totalRecoup = output["Total"..recoupType.."RecoupRecovery"] + output["Total"..recoupType.."PseudoRecoup"] -- TODO: Should probably not be calculated here
 				if output["Total"..recoupType.."PseudoRecoup"] > 0 then
+					t_insert(breakdown[recoupType.."RecoupRecoveryMax"], s_format(""))
 					t_insert(breakdown[recoupType.."RecoupRecoveryMax"], s_format("+ %.2f ^8(total damage mitigated pseudo recoup amount)", output["Total"..recoupType.."PseudoRecoup"]))
-					t_insert(breakdown[recoupType.."RecoupRecoveryMax"], s_format("/ %.2f ^8(over %d seconds)", effectiveRecoupTime, effectiveRecoupTime))
 				end
-				if extraPseudoRecoup[recoupType] then
-					t_insert(breakdown[recoupType.."RecoupRecoveryMax"], s_format("+ %.2f ^8(total damage mitigated pseudo recoup amount)", extraPseudoRecoup[recoupType][1]))
-					t_insert(breakdown[recoupType.."RecoupRecoveryMax"], s_format("/ %.2f ^8(over %d seconds)", extraPseudoRecoup[recoupType][2], extraPseudoRecoup[recoupType][2]))
-				end
+				t_insert(breakdown[recoupType.."RecoupRecoveryMax"], s_format(""))
+				t_insert(breakdown[recoupType.."RecoupRecoveryMax"], s_format("= %d ^8(total damage recoup amount)", totalRecoup))
+
+				breakdown[recoupType.."RecoupRecoveryAvg"] = copyTable(breakdown[recoupType.."RecoupRecoveryMax"])
+
+				t_insert(breakdown[recoupType.."RecoupRecoveryMax"], s_format("/ %.2f ^8(over %.2f seconds)", effectiveRecoupTime, effectiveRecoupTime))
 				t_insert(breakdown[recoupType.."RecoupRecoveryMax"], s_format("= %.2f per second ^8", output[recoupType.."RecoupRecoveryMax"]))
-				t_insert(breakdown[recoupType.."RecoupRecoveryAvg"], s_format("/ %.2f ^8(total time of the recoup (survival time + %d seconds))", (output["EHPSurvivalTime"] + effectiveRecoupTime), effectiveRecoupTime))
-				if output["Total"..recoupType.."PseudoRecoup"] > 0 then
-					t_insert(breakdown[recoupType.."RecoupRecoveryAvg"], s_format("+ %.2f ^8(total damage mitigated pseudo recoup amount)", output["Total"..recoupType.."PseudoRecoup"]))
-					t_insert(breakdown[recoupType.."RecoupRecoveryAvg"], s_format("/ %.2f ^8(total time of the recoup (survival time + %d seconds)", (output["EHPSurvivalTime"] + effectiveRecoupTime), effectiveRecoupTime))
-				end
-				if extraPseudoRecoup[recoupType] then
-					t_insert(breakdown[recoupType.."RecoupRecoveryAvg"], s_format("+ %.2f ^8(total damage mitigated pseudo recoup amount)", extraPseudoRecoup[recoupType][1]))
-					t_insert(breakdown[recoupType.."RecoupRecoveryAvg"], s_format("/ %.2f ^8(total time of the recoup (survival time + %d seconds)", (output["EHPSurvivalTime"] + extraPseudoRecoup[recoupType][2]), extraPseudoRecoup[recoupType][2]))
-				end
+				t_insert(breakdown[recoupType.."RecoupRecoveryAvg"], s_format("/ %.2f ^8(total time of the recoup (%.2f sec survival time + %.2f sec recoup))", recoupAvgTime, output["EHPSurvivalTime"], effectiveRecoupTime))
 				t_insert(breakdown[recoupType.."RecoupRecoveryAvg"], s_format("= %.2f per second ^8", output[recoupType.."RecoupRecoveryAvg"]))
 			end
 		end

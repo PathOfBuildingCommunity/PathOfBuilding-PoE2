@@ -975,7 +975,7 @@ c["15% increased maximum Life"]={{[1]={flags=0,keywordFlags=0,name="Life",type="
 c["15% more Maximum Life"]={{[1]={flags=0,keywordFlags=0,name="Life",type="MORE",value=15}},nil}
 c["15% more Maximum Lightning Damage"]={{[1]={flags=0,keywordFlags=0,name="MaxLightningDamage",type="MORE",value=15}},nil}
 c["15% of Elemental Damage taken Recouped as Life"]={{[1]={flags=0,keywordFlags=0,name="LightningLifeRecoup",type="BASE",value=15},[2]={flags=0,keywordFlags=0,name="ColdLifeRecoup",type="BASE",value=15},[3]={flags=0,keywordFlags=0,name="FireLifeRecoup",type="BASE",value=15}},nil}
-c["15% of Physical Damage prevented Recouped as Life"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamage",type="BASE",value=15}},"  prevented Recouped as Life "}
+c["15% of Physical Damage prevented Recouped as Life"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamageMitigatedLifePseudoRecoup",type="BASE",value=15}},nil}
 c["15% of Physical Damage taken Recouped as Life"]={{[1]={flags=0,keywordFlags=0,name="PhysicalLifeRecoup",type="BASE",value=15}},nil}
 c["15% reduced Attack Speed"]={{[1]={flags=1,keywordFlags=0,name="Speed",type="INC",value=-15}},nil}
 c["15% reduced Attack Speed with Crossbows"]={{[1]={flags=67108869,keywordFlags=0,name="Speed",type="INC",value=-15}},nil}
@@ -1867,7 +1867,7 @@ c["50% more Flask Charges gained"]={{[1]={flags=0,keywordFlags=0,name="FlaskChar
 c["50% of Base Armour from Equipment also added to Stun Threshold"]={{[1]={[1]={percent=50,stat="ArmourOnHelmet",type="PerStat"},flags=0,keywordFlags=0,name="StunThreshold",type="BASE",value=1},[2]={[1]={percent=50,stat="ArmourOnGloves",type="PerStat"},flags=0,keywordFlags=0,name="StunThreshold",type="BASE",value=1},[3]={[1]={percent=50,stat="ArmourOnBoots",type="PerStat"},flags=0,keywordFlags=0,name="StunThreshold",type="BASE",value=1},[4]={[1]={percent=50,stat="ArmourOnBody Armour",type="PerStat"},flags=0,keywordFlags=0,name="StunThreshold",type="BASE",value=1}},nil}
 c["50% of Damage taken Recouped as Mana"]={{[1]={flags=0,keywordFlags=0,name="ManaRecoup",type="BASE",value=50}},nil}
 c["50% of Maximum Life Converted to Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="LifeConvertToEnergyShield",type="BASE",value=50}},nil}
-c["50% of Physical Damage prevented Recouped as Life"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamage",type="BASE",value=50}},"  prevented Recouped as Life "}
+c["50% of Physical Damage prevented Recouped as Life"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamageMitigatedLifePseudoRecoup",type="BASE",value=50}},nil}
 c["50% of charges used by Charms granted to your Life Flasks"]={{[1]={[3]={type="Multiplier",var="AvgCharmChargesUsed"},flags=0,keywordFlags=0,name="FlaskChargesGained",type="MORE",value=0.5}},nil}
 c["50% of your Life Regeneration is granted to Allies in your Presence"]={{[1]={flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=0,keywordFlags=0,name="LifeRegen",type="BASE",value=50},onlyAllies=true}}}," your  is granted to "}
 c["50% reduced Chill Duration on you"]={{[1]={flags=0,keywordFlags=0,name="SelfChillDuration",type="INC",value=-50}},nil}
