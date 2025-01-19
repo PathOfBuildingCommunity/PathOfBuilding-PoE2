@@ -2811,10 +2811,14 @@ local specialModList = {
 	-- Mercenary - Gemling
 	["attribute requirements of gems can be satisi?fied by your highest attribute"] = { flag("GemAttributeRequirementsSatisfiedByHighestAttribute") },
 	["you can use two copies of the same support gem in different skills"] = { mod("MaxSupportGemCopies", "OVERRIDE", 2) },
-	-- Stormweaver
+	-- Monk - Stormweaver
 	["targets can be affected by two of your shocks at the same time"] = { flag("ShockCanStack"), mod("ShockStacksMax", "OVERRIDE", 2) },
 	["targets can be affected by two of your chills at the same time"] = { flag("ChillCanStack"), mod("ChillStacksMax", "OVERRIDE", 2) },
 	["your chills can slow targets by up to a maximum of (%d+)%%"] = function(num) return { mod("ChillMax", "OVERRIDE", num)} end,
+	-- Monk - Chayula
+	["(%d+)%% chance to gain (%d+)%% of damage with hits as extra (%a+) damage"] = function(num, _, num2, strType) return {
+		mod("GainAs"..firstToUpper(strType), "BASE", tonumber(num2) * (num / 100), nil, ModFlag.Hit, 0),
+	} end,
 	-- Item local modifiers
 	["has no sockets"] = { flag("NoSockets") },
 	["reflects your other ring"] = {
