@@ -401,7 +401,6 @@ function calcs.reducePoolsByDamage(poolTable, damageTable, actor)
 	local mana = poolTbl.Mana or output.ManaUnreserved or 0
 	local life = poolTbl.Life or output.LifeRecoverable or 0
 	local LifeLossLostOverTime = poolTbl.LifeLossLostOverTime or 0
-	local LifeBelowHalfLossLostOverTime = poolTbl.LifeBelowHalfLossLostOverTime or 0
 	
 	for damageType, damage in pairs(damageTable) do
 		local damageRemainder = damage
@@ -474,32 +473,8 @@ function calcs.reducePoolsByDamage(poolTable, damageTable, actor)
 			local lifeOverHalfLife = m_max(life - halfLife, 0)
 			local preventPercent = output.preventedLifeLoss / 100
 			local poolAboveLow = lifeOverHalfLife / (1 - preventPercent)
-			local preventBelowHalfPercent = modDB:Sum("BASE", nil, "LifeLossBelowHalfPrevented") / 100
-			local damageThatLifeCanStillTake = poolAboveLow + m_max(m_min(life, halfLife), 0) / (1 - preventBelowHalfPercent) / (1 - output.preventedLifeLoss / 100)
+			local damageThatLifeCanStillTake = poolAboveLow + m_max(m_min(life, halfLife), 0) / (1 - output.preventedLifeLoss / 100)
 			local overkillDamage = damageThatLifeCanStillTake < damageRemainder and damageRemainder - damageThatLifeCanStillTake or 0
-			if overkillDamage ~= 0 then
-				damageRemainder = damageThatLifeCanStillTake
-			end
-			if output.preventedLifeLossBelowHalf ~= 0 then
-				local damageToSplit = m_min(damageRemainder, poolAboveLow)
-				local lostLife = damageToSplit * (1 - preventPercent)
-				local preventedLoss = damageToSplit * preventPercent
-				damageRemainder = damageRemainder - damageToSplit
-				LifeLossLostOverTime = LifeLossLostOverTime + preventedLoss
-				life = life - lostLife
-				if life <= halfLife then
-					local unspecificallyLowLifePreventedDamage = damageRemainder * preventPercent
-					LifeLossLostOverTime = LifeLossLostOverTime + unspecificallyLowLifePreventedDamage
-					damageRemainder = damageRemainder - unspecificallyLowLifePreventedDamage
-					local specificallyLowLifePreventedDamage = damageRemainder * preventBelowHalfPercent
-					LifeBelowHalfLossLostOverTime = LifeBelowHalfLossLostOverTime + specificallyLowLifePreventedDamage
-					damageRemainder = damageRemainder - specificallyLowLifePreventedDamage
-				end
-			else
-				local tempDamage = damageRemainder * output.preventedLifeLoss / 100
-				LifeLossLostOverTime = LifeLossLostOverTime + tempDamage
-				damageRemainder = damageRemainder - tempDamage
-			end
 			if overkillDamage ~= 0 then
 				life = life - overkillDamage
 			end
@@ -517,7 +492,6 @@ function calcs.reducePoolsByDamage(poolTable, damageTable, actor)
 		Mana = mana,
 		Life = life,
 		LifeLossLostOverTime = LifeLossLostOverTime,
-		LifeBelowHalfLossLostOverTime = LifeBelowHalfLossLostOverTime
 	}
 end
 
@@ -2265,24 +2239,15 @@ function calcs.buildDefenceEstimations(env, actor)
 	
 	output.LifeRecoverable = m_max(output.LifeRecoverable, 1)
 	
-	-- Prevented life loss taken over 4 seconds (and Petrified Blood)
+	-- Prevented life loss taken over 4 seconds
 	do
 		local halfLife = output.Life * 0.5
 		local recoverable = output.LifeRecoverable
 		local aboveLow = m_max(recoverable - halfLife, 0)
 		local preventedLifeLoss = m_min(modDB:Sum("BASE", nil, "LifeLossPrevented"), 100)
 		output["preventedLifeLoss"] = preventedLifeLoss
-		local initialLifeLossBelowHalfPrevented = modDB:Sum("BASE", nil, "LifeLossBelowHalfPrevented")
-		output["preventedLifeLossBelowHalf"] = (1 - output["preventedLifeLoss"] / 100) * initialLifeLossBelowHalfPrevented
-		local portionLife = 1
-		if not env.configInput["conditionLowLife"] then
-			--portion of life that is lowlife
-			portionLife = m_min(halfLife / recoverable, 1)
-			output["preventedLifeLossTotal"] = output["preventedLifeLoss"] + output["preventedLifeLossBelowHalf"] * portionLife
-		else
-			output["preventedLifeLossTotal"] = output["preventedLifeLoss"] + output["preventedLifeLossBelowHalf"]
-		end
-		output.LifeHitPool = aboveLow / (1 - preventedLifeLoss / 100) + m_min(recoverable, halfLife) / (1 - initialLifeLossBelowHalfPrevented / 100) / (1 - preventedLifeLoss / 100)
+		output["preventedLifeLossTotal"] = output["preventedLifeLoss"]
+		output.LifeHitPool = aboveLow / (1 - preventedLifeLoss / 100) + m_min(recoverable, halfLife) / (1 - preventedLifeLoss / 100)
 		
 		if breakdown then
 			breakdown["preventedLifeLossTotal"] = {
@@ -2290,26 +2255,6 @@ function calcs.buildDefenceEstimations(env, actor)
 			}
 			if output["preventedLifeLoss"] ~= 0 then
 				t_insert(breakdown["preventedLifeLossTotal"], s_format("%.2f ^8(portion taken over 4 seconds instead)", output["preventedLifeLoss"] / 100))
-			end
-			if output["preventedLifeLossBelowHalf"] ~= 0 then
-				if portionLife ~= 1 then
-					if output["preventedLifeLoss"] ~= 0 then
-						t_insert(breakdown["preventedLifeLossTotal"], s_format(""))
-					end
-					t_insert(breakdown["preventedLifeLossTotal"], s_format("%s%.2f ^8(initial portion taken by petrified blood)", output["preventedLifeLoss"] ~= 0 and "+ " or "", initialLifeLossBelowHalfPrevented / 100))
-					if output["preventedLifeLoss"] ~= 0 then
-						t_insert(breakdown["preventedLifeLossTotal"], s_format("* %.2f ^8(portion not already taken over time)", (1 - output["preventedLifeLoss"] / 100)))
-					end
-					t_insert(breakdown["preventedLifeLossTotal"], s_format("* %.2f ^8(portion of life on low life)", portionLife))
-					t_insert(breakdown["preventedLifeLossTotal"], s_format("= %.2f ^8(final portion taken by petrified blood)", output["preventedLifeLossBelowHalf"] * portionLife / 100))
-					t_insert(breakdown["preventedLifeLossTotal"], s_format(""))
-				else
-					t_insert(breakdown["preventedLifeLossTotal"], s_format("%s%.2f ^8(%s taken by petrified blood)", output["preventedLifeLoss"] ~= 0 and "+ " or "", initialLifeLossBelowHalfPrevented / 100, output["preventedLifeLoss"] ~= 0 and "initial portion" or "portion"))
-					if output["preventedLifeLoss"] ~= 0 then
-						t_insert(breakdown["preventedLifeLossTotal"], s_format("* %.2f ^8(portion not already taken over time)", (1 - output["preventedLifeLoss"] / 100)))
-						t_insert(breakdown["preventedLifeLossTotal"], s_format("= %.2f ^8(final portion taken by petrified blood)", output["preventedLifeLossBelowHalf"] / 100))
-					end
-				end
 			end
 			t_insert(breakdown["preventedLifeLossTotal"], s_format("%.2f ^8(portion taken from life)", 1 - output["preventedLifeLossTotal"] / 100))
 		end
@@ -2644,7 +2589,6 @@ function calcs.buildDefenceEstimations(env, actor)
 			Mana = output.ManaUnreserved or 0,
 			Life = output.LifeRecoverable or 0,
 			LifeLossLostOverTime = output.LifeLossLostOverTime or 0,
-			LifeBelowHalfLossLostOverTime = output.LifeBelowHalfLossLostOverTime or 0,
 			PoolsLost = { }
 		}
 		
@@ -2728,7 +2672,6 @@ function calcs.buildDefenceEstimations(env, actor)
 		end
 		if DamageIn["TrackLifeLossOverTime"] then
 			output.LifeLossLostOverTime = output.LifeLossLostOverTime + poolTable.LifeLossLostOverTime
-			output.LifeBelowHalfLossLostOverTime = output.LifeBelowHalfLossLostOverTime + poolTable.LifeBelowHalfLossLostOverTime
 		end
 		
 		if poolTable.Life < 0 and DamageIn["cycles"] == 1 then -- Don't count overkill damage and only on final pass as to not break speedup.
@@ -2841,7 +2784,6 @@ function calcs.buildDefenceEstimations(env, actor)
 			if output["preventedLifeLossTotal"] > 0 then
 				DamageIn["TrackLifeLossOverTime"] = true
 				output["LifeLossLostOverTime"] = 0
-				output["LifeBelowHalfLossLostOverTime"] = 0
 			end
 			averageAvoidChance = averageAvoidChance / 5
 			output["ConfiguredDamageChance"] = 100 * (blockEffect * suppressionEffect * (1 - averageAvoidChance / 100))
@@ -3033,36 +2975,27 @@ function calcs.buildDefenceEstimations(env, actor)
 		end
 	end
 	
-	-- PoE1 petrified blood "degen"
-	if output.preventedLifeLossTotal > 0 and (output["LifeLossLostOverTime"] and output["LifeBelowHalfLossLostOverTime"]) then
-		local LifeLossBelowHalfLost = modDB:Sum("BASE", nil, "LifeLossBelowHalfLost") / 100
-		output["LifeLossLostMax"] = (output["LifeLossLostOverTime"] + output["LifeBelowHalfLossLostOverTime"] * LifeLossBelowHalfLost) / 4
-		output["LifeLossLostAvg"] = (output["LifeLossLostOverTime"] + output["LifeBelowHalfLossLostOverTime"] * LifeLossBelowHalfLost) / (output["EHPSurvivalTime"] + 4)
+	-- Grasping Wounds "degen"
+	if output.preventedLifeLossTotal > 0 and output["LifeLossLostOverTime"] then
+		output["LifeLossLostMax"] = (output["LifeLossLostOverTime"]) / 4
+		output["LifeLossLostAvg"] = (output["LifeLossLostOverTime"]) / (output["EHPSurvivalTime"] + 4)
 		if breakdown then
 			breakdown["LifeLossLostMax"] = { }
 			if output["LifeLossLostOverTime"] ~= 0 then
-				t_insert(breakdown["LifeLossLostMax"], s_format("( %d ^8(total damage prevented by Progenesis)", output["LifeLossLostOverTime"]))
-			end
-			if output["LifeBelowHalfLossLostOverTime"] ~= 0 then
-				t_insert(breakdown["LifeLossLostMax"], s_format("%s %d ^8(total damage prevented by petrified blood)", output["LifeLossLostOverTime"] ~= 0 and "+" or "(", output["LifeBelowHalfLossLostOverTime"]))
-				t_insert(breakdown["LifeLossLostMax"], s_format("* %.2f ^8(percent of damage taken from petrified blood)", LifeLossBelowHalfLost))
+				t_insert(breakdown["LifeLossLostMax"], s_format("( %d ^8(total damage prevented by Grasping Wounds)", output["LifeLossLostOverTime"]))
 			end
 			t_insert(breakdown["LifeLossLostMax"], s_format(") / %.2f ^8(over 4 seconds)", 4))
 			t_insert(breakdown["LifeLossLostMax"], s_format("= %.2f per second", output["LifeLossLostMax"]))
 			breakdown["LifeLossLostAvg"] = { }
 			if output["LifeLossLostOverTime"] ~= 0 then
-				t_insert(breakdown["LifeLossLostAvg"], s_format("( %d ^8(total damage prevented by Progenesis)", output["LifeLossLostOverTime"]))
-			end
-			if output["LifeBelowHalfLossLostOverTime"] ~= 0 then
-				t_insert(breakdown["LifeLossLostAvg"], s_format("%s %d ^8(total damage prevented by petrified blood)", output["LifeLossLostOverTime"] ~= 0 and "+" or "(", output["LifeBelowHalfLossLostOverTime"]))
-				t_insert(breakdown["LifeLossLostAvg"], s_format("* %.2f ^8(percent of damage taken from petrified blood)", LifeLossBelowHalfLost))
+				t_insert(breakdown["LifeLossLostAvg"], s_format("( %d ^8(total damage prevented by Grasping Wounds)", output["LifeLossLostOverTime"]))
 			end
 			t_insert(breakdown["LifeLossLostAvg"], s_format(") / %.2f ^8(total time of the degen (survival time + 4 seconds))", (output["EHPSurvivalTime"] + 4)))
 			t_insert(breakdown["LifeLossLostAvg"], s_format("= %.2f per second", output["LifeLossLostAvg"]))
 		end
 	end
 	
-	-- if there is life recoup or preventedLifeLoss (PoE1 petrified blood), add Calcs section for this
+	-- If there is life recoup or preventedLifeLoss (Grasping Wounds), add Calcs section for this
 	if (output["LifeRecoupRecoveryAvg"] or 0) > 0 or output.preventedLifeLossTotal > 0 then
 		output["netLifeRecoupAndLossLostOverTimeMax"] = (output["LifeRecoupRecoveryMax"] or 0) - (output["LifeLossLostMax"] or 0)
 		output["netLifeRecoupAndLossLostOverTimeAvg"] = (output["LifeRecoupRecoveryAvg"] or 0) - (output["LifeLossLostAvg"] or 0)
@@ -3377,8 +3310,8 @@ function calcs.buildDefenceEstimations(env, actor)
 				if output.ManaUnreserved ~= poolsRemaining.Mana and output.ManaUnreserved and output.ManaUnreserved > 0 then
 					t_insert(breakdown[maxHitCurType], s_format("\t%d "..colorCodes.MANA.."Mana ^7(%d remaining)", output.ManaUnreserved - poolsRemaining.Mana, poolsRemaining.Mana))
 				end
-				if poolsRemaining.LifeLossLostOverTime + poolsRemaining.LifeBelowHalfLossLostOverTime > 0 then
-					t_insert(breakdown[maxHitCurType], s_format("\t%d "..colorCodes.LIFE.."Life ^7Loss Prevented", poolsRemaining.LifeLossLostOverTime + poolsRemaining.LifeBelowHalfLossLostOverTime))
+				if poolsRemaining.LifeLossLostOverTime > 0 then
+					t_insert(breakdown[maxHitCurType], s_format("\t%d "..colorCodes.LIFE.."Life ^7Loss Prevented", poolsRemaining.LifeLossLostOverTime))
 				end
 				t_insert(breakdown[maxHitCurType], s_format("\t%d "..colorCodes.LIFE.."Life ^7(%d remaining)", output.LifeRecoverable - poolsRemaining.Life, poolsRemaining.Life))
 			end
