@@ -113,6 +113,34 @@ local function setStats(jewel, radiusJewelStats, index, alternate)
 		return tonumber(line:match("%d+"))
 	end
 end
+local function mergeStats(node, sd, spec)
+	-- copy the original tree node so we ignore the mods being added from the jewel
+	local nodeCopy = copyTable(spec.tree.nodes[node.id], true)
+	local nodeNumber = 0
+	local nodeString = ""
+	local modToAddNumber = 0
+	local modToAddString = ""
+
+	-- loop the original node mods and compare to the jewel mod we want to add
+	-- if the strings without the numbers are identical, the mods should be identical
+	-- if so, update the node's version of the mod and do not add the jewel mods to the list
+	-- otherwise, add the jewel mod because it's unique/new to the node
+	for index, nodeSd in ipairs(nodeCopy.sd) do
+		nodeString = nodeSd:gsub("(%d+)", function(number)
+			nodeNumber = number
+			return ""
+		end)
+		modToAddString = sd:gsub("(%d+)", function(number)
+			modToAddNumber = number
+			return ""
+		end)
+		if nodeString == modToAddString then
+			node.sd[index] = node.sd[index]:gsub("(%d+)", (nodeNumber + modToAddNumber))
+			return
+		end
+	end
+	t_insert(node.sd, sd)
+end
 -- grab the stat lines from the selected variants on the jewel to add to the nodes
 -- e.g. Against the Darkness or Time-Lost jewels
 local function setRadiusJewelStats(radiusJewel, radiusJewelStats)
@@ -162,7 +190,7 @@ local function addStats(jewel, node, spec)
 			-- the node and stat types match, add sd to node if it's not already there and it's an 'also grant' mod
 			if not isValueInTable(node.sd, stat.sd) and ((node.type == "Notable" and stat.isNotable) or (node.type == "Normal" and not stat.isNotable))
 				and stat.toAdd then
-				t_insert(node.sd, stat.sd)
+				mergeStats(node, stat.sdLine, spec)
 			end
 		end
 		-- if there's an incEffect of Small Passives mod on the jewel and the node is small, scale all numbers
@@ -184,7 +212,7 @@ local function addStatsFromJewelToNode(jewel, node, spec)
 		-- if the Time-Lost jewel is socketed, add the stat
 		if itemsTab.activeSocketList then
 			for _, nodeId in pairs(itemsTab.activeSocketList) do
-				local socketIndex, socketedJewel = itemsTab:GetSocketAndJewelForNodeID(nodeId)
+				local _, socketedJewel = itemsTab:GetSocketAndJewelForNodeID(nodeId)
 				if socketedJewel and socketedJewel.baseName:find("Time%-Lost") == 1 then
 					addStats(jewel, node, spec)
 				end
@@ -282,7 +310,7 @@ function calcs.buildModListForNode(env, node, incSmallPassiveSkill)
 			table.insert(mod, { type = "Condition", var = "WeaponSet".. node.allocMode })
 		end
 	end
-	
+
 	-- Apply Inc Node scaling from Hulking Form
 	if incSmallPassiveSkill > 0 and node.type == "Normal" and not node.isAttribute and not node.ascendancyName then
 		local scale = 1 + incSmallPassiveSkill / 100
