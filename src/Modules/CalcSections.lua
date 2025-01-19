@@ -1448,8 +1448,6 @@ return {
 	}, },
 	{ label = "Mitigation Recoup", haveOutput = "PhysicalDamageMitigatedLifePseudoRecoup", { format = "{1:output:PhysicalDamageMitigatedLifePseudoRecoup}%", { breakdown = "PhysicalDamageMitigatedLifePseudoRecoup" }, 
 		{ label = "Sources", modName = "PhysicalDamageMitigatedLifePseudoRecoup" },
-		{ label = "Increased Life Regeneration Rate", modName = { "LifeRegen" }, modType = "INC" },
-		{ label = "More Life Regeneration Rate", modName = { "LifeRegen" }, modType = "MORE" },
 		{ label = "Recovery modifiers", modName = "LifeRecoveryRate" },
 		{ label = "Recoup Speed", modName = { "4SecondRecoup", "RecoupSpeed" } },
 	}, },
@@ -1528,8 +1526,6 @@ return {
 	}, },
 	{ label = "Mitigation Regen", haveOutput = "PhysicalDamageMitigatedEnergyShieldPseudoRecoup", { format = "{1:output:PhysicalDamageMitigatedEnergyShieldPseudoRecoup}%", { breakdown = "PhysicalDamageMitigatedEnergyShieldPseudoRecoup" }, 
 		{ label = "Sources", modName = "PhysicalDamageMitigatedEnergyShieldPseudoRecoup" },
-		{ label = "Increased Energy Shield Regeneration Rate", modName = { "EnergyShieldRegen" }, modType = "INC" },
-		{ label = "More Energy Shield Regeneration Rate", modName = { "EnergyShieldRegen" }, modType = "MORE" },
 		{ label = "Recovery modifiers", modName = "EnergyShieldRecoveryRate" },
 	}, },
 } }
