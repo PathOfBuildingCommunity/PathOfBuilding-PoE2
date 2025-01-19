@@ -475,6 +475,15 @@ function calcs.reducePoolsByDamage(poolTable, damageTable, actor)
 			local poolAboveLow = lifeOverHalfLife / (1 - preventPercent)
 			local damageThatLifeCanStillTake = poolAboveLow + m_max(m_min(life, halfLife), 0) / (1 - output.preventedLifeLoss / 100)
 			local overkillDamage = damageThatLifeCanStillTake < damageRemainder and damageRemainder - damageThatLifeCanStillTake or 0
+
+			if overkillDamage ~= 0 then
+				damageRemainder = damageThatLifeCanStillTake
+			end
+
+			local tempDamage = damageRemainder * output.preventedLifeLoss / 100
+			LifeLossLostOverTime = LifeLossLostOverTime + tempDamage
+			damageRemainder = damageRemainder - tempDamage
+
 			if overkillDamage ~= 0 then
 				life = life - overkillDamage
 			end
@@ -2977,20 +2986,23 @@ function calcs.buildDefenceEstimations(env, actor)
 	
 	-- Grasping Wounds "degen"
 	if output.preventedLifeLossTotal > 0 and output["LifeLossLostOverTime"] then
-		output["LifeLossLostMax"] = (output["LifeLossLostOverTime"]) / 4
-		output["LifeLossLostAvg"] = (output["LifeLossLostOverTime"]) / (output["EHPSurvivalTime"] + 4)
+		local graspingWoundsDuration = 4
+		local lostAvgTime = output["EHPSurvivalTime"] + graspingWoundsDuration
+		output["LifeLossLostMax"] = (output["LifeLossLostOverTime"]) / graspingWoundsDuration
+		output["LifeLossLostAvg"] = (output["LifeLossLostOverTime"]) / lostAvgTime
 		if breakdown then
 			breakdown["LifeLossLostMax"] = { }
 			if output["LifeLossLostOverTime"] ~= 0 then
 				t_insert(breakdown["LifeLossLostMax"], s_format("( %d ^8(total damage prevented by Grasping Wounds)", output["LifeLossLostOverTime"]))
 			end
-			t_insert(breakdown["LifeLossLostMax"], s_format(") / %.2f ^8(over 4 seconds)", 4))
+			t_insert(breakdown["LifeLossLostMax"], s_format(") / %.2f ^8(over %d seconds)", graspingWoundsDuration, graspingWoundsDuration))
 			t_insert(breakdown["LifeLossLostMax"], s_format("= %.2f per second", output["LifeLossLostMax"]))
+
 			breakdown["LifeLossLostAvg"] = { }
 			if output["LifeLossLostOverTime"] ~= 0 then
 				t_insert(breakdown["LifeLossLostAvg"], s_format("( %d ^8(total damage prevented by Grasping Wounds)", output["LifeLossLostOverTime"]))
 			end
-			t_insert(breakdown["LifeLossLostAvg"], s_format(") / %.2f ^8(total time of the degen (survival time + 4 seconds))", (output["EHPSurvivalTime"] + 4)))
+			t_insert(breakdown["LifeLossLostAvg"], s_format(") / %.2f ^8(total time of the degen (survival time + %d seconds))", lostAvgTime, lostAvgTime))
 			t_insert(breakdown["LifeLossLostAvg"], s_format("= %.2f per second", output["LifeLossLostAvg"]))
 		end
 	end
