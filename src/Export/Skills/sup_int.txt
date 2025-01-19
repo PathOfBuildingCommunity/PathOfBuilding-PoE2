@@ -201,6 +201,11 @@ statMap = {
 #skill SupportControlledDestructionPlayer
 #startSets
 #set SupportControlledDestructionPlayer
+statMap = {
+	["support_controlled_destruction_spell_damage_+%_final"] = {
+		mod("Damage", "MORE", nil, ModFlag.Spell),
+	},
+},
 #mods
 #skillEnd
 

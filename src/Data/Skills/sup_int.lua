@@ -810,6 +810,11 @@ skills["SupportControlledDestructionPlayer"] = {
 			label = "Controlled Destruction",
 			incrementalEffectiveness = 0.092720001935959,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_controlled_destruction_spell_damage_+%_final"] = {
+					mod("Damage", "MORE", nil, ModFlag.Spell),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
