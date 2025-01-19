@@ -52,7 +52,11 @@ function ModStoreClass:ScaleAddMod(mod, scale)
 			if scaledMod.value.mod then
 				subMod = scaledMod.value.mod
 			elseif scaledMod.value.keyOfScaledMod then
-				scaledMod.value[scaledMod.value.keyOfScaledMod] = round(scaledMod.value[scaledMod.value.keyOfScaledMod] * scale, 2)
+				if scaledMod.value.key == "level" then -- +Levels can't get scaled with decimals
+					scaledMod.value[scaledMod.value.keyOfScaledMod] = m_floor(scaledMod.value[scaledMod.value.keyOfScaledMod] * scale)
+				else
+					scaledMod.value[scaledMod.value.keyOfScaledMod] = round(scaledMod.value[scaledMod.value.keyOfScaledMod] * scale, 2)
+				end
 			end
 		end
 		if type(subMod.value) == "number" then
