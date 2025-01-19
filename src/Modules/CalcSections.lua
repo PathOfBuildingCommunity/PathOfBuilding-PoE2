@@ -1426,7 +1426,7 @@ return {
 		{ label = "Recovery modifiers", modName = "LifeRecoveryRate" },
 		{ label = "FasterRecoup", modName = { "3SecondRecoup", "3SecondLifeRecoup" } },
 	}, },
-	{ label = "Light Recoup", haveOutput = "LightningLifeRecoup", { format = "{1:output:LightningLifeRecoup}%", { breakdown = "LightningLifeRecoup" }, 
+	{ label = "Lightning Recoup", haveOutput = "LightningLifeRecoup", { format = "{1:output:LightningLifeRecoup}%", { breakdown = "LightningLifeRecoup" }, 
 		{ label = "Sources", modName = "LightningLifeRecoup" },
 		{ label = "Recovery modifiers", modName = "LifeRecoveryRate" },
 		{ label = "FasterRecoup", modName = { "3SecondRecoup", "3SecondLifeRecoup" } },

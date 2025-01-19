@@ -394,6 +394,7 @@ local modNameList = {
 	["elemental damage taken recouped as energy shield"] = { "LightningEnergyShieldRecoup", "ColdEnergyShieldRecoup", "FireEnergyShieldRecoup" },
 	["damage taken recouped as mana"] = "ManaRecoup",
 	["damage taken recouped as life, mana and energy shield"] = { "LifeRecoup", "EnergyShieldRecoup", "ManaRecoup" },
+	["speed of recoup effects"] = "RecoupSpeed",
 	-- Stun/knockback modifiers
 	["stun recovery"] = "StunRecovery",
 	["stun and block recovery"] = "StunRecovery",
@@ -4231,11 +4232,6 @@ local specialModList = {
 	["recover energy shield equal to (%d+)%% of armour when you block"] = function(num) return { mod("EnergyShieldOnBlock", "BASE", 1,  { type = "PercentStat", stat = "Armour", percent = num }) } end,
 	["(%d+)%% of damage taken while affected by clarity recouped as mana"] = function(num) return { mod("ManaRecoup", "BASE", num, { type = "Condition", var = "AffectedByClarity" }) } end,
 	["recoup effects instead occur over 4 seconds"] = { flag("4SecondRecoup") },
-	["life recoup effects instead occur over 4 seconds"] = { flag("4SecondLifeRecoup") },
-	["([%d%.]+)%% of physical damage prevented from hits in the past (%d+) seconds is regenerated as life per second"] = function(num, _, duration) return { 
-		mod("PhysicalDamageMitigatedLifePseudoRecoup", "BASE", num * duration), 
-		mod("PhysicalDamageMitigatedLifePseudoRecoupDuration", "BASE", duration),
-	} end,
 	["([%d%.]+)%% of physical damage prevented from hits recently is regenerated as energy shield per second"] = function(num) return { mod("PhysicalDamageMitigatedEnergyShieldPseudoRecoup", "BASE", num * 4) } end,
 	["cannot leech or regenerate mana"] = { flag("NoManaRegen"), flag("CannotLeechMana") },
 	["right ring slot: you cannot regenerate mana" ] = { flag("NoManaRegen", { type = "SlotNumber", num = 2 }) },
