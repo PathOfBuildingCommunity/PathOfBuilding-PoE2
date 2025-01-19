@@ -2817,7 +2817,7 @@ local specialModList = {
 	["your chills can slow targets by up to a maximum of (%d+)%%"] = function(num) return { mod("ChillMax", "OVERRIDE", num)} end,
 	-- Monk - Chayula
 	["(%d+)%% chance to gain (%d+)%% of damage with hits as extra (%a+) damage"] = function(num, _, num2, strType) return {
-		mod("GainAs"..firstToUpper(strType), "BASE", tonumber(num2) * (num / 100), nil, ModFlag.Hit, 0),
+		mod("DamageGainAs"..firstToUpper(strType), "BASE", tonumber(num2) * (num / 100), nil, ModFlag.Hit, 0),
 	} end,
 	-- Item local modifiers
 	["has no sockets"] = { flag("NoSockets") },
