@@ -1424,6 +1424,7 @@ function calcs.defence(env, actor)
 	
 	-- recoup
 	do
+		-- check if player *Recoup mods exist, apply *RecoveryRateMods
 		output["anyRecoup"] = 0
 		local recoupTypeList = {"Life", "Mana", "EnergyShield"}
 		for _, recoupType in ipairs(recoupTypeList) do
@@ -1438,11 +1439,14 @@ function calcs.defence(env, actor)
 						s_format("= %.1f%% over %d seconds", output[recoupType.."Recoup"], (modDB:Flag(nil, "4Second"..recoupType.."Recoup") or modDB:Flag(nil, "4SecondRecoup")) and 4 or 8)
 					}
 				else
-					breakdown[recoupType.."Recoup"] = { s_format("%d%% over %d seconds", output[recoupType.."Recoup"], (modDB:Flag(nil, "4Second"..recoupType.."Recoup") or modDB:Flag(nil, "4SecondRecoup")) and 4 or 8) }
+					breakdown[recoupType.."Recoup"] = {
+						s_format("%d%% over %d seconds", output[recoupType.."Recoup"], (modDB:Flag(nil, "4Second"..recoupType.."Recoup") or modDB:Flag(nil, "4SecondRecoup")) and 4 or 8)
+					}
 				end
 			end
 		end
 
+		-- apply Adsorption Charges (as of Jan 2025, this is only from Graven's Secret from PoE1)
 		local ElementalEnergyShieldRecoup = modDB:Sum("BASE", nil, "ElementalEnergyShieldRecoup")
 		output.ElementalEnergyShieldRecoup = ElementalEnergyShieldRecoup * output.EnergyShieldRecoveryRateMod
 		output["anyRecoup"] = output["anyRecoup"] + output.ElementalEnergyShieldRecoup
@@ -1458,6 +1462,7 @@ function calcs.defence(env, actor)
 			end
 		end
 		
+		-- check for elemental life recoup effects, eg ColdLifeRecoup, apply LifeRecoveryRateMod
 		for _, damageType in ipairs(dmgTypeList) do
 			local LifeRecoup = modDB:Sum("BASE", nil, damageType.."LifeRecoup")
 			output[damageType.."LifeRecoup"] =  LifeRecoup * output.LifeRecoveryRateMod
@@ -2938,12 +2943,14 @@ function calcs.buildDefenceEstimations(env, actor)
 		local totalElementalDamage = 0
 		local totalPhysicalDamageMitigated = output["NumberOfMitigatedDamagingHits"] * (output.PhysicalTakenDamage - output.PhysicalTakenHit)
 		local extraPseudoRecoup = {}
+
 		for _, damageType in ipairs(dmgTypeList) do
 			totalDamage = totalDamage + output[damageType.."PoolLost"]
 			if isElemental[damageType] then
 				totalElementalDamage = totalElementalDamage + output[damageType.."PoolLost"]
 			end
 		end
+
 		local recoupTypeList = {"Life", "Mana", "EnergyShield"}
 		for i, recoupType in ipairs(recoupTypeList) do
 			local recoupTime = (modDB:Flag(nil, "4Second"..recoupType.."Recoup") or modDB:Flag(nil, "4SecondRecoup")) and 4 or 8
@@ -2951,14 +2958,17 @@ function calcs.buildDefenceEstimations(env, actor)
 			if (output["Elemental"..recoupType.."Recoup"] or 0) > 0 and totalElementalDamage > 0 then
 				output["Total"..recoupType.."RecoupRecovery"] = output["Total"..recoupType.."RecoupRecovery"] + output["Elemental"..recoupType.."Recoup"] / 100 * totalElementalDamage
 			end
+			-- eg FireLifeRecoup
 			for _, damageType in ipairs(dmgTypeList) do
 				if (output[damageType..recoupType.."Recoup"] or 0) > 0 and output[damageType.."PoolLost"] > 0 then
 					output["Total"..recoupType.."RecoupRecovery"] = output["Total"..recoupType.."RecoupRecovery"] + output[damageType..recoupType.."Recoup"] / 100 * output[damageType.."PoolLost"]
 				end
 			end
+
+			-- "pseudo" recoup (prevented damage recoup, eg Wandering Reliquary)
 			output["Total"..recoupType.."PseudoRecoup"] = (output["PhysicalDamageMitigated"..recoupType.."PseudoRecoup"] or 0) / 100 * totalPhysicalDamageMitigated
 			local PseudoRecoupDuration = (output["PhysicalDamageMitigated"..recoupType.."PseudoRecoupDuration"] or 4)
-			-- Pious Path
+			-- Pious Path (PoE1)
 			if output["Total"..recoupType.."PseudoRecoup"] ~= 0 then
 				for j=i+1,#recoupTypeList do
 					if modDB:Flag(nil, recoupType.."RegenerationRecovers"..recoupTypeList[j]) and not modDB:Flag(nil, "UnaffectedBy"..recoupTypeList[j].."Regen") and not modDB:Flag(nil, "No"..recoupTypeList[j].."Regen") and not modDB:Flag(nil, "CannotGain"..recoupTypeList[j]) then
@@ -2967,8 +2977,19 @@ function calcs.buildDefenceEstimations(env, actor)
 				end
 			end
 			output["Total"..recoupType.."PseudoRecoup"] = ((not modDB:Flag(nil, "UnaffectedBy"..recoupType.."Regen")) and output["Total"..recoupType.."PseudoRecoup"] or 0)
-			output[recoupType.."RecoupRecoveryMax"] = output["Total"..recoupType.."RecoupRecovery"] / recoupTime + output["Total"..recoupType.."PseudoRecoup"] / PseudoRecoupDuration + (extraPseudoRecoup[recoupType] and (extraPseudoRecoup[recoupType][1] / extraPseudoRecoup[recoupType][2]) or 0)
-			output[recoupType.."RecoupRecoveryAvg"] = output["Total"..recoupType.."RecoupRecovery"] / (output["EHPSurvivalTime"] + recoupTime) + output["Total"..recoupType.."PseudoRecoup"] / (output["EHPSurvivalTime"] + PseudoRecoupDuration) + (extraPseudoRecoup[recoupType] and (extraPseudoRecoup[recoupType][1] / (output["EHPSurvivalTime"] + extraPseudoRecoup[recoupType][2])) or 0)
+
+			-- "max" and "avg" recoup recovery for Calcs report
+			output[recoupType.."RecoupRecoveryMax"] = (
+				output["Total"..recoupType.."RecoupRecovery"] / recoupTime
+				+ output["Total"..recoupType.."PseudoRecoup"] / PseudoRecoupDuration
+				+ (extraPseudoRecoup[recoupType] and (extraPseudoRecoup[recoupType][1] / extraPseudoRecoup[recoupType][2]) or 0)
+			)
+			output[recoupType.."RecoupRecoveryAvg"] = (
+				output["Total"..recoupType.."RecoupRecovery"] / (output["EHPSurvivalTime"] + recoupTime)
+				+ output["Total"..recoupType.."PseudoRecoup"] / (output["EHPSurvivalTime"] + PseudoRecoupDuration)
+				+ (extraPseudoRecoup[recoupType] and (extraPseudoRecoup[recoupType][1] / (output["EHPSurvivalTime"] + extraPseudoRecoup[recoupType][2])) or 0)
+			)
+
 			if breakdown then
 				local multipleTypes = 0
 				breakdown[recoupType.."RecoupRecoveryMax"] = { }
@@ -3021,7 +3042,7 @@ function calcs.buildDefenceEstimations(env, actor)
 		end
 	end
 	
-	-- petrified blood "degen"
+	-- PoE1 petrified blood "degen"
 	if output.preventedLifeLossTotal > 0 and (output["LifeLossLostOverTime"] and output["LifeBelowHalfLossLostOverTime"]) then
 		local LifeLossBelowHalfLost = modDB:Sum("BASE", nil, "LifeLossBelowHalfLost") / 100
 		output["LifeLossLostMax"] = (output["LifeLossLostOverTime"] + output["LifeBelowHalfLossLostOverTime"] * LifeLossBelowHalfLost) / 4
@@ -3050,7 +3071,7 @@ function calcs.buildDefenceEstimations(env, actor)
 		end
 	end
 	
-	-- net recovery over time from enemy hits
+	-- if there is life recoup or preventedLifeLoss (PoE1 petrified blood), add Calcs section for this
 	if (output["LifeRecoupRecoveryAvg"] or 0) > 0 or output.preventedLifeLossTotal > 0 then
 		output["netLifeRecoupAndLossLostOverTimeMax"] = (output["LifeRecoupRecoveryMax"] or 0) - (output["LifeLossLostMax"] or 0)
 		output["netLifeRecoupAndLossLostOverTimeAvg"] = (output["LifeRecoupRecoveryAvg"] or 0) - (output["LifeLossLostAvg"] or 0)
