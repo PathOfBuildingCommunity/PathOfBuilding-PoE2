@@ -3791,9 +3791,43 @@ function calcs.offence(env, actor, activeSkill)
 	skillFlags.impale = false
 
 	--Calculate ailments and debuffs (poison, bleed, ignite, impale, exposure, etc)
+	local enemyAilmentThreshold = data.monsterAilmentThresholdTable[env.enemyLevel]
 	for _, pass in ipairs(passList) do
 		globalOutput, globalBreakdown = output, breakdown
 		local source, output, cfg, breakdown = pass.source, pass.output, pass.cfg, pass.breakdown
+
+		-- -- (PoE2) --
+		-- Ailments that require chance and ignore threshold:
+		-- Bleeding
+		-- Poison
+
+		-- Ailments that use enemy ailment threshold (1% chance per 4% ailment threshold dealt):
+		-- Ignite
+		-- Shock
+
+		-- Ailments that "require a minimum threshold" (unknown number):
+		-- Chill
+
+		-- Ailments that use buildup mechanic:
+		-- Stun
+		-- Electrocute
+		-- Freeze
+
+		-- Possible direct (ie not about damage hit modifier) crit effects on ailments (as of Jan 19 2025)
+
+		-- Increased magnitude of damaging ailments inflicted with critical hits
+		-- -- (Notable) Shredding Force
+		-- -- (Notable) Cruel Fate
+		-- -- (Small) Spell Critical Chance and Critical Ailment Effect
+
+		-- Increased magnitude of non-damaging ailments inflicted with critical hits
+		-- -- (Notable) Tainted Strike
+
+		-- 100% poison chance
+		-- -- (Helmet) Atsak's Sight Veiled Mask
+
+		-- Aggravate Bleeding on targets you Critically Hit with Attacks
+		-- -- (Helmet) The Smiling Knight Cowled Helm
 
 		-- Calculate chance to inflict secondary dots/status effects
 		cfg.skillCond["CriticalStrike"] = true
@@ -3802,27 +3836,32 @@ function calcs.offence(env, actor, activeSkill)
 		else
 			output.BleedChanceOnCrit = m_min(100, skillModList:Sum("BASE", cfg, "BleedChance") + enemyDB:Sum("BASE", nil, "SelfBleedChance"))
 		end
+
 		if not skillFlags.hit or skillModList:Flag(cfg, "CannotPoison") then
 			output.PoisonChanceOnCrit = 0
 		else
 			output.PoisonChanceOnCrit = m_min(100, skillModList:Sum("BASE", cfg, "PoisonChance") + enemyDB:Sum("BASE", nil, "SelfPoisonChance"))
 		end
+
 		if not skillFlags.hit then
 			output.ImpaleChanceOnCrit = 0
 		else
 			output.ImpaleChanceOnCrit = env.mode_effective and m_min(100, skillModList:Sum("BASE", cfg, "ImpaleChance")) or 0
 		end
+
 		if not skillFlags.hit or skillModList:Flag(cfg, "CannotKnockback") then
 			output.KnockbackChanceOnCrit = 0
 		else
 			output.KnockbackChanceOnCrit = skillModList:Sum("BASE", cfg, "EnemyKnockbackChance")
 		end
 		cfg.skillCond["CriticalStrike"] = false
+
 		if not skillFlags.hit or skillModList:Flag(cfg, "CannotBleed") then
 			output.BleedChanceOnHit = 0
 		else
 			output.BleedChanceOnHit = m_min(100, skillModList:Sum("BASE", cfg, "BleedChance") + enemyDB:Sum("BASE", nil, "SelfBleedChance"))
 		end
+
 		if not skillFlags.hit or skillModList:Flag(cfg, "CannotPoison") then
 			output.PoisonChanceOnHit = 0
 			output.ChaosPoisonChance = 0
@@ -3830,20 +3869,23 @@ function calcs.offence(env, actor, activeSkill)
 			output.PoisonChanceOnHit = m_min(100, skillModList:Sum("BASE", cfg, "PoisonChance") + enemyDB:Sum("BASE", nil, "SelfPoisonChance"))
 			output.ChaosPoisonChance = m_min(100, skillModList:Sum("BASE", cfg, "ChaosPoisonChance"))
 		end
+
 		for _, ailment in ipairs(elementalAilmentTypeList) do
-			local chance = skillModList:Sum("BASE", cfg, "Enemy"..ailment.."Chance") + enemyDB:Sum("BASE", nil, "Self"..ailment.."Chance")
+			local poe1_chance = skillModList:Sum("BASE", cfg, "Enemy"..ailment.."Chance") + enemyDB:Sum("BASE", nil, "Self"..ailment.."Chance")
+
 			if ailment == "Chill" then
-				chance = 100
-			end
-			-- Warden's Oath of Summer Scorch Chance
-			if ailment == "Ignite" and env.modDB:Flag(nil, "IgniteCanScorch") then
-				output["ScorchChance"] = m_min(100, chance)
-				skillModList:NewMod("EnemyScorchChance", "BASE", chance, "Ignite Chance")
+				poe1_chance = 100
 			end
 			if skillFlags.hit and not skillModList:Flag(cfg, "Cannot"..ailment) then
-				output[ailment.."ChanceOnHit"] = m_min(100, chance)
-				if skillModList:Flag(cfg, "CritsDontAlways"..ailment) -- e.g. Painseeker
-				or (ailmentData[ailment] and ailmentData[ailment].alt and not skillModList:Flag(cfg, "CritAlwaysAltAilments")) then -- e.g. Secrets of Suffering
+				output[ailment.."ChanceOnHit"] = m_min(100, poe1_chance)
+				if (
+					skillModList:Flag(cfg, "CritsDontAlways"..ailment) -- e.g. Painseeker
+					or (
+						ailmentData[ailment]
+						and ailmentData[ailment].alt
+						and not skillModList:Flag(cfg, "CritAlwaysAltAilments")
+					)
+				) then -- e.g. Secrets of Suffering
 					output[ailment.."ChanceOnCrit"] = output[ailment.."ChanceOnHit"]
 				else
 					output[ailment.."ChanceOnCrit"] = 100
@@ -3852,14 +3894,11 @@ function calcs.offence(env, actor, activeSkill)
 				output[ailment.."ChanceOnHit"] = 0
 				output[ailment.."ChanceOnCrit"] = 0
 			end
-			-- Warden's Oath of Summer Scorch on Crit Chance
-			if ailment == "Scorch" and env.modDB:Flag(nil, "IgniteCanScorch") then
-				output["ScorchChanceOnCrit"] = 100
-			end
 			if (output[ailment.."ChanceOnHit"] + (skillModList:Flag(cfg, "NeverCrit") and 0 or output[ailment.."ChanceOnCrit"])) > 0 then
 				skillFlags["inflict"..ailment] = true
 			end
 		end
+
 		if not skillFlags.hit or skillModList:Flag(cfg, "CannotKnockback") then
 			output.KnockbackChanceOnHit = 0
 		else
