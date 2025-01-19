@@ -2226,7 +2226,7 @@ return {
 			{ breakdown = "ChaosMaximumHitTaken" }, 
 		},
 	}
-} }, { defaultCollapsed = true, label = "Recoup and Hit Taken Over Time", data = {
+} }, { defaultCollapsed = true, label = "Recoup per Second", data = {
 	colWidth = 190,
 	extra = colorCodes.LIFE.."{0:output:netLifeRecoupAndLossLostOverTimeAvg}, "..colorCodes.MANA.."{0:output:ManaRecoupRecoveryAvg}, "..colorCodes.ES.."{0:output:EnergyShieldRecoupRecoveryAvg}",
 	{
