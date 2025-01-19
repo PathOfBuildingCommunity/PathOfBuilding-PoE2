@@ -132,6 +132,8 @@ function breakdown.effMult(damageType, resist, pen, taken, mult, takenMore, sour
 		if not useRes then
 			t_insert(out, s_format("x %d%% ^8(resistance ignored)", 0))
 			t_insert(out, s_format("= %d%%", (0)))
+		elseif resist <= 0 then
+			t_insert(out, s_format("= %d%% ^8(negative resistance unaffected by penetration)", resist))
 		elseif (resist - pen) < 0 then
 			t_insert(out, s_format("= %d%% ^8(penetration cannot bring resistances below 0)", 0))
 		else
