@@ -176,7 +176,19 @@ local TreeTabClass = newClass("TreeTab", "ControlHost", function(self, build)
 	end)
 
 	-- Control for setting max node depth to limit calculation time of the heat map
-	self.controls.nodePowerMaxDepthSelect = new("DropDownControl", { "LEFT", self.controls.treeHeatMap, "RIGHT" }, { 8, 0, 50, 20 }, { "All", 5, 10, 15 }, function(index, value)
+	self.controls.nodePowerMaxDepthSelect = new("DropDownControl", { "LEFT", self.controls.treeHeatMap, "RIGHT" }, { 8, 0, 55, 20 }, { "All", 5, 10, 15, "Custom" }, function(index, value)
+		-- Show custom value control and resize/move elements
+		if value == "Custom" then
+			self.controls.nodePowerMaxDepthSelect.width = 70
+			self.controls.nodePowerMaxDepthCustom.shown = true
+			self.controls.treeHeatMapStatSelect:SetAnchor("LEFT", self.controls.nodePowerMaxDepthCustom, "RIGHT", nil, nil, nil)
+			return
+		end
+
+		self.controls.nodePowerMaxDepthSelect.width = 55
+		self.controls.nodePowerMaxDepthCustom.shown = false
+		self.controls.treeHeatMapStatSelect:SetAnchor("LEFT", self.controls.nodePowerMaxDepthSelect, "RIGHT", nil, nil, nil)
+
 		local oldMax = self.build.calcsTab.nodePowerMaxDepth
 
 		if type(value) == "number" then
@@ -194,6 +206,17 @@ local TreeTabClass = newClass("TreeTab", "ControlHost", function(self, build)
 		end
 	end)
 	self.controls.nodePowerMaxDepthSelect.tooltipText = "Limit of Node distance to search (lower = faster)"
+
+	-- Control for setting max node depth by custom value
+	self.controls.nodePowerMaxDepthCustom = new("EditControl", { "LEFT", self.controls.nodePowerMaxDepthSelect, "RIGHT" }, { 8, 0, 70, 20 }, "0", nil, "%D", nil, function(value)
+		self.build.calcsTab.nodePowerMaxDepth = tonumber(value)
+
+		-- If the heat map is shown, recalculate it with new value
+		if self.viewer.showHeatMap then
+			self:SetPowerCalc(self.build.calcsTab.powerStat)
+		end
+	end)
+	self.controls.nodePowerMaxDepthCustom.shown = false
 
 	-- Control for selecting the power stat to sort by (Defense, DPS, etc)
 	self.controls.treeHeatMapStatSelect = new("DropDownControl", { "LEFT", self.controls.nodePowerMaxDepthSelect, "RIGHT" }, { 8, 0, 150, 20 }, nil, function(index, value)
