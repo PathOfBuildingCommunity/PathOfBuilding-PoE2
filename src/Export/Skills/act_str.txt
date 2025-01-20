@@ -250,6 +250,11 @@ statMap = {
 #startSets
 #set HeraldOfAshPlayer
 #flags
+statMap = {
+	["herald_of_ash_overkill_threshold_%"] = {
+		mod("HeraldOfAshBuff", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Herald of Ash" }),
+	},
+},
 #mods
 #set HeraldOfAshOnKillPlayer
 #flags

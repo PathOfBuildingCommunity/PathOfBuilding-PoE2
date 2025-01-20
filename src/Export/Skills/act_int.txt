@@ -636,6 +636,11 @@ end,
 #startSets
 #set HeraldOfIcePlayer
 #flags
+statMap = {
+	["display_herald_of_ice_behaviour"] = {
+		mod("HeraldOfIceBuff", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Herald of Ice" }),
+	},
+},
 #mods
 #set HeraldOfIceOnKillPlayer
 #flags attack area
