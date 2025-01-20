@@ -198,8 +198,6 @@ local configSettings = {
 	{ var = "flameStacks", type = "count", label = "Chayula Breach Flames:", tooltip = "Amount of Red, Blue & Purple Flames consumed during duration (max 10)", ifSkill = { "Into the Breach" }, apply = function(val, modList, enemyModList)
 		modList:NewMod("Multiplier:BreachFlamesCount", "BASE", m_min(val, 10), "Config")
 		modList:NewMod("Multiplier:FlameEffect", "BASE", 1, "Config")
-		modList:NewMod("InstantLifeLeech", "BASE", 7, "Config", { type = "Multiplier", var = "BreachFlamesCount" }, { type = "Multiplier", var = "FlameEffect" }, { type = "GlobalEffect", effectType = "Buff" })
-		modList:NewMod("InstantManaLeech", "BASE", 7, "Config", { type = "Multiplier", var = "BreachFlamesCount" }, { type = "Multiplier", var = "FlameEffect" }, { type = "GlobalEffect", effectType = "Buff" })
 		modList:NewMod("DamageGainAsChaos", "BASE", 7, "Config", { type = "Multiplier", var = "BreachFlamesCount" }, { type = "Multiplier", var = "FlameEffect" }, { type = "GlobalEffect", effectType = "Buff" })
 	end },
 	{ label = "Aspect of the Avian:", ifSkill = "Aspect of the Avian" },
