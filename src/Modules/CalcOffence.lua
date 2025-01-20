@@ -2099,8 +2099,7 @@ function calcs.offence(env, actor, activeSkill)
 		output.Accuracy = m_max(0, m_floor(base * (1 + inc / 100) * more))
 
 		local enemyDistance = env.configInput.enemyDistance or 0
-		local effectiveEnemyDistance = m_min(m_max(2, enemyDistance), 12)
-		local moreAccuracyPenalty = 1 - (effectiveEnemyDistance - 2) * 0.09
+		local moreAccuracyPenalty = 1 - m_min(m_max((enemyDistance - 2) * 0.09, 0), 0.9)
 
 		if skillModList:Flag(cfg, "NoAccuracyPenaltyAtDistance") then
 			moreAccuracyPenalty = 1
