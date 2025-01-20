@@ -107,7 +107,7 @@ local function setStats(jewel, radiusJewelStats, index, alternate)
 	radiusJewelStats[index] = {
 		isNotable = (line:match("^(%S+)") == "Notable"),
 		toAdd = (line:find("also% grant")~= nil), -- only add mods with the "also grant" text to radiusNodes
-		sd = line:gsub(".*grant ", ""):gsub("%(.-%)", value)
+		sdLine = line:gsub(".*grant ", ""):gsub("%(.-%)", value)
 	}
 	if line:lower():match("increased effect of small passive skills in radius") then
 		return tonumber(line:match("%d+"))
@@ -188,7 +188,7 @@ local function addStats(jewel, node, spec)
 		incEffect = setRadiusJewelStats(jewel, radiusJewelStats)
 		for _, stat in ipairs(radiusJewelStats) do
 			-- the node and stat types match, add sd to node if it's not already there and it's an 'also grant' mod
-			if not isValueInTable(node.sd, stat.sd) and ((node.type == "Notable" and stat.isNotable) or (node.type == "Normal" and not stat.isNotable))
+			if not isValueInTable(node.sd, stat.sdLine) and ((node.type == "Notable" and stat.isNotable) or (node.type == "Normal" and not stat.isNotable))
 				and stat.toAdd then
 				mergeStats(node, stat.sdLine, spec)
 			end
