@@ -399,9 +399,9 @@ statMap = {
 #set EyeOfWinterPlayer
 #flags spell projectile
 statMap = {
-    ["eye_of_winter_number_of_brittle_stacks_to_apply"] = {
-        flag("ApplyCriticalWeakness"),
-    },
+	["eye_of_winter_number_of_brittle_stacks_to_apply"] = {
+		flag("ApplyCriticalWeakness"),
+	},
 },
 #mods
 #skillEnd
@@ -746,9 +746,9 @@ statMap = {
 #set MalicePlayer
 #flags area
 statMap = {
-    ["critical_chance_against_aura_apply_brittle_every_x_ms"] = {
-        flag("ApplyCriticalWeakness"),
-    },
+	["critical_chance_against_aura_apply_brittle_every_x_ms"] = {
+		flag("ApplyCriticalWeakness"),
+	},
 },
 #mods
 #skillEnd
