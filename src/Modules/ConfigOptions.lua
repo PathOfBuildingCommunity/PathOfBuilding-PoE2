@@ -1605,6 +1605,12 @@ Huge sets the radius to 11.
 	{ var = "conditionEnemyUnnerved", type = "check", label = "Is the enemy Unnerved?", tooltip = "Unnerved enemies take 10% increased Spell Damage.", apply = function(val, modList, enemyModList)
 		enemyModList:NewMod("Condition:Unnerved", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
 	end },
+	{ var = "conditionEnemyCriticalWeakness", type = "check", label = "Is the enemy Critically Weak", ifFlag = "ApplyBrittleStacks", tooltip = "Hits against Critically Weak enemies have up to +10% Critical Strike Chance.\nThis option will also allow you to input the effect of Critical Weakness.", apply = function(val, modList, enemyModList)
+		enemyModList:NewMod("Condition:ApplyCriticalWeakness", "FLAG", val, "Config", { type = "Condition", var = "Effective" })
+	end },
+	{ var = "enemyCriticalWeaknessStacks", type = "float", label = "Critical weakness effect:", ifOption = "conditionEnemyCriticalWeakness", defaultPlaceholderState = 10, apply = function(val, modList, enemyModList)
+		enemyModList:NewMod("SelfCritChance", "BASE", m_max(m_min(val or 10, 10), 0), "Critical Weakness", { type = "Condition", var = "ApplyCriticalWeakness" })
+	end },
 	{ var = "conditionEnemyCoveredInAsh", type = "check", label = "Is the enemy covered in Ash?", tooltip = "Covered in Ash applies the following to the enemy:\n\t20% increased ^xB97123Fire ^7Damage taken\n\t20% less Movement Speed", apply = function(val, modList, enemyModList)
 		modList:NewMod("CoveredInAshEffect", "BASE", 20, "Covered in Ash")
 	end },
