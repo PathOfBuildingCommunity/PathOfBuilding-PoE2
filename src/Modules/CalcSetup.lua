@@ -281,8 +281,7 @@ function calcs.buildModListForNode(env, node, incSmallPassiveSkill)
 			end
 		end
 	end
-
-	incSmallPassiveSkill = incSmallPassiveSkill + modList:Sum("INC", nil, "SmallPassiveSkillEffect")
+	
 	-- Apply Inc Node scaling from Hulking Form
 	if incSmallPassiveSkill > 0 and node.type == "Normal" and not node.isAttribute and not node.ascendancyName then
 		local scale = 1 + incSmallPassiveSkill / 100
