@@ -338,7 +338,7 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 					skillFlags.disable = true
 					activeSkill.disableReason = activeSkill.disableReason or "Weapon Types Need to be Different"
 				elseif skillFlags.attack or skillFlags.dotFromAttack then
-					activeSkill.weapon2Flags = (activeStatSet.statMap["unarmed_override"] and ModFlag.Unarmed) or weapon2Flags
+					activeSkill.weapon2Flags = (skillModList:Flag(nil, "UnarmedOverride") and ModFlag.Unarmed) or weapon2Flags
 					skillFlags.weapon2Attack = true
 				end
 			elseif (skillTypes[SkillType.DualWieldOnly] or weapon2Info) and not activeSkill.summonSkill then
