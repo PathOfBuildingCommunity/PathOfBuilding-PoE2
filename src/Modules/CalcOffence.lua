@@ -2100,13 +2100,13 @@ function calcs.offence(env, actor, activeSkill)
 
 		local enemyDistance = env.configInput.enemyDistance or 0
 		local effectiveEnemyDistance = m_min(m_max(2, enemyDistance), 12)
-		local accuracyPenalty = 1 - (effectiveEnemyDistance - 2) * 0.09
+		local moreAccuracyPenalty = 1 - (effectiveEnemyDistance - 2) * 0.09
 
 		if skillModList:Flag(cfg, "NoAccuracyPenaltyAtDistance") then
-			accuracyPenalty = 1
+			moreAccuracyPenalty = 1
 		end
 
-		local accuracyVsEnemy = m_max(0, m_floor(baseVsEnemy * (1 + incVsEnemy / 100) * moreVsEnemy)) * accuracyPenalty
+		local accuracyVsEnemy = m_max(0, m_floor(baseVsEnemy * (1 + incVsEnemy / 100) * moreVsEnemy)) * moreAccuracyPenalty
 
 		if breakdown then
 			breakdown.Accuracy = { }
@@ -2123,7 +2123,7 @@ function calcs.offence(env, actor, activeSkill)
 					base = { "%g ^8(base)", baseVsEnemy },
 					{ "%.2f ^8(increased/reduced)", 1 + incVsEnemy / 100 },
 					{ "%.2f ^8(more/less)", moreVsEnemy },
-					{ "%.2f ^8(penalty at %dm distance)", accuracyPenalty, enemyDistance},
+					{ "%.2f ^8(penalty at %dm distance)", moreAccuracyPenalty, enemyDistance},
 					total = s_format("= %g", accuracyVsEnemy)
 				})
 			end
