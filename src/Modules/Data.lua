@@ -740,7 +740,7 @@ for skillId, grantedEffect in pairs(data.skills) do
 		statSet.statMap = statSet.statMap or { }
 		setmetatable(statSet.statMap, data.skillStatMapMeta)
 		statSet.statMap._grantedEffect = grantedEffect
-		for _, map in ipairs(statSet.statMap or {}) do
+		for _, map in pairs(statSet.statMap) do
 			-- Some mods need different scalars for different stats, but the same value.  Putting them in a group allows this
 			for _, modOrGroup in ipairs(map) do
 				if modOrGroup.name then
