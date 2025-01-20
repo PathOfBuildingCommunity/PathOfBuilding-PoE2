@@ -2197,6 +2197,10 @@ local specialModList = {
 	["increases and reductions to maximum energy shield instead apply to ward"] = { flag("EnergyShieldToWard") },
 	["(%d+)%% of damage taken bypasses ward"] = function(num) return { mod("WardBypass", "BASE", num) } end,
 	["maximum energy shield is (%d+)"] = function(num) return { mod("EnergyShield", "OVERRIDE", num ) } end,
+	["cannot have energy shield"] = { flag("CannotHaveES") },
+	["regenerate (%d.+) life per second per maximum energy shield"] = function(num) return {
+		mod("LifeRegen", "BASE", num, { type = "PerStat", stat = "MaximumEnergyShield", div = 1 })
+	} end,
 	["while not on full life, sacrifice ([%d%.]+)%% of mana per second to recover that much life"] = function(num) return {
 		mod("ManaDegenPercent", "BASE", num, { type = "Condition", var = "FullLife", neg = true }),
 		mod("LifeRecovery", "BASE", 1, { type = "PercentStat", stat = "Mana", percent = num }, { type = "Condition", var = "FullLife", neg = true })
@@ -3780,6 +3784,9 @@ local specialModList = {
 	["cold exposure you inflict applies an extra (%-?%d+)%% to cold resistance"] = function(num) return { mod("ExtraColdExposure", "BASE", num) } end,
 	["lightning exposure you inflict applies an extra (%-?%d+)%% to lightning resistance"] = function(num) return { mod("ExtraLightningExposure", "BASE", num) } end,
 	["exposure you inflict applies at least (%-%d+)%% to the affected resistance"] = function(num) return { mod("ExposureMin", "OVERRIDE", num) } end,
+	["enemies in your presence gain critical weakness every second"] = { flag("ApplyCriticalWeakness") },
+	["applies critical weakness to enemies every ([%d%.]+) seconds?"] = { flag("ApplyCriticalWeakness") },
+	["inflicts critical weakness on hit"] = { flag("ApplyCriticalWeakness") },
 	["modifiers to minimum endurance charges instead apply to minimum brutal charges"] = { flag("MinimumEnduranceChargesEqualsMinimumBrutalCharges") },
 	["modifiers to minimum frenzy charges instead apply to minimum affliction charges"] = { flag("MinimumFrenzyChargesEqualsMinimumAfflictionCharges") },
 	["modifiers to minimum power charges instead apply to minimum absorption charges"] = { flag("MinimumPowerChargesEqualsMinimumAbsorptionCharges") },
@@ -3803,6 +3810,7 @@ local specialModList = {
 	["enemies near targets you shatter have (%d+)%% chance to be covered in frost for (%d+) seconds"] = { mod("CoveredInFrostEffect", "BASE", 20, { type = "Condition", var = "ShatteredEnemyRecently" }) },
 	["([%a%s]+) has (%d+)%% increased effect"] = function(_, skill, num) return { mod("BuffEffect", "INC", num, { type = "SkillId", skillId = gemIdLookup[skill]}) } end,
 	["debuffs on you expire (%d+)%% faster"] = function(num) return { mod("SelfDebuffExpirationRate", "BASE", num) } end,
+	["buffs on you expire (%d+)%% slower"] = function(num) return { mod("Duration", "INC", num, { type = "SkillType", skillType = SkillType.Buff }) } end,
 	["warcries debilitate enemies for (%d+) seconds?"] = { mod("DebilitateChance", "BASE", 100) },
 	["debilitate enemies for (%d+) seconds? when you suppress their spell damage"] = { mod("DebilitateChance", "BASE", 100) },
 	["debilitate nearby enemies for (%d+) seconds? when f?l?a?s?k? ?effect ends"] = { mod("DebilitateChance", "BASE", 100) },
@@ -4265,6 +4273,11 @@ local specialModList = {
 		mod("LightningResist", "OVERRIDE", 0),
 	},
 	["you have no spirit"] = { flag("NoSpirit") },
+	["you have no elemental resistances"] = {
+		mod("FireResist", "OVERRIDE", 0),
+		mod("ColdResist", "OVERRIDE", 0),
+		mod("LightningResist", "OVERRIDE", 0),
+	},
 	["chaos resistance is zero"] = {
 		mod("ChaosResist", "OVERRIDE", 0),
 	},
@@ -5220,6 +5233,7 @@ local specialModList = {
 	["nearby allies have (%d+)%% chance to block attack damage per (%d+) strength you have"] = function(block, _, str) return {
 		mod("ExtraAura", "LIST", { onlyAllies = true, mod = mod("BlockChance", "BASE", block) }, { type = "PerStat", stat = "Str", div = tonumber(str) }),
 	} end,
+	["(%d+)%% increased effect of small passive skills in radius"] = { },
 }
 for _, name in pairs(data.keystones) do
 	specialModList[name:lower()] = { mod("Keystone", "LIST", name) }

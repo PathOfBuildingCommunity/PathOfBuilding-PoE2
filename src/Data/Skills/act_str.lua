@@ -3612,6 +3612,11 @@ skills["HeraldOfAshPlayer"] = {
 			label = "Buff",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "herald_of_ash",
+			statMap = {
+				["herald_of_ash_overkill_threshold_%"] = {
+					mod("HeraldOfAshBuff", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Herald of Ash" }),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {

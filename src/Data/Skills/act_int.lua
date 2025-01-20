@@ -5880,6 +5880,11 @@ skills["EyeOfWinterPlayer"] = {
 			incrementalEffectiveness = 0.14000000059605,
 			damageIncrementalEffectiveness = 0.0065000001341105,
 			statDescriptionScope = "eye_of_winter_new",
+			statMap = {
+				["eye_of_winter_number_of_brittle_stacks_to_apply"] = {
+					flag("ApplyCriticalWeakness"),
+				},
+			},
 			baseFlags = {
 				spell = true,
 				projectile = true,
@@ -9614,6 +9619,11 @@ skills["HeraldOfIcePlayer"] = {
 			label = "Buff",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "herald_of_ice",
+			statMap = {
+				["display_herald_of_ice_behaviour"] = {
+					mod("HeraldOfIceBuff", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Herald of Ice" }),
+				},
+			},
 			baseFlags = {
 			},
 			stats = {
@@ -11297,6 +11307,11 @@ skills["MalicePlayer"] = {
 			label = "Malice",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "aura_crit_against_enemy",
+			statMap = {
+				["critical_chance_against_aura_apply_brittle_every_x_ms"] = {
+					flag("ApplyCriticalWeakness"),
+				},
+			},
 			baseFlags = {
 				area = true,
 			},

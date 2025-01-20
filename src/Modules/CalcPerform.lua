@@ -2026,6 +2026,9 @@ function calcs.perform(env, skipEHP)
 			local effect = activeSkill.minion and 5 or m_floor(5 * (1 + modDB:Sum("INC", nil, "WitherEffect") / 100))
 			modDB:NewMod("WitherEffectStack", "MAX", effect)
 		end
+		if activeSkill.skillModList:Flag(nil, "ApplyCriticalWeakness") then
+			modDB:NewMod("ApplyCriticalWeakness", "FLAG", true)
+		end
 		--Handle combustion
 		if enemyDB:Flag(nil, "Condition:Ignited") and (activeSkill.skillTypes[SkillType.Damage] or activeSkill.skillTypes[SkillType.Attack]) and not appliedCombustion then
 			for _, support in ipairs(activeSkill.supportList) do

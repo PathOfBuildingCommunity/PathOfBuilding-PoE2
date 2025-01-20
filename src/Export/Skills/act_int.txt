@@ -398,6 +398,11 @@ statMap = {
 #startSets
 #set EyeOfWinterPlayer
 #flags spell projectile
+statMap = {
+    ["eye_of_winter_number_of_brittle_stacks_to_apply"] = {
+        flag("ApplyCriticalWeakness"),
+    },
+},
 #mods
 #skillEnd
 
@@ -636,6 +641,11 @@ end,
 #startSets
 #set HeraldOfIcePlayer
 #flags
+statMap = {
+	["display_herald_of_ice_behaviour"] = {
+		mod("HeraldOfIceBuff", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Herald of Ice" }),
+	},
+},
 #mods
 #set HeraldOfIceOnKillPlayer
 #flags attack area
@@ -735,6 +745,11 @@ end,
 #startSets
 #set MalicePlayer
 #flags area
+statMap = {
+    ["critical_chance_against_aura_apply_brittle_every_x_ms"] = {
+        flag("ApplyCriticalWeakness"),
+    },
+},
 #mods
 #skillEnd
 

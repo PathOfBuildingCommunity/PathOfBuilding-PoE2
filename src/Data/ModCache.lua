@@ -2237,7 +2237,7 @@ c["Break Armour on Critical Hit with Spells equal to 10% of Physical Damage deal
 c["Break Armour on Critical Hit with Spells equal to 5% of Physical Damage dealt"]={nil,"Break Armour on Critical Hit with Spells equal to 5% of Physical Damage dealt "}
 c["Break enemy Concentration on Hit equal to 100% of Damage Dealt"]={nil,"Break enemy Concentration on Hit equal to 100% of Damage Dealt "}
 c["Break enemy Concentration on Hit equal to 100% of Damage Dealt Enemies regain 10% of Concentration every second if they haven't lost Concentration in the past 5 seconds"]={nil,"Break enemy Concentration on Hit equal to 100% of Damage Dealt Enemies regain 10% of Concentration every second if they haven't lost Concentration in the past 5 seconds "}
-c["Buffs on you expire 10% slower"]={nil,"Buffs on you expire 10% slower "}
+c["Buffs on you expire 10% slower"]={{[1]={[1]={skillType=5,type="SkillType"},flags=0,keywordFlags=0,name="Duration",type="INC",value=10}},nil}
 c["Burning Enemies you kill have a 5% chance to Explode, dealing a tenth of their maximum Life as Fire Damage"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Burning"},flags=0,keywordFlags=0,name="ExplodeMod",type="LIST",value={amount=5,chance=1,keyOfScaledMod="chance",type="Tenth"}},[2]={flags=0,keywordFlags=0,name="CanExplode",type="FLAG",value=true}},nil}
 c["Can Block Damage from all Hits while Shield is not Raised"]={nil,"Can Block Damage from all Hits while Shield is not Raised "}
 c["Can Block damage from all Hits"]={nil,"Can Block damage from all Hits "}
@@ -2255,8 +2255,7 @@ c["Cannot be Ignited"]={{[1]={flags=0,keywordFlags=0,name="IgniteImmune",type="F
 c["Cannot be Poisoned"]={{[1]={flags=0,keywordFlags=0,name="PoisonImmune",type="FLAG",value=true}},nil}
 c["Cannot be Shocked"]={{[1]={flags=0,keywordFlags=0,name="ShockImmune",type="FLAG",value=true}},nil}
 c["Cannot gain Spirit from Equipment"]={{[1]={flags=0,keywordFlags=0,name="CannotGainSpiritFromEquipment",type="FLAG",value=true}},nil}
-c["Cannot have Energy Shield"]={nil,"Cannot have Energy Shield "}
-c["Cannot have Energy Shield Regenerate 0.05 Life per second per Maximum Energy Shield"]={nil,"Cannot have Energy Shield Regenerate 0.05 Life per second per Maximum Energy Shield "}
+c["Cannot have Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="CannotHaveES",type="FLAG",value=true}},nil}
 c["Cannot use Charms"]={nil,"Cannot use Charms "}
 c["Cannot use Charms 30% more Recovery from Flasks"]={nil,"Cannot use Charms 30% more Recovery from Flasks "}
 c["Cannot use Life Flasks"]={nil,"Cannot use Life Flasks "}
@@ -2401,7 +2400,7 @@ c["Enemies in your Presence are Blinded Enemies in your Presence gain Critical W
 c["Enemies in your Presence are Ignited as though dealt 100 Base Fire Damage"]={nil,"Enemies in your Presence are Ignited as though dealt 100 Base Fire Damage "}
 c["Enemies in your Presence are Intimidated"]={nil,"Enemies in your Presence are Intimidated "}
 c["Enemies in your Presence are Slowed by 20%"]={nil,"Enemies in your Presence are Slowed by 20% "}
-c["Enemies in your Presence gain Critical Weakness every second"]={nil,"Enemies in your Presence gain Critical Weakness every second "}
+c["Enemies in your Presence gain Critical Weakness every second"]={{[1]={flags=0,keywordFlags=0,name="ApplyCriticalWeakness",type="FLAG",value=true}},nil}
 c["Enemies in your Presence have 10% reduced Cooldown Recovery Rate"]={nil,"Enemies in your Presence have 10% reduced Cooldown Recovery Rate "}
 c["Enemies in your Presence have Fire Exposure"]={nil,"Enemies in your Presence have Fire Exposure "}
 c["Enemies in your Presence have Lightning Resistance equal to yours"]={nil,"Enemies in your Presence have Lightning Resistance equal to yours "}
@@ -2895,7 +2894,7 @@ c["Recover 5% of Missing Life before being Hit by an Enemy Recover 10% of Missin
 c["Recover all Mana when Used"]={nil,"Recover all Mana when Used "}
 c["Recover all Mana when Used Deals 25% of current Mana as Chaos Damage to you when Effect ends"]={nil,"Recover all Mana when Used Deals 25% of current Mana as Chaos Damage to you when Effect ends "}
 c["Reflects your other Ring"]={{},nil}
-c["Regenerate 0.05 Life per second per Maximum Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="LifeRegen",type="BASE",value=0.05}}," per  "}
+c["Regenerate 0.05 Life per second per Maximum Energy Shield"]={{[1]={[1]={div=1,stat="MaximumEnergyShield",type="PerStat"},flags=0,keywordFlags=0,name="LifeRegen",type="BASE",value=0.05}},nil}
 c["Regenerate 0.2% of Life per second"]={{[1]={flags=0,keywordFlags=0,name="LifeRegenPercent",type="BASE",value=0.2}},nil}
 c["Regenerate 0.4% of Life per second if you have been Hit Recently"]={{[1]={[1]={type="Condition",var="BeenHitRecently"},flags=0,keywordFlags=0,name="LifeRegenPercent",type="BASE",value=0.4}},nil}
 c["Regenerate 0.5% of Life per second"]={{[1]={flags=0,keywordFlags=0,name="LifeRegenPercent",type="BASE",value=0.5}},nil}
@@ -3057,7 +3056,7 @@ c["You gain Onslaught for 4 seconds on Kill"]={{[1]={[1]={type="Condition",var="
 c["You have Arcane Surge"]={{[1]={flags=0,keywordFlags=0,name="Condition:ArcaneSurge",type="FLAG",value=true}},nil}
 c["You have a Smoke Cloud around you while stationary"]={nil,"a Smoke Cloud around you  "}
 c["You have no Accuracy Penalty at Distance"]={nil,"no Accuracy Penalty at Distance "}
-c["You have no Elemental Resistances"]={nil,"no Elemental Resistances "}
+c["You have no Elemental Resistances"]={{[1]={flags=0,keywordFlags=0,name="FireResist",type="OVERRIDE",value=0},[2]={flags=0,keywordFlags=0,name="ColdResist",type="OVERRIDE",value=0},[3]={flags=0,keywordFlags=0,name="LightningResist",type="OVERRIDE",value=0}},nil}
 c["You have no Life Regeneration"]={{[1]={flags=0,keywordFlags=0,name="NoLifeRegen",type="FLAG",value=true}},nil}
 c["You have no Spirit"]={{[1]={flags=0,keywordFlags=0,name="NoSpirit",type="FLAG",value=true}},nil}
 c["You lose 5% of Energy Shield per second"]={{[1]={flags=0,keywordFlags=0,name="EnergyShieldDegenPercent",type="BASE",value=5}},nil}
