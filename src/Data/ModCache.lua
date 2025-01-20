@@ -2257,8 +2257,7 @@ c["Cannot be Ignited"]={{[1]={flags=0,keywordFlags=0,name="IgniteImmune",type="F
 c["Cannot be Poisoned"]={{[1]={flags=0,keywordFlags=0,name="PoisonImmune",type="FLAG",value=true}},nil}
 c["Cannot be Shocked"]={{[1]={flags=0,keywordFlags=0,name="ShockImmune",type="FLAG",value=true}},nil}
 c["Cannot gain Spirit from Equipment"]={{[1]={flags=0,keywordFlags=0,name="CannotGainSpiritFromEquipment",type="FLAG",value=true}},nil}
-c["Cannot have Energy Shield"]={nil,"Cannot have Energy Shield "}
-c["Cannot have Energy Shield Regenerate 0.05 Life per second per Maximum Energy Shield"]={nil,"Cannot have Energy Shield Regenerate 0.05 Life per second per Maximum Energy Shield "}
+c["Cannot have Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="EnergyShield",type="OVERRIDE",value=0}},nil}
 c["Cannot use Charms"]={nil,"Cannot use Charms "}
 c["Cannot use Charms 30% more Recovery from Flasks"]={nil,"Cannot use Charms 30% more Recovery from Flasks "}
 c["Cannot use Life Flasks"]={nil,"Cannot use Life Flasks "}
@@ -2897,7 +2896,7 @@ c["Recover 5% of Missing Life before being Hit by an Enemy Recover 10% of Missin
 c["Recover all Mana when Used"]={nil,"Recover all Mana when Used "}
 c["Recover all Mana when Used Deals 25% of current Mana as Chaos Damage to you when Effect ends"]={nil,"Recover all Mana when Used Deals 25% of current Mana as Chaos Damage to you when Effect ends "}
 c["Reflects your other Ring"]={{},nil}
-c["Regenerate 0.05 Life per second per Maximum Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="LifeRegen",type="BASE",value=0.05}}," per  "}
+c["Regenerate 0.05 Life per second per Maximum Energy Shield"]={{[1]={[1]={div=1,stat="MaximumEnergyShield",type="PerStat"},flags=0,keywordFlags=0,name="LifeRegen",type="BASE",value=0.05}},nil}
 c["Regenerate 0.2% of Life per second"]={{[1]={flags=0,keywordFlags=0,name="LifeRegenPercent",type="BASE",value=0.2}},nil}
 c["Regenerate 0.4% of Life per second if you have been Hit Recently"]={{[1]={[1]={type="Condition",var="BeenHitRecently"},flags=0,keywordFlags=0,name="LifeRegenPercent",type="BASE",value=0.4}},nil}
 c["Regenerate 0.5% of Life per second"]={{[1]={flags=0,keywordFlags=0,name="LifeRegenPercent",type="BASE",value=0.5}},nil}
