@@ -3790,151 +3790,103 @@ function calcs.offence(env, actor, activeSkill)
 	end
 	skillFlags.impale = false
 
-	--Calculate ailments and debuffs (poison, bleed, ignite, impale, exposure, etc)
+	-- Ailment notes
+
+	-- -- (PoE2) --
+	-- "Flat chance ailments"
+	-- [Ailments that require chance and ignore threshold]
+	-- Bleed (damaging)
+	-- Poison (damaging)
+
+	-- "Scaling threshold ailments"
+	-- [Ailments that use enemy ailment threshold (1% chance per 4% ailment threshold dealt)]
+	-- Ignite (damaging)
+	-- Shock (non-damaging)
+
+	-- "Minimum threshold ailments"
+	-- [Ailments that "require a minimum threshold" (unknown number) but then always apply]
+	-- Chill (non-damaging)
+
+	-- "Buildup ailments"
+	-- [Ailments that use buildup mechanic]
+	-- Electrocute (non-damaging)
+	-- Freeze (non-damaging)
+	-- Stun (non-damaging - note that I think the game doesn't consider this an "ailment")
+
+	-- Possible direct (ie not about damage hit modifier) crit effects on ailments (as of Jan 19 2025)
+
+	-- Increased magnitude of damaging ailments inflicted with critical hits
+	-- -- (Notable) Shredding Force
+	-- -- (Notable) Cruel Fate
+	-- -- (Small) Spell Critical Chance and Critical Ailment Effect
+
+	-- Increased magnitude of non-damaging ailments inflicted with critical hits
+	-- -- (Notable) Tainted Strike
+
+	-- 100% poison chance
+	-- -- (Helmet) Atsak's Sight Veiled Mask
+
+	-- Aggravate Bleeding on targets you Critically Hit with Attacks
+	-- -- (Helmet) The Smiling Knight Cowled Helm
+
+	-- Calculate ailment thresholds
 	local enemyAilmentThreshold = data.monsterAilmentThresholdTable[env.enemyLevel]
+	local isBoss = env.configInput["enemyIsBoss"] ~= "None"
+	local enemyMapLifeMult = 1
+	local enemyMapAilmentMult = 1
+	if env.enemyLevel >= 66 then
+		enemyMapLifeMult = isBoss and data.mapLevelBossLifeMult[env.enemyLevel] or data.mapLevelLifeMult[env.enemyLevel]
+		enemyMapAilmentMult = isBoss and data.mapLevelBossAilmentMult[env.enemyLevel] or enemyMapAilmentMult
+	end
+	local enemyTypeMult = isBoss and 7.68 or 1
+	local enemyThreshold = enemyAilmentThreshold * enemyTypeMult * enemyMapLifeMult * enemyDB:More(nil, "Life") * enemyMapAilmentMult * enemyDB:More(nil, "AilmentThreshold")
+
+	local damagingAilmentConfig = {
+		["Bleed"] = {
+			["DamageDealtType"] = "Physical",
+			["ScalesFrom"] = {
+				["Physical"] = 0.15,
+			}
+		},
+		["Poison"] = {
+			["DamageDealtType"] = "Chaos",
+			["ScalesFrom"] = {
+				["Physical"] = 0.2,
+				["Chaos"] = 0.2,
+			}
+		},
+		["Ignite"] = {
+			["DamageDealtType"] = "Fire",
+			["ScalesFrom"] = {
+				["Fire"] = 0.2,
+			}
+		},
+	}
+	local scalingThresholdAilmentConfig = {
+		["Bleed"] = {
+			["Physical"] = true
+		},
+		["Shock"] = {
+			["Lightning"] = true
+		}
+	}
+
+	-- Calculate ailments and debuffs (poison, bleed, ignite, impale, exposure, etc)
 	for _, pass in ipairs(passList) do
 		globalOutput, globalBreakdown = output, breakdown
 		local source, output, cfg, breakdown = pass.source, pass.output, pass.cfg, pass.breakdown
 
-		-- -- (PoE2) --
-		-- Ailments that require chance and ignore threshold:
-		-- Bleeding
-		-- Poison
+		-- Legacy PoE1 ailments (to be removed later)
+		-- No more "alt" ailments: Scorched, Brittle, Sapped
+		-- No more Impale
+		output.ImpaleChance = 0
+		output.ImpaleChanceOnCrit = 0
+		output.ScorchChance = 0
+		output.BrittleChance = 0
+		output.SappedChance = 0
+		output.ChaosPoisonChance = 0
 
-		-- Ailments that use enemy ailment threshold (1% chance per 4% ailment threshold dealt):
-		-- Ignite
-		-- Shock
-
-		-- Ailments that "require a minimum threshold" (unknown number):
-		-- Chill
-
-		-- Ailments that use buildup mechanic:
-		-- Stun
-		-- Electrocute
-		-- Freeze
-
-		-- Possible direct (ie not about damage hit modifier) crit effects on ailments (as of Jan 19 2025)
-
-		-- Increased magnitude of damaging ailments inflicted with critical hits
-		-- -- (Notable) Shredding Force
-		-- -- (Notable) Cruel Fate
-		-- -- (Small) Spell Critical Chance and Critical Ailment Effect
-
-		-- Increased magnitude of non-damaging ailments inflicted with critical hits
-		-- -- (Notable) Tainted Strike
-
-		-- 100% poison chance
-		-- -- (Helmet) Atsak's Sight Veiled Mask
-
-		-- Aggravate Bleeding on targets you Critically Hit with Attacks
-		-- -- (Helmet) The Smiling Knight Cowled Helm
-
-		-- Calculate chance to inflict secondary dots/status effects
-		cfg.skillCond["CriticalStrike"] = true
-		if not skillFlags.hit or skillModList:Flag(cfg, "CannotBleed") then
-			output.BleedChanceOnCrit = 0
-		else
-			output.BleedChanceOnCrit = m_min(100, skillModList:Sum("BASE", cfg, "BleedChance") + enemyDB:Sum("BASE", nil, "SelfBleedChance"))
-		end
-
-		if not skillFlags.hit or skillModList:Flag(cfg, "CannotPoison") then
-			output.PoisonChanceOnCrit = 0
-		else
-			output.PoisonChanceOnCrit = m_min(100, skillModList:Sum("BASE", cfg, "PoisonChance") + enemyDB:Sum("BASE", nil, "SelfPoisonChance"))
-		end
-
-		if not skillFlags.hit then
-			output.ImpaleChanceOnCrit = 0
-		else
-			output.ImpaleChanceOnCrit = env.mode_effective and m_min(100, skillModList:Sum("BASE", cfg, "ImpaleChance")) or 0
-		end
-
-		if not skillFlags.hit or skillModList:Flag(cfg, "CannotKnockback") then
-			output.KnockbackChanceOnCrit = 0
-		else
-			output.KnockbackChanceOnCrit = skillModList:Sum("BASE", cfg, "EnemyKnockbackChance")
-		end
-		cfg.skillCond["CriticalStrike"] = false
-
-		if not skillFlags.hit or skillModList:Flag(cfg, "CannotBleed") then
-			output.BleedChanceOnHit = 0
-		else
-			output.BleedChanceOnHit = m_min(100, skillModList:Sum("BASE", cfg, "BleedChance") + enemyDB:Sum("BASE", nil, "SelfBleedChance"))
-		end
-
-		if not skillFlags.hit or skillModList:Flag(cfg, "CannotPoison") then
-			output.PoisonChanceOnHit = 0
-			output.ChaosPoisonChance = 0
-		else
-			output.PoisonChanceOnHit = m_min(100, skillModList:Sum("BASE", cfg, "PoisonChance") + enemyDB:Sum("BASE", nil, "SelfPoisonChance"))
-			output.ChaosPoisonChance = m_min(100, skillModList:Sum("BASE", cfg, "ChaosPoisonChance"))
-		end
-
-		for _, ailment in ipairs(elementalAilmentTypeList) do
-			local poe1_chance = skillModList:Sum("BASE", cfg, "Enemy"..ailment.."Chance") + enemyDB:Sum("BASE", nil, "Self"..ailment.."Chance")
-
-			if ailment == "Chill" then
-				poe1_chance = 100
-			end
-			if skillFlags.hit and not skillModList:Flag(cfg, "Cannot"..ailment) then
-				output[ailment.."ChanceOnHit"] = m_min(100, poe1_chance)
-				if (
-					skillModList:Flag(cfg, "CritsDontAlways"..ailment) -- e.g. Painseeker
-					or (
-						ailmentData[ailment]
-						and ailmentData[ailment].alt
-						and not skillModList:Flag(cfg, "CritAlwaysAltAilments")
-					)
-				) then -- e.g. Secrets of Suffering
-					output[ailment.."ChanceOnCrit"] = output[ailment.."ChanceOnHit"]
-				else
-					output[ailment.."ChanceOnCrit"] = 100
-				end
-			else
-				output[ailment.."ChanceOnHit"] = 0
-				output[ailment.."ChanceOnCrit"] = 0
-			end
-			if (output[ailment.."ChanceOnHit"] + (skillModList:Flag(cfg, "NeverCrit") and 0 or output[ailment.."ChanceOnCrit"])) > 0 then
-				skillFlags["inflict"..ailment] = true
-			end
-		end
-
-		if not skillFlags.hit or skillModList:Flag(cfg, "CannotKnockback") then
-			output.KnockbackChanceOnHit = 0
-		else
-			output.KnockbackChanceOnHit = skillModList:Sum("BASE", cfg, "EnemyKnockbackChance")
-		end
-		output.ImpaleChance = env.mode_effective and m_min(100, skillModList:Sum("BASE", cfg, "ImpaleChance")) or 0
-		if skillModList:Sum("BASE", cfg, "FireExposureChance") > 0 then
-			skillFlags.applyFireExposure = true
-		end
-		if skillModList:Sum("BASE", cfg, "ColdExposureChance") > 0 then
-			skillFlags.applyColdExposure = true
-		end
-		if skillModList:Sum("BASE", cfg, "LightningExposureChance") > 0 then
-			skillFlags.applyLightningExposure = true
-		end
-
-		for _, ailment in ipairs(ailmentTypeList) do
-			local mult = (1 + modDB:Sum("INC", skillCfg, "AilmentChance") / 100)
-			if env.mode_effective then
-				mult = mult * (enemyDB:Flag(nil, ailment.."Immune") and 0 or 1 - enemyDB:Sum("BASE", nil, "Avoid"..ailment) / 100)
-			end
-			output[ailment.."ChanceOnHit"] = m_min(100, output[ailment.."ChanceOnHit"] * mult)
-			output[ailment.."ChanceOnCrit"] = m_min(100, output[ailment.."ChanceOnCrit"] * mult)
-			if ailment == "Poison" then
-				output.ChaosPoisonChance = m_min(100, output.ChaosPoisonChance * mult)
-			end
-		end
-
-		local ailmentMode = env.configInput.ailmentMode or "AVERAGE"
-		if ailmentMode == "CRIT" or modDB:Flag(nil, "AilmentsOnlyFromCrit") then
-			for _, ailment in ipairs(ailmentTypeList) do
-				output[ailment.."ChanceOnHit"] = 0
-			end
-		end
-
-		-- address Weapon1H interaction with Ailment for nodes like Sleight of Hand
+		-- address Weapon1H interaction with Ailment for nodes like Coated Arms (PoE1: Sleight of Hand)
 		-- bit-and on cfg.flags confirms if the skill has the 1H flag
 		-- if so bit-or on the targetCfg (e.g. dotCfg) to guarantee for calculations like Sum("INC") and breakdown
 		local function checkWeapon1HFlags(targetCfg)
@@ -3962,9 +3914,13 @@ function calcs.offence(env, actor, activeSkill)
 		---@param ailment string
 		---@return number, number @average hit damage, average crit damage
 		local function calcAverageSourceDamage(ailment)
+			-- requires:
+			--   output.<damage type>HitAverage
+			--   output.<damage type>CritAverage
 			local canCrit = not skillModList:Flag(cfg, "AilmentsAreNeverFromCrit")
 			local sourceHitDmg, sourceCritDmg = 0, 0
 			for _, type in ipairs(dmgTypeList) do
+				ConPrintf("canDoAilment(%s, %s) = %s", ailment, type, canDoAilment(ailment, type))
 				if canDoAilment(ailment, type) then
 					sourceHitDmg = sourceHitDmg + output[type.."HitAverage"]
 					if canCrit then
@@ -3977,6 +3933,11 @@ function calcs.offence(env, actor, activeSkill)
 
 		-- Calculates damage to be used in damaging ailment calculations
 		local function calcAilmentSourceDamage(ailment, defaultDamageTypes)
+			-- requires:
+			--   output.<damage type>StoredHitMin
+			--   output.<damage type>StoredHitMax
+			--   output.<damage type>StoredCritMin
+			--   output.<damage type>StoredCritMax
 			local canCrit = not skillModList:Flag(cfg, "AilmentsAreNeverFromCrit")
 			local hitMin, hitMax = 0, 0
 			local critMin, critMax = 0, 0
@@ -4000,20 +3961,24 @@ function calcs.offence(env, actor, activeSkill)
 		end
 
 		-- Calculate the inflict chance and base damage of a secondary effect (bleed/poison/ignite/shock/freeze)
-		local function calcAilmentDamage(type, sourceCritChance, sourceHitDmg, sourceCritDmg, hideFromBreakdown)
-			local chanceOnHit, chanceOnCrit = output[type.."ChanceOnHit"], output[type.."ChanceOnCrit"]
+		local function calcAilmentDamage(ailment, sourceCritChance, sourceHitDmg, sourceCritDmg, hideFromBreakdown)
+			-- requires:
+			--   output.<ailment type>ChanceOnHit
+			--   output.<ailment type>ChanceOnCrit
+
+			local chanceOnHit, chanceOnCrit = output[ailment.."ChanceOnHit"], output[ailment.."ChanceOnCrit"]
 			-- Use sourceCritChance to factor in chance a critical ailment is present
 			local chanceFromHit = chanceOnHit * (1 - sourceCritChance / 100)
 			local chanceFromCrit = chanceOnCrit * sourceCritChance / 100
 			local chance = chanceFromHit + chanceFromCrit
-			output[type.."Chance"] = chance
+			output[ailment.."Chance"] = chance
 			local baseFromHit = sourceHitDmg * chanceFromHit / (chanceFromHit + chanceFromCrit)
 			local baseFromCrit = sourceCritDmg * chanceFromCrit / (chanceFromHit + chanceFromCrit)
 			local baseVal = baseFromHit + baseFromCrit
-			local sourceMult = skillModList:More(cfg, type.."AsThoughDealing")
+			local sourceMult = skillModList:More(cfg, ailment.."AsThoughDealing")
 			if breakdown and chance ~= 0 and not hideFromBreakdown then
-				local breakdownChance = breakdown[type.."Chance"] or { }
-				breakdown[type.."Chance"] = breakdownChance
+				local breakdownChance = breakdown[ailment.."Chance"] or { }
+				breakdown[ailment.."Chance"] = breakdownChance
 				if breakdownChance[1] then
 					t_insert(breakdownChance, "")
 				end
@@ -4031,8 +3996,8 @@ function calcs.offence(env, actor, activeSkill)
 				end
 			end
 			if breakdown and baseVal > 0 and not hideFromBreakdown then
-				local breakdownDPS = breakdown[type.."DPS"] or { }
-				breakdown[type.."DPS"] = breakdownDPS
+				local breakdownDPS = breakdown[ailment.."DPS"] or { }
+				breakdown[ailment.."DPS"] = breakdownDPS
 				if breakdownDPS[1] then
 					t_insert(breakdownDPS, "")
 				end
@@ -4083,6 +4048,13 @@ function calcs.offence(env, actor, activeSkill)
 		-- Chaos/Fire/Physical
 		-- Chaos+Physical/Fire/Physical
 		local function calcDamagingAilment(ailment, ailmentDamageType, defaultDamageTypes)
+			-- requires:
+			--   output.<ailment type>ChanceOnHit
+			--   output.<ailment type>ChanceOnCrit
+			--   output.CritChance
+			--   output.HitChance
+			--   output.Cooldown -> output.HitTime or output.Time
+
 			if not canDeal[ailmentDamageType] then
 				return
 			end
@@ -4394,6 +4366,112 @@ function calcs.offence(env, actor, activeSkill)
 			end
 		end
 
+		-- Knockback (not sure why this is in ailment calc, but I'll calculate it anyway)
+		output.KnockbackChanceOnHit = 0
+		output.KnockbackChanceOnCrit = 0
+		local knockbackWithHitsCloseRange = modDB:Sum("INC", skillCfg, "KnockbackWithHitsCloseRange")
+		if ( -- (Notable) Clear Space
+			skillFlags.hit
+			and not skillModList:Flag(cfg, "CannotKnockback")
+			and modDB:Flag(nil, "conditionAtCloseRange")
+			and knockbackWithHitsCloseRange > 0
+		) then
+			output.KnockbackChanceOnHit = knockbackWithHitsCloseRange
+		end
+		if skillModList:Flag(cfg, "Knockback") then -- From what I could see, all skills are 0% or 100%, with no enemy mitigation
+			output.KnockbackChanceOnHit = 100
+			output.KnockbackChanceOnCrit = 100
+		end
+
+		-- Calculate flat chance ailment (Poison, Bleed) chance on crit
+		for _, flatAilment in ipairs({"Bleed", "Poison"}) do
+			if not skillFlags.hit or skillModList:Flag(cfg, "Cannot"..flatAilment) then
+				output[flatAilment.."ChanceOnHit"] = 0
+				output[flatAilment.."ChanceOnCrit"] = 0
+				skillFlags["inflict"..flatAilment] = false
+			else
+				local flatChance = m_min(100, skillModList:Sum("BASE", cfg, flatAilment.."Chance") + enemyDB:Sum("BASE", nil, "Self"..flatAilment.."Chance"))
+				output[flatAilment.."ChanceOnHit"] = flatChance
+				output[flatAilment.."ChanceOnCrit"] = flatChance
+				skillFlags["inflict"..flatAilment] = true
+			end
+		end
+
+		-- TODO: Placeholder values until proper numbers are figured out
+		-- For Chill in-game tooltip says:
+		-- "All Hits that have any Contribution to Chill Magnitude can Chill, without requiring an explicit chance to inflict,
+		--  provided the Magnitudes meets a minimum threshold. So low damage Hits may still fail to Chill."
+		local dealtCold = calcAverageSourceDamage("Chill")
+		ConPrintf(dealtCold)
+		ConPrintf(enemyThreshold)
+		ConPrintf(output["ColdHitAverage"])
+		if dealtCold > enemyThreshold * 0.04 then -- Assume 1% is sufficient
+			output["ChillChanceOnHit"] = 100
+			output["ChillChanceOnCrit"] = 100
+			skillFlags["inflictChill"] = true
+		else
+			output["ChillChanceOnHit"] = 0
+			output["ChillChanceOnCrit"] = 0
+			skillFlags["inflictChill"] = false
+		end
+		-- TODO: Freeze and Electrocute are unhandled, should use similar system as Stun
+		output["FreezeChanceOnHit"] = 0
+		output["FreezeChanceOnCrit"] = 0
+		skillFlags["inflictFreeze"] = false
+		output["ElectrocuteChanceOnHit"] = 0
+		output["ElectrocuteChanceOnCrit"] = 0
+		skillFlags["inflictElectrocute"] = false
+
+		-- Calculate scaling threshold ailment chance
+		for _, ailment in ipairs({"Ignite", "Shock"}) do
+			local hitMin, hitMax, critMin, critMax = calcAilmentSourceDamage(ailment, scalingThresholdAilmentConfig[ailment])
+			-- TODO: average for now, can do more complicated calculation later
+			local hitAvg = hitMin + (hitMax - hitMin) / 2
+			local critAvg = critMin + (critMax - critMin) / 2
+			local hitElementalAilmentChance = (hitAvg / enemyThreshold) / 0.04
+			local critElementalAilmentChance = (critAvg / enemyThreshold) / 0.04 
+
+			if skillFlags.hit and not skillModList:Flag(cfg, "Cannot"..ailment) then
+				output[ailment.."ChanceOnHit"] = m_min(100, hitElementalAilmentChance)
+				output[ailment.."ChanceOnCrit"] = m_min(100, critElementalAilmentChance)
+			else
+				output[ailment.."ChanceOnHit"] = 0
+				output[ailment.."ChanceOnCrit"] = 0
+			end
+
+			local anyChanceToAilment = output[ailment.."ChanceOnHit"] + (skillModList:Flag(cfg, "NeverCrit") and 0 or output[ailment.."ChanceOnCrit"])
+			if anyChanceToAilment > 0 then
+				skillFlags["inflict"..ailment] = true
+			end
+		end
+
+		-- Apply elemental exposure from skill
+		for _, element in ipairs({"Fire", "Cold", "Lightning"}) do
+			if skillModList:Sum("BASE", cfg, element.."ExposureChance") > 0 then
+				skillFlags["apply"..element.."Exposure"] = true
+			end
+		end
+
+		-- Apply increased ailment chance mods
+		for _, ailment in ipairs(ailmentTypeList) do
+			local mult = (1 + modDB:Sum("INC", skillCfg, "AilmentChance") / 100)
+			if env.mode_effective then
+				mult = mult * (enemyDB:Flag(nil, ailment.."Immune") and 0 or 1 - enemyDB:Sum("BASE", nil, "Avoid"..ailment) / 100)
+			end
+			output[ailment.."ChanceOnHit"] = m_min(100, output[ailment.."ChanceOnHit"] * mult)
+			output[ailment.."ChanceOnCrit"] = m_min(100, output[ailment.."ChanceOnCrit"] * mult)
+		end
+
+		-- Apply user damage type config
+		local ailmentMode = env.configInput.ailmentMode or "AVERAGE"
+		if ailmentMode == "CRIT" then
+			for _, ailment in ipairs(ailmentTypeList) do
+				output[ailment.."ChanceOnHit"] = 0
+			end
+		end
+
+		-- FIXME: use damagingAilmentConfig
+		-- FIXME: Handle Blood Mage -> Blood Barbs
 		calcDamagingAilment("Bleed", "Physical", {
 			["Physical"] = true,
 		})
@@ -4408,23 +4486,12 @@ function calcs.offence(env, actor, activeSkill)
 		})
 
 		-- Calculate non-damaging ailments effect and duration modifiers
-		local isBoss = env.configInput["enemyIsBoss"] ~= "None"
-		local enemyAilmentThreshold = data.monsterAilmentThresholdTable[env.enemyLevel]
-		local enemyMapLifeMult = 1
-		local enemyMapAilmentMult = 1
-		if env.enemyLevel >= 66 then
-			enemyMapLifeMult = isBoss and data.mapLevelBossLifeMult[env.enemyLevel] or data.mapLevelLifeMult[env.enemyLevel]
-			enemyMapAilmentMult = isBoss and data.mapLevelBossAilmentMult[env.enemyLevel] or enemyMapAilmentMult
-		end
-		local enemyTypeMult = isBoss and 7.68 or 1
-		local enemyThreshold = enemyAilmentThreshold * enemyTypeMult * enemyMapLifeMult * enemyDB:More(nil, "Life") * enemyMapAilmentMult * enemyDB:More(nil, "AilmentThreshold")
-
-		local ailments = {
+		local nonDamagingAilmentsConfig = {
 			["Chill"] = {
 				effList = { 10, 20 },
 				effect = function(damage, effectMod) return 50 * ((damage / enemyThreshold) ^ 0.4) * effectMod end,
 				thresh = function(damage, value, effectMod) return damage * ((50 * effectMod / value) ^ 2.5) end,
-				ramping = output.HasBonechill or false,
+				ramping = false,
 			},
 			["Shock"] = {
 				effList = { 10, 20, 40 },
@@ -4467,7 +4534,7 @@ function calcs.offence(env, actor, activeSkill)
 				end
 			end
 		end
-		for ailment, val in pairs(ailments) do
+		for ailment, val in pairs(nonDamagingAilmentsConfig) do
 			if (output[ailment.."ChanceOnHit"] + output[ailment.."ChanceOnCrit"]) > 0 then
 				if globalBreakdown then
 					globalBreakdown[ailment.."EffectMod"] = {
@@ -4638,58 +4705,6 @@ function calcs.offence(env, actor, activeSkill)
 			end
 		end
 
-		-- Calculate impale chance and modifiers
-		if canDeal.Physical and (output.ImpaleChance + output.ImpaleChanceOnCrit) > 0 then
-			skillFlags.impale = true
-			local critChance = output.CritChance / 100
-			local impaleChance =  (m_min(output.ImpaleChance/100, 1) * (1 - critChance) + m_min(output.ImpaleChanceOnCrit/100, 1) * critChance)
-			local maxStacks = skillModList:Sum("BASE", cfg, "ImpaleStacksMax") * (1 + skillModList:Sum("BASE", cfg, "ImpaleAdditionalDurationChance") / 100)
-			local configStacks = enemyDB:Sum("BASE", cfg, "Multiplier:ImpaleStacks")
-			local impaleStacks = m_min(maxStacks, configStacks)
-
-			local baseStoredDamage = data.misc.ImpaleStoredDamageBase
-			local storedExpectedDamageIncOnBleed = skillModList:Sum("INC", cfg, "ImpaleEffectOnBleed")*skillModList:Sum("BASE", cfg, "BleedChance")/100
-			local storedExpectedDamageInc = (skillModList:Sum("INC", cfg, "ImpaleEffect") + storedExpectedDamageIncOnBleed)/100
-			local storedExpectedDamageMore = round(skillModList:More(cfg, "ImpaleEffect"), 2)
-			local storedExpectedDamageModifier = (1 + storedExpectedDamageInc) * storedExpectedDamageMore
-			local impaleStoredDamage = baseStoredDamage * storedExpectedDamageModifier
-			local impaleHitDamageMod = impaleStoredDamage * impaleStacks  -- Source: https://www.reddit.com/r/pathofexile/comments/chgqqt/impale_and_armor_interaction/
-
-			local enemyArmour = m_max(calcLib.val(enemyDB, "Armour"), 0)
-			local impaleArmourReduction = calcs.armourReductionF(enemyArmour, impaleHitDamageMod * output.PhysicalStoredCombinedAvg)
-			local impaleResist = m_min(m_max(0, enemyDB:Sum("BASE", nil, "PhysicalDamageReduction") + skillModList:Sum("BASE", cfg, "EnemyImpalePhysicalDamageReduction") + impaleArmourReduction), data.misc.DamageReductionCap)
-			if skillModList:Flag(cfg, "IgnoreEnemyImpalePhysicalDamageReduction") then
-				impaleResist = 0
-			end
-			local impaleTakenCfg = { flags = ModFlag.Hit }
-			local impaleTaken = (1 + enemyDB:Sum("INC", impaleTakenCfg, "DamageTaken", "PhysicalDamageTaken", "ReflectedDamageTaken") / 100)
-			                    * enemyDB:More(impaleTakenCfg, "DamageTaken", "PhysicalDamageTaken", "ReflectedDamageTaken")
-			local impaleDMGModifier = impaleHitDamageMod * (1 - impaleResist / 100) * impaleChance * impaleTaken
-
-			globalOutput.ImpaleStacksMax = maxStacks
-			globalOutput.ImpaleStacks = impaleStacks
-			--ImpaleStoredDamage should be named ImpaleEffect or similar
-			--Using the variable name ImpaleEffect breaks the calculations sidebar (?!)
-			output.ImpaleStoredDamage = impaleStoredDamage * 100
-			output.ImpaleModifier = 1 + impaleDMGModifier
-
-			if breakdown then
-				breakdown.ImpaleStoredDamage = {}
-				t_insert(breakdown.ImpaleStoredDamage, "10% ^8(base value)")
-				t_insert(breakdown.ImpaleStoredDamage, s_format("x %.2f ^8(increased effectiveness)", storedExpectedDamageModifier))
-				t_insert(breakdown.ImpaleStoredDamage, s_format("= %.1f%%", output.ImpaleStoredDamage))
-
-				breakdown.ImpaleModifier = {}
-				t_insert(breakdown.ImpaleModifier, s_format("%d ^8(number of stacks, can be overridden in the Configuration tab)", impaleStacks))
-				t_insert(breakdown.ImpaleModifier, s_format("x %.3f ^8(stored damage)", impaleStoredDamage))
-				t_insert(breakdown.ImpaleModifier, s_format("x %.2f ^8(impale chance)", impaleChance))
-				t_insert(breakdown.ImpaleModifier, s_format("x %.2f ^8(impale enemy physical damage reduction)", (1 - impaleResist / 100)))
-				if impaleTaken ~= 1 then
-					t_insert(breakdown.ImpaleModifier, s_format("x %.2f ^8(impale enemy damage taken)", impaleTaken))
-				end
-				t_insert(breakdown.ImpaleModifier, s_format("= %.3f ^8(impale damage multiplier)", impaleDMGModifier))
-			end
-		end
 	end
 
 	-- Combine secondary effect stats
