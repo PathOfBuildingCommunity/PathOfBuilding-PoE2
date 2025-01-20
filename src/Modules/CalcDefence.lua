@@ -100,6 +100,9 @@ function calcs.doActorLifeManaSpirit(actor)
 		condList["FullLife"] = true
 	end
 	output.LowestOfMaximumLifeAndMaximumMana = m_min(output.Life, output.Mana)
+	if modDB:Flag(nil, "NoSpirit") then
+		output.Spirit = 0
+	end
 end
 
 -- Calculate life/mana/spirit reservation

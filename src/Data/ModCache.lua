@@ -3059,7 +3059,7 @@ c["You have a Smoke Cloud around you while stationary"]={nil,"a Smoke Cloud arou
 c["You have no Accuracy Penalty at Distance"]={nil,"no Accuracy Penalty at Distance "}
 c["You have no Elemental Resistances"]={nil,"no Elemental Resistances "}
 c["You have no Life Regeneration"]={{[1]={flags=0,keywordFlags=0,name="NoLifeRegen",type="FLAG",value=true}},nil}
-c["You have no Spirit"]={nil,"no Spirit "}
+c["You have no Spirit"]={{[1]={flags=0,keywordFlags=0,name="NoSpirit",type="FLAG",value=true}},nil}
 c["You lose 5% of Energy Shield per second"]={{[1]={flags=0,keywordFlags=0,name="EnergyShieldDegenPercent",type="BASE",value=5}},nil}
 c["You take 10% of damage from Blocked Hits"]={{[1]={flags=0,keywordFlags=0,name="BlockEffect",type="BASE",value=10}},nil}
 c["You take 20% of damage from Blocked Hits"]={{[1]={flags=0,keywordFlags=0,name="BlockEffect",type="BASE",value=20}},nil}
