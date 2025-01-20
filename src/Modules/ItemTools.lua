@@ -69,8 +69,8 @@ local function antonymFunc(num, word)
 	return antonym and (num.." "..antonym) or ("-"..num.." "..word)
 end
 
--- Apply range value (0 to 1) to a modifier that has a range: "(x-x)" or "(x-x) to (x-x)"
-function itemLib.applyRange(line, range, valueScalar, baseValueScalar)
+-- takes a line and a given ranges and returns the given line with the values that refer to given stats and a string where these values have been replace by #, it will return nothing if it can find a valid match.
+function itemLib.getStrippedLine(line, range)
 	-- stripLines down to # inplace of any number and store numbers inside values also remove all + signs are kept if value is positive
 	local values = { }
 	local strippedLine = line:gsub("([%+-]?)%((%-?%d+%.?%d*)%-(%-?%d+%.?%d*)%)", function(sign, min, max)
@@ -158,7 +158,13 @@ function itemLib.applyRange(line, range, valueScalar, baseValueScalar)
 		return
 	end
 
-	local scalableLine, scalableValues = findScalableLine(strippedLine, values)
+	return findScalableLine(strippedLine, values)
+end
+
+
+-- Apply range value (0 to 1) to a modifier that has a range: "(x-x)" or "(x-x) to (x-x)"
+function itemLib.applyRange(line, range, valueScalar, baseValueScalar)
+	local scalableLine, scalableValues = itemLib.getStrippedLine(line, range)
 
 	if scalableLine then -- found scalability data
 		for i, scalability in ipairs(data.modScalability[scalableLine:gsub("+#", "#")]) do
@@ -333,6 +339,21 @@ function itemLib.formatModLine(modLine, dbMode)
 		colorCode = (modLine.enchant and colorCodes.ENCHANTED) or (modLine.custom and colorCodes.CUSTOM) or colorCodes.MAGIC
 	end
 	return colorCode..line
+end
+
+function itemLib.calculateTradeHash(stats, nodeType)
+	local partial = ""
+	for _, stat in ipairs(stats) do
+		partial = partial..intToBytes(murmurHash2(stat, 0xC58F1A7B))
+	end
+	if nodeType then
+		if nodeType == 1 then 
+			partial = partial..intToBytes(murmurHash2("local_jewel_mod_stats_added_to_small_passives", 0xC58F1A7B))
+		elseif nodeType == 2 then 
+			partial = partial..intToBytes(murmurHash2("local_jewel_mod_stats_added_to_notable_passives", 0xC58F1A7B))
+		end
+	end
+	return murmurHash2(partial, 0x02312233)
 end
 
 itemLib.wiki = {

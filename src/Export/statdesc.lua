@@ -407,41 +407,116 @@ function describeMod(mod)
 	out.modTags = describeModTags(mod.ImplicitTags)
 	return out, orders
 end
-
-function describeScalability(fileName)
+function describeModLineStats(fileName)
 	local out = { }
 	local stats = dat("stats")
-	for stat, statDescription in pairs(statDescriptors[fileName]) do
-		local scalability = { }
+	local uniqueStatDescriptors = {}
+	for _, statDescription in pairs(statDescriptors[fileName]) do
+		uniqueStatDescriptors[statDescription] = true
+	end
+	for statDescription, _ in pairs(uniqueStatDescriptors) do
 		if statDescription.stats then
-			for i, stat in ipairs(statDescription.stats) do
-				table.insert(scalability, stats:GetRow("Id", stat).IsScalable)
+			local isLocal = { }
+			local isScalable = { }
+			for _, stat in ipairs(statDescription.stats) do
+				local stat = stats:GetRow("Id", stat)
+				table.insert(isScalable, stat.IsScalable)
+				table.insert(isLocal, stat.Local)
 			end
 			for _, wordings in ipairs(statDescription[1]) do
-				local wordingFormats = {}
-				local inOrderScalability = { }
+				local formats = {}
+				local subsituions = { }
+				local hasSign = { }
 				for _, format in ipairs(wordings) do
 					if type(format.v) == "number" then
-						if wordingFormats[tonumber(format.v)] then
-							table.insert(wordingFormats[tonumber(format.v)],  format.k)
+						if formats[tonumber(format.v)] then
+							table.insert(formats[tonumber(format.v)],  format.k)
 						else
-							wordingFormats[tonumber(format.v)] = { format.k }
+							formats[tonumber(format.v)] = { format.k }
+						end
+					else
+						if formats.general then
+							table.insert(formats.general, format.k)
+						else
+							formats.general = { format.k }
 						end
 					end
 				end
-				local strippedLine = wordings.text:gsub("[%+%-]?(%b{})", function(num)
+				local strippedLine = wordings.text:gsub("([%+%-]?)(%b{})", function(sign, num)
 					local statNum = (num:match("%d") or 0) + 1
-					table.insert(inOrderScalability, { isScalable = scalability[statNum], formats = wordingFormats[statNum] })
+					if sign == "+" or num:match("%+") then table.insert(hasSign, statNum) end
+					table.insert(subsituions, statNum)
 					return "#"
 				end)
-				if out[strippedLine] then -- we want to use the format with the least oddites in it. If their are less formats then that will be used instead.
-					for j, priorScalability in ipairs(out[strippedLine]) do
-						if (priorScalability.formats and #priorScalability.formats or 0) > (wordingFormats[j] and #wordingFormats[j] or 0) then 
-							out[strippedLine][j] = inOrderScalability[j]
+				-- find values that are set and not present on the item.
+				local values = { }
+				for i, limit in ipairs(wordings.limit) do
+					local present
+					for _, statNum in ipairs(subsituions) do
+						if statNum == i then
+							present = true
 						end
 					end
-				else -- no present
-					out[strippedLine] = inOrderScalability
+					if not present then
+						values[i] = { }
+						if limit[1] == "#" and limit[2] == "#" then
+							values[i].min = -math.huge
+							values[i].max = math.huge
+						elseif limit[1] == "#" then
+							values[i].min = -math.huge
+							values[i].max = limit[2]
+						elseif limit[2] == "#" then
+							values[i].min = limit[1]
+							values[i].max = math.huge
+						elseif limit[1] ~= "!" then
+							values[i].min = limit[1]
+							values[i].max = limit[2]
+							break -- won't get smaller
+						else
+							values[i] = nil
+							break
+						end
+						for _, wordings in ipairs(statDescription[1]) do
+							for j, limit in ipairs(wordings.limit) do
+								if i ~= j then
+									if limit[1] == "#" and type(limit[2]) == "number" then
+										if limit[2] > values[i].min and limit[2] < values[i].max then
+											values[i].min = limit[2] + 1
+										end
+									elseif type(limit[1]) == "number" and limit[2] == "#" then
+										if limit[1] > values[i].min and limit[1] < values[i].max then
+											values[i].max = limit[1] - 1
+										end
+									elseif type(limit[1]) == "number" and type(limit[2]) == "number" then
+										if limit[2] > values[i].min and limit[2] < values[i].max then
+											values[i].min = limit[2] + 1
+										end
+										if limit[1] > values[i].min and limit[1] < values[i].max then
+											values[i].max = limit[1] - 1
+										end
+									end
+								end
+							end
+						end
+					end
+				end
+				for i = 1, #values do
+					if values[i] then
+						if values[i].max == values[i].min then
+							values[i] = values[i].min
+						elseif values[i].min == -math.huge and  values[i].max ~= math.huge then
+							values[i] = values[i].max
+						elseif values[i].min ~= -math.huge and  values[i].max == math.huge then
+							values[i] = values[i].min
+						else
+							values[i] = nil
+						end
+					end
+				end
+				if out[strippedLine] then
+					table.insert(out[strippedLine], { subsituions = subsituions, hasSign = hasSign, formats = formats, values = values, order = statDescription.order, isLocal = isLocal, isScalable = isScalable, unpack(statDescription.stats)})
+				else
+					out[strippedLine] = { { subsituions = subsituions, hasSign = hasSign, formats = formats, values = values, order = statDescription.order, isLocal = isLocal, isScalable = isScalable, unpack(statDescription.stats)} }
 				end
 			end
 		end
