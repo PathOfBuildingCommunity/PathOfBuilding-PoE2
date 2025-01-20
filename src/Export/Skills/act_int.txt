@@ -125,7 +125,7 @@ statMap = {
 },
 #mods
 #set BonestormExplosionPlayer
-#flags spell duration area
+#flags spell duration area projectile
 #mods
 #skillEnd
 
