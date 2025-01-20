@@ -1937,6 +1937,10 @@ function calcs.offence(env, actor, activeSkill)
 			end
 			activeSkill.weapon1Cfg.skillStats = output.MainHand
 			local source = copyTable(actor.weaponData1)
+			-- Concoction skills are considered Unarmed
+			if skillCfg.skillGrantedEffect.statSets[1].statMap["unarmed_override"] then
+				source = copyTable(data.unarmedWeaponData[env.classId])
+			end
 			if critOverride and source.type and source.type ~= "None" then
 				source.CritChance = critOverride
 			end

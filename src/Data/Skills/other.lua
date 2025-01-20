@@ -189,6 +189,7 @@ skills["BleedingConcoctionPlayer"] = {
 				["flask_throw_bleed_effect_+%_final"] = {
 					mod("AilmentMagnitude", "MORE", nil, 0, KeywordFlag.Bleed),
 				},
+				["unarmed_override"] = { },
 			},
 			baseFlags = {
 				attack = true,
@@ -1444,6 +1445,7 @@ skills["ExplosiveConcoctionPlayer"] = {
 					mod("FireExposureChance", "BASE", nil),
 					value = 100,
 				},
+				["unarmed_override"] = { },
 			},
 			baseFlags = {
 				attack = true,
@@ -1581,6 +1583,7 @@ skills["FulminatingConcoctionPlayer"] = {
 					mod("LightningExposureChance", "BASE", nil),
 					value = 100,
 				},
+				["unarmed_override"] = { },
 			},
 			baseFlags = {
 				attack = true,
@@ -2412,6 +2415,7 @@ skills["PoisonousConcoctionPlayer"] = {
 				["flask_throw_poison_effect_+%_final"] = {
 					mod("AilmentMagnitude", "MORE", nil, 0, KeywordFlag.Poison),
 				},
+				["unarmed_override"] = { },
 			},
 			baseFlags = {
 				attack = true,
@@ -2817,6 +2821,7 @@ skills["ShatteringConcoctionPlayer"] = {
 					mod("ColdExposureChance", "BASE", nil),
 					value = 100,
 				},
+				["unarmed_override"] = { },
 			},
 			baseFlags = {
 				attack = true,
