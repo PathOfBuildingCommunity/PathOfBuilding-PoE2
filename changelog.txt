@@ -1,7 +1,8 @@
-VERSION[0.3.0][2025/01/20]
-<!-- Release notes generated using configuration in .github/release.yml at dev -->
+VERSION[0.3.0][20/01/2025]
 
+--- New to Path of Building ---
 * Add Emotion filtering to Anoint popup (Quxxy)
+	You can select Emootion's you have and PoB will tell you the anoints available to you
 * Add support for Sceptre 'Allies in your presence' mods (LocalIdentity)
 * Add the ability to custom change max node depth for heat map (DoubtinGiyov)
 * Add support for Buff Expiry Rate (igorwessel)
@@ -19,9 +20,11 @@ VERSION[0.3.0][2025/01/20]
 * Add support for Grinning Immolation and Pain Attunement (etojuice)
 * Add support for 'You have no Elemental Resistances' modifier (etojuice)
 * Add support for Mask of The Stitched Demon (etojuice)
-* Add support for Kaom's Heart by (@etojuice, @ltogniolli) in https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/468, https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/475
+* Add support for Kaom's Heart by (etojuice, ltogniolli)
+
 --- Fixed Crashes ---
 * Fix crash when hovering over breakdown for Minion skills (TPlant)
+
 --- Fixed Calculations ---
 * Fix +Levels to Gems on Quivers not working sometimes (hugocornago)
 * Fix Minion Spell skills doing 0 damage (LocalIdentity)
@@ -31,12 +34,14 @@ VERSION[0.3.0][2025/01/20]
 * Fix Chain Support applying to all damage instead of just hits (TPlant)
 * Fix Herald interaction with Coming Calamity (xspirus)
 * Fix Maligaro's Virtuosity Critical Damage Bonus calculation (etojuice)
+
 --- Fixed Behaviours ---
 * Fix Concoction skills not being treated as Unarmed (Peechey)
 * Fix Passive Nodes not showing updated value when Hulking Form is allocated (trompetin17)
 * Fix Ingenuity Belt not working with reflected rings from Kalandra's Touch (etojuice)
 * Fix passive nodes being permanently attached to a Weapon Set (Peechey)
 * Fix projectile scaling for Bonestorm and Gas Arrow (Peechey)
+
 --- Accuracy Improvements ---
 * Fix value of Onslaught Movement Speed buff (OrderedSet86)
 
