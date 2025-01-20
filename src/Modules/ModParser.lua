@@ -4281,6 +4281,7 @@ local specialModList = {
 	["chaos resistance is zero"] = {
 		mod("ChaosResist", "OVERRIDE", 0),
 	},
+	["you have no accuracy penalty at distance"] = { flag("NoAccuracyPenaltyAtDistance") },
 	["nearby enemies' chaos resistance is (%d+)"] = function(num) return {
 		mod("EnemyModifier", "LIST", { mod = mod("ChaosResist", "OVERRIDE", num) }),
 	} end,

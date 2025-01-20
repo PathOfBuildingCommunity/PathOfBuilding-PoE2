@@ -3055,7 +3055,7 @@ c["You gain 2% Life when one of your Minions is Revived"]={{[1]={flags=0,keyword
 c["You gain Onslaught for 4 seconds on Kill"]={{[1]={[1]={type="Condition",var="KilledRecently"},flags=0,keywordFlags=0,name="Condition:Onslaught",type="FLAG",value=true}},nil}
 c["You have Arcane Surge"]={{[1]={flags=0,keywordFlags=0,name="Condition:ArcaneSurge",type="FLAG",value=true}},nil}
 c["You have a Smoke Cloud around you while stationary"]={nil,"a Smoke Cloud around you  "}
-c["You have no Accuracy Penalty at Distance"]={nil,"no Accuracy Penalty at Distance "}
+c["You have no Accuracy Penalty at Distance"]={{[1]={flags=0,keywordFlags=0,name="NoAccuracyPenaltyAtDistance",type="FLAG",value=true}},nil}
 c["You have no Elemental Resistances"]={{[1]={flags=0,keywordFlags=0,name="FireResist",type="OVERRIDE",value=0},[2]={flags=0,keywordFlags=0,name="ColdResist",type="OVERRIDE",value=0},[3]={flags=0,keywordFlags=0,name="LightningResist",type="OVERRIDE",value=0}},nil}
 c["You have no Life Regeneration"]={{[1]={flags=0,keywordFlags=0,name="NoLifeRegen",type="FLAG",value=true}},nil}
 c["You have no Spirit"]={{[1]={flags=0,keywordFlags=0,name="NoSpirit",type="FLAG",value=true}},nil}
