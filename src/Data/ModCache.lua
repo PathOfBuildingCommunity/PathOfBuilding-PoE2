@@ -1869,7 +1869,7 @@ c["50% of Damage taken Recouped as Mana"]={{[1]={flags=0,keywordFlags=0,name="Ma
 c["50% of Maximum Life Converted to Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="LifeConvertToEnergyShield",type="BASE",value=50}},nil}
 c["50% of Physical Damage prevented Recouped as Life"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamage",type="BASE",value=50}},"  prevented Recouped as Life "}
 c["50% of charges used by Charms granted to your Life Flasks"]={{[1]={[3]={type="Multiplier",var="AvgCharmChargesUsed"},flags=0,keywordFlags=0,name="FlaskChargesGained",type="MORE",value=0.5}},nil}
-c["50% of your Life Regeneration is granted to Allies in your Presence"]={{[1]={flags=0,keywordFlags=0,name="LifeRegen",type="BASE",value=50}}," your  is granted to Allies in your Presence "}
+c["50% of your Life Regeneration is granted to Allies in your Presence"]={{[1]={flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=0,keywordFlags=0,name="LifeRegen",type="BASE",value=50},onlyAllies=true}}}," your  is granted to "}
 c["50% reduced Chill Duration on you"]={{[1]={flags=0,keywordFlags=0,name="SelfChillDuration",type="INC",value=-50}},nil}
 c["50% reduced Darkness Reservation Duration"]={{[1]={flags=0,keywordFlags=0,name="Reserved",type="INC",value=-50}}," Darkness  Duration "}
 c["50% reduced Duration of Curses on you"]={{[1]={flags=0,keywordFlags=0,name="Duration",type="INC",value=-50}},"  of Curses on you "}
@@ -2140,33 +2140,28 @@ c["All Damage from Hits with this Weapon Contributes to Freeze Buildup Culling S
 c["All Damage is taken from Mana before Life"]={{[1]={flags=0,keywordFlags=0,name="DamageTakenFromManaBeforeLife",type="BASE",value=100}},nil}
 c["All bonuses from an Equipped Amulet apply to your Minions instead of you"]={nil,"All bonuses from an Equipped Amulet apply to your Minions instead of you "}
 c["All damage with this Weapon causes Electrocution buildup"]={nil,"All damage with this Weapon causes Electrocution buildup "}
-c["Allies in your Presence Gain 30% of Damage as Extra Fire Damage"]={nil,"Allies in your Presence Gain 30% of Damage as Extra Fire Damage "}
-c["Allies in your Presence Gain 30% of Damage as Extra Fire Damage Allies in your Presence Regenerate 3% of their Maximum Life per second"]={nil,"Allies in your Presence Gain 30% of Damage as Extra Fire Damage Allies in your Presence Regenerate 3% of their Maximum Life per second "}
-c["Allies in your Presence Regenerate 1% of your Maximum Life per second"]={nil,"Allies in your Presence Regenerate 1% of your Maximum Life per second "}
-c["Allies in your Presence Regenerate 3% of their Maximum Life per second"]={nil,"Allies in your Presence Regenerate 3% of their Maximum Life per second "}
-c["Allies in your Presence Regenerate 3% of their Maximum Life per second Enemies in your Presence Resist Elemental Damage based on their Lowest Resistance"]={nil,"Allies in your Presence Regenerate 3% of their Maximum Life per second Enemies in your Presence Resist Elemental Damage based on their Lowest Resistance "}
-c["Allies in your Presence contributes to Ignite Chance and Magnitude"]={nil,"Allies in your Presence contributes to Ignite Chance and Magnitude "}
-c["Allies in your Presence deal 1 to 15 additional Attack Lightning Damage"]={nil,"Allies in your Presence deal 1 to 15 additional Attack Lightning Damage "}
-c["Allies in your Presence deal 1 to 15 additional Attack Lightning Damage +10 to all Attributes"]={nil,"Allies in your Presence deal 1 to 15 additional Attack Lightning Damage +10 to all Attributes "}
-c["Allies in your Presence deal 5 to 8 additional Attack Cold Damage"]={nil,"Allies in your Presence deal 5 to 8 additional Attack Cold Damage "}
-c["Allies in your Presence deal 5 to 8 additional Attack Cold Damage Allies in your Presence deal 1 to 15 additional Attack Lightning Damage"]={nil,"Allies in your Presence deal 5 to 8 additional Attack Cold Damage Allies in your Presence deal 1 to 15 additional Attack Lightning Damage "}
-c["Allies in your Presence deal 50% increased Damage"]={nil,"Allies in your Presence deal 50% increased Damage "}
-c["Allies in your Presence deal 50% increased Damage +20 to Dexterity"]={nil,"Allies in your Presence deal 50% increased Damage +20 to Dexterity "}
-c["Allies in your Presence deal 6 to 10 additional Attack Fire Damage"]={nil,"Allies in your Presence deal 6 to 10 additional Attack Fire Damage "}
-c["Allies in your Presence deal 6 to 10 additional Attack Fire Damage Allies in your Presence deal 5 to 8 additional Attack Cold Damage"]={nil,"Allies in your Presence deal 6 to 10 additional Attack Fire Damage Allies in your Presence deal 5 to 8 additional Attack Cold Damage "}
-c["Allies in your Presence have +100 to Accuracy Rating"]={nil,"Allies in your Presence have +100 to Accuracy Rating "}
-c["Allies in your Presence have +100 to Accuracy Rating 35% increased Attack Damage while you have an Ally in your Presence"]={nil,"Allies in your Presence have +100 to Accuracy Rating 35% increased Attack Damage while you have an Ally in your Presence "}
-c["Allies in your Presence have 20% increased Attack Speed"]={nil,"Allies in your Presence have 20% increased Attack Speed "}
-c["Allies in your Presence have 20% increased Attack Speed Allies in your Presence have 20% increased Cast Speed"]={nil,"Allies in your Presence have 20% increased Attack Speed Allies in your Presence have 20% increased Cast Speed "}
-c["Allies in your Presence have 20% increased Cast Speed"]={nil,"Allies in your Presence have 20% increased Cast Speed "}
-c["Allies in your Presence have 20% increased Cast Speed 50% reduced Presence Area of Effect"]={nil,"Allies in your Presence have 20% increased Cast Speed 50% reduced Presence Area of Effect "}
-c["Allies in your Presence have 50% increased Critical Damage Bonus"]={nil,"Allies in your Presence have 50% increased Critical Damage Bonus "}
-c["Allies in your Presence have 50% increased Critical Damage Bonus Allies in your Presence have 20% increased Attack Speed"]={nil,"Allies in your Presence have 50% increased Critical Damage Bonus Allies in your Presence have 20% increased Attack Speed "}
-c["Allies in your Presence have 50% increased Critical Hit Chance"]={nil,"Allies in your Presence have 50% increased Critical Hit Chance "}
-c["Allies in your Presence have 50% increased Critical Hit Chance Allies in your Presence have 50% increased Critical Damage Bonus"]={nil,"Allies in your Presence have 50% increased Critical Hit Chance Allies in your Presence have 50% increased Critical Damage Bonus "}
-c["Allies in your Presence have 6% increased Attack Speed"]={nil,"Allies in your Presence have 6% increased Attack Speed "}
-c["Allies in your Presence have 6% increased Attack Speed 6% increased Attack Speed"]={nil,"Allies in your Presence have 6% increased Attack Speed 6% increased Attack Speed "}
-c["Allies in your Presence have Block Chance equal to yours"]={nil,"Allies in your Presence have Block Chance equal to yours "}
+c["Allies in your Presence Gain 25% of Damage as Extra Fire Damage"]={{[1]={flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=0,keywordFlags=0,name="DamageGainAsFire",type="BASE",value=25},onlyAllies=true}}},nil}
+c["Allies in your Presence Gain 30% of Damage as Extra Fire Damage"]={{[1]={flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=0,keywordFlags=0,name="DamageGainAsFire",type="BASE",value=30},onlyAllies=true}}},nil}
+c["Allies in your Presence Regenerate 1% of your Maximum Life per second"]={{[1]={flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=0,keywordFlags=0,name="LifeRegenPercent",type="BASE",value=1},onlyAllies=true}}},nil}
+c["Allies in your Presence Regenerate 3% of their Maximum Life per second"]={{}," "}
+c["Allies in your Presence Regenerate 3% of their Maximum Life per second Enemies in your Presence Resist Elemental Damage based on their Lowest Resistance"]={{}," Enemies in your Presence Resist  based on their Lowest Resistance "}
+c["Allies in your Presence contributes to Ignite Chance and Magnitude"]={nil,"contributes to Ignite Chance and Magnitude "}
+c["Allies in your Presence deal 1 to 13 additional Attack Lightning Damage"]={{[1]={flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=0,keywordFlags=65536,name="LightningMin",type="BASE",value=1},onlyAllies=true}},[2]={flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=0,keywordFlags=65536,name="LightningMax",type="BASE",value=13},onlyAllies=true}}},nil}
+c["Allies in your Presence deal 1 to 15 additional Attack Lightning Damage"]={{[1]={flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=0,keywordFlags=65536,name="LightningMin",type="BASE",value=1},onlyAllies=true}},[2]={flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=0,keywordFlags=65536,name="LightningMax",type="BASE",value=15},onlyAllies=true}}},nil}
+c["Allies in your Presence deal 5 to 8 additional Attack Cold Damage"]={{[1]={flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=0,keywordFlags=65536,name="ColdMin",type="BASE",value=5},onlyAllies=true}},[2]={flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=0,keywordFlags=65536,name="ColdMax",type="BASE",value=8},onlyAllies=true}}},nil}
+c["Allies in your Presence deal 50% increased Damage"]={{[1]={flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=0,keywordFlags=0,name="Damage",type="INC",value=50},onlyAllies=true}}},nil}
+c["Allies in your Presence deal 6 to 10 additional Attack Fire Damage"]={{[1]={flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=0,keywordFlags=65536,name="FireMin",type="BASE",value=6},onlyAllies=true}},[2]={flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=0,keywordFlags=65536,name="FireMax",type="BASE",value=10},onlyAllies=true}}},nil}
+c["Allies in your Presence have +100 to Accuracy Rating"]={{[1]={flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=0,keywordFlags=0,name="Accuracy",type="BASE",value=100},onlyAllies=true}}},nil}
+c["Allies in your Presence have 15% increased Attack Speed"]={{[1]={flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=1,keywordFlags=0,name="Speed",type="INC",value=15},onlyAllies=true}}},nil}
+c["Allies in your Presence have 15% increased Cast Speed"]={{[1]={flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=16,keywordFlags=0,name="Speed",type="INC",value=15},onlyAllies=true}}},nil}
+c["Allies in your Presence have 20% increased Attack Speed"]={{[1]={flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=1,keywordFlags=0,name="Speed",type="INC",value=20},onlyAllies=true}}},nil}
+c["Allies in your Presence have 20% increased Cast Speed"]={{[1]={flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=16,keywordFlags=0,name="Speed",type="INC",value=20},onlyAllies=true}}},nil}
+c["Allies in your Presence have 40% increased Critical Damage Bonus"]={{[1]={flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=0,keywordFlags=0,name="CritMultiplier",type="INC",value=40},onlyAllies=true}}},nil}
+c["Allies in your Presence have 40% increased Critical Hit Chance"]={{[1]={flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=0,keywordFlags=0,name="CritChance",type="INC",value=40},onlyAllies=true}}},nil}
+c["Allies in your Presence have 50% increased Critical Damage Bonus"]={{[1]={flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=0,keywordFlags=0,name="CritMultiplier",type="INC",value=50},onlyAllies=true}}},nil}
+c["Allies in your Presence have 50% increased Critical Hit Chance"]={{[1]={flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=0,keywordFlags=0,name="CritChance",type="INC",value=50},onlyAllies=true}}},nil}
+c["Allies in your Presence have 6% increased Attack Speed"]={{[1]={flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=1,keywordFlags=0,name="Speed",type="INC",value=6},onlyAllies=true}}},nil}
+c["Allies in your Presence have Block Chance equal to yours"]={nil,"Block Chance equal to yours "}
 c["Alternating every 5 seconds:"]={nil,"Alternating every 5 seconds: "}
 c["Alternating every 5 seconds: Take 30% less Damage from Hits"]={nil,"Alternating every 5 seconds: Take 30% less Damage from Hits "}
 c["Always deals Critical Hits against Heavy Stunned Enemies"]={nil,"Always deals Critical Hits against Heavy Stunned Enemies "}
@@ -2616,7 +2611,7 @@ c["Hits that deal Fire Damage remove Fire Exposure and inflict Lightning Exposur
 c["Hits that deal Fire Damage remove Fire Exposure and inflict Lightning Exposure Hits that deal Cold Damage remove Cold Exposure and inflict Fire Exposure"]={nil,"Hits that deal Fire Damage remove Fire Exposure and inflict Lightning Exposure Hits that deal Cold Damage remove Cold Exposure and inflict Fire Exposure "}
 c["Hits that deal Fire Damage remove Fire Exposure and inflict Lightning Exposure Hits that deal Cold Damage remove Cold Exposure and inflict Fire Exposure Hits that deal Lightning Damage remove Lightning Exposure and inflict Cold Exposure"]={nil,"Hits that deal Fire Damage remove Fire Exposure and inflict Lightning Exposure Hits that deal Cold Damage remove Cold Exposure and inflict Fire Exposure Hits that deal Lightning Damage remove Lightning Exposure and inflict Cold Exposure "}
 c["Hits that deal Lightning Damage remove Lightning Exposure and inflict Cold Exposure"]={nil,"Hits that deal Lightning Damage remove Lightning Exposure and inflict Cold Exposure "}
-c["If you would gain a Charge, Allies in your Presence gain that Charge instead"]={nil,"If you would gain a Charge, Allies in your Presence gain that Charge instead "}
+c["If you would gain a Charge, Allies in your Presence gain that Charge instead"]={nil,"If you would gain a Charge, that Charge instead "}
 c["Ignites you inflict deal Damage 15% faster"]={{[1]={flags=0,keywordFlags=0,name="IgniteFaster",type="INC",value=15}},nil}
 c["Ignites you inflict spread to other Enemies that stay within 1.5 metres for 2 seconds"]={nil,"Ignites you inflict spread to other Enemies that stay within 1.5 metres for 2 seconds "}
 c["Ignore Warcry Cooldowns"]={nil,"Ignore Warcry Cooldowns "}
@@ -2928,7 +2923,7 @@ c["Right ring slot: Projectiles from Spells Chain +1 times"]={{[1]={[1]={num=2,t
 c["Right ring slot: Projectiles from Spells cannot Fork"]={{[1]={[1]={num=2,type="SlotNumber"},flags=1026,keywordFlags=0,name="CannotFork",type="FLAG",value=true}},nil}
 c["Sacrifice 15% of Life to gain that much Energy Shield when you Cast a Spell"]={{[1]={[1]={includeTransfigured=true,skillName="Sacrifice",type="SkillName"},flags=2,keywordFlags=0,name="Life",type="BASE",value=15}},"  to gain that much Energy Shield when you Cast a  "}
 c["Sacrifice 20% of Mana and they Leech that Mana"]={{[1]={[1]={includeTransfigured=true,skillName="Sacrifice",type="SkillName"},flags=0,keywordFlags=0,name="Mana",type="BASE",value=20}},"  and they Leech that Mana "}
-c["Share Charges with Allies in your Presence"]={nil,"Share Charges with Allies in your Presence "}
+c["Share Charges with Allies in your Presence"]={nil,"Share Charges with "}
 c["Shocking Hits have a 50% chance to also Shock enemies in a 1.5 metre radius"]={nil,"Shocking Hits have a 50% chance to also Shock enemies in a 1.5 metre radius "}
 c["Shocks you when you reach maximum Power Charges"]={nil,"Shocks you when you reach maximum Power Charges "}
 c["Skill Gems have 30% more Attribute Requirements"]={{[1]={flags=0,keywordFlags=0,name="GlobalGemAttributeRequirements",type="MORE",value=30}},nil}
@@ -3019,12 +3014,12 @@ c["Warcry Skills have 30% increased Area of Effect"]={{[1]={[1]={skillType=73,ty
 c["When a Party Member in your Presence Casts a Spell, you"]={nil,"When a Party Member in your Presence Casts a Spell, you "}
 c["When a Party Member in your Presence Casts a Spell, you Sacrifice 20% of Mana and they Leech that Mana"]={nil,"When a Party Member in your Presence Casts a Spell, you Sacrifice 20% of Mana and they Leech that Mana "}
 c["When you Kill a Rare monster, you gain its Modifiers for 20 seconds"]={nil,"When you Kill a Rare monster, you gain its Modifiers for 20 seconds "}
-c["When you Leech Life from a Hit, Allies in your Presence also Leech the same amount of Life"]={nil,"When you Leech Life from a Hit, Allies in your Presence also Leech the same amount of Life "}
+c["When you Leech Life from a Hit, Allies in your Presence also Leech the same amount of Life"]={nil,"When you Leech Life from a Hit, also Leech the same amount of Life "}
 c["While not on Full Life, Sacrifice 10% of Mana per Second to Recover that much Life"]={{[1]={[1]={neg=true,type="Condition",var="FullLife"},flags=0,keywordFlags=0,name="ManaDegenPercent",type="BASE",value=10},[2]={[1]={percent=10,stat="Mana",type="PercentStat"},[2]={neg=true,type="Condition",var="FullLife"},flags=0,keywordFlags=0,name="LifeRecovery",type="BASE",value=1}},nil}
 c["While not on Low Infernal Flame, all Damage from you and"]={nil,"While not on Low Infernal Flame, all Damage from you and "}
-c["While not on Low Infernal Flame, all Damage from you and Allies in your Presence contributes to Ignite Chance and Magnitude"]={nil,"While not on Low Infernal Flame, all Damage from you and Allies in your Presence contributes to Ignite Chance and Magnitude "}
+c["While not on Low Infernal Flame, all Damage from you and Allies in your Presence contributes to Ignite Chance and Magnitude"]={nil,"While not on Low Infernal Flame, all Damage from you and contributes to Ignite Chance and Magnitude "}
 c["While on High Infernal Flame, you and Allies in your"]={nil,"While on High Infernal Flame, you and Allies in your "}
-c["While on High Infernal Flame, you and Allies in your Presence Gain 20% of Damage as Fire Damage"]={nil,"While on High Infernal Flame, you and Allies in your Presence Gain 20% of Damage as Fire Damage "}
+c["While on High Infernal Flame, you and Allies in your Presence Gain 20% of Damage as Fire Damage"]={nil,"While on High Infernal Flame, you and 20% of Damage as Fire Damage "}
 c["You can Break Enemy Armour to below 0"]={nil,"You can Break Enemy Armour to below 0 "}
 c["You can apply an additional Curse"]={{[1]={flags=0,keywordFlags=0,name="EnemyCurseLimit",type="BASE",value=1}},nil}
 c["You can apply an additional Mark"]={{[1]={flags=0,keywordFlags=0,name="EnemyMarkLimit",type="BASE",value=1}},nil}
