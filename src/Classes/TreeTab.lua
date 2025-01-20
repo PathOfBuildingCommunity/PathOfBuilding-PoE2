@@ -32,7 +32,7 @@ local TreeTabClass = newClass("TreeTab", "ControlHost", function(self, build)
 	self:SetActiveSpec(1)
 	self:SetCompareSpec(1)
 	self.skipTimeLostJewelProcessing = false
-	
+
 	self.anchorControls = new("Control", nil, {0, 0, 0, 20})
 
 	-- Tree list dropdown
