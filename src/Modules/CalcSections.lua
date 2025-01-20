@@ -1485,6 +1485,7 @@ return {
 	{ label = "Inc. from Tree", { format = "{0:mod:1}%", { modName = "Spirit", modType = "INC", modSource = "Tree" }, }, },
 	{ label = "Total Base", { format = "{0:mod:1}", { modName = "Spirit", modType = "BASE" }, }, },
 	{ label = "Total Increased", { format = "{0:mod:1}%", { modName = "Spirit", modType = "INC" }, }, },
+	{ label = "Override", haveOutput = "SpiritHasOverride", { format = "{0:mod:1}", { modName = "Spirit", modType = "OVERRIDE" }, }, },
 	{ label = "Total", { format = "{0:output:Spirit}", { breakdown = "Spirit" }, }, },
 	{ label = "Reserved", { format = "{0:output:SpiritReserved} ({0:output:SpiritReservedPercent}%)", { breakdown = "SpiritReserved" }, }, },
 	{ label = "Unreserved", { format = "{0:output:SpiritUnreserved} ({0:output:SpiritUnreservedPercent}%)" }, },
