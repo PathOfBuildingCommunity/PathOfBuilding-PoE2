@@ -883,7 +883,6 @@ return {
 { 1, "Bleed", 1, colorCodes.OFFENCE, {{ defaultCollapsed = false, label = "Bleed", data = {
 	extra = "{0:output:BleedChance}% {1:output:BleedDPS} {2:output:BleedDuration}s",
 	flag = "bleed",
-	{ label = "Enemy Ail. Thresh.", { format = "{0:output:EnemyAilmentThreshold}", { modname = "EnemyAilmentThreshold" }, }, },
 	{ label = "MH Source Physical", bgCol = colorCodes.MAINHANDBG, textSize = 12, flag = "weapon1Attack", haveOutput = "MainHand.BleedPhysicalMax", { format = "{0:output:MainHand.BleedPhysicalMin} to {0:output:MainHand.BleedPhysicalMax}", { breakdown = "MainHand.BleedPhysical" }, }, },
 	{ label = "OH Source Physical", bgCol = colorCodes.OFFHANDBG, textSize = 12, flag = "weapon2Attack", haveOutput = "OffHand.BleedPhysicalMax", { format = "{0:output:OffHand.BleedPhysicalMin} to {0:output:OffHand.BleedPhysicalMax}", { breakdown = "OffHand.BleedPhysical" }, }, },
 	{ label = "Source Lightning", textSize = 12, notFlag = "attack", haveOutput = "BleedLightningMax", { format = "{0:output:BleedLightningMin} to {0:output:BleedLightningMax}", { breakdown = "BleedLightning" }, }, },
@@ -1261,6 +1260,7 @@ return {
 		{ label = "Configured Brittle", modName = "BrittleVal", enemy = true, modType = "BASE" },
 		{ label = "Guaranteed Brittles", modName = "BrittleOverride", modType = "BASE" },
 	}, },
+	{ label = "Enemy Ail. Thresh.", bgCol = colorCodes.SHOCKBG, flag = "shock", { format = "{0:output:EnemyAilmentThreshold}", { modname = "EnemyAilmentThreshold" }, }, },
 	{ label = "Chance to Shock", bgCol = colorCodes.SHOCKBG, flag = "shock", { format = "{0:output:ShockChance}%",
 		{ breakdown = "MainHand.ShockChance" },
 		{ breakdown = "OffHand.ShockChance" },
