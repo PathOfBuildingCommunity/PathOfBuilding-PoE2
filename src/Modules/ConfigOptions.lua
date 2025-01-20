@@ -1404,7 +1404,7 @@ Huge sets the radius to 11.
 	{ var = "skillPierceCount", type = "count", label = "# of times Skill has Pierced:", ifStat = "PiercedCount", ifFlag = "piercing", apply = function(val, modList, enemyModList)
 		modList:NewMod("PiercedCount", "BASE", val, "Config", { type = "Condition", var = "Effective" })
 	end },
-	{ var = "enemyDistance", type = "count", label = "Distance to enemy:", ifTagType = "DistanceRamp" },
+	{ var = "enemyDistance", type = "count", label = "Distance to enemy:" },
 	{ var = "conditionAtCloseRange", type = "check", label = "Is the enemy at Close Range?", ifCond = "AtCloseRange", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:AtCloseRange", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
 	end },
