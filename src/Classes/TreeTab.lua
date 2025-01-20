@@ -24,6 +24,7 @@ local TreeTabClass = newClass("TreeTab", "ControlHost", function(self, build)
 
 	self.build = build
 	self.isComparing = false;
+	self.isCustomMaxDepth = false;
 
 	self.viewer = new("PassiveTreeView")
 
@@ -178,7 +179,8 @@ local TreeTabClass = newClass("TreeTab", "ControlHost", function(self, build)
 	-- Control for setting max node depth to limit calculation time of the heat map
 	self.controls.nodePowerMaxDepthSelect = new("DropDownControl", { "LEFT", self.controls.treeHeatMap, "RIGHT" }, { 8, 0, 55, 20 }, { "All", 5, 10, 15, "Custom" }, function(index, value)
 		-- Show custom value control and resize/move elements
-		if value == "Custom" then
+		self.isCustomMaxDepth = value == "Custom"
+		if self.isCustomMaxDepth then
 			self.controls.nodePowerMaxDepthSelect.width = 70
 			self.controls.nodePowerMaxDepthCustom.shown = true
 			self.controls.treeHeatMapStatSelect:SetAnchor("LEFT", self.controls.nodePowerMaxDepthCustom, "RIGHT", nil, nil, nil)
@@ -318,15 +320,42 @@ function TreeTabClass:Draw(viewPort, inputEvents)
 	self:ProcessControlsInput(inputEvents, viewPort)
 
 	-- Determine positions if one line of controls doesn't fit in the screen width
-	local twoLineHeight = 24
-	if viewPort.width >= 1336 + (self.isComparing and 198 or 0) + (self.viewer.showHeatMap and 316 or 0) then
-		twoLineHeight = 0
+	local linesHeight = 24
+	local rightMargin = 10
+	local widthFirstLineControls = self.controls.specSelect.width + 8
+								+ self.controls.compareCheck.width + self.controls.compareCheck.x
+								+ self.controls.reset.width + self.controls.reset.x
+								+ self.controls.versionText.width() + self.controls.versionText.x
+								+ self.controls.versionSelect.width + self.controls.versionSelect.x
+								+ (self.isComparing and (self.controls.compareSelect.width + self.controls.compareSelect.x) or 0)
+	
+	local widthSecondLineControls = self.controls.treeSearch.width + 8
+									+ self.controls.findTimelessJewel.width + self.controls.findTimelessJewel.x
+									+ self.controls.treeHeatMap.width + 130
+									+ self.controls.nodePowerMaxDepthSelect.width + self.controls.nodePowerMaxDepthSelect.x
+									+ (self.isCustomMaxDepth and (self.controls.nodePowerMaxDepthCustom.width + self.controls.nodePowerMaxDepthCustom.x) or 0)
+									+ (self.viewer.showHeatMap and (self.controls.treeHeatMapStatSelect.width + self.controls.treeHeatMapStatSelect.x 
+																	+ self.controls.powerReport.width + self.controls.powerReport.x) or 0)
+	
+	-- Check first line
+	if viewPort.width >= widthFirstLineControls + widthSecondLineControls + rightMargin then
+		linesHeight = 0
 		self.controls.treeSearch:SetAnchor("LEFT", self.controls.versionSelect, "RIGHT", 8, 0)
-		self.controls.powerReportList:SetAnchor("TOPLEFT", self.controls.specSelect, "BOTTOMLEFT", 0, self.controls.specSelect.height + 4)
+		self.controls.powerReportList:SetAnchor("TOPLEFT", self.controls.specSelect, "BOTTOMLEFT", 0, self.controls.specSelect.height + 6)
 	else
 		self.controls.treeSearch:SetAnchor("TOPLEFT", self.controls.specSelect, "BOTTOMLEFT", 0, 4)
-		self.controls.powerReportList:SetAnchor("TOPLEFT", self.controls.treeSearch, "BOTTOMLEFT", 0, self.controls.treeHeatMap.y + self.controls.treeHeatMap.height + 4)
+		self.controls.powerReportList:SetAnchor("TOPLEFT", self.controls.treeSearch, "BOTTOMLEFT", 0, self.controls.treeSearch.height + 6)
 	end
+
+	-- Check second line
+	if viewPort.width >= widthSecondLineControls + rightMargin then
+		self.controls.treeHeatMap:SetAnchor("LEFT", self.controls.findTimelessJewel, "RIGHT", 130, 0)
+	else
+		linesHeight = linesHeight * 2
+		self.controls.treeHeatMap:SetAnchor("TOPLEFT", self.controls.treeSearch, "BOTTOMLEFT", 124, 4)
+		self.controls.powerReportList:SetAnchor("TOPLEFT", self.controls.treeHeatMap, "BOTTOMLEFT", -124, self.controls.treeHeatMap.height + 6)
+	end
+
 	-- determine positions for convert line of controls
 	local convertTwoLineHeight = 24
 	local convertMaxWidth = 900
@@ -340,9 +369,9 @@ function TreeTabClass:Draw(viewPort, inputEvents)
 	end
 
 	local bottomDrawerHeight = self.controls.powerReportList.shown and 194 or 0
-	self.controls.specSelect.y = -bottomDrawerHeight - twoLineHeight
+	self.controls.specSelect.y = -bottomDrawerHeight - linesHeight
 
-	local treeViewPort = { x = viewPort.x, y = viewPort.y, width = viewPort.width, height = viewPort.height - (self.showConvert and 64 + bottomDrawerHeight + twoLineHeight or 32 + bottomDrawerHeight + twoLineHeight)}
+	local treeViewPort = { x = viewPort.x, y = viewPort.y, width = viewPort.width, height = viewPort.height - (self.showConvert and 64 + bottomDrawerHeight + linesHeight or 32 + bottomDrawerHeight + linesHeight)}
 	if self.jumpToNode then
 		self.viewer:Focus(self.jumpToX, self.jumpToY, treeViewPort, self.build)
 		self.jumpToNode = false
@@ -373,17 +402,17 @@ function TreeTabClass:Draw(viewPort, inputEvents)
 	SetDrawLayer(1)
 
 	SetDrawColor(0.05, 0.05, 0.05)
-	DrawImage(nil, viewPort.x, viewPort.y + viewPort.height - (28 + bottomDrawerHeight + twoLineHeight), viewPort.width, 28 + bottomDrawerHeight + twoLineHeight)
+	DrawImage(nil, viewPort.x, viewPort.y + viewPort.height - (28 + bottomDrawerHeight + linesHeight), viewPort.width, 28 + bottomDrawerHeight + linesHeight)
 	if self.showConvert then
-		local height = viewPort.width < convertMaxWidth and (bottomDrawerHeight + twoLineHeight) or 0
+		local height = viewPort.width < convertMaxWidth and (bottomDrawerHeight + linesHeight) or 0
 		SetDrawColor(0.05, 0.05, 0.05)
-		DrawImage(nil, viewPort.x, viewPort.y + viewPort.height - (60 + bottomDrawerHeight + twoLineHeight + convertTwoLineHeight), viewPort.width, 28 + height)
+		DrawImage(nil, viewPort.x, viewPort.y + viewPort.height - (60 + bottomDrawerHeight + linesHeight + convertTwoLineHeight), viewPort.width, 28 + height)
 		SetDrawColor(0.85, 0.85, 0.85)
-		DrawImage(nil, viewPort.x, viewPort.y + viewPort.height - (64 + bottomDrawerHeight + twoLineHeight + convertTwoLineHeight), viewPort.width, 4)
+		DrawImage(nil, viewPort.x, viewPort.y + viewPort.height - (64 + bottomDrawerHeight + linesHeight + convertTwoLineHeight), viewPort.width, 4)
 	end
 	-- let white lines overwrite the black sections, regardless of showConvert
 	SetDrawColor(0.85, 0.85, 0.85)
-	DrawImage(nil, viewPort.x, viewPort.y + viewPort.height - (32 + bottomDrawerHeight + twoLineHeight), viewPort.width, 4)
+	DrawImage(nil, viewPort.x, viewPort.y + viewPort.height - (32 + bottomDrawerHeight + linesHeight), viewPort.width, 4)
 
 	self:DrawControls(viewPort)
 end
