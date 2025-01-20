@@ -2820,6 +2820,9 @@ local specialModList = {
 	["(%d+)%% chance to gain (%d+)%% of damage with hits as extra (%a+) damage"] = function(num, _, num2, strType) return {
 		mod("DamageGainAs"..firstToUpper(strType), "BASE", tonumber(num2) * (num / 100), nil, ModFlag.Hit, 0),
 	} end,
+	["effect and duration of flames of chayula on you is doubled"] = function() return {
+		mod("Multiplier:FlameEffect", "BASE", 1),
+	} end,
 	-- Item local modifiers
 	["has no sockets"] = { flag("NoSockets") },
 	["reflects your other ring"] = {

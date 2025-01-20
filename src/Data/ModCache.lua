@@ -1095,7 +1095,7 @@ c["20% increased Armour Break Duration"]={{[1]={flags=0,keywordFlags=0,name="Arm
 c["20% increased Armour and Evasion Rating"]={{[1]={flags=0,keywordFlags=0,name="ArmourAndEvasion",type="INC",value=20}},nil}
 c["20% increased Armour if you have been Hit Recently"]={{[1]={[1]={type="Condition",var="BeenHitRecently"},flags=0,keywordFlags=0,name="Armour",type="INC",value=20}},nil}
 c["20% increased Armour if you haven't been Hit Recently"]={{[1]={[1]={neg=true,type="Condition",var="BeenHitRecently"},flags=0,keywordFlags=0,name="Armour",type="INC",value=20}},nil}
-c["20% increased Armour if you've consumed an Endurance Charge Recently"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="INC",value=20}},"  if you've consumed an Endurance Charge Recently "}
+c["20% increased Armour if you've consumed an Endurance Charge Recently"]={{[1]={[1]={limit=1,type="Multiplier",var="RemovableEnduranceCharge"},flags=0,keywordFlags=0,name="Armour",type="INC",value=20}},nil}
 c["20% increased Attack Speed"]={{[1]={flags=1,keywordFlags=0,name="Speed",type="INC",value=20}},nil}
 c["20% increased Attack Speed while Surrounded"]={{[1]={[1]={type="Condition",var="Surrounded"},flags=1,keywordFlags=0,name="Speed",type="INC",value=20}},nil}
 c["20% increased Blind Effect"]={{[1]={flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="BlindEffect",type="INC",value=20}}}},nil}
@@ -1109,7 +1109,7 @@ c["20% increased Chill Duration on Enemies"]={{[1]={flags=0,keywordFlags=0,name=
 c["20% increased Critical Damage Bonus"]={{[1]={flags=0,keywordFlags=0,name="CritMultiplier",type="INC",value=20}},nil}
 c["20% increased Critical Damage Bonus for Attack Damage"]={{[1]={flags=1,keywordFlags=0,name="CritMultiplier",type="INC",value=20}},nil}
 c["20% increased Critical Damage Bonus if you haven't dealt a Critical Hit Recently"]={{[1]={[1]={neg=true,type="Condition",var="CritRecently"},flags=0,keywordFlags=0,name="CritMultiplier",type="INC",value=20}},nil}
-c["20% increased Critical Damage Bonus if you've consumed a Power Charge Recently"]={{[1]={flags=0,keywordFlags=0,name="CritMultiplier",type="INC",value=20}},"  if you've consumed a Power Charge Recently "}
+c["20% increased Critical Damage Bonus if you've consumed a Power Charge Recently"]={{[1]={[1]={limit=1,type="Multiplier",var="RemovablePowerCharge"},flags=0,keywordFlags=0,name="CritMultiplier",type="INC",value=20}},nil}
 c["20% increased Critical Damage Bonus if you've gained a Power Charge Recently"]={{[1]={[1]={type="Condition",var="GainedPowerChargeRecently"},flags=0,keywordFlags=0,name="CritMultiplier",type="INC",value=20}},nil}
 c["20% increased Critical Damage Bonus with Flails"]={{[1]={flags=134217732,keywordFlags=0,name="CritMultiplier",type="INC",value=20}},nil}
 c["20% increased Critical Hit Chance"]={{[1]={flags=0,keywordFlags=0,name="CritChance",type="INC",value=20}},nil}
@@ -1132,9 +1132,9 @@ c["20% increased Elemental Damage with Attacks"]={{[1]={flags=0,keywordFlags=655
 c["20% increased Endurance Charge Duration"]={{[1]={flags=0,keywordFlags=0,name="EnduranceChargesDuration",type="INC",value=20}},nil}
 c["20% increased Energy Shield Recharge Rate"]={{[1]={flags=0,keywordFlags=0,name="EnergyShieldRecharge",type="INC",value=20}},nil}
 c["20% increased Energy Shield Recovery Rate if you haven't been Hit Recently"]={{[1]={[1]={neg=true,type="Condition",var="BeenHitRecently"},flags=0,keywordFlags=0,name="EnergyShieldRecoveryRate",type="INC",value=20}},nil}
-c["20% increased Energy Shield if you've consumed a Power Charge Recently"]={{[1]={flags=0,keywordFlags=0,name="EnergyShield",type="INC",value=20}},"  if you've consumed a Power Charge Recently "}
+c["20% increased Energy Shield if you've consumed a Power Charge Recently"]={{[1]={[1]={limit=1,type="Multiplier",var="RemovablePowerCharge"},flags=0,keywordFlags=0,name="EnergyShield",type="INC",value=20}},nil}
 c["20% increased Evasion Rating"]={{[1]={flags=0,keywordFlags=0,name="Evasion",type="INC",value=20}},nil}
-c["20% increased Evasion Rating if you've consumed a Frenzy Charge Recently"]={{[1]={flags=0,keywordFlags=0,name="Evasion",type="INC",value=20}},"  if you've consumed a Frenzy Charge Recently "}
+c["20% increased Evasion Rating if you've consumed a Frenzy Charge Recently"]={{[1]={[1]={limit=1,type="Multiplier",var="RemovableFrenzyCharge"},flags=0,keywordFlags=0,name="Evasion",type="INC",value=20}},nil}
 c["20% increased Flask and Charm Charges gained"]={{[1]={flags=0,keywordFlags=0,name="CharmChargesGained",type="INC",value=20}}," Flask and  "}
 c["20% increased Flask and Charm Charges gained 40% increased Life and Mana Recovery from Flasks while you have an active Charm"]={{[1]={flags=0,keywordFlags=0,name="CharmChargesGained",type="INC",value=20}}," Flask and  40% increased Life and Mana Recovery from Flasks while you have an active Charm "}
 c["20% increased Freeze Buildup"]={{}," Freeze Buildup "}
@@ -1824,8 +1824,7 @@ c["50% increased Energy Shield Recharge Rate"]={{[1]={flags=0,keywordFlags=0,nam
 c["50% increased Evasion Rating"]={{[1]={flags=0,keywordFlags=0,name="Evasion",type="INC",value=50}},nil}
 c["50% increased Evasion Rating if Energy Shield Recharge has started in the past 2 seconds"]={{[1]={[1]={type="Condition",var="EnergyShieldRechargePastTwoSec"},flags=0,keywordFlags=0,name="Evasion",type="INC",value=50}},nil}
 c["50% increased Evasion Rating if you've Dodge Rolled Recently"]={{[1]={[1]={type="Condition",var="DodgeRolledRecently"},flags=0,keywordFlags=0,name="Evasion",type="INC",value=50}},nil}
-c["50% increased Evasion Rating if you've consumed a Frenzy Charge Recently"]={{[1]={flags=0,keywordFlags=0,name="Evasion",type="INC",value=50}},"  if you've consumed a Frenzy Charge Recently "}
-c["50% increased Evasion Rating if you've consumed a Frenzy Charge Recently +1 to Maximum Frenzy Charges"]={{[1]={flags=0,keywordFlags=0,name="Evasion",type="INC",value=50}},"  if you've consumed a Frenzy Charge Recently +1 to Maximum Frenzy Charges "}
+c["50% increased Evasion Rating if you've consumed a Frenzy Charge Recently"]={{[1]={[1]={limit=1,type="Multiplier",var="RemovableFrenzyCharge"},flags=0,keywordFlags=0,name="Evasion",type="INC",value=50}},nil}
 c["50% increased Evasion Rating when on Full Life"]={{[1]={[1]={type="Condition",var="FullLife"},flags=0,keywordFlags=0,name="Evasion",type="INC",value=50}},nil}
 c["50% increased Evasion and Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="EvasionAndEnergyShield",type="INC",value=50}},nil}
 c["50% increased Fire Damage while affected by Herald of Ash"]={{[1]={[1]={type="Condition",var="AffectedByHeraldofAsh"},flags=0,keywordFlags=0,name="FireDamage",type="INC",value=50}},nil}
@@ -2370,7 +2369,7 @@ c["Double Stun Threshold while Shield is Raised"]={nil,"Double Stun Threshold wh
 c["Double the number of your Poisons that targets can be affected by at the same time"]={{[1]={flags=0,keywordFlags=0,name="PoisonCanStack",type="FLAG",value=true},[2]={flags=0,keywordFlags=0,name="PoisonStacks",type="MORE",value=100}},nil}
 c["Drop Ignited Ground while moving, which lasts 8 seconds and Ignites as though dealing Fire Damage equal to 10% of your maximum Life"]={nil,"Drop Ignited Ground while moving, which lasts 8 seconds and Ignites as though dealing Fire Damage equal to 10% of your maximum Life "}
 c["Drop Shocked Ground while moving, lasting 8 seconds"]={nil,"Drop Shocked Ground while moving, lasting 8 seconds "}
-c["Effect and Duration of Flames of Chayula on You is Doubled"]={nil,"Effect and Duration of Flames of Chayula on You is Doubled "}
+c["Effect and Duration of Flames of Chayula on You is Doubled"]={{[1]={flags=0,keywordFlags=0,name="Multiplier:FlameEffect",type="BASE",value=1}},nil}
 c["Effect is not removed when Unreserved Mana is Filled"]={{[1]={flags=0,keywordFlags=0,name="ManaFlaskEffectNotRemoved",type="FLAG",value=true}},nil}
 c["Eldritch Battery"]={{[1]={flags=0,keywordFlags=0,name="Keystone",type="LIST",value="Eldritch Battery"}},nil}
 c["Elemental Ailment Threshold is increased by Overcapped Chaos Resistance"]={nil,"Elemental Ailment Threshold is increased by Overcapped Chaos Resistance "}
