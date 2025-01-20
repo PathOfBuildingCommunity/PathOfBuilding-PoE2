@@ -3813,6 +3813,7 @@ function calcs.offence(env, actor, activeSkill)
 	-- Freeze (non-damaging)
 	-- Stun (non-damaging - note that I think the game doesn't consider this an "ailment")
 
+
 	-- Possible direct (ie not about damage hit modifier) crit effects on ailments (as of Jan 19 2025)
 
 	-- Increased magnitude of damaging ailments inflicted with critical hits
@@ -3946,7 +3947,6 @@ function calcs.offence(env, actor, activeSkill)
 			local canCrit = not skillModList:Flag(cfg, "AilmentsAreNeverFromCrit")
 			local sourceHitDmg, sourceCritDmg = 0, 0
 			for _, dmg_type in ipairs(dmgTypeList) do
-				ConPrintf("canDoAilment(%s, %s) = %s", ailment, dmg_type, canDoAilment(ailment, dmg_type, defaultDamageTypes))
 				if canDoAilment(ailment, dmg_type, defaultDamageTypes) then
 					sourceHitDmg = sourceHitDmg + output[dmg_type.."HitAverage"]
 					if canCrit then
@@ -3958,7 +3958,7 @@ function calcs.offence(env, actor, activeSkill)
 		end
 
 		-- Calculates damage to be used in damaging ailment calculations
-		local function calcAilmentSourceDamage(ailment, defaultDamageTypes)
+		local function calcMinMaxUnmitigatedAilmentSourceDamage(ailment, defaultDamageTypes)
 			-- requires:
 			--   output.<damage type>StoredHitMin
 			--   output.<damage type>StoredHitMax
@@ -4070,10 +4070,8 @@ function calcs.offence(env, actor, activeSkill)
 			return baseVal
 		end
 
-		-- Poison/Ignite/Bleed
-		-- Chaos/Fire/Physical
-		-- Chaos+Physical/Fire/Physical
-		local function calcDamagingAilment(ailment, ailmentDamageType, defaultDamageTypes)
+		-- Calculate global / breakdown values for a damaging ailment
+		local function calcDamagingAilmentOutputs(ailment, ailmentDamageType, defaultDamageTypes)
 			-- requires:
 			--   output.<ailment type>ChanceOnHit
 			--   output.<ailment type>ChanceOnCrit
@@ -4213,7 +4211,7 @@ function calcs.offence(env, actor, activeSkill)
 				end
 			end
 
-			local hitMin, hitMax, critMin, critMax = calcAilmentSourceDamage(ailment, defaultDamageTypes)
+			local hitMin, hitMax, critMin, critMax = calcMinMaxUnmitigatedAilmentSourceDamage(ailment, defaultDamageTypes)
 			local hitAvg = hitMin + ((hitMax - hitMin) * ailmentRollAverage / 100)
 			local critAvg = critMin + ((critMax - critMin) * ailmentRollAverage / 100)
 			if globalBreakdown then
@@ -4427,13 +4425,13 @@ function calcs.offence(env, actor, activeSkill)
 		-- For Chill in-game tooltip says:
 		-- "All Hits that have any Contribution to Chill Magnitude can Chill, without requiring an explicit chance to inflict,
 		--  provided the Magnitudes meets a minimum threshold. So low damage Hits may still fail to Chill."
-		local dealtCold = calcAverageUnmitigatedSourceDamage("Chill", defaultAilmentDamageTypes["Chill"]["ScalesFrom"])
-		ConPrintf(dealtCold)
+		local unmitigatedColdDamage = calcAverageUnmitigatedSourceDamage("Chill", defaultAilmentDamageTypes["Chill"]["ScalesFrom"])
+		ConPrintf(unmitigatedColdDamage)
 		ConPrintf(enemyThreshold)
 		ConPrintf(output["ColdHitAverage"])
 		local chillAilmentThresholdGuess = enemyThreshold * 0.04 * 15 -- Assume 15% is sufficient
 		output['ChillAilmentThresholdGuess'] = chillAilmentThresholdGuess
-		if dealtCold > chillAilmentThresholdGuess then
+		if unmitigatedColdDamage > chillAilmentThresholdGuess then
 			output["ChillChanceOnHit"] = 100
 			output["ChillChanceOnCrit"] = 100
 			skillFlags["inflictChill"] = true
@@ -4452,7 +4450,7 @@ function calcs.offence(env, actor, activeSkill)
 
 		-- Calculate scaling threshold ailment chance
 		for _, ailment in ipairs({"Ignite", "Shock"}) do
-			local hitMin, hitMax, critMin, critMax = calcAilmentSourceDamage(ailment, defaultAilmentDamageTypes[ailment]["ScalesFrom"])
+			local hitMin, hitMax, critMin, critMax = calcMinMaxUnmitigatedAilmentSourceDamage(ailment, defaultAilmentDamageTypes[ailment]["ScalesFrom"])
 			-- TODO: average for now, can do more complicated calculation later
 			local hitAvg = hitMin + (hitMax - hitMin) / 2
 			local critAvg = critMin + (critMax - critMin) / 2
@@ -4502,7 +4500,7 @@ function calcs.offence(env, actor, activeSkill)
 
 		-- Calculate damaging ailment values
 		for _, damagingAilment in ipairs({"Bleed", "Poison", "Ignite"}) do
-			calcDamagingAilment(
+			calcDamagingAilmentOutputs(
 				damagingAilment,
 				defaultAilmentDamageTypes[damagingAilment]["DamageType"],
 				defaultAilmentDamageTypes[damagingAilment]["ScalesFrom"]

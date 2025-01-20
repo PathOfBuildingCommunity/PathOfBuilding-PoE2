@@ -1268,6 +1268,7 @@ return {
 		{ label = "Configured Brittle", modName = "BrittleVal", enemy = true, modType = "BASE" },
 		{ label = "Guaranteed Brittles", modName = "BrittleOverride", modType = "BASE" },
 	}, },
+	{ label = "Enemy Ail. Thresh.", bgCol = colorCodes.SHOCKBG, flag = "shock", { format = "{0:output:EnemyAilmentThreshold}", { modname = "EnemyAilmentThreshold" }, }, },
 	{ label = "Chance to Shock", bgCol = colorCodes.SHOCKBG, flag = "shock", { format = "{0:output:ShockChance}%",
 		{ breakdown = "MainHand.ShockChance" },
 		{ breakdown = "OffHand.ShockChance" },
