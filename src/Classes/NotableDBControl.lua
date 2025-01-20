@@ -12,6 +12,8 @@ local m_floor = math.floor
 local m_huge = math.huge
 local s_format = string.format
 
+local emotionList = {"Ire", "Guilt", "Greed", "Paranoia", "Envy", "Disgust", "Despair", "Fear", "Isolation", "Suffering"}
+
 ---@param node table
 ---@return boolean
 local function IsAnointableNode(node)
@@ -20,7 +22,9 @@ end
 
 ---@class NotableDBControl : ListControl
 local NotableDBClass = newClass("NotableDBControl", "ListControl", function(self, anchor, rect, itemsTab, db, dbType)
-	self.ListControl(anchor, rect, 16, "VERTICAL", false)
+	local headerHeight = 68
+	local innerRect = {rect[1], rect[2]+headerHeight, rect[3], rect[4]-headerHeight}
+	self.ListControl(anchor, innerRect, 16, "VERTICAL", false)
 	self.itemsTab = itemsTab
 	self.db = db
 	self.dbType = dbType
@@ -32,15 +36,52 @@ local NotableDBClass = newClass("NotableDBControl", "ListControl", function(self
 	self.sortDropList = { }
 	self.sortOrder = { }
 	self.sortMode = "NAME"
-	self.controls.sort = new("DropDownControl", {"BOTTOMLEFT",self,"TOPLEFT"}, {0, -22, 360, 18}, self.sortDropList, function(index, value)
+	self.controls.sort = new("DropDownControl", {"TOPLEFT",self,"TOPLEFT"}, {0, -headerHeight, 360, 18}, self.sortDropList, function(index, value)
 		self:SetSortMode(value.sortMode)
 	end)
-	self.controls.search = new("EditControl", {"BOTTOMLEFT",self,"TOPLEFT"}, {0, -2, 258, 18}, "", "Search", "%c", 100, function()
+	self.controls.search = new("EditControl", {"TOPLEFT",self.controls.sort,"BOTTOMLEFT"}, {0, 2, 258, 18}, "", "Search", "%c", 100, function()
 		self.listBuildFlag = true
 	end, nil, nil, true)
 	self.controls.searchMode = new("DropDownControl", {"LEFT",self.controls.search,"RIGHT"}, {2, 0, 100, 18}, { "Anywhere", "Names", "Modifiers" }, function(index, value)
 		self.listBuildFlag = true
 	end)
+
+	-- Create and set up emotion filters.
+	local function getEmotionImages()
+		local tree = main:LoadTree(latestTreeVersion)
+		local images = {}
+		for _, emotionName in ipairs(emotionList) do
+			images[emotionName] = tree.ddsMap[emotionName]
+		end
+
+		return images
+	end
+	self.emotionImages = getEmotionImages()
+
+	self.controls.emotionLabel = new("LabelControl", {"TOPLEFT", self.controls.search, "BOTTOMLEFT"}, {0, 6, 100, 16}, "Emotions: ")
+	self.emotionsAvailable = { }
+	local function emoCheckOnChange(name)
+		self.emotionsAvailable[name] = true
+		return function(state)
+			self.emotionsAvailable[name] = state
+			self.listBuildFlag = true
+		end
+	end
+	local function emoCheck(name, relTo)
+		local anchor = {"LEFT", relTo, "RIGHT"}
+		local rect = {2, 0, 26, 26}
+		local ctl = new("CheckBoxControl", anchor, rect, "", emoCheckOnChange(name), "Distilled "..name, true)
+		if self.emotionImages then ctl:SetCheckImage(self.emotionImages[name]) end
+		return ctl
+	end
+
+	local emotionCheckBoxes = {}
+	for i,emo in ipairs(emotionList) do
+		local emoCtl = emoCheck(emo, emotionCheckBoxes[i-1] or self.controls.emotionLabel)
+		emotionCheckBoxes[i] = emoCtl
+		self.controls["emotionCheckbox"..emo] = emoCtl
+	end
+
 	self:BuildSortOrder()
 	self.listBuildFlag = true
 end)
@@ -50,6 +91,13 @@ end)
 function NotableDBClass:DoesNotableMatchFilters(node)
 	if not IsAnointableNode(node) then
 		return false
+	end
+
+	-- Exclude notables the player doesn't have the emotions for.
+	for _,emo in ipairs(node.recipe) do
+		if not self.emotionsAvailable[emo] then
+			return false
+		end
 	end
 
 	local searchStr = self.controls.search.buf:lower():gsub("[%-%.%+%[%]%$%^%%%?%*]", "%%%0")
