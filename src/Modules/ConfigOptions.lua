@@ -493,6 +493,10 @@ local configSettings = {
 	{ var = "risingTempestFire", type = "check", label = "Fire Skill used Recently:", ifSkill = "Rising Tempest", apply = function(val, modList, enemyModList)
 		modList:NewMod("Multiplier:DifferentElementalSkillUsedRecently", "BASE", 1, "Config")
 	end },
+	{ label = "Scavenged Plating:", ifSkill = "Scavenged Plating" },
+	{ var = "scavengedPlatingStacks", type = "count", label = "# of Scavenged Plating Stacks:", ifSkill = "Scavenged Plating", apply = function(val, modList, enemyModList)
+		modList:NewMod("Multiplier:ScavengedPlatingStacks", "BASE", val, "Config")
+	end },
 	{ label = "Shrapnel Ballista:", ifSkill = "Shrapnel Ballista", includeTransfigured = true },
 	{ var = "ShrapnelBallistaProjectileOverlap", type = "count", label = "# of Shotgunning Projectiles:", tooltip = "Maximum is limited by the number of Projectiles., default of 1, if Arrow nova then default of maximum projectiles", ifSkill = "Shrapnel Ballista", includeTransfigured = true, apply = function(val, modList, enemyModList)
 		modList:NewMod("SkillData", "LIST", { key = "ShrapnelBallistaProjectileOverlap", value = val }, "Config", { type = "SkillName", skillName = "Shrapnel Ballista", includeTransfigured = true })
