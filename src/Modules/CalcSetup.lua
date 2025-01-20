@@ -357,7 +357,9 @@ function calcs.buildModListForNodeList(env, nodeList, finishJewels)
 
 		-- Finalise radius jewels
 		for _, rad in pairs(env.radiusJewelList) do
-			rad.func(nil, modList, rad.data)
+			if rad.item.baseName:find("Time%-Lost") == nil then
+				rad.func(nil, modList, rad.data)
+			end
 			if env.mode == "MAIN" then
 				if not rad.item.jewelRadiusData then
 					rad.item.jewelRadiusData = { }

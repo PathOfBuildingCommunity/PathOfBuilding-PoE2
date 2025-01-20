@@ -5232,7 +5232,6 @@ local specialModList = {
 	["nearby allies have (%d+)%% chance to block attack damage per (%d+) strength you have"] = function(block, _, str) return {
 		mod("ExtraAura", "LIST", { onlyAllies = true, mod = mod("BlockChance", "BASE", block) }, { type = "PerStat", stat = "Str", div = tonumber(str) }),
 	} end,
-	["(%d+)%% increased effect of small passive skills in radius"] = { },
 }
 for _, name in pairs(data.keystones) do
 	specialModList[name:lower()] = { mod("Keystone", "LIST", name) }
@@ -5491,6 +5490,7 @@ local jewelOtherFuncs = {
 			end
 		end
 	end,
+	["(%d+)%% increased Effect of Small Passive Skills in Radius"] = function(node, out, data) end,
 	["50% increased Effect of non-Keystone Passive Skills in Radius"] = function(node, out, data)
 		if node and node.type ~= "Keystone" then
 			out:NewMod("PassiveSkillEffect", "INC", 50, data.modSource)
