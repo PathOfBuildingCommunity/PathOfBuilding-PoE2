@@ -5882,7 +5882,7 @@ skills["EyeOfWinterPlayer"] = {
 			statDescriptionScope = "eye_of_winter_new",
 			statMap = {
 				["eye_of_winter_number_of_brittle_stacks_to_apply"] = {
-					flag("ApplyBrittleStacks"),
+					flag("ApplyCriticalWeakness"),
 				},
 			},
 			baseFlags = {
@@ -11304,7 +11304,7 @@ skills["MalicePlayer"] = {
 			statDescriptionScope = "aura_crit_against_enemy",
 			statMap = {
 				["critical_chance_against_aura_apply_brittle_every_x_ms"] = {
-					flag("ApplyBrittleStacks"),
+					flag("ApplyCriticalWeakness"),
 				},
 			},
 			baseFlags = {
