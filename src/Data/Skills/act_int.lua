@@ -1596,6 +1596,7 @@ skills["BonestormPlayer"] = {
 			baseFlags = {
 				spell = true,
 				duration = true,
+				projectile = true,
 			},
 			constantStats = {
 				{ "base_number_of_projectiles", 1 },
@@ -5881,9 +5882,9 @@ skills["EyeOfWinterPlayer"] = {
 			damageIncrementalEffectiveness = 0.0065000001341105,
 			statDescriptionScope = "eye_of_winter_new",
 			statMap = {
-				["eye_of_winter_number_of_brittle_stacks_to_apply"] = {
-					flag("ApplyCriticalWeakness"),
-				},
+			    ["eye_of_winter_number_of_brittle_stacks_to_apply"] = {
+			        flag("ApplyCriticalWeakness"),
+			    },
 			},
 			baseFlags = {
 				spell = true,
@@ -11308,9 +11309,9 @@ skills["MalicePlayer"] = {
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "aura_crit_against_enemy",
 			statMap = {
-				["critical_chance_against_aura_apply_brittle_every_x_ms"] = {
-					flag("ApplyCriticalWeakness"),
-				},
+			    ["critical_chance_against_aura_apply_brittle_every_x_ms"] = {
+			        flag("ApplyCriticalWeakness"),
+			    },
 			},
 			baseFlags = {
 				area = true,

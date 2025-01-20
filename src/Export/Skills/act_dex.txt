@@ -119,10 +119,10 @@ statMap = {
 #flags attack projectile area
 #mods
 #set GasArrowGasDegenPlayer
-#flags attack area duration
+#flags attack area duration projectile
 #mods
 #set GasArrowGasExplosionPlayer
-#flags attack area
+#flags attack area projectile
 #mods
 #skillEnd
 

@@ -114,7 +114,7 @@ statMap = {
 #skill BonestormPlayer
 #startSets
 #set BonestormPlayer
-#flags spell duration
+#flags spell duration projectile
 statMap = {
 	["bone_spear_minimum_added_attack_physical_damage_taken"] = {
 		mod("SelfPhysicalMin", "BASE", nil, ModFlag.Attack, 0, { type = "GlobalEffect", effectType = "Debuff", effectName = "Bonestorm", effectCond = "BonestormAddedDamage" }),

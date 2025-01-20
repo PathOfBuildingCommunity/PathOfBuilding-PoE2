@@ -1082,6 +1082,7 @@ skills["GasArrowPlayer"] = {
 				attack = true,
 				area = true,
 				duration = true,
+				projectile = true,
 			},
 			constantStats = {
 				{ "base_skill_effect_duration", 4000 },
@@ -1159,6 +1160,7 @@ skills["GasArrowPlayer"] = {
 			baseFlags = {
 				attack = true,
 				area = true,
+				projectile = true,
 			},
 			constantStats = {
 				{ "active_skill_base_physical_damage_%_to_convert_to_fire", 100 },
