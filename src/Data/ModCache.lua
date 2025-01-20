@@ -2239,7 +2239,7 @@ c["Break Armour on Critical Hit with Spells equal to 10% of Physical Damage deal
 c["Break Armour on Critical Hit with Spells equal to 5% of Physical Damage dealt"]={nil,"Break Armour on Critical Hit with Spells equal to 5% of Physical Damage dealt "}
 c["Break enemy Concentration on Hit equal to 100% of Damage Dealt"]={nil,"Break enemy Concentration on Hit equal to 100% of Damage Dealt "}
 c["Break enemy Concentration on Hit equal to 100% of Damage Dealt Enemies regain 10% of Concentration every second if they haven't lost Concentration in the past 5 seconds"]={nil,"Break enemy Concentration on Hit equal to 100% of Damage Dealt Enemies regain 10% of Concentration every second if they haven't lost Concentration in the past 5 seconds "}
-c["Buffs on you expire 10% slower"]={nil,"Buffs on you expire 10% slower "}
+c["Buffs on you expire 10% slower"]={{[1]={[1]={skillType=5,type="SkillType"},flags=0,keywordFlags=0,name="Duration",type="INC",value=10}},nil}
 c["Burning Enemies you kill have a 5% chance to Explode, dealing a tenth of their maximum Life as Fire Damage"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Burning"},flags=0,keywordFlags=0,name="ExplodeMod",type="LIST",value={amount=5,chance=1,keyOfScaledMod="chance",type="Tenth"}},[2]={flags=0,keywordFlags=0,name="CanExplode",type="FLAG",value=true}},nil}
 c["Can Block Damage from all Hits while Shield is not Raised"]={nil,"Can Block Damage from all Hits while Shield is not Raised "}
 c["Can Block damage from all Hits"]={nil,"Can Block damage from all Hits "}
