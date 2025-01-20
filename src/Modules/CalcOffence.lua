@@ -4400,9 +4400,9 @@ function calcs.offence(env, actor, activeSkill)
 		-- "All Hits that have any Contribution to Chill Magnitude can Chill, without requiring an explicit chance to inflict,
 		--  provided the Magnitudes meets a minimum threshold. So low damage Hits may still fail to Chill."
 		local unmitigatedColdDamage = calcAverageUnmitigatedSourceDamage("Chill", defaultAilmentDamageTypes["Chill"]["ScalesFrom"])
-		ConPrintf(unmitigatedColdDamage)
-		ConPrintf(enemyThreshold)
-		ConPrintf(output["ColdHitAverage"])
+		-- ConPrintf(unmitigatedColdDamage)
+		-- ConPrintf(enemyThreshold)
+		-- ConPrintf(output["ColdHitAverage"])
 		local chillAilmentThresholdGuess = enemyThreshold * 0.04 * 15 -- Assume 15% is sufficient
 		output['ChillAilmentThresholdGuess'] = chillAilmentThresholdGuess
 		if unmitigatedColdDamage > chillAilmentThresholdGuess then
@@ -4430,8 +4430,8 @@ function calcs.offence(env, actor, activeSkill)
 			local critAvg = critMin + (critMax - critMin) / 2
 			local hitElementalAilmentChance = (hitAvg / enemyThreshold) / 0.04
 			local critElementalAilmentChance = (critAvg / enemyThreshold) / 0.04
-			ConPrintf("raw %s hitElementalAilmentChance: %s", ailment, hitElementalAilmentChance)
-			ConPrintf("raw %s critElementalAilmentChance: %s", ailment, critElementalAilmentChance)
+			-- ConPrintf("raw %s hitElementalAilmentChance: %s", ailment, hitElementalAilmentChance)
+			-- ConPrintf("raw %s critElementalAilmentChance: %s", ailment, critElementalAilmentChance)
 
 			if skillFlags.hit and not skillModList:Flag(cfg, "Cannot"..ailment) then
 				output[ailment.."ChanceOnHit"] = m_min(100, hitElementalAilmentChance)
