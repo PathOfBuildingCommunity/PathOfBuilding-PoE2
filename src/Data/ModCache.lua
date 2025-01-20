@@ -905,7 +905,7 @@ c["15% increased Critical Hit Chance with Daggers"]={{[1]={flags=524292,keywordF
 c["15% increased Critical Hit Chance with Flails"]={{[1]={flags=134217732,keywordFlags=0,name="CritChance",type="INC",value=15}},nil}
 c["15% increased Critical Spell Damage Bonus"]={{[1]={flags=2,keywordFlags=0,name="CritMultiplier",type="INC",value=15}},nil}
 c["15% increased Crossbow Reload Speed"]={{[1]={flags=67108865,keywordFlags=0,name="ReloadSpeed",type="INC",value=15}},nil}
-c["15% increased Damage for each type of Elemental Ailment on Enemy"]={{[1]={flags=0,keywordFlags=0,name="Damage",type="INC",value=15}},"  for each type of Elemental Ailment on Enemy "}
+c["15% increased Damage for each type of Elemental Ailment on Enemy"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Electrocuted"},flags=0,keywordFlags=786432,name="Damage",type="INC",value=15},[2]={[1]={actor="enemy",type="ActorCondition",var="Frozen"},flags=0,keywordFlags=786432,name="Damage",type="INC",value=15},[3]={[1]={actor="enemy",type="ActorCondition",var="Chilled"},flags=0,keywordFlags=786432,name="Damage",type="INC",value=15},[4]={[1]={actor="enemy",type="ActorCondition",var="Ignited"},flags=0,keywordFlags=786432,name="Damage",type="INC",value=15},[5]={[1]={actor="enemy",type="ActorCondition",var="Shocked"},flags=0,keywordFlags=786432,name="Damage",type="INC",value=15}},nil}
 c["15% increased Damage if you have Consumed a Corpse Recently"]={{[1]={[1]={type="Condition",var="ConsumedCorpseRecently"},flags=0,keywordFlags=0,name="Damage",type="INC",value=15}},nil}
 c["15% increased Damage with Flails"]={{[1]={flags=134217732,keywordFlags=0,name="Damage",type="INC",value=15}},nil}
 c["15% increased Damage with Maces"]={{[1]={flags=1048580,keywordFlags=0,name="Damage",type="INC",value=15}},nil}

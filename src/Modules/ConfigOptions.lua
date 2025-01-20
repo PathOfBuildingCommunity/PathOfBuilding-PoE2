@@ -1565,6 +1565,10 @@ Huge sets the radius to 11.
 	{ var = "ShockStacks", type = "count", label = "^xADAA47Shock ^7Stacks", ifFlag = "ShockCanStack", ifOption = "conditionEnemyShocked", defaultPlaceholderState = 1, tooltip = "Amount of stacks of ^xADAA47Shock ^7applied to the enemy.", apply = function(val, modList, enemyModList)
 		enemyModList:NewMod("Multiplier:ShockStacks", "BASE", val, "Config", { type = "Condition", var = "Effective" })
 	end },
+	{ var = "conditionEnemyElectrocuted", type = "check", label = "Is the enemy ^xADAA47Electrocuted?", ifEnemyCond = "Electrocuted", apply = function(val, modList, enemyModList)
+		enemyModList:NewMod("Condition:Electrocuted", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
+		enemyModList:NewMod("Condition:ElectrocutedConfig", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
+	end },
 	{ var = "conditionEnemyOnShockedGround", type = "check", label = "Is the enemy on ^xADAA47Shocked ^7Ground?", tooltip = "This also implies that the enemy is ^xADAA47Shocked.", ifEnemyCond = "OnShockedGround", apply = function(val, modList, enemyModList)
 		enemyModList:NewMod("Condition:Shocked", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
 		enemyModList:NewMod("Condition:OnShockedGround", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
