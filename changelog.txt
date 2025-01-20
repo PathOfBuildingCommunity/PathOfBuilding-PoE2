@@ -1,3 +1,45 @@
+VERSION[0.3.0][2025/01/20]
+<!-- Release notes generated using configuration in .github/release.yml at dev -->
+
+* Add Emotion filtering to Anoint popup (Quxxy)
+* Add support for Sceptre 'Allies in your presence' mods (LocalIdentity)
+* Add the ability to custom change max node depth for heat map (DoubtinGiyov)
+* Add support for Buff Expiry Rate (igorwessel)
+* Add support for Critical Weakness debuff (Edvinas-Smita)
+* Add support for merging mods on nodes in radius of Time-Lost jewels (Peechey)
+* Add support for increased Effect of Small Passive Skills in Radius for Time-Lost Jewels (Peechey)
+* Add support for Armour Buff on Scavenged Plating (LocalIdentity)
+* Add support for Controlled Destruction (TPlant)
+* Add support for Charge consumed recently tree nodes (trompetin17)
+* Add support for Monk's Reality Rending node (Nostrademous)
+* Add support for Monk's Into the Breach and Lucid Dreaming Ascendancies (Nostrademous)
+* Add support for Unnatural Resilience notable (Peechey)
+* Add support for Harness the Elements notable and Electrocute to config tab (lrzp)
+* Add support for a bunch of tree mods (ltogniolli)
+* Add support for Grinning Immolation and Pain Attunement (etojuice)
+* Add support for 'You have no Elemental Resistances' modifier (etojuice)
+* Add support for Mask of The Stitched Demon (etojuice)
+* Add support for Kaom's Heart by (@etojuice, @ltogniolli) in https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/468, https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/475
+--- Fixed Crashes ---
+* Fix crash when hovering over breakdown for Minion skills (TPlant)
+--- Fixed Calculations ---
+* Fix +Levels to Gems on Quivers not working sometimes (hugocornago)
+* Fix Minion Spell skills doing 0 damage (LocalIdentity)
+* Fix Archmage Mana cost (TPlant)
+* Fix Scattershot Attack/Cast speed value (deathbeam)
+* Fix Penetration calculations (TPlant)
+* Fix Chain Support applying to all damage instead of just hits (TPlant)
+* Fix Herald interaction with Coming Calamity (xspirus)
+* Fix Maligaro's Virtuosity Critical Damage Bonus calculation (etojuice)
+--- Fixed Behaviours ---
+* Fix Concoction skills not being treated as Unarmed (Peechey)
+* Fix Passive Nodes not showing updated value when Hulking Form is allocated (trompetin17)
+* Fix Ingenuity Belt not working with reflected rings from Kalandra's Touch (etojuice)
+* Fix passive nodes being permanently attached to a Weapon Set (Peechey)
+* Fix projectile scaling for Bonestorm and Gas Arrow (Peechey)
+--- Accuracy Improvements ---
+* Fix value of Onslaught Movement Speed buff (OrderedSet86)
+
 VERSION[0.2.0][19/01/2025]
 
 --- New to Path of Building ---
