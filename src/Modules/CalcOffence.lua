@@ -3805,6 +3805,8 @@ function calcs.offence(env, actor, activeSkill)
 	-- Aggravate Bleeding on targets you Critically Hit with Attacks
 	-- -- (Helmet) The Smiling Knight Cowled Helm
 
+	-- Various tree nodes for bleed chance on crit
+
 	-- Calculate ailment thresholds
 	local enemyAilmentThreshold = data.monsterAilmentThresholdTable[env.enemyLevel]
 	local isBoss = env.configInput["enemyIsBoss"] ~= "None"
@@ -3816,35 +3818,51 @@ function calcs.offence(env, actor, activeSkill)
 	end
 	local enemyTypeMult = isBoss and 7.68 or 1
 	local enemyThreshold = enemyAilmentThreshold * enemyTypeMult * enemyMapLifeMult * enemyDB:More(nil, "Life") * enemyMapAilmentMult * enemyDB:More(nil, "AilmentThreshold")
+	output['EnemyAilmentThreshold'] = enemyThreshold
 
-	local damagingAilmentConfig = {
+	-- TODO: Should probably be in Data.lua instead, or pulled from export data
+	local defaultAilmentDamageTypes = {
+		-- damaging
 		["Bleed"] = {
-			["DamageDealtType"] = "Physical",
 			["ScalesFrom"] = {
-				["Physical"] = 0.15,
-			}
+				["Physical"] = true,
+			},
+			["DamageType"] = "Physical",
 		},
 		["Poison"] = {
-			["DamageDealtType"] = "Chaos",
 			["ScalesFrom"] = {
-				["Physical"] = 0.2,
-				["Chaos"] = 0.2,
-			}
+				["Physical"] = true,
+				["Chaos"] = true,
+			},
+			["DamageType"] = "Chaos",
 		},
 		["Ignite"] = {
-			["DamageDealtType"] = "Fire",
 			["ScalesFrom"] = {
-				["Fire"] = 0.2,
+				["Fire"] = true,
+			},
+			["DamageType"] = "Fire",
+		},
+		-- non-damaging
+		["Shock"] = {
+			["ScalesFrom"] = {
+				["Lightning"] = true,
 			}
 		},
-	}
-	local scalingThresholdAilmentConfig = {
-		["Bleed"] = {
-			["Physical"] = true
+		["Chill"] = {
+			["ScalesFrom"] = {
+				["Cold"] = true,
+			}
 		},
-		["Shock"] = {
-			["Lightning"] = true
-		}
+		["Freeze"] = {
+			["ScalesFrom"] = {
+				["Cold"] = true,
+			}
+		},
+		["Electrocute"] = {
+			["ScalesFrom"] = {
+				["Lightning"] = true,
+			}
+		},
 	}
 
 	-- Calculate ailments and debuffs (poison, bleed, ignite, impale, exposure, etc)
@@ -3870,37 +3888,45 @@ function calcs.offence(env, actor, activeSkill)
 		end
 
 		-- Check if the skill can inflict a given ailment
-		local function canDoAilment(type, damageType, defaultDamageTypes)
+		local function canDoAilment(ailmentType, damageType, defaultDamageTypes)
 			if not canDeal[damageType] then
 				return false
 			end
-			if (defaultDamageTypes and defaultDamageTypes[damageType]) or (ailmentData[type] and type == ailmentData[type].associatedType) then
-				if skillModList:Flag(cfg, damageType.."Cannot"..type) then
+
+			-- check against input valid types
+			if (
+				(defaultDamageTypes and defaultDamageTypes[damageType])
+				or (ailmentData[ailmentType] and damageType == ailmentData[ailmentType].associatedType)
+			) then
+				if skillModList:Flag(cfg, damageType.."Cannot"..ailmentType) then
 					return false
 				end
 				return true
 			end
-			if skillModList:Flag(cfg, damageType.."Can"..type) then
+
+			-- Process overrides eg. LightningCanFreeze
+			if skillModList:Flag(cfg, damageType.."Can"..ailmentType) then
 				return true
 			end
+
 			return false
 		end
 
 		---Calculates normal and crit damage to be used in non-damaging ailment calculations
 		---@param ailment string
 		---@return number, number @average hit damage, average crit damage
-		local function calcAverageSourceDamage(ailment)
+		local function calcAverageUnmitigatedSourceDamage(ailment, defaultDamageTypes)
 			-- requires:
 			--   output.<damage type>HitAverage
 			--   output.<damage type>CritAverage
 			local canCrit = not skillModList:Flag(cfg, "AilmentsAreNeverFromCrit")
 			local sourceHitDmg, sourceCritDmg = 0, 0
-			for _, type in ipairs(dmgTypeList) do
-				ConPrintf("canDoAilment(%s, %s) = %s", ailment, type, canDoAilment(ailment, type))
-				if canDoAilment(ailment, type) then
-					sourceHitDmg = sourceHitDmg + output[type.."HitAverage"]
+			for _, dmg_type in ipairs(dmgTypeList) do
+				ConPrintf("canDoAilment(%s, %s) = %s", ailment, dmg_type, canDoAilment(ailment, dmg_type, defaultDamageTypes))
+				if canDoAilment(ailment, dmg_type, defaultDamageTypes) then
+					sourceHitDmg = sourceHitDmg + output[dmg_type.."HitAverage"]
 					if canCrit then
-						sourceCritDmg = sourceCritDmg + output[type.."CritAverage"]
+						sourceCritDmg = sourceCritDmg + output[dmg_type.."CritAverage"]
 					end
 				end
 			end
@@ -4375,11 +4401,13 @@ function calcs.offence(env, actor, activeSkill)
 		-- For Chill in-game tooltip says:
 		-- "All Hits that have any Contribution to Chill Magnitude can Chill, without requiring an explicit chance to inflict,
 		--  provided the Magnitudes meets a minimum threshold. So low damage Hits may still fail to Chill."
-		local dealtCold = calcAverageSourceDamage("Chill")
+		local dealtCold = calcAverageUnmitigatedSourceDamage("Chill", defaultAilmentDamageTypes["Chill"]["ScalesFrom"])
 		ConPrintf(dealtCold)
 		ConPrintf(enemyThreshold)
 		ConPrintf(output["ColdHitAverage"])
-		if dealtCold > enemyThreshold * 0.04 then -- Assume 1% is sufficient
+		local chillAilmentThresholdGuess = enemyThreshold * 0.04 * 15 -- Assume 15% is sufficient
+		output['ChillAilmentThresholdGuess'] = chillAilmentThresholdGuess
+		if dealtCold > chillAilmentThresholdGuess then
 			output["ChillChanceOnHit"] = 100
 			output["ChillChanceOnCrit"] = 100
 			skillFlags["inflictChill"] = true
@@ -4398,12 +4426,14 @@ function calcs.offence(env, actor, activeSkill)
 
 		-- Calculate scaling threshold ailment chance
 		for _, ailment in ipairs({"Ignite", "Shock"}) do
-			local hitMin, hitMax, critMin, critMax = calcAilmentSourceDamage(ailment, scalingThresholdAilmentConfig[ailment])
+			local hitMin, hitMax, critMin, critMax = calcAilmentSourceDamage(ailment, defaultAilmentDamageTypes[ailment]["ScalesFrom"])
 			-- TODO: average for now, can do more complicated calculation later
 			local hitAvg = hitMin + (hitMax - hitMin) / 2
 			local critAvg = critMin + (critMax - critMin) / 2
 			local hitElementalAilmentChance = (hitAvg / enemyThreshold) / 0.04
-			local critElementalAilmentChance = (critAvg / enemyThreshold) / 0.04 
+			local critElementalAilmentChance = (critAvg / enemyThreshold) / 0.04
+			ConPrintf("raw %s hitElementalAilmentChance: %s", ailment, hitElementalAilmentChance)
+			ConPrintf("raw %s critElementalAilmentChance: %s", ailment, critElementalAilmentChance)
 
 			if skillFlags.hit and not skillModList:Flag(cfg, "Cannot"..ailment) then
 				output[ailment.."ChanceOnHit"] = m_min(100, hitElementalAilmentChance)
@@ -4444,20 +4474,14 @@ function calcs.offence(env, actor, activeSkill)
 			end
 		end
 
-		-- FIXME: use damagingAilmentConfig
-		-- FIXME: Handle Blood Mage -> Blood Barbs
-		calcDamagingAilment("Bleed", "Physical", {
-			["Physical"] = true,
-		})
-
-		calcDamagingAilment("Poison", "Chaos", {
-			["Physical"] = true,
-			["Chaos"] = true,
-		})
-
-		calcDamagingAilment("Ignite", "Fire", {
-			["Fire"] = true,
-		})
+		-- Calculate damaging ailment values
+		for _, damagingAilment in ipairs({"Bleed", "Poison", "Ignite"}) do
+			calcDamagingAilment(
+				damagingAilment,
+				defaultAilmentDamageTypes[damagingAilment]["DamageType"],
+				defaultAilmentDamageTypes[damagingAilment]["ScalesFrom"]
+			)
+		end
 
 		-- Calculate non-damaging ailments effect and duration modifiers
 		local nonDamagingAilmentsConfig = {
@@ -4498,7 +4522,7 @@ function calcs.offence(env, actor, activeSkill)
 					s_format("Ailment mode: %s ^8(can be changed in the Configuration tab)", ailmentMode == "CRIT" and "Crits Only" or "Average Damage")
 				}
 			end
-			local baseVal = calcAilmentDamage("Freeze", output.CritChance, calcAverageSourceDamage("Freeze")) * skillModList:More(cfg, "FreezeAsThoughDealing")
+			local baseVal = calcAilmentDamage("Freeze", output.CritChance, calcAverageUnmitigatedSourceDamage("Freeze", defaultAilmentDamageTypes["Freeze"]["ScalesFrom"])) * skillModList:More(cfg, "FreezeAsThoughDealing")
 			if baseVal > 0 then
 				skillFlags.freeze = true
 				output.FreezeDurationMod = 1 + skillModList:Sum("INC", cfg, "EnemyFreezeDuration", "EnemyAilmentDuration", "EnemyElementalAilmentDuration") / 100 + enemyDB:Sum("INC", nil, "SelfFreezeDuration", "SelfElementalAilmentDuration", "SelfAilmentDuration", "HoarfrostFreezeDuration") / 100
@@ -4515,7 +4539,7 @@ function calcs.offence(env, actor, activeSkill)
 						s_format("Ailment mode: %s ^8(can be changed in the Configuration tab)", ailmentMode == "CRIT" and "Crits Only" or "Average Damage")
 					}
 				end
-				local damage = calcAilmentDamage(ailment, output.CritChance, calcAverageSourceDamage(ailment)) * skillModList:More(cfg, ailment.."AsThoughDealing")
+				local damage = calcAilmentDamage(ailment, output.CritChance, calcAverageUnmitigatedSourceDamage(ailment, defaultAilmentDamageTypes[ailment]["ScalesFrom"])) * skillModList:More(cfg, ailment.."AsThoughDealing")
 				if damage > 0 then
 					skillFlags[string.lower(ailment)] = true
 					local incDur = skillModList:Sum("INC", cfg, "Enemy"..ailment.."Duration", "EnemyElementalAilmentDuration", "EnemyAilmentDuration") + enemyDB:Sum("INC", nil, "Self"..ailment.."Duration", "SelfElementalAilmentDuration", "SelfAilmentDuration")
