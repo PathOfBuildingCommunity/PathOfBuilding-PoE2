@@ -12,7 +12,7 @@ local m_floor = math.floor
 local m_huge = math.huge
 local s_format = string.format
 
-local emotionList = {"Ire", "Guilt", "Greed", "Paranoia", "Envy", "Disgust", "Despair", "Fear", "Isolation", "Suffering"}
+local emotionList = {"Ire", "Guilt", "Greed", "Paranoia", "Envy", "Disgust", "Despair", "Fear", "Suffering", "Isolation" }
 
 ---@param node table
 ---@return boolean
@@ -51,7 +51,7 @@ local NotableDBClass = newClass("NotableDBControl", "ListControl", function(self
 		local tree = main:LoadTree(latestTreeVersion)
 		local images = {}
 		for _, emotionName in ipairs(emotionList) do
-			images[emotionName] = tree.ddsMap[emotionName]
+			images[emotionName] = tree:GetAssetByName(emotionName)
 		end
 
 		return images
