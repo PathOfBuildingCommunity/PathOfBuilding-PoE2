@@ -122,7 +122,7 @@ return {
 	["active_skill_base_area_of_effect_radius"]=4,
 	["base_secondary_skill_effect_duration"]=2,
 	["base_skill_effect_duration"]=5,
-	parent="specific_skill_stat_descriptions/sniper_gas_shot\statset_0",
+	parent="specific_skill_stat_descriptions/sniper_gas_shot_statset_0",
 	["secondary_skill_effect_duration"]=1,
 	["skill_effect_duration"]=6
 }

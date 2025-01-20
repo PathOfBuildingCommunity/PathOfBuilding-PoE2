@@ -21,7 +21,17 @@ local function writeMods(outName, condFunc)
 	out:write('-- Item data (c) Grinding Gear Games\n\nreturn {\n')
 	for mod in dat("Mods"):Rows() do
 		if condFunc(mod) then
-			local stats, orders = describeMod(mod)
+			local stats, orders, missing = describeMod(mod)
+			if missing[1] then
+				ConPrintf("====================================")
+				ConPrintf("Mod '"..mod.Id.."' is missing stats:")
+				for	k, _ in pairs(missing) do
+					if k ~= 1 then
+						ConPrintf('%s', k)
+					end
+				end
+				ConPrintf("====================================")
+			end
 			if #orders > 0 then
 				out:write('\t["', mod.Id, '"] = { ')
 				if mod.GenerationType == 1 then

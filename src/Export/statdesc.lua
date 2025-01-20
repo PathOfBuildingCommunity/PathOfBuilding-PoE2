@@ -148,9 +148,15 @@ function describeStats(stats)
 	local out = { }
 	local orders = { }
 	local descriptors = { }
+	local missing = {false}
 	for s, v in pairs(stats) do
-		if s ~= "Type" and (v.min ~= 0 or v.max ~= 0) and statDescriptor[s] and statDescriptor[s].stats then
-			descriptors[statDescriptor[s]] = true
+		if s ~= "Type" and statDescriptor[s] and statDescriptor[s].stats then
+			if (v.min ~= 0 or v.max ~= 0) then
+				descriptors[statDescriptor[s]] = true
+			end
+		elseif s ~= "Type" then
+			missing[1] = true
+			missing[s] = v
 		end
 	end
 	local descOrdered = { }
@@ -390,7 +396,7 @@ function describeStats(stats)
 			end
 		end
 	end
-	return out, orders
+	return out, orders, missing
 end
 
 function describeMod(mod)
@@ -403,9 +409,9 @@ function describeMod(mod)
 	if mod.Type then
 		stats.Type = mod.Type
 	end
-	local out, orders = describeStats(stats)
+	local out, orders, missing = describeStats(stats)
 	out.modTags = describeModTags(mod.ImplicitTags)
-	return out, orders
+	return out, orders, missing
 end
 
 function describeScalability(fileName)
