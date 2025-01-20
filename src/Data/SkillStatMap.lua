@@ -2371,6 +2371,10 @@ return {
 	mod("SupportedGemProperty", "LIST", { keyword = "grants_active_skill", key = "level", value = nil }, 0, 0, { type = "SkillType", skillType = SkillType.Minion }),
 },
 
+["base_apply_unarmed_stats_to_offhand"] = {
+	flag("UnarmedOverride")
+},
+
 -- Display only
 ["quality_display_base_additional_arrows_is_gem"] = {
 	-- Display only

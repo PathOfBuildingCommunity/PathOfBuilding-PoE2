@@ -291,6 +291,10 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 	-- initialize weapon flags
 	activeSkill.weapon1Flags = 0
 	activeSkill.weapon2Flags = 0
+	-- Initialise skill modifier list
+	local skillModList = new("ModList", activeSkill.actor.modDB)
+	activeSkill.skillModList = skillModList
+	activeSkill.baseSkillModList = skillModList
 
 	-- Handle Spectral Shield Throw
 	if skillFlags.shieldAttack then
@@ -313,7 +317,7 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 		if weapon1Flags then
 			if skillFlags.attack or skillFlags.dotFromAttack then
 				-- Concoction skills ignore weapon flags
-				activeSkill.weapon1Flags = (activeStatSet.statMap["unarmed_override"] and ModFlag.Unarmed) or weapon1Flags
+				activeSkill.weapon1Flags = (skillModList:Flag(nil, "UnarmedOverride") and ModFlag.Unarmed) or weapon1Flags
 				skillFlags.weapon1Attack = true
 				if weapon1Info.melee and skillFlags.melee then
 					skillFlags.projectile = nil
@@ -474,11 +478,6 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 		activeSkill.weapon2Cfg.flags = bor(skillModFlags, activeSkill.weapon2Flags)
 	end
 
-	-- Initialise skill modifier list
-	local skillModList = new("ModList", activeSkill.actor.modDB)
-	activeSkill.skillModList = skillModList
-	activeSkill.baseSkillModList = skillModList
-
 	-- The damage fixup stat applies x% less base Attack Damage and x% more base Attack Speed as confirmed by Openarl Jan 4th 2024
 	-- Implemented in this manner as the stat exists on the minion not the skills 
 	if activeSkill.actor and activeSkill.actor.minionData and activeSkill.actor.minionData.damageFixup then
@@ -612,7 +611,6 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 		activeEffect.srcInstance.skillMineCountCalcs = nil
 		activeEffect.srcInstance.skillMineCount = nil
 	end
-
 
 	-- Determine if it possible to have a stage on this skill based upon skill parts.
 	local noPotentialStage = true
