@@ -3153,14 +3153,15 @@ local specialModList = {
 		mod("EnemyModifier", "LIST", { mod = mod("DamageTaken", "INC", num) }, { type = "ActorCondition", actor = "enemy", var = "Sapped" }),
 		mod("EnemyModifier", "LIST", { mod = mod("DamageTaken", "INC", num) }, { type = "ActorCondition", actor = "enemy", var = "Bleeding" }),
 		mod("EnemyModifier", "LIST", { mod = mod("DamageTaken", "INC", num) }, { type = "ActorCondition", actor = "enemy", var = "Poisoned" }),
+		mod("EnemyModifier", "LIST", { mod = mod("DamageTaken", "INC", num) }, { type = "ActorCondition", actor = "enemy", var = "Electrocuted" }),
 	} end,
 	-- Elemental Ailments
 	["(%d+)%% increased damage for each type of elemental ailment on enemy"] = function(num) return {
-		mod("Damage", "INC", num, nil, 0, bor(KeywordFlag.Hit, KeywordFlag.Ailment), { type = "ActorCondition", actor = "enemy", var = "Electrocuted" }),
-		mod("Damage", "INC", num, nil, 0, bor(KeywordFlag.Hit, KeywordFlag.Ailment), { type = "ActorCondition", actor = "enemy", var = "Frozen" }),
-		mod("Damage", "INC", num, nil, 0, bor(KeywordFlag.Hit, KeywordFlag.Ailment), { type = "ActorCondition", actor = "enemy", var = "Chilled" }),
-		mod("Damage", "INC", num, nil, 0, bor(KeywordFlag.Hit, KeywordFlag.Ailment), { type = "ActorCondition", actor = "enemy", var = "Ignited" }),
-		mod("Damage", "INC", num, nil, 0, bor(KeywordFlag.Hit, KeywordFlag.Ailment), { type = "ActorCondition", actor = "enemy", var = "Shocked" }),
+		mod("Damage", "INC", num, nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "Electrocuted" }),
+		mod("Damage", "INC", num, nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "Frozen" }),
+		mod("Damage", "INC", num, nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "Chilled" }),
+		mod("Damage", "INC", num, nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "Ignited" }),
+		mod("Damage", "INC", num, nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "Shocked" }),
 	} end,
 	["(%d+)%% increased elemental damage with hits and ailments for each type of elemental ailment on enemy"] = function(num) return {
 		mod("ElementalDamage", "INC", num, nil, 0, bor(KeywordFlag.Hit, KeywordFlag.Ailment), { type = "ActorCondition", actor = "enemy", var = "Frozen" }),
@@ -3170,6 +3171,7 @@ local specialModList = {
 		mod("ElementalDamage", "INC", num, nil, 0, bor(KeywordFlag.Hit, KeywordFlag.Ailment), { type = "ActorCondition", actor = "enemy", var = "Scorched" }),
 		mod("ElementalDamage", "INC", num, nil, 0, bor(KeywordFlag.Hit, KeywordFlag.Ailment), { type = "ActorCondition", actor = "enemy", var = "Brittle" }),
 		mod("ElementalDamage", "INC", num, nil, 0, bor(KeywordFlag.Hit, KeywordFlag.Ailment), { type = "ActorCondition", actor = "enemy", var = "Sapped" }),
+		mod("ElementalDamage", "INC", num, nil, 0, bor(KeywordFlag.Hit, KeywordFlag.Ailment), { type = "ActorCondition", actor = "enemy", var = "Electrocuted" }),
 	} end,
 	["your shocks can increase damage taken by up to a maximum of (%d+)%%"] = function(num) return { mod("ShockMax", "OVERRIDE", num) } end,
 	["%+(%d+)%% to maximum effect of shock"] = function(num) return { mod("ShockMax", "BASE", num) } end,
