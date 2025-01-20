@@ -1090,9 +1090,12 @@ function calcs.defence(env, actor)
 			end
 		end
 
-		-- add MaximumEnergyShield stat separately because Mask of The Stitched Demon overrides ES to 0
-		output.MaximumEnergyShield = m_max(round(output.EnergyShield), 0)
-		output.EnergyShield = modDB:Override(nil, "EnergyShield") or m_max(round(output.EnergyShield), 0)
+		output.MaximumEnergyShield = modDB:Override(nil, "EnergyShield") or m_max(round(output.EnergyShield), 0)
+		output.EnergyShield = output.MaximumEnergyShield
+		if modDB:Flag(nil, "CannotHaveES") then
+			output.EnergyShield = 0
+		end
+
 		output.Armour = m_max(round(output.Armour), 0)
 		output.ArmourDefense = (modDB:Max(nil, "ArmourDefense") or 0) / 100
 		output.RawArmourDefense = output.ArmourDefense > 0 and ((1 + output.ArmourDefense) * 100) or nil

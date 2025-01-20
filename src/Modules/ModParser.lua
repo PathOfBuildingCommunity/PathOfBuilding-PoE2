@@ -2193,7 +2193,7 @@ local specialModList = {
 	["increases and reductions to maximum energy shield instead apply to ward"] = { flag("EnergyShieldToWard") },
 	["(%d+)%% of damage taken bypasses ward"] = function(num) return { mod("WardBypass", "BASE", num) } end,
 	["maximum energy shield is (%d+)"] = function(num) return { mod("EnergyShield", "OVERRIDE", num ) } end,
-	["cannot have energy shield"] = { mod("EnergyShield", "OVERRIDE", 0) },
+	["cannot have energy shield"] = { flag("CannotHaveES") },
 	["regenerate (%d.+) life per second per maximum energy shield"] = function(num) return {
 		mod("LifeRegen", "BASE", num, { type = "PerStat", stat = "MaximumEnergyShield", div = 1 })
 	} end,
