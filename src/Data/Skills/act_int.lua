@@ -16578,9 +16578,19 @@ skills["TemporalChainsPlayer"] = {
 			baseEffectiveness = 0,
 			incrementalEffectiveness = 0.092720001935959,
 			statDescriptionScope = "temporal_chains",
+			statMap = {
+				["temporal_chains_base_action_speed_+%_final_to_apply"] = {
+					mod("TemporalChainsActionSpeed", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Curse" }),
+				},
+				["buff_time_passed_+%_other_than_temporal_chains"] = {
+					mod("BuffExpireFaster", "MORE", nil, 0, 0, { type = "GlobalEffect", effectType = "Curse" }),
+				}
+			},
 			baseFlags = {
+				spell = true,
 				area = true,
 				duration = true,
+				curse = true,
 			},
 			constantStats = {
 				{ "curse_delay_duration_ms", 1000 },

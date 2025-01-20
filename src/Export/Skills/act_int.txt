@@ -1098,7 +1098,15 @@ statMap = {
 #skill TemporalChainsPlayer
 #startSets
 #set TemporalChainsPlayer
-#flags area duration
+#flags spell area duration curse
+statMap = {
+	["temporal_chains_base_action_speed_+%_final_to_apply"] = {
+		mod("TemporalChainsActionSpeed", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Curse" }),
+	},
+	["buff_time_passed_+%_other_than_temporal_chains"] = {
+		mod("BuffExpireFaster", "MORE", nil, 0, 0, { type = "GlobalEffect", effectType = "Curse" }),
+	}
+},
 #mods
 #skillEnd
 
