@@ -1570,6 +1570,7 @@ local modTagList = {
 	["while you have at least (%d+) total endurance, frenzy and power charges"] = function(num) return { tag = { type = "MultiplierThreshold", var = "TotalCharges", threshold = num } } end,
 	["while you have a totem"] = { tag = { type = "Condition", var = "HaveTotem" } },
 	["while you have at least one nearby ally"] = { tag = { type = "MultiplierThreshold", var = "NearbyAlly", threshold = 1 } },
+	["while you have an ally in your presence"] = { tag = { type = "MultiplierThreshold", var = "NearbyAlly", threshold = 1 } },
 	["while you have a linked target"] = { tag = { type = "MultiplierThreshold", var = "LinkedTargets", threshold = 1 } },
 	["while you have fortify"] = { tag = { type = "Condition", var = "Fortified" } },
 	["while you have phasing"] = { tag = { type = "Condition", var = "Phasing" } },

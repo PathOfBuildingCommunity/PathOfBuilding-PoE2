@@ -593,7 +593,7 @@ c["10% increased Area of Effect"]={{[1]={flags=0,keywordFlags=0,name="AreaOfEffe
 c["10% increased Area of Effect for Attacks"]={{[1]={flags=1,keywordFlags=0,name="AreaOfEffect",type="INC",value=10}},nil}
 c["10% increased Armour"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="INC",value=10}},nil}
 c["10% increased Attack Damage"]={{[1]={flags=1,keywordFlags=0,name="Damage",type="INC",value=10}},nil}
-c["10% increased Attack Damage while you have an Ally in your Presence"]={{[1]={flags=1,keywordFlags=0,name="Damage",type="INC",value=10}},"  while you have an Ally in your Presence "}
+c["10% increased Attack Damage while you have an Ally in your Presence"]={{[1]={[1]={threshold=1,type="MultiplierThreshold",var="NearbyAlly"},flags=1,keywordFlags=0,name="Damage",type="INC",value=10}},nil}
 c["10% increased Attack Physical Damage"]={{[1]={flags=1,keywordFlags=0,name="PhysicalDamage",type="INC",value=10}},nil}
 c["10% increased Attack Speed"]={{[1]={flags=1,keywordFlags=0,name="Speed",type="INC",value=10}},nil}
 c["10% increased Attributes"]={{[1]={flags=0,keywordFlags=0,name="Str",type="INC",value=10},[2]={flags=0,keywordFlags=0,name="Dex",type="INC",value=10},[3]={flags=0,keywordFlags=0,name="Int",type="INC",value=10},[4]={flags=0,keywordFlags=0,name="All",type="INC",value=10}},nil}
@@ -1007,7 +1007,7 @@ c["16% increased Armour and Evasion Rating"]={{[1]={flags=0,keywordFlags=0,name=
 c["16% increased Attack Damage"]={{[1]={flags=1,keywordFlags=0,name="Damage",type="INC",value=16}},nil}
 c["16% increased Attack Damage against Bleeding Enemies"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Bleeding"},flags=1,keywordFlags=0,name="Damage",type="INC",value=16}},nil}
 c["16% increased Attack Damage against Rare or Unique Enemies"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="RareOrUnique"},flags=1,keywordFlags=0,name="Damage",type="INC",value=16}},nil}
-c["16% increased Attack Damage while you have an Ally in your Presence"]={{[1]={flags=1,keywordFlags=0,name="Damage",type="INC",value=16}},"  while you have an Ally in your Presence "}
+c["16% increased Attack Damage while you have an Ally in your Presence"]={{[1]={[1]={threshold=1,type="MultiplierThreshold",var="NearbyAlly"},flags=1,keywordFlags=0,name="Damage",type="INC",value=16}},nil}
 c["16% increased Attack Speed if you haven't Attacked Recently"]={{[1]={[1]={neg=true,type="Condition",var="AttackedRecently"},flags=1,keywordFlags=0,name="Speed",type="INC",value=16}},nil}
 c["16% increased Cast Speed"]={{[1]={flags=16,keywordFlags=0,name="Speed",type="INC",value=16}},nil}
 c["16% increased Cast Speed if you've dealt a Critical Hit Recently"]={{[1]={[1]={type="Condition",var="CritRecently"},flags=16,keywordFlags=0,name="Speed",type="INC",value=16}},nil}
@@ -1591,7 +1591,7 @@ c["33% increased Mana Regeneration Rate"]={{[1]={flags=0,keywordFlags=0,name="Ma
 c["33% of Elemental Damage Converted to Cold Damage"]={{[1]={flags=0,keywordFlags=0,name="ElementalDamageConvertToCold",type="BASE",value=33}},nil}
 c["33% of Elemental Damage Converted to Fire Damage"]={{[1]={flags=0,keywordFlags=0,name="ElementalDamageConvertToFire",type="BASE",value=33}},nil}
 c["33% of Elemental Damage Converted to Lightning Damage"]={{[1]={flags=0,keywordFlags=0,name="ElementalDamageConvertToLightning",type="BASE",value=33}},nil}
-c["35% increased Attack Damage while you have an Ally in your Presence"]={{[1]={flags=1,keywordFlags=0,name="Damage",type="INC",value=35}},"  while you have an Ally in your Presence "}
+c["35% increased Attack Damage while you have an Ally in your Presence"]={{[1]={[1]={threshold=1,type="MultiplierThreshold",var="NearbyAlly"},flags=1,keywordFlags=0,name="Damage",type="INC",value=35}},nil}
 c["35% increased Attack Speed"]={{[1]={flags=1,keywordFlags=0,name="Speed",type="INC",value=35}},nil}
 c["35% increased Block chance"]={{[1]={flags=0,keywordFlags=0,name="BlockChance",type="INC",value=35}},nil}
 c["35% increased Critical Damage Bonus"]={{[1]={flags=0,keywordFlags=0,name="CritMultiplier",type="INC",value=35}},nil}
