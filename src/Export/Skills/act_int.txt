@@ -517,6 +517,7 @@ statMap = {
 #startSets
 #set FrostBombPlayer
 #flags spell area duration
+#baseMod mod("ColdExposure", "BASE", -20, 0, 0, { type = "GlobalEffect", effectType = "Debuff" })
 #mods
 #skillEnd
 

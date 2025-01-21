@@ -7694,6 +7694,9 @@ skills["FrostBombPlayer"] = {
 				area = true,
 				duration = true,
 			},
+			baseMods = {
+				mod("ColdExposure", "BASE", -20, 0, 0, { type = "GlobalEffect", effectType = "Debuff" }),
+			},
 			constantStats = {
 				{ "active_skill_base_area_of_effect_radius", 17 },
 				{ "base_skill_effect_duration", 3000 },
