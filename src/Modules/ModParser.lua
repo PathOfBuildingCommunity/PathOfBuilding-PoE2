@@ -2834,6 +2834,10 @@ local specialModList = {
 	["effect and duration of flames of chayula on you is doubled"] = function() return {
 		mod("Multiplier:FlameEffect", "BASE", 1),
 	} end,
+	-- Chronomancer
+	["skills have (%d+)%% chance to not consume a cooldown when used"] = function(num) return { 
+		mod("CooldownChanceNotConsume", "BASE", num / 100, { type = "SkillType", skillType = SkillType.Cooldown })
+	} end,
 	-- Item local modifiers
 	["has no sockets"] = { flag("NoSockets") },
 	["reflects your other ring"] = {
