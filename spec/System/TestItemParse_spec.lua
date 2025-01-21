@@ -185,7 +185,7 @@ describe("TestItemParse", function()
 		assert.truthy(item.implicitModLines[1].implicit)
 	end)
 
-	--TODO: POB2 multibase items
+	--TODO: POB2 multi-base items
 	--it("multiple bases", function()
 	--end)
 

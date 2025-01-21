@@ -2,7 +2,7 @@ VERSION[0.3.0][20/01/2025]
 
 --- New to Path of Building ---
 * Add Emotion filtering to Anoint popup (Quxxy)
-	You can select Emootion's you have and PoB will tell you the anoints available to you
+	You can select Emotions you have and PoB will tell you the anoints available to you
 * Add support for Sceptre 'Allies in your presence' mods (LocalIdentity)
 * Add the ability to custom change max node depth for heat map (DoubtinGiyov)
 * Add support for Buff Expiry Rate (igorwessel)

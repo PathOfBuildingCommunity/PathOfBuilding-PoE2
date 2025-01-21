@@ -794,7 +794,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 		modDB:NewMod("Multiplier:AllocatedLifeMastery", "BASE", allocatedMasteryTypes["Life Mastery"])
 	end
 
-	-- add Conditional WeaponnSet# base on weapon set from item
+	-- add Conditional WeaponSet# base on weapon set from item
 	modDB:NewMod("Condition:WeaponSet" .. (build.itemsTab.activeItemSet.useSecondWeaponSet and 2 or 1) , "FLAG", true, "Weapon Set")
 
 	-- Build and merge item modifiers, and create list of radius jewels

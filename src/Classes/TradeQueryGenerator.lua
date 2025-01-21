@@ -679,7 +679,7 @@ function TradeQueryGeneratorClass:StartQuery(slot, options)
 		itemCategoryQueryStr = "flask.mana"
 		itemCategory = "Mana Flask"
 	elseif slot.slotName:find("Charm") ~= nil then
-		itemCategoryQueryStr = "flask" -- these don't have a unqiue string so overlapping mods of the same benefit could interfere. 
+		itemCategoryQueryStr = "flask" -- these don't have a unique string so overlapping mods of the same benefit could interfere. 
 		itemCategory = "Charm"
 	else
 		logToFile("'%s' is not supported for weighted trade query generation", existingItem and existingItem.type or "n/a")

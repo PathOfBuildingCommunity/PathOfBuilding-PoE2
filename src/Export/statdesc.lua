@@ -172,16 +172,16 @@ function describeStats(stats)
 			for _, s in ipairs(val) do
 				if s.min == 0 and s.max > 0 then
 					s.min = 1
-					s.minz = true
+					s.minZ = true
 				elseif s.min < 0 and s.max == 0 then
 					s.max = -1
-					s.maxz = true
+					s.maxZ = true
 				end
 			end
 			desc = matchLimit(descriptor[1], val)
 			for _, s in ipairs(val) do
-				if s.minz then s.min = 0 end
-				if s.maxz then s.max = 0 end
+				if s.minZ then s.min = 0 end
+				if s.maxZ then s.max = 0 end
 			end
 		end
 
@@ -434,7 +434,7 @@ function describeScalability(fileName)
 					table.insert(inOrderScalability, { isScalable = scalability[statNum], formats = wordingFormats[statNum] })
 					return "#"
 				end)
-				if out[strippedLine] then -- we want to use the format with the least oddites in it. If their are less formats then that will be used instead.
+				if out[strippedLine] then -- we want to use the format with the least oddities in it. If their are less formats then that will be used instead.
 					for j, priorScalability in ipairs(out[strippedLine]) do
 						if (priorScalability.formats and #priorScalability.formats or 0) > (wordingFormats[j] and #wordingFormats[j] or 0) then 
 							out[strippedLine][j] = inOrderScalability[j]

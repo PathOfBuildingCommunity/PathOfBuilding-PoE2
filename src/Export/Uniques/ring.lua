@@ -23,7 +23,7 @@ UniqueIgniteEffect1
 Blackheart
 Iron Ring
 Variant: Pre 0.1.1
-Vartiant: Current
+Variant: Current
 Implicits: 1
 RingImplicitPhysicalDamage1
 UniqueLifeRegeneration4
@@ -43,7 +43,7 @@ UniqueSelfBleedFireDamage1
 The Burrower
 Topaz Ring
 Variant: Pre 0.1.1
-Vartiant: Current
+Variant: Current
 Implicits: 1
 RingImplicitLightningResistance1
 {variant:1}UniqueColdResist23[-15,-10]
@@ -139,7 +139,7 @@ UniqueAllDefences1
 Original Sin
 Amethyst Ring
 Variant: Pre 0.1.1
-Vartiant: Current
+Variant: Current
 Implicits: 1
 BodyArmourImplicitChaosResistance1
 {variant:2}UniqueChaosResist21
