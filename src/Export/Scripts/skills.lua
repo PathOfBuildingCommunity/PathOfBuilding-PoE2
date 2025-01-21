@@ -872,7 +872,11 @@ directiveTable.mods = function(state, args, out)
 
 	-- validate stats
 	local printHeader = true
-	for _, stat in ipairs(set.stats) do
+	for i = 1, #set.stats do
+		if not set.levels[i] or type(set.levels[i]) ~= "number" then
+			break
+		end
+		local stat = set.stats[i]
 		if not checkModInStatDescription(state.statDescriptionScope, stat.id) then
 			if printHeader then
 				printHeader = false
