@@ -1019,3 +1019,7 @@ function escapeGGGString(text)
 	local line = text:gsub("%[([^|%]]+)%]", "%1"):gsub("%[[^|]+|([^|]+)%]", "%1")
 	return line
 end
+
+function getHashFromString(string)
+	return common.sha1(string)
+end

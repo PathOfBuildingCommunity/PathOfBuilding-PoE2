@@ -173,7 +173,7 @@ local function setRadiusJewelStats(radiusJewel, radiusJewelStats)
 	return incEffect
 end
 
-local function addStats(jewel, node, spec)
+local function addStats(jewel, node, spec, init)
 	local incEffect
 	-- short term to avoid running the logic on AddItemTooltip
 	if not spec.build.treeTab.skipTimeLostJewelProcessing then
@@ -202,6 +202,10 @@ local function addStats(jewel, node, spec)
 				end)
 			end
 		end
+		if not init then
+			-- node processed, track hash so we know to skip next time
+			node.jewelHash = jewel.jewelHash
+		end
 	end
 end
 
@@ -213,15 +217,22 @@ local function addStatsFromJewelToNode(jewel, node, spec)
 		if itemsTab.activeSocketList then
 			for _, nodeId in pairs(itemsTab.activeSocketList) do
 				local _, socketedJewel = itemsTab:GetSocketAndJewelForNodeID(nodeId)
-				if socketedJewel and socketedJewel.baseName:find("Time%-Lost") == 1 then
+				if socketedJewel and socketedJewel.modSource == jewel.item.modSource then
 					addStats(jewel, node, spec)
 				end
 			end
-		-- activeSocketList isn't init on Load, need to run once
+		-- activeSocketList isn't init on Load, need to run until it is
 		elseif itemsTab.initSockets then
-			addStats(jewel, node, spec)
+			addStats(jewel, node, spec, true)
 		end
 	end
+end
+
+-- grab a hash of the jewel's modSource (socketed + name) and compare with node.jewelHash
+-- process if they are not the same, otherwise assume the jewel stats or socketStatus and node haven't changed and the node's been processed
+local function checkNodeProcessedAndJewelUnchanged(jewel, node)
+	jewel.jewelHash = getHashFromString(jewel.item.modSource)
+	return jewel.jewelHash == node.jewelHash
 end
 
 function calcs.buildModListForNode(env, node, incSmallPassiveSkill)
@@ -238,8 +249,10 @@ function calcs.buildModListForNode(env, node, incSmallPassiveSkill)
 			if rad.item.baseName:find("Time%-Lost") == nil then
 				rad.func(node, modList, rad.data)
 			else
-				addStatsFromJewelToNode(rad, node, env.build.spec)
-				env.build.spec.tree:ProcessStats(node)
+				if not checkNodeProcessedAndJewelUnchanged(rad, node) then
+					addStatsFromJewelToNode(rad, node, env.build.spec)
+					env.build.spec.tree:ProcessStats(node)
+				end
 				modList = node.modList
 			end
 		end
@@ -263,8 +276,10 @@ function calcs.buildModListForNode(env, node, incSmallPassiveSkill)
 			if rad.item.baseName:find("Time%-Lost") == nil then
 				rad.func(node, modList, rad.data)
 			else
-				addStatsFromJewelToNode(rad, node, env.build.spec)
-				env.build.spec.tree:ProcessStats(node)
+				if not checkNodeProcessedAndJewelUnchanged(rad, node) then
+					addStatsFromJewelToNode(rad, node, env.build.spec)
+					env.build.spec.tree:ProcessStats(node)
+				end
 				modList = node.modList
 			end
 		end
