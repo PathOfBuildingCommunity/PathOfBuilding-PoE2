@@ -211,7 +211,7 @@ end
 
 local function addStatsFromJewelToNode(jewel, node, spec)
 	-- attribute nodes do not count as Small Passives
-	if not node.isAttribute then
+	if (node.type == "Normal" and not node.isAttribute) or node.type == "Notable" then
 		local itemsTab = spec.build.itemsTab
 		-- if the Time-Lost jewel is socketed, add the stat
 		if itemsTab.activeSocketList then
@@ -230,9 +230,9 @@ end
 
 -- grab a hash of the jewel's modSource (socketed + name) and compare with node.jewelHash
 -- process if they are not the same, otherwise assume the jewel stats or socketStatus and node haven't changed and the node's been processed
-local function checkNodeProcessedAndJewelUnchanged(jewel, node)
-	jewel.jewelHash = getHashFromString(jewel.item.modSource)
-	return jewel.jewelHash == node.jewelHash
+local function checkNodeProcessedAndJewelUnchanged(jewel, node, baseTreeNodes)
+	jewel.jewelHash = getHashFromString(jewel.item.raw)
+	return (jewel.jewelHash == node.jewelHash and node.modKey ~= baseTreeNodes[node.id].modKey)
 end
 
 function calcs.buildModListForNode(env, node, incSmallPassiveSkill)
@@ -249,7 +249,7 @@ function calcs.buildModListForNode(env, node, incSmallPassiveSkill)
 			if rad.item.baseName:find("Time%-Lost") == nil then
 				rad.func(node, modList, rad.data)
 			else
-				if not checkNodeProcessedAndJewelUnchanged(rad, node) then
+				if not checkNodeProcessedAndJewelUnchanged(rad, node, env.build.spec.tree.nodes) then
 					addStatsFromJewelToNode(rad, node, env.build.spec)
 					env.build.spec.tree:ProcessStats(node)
 				end
@@ -277,7 +277,7 @@ function calcs.buildModListForNode(env, node, incSmallPassiveSkill)
 				rad.func(node, modList, rad.data)
 			else
 				if not checkNodeProcessedAndJewelUnchanged(rad, node) then
-					addStatsFromJewelToNode(rad, node, env.build.spec)
+					addStatsFromJewelToNode(rad, node, env.build.spec, env.build.spec.tree.nodes)
 					env.build.spec.tree:ProcessStats(node)
 				end
 				modList = node.modList
