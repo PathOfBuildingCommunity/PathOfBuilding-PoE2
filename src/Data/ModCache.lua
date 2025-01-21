@@ -2115,6 +2115,7 @@ c["Adds 5 to 10 Physical Damage to Attacks"]={{[1]={flags=0,keywordFlags=65536,n
 c["Adds 5 to 11 Physical Damage"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=5},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=11}},nil}
 c["Adds 5 to 8 Cold damage to Attacks"]={{[1]={flags=0,keywordFlags=65536,name="ColdMin",type="BASE",value=5},[2]={flags=0,keywordFlags=65536,name="ColdMax",type="BASE",value=8}},nil}
 c["Adds 5 to 8 Physical Damage to Attacks"]={{[1]={flags=0,keywordFlags=65536,name="PhysicalMin",type="BASE",value=5},[2]={flags=0,keywordFlags=65536,name="PhysicalMax",type="BASE",value=8}},nil}
+c["Adds 5 to 9 Chaos Damage to Attacks"]={{[1]={flags=0,keywordFlags=65536,name="ChaosMin",type="BASE",value=5},[2]={flags=0,keywordFlags=65536,name="ChaosMax",type="BASE",value=9}},nil}
 c["Adds 5 to 9 Fire Damage"]={{[1]={flags=0,keywordFlags=0,name="FireMin",type="BASE",value=5},[2]={flags=0,keywordFlags=0,name="FireMax",type="BASE",value=9}},nil}
 c["Adds 5 to 9 Fire damage to Attacks"]={{[1]={flags=0,keywordFlags=65536,name="FireMin",type="BASE",value=5},[2]={flags=0,keywordFlags=65536,name="FireMax",type="BASE",value=9}},nil}
 c["Adds 5 to 9 Physical Damage"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=5},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=9}},nil}
@@ -2617,10 +2618,6 @@ c["Ignites you inflict spread to other Enemies that stay within 1.5 metres for 2
 c["Ignore Warcry Cooldowns"]={nil,"Ignore Warcry Cooldowns "}
 c["Immobilise enemies at 50% buildup instead of 100%"]={nil,"Immobilise enemies at 50% buildup instead of 100% "}
 c["Immobilise enemies at 50% buildup instead of 100% Enemies Immobilised by you take 25% less Damage"]={nil,"Immobilise enemies at 50% buildup instead of 100% Enemies Immobilised by you take 25% less Damage "}
-c["Implicits: 1"]={nil,"Implicits: 1 "}
-c["Implicits: 1 +13% to Chaos Resistance"]={nil,"Implicits: 1 +13% to Chaos Resistance "}
-c["Implicits: 1 +30% to Lightning Resistance"]={nil,"Implicits: 1 +30% to Lightning Resistance "}
-c["Implicits: 1 Adds 1 to 4 Physical Damage to Attacks"]={{[1]={flags=0,keywordFlags=65536,name="PhysicalMin",type="BASE",value=1},[2]={flags=0,keywordFlags=65536,name="PhysicalMax",type="BASE",value=4}},"Implicits: 1  "}
 c["Increases and Reductions to Armour also apply to Energy Shield"]={nil,"Increases and Reductions to Armour also apply to Energy Shield "}
 c["Increases and Reductions to Armour also apply to Energy Shield Recharge Rate at 40% of their value"]={{[1]={flags=0,keywordFlags=0,name="ArmourAppliesToEnergyShieldRecharge",type="FLAG",value=true},[2]={flags=0,keywordFlags=0,name="ImprovedArmourAppliesToEnergyShieldRecharge",type="MAX",value=40}},nil}
 c["Increases and Reductions to Minion Attack Speed also affect you"]={{[1]={flags=0,keywordFlags=0,name="MinionAttackSpeedAppliesToPlayer",type="FLAG",value=true},[2]={flags=0,keywordFlags=0,name="ImprovedMinionAttackSpeedAppliesToPlayer",type="MAX",value=100}},nil}
@@ -3006,8 +3003,6 @@ c["Unlimited number of Summoned Totems Totems reserve 100 Spirit each"]={nil,"Un
 c["Unwavering Stance"]={{[1]={flags=0,keywordFlags=0,name="Keystone",type="LIST",value="Unwavering Stance"}},nil}
 c["Unwithered enemies are Withered for 8 seconds when they enter your Presence"]={nil,"Unwithered enemies are Withered for 8 seconds when they enter your Presence "}
 c["Unwithered enemies are Withered for 8 seconds when they enter your Presence 20% increased Effect of Withered"]={nil,"Unwithered enemies are Withered for 8 seconds when they enter your Presence 20% increased Effect of Withered "}
-c["Vartiant: Current"]={nil,"Vartiant: Current "}
-c["Vartiant: Current Implicits: 1"]={nil,"Vartiant: Current Implicits: 1 "}
 c["Warcries Empower an additional Attack"]={nil,"Warcries Empower an additional Attack "}
 c["Warcry Skills have 25% increased Area of Effect"]={{[1]={[1]={skillType=73,type="SkillType"},flags=0,keywordFlags=0,name="AreaOfEffect",type="INC",value=25}},nil}
 c["Warcry Skills have 30% increased Area of Effect"]={{[1]={[1]={skillType=73,type="SkillType"},flags=0,keywordFlags=0,name="AreaOfEffect",type="INC",value=30}},nil}
