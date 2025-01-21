@@ -2269,8 +2269,6 @@ local specialModList = {
 		mod("HitsInvertEleResChance", "CHANCE", num / 100, nil)
 	} end,
 	["off hand accuracy is equal to main hand accuracy while wielding a sword"] = { flag("Condition:OffHandAccuracyIsMainHandAccuracy", { type = "Condition", var = "UsingSword" }) },
-	["(%d+)%% increased accuracy rating at close range"] = function(num) return { mod("AccuracyVsEnemy", "INC", num, { type = "Condition", var = "AtCloseRange" } ) } end,
-	["(%d+)%% more accuracy rating at close range"] = function(num) return { mod("AccuracyVsEnemy", "MORE", num, { type = "Condition", var = "AtCloseRange" } ) } end,
 	["(%d+)%% increased accuracy rating against unique enemies"] = function(num) return { mod("AccuracyVsEnemy", "INC", num, { type = "ActorCondition", actor = "enemy", var = "RareOrUnique" } ) } end,
 	["(%d+)%% more accuracy rating against unique enemies"] = function(num) return { mod("AccuracyVsEnemy", "MORE", num, { type = "ActorCondition", actor = "enemy", var = "RareOrUnique" } ) } end,
 	["(%d+)%% chance to defend with (%d+)%% of armour"] = function(numChance, _, numArmourMultiplier) return {
