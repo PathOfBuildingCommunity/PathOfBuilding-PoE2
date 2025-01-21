@@ -278,15 +278,16 @@ end
 function calcSkillCooldown(skillModList, skillCfg, skillData)
 	local cooldownOverride = skillModList:Override(skillCfg, "CooldownRecovery")
 	local addedCooldown = skillModList:Sum("BASE", skillCfg, "CooldownRecovery")
+	local noCooldownChance = skillModList:Sum("BASE", skillCfg,  "CooldownChanceNotConsume")
 	local cooldown = cooldownOverride or ((skillData.cooldown or 0) + addedCooldown) / m_max(0, calcLib.mod(skillModList, skillCfg, "CooldownRecovery"))
 	-- If a skill can store extra uses and has a cooldown, it doesn't round the cooldown value to server ticks
 	local rounded = false
 	if (skillData.storedUses and skillData.storedUses > 1) or (skillData.VaalStoredUses and skillData.VaalStoredUses > 1) or skillModList:Sum("BASE", skillCfg, "AdditionalCooldownUses") > 0 then
-		return cooldown, rounded
+		return cooldown, rounded, nil, noCooldownChance
 	else
 		cooldown = m_ceil(cooldown * data.misc.ServerTickRate) / data.misc.ServerTickRate
 		rounded = true
-		return cooldown, rounded, addedCooldown
+		return cooldown, rounded, addedCooldown, noCooldownChance
 	end
 end
 
@@ -1255,13 +1256,33 @@ function calcs.offence(env, actor, activeSkill)
 			breakdown.TrapTriggerRadius = breakdown.area(data.misc.TrapTriggerRadiusBase, areaMod, output.TrapTriggerRadius, incAreaBreakpoint, moreAreaBreakpoint, redAreaBreakpoint, lessAreaBreakpoint)
 		end
 	elseif skillData.cooldown or skillModList:Sum("BASE", skillCfg, "CooldownRecovery") ~= 0 then
-		local cooldown, rounded, addedCooldown = calcSkillCooldown(skillModList, skillCfg, skillData)
+		local cooldownMode = env.configInput.cooldownMode or "BASE"
+		local cooldown, rounded, addedCooldown, noCooldownChance = calcSkillCooldown(skillModList, skillCfg, skillData)
+		local effectiveCooldownMultiplier = 1 - noCooldownChance
+		local effectiveCooldown = cooldown * effectiveCooldownMultiplier
+
 		output.Cooldown = cooldown
+		output.EffectiveCooldown = cooldown
+		
 		if breakdown then
 			breakdown.Cooldown = {
 				s_format("%.2fs ^8(base)", skillData.cooldown or 0 + addedCooldown),
 				s_format("/ %.2f ^8(increased/reduced cooldown recovery)", 1 + skillModList:Sum("INC", skillCfg, "CooldownRecovery") / 100),
 			}
+
+			if cooldownMode == "AVERAGE" then
+				breakdown.EffectiveCooldown = {
+					s_format("Effective Cooldown:"),
+					unpack(breakdown.Cooldown)
+				}
+				if noCooldownChance > 0 then
+					output.EffectiveCooldown = effectiveCooldown
+					t_insert(breakdown.EffectiveCooldown, s_format("* %.2f ^8(effect of %d%% chance to not consume cooldown)", effectiveCooldownMultiplier, noCooldownChance * 100))
+				end
+
+				t_insert(breakdown.EffectiveCooldown, s_format("= %.3fs", output.EffectiveCooldown))		
+			end
+			
 			if rounded then
 				t_insert(breakdown.Cooldown, s_format("rounded up to nearest server tick"))
 			end
