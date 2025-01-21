@@ -244,7 +244,7 @@ function calcs.buildModListForNode(env, node, incSmallPassiveSkill)
 	end
 
 	-- Run first pass radius jewels
-	for _, rad in pairs(env.radiusJewelList) do
+	for _, rad in pairs(env.radiusJewelFunctionsList) do
 		if rad.type == "Other" and rad.nodes[node.id] and rad.nodes[node.id].type ~= "Mastery" then
 			if rad.item.baseName:find("Time%-Lost") == nil then
 				rad.func(node, modList, rad.data)
@@ -271,7 +271,7 @@ function calcs.buildModListForNode(env, node, incSmallPassiveSkill)
 	end
 
 	-- Run second pass radius jewels
-	for _, rad in pairs(env.radiusJewelList) do
+	for _, rad in pairs(env.radiusJewelFunctionsList) do
 		if rad.nodes[node.id] and rad.nodes[node.id].type ~= "Mastery" and (rad.type == "Threshold" or (rad.type == "Self" and env.allocNodes[node.id]) or (rad.type == "SelfUnalloc" and not env.allocNodes[node.id])) then
 			if rad.item.baseName:find("Time%-Lost") == nil then
 				rad.func(node, modList, rad.data)
@@ -340,7 +340,7 @@ end
 -- Build list of modifiers from the listed tree nodes
 function calcs.buildModListForNodeList(env, nodeList, finishJewels)
 	-- Initialise radius jewels
-	for _, rad in pairs(env.radiusJewelList) do
+	for _, rad in pairs(env.radiusJewelFunctionsList) do
 		wipeTable(rad.data)
 		rad.data.modSource = "Tree:"..rad.nodeId
 	end
@@ -371,7 +371,7 @@ function calcs.buildModListForNodeList(env, nodeList, finishJewels)
 		end
 
 		-- Finalise radius jewels
-		for _, rad in pairs(env.radiusJewelList) do
+		for _, rad in pairs(env.radiusJewelFunctionsList) do
 			if rad.item.baseName:find("Time%-Lost") == nil then
 				rad.func(nil, modList, rad.data)
 			end
@@ -426,7 +426,7 @@ function wipeEnv(env, accelerate)
 		-- 2) Player items
 		-- 3) Granted Skill from items (e.g., Curse on Hit rings)
 		-- 4) Flasks
-		wipeTable(env.radiusJewelList)
+		wipeTable(env.radiusJewelFunctionsList)
 		wipeTable(env.extraRadiusNodeList)
 		wipeTable(env.player.itemList)
 		wipeTable(env.grantedSkillsItems)
@@ -593,7 +593,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 		env.requirementsTableGems = { }
 
 		-- Prepare item, skill, flask tables
-		env.radiusJewelList = wipeTable(env.radiusJewelList)
+		env.radiusJewelFunctionsList = wipeTable(env.radiusJewelFunctionsList)
 		env.extraRadiusNodeList = wipeTable(env.extraRadiusNodeList)
 		env.player.itemList = { }
 		env.grantedSkills = { }
@@ -886,7 +886,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 						end } }
 						for _, func in ipairs(funcList) do
 							local node = env.spec.nodes[slot.nodeId]
-							t_insert(env.radiusJewelList, {
+							t_insert(env.radiusJewelFunctionsList, {
 								nodes = node.nodesInRadius and node.nodesInRadius[item.jewelRadiusIndex] or { },
 								func = func.func,
 								type = func.type,
@@ -897,7 +897,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 							})
 							if func.type ~= "Self" and node.nodesInRadius then
 								-- Add nearby unallocated nodes to the extra node list
-								for nodeId, node in pairs(node.nodesInRadius[item.jewelRadiusIndex]) do
+								for nodeId, _ in pairs(node.nodesInRadius[item.jewelRadiusIndex]) do
 									if not env.allocNodes[nodeId] then
 										env.extraRadiusNodeList[nodeId] = env.spec.nodes[nodeId]
 									end
@@ -913,7 +913,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 									break
 								end
 							end
-							t_insert(env.radiusJewelList, {
+							t_insert(env.radiusJewelFunctionsList, {
 								nodes = node.nodesInRadius and node.nodesInRadius[radius] or { },
 								func = funcData.func,
 								type = funcData.type,
@@ -924,7 +924,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 							})
 							if funcData.type ~= "Self" and node.nodesInRadius then
 								-- Add nearby unallocated nodes to the extra node list
-								for nodeId, node in pairs(node.nodesInRadius[radius]) do
+								for nodeId, _ in pairs(node.nodesInRadius[radius]) do
 									if not env.allocNodes[nodeId] then
 										env.extraRadiusNodeList[nodeId] = env.spec.nodes[nodeId]
 									end
