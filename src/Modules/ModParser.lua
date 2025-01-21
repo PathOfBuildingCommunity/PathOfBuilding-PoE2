@@ -5241,6 +5241,7 @@ local specialModList = {
 	["nearby allies have (%d+)%% chance to block attack damage per (%d+) strength you have"] = function(block, _, str) return {
 		mod("ExtraAura", "LIST", { onlyAllies = true, mod = mod("BlockChance", "BASE", block) }, { type = "PerStat", stat = "Str", div = tonumber(str) }),
 	} end,
+	["physical damage reduction from armour is based on your combined armour and evasion rating"] = { mod("EvasionAddsToPdr", "FLAG", true) }
 }
 for _, name in pairs(data.keystones) do
 	specialModList[name:lower()] = { mod("Keystone", "LIST", name) }
