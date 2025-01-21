@@ -593,7 +593,7 @@ c["10% increased Area of Effect"]={{[1]={flags=0,keywordFlags=0,name="AreaOfEffe
 c["10% increased Area of Effect for Attacks"]={{[1]={flags=1,keywordFlags=0,name="AreaOfEffect",type="INC",value=10}},nil}
 c["10% increased Armour"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="INC",value=10}},nil}
 c["10% increased Attack Damage"]={{[1]={flags=1,keywordFlags=0,name="Damage",type="INC",value=10}},nil}
-c["10% increased Attack Damage while you have an Ally in your Presence"]={{[1]={flags=1,keywordFlags=0,name="Damage",type="INC",value=10}},"  while you have an Ally in your Presence "}
+c["10% increased Attack Damage while you have an Ally in your Presence"]={{[1]={[1]={threshold=1,type="MultiplierThreshold",var="NearbyAlly"},flags=1,keywordFlags=0,name="Damage",type="INC",value=10}},nil}
 c["10% increased Attack Physical Damage"]={{[1]={flags=1,keywordFlags=0,name="PhysicalDamage",type="INC",value=10}},nil}
 c["10% increased Attack Speed"]={{[1]={flags=1,keywordFlags=0,name="Speed",type="INC",value=10}},nil}
 c["10% increased Attributes"]={{[1]={flags=0,keywordFlags=0,name="Str",type="INC",value=10},[2]={flags=0,keywordFlags=0,name="Dex",type="INC",value=10},[3]={flags=0,keywordFlags=0,name="Int",type="INC",value=10},[4]={flags=0,keywordFlags=0,name="All",type="INC",value=10}},nil}
@@ -805,8 +805,8 @@ c["12% increased Fire Damage"]={{[1]={flags=0,keywordFlags=0,name="FireDamage",t
 c["12% increased Flask Charges gained"]={{[1]={flags=0,keywordFlags=0,name="FlaskChargesGained",type="INC",value=12}},nil}
 c["12% increased Freeze Buildup"]={{}," Freeze Buildup "}
 c["12% increased Freeze Buildup 12% increased chance to Shock"]={{[1]={flags=0,keywordFlags=0,name="EnemyShockChance",type="INC",value=12}}," Freeze Buildup 12% increased  "}
-c["12% increased Grenade Area of Effect"]={{[1]={flags=0,keywordFlags=0,name="AreaOfEffect",type="INC",value=12}}," Grenade  "}
-c["12% increased Grenade Damage"]={{[1]={flags=0,keywordFlags=0,name="Damage",type="INC",value=12}}," Grenade  "}
+c["12% increased Grenade Area of Effect"]={{[1]={[1]={skillType=169,type="SkillType"},flags=0,keywordFlags=0,name="AreaOfEffect",type="INC",value=12}},nil}
+c["12% increased Grenade Damage"]={{[1]={[1]={skillType=169,type="SkillType"},flags=0,keywordFlags=0,name="Damage",type="INC",value=12}},nil}
 c["12% increased Lightning Damage"]={{[1]={flags=0,keywordFlags=0,name="LightningDamage",type="INC",value=12}},nil}
 c["12% increased Magnitude of Ailments you inflict"]={{[1]={flags=0,keywordFlags=14680064,name="AilmentMagnitude",type="INC",value=12}},nil}
 c["12% increased Magnitude of Ignite you inflict"]={{[1]={flags=0,keywordFlags=8388608,name="AilmentMagnitude",type="INC",value=12}},nil}
@@ -895,7 +895,7 @@ c["15% increased Block chance"]={{[1]={flags=0,keywordFlags=0,name="BlockChance"
 c["15% increased Cast Speed"]={{[1]={flags=16,keywordFlags=0,name="Speed",type="INC",value=15}},nil}
 c["15% increased Chill Duration on Enemies"]={{[1]={flags=0,keywordFlags=0,name="EnemyChillDuration",type="INC",value=15}},nil}
 c["15% increased Chill and Freeze Duration on Enemies"]={{[1]={flags=0,keywordFlags=0,name="EnemyFreezeDuration",type="INC",value=15}}," Chill and   "}
-c["15% increased Cooldown Recovery Rate for Grenade Skills"]={{[1]={flags=0,keywordFlags=0,name="CooldownRecovery",type="INC",value=15}},"  for Grenade Skills "}
+c["15% increased Cooldown Recovery Rate for Grenade Skills"]={{[1]={[1]={skillType=169,type="SkillType"},flags=0,keywordFlags=0,name="CooldownRecovery",type="INC",value=15}},nil}
 c["15% increased Critical Damage Bonus"]={{[1]={flags=0,keywordFlags=0,name="CritMultiplier",type="INC",value=15}},nil}
 c["15% increased Critical Damage Bonus for Attack Damage"]={{[1]={flags=1,keywordFlags=0,name="CritMultiplier",type="INC",value=15}},nil}
 c["15% increased Critical Hit Chance"]={{[1]={flags=0,keywordFlags=0,name="CritChance",type="INC",value=15}},nil}
@@ -1007,7 +1007,7 @@ c["16% increased Armour and Evasion Rating"]={{[1]={flags=0,keywordFlags=0,name=
 c["16% increased Attack Damage"]={{[1]={flags=1,keywordFlags=0,name="Damage",type="INC",value=16}},nil}
 c["16% increased Attack Damage against Bleeding Enemies"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Bleeding"},flags=1,keywordFlags=0,name="Damage",type="INC",value=16}},nil}
 c["16% increased Attack Damage against Rare or Unique Enemies"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="RareOrUnique"},flags=1,keywordFlags=0,name="Damage",type="INC",value=16}},nil}
-c["16% increased Attack Damage while you have an Ally in your Presence"]={{[1]={flags=1,keywordFlags=0,name="Damage",type="INC",value=16}},"  while you have an Ally in your Presence "}
+c["16% increased Attack Damage while you have an Ally in your Presence"]={{[1]={[1]={threshold=1,type="MultiplierThreshold",var="NearbyAlly"},flags=1,keywordFlags=0,name="Damage",type="INC",value=16}},nil}
 c["16% increased Attack Speed if you haven't Attacked Recently"]={{[1]={[1]={neg=true,type="Condition",var="AttackedRecently"},flags=1,keywordFlags=0,name="Speed",type="INC",value=16}},nil}
 c["16% increased Cast Speed"]={{[1]={flags=16,keywordFlags=0,name="Speed",type="INC",value=16}},nil}
 c["16% increased Cast Speed if you've dealt a Critical Hit Recently"]={{[1]={[1]={type="Condition",var="CritRecently"},flags=16,keywordFlags=0,name="Speed",type="INC",value=16}},nil}
@@ -1389,7 +1389,7 @@ c["25% reduced Flask Life Recovery rate"]={{[1]={flags=0,keywordFlags=0,name="Fl
 c["25% reduced Flask Mana Recovery rate"]={{[1]={flags=0,keywordFlags=0,name="FlaskManaRecoveryRate",type="INC",value=-25}},nil}
 c["25% reduced Freeze Duration on you"]={{[1]={flags=0,keywordFlags=0,name="SelfFreezeDuration",type="INC",value=-25}},nil}
 c["25% reduced Global Defences"]={{[1]={[1]={type="Global"},flags=0,keywordFlags=0,name="Defences",type="INC",value=-25}},nil}
-c["25% reduced Grenade fuse duration"]={{[1]={flags=0,keywordFlags=0,name="Duration",type="INC",value=-25}}," Grenade fuse  "}
+c["25% reduced Grenade fuse duration"]={{[1]={[1]={skillType=169,type="SkillType"},flags=0,keywordFlags=0,name="Duration",type="INC",value=-25}},"  fuse  "}
 c["25% reduced Ignite Duration on you"]={{[1]={flags=0,keywordFlags=0,name="SelfIgniteDuration",type="INC",value=-25}},nil}
 c["25% reduced Light Radius"]={{[1]={flags=0,keywordFlags=0,name="LightRadius",type="INC",value=-25}},nil}
 c["25% reduced Mana Regeneration Rate while stationary"]={{[1]={[1]={type="Condition",var="Stationary"},flags=0,keywordFlags=0,name="ManaRegen",type="INC",value=-25}},nil}
@@ -1591,7 +1591,7 @@ c["33% increased Mana Regeneration Rate"]={{[1]={flags=0,keywordFlags=0,name="Ma
 c["33% of Elemental Damage Converted to Cold Damage"]={{[1]={flags=0,keywordFlags=0,name="ElementalDamageConvertToCold",type="BASE",value=33}},nil}
 c["33% of Elemental Damage Converted to Fire Damage"]={{[1]={flags=0,keywordFlags=0,name="ElementalDamageConvertToFire",type="BASE",value=33}},nil}
 c["33% of Elemental Damage Converted to Lightning Damage"]={{[1]={flags=0,keywordFlags=0,name="ElementalDamageConvertToLightning",type="BASE",value=33}},nil}
-c["35% increased Attack Damage while you have an Ally in your Presence"]={{[1]={flags=1,keywordFlags=0,name="Damage",type="INC",value=35}},"  while you have an Ally in your Presence "}
+c["35% increased Attack Damage while you have an Ally in your Presence"]={{[1]={[1]={threshold=1,type="MultiplierThreshold",var="NearbyAlly"},flags=1,keywordFlags=0,name="Damage",type="INC",value=35}},nil}
 c["35% increased Attack Speed"]={{[1]={flags=1,keywordFlags=0,name="Speed",type="INC",value=35}},nil}
 c["35% increased Block chance"]={{[1]={flags=0,keywordFlags=0,name="BlockChance",type="INC",value=35}},nil}
 c["35% increased Critical Damage Bonus"]={{[1]={flags=0,keywordFlags=0,name="CritMultiplier",type="INC",value=35}},nil}
@@ -1833,8 +1833,8 @@ c["50% increased Flask Mana Recovery rate"]={{[1]={flags=0,keywordFlags=0,name="
 c["50% increased Freeze Buildup"]={{}," Freeze Buildup "}
 c["50% increased Freeze Buildup 30% increased Chill Duration on Enemies"]={{[1]={flags=0,keywordFlags=0,name="EnemyChillDuration",type="INC",value=50}}," Freeze Buildup 30% increased   "}
 c["50% increased Freeze Buildup 30% increased Magnitude of Chill you inflict"]={{[1]={flags=0,keywordFlags=0,name="EnemyChillMagnitude",type="INC",value=50}}," Freeze Buildup 30% increased  "}
-c["50% increased Grenade fuse duration"]={{[1]={flags=0,keywordFlags=0,name="Duration",type="INC",value=50}}," Grenade fuse  "}
-c["50% increased Grenade fuse duration Grenade Skills Fire an additional Projectile"]={{[1]={flags=0,keywordFlags=0,name="Duration",type="INC",value=50}}," Grenade fuse  Grenade Skills Fire an additional Projectile "}
+c["50% increased Grenade fuse duration"]={{[1]={[1]={skillType=169,type="SkillType"},flags=0,keywordFlags=0,name="Duration",type="INC",value=50}},"  fuse  "}
+c["50% increased Grenade fuse duration Grenade Skills Fire an additional Projectile"]={{[1]={[1]={skillType=169,type="SkillType"},flags=0,keywordFlags=0,name="Duration",type="INC",value=50}},"  fuse  Grenade Skills Fire an additional Projectile "}
 c["50% increased Lightning Damage while affected by Herald of Thunder"]={{[1]={[1]={type="Condition",var="AffectedByHeraldofThunder"},flags=0,keywordFlags=0,name="LightningDamage",type="INC",value=50}},nil}
 c["50% increased Magnitude of Ignite you inflict"]={{[1]={flags=0,keywordFlags=8388608,name="AilmentMagnitude",type="INC",value=50}},nil}
 c["50% increased Mana Regeneration Rate"]={{[1]={flags=0,keywordFlags=0,name="ManaRegen",type="INC",value=50}},nil}
@@ -2115,6 +2115,7 @@ c["Adds 5 to 10 Physical Damage to Attacks"]={{[1]={flags=0,keywordFlags=65536,n
 c["Adds 5 to 11 Physical Damage"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=5},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=11}},nil}
 c["Adds 5 to 8 Cold damage to Attacks"]={{[1]={flags=0,keywordFlags=65536,name="ColdMin",type="BASE",value=5},[2]={flags=0,keywordFlags=65536,name="ColdMax",type="BASE",value=8}},nil}
 c["Adds 5 to 8 Physical Damage to Attacks"]={{[1]={flags=0,keywordFlags=65536,name="PhysicalMin",type="BASE",value=5},[2]={flags=0,keywordFlags=65536,name="PhysicalMax",type="BASE",value=8}},nil}
+c["Adds 5 to 9 Chaos Damage to Attacks"]={{[1]={flags=0,keywordFlags=65536,name="ChaosMin",type="BASE",value=5},[2]={flags=0,keywordFlags=65536,name="ChaosMax",type="BASE",value=9}},nil}
 c["Adds 5 to 9 Fire Damage"]={{[1]={flags=0,keywordFlags=0,name="FireMin",type="BASE",value=5},[2]={flags=0,keywordFlags=0,name="FireMax",type="BASE",value=9}},nil}
 c["Adds 5 to 9 Fire damage to Attacks"]={{[1]={flags=0,keywordFlags=65536,name="FireMin",type="BASE",value=5},[2]={flags=0,keywordFlags=65536,name="FireMax",type="BASE",value=9}},nil}
 c["Adds 5 to 9 Physical Damage"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=5},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=9}},nil}
@@ -2617,10 +2618,6 @@ c["Ignites you inflict spread to other Enemies that stay within 1.5 metres for 2
 c["Ignore Warcry Cooldowns"]={nil,"Ignore Warcry Cooldowns "}
 c["Immobilise enemies at 50% buildup instead of 100%"]={nil,"Immobilise enemies at 50% buildup instead of 100% "}
 c["Immobilise enemies at 50% buildup instead of 100% Enemies Immobilised by you take 25% less Damage"]={nil,"Immobilise enemies at 50% buildup instead of 100% Enemies Immobilised by you take 25% less Damage "}
-c["Implicits: 1"]={nil,"Implicits: 1 "}
-c["Implicits: 1 +13% to Chaos Resistance"]={nil,"Implicits: 1 +13% to Chaos Resistance "}
-c["Implicits: 1 +30% to Lightning Resistance"]={nil,"Implicits: 1 +30% to Lightning Resistance "}
-c["Implicits: 1 Adds 1 to 4 Physical Damage to Attacks"]={{[1]={flags=0,keywordFlags=65536,name="PhysicalMin",type="BASE",value=1},[2]={flags=0,keywordFlags=65536,name="PhysicalMax",type="BASE",value=4}},"Implicits: 1  "}
 c["Increases and Reductions to Armour also apply to Energy Shield"]={nil,"Increases and Reductions to Armour also apply to Energy Shield "}
 c["Increases and Reductions to Armour also apply to Energy Shield Recharge Rate at 40% of their value"]={{[1]={flags=0,keywordFlags=0,name="ArmourAppliesToEnergyShieldRecharge",type="FLAG",value=true},[2]={flags=0,keywordFlags=0,name="ImprovedArmourAppliesToEnergyShieldRecharge",type="MAX",value=40}},nil}
 c["Increases and Reductions to Minion Attack Speed also affect you"]={{[1]={flags=0,keywordFlags=0,name="MinionAttackSpeedAppliesToPlayer",type="FLAG",value=true},[2]={flags=0,keywordFlags=0,name="ImprovedMinionAttackSpeedAppliesToPlayer",type="MAX",value=100}},nil}
@@ -3006,8 +3003,6 @@ c["Unlimited number of Summoned Totems Totems reserve 100 Spirit each"]={nil,"Un
 c["Unwavering Stance"]={{[1]={flags=0,keywordFlags=0,name="Keystone",type="LIST",value="Unwavering Stance"}},nil}
 c["Unwithered enemies are Withered for 8 seconds when they enter your Presence"]={nil,"Unwithered enemies are Withered for 8 seconds when they enter your Presence "}
 c["Unwithered enemies are Withered for 8 seconds when they enter your Presence 20% increased Effect of Withered"]={nil,"Unwithered enemies are Withered for 8 seconds when they enter your Presence 20% increased Effect of Withered "}
-c["Vartiant: Current"]={nil,"Vartiant: Current "}
-c["Vartiant: Current Implicits: 1"]={nil,"Vartiant: Current Implicits: 1 "}
 c["Warcries Empower an additional Attack"]={nil,"Warcries Empower an additional Attack "}
 c["Warcry Skills have 25% increased Area of Effect"]={{[1]={[1]={skillType=73,type="SkillType"},flags=0,keywordFlags=0,name="AreaOfEffect",type="INC",value=25}},nil}
 c["Warcry Skills have 30% increased Area of Effect"]={{[1]={[1]={skillType=73,type="SkillType"},flags=0,keywordFlags=0,name="AreaOfEffect",type="INC",value=30}},nil}

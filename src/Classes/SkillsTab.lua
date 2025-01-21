@@ -1294,7 +1294,7 @@ function SkillsTabClass:SetActiveSkillSet(skillSetId)
 end
 
 -- Loop over all socket groups and gem instances
--- to udpated global gem count assignments
+-- to updated global gem count assignments
 function SkillsTabClass:UpdateGlobalGemCountAssignments()
 	wipeTable(GlobalGemAssignments)
 	local countSocketGroups = 0

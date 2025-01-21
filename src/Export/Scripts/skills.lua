@@ -219,6 +219,44 @@ local directiveTable = { }
 local fromSpec = nil
 local minionList = nil
 
+local loadedStatDescriptionLua = { }
+function checkModInStatDescription(statDescription, line)
+	local searchIn = statDescription
+	local stat
+
+	repeat
+		if loadedStatDescriptionLua[searchIn] then
+			stat = loadedStatDescriptionLua[searchIn]
+		else
+			local errMsg, newStat
+			errMsg, newStat = PLoadModule("../Data/StatDescriptions/"..searchIn..".lua")
+			if errMsg then
+				errMsg, newStat = PLoadModule("../Data/StatDescriptions/Specific_Skill_Stat_Descriptions/"..searchIn..".lua")
+
+				if errMsg then
+					ConPrintf("Error loading stat description: %s", errMsg)
+					return false
+				end
+			end
+
+			loadedStatDescriptionLua[searchIn] = newStat
+			stat = newStat
+		end
+
+		if stat[line] then
+			return true
+		end
+
+		if stat.parent then
+			searchIn = stat.parent
+		else
+			searchIn = ""
+		end
+	until searchIn == ""
+
+	return false
+end
+
 -- #noGem
 -- Disables the gem component of the next skill
 directiveTable.noGem = function(state, args, out)
@@ -242,6 +280,7 @@ directiveTable.skill = function(state, args, out)
 		grantedId = args
 		displayName = args
 	end
+	state.infoGrantedId = grantedId
 	out:write('skills["', grantedId, '"] = {\n')
 	local granted = dat("GrantedEffects"):GetRow("Id", grantedId)
 	if not granted then
@@ -722,12 +761,13 @@ directiveTable.set = function(state, args, out)
 		out:write('\t\t\tdamageIncrementalEffectiveness = ', grantedEffectStatSet.DamageIncrementalEffectiveness, ',\n')
 	end
 	if state.granted.IsSupport then
-		out:write('\t\t\tstatDescriptionScope = "gem_stat_descriptions",\n')
+		state.statDescriptionScope = "gem_stat_descriptions"
 	else
-		out:write('\t\t\tstatDescriptionScope = "', state.granted.ActiveSkill.StatDescription:gsub("^Metadata/StatDescriptions/", ""):
+		state.statDescriptionScope = state.granted.ActiveSkill.StatDescription:gsub("^Metadata/StatDescriptions/", ""):
 		-- Need to subtract 1 from setIndex because GGG indexes from 0
-		gsub("specific_skill_stat_descriptions/", ""):gsub("statset_0", "statset_"..(skill.setIndex - 1)):gsub("/$", ""):gsub("/", "_"), '",\n')
+		gsub("specific_skill_stat_descriptions/", ""):gsub("statset_0", "statset_"..(skill.setIndex - 1)):gsub("/$", ""):gsub("/", "_"), '",\n'
 	end
+	out:write('\t\t\tstatDescriptionScope = "' .. state.statDescriptionScope .. '",\n')
 	skill.setIndex = skill.setIndex + 1
 end
 
@@ -829,6 +869,22 @@ directiveTable.mods = function(state, args, out)
 		out:write('\t\t\t},\n')
 	end
 	out:write('\t\t},\n')
+
+	-- validate stats
+	local printHeader = true
+	for i = 1, #set.stats do
+		if not set.levels[i] or type(set.levels[i]) ~= "number" then
+			break
+		end
+		local stat = set.stats[i]
+		if not checkModInStatDescription(state.statDescriptionScope, stat.id) then
+			if printHeader then
+				printHeader = false
+				ConPrintf("====================================\nSkill %s: ", state.infoGrantedId)
+			end
+			ConPrintf("Stat %s not found in stat description %s",  stat.id, state.statDescriptionScope)
+		end
+	end
 	state.set = nil
 end
 

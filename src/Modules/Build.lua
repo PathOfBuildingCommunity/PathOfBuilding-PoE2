@@ -68,11 +68,11 @@ function buildMode:Init(dbFileName, buildName, buildXML, convertBuild, importLin
 	end
 
 	self.abortSave = true
-	-- calculate atcs Table based on data.questRewards
+	-- calculate acts Table based on data.questRewards
 	self.acts = { { level = 1 , questPoints = 0 } }
 	for _, quest in ipairs(data.questRewards) do
 		if not quest.questPoints then
-			goto nextquest
+			goto nextQuest
 		end
 		local act = quest.Act + (quest.Type == "Cruel" and 3 or 0) + 1
 		if not self.acts[act] then
@@ -84,7 +84,7 @@ function buildMode:Init(dbFileName, buildName, buildXML, convertBuild, importLin
 			self.acts[act].questPoints = self.acts[act].questPoints + quest.questPoints
 			self.acts[act].level = m_max(self.acts[act].level, quest.AreaLevel)
 		end
-		:: nextquest ::
+		:: nextQuest ::
 	end
 	self.maxActs = #self.acts
 	self.maxWeaponSets = self.acts[self.maxActs].questPoints
@@ -846,23 +846,23 @@ function buildMode:EstimatePlayerProgress()
 	if SecondaryAscUsed > secondaryAscMax then InsertIfNew(self.controls.warnings.lines, "You have too many secondary ascendancy points allocated") end
 
 	-- if you are using more than maxWeaponSets + extraWeaponSets, you are using too many weapon sets
-	local warningsWeaponset = false
+	local warningsWeaponSet = false
 	if weaponSet1Used > (maxWeaponSets + extraWeaponSets) then
-		warningsWeaponset = true
+		warningsWeaponSet = true
 		InsertIfNew(self.controls.warnings.lines, string.format(
 			"You have allocated %d too many weapon set 1 passives",
 			math.abs((maxWeaponSets + extraWeaponSets) - weaponSet1Used)
 		))
 	end
 	if weaponSet2Used > (maxWeaponSets + extraWeaponSets) then
-		warningsWeaponset = true
+		warningsWeaponSet = true
 		InsertIfNew(self.controls.warnings.lines, string.format(
 			"You have allocated %d too many weapon set 2 passives",
 			math.abs((maxWeaponSets + extraWeaponSets) - weaponSet2Used)
 		))
 	end
 
-	if not warningsWeaponset and weaponSet1Used ~= weaponSet2Used then
+	if not warningsWeaponSet and weaponSet1Used ~= weaponSet2Used then
 		InsertIfNew(self.controls.warnings.lines, string.format(
 			"You have %d Weapon set 2 passives available",
 			math.abs(weaponSet2Used - weaponSet1Used)

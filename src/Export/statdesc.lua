@@ -148,9 +148,15 @@ function describeStats(stats)
 	local out = { }
 	local orders = { }
 	local descriptors = { }
+	local missing = {false}
 	for s, v in pairs(stats) do
-		if s ~= "Type" and (v.min ~= 0 or v.max ~= 0) and statDescriptor[s] and statDescriptor[s].stats then
-			descriptors[statDescriptor[s]] = true
+		if s ~= "Type" and statDescriptor[s] and statDescriptor[s].stats then
+			if (v.min ~= 0 or v.max ~= 0) then
+				descriptors[statDescriptor[s]] = true
+			end
+		elseif s ~= "Type" then
+			missing[1] = true
+			missing[s] = v
 		end
 	end
 	local descOrdered = { }
@@ -172,16 +178,16 @@ function describeStats(stats)
 			for _, s in ipairs(val) do
 				if s.min == 0 and s.max > 0 then
 					s.min = 1
-					s.minz = true
+					s.minZ = true
 				elseif s.min < 0 and s.max == 0 then
 					s.max = -1
-					s.maxz = true
+					s.maxZ = true
 				end
 			end
 			desc = matchLimit(descriptor[1], val)
 			for _, s in ipairs(val) do
-				if s.minz then s.min = 0 end
-				if s.maxz then s.max = 0 end
+				if s.minZ then s.min = 0 end
+				if s.maxZ then s.max = 0 end
 			end
 		end
 
@@ -390,7 +396,7 @@ function describeStats(stats)
 			end
 		end
 	end
-	return out, orders
+	return out, orders, missing
 end
 
 function describeMod(mod)
@@ -403,9 +409,9 @@ function describeMod(mod)
 	if mod.Type then
 		stats.Type = mod.Type
 	end
-	local out, orders = describeStats(stats)
+	local out, orders, missing = describeStats(stats)
 	out.modTags = describeModTags(mod.ImplicitTags)
-	return out, orders
+	return out, orders, missing
 end
 
 function describeScalability(fileName)
@@ -434,7 +440,7 @@ function describeScalability(fileName)
 					table.insert(inOrderScalability, { isScalable = scalability[statNum], formats = wordingFormats[statNum] })
 					return "#"
 				end)
-				if out[strippedLine] then -- we want to use the format with the least oddites in it. If their are less formats then that will be used instead.
+				if out[strippedLine] then -- we want to use the format with the least oddities in it. If their are less formats then that will be used instead.
 					for j, priorScalability in ipairs(out[strippedLine]) do
 						if (priorScalability.formats and #priorScalability.formats or 0) > (wordingFormats[j] and #wordingFormats[j] or 0) then 
 							out[strippedLine][j] = inOrderScalability[j]

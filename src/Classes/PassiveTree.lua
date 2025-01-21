@@ -532,7 +532,7 @@ function PassiveTreeClass:ProcessNode(node)
 
 	self:ProcessStats(node)
 
-	-- if this node isSwtichable then parse also subnodes
+	-- if this node isSwitchable then parse also subnodes
 	if node.isSwitchable or node.isAttribute then
 		for class, switchNode in pairs(node.options) do
 			setmetatable(switchNode, { __index = node })

@@ -313,7 +313,7 @@ function TradeQueryRequestsClass:FetchResultBlock(url, callback)
 				
 				local rawLines = { }
 				t_insert(rawLines, "Rarity: " .. item.rarity)
-				-- item.name is empty when magic and full magic name is in typeLine but typeLine == bayeType when rare.
+				-- item.name is empty when magic and full magic name is in typeLine but typeLine == baseType when rare.
 				if item.name ~= "" then
 					t_insert(rawLines, item.name) 
 				end
@@ -360,9 +360,9 @@ function TradeQueryRequestsClass:FetchResultBlock(url, callback)
 				end
 
 				if item.requirements then
-					for _, requiremnt in ipairs(item.requirements) do
-						if requiremnt.name == "Level"  then
-							t_insert(rawLines, "LevelReq: " .. requiremnt.values[1][1])
+					for _, requirement in ipairs(item.requirements) do
+						if requirement.name == "Level"  then
+							t_insert(rawLines, "LevelReq: " .. requirement.values[1][1])
 						end
 					end
 				end
@@ -374,7 +374,7 @@ function TradeQueryRequestsClass:FetchResultBlock(url, callback)
 					t_insert(rawLines, "Limited to: " .. limit)
 				end
 
-				-- ensure these fields are initalised
+				-- ensure these fields are initialised
 				item.enchantMods = item.enchantMods or { }
 				item.runeMods = item.runeMods or { }
 				item.implicitMods = item.implicitMods or { }

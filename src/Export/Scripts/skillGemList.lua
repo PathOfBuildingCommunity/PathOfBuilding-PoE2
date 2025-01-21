@@ -22,8 +22,8 @@ end
 for i, _ in ipairs(types) do
 	local active = {}
 	local support = {}
-	local activeexport = {}
-	local supportexport = {}
+	local activeExport = {}
+	local supportExport = {}
 	local colour
 	for skillGem in dat("SkillGems"):Rows() do
 		for _, gemEffect in ipairs(skillGem.GemEffects) do
@@ -47,7 +47,7 @@ for i, _ in ipairs(types) do
 					end
 				end
 				table.insert(support, temp)
-				table.insert(supportexport, temp1)
+				table.insert(supportExport, temp1)
 			elseif not skillGem.IsSupport and types[i] == colour and not gemEffect.Id:match("Unknown") and not gemEffect.Id:match("Playtest") and not gemEffect.GrantedEffect.ActiveSkill.DisplayName:match("DNT") and not skillGem.BaseItemType.Name:match("DNT") 
 			and dat("SkillGemSupports"):GetRow("ActiveGem", dat("SkillGems"):GetRow("BaseItemType", dat("BaseItemTypes"):GetRow("Id", skillGem.BaseItemType.Id))) then
 				local temp = gemEffect.GrantedEffect.ActiveSkill.DisplayName..string.rep(" ", 30 - string.len(gemEffect.GrantedEffect.ActiveSkill.DisplayName)).."\t\t----\t\t"..gemEffect.GrantedEffect.Id
@@ -59,36 +59,36 @@ for i, _ in ipairs(types) do
 					end
 				end
 				table.insert(active, temp)
-				table.insert(activeexport, temp1)
+				table.insert(activeExport, temp1)
 			end
 		end
 	end
 	table.sort(active)
 	table.sort(support)
-	table.sort(supportexport)
-	table.sort(activeexport)
+	table.sort(supportExport)
+	table.sort(activeExport)
 	
-	for i, row in ipairs(supportexport) do
+	for i, row in ipairs(supportExport) do
 		-- Remove text before "#skill" only if it is at the start of the string
-		supportexport[i] = string.gsub(row, "^(.-)#skill", "#skill")
+		supportExport[i] = string.gsub(row, "^(.-)#skill", "#skill")
 	end
-	for i, row in ipairs(activeexport) do
+	for i, row in ipairs(activeExport) do
 		-- Remove text before "#skill" only if it is at the start of the string
-		activeexport[i] = string.gsub(row, "^(.-)#skill", "#skill")
+		activeExport[i] = string.gsub(row, "^(.-)#skill", "#skill")
 	end
 	
 	out:write("\t\t\t\t\t\t--------- Active "..types[i].." ---------\n")
 	if export == false then
 		out:write(table.concat(active, "\n"))
 	else
-		out:write(table.concat(activeexport, "\n"))
+		out:write(table.concat(activeExport, "\n"))
 	end
 	out:write('\n\n')
 	out:write("\t\t\t\t\t\t--------- Support "..types[i].." ---------\n")
 	if export == false then
 		out:write(table.concat(support, "\n"))
 	else
-		out:write(table.concat(supportexport, "\n"))
+		out:write(table.concat(supportExport, "\n"))
 	end
 	out:write('\n\n')
 end

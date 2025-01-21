@@ -947,9 +947,6 @@ return {
 ["non_skill_base_all_damage_%_to_gain_as_fire_with_attacks_vs_burning_enemies"] = {
 	mod("DamageGainAsFire", "BASE", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "Burning" }),
 },
-["support_innervate_buff_grant_%_added_lightning_attack_damage"] = {
-	mod("DamageGainAsLightning", "BASE", nil, ModFlag.Attack, 0, { type = "Condition", var = "KilledShockedLast3Seconds" }, { type = "GlobalEffect", effectType = "Buff", effectName = "Innervate" } ),
-},
 ["base_physical_damage_%_to_convert_to_lightning"] = {
 	mod("PhysicalDamageConvertToLightning", "BASE", nil),
 },
@@ -2293,7 +2290,7 @@ return {
 	mod("AdditionalCooldownUses", "BASE", nil)
 },
 ["kill_enemy_on_hit_if_under_10%_life"] = {
-	mod("CullPercent", "MAX", nil), 
+	mod("CullPercent", "MAX", nil),
 	value = 10
 },
 ["spell_cast_time_added_to_cooldown_if_triggered"] = {

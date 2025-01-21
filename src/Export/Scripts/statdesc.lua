@@ -14,7 +14,7 @@ local function processStatFile(name, changeOutLocation)
 		end
 		local parent = line:match('include "Metadata/StatDescriptions/(.+)%.csd"$')
 		if parent then
-			statDescriptor.parent = parent:gsub("/statset", "_statset")
+			statDescriptor.parent = parent:gsub("\\", "/"):gsub("/statset", "_statset")
 			return
 		end
 		local noDesc = line:match("no_description ([%w_%+%-%%]+)")

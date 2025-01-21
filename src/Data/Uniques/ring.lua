@@ -23,7 +23,7 @@ Implicits: 1
 Blackheart
 Iron Ring
 Variant: Pre 0.1.1
-Vartiant: Current
+Variant: Current
 Implicits: 1
 {tags:physical,attack}Adds 1 to 4 Physical Damage to Attacks
 {tags:life}(3-6) Life Regeneration per second
@@ -43,7 +43,7 @@ You take Fire Damage instead of Physical Damage from Bleeding
 The Burrower
 Topaz Ring
 Variant: Pre 0.1.1
-Vartiant: Current
+Variant: Current
 Implicits: 1
 {tags:lightning}+(20-30)% to Lightning Resistance
 {variant:1}{tags:cold}-(15-10)% to Cold Resistance
@@ -139,7 +139,7 @@ Gain (30-40)% of Damage as Extra Chaos Damage
 Original Sin
 Amethyst Ring
 Variant: Pre 0.1.1
-Vartiant: Current
+Variant: Current
 Implicits: 1
 {tags:chaos}+(7-13)% to Chaos Resistance
 {variant:2}{tags:chaos}+(17-23)% to Chaos Resistance

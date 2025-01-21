@@ -40,7 +40,7 @@ function itemLib.applyValueScalar(line, valueScalar, baseValueScalar, numbers, p
 	return line
 end
 
--- precision is express a multiplier/divide and displayPrecision is expresed as decimal precision on rounding.
+-- precision is express a multiplier/divide and displayPrecision is expressed as decimal precision on rounding.
 -- ifRequired determines whether trailing zeros are displayed or not.
 function itemLib.formatValue(value, baseValueScalar, valueScalar, precision, displayPrecision, ifRequired)
 	value = roundSymmetric(value * precision) -- resolve range to internal value
@@ -71,7 +71,7 @@ end
 
 -- Apply range value (0 to 1) to a modifier that has a range: "(x-x)" or "(x-x) to (x-x)"
 function itemLib.applyRange(line, range, valueScalar, baseValueScalar)
-	-- stripLines down to # inplace of any number and store numbers inside values also remove all + signs are kept if value is positive
+	-- stripLines down to # in place of any number and store numbers inside values also remove all + signs are kept if value is positive
 	local values = { }
 	local strippedLine = line:gsub("([%+-]?)%((%-?%d+%.?%d*)%-(%-?%d+%.?%d*)%)", function(sign, min, max)
 		local value = min + range * (tonumber(max) - min)
@@ -84,8 +84,8 @@ function itemLib.applyRange(line, range, valueScalar, baseValueScalar)
 		return "#"
 	end)
 
-	--- Takes a completely strippedLine where all values and ranges are replaced with a # + signs are kept for consistency upon resubsitution.
-	--- This will then subsitute back in the values until a line in scalabilityData is found this start with subsituting everything and until none.
+	--- Takes a completely strippedLine where all values and ranges are replaced with a # + signs are kept for consistency upon re-substitution.
+	--- This will then substitute back in the values until a line in scalabilityData is found this start with substituting everything and until none.
 	--- This means if there is a more generic mod that might be scalable on both parameters but their is a narrower one that isn't it won't be scaled.
 	---@param line the modLine stripped of all values and ranges replaced by #
 	---@param values all values present in the modLine
@@ -105,13 +105,13 @@ function itemLib.applyRange(line, range, valueScalar, baseValueScalar)
 		end
 
 		-- check combinations recursively largest to smallest
-		local function checkSubsitutionCombinations(i, numSubsitutions, indices)
-			if #indices == numSubsitutions then
+		local function checkSubstitutionCombinations(i, numSubstitutions, indices)
+			if #indices == numSubstitutions then
 				local modifiedLine = line
-				local subsituted = 0
+				local substituted = 0
 				for _, i in ipairs(indices) do
-					modifiedLine = replaceNthInstance(modifiedLine, "#", values[i], i - subsituted)
-					subsituted = subsituted + 1
+					modifiedLine = replaceNthInstance(modifiedLine, "#", values[i], i - substituted)
+					substituted = substituted + 1
 				end
 	
 				-- Check if the modified line matches any scalability data
@@ -134,7 +134,7 @@ function itemLib.applyRange(line, range, valueScalar, baseValueScalar)
 			end
 			for j = i, #values do
 				table.insert(indices, j)
-				local modifiedLine, remainingValues = checkSubsitutionCombinations(j + 1, numSubsitutions, indices)
+				local modifiedLine, remainingValues = checkSubstitutionCombinations(j + 1, numSubstitutions, indices)
 				if modifiedLine then
 					return modifiedLine, remainingValues
 				end
@@ -143,7 +143,7 @@ function itemLib.applyRange(line, range, valueScalar, baseValueScalar)
 		end
 
 		for i = #values, 1, -1 do
-			local modifiedLine, remainingValues = checkSubsitutionCombinations(1, i, {})
+			local modifiedLine, remainingValues = checkSubstitutionCombinations(1, i, {})
 			if modifiedLine then
 				return modifiedLine, remainingValues
 			end
