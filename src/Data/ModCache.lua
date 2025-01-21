@@ -805,8 +805,8 @@ c["12% increased Fire Damage"]={{[1]={flags=0,keywordFlags=0,name="FireDamage",t
 c["12% increased Flask Charges gained"]={{[1]={flags=0,keywordFlags=0,name="FlaskChargesGained",type="INC",value=12}},nil}
 c["12% increased Freeze Buildup"]={{}," Freeze Buildup "}
 c["12% increased Freeze Buildup 12% increased chance to Shock"]={{[1]={flags=0,keywordFlags=0,name="EnemyShockChance",type="INC",value=12}}," Freeze Buildup 12% increased  "}
-c["12% increased Grenade Area of Effect"]={{[1]={flags=0,keywordFlags=0,name="AreaOfEffect",type="INC",value=12}}," Grenade  "}
-c["12% increased Grenade Damage"]={{[1]={flags=0,keywordFlags=0,name="Damage",type="INC",value=12}}," Grenade  "}
+c["12% increased Grenade Area of Effect"]={{[1]={[1]={skillType=169,type="SkillType"},flags=0,keywordFlags=0,name="AreaOfEffect",type="INC",value=12}},nil}
+c["12% increased Grenade Damage"]={{[1]={[1]={skillType=169,type="SkillType"},flags=0,keywordFlags=0,name="Damage",type="INC",value=12}},nil}
 c["12% increased Lightning Damage"]={{[1]={flags=0,keywordFlags=0,name="LightningDamage",type="INC",value=12}},nil}
 c["12% increased Magnitude of Ailments you inflict"]={{[1]={flags=0,keywordFlags=14680064,name="AilmentMagnitude",type="INC",value=12}},nil}
 c["12% increased Magnitude of Ignite you inflict"]={{[1]={flags=0,keywordFlags=8388608,name="AilmentMagnitude",type="INC",value=12}},nil}
@@ -895,7 +895,7 @@ c["15% increased Block chance"]={{[1]={flags=0,keywordFlags=0,name="BlockChance"
 c["15% increased Cast Speed"]={{[1]={flags=16,keywordFlags=0,name="Speed",type="INC",value=15}},nil}
 c["15% increased Chill Duration on Enemies"]={{[1]={flags=0,keywordFlags=0,name="EnemyChillDuration",type="INC",value=15}},nil}
 c["15% increased Chill and Freeze Duration on Enemies"]={{[1]={flags=0,keywordFlags=0,name="EnemyFreezeDuration",type="INC",value=15}}," Chill and   "}
-c["15% increased Cooldown Recovery Rate for Grenade Skills"]={{[1]={flags=0,keywordFlags=0,name="CooldownRecovery",type="INC",value=15}},"  for Grenade Skills "}
+c["15% increased Cooldown Recovery Rate for Grenade Skills"]={{[1]={[1]={skillType=169,type="SkillType"},flags=0,keywordFlags=0,name="CooldownRecovery",type="INC",value=15}},nil}
 c["15% increased Critical Damage Bonus"]={{[1]={flags=0,keywordFlags=0,name="CritMultiplier",type="INC",value=15}},nil}
 c["15% increased Critical Damage Bonus for Attack Damage"]={{[1]={flags=1,keywordFlags=0,name="CritMultiplier",type="INC",value=15}},nil}
 c["15% increased Critical Hit Chance"]={{[1]={flags=0,keywordFlags=0,name="CritChance",type="INC",value=15}},nil}
@@ -1389,7 +1389,7 @@ c["25% reduced Flask Life Recovery rate"]={{[1]={flags=0,keywordFlags=0,name="Fl
 c["25% reduced Flask Mana Recovery rate"]={{[1]={flags=0,keywordFlags=0,name="FlaskManaRecoveryRate",type="INC",value=-25}},nil}
 c["25% reduced Freeze Duration on you"]={{[1]={flags=0,keywordFlags=0,name="SelfFreezeDuration",type="INC",value=-25}},nil}
 c["25% reduced Global Defences"]={{[1]={[1]={type="Global"},flags=0,keywordFlags=0,name="Defences",type="INC",value=-25}},nil}
-c["25% reduced Grenade fuse duration"]={{[1]={flags=0,keywordFlags=0,name="Duration",type="INC",value=-25}}," Grenade fuse  "}
+c["25% reduced Grenade fuse duration"]={{[1]={[1]={skillType=169,type="SkillType"},flags=0,keywordFlags=0,name="Duration",type="INC",value=-25}},"  fuse  "}
 c["25% reduced Ignite Duration on you"]={{[1]={flags=0,keywordFlags=0,name="SelfIgniteDuration",type="INC",value=-25}},nil}
 c["25% reduced Light Radius"]={{[1]={flags=0,keywordFlags=0,name="LightRadius",type="INC",value=-25}},nil}
 c["25% reduced Mana Regeneration Rate while stationary"]={{[1]={[1]={type="Condition",var="Stationary"},flags=0,keywordFlags=0,name="ManaRegen",type="INC",value=-25}},nil}
@@ -1833,8 +1833,8 @@ c["50% increased Flask Mana Recovery rate"]={{[1]={flags=0,keywordFlags=0,name="
 c["50% increased Freeze Buildup"]={{}," Freeze Buildup "}
 c["50% increased Freeze Buildup 30% increased Chill Duration on Enemies"]={{[1]={flags=0,keywordFlags=0,name="EnemyChillDuration",type="INC",value=50}}," Freeze Buildup 30% increased   "}
 c["50% increased Freeze Buildup 30% increased Magnitude of Chill you inflict"]={{[1]={flags=0,keywordFlags=0,name="EnemyChillMagnitude",type="INC",value=50}}," Freeze Buildup 30% increased  "}
-c["50% increased Grenade fuse duration"]={{[1]={flags=0,keywordFlags=0,name="Duration",type="INC",value=50}}," Grenade fuse  "}
-c["50% increased Grenade fuse duration Grenade Skills Fire an additional Projectile"]={{[1]={flags=0,keywordFlags=0,name="Duration",type="INC",value=50}}," Grenade fuse  Grenade Skills Fire an additional Projectile "}
+c["50% increased Grenade fuse duration"]={{[1]={[1]={skillType=169,type="SkillType"},flags=0,keywordFlags=0,name="Duration",type="INC",value=50}},"  fuse  "}
+c["50% increased Grenade fuse duration Grenade Skills Fire an additional Projectile"]={{[1]={[1]={skillType=169,type="SkillType"},flags=0,keywordFlags=0,name="Duration",type="INC",value=50}},"  fuse  Grenade Skills Fire an additional Projectile "}
 c["50% increased Lightning Damage while affected by Herald of Thunder"]={{[1]={[1]={type="Condition",var="AffectedByHeraldofThunder"},flags=0,keywordFlags=0,name="LightningDamage",type="INC",value=50}},nil}
 c["50% increased Magnitude of Ignite you inflict"]={{[1]={flags=0,keywordFlags=8388608,name="AilmentMagnitude",type="INC",value=50}},nil}
 c["50% increased Mana Regeneration Rate"]={{[1]={flags=0,keywordFlags=0,name="ManaRegen",type="INC",value=50}},nil}
