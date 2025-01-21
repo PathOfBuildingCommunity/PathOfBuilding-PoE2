@@ -1270,16 +1270,13 @@ function calcs.offence(env, actor, activeSkill)
 				s_format("/ %.2f ^8(increased/reduced cooldown recovery)", 1 + skillModList:Sum("INC", skillCfg, "CooldownRecovery") / 100),
 			}
 
-			if cooldownMode == "AVERAGE" then
+			if cooldownMode == "AVERAGE" and noCooldownChance > 0 then
+				output.EffectiveCooldown = effectiveCooldown
 				breakdown.EffectiveCooldown = {
 					s_format("Effective Cooldown:"),
-					unpack(breakdown.Cooldown)
+					unpack(breakdown.Cooldown),
 				}
-				if noCooldownChance > 0 then
-					output.EffectiveCooldown = effectiveCooldown
-					t_insert(breakdown.EffectiveCooldown, s_format("* %.2f ^8(effect of %d%% chance to not consume cooldown)", effectiveCooldownMultiplier, noCooldownChance * 100))
-				end
-
+				t_insert(breakdown.EffectiveCooldown, s_format("* %.2f ^8(effect of %d%% chance to not consume cooldown)", effectiveCooldownMultiplier, noCooldownChance * 100))
 				t_insert(breakdown.EffectiveCooldown, s_format("= %.3fs", output.EffectiveCooldown))		
 			end
 			
