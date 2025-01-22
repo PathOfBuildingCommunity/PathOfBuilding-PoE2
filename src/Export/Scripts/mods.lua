@@ -12,6 +12,10 @@ function table.containsId(table, element)
   return false
 end
 
+local whiteListStat = {
+	["dummy_stat_display_nothing"] = true,
+}
+
 local lifeFlaskModTypes, manaFlaskModTypes = unpack(LoadModule("Scripts/ScriptResources/FlaskModWeights"))
 local strJewelTypes, dexJewelTypes, intJewelTypes = unpack(LoadModule("Scripts/ScriptResources/JewelModWeights"))
 local corruptedModTypes = LoadModule("Scripts/ScriptResources/CorruptedModWeights")
@@ -23,14 +27,17 @@ local function writeMods(outName, condFunc)
 		if condFunc(mod) then
 			local stats, orders, missing = describeMod(mod)
 			if missing[1] then
-				ConPrintf("====================================")
-				ConPrintf("Mod '"..mod.Id.."' is missing stats:")
+				local printHeader = true
 				for	k, _ in pairs(missing) do
-					if k ~= 1 then
+					if k ~= 1 and not whiteListStat[k] then
+						if printHeader then
+							printHeader = false
+							ConPrintf("====================================")
+							ConPrintf("Mod '"..mod.Id.."' is missing stats:")
+						end
 						ConPrintf('%s', k)
 					end
 				end
-				ConPrintf("====================================")
 			end
 			if #orders > 0 then
 				out:write('\t["', mod.Id, '"] = { ')
