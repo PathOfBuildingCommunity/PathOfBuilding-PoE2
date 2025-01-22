@@ -1039,13 +1039,15 @@ function calcs.initEnv(build, mode, override, specEnv)
 				end
 				env.itemModDB.multipliers["RunesSocketedIn"..slotName] = socketed
 
-				for _, modLine in ipairs(item.runeModLines) do
-					if modLine.soulcore then
-						for _, mod in ipairs(modLine.modList) do
-							local modCopy = copyTable(mod)
-							modCopy.value = round(modCopy.value / modLine.runesCount)
-							for i = 1, modLine.runesCount do
-								env.itemModDB:ScaleAddMod(modCopy, item.socketedSoulCoreEffectModifier)
+				if item.socketedSoulCoreEffectModifier ~= 0 then
+					for _, modLine in ipairs(item.runeModLines) do
+						if modLine.soulcore then
+							for _, mod in ipairs(modLine.modList) do
+								local modCopy = copyTable(mod)
+								modCopy.value = round(modCopy.value / modLine.runesCount)
+								for i = 1, modLine.runesCount do
+									env.itemModDB:ScaleAddMod(modCopy, item.socketedSoulCoreEffectModifier)
+								end
 							end
 						end
 					end
