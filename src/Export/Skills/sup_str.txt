@@ -96,7 +96,7 @@ statMap = {
 		mod("CorruptingCryStagesFromWarcry", nil, 0, KeywordFlag.Warcry)
 	},
 	["support_corrupting_cry_area_of_effect_+%_final"] = {
-		mod("AreaOfEffect", "INC", nil, 0, KeywordFlag.Warcry)
+		mod("AreaOfEffect", "MORE", nil, 0, KeywordFlag.Warcry)
 	},
 	["support_corrupting_cry_corrupted_blood_duration_ms"] = {
 		skill("durationSecondary", nil),
