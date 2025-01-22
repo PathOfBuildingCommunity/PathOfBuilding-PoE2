@@ -1042,7 +1042,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 				for _, modLine in ipairs(item.runeModLines) do
 					if modLine.soulcore then
 						for _, mod in ipairs(modLine.modList) do
-								env.itemModDB:ScaleAddMod(mod, item.socketedSoulCoreEffectModifier)
+							env.itemModDB:ScaleAddMod(mod, item.socketedSoulCoreEffectModifier)
 						end
 					end
 				end
