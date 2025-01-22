@@ -1019,3 +1019,15 @@ function escapeGGGString(text)
 	local line = text:gsub("%[([^|%]]+)%]", "%1"):gsub("%[[^|]+|([^|]+)%]", "%1")
 	return line
 end
+
+function getHashFromList(list, index)
+	local stringToHash = ""
+	for _, item in ipairs(list) do
+		stringToHash = stringToHash..(item[index] or "")
+	end
+	return common.sha1(stringToHash)
+end
+
+function getHashFromString(string)
+	return common.sha1(string)
+end

@@ -129,11 +129,40 @@ function calcs.buildModListForNode(env, node, incSmallPassiveSkill)
 	else
 		modList:AddList(node.modList)
 	end
-
+	--testCounter = testCounter + 1
+	--ConPrintf("buildModListForNode call # %s for nodeId: %d -- nodeName: %s", testCounter, node.id, node.dn)
+	local processed = false
 	-- Run first pass radius jewels
+	-- jewel functions caught by jewelOtherFuncs
 	for _, rad in pairs(env.radiusJewelList) do
-		if rad.type == "Other" and rad.nodes[node.id] and rad.nodes[node.id].type ~= "Mastery" then
-			rad.func(node, modList, rad.data)
+		if rad.type == "Other" and rad.nodes[node.id] and rad.nodes[node.id].type ~= "Mastery" and not node.isAttribute
+			and (node.type == "Normal" or node.type == "Notable") and not env.build.treeTab.skipTimeLostJewelProcessing then
+			if rad.jewelHash ~= node.processedJewelHash or (rad.jewelHash == node.processedJewelHash and #node.finalModList == #modList) then
+				rad.func(node, modList, rad.data)
+				processed = true
+			else
+				modList = new("ModList")
+				modList:AddList(node.finalModList)
+				modList.alreadyScaled = true
+			end
+		end
+	end
+	if processed then
+		testCounter = testCounter + 1
+		ConPrintf("func call # %s for nodeId: %d -- nodeName: %s", testCounter, node.id, node.dn)
+	end
+	
+	-- if the node processed a jewel function at some point and there are no functions now, reset
+	if #env.radiusJewelList == 0 and node.processedJewelHash then
+		node.processedJewelHash = nil
+	end
+	-- second pass to update the hash because we can't do it while processing the functions otherwise we stop too soon
+	for _, rad in pairs(env.radiusJewelList) do
+		if rad.type == "Other" and rad.nodes[node.id] and rad.nodes[node.id].type ~= "Mastery" and not node.isAttribute
+			and (node.type == "Normal" or node.type == "Notable") and not env.build.treeTab.skipTimeLostJewelProcessing then
+			if rad.jewelHash ~= node.processedJewelHash or (rad.jewelHash == node.processedJewelHash and #node.finalModList == #modList) then
+				node.processedJewelHash = rad.jewelHash
+			end
 		end
 	end
 
@@ -204,15 +233,15 @@ function calcs.buildModListForNode(env, node, incSmallPassiveSkill)
 		end
 	end
 	
-	incSmallPassiveSkill = incSmallPassiveSkill + localSmallIncEffect
 	-- Apply Inc Node scaling from Hulking Form
-	if incSmallPassiveSkill > 0 and node.type == "Normal" and not node.isAttribute and not node.ascendancyName then
-		local scale = 1 + incSmallPassiveSkill / 100
+	if (incSmallPassiveSkill + localSmallIncEffect) > 0 and node.type == "Normal" and not node.isAttribute and not node.ascendancyName
+		and not modList.alreadyScaled then
+		local scale = 1 + (incSmallPassiveSkill + localSmallIncEffect) / 100
 		local scaledList = new("ModList")
 		scaledList:ScaleAddList(modList, scale)
 		modList = scaledList
 	end
-
+	
 	return modList
 end
 
@@ -251,13 +280,11 @@ function calcs.buildModListForNodeList(env, nodeList, finishJewels)
 
 		-- Finalise radius jewels
 		for _, rad in pairs(env.radiusJewelList) do
-			if rad.item.baseName:find("Time%-Lost") == nil then
-				rad.func(nil, modList, rad.data)
-			end
+			rad.func(nil, modList, rad.data)
 			if env.mode == "MAIN" then
 				if not rad.item.jewelRadiusData then
 					rad.item.jewelRadiusData = { }
-				end
+				end -- used to calc Attributes in radius in itemsTab
 				rad.item.jewelRadiusData[rad.nodeId] = rad.data
 			end
 		end
@@ -672,9 +699,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 		end
 		env.allocNodes = nodes
 	end
-
-	local nodesModsList = calcs.buildModListForNodeList(env, env.allocNodes, true)
-
+	
 	if allocatedNotableCount and allocatedNotableCount > 0 then
 		modDB:NewMod("Multiplier:AllocatedNotable", "BASE", allocatedNotableCount)
 	end
@@ -772,7 +797,9 @@ function calcs.initEnv(build, mode, override, specEnv)
 								item = item,
 								nodeId = slot.nodeId,
 								attributes = node.attributesInRadius and node.attributesInRadius[item.jewelRadiusIndex] or { },
-								data = { }
+								data = { },
+								-- store this so we can apply to the nodes we run the functions on
+								jewelHash = getHashFromString(item.raw)
 							})
 							if func.type ~= "Self" and node.nodesInRadius then
 								-- Add nearby unallocated nodes to the extra node list
@@ -902,17 +929,6 @@ function calcs.initEnv(build, mode, override, specEnv)
 				env.player.itemList[slotName] = item
 				-- Merge mods for this item
 				local srcList = item.modList or (item.slotModList and item.slotModList[slot.slotNum]) or {}
-
-				-- Remove Spirit Base if CannotGainSpiritFromEquipment flag is true
-				if nodesModsList:Flag(nil, "CannotGainSpiritFromEquipment") then
-					srcList = copyTable(srcList, true)
-					for index = #srcList, 1, -1 do
-						local mod = srcList[index]
-						if mod.name == "Spirit" and mod.type == "BASE" then
-							t_remove(srcList, index)
-						end
-					end
-				end
 
 				if item.requirements and not accelerate.requirementsItems then
 					t_insert(env.requirementsTableItems, {
@@ -1090,9 +1106,6 @@ function calcs.initEnv(build, mode, override, specEnv)
 				if item.charmLimit then
 					env.modDB:NewMod("CharmLimit", "BASE", item.charmLimit, item.title)
 				end
-				if item.spiritValue and not nodesModsList:Flag(nil, "CannotGainSpiritFromEquipment") then
-					env.modDB:NewMod("Spirit", "BASE", item.spiritValue, item.title)
-				end
 				if item.type ~= "Jewel" and item.type ~= "Flask" and item.type ~= "Charm" then
 					-- Update item counts
 					local key
@@ -1169,6 +1182,29 @@ function calcs.initEnv(build, mode, override, specEnv)
 	-- Merge modifiers for allocated passives
 	env.modDB:AddList(calcs.buildModListForNodeList(env, env.allocNodes, true))
 
+	-- Invoker ascendancy logic, buildModListForNodeList is a heavy function and should not be called additional purely for this
+	-- orderedSlots iterations will be miniscule compared to the hundreds of nodes running the logic if buildModList is called again
+	for _, slot in pairs(build.itemsTab.orderedSlots) do
+		local slotName = slot.slotName
+		local item = build.itemsTab.items[slotName]
+		if item then
+			local srcList = item.modList or (item.slotModList and item.slotModList[slot.slotNum]) or {}
+			-- Remove Spirit Base if CannotGainSpiritFromEquipment flag is true
+			if env.modDB:Flag(nil, "CannotGainSpiritFromEquipment") then
+				srcList = copyTable(srcList, true)
+				for index = #srcList, 1, -1 do
+					local mod = srcList[index]
+					if mod.name == "Spirit" and mod.type == "BASE" then
+						t_remove(srcList, index)
+					end
+				end
+			end
+			if item.spiritValue and not env.modDB:Flag(nil, "CannotGainSpiritFromEquipment") then
+				env.modDB:NewMod("Spirit", "BASE", item.spiritValue, item.title)
+			end
+		end
+	end
+	
 	if not override or (override and not override.extraJewelFuncs) then
 		override = override or {}
 		override.extraJewelFuncs = new("ModList")

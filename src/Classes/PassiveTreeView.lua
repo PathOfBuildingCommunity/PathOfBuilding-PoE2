@@ -1184,7 +1184,7 @@ function PassiveTreeViewClass:AddNodeTooltip(tooltip, node, build, incSmallPassi
 			if mod.name == "JewelSmallPassiveSkillEffect" then
 				localSmallIncEffect = mod.value
 			end
-			if mod.parsedLine then
+			if mod.parsedLine and mod.name ~= "JewelSmallPassiveSkillEffect" then
 				t_insert(newSd, mod.parsedLine)
 			end
 		end

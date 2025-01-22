@@ -5868,6 +5868,7 @@ local jewelOtherFuncs = {
 		return function(node, out, data)
 			if node and node.type == "Normal" and not node.isAttribute then
 				out:NewMod("JewelSmallPassiveSkillEffect", "INC", tonumber(num), data.modSource, { type = "GlobalEffect", effectType = "Global", unscalable = true })
+				out[#out].parsedLine = num.."% increased Effect"
 			end
 		end
 	end,
@@ -5878,10 +5879,9 @@ local jewelOtherFuncs = {
 				local modList, line = parseMod(mod)
 				if not line then -- something failed to parse, do not add to list
 					out:AddList(modList)
+					out[#out].parsedLine = capitalizeWordsInString(mod)
+					out[#out].source = data.modSource
 				end
-				out[#out].parsedLine = capitalizeWordsInString(mod)
-				out[#out].source = data.modSource
-				
 			end
 		end
 	end,

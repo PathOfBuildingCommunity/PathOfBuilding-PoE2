@@ -707,7 +707,9 @@ holding Shift will put it in the second.]])
 					end
 					
 					-- Adding Mod
+					self.build.treeTab.skipTimeLostJewelProcessing = true
 					self:AddModComparisonTooltip(tooltip, mod)
+					self.build.treeTab.skipTimeLostJewelProcessing = false
 				end
 			end
 		end
