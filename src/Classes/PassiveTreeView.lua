@@ -1137,7 +1137,7 @@ function PassiveTreeViewClass:AddNodeTooltip(tooltip, node, build, incSmallPassi
 		tooltip:AddSeparator(14)
 	end
 
-	local function addModInfoToTooltip(node, i, line)
+	local function addModInfoToTooltip(node, i, line, localSmallIncEffect)
 		if node.mods[i] then
 			if launch.devModeAlt and node.mods[i].list then
 				-- Modifier debugging info
@@ -1152,10 +1152,10 @@ function PassiveTreeViewClass:AddNodeTooltip(tooltip, node, build, incSmallPassi
 					line = line .. "  " .. modStr
 				end
 			end
-
+			
 			-- Apply Inc Node scaling from Hulking Form only visually
-			if incSmallPassiveSkillEffect > 0 and node.type == "Normal" and not node.isAttribute and not node.ascendancyName and node.mods[i].list then
-				local scale = 1 + incSmallPassiveSkillEffect / 100
+			if (incSmallPassiveSkillEffect + localSmallIncEffect) > 0 and node.type == "Normal" and not node.isAttribute and not node.ascendancyName and node.mods[i].list then
+				local scale = 1 + (incSmallPassiveSkillEffect + localSmallIncEffect) / 100
 				local scaledList = new("ModList")
 				scaledList:ScaleAddList(node.mods[i].list, scale)
 				local number =  line:match("%d*%.?%d+")
@@ -1166,15 +1166,34 @@ function PassiveTreeViewClass:AddNodeTooltip(tooltip, node, build, incSmallPassi
 					elseif type(mod.value) == "table" then
 						newValue = mod.value.mod.value
 					end
-					line = line:gsub("%d*%.?%d+",math.abs(newValue))
+					line = line:gsub("%d*%.?%d+", math.abs(newValue))
 				end
 				-- line = line .. "  ^8(Effect increased by "..incSmallPassiveSkillEffect.."%)"
 			end
-
+			
 			tooltip:AddLine(16, ((node.mods[i].extra or not node.mods[i].list) and colorCodes.UNSUPPORTED or colorCodes.MAGIC)..line)
 		end
 	end
 
+	-- loop over mods generated in CalcSetup by rad.func calls and grab the lines added
+	-- processStats once on copied node to cleanly setup for the tooltip
+	local function processTimeLostModsandGetLocalEffect(mNode, build)
+		local localSmallIncEffect = 0
+		local newSd = copyTable(build.spec.tree.nodes[mNode.id].sd)
+		for _, mod in ipairs(mNode.finalModList) do
+			if mod.name == "JewelSmallPassiveSkillEffect" then
+				localSmallIncEffect = mod.value
+			end
+			if mod.parsedLine then
+				t_insert(newSd, mod.parsedLine)
+			end
+		end
+		mNode.sd = copyTable(newSd)
+		build.spec.tree:ProcessStats(mNode)
+		ConPrintf("calling processStats for %s", mNode.name)
+		return localSmallIncEffect
+	end
+	
 	-- If so, check if the left hand tree is unallocated, but the right hand tree is allocated.
 	-- Then continue processing as normal
 	local mNode = node
@@ -1182,8 +1201,9 @@ function PassiveTreeViewClass:AddNodeTooltip(tooltip, node, build, incSmallPassi
 	-- This stanza actives for both Mastery and non Mastery tooltips. Proof: add '"Blah "..' to addModInfoToTooltip
 	if mNode.sd[1] and not mNode.allMasteryOptions then
 		tooltip:AddLine(16, "")
+		local localSmallIncEffect = processTimeLostModsandGetLocalEffect(mNode, build)
 		for i, line in ipairs(mNode.sd) do
-			addModInfoToTooltip(mNode, i, line)
+			addModInfoToTooltip(mNode, i, line, localSmallIncEffect)
 		end
 	end
 
