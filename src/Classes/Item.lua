@@ -793,9 +793,9 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 					end)
 					if strippedModeLine == runeStrippedModeLine then
 						modLine.soulcore = name:match("Soul Core") ~= nil
-						modLine.runesCount = round(value/runeValue)
+						modLine.runeCount = round(value/runeValue)
 						if shouldFixRunesOnItem then
-							for i = 1, modLine.runesCount do
+							for i = 1, modLine.runeCount do
 								t_insert(self.runes, name)
 							end
 						end

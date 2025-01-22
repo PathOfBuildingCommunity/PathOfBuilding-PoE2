@@ -1044,8 +1044,8 @@ function calcs.initEnv(build, mode, override, specEnv)
 						if modLine.soulcore then
 							for _, mod in ipairs(modLine.modList) do
 								local modCopy = copyTable(mod)
-								modCopy.value = round(modCopy.value / modLine.runesCount)
-								for i = 1, modLine.runesCount do
+								modCopy.value = round(modCopy.value / modLine.runeCount)
+								for i = 1, modLine.runeCount do
 									env.itemModDB:ScaleAddMod(modCopy, item.socketedSoulCoreEffectModifier)
 								end
 							end
