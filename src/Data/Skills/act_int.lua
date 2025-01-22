@@ -3377,6 +3377,17 @@ skills["ChargeInfusionPlayer"] = {
 			label = "Charge Infusion",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "charge_mastery",
+			statMap = {
+				["skill_charge_matery_skill_speed_+%_final_with_frenzy_charges"] = {
+					mod("Speed", "MORE", nil, 0, 0, { type = "StatThreshold", stat = "FrenzyCharges", threshold = 1 }, { type = "GlobalEffect", effectType = "Buff", effectName = "Charge Infusion", effectCond = "UseFrenzyCharges" }),
+				},
+				["skill_charge_mastery_crit_chance_+%_final_with_power_charges"] = {
+					mod("CritChance", "MORE", nil, 0, 0, { type = "StatThreshold", stat = "PowerCharges", threshold = 1 }, { type = "GlobalEffect", effectType = "Buff", effectName = "Charge Infusion", effectCond = "UsePowerCharges" }),
+				},
+				["skill_charge_mastery_defences_+%_final_with_endurance_charges"] = {
+					mod("Defences", "MORE", nil, 0, 0, { type = "StatThreshold", stat = "EnduranceCharges", threshold = 1 }, { type = "GlobalEffect", effectType = "Buff", effectName = "Charge Infusion", effectCond = "UseEnduranceCharges" }),
+				},
+			},
 			baseFlags = {
 			},
 			stats = {
@@ -7689,6 +7700,12 @@ skills["FrostBombPlayer"] = {
 			incrementalEffectiveness = 0.14000000059605,
 			damageIncrementalEffectiveness = 0.0065000001341105,
 			statDescriptionScope = "frost_bomb",
+			statMap = {
+				['skill_cold_exposure_magnitude'] = {
+					mod("ColdExposure", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Debuff" }),
+					mult = -1
+				},
+			},
 			baseFlags = {
 				spell = true,
 				area = true,

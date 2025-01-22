@@ -138,7 +138,7 @@
 	<File name="Data/ModCorrupted.lua" part="program" sha1="37602fae17e519b99b547dc4b7c377b2e39c928e" />
 	<File name="Data/ModFlask.lua" part="program" sha1="d577f560c0abe0776a2b37eff17203a452308cdd" />
 	<File name="Data/ModItem.lua" part="program" sha1="b0c5501478746932c4f5a1a8393f7890afe8f700" />
-	<File name="Data/ModItemExlusive.lua" part="program" sha1="15bfcca27655f2deb997d5f0f432b0a0ba92cf01" />
+	<File name="Data/ModItemExclusive.lua" part="program" sha1="15bfcca27655f2deb997d5f0f432b0a0ba92cf01" />
 	<File name="Data/ModJewel.lua" part="program" sha1="4b3562c18a8242215498e3ac449925db1733e598" />
 	<File name="Data/ModMap.lua" part="program" sha1="29edb01606d86bf46267fbe91ad1dd51eef52dae" />
 	<File name="Data/ModRunes.lua" part="program" sha1="a14dfdea09c48f29fd830b00fb37141e66f86359" />
