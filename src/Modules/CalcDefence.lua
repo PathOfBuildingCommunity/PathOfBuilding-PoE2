@@ -447,12 +447,6 @@ function calcs.reducePoolsByDamage(poolTable, damageTable, actor)
 			damageRemainder = damageRemainder - tempDamage
 		end
 		local esBypass = output[damageType.."EnergyShieldBypass"] or 0
-		if energyShield > 0 and (not modDB:Flag(nil, "EnergyShieldProtectsMana")) and (esBypass) < 100 then
-			local esDamageTypeMultiplier = damageType == "Chaos" and 2 or 1
-			local tempDamage = m_min(damageRemainder * (1 - esBypass / 100), energyShield / esDamageTypeMultiplier)
-			energyShield = energyShield - tempDamage * esDamageTypeMultiplier
-			damageRemainder = damageRemainder - tempDamage
-		end
 		if (output.sharedMindOverMatter + output[damageType.."MindOverMatter"]) > 0 then
 			local MoMDamage = damageRemainder * m_min(output.sharedMindOverMatter + output[damageType.."MindOverMatter"], 100) / 100
 			if modDB:Flag(nil, "EnergyShieldProtectsMana") and energyShield > 0 and esBypass < 100 then
@@ -468,6 +462,12 @@ function calcs.reducePoolsByDamage(poolTable, damageTable, actor)
 				mana = mana - tempDamage
 				damageRemainder = damageRemainder - tempDamage
 			end
+		end
+		if energyShield > 0 and (not modDB:Flag(nil, "EnergyShieldProtectsMana")) and (esBypass) < 100 then
+			local esDamageTypeMultiplier = damageType == "Chaos" and 2 or 1
+			local tempDamage = m_min(damageRemainder * (1 - esBypass / 100), energyShield / esDamageTypeMultiplier)
+			energyShield = energyShield - tempDamage * esDamageTypeMultiplier
+			damageRemainder = damageRemainder - tempDamage
 		end
 		if output.preventedLifeLossTotal > 0 then
 			local halfLife = output.Life * 0.5
