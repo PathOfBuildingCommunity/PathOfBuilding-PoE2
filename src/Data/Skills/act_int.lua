@@ -4808,6 +4808,9 @@ skills["DetonateDeadPlayer"] = {
 				area = true,
 				spell = true,
 			},
+			baseMods = {
+				skill("explodeCorpse", true),
+			},
 			constantStats = {
 				{ "active_skill_base_area_of_effect_radius", 26 },
 				{ "movement_speed_+%_final_while_performing_action", -70 },

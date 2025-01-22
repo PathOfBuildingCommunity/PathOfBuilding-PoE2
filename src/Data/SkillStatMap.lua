@@ -281,7 +281,7 @@ return {
 	skill("corpseExplosionLifeMultiplier", nil),
 	div = 100,
 },
-["corpse_explosion_monster_life_permillage_fire"] = {
+["corpse_explosion_monster_life_permillage_physical"] = {
 	skill("corpseExplosionLifeMultiplier", nil),
 	div = 1000,
 },

@@ -345,6 +345,7 @@ statMap = {
 #startSets
 #set DetonateDeadPlayer
 #flags area spell
+#baseMod skill("explodeCorpse", true)
 #mods
 #skillEnd
 
