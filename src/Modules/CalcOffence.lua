@@ -4924,6 +4924,8 @@ function calcs.offence(env, actor, activeSkill)
 						dmgType = string.gsub(" "..value.damageType, "%W%l", string.upper):sub(2) -- This assumes both rings deal the same damage type
 					end
 					if dmgType and dmgVal then
+						-- !!!! WARNING !!!! --
+						-- applyDmgTakenConversion does NOT consider the "And protect me from Harm" yet 
 						local dmgBreakdown, totalDmgTaken = calcs.applyDmgTakenConversion(activeSkill, output, breakdown, dmgType, dmgVal)
 						t_insert(dmgBreakdown, 1, s_format("Heartbound Loop base damage: %d", dmgVal))
 						t_insert(dmgBreakdown, 2, s_format(""))
@@ -4938,6 +4940,8 @@ function calcs.offence(env, actor, activeSkill)
 				local damagePerTrauma = activeSkill.skillModList:Sum("BASE", nil, "TraumaSelfDamageTakenLife")
 				local dmgVal = activeSkill.baseSkillModList:Flag(nil, "HasTrauma") and damagePerTrauma * currentTraumaStacks
 				if dmgType and dmgVal then
+					-- !!!! WARNING !!!! --
+					-- applyDmgTakenConversion does NOT consider the "And protect me from Harm" yet
 					local dmgBreakdown, totalDmgTaken = calcs.applyDmgTakenConversion(activeSkill, output, breakdown, dmgType, dmgVal)
 					t_insert(dmgBreakdown, 1, s_format("%d ^8(base %s damage)^7 * %.2f ^8(%s trauma)^7 = %.2f %s damage", damagePerTrauma, dmgType, currentTraumaStacks, activeSkill.skillModList:Sum("BASE", skillCfg, "Multiplier:SustainableTraumaStacks") == currentTraumaStacks and "sustainable" or "current", dmgVal, dmgType))
 					t_insert(dmgBreakdown, 2, s_format(""))
