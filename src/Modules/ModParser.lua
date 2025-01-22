@@ -776,6 +776,7 @@ local modNameList = {
 	["attribute requirements"] = { "StrRequirement", "DexRequirement", "IntRequirement" },
 	["effect of socketed jewels"] = "SocketedJewelEffect",
 	["effect of socketed abyss jewels"] = "SocketedJewelEffect",
+	["effect of socketed soul cores"] = "SocketedSoulCoreEffect",
 	["to inflict fire exposure on hit"] = "FireExposureChance",
 	["to apply fire exposure on hit"] = "FireExposureChance",
 	["to inflict cold exposure on hit"] = "ColdExposureChance",

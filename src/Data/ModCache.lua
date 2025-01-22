@@ -1888,6 +1888,7 @@ c["50% reduced effect of Ignite on you 50% reduced effect of Shock on you"]={{[1
 c["50% reduced effect of Shock on you"]={{[1]={flags=0,keywordFlags=0,name="SelfShockEffect",type="INC",value=-50}},nil}
 c["500% increased Armour"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="INC",value=500}},nil}
 c["500% increased Armour and Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="ArmourAndEnergyShield",type="INC",value=500}},nil}
+c["500% increased effect of Socketed Soul Cores"]={{[1]={flags=0,keywordFlags=0,name="SocketedSoulCoreEffect",type="INC",value=500}},nil}
 c["53% increased Chaos Damage"]={{[1]={flags=0,keywordFlags=0,name="ChaosDamage",type="INC",value=53}},nil}
 c["6 Life Regeneration per second"]={{[1]={flags=0,keywordFlags=0,name="LifeRegen",type="BASE",value=6}},nil}
 c["6 Life gained when you Block"]={{[1]={flags=0,keywordFlags=0,name="LifeOnBlock",type="BASE",value=6}},nil}
@@ -1958,7 +1959,7 @@ c["65% increased Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="EnergyShiel
 c["65% increased Evasion Rating"]={{[1]={flags=0,keywordFlags=0,name="Evasion",type="INC",value=65}},nil}
 c["65% increased Evasion and Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="EvasionAndEnergyShield",type="INC",value=65}},nil}
 c["666% increased Armour and Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="ArmourAndEnergyShield",type="INC",value=666}},nil}
-c["666% increased effect of Socketed Soul Cores"]={{[1]={flags=0,keywordFlags=0,name="LocalEffect",type="INC",value=666}},"  of Socketed Soul Cores "}
+c["666% increased effect of Socketed Soul Cores"]={{[1]={flags=0,keywordFlags=0,name="SocketedSoulCoreEffect",type="INC",value=666}},nil}
 c["7% chance to Gain 100% of Damage with Hits as Extra Chaos Damage"]={{[1]={flags=4,keywordFlags=0,name="DamageGainAsChaos",type="BASE",value=7}},nil}
 c["7% increased Attributes"]={{[1]={flags=0,keywordFlags=0,name="Str",type="INC",value=7},[2]={flags=0,keywordFlags=0,name="Dex",type="INC",value=7},[3]={flags=0,keywordFlags=0,name="Int",type="INC",value=7},[4]={flags=0,keywordFlags=0,name="All",type="INC",value=7}},nil}
 c["7% increased Chaos Damage"]={{[1]={flags=0,keywordFlags=0,name="ChaosDamage",type="INC",value=7}},nil}

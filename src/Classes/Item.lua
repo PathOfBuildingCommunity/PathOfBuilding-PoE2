@@ -333,6 +333,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 	self.checkSection = false
 	self.sockets = { }
 	self.runes = { }
+	self.soulCoreModLines = { }
 	self.itemSocketCount = 0
 	self.classRequirementModLines = { }
 	self.buffModLines = { }
@@ -798,10 +799,21 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 					end
 				end
 			end
+
+			for _, modLine in ipairs(self.runeModLines) do
+				local strippedModeLine = modLine.line:gsub("(%d%.?%d*)", "#")
+				for name, runeMods in pairs(data.itemMods.Runes) do
+					local runeStrippedModeLine = (self.base.weapon and runeMods.weapon or runeMods.armour)[1]:gsub("(%d%.?%d*)", "#")
+					if strippedModeLine == runeStrippedModeLine and name:match("Soul Core") then
+						t_insert(self.soulCoreModLines, modLine)
+					end
+				end
+			end
 		else
 			self.sockets = { }
 			self.itemSocketCount = 0
 			self.runes = { }
+			self.soulCoreModLines = { }
 		end
 	end
 	
@@ -1617,4 +1629,5 @@ function ItemClass:BuildModList()
 	else
 		self.modList = self:BuildModListForSlotNum(baseList)
 	end
+	self.socketedSoulCoreEffectModifier = 1 + calcLocal(baseList, "SocketedSoulCoreEffect", "INC", 0) / 100
 end
