@@ -402,6 +402,7 @@ function calcs.reducePoolsByDamage(poolTable, damageTable, actor)
 	local life = poolTbl.Life or output.LifeRecoverable or 0
 	local LifeLossLostOverTime = poolTbl.LifeLossLostOverTime or 0
 	local LifeBelowHalfLossLostOverTime = poolTbl.LifeBelowHalfLossLostOverTime or 0
+	local overkillDamage = 0
 	
 	for damageType, damage in pairs(damageTable) do
 		local damageRemainder = damage
@@ -415,7 +416,6 @@ function calcs.reducePoolsByDamage(poolTable, damageTable, actor)
 			end
 		end
 		-- frost shield / soul link / other taken before you does not count as you taking damage
-		PoolsLost[damageType] = (PoolsLost[damageType] or 0) + damageRemainder
 		if aegis[damageType] > 0 then
 			local tempDamage = m_min(damageRemainder, aegis[damageType])
 			aegis[damageType] = aegis[damageType] - tempDamage
@@ -454,7 +454,8 @@ function calcs.reducePoolsByDamage(poolTable, damageTable, actor)
 			damageRemainder = damageRemainder - tempDamage
 		end
 		if (output.sharedMindOverMatter + output[damageType.."MindOverMatter"]) > 0 then
-			local MoMDamage = damageRemainder * m_min(output.sharedMindOverMatter + output[damageType.."MindOverMatter"], 100) / 100
+			local MoMEffect = m_min(output.sharedMindOverMatter + output[damageType.."MindOverMatter"], 100) / 100
+			local MoMDamage = damageRemainder * MoMEffect
 			if modDB:Flag(nil, "EnergyShieldProtectsMana") and energyShield > 0 and esBypass < 100 then
 				local esDamageTypeMultiplier = damageType == "Chaos" and 2 or 1
 				local tempDamage = m_min(MoMDamage * (1 - esBypass / 100), energyShield / esDamageTypeMultiplier)
@@ -464,7 +465,8 @@ function calcs.reducePoolsByDamage(poolTable, damageTable, actor)
 				mana = mana - tempDamage2
 				damageRemainder = damageRemainder - tempDamage - tempDamage2
 			elseif mana > 0 then
-				local tempDamage = m_min(MoMDamage, mana)
+				local manaPool = MoMEffect < 1 and m_min(life / (1 - MoMEffect) - life, mana) or mana
+				local tempDamage = m_min(MoMDamage, manaPool)
 				mana = mana - tempDamage
 				damageRemainder = damageRemainder - tempDamage
 			end
@@ -504,7 +506,13 @@ function calcs.reducePoolsByDamage(poolTable, damageTable, actor)
 				life = life - overkillDamage
 			end
 		end
-		life = life - damageRemainder
+		if life > 0 then
+			local tempDamage = m_min(damageRemainder, life)
+			life = life - tempDamage
+			damageRemainder = damageRemainder - tempDamage
+		end
+		PoolsLost[damageType] = (PoolsLost[damageType] or 0) + (damage - damageRemainder)
+		overkillDamage = overkillDamage + damageRemainder
 	end
 
 	return {
@@ -517,7 +525,8 @@ function calcs.reducePoolsByDamage(poolTable, damageTable, actor)
 		Mana = mana,
 		Life = life,
 		LifeLossLostOverTime = LifeLossLostOverTime,
-		LifeBelowHalfLossLostOverTime = LifeBelowHalfLossLostOverTime
+		LifeBelowHalfLossLostOverTime = LifeBelowHalfLossLostOverTime,
+		OverkillDamage = overkillDamage
 	}
 end
 
@@ -2658,14 +2667,12 @@ function calcs.buildDefenceEstimations(env, actor)
 
 		local iterationMultiplier = 1
 		local damageTotal = 0
-		local lastPositiveLife = poolTable.Life
 		local maxDamage = data.misc.ehpCalcMaxDamage
 		local maxIterations = data.misc.ehpCalcMaxIterationsToCalc
 		while poolTable.Life > 0 and DamageIn["iterations"] < maxIterations do
 			DamageIn["iterations"] = DamageIn["iterations"] + 1
 			local Damage = { }
 			damageTotal = 0
-			lastPositiveLife = poolTable.Life
 			local VaalArcticArmourMultiplier = VaalArcticArmourHitsLeft > 0 and (( 1 - output["VaalArcticArmourMitigation"] * m_min(VaalArcticArmourHitsLeft / iterationMultiplier, 1))) or 1
 			VaalArcticArmourHitsLeft = VaalArcticArmourHitsLeft - iterationMultiplier
 			for _, damageType in ipairs(dmgTypeList) do
@@ -2725,9 +2732,8 @@ function calcs.buildDefenceEstimations(env, actor)
 			output.LifeBelowHalfLossLostOverTime = output.LifeBelowHalfLossLostOverTime + poolTable.LifeBelowHalfLossLostOverTime
 		end
 		
-		if poolTable.Life < 0 and DamageIn["cycles"] == 1 then -- Don't count overkill damage and only on final pass as to not break speedup.
-			numHits = numHits + poolTable.Life / (lastPositiveLife - poolTable.Life)
-			poolTable.Life = 0
+		if poolTable.Life == 0 and DamageIn["cycles"] == 1 then -- Don't count overkill damage and only on final pass as to not break speedup.
+			numHits = numHits - poolTable.OverkillDamage / damageTotal
 		end
 		-- Recalculate total hit damage
 		damageTotal = 0
