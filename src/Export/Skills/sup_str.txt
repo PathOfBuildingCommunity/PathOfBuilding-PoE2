@@ -466,6 +466,11 @@ statMap = {
 #skill SupportEmpoweredDamagePlayer
 #startSets
 #set SupportEmpoweredDamagePlayer
+statMap = {
+	["support_empowered_damage_+%_final"] = {
+		mod("ExtraEmpowerMod", "LIST", { mod = mod("Damage", "MORE", nil) }),
+	}
+},
 #mods
 #skillEnd
 

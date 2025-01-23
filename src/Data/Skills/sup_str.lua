@@ -1628,6 +1628,11 @@ skills["SupportEmpoweredDamagePlayer"] = {
 			label = "Premeditation",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_empowered_damage_+%_final"] = {
+					mod("ExtraEmpowerMod", "LIST", { mod = mod("Damage", "MORE", nil) }),
+				}
+			},
 			baseFlags = {
 			},
 			constantStats = {

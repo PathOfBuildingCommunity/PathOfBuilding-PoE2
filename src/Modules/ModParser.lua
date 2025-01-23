@@ -1240,7 +1240,7 @@ local preFlagList = {
 	["^for each nearby corpse, "] = { tag = { type = "Multiplier", var = "NearbyCorpse" } },
 	["^enemies in your link beams have "] = { tag = { type = "Condition", var = "BetweenYouAndLinkedTarget" }, applyToEnemy = true },
 	["^consecrated ground you create also grants "] = { tag = { type = "Condition", var = "OnConsecratedGround" } },
-	["^empowered attacks [hgd][ae][via][enl] "] = { flags = ModFlag.Attack, tag = { type = "Condition", var = "SkillEmpowered" } },
+	["^empowered attacks [hgd][ae][via][enl] "] = { flags = ModFlag.Attack, tag = { type = "Condition", var = "Empowered" } },
 	-- While in the presence of...
 	["^while a unique enemy is in your presence, "] = { tag = { type = "ActorCondition", actor = "enemy", var = "RareOrUnique" } },
 	["^while a pinnacle atlas boss is in your presence, "] = { tag = { type = "ActorCondition", actor = "enemy", var = "PinnacleBoss" } },
@@ -1257,8 +1257,8 @@ local modTagList = {
 	["with critical hits"] = { tag = { type = "Condition", var = "CriticalStrike" } },
 	["while affected by auras you cast"] = { tag = { type = "Condition", var = "AffectedByAura" } },
 	["for you and nearby allies"] = { newAura = true },
-	["with empowered attacks"] = { tag = { type = "Condition", var = "SkillEmpowered" } },
-	["during empowered attacks"] = { tag = { type = "Condition", var = "SkillEmpowered" } },
+	["with empowered attacks"] = { tag = { type = "Condition", var = "Empowered" } },
+	["during empowered attacks"] = { tag = { type = "Condition", var = "Empowered" } },
 	-- Multipliers
 	["per power charge"] = { tag = { type = "Multiplier", var = "PowerCharge" } },
 	["if you've consumed an? (%D+) charge recently"] = function(charge) return { tag = { type = "Multiplier", var = "Removable" .. firstToUpper(charge) .. "Charge", limit = 1 }} end,

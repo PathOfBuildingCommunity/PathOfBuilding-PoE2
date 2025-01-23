@@ -11657,6 +11657,9 @@ skills["ManaTempestPlayer"] = {
 			statDescriptionScope = "mana_tempest",
 			baseFlags = {
 			},
+			baseMods = {
+				mod("Empowered", "FLAG", true, ModFlag.Spell, 0, { type = "GlobalEffect", effectType = "Buff" }, { type = "StatThreshold", stat = "ManaCost", threshold = 1 }),
+			},
 			constantStats = {
 				{ "mana_tempest_mana_cost_%_to_add_to_cost_per_second", 30 },
 				{ "active_skill_base_area_of_effect_radius", 26 },
@@ -16788,6 +16791,9 @@ skills["StaffUnleashNextSpellPlayer"] = {
 			incrementalEffectiveness = 0.092720001935959,
 			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
+			},
+			baseMods = {
+				mod("Empowered", "FLAG", true, ModFlag.Spell, 0, { type = "GlobalEffect", effectType = "Buff" }),
 			},
 			constantStats = {
 				{ "base_skill_effect_duration", 4000 },
