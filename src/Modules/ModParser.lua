@@ -5873,7 +5873,6 @@ local jewelOtherFuncs = {
 		end
 	end,
 	["^(%w+) Passive Skills in Radius also grant (.*)$"] = function(type, mod)
-		ConPrintf("modparser logic for mod: %s", mod)
 		return function(node, out, data)
 			if node and (node.type == firstToUpper(type) or (node.type == "Normal" and not node.isAttribute and firstToUpper(type) == "Small")) then
 				local modList, line = parseMod(mod)

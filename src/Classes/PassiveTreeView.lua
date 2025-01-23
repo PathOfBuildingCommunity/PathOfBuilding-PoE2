@@ -1175,6 +1175,35 @@ function PassiveTreeViewClass:AddNodeTooltip(tooltip, node, build, incSmallPassi
 		end
 	end
 
+	local function mergeStats(nodeSd, jewelSd, spec)
+		-- copy the original tree node so we ignore the mods being added from the jewel
+		local nodeSdCopy = copyTable(nodeSd)
+		local nodeNumber = 0
+		local nodeString = ""
+		local modToAddNumber = 0
+		local modToAddString = ""
+
+		-- loop the original node mods and compare to the jewel mod we want to add
+		-- if the strings without the numbers are identical, the mods should be identical
+		-- if so, update the node's version of the mod and do not add the jewel mods to the list
+		-- otherwise, add the jewel mod because it's unique/new to the node
+		for index, originalSd in ipairs(nodeSdCopy) do
+			nodeString = originalSd:gsub("(%d+)", function(number)
+				nodeNumber = number
+				return ""
+			end)
+			modToAddString = jewelSd:gsub("(%d+)", function(number)
+				modToAddNumber = number
+				return ""
+			end)
+			if nodeString == modToAddString then
+				nodeSd[index] = nodeSd[index]:gsub("(%d+)", (nodeNumber + modToAddNumber))
+				return
+			end
+		end
+		t_insert(nodeSd, jewelSd)
+	end
+
 	-- loop over mods generated in CalcSetup by rad.func calls and grab the lines added
 	-- processStats once on copied node to cleanly setup for the tooltip
 	local function processTimeLostModsandGetLocalEffect(mNode, build)
@@ -1185,7 +1214,7 @@ function PassiveTreeViewClass:AddNodeTooltip(tooltip, node, build, incSmallPassi
 				localSmallIncEffect = mod.value
 			end
 			if mod.parsedLine and mod.name ~= "JewelSmallPassiveSkillEffect" then
-				t_insert(newSd, mod.parsedLine)
+				mergeStats(newSd, mod.parsedLine, build.spec)
 			end
 		end
 		mNode.sd = copyTable(newSd)
@@ -1193,14 +1222,31 @@ function PassiveTreeViewClass:AddNodeTooltip(tooltip, node, build, incSmallPassi
 		return localSmallIncEffect
 	end
 	
+	-- we only want to run the timeLost function on a node that can could be in a jewel socket radius of up to Large
+	-- essentially trying to avoid calling ProcessStats for a Normal/Notable node that can't possibly be affected
+	-- loops potentially every socket (24) until itemsTab is loaded or a jewel socket is hovered, then it will only loop the allocated sockets
+	local function isNodeInARadius(node) 
+		local isInRadius = false
+		for id, socket in pairs(build.itemsTab.sockets) do
+			if build.itemsTab.activeSocketList and socket.inactive == false or socket.inactive == nil then
+				isInRadius = isInRadius or build.spec.nodes[id].nodesInRadius[3][node.id] ~= nil
+				if isInRadius then break end
+			end
+		end
+		return isInRadius
+	end
+	
 	-- If so, check if the left hand tree is unallocated, but the right hand tree is allocated.
 	-- Then continue processing as normal
-	local mNode = node
+	local mNode = copyTableSafe(node, true, true)
 
 	-- This stanza actives for both Mastery and non Mastery tooltips. Proof: add '"Blah "..' to addModInfoToTooltip
 	if mNode.sd[1] and not mNode.allMasteryOptions then
 		tooltip:AddLine(16, "")
-		local localSmallIncEffect = processTimeLostModsandGetLocalEffect(mNode, build)
+		local localSmallIncEffect = 0
+		if not mNode.isAttribute and (mNode.type == "Normal" or mNode.type == "Notable") and isNodeInARadius(node) then
+			localSmallIncEffect = processTimeLostModsandGetLocalEffect(mNode, build)
+		end
 		for i, line in ipairs(mNode.sd) do
 			addModInfoToTooltip(mNode, i, line, localSmallIncEffect)
 		end
