@@ -49,7 +49,7 @@ for i, _ in ipairs(types) do
 				table.insert(support, temp)
 				table.insert(supportExport, temp1)
 			elseif not skillGem.IsSupport and types[i] == colour and not gemEffect.Id:match("Unknown") and not gemEffect.Id:match("Playtest") and not gemEffect.GrantedEffect.ActiveSkill.DisplayName:match("DNT") and not skillGem.BaseItemType.Name:match("DNT") 
-			and dat("SkillGemSupports"):GetRow("ActiveGem", dat("SkillGems"):GetRow("BaseItemType", dat("BaseItemTypes"):GetRow("Id", skillGem.BaseItemType.Id))) then
+			and (gemEffect.Id:match("UniqueBreach") or dat("SkillGemSupports"):GetRow("ActiveGem", dat("SkillGems"):GetRow("BaseItemType", dat("BaseItemTypes"):GetRow("Id", skillGem.BaseItemType.Id)))) then
 				local temp = gemEffect.GrantedEffect.ActiveSkill.DisplayName..string.rep(" ", 30 - string.len(gemEffect.GrantedEffect.ActiveSkill.DisplayName)).."\t\t----\t\t"..gemEffect.GrantedEffect.Id
 				local temp1 = gemEffect.GrantedEffect.ActiveSkill.DisplayName..grantedEffectString(gemEffect.GrantedEffect)
 				if gemEffect.AdditionalGrantedEffects then

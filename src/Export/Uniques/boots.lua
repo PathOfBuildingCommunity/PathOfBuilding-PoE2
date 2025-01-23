@@ -84,7 +84,6 @@ UniqueLocalIncreasedEvasionRatingPercent13
 UniqueDexterity20
 {variant:1}UniqueLightningResist11[5,15]
 {variant:2}UniqueLightningResist11
-UniqueLightningResist11
 UniqueRandomMovementVelocityOnHit1
 ]],[[
 Thunderstep

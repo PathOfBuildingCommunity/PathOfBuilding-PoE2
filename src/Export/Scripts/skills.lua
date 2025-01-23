@@ -219,8 +219,16 @@ local directiveTable = { }
 local fromSpec = nil
 local minionList = nil
 
+
+local whiteListStat = {
+	["is_area_damage"] = true,
+}
 local loadedStatDescriptionLua = { }
 function checkModInStatDescription(statDescription, line)
+	if whiteListStat[line] then
+		return true
+	end
+
 	local searchIn = statDescription
 	local stat
 
@@ -872,17 +880,23 @@ directiveTable.mods = function(state, args, out)
 
 	-- validate stats
 	local printHeader = true
-	for i = 1, #set.stats do
-		if not set.levels[i] or type(set.levels[i]) ~= "number" then
-			break
-		end
-		local stat = set.stats[i]
+	for _, stat in ipairs(set.stats) do
 		if not checkModInStatDescription(state.statDescriptionScope, stat.id) then
 			if printHeader then
 				printHeader = false
 				ConPrintf("====================================\nSkill %s: ", state.infoGrantedId)
 			end
 			ConPrintf("Stat %s not found in stat description %s",  stat.id, state.statDescriptionScope)
+		end
+	end
+	for _, listStat in ipairs(set.constantStats) do
+		local stat = listStat[1]
+		if not checkModInStatDescription(state.statDescriptionScope, stat) then
+			if printHeader then
+				printHeader = false
+				ConPrintf("====================================\nSkill %s: ", state.infoGrantedId)
+			end
+			ConPrintf("Constant Stat %s not found in stat description %s",  stat, state.statDescriptionScope)
 		end
 	end
 	state.set = nil

@@ -269,6 +269,7 @@ Galvanic Field                		----		GalvanicFieldPlayer
 Gathering Storm               		----		GatheringStormPlayer
 Ghost Dance                   		----		GhostDancePlayer
 Glacial Cascade               		----		GlacialCascadePlayer
+Greater Lightning Bolt        		----		UniqueBreachLightningBoltPlayer
 Grim Feast                    		----		GrimFeastPlayer
 Hand of Chayula               		----		HandOfChayulaPlayer	SupportHandOfChayulaPlayer
 Herald of Ice                 		----		HeraldOfIcePlayer
