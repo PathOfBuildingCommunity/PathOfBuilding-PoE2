@@ -5877,10 +5877,10 @@ local jewelOtherFuncs = {
 		return function(node, out, data)
 			if node and (node.type == firstToUpper(type) or (node.type == "Normal" and not node.isAttribute and firstToUpper(type) == "Small")) then
 				local modList, line = parseMod(mod)
-				if not line then -- something failed to parse, do not add to list
-					out:AddList(modList)
-					out[#out].parsedLine = capitalizeWordsInString(mod)
-					out[#out].source = data.modSource
+				if not line and modList[1] then -- something failed to parse, do not add to list
+					modList[1].parsedLine = capitalizeWordsInString(mod)
+					modList[1].source = data.modSource
+					out:AddMod(modList[1])
 				end
 			end
 		end

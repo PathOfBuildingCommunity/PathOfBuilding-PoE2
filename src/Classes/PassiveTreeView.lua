@@ -1190,7 +1190,6 @@ function PassiveTreeViewClass:AddNodeTooltip(tooltip, node, build, incSmallPassi
 		end
 		mNode.sd = copyTable(newSd)
 		build.spec.tree:ProcessStats(mNode)
-		ConPrintf("calling processStats for %s", mNode.name)
 		return localSmallIncEffect
 	end
 	
