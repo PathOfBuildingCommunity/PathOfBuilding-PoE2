@@ -192,7 +192,7 @@ function calcs.buildModListForNode(env, node, incSmallPassiveSkill)
 				added = true
 				if node.allocMode ~= 0 then -- only update the conditional for WS1/WS2
 					mod[j].var = "WeaponSet".. node.allocMode
-				else -- if normal and conditional exists, remove it
+				else -- if normal and condition exists, remove it
 					t_remove(mod, j)
 				end
 			end
@@ -200,14 +200,31 @@ function calcs.buildModListForNode(env, node, incSmallPassiveSkill)
 		-- only add the conditional for WS1/WS2
 		if not added and node.allocMode ~= 0 then
 			table.insert(mod, { type = "Condition", var = "WeaponSet".. node.allocMode })
+		elseif mod.parsedLine then
+			local jewelSource = tonumber(mod.source:match("%d+"))
+			if env.build.spec.nodes[jewelSource].allocMode ~= 0 then
+				table.insert(mod, { type = "Condition", var = "WeaponSet".. env.build.spec.nodes[jewelSource].allocMode })
+			end
 		end
-	end
-
-	-- needs to be checked after WS logic so we don't add if the jewel is in a WS and inactive
-	for _, mod in ipairs(modList) do
-		if mod.name == "JewelSmallPassiveSkillEffect" then
-			localSmallIncEffect = mod.value
-		end
+		
+		local hasWSCondition = false
+		-- if the jewelMod has a WS Condition, only add the incEffect given it matches the activeWeaponSet
+		-- otherwise the mod came from a jewel that is allocMode 0, so it always applies
+		--for _, mod in ipairs(modList) do
+			if mod.name == "JewelSmallPassiveSkillEffect" then
+				for _, modCriteria in ipairs(mod) do
+					if modCriteria.type == "Condition" and modCriteria.var and modCriteria.var:match("^WeaponSet") then
+						if (tonumber(modCriteria.var:match("(%d)")) == (env.build.itemsTab.activeItemSet.useSecondWeaponSet and 2 or 1)) then
+							localSmallIncEffect = mod.value
+						end
+						hasWSCondition = true
+					end
+				end
+				if not hasWSCondition then
+					localSmallIncEffect = mod.value
+				end
+			end
+		--end
 	end
 	
 	-- Apply Inc Node scaling from Hulking Form

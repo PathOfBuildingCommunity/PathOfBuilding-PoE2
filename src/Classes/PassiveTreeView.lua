@@ -1208,13 +1208,29 @@ function PassiveTreeViewClass:AddNodeTooltip(tooltip, node, build, incSmallPassi
 	-- processStats once on copied node to cleanly setup for the tooltip
 	local function processTimeLostModsandGetLocalEffect(mNode, build)
 		local localSmallIncEffect = 0
+		local hasWSCondition = false
 		local newSd = copyTable(build.spec.tree.nodes[mNode.id].sd)
 		for _, mod in ipairs(mNode.finalModList) do
-			if mod.name == "JewelSmallPassiveSkillEffect" then
-				localSmallIncEffect = mod.value
+			-- if the jewelMod has a WS Condition, only add the incEffect given it matches the activeWeaponSet
+			-- otherwise the mod came from a jewel that is allocMode 0, so it always applies
+			for _, modCriteria in ipairs(mod) do
+				if modCriteria.type == "Condition" and modCriteria.var and modCriteria.var:match("^WeaponSet") then
+					if (tonumber(modCriteria.var:match("(%d)")) == (build.itemsTab.activeItemSet.useSecondWeaponSet and 2 or 1)) then
+						if mod.name == "JewelSmallPassiveSkillEffect" then
+							localSmallIncEffect = mod.value
+						elseif mod.parsedLine then
+							mergeStats(newSd, mod.parsedLine, build.spec)
+						end
+					end
+					hasWSCondition = true
+				end
 			end
-			if mod.parsedLine and mod.name ~= "JewelSmallPassiveSkillEffect" then
-				mergeStats(newSd, mod.parsedLine, build.spec)
+			if not hasWSCondition then
+				if mod.name == "JewelSmallPassiveSkillEffect" then
+					localSmallIncEffect = mod.value
+				elseif mod.parsedLine then
+					mergeStats(newSd, mod.parsedLine, build.spec)
+				end
 			end
 		end
 		mNode.sd = copyTable(newSd)
