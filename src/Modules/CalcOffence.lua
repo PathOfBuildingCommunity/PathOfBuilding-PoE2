@@ -3982,7 +3982,7 @@ function calcs.offence(env, actor, activeSkill)
 					t_insert(breakdownDPS, pass.label..":")
 				end
 				if sourceHitDmg == sourceCritDmg or output.CritChance == 0 then
-					t_insert(breakdownDPS, "Total damage:")
+					t_insert(breakdownDPS, "Total base DPS per " .. type .. ":")
 					t_insert(breakdownDPS, s_format("%.1f ^8(source damage)",sourceHitDmg))
 					if sourceMult > 1 then
 						t_insert(breakdownDPS, s_format("x %.2f ^8(inflicting as though dealing more damage)", sourceMult))
@@ -4006,7 +4006,7 @@ function calcs.offence(env, actor, activeSkill)
 						end
 					end
 					if baseFromHit > 0 and baseFromCrit > 0 then
-						t_insert(breakdownDPS, "Total damage:")
+						t_insert(breakdownDPS, "Total base DPS per " .. type .. ":")
 						t_insert(breakdownDPS, s_format("%.1f + %.1f", baseFromHit, baseFromCrit))
 						if sourceMult == 1 then
 							t_insert(breakdownDPS, s_format("= %.1f", baseVal))
@@ -4266,7 +4266,7 @@ function calcs.offence(env, actor, activeSkill)
 					t_insert(breakdown[ailment .. "DPS"], s_format("x %.2f ^8(ailment magnitude effect)", globalOutput[ailment .. "MagnitudeEffect"]))
 					t_insert(breakdown[ailment .. "DPS"], s_format("= %.1f", baseVal, 1))
 					t_insert(breakdown[ailment .. "DPS"], "")
-					t_insert(breakdown[ailment .. "DPS"], "Average ailment DPS:")
+					t_insert(breakdown[ailment .. "DPS"], "Average DPS for all " .. ailment .. "s:")
 					if baseVal ~= ailmentDPSUncapped then
 						t_insert(breakdown[ailment .. "DPS"], s_format("%.1f ^8(base damage per second)", baseVal))
 					end
@@ -4311,9 +4311,9 @@ function calcs.offence(env, actor, activeSkill)
 						if isAttack then
 							t_insert(breakdown[ailment .. "Damage"], pass.label..":")
 						end
-						t_insert(breakdown[ailment .. "Damage"], s_format("%.1f ^8(damage per second)", output[ailment .. "DPS"]))
+						t_insert(breakdown[ailment .. "Damage"], s_format("%.1f ^8(DPS of all stacks)", baseVal))
 						t_insert(breakdown[ailment .. "Damage"], s_format("x %.2fs ^8(ailment duration)", globalOutput[ailment .. "Duration"]))
-						t_insert(breakdown[ailment .. "Damage"], s_format("= %.1f ^8damage per ailment stack", output[ailment .. "Damage"]))
+						t_insert(breakdown[ailment .. "Damage"], s_format("= %.1f ^8total damage of all stacks", output[ailment .. "Damage"]))
 					end
 					if globalOutput[ailment .. "Duration"] ~= data.misc[ailment .. "DurationBase"] then
 						globalBreakdown[ailment .. "Duration"] = {
