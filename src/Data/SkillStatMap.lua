@@ -1522,6 +1522,9 @@ return {
 ["projectile_chance_to_chain_1_extra_time_from_terrain_%"] = {
 	mod("TerrainChainChance", "BASE", nil),
 },
+["chance_to_fire_2_additional_projectiles%"] = {
+	mod("TwoAdditionalProjectilesChance", "BASE", nil),
+},	
 ["additional_beam_only_chains"] = {
 	mod("BeamChainCountMax", "BASE", nil),
 },

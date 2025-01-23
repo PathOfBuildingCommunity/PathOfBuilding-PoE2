@@ -1059,6 +1059,7 @@ function calcs.offence(env, actor, activeSkill)
 		if breakdown then
 			breakdown.ProjectileSpeedMod = breakdown.mod(skillModList, skillCfg, "ProjectileSpeed")
 		end
+		output.TwoAdditionalProjectiles = m_min(skillModList:Sum("BASE", skillCfg, "TwoAdditionalProjectilesChance"), 100)
 	end
 	if skillFlags.melee then
 		if skillFlags.weapon1Attack then

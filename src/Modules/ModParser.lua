@@ -538,6 +538,7 @@ local modNameList = {
 	["projectile"] = "ProjectileCount",
 	["projectiles"] = "ProjectileCount",
 	["projectile speed"] = "ProjectileSpeed",
+	["projectile speed for spell skills"] = {"ProjectileSpeed", flags = ModFlag.Spell },
 	["arrow speed"] = { "ProjectileSpeed", flags = ModFlag.Bow },
 	-- Totem/trap/mine/brand modifiers
 	["totem placement speed"] = "TotemPlacementSpeed",
@@ -3144,6 +3145,7 @@ local specialModList = {
 	["non%-critical hits deal (%d+)%% less damage"] = function(num) return { mod("Damage", "MORE", -num, nil, ModFlag.Hit, { type = "Condition", var = "CriticalStrike", neg = true }) } end,
 	["spell skills always deal critical hits on final repeat"] = { flag("SpellSkillsAlwaysDealCriticalStrikesOnFinalRepeat", nil, ModFlag.Spell) },
 	["spell skills cannot deal critical hits except on final repeat"] = { flag("SpellSkillsCannotDealCriticalStrikesExceptOnFinalRepeat", nil, ModFlag.Spell), flag("", { type = "Condition", var = "alwaysFinalRepeat" }) },
+	["(%d+)%% chance for spell skills to fire 2 additional projectiles"] = function(num) return { mod("TwoAdditionalProjectilesChance", "BASE", num, nil , ModFlag.Spell) } end,
 	["critical hits penetrate (%d+)%% of enemy elemental resistances while affected by zealotry"] = function(num) return { mod("ElementalPenetration", "BASE", num, { type = "Condition", var = "CriticalStrike" }, { type = "Condition", var = "AffectedByZealotry" }) } end,
 	["attack critical hits ignore enemy monster elemental resistances"] = { flag("IgnoreElementalResistances", { type = "Condition", var = "CriticalStrike" }, { type = "SkillType", skillType = SkillType.Attack }) },
 	["treats enemy monster elemental resistance values as inverted"] =  { mod("HitsInvertEleResChance", "CHANCE", 100, { type = "Condition", var = "{Hand}Attack" }) } ,
