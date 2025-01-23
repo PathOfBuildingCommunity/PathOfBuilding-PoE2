@@ -161,16 +161,13 @@ function calcs.buildModListForNode(env, node, incSmallPassiveSkill)
 				if not cache or (cache.hash ~= rad.jewelHash) then
 					initializeJewelStatCache(env)
 				end
-				if not node.isAttribute and (node.type == "Normal" or node.type == "Notable") and not env.build.treeTab.skipTimeLostJewelProcessing 
-				and #node.finalModList == #env.build.spec.tree.nodes[node.id].modList then
+				if not node.isAttribute and (node.type == "Normal" or node.type == "Notable") and not env.build.treeTab.skipTimeLostJewelProcessing then
+				-- too aggressive, need to account for scaled values and not just size of lists
+				--and #node.finalModList == #env.build.spec.tree.nodes[node.id].modList then
 					if node.type == "Normal" and #cache.smallModList > 0 then
 						modList:AddList(cache.smallModList)
 					elseif node.type == "Notable" and #cache.notableModList > 0 then
 						modList:AddList(cache.notableModList)
-					end
-					-- weird case where the finalModList isn't set for unallocated nodes in radius
-					if not node.alloc then
-						node.finalModList = copyTable(modList, true)
 					end
 					break
 				end
@@ -253,7 +250,12 @@ function calcs.buildModListForNode(env, node, incSmallPassiveSkill)
 		scaledList:ScaleAddList(modList, scale)
 		modList = scaledList
 	end
-	
+
+	-- weird case where the finalModList isn't set for unallocated nodes in radius sometimes
+	-- if the unallocated ever stop getting the jewel mods, flip this on
+	--if not node.alloc then
+	--	node.finalModList = copyTable(modList, true)
+	--end
 	return modList
 end
 
