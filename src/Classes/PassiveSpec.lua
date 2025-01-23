@@ -724,6 +724,11 @@ function PassiveSpecClass:AllocNode(node, altPath)
 			end
 		end
 	end
+	if node.type == "Socket" then
+		if self.build.itemsTab then
+			self.build.itemsTab:UpdateSockets()
+		end
+	end
 
 	-- Rebuild all dependencies and paths for all allocated nodes
 	self:BuildAllDependsAndPaths()
@@ -736,6 +741,10 @@ function PassiveSpecClass:DeallocSingleNode(node)
 	if node.type == "Mastery" then
 		self:AddMasteryEffectOptionsToNode(node)
 		self.masterySelections[node.id] = nil
+	elseif node.type == "Socket" then
+		if self.build.itemsTab then
+			self.build.itemsTab:UpdateSockets()
+		end
 	end
 end
 

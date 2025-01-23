@@ -146,46 +146,52 @@ end
 local function setRadiusJewelStats(radiusJewel, radiusJewelStats)
 	local jewel = radiusJewel.item
 	local incEffect
-	if jewel.baseName:find("Time%-Lost") ~= nil then
-		radiusJewelStats.source = radiusJewel.data.modSource
-		if jewel.title == "Against the Darkness" then
-			setStats(jewel, radiusJewelStats, 1, false)
-			setStats(jewel, radiusJewelStats, 2, true)
-		else
-			local jewelModLines = copyTable(jewel.explicitModLines, true)
-			-- sanitize mods in case of line breaks
-			for id, mod in ipairs(jewelModLines) do
-				local line1, line2 = mod.line:match("^(.-)\n(.*)$")
-				-- if a line break is found, copy the modLineTable, modify the original with the first string 
-				-- and add the table with second string to the end
-				if line1 and line2 then
-					jewel.explicitModLines[id].line = line1
-					local linebreakMod = copyTable(jewel.explicitModLines[id])
-					linebreakMod.line = line2
-					t_insert(jewel.explicitModLines, linebreakMod)
-				end
+	radiusJewelStats.source = radiusJewel.data.modSource
+	if jewel.title == "Against the Darkness" then
+		setStats(jewel, radiusJewelStats, 1, false)
+		setStats(jewel, radiusJewelStats, 2, true)
+	else
+		local jewelModLines = copyTable(jewel.explicitModLines)
+		-- sanitize mods in case of line breaks
+		for id, mod in ipairs(jewelModLines) do
+			local line1, line2 = mod.line:match("^(.-)\n(.*)$")
+			-- if a line break is found, copy the modLineTable, modify the original with the first string 
+			-- and add to the table with second string to the end
+			if line1 and line2 then
+				jewel.explicitModLines[id].line = line1
+				local linebreakMod = copyTable(jewel.explicitModLines[id])
+				linebreakMod.line = line2
+				t_insert(jewel.explicitModLines, linebreakMod)
 			end
-			for modIndex, _ in ipairs(jewelModLines) do
-				incEffect = setStats(jewel, radiusJewelStats, modIndex, false) or incEffect
-			end
+		end
+		jewelModLines = copyTable(jewel.explicitModLines)
+		for modIndex, modLine in ipairs(jewelModLines) do
+			incEffect = setStats(jewel, radiusJewelStats, modIndex, false) or incEffect
 		end
 	end
 	return incEffect
 end
 
-local function addStats(jewel, node, spec, init)
+local function addStats(jewel, node, spec, init, socketId)
 	local incEffect
-	-- short term to avoid running the logic on AddItemTooltip
+	local processed = false
 	if not spec.build.treeTab.skipTimeLostJewelProcessing then
-		-- reset node stats to base or override for attributes
-		if spec.hashOverrides and spec.hashOverrides[node.id] then
-			node.sd = copyTable(spec.hashOverrides[node.id].sd, true)
-		else
-			node.sd = copyTable(spec.tree.nodes[node.id].sd, true)
-		end
+		-- reset node stats to base
+		node.sd = copyTable(spec.tree.nodes[node.id].sd, true)
 
 		local radiusJewelStats = { }
-		incEffect = setRadiusJewelStats(jewel, radiusJewelStats)
+		local rawJewelHash = getHashFromString(jewel.item.raw)
+		if jewel.radiusJewelStats and (jewel.jewelHash == rawJewelHash) then
+			radiusJewelStats = copyTable(jewel.radiusJewelStats, true)
+			incEffect = jewel.radiusJewelStats.incEffect
+			ConPrintf("reused jewel stats for nodeId: %s -- node: %s", node.id, node.dn)
+		else
+			incEffect = setRadiusJewelStats(jewel, radiusJewelStats)
+			jewel.radiusJewelStats = copyTable(radiusJewelStats, true)
+			jewel.radiusJewelStats.incEffect = incEffect
+			jewel.jewelHash = rawJewelHash
+			ConPrintf("fetched jewel stats for nodeId: %s -- node: %s", node.id, node.dn)
+		end
 		for _, stat in ipairs(radiusJewelStats) do
 			-- the node and stat types match, add sd to node if it's not already there and it's an 'also grant' mod
 			if not isValueInTable(node.sd, stat.sdLine) and ((node.type == "Notable" and stat.isNotable) or (node.type == "Normal" and not stat.isNotable))
@@ -202,10 +208,13 @@ local function addStats(jewel, node, spec, init)
 				end)
 			end
 		end
+		
 		if not init then
 			-- node processed, track hash so we know to skip next time
 			node.jewelHash = jewel.jewelHash
 		end
+			--testCounter = testCounter + 1
+			--ConPrintf("socketId: %s -- init: %s -- func call # %s for nodeId: %d -- nodeName: %s \n", socketId, init, testCounter, node.id, node.dn)
 	end
 end
 
@@ -215,10 +224,10 @@ local function addStatsFromJewelToNode(jewel, node, spec)
 		local itemsTab = spec.build.itemsTab
 		-- if the Time-Lost jewel is socketed, add the stat
 		if itemsTab.activeSocketList then
-			for _, nodeId in pairs(itemsTab.activeSocketList) do
-				local _, socketedJewel = itemsTab:GetSocketAndJewelForNodeID(nodeId)
-				if socketedJewel and socketedJewel.modSource == jewel.item.modSource then
-					addStats(jewel, node, spec)
+			for socketId, nodeId in pairs(itemsTab.activeSocketList) do
+				local socketJewelId, socketedJewel = itemsTab:GetSocketAndJewelForNodeID(nodeId)
+				if (socketedJewel and socketedJewel.raw == jewel.item.raw) then
+					addStats(jewel, node, spec, nil, socketId)
 				end
 			end
 		-- activeSocketList isn't init on Load, need to run until it is
@@ -228,15 +237,23 @@ local function addStatsFromJewelToNode(jewel, node, spec)
 	end
 end
 
--- grab a hash of the jewel's modSource (socketed + name) and compare with node.jewelHash
--- process if they are not the same, otherwise assume the jewel stats or socketStatus and node haven't changed and the node's been processed
-local function checkNodeProcessedAndJewelUnchanged(jewel, node, baseTreeNodes)
-	jewel.jewelHash = getHashFromString(jewel.item.raw)
-	return (jewel.jewelHash == node.jewelHash and node.modKey ~= baseTreeNodes[node.id].modKey)
+-- grab a hash of the jewel's raw data and compare with node.jewelHash, check if the jewel has a mod that applies to the node
+local function isNodeProcessedAndJewelUnchanged(jewel, node, radiusJewelStats, baseTreeNodes)
+	local hasNotableMod, hasSmallMod = false, false
+	for _, mod in ipairs(jewel.item.explicitModLines) do
+		hasNotableMod = hasNotableMod or (mod.line:find("Notable Passive Skills in Radius also grant") ~= nil)
+		hasSmallMod = hasSmallMod or (mod.line:find("Small Passive Skills in Radius also grant") ~= nil)
+	end
+	-- if the jewel has an applicable mod and the jewel hasn't changed since last time we processed the node (if we have at all)
+	-- do not process the node again
+	return ((node.type == "Notable" and hasNotableMod) or (node.type == "Normal" and hasSmallMod)) 
+		and ((jewel.jewelHash ~= node.jewelHash) or (jewel.jewelHash == node.jewelHash and node.modKey == baseTreeNodes[node.id].modKey))
 end
 
 function calcs.buildModListForNode(env, node, incSmallPassiveSkill)
 	local modList = new("ModList")
+	local jewelNodeId = 0
+	local nodeIsInRadius = false
 	if node.type == "Keystone" then
 		modList:AddMod(node.keystoneMod)
 	else
@@ -248,12 +265,15 @@ function calcs.buildModListForNode(env, node, incSmallPassiveSkill)
 		if rad.type == "Other" and rad.nodes[node.id] and rad.nodes[node.id].type ~= "Mastery" then
 			if rad.item.baseName:find("Time%-Lost") == nil then
 				rad.func(node, modList, rad.data)
-			else
-				if not checkNodeProcessedAndJewelUnchanged(rad, node, env.build.spec.tree.nodes) then
+			-- we only want to process each jewel once
+			elseif jewelNodeId ~= rad.nodeId then
+				if isNodeProcessedAndJewelUnchanged(rad, node, env.radiusJewelStats, env.build.spec.tree.nodes) then
 					addStatsFromJewelToNode(rad, node, env.build.spec)
 					env.build.spec.tree:ProcessStats(node)
 				end
 				modList = node.modList
+				jewelNodeId = rad.nodeId
+				nodeIsInRadius = true
 			end
 		end
 	end
@@ -270,19 +290,28 @@ function calcs.buildModListForNode(env, node, incSmallPassiveSkill)
 		modList = scaledList
 	end
 
+	jewelNodeId = 0
 	-- Run second pass radius jewels
 	for _, rad in pairs(env.radiusJewelFunctionsList) do
-		if rad.nodes[node.id] and rad.nodes[node.id].type ~= "Mastery" and (rad.type == "Threshold" or (rad.type == "Self" and env.allocNodes[node.id]) or (rad.type == "SelfUnalloc" and not env.allocNodes[node.id])) then
+		if rad.nodes[node.id] and rad.nodes[node.id].type ~= "Mastery" and (rad.type == "Threshold" or (rad.type == "Self" and env.allocNodes[node.id]) 
+		or (rad.type == "SelfUnalloc" and not env.allocNodes[node.id])) then
 			if rad.item.baseName:find("Time%-Lost") == nil then
 				rad.func(node, modList, rad.data)
-			else
-				if not checkNodeProcessedAndJewelUnchanged(rad, node) then
-					addStatsFromJewelToNode(rad, node, env.build.spec, env.build.spec.tree.nodes)
+			elseif jewelNodeId ~= rad.nodeId then
+				if isNodeProcessedAndJewelUnchanged(rad, node, env.radiusJewelStats, env.build.spec.tree.nodes) then
+					addStatsFromJewelToNode(rad, node, env.build.spec)
 					env.build.spec.tree:ProcessStats(node)
 				end
 				modList = node.modList
+				jewelNodeId = rad.nodeId
+				nodeIsInRadius = true
 			end
 		end
+	end
+	
+	-- if the node was processed by a jewel and now isn't, reset sd so processStats resets the node to base
+	if not nodeIsInRadius and node.jewelHash then
+		env.build.spec:ReplaceNode(node, env.build.spec.tree.nodes[node.id])
 	end
 	
 	if modList:Flag(nil, "PassiveSkillHasOtherEffect") then
@@ -793,9 +822,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 		end
 		env.allocNodes = nodes
 	end
-
-	local nodesModsList = calcs.buildModListForNodeList(env, env.allocNodes, true)
-
+	
 	if allocatedNotableCount and allocatedNotableCount > 0 then
 		modDB:NewMod("Multiplier:AllocatedNotable", "BASE", allocatedNotableCount)
 	end
@@ -1024,17 +1051,6 @@ function calcs.initEnv(build, mode, override, specEnv)
 				-- Merge mods for this item
 				local srcList = item.modList or (item.slotModList and item.slotModList[slot.slotNum]) or {}
 
-				-- Remove Spirit Base if CannotGainSpiritFromEquipment flag is true
-				if nodesModsList:Flag(nil, "CannotGainSpiritFromEquipment") then
-					srcList = copyTable(srcList, true)
-					for index = #srcList, 1, -1 do
-						local mod = srcList[index]
-						if mod.name == "Spirit" and mod.type == "BASE" then
-							t_remove(srcList, index)
-						end
-					end
-				end
-
 				if item.requirements and not accelerate.requirementsItems then
 					t_insert(env.requirementsTableItems, {
 						source = "Item",
@@ -1211,9 +1227,6 @@ function calcs.initEnv(build, mode, override, specEnv)
 				if item.charmLimit then
 					env.modDB:NewMod("CharmLimit", "BASE", item.charmLimit, item.title)
 				end
-				if item.spiritValue and not nodesModsList:Flag(nil, "CannotGainSpiritFromEquipment") then
-					env.modDB:NewMod("Spirit", "BASE", item.spiritValue, item.title)
-				end
 				if item.type ~= "Jewel" and item.type ~= "Flask" and item.type ~= "Charm" then
 					-- Update item counts
 					local key
@@ -1290,6 +1303,29 @@ function calcs.initEnv(build, mode, override, specEnv)
 	-- Merge modifiers for allocated passives
 	env.modDB:AddList(calcs.buildModListForNodeList(env, env.allocNodes, true))
 
+	-- Invoker ascendancy logic, buildModListForNodeList is a heavy function and should not be called additional purely for this
+	-- orderedSlots iterations will be miniscule compared to the hundreds of nodes running the logic if buildModList is called again
+	for _, slot in pairs(build.itemsTab.orderedSlots) do
+		local slotName = slot.slotName
+		local item = build.itemsTab.items[slotName]
+		if item then
+			local srcList = item.modList or (item.slotModList and item.slotModList[slot.slotNum]) or {}
+			-- Remove Spirit Base if CannotGainSpiritFromEquipment flag is true
+			if env.modDB:Flag(nil, "CannotGainSpiritFromEquipment") then
+				srcList = copyTable(srcList, true)
+				for index = #srcList, 1, -1 do
+					local mod = srcList[index]
+					if mod.name == "Spirit" and mod.type == "BASE" then
+						t_remove(srcList, index)
+					end
+				end
+			end
+			if item.spiritValue and not env.modDB:Flag(nil, "CannotGainSpiritFromEquipment") then
+				env.modDB:NewMod("Spirit", "BASE", item.spiritValue, item.title)
+			end
+		end
+	end
+	
 	if not override or (override and not override.extraJewelFuncs) then
 		override = override or {}
 		override.extraJewelFuncs = new("ModList")
