@@ -92,35 +92,6 @@ function calcs.initModDB(env, modDB)
 	modDB.conditions["Effective"] = env.mode_effective
 end
 
-local function mergeStats(node, sd, spec)
-	-- copy the original tree node so we ignore the mods being added from the jewel
-	local nodeCopy = copyTable(spec.tree.nodes[node.id], true)
-	local nodeNumber = 0
-	local nodeString = ""
-	local modToAddNumber = 0
-	local modToAddString = ""
-
-	-- loop the original node mods and compare to the jewel mod we want to add
-	-- if the strings without the numbers are identical, the mods should be identical
-	-- if so, update the node's version of the mod and do not add the jewel mods to the list
-	-- otherwise, add the jewel mod because it's unique/new to the node
-	for index, nodeSd in ipairs(nodeCopy.sd) do
-		nodeString = nodeSd:gsub("(%d+)", function(number)
-			nodeNumber = number
-			return ""
-		end)
-		modToAddString = sd:gsub("(%d+)", function(number)
-			modToAddNumber = number
-			return ""
-		end)
-		if nodeString == modToAddString then
-			node.sd[index] = node.sd[index]:gsub("(%d+)", (nodeNumber + modToAddNumber))
-			return
-		end
-	end
-	t_insert(node.sd, sd)
-end
-
 local function initializeJewelStatCache(env)
 	local normalNode = { type = "Normal" }
 	local notableNode = { type = "Notable" }
@@ -164,9 +135,9 @@ function calcs.buildModListForNode(env, node, incSmallPassiveSkill)
 				if not node.isAttribute and (node.type == "Normal" or node.type == "Notable") and not env.build.treeTab.skipTimeLostJewelProcessing then
 				-- too aggressive, need to account for scaled values and not just size of lists
 				--and #node.finalModList == #env.build.spec.tree.nodes[node.id].modList then
-					if node.type == "Normal" and #cache.smallModList > 0 then
+					if node.type == "Normal" and cache and #cache.smallModList > 0 then
 						modList:AddList(cache.smallModList)
-					elseif node.type == "Notable" and #cache.notableModList > 0 then
+					elseif node.type == "Notable" and cache and #cache.notableModList > 0 then
 						modList:AddList(cache.notableModList)
 					end
 					break
