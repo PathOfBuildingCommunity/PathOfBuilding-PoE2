@@ -838,6 +838,9 @@ function SkillsTabClass:CreateGemSlot(index)
 		self.build.buildFlag = true
 	end)
 	slot.count.shown = function()
+		if index == 1 and self.displayGroup and (self.displayGroup.sourceItem or self.displayGroup.sourceNode) then
+			return false
+		end
 		local gemInstance = self.displayGroup and self.displayGroup.gemList[index]
 		if gemInstance then
 			local grantedEffectList = gemInstance.gemData and gemInstance.gemData.grantedEffectList or { gemInstance.grantedEffect }
@@ -1079,8 +1082,9 @@ function SkillsTabClass:SetDisplayGroup(socketGroup)
 		self.controls.groupEnabled.state = socketGroup.enabled
 		self.controls.includeInFullDPS.state = socketGroup.includeInFullDPS and socketGroup.enabled
 		if socketGroup.sourceItem then
-			socketGroup.set1 = true
-			socketGroup.set2 = false
+			local swap = not not socketGroup.slot:find("Swap")
+			socketGroup.set1 = not swap
+			socketGroup.set2 = swap
 		elseif socketGroup.sourceNode then
 			socketGroup.set1 = true
 			socketGroup.set2 = true

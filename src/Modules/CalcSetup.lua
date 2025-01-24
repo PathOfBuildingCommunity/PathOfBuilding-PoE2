@@ -175,7 +175,7 @@ function calcs.buildModListForNode(env, node, incSmallPassiveSkill)
 			t_insert(node.grantedSkills, {
 				skillId = skill.skillId,
 				level = skill.level,
-				noSupports = true,
+				noSupports = skill.noSupports ~= nil and skill.noSupports,
 				source = "Tree:"..node.id
 			})
 		end
