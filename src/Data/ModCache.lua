@@ -552,8 +552,8 @@ c["0% to Cold Resistance"]={{[1]={flags=0,keywordFlags=0,name="ColdResist",type=
 c["0% to Fire Resistance"]={{[1]={flags=0,keywordFlags=0,name="FireResist",type="BASE",value=0}},"% to  "}
 c["0% to Lightning Resistance"]={{[1]={flags=0,keywordFlags=0,name="LightningResist",type="BASE",value=0}},"% to  "}
 c["0.1 Life Regeneration per second"]={{[1]={flags=0,keywordFlags=0,name="LifeRegen",type="BASE",value=0.1}},nil}
+c["0.5% of Life Regenerated per second per Fragile Regrowth"]={{[1]={[1]={type="Multiplier",var="FragileRegrowthCount"},flags=0,keywordFlags=0,name="Life",type="BASE",value=0.5}},"  Regenerated per second  "}
 c["0.5% of Life Regenerated per second per Fragile Regrowth 10% increased Mana Regeneration Rate per Fragile Regrowth"]={{[1]={[1]={type="Multiplier",var="FragileRegrowthCount"},[2]={type="Multiplier",var="FragileRegrowthCount"},flags=0,keywordFlags=0,name="Life",type="BASE",value=0.5}},"  Regenerated per second  10% increased Mana Regeneration Rate  "}
-c["0.500000% of Life Regenerated per second per Fragile Regrowth"]={{[1]={[1]={type="Multiplier",var="FragileRegrowthCount"},flags=0,keywordFlags=0,name="Life",type="BASE",value=0.5}},"  Regenerated per second  "}
 c["1% increased Attack Damage per 75 Armour or Evasion Rating on Shield"]={{[1]={[1]={div=75,statList={[1]="ArmourOnWeapon 2",[2]="EvasionOnWeapon 2"},type="PerStat"},flags=1,keywordFlags=0,name="Damage",type="INC",value=1}},nil}
 c["1% increased Attack Speed per 15 Dexterity"]={{[1]={[1]={div=15,stat="Dex",type="PerStat"},flags=1,keywordFlags=0,name="Speed",type="INC",value=1}},nil}
 c["1% increased Attack Speed per 250 Accuracy Rating"]={{[1]={[1]={div=250,stat="Accuracy",type="PerStat"},flags=1,keywordFlags=0,name="Speed",type="INC",value=1}},nil}
@@ -1088,7 +1088,7 @@ c["20% increased Accuracy Rating while Dual Wielding"]={{[1]={[1]={type="Conditi
 c["20% increased Area of Effect"]={{[1]={flags=0,keywordFlags=0,name="AreaOfEffect",type="INC",value=20}},nil}
 c["20% increased Area of Effect for Attacks"]={{[1]={flags=1,keywordFlags=0,name="AreaOfEffect",type="INC",value=20}},nil}
 c["20% increased Area of Effect if you've Killed Recently"]={{[1]={[1]={type="Condition",var="KilledRecently"},flags=0,keywordFlags=0,name="AreaOfEffect",type="INC",value=20}},nil}
-c["20% increased Area of Effect of Curses"]={{[1]={flags=0,keywordFlags=0,name="AreaOfEffect",type="INC",value=20}},"  of Curses "}
+c["20% increased Area of Effect of Curses"]={{[1]={flags=0,keywordFlags=2,name="AreaOfEffect",type="INC",value=20}},nil}
 c["20% increased Area of Effect while Unarmed"]={{[1]={[1]={type="Condition",var="Unarmed"},flags=0,keywordFlags=0,name="AreaOfEffect",type="INC",value=20}},nil}
 c["20% increased Armour"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="INC",value=20}},nil}
 c["20% increased Armour Break Duration"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="INC",value=20}},"  Break Duration "}
@@ -1643,9 +1643,7 @@ c["40% faster Curse Activation"]={{[1]={flags=0,keywordFlags=0,name="CurseFreque
 c["40% faster start of Energy Shield Recharge"]={{[1]={flags=0,keywordFlags=0,name="EnergyShieldRechargeFaster",type="INC",value=40}},nil}
 c["40% increased Accuracy Rating at Close Range"]={{[1]={[1]={type="Condition",var="AtCloseRange"},flags=0,keywordFlags=0,name="AccuracyVsEnemy",type="INC",value=40}},nil}
 c["40% increased Aftershock Area of Effect"]={{[1]={flags=0,keywordFlags=0,name="AreaOfEffect",type="INC",value=40}}," Aftershock  "}
-c["40% increased Area of Effect of Curses"]={{[1]={flags=0,keywordFlags=0,name="AreaOfEffect",type="INC",value=40}},"  of Curses "}
-c["40% increased Area of Effect of Curses 8% increased Effect of your Curses"]={{[1]={flags=0,keywordFlags=0,name="AreaOfEffect",type="INC",value=40}},"  of Curses 8% increased Effect of your Curses "}
-c["40% increased Area of Effect of Curses 8% increased Effect of your Curses Enemies you Curse are Hindered, with 15% reduced Movement Speed"]={{[1]={flags=0,keywordFlags=0,name="AreaOfEffect",type="INC",value=40}},"  of Curses 8% increased Effect of your Curses Enemies you Curse are Hindered, with 15% reduced Movement Speed "}
+c["40% increased Area of Effect of Curses"]={{[1]={flags=0,keywordFlags=2,name="AreaOfEffect",type="INC",value=40}},nil}
 c["40% increased Armour"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="INC",value=40}},nil}
 c["40% increased Armour and Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="ArmourAndEnergyShield",type="INC",value=40}},nil}
 c["40% increased Armour and Evasion"]={{[1]={flags=0,keywordFlags=0,name="ArmourAndEvasion",type="INC",value=40}},nil}

@@ -425,6 +425,7 @@ local modNameList = {
 	["hex duration"] = { "Duration", tag = { type = "SkillType", skillType = SkillType.Hex } },
 	["radius of auras"] = { "AreaOfEffect", keywordFlags = KeywordFlag.Aura },
 	["radius of curses"] = { "AreaOfEffect", keywordFlags = KeywordFlag.Curse },
+	["area of effect of curses"] = { "AreaOfEffect", keywordFlags = KeywordFlag.Curse },
 	["buff effect"] = "BuffEffect",
 	["effect of buffs on you"] = "BuffEffectOnSelf",
 	["effect of buffs granted by your golems"] = { "BuffEffect", tag = { type = "SkillType", skillType = SkillType.Golem } },
