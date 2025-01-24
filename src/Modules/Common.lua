@@ -671,9 +671,9 @@ end
 function alwaysPositiveRound(val, dec)
 	if dec then
 		local factor = 10 ^ dec
-		return m_floor(val * factor + 0.5) / factor
+		return floorSymmetric(val * factor + 0.5) / factor
 	else
-		return m_floor(val + 0.5)
+		return floorSymmetric(val + 0.5)
 	end
 end
 
