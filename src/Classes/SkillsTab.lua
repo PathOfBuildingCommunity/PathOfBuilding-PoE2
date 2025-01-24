@@ -169,11 +169,19 @@ local SkillsTabClass = newClass("SkillsTab", "UndoHandler", "ControlHost", "Cont
 		self.build.buildFlag = true
 	end)
 
+	self.controls.set1Enabled.enabled = function()
+		return self.displayGroup.source == nil
+	end
+
 	self.controls.set2Enabled = new("CheckBoxControl", { "LEFT", self.controls.set1Enabled, "RIGHT" }, { 50, 0, 20 }, "Set 2:", function(state)
 		self.displayGroup.set2 = state
 		self:AddUndoState()
 		self.build.buildFlag = true
 	end)
+
+	self.controls.set2Enabled.enabled = function()
+		return self.displayGroup.source == nil
+	end
 
 	self.controls.groupEnabled = new("CheckBoxControl", { "LEFT", self.controls.set2Enabled, "RIGHT" }, { 70, 0, 20 }, "Enabled:", function(state)
 		self.displayGroup.enabled = state
@@ -196,41 +204,6 @@ local SkillsTabClass = newClass("SkillsTab", "UndoHandler", "ControlHost", "Cont
 	end)
 	self.controls.groupCount.shown = function()
 		return self.displayGroup.source ~= nil
-	end
-	self.controls.sourceNote = new("LabelControl", { "TOPLEFT", self.controls.set1Enabled, "TOPLEFT" }, { -42, 30, 0, 16 })
-	self.controls.sourceNote.shown = function()
-		return self.displayGroup.source ~= nil
-	end
-	self.controls.sourceNote.label = function()
-		local label
-		if self.displayGroup.explodeSources then
-			label = [[^7This is a special group created for the enemy explosion effect,
-which comes from the following sources:]]
-			for _, source in ipairs(self.displayGroup.explodeSources) do
-				label = label .. "\n\t" .. colorCodes[source.rarity or "NORMAL"] .. (source.name or source.dn or "???")
-			end
-			label = label .. "^7\nYou cannot delete this group, but it will disappear if you lose the above sources."
-		else
-			local activeGem = self.displayGroup.gemList[1]
-			local sourceName
-			if self.displayGroup.sourceItem then
-				sourceName = "'" .. colorCodes[self.displayGroup.sourceItem.rarity] .. self.displayGroup.sourceItem.name
-			elseif self.displayGroup.sourceNode then
-				sourceName = "'" .. colorCodes["NORMAL"] .. self.displayGroup.sourceNode.name
-			else
-				sourceName = "'" .. colorCodes["NORMAL"] .. "?"
-			end
-			sourceName = sourceName .. "^7'"
-			label = [[^7This is a special group created for the ']] .. activeGem.color .. (activeGem.grantedEffect and activeGem.grantedEffect.name or activeGem.nameSpec) .. [[^7' skill,
-which is being provided by ]] .. sourceName .. [[.
-You cannot delete this group, but it will disappear if you ]] .. (self.displayGroup.sourceNode and [[un-allocate the node.]] or [[un-equip the item.]])
-			if not self.displayGroup.noSupports then
-				label = label .. "\n\n" .. [[You cannot add support gems to this group, but support gems in
-any other group socketed into ]] .. sourceName .. [[
-will automatically apply to the skill.]]
-			end
-		end
-		return label
 	end
 
 	-- Scroll bar
@@ -629,9 +602,12 @@ function SkillsTabClass:CreateGemSlot(index)
 		end)
 	end
 	slot.delete.shown = function()
-		return index <= #self.displayGroup.gemList + 1 and self.displayGroup.source == nil
+		return index <= #self.displayGroup.gemList + 1
 	end
 	slot.delete.enabled = function()
+		if index == 1 and self.displayGroup and (self.displayGroup.sourceItem or self.displayGroup.sourceNode) then
+			return false
+		end
 		return index <= #self.displayGroup.gemList
 	end
 	slot.delete.tooltipText = "Remove this gem."
@@ -684,6 +660,12 @@ function SkillsTabClass:CreateGemSlot(index)
 		end
 		self.build.buildFlag = true
 	end, true)
+	slot.nameSpec.enabled = function()
+		if index == 1 and self.displayGroup and (self.displayGroup.sourceItem or self.displayGroup.sourceNode) then
+			return false
+		end
+		return true
+	end
 	slot.nameSpec:AddToTabGroup(self.controls.groupLabel)
 	self.controls["gemSlot"..index.."Name"] = slot.nameSpec
 
@@ -705,6 +687,9 @@ function SkillsTabClass:CreateGemSlot(index)
 	end)
 	slot.level:AddToTabGroup(self.controls.groupLabel)
 	slot.level.enabled = function()
+		if index == 1 and self.displayGroup and (self.displayGroup.sourceItem or self.displayGroup.sourceNode) then
+			return false
+		end
 		return index <= #self.displayGroup.gemList
 	end
 	self.controls["gemSlot"..index.."Level"] = slot.level
@@ -786,6 +771,9 @@ function SkillsTabClass:CreateGemSlot(index)
 	end
 	slot.quality:AddToTabGroup(self.controls.groupLabel)
 	slot.quality.enabled = function()
+		if index == 1 and self.displayGroup and (self.displayGroup.sourceItem or self.displayGroup.sourceNode) then
+			return false
+		end
 		return index <= #self.displayGroup.gemList
 	end
 	self.controls["gemSlot"..index.."Quality"] = slot.quality
@@ -825,6 +813,9 @@ function SkillsTabClass:CreateGemSlot(index)
 		end
 	end
 	slot.enabled.enabled = function()
+		if index == 1 and self.displayGroup and (self.displayGroup.sourceItem or self.displayGroup.sourceNode) then
+			return false
+		end
 		return index <= #self.displayGroup.gemList
 	end
 	self.controls["gemSlot"..index.."Enable"] = slot.enabled
@@ -866,6 +857,9 @@ function SkillsTabClass:CreateGemSlot(index)
 		end
 	end
 	slot.count.enabled = function()
+		if index == 1 and self.displayGroup and (self.displayGroup.sourceItem or self.displayGroup.sourceNode) then
+			return false
+		end
 		return index <= #self.displayGroup.gemList
 	end
 	self.controls["gemSlot"..index.."Count"] = slot.count
@@ -1017,13 +1011,14 @@ function SkillsTabClass:ProcessSocketGroup(socketGroup)
 			end
 		elseif gemInstance.skillId then
 			-- Specified by skill ID
-			-- Used for skills granted by items
+			-- Used for skills granted by items / nodes
 			gemInstance.errMsg = nil
-			local gemId = data.gemForSkill[gemInstance.skillId]
+			local grantedEffect = data.skills[gemInstance.skillId]
+			local gemId = data.gemForSkill[grantedEffect]
 			if gemId then
 				gemInstance.gemData = data.gems[gemId]
 			else
-				gemInstance.grantedEffect = data.skills[gemInstance.skillId]
+				gemInstance.grantedEffect = grantedEffect
 			end
 			if gemInstance.triggered and gemInstance.grantedEffect then
 				if gemInstance.grantedEffect.levels[gemInstance.level] then
@@ -1083,6 +1078,14 @@ function SkillsTabClass:SetDisplayGroup(socketGroup)
 		self.controls.groupLabel:SetText(socketGroup.label)
 		self.controls.groupEnabled.state = socketGroup.enabled
 		self.controls.includeInFullDPS.state = socketGroup.includeInFullDPS and socketGroup.enabled
+		if socketGroup.sourceItem then
+			socketGroup.set1 = true
+			socketGroup.set2 = false
+		elseif socketGroup.sourceNode then
+			socketGroup.set1 = true
+			socketGroup.set2 = true
+		end
+
 		self.controls.set1Enabled.state = socketGroup.set1 == nil and true or socketGroup.set1
 		self.controls.set2Enabled.state = socketGroup.set2 == nil and true or socketGroup.set2
 		self.controls.groupCount:SetText(socketGroup.groupCount or 1)
