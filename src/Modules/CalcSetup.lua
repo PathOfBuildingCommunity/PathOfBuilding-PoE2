@@ -714,9 +714,6 @@ function calcs.initEnv(build, mode, override, specEnv)
 		modDB:NewMod("Multiplier:AllocatedLifeMastery", "BASE", allocatedMasteryTypes["Life Mastery"])
 	end
 
-	-- add Conditional WeaponSet# base on weapon set from item
-	modDB:NewMod("Condition:WeaponSet" .. (build.itemsTab.activeItemSet.useSecondWeaponSet and 2 or 1) , "FLAG", true, "Weapon Set")
-
 	-- Build and merge item modifiers, and create list of radius jewels
 	if not accelerate.requirementsItems then
 		local items = {}
@@ -1413,15 +1410,22 @@ function calcs.initEnv(build, mode, override, specEnv)
 			t_insert(env.crossLinkedSupportGroups[mod.mod.sourceSlot], mod.value.targetSlotName)
 		end
 
+		-- alway use WeaponSet 1 for condition unless set 1 false and set 2 true
+		local mainSkill =  build.skillsTab.socketGroupList[env.mainSocketGroup]
+		local usingSkillSet = mainSkill and not mainSkill.set1 and mainSkill.set2 and 2 or 1
+
+		env.usingSkillSet = usingSkillSet
+		modDB:NewMod("Condition:WeaponSet" .. usingSkillSet , "FLAG", true, "Weapon Set")
+
 		local supportLists = { }
 		local groupCfgList = { }
 		local processedSockets = {}
 		-- Process support gems adding them to applicable support lists
 		for index, group in ipairs(build.skillsTab.socketGroupList) do
-			local slot = group.slot and build.itemsTab.slots[group.slot]
-			group.slotEnabled = not slot or not slot.weaponSet or slot.weaponSet == (build.itemsTab.activeItemSet.useSecondWeaponSet and 2 or 1)
+			group.usingSkillSet = not group.set1 and group.set2 and 2 or 1
+
 			-- if group is main skill or group is enabled 
-			if index == env.mainSocketGroup or (group.enabled and group.slotEnabled) then
+			if index == env.mainSocketGroup or (group.enabled and group.usingSkillSet == env.usingSkillSet) then
 				local slotName = group.slot and group.slot:gsub(" Swap","")
 				groupCfgList[slotName or "noSlot"] = groupCfgList[slotName or "noSlot"] or {}
 				groupCfgList[slotName or "noSlot"][group] = groupCfgList[slotName or "noSlot"][group] or {
@@ -1527,7 +1531,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 		-- Process active skills adding the applicable supports
 		local socketGroupSkillListList = { }
 		for index, group in ipairs(build.skillsTab.socketGroupList) do
-			if index == env.mainSocketGroup or (group.enabled and group.slotEnabled) then
+			if index == env.mainSocketGroup or (group.enabled and group.usingSkillSet == env.usingSkillSet) then
 				local slotName = group.slot and group.slot:gsub(" Swap","")
 				groupCfgList[slotName or "noSlot"][group] = groupCfgList[slotName or "noSlot"][group] or {
 					slotName = slotName,
@@ -1655,7 +1659,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 			socketGroupSkillListList[slotName or "noSlot"] = socketGroupSkillListList[slotName or "noSlot"] or {}
 			socketGroupSkillListList[slotName or "noSlot"][group] = socketGroupSkillListList[slotName or "noSlot"][group] or {}
 			local socketGroupSkillList = socketGroupSkillListList[slotName or "noSlot"][group]
-			if index == env.mainSocketGroup or (group.enabled and group.slotEnabled) then
+			if index == env.mainSocketGroup or (group.enabled and group.usingSkillSet == env.usingSkillSet) then
 				groupCfgList[slotName or "noSlot"][group] = groupCfgList[slotName or "noSlot"][group] or {
 					slotName = slotName,
 					propertyModList = env.modDB:Tabulate("LIST", {slotName = slotName}, "GemProperty")
