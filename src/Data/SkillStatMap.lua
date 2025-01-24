@@ -2248,6 +2248,9 @@ return {
 ["grenade_skill_%_chance_to_explode_twice"] = {
 	mod("GrenadeExplodeTwice", "INC", nil),
 },
+["support_grenade_damage_+%_final"] = {
+	mod("Damage", "MORE", nil),
+},
 -- Other
 ["triggered_skill_damage_+%"] = {
 	mod("TriggeredDamage", "INC", nil, 0, 0, { type = "SkillType", skillType = SkillType.Triggered }),

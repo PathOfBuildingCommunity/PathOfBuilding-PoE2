@@ -408,6 +408,7 @@ local modNameList = {
 	["knockback distance"] = "EnemyKnockbackDistance",
 	-- Auras/curses/buffs
 	["aura effect"] = "AuraEffect",
+	["effect of auras from your aura skills"] = "AuraEffect",
 	["effect of non-curse auras you cast"] = { "AuraEffect", tagList = { { type = "SkillType", skillType = SkillType.Aura }, { type = "SkillType", skillType = SkillType.AppliesCurse, neg = true } } },
 	["effect of non-curse auras from your skills"] = { "AuraEffect", tagList = { { type = "SkillType", skillType = SkillType.Aura }, { type = "SkillType", skillType = SkillType.AppliesCurse, neg = true } } },
 	["effect of non-curse auras from your skills on your minions"] = { "AuraEffectOnSelf", tagList = { { type = "SkillType", skillType = SkillType.Aura }, { type = "SkillType", skillType = SkillType.AppliesCurse, neg = true } }, addToMinion = true },
@@ -649,6 +650,7 @@ local modNameList = {
 	["projectile damage"] = { "Damage", flags = ModFlag.Projectile },
 	["projectile attack damage"] = { "Damage", flags = bor(ModFlag.Projectile, ModFlag.Attack) },
 	["attack area damage"] = { "Damage", flags = bor(ModFlag.Area, ModFlag.Attack) },
+	["spell area damage"] = { "Damage", flags = bor(ModFlag.Area, ModFlag.Spell) },
 	["bow damage"] = { "Damage", flags = bor(ModFlag.Bow, ModFlag.Hit) },
 	["damage with arrow hits"] = { "Damage", flags = bor(ModFlag.Bow, ModFlag.Hit) },
 	["wand damage"] = { "Damage", flags = bor(ModFlag.Wand, ModFlag.Hit) },
@@ -723,6 +725,7 @@ local modNameList = {
 	["freeze duration"] = "EnemyFreezeDuration",
 	["duration of freezes you inflict"] = "EnemyFreezeDuration",
 	["freeze duration on you"] = "SelfFreezeDuration",
+	["freeze threshold"] = "FreezeThreshold",
 	["chill duration"] = "EnemyChillDuration",
 	["duration of chills you inflict"] = "EnemyChillDuration",
 	["chill duration on you"] = "SelfChillDuration",
@@ -731,6 +734,7 @@ local modNameList = {
 	["duration of ignites you inflict"] = "EnemyIgniteDuration",
 	["ignite duration on you"] = "SelfIgniteDuration",
 	["duration of ignite on you"] = "SelfIgniteDuration",
+	["effect of ignite on you"] = "SelfIgniteEffect",
 	["duration of elemental ailments"] = "EnemyElementalAilmentDuration",
 	["duration of elemental ailments on you"] = "SelfElementalAilmentDuration",
 	["duration of elemental status ailments"] = "EnemyElementalAilmentDuration",
@@ -742,6 +746,7 @@ local modNameList = {
 	["duration of ailments inflicted on you"] = "SelfAilmentDuration",
 	["duration of damaging ailments"] = { "EnemyIgniteDuration" , "EnemyBleedDuration", "EnemyPoisonDuration" },
 	["duration of damaging ailments on you"] = { "SelfIgniteDuration" , "SelfBleedDuration", "SelfPoisonDuration" },
+	["duration of ignite, shock and chill"] = {"EnemyShockDuration", "EnemyChillDuration", "EnemyIgniteDuration"},
 	-- Other ailments
 	["chance to inflict ailments"] = "AilmentChance",
 	["to poison"] = "PoisonChance",
@@ -759,6 +764,8 @@ local modNameList = {
 	["bleed duration"] = { "EnemyBleedDuration" },
 	["bleeding duration"] = { "EnemyBleedDuration" },
 	["bleed duration on you"] = "SelfBleedDuration",
+	["to blind enemies on hit"] = { "BlindChance" },
+	["Supported skills have 100% chance to blind enemies on hit"] = { "BlindChance" },
 	-- Misc modifiers
 	["movement speed"] = "MovementSpeed",
 	["attack, cast and movement speed"] = { "Speed", "MovementSpeed" },
@@ -1538,6 +1545,7 @@ local modTagList = {
 	["on reaching low life"] = { tag = { type = "Condition", var = "LowLife" } },
 	["wh[ie][ln]e? not on low life"] = { tag = { type = "Condition", var = "LowLife", neg = true } },
 	["wh[ie][ln]e? on low mana"] = { tag = { type = "Condition", var = "LowMana" } },
+	["if on low mana"] = { tag = { type = "Condition", var = "LowMana" } },
 	["wh[ie][ln]e? not on low mana"] = { tag = { type = "Condition", var = "LowMana", neg = true } },
 	["wh[ie][ln]e? on full life"] = { tag = { type = "Condition", var = "FullLife" } },
 	["wh[ie][ln]e? not on full life"] = { tag = { type = "Condition", var = "FullLife", neg = true } },
@@ -3160,6 +3168,7 @@ local specialModList = {
 	["hits against you are always critical hits"] = { mod("EnemyModifier", "LIST", { mod = flag("AlwaysCrit")  }), mod("EnemyModifier", "LIST", { mod = flag("Condition:AlwaysCrit") }) },
 	["your hits are always critical hits"] =  { mod("CritChance", "OVERRIDE", 100) },
 	["hits have (%d+)%% increased critical hit chance against you"] = function(num) return { mod("EnemyCritChance", "INC", num) } end,
+	["hits have (%d+)%% reduced critical hit chance against you"] = function(num) return { mod("EnemyCritChance", "INC", -num) } end,
 	["stuns from critical hits have (%d+)%% increased duration"] = function(num) return { mod("EnemyStunDurationOnCrit", "INC", num) } end,
 	-- Generic Ailments
 	["enemies take (%d+)%% increased damage for each type of ailment you have inflicted on them"] = function(num) return {
@@ -4041,10 +4050,12 @@ local specialModList = {
 	["skeleton warriors are permanent minions and follow you"] = { flag("RaisedSkeletonPermanentDuration", { type = "SkillName", skillName = "Summon Skeletons" }) }, -- typo never existed except in some items generated by PoB
 	["summoned skeleton warriors are permanent and follow you"] = { flag("RaisedSkeletonPermanentDuration", { type = "SkillName", skillName = "Summon Skeletons" }) },
 	-- Projectiles
+	["grenade skills fire an additional projectile"] = { mod("ProjectileCount", "BASE", 1, nil, ModFlag.Projectile, { type = "SkillType", skillType = SkillType.Grenade })},
 	["skills chain %+(%d) times"] = function(num) return { mod("ChainCountMax", "BASE", num) } end,
 	["arrows chain %+(%d) times"] = function(num) return { mod("ChainCountMax", "BASE", num, nil, ModFlag.Bow) } end,
 	["skills chain an additional time while at maximum frenzy charges"] = { mod("ChainCountMax", "BASE", 1, { type = "StatThreshold", stat = "FrenzyCharges", thresholdStat = "FrenzyChargesMax" }) },
 	["attacks chain an additional time when in main hand"] = { mod("ChainCountMax", "BASE", 1, nil, ModFlag.Attack, { type = "SlotNumber", num = 1 }) },
+	["attacks chain 2 additional times"] = { mod("ChainCountMax", "BASE", 2, nil, ModFlag.Attack),},
 	["projectiles chain %+(%d) times while you have phasing"] = function(num) return { mod("ChainCountMax", "BASE", num, nil, ModFlag.Projectile, { type = "Condition", var = "Phasing" }) } end,
 	["projectiles split towards %+(%d) targets"] = function(num) return { mod("SplitCount", "BASE", num) } end,
 	["adds an additional arrow"] = { mod("ProjectileCount", "BASE", 1, nil, ModFlag.Attack) },
@@ -4332,6 +4343,7 @@ local specialModList = {
 	["cannot be stunned if you have at least (%d+) crab barriers"] = function(num) return { flag("StunImmune", { type = "StatThreshold", stat = "CrabBarriers", threshold = num }), } end,
 	["cannot be blinded"] = { flag("Condition:CannotBeBlinded"), flag("BlindImmune") },
 	["cannot be blinded while affected by precision"] = { flag("Condition:CannotBeBlinded", { type = "Condition", var = "AffectedByPrecision"}), flag("BlindImmune", { type = "Condition", var = "AffectedByPrecision"}) },
+	["cannot be blinded while on full life"] = { flag("Condition:CannotBeBlinded", { type = "Condition", var = "FullLife"}), flag("BlindImmune", { type = "Condition", var = "FullLife"}) },
 	["cannot be knocked back"] = { flag("KnockbackImmune") },
 	["cannot be shocked"] = { flag("ShockImmune") },
 	["immun[ei]t?y? to shock"] = { flag("ShockImmune"), },
@@ -4341,6 +4353,7 @@ local specialModList = {
 	["immun[ei]t?y? to chill"] = { flag("ChillImmune"), },
 	["cannot be ignited"] = { flag("IgniteImmune"), },
 	["immun[ei]t?y? to ignite"] = { flag("IgniteImmune"), },
+	["you cannot be chilled or frozen"] = { flag("ChillImmune"), flag("FreezeImmune"), },
 	["critical hits against you do not inherently inflict elemental ailments"] = { flag("CritsOnYouDontAlwaysApplyElementalAilments"), },
 	["cannot be ignited while at maximum endurance charges"] = { flag("IgniteImmune", {type = "StatThreshold", stat = "EnduranceCharges", thresholdStat = "EnduranceChargesMax" }, { type = "GlobalEffect", effectType = "Global", unscalable = true }), },
 	["grants immunity to ignite for (%d+) seconds if used while ignited"] = { flag("IgniteImmune", { type = "Condition", var = "UsingFlask" }), },
