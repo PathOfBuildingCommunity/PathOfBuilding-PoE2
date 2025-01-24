@@ -3,7 +3,7 @@ local strTypes = {
     "AreaOfEffect",
     "GlobalPhysicalDamageReductionRatingPercent",
     "ArmourBreak",
-    "Attackdamage",
+    "AttackDamage",
     "BaseChanceToBleed",
     "IncreasedBlockChance",
     "DamagevsArmourBrokenEnemies",
