@@ -162,31 +162,20 @@ local SkillsTabClass = newClass("SkillsTab", "UndoHandler", "ControlHost", "Cont
 		self:AddUndoState()
 		self.build.buildFlag = true
 	end)
-	self.controls.groupSlotLabel = new("LabelControl", { "TOPLEFT", self.anchorGroupDetail, "TOPLEFT" }, { 0, 30, 0, 16 }, "^7Socketed in:")
-	self.controls.groupSlot = new("DropDownControl", { "TOPLEFT", self.anchorGroupDetail, "TOPLEFT" }, { 85, 28, 130, 20 }, groupSlotDropList, function(index, value)
-		self.displayGroup.slot = value.slotName
+
+	self.controls.set1Enabled = new("CheckBoxControl", { "TOPLEFT", self.anchorGroupDetail, "TOPLEFT" }, { 42, 30, 20 }, "Set 1:", function(state)
+		self.displayGroup.set1 = state
 		self:AddUndoState()
 		self.build.buildFlag = true
 	end)
-	self.controls.groupSlot.tooltipFunc = function(tooltip, mode, index, value)
-		tooltip:Clear()
-		if mode == "OUT" or index == 1 then
-			tooltip:AddLine(16, "Select the item in which this skill is socketed.")
-			tooltip:AddLine(16, "This will allow the skill to benefit from modifiers on the item that affect socketed gems.")
-		else
-			local slot = self.build.itemsTab.slots[value.slotName]
-			local ttItem = self.build.itemsTab.items[slot.selItemId]
-			if ttItem then
-				self.build.itemsTab:AddItemTooltip(tooltip, ttItem, slot)
-			else
-				tooltip:AddLine(16, "No item is equipped in this slot.")
-			end
-		end
-	end
-	self.controls.groupSlot.enabled = function()
-		return self.displayGroup.source == nil
-	end
-	self.controls.groupEnabled = new("CheckBoxControl", { "LEFT", self.controls.groupSlot, "RIGHT" }, { 70, 0, 20 }, "Enabled:", function(state)
+
+	self.controls.set2Enabled = new("CheckBoxControl", { "LEFT", self.controls.set1Enabled, "RIGHT" }, { 50, 0, 20 }, "Set 2:", function(state)
+		self.displayGroup.set2 = state
+		self:AddUndoState()
+		self.build.buildFlag = true
+	end)
+
+	self.controls.groupEnabled = new("CheckBoxControl", { "LEFT", self.controls.set2Enabled, "RIGHT" }, { 70, 0, 20 }, "Enabled:", function(state)
 		self.displayGroup.enabled = state
 		self:AddUndoState()
 		self.build.buildFlag = true
@@ -208,7 +197,7 @@ local SkillsTabClass = newClass("SkillsTab", "UndoHandler", "ControlHost", "Cont
 	self.controls.groupCount.shown = function()
 		return self.displayGroup.source ~= nil
 	end
-	self.controls.sourceNote = new("LabelControl", { "TOPLEFT", self.controls.groupSlotLabel, "TOPLEFT" }, { 0, 30, 0, 16 })
+	self.controls.sourceNote = new("LabelControl", { "TOPLEFT", self.controls.set1Enabled, "TOPLEFT" }, { -42, 30, 0, 16 })
 	self.controls.sourceNote.shown = function()
 		return self.displayGroup.source ~= nil
 	end
@@ -274,8 +263,9 @@ function SkillsTabClass:LoadSkill(node, skillSetId)
 	socketGroup.includeInFullDPS = node.attrib.includeInFullDPS and node.attrib.includeInFullDPS == "true"
 	socketGroup.groupCount = tonumber(node.attrib.groupCount)
 	socketGroup.label = node.attrib.label
-	socketGroup.slot = node.attrib.slot
 	socketGroup.source = node.attrib.source
+	socketGroup.set1 = node.attrib.set1 and node.attrib.set1 == "true"
+	socketGroup.set2 = node.attrib.set2 and node.attrib.set2 == "true"
 	socketGroup.mainActiveSkill = tonumber(node.attrib.mainActiveSkill) or 1
 	socketGroup.mainActiveSkillCalcs = tonumber(node.attrib.mainActiveSkillCalcs) or 1
 	socketGroup.gemList = { }
@@ -430,8 +420,9 @@ function SkillsTabClass:Save(xml)
 				includeInFullDPS = tostring(socketGroup.includeInFullDPS),
 				groupCount = socketGroup.groupCount ~= nil and tostring(socketGroup.groupCount),
 				label = socketGroup.label,
-				slot = socketGroup.slot,
 				source = socketGroup.source,
+				set1 = tostring(socketGroup.set1 or true),
+				set2 = tostring(socketGroup.set2 or true),
 				mainActiveSkill = tostring(socketGroup.mainActiveSkill),
 				mainActiveSkillCalcs = tostring(socketGroup.mainActiveSkillCalcs),
 			} }
@@ -571,9 +562,6 @@ function SkillsTabClass:CopySocketGroup(socketGroup)
 	if socketGroup.label and socketGroup.label:match("%S") then
 		skillText = skillText .. "Label: " .. socketGroup.label .. "\r\n"
 	end
-	if socketGroup.slot then
-		skillText = skillText .. "Slot: " .. socketGroup.slot .. "\r\n"
-	end
 	for _, gemInstance in ipairs(socketGroup.gemList) do
 		skillText = skillText .. string.format("%s %d/%d %s %d\r\n", gemInstance.nameSpec, gemInstance.level, gemInstance.quality, gemInstance.enabled and "" or "DISABLED", gemInstance.count or 1)
 	end
@@ -587,10 +575,6 @@ function SkillsTabClass:PasteSocketGroup(testInput)
 		local label = skillText:match("Label: (%C+)")
 		if label then
 			newGroup.label = label
-		end
-		local slot = skillText:match("Slot: (%C+)")
-		if slot then
-			newGroup.slot = slot
 		end
 		for nameSpec, level, quality, state, count in skillText:gmatch("([ %a']+) (%d+)/(%d+) ?(%a*) (%d+)") do
 			t_insert(newGroup.gemList, {
@@ -1097,9 +1081,10 @@ function SkillsTabClass:SetDisplayGroup(socketGroup)
 
 		-- Update the main controls
 		self.controls.groupLabel:SetText(socketGroup.label)
-		self.controls.groupSlot:SelByValue(socketGroup.slot, "slotName")
 		self.controls.groupEnabled.state = socketGroup.enabled
 		self.controls.includeInFullDPS.state = socketGroup.includeInFullDPS and socketGroup.enabled
+		self.controls.set1Enabled.state = socketGroup.set1 == nil and true or socketGroup.set1
+		self.controls.set2Enabled.state = socketGroup.set2 == nil and true or socketGroup.set2
 		self.controls.groupCount:SetText(socketGroup.groupCount or 1)
 
 		-- Update the gem slot controls
@@ -1122,9 +1107,6 @@ function SkillsTabClass:AddSocketGroupTooltip(tooltip, socketGroup)
 			tooltip:AddLine(18, "^7Source: " .. colorCodes[source.rarity or "NORMAL"] .. (source.name or source.dn or "???"))
 		end
 		return
-	end
-	if socketGroup.enabled and not socketGroup.slotEnabled then
-		tooltip:AddLine(16, "^7Note: this group is disabled because it is socketed in the inactive weapon set.")
 	end
 	local sourceSingle = socketGroup.sourceItem or socketGroup.sourceNode
 	if sourceSingle then
@@ -1180,7 +1162,7 @@ function SkillsTabClass:AddSocketGroupTooltip(tooltip, socketGroup)
 				reason = "(Unsupported)"
 			elseif not gemInstance.enabled then
 				reason = "(Disabled)"
-			elseif not socketGroup.enabled or not socketGroup.slotEnabled then
+			elseif not socketGroup.enabled then
 			elseif grantedEffect.support then
 				if displayEffect.superseded then
 					reason = "(Superseded)"
