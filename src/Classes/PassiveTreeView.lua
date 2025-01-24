@@ -1159,7 +1159,7 @@ function PassiveTreeViewClass:AddNodeTooltip(tooltip, node, build, incSmallPassi
 				local modsList = copyTable(node.mods[i].list)
 				local scaledList = new("ModList")
 				-- some passive node mods are only Condition/Flag and have no value to scale by default, grab number from line
-				if node.modKey:match("true = Condition:") and modsList[1] then
+				if modsList[1] and modsList[1].type == "FLAG" then
 					modsList[1].value = tonumber(line:match("%d+"))
 				end
 				scaledList:ScaleAddList(modsList, scale)
