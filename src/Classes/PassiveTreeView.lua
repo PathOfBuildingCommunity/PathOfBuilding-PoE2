@@ -1156,9 +1156,13 @@ function PassiveTreeViewClass:AddNodeTooltip(tooltip, node, build, incSmallPassi
 			-- Apply Inc Node scaling from Hulking Form only visually
 			if incSmallPassiveSkillEffect > 0 and node.type == "Normal" and not node.isAttribute and not node.ascendancyName and node.mods[i].list then
 				local scale = 1 + incSmallPassiveSkillEffect / 100
+				local modsList = copyTable(node.mods[i].list)
 				local scaledList = new("ModList")
-				scaledList:ScaleAddList(node.mods[i].list, scale)
-				local number =  line:match("%d*%.?%d+")
+				-- some passive node mods are only Condition/Flag and have no value to scale by default, grab number from line
+				if node.modKey:match("true = Condition:") and modsList[1] then
+					modsList[1].value = tonumber(line:match("%d+"))
+				end
+				scaledList:ScaleAddList(modsList, scale)
 				for j, mod in ipairs(scaledList) do
 					local newValue = 0
 					if type(mod.value) == "number" then
