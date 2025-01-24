@@ -1291,8 +1291,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 				group.noSupports = grantedSkill.noSupports
 				activeGemInstance.triggered = grantedSkill.triggered
 				activeGemInstance.triggerChance = grantedSkill.triggerChance
-				wipeTable(group.gemList)
-				t_insert(group.gemList, activeGemInstance)
+				group.gemList[1] = activeGemInstance
 				build.skillsTab:ProcessSocketGroup(group)
 			end
 
