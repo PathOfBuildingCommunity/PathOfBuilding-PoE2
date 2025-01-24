@@ -2785,7 +2785,7 @@ c["No Movement Speed Penalty while Shield is Raised"]={nil,"No Movement Speed Pe
 c["No Physical Damage"]={{[1]={flags=0,keywordFlags=0,name="WeaponData",type="LIST",value={key="PhysicalMin"}},[2]={flags=0,keywordFlags=0,name="WeaponData",type="LIST",value={key="PhysicalMax"}},[3]={flags=0,keywordFlags=0,name="WeaponData",type="LIST",value={key="PhysicalDPS"}}},nil}
 c["Offering Skills have 20% increased Area of Effect"]={{[1]={[1]={skillType=165,type="SkillType"},flags=0,keywordFlags=0,name="AreaOfEffect",type="INC",value=20}},nil}
 c["Offering Skills have 30% increased Duration"]={{[1]={[1]={skillType=165,type="SkillType"},flags=0,keywordFlags=0,name="Duration",type="INC",value=30}},nil}
-c["Offering Skills have 30% reduced Duration"]={{[1]={[1]={skillType=165,type="SkillType"},flags=0,keywordFlags=0,name="Duration",type="INC",value=30}},nil}
+c["Offering Skills have 30% reduced Duration"]={{[1]={[1]={skillType=165,type="SkillType"},flags=0,keywordFlags=0,name="Duration",type="INC",value=-30}},nil}
 c["Offerings have 15% increased Maximum Life"]={nil,"Offerings have 15% increased Maximum Life "}
 c["Offerings have 30% increased Maximum Life"]={nil,"Offerings have 30% increased Maximum Life "}
 c["Offerings have 30% increased Maximum Life Recover 3% of Life when you create an Offering"]={nil,"Offerings have 30% increased Maximum Life Recover 3% of Life when you create an Offering "}

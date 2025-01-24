@@ -4938,12 +4938,6 @@ local specialModList = {
 	["transfiguration of body"] = { flag("TransfigurationOfBody") },
 	["transfiguration of mind"] = { flag("TransfigurationOfMind") },
 	["transfiguration of soul"] = { flag("TransfigurationOfSoul") },
-	["offering skills have (%d+)%% increased duration"] = function(num) return {
-		mod("Duration", "INC", num, { type = "SkillType", skillType = SkillType.Offering}),
-	} end,
-	["offering skills have (%d+)%% reduced duration"] = function(num) return {
-		mod("Duration", "INC", num, { type = "SkillType", skillType = SkillType.Offering}),
-	} end,
 	["enemies have %-(%d+)%% to total physical damage reduction against your hits"] = function(num) return {
 		mod("EnemyPhysicalDamageReduction", "BASE", -num),
 	} end,
