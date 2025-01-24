@@ -1206,7 +1206,7 @@ function PassiveTreeViewClass:AddNodeTooltip(tooltip, node, build, incSmallPassi
 
 	-- loop over mods generated in CalcSetup by rad.func calls and grab the lines added
 	-- processStats once on copied node to cleanly setup for the tooltip
-	local function processTimeLostModsandGetLocalEffect(mNode, build)
+	local function processTimeLostModsAndGetLocalEffect(mNode, build)
 		local localSmallIncEffect = 0
 		local hasWSCondition = false
 		local newSd = copyTable(build.spec.tree.nodes[mNode.id].sd)
@@ -1261,7 +1261,7 @@ function PassiveTreeViewClass:AddNodeTooltip(tooltip, node, build, incSmallPassi
 		tooltip:AddLine(16, "")
 		local localSmallIncEffect = 0
 		if not mNode.isAttribute and (mNode.type == "Normal" or mNode.type == "Notable") and isNodeInARadius(node) then
-			localSmallIncEffect = processTimeLostModsandGetLocalEffect(mNode, build)
+			localSmallIncEffect = processTimeLostModsAndGetLocalEffect(mNode, build)
 		end
 		for i, line in ipairs(mNode.sd) do
 			addModInfoToTooltip(mNode, i, line, localSmallIncEffect)
