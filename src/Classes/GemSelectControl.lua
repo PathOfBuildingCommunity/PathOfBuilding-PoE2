@@ -492,24 +492,25 @@ function GemSelectClass:Draw(viewPort, noTooltip)
 				self.tooltip:AddLine(16, "Only show Active gems")
 			end
 
-			-- support shortcut
-			sx = x + width - 16 - 2
-			SetDrawColor(colorS,colorS,colorS)
-			DrawImage(nil, sx, y+2, 16, height-4)
-			SetDrawColor(0,0,0)
-			DrawImage(nil, sx+1, y+2, 16-2, height-4)
-			SetDrawColor(colorS,colorS,colorS)
-			DrawString(sx + 8, y, "CENTER_X", height - 2, "VAR", "S")
+			if self:IsEnabled() then
+				-- support shortcut
+				sx = x + width - 16 - 2
+				SetDrawColor(colorS,colorS,colorS)
+				DrawImage(nil, sx, y+2, 16, height-4)
+				SetDrawColor(0,0,0)
+				DrawImage(nil, sx+1, y+2, 16-2, height-4)
+				SetDrawColor(colorS,colorS,colorS)
+				DrawString(sx + 8, y, "CENTER_X", height - 2, "VAR", "S")
 
-			-- active shortcut
-			sx = x + width - (16*2) - (2*2)
-			SetDrawColor(colorA,colorA,colorA)
-			DrawImage(nil, sx, y+2, 16, height-4)
-			SetDrawColor(0,0,0)
-			DrawImage(nil, sx+1, y+2, 16-2, height-4)
-			SetDrawColor(colorA,colorA,colorA)
-			DrawString(sx + 8, y, "CENTER_X", height - 2, "VAR", "A")
-
+				-- active shortcut
+				sx = x + width - (16*2) - (2*2)
+				SetDrawColor(colorA,colorA,colorA)
+				DrawImage(nil, sx, y+2, 16, height-4)
+				SetDrawColor(0,0,0)
+				DrawImage(nil, sx+1, y+2, 16-2, height-4)
+				SetDrawColor(colorA,colorA,colorA)
+				DrawString(sx + 8, y, "CENTER_X", height - 2, "VAR", "A")
+			end
 
 			SetDrawLayer(nil, 10)
 			self.tooltip:Draw(x, y, width, height, viewPort)
