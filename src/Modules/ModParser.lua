@@ -4327,8 +4327,8 @@ local specialModList = {
 	["gain armour equal to your reserved mana"] = { mod("Armour", "BASE", 1, { type = "PerStat", stat = "ManaReserved", div = 1 }) },
 	["gain ward instead of (%d+)%% of armour and evasion rating from equipped body armour"] = function(num) return {flag("ConvertBodyArmourArmourEvasionToWard"), mod("BodyArmourArmourEvasionToWardPercent", "BASE", num)} end,
 	["gain physical thorns damage equal to (%d+)%% of armour from equipped body armour"] = function(num) return {
-		mod("ThornsPhysicalMin", "BASE", 1, { type = "PerStat", stat = "ArmourOnBody Armour", div = 100 / num }),
-		mod("ThornsPhysicalMax", "BASE", 1, { type = "PerStat", stat = "ArmourOnBody Armour", div = 100 / num }),
+		mod("ThornsPhysicalMin", "BASE", 1, { type = "PercentStat", stat = "ArmourOnBody Armour", percent = num }),
+		mod("ThornsPhysicalMax", "BASE", 1, { type = "PercentStat", stat = "ArmourOnBody Armour", percent = num }),
 	} end,
 	["(%d+)%% increased armour per (%d+) reserved mana"] = function(num, _, mana) return { mod("Armour", "INC", num, { type = "PerStat", stat = "ManaReserved", div = tonumber(mana) }) } end,
 	["cannot be stunned"] = { flag("StunImmune"), },
