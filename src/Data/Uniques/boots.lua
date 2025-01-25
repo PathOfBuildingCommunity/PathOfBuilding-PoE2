@@ -84,7 +84,6 @@ Variant: Current
 +(10-15) to Dexterity
 {variant:1}+(5-15)% to Lightning Resistance
 {variant:2}+(15-25)% to Lightning Resistance
-+(15-25)% to Lightning Resistance
 Gain 0% to 40% increased Movement Speed at random when Hit, until Hit again
 ]],[[
 Thunderstep
