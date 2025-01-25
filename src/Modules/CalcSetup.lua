@@ -210,21 +210,19 @@ function calcs.buildModListForNode(env, node, incSmallPassiveSkill)
 		local hasWSCondition = false
 		-- if the jewelMod has a WS Condition, only add the incEffect given it matches the activeWeaponSet
 		-- otherwise the mod came from a jewel that is allocMode 0, so it always applies
-		--for _, mod in ipairs(modList) do
-			if mod.name == "JewelSmallPassiveSkillEffect" then
-				for _, modCriteria in ipairs(mod) do
-					if modCriteria.type == "Condition" and modCriteria.var and modCriteria.var:match("^WeaponSet") then
-						if (tonumber(modCriteria.var:match("(%d)")) == (env.build.itemsTab.activeItemSet.useSecondWeaponSet and 2 or 1)) then
-							localSmallIncEffect = mod.value
-						end
-						hasWSCondition = true
+		if mod.name == "JewelSmallPassiveSkillEffect" then
+			for _, modCriteria in ipairs(mod) do
+				if modCriteria.type == "Condition" and modCriteria.var and modCriteria.var:match("^WeaponSet") then
+					if (tonumber(modCriteria.var:match("(%d)")) == (env.build.itemsTab.activeItemSet.useSecondWeaponSet and 2 or 1)) then
+						localSmallIncEffect = mod.value
 					end
-				end
-				if not hasWSCondition then
-					localSmallIncEffect = mod.value
+					hasWSCondition = true
 				end
 			end
-		--end
+			if not hasWSCondition then
+				localSmallIncEffect = mod.value
+			end
+		end
 	end
 	
 	-- Apply Inc Node scaling from Hulking Form

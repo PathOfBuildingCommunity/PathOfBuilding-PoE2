@@ -501,5 +501,3 @@ GlobalCache = {
 }
 
 GlobalGemAssignments = { }
-
-testCounter = 0
