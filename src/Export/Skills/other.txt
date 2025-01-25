@@ -268,3 +268,11 @@ statMap = {
 #flags
 #mods
 #skillEnd
+
+#from item
+#skill UniqueBreachLightningBoltPlayer
+#startSets
+#set UniqueBreachLightningBoltPlayer
+#flags spell area
+#mods
+#skillEnd
