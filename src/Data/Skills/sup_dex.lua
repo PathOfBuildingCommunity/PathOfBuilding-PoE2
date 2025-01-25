@@ -1421,6 +1421,9 @@ skills["SupportIncreaseLimitPlayer"] = {
 				["support_limit_skill_effect_duration_+%_final"] = {
 					mod("Duration", "MORE", nil),
 				},
+				["base_limit_+"] = {
+					mod("AdditionalCooldownUses", "BASE", nil),
+				},
 			},
 			baseFlags = {
 			},
