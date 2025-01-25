@@ -2289,6 +2289,9 @@ return {
 ["base_added_cooldown_count"] = {
 	mod("AdditionalCooldownUses", "BASE", nil)
 },
+["base_limit_+"] = {
+	mod("AdditionalCooldownUses", "BASE", nil),
+},
 ["kill_enemy_on_hit_if_under_10%_life"] = {
 	mod("CullPercent", "MAX", nil),
 	value = 10
