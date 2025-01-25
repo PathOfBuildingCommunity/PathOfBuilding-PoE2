@@ -122,9 +122,6 @@ local configSettings = {
 	{ var = "conditionMoving", type = "check", label = "Are you always moving?", ifCond = "Moving", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:Moving", "FLAG", true, "Config")
 	end },
-	{ var = "conditionNotCritRecently", type = "check", label = "Have you crit recently??",  apply = function(val, modList, enemyModList)
-		modList:NewMod("Condition:NotCritRecently", "FLAG", true, "Config")
-	end },
 	{ var = "conditionFullLife", type = "check", label = "Are you always on Full ^xE05030Life?", ifCond = "FullLife", tooltip = FullLifeTooltip, apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:FullLife", "FLAG", true, "Config")
 	end },
