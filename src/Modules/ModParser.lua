@@ -2890,6 +2890,10 @@ local specialModList = {
 		mod("Speed", "MORE", num, nil, ModFlag.Cast, { type = "GlobalEffect", effectType = "Buff", effectName = "Quicksand Hourglass" }, { type = "Condition", var = "QuicksandHourglass" }),
 		flag("Condition:CanGainQuicksandHourglass")
 	} end,
+	["enemies in your presence are slowed by (%d+)%%"] = function(num) return { 
+		mod("EnemyModifier", "LIST", { mod = flag("Condition:Slowed") }),
+		mod("EnemyModifier", "LIST", { mod = mod("ApexOfMomentSlow", "INC", -num, { type = "GlobalEffect", effectType = "AuraDebuff" }, { type = "Condition", var = "Slowed" }) }),
+	} end,
 	-- Item local modifiers
 	["has no sockets"] = { flag("NoSockets") },
 	["reflects your other ring"] = {
@@ -3593,6 +3597,12 @@ local specialModList = {
 	["adrenaline"] = { flag("Condition:Adrenaline") },
 	["arcane surge"] = { flag("Condition:ArcaneSurge") },
 	["your aura buffs do not affect allies"] = { flag("SelfAurasCannotAffectAllies") },
+	["debuffs you inflict have (%d+)%% increased slow magnitude"] = function(num) return {
+		mod("EnemySlowMagnitude", "INC", num),
+	} end,
+	["debuffs you inflict have (%d+)%% reduced slow magnitude"] = function(num) return {
+		mod("EnemySlowMagnitude", "INC", -num),
+	} end,
 	["your curses have (%d+)%% increased effect if (%d+)%% of curse duration expired"] = function(num, _, limit) return {
 		mod("CurseEffect", "INC", num, { type = "MultiplierThreshold", actor = "enemy", var = "CurseExpired", threshold = tonumber(limit) }, { type = "SkillType", skillType =  SkillType.AppliesCurse })
 	} end,
