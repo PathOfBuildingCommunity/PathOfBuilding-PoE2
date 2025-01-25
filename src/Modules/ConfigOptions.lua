@@ -122,6 +122,9 @@ local configSettings = {
 	{ var = "conditionMoving", type = "check", label = "Are you always moving?", ifCond = "Moving", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:Moving", "FLAG", true, "Config")
 	end },
+	{ var = "conditionNotCritRecently", type = "check", label = "Have you crit recently??",  apply = function(val, modList, enemyModList)
+		modList:NewMod("Condition:NotCritRecently", "FLAG", true, "Config")
+	end },
 	{ var = "conditionFullLife", type = "check", label = "Are you always on Full ^xE05030Life?", ifCond = "FullLife", tooltip = FullLifeTooltip, apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:FullLife", "FLAG", true, "Config")
 	end },
@@ -603,6 +606,9 @@ local configSettings = {
 	{ label = "Wind Dancer:", ifSkill = "Wind Dancer" },
 	{ var = "windDancerStacks", type = "count", label = "# of Wind Dancer Stacks:", ifSkill = "Wind Dancer", apply = function(val, modList, enemyModList)
 		modList:NewMod("Multiplier:WindDancerStacks", "BASE", val, "Config")
+	end },
+	{ var = "SecondsSinceInevitableCrit", type = "count", label = "# of seconds since Inevitable crit:", ifSkill = "Inevitable Critical", apply = function(val, modList, enemyModList)
+		modList:NewMod("Multiplier:SecondsSinceInevitableCrit", "BASE", val, "Config")
 	end },
 	{ var = "conditionSkillEmpowered", type = "check", label = "Is the skill Empowered?", ifCond = "SkillEmpowered", tooltip = "Skills can be temporarily Empowered by certain buff skills.", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:SkillEmpowered", "FLAG", true, "Config", { type = "Condition", var = "Combat" })

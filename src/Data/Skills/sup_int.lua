@@ -2060,6 +2060,14 @@ skills["SupportInevitableCriticalsPlayer"] = {
 			label = "Inevitable Critical",
 			incrementalEffectiveness = 0.092720001935959,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_inevitable_criticals_critical_strike_chance_+%_per_second"] = {
+					mod("CritChance", "INC", nil, 0, 0, { type = "Multiplier", var = "SecondsSinceInevitableCrit", limitVar = "InevitableCritCap" }),
+				},
+				["support_inevitable_criticals_critical_strike_chance_+%_cap"] = {
+					mod("Multiplier:InevitableCritCap", "BASE", nil),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
