@@ -116,6 +116,7 @@ local formList = {
 	["(%d+)%-(%d+) added (%a+) damage"] = "DMG",
 	["(%d+) to (%d+) additional (%a+) damage"] = "DMG",
 	["(%d+)%-(%d+) additional (%a+) damage"] = "DMG",
+	["^(%d+) to (%d+) (%a+) thorns damage"] = "THORNS_DMG",
 	["^(%d+) to (%d+) (%a+) damage"] = "DMG",
 	["adds (%d+) to (%d+) (%a+) damage"] = "DMG",
 	["adds (%d+)%-(%d+) (%a+) damage"] = "DMG",
@@ -634,6 +635,7 @@ local modNameList = {
 	["chaos damage"] = "ChaosDamage",
 	["non-chaos damage"] = "NonChaosDamage",
 	["elemental damage"] = "ElementalDamage",
+	["thorns damage"] = "ThornsDamage",
 	-- Other damage forms
 	["attack damage"] = { "Damage", flags = ModFlag.Attack },
 	["attack physical damage"] = { "PhysicalDamage", flags = ModFlag.Attack },
@@ -674,8 +676,10 @@ local modNameList = {
 	["damage over time multiplier"] = "DotMultiplier",
 	-- Crit/accuracy/speed modifiers
 	["critical hit chance"] = "CritChance",
+	["thorns critical hit chance"] = "ThornsCritChance",
 	["attack critical hit chance"] = { "CritChance", flags = ModFlag.Attack },
 	["critical damage bonus"] = "CritMultiplier",
+	["thorns critical damage bonus"] = "ThornsCritMultiplier",
 	["attack critical damage bonus"] = { "CritMultiplier", flags = ModFlag.Attack },
 	["critical spell damage bonus"] = { "CritMultiplier", flags = ModFlag.Spell },
 	["accuracy"] = "Accuracy",
@@ -6064,6 +6068,10 @@ local function parseMod(line, order)
 		if not damageType then
 			return { }, line
 		end
+		modValue = { tonumber(formCap[1]), tonumber(formCap[2]) }
+		modName = { damageType.."Min", damageType.."Max" }
+	elseif modForm == "THORNS_DMG" then
+		local damageType = "Thorns" .. dmgTypes[formCap[3]]
 		modValue = { tonumber(formCap[1]), tonumber(formCap[2]) }
 		modName = { damageType.."Min", damageType.."Max" }
 	elseif modForm == "DMGATTACKS" then
