@@ -375,7 +375,7 @@ function calcs.reducePoolsByDamage(poolTable, damageTable, actor)
 		end
 	end
 	
-	local PoolsLost = poolTbl.PoolsLost or { }
+	local damageTakenThatCanBeRecouped = poolTbl.damageTakenThatCanBeRecouped or { }
 	local aegis = poolTbl.Aegis
 	if not aegis then
 		aegis = {
@@ -418,6 +418,7 @@ function calcs.reducePoolsByDamage(poolTable, damageTable, actor)
 				end
 			end
 			-- frost shield / soul link / other taken before you does not count as you taking damage
+			damageTakenThatCanBeRecouped[damageType] = (damageTakenThatCanBeRecouped[damageType] or 0) + damageRemainder
 			if aegis[damageType] > 0 then
 				local tempDamage = m_min(damageRemainder, aegis[damageType])
 				aegis[damageType] = aegis[damageType] - tempDamage
@@ -448,7 +449,6 @@ function calcs.reducePoolsByDamage(poolTable, damageTable, actor)
 				ward = ward - tempDamage
 				damageRemainder = damageRemainder - tempDamage
 			end
-			PoolsLost[damageType] = (PoolsLost[damageType] or 0) + (damageTable[damageType] - damageRemainder)
 			damageRemaindersBeforeES[damageType] = damageRemainder > 0 and damageRemainder or nil
 		end
 	end
@@ -464,7 +464,6 @@ function calcs.reducePoolsByDamage(poolTable, damageTable, actor)
 					local tempDamage = m_min(damageRemainder * (1 - esBypass / 100), energyShield / esDamageTypeMultiplier)
 					energyShield = energyShield - tempDamage * esDamageTypeMultiplier
 					damageRemainder = damageRemainder - tempDamage
-					PoolsLost[damageType] = (PoolsLost[damageType] or 0) + (damageType == "Chaos" and tempDamage or 0)
 				end
 				if (output.sharedMindOverMatter + output[damageType.."MindOverMatter"]) > 0 then
 					local MoMEffect = m_min(output.sharedMindOverMatter + output[damageType.."MindOverMatter"], 100) / 100
@@ -477,7 +476,6 @@ function calcs.reducePoolsByDamage(poolTable, damageTable, actor)
 						local tempDamage2 = m_min(MoMDamage, mana)
 						mana = mana - tempDamage2
 						damageRemainder = damageRemainder - tempDamage - tempDamage2
-						PoolsLost[damageType] = (PoolsLost[damageType] or 0) + (damageType == "Chaos" and tempDamage or 0)
 					elseif mana > 0 then
 						local manaPool = MoMEffect < 1 and m_min(life / (1 - MoMEffect) - life, mana) or mana
 						local tempDamage = m_min(MoMDamage, manaPool)
@@ -523,7 +521,6 @@ function calcs.reducePoolsByDamage(poolTable, damageTable, actor)
 					damageRemainder = damageRemainder - tempDamage
 				end
 			end
-			PoolsLost[damageType] = (PoolsLost[damageType] or 0) + (damageRemaindersBeforeES[damageType] - damageRemainder)
 			overkillDamage = overkillDamage + damageRemainder
 		end
 	end
@@ -532,7 +529,7 @@ function calcs.reducePoolsByDamage(poolTable, damageTable, actor)
 		AlliesTakenBeforeYou = alliesTakenBeforeYou,
 		Aegis = aegis,
 		Guard = guard,
-		PoolsLost = PoolsLost,
+		damageTakenThatCanBeRecouped = damageTakenThatCanBeRecouped,
 		Ward = restoreWard,
 		EnergyShield = energyShield,
 		Mana = mana,
@@ -2661,14 +2658,14 @@ function calcs.buildDefenceEstimations(env, actor)
 			Life = output.LifeRecoverable or 0,
 			LifeLossLostOverTime = output.LifeLossLostOverTime or 0,
 			LifeBelowHalfLossLostOverTime = output.LifeBelowHalfLossLostOverTime or 0,
-			PoolsLost = { }
+			damageTakenThatCanBeRecouped = { }
 		}
 		
 		if DamageIn["cycles"] == 1 then
-			DamageIn["TrackPoolLoss"] = DamageIn["TrackPoolLoss"] or false
+			DamageIn["TrackRecoupable"] = DamageIn["TrackRecoupable"] or false
 			DamageIn["TrackLifeLossOverTime"] = DamageIn["TrackLifeLossOverTime"] or false
 		else
-			DamageIn["TrackPoolLoss"] = false
+			DamageIn["TrackRecoupable"] = false
 			DamageIn["TrackLifeLossOverTime"] = false
 		end
 		DamageIn["WardBypass"] = DamageIn["WardBypass"] or modDB:Sum("BASE", nil, "WardBypass") or 0
@@ -2735,9 +2732,9 @@ function calcs.buildDefenceEstimations(env, actor)
 			end
 			numHits = numHits + iterationMultiplier
 		end
-		if DamageIn.TrackPoolLoss then
-			for damageType, lost in pairs(poolTable.PoolsLost) do
-				output[damageType.."PoolLost"] = output[damageType.."PoolLost"] + lost
+		if DamageIn.TrackRecoupable then
+			for damageType, recoupable in pairs(poolTable.damageTakenThatCanBeRecouped) do
+				output[damageType.."RecoupableDamageTaken"] = output[damageType.."RecoupableDamageTaken"] + recoupable
 			end
 		end
 		if DamageIn["TrackLifeLossOverTime"] then
@@ -2845,9 +2842,9 @@ function calcs.buildDefenceEstimations(env, actor)
 			end
 			-- recoup initialisation
 			if output["anyRecoup"] > 0 then
-				DamageIn["TrackPoolLoss"] = true
+				DamageIn["TrackRecoupable"] = true
 				for _, damageType in ipairs(dmgTypeList) do
-					output[damageType.."PoolLost"] = 0
+					output[damageType.."RecoupableDamageTaken"] = 0
 				end
 			end
 			-- taken over time degen initialisation
@@ -2858,7 +2855,7 @@ function calcs.buildDefenceEstimations(env, actor)
 			end
 			averageAvoidChance = averageAvoidChance / 5
 			output["ConfiguredDamageChance"] = 100 * (blockEffect * suppressionEffect * (1 - averageAvoidChance / 100))
-			output["NumberOfMitigatedDamagingHits"] = (output["ConfiguredDamageChance"] ~= 100 or DamageIn["TrackPoolLoss"] or DamageIn["TrackLifeLossOverTime"] or DamageIn.GainWhenHit) and numberOfHitsToDie(DamageIn) or output["NumberOfDamagingHits"]
+			output["NumberOfMitigatedDamagingHits"] = (output["ConfiguredDamageChance"] ~= 100 or DamageIn["TrackRecoupable"] or DamageIn["TrackLifeLossOverTime"] or DamageIn.GainWhenHit) and numberOfHitsToDie(DamageIn) or output["NumberOfDamagingHits"]
 			if breakdown then
 				breakdown["ConfiguredDamageChance"] = {
 					s_format("%.2f ^8(chance for block to fail)", 1 - BlockChance)
@@ -2958,9 +2955,9 @@ function calcs.buildDefenceEstimations(env, actor)
 		local totalPhysicalDamageMitigated = output["NumberOfMitigatedDamagingHits"] * (output.PhysicalTakenDamage - output.PhysicalTakenHit)
 		local extraPseudoRecoup = {}
 		for _, damageType in ipairs(dmgTypeList) do
-			totalDamage = totalDamage + output[damageType.."PoolLost"]
+			totalDamage = totalDamage + output[damageType.."RecoupableDamageTaken"]
 			if isElemental[damageType] then
-				totalElementalDamage = totalElementalDamage + output[damageType.."PoolLost"]
+				totalElementalDamage = totalElementalDamage + output[damageType.."RecoupableDamageTaken"]
 			end
 		end
 		local recoupTypeList = {"Life", "Mana", "EnergyShield"}
@@ -2971,8 +2968,8 @@ function calcs.buildDefenceEstimations(env, actor)
 				output["Total"..recoupType.."RecoupRecovery"] = output["Total"..recoupType.."RecoupRecovery"] + output["Elemental"..recoupType.."Recoup"] / 100 * totalElementalDamage
 			end
 			for _, damageType in ipairs(dmgTypeList) do
-				if (output[damageType..recoupType.."Recoup"] or 0) > 0 and output[damageType.."PoolLost"] > 0 then
-					output["Total"..recoupType.."RecoupRecovery"] = output["Total"..recoupType.."RecoupRecovery"] + output[damageType..recoupType.."Recoup"] / 100 * output[damageType.."PoolLost"]
+				if (output[damageType..recoupType.."Recoup"] or 0) > 0 and output[damageType.."RecoupableDamageTaken"] > 0 then
+					output["Total"..recoupType.."RecoupRecovery"] = output["Total"..recoupType.."RecoupRecovery"] + output[damageType..recoupType.."Recoup"] / 100 * output[damageType.."RecoupableDamageTaken"]
 				end
 			end
 			output["Total"..recoupType.."PseudoRecoup"] = (output["PhysicalDamageMitigated"..recoupType.."PseudoRecoup"] or 0) / 100 * totalPhysicalDamageMitigated
@@ -3005,7 +3002,7 @@ function calcs.buildDefenceEstimations(env, actor)
 					multipleTypes = multipleTypes + 1
 				end
 				for _, damageType in ipairs(dmgTypeList) do
-					if (output[damageType..recoupType.."Recoup"] or 0) > 0 and output[damageType.."PoolLost"] > 0 then
+					if (output[damageType..recoupType.."Recoup"] or 0) > 0 and output[damageType.."RecoupableDamageTaken"] > 0 then
 						if multipleTypes > 0 then
 							t_insert(breakdown[recoupType.."RecoupRecoveryMax"], s_format(""))
 						end
