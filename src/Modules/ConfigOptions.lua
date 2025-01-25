@@ -1458,6 +1458,9 @@ Huge sets the radius to 11.
 	{ var = "conditionEnemyMoving", type = "check", label = "Is the enemy Moving?", ifMod = "BleedChance", apply = function(val, modList, enemyModList)
 		enemyModList:NewMod("Condition:Moving", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
 	end },
+	{ var = "conditionEnemySlowed", type = "check", label = "Is the enemy Slowed?", apply = function(val, modList, enemyModList)
+		enemyModList:NewMod("Condition:Slowed", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
+	end },
 	{ var = "conditionEnemyFullLife", type = "check", label = "Is the enemy on Full ^xE05030Life?", ifEnemyCond = "FullLife", apply = function(val, modList, enemyModList)
 		enemyModList:NewMod("Condition:FullLife", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
 	end },
@@ -1732,6 +1735,14 @@ Huge sets the radius to 11.
 	{ var = "conditionEnemyRareOrUnique", type = "check", label = "Is the enemy Rare or Unique?", ifEnemyCond = "EnemyRareOrUnique", tooltip = "The enemy will automatically be considered to be Unique if they are a Boss,\nbut you can use this option to force it if necessary.", apply = function(val, modList, enemyModList)
 		enemyModList:NewMod("Condition:RareOrUnique", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
 	end },
+	{ var = "conditionEnemyMagic", type = "check", label = s_format("Is the enemy %sMagic?", colorCodes.MAGIC), tooltip = "", apply = function(val, modList, enemyModList)
+		enemyModList:NewMod("Condition:Magic", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
+		enemyModList:NewMod("ActionSpeed", "MORE", 15, "Less Slow", { type = "Condition", var = "Effective" }, { type = "Condition", var = "Slowed" })
+	end },
+	{ var = "conditionEnemyRare", type = "check", label = s_format("Is the enemy %sRare?", colorCodes.RARE), tooltip = "", apply = function(val, modList, enemyModList)
+		enemyModList:NewMod("Condition:Rare", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
+		enemyModList:NewMod("ActionSpeed", "MORE", 30, "Less Slow", { type = "Condition", var = "Effective" }, { type = "Condition", var = "Slowed" })
+	end },
 	{ var = "enemyIsBoss", type = "list", label = "Is the enemy a Boss?", defaultIndex = 3, tooltip = data.enemyIsBossTooltip, list = {{val="None",label="No"},{val="Boss",label="Standard Boss"},{val="Pinnacle",label="Guardian/Pinnacle Boss"},{val="Uber",label="Uber Pinnacle Boss"}}, apply = function(val, modList, enemyModList, build)
 		-- These defaults are here so that the placeholders get reset correctly
 		build.configTab.varControls['enemySpeed']:SetPlaceholder(700, true)
@@ -1766,8 +1777,10 @@ Huge sets the radius to 11.
 
 			build.configTab.varControls['enemyArmour']:SetPlaceholder(data.monsterArmourTable[defaultLevel], true)
 			build.configTab.varControls['enemyEvasion']:SetPlaceholder(data.monsterEvasionTable[defaultLevel], true)
-		elseif val == "Boss" then
+		elseif val == "Boss" then	
+			enemyModList:NewMod("Condition:Unique", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
 			enemyModList:NewMod("Condition:RareOrUnique", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
+		    enemyModList:NewMod("ActionSpeed", "MORE", 50, "Less Slow", { type = "Condition", var = "Effective" }, { type = "Condition", var = "Slowed" })
 			enemyModList:NewMod("AilmentThreshold", "MORE", 488, "Boss")
 			modList:NewMod("WarcryPower", "BASE", 20, "Boss")
 			modList:NewMod("Multiplier:EnemyPower", "BASE", 20, "Boss")
@@ -1801,8 +1814,10 @@ Huge sets the radius to 11.
 			build.configTab.varControls['enemyArmour']:SetPlaceholder(data.monsterArmourTable[defaultLevel], true)
 			build.configTab.varControls['enemyEvasion']:SetPlaceholder(data.monsterEvasionTable[defaultLevel], true)
 		elseif val == "Pinnacle" then
+			enemyModList:NewMod("Condition:Unique", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
 			enemyModList:NewMod("Condition:RareOrUnique", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
 			enemyModList:NewMod("Condition:PinnacleBoss", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
+		    enemyModList:NewMod("ActionSpeed", "MORE", 50, "Less Slow", { type = "Condition", var = "Effective" }, { type = "Condition", var = "Slowed" })
 			enemyModList:NewMod("AilmentThreshold", "MORE", 404, "Boss")
 			modList:NewMod("WarcryPower", "BASE", 20, "Boss")
 			modList:NewMod("Multiplier:EnemyPower", "BASE", 20, "Boss")
@@ -1836,6 +1851,7 @@ Huge sets the radius to 11.
 		elseif val == "Uber" then
 			enemyModList:NewMod("Condition:RareOrUnique", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
 			enemyModList:NewMod("Condition:PinnacleBoss", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
+		    enemyModList:NewMod("ActionSpeed", "MORE", 50, "Less Slow", { type = "Condition", var = "Effective" }, { type = "Condition", var = "Slowed" })
 			enemyModList:NewMod("DamageTaken", "MORE", -70, "Boss")
 			enemyModList:NewMod("AilmentThreshold", "MORE", 404, "Boss")
 			modList:NewMod("WarcryPower", "BASE", 20, "Boss")

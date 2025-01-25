@@ -748,24 +748,46 @@ local function doActorCharges(env, actor)
 	modDB.multipliers["SpiritCharge"] = output.SpiritCharges
 end
 
+-- Process slow effects/magnitude
+local function applySlowMagnitude(env)
+	local modDB = env.modDB
+	local enemyDB = env.enemyDB
+	if enemyDB:HasMod("INC", nil, "TemporalChainsActionSpeed", nil) then
+		enemyDB:NewMod("Condition:Slowed", "FLAG", true, 'Skill:TemporalChainsPlayer')
+	end
+
+	if enemyDB:Flag(nil, "Condition:Slowed") then
+		local slowMagnitude = modDB:Sum("INC", nil, "EnemySlowMagnitude")  / 100
+		if slowMagnitude > 0 then
+			enemyDB:ScaleAddMod(modLib.createMod("TemporalChainsActionSpeed", "INC", enemyDB:Sum("INC", nil, "TemporalChainsActionSpeed"), "Slow Magnitude"), slowMagnitude)
+			enemyDB:ScaleAddMod(modLib.createMod("ApexOfMomentSlow", "INC", enemyDB:Sum("INC", nil, "ApexOfMomentSlow"), "Slow Magnitude"), slowMagnitude)
+		end
+	end
+end
 
 function calcs.actionSpeedMod(actor)
 	local modDB = actor.modDB
 	local minimumActionSpeed = modDB:Max(nil, "MinimumActionSpeed") or 0
 	local maximumActionSpeedReduction = modDB:Max(nil, "MaximumActionSpeedReduction")
 	local actionSpeedSum
-    local tempChainsSum
+    local slowEffectsSum
     
     -- if we are unaffected by slows, only count the positive modifiers to action speed
     if modDB:Flag(nil, "UnaffectedBySlows") then
         actionSpeedSum = modDB:SumPositiveValues("INC", nil, "ActionSpeed")
-        tempChainsSum = modDB:SumPositiveValues("INC", nil, "TemporalChainsActionSpeed")
+		slowEffectsSum = modDB:SumPositiveValues("INC", nil, "ApexOfMomentSlow", "TemporalChainsActionSpeed")
     else
         actionSpeedSum = modDB:Sum("INC", nil, "ActionSpeed")
-        tempChainsSum =  modDB:Sum("INC", nil, "TemporalChainsActionSpeed")
+		slowEffectsSum = modDB:Sum("INC", nil, "ApexOfMomentSlow", "TemporalChainsActionSpeed")
     end
+
+	-- local slowMultiplier = (1 + tempChains / 100) * (1 + apexOfMoment / 100) * (1 + modDB:Sum("INC", nil, "ActionSpeed", "Chill") / 100) * modDB:More(nil, "ActionSpeed", "Less Slow")
+	local slowMultiplier = (1 + slowEffectsSum / 100) * (1 + modDB:Sum("INC", nil, "ActionSpeed", "Chill") / 100) * modDB:More(nil, "ActionSpeed", "Less Slow")
+	local slowEffect = (1 - slowMultiplier) * 100 
+
+	local actionSpeedMod = 1 + (-slowEffect + actionSpeedSum) / 100
     
-    local actionSpeedMod = 1 + (m_max(-data.misc.TemporalChainsEffectCap, tempChainsSum) + actionSpeedSum) / 100
+    -- local actionSpeedMod = 1 + (slowEffectsSum + actionSpeedSum) / 100
 	actionSpeedMod = m_max(minimumActionSpeed / 100, actionSpeedMod)
 	if maximumActionSpeedReduction then
 		actionSpeedMod = m_min((100 - maximumActionSpeedReduction) / 100, actionSpeedMod)
@@ -2871,6 +2893,9 @@ function calcs.perform(env, skipEHP)
 		local effect = 1 + modDB:Sum("INC", nil, "ConsecratedGroundEffect") / 100
 		enemyDB:NewMod("DamageTaken", "INC", enemyDB:Sum("INC", nil, "DamageTakenConsecratedGround") * effect, "Consecrated Ground")
 	end
+
+	-- Handle Slow
+	applySlowMagnitude(env)
 
 	-- Defence/offence calculations
 	calcs.defence(env, env.player)

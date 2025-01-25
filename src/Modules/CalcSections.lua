@@ -2196,8 +2196,9 @@ return {
 	{ label = "Hits before death", { format = "{2:output:TotalNumberOfHits}", { breakdown = "TotalNumberOfHits" }}, },
 	{ label = "Effective Hit Pool",{ format = "{0:output:TotalEHP}", { breakdown = "TotalEHP" }, },},
 	{ label = "Time before death",{ format = "{2:output:EHPSurvivalTime}s", 
-		{ breakdown = "EHPSurvivalTime" }, 
-		{ label = "Enemy modifiers", modName = { "TemporalChainsActionSpeed", "ActionSpeed", "Speed", "MinimumActionSpeed" }, enemy = true },
+		{ breakdown = "EHPSurvivalTime" },
+		{ label = "Player modifiers", modName = { "EnemySlowMagnitude" } },
+		{ label = "Enemy modifiers", modName = { "TemporalChainsActionSpeed", "ApexOfMomentSlow", "EnemySlowMagnitude", "Slow", "ActionSpeed", "Speed", "MinimumActionSpeed" }, enemy = true },
 	},}
 }, }, { defaultCollapsed = false, label = "Maximum Hit Taken", data = {
 	colWidth = 114,
