@@ -4103,9 +4103,10 @@ function calcs.offence(env, actor, activeSkill)
 
 			-- Ratio of ailments applied : max effective ailments
 			globalOutput[ailment .. "StackPotential"] = ailmentStacks / maxStacks
+			globalOutput[ailment .. "StackPotentialPercent"] = globalOutput[ailment .. "StackPotential"] * 100
 			if globalBreakdown then
 				globalBreakdown[ailment .. "StackPotential"] = {
-					s_format(colorCodes.CUSTOM.."NOTE: Calculation uses a Weighted Avg formula"),
+					s_format(colorCodes.CUSTOM.."The percentage of your max stacks that are applied on average if you are attacking constantly"),
 					s_format(""),
 				}
 				if configStacks > 0 then
@@ -4142,6 +4143,7 @@ function calcs.offence(env, actor, activeSkill)
 			if globalBreakdown then
 				globalBreakdown[ailment .. "RollAverage"] = {
 					s_format(colorCodes.CUSTOM.."This is the average roll of an ailment affecting the enemy if you are constantly attacking"),
+					s_format(colorCodes.CUSTOM.."Uses a weighted average formula when stack potential is over 100%%"),
 					s_format(colorCodes.CUSTOM.."If hitting constantly, your average strongest ailment currently achieves ^7%.2f%%"..colorCodes.CUSTOM.." of its max damage", ailmentRollAverage),
 					s_format(""),
 					s_format("Average Roll:"),
