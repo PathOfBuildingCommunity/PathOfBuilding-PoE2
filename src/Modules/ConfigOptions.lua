@@ -1684,12 +1684,20 @@ Huge sets the radius to 11.
 	{ var = "conditionEnemyRareOrUnique", type = "check", label = "Is the enemy Rare or Unique?", ifEnemyCond = "EnemyRareOrUnique", tooltip = "The enemy will automatically be considered to be Unique if they are a Boss,\nbut you can use this option to force it if necessary.", apply = function(val, modList, enemyModList)
 		enemyModList:NewMod("Condition:RareOrUnique", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
 	end },
+	{ var = "enemyRarity", type = "list", label = "Enemy Rarity", ifFlag = "NotABoss", list = {{val="Normal",label="Normal"},{val="Magic",label="Magic"},{val="Rare",label="Rare"},{val="Unique",label="Unique"}}, tooltip = "Used for calculating culling strike damage. Ignored if enemy is a boss.", apply = function(val, mdoList, enemyModList)
+		if val == "Rare" then
+			enemyModList:NewMod("Condition:RareOrUnique", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
+		elseif val == "Unique" then
+			enemyModList:NewMod("Condition:RareOrUnique", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
+		end
+	end },
 	{ var = "enemyIsBoss", type = "list", label = "Is the enemy a Boss?", defaultIndex = 3, tooltip = data.enemyIsBossTooltip, list = {{val="None",label="No"},{val="Boss",label="Standard Boss"},{val="Pinnacle",label="Guardian/Pinnacle Boss"},{val="Uber",label="Uber Pinnacle Boss"}}, apply = function(val, modList, enemyModList, build)
 		-- These defaults are here so that the placeholders get reset correctly
 		build.configTab.varControls['enemySpeed']:SetPlaceholder(700, true)
 		build.configTab.varControls['enemyCritChance']:SetPlaceholder(5, true)
 		build.configTab.varControls['enemyCritDamage']:SetPlaceholder(30, true)
 		if val == "None" then
+			modList:NewMod("NotABoss", "FLAG", true, "Config")
 			local defaultResist = ""
 			build.configTab.varControls['enemyLightningResist']:SetPlaceholder(defaultResist, true)
 			build.configTab.varControls['enemyColdResist']:SetPlaceholder(defaultResist, true)

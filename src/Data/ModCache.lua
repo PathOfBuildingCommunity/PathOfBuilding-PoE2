@@ -739,7 +739,7 @@ c["100% increased Cold Damage"]={{[1]={flags=0,keywordFlags=0,name="ColdDamage",
 c["100% increased Critical Damage Bonus against Enemies that are on Full Life"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="FullLife"},flags=0,keywordFlags=0,name="CritMultiplier",type="INC",value=100}},nil}
 c["100% increased Critical Hit Chance"]={{[1]={flags=0,keywordFlags=0,name="CritChance",type="INC",value=100}},nil}
 c["100% increased Critical Hit Chance against Enemies on Full Life"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="FullLife"},flags=0,keywordFlags=0,name="CritChance",type="INC",value=100}},nil}
-c["100% increased Culling Strike Threshold"]={{}," Culling Strike Threshold "}
+c["100% increased Culling Strike Threshold"]={{[1]={flags=0,keywordFlags=0,name="CullThreshold",type="INC",value=100}},nil}
 c["100% increased Defences from Equipped Shield"]={{[1]={[1]={slotName="Weapon 2",type="SlotName"},flags=0,keywordFlags=0,name="Defences",type="INC",value=100}},nil}
 c["100% increased Effect of Jewel Socket Passive Skills"]={{[1]={flags=0,keywordFlags=0,name="LocalEffect",type="INC",value=100}},"  of Jewel Socket Passive Skills "}
 c["100% increased Effect of Jewel Socket Passive Skills containing Corrupted Magic Jewels"]={{[1]={flags=0,keywordFlags=0,name="JewelData",type="LIST",value={key="corruptedMagicJewelIncEffect",value=100}}},nil}
@@ -1300,7 +1300,7 @@ c["25% increased Critical Hit Chance against Shocked Enemies"]={{[1]={[1]={actor
 c["25% increased Critical Hit Chance for Attacks"]={{[1]={flags=1,keywordFlags=0,name="CritChance",type="INC",value=25}},nil}
 c["25% increased Critical Hit Chance for Spells"]={{[1]={flags=2,keywordFlags=0,name="CritChance",type="INC",value=25}},nil}
 c["25% increased Critical Hit Chance with Traps"]={{[1]={flags=0,keywordFlags=4096,name="CritChance",type="INC",value=25}},nil}
-c["25% increased Culling Strike Threshold"]={{}," Culling Strike Threshold "}
+c["25% increased Culling Strike Threshold"]={{[1]={flags=0,keywordFlags=0,name="CullThreshold",type="INC",value=25}},nil}
 c["25% increased Damage against Dazed Enemies"]={{[1]={flags=0,keywordFlags=0,name="Damage",type="INC",value=25}},"  against Dazed Enemies "}
 c["25% increased Damage against Dazed Enemies 25% increased Daze Buildup"]={{[1]={flags=0,keywordFlags=0,name="Damage",type="INC",value=25}},"  against Dazed Enemies 25% increased Daze Buildup "}
 c["25% increased Damage while you have a Totem"]={{[1]={[1]={type="Condition",var="HaveTotem"},flags=0,keywordFlags=0,name="Damage",type="INC",value=25}},nil}
@@ -2294,9 +2294,9 @@ c["Critical Hits do not deal extra Damage"]={{[1]={flags=0,keywordFlags=0,name="
 c["Critical Hits ignore Enemy Monster Elemental Resistances"]={{[1]={[1]={type="Condition",var="CriticalStrike"},flags=0,keywordFlags=0,name="IgnoreElementalResistances",type="FLAG",value=true}},nil}
 c["Critical Hits ignore non-negative Enemy Monster Elemental Resistances"]={nil,"Critical Hits ignore non-negative Enemy Monster Elemental Resistances "}
 c["Critical Hits with Daggers have a 25% chance to Poison the Enemy"]={{[1]={[1]={type="Condition",var="CriticalStrike"},flags=524288,keywordFlags=0,name="PoisonChance",type="BASE",value=25}},nil}
-c["Culling Strike"]={{[1]={[1]={effectType="Global",type="GlobalEffect",unscalable=true},flags=0,keywordFlags=0,name="CullPercent",type="MAX",value=10}},nil}
-c["Culling Strike against Enemies you Mark"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Marked"},flags=0,keywordFlags=0,name="CullPercent",type="MAX",value=10}},nil}
-c["Culling Strike against Frozen Enemies"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Frozen"},flags=0,keywordFlags=0,name="CullPercent",type="MAX",value=10}},nil}
+c["Culling Strike"]={{[1]={[1]={effectType="Global",type="GlobalEffect"},flags=0,keywordFlags=0,name="CullingStrike",type="FLAG",value=true}},nil}
+c["Culling Strike against Enemies you Mark"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Marked"},flags=0,keywordFlags=0,name="CullingStrike",type="FLAG",value=true}},nil}
+c["Culling Strike against Frozen Enemies"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Frozen"},flags=0,keywordFlags=0,name="CullingStrike",type="FLAG",value=true}},nil}
 c["Curse Skills have 15% increased Cast Speed"]={{[1]={flags=16,keywordFlags=2,name="Speed",type="INC",value=15}},nil}
 c["Curse Skills have 20% increased Cast Speed"]={{[1]={flags=16,keywordFlags=2,name="Speed",type="INC",value=20}},nil}
 c["Curses have no Activation Delay"]={nil,"Curses have no Activation Delay "}
@@ -2606,7 +2606,7 @@ c["Hits against you have 20% reduced Critical Damage Bonus"]={{[1]={flags=0,keyw
 c["Hits against you have 25% reduced Critical Damage Bonus"]={{[1]={flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={flags=4,keywordFlags=0,name="CritMultiplier",type="INC",value=-25}}}},nil}
 c["Hits have 25% reduced Critical Hit Chance against you"]={nil,"Hits have 25% reduced Critical Hit Chance  "}
 c["Hits ignore non-negative Elemental Resistances of Frozen Enemies"]={nil,"Hits ignore non-negative Elemental Resistances of Frozen Enemies "}
-c["Hits that Heavy Stun Enemies have Culling Strike"]={{[1]={[1]={type="Condition",var="AlwaysHeavyStunning"},flags=0,keywordFlags=0,name="CullPercent",type="MAX",value=10}},nil}
+c["Hits that Heavy Stun Enemies have Culling Strike"]={{[1]={[1]={type="Condition",var="AlwaysHeavyStunning"},flags=0,keywordFlags=0,name="CullingStrike",type="FLAG",value=true}},nil}
 c["Hits that Heavy Stun inflict Fire Exposure"]={nil,"Hits that Heavy Stun inflict Fire Exposure "}
 c["Hits that deal Cold Damage remove Cold Exposure and inflict Fire Exposure"]={nil,"Hits that deal Cold Damage remove Cold Exposure and inflict Fire Exposure "}
 c["Hits that deal Cold Damage remove Cold Exposure and inflict Fire Exposure Hits that deal Lightning Damage remove Lightning Exposure and inflict Cold Exposure"]={nil,"Hits that deal Cold Damage remove Cold Exposure and inflict Fire Exposure Hits that deal Lightning Damage remove Lightning Exposure and inflict Cold Exposure "}
