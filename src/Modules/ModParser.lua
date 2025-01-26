@@ -2838,6 +2838,9 @@ local specialModList = {
 	["effect and duration of flames of chayula on you is doubled"] = function() return {
 		mod("Multiplier:FlameEffect", "BASE", 1),
 	} end,
+	-- Monk - Invoker
+	--		- Sunder my Enemies
+	["critical hits ignore non-negative enemy monster elemental resistances"] = { flag("CritsIgnoreNonZEleRes") },
 	-- Item local modifiers
 	["has no sockets"] = { flag("NoSockets") },
 	["reflects your other ring"] = {
