@@ -23,6 +23,7 @@ colorCodes = {
 	COLD = "^x3F6DB3",
 	LIGHTNING = "^xADAA47",
 	CHAOS = "^xD02090",
+	THORNS = "^x00CB3A",
 	POSITIVE = "^x33FF77",
 	NEGATIVE = "^xDD0022",
 	HIGHLIGHT ="^xFF0000",

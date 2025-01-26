@@ -116,6 +116,7 @@ local formList = {
 	["(%d+)%-(%d+) added (%a+) damage"] = "DMG",
 	["(%d+) to (%d+) additional (%a+) damage"] = "DMG",
 	["(%d+)%-(%d+) additional (%a+) damage"] = "DMG",
+	["^(%d+) to (%d+) (%a+) thorns damage"] = "THORNS_DMG",
 	["^(%d+) to (%d+) (%a+) damage"] = "DMG",
 	["adds (%d+) to (%d+) (%a+) damage"] = "DMG",
 	["adds (%d+)%-(%d+) (%a+) damage"] = "DMG",
@@ -634,6 +635,7 @@ local modNameList = {
 	["chaos damage"] = "ChaosDamage",
 	["non-chaos damage"] = "NonChaosDamage",
 	["elemental damage"] = "ElementalDamage",
+	["thorns damage"] = "ThornsDamage",
 	-- Other damage forms
 	["attack damage"] = { "Damage", flags = ModFlag.Attack },
 	["attack physical damage"] = { "PhysicalDamage", flags = ModFlag.Attack },
@@ -674,8 +676,10 @@ local modNameList = {
 	["damage over time multiplier"] = "DotMultiplier",
 	-- Crit/accuracy/speed modifiers
 	["critical hit chance"] = "CritChance",
+	["thorns critical hit chance"] = "ThornsCritChance",
 	["attack critical hit chance"] = { "CritChance", flags = ModFlag.Attack },
 	["critical damage bonus"] = "CritMultiplier",
+	["thorns critical damage bonus"] = "ThornsCritMultiplier",
 	["attack critical damage bonus"] = { "CritMultiplier", flags = ModFlag.Attack },
 	["critical spell damage bonus"] = { "CritMultiplier", flags = ModFlag.Spell },
 	["accuracy"] = "Accuracy",
@@ -4322,6 +4326,10 @@ local specialModList = {
 	["ignore all movement penalties from armour"] = { flag("Condition:IgnoreMovementPenalties") },
 	["gain armour equal to your reserved mana"] = { mod("Armour", "BASE", 1, { type = "PerStat", stat = "ManaReserved", div = 1 }) },
 	["gain ward instead of (%d+)%% of armour and evasion rating from equipped body armour"] = function(num) return {flag("ConvertBodyArmourArmourEvasionToWard"), mod("BodyArmourArmourEvasionToWardPercent", "BASE", num)} end,
+	["gain physical thorns damage equal to (%d+)%% of armour from equipped body armour"] = function(num) return {
+		mod("ThornsPhysicalMin", "BASE", 1, { type = "PercentStat", stat = "ArmourOnBody Armour", percent = num }),
+		mod("ThornsPhysicalMax", "BASE", 1, { type = "PercentStat", stat = "ArmourOnBody Armour", percent = num }),
+	} end,
 	["(%d+)%% increased armour per (%d+) reserved mana"] = function(num, _, mana) return { mod("Armour", "INC", num, { type = "PerStat", stat = "ManaReserved", div = tonumber(mana) }) } end,
 	["cannot be stunned"] = { flag("StunImmune"), },
 	["cannot be stunned while bleeding"] = { flag("StunImmune", { type = "Condition", var = "Bleeding" }), },
@@ -6064,6 +6072,10 @@ local function parseMod(line, order)
 		if not damageType then
 			return { }, line
 		end
+		modValue = { tonumber(formCap[1]), tonumber(formCap[2]) }
+		modName = { damageType.."Min", damageType.."Max" }
+	elseif modForm == "THORNS_DMG" then
+		local damageType = "Thorns" .. dmgTypes[formCap[3]]
 		modValue = { tonumber(formCap[1]), tonumber(formCap[2]) }
 		modName = { damageType.."Min", damageType.."Max" }
 	elseif modForm == "DMGATTACKS" then

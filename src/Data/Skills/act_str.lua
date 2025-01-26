@@ -10475,6 +10475,12 @@ skills["ScavengedPlatingPlayer"] = {
 				["scavenged_plating_maximum_stacks_display"] = {
 					mod("Multiplier:ScavengedPlatingStacksLimit", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Scavenged Plating"}),
 				},
+				["scavenged_plating_thorns_minimum_physical_damage"] = {
+					mod("ThornsPhysicalMin", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Scavenged Plating" }, { type = "Multiplier", var = "ScavengedPlatingStacks", limitVar = "ScavengedPlatingStacksLimit" }),
+				},
+				["scavenged_plating_thorns_maximum_physical_damage"] = {
+					mod("ThornsPhysicalMax", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Scavenged Plating" }, { type = "Multiplier", var = "ScavengedPlatingStacks", limitVar = "ScavengedPlatingStacksLimit" }),
+				},
 			},
 			baseFlags = {
 				duration = true,
