@@ -311,7 +311,9 @@ local function doActorAttribsConditions(env, actor)
 			end
 		end
 		if not modDB:Flag(nil, "NoDexterityAttributeBonuses") then
-			modDB:NewMod("Accuracy", "BASE", output.Dex * (modDB:Override(nil, "DexAccBonusOverride") or data.misc.AccuracyPerDexBase) * inherentAttributeMultiplier, "Dexterity")
+			if not modDB:Flag(nil, "NoDexBonusToAccuracy") then
+				modDB:NewMod("Accuracy", "BASE", output.Dex * (modDB:Override(nil, "DexAccBonusOverride") or data.misc.AccuracyPerDexBase) * inherentAttributeMultiplier, "Dexterity")
+			end
 		end
 		if not modDB:Flag(nil, "NoIntelligenceAttributeBonuses") then
 			if not modDB:Flag(nil, "NoIntBonusToMana") then

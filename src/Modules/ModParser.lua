@@ -38,26 +38,9 @@ local function getSimpleConv(srcList, dst, type, remove, factor)
 end
 
 local conquerorList = {
-	["xibaqua"]		=	{ id = 1, type = "vaal" },
-	["zerphi"]		=	{ id = 2, type = "vaal" },
-	["doryani"]		=	{ id = 3, type = "vaal" },
-	["ahuana"]		=	{ id = "2_v2", type = "vaal" },
-	["deshret"]		=	{ id = 1, type = "maraketh" },
-	["asenath"]		=	{ id = 2, type = "maraketh" },
-	["nasima"]		=	{ id = 3, type = "maraketh" },
-	["balbala"]		=	{ id = "1_v2", type = "maraketh" },
-	["cadiro"]		=	{ id = 1, type = "eternal" },
-	["victario"]	=	{ id = 2, type = "eternal" },
-	["chitus"]		=	{ id = 3, type = "eternal" },
-	["caspiro"]		=	{ id = "3_v2", type = "eternal" },
-	["kaom"]		=	{ id = 1, type = "karui" },
-	["rakiata"]		=	{ id = 2, type = "karui" },
-	["kiloava"]		=	{ id = 3, type = "karui" },
-	["akoya"]		=	{ id = "3_v2", type = "karui" },
-	["venarius"]	=	{ id = 1, type = "templar" },
-	["dominus"]		=	{ id = 2, type = "templar" },
-	["avarius"]		=	{ id = 3, type = "templar" },
-	["maxarius"]	=	{ id = "1_v2", type = "templar" },
+	["vorana"]		=	{ id = 1, type = "kalguur" },
+	["medved"]		=	{ id = 2, type = "kalguur" },
+	["olroth"]		=	{ id = 3, type = "kalguur" },
 }
 -- List of modifier forms
 local formList = {
@@ -4895,6 +4878,18 @@ local specialModList = {
 	["strength provides no inherent bonus to maximum life"] = { flag("NoStrBonusToLife") },
 	["intelligence provides no bonus to maximum mana"] = { flag("NoIntBonusToMana") },
 	["intelligence provides no inherent bonus to maximum mana"] = { flag("NoIntBonusToMana") },
+	["strength's inherent bonus is (%d+)%% increased energy shield per (%d+) strength instead"] = function(num, _, stat) return {
+		mod("EnergyShield", "INC", num, { type = "PerStat", stat = "Str", div = stat }),
+		flag("NoStrBonusToLife") 
+	} end,
+	["dexterity's inherent bonus is (%d+)%% increased armour per (%d+) dexterity instead"] = function(num, _, stat) return {
+		mod("Armour", "INC", num, { type = "PerStat", stat = "Dex", div = stat }),
+		flag("NoDexBonusToAccuracy") 
+	} end,
+	["intelligence's inherent bonus is (%d+)%% increased evasion rating per (%d+) intelligence instead"] = function(num, _, stat) return {
+		mod("Evasion", "INC", num, { type = "PerStat", stat = "Int", div = stat }),
+		flag("NoIntBonusToMana") 
+	} end,
 	["with a ghastly eye jewel socketed, minions have %+(%d+) to accuracy rating"] = function(num) return { mod("MinionModifier", "LIST", { mod = mod("Accuracy", "BASE", num) }, { type = "Condition", var = "HaveGhastlyEyeJewelIn{SlotName}" }) } end,
 	["with a hypnotic eye jewel socketed, gain arcane surge on hit with spells"] = function(num) return { flag("Condition:ArcaneSurge", { type = "Condition", var = "HitSpellRecently" }, { type = "Condition", var = "HaveHypnoticEyeJewelIn{SlotName}" }) } end,
 	["gain %d+ rage on critical hit with attacks, no more than once every [%d%.]+ seconds"] = {
@@ -5189,21 +5184,9 @@ local specialModList = {
 	["%+(%d+)%% to quality"] = function(num) return { mod("Quality", "BASE", num) } end,
 	["infernal blow debuff deals an additional (%d+)%% of damage per charge"] = function(num) return { mod("DebuffEffect", "BASE", num, { type = "SkillName", skillName = "Infernal Blow", includeTransfigured = true }) } end,
 	-- Legion modifiers
-	["bathed in the blood of (%d+) sacrificed in the name of (.+)"] =  function(num, _, name)
+	["remembrancing (%d+) songworthy deeds by the line of (.+)"] = function(num, _, name)
 		return { mod("JewelData", "LIST",
-				{ key = "conqueredBy", value = { id = num, conqueror = conquerorList[name:lower()] } }) } end,
-	["carved to glorify (%d+) new faithful converted by high templar (.+)"] =  function(num, _, name)
-		return { mod("JewelData", "LIST",
-				{ key = "conqueredBy", value = { id = num, conqueror = conquerorList[name:lower()] } }) } end,
-	["commanded leadership over (%d+) warriors under (.+)"] =  function(num, _, name)
-		return { mod("JewelData", "LIST",
-				{ key = "conqueredBy", value = { id = num, conqueror = conquerorList[name:lower()] } }) } end,
-	["commissioned (%d+) coins to commemorate (.+)"] =  function(num, _, name)
-		return { mod("JewelData", "LIST",
-				{ key = "conqueredBy", value = { id = num, conqueror = conquerorList[name:lower()] } }) } end,
-	["denoted service of (%d+) dekhara in the akhara of (.+)"] =  function(num, _, name)
-		return { mod("JewelData", "LIST",
-				{ key = "conqueredBy", value = { id = num, conqueror = conquerorList[name:lower()] } }) } end,
+			{ key = "conqueredBy", value = { id = num, conqueror = conquerorList[name:lower()] } }) } end,
 	["passives in radius are conquered by the (%D+)"] = { },
 	["historic"] = { },
 	-- Display-only modifiers

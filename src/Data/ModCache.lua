@@ -552,8 +552,8 @@ c["0% to Cold Resistance"]={{[1]={flags=0,keywordFlags=0,name="ColdResist",type=
 c["0% to Fire Resistance"]={{[1]={flags=0,keywordFlags=0,name="FireResist",type="BASE",value=0}},"% to  "}
 c["0% to Lightning Resistance"]={{[1]={flags=0,keywordFlags=0,name="LightningResist",type="BASE",value=0}},"% to  "}
 c["0.1 Life Regeneration per second"]={{[1]={flags=0,keywordFlags=0,name="LifeRegen",type="BASE",value=0.1}},nil}
+c["0.5% of Life Regenerated per second per Fragile Regrowth"]={{[1]={[1]={type="Multiplier",var="FragileRegrowthCount"},flags=0,keywordFlags=0,name="Life",type="BASE",value=0.5}},"  Regenerated per second  "}
 c["0.5% of Life Regenerated per second per Fragile Regrowth 10% increased Mana Regeneration Rate per Fragile Regrowth"]={{[1]={[1]={type="Multiplier",var="FragileRegrowthCount"},[2]={type="Multiplier",var="FragileRegrowthCount"},flags=0,keywordFlags=0,name="Life",type="BASE",value=0.5}},"  Regenerated per second  10% increased Mana Regeneration Rate  "}
-c["0.500000% of Life Regenerated per second per Fragile Regrowth"]={{[1]={[1]={type="Multiplier",var="FragileRegrowthCount"},flags=0,keywordFlags=0,name="Life",type="BASE",value=0.5}},"  Regenerated per second  "}
 c["1% increased Attack Damage per 75 Armour or Evasion Rating on Shield"]={{[1]={[1]={div=75,statList={[1]="ArmourOnWeapon 2",[2]="EvasionOnWeapon 2"},type="PerStat"},flags=1,keywordFlags=0,name="Damage",type="INC",value=1}},nil}
 c["1% increased Attack Speed per 15 Dexterity"]={{[1]={[1]={div=15,stat="Dex",type="PerStat"},flags=1,keywordFlags=0,name="Speed",type="INC",value=1}},nil}
 c["1% increased Attack Speed per 250 Accuracy Rating"]={{[1]={[1]={div=250,stat="Accuracy",type="PerStat"},flags=1,keywordFlags=0,name="Speed",type="INC",value=1}},nil}
@@ -2904,12 +2904,9 @@ c["Regenerate 3% of Life per second"]={{[1]={flags=0,keywordFlags=0,name="LifeRe
 c["Regenerate 3% of Life per second while on Low Life"]={{[1]={[1]={type="Condition",var="LowLife"},flags=0,keywordFlags=0,name="LifeRegenPercent",type="BASE",value=3}},nil}
 c["Regenerate 5% of Life over 1 second when Stunned"]={nil,"Regenerate 5% of Life over 1 second when Stunned "}
 c["Regenerate 5% of Life per second while Surrounded"]={{[1]={[1]={type="Condition",var="Surrounded"},flags=0,keywordFlags=0,name="LifeRegenPercent",type="BASE",value=5}},nil}
-c["Remembrancing 8000 songworthy deeds by the line of Medved"]={nil,"Remembrancing 8000 songworthy deeds by the line of Medved "}
-c["Remembrancing 8000 songworthy deeds by the line of Medved Remembrancing 8000 songworthy deeds by the line of Olroth"]={nil,"Remembrancing 8000 songworthy deeds by the line of Medved Remembrancing 8000 songworthy deeds by the line of Olroth "}
-c["Remembrancing 8000 songworthy deeds by the line of Olroth"]={nil,"Remembrancing 8000 songworthy deeds by the line of Olroth "}
-c["Remembrancing 8000 songworthy deeds by the line of Olroth Passives in radius are Conquered by the Kalguur"]={nil,"Remembrancing 8000 songworthy deeds by the line of Olroth Passives in radius are Conquered by the Kalguur "}
-c["Remembrancing 8000 songworthy deeds by the line of Vorana"]={nil,"Remembrancing 8000 songworthy deeds by the line of Vorana "}
-c["Remembrancing 8000 songworthy deeds by the line of Vorana Remembrancing 8000 songworthy deeds by the line of Medved"]={nil,"Remembrancing 8000 songworthy deeds by the line of Vorana Remembrancing 8000 songworthy deeds by the line of Medved "}
+c["Remembrancing 8000 songworthy deeds by the line of Medved"]={{[1]={flags=0,keywordFlags=0,name="JewelData",type="LIST",value={key="conqueredBy",value={conqueror={id=2,type="kalguur"},id=8000}}}},nil}
+c["Remembrancing 8000 songworthy deeds by the line of Olroth"]={{[1]={flags=0,keywordFlags=0,name="JewelData",type="LIST",value={key="conqueredBy",value={conqueror={id=3,type="kalguur"},id=8000}}}},nil}
+c["Remembrancing 8000 songworthy deeds by the line of Vorana"]={{[1]={flags=0,keywordFlags=0,name="JewelData",type="LIST",value={key="conqueredBy",value={conqueror={id=1,type="kalguur"},id=8000}}}},nil}
 c["Remove a Curse when you use a Mana Flask"]={nil,"Remove a Curse when you use a Mana Flask "}
 c["Removes all Mana"]={{[1]={flags=0,keywordFlags=0,name="Mana",type="MORE",value=-100}},nil}
 c["Removes all Spirit"]={nil,"Removes all Spirit "}
