@@ -782,6 +782,7 @@ local modNameList = {
 	["to ignore enemy physical damage reduction"] = "ChanceToIgnoreEnemyPhysicalDamageReduction",
 	["weapon swap speed"] = "WeaponSwapSpeed",
 	["to chain an additional time from terrain"] = "TerrainChainChance",
+	["slow magnitude"] = "EnemySlowMagnitude",
 	-- Flask and Charm modifiers
 	["effect"] = "LocalEffect",
 	["effect of flasks"] = "FlaskEffect",
@@ -1216,6 +1217,7 @@ local preFlagList = {
 	["^hits against you "] = { applyToEnemy = true, flags = ModFlag.Hit },
 	["^hits against you [hd][ae][va][el] "] = { applyToEnemy = true, flags = ModFlag.Hit },
 	["^enemies near your totems deal "] = { applyToEnemy = true },
+	["^debuffs you inflict [hd][ae][va][el] "] = { },
 	-- Other
 	["^your flasks grant "] = { },
 	["^when hit, "] = { },
@@ -3597,12 +3599,6 @@ local specialModList = {
 	["adrenaline"] = { flag("Condition:Adrenaline") },
 	["arcane surge"] = { flag("Condition:ArcaneSurge") },
 	["your aura buffs do not affect allies"] = { flag("SelfAurasCannotAffectAllies") },
-	["debuffs you inflict have (%d+)%% increased slow magnitude"] = function(num) return {
-		mod("EnemySlowMagnitude", "INC", num),
-	} end,
-	["debuffs you inflict have (%d+)%% reduced slow magnitude"] = function(num) return {
-		mod("EnemySlowMagnitude", "INC", -num),
-	} end,
 	["your curses have (%d+)%% increased effect if (%d+)%% of curse duration expired"] = function(num, _, limit) return {
 		mod("CurseEffect", "INC", num, { type = "MultiplierThreshold", actor = "enemy", var = "CurseExpired", threshold = tonumber(limit) }, { type = "SkillType", skillType =  SkillType.AppliesCurse })
 	} end,
