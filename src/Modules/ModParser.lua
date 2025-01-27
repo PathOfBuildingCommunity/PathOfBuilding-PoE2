@@ -2839,8 +2839,7 @@ local specialModList = {
 		mod("Multiplier:FlameEffect", "BASE", 1),
 	} end,
 	-- Monk - Invoker
-	--		- Sunder my Enemies
-	["critical hits ignore non-negative enemy monster elemental resistances"] = { flag("CritsIgnoreNonZEleRes") },
+	["critical hits ignore non%-negative enemy monster elemental resistances"] = { flag("CritsIgnoreNonNegativeEleRes", { type = "Condition", var = "CriticalStrike" }) },
 	-- Item local modifiers
 	["has no sockets"] = { flag("NoSockets") },
 	["reflects your other ring"] = {
