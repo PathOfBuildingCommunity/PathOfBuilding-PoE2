@@ -1032,7 +1032,8 @@ local modFlagList = {
 	["with chaos damage"] = { tag = { type = "Condition", var = "ChaosHasDamage" } },
 	-- Other
 	["global"] = { tag = { type = "Global" } },
-	["from equipped shield"] = { tag = { type = "SlotName", slotName = "Weapon 2" } },
+	["from equipped shield"] = { tag = { type = "Condition", var = "UsingShield" } },
+	["from equipped focus"] = { tag = { type = "Condition", var = "UsingFocus" } },
 	["from equipped helmet"] = { tag = { type = "SlotName", slotName = "Helmet" } },
 	["from equipped gloves and boots"] = { tag = { type = "SlotName", slotNameList = { "Gloves", "Boots" } } },
 	["from equipped boots and gloves"] = { tag = { type = "SlotName", slotNameList = { "Gloves", "Boots" } } },

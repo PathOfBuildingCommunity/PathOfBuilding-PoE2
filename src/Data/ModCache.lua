@@ -740,7 +740,7 @@ c["100% increased Critical Damage Bonus against Enemies that are on Full Life"]=
 c["100% increased Critical Hit Chance"]={{[1]={flags=0,keywordFlags=0,name="CritChance",type="INC",value=100}},nil}
 c["100% increased Critical Hit Chance against Enemies on Full Life"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="FullLife"},flags=0,keywordFlags=0,name="CritChance",type="INC",value=100}},nil}
 c["100% increased Culling Strike Threshold"]={{}," Culling Strike Threshold "}
-c["100% increased Defences from Equipped Shield"]={{[1]={[1]={slotName="Weapon 2",type="SlotName"},flags=0,keywordFlags=0,name="Defences",type="INC",value=100}},nil}
+c["100% increased Defences from Equipped Shield"]={{[1]={[1]={type="Condition",var="UsingShield"},flags=0,keywordFlags=0,name="Defences",type="INC",value=100}},nil}
 c["100% increased Effect of Jewel Socket Passive Skills"]={{[1]={flags=0,keywordFlags=0,name="LocalEffect",type="INC",value=100}},"  of Jewel Socket Passive Skills "}
 c["100% increased Effect of Jewel Socket Passive Skills containing Corrupted Magic Jewels"]={{[1]={flags=0,keywordFlags=0,name="JewelData",type="LIST",value={key="corruptedMagicJewelIncEffect",value=100}}},nil}
 c["100% increased Elemental Damage with Attacks"]={{[1]={flags=0,keywordFlags=65536,name="ElementalDamage",type="INC",value=100}},nil}
@@ -910,7 +910,7 @@ c["15% increased Damage if you have Consumed a Corpse Recently"]={{[1]={[1]={typ
 c["15% increased Damage with Flails"]={{[1]={flags=134217732,keywordFlags=0,name="Damage",type="INC",value=15}},nil}
 c["15% increased Damage with Maces"]={{[1]={flags=1048580,keywordFlags=0,name="Damage",type="INC",value=15}},nil}
 c["15% increased Daze Buildup"]={{}," Daze Buildup "}
-c["15% increased Defences from Equipped Shield"]={{[1]={[1]={slotName="Weapon 2",type="SlotName"},flags=0,keywordFlags=0,name="Defences",type="INC",value=15}},nil}
+c["15% increased Defences from Equipped Shield"]={{[1]={[1]={type="Condition",var="UsingShield"},flags=0,keywordFlags=0,name="Defences",type="INC",value=15}},nil}
 c["15% increased Dexterity"]={{[1]={flags=0,keywordFlags=0,name="Dex",type="INC",value=15}},nil}
 c["15% increased Duration of Damaging Ailments on Enemies"]={{[1]={flags=0,keywordFlags=0,name="EnemyIgniteDuration",type="INC",value=15},[2]={flags=0,keywordFlags=0,name="EnemyBleedDuration",type="INC",value=15},[3]={flags=0,keywordFlags=0,name="EnemyPoisonDuration",type="INC",value=15}},nil}
 c["15% increased Duration of Ignite, Shock and Chill on Enemies"]={{[1]={flags=0,keywordFlags=0,name="EnemyShockDuration",type="INC",value=15},[2]={flags=0,keywordFlags=0,name="EnemyChillDuration",type="INC",value=15},[3]={flags=0,keywordFlags=0,name="EnemyIgniteDuration",type="INC",value=15}},nil}
@@ -1313,7 +1313,7 @@ c["25% increased Damage with Swords"]={{[1]={flags=4194308,keywordFlags=0,name="
 c["25% increased Daze Buildup"]={{}," Daze Buildup "}
 c["25% increased Daze Buildup 25% increased Daze Duration"]={{[1]={flags=0,keywordFlags=0,name="Duration",type="INC",value=25}}," Daze Buildup 25% increased Daze  "}
 c["25% increased Daze Duration"]={{[1]={flags=0,keywordFlags=0,name="Duration",type="INC",value=25}}," Daze  "}
-c["25% increased Defences from Equipped Shield"]={{[1]={[1]={slotName="Weapon 2",type="SlotName"},flags=0,keywordFlags=0,name="Defences",type="INC",value=25}},nil}
+c["25% increased Defences from Equipped Shield"]={{[1]={[1]={type="Condition",var="UsingShield"},flags=0,keywordFlags=0,name="Defences",type="INC",value=25}},nil}
 c["25% increased Electrocute Buildup"]={{}," Electrocute Buildup "}
 c["25% increased Elemental Ailment Threshold"]={{}," Elemental Ailment Threshold "}
 c["25% increased Energy Shield Recharge Rate"]={{[1]={flags=0,keywordFlags=0,name="EnergyShieldRecharge",type="INC",value=25}},nil}
@@ -1486,7 +1486,7 @@ c["30% increased Daze Buildup"]={{}," Daze Buildup "}
 c["30% increased Daze Buildup with Quarterstaves"]={{}," Daze Buildup  "}
 c["30% increased Daze Buildup with Quarterstaves 30% increased Freeze Buildup with Quarterstaves"]={{}," Daze Buildup  30% increased Freeze Buildup with Quarterstaves "}
 c["30% increased Daze Buildup with Quarterstaves 30% increased Freeze Buildup with Quarterstaves 30% increased Stun Buildup with Quarterstaves"]={{}," Daze Buildup  30% increased Freeze Buildup with Quarterstaves 30% increased Stun Buildup with Quarterstaves "}
-c["30% increased Defences from Equipped Shield"]={{[1]={[1]={slotName="Weapon 2",type="SlotName"},flags=0,keywordFlags=0,name="Defences",type="INC",value=30}},nil}
+c["30% increased Defences from Equipped Shield"]={{[1]={[1]={type="Condition",var="UsingShield"},flags=0,keywordFlags=0,name="Defences",type="INC",value=30}},nil}
 c["30% increased Defences while wielding a Staff"]={{[1]={[1]={type="Condition",var="UsingStaff"},flags=0,keywordFlags=0,name="Defences",type="INC",value=30}},nil}
 c["30% increased Electrocute Buildup"]={{}," Electrocute Buildup "}
 c["30% increased Elemental Ailment Threshold"]={{}," Elemental Ailment Threshold "}
@@ -1500,7 +1500,7 @@ c["30% increased Evasion Rating if you have been Hit Recently"]={{[1]={[1]={type
 c["30% increased Evasion Rating if you've Dodge Rolled Recently"]={{[1]={[1]={type="Condition",var="DodgeRolledRecently"},flags=0,keywordFlags=0,name="Evasion",type="INC",value=30}},nil}
 c["30% increased Evasion Rating while Surrounded"]={{[1]={[1]={type="Condition",var="Surrounded"},flags=0,keywordFlags=0,name="Evasion",type="INC",value=30}},nil}
 c["30% increased Evasion Rating while you have Energy Shield"]={{[1]={[1]={type="Condition",var="HaveEnergyShield"},flags=0,keywordFlags=0,name="Evasion",type="INC",value=30}},nil}
-c["30% increased Evasion from Equipped Shield"]={{[1]={[1]={slotName="Weapon 2",type="SlotName"},flags=0,keywordFlags=0,name="Evasion",type="INC",value=30}},nil}
+c["30% increased Evasion from Equipped Shield"]={{[1]={[1]={type="Condition",var="UsingShield"},flags=0,keywordFlags=0,name="Evasion",type="INC",value=30}},nil}
 c["30% increased Fire Damage"]={{[1]={flags=0,keywordFlags=0,name="FireDamage",type="INC",value=30}},nil}
 c["30% increased Fire Exposure Effect"]={{[1]={flags=0,keywordFlags=0,name="FireExposureEffect",type="INC",value=30}},nil}
 c["30% increased Flask Charges gained"]={{[1]={flags=0,keywordFlags=0,name="FlaskChargesGained",type="INC",value=30}},nil}
@@ -1668,7 +1668,7 @@ c["40% increased Damage with Hits against Ignited Enemies"]={{[1]={[1]={actor="e
 c["40% increased Damage with Two Handed Weapons"]={{[1]={flags=34359738372,keywordFlags=0,name="Damage",type="INC",value=40}},nil}
 c["40% increased Damage with Warcries"]={{[1]={flags=0,keywordFlags=0,name="Damage",type="INC",value=40}},"  with Warcries "}
 c["40% increased Damage with Warcries Warcry Skills have 25% increased Area of Effect"]={{[1]={flags=0,keywordFlags=4,name="Damage",type="INC",value=40}},"  with Warcries  Skills have 25% increased Area of Effect "}
-c["40% increased Defences from Equipped Shield"]={{[1]={[1]={slotName="Weapon 2",type="SlotName"},flags=0,keywordFlags=0,name="Defences",type="INC",value=40}},nil}
+c["40% increased Defences from Equipped Shield"]={{[1]={[1]={type="Condition",var="UsingShield"},flags=0,keywordFlags=0,name="Defences",type="INC",value=40}},nil}
 c["40% increased Electrocute Buildup"]={{}," Electrocute Buildup "}
 c["40% increased Electrocute Buildup 30% increased Shock Chance against Electrocuted Enemies"]={{[1]={flags=0,keywordFlags=0,name="EnemyShockChance",type="INC",value=40}}," Electrocute Buildup 30% increased  against Electrocuted Enemies "}
 c["40% increased Elemental Ailment Threshold"]={{}," Elemental Ailment Threshold "}
@@ -1677,7 +1677,7 @@ c["40% increased Elemental Damage if you've dealt a Critical Hit Recently"]={{[1
 c["40% increased Elemental Damage with Attack Skills during any Flask Effect"]={{[1]={[1]={type="Condition",var="UsingFlask"},flags=0,keywordFlags=65536,name="ElementalDamage",type="INC",value=40}},nil}
 c["40% increased Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="EnergyShield",type="INC",value=40}},nil}
 c["40% increased Energy Shield Recharge Rate"]={{[1]={flags=0,keywordFlags=0,name="EnergyShieldRecharge",type="INC",value=40}},nil}
-c["40% increased Energy Shield from Equipped Focus"]={{[1]={flags=0,keywordFlags=0,name="EnergyShield",type="INC",value=40}},"  from Equipped Focus "}
+c["40% increased Energy Shield from Equipped Focus"]={{[1]={[1]={type="Condition",var="UsingFocus"},flags=0,keywordFlags=0,name="EnergyShield",type="INC",value=40}},nil}
 c["40% increased Evasion Rating"]={{[1]={flags=0,keywordFlags=0,name="Evasion",type="INC",value=40}},nil}
 c["40% increased Evasion Rating if you have been Hit Recently"]={{[1]={[1]={type="Condition",var="BeenHitRecently"},flags=0,keywordFlags=0,name="Evasion",type="INC",value=40}},nil}
 c["40% increased Evasion and Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="EvasionAndEnergyShield",type="INC",value=40}},nil}
@@ -1812,7 +1812,7 @@ c["50% increased Critical Hit Chance for Spells"]={{[1]={flags=2,keywordFlags=0,
 c["50% increased Critical Spell Damage Bonus"]={{[1]={flags=2,keywordFlags=0,name="CritMultiplier",type="INC",value=50}},nil}
 c["50% increased Damage"]={{[1]={flags=0,keywordFlags=0,name="Damage",type="INC",value=50}},nil}
 c["50% increased Damage with Hits against Frozen Enemies"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Frozen"},flags=0,keywordFlags=262144,name="Damage",type="INC",value=50}},nil}
-c["50% increased Defences from Equipped Shield"]={{[1]={[1]={slotName="Weapon 2",type="SlotName"},flags=0,keywordFlags=0,name="Defences",type="INC",value=50}},nil}
+c["50% increased Defences from Equipped Shield"]={{[1]={[1]={type="Condition",var="UsingShield"},flags=0,keywordFlags=0,name="Defences",type="INC",value=50}},nil}
 c["50% increased Effect of Jewel Socket Passive Skills containing Corrupted Magic Jewels"]={{[1]={flags=0,keywordFlags=0,name="JewelData",type="LIST",value={key="corruptedMagicJewelIncEffect",value=50}}},nil}
 c["50% increased Electrocute Buildup against Shocked Enemies"]={{}," Electrocute Buildup  "}
 c["50% increased Electrocute Buildup against Shocked Enemies 50% increased Shock Chance against Electrocuted Enemies"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Shocked"},flags=0,keywordFlags=0,name="EnemyShockChance",type="INC",value=50}}," Electrocute Buildup  50% increased  against Electrocuted Enemies "}
@@ -1935,7 +1935,7 @@ c["60% increased Damage with Hits against Enemies that are on Low Life"]={{[1]={
 c["60% increased Effect of Poison you inflict on targets that are not Poisoned"]={{[1]={flags=0,keywordFlags=0,name="LocalEffect",type="INC",value=60}},"  of Poison you inflict on targets that are not Poisoned "}
 c["60% increased Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="EnergyShield",type="INC",value=60}},nil}
 c["60% increased Energy Shield from Equipped Body Armour"]={{[1]={[1]={slotName="Body Armour",type="SlotName"},flags=0,keywordFlags=0,name="EnergyShield",type="INC",value=60}},nil}
-c["60% increased Energy Shield from Equipped Focus"]={{[1]={flags=0,keywordFlags=0,name="EnergyShield",type="INC",value=60}},"  from Equipped Focus "}
+c["60% increased Energy Shield from Equipped Focus"]={{[1]={[1]={type="Condition",var="UsingFocus"},flags=0,keywordFlags=0,name="EnergyShield",type="INC",value=60}},nil}
 c["60% increased Evasion Rating"]={{[1]={flags=0,keywordFlags=0,name="Evasion",type="INC",value=60}},nil}
 c["60% increased Evasion and Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="EvasionAndEnergyShield",type="INC",value=60}},nil}
 c["60% increased Flask Life Recovery rate"]={{[1]={flags=0,keywordFlags=0,name="FlaskLifeRecoveryRate",type="INC",value=60}},nil}
@@ -1975,8 +1975,8 @@ c["75% increased Armour and Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="
 c["75% increased Armour and Evasion"]={{[1]={flags=0,keywordFlags=0,name="ArmourAndEvasion",type="INC",value=75}},nil}
 c["75% increased Arrow Speed"]={{[1]={flags=131072,keywordFlags=0,name="ProjectileSpeed",type="INC",value=75}},nil}
 c["75% increased Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="EnergyShield",type="INC",value=75}},nil}
-c["75% increased Energy Shield from Equipped Focus"]={{[1]={flags=0,keywordFlags=0,name="EnergyShield",type="INC",value=75}},"  from Equipped Focus "}
-c["75% increased Evasion from Equipped Shield"]={{[1]={[1]={slotName="Weapon 2",type="SlotName"},flags=0,keywordFlags=0,name="Evasion",type="INC",value=75}},nil}
+c["75% increased Energy Shield from Equipped Focus"]={{[1]={[1]={type="Condition",var="UsingFocus"},flags=0,keywordFlags=0,name="EnergyShield",type="INC",value=75}},nil}
+c["75% increased Evasion from Equipped Shield"]={{[1]={[1]={type="Condition",var="UsingShield"},flags=0,keywordFlags=0,name="Evasion",type="INC",value=75}},nil}
 c["75% increased Thorns damage if you've Blocked Recently"]={{[1]={[1]={type="Condition",var="BlockedRecently"},flags=0,keywordFlags=0,name="Damage",type="INC",value=75}}," Thorns   "}
 c["75% of Damage Converted to Fire Damage"]={{[1]={flags=0,keywordFlags=0,name="DamageConvertToFire",type="BASE",value=75}},nil}
 c["8 Life Regeneration per second"]={{[1]={flags=0,keywordFlags=0,name="LifeRegen",type="BASE",value=8}},nil}
