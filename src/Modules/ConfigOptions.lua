@@ -607,8 +607,8 @@ local configSettings = {
 	{ var = "SecondsSinceInevitableCrit", type = "count", label = "# of seconds since Inevitable crit:", ifSkill = "Inevitable Critical", apply = function(val, modList, enemyModList)
 		modList:NewMod("Multiplier:SecondsSinceInevitableCrit", "BASE", val, "Config")
 	end },
-	{ var = "conditionSkillEmpowered", type = "check", label = "Is the skill Empowered?", ifCond = "SkillEmpowered", tooltip = "Skills can be temporarily Empowered by certain buff skills.", apply = function(val, modList, enemyModList)
-		modList:NewMod("Condition:SkillEmpowered", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
+	{ var = "conditionEmpowered", type = "check", label = "Is the skill Empowered?", ifCond = "Empowered", tooltip = "Skills can be temporarily Empowered by certain buff skills.", apply = function(val, modList, enemyModList)
+		modList:NewMod("Condition:Empowered", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
 	end },
 	{ var = "multiplierWoCExpiredDuration", type = "count", label = "% Wave of Conviction duration expired:", ifMod = "WaveOfConvictionDurationDotMulti", apply = function(val, modList, enemyModList)
 		modList:NewMod("Multiplier:WoCDurationExpired", "BASE", m_min(val, 100), "Config", { type = "Condition", var = "Effective" })

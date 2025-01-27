@@ -1137,7 +1137,7 @@ function PassiveTreeViewClass:AddNodeTooltip(tooltip, node, build, incSmallPassi
 		tooltip:AddSeparator(14)
 	end
 
-	local function addModInfoToTooltip(node, i, line)
+	local function addModInfoToTooltip(node, i, line, localSmallIncEffect)
 		if node.mods[i] then
 			if launch.devModeAlt and node.mods[i].list then
 				-- Modifier debugging info
@@ -1152,13 +1152,17 @@ function PassiveTreeViewClass:AddNodeTooltip(tooltip, node, build, incSmallPassi
 					line = line .. "  " .. modStr
 				end
 			end
-
+			
 			-- Apply Inc Node scaling from Hulking Form only visually
-			if incSmallPassiveSkillEffect > 0 and node.type == "Normal" and not node.isAttribute and not node.ascendancyName and node.mods[i].list then
-				local scale = 1 + incSmallPassiveSkillEffect / 100
+			if (incSmallPassiveSkillEffect + localSmallIncEffect) > 0 and node.type == "Normal" and not node.isAttribute and not node.ascendancyName and node.mods[i].list then
+				local scale = 1 + (incSmallPassiveSkillEffect + localSmallIncEffect) / 100
+				local modsList = copyTable(node.mods[i].list)
 				local scaledList = new("ModList")
-				scaledList:ScaleAddList(node.mods[i].list, scale)
-				local number =  line:match("%d*%.?%d+")
+				-- some passive node mods are only Condition/Flag and have no value to scale by default, grab number from line
+				if modsList[1] and modsList[1].type == "FLAG" then
+					modsList[1].value = tonumber(line:match("%d+"))
+				end
+				scaledList:ScaleAddList(modsList, scale)
 				for j, mod in ipairs(scaledList) do
 					local newValue = 0
 					if type(mod.value) == "number" then
@@ -1166,24 +1170,105 @@ function PassiveTreeViewClass:AddNodeTooltip(tooltip, node, build, incSmallPassi
 					elseif type(mod.value) == "table" then
 						newValue = mod.value.mod.value
 					end
-					line = line:gsub("%d*%.?%d+",math.abs(newValue))
+					line = line:gsub("%d*%.?%d+", math.abs(newValue))
 				end
 				-- line = line .. "  ^8(Effect increased by "..incSmallPassiveSkillEffect.."%)"
 			end
-
+			
 			tooltip:AddLine(16, ((node.mods[i].extra or not node.mods[i].list) and colorCodes.UNSUPPORTED or colorCodes.MAGIC)..line)
 		end
 	end
 
+	local function mergeStats(nodeSd, jewelSd, spec)
+		-- copy the original tree node so we ignore the mods being added from the jewel
+		local nodeSdCopy = copyTable(nodeSd)
+		local nodeNumber = 0
+		local nodeString = ""
+		local modToAddNumber = 0
+		local modToAddString = ""
+
+		-- loop the original node mods and compare to the jewel mod we want to add
+		-- if the strings without the numbers are identical, the mods should be identical
+		-- if so, update the node's version of the mod and do not add the jewel mods to the list
+		-- otherwise, add the jewel mod because it's unique/new to the node
+		for index, originalSd in ipairs(nodeSdCopy) do
+			nodeString = originalSd:gsub("(%d+)", function(number)
+				nodeNumber = number
+				return ""
+			end)
+			modToAddString = jewelSd:gsub("(%d+)", function(number)
+				modToAddNumber = number
+				return ""
+			end)
+			if nodeString == modToAddString then
+				nodeSd[index] = nodeSd[index]:gsub("(%d+)", (nodeNumber + modToAddNumber))
+				return
+			end
+		end
+		t_insert(nodeSd, jewelSd)
+	end
+
+	-- loop over mods generated in CalcSetup by rad.func calls and grab the lines added
+	-- processStats once on copied node to cleanly setup for the tooltip
+	local function processTimeLostModsAndGetLocalEffect(mNode, build)
+		local localSmallIncEffect = 0
+		local hasWSCondition = false
+		local newSd = copyTable(build.spec.tree.nodes[mNode.id].sd)
+		for _, mod in ipairs(mNode.finalModList) do
+			-- if the jewelMod has a WS Condition, only add the incEffect given it matches the activeWeaponSet
+			-- otherwise the mod came from a jewel that is allocMode 0, so it always applies
+			for _, modCriteria in ipairs(mod) do
+				if modCriteria.type == "Condition" and modCriteria.var and modCriteria.var:match("^WeaponSet") then
+					if (tonumber(modCriteria.var:match("(%d)")) == (build.itemsTab.activeItemSet.useSecondWeaponSet and 2 or 1)) then
+						if mod.name == "JewelSmallPassiveSkillEffect" then
+							localSmallIncEffect = mod.value
+						elseif mod.parsedLine then
+							mergeStats(newSd, mod.parsedLine, build.spec)
+						end
+					end
+					hasWSCondition = true
+				end
+			end
+			if not hasWSCondition then
+				if mod.name == "JewelSmallPassiveSkillEffect" then
+					localSmallIncEffect = mod.value
+				elseif mod.parsedLine then
+					mergeStats(newSd, mod.parsedLine, build.spec)
+				end
+			end
+		end
+		mNode.sd = copyTable(newSd)
+		build.spec.tree:ProcessStats(mNode)
+		return localSmallIncEffect
+	end
+	
+	-- we only want to run the timeLost function on a node that can could be in a jewel socket radius of up to Large
+	-- essentially trying to avoid calling ProcessStats for a Normal/Notable node that can't possibly be affected
+	-- loops potentially every socket (24) until itemsTab is loaded or a jewel socket is hovered, then it will only loop the allocated sockets
+	local function isNodeInARadius(node) 
+		local isInRadius = false
+		for id, socket in pairs(build.itemsTab.sockets) do
+			if build.itemsTab.activeSocketList and socket.inactive == false or socket.inactive == nil then
+				isInRadius = isInRadius or build.spec.nodes[id].nodesInRadius[3][node.id] ~= nil
+				if isInRadius then break end
+			end
+		end
+		return isInRadius
+	end
+	
 	-- If so, check if the left hand tree is unallocated, but the right hand tree is allocated.
 	-- Then continue processing as normal
-	local mNode = node
+	local mNode = copyTableSafe(node, true, true)
 
 	-- This stanza actives for both Mastery and non Mastery tooltips. Proof: add '"Blah "..' to addModInfoToTooltip
 	if mNode.sd[1] and not mNode.allMasteryOptions then
 		tooltip:AddLine(16, "")
+		local localSmallIncEffect = 0
+		if not mNode.isAttribute and (mNode.type == "Normal" or mNode.type == "Notable") and isNodeInARadius(node) then
+			localSmallIncEffect = processTimeLostModsAndGetLocalEffect(mNode, build)
+		end
 		for i, line in ipairs(mNode.sd) do
-			addModInfoToTooltip(mNode, i, line)
+			addModInfoToTooltip(mNode, i, line, localSmallIncEffect)
 		end
 	end
 

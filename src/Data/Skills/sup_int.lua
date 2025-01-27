@@ -1484,6 +1484,7 @@ skills["SupportFieryDeathPlayer"] = {
 			},
 			baseMods = {
 				skill("explodeCorpse", true),
+				skill("corpseExplosionDamageType", "Fire"),
 			},
 			constantStats = {
 				{ "triggered_by_fiery_death_support_%", 100 },

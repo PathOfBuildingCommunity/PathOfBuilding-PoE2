@@ -1333,6 +1333,12 @@ skills["SupportEmpoweredCullPlayer"] = {
 			label = "Murderous Intent",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_empowered_culling_strike"] = {
+					mod("ExtraEmpowerMod", "LIST", { mod = mod("CullPercent", "MAX", nil), unscalable = true }),
+					value = 10,
+				}
+			},
 			baseFlags = {
 			},
 			stats = {

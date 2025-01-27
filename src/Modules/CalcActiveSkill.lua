@@ -231,6 +231,36 @@ local function getWeaponFlags(env, weaponData, weaponTypes)
 	return flags, info
 end
 
+--- Applies additional modifiers to skills with the "Empowered" flag.
+--- Checks for "ExtraEmpoweredMod" mods and applies them
+--- if they match the conditions set by the empowering effect.
+--- @param activeSkill table @Active skill data.
+local function applyExtraEmpowerMods(activeSkill)
+	local skillModList = activeSkill.skillModList
+	local empoweredMod
+	for _, mod in ipairs(skillModList) do
+		if mod.name == "Empowered" then
+			empoweredMod = mod
+			break
+		end
+	end
+	if empoweredMod then
+		for _, value in ipairs(skillModList:List(activeSkill.skillCfg, "ExtraEmpowerMod")) do
+			local mod = value.mod
+			if band(mod.flags, empoweredMod.flags) == mod.flags and MatchKeywordFlags(empoweredMod.flags, mod.keywordFlags) then
+				local newMod = copyTable(mod)
+				for _, etag in ipairs(empoweredMod) do
+					t_insert(newMod, copyTable(etag))
+					if etag.type == "GlobalEffect" then
+						newMod[#newMod].unscalable = value.unscalable
+					end
+				end
+				skillModList:AddMod(newMod)
+			end
+		end
+	end
+end
+
 -- Build list of modifiers for given active skill
 function calcs.buildActiveSkillModList(env, activeSkill)
 	local skillTypes = activeSkill.skillTypes
@@ -594,6 +624,8 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 		skillModList:AddMod(value.mod)
 		t_insert(activeSkill.extraSkillModList, value.mod)
 	end
+	
+	applyExtraEmpowerMods(activeSkill)
 
 	-- Find totem level
 	if skillFlags.totem then

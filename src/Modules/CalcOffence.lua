@@ -1059,6 +1059,7 @@ function calcs.offence(env, actor, activeSkill)
 		if breakdown then
 			breakdown.ProjectileSpeedMod = breakdown.mod(skillModList, skillCfg, "ProjectileSpeed")
 		end
+		output.TwoAdditionalProjectiles = m_min(skillModList:Sum("BASE", skillCfg, "TwoAdditionalProjectilesChance"), 100)
 	end
 	if skillFlags.melee then
 		if skillFlags.weapon1Attack then
@@ -1124,12 +1125,12 @@ function calcs.offence(env, actor, activeSkill)
 
 		local curseFrequencyMod = calcLib.mod(skillModList, skillCfg, "CurseFrequency")
 		local curseDelayMod = calcLib.mod(skillModList, skillCfg, "CurseDelay")
-		local delayBase = (skillData.curseDelay or 0) + skillModList:Sum("BASE", skillCfg, "CurseDelay")
-		output.CurseDelay = delayBase / curseFrequencyMod * curseDelayMod
+		output.CurseDelayBase = (skillData.curseDelay or 0) + skillModList:Sum("BASE", skillCfg, "CurseDelayBase")
+		output.CurseDelay = output.CurseDelayBase / curseFrequencyMod * curseDelayMod
 		output.CurseDelay = m_ceil(output.CurseDelay * data.misc.ServerTickRate) / data.misc.ServerTickRate
-		if breakdown and output.CurseDelay ~= delayBase then
+		if breakdown and output.CurseDelay ~= output.CurseDelayBase then
 			breakdown.CurseDelay = {
-				s_format("%.2fs ^8(base)", delayBase),
+				s_format("%.2fs ^8(base)", output.CurseDelayBase),
 			}
 			if curseFrequencyMod ~= 1 then
 				t_insert(breakdown.CurseDelay, s_format("x %.4f ^8(frequency modifier)", curseFrequencyMod))
@@ -1778,7 +1779,7 @@ function calcs.offence(env, actor, activeSkill)
 	-- Handle corpse and enemy explosions
 	local monsterLife = skillData.corpseLife or (env.enemyLevel and data.monsterLifeTable[env.enemyLevel] or 100)
 	if skillData.explodeCorpse and (skillData.corpseLife or env.enemyLevel) then
-		local damageType = skillData.corpseExplosionDamageType or "Fire"
+		local damageType = skillData.corpseExplosionDamageType or "Physical"
 		skillData[damageType.."BonusMin"] = monsterLife * ( skillData.corpseExplosionLifeMultiplier or skillData.selfFireExplosionLifeMultiplier )
 		skillData[damageType.."BonusMax"] = monsterLife * ( skillData.corpseExplosionLifeMultiplier or skillData.selfFireExplosionLifeMultiplier )
 	end
@@ -3982,7 +3983,7 @@ function calcs.offence(env, actor, activeSkill)
 					t_insert(breakdownDPS, pass.label..":")
 				end
 				if sourceHitDmg == sourceCritDmg or output.CritChance == 0 then
-					t_insert(breakdownDPS, "Total damage:")
+					t_insert(breakdownDPS, "Total base DPS per " .. type .. ":")
 					t_insert(breakdownDPS, s_format("%.1f ^8(source damage)",sourceHitDmg))
 					if sourceMult > 1 then
 						t_insert(breakdownDPS, s_format("x %.2f ^8(inflicting as though dealing more damage)", sourceMult))
@@ -4006,7 +4007,7 @@ function calcs.offence(env, actor, activeSkill)
 						end
 					end
 					if baseFromHit > 0 and baseFromCrit > 0 then
-						t_insert(breakdownDPS, "Total damage:")
+						t_insert(breakdownDPS, "Total base DPS per " .. type .. ":")
 						t_insert(breakdownDPS, s_format("%.1f + %.1f", baseFromHit, baseFromCrit))
 						if sourceMult == 1 then
 							t_insert(breakdownDPS, s_format("= %.1f", baseVal))
@@ -4266,7 +4267,7 @@ function calcs.offence(env, actor, activeSkill)
 					t_insert(breakdown[ailment .. "DPS"], s_format("x %.2f ^8(ailment magnitude effect)", globalOutput[ailment .. "MagnitudeEffect"]))
 					t_insert(breakdown[ailment .. "DPS"], s_format("= %.1f", baseVal, 1))
 					t_insert(breakdown[ailment .. "DPS"], "")
-					t_insert(breakdown[ailment .. "DPS"], "Average ailment DPS:")
+					t_insert(breakdown[ailment .. "DPS"], "Average DPS for all " .. ailment .. "s:")
 					if baseVal ~= ailmentDPSUncapped then
 						t_insert(breakdown[ailment .. "DPS"], s_format("%.1f ^8(base damage per second)", baseVal))
 					end
@@ -4311,9 +4312,9 @@ function calcs.offence(env, actor, activeSkill)
 						if isAttack then
 							t_insert(breakdown[ailment .. "Damage"], pass.label..":")
 						end
-						t_insert(breakdown[ailment .. "Damage"], s_format("%.1f ^8(damage per second)", output[ailment .. "DPS"]))
+						t_insert(breakdown[ailment .. "Damage"], s_format("%.1f ^8(DPS of all stacks)", baseVal))
 						t_insert(breakdown[ailment .. "Damage"], s_format("x %.2fs ^8(ailment duration)", globalOutput[ailment .. "Duration"]))
-						t_insert(breakdown[ailment .. "Damage"], s_format("= %.1f ^8damage per ailment stack", output[ailment .. "Damage"]))
+						t_insert(breakdown[ailment .. "Damage"], s_format("= %.1f ^8total damage of all stacks", output[ailment .. "Damage"]))
 					end
 					if globalOutput[ailment .. "Duration"] ~= data.misc[ailment .. "DurationBase"] then
 						globalBreakdown[ailment .. "Duration"] = {
@@ -4924,6 +4925,8 @@ function calcs.offence(env, actor, activeSkill)
 						dmgType = string.gsub(" "..value.damageType, "%W%l", string.upper):sub(2) -- This assumes both rings deal the same damage type
 					end
 					if dmgType and dmgVal then
+						-- !!!! WARNING !!!! --
+						-- applyDmgTakenConversion does NOT consider the "And protect me from Harm" yet 
 						local dmgBreakdown, totalDmgTaken = calcs.applyDmgTakenConversion(activeSkill, output, breakdown, dmgType, dmgVal)
 						t_insert(dmgBreakdown, 1, s_format("Heartbound Loop base damage: %d", dmgVal))
 						t_insert(dmgBreakdown, 2, s_format(""))
@@ -4938,6 +4941,8 @@ function calcs.offence(env, actor, activeSkill)
 				local damagePerTrauma = activeSkill.skillModList:Sum("BASE", nil, "TraumaSelfDamageTakenLife")
 				local dmgVal = activeSkill.baseSkillModList:Flag(nil, "HasTrauma") and damagePerTrauma * currentTraumaStacks
 				if dmgType and dmgVal then
+					-- !!!! WARNING !!!! --
+					-- applyDmgTakenConversion does NOT consider the "And protect me from Harm" yet
 					local dmgBreakdown, totalDmgTaken = calcs.applyDmgTakenConversion(activeSkill, output, breakdown, dmgType, dmgVal)
 					t_insert(dmgBreakdown, 1, s_format("%d ^8(base %s damage)^7 * %.2f ^8(%s trauma)^7 = %.2f %s damage", damagePerTrauma, dmgType, currentTraumaStacks, activeSkill.skillModList:Sum("BASE", skillCfg, "Multiplier:SustainableTraumaStacks") == currentTraumaStacks and "sustainable" or "current", dmgVal, dmgType))
 					t_insert(dmgBreakdown, 2, s_format(""))

@@ -777,21 +777,25 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 	-- this will need more advanced logic for jewel sockets in items to work properly but could just be removed as items like this was only introduced during development.
 	if self.base then
 		if self.base.weapon or self.base.armour then
-			if #self.runes == 0 then
-				for i, modLine in ipairs(self.runeModLines) do
-					local value
-					local strippedModeLine = modLine.line:gsub("(%d%.?%d*)", function(val)
-						value = val
+			local shouldFixRunesOnItem = #self.runes == 0
+
+			for i, modLine in ipairs(self.runeModLines) do
+				local value
+				local strippedModeLine = modLine.line:gsub("(%d%.?%d*)", function(val)
+					value = val
+					return "#"
+				end)
+				for name, runeMods in pairs(data.itemMods.Runes) do
+					local runeValue
+					local runeStrippedModeLine = (self.base.weapon and runeMods.weapon or runeMods.armour)[1]:gsub("(%d%.?%d*)", function(val)
+						runeValue = val
 						return "#"
 					end)
-					for name, runeMods in pairs(data.itemMods.Runes) do
-						local runeValue
-						local runeStrippedModeLine = (self.base.weapon and runeMods.weapon or runeMods.armour)[1]:gsub("(%d%.?%d*)", function(val)
-							runeValue = val
-							return "#"
-						end)
-						if strippedModeLine == runeStrippedModeLine then
-							for i = 1, round(value/runeValue) do
+					if strippedModeLine == runeStrippedModeLine then
+						modLine.soulcore = name:match("Soul Core") ~= nil
+						modLine.runeCount = round(value/runeValue)
+						if shouldFixRunesOnItem then
+							for i = 1, modLine.runeCount do
 								t_insert(self.runes, name)
 							end
 						end
@@ -1617,4 +1621,5 @@ function ItemClass:BuildModList()
 	else
 		self.modList = self:BuildModListForSlotNum(baseList)
 	end
+	self.socketedSoulCoreEffectModifier = calcLocal(baseList, "SocketedSoulCoreEffect", "INC", 0) / 100
 end
