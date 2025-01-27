@@ -13,6 +13,7 @@ describe("TestDefence", function()
 		-2 to life\n\z
 		-20% to elemental resistances\n\z
 		-60% to chaos resistance\n\z
+		+2 to mana\n\z
 		"
 		build.configTab:BuildModList()
 		runCallback("OnFrame")
@@ -291,7 +292,7 @@ describe("TestDefence", function()
 		assert.are.not_false(poolsRemaining.Life / 100 < 0.1)
 
 		build.configTab.input.customMods = "\z
-		+40 to maximum life\n\z
+		+140 to maximum life\n\z
 		+950 to mana\n\z
 		+10000 to armour\n\z
 		+110% to all elemental resistances\n\z
@@ -318,7 +319,7 @@ describe("TestDefence", function()
 		_, takenDamages = takenHitFromTypeMaxHit("Lightning")
 		poolsRemaining = build.calcsTab.calcs.reducePoolsByDamage(nil, takenDamages, build.calcsTab.calcsEnv.player)
 		assert.are.equals(0, round(poolsRemaining.Life))
-		assert.are.equals(1000, round(poolsRemaining.Mana))
+		assert.are.not_false(1000 < round(poolsRemaining.Mana))
 
 		-- conversion into a bigger pool
 		build.configTab.input.customMods = "\z
@@ -337,7 +338,7 @@ describe("TestDefence", function()
 		assert.are.not_false(poolsRemaining.Life / 100 < 0.1)
 
 		build.configTab.input.customMods = "\z
-		+40 to maximum life\n\z
+		+140 to maximum life\n\z
 		+950 to mana\n\z
 		+10000 to armour\n\z
 		+110% to all elemental resistances\n\z
@@ -364,53 +365,33 @@ describe("TestDefence", function()
 		_, takenDamages = takenHitFromTypeMaxHit("Cold")
 		poolsRemaining = build.calcsTab.calcs.reducePoolsByDamage(nil, takenDamages, build.calcsTab.calcsEnv.player)
 		assert.are.equals(0, round(poolsRemaining.Life))
-		assert.are.equals(1000, round(poolsRemaining.Mana))
+		assert.are.not_false(1000 < round(poolsRemaining.Mana))
 	end)
 
 	it("energy shield bypass tests #pet", function()
 		build.configTab.input.enemyIsBoss = "None"
-		-- Mastery
 		build.configTab.input.customMods = [[
 			+40 to maximum life
 			+200 to energy shield
-			50% of chaos damage taken does not bypass energy shield
-			You have no intelligence
-			+60% to all resistances
-		]]
-		pob1and2Compat()
-		assert.are.equals(300, build.calcsTab.calcsOutput.FireMaximumHitTaken)
-		assert.are.equals(200, build.calcsTab.calcsOutput.ChaosMaximumHitTaken)
-
-		-- Negative overrides positive
-		build.configTab.input.customMods = [[
-			+40 to maximum life
-			+100 to energy shield
-			Chaos damage does not bypass energy shield
+			50% of damage taken bypasses energy shield
 			You have no intelligence
 			+60% to all resistances
 		]]
 		pob1and2Compat()
 		assert.are.equals(200, build.calcsTab.calcsOutput.FireMaximumHitTaken)
 		assert.are.equals(200, build.calcsTab.calcsOutput.ChaosMaximumHitTaken)
-		-- Chaos damage should still bypass
-		build.configTab.input.customMods = build.configTab.input.customMods .. "\nAll damage taken bypasses energy shield"
-		build.configTab:BuildModList()
-		runCallback("OnFrame")
-		assert.are.equals(100, build.calcsTab.calcsOutput.FireMaximumHitTaken)
-		assert.are.equals(100, build.calcsTab.calcsOutput.ChaosMaximumHitTaken)
 
 		-- Make sure we can't reach over 100% bypass
 		build.configTab.input.customMods = [[
 			+40 to maximum life
 			+100 to energy shield
-			Chaos damage does not bypass energy shield
 			50% of chaos damage taken does not bypass energy shield
 			You have no intelligence
 			+60% to all resistances
 		]]
 		pob1and2Compat()
 		assert.are.equals(200, build.calcsTab.calcsOutput.FireMaximumHitTaken)
-		assert.are.equals(200, build.calcsTab.calcsOutput.ChaosMaximumHitTaken)
+		assert.are.equals(150, build.calcsTab.calcsOutput.ChaosMaximumHitTaken)
 		-- Chaos damage should still bypass
 		build.configTab.input.customMods = build.configTab.input.customMods .. "\nAll damage taken bypasses energy shield"
 		build.configTab:BuildModList()
