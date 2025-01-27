@@ -989,7 +989,7 @@ return {
 { 1, "Ignite", 1, colorCodes.OFFENCE, {{ defaultCollapsed = false, label = "Ignite", data = {	
 	extra = "{0:output:IgniteChancePerHit}% {1:output:IgniteDPS} {2:output:IgniteDuration}s",
 	flag = "ignite",
-	{ label = "Enemy Ail. Thresh.", { format = "{0:output:EnemyAilmentThreshold}", { modname = "EnemyAilmentThreshold" }, }, },
+	{ label = "Enemy Ail. Thresh.", { format = "{0:output:EnemyAilmentThreshold}", { modName = "EnemyAilmentThreshold" }, }, },
 
 	{ label = "Source Physical", textSize = 12, notFlag = "attack", haveOutput = "IgnitePhysicalMax", { format = "{0:output:IgnitePhysicalMin} to {0:output:IgnitePhysicalMax}", { breakdown = "IgnitePhysical" }, }, },
 	{ label = "MH Source Physical", bgCol = colorCodes.MAINHANDBG, textSize = 12, flag = "weapon1Attack", haveOutput = "MainHand.IgnitePhysicalMax", { format = "{0:output:MainHand.IgnitePhysicalMin} to {0:output:MainHand.IgnitePhysicalMax}", { breakdown = "MainHand.IgnitePhysical" }, }, },
@@ -1266,7 +1266,7 @@ return {
 		{ label = "Configured Brittle", modName = "BrittleVal", enemy = true, modType = "BASE" },
 		{ label = "Guaranteed Brittles", modName = "BrittleOverride", modType = "BASE" },
 	}, },
-	{ label = "Enemy Ail. Thresh.", bgCol = colorCodes.SHOCKBG, flag = "shock", { format = "{0:output:EnemyAilmentThreshold}", { modname = "EnemyAilmentThreshold" }, }, },
+	{ label = "Enemy Ail. Thresh.", bgCol = colorCodes.SHOCKBG, flag = "shock", { format = "{0:output:EnemyAilmentThreshold}", { modName = "EnemyAilmentThreshold" }, }, },
 	{ label = "Chance to Shock", bgCol = colorCodes.SHOCKBG, flag = "shock", { format = "{0:output:ShockChance}%",
 		{ breakdown = "MainHand.ShockChance" },
 		{ breakdown = "OffHand.ShockChance" },
