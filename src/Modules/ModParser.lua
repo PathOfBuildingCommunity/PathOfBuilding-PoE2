@@ -2773,9 +2773,6 @@ local specialModList = {
 		flag("ShockImmune"),
 	},
 	["you gain (%d+)%% increased damage for each trap"] = function(num) return { mod("Damage", "INC", num, { type = "PerStat", stat = "ActiveTrapLimit" }) } end,
-	["(%d+)%% increased spell damage per (%d+) spirit"] = function(num, _, spirit) return { 
-		mod("Damage", "INC", num, { type = "PerStat", stat = "Spirit", div = spirit }, { type = "SkillType", skillType = SkillType.Spell }) 
-	} end,
 	["you gain (%d+)%% increased area of effect for each mine"] = function(num) return { mod("AreaOfEffect", "INC", num, { type = "PerStat", stat = "ActiveMineLimit" }) } end,
 	["triggers level (%d+) summon triggerbots when allocated"] = { flag("HaveTriggerBots") },
 	-- Slayer
