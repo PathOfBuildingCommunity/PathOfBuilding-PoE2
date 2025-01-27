@@ -3124,11 +3124,10 @@ function calcs.buildDefenceEstimations(env, actor)
 	end
 	
 	-- If there is life recoup and preventedLifeLoss (Grasping Wounds), add per second sum in Calcs breakdown
+	output["netLifeRecoupAndLossLostOverTimeMax"] = (output["LifeRecoupRecoveryMax"] or 0) - (output["LifeLossLostMax"] or 0)
+	output["netLifeRecoupAndLossLostOverTimeAvg"] = (output["LifeRecoupRecoveryAvg"] or 0) - (output["LifeLossLostAvg"] or 0)
 	if (output["LifeRecoupRecoveryAvg"] or 0) > 0 and output.preventedLifeLossTotal > 0 then
 		output["showNetRecoup"] = true
-
-		output["netLifeRecoupAndLossLostOverTimeMax"] = (output["LifeRecoupRecoveryMax"] or 0) - (output["LifeLossLostMax"] or 0)
-		output["netLifeRecoupAndLossLostOverTimeAvg"] = (output["LifeRecoupRecoveryAvg"] or 0) - (output["LifeLossLostAvg"] or 0)
 		if breakdown then
 			breakdown["netLifeRecoupAndLossLostOverTimeMax"] = {
 				s_format("%.2f ^8(total life recouped per second)", output["LifeRecoupRecoveryMax"]),
