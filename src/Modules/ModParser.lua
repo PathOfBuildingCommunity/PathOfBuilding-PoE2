@@ -1033,7 +1033,8 @@ local modFlagList = {
 	["with chaos damage"] = { tag = { type = "Condition", var = "ChaosHasDamage" } },
 	-- Other
 	["global"] = { tag = { type = "Global" } },
-	["from equipped shield"] = { tag = { type = "SlotName", slotName = "Weapon 2" } },
+	["from equipped shield"] = { tagList = { { type = "SlotName", slotName = "Weapon 2" }, { type = "Condition", var = "UsingShield" } } },
+	["from equipped focus"] = { tagList = { { type = "SlotName", slotName = "Weapon 2" }, { type = "Condition", var = "UsingFocus" } } },
 	["from equipped helmet"] = { tag = { type = "SlotName", slotName = "Helmet" } },
 	["from equipped gloves and boots"] = { tag = { type = "SlotName", slotNameList = { "Gloves", "Boots" } } },
 	["from equipped boots and gloves"] = { tag = { type = "SlotName", slotNameList = { "Gloves", "Boots" } } },
@@ -1652,6 +1653,7 @@ local modTagList = {
 	["while you are poisoned"] = { tag = { type = "Condition", var = "Poisoned" } },
 	["while cursed"] = { tag = { type = "Condition", var = "Cursed" } },
 	["while not cursed"] = { tag = { type = "Condition", var = "Cursed", neg = true } },
+	["while affected by any damaging ailment"] = { tag = { type = "Condition", varList = { "Poisoned", "Ignited", "Bleeding" } } },
 	["while there is only one nearby enemy"] = { tagList = { { type = "Multiplier", var = "NearbyEnemies", limit = 1 }, { type = "Condition", var = "OnlyOneNearbyEnemy" } } },
 	["while t?h?e?r?e? ?i?s? ?a rare or unique enemy i?s? ?nearby"] = { tag = { type = "ActorCondition", actor = "enemy", varList = { "NearbyRareOrUniqueEnemy", "RareOrUnique" } } },
 	["while a rare or unique enemy is in your presence"] = { tag = { type = "ActorCondition", actor = "enemy", varList = { "NearbyRareOrUniqueEnemy", "RareOrUnique" } } },
@@ -2184,8 +2186,7 @@ local specialModList = {
 		flag("CannotFork", nil, ModFlag.Projectile),
 	},
 	["critical hits inflict scorch, brittle and sapped"] = { flag("CritAlwaysAltAilments") },
-	["chance to block attack damage is doubled"] = { mod("BlockChance", "MORE", 100) },
-	["chance to block spell damage is doubled"] = { mod("SpellBlockChance", "MORE", 100) },
+	["block chance is doubled"] = { mod("BlockChance", "MORE", 100) },
 	["you take (%d+)%% of damage from blocked hits"] = function(num) return { mod("BlockEffect", "BASE", num) } end,
 	["ignore attribute requirements"] = { flag("IgnoreAttributeRequirements") },
 	["gain no inherent bonuses from attributes"] = { flag("NoAttributeBonuses") },
@@ -2851,6 +2852,8 @@ local specialModList = {
 	["effect and duration of flames of chayula on you is doubled"] = function() return {
 		mod("Multiplier:FlameEffect", "BASE", 1),
 	} end,
+	-- Monk - Invoker
+	["critical hits ignore non%-negative enemy monster elemental resistances"] = { flag("CritsIgnoreNonNegativeEleRes", { type = "Condition", var = "CriticalStrike" }) },
 	-- Chronomancer
 	["skills have (%d+)%% chance to not consume a cooldown when used"] = function(num) return { 
 		mod("CooldownChanceNotConsume", "BASE", num / 100, { type = "SkillType", skillType = SkillType.Cooldown })
