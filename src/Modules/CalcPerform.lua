@@ -757,15 +757,27 @@ local function applySlowMagnitude(env)
 	end
 
 	if enemyDB:Flag(nil, "Condition:Slowed") then
-		local slowMagnitude = modDB:Sum("INC", nil, "EnemySlowMagnitude")  / 100
-		if slowMagnitude > 0 then
-			enemyDB:ScaleAddMod(modLib.createMod("TemporalChainsActionSpeed", "INC", enemyDB:Sum("INC", nil, "TemporalChainsActionSpeed"), "Slow Magnitude"), slowMagnitude)
-			enemyDB:ScaleAddMod(modLib.createMod("ApexOfMomentSlow", "INC", enemyDB:Sum("INC", nil, "ApexOfMomentSlow"), "Slow Magnitude"), slowMagnitude)
+		local slowMagnitude = modDB:Sum("INC", nil, "EnemySlowMagnitude")
+		local lessSlow = enemyDB:More("MORE", nil, "Slow", "Less Slow")
+		slowMagnitude = slowMagnitude * lessSlow / 100
+
+		-- magic 34% in my current build
+		-- rare 28% in my current build
+		-- unique 20% in my current build
+		for _, value in ipairs(enemyDB:Tabulate("INC", nil, "TemporalChainsActionSpeed", "ApexOfMomentSlow")) do
+			local mod = value.mod
+			if lessSlow ~= 0 then
+				enemyDB:ReplaceMod(mod.name, mod.type, mod.value * lessSlow, mod.source,  mod.flags, mod.keywordFlags, unpack(mod))
+			end
+
+			enemyDB:ScaleAddMod(modLib.createMod(value.mod.name, value.mod.type, value.mod.value, "Slow Magnitude"), slowMagnitude)
+
+			ConPrintTable(value, false)
 		end
 	end
 end
 
-function calcs.actionSpeedMod(actor)
+function calcs.actionSpeedMod(actor)	
 	local modDB = actor.modDB
 	local minimumActionSpeed = modDB:Max(nil, "MinimumActionSpeed") or 0
 	local maximumActionSpeedReduction = modDB:Max(nil, "MaximumActionSpeedReduction")
@@ -781,8 +793,7 @@ function calcs.actionSpeedMod(actor)
 		slowEffectsSum = modDB:Sum("INC", nil, "ApexOfMomentSlow", "TemporalChainsActionSpeed")
     end
 
-	-- local slowMultiplier = (1 + tempChains / 100) * (1 + apexOfMoment / 100) * (1 + modDB:Sum("INC", nil, "ActionSpeed", "Chill") / 100) * modDB:More(nil, "ActionSpeed", "Less Slow")
-	local slowMultiplier = (1 + slowEffectsSum / 100) * (1 + modDB:Sum("INC", nil, "ActionSpeed", "Chill") / 100) * modDB:More(nil, "ActionSpeed", "Less Slow")
+	local slowMultiplier = (1 + slowEffectsSum / 100) * (1 + modDB:Sum("INC", nil, "ActionSpeed", "Chill") / 100)
 	local slowEffect = (1 - slowMultiplier) * 100 
 
 	local actionSpeedMod = 1 + (-slowEffect + actionSpeedSum) / 100
