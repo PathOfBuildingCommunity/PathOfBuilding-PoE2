@@ -3011,12 +3011,22 @@ function calcs.offence(env, actor, activeSkill)
 		local hitRate = output.HitChance / 100 * (globalOutput.HitSpeed or globalOutput.Speed) * skillData.dpsMultiplier
 
 		-- Calculate culling DPS
-		local criticalCull = skillModList:Max(cfg, "CriticalCullPercent") or 0
-		if criticalCull > 0 then
+		local enemyRarity = env.configInput["enemyIsBoss"] ~= "None" and "Unique" or env.configInput["enemyRarity"] or "Normal"
+		local cullThresholds = { Normal = 30, Magic = 20, Rare = 10, Unique = 5 }
+		local enemyCullThreshold = cullThresholds[enemyRarity]
+		local criticalCull = 0
+		if skillModList:Flag(cfg, "CriticalCullingStrike") then
+			local critCullThresholdInc = skillModList:Sum("INC", cfg, "CriticalCullThreshold") or 0
+			criticalCull = enemyCullThreshold * (1 + critCullThresholdInc / 100)
 			criticalCull = m_min(criticalCull, criticalCull * (1 - (1 - output.CritChance / 100) ^ hitRate))
 		end
-		local regularCull = skillModList:Max(cfg, "CullPercent") or 0
+		local regularCull = 0
+		if skillModList:Flag(cfg, "CullingStrike") then
+			local cullThresholdInc = skillModList:Sum("INC", cfg, "CullThreshold") or 1
+			regularCull = enemyCullThreshold * (1 + cullThresholdInc / 100)
+		end
 		local maxCullPercent = m_max(criticalCull, regularCull)
+
 		globalOutput.CullPercent = maxCullPercent
 		globalOutput.CullMultiplier = 100 / (100 - globalOutput.CullPercent)
 

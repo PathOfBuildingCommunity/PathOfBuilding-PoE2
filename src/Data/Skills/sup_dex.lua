@@ -495,8 +495,7 @@ skills["SupportCullingStrikePlayer"] = {
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
 				["support_culling_strike_vs_rare_or_unique_enemy"] = {
-					mod("CullPercent", "MAX", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "RareOrUnique" }),
-					value = 10
+					flag("CullingStrike", { type = "ActorCondition", actor = "enemy", var = "RareOrUnique" })
 				},
 			},
 			baseFlags = {
