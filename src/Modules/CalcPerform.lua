@@ -760,19 +760,13 @@ local function applySlowMagnitude(env)
 		local slowMagnitude = modDB:Sum("INC", nil, "EnemySlowMagnitude")
 		local lessSlow = enemyDB:More("MORE", nil, "Slow", "Less Slow")
 		slowMagnitude = slowMagnitude * lessSlow / 100
-
-		-- magic 34% in my current build
-		-- rare 28% in my current build
-		-- unique 20% in my current build
 		for _, value in ipairs(enemyDB:Tabulate("INC", nil, "TemporalChainsActionSpeed", "ApexOfMomentSlow")) do
 			local mod = value.mod
 			if lessSlow ~= 0 then
-				enemyDB:ReplaceMod(mod.name, mod.type, mod.value * lessSlow, mod.source,  mod.flags, mod.keywordFlags, unpack(mod))
+				enemyDB:ReplaceMod(mod.name, mod.type, -round(mod.value * -lessSlow, nil), mod.source,  mod.flags, mod.keywordFlags, unpack(mod))
 			end
 
 			enemyDB:ScaleAddMod(modLib.createMod(value.mod.name, value.mod.type, value.mod.value, "Slow Magnitude"), slowMagnitude)
-
-			ConPrintTable(value, false)
 		end
 	end
 end
