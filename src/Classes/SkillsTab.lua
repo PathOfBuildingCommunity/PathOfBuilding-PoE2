@@ -1020,6 +1020,7 @@ function SkillsTabClass:ProcessSocketGroup(socketGroup)
 			local gemId = data.gemForSkill[grantedEffect]
 			if gemId then
 				gemInstance.gemData = data.gems[gemId]
+				gemInstance.nameSpec = gemInstance.gemData.name
 			else
 				gemInstance.grantedEffect = grantedEffect
 			end
