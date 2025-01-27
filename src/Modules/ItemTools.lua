@@ -76,7 +76,7 @@ function itemLib.applyRange(line, range, valueScalar, baseValueScalar)
 	local strippedLine = line:gsub("([%+-]?)%((%-?%d+%.?%d*)%-(%-?%d+%.?%d*)%)", function(sign, min, max)
 		local value = min + range * (tonumber(max) - min)
 		if sign == "-" then value = value * -1 end
-		return (sign == "+" and value > 0 ) and sign..tostring(value) or tostring(value)
+		return (sign == "+" and value >= 0 ) and sign..tostring(value) or tostring(value)
 	end)
 	:gsub("%-(%d+%.?%d*%%) (%a+)", antonymFunc)
 	:gsub("(%-?%d+%.?%d*)", function(value)

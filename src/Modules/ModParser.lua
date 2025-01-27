@@ -2851,6 +2851,8 @@ local specialModList = {
 	["effect and duration of flames of chayula on you is doubled"] = function() return {
 		mod("Multiplier:FlameEffect", "BASE", 1),
 	} end,
+	-- Monk - Invoker
+	["critical hits ignore non%-negative enemy monster elemental resistances"] = { flag("CritsIgnoreNonNegativeEleRes", { type = "Condition", var = "CriticalStrike" }) },
 	-- Chronomancer
 	["skills have (%d+)%% chance to not consume a cooldown when used"] = function(num) return { 
 		mod("CooldownChanceNotConsume", "BASE", num / 100, { type = "SkillType", skillType = SkillType.Cooldown })
