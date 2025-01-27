@@ -4031,7 +4031,7 @@ function calcs.offence(env, actor, activeSkill)
 					t_insert(breakdownDPS, pass.label..":")
 				end
 				if sourceHitDmg == sourceCritDmg or output.CritChance == 0 then
-					t_insert(breakdownDPS, "Total base DPS per " .. type .. ":")
+					t_insert(breakdownDPS, "Total base DPS per " .. ailment .. ":")
 					t_insert(breakdownDPS, s_format("%.1f ^8(source damage)",sourceHitDmg))
 					if sourceMult > 1 then
 						t_insert(breakdownDPS, s_format("x %.2f ^8(inflicting as though dealing more damage)", sourceMult))
@@ -4055,7 +4055,7 @@ function calcs.offence(env, actor, activeSkill)
 						end
 					end
 					if baseFromHit > 0 and baseFromCrit > 0 then
-						t_insert(breakdownDPS, "Total base DPS per " .. type .. ":")
+						t_insert(breakdownDPS, "Total base DPS per " .. ailment .. ":")
 						t_insert(breakdownDPS, s_format("%.1f + %.1f", baseFromHit, baseFromCrit))
 						if sourceMult == 1 then
 							t_insert(breakdownDPS, s_format("= %.1f", baseVal))
