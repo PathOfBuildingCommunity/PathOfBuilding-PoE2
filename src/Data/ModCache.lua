@@ -1124,7 +1124,7 @@ c["20% increased Daze Buildup"]={{}," Daze Buildup "}
 c["20% increased Daze Buildup with Quarterstaves"]={{}," Daze Buildup  "}
 c["20% increased Daze Buildup with Quarterstaves 20% increased Freeze Buildup with Quarterstaves"]={{}," Daze Buildup  20% increased Freeze Buildup with Quarterstaves "}
 c["20% increased Duration of Damaging Ailments on Enemies"]={{[1]={flags=0,keywordFlags=0,name="EnemyIgniteDuration",type="INC",value=20},[2]={flags=0,keywordFlags=0,name="EnemyBleedDuration",type="INC",value=20},[3]={flags=0,keywordFlags=0,name="EnemyPoisonDuration",type="INC",value=20}},nil}
-c["20% increased Effect of Auras from your Aura Skills"]={{[1]={flags=0,keywordFlags=0,name="AuraEffect",type="INC",value=20}},nil}
+c["20% increased Effect of Auras from your Aura Skills"]={{[1]={[1]={skillType=43,type="SkillType"},flags=0,keywordFlags=0,name="AuraEffect",type="INC",value=20}},nil}
 c["20% increased Effect of Withered"]={{[1]={flags=0,keywordFlags=0,name="WitherEffect",type="INC",value=20}},nil}
 c["20% increased Elemental Damage with Attacks"]={{[1]={flags=0,keywordFlags=65536,name="ElementalDamage",type="INC",value=20}},nil}
 c["20% increased Endurance Charge Duration"]={{[1]={flags=0,keywordFlags=0,name="EnduranceChargesDuration",type="INC",value=20}},nil}
@@ -2006,7 +2006,7 @@ c["8% increased Cold Damage"]={{[1]={flags=0,keywordFlags=0,name="ColdDamage",ty
 c["8% increased Critical Hit Chance for Attacks"]={{[1]={flags=1,keywordFlags=0,name="CritChance",type="INC",value=8}},nil}
 c["8% increased Damage for each time you've Warcried Recently"]={{[1]={[1]={type="Multiplier",var="WarcryUsedRecently"},flags=0,keywordFlags=0,name="Damage",type="INC",value=8}},nil}
 c["8% increased Dexterity"]={{[1]={flags=0,keywordFlags=0,name="Dex",type="INC",value=8}},nil}
-c["8% increased Effect of Auras from your Aura Skills"]={{[1]={flags=0,keywordFlags=0,name="AuraEffect",type="INC",value=8}},nil}
+c["8% increased Effect of Auras from your Aura Skills"]={{[1]={[1]={skillType=43,type="SkillType"},flags=0,keywordFlags=0,name="AuraEffect",type="INC",value=8}},nil}
 c["8% increased Effect of your Curses"]={{[1]={flags=0,keywordFlags=0,name="CurseEffect",type="INC",value=8}},nil}
 c["8% increased Effect of your Mark Skills"]={{[1]={[1]={skillType=109,type="SkillType"},flags=0,keywordFlags=0,name="LocalEffect",type="INC",value=8}},nil}
 c["8% increased Elemental Damage"]={{[1]={flags=0,keywordFlags=0,name="ElementalDamage",type="INC",value=8}},nil}
@@ -2243,7 +2243,7 @@ c["Can be modified while Corrupted +150 to maximum Life"]={nil,"Can be modified 
 c["Can't use other Rings"]={{[1]={[1]={slotName="Ring 2",type="DisablesItem"},[2]={num=1,type="SlotNumber"},flags=0,keywordFlags=0,name="CanNotUseRightRing",type="Flag",value=1},[2]={[1]={slotName="Ring 1",type="DisablesItem"},[2]={num=2,type="SlotNumber"},flags=0,keywordFlags=0,name="CanNotUseLeftRing",type="Flag",value=1}},nil}
 c["Cannot Dodge Roll"]={nil,"Cannot Dodge Roll "}
 c["Cannot Evade Enemy Attacks"]={{[1]={flags=0,keywordFlags=0,name="CannotEvade",type="FLAG",value=true}},nil}
-c["Cannot be Blinded while on Full Life"]={{[1]={[1]={type="Condition",var="FullLife"},flags=0,keywordFlags=0,name="Condition:CannotBeBlinded",type="FLAG",value=true},[2]={[1]={type="Condition",var="FullLife"},flags=0,keywordFlags=0,name="BlindImmune",type="FLAG",value=true}},nil}
+c["Cannot be Blinded while on Full Life"]={{[1]={[1]={type="Condition",var="FullLife"},flags=0,keywordFlags=0,name="Condition:CannotBeBlinded",type="FLAG",value=true}},nil}
 c["Cannot be Ignited"]={{[1]={flags=0,keywordFlags=0,name="IgniteImmune",type="FLAG",value=true}},nil}
 c["Cannot be Poisoned"]={{[1]={flags=0,keywordFlags=0,name="PoisonImmune",type="FLAG",value=true}},nil}
 c["Cannot be Shocked"]={{[1]={flags=0,keywordFlags=0,name="ShockImmune",type="FLAG",value=true}},nil}
