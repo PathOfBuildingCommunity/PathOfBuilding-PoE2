@@ -398,6 +398,7 @@ statMap = {
 #set TriggeredFieryDeathPlayer
 #flags spell area
 #baseMod skill("explodeCorpse", true)
+#baseMod skill("corpseExplosionDamageType", "Fire")
 #mods
 #skillEnd
 

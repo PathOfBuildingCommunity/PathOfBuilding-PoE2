@@ -354,6 +354,12 @@ statMap = {
 #skill SupportEmpoweredCullPlayer
 #startSets
 #set SupportEmpoweredCullPlayer
+statMap = {
+	["support_empowered_culling_strike"] = {
+		mod("ExtraEmpowerMod", "LIST", { mod = mod("CullPercent", "MAX", nil), unscalable = true }),
+		value = 10,
+	}
+},
 #mods
 #skillEnd
 

@@ -286,6 +286,7 @@ function calcs.applyDmgTakenConversion(activeSkill, output, breakdown, sourceTyp
 			local percentOfArmourApplies = m_min((not activeSkill.skillModList:Flag(nil, "ArmourDoesNotApplyTo"..damageType.."DamageTaken") and activeSkill.skillModList:Sum("BASE", nil, "ArmourAppliesTo"..damageType.."DamageTaken") or 0), 100)
 			if percentOfArmourApplies > 0 then
 				local effArmour = (output.Armour * percentOfArmourApplies / 100) * (1 + output.ArmourDefense)
+				-- effArmour needs to consider the "EvasionAddsToPdr" flag mod, and add the evasion to armour
 				armourReduct = round(effArmour ~= 0 and damage ~= 0 and calcs.armourReductionF(effArmour, damage) or 0)
 				armourReduct = m_min(output.DamageReductionMax, armourReduct)
 			end
@@ -1975,10 +1976,23 @@ function calcs.buildDefenceEstimations(env, actor)
 		local enemyOverwhelm = modDB:Flag(nil, "SelfIgnore"..damageType.."DamageReduction") and 0 or output[damageType.."EnemyOverwhelm"]
 		local damage = output[damageType.."TakenDamage"]
 		local impaleDamage = enemyImpaleChance > 0 and (damageType == "Physical" and (damage * data.misc.ImpaleStoredDamageBase) or 0) or 0
+		
+		--armour/PDR calculations
 		local armourReduct = 0
 		local impaleArmourReduct = 0
 		local percentOfArmourApplies = m_min((not modDB:Flag(nil, "ArmourDoesNotApplyTo"..damageType.."DamageTaken") and modDB:Sum("BASE", nil, "ArmourAppliesTo"..damageType.."DamageTaken") or 0), 100)
 		local effectiveAppliedArmour = (output.Armour * percentOfArmourApplies / 100) * (1 + output.ArmourDefense)
+		local effectiveArmourFromArmour = effectiveAppliedArmour;
+		local effectiveArmourFromOther = { }
+		local evasionAddsToPdr = modDB:Flag(nil, "EvasionAddsToPdr") and damageType == "Physical"
+		if evasionAddsToPdr then
+			effectiveArmourFromOther["Evasion"] = output.Evasion 
+		end
+		for source, amount in pairs(effectiveArmourFromOther) do
+			-- should this be done BEFORE percentOfArmourApplies and ArmourDefense is used? Probably needs GGG confirmation
+			effectiveAppliedArmour = effectiveAppliedArmour + amount
+		end
+		
 		local resMult = 1 - (resist > 0 and m_max(resist - enemyPen, 0) or resist) / 100
 		local reductMult = 1
 		local takenFlat = modDB:Sum("BASE", nil, "DamageTaken", damageType.."DamageTaken", "DamageTakenWhenHit", damageType.."DamageTakenWhenHit")
@@ -2010,7 +2024,16 @@ function calcs.buildDefenceEstimations(env, actor)
 				if percentOfArmourApplies ~= 100 then
 					t_insert(breakdown[damageType.."DamageReduction"], s_format("%d%% percent of armour applies", percentOfArmourApplies))
 				end
-				t_insert(breakdown[damageType.."DamageReduction"], s_format("Reduction from Armour: %d%%", armourReduct))
+				if effectiveArmourFromArmour == effectiveAppliedArmour then
+					t_insert(breakdown[damageType.."DamageReduction"], s_format("Reduction from Armour: %d%%", armourReduct))
+				else
+					t_insert(breakdown[damageType.."DamageReduction"], s_format("Armour contributing to reduction: %d", effectiveArmourFromArmour))
+					for source, amount in pairs(effectiveArmourFromOther) do
+						t_insert(breakdown[damageType.."DamageReduction"], s_format("%s contributing to reduction: %d",source, amount))
+					end
+					t_insert(breakdown[damageType.."DamageReduction"], s_format("Combined Armour used for reduction: %d", effectiveAppliedArmour))
+					t_insert(breakdown[damageType.."DamageReduction"], s_format("Reduction from combined Armour: %d%%", armourReduct))
+				end
 				if resMult ~= 1 then
 					t_insert(breakdown[damageType.."DamageReduction"], s_format("Enemy Hit Damage After Resistance: %d ^8(total incoming damage)", damage * resMult))
 				else
@@ -2061,7 +2084,16 @@ function calcs.buildDefenceEstimations(env, actor)
 				if percentOfArmourApplies ~= 100 then
 					t_insert(breakdown[damageType.."TakenHitMult"], s_format("%d%% percent of armour applies", percentOfArmourApplies))
 				end
-				t_insert(breakdown[damageType.."TakenHitMult"], s_format("Reduction from Armour: %.2f", 1 - armourReduct / 100))
+				if effectiveArmourFromArmour == effectiveAppliedArmour then
+					t_insert(breakdown[damageType.."TakenHitMult"], s_format("Reduction from Armour: %.2f", 1 - armourReduct / 100))
+				else
+					t_insert(breakdown[damageType.."TakenHitMult"], s_format("Armour contributing to reduction: %d", effectiveArmourFromArmour))
+					for source, amount in pairs(effectiveArmourFromOther) do
+						t_insert(breakdown[damageType.."TakenHitMult"], s_format("%s contributing to reduction: %d",source, amount))
+					end
+					t_insert(breakdown[damageType.."TakenHitMult"], s_format("Combined Armour used for reduction: %d", effectiveAppliedArmour))
+					t_insert(breakdown[damageType.."TakenHitMult"], s_format("Reduction from combined Armour: %.2f", 1 - armourReduct / 100))
+				end
 			end
 			if enemyOverwhelm ~= 0 then
 				t_insert(breakdown[damageType.."TakenHitMult"], s_format("+ Enemy Overwhelm %s Damage: %.2f", damageType, enemyOverwhelm / 100))

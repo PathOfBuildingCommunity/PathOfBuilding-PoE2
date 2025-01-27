@@ -241,7 +241,7 @@ statMap = {
 	["skill_charge_mastery_defences_+%_final_with_endurance_charges"] = {
 		mod("Defences", "MORE", nil, 0, 0, { type = "StatThreshold", stat = "EnduranceCharges", threshold = 1 }, { type = "GlobalEffect", effectType = "Buff", effectName = "Charge Infusion", effectCond = "UseEnduranceCharges" }),
 	},
-}
+},
 #flags
 #mods
 #skillEnd
@@ -345,6 +345,7 @@ statMap = {
 #startSets
 #set DetonateDeadPlayer
 #flags area spell
+#baseMod skill("explodeCorpse", true)
 #mods
 #skillEnd
 
@@ -794,6 +795,7 @@ statMap = {
 #startSets
 #set ManaTempestPlayer
 #flags
+#baseMod mod("Empowered", "FLAG", true, ModFlag.Spell, 0, { type = "GlobalEffect", effectType = "Buff" }, { type = "StatThreshold", stat = "ManaCost", threshold = 1 })
 #mods
 #skillEnd
 
@@ -1137,6 +1139,7 @@ statMap = {
 #startSets
 #set StaffUnleashNextSpellPlayer
 #flags
+#baseMod mod("Empowered", "FLAG", true, ModFlag.Spell, 0, { type = "GlobalEffect", effectType = "Buff" })
 #mods
 #skillEnd
 
