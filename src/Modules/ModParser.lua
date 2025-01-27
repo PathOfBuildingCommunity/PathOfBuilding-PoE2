@@ -731,6 +731,7 @@ local modNameList = {
 	["duration of chills you inflict"] = "EnemyChillDuration",
 	["chill duration on you"] = "SelfChillDuration",
 	["duration of cold ailments"] = { "EnemyFreezeDuration" , "EnemyChillDuration", "EnemyBrittleDuration" },
+	["chill and freeze duration"] = { "EnemyFreezeDuration", "EnemyChillDuration" },
 	["ignite duration"] = "EnemyIgniteDuration",
 	["duration of ignites you inflict"] = "EnemyIgniteDuration",
 	["ignite duration on you"] = "SelfIgniteDuration",
@@ -1492,7 +1493,7 @@ local modTagList = {
 	["while holding a (%w+) or (%w+)"] = function (_, g1, g2) return {
 		tag = { type = "Condition", varList = { "Using"..firstToUpper(g1), "Using"..firstToUpper(g2) } }
 	} end,
-	["while your off hand is empty"] = { tag = { type = "Condition", var = "OffHandIsEmpty" } },
+	["while off hand is empty"] = { tag = { type = "Condition", var = "OffHandIsEmpty" } },
 	["with shields"] = { tag = { type = "Condition", var = "UsingShield" } },
 	["while dual wielding"] = { tag = { type = "Condition", var = "DualWielding" } },
 	["while dual wielding claws"] = { tag = { type = "Condition", var = "DualWieldingClaws" } },
