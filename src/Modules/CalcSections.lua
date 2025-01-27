@@ -885,8 +885,6 @@ return {
 { 1, "Bleed", 1, colorCodes.OFFENCE, {{ defaultCollapsed = false, label = "Bleed", data = {
 	extra = "{0:output:BleedChance}% {1:output:BleedDPS} {2:output:BleedDuration}s",
 	flag = "bleed",
-	{ label = "Enemy Ail. Thresh.", { format = "{0:output:EnemyAilmentThreshold}", { modname = "EnemyAilmentThreshold" }, }, },
-
 	{ label = "Source Physical", textSize = 12, notFlag = "attack", haveOutput = "BleedPhysicalMax", { format = "{0:output:BleedPhysicalMin} to {0:output:BleedPhysicalMax}", { breakdown = "BleedPhysical" }, }, },
 	{ label = "MH Source Physical", bgCol = colorCodes.MAINHANDBG, textSize = 12, flag = "weapon1Attack", haveOutput = "MainHand.BleedPhysicalMax", { format = "{0:output:MainHand.BleedPhysicalMin} to {0:output:MainHand.BleedPhysicalMax}", { breakdown = "MainHand.BleedPhysical" }, }, },
 	{ label = "OH Source Physical", bgCol = colorCodes.OFFHANDBG, textSize = 12, flag = "weapon2Attack", haveOutput = "OffHand.BleedPhysicalMax", { format = "{0:output:OffHand.BleedPhysicalMin} to {0:output:OffHand.BleedPhysicalMax}", { breakdown = "OffHand.BleedPhysical" }, }, },
