@@ -367,7 +367,7 @@ skills["SupportCorruptingCryPlayer"] = {
 					mod("CorruptingCryStagesFromWarcry", nil, 0, KeywordFlag.Warcry)
 				},
 				["support_corrupting_cry_area_of_effect_+%_final"] = {
-					mod("AreaOfEffect", "INC", nil, 0, KeywordFlag.Warcry)
+					mod("AreaOfEffect", "MORE", nil, 0, KeywordFlag.Warcry)
 				},
 				["support_corrupting_cry_corrupted_blood_duration_ms"] = {
 					skill("durationSecondary", nil),
@@ -1628,6 +1628,11 @@ skills["SupportEmpoweredDamagePlayer"] = {
 			label = "Premeditation",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_empowered_damage_+%_final"] = {
+					mod("ExtraEmpowerMod", "LIST", { mod = mod("Damage", "MORE", nil) }),
+				}
+			},
 			baseFlags = {
 			},
 			constantStats = {

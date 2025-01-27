@@ -23,7 +23,7 @@ local tradeCategoryNames = {
 	["Shield"] = { "Shield" },
 	["Focus"] = { "Focus" },
 	["1HWeapon"] = { "One Handed Mace", "Wand", "Sceptre" },
-	["2HWeapon"] = { { "Staff" }, { "Staff", "Warstaff" }, "Two Handed Mace", "Crossbow", "Bow" },
+	["2HWeapon"] = { "Staff", "Staff: Warstaff", "Two Handed Mace", "Crossbow", "Bow" },
 	-- ["1HAxe"] = { "One Handed Axe" },
 	-- ["1HSword"] = { "One Handed Sword", "Thrusting One Handed Sword" },
 	["1HMace"] = { "One Handed Mace" },
@@ -31,66 +31,53 @@ local tradeCategoryNames = {
 	-- ["Dagger"] = { "Dagger" },
 	["Wand"] = { "Wand" },
 	-- ["Claw"] = { "Claw" },
-	["Staff"] = { { "Staff" } },
-	["Quarterstaff"] = { { "Staff", "Warstaff" } },
+	["Staff"] = { "Staff" },
+	["Quarterstaff"] = { "Staff: Warstaff" },
 	["Bow"] = { "Bow" },
 	["Crossbow"] = { "Crossbow"},
 	-- ["2HAxe"] = { "Two Handed Axe" },
 	-- ["2HSword"] = { "Two Handed Sword" },
 	["2HMace"] = { "Two Handed Mace" },
 	-- ["FishingRod"] = { "Fishing Rod" },
-	["BaseJewel"] = { { "Jewel" } },
-	["AnyJewel"] = { { "Jewel" } },
-	["LifeFlask"] = { { "Flask", "Life"} },
-	["ManaFlask"] = { { "Flask", "Mana"} },
+	["BaseJewel"] = { "Jewel" },
+	["AnyJewel"] = { "Jewel" },
+	["LifeFlask"] = { "Flask: Life" },
+	["ManaFlask"] = { "Flask: Mana" },
 	["Charm"] = { "Charm" },
 	-- doesn't have trade mods
-	-- ["RadiusJewel"] = { { "Jewel", "Radius"} },
+	-- ["RadiusJewel"] = { "Jewel: Radius" },
 	-- not in the game yet.
 	-- ["TrapTool"] = { "TrapTool"}, Unsure if correct
 	-- ["Flail"] = { "Flail" },
 	-- ["Spear"] = { "Spear" }
 }
 
--- TODO generate these from data files
-local tradeCategoryTags = {
-	["Ring"] = { ["ring"] = true },
-	["Amulet"] = { ["amulet"] = true },
-	["Belt"] = { ["belt"] = true },
-	["Body Armour"] = { ["body_armour"] = true, ["str_armour"] = true, ["dex_armour"] = true, ["int_armour"] = true, ["str_int_armour"] = true, ["str_dex_armour"] = true, ["str_dex_int_armour"] = true },
-	["Helmet"] = { ["helmet"] = true, ["str_armour"] = true, ["dex_armour"] = true, ["int_armour"] = true, ["str_int_armour"] = true, ["str_dex_armour"] = true, ["str_dex_int_armour"] = true },
-	["Gloves"] = { ["gloves"] = true, ["str_armour"] = true, ["dex_armour"] = true, ["int_armour"] = true, ["str_int_armour"] = true, ["str_dex_armour"] = true, ["str_dex_int_armour"] = true },
-	["Boots"] = { ["boots"] = true, ["str_armour"] = true, ["dex_armour"] = true, ["int_armour"] = true, ["str_int_armour"] = true, ["str_dex_armour"] = true, ["str_dex_int_armour"] = true },
-	["Quiver"] = { ["quiver"] = true },
-	["Shield"] = { ["shield"] = true, ["energy_shield"] = true, ["dex_shield"] = true, ["str_shield"] = true, ["str_int_shield"] = true, ["dex_int_shield"] = true, ["str_dex_shield"] = true },
-	-- ["1HAxe"] = { ["weapon"] = true, ["one_hand_weapon"] = true, ["onehand"] = true, ["axe"] = true},
-	-- ["1HSword"] = { ["weapon"] = true, ["one_hand_weapon"] = true, ["onehand"] = true, ["sword"] = true, ["rapier"] = true },
-	["One Handed Mace"] = { ["weapon"] = true, ["one_hand_weapon"] = true, ["onehand"] = true, ["mace"] = true },
-	["Sceptre"] = { ["onehand"] = true, ["sceptre"] = true },
-	-- ["Dagger"] = { ["weapon"] = true, ["one_hand_weapon"] = true, ["onehand"] = true, ["attack_dagger"] = true, ["dagger"] = true, ["rune_dagger"] = true },
-	["Wand"] = { ["weapon"] = true, ["one_hand_weapon"] = true, ["onehand"] = true, ["wand"] = true },
-	-- ["Claw"] = { ["weapon"] = true, ["one_hand_weapon"] = true, ["onehand"] = true, ["claw"] = true },
-	[table.concat(tradeCategoryNames.Staff[1],'\0')] = { ["twohand"] = true, ["staff"] = true, },
-	[table.concat(tradeCategoryNames.Quarterstaff[1],'\0')] = { ["weapon"] = true, ["two_hand_weapon"] = true, ["twohand"] = true, ["warstaff"] = true  },
-	["Bow"] = { ["weapon"] = true, ["two_hand_weapon"] = true, ["twohand"] = true, ["bow"] = true },
-	-- ["2HAxe"] = { ["weapon"] = true, ["two_hand_weapon"] = true, ["twohand"] = true, ["axe"] = true },
-	-- ["2HSword"] = { ["weapon"] = true, ["two_hand_weapon"] = true, ["twohand"] = true, ["sword"] = true },
-	["Two Handed Mace"] = { ["weapon"] = true, ["two_hand_weapon"] = true, ["twohand"] = true, ["mace"] = true },
-	-- ["FishingRod"] = { ["fishing_rod"] = true },
-	["Focus"] =  { ["focus"] = true },
-	["Crossbow"] = { ["crossbow"] = true},
-	[table.concat(tradeCategoryNames.BaseJewel[1],'\0')] = { ["jewel"] = true, ["strjewel"] = true, ["dexjewel"] = true, ["intjewel"] = true },
-	[table.concat(tradeCategoryNames.LifeFlask[1],'\0')] = { ["flask"] = true, ["life_flask"] = true },
-	[table.concat(tradeCategoryNames.ManaFlask[1],'\0')] = { ["flask"] = true, ["mana_flask"] = true },
-	["Charm"] = { ["flask"] = true, ["utility_flask"] = true },
-	-- doesn't have trade mod and incorrect mod formatting
-	-- ["RadiusJewel"] = { ["jewel"] = true, ["radius_jewel"] = true, ["str_radius_jewel"] = true, ["dex_radius_jewel"] = true, ["int_radius_jewel"] = true },
-	-- not in the game yet.
-	-- ["TrapTool"] = { ["trap"] = true},
-	-- ["Flail"] = { ["flail"] = true},
-	-- ["Spear"] = { ["spear"] = true}
-
-}
+-- Build lists of tags present on a given item category
+local tradeCategoryTags = { }
+for type, bases in pairs(data.itemBaseLists) do
+	for _, base in ipairs(bases) do
+		if not base.hidden then
+			if not tradeCategoryTags[type] then
+				tradeCategoryTags[type] = { }
+			end
+			local baseTags = { }
+			for tag, _ in pairs(base.base.tags) do
+				if tag ~= "default" and tag ~= "demigods" and not tag:match("_basetype") and tag ~= "not_for_sale" then -- filter fluff tags not used on mods.
+					baseTags[tag] = true
+				end
+			end
+			local present = false
+			for i, tags in ipairs(tradeCategoryTags[type]) do
+				if tableDeepEquals(baseTags, tags) then
+					present = true
+				end
+			end
+			if not present then
+				t_insert(tradeCategoryTags[type], baseTags)
+			end
+		end
+	end
+end
 
 local tradeStatCategoryIndices = {
 	["Explicit"] = 1,
@@ -129,13 +116,14 @@ end
 
 local function canModSpawnForItemCategory(mod, names)
 	for _, name in pairs(tradeCategoryNames[names]) do
-		local tags = tradeCategoryTags[type(name) == "table" and table.concat(name,'\0') or name]
-		for i, key in ipairs(mod.weightKey) do
-			if tags[key] == true then
-				if mod.weightVal[i] > 0 then
-					return true
-				else
-					break
+		for _, tags in ipairs(tradeCategoryTags[name]) do
+			for i, key in ipairs(mod.weightKey) do
+				if tags[key] then
+					if mod.weightVal[i] > 0 then
+						return true
+					else
+						break
+					end
 				end
 			end
 		end
@@ -405,7 +393,11 @@ function TradeQueryGeneratorClass:InitMods()
 			local maskOverride = {}
 			for tradeName, typeNames in pairs(tradeCategoryNames) do
 				for _, typeName in ipairs(typeNames) do
-					if type(typeName) == "table" and typeName[2] == entry.subType and typeName[1] == entry.type or typeName == entry.type then
+					local entryName = entry.type
+					if entry.subType then
+							entryName = entryName..": "..entry.subType
+					end
+					if typeName == entryName then
 						maskOverride[tradeName] = true;
 						break
 					end

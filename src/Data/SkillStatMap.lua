@@ -281,7 +281,7 @@ return {
 	skill("corpseExplosionLifeMultiplier", nil),
 	div = 100,
 },
-["corpse_explosion_monster_life_permillage_fire"] = {
+["corpse_explosion_monster_life_permillage_physical"] = {
 	skill("corpseExplosionLifeMultiplier", nil),
 	div = 1000,
 },
@@ -1522,6 +1522,9 @@ return {
 ["projectile_chance_to_chain_1_extra_time_from_terrain_%"] = {
 	mod("TerrainChainChance", "BASE", nil),
 },
+["spell_skills_fire_2_additional_projectiles_final_chance_%"] = {
+	mod("TwoAdditionalProjectilesChance", "BASE", nil),
+},	
 ["additional_beam_only_chains"] = {
 	mod("BeamChainCountMax", "BASE", nil),
 },
@@ -2245,6 +2248,9 @@ return {
 ["grenade_skill_%_chance_to_explode_twice"] = {
 	mod("GrenadeExplodeTwice", "INC", nil),
 },
+["support_grenade_damage_+%_final"] = {
+	mod("Damage", "MORE", nil),
+},
 -- Other
 ["triggered_skill_damage_+%"] = {
 	mod("TriggeredDamage", "INC", nil, 0, 0, { type = "SkillType", skillType = SkillType.Triggered }),
@@ -2288,6 +2294,9 @@ return {
 },
 ["base_added_cooldown_count"] = {
 	mod("AdditionalCooldownUses", "BASE", nil)
+},
+["base_limit_+"] = {
+	mod("AdditionalCooldownUses", "BASE", nil),
 },
 ["kill_enemy_on_hit_if_under_10%_life"] = {
 	mod("CullPercent", "MAX", nil),

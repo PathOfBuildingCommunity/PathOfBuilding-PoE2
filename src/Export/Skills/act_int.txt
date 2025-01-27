@@ -345,6 +345,7 @@ statMap = {
 #startSets
 #set DetonateDeadPlayer
 #flags area spell
+#baseMod skill("explodeCorpse", true)
 #mods
 #skillEnd
 
@@ -794,6 +795,7 @@ statMap = {
 #startSets
 #set ManaTempestPlayer
 #flags
+#baseMod mod("Empowered", "FLAG", true, ModFlag.Spell, 0, { type = "GlobalEffect", effectType = "Buff" }, { type = "StatThreshold", stat = "ManaCost", threshold = 1 })
 #mods
 #skillEnd
 
@@ -1137,6 +1139,7 @@ statMap = {
 #startSets
 #set StaffUnleashNextSpellPlayer
 #flags
+#baseMod mod("Empowered", "FLAG", true, ModFlag.Spell, 0, { type = "GlobalEffect", effectType = "Buff" })
 #mods
 #skillEnd
 

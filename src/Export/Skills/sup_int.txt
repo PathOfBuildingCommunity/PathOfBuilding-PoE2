@@ -398,6 +398,7 @@ statMap = {
 #set TriggeredFieryDeathPlayer
 #flags spell area
 #baseMod skill("explodeCorpse", true)
+#baseMod skill("corpseExplosionDamageType", "Fire")
 #mods
 #skillEnd
 
@@ -543,6 +544,14 @@ statMap = {
 #skill SupportInevitableCriticalsPlayer
 #startSets
 #set SupportInevitableCriticalsPlayer
+statMap = {
+	["support_inevitable_criticals_critical_strike_chance_+%_per_second"] = {
+		mod("CritChance", "INC", nil, 0, 0, { type = "Multiplier", var = "SecondsSinceInevitableCrit", limitVar = "InevitableCritCap", limitTotal = true }),
+	},
+	["support_inevitable_criticals_critical_strike_chance_+%_cap"] = {
+		mod("Multiplier:InevitableCritCap", "BASE", nil),
+	},
+},
 #mods
 #skillEnd
 

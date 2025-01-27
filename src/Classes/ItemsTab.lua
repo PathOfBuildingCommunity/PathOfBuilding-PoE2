@@ -707,7 +707,9 @@ holding Shift will put it in the second.]])
 					end
 					
 					-- Adding Mod
+					self.build.treeTab.skipTimeLostJewelProcessing = true
 					self:AddModComparisonTooltip(tooltip, mod)
+					self.build.treeTab.skipTimeLostJewelProcessing = false
 				end
 			end
 		end
@@ -1067,6 +1069,9 @@ function ItemsTabClass:Draw(viewPort, inputEvents)
 					end
 					self:CreateDisplayItemFromRaw(newItem, true)
 				end
+				if self.displayItem and IsKeyDown("SHIFT") then
+					self:AddDisplayItem()
+				end
 			elseif event.key == "e" then
 				local mOverControl = self:GetMouseOverControl()
 				if mOverControl and mOverControl._className == "ItemSlotControl" and mOverControl.selItemId ~= 0 then
@@ -1092,6 +1097,8 @@ function ItemsTabClass:Draw(viewPort, inputEvents)
 			elseif event.key == "d" and IsKeyDown("CTRL") then
 				self.showStatDifferences = not self.showStatDifferences
 				self.build.buildFlag = true
+			elseif self.displayItem and IsKeyDown("RETURN") then
+				self:AddDisplayItem()
 			end
 		end
 	end

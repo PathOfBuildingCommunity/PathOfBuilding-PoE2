@@ -718,9 +718,7 @@ function PassiveSpecClass:AllocNode(node, altPath)
 		local parent = node.linked[1]
 		for _, optNode in ipairs(parent.linked) do
 			if optNode.isMultipleChoiceOption and optNode.alloc and optNode ~= node then
-				optNode.alloc = false
-				optNode.allocMode = nil
-				self.allocNodes[optNode.id] = nil
+				self:DeallocSingleNode(optNode)
 			end
 		end
 	end
