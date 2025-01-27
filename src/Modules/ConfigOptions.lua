@@ -381,6 +381,14 @@ local configSettings = {
 	{ var = "iceNovaCastOnFrostbolt", type = "check", label = "Cast on Frostbolt?", ifSkill = "Ice Nova of Frostbolts", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:CastOnFrostbolt", "FLAG", true, "Config", { type = "SkillName", skillName = "Ice Nova of Frostbolts" })
 	end },
+	{ label = "Inevitable Critical Support:", ifSkill = "Inevitable Critical" },
+	{ var = "SecondsSinceInevitableCrit", type = "count", label = "# of seconds since Inevitable crit:", ifSkill = "Inevitable Critical", tooltip = "Also implies you've crit recently if the value is 3s or below", apply = function(val, modList, enemyModList)
+		modList:NewMod("Multiplier:SecondsSinceInevitableCrit", "BASE", val, "Config", { type = "Condition", var = "Combat" })
+		if val < 4 then
+			modList:NewMod("Condition:CritRecently", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
+			modList:NewMod("Condition:SkillCritRecently", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
+		end
+	end },
 	{ label = "Infusion:", ifSkill = "Infused Channelling" },
 	{ var = "infusedChannellingInfusion", type = "check", label = "Is Infusion active?", ifSkill = "Infused Channelling", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:InfusionActive", "FLAG", true, "Config")
@@ -603,9 +611,6 @@ local configSettings = {
 	{ label = "Wind Dancer:", ifSkill = "Wind Dancer" },
 	{ var = "windDancerStacks", type = "count", label = "# of Wind Dancer Stacks:", ifSkill = "Wind Dancer", apply = function(val, modList, enemyModList)
 		modList:NewMod("Multiplier:WindDancerStacks", "BASE", val, "Config")
-	end },
-	{ var = "SecondsSinceInevitableCrit", type = "count", label = "# of seconds since Inevitable crit:", ifSkill = "Inevitable Critical", apply = function(val, modList, enemyModList)
-		modList:NewMod("Multiplier:SecondsSinceInevitableCrit", "BASE", val, "Config")
 	end },
 	{ var = "conditionEmpowered", type = "check", label = "Is the skill Empowered?", ifCond = "Empowered", tooltip = "Skills can be temporarily Empowered by certain buff skills.", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:Empowered", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
