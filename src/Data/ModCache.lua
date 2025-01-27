@@ -2201,8 +2201,7 @@ c["Bleeding you inflict deals Damage 10% faster"]={{[1]={flags=0,keywordFlags=0,
 c["Bleeding you inflict is Aggravated"]={nil,"Bleeding you inflict is Aggravated "}
 c["Blind Chilled enemies on Hit"]={nil,"Blind Chilled enemies on Hit "}
 c["Blind Enemies when they Stun you"]={nil,"Blind Enemies when they Stun you "}
-c["Block Chance is doubled"]={nil,"Block Chance is doubled "}
-c["Block Chance is doubled You take 50% of Damage from Blocked Hits"]={nil,"Block Chance is doubled You take 50% of Damage from Blocked Hits "}
+c["Block Chance is doubled"]={{[1]={flags=0,keywordFlags=0,name="BlockChance",type="MORE",value=100}},nil}
 c["Block chance is Lucky"]={nil,"Block chance is Lucky "}
 c["Blocking Damage Poisons the Enemy as though dealing 100 Base Chaos Damage"]={nil,"Blocking Damage Poisons the Enemy as though dealing 100 Base Chaos Damage "}
 c["Blocking Damage Poisons the Enemy as though dealing 100 Base Chaos Damage Blocking Damage Poisons the Enemy as though dealing 200 Base Chaos Damage"]={nil,"Blocking Damage Poisons the Enemy as though dealing 100 Base Chaos Damage Blocking Damage Poisons the Enemy as though dealing 200 Base Chaos Damage "}
@@ -2888,8 +2887,7 @@ c["Regenerate 0.4% of Life per second if you have been Hit Recently"]={{[1]={[1]
 c["Regenerate 0.5% of Life per second"]={{[1]={flags=0,keywordFlags=0,name="LifeRegenPercent",type="BASE",value=0.5}},nil}
 c["Regenerate 0.75% of Life per second"]={{[1]={flags=0,keywordFlags=0,name="LifeRegenPercent",type="BASE",value=0.75}},nil}
 c["Regenerate 1% of Life per Second if you've used a Life Flask in the past 10 seconds"]={{[1]={[1]={type="Condition",var="UsingLifeFlask"},flags=0,keywordFlags=0,name="LifeRegenPercent",type="BASE",value=1}},nil}
-c["Regenerate 1% of Life per second while affected by any Damaging Ailment"]={{[1]={flags=0,keywordFlags=0,name="LifeRegenPercent",type="BASE",value=1}}," while affected by any Damaging Ailment "}
-c["Regenerate 1% of Life per second while affected by any Damaging Ailment Regenerate 1% of Life per second while stationary"]={{[1]={[1]={type="Condition",var="Stationary"},flags=0,keywordFlags=0,name="LifeRegenPercent",type="BASE",value=1}}," while affected by any Damaging Ailment Regenerate 1% of  per second  "}
+c["Regenerate 1% of Life per second while affected by any Damaging Ailment"]={{[1]={[1]={type="Condition",varList={[1]="Poisoned",[2]="Ignited",[3]="Bleeding"}},flags=0,keywordFlags=0,name="LifeRegenPercent",type="BASE",value=1}},nil}
 c["Regenerate 1% of Life per second while stationary"]={{[1]={[1]={type="Condition",var="Stationary"},flags=0,keywordFlags=0,name="LifeRegenPercent",type="BASE",value=1}},nil}
 c["Regenerate 1% of Life per second while you have a Totem"]={{[1]={[1]={type="Condition",var="HaveTotem"},flags=0,keywordFlags=0,name="LifeRegenPercent",type="BASE",value=1}},nil}
 c["Regenerate 1.5% of Life per second while on Low Life"]={{[1]={[1]={type="Condition",var="LowLife"},flags=0,keywordFlags=0,name="LifeRegenPercent",type="BASE",value=1.5}},nil}
