@@ -6,7 +6,10 @@
   <img alt="Items tab" src="https://github.com/user-attachments/assets/de8e6dc0-1e1a-46c5-b8a4-18877e67d48d" width="48%" />
 </p>
 
-### Features
+## Download
+Head over to the [Releases](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/releases) page to download the install wizard or portable zip.
+
+## Features
 * Comprehensive offence + defence calculations:
   * Calculate your skill DPS, damage over time, life/mana/ES totals and much more!
   * Can factor in auras, buffs, charges, curses, monster resistances and more, to estimate your effective DPS
@@ -46,9 +49,6 @@
   * You can import passive tree, items, and skills from existing characters
   * Share builds with other users by generating a share code
   * Automatic updating; most updates will only take a couple of seconds to apply
-
-## Download
-Head over to the [Releases](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/releases) page to download the install wizard or portable zip.
 
 ## Changelog
 You can find the full version history [here](CHANGELOG.md).
