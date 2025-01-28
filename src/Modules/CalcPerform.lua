@@ -85,7 +85,7 @@ local function doActorAttribsConditions(env, actor)
 	local condList = modDB.conditions
 
 	-- Set conditions
-	if (actor.itemList["Weapon 2"] and actor.itemList["Weapon 2"].type == "Shield") or (actor == env.player and env.aegisModList) then
+	if (actor.itemList["Weapon 2"] and actor.itemList["Weapon 2"].type == "Shield") then
 		condList["UsingShield"] = true
 	elseif (actor.itemList["Weapon 2"] and actor.itemList["Weapon 2"].type == "Focus") then
 		condList["UsingFocus"] = true
@@ -829,9 +829,9 @@ function calcs.perform(env, skipEHP)
 		for _, mod in ipairs(env.player.mainSkill.extraSkillModList) do
 			env.minion.modDB:AddMod(mod)
 		end
-		if env.aegisModList then
-			env.minion.itemList["Weapon 3"] = env.player.itemList["Weapon 2"]
-			env.minion.modDB:AddList(env.aegisModList)
+		if env.talismanModList then
+			-- Adding mods provided by "Necromantic Talisman" keystone
+			env.minion.modDB:AddList(env.talismanModList)
 		end
 		if env.theIronMass and env.minion.type == "RaisedSkeleton" then
 			env.minion.modDB:AddList(env.theIronMass)
@@ -877,8 +877,9 @@ function calcs.perform(env, skipEHP)
 			env.minion.modDB:NewMod("Str", "BASE", round(calcLib.val(modDB, "Str") * 0.5), "Player")
 		end
 	end
-	if env.aegisModList then
-		env.player.itemList["Weapon 2"] = nil
+	if env.talismanModList then
+		-- Accounting for "Necromantic Talisman"
+		env.player.itemList["Amulet"] = nil
 	end
 	if modDB:Flag(nil, "AlchemistsGenius") then
 		local effectMod = 1 + modDB:Sum("INC", nil, "BuffEffectOnSelf") / 100
