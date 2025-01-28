@@ -830,7 +830,7 @@ function calcs.perform(env, skipEHP)
 			env.minion.modDB:AddMod(mod)
 		end
 		if env.talismanModList then
-			-- Adding mods provided by "Necromantic Talisman" keystone
+			-- Adding mods provided by "Necromantic Talisman"
 			env.minion.modDB:AddList(env.talismanModList)
 		end
 		if env.theIronMass and env.minion.type == "RaisedSkeleton" then

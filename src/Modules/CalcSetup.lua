@@ -988,7 +988,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 					-- Special handling for Necromantic Talisman
 					env.talismanModList = new("ModList")
 					for _, mod in ipairs(srcList) do
-						-- add all Amulet mods to (no more need to filter for 'socketed in')
+						-- add all Amulet mods (no more need to exclude for 'gems socketed in' mods)
 						env.talismanModList:ScaleAddMod(mod, scale)
 					end
 				elseif (slotName == "Weapon 1" or slotName == "Weapon 2") and modDB.conditions["AffectedByEnergyBlade"] then
