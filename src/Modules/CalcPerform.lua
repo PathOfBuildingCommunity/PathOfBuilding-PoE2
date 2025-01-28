@@ -877,7 +877,7 @@ function calcs.perform(env, skipEHP)
 			env.minion.modDB:NewMod("Str", "BASE", round(calcLib.val(modDB, "Str") * 0.5), "Player")
 		end
 		if modDB:Flag(nil, "DexterityAddedToMinions") then
-			env.minion.modDB:NewMod("Dex", "BASE", round(calcLib.val(modDB, "Dex")), "Player")
+			env.minion.modDB:NewMod("Dex", "BASE", round(calcLib.val(modDB, "Dex")), "Dead can Dance")
 		end
 	end
 	if env.aegisModList then
