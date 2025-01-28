@@ -56,7 +56,7 @@ c["+1000 to maximum Life"]={{[1]={flags=0,keywordFlags=0,name="Life",type="BASE"
 c["+113 to Stun Threshold"]={{[1]={flags=0,keywordFlags=0,name="StunThreshold",type="BASE",value=113}},nil}
 c["+12 to Strength"]={{[1]={flags=0,keywordFlags=0,name="Str",type="BASE",value=12}},nil}
 c["+12% to Chaos Resistance"]={{[1]={flags=0,keywordFlags=0,name="ChaosResist",type="BASE",value=12}},nil}
-c["+12% to Critical Damage Bonus per Power Charge"]={{[1]={[1]={type="Multiplier",var="PowerCharge"},flags=0,keywordFlags=0,name="CritMultiplier",type="BASE",value=12}},nil}
+c["+12% to Critical Damage Bonus per Power Charge"]={{[1]={[1]={type="Multiplier",var="PowerCharge"},flags=0,keywordFlags=0,name="CritMultiplier",type="INC",value=12}},nil}
 c["+120 to Armour"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="BASE",value=120}},nil}
 c["+120 to maximum Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="EnergyShield",type="BASE",value=120}},nil}
 c["+120 to maximum Life"]={{[1]={flags=0,keywordFlags=0,name="Life",type="BASE",value=120}},nil}
@@ -511,7 +511,7 @@ c["+8 to Maximum Rage"]={{[1]={flags=0,keywordFlags=0,name="MaximumRage",type="B
 c["+8 to Strength"]={{[1]={flags=0,keywordFlags=0,name="Str",type="BASE",value=8}},nil}
 c["+8 to all Attributes"]={{[1]={flags=0,keywordFlags=0,name="Str",type="BASE",value=8},[2]={flags=0,keywordFlags=0,name="Dex",type="BASE",value=8},[3]={flags=0,keywordFlags=0,name="Int",type="BASE",value=8},[4]={flags=0,keywordFlags=0,name="All",type="BASE",value=8}},nil}
 c["+8% to Cold Resistance"]={{[1]={flags=0,keywordFlags=0,name="ColdResist",type="BASE",value=8}},nil}
-c["+8% to Critical Damage Bonus per Power Charge"]={{[1]={[1]={type="Multiplier",var="PowerCharge"},flags=0,keywordFlags=0,name="CritMultiplier",type="BASE",value=8}},nil}
+c["+8% to Critical Damage Bonus per Power Charge"]={{[1]={[1]={type="Multiplier",var="PowerCharge"},flags=0,keywordFlags=0,name="CritMultiplier",type="INC",value=8}},nil}
 c["+8% to all Elemental Resistances"]={{[1]={flags=0,keywordFlags=0,name="ElementalResist",type="BASE",value=8}},nil}
 c["+80 to Accuracy Rating"]={{[1]={flags=0,keywordFlags=0,name="Accuracy",type="BASE",value=80}},nil}
 c["+80 to Evasion Rating"]={{[1]={flags=0,keywordFlags=0,name="Evasion",type="BASE",value=80}},nil}

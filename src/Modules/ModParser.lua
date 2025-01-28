@@ -3158,6 +3158,7 @@ local specialModList = {
 	["critical hit chance is increased by lightning resistance"] = { flag("CritChanceIncreasedByLightningRes") },
 	["critical hit chance is increased by overcapped lightning resistance"] = { flag("CritChanceIncreasedByOvercappedLightningRes") },
 	["barrage and frenzy have (%d+)%% increased critical hit chance per endurance charge"] = function(num) return { mod("CritChance", "INC", num, { type = "Multiplier", var = "EnduranceCharge" }, { type = "SkillName", skillNameList = { "Barrage", "Frenzy" }, includeTransfigured = true }) } end,
+	["%+(%d+)%% to critical damage bonus per power charge"] = function(num) return { mod("CritMultiplier", "INC", num, { type = "Multiplier", var = "PowerCharge" }) } end,
 	["non%-critical hits deal (%d+)%% damage"] = function(num) return { mod("Damage", "MORE", -100 + num, nil, ModFlag.Hit, { type = "Condition", var = "CriticalStrike", neg = true }) } end,
 	["non%-critical hits deal no damage"] = { mod("Damage", "MORE", -100, nil, ModFlag.Hit, { type = "Condition", var = "CriticalStrike", neg = true }) },
 	["non%-critical hits deal (%d+)%% less damage"] = function(num) return { mod("Damage", "MORE", -num, nil, ModFlag.Hit, { type = "Condition", var = "CriticalStrike", neg = true }) } end,
