@@ -3911,8 +3911,8 @@ local specialModList = {
 	["totems gain %+(%d+)%% to all elemental resistances"] = function(num) return { mod("TotemElementalResist", "BASE", num) } end,
 	-- Minions
 	["your strength is added to your minions"] = { flag("StrengthAddedToMinions") },
+	["your dexterity is added to your minions"] = { flag("DexterityAddedToMinions") },
 	["half of your strength is added to your minions"] = { flag("HalfStrengthAddedToMinions") },
-	["your dexterity is added to your minions"] = function(num) return { mod("MinionModifier", "LIST", { mod = mod("Accuracy", "BASE", 5) }, { type = "PerStat", stat = "Dex", actor = "Parent" }) } end,
 	["minions created recently have (%d+)%% increased attack and cast speed"] = function(num) return { mod("MinionModifier", "LIST", { mod = mod("Speed", "INC", num) }, { type = "Condition", var = "MinionsCreatedRecently" }) } end,
 	["minions created recently have (%d+)%% increased movement speed"] = function(num) return { mod("MinionModifier", "LIST", { mod = mod("MovementSpeed", "INC", num) }, { type = "Condition", var = "MinionsCreatedRecently" }) } end,
 	["minions poison enemies on hit"] = { mod("MinionModifier", "LIST", { mod = mod("PoisonChance", "BASE", 100) }) },
