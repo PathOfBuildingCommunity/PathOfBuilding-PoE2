@@ -1,4 +1,7 @@
-local c=...c["+0.15% to Thorns Critical Hit Chance"]={{[1]={flags=0,keywordFlags=0,name="CritChance",type="BASE",value=0.15}}," Thorns  "}
+local c=...c["+0% to Cold Resistance"]={{[1]={flags=0,keywordFlags=0,name="ColdResist",type="BASE",value=0}},nil}
+c["+0% to Fire Resistance"]={{[1]={flags=0,keywordFlags=0,name="FireResist",type="BASE",value=0}},nil}
+c["+0% to Lightning Resistance"]={{[1]={flags=0,keywordFlags=0,name="LightningResist",type="BASE",value=0}},nil}
+c["+0.15% to Thorns Critical Hit Chance"]={{[1]={flags=0,keywordFlags=0,name="CritChance",type="BASE",value=0.15}}," Thorns  "}
 c["+0.15% to Thorns Critical Hit Chance +25% to Thorns Critical Hit Chance"]={{[1]={flags=0,keywordFlags=0,name="CritChance",type="BASE",value=0.15}}," Thorns  +25% to Thorns Critical Hit Chance "}
 c["+1 Charm Slot"]={{[1]={flags=0,keywordFlags=0,name="CharmLimit",type="BASE",value=1}},nil}
 c["+1 metre to Dodge Roll distance"]={{}," metre to Dodge Roll distance "}
@@ -548,9 +551,6 @@ c["-5% to all Elemental Resistances"]={{[1]={flags=0,keywordFlags=0,name="Elemen
 c["0% reduced Flask Life Recovery rate"]={{[1]={flags=0,keywordFlags=0,name="FlaskLifeRecoveryRate",type="INC",value=-0}},nil}
 c["0% reduced Flask Mana Recovery rate"]={{[1]={flags=0,keywordFlags=0,name="FlaskManaRecoveryRate",type="INC",value=-0}},nil}
 c["0% reduced Rarity of Items found"]={{[1]={flags=0,keywordFlags=0,name="LootRarity",type="INC",value=-0}},nil}
-c["0% to Cold Resistance"]={{[1]={flags=0,keywordFlags=0,name="ColdResist",type="BASE",value=0}},"% to  "}
-c["0% to Fire Resistance"]={{[1]={flags=0,keywordFlags=0,name="FireResist",type="BASE",value=0}},"% to  "}
-c["0% to Lightning Resistance"]={{[1]={flags=0,keywordFlags=0,name="LightningResist",type="BASE",value=0}},"% to  "}
 c["0.1 Life Regeneration per second"]={{[1]={flags=0,keywordFlags=0,name="LifeRegen",type="BASE",value=0.1}},nil}
 c["0.5% of Life Regenerated per second per Fragile Regrowth"]={{[1]={[1]={type="Multiplier",var="FragileRegrowthCount"},flags=0,keywordFlags=0,name="Life",type="BASE",value=0.5}},"  Regenerated per second  "}
 c["0.5% of Life Regenerated per second per Fragile Regrowth 10% increased Mana Regeneration Rate per Fragile Regrowth"]={{[1]={[1]={type="Multiplier",var="FragileRegrowthCount"},[2]={type="Multiplier",var="FragileRegrowthCount"},flags=0,keywordFlags=0,name="Life",type="BASE",value=0.5}},"  Regenerated per second  10% increased Mana Regeneration Rate  "}
@@ -2728,9 +2728,9 @@ c["Minions deal 16% increased Damage"]={{[1]={flags=0,keywordFlags=0,name="Minio
 c["Minions deal 25% increased Damage"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Damage",type="INC",value=25}}}},nil}
 c["Minions deal 30% increased Damage"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Damage",type="INC",value=30}}}},nil}
 c["Minions deal 8% increased Damage"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Damage",type="INC",value=8}}}},nil}
-c["Minions gain 15% of their Maximum Life as Extra Maximum Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="LifeGainAsEnergyShield",type="BASE",value=15}}}}," their   "}
-c["Minions gain 30% of their Maximum Life as Extra Maximum Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="LifeGainAsEnergyShield",type="BASE",value=30}}}}," their   "}
-c["Minions gain 30% of their Maximum Life as Extra Maximum Energy Shield Minions Revive 50% faster"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="LifeGainAsEnergyShield",type="BASE",value=30}}}}," their   s Revive 50% faster "}
+c["Minions gain 15% of their Maximum Life as Extra Maximum Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={[1]={percent=15,stat="Life",type="PercentStat"},flags=0,keywordFlags=0,name="EnergyShield",type="BASE",value=1}}}},nil}
+c["Minions gain 25% of their Maximum Life as Extra Maximum Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={[1]={percent=25,stat="Life",type="PercentStat"},flags=0,keywordFlags=0,name="EnergyShield",type="BASE",value=1}}}},nil}
+c["Minions gain 30% of their Maximum Life as Extra Maximum Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={[1]={percent=30,stat="Life",type="PercentStat"},flags=0,keywordFlags=0,name="EnergyShield",type="BASE",value=1}}}},nil}
 c["Minions gain 8% of Physical Damage as Chaos Damage"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="PhysicalDamageAsChaos",type="BASE",value=8}}}},nil}
 c["Minions have +13% to Chaos Resistance"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="ChaosResist",type="BASE",value=13}}}},nil}
 c["Minions have +150 to Accuracy Rating"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Accuracy",type="BASE",value=150}}}},nil}
