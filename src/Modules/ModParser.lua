@@ -3590,6 +3590,7 @@ local specialModList = {
 	} end,
 	["nearby allies' damage with hits is lucky"] = { mod("ExtraAura", "LIST", { onlyAllies = true, mod = flag("LuckyHits") }) },
 	["damage with hits is lucky against heavy stunned enemies"] = { flag("LuckyHits", { type = "ActorCondition", actor = "enemy", var = "HeavyStunned" }) },
+	["damage with hits is lucky against enemies that are on low life"] = { flag("LuckyHits", { type = "ActorCondition", actor = "enemy", var = "LowLife" }) },
 	["your damage with hits is lucky"] = { flag("LuckyHits") },
 	["chaos damage with hits is lucky"] = { flag("ChaosLuckyHits") },
 	["elemental damage with hits is lucky while you are shocked"] = { flag("ElementalLuckHits", { type = "Condition", var = "Shocked" }) },
