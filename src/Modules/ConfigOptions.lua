@@ -857,6 +857,9 @@ Huge sets the radius to 11.
 	{ var = "conditionUsingFlask", type = "check", label = "Do you have a Flask active?", ifCond = "UsingFlask", tooltip = "This is automatically enabled if you have a flask active,\nbut you can use this option to force it if necessary.", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:UsingFlask", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
 	end },
+	{ var = "conditionUsingCharm", type = "check", label = "Do you have a Charm active?", ifCond = "UsingCharm", tooltip = "This is automatically enabled if you have a charm active,\nbut you can use this option to force it if necessary.", apply = function(val, modList, enemyModList)
+		modList:NewMod("Condition:UsingCharm", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
+	end },
 	{ var = "multiplierManaBurnStacks", type = "count", label = "Mana Burn Stacks:", tooltip = "Mana Burn Applies a 1% of mana degen per stack\nThis also applies Weeping Wounds if the Keystone is Allocated"},
 	{ var = "conditionHaveTotem", type = "check", label = "Do you have a Totem summoned?", ifCond = "HaveTotem", tooltip = "You will automatically be considered to have a Totem if your main skill is a Totem,\nbut you can use this option to force it if necessary.", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:HaveTotem", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
@@ -1079,9 +1082,6 @@ Huge sets the radius to 11.
 	{ var = "conditionStunnedEnemyRecently", type = "check", label = "Have you Stunned an enemy Recently?", ifCond = "StunnedEnemyRecently", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:StunnedEnemyRecently", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
 	end },
-	{ var = "conditionStunnedRecently", type = "check", label = "Have you been Stunned Recently?", ifCond = "StunnedRecently", apply = function(val, modList, enemyModList)
-		modList:NewMod("Condition:StunnedRecently", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
-	end },
 	{ var = "multiplierPoisonAppliedRecently", type = "count", label = "# of Poisons applied Recently:", ifMult = "PoisonAppliedRecently", apply = function(val, modList, enemyModList)
 		modList:NewMod("Multiplier:PoisonAppliedRecently", "BASE", val, "Config", { type = "Condition", var = "Combat" })
 	end },
@@ -1090,6 +1090,13 @@ Huge sets the radius to 11.
 	end },
 	{ var = "multiplierManaSpentRecently", type = "count", label = "# of ^x7070FFMana ^7spent Recently:", ifMult = "ManaSpentRecently", apply = function(val, modList, enemyModList)
 		modList:NewMod("Multiplier:ManaSpentRecently", "BASE", val, "Config", { type = "Condition", var = "Combat" })
+	end },
+	{ var = "conditionStunnedRecently", type = "check", label = "Have you been Stunned Recently?", ifCond = "StunnedRecently", implyCond = "BeenHitRecently", apply = function(val, modList, enemyModList)
+		modList:NewMod("Condition:StunnedRecently", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
+		modList:NewMod("Condition:BeenHitRecently", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
+	end },
+	{ var = "multiplierStunnedRecently", type = "count", label = "# of times Stunned Recently:", ifOption = "conditionStunnedRecently", defaultPlaceholderState = 1, apply = function(val, modList, enemyModList)
+		modList:NewMod("Multiplier:StunnedRecently", "BASE", m_min(val, 100), "Config", { type = "Condition", var = "Combat" }, { type = "Condition", var = "StunnedRecently" } )
 	end },
 	{ var = "conditionBeenHitRecently", type = "check", label = "Have you been Hit Recently?", ifCond = "BeenHitRecently", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:BeenHitRecently", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
@@ -1139,6 +1146,9 @@ Huge sets the radius to 11.
 	end },
 	{ var = "conditionBlockedRecently", type = "check", label = "Have you Blocked Recently?", ifCond = "BlockedRecently", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:BlockedRecently", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
+	end },
+	{ var = "conditionActiveBlockedRecently", type = "check", label = "Have you Active Blocked Recently?", ifCond = "ActiveBlockedRecently", apply = function(val, modList, enemyModList)
+		modList:NewMod("Condition:ActiveBlockedRecently", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
 	end },
 	{ var = "conditionBlockedAttackRecently", type = "check", label = "Have you Blocked an Attack Recently?", ifCond = "BlockedAttackRecently", implyCond = "BlockedRecently", tooltip = "This also implies that you have Blocked Recently.", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:BlockedAttackRecently", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
@@ -1287,6 +1297,9 @@ Huge sets the radius to 11.
 		modList:NewMod("Condition:UsedWarcryInPast8Seconds", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
 		modList:NewMod("Condition:UsedSkillRecently", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
 	end },
+	{ var = "multiplierWarcryUsedRecently", type = "count", label = "# of Warcries Used Recently:", defaultPlaceholderState = 1, ifOption = "conditionUsedWarcryRecently", apply = function(val, modList, enemyModList)
+		modList:NewMod("Multiplier:WarcryUsedRecently", "BASE", m_min(val, 100), "Config", { type = "Condition", var = "Combat" }, { type = "Condition", var = "UsedWarcryRecently" } )
+	end },
 	{ var = "conditionUsedWarcryInPast8Seconds", type = "check", label = "Used a Warcry in the past 8 seconds?", ifCond = "UsedWarcryInPast8Seconds", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:UsedWarcryInPast8Seconds", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
 	end },
@@ -1335,12 +1348,6 @@ Huge sets the radius to 11.
 	end },
 	{ var = "conditionRavenousCorpseConsumed", type = "check", label = "Has Ravenous consumed a corpse?", ifSkill = "Ravenous", implyCond = "ConsumedCorpseRecently", tooltip = "Corpse must be the same type as the monster you're fighting.\nThis also implies you have 'Consumed a corpse Recently'", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:RavenousCorpseConsumed", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
-	end },
-	{ var = "multiplierWarcryUsedRecently", type = "count", label = "# of Warcries Used Recently:", {ifFlag = "warcry", ifMult = "WarcryUsedRecently"}, implyCondList = {"UsedWarcryRecently", "UsedWarcryInPast8Seconds", "UsedSkillRecently"}, tooltip = "This also implies you have 'Used a Warcry Recently', 'Used a Warcry in the past 8 seconds', and 'Used a Skill Recently'", apply = function(val, modList, enemyModList)
-		modList:NewMod("Multiplier:WarcryUsedRecently", "BASE", m_min(val, 100), "Config", { type = "Condition", var = "Combat" })
-		modList:NewMod("Condition:UsedWarcryRecently", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
-		modList:NewMod("Condition:UsedWarcryInPast8Seconds", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
-		modList:NewMod("Condition:UsedSkillRecently", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
 	end },
 	{ var = "conditionTauntedEnemyRecently", type = "check", label = "Taunted an enemy Recently?", ifCond = "TauntedEnemyRecently", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:TauntedEnemyRecently", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
@@ -1450,6 +1457,7 @@ Huge sets the radius to 11.
 	end },
 	{ var = "conditionEnemyHeavyStunned", type = "check", label = "Is the enemy Heavy Stunned?", ifEnemyCond = "HeavyStunned", apply = function(val, modList, enemyModList)
 		enemyModList:NewMod("Condition:HeavyStunned", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
+		enemyModList:NewMod("Condition:Immobilised", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
 	end },
 	{ var = "conditionEnemyBleeding", type = "check", label = "Is the enemy Bleeding?", apply = function(val, modList, enemyModList)
 		enemyModList:NewMod("Condition:Bleeding", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
@@ -1495,6 +1503,10 @@ Huge sets the radius to 11.
 	end },
 	{ var = "overrideBuffBlinded", type = "count", label = "Effect of Blind (if not maximum):", ifOption = "conditionEnemyBlinded", tooltip = "If you have a guaranteed source of Blind, the strongest one will apply.", apply = function(val, modList, enemyModList)
 		enemyModList:NewMod("BlindEffect", "OVERRIDE", val, "Config", {type = "GlobalEffect", effectType = "Buff" })
+	end },
+	{ var = "conditionEnemyPinned", type = "check", label = "Is the enemy Pinned?", ifEnemyCond = "Pinned", tooltip ="Pinned enemies cannot move for 4 seconds.", apply = function(val, modList, enemyModList)
+		enemyModList:NewMod("Condition:Pinned", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
+		enemyModList:NewMod("Condition:Immobilised", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
 	end },
 	{ var = "conditionEnemyTaunted", type = "check", label = "Is the enemy Taunted?", ifEnemyCond = "Taunted", apply = function(val, modList, enemyModList)
 		enemyModList:NewMod("Condition:Taunted", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
@@ -1556,6 +1568,7 @@ Huge sets the radius to 11.
 	end },
 	{ var = "conditionEnemyFrozen", type = "check", label = "Is the enemy ^x3F6DB3Frozen?", ifEnemyCond = "Frozen", apply = function(val, modList, enemyModList)
 		enemyModList:NewMod("Condition:Frozen", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
+		enemyModList:NewMod("Condition:Immobilised", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
 	end },
 	{ var = "multiplierFrozenByYouSeconds", type = "count", label = "Seconds of freeze on enemy?", ifEnemyCond = "FrozenByYou", apply = function(val, modList, enemyModList)
 		enemyModList:NewMod("Multiplier:FrozenByYouSeconds", "BASE", val, "Config", { type = "Condition", var = "Combat" })
@@ -1586,6 +1599,7 @@ Huge sets the radius to 11.
 	end },
 	{ var = "conditionEnemyElectrocuted", type = "check", label = "Is the enemy ^xADAA47Electrocuted?", ifEnemyCond = "Electrocuted", apply = function(val, modList, enemyModList)
 		enemyModList:NewMod("Condition:Electrocuted", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
+		enemyModList:NewMod("Condition:Immobilised", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
 	end },
 	{ var = "conditionEnemyOnShockedGround", type = "check", label = "Is the enemy on ^xADAA47Shocked ^7Ground?", tooltip = "This also implies that the enemy is ^xADAA47Shocked.", ifEnemyCond = "OnShockedGround", apply = function(val, modList, enemyModList)
 		enemyModList:NewMod("Condition:Shocked", "FLAG", true, "Config", { type = "Condition", var = "Effective" })

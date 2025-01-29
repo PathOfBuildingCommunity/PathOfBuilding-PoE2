@@ -3379,13 +3379,13 @@ skills["ChargeInfusionPlayer"] = {
 			statDescriptionScope = "charge_mastery",
 			statMap = {
 				["skill_charge_matery_skill_speed_+%_final_with_frenzy_charges"] = {
-					mod("Speed", "MORE", nil, 0, 0, { type = "StatThreshold", stat = "FrenzyCharges", threshold = 1 }, { type = "GlobalEffect", effectType = "Buff", effectName = "Charge Infusion", effectCond = "UseFrenzyCharges" }),
+					mod("Speed", "MORE", nil, 0, 0, { type = "StatThreshold", stat = "FrenzyCharges", threshold = 1 }, { type = "GlobalEffect", effectType = "Buff", effectName = "Charge Infusion" }),
 				},
 				["skill_charge_mastery_crit_chance_+%_final_with_power_charges"] = {
-					mod("CritChance", "MORE", nil, 0, 0, { type = "StatThreshold", stat = "PowerCharges", threshold = 1 }, { type = "GlobalEffect", effectType = "Buff", effectName = "Charge Infusion", effectCond = "UsePowerCharges" }),
+					mod("CritChance", "MORE", nil, 0, 0, { type = "StatThreshold", stat = "PowerCharges", threshold = 1 }, { type = "GlobalEffect", effectType = "Buff", effectName = "Charge Infusion" }),
 				},
 				["skill_charge_mastery_defences_+%_final_with_endurance_charges"] = {
-					mod("Defences", "MORE", nil, 0, 0, { type = "StatThreshold", stat = "EnduranceCharges", threshold = 1 }, { type = "GlobalEffect", effectType = "Buff", effectName = "Charge Infusion", effectCond = "UseEnduranceCharges" }),
+					mod("Defences", "MORE", nil, 0, 0, { type = "StatThreshold", stat = "EnduranceCharges", threshold = 1 }, { type = "GlobalEffect", effectType = "Buff", effectName = "Charge Infusion" }),
 				},
 			},
 			baseFlags = {

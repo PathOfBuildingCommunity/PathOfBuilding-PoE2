@@ -876,6 +876,9 @@ function calcs.perform(env, skipEHP)
 		if modDB:Flag(nil, "HalfStrengthAddedToMinions") then
 			env.minion.modDB:NewMod("Str", "BASE", round(calcLib.val(modDB, "Str") * 0.5), "Player")
 		end
+		if modDB:Flag(nil, "DexterityAddedToMinions") then
+			env.minion.modDB:NewMod("Dex", "BASE", round(calcLib.val(modDB, "Dex")), "Dead can Dance")
+		end
 	end
 	if env.aegisModList then
 		env.player.itemList["Weapon 2"] = nil
