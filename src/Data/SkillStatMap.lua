@@ -2101,6 +2101,9 @@ return {
 ["active_skill_minion_life_+%_final"] = {
 	mod("MinionModifier", "LIST", { mod = mod("Life", "MORE", nil) }),
 },
+["minion_maximum_life_%_to_gain_as_maximum_energy_shield"] = {
+	mod("MinionModifier", "LIST", { mod = mod("EnergyShield", "BASE", nil, 0, 0, { type = "PercentStat", stat = "Life", percent = 1 } ) } ),
+},
 ["support_minion_damage_minion_life_+%_final"] = {
 	mod("MinionModifier", "LIST", { mod = mod("Life", "MORE", nil) }),
 },
@@ -2376,7 +2379,6 @@ return {
 ["supported_minion_skill_gem_level_+"] = {
 	mod("SupportedGemProperty", "LIST", { keyword = "grants_active_skill", key = "level", value = nil }, 0, 0, { type = "SkillType", skillType = SkillType.Minion }),
 },
-
 ["base_apply_unarmed_stats_to_offhand"] = {
 	flag("UnarmedOverride")
 },
