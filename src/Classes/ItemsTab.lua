@@ -2966,7 +2966,7 @@ function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode)
 		if hasUptime then
 			local flaskChargesUsed = flaskData.chargesUsed * (1 + usedInc / 100)
 			if flaskChargesUsed > 0 and flaskDuration > 0 then
-				local averageChargesGenerated = chargesGenerated * flaskDuration
+				local averageChargesGenerated = totalChargesGenerated * flaskDuration
 				local percentageMin = m_min(averageChargesGenerated / flaskChargesUsed * 100, 100)
 				if percentageMin < 100 and chanceToNotConsumeCharges < 100 then
 					local averageChargesUsed = flaskChargesUsed * (100 - chanceToNotConsumeCharges) / 100

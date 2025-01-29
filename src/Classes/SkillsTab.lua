@@ -787,7 +787,7 @@ function SkillsTabClass:CreateGemSlot(index)
 			addQualityLines(qualityTable, gemData.secondaryGrantedEffect)
 		end
 		-- Add stat comparisons for hovered quality (based on set quality)
-		if self.displayGroup.gemList[index] then
+		if gemData and (gemData.grantedEffect.qualityStats or (gemData.secondaryGrantedEffect and gemData.secondaryGrantedEffect.qualityStats)) and self.displayGroup.gemList[index] then
 			local calcFunc, calcBase = self.build.calcsTab:GetMiscCalculator(self.build)
 			if calcFunc then
 				local storedQuality = self.displayGroup.gemList[index].quality
