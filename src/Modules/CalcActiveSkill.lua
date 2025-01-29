@@ -347,7 +347,7 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 		if weapon1Flags then
 			if skillFlags.attack or skillFlags.dotFromAttack then
 				-- Concoction skills ignore weapon flags
-				activeSkill.weapon1Flags = (skillModList:Flag(nil, "UnarmedOverride") and ModFlag.Unarmed) or weapon1Flags
+				activeSkill.weapon1Flags = (skillFlags.unarmed and ModFlag.Unarmed) or weapon1Flags
 				skillFlags.weapon1Attack = true
 				if weapon1Info.melee and skillFlags.melee then
 					skillFlags.projectile = nil
@@ -368,7 +368,7 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 					skillFlags.disable = true
 					activeSkill.disableReason = activeSkill.disableReason or "Weapon Types Need to be Different"
 				elseif skillFlags.attack or skillFlags.dotFromAttack then
-					activeSkill.weapon2Flags = (skillModList:Flag(nil, "UnarmedOverride") and ModFlag.Unarmed) or weapon2Flags
+					activeSkill.weapon2Flags = (skillFlags.unarmed and ModFlag.Unarmed) or weapon2Flags
 					skillFlags.weapon2Attack = true
 				end
 			elseif (skillTypes[SkillType.DualWieldOnly] or weapon2Info) and not activeSkill.summonSkill then

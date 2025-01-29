@@ -193,6 +193,7 @@ skills["BleedingConcoctionPlayer"] = {
 			baseFlags = {
 				attack = true,
 				projectile = true,
+				unarmed = true,
 			},
 			constantStats = {
 				{ "additional_base_critical_strike_chance", 500 },
@@ -1449,6 +1450,7 @@ skills["ExplosiveConcoctionPlayer"] = {
 				attack = true,
 				projectile = true,
 				duration = true,
+				unarmed = true,
 			},
 			constantStats = {
 				{ "additional_base_critical_strike_chance", 500 },
@@ -1586,6 +1588,7 @@ skills["FulminatingConcoctionPlayer"] = {
 				attack = true,
 				projectile = true,
 				duration = true,
+				unarmed = true,
 			},
 			constantStats = {
 				{ "additional_base_critical_strike_chance", 800 },
@@ -2416,6 +2419,7 @@ skills["PoisonousConcoctionPlayer"] = {
 			baseFlags = {
 				attack = true,
 				projectile = true,
+				unarmed = true,
 			},
 			constantStats = {
 				{ "additional_base_critical_strike_chance", 500 },
@@ -2822,6 +2826,7 @@ skills["ShatteringConcoctionPlayer"] = {
 				attack = true,
 				projectile = true,
 				duration = true,
+				unarmed = true,
 			},
 			constantStats = {
 				{ "additional_base_critical_strike_chance", 1100 },
