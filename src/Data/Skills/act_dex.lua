@@ -1473,7 +1473,7 @@ skills["HeraldOfThunderPlayer"] = {
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "herald_of_thunder_statset_1",
 			baseFlags = {
-				nonWeaponAttack = true,
+				attack = true,
 				hit = true,
 			},
 			constantStats = {
