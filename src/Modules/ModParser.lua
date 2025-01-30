@@ -1642,6 +1642,7 @@ local modTagList = {
 	["while cursed"] = { tag = { type = "Condition", var = "Cursed" } },
 	["while not cursed"] = { tag = { type = "Condition", var = "Cursed", neg = true } },
 	["while affected by any damaging ailment"] = { tag = { type = "Condition", varList = { "Poisoned", "Ignited", "Bleeding" } } },
+	["while affected by an ailment"] = { tag = { type = "Condition", varList = { "Bleeding", "Poisoned", "Ignited", "Chilled", "Frozen", "Shocked" } } },
 	["while there is only one nearby enemy"] = { tagList = { { type = "Multiplier", var = "NearbyEnemies", limit = 1 }, { type = "Condition", var = "OnlyOneNearbyEnemy" } } },
 	["while t?h?e?r?e? ?i?s? ?a rare or unique enemy i?s? ?nearby"] = { tag = { type = "ActorCondition", actor = "enemy", varList = { "NearbyRareOrUniqueEnemy", "RareOrUnique" } } },
 	["while a rare or unique enemy is in your presence"] = { tag = { type = "ActorCondition", actor = "enemy", varList = { "NearbyRareOrUniqueEnemy", "RareOrUnique" } } },
@@ -5079,6 +5080,12 @@ local specialModList = {
 	["(%d+)%% chance to gain elusive when you block while dual wielding"] = { flag("Condition:CanBeElusive", { type = "Condition", var = "DualWielding" }) },
 	["elusive is removed from you at (%d+)%% effect"] = function(num) return { mod("ElusiveEffectMinThreshold", "OVERRIDE", num) } end,
 	["nearby enemies have (%a+) resistance equal to yours"] = function(_, res) return { flag("Enemy"..(res:gsub("^%l", string.upper)).."ResistEqualToYours") } end,
+	["minions' resistances are equal to yours"] = function() return {
+		mod("MinionModifier", "LIST", { mod = mod("FireResist", "OVERRIDE", 1, { type = "PerStat", stat = "FireResistTotal", actor = "parent" }) }),
+		mod("MinionModifier", "LIST", { mod = mod("ColdResist", "OVERRIDE", 1, { type = "PerStat", stat = "ColdResistTotal", actor = "parent" }) }),
+		mod("MinionModifier", "LIST", { mod = mod("LightningResist", "OVERRIDE", 1, { type = "PerStat", stat = "LightningResistTotal", actor = "parent" }) }),
+		mod("MinionModifier", "LIST", { mod = mod("ChaosResist", "OVERRIDE", 1, { type = "PerStat", stat = "ChaosResistTotal", actor = "parent" }) }),
+		} end,
 	["for each nearby corpse, regenerate ([%d%.]+)%% life per second, up to ([%d%.]+)%%"] = function(num, _, limit) return { mod("LifeRegenPercent", "BASE", num, { type = "Multiplier", var = "NearbyCorpse", limit = tonumber(limit), limitTotal = true }) } end,
 	["gain sacrificial zeal when you use a skill, dealing you %d+%% of the skill's mana cost as physical damage per second"] = {
 		flag("Condition:SacrificialZeal"),
