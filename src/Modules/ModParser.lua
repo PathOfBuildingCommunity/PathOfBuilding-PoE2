@@ -2270,12 +2270,6 @@ local specialModList = {
 		mod("ArmourDefense", "MAX", math.min(math.floor(numChance / 100), 1.0) * 100, "Armour Mastery: Min Calc", { type = "Condition", var = "ArmourMax", neg = true }, { type = "Condition", var = "ArmourAvg", neg = true }, { type = "Multiplier", var = "BeenHitRecently", limit = cap / numChance }),
 	} end,
 	["you can wield two%-handed axes, maces and swords in one hand"] = { flag("GiantsBlood") },
-	-- Legacy support
-	["(%d+)%% chance to defend with double armour"] = function(numChance) return {
-		mod("ArmourDefense", "MAX", 100, "Armour Mastery: Max Calc", { type = "Condition", var = "ArmourMax" }),
-		mod("ArmourDefense", "MAX", math.min(numChance / 100, 1.0) * 100, "Armour Mastery: Average Calc", { type = "Condition", var = "ArmourAvg" }),
-		mod("ArmourDefense", "MAX", math.min(math.floor(numChance / 100), 1.0) * 100, "Armour Mastery: Min Calc", { type = "Condition", var = "ArmourMax", neg = true }, { type = "Condition", var = "ArmourAvg", neg = true }),
-	} end,
 	["iron grip"] = function() return {
 		mod("Damage", "INC", 1, nil, ModFlag.Spell, { type = "PerStat", stat = "Str", div = 2 } ),
 		flag("NoStrBonusToLife") }
@@ -2284,6 +2278,12 @@ local specialModList = {
 		mod("Damage", "INC", 1, ModFlag.Projectile, ModFlag.Attack, { type = "PerStat", stat = "Str", div = 2 } ),
 		flag("NoStrBonusToLife") }
 	end,
+	-- Legacy support
+	["(%d+)%% chance to defend with double armour"] = function(numChance) return {
+		mod("ArmourDefense", "MAX", 100, "Armour Mastery: Max Calc", { type = "Condition", var = "ArmourMax" }),
+		mod("ArmourDefense", "MAX", math.min(numChance / 100, 1.0) * 100, "Armour Mastery: Average Calc", { type = "Condition", var = "ArmourAvg" }),
+		mod("ArmourDefense", "MAX", math.min(math.floor(numChance / 100), 1.0) * 100, "Armour Mastery: Min Calc", { type = "Condition", var = "ArmourMax", neg = true }, { type = "Condition", var = "ArmourAvg", neg = true }),
+	} end,
 	-- Masteries
 	["hits have (%d+)%% chance to treat enemy monster elemental resistance values as inverted"] = function(num) return {
 		mod("HitsInvertEleResChance", "CHANCE", num / 100, nil)
