@@ -2275,7 +2275,7 @@ local specialModList = {
 		flag("NoStrBonusToLife") }
 	end,
 	["iron will"] = function() return {
-		mod("Damage", "INC", 1, ModFlag.Projectile, ModFlag.Attack, { type = "PerStat", stat = "Str", div = 2 } ),
+		mod("Damage", "INC", 1, nil, bor(ModFlag.Projectile, ModFlag.Attack), { type = "PerStat", stat = "Str", div = 2 } ),
 		flag("NoStrBonusToLife") }
 	end,
 	-- Legacy support
