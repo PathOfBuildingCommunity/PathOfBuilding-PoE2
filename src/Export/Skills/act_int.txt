@@ -644,7 +644,7 @@ end,
 #skill HandOfChayulaPlayer
 #startSets
 #set HandOfChayulaPlayer
-#flags attack melee area
+#flags attack melee area unarmed
 #mods
 #skillEnd
 
@@ -710,7 +710,7 @@ statMap = {
 #skill KillingPalmPlayer
 #startSets
 #set KillingPalmPlayer
-#flags attack area melee
+#flags attack area melee unarmed
 #mods
 #skillEnd
 
@@ -927,14 +927,14 @@ statMap = {
 #skill ShatteringPalmPlayer
 #startSets
 #set ShatteringPalmPlayer
-#flags attack area melee
+#flags attack area melee unarmed
 #mods
 #skillEnd
 
 #skill ShatteringPalmExplosionPlayer
 #startSets
 #set TriggeredFreezingWordExplosionPlayer
-#flags area nonWeaponAttack hit
+#flags area nonWeaponAttack hit unarmed
 #mods
 #skillEnd
 
@@ -1068,7 +1068,7 @@ statMap = {
 #skill StaggeringPalmPlayer
 #startSets
 #set StaggeringPalmPlayer
-#flags attack area
+#flags attack area unarmed
 #mods
 #skillEnd
 
@@ -1082,7 +1082,7 @@ statMap = {
 #skill StaggeringPalmUnarmedProjectilePlayer
 #startSets
 #set StaggeringPalmUnarmedProjectilePlayer
-#flags attack projectile
+#flags attack projectile unarmed
 #mods
 #skillEnd
 
