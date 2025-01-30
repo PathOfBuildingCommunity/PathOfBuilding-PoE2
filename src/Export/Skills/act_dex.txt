@@ -350,7 +350,7 @@ statMap = {
 #skill TriggeredVoltaicMarkNovaPlayer
 #startSets
 #set TriggeredVoltaicMarkNovaPlayer
-#flags attack area
+#flags nonWeaponAttack
 #mods
 #skillEnd
 

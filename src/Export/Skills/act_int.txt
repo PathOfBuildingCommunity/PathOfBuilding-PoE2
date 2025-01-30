@@ -513,7 +513,7 @@ statMap = {
 #skill TriggeredFreezingMarkNovaPlayer
 #startSets
 #set TriggeredFreezingMarkNovaPlayer
-#flags spell area
+#flags nonWeaponAttack
 #mods
 #skillEnd
 
@@ -581,14 +581,6 @@ statMap = {
 #startSets
 #set FrozenLocusExplodePlayer
 #flags area nonWeaponAttack hit
-statMap = {
-	["main_hand_weapon_minimum_cold_damage"] = {
-		mod("ColdMin", "BASE", nil),
-	},
-	["main_hand_weapon_maximum_cold_damage"] = {
-		mod("ColdMax", "BASE", nil),
-	},
-},
 #mods
 #skillEnd
 

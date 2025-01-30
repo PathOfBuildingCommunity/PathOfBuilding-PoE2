@@ -82,10 +82,10 @@ return {
 	skill("ChaosMax", nil),
 },
 ["main_hand_weapon_minimum_lightning_damage"] = {
-	skill("LightningMin", nil, { type = "Condition", var = "MainHandAttack" })
+	skill("LightningMin", nil)
 },
 ["main_hand_weapon_maximum_lightning_damage"] = {
-	skill("LightningMax", nil, { type = "Condition", var = "MainHandAttack" })
+	skill("LightningMax", nil)
 },
 ["spell_minimum_base_lightning_damage_per_removable_power_charge"] = {
 	skill("LightningMin", nil, { type = "Multiplier", var = "RemovablePowerCharge" }),
@@ -107,6 +107,12 @@ return {
 },
 ["spell_minimum_base_cold_damage_+_per_10_intelligence"] = {
 	skill("ColdMin", nil, { type = "PerStat", stat = "Int", div = 10 }),
+},
+["main_hand_weapon_minimum_cold_damage"] = {
+	skill("ColdMin", "BASE", nil),
+},
+["main_hand_weapon_maximum_cold_damage"] = {
+	skill("ColdMax", "BASE", nil),
 },
 ["spell_maximum_base_cold_damage_+_per_10_intelligence"] = {
 	skill("ColdMax", nil, { type = "PerStat", stat = "Int", div = 10 }),

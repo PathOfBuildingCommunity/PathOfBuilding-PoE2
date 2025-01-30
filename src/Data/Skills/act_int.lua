@@ -7458,8 +7458,7 @@ skills["TriggeredFreezingMarkNovaPlayer"] = {
 			damageIncrementalEffectiveness = 0.006699999794364,
 			statDescriptionScope = "freezing_mark_nova",
 			baseFlags = {
-				spell = true,
-				area = true,
+				nonWeaponAttack = true,
 			},
 			constantStats = {
 				{ "active_skill_base_area_of_effect_radius", 26 },
@@ -8440,14 +8439,6 @@ skills["FrozenLocusExplodePlayer"] = {
 			incrementalEffectiveness = 0.034650001674891,
 			damageIncrementalEffectiveness = 0.012719999998808,
 			statDescriptionScope = "ice_ambush_explode",
-			statMap = {
-				["main_hand_weapon_minimum_cold_damage"] = {
-					mod("ColdMin", "BASE", nil),
-				},
-				["main_hand_weapon_maximum_cold_damage"] = {
-					mod("ColdMax", "BASE", nil),
-				},
-			},
 			baseFlags = {
 				area = true,
 				nonWeaponAttack = true,
