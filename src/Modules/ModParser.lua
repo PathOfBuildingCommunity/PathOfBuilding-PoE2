@@ -1118,7 +1118,7 @@ local preFlagList = {
 	["^attacks with this weapon [hd][ae][va][el] "] = { tagList = { { type = "Condition", var = "{Hand}Attack" }, { type = "SkillType", skillType = SkillType.Attack } } },
 	["^hits with this weapon [hd][ae][va][el] "] = { flags = ModFlag.Hit, tagList = { { type = "Condition", var = "{Hand}Attack" }, { type = "SkillType", skillType = SkillType.Attack } } },
 	-- Skill types
-	["^attacks [hd][ae][va][el] "] = { flags = ModFlag.Attack },
+	["^attacks [ghd][ae][iva][eln] "] = { flags = ModFlag.Attack },
 	["^attack skills [hd][ae][va][el] "] = { keywordFlags = KeywordFlag.Attack },
 	["^spells [hd][ae][va][el] a? ?"] = { flags = ModFlag.Spell },
 	["^spell skills [hd][ae][va][el] "] = { keywordFlags = KeywordFlag.Spell },
@@ -5820,7 +5820,7 @@ end
 local function capitalizeWordsInString(string)
 	local wordsToIgnore = {
 		"increased", "with", "to", "when", "by", "if", "you", "haven't", "been", "deal", "reduced", "of", "on",
-		"from", "your", "chance", "inflict"
+		"from", "your", "chance", "inflict", "their",
 	}
 	local finalString = ""
 	for word in string:gmatch("%S+") do

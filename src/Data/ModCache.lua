@@ -2356,10 +2356,13 @@ c["Attack Skills have +1 to maximum number of Summoned Totems"]={{[1]={flags=0,k
 c["Attacks Chain 2 additional times"]={{[1]={flags=1,keywordFlags=0,name="ChainCountMax",type="BASE",value=2}},nil}
 c["Attacks Chain an additional time"]={nil,"Attacks Chain an additional time "}
 c["Attacks Chain an additional time Attacks Chain 2 additional times"]={nil,"Attacks Chain an additional time Attacks Chain 2 additional times "}
-c["Attacks Gain 10% of Damage as Extra Cold Damage"]={nil,"Attacks Gain 10% of Damage as Extra Cold Damage "}
-c["Attacks Gain 10% of Damage as Extra Fire Damage"]={nil,"Attacks Gain 10% of Damage as Extra Fire Damage "}
-c["Attacks Gain 20% of Physical Damage as extra Chaos Damage"]={nil,"Attacks Gain 20% of Physical Damage as extra Chaos Damage "}
-c["Attacks gain increased Accuracy Rating equal to their Critical Hit Chance"]={nil,"Attacks gain increased Accuracy Rating equal to their Critical Hit Chance "}
+c["Attacks Gain 10% of Damage as Extra Cold Damage"]={{[1]={flags=1,keywordFlags=0,name="DamageGainAsCold",type="BASE",value=10}},nil}
+c["Attacks Gain 10% of Damage as Extra Fire Damage"]={{[1]={flags=1,keywordFlags=0,name="DamageGainAsFire",type="BASE",value=10}},nil}
+c["Attacks Gain 15% of Physical Damage as extra Chaos Damage"]={{[1]={flags=1,keywordFlags=0,name="PhysicalDamageGainAsChaos",type="BASE",value=15}},nil}
+c["Attacks Gain 20% of Physical Damage as extra Chaos Damage"]={{[1]={flags=1,keywordFlags=0,name="PhysicalDamageGainAsChaos",type="BASE",value=20}},nil}
+c["Attacks Gain 8% of Damage as Extra Cold Damage"]={{[1]={flags=1,keywordFlags=0,name="DamageGainAsCold",type="BASE",value=8}},nil}
+c["Attacks Gain 8% of Damage as Extra Fire Damage"]={{[1]={flags=1,keywordFlags=0,name="DamageGainAsFire",type="BASE",value=8}},nil}
+c["Attacks gain increased Accuracy Rating equal to their Critical Hit Chance"]={nil,"increased Accuracy Rating equal to their Critical Hit Chance "}
 c["Attacks have +1% to Critical Hit Chance"]={{[1]={flags=1,keywordFlags=0,name="CritChance",type="BASE",value=1}},nil}
 c["Attacks have 10% chance to Maim on Hit"]={{}," to Maim  "}
 c["Attacks have 25% chance to Maim on Hit"]={{}," to Maim  "}
