@@ -1416,8 +1416,7 @@ c["25% increased Attack Area Damage"]={{[1]={flags=513,keywordFlags=0,name="Dama
 c["25% increased Attack Damage"]={{[1]={flags=1,keywordFlags=0,name="Damage",type="INC",value=25}},nil}
 c["25% increased Attack Damage while Surrounded"]={{[1]={[1]={type="Condition",var="Surrounded"},flags=1,keywordFlags=0,name="Damage",type="INC",value=25}},nil}
 c["25% increased Attack Speed"]={{[1]={flags=1,keywordFlags=0,name="Speed",type="INC",value=25}},nil}
-c["25% increased Attack Speed while on Full Mana"]={{[1]={flags=1,keywordFlags=0,name="Speed",type="INC",value=25}},"  while on Full Mana "}
-c["25% increased Attack Speed while on Full Mana You count as on Full Mana while at 90% of maximum Mana or above"]={{[1]={flags=1,keywordFlags=0,name="Speed",type="INC",value=25}},"  while on Full Mana You count as on Full Mana while at 90% of maximum Mana or above "}
+c["25% increased Attack Speed while on Full Mana"]={{[1]={[1]={type="Condition",var="FullMana"},flags=1,keywordFlags=0,name="Speed",type="INC",value=25}},nil}
 c["25% increased Block Recovery"]={{[1]={flags=0,keywordFlags=0,name="BlockRecovery",type="INC",value=25}},nil}
 c["25% increased Cast Speed"]={{[1]={flags=16,keywordFlags=0,name="Speed",type="INC",value=25}},nil}
 c["25% increased Chance to Block if you've Blocked with Active Block Recently"]={{[1]={[1]={type="Condition",var="ActiveBlockedRecently"},flags=0,keywordFlags=0,name="BlockChance",type="INC",value=25}},nil}
