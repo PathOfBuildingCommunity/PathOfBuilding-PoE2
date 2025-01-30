@@ -2893,8 +2893,7 @@ c["Lose 1% of Life on Kill"]={{[1]={[1]={percent=1,stat="Life",type="PercentStat
 c["Lose 1% of Mana on Kill"]={{[1]={[1]={percent=1,stat="Mana",type="PercentStat"},flags=0,keywordFlags=0,name="ManaOnKill",type="BASE",value=-1}},nil}
 c["Lose 2% of Life on Kill"]={{[1]={[1]={percent=2,stat="Life",type="PercentStat"},flags=0,keywordFlags=0,name="LifeOnKill",type="BASE",value=-1}},nil}
 c["Lose 3% of Life and Energy Shield when you use a Chaos Skill"]={{[1]={flags=0,keywordFlags=0,name="Life",type="BASE",value=-3}},"  and Energy Shield when you use a Chaos Skill "}
-c["Lose 5 Life when you use a Skill"]={{[1]={flags=0,keywordFlags=0,name="Life",type="BASE",value=-5}},"  when you use a Skill "}
-c["Lose 5 Life when you use a Skill 5 to 10 Physical Thorns damage"]={{[1]={flags=0,keywordFlags=0,name="Life",type="BASE",value=-5}},"  when you use a Skill 5 to 10 Physical Thorns damage "}
+c["Lose 5 Life when you use a Skill"]={{[1]={[1]={neg=true,skillType=150,type="SkillType"},flags=0,keywordFlags=0,name="LifeCost",type="BASE",value=5}},nil}
 c["Lose 5% of Energy Shield per second"]={{[1]={flags=0,keywordFlags=0,name="EnergyShieldDegenPercent",type="BASE",value=5}},nil}
 c["Lose all Fragile Regrowth when Hit"]={nil,"Lose all Fragile Regrowth when Hit "}
 c["Lose all Fragile Regrowth when Hit Gain 1 Fragile Regrowth each second"]={nil,"Lose all Fragile Regrowth when Hit Gain 1 Fragile Regrowth each second "}

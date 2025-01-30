@@ -5083,6 +5083,9 @@ local specialModList = {
 	["gain sacrificial zeal when you use a skill, dealing you %d+%% of the skill's mana cost as physical damage per second"] = {
 		flag("Condition:SacrificialZeal"),
 	},
+	["lose (%d+)% life when you use a skill"] = function (num) return {
+		mod("LifeCost", "BASE", num, { type = "SkillType", skillType = SkillType.Persistent, neg = true }),
+	} end,
 	["skills gain a base life cost equal to (%d+)%% of base mana cost"] = function(num) return {
 		mod("ManaCostAsLifeCost", "BASE", num),
 	} end,
