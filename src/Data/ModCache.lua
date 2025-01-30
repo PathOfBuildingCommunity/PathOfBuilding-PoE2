@@ -2607,8 +2607,7 @@ c["Energy Generation is doubled"]={nil,"Energy Generation is doubled "}
 c["Energy Shield Recharge is not interrupted by Damage if Recharge began Recently"]={nil,"Energy Shield Recharge is not interrupted by Damage if Recharge began Recently "}
 c["Energy Shield Recharge starts when you use a Mana Flask"]={nil,"Energy Shield Recharge starts when you use a Mana Flask "}
 c["Energy Shield does not Recharge"]={{[1]={flags=0,keywordFlags=0,name="NoEnergyShieldRecharge",type="FLAG",value=true}},nil}
-c["Energy Shield is increased by Overcapped Cold Resistance"]={nil,"Energy Shield is increased by Overcapped Cold Resistance "}
-c["Energy Shield is increased by Overcapped Cold Resistance Evasion Rating is increased by Overcapped Lightning Resistance"]={nil,"Energy Shield is increased by Overcapped Cold Resistance Evasion Rating is increased by Overcapped Lightning Resistance "}
+c["Energy Shield is increased by Overcapped Cold Resistance"]={{[1]={flags=0,keywordFlags=0,name="EnergyShieldIncreasedByOvercappedColdRes",type="FLAG",value=true}},nil}
 c["Energy Shield starts at zero"]={nil,"Energy Shield starts at zero "}
 c["Energy Shield starts at zero Cannot Recharge or Regenerate Energy Shield"]={nil,"Energy Shield starts at zero Cannot Recharge or Regenerate Energy Shield "}
 c["Energy Shield starts at zero Cannot Recharge or Regenerate Energy Shield Lose 5% of Energy Shield per second"]={nil,"Energy Shield starts at zero Cannot Recharge or Regenerate Energy Shield Lose 5% of Energy Shield per second "}
@@ -2617,7 +2616,7 @@ c["Energy Shield starts at zero Cannot Recharge or Regenerate Energy Shield Lose
 c["Equipment and Skill Gems have 25% increased Attribute Requirements"]={{[1]={flags=0,keywordFlags=0,name="GlobalAttributeRequirements",type="INC",value=25}},nil}
 c["Equipment and Skill Gems have 4% reduced Attribute Requirements"]={{[1]={flags=0,keywordFlags=0,name="GlobalAttributeRequirements",type="INC",value=-4}},nil}
 c["Equipment and Skill Gems have 50% reduced Attribute Requirements"]={{[1]={flags=0,keywordFlags=0,name="GlobalAttributeRequirements",type="INC",value=-50}},nil}
-c["Evasion Rating is increased by Overcapped Lightning Resistance"]={nil,"Evasion Rating is increased by Overcapped Lightning Resistance "}
+c["Evasion Rating is increased by Overcapped Lightning Resistance"]={{[1]={flags=0,keywordFlags=0,name="EvasionRatingIncreasedByOvercappedLightningRes",type="FLAG",value=true}},nil}
 c["Every 12 seconds, gain 50% more Cast Speed for 4 seconds"]={nil,"Every 12 seconds, gain 50% more Cast Speed for 4 seconds "}
 c["Every 3 seconds during Effect, deal 50% of Mana spent in those seconds as Chaos Damage to Enemies within 3 metres"]={nil,"Every 3 seconds during Effect, deal 50% of Mana spent in those seconds as Chaos Damage to Enemies within 3 metres "}
 c["Every 3 seconds during Effect, deal 50% of Mana spent in those seconds as Chaos Damage to Enemies within 3 metres Recover all Mana when Used"]={nil,"Every 3 seconds during Effect, deal 50% of Mana spent in those seconds as Chaos Damage to Enemies within 3 metres Recover all Mana when Used "}

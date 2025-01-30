@@ -4343,6 +4343,8 @@ local specialModList = {
 	["(%d+)%% to maximum fire resistance for each (%d+)%% uncapped fire resistance"] = function(num, _, percent) return { mod("FireResistMax", "BASE", num, { type = "PerStat", stat = "FireResistTotal", div = tonumber(percent) }) } end,
 	["evasion rating is increased by uncapped cold resistance"] = { flag( "EvasionRatingIncreasedByUncappedColdRes") },
 	["evasion rating is increased by overcapped cold resistance"] = { flag( "EvasionRatingIncreasedByOvercappedColdRes") },
+	["energy shield is increased by overcapped cold resistance"] = { flag( "EnergyShieldIncreasedByOvercappedColdRes") },
+	["evasion rating is increased by overcapped lightning resistance"] = { flag( "EvasionRatingIncreasedByOvercappedLightningRes") },
 	["reflects (%d+) physical damage to melee attackers"] = { },
 	["ignore all movement penalties from armour"] = { flag("Condition:IgnoreMovementPenalties") },
 	["gain armour equal to your reserved mana"] = { mod("Armour", "BASE", 1, { type = "PerStat", stat = "ManaReserved", div = 1 }) },
