@@ -3925,6 +3925,16 @@ local specialModList = {
 	["(%d+)%% increased minion attack speed per (%d+) dexterity"] = function(num, _, div) return { mod("MinionModifier", "LIST", { mod = mod("Speed", "INC", num, nil, ModFlag.Attack) }, { type = "PerStat", stat = "Dex", div = tonumber(div) }) } end,
 	["(%d+)%% increased minion movement speed per (%d+) dexterity"] = function(num, _, div) return { mod("MinionModifier", "LIST", { mod = mod("MovementSpeed", "INC", num) }, { type = "PerStat", stat = "Dex", div = tonumber(div) }) } end,
 	["minions deal (%d+)%% increased damage per (%d+) dexterity"] = function(num, _, div) return { mod("MinionModifier", "LIST", { mod = mod("Damage", "INC", num) }, { type = "PerStat", stat = "Dex", div = tonumber(div) }) } end,
+	["minions' resistances are equal to yours"] = function() return {
+		mod("MinionModifier", "LIST", { mod = mod("FireResistMax", "OVERRIDE", 1, { type = "PerStat", stat = "FireResist", actor = "parent" }) }),
+		mod("MinionModifier", "LIST", { mod = mod("FireResist", "OVERRIDE", 1, { type = "PerStat", stat = "FireResist", actor = "parent" }) }),
+		mod("MinionModifier", "LIST", { mod = mod("ColdResistMax", "OVERRIDE", 1, { type = "PerStat", stat = "ColdResist", actor = "parent" }) }),
+		mod("MinionModifier", "LIST", { mod = mod("ColdResist", "OVERRIDE", 1, { type = "PerStat", stat = "ColdResist", actor = "parent" }) }),
+		mod("MinionModifier", "LIST", { mod = mod("LightningResistMax", "OVERRIDE", 1, { type = "PerStat", stat = "LightningResist", actor = "parent" }) }),
+		mod("MinionModifier", "LIST", { mod = mod("LightningResist", "OVERRIDE", 1, { type = "PerStat", stat = "LightningResist", actor = "parent" }) }),
+		mod("MinionModifier", "LIST", { mod = mod("ChaosResistMax", "OVERRIDE", 1, { type = "PerStat", stat = "ChaosResist", actor = "parent" }) }),
+		mod("MinionModifier", "LIST", { mod = mod("ChaosResist", "OVERRIDE", 1, { type = "PerStat", stat = "ChaosResist", actor = "parent" }) }),
+	} end,
 	["minions have (%d+)%% chance to deal double damage while they are on full life"] = function(num) return { mod("MinionModifier", "LIST", { mod = mod("DoubleDamageChance", "BASE", num, { type = "Condition", var = "FullLife" }) }) } end,
 	["(%d+)%% increased golem damage for each type of golem you have summoned"] = function(num) return {
 		mod("MinionModifier", "LIST", { mod = mod("Damage", "INC", num, { type = "ActorCondition", actor = "parent", var = "HavePhysicalGolem" }) }, { type = "SkillType", skillType = SkillType.Golem }),
@@ -5080,12 +5090,6 @@ local specialModList = {
 	["(%d+)%% chance to gain elusive when you block while dual wielding"] = { flag("Condition:CanBeElusive", { type = "Condition", var = "DualWielding" }) },
 	["elusive is removed from you at (%d+)%% effect"] = function(num) return { mod("ElusiveEffectMinThreshold", "OVERRIDE", num) } end,
 	["nearby enemies have (%a+) resistance equal to yours"] = function(_, res) return { flag("Enemy"..(res:gsub("^%l", string.upper)).."ResistEqualToYours") } end,
-	["minions' resistances are equal to yours"] = function() return {
-		mod("MinionModifier", "LIST", { mod = mod("FireResist", "OVERRIDE", 1, { type = "PerStat", stat = "FireResistTotal", actor = "parent" }) }),
-		mod("MinionModifier", "LIST", { mod = mod("ColdResist", "OVERRIDE", 1, { type = "PerStat", stat = "ColdResistTotal", actor = "parent" }) }),
-		mod("MinionModifier", "LIST", { mod = mod("LightningResist", "OVERRIDE", 1, { type = "PerStat", stat = "LightningResistTotal", actor = "parent" }) }),
-		mod("MinionModifier", "LIST", { mod = mod("ChaosResist", "OVERRIDE", 1, { type = "PerStat", stat = "ChaosResistTotal", actor = "parent" }) }),
-		} end,
 	["for each nearby corpse, regenerate ([%d%.]+)%% life per second, up to ([%d%.]+)%%"] = function(num, _, limit) return { mod("LifeRegenPercent", "BASE", num, { type = "Multiplier", var = "NearbyCorpse", limit = tonumber(limit), limitTotal = true }) } end,
 	["gain sacrificial zeal when you use a skill, dealing you %d+%% of the skill's mana cost as physical damage per second"] = {
 		flag("Condition:SacrificialZeal"),
