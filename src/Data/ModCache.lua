@@ -2030,6 +2030,7 @@ c["50% of Maximum Life Converted to Energy Shield"]={{[1]={flags=0,keywordFlags=
 c["50% of Physical Damage prevented Recouped as Life"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamage",type="BASE",value=50}},"  prevented Recouped as Life "}
 c["50% of charges used by Charms granted to your Life Flasks"]={{[1]={[3]={type="Multiplier",var="AvgCharmChargesUsed"},flags=0,keywordFlags=0,name="FlaskChargesGained",type="MORE",value=0.5}},nil}
 c["50% of your Life Regeneration is granted to Allies in your Presence"]={{[1]={flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=0,keywordFlags=0,name="LifeRegen",type="BASE",value=50},onlyAllies=true}}}," your  is granted to "}
+c["50% reduced Bleeding Duration on you"]={{[1]={flags=0,keywordFlags=0,name="SelfBleedDuration",type="INC",value=-50}},nil}
 c["50% reduced Chill Duration on you"]={{[1]={flags=0,keywordFlags=0,name="SelfChillDuration",type="INC",value=-50}},nil}
 c["50% reduced Darkness Reservation Duration"]={{[1]={flags=0,keywordFlags=0,name="Reserved",type="INC",value=-50}}," Darkness  Duration "}
 c["50% reduced Duration of Curses on you"]={{[1]={flags=0,keywordFlags=0,name="Duration",type="INC",value=-50}},"  of Curses on you "}
@@ -2108,9 +2109,7 @@ c["60% increased Rarity of Items found"]={{[1]={flags=0,keywordFlags=0,name="Loo
 c["60% increased Stun Threshold for each time you've been Stunned Recently"]={{[1]={[1]={type="Multiplier",var="StunnedRecently"},flags=0,keywordFlags=0,name="StunThreshold",type="INC",value=60}},nil}
 c["60% increased bonuses gained from Equipped Rings"]={{[1]={flags=0,keywordFlags=0,name="EffectOfBonusesFromRings",type="INC",value=60}},nil}
 c["60% increased maximum Energy Shield"]={{[1]={[1]={type="Global"},flags=0,keywordFlags=0,name="EnergyShield",type="INC",value=60}},nil}
-c["60% reduced Bleeding Duration on you"]={{[1]={flags=0,keywordFlags=0,name="EnemyBleedDuration",type="INC",value=-60}},"  on you "}
-c["60% reduced Bleeding Duration on you Bleeding you inflict is Aggravated"]={{[1]={flags=0,keywordFlags=0,name="EnemyBleedDuration",type="INC",value=-60}},"  on you Bleeding you inflict is Aggravated "}
-c["60% reduced Bleeding Duration on you Life Leech can Overflow Maximum Life"]={{[1]={flags=0,keywordFlags=0,name="EnemyBleedDuration",type="INC",value=-60}},"  on you Life Leech can Overflow Maximum Life "}
+c["60% reduced Bleeding Duration on you"]={{[1]={flags=0,keywordFlags=0,name="SelfBleedDuration",type="INC",value=-60}},nil}
 c["60% reduced Ice Crystal Life"]={{[1]={flags=0,keywordFlags=0,name="Life",type="INC",value=-60}}," Ice Crystal  "}
 c["65% increased Armour"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="INC",value=65}},nil}
 c["65% increased Armour and Evasion"]={{[1]={flags=0,keywordFlags=0,name="ArmourAndEvasion",type="INC",value=65}},nil}
