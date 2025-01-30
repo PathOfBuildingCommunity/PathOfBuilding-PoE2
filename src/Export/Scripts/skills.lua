@@ -608,7 +608,7 @@ directiveTable.set = function(state, args, out)
 		skill.baseGrantedEffectStatSet = grantedEffectStatSet
 	else
 		-- For stat sets after the first we merge the base set with the current set
-		-- TO DO FIX this duplicating everytime you click on the skill export button without restarting the exporter
+		-- TO DO FIX this duplicating every time you click on the skill export button without restarting the exporter
 		grantedEffectStatSet.ImplicitStats = tableConcat(skill.baseGrantedEffectStatSet.ImplicitStats, grantedEffectStatSet.ImplicitStats)
 		grantedEffectStatSet.ConstantStats = tableConcat(skill.baseGrantedEffectStatSet.ConstantStats, grantedEffectStatSet.ConstantStats)
 		grantedEffectStatSet.ConstantStatsValues = tableConcat(skill.baseGrantedEffectStatSet.ConstantStatsValues, grantedEffectStatSet.ConstantStatsValues)
