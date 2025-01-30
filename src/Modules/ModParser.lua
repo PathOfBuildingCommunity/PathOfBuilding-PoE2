@@ -5820,7 +5820,7 @@ end
 local function capitalizeWordsInString(string)
 	local wordsToIgnore = {
 		"increased", "with", "to", "when", "by", "if", "you", "haven't", "been", "deal", "reduced", "of", "on",
-		"from", "your", "chance", "inflict",
+		"from", "your", "chance", "inflict"
 	}
 	local finalString = ""
 	for word in string:gmatch("%S+") do
