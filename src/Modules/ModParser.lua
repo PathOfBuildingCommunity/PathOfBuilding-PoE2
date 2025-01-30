@@ -2276,6 +2276,14 @@ local specialModList = {
 		mod("ArmourDefense", "MAX", math.min(numChance / 100, 1.0) * 100, "Armour Mastery: Average Calc", { type = "Condition", var = "ArmourAvg" }),
 		mod("ArmourDefense", "MAX", math.min(math.floor(numChance / 100), 1.0) * 100, "Armour Mastery: Min Calc", { type = "Condition", var = "ArmourMax", neg = true }, { type = "Condition", var = "ArmourAvg", neg = true }),
 	} end,
+	["iron grip"] = function() return {
+		mod("Damage", "INC", 1, nil, ModFlag.Spell, { type = "PerStat", stat = "Str", div = 2 } ),
+		flag("NoStrBonusToLife") }
+	end,
+	["iron will"] = function() return {
+		mod("Damage", "INC", 1, ModFlag.Projectile, ModFlag.Attack, { type = "PerStat", stat = "Str", div = 2 } ),
+		flag("NoStrBonusToLife") }
+	end,
 	-- Masteries
 	["hits have (%d+)%% chance to treat enemy monster elemental resistance values as inverted"] = function(num) return {
 		mod("HitsInvertEleResChance", "CHANCE", num / 100, nil)

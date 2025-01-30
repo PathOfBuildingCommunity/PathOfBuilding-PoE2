@@ -2840,10 +2840,9 @@ c["Inherent loss of Rage is 25% slower"]={{[1]={flags=0,keywordFlags=0,name="Inh
 c["Instant Recovery"]={{[1]={flags=0,keywordFlags=0,name="FlaskInstantRecovery",type="BASE",value=100}},nil}
 c["Intelligence provides no inherent bonus to Maximum Mana"]={{[1]={flags=0,keywordFlags=0,name="NoIntBonusToMana",type="FLAG",value=true}},nil}
 c["Intelligence's inherent bonus is 1% increased Evasion Rating per 2 Intelligence instead"]={{[1]={[1]={div="2",stat="Int",type="PerStat"},flags=0,keywordFlags=0,name="Evasion",type="INC",value=1},[2]={flags=0,keywordFlags=0,name="NoIntBonusToMana",type="FLAG",value=true}},nil}
-c["Iron Grip"]={nil,"Iron Grip "}
-c["Iron Grip Iron Will"]={nil,"Iron Grip Iron Will "}
+c["Iron Grip"]={{[1]={[1]={div=2,stat="Str",type="PerStat"},flags=2,keywordFlags=0,name="Damage",type="INC",value=1},[2]={flags=0,keywordFlags=0,name="NoStrBonusToLife",type="FLAG",value=true}},nil}
 c["Iron Reflexes"]={{[1]={flags=0,keywordFlags=0,name="Keystone",type="LIST",value="Iron Reflexes"}},nil}
-c["Iron Will"]={nil,"Iron Will "}
+c["Iron Will"]={{[1]={[1]={div=2,stat="Str",type="PerStat"},flags=1,keywordFlags=0,name="Damage",type="INC",value=1},[2]={flags=0,keywordFlags=0,name="NoStrBonusToLife",type="FLAG",value=true}},nil}
 c["Knocks Back Enemies if you get a Critical Hit with a Quarterstaff"]={{[1]={[1]={type="Condition",var="CriticalStrike"},flags=2097152,keywordFlags=0,name="EnemyKnockbackChance",type="BASE",value=100}},nil}
 c["Leech 5% of Physical Attack Damage as Life"]={nil,"Leech 5% of Physical Attack Damage as Life "}
 c["Leech 5% of Physical Attack Damage as Life You gain Onslaught for 4 seconds on Kill"]={nil,"Leech 5% of Physical Attack Damage as Life You gain Onslaught for 4 seconds on Kill "}
