@@ -2339,7 +2339,7 @@ c["Allies in your Presence have 6% increased Attack Speed"]={{[1]={flags=0,keywo
 c["Allies in your Presence have Block Chance equal to yours"]={nil,"Block Chance equal to yours "}
 c["Alternating every 5 seconds:"]={nil,"Alternating every 5 seconds: "}
 c["Alternating every 5 seconds: Take 30% less Damage from Hits"]={nil,"Alternating every 5 seconds: Take 30% less Damage from Hits "}
-c["Always deals Critical Hits against Heavy Stunned Enemies"]={nil,"Always deals Critical Hits against Heavy Stunned Enemies "}
+c["Always deals Critical Hits against Heavy Stunned Enemies"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="HeavyStunned"},[2]={type="Condition",var="{Hand}Attack"},flags=0,keywordFlags=0,name="CritChance",type="OVERRIDE",value=100}},nil}
 c["Apply Fire Exposure when fully breaking enemy Armour"]={nil,"Apply Fire Exposure when fully breaking enemy Armour "}
 c["Area Skills have 20% chance to Knock Enemies Back on Hit"]={{[1]={[1]={skillType=11,type="SkillType"},flags=0,keywordFlags=0,name="EnemyKnockbackChance",type="BASE",value=20}},nil}
 c["Armour also applies to Lightning damage taken from Hits"]={{[1]={flags=0,keywordFlags=0,name="ArmourAppliesToLightningDamageTaken",type="BASE",value=100}},nil}
