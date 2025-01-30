@@ -5095,6 +5095,9 @@ local specialModList = {
 	["(%d+)%% of skill mana costs converted to life costs"] = function(num) return {
         mod("HybridManaAndLifeCost_Life", "BASE", num),
     } end,
+	["(%d+)%% of spell mana cost converted to life cost"] = function(num) return {
+        mod("HybridManaAndLifeCost_Life", "BASE", num,{ type = "SkillType", skillType = SkillType.Spell }),
+    } end,
 	["(%d+)%% increased cost of arc and crackling lance"] = function(num) return {
 		mod("Cost", "INC", num, { type = "SkillName", skillNameList = { "Arc", "Crackling Lance" }, includeTransfigured = true }),
 	} end,

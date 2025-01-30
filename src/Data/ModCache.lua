@@ -1518,7 +1518,7 @@ c["25% more Skill Speed while Off Hand is empty and you have a One-Handed Martia
 c["25% of Armour also applies to Fire Damage taken from Hits"]={{[1]={flags=0,keywordFlags=0,name="ArmourAppliesToFireDamageTaken",type="BASE",value=25}},nil}
 c["25% of Damage taken bypasses Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="PhysicalEnergyShieldBypass",type="OVERRIDE",value=25},[2]={flags=0,keywordFlags=0,name="LightningEnergyShieldBypass",type="OVERRIDE",value=25},[3]={flags=0,keywordFlags=0,name="ColdEnergyShieldBypass",type="OVERRIDE",value=25},[4]={flags=0,keywordFlags=0,name="FireEnergyShieldBypass",type="OVERRIDE",value=25},[5]={flags=0,keywordFlags=0,name="ChaosEnergyShieldBypass",type="OVERRIDE",value=25}},nil}
 c["25% of Life Loss from Hits is prevented, then that much Life is lost over 4 seconds instead"]={{[1]={flags=0,keywordFlags=0,name="LifeLossPrevented",type="BASE",value=25}},nil}
-c["25% of Spell Mana Cost Converted to Life Cost"]={{[1]={flags=2,keywordFlags=0,name="ManaCost",type="BASE",value=25}},"   Converted to Life Cost "}
+c["25% of Spell Mana Cost Converted to Life Cost"]={{[1]={[1]={skillType=2,type="SkillType"},flags=0,keywordFlags=0,name="HybridManaAndLifeCost_Life",type="BASE",value=25}},nil}
 c["25% reduced Attribute Requirements"]={{[1]={flags=0,keywordFlags=0,name="StrRequirement",type="INC",value=-25},[2]={flags=0,keywordFlags=0,name="DexRequirement",type="INC",value=-25},[3]={flags=0,keywordFlags=0,name="IntRequirement",type="INC",value=-25}},nil}
 c["25% reduced Cast Speed"]={{[1]={flags=16,keywordFlags=0,name="Speed",type="INC",value=-25}},nil}
 c["25% reduced Curse Duration"]={{[1]={flags=0,keywordFlags=2,name="Duration",type="INC",value=-25}},nil}
