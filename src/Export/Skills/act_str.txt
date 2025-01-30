@@ -532,7 +532,7 @@ statMap = {
 #skill MagmaSprayPlayer
 #startSets
 #set MagmaSprayPlayer
-#flags attack area melee
+#flags attack area melee shieldAttack
 #mods
 #skillEnd
 
