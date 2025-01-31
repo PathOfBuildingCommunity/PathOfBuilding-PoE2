@@ -6781,7 +6781,7 @@ skills["FlameWallPlayer"] = {
 	baseTypeName = "Flame Wall",
 	color = 3,
 	description = "Create a wall of Fire in front of the character, which Ignites everything within its area.  Any Projectiles fired through the wall by you and Allies deal added Fire damage and inflict the Ignite on hit.",
-	skillTypes = { [SkillType.Spell] = true, [SkillType.DamageOverTime] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Trappable] = true, [SkillType.Mineable] = true, [SkillType.Triggerable] = true, [SkillType.AreaSpell] = true, [SkillType.Totemable] = true, [SkillType.Fire] = true, [SkillType.DegenOnlySpellDamage] = true, [SkillType.CanRapidFire] = true, [SkillType.Multicastable] = true, [SkillType.Cascadable] = true, [SkillType.CausesBurning] = true, [SkillType.Wall] = true, [SkillType.Nonpathing] = true, },
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.DamageOverTime] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Trappable] = true, [SkillType.Mineable] = true, [SkillType.Triggerable] = true, [SkillType.AreaSpell] = true, [SkillType.Totemable] = true, [SkillType.Fire] = true, [SkillType.DegenOnlySpellDamage] = true, [SkillType.CanRapidFire] = true, [SkillType.Multicastable] = true, [SkillType.Cascadable] = true, [SkillType.CausesBurning] = true, [SkillType.Wall] = true, [SkillType.Nonpathing] = true, },
 	castTime = 1,
 	qualityStats = {
 		{ "active_skill_ignite_effect_+%_final", 1 },
