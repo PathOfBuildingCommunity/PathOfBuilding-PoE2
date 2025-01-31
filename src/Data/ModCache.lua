@@ -2927,7 +2927,7 @@ c["Maximum Mana is replaced by Maximum Infernal Flame Gain Infernal Flame instea
 c["Meta Skills gain 15% increased Energy"]={nil,"Meta Skills gain 15% increased Energy "}
 c["Meta Skills gain 35% more Energy"]={nil,"Meta Skills gain 35% more Energy "}
 c["Meta Skills gain 8% increased Energy"]={nil,"Meta Skills gain 8% increased Energy "}
-c["Minions Recoup 10% of Damage taken as Life"]={nil,"Recoup 10% of Damage taken as Life "}
+c["Minions Recoup 10% of Damage taken as Life"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="LifeRecoup",type="BASE",value=10}}}},nil}
 c["Minions Regenerate 3% of Life per second"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="LifeRegenPercent",type="BASE",value=3}}}},nil}
 c["Minions Revive 15% faster"]={nil,"Revive 15% faster "}
 c["Minions Revive 15% faster You gain 2% Life when one of your Minions is Revived"]={nil,"Revive 15% faster You gain 2% Life when one of your Minions is Revived "}
