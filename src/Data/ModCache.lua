@@ -889,7 +889,7 @@ c["100% of Elemental Damage Converted to Chaos Damage"]={{[1]={flags=0,keywordFl
 c["100% of Fire Damage Converted to Cold Damage"]={{[1]={flags=0,keywordFlags=0,name="FireDamageConvertToCold",type="BASE",value=100}},nil}
 c["100% of Fire Damage from Hits taken as Physical Damage"]={{[1]={flags=0,keywordFlags=0,name="FireDamageFromHitsTakenAsPhysical",type="BASE",value=100}},nil}
 c["100% of Lightning Damage Converted to Cold Damage"]={{[1]={flags=0,keywordFlags=0,name="LightningDamageConvertToCold",type="BASE",value=100}},nil}
-c["100% of Strength Requirements from Boots, Gloves and Helmets also added to Armour"]={{[1]={flags=0,keywordFlags=0,name="StrRequirement",type="BASE",value=100}}," s from Boots, Gloves and Helmets also added to Armour "}
+c["100% of Strength Requirements from Boots, Gloves and Helmets also added to Armour"]={{[1]={[1]={percent=100,stat="StrRequirementsOnBoots",type="PerStat"},flags=0,keywordFlags=0,name="Armour",type="BASE",value=1},[2]={[1]={percent=100,stat="StrRequirementsOnGloves",type="PerStat"},flags=0,keywordFlags=0,name="Armour",type="BASE",value=1},[3]={[1]={percent=100,stat="StrRequirementsOnHelmet",type="PerStat"},flags=0,keywordFlags=0,name="Armour",type="BASE",value=1}},nil}
 c["11% increased Chaos Damage"]={{[1]={flags=0,keywordFlags=0,name="ChaosDamage",type="INC",value=11}},nil}
 c["11% increased Rarity of Items found"]={{[1]={flags=0,keywordFlags=0,name="LootRarity",type="INC",value=11}},nil}
 c["12 Life Regeneration per second"]={{[1]={flags=0,keywordFlags=0,name="LifeRegen",type="BASE",value=12}},nil}
