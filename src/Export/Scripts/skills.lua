@@ -216,9 +216,6 @@ local gems = { }
 local trueGemNames = { }
 
 local directiveTable = { }
-local fromSpec = nil
-local minionList = nil
-
 
 local whiteListStat = {
 	["is_area_damage"] = true,
@@ -251,11 +248,11 @@ function checkModInStatDescription(statDescription, line)
 			stat = newStat
 		end
 
-		if stat[line] then
+		if stat and stat[line] then
 			return true
 		end
 
-		if stat.parent then
+		if stat and stat.parent then
 			searchIn = stat.parent
 		else
 			searchIn = ""
@@ -354,12 +351,12 @@ directiveTable.skill = function(state, args, out)
 		out:write('\tname = "', displayName, '",\n')
 		out:write('\thidden = true,\n')
 	end
-	if fromSpec then
-		out:write('\tfrom' .. fromSpec:gsub("^%l", string.upper) .. ' = true,\n')
+	if state.fromSpec then
+		out:write('\tfrom' .. state.fromSpec:gsub("^%l", string.upper) .. ' = true,\n')
 	end
-	if minionList then
+	if state.minionList then
 		out:write('\tminionList = {\n')
-		for _, minion in ipairs(minionList) do
+		for _, minion in ipairs(state.minionList) do
 			out:write('\t\t"', minion, '",\n')
 		end
 		out:write('\t},\n')
@@ -579,19 +576,29 @@ directiveTable.skill = function(state, args, out)
 	out:write('\t},\n')
 end
 
-directiveTable.startSets = function(state, args, out)
-	out:write('\tstatSets = {\n')
+directiveTable.skillEnd = function(state, args, out)
+	if next(state.skill.sets) ~= nil then
+		out:write('\t}\n')
+	end
+	out:write('}')
+	state.skill = nil
+	state.fromSpec = nil
+	state.minionList = nil
 end
 
 -- #set <GrantedEffectStatSetsId>
 -- Initialises the statSet data and emits information pertaining to statSet 
 directiveTable.set = function(state, args, out)
 	local statSetId = args
-	local grantedEffectStatSet = dat("GrantedEffectStatSets"):GetRow("Id", statSetId)
-	local statsPerLevel = dat("GrantedEffectStatSetsPerLevel"):GetRowList("GrantedEffectStatSets", grantedEffectStatSet)
+	local originalGrantedEffectStatSet = dat("GrantedEffectStatSets"):GetRow("Id", statSetId)
+	local grantedEffectStatSet = copyTableSafe(originalGrantedEffectStatSet, false, true)
+	local statsPerLevel = copyTableSafe(dat("GrantedEffectStatSetsPerLevel"):GetRowList("GrantedEffectStatSets", originalGrantedEffectStatSet), false, true)
 	local label = grantedEffectStatSet.LabelType and grantedEffectStatSet.LabelType.Label or state.skill.displayName
 	local set = { }
 	local skill = state.skill
+	if next(skill.sets) == nil then
+		out:write('\tstatSets = {\n')
+	end
 	skill.sets[args] = set
 	state.set = set
 	set.baseFlags = { }
@@ -608,7 +615,6 @@ directiveTable.set = function(state, args, out)
 		skill.baseGrantedEffectStatSet = grantedEffectStatSet
 	else
 		-- For stat sets after the first we merge the base set with the current set
-		-- TO DO FIX this duplicating every time you click on the skill export button without restarting the exporter
 		grantedEffectStatSet.ImplicitStats = tableConcat(skill.baseGrantedEffectStatSet.ImplicitStats, grantedEffectStatSet.ImplicitStats)
 		grantedEffectStatSet.ConstantStats = tableConcat(skill.baseGrantedEffectStatSet.ConstantStats, grantedEffectStatSet.ConstantStats)
 		grantedEffectStatSet.ConstantStatsValues = tableConcat(skill.baseGrantedEffectStatSet.ConstantStatsValues, grantedEffectStatSet.ConstantStatsValues)
@@ -825,16 +831,15 @@ end
 -- #from <tree | item>
 -- Sets an optional from specifier if skill is granted by tree or item
 directiveTable.from = function(state, args, out)
-	fromSpec = args
+	state.fromSpec = args
 end
 
 -- #minionList <minion>[ <minion>[...]]
 -- Sets the minion list for this active set
 directiveTable.minionList = function(state, args, out)
-	local set = state.set
-	minionList = { }
+	state.minionList = { }
 	for minion in args:gmatch("%a+") do
-		table.insert(minionList, minion)
+		table.insert(state.minionList, minion)
 	end
 end
 
@@ -943,14 +948,6 @@ directiveTable.mods = function(state, args, out)
 		end
 	end
 	state.set = nil
-end
-
-directiveTable.skillEnd = function(state, args, out)
-	out:write('\t}\n')
-	out:write('}')
-	state.skill = nil
-	fromSpec = nil
-	minionList = nil
 end
 
 for _, name in pairs({"act_str","act_dex","act_int","other","minion","sup_str","sup_dex","sup_int"}) do
