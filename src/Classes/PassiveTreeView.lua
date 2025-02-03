@@ -883,6 +883,16 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 								DrawImage(self.jewelShadedInnerRingFlipped, keyX - innerSize, keyY - innerSize, innerSize * 2, innerSize * 2)
 							end
 						end
+					elseif jewel.jewelData and jewel.jewelData.conqueredBy and jewel.jewelData.conqueredBy.conqueror and jewel.jewelData.conqueredBy.conqueror.type then
+						local conqueror = jewel.jewelData.conqueredBy.conqueror.type
+						if conqueror == "kalguur" then
+							conqueror = "kalguuran"
+						end
+
+						local circle1 = tree:GetAssetByName("art/textures/interface/2d/2dart/uiimages/ingame/passiveskillscreen".. conqueror .."jewelcircle1.dds")
+						local circle2 = tree:GetAssetByName("art/textures/interface/2d/2dart/uiimages/ingame/passiveskillscreen".. conqueror .."jewelcircle2.dds")
+						DrawImage(circle1.handle, scrX - outerSize, scrY - outerSize, outerSize * 2, outerSize * 2, unpack(circle1))
+						DrawImage(circle2.handle, scrX - outerSize, scrY - outerSize, outerSize * 2, outerSize * 2, unpack(circle2))
 					else
 						DrawImage(self.jewelShadedOuterRing, scrX - outerSize, scrY - outerSize, outerSize * 2, outerSize * 2)
 						DrawImage(self.jewelShadedOuterRingFlipped, scrX - outerSize, scrY - outerSize, outerSize * 2, outerSize * 2)
