@@ -2852,7 +2852,7 @@ local specialModList = {
 		mod("Multiplier:FlameEffect", "BASE", 1),
 	} end,
 	-- Monk - Invoker
-	["critical hits ignore non%-negative enemy monster elemental resistances"] = { flag("CritsIgnoreNonNegativeEleRes", { type = "Condition", var = "CriticalStrike" }) },
+	["critical hits ignore non%-negative enemy monster elemental resistances"] = { flag("IgnoreNonNegativeEleRes", { type = "Condition", var = "CriticalStrike" }) },
 	-- Chronomancer
 	["skills have (%d+)%% chance to not consume a cooldown when used"] = function(num) return { 
 		mod("CooldownChanceNotConsume", "BASE", num / 100, { type = "SkillType", skillType = SkillType.Cooldown })
@@ -3165,6 +3165,7 @@ local specialModList = {
 	["spell skills cannot deal critical hits except on final repeat"] = { flag("SpellSkillsCannotDealCriticalStrikesExceptOnFinalRepeat", nil, ModFlag.Spell), flag("", { type = "Condition", var = "alwaysFinalRepeat" }) },
 	["critical hits penetrate (%d+)%% of enemy elemental resistances while affected by zealotry"] = function(num) return { mod("ElementalPenetration", "BASE", num, { type = "Condition", var = "CriticalStrike" }, { type = "Condition", var = "AffectedByZealotry" }) } end,
 	["attack critical hits ignore enemy monster elemental resistances"] = { flag("IgnoreElementalResistances", { type = "Condition", var = "CriticalStrike" }, { type = "SkillType", skillType = SkillType.Attack }) },
+	["critical hits ignore enemy monster lightning resistance"] = { flag("IgnoreLightningResistance", { type = "Condition", var = "CriticalStrike" })},
 	["treats enemy monster elemental resistance values as inverted"] =  { mod("HitsInvertEleResChance", "CHANCE", 100, { type = "Condition", var = "{Hand}Attack" }) } ,
 	["([%+%-]%d+)%% to critical damage bonus if you've shattered an enemy recently"] = function(num) return { mod("CritMultiplier", "BASE", num, { type = "Condition", var = "ShatteredEnemyRecently" }) } end,
 	["(%d+)%% chance to gain a flask charge when you deal a critical hit"] = function(num) return{ mod("FlaskChargeOnCritChance", "BASE", num) } end,
@@ -5118,6 +5119,7 @@ local specialModList = {
 	["hits have (%d+)%% chance to ignore enemy monster physical damage reduction"] = function (num) return {
 		mod("PartialIgnoreEnemyPhysicalDamageReduction", "BASE", num),
 	} end,
+	["hits ignore non%-negative elemental resistances of frozen enemies"] = { flag("IgnoreNonNegativeEleRes", { type = "ActorCondition", actor = "enemy", var = "Frozen" }) },
 	["viper strike and pestilent strike deal (%d+)%% increased attack damage per frenzy charge"] = function(num) return { mod("Damage", "INC", num, nil, ModFlag.Attack, { type = "Multiplier", var = "FrenzyCharge" }, { type = "SkillName", skillNameList = { "Viper Strike", "Pestilent Strike" }, includeTransfigured = true }) } end,
 	["shield charge and chain hook have (%d+)%% increased attack speed per (%d+) rampage kills"] = function(inc, _, num) return { mod("Speed", "INC", inc, nil, ModFlag.Attack, { type = "Multiplier", var = "Rampage", div = num, limit = 1000 / num, limitTotal = true }, { type = "SkillName", skillNameList = { "Shield Charge", "Chain Hook" }, includeTransfigured = true }) } end,
 	["tectonic slam and infernal blow deal (%d+)%% increased attack damage per (%d+) armour"] = function(inc, _, num) return { mod("Damage", "INC", inc, nil, ModFlag.Attack, { type = "PerStat", stat = "Armour", div = num }, { type = "SkillName", skillNameList = { "Tectonic Slam", "Infernal Blow" }, includeTransfigured = true }) } end,

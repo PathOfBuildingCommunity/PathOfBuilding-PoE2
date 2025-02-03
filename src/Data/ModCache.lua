@@ -2282,12 +2282,11 @@ c["Corpses in your Presence Explode when you Warcry,"]={nil,"Corpses in your Pre
 c["Corpses in your Presence Explode when you Warcry, dealing 10% of their Life as Physical Damage"]={nil,"Corpses in your Presence Explode when you Warcry, dealing 10% of their Life as Physical Damage "}
 c["Corpses in your Presence Explode when you Warcry, dealing 25% of their Life as Physical Damage"]={nil,"Corpses in your Presence Explode when you Warcry, dealing 25% of their Life as Physical Damage "}
 c["Corrupted Blood cannot be inflicted on you"]={{[1]={flags=0,keywordFlags=0,name="CorruptedBloodImmune",type="FLAG",value=true}},nil}
-c["Critical Hits Ignore Enemy Monster Lightning Resistance"]={nil,"Critical Hits Ignore Enemy Monster Lightning Resistance "}
-c["Critical Hits Ignore Enemy Monster Lightning Resistance Trigger Greater Lightning Bolt Skill on Critical Hit"]={nil,"Critical Hits Ignore Enemy Monster Lightning Resistance Trigger Greater Lightning Bolt Skill on Critical Hit "}
+c["Critical Hits Ignore Enemy Monster Lightning Resistance"]={{[1]={[1]={type="Condition",var="CriticalStrike"},flags=0,keywordFlags=0,name="IgnoreLightningResistance",type="FLAG",value=true}},nil}
 c["Critical Hits Poison the enemy"]={nil,"Critical Hits Poison the enemy "}
 c["Critical Hits do not deal extra Damage"]={{[1]={flags=0,keywordFlags=0,name="NoCritMultiplier",type="FLAG",value=true}},nil}
 c["Critical Hits ignore Enemy Monster Elemental Resistances"]={{[1]={[1]={type="Condition",var="CriticalStrike"},flags=0,keywordFlags=0,name="IgnoreElementalResistances",type="FLAG",value=true}},nil}
-c["Critical Hits ignore non-negative Enemy Monster Elemental Resistances"]={{[1]={[1]={type="Condition",var="CriticalStrike"},flags=0,keywordFlags=0,name="CritsIgnoreNonNegativeEleRes",type="FLAG",value=true}},nil}
+c["Critical Hits ignore non-negative Enemy Monster Elemental Resistances"]={{[1]={[1]={type="Condition",var="CriticalStrike"},flags=0,keywordFlags=0,name="IgnoreNonNegativeEleRes",type="FLAG",value=true}},nil}
 c["Critical Hits with Daggers have a 25% chance to Poison the Enemy"]={{[1]={[1]={type="Condition",var="CriticalStrike"},flags=524288,keywordFlags=0,name="PoisonChance",type="BASE",value=25}},nil}
 c["Culling Strike"]={{[1]={[1]={effectType="Global",type="GlobalEffect",unscalable=true},flags=0,keywordFlags=0,name="CullPercent",type="MAX",value=10}},nil}
 c["Culling Strike against Enemies you Mark"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Marked"},flags=0,keywordFlags=0,name="CullPercent",type="MAX",value=10}},nil}
@@ -2599,7 +2598,7 @@ c["Hits Break 50 Armour Apply Fire Exposure when fully breaking enemy Armour"]={
 c["Hits against you have 20% reduced Critical Damage Bonus"]={{[1]={flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={flags=4,keywordFlags=0,name="CritMultiplier",type="INC",value=-20}}}},nil}
 c["Hits against you have 25% reduced Critical Damage Bonus"]={{[1]={flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={flags=4,keywordFlags=0,name="CritMultiplier",type="INC",value=-25}}}},nil}
 c["Hits have 25% reduced Critical Hit Chance against you"]={{[1]={flags=0,keywordFlags=0,name="EnemyCritChance",type="INC",value=-25}},nil}
-c["Hits ignore non-negative Elemental Resistances of Frozen Enemies"]={nil,"Hits ignore non-negative Elemental Resistances of Frozen Enemies "}
+c["Hits ignore non-negative Elemental Resistances of Frozen Enemies"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Frozen"},flags=0,keywordFlags=0,name="IgnoreNonNegativeEleRes",type="FLAG",value=true}},nil}
 c["Hits that Heavy Stun Enemies have Culling Strike"]={{[1]={[1]={type="Condition",var="AlwaysHeavyStunning"},flags=0,keywordFlags=0,name="CullPercent",type="MAX",value=10}},nil}
 c["Hits that Heavy Stun inflict Fire Exposure"]={nil,"Hits that Heavy Stun inflict Fire Exposure "}
 c["Hits that deal Cold Damage remove Cold Exposure and inflict Fire Exposure"]={nil,"Hits that deal Cold Damage remove Cold Exposure and inflict Fire Exposure "}
