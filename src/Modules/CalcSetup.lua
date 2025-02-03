@@ -331,8 +331,8 @@ function wipeEnv(env, accelerate)
 		wipeTable(env.charms)
 
 		-- Special / Unique Items that have their own ModDB()
-		if env.aegisModList then
-			wipeTable(env.aegisModList)
+		if env.talismanModList then
+			wipeTable(env.talismanModList)
 		end
 		if env.theIronMass then
 			wipeTable(env.theIronMass)
@@ -984,23 +984,12 @@ function calcs.initEnv(build, mode, override, specEnv)
 					if item.rarity == "UNIQUE" or item.rarity == "RELIC" then env.itemModDB.multipliers["UniqueAbyssJewels"] = (env.itemModDB.multipliers["UniqueAbyssJewels"] or 0) + 1 end
 					env.itemModDB.multipliers[item.baseName:gsub(" ","")] = (env.itemModDB.multipliers[item.baseName:gsub(" ","")] or 0) + 1
 				end
-				if item.type == "Shield" and env.allocNodes[45175] and env.allocNodes[45175].dn == "Necromantic Aegis" then
-					-- Special handling for Necromantic Aegis
-					env.aegisModList = new("ModList")
+				if item.type == "Amulet" and env.allocNodes[39935] and env.allocNodes[39935].dn == "Necromantic Talisman" then
+					-- Special handling for Necromantic Talisman
+					env.talismanModList = new("ModList")
 					for _, mod in ipairs(srcList) do
-						-- Filter out mods that apply to socketed gems, or which add supports
-						local add = true
-						for _, tag in ipairs(mod) do
-							if tag.type == "SocketedIn" then
-								add = false
-								break
-							end
-						end
-						if add then
-							env.aegisModList:ScaleAddMod(mod, scale)
-						else
-							env.itemModDB:ScaleAddMod(mod, scale)
-						end
+						-- add all Amulet mods (no more need to exclude for 'gems socketed in' mods)
+						env.talismanModList:ScaleAddMod(mod, scale)
 					end
 				elseif (slotName == "Weapon 1" or slotName == "Weapon 2") and modDB.conditions["AffectedByEnergyBlade"] then
 					local previousItem = env.player.itemList[slotName]

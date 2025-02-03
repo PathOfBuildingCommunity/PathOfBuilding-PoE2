@@ -143,7 +143,7 @@ local TreeTabClass = newClass("TreeTab", "ControlHost", function(self, build)
 		t_insert(self.treeVersions, value)
 	end
 	self.controls.versionText = new("LabelControl", { "LEFT", self.controls.reset, "RIGHT" }, { 8, 0, 0, 16 }, "Version:")
-	self.controls.versionSelect = new("DropDownControl", { "LEFT", self.controls.versionText, "RIGHT" }, { 8, 0, 100, 20 }, self.treeVersions, function(index, selected)
+	self.controls.versionSelect = new("DropDownControl", { "LEFT", self.controls.versionText, "RIGHT" }, { 8, 0, 60, 20 }, self.treeVersions, function(index, selected)
 		if selected.value ~= self.build.spec.treeVersion then
 			self:OpenVersionConvertPopup(selected.value, true)
 		end
@@ -162,12 +162,13 @@ local TreeTabClass = newClass("TreeTab", "ControlHost", function(self, build)
 
 	self.tradeLeaguesList = { }
 	-- Find Timeless Jewel Button
-	self.controls.findTimelessJewel = new("ButtonControl", { "LEFT", self.controls.treeSearch, "RIGHT" }, { 8, 0, 150, 20 }, "Find Timeless Jewel", function()
-		self:FindTimelessJewel()
-	end)
+	-- Add button back if/when we figure out how to serch for them again
+	--self.controls.findTimelessJewel = new("ButtonControl", { "LEFT", self.controls.treeSearch, "RIGHT" }, { 8, 0, 150, 20 }, "Find Timeless Jewel", function()
+		--self:FindTimelessJewel()
+	--end)
 
 	-- Show Node Power Checkbox
-	self.controls.treeHeatMap = new("CheckBoxControl", { "LEFT", self.controls.findTimelessJewel, "RIGHT" }, { 130, 0, 20 }, "Show Node Power:", function(state)
+	self.controls.treeHeatMap = new("CheckBoxControl", { "LEFT", self.controls.treeSearch, "RIGHT" }, { 130, 0, 20 }, "Show Node Power:", function(state)
 		self.viewer.showHeatMap = state
 		self.controls.treeHeatMapStatSelect.shown = state
 
@@ -330,7 +331,7 @@ function TreeTabClass:Draw(viewPort, inputEvents)
 								+ (self.isComparing and (self.controls.compareSelect.width + self.controls.compareSelect.x) or 0)
 	
 	local widthSecondLineControls = self.controls.treeSearch.width + 8
-									+ self.controls.findTimelessJewel.width + self.controls.findTimelessJewel.x
+									--+ self.controls.findTimelessJewel.width + self.controls.findTimelessJewel.x
 									+ self.controls.treeHeatMap.width + 130
 									+ self.controls.nodePowerMaxDepthSelect.width + self.controls.nodePowerMaxDepthSelect.x
 									+ (self.isCustomMaxDepth and (self.controls.nodePowerMaxDepthCustom.width + self.controls.nodePowerMaxDepthCustom.x) or 0)
@@ -348,8 +349,9 @@ function TreeTabClass:Draw(viewPort, inputEvents)
 	end
 
 	-- Check second line
+	-- Revert comments if we add back find Timeless Jewel function
 	if viewPort.width >= widthSecondLineControls + rightMargin then
-		self.controls.treeHeatMap:SetAnchor("LEFT", self.controls.findTimelessJewel, "RIGHT", 130, 0)
+		self.controls.treeHeatMap:SetAnchor("LEFT", self.controls.treeSearch, "RIGHT", 130, 0)
 	else
 		linesHeight = linesHeight * 2
 		self.controls.treeHeatMap:SetAnchor("TOPLEFT", self.controls.treeSearch, "BOTTOMLEFT", 124, 4)

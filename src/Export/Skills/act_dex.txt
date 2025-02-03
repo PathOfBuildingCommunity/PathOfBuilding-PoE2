@@ -149,7 +149,7 @@ statMap = {
 },
 #mods
 #set HeraldOfThunderOnKillPlayer
-#flags nonWeaponAttack hit
+#flags attack
 #mods
 #skillEnd
 
@@ -350,7 +350,7 @@ statMap = {
 #skill TriggeredVoltaicMarkNovaPlayer
 #startSets
 #set TriggeredVoltaicMarkNovaPlayer
-#flags attack area
+#flags nonWeaponAttack
 #mods
 #skillEnd
 

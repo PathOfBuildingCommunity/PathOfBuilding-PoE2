@@ -3379,13 +3379,13 @@ skills["ChargeInfusionPlayer"] = {
 			statDescriptionScope = "charge_mastery",
 			statMap = {
 				["skill_charge_matery_skill_speed_+%_final_with_frenzy_charges"] = {
-					mod("Speed", "MORE", nil, 0, 0, { type = "StatThreshold", stat = "FrenzyCharges", threshold = 1 }, { type = "GlobalEffect", effectType = "Buff", effectName = "Charge Infusion", effectCond = "UseFrenzyCharges" }),
+					mod("Speed", "MORE", nil, 0, 0, { type = "StatThreshold", stat = "FrenzyCharges", threshold = 1 }, { type = "GlobalEffect", effectType = "Buff", effectName = "Charge Infusion" }),
 				},
 				["skill_charge_mastery_crit_chance_+%_final_with_power_charges"] = {
-					mod("CritChance", "MORE", nil, 0, 0, { type = "StatThreshold", stat = "PowerCharges", threshold = 1 }, { type = "GlobalEffect", effectType = "Buff", effectName = "Charge Infusion", effectCond = "UsePowerCharges" }),
+					mod("CritChance", "MORE", nil, 0, 0, { type = "StatThreshold", stat = "PowerCharges", threshold = 1 }, { type = "GlobalEffect", effectType = "Buff", effectName = "Charge Infusion" }),
 				},
 				["skill_charge_mastery_defences_+%_final_with_endurance_charges"] = {
-					mod("Defences", "MORE", nil, 0, 0, { type = "StatThreshold", stat = "EnduranceCharges", threshold = 1 }, { type = "GlobalEffect", effectType = "Buff", effectName = "Charge Infusion", effectCond = "UseEnduranceCharges" }),
+					mod("Defences", "MORE", nil, 0, 0, { type = "StatThreshold", stat = "EnduranceCharges", threshold = 1 }, { type = "GlobalEffect", effectType = "Buff", effectName = "Charge Infusion" }),
 				},
 			},
 			baseFlags = {
@@ -7458,8 +7458,7 @@ skills["TriggeredFreezingMarkNovaPlayer"] = {
 			damageIncrementalEffectiveness = 0.006699999794364,
 			statDescriptionScope = "freezing_mark_nova",
 			baseFlags = {
-				spell = true,
-				area = true,
+				nonWeaponAttack = true,
 			},
 			constantStats = {
 				{ "active_skill_base_area_of_effect_radius", 26 },
@@ -8440,14 +8439,6 @@ skills["FrozenLocusExplodePlayer"] = {
 			incrementalEffectiveness = 0.034650001674891,
 			damageIncrementalEffectiveness = 0.012719999998808,
 			statDescriptionScope = "ice_ambush_explode",
-			statMap = {
-				["main_hand_weapon_minimum_cold_damage"] = {
-					mod("ColdMin", "BASE", nil),
-				},
-				["main_hand_weapon_maximum_cold_damage"] = {
-					mod("ColdMax", "BASE", nil),
-				},
-			},
 			baseFlags = {
 				area = true,
 				nonWeaponAttack = true,
@@ -9406,6 +9397,7 @@ skills["HandOfChayulaPlayer"] = {
 				attack = true,
 				melee = true,
 				area = true,
+				unarmed = true,
 			},
 			constantStats = {
 				{ "melee_conditional_step_distance", 10 },
@@ -10501,6 +10493,7 @@ skills["KillingPalmPlayer"] = {
 				attack = true,
 				area = true,
 				melee = true,
+				unarmed = true,
 			},
 			constantStats = {
 				{ "melee_conditional_step_distance", 10 },
@@ -13395,6 +13388,7 @@ skills["ShatteringPalmPlayer"] = {
 				attack = true,
 				area = true,
 				melee = true,
+				unarmed = true,
 			},
 			constantStats = {
 				{ "melee_conditional_step_distance", 10 },
@@ -13519,6 +13513,7 @@ skills["ShatteringPalmExplosionPlayer"] = {
 				area = true,
 				nonWeaponAttack = true,
 				hit = true,
+				unarmed = true,
 			},
 			constantStats = {
 				{ "active_skill_base_area_of_effect_radius", 16 },
@@ -15602,6 +15597,7 @@ skills["StaggeringPalmPlayer"] = {
 			baseFlags = {
 				attack = true,
 				area = true,
+				unarmed = true,
 			},
 			constantStats = {
 				{ "melee_conditional_step_distance", 10 },
@@ -15844,6 +15840,7 @@ skills["StaggeringPalmUnarmedProjectilePlayer"] = {
 			baseFlags = {
 				attack = true,
 				projectile = true,
+				unarmed = true,
 			},
 			constantStats = {
 				{ "base_number_of_projectiles", 1 },

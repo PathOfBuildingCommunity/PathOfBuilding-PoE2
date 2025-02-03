@@ -419,6 +419,33 @@ local PassiveTreeClass = newClass("PassiveTree", function(self, treeVersion)
 			end
 		end
 	end
+	
+	-- Build ModList for legion jewels
+	for _, node in pairs(self.legion.nodes) do
+		-- Determine node type
+		if node.m then
+			node.type = "Mastery"
+		elseif node.ks then
+			node.type = "Keystone"
+			if not self.keystoneMap[node.dn] then -- Don't override good tree data with legacy keystones
+				self.keystoneMap[node.dn] = node
+			end
+		elseif node["not"] then
+			node.type = "Notable"
+		else
+			node.type = "Normal"
+		end
+		
+		--todo: update sprites? icon stuff
+		---- Assign node artwork assets
+		--node.sprites = self.spriteMap[node.icon]
+		--if not node.sprites then
+		--	--error("missing sprite "..node.icon)
+		--	node.sprites = { }
+		--end
+
+		self:ProcessStats(node)
+	end
 end)
 
 function PassiveTreeClass:ProcessStats(node, startIndex)

@@ -1473,7 +1473,7 @@ skills["HeraldOfThunderPlayer"] = {
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "herald_of_thunder_statset_1",
 			baseFlags = {
-				nonWeaponAttack = true,
+				attack = true,
 				hit = true,
 			},
 			constantStats = {
@@ -4451,8 +4451,7 @@ skills["TriggeredVoltaicMarkNovaPlayer"] = {
 			damageIncrementalEffectiveness = 0.006699999794364,
 			statDescriptionScope = "thaumaturgist_mark_nova",
 			baseFlags = {
-				attack = true,
-				area = true,
+				nonWeaponAttack = true,
 			},
 			constantStats = {
 				{ "active_skill_base_area_of_effect_radius", 26 },

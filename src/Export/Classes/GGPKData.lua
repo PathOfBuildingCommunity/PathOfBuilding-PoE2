@@ -299,6 +299,7 @@ function GGPKClass:GetNeededFiles()
 		"Data/QuestRewards.dat",
 		"Data/QuestRewardOffers.dat",
 		"Data/QuestRewardType.dat",
+		"Data/WieldableClasses.dat",
 	}
 	local csdFiles = {
 		"^Metadata/StatDescriptions/specific_skill_stat_descriptions/\\w+.csd$",
