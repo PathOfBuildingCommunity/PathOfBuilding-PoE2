@@ -690,7 +690,7 @@ directiveTable.set = function(state, args, out)
 				table.insert(level, statRow.BaseResolvedValues[i])
 				if state.skill.setIndex ~= 1 then
 					-- Modify the correct statInterpolation value in the current set by offsetting the value from the count in the base set
-					level.statInterpolation[math.min(statMapOrderIndex + #baseStatRow.StatInterpolations, #statRow.StatInterpolations)] = 1
+					level.statInterpolation[#level] = 1
 				else
 					level.statInterpolation[statMapOrderIndex] = 1
 				end
@@ -751,6 +751,7 @@ directiveTable.set = function(state, args, out)
 				end
 			end
 			table.insert(level, statRow.AdditionalStatsValues[i])
+			level.statInterpolation[statMapOrderIndex] = 1
 			statMapOrderIndex = statMapOrderIndex + 1
 		end
 		for i, stat in ipairs(statRow.AdditionalBooleanStats) do
