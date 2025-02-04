@@ -2329,6 +2329,9 @@ return {
 ["chance_to_gain_1_more_charge_%"] = {
 	mod("AdditionalChargeChance", "BASE", nil)
 },
+["apply_X_armour_break_on_hit"] = {
+	flag("Condition:CanBreakArmour"),
+},
 --
 -- Spectre or Minion-specific stats
 --
