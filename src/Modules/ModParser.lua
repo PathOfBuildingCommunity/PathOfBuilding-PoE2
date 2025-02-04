@@ -2078,6 +2078,7 @@ local specialModList = {
 		flag("ChaosInoculation"),
 		mod("ChaosDamageTaken", "MORE", -100)
 	},
+	--["leech life (%d+)%% slower"] = function(num) return {mod("LifeLeechRate", "INC", -num)} end,
 	["life regeneration is applied to energy shield instead"] = { flag("ZealotsOath") },
 	["excess life recovery from regeneration is applied to energy shield"] = { flag("ZealotsOath", { type = "Condition", var = "FullLife" }) },
 	["life leeched per second is doubled"] = { mod("LifeLeechRate", "MORE", 100) },
