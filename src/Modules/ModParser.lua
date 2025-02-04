@@ -158,6 +158,7 @@ local modNameList = {
 	["total cost"] = "Cost",
 	["total mana cost"] = "ManaCost",
 	["total mana cost of skills"] = "ManaCost",
+	["life cost"] = "LifeCost",
 	["life cost of skills"] = "LifeCost",
 	["rage cost of skills"] = "RageCost",
 	["cost of"] = "Cost",
