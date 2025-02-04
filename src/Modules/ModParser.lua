@@ -750,6 +750,7 @@ local modNameList = {
 	["bleed duration"] = { "EnemyBleedDuration" },
 	["bleeding duration"] = { "EnemyBleedDuration" },
 	["bleed duration on you"] = "SelfBleedDuration",
+	["bleeding duration on you"] = "SelfBleedDuration",
 	["to blind enemies on hit"] = { "BlindChance" },
 	-- Misc modifiers
 	["movement speed"] = "MovementSpeed",
@@ -1118,7 +1119,7 @@ local preFlagList = {
 	["^attacks with this weapon [hd][ae][va][el] "] = { tagList = { { type = "Condition", var = "{Hand}Attack" }, { type = "SkillType", skillType = SkillType.Attack } } },
 	["^hits with this weapon [hd][ae][va][el] "] = { flags = ModFlag.Hit, tagList = { { type = "Condition", var = "{Hand}Attack" }, { type = "SkillType", skillType = SkillType.Attack } } },
 	-- Skill types
-	["^attacks [hd][ae][va][el] "] = { flags = ModFlag.Attack },
+	["^attacks [ghd][ae][iva][eln] "] = { flags = ModFlag.Attack },
 	["^attack skills [hd][ae][va][el] "] = { keywordFlags = KeywordFlag.Attack },
 	["^spells [hd][ae][va][el] a? ?"] = { flags = ModFlag.Spell },
 	["^spell skills [hd][ae][va][el] "] = { keywordFlags = KeywordFlag.Spell },
@@ -1540,6 +1541,7 @@ local modTagList = {
 	["if on low mana"] = { tag = { type = "Condition", var = "LowMana" } },
 	["wh[ie][ln]e? not on low mana"] = { tag = { type = "Condition", var = "LowMana", neg = true } },
 	["wh[ie][ln]e? on full life"] = { tag = { type = "Condition", var = "FullLife" } },
+	["wh[ie][ln]e? on full mana"] = { tag = { type = "Condition", var = "FullMana" } },
 	["wh[ie][ln]e? not on full life"] = { tag = { type = "Condition", var = "FullLife", neg = true } },
 	["wh[ie][ln]e? no life is reserved"] = { tag = { type = "StatThreshold", stat = "LifeReserved", threshold = 0, upper = true } },
 	["wh[ie][ln]e? no mana is reserved"] = { tag = { type = "StatThreshold", stat = "ManaReserved", threshold = 0, upper = true } },
@@ -2275,6 +2277,14 @@ local specialModList = {
 		mod("Armour", "BASE", 1, { type = "PerStat", stat = "StrRequirementsOnGloves", percent = num }),
 		mod("Armour", "BASE", 1, { type = "PerStat", stat = "StrRequirementsOnHelmet", percent = num }),
 	} end,
+	["iron grip"] = function() return {
+		mod("Damage", "INC", 1, nil, ModFlag.Spell, { type = "PerStat", stat = "Str", div = 2 } ),
+		flag("NoStrBonusToLife") }
+	end,
+	["iron will"] = function() return {
+		mod("Damage", "INC", 1, nil, bor(ModFlag.Projectile, ModFlag.Attack), { type = "PerStat", stat = "Str", div = 2 } ),
+		flag("NoStrBonusToLife") }
+	end,
 	-- Legacy support
 	["(%d+)%% chance to defend with double armour"] = function(numChance) return {
 		mod("ArmourDefense", "MAX", 100, "Armour Mastery: Max Calc", { type = "Condition", var = "ArmourMax" }),
@@ -2858,6 +2868,10 @@ local specialModList = {
 	["skills have (%d+)%% chance to not consume a cooldown when used"] = function(num) return { 
 		mod("CooldownChanceNotConsume", "BASE", num / 100, { type = "SkillType", skillType = SkillType.Cooldown })
 	} end,
+	["every (%d+) seconds, gain (%d+)%% more cast speed for (%d+) seconds"] = function(interval, _, num, duration) return { 
+		mod("Speed", "MORE", num, nil, ModFlag.Cast, { type = "GlobalEffect", effectType = "Buff", effectName = "Quicksand Hourglass" }, { type = "Condition", var = "QuicksandHourglass" }),
+		flag("Condition:CanGainQuicksandHourglass")
+	} end,
 	-- Item local modifiers
 	["has no sockets"] = { flag("NoSockets") },
 	["reflects your other ring"] = {
@@ -3178,7 +3192,8 @@ local specialModList = {
 	["hits against you cannot be critical hits if you've been stunned recently"] =  { mod("EnemyModifier", "LIST", { mod = flag("NeverCrit") }, {type = "Condition", var = "StunnedRecently" }), mod("EnemyModifier", "LIST", { mod = flag("Condition:NeverCrit")}, {type = "Condition", var = "StunnedRecently" })},
 	["nearby enemies cannot deal critical hits"] = { mod("EnemyModifier", "LIST", { mod = flag("NeverCrit")  }), mod("EnemyModifier", "LIST", { mod = flag("Condition:NeverCrit") }) },
 	["hits against you are always critical hits"] = { mod("EnemyModifier", "LIST", { mod = flag("AlwaysCrit")  }), mod("EnemyModifier", "LIST", { mod = flag("Condition:AlwaysCrit") }) },
-	["your hits are always critical hits"] =  { mod("CritChance", "OVERRIDE", 100) },
+	["your hits are always critical hits"] = { mod("CritChance", "OVERRIDE", 100) },
+	["always deals critical hits against heavy stunned enemies"] = { mod("CritChance", "OVERRIDE", 100, { type = "ActorCondition", actor = "enemy", var = "HeavyStunned" }, { type = "Condition", var = "{Hand}Attack" } ) },
 	["hits have (%d+)%% increased critical hit chance against you"] = function(num) return { mod("EnemyCritChance", "INC", num) } end,
 	["hits have (%d+)%% reduced critical hit chance against you"] = function(num) return { mod("EnemyCritChance", "INC", -num) } end,
 	["stuns from critical hits have (%d+)%% increased duration"] = function(num) return { mod("EnemyStunDurationOnCrit", "INC", num) } end,
@@ -3659,11 +3674,9 @@ local specialModList = {
 	["you are at maximum chance to block attack damage if you have not blocked recently"] = { flag("MaxBlockIfNotBlockedRecently", { type = "Condition", var = "BlockedRecently", neg = true }) },
 	["you are at maximum chance to block spell damage if you have not blocked recently"] = { flag("MaxSpellBlockIfNotBlockedRecently", { type = "Condition", var = "BlockedRecently", neg = true }) },
 	["%+(%d+)%% chance to block attack damage if you have not blocked recently"] = function(num) return { mod("BlockChance", "BASE", num, { type = "Condition", var = "BlockedRecently", neg = true }) } end,
-	["%+(%d+)%% chance to block spell damage if you have not blocked recently"] = function(num) return { mod("SpellBlockChance", "BASE", num, { type = "Condition", var = "BlockedRecently", neg = true }) } end,
+	["block chance is lucky"] = { flag("BlockChanceIsLucky") },
 	["y?o?u?r? ?chance to block is lucky"] = { flag("BlockChanceIsLucky"), flag("ProjectileBlockChanceIsLucky"),flag("SpellBlockChanceIsLucky"), flag("SpellProjectileBlockChanceIsLucky") },
 	["y?o?u?r? ?chance to block is unlucky"] = { flag("BlockChanceIsUnlucky"), flag("ProjectileBlockChanceIsUnlucky"), flag("SpellBlockChanceIsUnlucky"), flag("SpellProjectileBlockChanceIsUnlucky") },
-	["y?o?u?r? ?chance to block spell damage is lucky"] = { flag("SpellBlockChanceIsLucky"), flag("SpellProjectileBlockChanceIsLucky") },
-	["y?o?u?r? ?chance to block spell damage is unlucky"] = { flag("SpellBlockChanceIsUnlucky"), flag("SpellProjectileBlockChanceIsUnlucky") },
 	["chance to block attack or spell damage is lucky if you've blocked recently"] = { 
 		flag("BlockChanceIsLucky", { type = "Condition", var = "BlockedRecently" }), 
 		flag("ProjectileBlockChanceIsLucky", { type = "Condition", var = "BlockedRecently" }), 
@@ -4065,6 +4078,7 @@ local specialModList = {
 	} end,
 	["skeleton warriors are permanent minions and follow you"] = { flag("RaisedSkeletonPermanentDuration", { type = "SkillName", skillName = "Summon Skeletons" }) }, -- typo never existed except in some items generated by PoB
 	["summoned skeleton warriors are permanent and follow you"] = { flag("RaisedSkeletonPermanentDuration", { type = "SkillName", skillName = "Summon Skeletons" }) },
+	["minions recoup (%d+)%% of damage taken as life"] = function(num) return { mod("MinionModifier", "LIST", { mod = mod("LifeRecoup", "BASE", num) }) } end,
 	-- Projectiles
 	["skills chain %+(%d) times"] = function(num) return { mod("ChainCountMax", "BASE", num) } end,
 	["arrows chain %+(%d) times"] = function(num) return { mod("ChainCountMax", "BASE", num, nil, ModFlag.Bow) } end,
@@ -4348,6 +4362,8 @@ local specialModList = {
 	["(%d+)%% to maximum fire resistance for each (%d+)%% uncapped fire resistance"] = function(num, _, percent) return { mod("FireResistMax", "BASE", num, { type = "PerStat", stat = "FireResistTotal", div = tonumber(percent) }) } end,
 	["evasion rating is increased by uncapped cold resistance"] = { flag( "EvasionRatingIncreasedByUncappedColdRes") },
 	["evasion rating is increased by overcapped cold resistance"] = { flag( "EvasionRatingIncreasedByOvercappedColdRes") },
+	["energy shield is increased by overcapped cold resistance"] = { flag( "EnergyShieldIncreasedByOvercappedColdRes") },
+	["evasion rating is increased by overcapped lightning resistance"] = { flag( "EvasionRatingIncreasedByOvercappedLightningRes") },
 	["reflects (%d+) physical damage to melee attackers"] = { },
 	["ignore all movement penalties from armour"] = { flag("Condition:IgnoreMovementPenalties") },
 	["gain armour equal to your reserved mana"] = { mod("Armour", "BASE", 1, { type = "PerStat", stat = "ManaReserved", div = 1 }) },
@@ -5099,6 +5115,9 @@ local specialModList = {
     } end,
 	["(%d+)%% of skill mana costs converted to life costs"] = function(num) return {
         mod("HybridManaAndLifeCost_Life", "BASE", num),
+    } end,
+	["(%d+)%% of spell mana cost converted to life cost"] = function(num) return {
+        mod("HybridManaAndLifeCost_Life", "BASE", num,{ type = "SkillType", skillType = SkillType.Spell }),
     } end,
 	["(%d+)%% increased cost of arc and crackling lance"] = function(num) return {
 		mod("Cost", "INC", num, { type = "SkillName", skillNameList = { "Arc", "Crackling Lance" }, includeTransfigured = true }),

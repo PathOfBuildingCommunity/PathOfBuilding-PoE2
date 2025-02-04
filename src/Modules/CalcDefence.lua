@@ -861,6 +861,13 @@ function calcs.defence(env, actor)
 		end
 	end
 
+	if modDB:Flag(nil, "EnergyShieldIncreasedByOvercappedColdRes") then
+		for i, value in ipairs(modDB:Tabulate("FLAG", nil, "EnergyShieldIncreasedByOvercappedColdRes")) do
+				local mod = value.mod
+				modDB:NewMod("EnergyShield", "INC", output.ColdResistOverCap, mod.source)
+			break
+		end
+	end
 	if modDB:Flag(nil, "ArmourIncreasedByUncappedFireRes") then
 		for i, value in ipairs(modDB:Tabulate("FLAG", nil, "ArmourIncreasedByUncappedFireRes")) do
 				local mod = value.mod
@@ -886,6 +893,13 @@ function calcs.defence(env, actor)
 		for i, value in ipairs(modDB:Tabulate("FLAG", nil, "EvasionRatingIncreasedByOvercappedColdRes")) do
 			local mod = value.mod
 			modDB:NewMod("Evasion", "INC", output.ColdResistOverCap, mod.source)			
+			break
+		end
+	end
+	if modDB:Flag(nil, "EvasionRatingIncreasedByOvercappedLightningRes") then
+		for i, value in ipairs(modDB:Tabulate("FLAG", nil, "EvasionRatingIncreasedByOvercappedLightningRes")) do
+			local mod = value.mod
+			modDB:NewMod("Evasion", "INC", output.LightningResistOverCap, mod.source)			
 			break
 		end
 	end
