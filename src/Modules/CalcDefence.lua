@@ -470,33 +470,21 @@ function calcs.reducePoolsByDamage(poolTable, damageTable, actor)
 			local esDamageTypeMultiplier = damageType == "Chaos" and 2 or 1
 			local esBypass = output[damageType.."EnergyShieldBypass"] / 100 or 0
 			local lifeHitPool = calcLifeHitPoolWithLossPrevention(life, output.Life, output.preventedLifeLoss, lifeLossBelowHalfPrevented)
-			if energyShield > 0 and (not modDB:Flag(nil, "EnergyShieldProtectsMana")) and (esBypass) < 1 then
-				local esPool = esBypass > 0 and m_min(lifeHitPool / esBypass - lifeHitPool, energyShield) or energyShield
-				local tempDamage = m_min(damageRemainder * (1 - esBypass), esPool / esDamageTypeMultiplier) * esDamageTypeMultiplier
-				esPoolRemaining = m_min(esPoolRemaining, esPool - tempDamage)
-				energyShield = energyShield - tempDamage
+			local MoMEffect = m_min(output.sharedMindOverMatter + output[damageType.."MindOverMatter"], 100) / 100
+			local MoMPool = MoMEffect < 1 and m_min(lifeHitPool / (1 - MoMEffect) - lifeHitPool, mana) or mana
+			if energyShield > 0 and esBypass < 1 then
+				local MoMEBPool = esBypass > 0 and m_min((MoMPool + lifeHitPool) / esBypass * esDamageTypeMultiplier - (MoMPool + lifeHitPool), energyShield) or energyShield
+				local tempDamage = m_min(damageRemainder * (1 - esBypass), MoMEBPool / esDamageTypeMultiplier)
+				esPoolRemaining = m_min(esPoolRemaining, MoMEBPool - tempDamage * esDamageTypeMultiplier)
+				energyShield = energyShield - tempDamage * esDamageTypeMultiplier
 				damageRemainder = damageRemainder - tempDamage
 			end
-			if (output.sharedMindOverMatter + output[damageType.."MindOverMatter"]) > 0 then
-				local MoMEffect = m_min(output.sharedMindOverMatter + output[damageType.."MindOverMatter"], 100) / 100
-				local MoMPool = MoMEffect < 1 and m_min(lifeHitPool / (1 - MoMEffect) - lifeHitPool, mana) or mana
+			if MoMEffect > 0 and mana > 0 then
 				local MoMDamage = damageRemainder * MoMEffect
-				if modDB:Flag(nil, "EnergyShieldProtectsMana") and energyShield > 0 and esBypass < 1 then
-					local MoMEBPool = esBypass > 0 and m_min(MoMPool / esBypass - MoMPool, energyShield) or energyShield
-					local tempDamage = m_min(MoMDamage * (1 - esBypass), MoMEBPool / esDamageTypeMultiplier) * esDamageTypeMultiplier
-					esPoolRemaining = m_min(esPoolRemaining, MoMEBPool - tempDamage)
-					energyShield = energyShield - tempDamage
-					MoMDamage = MoMDamage - tempDamage
-					local tempDamage2 = m_min(MoMDamage, MoMPool)
-					MoMPoolRemaining = m_min(MoMPoolRemaining, MoMPool - tempDamage2)
-					mana = mana - tempDamage2
-					damageRemainder = damageRemainder - tempDamage - tempDamage2
-				elseif mana > 0 then
-					local tempDamage = m_min(MoMDamage, MoMPool)
-					MoMPoolRemaining = m_min(MoMPoolRemaining, MoMPool - tempDamage)
-					mana = mana - tempDamage
-					damageRemainder = damageRemainder - tempDamage
-				end
+				local tempDamage = m_min(MoMDamage, MoMPool)
+				MoMPoolRemaining = m_min(MoMPoolRemaining, MoMPool - tempDamage)
+				mana = mana - tempDamage
+				damageRemainder = damageRemainder - tempDamage
 			else
 				MoMPoolRemaining = 0
 			end
@@ -861,6 +849,13 @@ function calcs.defence(env, actor)
 		end
 	end
 
+	if modDB:Flag(nil, "EnergyShieldIncreasedByOvercappedColdRes") then
+		for i, value in ipairs(modDB:Tabulate("FLAG", nil, "EnergyShieldIncreasedByOvercappedColdRes")) do
+				local mod = value.mod
+				modDB:NewMod("EnergyShield", "INC", output.ColdResistOverCap, mod.source)
+			break
+		end
+	end
 	if modDB:Flag(nil, "ArmourIncreasedByUncappedFireRes") then
 		for i, value in ipairs(modDB:Tabulate("FLAG", nil, "ArmourIncreasedByUncappedFireRes")) do
 				local mod = value.mod
@@ -886,6 +881,13 @@ function calcs.defence(env, actor)
 		for i, value in ipairs(modDB:Tabulate("FLAG", nil, "EvasionRatingIncreasedByOvercappedColdRes")) do
 			local mod = value.mod
 			modDB:NewMod("Evasion", "INC", output.ColdResistOverCap, mod.source)			
+			break
+		end
+	end
+	if modDB:Flag(nil, "EvasionRatingIncreasedByOvercappedLightningRes") then
+		for i, value in ipairs(modDB:Tabulate("FLAG", nil, "EvasionRatingIncreasedByOvercappedLightningRes")) do
+			local mod = value.mod
+			modDB:NewMod("Evasion", "INC", output.LightningResistOverCap, mod.source)			
 			break
 		end
 	end

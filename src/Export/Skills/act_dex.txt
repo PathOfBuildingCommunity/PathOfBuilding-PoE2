@@ -7,7 +7,6 @@ local skills, mod, flag, skill = ...
 
 
 #skill AlchemistsBoonPlayer
-#startSets
 #set AlchemistsBoonPlayer
 #flags area aura
 statMap = {
@@ -25,7 +24,6 @@ statMap = {
 #skillEnd
 
 #skill BarragePlayer
-#startSets
 #set BarragePlayer
 #flags spell duration buff
 statMap = {
@@ -54,7 +52,6 @@ statMap = {
 #skillEnd
 
 #skill CombatFrenzyPlayer
-#startSets
 #set CombatFrenzyPlayer
 #flags buff
 statMap = {
@@ -70,7 +67,6 @@ statMap = {
 preDamageFunc = function(activeSkill, output)
 	activeSkill.skillData.hitTimeMultiplier = activeSkill.skillModList:Sum("BASE", activeSkill.skillCfg, "Multiplier:DetonatingArrowStage")
 end,
-#startSets
 #set DetonatingArrowPlayer
 #flags attack projectile channelRelease
 statMap = {
@@ -93,28 +89,24 @@ statMap = {
 #skillEnd
 
 #skill ElectrocutingArrowPlayer
-#startSets
 #set ElectrocutingArrowPlayer
 #flags attack projectile
 #mods
 #skillEnd
 
 #skill EscapeShotPlayer
-#startSets
 #set EscapeShotPlayer
 #flags attack projectile area
 #mods
 #skillEnd
 
 #skill FreezingSalvoPlayer
-#startSets
 #set FreezingSalvoPlayer
 #flags attack projectile area
 #mods
 #skillEnd
 
 #skill GasArrowPlayer
-#startSets
 #set GasArrowPlayer
 #flags attack projectile area
 #mods
@@ -127,7 +119,6 @@ statMap = {
 #skillEnd
 
 #skill HeraldOfPlaguePlayer
-#startSets
 #set HeraldOfPlaguePlayer
 #flags
 statMap = {
@@ -139,7 +130,6 @@ statMap = {
 #skillEnd
 
 #skill HeraldOfThunderPlayer
-#startSets
 #set HeraldOfThunderPlayer
 #flags
 statMap = {
@@ -154,7 +144,6 @@ statMap = {
 #skillEnd
 
 #skill IceShotPlayer
-#startSets
 #set IceShotPlayer
 #flags attack projectile
 #mods
@@ -164,7 +153,6 @@ statMap = {
 #skillEnd
 
 #skill LightningArrowPlayer
-#startSets
 #set LightningArrowPlayer
 #flags attack projectile
 #mods
@@ -174,14 +162,12 @@ statMap = {
 #skillEnd
 
 #skill LightningRodPlayer
-#startSets
 #set LightningRodPlayer
 #flags attack projectile area
 #mods
 #skillEnd
 
 #skill MagneticSalvoPlayer
-#startSets
 #set MagneticSalvoPlayer
 #flags attack projectile
 #mods
@@ -191,7 +177,6 @@ statMap = {
 #skillEnd
 
 #skill PlagueBearerPlayer
-#startSets
 #set PlagueBearerPlayer
 #flags
 statMap = {
@@ -203,14 +188,12 @@ statMap = {
 #skillEnd
 
 #skill PlagueBearerNovaPlayer
-#startSets
 #set PlagueBearerNovaPlayer
 #flags
 #mods
 #skillEnd
 
 #skill PoisonBurstArrowPlayer
-#startSets
 #set PoisonBurstArrowPlayer
 #flags attack projectile
 #mods
@@ -220,7 +203,6 @@ statMap = {
 #skillEnd
 
 #skill RainOfArrowsPlayer
-#startSets
 #set RainOfArrowsPlayer
 #flags attack projectile area
 statMap = {
@@ -235,7 +217,6 @@ statMap = {
 #skillEnd
 
 #skill ShockchainArrowPlayer
-#startSets
 #set ShockchainArrowPlayer
 #flags attack projectile
 #mods
@@ -251,7 +232,6 @@ statMap = {
 preDamageFunc = function(activeSkill, output)
 	activeSkill.skillData.hitTimeMultiplier = activeSkill.skillData.channelPercentOfAttackTime
 end,
-#startSets
 #set SnipePlayer
 #flags attack projectile channelRelease
 #mods
@@ -262,7 +242,6 @@ end,
 #skillEnd
 
 #skill SnipersMarkPlayer
-#startSets
 #set SnipersMarkPlayer
 #flags spell duration mark
 statMap = {
@@ -275,7 +254,6 @@ statMap = {
 #skillEnd
 
 #skill SpiralVolleyPlayer
-#startSets
 #set SpiralVolleyPlayer
 #flags attack projectile
 statMap = {
@@ -293,7 +271,6 @@ statMap = {
 #skillEnd
 
 #skill StormcallerArrowPlayer
-#startSets
 #set StormcallerArrowPlayer
 #flags attack projectile
 #mods
@@ -303,7 +280,6 @@ statMap = {
 #skillEnd
 
 #skill TornadoShotPlayer
-#startSets
 #set TornadoShotPlayer
 #flags attack projectile area
 #mods
@@ -314,14 +290,12 @@ statMap = {
 #skillEnd
 
 #skill ToxicGrowthPlayer
-#startSets
 #set ToxicGrowthPlayer
 #flags attack projectile area duration
 #mods
 #skillEnd
 
 #skill VineArrowPlayer
-#startSets
 #set VineArrowPlayer
 #flags attack projectile
 #mods
@@ -336,7 +310,6 @@ statMap = {
 #skillEnd
 
 #skill VoltaicMarkPlayer
-#startSets
 #set VoltaicMarkPlayer
 #flags spell
 statMap = {
@@ -348,14 +321,12 @@ statMap = {
 #skillEnd
 
 #skill TriggeredVoltaicMarkNovaPlayer
-#startSets
 #set TriggeredVoltaicMarkNovaPlayer
 #flags nonWeaponAttack
 #mods
 #skillEnd
 
 #skill WindDancerPlayer
-#startSets
 #set WindDancerPlayer
 #flags
 statMap = {
@@ -370,7 +341,6 @@ statMap = {
 #skillEnd
 
 #skill TriggeredWindDancerPlayer
-#startSets
 #set TriggeredWindDancerPlayer
 #flags attack area melee
 statMap = {

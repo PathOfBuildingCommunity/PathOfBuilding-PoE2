@@ -10,13 +10,12 @@ local export = false
 local types = { "Strength", "Dexterity", "Intelligence", "Other" }
 
 local function grantedEffectString(grantedEffect) 
-	local s =  "#skill "..grantedEffect.Id.."\n#startSets\n"
+	local s =  "#skill "..grantedEffect.Id.."\n"
 	for _, statSet in ipairs(tableConcat({grantedEffect.GrantedEffectStatSets}, grantedEffect.AdditionalStatSets)) do
 		if not (statSet.LabelType and statSet.LabelType.Id == "Hidden") then
-		s = s.."#set "..statSet.Id.."\n#flags\n#mods\n"
+			s = s.."#set "..statSet.Id.."\n#flags\n#mods\n"
 		end
 	end
-	s = s.."#skillEnd\n"
 	return s
 end
 for i, _ in ipairs(types) do

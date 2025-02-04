@@ -1432,6 +1432,7 @@ function calcs.perform(env, skipEHP)
 						else
 							req = m_floor(reqSource[attr] * reqMultItem)
 						end
+						output[attr.."RequirementsOn"..reqSource.sourceSlot] = req;
 					elseif reqSource.source == "Gem" then
 						req = m_floor(reqSource[attr] * reqMultGem)
 					end

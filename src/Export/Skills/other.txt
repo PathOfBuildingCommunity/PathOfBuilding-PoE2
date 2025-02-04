@@ -8,7 +8,6 @@ local skills, mod, flag, skill = ...
 #from tree
 #minionList AncestralSpiritTurtle AncestralSpiritHulk AncestralSpiritCaster AncestralSpiritWarhorn
 #skill AncestralSpiritsPlayer
-#startSets
 #set AncestralSpiritsPlayer
 #flags spell minion
 #mods
@@ -16,7 +15,6 @@ local skills, mod, flag, skill = ...
 
 #from tree
 #skill BleedingConcoctionPlayer
-#startSets
 #set BleedingConcoctionPlayer
 #flags attack projectile unarmed
 statMap = {
@@ -29,7 +27,6 @@ statMap = {
 
 #from item
 #skill MeleeBowPlayer
-#startSets
 #set MeleeBowPlayer
 #flags attack projectile
 #mods
@@ -37,7 +34,6 @@ statMap = {
 
 #from item
 #skill MeleeCrossbowPlayer
-#startSets
 #set MeleeCrossbowPlayer
 #flags attack area projectile
 #mods
@@ -45,7 +41,6 @@ statMap = {
 
 #from tree
 #skill DemonFormPlayer
-#startSets
 #set DemonFormPlayer
 #flags
 #mods
@@ -53,7 +48,6 @@ statMap = {
 
 #from tree
 #skill ElementalExpressionTriggeredPlayer
-#startSets
 #set ElementalExpressionTriggeredPlayer
 #flags
 #mods
@@ -70,7 +64,6 @@ statMap = {
 
 #from tree
 #skill ElementalStormPlayer
-#startSets
 #set ElementalStormPlayer
 #flags area duration
 #mods
@@ -87,7 +80,6 @@ statMap = {
 
 #from tree
 #skill EncaseInJadePlayer
-#startSets
 #set EncaseInJadePlayer
 #flags duration
 #mods
@@ -95,7 +87,6 @@ statMap = {
 
 #from tree
 #skill ExplosiveConcoctionPlayer
-#startSets
 #set ExplosiveConcoctionPlayer
 #flags attack projectile duration unarmed
 statMap = {
@@ -109,7 +100,6 @@ statMap = {
 
 #from tree
 #skill FulminatingConcoctionPlayer
-#startSets
 #set FulminatingConcoctionPlayer
 #flags attack projectile duration unarmed
 statMap = {
@@ -123,7 +113,6 @@ statMap = {
 
 #from tree
 #skill IntoTheBreachPlayer
-#startSets
 #set IntoTheBreachPlayer
 #flags
 #mods
@@ -131,7 +120,6 @@ statMap = {
 
 #from tree
 #skill LifeRemnantsPlayer
-#startSets
 #set LifeRemnantsPlayer
 #flags
 #mods
@@ -139,7 +127,6 @@ statMap = {
 
 #from item
 #skill Melee1HMacePlayer
-#startSets
 #set Melee1HMacePlayer
 #flags attack area melee
 #mods
@@ -147,7 +134,6 @@ statMap = {
 
 #from item
 #skill Melee2HMacePlayer
-#startSets
 #set Melee2HMacePlayer
 #flags attack area melee
 #mods
@@ -155,7 +141,6 @@ statMap = {
 
 #from item
 #skill MeleeMaceMacePlayer
-#startSets
 #set MeleeMaceMacePlayer
 #flags attack area melee
 #mods
@@ -163,7 +148,6 @@ statMap = {
 
 #from tree
 #skill MeditatePlayer
-#startSets
 #set MeditatePlayer
 #flags
 #mods
@@ -171,7 +155,6 @@ statMap = {
 
 #from tree
 #skill PoisonousConcoctionPlayer
-#startSets
 #set PoisonousConcoctionPlayer
 #flags attack projectile unarmed
 statMap = {
@@ -184,7 +167,6 @@ statMap = {
 
 #noGem
 #skill MeleeUnarmedPlayer
-#startSets
 #set MeleeUnarmedPlayer
 #flags attack area melee
 #mods
@@ -192,7 +174,6 @@ statMap = {
 
 #from item
 #skill MeleeQuarterstaffPlayer
-#startSets
 #set MeleeQuarterstaffPlayer
 #flags attack melee area
 #mods
@@ -200,7 +181,6 @@ statMap = {
 
 #from item
 #skill ShieldBlockPlayer
-#startSets
 #set ShieldBlockPlayer
 #flags
 #mods
@@ -208,7 +188,6 @@ statMap = {
 
 #from tree
 #skill ShatteringConcoctionPlayer
-#startSets
 #set ShatteringConcoctionPlayer
 #flags attack projectile duration unarmed
 statMap = {
@@ -222,7 +201,6 @@ statMap = {
 
 #from tree
 #skill SorceryWardPlayer
-#startSets
 #set SorceryWardPlayer
 #flags
 #mods
@@ -231,7 +209,6 @@ statMap = {
 #from tree
 #minionList SummonedHellhound
 #skill SummonInfernalHoundPlayer
-#startSets
 #set SummonInfernalHoundPlayer
 #flags spell minion permanentMinion
 #mods
@@ -239,7 +216,6 @@ statMap = {
 
 #from tree
 #skill TemporalRiftPlayer
-#startSets
 #set TemporalRiftPlayer
 #flags
 #mods
@@ -247,7 +223,6 @@ statMap = {
 
 #from tree
 #skill TimeFreezePlayer
-#startSets
 #set TimeFreezePlayer
 #flags area duration
 #mods
@@ -255,7 +230,6 @@ statMap = {
 
 #from tree
 #skill TimeSnapPlayer
-#startSets
 #set TimeSnapPlayer
 #flags
 #mods
@@ -263,7 +237,6 @@ statMap = {
 
 #from tree
 #skill UnboundAvatarPlayer
-#startSets
 #set UnboundAvatarPlayer
 #flags
 #mods
@@ -271,7 +244,6 @@ statMap = {
 
 #from item
 #skill UniqueBreachLightningBoltPlayer
-#startSets
 #set UniqueBreachLightningBoltPlayer
 #flags spell area
 #mods
