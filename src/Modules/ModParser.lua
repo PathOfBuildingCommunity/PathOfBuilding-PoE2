@@ -511,7 +511,7 @@ local modNameList = {
 	["life leech is instant"] = "InstantLifeLeech",
 	["mana leech is instant"] = "InstantManaLeech",
 	["amount of mana leeched"] = "ManaLeech",
-	["amount of life leeched"] = "LifeLeech",
+	--["amount of life leeched"] = "LifeLeech",
 	["energy shield leech is instant"] = { "InstantEnergyShieldLeech" },
 	["leech is instant"] = { "InstantEnergyShieldLeech", "InstantManaLeech", "InstantLifeLeech" },
 	["to impale enemies on hit"] = "ImpaleChance",
@@ -2078,7 +2078,8 @@ local specialModList = {
 		flag("ChaosInoculation"),
 		mod("ChaosDamageTaken", "MORE", -100)
 	},
-	--["leech life (%d+)%% slower"] = function(num) return {mod("LifeLeechRate", "INC", -num)} end,
+	["(%d+)%% increased amount of life leeched"] = function(num) return{ mod("MaxLifeLeechRate", "INC", num)} end,
+	["leech life (%d+)%% slower"] = function(num) return {mod("LifeLeechRate", "INC", -num)} end,
 	["life regeneration is applied to energy shield instead"] = { flag("ZealotsOath") },
 	["excess life recovery from regeneration is applied to energy shield"] = { flag("ZealotsOath", { type = "Condition", var = "FullLife" }) },
 	["life leeched per second is doubled"] = { mod("LifeLeechRate", "MORE", 100) },
