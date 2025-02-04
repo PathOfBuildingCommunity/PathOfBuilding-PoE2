@@ -5181,7 +5181,10 @@ local specialModList = {
 	["%+(%d+)%% to wave of conviction damage over time multiplier per ([%d%.]+) seconds of duration expired"] = function(num) return { mod("WaveOfConvictionDurationDotMulti", "INC", num) } end,
 	["when an enemy hit deals elemental damage to you, their resistance to those elements becomes zero for (%d+) seconds"] = { flag("Condition:HaveTrickstersSmile"), },
 	["skills have a (%d+)%% longer perfect timing window"] = function(num) return { mod("PerfectTiming", "INC", num) } end,
-	-- Conditional Player Quantity / Rarity
+	["deal (%d+)%% increased damage with hits to rare or unique enemies for each second they've ever been in your presence, up to a maximum of (%d+)%%"] = function(num, _, limit) return {
+		mod("Damage", "INC", num, nil, 0, KeywordFlag.Hit, { type = "Multiplier", var = "EnemyPresenceSeconds", actor = "enemy", limit = tonumber(limit), limitTotal = true }, { type = "ActorCondition", actor = "enemy", var = "RareOrUnique" }),
+	} end,
+		-- Conditional Player Quantity / Rarity
 	["(%d+)%% increased quantity of items dropped by slain normal enemies"] = function(num) return { mod("LootQuantityNormalEnemies", "INC", num) } end,
 	["(%d+)%% increased rarity of items dropped by slain magic enemies"] = function(num) return { mod("LootRarityMagicEnemies", "INC", num) } end,
 	-- Skill-specific enchantment modifiers

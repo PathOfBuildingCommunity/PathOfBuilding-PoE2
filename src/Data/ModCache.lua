@@ -2031,7 +2031,7 @@ c["50% of your Life Regeneration is granted to Allies in your Presence"]={{[1]={
 c["50% reduced Bleeding Duration on you"]={{[1]={flags=0,keywordFlags=0,name="SelfBleedDuration",type="INC",value=-50}},nil}
 c["50% reduced Chill Duration on you"]={{[1]={flags=0,keywordFlags=0,name="SelfChillDuration",type="INC",value=-50}},nil}
 c["50% reduced Darkness Reservation Duration"]={{[1]={flags=0,keywordFlags=0,name="Reserved",type="INC",value=-50}}," Darkness  Duration "}
-c["50% reduced Duration of Curses on you"]={{[1]={flags=0,keywordFlags=0,name="Duration",type="INC",value=-50}},"  of Curses on you "}
+c["50% reduced Duration of Curses on you"]={{[1]={flags=0,keywordFlags=0,name="CurseEffectOnSelf",type="INC",value=-50}},nil}
 c["50% reduced Effect of Chill on you"]={{[1]={flags=0,keywordFlags=0,name="SelfChillEffect",type="INC",value=-50}},nil}
 c["50% reduced Enemy Chance to Block Sword Attacks"]={{[1]={flags=4194304,keywordFlags=0,name="reduceEnemyBlock",type="BASE",value=50}},nil}
 c["50% reduced Evasion Rating"]={{[1]={flags=0,keywordFlags=0,name="Evasion",type="INC",value=-50}},nil}
@@ -2520,7 +2520,7 @@ c["Damaging Ailments deal damage 5% faster"]={{[1]={flags=0,keywordFlags=0,name=
 c["Darkness Reservation lasts for 10 seconds"]={nil,"Darkness Reservation lasts for 10 seconds "}
 c["Darkness Reservation lasts for 10 seconds +5 to Maximum Darkness per Level"]={nil,"Darkness Reservation lasts for 10 seconds +5 to Maximum Darkness per Level "}
 c["Deal 30% of Overkill damage to enemies within 2 metres of the enemy killed"]={{[1]={flags=0,keywordFlags=0,name="Damage",type="BASE",value=30}}," Overkill  to enemies within 2 metres of the enemy killed "}
-c["Deal 4% increased Damage with Hits to Rare or Unique Enemies for each second they've ever been in your Presence, up to a maximum of 200%"]={{[1]={flags=0,keywordFlags=262144,name="Damage",type="INC",value=4}},"   to Rare or Unique Enemies for each second they've ever been in your Presence, up to a maximum of 200% "}
+c["Deal 4% increased Damage with Hits to Rare or Unique Enemies for each second they've ever been in your Presence, up to a maximum of 200%"]={{[1]={[1]={actor="enemy",limit=200,limitTotal=true,type="Multiplier",var="EnemyPresenceSeconds"},[2]={actor="enemy",type="ActorCondition",var="RareOrUnique"},flags=0,keywordFlags=262144,name="Damage",type="INC",value=4}},nil}
 c["Deal no Non-Fire Damage"]={{[1]={flags=0,keywordFlags=0,name="DealNoPhysical",type="FLAG",value=true},[2]={flags=0,keywordFlags=0,name="DealNoLightning",type="FLAG",value=true},[3]={flags=0,keywordFlags=0,name="DealNoCold",type="FLAG",value=true},[4]={flags=0,keywordFlags=0,name="DealNoChaos",type="FLAG",value=true}},nil}
 c["Deal up to 30% more Damage to Enemies based on their missing Concentration"]={nil,"up to 30% more Damage to Enemies based on their missing Concentration "}
 c["Deals 25% of current Mana as Chaos Damage to you when Effect ends"]={nil,"Deals 25% of current Mana as Chaos Damage to you when Effect ends "}
@@ -2615,8 +2615,8 @@ c["Energy Shield starts at zero Cannot Recharge or Regenerate Energy Shield Lose
 c["Equipment and Skill Gems have 25% increased Attribute Requirements"]={{[1]={flags=0,keywordFlags=0,name="GlobalAttributeRequirements",type="INC",value=25}},nil}
 c["Equipment and Skill Gems have 4% reduced Attribute Requirements"]={{[1]={flags=0,keywordFlags=0,name="GlobalAttributeRequirements",type="INC",value=-4}},nil}
 c["Equipment and Skill Gems have 50% reduced Attribute Requirements"]={{[1]={flags=0,keywordFlags=0,name="GlobalAttributeRequirements",type="INC",value=-50}},nil}
-c["Every 12 seconds, gain 50% more Cast Speed for 4 seconds"]={{[1]={[1]={effectName="Quicksand Hourglass",effectType="Buff",type="GlobalEffect"},[2]={type="Condition",var="QuicksandHourglass"},flags=16,keywordFlags=0,name="Speed",type="MORE",value="50"},[2]={flags=0,keywordFlags=0,name="Condition:CanGainQuicksandHourglass",type="FLAG",value=true}},nil}
 c["Evasion Rating is increased by Overcapped Lightning Resistance"]={{[1]={flags=0,keywordFlags=0,name="EvasionRatingIncreasedByOvercappedLightningRes",type="FLAG",value=true}},nil}
+c["Every 12 seconds, gain 50% more Cast Speed for 4 seconds"]={{[1]={[1]={effectName="Quicksand Hourglass",effectType="Buff",type="GlobalEffect"},[2]={type="Condition",var="QuicksandHourglass"},flags=16,keywordFlags=0,name="Speed",type="MORE",value="50"},[2]={flags=0,keywordFlags=0,name="Condition:CanGainQuicksandHourglass",type="FLAG",value=true}},nil}
 c["Every 3 seconds during Effect, deal 50% of Mana spent in those seconds as Chaos Damage to Enemies within 3 metres"]={nil,"Every 3 seconds during Effect, deal 50% of Mana spent in those seconds as Chaos Damage to Enemies within 3 metres "}
 c["Every 3 seconds during Effect, deal 50% of Mana spent in those seconds as Chaos Damage to Enemies within 3 metres Recover all Mana when Used"]={nil,"Every 3 seconds during Effect, deal 50% of Mana spent in those seconds as Chaos Damage to Enemies within 3 metres Recover all Mana when Used "}
 c["Every 3 seconds, Consume a nearby Corpse to Recover 20% of Life"]={nil,"Every 3 seconds, Consume a nearby Corpse to Recover 20% of Life "}
