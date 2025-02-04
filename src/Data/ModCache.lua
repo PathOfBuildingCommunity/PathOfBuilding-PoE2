@@ -2031,7 +2031,7 @@ c["50% of your Life Regeneration is granted to Allies in your Presence"]={{[1]={
 c["50% reduced Bleeding Duration on you"]={{[1]={flags=0,keywordFlags=0,name="SelfBleedDuration",type="INC",value=-50}},nil}
 c["50% reduced Chill Duration on you"]={{[1]={flags=0,keywordFlags=0,name="SelfChillDuration",type="INC",value=-50}},nil}
 c["50% reduced Darkness Reservation Duration"]={{[1]={flags=0,keywordFlags=0,name="Reserved",type="INC",value=-50}}," Darkness  Duration "}
-c["50% reduced Duration of Curses on you"]={{[1]={flags=0,keywordFlags=0,name="CurseEffectOnSelf",type="INC",value=-50}},nil}
+c["50% reduced Duration of Curses on you"]={{[1]={flags=0,keywordFlags=0,name="Duration",type="INC",value=-50}},"  of Curses on you "}
 c["50% reduced Effect of Chill on you"]={{[1]={flags=0,keywordFlags=0,name="SelfChillEffect",type="INC",value=-50}},nil}
 c["50% reduced Enemy Chance to Block Sword Attacks"]={{[1]={flags=4194304,keywordFlags=0,name="reduceEnemyBlock",type="BASE",value=50}},nil}
 c["50% reduced Evasion Rating"]={{[1]={flags=0,keywordFlags=0,name="Evasion",type="INC",value=-50}},nil}
