@@ -854,7 +854,7 @@ c["100% increased Armour and Evasion"]={{[1]={flags=0,keywordFlags=0,name="Armou
 c["100% increased Arrow Speed"]={{[1]={flags=131072,keywordFlags=0,name="ProjectileSpeed",type="INC",value=100}},nil}
 c["100% increased Attack Speed"]={{[1]={flags=1,keywordFlags=0,name="Speed",type="INC",value=100}},nil}
 c["100% increased Chance to be afflicted by Ailments when Hit"]={{}," Chance to be afflicted by Ailments when Hit "}
-c["100% increased Chance to be afflicted by Ailments when Hit 20% increased Movement Speed while affected by an Ailment"]={{[1]={[1]={type="Condition",varList={[1]="Bleeding",[2]="Poisoned",[3]="Ignited",[4]="Chilled",[5]="Frozen",[6]="Shocked"}},flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=100}}," Chance to be afflicted by Ailments when Hit 20% increased   "}
+c["100% increased Chance to be afflicted by Ailments when Hit 20% increased Movement Speed while affected by an Ailment"]={{[1]={[1]={type="Condition",varList={[1]="Bleeding",[2]="Poisoned",[3]="Ignited",[4]="Chilled",[5]="Frozen",[6]="Shocked",[7]="Electrocuted"}},flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=100}}," Chance to be afflicted by Ailments when Hit 20% increased   "}
 c["100% increased Cold Damage"]={{[1]={flags=0,keywordFlags=0,name="ColdDamage",type="INC",value=100}},nil}
 c["100% increased Critical Damage Bonus against Enemies that are on Full Life"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="FullLife"},flags=0,keywordFlags=0,name="CritMultiplier",type="INC",value=100}},nil}
 c["100% increased Critical Hit Chance"]={{[1]={flags=0,keywordFlags=0,name="CritChance",type="INC",value=100}},nil}
@@ -1299,7 +1299,7 @@ c["20% increased Melee Critical Hit Chance"]={{[1]={flags=256,keywordFlags=0,nam
 c["20% increased Melee Damage"]={{[1]={flags=256,keywordFlags=0,name="Damage",type="INC",value=20}},nil}
 c["20% increased Melee Damage against Immobilised Enemies"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Immobilised"},flags=256,keywordFlags=0,name="Damage",type="INC",value=20}},nil}
 c["20% increased Movement Speed"]={{[1]={flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=20}},nil}
-c["20% increased Movement Speed while affected by an Ailment"]={{[1]={[1]={type="Condition",varList={[1]="Bleeding",[2]="Poisoned",[3]="Ignited",[4]="Chilled",[5]="Frozen",[6]="Shocked"}},flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=20}},nil}
+c["20% increased Movement Speed while affected by an Ailment"]={{[1]={[1]={type="Condition",varList={[1]="Bleeding",[2]="Poisoned",[3]="Ignited",[4]="Chilled",[5]="Frozen",[6]="Shocked",[7]="Electrocuted"}},flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=20}},nil}
 c["20% increased Physical Damage"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamage",type="INC",value=20}},nil}
 c["20% increased Power Charge Duration"]={{[1]={flags=0,keywordFlags=0,name="PowerChargesDuration",type="INC",value=20}},nil}
 c["20% increased Projectile Damage"]={{[1]={flags=1024,keywordFlags=0,name="Damage",type="INC",value=20}},nil}
@@ -1489,7 +1489,7 @@ c["25% increased Melee Damage"]={{[1]={flags=256,keywordFlags=0,name="Damage",ty
 c["25% increased Melee Damage against Immobilised Enemies"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Immobilised"},flags=256,keywordFlags=0,name="Damage",type="INC",value=25}},nil}
 c["25% increased Minion Accuracy Rating"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Accuracy",type="INC",value=25}}}},nil}
 c["25% increased Movement Speed"]={{[1]={flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=25}},nil}
-c["25% increased Movement Speed while affected by an Ailment"]={{[1]={[1]={type="Condition",varList={[1]="Bleeding",[2]="Poisoned",[3]="Ignited",[4]="Chilled",[5]="Frozen",[6]="Shocked"}},flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=25}},nil}
+c["25% increased Movement Speed while affected by an Ailment"]={{[1]={[1]={type="Condition",varList={[1]="Bleeding",[2]="Poisoned",[3]="Ignited",[4]="Chilled",[5]="Frozen",[6]="Shocked",[7]="Electrocuted"}},flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=25}},nil}
 c["25% increased Physical Damage"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamage",type="INC",value=25}},nil}
 c["25% increased Projectile Speed"]={{[1]={flags=0,keywordFlags=0,name="ProjectileSpeed",type="INC",value=25}},nil}
 c["25% increased Shock Duration"]={{[1]={flags=0,keywordFlags=0,name="EnemyShockDuration",type="INC",value=25}},nil}
