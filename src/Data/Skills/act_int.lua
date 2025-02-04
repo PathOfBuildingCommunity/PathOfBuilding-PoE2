@@ -10042,7 +10042,7 @@ skills["IceNovaPlayer"] = {
 				"can_perform_skill_while_moving",
 			},
 			levels = {
-				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 1, 1, }, actorLevel = 1, },
+				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
 			},
 		},
 	}

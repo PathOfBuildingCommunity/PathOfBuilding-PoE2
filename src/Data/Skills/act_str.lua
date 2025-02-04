@@ -1911,8 +1911,6 @@ skills["DefianceBannerReservationPlayer"] = {
 		[39] = { spiritReservationFlat = 30, levelRequirement = 90, },
 		[40] = { spiritReservationFlat = 30, levelRequirement = 90, },
 	},
-	statSets = {
-	}
 }
 skills["DefianceBannerPlayer"] = {
 	name = "Defiance Banner",
@@ -2081,8 +2079,6 @@ skills["DreadBannerReservationPlayer"] = {
 		[39] = { spiritReservationFlat = 30, levelRequirement = 90, },
 		[40] = { spiritReservationFlat = 30, levelRequirement = 90, },
 	},
-	statSets = {
-	}
 }
 skills["DreadBannerPlayer"] = {
 	name = "Dread Banner",
@@ -12500,8 +12496,6 @@ skills["WarBannerReservationPlayer"] = {
 		[39] = { spiritReservationFlat = 30, levelRequirement = 90, },
 		[40] = { spiritReservationFlat = 30, levelRequirement = 90, },
 	},
-	statSets = {
-	}
 }
 skills["WarBannerPlayer"] = {
 	name = "War Banner",
