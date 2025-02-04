@@ -2814,6 +2814,7 @@ local specialModList = {
 	["you are unaffected by bleeding while leeching"] = { mod("SelfBleedEffect", "MORE", -100, { type = "Condition", var = "Leeching" }) },
 	-- Warrior - Titan
 	["(%d+)%% increased effect of small passive skills"] = function(num) return { mod("SmallPassiveSkillEffect", "INC", num) } end,
+	["slam skills have (%d+)%% increased area of effect"] = function(num) return { mod("AreaOfEffect", "INC", num, { type = "SkillType", skillType = SkillType.Slam})} end,
 	-- Trickster
 	["(%d+)%% chance to gain (%d+)%% of non%-chaos damage with hits as extra chaos damage"] = function(num, _, perc) return { mod("NonChaosDamageGainAsChaos", "BASE", num / 100 * tonumber(perc)) } end,
 	["movement skills cost no mana"] = { mod("ManaCost", "MORE", -100, nil, 0, KeywordFlag.Movement) },

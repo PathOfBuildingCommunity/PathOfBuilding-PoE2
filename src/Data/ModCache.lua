@@ -2615,8 +2615,8 @@ c["Energy Shield starts at zero Cannot Recharge or Regenerate Energy Shield Lose
 c["Equipment and Skill Gems have 25% increased Attribute Requirements"]={{[1]={flags=0,keywordFlags=0,name="GlobalAttributeRequirements",type="INC",value=25}},nil}
 c["Equipment and Skill Gems have 4% reduced Attribute Requirements"]={{[1]={flags=0,keywordFlags=0,name="GlobalAttributeRequirements",type="INC",value=-4}},nil}
 c["Equipment and Skill Gems have 50% reduced Attribute Requirements"]={{[1]={flags=0,keywordFlags=0,name="GlobalAttributeRequirements",type="INC",value=-50}},nil}
-c["Every 12 seconds, gain 50% more Cast Speed for 4 seconds"]={{[1]={[1]={effectName="Quicksand Hourglass",effectType="Buff",type="GlobalEffect"},[2]={type="Condition",var="QuicksandHourglass"},flags=16,keywordFlags=0,name="Speed",type="MORE",value="50"},[2]={flags=0,keywordFlags=0,name="Condition:CanGainQuicksandHourglass",type="FLAG",value=true}},nil}
 c["Evasion Rating is increased by Overcapped Lightning Resistance"]={{[1]={flags=0,keywordFlags=0,name="EvasionRatingIncreasedByOvercappedLightningRes",type="FLAG",value=true}},nil}
+c["Every 12 seconds, gain 50% more Cast Speed for 4 seconds"]={{[1]={[1]={effectName="Quicksand Hourglass",effectType="Buff",type="GlobalEffect"},[2]={type="Condition",var="QuicksandHourglass"},flags=16,keywordFlags=0,name="Speed",type="MORE",value="50"},[2]={flags=0,keywordFlags=0,name="Condition:CanGainQuicksandHourglass",type="FLAG",value=true}},nil}
 c["Every 3 seconds during Effect, deal 50% of Mana spent in those seconds as Chaos Damage to Enemies within 3 metres"]={nil,"Every 3 seconds during Effect, deal 50% of Mana spent in those seconds as Chaos Damage to Enemies within 3 metres "}
 c["Every 3 seconds during Effect, deal 50% of Mana spent in those seconds as Chaos Damage to Enemies within 3 metres Recover all Mana when Used"]={nil,"Every 3 seconds during Effect, deal 50% of Mana spent in those seconds as Chaos Damage to Enemies within 3 metres Recover all Mana when Used "}
 c["Every 3 seconds, Consume a nearby Corpse to Recover 20% of Life"]={nil,"Every 3 seconds, Consume a nearby Corpse to Recover 20% of Life "}
@@ -3155,7 +3155,7 @@ c["Skills have a 125% longer Perfect Timing window"]={{[1]={flags=0,keywordFlags
 c["Skills have a 150% longer Perfect Timing window"]={{[1]={flags=0,keywordFlags=0,name="PerfectTiming",type="INC",value=150}},nil}
 c["Skills reserve 50% less Spirit"]={nil,"Skills reserve 50% less Spirit "}
 c["Skills that would Summon a Totem have 20% chance to Summon two Totems instead"]={nil,"Skills that would Summon a Totem have 20% chance to Summon two Totems instead "}
-c["Slam Skills have 12% increased Area of Effect"]={nil,"Slam Skills have 12% increased Area of Effect "}
+c["Slam Skills have 12% increased Area of Effect"]={{[1]={[1]={skillType=103,type="SkillType"},flags=0,keywordFlags=0,name="AreaOfEffect",type="INC",value=12}},nil}
 c["Slam Skills you use yourself cause Aftershocks"]={nil,"Slam Skills you use yourself cause Aftershocks "}
 c["Sorcery Ward recovers 50% faster"]={nil,"recovers 50% faster "}
 c["Spell Skills have 10% reduced Area of Effect"]={{[1]={flags=0,keywordFlags=131072,name="AreaOfEffect",type="INC",value=-10}},nil}
