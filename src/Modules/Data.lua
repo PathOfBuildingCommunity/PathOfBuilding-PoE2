@@ -723,8 +723,9 @@ for skillId, grantedEffect in pairs(data.skills) do
 	grantedEffect.name = sanitiseText(grantedEffect.name)
 	grantedEffect.id = skillId
 	grantedEffect.modSource = "Skill:"..skillId
+	grantedEffect.statSets = grantedEffect.statSets or {}
 	-- Add sources for skill mods, and check for global effects
-	for _, skillPart in pairs(tableConcat({grantedEffect}, grantedEffect.statSets or {})) do
+	for _, skillPart in pairs(tableConcat({grantedEffect}, grantedEffect.statSets)) do
 		for _, list in pairs({skillPart.baseMods, skillPart.qualityMods, skillPart.levelMods}) do
 			for _, mod in pairs(list) do
 				if mod.name then
@@ -738,7 +739,7 @@ for skillId, grantedEffect in pairs(data.skills) do
 		end
 	end
 	-- Install stat map metatable
-	for _, statSet in pairs(tableConcat({grantedEffect}, grantedEffect.statSets or {})) do
+	for _, statSet in pairs(tableConcat({grantedEffect}, grantedEffect.statSets)) do
 		statSet.statMap = statSet.statMap or { }
 		setmetatable(statSet.statMap, data.skillStatMapMeta)
 		statSet.statMap._grantedEffect = grantedEffect

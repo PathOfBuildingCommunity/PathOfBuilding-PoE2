@@ -6,35 +6,30 @@
 local skills, mod, flag, skill = ...
 
 #skill AncestralWarriorTotemPlayer
-#startSets
 #set AncestralWarriorTotemPlayer
 #flags totem attack
 #mods
 #skillEnd
 
 #skill SupportAncestralWarriorTotemPlayer
-#startSets
 #set SupportAncestralWarriorTotemPlayer
 #flags
 #mods
 #skillEnd
 
 #skill ArmourBreakerPlayer
-#startSets
 #set ArmourBreakerPlayer
 #flags attack area melee
 #mods
 #skillEnd
 
 #skill ArtilleryBallistaPlayer
-#startSets
 #set ArtilleryBallistaPlayer
 #flags totem duration
 #mods
 #skillEnd
 
 #skill ArtilleryBallistaProjectilePlayer
-#startSets
 #set ArtilleryBallistaProjectilePlayer
 #flags attack area projectile totem
 #mods
@@ -44,21 +39,18 @@ local skills, mod, flag, skill = ...
 #skillEnd
 
 #skill AttritionPlayer
-#startSets
 #set AttritionPlayer
 #flags
 #mods
 #skillEnd
 
 #skill BerserkPlayer
-#startSets
 #set BerserkPlayer
 #flags
 #mods
 #skillEnd
 
 #skill BoneshatterPlayer
-#startSets
 #set BoneshatterPlayer
 #flags attack melee
 #mods
@@ -69,7 +61,6 @@ local skills, mod, flag, skill = ...
 
 #from item
 #skill MetaCastOnBlockPlayer
-#startSets
 #set MetaCastOnBlockPlayer
 #flags
 #mods
@@ -77,7 +68,6 @@ local skills, mod, flag, skill = ...
 
 #from item
 #skill SupportMetaCastOnBlockPlayer
-#startSets
 #set SupportMetaCastOnBlockPlayer
 #flags
 #mods
@@ -85,7 +75,6 @@ local skills, mod, flag, skill = ...
 
 #from item
 #skill MetaCastOnMeleeKillPlayer
-#startSets
 #set MetaCastOnMeleeKillPlayer
 #flags
 #mods
@@ -93,7 +82,6 @@ local skills, mod, flag, skill = ...
 
 #from item
 #skill SupportMetaCastOnMeleeKillPlayer
-#startSets
 #set SupportMetaCastOnMeleeKillPlayer
 #flags
 #mods
@@ -101,7 +89,6 @@ local skills, mod, flag, skill = ...
 
 #from item
 #skill MetaCastOnMeleeStunPlayer
-#startSets
 #set MetaCastOnMeleeStunPlayer
 #flags
 #mods
@@ -109,21 +96,18 @@ local skills, mod, flag, skill = ...
 
 #from item
 #skill SupportMetaCastOnMeleeStunPlayer
-#startSets
 #set SupportMetaCastOnMeleeStunPlayer
 #flags
 #mods
 #skillEnd
 
 #skill ClusterGrenadePlayer
-#startSets
 #set ClusterGrenadePlayer
 #flags attack area projectile duration
 #mods
 #skillEnd
 
 #skill ClusterGrenadeMiniPlayer
-#startSets
 #set ClusterGrenadeMiniPlayer
 #flags attack area projectile duration
 #mods
@@ -131,36 +115,30 @@ local skills, mod, flag, skill = ...
 
 #from item
 #skill StaffConsecratePlayer
-#startSets
 #set StaffConsecratePlayer
 #flags spell
 #mods
 #skillEnd
 
 #skill DefianceBannerReservationPlayer
-#startSets
 #skillEnd
 
 #skill DefianceBannerPlayer
-#startSets
 #set DefianceBannerPlayer
 #flags
 #mods
 #skillEnd
 
 #skill DreadBannerReservationPlayer
-#startSets
 #skillEnd
 
 #skill DreadBannerPlayer
-#startSets
 #set DreadBannerPlayer
 #flags duration
 #mods
 #skillEnd
 
 #skill EarthquakePlayer
-#startSets
 #set EarthquakePlayer
 #flags attack melee area duration
 statMap = {
@@ -188,7 +166,6 @@ statMap = {
 #skillEnd
 
 #skill EarthshatterPlayer
-#startSets
 #set EarthshatterPlayer
 #flags attack area melee
 #mods
@@ -198,14 +175,12 @@ statMap = {
 #skillEnd
 
 #skill EmergencyReloadPlayer
-#startSets
 #set EmergencyReloadPlayer
 #flags duration
 #mods
 #skillEnd
 
 #skill ExplosiveGrenadePlayer
-#startSets
 #set ExplosiveGrenadePlayer
 #flags attack area projectile duration
 #mods
@@ -213,21 +188,18 @@ statMap = {
 
 #from item
 #skill ExsanguinatePlayer
-#startSets
 #set ExsanguinatePlayer
 #flags spell duration chaining
 #mods
 #skillEnd
 
 #skill FlashGrenadePlayer
-#startSets
 #set FlashGrenadePlayer
 #flags attack area projectile duration
 #mods
 #skillEnd
 
 #skill ToxicGrenadePlayer
-#startSets
 #set ToxicGrenadePlayer
 #flags attack area projectile duration
 #mods
@@ -240,14 +212,12 @@ statMap = {
 #skillEnd
 
 #skill HammerOfTheGodsPlayer
-#startSets
 #set HammerOfTheGodsPlayer
 #flags attack area melee duration
 #mods
 #skillEnd
 
 #skill HeraldOfAshPlayer
-#startSets
 #set HeraldOfAshPlayer
 #flags
 statMap = {
@@ -262,49 +232,42 @@ statMap = {
 #skillEnd
 
 #skill InfernalCryPlayer
-#startSets
 #set InfernalCryPlayer
 #flags warcry area duration
 #mods
 #skillEnd
 
 #skill InfernalCryCorpseExplosionPlayer
-#startSets
 #set InfernalCryCorpseExplosionPlayer
 #flags area hit
 #mods
 #skillEnd
 
 #skill LeapSlamPlayer
-#startSets
 #set LeapSlamPlayer
 #flags attack area melee
 #mods
 #skillEnd
 
 #skill ArmourPiercingBoltsAmmoPlayer
-#startSets
 #set ArmourPiercingBoltsAmmoPlayer
 #flags
 #mods
 #skillEnd
 
 #skill ArmourPiercingBoltsPlayer
-#startSets
 #set ArmourPiercingBoltsPlayer
 #flags attack projectile
 #mods
 #skillEnd
 
 #skill ExplosiveShotAmmoPlayer
-#startSets
 #set ExplosiveShotAmmoPlayer
 #flags
 #mods
 #skillEnd
 
 #skill ExplosiveShotPlayer
-#startSets
 #set ExplosiveShotPlayer
 #flags attack projectile
 #mods
@@ -314,14 +277,12 @@ statMap = {
 #skillEnd
 
 #skill FragmentationRoundsAmmoPlayer
-#startSets
 #set FragmentationRoundsAmmoPlayer
 #flags
 #mods
 #skillEnd
 
 #skill FragmentationRoundsPlayer
-#startSets
 #set FragmentationRoundsPlayer
 #flags attack projectile
 #mods
@@ -331,14 +292,12 @@ statMap = {
 #skillEnd
 
 #skill GalvanicShardsAmmoPlayer
-#startSets
 #set GalvanicShardsAmmoPlayer
 #flags
 #mods
 #skillEnd
 
 #skill GalvanicShardsPlayer
-#startSets
 #set GalvanicShardsPlayer
 #flags attack projectile
 #mods
@@ -348,14 +307,12 @@ statMap = {
 #skillEnd
 
 #skill GlacialBoltAmmoPlayer
-#startSets
 #set GlacialBoltAmmoPlayer
 #flags
 #mods
 #skillEnd
 
 #skill GlacialBoltPlayer
-#startSets
 #set GlacialBoltPlayer
 #flags attack projectile area
 #mods
@@ -365,28 +322,24 @@ statMap = {
 #skillEnd
 
 #skill HailstormRoundsAmmoPlayer
-#startSets
 #set HailstormRoundsAmmoPlayer
 #flags
 #mods
 #skillEnd
 
 #skill HailstormRoundsPlayer
-#startSets
 #set HailstormRoundsPlayer
 #flags attack projectile area
 #mods
 #skillEnd
 
 #skill HighVelocityRoundsAmmoPlayer
-#startSets
 #set HighVelocityRoundsAmmoPlayer
 #flags
 #mods
 #skillEnd
 
 #skill HighVelocityRoundsPlayer
-#startSets
 #set HighVelocityRoundsPlayer
 #flags attack projectile area
 #mods
@@ -396,14 +349,12 @@ statMap = {
 #skillEnd
 
 #skill IceShardsAmmoPlayer
-#startSets
 #set IceShardsAmmoPlayer
 #flags
 #mods
 #skillEnd
 
 #skill IceShardsPlayer
-#startSets
 #set IceShardsPlayer
 #flags attack projectile area
 #mods
@@ -413,42 +364,36 @@ statMap = {
 #skillEnd
 
 #skill IncendiaryShotAmmoPlayer
-#startSets
 #set IncendiaryShotAmmoPlayer
 #flags
 #mods
 #skillEnd
 
 #skill IncendiaryShotPlayer
-#startSets
 #set IncendiaryShotPlayer
 #flags attack projectile area
 #mods
 #skillEnd
 
 #skill PermafrostBoltsAmmoPlayer
-#startSets
 #set PermafrostBoltsAmmoPlayer
 #flags
 #mods
 #skillEnd
 
 #skill PermafrostBoltsPlayer
-#startSets
 #set PermafrostBoltsPlayer
 #flags attack projectile area
 #mods
 #skillEnd
 
 #skill PlasmaBlastAmmoPlayer
-#startSets
 #set PlasmaBlastAmmoPlayer
 #flags
 #mods
 #skillEnd
 
 #skill PlasmaBlastPlayer
-#startSets
 #set PlasmaBlastPlayer
 #flags attack projectile channelRelease
 #mods
@@ -458,28 +403,24 @@ statMap = {
 #skillEnd
 
 #skill RapidShotAmmoPlayer
-#startSets
 #set RapidShotAmmoPlayer
 #flags
 #mods
 #skillEnd
 
 #skill RapidShotPlayer
-#startSets
 #set RapidShotPlayer
 #flags attack projectile
 #mods
 #skillEnd
 
 #skill ShockburstRoundsAmmoPlayer
-#startSets
 #set ShockburstRoundsAmmoPlayer
 #flags
 #mods
 #skillEnd
 
 #skill ShockburstRoundsPlayer
-#startSets
 #set ShockburstRoundsPlayer
 #flags attack projectile area
 #mods
@@ -489,14 +430,12 @@ statMap = {
 #skillEnd
 
 #skill SiegeCascadeAmmoPlayer
-#startSets
 #set SiegeCascadeAmmoPlayer
 #flags
 #mods
 #skillEnd
 
 #skill SiegeCascadePlayer
-#startSets
 #set SiegeCascadePlayer
 #flags attack projectile area
 #mods
@@ -506,14 +445,12 @@ statMap = {
 #skillEnd
 
 #skill StormblastBoltsAmmoPlayer
-#startSets
 #set StormblastBoltsAmmoPlayer
 #flags
 #mods
 #skillEnd
 
 #skill StormblastBoltsPlayer
-#startSets
 #set StormblastBoltsPlayer
 #flags attack projectile
 #mods
@@ -523,21 +460,18 @@ statMap = {
 #skillEnd
 
 #skill MagmaBarrierPlayer
-#startSets
 #set MagmaBarrierPlayer
 #flags
 #mods
 #skillEnd
 
 #skill MagmaSprayPlayer
-#startSets
 #set MagmaSprayPlayer
 #flags attack area melee shieldAttack
 #mods
 #skillEnd
 
 #skill MoltenBlastPlayer
-#startSets
 #set MoltenBlastPlayer
 #flags attack area projectile
 #mods
@@ -547,14 +481,12 @@ statMap = {
 #skillEnd
 
 #skill OilGrenadePlayer
-#startSets
 #set OilGrenadePlayer
 #flags attack area projectile duration
 #mods
 #skillEnd
 
 #skill OverwhelmingPresencePlayer
-#startSets
 #set OverwhelmingPresencePlayer
 #flags
 #mods
@@ -564,7 +496,6 @@ statMap = {
 preDamageFunc = function(activeSkill, output)
 	activeSkill.skillData.hitTimeMultiplier = activeSkill.skillData.channelPercentOfAttackTime
 end,
-#startSets
 #set PerfectStrikePlayer
 #flags attack area melee duration channelRelease
 #mods
@@ -576,35 +507,30 @@ end,
 
 #from item
 #skill ReapPlayer
-#startSets
 #set ReapPlayer
 #flags spell area
 #mods
 #skillEnd
 
 #skill ResonatingShieldPlayer
-#startSets
 #set ResonatingShieldPlayer
 #flags attack area melee shieldAttack
 #mods
 #skillEnd
 
 #skill RipwireBallistaPlayer
-#startSets
 #set RipwireBallistaPlayer
 #flags totem
 #mods
 #skillEnd
 
 #skill RipwireBallistaProjectilePlayer
-#startSets
 #set RipwireBallistaProjectilePlayer
 #flags attack projectile duration totem
 #mods
 #skillEnd
 
 #skill RollingSlamPlayer
-#startSets
 #set RollingSlamPlayer
 #flags attack area melee
 #mods
@@ -617,7 +543,6 @@ end,
 #skillEnd
 
 #skill ScavengedPlatingPlayer
-#startSets
 #set ScavengedPlatingPlayer
 #flags duration
 statMap = {
@@ -632,21 +557,18 @@ statMap = {
 #skillEnd
 
 #skill SeismicCryPlayer
-#startSets
 #set SeismicCryPlayer
 #flags warcry hit area
 #mods
 #skillEnd
 
 #skill ShardScavengerPlayer
-#startSets
 #set ShardScavengerPlayer
 #flags
 #mods
 #skillEnd
 
 #skill ShieldChargePlayer
-#startSets
 #set ShieldChargePlayer
 #flags attack area melee shieldAttack
 #mods
@@ -656,21 +578,18 @@ statMap = {
 #skillEnd
 
 #skill ShieldWallPlayer
-#startSets
 #set ShieldWallPlayer
 #flags attack shieldAttack
 #mods
 #skillEnd
 
 #skill ShockwaveTotemPlayer
-#startSets
 #set ShockwaveTotemPlayer
 #flags totem
 #mods
 #skillEnd
 
 #skill ShockwaveTotemQuakePlayer
-#startSets
 #set ShockwaveTotemQuakePlayer
 #flags totem attack area melee
 #mods
@@ -680,7 +599,6 @@ statMap = {
 #skillEnd
 
 #skill StampedePlayer
-#startSets
 #set StampedePlayer
 #flags attack area melee
 #mods
@@ -693,7 +611,6 @@ statMap = {
 #skillEnd
 
 #skill SunderPlayer
-#startSets
 #set SunderPlayer
 #flags attack area melee
 #mods
@@ -703,7 +620,6 @@ statMap = {
 #skillEnd
 
 #skill SuperchargedSlamPlayer
-#startSets
 #set SuperchargedSlamPlayer
 #flags attack area melee
 #mods
@@ -713,32 +629,27 @@ statMap = {
 #skillEnd
 
 #skill TimeOfNeedPlayer
-#startSets
 #set TimeOfNeedPlayer
 #flags duration
 #mods
 #skillEnd
 
 #skill VolcanicFissurePlayer
-#startSets
 #set VolcanicFissurePlayer
 #flags attack area melee duration
 #mods
 #skillEnd
 
 #skill ShockGrenadePlayer
-#startSets
 #set ShockGrenadePlayer
 #flags attack area projectile duration
 #mods
 #skillEnd
 
 #skill WarBannerReservationPlayer
-#startSets
 #skillEnd
 
 #skill WarBannerPlayer
-#startSets
 #set WarBannerPlayer
 #flags
 #mods

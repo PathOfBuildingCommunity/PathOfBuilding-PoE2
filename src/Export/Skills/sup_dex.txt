@@ -5,7 +5,6 @@
 local skills, mod, flag, skill = ...
 
 #skill SupportFasterProjectilesPlayer
-#startSets
 #set SupportFasterProjectilesPlayer
 statMap = {
 	["support_faster_projectiles_projectile_speed_+%_final"] = {
@@ -16,7 +15,6 @@ statMap = {
 #skillEnd
 
 #skill SupportAmmoConservationPlayer
-#startSets
 #set SupportAmmoConservationPlayer
 statMap = {
 	["crossbow_attack_%_chance_to_not_consume_ammo"] = {
@@ -27,19 +25,16 @@ statMap = {
 #skillEnd
 
 #skill SupportBlindPlayer
-#startSets
 #set SupportBlindPlayer
 #mods
 #skillEnd
 
 #skill SupportDazedBreakPlayer
-#startSets
 #set SupportDazedBreakPlayer
 #mods
 #skillEnd
 
 #skill SupportAdditionalAccuracyPlayer
-#startSets
 #set SupportAdditionalAccuracyPlayer
 statMap = {
 	["support_additional_accurary_rating_+%_final"] = {
@@ -50,18 +45,15 @@ statMap = {
 #skillEnd
 
 #skill SupportBurstingPlaguePlayer
-#startSets
 #set SupportBurstingPlaguePlayer
 #mods
 #skillEnd
 #skill PlagueBurstPlayer
-#startSets
 #set PlagueBurstPlayer
 #mods
 #skillEnd
 
 #skill SupportChainPlayer
-#startSets
 #set SupportChainPlayer
 statMap = {
 	["support_chain_hit_damage_+%_final"] = {
@@ -72,7 +64,6 @@ statMap = {
 #skillEnd
 
 #skill SupportCloseCombatPlayer
-#startSets
 #set SupportCloseCombatPlayer
 statMap = {
 	["support_close_combat_attack_damage_+%_final_from_distance"] = {
@@ -83,13 +74,11 @@ statMap = {
 #skillEnd
 
 #skill SupportComboFinisherPlayer
-#startSets
 #set SupportComboFinisherPlayer
 #mods
 #skillEnd
 
 #skill SupportMultiplePoisonPlayer
-#startSets
 #set SupportMultiplePoisonPlayer
 statMap = {
 	["support_multi_poison_poison_duration_+%_final"] = {
@@ -104,7 +93,6 @@ statMap = {
 #skillEnd
 
 #skill SupportChanceToShockPlayer
-#startSets
 #set SupportChanceToShockPlayer
 statMap = {
 	["support_conduction_chance_to_shock_+%_final"] = {
@@ -115,19 +103,16 @@ statMap = {
 #skillEnd
 
 #skill SupportCorrosionPlayer
-#startSets
 #set SupportCorrosionPlayer
 #mods
 #skillEnd
 
 #skill SupportCrescendoPlayer
-#startSets
 #set SupportCrescendoPlayer
 #mods
 #skillEnd
 
 #skill SupportCullingStrikePlayer
-#startSets
 #set SupportCullingStrikePlayer
 statMap = {
 	["support_culling_strike_vs_rare_or_unique_enemy"] = {
@@ -139,13 +124,11 @@ statMap = {
 #skillEnd
 
 #skill SupportCulminationPlayer
-#startSets
 #set SupportCulminationPlayer
 #mods
 #skillEnd
 
 #skill SupportDeadlyPoisonPlayer
-#startSets
 #set SupportDeadlyPoisonPlayer
 statMap = {
 	["support_deadly_poison_hit_damage_+%_final"] = {
@@ -159,7 +142,6 @@ statMap = {
 #skillEnd
 
 #skill SupportSlowerProjectilesPlayer
-#startSets
 #set SupportSlowerProjectilesPlayer
 statMap = {
 	["support_slower_projectiles_projectile_speed_+%_final"] = {
@@ -170,31 +152,26 @@ statMap = {
 #skillEnd
 
 #skill SupportDazingPlayer
-#startSets
 #set SupportDazingPlayer
 #mods
 #skillEnd
 
 #skill SupportElectrocutePlayer
-#startSets
 #set SupportElectrocutePlayer
 #mods
 #skillEnd
 
 #skill SupportEncumberancePlayer
-#startSets
 #set SupportEncumberancePlayer
 #mods
 #skillEnd
 
 #skill SupportChanceToPoisonPlayer
-#startSets
 #set SupportChanceToPoisonPlayer
 #mods
 #skillEnd
 
 #skill SupportFerocityPlayer
-#startSets
 #set SupportFerocityPlayer
 statMap = {
 	["skill_consume_frenzy_charge_to_gain_skill_speed_+%_final"] = {
@@ -205,7 +182,6 @@ statMap = {
 #skillEnd
 
 #skill SupportForkPlayer
-#startSets
 #set SupportForkPlayer
 statMap = {
 	["support_fork_forked_projectile_damage_+%_final"] = {
@@ -216,7 +192,6 @@ statMap = {
 #skillEnd
 
 #skill SupportCooldownReductionPlayer
-#startSets
 #set SupportCooldownReductionPlayer
 statMap = {
 	["support_cooldown_reduction_cooldown_recovery_+%"] = {
@@ -227,7 +202,6 @@ statMap = {
 #skillEnd
 
 #skill SupportInnervatePlayer
-#startSets
 #set SupportInnervatePlayer
 statMap = {
 	["support_innervate_buff_grant_%_added_lightning_attack_damage"] = {
@@ -242,7 +216,6 @@ statMap = {
 #skillEnd
 
 #skill SupportLastingShockPlayer
-#startSets
 #set SupportLastingShockPlayer
 statMap = {
 	["support_lasting_shock_chance_to_shock_+%_final"] = {
@@ -253,31 +226,26 @@ statMap = {
 #skillEnd
 
 #skill SupportLeveragePlayer
-#startSets
 #set SupportLeveragePlayer
 #mods
 #skillEnd
 
 #skill SupportLifeFlaskPlayer
-#startSets
 #set SupportLifeFlaskPlayer
 #mods
 #skillEnd
 
 #skill SupportLifeOnCullPlayer
-#startSets
 #set SupportLifeOnCullPlayer
 #mods
 #skillEnd
 
 #skill SupportLightningExposurePlayer
-#startSets
 #set SupportLightningExposurePlayer
 #mods
 #skillEnd
 
 #skill SupportAddedLightningDamagePlayer
-#startSets
 #set SupportAddedLightningDamagePlayer
 statMap = {
 	["support_cold_and_fire_damage_+%_final"] = {
@@ -289,19 +257,16 @@ statMap = {
 #skillEnd
 
 #skill SupportLightningPenetrationPlayer
-#startSets
 #set SupportLightningPenetrationPlayer
 #mods
 #skillEnd
 
 #skill SupportLockdownPlayer
-#startSets
 #set SupportLockdownPlayer
 #mods
 #skillEnd
 
 #skill SupportFarCombatPlayer
-#startSets
 #set SupportFarCombatPlayer
 statMap = {
 	["support_far_combat_attack_damage_+%_final_from_distance"] = {
@@ -312,19 +277,16 @@ statMap = {
 #skillEnd
 
 #skill SupportMaimPlayer
-#startSets
 #set SupportMaimPlayer
 #mods
 #skillEnd
 
 #skill SupportManaFlaskPlayer
-#startSets
 #set SupportManaFlaskPlayer
 #mods
 #skillEnd
 
 #skill SupportFasterAttackPlayer
-#startSets
 #set SupportFasterAttackPlayer
 statMap = {
 	["support_faster_attacks_attack_speed_+%_final"] = {
@@ -335,13 +297,11 @@ statMap = {
 #skillEnd
 
 #skill SupportMobilityPlayer
-#startSets
 #set SupportMobilityPlayer
 #mods
 #skillEnd
 
 #skill SupportMomentumPlayer
-#startSets
 #set SupportMomentumPlayer
 statMap = {
 	["support_momnetum_damage_+%_final_with_momentum"] = {
@@ -352,7 +312,6 @@ statMap = {
 #skillEnd
 
 #skill SupportEmpoweredCullPlayer
-#startSets
 #set SupportEmpoweredCullPlayer
 statMap = {
 	["support_empowered_culling_strike"] = {
@@ -364,19 +323,16 @@ statMap = {
 #skillEnd
 
 #skill SupportNeuralOverloadPlayer
-#startSets
 #set SupportNeuralOverloadPlayer
 #mods
 #skillEnd
 
 #skill SupportNimbleReloadPlayer
-#startSets
 #set SupportNimbleReloadPlayer
 #mods
 #skillEnd
 
 #skill SupportIncreaseLimitPlayer
-#startSets
 #set SupportIncreaseLimitPlayer
 statMap = {
 	["support_limit_skill_effect_duration_+%_final"] = {
@@ -387,43 +343,36 @@ statMap = {
 #skillEnd
 
 #skill SupportOverchargePlayer
-#startSets
 #set SupportOverchargePlayer
 #mods
 #skillEnd
 
 #skill SupportPayloadPlayer
-#startSets
 #set SupportPayloadPlayer
 #mods
 #skillEnd
 
 #skill SupportPerpetualChargePlayer
-#startSets
 #set SupportPerpetualChargePlayer
 #mods
 #skillEnd
 
 #skill SupportPiercePlayer
-#startSets
 #set SupportPiercePlayer
 #mods
 #skillEnd
 
 #skill SupportPinPlayer
-#startSets
 #set SupportPinPlayer
 #mods
 #skillEnd
 
 #skill SupportPracticedComboPlayer
-#startSets
 #set SupportPracticedComboPlayer
 #mods
 #skillEnd
 
 #skill SupportPrecisionPlayer
-#startSets
 #set SupportPrecisionPlayer
 statMap = {
 	["support_precision_accuracy_rating_+%"] = {
@@ -434,19 +383,16 @@ statMap = {
 #skillEnd
 
 #skill SupportMultipleChargesPlayer
-#startSets
 #set SupportMultipleChargesPlayer
 #mods
 #skillEnd
 
 #skill SupportRicochetPlayer
-#startSets
 #set SupportRicochetPlayer
 #mods
 #skillEnd
 
 #skill SupportMultipleProjectilesPlayer
-#startSets
 #set SupportMultipleProjectilesPlayer
 statMap = {
 	["support_multiple_damage_+%_final"] = {
@@ -460,19 +406,16 @@ statMap = {
 #skillEnd
 
 #skill SupportSecondWindPlayer
-#startSets
 #set SupportSecondWindPlayer
 #mods
 #skillEnd
 
 #skill SupportManaOnCullPlayer
-#startSets
 #set SupportManaOnCullPlayer
 #mods
 #skillEnd
 
 #skill SupportSwiftAfflictionPlayer
-#startSets
 #set SupportSwiftAfflictionPlayer
 statMap = {
 	["support_rapid_decay_damage_over_time_+%_final"] = {
@@ -483,18 +426,15 @@ statMap = {
 #skillEnd
 
 #skill SupportKnockbackWavePlayer
-#startSets
 #set SupportKnockbackWavePlayer
 #mods
 #skillEnd
 #skill KnockbackWavePlayer
-#startSets
 #set KnockbackWavePlayer
 #mods
 #skillEnd
 
 #skill SupportWindowOfOpportunityPlayer
-#startSets
 #set SupportWindowOfOpportunityPlayer
 statMap = {
 	["support_window_of_opportunity_perfect_timing_damage_+%_final"] = {

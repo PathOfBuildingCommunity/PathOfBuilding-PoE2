@@ -216,9 +216,6 @@ local gems = { }
 local trueGemNames = { }
 
 local directiveTable = { }
-local fromSpec = nil
-local minionList = nil
-
 
 local whiteListStat = {
 	["is_area_damage"] = true,
@@ -251,11 +248,11 @@ function checkModInStatDescription(statDescription, line)
 			stat = newStat
 		end
 
-		if stat[line] then
+		if stat and stat[line] then
 			return true
 		end
 
-		if stat.parent then
+		if stat and stat.parent then
 			searchIn = stat.parent
 		else
 			searchIn = ""
@@ -354,20 +351,20 @@ directiveTable.skill = function(state, args, out)
 		out:write('\tname = "', displayName, '",\n')
 		out:write('\thidden = true,\n')
 	end
-	if fromSpec then
-		out:write('\tfrom' .. fromSpec:gsub("^%l", string.upper) .. ' = true,\n')
+	if state.fromSpec then
+		out:write('\tfrom' .. state.fromSpec:gsub("^%l", string.upper) .. ' = true,\n')
 	end
-	if minionList then
+	if state.minionList then
 		out:write('\tminionList = {\n')
-		for _, minion in ipairs(minionList) do
+		for _, minion in ipairs(state.minionList) do
 			out:write('\t\t"', minion, '",\n')
 		end
 		out:write('\t},\n')
 	end
 	state.noGem = false
 	skill.baseFlags = { }
-	skill.baseConstantStats = { }
-	skill.baseStats = { }
+	skill.baseStatRow = { }
+	skill.baseGrantedEffectStatSet = { }
 	skill.levels = { }
 	skill.sets = { }
 	skill.setIndex = 1
@@ -386,6 +383,7 @@ directiveTable.skill = function(state, args, out)
 	for indx = 1, #perLevel do
 		local levelRow = perLevel[indx]
 		local statRow = statsPerLevel[indx]
+		skill.baseStatRow[indx] = statRow
 		local level = { extra = { }, cost = { } }
 		level.level = levelRow.Level
 		level.extra.levelRequirement = math.max(gemLevelProgression and gemLevelProgression[indx] and gemLevelProgression[indx].PlayerLevel or 0, nextGemLevelReqValue)
@@ -578,19 +576,29 @@ directiveTable.skill = function(state, args, out)
 	out:write('\t},\n')
 end
 
-directiveTable.startSets = function(state, args, out)
-	out:write('\tstatSets = {\n')
+directiveTable.skillEnd = function(state, args, out)
+	if next(state.skill.sets) ~= nil then
+		out:write('\t}\n')
+	end
+	out:write('}')
+	state.skill = nil
+	state.fromSpec = nil
+	state.minionList = nil
 end
 
 -- #set <GrantedEffectStatSetsId>
 -- Initialises the statSet data and emits information pertaining to statSet 
 directiveTable.set = function(state, args, out)
 	local statSetId = args
-	local grantedEffectStatSet = dat("GrantedEffectStatSets"):GetRow("Id", statSetId)
-	local statsPerLevel = dat("GrantedEffectStatSetsPerLevel"):GetRowList("GrantedEffectStatSets", grantedEffectStatSet)
+	local originalGrantedEffectStatSet = dat("GrantedEffectStatSets"):GetRow("Id", statSetId)
+	local grantedEffectStatSet = copyTableSafe(originalGrantedEffectStatSet, false, true)
+	local statsPerLevel = copyTableSafe(dat("GrantedEffectStatSetsPerLevel"):GetRowList("GrantedEffectStatSets", originalGrantedEffectStatSet), false, true)
 	local label = grantedEffectStatSet.LabelType and grantedEffectStatSet.LabelType.Label or state.skill.displayName
 	local set = { }
 	local skill = state.skill
+	if next(skill.sets) == nil then
+		out:write('\tstatSets = {\n')
+	end
 	skill.sets[args] = set
 	state.set = set
 	set.baseFlags = { }
@@ -598,12 +606,26 @@ directiveTable.set = function(state, args, out)
 	set.levels = { }
 	set.stats = { }
 	set.constantStats = { }
+	set.removeStats = { }
+	for k, v in pairs(grantedEffectStatSet.RemoveStats) do
+		set.removeStats[k] = v.Id
+	end
+
+	if state.skill.setIndex == 1 then
+		skill.baseGrantedEffectStatSet = grantedEffectStatSet
+	else
+		-- For stat sets after the first we merge the base set with the current set
+		grantedEffectStatSet.ImplicitStats = tableConcat(skill.baseGrantedEffectStatSet.ImplicitStats, grantedEffectStatSet.ImplicitStats)
+		grantedEffectStatSet.ConstantStats = tableConcat(skill.baseGrantedEffectStatSet.ConstantStats, grantedEffectStatSet.ConstantStats)
+		grantedEffectStatSet.ConstantStatsValues = tableConcat(skill.baseGrantedEffectStatSet.ConstantStatsValues, grantedEffectStatSet.ConstantStatsValues)
+	end
 	
 	local statMap = { }
 	local statMapOrder = {}
 
 	for indx = 1, #statsPerLevel do
 		local statRow = statsPerLevel[indx]
+		local baseStatRow = skill.baseStatRow[indx]
 		local level = { extra = { }, statInterpolation = { }, actorLevel = 1 } 
 		level.level = statRow.GemLevel
 		-- stat based level info
@@ -622,12 +644,30 @@ directiveTable.set = function(state, args, out)
 			end
 			level.extra.baseMultiplier = statRow.BaseMultiplier / 10000 + 1
 		end
+		if state.skill.setIndex ~= 1 then
+			-- For stat sets after the first we merge the base set with the current set
+			statRow.BaseResolvedValues = tableConcat(baseStatRow.BaseResolvedValues, statRow.BaseResolvedValues)
+			statRow.FloatStats = tableConcat(baseStatRow.FloatStats, statRow.FloatStats)
+			statRow.FloatStatsValues = tableConcat(baseStatRow.FloatStatsValues, statRow.FloatStatsValues)
+			statRow.StatInterpolations = tableConcat(baseStatRow.StatInterpolations, statRow.StatInterpolations)
+			statRow.InterpolationBases = tableConcat(baseStatRow.InterpolationBases, statRow.InterpolationBases)
+			statRow.AdditionalStats = tableConcat(baseStatRow.AdditionalStats, statRow.AdditionalStats)
+			statRow.AdditionalStatsValues = tableConcat(baseStatRow.AdditionalStatsValues, statRow.AdditionalStatsValues)
+		end
 		level.statInterpolation = statRow.StatInterpolations
 		level.actorLevel = statRow.ActorLevel
-		local resolveInterpolation = false
+		local tempRemoveStats = copyTable(set.removeStats, true)
+		local resolveInterpolation = true
 		local injectConstantValuesIntoEachLevel = false
 		local statMapOrderIndex = 1
 		for i, stat in ipairs(statRow.FloatStats) do
+			for k, v in pairs(tempRemoveStats) do
+				if stat.Id == v then
+					statRow.BaseResolvedValues[i] = 0 -- Set the removed stat value to zero, but would be better if we could remove the value and the corresponding statInterpolation value too
+					table.remove(tempRemoveStats, k) -- Only remove the first stat which will be from the copied base set and not the current set
+					break
+				end
+			end
 			if not statMap[stat.Id] or indx == 1 then
 				statMap[stat.Id] = #set.stats + 1
 				table.insert(set.stats, { id = stat.Id })
@@ -646,13 +686,18 @@ directiveTable.set = function(state, args, out)
 					statMapOrderIndex = statMapOrderIndex + 1
 				end
 			end
-			statMapOrderIndex = statMapOrderIndex + 1
-			if resolveInterpolation then
+			if resolveInterpolation and #statsPerLevel > 1 then -- Don't resolve values for minion skills as it will break them
 				table.insert(level, statRow.BaseResolvedValues[i])
-				level.statInterpolation[statMapOrderIndex] = 1
+				if state.skill.setIndex ~= 1 then
+					-- Modify the correct statInterpolation value in the current set by offsetting the value from the count in the base set
+					level.statInterpolation[#level] = 1
+				else
+					level.statInterpolation[statMapOrderIndex] = 1
+				end
 			else
 				table.insert(level, statRow.FloatStatsValues[i] / math.max(statRow.InterpolationBases[i].Value, 0.00001) )
 			end
+			statMapOrderIndex = statMapOrderIndex + 1
 		end
 		if injectConstantValuesIntoEachLevel then
 			for i, stat in ipairs(grantedEffectStatSet.ConstantStats) do
@@ -680,6 +725,13 @@ directiveTable.set = function(state, args, out)
 			end
 		end
 		for i, stat in ipairs(statRow.AdditionalStats) do
+			for k, v in pairs(tempRemoveStats) do
+				if stat.Id == v then
+					statRow.BaseResolvedValues[i] = 0 -- Set the removed stat value to zero, but would be better if we could remove the value and the corresponding statInterpolation value too
+					table.remove(tempRemoveStats, k) -- Only remove the first stat which will be from the copied base set and not the current set
+					break
+				end
+			end
 			if not statMap[stat.Id] then
 				statMap[stat.Id] = #set.stats + 1
 				table.insert(set.stats, { id = stat.Id })
@@ -698,62 +750,60 @@ directiveTable.set = function(state, args, out)
 					statMapOrderIndex = statMapOrderIndex + 1
 				end
 			end
-			statMapOrderIndex = statMapOrderIndex + 1
 			table.insert(level, statRow.AdditionalStatsValues[i])
+			level.statInterpolation[statMapOrderIndex] = 1
+			statMapOrderIndex = statMapOrderIndex + 1
 		end
 		for i, stat in ipairs(statRow.AdditionalBooleanStats) do
-			if not statMap[stat.Id] then
-				statMap[stat.Id] = #set.stats + 1
-				table.insert(set.stats, { id = stat.Id })
+			local copy = true
+			for k, v in pairs(tempRemoveStats) do
+				if stat.Id == v then
+					copy = false
+					table.remove(tempRemoveStats, k)
+					break
+				end
+			end
+			if copy then
+				if not statMap[stat.Id] then
+					statMap[stat.Id] = #set.stats + 1
+					table.insert(set.stats, { id = stat.Id })
+				end
 			end
 		end
 		table.insert(set.levels, level)
 	end
 	if grantedEffectStatSet and grantedEffectStatSet.ImplicitStats then
 		for i, stat in ipairs(grantedEffectStatSet.ImplicitStats) do
-			if not statMap[stat.Id] then
-				statMap[stat.Id] = #set.stats + 1
-				table.insert(set.stats, { id = stat.Id })
+			local copy = true
+			for k, v in pairs(set.removeStats) do
+				if stat.Id == v then
+					copy = false
+					table.remove(set.removeStats, k)
+					break
+				end
+			end
+			if copy then
+				if not statMap[stat.Id] then
+					statMap[stat.Id] = #set.stats + 1
+					table.insert(set.stats, { id = stat.Id })
+				end
 			end
 		end
 	end
 	if grantedEffectStatSet and grantedEffectStatSet.ConstantStats then
 		for i, stat in ipairs(grantedEffectStatSet.ConstantStats) do
-			table.insert(set.constantStats, { stat.Id, grantedEffectStatSet.ConstantStatsValues[i] })
-		end
-	end
-	if state.skill.setIndex == 1 then
-		skill.baseConstantStats = set.constantStats
-		skill.baseStats = set.stats
-	elseif grantedEffectStatSet and next(grantedEffectStatSet.RemoveStats) ~= nil then
-		-- If a stat exists in RemoveStats we need to not copy the value from baseConstantStats and add it to set.constantStats
-		for _, stat in ipairs(skill.baseConstantStats) do
 			local copy = true
-			for k, v in pairs(grantedEffectStatSet.RemoveStats) do
-				if stat[1] == v.Id then
+			for k, v in pairs(set.removeStats) do
+				if stat.Id == v then
 					copy = false
+					table.remove(set.removeStats, k)
 					break
 				end
 			end
 			if copy then
-				table.insert(set.constantStats, stat)
+				table.insert(set.constantStats, { stat.Id, grantedEffectStatSet.ConstantStatsValues[i] })
 			end
 		end
-		for _, stat in ipairs(skill.baseStats) do
-			local copy = true
-			for k, v in pairs(grantedEffectStatSet.RemoveStats) do
-				if stat.id == v.Id then
-					copy = false
-					break
-				end
-			end
-			if copy then
-				table.insert(set.stats, stat)
-			end
-		end
-	else
-		set.constantStats = tableConcat(set.constantStats, skill.baseConstantStats)
-		set.stats = tableConcat(set.stats, skill.baseStats)
 	end
 
 	-- Emitting statSet data
@@ -782,16 +832,15 @@ end
 -- #from <tree | item>
 -- Sets an optional from specifier if skill is granted by tree or item
 directiveTable.from = function(state, args, out)
-	fromSpec = args
+	state.fromSpec = args
 end
 
 -- #minionList <minion>[ <minion>[...]]
 -- Sets the minion list for this active set
 directiveTable.minionList = function(state, args, out)
-	local set = state.set
-	minionList = { }
+	state.minionList = { }
 	for minion in args:gmatch("%a+") do
-		table.insert(minionList, minion)
+		table.insert(state.minionList, minion)
 	end
 end
 
@@ -900,14 +949,6 @@ directiveTable.mods = function(state, args, out)
 		end
 	end
 	state.set = nil
-end
-
-directiveTable.skillEnd = function(state, args, out)
-	out:write('\t}\n')
-	out:write('}')
-	state.skill = nil
-	fromSpec = nil
-	minionList = nil
 end
 
 for _, name in pairs({"act_str","act_dex","act_int","other","minion","sup_str","sup_dex","sup_int"}) do

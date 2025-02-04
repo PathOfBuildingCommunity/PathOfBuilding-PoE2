@@ -372,6 +372,7 @@ local sheets = {
 	newSheet("oils", defaultMaxWidth, 100),
 	newSheet("lines", defaultMaxWidth, 100),
 	newSheet("jewelsockets", defaultMaxWidth, 100),
+	newSheet("legion", defaultMaxWidth, 100),
 }
 local sheetLocations = {
 	["skills"] = 1,
@@ -383,6 +384,7 @@ local sheetLocations = {
 	["oils"] = 7,
 	["lines"] = 8,
 	["jewelsockets"] = 9,
+	["legion"] = 10,
 }
 local function getSheet(sheetLocation)
 	return sheets[sheetLocations[sheetLocation]]
@@ -503,6 +505,32 @@ for jewel in jewelArt:Rows() do
 	printf("Adding jewel socket " .. jewel.Item.Name .. " " .. asset.path .. " to sprite")
 	local name = jewel.Item.Name
 	addToSheet(getSheet("jewelsockets"), asset.path, "jewelpassive", commonMetadata(name))
+end
+
+-- adding legion assets
+for legion in dat("AlternatePassiveSkills"):Rows() do
+	addToSheet(getSheet("legion"), legion.DDSIcon, "legion", commonMetadata(legion.DDSIcon))
+end
+
+
+local artsToLegion = {
+	"Art/2DArt/UIImages/InGame/PassiveSkillScreenMarakethJewelCircle2",
+	"Art/2DArt/UIImages/InGame/PassiveSkillScreenKalguuranJewelCircle1",
+	"Art/2DArt/UIImages/InGame/PassiveSkillScreenKaruiJewelCircle2",
+	"Art/2DArt/UIImages/InGame/PassiveSkillScreenEternalEmpireJewelCircle1",
+	"Art/2DArt/UIImages/InGame/PassiveSkillScreenEternalEmpireJewelCircle2",
+	"Art/2DArt/UIImages/InGame/PassiveSkillScreenTemplarJewelCircle2",
+	"Art/2DArt/UIImages/InGame/PassiveSkillScreenTemplarJewelCircle1",
+	"Art/2DArt/UIImages/InGame/PassiveSkillScreenVaalJewelCircle2",
+	"Art/2DArt/UIImages/InGame/PassiveSkillScreenKalguuranJewelCircle2",
+	"Art/2DArt/UIImages/InGame/PassiveSkillScreenKaruiJewelCircle1",
+	"Art/2DArt/UIImages/InGame/PassiveSkillScreenVaalJewelCircle1",
+	"Art/2DArt/UIImages/InGame/PassiveSkillScreenMarakethJewelCircle1"
+}
+
+for _, art in ipairs(artsToLegion) do
+	local asset = uiImages[string.lower(art)]
+	addToSheet(getSheet("legion"), asset.path, "legion", commonMetadata(asset.path))
 end
 
 local tree = {

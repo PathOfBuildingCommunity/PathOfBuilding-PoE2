@@ -1838,6 +1838,10 @@ return {
 ["base_cast_speed_+%"] = {
 	mod("Speed", "INC", nil, ModFlag.Cast),
 },
+["added_cast_time_ms"] = {
+	mod("TotalCastTime", "BASE", nil),
+	div = 1000,
+},
 ["active_skill_cast_speed_+%_final"] = {
 	mod("Speed", "MORE", nil, ModFlag.Cast),
 },
