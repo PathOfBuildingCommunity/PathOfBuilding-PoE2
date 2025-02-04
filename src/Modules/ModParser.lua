@@ -3926,13 +3926,9 @@ local specialModList = {
 	["(%d+)%% increased minion movement speed per (%d+) dexterity"] = function(num, _, div) return { mod("MinionModifier", "LIST", { mod = mod("MovementSpeed", "INC", num) }, { type = "PerStat", stat = "Dex", div = tonumber(div) }) } end,
 	["minions deal (%d+)%% increased damage per (%d+) dexterity"] = function(num, _, div) return { mod("MinionModifier", "LIST", { mod = mod("Damage", "INC", num) }, { type = "PerStat", stat = "Dex", div = tonumber(div) }) } end,
 	["minions' resistances are equal to yours"] = function() return {
-		mod("MinionModifier", "LIST", { mod = mod("FireResistMax", "OVERRIDE", 1, { type = "PerStat", stat = "FireResist", actor = "parent" }) }),
 		mod("MinionModifier", "LIST", { mod = mod("FireResist", "OVERRIDE", 1, { type = "PerStat", stat = "FireResist", actor = "parent" }) }),
-		mod("MinionModifier", "LIST", { mod = mod("ColdResistMax", "OVERRIDE", 1, { type = "PerStat", stat = "ColdResist", actor = "parent" }) }),
 		mod("MinionModifier", "LIST", { mod = mod("ColdResist", "OVERRIDE", 1, { type = "PerStat", stat = "ColdResist", actor = "parent" }) }),
-		mod("MinionModifier", "LIST", { mod = mod("LightningResistMax", "OVERRIDE", 1, { type = "PerStat", stat = "LightningResist", actor = "parent" }) }),
 		mod("MinionModifier", "LIST", { mod = mod("LightningResist", "OVERRIDE", 1, { type = "PerStat", stat = "LightningResist", actor = "parent" }) }),
-		mod("MinionModifier", "LIST", { mod = mod("ChaosResistMax", "OVERRIDE", 1, { type = "PerStat", stat = "ChaosResist", actor = "parent" }) }),
 		mod("MinionModifier", "LIST", { mod = mod("ChaosResist", "OVERRIDE", 1, { type = "PerStat", stat = "ChaosResist", actor = "parent" }) }),
 	} end,
 	["minions have (%d+)%% chance to deal double damage while they are on full life"] = function(num) return { mod("MinionModifier", "LIST", { mod = mod("DoubleDamageChance", "BASE", num, { type = "Condition", var = "FullLife" }) }) } end,
