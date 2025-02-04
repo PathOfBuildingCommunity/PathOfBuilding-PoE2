@@ -1623,7 +1623,7 @@ return {
 	{ label = "Avoid Chaos Chance", haveOutput = "AvoidChaosDamageChance", { format = "{0:output:AvoidChaosDamageChance}%", { modName = "AvoidChaosDamageChance" }, }, },
 	{ label = "Avoid Proj Ch.", haveOutput = "AvoidProjectilesChance", { format = "{0:output:AvoidProjectilesChance}%", { modName = "AvoidProjectilesChance" }, }, },
 } }, { defaultCollapsed = false, label = "Block", data = {
-	extra = "{0:output:EffectiveBlockChance}%/{0:output:EffectiveSpellBlockChance}%",
+	extra = "{0:output:EffectiveBlockChance}%",
 	{ label = "Block Chance", { format = "{0:output:BlockChance}% (+{0:output:BlockChanceOverCap}%)",
 		{ breakdown = "BlockChance" },
 		{ modName = { "BlockChance", "ReplaceShieldBlock" } }, 
