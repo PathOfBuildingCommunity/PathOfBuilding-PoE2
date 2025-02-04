@@ -3204,7 +3204,7 @@ function calcs.offence(env, actor, activeSkill)
 									ChanceToIgnoreEnemyPhysicalDamageReduction = 0
 								end
 							end
-							if skillModList:Flag(cfg, "IgnoreEnemyPhysicalDamageReduction") or ChanceToIgnoreEnemyPhysicalDamageReduction >= 100 or enemyDB:Flag(cfg, "Condition:ArmourBroken") then
+							if skillModList:Flag(cfg, "IgnoreEnemyPhysicalDamageReduction") or ChanceToIgnoreEnemyPhysicalDamageReduction >= 100 or enemyDB:Flag(cfg, "Condition:ArmourFullyBroken") then
 								resist = 0
 							else
 								resist = m_min(m_max(0, enemyDB:Sum("BASE", nil, "PhysicalDamageReduction") + skillModList:Sum("BASE", cfg, "EnemyPhysicalDamageReduction") + armourReduction), data.misc.DamageReductionCap)
