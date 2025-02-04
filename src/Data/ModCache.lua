@@ -2844,9 +2844,9 @@ c["Iron Will"]={{[1]={[1]={div=2,stat="Str",type="PerStat"},flags=1025,keywordFl
 c["Knocks Back Enemies if you get a Critical Hit with a Quarterstaff"]={{[1]={[1]={type="Condition",var="CriticalStrike"},flags=2097152,keywordFlags=0,name="EnemyKnockbackChance",type="BASE",value=100}},nil}
 c["Leech 5% of Physical Attack Damage as Life"]={nil,"Leech 5% of Physical Attack Damage as Life "}
 c["Leech 5% of Physical Attack Damage as Life You gain Onslaught for 4 seconds on Kill"]={nil,"Leech 5% of Physical Attack Damage as Life You gain Onslaught for 4 seconds on Kill "}
-c["Leech Life 15% faster"]={nil,"Leech Life 15% faster "}
+c["Leech Life 15% faster"]={{[1]={flags=0,keywordFlags=0,name="LifeLeechRate",type="INC",value=15}},nil}
 c["Leech Life 20% slower"]={{[1]={flags=0,keywordFlags=0,name="LifeLeechRate",type="INC",value=-20}},nil}
-c["Leech Life 25% faster"]={nil,"Leech Life 25% faster "}
+c["Leech Life 25% faster"]={{[1]={flags=0,keywordFlags=0,name="LifeLeechRate",type="INC",value=25}},nil}
 c["Leech Life 5% slower"]={{[1]={flags=0,keywordFlags=0,name="LifeLeechRate",type="INC",value=-5}},nil}
 c["Leech from Critical Hits is instant"]={nil,"Leech from Critical Hits is instant "}
 c["Leeches 1% of maximum Life when you Cast a Spell"]={nil,"Leeches 1% of maximum Life when you Cast a Spell "}

@@ -2080,6 +2080,7 @@ local specialModList = {
 	},
 	["(%d+)%% increased amount of life leeched"] = function(num) return{ mod("MaxLifeLeechRate", "INC", num)} end,
 	["leech life (%d+)%% slower"] = function(num) return {mod("LifeLeechRate", "INC", -num)} end,
+	["leech life (%d+)%% faster"] = function(num) return {mod("LifeLeechRate", "INC", num)} end,
 	["life regeneration is applied to energy shield instead"] = { flag("ZealotsOath") },
 	["excess life recovery from regeneration is applied to energy shield"] = { flag("ZealotsOath", { type = "Condition", var = "FullLife" }) },
 	["life leeched per second is doubled"] = { mod("LifeLeechRate", "MORE", 100) },
