@@ -3245,7 +3245,7 @@ function calcs.offence(env, actor, activeSkill)
 								end
 								sourceRes = elementUsed
 							elseif isElemental[damageType] then
-								if resist > 0 and modDB:Flag(cfg, "CritsIgnoreNonNegativeEleRes") then
+								if resist > 0 and modDB:Flag(cfg, "IgnoreNonNegativeEleRes") then
 									resist = 0
 								end
 								pen = skillModList:Sum("BASE", cfg, damageType.."Penetration", "ElementalPenetration")
