@@ -773,7 +773,7 @@ function calcs.actionSpeedMod(actor)
 	-- if we are unaffected by slows, only count the positive modifiers to action speed
 	if modDB:Flag(nil, "UnaffectedBySlows") then
 		local actionSpeedSum = sumPositiveValues(modDB, "ActionSpeed")
-		local tempChainsSum = sumPositiveValues(modDB, "TemporalChainsActionSpeed")
+		local tempChainsSum = m_max(-data.misc.TemporalChainsEffectCap, sumPositiveValues(modDB, "TemporalChainsActionSpeed"))
 		actionSpeedMod = 1 + (tempChainsSum + actionSpeedSum) / 100
 	else
 	    actionSpeedMod = 1 + (m_max(-data.misc.TemporalChainsEffectCap, modDB:Sum("INC", nil, "TemporalChainsActionSpeed")) + modDB:Sum("INC", nil, "ActionSpeed")) / 100
