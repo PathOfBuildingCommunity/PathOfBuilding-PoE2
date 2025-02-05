@@ -541,7 +541,7 @@ c["+45 to Strength"]={{[1]={flags=0,keywordFlags=0,name="Str",type="BASE",value=
 c["+5 to Dexterity"]={{[1]={flags=0,keywordFlags=0,name="Dex",type="BASE",value=5}},nil}
 c["+5 to Dexterity and Intelligence"]={{[1]={flags=0,keywordFlags=0,name="Dex",type="BASE",value=5},[2]={flags=0,keywordFlags=0,name="Int",type="BASE",value=5},[3]={flags=0,keywordFlags=0,name="DexInt",type="BASE",value=5}},nil}
 c["+5 to Intelligence"]={{[1]={flags=0,keywordFlags=0,name="Int",type="BASE",value=5}},nil}
-c["+5 to Maximum Darkness per Level"]={{}," Maximum Darkness  "}
+c["+5 to Maximum Darkness per Level"]={{[1]={[1]={type="Multiplier",var="Level"},flags=0,keywordFlags=0,name="Darkness",type="BASE",value=5}},nil}
 c["+5 to Strength"]={{[1]={flags=0,keywordFlags=0,name="Str",type="BASE",value=5}},nil}
 c["+5 to Strength and Dexterity"]={{[1]={flags=0,keywordFlags=0,name="Str",type="BASE",value=5},[2]={flags=0,keywordFlags=0,name="Dex",type="BASE",value=5},[3]={flags=0,keywordFlags=0,name="StrDex",type="BASE",value=5}},nil}
 c["+5 to Strength and Intelligence"]={{[1]={flags=0,keywordFlags=0,name="Str",type="BASE",value=5},[2]={flags=0,keywordFlags=0,name="Int",type="BASE",value=5},[3]={flags=0,keywordFlags=0,name="StrInt",type="BASE",value=5}},nil}
@@ -813,7 +813,7 @@ c["10% increased chance to Ignite"]={{[1]={flags=0,keywordFlags=0,name="EnemyIgn
 c["10% increased chance to Shock"]={{[1]={flags=0,keywordFlags=0,name="EnemyShockChance",type="INC",value=10}},nil}
 c["10% increased chance to inflict Ailments"]={{[1]={flags=0,keywordFlags=0,name="AilmentChance",type="INC",value=10}},nil}
 c["10% increased effect of Arcane Surge on you"]={{[1]={flags=0,keywordFlags=0,name="ArcaneSurgeEffect",type="INC",value=10}},nil}
-c["10% increased maximum Darkness"]={{}," maximum Darkness "}
+c["10% increased maximum Darkness"]={{[1]={flags=0,keywordFlags=0,name="Darkness",type="INC",value=10}},nil}
 c["10% increased maximum Energy Shield"]={{[1]={[1]={type="Global"},flags=0,keywordFlags=0,name="EnergyShield",type="INC",value=10}},nil}
 c["10% increased maximum Life"]={{[1]={flags=0,keywordFlags=0,name="Life",type="INC",value=10}},nil}
 c["10% less Movement and Skill Speed per Dodge Roll in the past 20 seconds"]={{[1]={flags=0,keywordFlags=0,name="Speed",type="MORE",value=-10},[2]={flags=0,keywordFlags=0,name="WarcrySpeed",type="MORE",value=-10}}," Movement and  per Dodge Roll in the past 20 seconds "}
@@ -2369,10 +2369,7 @@ c["Aura Skills have 1% more Aura Effect per 2% of maximum Mana they Reserve"]={{
 c["Auras from your Skills can only affect you"]={{[1]={flags=0,keywordFlags=0,name="SelfAurasOnlyAffectYou",type="FLAG",value=true}},nil}
 c["Base Critical Hit Chance for Attacks with Weapons is 8%"]={{[1]={flags=0,keywordFlags=0,name="WeaponBaseCritChance",type="OVERRIDE",value=8}},nil}
 c["Base Critical Hit Chance for Spells is 15%"]={{[1]={[1]={skillType=2,type="SkillType"},flags=0,keywordFlags=0,name="CritChanceBase",type="OVERRIDE",value=15}},nil}
-c["Base Maximum Darkness is 100"]={{},"Base Maximum Darkness "}
-c["Base Maximum Darkness is 100 Damage taken is Reserved from Darkness before being taken from Life or Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="DamageTaken",type="OVERRIDE",value=100}},"Base Maximum Darkness  is Reserved from Darkness before being taken from Life or Energy Shield "}
-c["Base Maximum Darkness is 100 Damage taken is Reserved from Darkness before being taken from Life or Energy Shield Darkness Reservation lasts for 10 seconds"]={{[1]={flags=0,keywordFlags=0,name="DamageTaken",type="OVERRIDE",value=100}},"Base Maximum Darkness  is Reserved from Darkness before being taken from Life or Energy Shield Darkness Reservation lasts  "}
-c["Base Maximum Darkness is 100 Damage taken is Reserved from Darkness before being taken from Life or Energy Shield Darkness Reservation lasts for 10 seconds +5 to Maximum Darkness per Level"]={{[1]={[1]={type="Multiplier",var="Level"},flags=0,keywordFlags=0,name="DamageTaken",type="OVERRIDE",value=100}},"Base Maximum Darkness  is Reserved from Darkness before being taken from Life or Energy Shield Darkness Reservation lasts  +5 to Maximum Darkness  "}
+c["Base Maximum Darkness is 100"]={{[1]={flags=0,keywordFlags=0,name="Darkness",type="BASE",value=100}},nil}
 c["Become Ignited when you deal a Critical Hit, taking 15% of your Life and Energy Shield as Fire Damage per second"]={nil,"Become Ignited when you deal a Critical Hit, taking 15% of your Life and Energy Shield as Fire Damage per second "}
 c["Become Ignited when you deal a Critical Hit, taking 15% of your Life and Energy Shield as Fire Damage per second 30% more Critical Damage Bonus"]={nil,"Become Ignited when you deal a Critical Hit, taking 15% of your Life and Energy Shield as Fire Damage per second 30% more Critical Damage Bonus "}
 c["Benefits from consuming Frenzy Charges for your Skills have 50% chance to be doubled"]={nil,"Benefits from consuming Frenzy Charges for your Skills have 50% chance to be doubled "}
@@ -2615,8 +2612,8 @@ c["Energy Shield starts at zero Cannot Recharge or Regenerate Energy Shield Lose
 c["Equipment and Skill Gems have 25% increased Attribute Requirements"]={{[1]={flags=0,keywordFlags=0,name="GlobalAttributeRequirements",type="INC",value=25}},nil}
 c["Equipment and Skill Gems have 4% reduced Attribute Requirements"]={{[1]={flags=0,keywordFlags=0,name="GlobalAttributeRequirements",type="INC",value=-4}},nil}
 c["Equipment and Skill Gems have 50% reduced Attribute Requirements"]={{[1]={flags=0,keywordFlags=0,name="GlobalAttributeRequirements",type="INC",value=-50}},nil}
-c["Every 12 seconds, gain 50% more Cast Speed for 4 seconds"]={{[1]={[1]={effectName="Quicksand Hourglass",effectType="Buff",type="GlobalEffect"},[2]={type="Condition",var="QuicksandHourglass"},flags=16,keywordFlags=0,name="Speed",type="MORE",value="50"},[2]={flags=0,keywordFlags=0,name="Condition:CanGainQuicksandHourglass",type="FLAG",value=true}},nil}
 c["Evasion Rating is increased by Overcapped Lightning Resistance"]={{[1]={flags=0,keywordFlags=0,name="EvasionRatingIncreasedByOvercappedLightningRes",type="FLAG",value=true}},nil}
+c["Every 12 seconds, gain 50% more Cast Speed for 4 seconds"]={{[1]={[1]={effectName="Quicksand Hourglass",effectType="Buff",type="GlobalEffect"},[2]={type="Condition",var="QuicksandHourglass"},flags=16,keywordFlags=0,name="Speed",type="MORE",value="50"},[2]={flags=0,keywordFlags=0,name="Condition:CanGainQuicksandHourglass",type="FLAG",value=true}},nil}
 c["Every 3 seconds during Effect, deal 50% of Mana spent in those seconds as Chaos Damage to Enemies within 3 metres"]={nil,"Every 3 seconds during Effect, deal 50% of Mana spent in those seconds as Chaos Damage to Enemies within 3 metres "}
 c["Every 3 seconds during Effect, deal 50% of Mana spent in those seconds as Chaos Damage to Enemies within 3 metres Recover all Mana when Used"]={nil,"Every 3 seconds during Effect, deal 50% of Mana spent in those seconds as Chaos Damage to Enemies within 3 metres Recover all Mana when Used "}
 c["Every 3 seconds, Consume a nearby Corpse to Recover 20% of Life"]={nil,"Every 3 seconds, Consume a nearby Corpse to Recover 20% of Life "}
@@ -3126,11 +3123,7 @@ c["Remembrancing 8000 songworthy deeds by the line of Olroth"]={{[1]={flags=0,ke
 c["Remembrancing 8000 songworthy deeds by the line of Vorana"]={{[1]={flags=0,keywordFlags=0,name="JewelData",type="LIST",value={key="conqueredBy",value={conqueror={id=1,type="kalguur"},id=8000}}}},nil}
 c["Remove a Curse when you use a Mana Flask"]={nil,"Remove a Curse when you use a Mana Flask "}
 c["Removes all Mana"]={{[1]={flags=0,keywordFlags=0,name="Mana",type="MORE",value=-100}},nil}
-c["Removes all Spirit"]={nil,"Removes all Spirit "}
-c["Removes all Spirit Base Maximum Darkness is 100"]={{[1]={flags=0,keywordFlags=0,name="Spirit",type="OVERRIDE",value=100}},"Removes all  Base Maximum Darkness "}
-c["Removes all Spirit Base Maximum Darkness is 100 Damage taken is Reserved from Darkness before being taken from Life or Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="Spirit",type="OVERRIDE",value=100}},"Removes all  Base Maximum Darkness Damage taken is Reserved from Darkness before being taken from Life or Energy Shield "}
-c["Removes all Spirit Base Maximum Darkness is 100 Damage taken is Reserved from Darkness before being taken from Life or Energy Shield Darkness Reservation lasts for 10 seconds"]={{[1]={flags=0,keywordFlags=0,name="Spirit",type="OVERRIDE",value=100}},"Removes all  Base Maximum Darkness Damage taken is Reserved from Darkness before being taken from Life or Energy Shield Darkness Reservation lasts  "}
-c["Removes all Spirit Base Maximum Darkness is 100 Damage taken is Reserved from Darkness before being taken from Life or Energy Shield Darkness Reservation lasts for 10 seconds +5 to Maximum Darkness per Level"]={{[1]={[1]={type="Multiplier",var="Level"},flags=0,keywordFlags=0,name="Spirit",type="OVERRIDE",value=100}},"Removes all  Base Maximum Darkness Damage taken is Reserved from Darkness before being taken from Life or Energy Shield Darkness Reservation lasts  +5 to Maximum Darkness  "}
+c["Removes all Spirit"]={{[1]={flags=0,keywordFlags=0,name="Spirit",type="MORE",value=-100}},nil}
 c["Reserves 25% of Life"]={{[1]={flags=0,keywordFlags=0,name="ExtraLifeReserved",type="BASE",value=25}},nil}
 c["Right ring slot: Projectiles from Spells Chain +1 times"]={{[1]={[1]={num=2,type="SlotNumber"},flags=1026,keywordFlags=0,name="ChainCountMax",type="BASE",value=1}},nil}
 c["Right ring slot: Projectiles from Spells cannot Fork"]={{[1]={[1]={num=2,type="SlotNumber"},flags=1026,keywordFlags=0,name="CannotFork",type="FLAG",value=true}},nil}

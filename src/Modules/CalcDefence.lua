@@ -63,8 +63,13 @@ function calcs.doActorLifeManaSpirit(actor)
 	output.FullLifePercentage = 100.0 * (fullLifePerc > 0 and fullLifePerc or 1.0)
 
 	output.ChaosInoculation = modDB:Flag(nil, "ChaosInoculation")
-
-	for _, res in ipairs({ "Life", "Mana", "Spirit" }) do
+	
+	--- Calculate Darkness when LifeManaSpirit is calculated
+	local inc = modDB:Sum("INC", nil, "Darkness")
+	local base = modDB:Sum("BASE", nil, "Darkness")
+	output.Darkness = base * (1+inc/100)
+	
+	for _, res in ipairs({ "Life", "Mana", "Spirit"}) do
 		local base = modDB:Sum("BASE", nil, res)
 		local extra = modDB:Sum("BASE", nil, "Extra" .. res)
 		local inc = modDB:Sum("INC", nil, res)

@@ -140,7 +140,8 @@ local modNameList = {
 	["attributes"] = { "Str", "Dex", "Int", "All" },
 	["all attributes"] = { "Str", "Dex", "Int", "All" },
 	["devotion"] = "Devotion",
-	-- Life/Mana/Spirit
+	-- Life/Mana/Spirit/Darkness
+	["maximum darkness"] = "Darkness",
 	["spirit"] = "Spirit",
 	["maximum spirit"] = "Spirit",
 	["life"] = "Life",
@@ -2801,6 +2802,10 @@ local specialModList = {
 	["you gain (%d+)%% increased damage for each trap"] = function(num) return { mod("Damage", "INC", num, { type = "PerStat", stat = "ActiveTrapLimit" }) } end,
 	["you gain (%d+)%% increased area of effect for each mine"] = function(num) return { mod("AreaOfEffect", "INC", num, { type = "PerStat", stat = "ActiveMineLimit" }) } end,
 	["triggers level (%d+) summon triggerbots when allocated"] = { flag("HaveTriggerBots") },
+	-- Acolyte
+	["removes all spirit"] = { mod("Spirit", "MORE", -100) },
+	["base maximum darkness is (%d+)"] =function(num) return { mod("Darkness","BASE",num)}end,
+	["(%d+)%% increased maximum darkness"] = function(num) return{ mod("Darkness", "INC", num)}end,
 	-- Slayer
 	["cannot be stunned while leeching"] = { flag("StunImmune", { type = "Condition", var = "Leeching" }), },
 	["you are immune to bleeding while leeching"] = { flag("BleedImmune", { type = "Condition", var = "Leeching" }), },
