@@ -1289,6 +1289,22 @@ function calcs.initEnv(build, mode, override, specEnv)
 					end
 				end
 				if not group then
+					for _, removeSocketGroup in pairs(build.skillsTab.removedSocketGroupList) do
+						if removeSocketGroup.source == grantedSkill.source and removeSocketGroup.slot == grantedSkill.slotName then
+							if removeSocketGroup.gemList[1] and removeSocketGroup.gemList[1].skillId == grantedSkill.skillId and (removeSocketGroup.gemList[1].level == grantedSkill.level or removeSocketGroup.gemList[1].level == getNormalizedSkillLevel(grantedSkill)) then
+								group = removeSocketGroup
+								break
+							end
+						end
+					end
+
+					if group then
+						build.skillsTab.removedSocketGroupList[group.source] = nil
+						t_insert(build.skillsTab.socketGroupList, group)
+						markList[group] = true
+					end
+				end
+				if not group then
 					-- Create a new group for this skill
 					group = { label = "", enabled = true, gemList = { }, source = grantedSkill.source, slot = grantedSkill.slotName }
 					t_insert(build.skillsTab.socketGroupList, group)
@@ -1364,10 +1380,14 @@ function calcs.initEnv(build, mode, override, specEnv)
 			while build.skillsTab.socketGroupList[i] do
 				local socketGroup = build.skillsTab.socketGroupList[i]
 				if socketGroup.source and not markList[socketGroup] then
-					t_remove(build.skillsTab.socketGroupList, i)
+					build.skillsTab.socketGroupList[i].shown = false
+					local removed = t_remove(build.skillsTab.socketGroupList, i)
 					if build.skillsTab.displayGroup == socketGroup then
 						build.skillsTab.displayGroup = nil
 					end
+
+					-- add in the removed group to the list of groups to be removed
+					build.skillsTab.removedSocketGroupList[removed.source] = removed
 				else
 					i = i + 1
 				end
