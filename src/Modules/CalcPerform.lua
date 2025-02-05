@@ -1,5 +1,4 @@
 -- Path of Building
---package.cpath = package.cpath .. ";c:/Users/Aaron/.vscode/extensions/tangzx.emmylua-0.9.8-win32-x64/debugger/emmy/windows/x86/?.dll"
 
 -- Module: Calc Perform
 -- Manages the offence/defence calculations.
