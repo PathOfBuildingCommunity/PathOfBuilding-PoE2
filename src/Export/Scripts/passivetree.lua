@@ -392,7 +392,7 @@ end
 
 -- Looking for Background2
 printf("Extracting Background2...")
-local bg2 = uiImages["Art/2DArt/UIImages/common/background2"]
+local bg2 = uiImages["art/2dart/uiimages/common/background2"]
 if not bg2 then
 	printf("Background2 not found")
 	goto final
