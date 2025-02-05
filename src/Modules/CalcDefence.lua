@@ -63,7 +63,7 @@ function calcs.doActorLifeManaSpirit(actor)
 	output.FullLifePercentage = 100.0 * (fullLifePerc > 0 and fullLifePerc or 1.0)
 
 	output.ChaosInoculation = modDB:Flag(nil, "ChaosInoculation")
-	
+
 	--- Calculate Darkness when LifeManaSpirit is calculated
 	local inc = modDB:Sum("INC", nil, "Darkness")
 	local base = modDB:Sum("BASE", nil, "Darkness")
