@@ -99,7 +99,7 @@ function GGPKClass:ExtractFiles(reExport)
 			fileList = ''
 		end
 
-		-- Special handlign for stat descriptions (CSD) as they
+		-- Special handling for stat descriptions (CSD) as they
 		-- are regex based
 		for _, fname in ipairs(csdList) do
 			self:ExtractFilesWithBun('"' .. fname .. '"', true)
