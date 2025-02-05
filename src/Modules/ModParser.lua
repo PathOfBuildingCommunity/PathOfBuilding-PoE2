@@ -2786,9 +2786,9 @@ local specialModList = {
 		mod("EnemyModifier", "LIST", { mod = mod("LightningExposure", "BASE", -num) }, { type = "Condition", var = "Phasing" }),
 	} end,
 	["nearby enemies have fire, cold and lightning exposure while you have phasing"] = {
-		mod("EnemyModifier", "LIST", { mod = mod("FireExposure", "BASE", -10) }, { type = "Condition", var = "Phasing" }),
-		mod("EnemyModifier", "LIST", { mod = mod("ColdExposure", "BASE", -10) }, { type = "Condition", var = "Phasing" }),
-		mod("EnemyModifier", "LIST", { mod = mod("LightningExposure", "BASE", -10) }, { type = "Condition", var = "Phasing" }),
+		mod("EnemyModifier", "LIST", { mod = mod("FireExposure", "BASE", -20) }, { type = "Condition", var = "Phasing" }),
+		mod("EnemyModifier", "LIST", { mod = mod("ColdExposure", "BASE", -20) }, { type = "Condition", var = "Phasing" }),
+		mod("EnemyModifier", "LIST", { mod = mod("LightningExposure", "BASE", -20) }, { type = "Condition", var = "Phasing" }),
 	},
 	-- Saboteur
 	["hits have (%d+)%% chance to deal (%d+)%% more area damage"] = function (num, _, more) return {
@@ -3548,9 +3548,9 @@ local specialModList = {
 	    mod("SpellSuppressionEffect", "BASE", num, { type = "Multiplier", var = "HitsSuppressedRecently" })
 	} end,
 	["inflict fire, cold and lightning exposure on enemies when you suppress their spell damage"] = {
-	    mod("EnemyModifier", "LIST", { mod = mod("FireExposure", "BASE", -10) }, { type = "Condition", var = "Effective" }, { type = "Condition", var = "SuppressedRecently" }),
-	    mod("EnemyModifier", "LIST", { mod = mod("ColdExposure", "BASE", -10) }, { type = "Condition", var = "Effective" }, { type = "Condition", var = "SuppressedRecently" }),
-	    mod("EnemyModifier", "LIST", { mod = mod("LightningExposure", "BASE", -10) }, { type = "Condition", var = "Effective" }, { type = "Condition", var = "SuppressedRecently" })
+	    mod("EnemyModifier", "LIST", { mod = mod("FireExposure", "BASE", -20) }, { type = "Condition", var = "Effective" }, { type = "Condition", var = "SuppressedRecently" }),
+	    mod("EnemyModifier", "LIST", { mod = mod("ColdExposure", "BASE", -20) }, { type = "Condition", var = "Effective" }, { type = "Condition", var = "SuppressedRecently" }),
+	    mod("EnemyModifier", "LIST", { mod = mod("LightningExposure", "BASE", -20) }, { type = "Condition", var = "Effective" }, { type = "Condition", var = "SuppressedRecently" })
 	},
 	["critical hit chance is increased by chance to suppress spell damage"] = { flag("CritChanceIncreasedBySpellSuppressChance") },
 	["you take (%d+)%% reduced extra damage from suppressed critical hits"] = function(num) return { mod("ReduceSuppressedCritExtraDamage", "BASE", num) } end,
@@ -3790,35 +3790,35 @@ local specialModList = {
 		mod("LightningExposureChance", "BASE", 100, { type = "Condition", var = "Effective" }),
 	},
 	["nearby enemies have fire exposure"] = {
-		mod("EnemyModifier", "LIST", { mod = mod("FireExposure", "BASE", -10) }, { type = "Condition", var = "Effective" }),
+		mod("EnemyModifier", "LIST", { mod = mod("FireExposure", "BASE", -20) }, { type = "Condition", var = "Effective" }),
 	},
 	["nearby enemies have cold exposure"] = {
-		mod("EnemyModifier", "LIST", { mod = mod("ColdExposure", "BASE", -10) }, { type = "Condition", var = "Effective" }),
+		mod("EnemyModifier", "LIST", { mod = mod("ColdExposure", "BASE", -20) }, { type = "Condition", var = "Effective" }),
 	},
 	["nearby enemies have lightning exposure"] = {
-		mod("EnemyModifier", "LIST", { mod = mod("LightningExposure", "BASE", -10) }, { type = "Condition", var = "Effective" }),
+		mod("EnemyModifier", "LIST", { mod = mod("LightningExposure", "BASE", -20) }, { type = "Condition", var = "Effective" }),
 	},
 	["nearby enemies have fire exposure while you are affected by herald of ash"] = {
-		mod("EnemyModifier", "LIST", { mod = mod("FireExposure", "BASE", -10) }, { type = "Condition", var = "Effective" }, { type = "Condition", var = "AffectedByHeraldofAsh" }),
+		mod("EnemyModifier", "LIST", { mod = mod("FireExposure", "BASE", -20) }, { type = "Condition", var = "Effective" }, { type = "Condition", var = "AffectedByHeraldofAsh" }),
 	},
 	["nearby enemies have cold exposure while you are affected by herald of ice"] = {
-		mod("EnemyModifier", "LIST", { mod = mod("ColdExposure", "BASE", -10) }, { type = "Condition", var = "Effective" }, { type = "Condition", var = "AffectedByHeraldofIce" }),
+		mod("EnemyModifier", "LIST", { mod = mod("ColdExposure", "BASE", -20) }, { type = "Condition", var = "Effective" }, { type = "Condition", var = "AffectedByHeraldofIce" }),
 	},
 	["nearby enemies have lightning exposure while you are affected by herald of thunder"] = {
-		mod("EnemyModifier", "LIST", { mod = mod("LightningExposure", "BASE", -10) }, { type = "Condition", var = "Effective" }, { type = "Condition", var = "AffectedByHeraldofThunder" }),
+		mod("EnemyModifier", "LIST", { mod = mod("LightningExposure", "BASE", -20) }, { type = "Condition", var = "Effective" }, { type = "Condition", var = "AffectedByHeraldofThunder" }),
 	},
 	["i?n?f?l?i?c?t? ?(%a-) exposure on hit if you've cast (.-) in the past (%d+) seconds"] = function (_, exposureType, curse) return {
-		mod("EnemyModifier", "LIST", { mod = mod(exposureType:gsub("^%l", string.upper).."Exposure", "BASE", -10) }, nil,  ModFlag.Hit, { type = "Condition", var = "SelfCast"..curse:gsub("^%l", string.upper):gsub(" %l", string.upper):gsub(" ", "") }, { type = "Condition", var = "Effective" })
+		mod("EnemyModifier", "LIST", { mod = mod(exposureType:gsub("^%l", string.upper).."Exposure", "BASE", -20) }, nil,  ModFlag.Hit, { type = "Condition", var = "SelfCast"..curse:gsub("^%l", string.upper):gsub(" %l", string.upper):gsub(" ", "") }, { type = "Condition", var = "Effective" })
 	} end,
 	["inflict fire, cold and lightning exposure on nearby enemies when used"] = {
-		mod("EnemyModifier", "LIST", { mod = mod("FireExposure", "BASE", -10) }, { type = "Condition", var = "Effective" }, { type = "Condition", var = "UsingFlask" }),
-		mod("EnemyModifier", "LIST", { mod = mod("ColdExposure", "BASE", -10) }, { type = "Condition", var = "Effective" }, { type = "Condition", var = "UsingFlask" }),
-		mod("EnemyModifier", "LIST", { mod = mod("LightningExposure", "BASE", -10) }, { type = "Condition", var = "Effective" }, { type = "Condition", var = "UsingFlask" }),
+		mod("EnemyModifier", "LIST", { mod = mod("FireExposure", "BASE", -20) }, { type = "Condition", var = "Effective" }, { type = "Condition", var = "UsingFlask" }),
+		mod("EnemyModifier", "LIST", { mod = mod("ColdExposure", "BASE", -20) }, { type = "Condition", var = "Effective" }, { type = "Condition", var = "UsingFlask" }),
+		mod("EnemyModifier", "LIST", { mod = mod("LightningExposure", "BASE", -20) }, { type = "Condition", var = "Effective" }, { type = "Condition", var = "UsingFlask" }),
 	},
 	["enemies near your linked targets have fire, cold and lightning exposure"] = {
-		mod("EnemyModifier", "LIST", { mod = mod("FireExposure", "BASE", -10, { type = "Condition", var = "NearLinkedTarget" }) }, { type = "Condition", var = "Effective" }),
-		mod("EnemyModifier", "LIST", { mod = mod("ColdExposure", "BASE", -10, { type = "Condition", var = "NearLinkedTarget" }) }, { type = "Condition", var = "Effective" }),
-		mod("EnemyModifier", "LIST", { mod = mod("LightningExposure", "BASE", -10, { type = "Condition", var = "NearLinkedTarget" }) }, { type = "Condition", var = "Effective" }),
+		mod("EnemyModifier", "LIST", { mod = mod("FireExposure", "BASE", -20, { type = "Condition", var = "NearLinkedTarget" }) }, { type = "Condition", var = "Effective" }),
+		mod("EnemyModifier", "LIST", { mod = mod("ColdExposure", "BASE", -20, { type = "Condition", var = "NearLinkedTarget" }) }, { type = "Condition", var = "Effective" }),
+		mod("EnemyModifier", "LIST", { mod = mod("LightningExposure", "BASE", -20, { type = "Condition", var = "NearLinkedTarget" }) }, { type = "Condition", var = "Effective" }),
 	},
 	["inflict (%w+) exposure on hit, applying %-(%d+)%% to (%w+) resistance"] = function(_, element1,  num, element2) return {
 		mod( firstToUpper(element1).."ExposureChance", "BASE", 100, { type = "Condition", var = "Effective" }),
