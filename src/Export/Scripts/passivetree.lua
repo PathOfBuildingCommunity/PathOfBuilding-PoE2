@@ -1,8 +1,8 @@
-local gimpbatch = require("Tree/gimpbatch/gimp_batch")
+local gimpBatch = require("Tree/GimpBatch/gimp_batch")
 local nvtt = LoadModule("Tree/nvtt")
 local json = require("dkjson")
 
--- by session we would like to dont extract the same file multiple times
+-- by session we would like to don't extract the same file multiple times
 main.treeCacheExtract = main.treeCacheExtract or { }
 local cacheExtract = main.treeCacheExtract
 
@@ -132,7 +132,7 @@ local function calculateDDSPack(sheet, from_base, to_base, is4kEnabled)
 	local stackTextures = {}
 	local ddsCoords = {}
 
-	-- stract all files first from GGG pack
+	-- extract all files first from GGG pack
 	local filesToExtract = { }
 	for icon, _ in pairs(sheet.files) do
 		table.insert(filesToExtract, icon)
@@ -175,8 +175,8 @@ local function calculateDDSPack(sheet, from_base, to_base, is4kEnabled)
 		local file = sheet.name .. "_" .. iden .. ".dds.zst"
 		ddsCoords[file] = {}
 		for position, stack in ipairs(stackInfo) do
-			for _, metadatas in pairs(stack.sections) do
-				for _, meta in ipairs(metadatas) do
+			for _, metadata in pairs(stack.sections) do
+				for _, meta in ipairs(metadata) do
 					local icon = meta.alias or stack.icon
 					ddsCoords[file][icon] = position
 				end
@@ -191,7 +191,7 @@ local function calculateDDSPack(sheet, from_base, to_base, is4kEnabled)
 end
 
 local function parseUIImages()
-	local file = "art/uiimages1.txt"
+	local file = "Art/UIImages1.txt"
 	local text
 	if main.ggpk.txt[file] then
 		text = main.ggpk.txt[file]
@@ -239,7 +239,7 @@ end
 --]]
 
 -- parse UI Images
-printf("Getting uiimages ...")
+printf("Getting UIImages ...")
 local uiImages = parseUIImages()
 -- uncomment next line if wanna print what we found
 -- print_table(uiImages, 0)
@@ -257,7 +257,7 @@ local fileTree = path .. "tree.lua"
 
 printf("Getting passives tree...")
 
-local rowPassiveTree =  dat("passiveskilltrees"):GetRow("Id", idPassiveTree)
+local rowPassiveTree =  dat("PassiveSkillTrees"):GetRow("Id", idPassiveTree)
 
 if rowPassiveTree == nil then
 	printf("Passive tree not found")
@@ -314,7 +314,7 @@ for i = 1 , groupCount do
 	for j = 1, passiveCount do
 		local passive = {
 			id = getInt(f),
-			radious = getInt(f),
+			radius = getInt(f),
 			position = getInt(f),
 			connections = { },
 		}
@@ -324,7 +324,7 @@ for i = 1 , groupCount do
 		for k = 1, connectionCount do
 			table.insert(passive.connections, {
 				id = getInt(f),
-				radious = getInt(f),
+				radius = getInt(f),
 			})
 		end
 
@@ -371,7 +371,7 @@ local sheets = {
 	newSheet("ascendancy-background", defaultMaxWidth, 100),
 	newSheet("oils", defaultMaxWidth, 100),
 	newSheet("lines", defaultMaxWidth, 100),
-	newSheet("jewelsockets", defaultMaxWidth, 100),
+	newSheet("jewel-sockets", defaultMaxWidth, 100),
 	newSheet("legion", defaultMaxWidth, 100),
 }
 local sheetLocations = {
@@ -383,7 +383,7 @@ local sheetLocations = {
 	["ascendancy-background"] = 6,
 	["oils"] = 7,
 	["lines"] = 8,
-	["jewelsockets"] = 9,
+	["jewel-sockets"] = 9,
 	["legion"] = 10,
 }
 local function getSheet(sheetLocation)
@@ -392,7 +392,7 @@ end
 
 -- Looking for Background2
 printf("Extracting Background2...")
-local bg2 = uiImages["art/2dart/uiimages/common/background2"]
+local bg2 = uiImages["Art/2DArt/UIImages/common/background2"]
 if not bg2 then
 	printf("Background2 not found")
 	goto final
@@ -490,21 +490,21 @@ local ascStart = uiImages[string.lower("Art/2DArt/UIImages/InGame/PassiveSkillSc
 addToSheet(getSheet("group-background"), ascStart, "startNode", commonMetadata("PSStartNodeBackgroundInactive"))
 
 -- adding passive tree assets
-addToSheet(getSheet("ascendancy-background"), "art/textures/interface/2d/2dart/uiimages/ingame/passivetree/passivetreemaincircle.dds", "ascendancyBackground", commonMetadata("BGTree"))
-addToSheet(getSheet("ascendancy-background"), "art/textures/interface/2d/2dart/uiimages/ingame/passivetree/passivetreemaincircleactive2.dds", "ascendancyBackground", commonMetadata("BGTreeActive"))
+addToSheet(getSheet("ascendancy-background"), "Art/textures/interface/2D/2DArt/UIImages/InGame/PassiveTree/PassiveTreeMainCircle.dds", "AscendancyBackground", commonMetadata("BGTree"))
+addToSheet(getSheet("ascendancy-background"), "Art/textures/interface/2D/2DArt/UIImages/InGame/PassiveTree/PassiveTreeMainCircleActive2.dds", "AscendancyBackground", commonMetadata("BGTreeActive"))
 
 -- adding lines to sprite
-addToSheet(getSheet("lines"), "art/2dart/passivetree/passiveskillscreencurvesactivetogether.dds", "line", commonMetadata( "CurvesActive"))
-addToSheet(getSheet("lines"), "art/2dart/passivetree/passiveskillscreencurvesintermediatetogether.dds", "line", commonMetadata( "CurvesIntermediate"))
-addToSheet(getSheet("lines"), "art/2dart/passivetree/passiveskillscreencurvesnormaltogether.dds", "line", commonMetadata( "CurvesNormal"))
+addToSheet(getSheet("lines"), "Art/2DArt/PassiveTree/PassiveSkillScreenCurvesActiveTogether.dds", "line", commonMetadata( "CurvesActive"))
+addToSheet(getSheet("lines"), "Art/2DArt/PassiveTree/PassiveSkillScreenCurvesIntermediateTogether.dds", "line", commonMetadata( "CurvesIntermediate"))
+addToSheet(getSheet("lines"), "Art/2DArt/PassiveTree/PassiveSkillScreenCurvesNormalTogether.dds", "line", commonMetadata( "CurvesNormal"))
 
 -- adding jewel sockets
-local jewelArt = dat("passivejewelart")
+local jewelArt = dat("PassiveJewelArt")
 for jewel in jewelArt:Rows() do
 	local asset = uiImages[string.lower(jewel.JewelArt)]
 	printf("Adding jewel socket " .. jewel.Item.Name .. " " .. asset.path .. " to sprite")
 	local name = jewel.Item.Name
-	addToSheet(getSheet("jewelsockets"), asset.path, "jewelpassive", commonMetadata(name))
+	addToSheet(getSheet("jewel-sockets"), asset.path, "JewelPassive", commonMetadata(name))
 end
 
 -- adding legion assets
@@ -570,7 +570,7 @@ local tree = {
 printf("Generating classes...")
 local ignoreFilter = "^%[DNT%]"
 for i, classId in ipairs(psg.passives) do
-	local passiveRow = dat("passiveskills"):GetRow("PassiveSkillNodeId", classId)
+	local passiveRow = dat("PassiveSkills"):GetRow("PassiveSkillNodeId", classId)
 	if passiveRow == nil then
 		printf("Class " .. passiveRow.id .. " not found")
 		goto continue
@@ -602,9 +602,9 @@ for i, classId in ipairs(psg.passives) do
 		}
 
 		-- add assets
-		addToSheet(getSheet("ascendancy-background"), character.PassiveTreeImage, "ascendancyBackground", commonMetadata( "Classes" .. character.Name))
+		addToSheet(getSheet("ascendancy-background"), character.PassiveTreeImage, "AscendancyBackground", commonMetadata( "Classes" .. character.Name))
 
-		-- We are going to ignore for now, because current tree doesnt use that
+		-- We are going to ignore for now, because current tree doesn't use that
 		--addToSheet(getSheet("group-background"), uiImages[string.lower(character.SkillTreeBackground)].path, "startNode", commonMetadata( "center" .. string.lower(character.Name)))
 
 		local ascendancies = dat("ascendancy"):GetRowList("Class", character)
@@ -619,7 +619,7 @@ for i, classId in ipairs(psg.passives) do
 			})
 
 			-- add assets
-			addToSheet(getSheet("ascendancy-background"), ascendency.PassiveTreeImage, "ascendancyBackground", commonMetadata( "Classes" .. ascendency.Name))
+			addToSheet(getSheet("ascendancy-background"), ascendency.PassiveTreeImage, "AscendancyBackground", commonMetadata( "Classes" .. ascendency.Name))
 
 			:: continue3 ::
 		end
@@ -635,7 +635,7 @@ for i, classId in ipairs(psg.passives) do
 end
 
 
--- for now we are harcoding attributes id
+-- for now we are hardcoding attributes id
 local base_attributes = {
 	[26297] = {}, -- str
 	[14927] = {}, -- dex
@@ -643,7 +643,7 @@ local base_attributes = {
 }
 
 for id, _ in pairs(base_attributes) do
-	local base = dat("passiveskills"):GetRow("PassiveSkillNodeId", id)
+	local base = dat("PassiveSkills"):GetRow("PassiveSkillNodeId", id)
 	if base == nil then
 		printf("Base attribute " .. id .. " not found")
 		goto continue
@@ -696,19 +696,19 @@ for i, group in ipairs(psg.groups) do
 		local node = {
 			["skill"] = passive.id,
 			["group"] = i,
-			["orbit"] = passive.radious,
+			["orbit"] = passive.radius,
 			["orbitIndex"] = passive.position,
 			["connections"] = {},	
 		}
 
 		-- Get Information from passive Skill
-		local passiveRow = dat("passiveskills"):GetRow("PassiveSkillNodeId", passive.id)
+		local passiveRow = dat("PassiveSkills"):GetRow("PassiveSkillNodeId", passive.id)
 		if passiveRow == nil then
 			printf("Passive skill " .. passive.id .. " not found")
 		else
 			if passiveRow.Name:find(ignoreFilter) ~= nil then
 				printf("Ignoring passive skill " .. passiveRow.Name)
-				goto exitnode
+				goto exitNode
 			end
 			node["name"] = escapeGGGString(passiveRow.Name)
 			node["icon"] = passiveRow.Icon
@@ -736,7 +736,7 @@ for i, group in ipairs(psg.groups) do
 				groupIsAscendancy = true
 				if passiveRow.Ascendancy.Name:find(ignoreFilter) ~= nil then
 					printf("Ignoring node ascendancy " .. passiveRow.Ascendancy.Name)
-					goto exitnode
+					goto exitNode
 				end
 				node["ascendancyName"] = passiveRow.Ascendancy.Name
 				node["isAscendancyStart"] = passiveRow.AscendancyStart or nil
@@ -808,8 +808,8 @@ for i, group in ipairs(psg.groups) do
 				node["stats"] = node["stats"] or {}
 
 				for _, gemEffect in pairs(passiveRow.GrantedSkill.GemEffects) do
-					local skillname = gemEffect.GrantedEffect.ActiveSkill.DisplayName
-					table.insert(node["stats"], "Grants Skill: " .. skillname)
+					local skillName = gemEffect.GrantedEffect.ActiveSkill.DisplayName
+					table.insert(node["stats"], "Grants Skill: " .. skillName)
 
 					-- -- include the stat description
 					local statDescription =string.sub(string.lower(gemEffect.GrantedEffect.ActiveSkill.StatDescription), 1, -2)
@@ -817,8 +817,8 @@ for i, group in ipairs(psg.groups) do
 					local almostOnce = false
 					while handle do
 						almostOnce = true
-						print(statDescription:gsub("metadata/statdescriptions", "") .. ".csd")
-						-- loadStatFile(statDescription:gsub("metadata/statdescriptions/", "") .. ".csd")
+						print(statDescription:gsub("Metadata/StatDescriptions", "") .. ".csd")
+						-- loadStatFile(statDescription:gsub("Metadata/StatDescriptions/", "") .. ".csd")
 						if not handle:NextFile() then
 							break
 						end
@@ -842,11 +842,11 @@ for i, group in ipairs(psg.groups) do
 			end
 
 			-- support for oils
-			local bResult = dat("blightcraftingresults"):GetRow("PassiveSkillsKey", passiveRow)
+			local bResult = dat("BlightCraftingResults"):GetRow("PassiveSkillsKey", passiveRow)
 
 			if bResult ~= nil then
 				node["recipe"] = {}
-				local bCraftRecipe = dat("blightcraftingrecipes"):GetRow("BlightCraftingResultsKey", bResult)
+				local bCraftRecipe = dat("BlightCraftingRecipes"):GetRow("BlightCraftingResultsKey", bResult)
 				if bCraftRecipe ~= nil then
 					for _, item in ipairs(bCraftRecipe.Recipe) do
 						table.insert(node["recipe"], item.NameShort)
@@ -857,8 +857,8 @@ for i, group in ipairs(psg.groups) do
 				end
 			end
 
-			-- support for switchnodes
-			local switchNode = dat("classpassiveskilloverrides"):GetRow("OriginalNode", passiveRow)
+			-- support for switchable nodes
+			local switchNode = dat("ClassPassiveSkillOverrides"):GetRow("OriginalNode", passiveRow)
 			if switchNode ~= nil then
 				node["isSwitchable"] = true
 				local nodeInfo = {
@@ -911,15 +911,15 @@ for i, group in ipairs(psg.groups) do
 		for k, connection in ipairs(passive.connections) do
 			table.insert(node.connections, {
 				id = connection.id,
-				orbit = connection.radious,
+				orbit = connection.radius,
 			})
 		end
 
-		orbits[passive.radious + 1] = true
-		orbitsConstants[passive.radious + 1] = math.max(orbitsConstants[passive.radious + 1] or 1, passive.position)
+		orbits[passive.radius + 1] = true
+		orbitsConstants[passive.radius + 1] = math.max(orbitsConstants[passive.radius + 1] or 1, passive.position)
 		tree.nodes[passive.id] = node
 		table.insert(treeGroup.nodes, passive.id)
-		:: exitnode ::
+		:: exitNode ::
 	end
 
 	for orbit, _ in pairs(orbits) do
@@ -958,19 +958,19 @@ for i, orbit in ipairs(orbitsConstants) do
 end
 
 -- Update position of ascendancy base on min / max 
--- get the orbit radious + harcoded value, calculate the angle of the class start
+-- get the orbit radius + hard-coded value, calculate the angle of the class start
 -- translate the ascendancy to the new position in arc position
 local widthTree, heightTree = tree.max_x - tree.min_x, tree.max_y - tree.min_y
-local radiousTree = math.max(widthTree, heightTree) / 2
+local radiusTree = math.max(widthTree, heightTree) / 2
 local arcAngle = { [0] = 0, [1] = 0, [2] = 12, [3] = 24, [4] = 36, [5] = 48, [6] = 60}
 
 for i, classId in ipairs(psg.passives) do
 	local nodeStart = tree.nodes[classId]
 	local group = tree.groups[nodeStart.group]
 	local angleToCenter = math.atan2(group.y, group.x)
-	local harcoded = radiousTree + 2800
+	local hardCoded = radiusTree + 2800
 
-	-- calculate how many ascendancies in that plase?
+	-- calculate how many ascendancies in that place?
 	local total = 0
 	local classes = {}
 
@@ -994,8 +994,8 @@ for i, classId in ipairs(psg.passives) do
 			local groupAscendancy = tree.groups[ascendancyNode.group]
 
 			local angle = startAngle + (j - 1) * angleStep
-			local newX = harcoded * math.cos(angle)
-			local newY = harcoded * math.sin(angle)
+			local newX = hardCoded * math.cos(angle)
+			local newY = hardCoded * math.sin(angle)
 
 			local offsetX = newX - groupAscendancy.x
 			local offsetY = newY - groupAscendancy.y
@@ -1008,10 +1008,10 @@ for i, classId in ipairs(psg.passives) do
 					group.y = group.y + offsetY
 
 					-- recalculate min / max
-					tree.min_x = math.min(tree.min_x, group.x - harcoded / 2)
-					tree.min_y = math.min(tree.min_y, group.y - harcoded / 2)
-					tree.max_x = math.max(tree.max_x, group.x + harcoded / 2)
-					tree.max_y = math.max(tree.max_y, group.y + harcoded / 2)
+					tree.min_x = math.min(tree.min_x, group.x - hardCoded / 2)
+					tree.min_y = math.min(tree.min_y, group.y - hardCoded / 2)
+					tree.max_x = math.max(tree.max_x, group.x + hardCoded / 2)
+					tree.max_y = math.max(tree.max_y, group.y + hardCoded / 2)
 				end
 			end
 			j = j + 1
@@ -1034,36 +1034,34 @@ end
 printf("Generating decompose lines images...")
 local linesFiles = {
 	{
-		file = "art/2dart/passivetree/passiveskillscreencurvesactivetogether.dds",
-		mask = "art/2dart/uieffects/passiveskillscreen/linestogethermask.dds",
+		file = "Art/2DArt/PassiveTree/PassiveSkillScreenCurvesActiveTogether.dds",
+		mask = "Art/2DArt/UIEffects/PassiveSkillScreen/LinesTogetherMask.dds",
 		extension = ".png",
-		basename = "orbitactive",
+		basename = "orbit_active",
 		first = "LineConnector",
 		prefix = "Orbit",
-		posfix = "Active",
+		postfix = "Active",
 		meta = 0.3835,
-		minmapfile = 0,
-		minmapmask = 0,
 		total = 10
 	},
 	{
-		file = "art/2dart/passivetree/passiveskillscreencurvesintermediatetogether.dds",
-		mask = "art/2dart/uieffects/passiveskillscreen/linestogethermask.dds",
+		file = "Art/2DArt/PassiveTree/PassiveSkillScreenCurvesIntermediateTogether.dds",
+		mask = "Art/2DArt/UIEffects/PassiveSkillScreen/LinesTogetherMask.dds",
 		extension = ".png",
-		basename = "orbitintemediate",
+		basename = "orbit_intermediate",
 		first = "LineConnector",
 		prefix = "Orbit",
-		posfix = "Intermediate",
+		postfix = "Intermediate",
 		total = 10
 	},
 	{
-		file = "art/2dart/passivetree/passiveskillscreencurvesnormaltogether.dds",
-		mask = "art/2dart/uieffects/passiveskillscreen/linestogethermask.dds",
+		file = "Art/2DArt/PassiveTree/PassiveSkillScreenCurvesNormalTogether.dds",
+		mask = "Art/2DArt/UIEffects/PassiveSkillScreen/LinesTogetherMask.dds",
 		extension = ".png",
-		basename = "orbitnormal",
+		basename = "orbit_normal",
 		first = "LineConnector",
 		prefix = "Orbit",
-		posfix = "Normal",
+		postfix = "Normal",
 		total = 10
 	}
 }
@@ -1083,31 +1081,31 @@ for _, lines in ipairs(linesFiles) do
 	lines.mask = lines.mask:gsub(".dds", ".png")
 end
 
-gimpbatch.extract_lines_from_image("lines_extract", linesFiles, main.ggpk.oozPath, basePath .. version .. "/", GetScriptPath() .. "/Tree/gimpbatch/extract_lines.scm", generateAssets)
+gimpBatch.extract_lines_from_image("lines_extract", linesFiles, main.ggpk.oozPath, basePath .. version .. "/", GetScriptPath() .. "/Tree/GimpBatch/extract_lines.scm", generateAssets)
 
 printf("generate lines info into assets")
 -- Generate sprites
 for _, lines in ipairs(linesFiles) do
-	local curveOrbitfile = 9
+	local curveOrbitFile = 9
 	for i = 0, lines.total - 1 do
 		local name
 		local middle
 		if i == 0 then
-			name = lines.first .. lines.posfix
+			name = lines.first .. lines.postfix
 			middle = 0
 		elseif i == 3 then
-			curveOrbitfile = curveOrbitfile - 1
-			middle = curveOrbitfile
-			curveOrbitfile = curveOrbitfile - 1
-			name = lines.prefix .. i .. lines.posfix
+			curveOrbitFile = curveOrbitFile - 1
+			middle = curveOrbitFile
+			curveOrbitFile = curveOrbitFile - 1
+			name = lines.prefix .. i .. lines.postfix
 		elseif i == 7 then
 			middle = 7
-			name = lines.prefix .. i .. lines.posfix
+			name = lines.prefix .. i .. lines.postfix
 		else
-			name = lines.prefix .. i .. lines.posfix
-			middle = curveOrbitfile
+			name = lines.prefix .. i .. lines.postfix
+			middle = curveOrbitFile
 
-			curveOrbitfile = curveOrbitfile - 1
+			curveOrbitFile = curveOrbitFile - 1
 		end
 
 		tree.assets[name] = {

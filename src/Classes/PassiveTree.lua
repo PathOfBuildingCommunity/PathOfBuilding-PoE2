@@ -276,7 +276,7 @@ local PassiveTreeClass = newClass("PassiveTree", function(self, treeVersion)
 				group.isAscendancyStart = true
 				self.ascendNameMap[node.ascendancyName].ascendClass.background = {
 					image = "Classes" ..  self.ascendNameMap[node.ascendancyName].ascendClass.name,
-					section = "ascendancyBackground",
+					section = "AscendancyBackground",
 					x = group.x,
 					y = group.y,
 					width = 1500 * self.scaleImage,
@@ -291,7 +291,7 @@ local PassiveTreeClass = newClass("PassiveTree", function(self, treeVersion)
 							["active"] = { width = 2000 * self.scaleImage, height = 2000 * self.scaleImage },
 							["bg"] = { width = 2000 * self.scaleImage, height = 2000 * self.scaleImage },
 							image = "Classes" .. className,
-							section = "ascendancyBackground",
+							section = "AscendancyBackground",
 							x = 0,
 							y = 0,
 							width = 1500 * self.scaleImage,

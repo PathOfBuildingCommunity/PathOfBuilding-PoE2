@@ -889,8 +889,8 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 							conqueror = "kalguuran"
 						end
 
-						local circle1 = tree:GetAssetByName("art/textures/interface/2d/2dart/uiimages/ingame/passiveskillscreen".. conqueror .."jewelcircle1.dds")
-						local circle2 = tree:GetAssetByName("art/textures/interface/2d/2dart/uiimages/ingame/passiveskillscreen".. conqueror .."jewelcircle2.dds")
+						local circle1 = tree:GetAssetByName("Art/textures/interface/2D/2DArt/UIImages/InGame/PassiveSkillScreen".. conqueror .."JewelCircle1.dds")
+						local circle2 = tree:GetAssetByName("Art/textures/interface/2D/2DArt/UIImages/InGame/PassiveSkillScreen".. conqueror .."JewelCircle2.dds")
 						DrawImage(circle1.handle, scrX - outerSize, scrY - outerSize, outerSize * 2, outerSize * 2, unpack(circle1))
 						DrawImage(circle2.handle, scrX - outerSize, scrY - outerSize, outerSize * 2, outerSize * 2, unpack(circle2))
 					else
