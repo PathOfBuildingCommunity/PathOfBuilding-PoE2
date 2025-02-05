@@ -119,6 +119,9 @@ local configSettings = {
 			modList:NewMod("Condition:Stationary", "FLAG", true, "Config")
 		end
 	end },
+	{ var = "reservedDarkness", type = "count", label = "Reserved Darkness:", apply = function(val, modList, enemyModList)
+		modList:NewMod("ReservedDarkness", "BASE", val, "Config")
+	end },
 	{ var = "conditionMoving", type = "check", label = "Are you always moving?", ifCond = "Moving", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:Moving", "FLAG", true, "Config")
 	end },

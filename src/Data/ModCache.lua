@@ -2641,7 +2641,7 @@ c["Gain 1 Rage on Melee Axe Hit"]={{[1]={flags=0,keywordFlags=0,name="Condition:
 c["Gain 1 Rage on Melee Hit"]={{[1]={flags=0,keywordFlags=0,name="Condition:CanGainRage",type="FLAG",value=true}},nil}
 c["Gain 1 Spirit for every 15 Evasion Rating on equipped Body Armour"]={{[1]={[1]={div=15,stat="EvasionOnBody Armour",type="PerStat"},flags=0,keywordFlags=0,name="Spirit",type="BASE",value=1}},nil}
 c["Gain 1 Spirit for every 6 Energy Shield on equipped Body Armour"]={{[1]={[1]={div=6,stat="EnergyShieldOnBody Armour",type="PerStat"},flags=0,keywordFlags=0,name="Spirit",type="BASE",value=1}},nil}
-c["Gain 1% of Damage as Extra Chaos Damage per 20 Unreserved Darkness"]={{[1]={flags=0,keywordFlags=0,name="DamageGainAsChaos",type="BASE",value=1}},"   per 20 Unreserved Darkness "}
+c["Gain 1% of Damage as Extra Chaos Damage per 20 Unreserved Darkness"]={{[1]={[1]={div=20,stat="UnreservedDarkness",type="PerStat"},flags=0,keywordFlags=0,name="PhysicalDamageGainAsChaos",type="BASE",value=1}},nil}
 c["Gain 10 Life per Enemy Killed"]={{[1]={flags=0,keywordFlags=0,name="LifeOnKill",type="BASE",value=10}},nil}
 c["Gain 10 Mana per Enemy Killed"]={{[1]={flags=0,keywordFlags=0,name="ManaOnKill",type="BASE",value=10}},nil}
 c["Gain 10 Rage when Critically Hit by an Enemy"]={{}," Rage when Critically Hit by an Enemy "}

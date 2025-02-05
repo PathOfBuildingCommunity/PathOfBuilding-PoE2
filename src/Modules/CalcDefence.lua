@@ -64,10 +64,13 @@ function calcs.doActorLifeManaSpirit(actor)
 
 	output.ChaosInoculation = modDB:Flag(nil, "ChaosInoculation")
 
-	--- Calculate Darkness when LifeManaSpirit is calculated
+	--- Calculate Darkness/Reserved Darkness/Unreserved Darkness
 	local inc = modDB:Sum("INC", nil, "Darkness")
 	local base = modDB:Sum("BASE", nil, "Darkness")
 	output.Darkness = base * (1+inc/100)
+    local base = modDB:Sum("BASE", nil, "ReservedDarkness")
+	output.ReservedDarkness = base
+	output.UnreservedDarkness = output.Darkness - output.ReservedDarkness
 	
 	for _, res in ipairs({ "Life", "Mana", "Spirit"}) do
 		local base = modDB:Sum("BASE", nil, res)
@@ -116,7 +119,6 @@ function calcs.doActorLifeManaSpiritReservation(actor)
 	local output = actor.output
 	local condList = modDB.conditions
 	local breakdown = actor.breakdown
-
 	actor.reserved_LifeBase = 0
 	actor.reserved_LifePercent = modDB:Sum("BASE", nil, "ExtraLifeReserved")
 	actor.reserved_ManaBase = 0

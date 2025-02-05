@@ -2803,6 +2803,7 @@ local specialModList = {
 	["you gain (%d+)%% increased area of effect for each mine"] = function(num) return { mod("AreaOfEffect", "INC", num, { type = "PerStat", stat = "ActiveMineLimit" }) } end,
 	["triggers level (%d+) summon triggerbots when allocated"] = { flag("HaveTriggerBots") },
 	-- Acolyte
+	["gain (%d+)%% of damage as extra chaos damage per 20 unreserved darkness"] = function(num) return { mod("PhysicalDamageGainAsChaos", "BASE", num ,{ type = "PerStat", div=20, stat="UnreservedDarkness"})} end,
 	["removes all spirit"] = { mod("Spirit", "MORE", -100) },
 	["base maximum darkness is (%d+)"] =function(num) return { mod("Darkness","BASE",num)}end,
 	["(%d+)%% increased maximum darkness"] = function(num) return{ mod("Darkness", "INC", num)}end,
