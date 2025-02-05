@@ -68,6 +68,7 @@ local SkillsTabClass = newClass("SkillsTab", "UndoHandler", "ControlHost", "Cont
 	self.build = build
 
 	self.socketGroupList = { }
+	self.removedSocketGroupList = { }
 
 	self.sortGemsByDPS = true
 	self.sortGemsByDPSField = "CombinedDPS"
