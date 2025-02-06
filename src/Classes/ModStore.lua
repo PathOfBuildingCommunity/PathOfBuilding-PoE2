@@ -138,6 +138,24 @@ function ModStoreClass:Sum(modType, cfg, ...)
 	return self:SumInternal(self, modType, cfg, flags, keywordFlags, source, ...)
 end
 
+
+--- Returns the value of all positive modifiers to a mod added together, ignoring any negative modifiers.
+--- Works by creating a table using Tabulate and then filtering for positive values.
+---
+--- @param modType string # the mod type for which we want to create the table, e.g. "INC" or "MORE"
+--- @param cfg table | nil # passed configuration, may be nil
+--- @param modName string # the name of the mod for which we want to create the table, e.g. "FlaskRecoveryRate", "ActionSpeed", ...
+function ModStoreClass:SumPositiveValues(modType, cfg, modName, ...)
+	local total = 0
+	local modTable = self:Tabulate(modType, cfg, modName)
+	for i = 1, #modTable do
+		if modTable[i].value > 0 then
+			total = total + modTable[i].value
+		end
+	end
+	return total
+end
+
 function ModStoreClass:More(cfg, ...)
 	local flags, keywordFlags = 0, 0
 	local source

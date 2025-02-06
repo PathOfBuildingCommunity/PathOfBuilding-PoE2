@@ -752,32 +752,23 @@ local function doActorCharges(env, actor)
 end
 
 
--- helper function to sum only positive values from Tabulate
-local function sumPositiveValues(modDB, modType)
-    local total = 0
-    local modTable = modDB:Tabulate("INC", nil, modType)
-    for i = 1, #modTable do
-        if modTable[i].value > 0 then
-            total = total + modTable[i].value
-        end
-    end
-    return total
-end
-
 function calcs.actionSpeedMod(actor)
 	local modDB = actor.modDB
 	local minimumActionSpeed = modDB:Max(nil, "MinimumActionSpeed") or 0
 	local maximumActionSpeedReduction = modDB:Max(nil, "MaximumActionSpeedReduction")
-	local actionSpeedMod = 0
-	
-	-- if we are unaffected by slows, only count the positive modifiers to action speed
-	if modDB:Flag(nil, "UnaffectedBySlows") then
-		local actionSpeedSum = sumPositiveValues(modDB, "ActionSpeed")
-		local tempChainsSum = m_max(-data.misc.TemporalChainsEffectCap, sumPositiveValues(modDB, "TemporalChainsActionSpeed"))
-		actionSpeedMod = 1 + (tempChainsSum + actionSpeedSum) / 100
-	else
-	    actionSpeedMod = 1 + (m_max(-data.misc.TemporalChainsEffectCap, modDB:Sum("INC", nil, "TemporalChainsActionSpeed")) + modDB:Sum("INC", nil, "ActionSpeed")) / 100
-	end
+	local actionSpeedSum
+    local tempChainsSum
+    
+    -- if we are unaffected by slows, only count the positive modifiers to action speed
+    if modDB:Flag(nil, "UnaffectedBySlows") then
+        actionSpeedSum = modDB:SumPositiveValues("INC", nil, "ActionSpeed")
+        tempChainsSum = modDB:SumPositiveValues("INC", nil, "TemporalChainsActionSpeed")
+    else
+        actionSpeedSum = modDB:Sum("INC", nil, "ActionSpeed")
+        tempChainsSum =  modDB:Sum("INC", nil, "TemporalChainsActionSpeed")
+    end
+    
+    local actionSpeedMod = 1 + (m_max(-data.misc.TemporalChainsEffectCap, tempChainsSum) + actionSpeedSum) / 100
 	actionSpeedMod = m_max(minimumActionSpeed / 100, actionSpeedMod)
 	if maximumActionSpeedReduction then
 		actionSpeedMod = m_min((100 - maximumActionSpeedReduction) / 100, actionSpeedMod)
