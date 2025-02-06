@@ -80,6 +80,7 @@ local formList = {
 	["^([%d%.]+) (.+) regeneration per second"] = "REGENFLAT",
 	["^([%d%.]+)%% (.+) regeneration per second"] = "REGENPERCENT",
 	["^([%d%.]+)%% of (.+) regeneration per second"] = "REGENPERCENT",
+	["^([%d%.]+)%% of (.+) regenerated per second"] = "REGENPERCENT",
 	["^regenerate ([%d%.]+) (.-) per second"] = "REGENFLAT",
 	["^regenerate ([%d%.]+)%% (.-) per second"] = "REGENPERCENT",
 	["^regenerate ([%d%.]+)%% of (.-) per second"] = "REGENPERCENT",
