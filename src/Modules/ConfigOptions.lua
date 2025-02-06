@@ -119,9 +119,6 @@ local configSettings = {
 			modList:NewMod("Condition:Stationary", "FLAG", true, "Config")
 		end
 	end },
-	{ var = "reservedDarkness", type = "count", label = "Reserved Darkness:", apply = function(val, modList, enemyModList)
-		modList:NewMod("ReservedDarkness", "BASE", val, "Config")
-	end },
 	{ var = "conditionMoving", type = "check", label = "Are you always moving?", ifCond = "Moving", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:Moving", "FLAG", true, "Config")
 	end },
@@ -1424,6 +1421,9 @@ Huge sets the radius to 11.
 	end },
 	{ var = "multiplierPvpDamage", type = "count", label = "Custom PvP Damage multiplier percent:", ifFlag = "isPvP", tooltip = "This multiplies the damage of a given skill in pvp, for instance any with damage multiplier specific to pvp (from skill or support or item like sire of shards)", apply = function(val, modList, enemyModList)
 		modList:NewMod("PvpDamageMultiplier", "MORE", val - 100, "Config")
+	end },
+	{ var = "reservedDarkness", type = "count", label = "Reserved Darkness:", apply = function(val, modList, enemyModList)
+		modList:NewMod("ReservedDarkness", "BASE", val, "Config")
 	end },
 	-- Section: Effective DPS options
 	{ section = "For Effective DPS", col = 1 },
