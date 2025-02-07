@@ -32,7 +32,6 @@ local TreeTabClass = newClass("TreeTab", "ControlHost", function(self, build)
 	self.specList[1] = new("PassiveSpec", build, latestTreeVersion)
 	self:SetActiveSpec(1)
 	self:SetCompareSpec(1)
-	self.skipTimeLostJewelProcessing = false
 
 	self.anchorControls = new("Control", nil, {0, 0, 0, 20})
 
@@ -162,7 +161,7 @@ local TreeTabClass = newClass("TreeTab", "ControlHost", function(self, build)
 
 	self.tradeLeaguesList = { }
 	-- Find Timeless Jewel Button
-	-- Add button back if/when we figure out how to serch for them again
+	-- Add button back if/when we figure out how to search for them again
 	--self.controls.findTimelessJewel = new("ButtonControl", { "LEFT", self.controls.treeSearch, "RIGHT" }, { 8, 0, 150, 20 }, "Find Timeless Jewel", function()
 		--self:FindTimelessJewel()
 	--end)
