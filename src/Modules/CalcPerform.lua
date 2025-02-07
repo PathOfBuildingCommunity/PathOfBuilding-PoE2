@@ -176,9 +176,6 @@ local function doActorAttribsConditions(env, actor)
 		end
 	end
 	if env.mode_combat then
-		if not modDB:Flag(env.player.mainSkill.skillCfg, "NeverCrit") then
-			condList["CritInPast8Sec"] = true
-		end
 		local skillFlags
 		if env.mode == "CALCS" then
 			skillFlags = actor.mainSkill.activeEffect.statSetCalcs.skillFlags 
