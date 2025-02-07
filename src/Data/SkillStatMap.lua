@@ -2336,6 +2336,9 @@ return {
 ["apply_X_armour_break_on_hit"] = {
 	flag("Condition:CanBreakArmour"),
 },
+["armour_break_physical_damage_%_dealt_as_armour_break"] = {
+	flag("Condition:CanBreakArmour"),
+},
 --
 -- Spectre or Minion-specific stats
 --

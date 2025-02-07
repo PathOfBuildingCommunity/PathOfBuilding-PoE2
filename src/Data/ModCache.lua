@@ -2401,10 +2401,10 @@ c["Break 30% increased Armour on enemies affected by Ailments +10 to Strength"]=
 c["Break 30% increased Armour on enemies affected by Ailments +10 to Strength 25% increased Physical Damage"]={nil,"Break 30% increased Armour on enemies affected by Ailments +10 to Strength 25% increased Physical Damage "}
 c["Break 40% increased Armour"]={nil,"Break 40% increased Armour "}
 c["Break 40% increased Armour 25% increased Physical Damage"]={nil,"Break 40% increased Armour 25% increased Physical Damage "}
-c["Break 50% of Armour on Heavy Stunning an Enemy"]={nil,"Break 50% of Armour on Heavy Stunning an Enemy "}
+c["Break 50% of Armour on Heavy Stunning an Enemy"]={{[1]={flags=0,keywordFlags=0,name="Condition:CanBreakArmour",type="FLAG",value=true}},nil}
 c["Break 60% increased Armour"]={nil,"Break 60% increased Armour "}
 c["Break 60% increased Armour 10% chance to Defend with 200% of Armour"]={nil,"Break 60% increased Armour 10% chance to Defend with 200% of Armour "}
-c["Break Armour equal to 10% of Hit Damage dealt"]={nil,"Break Armour equal to 10% of Hit Damage dealt "}
+c["Break Armour equal to 10% of Hit Damage dealt"]={{[1]={flags=0,keywordFlags=0,name="Condition:CanBreakArmour",type="FLAG",value=true}},nil}
 c["Break Armour on Critical Hit with Spells equal to 10% of Physical Damage dealt"]={nil,"Break Armour on Critical Hit with Spells equal to 10% of Physical Damage dealt "}
 c["Break Armour on Critical Hit with Spells equal to 10% of Physical Damage dealt 10% chance to inflict Bleeding on Hit"]={nil,"Break Armour on Critical Hit with Spells equal to 10% of Physical Damage dealt 10% chance to inflict Bleeding on Hit "}
 c["Break Armour on Critical Hit with Spells equal to 10% of Physical Damage dealt 10% chance to inflict Bleeding on Hit 20% increased Physical Damage"]={nil,"Break Armour on Critical Hit with Spells equal to 10% of Physical Damage dealt 10% chance to inflict Bleeding on Hit 20% increased Physical Damage "}
@@ -2615,8 +2615,8 @@ c["Energy Shield starts at zero Cannot Recharge or Regenerate Energy Shield Lose
 c["Equipment and Skill Gems have 25% increased Attribute Requirements"]={{[1]={flags=0,keywordFlags=0,name="GlobalAttributeRequirements",type="INC",value=25}},nil}
 c["Equipment and Skill Gems have 4% reduced Attribute Requirements"]={{[1]={flags=0,keywordFlags=0,name="GlobalAttributeRequirements",type="INC",value=-4}},nil}
 c["Equipment and Skill Gems have 50% reduced Attribute Requirements"]={{[1]={flags=0,keywordFlags=0,name="GlobalAttributeRequirements",type="INC",value=-50}},nil}
-c["Every 12 seconds, gain 50% more Cast Speed for 4 seconds"]={{[1]={[1]={effectName="Quicksand Hourglass",effectType="Buff",type="GlobalEffect"},[2]={type="Condition",var="QuicksandHourglass"},flags=16,keywordFlags=0,name="Speed",type="MORE",value="50"},[2]={flags=0,keywordFlags=0,name="Condition:CanGainQuicksandHourglass",type="FLAG",value=true}},nil}
 c["Evasion Rating is increased by Overcapped Lightning Resistance"]={{[1]={flags=0,keywordFlags=0,name="EvasionRatingIncreasedByOvercappedLightningRes",type="FLAG",value=true}},nil}
+c["Every 12 seconds, gain 50% more Cast Speed for 4 seconds"]={{[1]={[1]={effectName="Quicksand Hourglass",effectType="Buff",type="GlobalEffect"},[2]={type="Condition",var="QuicksandHourglass"},flags=16,keywordFlags=0,name="Speed",type="MORE",value="50"},[2]={flags=0,keywordFlags=0,name="Condition:CanGainQuicksandHourglass",type="FLAG",value=true}},nil}
 c["Every 3 seconds during Effect, deal 50% of Mana spent in those seconds as Chaos Damage to Enemies within 3 metres"]={nil,"Every 3 seconds during Effect, deal 50% of Mana spent in those seconds as Chaos Damage to Enemies within 3 metres "}
 c["Every 3 seconds during Effect, deal 50% of Mana spent in those seconds as Chaos Damage to Enemies within 3 metres Recover all Mana when Used"]={nil,"Every 3 seconds during Effect, deal 50% of Mana spent in those seconds as Chaos Damage to Enemies within 3 metres Recover all Mana when Used "}
 c["Every 3 seconds, Consume a nearby Corpse to Recover 20% of Life"]={nil,"Every 3 seconds, Consume a nearby Corpse to Recover 20% of Life "}
