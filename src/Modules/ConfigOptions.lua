@@ -1449,11 +1449,11 @@ Huge sets the radius to 11.
 	{ var = "conditionEnemyLowLife", type = "check", label = "Is the enemy on Low ^xE05030Life?", ifEnemyCond = "LowLife", apply = function(val, modList, enemyModList)
 		enemyModList:NewMod("Condition:LowLife", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
 	end },
-	{ var = "conditionEnemyArmourBroken", type = "check", label = "Is enemy Armour Broken?", ifFlag = "Condition:CanArmourBreak", tooltip = "Some Skills, Items, Support Gems and other effects can Break Armour, which lowers a target's Armour by a specified amount. \nIf this brings the target's Armour value to 0, their Armour is Fully Broken for 12 seconds.", apply = function(val, modList, enemyModList)
+	{ var = "conditionEnemyArmourBroken", type = "check", label = "Is enemy Armour Broken?", ifFlag = "Condition:CanArmourBreak", tooltip = "Some Skills, Items, Support Gems and other effects can Break Armour, which lowers a target's Armour by a specified amount.\nIf this brings the target's Armour value to 0, their Armour is Fully Broken for 12 seconds.", apply = function(val, modList, enemyModList)
 		enemyModList:NewMod("Condition:ArmourFullyBroken", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
 		enemyModList:NewMod("Armour", "OVERRIDE", 0, "Config", { type = "Condition", var = "ArmourFullyBroken" }, { type = "GlobalEffect", effectType= "Debuff", effectName = "ArmourBreak" })
 	end },
-	{ var = "multiplierArmourBreak", type = "count", label = "# of Broken Armour (if not maximum):", ifOption = "conditionEnemyArmourBroken", tooltip = "Some Skills, Items, Support Gems and other effects can Break Armour, which lowers a target's Armour by a specified amount. \nIf this brings the target's Armour value to 0, their Armour is Fully Broken for 12 seconds.", apply = function(val, modList, enemyModList)
+	{ var = "multiplierArmourBreak", type = "count", label = "# of Broken Armour (if not maximum):", ifOption = "conditionEnemyArmourBroken", tooltip = "Use this field to set a custom Armour Break value.\nIf left empty or set to 0, Fully Broken Armour will be assumed.\nArmour cannot be broken below zero by default.", apply = function(val, modList, enemyModList)
 		enemyModList:NewMod("Condition:ArmourBroken", "FLAG", val > 0, "Config", { type = "Condition", var = "Effective" }) -- only activate if value > 0 is entered
 		enemyModList:ReplaceMod("Condition:ArmourFullyBroken", "FLAG", val < 1, "Config", { type = "Condition", var = "Effective" }) -- disable FullyBrokenArmour if value >= 1 is entered
 		enemyModList:NewMod("Multiplier:ArmourBreakStack", "BASE", val, "Config", { type = "Condition", var = "ArmourBroken" })
