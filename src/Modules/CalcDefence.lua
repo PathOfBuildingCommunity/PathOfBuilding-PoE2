@@ -63,14 +63,6 @@ function calcs.doActorLifeManaSpirit(actor)
 	output.FullLifePercentage = 100.0 * (fullLifePerc > 0 and fullLifePerc or 1.0)
 
 	output.ChaosInoculation = modDB:Flag(nil, "ChaosInoculation")
-
-	--- Calculate Darkness/Reserved Darkness/Unreserved Darkness
-	local inc = modDB:Sum("INC", nil, "Darkness")
-	local base = modDB:Sum("BASE", nil, "Darkness")
-	output.Darkness = base * (1+inc/100)
-    local base = modDB:Sum("BASE", nil, "ReservedDarkness")
-	output.ReservedDarkness = base
-	output.UnreservedDarkness = output.Darkness - output.ReservedDarkness
 	
 	for _, res in ipairs({ "Life", "Mana", "Spirit"}) do
 		local base = modDB:Sum("BASE", nil, res)
@@ -110,6 +102,21 @@ function calcs.doActorLifeManaSpirit(actor)
 		condList["FullLife"] = true
 	end
 	output.LowestOfMaximumLifeAndMaximumMana = m_min(output.Life, output.Mana)
+end
+
+
+-- Calculate Darkness and Darkness Reservation
+---@param actor table
+function calcs.doActorDarkness(actor)
+	local modDB = actor.modDB
+	local output = actor.output
+	local inc = modDB:Sum("INC", nil, "Darkness")
+	local base = modDB:Sum("BASE", nil, "Darkness")
+	output.Darkness = base * (1+inc/100)
+
+    base = modDB:Sum("BASE", nil, "ReservedDarkness")
+	output.ReservedDarkness = base
+	output.UnreservedDarkness = output.Darkness - output.ReservedDarkness
 end
 
 -- Calculate life/mana/spirit reservation
@@ -1275,6 +1282,9 @@ function calcs.defence(env, actor)
 
 	-- Calculate life and mana reservations
 	calcs.doActorLifeManaSpiritReservation(actor)
+
+	-- Calculate darkness and darkness reservation
+	calcs.doActorDarkness(actor)
 
 	-- Stormweaver's Force of Will adds effect per max mana. Needs to happen before mana regen is calculated
 	if modDB.conditions["AffectedByArcaneSurge"] or modDB:Flag(nil, "Condition:ArcaneSurge") then
