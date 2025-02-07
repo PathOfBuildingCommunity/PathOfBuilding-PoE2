@@ -2784,6 +2784,7 @@ local specialModList = {
 		mod("PhysicalDamageGainAsChaos", "BASE", num, { type = "SkillType", skillType = SkillType.Triggered, neg = true }, { type = "SkillType", skillType = SkillType.Channel, neg = true }, { type = "Condition", var = "UsingAmethystFlask" })
 	} end,
 	["double the number of your poisons that targets can be affected by at the same time"] =  function(num) return { flag("PoisonCanStack"), mod("PoisonStacks", "MORE", 100) } end,
+	["your speed is unaffected by slows"] = { flag("UnaffectedBySlows") },
 	-- Raider
 	["nearby enemies have (%d+)%% less accuracy rating while you have phasing"] = function(num) return { mod("EnemyModifier", "LIST", { mod = mod("Accuracy", "MORE", -num) }, { type = "Condition", var = "Phasing" }) } end,
 	["immun[ei]t?y? to elemental ailments while phasing"] = { flag("ElementalAilmentImmune", { type = "Condition", var = "Phasing" }), },

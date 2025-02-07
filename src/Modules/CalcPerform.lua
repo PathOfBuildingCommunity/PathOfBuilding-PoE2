@@ -748,11 +748,24 @@ local function doActorCharges(env, actor)
 	modDB.multipliers["SpiritCharge"] = output.SpiritCharges
 end
 
+
 function calcs.actionSpeedMod(actor)
 	local modDB = actor.modDB
 	local minimumActionSpeed = modDB:Max(nil, "MinimumActionSpeed") or 0
 	local maximumActionSpeedReduction = modDB:Max(nil, "MaximumActionSpeedReduction")
-	local actionSpeedMod = 1 + (m_max(-data.misc.TemporalChainsEffectCap, modDB:Sum("INC", nil, "TemporalChainsActionSpeed")) + modDB:Sum("INC", nil, "ActionSpeed")) / 100
+	local actionSpeedSum
+    local tempChainsSum
+    
+    -- if we are unaffected by slows, only count the positive modifiers to action speed
+    if modDB:Flag(nil, "UnaffectedBySlows") then
+        actionSpeedSum = modDB:SumPositiveValues("INC", nil, "ActionSpeed")
+        tempChainsSum = modDB:SumPositiveValues("INC", nil, "TemporalChainsActionSpeed")
+    else
+        actionSpeedSum = modDB:Sum("INC", nil, "ActionSpeed")
+        tempChainsSum =  modDB:Sum("INC", nil, "TemporalChainsActionSpeed")
+    end
+    
+    local actionSpeedMod = 1 + (m_max(-data.misc.TemporalChainsEffectCap, tempChainsSum) + actionSpeedSum) / 100
 	actionSpeedMod = m_max(minimumActionSpeed / 100, actionSpeedMod)
 	if maximumActionSpeedReduction then
 		actionSpeedMod = m_min((100 - maximumActionSpeedReduction) / 100, actionSpeedMod)
