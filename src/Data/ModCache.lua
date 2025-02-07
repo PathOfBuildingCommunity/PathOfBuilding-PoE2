@@ -2369,7 +2369,7 @@ c["Aura Skills have 1% more Aura Effect per 2% of maximum Mana they Reserve"]={{
 c["Auras from your Skills can only affect you"]={{[1]={flags=0,keywordFlags=0,name="SelfAurasOnlyAffectYou",type="FLAG",value=true}},nil}
 c["Base Critical Hit Chance for Attacks with Weapons is 8%"]={{[1]={flags=0,keywordFlags=0,name="WeaponBaseCritChance",type="OVERRIDE",value=8}},nil}
 c["Base Critical Hit Chance for Spells is 15%"]={{[1]={[1]={skillType=2,type="SkillType"},flags=0,keywordFlags=0,name="CritChanceBase",type="OVERRIDE",value=15}},nil}
-c["Base Maximum Darkness is 100"]={{[1]={flags=0,keywordFlags=0,name="Darkness",type="BASE",value=100}},nil}
+c["Base Maximum Darkness is 100"]={{[1]={flags=0,keywordFlags=0,name="PlayerHasDarkness",type="FLAG",value=true},[2]={flags=0,keywordFlags=0,name="Darkness",type="BASE",value=100}},nil}
 c["Become Ignited when you deal a Critical Hit, taking 15% of your Life and Energy Shield as Fire Damage per second"]={nil,"Become Ignited when you deal a Critical Hit, taking 15% of your Life and Energy Shield as Fire Damage per second "}
 c["Become Ignited when you deal a Critical Hit, taking 15% of your Life and Energy Shield as Fire Damage per second 30% more Critical Damage Bonus"]={nil,"Become Ignited when you deal a Critical Hit, taking 15% of your Life and Energy Shield as Fire Damage per second 30% more Critical Damage Bonus "}
 c["Benefits from consuming Frenzy Charges for your Skills have 50% chance to be doubled"]={nil,"Benefits from consuming Frenzy Charges for your Skills have 50% chance to be doubled "}

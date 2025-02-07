@@ -110,6 +110,7 @@ end
 function calcs.doActorDarkness(actor)
 	local modDB = actor.modDB
 	local output = actor.output
+	local condList = modDB.conditions
 	local inc = modDB:Sum("INC", nil, "Darkness")
 	local base = modDB:Sum("BASE", nil, "Darkness")
 	output.Darkness = base * (1+inc/100)

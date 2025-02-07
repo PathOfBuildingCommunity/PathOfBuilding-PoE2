@@ -2802,11 +2802,6 @@ local specialModList = {
 	["you gain (%d+)%% increased damage for each trap"] = function(num) return { mod("Damage", "INC", num, { type = "PerStat", stat = "ActiveTrapLimit" }) } end,
 	["you gain (%d+)%% increased area of effect for each mine"] = function(num) return { mod("AreaOfEffect", "INC", num, { type = "PerStat", stat = "ActiveMineLimit" }) } end,
 	["triggers level (%d+) summon triggerbots when allocated"] = { flag("HaveTriggerBots") },
-	-- Acolyte
-	["gain (%d+)%% of damage as extra chaos damage per 20 unreserved darkness"] = function(num) return { mod("PhysicalDamageGainAsChaos", "BASE", num ,{ type = "PerStat", div=20, stat="UnreservedDarkness"})} end,
-	["removes all spirit"] = { mod("Spirit", "MORE", -100) },
-	["base maximum darkness is (%d+)"] =function(num) return { mod("Darkness","BASE",num)}end,
-	["(%d+)%% increased maximum darkness"] = function(num) return{ mod("Darkness", "INC", num)}end,
 	-- Slayer
 	["cannot be stunned while leeching"] = { flag("StunImmune", { type = "Condition", var = "Leeching" }), },
 	["you are immune to bleeding while leeching"] = { flag("BleedImmune", { type = "Condition", var = "Leeching" }), },
@@ -2865,6 +2860,10 @@ local specialModList = {
 	["targets can be affected by two of your chills at the same time"] = { flag("ChillCanStack"), mod("ChillStacksMax", "OVERRIDE", 2) },
 	["your chills can slow targets by up to a maximum of (%d+)%%"] = function(num) return { mod("ChillMax", "OVERRIDE", num)} end,
 	-- Monk - Chayula
+	["gain (%d+)%% of damage as extra chaos damage per 20 unreserved darkness"] = function(num) return { mod("PhysicalDamageGainAsChaos", "BASE", num ,{ type = "PerStat", div=20, stat="UnreservedDarkness"})} end,
+	["removes all spirit"] = { mod("Spirit", "MORE", -100) },
+	["base maximum darkness is (%d+)"] =function(num) return {flag("PlayerHasDarkness"), mod("Darkness","BASE",num)}end,
+	["(%d+)%% increased maximum darkness"] = function(num) return{ mod("Darkness", "INC", num)}end,
 	["(%d+)%% chance to gain (%d+)%% of damage with hits as extra (%a+) damage"] = function(num, _, num2, strType) return {
 		mod("DamageGainAs"..firstToUpper(strType), "BASE", tonumber(num2) * (num / 100), nil, ModFlag.Hit, 0),
 	} end,
