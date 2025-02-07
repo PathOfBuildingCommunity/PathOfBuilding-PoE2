@@ -1250,7 +1250,7 @@ c["20% increased Critical Hit Chance if you have Killed Recently"]={{[1]={[1]={t
 c["20% increased Critical Hit Chance if you haven't dealt a Critical Hit Recently"]={{[1]={[1]={neg=true,type="Condition",var="CritRecently"},flags=0,keywordFlags=0,name="CritChance",type="INC",value=20}},nil}
 c["20% increased Curse Duration"]={{[1]={flags=0,keywordFlags=2,name="Duration",type="INC",value=20}},nil}
 c["20% increased Damage against Dazed Enemies"]={{[1]={flags=0,keywordFlags=0,name="Damage",type="INC",value=20}},"  against Dazed Enemies "}
-c["20% increased Damage against Enemies with Fully Broken Armour"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="ArmourBroken"},flags=0,keywordFlags=0,name="Damage",type="INC",value=20}},nil}
+c["20% increased Damage against Enemies with Fully Broken Armour"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="ArmourFullyBroken"},flags=0,keywordFlags=0,name="Damage",type="INC",value=20}},nil}
 c["20% increased Damage for each different Warcry you've used Recently"]={{[1]={flags=0,keywordFlags=4,name="Damage",type="INC",value=20}},"  for each different  you've used Recently "}
 c["20% increased Damage if you've dealt a Critical Hit Recently"]={{[1]={[1]={type="Condition",var="CritRecently"},flags=0,keywordFlags=0,name="Damage",type="INC",value=20}},nil}
 c["20% increased Damage with Hits against Enemies that are on Full Life"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="FullLife"},flags=0,keywordFlags=262144,name="Damage",type="INC",value=20}},nil}
@@ -2091,7 +2091,7 @@ c["60% increased Armour from Equipped Body Armour"]={{[1]={[1]={slotName="Body A
 c["60% increased Armour, Evasion and Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="Defences",type="INC",value=60}},nil}
 c["60% increased Block chance"]={{[1]={flags=0,keywordFlags=0,name="BlockChance",type="INC",value=60}},nil}
 c["60% increased Critical Damage Bonus"]={{[1]={flags=0,keywordFlags=0,name="CritMultiplier",type="INC",value=60}},nil}
-c["60% increased Damage against Enemies with Fully Broken Armour"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="ArmourBroken"},flags=0,keywordFlags=0,name="Damage",type="INC",value=60}},nil}
+c["60% increased Damage against Enemies with Fully Broken Armour"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="ArmourFullyBroken"},flags=0,keywordFlags=0,name="Damage",type="INC",value=60}},nil}
 c["60% increased Damage with Hits against Enemies that are on Low Life"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="LowLife"},flags=0,keywordFlags=262144,name="Damage",type="INC",value=60}},nil}
 c["60% increased Effect of Poison you inflict on targets that are not Poisoned"]={{[1]={flags=0,keywordFlags=0,name="LocalEffect",type="INC",value=60}},"  of Poison you inflict on targets that are not Poisoned "}
 c["60% increased Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="EnergyShield",type="INC",value=60}},nil}
