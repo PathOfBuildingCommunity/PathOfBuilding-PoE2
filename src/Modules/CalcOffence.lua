@@ -3195,6 +3195,8 @@ function calcs.offence(env, actor, activeSkill)
 
 						if damageType == "Physical" then
 							local enemyArmour = m_max(calcLib.val(enemyDB, "Armour"), 0)
+							local ignoreEnemyArmour = calcLib.val(enemyDB, "IgnoreArmour") -- check for mods that ignore armour. this is stored as a negative value
+							if ignoreEnemyArmour and (enemyArmour > 0) then enemyArmour = m_max(enemyArmour + ignoreEnemyArmour, 0) end -- subtract ignored value up to zero, if armour is still positive (to allow future support of negative armour)
 							local armourReduction = calcs.armourReductionF(enemyArmour, damageTypeHitAvg * skillModList:More(cfg, "CalcArmourAsThoughDealing"))
 							local ChanceToIgnoreEnemyPhysicalDamageReduction = m_min(skillModList:Sum("BASE", cfg, "ChanceToIgnoreEnemyPhysicalDamageReduction"), 100)
 							if ChanceToIgnoreEnemyPhysicalDamageReduction > 0 and ChanceToIgnoreEnemyPhysicalDamageReduction < 100 then
