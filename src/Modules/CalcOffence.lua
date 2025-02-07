@@ -3946,25 +3946,29 @@ function calcs.offence(env, actor, activeSkill)
 		-- Calculates damage to be used in damaging ailment calculations
 		local function calcAilmentSourceDamage(ailment, defaultDamageTypes)
 			local canCrit = not skillModList:Flag(cfg, "AilmentsAreNeverFromCrit")
-			local hitMin, hitMax = 0, 0
-			local critMin, critMax = 0, 0
+			local hitAvg, hitMin, hitMax = 0, 0, 0
+			local critAvg, critMin, critMax = 0, 0, 0
 			for _, damageType in ipairs(dmgTypeList) do
 				if canDoAilment(ailment, damageType, defaultDamageTypes) then
 					local override = skillModList:Override(cfg, ailment .. damageType .. "HitDamage")
+					local ailmentHitAvg = override or output[damageType.."StoredHitAvg"] or 0
 					local ailmentHitMin = override or output[damageType.."StoredHitMin"] or 0
 					local ailmentHitMax = override or output[damageType.."StoredHitMax"] or 0
+					hitAvg = hitAvg + ailmentHitAvg
 					hitMin = hitMin + ailmentHitMin
 					hitMax = hitMax + ailmentHitMax
+					output[ailment .. damageType .. "Avg"] = ailmentHitAvg
 					output[ailment .. damageType .. "Min"] = ailmentHitMin
 					output[ailment .. damageType .. "Max"] = ailmentHitMax
 					if canCrit then
 						override = skillModList:Override(cfg, ailment .. damageType .. "CritDamage")
+						critAvg = critAvg + (override or output[damageType.."StoredCritAvg"] or 0)
 						critMin = critMin + (override or output[damageType.."StoredCritMin"] or 0)
 						critMax = critMax + (override or output[damageType.."StoredCritMax"] or 0)
 					end
 				end
 			end
-			return hitMin, hitMax, critMin, critMax
+			return hitAvg, hitMin, hitMax, critAvg, critMin, critMax
 		end
 
 		-- Calculate the inflict chance and base damage of a secondary effect (bleed/poison/ignite/shock/freeze)
@@ -4183,9 +4187,7 @@ function calcs.offence(env, actor, activeSkill)
 				end
 			end
 
-			local hitMin, hitMax, critMin, critMax = calcAilmentSourceDamage(ailment, defaultDamageTypes)
-			local hitAvg = hitMin + ((hitMax - hitMin) * ailmentRollAverage / 100)
-			local critAvg = critMin + ((critMax - critMin) * ailmentRollAverage / 100)
+			local hitAvg, hitMin, hitMax, critAvg, critMin, critMax = calcAilmentSourceDamage(ailment, defaultDamageTypes)
 			if globalBreakdown then
 				globalBreakdown[ailment .. "DPS"] = {
 					s_format("Non-Crit Dmg Derivation:"),
