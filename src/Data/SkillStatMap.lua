@@ -2334,10 +2334,10 @@ return {
 	mod("AdditionalChargeChance", "BASE", nil)
 },
 ["apply_X_armour_break_on_hit"] = {
-	flag("Condition:CanBreakArmour", { type = "GlobalEffect", effectType = "Buff", effectName = "ArmourBreak" }),
+	flag("Condition:CanArmourBreak", { type = "GlobalEffect", effectType = "Buff", effectName = "ArmourBreak" }),
 },
 ["armour_break_physical_damage_%_dealt_as_armour_break"] = {
-	flag("Condition:CanBreakArmour", { type = "GlobalEffect", effectType = "Buff", effectName = "ArmourBreak" }),
+	flag("Condition:CanArmourBreak", { type = "GlobalEffect", effectType = "Buff", effectName = "ArmourBreak" }),
 },
 --
 -- Spectre or Minion-specific stats
