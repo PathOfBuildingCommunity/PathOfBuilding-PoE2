@@ -2223,7 +2223,7 @@ local specialModList = {
 	["(%d+)%% of damage taken bypasses ward"] = function(num) return { mod("WardBypass", "BASE", num) } end,
 	["maximum energy shield is (%d+)"] = function(num) return { mod("EnergyShield", "OVERRIDE", num ) } end,
 	["cannot have energy shield"] = { flag("CannotHaveES") },
-	["regenerate (%d.+) life per second per maximum energy shield"] = function(num) return {
+	["regenerate ([%d%.]+) life per second per maximum energy shield"] = function(num) return {
 		mod("LifeRegen", "BASE", num, { type = "PerStat", stat = "MaximumEnergyShield", div = 1 })
 	} end,
 	["while not on full life, sacrifice ([%d%.]+)%% of mana per second to recover that much life"] = function(num) return {
@@ -2341,16 +2341,16 @@ local specialModList = {
 	["life leech is instant"] = { mod("InstantLifeLeech", "BASE", 100), },
 	["mana leech is instant"] = { mod("InstantManaLeech", "BASE", 100), },
 	["mana leech effects also recover energy shield"] = { flag("ManaLeechRecoversEnergyShield") },
-	["leeche?s? (%d.+)%% of (%a+) damage as mana"] = function(num, _, dmgType) return {
+	["leeche?s? ([%d%.]+)%% of (%a+) damage as mana"] = function(num, _, dmgType) return {
 		mod(firstToUpper(dmgType) .. "DamageManaLeech", "BASE", num),
 	} end,
-	["leeche?s? (%d.+)%% of (%a+) damage as life"] = function(num, _, dmgType) return {
+	["leeche?s? ([%d%.]+)%% of (%a+) damage as life"] = function(num, _, dmgType) return {
 		mod(firstToUpper(dmgType) .. "DamageLifeLeech", "BASE", num),
 	} end,
-	["leeche?s? (%d.+)%% of (%a+) attack damage as mana"] = function(num, _, dmgType) return {
+	["leeche?s? ([%d%.]+)%% of (%a+) attack damage as mana"] = function(num, _, dmgType) return {
 		mod(firstToUpper(dmgType) .. "DamageManaLeech", "BASE", num, nil, ModFlag.Attack, 0),
 	} end,
-	["leeche?s? (%d.+)%% of (%a+) attack damage as life"] = function(num, _, dmgType) return {
+	["leeche?s? ([%d%.]+)%% of (%a+) attack damage as life"] = function(num, _, dmgType) return {
 		mod(firstToUpper(dmgType) .. "DamageLifeLeech", "BASE", num, nil, ModFlag.Attack, 0),
 	} end,
 	-- Ascendant
