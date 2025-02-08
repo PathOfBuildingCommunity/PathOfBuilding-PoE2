@@ -153,11 +153,12 @@ function calcs.createActiveSkill(activeEffect, supportList, env, actor, socketGr
 			end
 		end
 	until (notAddedNewSupport)
-	
+
 	for _, supportEffect in ipairs(supportList) do
 		-- Pass 2: Add all compatible supports
 		if calcLib.canGrantedEffectSupportActiveSkill(supportEffect.grantedEffect, activeSkill) then
 			t_insert(activeSkill.effectList, supportEffect)
+			-- Track how many active skills are supported by this support effect
 			if supportEffect.isSupporting and activeEffect.srcInstance then
 				supportEffect.isSupporting[activeEffect.srcInstance] = true
 			end

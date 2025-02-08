@@ -183,7 +183,16 @@ function calcs.doActorLifeManaSpiritReservation(actor)
 					values.reservedFlat = values.reservedFlat * activeSkill.activeMineCount
 					values.reservedPercent = values.reservedPercent * activeSkill.activeMineCount
 				end
-				-- Blood Sacrament increases reservation per stage channelled
+				if activeSkill.skillTypes[SkillType.CanHaveMultipleOngoingSkillInstances] and activeSkill.activeEffect.srcInstance.supportEffect and activeSkill.activeEffect.srcInstance.supportEffect.isSupporting then
+					-- Sadly no better way to get key/val table element count in lua.
+					local instances = 0
+					for _ in pairs(activeSkill.activeEffect.srcInstance.supportEffect.isSupporting) do
+						instances = instances + 1
+					end
+					values.reservedFlat = values.reservedFlat * instances
+					values.reservedPercent = values.reservedPercent * instances
+				end
+					-- Blood Sacrament increases reservation per stage channelled
 				if activeSkill.skillCfg.skillName == "Blood Sacrament" and activeSkill.activeStageCount then
 					values.reservedFlat = values.reservedFlat * (activeSkill.activeStageCount + 1)
 					values.reservedPercent = values.reservedPercent * (activeSkill.activeStageCount + 1)

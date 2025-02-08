@@ -769,6 +769,11 @@ skills["BlasphemyPlayer"] = {
 			label = "Buff",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "skill_stat_descriptions",
+			statMap = {
+				["blasphemy_base_spirit_reservation_per_socketed_curse"] = {
+					mod("SkillData", "LIST", { key = "spiritReservationFlat", value = nil })
+				},
+			},
 			baseFlags = {
 				area = true,
 			},
