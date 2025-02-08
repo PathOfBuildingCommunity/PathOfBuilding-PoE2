@@ -490,8 +490,8 @@ local ascStart = uiImages[string.lower("Art/2DArt/UIImages/InGame/PassiveSkillSc
 addToSheet(getSheet("group-background"), ascStart, "startNode", commonMetadata("PSStartNodeBackgroundInactive"))
 
 -- adding passive tree assets
-addToSheet(getSheet("ascendancy-background"), "art/textures/interface/2d/2dart/uiimages/ingame/passivetree/passivetreemaincircle.dds", "ascendancyBackground", commonMetadata("BGTree"))
-addToSheet(getSheet("ascendancy-background"), "art/textures/interface/2d/2dart/uiimages/ingame/passivetree/passivetreemaincircleactive2.dds", "ascendancyBackground", commonMetadata("BGTreeActive"))
+addToSheet(getSheet("ascendancy-background"), "art/textures/interface/2d/2dart/uiimages/ingame/passivetree/passivetreemaincircle.dds", "AscendancyBackground", commonMetadata("BGTree"))
+addToSheet(getSheet("ascendancy-background"), "art/textures/interface/2d/2dart/uiimages/ingame/passivetree/passivetreemaincircleactive2.dds", "AscendancyBackground", commonMetadata("BGTreeActive"))
 
 -- adding lines to sprite
 addToSheet(getSheet("lines"), "art/2dart/passivetree/passiveskillscreencurvesactivetogether.dds", "line", commonMetadata( "CurvesActive"))
@@ -619,7 +619,7 @@ for i, classId in ipairs(psg.passives) do
 			})
 
 			-- add assets
-			addToSheet(getSheet("ascendancy-background"), ascendency.PassiveTreeImage, "ascendancyBackground", commonMetadata( "Classes" .. ascendency.Name))
+			addToSheet(getSheet("ascendancy-background"), ascendency.PassiveTreeImage, "AscendancyBackground", commonMetadata( "Classes" .. ascendency.Name))
 
 			:: continue3 ::
 		end
