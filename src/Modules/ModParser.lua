@@ -3763,6 +3763,10 @@ local specialModList = {
 		mod("EnergyShieldRegen", "BASE", 1, { type = "Condition", var = "LifeRegenBurstFull" }, { type = "PercentStat", stat = "Evasion", percent = percent }),
 		mod("EnergyShieldRegen", "BASE", 1 / interval * duration, { type = "Condition", var = "LifeRegenBurstAvg" }, { type = "PercentStat", stat = "Evasion", percent = percent }),
 	} end,
+	["recover (%d+)%% of life and mana when you use a warcry"] = function(num) return {
+		mod("LifeRecovery", "BASE", 1, { type = "PercentStat", stat = "Life", percent = num}, { type = "Condition", var = "UsedWarcryRecently"}),
+		mod("ManaRecovery", "BASE", 1, { type = "PercentStat", stat = "Mana", percent = num}, { type = "Condition", var = "UsedWarcryRecently"}),
+	}end,
 	["regenerate (%d+)%% of life per second for each different ailment affecting you"] = function(num) return {
 		mod("LifeRegenPercent", "BASE", num , { type = "Condition", var = "Bleeding" }),
 		mod("LifeRegenPercent", "BASE", num , { type = "Condition", var = "Ignited" }),

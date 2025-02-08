@@ -3075,9 +3075,7 @@ c["Quarterstaff Skills that consume Power Charges count as consuming an addition
 c["Recoup Effects instead occur over 4 seconds"]={{[1]={flags=0,keywordFlags=0,name="4SecondRecoup",type="FLAG",value=true}},nil}
 c["Recover 1% of Life on Kill"]={{[1]={[1]={percent=1,stat="Life",type="PercentStat"},flags=0,keywordFlags=0,name="LifeOnKill",type="BASE",value=1}},nil}
 c["Recover 10% of Missing Life before being Hit by an Enemy"]={nil,"Recover 10% of Missing Life before being Hit by an Enemy "}
-c["Recover 2% of Life and Mana when you use a Warcry"]={nil,"Recover 2% of Life and Mana when you use a Warcry "}
-c["Recover 2% of Life and Mana when you use a Warcry 24% increased Warcry Speed"]={nil,"Recover 2% of Life and Mana when you use a Warcry 24% increased Warcry Speed "}
-c["Recover 2% of Life and Mana when you use a Warcry 24% increased Warcry Speed 18% increased Warcry Cooldown Recovery Rate"]={nil,"Recover 2% of Life and Mana when you use a Warcry 24% increased Warcry Speed 18% increased Warcry Cooldown Recovery Rate "}
+c["Recover 2% of Life and Mana when you use a Warcry"]={{[1]={[1]={percent=2,stat="Life",type="PercentStat"},[2]={type="Condition",var="UsedWarcryRecently"},flags=0,keywordFlags=0,name="LifeRecovery",type="BASE",value=1},[2]={[1]={percent=2,stat="Mana",type="PercentStat"},[2]={type="Condition",var="UsedWarcryRecently"},flags=0,keywordFlags=0,name="ManaRecovery",type="BASE",value=1}},nil}
 c["Recover 2% of Life for each Endurance Charge consumed"]={nil,"Recover 2% of Life for each Endurance Charge consumed "}
 c["Recover 2% of Life on Kill"]={{[1]={[1]={percent=2,stat="Life",type="PercentStat"},flags=0,keywordFlags=0,name="LifeOnKill",type="BASE",value=1}},nil}
 c["Recover 2% of Life on Killing a Poisoned Enemy"]={{[1]={[1]={percent=2,stat="Life",type="PercentStat"},[2]={actor="enemy",threshold=1,type="MultiplierThreshold",var="PoisonStack"},flags=0,keywordFlags=0,name="LifeOnKill",type="BASE",value=1}},nil}
