@@ -792,7 +792,6 @@ function calcs.actionSpeedMod(actor)
 
 	local actionSpeedMod = 1 + (-slowEffect + actionSpeedSum) / 100
     
-    -- local actionSpeedMod = 1 + (slowEffectsSum + actionSpeedSum) / 100
 	actionSpeedMod = m_max(minimumActionSpeed / 100, actionSpeedMod)
 	if maximumActionSpeedReduction then
 		actionSpeedMod = m_min((100 - maximumActionSpeedReduction) / 100, actionSpeedMod)
