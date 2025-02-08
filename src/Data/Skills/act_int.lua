@@ -17152,7 +17152,6 @@ skills["VulnerabilityPlayer"] = {
 			statMap = {
 				["vulnerability_total_armour_-"] = {
 					mod("IgnoreArmour", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Curse" }),
-					mult = -1,
 				},
 			},
 			constantStats = {

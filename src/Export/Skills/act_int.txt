@@ -1027,7 +1027,6 @@ statMap = {
 statMap = {
 	["vulnerability_total_armour_-"] = {
 		mod("IgnoreArmour", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Curse" }),
-		mult = -1,
 	},
 },
 #mods
