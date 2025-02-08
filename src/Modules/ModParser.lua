@@ -2895,9 +2895,6 @@ local specialModList = {
 	["maximum mana is replaced by maximum infernal flame"] = {
 		 mod("ManaToInfernalFlame", "FLAG", true)
 	},
-	["gain infernal flame instead of spending mana for skill costs"] = {
-		mod("CostInfernalFlameInsteadOfMana")
-	},
 	-- Item local modifiers
 	["has no sockets"] = { flag("NoSockets") },
 	["reflects your other ring"] = {

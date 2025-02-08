@@ -98,11 +98,14 @@ function calcs.doActorLifeManaSpirit(actor)
 			end
 		end
 	end
+
+	--- Calculate infernal flame after mana is calculated
 	if modDB:Flag(nil, "ManaToInfernalFlame")  then
+		local inc = modDB:Sum("INC", nil, "Mana")
 		output.InfernalFlame = output.Mana
 		output.Mana = 0
 		output.ManaRecoveryRate = 0
-		--These mods sets mana to 0 after mana has been calculated and infernal flame has been set to prevent mana from showing up in calcs tab
+		--These mods sets mana and recovery to 0 to prevent them from showing up in calcs tab
 		modDB:NewMod("Mana", "OVERRIDE", 0)
 		modDB:NewMod("ManaRecovery", "OVERRIDE", 0)
 	end
