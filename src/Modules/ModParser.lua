@@ -2890,6 +2890,14 @@ local specialModList = {
 		mod("Speed", "MORE", num, nil, ModFlag.Cast, { type = "GlobalEffect", effectType = "Buff", effectName = "Quicksand Hourglass" }, { type = "Condition", var = "QuicksandHourglass" }),
 		flag("Condition:CanGainQuicksandHourglass")
 	} end,
+
+	-- Infernalist
+	["maximum mana is replaced by maximum infernal flame"] = {
+		 mod("ManaToInfernalFlame", "FLAG", true)
+	},
+	["gain infernal flame instead of spending mana for skill costs"] = {
+		mod("CostInfernalFlameInsteadOfMana")
+	},
 	-- Item local modifiers
 	["has no sockets"] = { flag("NoSockets") },
 	["reflects your other ring"] = {
