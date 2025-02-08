@@ -2821,7 +2821,7 @@ local specialModList = {
 	-- Warrior - Titan
 	["(%d+)%% increased effect of small passive skills"] = function(num) return { mod("SmallPassiveSkillEffect", "INC", num) } end,
 	-- Warrior - Warbringer
-	["ignore warcry cooldowns"] = function() return {mod("CooldownRecovery", "BASE", -8, { type = "SkillType", skillType = SkillType.Warcry })} end,
+	["ignore warcry cooldowns"] ={ mod("CooldownRecovery", "OVERRIDE", 0, { type = "SkillType", skillType = SkillType.Warcry}) },
 	-- Trickster
 	["(%d+)%% chance to gain (%d+)%% of non%-chaos damage with hits as extra chaos damage"] = function(num, _, perc) return { mod("NonChaosDamageGainAsChaos", "BASE", num / 100 * tonumber(perc)) } end,
 	["movement skills cost no mana"] = { mod("ManaCost", "MORE", -100, nil, 0, KeywordFlag.Movement) },
@@ -3763,10 +3763,6 @@ local specialModList = {
 		mod("EnergyShieldRegen", "BASE", 1, { type = "Condition", var = "LifeRegenBurstFull" }, { type = "PercentStat", stat = "Evasion", percent = percent }),
 		mod("EnergyShieldRegen", "BASE", 1 / interval * duration, { type = "Condition", var = "LifeRegenBurstAvg" }, { type = "PercentStat", stat = "Evasion", percent = percent }),
 	} end,
-	["recover (%d+)%% of life and mana when you use a warcry"] = function(num) return {
-		mod("LifeRecovery", "BASE", 1, { type = "PercentStat", stat = "Life", percent = num}, { type = "Condition", var = "UsedWarcryRecently"}),
-		mod("ManaRecovery", "BASE", 1, { type = "PercentStat", stat = "Mana", percent = num}, { type = "Condition", var = "UsedWarcryRecently"}),
-	}end,
 	["regenerate (%d+)%% of life per second for each different ailment affecting you"] = function(num) return {
 		mod("LifeRegenPercent", "BASE", num , { type = "Condition", var = "Bleeding" }),
 		mod("LifeRegenPercent", "BASE", num , { type = "Condition", var = "Ignited" }),
