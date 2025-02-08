@@ -1,94 +1,94 @@
 return {
 	assets={
 		LineConnectorActive={
-			[1]="orbitactive0.png"
+			[1]="orbit_active0.png"
 		},
 		LineConnectorIntermediate={
-			[1]="orbitintemediate0.png"
+			[1]="orbit_intermediate0.png"
 		},
 		LineConnectorNormal={
-			[1]="orbitnormal0.png"
+			[1]="orbit_normal0.png"
 		},
 		Orbit1Active={
-			[1]="orbitactive9.png"
+			[1]="orbit_active9.png"
 		},
 		Orbit1Intermediate={
-			[1]="orbitintemediate9.png"
+			[1]="orbit_intermediate9.png"
 		},
 		Orbit1Normal={
-			[1]="orbitnormal9.png"
+			[1]="orbit_normal9.png"
 		},
 		Orbit2Active={
-			[1]="orbitactive8.png"
+			[1]="orbit_active8.png"
 		},
 		Orbit2Intermediate={
-			[1]="orbitintemediate8.png"
+			[1]="orbit_intermediate8.png"
 		},
 		Orbit2Normal={
-			[1]="orbitnormal8.png"
+			[1]="orbit_normal8.png"
 		},
 		Orbit3Active={
-			[1]="orbitactive6.png"
+			[1]="orbit_active6.png"
 		},
 		Orbit3Intermediate={
-			[1]="orbitintemediate6.png"
+			[1]="orbit_intermediate6.png"
 		},
 		Orbit3Normal={
-			[1]="orbitnormal6.png"
+			[1]="orbit_normal6.png"
 		},
 		Orbit4Active={
-			[1]="orbitactive5.png"
+			[1]="orbit_active5.png"
 		},
 		Orbit4Intermediate={
-			[1]="orbitintemediate5.png"
+			[1]="orbit_intermediate5.png"
 		},
 		Orbit4Normal={
-			[1]="orbitnormal5.png"
+			[1]="orbit_normal5.png"
 		},
 		Orbit5Active={
-			[1]="orbitactive4.png"
+			[1]="orbit_active4.png"
 		},
 		Orbit5Intermediate={
-			[1]="orbitintemediate4.png"
+			[1]="orbit_intermediate4.png"
 		},
 		Orbit5Normal={
-			[1]="orbitnormal4.png"
+			[1]="orbit_normal4.png"
 		},
 		Orbit6Active={
-			[1]="orbitactive3.png"
+			[1]="orbit_active3.png"
 		},
 		Orbit6Intermediate={
-			[1]="orbitintemediate3.png"
+			[1]="orbit_intermediate3.png"
 		},
 		Orbit6Normal={
-			[1]="orbitnormal3.png"
+			[1]="orbit_normal3.png"
 		},
 		Orbit7Active={
-			[1]="orbitactive7.png"
+			[1]="orbit_active7.png"
 		},
 		Orbit7Intermediate={
-			[1]="orbitintemediate7.png"
+			[1]="orbit_intermediate7.png"
 		},
 		Orbit7Normal={
-			[1]="orbitnormal7.png"
+			[1]="orbit_normal7.png"
 		},
 		Orbit8Active={
-			[1]="orbitactive2.png"
+			[1]="orbit_active2.png"
 		},
 		Orbit8Intermediate={
-			[1]="orbitintemediate2.png"
+			[1]="orbit_intermediate2.png"
 		},
 		Orbit8Normal={
-			[1]="orbitnormal2.png"
+			[1]="orbit_normal2.png"
 		},
 		Orbit9Active={
-			[1]="orbitactive1.png"
+			[1]="orbit_active1.png"
 		},
 		Orbit9Intermediate={
-			[1]="orbitintemediate1.png"
+			[1]="orbit_intermediate1.png"
 		},
 		Orbit9Normal={
-			[1]="orbitnormal1.png"
+			[1]="orbit_normal1.png"
 		}
 	},
 	classes={
@@ -316,7 +316,7 @@ return {
 		["group-background_952_988_BC7.dds.zst"]={
 			PSGroupBackgroundLargeBlank=1
 		},
-		["jewelsockets_152_156_BC7.dds.zst"]={
+		["jewel-sockets_152_156_BC7.dds.zst"]={
 			Diamond=6,
 			Emerald=3,
 			Ruby=1,

@@ -799,7 +799,7 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 			SetDrawLayer(nil, 30)
 			local rgbColor = rgbColor or {1, 0, 0}
 			SetDrawColor(rgbColor[1], rgbColor[2], rgbColor[3])
-			local size = 140 * scale / self.zoom ^ 0.4
+			local size = 140 * scale / self.zoom ^ 0.2
 
 			if main.edgeSearchHighlight then
 				-- Snap node matches to the edge of the viewPort
