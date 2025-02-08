@@ -766,7 +766,7 @@ local function applySlowMagnitude(env)
 				enemyDB:ReplaceMod(mod.name, mod.type, -round(mod.value * -lessSlow, nil), mod.source,  mod.flags, mod.keywordFlags, unpack(mod))
 			end
 
-			enemyDB:ScaleAddMod(modLib.createMod(value.mod.name, value.mod.type, value.mod.value, "Slow Magnitude"), slowMagnitude)
+			enemyDB:ScaleAddMod(modLib.createMod(mod.name, mod.type, mod.value, "Slow Magnitude"), slowMagnitude)
 		end
 	end
 end
