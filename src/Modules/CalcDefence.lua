@@ -230,7 +230,7 @@ function calcs.doActorLifeManaSpiritReservation(actor)
 		local max = output[pool]
 		local lowPerc = modDB:Sum("BASE", nil, "Low" .. pool .. "Percentage")
 		local reserved = (actor["reserved_"..pool.."Base"] or 0) + m_ceil(max * (actor["reserved_"..pool.."Percent"] or 0) / 100)
-		uncancellableReservation = actor["uncancellable_"..pool.."Reservation"] or 0
+		local uncancellableReservation = actor["uncancellable_"..pool.."Reservation"] or 0
 		output[pool.."Reserved"] = m_min(reserved, max)
 		output[pool.."Unreserved"] = max - reserved
 		output[pool.."UncancellableReservation"] = m_min(uncancellableReservation, 0)
@@ -562,21 +562,23 @@ function calcs.defence(env, actor)
 	for _, slot in pairs({"Helmet","Gloves","Boots","Body Armour","Weapon 2","Weapon 3"}) do
 		local armourData = actor.itemList[slot] and actor.itemList[slot].armourData
 		if armourData then
-			wardBase = armourData.Ward or 0
+			local wardBase = armourData.Ward or 0
 			if wardBase > 0 then
 				if slot == "Body Armour" and modDB:Flag(nil, "DoubleBodyArmourDefence") then
 					wardBase = wardBase * 2
 				end
 				output["WardOn"..slot] = wardBase
 			end
-			energyShieldBase = armourData.EnergyShield or 0
+
+			local energyShieldBase = armourData.EnergyShield or 0
 			if energyShieldBase > 0 then
 				if slot == "Body Armour" and modDB:Flag(nil, "DoubleBodyArmourDefence") then
 					energyShieldBase = energyShieldBase * 2
 				end
 				output["EnergyShieldOn"..slot] = energyShieldBase
 			end
-			armourBase = armourData.Armour or 0
+
+			local armourBase = armourData.Armour or 0
 			if armourBase > 0 then
 				if slot == "Body Armour" then 
 					if modDB:Flag(nil, "DoubleBodyArmourDefence") then
@@ -588,7 +590,8 @@ function calcs.defence(env, actor)
 				end
 				output["ArmourOn"..slot] = armourBase
 			end
-			evasionBase = armourData.Evasion or 0
+
+			local evasionBase = armourData.Evasion or 0
 			if evasionBase > 0 then
 				if slot == "Body Armour" then
 					if modDB:Flag(nil, "DoubleBodyArmourDefence") then
