@@ -1735,13 +1735,14 @@ Huge sets the radius to 11.
 	{ var = "conditionEnemyRareOrUnique", type = "check", label = "Is the enemy Rare or Unique?", ifEnemyCond = "EnemyRareOrUnique", tooltip = "The enemy will automatically be considered to be Unique if they are a Boss,\nbut you can use this option to force it if necessary.", apply = function(val, modList, enemyModList)
 		enemyModList:NewMod("Condition:RareOrUnique", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
 	end },
-	{ var = "conditionEnemyMagic", type = "check", label = s_format("Is the enemy %sMagic?", colorCodes.MAGIC), tooltip = "", apply = function(val, modList, enemyModList)
-		enemyModList:NewMod("Condition:Magic", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
-		enemyModList:NewMod("Slow", "MORE", -15, "Less Slow", { type = "Condition", var = "Effective" })
-	end },
-	{ var = "conditionEnemyRare", type = "check", label = s_format("Is the enemy %sRare?", colorCodes.RARE), tooltip = "", apply = function(val, modList, enemyModList)
-		enemyModList:NewMod("Condition:Rare", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
-		enemyModList:NewMod("Slow", "MORE", -30, "Less Slow", { type = "Condition", var = "Effective" }, { type = "Condition", var = "Slowed" })
+	{ var = "enemyRarity", type = "list", label = "Enemy Rarity:", defaultIndex = 1, tooltip = "", list = {{val="White",label="White"},{val="Magic",label=s_format("%sMagic", colorCodes.MAGIC)},{val="Rare",label=s_format("%sRare", colorCodes.RARE)}}, apply = function(val, modList, enemyModList, build)
+		if val == "Magic" then
+			enemyModList:NewMod("Condition:Magic", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
+			enemyModList:NewMod("Slow", "MORE", -15, "Less Slow", { type = "Condition", var = "Effective" })
+		elseif val == "Rare" then
+			enemyModList:NewMod("Condition:Rare", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
+			enemyModList:NewMod("Slow", "MORE", -30, "Less Slow", { type = "Condition", var = "Effective" }, { type = "Condition", var = "Slowed" })
+		end
 	end },
 	{ var = "enemyIsBoss", type = "list", label = "Is the enemy a Boss?", defaultIndex = 3, tooltip = data.enemyIsBossTooltip, list = {{val="None",label="No"},{val="Boss",label="Standard Boss"},{val="Pinnacle",label="Guardian/Pinnacle Boss"},{val="Uber",label="Uber Pinnacle Boss"}}, apply = function(val, modList, enemyModList, build)
 		-- These defaults are here so that the placeholders get reset correctly
