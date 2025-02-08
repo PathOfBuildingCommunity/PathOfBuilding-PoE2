@@ -2963,7 +2963,7 @@ c["Minions have 10% increased maximum Life"]={{[1]={flags=0,keywordFlags=0,name=
 c["Minions have 10% reduced Life Recovery rate"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="LifeRecoveryRate",type="INC",value=-10}}}},nil}
 c["Minions have 12% additional Physical Damage Reduction"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="PhysicalDamageReduction",type="BASE",value=12}}}},nil}
 c["Minions have 12% increased maximum Life"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Life",type="INC",value=12}}}},nil}
-c["Minions have 12% reduced Reservation"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Reserved",type="INC",value=-12}}}},nil}
+c["Minions have 12% reduced Reservation"]={{[1]={[1]={skillType=9,type="SkillType"},flags=0,keywordFlags=0,name="Reserved",type="MORE",value=-12}},nil}
 c["Minions have 13% increased maximum Life"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Life",type="INC",value=13}}}},nil}
 c["Minions have 15% increased Critical Damage Bonus"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="CritMultiplier",type="INC",value=15}}}},nil}
 c["Minions have 15% increased maximum Life"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Life",type="INC",value=15}}}},nil}
@@ -3204,7 +3204,7 @@ c["Triggered Spells deal 45% increased Spell Damage"]={{[1]={[1]={skillType=41,t
 c["Triple Attribute requirements of weapons"]={{[1]={flags=0,keywordFlags=0,name="GlobalWeaponAttributeRequirements",type="MORE",value=200}},nil}
 c["Unaffected by Chill during Dodge Roll"]={nil,"Unaffected by Chill during Dodge Roll "}
 c["Unaffected by Chill while Leeching Mana"]={{[1]={[1]={type="Condition",var="LeechingMana"},flags=0,keywordFlags=0,name="SelfChillEffect",type="MORE",value=-100}},nil}
-c["Undead Minions have 20% reduced Reservation"]={nil,"Undead Minions have 20% reduced Reservation "}
+c["Undead Minions have 20% reduced Reservation"]={{[1]={[1]={skillType=138,type="SkillType"},flags=0,keywordFlags=0,name="Reserved",type="MORE",value=-20}},nil}
 c["Unlimited number of Summoned Totems"]={nil,"Unlimited number of Summoned Totems "}
 c["Unlimited number of Summoned Totems Totems reserve 100 Spirit each"]={nil,"Unlimited number of Summoned Totems Totems reserve 100 Spirit each "}
 c["Unwavering Stance"]={{[1]={flags=0,keywordFlags=0,name="Keystone",type="LIST",value="Unwavering Stance"}},nil}

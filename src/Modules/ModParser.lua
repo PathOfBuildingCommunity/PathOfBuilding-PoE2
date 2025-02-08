@@ -4892,6 +4892,8 @@ local specialModList = {
 		mod("SkillData", "LIST", { key = "lifeReservationPercent", value = 0 }, { type = "SkillType", skillType = SkillType.Banner }, { type = "SkillType", skillType = SkillType.Blessing, neg = true }),
 	},
 	["skills reserve (%d+)%% less (.+)"] = function(num, _, resource) return { mod(string.gsub(" "..resource, "%W%l", string.upper):sub(2) .. "Reserved", "MORE", -num) } end,
+	["minions have (%d+)%% reduced reservation"] = function(num) return { mod( "Reserved", "MORE", -num, { type = "SkillType", skillType = SkillType.Minion}) } end,	
+	["undead minions have (%d+)%% reduced reservation"] = function(num) return { mod( "Reserved", "MORE", -num, { type = "SkillType", skillType = SkillType.CreatesUndeadMinion}) } end,	
 	["placed banners also grant (%d+)%% increased attack damage to you and allies"] = function(num) return { mod("ExtraAuraEffect", "LIST", { mod = mod("Damage", "INC", num, nil, ModFlag.Attack) }, { type = "Condition", var = "BannerPlanted" }, { type = "SkillType", skillType = SkillType.Banner }) } end,
 	["banners also cause enemies to take (%d+)%% increased damage"] = function(num) return { mod("ExtraAuraDebuffEffect", "LIST", { mod = mod("DamageTaken", "INC", num, { type = "GlobalEffect", effectType = "AuraDebuff", unscalable = true }) }, { type = "Condition", var = "BannerPlanted" }, { type = "SkillType", skillType = SkillType.Banner }) } end,
 	["dread banner grants an additional %+(%d+) to maximum fortification when placing the banner"] = function(num) return { mod("ExtraSkillMod", "LIST", { mod = mod("MaximumFortification", "BASE", num, { type = "GlobalEffect", effectType = "Buff" }) }, { type = "Condition", var = "BannerPlanted" }, { type = "SkillName", skillName = "Dread Banner" }) } end,
