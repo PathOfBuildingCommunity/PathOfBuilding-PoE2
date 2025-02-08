@@ -971,8 +971,7 @@ function buildMode:Save(xml)
 	for _, id in ipairs(self.spectreList) do
 		t_insert(xml, { elem = "Spectre", attrib = { id = id } })
 	end
-	local addedStat Names = { }
-	t_insert(xml, { elem = "PlayerStat", attrib = { stat = "Darkness", value = tostring(statVal) } })
+	local addedStatNames = { }
 	for index, statData in ipairs(self.displayStats) do
 		if not statData.flag or self.calcsTab.mainEnv.player.mainSkill.activeEffect.statSet.skillFlags[statData.flag] then
 			local statName = statData.stat and statData.stat..(statData.childStat or "")

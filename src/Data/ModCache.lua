@@ -2368,7 +2368,10 @@ c["Aura Skills have 1% more Aura Effect per 2% of maximum Mana they Reserve"]={{
 c["Auras from your Skills can only affect you"]={{[1]={flags=0,keywordFlags=0,name="SelfAurasOnlyAffectYou",type="FLAG",value=true}},nil}
 c["Base Critical Hit Chance for Attacks with Weapons is 8%"]={{[1]={flags=0,keywordFlags=0,name="WeaponBaseCritChance",type="OVERRIDE",value=8}},nil}
 c["Base Critical Hit Chance for Spells is 15%"]={{[1]={[1]={skillType=2,type="SkillType"},flags=0,keywordFlags=0,name="CritChanceBase",type="OVERRIDE",value=15}},nil}
-c["Base Maximum Darkness is 100"]={{[1]={flags=0,keywordFlags=0,name="PlayerHasDarkness",type="FLAG",value=true},[2]={flags=0,keywordFlags=0,name="Darkness",type="BASE",value=100}},nil}
+c["Base Maximum Darkness is 100"]={{[1]={flags=0,keywordFlags=0,name="Darkness",type="OVERRIDE",value=100}},"Base  "}
+c["Base Maximum Darkness is 100 Damage taken is Reserved from Darkness before being taken from Life or Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="Darkness",type="OVERRIDE",value=100}},"Base  Damage taken is Reserved from Darkness before being taken from Life or Energy Shield "}
+c["Base Maximum Darkness is 100 Damage taken is Reserved from Darkness before being taken from Life or Energy Shield Darkness Reservation lasts for 10 seconds"]={{[1]={flags=0,keywordFlags=0,name="Darkness",type="OVERRIDE",value=100}},"Base  Damage taken is Reserved from Darkness before being taken from Life or Energy Shield Darkness Reservation lasts  "}
+c["Base Maximum Darkness is 100 Damage taken is Reserved from Darkness before being taken from Life or Energy Shield Darkness Reservation lasts for 10 seconds +5 to Maximum Darkness per Level"]={{[1]={[1]={type="Multiplier",var="Level"},flags=0,keywordFlags=0,name="Darkness",type="OVERRIDE",value=100}},"Base  Damage taken is Reserved from Darkness before being taken from Life or Energy Shield Darkness Reservation lasts  +5 to Maximum Darkness  "}
 c["Become Ignited when you deal a Critical Hit, taking 15% of your Life and Energy Shield as Fire Damage per second"]={nil,"Become Ignited when you deal a Critical Hit, taking 15% of your Life and Energy Shield as Fire Damage per second "}
 c["Become Ignited when you deal a Critical Hit, taking 15% of your Life and Energy Shield as Fire Damage per second 30% more Critical Damage Bonus"]={nil,"Become Ignited when you deal a Critical Hit, taking 15% of your Life and Energy Shield as Fire Damage per second 30% more Critical Damage Bonus "}
 c["Benefits from consuming Frenzy Charges for your Skills have 50% chance to be doubled"]={nil,"Benefits from consuming Frenzy Charges for your Skills have 50% chance to be doubled "}
@@ -3119,7 +3122,7 @@ c["Remembrancing 8000 songworthy deeds by the line of Olroth"]={{[1]={flags=0,ke
 c["Remembrancing 8000 songworthy deeds by the line of Vorana"]={{[1]={flags=0,keywordFlags=0,name="JewelData",type="LIST",value={key="conqueredBy",value={conqueror={id=1,type="kalguur"},id=8000}}}},nil}
 c["Remove a Curse when you use a Mana Flask"]={nil,"Remove a Curse when you use a Mana Flask "}
 c["Removes all Mana"]={{[1]={flags=0,keywordFlags=0,name="Mana",type="MORE",value=-100}},nil}
-c["Removes all Spirit"]={{[1]={flags=0,keywordFlags=0,name="Spirit",type="MORE",value=-100}},nil}
+c["Removes all Spirit"]={{[1]={flags=0,keywordFlags=0,name="Spirit",type="OVERRIDE",value=0}},nil}
 c["Reserves 25% of Life"]={{[1]={flags=0,keywordFlags=0,name="ExtraLifeReserved",type="BASE",value=25}},nil}
 c["Right ring slot: Projectiles from Spells Chain +1 times"]={{[1]={[1]={num=2,type="SlotNumber"},flags=1026,keywordFlags=0,name="ChainCountMax",type="BASE",value=1}},nil}
 c["Right ring slot: Projectiles from Spells cannot Fork"]={{[1]={[1]={num=2,type="SlotNumber"},flags=1026,keywordFlags=0,name="CannotFork",type="FLAG",value=true}},nil}
