@@ -3038,7 +3038,6 @@ c["Passives in radius of Zealot's Oath can be Allocated without being connected 
 c["Permanently Intimidate enemies on Block"]={{[1]={[1]={type="Condition",var="BlockedRecently"},flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Condition:Intimidated",type="FLAG",value=true}}}},nil}
 c["Physical Damage Reduction from Armour is based on your combined Armour and Evasion Rating"]={{[1]={flags=0,keywordFlags=0,name="EvasionAddsToPdr",type="FLAG",value=true}},nil}
 c["Physical Damage is Pinning"]={nil,"Physical Damage is Pinning "}
-c["Presence Gain 20% of Damage as Fire Damage"]={nil,"Presence Gain 20% of Damage as Fire Damage "}
 c["Presence Radius is doubled"]={nil,"Presence Radius is doubled "}
 c["Projectiles Pierce all Ignited enemies"]={nil,"Projectiles Pierce all Ignited enemies "}
 c["Projectiles Pierce all Ignited enemies Attacks Gain 10% of Damage as Extra Fire Damage"]={nil,"Projectiles Pierce all Ignited enemies Attacks Gain 10% of Damage as Extra Fire Damage "}
@@ -3215,7 +3214,7 @@ c["While not on Full Life, Sacrifice 10% of Mana per Second to Recover that much
 c["While not on Low Infernal Flame, all Damage from you and"]={nil,"While not on Low Infernal Flame, all Damage from you and "}
 c["While not on Low Infernal Flame, all Damage from you and Allies in your Presence contributes to Ignite Chance and Magnitude"]={nil,"While not on Low Infernal Flame, all Damage from you and contributes to Ignite Chance and Magnitude "}
 c["While on High Infernal Flame, you and Allies in your"]={nil,"While on High Infernal Flame, you and Allies in your "}
-c["While on High Infernal Flame, you and Allies in your Presence Gain 20% of Damage as Fire Damage"]={nil,"While on High Infernal Flame, you and 20% of Damage as Fire Damage "}
+c["While on High Infernal Flame, you and Allies in your Presence Gain 20% of Damage as Fire Damage"]={{[1]={[1]={type="Condition",var="HighInfernalFlame"},flags=0,keywordFlags=0,name="DamageGainAsFire",type="BASE",value=20}},nil}
 c["You are Blind"]={{[1]={[1]={neg=true,type="Condition",var="CannotBeBlinded"},flags=0,keywordFlags=0,name="Condition:Blinded",type="FLAG",value=true}},nil}
 c["You can Break Enemy Armour to below 0"]={nil,"You can Break Enemy Armour to below 0 "}
 c["You can apply an additional Curse"]={{[1]={flags=0,keywordFlags=0,name="EnemyCurseLimit",type="BASE",value=1}},nil}
