@@ -115,7 +115,7 @@ function calcs.doActorDarkness(actor)
 	local base = modDB:Sum("BASE", nil, "Darkness")
 	output.Darkness = base * (1+inc/100)
 
-    local reserved = modDB:Sum("BASE", nil, "ReservedDarkness")
+	local reserved = modDB:Sum("BASE", nil, "ReservedDarkness")
 	output.ReservedDarkness = m_min(reserved, output.Darkness)
 	output.UnreservedDarkness = output.Darkness - output.ReservedDarkness
 end
