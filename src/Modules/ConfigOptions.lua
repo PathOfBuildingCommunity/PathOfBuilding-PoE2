@@ -1438,6 +1438,8 @@ Huge sets the radius to 11.
 	{ var = "fullInfernalFlame", type = "check", label = "Is infernal flame full?", ifFlag = "ManaToInfernalFlame", tooltip = "This also implies high infernal flame", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:FullInfernalFlame", "FLAG", true, "Config")
 		modList:NewMod("Condition:HighInfernalFlame", "FLAG", true, "Config")
+		modList:NewMod("FireDegen", "BASE", 1, { type="PercentStat", stat = "Life", percent = 100})
+		modList:NewMod("FireDegen", "BASE", 1, { type="PercentStat", stat = "EnergyShield", percent = 100})
 	end },
 	{ var = "highInfernalFlame", type = "check", label = "Is infernal flame high?", ifFlag = "ManaToInfernalFlame", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:HighInfernalFlame", "FLAG", true, "Config")
