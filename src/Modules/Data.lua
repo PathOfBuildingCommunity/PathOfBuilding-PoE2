@@ -154,7 +154,6 @@ data.misc = { -- magic numbers
 	ServerTickRate = 1 / 0.033,
 	AccuracyPerDexBase = 5,
 	LowPoolThreshold = 0.35,
-	TemporalChainsEffectCap = 75,
 	BuffExpirationSlowCap = 0.25,
 	DamageReductionCap = 90,
 	ResistFloor = -200,

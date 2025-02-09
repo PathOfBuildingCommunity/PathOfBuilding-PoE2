@@ -2522,12 +2522,10 @@ c["Deal up to 30% more Damage to Enemies based on their missing Concentration"]=
 c["Deals 25% of current Mana as Chaos Damage to you when Effect ends"]={nil,"Deals 25% of current Mana as Chaos Damage to you when Effect ends "}
 c["Debuffs on you expire 10% faster"]={{[1]={flags=0,keywordFlags=0,name="SelfDebuffExpirationRate",type="BASE",value=10}},nil}
 c["Debuffs on you expire 20% faster"]={{[1]={flags=0,keywordFlags=0,name="SelfDebuffExpirationRate",type="BASE",value=20}},nil}
-c["Debuffs you inflict have 10% increased Slow Magnitude"]={nil,"Debuffs you inflict have 10% increased Slow Magnitude "}
-c["Debuffs you inflict have 10% increased Slow Magnitude Debuffs on you expire 20% faster"]={nil,"Debuffs you inflict have 10% increased Slow Magnitude Debuffs on you expire 20% faster "}
-c["Debuffs you inflict have 4% increased Slow Magnitude"]={nil,"Debuffs you inflict have 4% increased Slow Magnitude "}
-c["Debuffs you inflict have 4% increased Slow Magnitude 20% increased Hinder Duration"]={nil,"Debuffs you inflict have 4% increased Slow Magnitude 20% increased Hinder Duration "}
-c["Debuffs you inflict have 5% increased Slow Magnitude"]={nil,"Debuffs you inflict have 5% increased Slow Magnitude "}
-c["Debuffs you inflict have 6% increased Slow Magnitude"]={nil,"Debuffs you inflict have 6% increased Slow Magnitude "}
+c["Debuffs you inflict have 10% increased Slow Magnitude"]={{[1]={flags=0,keywordFlags=0,name="EnemySlowMagnitude",type="INC",value=10}},nil}
+c["Debuffs you inflict have 4% increased Slow Magnitude"]={{[1]={flags=0,keywordFlags=0,name="EnemySlowMagnitude",type="INC",value=4}},nil}
+c["Debuffs you inflict have 5% increased Slow Magnitude"]={{[1]={flags=0,keywordFlags=0,name="EnemySlowMagnitude",type="INC",value=5}},nil}
+c["Debuffs you inflict have 6% increased Slow Magnitude"]={{[1]={flags=0,keywordFlags=0,name="EnemySlowMagnitude",type="INC",value=6}},nil}
 c["Decimating Strike"]={nil,"Decimating Strike "}
 c["Defend with 120% of Armour against Projectile Attacks"]={nil,"Defend with 120% of Armour against Projectile Attacks "}
 c["Defend with 120% of Armour while not on Low Energy Shield"]={{[1]={[1]={neg=true,type="Condition",var="LowEnergyShield"},flags=0,keywordFlags=0,name="ArmourDefense",source="Armour and Energy Shield Mastery",type="MAX",value=20}},nil}
@@ -2580,7 +2578,7 @@ c["Enemies in your Presence are Blinded"]={nil,"Enemies in your Presence are Bli
 c["Enemies in your Presence are Blinded Enemies in your Presence gain Critical Weakness every second"]={nil,"Enemies in your Presence are Blinded Enemies in your Presence gain Critical Weakness every second "}
 c["Enemies in your Presence are Ignited as though dealt 100 Base Fire Damage"]={nil,"Enemies in your Presence are Ignited as though dealt 100 Base Fire Damage "}
 c["Enemies in your Presence are Intimidated"]={nil,"Enemies in your Presence are Intimidated "}
-c["Enemies in your Presence are Slowed by 20%"]={nil,"Enemies in your Presence are Slowed by 20% "}
+c["Enemies in your Presence are Slowed by 20%"]={{[1]={flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Condition:Slowed",type="FLAG",value=true}}},[2]={flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={[1]={effectType="AuraDebuff",type="GlobalEffect"},[2]={type="Condition",var="Slowed"},flags=0,keywordFlags=0,name="ApexOfMomentSlow",type="INC",value=-20}}}},nil}
 c["Enemies in your Presence gain Critical Weakness every second"]={{[1]={flags=0,keywordFlags=0,name="ApplyCriticalWeakness",type="FLAG",value=true}},nil}
 c["Enemies in your Presence have 10% reduced Cooldown Recovery Rate"]={nil,"Enemies in your Presence have 10% reduced Cooldown Recovery Rate "}
 c["Enemies in your Presence have Fire Exposure"]={nil,"Enemies in your Presence have Fire Exposure "}

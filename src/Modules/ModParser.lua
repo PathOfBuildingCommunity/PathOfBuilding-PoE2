@@ -782,6 +782,7 @@ local modNameList = {
 	["to ignore enemy physical damage reduction"] = "ChanceToIgnoreEnemyPhysicalDamageReduction",
 	["weapon swap speed"] = "WeaponSwapSpeed",
 	["to chain an additional time from terrain"] = "TerrainChainChance",
+	["slow magnitude"] = "EnemySlowMagnitude",
 	-- Flask and Charm modifiers
 	["effect"] = "LocalEffect",
 	["effect of flasks"] = "FlaskEffect",
@@ -1216,6 +1217,7 @@ local preFlagList = {
 	["^hits against you "] = { applyToEnemy = true, flags = ModFlag.Hit },
 	["^hits against you [hd][ae][va][el] "] = { applyToEnemy = true, flags = ModFlag.Hit },
 	["^enemies near your totems deal "] = { applyToEnemy = true },
+	["^debuffs you inflict [hd][ae][va][el] "] = { },
 	-- Other
 	["^your flasks grant "] = { },
 	["^when hit, "] = { },
@@ -2890,6 +2892,10 @@ local specialModList = {
 	["every (%d+) seconds, gain (%d+)%% more cast speed for (%d+) seconds"] = function(interval, _, num, duration) return { 
 		mod("Speed", "MORE", num, nil, ModFlag.Cast, { type = "GlobalEffect", effectType = "Buff", effectName = "Quicksand Hourglass" }, { type = "Condition", var = "QuicksandHourglass" }),
 		flag("Condition:CanGainQuicksandHourglass")
+	} end,
+	["enemies in your presence are slowed by (%d+)%%"] = function(num) return { 
+		mod("EnemyModifier", "LIST", { mod = flag("Condition:Slowed") }),
+		mod("EnemyModifier", "LIST", { mod = mod("ApexOfMomentSlow", "INC", -num, { type = "GlobalEffect", effectType = "AuraDebuff" }, { type = "Condition", var = "Slowed" }) }),
 	} end,
 	-- Item local modifiers
 	["has no sockets"] = { flag("NoSockets") },
