@@ -3894,9 +3894,7 @@ function calcs.offence(env, actor, activeSkill)
 		globalOutput, globalBreakdown = output, breakdown
 		local source, output, cfg, breakdown = pass.source, pass.output, pass.cfg, pass.breakdown
 
-		-- Legacy PoE1 ailments (to be removed later)
-		-- No more "alt" ailments: Scorched, Brittle, Sapped
-		-- No more Impale
+		-- Legacy PoE1 ailments (to be removed later): Scorched, Brittle, Sapped, Impale
 		output.ImpaleChance = 0
 		output.ImpaleChanceOnCrit = 0
 		output.ScorchChance = 0
@@ -3906,7 +3904,7 @@ function calcs.offence(env, actor, activeSkill)
 
 		-- address Weapon1H interaction with Ailment for nodes like Coated Arms (PoE1: Sleight of Hand)
 		-- bit.and on cfg.flags confirms if the skill has the 1H flag
-		-- if so bit.or on the targetCfg (e.g. dotCfg) to guarantee for calculations like Sum("INC") and breakdown
+		-- if so, bit.or on the targetCfg (e.g. dotCfg) to guarantee for calculations like Sum("INC") and breakdown
 		local function checkWeapon1HFlags(targetCfg)
 			targetCfg.flags = bor(targetCfg.flags, band(cfg.flags, ModFlag.Weapon1H))
 		end
@@ -4476,11 +4474,7 @@ function calcs.offence(env, actor, activeSkill)
 
 		-- Calculate damaging ailment values
 		for _, damagingAilment in ipairs({"Bleed", "Poison", "Ignite"}) do
-			calcDamagingAilmentOutputs(
-				damagingAilment,
-				defaultAilmentDamageTypes[damagingAilment]["DamageType"],
-				defaultAilmentDamageTypes[damagingAilment]["ScalesFrom"]
-			)
+			calcDamagingAilmentOutputs(damagingAilment,	defaultAilmentDamageTypes[damagingAilment]["DamageType"],defaultAilmentDamageTypes[damagingAilment]["ScalesFrom"])
 		end
 
 		-- Calculate non-damaging ailments effect and duration modifiers
