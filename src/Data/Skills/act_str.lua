@@ -12555,10 +12555,10 @@ skills["WarBannerPlayer"] = {
 			statDescriptionScope = "war_banner",
 			statMap = {
 				["skill_war_banner_attack_damage_+%_final"] = {
-					mod("Damage", "MORE", nil,  ModFlag.Attack, 0, { type = "Condition", var = "BannerPlanted" }, { type = "GlobalEffect", effectType = "Buff"}),
+					mod("Damage", "MORE", nil,  ModFlag.Attack, 0, { type = "Condition", var = "BannerPlanted" }, { type = "GlobalEffect", effectType = "Aura"}),
 				},
 				["skill_war_banner_accuracy_+%"] = {
-					mod("Accuracy", "INC", nil, 0, 0, { type = "Condition", var = "BannerPlanted" }, { type = "GlobalEffect", effectType = "Buff"}),
+					mod("Accuracy", "INC", nil, 0, 0, { type = "Condition", var = "BannerPlanted" }, { type = "GlobalEffect", effectType = "Aura"}),
 				},
 			},
 			baseFlags = {
