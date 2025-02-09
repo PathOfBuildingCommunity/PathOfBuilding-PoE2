@@ -4383,7 +4383,7 @@ function calcs.offence(env, actor, activeSkill)
 
 		-- Calculate damaging ailment values
 		for _, damagingAilment in ipairs({"Bleed", "Poison", "Ignite"}) do
-			calcDamagingAilmentOutputs(damagingAilment,	data.defaultAilmentDamageTypes[damagingAilment]["DamageType"], data.defaultAilmentDamageTypes[damagingAilment]["ScalesFrom"])
+			calcDamagingAilmentOutputs(damagingAilment, data.defaultAilmentDamageTypes[damagingAilment]["DamageType"], data.defaultAilmentDamageTypes[damagingAilment]["ScalesFrom"])
 		end
 
 		-- Calculate non-damaging ailments effect and duration modifiers
@@ -4403,7 +4403,7 @@ function calcs.offence(env, actor, activeSkill)
 		}
 		if activeSkill.skillTypes[SkillType.ChillingArea] or activeSkill.skillTypes[SkillType.NonHitChill] then
 			skillFlags.chill = true
-			local incChill = skillModList:Sum("INC", cfg, "EnemyChillMagnitude")
+			local incChill = skillModList:Sum("INC", cfg, "EnemyChillMagnitude", "AilmentMagnitude")
 			local moreChill = skillModList:More(cfg, "EnemyChillMagnitude")
 			output.ChillEffectMod = (1 + incChill / 100) * moreChill
 			output.ChillDurationMod = 1 + skillModList:Sum("INC", cfg, "EnemyChillDuration", "EnemyAilmentDuration", "EnemyElementalAilmentDuration") / 100
@@ -4448,7 +4448,7 @@ function calcs.offence(env, actor, activeSkill)
 					local incDur = skillModList:Sum("INC", cfg, "Enemy"..ailment.."Duration", "EnemyElementalAilmentDuration", "EnemyAilmentDuration") + enemyDB:Sum("INC", nil, "Self"..ailment.."Duration", "SelfElementalAilmentDuration", "SelfAilmentDuration")
 					local moreDur = skillModList:More(cfg, "Enemy"..ailment.."Duration", "EnemyElementalAilmentDuration", "EnemyAilmentDuration") * enemyDB:More(nil, "Self"..ailment.."Duration", "SelfElementalAilmentDuration", "SelfAilmentDuration")
 					output[ailment.."Duration"] = ailmentData[ailment].duration * (1 + incDur / 100) * moreDur * debuffDurationMult
-					output[ailment.."EffectMod"] = calcLib.mod(skillModList, cfg, "Enemy"..ailment.."Magnitude")
+					output[ailment.."EffectMod"] = calcLib.mod(skillModList, cfg, "Enemy"..ailment.."Magnitude", "AilmentMagnitude")
 					if breakdown then
 						local maximum = globalOutput["Maximum"..ailment] or ailmentData[ailment].max
 						local current = m_max(m_min(globalOutput["Current"..ailment] or 0, maximum), 0)
