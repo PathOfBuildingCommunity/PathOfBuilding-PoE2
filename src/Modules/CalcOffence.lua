@@ -3820,10 +3820,9 @@ function calcs.offence(env, actor, activeSkill)
 	-- [Ailments that use buildup mechanic]
 	-- Electrocute (non-damaging)
 	-- Freeze (non-damaging)
-	-- Stun (non-damaging - note that I think the game doesn't consider this an "ailment")
-
-
-	-- Possible direct (ie not about damage hit modifier) crit effects on ailments (as of Jan 19 2025)
+	-- Stun (non-damaging - not an ailment)
+	
+	-- Possible direct (i.e. not about damage hit modifier) crit effects on ailments (as of Jan 19 2025)
 
 	-- Increased magnitude of damaging ailments inflicted with critical hits
 	-- -- (Notable) Shredding Force
@@ -3915,8 +3914,8 @@ function calcs.offence(env, actor, activeSkill)
 		output.ChaosPoisonChance = 0
 
 		-- address Weapon1H interaction with Ailment for nodes like Coated Arms (PoE1: Sleight of Hand)
-		-- bit-and on cfg.flags confirms if the skill has the 1H flag
-		-- if so bit-or on the targetCfg (e.g. dotCfg) to guarantee for calculations like Sum("INC") and breakdown
+		-- bit.and on cfg.flags confirms if the skill has the 1H flag
+		-- if so bit.or on the targetCfg (e.g. dotCfg) to guarantee for calculations like Sum("INC") and breakdown
 		local function checkWeapon1HFlags(targetCfg)
 			targetCfg.flags = bor(targetCfg.flags, band(cfg.flags, ModFlag.Weapon1H))
 		end
@@ -3926,33 +3925,26 @@ function calcs.offence(env, actor, activeSkill)
 			if not canDeal[damageType] then
 				return false
 			end
-
 			-- check against input valid types
-			if (
-				(defaultDamageTypes and defaultDamageTypes[damageType])
-				or (ailmentData[ailmentType] and damageType == ailmentData[ailmentType].associatedType)
-			) then
+			if ((defaultDamageTypes and defaultDamageTypes[damageType])
+				or (ailmentData[ailmentType] and damageType == ailmentData[ailmentType].associatedType)) then
 				if skillModList:Flag(cfg, damageType.."Cannot"..ailmentType) then
 					return false
 				end
 				return true
 			end
-
 			-- Process overrides eg. LightningCanFreeze
 			if skillModList:Flag(cfg, damageType.."Can"..ailmentType) then
 				return true
 			end
-
 			return false
 		end
 
 		---Calculates normal and crit damage to be used in non-damaging ailment calculations
 		---@param ailment string
-		---@return number, number @average hit damage, average crit damage
+		---@param defaultDamageTypes table
+		---@return number, number average hit damage, average crit damage
 		local function calcAverageUnmitigatedSourceDamage(ailment, defaultDamageTypes)
-			-- requires:
-			--   output.<damage type>HitAverage
-			--   output.<damage type>CritAverage
 			local canCrit = not skillModList:Flag(cfg, "AilmentsAreNeverFromCrit")
 			local sourceHitDmg, sourceCritDmg = 0, 0
 			for _, dmg_type in ipairs(dmgTypeList) do
@@ -3965,14 +3957,12 @@ function calcs.offence(env, actor, activeSkill)
 			end
 			return sourceHitDmg, sourceCritDmg
 		end
-
-		-- Calculates damage to be used in damaging ailment calculations
+		
+		---Calculates damage to be used in damaging ailment calculations
+		---@param ailment string
+		---@param defaultDamageTypes table
+		---@return number, number, number, number min / max hit, min / max crit damage
 		local function calcMinMaxUnmitigatedAilmentSourceDamage(ailment, defaultDamageTypes)
-			-- requires:
-			--   output.<damage type>StoredHitMin
-			--   output.<damage type>StoredHitMax
-			--   output.<damage type>StoredCritMin
-			--   output.<damage type>StoredCritMax
 			local canCrit = not skillModList:Flag(cfg, "AilmentsAreNeverFromCrit")
 			local hitMin, hitMax = 0, 0
 			local critMin, critMax = 0, 0
@@ -3995,11 +3985,14 @@ function calcs.offence(env, actor, activeSkill)
 			return hitMin, hitMax, critMin, critMax
 		end
 
-		-- Calculate the inflict chance and base damage of a secondary effect (bleed/poison/ignite/shock/freeze)
+		---Calculate the inflict chance and base damage of a secondary effect (bleed/poison/ignite/shock/freeze)
+		---@param ailment string
+		---@param sourceCritChance number
+		---@param sourceHitDmg number
+		---@param sourceCritDmg number
+		---@param hideFromBreakdown boolean
+		---@return number baseVal
 		local function calcAilmentDamage(ailment, sourceCritChance, sourceHitDmg, sourceCritDmg, hideFromBreakdown)
-			-- requires:
-			--   output.<ailment type>ChanceOnHit
-			--   output.<ailment type>ChanceOnCrit
 
 			local chanceOnHit, chanceOnCrit = output[ailment.."ChanceOnHit"], output[ailment.."ChanceOnCrit"]
 			-- Use sourceCritChance to factor in chance a critical ailment is present
@@ -4079,14 +4072,11 @@ function calcs.offence(env, actor, activeSkill)
 			return baseVal
 		end
 
-		-- Calculate global / breakdown values for a damaging ailment
+		---Calculate global / breakdown values for a damaging ailment
+		---@param ailment string
+		---@param ailmentDamageType table
+		---@param defaultDamageTypes table
 		local function calcDamagingAilmentOutputs(ailment, ailmentDamageType, defaultDamageTypes)
-			-- requires:
-			--   output.<ailment type>ChanceOnHit
-			--   output.<ailment type>ChanceOnCrit
-			--   output.CritChance
-			--   output.HitChance
-			--   output.Cooldown -> output.HitTime or output.Time
 
 			if not canDeal[ailmentDamageType] then
 				return
@@ -4402,15 +4392,6 @@ function calcs.offence(env, actor, activeSkill)
 		-- Knockback (not sure why this is in ailment calc, but I'll calculate it anyway)
 		output.KnockbackChanceOnHit = 0
 		output.KnockbackChanceOnCrit = 0
-		local knockbackWithHitsCloseRange = modDB:Sum("INC", skillCfg, "KnockbackWithHitsCloseRange")
-		if ( -- (Notable) Clear Space
-			skillFlags.hit
-			and not skillModList:Flag(cfg, "CannotKnockback")
-			and modDB:Flag(nil, "conditionAtCloseRange")
-			and knockbackWithHitsCloseRange > 0
-		) then
-			output.KnockbackChanceOnHit = knockbackWithHitsCloseRange
-		end
 		if skillModList:Flag(cfg, "Knockback") then -- From what I could see, all skills are 0% or 100%, with no enemy mitigation
 			output.KnockbackChanceOnHit = 100
 			output.KnockbackChanceOnCrit = 100
@@ -4435,9 +4416,6 @@ function calcs.offence(env, actor, activeSkill)
 		-- "All Hits that have any Contribution to Chill Magnitude can Chill, without requiring an explicit chance to inflict,
 		--  provided the Magnitudes meets a minimum threshold. So low damage Hits may still fail to Chill."
 		local unmitigatedColdDamage = calcAverageUnmitigatedSourceDamage("Chill", defaultAilmentDamageTypes["Chill"]["ScalesFrom"])
-		-- ConPrintf(unmitigatedColdDamage)
-		-- ConPrintf(enemyThreshold)
-		-- ConPrintf(output["ColdHitAverage"])
 		local chillAilmentThresholdGuess = enemyThreshold * 0.04 * 15 -- Assume 15% is sufficient
 		output['ChillAilmentThresholdGuess'] = chillAilmentThresholdGuess
 		if unmitigatedColdDamage > chillAilmentThresholdGuess then
@@ -4465,8 +4443,6 @@ function calcs.offence(env, actor, activeSkill)
 			local critAvg = critMin + (critMax - critMin) / 2
 			local hitElementalAilmentChance = (hitAvg / enemyThreshold) / 0.04
 			local critElementalAilmentChance = (critAvg / enemyThreshold) / 0.04
-			-- ConPrintf("raw %s hitElementalAilmentChance: %s", ailment, hitElementalAilmentChance)
-			-- ConPrintf("raw %s critElementalAilmentChance: %s", ailment, critElementalAilmentChance)
 
 			if skillFlags.hit and not skillModList:Flag(cfg, "Cannot"..ailment) then
 				output[ailment.."ChanceOnHit"] = m_min(100, hitElementalAilmentChance)
