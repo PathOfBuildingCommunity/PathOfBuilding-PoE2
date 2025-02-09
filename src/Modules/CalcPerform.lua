@@ -2736,7 +2736,6 @@ function calcs.perform(env, skipEHP)
 				local mods = {  }
 
 				if modDB:Flag(nil, "ChillCanStack") then
-					t_insert(mods, modLib.createMod("DamageTaken", "INC", num, "Shock", { type = "Condition", var = "Shocked" }, { type = "Multiplier", var = "ShockStacks", limit = modDB:Override(nil, "ShockStacksMax") or modDB:Sum("BASE", nil, "ShockStacksMax")}))
 					output["CurrentChill"] = num * m_min(enemyDB:Sum("BASE", nil, "Multiplier:ChillStacks"), modDB:Override(nil, "ChillStacksMax") or modDB:Sum("BASE", nil, "ChillStacksMax"))
 					if breakdown then
 						t_insert(mods, modLib.createMod("ActionSpeed", "INC", -num, "Chill Stacks", { type = "Condition", var = "Chilled" }, { type = "Multiplier", var = "ShockStacks", limit = modDB:Override(nil, "ShockStacksMax") or modDB:Sum("BASE", nil, "ShockStacksMax")}))
@@ -2759,8 +2758,8 @@ function calcs.perform(env, skipEHP)
 			mods = function(num)
 				local mods = { }
 				if modDB:Flag(nil, "ShockCanStack") then
+					output.ShockStackCount = m_min(enemyDB:Sum("BASE", nil, "Multiplier:ShockStacks"), modDB:Override(nil, "ShockStacksMax") or modDB:Sum("BASE", nil, "ShockStacksMax"))
 					t_insert(mods, modLib.createMod("DamageTaken", "INC", num, "Shock", { type = "Condition", var = "Shocked" }, { type = "Multiplier", var = "ShockStacks", limit = modDB:Override(nil, "ShockStacksMax") or modDB:Sum("BASE", nil, "ShockStacksMax")}))
-					output["CurrentShock"] = num * m_min(enemyDB:Sum("BASE", nil, "Multiplier:ShockStacks"), modDB:Override(nil, "ShockStacksMax") or modDB:Sum("BASE", nil, "ShockStacksMax"))
 					if breakdown then
 						t_insert(mods, modLib.createMod("DamageTakenByShock", "INC", num, "Shock Stacks", { type = "Condition", var = "Shocked" }, { type = "Multiplier", var = "ShockStacks", limit = modDB:Override(nil, "ShockStacksMax") or modDB:Sum("BASE", nil, "ShockStacksMax")}))
 					end

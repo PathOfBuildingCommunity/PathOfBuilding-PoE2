@@ -1290,6 +1290,8 @@ return {
 	{ label = "Maximum Shock", bgCol = colorCodes.SHOCKBG, flag = "shock", { format = "{0:output:MaximumShock}%",
 		{ modName = "ShockMax" },
 	}, },
+	{ label = "Shock Stacks", bgCol = colorCodes.SHOCKBG, haveOutput = "ShockStackCount", { format = "{0:output:ShockStackCount}",
+	}, },
 	{ label = "Current Shock", bgCol = colorCodes.SHOCKBG, haveOutput = "CurrentShock", { format = "{0:output:CurrentShock}%",
 		{ label = "Configured Shock", modName = "ShockVal", enemy = true, modType = "BASE" },
 		{ label = "Guaranteed Shocks", modName = "ShockOverride", modType = "BASE" },

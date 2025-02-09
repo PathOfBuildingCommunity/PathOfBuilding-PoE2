@@ -302,7 +302,7 @@ data.nonElementalAilmentTypeList = { "Bleed", "Poison" }
 data.nonDamagingAilment = {
 	["Chill"] = { associatedType = "Cold", alt = false, default = 10, min = 5, max = data.gameConstants["ChillMaxEffect"], precision = 0, duration = data.gameConstants["BaseChillDuration"] },
 	["Freeze"] = { associatedType = "Cold", alt = false, default = nil, min = 0.3, max = 3, precision = 2, duration = data.gameConstants["FreezeDuration"] },
-	["Shock"] = { associatedType = "Lightning", alt = false, default = 20, min = 20, max = 20, precision = 0, duration = data.gameConstants["BaseShockDuration"] },
+	["Shock"] = { associatedType = "Lightning", alt = false, default = 20, min = 20, max = 100, precision = 0, duration = data.gameConstants["BaseShockDuration"] },
 }
 
 -- Used in ModStoreClass:ScaleAddMod(...) to identify high precision modifiers
