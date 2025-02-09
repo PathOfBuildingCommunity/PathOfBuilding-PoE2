@@ -546,8 +546,8 @@
 	<File name="TreeData/0_1/group-background_756_756_BC7.dds.zst" part="tree" sha1="4693658151e36cdeadfefa1624ac3377a6dfaab7" />
 	<File name="TreeData/0_1/group-background_952_988_BC7.dds.zst" part="tree" sha1="de711bc6fbcbd383a0b7c436d22afd0caca72d6e" />
 	<File name="TreeData/0_1/group-background_1000_508_BC7.dds.zst" part="tree" sha1="c243630f8caae501447f772addd2e46c454fd912" />
-	<File name="TreeData/0_1/jewelsockets_152_156_BC7.dds.zst" part="tree" sha1="14cbee1366257f9f29c90f439dab8b3bd9844718" />
-	<File name="TreeData/0_1/jewelsockets_208_208_BC7.dds.zst" part="tree" sha1="ec025e1e282d6382637d869ea2ad61903f8a385f" />
+	<File name="TreeData/0_1/jewel-sockets_152_156_BC7.dds.zst" part="tree" sha1="14cbee1366257f9f29c90f439dab8b3bd9844718" />
+	<File name="TreeData/0_1/jewel-sockets_208_208_BC7.dds.zst" part="tree" sha1="ec025e1e282d6382637d869ea2ad61903f8a385f" />
 	<File name="TreeData/0_1/legion_64_64_BC1.dds.zst" part="tree" sha1="57780219eb8c0f839ff1954d511983c7c7cae656" />
 	<File name="TreeData/0_1/legion_128_128_BC1.dds.zst" part="tree" sha1="a8e4aa7b6fbc7e9d1666bd91c9113c804d0d6fa8" />
 	<File name="TreeData/0_1/legion_564_564_BC7.dds.zst" part="tree" sha1="bb68096499abd163de7727034be292ba4d5d61aa" />
@@ -557,36 +557,36 @@
 	<File name="TreeData/0_1/lines_1940_1940_BC7.dds.zst" part="tree" sha1="8b8d6cf89ca4bda8c0b785f706962d9ab39b9e2b" />
 	<File name="TreeData/0_1/mastery-active-effect_776_768_BC7.dds.zst" part="tree" sha1="8b9f986fb49df4bbeec38269997e30eaaaef562d" />
 	<File name="TreeData/0_1/oils_108_108_RGBA.dds.zst" part="tree" sha1="abf58ace0c8b9987d7b2d9b79dc047226c970a50" />
-	<File name="TreeData/0_1/orbitactive0.png" part="tree" sha1="c17c7c0682240494614ccc3dd183a0ca9aca2cc4" />
-	<File name="TreeData/0_1/orbitactive1.png" part="tree" sha1="182cf3b511e0c3351c6893008b284fd9cd3b82f8" />
-	<File name="TreeData/0_1/orbitactive2.png" part="tree" sha1="5fce3cc77cfc325eb495d72529f080941cf0036c" />
-	<File name="TreeData/0_1/orbitactive3.png" part="tree" sha1="23fa36975a975295f699f4fe69cba286e39f7b1d" />
-	<File name="TreeData/0_1/orbitactive4.png" part="tree" sha1="efb316bce82e32f1bfc5962557d60a1aa51593bb" />
-	<File name="TreeData/0_1/orbitactive5.png" part="tree" sha1="2355ac517d5d16dc7fac4be67efc69471f06ff85" />
-	<File name="TreeData/0_1/orbitactive6.png" part="tree" sha1="2021dde3435b3b9187b4c5384bc6b9af45201c8d" />
-	<File name="TreeData/0_1/orbitactive7.png" part="tree" sha1="d3bf38c8a19ccf53eaab61201ee7f9cdfde288ed" />
-	<File name="TreeData/0_1/orbitactive8.png" part="tree" sha1="cf0a2d180dc561a0c514bde64f173728209ee141" />
-	<File name="TreeData/0_1/orbitactive9.png" part="tree" sha1="25374c4ea9ddef7af2671d85a762242d22763060" />
-	<File name="TreeData/0_1/orbitintemediate0.png" part="tree" sha1="e4d2aba19e88a6a70d76248fd3a8dcc31563795d" />
-	<File name="TreeData/0_1/orbitintemediate1.png" part="tree" sha1="25cc1b849c7462f346885c56c309ba8c470f5c3b" />
-	<File name="TreeData/0_1/orbitintemediate2.png" part="tree" sha1="be81b097e0aac09868d67bba6101dc7a463b65f2" />
-	<File name="TreeData/0_1/orbitintemediate3.png" part="tree" sha1="f4fc716133d741c6fd81fa6831a9caf37ace4f3b" />
-	<File name="TreeData/0_1/orbitintemediate4.png" part="tree" sha1="b397dd785899c1f4b7083fc33a37c7071037836e" />
-	<File name="TreeData/0_1/orbitintemediate5.png" part="tree" sha1="31809aafddec8ef88eaf33b48e564cc8e300ed05" />
-	<File name="TreeData/0_1/orbitintemediate6.png" part="tree" sha1="0b41329c5ee3e73756a05c01be7bc6c8c21ecf02" />
-	<File name="TreeData/0_1/orbitintemediate7.png" part="tree" sha1="b6d94b7824fa65cd06df24548b49cd4884ec9e51" />
-	<File name="TreeData/0_1/orbitintemediate8.png" part="tree" sha1="e56ea575cbffda91aa8f1309edab0a0828a8a3ae" />
-	<File name="TreeData/0_1/orbitintemediate9.png" part="tree" sha1="d1eb7291dcc5a1fd6126a19ec07451d45764c6ba" />
-	<File name="TreeData/0_1/orbitnormal0.png" part="tree" sha1="d4508db82db53063d50750d3ba9d97dad27bd13b" />
-	<File name="TreeData/0_1/orbitnormal1.png" part="tree" sha1="bca7b52d00475e9e64812caeb8066072c64dd601" />
-	<File name="TreeData/0_1/orbitnormal2.png" part="tree" sha1="691057a335256406ac324d836ba6a09b05ec00f2" />
-	<File name="TreeData/0_1/orbitnormal3.png" part="tree" sha1="c45792c111142135c18dcc9d58d3654c88c70687" />
-	<File name="TreeData/0_1/orbitnormal4.png" part="tree" sha1="64bff9325467cf8266af8112758c64ec4f4ed0fb" />
-	<File name="TreeData/0_1/orbitnormal5.png" part="tree" sha1="44bd2eafbbeea02171e5e6888aa12cdb34522b53" />
-	<File name="TreeData/0_1/orbitnormal6.png" part="tree" sha1="e4f3c73cfe00f1c61d7e321c9f1ccb03149bf3d5" />
-	<File name="TreeData/0_1/orbitnormal7.png" part="tree" sha1="8f9bdd89396d66eb098ac6fa5554d051674dbd41" />
-	<File name="TreeData/0_1/orbitnormal8.png" part="tree" sha1="88611a0daf1fb9618f022ab651bb44a82232aab6" />
-	<File name="TreeData/0_1/orbitnormal9.png" part="tree" sha1="a689c028ab279085c65a6d291a124442492dab92" />
+	<File name="TreeData/0_1/orbit_active0.png" part="tree" sha1="c17c7c0682240494614ccc3dd183a0ca9aca2cc4" />
+	<File name="TreeData/0_1/orbit_active1.png" part="tree" sha1="182cf3b511e0c3351c6893008b284fd9cd3b82f8" />
+	<File name="TreeData/0_1/orbit_active2.png" part="tree" sha1="5fce3cc77cfc325eb495d72529f080941cf0036c" />
+	<File name="TreeData/0_1/orbit_active3.png" part="tree" sha1="23fa36975a975295f699f4fe69cba286e39f7b1d" />
+	<File name="TreeData/0_1/orbit_active4.png" part="tree" sha1="efb316bce82e32f1bfc5962557d60a1aa51593bb" />
+	<File name="TreeData/0_1/orbit_active5.png" part="tree" sha1="2355ac517d5d16dc7fac4be67efc69471f06ff85" />
+	<File name="TreeData/0_1/orbit_active6.png" part="tree" sha1="2021dde3435b3b9187b4c5384bc6b9af45201c8d" />
+	<File name="TreeData/0_1/orbit_active7.png" part="tree" sha1="d3bf38c8a19ccf53eaab61201ee7f9cdfde288ed" />
+	<File name="TreeData/0_1/orbit_active8.png" part="tree" sha1="cf0a2d180dc561a0c514bde64f173728209ee141" />
+	<File name="TreeData/0_1/orbit_active9.png" part="tree" sha1="25374c4ea9ddef7af2671d85a762242d22763060" />
+	<File name="TreeData/0_1/orbit_intermediate0.png" part="tree" sha1="e4d2aba19e88a6a70d76248fd3a8dcc31563795d" />
+	<File name="TreeData/0_1/orbit_intermediate1.png" part="tree" sha1="25cc1b849c7462f346885c56c309ba8c470f5c3b" />
+	<File name="TreeData/0_1/orbit_intermediate2.png" part="tree" sha1="be81b097e0aac09868d67bba6101dc7a463b65f2" />
+	<File name="TreeData/0_1/orbit_intermediate3.png" part="tree" sha1="f4fc716133d741c6fd81fa6831a9caf37ace4f3b" />
+	<File name="TreeData/0_1/orbit_intermediate4.png" part="tree" sha1="b397dd785899c1f4b7083fc33a37c7071037836e" />
+	<File name="TreeData/0_1/orbit_intermediate5.png" part="tree" sha1="31809aafddec8ef88eaf33b48e564cc8e300ed05" />
+	<File name="TreeData/0_1/orbit_intermediate6.png" part="tree" sha1="0b41329c5ee3e73756a05c01be7bc6c8c21ecf02" />
+	<File name="TreeData/0_1/orbit_intermediate7.png" part="tree" sha1="b6d94b7824fa65cd06df24548b49cd4884ec9e51" />
+	<File name="TreeData/0_1/orbit_intermediate8.png" part="tree" sha1="e56ea575cbffda91aa8f1309edab0a0828a8a3ae" />
+	<File name="TreeData/0_1/orbit_intermediate9.png" part="tree" sha1="d1eb7291dcc5a1fd6126a19ec07451d45764c6ba" />
+	<File name="TreeData/0_1/orbit_normal0.png" part="tree" sha1="d4508db82db53063d50750d3ba9d97dad27bd13b" />
+	<File name="TreeData/0_1/orbit_normal1.png" part="tree" sha1="bca7b52d00475e9e64812caeb8066072c64dd601" />
+	<File name="TreeData/0_1/orbit_normal2.png" part="tree" sha1="691057a335256406ac324d836ba6a09b05ec00f2" />
+	<File name="TreeData/0_1/orbit_normal3.png" part="tree" sha1="c45792c111142135c18dcc9d58d3654c88c70687" />
+	<File name="TreeData/0_1/orbit_normal4.png" part="tree" sha1="64bff9325467cf8266af8112758c64ec4f4ed0fb" />
+	<File name="TreeData/0_1/orbit_normal5.png" part="tree" sha1="44bd2eafbbeea02171e5e6888aa12cdb34522b53" />
+	<File name="TreeData/0_1/orbit_normal6.png" part="tree" sha1="e4f3c73cfe00f1c61d7e321c9f1ccb03149bf3d5" />
+	<File name="TreeData/0_1/orbit_normal7.png" part="tree" sha1="8f9bdd89396d66eb098ac6fa5554d051674dbd41" />
+	<File name="TreeData/0_1/orbit_normal8.png" part="tree" sha1="88611a0daf1fb9618f022ab651bb44a82232aab6" />
+	<File name="TreeData/0_1/orbit_normal9.png" part="tree" sha1="a689c028ab279085c65a6d291a124442492dab92" />
 	<File name="TreeData/0_1/skills-disabled_64_64_BC1.dds.zst" part="tree" sha1="4f638e1dafbfdce991769c72f46ff963561d7c3b" />
 	<File name="TreeData/0_1/skills-disabled_88_88_BC1.dds.zst" part="tree" sha1="0947e7e4e7c0bd2269e0ba2f2636b6a4fa2ba554" />
 	<File name="TreeData/0_1/skills-disabled_128_128_BC1.dds.zst" part="tree" sha1="6a2d7005ed1f6db59bcd85a617824910304771aa" />

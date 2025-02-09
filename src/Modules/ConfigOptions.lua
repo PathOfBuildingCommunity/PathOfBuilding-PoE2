@@ -1432,6 +1432,9 @@ Huge sets the radius to 11.
 	{ var = "multiplierPvpDamage", type = "count", label = "Custom PvP Damage multiplier percent:", ifFlag = "isPvP", tooltip = "This multiplies the damage of a given skill in pvp, for instance any with damage multiplier specific to pvp (from skill or support or item like sire of shards)", apply = function(val, modList, enemyModList)
 		modList:NewMod("PvpDamageMultiplier", "MORE", val - 100, "Config")
 	end },
+	{ var = "reservedDarkness", type = "count", label = "Reserved Darkness:", ifFlag = "PlayerHasDarkness", apply = function(val, modList, enemyModList)
+		modList:NewMod("ReservedDarkness", "BASE", val, "Config")
+	end },
 	-- Section: Effective DPS options
 	{ section = "For Effective DPS", col = 1 },
 	{ var = "skillForkCount", type = "count", label = "# of times Skill has Forked:", ifFlag = "forking", apply = function(val, modList, enemyModList)
@@ -1443,7 +1446,9 @@ Huge sets the radius to 11.
 	{ var = "skillPierceCount", type = "count", label = "# of times Skill has Pierced:", ifStat = "PiercedCount", ifFlag = "piercing", apply = function(val, modList, enemyModList)
 		modList:NewMod("PiercedCount", "BASE", val, "Config", { type = "Condition", var = "Effective" })
 	end },
-	{ var = "enemyDistance", type = "count", label = "Distance to enemy:", tooltip = "10 units equals 1 metre", ifTagType = "DistanceRamp" },
+	{ var = "enemyDistance", type = "count", label = "Distance to enemy:", tooltip = "10 units equals 1 metre", defaultPlaceholderState = 25, apply = function(val, modList, enemyModList)
+		modList:NewMod("Multiplier:enemyDistance", "BASE", val, "Config", { type = "Condition", var = "Effective" })
+	end },
 	{ var = "conditionAtCloseRange", type = "check", label = "Is the enemy at Close Range?", ifCond = "AtCloseRange", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:AtCloseRange", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
 	end },
@@ -1459,8 +1464,15 @@ Huge sets the radius to 11.
 	{ var = "conditionEnemyLowLife", type = "check", label = "Is the enemy on Low ^xE05030Life?", ifEnemyCond = "LowLife", apply = function(val, modList, enemyModList)
 		enemyModList:NewMod("Condition:LowLife", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
 	end },
-	{ var = "conditionEnemyArmourBroken", type = "check", label = "Is the enemies Armour Broken?", ifEnemyCond = "ArmourBroken", apply = function(val, modList, enemyModList)
-		enemyModList:NewMod("Condition:ArmourBroken", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
+	{ var = "conditionEnemyArmourBroken", type = "check", label = "Is enemy Armour Broken?", ifFlag = "Condition:CanArmourBreak", tooltip = "Some Skills, Items, Support Gems and other effects can Break Armour, which lowers a target's Armour by a specified amount.\nIf this brings the target's Armour value to 0, their Armour is Fully Broken for 12 seconds.", apply = function(val, modList, enemyModList)
+		enemyModList:NewMod("Condition:ArmourFullyBroken", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
+		enemyModList:NewMod("Armour", "OVERRIDE", 0, "Config", { type = "Condition", var = "ArmourFullyBroken" }, { type = "GlobalEffect", effectType= "Debuff", effectName = "ArmourBreak" })
+	end },
+	{ var = "multiplierArmourBreak", type = "count", label = "# of Broken Armour (if not maximum):", ifOption = "conditionEnemyArmourBroken", tooltip = "Use this field to set a custom Armour Break value.\nIf left empty or set to 0, Fully Broken Armour will be assumed.\nArmour cannot be broken below zero by default.", apply = function(val, modList, enemyModList)
+		enemyModList:NewMod("Condition:ArmourBroken", "FLAG", val > 0, "Config", { type = "Condition", var = "Effective" }) -- only activate if value > 0 is entered
+		enemyModList:ReplaceMod("Condition:ArmourFullyBroken", "FLAG", val < 1, "Config", { type = "Condition", var = "Effective" }) -- disable FullyBrokenArmour if value >= 1 is entered
+		enemyModList:NewMod("Multiplier:ArmourBreakStack", "BASE", val, "Config", { type = "Condition", var = "ArmourBroken" })
+		enemyModList:NewMod("Armour", "BASE", -1, "Config", { type = "Multiplier", var = "ArmourBreakStack" }, { type = "GlobalEffect", effectType= "Debuff", effectName = "ArmourBreak" })
 	end },
 	{ var = "conditionEnemyCursed", type = "check", label = "Is the enemy Cursed?", ifEnemyCond = "Cursed", tooltip = "The enemy will automatically be considered to be Cursed if you have at least one curse enabled,\nbut you can use this option to force it if necessary.", apply = function(val, modList, enemyModList)
 		enemyModList:NewMod("Condition:Cursed", "FLAG", true, "Config", { type = "Condition", var = "Effective" })

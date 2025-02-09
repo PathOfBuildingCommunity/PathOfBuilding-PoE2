@@ -769,6 +769,11 @@ skills["BlasphemyPlayer"] = {
 			label = "Buff",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "skill_stat_descriptions",
+			statMap = {
+				["blasphemy_base_spirit_reservation_per_socketed_curse"] = {
+					mod("SkillData", "LIST", { key = "spiritReservationFlat", value = nil })
+				},
+			},
 			baseFlags = {
 				area = true,
 			},
@@ -17148,6 +17153,11 @@ skills["VulnerabilityPlayer"] = {
 			baseFlags = {
 				area = true,
 				duration = true,
+			},
+			statMap = {
+				["vulnerability_total_armour_-"] = {
+					mod("IgnoreArmour", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Curse" }),
+				},
 			},
 			constantStats = {
 				{ "curse_delay_duration_ms", 1000 },

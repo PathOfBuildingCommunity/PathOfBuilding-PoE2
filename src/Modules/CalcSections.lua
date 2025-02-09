@@ -6,7 +6,7 @@
 
 -- Commonly used modifier lists
 local physicalHitTaken = {
-	"DamageTaken", "PhysicalDamageTaken", "CurseEffectOnSelf"
+	"DamageTaken", "PhysicalDamageTaken", "CurseEffectOnSelf", "Armour", "IgnoreArmour"
 }
 local lightningHitTaken = {
 	"DamageTaken", "LightningDamageTaken", "ElementalDamageTaken", "LightningResist", "ElementalResist", "CurseEffectOnSelf"
