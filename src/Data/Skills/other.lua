@@ -574,6 +574,19 @@ skills["DemonFormPlayer"] = {
 			label = "Demon Form",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "demon_transformation",
+			statMap = {
+				["demon_form_spell_damage_+%_per_stack"] = {
+					mod("Damage", "MORE", nil, 0, KeywordFlag.Spell,  { type = "GlobalEffect", effectType = "Buff", effectName = "Demon Form"}, { type = "Multiplier", var = "DemonflameStacks" } ),
+				},
+				["demon_form_grants_cast_speed_+%"] = {
+					mod("Speed", "INC", nil, 0, KeywordFlag.Spell, { type = "GlobalEffect", effectType = "Buff", effectName = "Demon Form" }, { type = "Multiplier", var = "DemonflameStacks" } ),
+				},
+				["demon_form_life_loss_%_per_minute_per_stack"] = {
+					mod("LifeRegenPercent", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Demon Form" }, { type = "Multiplier", var = "DemonflameStacks" } ),
+					div = 60,
+					mult = -1,
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {

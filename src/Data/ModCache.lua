@@ -2907,7 +2907,7 @@ c["Mana Recovery from Regeneration is not applied"]={{[1]={flags=0,keywordFlags=
 c["Mark Skills have 10% increased Cast Speed"]={{[1]={[1]={skillType=109,type="SkillType"},flags=16,keywordFlags=0,name="Speed",type="INC",value=10}},nil}
 c["Mark Skills have 25% increased Skill Effect Duration"]={{[1]={[1]={skillType=109,type="SkillType"},flags=0,keywordFlags=0,name="Duration",type="INC",value=25}},nil}
 c["Mark Skills have 60% increased Skill Effect Duration"]={{[1]={[1]={skillType=109,type="SkillType"},flags=0,keywordFlags=0,name="Duration",type="INC",value=60}},nil}
-c["Maximum 10 Demonflame"]={nil,"Maximum 10 Demonflame "}
+c["Maximum 10 Demonflame"]={{[1]={flags=0,keywordFlags=0,name="Condition:MasteredDarknessLimit",type="FLAG",value=true}},nil}
 c["Maximum 10 Fragile Regrowth"]={nil,"Maximum 10 Fragile Regrowth "}
 c["Maximum 10 Fragile Regrowth 0.5% of Life Regenerated per second per Fragile Regrowth"]={nil,"Maximum 10 Fragile Regrowth 0.5% of Life Regenerated per second per Fragile Regrowth "}
 c["Maximum Life becomes 1, Immune to Chaos Damage"]={{[1]={flags=0,keywordFlags=0,name="ChaosInoculation",type="FLAG",value=true},[2]={flags=0,keywordFlags=0,name="ChaosDamageTaken",type="MORE",value=-100}},nil}

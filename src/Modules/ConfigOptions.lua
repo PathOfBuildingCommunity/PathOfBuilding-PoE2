@@ -320,6 +320,11 @@ local configSettings = {
 	{ var = "darkPactSkeletonLife", type = "count", label = "Skeleton ^xE05030Life:", ifSkill = "Dark Pact", tooltip = "Sets the maximum ^xE05030Life ^7of the Skeleton that is being targeted.", apply = function(val, modList, enemyModList)
 		modList:NewMod("SkillData", "LIST", { key = "skeletonLife", value = val }, "Config", { type = "SkillName", skillName = "Dark Pact" })
 	end },
+	{ label = "Demon Form:", ifSkill = "Demon Form" },
+	{ var = "demonFormStacks", type = "count", label = "Demon Form Stacks", ifSkill = "Demon Form", apply = function(val, modList, enemyModList)
+		modList:NewMod("Multiplier:DemonflameStacks", "BASE", val, "Config", { type = "Condition", var = "MasteredDarknessLimit", neg = true} )
+		modList:NewMod("Multiplier:DemonflameStacks", "BASE", m_min(val, 10), "Config", { type = "Condition", var = "MasteredDarknessLimit"} )
+	end },
 	{ label = "Doom Blast:", ifSkill = "Doom Blast" },
 	{ var = "doomBlastSource", type = "list", label = "Doom Blast Trigger Source:", ifSkill = "Doom Blast", list = {{val="expiration",label="Curse Expiration"},{val="replacement",label="Curse Replacement"},{val="vixen",label="Vixen's Curse"},{val="hexblast",label="Hexblast Replacement"}}, defaultIndex = 3},
 	{ var = "curseOverlaps", type = "count", label = "Curse overlaps:", ifSkill = "Doom Blast", ifFlag = "UsesCurseOverlaps", apply = function(val, modList, enemyModList)

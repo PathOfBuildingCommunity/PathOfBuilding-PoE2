@@ -2890,6 +2890,8 @@ local specialModList = {
 		mod("Speed", "MORE", num, nil, ModFlag.Cast, { type = "GlobalEffect", effectType = "Buff", effectName = "Quicksand Hourglass" }, { type = "Condition", var = "QuicksandHourglass" }),
 		flag("Condition:CanGainQuicksandHourglass")
 	} end,
+	-- Witch -- Infernalist
+	["maximum 10 demonflame"] = { flag("Condition:MasteredDarknessLimit") },
 	-- Item local modifiers
 	["has no sockets"] = { flag("NoSockets") },
 	["reflects your other ring"] = {
