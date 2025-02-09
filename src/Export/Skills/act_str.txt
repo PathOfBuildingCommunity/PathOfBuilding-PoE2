@@ -652,5 +652,13 @@ statMap = {
 #skill WarBannerPlayer
 #set WarBannerPlayer
 #flags
+statMap = {
+	["skill_war_banner_attack_damage_+%_final"] = {
+		mod("Damage", "MORE", nil,  ModFlag.Attack, 0, { type = "Condition", var = "BannerPlanted" }, { type = "GlobalEffect", effectType = "Buff"}),
+	},
+	["skill_war_banner_accuracy_+%"] = {
+		mod("Accuracy", "INC", nil, 0, 0, { type = "Condition", var = "BannerPlanted" }, { type = "GlobalEffect", effectType = "Buff"}),
+	},
+},
 #mods
 #skillEnd
