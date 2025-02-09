@@ -3841,16 +3841,7 @@ function calcs.offence(env, actor, activeSkill)
 	-- Various tree nodes for bleed chance on crit
 
 	-- Calculate ailment thresholds
-	local enemyAilmentThreshold = data.monsterAilmentThresholdTable[env.enemyLevel]
-	local isBoss = env.configInput["enemyIsBoss"] ~= "None"
-	local enemyMapLifeMult = 1
-	local enemyMapAilmentMult = 1
-	if env.enemyLevel >= 66 then
-		enemyMapLifeMult = isBoss and data.mapLevelBossLifeMult[env.enemyLevel] or data.mapLevelLifeMult[env.enemyLevel]
-		enemyMapAilmentMult = isBoss and data.mapLevelBossAilmentMult[env.enemyLevel] or enemyMapAilmentMult
-	end
-	local enemyTypeMult = isBoss and 7.68 or 1
-	local enemyThreshold = enemyAilmentThreshold * enemyTypeMult * enemyMapLifeMult * enemyDB:More(nil, "Life") * enemyMapAilmentMult * enemyDB:More(nil, "AilmentThreshold")
+	local enemyThreshold = data.monsterAilmentThresholdTable[env.enemyLevel] * enemyDB:More(nil, "AilmentThreshold")
 	output['EnemyAilmentThreshold'] = enemyThreshold
 
 	-- TODO: Should probably be in Data.lua instead, or pulled from export data
@@ -4416,7 +4407,7 @@ function calcs.offence(env, actor, activeSkill)
 		-- "All Hits that have any Contribution to Chill Magnitude can Chill, without requiring an explicit chance to inflict,
 		--  provided the Magnitudes meets a minimum threshold. So low damage Hits may still fail to Chill."
 		local unmitigatedColdDamage = calcAverageUnmitigatedSourceDamage("Chill", defaultAilmentDamageTypes["Chill"]["ScalesFrom"])
-		local chillAilmentThresholdGuess = enemyThreshold * 0.04 * 15 -- Assume 15% is sufficient
+		local chillAilmentThresholdGuess = enemyThreshold / data.gameConstants.MiscAilmentChanceMultiplier * 15 -- Assume 15% is sufficient
 		output['ChillAilmentThresholdGuess'] = chillAilmentThresholdGuess
 		if unmitigatedColdDamage > chillAilmentThresholdGuess then
 			output["ChillChanceOnHit"] = 100
@@ -4441,8 +4432,8 @@ function calcs.offence(env, actor, activeSkill)
 			-- TODO: average for now, can do more complicated calculation later
 			local hitAvg = hitMin + (hitMax - hitMin) / 2
 			local critAvg = critMin + (critMax - critMin) / 2
-			local hitElementalAilmentChance = (hitAvg / enemyThreshold) / 0.04
-			local critElementalAilmentChance = (critAvg / enemyThreshold) / 0.04
+			local hitElementalAilmentChance = (hitAvg / enemyThreshold) * data.gameConstants[ailment .. "ChanceMultiplier"]
+			local critElementalAilmentChance = (critAvg / enemyThreshold) * data.gameConstants[ailment .. "ChanceMultiplier"]
 
 			if skillFlags.hit and not skillModList:Flag(cfg, "Cannot"..ailment) then
 				output[ailment.."ChanceOnHit"] = m_min(100, hitElementalAilmentChance)
