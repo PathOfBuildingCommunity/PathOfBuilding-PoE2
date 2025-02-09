@@ -305,6 +305,50 @@ data.nonDamagingAilment = {
 	["Shock"] = { associatedType = "Lightning", alt = false, default = 20, min = 20, max = 100, precision = 0, duration = data.gameConstants["BaseShockDuration"] },
 }
 
+data.defaultAilmentDamageTypes = {
+		-- damaging
+		["Bleed"] = {
+			["ScalesFrom"] = {
+				["Physical"] = true,
+			},
+			["DamageType"] = "Physical",
+		},
+		["Poison"] = {
+			["ScalesFrom"] = {
+				["Physical"] = true,
+				["Chaos"] = true,
+			},
+			["DamageType"] = "Chaos",
+		},
+		["Ignite"] = {
+			["ScalesFrom"] = {
+				["Fire"] = true,
+			},
+			["DamageType"] = "Fire",
+		},
+		-- non-damaging
+		["Shock"] = {
+			["ScalesFrom"] = {
+				["Lightning"] = true,
+			}
+		},
+		["Chill"] = {
+			["ScalesFrom"] = {
+				["Cold"] = true,
+			}
+		},
+		["Freeze"] = {
+			["ScalesFrom"] = {
+				["Cold"] = true,
+			}
+		},
+		["Electrocute"] = {
+			["ScalesFrom"] = {
+				["Lightning"] = true,
+			}
+		},
+	}
+
 -- Used in ModStoreClass:ScaleAddMod(...) to identify high precision modifiers
 data.defaultHighPrecision = 1
 data.modScalability = LoadModule("Data/ModScalability")
