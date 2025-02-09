@@ -153,11 +153,12 @@ function calcs.createActiveSkill(activeEffect, supportList, env, actor, socketGr
 			end
 		end
 	until (notAddedNewSupport)
-	
+
 	for _, supportEffect in ipairs(supportList) do
 		-- Pass 2: Add all compatible supports
 		if calcLib.canGrantedEffectSupportActiveSkill(supportEffect.grantedEffect, activeSkill) then
 			t_insert(activeSkill.effectList, supportEffect)
+			-- Track how many active skills are supported by this support effect
 			if supportEffect.isSupporting and activeEffect.srcInstance then
 				supportEffect.isSupporting[activeEffect.srcInstance] = true
 			end
@@ -347,7 +348,7 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 		if weapon1Flags then
 			if skillFlags.attack or skillFlags.dotFromAttack then
 				-- Concoction skills ignore weapon flags
-				activeSkill.weapon1Flags = (skillModList:Flag(nil, "UnarmedOverride") and ModFlag.Unarmed) or weapon1Flags
+				activeSkill.weapon1Flags = (skillFlags.unarmed and ModFlag.Unarmed) or weapon1Flags
 				skillFlags.weapon1Attack = true
 				if weapon1Info.melee and skillFlags.melee then
 					skillFlags.projectile = nil
@@ -368,7 +369,7 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 					skillFlags.disable = true
 					activeSkill.disableReason = activeSkill.disableReason or "Weapon Types Need to be Different"
 				elseif skillFlags.attack or skillFlags.dotFromAttack then
-					activeSkill.weapon2Flags = (skillModList:Flag(nil, "UnarmedOverride") and ModFlag.Unarmed) or weapon2Flags
+					activeSkill.weapon2Flags = (skillFlags.unarmed and ModFlag.Unarmed) or weapon2Flags
 					skillFlags.weapon2Attack = true
 				end
 			elseif (skillTypes[SkillType.DualWieldOnly] or weapon2Info) and not activeSkill.summonSkill then
@@ -725,7 +726,7 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 			minion.level = m_min(m_max(minion.level,1),100) 
 			minion.itemList = { }
 			minion.uses = activeGrantedEffect.minionUses
-			minion.lifeTable = (minion.minionData.lifeScaling == "AltLife1" and env.data.monsterLifeTable2) or (minion.minionData.lifeScaling == "AltLife2" and env.data.monsterLifeTable3) or (isSpectre and env.data.monsterLifeTable) or env.data.monsterAllyLifeTable
+			minion.lifeTable = (isSpectre and env.data.monsterLifeTable) or env.data.monsterAllyLifeTable
 			local attackTime = minion.minionData.attackTime
 			local damage = (isSpectre and env.data.monsterDamageTable[minion.level] or env.data.monsterAllyDamageTable[minion.level]) * minion.minionData.damage
 			if not minion.minionData.baseDamageIgnoresAttackSpeed then -- minions with this flag do not factor attack time into their base damage

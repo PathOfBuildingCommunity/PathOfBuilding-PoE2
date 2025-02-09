@@ -6,7 +6,7 @@
 
 -- Commonly used modifier lists
 local physicalHitTaken = {
-	"DamageTaken", "PhysicalDamageTaken", "CurseEffectOnSelf"
+	"DamageTaken", "PhysicalDamageTaken", "CurseEffectOnSelf", "Armour", "IgnoreArmour"
 }
 local lightningHitTaken = {
 	"DamageTaken", "LightningDamageTaken", "ElementalDamageTaken", "LightningResist", "ElementalResist", "CurseEffectOnSelf"
@@ -130,17 +130,17 @@ return {
 		},
 		{ format = "x {3:output:LightningEffMult}",
 			{ breakdown = "LightningEffMult" },
-			{ label = "Player modifiers", modName = { "LightningPenetration", "ElementalPenetration", "IgnoreLightningResistance" }, cfg = "skill" },
+			{ label = "Player modifiers", modName = { "LightningPenetration", "ElementalPenetration", "IgnoreLightningResistance", "IgnoreNonNegativeEleRes", "IgnoreElementalResistances" }, cfg = "skill" },
 			{ label = "Enemy modifiers", modName = lightningHitTaken, enemy = true, cfg = "skill" },
 		},
 		{ format = "x {3:output:ColdEffMult}",
 			{ breakdown = "ColdEffMult" },
-			{ label = "Player modifiers", modName = { "ColdPenetration", "ElementalPenetration", "IgnoreColdResistance" }, cfg = "skill" },
+			{ label = "Player modifiers", modName = { "ColdPenetration", "ElementalPenetration", "IgnoreColdResistance", "IgnoreNonNegativeEleRes", "IgnoreElementalResistances" }, cfg = "skill" },
 			{ label = "Enemy modifiers", modName = coldHitTaken, enemy = true, cfg = "skill" },
 		},
 		{ format = "x {3:output:FireEffMult}",
 			{ breakdown = "FireEffMult" },
-			{ label = "Player modifiers", modName = { "FirePenetration", "ElementalPenetration", "IgnoreFireResistance" }, cfg = "skill" },
+			{ label = "Player modifiers", modName = { "FirePenetration", "ElementalPenetration", "IgnoreFireResistance", "IgnoreNonNegativeEleRes", "IgnoreElementalResistances" }, cfg = "skill" },
 			{ label = "Enemy modifiers", modName = fireHitTaken, enemy = true, cfg = "skill" },
 		},
 		{ format = "x {3:output:ChaosEffMult}",
@@ -1629,14 +1629,10 @@ return {
 	{ label = "Avoid Chaos Chance", haveOutput = "AvoidChaosDamageChance", { format = "{0:output:AvoidChaosDamageChance}%", { modName = "AvoidChaosDamageChance" }, }, },
 	{ label = "Avoid Proj Ch.", haveOutput = "AvoidProjectilesChance", { format = "{0:output:AvoidProjectilesChance}%", { modName = "AvoidProjectilesChance" }, }, },
 } }, { defaultCollapsed = false, label = "Block", data = {
-	extra = "{0:output:EffectiveBlockChance}%/{0:output:EffectiveSpellBlockChance}%",
+	extra = "{0:output:EffectiveBlockChance}%",
 	{ label = "Block Chance", { format = "{0:output:BlockChance}% (+{0:output:BlockChanceOverCap}%)",
 		{ breakdown = "BlockChance" },
 		{ modName = { "BlockChance", "ReplaceShieldBlock" } }, 
-	}, },
-	{ label = "Spell Block Chance", { format = "{0:output:SpellBlockChance}% (+{0:output:SpellBlockChanceOverCap}%)", 
-		{ breakdown = "SpellBlockChance" }, 
-		{ modName = { "SpellBlockChance", "SpellBlockChanceIsBlockChance", "SpellBlockChanceMaxIsBlockChanceMax" }, },
 	}, },
 	{ label = "Taken From Block", haveOutput = "ShowBlockEffect", { format = "{0:output:DamageTakenOnBlock}%", 
 		{ breakdown = "BlockEffect" }, 

@@ -276,7 +276,7 @@ local PassiveTreeClass = newClass("PassiveTree", function(self, treeVersion)
 				group.isAscendancyStart = true
 				self.ascendNameMap[node.ascendancyName].ascendClass.background = {
 					image = "Classes" ..  self.ascendNameMap[node.ascendancyName].ascendClass.name,
-					section = "ascendancyBackground",
+					section = "AscendancyBackground",
 					x = group.x,
 					y = group.y,
 					width = 1500 * self.scaleImage,
@@ -291,7 +291,7 @@ local PassiveTreeClass = newClass("PassiveTree", function(self, treeVersion)
 							["active"] = { width = 2000 * self.scaleImage, height = 2000 * self.scaleImage },
 							["bg"] = { width = 2000 * self.scaleImage, height = 2000 * self.scaleImage },
 							image = "Classes" .. className,
-							section = "ascendancyBackground",
+							section = "AscendancyBackground",
 							x = 0,
 							y = 0,
 							width = 1500 * self.scaleImage,
@@ -418,6 +418,33 @@ local PassiveTreeClass = newClass("PassiveTree", function(self, treeVersion)
 				node.modList:NewMod("Condition:ConnectedTo"..class.name.."Start", "FLAG", true, "Tree:"..nodeId)
 			end
 		end
+	end
+	
+	-- Build ModList for legion jewels
+	for _, node in pairs(self.legion.nodes) do
+		-- Determine node type
+		if node.m then
+			node.type = "Mastery"
+		elseif node.ks then
+			node.type = "Keystone"
+			if not self.keystoneMap[node.dn] then -- Don't override good tree data with legacy keystones
+				self.keystoneMap[node.dn] = node
+			end
+		elseif node["not"] then
+			node.type = "Notable"
+		else
+			node.type = "Normal"
+		end
+		
+		--todo: update sprites? icon stuff
+		---- Assign node artwork assets
+		--node.sprites = self.spriteMap[node.icon]
+		--if not node.sprites then
+		--	--error("missing sprite "..node.icon)
+		--	node.sprites = { }
+		--end
+
+		self:ProcessStats(node)
 	end
 end)
 

@@ -787,7 +787,7 @@ function SkillsTabClass:CreateGemSlot(index)
 			addQualityLines(qualityTable, gemData.secondaryGrantedEffect)
 		end
 		-- Add stat comparisons for hovered quality (based on set quality)
-		if self.displayGroup.gemList[index] then
+		if gemData and (gemData.grantedEffect.qualityStats or (gemData.secondaryGrantedEffect and gemData.secondaryGrantedEffect.qualityStats)) and self.displayGroup.gemList[index] then
 			local calcFunc, calcBase = self.build.calcsTab:GetMiscCalculator(self.build)
 			if calcFunc then
 				local storedQuality = self.displayGroup.gemList[index].quality
@@ -1138,7 +1138,7 @@ function SkillsTabClass:AddSocketGroupTooltip(tooltip, socketGroup)
 		tooltip:AddLine(16, "^7Active Skill #"..index..":")
 		for _, skillEffect in ipairs(activeSkill.effectList) do
 			tooltip:AddLine(20, string.format("%s%s ^7%d%s/%d%s",
-				data.skillColorMap[skillEffect.grantedEffect.color],
+				data.skillColorMap[skillEffect.grantedEffect.color or skillEffect.gemData and skillEffect.gemData.grantedEffect.color],
 				skillEffect.grantedEffect.name,
 				skillEffect.srcInstance and skillEffect.srcInstance.level or skillEffect.level,
 				(skillEffect.srcInstance and skillEffect.level > skillEffect.srcInstance.level) and colorCodes.MAGIC.."+"..(skillEffect.level - skillEffect.srcInstance.level).."^7" or "",

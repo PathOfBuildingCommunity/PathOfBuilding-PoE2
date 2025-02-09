@@ -204,6 +204,8 @@ data.misc = { -- magic numbers
 	ehpCalcMaxDamage = 100000000,
 	-- max iterations can be increased for more accuracy this should be perfectly accurate unless it runs out of iterations and so high eHP values will be underestimated.
 	ehpCalcMaxIterationsToCalc = 50,
+	-- more iterations would reduce the cases where max hit would result in overkill damage or leave some life.
+	maxHitSmoothingPasses = 8,
 	-- maximum increase for stat weights, only used in trader for now.
 	maxStatIncrease = 2, -- 100% increased
 	-- PvP scaling used for hogm
@@ -721,8 +723,9 @@ for skillId, grantedEffect in pairs(data.skills) do
 	grantedEffect.name = sanitiseText(grantedEffect.name)
 	grantedEffect.id = skillId
 	grantedEffect.modSource = "Skill:"..skillId
+	grantedEffect.statSets = grantedEffect.statSets or {}
 	-- Add sources for skill mods, and check for global effects
-	for _, skillPart in pairs(tableConcat({grantedEffect}, grantedEffect.statSets or {})) do
+	for _, skillPart in pairs(tableConcat({grantedEffect}, grantedEffect.statSets)) do
 		for _, list in pairs({skillPart.baseMods, skillPart.qualityMods, skillPart.levelMods}) do
 			for _, mod in pairs(list) do
 				if mod.name then
@@ -736,7 +739,7 @@ for skillId, grantedEffect in pairs(data.skills) do
 		end
 	end
 	-- Install stat map metatable
-	for _, statSet in pairs(tableConcat({grantedEffect}, grantedEffect.statSets or {})) do
+	for _, statSet in pairs(tableConcat({grantedEffect}, grantedEffect.statSets)) do
 		statSet.statMap = statSet.statMap or { }
 		setmetatable(statSet.statMap, data.skillStatMapMeta)
 		statSet.statMap._grantedEffect = grantedEffect

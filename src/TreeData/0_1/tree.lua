@@ -1,94 +1,94 @@
 return {
 	assets={
 		LineConnectorActive={
-			[1]="orbitactive0.png"
+			[1]="orbit_active0.png"
 		},
 		LineConnectorIntermediate={
-			[1]="orbitintemediate0.png"
+			[1]="orbit_intermediate0.png"
 		},
 		LineConnectorNormal={
-			[1]="orbitnormal0.png"
+			[1]="orbit_normal0.png"
 		},
 		Orbit1Active={
-			[1]="orbitactive9.png"
+			[1]="orbit_active9.png"
 		},
 		Orbit1Intermediate={
-			[1]="orbitintemediate9.png"
+			[1]="orbit_intermediate9.png"
 		},
 		Orbit1Normal={
-			[1]="orbitnormal9.png"
+			[1]="orbit_normal9.png"
 		},
 		Orbit2Active={
-			[1]="orbitactive8.png"
+			[1]="orbit_active8.png"
 		},
 		Orbit2Intermediate={
-			[1]="orbitintemediate8.png"
+			[1]="orbit_intermediate8.png"
 		},
 		Orbit2Normal={
-			[1]="orbitnormal8.png"
+			[1]="orbit_normal8.png"
 		},
 		Orbit3Active={
-			[1]="orbitactive6.png"
+			[1]="orbit_active6.png"
 		},
 		Orbit3Intermediate={
-			[1]="orbitintemediate6.png"
+			[1]="orbit_intermediate6.png"
 		},
 		Orbit3Normal={
-			[1]="orbitnormal6.png"
+			[1]="orbit_normal6.png"
 		},
 		Orbit4Active={
-			[1]="orbitactive5.png"
+			[1]="orbit_active5.png"
 		},
 		Orbit4Intermediate={
-			[1]="orbitintemediate5.png"
+			[1]="orbit_intermediate5.png"
 		},
 		Orbit4Normal={
-			[1]="orbitnormal5.png"
+			[1]="orbit_normal5.png"
 		},
 		Orbit5Active={
-			[1]="orbitactive4.png"
+			[1]="orbit_active4.png"
 		},
 		Orbit5Intermediate={
-			[1]="orbitintemediate4.png"
+			[1]="orbit_intermediate4.png"
 		},
 		Orbit5Normal={
-			[1]="orbitnormal4.png"
+			[1]="orbit_normal4.png"
 		},
 		Orbit6Active={
-			[1]="orbitactive3.png"
+			[1]="orbit_active3.png"
 		},
 		Orbit6Intermediate={
-			[1]="orbitintemediate3.png"
+			[1]="orbit_intermediate3.png"
 		},
 		Orbit6Normal={
-			[1]="orbitnormal3.png"
+			[1]="orbit_normal3.png"
 		},
 		Orbit7Active={
-			[1]="orbitactive7.png"
+			[1]="orbit_active7.png"
 		},
 		Orbit7Intermediate={
-			[1]="orbitintemediate7.png"
+			[1]="orbit_intermediate7.png"
 		},
 		Orbit7Normal={
-			[1]="orbitnormal7.png"
+			[1]="orbit_normal7.png"
 		},
 		Orbit8Active={
-			[1]="orbitactive2.png"
+			[1]="orbit_active2.png"
 		},
 		Orbit8Intermediate={
-			[1]="orbitintemediate2.png"
+			[1]="orbit_intermediate2.png"
 		},
 		Orbit8Normal={
-			[1]="orbitnormal2.png"
+			[1]="orbit_normal2.png"
 		},
 		Orbit9Active={
-			[1]="orbitactive1.png"
+			[1]="orbit_active1.png"
 		},
 		Orbit9Intermediate={
-			[1]="orbitintemediate1.png"
+			[1]="orbit_intermediate1.png"
 		},
 		Orbit9Normal={
-			[1]="orbitnormal1.png"
+			[1]="orbit_normal1.png"
 		}
 	},
 	classes={
@@ -316,7 +316,7 @@ return {
 		["group-background_952_988_BC7.dds.zst"]={
 			PSGroupBackgroundLargeBlank=1
 		},
-		["jewelsockets_152_156_BC7.dds.zst"]={
+		["jewel-sockets_152_156_BC7.dds.zst"]={
 			Diamond=6,
 			Emerald=3,
 			Ruby=1,
@@ -326,6 +326,59 @@ return {
 			["Time-Lost Ruby"]=2,
 			["Time-Lost Sapphire"]=4,
 			["Timeless Jewel"]=4
+		},
+		["legion_128_128_BC1.dds.zst"]={
+			["Art/2DArt/SkillIcons/passives/CorruptedDefences.dds"]=24,
+			["Art/2DArt/SkillIcons/passives/DevotionNotable.dds"]=11,
+			["Art/2DArt/SkillIcons/passives/DivineFlesh.dds"]=23,
+			["Art/2DArt/SkillIcons/passives/EternalEmpireDefensiveNotable.dds"]=5,
+			["Art/2DArt/SkillIcons/passives/EternalEmpireOffensiveNotable.dds"]=26,
+			["Art/2DArt/SkillIcons/passives/EternalYouth.dds"]=19,
+			["Art/2DArt/SkillIcons/passives/FocusedRage.dds"]=4,
+			["Art/2DArt/SkillIcons/passives/GlancingBlows.dds"]=15,
+			["Art/2DArt/SkillIcons/passives/InnerConviction.dds"]=7,
+			["Art/2DArt/SkillIcons/passives/KalguuranDexKeystone.dds"]=31,
+			["Art/2DArt/SkillIcons/passives/KalguuranDexNotable.dds"]=14,
+			["Art/2DArt/SkillIcons/passives/KalguuranIntKeystone.dds"]=3,
+			["Art/2DArt/SkillIcons/passives/KalguuranIntNotable.dds"]=13,
+			["Art/2DArt/SkillIcons/passives/KalguuranStrKeystone.dds"]=30,
+			["Art/2DArt/SkillIcons/passives/KalguuranStrNotable.dds"]=17,
+			["Art/2DArt/SkillIcons/passives/MiracleMaker.dds"]=25,
+			["Art/2DArt/SkillIcons/passives/OasisKeystone.dds"]=16,
+			["Art/2DArt/SkillIcons/passives/PowerOfPurpose.dds"]=10,
+			["Art/2DArt/SkillIcons/passives/SharpandBrittle.dds"]=21,
+			["Art/2DArt/SkillIcons/passives/SoulTetherKeystone.dds"]=18,
+			["Art/2DArt/SkillIcons/passives/StrengthOfBlood.dds"]=12,
+			["Art/2DArt/SkillIcons/passives/SupremeDecadence.dds"]=20,
+			["Art/2DArt/SkillIcons/passives/SupremeEgo.dds"]=2,
+			["Art/2DArt/SkillIcons/passives/SupremeGrandstand.dds"]=6,
+			["Art/2DArt/SkillIcons/passives/SupremeProdigy.dds"]=29,
+			["Art/2DArt/SkillIcons/passives/TemperedByWar.dds"]=8,
+			["Art/2DArt/SkillIcons/passives/TheBlindMonk.dds"]=1,
+			["Art/2DArt/SkillIcons/passives/TranscendenceKeystone.dds"]=9,
+			["Art/2DArt/SkillIcons/passives/VaalNotableDefensive.dds"]=22,
+			["Art/2DArt/SkillIcons/passives/VaalNotableOffensive.dds"]=27,
+			["Art/2DArt/SkillIcons/passives/WindDancer.dds"]=28
+		},
+		["legion_564_564_BC7.dds.zst"]={
+			["art/textures/interface/2d/2dart/uiimages/ingame/passiveskillscreeneternalempirejewelcircle1.dds"]=9,
+			["art/textures/interface/2d/2dart/uiimages/ingame/passiveskillscreeneternalempirejewelcircle2.dds"]=8,
+			["art/textures/interface/2d/2dart/uiimages/ingame/passiveskillscreenkalguuranjewelcircle1.dds"]=10,
+			["art/textures/interface/2d/2dart/uiimages/ingame/passiveskillscreenkalguuranjewelcircle2.dds"]=5,
+			["art/textures/interface/2d/2dart/uiimages/ingame/passiveskillscreenkaruijewelcircle1.dds"]=4,
+			["art/textures/interface/2d/2dart/uiimages/ingame/passiveskillscreenkaruijewelcircle2.dds"]=12,
+			["art/textures/interface/2d/2dart/uiimages/ingame/passiveskillscreenmarakethjewelcircle1.dds"]=2,
+			["art/textures/interface/2d/2dart/uiimages/ingame/passiveskillscreenmarakethjewelcircle2.dds"]=1,
+			["art/textures/interface/2d/2dart/uiimages/ingame/passiveskillscreentemplarjewelcircle1.dds"]=6,
+			["art/textures/interface/2d/2dart/uiimages/ingame/passiveskillscreentemplarjewelcircle2.dds"]=7,
+			["art/textures/interface/2d/2dart/uiimages/ingame/passiveskillscreenvaaljewelcircle1.dds"]=3,
+			["art/textures/interface/2d/2dart/uiimages/ingame/passiveskillscreenvaaljewelcircle2.dds"]=11
+		},
+		["legion_64_64_BC1.dds.zst"]={
+			["Art/2DArt/SkillIcons/passives/DevotionNode.dds"]=3,
+			["Art/2DArt/SkillIcons/passives/EternalEmpireBlank.dds"]=4,
+			["Art/2DArt/SkillIcons/passives/VaalDefensive.dds"]=1,
+			["Art/2DArt/SkillIcons/passives/VaalOffensive.dds"]=2
 		},
 		["lines_1436_1436_BC7.dds.zst"]={
 			CurvesActive=3,

@@ -82,10 +82,10 @@ return {
 	skill("ChaosMax", nil),
 },
 ["main_hand_weapon_minimum_lightning_damage"] = {
-	skill("LightningMin", nil, { type = "Condition", var = "MainHandAttack" })
+	skill("LightningMin", nil)
 },
 ["main_hand_weapon_maximum_lightning_damage"] = {
-	skill("LightningMax", nil, { type = "Condition", var = "MainHandAttack" })
+	skill("LightningMax", nil)
 },
 ["spell_minimum_base_lightning_damage_per_removable_power_charge"] = {
 	skill("LightningMin", nil, { type = "Multiplier", var = "RemovablePowerCharge" }),
@@ -107,6 +107,12 @@ return {
 },
 ["spell_minimum_base_cold_damage_+_per_10_intelligence"] = {
 	skill("ColdMin", nil, { type = "PerStat", stat = "Int", div = 10 }),
+},
+["main_hand_weapon_minimum_cold_damage"] = {
+	skill("ColdMin", "BASE", nil),
+},
+["main_hand_weapon_maximum_cold_damage"] = {
+	skill("ColdMax", "BASE", nil),
 },
 ["spell_maximum_base_cold_damage_+_per_10_intelligence"] = {
 	skill("ColdMax", nil, { type = "PerStat", stat = "Int", div = 10 }),
@@ -1832,6 +1838,10 @@ return {
 ["base_cast_speed_+%"] = {
 	mod("Speed", "INC", nil, ModFlag.Cast),
 },
+["added_cast_time_ms"] = {
+	mod("TotalCastTime", "BASE", nil),
+	div = 1000,
+},
 ["active_skill_cast_speed_+%_final"] = {
 	mod("Speed", "MORE", nil, ModFlag.Cast),
 },
@@ -2101,6 +2111,9 @@ return {
 ["active_skill_minion_life_+%_final"] = {
 	mod("MinionModifier", "LIST", { mod = mod("Life", "MORE", nil) }),
 },
+["minion_maximum_life_%_to_gain_as_maximum_energy_shield"] = {
+	mod("MinionModifier", "LIST", { mod = mod("EnergyShield", "BASE", nil, 0, 0, { type = "PercentStat", stat = "Life", percent = 1 } ) } ),
+},
 ["support_minion_damage_minion_life_+%_final"] = {
 	mod("MinionModifier", "LIST", { mod = mod("Life", "MORE", nil) }),
 },
@@ -2320,6 +2333,12 @@ return {
 ["chance_to_gain_1_more_charge_%"] = {
 	mod("AdditionalChargeChance", "BASE", nil)
 },
+["apply_X_armour_break_on_hit"] = {
+	flag("Condition:CanArmourBreak", { type = "GlobalEffect", effectType = "Buff", effectName = "ArmourBreak" }),
+},
+["armour_break_physical_damage_%_dealt_as_armour_break"] = {
+	flag("Condition:CanArmourBreak", { type = "GlobalEffect", effectType = "Buff", effectName = "ArmourBreak" }),
+},
 --
 -- Spectre or Minion-specific stats
 --
@@ -2376,11 +2395,6 @@ return {
 ["supported_minion_skill_gem_level_+"] = {
 	mod("SupportedGemProperty", "LIST", { keyword = "grants_active_skill", key = "level", value = nil }, 0, 0, { type = "SkillType", skillType = SkillType.Minion }),
 },
-
-["base_apply_unarmed_stats_to_offhand"] = {
-	flag("UnarmedOverride")
-},
-
 -- Display only
 ["quality_display_base_additional_arrows_is_gem"] = {
 	-- Display only

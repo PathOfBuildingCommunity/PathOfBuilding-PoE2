@@ -6,7 +6,6 @@
 local skills, mod, flag, skill = ...
 
 #skill SupportAblationPlayer
-#startSets
 #set SupportAblationPlayer
 statMap = {
 	["support_ablation_offering_skill_damage_+%_final"] = {
@@ -17,7 +16,6 @@ statMap = {
 #skillEnd
 
 #skill SupportAmbushPlayer
-#startSets
 #set SupportAmbushPlayer
 statMap = {
 	["support_ambush_critical_strike_chance_vs_enemies_on_full_life_+%_final"] = {
@@ -28,13 +26,11 @@ statMap = {
 #skillEnd
 
 #skill SupportArcaneSurgePlayer
-#startSets
 #set SupportArcaneSurgePlayer
 #mods
 #skillEnd
 
 #skill SupportFasterCastPlayer
-#startSets
 #set SupportFasterCastPlayer
 statMap = {
 	["support_faster_casting_cast_speed_+%_final"] = {
@@ -45,7 +41,6 @@ statMap = {
 #skillEnd
 
 #skill SupportAstralProjectionPlayer
-#startSets
 #set SupportAstralProjectionPlayer
 statMap = {
 	["support_astral_projection_aoe_+%_final"] = {
@@ -56,13 +51,11 @@ statMap = {
 #skillEnd
 
 #skill SupportBiddingPlayer
-#startSets
 #set SupportBiddingPlayer
 #mods
 #skillEnd
 
 #skill SupportBitingFrostPlayer
-#startSets
 #set SupportBitingFrostPlayer
 statMap = {
 	["support_active_skill_consume_enemy_freeze_to_gain_damage_+%_final"] = {
@@ -73,12 +66,10 @@ statMap = {
 #skillEnd
 
 #skill SupportBurningRunesPlayer
-#startSets
 #set SupportBurningRunesPlayer
 #mods
 #skillEnd
 #skill TriggeredBurningRunesPlayer
-#startSets
 #set TriggeredBurningRunesPlayer
 statMap = {
 	["support_burning_runes_base_fire_damage_equal_to_%_maximum_mana"] = {
@@ -93,13 +84,11 @@ statMap = {
 #skillEnd
 
 #skill SupportCapacitorPlayer
-#startSets
 #set SupportCapacitorPlayer
 #mods
 #skillEnd
 
 #skill SupportAddedChaosDamagePlayer
-#startSets
 #set SupportAddedChaosDamagePlayer
 statMap = {
 	["support_chaos_support_non_chaos_damage_+%_final"] = {
@@ -113,19 +102,16 @@ statMap = {
 #skillEnd
 
 #skill SupportChaosMasteryPlayer
-#startSets
 #set SupportChaosMasteryPlayer
 #mods
 #skillEnd
 
 #skill SupportChaoticFreezePlayer
-#startSets
 #set SupportChaoticFreezePlayer
 #mods
 #skillEnd
 
 #skill SupportClarityPlayer
-#startSets
 #set SupportClarityPlayer
 statMap = {
 	["support_clarity_mana_regeneration_rate_+%"] = {
@@ -136,7 +122,6 @@ statMap = {
 #skillEnd
 
 #skill SupportColdExposurePlayer
-#startSets
 #set SupportColdExposurePlayer
 statMap = {
 	["inflict_cold_exposure_for_x_ms_on_cold_crit"] = {
@@ -147,7 +132,6 @@ statMap = {
 #skillEnd
 
 #skill SupportAddedColdDamagePlayer
-#startSets
 #set SupportAddedColdDamagePlayer
 statMap = {
 	["support_fire_and_lightning_damage_+%_final"] = {
@@ -159,19 +143,16 @@ statMap = {
 #skillEnd
 
 #skill SupportColdMasteryPlayer
-#startSets
 #set SupportColdMasteryPlayer
 #mods
 #skillEnd
 
 #skill SupportColdPenetrationPlayer
-#startSets
 #set SupportColdPenetrationPlayer
 #mods
 #skillEnd
 
 #skill SupportConcentratedEffectPlayer
-#startSets
 #set SupportConcentratedEffectPlayer
 statMap = {
 	["support_concentrated_effect_skill_area_of_effect_+%_final"] = {
@@ -185,7 +166,6 @@ statMap = {
 #skillEnd
 
 #skill SupportConsideredCastingPlayer
-#startSets
 #set SupportConsideredCastingPlayer
 statMap = {
 	["support_slow_cast_cast_speed_+%_final"] = {
@@ -199,7 +179,6 @@ statMap = {
 #skillEnd
 
 #skill SupportControlledDestructionPlayer
-#startSets
 #set SupportControlledDestructionPlayer
 statMap = {
 	["support_controlled_destruction_spell_damage_+%_final"] = {
@@ -210,25 +189,21 @@ statMap = {
 #skillEnd
 
 #skill SupportCorpseConservationPlayer
-#startSets
 #set SupportCorpseConservationPlayer
 #mods
 #skillEnd
 
 #skill SupportCoursingCurrentPlayer
-#startSets
 #set SupportCoursingCurrentPlayer
 #mods
 #skillEnd
 
 #skill SupportCursedGroundPlayer
-#startSets
 #set SupportCursedGroundPlayer
 #mods
 #skillEnd
 
 #skill SupportDanseMacabrePlayer
-#startSets
 #set SupportDanseMacabrePlayer
 statMap = {
 	["support_danse_macabre_offering_skill_damage_+%_final_if_consumed_additional_skeleton"] = {
@@ -242,7 +217,6 @@ statMap = {
 #skillEnd
 
 #skill SupportDecayingHexPlayer
-#startSets
 #set SupportDecayingHexPlayer
 statMap = {
 	["support_decaying_hex_base_chaos_damage_per_minute_as_%_of_intelligence_for_8_seconds"] = {
@@ -254,13 +228,11 @@ statMap = {
 #skillEnd
 
 #skill SupportLastingFrostPlayer
-#startSets
 #set SupportLastingFrostPlayer
 #mods
 #skillEnd
 
 #skill SupportDrainedAilmentPlayer
-#startSets
 #set SupportDrainedAilmentPlayer
 statMap = {
 	["support_drained_ailment_damage_over_time_+%_final_if_ailment_consumed"] = {
@@ -271,19 +243,16 @@ statMap = {
 #skillEnd
 
 #skill SupportElementalArmyPlayer
-#startSets
 #set SupportElementalArmyPlayer
 #mods
 #skillEnd
 
 #skill SupportElementalDischargePlayer
-#startSets
 #set SupportElementalDischargePlayer
 #mods
 #skillEnd
 
 #skill TriggeredElementalDischargePlayer
-#startSets
 #set TriggeredElementalDischargePlayer
 #flags spell
 statMap = {
@@ -310,7 +279,6 @@ statMap = {
 #skillEnd
 
 #skill SupportElementalFocusPlayer
-#startSets
 #set SupportElementalFocusPlayer
 statMap = {
 	["support_gem_elemental_damage_+%_final"] = {
@@ -321,19 +289,16 @@ statMap = {
 #skillEnd
 
 #skill SupportEnergyBarrierPlayer
-#startSets
 #set SupportEnergyBarrierPlayer
 #mods
 #skillEnd
 
 #skill SupportEnergyRetentionPlayer
-#startSets
 #set SupportEnergyRetentionPlayer
 #mods
 #skillEnd
 
 #skill SupportExcisePlayer
-#startSets
 #set SupportExcisePlayer
 statMap = {
 	["support_crit_cooldown_crit_chance_+%_final"] = {
@@ -344,7 +309,6 @@ statMap = {
 #skillEnd
 
 #skill SupportExecratePlayer
-#startSets
 #set SupportExecratePlayer
 statMap = {
 	["support_ailment_cooldown_ailment_chance_+%_final"] = {
@@ -358,7 +322,6 @@ statMap = {
 #skillEnd
 
 #skill SupportExpansePlayer
-#startSets
 #set SupportExpansePlayer
 statMap = {
 	["support_aoe_cooldown_aoe_+%_final"] = {
@@ -369,13 +332,11 @@ statMap = {
 #skillEnd
 
 #skill SupportExtractionPlayer
-#startSets
 #set SupportExtractionPlayer
 #mods
 #skillEnd
 
 #skill SupportFeedingFrenzyPlayer
-#startSets
 #set SupportFeedingFrenzyPlayer
 statMap = {
 	["feeding_frenzy_minion_damage_+%_final"] = {
@@ -389,12 +350,10 @@ statMap = {
 #skillEnd
 
 #skill SupportFieryDeathPlayer
-#startSets
 #set SupportFieryDeathPlayer
 #mods
 #skillEnd
 #skill TriggeredFieryDeathPlayer
-#startSets
 #set TriggeredFieryDeathPlayer
 #flags spell area
 #baseMod skill("explodeCorpse", true)
@@ -403,19 +362,16 @@ statMap = {
 #skillEnd
 
 #skill SupportFireMasteryPlayer
-#startSets
 #set SupportFireMasteryPlayer
 #mods
 #skillEnd
 
 #skill SupportFocusedCursePlayer
-#startSets
 #set SupportFocusedCursePlayer
 #mods
 #skillEnd
 
 #skill SupportManaFountainPlayer
-#startSets
 #set SupportManaFountainPlayer
 statMap = {
 	["support_mana_fountain_mana_regeneration_rate_+%"] = {
@@ -426,7 +382,6 @@ statMap = {
 #skillEnd
 
 #skill SupportWallFortressPlayer
-#startSets
 #set SupportWallFortressPlayer
 statMap = {
 	["support_wall_fortress_hit_damage_+%_final"] = {
@@ -437,13 +392,11 @@ statMap = {
 #skillEnd
 
 #skill SupportChillingIcePlayer
-#startSets
 #set SupportChillingIcePlayer
 #mods
 #skillEnd
 
 #skill SupportFrostfirePlayer
-#startSets
 #set SupportFrostfirePlayer
 statMap = {
 	["ignite_effect_+%_final_against_frozen_enemies"] = {
@@ -454,37 +407,31 @@ statMap = {
 #skillEnd
 
 #skill SupportGlaciationPlayer
-#startSets
 #set SupportGlaciationPlayer
 #mods
 #skillEnd
 
 #skill SupportGlacierPlayer
-#startSets
 #set SupportGlacierPlayer
 #mods
 #skillEnd
 
 #skill SupportCurseEffectPlayer
-#startSets
 #set SupportCurseEffectPlayer
 #mods
 #skillEnd
 
 #skill SupportHexBloomPlayer
-#startSets
 #set SupportHexBloomPlayer
 #mods
 #skillEnd
 
 #skill SupportHinderPlayer
-#startSets
 #set SupportHinderPlayer
 #mods
 #skillEnd
 
 #skill SupportHourglassPlayer
-#startSets
 #set SupportHourglassPlayer
 statMap = {
 	["support_hourglass_damage_+%_final"] = {
@@ -495,7 +442,6 @@ statMap = {
 #skillEnd
 
 #skill SupportIceBitePlayer
-#startSets
 #set SupportIceBitePlayer
 statMap = {
 	["support_ice_bite_buff_grant_%_added_cold_attack_damage"] = {
@@ -510,18 +456,15 @@ statMap = {
 #skillEnd
 
 #skill SupportIciclePlayer
-#startSets
 #set SupportIciclePlayer
 #mods
 #skillEnd
 
 #skill ViciousHexSupportPlayer
-#startSets
 #set ViciousHexSupportPlayer
 #mods
 #skillEnd
 #skill DoomBlastPlayer
-#startSets
 #set DoomBlastPlayer
 #flags spell area
 #baseMod skill("currentManaPercentage", true)
@@ -536,13 +479,11 @@ statMap = {
 #skillEnd
 
 #skill SupportImpetusPlayer
-#startSets
 #set SupportImpetusPlayer
 #mods
 #skillEnd
 
 #skill SupportInevitableCriticalsPlayer
-#startSets
 #set SupportInevitableCriticalsPlayer
 statMap = {
 	["support_inevitable_criticals_critical_strike_chance_+%_per_second"] = {
@@ -556,7 +497,6 @@ statMap = {
 #skillEnd
 
 #skill SupportChaoticAssassinationPlayer
-#startSets
 #set SupportChaoticAssassinationPlayer
 statMap = {
 	["support_chaotic_assassination_damage_over_time_+%_final_against_full_life_enemies"] = {
@@ -570,30 +510,25 @@ statMap = {
 #skillEnd
 
 #skill SupportLastGaspPlayer
-#startSets
 #set SupportLastGaspPlayer
 #mods
 #skillEnd
 
 #skill SupportLightningMasteryPlayer
-#startSets
 #set SupportLightningMasteryPlayer
 #mods
 #skillEnd
 
 #skill SupportIncreasedAreaOfEffectPlayer
-#startSets
 #set SupportIncreasedAreaOfEffectPlayer
 #mods
 #skillEnd
 
 #skill SupportManaFlarePlayer
-#startSets
 #set SupportManaFlarePlayer
 #mods
 #skillEnd
 #skill TriggeredManaFlarePlayer
-#startSets
 #set TriggeredManaFlarePlayer
 #flags spell
 #baseMod skill("currentManaPercentage", true)
@@ -608,7 +543,6 @@ statMap = {
 #skillEnd
 
 #skill SupportMinionInstabilityPlayer
-#startSets
 #set SupportMinionInstabilityPlayer
 statMap = {
 	["explode_on_low_life_%_maximum_life_to_deal"] = {
@@ -620,13 +554,11 @@ statMap = {
 #skillEnd
 
 #skill SupportMinionMasteryPlayer
-#startSets
 #set SupportMinionMasteryPlayer
 #mods
 #skillEnd
 
 #skill SupportMinionPactPlayer
-#startSets
 #set SupportMinionPactPlayer
 statMap = {
 	["support_minion_pact_damage_+%_final"] = {
@@ -637,13 +569,11 @@ statMap = {
 #skillEnd
 
 #skill SupportPhysicalMasteryPlayer
-#startSets
 #set SupportPhysicalMasteryPlayer
 #mods
 #skillEnd
 
 #skill SupportPotentialPlayer
-#startSets
 #set SupportPotentialPlayer
 statMap = {
 	["skill_consume_power_charge_to_gain_critical_strike_chance_+%_final"] = {
@@ -654,7 +584,6 @@ statMap = {
 #skillEnd
 
 #skill SupportTempestuousTempoPlayer
-#startSets
 #set SupportTempestuousTempoPlayer
 statMap = {
 	["support_elemental_damage_+%_final_per_different_elemental_skill_used_recently"] = {
@@ -665,13 +594,11 @@ statMap = {
 #skillEnd
 
 #skill SupportRitualisticCursePlayer
-#startSets
 #set SupportRitualisticCursePlayer
 #mods
 #skillEnd
 
 #skill SupportEnergyShieldOnShockKillPlayer
-#startSets
 #set SupportEnergyShieldOnShockKillPlayer
 statMap = {
 	["support_recover_%_maximum_energy_shield_killing_shocked_enemies"] = {
@@ -682,13 +609,11 @@ statMap = {
 #skillEnd
 
 #skill SupportManaLeechPlayer
-#startSets
 #set SupportManaLeechPlayer
 #mods
 #skillEnd
 
 #skill SupportSpellCascadePlayer
-#startSets
 #set SupportSpellCascadePlayer
 statMap = {
 	["support_spell_cascade_area_of_effect_+%_final"] = {
@@ -702,7 +627,6 @@ statMap = {
 #skillEnd
 
 #skill SupportSpellEchoPlayer
-#startSets
 #set SupportSpellEchoPlayer
 statMap = {
 	["support_multicast_cast_speed_+%_final"] = {
@@ -716,19 +640,16 @@ statMap = {
 #skillEnd
 
 #skill SupportStormfirePlayer
-#startSets
 #set SupportStormfirePlayer
 #mods
 #skillEnd
 
 #skill SupportStripAwayPlayer
-#startSets
 #set SupportStripAwayPlayer
 #mods
 #skillEnd
 
 #skill SupportIncreasedCriticalDamagePlayer
-#startSets
 #set SupportIncreasedCriticalDamagePlayer
 statMap = {
 	["support_critical_damage_critical_strike_chance_+%_final"] = {
@@ -739,7 +660,6 @@ statMap = {
 #skillEnd
 
 #skill SupportUnleashPlayer
-#startSets
 #set SupportUnleashPlayer
 statMap = {
 	["support_anticipation_rapid_fire_count"] = {
@@ -757,19 +677,16 @@ statMap = {
 #skillEnd
 
 #skill SupportWildfirePlayer
-#startSets
 #set SupportWildfirePlayer
 #mods
 #skillEnd
 
 #skill SupportWildshardsPlayer
-#startSets
 #set SupportWildshardsPlayer
 #mods
 #skillEnd
 
 #skill SupportWitheringTouchPlayer
-#startSets
 #set SupportWitheringTouchPlayer
 statMap = {
 	["support_withering_touch_damage_+%_final"] = {
