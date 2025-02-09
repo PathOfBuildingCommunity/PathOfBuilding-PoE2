@@ -2796,9 +2796,9 @@ function calcs.perform(env, skipEHP)
 					-- if not, use the generic modifiers
 					-- Scorch/Sap/Brittle do not have guaranteed sources from hits, and therefore will only end up in this bit of code if it's not supposed to apply the skillModList, which is bad
 					if ailment ~= "Scorch" and ailment ~= "Sap" and ailment ~= "Brittle" and not env.player.mainSkill.skillModList:Flag(nil, "Cannot"..ailment) and hitFlag and modDB:Flag(nil, "ChecksHighestDamage") then
-						effect = effect * calcLib.mod(env.player.mainSkill.skillModList, nil, "Enemy"..ailment.."Effect")
+						effect = effect * calcLib.mod(env.player.mainSkill.skillModList, env.player.mainSkill.skillModList.skillCfg, "Enemy"..ailment.."Magnitude")
 					else
-						effect = effect * calcLib.mod(modDB, nil, "Enemy"..ailment.."Effect")
+						effect = effect * calcLib.mod(env.player.mainSkill.skillModList, env.player.mainSkill.skillModList.skillCfg, "Enemy"..ailment.."Magnitude")
 					end
 					modDB:NewMod(ailment.."Override", "BASE", effect, mod.source, mod.flags, mod.keywordFlags, unpack(mod))
 					if mod.name == ailment.."Minimum" then
