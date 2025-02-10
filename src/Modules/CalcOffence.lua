@@ -347,7 +347,7 @@ function calcs.offence(env, actor, activeSkill)
 
 	-- Calculate armour break
 	local base = skillModList:Sum("BASE", nil, "ArmorBreakPerHit")
-	local inc = skillModList:Sum("INC", nil, "ArmourBreakPerHit")
+	local inc = skillModList:Sum("INC", nil, "ArmorBreakPerHit")
 	output.ArmorBreakPerHit = base * (1+inc/100)
 
 	local function calcAreaOfEffect(skillModList, skillCfg, skillData, skillFlags, output, breakdown)
