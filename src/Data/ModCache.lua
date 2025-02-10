@@ -2389,9 +2389,7 @@ c["Break 10% increased Armour"]={{[1]={flags=0,keywordFlags=0,name="ArmourBreakP
 c["Break 15% increased Armour"]={{[1]={flags=0,keywordFlags=0,name="ArmourBreakPerHit",type="INC",value=15}},nil}
 c["Break 20% increased Armour"]={{[1]={flags=0,keywordFlags=0,name="ArmourBreakPerHit",type="INC",value=20}},nil}
 c["Break 25% increased Armour"]={{[1]={flags=0,keywordFlags=0,name="ArmourBreakPerHit",type="INC",value=25}},nil}
-c["Break 30% increased Armour on enemies affected by Ailments"]={nil,"Break 30% increased Armour on enemies affected by Ailments "}
-c["Break 30% increased Armour on enemies affected by Ailments +10 to Strength"]={nil,"Break 30% increased Armour on enemies affected by Ailments +10 to Strength "}
-c["Break 30% increased Armour on enemies affected by Ailments +10 to Strength 25% increased Physical Damage"]={nil,"Break 30% increased Armour on enemies affected by Ailments +10 to Strength 25% increased Physical Damage "}
+c["Break 30% increased Armour on enemies affected by Ailments"]={{[1]={[1]={type="Condition",var="AppliedAilmentsRecently"},flags=0,keywordFlags=0,name="ArmourBreakPerHit",type="INC",value=30}},nil}
 c["Break 40% increased Armour"]={{[1]={flags=0,keywordFlags=0,name="ArmourBreakPerHit",type="INC",value=40}},nil}
 c["Break 50% of Armour on Heavy Stunning an Enemy"]={{[1]={[1]={effectName="ArmourBreak",effectType="Buff",type="GlobalEffect"},flags=0,keywordFlags=0,name="Condition:CanArmourBreak",type="FLAG",value=true}},nil}
 c["Break 60% increased Armour"]={{[1]={flags=0,keywordFlags=0,name="ArmourBreakPerHit",type="INC",value=60}},nil}

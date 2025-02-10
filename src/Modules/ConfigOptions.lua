@@ -1252,6 +1252,9 @@ Huge sets the radius to 11.
 	{ var = "multiplierAppliedAilmentsRecently", type = "count", label = "# of Recently Applied Ailments:", ifMult = "AppliedAilmentsRecently", tooltip = "Number of recently applied ailments", apply = function(val, modList, enemyModList)
 		modList:NewMod("Multiplier:AppliedAilmentsRecently", "BASE", val, "Config", { type = "Condition", var = "Combat" })
 	end },
+	{ var = "conditionAppliedAilmentsRecently", type = "check", label = "have you applied Ailments recently?", apply = function(val, modList, enemyModList)
+		modList:NewMod("Condition:AppliedAilmentsRecently", "FLAG", true)
+	end },
 	{ var = "conditionLinkedRecently", type = "check", label = "Have you Linked recently?", ifCond = "LinkedRecently", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:LinkedRecently", "FLAG", true, "Config")
 	end },
