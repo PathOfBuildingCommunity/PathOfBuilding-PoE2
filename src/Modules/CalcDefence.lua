@@ -40,6 +40,9 @@ end
 function calcs.armourReductionF(armour, raw)
 	if armour == 0 and raw == 0 then
 		return 0
+	elseif armour < 0 then -- account for Armour break below zero
+		armour = -armour -- revert value to positive for calculation
+		return -((armour / (armour + raw * data.misc.ArmourRatio) * 100))
 	end
 	return (armour / (armour + raw * data.misc.ArmourRatio) * 100)
 end
