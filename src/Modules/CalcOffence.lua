@@ -4313,15 +4313,11 @@ function calcs.offence(env, actor, activeSkill)
 				skillFlags["inflict"..flatAilment] = true
 			end
 		end
-
-		-- TODO: Placeholder values until proper numbers are figured out
-		-- For Chill in-game tooltip says:
-		-- "All Hits that have any Contribution to Chill Magnitude can Chill, without requiring an explicit chance to inflict,
-		--  provided the Magnitudes meets a minimum threshold. So low damage Hits may still fail to Chill."
+		
 		local unmitigatedColdDamage = calcAverageUnmitigatedSourceDamage("Chill", data.defaultAilmentDamageTypes["Chill"]["ScalesFrom"])
-		local chillAilmentThresholdGuess = enemyThreshold / data.gameConstants.MiscAilmentChanceMultiplier * 15 -- Assume 15% is sufficient
-		output['ChillAilmentThresholdGuess'] = chillAilmentThresholdGuess
-		if unmitigatedColdDamage > chillAilmentThresholdGuess then
+		local chillMinimumThreshold = enemyThreshold / data.gameConstants.ChillEffectMultiplier
+		output['chillMinimumThreshold'] = chillMinimumThreshold
+		if unmitigatedColdDamage > chillMinimumThreshold then
 			output["ChillChanceOnHit"] = 100
 			output["ChillChanceOnCrit"] = 100
 			skillFlags["inflictChill"] = true
