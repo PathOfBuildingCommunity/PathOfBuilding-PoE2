@@ -1,9 +1,8 @@
 -- Path of Building
-
+--
 -- Module: Calc Perform
 -- Manages the offence/defence calculations.
 --
-
 local calcs = ...
 
 local pairs = pairs
@@ -2769,11 +2768,7 @@ function calcs.perform(env, skipEHP)
 	else 
 		hitFlag = env.player.mainSkill.activeEffect.statSet.skillFlags.hit
 	end
-
-	
 	for ailment, val in pairs(ailments) do
-		local enemyAilment = enemyDB:Sum("BASE", nil, ailment.."Val")
-		local modDBAilment = modDB:Sum("BASE", nil, ailment.."Base", ailment.."Override", ailment.."Minimum")
 		if (enemyDB:Sum("BASE", nil, ailment.."Val") > 0
 		or modDB:Sum("BASE", nil, ailment.."Base", ailment.."Override", ailment.."Minimum"))
 		and not enemyDB:Flag(nil, "Condition:Already"..val.condition) then
@@ -2809,14 +2804,9 @@ function calcs.perform(env, skipEHP)
 					maxAilment = skillMax > maxAilment and skillMax or maxAilment
 				end
 			end
-			
 			output["Maximum"..ailment] = maxAilment
-			if ailment == "Shock" then 
-				output["Current"..ailment] = m_floor(m_max(m_max(override, enemyDB:Sum("BASE", nil, ailment.."Val")), output["Maximum"..ailment]) * (10 ^ ailmentData[ailment].precision)) / (10 ^ ailmentData[ailment].precision)
-			else 
-				output["Current"..ailment] = m_floor(m_min(m_max(override, enemyDB:Sum("BASE", nil, ailment.."Val")), output["Maximum"..ailment]) * (10 ^ ailmentData[ailment].precision)) / (10 ^ ailmentData[ailment].precision)
-			end
-				for _, mod in ipairs(val.mods(output["Current"..ailment])) do
+			output["Current"..ailment] = m_floor(m_min(m_max(override, enemyDB:Sum("BASE", nil, ailment.."Val")), output["Maximum"..ailment]) * (10 ^ ailmentData[ailment].precision)) / (10 ^ ailmentData[ailment].precision)
+			for _, mod in ipairs(val.mods(output["Current"..ailment])) do
 				enemyDB:AddMod(mod)
 			end
 			enemyDB:NewMod("Condition:Already"..val.condition, "FLAG", true, { type = "Condition", var = val.condition } ) -- Prevents ailment from applying doubly for minions
