@@ -756,6 +756,7 @@ local modNameList = {
 	["bleeding duration on you"] = "SelfBleedDuration",
 	["to blind enemies on hit"] = { "BlindChance" },
 	-- Misc modifiers
+	["against enemies with fully broken armour"] = { type = "Condition", var = "ArmourFullyBroken"},
 	["movement speed"] = "MovementSpeed",
 	["attack, cast and movement speed"] = { "Speed", "MovementSpeed" },
 	["action speed"] = "ActionSpeed",
