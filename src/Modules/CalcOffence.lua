@@ -3800,7 +3800,7 @@ function calcs.offence(env, actor, activeSkill)
 	skillFlags.impale = false
 
 	-- Calculate ailment thresholds
-	local enemyThreshold = data.monsterAilmentThresholdTable[env.enemyLevel] * enemyDB:More(nil, "AilmentThreshold")
+	local enemyThreshold = data.monsterAilmentThresholdTable[env.enemyLevel] * calcLib.mod(enemyDB, nil, "AilmentThreshold")
 	output['EnemyAilmentThreshold'] = enemyThreshold
 
 	-- Calculate ailments and debuffs (poison, bleed, ignite, impale, exposure, etc)
