@@ -126,6 +126,15 @@ local skills, mod, flag, skill = ...
 #skill DefianceBannerPlayer
 #set DefianceBannerPlayer
 #flags
+statMap = {
+	["skill_defiance_banner_armour_evasion_+%_final"] = {
+		mod("Armour", "MORE", nil, 0, 0, { type = "Condition", var = "BannerPlanted" }, { type = "GlobalEffect", effectType = "Aura"}),
+		mod("Evasion", "MORE", nil, 0, 0, { type = "Condition", var = "BannerPlanted" }, { type = "GlobalEffect", effectType = "Aura"}),
+	},
+	["skill_defiance_banner_movement_speed_+%"] = {
+		mod("MovementSpeed", "INC", nil, 0, 0, { type = "Condition", var = "BannerPlanted" }, { type = "GlobalEffect", effectType = "Aura"}),
+	},
+},
 #mods
 #skillEnd
 

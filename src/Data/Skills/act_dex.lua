@@ -2055,7 +2055,7 @@ skills["MagneticSalvoPlayer"] = {
 	name = "Magnetic Salvo",
 	baseTypeName = "Magnetic Salvo",
 	color = 2,
-	description = "Aims skyward and fires energy missiles at lingering arrows or bolts created by other Lightning Attacks in front of you. The missiles explode if they land close to a lingering bolt or arrow, dealing more damage in a larger area but destroying that bolt or arrow in the process.",
+	description = "Aims skyward and fires energy missiles at lingering bolts or arrows created by other Lightning Attacks in front of you. The missiles explode if they land close to a lingering bolt or arrow, dealing more damage in a larger area but destroying that bolt or arrow in the process.",
 	skillTypes = { [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Lightning] = true, [SkillType.ProjectileNoCollision] = true, },
 	weaponTypes = {
 		["Bow"] = true,

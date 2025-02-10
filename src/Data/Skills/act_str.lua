@@ -1967,6 +1967,15 @@ skills["DefianceBannerPlayer"] = {
 			label = "Defiance Banner",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "defiance_banner",
+			statMap = {
+				["skill_defiance_banner_armour_evasion_+%_final"] = {
+					mod("Armour", "MORE", nil, 0, 0, { type = "Condition", var = "BannerPlanted" }, { type = "GlobalEffect", effectType = "Aura"}),
+					mod("Evasion", "MORE", nil, 0, 0, { type = "Condition", var = "BannerPlanted" }, { type = "GlobalEffect", effectType = "Aura"}),
+				},
+				["skill_defiance_banner_movement_speed_+%"] = {
+					mod("MovementSpeed", "INC", nil, 0, 0, { type = "Condition", var = "BannerPlanted" }, { type = "GlobalEffect", effectType = "Aura"}),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
