@@ -2385,21 +2385,16 @@ c["Blocking Damage Poisons the Enemy as though dealing 100 Base Chaos Damage Blo
 c["Blocking Damage Poisons the Enemy as though dealing 200 Base Chaos Damage"]={nil,"Blocking Damage Poisons the Enemy as though dealing 200 Base Chaos Damage "}
 c["Bow Attacks fire 3 additional Arrows"]={{[1]={flags=131072,keywordFlags=0,name="ProjectileCount",type="BASE",value=3}},nil}
 c["Bow Attacks fire an additional Arrow"]={{[1]={flags=131072,keywordFlags=0,name="ProjectileCount",type="BASE",value=1}},nil}
-c["Break 10% increased Armour"]={nil,"Break 10% increased Armour "}
-c["Break 10% increased Armour 6% increased Physical Damage"]={nil,"Break 10% increased Armour 6% increased Physical Damage "}
-c["Break 10% increased Armour 8% increased Attack Area Damage"]={nil,"Break 10% increased Armour 8% increased Attack Area Damage "}
-c["Break 15% increased Armour"]={nil,"Break 15% increased Armour "}
-c["Break 20% increased Armour"]={nil,"Break 20% increased Armour "}
-c["Break 25% increased Armour"]={nil,"Break 25% increased Armour "}
-c["Break 25% increased Armour 16% increased Area of Effect for Attacks"]={nil,"Break 25% increased Armour 16% increased Area of Effect for Attacks "}
+c["Break 10% increased Armour"]={{[1]={flags=0,keywordFlags=0,name="ArmourBreakPerHit",type="INC",value=10}},nil}
+c["Break 15% increased Armour"]={{[1]={flags=0,keywordFlags=0,name="ArmourBreakPerHit",type="INC",value=15}},nil}
+c["Break 20% increased Armour"]={{[1]={flags=0,keywordFlags=0,name="ArmourBreakPerHit",type="INC",value=20}},nil}
+c["Break 25% increased Armour"]={{[1]={flags=0,keywordFlags=0,name="ArmourBreakPerHit",type="INC",value=25}},nil}
 c["Break 30% increased Armour on enemies affected by Ailments"]={nil,"Break 30% increased Armour on enemies affected by Ailments "}
 c["Break 30% increased Armour on enemies affected by Ailments +10 to Strength"]={nil,"Break 30% increased Armour on enemies affected by Ailments +10 to Strength "}
 c["Break 30% increased Armour on enemies affected by Ailments +10 to Strength 25% increased Physical Damage"]={nil,"Break 30% increased Armour on enemies affected by Ailments +10 to Strength 25% increased Physical Damage "}
-c["Break 40% increased Armour"]={nil,"Break 40% increased Armour "}
-c["Break 40% increased Armour 25% increased Physical Damage"]={nil,"Break 40% increased Armour 25% increased Physical Damage "}
+c["Break 40% increased Armour"]={{[1]={flags=0,keywordFlags=0,name="ArmourBreakPerHit",type="INC",value=40}},nil}
 c["Break 50% of Armour on Heavy Stunning an Enemy"]={{[1]={[1]={effectName="ArmourBreak",effectType="Buff",type="GlobalEffect"},flags=0,keywordFlags=0,name="Condition:CanArmourBreak",type="FLAG",value=true}},nil}
-c["Break 60% increased Armour"]={nil,"Break 60% increased Armour "}
-c["Break 60% increased Armour 10% chance to Defend with 200% of Armour"]={nil,"Break 60% increased Armour 10% chance to Defend with 200% of Armour "}
+c["Break 60% increased Armour"]={{[1]={flags=0,keywordFlags=0,name="ArmourBreakPerHit",type="INC",value=60}},nil}
 c["Break Armour equal to 10% of Hit Damage dealt"]={{[1]={[1]={effectName="ArmourBreak",effectType="Buff",type="GlobalEffect"},flags=0,keywordFlags=0,name="Condition:CanArmourBreak",type="FLAG",value=true}},nil}
 c["Break Armour on Critical Hit with Spells equal to 10% of Physical Damage dealt"]={nil,"Break Armour on Critical Hit with Spells equal to 10% of Physical Damage dealt "}
 c["Break Armour on Critical Hit with Spells equal to 10% of Physical Damage dealt 10% chance to inflict Bleeding on Hit"]={nil,"Break Armour on Critical Hit with Spells equal to 10% of Physical Damage dealt 10% chance to inflict Bleeding on Hit "}
