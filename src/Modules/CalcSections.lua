@@ -1165,6 +1165,7 @@ return {
 } }
 } },
 { 1, "EleAilments", 1, colorCodes.OFFENCE, {{ defaultCollapsed = false, label = "Non-Damaging Ailments", data = {
+	{ label = "Enemy Ail. Thresh.", { format = "{0:output:EnemyAilmentThreshold}", { modName = "EnemyAilmentThreshold" }, }, },
 	{ label = "Scorch Effect Mod", bgCol = colorCodes.SCORCHBG, flag = "scorch", { format = "x {2:output:ScorchEffectMod}",
 		{ breakdown = "ScorchEffectMod" },
 		{ breakdown = "MainHand.ScorchDPS" },
@@ -1262,7 +1263,6 @@ return {
 		{ label = "Configured Brittle", modName = "BrittleVal", enemy = true, modType = "BASE" },
 		{ label = "Guaranteed Brittles", modName = "BrittleOverride", modType = "BASE" },
 	}, },
-	{ label = "Enemy Ail. Thresh.", { format = "{0:output:EnemyAilmentThreshold}", { modName = "EnemyAilmentThreshold" }, }, },
 	{ label = "Shock Effect Mod", bgCol = colorCodes.SHOCKBG, flag = "shock", { format = "x {2:output:ShockEffectMod}",
 		{ breakdown = "ShockEffectMod" },
 		{ breakdown = "MainHand.ShockDPS" },

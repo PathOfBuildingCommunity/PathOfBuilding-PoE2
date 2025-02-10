@@ -4386,8 +4386,8 @@ function calcs.offence(env, actor, activeSkill)
 		local nonDamagingAilmentsConfig = {
 			["Chill"] = {
 				effList = { 10, 20 },
-				effect = function(damage, effectMod) return 50 * ((damage / enemyThreshold) ^ 0.4) * effectMod end,
-				thresh = function(damage, value, effectMod) return damage * ((50 * effectMod / value) ^ 2.5) end,
+				effect = function(damage, effectMod) return data.gameConstants.ChillEffectMultiplier * (damage / enemyThreshold) * effectMod end,
+				thresh = function(damage, value, effectMod) return damage * (data.gameConstants.ChillEffectMultiplier * effectMod / value) end,
 				ramping = false,
 			},
 			["Shock"] = {
@@ -4427,7 +4427,6 @@ function calcs.offence(env, actor, activeSkill)
 				output.FreezeDurationMod = 1 + skillModList:Sum("INC", cfg, "EnemyFreezeDuration", "EnemyAilmentDuration", "EnemyElementalAilmentDuration") / 100 + enemyDB:Sum("INC", nil, "SelfFreezeDuration", "SelfElementalAilmentDuration", "SelfAilmentDuration", "HoarfrostFreezeDuration") / 100
 				if breakdown then
 					t_insert(breakdown.FreezeDPS, s_format("For freeze to apply for the minimum of 0.3 seconds, target must have no more than %.0f Ailment Threshold.", baseVal * 20 * output.FreezeDurationMod))
-					t_insert(breakdown.FreezeDPS, s_format("^8(Ailment Threshold is about equal to Life except on bosses where it is about half of their life)"))
 				end
 			end
 		end
@@ -4465,7 +4464,6 @@ function calcs.offence(env, actor, activeSkill)
 							t_insert(val.effList, desired)
 						end
 						breakdown[ailment.."DPS"].label = "Resulting ailment effect"..((current > 0 and val.ramping) and s_format(" ^8(with a ^7%s%% ^8%s on the enemy)^7", current, ailment) or "")
-						breakdown[ailment.."DPS"].footer = s_format("^8(ailment threshold is about equal to life, except on bosses that have specific ailment thresholds)\n(the above table shows that when the enemy has X ailment threshold, you ^8%s for Y)", ailment:lower())
 						breakdown[ailment.."DPS"].rowList = { }
 						breakdown[ailment.."DPS"].colList = {
 							{ label = "Ailment Threshold", key = "thresh" },
