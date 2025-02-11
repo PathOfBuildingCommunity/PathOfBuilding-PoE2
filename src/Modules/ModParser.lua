@@ -1852,6 +1852,7 @@ local modTagList = {
 	["against ignited enemies"] = { tag = { type = "ActorCondition", actor = "enemy", var = "Ignited" } },
 	["to ignited enemies"] = { tag = { type = "ActorCondition", actor = "enemy", var = "Ignited" } },
 	["against shocked enemies"] = { tag = { type = "ActorCondition", actor = "enemy", var = "Shocked" } },
+	["against electrocuted enemies"] = { tag = { type = "ActorCondition", actor = "enemy", var = "Electrocuted" } },
 	["you inflict on shocked enemies"] = { tag = { type = "ActorCondition", actor = "enemy", var = "Shocked" } },
 	["to shocked enemies"] = { tag = { type = "ActorCondition", actor = "enemy", var = "Shocked" } },
 	["inflicted on shocked enemies"] = { tag = { type = "ActorCondition", actor = "enemy", var = "Shocked" } },

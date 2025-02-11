@@ -1671,7 +1671,7 @@ c["30% increased Movement Speed"]={{[1]={flags=0,keywordFlags=0,name="MovementSp
 c["30% increased Pin Buildup"]={{}," Pin Buildup "}
 c["30% increased Pin Buildup 5% increased Movement Speed if you've Pinned an Enemy Recently"]={{[1]={[1]={type="Condition",var="PinnedEnemyRecently"},flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=30}}," Pin Buildup 5% increased   "}
 c["30% increased Projectile Speed"]={{[1]={flags=0,keywordFlags=0,name="ProjectileSpeed",type="INC",value=30}},nil}
-c["30% increased Shock Chance against Electrocuted Enemies"]={{[1]={flags=0,keywordFlags=0,name="EnemyShockChance",type="INC",value=30}},"  against Electrocuted Enemies "}
+c["30% increased Shock Chance against Electrocuted Enemies"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Electrocuted"},flags=0,keywordFlags=0,name="EnemyShockChance",type="INC",value=30}},nil}
 c["30% increased Skill Speed"]={{[1]={flags=0,keywordFlags=0,name="Speed",type="INC",value=30},[2]={flags=0,keywordFlags=0,name="WarcrySpeed",type="INC",value=30}},nil}
 c["30% increased Spell Damage"]={{[1]={flags=2,keywordFlags=0,name="Damage",type="INC",value=30}},nil}
 c["30% increased Strength"]={{[1]={flags=0,keywordFlags=0,name="Str",type="INC",value=30}},nil}
@@ -1817,7 +1817,7 @@ c["40% increased Damage with Two Handed Weapons"]={{[1]={flags=34359738372,keywo
 c["40% increased Damage with Warcries"]={{[1]={flags=0,keywordFlags=4,name="Damage",type="INC",value=40}},nil}
 c["40% increased Defences from Equipped Shield"]={{[1]={[1]={slotName="Weapon 2",type="SlotName"},[2]={type="Condition",var="UsingShield"},flags=0,keywordFlags=0,name="Defences",type="INC",value=40}},nil}
 c["40% increased Electrocute Buildup"]={{}," Electrocute Buildup "}
-c["40% increased Electrocute Buildup 30% increased Shock Chance against Electrocuted Enemies"]={{[1]={flags=0,keywordFlags=0,name="EnemyShockChance",type="INC",value=40}}," Electrocute Buildup 30% increased  against Electrocuted Enemies "}
+c["40% increased Electrocute Buildup 30% increased Shock Chance against Electrocuted Enemies"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Electrocuted"},flags=0,keywordFlags=0,name="EnemyShockChance",type="INC",value=40}}," Electrocute Buildup 30% increased   "}
 c["40% increased Elemental Ailment Threshold"]={{}," Elemental Ailment Threshold "}
 c["40% increased Elemental Ailment Threshold 10% reduced Duration of Ailments on You"]={{[1]={flags=0,keywordFlags=0,name="SelfAilmentDuration",type="INC",value=40}}," Elemental Ailment Threshold 10% reduced  "}
 c["40% increased Elemental Damage"]={{[1]={flags=0,keywordFlags=0,name="ElementalDamage",type="INC",value=40}},nil}
@@ -1971,7 +1971,7 @@ c["50% increased Damage with Hits against Frozen Enemies"]={{[1]={[1]={actor="en
 c["50% increased Defences from Equipped Shield"]={{[1]={[1]={slotName="Weapon 2",type="SlotName"},[2]={type="Condition",var="UsingShield"},flags=0,keywordFlags=0,name="Defences",type="INC",value=50}},nil}
 c["50% increased Effect of Jewel Socket Passive Skills containing Corrupted Magic Jewels"]={{[1]={flags=0,keywordFlags=0,name="JewelData",type="LIST",value={key="corruptedMagicJewelIncEffect",value=50}}},nil}
 c["50% increased Electrocute Buildup against Shocked Enemies"]={{}," Electrocute Buildup  "}
-c["50% increased Electrocute Buildup against Shocked Enemies 50% increased Shock Chance against Electrocuted Enemies"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Shocked"},flags=0,keywordFlags=0,name="EnemyShockChance",type="INC",value=50}}," Electrocute Buildup  50% increased  against Electrocuted Enemies "}
+c["50% increased Electrocute Buildup against Shocked Enemies 50% increased Shock Chance against Electrocuted Enemies"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Shocked"},[2]={actor="enemy",type="ActorCondition",var="Electrocuted"},flags=0,keywordFlags=0,name="EnemyShockChance",type="INC",value=50}}," Electrocute Buildup  50% increased   "}
 c["50% increased Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="EnergyShield",type="INC",value=50}},nil}
 c["50% increased Energy Shield Recharge Rate"]={{[1]={flags=0,keywordFlags=0,name="EnergyShieldRecharge",type="INC",value=50}},nil}
 c["50% increased Evasion Rating"]={{[1]={flags=0,keywordFlags=0,name="Evasion",type="INC",value=50}},nil}
@@ -1998,7 +1998,7 @@ c["50% increased Physical Damage"]={{[1]={flags=0,keywordFlags=0,name="PhysicalD
 c["50% increased Poison Duration"]={{[1]={flags=0,keywordFlags=0,name="EnemyPoisonDuration",type="INC",value=50}},nil}
 c["50% increased Rarity of Items found"]={{[1]={flags=0,keywordFlags=0,name="LootRarity",type="INC",value=50}},nil}
 c["50% increased Rarity of Items found when on Low Life"]={{[1]={[1]={type="Condition",var="LowLife"},flags=0,keywordFlags=0,name="LootRarity",type="INC",value=50}},nil}
-c["50% increased Shock Chance against Electrocuted Enemies"]={{[1]={flags=0,keywordFlags=0,name="EnemyShockChance",type="INC",value=50}},"  against Electrocuted Enemies "}
+c["50% increased Shock Chance against Electrocuted Enemies"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Electrocuted"},flags=0,keywordFlags=0,name="EnemyShockChance",type="INC",value=50}},nil}
 c["50% increased Shock Duration"]={{[1]={flags=0,keywordFlags=0,name="EnemyShockDuration",type="INC",value=50}},nil}
 c["50% increased Skill Effect Duration"]={{[1]={flags=0,keywordFlags=0,name="Duration",type="INC",value=50}},nil}
 c["50% increased Spirit"]={{[1]={flags=0,keywordFlags=0,name="Spirit",type="INC",value=50}},nil}
