@@ -68,6 +68,7 @@ function calcs.initModDB(env, modDB)
 	modDB:NewMod("Damage", "MORE", -10, "Base", { type = "Condition", var = "Debilitated"})
 	modDB:NewMod("Condition:Burning", "FLAG", true, "Base", { type = "IgnoreCond" }, { type = "Condition", var = "Ignited" })
 	modDB:NewMod("Condition:Poisoned", "FLAG", true, "Base", { type = "IgnoreCond" }, { type = "MultiplierThreshold", var = "PoisonStack", threshold = 1 })
+	modDB:NewMod("ShockBase", "BASE", 20, "Base", { type = "ActorCondition", actor = "enemy", var = "Shocked" })
 	modDB:NewMod("Blind", "FLAG", true, "Base", { type = "Condition", var = "Blinded" })
 	modDB:NewMod("Chill", "FLAG", true, "Base", { type = "Condition", var = "Chilled" })
 	modDB:NewMod("Freeze", "FLAG", true, "Base", { type = "Condition", var = "Frozen" })
@@ -126,13 +127,11 @@ function calcs.buildModListForNode(env, node, incSmallPassiveSkill)
 		if rad.type == "Other" and rad.nodes[node.id] and rad.nodes[node.id].type ~= "Mastery" then
 			if rad.item.baseName:find("Time%-Lost") == nil then
 				rad.func(node, modList, rad.data)
-			elseif not node.isAttribute and (node.type == "Normal" or node.type == "Notable") and not env.build.treeTab.skipTimeLostJewelProcessing then
+			elseif not node.isAttribute and (node.type == "Normal" or node.type == "Notable") then
 				local cache = GlobalCache.cachedData[env.mode].radiusJewelData[rad.nodeId]
 				if not cache or (cache.hash ~= rad.jewelHash) then
 					refreshJewelStatCache(env)
 				end
-				-- too aggressive, need to account for scaled values and not just size of lists
-				--and #node.finalModList == #env.build.spec.tree.nodes[node.id].modList then
 				if node.type == "Normal" and cache and #cache.smallModList > 0 then
 					modList:AddList(cache.smallModList)
 				elseif node.type == "Notable" and cache and #cache.notableModList > 0 then

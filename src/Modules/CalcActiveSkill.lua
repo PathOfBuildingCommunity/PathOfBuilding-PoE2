@@ -153,11 +153,12 @@ function calcs.createActiveSkill(activeEffect, supportList, env, actor, socketGr
 			end
 		end
 	until (notAddedNewSupport)
-	
+
 	for _, supportEffect in ipairs(supportList) do
 		-- Pass 2: Add all compatible supports
 		if calcLib.canGrantedEffectSupportActiveSkill(supportEffect.grantedEffect, activeSkill) then
 			t_insert(activeSkill.effectList, supportEffect)
+			-- Track how many active skills are supported by this support effect
 			if supportEffect.isSupporting and activeEffect.srcInstance then
 				supportEffect.isSupporting[activeEffect.srcInstance] = true
 			end
@@ -725,7 +726,7 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 			minion.level = m_min(m_max(minion.level,1),100) 
 			minion.itemList = { }
 			minion.uses = activeGrantedEffect.minionUses
-			minion.lifeTable = (minion.minionData.lifeScaling == "AltLife1" and env.data.monsterLifeTable2) or (minion.minionData.lifeScaling == "AltLife2" and env.data.monsterLifeTable3) or (isSpectre and env.data.monsterLifeTable) or env.data.monsterAllyLifeTable
+			minion.lifeTable = (isSpectre and env.data.monsterLifeTable) or env.data.monsterAllyLifeTable
 			local attackTime = minion.minionData.attackTime
 			local damage = (isSpectre and env.data.monsterDamageTable[minion.level] or env.data.monsterAllyDamageTable[minion.level]) * minion.minionData.damage
 			if not minion.minionData.baseDamageIgnoresAttackSpeed then -- minions with this flag do not factor attack time into their base damage

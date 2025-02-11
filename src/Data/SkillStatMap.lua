@@ -755,6 +755,9 @@ return {
 ["active_skill_damage_+%_final"] = {
 	mod("Damage", "MORE", nil),
 },
+["active_skill_damage_+%_final_against_heavy_stunned_enemies"] = {
+	mod("Damage", "MORE", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "HeavyStunned" }),
+},
 ["sigil_attached_target_hit_damage_+%_final"] = {
 	mod("Damage", "MORE", nil, ModFlag.Hit, 0, { type = "Condition", var = "TargetingBrandedEnemy"}),
 },
@@ -2332,6 +2335,12 @@ return {
 },
 ["chance_to_gain_1_more_charge_%"] = {
 	mod("AdditionalChargeChance", "BASE", nil)
+},
+["apply_X_armour_break_on_hit"] = {
+	flag("Condition:CanArmourBreak", { type = "GlobalEffect", effectType = "Buff", effectName = "ArmourBreak" }),
+},
+["armour_break_physical_damage_%_dealt_as_armour_break"] = {
+	flag("Condition:CanArmourBreak", { type = "GlobalEffect", effectType = "Buff", effectName = "ArmourBreak" }),
 },
 --
 -- Spectre or Minion-specific stats

@@ -1,3 +1,7 @@
+VERSION[0.4.1][2025/02/04]
+--- Fixed Crashes ---
+* Fix crash due to missing DLL (Wires77)
+
 VERSION[0.4.0][04/02/2025]
 
 --- New to Path of Building ---

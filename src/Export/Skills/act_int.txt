@@ -1024,6 +1024,11 @@ statMap = {
 #skill VulnerabilityPlayer
 #set VulnerabilityPlayer
 #flags area duration
+statMap = {
+	["vulnerability_total_armour_-"] = {
+		mod("IgnoreArmour", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Curse" }),
+	},
+},
 #mods
 #skillEnd
 

@@ -6,7 +6,7 @@
 
 -- Commonly used modifier lists
 local physicalHitTaken = {
-	"DamageTaken", "PhysicalDamageTaken", "CurseEffectOnSelf"
+	"DamageTaken", "PhysicalDamageTaken", "CurseEffectOnSelf", "Armour", "IgnoreArmour"
 }
 local lightningHitTaken = {
 	"DamageTaken", "LightningDamageTaken", "ElementalDamageTaken", "LightningResist", "ElementalResist", "CurseEffectOnSelf"
@@ -987,6 +987,7 @@ return {
 { 1, "Ignite", 1, colorCodes.OFFENCE, {{ defaultCollapsed = false, label = "Ignite", data = {	
 	extra = "{0:output:IgniteChancePerHit}% {1:output:IgniteDPS} {2:output:IgniteDuration}s",
 	flag = "ignite",
+	{ label = "Enemy Ail. Thresh.", { format = "{0:output:EnemyAilmentThreshold}", { modName = "EnemyAilmentThreshold" }, }, },
 	{ label = "Max Ignite Stacks", { format = "{1:output:IgniteStacksMax}", { modName = "IgniteStacks" }, }, },
 	{ label = "Stack Potential", { format = "{2:output:IgniteStackPotentialPercent}%", { breakdown = "IgniteStackPotential" } }},
 	{ label = "Average Ignite Roll", { format = "{2:output:IgniteRollAverage}%", { breakdown = "IgniteRollAverage" } }},
@@ -1164,6 +1165,7 @@ return {
 } }
 } },
 { 1, "EleAilments", 1, colorCodes.OFFENCE, {{ defaultCollapsed = false, label = "Non-Damaging Ailments", data = {
+	{ label = "Enemy Ail. Thresh.", { format = "{0:output:EnemyAilmentThreshold}", { modName = "EnemyAilmentThreshold" }, }, },
 	{ label = "Scorch Effect Mod", bgCol = colorCodes.SCORCHBG, flag = "scorch", { format = "x {2:output:ScorchEffectMod}",
 		{ breakdown = "ScorchEffectMod" },
 		{ breakdown = "MainHand.ScorchDPS" },
@@ -1200,7 +1202,7 @@ return {
 		{ breakdown = "MainHand.ChillDPS" },
 		{ breakdown = "OffHand.ChillDPS" },
 		{ breakdown = "ChillDPS" },
-		{ label = "Player modifiers", modName = { "EnemyChillMagnitude", "ChillAsThoughDealing" }, cfg = "skill" },
+		{ label = "Player modifiers", modName = { "EnemyChillMagnitude", "AilmentMagnitude", "ChillAsThoughDealing" }, cfg = "skill" },
 		{ label = "Enemy modifiers", modName = "SelfChillEffect", enemy = true },
 	}, },
 	{ label = "Chill Duration", bgCol = colorCodes.CHILLBG, flag = "chill", { format = "{2:output:ChillDuration}s",
@@ -1266,9 +1268,9 @@ return {
 		{ breakdown = "MainHand.ShockDPS" },
 		{ breakdown = "OffHand.ShockDPS" },
 		{ breakdown = "ShockDPS" },
-		{ label = "Player modifiers", notFlag = "attack", modName = { "EnemyShockMagnitude", "ShockAsThoughDealing" }, cfg = "skill" },
-		{ label = "Main hand modifiers", flag = "weapon1Attack", modName = { "EnemyShockMagnitude", "ShockAsThoughDealing" }, cfg = "weapon1" },
-		{ label = "Off hand modifiers", flag = "weapon2Attack", modName = { "EnemyShockMagnitude", "ShockAsThoughDealing" }, cfg = "weapon2" },
+		{ label = "Player modifiers", notFlag = "attack", modName = { "EnemyShockMagnitude", "AilmentMagnitude", "ShockAsThoughDealing" }, cfg = "skill" },
+		{ label = "Main hand modifiers", flag = "weapon1Attack", modName = { "EnemyShockMagnitude", "AilmentMagnitude", "ShockAsThoughDealing" }, cfg = "weapon1" },
+		{ label = "Off hand modifiers", flag = "weapon2Attack", modName = { "EnemyShockMagnitude", "AilmentMagnitude", "ShockAsThoughDealing" }, cfg = "weapon2" },
 		{ label = "Enemy modifiers", modName = "SelfShockEffect", enemy = true },
 	}, },
 	{ label = "Chance to Shock", bgCol = colorCodes.SHOCKBG, flag = "shock", { format = "{0:output:ShockChance}%",
@@ -1287,6 +1289,8 @@ return {
 	}, },
 	{ label = "Maximum Shock", bgCol = colorCodes.SHOCKBG, flag = "shock", { format = "{0:output:MaximumShock}%",
 		{ modName = "ShockMax" },
+	}, },
+	{ label = "Shock Stacks", bgCol = colorCodes.SHOCKBG, haveOutput = "ShockStackCount", { format = "{0:output:ShockStackCount}",
 	}, },
 	{ label = "Current Shock", bgCol = colorCodes.SHOCKBG, haveOutput = "CurrentShock", { format = "{0:output:CurrentShock}%",
 		{ label = "Configured Shock", modName = "ShockVal", enemy = true, modType = "BASE" },

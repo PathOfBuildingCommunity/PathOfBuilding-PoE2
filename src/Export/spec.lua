@@ -2462,7 +2462,7 @@ return {
 			width=50
 		},
 		[36]={
-			list=false,
+			list=true,
 			name="",
 			refTo="",
 			type="Key",
@@ -2534,44 +2534,51 @@ return {
 		[46]={
 			list=false,
 			name="",
-			refTo="",
-			type="Bool",
-			width=50
-		},
-		[47]={
-			list=false,
-			name="",
 			refTo="Stats",
 			type="Key",
-			width=150
+			width=100
+		},
+		[47]={
+			list=true,
+			name="",
+			refTo="",
+			type="Int",
+			width=50
 		},
 		[48]={
 			list=false,
 			name="",
 			refTo="",
-			type="Int",
-			width=150
+			type="String",
+			width=50
 		},
 		[49]={
-			list=false,
-			name="",
-			refTo="",
-			type="UInt16",
-			width=150
-		},
-		[50]={
-			list=false,
+			list=true,
 			name="",
 			refTo="Stats",
 			type="Key",
 			width=150
 		},
+		[50]={
+			list=true,
+			name="",
+			refTo="",
+			type="Int",
+			width=50
+		},
 		[51]={
 			list=false,
 			name="",
 			refTo="",
-			type="Bool",
-			width=150
+			type="Int",
+			width=50
+		},
+		[52]={
+			list=true,
+			name="",
+			refTo="",
+			type="Key",
+			width=50
 		}
 	},
 	buffgroups={
@@ -2677,6 +2684,13 @@ return {
 			name="",
 			refTo="Stats",
 			type="Key",
+			width=150
+		},
+		[15]={
+			list=false,
+			name="",
+			refTo="",
+			type="Bool",
 			width=150
 		}
 	},
@@ -4980,24 +4994,24 @@ return {
 		},
 		[11]={
 			list=false,
-			name="AltLife1",
+			name="EvasiveEvasion",
 			refTo="",
 			type="Int",
-			width=70
+			width=100
 		},
 		[12]={
 			list=false,
-			name="AltDamage1",
+			name="AilmentThreshold",
 			refTo="",
-			type="Float",
-			width=80
+			type="Int",
+			width=100
 		},
 		[13]={
 			list=false,
-			name="AltDamage2",
+			name="PoiseThreshold",
 			refTo="",
-			type="Float",
-			width=80
+			type="Int",
+			width=100
 		},
 		[14]={
 			list=false,
@@ -5008,28 +5022,28 @@ return {
 		},
 		[15]={
 			list=false,
-			name="EvasiveEvasion",
+			name="LeechResistance",
 			refTo="",
 			type="Int",
 			width=100
 		},
 		[16]={
 			list=false,
-			name="AilmentThreshold",
+			name="MoreElementalDamage",
 			refTo="",
 			type="Int",
-			width=110
+			width=140
 		},
 		[17]={
 			list=false,
-			name="StunThreshold",
+			name="MoreChaosDamage",
 			refTo="",
 			type="Int",
 			width=150
 		},
 		[18]={
 			list=false,
-			name="",
+			name="RareUniqueLeechResistance",
 			refTo="",
 			type="Int",
 			width=150
@@ -8288,7 +8302,7 @@ return {
 	moddomains={
 		[1]={
 			list=false,
-			name="",
+			name="Id",
 			refTo="",
 			type="String",
 			width=220
@@ -9880,21 +9894,21 @@ return {
 			name="",
 			refTo="AchievementItems",
 			type="Int",
-			width=150
+			width=50
 		},
 		[50]={
 			list=false,
 			name="",
 			refTo="AchievementItems",
 			type="Int",
-			width=150
+			width=50
 		},
 		[51]={
 			list=false,
 			name="",
 			refTo="AchievementItems",
 			type="Int",
-			width=150
+			width=50
 		},
 		[52]={
 			list=false,
@@ -9985,7 +9999,7 @@ return {
 			name="",
 			refTo="",
 			type="Key",
-			width=150
+			width=50
 		},
 		[65]={
 			list=false,
@@ -10006,7 +10020,7 @@ return {
 			name="",
 			refTo="AchievementItems",
 			type="Key",
-			width=150
+			width=50
 		},
 		[68]={
 			list=true,
@@ -10027,7 +10041,7 @@ return {
 			name="SinkAnimation",
 			refTo="",
 			type="String",
-			width=150
+			width=100
 		},
 		[71]={
 			list=false,
@@ -10041,7 +10055,7 @@ return {
 			name="",
 			refTo="MultiPartAchievements",
 			type="Key",
-			width=150
+			width=50
 		},
 		[73]={
 			list=false,
@@ -10090,7 +10104,7 @@ return {
 			name="SinkEffect",
 			refTo="",
 			type="String",
-			width=150
+			width=100
 		},
 		[80]={
 			list=false,
@@ -10177,18 +10191,18 @@ return {
 			width=50
 		},
 		[92]={
-			list=false,
+			list=true,
 			name="",
 			refTo="",
-			type="Int",
-			width=50
+			type="String",
+			width=150
 		},
 		[93]={
 			list=false,
 			name="",
 			refTo="",
 			type="Int",
-			width=130
+			width=50
 		},
 		[94]={
 			list=false,
@@ -10199,16 +10213,16 @@ return {
 		},
 		[95]={
 			list=false,
-			name="",
+			name="BossHealthBar",
 			refTo="",
-			type="Int",
-			width=50
+			type="Bool",
+			width=100
 		},
 		[96]={
 			list=false,
 			name="",
 			refTo="",
-			type="Int",
+			type="Key",
 			width=50
 		},
 		[97]={
@@ -10220,16 +10234,16 @@ return {
 		},
 		[98]={
 			list=false,
-			name="BossHealthBar",
+			name="",
 			refTo="",
 			type="Bool",
-			width=100
+			width=50
 		},
 		[99]={
 			list=false,
 			name="",
 			refTo="",
-			type="Key",
+			type="Int",
 			width=50
 		},
 		[100]={
@@ -10243,141 +10257,120 @@ return {
 			list=false,
 			name="",
 			refTo="",
-			type="Bool",
-			width=150
+			type="Int",
+			width=50
 		},
 		[102]={
 			list=false,
 			name="",
 			refTo="",
 			type="Int",
-			width=150
+			width=50
 		},
 		[103]={
 			list=false,
 			name="",
 			refTo="",
-			type="Int",
-			width=150
+			type="Bool",
+			width=50
 		},
 		[104]={
 			list=false,
-			name="",
-			refTo="",
-			type="Int",
+			name="QuestFlag",
+			refTo="QuestFlags",
+			type="Key",
 			width=150
 		},
 		[105]={
 			list=false,
 			name="",
 			refTo="",
-			type="Int",
-			width=150
+			type="Float",
+			width=80
 		},
 		[106]={
 			list=false,
 			name="",
 			refTo="",
-			type="Bool",
-			width=150
+			type="Float",
+			width=80
 		},
 		[107]={
 			list=false,
 			name="",
 			refTo="",
-			type="Int",
-			width=150
+			type="Bool",
+			width=50
 		},
 		[108]={
-			list=false,
+			list=true,
 			name="",
 			refTo="",
 			type="Key",
-			width=150
+			width=50
 		},
 		[109]={
 			list=false,
 			name="",
 			refTo="",
-			type="Int",
-			width=150
+			type="Key",
+			width=50
 		},
 		[110]={
 			list=false,
 			name="",
 			refTo="",
 			type="Int",
-			width=150
+			width=50
 		},
 		[111]={
 			list=false,
-			name="",
+			name="PoiseThreshold",
 			refTo="",
 			type="Int",
-			width=150
+			width=100
 		},
 		[112]={
 			list=false,
-			name="",
+			name="AttackCrit",
 			refTo="",
-			type="Bool",
+			type="Float",
 			width=150
 		},
 		[113]={
 			list=false,
 			name="",
 			refTo="",
-			type="Int",
-			width=150
+			type="Key",
+			width=50
 		},
 		[114]={
 			list=false,
 			name="",
 			refTo="",
-			type="String",
-			width=380
+			type="Bool",
+			width=50
 		},
 		[115]={
 			list=false,
 			name="",
 			refTo="",
-			type="Key",
-			width=150
+			type="Int",
+			width=50
 		},
 		[116]={
 			list=false,
 			name="",
 			refTo="",
-			type="Int",
-			width=150
+			type="Bool",
+			width=50
 		},
 		[117]={
 			list=false,
 			name="",
 			refTo="",
 			type="Int",
-			width=150
-		},
-		[118]={
-			list=false,
-			name="",
-			refTo="",
-			type="Float",
-			width=150
-		},
-		[119]={
-			list=false,
-			name="",
-			refTo="",
-			type="Key",
-			width=150
-		},
-		[120]={
-			list=false,
-			name="",
-			refTo="",
-			type="Int",
-			width=60
+			width=50
 		}
 	},
 	monstervarietiesartvariations={
