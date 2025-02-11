@@ -3187,13 +3187,13 @@ c["Totems have 4% increased Attack Speed per Summoned Totem"]={nil,"Totems have 
 c["Totems reserve 100 Spirit each"]={nil,"Totems reserve 100 Spirit each "}
 c["Trigger Ancestral Spirits when you Summon a Totem"]={nil,"Trigger Ancestral Spirits when you Summon a Totem "}
 c["Trigger Ancestral Spirits when you Summon a Totem Grants Skill: Ancestral Spirits"]={nil,"Trigger Ancestral Spirits when you Summon a Totem Grants Skill: Ancestral Spirits "}
-c["Trigger Decompose Skill on Step"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=1,noSupports=true,skillId="CorpseCloudPlayer",triggered=true}}},nil}
+c["Trigger Decompose Skill on Step"]={nil,"Trigger Decompose Skill on Step "}
 c["Trigger Elemental Expression on Melee Critical Hit"]={nil,"Trigger Elemental Expression on Melee Critical Hit "}
 c["Trigger Elemental Expression on Melee Critical Hit Grants Skill: Elemental Expression"]={nil,"Trigger Elemental Expression on Melee Critical Hit Grants Skill: Elemental Expression "}
 c["Trigger Elemental Storm on Critical Hit with Spells"]={nil,"Trigger Elemental Storm on Critical Hit with Spells "}
 c["Trigger Elemental Storm on Critical Hit with Spells Grants Skill: Elemental Storm"]={nil,"Trigger Elemental Storm on Critical Hit with Spells Grants Skill: Elemental Storm "}
 c["Trigger Ember Fusillade Skill on casting a Spell"]={nil,"Trigger Ember Fusillade Skill on casting a Spell "}
-c["Trigger Greater Lightning Bolt Skill on Critical Hit"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=1,noSupports=true,skillId="UniqueBreachLightningBoltPlayer",triggered=true}},[2]={[1]={skillId="UniqueBreachLightningBoltPlayer",type="SkillId"},flags=0,keywordFlags=0,name="ExtraSkillMod",type="LIST",value={mod={flags=0,keywordFlags=0,name="SkillData",type="LIST",value={key="triggerOnCrit",value=true}}}}},nil}
+c["Trigger Greater Lightning Bolt Skill on Critical Hit"]={nil,"Trigger Greater Lightning Bolt Skill on Critical Hit "}
 c["Trigger Spark Skill on killing a Shocked Enemy"]={nil,"Trigger Spark Skill on killing a Shocked Enemy "}
 c["Trigger skills refund half of Energy spent"]={nil,"Trigger skills refund half of Energy spent "}
 c["Triggered Spells deal 14% increased Spell Damage"]={{[1]={[1]={skillType=41,type="SkillType"},flags=2,keywordFlags=131072,name="Damage",type="INC",value=14}},nil}
