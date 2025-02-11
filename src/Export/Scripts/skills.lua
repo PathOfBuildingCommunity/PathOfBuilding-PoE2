@@ -193,25 +193,6 @@ local function mapAST(ast)
 	return "SkillType."..(skillTypes[ast._rowIndex] or ("Unknown"..ast._rowIndex))
 end
 
-local weaponClassMap = {
-	["Claw"] = "Claw",
-	["Dagger"] = "Dagger",
-	["One Hand Sword"] = "One Handed Sword",
-	["Thrusting One Hand Sword"] = "Thrusting One Handed Sword",
-	["One Hand Axe"] = "One Handed Axe",
-	["One Hand Mace"] = "One Handed Mace",
-	["Bow"] = "Bow",
-	["Crossbow"] = "Crossbow",
-	["Fishing Rod"] = "Fishing Rod",
-	["Warstaff"] = "Staff",
-	["Two Hand Sword"] = "Two Handed Sword",
-	["Two Hand Axe"] = "Two Handed Axe",
-	["Two Hand Mace"] = "Two Handed Mace",
-	["Unarmed"] = "None",
-	["Flail"] = "Flail",
-	["Spear"] = "Spear",
-}
-
 local gems = { }
 local trueGemNames = { }
 
@@ -490,15 +471,13 @@ directiveTable.skill = function(state, args, out)
 		if granted.IgnoreMinionTypes then
 			out:write('\tignoreMinionTypes = true,\n')
 		end
-		local weaponTypes = { }
+		local weaponClasses = { }
 		for _, class in ipairs(granted.WeaponRestrictions) do
-			if weaponClassMap[class.Id] then
-				weaponTypes[weaponClassMap[class.Id]] = true
-			end
+			table.insert(weaponClasses, class.Id)
 		end
-		if next(weaponTypes) then
-			out:write('\tweaponTypes = {\n')
-			for type in pairs(weaponTypes) do
+		if next(weaponClasses) then
+			out:write('\tweaponClasses = {\n')
+			for _, type in ipairs(weaponClasses) do
 				out:write('\t\t["', type, '"] = true,\n')
 			end
 			out:write('\t},\n')
@@ -524,15 +503,13 @@ directiveTable.skill = function(state, args, out)
 			end
 			out:write('},\n')
 		end
-		local weaponTypes = { }
+		local weaponClasses = { }
 		for _, class in ipairs(granted.ActiveSkill.WeaponRestrictions) do
-			if weaponClassMap[class.Id] then
-				weaponTypes[weaponClassMap[class.Id]] = true
-			end
+			table.insert(weaponClasses, class.Id)
 		end
-		if next(weaponTypes) then
-			out:write('\tweaponTypes = {\n')
-			for type in pairs(weaponTypes) do
+		if next(weaponClasses) then
+			out:write('\tweaponClasses = {\n')
+			for _, type in ipairs(weaponClasses) do
 				out:write('\t\t["', type, '"] = true,\n')
 			end
 			out:write('\t},\n')

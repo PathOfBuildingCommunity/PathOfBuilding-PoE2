@@ -6867,7 +6867,7 @@ return {
 		},
 		[3]={
 			list=false,
-			name="tags",
+			name="Tags",
 			refTo="Tags",
 			type="Key",
 			width=150
@@ -15320,9 +15320,9 @@ return {
 		[3]={
 			list=false,
 			name="",
-			refTo="",
+			refTo="clientStrings",
 			type="Key",
-			width=150
+			width=340
 		}
 	},
 	weapondamagescaling={

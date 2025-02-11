@@ -25,13 +25,13 @@ local ItemDBClass = newClass("ItemDBControl", "ListControl", function(self, anch
 	self.sortMode = "NAME"
 	self.leaguesAndTypesLoaded = false
 	self.leagueList = { "Any league", "No league" }
-	self.typeList = { "Any type", "Armour", "Jewellery", "One Handed Melee", "Two Handed Melee" }
+	self.categoryList = { "Any type", "Armour", "Jewellery", "One Handed Melee", "Two Handed Melee" }
 	self.slotList = { "Any slot", "Weapon 1", "Weapon 2", "Helmet", "Body Armour", "Gloves", "Boots", "Amulet", "Ring", "Belt", "Jewel" }
 	local baseY = dbType == "RARE" and -22 or -62
 	self.controls.slot = new("DropDownControl", {"BOTTOMLEFT",self,"TOPLEFT"}, {0, baseY, 179, 18}, self.slotList, function(index, value)
 		self.listBuildFlag = true
 	end)
-	self.controls.type = new("DropDownControl", {"LEFT",self.controls.slot,"RIGHT"}, {2, 0, 179, 18}, self.typeList, function(index, value)
+	self.controls.category = new("DropDownControl", {"LEFT",self.controls.slot,"RIGHT"}, {2, 0, 179, 18}, self.categoryList, function(index, value)
 		self.listBuildFlag = true
 	end)
 	if dbType == "UNIQUE" then
@@ -60,20 +60,20 @@ end)
 
 function ItemDBClass:LoadLeaguesAndTypes()
 	local leagueFlag = { }
-	local typeFlag = { }
+	local categoryFlag = { }
 	for _, item in pairs(self.db.list) do
 		if item.league then
 			for leagueName in item.league:gmatch(" ?([%w ]+),?") do
 				leagueFlag[leagueName] = true
 			end
 		end
-		typeFlag[item.type] = true
+		categoryFlag[(item.label or item.category)..(item.class ~= item.category and ": "..item.class:gsub("([a-z])([A-Z])", "%1 %2") or "")] = true
 	end
 	for leagueName in pairsSortByKey(leagueFlag) do
 		t_insert(self.leagueList, leagueName)
 	end
-	for type in pairsSortByKey(typeFlag) do
-		t_insert(self.typeList, type)
+	for type in pairsSortByKey(categoryFlag) do
+		t_insert(self.categoryList, type)
 	end
 	self.leaguesAndTypesLoaded = true
 end
@@ -85,22 +85,22 @@ function ItemDBClass:DoesItemMatchFilters(item)
 			return false
 		end
 	end
-	local typeSel = self.controls.type.selIndex
-	if typeSel > 1 then
-		if typeSel == 2 then
+	local categorySel = self.controls.category.selIndex
+	if categorySel > 1 then
+		if categorySel == 2 then
 			if not item.base.armour then
 				return false
 			end
-		elseif typeSel == 3 then
-			if not (item.type == "Amulet" or item.type == "Ring" or item.type == "Belt") then
+		elseif categorySel == 3 then
+			if not (item.category == "Amulet" or item.category == "Ring" or item.category == "Belt") then
 				return false
 			end
-		elseif typeSel == 4 or typeSel == 5 then
-			local weaponInfo = self.itemsTab.build.data.weaponTypeInfo[item.type]
-			if not (weaponInfo and weaponInfo.melee and ((typeSel == 4 and weaponInfo.oneHand) or (typeSel == 5 and not weaponInfo.oneHand))) then 
+		elseif categorySel == 4 or categorySel == 5 then
+			local weaponInfo = self.itemsTab.build.data.weaponClassInfo[item.class]
+			if not (weaponInfo and weaponInfo.melee and ((categorySel == 4 and weaponInfo.oneHand) or (categorySel == 5 and not weaponInfo.oneHand))) then 
 				return false
 			end
-		elseif item.type ~= self.typeList[typeSel] then
+		elseif ((item.label or item.category)..(item.class ~= item.category and ": "..item.class:gsub("([a-z])([A-Z])", "%1 %2") or "")) ~= self.categoryList[categorySel] then
 			return false
 		end
 	end

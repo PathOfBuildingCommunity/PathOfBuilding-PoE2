@@ -1,7 +1,7 @@
 -- Item data (c) Grinding Gear Games
 local itemBases = ...
 
-#type Fishing Rod
+#label Fishing Rod
 #socketLimit 3
 #forceShow true
 #baseMatch BaseTypeMetadata/Items/Weapons/TwoHandWeapon/FishingRods/AbstractFishingRod

@@ -185,13 +185,13 @@ function NotableDBClass:ListBuilder()
 		local infinites = { }
 		local start = GetTime()
 		local calcFunc = self.itemsTab.build.calcsTab:GetMiscCalculator()
-		local itemType = self.itemsTab.displayItem.base.type
-		local calcBase = calcFunc({ repSlotName = itemType, repItem = self.itemsTab:anointItem(nil) })
+		local itemClass = self.itemsTab.displayItem.base.class -- this needs checking to make sure it works presumably it was setup to handle anoints on any item type.
+		local calcBase = calcFunc({ repSlotName = itemClass, repItem = self.itemsTab:anointItem(nil) })
 		self.sortMaxPower = 0
 		for nodeIndex, node in ipairs(list) do
 			node.measuredPower = 0
 			if node.modKey ~= "" then
-				local output = calcFunc({ repSlotName = itemType, repItem = self.itemsTab:anointItem(node) })
+				local output = calcFunc({ repSlotName = itemClass, repItem = self.itemsTab:anointItem(node) })
 				node.measuredPower = self:CalculatePowerStat(self.sortDetail, output, calcBase)
 				if node.measuredPower == m_huge then
 					t_insert(infinites, node)

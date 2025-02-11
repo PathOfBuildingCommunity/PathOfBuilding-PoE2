@@ -1,5 +1,5 @@
 -- Item data (c) Grinding Gear Games
 local itemBases = ...
 
-#type Amulet
+#label Amulet
 #baseMatch BaseType Metadata/Items/Amulets/AbstractAmulet

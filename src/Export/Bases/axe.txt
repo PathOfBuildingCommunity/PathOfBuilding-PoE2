@@ -1,10 +1,10 @@
 -- Item data (c) Grinding Gear Games
 local itemBases = ...
 
-#type One Handed Axe
+#label One Hand Axe
 #socketLimit 2
 #baseMatch BaseType Metadata/Items/Weapons/OneHandWeapons/OneHandAxes/AbstractOneHandAxe
 
-#type Two Handed Axe
+#label Two Hand Axe
 #socketLimit 3
 #baseMatch BaseType Metadata/Items/Weapons/TwoHandWeapons/TwoHandAxes/AbstractTwoHandAxe

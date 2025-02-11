@@ -12,9 +12,9 @@ skills["AncestralWarriorTotemPlayer"] = {
 	color = 1,
 	description = "Raises a Totem that uses socketed Mace Skills. Cannot use Channelling Skills or Skills with Cooldowns.",
 	skillTypes = { [SkillType.SummonsTotem] = true, [SkillType.SummonsAttackTotem] = true, [SkillType.Duration] = true, [SkillType.Melee] = true, [SkillType.Trappable] = true, [SkillType.Mineable] = true, [SkillType.Meta] = true, [SkillType.Physical] = true, [SkillType.Area] = true, [SkillType.Limit] = true, },
-	weaponTypes = {
-		["One Handed Mace"] = true,
-		["Two Handed Mace"] = true,
+	weaponClasses = {
+		["One Hand Mace"] = true,
+		["Two Hand Mace"] = true,
 	},
 	skillTotemId = 15,
 	castTime = 0.5,
@@ -146,8 +146,8 @@ skills["SupportAncestralWarriorTotemPlayer"] = {
 	requireSkillTypes = { SkillType.Attack, },
 	addSkillTypes = { SkillType.UsedByTotem, },
 	excludeSkillTypes = { SkillType.Meta, SkillType.Triggered, SkillType.Cooldown, SkillType.Channel, },
-	weaponTypes = {
-		["Two Handed Mace"] = true,
+	weaponClasses = {
+		["Two Hand Mace"] = true,
 	},
 	levels = {
 		[1] = { levelRequirement = 0, },
@@ -255,9 +255,9 @@ skills["ArmourBreakerPlayer"] = {
 	color = 1,
 	description = "Attack with a forceful blow, knocking enemies back and weakening their Armour.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Multistrikeable] = true, [SkillType.Melee] = true, [SkillType.Area] = true, [SkillType.Physical] = true, },
-	weaponTypes = {
-		["Two Handed Mace"] = true,
-		["One Handed Mace"] = true,
+	weaponClasses = {
+		["Two Hand Mace"] = true,
+		["One Hand Mace"] = true,
 	},
 	castTime = 1,
 	qualityStats = {
@@ -377,7 +377,7 @@ skills["ArtilleryBallistaPlayer"] = {
 	color = 1,
 	description = "Deploys a Ballista Totem that fires bolts skyward, to explode a short time after landing.",
 	skillTypes = { [SkillType.ProjectilesFromUser] = true, [SkillType.Trappable] = true, [SkillType.Mineable] = true, [SkillType.SummonsTotem] = true, [SkillType.SummonsAttackTotem] = true, [SkillType.TotemsAreBallistae] = true, [SkillType.Nonpathing] = true, [SkillType.UseGlobalStats] = true, [SkillType.Limit] = true, [SkillType.Duration] = true, },
-	weaponTypes = {
+	weaponClasses = {
 		["Crossbow"] = true,
 	},
 	skillTotemId = 19,
@@ -510,7 +510,7 @@ skills["ArtilleryBallistaProjectilePlayer"] = {
 	name = "Artillery Shot",
 	hidden = true,
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Projectile] = true, [SkillType.CanRapidFire] = true, [SkillType.AttackInPlaceIsDefault] = true, [SkillType.Fire] = true, [SkillType.Area] = true, [SkillType.CannotChain] = true, [SkillType.UsedByTotem] = true, },
-	weaponTypes = {
+	weaponClasses = {
 		["Crossbow"] = true,
 	},
 	castTime = 1,
@@ -935,9 +935,9 @@ skills["BoneshatterPlayer"] = {
 	color = 1,
 	description = "Attacks enemies with a melee Strike. The Strike will cause a Heavy Stun on enemies that are Primed for Stun. Upon causing a Heavy Stun it will also create a Shockwave, dealing a large amount of damage in an area.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Multistrikeable] = true, [SkillType.Melee] = true, [SkillType.Area] = true, },
-	weaponTypes = {
-		["One Handed Mace"] = true,
-		["Two Handed Mace"] = true,
+	weaponClasses = {
+		["One Hand Mace"] = true,
+		["Two Hand Mace"] = true,
 	},
 	castTime = 1,
 	qualityStats = {
@@ -1483,7 +1483,7 @@ skills["ClusterGrenadePlayer"] = {
 	color = 1,
 	description = "Fires a bouncing Grenade that explodes when its fuse expires, throwing out a nova of mini Grenades that explode when they come to a stop.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Area] = true, [SkillType.ProjectileNumber] = true, [SkillType.ProjectileSpeed] = true, [SkillType.Cooldown] = true, [SkillType.Duration] = true, [SkillType.Grenade] = true, [SkillType.Fire] = true, [SkillType.Nonpathing] = true, [SkillType.ProjectileNoCollision] = true, },
-	weaponTypes = {
+	weaponClasses = {
 		["Crossbow"] = true,
 	},
 	castTime = 1,
@@ -1616,7 +1616,7 @@ skills["ClusterGrenadeMiniPlayer"] = {
 	name = "",
 	hidden = true,
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Area] = true, [SkillType.ProjectileNumber] = true, [SkillType.ProjectileSpeed] = true, [SkillType.Cooldown] = true, [SkillType.Duration] = true, [SkillType.Grenade] = true, },
-	weaponTypes = {
+	weaponClasses = {
 		["Crossbow"] = true,
 	},
 	castTime = 1,
@@ -2212,9 +2212,9 @@ skills["EarthquakePlayer"] = {
 	color = 1,
 	description = "Smashes the ground, dealing damage in an area and leaving behind Jagged Ground that slows enemies. The Jagged Ground erupts in a powerful Aftershock after a duration. Cannot create Jagged Ground on top of an existing patch, or if you already have the maximum number of active patches.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.Melee] = true, [SkillType.Multistrikeable] = true, [SkillType.Duration] = true, [SkillType.Slam] = true, [SkillType.Triggerable] = true, [SkillType.Totemable] = true, [SkillType.CreatesGroundEffect] = true, },
-	weaponTypes = {
-		["Two Handed Mace"] = true,
-		["One Handed Mace"] = true,
+	weaponClasses = {
+		["Two Hand Mace"] = true,
+		["One Hand Mace"] = true,
 	},
 	castTime = 1,
 	qualityStats = {
@@ -2427,9 +2427,9 @@ skills["EarthshatterPlayer"] = {
 	color = 1,
 	description = "Slam the ground, sending out a fissure that deals area damage to enemies it passes under and thrusts a spike from the ground when it ends. Warcries performed near the spike will cause it to shatter, damaging surrounding enemies.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.Melee] = true, [SkillType.Slam] = true, [SkillType.Multistrikeable] = true, [SkillType.Duration] = true, [SkillType.Totemable] = true, [SkillType.SupportedByFountains] = true, [SkillType.CreatesFissure] = true, },
-	weaponTypes = {
-		["Two Handed Mace"] = true,
-		["One Handed Mace"] = true,
+	weaponClasses = {
+		["Two Hand Mace"] = true,
+		["One Hand Mace"] = true,
 	},
 	castTime = 1,
 	qualityStats = {
@@ -2610,7 +2610,7 @@ skills["EmergencyReloadPlayer"] = {
 	color = 1,
 	description = "Instantly reloads your active Crossbow Ammunition and Empowers the loaded bolts to deal more damage.",
 	skillTypes = { [SkillType.Instant] = true, [SkillType.Cooldown] = true, [SkillType.Duration] = true, [SkillType.ModifiesNextSkill] = true, [SkillType.Buff] = true, [SkillType.EmpowersOtherSkill] = true, },
-	weaponTypes = {
+	weaponClasses = {
 		["Crossbow"] = true,
 	},
 	castTime = 0,
@@ -2729,7 +2729,7 @@ skills["ExplosiveGrenadePlayer"] = {
 	color = 1,
 	description = "Fires a bouncing Grenade that unleashes a devastating fiery blast when its fuse expires.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Area] = true, [SkillType.ProjectileNumber] = true, [SkillType.ProjectileSpeed] = true, [SkillType.Cooldown] = true, [SkillType.Duration] = true, [SkillType.Grenade] = true, [SkillType.Fire] = true, [SkillType.Nonpathing] = true, },
-	weaponTypes = {
+	weaponClasses = {
 		["Crossbow"] = true,
 	},
 	castTime = 1,
@@ -2990,7 +2990,7 @@ skills["FlashGrenadePlayer"] = {
 	color = 1,
 	description = "Fires a bouncing Grenade that unleashes a Blinding, Stunning explosion when its fuse expires. This explosion can Blind both Allies and Enemies.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Area] = true, [SkillType.ProjectileNumber] = true, [SkillType.ProjectileSpeed] = true, [SkillType.Cooldown] = true, [SkillType.Duration] = true, [SkillType.Grenade] = true, [SkillType.Nonpathing] = true, },
-	weaponTypes = {
+	weaponClasses = {
 		["Crossbow"] = true,
 	},
 	castTime = 1,
@@ -3126,7 +3126,7 @@ skills["ToxicGrenadePlayer"] = {
 	color = 1,
 	description = "Fires a bouncing Grenade that causes a burst of Poison gas when its fuse expires, damaging enemies and leaving behind a growing Poison cloud. Burning effects or Detonator skills will cause the cloud to explode in a fiery blast.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Area] = true, [SkillType.ProjectileNumber] = true, [SkillType.ProjectileSpeed] = true, [SkillType.Cooldown] = true, [SkillType.Duration] = true, [SkillType.Grenade] = true, [SkillType.Chaos] = true, [SkillType.Fire] = true, [SkillType.Nonpathing] = true, },
-	weaponTypes = {
+	weaponClasses = {
 		["Crossbow"] = true,
 	},
 	castTime = 1,
@@ -3423,9 +3423,9 @@ skills["HammerOfTheGodsPlayer"] = {
 	color = 1,
 	description = "Entreats the Ancestors to crush your enemies, manifesting a massive hammer that falls from the sky onto your target, Slamming into the ground after a short duration and dealing immense damage based on your weapon.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.Melee] = true, [SkillType.Slam] = true, [SkillType.Multistrikeable] = true, [SkillType.Duration] = true, [SkillType.Totemable] = true, [SkillType.Cooldown] = true, [SkillType.Nonpathing] = true, },
-	weaponTypes = {
-		["One Handed Mace"] = true,
-		["Two Handed Mace"] = true,
+	weaponClasses = {
+		["One Hand Mace"] = true,
+		["Two Hand Mace"] = true,
 	},
 	castTime = 1,
 	qualityStats = {
@@ -3548,20 +3548,20 @@ skills["HeraldOfAshPlayer"] = {
 	color = 1,
 	description = "While active, enemies you sufficiently Overkill with attacks will cause an explosion that Ignites nearby enemies based on the Overkill damage dealt.",
 	skillTypes = { [SkillType.Buff] = true, [SkillType.HasReservation] = true, [SkillType.CausesBurning] = true, [SkillType.Area] = true, [SkillType.DamageOverTime] = true, [SkillType.Fire] = true, [SkillType.Herald] = true, [SkillType.Duration] = true, [SkillType.OngoingSkill] = true, [SkillType.Persistent] = true, },
-	weaponTypes = {
-		["One Handed Mace"] = true,
-		["Flail"] = true,
-		["Two Handed Sword"] = true,
-		["Dagger"] = true,
+	weaponClasses = {
+		["One Hand Sword"] = true,
+		["Two Hand Sword"] = true,
+		["One Hand Axe"] = true,
+		["Two Hand Axe"] = true,
+		["One Hand Mace"] = true,
+		["Two Hand Mace"] = true,
+		["Warstaff"] = true,
 		["Claw"] = true,
-		["Crossbow"] = true,
-		["Bow"] = true,
+		["Dagger"] = true,
 		["Spear"] = true,
-		["Two Handed Axe"] = true,
-		["Two Handed Mace"] = true,
-		["One Handed Axe"] = true,
-		["Staff"] = true,
-		["One Handed Sword"] = true,
+		["Bow"] = true,
+		["Flail"] = true,
+		["Crossbow"] = true,
 	},
 	castTime = 0,
 	qualityStats = {
@@ -3981,9 +3981,9 @@ skills["LeapSlamPlayer"] = {
 	color = 1,
 	description = "Jump into the air, damaging and Knocking Back enemies with your mace where you land. Enemies you would land on are\npushed out of the way.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.Melee] = true, [SkillType.Slam] = true, [SkillType.Totemable] = true, [SkillType.Travel] = true, [SkillType.Jumping] = true, [SkillType.ConsumesFullyBrokenArmour] = true, },
-	weaponTypes = {
-		["Two Handed Mace"] = true,
-		["One Handed Mace"] = true,
+	weaponClasses = {
+		["Two Hand Mace"] = true,
+		["One Hand Mace"] = true,
 	},
 	castTime = 1.4,
 	qualityStats = {
@@ -4111,7 +4111,7 @@ skills["ArmourPiercingBoltsAmmoPlayer"] = {
 	color = 1,
 	description = "Loads your Crossbow with a clip of bolts that can be fired rapidly and Break enemy Armour. Using this skill again reloads the clip.",
 	skillTypes = { [SkillType.CrossbowAmmoSkill] = true, [SkillType.ReservesManually] = true, [SkillType.Attack] = true, [SkillType.Nonpathing] = true, },
-	weaponTypes = {
+	weaponClasses = {
 		["Crossbow"] = true,
 	},
 	castTime = 0.6,
@@ -4229,7 +4229,7 @@ skills["ArmourPiercingBoltsPlayer"] = {
 	hidden = true,
 	description = "Rapidly fires bolts that Break enemy Armour. Can fire a limited number of bolts before needing to reload.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.CrossbowSkill] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Nonpathing] = true, [SkillType.Physical] = true, },
-	weaponTypes = {
+	weaponClasses = {
 		["Crossbow"] = true,
 	},
 	castTime = 1,
@@ -4364,7 +4364,7 @@ skills["ExplosiveShotAmmoPlayer"] = {
 	color = 1,
 	description = "Loads your Crossbow with flaming bolts that explode on impact. The explosion will cause any Grenades in its area of effect to also explode.",
 	skillTypes = { [SkillType.CrossbowAmmoSkill] = true, [SkillType.ReservesManually] = true, [SkillType.Attack] = true, [SkillType.Nonpathing] = true, },
-	weaponTypes = {
+	weaponClasses = {
 		["Crossbow"] = true,
 	},
 	castTime = 1.5,
@@ -4483,7 +4483,7 @@ skills["ExplosiveShotPlayer"] = {
 	hidden = true,
 	description = "Fires a flaming bolt that explodes on impact. The explosion will cause any Grenades in its area of effect to also explode.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Area] = true, [SkillType.CrossbowSkill] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Fire] = true, [SkillType.Nonpathing] = true, },
-	weaponTypes = {
+	weaponClasses = {
 		["Crossbow"] = true,
 	},
 	castTime = 1,
@@ -4702,7 +4702,7 @@ skills["FragmentationRoundsAmmoPlayer"] = {
 	color = 1,
 	description = "Loads your Crossbow with Piercing bolts that fragment in flight. Bolts that hit a Frozen enemy consume the Freeze and cause an explosion of shrapnel. Bolts that hit an Ice Crystal cause it to explode.",
 	skillTypes = { [SkillType.CrossbowAmmoSkill] = true, [SkillType.ReservesManually] = true, [SkillType.Attack] = true, [SkillType.Nonpathing] = true, },
-	weaponTypes = {
+	weaponClasses = {
 		["Crossbow"] = true,
 	},
 	castTime = 0.8,
@@ -4820,7 +4820,7 @@ skills["FragmentationRoundsPlayer"] = {
 	hidden = true,
 	description = "Fires Piercing bolts that fragment in flight. Bolts that hit a Frozen enemy Consume the Freeze and cause an explosion of shrapnel. Bolts that hit an Ice Crystal cause it to explode.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.CrossbowSkill] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Nonpathing] = true, [SkillType.SkillConsumesFreeze] = true, },
-	weaponTypes = {
+	weaponClasses = {
 		["Crossbow"] = true,
 	},
 	castTime = 1,
@@ -5041,7 +5041,7 @@ skills["GalvanicShardsAmmoPlayer"] = {
 	color = 1,
 	description = "Loads your Crossbow with a clip of charged bolts that fragment in flight, releasing Chaining Lightning beams when they Hit enemies. Using this skill again reloads the clip.",
 	skillTypes = { [SkillType.CrossbowAmmoSkill] = true, [SkillType.ReservesManually] = true, [SkillType.Attack] = true, [SkillType.Nonpathing] = true, },
-	weaponTypes = {
+	weaponClasses = {
 		["Crossbow"] = true,
 	},
 	castTime = 0.6,
@@ -5162,7 +5162,7 @@ skills["GalvanicShardsPlayer"] = {
 	hidden = true,
 	description = "Rapidly fires charged bolts that fragment in flight, releasing Chaining Lightning beams when they Hit enemies. Can fire a limited number of bursts before needing to reload.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.CrossbowSkill] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Lightning] = true, [SkillType.Chains] = true, [SkillType.Nonpathing] = true, },
-	weaponTypes = {
+	weaponClasses = {
 		["Crossbow"] = true,
 	},
 	castTime = 1,
@@ -5377,7 +5377,7 @@ skills["GlacialBoltAmmoPlayer"] = {
 	color = 1,
 	description = "Loads your Crossbow with icy bolts that create two walls of Ice Crystals at the end of their flight.",
 	skillTypes = { [SkillType.CrossbowAmmoSkill] = true, [SkillType.ReservesManually] = true, [SkillType.Attack] = true, [SkillType.Nonpathing] = true, },
-	weaponTypes = {
+	weaponClasses = {
 		["Crossbow"] = true,
 	},
 	castTime = 1,
@@ -5496,7 +5496,7 @@ skills["GlacialBoltPlayer"] = {
 	hidden = true,
 	description = "Fires an icy bolt that creates two walls of Ice Crystals at the end of its flight.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Area] = true, [SkillType.CrossbowSkill] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Cold] = true, [SkillType.Wall] = true, [SkillType.SupportedByFountains] = true, [SkillType.Nonpathing] = true, [SkillType.IceCrystal] = true, [SkillType.Duration] = true, },
-	weaponTypes = {
+	weaponClasses = {
 		["Crossbow"] = true,
 	},
 	castTime = 0.8,
@@ -5718,7 +5718,7 @@ skills["HailstormRoundsAmmoPlayer"] = {
 	color = 1,
 	description = "Passively generates bolts of ice at a frequency equal to reload time, up to a cap. Activate to Load the accumulated bolts into your Crossbow. All loaded bolts are fired at once, causing them to rain down over the target area.",
 	skillTypes = { [SkillType.CrossbowAmmoSkill] = true, [SkillType.ReservesManually] = true, [SkillType.Attack] = true, [SkillType.Nonpathing] = true, },
-	weaponTypes = {
+	weaponClasses = {
 		["Crossbow"] = true,
 	},
 	castTime = 1,
@@ -5842,7 +5842,7 @@ skills["HailstormRoundsPlayer"] = {
 	hidden = true,
 	description = "Fires all loaded bolts into the sky, causing them to rain down over the target area.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Area] = true, [SkillType.ProjectileNumber] = true, [SkillType.ProjectileSpeed] = true, [SkillType.CrossbowSkill] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Cold] = true, [SkillType.Sustained] = true, [SkillType.Nonpathing] = true, [SkillType.ProjectileNoCollision] = true, },
-	weaponTypes = {
+	weaponClasses = {
 		["Crossbow"] = true,
 	},
 	castTime = 1,
@@ -5970,7 +5970,7 @@ skills["HighVelocityRoundsAmmoPlayer"] = {
 	color = 1,
 	description = "Loads your Crossbow with Piercing bolts that can consume Fully Broken Armour on enemies to deal extra damage.",
 	skillTypes = { [SkillType.CrossbowAmmoSkill] = true, [SkillType.ReservesManually] = true, [SkillType.Attack] = true, [SkillType.Nonpathing] = true, [SkillType.ConsumesFullyBrokenArmour] = true, },
-	weaponTypes = {
+	weaponClasses = {
 		["Crossbow"] = true,
 	},
 	castTime = 1,
@@ -6088,7 +6088,7 @@ skills["HighVelocityRoundsPlayer"] = {
 	hidden = true,
 	description = "Fires a powerful Piercing bolt that can consume Fully Broken Armour on enemies to deal extra damage.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.CrossbowSkill] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Physical] = true, [SkillType.Nonpathing] = true, [SkillType.ConsumesFullyBrokenArmour] = true, },
-	weaponTypes = {
+	weaponClasses = {
 		["Crossbow"] = true,
 	},
 	castTime = 0.8,
@@ -6312,7 +6312,7 @@ skills["IceShardsAmmoPlayer"] = {
 	color = 1,
 	description = "Loads your Crossbow with a clip of icy bolts that rapidly fire at the ground, leaving a shard of ice at the impact location unless the bolt hits an enemy. The ice shards shatter when enemies step on them, dealing damage to nearby enemies. Using this skill again reloads the clip.",
 	skillTypes = { [SkillType.CrossbowAmmoSkill] = true, [SkillType.ReservesManually] = true, [SkillType.Attack] = true, [SkillType.Nonpathing] = true, },
-	weaponTypes = {
+	weaponClasses = {
 		["Crossbow"] = true,
 	},
 	castTime = 0.6,
@@ -6430,7 +6430,7 @@ skills["IceShardsPlayer"] = {
 	hidden = true,
 	description = "Rapidly fires icy bolts at the ground, leaving a shard of ice at the impact location unless the bolt hits an enemy. The ice shards shatter when enemies step on them, dealing damage to nearby enemies. Can fire a limited number of bolts before needing to reload.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Area] = true, [SkillType.CrossbowSkill] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Nonpathing] = true, [SkillType.Cold] = true, [SkillType.Sustained] = true, },
-	weaponTypes = {
+	weaponClasses = {
 		["Crossbow"] = true,
 	},
 	castTime = 1,
@@ -6654,7 +6654,7 @@ skills["IncendiaryShotAmmoPlayer"] = {
 	color = 1,
 	description = "Loads your Crossbow with flaming bolts that fragment in flight, damaging and Igniting enemies on hit and in a small cone behind their final target.",
 	skillTypes = { [SkillType.CrossbowAmmoSkill] = true, [SkillType.ReservesManually] = true, [SkillType.Attack] = true, [SkillType.Nonpathing] = true, },
-	weaponTypes = {
+	weaponClasses = {
 		["Crossbow"] = true,
 	},
 	castTime = 0.8,
@@ -6772,7 +6772,7 @@ skills["IncendiaryShotPlayer"] = {
 	hidden = true,
 	description = "Fires flaming bolts that fragment in flight, damaging and Igniting enemies on hit, and in a small cone behind their final target.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Area] = true, [SkillType.CrossbowSkill] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Fire] = true, [SkillType.Nonpathing] = true, },
-	weaponTypes = {
+	weaponClasses = {
 		["Crossbow"] = true,
 	},
 	castTime = 1,
@@ -6918,7 +6918,7 @@ skills["PermafrostBoltsAmmoPlayer"] = {
 	color = 1,
 	description = "Loads your Crossbow with icy bolts that fragment in flight, damaging enemies on hit and in a small cone behind their final target. The icy coating on the bolts makes them extremely potent at Freezing enemies.",
 	skillTypes = { [SkillType.CrossbowAmmoSkill] = true, [SkillType.ReservesManually] = true, [SkillType.Attack] = true, [SkillType.Nonpathing] = true, },
-	weaponTypes = {
+	weaponClasses = {
 		["Crossbow"] = true,
 	},
 	castTime = 0.8,
@@ -7036,7 +7036,7 @@ skills["PermafrostBoltsPlayer"] = {
 	hidden = true,
 	description = "Fires icy bolts that  fragment in flight, damaging enemies on hit and in a small cone behind their final target. The icy coating on the bolts makes them extremely potent at Freezing enemies.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Area] = true, [SkillType.CrossbowSkill] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Cold] = true, [SkillType.Nonpathing] = true, },
-	weaponTypes = {
+	weaponClasses = {
 		["Crossbow"] = true,
 	},
 	castTime = 1,
@@ -7177,7 +7177,7 @@ skills["PlasmaBlastAmmoPlayer"] = {
 	color = 1,
 	description = "Loads your Crossbow with unstable bolts that require a lengthy charging period to fire but deal devastating damage, Pierce through enemies, and explode upon hitting terrain.",
 	skillTypes = { [SkillType.CrossbowAmmoSkill] = true, [SkillType.ReservesManually] = true, [SkillType.Attack] = true, [SkillType.Nonpathing] = true, },
-	weaponTypes = {
+	weaponClasses = {
 		["Crossbow"] = true,
 	},
 	castTime = 1,
@@ -7296,7 +7296,7 @@ skills["PlasmaBlastPlayer"] = {
 	hidden = true,
 	description = "Channel to charge an unstable bolt. The bolt deals devastating damage and explodes on hitting terrain, but cannot be fired at all unless fully charged.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Area] = true, [SkillType.CrossbowSkill] = true, [SkillType.Totemable] = true, [SkillType.Channel] = true, [SkillType.Lightning] = true, [SkillType.Nonpathing] = true, },
-	weaponTypes = {
+	weaponClasses = {
 		["Crossbow"] = true,
 	},
 	castTime = 1,
@@ -7515,7 +7515,7 @@ skills["RapidShotAmmoPlayer"] = {
 	color = 1,
 	description = "Loads your Crossbow with a large clip of heavily modified bolts that cause Heat to build up on your crossbow, before unleashing a stream of flaming bolts that gain Fire Damage based on your Heat. Heat also grants bonus damage to Grenades you fire, but dissipates rapidly when not building up. Using this skill again reloads the clip.",
 	skillTypes = { [SkillType.CrossbowAmmoSkill] = true, [SkillType.ReservesManually] = true, [SkillType.Attack] = true, [SkillType.Nonpathing] = true, },
-	weaponTypes = {
+	weaponClasses = {
 		["Crossbow"] = true,
 	},
 	castTime = 1.2,
@@ -7634,7 +7634,7 @@ skills["RapidShotPlayer"] = {
 	hidden = true,
 	description = "Fires heavily modified bolts that cause Heat to build up on your crossbow. Using this skill causes an initial buildup of Heat before unleashing a stream of flaming bolts that gain Fire Damage based on your Heat. Heat also grants bonus damage to Grenades you fire, but dissipates rapidly when not building up. Can fire a large number of bolts before needing to reload.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.CrossbowSkill] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Nonpathing] = true, [SkillType.Fire] = true, },
-	weaponTypes = {
+	weaponClasses = {
 		["Crossbow"] = true,
 	},
 	castTime = 1,
@@ -7778,7 +7778,7 @@ skills["ShockburstRoundsAmmoPlayer"] = {
 	color = 1,
 	description = "Loads your Crossbow with a clip of charged bolts which release damaging pulses upon Hitting an enemy affected by a Lightning Ailment. Using this skill again reloads the clip.",
 	skillTypes = { [SkillType.CrossbowAmmoSkill] = true, [SkillType.ReservesManually] = true, [SkillType.Attack] = true, [SkillType.Nonpathing] = true, },
-	weaponTypes = {
+	weaponClasses = {
 		["Crossbow"] = true,
 	},
 	castTime = 0.8,
@@ -7899,7 +7899,7 @@ skills["ShockburstRoundsPlayer"] = {
 	hidden = true,
 	description = "Rapidly fires charged bolts which release damaging pulses upon Hitting an enemy affected by a Lightning Ailment. Can fire a limited number of bolts before needing to reload.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Area] = true, [SkillType.CrossbowSkill] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Nonpathing] = true, [SkillType.Lightning] = true, },
-	weaponTypes = {
+	weaponClasses = {
 		["Crossbow"] = true,
 	},
 	castTime = 1,
@@ -8115,7 +8115,7 @@ skills["SiegeCascadeAmmoPlayer"] = {
 	color = 1,
 	description = "Loads your Crossbow with enemy-seeking payloads which are fired into the air, dropping a bolt near every enemy in the target area. These bolts lodge in the ground and explode after a short delay.",
 	skillTypes = { [SkillType.CrossbowAmmoSkill] = true, [SkillType.ReservesManually] = true, [SkillType.Attack] = true, [SkillType.Nonpathing] = true, },
-	weaponTypes = {
+	weaponClasses = {
 		["Crossbow"] = true,
 	},
 	castTime = 1,
@@ -8235,7 +8235,7 @@ skills["SiegeCascadePlayer"] = {
 	hidden = true,
 	description = "Aims skyward and fires an enemy-seeking payload which drops a bolt near every enemy in the target area. These bolts lodge in the ground and explode after a short delay.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Area] = true, [SkillType.ProjectileNumber] = true, [SkillType.ProjectileSpeed] = true, [SkillType.CrossbowSkill] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Fire] = true, [SkillType.Sustained] = true, [SkillType.Nonpathing] = true, [SkillType.ProjectileNoCollision] = true, },
-	weaponTypes = {
+	weaponClasses = {
 		["Crossbow"] = true,
 	},
 	castTime = 1,
@@ -8444,7 +8444,7 @@ skills["StormblastBoltsAmmoPlayer"] = {
 	color = 1,
 	description = "Loads your Crossbow with charged bolts that land around the target location and explode if hit by a Detonator Skill. Using this skill again reloads the clip.",
 	skillTypes = { [SkillType.CrossbowAmmoSkill] = true, [SkillType.ReservesManually] = true, [SkillType.Attack] = true, [SkillType.Nonpathing] = true, },
-	weaponTypes = {
+	weaponClasses = {
 		["Crossbow"] = true,
 	},
 	castTime = 1,
@@ -8565,7 +8565,7 @@ skills["StormblastBoltsPlayer"] = {
 	hidden = true,
 	description = "Aims skyward and fires charged bolts that land around the target location, dealing damage and lodging in the ground for a duration. Detonator Skills will cause these bolts to explode. Can fire a limited number of bolts before needing to reload.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Area] = true, [SkillType.ProjectileNumber] = true, [SkillType.ProjectileSpeed] = true, [SkillType.CrossbowSkill] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Lightning] = true, [SkillType.Nonpathing] = true, [SkillType.Duration] = true, },
-	weaponTypes = {
+	weaponClasses = {
 		["Crossbow"] = true,
 	},
 	castTime = 1,
@@ -8767,6 +8767,9 @@ skills["MagmaBarrierPlayer"] = {
 	color = 1,
 	description = "When you raise your Shield it is infused with magma for a short time. Blocking during this time will spray magma at the attacker and grant you an Endurance Charge.",
 	skillTypes = { [SkillType.Buff] = true, [SkillType.OngoingSkill] = true, [SkillType.HasReservation] = true, [SkillType.Fire] = true, [SkillType.Duration] = true, [SkillType.Persistent] = true, },
+	weaponClasses = {
+		["Shield"] = true,
+	},
 	castTime = 0,
 	qualityStats = {
 		{ "igneous_shield_perfect_block_window_time_ms", 10 },
@@ -8877,6 +8880,9 @@ skills["MagmaSprayPlayer"] = {
 	name = "Magma Spray",
 	hidden = true,
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.Area] = true, [SkillType.Fire] = true, [SkillType.Triggered] = true, [SkillType.Triggerable] = true, [SkillType.InbuiltTrigger] = true, [SkillType.GeneratesCharges] = true, [SkillType.NonWeaponAttack] = true, },
+	weaponClasses = {
+		["Shield"] = true,
+	},
 	castTime = 1,
 	qualityStats = {
 	},
@@ -8998,9 +9004,9 @@ skills["MoltenBlastPlayer"] = {
 	color = 1,
 	description = "Gouges molten rock from the ground and flings it at the target. The Projectile explodes on collision, damaging enemies and scattering shrapnel in a cone behind it.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Triggerable] = true, [SkillType.Fire] = true, },
-	weaponTypes = {
-		["Two Handed Mace"] = true,
-		["One Handed Mace"] = true,
+	weaponClasses = {
+		["Two Hand Mace"] = true,
+		["One Hand Mace"] = true,
 	},
 	castTime = 1,
 	qualityStats = {
@@ -9193,7 +9199,7 @@ skills["OilGrenadePlayer"] = {
 	color = 1,
 	description = "Fires a bouncing Grenade that bursts in a spray of Oil when the fuse expires or when it impacts an Enemy, dealing minimal damage but covering the ground and nearby enemies in Oil. Oil created this way can be Ignited by Detonator Skills or Ignited Ground.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Area] = true, [SkillType.ProjectileNumber] = true, [SkillType.ProjectileSpeed] = true, [SkillType.Cooldown] = true, [SkillType.Duration] = true, [SkillType.Grenade] = true, [SkillType.Fire] = true, [SkillType.Nonpathing] = true, [SkillType.CreatesGroundEffect] = true, },
-	weaponTypes = {
+	weaponClasses = {
 		["Crossbow"] = true,
 	},
 	castTime = 1,
@@ -9444,9 +9450,9 @@ skills["PerfectStrikePlayer"] = {
 	color = 1,
 	description = "Charge up your weapon while channelling. Releasing the moment you fully charge will release a wave of Fire.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.Channel] = true, [SkillType.Fire] = true, [SkillType.Duration] = true, [SkillType.Area] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.PerfectTiming] = true, },
-	weaponTypes = {
-		["One Handed Mace"] = true,
-		["Two Handed Mace"] = true,
+	weaponClasses = {
+		["One Hand Mace"] = true,
+		["Two Hand Mace"] = true,
 	},
 	castTime = 1,
 	qualityStats = {
@@ -9764,6 +9770,9 @@ skills["ResonatingShieldPlayer"] = {
 	color = 1,
 	description = "Repeatedly strike your Shield with your weapon causing damaging shockwaves in an area around you. Enemies hit by the shockwave lose Armour for a duration. While using Resonating Shield, your Shield is raised and you will Block all incoming Blockable hits.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.Physical] = true, [SkillType.Channel] = true, [SkillType.RequiresShield] = true, [SkillType.Nonpathing] = true, [SkillType.Area] = true, [SkillType.Sustained] = true, [SkillType.NonWeaponAttack] = true, },
+	weaponClasses = {
+		["Shield"] = true,
+	},
 	castTime = 1,
 	qualityStats = {
 		{ "armour_break_amount_+%", 1 },
@@ -9893,7 +9902,7 @@ skills["RipwireBallistaPlayer"] = {
 	color = 1,
 	description = "Deploys a Ballista Totem that fires Pinning bolts which Maim Enemies.",
 	skillTypes = { [SkillType.ProjectilesFromUser] = true, [SkillType.Trappable] = true, [SkillType.Mineable] = true, [SkillType.SummonsTotem] = true, [SkillType.SummonsAttackTotem] = true, [SkillType.TotemsAreBallistae] = true, [SkillType.Nonpathing] = true, [SkillType.UseGlobalStats] = true, [SkillType.Limit] = true, [SkillType.Duration] = true, },
-	weaponTypes = {
+	weaponClasses = {
 		["Crossbow"] = true,
 	},
 	skillTotemId = 22,
@@ -10024,7 +10033,7 @@ skills["RipwireBallistaProjectilePlayer"] = {
 	name = "Ripwire Bolt",
 	hidden = true,
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Projectile] = true, [SkillType.CanRapidFire] = true, [SkillType.AttackInPlaceIsDefault] = true, [SkillType.UsedByTotem] = true, },
-	weaponTypes = {
+	weaponClasses = {
 		["Crossbow"] = true,
 	},
 	castTime = 1,
@@ -10156,9 +10165,9 @@ skills["RollingSlamPlayer"] = {
 	color = 1,
 	description = "Slam the ground to Stun enemies and knock them away, then continue forward and perform a devastating second Slam. Holding down the skill input allows you to change direction as you move.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Multistrikeable] = true, [SkillType.Melee] = true, [SkillType.Slam] = true, [SkillType.Area] = true, },
-	weaponTypes = {
-		["One Handed Mace"] = true,
-		["Two Handed Mace"] = true,
+	weaponClasses = {
+		["One Hand Mace"] = true,
+		["Two Hand Mace"] = true,
 	},
 	castTime = 1,
 	qualityStats = {
@@ -10677,7 +10686,7 @@ skills["ShardScavengerPlayer"] = {
 	color = 1,
 	description = "While active, Consuming Freeze, Shock, Ignite, or Fully Broken Armour on an enemy reloads your Crossbow. This can only occur once every few seconds.",
 	skillTypes = { [SkillType.OngoingSkill] = true, [SkillType.HasReservation] = true, [SkillType.Buff] = true, [SkillType.Persistent] = true, [SkillType.Cold] = true, [SkillType.Lightning] = true, [SkillType.Physical] = true, [SkillType.Fire] = true, },
-	weaponTypes = {
+	weaponClasses = {
 		["Crossbow"] = true,
 	},
 	castTime = 1,
@@ -10788,6 +10797,9 @@ skills["ShieldChargePlayer"] = {
 	color = 1,
 	description = "Channel to charge in the target direction. You will crash into enemies on your path, stopping your charge and dealing damage to enemies in an area, and extra damage to the enemies you collided with. While charging, your Shield is raised and you will Block all incoming Blockable hits.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RequiresShield] = true, [SkillType.Melee] = true, [SkillType.Area] = true, [SkillType.Physical] = true, [SkillType.Cooldown] = true, [SkillType.Channel] = true, [SkillType.Travel] = true, [SkillType.NonWeaponAttack] = true, },
+	weaponClasses = {
+		["Shield"] = true,
+	},
 	castTime = 1,
 	qualityStats = {
 		{ "base_cooldown_speed_+%", 0.5 },
@@ -10995,6 +11007,9 @@ skills["ShieldWallPlayer"] = {
 	color = 1,
 	description = "Ram your Shield into the ground, throwing up a semi-circular wall of earth. Enemies can attack the walls and your Slams will instantly destroy them. Each wall segment explodes when destroyed, damaging enemies around it.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Wall] = true, [SkillType.Duration] = true, [SkillType.RequiresShield] = true, [SkillType.Physical] = true, [SkillType.Area] = true, [SkillType.SupportedByFountains] = true, [SkillType.NonWeaponAttack] = true, },
+	weaponClasses = {
+		["Shield"] = true,
+	},
 	castTime = 1,
 	qualityStats = {
 		{ "base_number_of_shield_walls_allowed", 0.1 },
@@ -11121,21 +11136,21 @@ skills["ShockwaveTotemPlayer"] = {
 	color = 1,
 	description = "Raises a Totem that Slams the ground around it, repeatedly damaging nearby enemies. Jagged Ground erupts when hit by this Slam, damaging enemies standing on it.",
 	skillTypes = { [SkillType.SummonsTotem] = true, [SkillType.SummonsAttackTotem] = true, [SkillType.Trappable] = true, [SkillType.Mineable] = true, [SkillType.Limit] = true, [SkillType.Duration] = true, },
-	weaponTypes = {
-		["None"] = true,
-		["One Handed Mace"] = true,
-		["Flail"] = true,
-		["Two Handed Sword"] = true,
-		["Dagger"] = true,
+	weaponClasses = {
+		["One Hand Sword"] = true,
+		["Two Hand Sword"] = true,
+		["One Hand Axe"] = true,
+		["Two Hand Axe"] = true,
+		["One Hand Mace"] = true,
+		["Two Hand Mace"] = true,
+		["Warstaff"] = true,
 		["Claw"] = true,
-		["Crossbow"] = true,
-		["Bow"] = true,
+		["Dagger"] = true,
 		["Spear"] = true,
-		["Two Handed Axe"] = true,
-		["Two Handed Mace"] = true,
-		["One Handed Axe"] = true,
-		["Staff"] = true,
-		["One Handed Sword"] = true,
+		["Bow"] = true,
+		["Flail"] = true,
+		["Crossbow"] = true,
+		["Unarmed"] = true,
 	},
 	skillTotemId = 5,
 	castTime = 0.6,
@@ -11259,6 +11274,9 @@ skills["ShockwaveTotemQuakePlayer"] = {
 	name = "Shockwave Slam",
 	hidden = true,
 	skillTypes = { [SkillType.Area] = true, [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.Physical] = true, [SkillType.Nova] = true, [SkillType.Slam] = true, [SkillType.UsedByTotem] = true, },
+	weaponClasses = {
+		["Nothing"] = true,
+	},
 	castTime = 0.6,
 	qualityStats = {
 	},
@@ -11438,9 +11456,9 @@ skills["StampedePlayer"] = {
 	color = 1,
 	description = "Charges forward, cracking the earth and leaving a patch of Jagged Ground with every footstep. At the end of your charge, a massive leaping Slam damages enemies and causes all nearby patches of Jagged Ground to explode, damaging enemies standing on them.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.Area] = true, [SkillType.Slam] = true, [SkillType.Travel] = true, [SkillType.CreatesGroundEffect] = true, [SkillType.Duration] = true, },
-	weaponTypes = {
-		["One Handed Mace"] = true,
-		["Two Handed Mace"] = true,
+	weaponClasses = {
+		["One Hand Mace"] = true,
+		["Two Hand Mace"] = true,
 	},
 	castTime = 1,
 	qualityStats = {
@@ -11704,9 +11722,9 @@ skills["SunderPlayer"] = {
 	color = 1,
 	description = "Slams the ground, creating a roiling fissure that damages enemies in a sequence of areas in front of you. A number of enemies hit by the wave will release a shockwave, damaging other enemies.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.Multistrikeable] = true, [SkillType.Melee] = true, [SkillType.Slam] = true, [SkillType.Totemable] = true, [SkillType.ConsumesFullyBrokenArmour] = true, [SkillType.CreatesFissure] = true, },
-	weaponTypes = {
-		["Two Handed Mace"] = true,
-		["One Handed Mace"] = true,
+	weaponClasses = {
+		["Two Hand Mace"] = true,
+		["One Hand Mace"] = true,
 	},
 	castTime = 1,
 	qualityStats = {
@@ -11902,8 +11920,8 @@ skills["SuperchargedSlamPlayer"] = {
 	color = 1,
 	description = "Channel to charge up a heavy swing, drawing earth from the ground to enlarge your mace. Release to Slam the ground, dealing damage in an area around the impact, followed by Aftershocks dealing damage in a larger area.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.Channel] = true, [SkillType.Melee] = true, [SkillType.Slam] = true, [SkillType.NoDualWield] = true, },
-	weaponTypes = {
-		["Two Handed Mace"] = true,
+	weaponClasses = {
+		["Two Hand Mace"] = true,
 	},
 	castTime = 1,
 	qualityStats = {
@@ -12204,9 +12222,9 @@ skills["VolcanicFissurePlayer"] = {
 	color = 1,
 	description = "Slam the ground, creating a winding fissure that deals damage as it travels and remains for a duration. Using a different Slam on a fissure will cause an Aftershock, which spreads to all connected fissures.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.Melee] = true, [SkillType.Slam] = true, [SkillType.Fire] = true, [SkillType.Multistrikeable] = true, [SkillType.Duration] = true, [SkillType.Sustained] = true, [SkillType.CreatesFissure] = true, },
-	weaponTypes = {
-		["One Handed Mace"] = true,
-		["Two Handed Mace"] = true,
+	weaponClasses = {
+		["One Hand Mace"] = true,
+		["Two Hand Mace"] = true,
 	},
 	castTime = 1,
 	qualityStats = {
@@ -12325,7 +12343,7 @@ skills["ShockGrenadePlayer"] = {
 	color = 1,
 	description = "Fires a bouncing Grenade that discharges an Electrocuting Lightning blast when its fuse expires.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Area] = true, [SkillType.ProjectileNumber] = true, [SkillType.ProjectileSpeed] = true, [SkillType.Cooldown] = true, [SkillType.Triggerable] = true, [SkillType.Duration] = true, [SkillType.Grenade] = true, [SkillType.Lightning] = true, [SkillType.Nonpathing] = true, },
-	weaponTypes = {
+	weaponClasses = {
 		["Crossbow"] = true,
 	},
 	castTime = 1,

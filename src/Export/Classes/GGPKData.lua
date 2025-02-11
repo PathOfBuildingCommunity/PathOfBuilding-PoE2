@@ -145,6 +145,7 @@ function GGPKClass:GetNeededFiles()
 		"Data/VirtualStatContextFlags.dat",
 		"Data/BaseItemTypes.dat",
 		"Data/WeaponTypes.dat",
+		"Data/weaponCategories.dat",
 		"Data/ArmourTypes.dat",
 		"Data/ShieldTypes.dat",
 		"Data/Flasks.dat",

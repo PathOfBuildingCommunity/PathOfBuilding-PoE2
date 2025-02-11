@@ -1,5 +1,5 @@
 -- Item data (c) Grinding Gear Games
 local itemBases = ...
 
-#type Sceptre
+#label Sceptre
 #baseMatch BaseType Metadata/Items/Sceptres/AbstractSceptre

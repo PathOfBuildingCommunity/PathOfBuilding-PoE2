@@ -1,10 +1,9 @@
 -- Item data (c) Grinding Gear Games
 local itemBases = ...
 
-#type Staff
+#label Staff
 #baseMatch BaseType Metadata/Items/Staves/AbstractStaff
 
-#type Staff
-#subType Warstaff
+#label Quarterstaff
 #socketLimit 3
 #baseMatch BaseType Metadata/Items/Weapons/TwoHandWeapons/Staves/AbstractWarstaff

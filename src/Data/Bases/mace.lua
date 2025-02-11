@@ -3,7 +3,9 @@
 local itemBases = ...
 
 itemBases["Wooden Club"] = {
-	type = "One Handed Mace",
+	class = "One Hand Mace",
+	category = "One Hand Mace",
+	label = "One Hand Mace",
 	quality = 20,
 	socketLimit = 2,
 	tags = { onehand = true, ezomyte_basetype = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
@@ -12,7 +14,9 @@ itemBases["Wooden Club"] = {
 	req = { },
 }
 itemBases["Smithing Hammer"] = {
-	type = "One Handed Mace",
+	class = "One Hand Mace",
+	category = "One Hand Mace",
+	label = "One Hand Mace",
 	quality = 20,
 	socketLimit = 2,
 	tags = { onehand = true, ezomyte_basetype = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
@@ -21,7 +25,9 @@ itemBases["Smithing Hammer"] = {
 	req = { str = 11, },
 }
 itemBases["Slim Mace"] = {
-	type = "One Handed Mace",
+	class = "One Hand Mace",
+	category = "One Hand Mace",
+	label = "One Hand Mace",
 	quality = 20,
 	socketLimit = 2,
 	tags = { onehand = true, ezomyte_basetype = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
@@ -30,7 +36,9 @@ itemBases["Slim Mace"] = {
 	req = { level = 10, str = 25, },
 }
 itemBases["Spiked Club"] = {
-	type = "One Handed Mace",
+	class = "One Hand Mace",
+	category = "One Hand Mace",
+	label = "One Hand Mace",
 	quality = 20,
 	socketLimit = 2,
 	tags = { maraketh_basetype = true, onehand = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
@@ -39,7 +47,9 @@ itemBases["Spiked Club"] = {
 	req = { level = 16, str = 38, },
 }
 itemBases["Warpick"] = {
-	type = "One Handed Mace",
+	class = "One Hand Mace",
+	category = "One Hand Mace",
+	label = "One Hand Mace",
 	quality = 20,
 	socketLimit = 2,
 	tags = { maraketh_basetype = true, onehand = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
@@ -49,7 +59,9 @@ itemBases["Warpick"] = {
 	req = { level = 22, str = 52, },
 }
 itemBases["Plated Mace"] = {
-	type = "One Handed Mace",
+	class = "One Hand Mace",
+	category = "One Hand Mace",
+	label = "One Hand Mace",
 	quality = 20,
 	socketLimit = 2,
 	tags = { maraketh_basetype = true, onehand = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
@@ -58,7 +70,9 @@ itemBases["Plated Mace"] = {
 	req = { level = 26, str = 61, },
 }
 itemBases["Brigand Mace"] = {
-	type = "One Handed Mace",
+	class = "One Hand Mace",
+	category = "One Hand Mace",
+	label = "One Hand Mace",
 	quality = 20,
 	socketLimit = 2,
 	tags = { onehand = true, vaal_basetype = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
@@ -67,7 +81,9 @@ itemBases["Brigand Mace"] = {
 	req = { level = 33, str = 76, },
 }
 itemBases["Construct Hammer"] = {
-	type = "One Handed Mace",
+	class = "One Hand Mace",
+	category = "One Hand Mace",
+	label = "One Hand Mace",
 	quality = 20,
 	socketLimit = 2,
 	tags = { onehand = true, vaal_basetype = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
@@ -77,7 +93,9 @@ itemBases["Construct Hammer"] = {
 	req = { level = 36, str = 83, },
 }
 itemBases["Morning Star"] = {
-	type = "One Handed Mace",
+	class = "One Hand Mace",
+	category = "One Hand Mace",
+	label = "One Hand Mace",
 	quality = 20,
 	socketLimit = 2,
 	tags = { onehand = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
@@ -86,7 +104,9 @@ itemBases["Morning Star"] = {
 	req = { level = 45, str = 104, },
 }
 itemBases["Jade Club"] = {
-	type = "One Handed Mace",
+	class = "One Hand Mace",
+	category = "One Hand Mace",
+	label = "One Hand Mace",
 	quality = 20,
 	socketLimit = 2,
 	tags = { onehand = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
@@ -96,7 +116,9 @@ itemBases["Jade Club"] = {
 	req = { level = 48, str = 110, },
 }
 itemBases["Lumen Mace"] = {
-	type = "One Handed Mace",
+	class = "One Hand Mace",
+	category = "One Hand Mace",
+	label = "One Hand Mace",
 	quality = 20,
 	socketLimit = 2,
 	tags = { onehand = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
@@ -105,7 +127,9 @@ itemBases["Lumen Mace"] = {
 	req = { level = 52, str = 119, },
 }
 itemBases["Execratus Hammer"] = {
-	type = "One Handed Mace",
+	class = "One Hand Mace",
+	category = "One Hand Mace",
+	label = "One Hand Mace",
 	quality = 20,
 	socketLimit = 2,
 	tags = { onehand = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
@@ -114,7 +138,9 @@ itemBases["Execratus Hammer"] = {
 	req = { level = 55, str = 126, },
 }
 itemBases["Torment Club"] = {
-	type = "One Handed Mace",
+	class = "One Hand Mace",
+	category = "One Hand Mace",
+	label = "One Hand Mace",
 	quality = 20,
 	socketLimit = 2,
 	tags = { onehand = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
@@ -123,7 +149,9 @@ itemBases["Torment Club"] = {
 	req = { level = 65, str = 148, },
 }
 itemBases["Advanced Smithing Hammer"] = {
-	type = "One Handed Mace",
+	class = "One Hand Mace",
+	category = "One Hand Mace",
+	label = "One Hand Mace",
 	quality = 20,
 	socketLimit = 2,
 	tags = { onehand = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
@@ -132,7 +160,9 @@ itemBases["Advanced Smithing Hammer"] = {
 	req = { level = 45, str = 104, },
 }
 itemBases["Advanced Slim Mace"] = {
-	type = "One Handed Mace",
+	class = "One Hand Mace",
+	category = "One Hand Mace",
+	label = "One Hand Mace",
 	quality = 20,
 	socketLimit = 2,
 	tags = { onehand = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
@@ -141,7 +171,9 @@ itemBases["Advanced Slim Mace"] = {
 	req = { level = 48, str = 110, },
 }
 itemBases["Advanced Warpick"] = {
-	type = "One Handed Mace",
+	class = "One Hand Mace",
+	category = "One Hand Mace",
+	label = "One Hand Mace",
 	quality = 20,
 	socketLimit = 2,
 	tags = { onehand = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
@@ -151,7 +183,9 @@ itemBases["Advanced Warpick"] = {
 	req = { level = 51, str = 117, },
 }
 itemBases["Advanced Plated Mace"] = {
-	type = "One Handed Mace",
+	class = "One Hand Mace",
+	category = "One Hand Mace",
+	label = "One Hand Mace",
 	quality = 20,
 	socketLimit = 2,
 	tags = { onehand = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
@@ -160,7 +194,9 @@ itemBases["Advanced Plated Mace"] = {
 	req = { level = 55, str = 126, },
 }
 itemBases["Advanced Brigand Mace"] = {
-	type = "One Handed Mace",
+	class = "One Hand Mace",
+	category = "One Hand Mace",
+	label = "One Hand Mace",
 	quality = 20,
 	socketLimit = 2,
 	tags = { onehand = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
@@ -169,7 +205,9 @@ itemBases["Advanced Brigand Mace"] = {
 	req = { level = 59, str = 135, },
 }
 itemBases["Advanced Construct Hammer"] = {
-	type = "One Handed Mace",
+	class = "One Hand Mace",
+	category = "One Hand Mace",
+	label = "One Hand Mace",
 	quality = 20,
 	socketLimit = 2,
 	tags = { onehand = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
@@ -179,7 +217,9 @@ itemBases["Advanced Construct Hammer"] = {
 	req = { level = 62, str = 142, },
 }
 itemBases["Expert Slim Mace"] = {
-	type = "One Handed Mace",
+	class = "One Hand Mace",
+	category = "One Hand Mace",
+	label = "One Hand Mace",
 	quality = 20,
 	socketLimit = 2,
 	tags = { onehand = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
@@ -188,7 +228,9 @@ itemBases["Expert Slim Mace"] = {
 	req = { level = 67, str = 174, },
 }
 itemBases["Expert Plated Mace"] = {
-	type = "One Handed Mace",
+	class = "One Hand Mace",
+	category = "One Hand Mace",
+	label = "One Hand Mace",
 	quality = 20,
 	socketLimit = 2,
 	tags = { onehand = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
@@ -197,7 +239,9 @@ itemBases["Expert Plated Mace"] = {
 	req = { level = 72, str = 193, },
 }
 itemBases["Expert Smithing Hammer"] = {
-	type = "One Handed Mace",
+	class = "One Hand Mace",
+	category = "One Hand Mace",
+	label = "One Hand Mace",
 	quality = 20,
 	socketLimit = 2,
 	tags = { onehand = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
@@ -206,7 +250,9 @@ itemBases["Expert Smithing Hammer"] = {
 	req = { level = 77, str = 212, },
 }
 itemBases["Expert Warpick"] = {
-	type = "One Handed Mace",
+	class = "One Hand Mace",
+	category = "One Hand Mace",
+	label = "One Hand Mace",
 	quality = 20,
 	socketLimit = 2,
 	tags = { onehand = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
@@ -216,7 +262,9 @@ itemBases["Expert Warpick"] = {
 	req = { level = 78, str = 212, },
 }
 itemBases["Expert Construct Hammer"] = {
-	type = "One Handed Mace",
+	class = "One Hand Mace",
+	category = "One Hand Mace",
+	label = "One Hand Mace",
 	quality = 20,
 	socketLimit = 2,
 	tags = { onehand = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
@@ -226,7 +274,9 @@ itemBases["Expert Construct Hammer"] = {
 	req = { level = 79, str = 212, },
 }
 itemBases["Expert Brigand Mace"] = {
-	type = "One Handed Mace",
+	class = "One Hand Mace",
+	category = "One Hand Mace",
+	label = "One Hand Mace",
 	quality = 20,
 	socketLimit = 2,
 	tags = { onehand = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
@@ -236,7 +286,9 @@ itemBases["Expert Brigand Mace"] = {
 }
 
 itemBases["Felled Greatclub"] = {
-	type = "Two Handed Mace",
+	class = "Two Hand Mace",
+	category = "Two Hand Mace",
+	label = "Two Hand Mace",
 	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, ezomyte_basetype = true, mace = true, weapon = true, twohand = true, default = true, },
@@ -245,7 +297,9 @@ itemBases["Felled Greatclub"] = {
 	req = { },
 }
 itemBases["Oak Greathammer"] = {
-	type = "Two Handed Mace",
+	class = "Two Hand Mace",
+	category = "Two Hand Mace",
+	label = "Two Hand Mace",
 	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, ezomyte_basetype = true, mace = true, weapon = true, twohand = true, default = true, },
@@ -255,7 +309,9 @@ itemBases["Oak Greathammer"] = {
 	req = { str = 11, },
 }
 itemBases["Forge Maul"] = {
-	type = "Two Handed Mace",
+	class = "Two Hand Mace",
+	category = "Two Hand Mace",
+	label = "Two Hand Mace",
 	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, ezomyte_basetype = true, mace = true, weapon = true, twohand = true, default = true, },
@@ -264,7 +320,9 @@ itemBases["Forge Maul"] = {
 	req = { level = 11, str = 27, },
 }
 itemBases["Studded Greatclub"] = {
-	type = "Two Handed Mace",
+	class = "Two Hand Mace",
+	category = "Two Hand Mace",
+	label = "Two Hand Mace",
 	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, maraketh_basetype = true, mace = true, weapon = true, twohand = true, default = true, },
@@ -273,7 +331,9 @@ itemBases["Studded Greatclub"] = {
 	req = { level = 16, str = 38, },
 }
 itemBases["Cultist Greathammer"] = {
-	type = "Two Handed Mace",
+	class = "Two Hand Mace",
+	category = "Two Hand Mace",
+	label = "Two Hand Mace",
 	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, maraketh_basetype = true, mace = true, weapon = true, twohand = true, default = true, },
@@ -283,7 +343,9 @@ itemBases["Cultist Greathammer"] = {
 	req = { level = 22, str = 52, },
 }
 itemBases["Temple Maul"] = {
-	type = "Two Handed Mace",
+	class = "Two Hand Mace",
+	category = "Two Hand Mace",
+	label = "Two Hand Mace",
 	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, maraketh_basetype = true, mace = true, weapon = true, twohand = true, default = true, },
@@ -292,7 +354,9 @@ itemBases["Temple Maul"] = {
 	req = { level = 28, str = 65, },
 }
 itemBases["Leaden Greathammer"] = {
-	type = "Two Handed Mace",
+	class = "Two Hand Mace",
+	category = "Two Hand Mace",
+	label = "Two Hand Mace",
 	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, vaal_basetype = true, mace = true, weapon = true, twohand = true, default = true, },
@@ -301,7 +365,9 @@ itemBases["Leaden Greathammer"] = {
 	req = { level = 33, str = 76, },
 }
 itemBases["Crumbling Maul"] = {
-	type = "Two Handed Mace",
+	class = "Two Hand Mace",
+	category = "Two Hand Mace",
+	label = "Two Hand Mace",
 	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, vaal_basetype = true, mace = true, weapon = true, twohand = true, default = true, },
@@ -311,7 +377,9 @@ itemBases["Crumbling Maul"] = {
 	req = { level = 38, str = 88, },
 }
 itemBases["Pointed Maul"] = {
-	type = "Two Handed Mace",
+	class = "Two Hand Mace",
+	category = "Two Hand Mace",
+	label = "Two Hand Mace",
 	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, mace = true, weapon = true, twohand = true, default = true, },
@@ -320,7 +388,9 @@ itemBases["Pointed Maul"] = {
 	req = { level = 45, str = 104, },
 }
 itemBases["Totemic Greatclub"] = {
-	type = "Two Handed Mace",
+	class = "Two Hand Mace",
+	category = "Two Hand Mace",
+	label = "Two Hand Mace",
 	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, mace = true, weapon = true, twohand = true, default = true, },
@@ -330,7 +400,9 @@ itemBases["Totemic Greatclub"] = {
 	req = { level = 50, str = 115, },
 }
 itemBases["Greatmace"] = {
-	type = "Two Handed Mace",
+	class = "Two Hand Mace",
+	category = "Two Hand Mace",
+	label = "Two Hand Mace",
 	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, mace = true, weapon = true, twohand = true, default = true, },
@@ -339,7 +411,9 @@ itemBases["Greatmace"] = {
 	req = { level = 52, str = 119, },
 }
 itemBases["Precise Greathammer"] = {
-	type = "Two Handed Mace",
+	class = "Two Hand Mace",
+	category = "Two Hand Mace",
+	label = "Two Hand Mace",
 	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, mace = true, weapon = true, twohand = true, default = true, },
@@ -348,7 +422,9 @@ itemBases["Precise Greathammer"] = {
 	req = { level = 54, str = 124, },
 }
 itemBases["Giant Maul"] = {
-	type = "Two Handed Mace",
+	class = "Two Hand Mace",
+	category = "Two Hand Mace",
+	label = "Two Hand Mace",
 	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, mace = true, weapon = true, twohand = true, default = true, },
@@ -357,7 +433,9 @@ itemBases["Giant Maul"] = {
 	req = { level = 65, str = 148, },
 }
 itemBases["Advanced Oak Greathammer"] = {
-	type = "Two Handed Mace",
+	class = "Two Hand Mace",
+	category = "Two Hand Mace",
+	label = "Two Hand Mace",
 	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, mace = true, weapon = true, twohand = true, default = true, },
@@ -367,7 +445,9 @@ itemBases["Advanced Oak Greathammer"] = {
 	req = { level = 45, str = 104, },
 }
 itemBases["Advanced Forge Maul"] = {
-	type = "Two Handed Mace",
+	class = "Two Hand Mace",
+	category = "Two Hand Mace",
+	label = "Two Hand Mace",
 	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, mace = true, weapon = true, twohand = true, default = true, },
@@ -376,7 +456,9 @@ itemBases["Advanced Forge Maul"] = {
 	req = { level = 48, str = 110, },
 }
 itemBases["Advanced Cultist Greathammer"] = {
-	type = "Two Handed Mace",
+	class = "Two Hand Mace",
+	category = "Two Hand Mace",
+	label = "Two Hand Mace",
 	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, mace = true, weapon = true, twohand = true, default = true, },
@@ -386,7 +468,9 @@ itemBases["Advanced Cultist Greathammer"] = {
 	req = { level = 51, str = 117, },
 }
 itemBases["Advanced Temple Maul"] = {
-	type = "Two Handed Mace",
+	class = "Two Hand Mace",
+	category = "Two Hand Mace",
+	label = "Two Hand Mace",
 	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, mace = true, weapon = true, twohand = true, default = true, },
@@ -395,7 +479,9 @@ itemBases["Advanced Temple Maul"] = {
 	req = { level = 55, str = 126, },
 }
 itemBases["Advanced Leaden Greathammer"] = {
-	type = "Two Handed Mace",
+	class = "Two Hand Mace",
+	category = "Two Hand Mace",
+	label = "Two Hand Mace",
 	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, mace = true, weapon = true, twohand = true, default = true, },
@@ -404,7 +490,9 @@ itemBases["Advanced Leaden Greathammer"] = {
 	req = { level = 59, str = 135, },
 }
 itemBases["Advanced Crumbling Maul"] = {
-	type = "Two Handed Mace",
+	class = "Two Hand Mace",
+	category = "Two Hand Mace",
+	label = "Two Hand Mace",
 	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, mace = true, weapon = true, twohand = true, default = true, },
@@ -414,7 +502,9 @@ itemBases["Advanced Crumbling Maul"] = {
 	req = { level = 62, str = 142, },
 }
 itemBases["Expert Forge Maul"] = {
-	type = "Two Handed Mace",
+	class = "Two Hand Mace",
+	category = "Two Hand Mace",
+	label = "Two Hand Mace",
 	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, mace = true, weapon = true, twohand = true, default = true, },
@@ -423,7 +513,9 @@ itemBases["Expert Forge Maul"] = {
 	req = { level = 67, str = 174, },
 }
 itemBases["Expert Temple Maul"] = {
-	type = "Two Handed Mace",
+	class = "Two Hand Mace",
+	category = "Two Hand Mace",
+	label = "Two Hand Mace",
 	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, mace = true, weapon = true, twohand = true, default = true, },
@@ -432,7 +524,9 @@ itemBases["Expert Temple Maul"] = {
 	req = { level = 72, str = 193, },
 }
 itemBases["Expert Oak Greathammer"] = {
-	type = "Two Handed Mace",
+	class = "Two Hand Mace",
+	category = "Two Hand Mace",
+	label = "Two Hand Mace",
 	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, mace = true, weapon = true, twohand = true, default = true, },
@@ -442,7 +536,9 @@ itemBases["Expert Oak Greathammer"] = {
 	req = { level = 77, str = 212, },
 }
 itemBases["Expert Cultist Greathammer"] = {
-	type = "Two Handed Mace",
+	class = "Two Hand Mace",
+	category = "Two Hand Mace",
+	label = "Two Hand Mace",
 	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, mace = true, weapon = true, twohand = true, default = true, },
@@ -452,7 +548,9 @@ itemBases["Expert Cultist Greathammer"] = {
 	req = { level = 78, str = 212, },
 }
 itemBases["Expert Crumbling Maul"] = {
-	type = "Two Handed Mace",
+	class = "Two Hand Mace",
+	category = "Two Hand Mace",
+	label = "Two Hand Mace",
 	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, mace = true, weapon = true, twohand = true, default = true, },
@@ -462,7 +560,9 @@ itemBases["Expert Crumbling Maul"] = {
 	req = { level = 79, str = 212, },
 }
 itemBases["Expert Leaden Greathammer"] = {
-	type = "Two Handed Mace",
+	class = "Two Hand Mace",
+	category = "Two Hand Mace",
+	label = "Two Hand Mace",
 	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, mace = true, weapon = true, twohand = true, default = true, },

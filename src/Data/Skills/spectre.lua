@@ -46,7 +46,7 @@ skills["AxisDoubleStrikeTrigger"] = {
 	baseEffectiveness = 0,
 	description = "Performs two fast strikes with a melee weapon.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Multistrikeable] = true, [SkillType.Melee] = true, [SkillType.Physical] = true, },
-	weaponTypes = {
+	weaponClasses = {
 		["One Handed Mace"] = true,
 		["Sceptre"] = true,
 		["Thrusting One Handed Sword"] = true,
@@ -85,7 +85,7 @@ skills["BanditExplosiveArrowAtAnimationSpeed"] = {
 	incrementalEffectiveness = 0.037999998778105,
 	description = "Fires an arrow which acts as a short duration fuse. Applying additional arrows to an enemy extends the duration. When the target dies or the fuses expire, the arrows explode, dealing fire AoE damage to nearby enemies. The AoE radius is proportional to the number of arrows upon death.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Totemable] = true, [SkillType.Trappable] = true, [SkillType.Mineable] = true, [SkillType.Fire] = true, [SkillType.Triggerable] = true, },
-	weaponTypes = {
+	weaponClasses = {
 		["Bow"] = true,
 	},
 	statDescriptionScope = "skill_stat_descriptions",
@@ -133,7 +133,7 @@ skills["BanditChampionBlastRainSpectre"] = {
 	color = 2,
 	description = "Fires arrows up in the air, to rain down in an area. Each arrow deals area damage around where it lands, and they will all overlap on the targeted location.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Fire] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Area] = true, [SkillType.ProjectileSpeed] = true, [SkillType.ProjectileNumber] = true, [SkillType.Totemable] = true, [SkillType.Trappable] = true, [SkillType.Mineable] = true, [SkillType.Triggerable] = true, [SkillType.Rain] = true, },
-	weaponTypes = {
+	weaponClasses = {
 		["Bow"] = true,
 	},
 	statDescriptionScope = "skill_stat_descriptions",
@@ -232,7 +232,7 @@ skills["BoneStalkerEarthquake"] = {
 	color = 1,
 	description = "Smashes the ground, dealing damage in an area and cracking the earth. The crack will erupt in a powerful aftershock after a duration. Cracks created before the first one has erupted will not generate their own aftershocks. Requires an Axe, Mace, Sceptre, Staff or Unarmed.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.Melee] = true, [SkillType.Multistrikeable] = true, [SkillType.Duration] = true, [SkillType.Slam] = true, [SkillType.Triggerable] = true, [SkillType.Totemable] = true, },
-	weaponTypes = {
+	weaponClasses = {
 		["None"] = true,
 		["One Handed Mace"] = true,
 		["Sceptre"] = true,
@@ -267,7 +267,7 @@ skills["BreachCleave"] = {
 	color = 1,
 	description = "The character swings their weapon (or both weapons if dual wielding) in an arc, damaging monsters in an area in front of them. Only works with Axes and Swords.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.Multistrikeable] = true, [SkillType.Melee] = true, [SkillType.ThresholdJewelArea] = true, },
-	weaponTypes = {
+	weaponClasses = {
 		["Two Handed Axe"] = true,
 		["Thrusting One Handed Sword"] = true,
 		["One Handed Axe"] = true,
@@ -327,7 +327,7 @@ skills["CageSpiderCycloneTriggerSandstorms"] = {
 	color = 2,
 	description = "Damage enemies around you, then perform a spinning series of attacks as you travel to a target location. Cannot be supported by Ruthless or Multistrike.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.Melee] = true, [SkillType.Movement] = true, },
-	weaponTypes = {
+	weaponClasses = {
 		["None"] = true,
 		["One Handed Mace"] = true,
 		["Sceptre"] = true,
@@ -746,7 +746,7 @@ skills["FireMonsterWhirlingBlades"] = {
 	incrementalEffectiveness = 0.064599998295307,
 	description = "Dive through enemies, dealing weapon damage. If dual wielding attacks with both weapons, dealing the damage of both in one hit. Only works with Daggers, Claws, and One-Handed Swords.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.Movement] = true, [SkillType.Travel] = true, },
-	weaponTypes = {
+	weaponClasses = {
 		["Thrusting One Handed Sword"] = true,
 		["Claw"] = true,
 		["Dagger"] = true,
@@ -854,7 +854,7 @@ skills["GoatmanEarthquake"] = {
 	color = 1,
 	description = "Smashes the ground, dealing damage in an area and cracking the earth. The crack will erupt in a powerful aftershock after a duration. Cracks created before the first one has erupted will not generate their own aftershocks. Requires an Axe, Mace, Sceptre, Staff or Unarmed.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.Melee] = true, [SkillType.Multistrikeable] = true, [SkillType.Duration] = true, [SkillType.Slam] = true, [SkillType.Triggerable] = true, [SkillType.Totemable] = true, },
-	weaponTypes = {
+	weaponClasses = {
 		["None"] = true,
 		["One Handed Mace"] = true,
 		["Sceptre"] = true,
@@ -1067,7 +1067,7 @@ skills["HalfSkeletonPuncture"] = {
 	baseEffectiveness = 0,
 	description = "Punctures enemies, causing a bleeding debuff, which will be affected by modifiers to skill duration. Puncture works with bows, daggers, claws or swords.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Duration] = true, [SkillType.Trappable] = true, [SkillType.Mineable] = true, [SkillType.Totemable] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Multistrikeable] = true, [SkillType.Melee] = true, [SkillType.DamageOverTime] = true, [SkillType.Triggerable] = true, [SkillType.Physical] = true, },
-	weaponTypes = {
+	weaponClasses = {
 		["Bow"] = true,
 		["Claw"] = true,
 		["Thrusting One Handed Sword"] = true,
@@ -1214,7 +1214,7 @@ skills["IncursionLeapSlamChampion"] = {
 	color = 4,
 	description = "Jump through the air, damaging and knocking back enemies with your weapon where you land. Enemies you would land on are pushed out of the way. Requires an Axe, Mace, Sceptre, Sword or Staff.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.Melee] = true, [SkillType.Movement] = true, [SkillType.Travel] = true, [SkillType.Slam] = true, [SkillType.Totemable] = true, },
-	weaponTypes = {
+	weaponClasses = {
 		["One Handed Mace"] = true,
 		["Sceptre"] = true,
 		["Thrusting One Handed Sword"] = true,
@@ -1371,7 +1371,7 @@ skills["KaomWarriorMoltenStrike"] = {
 	baseEffectiveness = 0.69999998807907,
 	description = "Infuses your melee weapon with molten energies to attack with physical and fire damage. This attack causes balls of molten magma to launch forth from the enemies you hit, divided amongst all enemies hit by the strike. These will deal area attack damage to enemies where they land.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Projectile] = true, [SkillType.Area] = true, [SkillType.Melee] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Fire] = true, [SkillType.RangedAttack] = true, [SkillType.ProjectilesNotFromUser] = true, [SkillType.ThresholdJewelChaining] = true, [SkillType.Multistrikeable] = true, },
-	weaponTypes = {
+	weaponClasses = {
 		["One Handed Mace"] = true,
 		["Sceptre"] = true,
 		["Thrusting One Handed Sword"] = true,
@@ -1412,7 +1412,7 @@ skills["KitavaDemonLeapSlam"] = {
 	baseEffectiveness = 0,
 	description = "Jump through the air, damaging and knocking back enemies with your weapon where you land. Enemies you would land on are pushed out of the way. Requires an Axe, Mace, Sceptre, Sword or Staff.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.Melee] = true, [SkillType.Movement] = true, [SkillType.Travel] = true, [SkillType.Slam] = true, [SkillType.Totemable] = true, },
-	weaponTypes = {
+	weaponClasses = {
 		["One Handed Mace"] = true,
 		["Sceptre"] = true,
 		["Thrusting One Handed Sword"] = true,
@@ -1450,7 +1450,7 @@ skills["KitavaDemonCleave"] = {
 	baseEffectiveness = 0,
 	description = "The character swings their weapon (or both weapons if dual wielding) in an arc, damaging monsters in an area in front of them. Only works with Axes and Swords.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.Multistrikeable] = true, [SkillType.Melee] = true, [SkillType.ThresholdJewelArea] = true, },
-	weaponTypes = {
+	weaponClasses = {
 		["Two Handed Axe"] = true,
 		["Thrusting One Handed Sword"] = true,
 		["One Handed Axe"] = true,
@@ -1485,7 +1485,7 @@ skills["KitavaDemonWhirlingBlades"] = {
 	incrementalEffectiveness = 0.0625,
 	description = "Dive through enemies, dealing weapon damage. If dual wielding attacks with both weapons, dealing the damage of both in one hit. Only works with Daggers, Claws, and One-Handed Swords.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.Movement] = true, [SkillType.Travel] = true, },
-	weaponTypes = {
+	weaponClasses = {
 		["Thrusting One Handed Sword"] = true,
 		["Claw"] = true,
 		["Dagger"] = true,
@@ -1659,7 +1659,7 @@ skills["MonsterCausticArrow"] = {
 	incrementalEffectiveness = 0.03999999910593,
 	description = "Fires an arrow which deals chaos damage in an area on impact, and spreads caustic ground. Enemies standing on the caustic ground take chaos damage over time.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Trappable] = true, [SkillType.Mineable] = true, [SkillType.Totemable] = true, [SkillType.DamageOverTime] = true, [SkillType.Chaos] = true, [SkillType.Triggerable] = true, },
-	weaponTypes = {
+	weaponClasses = {
 		["Bow"] = true,
 	},
 	statDescriptionScope = "skill_stat_descriptions",
@@ -1705,7 +1705,7 @@ skills["MonsterCausticArrowAtAnimationSpeed"] = {
 	incrementalEffectiveness = 0.03999999910593,
 	description = "Fires an arrow which deals chaos damage in an area on impact, and spreads caustic ground. Enemies standing on the caustic ground take chaos damage over time.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Trappable] = true, [SkillType.Mineable] = true, [SkillType.Totemable] = true, [SkillType.DamageOverTime] = true, [SkillType.Chaos] = true, [SkillType.Triggerable] = true, },
-	weaponTypes = {
+	weaponClasses = {
 		["Bow"] = true,
 	},
 	statDescriptionScope = "skill_stat_descriptions",
@@ -1979,7 +1979,7 @@ skills["MonsterFlickerStrike"] = {
 	baseEffectiveness = 0,
 	description = "Teleports the character to a nearby monster and attacks with a melee weapon. If no specific monster is targeted, one is picked at random. Grants a buff that increases movement speed for a duration. The cooldown can be bypassed by expending a Frenzy Charge.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Multistrikeable] = true, [SkillType.Movement] = true, [SkillType.Duration] = true, [SkillType.Cooldown] = true, },
-	weaponTypes = {
+	weaponClasses = {
 		["One Handed Mace"] = true,
 		["Sceptre"] = true,
 		["Thrusting One Handed Sword"] = true,
@@ -2052,7 +2052,7 @@ skills["MonsterIceShot"] = {
 	baseEffectiveness = 0.85000002384186,
 	description = "Fires an arrow that converts some physical damage to cold on its target and converts all physical damage to cold in a cone behind that target.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Area] = true, [SkillType.Cold] = true, [SkillType.Triggerable] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Totemable] = true, [SkillType.Trappable] = true, [SkillType.Mineable] = true, },
-	weaponTypes = {
+	weaponClasses = {
 		["Bow"] = true,
 	},
 	statDescriptionScope = "skill_stat_descriptions",
@@ -2114,7 +2114,7 @@ skills["MonsterLeapSlam"] = {
 	baseEffectiveness = 0,
 	description = "Jump through the air, damaging and knocking back enemies with your weapon where you land. Enemies you would land on are pushed out of the way. Requires an Axe, Mace, Sceptre, Sword or Staff.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.Melee] = true, [SkillType.Movement] = true, [SkillType.Travel] = true, [SkillType.Slam] = true, [SkillType.Totemable] = true, },
-	weaponTypes = {
+	weaponClasses = {
 		["One Handed Mace"] = true,
 		["Sceptre"] = true,
 		["Thrusting One Handed Sword"] = true,
@@ -2150,7 +2150,7 @@ skills["MonsterLeapSlamFoothills"] = {
 	baseEffectiveness = 0,
 	description = "Jump through the air, damaging and knocking back enemies with your weapon where you land. Enemies you would land on are pushed out of the way. Requires an Axe, Mace, Sceptre, Sword or Staff.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.Melee] = true, [SkillType.Movement] = true, [SkillType.Travel] = true, [SkillType.Slam] = true, [SkillType.Totemable] = true, },
-	weaponTypes = {
+	weaponClasses = {
 		["One Handed Mace"] = true,
 		["Sceptre"] = true,
 		["Thrusting One Handed Sword"] = true,
@@ -2246,7 +2246,7 @@ skills["MonsterLightningArrow"] = {
 	incrementalEffectiveness = 0.019999999552965,
 	description = "Fires a charged arrow which damages enemies by causing them to be struck by a bolt of lightning, which also damages a number of surrounding enemies.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Area] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Totemable] = true, [SkillType.Trappable] = true, [SkillType.Mineable] = true, [SkillType.Lightning] = true, [SkillType.Triggerable] = true, },
-	weaponTypes = {
+	weaponClasses = {
 		["Bow"] = true,
 	},
 	statDescriptionScope = "skill_stat_descriptions",
@@ -2277,7 +2277,7 @@ skills["SkeletonArcherLightningArrow"] = {
 	incrementalEffectiveness = 0.019999999552965,
 	description = "Fires a charged arrow which damages enemies by causing them to be struck by a bolt of lightning, which also damages a number of surrounding enemies.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Area] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Totemable] = true, [SkillType.Trappable] = true, [SkillType.Mineable] = true, [SkillType.Lightning] = true, [SkillType.Triggerable] = true, },
-	weaponTypes = {
+	weaponClasses = {
 		["Bow"] = true,
 	},
 	statDescriptionScope = "skill_stat_descriptions",
@@ -2441,7 +2441,7 @@ skills["MonsterPuncture"] = {
 	baseEffectiveness = 0,
 	description = "Punctures enemies, causing a bleeding debuff, which will be affected by modifiers to skill duration. Puncture works with bows, daggers, claws or swords.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Duration] = true, [SkillType.Trappable] = true, [SkillType.Mineable] = true, [SkillType.Totemable] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Multistrikeable] = true, [SkillType.Melee] = true, [SkillType.DamageOverTime] = true, [SkillType.Triggerable] = true, [SkillType.Physical] = true, },
-	weaponTypes = {
+	weaponClasses = {
 		["Bow"] = true,
 		["Claw"] = true,
 		["Thrusting One Handed Sword"] = true,
@@ -2627,7 +2627,7 @@ skills["MonsterViperStrike"] = {
 	incrementalEffectiveness = 0.025499999523163,
 	description = "Hits enemies, converting some of your physical damage to chaos damage and inflicting poison which will be affected by modifiers to skill duration. If dual wielding, will strike with both weapons. Requires a claw, dagger or sword.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Duration] = true, [SkillType.Multistrikeable] = true, [SkillType.Melee] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.DamageOverTime] = true, [SkillType.Chaos] = true, },
-	weaponTypes = {
+	weaponClasses = {
 		["Claw"] = true,
 		["Thrusting One Handed Sword"] = true,
 		["Two Handed Sword"] = true,
@@ -3398,7 +3398,7 @@ skills["SkeletonSoldierTornadoShot"] = {
 	color = 2,
 	description = "Fires a piercing shot that travels until it reaches the targeted location. It will then fire projectiles out in all directions from that point, which will travel for a short time before disappearing.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Trappable] = true, [SkillType.Mineable] = true, [SkillType.Totemable] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Triggerable] = true, },
-	weaponTypes = {
+	weaponClasses = {
 		["Bow"] = true,
 	},
 	statDescriptionScope = "skill_stat_descriptions",
@@ -3710,7 +3710,7 @@ skills["UndyingWhirlingBlades"] = {
 	baseEffectiveness = 0,
 	description = "Dive through enemies, dealing weapon damage. If dual wielding attacks with both weapons, dealing the damage of both in one hit. Only works with Daggers, Claws, and One-Handed Swords.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.Movement] = true, [SkillType.Travel] = true, },
-	weaponTypes = {
+	weaponClasses = {
 		["Thrusting One Handed Sword"] = true,
 		["Claw"] = true,
 		["Dagger"] = true,
@@ -3740,7 +3740,7 @@ skills["WalkingDoubleSlash"] = {
 	hidden = true,
 	color = 2,
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.Multistrikeable] = true, [SkillType.Melee] = true, },
-	weaponTypes = {
+	weaponClasses = {
 		["Two Handed Axe"] = true,
 		["Thrusting One Handed Sword"] = true,
 		["Two Handed Sword"] = true,
@@ -3772,7 +3772,7 @@ skills["WickerManMoltenStrike"] = {
 	baseEffectiveness = 0.69999998807907,
 	description = "Infuses your melee weapon with molten energies to attack with physical and fire damage. This attack causes balls of molten magma to launch forth from the enemies you hit, divided amongst all enemies hit by the strike. These will deal area attack damage to enemies where they land.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Projectile] = true, [SkillType.Area] = true, [SkillType.Melee] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Fire] = true, [SkillType.RangedAttack] = true, [SkillType.ProjectilesNotFromUser] = true, [SkillType.ThresholdJewelChaining] = true, [SkillType.Multistrikeable] = true, },
-	weaponTypes = {
+	weaponClasses = {
 		["One Handed Mace"] = true,
 		["Sceptre"] = true,
 		["Thrusting One Handed Sword"] = true,
@@ -4564,7 +4564,7 @@ skills["HarvestRhexLeapSlam"] = {
 	color = 4,
 	description = "Jump through the air, damaging and knocking back enemies with your weapon where you land. Enemies you would land on are pushed out of the way. Requires an Axe, Mace, Sceptre, Sword or Staff.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.Melee] = true, [SkillType.Movement] = true, [SkillType.Travel] = true, [SkillType.Slam] = true, [SkillType.Totemable] = true, },
-	weaponTypes = {
+	weaponClasses = {
 		["One Handed Mace"] = true,
 		["Sceptre"] = true,
 		["Thrusting One Handed Sword"] = true,
@@ -4845,7 +4845,7 @@ skills["HeistThugRangedExplosiveArrow"] = {
 	incrementalEffectiveness = 0.037999998778105,
 	description = "Fires an arrow which will stick into an enemy or wall, and then explode, dealing area damage around it, either after a duration or when the maximum number of arrows stuck to that target is reached. If an enemy has multiple Explosive Arrows stuck in them, the first one to explode will consume the others, adding their damage to its explosion.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Totemable] = true, [SkillType.Trappable] = true, [SkillType.Mineable] = true, [SkillType.Fire] = true, [SkillType.Triggerable] = true, },
-	weaponTypes = {
+	weaponClasses = {
 		["Bow"] = true,
 	},
 	statDescriptionScope = "skill_stat_descriptions",
@@ -5225,7 +5225,7 @@ skills["SecretDesecrateMonsterEarthquakeTriggered"] = {
 	color = 4,
 	description = "Smashes the ground, dealing damage in an area and cracking the earth. The crack will erupt in a powerful aftershock after a duration. Cracks created before the first one has erupted will not generate their own aftershocks. Requires an Axe, Mace, Sceptre, Staff or Unarmed.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.Melee] = true, [SkillType.Multistrikeable] = true, [SkillType.Duration] = true, [SkillType.Slam] = true, [SkillType.Triggerable] = true, [SkillType.Totemable] = true, },
-	weaponTypes = {
+	weaponClasses = {
 		["None"] = true,
 		["One Handed Mace"] = true,
 		["Sceptre"] = true,
@@ -6365,7 +6365,7 @@ skills["AzmeriHailrakeGlacialHammer"] = {
 	baseEffectiveness = 0,
 	description = "Hits enemies, converting some of your physical damage to cold damage. If a non-unique enemy is frozen and is on less than one third life, they will shatter when hit by Glacial Hammer. If striking three times in a row, the third strike will freeze enemies more easily. Requires a Mace, Sceptre or Staff.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Multistrikeable] = true, [SkillType.Melee] = true, [SkillType.Cold] = true, [SkillType.ThresholdJewelArea] = true, },
-	weaponTypes = {
+	weaponClasses = {
 		["Two Handed Mace"] = true,
 		["Staff"] = true,
 		["One Handed Mace"] = true,
@@ -6421,7 +6421,7 @@ skills["IceCrashAzmeriHailrake"] = {
 	color = 1,
 	description = "Slam the ground, damaging enemies in an area around the impact in three stages of increasing size. Enemies take slightly less damage on the second and third stage, and can only be hit by one stage. Works with Swords, Maces, Sceptres, Axes, Staves and Unarmed.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.Melee] = true, [SkillType.Cold] = true, [SkillType.Multistrikeable] = true, [SkillType.Slam] = true, [SkillType.Totemable] = true, [SkillType.Triggerable] = true, },
-	weaponTypes = {
+	weaponClasses = {
 		["None"] = true,
 		["One Handed Mace"] = true,
 		["Sceptre"] = true,
@@ -6496,7 +6496,7 @@ skills["AzmeriFireFuryMoltenStrike"] = {
 	color = 1,
 	description = "Infuses your melee weapon with molten energies to attack with physical and fire damage. This attack causes balls of molten magma to launch forth from the enemies you hit, divided amongst all enemies hit by the strike. These will deal area attack damage to enemies where they land.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Projectile] = true, [SkillType.Area] = true, [SkillType.Melee] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Fire] = true, [SkillType.RangedAttack] = true, [SkillType.ProjectilesNotFromUser] = true, [SkillType.ThresholdJewelChaining] = true, [SkillType.Multistrikeable] = true, },
-	weaponTypes = {
+	weaponClasses = {
 		["One Handed Mace"] = true,
 		["Sceptre"] = true,
 		["Thrusting One Handed Sword"] = true,
@@ -6735,7 +6735,7 @@ skills["AzmeriHydraForkArrow"] = {
 	hidden = true,
 	color = 4,
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Totemable] = true, [SkillType.Trappable] = true, [SkillType.Mineable] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, },
-	weaponTypes = {
+	weaponClasses = {
 		["Bow"] = true,
 	},
 	statDescriptionScope = "skill_stat_descriptions",
@@ -7242,7 +7242,7 @@ skills["AzmeriSawbladeAnimatedWeaponCyclone"] = {
 	baseEffectiveness = 0.85000002384186,
 	description = "Damage enemies around you, then perform a spinning series of attacks as you travel to a target location. Cannot be supported by Ruthless or Multistrike.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.Melee] = true, [SkillType.Movement] = true, },
-	weaponTypes = {
+	weaponClasses = {
 		["None"] = true,
 		["One Handed Mace"] = true,
 		["Sceptre"] = true,
@@ -7283,7 +7283,7 @@ skills["AzmeriDoubleSlashAnimatedWeapon"] = {
 	color = 2,
 	description = "Slashes twice, releasing waves of force that damage enemies they hit. Enemies in the middle of the slashes can be hit by both. The slashes will have a chance to inflict bleeding in Blood Stance, or have a wider angle in Sand Stance. Can be used with Axes and Swords. You are in Blood Stance by default.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.Multistrikeable] = true, [SkillType.Melee] = true, [SkillType.Physical] = true, },
-	weaponTypes = {
+	weaponClasses = {
 		["Two Handed Axe"] = true,
 		["Thrusting One Handed Sword"] = true,
 		["Two Handed Sword"] = true,
@@ -7387,7 +7387,7 @@ skills["AzmeriBarrageDemonRainOfSpines"] = {
 	baseEffectiveness = 0,
 	description = "Fires a large number of arrows into the air, to land at the target after a short delay.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Area] = true, [SkillType.ProjectileSpeed] = true, [SkillType.Totemable] = true, [SkillType.Trappable] = true, [SkillType.Mineable] = true, [SkillType.Triggerable] = true, [SkillType.Rain] = true, },
-	weaponTypes = {
+	weaponClasses = {
 		["Bow"] = true,
 	},
 	statDescriptionScope = "skill_stat_descriptions",
@@ -7945,7 +7945,7 @@ skills["AzmeriCycloneDemonDesecratedGroundCyclone"] = {
 	baseEffectiveness = 0.85000002384186,
 	description = "Damage enemies around you, then perform a spinning series of attacks as you travel to a target location. Cannot be supported by Ruthless or Multistrike.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.Melee] = true, [SkillType.Movement] = true, },
-	weaponTypes = {
+	weaponClasses = {
 		["None"] = true,
 		["One Handed Mace"] = true,
 		["Sceptre"] = true,
@@ -8090,7 +8090,7 @@ skills["AzmeriDualStrikeDemonDualStrike"] = {
 	baseEffectiveness = 0,
 	description = "Attacks with both weapons, dealing the damage of both in one strike. Dual wield only. Does not work with wands.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.DualWieldOnly] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Multistrikeable] = true, [SkillType.Melee] = true, [SkillType.ThresholdJewelArea] = true, },
-	weaponTypes = {
+	weaponClasses = {
 		["Two Handed Axe"] = true,
 		["Claw"] = true,
 		["One Handed Mace"] = true,
@@ -8355,7 +8355,7 @@ skills["AzmeriGeofriSmite"] = {
 	incrementalEffectiveness = 0.028000000864267,
 	description = "Performs a melee attack, and causes lightning to strike a nearby enemy, dealing damage in an area. Each target can only be hit once by this skill. Hitting an enemy grants an aura for a duration. Requires a Sword, Axe, Mace, Sceptre, Staff or Unarmed.",
 	skillTypes = { [SkillType.Melee] = true, [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Multistrikeable] = true, [SkillType.Damage] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Aura] = true, [SkillType.Buff] = true, [SkillType.Lightning] = true, },
-	weaponTypes = {
+	weaponClasses = {
 		["None"] = true,
 		["One Handed Mace"] = true,
 		["Sceptre"] = true,
@@ -8916,7 +8916,7 @@ skills["AzmeriOakSweep"] = {
 	baseEffectiveness = 0,
 	description = "Swings a two handed melee weapon in a circle, knocking back monsters around the character.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.Multistrikeable] = true, [SkillType.Melee] = true, },
-	weaponTypes = {
+	weaponClasses = {
 		["Two Handed Mace"] = true,
 		["Two Handed Sword"] = true,
 		["Staff"] = true,
@@ -8949,7 +8949,7 @@ skills["AzmeriOakLeapSlam"] = {
 	baseEffectiveness = 0,
 	description = "Jump through the air, damaging and knocking back enemies with your weapon where you land. Enemies you would land on are pushed out of the way. Requires an Axe, Mace, Sceptre, Sword or Staff.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.Melee] = true, [SkillType.Movement] = true, [SkillType.Travel] = true, [SkillType.Slam] = true, [SkillType.Totemable] = true, },
-	weaponTypes = {
+	weaponClasses = {
 		["One Handed Mace"] = true,
 		["Sceptre"] = true,
 		["Thrusting One Handed Sword"] = true,
@@ -9221,7 +9221,7 @@ skills["MonsterViperStrikeAtAnimationSpeed"] = {
 	incrementalEffectiveness = 0.025499999523163,
 	description = "Hits enemies, converting some of your physical damage to chaos damage and inflicting poison which will be affected by modifiers to skill duration. If dual wielding, will strike with both weapons. Requires a claw, dagger or sword.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Duration] = true, [SkillType.Multistrikeable] = true, [SkillType.Melee] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.DamageOverTime] = true, [SkillType.Chaos] = true, },
-	weaponTypes = {
+	weaponClasses = {
 		["Claw"] = true,
 		["Thrusting One Handed Sword"] = true,
 		["Two Handed Sword"] = true,
@@ -9833,7 +9833,7 @@ skills["AzmeriVikingCyclone"] = {
 	incrementalEffectiveness = 0.050000000745058,
 	description = "Damage enemies around you, then perform a spinning series of attacks as you travel to a target location. Cannot be supported by Ruthless or Multistrike.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.Melee] = true, [SkillType.Movement] = true, },
-	weaponTypes = {
+	weaponClasses = {
 		["None"] = true,
 		["One Handed Mace"] = true,
 		["Sceptre"] = true,
@@ -10437,7 +10437,7 @@ skills["AzmeriGolemLeapSlam"] = {
 	color = 4,
 	description = "Jump through the air, damaging and knocking back enemies with your weapon where you land. Enemies you would land on are pushed out of the way. Requires an Axe, Mace, Sceptre, Sword or Staff.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.Melee] = true, [SkillType.Movement] = true, [SkillType.Travel] = true, [SkillType.Slam] = true, [SkillType.Totemable] = true, },
-	weaponTypes = {
+	weaponClasses = {
 		["One Handed Mace"] = true,
 		["Sceptre"] = true,
 		["Thrusting One Handed Sword"] = true,

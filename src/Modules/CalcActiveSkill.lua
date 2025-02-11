@@ -198,16 +198,16 @@ function calcs.copyActiveSkill(env, mode, skill)
 end
 
 -- Get weapon flags and info for given weapon
-local function getWeaponFlags(env, weaponData, weaponTypes)
-	local info = env.data.weaponTypeInfo[weaponData.type]
+local function getWeaponFlags(env, weaponData, weaponClasses)
+	local info = env.data.weaponClassInfo[weaponData.class]
 	if not info then
 		return
 	end
-	if weaponTypes then
-		for _, types in ipairs(weaponTypes) do
-			if not types[weaponData.type] and
-			(not weaponData.countsAsAll1H or not (types["Claw"] or types["Dagger"] or types["One Handed Axe"] or types["One Handed Mace"] or types["One Handed Sword"]
-			or types["Spear"])) then
+	if weaponClasses then
+		for _, classes in ipairs(weaponClasses) do
+			if not classes[weaponData.class] and
+			(not weaponData.countsAsAll1H or not (classes["Claw"] or classes["Dagger"] or classes["One Hand Axe"] or classes["One Hand Mace"] or classes["One Hand Sword"]
+			or classes["Spear"])) then
 				return nil, info
 			end
 		end
@@ -216,7 +216,7 @@ local function getWeaponFlags(env, weaponData, weaponTypes)
 	if weaponData.countsAsAll1H then
 		flags = bor(ModFlag.Axe, ModFlag.Claw, ModFlag.Dagger, ModFlag.Mace, ModFlag.Sword, ModFlag.Spear)
 	end
-	if weaponData.type ~= "None" then
+	if weaponData.class ~= "Unarmed" then
 		flags = bor(flags, ModFlag.Weapon)
 		if info.oneHand then
 			flags = bor(flags, ModFlag.Weapon1H)
@@ -313,7 +313,7 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 		activeEffect.srcInstance.skillPartCalcs = nil
 	end
 
-	if (skillTypes[SkillType.RequiresShield] or skillFlags.shieldAttack) and not activeSkill.summonSkill and (not activeSkill.actor.itemList["Weapon 2"] or activeSkill.actor.itemList["Weapon 2"].type ~= "Shield") then
+	if (skillTypes[SkillType.RequiresShield] or skillFlags.shieldAttack) and not activeSkill.summonSkill and (not activeSkill.actor.itemList["Weapon 2"] or activeSkill.actor.itemList["Weapon 2"].class ~= "Shield") then
 		-- Skill requires a shield to be equipped
 		skillFlags.disable = true
 		activeSkill.disableReason = "This skill requires a Shield"
@@ -334,16 +334,16 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 		activeSkill.weapon2Flags = 0
 	else
 		-- Set weapon flags
-		local weaponTypes = { activeGrantedEffect.weaponTypes }
+		local weaponClasses = { activeGrantedEffect.weaponClasses }
 		for _, skillEffect in pairs(activeSkill.effectList) do
-			if skillEffect.grantedEffect.support and skillEffect.grantedEffect.weaponTypes then
-				t_insert(weaponTypes, skillEffect.grantedEffect.weaponTypes)
+			if skillEffect.grantedEffect.support and skillEffect.grantedEffect.weaponClasses then
+				t_insert(weaponClasses, skillEffect.grantedEffect.weaponClasses)
 			end
 		end
-		local weapon1Flags, weapon1Info = getWeaponFlags(env, activeSkill.actor.weaponData1, weaponTypes)
+		local weapon1Flags, weapon1Info = getWeaponFlags(env, activeSkill.actor.weaponData1, weaponClasses)
 		if not weapon1Flags and activeSkill.summonSkill then
 			-- Minion skills seem to ignore weapon types
-			weapon1Flags, weapon1Info = ModFlag[env.data.weaponTypeInfo["None"].flag], env.data.weaponTypeInfo["None"]
+			weapon1Flags, weapon1Info = ModFlag[env.data.weaponClassInfo["Unarmed"].flag], env.data.weaponClassInfo["Unarmed"]
 		end
 		if weapon1Flags then
 			if skillFlags.attack or skillFlags.dotFromAttack then
@@ -362,9 +362,9 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 			activeSkill.disableReason = "Main Hand weapon is not usable with this skill"
 		end
 		if not skillTypes[SkillType.MainHandOnly] and not skillFlags.forceMainHand then
-			local weapon2Flags, weapon2Info = getWeaponFlags(env, activeSkill.actor.weaponData2, weaponTypes)
+			local weapon2Flags, weapon2Info = getWeaponFlags(env, activeSkill.actor.weaponData2, weaponClasses)
 			if weapon2Flags then
-				if skillTypes[SkillType.DualWieldRequiresDifferentTypes] and (activeSkill.actor.weaponData1.type == activeSkill.actor.weaponData2.type) then
+				if skillTypes[SkillType.DualWieldRequiresDifferentCategories] and (activeSkill.actor.weaponData1.category == activeSkill.actor.weaponData2.category) then
 					-- Skill requires a different compatible off hand weapon to main hand weapon
 					skillFlags.disable = true
 					activeSkill.disableReason = activeSkill.disableReason or "Weapon Types Need to be Different"
@@ -748,13 +748,13 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 				activeEffect.srcInstance.skillMinionItemSetCalcs = nil
 				activeEffect.srcInstance.skillMinionItemSet = nil
 			end
-			if activeSkill.skillData.minionUseBowAndQuiver and env.player.weaponData1.type == "Bow" then
+			if activeSkill.skillData.minionUseBowAndQuiver and env.player.weaponData1.class == "Bow" then
 				minion.weaponData1 = env.player.weaponData1
 			elseif env.theIronMass and minionType == "RaisedSkeleton" then
 				minion.weaponData1 = env.player.weaponData1
 			else
 				minion.weaponData1 = {
-					type = minion.minionData.weaponType1 or "None",
+					type = minion.minionData.weaponType1 or "Unarmed",
 					AttackRate = 1 / attackTime,
 					CritChance = 5,
 					PhysicalMin = round(damage * (1 - minion.minionData.damageSpread)),

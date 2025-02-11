@@ -3,7 +3,9 @@
 local itemBases = ...
 
 itemBases["Dull Hatchet"] = {
-	type = "One Handed Axe",
+	class = "One Hand Axe",
+	category = "One Hand Axe",
+	label = "One Hand Axe",
 	quality = 20,
 	socketLimit = 2,
 	tags = { axe = true, onehand = true, ezomyte_basetype = true, weapon = true, one_hand_weapon = true, default = true, },
@@ -12,7 +14,9 @@ itemBases["Dull Hatchet"] = {
 	req = { },
 }
 itemBases["Hook Axe"] = {
-	type = "One Handed Axe",
+	class = "One Hand Axe",
+	category = "One Hand Axe",
+	label = "One Hand Axe",
 	quality = 20,
 	socketLimit = 2,
 	tags = { axe = true, onehand = true, ezomyte_basetype = true, weapon = true, one_hand_weapon = true, default = true, },
@@ -22,7 +26,9 @@ itemBases["Hook Axe"] = {
 	req = { str = 10, },
 }
 itemBases["Bearded Axe"] = {
-	type = "One Handed Axe",
+	class = "One Hand Axe",
+	category = "One Hand Axe",
+	label = "One Hand Axe",
 	quality = 20,
 	socketLimit = 2,
 	tags = { axe = true, onehand = true, ezomyte_basetype = true, weapon = true, one_hand_weapon = true, default = true, },
@@ -31,7 +37,9 @@ itemBases["Bearded Axe"] = {
 	req = { level = 10, str = 20, dex = 10, },
 }
 itemBases["Extended Cleaver"] = {
-	type = "One Handed Axe",
+	class = "One Hand Axe",
+	category = "One Hand Axe",
+	label = "One Hand Axe",
 	quality = 20,
 	socketLimit = 2,
 	tags = { axe = true, onehand = true, maraketh_basetype = true, weapon = true, one_hand_weapon = true, default = true, },
@@ -41,7 +49,9 @@ itemBases["Extended Cleaver"] = {
 	req = { level = 16, str = 30, dex = 14, },
 }
 itemBases["Bandit Hatchet"] = {
-	type = "One Handed Axe",
+	class = "One Hand Axe",
+	category = "One Hand Axe",
+	label = "One Hand Axe",
 	quality = 20,
 	socketLimit = 2,
 	tags = { axe = true, onehand = true, maraketh_basetype = true, weapon = true, one_hand_weapon = true, default = true, },
@@ -50,7 +60,9 @@ itemBases["Bandit Hatchet"] = {
 	req = { level = 20, str = 37, dex = 16, },
 }
 itemBases["Crescent Axe"] = {
-	type = "One Handed Axe",
+	class = "One Hand Axe",
+	category = "One Hand Axe",
+	label = "One Hand Axe",
 	quality = 20,
 	socketLimit = 2,
 	tags = { axe = true, onehand = true, maraketh_basetype = true, weapon = true, one_hand_weapon = true, default = true, },
@@ -59,7 +71,9 @@ itemBases["Crescent Axe"] = {
 	req = { level = 26, str = 48, dex = 20, },
 }
 itemBases["Carving Hatchet"] = {
-	type = "One Handed Axe",
+	class = "One Hand Axe",
+	category = "One Hand Axe",
+	label = "One Hand Axe",
 	quality = 20,
 	socketLimit = 2,
 	tags = { axe = true, onehand = true, vaal_basetype = true, weapon = true, one_hand_weapon = true, default = true, },
@@ -68,7 +82,9 @@ itemBases["Carving Hatchet"] = {
 	req = { level = 33, str = 60, dex = 25, },
 }
 itemBases["Sacrificial Axe"] = {
-	type = "One Handed Axe",
+	class = "One Hand Axe",
+	category = "One Hand Axe",
+	label = "One Hand Axe",
 	quality = 20,
 	socketLimit = 2,
 	tags = { axe = true, onehand = true, vaal_basetype = true, weapon = true, one_hand_weapon = true, default = true, },
@@ -78,7 +94,9 @@ itemBases["Sacrificial Axe"] = {
 	req = { level = 37, str = 67, dex = 27, },
 }
 itemBases["Boarding Hatchet"] = {
-	type = "One Handed Axe",
+	class = "One Hand Axe",
+	category = "One Hand Axe",
+	label = "One Hand Axe",
 	quality = 20,
 	socketLimit = 2,
 	tags = { axe = true, onehand = true, weapon = true, one_hand_weapon = true, default = true, },
@@ -87,7 +105,9 @@ itemBases["Boarding Hatchet"] = {
 	req = { level = 45, str = 81, dex = 33, },
 }
 itemBases["Fury Cleaver"] = {
-	type = "One Handed Axe",
+	class = "One Hand Axe",
+	category = "One Hand Axe",
+	label = "One Hand Axe",
 	quality = 20,
 	socketLimit = 2,
 	tags = { axe = true, onehand = true, weapon = true, one_hand_weapon = true, default = true, },
@@ -97,7 +117,9 @@ itemBases["Fury Cleaver"] = {
 	req = { level = 48, str = 86, dex = 35, },
 }
 itemBases["Battle Axe"] = {
-	type = "One Handed Axe",
+	class = "One Hand Axe",
+	category = "One Hand Axe",
+	label = "One Hand Axe",
 	quality = 20,
 	socketLimit = 2,
 	tags = { axe = true, onehand = true, weapon = true, one_hand_weapon = true, default = true, },
@@ -106,7 +128,9 @@ itemBases["Battle Axe"] = {
 	req = { level = 52, str = 93, dex = 37, },
 }
 itemBases["Profane Cleaver"] = {
-	type = "One Handed Axe",
+	class = "One Hand Axe",
+	category = "One Hand Axe",
+	label = "One Hand Axe",
 	quality = 20,
 	socketLimit = 2,
 	tags = { axe = true, onehand = true, weapon = true, one_hand_weapon = true, default = true, },
@@ -115,7 +139,9 @@ itemBases["Profane Cleaver"] = {
 	req = { level = 54, str = 96, dex = 38, },
 }
 itemBases["Dread Hatchet"] = {
-	type = "One Handed Axe",
+	class = "One Hand Axe",
+	category = "One Hand Axe",
+	label = "One Hand Axe",
 	quality = 20,
 	socketLimit = 2,
 	tags = { axe = true, onehand = true, weapon = true, one_hand_weapon = true, default = true, },
@@ -125,7 +151,9 @@ itemBases["Dread Hatchet"] = {
 }
 
 itemBases["Splitting Greataxe"] = {
-	type = "Two Handed Axe",
+	class = "Two Hand Axe",
+	category = "Two Hand Axe",
+	label = "Two Hand Axe",
 	quality = 20,
 	socketLimit = 3,
 	tags = { axe = true, ezomyte_basetype = true, two_hand_weapon = true, weapon = true, twohand = true, default = true, },
@@ -134,7 +162,9 @@ itemBases["Splitting Greataxe"] = {
 	req = { },
 }
 itemBases["Light Halberd"] = {
-	type = "Two Handed Axe",
+	class = "Two Hand Axe",
+	category = "Two Hand Axe",
+	label = "Two Hand Axe",
 	quality = 20,
 	socketLimit = 3,
 	tags = { axe = true, ezomyte_basetype = true, two_hand_weapon = true, weapon = true, twohand = true, default = true, },
@@ -143,7 +173,9 @@ itemBases["Light Halberd"] = {
 	req = { str = 10, },
 }
 itemBases["Executioner Greataxe"] = {
-	type = "Two Handed Axe",
+	class = "Two Hand Axe",
+	category = "Two Hand Axe",
+	label = "Two Hand Axe",
 	quality = 20,
 	socketLimit = 3,
 	tags = { axe = true, ezomyte_basetype = true, two_hand_weapon = true, weapon = true, twohand = true, default = true, },
@@ -153,7 +185,9 @@ itemBases["Executioner Greataxe"] = {
 	req = { level = 10, str = 20, dex = 10, },
 }
 itemBases["Arched Greataxe"] = {
-	type = "Two Handed Axe",
+	class = "Two Hand Axe",
+	category = "Two Hand Axe",
+	label = "Two Hand Axe",
 	quality = 20,
 	socketLimit = 3,
 	tags = { axe = true, maraketh_basetype = true, two_hand_weapon = true, weapon = true, twohand = true, default = true, },
@@ -162,7 +196,9 @@ itemBases["Arched Greataxe"] = {
 	req = { level = 16, str = 30, dex = 14, },
 }
 itemBases["Elegant Glaive"] = {
-	type = "Two Handed Axe",
+	class = "Two Hand Axe",
+	category = "Two Hand Axe",
+	label = "Two Hand Axe",
 	quality = 20,
 	socketLimit = 3,
 	tags = { axe = true, maraketh_basetype = true, two_hand_weapon = true, weapon = true, twohand = true, default = true, },
@@ -171,7 +207,9 @@ itemBases["Elegant Glaive"] = {
 	req = { level = 20, str = 37, dex = 16, },
 }
 itemBases["Savage Greataxe"] = {
-	type = "Two Handed Axe",
+	class = "Two Hand Axe",
+	category = "Two Hand Axe",
+	label = "Two Hand Axe",
 	quality = 20,
 	socketLimit = 3,
 	tags = { axe = true, maraketh_basetype = true, two_hand_weapon = true, weapon = true, twohand = true, default = true, },
@@ -181,7 +219,9 @@ itemBases["Savage Greataxe"] = {
 	req = { level = 27, str = 50, dex = 21, },
 }
 itemBases["Rending Halberd"] = {
-	type = "Two Handed Axe",
+	class = "Two Hand Axe",
+	category = "Two Hand Axe",
+	label = "Two Hand Axe",
 	quality = 20,
 	socketLimit = 3,
 	tags = { axe = true, vaal_basetype = true, two_hand_weapon = true, weapon = true, twohand = true, default = true, },
@@ -190,7 +230,9 @@ itemBases["Rending Halberd"] = {
 	req = { level = 33, str = 60, dex = 25, },
 }
 itemBases["Jagged Greataxe"] = {
-	type = "Two Handed Axe",
+	class = "Two Hand Axe",
+	category = "Two Hand Axe",
+	label = "Two Hand Axe",
 	quality = 20,
 	socketLimit = 3,
 	tags = { axe = true, vaal_basetype = true, two_hand_weapon = true, weapon = true, twohand = true, default = true, },
@@ -200,7 +242,9 @@ itemBases["Jagged Greataxe"] = {
 	req = { level = 40, str = 72, dex = 29, },
 }
 itemBases["Reaver Glaive"] = {
-	type = "Two Handed Axe",
+	class = "Two Hand Axe",
+	category = "Two Hand Axe",
+	label = "Two Hand Axe",
 	quality = 20,
 	socketLimit = 3,
 	tags = { axe = true, two_hand_weapon = true, weapon = true, twohand = true, default = true, },
@@ -209,7 +253,9 @@ itemBases["Reaver Glaive"] = {
 	req = { level = 45, str = 81, dex = 33, },
 }
 itemBases["Ember Greataxe"] = {
-	type = "Two Handed Axe",
+	class = "Two Hand Axe",
+	category = "Two Hand Axe",
+	label = "Two Hand Axe",
 	quality = 20,
 	socketLimit = 3,
 	tags = { axe = true, two_hand_weapon = true, weapon = true, twohand = true, default = true, },
@@ -218,7 +264,9 @@ itemBases["Ember Greataxe"] = {
 	req = { level = 50, str = 89, dex = 36, },
 }
 itemBases["Ceremonial Halberd"] = {
-	type = "Two Handed Axe",
+	class = "Two Hand Axe",
+	category = "Two Hand Axe",
+	label = "Two Hand Axe",
 	quality = 20,
 	socketLimit = 3,
 	tags = { axe = true, two_hand_weapon = true, weapon = true, twohand = true, default = true, },
@@ -227,7 +275,9 @@ itemBases["Ceremonial Halberd"] = {
 	req = { level = 52, str = 93, dex = 37, },
 }
 itemBases["Monument Greataxe"] = {
-	type = "Two Handed Axe",
+	class = "Two Hand Axe",
+	category = "Two Hand Axe",
+	label = "Two Hand Axe",
 	quality = 20,
 	socketLimit = 3,
 	tags = { axe = true, two_hand_weapon = true, weapon = true, twohand = true, default = true, },
@@ -236,7 +286,9 @@ itemBases["Monument Greataxe"] = {
 	req = { level = 57, str = 102, dex = 40, },
 }
 itemBases["Vile Greataxe"] = {
-	type = "Two Handed Axe",
+	class = "Two Hand Axe",
+	category = "Two Hand Axe",
+	label = "Two Hand Axe",
 	quality = 20,
 	socketLimit = 3,
 	tags = { axe = true, two_hand_weapon = true, weapon = true, twohand = true, default = true, },

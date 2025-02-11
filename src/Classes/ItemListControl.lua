@@ -68,7 +68,7 @@ local ItemListClass = newClass("ItemListControl", "ListControl", function(self, 
 end)
 
 function ItemListClass:FindSocketedJewel(jewelId, excludeActiveSpec)
-	if not self.itemsTab.items[jewelId] or self.itemsTab.items[jewelId].type ~= "Jewel" then
+	if not self.itemsTab.items[jewelId] or self.itemsTab.items[jewelId].class ~= "Jewel" then
 		return nil
 	end
 	local treeTab = self.itemsTab.build.treeTab

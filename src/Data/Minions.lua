@@ -20,7 +20,7 @@ minions["RaisedZombie"] = {
 	attackTime = 1.25,
 	attackRange = 9,
 	accuracy = 1,
-	weaponType1 = "One Handed Axe",
+	weaponType1 = "One Hand Axe",
 	limit = "ActiveZombieLimit",
 	skillList = {
 		"MinionMeleeStep",
@@ -93,7 +93,7 @@ minions["RaisedSkeletonWarrior"] = {
 	attackTime = 1,
 	attackRange = 12,
 	accuracy = 1,
-	weaponType1 = "One Handed Sword",
+	weaponType1 = "One Hand Sword",
 	weaponType2 = "Shield",
 	limit = "ActiveSkeletonLimit",
 	skillList = {
@@ -121,7 +121,7 @@ minions["RaisedSkeletonBrute"] = {
 	attackTime = 1.75,
 	attackRange = 16,
 	accuracy = 1,
-	weaponType1 = "Two Handed Mace",
+	weaponType1 = "Two Hand Mace",
 	limit = "ActiveSkeletonLimit",
 	skillList = {
 		"MinionMeleeStep",
@@ -173,7 +173,7 @@ minions["RaisedSkeletonFrostMage"] = {
 	attackTime = 1,
 	attackRange = 80,
 	accuracy = 1,
-	weaponType1 = "None",
+	weaponType1 = "Unarmed",
 	limit = "ActiveSkeletonLimit",
 	skillList = {
 		"FrostBoltSkeletonMageMinion",
@@ -199,7 +199,7 @@ minions["RaisedSkeletonCleric"] = {
 	attackTime = 1,
 	attackRange = 80,
 	accuracy = 1,
-	weaponType1 = "One Handed Mace",
+	weaponType1 = "Sceptre",
 	limit = "ActiveSkeletonLimit",
 	skillList = {
 		"HealSkeletonClericMinion",
@@ -225,7 +225,7 @@ minions["RaisedSkeletonArsonist"] = {
 	attackTime = 1,
 	attackRange = 80,
 	accuracy = 1,
-	weaponType1 = "None",
+	weaponType1 = "Unarmed",
 	limit = "ActiveSkeletonLimit",
 	skillList = {
 		"FireBombSkeletonMinion",
@@ -251,8 +251,8 @@ minions["RaisedSkeletonReaver"] = {
 	attackTime = 0.83,
 	attackRange = 14,
 	accuracy = 1,
-	weaponType1 = "One Handed Axe",
-	weaponType2 = "One Handed Axe",
+	weaponType1 = "One Hand Axe",
+	weaponType2 = "One Hand Axe",
 	limit = "ActiveSkeletonLimit",
 	skillList = {
 		"MinionMeleeStep",

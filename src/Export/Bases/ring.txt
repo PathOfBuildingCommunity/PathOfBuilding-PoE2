@@ -1,6 +1,6 @@
 -- Item data (c) Grinding Gear Games
 local itemBases = ...
 
-#type Ring
+#label Ring
 #baseMatch BaseType Metadata/Items/Rings/AbstractRing
 #baseMatch BaseType Metadata/Items/Rings/RingDemigods

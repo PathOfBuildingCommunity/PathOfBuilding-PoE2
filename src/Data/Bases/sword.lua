@@ -2,9 +2,10 @@
 -- Item data (c) Grinding Gear Games
 local itemBases = ...
 
-
 itemBases["Golden Blade"] = {
-	type = "One Handed Sword",
+	class = "One Hand Sword",
+	category = "One Hand Sword",
+	label = "One Hand Sword",
 	quality = 20,
 	socketLimit = 3,
 	tags = { demigods = true, onehand = true, not_for_sale = true, weapon = true, sword = true, one_hand_weapon = true, default = true, },
@@ -13,8 +14,10 @@ itemBases["Golden Blade"] = {
 	weapon = { PhysicalMin = 3, PhysicalMax = 28, CritChanceBase = 5, AttackRateBase = 1.1, Range = 11, },
 	req = { },
 }
-itemBases["Energy Blade One Handed"] = {
-	type = "One Handed Sword",
+itemBases["Energy Blade Two Handed"] = {
+	class = "One Hand Sword",
+	category = "One Hand Sword",
+	label = "One Hand Sword",
 	quality = 20,
 	hidden = true,
 	socketLimit = 3,
@@ -24,7 +27,9 @@ itemBases["Energy Blade One Handed"] = {
 	req = { },
 }
 itemBases["Shortsword"] = {
-	type = "One Handed Sword",
+	class = "One Hand Sword",
+	category = "One Hand Sword",
+	label = "One Hand Sword",
 	quality = 20,
 	socketLimit = 3,
 	tags = { onehand = true, ezomyte_basetype = true, weapon = true, sword = true, one_hand_weapon = true, default = true, },
@@ -33,7 +38,9 @@ itemBases["Shortsword"] = {
 	req = { },
 }
 itemBases["Broadsword"] = {
-	type = "One Handed Sword",
+	class = "One Hand Sword",
+	category = "One Hand Sword",
+	label = "One Hand Sword",
 	quality = 20,
 	socketLimit = 3,
 	tags = { onehand = true, ezomyte_basetype = true, weapon = true, sword = true, one_hand_weapon = true, default = true, },
@@ -42,7 +49,9 @@ itemBases["Broadsword"] = {
 	req = { level = 6, str = 10, dex = 10, },
 }
 itemBases["Vampiric Blade"] = {
-	type = "One Handed Sword",
+	class = "One Hand Sword",
+	category = "One Hand Sword",
+	label = "One Hand Sword",
 	quality = 20,
 	socketLimit = 3,
 	tags = { onehand = true, ezomyte_basetype = true, weapon = true, sword = true, one_hand_weapon = true, default = true, },
@@ -51,7 +60,9 @@ itemBases["Vampiric Blade"] = {
 	req = { level = 11, str = 16, dex = 16, },
 }
 itemBases["Scimitar"] = {
-	type = "One Handed Sword",
+	class = "One Hand Sword",
+	category = "One Hand Sword",
+	label = "One Hand Sword",
 	quality = 20,
 	socketLimit = 3,
 	tags = { maraketh_basetype = true, onehand = true, weapon = true, sword = true, one_hand_weapon = true, default = true, },
@@ -60,7 +71,9 @@ itemBases["Scimitar"] = {
 	req = { level = 16, str = 22, dex = 22, },
 }
 itemBases["Charred Shortsword"] = {
-	type = "One Handed Sword",
+	class = "One Hand Sword",
+	category = "One Hand Sword",
+	label = "One Hand Sword",
 	quality = 20,
 	socketLimit = 3,
 	tags = { maraketh_basetype = true, onehand = true, weapon = true, sword = true, one_hand_weapon = true, default = true, },
@@ -69,7 +82,9 @@ itemBases["Charred Shortsword"] = {
 	req = { level = 21, str = 28, dex = 28, },
 }
 itemBases["Sickle Sword"] = {
-	type = "One Handed Sword",
+	class = "One Hand Sword",
+	category = "One Hand Sword",
+	label = "One Hand Sword",
 	quality = 20,
 	socketLimit = 3,
 	tags = { maraketh_basetype = true, onehand = true, weapon = true, sword = true, one_hand_weapon = true, default = true, },
@@ -78,7 +93,9 @@ itemBases["Sickle Sword"] = {
 	req = { level = 28, str = 37, dex = 37, },
 }
 itemBases["Falchion"] = {
-	type = "One Handed Sword",
+	class = "One Hand Sword",
+	category = "One Hand Sword",
+	label = "One Hand Sword",
 	quality = 20,
 	socketLimit = 3,
 	tags = { onehand = true, vaal_basetype = true, weapon = true, sword = true, one_hand_weapon = true, default = true, },
@@ -87,7 +104,9 @@ itemBases["Falchion"] = {
 	req = { level = 33, str = 43, dex = 43, },
 }
 itemBases["Treasured Blade"] = {
-	type = "One Handed Sword",
+	class = "One Hand Sword",
+	category = "One Hand Sword",
+	label = "One Hand Sword",
 	quality = 20,
 	socketLimit = 3,
 	tags = { onehand = true, vaal_basetype = true, weapon = true, sword = true, one_hand_weapon = true, default = true, },
@@ -96,7 +115,9 @@ itemBases["Treasured Blade"] = {
 	req = { level = 40, str = 51, dex = 51, },
 }
 itemBases["Cutlass"] = {
-	type = "One Handed Sword",
+	class = "One Hand Sword",
+	category = "One Hand Sword",
+	label = "One Hand Sword",
 	quality = 20,
 	socketLimit = 3,
 	tags = { onehand = true, weapon = true, sword = true, one_hand_weapon = true, default = true, },
@@ -105,7 +126,9 @@ itemBases["Cutlass"] = {
 	req = { level = 45, str = 57, dex = 57, },
 }
 itemBases["Runic Shortsword"] = {
-	type = "One Handed Sword",
+	class = "One Hand Sword",
+	category = "One Hand Sword",
+	label = "One Hand Sword",
 	quality = 20,
 	socketLimit = 3,
 	tags = { onehand = true, weapon = true, sword = true, one_hand_weapon = true, default = true, },
@@ -114,7 +137,9 @@ itemBases["Runic Shortsword"] = {
 	req = { level = 50, str = 63, dex = 63, },
 }
 itemBases["Messer"] = {
-	type = "One Handed Sword",
+	class = "One Hand Sword",
+	category = "One Hand Sword",
+	label = "One Hand Sword",
 	quality = 20,
 	socketLimit = 3,
 	tags = { onehand = true, weapon = true, sword = true, one_hand_weapon = true, default = true, },
@@ -123,7 +148,9 @@ itemBases["Messer"] = {
 	req = { level = 52, str = 66, dex = 66, },
 }
 itemBases["Commander Sword"] = {
-	type = "One Handed Sword",
+	class = "One Hand Sword",
+	category = "One Hand Sword",
+	label = "One Hand Sword",
 	quality = 20,
 	socketLimit = 3,
 	tags = { onehand = true, weapon = true, sword = true, one_hand_weapon = true, default = true, },
@@ -132,7 +159,9 @@ itemBases["Commander Sword"] = {
 	req = { level = 54, str = 68, dex = 68, },
 }
 itemBases["Dark Blade"] = {
-	type = "One Handed Sword",
+	class = "One Hand Sword",
+	category = "One Hand Sword",
+	label = "One Hand Sword",
 	quality = 20,
 	socketLimit = 3,
 	tags = { onehand = true, weapon = true, sword = true, one_hand_weapon = true, default = true, },
@@ -141,8 +170,10 @@ itemBases["Dark Blade"] = {
 	req = { level = 65, str = 81, dex = 81, },
 }
 
-itemBases["Energy Blade One Handed"] = {
-	type = "One Handed Sword",
+itemBases["Energy Blade Two Handed"] = {
+	class = "One Hand Sword",
+	category = "One Hand Sword",
+	label = "One Hand Sword",
 	quality = 20,
 	hidden = true,
 	socketLimit = 3,
@@ -153,7 +184,9 @@ itemBases["Energy Blade One Handed"] = {
 }
 
 itemBases["Keyblade"] = {
-	type = "Two Handed Sword",
+	class = "Two Hand Sword",
+	category = "Two Hand Sword",
+	label = "Two Hand Sword",
 	quality = 20,
 	hidden = true,
 	socketLimit = 3,
@@ -163,7 +196,9 @@ itemBases["Keyblade"] = {
 	req = { },
 }
 itemBases["Energy Blade Two Handed"] = {
-	type = "Two Handed Sword",
+	class = "Two Hand Sword",
+	category = "Two Hand Sword",
+	label = "Two Hand Sword",
 	quality = 20,
 	hidden = true,
 	socketLimit = 3,
@@ -173,7 +208,9 @@ itemBases["Energy Blade Two Handed"] = {
 	req = { },
 }
 itemBases["Corroded Longsword"] = {
-	type = "Two Handed Sword",
+	class = "Two Hand Sword",
+	category = "Two Hand Sword",
+	label = "Two Hand Sword",
 	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, ezomyte_basetype = true, weapon = true, sword = true, twohand = true, default = true, },
@@ -182,7 +219,9 @@ itemBases["Corroded Longsword"] = {
 	req = { },
 }
 itemBases["Iron Greatsword"] = {
-	type = "Two Handed Sword",
+	class = "Two Hand Sword",
+	category = "Two Hand Sword",
+	label = "Two Hand Sword",
 	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, ezomyte_basetype = true, weapon = true, sword = true, twohand = true, default = true, },
@@ -191,7 +230,9 @@ itemBases["Iron Greatsword"] = {
 	req = { level = 6, str = 10, dex = 10, },
 }
 itemBases["Blessed Claymore"] = {
-	type = "Two Handed Sword",
+	class = "Two Hand Sword",
+	category = "Two Hand Sword",
+	label = "Two Hand Sword",
 	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, ezomyte_basetype = true, weapon = true, sword = true, twohand = true, default = true, },
@@ -200,7 +241,9 @@ itemBases["Blessed Claymore"] = {
 	req = { level = 11, str = 16, dex = 16, },
 }
 itemBases["Broad Greatsword"] = {
-	type = "Two Handed Sword",
+	class = "Two Hand Sword",
+	category = "Two Hand Sword",
+	label = "Two Hand Sword",
 	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, maraketh_basetype = true, weapon = true, sword = true, twohand = true, default = true, },
@@ -209,7 +252,9 @@ itemBases["Broad Greatsword"] = {
 	req = { level = 16, str = 22, dex = 22, },
 }
 itemBases["Rippled Greatsword"] = {
-	type = "Two Handed Sword",
+	class = "Two Hand Sword",
+	category = "Two Hand Sword",
+	label = "Two Hand Sword",
 	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, maraketh_basetype = true, weapon = true, sword = true, twohand = true, default = true, },
@@ -218,7 +263,9 @@ itemBases["Rippled Greatsword"] = {
 	req = { level = 22, str = 30, dex = 30, },
 }
 itemBases["Arced Longsword"] = {
-	type = "Two Handed Sword",
+	class = "Two Hand Sword",
+	category = "Two Hand Sword",
+	label = "Two Hand Sword",
 	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, maraketh_basetype = true, weapon = true, sword = true, twohand = true, default = true, },
@@ -227,7 +274,9 @@ itemBases["Arced Longsword"] = {
 	req = { level = 28, str = 37, dex = 37, },
 }
 itemBases["Stone Greatsword"] = {
-	type = "Two Handed Sword",
+	class = "Two Hand Sword",
+	category = "Two Hand Sword",
+	label = "Two Hand Sword",
 	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, vaal_basetype = true, weapon = true, sword = true, twohand = true, default = true, },
@@ -236,7 +285,9 @@ itemBases["Stone Greatsword"] = {
 	req = { level = 33, str = 43, dex = 43, },
 }
 itemBases["Obsidian Greatsword"] = {
-	type = "Two Handed Sword",
+	class = "Two Hand Sword",
+	category = "Two Hand Sword",
+	label = "Two Hand Sword",
 	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, vaal_basetype = true, weapon = true, sword = true, twohand = true, default = true, },
@@ -245,7 +296,9 @@ itemBases["Obsidian Greatsword"] = {
 	req = { level = 36, str = 46, dex = 46, },
 }
 itemBases["Keen Greatsword"] = {
-	type = "Two Handed Sword",
+	class = "Two Hand Sword",
+	category = "Two Hand Sword",
+	label = "Two Hand Sword",
 	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, weapon = true, sword = true, twohand = true, default = true, },
@@ -254,7 +307,9 @@ itemBases["Keen Greatsword"] = {
 	req = { level = 45, str = 57, dex = 57, },
 }
 itemBases["Ancient Greatblade"] = {
-	type = "Two Handed Sword",
+	class = "Two Hand Sword",
+	category = "Two Hand Sword",
+	label = "Two Hand Sword",
 	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, weapon = true, sword = true, twohand = true, default = true, },
@@ -263,7 +318,9 @@ itemBases["Ancient Greatblade"] = {
 	req = { level = 49, str = 62, dex = 62, },
 }
 itemBases["Flanged Greatblade"] = {
-	type = "Two Handed Sword",
+	class = "Two Hand Sword",
+	category = "Two Hand Sword",
+	label = "Two Hand Sword",
 	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, weapon = true, sword = true, twohand = true, default = true, },
@@ -272,7 +329,9 @@ itemBases["Flanged Greatblade"] = {
 	req = { level = 52, str = 66, dex = 66, },
 }
 itemBases["Regalia Longsword"] = {
-	type = "Two Handed Sword",
+	class = "Two Hand Sword",
+	category = "Two Hand Sword",
+	label = "Two Hand Sword",
 	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, weapon = true, sword = true, twohand = true, default = true, },
@@ -281,7 +340,9 @@ itemBases["Regalia Longsword"] = {
 	req = { level = 54, str = 68, dex = 68, },
 }
 itemBases["Ultra Greatsword"] = {
-	type = "Two Handed Sword",
+	class = "Two Hand Sword",
+	category = "Two Hand Sword",
+	label = "Two Hand Sword",
 	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, weapon = true, sword = true, twohand = true, default = true, },
@@ -291,7 +352,9 @@ itemBases["Ultra Greatsword"] = {
 }
 
 itemBases["Energy Blade Two Handed"] = {
-	type = "Two Handed Sword",
+	class = "Two Hand Sword",
+	category = "Two Hand Sword",
+	label = "Two Hand Sword",
 	quality = 20,
 	hidden = true,
 	socketLimit = 3,

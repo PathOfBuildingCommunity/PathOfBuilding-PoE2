@@ -3,70 +3,90 @@
 local itemBases = ...
 
 itemBases["Crimson Amulet"] = {
-	type = "Amulet",
+	class = "Amulet",
+	category = "Amulet",
+	label = "Amulet",
 	tags = { amulet = true, default = true, },
 	implicit = "(2-4) Life Regeneration per second",
 	implicitModTypes = { { "flat_life_regen", "resource", "life" }, },
 	req = { },
 }
 itemBases["Azure Amulet"] = {
-	type = "Amulet",
+	class = "Amulet",
+	category = "Amulet",
+	label = "Amulet",
 	tags = { amulet = true, default = true, },
 	implicit = "(20-30)% increased Mana Regeneration Rate",
 	implicitModTypes = { { "resource", "mana" }, },
 	req = { },
 }
 itemBases["Amber Amulet"] = {
-	type = "Amulet",
+	class = "Amulet",
+	category = "Amulet",
+	label = "Amulet",
 	tags = { amulet = true, default = true, },
 	implicit = "+(10-15) to Strength",
 	implicitModTypes = { { "attribute" }, },
 	req = { level = 8, },
 }
 itemBases["Jade Amulet"] = {
-	type = "Amulet",
+	class = "Amulet",
+	category = "Amulet",
+	label = "Amulet",
 	tags = { amulet = true, default = true, },
 	implicit = "+(10-15) to Dexterity",
 	implicitModTypes = { { "attribute" }, },
 	req = { level = 8, },
 }
 itemBases["Lapis Amulet"] = {
-	type = "Amulet",
+	class = "Amulet",
+	category = "Amulet",
+	label = "Amulet",
 	tags = { amulet = true, default = true, },
 	implicit = "+(10-15) to Intelligence",
 	implicitModTypes = { { "attribute" }, },
 	req = { level = 8, },
 }
 itemBases["Lunar Amulet"] = {
-	type = "Amulet",
+	class = "Amulet",
+	category = "Amulet",
+	label = "Amulet",
 	tags = { amulet = true, default = true, },
 	implicit = "+(20-30) to maximum Energy Shield",
 	implicitModTypes = { { "energy_shield", "defences" }, },
 	req = { level = 14, },
 }
 itemBases["Bloodstone Amulet"] = {
-	type = "Amulet",
+	class = "Amulet",
+	category = "Amulet",
+	label = "Amulet",
 	tags = { amulet = true, default = true, },
 	implicit = "+(30-40) to maximum Life",
 	implicitModTypes = { { "resource", "life" }, },
 	req = { level = 18, },
 }
 itemBases["Stellar Amulet"] = {
-	type = "Amulet",
+	class = "Amulet",
+	category = "Amulet",
+	label = "Amulet",
 	tags = { amulet = true, default = true, },
 	implicit = "+(5-7) to all Attributes",
 	implicitModTypes = { { "attribute" }, },
 	req = { level = 24, },
 }
 itemBases["Solar Amulet"] = {
-	type = "Amulet",
+	class = "Amulet",
+	category = "Amulet",
+	label = "Amulet",
 	tags = { amulet = true, default = true, },
 	implicit = "+(10-15) to Spirit",
 	implicitModTypes = { {  }, },
 	req = { level = 30, },
 }
 itemBases["Gold Amulet"] = {
-	type = "Amulet",
+	class = "Amulet",
+	category = "Amulet",
+	label = "Amulet",
 	tags = { amulet = true, default = true, },
 	implicit = "(12-20)% increased Rarity of Items found",
 	implicitModTypes = { {  }, },

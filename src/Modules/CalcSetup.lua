@@ -718,8 +718,8 @@ function calcs.initEnv(build, mode, override, specEnv)
 			if slotName == override.repSlotName then
 				item = override.repItem
 			elseif override.repItem and override.repSlotName:match("^Weapon 1") and slotName:match("^Weapon 2") and
-			(override.repItem.base.type == "Staff" or override.repItem.base.type == "Two Handed Sword" or override.repItem.base.type == "Two Handed Axe" or override.repItem.base.type == "Two Handed Mace"
-			or (override.repItem.base.type == "Bow" and item and item.base.type ~= "Quiver")) then
+			(override.repItem.base.category == "Warstaff" or override.repItem.base.category == "Two Hand Sword" or override.repItem.base.category == "Two Hand Axe" or override.repItem.base.category == "Two Hand Mace"
+			or (override.repItem.base.category == "Bow" and item and item.base.category ~= "Quiver")) then
 				goto continue
 			elseif slot.nodeId and override.spec then
 				item = build.itemsTab.items[env.spec.jewels[slot.nodeId]]
@@ -754,11 +754,11 @@ function calcs.initEnv(build, mode, override, specEnv)
 					if item.jewelData then
 						item.jewelData.limitDisabled = nil
 					end
-					if item and item.type == "Jewel" and item.name:match("The Adorned, Diamond") then
+					if item and item.class == "Jewel" and item.name:match("The Adorned, Diamond") then
 						env.modDB.multipliers["CorruptedMagicJewelEffect"] = item.jewelData.corruptedMagicJewelIncEffect / 100
 					end
 					if item.limit and not env.configInput.ignoreJewelLimits then
-						local limitKey = item.base.subType == "Timeless" and "Historic" or item.title
+						local limitKey = item.baseName == "Timeless Jewel" and "Historic" or item.title
 						if jewelLimits[limitKey] and jewelLimits[limitKey] >= item.limit then
 							if item.jewelData then
 								item.jewelData.limitDisabled = true
@@ -851,7 +851,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 						for _, tag in ipairs(mod) do
 							if tag.type == "DisablesItem" then
 								-- e.g. Tincture in Flask 5 while using a Micro-Distillery Belt
-								if tag.excludeItemType and items[tag.slotName] and items[tag.slotName].type == tag.excludeItemType then
+								if tag.excludeItemClass and items[tag.slotName] and items[tag.slotName].class == tag.excludeItemClass then
 									break
 								end
 								itemDisablers[slotName] = tag.slotName
@@ -893,25 +893,25 @@ function calcs.initEnv(build, mode, override, specEnv)
 		for _, slot in pairs(build.itemsTab.orderedSlots) do
 			local slotName = slot.slotName
 			local item = items[slotName]
-			if item and item.type == "Flask" then
+			if item and item.category == "Flask" then
 				if slot.active then
 					env.flasks[item] = true
 				end
-				if item.base.subType == "Life" then
+				if item.base.class == "LifeFlask" then
 					local highestLifeRecovery = env.itemModDB.multipliers["LifeFlaskRecovery"] or 0
 					if item.flaskData.lifeTotal > highestLifeRecovery then
 						env.itemModDB.multipliers["LifeFlaskRecovery"] = item.flaskData.lifeTotal
 					end
 				end
 				item = nil
-			elseif item and item.type == "Charm" then
+			elseif item and item.category == "Charm" then
 				if slot.active then
 					env.charms[item] = true
 				end
 				item = nil
 			end
 			local scale = 1
-			if slot.nodeId and item and item.type == "Jewel" and item.jewelData and item.jewelData.jewelIncEffectFromClassStart then
+			if slot.nodeId and item and item.category == "Jewel" and item.jewelData and item.jewelData.jewelIncEffectFromClassStart then
 				local node = env.spec.nodes[slot.nodeId]
 				if node and node.distanceToClassStart then
 					scale = scale + node.distanceToClassStart * (item.jewelData.jewelIncEffectFromClassStart / 100)
@@ -965,25 +965,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 						end
 					end
 				end
-
-				if item.type == "Jewel" and item.base.subType == "Abyss" then
-					-- Update Abyss Jewel conditions/multipliers
-					local cond = "Have"..item.baseName:gsub(" ","")
-					if not env.itemModDB.conditions[cond] then
-						env.itemModDB.conditions[cond] = true
-						env.itemModDB.multipliers["AbyssJewelType"] = (env.itemModDB.multipliers["AbyssJewelType"] or 0) + 1
-					end
-					if slot.parentSlot then
-						env.itemModDB.conditions[cond.."In"..slot.parentSlot.slotName] = true
-					end
-					env.itemModDB.multipliers["AbyssJewel"] = (env.itemModDB.multipliers["AbyssJewel"] or 0) + 1
-					if item.rarity == "NORMAL" then env.itemModDB.multipliers["NormalAbyssJewels"] = (env.itemModDB.multipliers["NormalAbyssJewels"] or 0) + 1 end
-					if item.rarity == "MAGIC" then env.itemModDB.multipliers["MagicAbyssJewels"] = (env.itemModDB.multipliers["MagicAbyssJewels"] or 0) + 1 end
-					if item.rarity == "RARE" then env.itemModDB.multipliers["RareAbyssJewels"] = (env.itemModDB.multipliers["RareAbyssJewels"] or 0) + 1 end
-					if item.rarity == "UNIQUE" or item.rarity == "RELIC" then env.itemModDB.multipliers["UniqueAbyssJewels"] = (env.itemModDB.multipliers["UniqueAbyssJewels"] or 0) + 1 end
-					env.itemModDB.multipliers[item.baseName:gsub(" ","")] = (env.itemModDB.multipliers[item.baseName:gsub(" ","")] or 0) + 1
-				end
-				if item.type == "Amulet" and env.allocNodes[39935] and env.allocNodes[39935].dn == "Necromantic Talisman" then
+				if item.class == "Amulet" and env.allocNodes[39935] and env.allocNodes[39935].dn == "Necromantic Talisman" then
 					-- Special handling for Necromantic Talisman
 					env.talismanModList = new("ModList")
 					for _, mod in ipairs(srcList) do
@@ -992,9 +974,9 @@ function calcs.initEnv(build, mode, override, specEnv)
 					end
 				elseif (slotName == "Weapon 1" or slotName == "Weapon 2") and modDB.conditions["AffectedByEnergyBlade"] then
 					local previousItem = env.player.itemList[slotName]
-					local type = previousItem and previousItem.weaponData and previousItem.weaponData[1].type
-					local info = env.data.weaponTypeInfo[type]
-					if info and type ~= "Bow" then
+					local class = previousItem and previousItem.weaponData and previousItem.weaponData[1].class
+					local info = env.data.weaponClassInfo[class]
+					if info and class ~= "Bow" then
 						local name = info.oneHand and "Energy Blade One Handed" or "Energy Blade Two Handed"
 						local item = new("Item")
 						item.name = name
@@ -1096,7 +1078,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 							env.itemModDB:ScaleAddMod(mod, scale)
 						end
 					end
-				elseif env.modDB.multipliers["CorruptedMagicJewelEffect"] and item.type == "Jewel" and item.rarity == "MAGIC" and item.corrupted and slot.nodeId and item.base.subType ~= "Charm" then
+				elseif env.modDB.multipliers["CorruptedMagicJewelEffect"] and item.category == "Jewel" and item.rarity == "MAGIC" and item.corrupted and slot.nodeId then
 					scale = scale + env.modDB.multipliers["CorruptedMagicJewelEffect"]
 					local combinedList = new("ModList")
 					for _, mod in ipairs(srcList) do
@@ -1116,7 +1098,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 				if item.spiritValue and not nodesModsList:Flag(nil, "CannotGainSpiritFromEquipment") then
 					env.modDB:NewMod("Spirit", "BASE", item.spiritValue, item.title)
 				end
-				if item.type ~= "Jewel" and item.type ~= "Flask" and item.type ~= "Charm" then
+				if item.category ~= "Jewel" and item.category ~= "Flask" and item.category ~= "Charm" then
 					-- Update item counts
 					local key
 					if item.rarity == "UNIQUE" or item.rarity == "RELIC" then
@@ -1136,7 +1118,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 						env.itemModDB.multipliers["NonCorruptedItem"] = (env.itemModDB.multipliers["NonCorruptedItem"] or 0) + 1
 					end
 
-					env.itemModDB.multipliers[item.type:gsub(" ", ""):gsub(".+Handed", "").."Item"] = (env.itemModDB.multipliers[item.type:gsub(" ", ""):gsub(".+Handed", "").."Item"] or 0) + 1
+					env.itemModDB.multipliers[item.class:gsub(" ", ""):gsub(".+Hand", "").."Item"] = (env.itemModDB.multipliers[item.class:gsub(" ", ""):gsub(".+Hand", "").."Item"] or 0) + 1
 				end
 			end
 		end
@@ -1204,7 +1186,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 		end
 	end
 
-	if env.player.itemList["Weapon 2"] and env.player.itemList["Weapon 2"].type == "Quiver" then
+	if env.player.itemList["Weapon 2"] and env.player.itemList["Weapon 2"].category == "Quiver" then
 		local quiverEffectMod = env.modDB:Sum("INC", nil, "EffectOfBonusesFromQuiver") / 100
 		local modList = env.player.itemList["Weapon 2"].modList
 		for _, mod in ipairs(modList) do

@@ -1,12 +1,10 @@
 -- Item data (c) Grinding Gear Games
 local itemBases = ...
 
-#type Charm
+#label Charm
 #baseMatch Metadata/Items/Flasks/FourCharm
 
-#type Flask
-#subType Life
+#label Flask
 #baseMatch Metadata/Items/Flasks/FourFlaskLife
 
-#subType Mana
 #baseMatch Metadata/Items/Flasks/FourFlaskMana

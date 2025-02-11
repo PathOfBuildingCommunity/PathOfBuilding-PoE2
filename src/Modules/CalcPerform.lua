@@ -85,20 +85,20 @@ local function doActorAttribsConditions(env, actor)
 	local condList = modDB.conditions
 
 	-- Set conditions
-	if (actor.itemList["Weapon 2"] and actor.itemList["Weapon 2"].type == "Shield") then
+	if (actor.itemList["Weapon 2"] and actor.itemList["Weapon 2"].class == "Shield") then
 		condList["UsingShield"] = true
-	elseif (actor.itemList["Weapon 2"] and actor.itemList["Weapon 2"].type == "Focus") then
+	elseif (actor.itemList["Weapon 2"] and actor.itemList["Weapon 2"].class == "Focus") then
 		condList["UsingFocus"] = true
 	elseif not actor.itemList["Weapon 2"] then
 		condList["OffHandIsEmpty"] = true
 	end
-	if actor.weaponData1.type == "None" then
+	if actor.weaponData1.class == "Unarmed" then
 		condList["Unarmed"] = true
 		if not actor.itemList["Weapon 2"] and not actor.itemList["Gloves"] then
 			condList["Unencumbered"] = true
 		end
 	else
-		local info = env.data.weaponTypeInfo[actor.weaponData1.type]
+		local info = env.data.weaponClassInfo[actor.weaponData1.class]
 		condList["Using"..info.flag] = true
 		if actor.weaponData1.countsAsAll1H then
 			actor.weaponData1["AddedUsingAxe"] = not condList["UsingAxe"]
@@ -114,7 +114,7 @@ local function doActorAttribsConditions(env, actor)
 			actor.weaponData1["AddedUsingSpear"] = not condList["UsingSpear"]
 			condList["UsingSpear"] = true
 			-- GGG stated that a single Varunastra satisfied requirement for wielding two different weapons
-			condList["WieldingDifferentWeaponTypes"] = true
+			condList["WieldingDifferentWeaponCategories"] = true
 		end
 		if info.melee then
 			condList["UsingMeleeWeapon"] = true
@@ -131,8 +131,8 @@ local function doActorAttribsConditions(env, actor)
 			condList["Using"..slotName] = true
 		end
 	end
-	if actor.weaponData2.type then
-		local info = env.data.weaponTypeInfo[actor.weaponData2.type]
+	if actor.weaponData2.class then
+		local info = env.data.weaponClassInfo[actor.weaponData2.class]
 		condList["Using"..info.flag] = true
 		if actor.weaponData2.countsAsAll1H then
 			actor.weaponData2["AddedUsingAxe"] = not condList["UsingAxe"]
@@ -148,7 +148,7 @@ local function doActorAttribsConditions(env, actor)
 			actor.weaponData2["AddedUsingSpear"] = not condList["UsingSpear"]
 			condList["UsingSpear"] = true
 			-- GGG stated that a single Varunastra satisfied requirement for wielding two different weapons
-			condList["WieldingDifferentWeaponTypes"] = true
+			condList["WieldingDifferentWeaponCategories"] = true
 		end
 		if info.melee then
 			condList["UsingMeleeWeapon"] = true
@@ -159,19 +159,19 @@ local function doActorAttribsConditions(env, actor)
 			condList["UsingTwoHandedWeapon"] = true
 		end
 	end
-	if actor.weaponData1.type and actor.weaponData2.type then
+	if actor.weaponData1.category and actor.weaponData2.category then
 		condList["DualWielding"] = true
-		if (actor.weaponData1.type == "Claw" or actor.weaponData1.countsAsAll1H) and (actor.weaponData2.type == "Claw" or actor.weaponData2.countsAsAll1H) then
+		if (actor.weaponData1.category == "Claw" or actor.weaponData1.countsAsAll1H) and (actor.weaponData2.category == "Claw" or actor.weaponData2.countsAsAll1H) then
 			condList["DualWieldingClaws"] = true
 		end
-		if (actor.weaponData1.type == "Dagger" or actor.weaponData1.countsAsAll1H) and (actor.weaponData2.type == "Dagger" or actor.weaponData2.countsAsAll1H) then
+		if (actor.weaponData1.category == "Dagger" or actor.weaponData1.countsAsAll1H) and (actor.weaponData2.category == "Dagger" or actor.weaponData2.countsAsAll1H) then
 			condList["DualWieldingDaggers"] = true
 		end
-		if (env.data.weaponTypeInfo[actor.weaponData1.type].label or actor.weaponData1.type) ~= (env.data.weaponTypeInfo[actor.weaponData2.type].label or actor.weaponData2.type) then
-			local info1 = env.data.weaponTypeInfo[actor.weaponData1.type]
-			local info2 = env.data.weaponTypeInfo[actor.weaponData2.type]
+		if actor.weaponData1.category ~= actor.weaponData2.category then
+			local info1 = env.data.weaponClassInfo[actor.weaponData1.class]
+			local info2 = env.data.weaponClassInfo[actor.weaponData2.class]
 			if info1.oneHand and info2.oneHand then
-				condList["WieldingDifferentWeaponTypes"] = true
+				condList["WieldingDifferentWeaponCategories"] = true
 			end
 		end
 	end
@@ -849,10 +849,10 @@ function calcs.perform(env, skipEHP)
 			env.minion.modDB:AddList(env.theIronMass)
 		end
 		if env.player.mainSkill.skillData.minionUseBowAndQuiver then
-			if env.player.weaponData1.type == "Bow" then
+			if env.player.weaponData1.category == "Bow" then
 				env.minion.modDB:AddList(env.player.itemList["Weapon 1"].slotModList[1])
 			end
-			if env.player.itemList["Weapon 2"] and env.player.itemList["Weapon 2"].type == "Quiver" then
+			if env.player.itemList["Weapon 2"] and env.player.itemList["Weapon 2"].category == "Quiver" then
 				local quiverEffectMod = env.player.modDB:Sum("INC", nil, "EffectOfBonusesFromQuiver") / 100
 				if quiverEffectMod > 0 then
 					for _, mod in ipairs(env.player.itemList["Weapon 2"].modList) do
@@ -1115,7 +1115,7 @@ function calcs.perform(env, skipEHP)
 		for _, slot in pairs(env.build.itemsTab.orderedSlots) do
 			local slotName = slot.slotName
 			local item = env.build.itemsTab.items[slot.selItemId]
-			if item and item.type == "Flask" then
+			if item and item.category == "Flask" then
 				local mageblood_applies = item.rarity == "MAGIC" and not (item.baseName:match("Life Flask") or
 					item.baseName:match("Mana Flask") or item.baseName:match("Hybrid Flask")) and
 					curActiveMagicUtilityCount < maxActiveMagicUtilityCount

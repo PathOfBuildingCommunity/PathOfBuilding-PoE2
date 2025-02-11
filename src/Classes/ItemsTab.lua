@@ -378,7 +378,7 @@ holding Shift will put it in the second.]])
 		self:AnointDisplayItem(1)
 	end)
 	self.controls.displayItemAnoint.shown = function()
-		return self.displayItem and (self.displayItem.base.type == "Amulet" or self.displayItem.canBeAnointed)
+		return self.displayItem and (self.displayItem.base.class == "Amulet" or self.displayItem.canBeAnointed)
 	end
 	self.controls.displayItemCorrupt = new("ButtonControl", {"TOPLEFT",self.controls.displayItemAnoint,"TOPRIGHT",true}, {8, 0, 100, 20}, "Corrupt...", function()
 		self:CorruptDisplayItem()
@@ -445,7 +445,7 @@ holding Shift will put it in the second.]])
 			self:UpdateDisplayItemTooltip()
 		end)
 	self.controls.displayItemCatalyst.shown = function()
-		return self.displayItem and (self.displayItem.crafted or self.displayItem.hasModTags) and (self.displayItem.base.type == "Amulet" or self.displayItem.base.type == "Ring")
+		return self.displayItem and (self.displayItem.crafted or self.displayItem.hasModTags) and (self.displayItem.base.class == "Amulet" or self.displayItem.base.class == "Ring")
 	end
 	self.controls.displayItemCatalystQualityEdit = new("EditControl", {"LEFT",self.controls.displayItemCatalyst,"RIGHT"}, {2, 0, 60, 20}, nil, nil, "%D", 2, function(buf)
 		self.displayItem.catalystQuality = tonumber(buf)
@@ -1636,7 +1636,7 @@ function ItemsTabClass:UpdateAffixControl(control, item, type, outputTable, outp
 	control.slider.shown = false
 	control.slider.val = main.defaultItemAffixQuality or 0.5
 	local selAffix = item[outputTable][outputIndex].modId
-	if (item.type == "Jewel" and item.base.subType ~= "Abyss") then
+	if item.class == "Jewel" then
 		for i, modId in pairs(affixList) do
 			local mod = item.affixes[modId]
 			if selAffix == modId then
@@ -1644,9 +1644,6 @@ function ItemsTabClass:UpdateAffixControl(control, item, type, outputTable, outp
 			end
 			local modString = table.concat(mod, "/")
 			local label = modString
-			if item.type == "Flask" then
-				label = mod.affix .. "   ^8[" .. modString .. "]"
-			end
 			control.list[i + 1] = {
 				label = label,
 				modList = { modId },
@@ -1798,13 +1795,7 @@ function ItemsTabClass:IsItemValidForSlot(item, slotName, itemSet)
 	if slotType == "Jewel" then
 		-- Special checks for jewel sockets
 		local node = self.build.spec.tree.nodes[tonumber(slotId)] or self.build.spec.nodes[tonumber(slotId)]
-		if not node or item.type ~= "Jewel" then
-			return false
-		elseif node.charmSocket or item.base.subType == "Charm" then
-			-- Charm sockets can only have charms, and charms can only be in charm sockets
-			if node.charmSocket and item.base.subType == "Charm" then
-				return true
-			end
+		if not node or item.class ~= "Jewel" then
 			return false
 		elseif item.clusterJewel and not node.expansionJewel then
 			-- Don't allow cluster jewels in inner sockets
@@ -1816,13 +1807,13 @@ function ItemsTabClass:IsItemValidForSlot(item, slotName, itemSet)
 			-- Only allow jewels that fit in this socket
 			return not item.clusterJewel or item.clusterJewel.sizeIndex <= node.expansionJewel.size
 		end
-	elseif item.type == "Flask" and slotType == "Flask" then
-		if item.baseName:match("Life Flask") and slotName:match("Flask 1") then
+	elseif item.category == "Flask" and slotType == "Flask" then
+		if item.class == "LifeFlask" and slotName:match("Flask 1") then
 			return true
-		elseif item.baseName:match("Mana Flask") and slotName:match("Flask 2") then
+		elseif item.class == "ManaFLask"  and slotName:match("Flask 2") then
 			return true
 		end
-	elseif item.type == slotType then
+	elseif item.category == slotType then
 		return true
 	elseif slotName == "Weapon 1" or slotName == "Weapon 1 Swap" or slotName == "Weapon" then
 		return item.base.tags.onehand or item.base.tags.twohand
@@ -1834,11 +1825,11 @@ function ItemsTabClass:IsItemValidForSlot(item, slotName, itemSet)
 		if self.build.calcsTab and self.build.calcsTab.mainEnv then
 			giantsBlood = self.build.calcsTab.mainEnv.modDB:Flag(nil, "GiantsBlood")
 		end
-		if weapon1Base.type == "Bow" then
-			return item.type == "Quiver"
+		if weapon1Base.class == "Bow" then
+			return item.class == "Quiver"
 		elseif weapon1Base == "Unarmed" or weapon1Base.tags.onehand or (giantsBlood and (weapon1Base.tags.axe or weapon1Base.tags.mace or weapon1Base.tags.sword)) then
-			return item.type == "Shield" or item.type == "Focus" or item.type == "Sceptre"
-					or (item.base.tags.one_hand_weapon and weapon1Base.type ~= "Wand" and weapon1Base.type ~= "Sceptre")
+			return item.class == "Shield" or item.class == "Focus" or item.class == "Sceptre"
+					or (item.base.tags.one_hand_weapon and weapon1Base.class ~= "Wand" and weapon1Base.class ~= "Sceptre")
 					or (giantsBlood and (item.base.tags.axe or item.base.tags.mace or item.base.tags.sword))
 		end
 	end
@@ -1889,15 +1880,12 @@ function ItemsTabClass:CraftItem()
 			end
 		end
 		local raritySel = controls.rarity.selIndex
-		if base.base.flask
-				or (base.base.type == "Jewel" and base.base.subType == "Charm")
-		 		or base.base.type == "Charm"
-		then
+		if base.base.flask or base.base.charm then
 			if raritySel == 3 then
 				raritySel = 2
 			end
 		end
-		if base.base.type == "SoulCore" or base.base.type == "Rune" then
+		if base.base.class == "SoulCore" then
 			if raritySel == 3 or raritySel == 2 then
 				raritySel = 1
 			end
@@ -1917,28 +1905,28 @@ function ItemsTabClass:CraftItem()
 				implicitIndex = implicitIndex + 1
 			end
 		end
-		if base.base.type == "Jewel" and base.base.subType == "Radius" then
+		if base.base.class == "Jewel" and base.base.tags.radius_jewel then
 			item.jewelRadiusLabel = "Small"
 		end
 		item:NormaliseQuality()
 		item:BuildAndParseRaw()
 		return item
 	end
-	controls.rarityLabel = new("LabelControl", {"TOPRIGHT",nil,"TOPLEFT"}, {50, 20, 0, 16}, "Rarity:")
-	controls.rarity = new("DropDownControl", nil, {-80, 20, 100, 18}, rarityDropList)
+	controls.rarityLabel = new("LabelControl", {"TOPRIGHT",nil,"TOPLEFT"}, {70, 20, 0, 16}, "Rarity:")
+	controls.rarity = new("DropDownControl", {"TOPLEFT",controls.rarityLabel,"TOPRIGHT"}, {5, 0, 100, 18}, rarityDropList)
 	controls.rarity.selIndex = self.lastCraftRaritySel or 3
-	controls.title = new("EditControl", nil, {70, 20, 190, 18}, "", "Name")
+	controls.title = new("EditControl", {"TOPLEFT",controls.rarity,"TOPRIGHT"}, {5, 0, 190, 18}, "", "Name")
 	controls.title.shown = function()
 		return controls.rarity.selIndex >= 3
 	end
-	controls.typeLabel = new("LabelControl", {"TOPRIGHT",nil,"TOPLEFT"}, {50, 45, 0, 16}, "Type:")
-	controls.type = new("DropDownControl", {"TOPLEFT",nil,"TOPLEFT"}, {55, 45, 295, 18}, self.build.data.itemBaseTypeList, function(index, value)
-		controls.base.list = self.build.data.itemBaseLists[self.build.data.itemBaseTypeList[index]]
+	controls.categoryLabel = new("LabelControl", {"TOPRIGHT",nil,"TOPLEFT"}, {70, 45, 0, 16}, "^7Category:")
+	controls.category = new("DropDownControl", {"TOPLEFT",controls.categoryLabel,"TOPRIGHT"}, {5, 0, 295, 18}, self.build.data.itemBaseCategoryList, function(index, value)
+		controls.base.list = self.build.data.itemBaseLists[self.build.data.itemBaseCategoryList[index]]
 		controls.base.selIndex = 1
 	end)
-	controls.type.selIndex = self.lastCraftTypeSel or 1
-	controls.baseLabel = new("LabelControl", {"TOPRIGHT",nil,"TOPLEFT"}, {50, 70, 0, 16}, "Base:")
-	controls.base = new("DropDownControl", {"TOPLEFT",nil,"TOPLEFT"}, {55, 70, 200, 18}, self.build.data.itemBaseLists[self.build.data.itemBaseTypeList[controls.type.selIndex]])
+	controls.category.selIndex = self.lastCraftTypeSel or 1
+	controls.baseLabel = new("LabelControl", {"TOPRIGHT",nil,"TOPLEFT"}, {70, 70, 0, 16}, "Base:")
+	controls.base = new("DropDownControl", {"TOPLEFT",controls.baseLabel,"TOPRIGHT"}, {5, 0, 200, 18}, self.build.data.itemBaseLists[self.build.data.itemBaseCategoryList[controls.category.selIndex]])
 	controls.base.selIndex = self.lastCraftBaseSel or 1
 	controls.base.tooltipFunc = function(tooltip, mode, index, value)
 		tooltip:Clear()
@@ -1954,13 +1942,13 @@ function ItemsTabClass:CraftItem()
 			self:EditDisplayItemText()
 		end
 		self.lastCraftRaritySel = controls.rarity.selIndex
-		self.lastCraftTypeSel = controls.type.selIndex
+		self.lastCraftTypeSel = controls.category.selIndex
 		self.lastCraftBaseSel = controls.base.selIndex
 	end)
 	controls.cancel = new("ButtonControl", nil, {45, 100, 80, 20}, "Cancel", function()
 		main:ClosePopup()
 	end)
-	main:OpenPopup(370, 130, "Craft Item", controls)
+	main:OpenPopup(460, 130, "Craft Item", controls)
 end
 
 -- Opens the item text editor popup
@@ -2160,7 +2148,7 @@ function ItemsTabClass:CorruptDisplayItem() -- todo implement vaal orb new outco
 	local corruptedRanges = {}
 	local currentModType = "Corrupted"
 	local sourceList = { "Corrupted" }
-	if self.displayItem.base.type == "Helmet" then
+	if self.displayItem.base.class == "Helmet" then
 		t_insert(sourceList, "Glimpse of Chaos")
 	end
 	local function buildEnchantList(modType)
@@ -2332,7 +2320,7 @@ function ItemsTabClass:CorruptDisplayItem() -- todo implement vaal orb new outco
 		if value == "Corrupted" then
 			currentModType = "Corrupted"
 			enchantNum = 1
-		elseif value == "Glimpse of Chaos" and self.displayItem.base.type == "Helmet" then -- special corruption enchants
+		elseif value == "Glimpse of Chaos" and self.displayItem.base.class == "Helmet" then -- special corruption enchants
 			currentModType = "SpecialCorrupted"
 			if self.displayItem.title == "Glimpse of Chaos" then -- glimpse of chaos can have all 8 special enchants
 				enchantNum = 8
@@ -2584,7 +2572,9 @@ function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode)
 	local slotNum = slot and slot.slotNum or (IsKeyDown("SHIFT") and 2 or 1)
 	local modList = item.modList or item.slotModList[slotNum]
 
-	tooltip:AddLine(16, s_format("^x7F7F7F%s", base.weapon and self.build.data.weaponTypeInfo[base.type].label or base.type))
+	if base.label then
+		tooltip:AddLine(16, s_format("^x7F7F7F%s", base.label))
+	end
 	if item.quality and item.quality > 0 then
 		tooltip:AddLine(16, s_format("^x7F7F7FQuality: "..colorCodes.MAGIC.."+%d%%", item.quality))
 	end
@@ -2690,7 +2680,7 @@ function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode)
 		for _, modLine in pairs(item.buffModLines) do
 			tooltip:AddLine(16, (modLine.extra and colorCodes.UNSUPPORTED or colorCodes.MAGIC) .. modLine.line)
 		end
-	elseif item.type == "Jewel" then
+	elseif item.class == "Jewel" then
 		-- Jewel-specific info
 		if item.limit then
 			tooltip:AddLine(16, "^x7F7F7FLimited to: ^7"..item.limit)

@@ -554,8 +554,8 @@ function calcs.offence(env, actor, activeSkill)
 			skillModList:NewMod(damageType.."Max", "BASE", m_floor((actor.weaponData1[damageType.."Max"] or 0) * multiplier), "Battlemage", ModFlag.Spell)
 		end
 	end
-	local weapon1info = env.data.weaponTypeInfo[actor.weaponData1.type]
-	local weapon2info = env.data.weaponTypeInfo[actor.weaponData2.type]
+	local weapon1info = env.data.weaponClassInfo[actor.weaponData1.class]
+	local weapon2info = env.data.weaponClassInfo[actor.weaponData2.class]
 	-- -- account for Spellblade
 	-- Note: we check conditions of Main Hand weapon using actor.itemList as actor.weaponData1 is populated with unarmed values when no weapon slotted.
 	local spellbladeMulti = skillModList:Max(skillCfg, "OneHandWeaponDamageAppliesToSpells")
@@ -830,17 +830,17 @@ function calcs.offence(env, actor, activeSkill)
 	end
 	if skillData.gainPercentBaseWandDamage then
 		local mult = skillData.gainPercentBaseWandDamage / 100
-		if actor.weaponData1.type == "Wand" and actor.weaponData2.type == "Wand" then
+		if actor.weaponData1.category == "Wand" and actor.weaponData2.category == "Wand" then
 			for _, damageType in ipairs(dmgTypeList) do
 				skillModList:NewMod(damageType.."Min", "BASE", ((actor.weaponData1[damageType.."Min"] or 0) + (actor.weaponData2[damageType.."Min"] or 0)) / 2 * mult, "Spellslinger")
 				skillModList:NewMod(damageType.."Max", "BASE", ((actor.weaponData1[damageType.."Max"] or 0) + (actor.weaponData2[damageType.."Max"] or 0)) / 2 * mult, "Spellslinger")
 			end
-		elseif actor.weaponData1.type == "Wand" then
+		elseif actor.weaponData1.category == "Wand" then
 			for _, damageType in ipairs(dmgTypeList) do
 				skillModList:NewMod(damageType.."Min", "BASE", (actor.weaponData1[damageType.."Min"] or 0) * mult, "Spellslinger")
 				skillModList:NewMod(damageType.."Max", "BASE", (actor.weaponData1[damageType.."Max"] or 0) * mult, "Spellslinger")
 			end
-		elseif actor.weaponData2.type == "Wand" then
+		elseif actor.weaponData2.category == "Wand" then
 			for _, damageType in ipairs(dmgTypeList) do
 				skillModList:NewMod(damageType.."Min", "BASE", (actor.weaponData2[damageType.."Min"] or 0) * mult, "Spellslinger")
 				skillModList:NewMod(damageType.."Max", "BASE", (actor.weaponData2[damageType.."Max"] or 0) * mult, "Spellslinger")
@@ -849,17 +849,17 @@ function calcs.offence(env, actor, activeSkill)
 	end
 	if skillData.gainPercentBaseDaggerDamage then
 		local mult = skillData.gainPercentBaseDaggerDamage / 100
-		if actor.weaponData1.type == "Dagger" and actor.weaponData2.type == "Dagger" then
+		if actor.weaponData1.category == "Dagger" and actor.weaponData2.category == "Dagger" then
 			for _, damageType in ipairs(dmgTypeList) do
 				skillModList:NewMod(damageType.."Min", "BASE", ((actor.weaponData1[damageType.."Min"] or 0) + (actor.weaponData2[damageType.."Min"] or 0)) / 2 * mult, "Blade Blast of Dagger Detonation")
 				skillModList:NewMod(damageType.."Max", "BASE", ((actor.weaponData1[damageType.."Max"] or 0) + (actor.weaponData2[damageType.."Max"] or 0)) / 2 * mult, "Blade Blast of Dagger Detonation")
 			end
-		elseif actor.weaponData1.type == "Dagger" then
+		elseif actor.weaponData1.category == "Dagger" then
 			for _, damageType in ipairs(dmgTypeList) do
 				skillModList:NewMod(damageType.."Min", "BASE", (actor.weaponData1[damageType.."Min"] or 0) * mult, "Blade Blast of Dagger Detonation")
 				skillModList:NewMod(damageType.."Max", "BASE", (actor.weaponData1[damageType.."Max"] or 0) * mult, "Blade Blast of Dagger Detonation")
 			end
-		elseif actor.weaponData2.type == "Dagger" then
+		elseif actor.weaponData2.category == "Dagger" then
 			for _, damageType in ipairs(dmgTypeList) do
 				skillModList:NewMod(damageType.."Min", "BASE", (actor.weaponData2[damageType.."Min"] or 0) * mult, "Blade Blast of Dagger Detonation")
 				skillModList:NewMod(damageType.."Max", "BASE", (actor.weaponData2[damageType.."Max"] or 0) * mult, "Blade Blast of Dagger Detonation")
@@ -1960,7 +1960,7 @@ function calcs.offence(env, actor, activeSkill)
 			if skillFlags.unarmed then
 				source = copyTable(data.unarmedWeaponData[env.classId])
 			end
-			if critOverride and source.type and source.type ~= "None" then
+			if critOverride and source.class and source.class ~= "Unarmed" then
 				source.CritChance = critOverride
 			end
 			t_insert(passList, {
@@ -1981,7 +1981,7 @@ function calcs.offence(env, actor, activeSkill)
 			if skillFlags.unarmed then
 				source = copyTable(data.unarmedWeaponData[env.classId])
 			end
-			if critOverride and source.type and source.type ~= "None" then
+			if critOverride and source.category and source.category ~= "Unarmed" then
 				source.CritChance = critOverride
 			end
 			if skillData.CritChance then
@@ -3045,7 +3045,7 @@ function calcs.offence(env, actor, activeSkill)
 					t_insert(breakdown[damageType], "Base damage:")
 					local plus = ""
 					if (source[damageTypeMin] or 0) ~= 0 or (source[damageTypeMax] or 0) ~= 0 then
-						t_insert(breakdown[damageType], s_format("%d to %d ^8(damage from %s)", source[damageTypeMin], source[damageTypeMax], source.type and "weapon" or "skill"))
+						t_insert(breakdown[damageType], s_format("%d to %d ^8(damage from %s)", source[damageTypeMin], source[damageTypeMax], source.class and "weapon" or "skill"))
 					end
 					if addedMin ~= 0 or addedMax ~= 0 then
 						t_insert(breakdown[damageType], s_format("%s%d to %d ^8(added damage)", plus, addedMin, addedMax))

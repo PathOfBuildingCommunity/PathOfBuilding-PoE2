@@ -1,7 +1,10 @@
 -- Item data (c) Grinding Gear Games
 local itemBases = ...
 
-#type Body Armour
+#label Body Armour
 #socketLimit 3
+#displayName Metadata/Items/Armours/BodyArmours/FourBodyStrDex4aEndgame Expert Cloaked Mail (Fire Resistance)
+#displayName Metadata/Items/Armours/BodyArmours/FourBodyStrDex4bEndgame Expert Cloaked Mail (Cold Resistance)
+#displayName Metadata/Items/Armours/BodyArmours/FourBodyStrDex4cEndgame Expert Cloaked Mail (Lightning Resistance)
 #baseMatch BaseType Metadata/Items/Armours/BodyArmours/AbstractBodyArmour
 #baseMatch BaseType Metadata/Items/Armours/BodyArmours/BodyArmourDemigods

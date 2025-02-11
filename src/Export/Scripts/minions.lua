@@ -38,25 +38,6 @@ local function tableToString(tbl, pre)
 	return tableString .. " }"
 end
 
-local itemClassMap = {
-	["Claw"] = "Claw",
-	["Dagger"] = "Dagger",
-	["Wand"] = "Wand",
-	["One Hand Sword"] = "One Handed Sword",
-	["Thrusting One Hand Sword"] = "One Handed Sword",
-	["One Hand Axe"] = "One Handed Axe",
-	["One Hand Mace"] = "One Handed Mace",
-	["Bow"] = "Bow",
-	["Fishing Rod"] = "Fishing Rod",
-	["Staff"] = "Staff",
-	["Two Hand Sword"] = "Two Handed Sword",
-	["Two Hand Axe"] = "Two Handed Axe",
-	["Two Hand Mace"] = "Two Handed Mace",
-	["Shield"] = "Shield",
-	["Sceptre"] = "One Handed Mace",
-	["Unarmed"] = "None",
-}
-
 local directiveTable = { }
 
 -- #monster <MonsterId> [<Name>] [<ExtraSkills>]
@@ -144,11 +125,11 @@ directiveTable.emit = function(state, args, out)
 			out:write('\tdamageFixup = 0.33,\n')
 		end
 	end
-	if monsterVariety.MainHandItemClass and itemClassMap[monsterVariety.MainHandItemClass.Id] then
-		out:write('\tweaponType1 = "', itemClassMap[monsterVariety.MainHandItemClass.Id], '",\n')
+	if monsterVariety.MainHandItemClass and monsterVariety.MainHandItemClass.Id then
+		out:write('\tweaponType1 = "', monsterVariety.MainHandItemClass.Id, '",\n')
 	end
-	if monsterVariety.OffHandItemClass and itemClassMap[monsterVariety.OffHandItemClass.Id] then
-		out:write('\tweaponType2 = "', itemClassMap[monsterVariety.OffHandItemClass.Id], '",\n')
+	if monsterVariety.OffHandItemClass and monsterVariety.OffHandItemClass.Id then
+		out:write('\tweaponType2 = "', monsterVariety.OffHandItemClass.Id, '",\n')
 	end
 	if state.limit then
 		out:write('\tlimit = "', state.limit, '",\n')

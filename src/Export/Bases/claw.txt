@@ -1,6 +1,6 @@
 -- Item data (c) Grinding Gear Games
 local itemBases = ...
 
-#type Claw
+#label Claw
 #socketLimit 2
 #baseMatch BaseType Metadata/Items/Weapons/OneHandWeapons/Claws/AbstractClaw

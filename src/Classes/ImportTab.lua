@@ -807,7 +807,7 @@ function ImportTabClass:ImportItem(itemData, slotName)
 		end
 		item.base = self.build.data.itemBases[item.baseName]
 		if item.base then
-			item.type = item.base.type
+			item.category = item.base.category
 		else
 			ConPrintf("Unrecognised base in imported item: %s", item.baseName)
 		end
@@ -816,7 +816,7 @@ function ImportTabClass:ImportItem(itemData, slotName)
 		if item.name:match("Energy Blade") then
 			local oneHanded = false
 			for _, p in ipairs(itemData.properties) do
-				if self.build.data.weaponTypeInfo[p.name] and self.build.data.weaponTypeInfo[p.name].oneHand then
+				if self.build.data.weaponClassInfo[p.name] and self.build.data.weaponClassInfo[p.name].oneHand then
 					oneHanded = true
 					break
 				end
@@ -832,7 +832,7 @@ function ImportTabClass:ImportItem(itemData, slotName)
 				item.baseName = baseName
 				item.namePrefix = item.name:sub(1, s - 1)
 				item.nameSuffix = item.name:sub(e + 1)
-				item.type = baseData.type
+				item.category = baseData.category
 				break
 			end
 		end
@@ -843,7 +843,7 @@ function ImportTabClass:ImportItem(itemData, slotName)
 				item.baseName = "Two-Toned Boots (Armour/Energy Shield)"
 				item.namePrefix = item.name:sub(1, s - 1)
 				item.nameSuffix = item.name:sub(e + 1)
-				item.type = "Boots"
+				item.category = "Boots"
 			end
 		end
 		item.base = self.build.data.itemBases[item.baseName]

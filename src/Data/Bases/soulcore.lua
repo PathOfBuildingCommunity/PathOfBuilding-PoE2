@@ -3,7 +3,8 @@
 local itemBases = ...
 
 itemBases["Soul Core of Tacati"] = {
-	type = "SoulCore",
+	class = "SoulCore",
+	category = "SoulCore",
 	hidden = true,
 	tags = { soul_core = true, soul_core_tier1 = true, default = true, },
 	implicitModTypes = { },
@@ -11,7 +12,8 @@ itemBases["Soul Core of Tacati"] = {
 	req = { level = 35, },
 }
 itemBases["Soul Core of Opiloti"] = {
-	type = "SoulCore",
+	class = "SoulCore",
+	category = "SoulCore",
 	hidden = true,
 	tags = { soul_core = true, soul_core_tier1 = true, default = true, },
 	implicitModTypes = { },
@@ -19,7 +21,8 @@ itemBases["Soul Core of Opiloti"] = {
 	req = { level = 35, },
 }
 itemBases["Soul Core of Jiquani"] = {
-	type = "SoulCore",
+	class = "SoulCore",
+	category = "SoulCore",
 	hidden = true,
 	tags = { soul_core = true, soul_core_tier2 = true, default = true, },
 	implicitModTypes = { },
@@ -27,7 +30,8 @@ itemBases["Soul Core of Jiquani"] = {
 	req = { level = 35, },
 }
 itemBases["Soul Core of Zalatl"] = {
-	type = "SoulCore",
+	class = "SoulCore",
+	category = "SoulCore",
 	hidden = true,
 	tags = { soul_core = true, soul_core_tier2 = true, default = true, },
 	implicitModTypes = { },
@@ -35,7 +39,8 @@ itemBases["Soul Core of Zalatl"] = {
 	req = { level = 35, },
 }
 itemBases["Soul Core of Citaqualotl"] = {
-	type = "SoulCore",
+	class = "SoulCore",
+	category = "SoulCore",
 	hidden = true,
 	tags = { soul_core = true, soul_core_tier1 = true, default = true, },
 	implicitModTypes = { },
@@ -43,7 +48,8 @@ itemBases["Soul Core of Citaqualotl"] = {
 	req = { level = 35, },
 }
 itemBases["Soul Core of Puhuarte"] = {
-	type = "SoulCore",
+	class = "SoulCore",
+	category = "SoulCore",
 	hidden = true,
 	tags = { soul_core = true, soul_core_tier3 = true, default = true, },
 	implicitModTypes = { },
@@ -51,7 +57,8 @@ itemBases["Soul Core of Puhuarte"] = {
 	req = { level = 35, },
 }
 itemBases["Soul Core of Tzamoto"] = {
-	type = "SoulCore",
+	class = "SoulCore",
+	category = "SoulCore",
 	hidden = true,
 	tags = { soul_core = true, soul_core_tier3 = true, default = true, },
 	implicitModTypes = { },
@@ -59,7 +66,8 @@ itemBases["Soul Core of Tzamoto"] = {
 	req = { level = 35, },
 }
 itemBases["Soul Core of Xopec"] = {
-	type = "SoulCore",
+	class = "SoulCore",
+	category = "SoulCore",
 	hidden = true,
 	tags = { soul_core = true, soul_core_tier3 = true, default = true, },
 	implicitModTypes = { },
@@ -67,7 +75,8 @@ itemBases["Soul Core of Xopec"] = {
 	req = { level = 35, },
 }
 itemBases["Soul Core of Azcapa"] = {
-	type = "SoulCore",
+	class = "SoulCore",
+	category = "SoulCore",
 	hidden = true,
 	tags = { soul_core = true, soul_core_tier3 = true, default = true, },
 	implicitModTypes = { },
@@ -75,7 +84,8 @@ itemBases["Soul Core of Azcapa"] = {
 	req = { level = 35, },
 }
 itemBases["Soul Core of Topotante"] = {
-	type = "SoulCore",
+	class = "SoulCore",
+	category = "SoulCore",
 	hidden = true,
 	tags = { soul_core = true, soul_core_tier1 = true, default = true, },
 	implicitModTypes = { },
@@ -83,7 +93,8 @@ itemBases["Soul Core of Topotante"] = {
 	req = { level = 35, },
 }
 itemBases["Soul Core of Quipolatl"] = {
-	type = "SoulCore",
+	class = "SoulCore",
+	category = "SoulCore",
 	hidden = true,
 	tags = { soul_core = true, soul_core_tier2 = true, default = true, },
 	implicitModTypes = { },
@@ -91,7 +102,8 @@ itemBases["Soul Core of Quipolatl"] = {
 	req = { level = 35, },
 }
 itemBases["Soul Core of Ticaba"] = {
-	type = "SoulCore",
+	class = "SoulCore",
+	category = "SoulCore",
 	hidden = true,
 	tags = { soul_core = true, soul_core_tier2 = true, default = true, },
 	implicitModTypes = { },
@@ -99,7 +111,8 @@ itemBases["Soul Core of Ticaba"] = {
 	req = { level = 35, },
 }
 itemBases["Soul Core of Atmohua"] = {
-	type = "SoulCore",
+	class = "SoulCore",
+	category = "SoulCore",
 	hidden = true,
 	tags = { soul_core = true, soul_core_tier2 = true, default = true, },
 	implicitModTypes = { },
@@ -107,7 +120,8 @@ itemBases["Soul Core of Atmohua"] = {
 	req = { level = 35, },
 }
 itemBases["Soul Core of Cholotl"] = {
-	type = "SoulCore",
+	class = "SoulCore",
+	category = "SoulCore",
 	hidden = true,
 	tags = { soul_core = true, soul_core_tier2 = true, default = true, },
 	implicitModTypes = { },
@@ -115,7 +129,8 @@ itemBases["Soul Core of Cholotl"] = {
 	req = { level = 35, },
 }
 itemBases["Soul Core of Zantipi"] = {
-	type = "SoulCore",
+	class = "SoulCore",
+	category = "SoulCore",
 	hidden = true,
 	tags = { soul_core = true, soul_core_tier2 = true, default = true, },
 	implicitModTypes = { },
@@ -124,7 +139,8 @@ itemBases["Soul Core of Zantipi"] = {
 }
 
 itemBases["Desert Rune"] = {
-	type = "Rune",
+	class = "SoulCore",
+	category = "SoulCore",
 	hidden = true,
 	tags = { default = true, },
 	implicitModTypes = { },
@@ -132,7 +148,8 @@ itemBases["Desert Rune"] = {
 	req = { level = 5, },
 }
 itemBases["Glacial Rune"] = {
-	type = "Rune",
+	class = "SoulCore",
+	category = "SoulCore",
 	hidden = true,
 	tags = { default = true, },
 	implicitModTypes = { },
@@ -140,7 +157,8 @@ itemBases["Glacial Rune"] = {
 	req = { level = 5, },
 }
 itemBases["Storm Rune"] = {
-	type = "Rune",
+	class = "SoulCore",
+	category = "SoulCore",
 	hidden = true,
 	tags = { default = true, },
 	implicitModTypes = { },
@@ -148,7 +166,8 @@ itemBases["Storm Rune"] = {
 	req = { level = 5, },
 }
 itemBases["Iron Rune"] = {
-	type = "Rune",
+	class = "SoulCore",
+	category = "SoulCore",
 	hidden = true,
 	tags = { default = true, },
 	implicitModTypes = { },
@@ -156,7 +175,8 @@ itemBases["Iron Rune"] = {
 	req = { level = 5, },
 }
 itemBases["Body Rune"] = {
-	type = "Rune",
+	class = "SoulCore",
+	category = "SoulCore",
 	hidden = true,
 	tags = { default = true, },
 	implicitModTypes = { },
@@ -164,7 +184,8 @@ itemBases["Body Rune"] = {
 	req = { level = 16, },
 }
 itemBases["Mind Rune"] = {
-	type = "Rune",
+	class = "SoulCore",
+	category = "SoulCore",
 	hidden = true,
 	tags = { default = true, },
 	implicitModTypes = { },
@@ -172,7 +193,8 @@ itemBases["Mind Rune"] = {
 	req = { level = 16, },
 }
 itemBases["Rebirth Rune"] = {
-	type = "Rune",
+	class = "SoulCore",
+	category = "SoulCore",
 	hidden = true,
 	tags = { default = true, },
 	implicitModTypes = { },
@@ -180,7 +202,8 @@ itemBases["Rebirth Rune"] = {
 	req = { level = 30, },
 }
 itemBases["Inspiration Rune"] = {
-	type = "Rune",
+	class = "SoulCore",
+	category = "SoulCore",
 	hidden = true,
 	tags = { default = true, },
 	implicitModTypes = { },
@@ -188,7 +211,8 @@ itemBases["Inspiration Rune"] = {
 	req = { level = 30, },
 }
 itemBases["Stone Rune"] = {
-	type = "Rune",
+	class = "SoulCore",
+	category = "SoulCore",
 	hidden = true,
 	tags = { default = true, },
 	implicitModTypes = { },
@@ -196,7 +220,8 @@ itemBases["Stone Rune"] = {
 	req = { level = 21, },
 }
 itemBases["Vision Rune"] = {
-	type = "Rune",
+	class = "SoulCore",
+	category = "SoulCore",
 	hidden = true,
 	tags = { default = true, },
 	implicitModTypes = { },

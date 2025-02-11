@@ -64,7 +64,7 @@ function calcs.mirages(env)
 		config = {
 			calcMainSkillOffence = true,
 			compareFunc = function(skill, env, config, mirageSkill)
-				if not env.player.mainSkill.skillCfg.skillCond["usedByMirage"] and env.player.weaponData1.type == "Bow" then
+				if not env.player.mainSkill.skillCfg.skillCond["usedByMirage"] and env.player.weaponData1.class == "Bow" then
 					return env.player.mainSkill
 				end
 			end,
@@ -298,7 +298,7 @@ function calcs.mirages(env)
 		config = {
 			calcMainSkillOffence = true,
 			compareFunc = function(skill, env, config, mirageSkill)
-				if not env.player.mainSkill.skillCfg.skillCond["usedByMirage"] and env.player.weaponData1.type == "Wand" then
+				if not env.player.mainSkill.skillCfg.skillCond["usedByMirage"] and env.player.weaponData1.class == "Wand" then
 					return env.player.mainSkill
 				end
 			end,

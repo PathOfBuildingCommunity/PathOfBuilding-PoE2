@@ -268,7 +268,7 @@ skills["MeleeBowPlayer"] = {
 	color = 4,
 	description = "Fire an arrow with your Bow.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.CanRapidFire] = true, [SkillType.Nonpathing] = true, },
-	weaponTypes = {
+	weaponClasses = {
 		["Bow"] = true,
 	},
 	castTime = 1,
@@ -391,7 +391,7 @@ skills["MeleeCrossbowPlayer"] = {
 	color = 4,
 	description = "Fires a bolt from your crossbow.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Area] = true, [SkillType.CrossbowSkill] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Nonpathing] = true, },
-	weaponTypes = {
+	weaponClasses = {
 		["Crossbow"] = true,
 	},
 	castTime = 1,
@@ -1892,8 +1892,8 @@ skills["Melee1HMacePlayer"] = {
 	color = 4,
 	description = "Strike with your Mace.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Multistrikeable] = true, [SkillType.Melee] = true, [SkillType.Area] = true, },
-	weaponTypes = {
-		["One Handed Mace"] = true,
+	weaponClasses = {
+		["One Hand Mace"] = true,
 	},
 	castTime = 1,
 	qualityStats = {
@@ -2008,8 +2008,8 @@ skills["Melee2HMacePlayer"] = {
 	color = 4,
 	description = "Strike with your Mace.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Multistrikeable] = true, [SkillType.Melee] = true, [SkillType.Area] = true, },
-	weaponTypes = {
-		["Two Handed Mace"] = true,
+	weaponClasses = {
+		["Two Hand Mace"] = true,
 	},
 	castTime = 1,
 	qualityStats = {
@@ -2124,9 +2124,9 @@ skills["MeleeMaceMacePlayer"] = {
 	color = 4,
 	description = "Strike with your Maces.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Multistrikeable] = true, [SkillType.Melee] = true, [SkillType.Area] = true, [SkillType.DualWieldOnly] = true, },
-	weaponTypes = {
-		["One Handed Mace"] = true,
-		["Two Handed Mace"] = true,
+	weaponClasses = {
+		["One Hand Mace"] = true,
+		["Two Hand Mace"] = true,
 	},
 	castTime = 1,
 	qualityStats = {
@@ -2606,8 +2606,8 @@ skills["MeleeQuarterstaffPlayer"] = {
 	color = 4,
 	description = "Strike with your Quarterstaff.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Multistrikeable] = true, [SkillType.Melee] = true, [SkillType.Area] = true, [SkillType.QuarterstaffSkill] = true, },
-	weaponTypes = {
-		["Staff"] = true,
+	weaponClasses = {
+		["Warstaff"] = true,
 	},
 	castTime = 1,
 	qualityStats = {
@@ -2722,6 +2722,9 @@ skills["ShieldBlockPlayer"] = {
 	color = 4,
 	description = "Raise your shield to Block all incoming blockable hits. Blocking too much damage while your shield is raised may stagger you.",
 	skillTypes = { [SkillType.Channel] = true, [SkillType.RequiresShield] = true, [SkillType.Nonpathing] = true, },
+	weaponClasses = {
+		["Shield"] = true,
+	},
 	castTime = 1,
 	qualityStats = {
 	},

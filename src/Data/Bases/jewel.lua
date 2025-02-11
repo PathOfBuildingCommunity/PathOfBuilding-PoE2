@@ -3,62 +3,75 @@
 local itemBases = ...
 
 itemBases["Ruby"] = {
-	type = "Jewel",
+	class = "Jewel",
+	category = "Jewel",
+	label = "Jewel",
 	tags = { strjewel = true, jewel = true, default = true, },
 	implicitModTypes = { },
 	req = { },
 }
 itemBases["Emerald"] = {
-	type = "Jewel",
+	class = "Jewel",
+	category = "Jewel",
+	label = "Jewel",
 	tags = { dexjewel = true, jewel = true, default = true, },
 	implicitModTypes = { },
 	req = { },
 }
 itemBases["Sapphire"] = {
-	type = "Jewel",
+	class = "Jewel",
+	category = "Jewel",
+	label = "Jewel",
 	tags = { jewel = true, intjewel = true, default = true, },
 	implicitModTypes = { },
 	req = { },
 }
 itemBases["Diamond"] = {
-	type = "Jewel",
+	class = "Jewel",
+	category = "Jewel",
+	label = "Jewel",
 	tags = { jewel = true, not_for_sale = true, default = true, },
 	implicitModTypes = { },
 	req = { },
 }
 
 itemBases["Time-Lost Ruby"] = {
-	type = "Jewel",
-	subType = "Radius",
+	class = "Jewel",
+	category = "Jewel",
+	label = "Jewel",
 	tags = { str_radius_jewel = true, not_for_sale = true, jewel = true, radius_jewel = true, default = true, },
 	implicitModTypes = { },
 	req = { },
 }
 itemBases["Time-Lost Emerald"] = {
-	type = "Jewel",
-	subType = "Radius",
+	class = "Jewel",
+	category = "Jewel",
+	label = "Jewel",
 	tags = { not_for_sale = true, jewel = true, dex_radius_jewel = true, radius_jewel = true, default = true, },
 	implicitModTypes = { },
 	req = { },
 }
 itemBases["Time-Lost Sapphire"] = {
-	type = "Jewel",
-	subType = "Radius",
+	class = "Jewel",
+	category = "Jewel",
+	label = "Jewel",
 	tags = { not_for_sale = true, radius_jewel = true, jewel = true, int_radius_jewel = true, default = true, },
 	implicitModTypes = { },
 	req = { },
 }
 itemBases["Time-Lost Diamond"] = {
-	type = "Jewel",
-	subType = "Radius",
+	class = "Jewel",
+	category = "Jewel",
+	label = "Jewel",
 	tags = { not_for_sale = true, jewel = true, radius_jewel = true, default = true, },
 	implicitModTypes = { },
 	req = { },
 }
 
 itemBases["Timeless Jewel"] = {
-	type = "Jewel",
-	subType = "Timeless",
+	class = "Jewel",
+	category = "Jewel",
+	label = "Jewel",
 	tags = { dexjewel = true, not_for_sale = true, strjewel = true, jewel = true, default = true, intjewel = true, },
 	implicitModTypes = { },
 	req = { },

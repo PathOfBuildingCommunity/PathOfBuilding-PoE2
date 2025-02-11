@@ -421,7 +421,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 					self.itemSocketCount = #self.sockets
 				elseif specName == "Rune" then
 					t_insert(self.runes, specVal)
-				elseif specName == "Radius" and self.type == "Jewel" then
+				elseif specName == "Radius" and self.category == "Jewel" then
 					self.jewelRadiusLabel = specVal:match("^[%a ]+")
 					if specVal:match("^%a+") == "Variable" then
                         -- Jewel radius is variable and must be read from it's mods instead after they are parsed
@@ -434,7 +434,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
                             end
 						end
 					end
-				elseif specName == "Limited to" and self.type == "Jewel" then
+				elseif specName == "Limited to" and self.category == "Jewel" then
 					self.limit = specToNumber(specVal)
 				elseif specName == "Variant" then
 					if not self.variantList then
@@ -656,14 +656,15 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 						if not (self.rarity == "NORMAL" or self.rarity == "MAGIC") then
 							self.title = self.name
 						end
+						self.category = base.category
+						self.class = base.class
+						self.label = base.label
 						self.type = base.type
 						self.base = base
 						self.charmLimit = base.charmLimit
 						self.spiritValue = base.spirit
-						self.affixes = (self.base.subType and data.itemMods[self.base.type..self.base.subType])
-								or data.itemMods[self.base.type]
-								or data.itemMods.Item
-						self.corruptible = self.base.type ~= "Flask" and self.base.type ~= "Charm" and self.base.type ~= "Rune" and self.base.type ~= "SoulCore"
+						self.affixes = data.itemMods.Item
+						self.corruptible = self.base.category ~= "Flask" and self.base.category ~= "Charm" and self.base.category ~= "SoulCore"
 						self.clusterJewel = data.clusterJewels and data.clusterJewels.jewels[self.baseName]
 						self.requirements.str = self.base.req.str or 0
 						self.requirements.dex = self.base.req.dex or 0
@@ -754,7 +755,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 						foundExplicit = true
 					end
 				elseif mode == "GAME" then
-					if gameModeStage == "IMPLICIT" or gameModeStage == "EXPLICIT" or (gameModeStage == "FINDIMPLICIT" and (not data.itemBases[line]) and not (self.name == line) and not line:find("Two%-Toned") and not (self.base and (line == self.base.type or self.base.subType and line == self.base.subType .. " " .. self.base.type))) then
+					if gameModeStage == "IMPLICIT" or gameModeStage == "EXPLICIT" or (gameModeStage == "FINDIMPLICIT" and not data.itemBases[line] and not self.name == line and not line:find("Two%-Toned") and not (self.base and line == self.base.class)) then
 						modLine.modList = { }
 						modLine.extra = line
 						t_insert(modLines, modLine)
@@ -830,7 +831,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 				self.affixLimit = 2
 			end
 		elseif self.rarity == "RARE" then
-			self.affixLimit = ((self.type == "Jewel" and not (self.base.subType == "Abyss" and self.corrupted)) and 4 or 6)
+			self.affixLimit = self.category == "Jewel" and 4 or 6
 			if self.prefixes.limit or self.suffixes.limit then
 				self.prefixes.limit = m_max(m_min((self.prefixes.limit or 0) + self.affixLimit / 2, self.affixLimit), 0)
 				self.suffixes.limit = m_max(m_min((self.suffixes.limit or 0) + self.affixLimit / 2, self.affixLimit), 0)
@@ -898,7 +899,7 @@ function ItemClass:NormaliseQuality()
 	if self.base and self.base.quality then
 		if not self.quality then
 			self.quality = 0
-		elseif not self.uniqueID and not self.corrupted and not self.mirrored and not (self.base.type == "Charm") and self.quality < self.base.quality then -- charms cannot be modified by quality currency.
+		elseif not self.uniqueID and not self.corrupted and not self.mirrored and not (self.base.category == "Charm") and self.quality < self.base.quality then -- charms cannot be modified by quality currency.
 			self.quality = self.base.quality
 		end
 	end	
@@ -1210,16 +1211,16 @@ end
 
 -- Return the name of the slot this item is equipped in
 function ItemClass:GetPrimarySlot()
-	if self.base.weapon or self.base.type == "Wand" or self.base.type == "Sceptre" or self.base.type == "Staff" then
+	if self.base.tags.onehand or self.base.tags.twohand then
 		return "Weapon 1"
-	elseif self.type == "Quiver" or self.type == "Shield" then
+	elseif self.category == "Quiver" or self.category == "Shield" or self.category == "Focus" then
 		return "Weapon 2"
-	elseif self.type == "Ring" then
+	elseif self.category == "Ring" then
 		return "Ring 1"
-	elseif self.type == "Flask" then
+	elseif self.category == "Flask" then
 		return "Flask 1"
 	else
-		return self.type
+		return self.category
 	end
 end
 
@@ -1306,7 +1307,8 @@ function ItemClass:BuildModListForSlotNum(baseList, slotNum)
 	if self.base.weapon then
 		local weaponData = { }
 		self.weaponData[slotNum] = weaponData
-		weaponData.type = self.base.type
+		weaponData.class = self.base.class
+		weaponData.category = self.base.category
 		weaponData.name = self.name
 		weaponData.AttackSpeedInc = calcLocal(modList, "Speed", "INC", ModFlag.Attack) + m_floor(self.quality / 8 * calcLocal(modList, "AlternateQualityLocalAttackSpeedPer8Quality", "INC", 0))
 		weaponData.AttackRate = round(self.base.weapon.AttackRateBase * (1 + weaponData.AttackSpeedInc / 100), 2)
@@ -1444,7 +1446,7 @@ function ItemClass:BuildModListForSlotNum(baseList, slotNum)
 		for _, value in ipairs(modList:List(nil, "CharmData")) do
 			charmData[value.key] = value.value
 		end
-	elseif self.type == "Jewel" then
+	elseif self.category == "Jewel" then
 		if self.name:find("Grand Spectrum") then
 			local spectrumMod = modLib.createMod("Multiplier:GrandSpectrum", "BASE", 1, self.name)
 			modList:AddMod(spectrumMod)
@@ -1512,7 +1514,7 @@ function ItemClass:BuildModList()
 	elseif self.base.charm then
 		self.charmData = { }
 		self.buffModList = { }
-	elseif self.type == "Jewel" then
+	elseif self.category == "Jewel" then
 		self.jewelData = { }
 	end
 	self.baseModList = baseList
@@ -1613,7 +1615,7 @@ function ItemClass:BuildModList()
 		self.sockets = newSockets
 	end
 	self.socketedJewelEffectModifier = 1 + calcLocal(baseList, "SocketedJewelEffect", "INC", 0) / 100
-	if self.base.weapon or self.base.type == "Wand" or self.base.type == "Sceptre" or self.base.type == "Staff" or self.type == "Ring" then
+	if self.base.tags.onehand or self.base.tags.twohand or self.category == "Ring" then
 		self.slotModList = { }
 		for i = 1, 2 do
 			self.slotModList[i] = self:BuildModListForSlotNum(baseList, i)

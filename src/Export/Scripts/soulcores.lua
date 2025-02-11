@@ -16,10 +16,6 @@ local s_format = string.format
 
 local directiveTable = { }
 
-directiveTable.type = function(state, args, out)
-	state.type = args
-end
-
 directiveTable.base = function(state, args, out)
 	local baseTypeId, displayName = args:match("([%w/_]+) (.+)")
 	if not baseTypeId then
@@ -58,6 +54,7 @@ directiveTable.base = function(state, args, out)
 		end
 		out:write("\t\tweapon = ")
 		writeStats(stats, out)
+		-- armour
 		stats = { }  -- reset stats to empty
 		for i, statKey in ipairs(soulcore.StatsKeysArmour) do
 			local statValue = soulcore["StatsValuesArmour"][i]

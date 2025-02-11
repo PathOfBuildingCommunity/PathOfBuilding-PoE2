@@ -236,12 +236,15 @@ ModFlag.Fishing =	 0x0000000002000000
 ModFlag.Crossbow =	 0x0000000004000000
 ModFlag.Flail =		 0x0000000008000000
 ModFlag.Spear =		 0x0000000010000000
+ModFlag.Warstaff =	 0x0000000020000000
+ModFlag.Sceptre =	 0x0000000040000000
+
 -- Weapon classes
 ModFlag.WeaponMelee =0x0000000100000000
 ModFlag.WeaponRanged=0x0000000200000000
 ModFlag.Weapon1H =	 0x0000000400000000
 ModFlag.Weapon2H =	 0x0000000800000000
-ModFlag.WeaponMask = 0x0000000F1FFF0000
+ModFlag.WeaponMask = 0x0000000F4FFF0000
 
 KeywordFlag = { }
 -- Skill keywords

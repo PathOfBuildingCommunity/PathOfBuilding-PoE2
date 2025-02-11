@@ -868,9 +868,9 @@ local modFlagList = {
 	["with staves"] = { flags = bor(ModFlag.Staff, ModFlag.Hit) },
 	["to staff attacks"] = { flags = bor(ModFlag.Staff, ModFlag.Hit) },
 	["with staff attacks"] = { flags = bor(ModFlag.Staff, ModFlag.Hit) },
-	["with quarterstaves"] = { flags = bor(ModFlag.Staff, ModFlag.Hit) },
-	["to quarterstaff attacks"] = { flags = bor(ModFlag.Staff, ModFlag.Hit) },
-	["with quarterstaff attacks"] = { flags = bor(ModFlag.Staff, ModFlag.Hit) },
+	["with quarterstaves"] = { flags = bor(ModFlag.Warstaff, ModFlag.Hit) },
+	["to quarterstaff attacks"] = { flags = bor(ModFlag.Warstaff, ModFlag.Hit) },
+	["with quarterstaff attacks"] = { flags = bor(ModFlag.Warstaff, ModFlag.Hit) },
 	["with swords"] = { flags = bor(ModFlag.Sword, ModFlag.Hit) },
 	["to sword attacks"] = { flags = bor(ModFlag.Sword, ModFlag.Hit) },
 	["with sword attacks"] = { flags = bor(ModFlag.Sword, ModFlag.Hit) },
@@ -1507,7 +1507,7 @@ local modTagList = {
 	["while wielding a two handed weapon"] = { tag = { type = "Condition", var = "UsingTwoHandedWeapon" } },
 	["while wielding a two handed melee weapon"] = { tagList = { { type = "Condition", var = "UsingTwoHandedWeapon" }, { type = "Condition", var = "UsingMeleeWeapon" } } },
 	["while wielding a wand"] = { tag = { type = "Condition", var = "UsingWand" } },
-	["while wielding two different weapon types"] = { tag = { type = "Condition", var = "WieldingDifferentWeaponTypes" } },
+	["while wielding two different weapon types"] = { tag = { type = "Condition", var = "WieldingDifferentWeaponCategories" } },
 	["while unarmed"] = { tag = { type = "Condition", var = "Unarmed" } },
 	["while you are unencumbered"] = { tag = { type = "Condition", var = "Unencumbered" } },
 	["while surrounded"] = { tag = { type = "Condition", var = "Surrounded" } },
@@ -3257,10 +3257,10 @@ local specialModList = {
 	["your fire damage can shock"] = { flag("FireCanShock") },
 	["all y?o?u?r? ?damage can freeze"] = { flag("PhysicalCanFreeze"), flag("LightningCanFreeze"), flag("FireCanFreeze"), flag("ChaosCanFreeze") },
 	["all damage with maces and sceptres inflicts chill"] =  {
-		flag("PhysicalCanChill", { type = "Condition", var = "UsingMace" }),
-		flag("LightningCanChill", { type = "Condition", var = "UsingMace" }),
-		flag("FireCanChill", { type = "Condition", var = "UsingMace" }),
-		flag("ChaosCanChill", { type = "Condition", var = "UsingMace" })
+		flag("PhysicalCanChill", { type = "Condition", varList = { "UsingMace", "UsingSceptre" } }),
+		flag("LightningCanChill", { type = "Condition", varList = { "UsingMace", "UsingSceptre" } }),
+		flag("FireCanChill", { type = "Condition", varList = { "UsingMace", "UsingSceptre" } }),
+		flag("ChaosCanChill", { type = "Condition", varList = { "UsingMace", "UsingSceptre" } }),
 	},
 	["your cold damage can ignite"] = { flag("ColdCanIgnite") },
 	["your lightning damage can ignite"] = { flag("LightningCanIgnite") },
@@ -4579,7 +4579,7 @@ local specialModList = {
 	["(%a+) resistance cannot be penetrated"] = function(_, res) return { flag("EnemyCannotPen"..(res:gsub("^%l", string.upper)).."Resistance") } end,
 	-- Knockback
 	["cannot knock enemies back"] = { flag("CannotKnockback") },
-	["knocks back enemies if you get a critical hit with a q?u?a?r?t?e?r?staff"] = { mod("EnemyKnockbackChance", "BASE", 100, nil, ModFlag.Staff, { type = "Condition", var = "CriticalStrike" }) },
+	["knocks back enemies if you get a critical hit with a q?u?a?r?t?e?r?staff"] = { mod("EnemyKnockbackChance", "BASE", 100, nil, ModFlag.Warstaff, { type = "Condition", var = "CriticalStrike" }) },
 	["knocks back enemies if you get a critical hit with a bow"] = { mod("EnemyKnockbackChance", "BASE", 100, nil, ModFlag.Bow, { type = "Condition", var = "CriticalStrike" }) },
 	["bow knockback at close range"] = { mod("EnemyKnockbackChance", "BASE", 100, nil, ModFlag.Bow, { type = "Condition", var = "AtCloseRange" }) },
 	["adds knockback during f?l?a?s?k? ?effect"] = { mod("EnemyKnockbackChance", "BASE", 100, { type = "Condition", var = "UsingFlask" }) },
@@ -5068,7 +5068,7 @@ local specialModList = {
 	} end,
 	["you are crushed"] = { flag("Condition:Crushed") },
 	["nearby enemies are crushed"] = { mod("EnemyModifier", "LIST", { mod = flag("Condition:Crushed") }) },
-	["crush enemies on hit with maces and sceptres"] = { mod("EnemyModifier", "LIST", { mod = flag("Condition:Crushed") }, { type = "Condition", var = "UsingMace" }) },
+	["crush enemies on hit with maces and sceptres"] = { mod("EnemyModifier", "LIST", { mod = flag("Condition:Crushed") }, { type = "Condition", varList = { "UsingMace", "UsingSceptre" } }) },
 	["you have fungal ground around you while stationary"] = {
 		mod("ExtraAura", "LIST", { mod = mod("ChaosResist", "BASE", 25) }, { type = "Condition", varList = { "OnFungalGround", "Stationary" } }),
 		mod("EnemyModifier", "LIST", { mod = mod("ChaosResist", "BASE", -10) }, { type = "ActorCondition", actor = "enemy", varList = { "OnFungalGround", "Stationary" } }),
@@ -5921,7 +5921,7 @@ local jewelOtherFuncs = {
 	["Passives granting Fire Resistance or all Elemental Resistances in Radius also grant Chance to Block at 35% of its value"] = getSimpleConv({ "FireResist","ElementalResist" }, "BlockChance", "BASE", false, 0.35),
 	["Melee and Melee Weapon Type modifiers in Radius are Transformed to Bow Modifiers"] = function(node, out, data)
 		if node then
-			local mask1 = bor(ModFlag.Axe, ModFlag.Claw, ModFlag.Dagger, ModFlag.Mace, ModFlag.Staff, ModFlag.Sword, ModFlag.Melee)
+			local mask1 = bor(ModFlag.Axe, ModFlag.Claw, ModFlag.Dagger, ModFlag.Mace, ModFlag.Warstaff, ModFlag.Sword, ModFlag.Melee)
 			local mask2 = bor(ModFlag.Weapon1H, ModFlag.WeaponMelee)
 			local mask3 = bor(ModFlag.Weapon2H, ModFlag.WeaponMelee)
 			for _, mod in ipairs(node.modList) do
@@ -5929,7 +5929,7 @@ local jewelOtherFuncs = {
 					out:MergeNewMod(mod.name, mod.type, -mod.value, mod.source, mod.flags, mod.keywordFlags, unpack(mod))
 					out:MergeNewMod(mod.name, mod.type, mod.value, mod.source, bor(band(mod.flags, bnot(bor(mask1, mask2, mask3))), ModFlag.Bow), mod.keywordFlags, unpack(mod))
 				elseif mod[1] then
-					local using = { UsingAxe = true, UsingClaw = true, UsingDagger = true, UsingMace = true, UsingStaff = true, UsingSword = true, UsingMeleeWeapon = true }
+					local using = { UsingAxe = true, UsingClaw = true, UsingDagger = true, UsingMace = true, UsingWarstaff = true, UsingSword = true, UsingMeleeWeapon = true }
 					for _, tag in ipairs(mod) do
 						if tag.type == "Condition" and using[tag.var] then
 							local newTagList = copyTable(mod)

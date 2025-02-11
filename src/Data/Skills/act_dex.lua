@@ -137,7 +137,7 @@ skills["BarragePlayer"] = {
 	color = 2,
 	description = "Ready a volley of arrows, Empowering your next Bow Attack to repeat multiple times. Consumes your Frenzy Charges on use to add additional repeats.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Duration] = true, [SkillType.ModifiesNextSkill] = true, [SkillType.Cooldown] = true, [SkillType.ConsumesCharges] = true, [SkillType.Nonpathing] = true, [SkillType.Buff] = true, [SkillType.EmpowersOtherSkill] = true, [SkillType.SkillConsumesFrenzyChargesOnUse] = true, },
-	weaponTypes = {
+	weaponClasses = {
 		["Bow"] = true,
 	},
 	castTime = 0.7,
@@ -399,7 +399,7 @@ skills["DetonatingArrowPlayer"] = {
 	color = 2,
 	description = "Channel to build up power before firing off a burning arrow. At maximum charge, the arrow will detonate at the end of its flight, causing an explosion in an area around it.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Fire] = true, [SkillType.Triggerable] = true, [SkillType.Channel] = true, [SkillType.CanRapidFire] = true, [SkillType.Area] = true, },
-	weaponTypes = {
+	weaponClasses = {
 		["Bow"] = true,
 	},
 	castTime = 1,
@@ -570,7 +570,7 @@ skills["ElectrocutingArrowPlayer"] = {
 	color = 2,
 	description = "Leap forward into the air and fire downward. Hitting an enemy will attach an Electrocuting Rod to them, causing all incoming Lightning damage to build up Electrocution. This rod is removed when the enemy is next Electrocuted.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Projectile] = true, [SkillType.Lightning] = true, [SkillType.Duration] = true, [SkillType.Jumping] = true, [SkillType.CannotChain] = true, [SkillType.ProjectileNoCollision] = true, },
-	weaponTypes = {
+	weaponClasses = {
 		["Bow"] = true,
 	},
 	castTime = 1,
@@ -696,7 +696,7 @@ skills["EscapeShotPlayer"] = {
 	color = 2,
 	description = "Leap backwards and fire an arrow which can Chill or Freeze enemies around the location you escaped from.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Cold] = true, [SkillType.Area] = true, [SkillType.ProjectileSpeed] = true, [SkillType.ProjectileNumber] = true, [SkillType.Cooldown] = true, [SkillType.ProjectilesNumberModifiersNotApplied] = true, [SkillType.Jumping] = true, [SkillType.ProjectileNoCollision] = true, },
-	weaponTypes = {
+	weaponClasses = {
 		["Bow"] = true,
 	},
 	castTime = 1,
@@ -825,7 +825,7 @@ skills["FreezingSalvoPlayer"] = {
 	color = 2,
 	description = "Passively coalesces icy missiles from the air over time. Using the skill fires a missile, firing an additional missile for each that has been accumulated.",
 	skillTypes = { [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Cold] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.CannotChain] = true, [SkillType.ProjectileNoCollision] = true, },
-	weaponTypes = {
+	weaponClasses = {
 		["Bow"] = true,
 	},
 	castTime = 1,
@@ -954,7 +954,7 @@ skills["GasArrowPlayer"] = {
 	color = 2,
 	description = "Fires a noxious arrow at the ground, creating a cloud of flammable poisonous gas at the end of its flight. The cloud will detonate if hit by a Detonator skill or if an Ignited enemy touches it, creating a fiery explosion.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.CanRapidFire] = true, [SkillType.Duration] = true, [SkillType.Nonpathing] = true, [SkillType.CanBecomeArrowRain] = true, [SkillType.Area] = true, [SkillType.Chaos] = true, [SkillType.Fire] = true, },
-	weaponTypes = {
+	weaponClasses = {
 		["Bow"] = true,
 	},
 	castTime = 1,
@@ -1346,20 +1346,20 @@ skills["HeraldOfThunderPlayer"] = {
 	color = 2,
 	description = "While active, killing Shocked enemies with Attack damage, will cause subsequent Attack hits to release lightning bolts which deals Attack damage to all surrounding enemies.",
 	skillTypes = { [SkillType.Buff] = true, [SkillType.HasReservation] = true, [SkillType.Area] = true, [SkillType.Lightning] = true, [SkillType.Herald] = true, [SkillType.Attack] = true, [SkillType.OngoingSkill] = true, [SkillType.Persistent] = true, },
-	weaponTypes = {
-		["One Handed Mace"] = true,
-		["Flail"] = true,
-		["Two Handed Sword"] = true,
-		["Dagger"] = true,
+	weaponClasses = {
+		["One Hand Sword"] = true,
+		["Two Hand Sword"] = true,
+		["One Hand Axe"] = true,
+		["Two Hand Axe"] = true,
+		["One Hand Mace"] = true,
+		["Two Hand Mace"] = true,
+		["Warstaff"] = true,
 		["Claw"] = true,
-		["Crossbow"] = true,
-		["Bow"] = true,
+		["Dagger"] = true,
 		["Spear"] = true,
-		["Two Handed Axe"] = true,
-		["Two Handed Mace"] = true,
-		["One Handed Axe"] = true,
-		["Staff"] = true,
-		["One Handed Sword"] = true,
+		["Bow"] = true,
+		["Flail"] = true,
+		["Crossbow"] = true,
 	},
 	castTime = 0,
 	qualityStats = {
@@ -1534,7 +1534,7 @@ skills["IceShotPlayer"] = {
 	color = 2,
 	description = "Fires an icy arrow that sprays a cone of ice shards when it hits a target.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Cold] = true, [SkillType.Triggerable] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Totemable] = true, [SkillType.Trappable] = true, [SkillType.Mineable] = true, [SkillType.Nonpathing] = true, [SkillType.CanRapidFire] = true, },
-	weaponTypes = {
+	weaponClasses = {
 		["Bow"] = true,
 	},
 	castTime = 1,
@@ -1729,7 +1729,7 @@ skills["LightningArrowPlayer"] = {
 	color = 2,
 	description = "Fires a charged arrow at the target. On hitting an enemy or wall, the arrow will fire Chaining Lightning beams at nearby enemies.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Area] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Totemable] = true, [SkillType.Trappable] = true, [SkillType.Mineable] = true, [SkillType.Lightning] = true, [SkillType.Triggerable] = true, [SkillType.CanRapidFire] = true, [SkillType.Nonpathing] = true, [SkillType.CanBecomeArrowRain] = true, [SkillType.Chains] = true, },
-	weaponTypes = {
+	weaponClasses = {
 		["Bow"] = true,
 	},
 	castTime = 1,
@@ -1929,7 +1929,7 @@ skills["LightningRodPlayer"] = {
 	color = 2,
 	description = "Fire an arrow that drops from above, creating a Lightning burst. The arrow remains in the ground, and any Chaining Lightning beams can Chain to it. When Chained to, the arrows release another Lightning burst.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Rain] = true, [SkillType.Area] = true, [SkillType.CanRapidFire] = true, [SkillType.ProjectileSpeed] = true, [SkillType.ProjectileNumber] = true, [SkillType.Duration] = true, [SkillType.Nonpathing] = true, [SkillType.Lightning] = true, [SkillType.Sustained] = true, [SkillType.ProjectileNoCollision] = true, },
-	weaponTypes = {
+	weaponClasses = {
 		["Bow"] = true,
 	},
 	castTime = 1,
@@ -2057,7 +2057,7 @@ skills["MagneticSalvoPlayer"] = {
 	color = 2,
 	description = "Aims skyward and fires energy missiles at lingering bolts or arrows created by other Lightning Attacks in front of you. The missiles explode if they land close to a lingering bolt or arrow, dealing more damage in a larger area but destroying that bolt or arrow in the process.",
 	skillTypes = { [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Lightning] = true, [SkillType.ProjectileNoCollision] = true, },
-	weaponTypes = {
+	weaponClasses = {
 		["Bow"] = true,
 	},
 	castTime = 1,
@@ -2477,7 +2477,7 @@ skills["PoisonBurstArrowPlayer"] = {
 	color = 2,
 	description = "Fires a virulent arrow that creates a burst of Poison on hit, affecting all enemies in an area.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Projectile] = true, [SkillType.CanRapidFire] = true, [SkillType.Nonpathing] = true, [SkillType.CanBecomeArrowRain] = true, [SkillType.Area] = true, [SkillType.Chaos] = true, [SkillType.Duration] = true, },
-	weaponTypes = {
+	weaponClasses = {
 		["Bow"] = true,
 	},
 	castTime = 1,
@@ -2680,7 +2680,7 @@ skills["RainOfArrowsPlayer"] = {
 	color = 2,
 	description = "Fire arrows into the air, causing them to rain from above. Consumes your Frenzy Charges to fire more arrows.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Rain] = true, [SkillType.Area] = true, [SkillType.ProjectileSpeed] = true, [SkillType.ProjectileNumber] = true, [SkillType.ConsumesCharges] = true, [SkillType.Nonpathing] = true, [SkillType.SkillConsumesFrenzyChargesOnUse] = true, [SkillType.ProjectileNoCollision] = true, [SkillType.Sustained] = true, },
-	weaponTypes = {
+	weaponClasses = {
 		["Bow"] = true,
 	},
 	castTime = 1,
@@ -2820,7 +2820,7 @@ skills["ShockchainArrowPlayer"] = {
 	color = 2,
 	description = "Fires a Lightning-infused arrow that homes in on Shocked enemies. Hitting a Shocked enemy will Consume the Shock to charge the arrow, causing it to release a damaging shockwave and split beams towards up to two nearby targets, prioritising ones which are Shocked. If the beam hits a Shocked target, it will release another damaging shockwave and can continue to Chain.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Area] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Totemable] = true, [SkillType.Trappable] = true, [SkillType.Mineable] = true, [SkillType.Lightning] = true, [SkillType.Triggerable] = true, [SkillType.CanRapidFire] = true, [SkillType.Nonpathing] = true, [SkillType.CanBecomeArrowRain] = true, [SkillType.Chains] = true, [SkillType.SkillConsumesShock] = true, },
-	weaponTypes = {
+	weaponClasses = {
 		["Bow"] = true,
 	},
 	castTime = 1,
@@ -3092,7 +3092,7 @@ skills["SnipePlayer"] = {
 	color = 2,
 	description = "Channel to charge up your bow before releasing a powerful shot. Releasing the moment you fully charge causes the arrow to explode on impact for a guaranteed Critical Hit.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Channel] = true, [SkillType.CanRapidFire] = true, [SkillType.Area] = true, [SkillType.PerfectTiming] = true, },
-	weaponTypes = {
+	weaponClasses = {
 		["Bow"] = true,
 	},
 	castTime = 1,
@@ -3393,7 +3393,7 @@ skills["SpiralVolleyPlayer"] = {
 	color = 2,
 	description = "Loads your Bow with a volley of enchanted arrows and fires them in a circle as you spin forward, firing directly at targets if possible. Consumes Frenzy Charges to cause the arrows to deal more damage and Chain to other targets. Each target can only be Hit once.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Totemable] = true, [SkillType.Trappable] = true, [SkillType.Mineable] = true, [SkillType.Triggerable] = true, [SkillType.SkillConsumesFrenzyChargesOnUse] = true, [SkillType.Sustained] = true, [SkillType.ConsumesCharges] = true, },
-	weaponTypes = {
+	weaponClasses = {
 		["Bow"] = true,
 	},
 	castTime = 1,
@@ -3529,7 +3529,7 @@ skills["StormcallerArrowPlayer"] = {
 	color = 2,
 	description = "Fires an arrow that embeds where it lands for a short duration. At the end of the duration, a Lightning bolt strikes the arrow, disintegrating it and damaging enemies with a high chance to Shock.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Projectile] = true, [SkillType.CanRapidFire] = true, [SkillType.Duration] = true, [SkillType.Nonpathing] = true, [SkillType.CanBecomeArrowRain] = true, [SkillType.Area] = true, [SkillType.Lightning] = true, },
-	weaponTypes = {
+	weaponClasses = {
 		["Bow"] = true,
 	},
 	castTime = 1,
@@ -3729,7 +3729,7 @@ skills["TornadoShotPlayer"] = {
 	color = 2,
 	description = "Fires a skyward shot that whips up a Tornado where it lands, dealing Physical damage over time and Hindering enemies standing in it. Arrows and Crossbow bolts fired at the Tornado are sucked into it, causing the Tornado to spit out a nova of copied Projectiles. Copied Projectiles cannot be copied again, even by further Tornados.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Area] = true, [SkillType.ProjectileSpeed] = true, [SkillType.ProjectileNumber] = true, [SkillType.Totemable] = true, [SkillType.Trappable] = true, [SkillType.Mineable] = true, [SkillType.Triggerable] = true, [SkillType.Rain] = true, [SkillType.CanRapidFire] = true, [SkillType.Physical] = true, [SkillType.DamageOverTime] = true, [SkillType.Duration] = true, [SkillType.Limit] = true, [SkillType.Nonpathing] = true, [SkillType.ProjectileNoCollision] = true, [SkillType.CannotChain] = true, [SkillType.SupportedByFountains] = true, },
-	weaponTypes = {
+	weaponClasses = {
 		["Bow"] = true,
 	},
 	castTime = 1,
@@ -3936,7 +3936,7 @@ skills["ToxicGrowthPlayer"] = {
 	color = 2,
 	description = "Leap into the air and fire a volley of arrows which cause toxic pustules to sprout from the ground on impact. The pustules explode after a delay and can be Poisoned, causing them to explode faster and more violently.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Projectile] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Chaos] = true, [SkillType.SupportedByFountains] = true, [SkillType.Jumping] = true, [SkillType.ProjectileNoCollision] = true, },
-	weaponTypes = {
+	weaponClasses = {
 		["Bow"] = true,
 	},
 	castTime = 1,
@@ -4072,7 +4072,7 @@ skills["VineArrowPlayer"] = {
 	color = 2,
 	description = "Fire an arrow into the air that lands after a short delay, damaging enemies and causing a plant to spring up at the impact location. The plant sprouts vines that latch onto nearby enemies, Slowing their movement speed and dealing Chaos damage over time. The plant can be Poisoned, causing it to deal more damage.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Rain] = true, [SkillType.Area] = true, [SkillType.CanRapidFire] = true, [SkillType.ProjectileSpeed] = true, [SkillType.ProjectileNumber] = true, [SkillType.Duration] = true, [SkillType.Nonpathing] = true, [SkillType.Chaos] = true, [SkillType.SupportedByFountains] = true, [SkillType.ProjectileNoCollision] = true, },
-	weaponTypes = {
+	weaponClasses = {
 		["Bow"] = true,
 	},
 	castTime = 1,
@@ -4514,20 +4514,20 @@ skills["WindDancerPlayer"] = {
 	color = 2,
 	description = "Grants a buff that gives you more Evasion per stage. Being Hit by a Melee Attack while you have this buff consumes all stages to damage and Knock Back enemies around you.",
 	skillTypes = { [SkillType.Buff] = true, [SkillType.HasReservation] = true, [SkillType.OngoingSkill] = true, [SkillType.Persistent] = true, },
-	weaponTypes = {
-		["One Handed Mace"] = true,
-		["Flail"] = true,
-		["Two Handed Sword"] = true,
-		["Dagger"] = true,
+	weaponClasses = {
+		["One Hand Sword"] = true,
+		["Two Hand Sword"] = true,
+		["One Hand Axe"] = true,
+		["Two Hand Axe"] = true,
+		["One Hand Mace"] = true,
+		["Two Hand Mace"] = true,
+		["Warstaff"] = true,
 		["Claw"] = true,
-		["Crossbow"] = true,
-		["Bow"] = true,
+		["Dagger"] = true,
 		["Spear"] = true,
-		["Two Handed Axe"] = true,
-		["Two Handed Mace"] = true,
-		["One Handed Axe"] = true,
-		["Staff"] = true,
-		["One Handed Sword"] = true,
+		["Bow"] = true,
+		["Flail"] = true,
+		["Crossbow"] = true,
 	},
 	castTime = 1,
 	qualityStats = {
@@ -4647,20 +4647,20 @@ skills["TriggeredWindDancerPlayer"] = {
 	name = "Gale Force",
 	hidden = true,
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Triggered] = true, [SkillType.Triggerable] = true, [SkillType.Melee] = true, [SkillType.Area] = true, },
-	weaponTypes = {
-		["One Handed Mace"] = true,
-		["Flail"] = true,
-		["Two Handed Sword"] = true,
-		["Dagger"] = true,
+	weaponClasses = {
+		["One Hand Sword"] = true,
+		["Two Hand Sword"] = true,
+		["One Hand Axe"] = true,
+		["Two Hand Axe"] = true,
+		["One Hand Mace"] = true,
+		["Two Hand Mace"] = true,
+		["Warstaff"] = true,
 		["Claw"] = true,
-		["Crossbow"] = true,
-		["Bow"] = true,
+		["Dagger"] = true,
 		["Spear"] = true,
-		["Two Handed Axe"] = true,
-		["Two Handed Mace"] = true,
-		["One Handed Axe"] = true,
-		["Staff"] = true,
-		["One Handed Sword"] = true,
+		["Bow"] = true,
+		["Flail"] = true,
+		["Crossbow"] = true,
 	},
 	castTime = 1,
 	qualityStats = {
