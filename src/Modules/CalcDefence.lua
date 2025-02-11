@@ -73,6 +73,7 @@ function calcs.doActorLifeManaSpirit(actor)
 		local override = modDB:Override(nil, res)
 		output[res.."HasOverride"] = override ~= nil
 		output[res] = override or m_max(round((base * (1 - conv/100) + extra) * (1 + inc/100) * more), 1)
+
 		if breakdown then
 			if inc ~= 0 or more ~= 1 or conv ~= 0 or extra ~= 0 then
 				breakdown[res][1] = s_format("%g ^8(base)", base)
@@ -97,6 +98,18 @@ function calcs.doActorLifeManaSpirit(actor)
 			end
 		end
 	end
+
+	--- Calculate infernal flame after mana is calculated
+	if modDB:Flag(nil, "ManaToInfernalFlame")  then
+		local inc = modDB:Sum("INC", nil, "Mana")
+		output.InfernalFlame = output.Mana
+		output.Mana = 0
+		output.ManaRecoveryRate = 0
+		--These mods sets mana and recovery to 0 to prevent them from showing up in calcs tab
+		modDB:NewMod("Mana", "OVERRIDE", 0)
+		modDB:NewMod("ManaRecovery", "OVERRIDE", 0)
+	end
+
 	if output.ChaosInoculation then
 		output.Life = 1
 		condList["FullLife"] = true
@@ -119,6 +132,8 @@ function calcs.doActorDarkness(actor)
 	output.ReservedDarkness = m_min(reserved, output.Darkness)
 	output.UnreservedDarkness = output.Darkness - output.ReservedDarkness
 end
+
+
 
 -- Calculate life/mana/spirit reservation
 ---@param actor table

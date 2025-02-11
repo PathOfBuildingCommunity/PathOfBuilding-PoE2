@@ -1782,6 +1782,10 @@ function calcs.offence(env, actor, activeSkill)
 				t_insert(breakdown[costName], s_format("= %"..(val.upfront and "d" or ".2f")..(val.percent and "%%" or ""), output[costName]))
 			end
 		end
+		if modDB:Flag(nil, "ManaToInfernalFlame") then
+		 	output.InfernalFlameCost = output.ManaCost
+			output.ManaCost = 0
+		end
 	end
 
 	-- account for Sacrificial Zeal

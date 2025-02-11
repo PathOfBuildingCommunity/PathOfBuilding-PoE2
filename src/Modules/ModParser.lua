@@ -2893,6 +2893,18 @@ local specialModList = {
 		mod("Speed", "MORE", num, nil, ModFlag.Cast, { type = "GlobalEffect", effectType = "Buff", effectName = "Quicksand Hourglass" }, { type = "Condition", var = "QuicksandHourglass" }),
 		flag("Condition:CanGainQuicksandHourglass")
 	} end,
+
+	-- Infernalist
+	["maximum mana is replaced by maximum infernal flame"] = { mod("ManaToInfernalFlame", "FLAG", true) },
+	["gain infernal flame instead of spending mana for skill costs"] = { }, ---this line should make the text turn blue to indicate the node is working
+	["take maximum life and energy shield as fire damage when infernal flame reaches maximum"] = {
+		mod("EnableHighInfernalFlameBuff", "FLAG", true),
+		mod("FireDegen", "BASE", 1, { type="PercentStat", stat = "Life", percent = 100}, { type = "Condition", var = "FullInfernalFlame"}),
+		mod("FireDegen", "BASE", 1, { type="PercentStat", stat = "EnergyShield", percent = 100}, { type = "Condition", var = "FullInfernalFlame"})
+	 }, 
+	["while on high infernal flame, you and allies in your presence gain (%d+)%% of damage as (%a+) damage"] = 
+		function(num, _, strType)
+		 return {mod("DamageGainAs"..firstToUpper(strType), "BASE", num,{ type = "Condition", var = "HighInfernalFlame"})} end,
 	-- Item local modifiers
 	["has no sockets"] = { flag("NoSockets") },
 	["reflects your other ring"] = {

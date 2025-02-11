@@ -1435,6 +1435,13 @@ Huge sets the radius to 11.
 	{ var = "reservedDarkness", type = "count", label = "Reserved Darkness:", ifFlag = "PlayerHasDarkness", apply = function(val, modList, enemyModList)
 		modList:NewMod("ReservedDarkness", "BASE", val, "Config")
 	end },
+	{ var = "fullInfernalFlame", type = "check", label = "Is infernal flame full?", ifFlag = "ManaToInfernalFlame", tooltip = "This also implies high infernal flame", apply = function(val, modList, enemyModList)
+		modList:NewMod("Condition:FullInfernalFlame", "FLAG", true, "Config")
+		modList:NewMod("Condition:HighInfernalFlame", "FLAG", true, "Config")
+	end },
+	{ var = "highInfernalFlame", type = "check", label = "Is infernal flame high?", ifFlag = "EnableHighInfernalFlameBuff", apply = function(val, modList, enemyModList)
+		modList:NewMod("Condition:HighInfernalFlame", "FLAG", true, "Config")
+	end },
 	-- Section: Effective DPS options
 	{ section = "For Effective DPS", col = 1 },
 	{ var = "skillForkCount", type = "count", label = "# of times Skill has Forked:", ifFlag = "forking", apply = function(val, modList, enemyModList)
