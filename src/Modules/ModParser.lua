@@ -2885,6 +2885,8 @@ local specialModList = {
 	} end,
 	-- Monk - Invoker
 	["critical hits ignore non%-negative enemy monster elemental resistances"] = { flag("IgnoreNonNegativeEleRes", { type = "Condition", var = "CriticalStrike" }) },
+	["(%d+)%% chance on shocking enemies to created shocked ground"] = { mod("ShockBase", "BASE", data.nonDamagingAilment["Shock"].default, { type = "ActorCondition", actor = "enemy", var = "OnShockedGround" }) },
+	["on freezing enemies create chilled ground"] = { mod("ChillBase", "BASE", data.nonDamagingAilment["Chill"].default, { type = "ActorCondition", actor = "enemy", var = "OnChilledGround" }) },
 	-- Chronomancer
 	["skills have (%d+)%% chance to not consume a cooldown when used"] = function(num) return { 
 		mod("CooldownChanceNotConsume", "BASE", num / 100, { type = "SkillType", skillType = SkillType.Cooldown })

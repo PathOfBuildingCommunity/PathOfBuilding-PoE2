@@ -1393,7 +1393,7 @@ c["25% chance for Attacks to Maim on Hit against Poisoned Enemies 25% increased 
 c["25% chance for Projectiles to Pierce Enemies within 3m distance of you"]={{[1]={flags=0,keywordFlags=0,name="ProjectileCount",type="BASE",value=25}}," for  to Pierce Enemies within 3m distance of you "}
 c["25% chance for Trigger skills to refund half of Energy Spent"]={{}," for Trigger skills to refund half of Energy Spent "}
 c["25% chance on Consuming a Shock on an Enemy to reapply it"]={{}," on Consuming a Shock on an Enemy to reapply it "}
-c["25% chance on Shocking Enemies to created Shocked Ground"]={{}," on Shocking Enemies to created Shocked Ground "}
+c["25% chance on Shocking Enemies to created Shocked Ground"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="OnShockedGround"},flags=0,keywordFlags=0,name="ShockBase",type="BASE",value=20}},nil}
 c["25% chance to Avoid Physical Damage from Hits"]={{[1]={flags=0,keywordFlags=0,name="AvoidPhysicalDamageChance",type="BASE",value=25}},nil}
 c["25% chance to Intimidate Enemies for 4 seconds on Hit"]={{}," to Intimidate Enemies   "}
 c["25% chance to Poison on Hit"]={{[1]={flags=0,keywordFlags=0,name="PoisonChance",type="BASE",value=25}},nil}
@@ -2998,7 +2998,7 @@ c["Offerings have 15% increased Maximum Life"]={nil,"Offerings have 15% increase
 c["Offerings have 30% increased Maximum Life"]={nil,"Offerings have 30% increased Maximum Life "}
 c["Offerings have 30% increased Maximum Life Recover 3% of Life when you create an Offering"]={nil,"Offerings have 30% increased Maximum Life Recover 3% of Life when you create an Offering "}
 c["Offerings have 30% reduced Maximum Life"]={nil,"Offerings have 30% reduced Maximum Life "}
-c["On Freezing Enemies create Chilled Ground"]={nil,"On Freezing Enemies create Chilled Ground "}
+c["On Freezing Enemies create Chilled Ground"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="OnChilledGround"},flags=0,keywordFlags=0,name="ChillBase",type="BASE",value=10}},nil}
 c["On Hitting an enemy, gains maximum added Lightning damage equal to"]={nil,"On Hitting an enemy, gains maximum added Lightning damage equal to "}
 c["On Hitting an enemy, gains maximum added Lightning damage equal to the enemy's Power for 6 seconds, up to a total of 500"]={nil,"On Hitting an enemy, gains maximum added Lightning damage equal to the enemy's Power for 6 seconds, up to a total of 500 "}
 c["On-Kill Effects happen twice"]={nil,"On-Kill Effects happen twice "}
