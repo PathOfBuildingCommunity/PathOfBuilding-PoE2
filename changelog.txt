@@ -1,7 +1,8 @@
-VERSION[0.5.0][2025/02/12]
+VERSION[0.5.0][12/02/2025]
+
 --- New to Path of Building ---
-* Add Support for Ailment chance calculations (OrderedSet86)
-* Scale base Shock calculation by shock effect mods on tree and gear (OrderedSet86)
+* Add Support for Ailment chance calculations (LocalIdentity, OrderedSet86)
+* Scale base Shock calculation by shock effect mods on tree and gear (LocalIdentity)
 * Use count to set number of active Minions for Reservation calculations (mauriliogenovese)
 * Add support for Armour Break (majochem)
 * Add support for Blasphemy reserving Spirit (Paliak)
