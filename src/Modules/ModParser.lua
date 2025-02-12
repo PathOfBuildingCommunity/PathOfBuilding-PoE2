@@ -2885,6 +2885,8 @@ local specialModList = {
 	} end,
 	-- Monk - Invoker
 	["critical hits ignore non%-negative enemy monster elemental resistances"] = { flag("IgnoreNonNegativeEleRes", { type = "Condition", var = "CriticalStrike" }) },
+	["(%d+)%% chance on shocking enemies to created shocked ground"] = { mod("ShockBase", "BASE", data.nonDamagingAilment["Shock"].default, { type = "ActorCondition", actor = "enemy", var = "OnShockedGround" }) },
+	["on freezing enemies create chilled ground"] = { mod("ChillBase", "BASE", data.nonDamagingAilment["Chill"].default, { type = "ActorCondition", actor = "enemy", var = "OnChilledGround" }) },
 	-- Chronomancer
 	["skills have (%d+)%% chance to not consume a cooldown when used"] = function(num) return { 
 		mod("CooldownChanceNotConsume", "BASE", num / 100, { type = "SkillType", skillType = SkillType.Cooldown })
@@ -3053,20 +3055,6 @@ local specialModList = {
 	} end,
 	["curse enemies with level (%d+) (%D+) on %a+, which can apply to hexproof enemies"] = function(num, _, skill) return triggerExtraSkill(skill, num, {noSupports = true, ignoreHexproof = true}) end,
 	["curse enemies with level (%d+) (.+) on %a+"] = function(num, _, skill) return triggerExtraSkill(skill, num, {noSupports = true}) end,
-	["[ct][ar][si][tg]g?e?r?s? (.+) on %a+"] = function(_, skill) return triggerExtraSkill(skill, 1, {noSupports = true}) end,
-	["[at][tr][ti][ag][cg][ke]r? (.+) on %a+"] = function(_, skill) return triggerExtraSkill(skill, 1, {noSupports = true}) end,
-	["[at][tr][ti][ag][cg][ke]r? with (.+) on %a+"] = function(_, skill) return triggerExtraSkill(skill, 1, {noSupports = true}) end,
-	["[ct][ar][si][tg]g?e?r?s? (.+) when hit"] = function(_, skill) return triggerExtraSkill(skill, 1, {noSupports = true}) end,
-	["[at][tr][ti][ag][cg][ke]r? (.+) when hit"] = function(_, skill) return triggerExtraSkill(skill, 1, {noSupports = true}) end,
-	["[at][tr][ti][ag][cg][ke]r? with (.+) when hit"] = function(_, skill) return triggerExtraSkill(skill, 1, {noSupports = true}) end,
-	["[ct][ar][si][tg]g?e?r?s? (.+) when your skills or minions kill"] = function(_, skill) return triggerExtraSkill(skill, 1, {noSupports = true}) end,
-	["[at][tr][ti][ag][cg][ke]r? (.+) when you take a critical hit"] = function( _, skill) return triggerExtraSkill(skill, 1, {noSupports = true}) end,
-	["[at][tr][ti][ag][cg][ke]r? with (.+) when you take a critical hit"] = function( _, skill) return triggerExtraSkill(skill, 1, {noSupports = true}) end,
-	["trigger commandment of inferno on critical hit"] = {
-		mod("ExtraSkill", "LIST", { skillId = "UniqueEnchantmentOfInfernoOnCrit", level = 1, noSupports = true, triggered = true }),
-		mod("ExtraSkillMod", "LIST", { mod = mod("SkillData", "LIST", { key = "triggerOnCrit", value = true })},  { type = "SkillId", skillId = "UniqueEnchantmentOfInfernoOnCrit" }) },
-	["trigger (.+) on critical hit"] = function( _, skill) return triggerExtraSkill(skill, 1, {noSupports = true, onCrit = true}) end,
-	["triggers? (.+) when you take a critical hit"] = function( _, skill) return triggerExtraSkill(skill, 1, {noSupports = true}) end,
 	["socketed [%a+]* ?gems a?r?e? ?supported by level (%d+) (.+)"] = function(num, _, support) return extraSupport(support, num) end,
 	["skills from equipped (.+) are supported by level (%d+) (.+)"] = function(_, slot, level, support) return extraSupport(support, level, slot) end,
 	["socketed support gems can also support skills from y?o?u?r? ?e?q?u?i?p?p?e?d? ?([%a%s]+)"] = function (_, itemSlotName)
@@ -3219,6 +3207,7 @@ local specialModList = {
 	["hits have (%d+)%% increased critical hit chance against you"] = function(num) return { mod("EnemyCritChance", "INC", num) } end,
 	["hits have (%d+)%% reduced critical hit chance against you"] = function(num) return { mod("EnemyCritChance", "INC", -num) } end,
 	["stuns from critical hits have (%d+)%% increased duration"] = function(num) return { mod("EnemyStunDurationOnCrit", "INC", num) } end,
+	["break armour on critical hit with spells equal to (%d+)%% of physical damage dealt"] = { flag("Condition:CanArmourBreak", { type = "GlobalEffect", effectType = "Buff", effectName = "ArmourBreak" }, { type = "Condition", neg = true, var = "NeverCrit" })},
 	-- Generic Ailments
 	["enemies take (%d+)%% increased damage for each type of ailment you have inflicted on them"] = function(num) return {
 		mod("EnemyModifier", "LIST", { mod = mod("DamageTaken", "INC", num) }, { type = "ActorCondition", actor = "enemy", var = "Frozen" }),

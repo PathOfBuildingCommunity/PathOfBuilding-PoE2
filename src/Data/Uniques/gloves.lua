@@ -135,7 +135,7 @@ Variant: Current
 {variant:1}+(5-10)% to Cold Resistance
 {variant:1}+(5-10)% to Lightning Resistance
 {variant:2}Gain (5-10)% of Elemental Damage as Extra Cold Damage
-{variant:2}Gain (5-10)% of Elemental Damage Damage as Extra Fire Damage
+{variant:2}Gain (5-10)% of Elemental Damage as Extra Fire Damage
 {variant:2}Gain (5-10)% of Elemental Damage Damage as Extra Lightning Damage
 33% of Elemental Damage Converted to Cold Damage
 33% of Elemental Damage Converted to Fire Damage
