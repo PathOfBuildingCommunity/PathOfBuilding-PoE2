@@ -17150,14 +17150,14 @@ skills["VulnerabilityPlayer"] = {
 			baseEffectiveness = 0,
 			incrementalEffectiveness = 0.092720001935959,
 			statDescriptionScope = "vulnerability",
-			baseFlags = {
-				area = true,
-				duration = true,
-			},
 			statMap = {
 				["vulnerability_total_armour_-"] = {
 					mod("IgnoreArmour", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Curse" }),
 				},
+			},
+			baseFlags = {
+				area = true,
+				duration = true,
 			},
 			constantStats = {
 				{ "curse_delay_duration_ms", 1000 },

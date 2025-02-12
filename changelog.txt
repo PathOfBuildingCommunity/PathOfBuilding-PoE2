@@ -1,3 +1,46 @@
+VERSION[0.5.0][12/02/2025]
+
+--- New to Path of Building ---
+* Add Support for Ailment chance calculations (LocalIdentity, OrderedSet86)
+* Scale base Shock calculation by shock effect mods on tree and gear (LocalIdentity)
+* Use count to set number of active Minions for Reservation calculations (mauriliogenovese)
+* Add support for Armour Break (majochem)
+* Add support for Blasphemy reserving Spirit (Paliak)
+* Add support for Vulnerability" ignore x Armour" mod (majochem)
+* Add support for War Banner and Defiance Banner (Blitz54)
+* Add support for Rolling Slam "more damage against heavy stunned enemies" (Blitz54)
+* Add support for Acolyte of Chayula Darkness Ascendancy (MrHB212)
+* Add support for "I Am The Thunder..." and "I Am The Blizzard..." (madxmike)
+* Add support for Pinned recently (Blitz54)
+* Add Support for extra Exposure (MrHB212)
+* Add parsing for "Your speed is unaffected by Slows" (RealWhimsy)
+* Add Support for "Slam skills have +% increased Area of Effect" (MrHB212)
+* Add support for "against enemies within/further than" (Blitz54)
+* Add support for ignore Warcry Cooldown (MrHB212)
+* Add support for "Electrocution" tree mods (Blitz54)
+* Add support for Break Armour on Critical Hit with Spells (majochem)
+* Add support for Gamblesprint movement speed (Blitz54)
+* Add support for Dustbloom Life regen (Blitz54)
+* Add support for Vile Knight enemy in presence Duration mod (Blitz54)
+
+--- Fixed Crashes ---
+* Fix crash from importing item with Mana leech mods (nessgor)
+
+--- User Interface ---
+* Fix the highlight node circle being too small (LocalIdentity)
+
+--- Fixed Calculations ---
+* Incorrect rounding for Reservation calculations (nessgor)
+* Fix calculation of Leech passive nodes (MrHB212)
+* Fix comparison tooltips for builds with Time-Lost Jewels (Peechey)
+
+--- Fixed Behaviours ---
+* Fix "Critical strike in last 8 seconds" mods always applying instead of using a config (MrHB212)
+
+--- Accuracy Improvements ---
+* Update Time-Lost Jewel affixes with proper wording (Peechey)
+* Fix duplicate skill for Greater Lightning Bolt and Decompose (mauriliogenovese)
+
 VERSION[0.4.1][2025/02/04]
 --- Fixed Crashes ---
 * Fix crash due to missing DLL (Wires77)

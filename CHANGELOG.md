@@ -1,5 +1,47 @@
 # Changelog
 
+## [v0.5.0](https://github.com/PathOfBuildingCommunity/PathOfBuilding/tree/v0.5.0) (2025/02/12)
+
+[Full Changelog](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/compare/v0.4.1...v0.5.0)
+
+## What's Changed
+### New to Path of Building
+- Add Support for Ailment chance calculations [\#628](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/628) ([LocalIdentity](https://github.com/LocalIdentity), [OrderedSet86](https://github.com/OrderedSet86))
+- Scale base Shock calculation by shock effect mods on tree and gear [\#628](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/628) ([LocalIdentity](https://github.com/LocalIdentity))
+- Use count to set number of active Minions for Reservation calculations [\#761](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/761) ([mauriliogenovese](https://github.com/mauriliogenovese))
+- Add support for Armour Break [\#731](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/731) ([majochem](https://github.com/majochem))
+- Add support for Blasphemy reserving Spirit [\#736](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/736) ([Paliak](https://github.com/Paliak))
+- Add support for Vulnerability" ignore x Armour" mod [\#733](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/733) ([majochem](https://github.com/majochem))
+- Add support for War Banner and Defiance Banner [\#752](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/752), [\#753](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/753) ([Blitz54](https://github.com/Blitz54))
+- Add support for Rolling Slam "more damage against heavy stunned enemies" [\#750](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/750) ([Blitz54](https://github.com/Blitz54))
+- Add support for Acolyte of Chayula Darkness Ascendancy [\#715](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/715) ([MrHB212](https://github.com/MrHB212))
+- Add support for "I Am The Thunder..." and "I Am The Blizzard..." [\#768](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/768) ([madxmike](https://github.com/madxmike))
+- Add support for Pinned recently [\#723](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/723) ([Blitz54](https://github.com/Blitz54))
+- Add Support for extra Exposure [\#720](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/720) ([MrHB212](https://github.com/MrHB212))
+- Add parsing for "Your speed is unaffected by Slows" [\#700](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/700) ([RealWhimsy](https://github.com/RealWhimsy))
+- Add Support for "Slam skills have +% increased Area of Effect" [\#705](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/705) ([MrHB212](https://github.com/MrHB212))
+- Add support for "against enemies within/further than" [\#734](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/734) ([Blitz54](https://github.com/Blitz54))
+- Add support for ignore Warcry Cooldown [\#741](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/741) ([MrHB212](https://github.com/MrHB212))
+- Add support for "Electrocution" tree mods [\#758](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/758), [\#757](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/757) ([Blitz54](https://github.com/Blitz54))
+- Add support for Break Armour on Critical Hit with Spells [\#755](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/755) ([majochem](https://github.com/majochem))
+- Add support for Gamblesprint movement speed [\#728](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/728) ([Blitz54](https://github.com/Blitz54))
+- Add support for Dustbloom Life regen [\#727](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/727) ([Blitz54](https://github.com/Blitz54))
+- Add support for Vile Knight enemy in presence Duration mod [\#706](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/706) ([Blitz54](https://github.com/Blitz54))
+### Fixed Crashes
+- Fix crash from importing item with Mana leech mods [\#735](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/735) ([nessgor](https://github.com/nessgor))
+### User Interface
+- Fix the highlight node circle being too small [\#729](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/729) ([LocalIdentity](https://github.com/LocalIdentity))
+### Fixed Calculations
+- Incorrect rounding for Reservation calculations [\#725](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/725) ([nessgor](https://github.com/nessgor))
+- Fix calculation of Leech passive nodes [\#708](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/708) ([MrHB212](https://github.com/MrHB212))
+- Fix comparison tooltips for builds with Time-Lost Jewels [\#709](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/709) ([Peechey](https://github.com/Peechey))
+### Fixed Behaviours
+- Fix "Critical strike in last 8 seconds" mods always applying instead of using a config [\#711](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/711) ([MrHB212](https://github.com/MrHB212))
+### Accuracy Improvements
+- Update Time-Lost Jewel affixes with proper wording [\#767](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/767) ([Peechey](https://github.com/Peechey))
+- Fix duplicate skill for Greater Lightning Bolt and Decompose [\#763](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/763) ([mauriliogenovese](https://github.com/mauriliogenovese))
+
+
 ## [v0.4.1](https://github.com/PathOfBuildingCommunity/PathOfBuilding/tree/v0.4.1) (2025/02/04)
 
 [Full Changelog](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/compare/v0.4.0...v0.4.1)

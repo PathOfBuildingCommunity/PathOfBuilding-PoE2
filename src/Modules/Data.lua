@@ -557,6 +557,19 @@ data.itemMods = {
 	Runes = LoadModule("Data/ModRunes")
 }
 
+-- update JewelRadius affixes for Time-Lost jewels
+do
+	for index, value in pairs(data.itemMods.Jewel) do
+		if index:find("JewelRadius") and value.nodeType and value[1] then
+			if value.nodeType == 1 then
+				value[1] = "Small Passive Skills in Radius also grant "..value[1]
+			elseif value.nodeType == 2 then
+				value[1] = "Notable Passive Skills in Radius also grant "..value[1]
+			end
+		end
+	end
+end
+
 data.costs = LoadModule("Data/Costs")
 do
 	local map = { }
