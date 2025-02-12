@@ -302,8 +302,52 @@ data.nonElementalAilmentTypeList = { "Bleed", "Poison" }
 data.nonDamagingAilment = {
 	["Chill"] = { associatedType = "Cold", alt = false, default = 10, min = 5, max = data.gameConstants["ChillMaxEffect"], precision = 0, duration = data.gameConstants["BaseChillDuration"] },
 	["Freeze"] = { associatedType = "Cold", alt = false, default = nil, min = 0.3, max = 3, precision = 2, duration = data.gameConstants["FreezeDuration"] },
-	["Shock"] = { associatedType = "Lightning", alt = false, default = 20, min = 20, max = 20, precision = 0, duration = data.gameConstants["BaseShockDuration"] },
+	["Shock"] = { associatedType = "Lightning", alt = false, default = 20, min = 20, max = 100, precision = 0, duration = data.gameConstants["BaseShockDuration"] },
 }
+
+data.defaultAilmentDamageTypes = {
+		-- damaging
+		["Bleed"] = {
+			["ScalesFrom"] = {
+				["Physical"] = true,
+			},
+			["DamageType"] = "Physical",
+		},
+		["Poison"] = {
+			["ScalesFrom"] = {
+				["Physical"] = true,
+				["Chaos"] = true,
+			},
+			["DamageType"] = "Chaos",
+		},
+		["Ignite"] = {
+			["ScalesFrom"] = {
+				["Fire"] = true,
+			},
+			["DamageType"] = "Fire",
+		},
+		-- non-damaging
+		["Shock"] = {
+			["ScalesFrom"] = {
+				["Lightning"] = true,
+			}
+		},
+		["Chill"] = {
+			["ScalesFrom"] = {
+				["Cold"] = true,
+			}
+		},
+		["Freeze"] = {
+			["ScalesFrom"] = {
+				["Cold"] = true,
+			}
+		},
+		["Electrocute"] = {
+			["ScalesFrom"] = {
+				["Lightning"] = true,
+			}
+		},
+	}
 
 -- Used in ModStoreClass:ScaleAddMod(...) to identify high precision modifiers
 data.defaultHighPrecision = 1
@@ -512,6 +556,19 @@ data.itemMods = {
 	Corruption = LoadModule("Data/ModCorrupted"),
 	Runes = LoadModule("Data/ModRunes")
 }
+
+-- update JewelRadius affixes for Time-Lost jewels
+do
+	for index, value in pairs(data.itemMods.Jewel) do
+		if index:find("JewelRadius") and value.nodeType and value[1] then
+			if value.nodeType == 1 then
+				value[1] = "Small Passive Skills in Radius also grant "..value[1]
+			elseif value.nodeType == 2 then
+				value[1] = "Notable Passive Skills in Radius also grant "..value[1]
+			end
+		end
+	end
+end
 
 data.costs = LoadModule("Data/Costs")
 do

@@ -695,7 +695,7 @@ local modNameList = {
 	["magnitude of bleeding you inflict"] = { "AilmentMagnitude", keywordFlags = KeywordFlag.Bleed },
 	["magnitude of ignite you inflict"] = { "AilmentMagnitude", keywordFlags = KeywordFlag.Ignite },
 	["magnitude of poison you inflict"] = { "AilmentMagnitude", keywordFlags = KeywordFlag.Poison },
-	["magnitude of ailments you inflict"] = { "AilmentMagnitude", keywordFlags = bor(KeywordFlag.Poison, KeywordFlag.Bleed, KeywordFlag.Ignite) },
+	["magnitude of ailments you inflict"] = "AilmentMagnitude",
 	["magnitude of damaging ailments you inflict"] = { "AilmentMagnitude", keywordFlags = bor(KeywordFlag.Poison, KeywordFlag.Bleed, KeywordFlag.Ignite) },
 	["effect of lightning ailments"] = "EnemyShockMagnitude",
 	["effect of chill and shock on you"] = { "SelfChillEffect", "SelfShockEffect" },
@@ -1207,6 +1207,7 @@ local preFlagList = {
 	["^enemies affected by your spider's webs [thd][ae][avk][el] "] = { tag = { type = "MultiplierThreshold", var = "Spider's WebStack", threshold = 1 }, applyToEnemy = true },
 	["^enemies you curse take "] = { tag = { type = "Condition", var = "Cursed" }, applyToEnemy = true, modSuffix = "Taken" },
 	["^enemies you curse "] = { tag = { type = "Condition", var = "Cursed" }, applyToEnemy = true },
+	["^enemies you electrocute have "] = { tag = { type = "Condition", var = "Electrocuted" }, applyToEnemy = true },
 	["^nearby enemies take "] = { modSuffix = "Taken", applyToEnemy = true },
 	["^nearby enemies have "] = { applyToEnemy = true },
 	["^nearby enemies deal "] = { applyToEnemy = true },
@@ -1851,6 +1852,7 @@ local modTagList = {
 	["against burning enemies"] = { tag = { type = "ActorCondition", actor = "enemy", var = "Burning" } },
 	["against ignited enemies"] = { tag = { type = "ActorCondition", actor = "enemy", var = "Ignited" } },
 	["to ignited enemies"] = { tag = { type = "ActorCondition", actor = "enemy", var = "Ignited" } },
+	["against electrocuted enemies"] = { tag = { type = "ActorCondition", actor = "enemy", var = "Electrocuted" } },
 	["against shocked enemies"] = { tag = { type = "ActorCondition", actor = "enemy", var = "Shocked" } },
 	["you inflict on shocked enemies"] = { tag = { type = "ActorCondition", actor = "enemy", var = "Shocked" } },
 	["to shocked enemies"] = { tag = { type = "ActorCondition", actor = "enemy", var = "Shocked" } },
@@ -2796,9 +2798,9 @@ local specialModList = {
 		mod("EnemyModifier", "LIST", { mod = mod("LightningExposure", "BASE", -num) }, { type = "Condition", var = "Phasing" }),
 	} end,
 	["nearby enemies have fire, cold and lightning exposure while you have phasing"] = {
-		mod("EnemyModifier", "LIST", { mod = mod("FireExposure", "BASE", -10) }, { type = "Condition", var = "Phasing" }),
-		mod("EnemyModifier", "LIST", { mod = mod("ColdExposure", "BASE", -10) }, { type = "Condition", var = "Phasing" }),
-		mod("EnemyModifier", "LIST", { mod = mod("LightningExposure", "BASE", -10) }, { type = "Condition", var = "Phasing" }),
+		mod("EnemyModifier", "LIST", { mod = mod("FireExposure", "BASE", -20) }, { type = "Condition", var = "Phasing" }),
+		mod("EnemyModifier", "LIST", { mod = mod("ColdExposure", "BASE", -20) }, { type = "Condition", var = "Phasing" }),
+		mod("EnemyModifier", "LIST", { mod = mod("LightningExposure", "BASE", -20) }, { type = "Condition", var = "Phasing" }),
 	},
 	-- Saboteur
 	["hits have (%d+)%% chance to deal (%d+)%% more area damage"] = function (num, _, more) return {
@@ -2825,6 +2827,7 @@ local specialModList = {
 	-- Warrior - Titan
 	["(%d+)%% increased effect of small passive skills"] = function(num) return { mod("SmallPassiveSkillEffect", "INC", num) } end,
 	-- Warrior - Warbringer
+	["ignore warcry cooldowns"] ={ mod("CooldownRecovery", "OVERRIDE", 0, { type = "SkillType", skillType = SkillType.Warcry}) },
 	["break armour equal to (%d+)%% of hit damage dealt"] = { flag("Condition:CanArmourBreak", { type = "GlobalEffect", effectType = "Buff", effectName = "ArmourBreak" })}, -- 'Anvil's Weight'
 	-- Trickster
 	["(%d+)%% chance to gain (%d+)%% of non%-chaos damage with hits as extra chaos damage"] = function(num, _, perc) return { mod("NonChaosDamageGainAsChaos", "BASE", num / 100 * tonumber(perc)) } end,
@@ -2882,6 +2885,8 @@ local specialModList = {
 	} end,
 	-- Monk - Invoker
 	["critical hits ignore non%-negative enemy monster elemental resistances"] = { flag("IgnoreNonNegativeEleRes", { type = "Condition", var = "CriticalStrike" }) },
+	["(%d+)%% chance on shocking enemies to created shocked ground"] = { mod("ShockBase", "BASE", data.nonDamagingAilment["Shock"].default, { type = "ActorCondition", actor = "enemy", var = "OnShockedGround" }) },
+	["on freezing enemies create chilled ground"] = { mod("ChillBase", "BASE", data.nonDamagingAilment["Chill"].default, { type = "ActorCondition", actor = "enemy", var = "OnChilledGround" }) },
 	-- Chronomancer
 	["skills have (%d+)%% chance to not consume a cooldown when used"] = function(num) return { 
 		mod("CooldownChanceNotConsume", "BASE", num / 100, { type = "SkillType", skillType = SkillType.Cooldown })
@@ -3050,20 +3055,6 @@ local specialModList = {
 	} end,
 	["curse enemies with level (%d+) (%D+) on %a+, which can apply to hexproof enemies"] = function(num, _, skill) return triggerExtraSkill(skill, num, {noSupports = true, ignoreHexproof = true}) end,
 	["curse enemies with level (%d+) (.+) on %a+"] = function(num, _, skill) return triggerExtraSkill(skill, num, {noSupports = true}) end,
-	["[ct][ar][si][tg]g?e?r?s? (.+) on %a+"] = function(_, skill) return triggerExtraSkill(skill, 1, {noSupports = true}) end,
-	["[at][tr][ti][ag][cg][ke]r? (.+) on %a+"] = function(_, skill) return triggerExtraSkill(skill, 1, {noSupports = true}) end,
-	["[at][tr][ti][ag][cg][ke]r? with (.+) on %a+"] = function(_, skill) return triggerExtraSkill(skill, 1, {noSupports = true}) end,
-	["[ct][ar][si][tg]g?e?r?s? (.+) when hit"] = function(_, skill) return triggerExtraSkill(skill, 1, {noSupports = true}) end,
-	["[at][tr][ti][ag][cg][ke]r? (.+) when hit"] = function(_, skill) return triggerExtraSkill(skill, 1, {noSupports = true}) end,
-	["[at][tr][ti][ag][cg][ke]r? with (.+) when hit"] = function(_, skill) return triggerExtraSkill(skill, 1, {noSupports = true}) end,
-	["[ct][ar][si][tg]g?e?r?s? (.+) when your skills or minions kill"] = function(_, skill) return triggerExtraSkill(skill, 1, {noSupports = true}) end,
-	["[at][tr][ti][ag][cg][ke]r? (.+) when you take a critical hit"] = function( _, skill) return triggerExtraSkill(skill, 1, {noSupports = true}) end,
-	["[at][tr][ti][ag][cg][ke]r? with (.+) when you take a critical hit"] = function( _, skill) return triggerExtraSkill(skill, 1, {noSupports = true}) end,
-	["trigger commandment of inferno on critical hit"] = {
-		mod("ExtraSkill", "LIST", { skillId = "UniqueEnchantmentOfInfernoOnCrit", level = 1, noSupports = true, triggered = true }),
-		mod("ExtraSkillMod", "LIST", { mod = mod("SkillData", "LIST", { key = "triggerOnCrit", value = true })},  { type = "SkillId", skillId = "UniqueEnchantmentOfInfernoOnCrit" }) },
-	["trigger (.+) on critical hit"] = function( _, skill) return triggerExtraSkill(skill, 1, {noSupports = true, onCrit = true}) end,
-	["triggers? (.+) when you take a critical hit"] = function( _, skill) return triggerExtraSkill(skill, 1, {noSupports = true}) end,
 	["socketed [%a+]* ?gems a?r?e? ?supported by level (%d+) (.+)"] = function(num, _, support) return extraSupport(support, num) end,
 	["skills from equipped (.+) are supported by level (%d+) (.+)"] = function(_, slot, level, support) return extraSupport(support, level, slot) end,
 	["socketed support gems can also support skills from y?o?u?r? ?e?q?u?i?p?p?e?d? ?([%a%s]+)"] = function (_, itemSlotName)
@@ -3216,6 +3207,7 @@ local specialModList = {
 	["hits have (%d+)%% increased critical hit chance against you"] = function(num) return { mod("EnemyCritChance", "INC", num) } end,
 	["hits have (%d+)%% reduced critical hit chance against you"] = function(num) return { mod("EnemyCritChance", "INC", -num) } end,
 	["stuns from critical hits have (%d+)%% increased duration"] = function(num) return { mod("EnemyStunDurationOnCrit", "INC", num) } end,
+	["break armour on critical hit with spells equal to (%d+)%% of physical damage dealt"] = { flag("Condition:CanArmourBreak", { type = "GlobalEffect", effectType = "Buff", effectName = "ArmourBreak" }, { type = "Condition", neg = true, var = "NeverCrit" })},
 	-- Generic Ailments
 	["enemies take (%d+)%% increased damage for each type of ailment you have inflicted on them"] = function(num) return {
 		mod("EnemyModifier", "LIST", { mod = mod("DamageTaken", "INC", num) }, { type = "ActorCondition", actor = "enemy", var = "Frozen" }),
@@ -3563,9 +3555,9 @@ local specialModList = {
 	    mod("SpellSuppressionEffect", "BASE", num, { type = "Multiplier", var = "HitsSuppressedRecently" })
 	} end,
 	["inflict fire, cold and lightning exposure on enemies when you suppress their spell damage"] = {
-	    mod("EnemyModifier", "LIST", { mod = mod("FireExposure", "BASE", -10) }, { type = "Condition", var = "Effective" }, { type = "Condition", var = "SuppressedRecently" }),
-	    mod("EnemyModifier", "LIST", { mod = mod("ColdExposure", "BASE", -10) }, { type = "Condition", var = "Effective" }, { type = "Condition", var = "SuppressedRecently" }),
-	    mod("EnemyModifier", "LIST", { mod = mod("LightningExposure", "BASE", -10) }, { type = "Condition", var = "Effective" }, { type = "Condition", var = "SuppressedRecently" })
+	    mod("EnemyModifier", "LIST", { mod = mod("FireExposure", "BASE", -20) }, { type = "Condition", var = "Effective" }, { type = "Condition", var = "SuppressedRecently" }),
+	    mod("EnemyModifier", "LIST", { mod = mod("ColdExposure", "BASE", -20) }, { type = "Condition", var = "Effective" }, { type = "Condition", var = "SuppressedRecently" }),
+	    mod("EnemyModifier", "LIST", { mod = mod("LightningExposure", "BASE", -20) }, { type = "Condition", var = "Effective" }, { type = "Condition", var = "SuppressedRecently" })
 	},
 	["critical hit chance is increased by chance to suppress spell damage"] = { flag("CritChanceIncreasedBySpellSuppressChance") },
 	["you take (%d+)%% reduced extra damage from suppressed critical hits"] = function(num) return { mod("ReduceSuppressedCritExtraDamage", "BASE", num) } end,
@@ -3806,35 +3798,35 @@ local specialModList = {
 		mod("LightningExposureChance", "BASE", 100, { type = "Condition", var = "Effective" }),
 	},
 	["nearby enemies have fire exposure"] = {
-		mod("EnemyModifier", "LIST", { mod = mod("FireExposure", "BASE", -10) }, { type = "Condition", var = "Effective" }),
+		mod("EnemyModifier", "LIST", { mod = mod("FireExposure", "BASE", -20) }, { type = "Condition", var = "Effective" }),
 	},
 	["nearby enemies have cold exposure"] = {
-		mod("EnemyModifier", "LIST", { mod = mod("ColdExposure", "BASE", -10) }, { type = "Condition", var = "Effective" }),
+		mod("EnemyModifier", "LIST", { mod = mod("ColdExposure", "BASE", -20) }, { type = "Condition", var = "Effective" }),
 	},
 	["nearby enemies have lightning exposure"] = {
-		mod("EnemyModifier", "LIST", { mod = mod("LightningExposure", "BASE", -10) }, { type = "Condition", var = "Effective" }),
+		mod("EnemyModifier", "LIST", { mod = mod("LightningExposure", "BASE", -20) }, { type = "Condition", var = "Effective" }),
 	},
 	["nearby enemies have fire exposure while you are affected by herald of ash"] = {
-		mod("EnemyModifier", "LIST", { mod = mod("FireExposure", "BASE", -10) }, { type = "Condition", var = "Effective" }, { type = "Condition", var = "AffectedByHeraldofAsh" }),
+		mod("EnemyModifier", "LIST", { mod = mod("FireExposure", "BASE", -20) }, { type = "Condition", var = "Effective" }, { type = "Condition", var = "AffectedByHeraldofAsh" }),
 	},
 	["nearby enemies have cold exposure while you are affected by herald of ice"] = {
-		mod("EnemyModifier", "LIST", { mod = mod("ColdExposure", "BASE", -10) }, { type = "Condition", var = "Effective" }, { type = "Condition", var = "AffectedByHeraldofIce" }),
+		mod("EnemyModifier", "LIST", { mod = mod("ColdExposure", "BASE", -20) }, { type = "Condition", var = "Effective" }, { type = "Condition", var = "AffectedByHeraldofIce" }),
 	},
 	["nearby enemies have lightning exposure while you are affected by herald of thunder"] = {
-		mod("EnemyModifier", "LIST", { mod = mod("LightningExposure", "BASE", -10) }, { type = "Condition", var = "Effective" }, { type = "Condition", var = "AffectedByHeraldofThunder" }),
+		mod("EnemyModifier", "LIST", { mod = mod("LightningExposure", "BASE", -20) }, { type = "Condition", var = "Effective" }, { type = "Condition", var = "AffectedByHeraldofThunder" }),
 	},
 	["i?n?f?l?i?c?t? ?(%a-) exposure on hit if you've cast (.-) in the past (%d+) seconds"] = function (_, exposureType, curse) return {
-		mod("EnemyModifier", "LIST", { mod = mod(exposureType:gsub("^%l", string.upper).."Exposure", "BASE", -10) }, nil,  ModFlag.Hit, { type = "Condition", var = "SelfCast"..curse:gsub("^%l", string.upper):gsub(" %l", string.upper):gsub(" ", "") }, { type = "Condition", var = "Effective" })
+		mod("EnemyModifier", "LIST", { mod = mod(exposureType:gsub("^%l", string.upper).."Exposure", "BASE", -20) }, nil,  ModFlag.Hit, { type = "Condition", var = "SelfCast"..curse:gsub("^%l", string.upper):gsub(" %l", string.upper):gsub(" ", "") }, { type = "Condition", var = "Effective" })
 	} end,
 	["inflict fire, cold and lightning exposure on nearby enemies when used"] = {
-		mod("EnemyModifier", "LIST", { mod = mod("FireExposure", "BASE", -10) }, { type = "Condition", var = "Effective" }, { type = "Condition", var = "UsingFlask" }),
-		mod("EnemyModifier", "LIST", { mod = mod("ColdExposure", "BASE", -10) }, { type = "Condition", var = "Effective" }, { type = "Condition", var = "UsingFlask" }),
-		mod("EnemyModifier", "LIST", { mod = mod("LightningExposure", "BASE", -10) }, { type = "Condition", var = "Effective" }, { type = "Condition", var = "UsingFlask" }),
+		mod("EnemyModifier", "LIST", { mod = mod("FireExposure", "BASE", -20) }, { type = "Condition", var = "Effective" }, { type = "Condition", var = "UsingFlask" }),
+		mod("EnemyModifier", "LIST", { mod = mod("ColdExposure", "BASE", -20) }, { type = "Condition", var = "Effective" }, { type = "Condition", var = "UsingFlask" }),
+		mod("EnemyModifier", "LIST", { mod = mod("LightningExposure", "BASE", -20) }, { type = "Condition", var = "Effective" }, { type = "Condition", var = "UsingFlask" }),
 	},
 	["enemies near your linked targets have fire, cold and lightning exposure"] = {
-		mod("EnemyModifier", "LIST", { mod = mod("FireExposure", "BASE", -10, { type = "Condition", var = "NearLinkedTarget" }) }, { type = "Condition", var = "Effective" }),
-		mod("EnemyModifier", "LIST", { mod = mod("ColdExposure", "BASE", -10, { type = "Condition", var = "NearLinkedTarget" }) }, { type = "Condition", var = "Effective" }),
-		mod("EnemyModifier", "LIST", { mod = mod("LightningExposure", "BASE", -10, { type = "Condition", var = "NearLinkedTarget" }) }, { type = "Condition", var = "Effective" }),
+		mod("EnemyModifier", "LIST", { mod = mod("FireExposure", "BASE", -20, { type = "Condition", var = "NearLinkedTarget" }) }, { type = "Condition", var = "Effective" }),
+		mod("EnemyModifier", "LIST", { mod = mod("ColdExposure", "BASE", -20, { type = "Condition", var = "NearLinkedTarget" }) }, { type = "Condition", var = "Effective" }),
+		mod("EnemyModifier", "LIST", { mod = mod("LightningExposure", "BASE", -20, { type = "Condition", var = "NearLinkedTarget" }) }, { type = "Condition", var = "Effective" }),
 	},
 	["inflict (%w+) exposure on hit, applying %-(%d+)%% to (%w+) resistance"] = function(_, element1,  num, element2) return {
 		mod( firstToUpper(element1).."ExposureChance", "BASE", 100, { type = "Condition", var = "Effective" }),

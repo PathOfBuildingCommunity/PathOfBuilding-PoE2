@@ -228,7 +228,7 @@ local configSettings = {
 		modList:NewMod("Condition:BannerPlanted", "FLAG", true, "Config")
 	end },
 	{ var = "bannerValour", type = "count", label = "Banner Valour:", tooltip = "The amount of valour consumed for the placed banner", ifSkill = { "Dread Banner", "War Banner", "Defiance Banner" }, apply = function(val, modList, enemyModList)
-		modList:NewMod("Multiplier:ValourStacks", "BASE", val, "Config", { type = "IgnoreCond" }, { type = "Condition", var = "Combat" })
+		modList:NewMod("Multiplier:ValourStacks", "BASE", m_min(val, 50), "Config", { type = "IgnoreCond" }, { type = "Condition", var = "Combat" })
 	end },
 	{ label = "Barkskin:", ifSkill = "Barkskin" },
 	{ var = "barkskinStacks", type = "count", label = "# of Barkskin Stacks:", ifSkill = "Barkskin", apply = function(val, modList, enemyModList)
@@ -1560,7 +1560,6 @@ Huge sets the radius to 11.
 	end },
 	{ var = "conditionScorchedEffect", type = "count", label = "Effect of ^xB97123Scorched:", ifOption = "conditionEnemyScorched", tooltip = "This effect will only be applied while you can inflict ^xB97123Scorched.", apply = function(val, modList, enemyModList)
 		enemyModList:NewMod("ScorchVal", "BASE", val, "Config", { type = "Condition", var = "ScorchedConfig" })
-		enemyModList:NewMod("DesiredScorchVal", "BASE", val, "Scorch", { type = "Condition", var = "ScorchedConfig", neg = true })
 	end },
 	{ var = "ScorchStacks", type = "integer", label = "^xB97123Scorch ^7Stacks", ifFlag = "ScorchCanStack", ifOption = "conditionEnemyScorched", defaultPlaceholderState = 1, tooltip = "Amount of stacks of ^xB97123Scorch ^7applied to the enemy.", apply = function(val, modList, enemyModList)
 		enemyModList:NewMod("Multiplier:ScorchStacks", "BASE", val, "Config", { type = "Condition", var = "Effective" })
@@ -1579,7 +1578,6 @@ Huge sets the radius to 11.
 	end },
 	{ var = "conditionEnemyChilledEffect", type = "count", label = "Effect of ^x3F6DB3Chill:", ifOption = "conditionEnemyChilled", apply = function(val, modList, enemyModList)
 		enemyModList:NewMod("ChillVal", "BASE", val, "Chill", { type = "Condition", var = "ChilledConfig" })
-		enemyModList:NewMod("DesiredChillVal", "BASE", val, "Chill", { type = "Condition", var = "ChilledConfig", neg = true })
 	end },
 	{ var = "ChillStacks", type = "count", label = "^xADAA47Chill ^7Stacks", ifFlag = "ChillCanStack", ifOption = "conditionEnemyChilled", defaultPlaceholderState = 1, tooltip = "Amount of stacks of ^xADAA47Chill ^7applied to the enemy.", apply = function(val, modList, enemyModList)
 		enemyModList:NewMod("Multiplier:ChillStacks", "BASE", val, "Config", { type = "Condition", var = "Effective" })
@@ -1599,13 +1597,16 @@ Huge sets the radius to 11.
 		enemyModList:NewMod("Multiplier:FrozenByYouSeconds", "BASE", val, "Config", { type = "Condition", var = "Combat" })
 		enemyModList:NewMod("Condition:FrozenByYou", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
 	end },
+	{ var = "conditionEnemyOnChilledGround", type = "check", label = "Is the enemy on ^x3F6DB3Chilled ^7Ground?", ifEnemyCond = "OnChilledGround", implyCond = "Chilled", tooltip = "This also implies that the enemy is ^x3F6DB3Chilled.", apply = function(val, modList, enemyModList)
+		enemyModList:NewMod("Condition:OnChilledGround", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
+		enemyModList:NewMod("Condition:Chilled", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
+	end },
 	{ var = "conditionEnemyBrittle", type = "check", ifFlag = "inflictBrittle", label = "Is the enemy ^x3F6DB3Brittle?", tooltip = "Hits against ^x3F6DB3Brittle ^7enemies have up to +6% Critical Strike Chance.\nThis option will also allow you to input the effect of ^x3F6DB3Brittle.", apply = function(val, modList, enemyModList)
 		enemyModList:NewMod("Condition:Brittle", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
 		enemyModList:NewMod("Condition:BrittleConfig", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
 	end },
 	{ var = "conditionBrittleEffect", type = "count", label = "Effect of ^x3F6DB3Brittle:", ifOption = "conditionEnemyBrittle", tooltip = "This effect will only be applied while you can inflict ^x3F6DB3Brittle.", apply = function(val, modList, enemyModList)
 		enemyModList:NewMod("BrittleVal", "BASE", val, "Config", { type = "Condition", var = "BrittleConfig" })
-		enemyModList:NewMod("DesiredBrittleVal", "BASE", val, "Brittle", { type = "Condition", var = "BrittleConfig", neg = true })
 	end },
 	{ var = "conditionEnemyOnBrittleGround", type = "check", label = "Is the enemy on ^xADAA47Brittle ^7Ground?", tooltip = "This also implies that the enemy is ^xADAA47Brittle.", ifEnemyCond = "OnBrittleGround", apply = function(val, modList, enemyModList)
 		enemyModList:NewMod("Condition:Brittle", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
@@ -1615,9 +1616,8 @@ Huge sets the radius to 11.
 		enemyModList:NewMod("Condition:Shocked", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
 		enemyModList:NewMod("Condition:ShockedConfig", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
 	end },
-	{ var = "conditionShockEffect", type = "count", label = "Effect of ^xADAA47Shock:", ifOption = "conditionEnemyShocked", tooltip = "If you have a guaranteed source of ^xADAA47Shock^7,\nthe strongest one will apply instead unless this option would apply a stronger ^xADAA47Shock.", apply = function(val, modList, enemyModList)
+	{ var = "conditionShockEffect", type = "count", label = "Effect of ^xADAA47Shock^7 (if not maximum):", ifOption = "conditionEnemyShocked", tooltip = "If you have a guaranteed source of ^xADAA47Shock^7,\nthe strongest one will apply instead unless this option would apply a stronger ^xADAA47Shock.", apply = function(val, modList, enemyModList)
 		enemyModList:NewMod("ShockVal", "BASE", val, "Shock", { type = "Condition", var = "ShockedConfig" })
-		enemyModList:NewMod("DesiredShockVal", "BASE", val, "Shock", { type = "Condition", var = "ShockedConfig", neg = true })
 	end },
 	{ var = "ShockStacks", type = "count", label = "^xADAA47Shock ^7Stacks", ifFlag = "ShockCanStack", ifOption = "conditionEnemyShocked", defaultPlaceholderState = 1, tooltip = "Amount of stacks of ^xADAA47Shock ^7applied to the enemy.", apply = function(val, modList, enemyModList)
 		enemyModList:NewMod("Multiplier:ShockStacks", "BASE", val, "Config", { type = "Condition", var = "Effective" })
@@ -1636,7 +1636,6 @@ Huge sets the radius to 11.
 	end },
 	{ var = "conditionSapEffect", type = "count", label = "Effect of ^xADAA47Sap:", ifOption = "conditionEnemySapped", tooltip = "If you have a guaranteed source of ^xADAA47Sap^7,\nthe strongest one will apply instead unless this option would apply a stronger ^xADAA47Sap.", apply = function(val, modList, enemyModList)
 		enemyModList:NewMod("SapVal", "BASE", val, "Sap", { type = "Condition", var = "SappedConfig" })
-		enemyModList:NewMod("DesiredSapVal", "BASE", val, "Sap", { type = "Condition", var = "SappedConfig", neg = true })
 	end },
 	{ var = "conditionEnemyOnSappedGround", type = "check", label = "Is the enemy on ^xADAA47Sapped ^7Ground?", tooltip = "This also implies that the enemy is ^xADAA47Sapped.", ifEnemyCond = "OnSappedGround", apply = function(val, modList, enemyModList)
 		enemyModList:NewMod("Condition:Sapped", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
@@ -1768,7 +1767,6 @@ Huge sets the radius to 11.
 			build.configTab.varControls['enemyEvasion']:SetPlaceholder(data.monsterEvasionTable[defaultLevel], true)
 		elseif val == "Boss" then
 			enemyModList:NewMod("Condition:RareOrUnique", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
-			enemyModList:NewMod("AilmentThreshold", "MORE", 488, "Boss")
 			modList:NewMod("WarcryPower", "BASE", 20, "Boss")
 			modList:NewMod("Multiplier:EnemyPower", "BASE", 20, "Boss")
 
@@ -1803,7 +1801,6 @@ Huge sets the radius to 11.
 		elseif val == "Pinnacle" then
 			enemyModList:NewMod("Condition:RareOrUnique", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
 			enemyModList:NewMod("Condition:PinnacleBoss", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
-			enemyModList:NewMod("AilmentThreshold", "MORE", 404, "Boss")
 			modList:NewMod("WarcryPower", "BASE", 20, "Boss")
 			modList:NewMod("Multiplier:EnemyPower", "BASE", 20, "Boss")
 
@@ -1813,7 +1810,7 @@ Huge sets the radius to 11.
 			build.configTab.varControls['enemyFireResist']:SetPlaceholder(defaultEleResist, true)
 			build.configTab.varControls['enemyChaosResist']:SetPlaceholder(0, true)
 
-			local defaultLevel = 84
+			local defaultLevel = 82
 			build.configTab.varControls['enemyLevel']:SetPlaceholder(defaultLevel, true)
 			build.configTab:UpdateLevel()
 			if build.configTab.enemyLevel then
@@ -1837,7 +1834,6 @@ Huge sets the radius to 11.
 			enemyModList:NewMod("Condition:RareOrUnique", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
 			enemyModList:NewMod("Condition:PinnacleBoss", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
 			enemyModList:NewMod("DamageTaken", "MORE", -70, "Boss")
-			enemyModList:NewMod("AilmentThreshold", "MORE", 404, "Boss")
 			modList:NewMod("WarcryPower", "BASE", 20, "Boss")
 			modList:NewMod("Multiplier:EnemyPower", "BASE", 20, "Boss")
 

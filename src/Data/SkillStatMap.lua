@@ -755,6 +755,9 @@ return {
 ["active_skill_damage_+%_final"] = {
 	mod("Damage", "MORE", nil),
 },
+["active_skill_damage_+%_final_against_heavy_stunned_enemies"] = {
+	mod("Damage", "MORE", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "HeavyStunned" }),
+},
 ["sigil_attached_target_hit_damage_+%_final"] = {
 	mod("Damage", "MORE", nil, ModFlag.Hit, 0, { type = "Condition", var = "TargetingBrandedEnemy"}),
 },

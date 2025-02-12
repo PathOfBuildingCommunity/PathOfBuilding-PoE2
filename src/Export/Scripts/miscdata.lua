@@ -28,8 +28,6 @@ out:write('-- From DefaultMonsterStats.dat\n')
 out:write('data.monsterEvasionTable = { '..evasion..'}\n') --This table is off by about 0.5% in some cases but is quicker than generating the value at runtime
 out:write('data.monsterAccuracyTable = { '..accuracy..'}\n')
 out:write('data.monsterLifeTable = { '..life..'}\n')
-out:write('data.monsterLifeTable2 = { '..altLife1..'}\n')
-out:write('data.monsterLifeTable3 = { '..altLife2..'}\n')
 out:write('data.monsterAllyLifeTable = { '..allyLife..'}\n')
 out:write('data.monsterDamageTable = { '..damage..'}\n')
 out:write('data.monsterAllyDamageTable = { '..allyDamage..'}\n')

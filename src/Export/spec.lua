@@ -2462,7 +2462,7 @@ return {
 			width=50
 		},
 		[36]={
-			list=false,
+			list=true,
 			name="",
 			refTo="",
 			type="Key",
@@ -2534,44 +2534,51 @@ return {
 		[46]={
 			list=false,
 			name="",
-			refTo="",
-			type="Bool",
-			width=50
-		},
-		[47]={
-			list=false,
-			name="",
 			refTo="Stats",
 			type="Key",
-			width=150
+			width=100
+		},
+		[47]={
+			list=true,
+			name="",
+			refTo="",
+			type="Int",
+			width=50
 		},
 		[48]={
 			list=false,
 			name="",
 			refTo="",
-			type="Int",
-			width=150
+			type="String",
+			width=50
 		},
 		[49]={
-			list=false,
-			name="",
-			refTo="",
-			type="UInt16",
-			width=150
-		},
-		[50]={
-			list=false,
+			list=true,
 			name="",
 			refTo="Stats",
 			type="Key",
 			width=150
 		},
+		[50]={
+			list=true,
+			name="",
+			refTo="",
+			type="Int",
+			width=50
+		},
 		[51]={
 			list=false,
 			name="",
 			refTo="",
-			type="Bool",
-			width=150
+			type="Int",
+			width=50
+		},
+		[52]={
+			list=true,
+			name="",
+			refTo="",
+			type="Key",
+			width=50
 		}
 	},
 	buffgroups={
@@ -2677,6 +2684,13 @@ return {
 			name="",
 			refTo="Stats",
 			type="Key",
+			width=150
+		},
+		[15]={
+			list=false,
+			name="",
+			refTo="",
+			type="Bool",
 			width=150
 		}
 	},
@@ -10318,7 +10332,7 @@ return {
 		},
 		[112]={
 			list=false,
-			name="",
+			name="AttackCrit",
 			refTo="",
 			type="Float",
 			width=150

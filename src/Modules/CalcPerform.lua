@@ -2736,7 +2736,6 @@ function calcs.perform(env, skipEHP)
 				local mods = {  }
 
 				if modDB:Flag(nil, "ChillCanStack") then
-					t_insert(mods, modLib.createMod("DamageTaken", "INC", num, "Shock", { type = "Condition", var = "Shocked" }, { type = "Multiplier", var = "ShockStacks", limit = modDB:Override(nil, "ShockStacksMax") or modDB:Sum("BASE", nil, "ShockStacksMax")}))
 					output["CurrentChill"] = num * m_min(enemyDB:Sum("BASE", nil, "Multiplier:ChillStacks"), modDB:Override(nil, "ChillStacksMax") or modDB:Sum("BASE", nil, "ChillStacksMax"))
 					if breakdown then
 						t_insert(mods, modLib.createMod("ActionSpeed", "INC", -num, "Chill Stacks", { type = "Condition", var = "Chilled" }, { type = "Multiplier", var = "ShockStacks", limit = modDB:Override(nil, "ShockStacksMax") or modDB:Sum("BASE", nil, "ShockStacksMax")}))
@@ -2759,6 +2758,7 @@ function calcs.perform(env, skipEHP)
 			mods = function(num)
 				local mods = { }
 				if modDB:Flag(nil, "ShockCanStack") then
+					output.ShockStackCount = m_min(enemyDB:Sum("BASE", nil, "Multiplier:ShockStacks"), modDB:Override(nil, "ShockStacksMax") or modDB:Sum("BASE", nil, "ShockStacksMax"))
 					t_insert(mods, modLib.createMod("DamageTaken", "INC", num, "Shock", { type = "Condition", var = "Shocked" }, { type = "Multiplier", var = "ShockStacks", limit = modDB:Override(nil, "ShockStacksMax") or modDB:Sum("BASE", nil, "ShockStacksMax")}))
 					output["CurrentShock"] = num * m_min(enemyDB:Sum("BASE", nil, "Multiplier:ShockStacks"), modDB:Override(nil, "ShockStacksMax") or modDB:Sum("BASE", nil, "ShockStacksMax"))
 					if breakdown then
@@ -2796,9 +2796,9 @@ function calcs.perform(env, skipEHP)
 					-- if not, use the generic modifiers
 					-- Scorch/Sap/Brittle do not have guaranteed sources from hits, and therefore will only end up in this bit of code if it's not supposed to apply the skillModList, which is bad
 					if ailment ~= "Scorch" and ailment ~= "Sap" and ailment ~= "Brittle" and not env.player.mainSkill.skillModList:Flag(nil, "Cannot"..ailment) and hitFlag and modDB:Flag(nil, "ChecksHighestDamage") then
-						effect = effect * calcLib.mod(env.player.mainSkill.skillModList, nil, "Enemy"..ailment.."Effect")
+						effect = effect * calcLib.mod(env.player.mainSkill.skillModList, env.player.mainSkill.skillModList.skillCfg, "Enemy"..ailment.."Magnitude", "AilmentMagnitude")
 					else
-						effect = effect * calcLib.mod(modDB, nil, "Enemy"..ailment.."Effect")
+						effect = effect * calcLib.mod(env.player.mainSkill.skillModList, env.player.mainSkill.skillModList.skillCfg, "Enemy"..ailment.."Magnitude", "AilmentMagnitude")
 					end
 					modDB:NewMod(ailment.."Override", "BASE", effect, mod.source, mod.flags, mod.keywordFlags, unpack(mod))
 					if mod.name == ailment.."Minimum" then
