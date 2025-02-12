@@ -2260,6 +2260,12 @@ return {
 ["reload_speed_+%"] = {
 	mod("ReloadSpeed", "INC", nil),
 },
+["projectiles_crossbow_barrage"] = {
+	flag("SequentialProjectiles"), --{ type = "Skilltype", skillType = SkillType.CrossbowSkill}
+},
+["crossbow_barrage_attack_time_ratio_%"] = {
+	mod("SkillAttackTime", "MORE", nil, 0, 0, { type = "SkillType", skillType = SkillType.CrossbowSkill}, { type = "PerStat", stat = "ProjectileCount" }),
+},
 -- Grenade
 ["grenade_skill_%_chance_to_explode_twice"] = {
 	mod("GrenadeExplodeTwice", "INC", nil),
