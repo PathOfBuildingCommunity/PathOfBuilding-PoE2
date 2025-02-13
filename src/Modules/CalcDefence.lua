@@ -120,6 +120,34 @@ function calcs.doActorDarkness(actor)
 	output.UnreservedDarkness = output.Darkness - output.ReservedDarkness
 end
 
+-- Return the gem count of the specified skill and it's enabled status
+---@param activeSkill table
+function calcs.getActiveSkillCount(activeSkill)
+	if not activeSkill.socketGroup then
+		return 1, true
+	elseif activeSkill.socketGroup.groupCount then
+		return activeSkill.socketGroup.groupCount, true
+	else
+		local gemList = activeSkill.socketGroup.gemList
+		for _, gemData in pairs(gemList) do
+			if gemData.gemData then
+				if gemData.gemData.vaalGem then
+					if activeSkill.activeEffect.grantedEffect == gemData.gemData.grantedEffectList[1] then
+						return gemData.count or 1,  gemData.enableGlobal1 == true
+					elseif activeSkill.activeEffect.grantedEffect == gemData.gemData.grantedEffectList[2] then
+						return gemData.count or 1,  gemData.enableGlobal2 == true
+					end
+				else
+					if (activeSkill.activeEffect.grantedEffect == gemData.gemData.grantedEffect and not gemData.gemData.grantedEffect.support) or isValueInArray(gemData.gemData.additionalGrantedEffects, activeSkill.activeEffect.grantedEffect) then
+						return gemData.count or 1, true
+					end
+				end
+			end
+		end
+	end
+	return 1, true
+end
+
 -- Calculate life/mana/spirit reservation
 ---@param actor table
 function calcs.doActorLifeManaSpiritReservation(actor)
@@ -199,6 +227,11 @@ function calcs.doActorLifeManaSpiritReservation(actor)
 					values.reservedFlat = values.reservedFlat * activeSkill.activeMineCount
 					values.reservedPercent = values.reservedPercent * activeSkill.activeMineCount
 				end
+				if activeSkill.skillTypes[SkillType.MultipleReservation] then
+					local activeSkillCount, enabled = calcs.getActiveSkillCount(activeSkill)
+					values.reservedFlat = values.reservedFlat * activeSkillCount
+				end
+				
 				if activeSkill.skillTypes[SkillType.CanHaveMultipleOngoingSkillInstances] and activeSkill.activeEffect.srcInstance.supportEffect and activeSkill.activeEffect.srcInstance.supportEffect.isSupporting then
 					-- Sadly no better way to get key/val table element count in lua.
 					local instances = 0

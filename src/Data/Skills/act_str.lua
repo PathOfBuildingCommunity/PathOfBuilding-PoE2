@@ -145,7 +145,8 @@ skills["SupportAncestralWarriorTotemPlayer"] = {
 	support = true,
 	requireSkillTypes = { SkillType.Attack, },
 	addSkillTypes = { SkillType.UsedByTotem, },
-	excludeSkillTypes = { SkillType.Meta, SkillType.Triggered, SkillType.Cooldown, SkillType.Channel, },
+	excludeSkillTypes = { SkillType.Meta, SkillType.Triggered, SkillType.Cooldown, SkillType.Channel, SkillType.Persistent, },
+	ignoreMinionTypes = true,
 	weaponTypes = {
 		["Two Handed Mace"] = true,
 	},
