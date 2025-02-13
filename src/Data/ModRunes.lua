@@ -3,12 +3,12 @@
 
 return {
 	["Soul Core of Tacati"] = {
-		weapon = { type = "Rune", "15% chance to Poison on Hit", statOrder = { 6866 }, },
+		weapon = { type = "Rune", "15% chance to Poison on Hit", statOrder = { 6865 }, },
 		armour = { type = "Rune", "+7% to Chaos Resistance", statOrder = { 953 }, },
 	},
 	["Soul Core of Opiloti"] = {
 		weapon = { type = "Rune", "15% chance to cause Bleeding on Hit", statOrder = { 2156 }, },
-		armour = { type = "Rune", "10% increased Charm Charges gained", statOrder = { 5065 }, },
+		armour = { type = "Rune", "10% increased Charm Charges gained", statOrder = { 5064 }, },
 	},
 	["Soul Core of Jiquani"] = {
 		weapon = { type = "Rune", "Recover 2% of Life on Kill", statOrder = { 1443 }, },
@@ -39,28 +39,28 @@ return {
 		armour = { type = "Rune", "10% increased Rarity of Items found", statOrder = { 911 }, },
 	},
 	["Soul Core of Topotante"] = {
-		weapon = { type = "Rune", "Attacks with this Weapon Penetrate 15% Elemental Resistances", statOrder = { 3368 }, },
-		armour = { type = "Rune", "15% increased Elemental Ailment Threshold", statOrder = { 4149 }, },
+		weapon = { type = "Rune", "Attacks with this Weapon Penetrate 15% Elemental Resistances", statOrder = { 3367 }, },
+		armour = { type = "Rune", "15% increased Elemental Ailment Threshold", statOrder = { 4148 }, },
 	},
 	["Soul Core of Quipolatl"] = {
 		weapon = { type = "Rune", "5% increased Attack Speed", statOrder = { 914 }, },
-		armour = { type = "Rune", "10% reduced Slowing Potency of Debuffs on You", statOrder = { 4505 }, },
+		armour = { type = "Rune", "10% reduced Slowing Potency of Debuffs on You", statOrder = { 4504 }, },
 	},
 	["Soul Core of Ticaba"] = {
 		weapon = { type = "Rune", "+12% to Critical Damage Bonus", statOrder = { 913 }, },
 		armour = { type = "Rune", "Hits against you have 10% reduced Critical Damage Bonus", statOrder = { 942 }, },
 	},
 	["Soul Core of Atmohua"] = {
-		weapon = { type = "Rune", "Convert 20% of Requirements to Strength", statOrder = { 6871 }, },
-		armour = { type = "Rune", "Convert 20% of Requirements to Strength", statOrder = { 6871 }, },
+		weapon = { type = "Rune", "Convert 20% of Requirements to Strength", statOrder = { 6870 }, },
+		armour = { type = "Rune", "Convert 20% of Requirements to Strength", statOrder = { 6870 }, },
 	},
 	["Soul Core of Cholotl"] = {
-		weapon = { type = "Rune", "Convert 20% of Requirements to Dexterity", statOrder = { 6869 }, },
-		armour = { type = "Rune", "Convert 20% of Requirements to Dexterity", statOrder = { 6869 }, },
+		weapon = { type = "Rune", "Convert 20% of Requirements to Dexterity", statOrder = { 6868 }, },
+		armour = { type = "Rune", "Convert 20% of Requirements to Dexterity", statOrder = { 6868 }, },
 	},
 	["Soul Core of Zantipi"] = {
-		weapon = { type = "Rune", "Convert 20% of Requirements to Intelligence", statOrder = { 6870 }, },
-		armour = { type = "Rune", "Convert 20% of Requirements to Intelligence", statOrder = { 6870 }, },
+		weapon = { type = "Rune", "Convert 20% of Requirements to Intelligence", statOrder = { 6869 }, },
+		armour = { type = "Rune", "Convert 20% of Requirements to Intelligence", statOrder = { 6869 }, },
 	},
 	["Desert Rune"] = {
 		weapon = { type = "Rune", "Adds 7 to 11 Fire Damage", statOrder = { 824 }, },
@@ -100,6 +100,6 @@ return {
 	},
 	["Vision Rune"] = {
 		weapon = { type = "Rune", "+100 to Accuracy Rating", statOrder = { 827 }, },
-		armour = { type = "Rune", "10% increased Life and Mana Recovery from Flasks", statOrder = { 5905 }, },
+		armour = { type = "Rune", "10% increased Life and Mana Recovery from Flasks", statOrder = { 5904 }, },
 	},
 }

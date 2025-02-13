@@ -1393,7 +1393,7 @@ c["25% chance for Attacks to Maim on Hit against Poisoned Enemies 25% increased 
 c["25% chance for Projectiles to Pierce Enemies within 3m distance of you"]={{[1]={flags=0,keywordFlags=0,name="ProjectileCount",type="BASE",value=25}}," for  to Pierce Enemies within 3m distance of you "}
 c["25% chance for Trigger skills to refund half of Energy Spent"]={{}," for Trigger skills to refund half of Energy Spent "}
 c["25% chance on Consuming a Shock on an Enemy to reapply it"]={{}," on Consuming a Shock on an Enemy to reapply it "}
-c["25% chance on Shocking Enemies to created Shocked Ground"]={{}," on Shocking Enemies to created Shocked Ground "}
+c["25% chance on Shocking Enemies to created Shocked Ground"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="OnShockedGround"},flags=0,keywordFlags=0,name="ShockBase",type="BASE",value=20}},nil}
 c["25% chance to Avoid Physical Damage from Hits"]={{[1]={flags=0,keywordFlags=0,name="AvoidPhysicalDamageChance",type="BASE",value=25}},nil}
 c["25% chance to Intimidate Enemies for 4 seconds on Hit"]={{}," to Intimidate Enemies   "}
 c["25% chance to Poison on Hit"]={{[1]={flags=0,keywordFlags=0,name="PoisonChance",type="BASE",value=25}},nil}
@@ -2401,10 +2401,8 @@ c["Break 50% of Armour on Heavy Stunning an Enemy"]={{[1]={[1]={effectName="Armo
 c["Break 60% increased Armour"]={nil,"Break 60% increased Armour "}
 c["Break 60% increased Armour 10% chance to Defend with 200% of Armour"]={nil,"Break 60% increased Armour 10% chance to Defend with 200% of Armour "}
 c["Break Armour equal to 10% of Hit Damage dealt"]={{[1]={[1]={effectName="ArmourBreak",effectType="Buff",type="GlobalEffect"},flags=0,keywordFlags=0,name="Condition:CanArmourBreak",type="FLAG",value=true}},nil}
-c["Break Armour on Critical Hit with Spells equal to 10% of Physical Damage dealt"]={nil,"Break Armour on Critical Hit with Spells equal to 10% of Physical Damage dealt "}
-c["Break Armour on Critical Hit with Spells equal to 10% of Physical Damage dealt 10% chance to inflict Bleeding on Hit"]={nil,"Break Armour on Critical Hit with Spells equal to 10% of Physical Damage dealt 10% chance to inflict Bleeding on Hit "}
-c["Break Armour on Critical Hit with Spells equal to 10% of Physical Damage dealt 10% chance to inflict Bleeding on Hit 20% increased Physical Damage"]={nil,"Break Armour on Critical Hit with Spells equal to 10% of Physical Damage dealt 10% chance to inflict Bleeding on Hit 20% increased Physical Damage "}
-c["Break Armour on Critical Hit with Spells equal to 5% of Physical Damage dealt"]={nil,"Break Armour on Critical Hit with Spells equal to 5% of Physical Damage dealt "}
+c["Break Armour on Critical Hit with Spells equal to 10% of Physical Damage dealt"]={{[1]={[1]={effectName="ArmourBreak",effectType="Buff",type="GlobalEffect"},[2]={neg=true,type="Condition",var="NeverCrit"},flags=0,keywordFlags=0,name="Condition:CanArmourBreak",type="FLAG",value=true}},nil}
+c["Break Armour on Critical Hit with Spells equal to 5% of Physical Damage dealt"]={{[1]={[1]={effectName="ArmourBreak",effectType="Buff",type="GlobalEffect"},[2]={neg=true,type="Condition",var="NeverCrit"},flags=0,keywordFlags=0,name="Condition:CanArmourBreak",type="FLAG",value=true}},nil}
 c["Break enemy Concentration on Hit equal to 100% of Damage Dealt"]={nil,"Break enemy Concentration on Hit equal to 100% of Damage Dealt "}
 c["Break enemy Concentration on Hit equal to 100% of Damage Dealt Enemies regain 10% of Concentration every second if they haven't lost Concentration in the past 5 seconds"]={nil,"Break enemy Concentration on Hit equal to 100% of Damage Dealt Enemies regain 10% of Concentration every second if they haven't lost Concentration in the past 5 seconds "}
 c["Buffs on you expire 10% slower"]={{[1]={[1]={skillType=5,type="SkillType"},flags=0,keywordFlags=0,name="Duration",type="INC",value=10}},nil}
@@ -2443,7 +2441,7 @@ c["Causes Double Stun Buildup"]={nil,"Causes Double Stun Buildup "}
 c["Causes Enemies to Explode on Critical kill, for 10% of their Life as Physical Damage"]={nil,"Causes Enemies to Explode on Critical kill, for 10% of their Life as Physical Damage "}
 c["Causes Enemies to Explode on Critical kill, for 10% of their Life as Physical Damage 120% increased Physical Damage"]={nil,"Causes Enemies to Explode on Critical kill, for 10% of their Life as Physical Damage 120% increased Physical Damage "}
 c["Chance is doubled against Undead and Demons"]={nil,"Chance is doubled against Undead and Demons "}
-c["Chance to Ignite is doubled"]={nil,"Chance to Ignite is doubled "}
+c["Chance to Ignite is doubled"]={{[1]={flags=0,keywordFlags=0,name="EnemyIgniteChance",type="MORE",value=100}},nil}
 c["Chaos Damage from Hits also Contributes to Electrocute Buildup"]={nil,"Chaos Damage from Hits also Contributes to Electrocute Buildup "}
 c["Chaos Damage from Hits also Contributes to Electrocute Buildup Attacks Gain 20% of Physical Damage as extra Chaos Damage"]={nil,"Chaos Damage from Hits also Contributes to Electrocute Buildup Attacks Gain 20% of Physical Damage as extra Chaos Damage "}
 c["Chaos Damage from Hits also Contributes to Freeze Buildup"]={nil,"Chaos Damage from Hits also Contributes to Freeze Buildup "}
@@ -2647,11 +2645,10 @@ c["Gain 10 Rage when Critically Hit by an Enemy"]={{}," Rage when Critically Hit
 c["Gain 10% of Damage as Extra Cold Damage"]={{[1]={flags=0,keywordFlags=0,name="DamageGainAsCold",type="BASE",value=10}},nil}
 c["Gain 10% of Damage as Extra Lightning Damage"]={{[1]={flags=0,keywordFlags=0,name="DamageGainAsLightning",type="BASE",value=10}},nil}
 c["Gain 10% of Damage as Extra Physical Damage"]={{[1]={flags=0,keywordFlags=0,name="DamageGainAsPhysical",type="BASE",value=10}},nil}
-c["Gain 10% of Elemental Damage Damage as Extra Fire Damage"]={{[1]={flags=0,keywordFlags=0,name="ElementalDamageGainAsFire",type="BASE",value=10}},"  Damage  "}
-c["Gain 10% of Elemental Damage Damage as Extra Fire Damage Gain 10% of Elemental Damage Damage as Extra Lightning Damage"]={{[1]={flags=0,keywordFlags=0,name="ElementalDamageGainAsFire",type="BASE",value=10}},"  Damage  Gain 10% of Elemental Damage Damage as Extra Lightning Damage "}
 c["Gain 10% of Elemental Damage Damage as Extra Lightning Damage"]={{[1]={flags=0,keywordFlags=0,name="ElementalDamageGainAsLightning",type="BASE",value=10}},"  Damage  "}
 c["Gain 10% of Elemental Damage Damage as Extra Lightning Damage 33% of Elemental Damage Converted to Cold Damage"]={{[1]={flags=0,keywordFlags=0,name="ElementalDamageGainAsLightning",type="BASE",value=10}},"  Damage  33% of Elemental Damage Converted to Cold Damage "}
 c["Gain 10% of Elemental Damage as Extra Cold Damage"]={{[1]={flags=0,keywordFlags=0,name="ElementalDamageGainAsCold",type="BASE",value=10}},nil}
+c["Gain 10% of Elemental Damage as Extra Fire Damage"]={{[1]={flags=0,keywordFlags=0,name="ElementalDamageGainAsFire",type="BASE",value=10}},nil}
 c["Gain 100% of Maximum Energy Shield as additional Freeze Threshold"]={{[1]={[1]={percent=100,stat="EnergyShield",type="PercentStat"},flags=0,keywordFlags=0,name="FreezeThreshold",type="BASE",value=1}},nil}
 c["Gain 11% of Damage as Extra Chaos Damage"]={{[1]={flags=0,keywordFlags=0,name="DamageGainAsChaos",type="BASE",value=11}},nil}
 c["Gain 12% of Physical Damage as Extra Fire Damage"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamageGainAsFire",type="BASE",value=12}},nil}
@@ -2703,6 +2700,7 @@ c["Gain 60% of Damage as Extra Fire Damage"]={{[1]={flags=0,keywordFlags=0,name=
 c["Gain 8 Life per Enemy Killed"]={{[1]={flags=0,keywordFlags=0,name="LifeOnKill",type="BASE",value=8}},nil}
 c["Gain 8% of Damage as Extra Fire Damage"]={{[1]={flags=0,keywordFlags=0,name="DamageGainAsFire",type="BASE",value=8}},nil}
 c["Gain 8% of Elemental Damage as Extra Cold Damage"]={{[1]={flags=0,keywordFlags=0,name="ElementalDamageGainAsCold",type="BASE",value=8}},nil}
+c["Gain 8% of Elemental Damage as Extra Fire Damage"]={{[1]={flags=0,keywordFlags=0,name="ElementalDamageGainAsFire",type="BASE",value=8}},nil}
 c["Gain 8% of Evasion Rating as extra Armour"]={{[1]={flags=0,keywordFlags=0,name="EvasionGainAsArmour",type="BASE",value=8}},nil}
 c["Gain 8% of maximum Energy Shield as additional Stun Threshold"]={{[1]={[1]={percent=8,stat="EnergyShield",type="PercentStat"},flags=0,keywordFlags=0,name="StunThreshold",type="BASE",value=1}},nil}
 c["Gain 9 Life per Enemy Killed"]={{[1]={flags=0,keywordFlags=0,name="LifeOnKill",type="BASE",value=9}},nil}
@@ -3000,7 +2998,7 @@ c["Offerings have 15% increased Maximum Life"]={nil,"Offerings have 15% increase
 c["Offerings have 30% increased Maximum Life"]={nil,"Offerings have 30% increased Maximum Life "}
 c["Offerings have 30% increased Maximum Life Recover 3% of Life when you create an Offering"]={nil,"Offerings have 30% increased Maximum Life Recover 3% of Life when you create an Offering "}
 c["Offerings have 30% reduced Maximum Life"]={nil,"Offerings have 30% reduced Maximum Life "}
-c["On Freezing Enemies create Chilled Ground"]={nil,"On Freezing Enemies create Chilled Ground "}
+c["On Freezing Enemies create Chilled Ground"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="OnChilledGround"},flags=0,keywordFlags=0,name="ChillBase",type="BASE",value=10}},nil}
 c["On Hitting an enemy, gains maximum added Lightning damage equal to"]={nil,"On Hitting an enemy, gains maximum added Lightning damage equal to "}
 c["On Hitting an enemy, gains maximum added Lightning damage equal to the enemy's Power for 6 seconds, up to a total of 500"]={nil,"On Hitting an enemy, gains maximum added Lightning damage equal to the enemy's Power for 6 seconds, up to a total of 500 "}
 c["On-Kill Effects happen twice"]={nil,"On-Kill Effects happen twice "}
@@ -3189,13 +3187,13 @@ c["Totems have 4% increased Attack Speed per Summoned Totem"]={nil,"Totems have 
 c["Totems reserve 100 Spirit each"]={nil,"Totems reserve 100 Spirit each "}
 c["Trigger Ancestral Spirits when you Summon a Totem"]={nil,"Trigger Ancestral Spirits when you Summon a Totem "}
 c["Trigger Ancestral Spirits when you Summon a Totem Grants Skill: Ancestral Spirits"]={nil,"Trigger Ancestral Spirits when you Summon a Totem Grants Skill: Ancestral Spirits "}
-c["Trigger Decompose Skill on Step"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=1,noSupports=true,skillId="CorpseCloudPlayer",triggered=true}}},nil}
+c["Trigger Decompose Skill on Step"]={nil,"Trigger Decompose Skill on Step "}
 c["Trigger Elemental Expression on Melee Critical Hit"]={nil,"Trigger Elemental Expression on Melee Critical Hit "}
 c["Trigger Elemental Expression on Melee Critical Hit Grants Skill: Elemental Expression"]={nil,"Trigger Elemental Expression on Melee Critical Hit Grants Skill: Elemental Expression "}
 c["Trigger Elemental Storm on Critical Hit with Spells"]={nil,"Trigger Elemental Storm on Critical Hit with Spells "}
 c["Trigger Elemental Storm on Critical Hit with Spells Grants Skill: Elemental Storm"]={nil,"Trigger Elemental Storm on Critical Hit with Spells Grants Skill: Elemental Storm "}
 c["Trigger Ember Fusillade Skill on casting a Spell"]={nil,"Trigger Ember Fusillade Skill on casting a Spell "}
-c["Trigger Greater Lightning Bolt Skill on Critical Hit"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=1,noSupports=true,skillId="UniqueBreachLightningBoltPlayer",triggered=true}},[2]={[1]={skillId="UniqueBreachLightningBoltPlayer",type="SkillId"},flags=0,keywordFlags=0,name="ExtraSkillMod",type="LIST",value={mod={flags=0,keywordFlags=0,name="SkillData",type="LIST",value={key="triggerOnCrit",value=true}}}}},nil}
+c["Trigger Greater Lightning Bolt Skill on Critical Hit"]={nil,"Trigger Greater Lightning Bolt Skill on Critical Hit "}
 c["Trigger Spark Skill on killing a Shocked Enemy"]={nil,"Trigger Spark Skill on killing a Shocked Enemy "}
 c["Trigger skills refund half of Energy spent"]={nil,"Trigger skills refund half of Energy spent "}
 c["Triggered Spells deal 14% increased Spell Damage"]={{[1]={[1]={skillType=41,type="SkillType"},flags=2,keywordFlags=131072,name="Damage",type="INC",value=14}},nil}
