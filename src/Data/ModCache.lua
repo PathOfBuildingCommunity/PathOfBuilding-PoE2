@@ -2441,7 +2441,7 @@ c["Causes Double Stun Buildup"]={nil,"Causes Double Stun Buildup "}
 c["Causes Enemies to Explode on Critical kill, for 10% of their Life as Physical Damage"]={nil,"Causes Enemies to Explode on Critical kill, for 10% of their Life as Physical Damage "}
 c["Causes Enemies to Explode on Critical kill, for 10% of their Life as Physical Damage 120% increased Physical Damage"]={nil,"Causes Enemies to Explode on Critical kill, for 10% of their Life as Physical Damage 120% increased Physical Damage "}
 c["Chance is doubled against Undead and Demons"]={nil,"Chance is doubled against Undead and Demons "}
-c["Chance to Ignite is doubled"]={nil,"Chance to Ignite is doubled "}
+c["Chance to Ignite is doubled"]={{[1]={flags=0,keywordFlags=0,name="EnemyIgniteChance",type="MORE",value=100}},nil}
 c["Chaos Damage from Hits also Contributes to Electrocute Buildup"]={nil,"Chaos Damage from Hits also Contributes to Electrocute Buildup "}
 c["Chaos Damage from Hits also Contributes to Electrocute Buildup Attacks Gain 20% of Physical Damage as extra Chaos Damage"]={nil,"Chaos Damage from Hits also Contributes to Electrocute Buildup Attacks Gain 20% of Physical Damage as extra Chaos Damage "}
 c["Chaos Damage from Hits also Contributes to Freeze Buildup"]={nil,"Chaos Damage from Hits also Contributes to Freeze Buildup "}

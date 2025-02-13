@@ -3304,6 +3304,7 @@ local specialModList = {
 		flag("CannotBrittle", { type = "SkillName", skillNameList = { "Flameblast", "Incinerate" }, includeTransfigured = true }),
 		flag("CannotSap", { type = "SkillName", skillNameList = { "Flameblast", "Incinerate" }, includeTransfigured = true }),
 	},
+	["chance to ignite is doubled"] = {mod("EnemyIgniteChance", "MORE", 100)},
 	["you can inflict up to (%d+) ignites on an enemy"] = function(num) return { flag("IgniteCanStack"), mod("IgniteStacks", "OVERRIDE", num) } end,
 	["you can inflict an additional ignite on [ea][an]c?h? enemy"] = { flag("IgniteCanStack"), mod("IgniteStacks", "BASE", 1) },
 	["targets can be affected by %+(%d+) of your poisons at the same time"] =  function(num) return { flag("PoisonCanStack"), mod("PoisonStacks", "BASE", num) } end,
