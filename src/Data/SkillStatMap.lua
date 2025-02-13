@@ -2261,7 +2261,7 @@ return {
 	mod("ReloadSpeed", "INC", nil),
 },
 ["projectiles_crossbow_barrage"] = {
-	flag("SequentialProjectiles"), --{ type = "Skilltype", skillType = SkillType.CrossbowSkill}
+	flag("SequentialProjectiles"),
 },
 ["crossbow_barrage_attack_time_ratio_%"] = {
 	mod("SkillAttackTime", "MORE", nil, 0, 0, { type = "SkillType", skillType = SkillType.CrossbowSkill}, { type = "PerStat", stat = "ProjectileCount" }),

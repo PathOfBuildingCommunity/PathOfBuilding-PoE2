@@ -741,7 +741,11 @@ function calcs.offence(env, actor, activeSkill)
 	end
 	if skillModList:Flag(nil, "SequentialProjectiles") and not skillModList:Flag(nil, "OneShotProj") and not skillModList:Flag(nil,"NoAdditionalProjectiles") and not skillModList:Flag(nil, "TriggeredBySnipe") then
 		-- Applies DPS multiplier based on projectile count
-		skillData.dpsMultiplier = (1 + skillModList:Sum("BASE", skillCfg, "BarrageRepeats")) * calcLib.mod(skillModList, skillCfg, "BarrageRepeatDamage")
+		if skillModList:Sum("BASE", skillCfg, "BarrageRepeats") then
+			skillData.dpsMultiplier = (1 + skillModList:Sum("BASE", skillCfg, "BarrageRepeats")) * (calcLib.mod(skillModList, skillCfg, "BarrageRepeatDamage"))
+		else
+			skillData.dpsMultiplier = skillModList:Sum("BASE", skillCfg, "ProjectileCount")
+		end
 	end
 	output.Repeats = 1 + (skillModList:Sum("BASE", skillCfg, "RepeatCount") or 0)
 	if output.Repeats > 1 then
