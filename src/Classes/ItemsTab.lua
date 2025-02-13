@@ -1647,6 +1647,10 @@ function ItemsTabClass:UpdateAffixControl(control, item, type, outputTable, outp
 			if item.type == "Flask" then
 				label = mod.affix .. "   ^8[" .. modString .. "]"
 			end
+			-- shorten time-lost jewel affix labels to fit the dropdown
+			if label and item.baseName:find("Time%-Lost") ~= nil then
+				label = label:gsub(" Passive Skills in Radius also grant", ":")
+			end
 			control.list[i + 1] = {
 				label = label,
 				modList = { modId },
