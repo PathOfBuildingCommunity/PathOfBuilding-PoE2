@@ -329,6 +329,7 @@ local modNameList = {
 	["energy shield when you block"] = "EnergyShieldOnBlock",
 	["maximum chance to dodge spell hits"] = "SpellDodgeChanceMax",
 	["to avoid physical damage from hits"] = "AvoidPhysicalDamageChance",
+	["to avoid chaos damage from hits"] = "AvoidChaosDamageChance",
 	["to avoid fire damage when hit"] = "AvoidFireDamageChance",
 	["to avoid fire damage from hits"] = "AvoidFireDamageChance",
 	["to avoid cold damage when hit"] = "AvoidColdDamageChance",
