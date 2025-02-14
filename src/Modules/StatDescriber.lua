@@ -16,7 +16,7 @@ local function getScope(scopeName)
 		local file = io.open("Data/StatDescriptions/specific_skill_stat_descriptions/"..scopeName..".lua", 'rb')
 		if file then
 			file.close()
-			scope = LoadModule("Data/StatDescriptions/Specific_Skill_Stat_Descriptions/"..scopeName)
+			scope = LoadModule("Data/StatDescriptions/specific_skill_stat_descriptions/"..scopeName)
 		else
 			scope = LoadModule("Data/StatDescriptions/"..scopeName)
 		end 
