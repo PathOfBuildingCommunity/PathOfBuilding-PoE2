@@ -266,16 +266,17 @@ KeywordFlag.Spell =		0x00020000
 KeywordFlag.Hit =		0x00040000
 KeywordFlag.Ailment =	0x00080000
 KeywordFlag.Brand =		0x00100000
+KeywordFlag.Thorns = 	0x00200000
 -- Other effects
-KeywordFlag.Poison =	0x00200000
-KeywordFlag.Bleed =		0x00400000
-KeywordFlag.Ignite =	0x00800000
+KeywordFlag.Poison =	0x00400000
+KeywordFlag.Bleed =		0x00800000
+KeywordFlag.Ignite =	0x01000000
 -- Damage over Time types
-KeywordFlag.PhysicalDot=0x01000000
-KeywordFlag.LightningDot=0x02000000
-KeywordFlag.ColdDot =	0x04000000
-KeywordFlag.FireDot =	0x08000000
-KeywordFlag.ChaosDot =	0x10000000
+KeywordFlag.PhysicalDot=0x02000000
+KeywordFlag.LightningDot=0x04000000
+KeywordFlag.ColdDot =	0x08000000
+KeywordFlag.FireDot =	0x10000000
+KeywordFlag.ChaosDot =	0x20000000
 ---The default behavior for KeywordFlags is to match *any* of the specified flags.
 ---Including the "MatchAll" flag when creating a mod will cause *all* flags to be matched rather than any.
 KeywordFlag.MatchAll =	0x40000000
