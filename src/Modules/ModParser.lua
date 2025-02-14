@@ -662,11 +662,14 @@ local modNameList = {
 	["cold damage over time multiplier"] = "ColdDotMultiplier",
 	["chaos damage over time multiplier"] = "ChaosDotMultiplier",
 	["damage over time multiplier"] = "DotMultiplier",
+	["thorns damage"] = { "Damage", keywordFlags = KeywordFlag.Thorns },
 	-- Crit/accuracy/speed modifiers
 	["critical hit chance"] = "CritChance",
 	["attack critical hit chance"] = { "CritChance", flags = ModFlag.Attack },
+	["thorns critical hit chance"] = { "CritChance", keywordFlags = KeywordFlag.Thorns },
 	["critical damage bonus"] = "CritMultiplier",
 	["attack critical damage bonus"] = { "CritMultiplier", flags = ModFlag.Attack },
+	["thorns critical damage bonus"] = { "CritMultiplier", keywordFlags = KeywordFlag.Thorns },
 	["critical spell damage bonus"] = { "CritMultiplier", flags = ModFlag.Spell },
 	["accuracy"] = "Accuracy",
 	["accuracy rating"] = "Accuracy",
@@ -5319,7 +5322,12 @@ local specialModList = {
 	["nearby allies have (%d+)%% chance to block attack damage per (%d+) strength you have"] = function(block, _, str) return {
 		mod("ExtraAura", "LIST", { onlyAllies = true, mod = mod("BlockChance", "BASE", block) }, { type = "PerStat", stat = "Str", div = tonumber(str) }),
 	} end,
-	["physical damage reduction from armour is based on your combined armour and evasion rating"] = { mod("EvasionAddsToPdr", "FLAG", true) }
+	["physical damage reduction from armour is based on your combined armour and evasion rating"] = { mod("EvasionAddsToPdr", "FLAG", true) },
+	["(%d+) to (%d+) (%a+) thorns damage"] = function(_, min, max, damageType) return {
+		mod(damageType:gsub("^%l", string.upper).."Min", "BASE", min, nil, 0, KeywordFlag.Thorns),
+		mod(damageType:gsub("^%l", string.upper).."Max", "BASE", max, nil, 0, KeywordFlag.Thorns),
+		flag("GrantsThorns")
+	} end,
 }
 for _, name in pairs(data.keystones) do
 	specialModList[name:lower()] = { mod("Keystone", "LIST", name) }

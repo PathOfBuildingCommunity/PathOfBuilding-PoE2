@@ -465,6 +465,9 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 	if skillTypes[SkillType.Spell] and not skillFlags.cast then
 		skillKeywordFlags = bor(skillKeywordFlags, KeywordFlag.Spell)
 	end
+	if skillFlags.thorns then 
+		skillKeywordFlags = bor(skillKeywordFlags, KeywordFlag.Thorns)
+	end
 
 	-- Get skill totem ID for totem skills
 	-- This is used to calculate totem life
