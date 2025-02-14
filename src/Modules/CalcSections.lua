@@ -624,6 +624,7 @@ return {
 	{ label = "ES % per second", color = colorCodes.ES, haveOutput = "ESPercentPerSecondHasCost", { format = "{2:output:ESPercentPerSecondCost}", { breakdown = "ESPercentPerSecondCost" }, { modName = { "ESCost", "Cost", "ESCostNoMult" }, cfg = "skill" }, }, },
 	{ label = "Rage Cost", color = colorCodes.RAGE, haveOutput = "RageHasCost", { format = "{0:output:RageCost}", { breakdown = "RageCost" }, { modName = { "RageCost", "Cost", "RageNoMult" }, cfg = "skill" }, }, },
 	{ label = "Rage per second", color = colorCodes.RAGE, haveOutput = "RagePerSecondHasCost", { format = "{2:output:RagePerSecondCost}", { breakdown = "RagePerSecondCost" }, { modName = { "RageCost", "Cost", "RageNoMult" }, cfg = "skill" }, }, },
+	{ label = "Armour Break / hit", haveOutput = "ArmourBreakPerHit", { format = "{0:output:ArmourBreakPerHit}", { modName = "ArmourBreakPerHit", modType = "BASE"} }, },
 	{ label = "Soul Cost", color = colorCodes.RAGE, haveOutput = "SoulHasCost", { format = "{0:output:SoulCost}", { breakdown = "SoulCost" }, { modName = { "SoulCost" }, cfg = "skill" }, }, },
 	{ label = "Active Minion Limit", haveOutput = "ActiveMinionLimit", { format = "{0:output:ActiveMinionLimit}" } },
 	{ label = "Quantity Multiplier", haveOutput = "QuantityMultiplier", { format = "{0:output:QuantityMultiplier}",
