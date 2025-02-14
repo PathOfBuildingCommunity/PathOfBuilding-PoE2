@@ -232,7 +232,7 @@ function calcs.doActorLifeManaSpiritReservation(actor)
 					values.reservedFlat = values.reservedFlat * activeSkillCount
 				end
 				
-				if activeSkill.skillTypes[SkillType.CanHaveMultipleOngoingSkillInstances] and activeSkill.activeEffect.srcInstance.supportEffect and activeSkill.activeEffect.srcInstance.supportEffect.isSupporting then
+				if activeSkill.skillTypes[SkillType.IsBlasphemy] and activeSkill.activeEffect.srcInstance.supportEffect and activeSkill.activeEffect.srcInstance.supportEffect.isSupporting then
 					-- Sadly no better way to get key/val table element count in lua.
 					local instances = 0
 					for _ in pairs(activeSkill.activeEffect.srcInstance.supportEffect.isSupporting) do
