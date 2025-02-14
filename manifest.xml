@@ -32,7 +32,7 @@
 	<File name="Assets/ShadedOuterRing.png" part="program" sha1="988dee6e0cf9906d78015bc1762b1d95983e89cb" />
 	<File name="Assets/ShadedOuterRingFlipped.png" part="program" sha1="ffffef32179d39d48db697e9c9e07fdf022457f7" />
 	<File name="Assets/small_ring.png" part="program" sha1="03e2039559d686a7df2d66bd6f92938e7e02da76" />
-	<File name="Classes/BuildListControl.lua" part="program" sha1="429b1a2847000f6cdb3fabd125c32fc69bf64d67" />
+	<File name="Classes/BuildListControl.lua" part="program" sha1="dd5b90a9f901096ed9d88783398ca5060b2419bf" />
 	<File name="Classes/ButtonControl.lua" part="program" sha1="697870f9f43eee2c804be087849b46849c83153a" />
 	<File name="Classes/CalcBreakdownControl.lua" part="program" sha1="d3d2c416501260e50c1f261ae05823cf04ce7ae3" />
 	<File name="Classes/CalcSectionControl.lua" part="program" sha1="468063496e5e998ba4f79450df5b70e9ebb06077" />
@@ -133,7 +133,7 @@
 	<File name="Data/Global.lua" part="program" sha1="607a088fe9206c1d49bdecb47e9317e17841d6b1" />
 	<File name="Data/Minions.lua" part="program" sha1="baaa8b3e073bd803fc57f09dde5a6881a1476b10" />
 	<File name="Data/Misc.lua" part="program" sha1="9837191d225bc4d292499a20114f768d4618a486" />
-	<File name="Data/ModCache.lua" part="program" sha1="1c2201b264909975a370861e2e7eb8b8e98872d3" />
+	<File name="Data/ModCache.lua" part="program" sha1="29b718ad130538d44e8d3eaef9dde3960ec2e847" />
 	<File name="Data/ModCharm.lua" part="program" sha1="dcb317a47455e71da1c549e27d4ddf655dc3a72b" />
 	<File name="Data/ModCorrupted.lua" part="program" sha1="c09acc253883ec1be8764add9a2e095634ddb056" />
 	<File name="Data/ModFlask.lua" part="program" sha1="401e478abeb76fd26636fb253ddc756f420abcb2" />
@@ -422,7 +422,7 @@
 	<File name="Data/Uniques/traptool.lua" part="program" sha1="270d509148ff296706be7790d3e5f56d70202afa" />
 	<File name="Data/Uniques/wand.lua" part="program" sha1="4652cafd31ccad0baa8fe679f5fb1f184809e1a4" />
 	<File name="GameVersions.lua" part="program" sha1="fde1e876736d2fc0906651fc9c235c5789ec9ac4" />
-	<File name="Launch.lua" part="program" sha1="1390d507ba7b442f153deafa903f012ff01ac2ca" />
+	<File name="Launch.lua" part="program" sha1="9df0c56743c1ef4be1c029c349f8244709d5a67d" />
 	<File name="Modules/Build.lua" part="program" sha1="97bf03f26b6b518adda4fe774e50fd2af30ffad7" />
 	<File name="Modules/BuildDisplayStats.lua" part="program" sha1="7dcbdf3d25e4df668cd627eb6f3f0c6931011c4a" />
 	<File name="Modules/BuildList.lua" part="program" sha1="6c5de57f028f80c6005f1139a7def2bf6a5c0a0d" />
@@ -444,24 +444,16 @@
 	<File name="Modules/DataLegionLookUpTableHelper.lua" part="program" sha1="170699925a438275137ba621206800e29f453eb3" />
 	<File name="Modules/ItemTools.lua" part="program" sha1="d298657b36fa53eb75d428c3f56a8541de722aee" />
 	<File name="Modules/Main.lua" part="program" sha1="c89539e08ed2d94c7b0c19af00a60cce02722c96" />
-	<File name="Modules/ModParser.lua" part="program" sha1="602f50154efa878cb06b022a8a9a52e66ad86f81" />
+	<File name="Modules/ModParser.lua" part="program" sha1="0ab659930fb9b85ca7dd4aadbcf25d8b4accfd9f" />
 	<File name="Modules/ModTools.lua" part="program" sha1="8bd32d32518477f167078d4dcfe2e2bd80472893" />
 	<File name="Modules/StatDescriber.lua" part="program" sha1="97a386c2f9c2566fadd5f3cb70c87da45161a0ed" />
 	<File name="UpdateApply.lua" part="program" sha1="4dd42f413cb89a963e4ae1b40e214985b909c05b" />
 	<File name="UpdateCheck.lua" part="program" sha1="f24015a9fc3d07bbc208eee4cf357ac921f27712" />
 	<File name="abseil_dll.dll" part="runtime" runtime="win32" sha1="9cd903e5a010b47cb53738c563d758cac784bf00" />
-	<File name="brotlicommon.dll" part="runtime" runtime="win32" sha1="7a4c3c47436a6d38ffe52ce9cba694026b727e48" />
-	<File name="brotlidec.dll" part="runtime" runtime="win32" sha1="da8510690bf8f018197c7726c5e3d4bfd40fb0a6" />
-	<File name="brotlienc.dll" part="runtime" runtime="win32" sha1="5aa73916af18f78034f060621743be398cac7d48" />
 	<File name="concrt140.dll" part="runtime" runtime="win32" sha1="168be3b4545dc617b99d0598565a03c0366820e4" />
 	<File name="d3dcompiler_47.dll" part="runtime" runtime="win32" sha1="27a4eff95e7f4a359718fda7138a528147969b27" />
 	<File name="fmt.dll" part="runtime" runtime="win32" sha1="3c1f51a08af3dfbef86fbc63d7a68c322ab408f6" />
 	<File name="glfw3.dll" part="runtime" runtime="win32" sha1="33878137dd4e1c6c7f99746af37b4bcfe4c973a9" />
-	<File name="hwy.dll" part="runtime" runtime="win32" sha1="6b2a10ac871c4221c8cc075c55cc01fb0e0d1f7a" />
-	<File name="jxl.dll" part="runtime" runtime="win32" sha1="a33fbcdad33b4b6db817d325b6504a1d3fa4544c" />
-	<File name="jxl_cms.dll" part="runtime" runtime="win32" sha1="9b63ccfd0e476b03a88794cdc61c533e166b228f" />
-	<File name="jxl_threads.dll" part="runtime" runtime="win32" sha1="17a75a7775d9867f8e6c542cd298e3bb64ad4e68" />
-	<File name="lcms2.dll" part="runtime" runtime="win32" sha1="373db9c3c2c2adabe161889849069a1ee46285df" />
 	<File name="lcurl.dll" part="runtime" runtime="win32" sha1="9a04d98489dca8da1006330dee97f11c98b50a5e" />
 	<File name="libcurl.dll" part="runtime" runtime="win32" sha1="9f0a832a5a6882164630d38e6a85c67f921e4d53" />
 	<File name="libEGL.dll" part="runtime" runtime="win32" sha1="ca3e47061601fce1eb30f05266f265bfee6bf755" />
