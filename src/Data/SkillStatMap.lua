@@ -1101,6 +1101,8 @@ return {
 },
 ["display_fake_attack_hit_poison"] = {
 	mod("PoisonChance", "BASE", nil, ModFlag.Attack),
+	-- TODO: handle GasShotSkeletonSniperMinion
+	--mod("MinionModifier", "LIST", { mod = mod("PoisonChance", "BASE", nil, ModFlag.Attack) }),
 	value = 100,
 	flag("fakeHit"),
 	skill("cannotBeEvaded", true),
