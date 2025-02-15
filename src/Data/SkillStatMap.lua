@@ -2154,6 +2154,12 @@ return {
 ["minion_skill_physical_damage_%_to_convert_to_fire"] = {
 	mod("MinionModifier", "LIST", { mod = mod("SkillPhysicalDamageConvertToFire", "BASE", nil) })
 },
+["is_commandable_skill"] = {
+	flag("Condition:CommandableSkill")
+},
+["support_command_skill_damage_+%_final"] = {
+	mod("MinionModifier", "LIST", { mod = mod("Damage", "MORE", nil, 0, 0, {type = "Condition", var = "CommandableSkill"}) }),
+},
 --Golem
 ["golem_buff_effect_+%"] = {
 	mod("BuffEffect", "INC", nil, 0, 0)
