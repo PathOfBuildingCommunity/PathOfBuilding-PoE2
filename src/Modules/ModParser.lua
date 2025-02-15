@@ -1697,7 +1697,7 @@ local modTagList = {
 	["if you[' ]h?a?ve shocked an enemy recently"] = { tag = { type = "Condition", var = "ShockedEnemyRecently" } },
 	["if you[' ]h?a?ve stunned an enemy recently"] = { tag = { type = "Condition", var = "StunnedEnemyRecently" } },
 	["if you[' ]h?a?ve pinned an enemy recently"] = { tag = { type = "Condition", var = "PinnedEnemyRecently" } },
-	["if you[' ]h?a?ve stunned an enemy with a two handed melee weapon recently"] = { flags = bor(ModFlag.Weapon2H, ModFlag.WeaponMelee), tag = { type = "Condition", var = "StunnedEnemyRecently" } },
+	["if you[' ]h?a?ve stunned an enemy with a two handed melee weapon recently"] = { tagList = { { type = "Condition", var = "UsingTwoHandedWeapon" }, { type = "Condition", var = "UsingMeleeWeapon" }, { type = "Condition", var = "StunnedEnemyRecently" } } },
 	["if you[' ]h?a?ve been hit recently"] = { tag = { type = "Condition", var = "BeenHitRecently" } },
 	["if you[' ]h?a?ve been hit by an attack recently"] = { tag = { type = "Condition", var = "BeenHitByAttackRecently" } },
 	["if you were hit recently"] = { tag = { type = "Condition", var = "BeenHitRecently" } },
