@@ -291,6 +291,11 @@ return {
 	skill("corpseExplosionLifeMultiplier", nil),
 	div = 1000,
 },
+["corpse_explosion_monster_life_permillage_chaos"] = {
+	skill("corpseExplosionLifeMultiplier", nil),
+	div = 1000,
+	flag("fakeHit"),
+},
 ["spell_base_fire_damage_%_maximum_life"] = {
 	skill("selfFireExplosionLifeMultiplier", nil),
 	div = 100,
@@ -1097,6 +1102,9 @@ return {
 ["display_fake_attack_hit_poison"] = {
 	mod("PoisonChance", "BASE", nil, ModFlag.Attack),
 	value = 100,
+	flag("fakeHit"),
+	skill("cannotBeEvaded", true),
+	
 },
 ["base_chance_to_ignite_%"] = {
 	mod("EnemyIgniteChance", "BASE", nil),
