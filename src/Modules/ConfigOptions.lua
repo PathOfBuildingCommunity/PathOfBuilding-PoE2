@@ -1465,14 +1465,16 @@ Huge sets the radius to 11.
 		enemyModList:NewMod("Condition:LowLife", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
 	end },
 	{ var = "conditionEnemyArmourBroken", type = "check", label = "Is enemy Armour Broken?", ifFlag = "Condition:CanArmourBreak", tooltip = "Some Skills, Items, Support Gems and other effects can Break Armour, which lowers a target's Armour by a specified amount.\nIf this brings the target's Armour value to 0, their Armour is Fully Broken for 12 seconds.", apply = function(val, modList, enemyModList)
-		enemyModList:NewMod("Condition:ArmourFullyBroken", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
-		enemyModList:NewMod("Armour", "OVERRIDE", 0, "Config", { type = "Condition", var = "ArmourFullyBroken" }, { type = "GlobalEffect", effectType= "Debuff", effectName = "ArmourBreak" })
+		enemyModList:NewMod("Condition:ArmourFullyBroken", "FLAG", true, "ArmourBreak", { type = "Condition", var = "Effective" }, { type = "ActorCondition", actor = "enemy", var = "CanArmourBreakBelowZero", neg = true })
+		enemyModList:NewMod("Condition:ArmourBrokenBelowZeroMax", "FLAG", true, "ArmourBreak", { type = "Condition", var = "Effective" }, { type = "ActorCondition", actor = "enemy", var = "CanArmourBreakBelowZero" })
+		enemyModList:NewMod("Armour", "OVERRIDE", 0, "ArmourBreak", { type = "Condition", var = "ArmourFullyBroken" }, { type = "GlobalEffect", effectType= "Debuff", effectName = "ArmourBreak" })
 	end },
-	{ var = "multiplierArmourBreak", type = "count", label = "# of Broken Armour (if not maximum):", ifOption = "conditionEnemyArmourBroken", tooltip = "Use this field to set a custom Armour Break value.\nIf left empty or set to 0, Fully Broken Armour will be assumed.\nArmour cannot be broken below zero by default.", apply = function(val, modList, enemyModList)
-		enemyModList:NewMod("Condition:ArmourBroken", "FLAG", val > 0, "Config", { type = "Condition", var = "Effective" }) -- only activate if value > 0 is entered
-		enemyModList:ReplaceMod("Condition:ArmourFullyBroken", "FLAG", val < 1, "Config", { type = "Condition", var = "Effective" }) -- disable FullyBrokenArmour if value >= 1 is entered
-		enemyModList:NewMod("Multiplier:ArmourBreakStack", "BASE", val, "Config", { type = "Condition", var = "ArmourBroken" })
-		enemyModList:NewMod("Armour", "BASE", -1, "Config", { type = "Multiplier", var = "ArmourBreakStack" }, { type = "GlobalEffect", effectType= "Debuff", effectName = "ArmourBreak" })
+	{ var = "multiplierArmourBreak", type = "count", label = "# of Broken Armour (if not maximum):", ifOption = "conditionEnemyArmourBroken", tooltip = "Use this field to set a custom Armour Break value.\nIf left empty or set to 0, Fully Broken Armour will be assumed.\nArmour cannot be broken below 0 unless stated otherwise.\nIf so, Armour can be broken up to the inverse of its original value.", apply = function(val, modList, enemyModList)
+		enemyModList:NewMod("Condition:ArmourBroken", "FLAG", val > 0, "ArmourBreak", { type = "Condition", var = "Effective" }) -- only activate if value > 0 is entered
+		enemyModList:ReplaceMod("Condition:ArmourFullyBroken", "FLAG", val < 1, "ArmourBreak", { type = "Condition", var = "Effective" }, { type = "ActorCondition", actor = "enemy", var = "CanArmourBreakBelowZero", neg = true }) -- disable FullyBrokenArmour if value >= 1 is entered
+		enemyModList:ReplaceMod("Condition:ArmourBrokenBelowZeroMax", "FLAG", val < 1, "ArmourBreak", { type = "Condition", var = "Effective" }, { type = "ActorCondition", actor = "enemy", var = "CanArmourBreakBelowZero" })
+		enemyModList:NewMod("Multiplier:ArmourBreakStack", "BASE", val, "ArmourBreak", { type = "Condition", var = "ArmourBroken" })
+		enemyModList:NewMod("Armour", "BASE", -1, "ArmourBreak", { type = "Multiplier", var = "ArmourBreakStack" }, { type = "GlobalEffect", effectType= "Debuff", effectName = "ArmourBreak" })
 	end },
 	{ var = "conditionEnemyCursed", type = "check", label = "Is the enemy Cursed?", ifEnemyCond = "Cursed", tooltip = "The enemy will automatically be considered to be Cursed if you have at least one curse enabled,\nbut you can use this option to force it if necessary.", apply = function(val, modList, enemyModList)
 		enemyModList:NewMod("Condition:Cursed", "FLAG", true, "Config", { type = "Condition", var = "Effective" })

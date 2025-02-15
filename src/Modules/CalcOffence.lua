@@ -3194,7 +3194,12 @@ function calcs.offence(env, actor, activeSkill)
 						end
 
 						if damageType == "Physical" then
-							local enemyArmour = enemyDB:Override(nil, "Armour") or m_max(calcLib.val(enemyDB, "Armour"), 0)
+							local enemyArmourMin = 0
+							if modDB:GetCondition("CanArmourBreakBelowZero", cfg, nil) then -- check for possibility to break Armour below zero
+								enemyArmourMin = -enemyDB:Sum("BASE", { source = "Config"}, "Armour") or 0 -- adjust minimum armour value
+								enemyDB:ReplaceMod("Armour", "OVERRIDE", -enemyDB:Sum("BASE", { source = "Config" }, "Armour"), "ArmourBreak", { type = "Condition", var = "ArmourBrokenBelowZeroMax" }, { type = "GlobalEffect", effectType= "Debuff", effectName = "ArmourBreak" }) -- if Config is set to Max, add mod with max value (use replace to avoid doubling)
+							end
+							local enemyArmour = enemyDB:Override(nil, "Armour") or m_max(calcLib.val(enemyDB, "Armour"), enemyArmourMin)
 							local ignoreEnemyArmour = calcLib.val(enemyDB, "IgnoreArmour") -- check for mods that ignore Armour
 							if ignoreEnemyArmour and (enemyArmour > 0) then enemyArmour = m_max(enemyArmour - ignoreEnemyArmour, 0) end -- subtract ignored value up to zero, if Armour is still positive (to allow future support of negative Armour)
 							local armourReduction = calcs.armourReductionF(enemyArmour, damageTypeHitAvg * skillModList:More(cfg, "CalcArmourAsThoughDealing"))
@@ -3209,7 +3214,7 @@ function calcs.offence(env, actor, activeSkill)
 							if skillModList:Flag(cfg, "IgnoreEnemyPhysicalDamageReduction") or ChanceToIgnoreEnemyPhysicalDamageReduction >= 100 then
 								resist = 0
 							else
-								resist = m_min(m_max(0, enemyDB:Sum("BASE", nil, "PhysicalDamageReduction") + skillModList:Sum("BASE", cfg, "EnemyPhysicalDamageReduction") + armourReduction), data.misc.DamageReductionCap)
+								resist = m_min(m_max(-data.misc.NegArmourDmgBonusCap, enemyDB:Sum("BASE", nil, "PhysicalDamageReduction") + skillModList:Sum("BASE", cfg, "EnemyPhysicalDamageReduction") + armourReduction), data.misc.DamageReductionCap)
 								resist = resist > 0 and resist * (1 - (skillModList:Sum("BASE", nil, "PartialIgnoreEnemyPhysicalDamageReduction") / 100 + ChanceToIgnoreEnemyPhysicalDamageReduction / 100)) or resist
 							end
 						else
