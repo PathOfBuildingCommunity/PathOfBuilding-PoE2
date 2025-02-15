@@ -2582,8 +2582,7 @@ c["Enemies in your Presence are Slowed by 20%"]={nil,"Enemies in your Presence a
 c["Enemies in your Presence gain Critical Weakness every second"]={{[1]={flags=0,keywordFlags=0,name="ApplyCriticalWeakness",type="FLAG",value=true}},nil}
 c["Enemies in your Presence have 10% reduced Cooldown Recovery Rate"]={nil,"Enemies in your Presence have 10% reduced Cooldown Recovery Rate "}
 c["Enemies in your Presence have Fire Exposure"]={nil,"Enemies in your Presence have Fire Exposure "}
-c["Enemies in your Presence have Lightning Resistance equal to yours"]={nil,"Enemies in your Presence have Lightning Resistance equal to yours "}
-c["Enemies in your Presence have Lightning Resistance equal to yours Lightning Resistance does not affect Lightning damage taken"]={nil,"Enemies in your Presence have Lightning Resistance equal to yours Lightning Resistance does not affect Lightning damage taken "}
+c["Enemies in your Presence have Lightning Resistance equal to yours"]={{[1]={flags=0,keywordFlags=0,name="EnemyLightningResistEqualToYours",type="FLAG",value=true}},nil}
 c["Enemies killed by anyone in your Presence count as being killed by you instead"]={nil,"anyone in your Presence count as being killed by you instead "}
 c["Enemies near Enemies you Mark are Blinded"]={nil,"Enemies near Enemies you Mark are Blinded "}
 c["Enemies near Enemies you Mark are Blinded Enemies you Mark cannot deal Critical Hits"]={nil,"Enemies near Enemies you Mark are Blinded Enemies you Mark cannot deal Critical Hits "}
