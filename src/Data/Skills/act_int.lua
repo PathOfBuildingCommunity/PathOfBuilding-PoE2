@@ -4495,6 +4495,7 @@ skills["CorpseCloudPlayer"] = {
 			baseFlags = {
 				area = true,
 				duration = true,
+				spell = true,
 			},
 			baseMods = {
 				mod("PoisonChance", "BASE", 100),
