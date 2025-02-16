@@ -1275,6 +1275,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 				}
 				activeGemInstance.fromItem = grantedSkill.sourceItem ~= nil
 				activeGemInstance.level = grantedSkill.level
+				activeGemInstance.gemId = data.gemForSkill[data.skills[grantedSkill.skillId]]
 				activeGemInstance.enableGlobal1 = true
 				activeGemInstance.noSupports = grantedSkill.noSupports
 				group.noSupports = grantedSkill.noSupports
