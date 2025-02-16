@@ -870,7 +870,7 @@ function calcs.offence(env, actor, activeSkill)
 	if skillModList:Flag(nil, "HasSeals") and activeSkill.skillTypes[SkillType.CanRapidFire] and not skillModList:Flag(nil, "NoRepeatBonuses") then
 		-- Applies DPS multiplier based on seals count
 		local totalCastSpeed = 1 / activeSkill.activeEffect.grantedEffect.castTime * calcLib.mod(skillModList, skillCfg, "Speed")
-		output.SealCooldown =  1 / totalCastSpeed * skillModList:Sum("BASE", skillCfg, "SealGainFrequency") / calcLib.mod(skillModList, skillCfg, "SealGainFrequency") / 100
+		output.SealCooldown = activeSkill.activeEffect.grantedEffect.castTime * skillModList:Sum("BASE", skillCfg, "SealGainFrequency") / calcLib.mod(skillModList, skillCfg, "SealGainFrequency") / 100
 		output.SealMax = skillModList:Sum("BASE", skillCfg, "SealCount")
 		output.AverageBurstHits = output.SealMax
 		output.TimeMaxSeals = output.SealCooldown * output.SealMax
