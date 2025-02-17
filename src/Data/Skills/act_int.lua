@@ -885,6 +885,11 @@ skills["SupportBlasphemyPlayer"] = {
 			label = "Curses",
 			incrementalEffectiveness = 0.092720001935959,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_blasphemy_curse_effect_+%_final"] = {
+					mod("CurseEffect", "MORE", nil, 0, 0),
+				},
+			},
 			baseFlags = {
 				area = true,
 			},

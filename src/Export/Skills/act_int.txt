@@ -69,6 +69,11 @@ statMap = {
 #skill SupportBlasphemyPlayer
 #set SupportBlasphemyPlayer
 #flags area
+statMap = {
+	["support_blasphemy_curse_effect_+%_final"] = {
+		mod("CurseEffect", "MORE", nil, 0, 0),
+	},
+},
 #mods
 #skillEnd
 
