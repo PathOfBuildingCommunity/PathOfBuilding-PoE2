@@ -709,7 +709,7 @@ skills["SupportExploitWeaknessPlayer"] = {
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
 				["support_gem_consume_enemy_fully_broken_armour_to_gain_damage_+%_final"] = {
-					mod("Damage", "MORE", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "ArmourBroken"})
+					mod("Damage", "MORE", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "ArmourFullyBroken"})
 				},
 			},
 			baseFlags = {
