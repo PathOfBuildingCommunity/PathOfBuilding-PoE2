@@ -146,6 +146,11 @@ statMap = {
 
 #skill SupportDoubleBarrelPlayer
 #set SupportDoubleBarrelPlayer
+statMap = {
+	["support_double_barrel_number_of_crossbow_bolts_+"] = {
+		mod("CrossbowBoltCount", "BASE", nil),
+	},
+},
 #mods
 #skillEnd
 

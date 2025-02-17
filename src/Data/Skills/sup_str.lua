@@ -578,6 +578,11 @@ skills["SupportDoubleBarrelPlayer"] = {
 			label = "Double Barrel",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_double_barrel_number_of_crossbow_bolts_+"] = {
+					mod("CrossbowBoltCount", "BASE", nil),
+				}
+			},
 			baseFlags = {
 			},
 			constantStats = {
