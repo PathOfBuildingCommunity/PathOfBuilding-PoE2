@@ -992,7 +992,7 @@ c["15 Life Regeneration per second"]={{[1]={flags=0,keywordFlags=0,name="LifeReg
 c["15 to 25 Physical Thorns damage"]={{[1]={flags=0,keywordFlags=0,name="Damage",type="BASE",value=15}}," to 25 Physical Thorns  "}
 c["15 to 25 Physical Thorns damage Thorns damage is triggered by all Hits"]={{[1]={flags=0,keywordFlags=0,name="Damage",type="BASE",value=15}}," to 25 Physical Thorns  Thorns damage is triggered by all Hits "}
 c["15% additional Physical Damage Reduction"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamageReduction",type="BASE",value=15}},nil}
-c["15% chance for Crossbow Attacks to not consume a bolt"]={{}," for  Attacks to not consume a bolt "}
+c["15% chance for Crossbow Attacks to not consume a bolt"]={{[1]={[1]={skillType=128,type="SkillType"},flags=67108864,keywordFlags=0,name="ChanceToNotConsumeAmmo",type="BASE",value=15}},nil}
 c["15% chance to Blind Enemies on Hit with Attacks"]={{[1]={flags=0,keywordFlags=65536,name="BlindChance",type="BASE",value=15}},nil}
 c["15% chance to Pierce an Enemy"]={{}," to Pierce an Enemy "}
 c["15% chance to Pierce an Enemy 15% increased Projectile Damage"]={{[1]={flags=1024,keywordFlags=0,name="Damage",type="BASE",value=15}}," to Pierce an Enemy 15% increased  "}
