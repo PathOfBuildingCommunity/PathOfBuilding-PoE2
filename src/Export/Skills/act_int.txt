@@ -351,6 +351,14 @@ statMap = {
 #skill EnfeeblePlayer
 #set EnfeeblePlayer
 #flags area spell duration
+statMap = {
+	["enfeeble_damage_+%_final"] = {
+		mod("Damage", "MORE", nil, 0, 0, { type = "GlobalEffect", effectType = "Curse" }, { type = "Condition", var = "Unique", neg = true }),
+	},
+	["enfeeble_damage_+%_vs_unique_final"] = {
+		mod("Damage", "MORE", nil, 0, 0, { type = "GlobalEffect", effectType = "Curse" }, { type = "Condition", var = "Unique" }),
+	},
+},
 #mods
 #skillEnd
 

@@ -5580,6 +5580,14 @@ skills["EnfeeblePlayer"] = {
 			baseEffectiveness = 0,
 			incrementalEffectiveness = 0.092720001935959,
 			statDescriptionScope = "enfeeble",
+			statMap = {
+				["enfeeble_damage_+%_final"] = {
+					mod("Damage", "MORE", nil, 0, 0, { type = "GlobalEffect", effectType = "Curse" }, { type = "Condition", var = "Unique", neg = true }),
+				},
+				["enfeeble_damage_+%_vs_unique_final"] = {
+					mod("Damage", "MORE", nil, 0, 0, { type = "GlobalEffect", effectType = "Curse" }, { type = "Condition", var = "Unique" }),
+				},
+			},
 			baseFlags = {
 				area = true,
 				spell = true,
