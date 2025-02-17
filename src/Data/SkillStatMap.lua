@@ -2272,9 +2272,6 @@ return {
 ["active_skill_reload_speed_+%_final"] = {
 	mod("ReloadSpeed", "MORE", nil),
 },
-["reload_speed_+%"] = {
-	mod("ReloadSpeed", "INC", nil)
-},
 -- Grenade
 ["grenade_skill_%_chance_to_explode_twice"] = {
 	mod("GrenadeExplodeTwice", "INC", nil),
