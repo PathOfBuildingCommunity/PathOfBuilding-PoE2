@@ -41,6 +41,20 @@ local skills, mod, flag, skill = ...
 #skill AttritionPlayer
 #set AttritionPlayer
 #flags
+statMap = {
+statMap = {
+	["skill_attrition_presence_max_seconds"] = {
+		mod("Multiplier:AttritionMaxDamage", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff"}),
+	},
+	["skill_attrition_culling_strike_at_x_or_more_stacks"] = {
+		mod("Multiplier:AttritionCullSeconds", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff"}),
+	},
+	["skill_attrition_hit_damage_+%_final_vs_rare_or_unique_enemy_per_second_ever_in_presence_up_to_max"] = {
+		{mod("Damage", "MORE", nil, 0, KeywordFlag.Hit, { type = "GlobalEffect", effectType = "Buff"}, { type = "Multiplier", var = "EnemyPresenceSeconds", actor = "enemy", limitVar = "AttritionMaxDamage", div = 2, limitTotal = true }, { type = "ActorCondition", actor = "enemy", var = "RareOrUnique" })},
+		{mod("CullPercent", "MAX", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff"}, { type = "MultiplierThreshold", var = "EnemyPresenceSeconds", actor = "enemy", thresholdVar = "AttritionCullSeconds"}, { type = "ActorCondition", actor = "enemy", var = "RareOrUnique" }),
+		value = 10,}
+		},
+},
 #mods
 #skillEnd
 
