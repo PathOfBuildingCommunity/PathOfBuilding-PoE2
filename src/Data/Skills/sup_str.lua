@@ -581,7 +581,11 @@ skills["SupportDoubleBarrelPlayer"] = {
 			statMap = {
 				["support_double_barrel_number_of_crossbow_bolts_+"] = {
 					mod("CrossbowBoltCount", "BASE", nil),
-				}
+				},
+				["support_double_barrel_crossbow_reload_speed_-%_final"] = {
+					mod("ReloadSpeed", "MORE", nil),
+					mult = -1
+				},
 			},
 			baseFlags = {
 			},
