@@ -275,6 +275,40 @@ local function setMoltenStrikeTertiaryRadiusBreakdown(breakdown, deadzoneRadius,
 	breakdownRadius.radius = currentDist
 end
 
+-- Calculate and return reload time in seconds for a specific Crossbow skill
+---@param actor table @actor using the skill
+---@param ammoSkill table @skill of type SkillType.CrossbowAmmoSkill
+---@return number
+local function calcCrossbowReloadTime(actor, ammoSkill)
+	--todo remove placeholder
+	-- Currently using placeholder values until I can get the proper base values exported
+	local baseReloadTime = 0.8
+	ammoSkill.skillModList:NewMod("ReloadSpeed", "BASE", 1, "PlaceholderBaseRate")
+	local reloadTimeMulti = calcLib.mod(ammoSkill.skillModList, ammoSkill.skillCfg, "ReloadSpeed")
+	return baseReloadTime / reloadTimeMulti
+end
+-- Calculate stats from parent Ammo skill that are not available on children, such as mana cost and reload speed
+---@param actor table 
+---@param activeSkill table
+---@return table @Table containing cost, boltCount, reloadTime
+local function calcCrossbowAmmoStats(actor, activeSkill)
+	-- Iterate over all skills in activeSkillList. If one is an ammo skill from the same base gem as current skill, take those stats
+	for _, skill in pairs(actor.activeSkillList) do
+		--todo make "if" structure more compact
+		if skill.skillTypes[SkillType.CrossbowAmmoSkill] then
+			if skill.skillCfg.skillGem == activeSkill.skillCfg.skillGem then
+				-- assign values
+				local ammoSkill = {
+					cost = skill.activeEffect.grantedEffectLevel.cost,
+					boltCount = skill.skillModList:Sum("BASE", skill.skillCfg, "CrossbowBoltCount"),
+					reloadTime = calcCrossbowReloadTime(actor, skill)
+				}
+				return ammoSkill
+			end
+		end
+	end
+end
+
 function calcSkillCooldown(skillModList, skillCfg, skillData)
 	local cooldownOverride = skillModList:Override(skillCfg, "CooldownRecovery")
 	local addedCooldown = skillModList:Sum("BASE", skillCfg, "CooldownRecovery")
@@ -869,6 +903,14 @@ function calcs.offence(env, actor, activeSkill)
 				skillModList:NewMod(damageType.."Max", "BASE", (actor.weaponData2[damageType.."Max"] or 0) * mult, "Blade Blast of Dagger Detonation")
 			end
 		end
+	end
+	-- Crossbow calculations
+	-- Calculate ammo stats for bolt skills
+	if activeSkill.skillTypes[SkillType.CrossbowSkill] and not (activeSkill.skillTypes[SkillType.Grenade] or activeSkill.skillTypes[SkillType.CrossbowAmmoSkill]) then
+		local ammoStats = calcCrossbowAmmoStats(actor, activeSkill)
+		activeSkill.activeEffect.grantedEffectLevel.cost = ammoStats.cost -- inherit base mana cost
+		skillData.boltCount = ammoStats.boltCount
+		skillData.reloadTime = ammoStats.reloadTime
 	end
 
 	if skillModList:Flag(nil, "HasSeals") and activeSkill.skillTypes[SkillType.CanRapidFire] and not skillModList:Flag(nil, "NoRepeatBonuses") then
@@ -2355,6 +2397,13 @@ function calcs.offence(env, actor, activeSkill)
 			else
 				output.Time = 1 / output.Speed
 			end
+			-- Adjust attack speed values for Crossbow skills that need to reload
+			if skillData.reloadTime then
+				output.FiringRate = output.Speed
+				output.TotalFiringTime = 1 / output.FiringRate * skillData.boltCount
+				output.ReloadRate = 1 / skillData.reloadTime
+				output.Speed = (output.TotalFiringTime + skillData.reloadTime) / (skillData.boltCount + 1)
+			end
 			if breakdown then
 				breakdown.Speed = { }
 				breakdown.multiChain(breakdown.Speed, {
@@ -2383,6 +2432,7 @@ function calcs.offence(env, actor, activeSkill)
 					total = s_format("= %.2f ^8seconds per attack", output.Time)
 				})
 			end
+
 		end
 		if skillData.hitTimeOverride and not skillData.triggeredOnDeath then
 			output.HitTime = skillData.hitTimeOverride
