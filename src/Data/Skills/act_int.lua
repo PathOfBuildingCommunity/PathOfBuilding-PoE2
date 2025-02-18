@@ -885,6 +885,11 @@ skills["SupportBlasphemyPlayer"] = {
 			label = "Curses",
 			incrementalEffectiveness = 0.092720001935959,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["active_skill_base_area_of_effect_radius"] = {
+					skill("radiusExtra", nil)
+				},
+			},
 			baseFlags = {
 				area = true,
 			},

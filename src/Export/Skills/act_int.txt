@@ -69,6 +69,11 @@ statMap = {
 #skill SupportBlasphemyPlayer
 #set SupportBlasphemyPlayer
 #flags area
+statMap = {
+	["active_skill_base_area_of_effect_radius"] = {
+		skill("radiusExtra", nil)
+	},
+},
 #mods
 #skillEnd
 
