@@ -2470,16 +2470,13 @@ function calcs.perform(env, skipEHP)
 		t_insert(allyCurses, newCurse)
 	end
 
-
 	-- Set curse limit
 	output.EnemyCurseLimit = modDB:Flag(nil, "CurseLimitIsMaximumPowerCharges") and output.PowerChargesMax or modDB:Sum("BASE", nil, "EnemyCurseLimit")
 	output.EnemyMarkLimit = modDB:Sum("BASE", nil, "EnemyMarkLimit")
 	curses.limit = output.EnemyCurseLimit + output.EnemyMarkLimit
 	buffExports["CurseLimit"] = curses.limit
-	-- Assign curses to slots
-	local curseSlots = { }
-	env.curseSlots = curseSlots
-	local markCount = 0
+	-- Temp different mark and curse slots to handle limits and priorities of both
+	local debufSlots = { curseSlots = { }, markSlots = { } }
 	for _, source in ipairs({curses, minionCurses, allyCurses}) do
 		for _, curse in ipairs(source) do
 			-- Calculate curses that ignore hex limit after
@@ -2495,42 +2492,35 @@ function calcs.perform(env, skipEHP)
 						break
 					end
 				end
-				for i = 1, source.limit do
-					-- Prevent more than allowed marks from being considered
-					if curse.isMark then
-						if markCount >= output.EnemyMarkLimit then
-							slot = nil
-							break
-						end
-					end
-					if not curseSlots[i] then
+								
+				local currentSlots = curse.isMark and debufSlots.markSlots or debufSlots.curseSlots				
+				for i = 1, curse.isMark and output.EnemyMarkLimit or output.EnemyCurseLimit do
+					if not currentSlots[i] then
 						slot = i
 						break
-					elseif curseSlots[i].name == curse.name then
-						if curseSlots[i].priority < curse.priority then
+					elseif currentSlots[i].name == curse.name then
+						if currentSlots[i].priority < curse.priority then
 							slot = i
 						else
 							slot = nil
 						end
 						break
-					elseif curseSlots[i].priority < curse.priority then
-						slot = i
+					else
+						if currentSlots[i].priority < curse.priority then
+							slot = i
+						end
 					end
 				end
-				if slot then
-					if curseSlots[slot] and curseSlots[slot].isMark then
-						markCount = m_max(markCount - 1, 0)
-					end
-					if skipAddingCurse == false then
-						curseSlots[slot] = curse
-					end
-					if curse.isMark then
-						markCount = markCount + 1
-					end
+				if slot and not skipAddingCurse then
+					currentSlots[slot] = curse
 				end
 			end
 		end
 	end
+	
+	-- Merge curse and mark slots as we now process curse ignoring hex limit
+	curseSlots = tableConcat(debufSlots.curseSlots, debufSlots.markSlots)
+	env.curseSlots = curseSlots
 
 	for _, source in ipairs({curses, minionCurses}) do
 		for _, curse in ipairs(source) do
