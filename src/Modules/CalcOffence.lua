@@ -278,13 +278,13 @@ end
 -- Calculate and return reload time in seconds for a specific Crossbow skill
 ---@param actor table @actor using the skill
 ---@param ammoSkill table @skill of type SkillType.CrossbowAmmoSkill
+---@param boltSkill table @skill that uses the ammo to shoot bolts
 ---@return number
-local function calcCrossbowReloadTime(actor, ammoSkill)
+local function calcCrossbowReloadTime(actor, ammoSkill, boltSkill)
 	--todo remove placeholder
-	-- Currently using placeholder values until I can get the proper base values exported
+	-- Currently using 0.8 seconds as placeholder value until I can get the proper base values exported
 	local baseReloadTime = 0.8
-	ammoSkill.skillModList:NewMod("ReloadSpeed", "BASE", 1, "PlaceholderBaseRate")
-	local reloadTimeMulti = calcLib.mod(ammoSkill.skillModList, ammoSkill.skillCfg, "ReloadSpeed")
+	local reloadTimeMulti = calcLib.mod(boltSkill.skillModList, boltSkill.skillCfg, "ReloadSpeed" )
 	return baseReloadTime / reloadTimeMulti
 end
 -- Calculate stats from parent Ammo skill that are not available on children, such as mana cost and reload speed
@@ -295,16 +295,14 @@ local function calcCrossbowAmmoStats(actor, activeSkill)
 	-- Iterate over all skills in activeSkillList. If one is an ammo skill from the same base gem as current skill, take those stats
 	for _, skill in pairs(actor.activeSkillList) do
 		--todo make "if" structure more compact
-		if skill.skillTypes[SkillType.CrossbowAmmoSkill] then
-			if skill.skillCfg.skillGem == activeSkill.skillCfg.skillGem then
-				-- assign values
-				local ammoSkill = {
-					cost = skill.activeEffect.grantedEffectLevel.cost,
-					boltCount = skill.skillModList:Sum("BASE", skill.skillCfg, "CrossbowBoltCount"),
-					reloadTime = calcCrossbowReloadTime(actor, skill)
-				}
-				return ammoSkill
-			end
+		if skill.skillTypes[SkillType.CrossbowAmmoSkill] and (skill.skillCfg.skillGem == activeSkill.skillCfg.skillGem) then
+			-- assign values
+			local ammoSkill = {
+				cost = skill.activeEffect.grantedEffectLevel.cost,
+				boltCount = skill.skillModList:Sum("BASE", skill.skillCfg, "CrossbowBoltCount"),
+				reloadTime = calcCrossbowReloadTime(actor, skill, activeSkill)
+			}
+			return ammoSkill
 		end
 	end
 end
@@ -2397,12 +2395,23 @@ function calcs.offence(env, actor, activeSkill)
 			else
 				output.Time = 1 / output.Speed
 			end
-			-- Adjust attack speed values for Crossbow skills that need to reload
+			-- Crossbows: Adjust attack speed values for Crossbow skills that need to reload
 			if skillData.reloadTime then
 				output.FiringRate = output.Speed
-				output.TotalFiringTime = 1 / output.FiringRate * skillData.boltCount
+				output.BoltCount = skillData.boltCount
+				output.EffectiveBoltCount = output.BoltCount
+				skillData.chanceToNotConsumeAmmo = activeSkill.skillModList:Sum("BASE", activeSkill.skillCfg, "ChanceToNotConsumeAmmo")
+				if skillData.chanceToNotConsumeAmmo > 0 then
+					if skillData.chanceToNotConsumeAmmo < 100 then
+						output.EffectiveBoltCount = output.BoltCount / (1 - (skillData.chanceToNotConsumeAmmo / 100))
+					else
+						output.EffectiveBoltCount = nil -- using nil as a substitute for infinite, if chance is above 100%
+					end
+				end
+				skillData.totalFiringTime = 1 / output.FiringRate * (output.EffectiveBoltCount or 0)
 				output.ReloadRate = 1 / skillData.reloadTime
-				output.Speed = (output.TotalFiringTime + skillData.reloadTime) / (skillData.boltCount + 1)
+				output.ReloadTime = skillData.reloadTime
+				output.Speed = (not output.EffectiveBoltCount) and output.FiringRate or (1 / ((skillData.totalFiringTime + skillData.reloadTime) / (output.EffectiveBoltCount)))
 			end
 			if breakdown then
 				breakdown.Speed = { }
@@ -3678,6 +3687,8 @@ function calcs.offence(env, actor, activeSkill)
 
 	if isAttack then
 		-- Combine crit stats, average damage and DPS
+		combineStat("FiringRate", "AVERAGE")
+		combineStat("ReloadTime", "AVERAGE")
 		combineStat("PreEffectiveCritChance", "AVERAGE")
 		combineStat("CritChance", "AVERAGE")
 		combineStat("CritMultiplier", "AVERAGE")
@@ -4971,6 +4982,9 @@ function calcs.offence(env, actor, activeSkill)
 			elseif skillModList:Flag(nil, "HasSeals") and skillModList:Flag(nil, "UseMaxUnleash") then
 				useSpeed = env.player.mainSkill.skillData.hitTimeOverride / repeats
 				timeType = "full unleash"
+			elseif output.ReloadTime then -- Crossbows: Account for mana cost only happening on reload (once all bolts are fired)
+				useSpeed = (not output.EffectiveBoltCount) and 0 or (1 / (skillData.totalFiringTime + output.ReloadTime))
+				timeType = "effective reload"
 			else
 				useSpeed = (output.Cooldown and output.Cooldown > 0 and (output.Speed > 0 and output.Speed or 1 / output.Cooldown) or output.Speed) / repeats
 				timeType = skillData.triggered and "trigger" or (skillFlags.totem and "totem placement" or skillFlags.attack and "attack" or "cast")
