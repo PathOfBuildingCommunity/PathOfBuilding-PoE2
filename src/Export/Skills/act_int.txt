@@ -318,6 +318,12 @@ statMap = {
 #skill DisciplinePlayer
 #set DisciplinePlayer
 #flags
+statMap = {
+	["discipline_grant_allies_total_maximum_energy_shield_+"] = {
+		mod("EnergyShield", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Aura" }),
+	},
+},
+#baseMod skill("auraCannotAffectSelf", true)
 #mods
 #skillEnd
 

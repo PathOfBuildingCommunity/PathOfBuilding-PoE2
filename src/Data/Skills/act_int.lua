@@ -4937,7 +4937,15 @@ skills["DisciplinePlayer"] = {
 			label = "Discipline",
 			incrementalEffectiveness = 0.092720001935959,
 			statDescriptionScope = "discipline",
+			statMap = {
+				["discipline_grant_allies_total_maximum_energy_shield_+"] = {
+					mod("EnergyShield", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Aura" }),
+				},
+			},
 			baseFlags = {
+			},
+			baseMods = {
+				skill("auraCannotAffectSelf", true),
 			},
 			constantStats = {
 				{ "skill_desired_amount_override", 1 },
