@@ -2476,7 +2476,7 @@ function calcs.perform(env, skipEHP)
 	curses.limit = output.EnemyCurseLimit + output.EnemyMarkLimit
 	buffExports["CurseLimit"] = curses.limit
 	-- Temp different mark and curse slots to handle limits and priorities of both
-	local debufSlots = { curseSlots = { }, markSlots = { } }
+	local debuffSlots = { curseSlots = { }, markSlots = { } }
 	for _, source in ipairs({curses, minionCurses, allyCurses}) do
 		for _, curse in ipairs(source) do
 			-- Calculate curses that ignore hex limit after
@@ -2493,7 +2493,7 @@ function calcs.perform(env, skipEHP)
 					end
 				end
 								
-				local currentSlots = curse.isMark and debufSlots.markSlots or debufSlots.curseSlots				
+				local currentSlots = curse.isMark and debuffSlots.markSlots or debuffSlots.curseSlots				
 				for i = 1, curse.isMark and output.EnemyMarkLimit or output.EnemyCurseLimit do
 					if not currentSlots[i] then
 						slot = i
@@ -2519,7 +2519,7 @@ function calcs.perform(env, skipEHP)
 	end
 	
 	-- Merge curse and mark slots as we now process curse ignoring hex limit
-	curseSlots = tableConcat(debufSlots.curseSlots, debufSlots.markSlots)
+	curseSlots = tableConcat(debuffSlots.curseSlots, debuffSlots.markSlots)
 	env.curseSlots = curseSlots
 
 	for _, source in ipairs({curses, minionCurses}) do
