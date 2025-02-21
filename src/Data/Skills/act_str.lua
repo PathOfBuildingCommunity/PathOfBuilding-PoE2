@@ -881,7 +881,7 @@ skills["BerserkPlayer"] = {
 					div = 60
 				},
 				["life_leech_from_physical_attack_damage_permyriad_per_rage"] = {
-					mod("PhysicalDamageLifeLeech", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff" }, { type = "Multiplier", var = "RageEffect" }),
+					mod("PhysicalDamageLifeLeech", "BASE", nil, ModFlag.Attack, 0, { type = "GlobalEffect", effectType = "Buff" }, { type = "Multiplier", var = "RageEffect" }),
 					div = 100,
 				},
 				["rage_effect_+%"] = {
