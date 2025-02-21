@@ -875,6 +875,19 @@ skills["BerserkPlayer"] = {
 			label = "Berserk",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "berserk",
+			statMap = {
+				["life_loss_%_per_minute_per_rage_while_not_losing_rage"] = {
+					mod("LifeDegen", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff" }, { type = "Multiplier", var = "RageEffect" }),
+					div = 60
+				},
+				["life_leech_from_physical_attack_damage_permyriad_per_rage"] = {
+					mod("PhysicalDamageLifeLeech", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff" }, { type = "Multiplier", var = "RageEffect" }),
+					div = 100,
+				},
+				["rage_effect_+%"] = {
+					mod( "RageEffect", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff" } ),
+				}
+			},
 			baseFlags = {
 			},
 			constantStats = {
