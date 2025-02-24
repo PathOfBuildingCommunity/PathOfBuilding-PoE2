@@ -297,12 +297,18 @@ local function calcCrossbowAmmoStats(actor, activeSkill)
 		--todo make "if" structure more compact
 		if skill.skillTypes[SkillType.CrossbowAmmoSkill] and (skill.skillCfg.skillGem == activeSkill.skillCfg.skillGem) then
 			-- assign values
-			local ammoSkill = {
+			local ammoSkillStats = {
 				cost = skill.activeEffect.grantedEffectLevel.cost,
 				boltCount = skill.skillModList:Sum("BASE", skill.skillCfg, "CrossbowBoltCount"),
 				reloadTime = calcCrossbowReloadTime(actor, skill, activeSkill)
 			}
-			return ammoSkill
+			-- transfer the actual mods modifying base crossbow bolt count from ammo skill to active skill
+			for _, mod in ipairs(skill.baseSkillModList) do
+				if mod.name == "CrossbowBoltCount" then
+					activeSkill.skillModList:ReplaceMod(mod.name, mod.type, mod.value, mod.source)
+				end
+			end
+			return ammoSkillStats
 		end
 	end
 end
@@ -2400,18 +2406,18 @@ function calcs.offence(env, actor, activeSkill)
 				output.FiringRate = output.Speed
 				output.BoltCount = skillData.boltCount
 				output.EffectiveBoltCount = output.BoltCount
-				skillData.chanceToNotConsumeAmmo = activeSkill.skillModList:Sum("BASE", activeSkill.skillCfg, "ChanceToNotConsumeAmmo")
-				if skillData.chanceToNotConsumeAmmo > 0 then
-					if skillData.chanceToNotConsumeAmmo < 100 then
-						output.EffectiveBoltCount = output.BoltCount / (1 - (skillData.chanceToNotConsumeAmmo / 100))
+				output.ChanceToNotConsumeAmmo = activeSkill.skillModList:Sum("BASE", activeSkill.skillCfg, "ChanceToNotConsumeAmmo")
+				if output.ChanceToNotConsumeAmmo > 0 then
+					if output.ChanceToNotConsumeAmmo < 100 then
+						output.EffectiveBoltCount = output.BoltCount / (1 - (output.ChanceToNotConsumeAmmo / 100))
 					else
-						output.EffectiveBoltCount = nil -- using nil as a substitute for infinite, if chance is above 100%
+						output.EffectiveBoltCount = 1 / 0 -- apparently division by zero is handled as "infinite" just fine
 					end
 				end
-				skillData.totalFiringTime = 1 / output.FiringRate * (output.EffectiveBoltCount or 0)
+				output.TotalFiringTime = 1 / output.FiringRate * ((output.ChanceToNotConsumeAmmo >= 100) and 0 or output.EffectiveBoltCount)
 				output.ReloadRate = 1 / skillData.reloadTime
 				output.ReloadTime = skillData.reloadTime
-				output.Speed = (not output.EffectiveBoltCount) and output.FiringRate or (1 / ((skillData.totalFiringTime + skillData.reloadTime) / (output.EffectiveBoltCount)))
+				output.Speed = (output.ChanceToNotConsumeAmmo >= 100) and output.FiringRate or (1 / ((output.TotalFiringTime + output.ReloadTime) / (output.EffectiveBoltCount)))
 			end
 			if breakdown then
 				breakdown.Speed = { }
@@ -3687,8 +3693,6 @@ function calcs.offence(env, actor, activeSkill)
 
 	if isAttack then
 		-- Combine crit stats, average damage and DPS
-		combineStat("FiringRate", "AVERAGE")
-		combineStat("ReloadTime", "AVERAGE")
 		combineStat("PreEffectiveCritChance", "AVERAGE")
 		combineStat("CritChance", "AVERAGE")
 		combineStat("CritMultiplier", "AVERAGE")
@@ -3723,7 +3727,26 @@ function calcs.offence(env, actor, activeSkill)
 		for _, damageType in ipairs(dmgTypeList) do
 			combineStat(damageType.."StoredCombinedAvg", "DPS")
 		end
+		-- Crossbows: Combine stats related to reload and bolt functionality
+		if activeSkill.skillTypes[SkillType.CrossbowSkill] and not activeSkill.skillTypes[SkillType.Grenade] then
+			combineStat("FiringRate", "AVERAGE")
+			combineStat("ReloadTime", "AVERAGE")
+			combineStat("ReloadRate", "AVERAGE")
+			combineStat("BoltCount", "AVERAGE")
+			combineStat("EffectiveBoltCount", "AVERAGE")
+			combineStat("TotalFiringTime", "AVERAGE")
+			combineStat("ChanceToNotConsumeAmmo", "AVERAGE")
+			if breakdown then
+				if output.ChanceToNotConsumeAmmo then
+					breakdown.EffectiveBoltCount = {}
+					t_insert(breakdown.EffectiveBoltCount, s_format("%d ^8(bolt count)", output.BoltCount))
+					t_insert(breakdown.EffectiveBoltCount, s_format("/ (1 - %.2f) ^8(chance to not consume)", output.ChanceToNotConsumeAmmo / 100))
+					t_insert(breakdown.EffectiveBoltCount, s_format("\n"))
+					t_insert(breakdown.EffectiveBoltCount, s_format("= %.2f ^8(effective count)", output.EffectiveBoltCount or (1/0)))
+				end
 
+			end
+		end
 		if skillFlags.bothWeaponAttack then
 			if breakdown then
 				breakdown.AverageDamage = { }
@@ -4983,7 +5006,7 @@ function calcs.offence(env, actor, activeSkill)
 				useSpeed = env.player.mainSkill.skillData.hitTimeOverride / repeats
 				timeType = "full unleash"
 			elseif output.ReloadTime then -- Crossbows: Account for mana cost only happening on reload (once all bolts are fired)
-				useSpeed = (not output.EffectiveBoltCount) and 0 or (1 / (skillData.totalFiringTime + output.ReloadTime))
+				useSpeed = (not output.EffectiveBoltCount) and 0 or (1 / (output.TotalFiringTime + output.ReloadTime))
 				timeType = "effective reload"
 			else
 				useSpeed = (output.Cooldown and output.Cooldown > 0 and (output.Speed > 0 and output.Speed or 1 / output.Cooldown) or output.Speed) / repeats
