@@ -28,6 +28,8 @@ local displayStats = {
 	{ stat = "TrapThrowCount", label = "Avg. Traps per Throw", fmt = ".2f"},
 	{ stat = "MineThrowCount", label = "Avg. Mines per Throw", fmt = ".2f"},
 	{ stat = "TotemPlacementTime", label = "Totem Placement Time", fmt = ".2fs", compPercent = true, lowerIsBetter = true, condFunc = function(v,o) return not o.TriggerTime end },
+	{ stat = "FiringRate", label = "Firing Rate", fmt = ".2f", compPercent = true, condFunc = function(v,o) return o.FiringRate end },
+	{ stat = "ReloadTime", label = "Reload Time", fmt = ".2fs", compPercent = true, lowerIsBetter = true, condFunc = function(v,o) return o.ReloadTime end },
 	{ stat = "PreEffectiveCritChance", label = "Crit Chance", fmt = ".2f%%", flag = "hit" },
 	{ stat = "CritChance", label = "Effective Crit Chance", fmt = ".2f%%", flag = "hit", condFunc = function(v,o) return v ~= o.PreEffectiveCritChance end },
 	{ stat = "CritMultiplier", label = "Crit Multiplier", fmt = "d%%", pc = true, condFunc = function(v,o) return (o.CritChance or 0) > 0 end },
