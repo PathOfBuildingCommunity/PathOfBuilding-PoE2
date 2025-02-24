@@ -13768,6 +13768,14 @@ skills["SigilOfPowerPlayer"] = {
 			incrementalEffectiveness = 0.14000000059605,
 			damageIncrementalEffectiveness = 0.0065000001341105,
 			statDescriptionScope = "circle_of_power",
+			statMap = {
+				["circle_of_power_max_stages"] = {
+					mod("Multiplier:SigilOfPowerMaxStages", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", unscalable = true }),
+				},
+				["circle_of_power_spell_damage_+%_final_per_stage"] = {
+					mod("Damage", "MORE", nil, ModFlag.Spell, 0, { type = "GlobalEffect", effectType = "Buff" }, { type = "Multiplier", var = "SigilOfPowerStage", limitVar = "SigilOfPowerMaxStages" } ),
+				},
+			},
 			baseFlags = {
 				spell = true,
 				area = true,
