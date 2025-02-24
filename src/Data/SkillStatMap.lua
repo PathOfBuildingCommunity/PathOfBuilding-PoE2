@@ -2075,6 +2075,9 @@ return {
 ["minion_ailment_damage_+%"] = {
 	mod("MinionModifier", "LIST", { mod = mod("Damage", "INC", nil, 0, KeywordFlag.Ailment) }),
 },
+["minion_block_%"] = {
+	mod("MinionModifier", "LIST", { mod = mod("BlockChance", "BASE", nil, 0, 0) }),
+},
 ["base_number_of_zombies_allowed"] = {
 	mod("ActiveZombieLimit", "BASE", nil),
 },
