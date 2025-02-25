@@ -365,11 +365,11 @@ function ModStoreClass:EvalMod(mod, cfg)
 			local target = self
 			local thresholdTarget = self
 			if tag.thresholdActor then
-			    if self.actor[tag.thresholdActor] then
-			        thresholdTarget = self.actor[tag.thresholdActor].modDB
-			    else
-			        return
-			    end
+				if self.actor[tag.thresholdActor] then
+			    	thresholdTarget = self.actor[tag.thresholdActor].modDB
+				else
+					return
+				end
 			end
 			if tag.actor then
 				if self.actor[tag.actor] then
