@@ -296,17 +296,17 @@ local function calcCrossbowAmmoStats(actor, activeSkill)
 	for _, skill in pairs(actor.activeSkillList) do
 		if skill.skillTypes[SkillType.CrossbowAmmoSkill] and (skill.skillCfg.skillGem == activeSkill.skillCfg.skillGem) then
 			-- assign values
-			local ammoSkillStats = {
-				cost = skill.activeEffect.grantedEffectLevel.cost,
-				boltCount = skill.skillModList:Sum("BASE", skill.skillCfg, "CrossbowBoltCount"),
-				reloadTime = calcCrossbowReloadTime(actor, skill, activeSkill)
-			}
 			-- transfer the actual mods modifying base crossbow bolt count and reload speed from ammo skill to active skill
 			for _, mod in ipairs(skill.baseSkillModList) do
 				if (mod.name == "CrossbowBoltCount") or (mod.name == "ReloadSpeed") then
 					activeSkill.skillModList:ReplaceMod(mod.name, mod.type, mod.value, mod.source)
 				end
 			end
+			local ammoSkillStats = {
+				cost = skill.activeEffect.grantedEffectLevel.cost,
+				boltCount = activeSkill.skillModList:Sum("BASE", activeSkill.skillCfg, "CrossbowBoltCount"),
+				reloadTime = calcCrossbowReloadTime(actor, skill, activeSkill)
+			}
 			return ammoSkillStats
 		end
 	end

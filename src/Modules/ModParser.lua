@@ -4116,6 +4116,8 @@ local specialModList = {
 	["bow attacks fire (%d+) additional arrows if you haven't cast dash recently"] = function(num) return { mod("ProjectileCount", "BASE", num, nil, ModFlag.Bow, { type = "Condition", var = "CastDashRecently", neg = true }) } end,
 	["wand attacks fire an additional projectile"] = { mod("ProjectileCount", "BASE", 1, nil, ModFlag.Wand) },
 	["(%d+)%% chance for crossbow attacks to not consume a bolt"] = function(num) return { mod("ChanceToNotConsumeAmmo", "BASE", num, nil, ModFlag.Crossbow, { type = "SkillType", skillType = SkillType.CrossbowSkill }) } end,
+	["loads? an additional bolt"] = { mod("CrossbowBoltCount", "BASE", 1, nil, ModFlag.Crossbow, { type = "SkillType", skillType = SkillType.CrossbowSkill }) },
+	["loads? (%d+) additional bolts?"] = function(num) return { mod("CrossbowBoltCount", "BASE", num, nil, ModFlag.Crossbow, { type = "SkillType", skillType = SkillType.CrossbowSkill }) } end,
 	["grenade skills fire an additional projectile"] = { mod("ProjectileCount", "BASE", 1, nil, ModFlag.Projectile, { type = "SkillType", skillType = SkillType.Grenade })},
 	["grenades have (%d+)%% chance to activate a second time"] = function(num) return { mod("DPS", "MORE", num, nil, ModFlag.Projectile, { type = "SkillType", skillType = SkillType.Grenade })} end,
 	["skills fire an additional projectile"] = { mod("ProjectileCount", "BASE", 1) },
