@@ -2267,7 +2267,7 @@ return {
 	flag("SequentialProjectiles"),
 },
 ["crossbow_barrage_attack_time_ratio_%"] = {
-	mod("SkillAttackTime", "MORE", nil, 0, 0, { type = "SkillType", skillType = SkillType.CrossbowSkill}, { type = "PerStat", stat = "ProjectileCount" }),
+	mod("BarrageAttackTimePenalty", "BASE", nil, 0, 0, { type = "SkillType", skillType = SkillType.CrossbowSkill}), -- actual handling of effect is done in CalcOffence because we need "ProjectileCount" - 1
 },
 ["active_skill_reload_speed_+%_final"] = {
 	mod("ReloadSpeed", "MORE", nil),
