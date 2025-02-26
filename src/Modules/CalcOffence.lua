@@ -3813,6 +3813,10 @@ end
 				end
 
 			end
+-- Game data specifies "base skill show average damage instead of dps" for many crossbow skills, where that doesn't make sense for PoB (e.g. Explosive Shot)
+			skillData.showAverage = false
+			skillFlags.showAverage = false
+			skillFlags.notAverage = true
 		end
 		if skillFlags.bothWeaponAttack then
 			if breakdown then
