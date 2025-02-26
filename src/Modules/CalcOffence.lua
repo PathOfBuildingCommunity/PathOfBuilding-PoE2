@@ -301,15 +301,24 @@ local function calcCrossbowAmmoStats(actor, activeSkill)
 				boltCount = skill.skillModList:Sum("BASE", skill.skillCfg, "CrossbowBoltCount"),
 				reloadTime = calcCrossbowReloadTime(actor, skill, activeSkill)
 			}
-			-- transfer the actual mods modifying base crossbow bolt count from ammo skill to active skill
+			-- transfer the actual mods modifying base crossbow bolt count and reload speed from ammo skill to active skill
 			for _, mod in ipairs(skill.baseSkillModList) do
-				if mod.name == "CrossbowBoltCount" then
+				if (mod.name == "CrossbowBoltCount") or (mod.name == "ReloadSpeed") then
 					activeSkill.skillModList:ReplaceMod(mod.name, mod.type, mod.value, mod.source)
 				end
 			end
 			return ammoSkillStats
 		end
 	end
+-- In case no ammo skill exists (e.g. basic Crossbow Shot)
+	-- todo this is not yet working correctly because base Crossbow Shot ammunition data is not on the gem and therefore isn't exported
+	local dummySkillStats = {
+		cost = activeSkill.activeEffect.grantedEffectLevel.cost,
+		boltCount = m_max(activeSkill.skillModList:Sum("BASE", activeSkill.skillCfg, "CrossbowBoltCount"), 1), -- ensure minimum one bolt
+		reloadTime = calcCrossbowReloadTime(actor, activeSkill, activeSkill)
+	}
+	-- todo workaround for "transfer" of ammo skill mods, if no ammo exists
+	return dummySkillStats
 end
 
 function calcSkillCooldown(skillModList, skillCfg, skillData)
