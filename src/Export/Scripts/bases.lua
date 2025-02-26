@@ -442,5 +442,5 @@ end
 
 print("Item bases exported.")
 
---processTemplateFile("Rares", "Bases/", "../Data/", directiveTable)
---print("Rare Item Templates Generated and Verified")
+processTemplateFile("Rares", "Bases/", "../Data/", directiveTable)
+print("Rare Item Templates Generated and Verified")

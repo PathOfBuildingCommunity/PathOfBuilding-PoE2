@@ -936,7 +936,7 @@ end
 table.sort(data.itemBaseTypeList)
 
 -- Rare templates
---data.rares = LoadModule("Data/Rares")
+data.rares = LoadModule("Data/Rares")
 
 -- Uniques (loaded after version-specific data because reasons)
 data.uniques = { }

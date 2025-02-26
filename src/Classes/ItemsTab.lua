@@ -206,7 +206,7 @@ local ItemsTabClass = newClass("ItemsTab", "UndoHandler", "ControlHost", "Contro
 
 	-- Database selector
 	self.controls.selectDBLabel = new("LabelControl", {"TOPLEFT",self.controls.itemList,"BOTTOMLEFT"}, {0, 14, 0, 16}, "^7Import from:")
-	self.controls.selectDBLabel.shown = false
+	self.controls.selectDBLabel.shown = true
 	--function()
 	--	return self.height < 980
 	--end
@@ -226,10 +226,9 @@ local ItemsTabClass = newClass("ItemsTab", "UndoHandler", "ControlHost", "Contro
 	self.controls.rareDB.y = function()
 		return self.controls.selectDBLabel:IsShown() and 78 or 396
 	end
-	self.controls.rareDB.shown = false
-	--function()
-	--	return not self.controls.selectDBLabel:IsShown() or self.controls.selectDB.selIndex == 2
-	--end
+	self.controls.rareDB.shown = function()
+		return not self.controls.selectDBLabel:IsShown() or self.controls.selectDB.selIndex == 2
+	end
 	-- Create/import item
 	self.controls.craftDisplayItem = new("ButtonControl", {"TOPLEFT",main.portraitMode and self.controls.setManage or self.controls.itemList,"TOPRIGHT"}, {20, main.portraitMode and 0 or -20, 120, 20}, "Craft item...", function()
 		self:CraftItem()
