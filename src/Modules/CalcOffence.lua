@@ -2430,7 +2430,7 @@ function calcs.offence(env, actor, activeSkill)
 
 				-- Average bolts reloaded per second for purposes of calculating Fresh Clip support damage bonus
 				-- note: Using bolts reloaded per 1 second, in case of future mechanics related to reloaded bolts. Fresh Clip gives 6% per bolt reloaded to compensate
-				local boltsReloadedPerSecond = (output.ChanceToNotConsumeAmmo > 100) and 0 or (output.BoltCount / (output.TotalFiringTime + output.ReloadTime)) -- assume 0 bolts reloaded when none are consumed
+				local boltsReloadedPerSecond = skillModList:Override({ source = "Config"}, "Multiplier:BoltsReloadedPerSecond") or (output.ChanceToNotConsumeAmmo > 100) and 0 or (output.BoltCount / (output.TotalFiringTime + output.ReloadTime)) -- assume 0 bolts reloaded when none are consumed
 				if boltsReloadedPerSecond > 0 then
 					skillModList:ReplaceMod("Multiplier:BoltsReloadedPerSecond", "BASE", boltsReloadedPerSecond, activeSkill.activeEffect.grantedEffect.name)
 				end
