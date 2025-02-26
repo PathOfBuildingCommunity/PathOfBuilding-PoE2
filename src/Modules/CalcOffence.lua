@@ -294,7 +294,7 @@ end
 local function calcCrossbowAmmoStats(actor, activeSkill)
 	-- Iterate over all skills in activeSkillList. If one is an ammo skill from the same base gem as current skill, take those stats
 	for _, skill in pairs(actor.activeSkillList) do
-				if skill.skillTypes[SkillType.CrossbowAmmoSkill] and (skill.skillCfg.skillGem == activeSkill.skillCfg.skillGem) then
+		if skill.skillTypes[SkillType.CrossbowAmmoSkill] and (skill.skillCfg.skillGem == activeSkill.skillCfg.skillGem) then
 			-- assign values
 			local ammoSkillStats = {
 				cost = skill.activeEffect.grantedEffectLevel.cost,
@@ -310,7 +310,7 @@ local function calcCrossbowAmmoStats(actor, activeSkill)
 			return ammoSkillStats
 		end
 	end
--- In case no ammo skill exists (e.g. basic Crossbow Shot)
+	-- In case no ammo skill exists (e.g. basic Crossbow Shot)
 	-- todo this is not yet working correctly because base Crossbow Shot ammunition data is not on the gem and therefore isn't exported
 	local dummySkillStats = {
 		cost = activeSkill.activeEffect.grantedEffectLevel.cost,
@@ -790,13 +790,13 @@ function calcs.offence(env, actor, activeSkill)
 		if skillModList:Sum("BASE", skillCfg, "BarrageRepeats") > 0 then
 			skillData.dpsMultiplier = (1 + skillModList:Sum("BASE", skillCfg, "BarrageRepeats")) * (calcLib.mod(skillModList, skillCfg, "BarrageRepeatDamage"))
 		else
-local additionalProjectiles = calcLib.val(skillModList, "ProjectileCount", skillCfg) - 1
+			local additionalProjectiles = calcLib.val(skillModList, "ProjectileCount", skillCfg) - 1
 			if additionalProjectiles > 0 then
 				local barrageAttackTimePenalty = skillModList:Sum("BASE", skillCfg, "BarrageAttackTimePenalty") 
 				if barrageAttackTimePenalty == 0 then barrageAttackTimePenalty = 100 end -- If not otherwise specified on the skill, each additional projectile adds 100% of attack time
 				skillModList:ReplaceMod("SkillAttackTime", "MORE", barrageAttackTimePenalty * additionalProjectiles, activeSkill.activeEffect.grantedEffect.name .. s_format(": %d%% attack time per add. projectile", barrageAttackTimePenalty) )
-			skillData.dpsMultiplier = skillModList:Sum("BASE", skillCfg, "ProjectileCount")
-end
+				skillData.dpsMultiplier = skillModList:Sum("BASE", skillCfg, "ProjectileCount")
+			end
 		end
 	end
 	output.Repeats = 1 + (skillModList:Sum("BASE", skillCfg, "RepeatCount") or 0)
@@ -2410,11 +2410,6 @@ end
 			if not activeSkill.skillTypes[SkillType.Channel] then
 				output.Speed = m_min(output.Speed, data.misc.ServerTickRate * output.Repeats)
 			end
-			if output.Speed == 0 then
-				output.Time = 0
-			else
-				output.Time = 1 / output.Speed
-			end
 			-- Crossbows: Adjust attack speed values for Crossbow skills that need to reload
 			if skillData.reloadTime then
 				output.FiringRate = output.Speed
@@ -2432,6 +2427,18 @@ end
 				output.ReloadRate = 1 / skillData.reloadTime
 				output.ReloadTime = skillData.reloadTime
 				output.Speed = (output.ChanceToNotConsumeAmmo >= 100) and output.FiringRate or (1 / ((output.TotalFiringTime + output.ReloadTime) / (output.EffectiveBoltCount)))
+
+				-- Average bolts reloaded per second for purposes of calculating Fresh Clip support damage bonus
+				-- note: Using bolts reloaded per 1 second, in case of future mechanics related to reloaded bolts. Fresh Clip gives 6% per bolt reloaded to compensate
+				local boltsReloadedPerSecond = (output.ChanceToNotConsumeAmmo > 100) and 0 or (output.BoltCount / (output.TotalFiringTime + output.ReloadTime)) -- assume 0 bolts reloaded when none are consumed
+				if boltsReloadedPerSecond > 0 then
+					skillModList:ReplaceMod("Multiplier:BoltsReloadedPerSecond", "BASE", boltsReloadedPerSecond, activeSkill.activeEffect.grantedEffect.name)
+				end
+			end
+			if output.Speed == 0 then
+				output.Time = 0
+			else
+				output.Time = 1 / output.Speed
 			end
 			if breakdown then
 				breakdown.Speed = { }
@@ -2442,7 +2449,7 @@ end
 					{ "%.2f ^8(action speed modifier)", (skillFlags.totem and output.TotemActionSpeed) or (skillFlags.selfCast and globalOutput.ActionSpeedMod) or 1 },
 					total = s_format("= %.2f ^8casts per second", output.CastRate)
 				})
--- Crossbows: adjust breakdown to account for effect of reload time, bolt count, etc.
+				-- Crossbows: adjust breakdown to account for effect of reload time, bolt count, etc.
 				-- note: if we are ever allowed to dual wield crossbows, this will need to be adjusted
 				-- TODO: properly reflect effects of "SkillAttackTime" mods in the breakdown. (This is also not currently done in the standard breakdown.Speed calculation)
 				if output.ReloadTime then
@@ -3791,9 +3798,9 @@ end
 		for _, damageType in ipairs(dmgTypeList) do
 			combineStat(damageType.."StoredCombinedAvg", "DPS")
 		end
-		-- Crossbows:
+		-- Crossbows: 
 		if activeSkill.skillTypes[SkillType.CrossbowSkill] and not activeSkill.skillTypes[SkillType.Grenade] then
--- Combine stats related to reload and bolt functionality
+			-- Combine stats related to reload and bolt functionality
 			combineStat("FiringRate", "AVERAGE")
 			combineStat("ReloadTime", "AVERAGE")
 			combineStat("ReloadRate", "AVERAGE")
@@ -3813,7 +3820,7 @@ end
 				end
 
 			end
--- Game data specifies "base skill show average damage instead of dps" for many crossbow skills, where that doesn't make sense for PoB (e.g. Explosive Shot)
+			-- Game data specifies "base skill show average damage instead of dps" for many crossbow skills, where that doesn't make sense for PoB (e.g. Explosive Shot)
 			skillData.showAverage = false
 			skillFlags.showAverage = false
 			skillFlags.notAverage = true
