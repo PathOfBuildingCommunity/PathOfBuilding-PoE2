@@ -2428,11 +2428,10 @@ function calcs.offence(env, actor, activeSkill)
 				output.ReloadTime = skillData.reloadTime
 				output.Speed = (output.ChanceToNotConsumeAmmo >= 100) and output.FiringRate or (1 / ((output.TotalFiringTime + output.ReloadTime) / (output.EffectiveBoltCount)))
 
-				-- Average bolts reloaded per second for purposes of calculating Fresh Clip support damage bonus
-				-- note: Using bolts reloaded per 1 second, in case of future mechanics related to reloaded bolts. Fresh Clip gives 6% per bolt reloaded to compensate
-				local boltsReloadedPerSecond = skillModList:Override({ source = "Config"}, "Multiplier:BoltsReloadedPerSecond") or (output.ChanceToNotConsumeAmmo > 100) and 0 or (output.BoltCount / (output.TotalFiringTime + output.ReloadTime)) -- assume 0 bolts reloaded when none are consumed
-				if boltsReloadedPerSecond > 0 then
-					skillModList:ReplaceMod("Multiplier:BoltsReloadedPerSecond", "BASE", boltsReloadedPerSecond, activeSkill.activeEffect.grantedEffect.name)
+				-- Average bolts reloaded past six second for purposes of calculating Fresh Clip support damage bonus
+				local boltsReloadedPastSixSeconds = skillModList:Override({ source = "Config"}, "Multiplier:BoltsReloadedPastSixSeconds") or (output.ChanceToNotConsumeAmmo > 100) and 0 or (output.BoltCount * 6 / (output.TotalFiringTime + output.ReloadTime)) -- assume 0 bolts reloaded when none are consumed
+				if boltsReloadedPastSixSeconds > 0 then
+					skillModList:ReplaceMod("Multiplier:BoltsReloadedPastSixSeconds", "BASE", boltsReloadedPastSixSeconds, activeSkill.activeEffect.grantedEffect.name)
 				end
 			end
 			if output.Speed == 0 then

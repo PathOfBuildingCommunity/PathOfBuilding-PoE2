@@ -1000,8 +1000,7 @@ skills["SupportFreshClipPlayer"] = {
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
 				["support_damage_+%_final_per_crossbow_bolt_reloaded_in_past_6_seconds"] = {
-					mod("Damage", "MORE", nil, 0, 0, { type = "Multiplier", var = "BoltsReloadedPerSecond" } ),
-					mult = 6,
+					mod("Damage", "MORE", nil, 0, 0, { type = "Multiplier", var = "BoltsReloadedPastSixSeconds" } ),
 				},
 			},
 			baseFlags = {
