@@ -366,7 +366,7 @@ function ModStoreClass:EvalMod(mod, cfg)
 			local thresholdTarget = self
 			if tag.thresholdActor then
 				if self.actor[tag.thresholdActor] then
-			    	thresholdTarget = self.actor[tag.thresholdActor].modDB
+					thresholdTarget = self.actor[tag.thresholdActor].modDB
 				else
 					return
 				end
