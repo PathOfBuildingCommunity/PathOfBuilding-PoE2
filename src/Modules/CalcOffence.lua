@@ -294,8 +294,7 @@ end
 local function calcCrossbowAmmoStats(actor, activeSkill)
 	-- Iterate over all skills in activeSkillList. If one is an ammo skill from the same base gem as current skill, take those stats
 	for _, skill in pairs(actor.activeSkillList) do
-		--todo make "if" structure more compact
-		if skill.skillTypes[SkillType.CrossbowAmmoSkill] and (skill.skillCfg.skillGem == activeSkill.skillCfg.skillGem) then
+				if skill.skillTypes[SkillType.CrossbowAmmoSkill] and (skill.skillCfg.skillGem == activeSkill.skillCfg.skillGem) then
 			-- assign values
 			local ammoSkillStats = {
 				cost = skill.activeEffect.grantedEffectLevel.cost,
@@ -2434,6 +2433,56 @@ end
 					{ "%.2f ^8(action speed modifier)", (skillFlags.totem and output.TotemActionSpeed) or (skillFlags.selfCast and globalOutput.ActionSpeedMod) or 1 },
 					total = s_format("= %.2f ^8casts per second", output.CastRate)
 				})
+-- Crossbows: adjust breakdown to account for effect of reload time, bolt count, etc.
+				-- note: if we are ever allowed to dual wield crossbows, this will need to be adjusted
+				-- TODO: properly reflect effects of "SkillAttackTime" mods in the breakdown. (This is also not currently done in the standard breakdown.Speed calculation)
+				if output.ReloadTime then
+					globalBreakdown.FiringRate = { }
+					breakdown.multiChain(globalBreakdown.FiringRate, {
+						base = { "%.2f ^8(base)", 1 / baseTime },
+						{ "%.2f ^8(increased/reduced)", 1 + inc/100 },
+						{ "%.2f ^8(more/less)", more },
+						{ "%.2f ^8(action speed modifier)", (skillFlags.totem and output.TotemActionSpeed) or (skillFlags.selfCast and globalOutput.ActionSpeedMod) or 1 }, -- currently no way fir standard crossbow skills to be used by totems, but leaving it in for future compatibility
+						total = s_format("= %.2f ^8bolts per second", output.FiringRate)
+					})
+
+					globalBreakdown.TotalFiringTime = { }
+					t_insert(globalBreakdown.TotalFiringTime, s_format("  1.00s / %.2f ^8(firing rate)", output.FiringRate))
+					t_insert(globalBreakdown.TotalFiringTime, s_format("= %.2fs ^8(time per bolt)", 1 / output.FiringRate))
+					t_insert(globalBreakdown.TotalFiringTime, s_format("\n"))
+					t_insert(globalBreakdown.TotalFiringTime, s_format("  %.2fs ^8(time per bolt)", 1/ output.FiringRate))
+					t_insert(globalBreakdown.TotalFiringTime, s_format("x %.2f ^8(eff. bolt count)", output.EffectiveBoltCount))
+					t_insert(globalBreakdown.TotalFiringTime, s_format("= %.2fs ^8(total firing time)", output.TotalFiringTime))
+
+					globalBreakdown.ReloadTime = { }
+					--TODO remove placeholder
+					-- Currently using 0.8 seconds as placeholder value until I can get the proper base values exported
+					local baseReloadTime = 0.8
+					local incReloadSpeed = skillModList:Sum("INC", skillCfg, "ReloadSpeed")
+					local moreReloadSpeed = (100 + skillModList:Sum("MORE", skillCfg, "ReloadSpeed")) / 100
+					t_insert(globalBreakdown.ReloadTime, s_format("  1.00s / %.2f ^8(base reload time)", baseReloadTime))
+					t_insert(globalBreakdown.ReloadTime, s_format("= %.2f ^8(base reload rate)", 1 / baseReloadTime))
+					t_insert(globalBreakdown.ReloadTime, s_format("\n"))
+					t_insert(globalBreakdown.ReloadTime, s_format("x %.2f ^8(increased/reduced)", 1 + incReloadSpeed/100 ))
+					t_insert(globalBreakdown.ReloadTime, s_format("x %.2f ^8(more/less)", moreReloadSpeed ))
+					t_insert(globalBreakdown.ReloadTime, s_format("= %.2f ^8(reload rate)", output.ReloadRate))
+					t_insert(globalBreakdown.ReloadTime, s_format("\n"))
+					t_insert(globalBreakdown.ReloadTime, s_format("   1.00s / %.2f ^8(reload rate)", output.ReloadRate))
+					t_insert(globalBreakdown.ReloadTime, s_format("= %.2fs ^8(reload time)", output.ReloadTime))
+
+					breakdown.Speed = { }
+					t_insert(breakdown.Speed, s_format("  %.2fs ^8(total firing time)", output.TotalFiringTime))
+					t_insert(breakdown.Speed, s_format("+ %.2fs ^8(reload time)", output.ReloadTime))
+					t_insert(breakdown.Speed, s_format("= %.2fs ^8(total attack time)", output.TotalFiringTime + output.ReloadTime))
+					t_insert(breakdown.Speed, s_format("\n"))
+					t_insert(breakdown.Speed, s_format("  %.2fs ^8(total attack time)", output.TotalFiringTime + output.ReloadTime))
+					t_insert(breakdown.Speed, s_format("/ %.2f ^8(eff. bolt count)", output.EffectiveBoltCount))
+					t_insert(breakdown.Speed, s_format("= %.2fs ^8(eff. attack time)", 1 / output.Speed))
+					t_insert(breakdown.Speed, s_format("\n"))
+					t_insert(breakdown.Speed, s_format(" 1 / %.2fs ^8(eff. attack time)", 1 / output.Speed))
+					t_insert(breakdown.Speed, s_format("= %.2f ^8(eff. attack rate)", output.Speed))
+				end
+				-- Cooldown:
 				if output.Cooldown and (1 / output.Cooldown) < output.CastRate then
 					t_insert(breakdown.Speed, s_format("\n"))
 					t_insert(breakdown.Speed, s_format("1 / %.2f ^8(skill cooldown)", output.Cooldown))
@@ -3733,8 +3782,9 @@ end
 		for _, damageType in ipairs(dmgTypeList) do
 			combineStat(damageType.."StoredCombinedAvg", "DPS")
 		end
-		-- Crossbows: Combine stats related to reload and bolt functionality
+		-- Crossbows:
 		if activeSkill.skillTypes[SkillType.CrossbowSkill] and not activeSkill.skillTypes[SkillType.Grenade] then
+-- Combine stats related to reload and bolt functionality
 			combineStat("FiringRate", "AVERAGE")
 			combineStat("ReloadTime", "AVERAGE")
 			combineStat("ReloadRate", "AVERAGE")
@@ -3742,13 +3792,15 @@ end
 			combineStat("EffectiveBoltCount", "AVERAGE")
 			combineStat("TotalFiringTime", "AVERAGE")
 			combineStat("ChanceToNotConsumeAmmo", "AVERAGE")
+
+			-- Add stats related to "Chance to not consume a bolt" to breakdown
 			if breakdown then
 				if output.ChanceToNotConsumeAmmo then
-					breakdown.EffectiveBoltCount = {}
+					breakdown.EffectiveBoltCount = { }
 					t_insert(breakdown.EffectiveBoltCount, s_format("%d ^8(bolt count)", output.BoltCount))
-					t_insert(breakdown.EffectiveBoltCount, s_format("/ (1 - %.2f) ^8(chance to not consume)", output.ChanceToNotConsumeAmmo / 100))
+					t_insert(breakdown.EffectiveBoltCount, s_format("/ (1 - %.2f) ^8(chance to not consume)", m_min(output.ChanceToNotConsumeAmmo / 100, 1)))
 					t_insert(breakdown.EffectiveBoltCount, s_format("\n"))
-					t_insert(breakdown.EffectiveBoltCount, s_format("= %.2f ^8(effective count)", output.EffectiveBoltCount or (1/0)))
+					t_insert(breakdown.EffectiveBoltCount, s_format("= %.2f ^8(effective bolt count)", output.EffectiveBoltCount or (1/0))) -- 1/0 is used as a stand-in for "infinite"
 				end
 
 			end
