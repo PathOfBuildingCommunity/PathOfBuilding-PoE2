@@ -3,6 +3,37 @@ local itemBases = ...
 
 #type Gloves
 #socketLimit 2
-#baseMatch BaseType Metadata/Items/Armours/Gloves/AbstractGloves
-#baseMatch BaseType Metadata/Items/Armours/Gloves/GlovesDemigods
+
+#subType Armour
+#baseMatch Metadata/Items/Armours/Gloves/FourGlovesStr%d+
+#baseMatch Metadata/Items/Armours/Gloves/FourGlovesStr%d+Cruel
+#baseMatch Metadata/Items/Armours/Gloves/FourGlovesStr%d+Endgame
+
+#subType Evasion
+#baseMatch Metadata/Items/Armours/Gloves/FourGlovesDex%d+
+#baseMatch Metadata/Items/Armours/Gloves/FourGlovesDex%d+Cruel
+#baseMatch Metadata/Items/Armours/Gloves/FourGlovesDex%d+Endgame
+
+#subType Energy Shield
+#baseMatch Metadata/Items/Armours/Gloves/FourGlovesInt%d+
+#baseMatch Metadata/Items/Armours/Gloves/FourGlovesInt%d+Cruel
+#baseMatch Metadata/Items/Armours/Gloves/FourGlovesInt%d+Endgame
+
+#subType Armour/Evasion
+#baseMatch Metadata/Items/Armours/Gloves/FourGlovesStrDex%d+
+#baseMatch Metadata/Items/Armours/Gloves/FourGlovesStrDex%d+Cruel
+#baseMatch Metadata/Items/Armours/Gloves/FourGlovesStrDex%d+Endgame
+
+#subType Armour/Energy Shield
+#baseMatch Metadata/Items/Armours/Gloves/FourGlovesStrInt%d+
+#baseMatch Metadata/Items/Armours/Gloves/FourGlovesStrInt%d+Cruel
+#baseMatch Metadata/Items/Armours/Gloves/FourGlovesStrInt%d+Endgame
+
+#subType Evasion/Energy Shield
+#baseMatch Metadata/Items/Armours/Gloves/FourGlovesDexInt%d+
+#baseMatch Metadata/Items/Armours/Gloves/FourGlovesDexInt%d+Cruel
+#baseMatch Metadata/Items/Armours/Gloves/FourGlovesDexInt%d+Endgame
+
+#subType
+#baseMatch BaseType Metadata/Items/Armours/Gloves/GlovesDemigods1
 
