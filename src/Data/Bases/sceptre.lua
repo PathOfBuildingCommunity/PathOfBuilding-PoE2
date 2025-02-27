@@ -138,6 +138,37 @@ itemBases["Hallowed Sceptre"] = {
 	req = { },
 }
 
+itemBases["Shrine Sceptre"] = {
+	type = "Sceptre",
+	quality = 20,
+	spirit = 100,
+	hidden = true,
+	tags = { default = true, onehand = true, sceptre = true, },
+	implicit = "Grants Skill: Level (1-20) Purity of Fire",
+	implicitModTypes = { },
+	req = { },
+}
+itemBases["Shrine Sceptre"] = {
+	type = "Sceptre",
+	quality = 20,
+	spirit = 100,
+	hidden = true,
+	tags = { default = true, onehand = true, sceptre = true, },
+	implicit = "Grants Skill: Level (1-20) Purity of Ice",
+	implicitModTypes = { },
+	req = { },
+}
+itemBases["Shrine Sceptre"] = {
+	type = "Sceptre",
+	quality = 20,
+	spirit = 100,
+	hidden = true,
+	tags = { default = true, onehand = true, sceptre = true, },
+	implicit = "Grants Skill: Level (1-20) Purity of Lightning",
+	implicitModTypes = { },
+	req = { },
+}
+
 itemBases["Shrine Sceptre (Purity of Fire)"] = {
 	type = "Sceptre",
 	quality = 20,

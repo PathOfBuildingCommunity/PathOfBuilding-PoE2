@@ -119,7 +119,7 @@ return {
 #setBase Expert Cultist Greathammer, Elemental %s, [ ]
 #setBase Expert Oak Greathammer, Physical %s, [ ]
 #setBase Expert Oak Greathammer, Elemental %s, [ ]
--- Warstaffs
+-- Warstaves
 #setBase Expert Slicing Quarterstaff, Physical %s, [ ]
 #setBase Expert Slicing Quarterstaff, Elemental %s, [ ]
 #setBase Expert Barrier Quarterstaff, Physical %s, [ ]

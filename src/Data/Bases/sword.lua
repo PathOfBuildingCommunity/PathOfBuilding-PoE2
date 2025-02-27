@@ -140,6 +140,15 @@ itemBases["Dark Blade"] = {
 	weapon = { PhysicalMin = 43, PhysicalMax = 65, CritChanceBase = 5, AttackRateBase = 1.55, Range = 11, },
 	req = { level = 65, str = 81, dex = 81, },
 }
+itemBases["Golden Blade"] = {
+	type = "One Handed Sword",
+	quality = 20,
+	socketLimit = 3,
+	tags = { onehand = true, ezomyte_basetype = true, weapon = true, sword = true, one_hand_weapon = true, default = true, },
+	implicitModTypes = { },
+	weapon = { PhysicalMin = 6, PhysicalMax = 9, CritChanceBase = 5, AttackRateBase = 1.55, Range = 11, },
+	req = { },
+}
 
 itemBases["Energy Blade One Handed"] = {
 	type = "One Handed Sword",

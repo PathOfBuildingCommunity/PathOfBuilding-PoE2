@@ -680,7 +680,7 @@ Prefix: LocalAddedLightningDamageTwoHand8
 Suffix: LocalIncreasedAttackSpeed3
 Suffix: LocalCriticalStrikeChance3
 Suffix: LocalCriticalMultiplier4
-]],-- Warstaffs
+]],-- Warstaves
 [[
 Physical Staff
 Expert Slicing Quarterstaff
