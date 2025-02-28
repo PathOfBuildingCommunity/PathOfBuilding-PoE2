@@ -169,6 +169,7 @@ itemBases["Shrine Sceptre"] = {
 	req = { },
 }
 
+			forceShow true
 itemBases["Shrine Sceptre (Purity of Fire)"] = {
 	type = "Sceptre",
 	quality = 20,

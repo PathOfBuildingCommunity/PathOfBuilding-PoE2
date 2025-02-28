@@ -14,4 +14,4 @@ local itemBases = ...
 #base Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre6a Shrine Sceptre (Purity of Fire)
 #base Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre6b Shrine Sceptre (Purity of Cold)
 #base Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre6c Shrine Sceptre (Purity of Lighting)
-#forceShow hide
+#forceShow false
