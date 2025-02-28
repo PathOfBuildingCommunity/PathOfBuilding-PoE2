@@ -2333,6 +2333,612 @@ c["Allies in your Presence have 50% increased Critical Damage Bonus"]={{[1]={fla
 c["Allies in your Presence have 50% increased Critical Hit Chance"]={{[1]={flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=0,keywordFlags=0,name="CritChance",type="INC",value=50},onlyAllies=true}}},nil}
 c["Allies in your Presence have 6% increased Attack Speed"]={{[1]={flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=1,keywordFlags=0,name="Speed",type="INC",value=6},onlyAllies=true}}},nil}
 c["Allies in your Presence have Block Chance equal to yours"]={nil,"Block Chance equal to yours "}
+c["Allocates Acceleration"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="acceleration"}},nil}
+c["Allocates Adamant Recovery"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="adamant recovery"}},nil}
+c["Allocates Admonisher"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="admonisher"}},nil}
+c["Allocates Adrenaline Rush"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="adrenaline rush"}},nil}
+c["Allocates Advanced Munitions"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="advanced munitions"}},nil}
+c["Allocates Adverse Growth"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="adverse growth"}},nil}
+c["Allocates Afterimage"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="afterimage"}},nil}
+c["Allocates Aftershocks"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="aftershocks"}},nil}
+c["Allocates Aggravation"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="aggravation"}},nil}
+c["Allocates All Natural"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="all natural"}},nil}
+c["Allocates Altered Brain Chemistry"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="altered brain chemistry"}},nil}
+c["Allocates Alternating Current"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="alternating current"}},nil}
+c["Allocates Ancestral Alacrity"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="ancestral alacrity"}},nil}
+c["Allocates Ancestral Artifice"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="ancestral artifice"}},nil}
+c["Allocates Ancestral Conduits"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="ancestral conduits"}},nil}
+c["Allocates Ancestral Mending"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="ancestral mending"}},nil}
+c["Allocates Ancestral Reach"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="ancestral reach"}},nil}
+c["Allocates Ancestral Unity"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="ancestral unity"}},nil}
+c["Allocates Ancient Aegis"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="ancient aegis"}},nil}
+c["Allocates Anticipation"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="anticipation"}},nil}
+c["Allocates Apocalypse"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="apocalypse"}},nil}
+c["Allocates Arcane Alchemy"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="arcane alchemy"}},nil}
+c["Allocates Arcane Blossom"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="arcane blossom"}},nil}
+c["Allocates Arcane Intensity"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="arcane intensity"}},nil}
+c["Allocates Arcane Mixtures"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="arcane mixtures"}},nil}
+c["Allocates Asceticism"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="asceticism"}},nil}
+c["Allocates Aspiring Genius"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="aspiring genius"}},nil}
+c["Allocates Austerity Measures"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="austerity measures"}},nil}
+c["Allocates Authority"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="authority"}},nil}
+c["Allocates Back in Action"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="back in action"}},nil}
+c["Allocates Backstabbing"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="backstabbing"}},nil}
+c["Allocates Backup Plan"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="backup plan"}},nil}
+c["Allocates Ball and Chain"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="ball and chain"}},nil}
+c["Allocates Barbaric Strength"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="barbaric strength"}},nil}
+c["Allocates Battle Fever"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="battle fever"}},nil}
+c["Allocates Battle Trance"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="battle trance"}},nil}
+c["Allocates Battle-hardened"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="battle-hardened"}},nil}
+c["Allocates Beastial Skin"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="beastial skin"}},nil}
+c["Allocates Beef"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="beef"}},nil}
+c["Allocates Bestial Rage"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="bestial rage"}},nil}
+c["Allocates Blade Catcher"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="blade catcher"}},nil}
+c["Allocates Blade Flurry"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="blade flurry"}},nil}
+c["Allocates Bleeding Out"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="bleeding out"}},nil}
+c["Allocates Blinding Flash"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="blinding flash"}},nil}
+c["Allocates Blinding Strike"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="blinding strike"}},nil}
+c["Allocates Blood Rush"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="blood rush"}},nil}
+c["Allocates Blood Tearing"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="blood tearing"}},nil}
+c["Allocates Bloodletting"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="bloodletting"}},nil}
+c["Allocates Bloodthirsty"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="bloodthirsty"}},nil}
+c["Allocates Blur"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="blur"}},nil}
+c["Allocates Blurred Motion"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="blurred motion"}},nil}
+c["Allocates Bolstering Presence"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="bolstering presence"}},nil}
+c["Allocates Bolstering Yell"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="bolstering yell"}},nil}
+c["Allocates Branching Bolts"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="branching bolts"}},nil}
+c["Allocates Bravado"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="bravado"}},nil}
+c["Allocates Break Focus"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="break focus"}},nil}
+c["Allocates Breakage"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="breakage"}},nil}
+c["Allocates Breaking Blows"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="breaking blows"}},nil}
+c["Allocates Breaking Point"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="breaking point"}},nil}
+c["Allocates Breath of Fire"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="breath of fire"}},nil}
+c["Allocates Breath of Ice"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="breath of ice"}},nil}
+c["Allocates Breath of Lightning"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="breath of lightning"}},nil}
+c["Allocates Bringer of Order"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="bringer of order"}},nil}
+c["Allocates Briny Carapace"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="briny carapace"}},nil}
+c["Allocates Brutal"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="brutal"}},nil}
+c["Allocates Brute Strength"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="brute strength"}},nil}
+c["Allocates Building Toxins"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="building toxins"}},nil}
+c["Allocates Burn Away"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="burn away"}},nil}
+c["Allocates Burning Nature"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="burning nature"}},nil}
+c["Allocates Burning Strikes"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="burning strikes"}},nil}
+c["Allocates Burnout"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="burnout"}},nil}
+c["Allocates Cacophony"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="cacophony"}},nil}
+c["Allocates Calibration"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="calibration"}},nil}
+c["Allocates Careful Aim"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="careful aim"}},nil}
+c["Allocates Careful Assassin"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="careful assassin"}},nil}
+c["Allocates Careful Consideration"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="careful consideration"}},nil}
+c["Allocates Carved Earth"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="carved earth"}},nil}
+c["Allocates Casting Cascade"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="casting cascade"}},nil}
+c["Allocates Catalysis"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="catalysis"}},nil}
+c["Allocates Catapult"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="catapult"}},nil}
+c["Allocates Catlike Agility"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="catlike agility"}},nil}
+c["Allocates Cautious Concoctions"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="cautious concoctions"}},nil}
+c["Allocates Chilled to the Bone"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="chilled to the bone"}},nil}
+c["Allocates Chronomancy"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="chronomancy"}},nil}
+c["Allocates Clean Shot"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="clean shot"}},nil}
+c["Allocates Clear Space"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="clear space"}},nil}
+c["Allocates Clever Construction"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="clever construction"}},nil}
+c["Allocates Climate Change"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="climate change"}},nil}
+c["Allocates Close Confines"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="close confines"}},nil}
+c["Allocates Cluster Bombs"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="cluster bombs"}},nil}
+c["Allocates Coated Arms"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="coated arms"}},nil}
+c["Allocates Coated Knife"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="coated knife"}},nil}
+c["Allocates Cold Nature"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="cold nature"}},nil}
+c["Allocates Colossal Weapon"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="colossal weapon"}},nil}
+c["Allocates Combat Alchemy"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="combat alchemy"}},nil}
+c["Allocates Coming Calamity"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="coming calamity"}},nil}
+c["Allocates Conservative Casting"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="conservative casting"}},nil}
+c["Allocates Controlling Magic"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="controlling magic"}},nil}
+c["Allocates Convalescence"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="convalescence"}},nil}
+c["Allocates Cooked"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="cooked"}},nil}
+c["Allocates Core of the Guardian"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="core of the guardian"}},nil}
+c["Allocates Coursing Energy"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="coursing energy"}},nil}
+c["Allocates Covering Ward"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="covering ward"}},nil}
+c["Allocates Cranial Impact"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="cranial impact"}},nil}
+c["Allocates Crashing Wave"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="crashing wave"}},nil}
+c["Allocates Cremation"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="cremation"}},nil}
+c["Allocates Crippling Toxins"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="crippling toxins"}},nil}
+c["Allocates Critical Exploit"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="critical exploit"}},nil}
+c["Allocates Critical Overload"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="critical overload"}},nil}
+c["Allocates Cross Strike"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="cross strike"}},nil}
+c["Allocates Cruel Fate"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="cruel fate"}},nil}
+c["Allocates Cruel Methods"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="cruel methods"}},nil}
+c["Allocates Crushing Judgement"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="crushing judgement"}},nil}
+c["Allocates Crushing Verdict"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="crushing verdict"}},nil}
+c["Allocates Crystal Elixir"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="crystal elixir"}},nil}
+c["Allocates Crystalline Flesh"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="crystalline flesh"}},nil}
+c["Allocates Cull the Hordes"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="cull the hordes"}},nil}
+c["Allocates Curved Weapon"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="curved weapon"}},nil}
+c["Allocates Cut to the Bone"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="cut to the bone"}},nil}
+c["Allocates Dampening Shield"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="dampening shield"}},nil}
+c["Allocates Dark Entries"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="dark entries"}},nil}
+c["Allocates Dead can Dance"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="dead can dance"}},nil}
+c["Allocates Deadly Flourish"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="deadly flourish"}},nil}
+c["Allocates Deadly Force"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="deadly force"}},nil}
+c["Allocates Deadly Swarm"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="deadly swarm"}},nil}
+c["Allocates Deafening Cries"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="deafening cries"}},nil}
+c["Allocates Death from Afar"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="death from afar"}},nil}
+c["Allocates Deep Trance"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="deep trance"}},nil}
+c["Allocates Deep Wounds"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="deep wounds"}},nil}
+c["Allocates Defender's Resolve"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="defender's resolve"}},nil}
+c["Allocates Defensive Reflexes"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="defensive reflexes"}},nil}
+c["Allocates Defiance"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="defiance"}},nil}
+c["Allocates Deflection"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="deflection"}},nil}
+c["Allocates Deft Recovery"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="deft recovery"}},nil}
+c["Allocates Dependable Ward"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="dependable ward"}},nil}
+c["Allocates Desensitisation"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="desensitisation"}},nil}
+c["Allocates Desperate Times"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="desperate times"}},nil}
+c["Allocates Destructive Apparatus"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="destructive apparatus"}},nil}
+c["Allocates Deterioration"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="deterioration"}},nil}
+c["Allocates Determined Precision"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="determined precision"}},nil}
+c["Allocates Devastation"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="devastation"}},nil}
+c["Allocates Devestating Devices"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="devestating devices"}},nil}
+c["Allocates Devoted Protector"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="devoted protector"}},nil}
+c["Allocates Direct Approach"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="direct approach"}},nil}
+c["Allocates Dispatch Foes"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="dispatch foes"}},nil}
+c["Allocates Distracting Presence"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="distracting presence"}},nil}
+c["Allocates Doomsayer"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="doomsayer"}},nil}
+c["Allocates Dreamcatcher"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="dreamcatcher"}},nil}
+c["Allocates Drenched"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="drenched"}},nil}
+c["Allocates Dynamism"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="dynamism"}},nil}
+c["Allocates Eagle Eye"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="eagle eye"}},nil}
+c["Allocates Echoing Flames"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="echoing flames"}},nil}
+c["Allocates Echoing Frost"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="echoing frost"}},nil}
+c["Allocates Echoing Pulse"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="echoing pulse"}},nil}
+c["Allocates Echoing Thunder"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="echoing thunder"}},nil}
+c["Allocates Effervescent"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="effervescent"}},nil}
+c["Allocates Efficient Alchemy"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="efficient alchemy"}},nil}
+c["Allocates Eldritch Will"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="eldritch will"}},nil}
+c["Allocates Electric Amplification"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="electric amplification"}},nil}
+c["Allocates Electrifying Nature"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="electrifying nature"}},nil}
+c["Allocates Electrocution"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="electrocution"}},nil}
+c["Allocates Electrotherapy"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="electrotherapy"}},nil}
+c["Allocates Emboldened Avatar"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="emboldened avatar"}},nil}
+c["Allocates Endless Blizzard"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="endless blizzard"}},nil}
+c["Allocates Endless Circuit"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="endless circuit"}},nil}
+c["Allocates Endurance"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="endurance"}},nil}
+c["Allocates Energise"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="energise"}},nil}
+c["Allocates Enhanced Barrier"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="enhanced barrier"}},nil}
+c["Allocates Enhanced Reflexes"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="enhanced reflexes"}},nil}
+c["Allocates Enraged Reaver"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="enraged reaver"}},nil}
+c["Allocates Entropic Incarnation"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="entropic incarnation"}},nil}
+c["Allocates Equilibrium"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="equilibrium"}},nil}
+c["Allocates Erraticism"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="erraticism"}},nil}
+c["Allocates Escalating Toxins"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="escalating toxins"}},nil}
+c["Allocates Escalation"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="escalation"}},nil}
+c["Allocates Escape Strategy"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="escape strategy"}},nil}
+c["Allocates Escape Velocity"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="escape velocity"}},nil}
+c["Allocates Essence Infusion"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="essence infusion"}},nil}
+c["Allocates Essence of the Mountain"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="essence of the mountain"}},nil}
+c["Allocates Essence of the Storm"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="essence of the storm"}},nil}
+c["Allocates Ether Flow"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="ether flow"}},nil}
+c["Allocates Event Horizon"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="event horizon"}},nil}
+c["Allocates Exploit"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="exploit"}},nil}
+c["Allocates Exploit the Elements"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="exploit the elements"}},nil}
+c["Allocates Explosive Impact"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="explosive impact"}},nil}
+c["Allocates Exposed Wounds"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="exposed wounds"}},nil}
+c["Allocates Exposed to the Cosmos"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="exposed to the cosmos"}},nil}
+c["Allocates Exposed to the Inferno"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="exposed to the inferno"}},nil}
+c["Allocates Exposed to the Storm"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="exposed to the storm"}},nil}
+c["Allocates Falcon Dive"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="falcon dive"}},nil}
+c["Allocates Falcon Technique"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="falcon technique"}},nil}
+c["Allocates Fan the Flames"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="fan the flames"}},nil}
+c["Allocates Far Sighted"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="far sighted"}},nil}
+c["Allocates Fast Acting Toxins"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="fast acting toxins"}},nil}
+c["Allocates Fast Metabolism"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="fast metabolism"}},nil}
+c["Allocates Fate Finding"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="fate finding"}},nil}
+c["Allocates Fated End"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="fated end"}},nil}
+c["Allocates Fear of Death"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="fear of death"}},nil}
+c["Allocates Feathered Fletching"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="feathered fletching"}},nil}
+c["Allocates Feel no Pain"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="feel no pain"}},nil}
+c["Allocates Feel the Earth"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="feel the earth"}},nil}
+c["Allocates Feral Force"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="feral force"}},nil}
+c["Allocates Fervour"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="fervour"}},nil}
+c["Allocates Final Barrage"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="final barrage"}},nil}
+c["Allocates Finality"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="finality"}},nil}
+c["Allocates Finesse"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="finesse"}},nil}
+c["Allocates Finishing Blows"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="finishing blows"}},nil}
+c["Allocates Fireproof"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="fireproof"}},nil}
+c["Allocates Firestarter"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="firestarter"}},nil}
+c["Allocates First Approach"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="first approach"}},nil}
+c["Allocates Flash Storm"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="flash storm"}},nil}
+c["Allocates Flashy Deflection"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="flashy deflection"}},nil}
+c["Allocates Fleshcrafting"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="fleshcrafting"}},nil}
+c["Allocates Flip the Script"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="flip the script"}},nil}
+c["Allocates Flow Like Water"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="flow like water"}},nil}
+c["Allocates Flow State"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="flow state"}},nil}
+c["Allocates Flurry"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="flurry"}},nil}
+c["Allocates For the Jugular"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="for the jugular"}},nil}
+c["Allocates Forces of Nature"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="forces of nature"}},nil}
+c["Allocates Forcewave"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="forcewave"}},nil}
+c["Allocates Forthcoming"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="forthcoming"}},nil}
+c["Allocates Fortifying Blood"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="fortifying blood"}},nil}
+c["Allocates Frazzled"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="frazzled"}},nil}
+c["Allocates Freedom of Movement"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="freedom of movement"}},nil}
+c["Allocates Frenetic"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="frenetic"}},nil}
+c["Allocates Full Recovery"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="full recovery"}},nil}
+c["Allocates Full Salvo"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="full salvo"}},nil}
+c["Allocates Fulmination"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="fulmination"}},nil}
+c["Allocates General Electric"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="general electric"}},nil}
+c["Allocates General's Bindings"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="general's bindings"}},nil}
+c["Allocates Giantslayer"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="giantslayer"}},nil}
+c["Allocates Glaciation"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="glaciation"}},nil}
+c["Allocates Glazed Flesh"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="glazed flesh"}},nil}
+c["Allocates Goring"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="goring"}},nil}
+c["Allocates Gravedigger"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="gravedigger"}},nil}
+c["Allocates Greatest Defence"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="greatest defence"}},nil}
+c["Allocates Grenadier"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="grenadier"}},nil}
+c["Allocates Grip of Evil"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="grip of evil"}},nil}
+c["Allocates Grit"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="grit"}},nil}
+c["Allocates Growing Swarm"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="growing swarm"}},nil}
+c["Allocates Guts"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="guts"}},nil}
+c["Allocates Guttural Roar"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="guttural roar"}},nil}
+c["Allocates Hale Heart"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="hale heart"}},nil}
+c["Allocates Hale Traveller"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="hale traveller"}},nil}
+c["Allocates Hallowed"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="hallowed"}},nil}
+c["Allocates Hard to Kill"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="hard to kill"}},nil}
+c["Allocates Hardened Wood"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="hardened wood"}},nil}
+c["Allocates Harmonic Generator"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="harmonic generator"}},nil}
+c["Allocates Harness the Elements"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="harness the elements"}},nil}
+c["Allocates Harsh Winter"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="harsh winter"}},nil}
+c["Allocates Heart Tissue"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="heart tissue"}},nil}
+c["Allocates Heartbreaking"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="heartbreaking"}},nil}
+c["Allocates Heartstopping"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="heartstopping"}},nil}
+c["Allocates Heatproofing"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="heatproofing"}},nil}
+c["Allocates Heavy Ammunition"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="heavy ammunition"}},nil}
+c["Allocates Heavy Armour"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="heavy armour"}},nil}
+c["Allocates Heavy Blade"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="heavy blade"}},nil}
+c["Allocates Heavy Buffer"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="heavy buffer"}},nil}
+c["Allocates Heavy Contact"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="heavy contact"}},nil}
+c["Allocates Heavy Drinker"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="heavy drinker"}},nil}
+c["Allocates Heavy Frost"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="heavy frost"}},nil}
+c["Allocates Heavy Weaponry"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="heavy weaponry"}},nil}
+c["Allocates Hefty Unit"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="hefty unit"}},nil}
+c["Allocates High Alert"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="high alert"}},nil}
+c["Allocates Hindered Capabilities"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="hindered capabilities"}},nil}
+c["Allocates Hold Focus"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="hold focus"}},nil}
+c["Allocates Holy Protector"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="holy protector"}},nil}
+c["Allocates Honed Instincts"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="honed instincts"}},nil}
+c["Allocates Honourless"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="honourless"}},nil}
+c["Allocates Hulking Smash"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="hulking smash"}},nil}
+c["Allocates Hunker Down"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="hunker down"}},nil}
+c["Allocates Hunter's Talisman"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="hunter's talisman"}},nil}
+c["Allocates Ice Walls"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="ice walls"}},nil}
+c["Allocates Icebreaker"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="icebreaker"}},nil}
+c["Allocates Ignore Pain"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="ignore pain"}},nil}
+c["Allocates Illuminated Crown"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="illuminated crown"}},nil}
+c["Allocates Immaterial"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="immaterial"}},nil}
+c["Allocates Immolation"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="immolation"}},nil}
+c["Allocates Immortal Infamy"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="immortal infamy"}},nil}
+c["Allocates Immortal Thirst"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="immortal thirst"}},nil}
+c["Allocates Impact Area"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="impact area"}},nil}
+c["Allocates Impact Force"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="impact force"}},nil}
+c["Allocates Impair"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="impair"}},nil}
+c["Allocates Impending Doom"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="impending doom"}},nil}
+c["Allocates Impenetrable Shell"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="impenetrable shell"}},nil}
+c["Allocates In Your Face"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="in your face"}},nil}
+c["Allocates In the Thick of It"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="in the thick of it"}},nil}
+c["Allocates Incendiary"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="incendiary"}},nil}
+c["Allocates Inescapable Cold"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="inescapable cold"}},nil}
+c["Allocates Infused Flesh"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="infused flesh"}},nil}
+c["Allocates Ingenuity"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="ingenuity"}},nil}
+c["Allocates Initiative"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="initiative"}},nil}
+c["Allocates Inner Faith"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="inner faith"}},nil}
+c["Allocates Insightfulness"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="insightfulness"}},nil}
+c["Allocates Instant Reload"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="instant reload"}},nil}
+c["Allocates Insulated Treads"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="insulated treads"}},nil}
+c["Allocates Intense Flames"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="intense flames"}},nil}
+c["Allocates Internal Bleeding"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="internal bleeding"}},nil}
+c["Allocates Investing Energies"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="investing energies"}},nil}
+c["Allocates Invocated Efficiency"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="invocated efficiency"}},nil}
+c["Allocates Irreparable"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="irreparable"}},nil}
+c["Allocates Jack of all Trades"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="jack of all trades"}},nil}
+c["Allocates Javelin"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="javelin"}},nil}
+c["Allocates Killer Instinct"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="killer instinct"}},nil}
+c["Allocates Kite Runner"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="kite runner"}},nil}
+c["Allocates Lasting Concoctions"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="lasting concoctions"}},nil}
+c["Allocates Lasting Incantations"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="lasting incantations"}},nil}
+c["Allocates Lasting Toxins"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="lasting toxins"}},nil}
+c["Allocates Lasting Trauma"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="lasting trauma"}},nil}
+c["Allocates Lay Siege"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="lay siege"}},nil}
+c["Allocates Leaping Ambush"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="leaping ambush"}},nil}
+c["Allocates Leather Bound Gauntlets"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="leather bound gauntlets"}},nil}
+c["Allocates Leeching Toxins"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="leeching toxins"}},nil}
+c["Allocates Left Hand of Darkness"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="left hand of darkness"}},nil}
+c["Allocates Life from Death"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="life from death"}},nil}
+c["Allocates Lightning Quick"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="lightning quick"}},nil}
+c["Allocates Lightning Rod"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="lightning rod"}},nil}
+c["Allocates Lingering Horror"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="lingering horror"}},nil}
+c["Allocates Lingering Whispers"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="lingering whispers"}},nil}
+c["Allocates Living Death"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="living death"}},nil}
+c["Allocates Locked On"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="locked on"}},nil}
+c["Allocates Loose Flesh"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="loose flesh"}},nil}
+c["Allocates Lord of Horrors"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="lord of horrors"}},nil}
+c["Allocates Low Tolerance"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="low tolerance"}},nil}
+c["Allocates Lucidity"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="lucidity"}},nil}
+c["Allocates Lucky Rabbit Foot"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="lucky rabbit foot"}},nil}
+c["Allocates Lust for Power"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="lust for power"}},nil}
+c["Allocates Lust for Sacrifice"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="lust for sacrifice"}},nil}
+c["Allocates Made to Last"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="made to last"}},nil}
+c["Allocates Madness in the Bones"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="madness in the bones"}},nil}
+c["Allocates Maiming Strike"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="maiming strike"}},nil}
+c["Allocates Mana Blessing"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="mana blessing"}},nil}
+c["Allocates Manifold Method"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="manifold method"}},nil}
+c["Allocates Marked Agility"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="marked agility"}},nil}
+c["Allocates Marked for Death"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="marked for death"}},nil}
+c["Allocates Marked for Sickness"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="marked for sickness"}},nil}
+c["Allocates Martial Artistry"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="martial artistry"}},nil}
+c["Allocates Mass Hysteria"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="mass hysteria"}},nil}
+c["Allocates Mass Rejuvenation"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="mass rejuvenation"}},nil}
+c["Allocates Master Fletching"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="master fletching"}},nil}
+c["Allocates Master of Hexes"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="master of hexes"}},nil}
+c["Allocates Meat Recycling"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="meat recycling"}},nil}
+c["Allocates Melding"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="melding"}},nil}
+c["Allocates Mental Alacrity"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="mental alacrity"}},nil}
+c["Allocates Mental Perseverance"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="mental perseverance"}},nil}
+c["Allocates Mental Toughness"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="mental toughness"}},nil}
+c["Allocates Mind Eraser"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="mind eraser"}},nil}
+c["Allocates Mindful Awareness"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="mindful awareness"}},nil}
+c["Allocates Moment of Truth"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="moment of truth"}},nil}
+c["Allocates Morning Star"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="morning star"}},nil}
+c["Allocates Multitasking"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="multitasking"}},nil}
+c["Allocates Mystic Stance"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="mystic stance"}},nil}
+c["Allocates Natural Immunity"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="natural immunity"}},nil}
+c["Allocates Near Sighted"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="near sighted"}},nil}
+c["Allocates Near at Hand"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="near at hand"}},nil}
+c["Allocates Necrotic Touch"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="necrotic touch"}},nil}
+c["Allocates Necrotised Flesh"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="necrotised flesh"}},nil}
+c["Allocates No Escape"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="no escape"}},nil}
+c["Allocates Offensive Stance"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="offensive stance"}},nil}
+c["Allocates One with the River"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="one with the river"}},nil}
+c["Allocates One with the Storm"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="one with the storm"}},nil}
+c["Allocates Open Mind"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="open mind"}},nil}
+c["Allocates Overexposure"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="overexposure"}},nil}
+c["Allocates Overflowing Power"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="overflowing power"}},nil}
+c["Allocates Overheating Blow"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="overheating blow"}},nil}
+c["Allocates Overload"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="overload"}},nil}
+c["Allocates Overwhelm"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="overwhelm"}},nil}
+c["Allocates Overwhelming Strike"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="overwhelming strike"}},nil}
+c["Allocates Overzealous"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="overzealous"}},nil}
+c["Allocates Parrying Motion"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="parrying motion"}},nil}
+c["Allocates Path of Flame"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="path of flame"}},nil}
+c["Allocates Path of Storms"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="path of storms"}},nil}
+c["Allocates Path of Winter"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="path of winter"}},nil}
+c["Allocates Patient Barrier"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="patient barrier"}},nil}
+c["Allocates Perfect Opportunity"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="perfect opportunity"}},nil}
+c["Allocates Perfectly Placed Knife"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="perfectly placed knife"}},nil}
+c["Allocates Perforation"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="perforation"}},nil}
+c["Allocates Perpetual Freeze"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="perpetual freeze"}},nil}
+c["Allocates Personal Touch"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="personal touch"}},nil}
+c["Allocates Pierce the Heart"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="pierce the heart"}},nil}
+c["Allocates Piercing Shot"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="piercing shot"}},nil}
+c["Allocates Pile On"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="pile on"}},nil}
+c["Allocates Pin and Run"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="pin and run"}},nil}
+c["Allocates Pinned Down"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="pinned down"}},nil}
+c["Allocates Pinpoint Shot"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="pinpoint shot"}},nil}
+c["Allocates Pliable Flesh"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="pliable flesh"}},nil}
+c["Allocates Pocket Sand"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="pocket sand"}},nil}
+c["Allocates Polished Iron"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="polished iron"}},nil}
+c["Allocates Polymathy"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="polymathy"}},nil}
+c["Allocates Potent Concoctions"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="potent concoctions"}},nil}
+c["Allocates Potent Incantation"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="potent incantation"}},nil}
+c["Allocates Power Conduction"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="power conduction"}},nil}
+c["Allocates Power Shots"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="power shots"}},nil}
+c["Allocates Practiced Signs"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="practiced signs"}},nil}
+c["Allocates Precise Point"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="precise point"}},nil}
+c["Allocates Preemptive Strike"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="preemptive strike"}},nil}
+c["Allocates Presence Present"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="presence present"}},nil}
+c["Allocates Preservation"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="preservation"}},nil}
+c["Allocates Pressure Points"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="pressure points"}},nil}
+c["Allocates Price of Freedom"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="price of freedom"}},nil}
+c["Allocates Primal Growth"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="primal growth"}},nil}
+c["Allocates Primal Protection"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="primal protection"}},nil}
+c["Allocates Prism Guard"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="prism guard"}},nil}
+c["Allocates Proficiency"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="proficiency"}},nil}
+c["Allocates Projectile Bulwark"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="projectile bulwark"}},nil}
+c["Allocates Prolonged Assault"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="prolonged assault"}},nil}
+c["Allocates Prolonged Fury"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="prolonged fury"}},nil}
+c["Allocates Protraction"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="protraction"}},nil}
+c["Allocates Psychic Fragmentation"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="psychic fragmentation"}},nil}
+c["Allocates Pure Chaos"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="pure chaos"}},nil}
+c["Allocates Pure Energy"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="pure energy"}},nil}
+c["Allocates Pure Power"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="pure power"}},nil}
+c["Allocates Push the Advantage"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="push the advantage"}},nil}
+c["Allocates Quick Recovery"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="quick recovery"}},nil}
+c["Allocates Quick Response"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="quick response"}},nil}
+c["Allocates Quick-change Act"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="quick-change act"}},nil}
+c["Allocates Radial Force"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="radial force"}},nil}
+c["Allocates Rapid Recharge"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="rapid recharge"}},nil}
+c["Allocates Rapid Strike"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="rapid strike"}},nil}
+c["Allocates Rattled"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="rattled"}},nil}
+c["Allocates Rattling Ball"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="rattling ball"}},nil}
+c["Allocates Raw Mana"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="raw mana"}},nil}
+c["Allocates Raw Power"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="raw power"}},nil}
+c["Allocates Reaching Strike"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="reaching strike"}},nil}
+c["Allocates Reaving"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="reaving"}},nil}
+c["Allocates Refills"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="refills"}},nil}
+c["Allocates Refocus"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="refocus"}},nil}
+c["Allocates Regenerative Flesh"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="regenerative flesh"}},nil}
+c["Allocates Reinforced Barrier"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="reinforced barrier"}},nil}
+c["Allocates Reinvigoration"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="reinvigoration"}},nil}
+c["Allocates Relentless"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="relentless"}},nil}
+c["Allocates Relentless Fallen"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="relentless fallen"}},nil}
+c["Allocates Relentless Vindicator"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="relentless vindicator"}},nil}
+c["Allocates Remorseless"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="remorseless"}},nil}
+c["Allocates Repeating Explosives"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="repeating explosives"}},nil}
+c["Allocates Reprisal"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="reprisal"}},nil}
+c["Allocates Repulsion"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="repulsion"}},nil}
+c["Allocates Resilient Soul"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="resilient soul"}},nil}
+c["Allocates Resolution"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="resolution"}},nil}
+c["Allocates Resourceful Ally"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="resourceful ally"}},nil}
+c["Allocates Restless Dead"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="restless dead"}},nil}
+c["Allocates Retaliation"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="retaliation"}},nil}
+c["Allocates Reusable Ammunition"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="reusable ammunition"}},nil}
+c["Allocates Revenge"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="revenge"}},nil}
+c["Allocates Reverberating Impact"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="reverberating impact"}},nil}
+c["Allocates Reverberation"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="reverberation"}},nil}
+c["Allocates Ricochet"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="ricochet"}},nil}
+c["Allocates Right Hand of Darkness"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="right hand of darkness"}},nil}
+c["Allocates Ripping Blade"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="ripping blade"}},nil}
+c["Allocates Roil"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="roil"}},nil}
+c["Allocates Roll and Strike"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="roll and strike"}},nil}
+c["Allocates Ruin"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="ruin"}},nil}
+c["Allocates Sand in the Eyes"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="sand in the eyes"}},nil}
+c["Allocates Savagery"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="savagery"}},nil}
+c["Allocates Savoured Blood"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="savoured blood"}},nil}
+c["Allocates Savouring"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="savouring"}},nil}
+c["Allocates Seeing Stars"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="seeing stars"}},nil}
+c["Allocates Self Mortification"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="self mortification"}},nil}
+c["Allocates Serrated Edges"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="serrated edges"}},nil}
+c["Allocates Shadow Dancing"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="shadow dancing"}},nil}
+c["Allocates Sharp Sight"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="sharp sight"}},nil}
+c["Allocates Sharpened Claw"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="sharpened claw"}},nil}
+c["Allocates Shatter Palm"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="shatter palm"}},nil}
+c["Allocates Shattered Crystal"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="shattered crystal"}},nil}
+c["Allocates Shattering"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="shattering"}},nil}
+c["Allocates Shattering Blow"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="shattering blow"}},nil}
+c["Allocates Shedding Skin"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="shedding skin"}},nil}
+c["Allocates Shield Expertise"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="shield expertise"}},nil}
+c["Allocates Shimmering"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="shimmering"}},nil}
+c["Allocates Shockwaves"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="shockwaves"}},nil}
+c["Allocates Short Shot"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="short shot"}},nil}
+c["Allocates Shrapnel"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="shrapnel"}},nil}
+c["Allocates Shredding Force"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="shredding force"}},nil}
+c["Allocates Sigil of Fire"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="sigil of fire"}},nil}
+c["Allocates Sigil of Ice"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="sigil of ice"}},nil}
+c["Allocates Sigil of Lightning"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="sigil of lightning"}},nil}
+c["Allocates Silent Guardian"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="silent guardian"}},nil}
+c["Allocates Silent Shiv"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="silent shiv"}},nil}
+c["Allocates Singular Purpose"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="singular purpose"}},nil}
+c["Allocates Siphon"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="siphon"}},nil}
+c["Allocates Skullcrusher"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="skullcrusher"}},nil}
+c["Allocates Slippery Ice"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="slippery ice"}},nil}
+c["Allocates Slow Burn"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="slow burn"}},nil}
+c["Allocates Smash"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="smash"}},nil}
+c["Allocates Smoke Inhalation"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="smoke inhalation"}},nil}
+c["Allocates Smooth Buckler"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="smooth buckler"}},nil}
+c["Allocates Sniper"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="sniper"}},nil}
+c["Allocates Snowpiercer"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="snowpiercer"}},nil}
+c["Allocates Soul Bloom"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="soul bloom"}},nil}
+c["Allocates Spaghettification"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="spaghettification"}},nil}
+c["Allocates Spectral Ward"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="spectral ward"}},nil}
+c["Allocates Spell Haste"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="spell haste"}},nil}
+c["Allocates Spellblade"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="spellblade"}},nil}
+c["Allocates Spike Pit"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="spike pit"}},nil}
+c["Allocates Spiked Armour"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="spiked armour"}},nil}
+c["Allocates Spiked Shield"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="spiked shield"}},nil}
+c["Allocates Spiked Whip"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="spiked whip"}},nil}
+c["Allocates Spiral into Depression"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="spiral into depression"}},nil}
+c["Allocates Spiral into Insanity"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="spiral into insanity"}},nil}
+c["Allocates Spiral into Mania"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="spiral into mania"}},nil}
+c["Allocates Spirit Bond"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="spirit bond"}},nil}
+c["Allocates Spirit Bonds"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="spirit bonds"}},nil}
+c["Allocates Split Shot"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="split shot"}},nil}
+c["Allocates Split the Earth"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="split the earth"}},nil}
+c["Allocates Spreading Shocks"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="spreading shocks"}},nil}
+c["Allocates Stacking Toxins"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="stacking toxins"}},nil}
+c["Allocates Staggering Palm"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="staggering palm"}},nil}
+c["Allocates Stance Breaker"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="stance breaker"}},nil}
+c["Allocates Stand Ground"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="stand ground"}},nil}
+c["Allocates Stand and Deliver"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="stand and deliver"}},nil}
+c["Allocates Stars Aligned"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="stars aligned"}},nil}
+c["Allocates Staunching"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="staunching"}},nil}
+c["Allocates Step Like Mist"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="step like mist"}},nil}
+c["Allocates Stigmata"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="stigmata"}},nil}
+c["Allocates Stimulants"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="stimulants"}},nil}
+c["Allocates Storm Surge"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="storm surge"}},nil}
+c["Allocates Storm Swell"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="storm swell"}},nil}
+c["Allocates Stormbreaker"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="stormbreaker"}},nil}
+c["Allocates Stormcharged"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="stormcharged"}},nil}
+c["Allocates Strong Chin"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="strong chin"}},nil}
+c["Allocates Strong Links"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="strong links"}},nil}
+c["Allocates Struck Through"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="struck through"}},nil}
+c["Allocates Stupefy"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="stupefy"}},nil}
+c["Allocates Sturdy Ally"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="sturdy ally"}},nil}
+c["Allocates Sturdy Metal"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="sturdy metal"}},nil}
+c["Allocates Sturdy Mind"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="sturdy mind"}},nil}
+c["Allocates Stylebender"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="stylebender"}},nil}
+c["Allocates Subterfuge Mask"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="subterfuge mask"}},nil}
+c["Allocates Succour"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="succour"}},nil}
+c["Allocates Sudden Escalation"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="sudden escalation"}},nil}
+c["Allocates Sudden Infuriation"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="sudden infuriation"}},nil}
+c["Allocates Suffusion"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="suffusion"}},nil}
+c["Allocates Sundering"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="sundering"}},nil}
+c["Allocates Supportive Ancestors"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="supportive ancestors"}},nil}
+c["Allocates Surging Currents"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="surging currents"}},nil}
+c["Allocates Swift Claw"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="swift claw"}},nil}
+c["Allocates Swift Skewering"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="swift skewering"}},nil}
+c["Allocates Tainted Strike"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="tainted strike"}},nil}
+c["Allocates Taste for Blood"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="taste for blood"}},nil}
+c["Allocates Taut Flesh"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="taut flesh"}},nil}
+c["Allocates Tempered Mind"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="tempered mind"}},nil}
+c["Allocates Tenfold Attacks"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="tenfold attacks"}},nil}
+c["Allocates The Power Within"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="the power within"}},nil}
+c["Allocates Thickened Arteries"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="thickened arteries"}},nil}
+c["Allocates Thicket Warding"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="thicket warding"}},nil}
+c["Allocates Thin Ice"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="thin ice"}},nil}
+c["Allocates Thornhide"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="thornhide"}},nil}
+c["Allocates Thrill of Battle"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="thrill of battle"}},nil}
+c["Allocates Throatseeker"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="throatseeker"}},nil}
+c["Allocates Thunderstruck"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="thunderstruck"}},nil}
+c["Allocates Tides of Change"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="tides of change"}},nil}
+c["Allocates Time Manipulation"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="time manipulation"}},nil}
+c["Allocates Titan's Determination"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="titan's determination"}},nil}
+c["Allocates Titanic"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="titanic"}},nil}
+c["Allocates Total Incineration"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="total incineration"}},nil}
+c["Allocates Touch the Arcane"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="touch the arcane"}},nil}
+c["Allocates Tough Claw"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="tough claw"}},nil}
+c["Allocates Towering Shield"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="towering shield"}},nil}
+c["Allocates Trick Shot"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="trick shot"}},nil}
+c["Allocates True Strike"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="true strike"}},nil}
+c["Allocates Turn the Clock Back"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="turn the clock back"}},nil}
+c["Allocates Turn the Clock Forward"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="turn the clock forward"}},nil}
+c["Allocates Twinned Tethers"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="twinned tethers"}},nil}
+c["Allocates Two-Pronged Attack"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="two-pronged attack"}},nil}
+c["Allocates Unbending"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="unbending"}},nil}
+c["Allocates Unbound Forces"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="unbound forces"}},nil}
+c["Allocates Unbreaking"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="unbreaking"}},nil}
+c["Allocates Unerring Impact"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="unerring impact"}},nil}
+c["Allocates Unexpected Finesse"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="unexpected finesse"}},nil}
+c["Allocates Unforgiving"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="unforgiving"}},nil}
+c["Allocates Unhindered"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="unhindered"}},nil}
+c["Allocates Unimpeded"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="unimpeded"}},nil}
+c["Allocates Unnatural Resilience"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="unnatural resilience"}},nil}
+c["Allocates Unsight"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="unsight"}},nil}
+c["Allocates Unstoppable Barrier"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="unstoppable barrier"}},nil}
+c["Allocates Urgent Call"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="urgent call"}},nil}
+c["Allocates Vale Shelter"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="vale shelter"}},nil}
+c["Allocates Vengeance"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="vengeance"}},nil}
+c["Allocates Vengeful Fury"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="vengeful fury"}},nil}
+c["Allocates Versatile Arms"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="versatile arms"}},nil}
+c["Allocates Viciousness"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="viciousness"}},nil}
+c["Allocates Vigilance"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="vigilance"}},nil}
+c["Allocates Vile Mending"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="vile mending"}},nil}
+c["Allocates Vile Wounds"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="vile wounds"}},nil}
+c["Allocates Vocal Empowerment"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="vocal empowerment"}},nil}
+c["Allocates Void"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="void"}},nil}
+c["Allocates Volatile Catalyst"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="volatile catalyst"}},nil}
+c["Allocates Volatile Grenades"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="volatile grenades"}},nil}
+c["Allocates Volcanic Skin"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="volcanic skin"}},nil}
+c["Allocates Voracious"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="voracious"}},nil}
+c["Allocates Vulgar Methods"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="vulgar methods"}},nil}
+c["Allocates Warding Fetish"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="warding fetish"}},nil}
+c["Allocates Warding Potions"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="warding potions"}},nil}
+c["Allocates Warm the Heart"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="warm the heart"}},nil}
+c["Allocates Wasting"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="wasting"}},nil}
+c["Allocates Watchtowers"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="watchtowers"}},nil}
+c["Allocates Waters of Life"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="waters of life"}},nil}
+c["Allocates Way of the Wind"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="way of the wind"}},nil}
+c["Allocates Wellspring"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="wellspring"}},nil}
+c["Allocates Whirling Assault"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="whirling assault"}},nil}
+c["Allocates Whirling Onslaught"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="whirling onslaught"}},nil}
+c["Allocates Wide Barrier"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="wide barrier"}},nil}
+c["Allocates Wild Storm"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="wild storm"}},nil}
+c["Allocates Wither Away"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="wither away"}},nil}
+c["Allocates Woodland Aspect"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="woodland aspect"}},nil}
+c["Allocates Zone of Control"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="zone of control"}},nil}
 c["Alternating every 5 seconds:"]={nil,"Alternating every 5 seconds: "}
 c["Alternating every 5 seconds: Take 30% less Damage from Hits"]={nil,"Alternating every 5 seconds: Take 30% less Damage from Hits "}
 c["Always deals Critical Hits against Heavy Stunned Enemies"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="HeavyStunned"},[2]={type="Condition",var="{Hand}Attack"},flags=0,keywordFlags=0,name="CritChance",type="OVERRIDE",value=100}},nil}

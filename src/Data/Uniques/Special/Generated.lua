@@ -95,3 +95,34 @@ do
 	table.insert(prism, "Corrupted")
 	table.insert(data.uniques.generated, table.concat(prism, "\n"))
 end
+
+local treedata = LoadModule("TreeData/0_1/tree.lua")
+local nodes = treedata.nodes
+
+do
+    local megalomaniac = {
+        "Megalomaniac",
+        "Diamond",
+        "Limited to: 1",
+        "Has Alt Variant: true",
+        "Has Alt Variant Two: true",
+    }
+    local megalomaniacMods = { }
+    for _, node in pairs(nodes) do
+        if node.isNotable == true and node.ascendancyName == nil then
+            table.insert(megalomaniacMods, node)
+        end
+    end
+    table.sort(megalomaniacMods, function(a, b) return a.name < b.name end)  -- Sort by name, if needed
+    for _, node in ipairs(megalomaniacMods) do
+        table.insert(megalomaniac, "Variant: " .. node.name)  -- Add the name of the node to megalomaniac
+    end
+    table.insert(megalomaniac, "Selected Variant: 1")
+    table.insert(megalomaniac, "Selected Alt Variant: 2")
+    table.insert(megalomaniac, "Selected Alt Variant: 3")
+	for index, node in ipairs(megalomaniacMods) do
+		table.insert(megalomaniac, "{variant:"..index.."}Allocates "..node.name)
+	end
+	table.insert(megalomaniac, "Corrupted")
+    table.insert(data.uniques.generated, table.concat(megalomaniac, "\n"))
+end
