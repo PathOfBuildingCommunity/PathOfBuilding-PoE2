@@ -923,7 +923,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 				local srcList = item.modList or (item.slotModList and item.slotModList[slot.slotNum]) or {}
 
 				-- Remove Spirit Base if CannotGainSpiritFromEquipment flag is true
-				if nodesModsList:Flag(nil, "CannotGainSpiritFromEquipment") then
+				if nodesModsList:Flag(nil, "CannotGainSpiritFromEquipment") and item.name ~= "Morior Invictus, Grand Regalia" then
 					srcList = copyTable(srcList, true)
 					for index = #srcList, 1, -1 do
 						local mod = srcList[index]
