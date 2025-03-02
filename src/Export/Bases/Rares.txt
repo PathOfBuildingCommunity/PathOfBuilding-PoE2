@@ -71,8 +71,8 @@ return {
 #setBase Plate Belt, [ Prefix: IncreasedPhysicalDamageReductionRating5, Prefix: IncreasedLife7]
 
 -- Quivers
-
-#setBase Visceral Quiver, Critical %s, [ Prefix: DamageWithBows3, Suffix: AttackCriticalStrikeMultiplier3, Suffix: AttackCriticalStrikeChance3]
+#setBase Toxic Quiver, Poison %s, [ Prefix: DamageWithBows4, Suffix: IncreasedAttackSpeed3, Suffix: GlobalProjectileSkillGemLevel1]
+#setBase Visceral Quiver, Critical %s, [ Prefix: DamageWithBows4, Suffix: AttackCriticalStrikeMultiplier3, Suffix: AttackCriticalStrikeChance3]
 
 -- Sceptres
 #setBase Rattling Sceptre, Minion %s, [ Prefix: LocalIncreasedSpiritPercent4, Prefix: NearbyAlliesAllDamage4, Suffix: GlobalMinionSpellSkillGemLevelWeapon3]
@@ -127,20 +127,37 @@ return {
 #setBase Expert Long Quarterstaff, Physical %s, [ ]
 #setBase Expert Long Quarterstaff, Elemental %s, [ ]
 #setBase Expert Crackling Quarterstaff, Elemental %s, [ ]
--- Spell Staffs
+-- Spell Staves
 #setBase Ashen Staff, Fire %s, [ ] -- problem, used the two hand modifiers
 #setBase Gelid Staff, Cold %s, [ ] -- problem, used the two hand modifiers
 #setBase Voltaic Staff, Lightning %s, [ ] -- problem, used the two hand modifiers
 #setBase Pyrophyte Staff, Fire %s, [ ] -- problem, used the two hand modifiers
 #setBase Chiming Staff, Elemental %s, [ ] -- problem, used the two hand modifiers
-
-
 -- Wands
 #setBase Withered Wand, Chaos %s, [ Prefix: ChaosDamagePrefixOnWeapon4, Prefix: SpellDamageOnWeapon4, Prefix: SpellDamageAndManaOnWeapon4, Suffix: GlobalSpellGemsLevelWeapon3]
 #setBase Bone Wand, Physical %s, [ Prefix: PhysicalDamagePrefixOnWeapon4, Prefix: SpellDamageOnWeapon4, Prefix: SpellDamageAndManaOnWeapon4, Suffix: GlobalSpellGemsLevelWeapon3]
 #setBase Siphoning Wand, Elemental %s, [ Prefix: FireDamagePrefixOnWeapon4, Prefix: ColdDamagePrefixOnWeapon4, Prefix: LightningDamagePrefixOnWeapon4, Suffix: GlobalSpellGemsLevelWeapon3]
 #setBase Volatile Wand, Fire %s, [ Prefix: FireDamagePrefixOnWeapon4, Prefix: SpellDamageOnWeapon4, Prefix: SpellDamageAndManaOnWeapon4, Suffix: GlobalSpellGemsLevelWeapon3]
 #setBase Attuned Wand, Elemental %s, [ Prefix: FireDamagePrefixOnWeapon4, Prefix: ColdDamagePrefixOnWeapon4, Prefix: LightningDamagePrefixOnWeapon4, Suffix: GlobalSpellGemsLevelWeapon3]
+
+-- Not in game yet. Flails are throwing an error on hover too
+---- One Hand Swords
+---setBase Dark Blade, Physical %s, [ ]
+---setBase Dark Blade, Elemental %s, [ ]
+---- Two Hand Swords
+---setBase Ultra Greatsword, Physical %s, [ ]
+---setBase Ultra Greatsword, Elemental %s, [ ]
+---- Spears
+---setBase Helix Spear, Physical %s, [ Prefix: LocalIncreasedPhysicalDamagePercent5, Prefix: LocalIncreasedPhysicalDamagePercentAndAccuracyRating5, Prefix: LocalAddedPhysicalDamage6, Suffix: LocalIncreasedAttackSpeed3, Suffix: LocalCriticalStrikeChance3, Suffix: LocalCriticalMultiplier4]
+---setBase Helix Spear, Elemental %s, [ Prefix: LocalAddedFireDamage8, Prefix: LocalAddedColdDamage8, Prefix: LocalAddedLightningDamage8, Suffix: LocalIncreasedAttackSpeed3, Suffix: LocalCriticalStrikeChance3, Suffix: LocalCriticalMultiplier4]
+---setBase Striking Spear, Elemental %s, [ Prefix: LocalAddedFireDamage8, Prefix: LocalAddedColdDamage8, Prefix: LocalAddedLightningDamage8, Suffix: LocalIncreasedAttackSpeed3, Suffix: LocalCriticalStrikeChance3, Suffix: LocalCriticalMultiplier4]
+---- Flails
+---- One Hand Axes
+---setBase Dread Hatchet, Physical %s, [ ]
+---setBase Dread Hatchet, Elemental %s, [ ]
+---- Two Hand Axes
+---setBase Vile Greataxe, Physical %s, [ ]
+---setBase Vile Greataxe, Elemental %s, [ ]
 
 -- Jewels
 #setBase Ruby, [ ]

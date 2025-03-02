@@ -6,38 +6,24 @@ local itemBases = ...
 
 #subType Armour
 #baseMatch Metadata/Items/Armours/Boots/FourBootsStr%d+
-#baseMatch Metadata/Items/Armours/Boots/FourBootsStr%d+Cruel
-#baseMatch Metadata/Items/Armours/Boots/FourBootsStr%d+Endgame
 
 #subType Evasion
 #baseMatch Metadata/Items/Armours/Boots/FourBootsDex%d+
-#baseMatch Metadata/Items/Armours/Boots/FourBootsDex%d+Cruel
-#baseMatch Metadata/Items/Armours/Boots/FourBootsDex%d+Endgame
 
 #subType Energy Shield
 #baseMatch Metadata/Items/Armours/Boots/FourBootsInt%d+
-#baseMatch Metadata/Items/Armours/Boots/FourBootsInt%d+Cruel
-#baseMatch Metadata/Items/Armours/Boots/FourBootsInt%d+Endgame
 
 #subType Armour/Evasion
 #baseMatch Metadata/Items/Armours/Boots/FourBootsStrDex%d+
-#baseMatch Metadata/Items/Armours/Boots/FourBootsStrDex%d+Cruel
-#baseMatch Metadata/Items/Armours/Boots/FourBootsStrDex%d+Endgame
 
 #subType Armour/Energy Shield
 #baseMatch Metadata/Items/Armours/Boots/FourBootsStrInt%d+
-#baseMatch Metadata/Items/Armours/Boots/FourBootsStrInt%d+Cruel
-#baseMatch Metadata/Items/Armours/Boots/FourBootsStrInt%d+Endgame
 
 #subType Evasion/Energy Shield
 #baseMatch Metadata/Items/Armours/Boots/FourBootsDexInt%d+
-#baseMatch Metadata/Items/Armours/Boots/FourBootsDexInt%d+Cruel
-#baseMatch Metadata/Items/Armours/Boots/FourBootsDexInt%d+Endgame
 
 #subType Armour/Evasion/Energy Shield
 #baseMatch Metadata/Items/Armours/Boots/FourBootsStrDexInt%d+
-#baseMatch Metadata/Items/Armours/Boots/FourBootsStrDexInt%d+Cruel
-#baseMatch Metadata/Items/Armours/Boots/FourBootsStrDexInt%d+Endgame
 
 #subType
 #base Metadata/Items/Armours/Boots/BootsDemigods1

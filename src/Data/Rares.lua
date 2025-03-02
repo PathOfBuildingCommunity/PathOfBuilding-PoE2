@@ -345,12 +345,18 @@ Prefix: IncreasedPhysicalDamageReductionRating5
 Prefix: IncreasedLife7
 ]],
 -- Quivers
-
 [[
+Poison Quiver
+Toxic Quiver
+Crafted: true
+Prefix: DamageWithBows4
+Suffix: IncreasedAttackSpeed3
+Suffix: GlobalProjectileSkillGemLevel1
+]],[[
 Critical Quiver
 Visceral Quiver
 Crafted: true
-Prefix: DamageWithBows3
+Prefix: DamageWithBows4
 Suffix: AttackCriticalStrikeMultiplier3
 Suffix: AttackCriticalStrikeChance3
 ]],
@@ -751,7 +757,7 @@ Prefix: LocalAddedLightningDamageTwoHand8
 Suffix: LocalIncreasedAttackSpeed3
 Suffix: LocalCriticalStrikeChance3
 Suffix: LocalCriticalMultiplier4
-]],-- Spell Staffs
+]],-- Spell Staves
 [[
 Fire Staff
 Ashen Staff
@@ -778,9 +784,7 @@ Prefix: LocalAddedLightningDamageTwoHand8
 Suffix: LocalIncreasedAttackSpeed3
 Suffix: LocalCriticalStrikeChance3
 Suffix: LocalCriticalMultiplier4
-]],
-
--- Wands
+]],-- Wands
 [[
 Chaos Wand
 Withered Wand
@@ -822,6 +826,25 @@ Prefix: ColdDamagePrefixOnWeapon4
 Prefix: LightningDamagePrefixOnWeapon4
 Suffix: GlobalSpellGemsLevelWeapon3
 ]],
+-- Not in game yet. Flails are throwing an error on hover too
+---- One Hand Swords
+---setBase Dark Blade, Physical %s, [ ]
+---setBase Dark Blade, Elemental %s, [ ]
+---- Two Hand Swords
+---setBase Ultra Greatsword, Physical %s, [ ]
+---setBase Ultra Greatsword, Elemental %s, [ ]
+---- Spears
+---setBase Helix Spear, Physical %s, [ Prefix: LocalIncreasedPhysicalDamagePercent5, Prefix: LocalIncreasedPhysicalDamagePercentAndAccuracyRating5, Prefix: LocalAddedPhysicalDamage6, Suffix: LocalIncreasedAttackSpeed3, Suffix: LocalCriticalStrikeChance3, Suffix: LocalCriticalMultiplier4]
+---setBase Helix Spear, Elemental %s, [ Prefix: LocalAddedFireDamage8, Prefix: LocalAddedColdDamage8, Prefix: LocalAddedLightningDamage8, Suffix: LocalIncreasedAttackSpeed3, Suffix: LocalCriticalStrikeChance3, Suffix: LocalCriticalMultiplier4]
+---setBase Striking Spear, Elemental %s, [ Prefix: LocalAddedFireDamage8, Prefix: LocalAddedColdDamage8, Prefix: LocalAddedLightningDamage8, Suffix: LocalIncreasedAttackSpeed3, Suffix: LocalCriticalStrikeChance3, Suffix: LocalCriticalMultiplier4]
+---- Flails
+---- One Hand Axes
+---setBase Dread Hatchet, Physical %s, [ ]
+---setBase Dread Hatchet, Elemental %s, [ ]
+---- Two Hand Axes
+---setBase Vile Greataxe, Physical %s, [ ]
+---setBase Vile Greataxe, Elemental %s, [ ]
+
 -- Jewels
 [[
 Jewel
