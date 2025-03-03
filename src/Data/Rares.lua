@@ -393,6 +393,7 @@ Implicits: 3
 {variant:3}Grants Skill: Level (1-20) Purity of Lightning 
 ]],
 -- Weapons
+
 -- Bows
 [[
 Physical Bow
@@ -838,6 +839,8 @@ Suffix: GlobalSpellGemsLevelWeapon3
 ---setBase Helix Spear, Elemental %s, [ Prefix: LocalAddedFireDamage8, Prefix: LocalAddedColdDamage8, Prefix: LocalAddedLightningDamage8, Suffix: LocalIncreasedAttackSpeed3, Suffix: LocalCriticalStrikeChance3, Suffix: LocalCriticalMultiplier4]
 ---setBase Striking Spear, Elemental %s, [ Prefix: LocalAddedFireDamage8, Prefix: LocalAddedColdDamage8, Prefix: LocalAddedLightningDamage8, Suffix: LocalIncreasedAttackSpeed3, Suffix: LocalCriticalStrikeChance3, Suffix: LocalCriticalMultiplier4]
 ---- Flails
+---setBase Abyssal Flail, Physical %s, [ ] -- For some reason Flails and Spears don't grab the BaseGroup like maces and axes do.
+---setBase Abyssal Flail, Elemental %s, [ ]
 ---- One Hand Axes
 ---setBase Dread Hatchet, Physical %s, [ ]
 ---setBase Dread Hatchet, Elemental %s, [ ]
