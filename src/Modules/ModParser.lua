@@ -126,7 +126,7 @@ local formList = {
 	["^are "] = "FLAG",
 	["^gain "] = "FLAG",
 	["^you gain "] = "FLAG",
-	["is (%-?%d+)%%? "] = "OVERRIDE"
+	["is (%-?%d+)%%? "] = "OVERRIDE",
 }
 
 -- Map of modifier names
@@ -5325,7 +5325,7 @@ local specialModList = {
 	} end,
 	["physical damage reduction from armour is based on your combined armour and evasion rating"] = { mod("EvasionAddsToPdr", "FLAG", true) }
 }
-	for _, name in pairs(data.keystones) do
+for _, name in pairs(data.keystones) do
 	specialModList[name:lower()] = { mod("Keystone", "LIST", name) }
 end
 local oldList = specialModList

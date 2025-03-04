@@ -793,7 +793,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 					end)
 					if strippedModeLine == runeStrippedModeLine then
 						modLine.soulcore = name:match("Soul Core") ~= nil
-						modLine.runeCount = round(value/runeValue, 0)
+						modLine.runeCount = round(value/runeValue)
 						if shouldFixRunesOnItem then
 							for i = 1, modLine.runeCount do
 								t_insert(self.runes, name)
@@ -1533,7 +1533,7 @@ function ItemClass:BuildModList()
 				self.classRestriction = modLine.line:gsub("{variant:([%d,]+)}", ""):match("Requires Class (.+)")
 			end
 			-- handle understood modifier variable properties
-			if not (modLine.extra) then
+			if not modLine.extra then
 				if modLine.range then
 					-- Check if line actually has a range
 					if modLine.line:find("%((%-?%d+%.?%d*)%-(%-?%d+%.?%d*)%)") then
@@ -1556,10 +1556,7 @@ function ItemClass:BuildModList()
 				if modLine.modTags and #modLine.modTags > 0 then
 					self.hasModTags = true
 				end
-			else
-				
 			end
-
 		end
 	end
 	for _, modLine in ipairs(self.enchantModLines) do
