@@ -126,7 +126,7 @@ local formList = {
 	["^are "] = "FLAG",
 	["^gain "] = "FLAG",
 	["^you gain "] = "FLAG",
-	["is (%-?%d+)%%? "] = "OVERRIDE",
+	["is (%-?%d+)%%? "] = "OVERRIDE"
 }
 
 -- Map of modifier names
@@ -3168,6 +3168,10 @@ local specialModList = {
 	} end,
 	["exsanguinate debuffs deal fire damage per second instead of physical damage per second"] = { flag("Condition:ExsanguinateDebuffIsFireDamage", { type = "SkillName", skillName = "Exsanguinate", includeTransfigured = true })},
 	["reap debuffs deal fire damage per second instead of physical damage per second"] = { flag("Condition:ReapDebuffIsFireDamage", { type = "SkillName", skillName = "Reap" })},
+	["convert (%d+)%% of requirements to (%a+)"] = function(_, num, attr) 	return {
+			flag("AttributeRequirementsConverted"),
+			mod("AttributeRequirementsConvertedTo" .. attr:gsub("^%l", string.upper), "BASE", num),
+		} end,
 	-- Crit
 	["your critical hit chance is lucky"] = { flag("CritChanceLucky") },
 	["your critical hit chance is lucky while on low life"] = { flag("CritChanceLucky", { type = "Condition", var = "LowLife" }) },
@@ -5321,7 +5325,7 @@ local specialModList = {
 	} end,
 	["physical damage reduction from armour is based on your combined armour and evasion rating"] = { mod("EvasionAddsToPdr", "FLAG", true) }
 }
-for _, name in pairs(data.keystones) do
+	for _, name in pairs(data.keystones) do
 	specialModList[name:lower()] = { mod("Keystone", "LIST", name) }
 end
 local oldList = specialModList

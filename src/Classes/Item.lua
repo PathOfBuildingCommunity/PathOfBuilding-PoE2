@@ -793,7 +793,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 					end)
 					if strippedModeLine == runeStrippedModeLine then
 						modLine.soulcore = name:match("Soul Core") ~= nil
-						modLine.runeCount = round(value/runeValue)
+						modLine.runeCount = round(value/runeValue, 0)
 						if shouldFixRunesOnItem then
 							for i = 1, modLine.runeCount do
 								t_insert(self.runes, name)
@@ -1533,7 +1533,7 @@ function ItemClass:BuildModList()
 				self.classRestriction = modLine.line:gsub("{variant:([%d,]+)}", ""):match("Requires Class (.+)")
 			end
 			-- handle understood modifier variable properties
-			if not modLine.extra then
+			if not (modLine.extra) then
 				if modLine.range then
 					-- Check if line actually has a range
 					if modLine.line:find("%((%-?%d+%.?%d*)%-(%-?%d+%.?%d*)%)") then
@@ -1556,7 +1556,10 @@ function ItemClass:BuildModList()
 				if modLine.modTags and #modLine.modTags > 0 then
 					self.hasModTags = true
 				end
+			else
+				
 			end
+
 		end
 	end
 	for _, modLine in ipairs(self.enchantModLines) do
@@ -1583,6 +1586,17 @@ function ItemClass:BuildModList()
 		self.requirements.strMod = 0
 		self.requirements.dexMod = 0
 		self.requirements.intMod = 0
+	elseif calcLocal(baseList, "AttributeRequirementsConverted", "FLAG", 0) then
+		local strConversion = calcLocal(baseList, "AttributeRequirementsConvertedToStrength", "BASE", 0) / 100  
+		local dexConversion = calcLocal(baseList, "AttributeRequirementsConvertedToDexterity", "BASE", 0) / 100 
+		local intConversion = calcLocal(baseList, "AttributeRequirementsConvertedToIntelligence", "BASE", 0) / 100 
+		self.requirements.intBase = intConversion * (self.requirements.str + self.requirements.dex) + (self.requirements.int + calcLocal(baseList, "IntRequirement", "BASE", 0)) + (-1 * (strConversion * self.requirements.int)) + (-1 * (dexConversion * self.requirements.int))
+		self.requirements.intMod = m_floor((self.requirements.intBase) * (1 + calcLocal(baseList, "IntRequirement", "INC", 0) / 100))
+		self.requirements.dexBase = dexConversion * (self.requirements.str + self.requirements.int) + (self.requirements.dex + calcLocal(baseList, "DexRequirement", "BASE", 0)) + (-1 * (strConversion * self.requirements.dex)) + (-1 * (intConversion * self.requirements.dex))
+		self.requirements.dexMod = m_floor( self.requirements.dexBase * (1 + calcLocal(baseList, "DexRequirement", "INC", 0) / 100))
+		self.requirements.strBase = strConversion * (self.requirements.int + self.requirements.dex) + (self.requirements.str + calcLocal(baseList, "StrRequirement", "BASE", 0)) + (-1 * (dexConversion * self.requirements.str)) + (-1 * (intConversion * self.requirements.str))
+		self.requirements.strMod = m_floor(self.requirements.strBase * (1 + calcLocal(baseList, "StrRequirement", "INC", 0) / 100))
+		
 	else
 		self.requirements.strMod = m_floor((self.requirements.str + calcLocal(baseList, "StrRequirement", "BASE", 0)) * (1 + calcLocal(baseList, "StrRequirement", "INC", 0) / 100))
 		self.requirements.dexMod = m_floor((self.requirements.dex + calcLocal(baseList, "DexRequirement", "BASE", 0)) * (1 + calcLocal(baseList, "DexRequirement", "INC", 0) / 100))
