@@ -210,7 +210,7 @@ local ItemsTabClass = newClass("ItemsTab", "UndoHandler", "ControlHost", "Contro
 	--function()
 	--	return self.height < 980
 	--end
-		self.selectedDB = "UNIQUE"
+	self.selectedDB = "UNIQUE"
 
 	-- Uniques Button
 	self.controls.uniqueButton = new("ButtonControl", {"LEFT", self.controls.selectDBLabel, "RIGHT"}, {4, 0, 110, 18}, "Uniques", function()
@@ -808,15 +808,15 @@ holding Shift will put it in the second.]])
 	t_insert(self.controls.uniqueDB.dragTargetList, self.controls.itemList)
 	t_insert(self.controls.uniqueDB.dragTargetList, self.controls.sharedItemList)
 	t_insert(self.controls.uniqueDB.dragTargetList, build.controls.mainSkillMinion)
-	--t_insert(self.controls.rareDB.dragTargetList, self.controls.itemList)
-	--t_insert(self.controls.rareDB.dragTargetList, self.controls.sharedItemList)
-	--t_insert(self.controls.rareDB.dragTargetList, build.controls.mainSkillMinion)
+	t_insert(self.controls.rareDB.dragTargetList, self.controls.itemList)
+	t_insert(self.controls.rareDB.dragTargetList, self.controls.sharedItemList)
+	t_insert(self.controls.rareDB.dragTargetList, build.controls.mainSkillMinion)
 	t_insert(self.controls.sharedItemList.dragTargetList, self.controls.itemList)
 	t_insert(self.controls.sharedItemList.dragTargetList, build.controls.mainSkillMinion)
 	for _, slot in pairs(self.slots) do
 		t_insert(self.controls.itemList.dragTargetList, slot)
 		t_insert(self.controls.uniqueDB.dragTargetList, slot)
-		--t_insert(self.controls.rareDB.dragTargetList, slot)
+		t_insert(self.controls.rareDB.dragTargetList, slot)
 		t_insert(self.controls.sharedItemList.dragTargetList, slot)
 	end
 
