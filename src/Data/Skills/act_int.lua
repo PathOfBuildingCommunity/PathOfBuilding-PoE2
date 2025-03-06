@@ -4198,7 +4198,6 @@ skills["DarkEffigyPlayer"] = {
 	skillTotemId = 24,
 	castTime = 1,
 	qualityStats = {
-		{ "withered_on_hit_for_2_seconds_%_chance", 2.5 },
 	},
 	levels = {
 		[1] = { levelRequirement = 0, cost = { Mana = 14, }, },
@@ -4319,6 +4318,7 @@ skills["DarkEffigyProjectilePlayer"] = {
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Projectile] = true, [SkillType.Chaos] = true, [SkillType.Area] = true, [SkillType.AreaSpell] = true, [SkillType.ProjectilesNumberModifiersNotApplied] = true, [SkillType.ProjectileNoCollision] = true, },
 	castTime = 1,
 	qualityStats = {
+		{ "withered_on_hit_for_2_seconds_%_chance", 2.5 },
 	},
 	levels = {
 		[1] = { critChance = 11, levelRequirement = 0, },

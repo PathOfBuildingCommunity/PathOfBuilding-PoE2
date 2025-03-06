@@ -1919,7 +1919,7 @@ skills["DefianceBannerPlayer"] = {
 	skillTypes = { [SkillType.Banner] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Nonpathing] = true, },
 	castTime = 1,
 	qualityStats = {
-		{ "non_skill_base_all_damage_%_to_gain_as_lightning_with_spells_from_buff", 0.5 },
+		{ "banner_buff_effect_+%_final_per_resource", 0.1 },
 	},
 	levels = {
 		[1] = { levelRequirement = 0, },
@@ -1976,6 +1976,9 @@ skills["DefianceBannerPlayer"] = {
 				["skill_defiance_banner_movement_speed_+%"] = {
 					mod("MovementSpeed", "INC", nil, 0, 0, { type = "Condition", var = "BannerPlanted" }, { type = "GlobalEffect", effectType = "Aura"}),
 				},
+				["quality_display_banner_buff_effect_+%_final_per_resource_is_gem"] = {
+					-- Display Only
+				},
 			},
 			baseFlags = {
 			},
@@ -1992,6 +1995,7 @@ skills["DefianceBannerPlayer"] = {
 				"skill_defiance_banner_movement_speed_+%",
 				"can_perform_skill_while_moving",
 				"base_deal_no_damage",
+				"quality_display_banner_buff_effect_+%_final_per_resource_is_gem",
 			},
 			levels = {
 				[1] = { 6000, 6, 5, statInterpolation = { 1, 1, 1, }, actorLevel = 1, },
@@ -2145,6 +2149,11 @@ skills["DreadBannerPlayer"] = {
 			label = "Dread Banner",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "dread_banner",
+			statMap = {
+				["quality_display_banner_buff_effect_+%_final_per_resource_is_gem"] = {
+					-- Display Only
+				},
+			},
 			baseFlags = {
 				duration = true,
 			},
@@ -2161,6 +2170,7 @@ skills["DreadBannerPlayer"] = {
 				"skill_dread_banner_flask_gen_per_min",
 				"can_perform_skill_while_moving",
 				"base_deal_no_damage",
+				"quality_display_banner_buff_effect_+%_final_per_resource_is_gem",
 			},
 			levels = {
 				[1] = { 6000, 12, 10, statInterpolation = { 1, 1, 1, }, actorLevel = 1, },
@@ -12570,6 +12580,9 @@ skills["WarBannerPlayer"] = {
 				["skill_war_banner_accuracy_+%"] = {
 					mod("Accuracy", "INC", nil, 0, 0, { type = "Condition", var = "BannerPlanted" }, { type = "GlobalEffect", effectType = "Aura"}),
 				},
+				["quality_display_banner_buff_effect_+%_final_per_resource_is_gem"] = {
+					-- Display Only
+				},
 			},
 			baseFlags = {
 			},
@@ -12586,6 +12599,7 @@ skills["WarBannerPlayer"] = {
 				"skill_war_banner_accuracy_+%",
 				"can_perform_skill_while_moving",
 				"base_deal_no_damage",
+				"quality_display_banner_buff_effect_+%_final_per_resource_is_gem",
 			},
 			levels = {
 				[1] = { 6000, 5, 30, statInterpolation = { 1, 1, 1, }, actorLevel = 1, },

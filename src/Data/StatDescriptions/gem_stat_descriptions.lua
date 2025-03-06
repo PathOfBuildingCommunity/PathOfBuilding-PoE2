@@ -15261,8 +15261,8 @@ return {
 				},
 				limit={
 					[1]={
-						[1]="#",
-						[2]=-1,
+						[1]=1,
+						[2]="#"
 					}
 				},
 				text="Skills Empowered by Supported Skills deal {0}% less Damage"
