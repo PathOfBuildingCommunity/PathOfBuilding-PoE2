@@ -134,9 +134,6 @@ statMap = {
 	["skill_defiance_banner_movement_speed_+%"] = {
 		mod("MovementSpeed", "INC", nil, 0, 0, { type = "Condition", var = "BannerPlanted" }, { type = "GlobalEffect", effectType = "Aura"}),
 	},
-	["quality_display_banner_buff_effect_+%_final_per_resource_is_gem"] = {
-		-- Display Only
-	},
 },
 #mods
 #skillEnd
@@ -147,11 +144,6 @@ statMap = {
 #skill DreadBannerPlayer
 #set DreadBannerPlayer
 #flags duration
-statMap = {
-	["quality_display_banner_buff_effect_+%_final_per_resource_is_gem"] = {
-		-- Display Only
-	},
-},
 #mods
 #skillEnd
 
@@ -675,9 +667,6 @@ statMap = {
 	},
 	["skill_war_banner_accuracy_+%"] = {
 		mod("Accuracy", "INC", nil, 0, 0, { type = "Condition", var = "BannerPlanted" }, { type = "GlobalEffect", effectType = "Aura"}),
-	},
-	["quality_display_banner_buff_effect_+%_final_per_resource_is_gem"] = {
-		-- Display Only
 	},
 },
 #mods

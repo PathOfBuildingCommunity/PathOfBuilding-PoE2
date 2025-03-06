@@ -1976,9 +1976,6 @@ skills["DefianceBannerPlayer"] = {
 				["skill_defiance_banner_movement_speed_+%"] = {
 					mod("MovementSpeed", "INC", nil, 0, 0, { type = "Condition", var = "BannerPlanted" }, { type = "GlobalEffect", effectType = "Aura"}),
 				},
-				["quality_display_banner_buff_effect_+%_final_per_resource_is_gem"] = {
-					-- Display Only
-				},
 			},
 			baseFlags = {
 			},
@@ -2149,11 +2146,6 @@ skills["DreadBannerPlayer"] = {
 			label = "Dread Banner",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "dread_banner",
-			statMap = {
-				["quality_display_banner_buff_effect_+%_final_per_resource_is_gem"] = {
-					-- Display Only
-				},
-			},
 			baseFlags = {
 				duration = true,
 			},
@@ -12579,9 +12571,6 @@ skills["WarBannerPlayer"] = {
 				},
 				["skill_war_banner_accuracy_+%"] = {
 					mod("Accuracy", "INC", nil, 0, 0, { type = "Condition", var = "BannerPlanted" }, { type = "GlobalEffect", effectType = "Aura"}),
-				},
-				["quality_display_banner_buff_effect_+%_final_per_resource_is_gem"] = {
-					-- Display Only
 				},
 			},
 			baseFlags = {

@@ -2434,5 +2434,8 @@ return {
 },
 ["nova_skills_cast_at_target_location"] = {
 	-- Display only
-}
+},
+["quality_display_banner_buff_effect_+%_final_per_resource_is_gem"] = {
+	-- Display Only
+},
 }
