@@ -148,6 +148,16 @@ return {
 ---- Two Hand Swords
 ---setBase Ultra Greatsword, Physical %s, [ ]
 ---setBase Ultra Greatsword, Elemental %s, [ ]
+--- Claws
+---setBase Talon Claw, Physical %s, [ ]
+---setBase Talon Claw, Elemental %s, [ ]
+--- Daggers
+---setBase Cinquedea, Physical %s, [ ]
+---setBase Cinquedea, Elemental %s, [ ]
+---setBase Mail Breaker, Physical %s, [ ]
+---setBase Mail Breaker, Elemental %s, [ ]
+---setBase Bloodletting Dagger, Physical %s, [ ]
+---setBase Bloodletting Dagger, Elemental %s, [ ]
 ---- Spears
 ---setBase Helix Spear, Physical %s, [ Prefix: LocalIncreasedPhysicalDamagePercent5, Prefix: LocalIncreasedPhysicalDamagePercentAndAccuracyRating5, Prefix: LocalAddedPhysicalDamage6, Suffix: LocalIncreasedAttackSpeed3, Suffix: LocalCriticalStrikeChance3, Suffix: LocalCriticalMultiplier4]
 ---setBase Helix Spear, Elemental %s, [ Prefix: LocalAddedFireDamage8, Prefix: LocalAddedColdDamage8, Prefix: LocalAddedLightningDamage8, Suffix: LocalIncreasedAttackSpeed3, Suffix: LocalCriticalStrikeChance3, Suffix: LocalCriticalMultiplier4]
