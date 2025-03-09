@@ -1978,6 +1978,7 @@ skills["DefianceBannerPlayer"] = {
 				},
 			},
 			baseFlags = {
+				duration = true,
 			},
 			constantStats = {
 				{ "active_skill_base_area_of_effect_radius", 40 },
@@ -12574,6 +12575,7 @@ skills["WarBannerPlayer"] = {
 				},
 			},
 			baseFlags = {
+				duration = true,
 			},
 			constantStats = {
 				{ "active_skill_base_area_of_effect_radius", 40 },

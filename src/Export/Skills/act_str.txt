@@ -125,7 +125,7 @@ local skills, mod, flag, skill = ...
 
 #skill DefianceBannerPlayer
 #set DefianceBannerPlayer
-#flags
+#flags duration
 statMap = {
 	["skill_defiance_banner_armour_evasion_+%_final"] = {
 		mod("Armour", "MORE", nil, 0, 0, { type = "Condition", var = "BannerPlanted" }, { type = "GlobalEffect", effectType = "Aura"}),
@@ -660,7 +660,7 @@ statMap = {
 
 #skill WarBannerPlayer
 #set WarBannerPlayer
-#flags
+#flags duration
 statMap = {
 	["skill_war_banner_attack_damage_+%_final"] = {
 		mod("Damage", "MORE", nil,  ModFlag.Attack, 0, { type = "Condition", var = "BannerPlanted" }, { type = "GlobalEffect", effectType = "Aura"}),
