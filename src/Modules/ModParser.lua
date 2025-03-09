@@ -4279,6 +4279,8 @@ local specialModList = {
 	["cannot evade enemy attacks"] = { flag("CannotEvade") },
 	["attacks cannot hit you"] = { flag("AlwaysEvade") },
 	["attacks against you always hit"] = { flag("CannotEvade") },
+	["modifiers to maximum block chance instead apply to maximum resistances"] = { flag("MaxBlockChanceModsApplyMaxResist") },
+	["you cannot block"] = { flag("CannotBlockAttacks")},
 	["cannot block"] = { flag("CannotBlockAttacks"), flag("CannotBlockSpells") },
 	["cannot block while you have no energy shield"] = { flag("CannotBlockAttacks", { type = "Condition", var = "HaveEnergyShield", neg = true }), flag("CannotBlockSpells", { type = "Condition", var = "HaveEnergyShield", neg = true }) },
 	["cannot block attacks"] = { flag("CannotBlockAttacks") },
