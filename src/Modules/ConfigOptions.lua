@@ -1766,6 +1766,7 @@ Huge sets the radius to 11.
 			build.configTab.varControls['enemyArmour']:SetPlaceholder(data.monsterArmourTable[defaultLevel], true)
 			build.configTab.varControls['enemyEvasion']:SetPlaceholder(data.monsterEvasionTable[defaultLevel], true)
 		elseif val == "Boss" then
+			enemyModList:NewMod("Condition:Unique", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
 			enemyModList:NewMod("Condition:RareOrUnique", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
 			modList:NewMod("WarcryPower", "BASE", 20, "Boss")
 			modList:NewMod("Multiplier:EnemyPower", "BASE", 20, "Boss")
@@ -1799,6 +1800,7 @@ Huge sets the radius to 11.
 			build.configTab.varControls['enemyArmour']:SetPlaceholder(data.monsterArmourTable[defaultLevel], true)
 			build.configTab.varControls['enemyEvasion']:SetPlaceholder(data.monsterEvasionTable[defaultLevel], true)
 		elseif val == "Pinnacle" then
+			enemyModList:NewMod("Condition:Unique", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
 			enemyModList:NewMod("Condition:RareOrUnique", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
 			enemyModList:NewMod("Condition:PinnacleBoss", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
 			modList:NewMod("WarcryPower", "BASE", 20, "Boss")
@@ -1831,6 +1833,7 @@ Huge sets the radius to 11.
 			build.configTab.varControls['enemyArmour']:SetPlaceholder(round(data.monsterArmourTable[defaultLevel] * (data.bossStats.PinnacleArmourMean/100)), true)
 			build.configTab.varControls['enemyEvasion']:SetPlaceholder(round(data.monsterEvasionTable[defaultLevel] * (data.bossStats.PinnacleEvasionMean/100)), true)
 		elseif val == "Uber" then
+			enemyModList:NewMod("Condition:Unique", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
 			enemyModList:NewMod("Condition:RareOrUnique", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
 			enemyModList:NewMod("Condition:PinnacleBoss", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
 			enemyModList:NewMod("DamageTaken", "MORE", -70, "Boss")
