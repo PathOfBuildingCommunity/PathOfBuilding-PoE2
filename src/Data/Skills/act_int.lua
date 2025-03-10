@@ -890,7 +890,7 @@ skills["SupportBlasphemyPlayer"] = {
 					mod("CurseEffect", "MORE", nil),
 				},
 				["active_skill_base_area_of_effect_radius"] = {
-					skill("radiusExtra", nil)
+					skill("radiusExtra", nil),
 				},
 			},
 			baseFlags = {
