@@ -3168,10 +3168,10 @@ local specialModList = {
 	} end,
 	["exsanguinate debuffs deal fire damage per second instead of physical damage per second"] = { flag("Condition:ExsanguinateDebuffIsFireDamage", { type = "SkillName", skillName = "Exsanguinate", includeTransfigured = true })},
 	["reap debuffs deal fire damage per second instead of physical damage per second"] = { flag("Condition:ReapDebuffIsFireDamage", { type = "SkillName", skillName = "Reap" })},
-	["convert (%d+)%% of requirements to (%a+)"] = function(_, num, attr) 	return {
-			flag("AttributeRequirementsConverted"),
-			mod("AttributeRequirementsConvertedTo" .. attr:gsub("^%l", string.upper), "BASE", num),
-		} end,
+	["convert (%d+)%% of requirements to (%a+)"] = function(_, num, attr) return {
+		flag("AttributeRequirementsConverted"),
+		mod("AttributeRequirementsConvertedTo" .. attr:gsub("^%l", string.upper), "BASE", num),
+	} end,
 	-- Crit
 	["your critical hit chance is lucky"] = { flag("CritChanceLucky") },
 	["your critical hit chance is lucky while on low life"] = { flag("CritChanceLucky", { type = "Condition", var = "LowLife" }) },
