@@ -206,10 +206,10 @@ local ItemsTabClass = newClass("ItemsTab", "UndoHandler", "ControlHost", "Contro
 
 	-- Database selector
 	self.controls.selectDBLabel = new("LabelControl", {"TOPLEFT",self.controls.itemList,"BOTTOMLEFT"}, {0, 14, 0, 16}, "^7Import from:")
-	self.controls.selectDBLabel.shown = true
-	--function()
-	--	return self.height < 980
-	--end
+	self.controls.selectDBLabel.shown =
+	function()
+		return self.height < 980
+	end
 	self.selectedDB = "UNIQUE"
 
 	-- Uniques Button
@@ -225,14 +225,22 @@ local ItemsTabClass = newClass("ItemsTab", "UndoHandler", "ControlHost", "Contro
 	self.controls.rareButton.locked = function() return self.selectedDB == "RARE" end
 	
 	-- Unique database
-	self.controls.uniqueDB = new("ItemDBControl", {"TOPLEFT",self.controls.itemList,"BOTTOMLEFT"}, {0, 76, 360, function(c) return m_min(244, self.maxY - select(2, c:GetPos())) end}, self, main.uniqueDB, "UNIQUE")
-	self.controls.uniqueDB.y = 118
-	self.controls.uniqueDB.shown = function() return not self.selectedDB == "UNIQUE" end
-
+	self.controls.uniqueDB = new("ItemDBControl", {"TOPLEFT", self.controls.itemList, "BOTTOMLEFT"}, {0, 76, 360, function(c) return m_min(244, self.maxY - select(2, c:GetPos())) end}, self, main.uniqueDB, "UNIQUE")
+	self.controls.uniqueDB.y = function()
+		return self.controls.selectDBLabel:IsShown() and 118 or 90
+	end
+	self.controls.uniqueDB.shown = function()
+		return not self.controls.selectDBLabel:IsShown() or self.selectedDB == "UNIQUE"
+	end
+	
 	-- Rare template database
-	self.controls.rareDB = new("ItemDBControl", {"TOPLEFT",self.controls.itemList,"BOTTOMLEFT"}, {0, 76, 360, function(c) return m_min(286, self.maxY - select(2, c:GetPos())) end}, self, main.rareDB, "RARE")
-	self.controls.uniqueDB.shown = function() return self.selectedDB == "UNIQUE" end
-	self.controls.rareDB.shown = function() return self.selectedDB == "RARE" end
+	self.controls.rareDB = new("ItemDBControl", {"TOPLEFT", self.controls.itemList, "BOTTOMLEFT"}, {0, 76, 360, function(c) return m_min(286, self.maxY - select(2, c:GetPos())) end}, self, main.rareDB, "RARE")
+	self.controls.rareDB.y = function()
+		return self.controls.selectDBLabel:IsShown() and 78 or 386
+	end
+	self.controls.rareDB.shown = function()
+		return not self.controls.selectDBLabel:IsShown() or self.selectedDB == "RARE"
+	end	
 
 	-- Create/import item
 	self.controls.craftDisplayItem = new("ButtonControl", {"TOPLEFT",main.portraitMode and self.controls.setManage or self.controls.itemList,"TOPRIGHT"}, {20, main.portraitMode and 0 or -20, 120, 20}, "Craft item...", function()
