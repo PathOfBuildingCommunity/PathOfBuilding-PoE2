@@ -212,19 +212,19 @@ local ItemsTabClass = newClass("ItemsTab", "UndoHandler", "ControlHost", "Contro
 	self.selectedDB = "UNIQUE"
 
 	-- Uniques Button
-	self.controls.uniqueButton = new("ButtonControl", {"LEFT", self.controls.selectDBLabel, "RIGHT"}, {4, 0, 110, 18}, "Uniques", function()
+	self.controls.uniqueButton = new("ButtonControl", {"LEFT",self.controls.selectDBLabel,"RIGHT"}, {4, 0, 110, 18}, "Uniques", function()
 	    self.selectedDB = "UNIQUE"
 	end)
 	self.controls.uniqueButton.locked = function() return self.selectedDB == "UNIQUE" end
 	
 	-- Rare Templates Button
-	self.controls.rareButton = new("ButtonControl", {"LEFT", self.controls.selectDBLabel, "RIGHT"}, {120, 0, 110, 18}, "Rare Templates", function()
+	self.controls.rareButton = new("ButtonControl", {"LEFT",self.controls.selectDBLabel,"RIGHT"}, {120, 0, 110, 18}, "Rare Templates", function()
 	    self.selectedDB = "RARE"
 	end)
 	self.controls.rareButton.locked = function() return self.selectedDB == "RARE" end
 	
 	-- Unique database
-	self.controls.uniqueDB = new("ItemDBControl", {"TOPLEFT", self.controls.itemList, "BOTTOMLEFT"}, {0, 76, 360, function(c) return m_min(244, self.maxY - select(2, c:GetPos())) end}, self, main.uniqueDB, "UNIQUE")
+	self.controls.uniqueDB = new("ItemDBControl", {"TOPLEFT",self.controls.itemList,"BOTTOMLEFT"}, {0, 76, 360, function(c) return m_min(244, self.maxY - select(2, c:GetPos())) end}, self, main.uniqueDB, "UNIQUE")
 	self.controls.uniqueDB.y = function()
 		return self.controls.selectDBLabel:IsShown() and 118 or 90
 	end
@@ -233,7 +233,7 @@ local ItemsTabClass = newClass("ItemsTab", "UndoHandler", "ControlHost", "Contro
 	end
 	
 	-- Rare template database
-	self.controls.rareDB = new("ItemDBControl", {"TOPLEFT", self.controls.itemList, "BOTTOMLEFT"}, {0, 76, 360, function(c) return m_min(286, self.maxY - select(2, c:GetPos())) end}, self, main.rareDB, "RARE")
+	self.controls.rareDB = new("ItemDBControl", {"TOPLEFT",self.controls.itemList,"BOTTOMLEFT"}, {0, 76, 360, function(c) return m_min(284, self.maxY - select(2, c:GetPos())) end}, self, main.rareDB, "RARE")
 	self.controls.rareDB.y = function()
 		return self.controls.selectDBLabel:IsShown() and 78 or 386
 	end
