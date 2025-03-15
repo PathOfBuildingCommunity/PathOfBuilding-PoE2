@@ -175,6 +175,9 @@ return {
 ["base_skill_reserve_life_instead_of_mana"] = {
 	flag("BloodMagicReserved"),
 },
+["sacrifice_%_life_on_skill_use"] = {
+	mod("LifePercentCost", "BASE", nil),
+},
 ["base_skill_cost_life_instead_of_mana"] = {
 	flag("CostLifeInsteadOfMana"),
 },
