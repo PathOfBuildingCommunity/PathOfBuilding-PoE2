@@ -1048,6 +1048,9 @@ return {
 	mod("PhysicalDamageConvertToRandom", "BASE", nil)
 },
 -- Ailments
+["skill_overwhelming_pressure_aura_enemy_ailment_threshold_+%"] = {
+	mod("AilmentThreshold", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Debuff", effectName = "Overwhelming Presence"}),
+},
 ["bleed_on_hit_with_attacks_%"] = {
 	mod("BleedChance", "BASE", nil, ModFlag.Attack),
 },
