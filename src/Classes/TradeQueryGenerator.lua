@@ -98,7 +98,9 @@ local TradeQueryGeneratorClass = newClass("TradeQueryGenerator", function(self, 
 	self.queryTab = queryTab
 	self.itemsTab = queryTab.itemsTab
 	self.calcContext = { }
-
+	self.lastMaxPrice = nil
+	self.lastMaxPriceTypeIndex = nil
+	self.lastMaxLevel = nil
 end)
 
 local function fetchStats()
@@ -569,6 +571,16 @@ function TradeQueryGeneratorClass:OnFrame()
 end
 
 function TradeQueryGeneratorClass:StartQuery(slot, options)
+	if self.lastMaxPrice then
+		options.maxPrice = self.lastMaxPrice
+	end
+	if self.lastMaxPriceTypeIndex then
+		options.maxPriceType = currencyTable[self.lastMaxPriceTypeIndex].id
+	end
+	if self.lastMaxLevel then
+		options.maxLevel = self.lastMaxLevel
+	end
+
 	-- Figure out what type of item we're searching for
 	local existingItem = slot and self.itemsTab.items[slot.selItemId]
 	local testItemType = existingItem and existingItem.baseName or "Diamond"
@@ -945,11 +957,14 @@ function TradeQueryGeneratorClass:RequestQuery(slot, context, statWeights, callb
 		t_insert(currencyDropdownNames, currency.name)
 	end
 	controls.maxPrice = new("EditControl", {"TOPLEFT",lastItemAnchor,"BOTTOMLEFT"}, {0, 5, 70, 18}, nil, nil, "%D")
+	controls.maxPrice.buf = self.lastMaxPrice and tostring(self.lastMaxPrice) or ""
 	controls.maxPriceType = new("DropDownControl", {"LEFT",controls.maxPrice,"RIGHT"}, {5, 0, 150, 18}, currencyDropdownNames, nil)
+	controls.maxPriceType.selIndex = self.lastMaxPriceTypeIndex or 1
 	controls.maxPriceLabel = new("LabelControl", {"RIGHT",controls.maxPrice,"LEFT"}, {-5, 0, 0, 16}, "^7Max Price:")
 	updateLastAnchor(controls.maxPrice)
 
 	controls.maxLevel = new("EditControl", {"TOPLEFT",lastItemAnchor,"BOTTOMLEFT"}, {0, 5, 100, 18}, nil, nil, "%D")
+	controls.maxLevel.buf = self.lastMaxLevel and tostring(self.lastMaxLevel) or ""
 	controls.maxLevelLabel = new("LabelControl", {"RIGHT",controls.maxLevel,"LEFT"}, {-5, 0, 0, 16}, "Max Level:")
 	updateLastAnchor(controls.maxLevel)
 
@@ -1001,10 +1016,13 @@ function TradeQueryGeneratorClass:RequestQuery(slot, context, statWeights, callb
 		end
 		if controls.maxPrice.buf then
 			options.maxPrice = tonumber(controls.maxPrice.buf)
+			self.lastMaxPrice = options.maxPrice
 			options.maxPriceType = currencyTable[controls.maxPriceType.selIndex].id
+			self.lastMaxPriceTypeIndex = controls.maxPriceType.selIndex
 		end
 		if controls.maxLevel.buf then
 			options.maxLevel = tonumber(controls.maxLevel.buf)
+			self.lastMaxLevel = options.maxLevel
 		end
 		if controls.sockets and controls.sockets.buf then
 			options.sockets = tonumber(controls.sockets.buf)
