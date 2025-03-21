@@ -1197,7 +1197,12 @@ function calcs.offence(env, actor, activeSkill)
 		local baseIceCrystal = skillModList:Sum("BASE", skillCfg, "IceCrystalLifeBase")
 		output.IceCrystalLife = baseIceCrystal * IceCrystalLifeMod
 		if breakdown then
-			breakdown.IceCrystalLife = breakdown.mod(skillModList, skillCfg, "IceCrystalLife")
+			breakdown.IceCrystalLife = {
+				s_format("%.f ^8(Base Crystal Life)", baseIceCrystal),
+				s_format("x %.2f ^8(effect modifiers)", IceCrystalLifeMod),
+				s_format("\n"),
+				s_format("= %.f ^8(Ice Crystal Life)", output.IceCrystalLife),
+			}
 		end
 	end
 	if (skillFlags.trap or skillFlags.mine) and not (skillData.trapCooldown or skillData.cooldown) then

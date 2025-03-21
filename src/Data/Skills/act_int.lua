@@ -8324,6 +8324,11 @@ skills["FrozenLocusPlayer"] = {
 			label = "Crystal",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "ice_ambush_statset_0",
+			statMap = {
+				["frozen_locus_crystal_display_stat"] = {
+					-- Display Only
+				},
+			},
 			baseFlags = {
 				duration = true,
 			},

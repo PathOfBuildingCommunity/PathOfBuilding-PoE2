@@ -1739,6 +1739,11 @@ skills["SupportGlacierPlayer"] = {
 			label = "Glacier",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_glacier_ice_crystal_maximum_life_+%_final"] = {
+					mod("IceCrystalLife", "MORE", nil),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {

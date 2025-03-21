@@ -534,6 +534,11 @@ statMap = {
 #skill FrozenLocusPlayer
 #set FrozenLocusPlayer
 #flags duration
+statMap = {
+	["frozen_locus_crystal_display_stat"] = {
+		-- Display Only
+	},
+},
 #mods
 #set FrozenLocusGroundPlayer
 #flags area duration
