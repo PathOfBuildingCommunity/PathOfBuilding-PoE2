@@ -701,6 +701,10 @@ return {
 		{ breakdown = "EnemyCurseLimit" },
 		{ modName = { "CurseLimitIsMaximumPowerCharges", "EnemyCurseLimit" } },
 	}, },
+	{ label = "Ice Crystal Life", { format = "{0:output:IceCrystalLife}",
+		{ breakdown = "IceCrystalLife" },
+		{ modName = { "IceCrystalLife" }, cfg = "skill" }
+	},},
 	{ label = "Mark Effect Mod", haveOutput = "MarkEffectMod", { format = "x {2:output:MarkEffectMod}",
 		{ breakdown = "MarkEffectMod" },
 		{ modName = "MarkEffect", cfg = "skill" },

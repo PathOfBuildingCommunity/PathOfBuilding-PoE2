@@ -2276,6 +2276,10 @@ return {
 ["support_grenade_damage_+%_final"] = {
 	mod("Damage", "MORE", nil),
 },
+-- Ice Crystal
+["frost_wall_maximum_life"] = {
+	mod("IceCrystalLifeBase", "BASE", nil),
+},
 -- Other
 ["triggered_skill_damage_+%"] = {
 	mod("TriggeredDamage", "INC", nil, 0, 0, { type = "SkillType", skillType = SkillType.Triggered }),

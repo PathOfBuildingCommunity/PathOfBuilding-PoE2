@@ -604,6 +604,7 @@ local modNameList = {
 	["to deal double damage"] = "DoubleDamageChance",
 	["to deal triple damage"] = "TripleDamageChance",
 	["curse activation"] = "CurseFrequency",
+	["ice crystal life"] = "IceCrystalLife",
 	-- Effects
 	["onslaught effect"] = "OnslaughtEffect",
 	["effect of onslaught on you"] = "OnslaughtEffect",
