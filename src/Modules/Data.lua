@@ -184,6 +184,7 @@ data.misc = { -- magic numbers
 	TrapTriggerRadiusBase = 10,
 	MineDetonationRadiusBase = 60,
 	MineAuraRadiusBase = 35,
+	MinionRevivalTimeBase = 8,
 	BrandAttachmentRangeBase = 30,
 	ProjectileDistanceCap = 150,
 	MinStunChanceNeeded = 20,

@@ -1165,6 +1165,19 @@ function calcs.offence(env, actor, activeSkill)
 			}
 		end
 	end
+	if activeSkill.skillTypes[SkillType.CreatesSkeletonMinion] then
+		local minionRevivalTimeMod = calcLib.mod(skillModList, skillCfg, "MinionRevivalTime")
+		local baseMinionRevivalTime = data.misc.MinionRevivalTimeBase
+		output.MinionRevivalTime = baseMinionRevivalTime * minionRevivalTimeMod
+		if breakdown then
+			breakdown.MinionRevivalTime = {
+				s_format("%.3fs ^8(Base Revival Time)", baseMinionRevivalTime),
+				s_format("x %.2f ^8(effect modifiers)", minionRevivalTimeMod),
+				s_format("\n"),
+				s_format("= %.3fs ^8(Total Revival Time)", output.MinionRevivalTime),
+			}
+		end
+	end
 	if activeSkill.skillTypes[SkillType.Warcry] then
 		local full_duration = calcSkillDuration(skillModList, skillCfg, activeSkill.skillData, env, enemyDB)
 		local cooldownOverride = skillModList:Override(skillCfg, "CooldownRecovery")

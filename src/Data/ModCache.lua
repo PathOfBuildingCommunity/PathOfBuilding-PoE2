@@ -2915,11 +2915,11 @@ c["Meta Skills gain 35% more Energy"]={nil,"Meta Skills gain 35% more Energy "}
 c["Meta Skills gain 8% increased Energy"]={nil,"Meta Skills gain 8% increased Energy "}
 c["Minions Recoup 10% of Damage taken as Life"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="LifeRecoup",type="BASE",value=10}}}},nil}
 c["Minions Regenerate 3% of Life per second"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="LifeRegenPercent",type="BASE",value=3}}}},nil}
-c["Minions Revive 15% faster"]={nil,"Revive 15% faster "}
-c["Minions Revive 15% faster You gain 2% Life when one of your Minions is Revived"]={nil,"Revive 15% faster You gain 2% Life when one of your Minions is Revived "}
-c["Minions Revive 25% faster"]={nil,"Revive 25% faster "}
-c["Minions Revive 5% faster"]={nil,"Revive 5% faster "}
-c["Minions Revive 50% faster"]={nil,"Revive 50% faster "}
+c["Minions Revive 13% faster"]={{[1]={flags=0,keywordFlags=0,name="MinionRevivalTime",type="INC",value=-13}},nil}
+c["Minions Revive 15% faster"]={{[1]={flags=0,keywordFlags=0,name="MinionRevivalTime",type="INC",value=-15}},nil}
+c["Minions Revive 25% faster"]={{[1]={flags=0,keywordFlags=0,name="MinionRevivalTime",type="INC",value=-25}},nil}
+c["Minions Revive 5% faster"]={{[1]={flags=0,keywordFlags=0,name="MinionRevivalTime",type="INC",value=-5}},nil}
+c["Minions Revive 50% faster"]={{[1]={flags=0,keywordFlags=0,name="MinionRevivalTime",type="INC",value=-50}},nil}
 c["Minions deal (25-35)% increased Damage"]={nil,"(25-35)% increased Damage "}
 c["Minions deal (8-13)% increased Damage"]={nil,"(8-13)% increased Damage "}
 c["Minions deal 10% increased Damage"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Damage",type="INC",value=10}}}},nil}

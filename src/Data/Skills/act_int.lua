@@ -13306,6 +13306,12 @@ skills["SacrificePlayer"] = {
 			label = "Sacrifice",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "harvester",
+			statMap = {
+				["harvester_minion_resummon_speed_+%_final"] = {
+					mod("MinionRevivalTime", "MORE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff" } ),
+					mult = -1,
+				},
+			},
 			baseFlags = {
 				minion = true,
 			},

@@ -839,6 +839,12 @@ statMap = {
 #skill SacrificePlayer
 #set SacrificePlayer
 #flags minion
+statMap = {
+	["harvester_minion_resummon_speed_+%_final"] = {
+		mod("MinionRevivalTime", "MORE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff" } ),
+		mult = -1,
+	},
+},
 #mods
 #skillEnd
 
