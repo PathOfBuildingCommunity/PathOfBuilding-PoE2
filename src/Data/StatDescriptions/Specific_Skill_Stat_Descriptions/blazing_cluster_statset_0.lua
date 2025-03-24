@@ -53,7 +53,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Can accumulate up to {0} Embers"
+				text="Can accumulate up to {0} Embers\nModifiers to number of Projectiles instead\napply to number of Embers accumulated"
 			}
 		},
 		stats={

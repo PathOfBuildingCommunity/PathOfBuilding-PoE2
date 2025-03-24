@@ -2075,6 +2075,9 @@ return {
 ["minion_ailment_damage_+%"] = {
 	mod("MinionModifier", "LIST", { mod = mod("Damage", "INC", nil, 0, KeywordFlag.Ailment) }),
 },
+["minion_block_%"] = {
+	mod("MinionModifier", "LIST", { mod = mod("BlockChance", "BASE", nil) }),
+},
 ["base_number_of_zombies_allowed"] = {
 	mod("ActiveZombieLimit", "BASE", nil),
 },
@@ -2153,6 +2156,12 @@ return {
 },
 ["minion_skill_physical_damage_%_to_convert_to_fire"] = {
 	mod("MinionModifier", "LIST", { mod = mod("SkillPhysicalDamageConvertToFire", "BASE", nil) })
+},
+["is_commandable_skill"] = {
+	flag("Condition:CommandableSkill")
+},
+["support_command_skill_damage_+%_final"] = {
+	mod("MinionModifier", "LIST", { mod = mod("Damage", "MORE", nil, 0, 0, {type = "Condition", var = "CommandableSkill"}) }),
 },
 --Golem
 ["golem_buff_effect_+%"] = {
@@ -2350,6 +2359,7 @@ return {
 },
 ["apply_X_armour_break_on_hit"] = {
 	flag("Condition:CanArmourBreak", { type = "GlobalEffect", effectType = "Buff", effectName = "ArmourBreak" }),
+	mod("ArmourBreakPerHit", "BASE", nil),
 },
 ["armour_break_physical_damage_%_dealt_as_armour_break"] = {
 	flag("Condition:CanArmourBreak", { type = "GlobalEffect", effectType = "Buff", effectName = "ArmourBreak" }),
@@ -2446,5 +2456,8 @@ return {
 },
 ["nova_skills_cast_at_target_location"] = {
 	-- Display only
-}
+},
+["quality_display_banner_buff_effect_+%_final_per_resource_is_gem"] = {
+	-- Display Only
+},
 }

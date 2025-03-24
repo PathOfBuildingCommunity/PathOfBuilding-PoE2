@@ -8515,11 +8515,28 @@ return {
 					[1]={
 						[1]=1,
 						[2]="#"
+					},
+					[2]={
+						[1]=0,
+						[2]=0
+					}
+				},
+				text="{0:+d}% more Aura effect per Valour"
+			},
+			[2]={
+				limit={
+					[1]={
+						[1]=1,
+						[2]="#"
+					},
+					[2]={
+						[1]="#",
+						[2]="#"
 					}
 				},
 				text="{0}% more Aura effect per Valour"
 			},
-			[2]={
+			[3]={
 				[1]={
 					k="negate",
 					v=1
@@ -8528,13 +8545,18 @@ return {
 					[1]={
 						[1]="#",
 						[2]=-1
+					},
+					[2]={
+						[1]="#",
+						[2]="#"
 					}
 				},
 				text="{0}% less Aura effect per Valour"
 			}
 		},
 		stats={
-			[1]="banner_buff_effect_+%_final_per_resource"
+			[1]="banner_buff_effect_+%_final_per_resource",
+			[2]="quality_display_banner_buff_effect_+%_final_per_resource_is_gem"
 		}
 	},
 	[362]={
@@ -8901,7 +8923,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="More Stun Buildup every second use {0}%"
+				text="More Stun Buildup every second use {1}%"
 			},
 			[2]={
 				limit={
@@ -8914,7 +8936,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="More Stun Buildup every third use {0}%"
+				text="More Stun Buildup every third use {1}%"
 			},
 			[3]={
 				limit={
@@ -8927,7 +8949,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="More Stun Buildup every fourth use {0}%"
+				text="More Stun Buildup every fourth use {1}%"
 			},
 			[4]={
 				limit={
@@ -8940,7 +8962,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="More Stun Buildup every fifth use {0}%"
+				text="More Stun Buildup every fifth use {1}%"
 			},
 			[5]={
 				limit={
@@ -8953,7 +8975,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="More Stun Buildup every sixth use {0}%"
+				text="More Stun Buildup every sixth use {1}%"
 			},
 			[6]={
 				limit={
@@ -8966,7 +8988,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="More Stun Buildup every seventh use {0}%"
+				text="More Stun Buildup every seventh use {1}%"
 			}
 		},
 		stats={
@@ -40905,6 +40927,7 @@ return {
 	["quality_display_active_skill_ignite_effect_is_gem"]=423,
 	["quality_display_active_skill_pins_as_though_dealt_damage_+%_final_is_gem"]=426,
 	["quality_display_active_skill_returning_damage_is_gem"]=369,
+	["quality_display_banner_buff_effect_+%_final_per_resource_is_gem"]=361,
 	["quality_display_base_number_of_crossbow_bolts_is_gem"]=508,
 	["quality_display_base_number_of_projectiles_is_gem"]=510,
 	["quality_display_exsanguinate_beam_targets_is_gem"]=551,

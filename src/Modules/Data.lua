@@ -166,6 +166,7 @@ data.misc = { -- magic numbers
 	SuppressionEffect = 50,
 	AvoidChanceCap = 75,
 	ArmourRatio = 10,
+	NegArmourDmgBonusCap = 100,
 	EnergyShieldRechargeBase = 0.125,
 	EnergyShieldRechargeDelay = 4,
 	WardRechargeDelay = 2,

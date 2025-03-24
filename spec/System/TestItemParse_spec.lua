@@ -215,4 +215,28 @@ describe("TestItemParse", function()
 		assert.are.equals(1, #item.explicitModLines)
 		assert.are.equals("+50% chance to Ignite", item.explicitModLines[1].line)
 	end)
+
+	it("attribute coverted", function()
+		local item = new("Item", [[
+			Test Item
+			Expert Barrier Quarterstaff
+			Quality: 20
+			Sockets: S S S
+			Rune: Soul Core of Cholotl
+			Rune: Soul Core of Zantipi
+			Rune: Soul Core of Atmohua
+			LevelReq: 79
+			Implicits: 4
+			{enchant}{rune}Convert 20% of Requirements to Dexterity
+			{enchant}{rune}Convert 20% of Requirements to Intelligence
+			{enchant}{rune}Convert 20% of Requirements to Strength
+			{tags:block}{range:1}+(10-15)% to Block chance
+			Corrupted
+			]])
+		item:BuildAndParseRaw()
+		assert.are.equals(45, item.requirements.strMod)
+		assert.are.equals(111, item.requirements.dexMod)
+		assert.are.equals(71, item.requirements.intMod)	
+		
+	end)
 end)
