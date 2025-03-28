@@ -271,8 +271,8 @@ function PassiveSpecClass:ImportFromNodeList(className, classId, ascendClassId, 
 	end
 	self:ResetNodes()
 	if className then
-		classId = self.tree.classNameMap[className] or self.tree.ascendNameMap[className].classId
-		ascendClassId = self.tree.ascendNameMap[className] and self.tree.ascendNameMap[className].ascendClassId or 0
+		classId = self.tree.classNameMap[className] or (self.tree.ascendNameMap[className] and self.tree.ascendNameMap[className].classId) or (self.tree.internalAscendNameMap[className] and self.tree.internalAscendNameMap[className].classId)
+		ascendClassId = (self.tree.ascendNameMap[className] and self.tree.ascendNameMap[className].ascendClassId) or (self.tree.internalAscendNameMap[className] and self.tree.internalAscendNameMap[className].ascendClassId) or 0
 	end
 	self:SelectClass(classId)
 	self:SelectAscendClass(ascendClassId)
