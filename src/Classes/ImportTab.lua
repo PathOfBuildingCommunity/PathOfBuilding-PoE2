@@ -533,15 +533,36 @@ function ImportTabClass:ImportPassiveTreeAndJewels(charData)
 	self.build.itemsTab:PopulateSlots()
 	self.build.itemsTab:AddUndoState()
 
+	local hashes = copyTable(charPassiveData.hashes, true)
 	local weaponSets = {}
 	for setName, nodesId in pairs(charPassiveData.specialisations) do
 		local weaponSet = tonumber(setName:match("^set(%d)"))
 		for _, nodeId in ipairs(nodesId) do
 			weaponSets[nodeId] = weaponSet
+			t_insert(hashes, nodeId)
 		end
 	end
 
-	self.build.spec:ImportFromNodeList(charData.class, nil, nil, charPassiveData.alternate_ascendancy or 0, charPassiveData.hashes, weaponSets, charPassiveData.skill_overrides, charPassiveData.mastery_effects or {}, latestTreeVersion .. (charData.league:match("Ruthless") and "_ruthless" or ""))
+	-- attributes nodes
+	self.build.spec.hashOverrides = {}
+	for skillId, nodeInfo in pairs(charPassiveData.skill_overrides) do
+		local changeAttributeId = 0
+		if nodeInfo.name == "Intelligence" then
+			changeAttributeId = 3
+		elseif nodeInfo.name == "Dexterity" then
+			changeAttributeId = 2
+		elseif nodeInfo.name == "Strength" then
+			changeAttributeId = 1
+		end
+
+		if changeAttributeId > 0 then
+			self.build.spec:SwitchAttributeNode(tonumber(skillId), changeAttributeId)
+		end
+	end
+
+	local attributesOverrides = copyTable(self.build.spec.hashOverrides, true)
+
+	self.build.spec:ImportFromNodeList(charData.class, nil, nil, charPassiveData.alternate_ascendancy or 0, hashes, weaponSets, attributesOverrides, charPassiveData.mastery_effects or {}, latestTreeVersion .. (charData.league:match("Ruthless") and "_ruthless" or ""))
 	self.build.spec:AddUndoState()
 	self.build.characterLevel = charData.level
 	self.build.characterLevelAutoMode = false
