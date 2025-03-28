@@ -452,9 +452,9 @@ function ImportTabClass:BuildCharacterList(league)
 	end
 end
 
-function ImportTabClass:DownloadPassiveTree()
+function ImportTabClass:DownloadCharacter(callback)
 	self.charImportMode = "IMPORTING"
-	self.charImportStatus = "Retrieving character passive tree..."
+	self.charImportStatus = "Retrieving character data..."
 	local realm = realmList[self.controls.accountRealm.selIndex]
 	local charSelect = self.controls.charSelect
 	local charData = charSelect.list[charSelect.selIndex].char
@@ -468,46 +468,45 @@ function ImportTabClass:DownloadPassiveTree()
 			return
 		end
 		self.lastCharacterHash = common.sha1(charData.name)
-		self:ImportPassiveTreeAndJewels(body)
+		--local out = io.open("get-passive-skills.json", "w")
+		--out:write(json)
+		--out:close()
+		local fullCharData, errMsg = self:ProcessJSON(body)
+		--local out = io.open("get-passive-skills.json", "w")
+		--writeLuaTable(out, charPassiveData, 1)
+		--out:close()
+
+		if errMsg then
+			self.charImportStatus = colorCodes.NEGATIVE.."Error processing character data, try again later."
+			return
+		end
+		fullCharData = fullCharData.character
+		charSelect.list[charSelect.selIndex].char = fullCharData
+		callback(fullCharData)
 	end)
 end
 
-function ImportTabClass:DownloadItems()
-	self.charImportMode = "IMPORTING"
-	self.charImportStatus = "Retrieving character items..."
-	local realm = realmList[self.controls.accountRealm.selIndex]
-	local accountName = self.controls.accountName.buf
-	local sessionID = #self.controls.sessionInput.buf == 32 and self.controls.sessionInput.buf or (main.gameAccounts[accountName] and main.gameAccounts[accountName].sessionID)
+function ImportTabClass:DownloadPassiveTree()
 	local charSelect = self.controls.charSelect
 	local charData = charSelect.list[charSelect.selIndex].char
-	launch:DownloadPage(realm.hostName.."character-window/get-items?accountName="..accountName:gsub("#", "%%23").."&character="..charData.name.."&realm="..realm.realmCode, function(response, errMsg)
-		self.charImportMode = "SELECTCHAR"
-		if errMsg then
-			self.charImportStatus = colorCodes.NEGATIVE.."Error importing character data, try again ("..errMsg:gsub("\n"," ")..")"
-			return
-		elseif response.body == "false" then
-			self.charImportStatus = colorCodes.NEGATIVE.."Failed to retrieve character data, try again."
-			return
-		end
-		self.lastCharacterHash = common.sha1(charData.name)
-		self:ImportItemsAndSkills(response.body)
-	end, sessionID and { header = "Cookie: POESESSID=" .. sessionID })
+	if not charData.passives then
+		self:DownloadCharacter(function(charData)
+			self:ImportPassiveTreeAndJewels(charData)
+		end)
+	end
 end
 
-function ImportTabClass:ImportPassiveTreeAndJewels(json)
-	--local out = io.open("get-passive-skills.json", "w")
-	--out:write(json)
-	--out:close()
-	local charData, errMsg = self:ProcessJSON(json)
-	--local out = io.open("get-passive-skills.json", "w")
-	--writeLuaTable(out, charPassiveData, 1)
-	--out:close()
-
-	if errMsg then
-		self.charImportStatus = colorCodes.NEGATIVE.."Error processing character data, try again later."
-		return
+function ImportTabClass:DownloadItems()
+	local charSelect = self.controls.charSelect
+	local charData = charSelect.list[charSelect.selIndex].char
+	if not charData.equipment then
+		self:DownloadCharacter(function(charData)
+			self:ImportItemsAndSkills(charData)
+		end)
 	end
-	charData = charData.character
+end
+
+function ImportTabClass:ImportPassiveTreeAndJewels(charData)
 	local charPassiveData = charData.passives
 	self.charImportStatus = colorCodes.POSITIVE.."Passive tree and jewels successfully imported."
 	self.build.spec.jewel_data = copyTable(charPassiveData.jewel_data)
@@ -520,7 +519,7 @@ function ImportTabClass:ImportPassiveTreeAndJewels(json)
 			end
 		end
 	end
-	for _, itemData in pairs(charPassiveData.items) do
+	for _, itemData in pairs(charData.jewels) do
 		self:ImportItem(itemData)
 	end
 	self.build.itemsTab:PopulateSlots()
@@ -547,15 +546,8 @@ function ImportTabClass:ImportPassiveTreeAndJewels(json)
 	main:SetWindowTitleSubtext(string.format("%s (%s, %s, %s)", self.build.buildName, charData.name, charData.class, charData.league))
 end
 
-function ImportTabClass:ImportItemsAndSkills(json)
-	--local out = io.open("get-items.json", "w")
-	--out:write(json)
-	--out:close()
-	local charItemData, errMsg = self:ProcessJSON(json)
-	if errMsg then
-		self.charImportStatus = colorCodes.NEGATIVE.."Error processing character data, try again later."
-		return
-	end
+function ImportTabClass:ImportItemsAndSkills(charData)
+	local charItemData = charData.equipment
 	if self.controls.charImportItemsClearItems.state then
 		for _, slot in pairs(self.build.itemsTab.slots) do
 			if slot.selItemId ~= 0 and not slot.nodeId then
@@ -579,7 +571,7 @@ function ImportTabClass:ImportItemsAndSkills(json)
 	end
 	self.charImportStatus = colorCodes.POSITIVE.."Items and skills successfully imported."
 	--ConPrintTable(charItemData)
-	for _, itemData in pairs(charItemData.items) do
+	for _, itemData in pairs(charItemData) do
 		self:ImportItem(itemData)
 	end
 	if skillOrder then
@@ -625,11 +617,11 @@ function ImportTabClass:ImportItemsAndSkills(json)
 	self.build.itemsTab:PopulateSlots()
 	self.build.itemsTab:AddUndoState()
 	self.build.skillsTab:AddUndoState()
-	self.build.characterLevel = charItemData.character.level
+	self.build.characterLevel = charData.level
 	self.build.configTab:UpdateLevel()
-	self.build.controls.characterLevel:SetText(charItemData.character.level)
+	self.build.controls.characterLevel:SetText(charData.level)
 	self.build.buildFlag = true
-	return charItemData.character -- For the wrapper
+	return charData -- For the wrapper
 end
 
 local rarityMap = { [0] = "NORMAL", "MAGIC", "RARE", "UNIQUE", [9] = "RELIC", [10] = "RELIC" }
@@ -640,7 +632,11 @@ function ImportTabClass:ImportItem(itemData, slotName)
 		if itemData.inventoryId == "PassiveJewels" then
 			slotName = "Jewel "..self.build.latestTree.jewelSlots[itemData.x + 1]
 		elseif itemData.inventoryId == "Flask" then
-			slotName = "Flask "..(itemData.x + 1)
+			if itemData.x > 1 then
+				slotName = "Charm " .. (itemData.x - 1)
+			else
+				slotName = "Flask "..(itemData.x + 1)
+			end
 		elseif not (self.controls.charImportItemsIgnoreWeaponSwap.state and (itemData.inventoryId == "Weapon2" or itemData.inventoryId == "Offhand2")) then
 			slotName = slotMap[itemData.inventoryId]
 		end
@@ -656,6 +652,7 @@ function ImportTabClass:ImportItem(itemData, slotName)
 	item.rarity = rarityMap[itemData.frameType]
 	if #itemData.name > 0 then
 		item.title = sanitiseText(itemData.name)
+		item.baseName = sanitiseText(itemData.typeLine):gsub("Synthesised ","")
 		item.name = item.title .. ", " .. item.baseName
 		if item.baseName == "Two-Toned Boots" then
 			-- Hack for Two-Toned Boots
@@ -753,7 +750,8 @@ function ImportTabClass:ImportItem(itemData, slotName)
 			item.sockets[i] = { group = socket.group, color = socket.sColour }
 		end
 	end
-	if itemData.socketedItems then
+	-- TODO: Import runes and soul cores
+	if itemData.socketedItems and false then
 		self:ImportSocketedItems(item, itemData.socketedItems, slotName)
 	end
 	if itemData.requirements and (not itemData.socketedItems or not itemData.socketedItems[1]) then

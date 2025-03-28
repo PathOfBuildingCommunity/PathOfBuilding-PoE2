@@ -21,6 +21,8 @@ if client then
 			queryParams[k] = v
 		end
 
+		-- TODO: Handle errors (they come back as 'error' and 'error_description' query parameters)
+		-- TODO: Create a proper page the user sees, and close tab with Javascript
 		client:send("200\r\n")
 		code = queryParams["code"]
 		state = queryParams["state"]
