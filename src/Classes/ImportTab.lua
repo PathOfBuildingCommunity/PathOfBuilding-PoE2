@@ -10,11 +10,7 @@ local b_rshift = bit.rshift
 local band = bit.band
 
 local realmList = {
-	{ label = "PC", id = "PC", realmCode = "pc", hostName = "https://www.pathofexile.com/", profileURL = "account/view-profile/" },
-	{ label = "Xbox", id = "XBOX", realmCode = "xbox", hostName = "https://www.pathofexile.com/", profileURL = "account/view-profile/" },
-	{ label = "PS4", id = "SONY", realmCode = "sony", hostName = "https://www.pathofexile.com/", profileURL = "account/view-profile/" },
-	{ label = "Hotcool", id = "PC", realmCode = "pc", hostName = "https://pathofexile.tw/", profileURL = "account/view-profile/" },
-	{ label = "Tencent", id = "PC", realmCode = "pc", hostName = "https://poe.game.qq.com/", profileURL = "account/view-profile/" },
+	{ label = "PoE2", id = "PoE2", realmCode = "poe2", hostName = "https://www.pathofexile.com/", profileURL = "account/view-profile/" },
 }
 
 local ImportTabClass = newClass("ImportTab", "ControlHost", "Control", function(self, build)
@@ -22,124 +18,40 @@ local ImportTabClass = newClass("ImportTab", "ControlHost", "Control", function(
 	self.Control()
 
 	self.build = build
+	self.api = new("PoEAPI")
 
-	self.charImportMode = "GETACCOUNTNAME"
-	self.charImportStatus = colorCodes.WARNING.."Not yet Enabled by GGG\n^7We are waiting on GGG to create the API to let us import characters from in-game"
+	self.charImportMode = "AUTHENTICATION"
+	self.charImportStatus = colorCodes.WARNING.."Not authenticated"
 	self.controls.sectionCharImport = new("SectionControl", {"TOPLEFT",self,"TOPLEFT"}, {10, 18, 650, 250}, "Character Import")
 	self.controls.charImportStatusLabel = new("LabelControl", {"TOPLEFT",self.controls.sectionCharImport,"TOPLEFT"}, {6, 14, 200, 16}, function()
 		return "^7Character import status: "..self.charImportStatus
 	end)
 	
 	self.controls.characterImportAnchor = new("Control", {"TOPLEFT",self.controls.sectionCharImport,"TOPLEFT"}, {6, 40, 200, 16})
-	self.controls.characterImportAnchor.shown = false
 	self.controls.sectionCharImport.height = function() return self.controls.characterImportAnchor.shown and 650 or 60 end
 
-	-- Stage: input account name
-	self.controls.accountNameHeader = new("LabelControl", {"TOPLEFT",self.controls.characterImportAnchor,"TOPLEFT"}, {0, 0, 200, 16}, "^7To start importing a character, enter the character's account name:")
+	-- Stage: Authenticate
+	self.controls.authenticateButton = new("ButtonControl", {"TOPLEFT",self.controls.characterImportAnchor,"TOPLEFT"}, {0, 0, 200, 16}, "^7Authorize with Path of Exile", function()
+		self.api:FetchAuthToken(function()
+			if self.api.authToken then
+				self.charImportMode = "GETACCOUNTNAME"
+				self.charImportStatus = "Authenticated"
+			end
+		end)
+		self.charImportStatus = "Logging in..."
+	end)
+
+	-- Stage: fetch characters
+	self.controls.accountNameHeader = new("LabelControl", {"TOPLEFT",self.controls.characterImportAnchor,"TOPLEFT"}, {0, 0, 200, 16}, "^7To start importing a character, select your character's realm:")
 	self.controls.accountNameHeader.shown = function()
 		return self.charImportMode == "GETACCOUNTNAME"
 	end
 	self.controls.accountRealm = new("DropDownControl", {"TOPLEFT",self.controls.accountNameHeader,"BOTTOMLEFT"}, {0, 4, 60, 20}, realmList )
 	self.controls.accountRealm:SelByValue( main.lastRealm or "PC", "id" )
-	self.controls.accountName = new("EditControl", {"LEFT",self.controls.accountRealm,"RIGHT"}, {8, 0, 200, 20}, main.lastAccountName or "", nil, "%c", nil, nil, nil, nil, true)
-	self.controls.accountName.pasteFilter = function(text)
-		return text:gsub("[\128-\255]",function(c)
-			return codePointToUTF8(c:byte(1)):gsub(".",function(c)
-				return string.format("%%%X", c:byte(1))
-			end)
-		end)
-	end
-	-- accountHistory Control
-	if not historyList then
-		historyList = { }
-		for accountName, account in pairs(main.gameAccounts) do
-			t_insert(historyList, accountName)
-			historyList[accountName] = true
-		end
-		table.sort(historyList, function(a,b)
-			return a:lower() < b:lower()
-		end)
-	end -- don't load the list many times
-	self.controls.accountNameGo = new("ButtonControl", {"LEFT",self.controls.accountName,"RIGHT"}, {8, 0, 60, 20}, "Start", function()
-		self.controls.sessionInput.buf = ""
+
+	self.controls.accountNameGo = new("ButtonControl", {"LEFT",self.controls.accountNameHeader,"RIGHT"}, {8, 0, 60, 20}, "Start", function()
 		self:DownloadCharacterList()
 	end)
-	self.controls.accountNameGo.enabled = function()
-		return self.controls.accountName.buf:match("%S[#%-]%d%d%d%d$")
-	end
-	self.controls.accountNameGo.tooltipFunc = function(tooltip)
-		tooltip:Clear()
-		if not self.controls.accountName.buf:match("[#%-]%d%d%d%d$") then
-			tooltip:AddLine(16, "^7Missing discriminator e.g. " .. self.controls.accountName.buf .. "#1234")
-		end
-	end
-
-	self.controls.accountHistory = new("DropDownControl", {"LEFT",self.controls.accountNameGo,"RIGHT"}, {8, 0, 200, 20}, historyList, function()
-		self.controls.accountName.buf = self.controls.accountHistory.list[self.controls.accountHistory.selIndex]
-	end)
-	self.controls.accountHistory:SelByValue(main.lastAccountName)
-	self.controls.accountHistory:CheckDroppedWidth(true)
-
-	self.controls.removeAccount = new("ButtonControl", {"LEFT",self.controls.accountHistory,"RIGHT"}, {8, 0, 20, 20}, "X", function()
-		local accountName = self.controls.accountHistory.list[self.controls.accountHistory.selIndex]
-		if (accountName ~= nil) then
-		t_remove(self.controls.accountHistory.list, self.controls.accountHistory.selIndex)
-		self.controls.accountHistory.list[accountName] = nil
-		main.gameAccounts[accountName] = nil
-		end
-	end)
-
-	self.controls.removeAccount.tooltipFunc = function(tooltip)
-		tooltip:Clear()
-		tooltip:AddLine(16, "^7Removes account from the dropdown list")
-	end
-
-	self.controls.accountNameUnicode = new("LabelControl", {"TOPLEFT",self.controls.accountRealm,"BOTTOMLEFT"}, {0, 34, 0, 14}, "^7Note: if the account name contains non-ASCII characters then it must be URL encoded first.")
-	self.controls.accountNameURLEncoder = new("ButtonControl", {"TOPLEFT",self.controls.accountNameUnicode,"BOTTOMLEFT"}, {0, 4, 170, 18}, "^x4040FFhttps://www.urlencoder.org/", function()
-		OpenURL("https://www.urlencoder.org/")
-	end)
-	
-	self.controls.accountNameMissingDiscriminator = new("LabelControl", {"BOTTOMLEFT",self.controls.accountNameUnicode,"TOPLEFT"}, {0, -4, 0, 18}, "^1Missing discriminator e.g. #1234")
-	self.controls.accountNameMissingDiscriminator.shown = function()
-		return not self.controls.accountName.buf:match("[#%-]%d%d%d%d$")
-	end
-	
-
-	-- Stage: input POESESSID
-	self.controls.sessionHeader = new("LabelControl", {"TOPLEFT",self.controls.sectionCharImport,"TOPLEFT"}, {6, 40, 200, 14})
-	self.controls.sessionHeader.label = function()
-		return [[
-^7The list of characters on ']]..self.controls.accountName.buf..[[' couldn't be retrieved. This may be because:
-1. You are missing the discriminator at the end of the account name e.g. #1234
-2. You entered a character name instead of an account name or
-3. This account's characters tab is hidden (this is the default setting).
-If this is your account, you can either:
-1. Uncheck "Hide Characters" in your privacy settings or
-2. Enter a POESESSID below.
-You can get this from your web browser's cookies while logged into the Path of Exile website.
-		]]
-	end
-	self.controls.sessionHeader.shown = function()
-		return self.charImportMode == "GETSESSIONID"
-	end
-	self.controls.sessionRetry = new("ButtonControl", {"TOPLEFT",self.controls.sessionHeader,"TOPLEFT"}, {0, 122, 60, 20}, "Retry", function()
-		self:DownloadCharacterList()
-	end)
-	self.controls.sessionCancel = new("ButtonControl", {"LEFT",self.controls.sessionRetry,"RIGHT"}, {8, 0, 60, 20}, "Cancel", function()
-		self.charImportMode = "GETACCOUNTNAME"
-		self.charImportStatus = "Idle"
-	end)
-	self.controls.sessionPrivacySettings = new("ButtonControl", {"LEFT",self.controls.sessionCancel,"RIGHT"}, {8, 0, 120, 20}, "Privacy Settings", function()
-		OpenURL('https://www.pathofexile.com/my-account/privacy')
-	end)
-	self.controls.sessionInput = new("EditControl", {"TOPLEFT",self.controls.sessionRetry,"BOTTOMLEFT"}, {0, 8, 350, 20}, "", "POESESSID", "%X", 32)
-	self.controls.sessionInput:SetProtected(true)
-	self.controls.sessionGo = new("ButtonControl", {"LEFT",self.controls.sessionInput,"RIGHT"}, {8, 0, 60, 20}, "Go", function()
-		self:DownloadCharacterList()
-	end)
-	self.controls.sessionGo.enabled = function()
-		return #self.controls.sessionInput.buf == 32
-	end
 
 	-- Stage: select character and import data
 	self.controls.charSelectHeader = new("LabelControl", {"TOPLEFT",self.controls.sectionCharImport,"TOPLEFT"}, {6, 40, 200, 16}, "^7Choose character to import data from:")
@@ -417,16 +329,7 @@ function ImportTabClass:DownloadCharacterList()
 	self.charImportMode = "DOWNLOADCHARLIST"
 	self.charImportStatus = "Retrieving character list..."
 	local realm = realmList[self.controls.accountRealm.selIndex]
-	local accountName
-	-- Handle spaces in the account name
-	if realm.realmCode == "pc" then
-		accountName = self.controls.accountName.buf:gsub("%s+", "")
-	else
-		accountName = self.controls.accountName.buf:gsub("^[%s?]+", ""):gsub("[%s?]+$", ""):gsub("%s", "+")
-	end
-	accountName = accountName:gsub("(.*)[#%-]", "%1#")
-	local sessionID = #self.controls.sessionInput.buf == 32 and self.controls.sessionInput.buf or (main.gameAccounts[accountName] and main.gameAccounts[accountName].sessionID)
-	launch:DownloadPage(realm.hostName.."character-window/get-characters?accountName="..accountName:gsub("#", "%%23").."&realm="..realm.realmCode, function(response, errMsg)
+	self.api:DownloadCharacterList(realm.realmCode, function(body, errMsg)
 		if errMsg == "Response code: 401" then
 			self.charImportStatus = colorCodes.NEGATIVE.."Sign-in is required."
 			self.charImportMode = "GETSESSIONID"
@@ -444,70 +347,47 @@ function ImportTabClass:DownloadCharacterList()
 			self.charImportMode = "GETACCOUNTNAME"
 			return
 		end
-		local charList, errMsg = self:ProcessJSON(response.body)
+		local charList = self:ProcessJSON(body)
 		if errMsg then
 			self.charImportStatus = colorCodes.NEGATIVE.."Error processing character list, try again later"
 			self.charImportMode = "GETACCOUNTNAME"
 			return
 		end
+		charList = charList.characters
 		--ConPrintTable(charList)
 		if #charList == 0 then
 			self.charImportStatus = colorCodes.NEGATIVE.."The account has no characters to import."
 			self.charImportMode = "GETACCOUNTNAME"
 			return
 		end
-		-- GGG's character API has an issue where for /get-characters the account name is not case-sensitive, but for /get-passive-skills and /get-items it is.
-		-- This workaround grabs the profile page and extracts the correct account name from one of the URLs.
-		launch:DownloadPage(realm.hostName..realm.profileURL..accountName:gsub("#", "%%23"), function(response, errMsg)
-			if errMsg then
-				self.charImportStatus = colorCodes.NEGATIVE.."Error retrieving character list, try again ("..errMsg:gsub("\n"," ")..")"
-				self.charImportMode = "GETACCOUNTNAME"
-				return
-			end
-			local realAccountName = response.body:match("/view%-profile/([^/]+)/characters"):gsub(".", function(c) if c:byte(1) > 127 then return string.format("%%%2X",c:byte(1)) else return c end end)
-			if not realAccountName then
-				self.charImportStatus = colorCodes.NEGATIVE.."Failed to retrieve character list."
-				self.charImportMode = "GETSESSIONID"
-				return
-			end
-			realAccountName = realAccountName:gsub("(.*)[#%-]", "%1#")
-			accountName = realAccountName
-			self.controls.accountName:SetText(realAccountName)
-			self.charImportStatus = "Character list successfully retrieved."
-			self.charImportMode = "SELECTCHAR"
-			self.lastRealm = realm.id
-			main.lastRealm = realm.id
-			self.lastAccountHash = common.sha1(accountName)
-			main.lastAccountName = accountName
-			main.gameAccounts[accountName] = main.gameAccounts[accountName] or { }
-			main.gameAccounts[accountName].sessionID = sessionID
-			local leagueList = { }
-			for i, char in ipairs(charList) do
-				if not isValueInArray(leagueList, char.league) then
-					t_insert(leagueList, char.league)
-				end
-			end
-			table.sort(leagueList)
-			wipeTable(self.controls.charSelectLeague.list)
-			for _, league in ipairs(leagueList) do
-				t_insert(self.controls.charSelectLeague.list, {
-					label = league,
-					league = league,
-				})
-			end
-			t_insert(self.controls.charSelectLeague.list, {
-				label = "All",
-			})
-			if self.controls.charSelectLeague.selIndex > #self.controls.charSelectLeague.list then
-				self.controls.charSelectLeague.selIndex = 1
-			end
-			self.lastCharList = charList
-			self:BuildCharacterList(self.controls.charSelectLeague:GetSelValueByKey("league"))
 
-			-- We only get here if the accountname was correct, found, and not private, so add it to the account history.
-			self:SaveAccountHistory()
-		end, sessionID and { header = "Cookie: POESESSID=" .. sessionID })
-	end, sessionID and { header = "Cookie: POESESSID=" .. sessionID })
+		self.charImportStatus = "Character list successfully retrieved."
+		self.charImportMode = "SELECTCHAR"
+		self.lastRealm = realm.id
+		main.lastRealm = realm.id
+		local leagueList = { }
+		for i, char in ipairs(charList) do
+			if not isValueInArray(leagueList, char.league) then
+				t_insert(leagueList, char.league)
+			end
+		end
+		table.sort(leagueList)
+		wipeTable(self.controls.charSelectLeague.list)
+		for _, league in ipairs(leagueList) do
+			t_insert(self.controls.charSelectLeague.list, {
+				label = league,
+				league = league,
+			})
+		end
+		t_insert(self.controls.charSelectLeague.list, {
+			label = "All",
+		})
+		if self.controls.charSelectLeague.selIndex > #self.controls.charSelectLeague.list then
+			self.controls.charSelectLeague.selIndex = 1
+		end
+		self.lastCharList = charList
+		self:BuildCharacterList(self.controls.charSelectLeague:GetSelValueByKey("league"))
+	end)
 end
 
 function ImportTabClass:BuildCharacterList(league)
@@ -538,6 +418,8 @@ function ImportTabClass:BuildCharacterList(league)
 						classColor = colorCodes["MARAUDER"]
 					elseif (charClass == "Ascendant") then
 						classColor = colorCodes["SCION"]
+					else
+						classColor = "^7"
 					end
 				end
 			end
@@ -570,38 +452,24 @@ function ImportTabClass:BuildCharacterList(league)
 	end
 end
 
-function ImportTabClass:SaveAccountHistory()
-	if not historyList[self.controls.accountName.buf] then
-		t_insert(historyList, self.controls.accountName.buf)
-		historyList[self.controls.accountName.buf] = true
-		table.sort(historyList, function(a,b)
-			return a:lower() < b:lower()
-		end)
-		self.controls.accountHistory:CheckDroppedWidth(true)
-		self.controls.accountHistory:SelByValue(self.controls.accountName.buf)
-	end
-end
-
 function ImportTabClass:DownloadPassiveTree()
 	self.charImportMode = "IMPORTING"
 	self.charImportStatus = "Retrieving character passive tree..."
 	local realm = realmList[self.controls.accountRealm.selIndex]
-	local accountName = self.controls.accountName.buf
-	local sessionID = #self.controls.sessionInput.buf == 32 and self.controls.sessionInput.buf or (main.gameAccounts[accountName] and main.gameAccounts[accountName].sessionID)
 	local charSelect = self.controls.charSelect
 	local charData = charSelect.list[charSelect.selIndex].char
-	launch:DownloadPage(realm.hostName.."character-window/get-passive-skills?accountName="..accountName:gsub("#", "%%23").."&character="..charData.name.."&realm="..realm.realmCode, function(response, errMsg)
+	self.api:DownloadCharacter(realm.realmCode, charData.name, function(body, errMsg)
 		self.charImportMode = "SELECTCHAR"
 		if errMsg then
 			self.charImportStatus = colorCodes.NEGATIVE.."Error importing character data, try again ("..errMsg:gsub("\n"," ")..")"
 			return
-		elseif response.body == "false" then
+		elseif body == "false" then
 			self.charImportStatus = colorCodes.NEGATIVE.."Failed to retrieve character data, try again."
 			return
 		end
 		self.lastCharacterHash = common.sha1(charData.name)
-		self:ImportPassiveTreeAndJewels(response.body, charData)
-	end, sessionID and { header = "Cookie: POESESSID=" .. sessionID })
+		self:ImportPassiveTreeAndJewels(body)
+	end)
 end
 
 function ImportTabClass:DownloadItems()
@@ -626,35 +494,23 @@ function ImportTabClass:DownloadItems()
 	end, sessionID and { header = "Cookie: POESESSID=" .. sessionID })
 end
 
-function ImportTabClass:ImportPassiveTreeAndJewels(json, charData)
+function ImportTabClass:ImportPassiveTreeAndJewels(json)
 	--local out = io.open("get-passive-skills.json", "w")
 	--out:write(json)
 	--out:close()
-	local charPassiveData, errMsg = self:ProcessJSON(json)
+	local charData, errMsg = self:ProcessJSON(json)
 	--local out = io.open("get-passive-skills.json", "w")
 	--writeLuaTable(out, charPassiveData, 1)
 	--out:close()
-
-	-- 3.16+
-	if charPassiveData.mastery_effects then
-		local mastery, effect = 0, 0
-		for key, value in pairs(charPassiveData.mastery_effects) do
-			if type(value) ~= "string" then
-				break
-			end
-			mastery = band(tonumber(value), 65535)
-			effect = b_rshift(tonumber(value), 16)
-			t_insert(charPassiveData.mastery_effects, mastery, effect)
-		end
-	end
 
 	if errMsg then
 		self.charImportStatus = colorCodes.NEGATIVE.."Error processing character data, try again later."
 		return
 	end
+	charData = charData.character
+	local charPassiveData = charData.passives
 	self.charImportStatus = colorCodes.POSITIVE.."Passive tree and jewels successfully imported."
 	self.build.spec.jewel_data = copyTable(charPassiveData.jewel_data)
-	self.build.spec.extended_hashes = copyTable(charPassiveData.hashes_ex)
 	--ConPrintTable(charPassiveData)
 	if self.controls.charImportTreeClearJewels.state then
 		for _, slot in pairs(self.build.itemsTab.slots) do
@@ -670,7 +526,7 @@ function ImportTabClass:ImportPassiveTreeAndJewels(json, charData)
 	self.build.itemsTab:PopulateSlots()
 	self.build.itemsTab:AddUndoState()
 
-	self.build.spec:ImportFromNodeList(charPassiveData.character, charPassiveData.ascendancy, charPassiveData.alternate_ascendancy or 0, charPassiveData.hashes, charPassiveData.skill_overrides, charPassiveData.mastery_effects or {}, latestTreeVersion .. (charData.league:match("Ruthless") and "_ruthless" or ""))
+	self.build.spec:ImportFromNodeList(charData.class, nil, nil, charPassiveData.alternate_ascendancy or 0, charPassiveData.hashes, charPassiveData.skill_overrides, charPassiveData.mastery_effects or {}, latestTreeVersion .. (charData.league:match("Ruthless") and "_ruthless" or ""))
 	self.build.spec:AddUndoState()
 	self.build.characterLevel = charData.level
 	self.build.characterLevelAutoMode = false
