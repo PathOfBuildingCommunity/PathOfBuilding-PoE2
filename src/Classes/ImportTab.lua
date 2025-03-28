@@ -8,6 +8,7 @@ local t_insert = table.insert
 local t_remove = table.remove
 local b_rshift = bit.rshift
 local band = bit.band
+local dkjson = require "dkjson"
 
 local realmList = {
 	{ label = "PoE2", id = "PoE2", realmCode = "poe2", hostName = "https://www.pathofexile.com/", profileURL = "account/view-profile/" },
@@ -40,6 +41,9 @@ local ImportTabClass = newClass("ImportTab", "ControlHost", "Control", function(
 		end)
 		self.charImportStatus = "Logging in..."
 	end)
+	self.controls.authenticateButton.shown = function()
+		return self.charImportMode == "AUTHENTICATION"
+	end
 
 	-- Stage: fetch characters
 	self.controls.accountNameHeader = new("LabelControl", {"TOPLEFT",self.controls.characterImportAnchor,"TOPLEFT"}, {0, 0, 200, 16}, "^7To start importing a character, select your character's realm:")
@@ -347,8 +351,8 @@ function ImportTabClass:DownloadCharacterList()
 			self.charImportMode = "GETACCOUNTNAME"
 			return
 		end
-		local charList = self:ProcessJSON(body)
-		if errMsg then
+		local charList, _pos, errDecode = dkjson.decode(body)
+		if errDecode then
 			self.charImportStatus = colorCodes.NEGATIVE.."Error processing character list, try again later"
 			self.charImportMode = "GETACCOUNTNAME"
 			return
@@ -471,12 +475,12 @@ function ImportTabClass:DownloadCharacter(callback)
 		--local out = io.open("get-passive-skills.json", "w")
 		--out:write(json)
 		--out:close()
-		local fullCharData, errMsg = self:ProcessJSON(body)
+		local fullCharData, _pos, errParsing = dkjson.decode(body)
 		--local out = io.open("get-passive-skills.json", "w")
 		--writeLuaTable(out, charPassiveData, 1)
 		--out:close()
 
-		if errMsg then
+		if errParsing then
 			self.charImportStatus = colorCodes.NEGATIVE.."Error processing character data, try again later."
 			return
 		end
@@ -493,6 +497,8 @@ function ImportTabClass:DownloadPassiveTree()
 		self:DownloadCharacter(function(charData)
 			self:ImportPassiveTreeAndJewels(charData)
 		end)
+	else
+		self:ImportPassiveTreeAndJewels(charData)
 	end
 end
 
@@ -503,6 +509,8 @@ function ImportTabClass:DownloadItems()
 		self:DownloadCharacter(function(charData)
 			self:ImportItemsAndSkills(charData)
 		end)
+	else
+		self:ImportItemsAndSkills(charData)
 	end
 end
 
@@ -519,13 +527,21 @@ function ImportTabClass:ImportPassiveTreeAndJewels(charData)
 			end
 		end
 	end
-	for _, itemData in pairs(charData.jewels) do
-		self:ImportItem(itemData)
-	end
+	-- for _, itemData in ipairs(charData.jewels) do
+	-- 	self:ImportItem(itemData)
+	-- end
 	self.build.itemsTab:PopulateSlots()
 	self.build.itemsTab:AddUndoState()
 
-	self.build.spec:ImportFromNodeList(charData.class, nil, nil, charPassiveData.alternate_ascendancy or 0, charPassiveData.hashes, charPassiveData.skill_overrides, charPassiveData.mastery_effects or {}, latestTreeVersion .. (charData.league:match("Ruthless") and "_ruthless" or ""))
+	local weaponSets = {}
+	for setName, nodesId in pairs(charPassiveData.specialisations) do
+		local weaponSet = tonumber(setName:match("^set(%d)"))
+		for _, nodeId in ipairs(nodesId) do
+			weaponSets[nodeId] = weaponSet
+		end
+	end
+
+	self.build.spec:ImportFromNodeList(charData.class, nil, nil, charPassiveData.alternate_ascendancy or 0, charPassiveData.hashes, weaponSets, charPassiveData.skill_overrides, charPassiveData.mastery_effects or {}, latestTreeVersion .. (charData.league:match("Ruthless") and "_ruthless" or ""))
 	self.build.spec:AddUndoState()
 	self.build.characterLevel = charData.level
 	self.build.characterLevelAutoMode = false
@@ -571,9 +587,50 @@ function ImportTabClass:ImportItemsAndSkills(charData)
 	end
 	self.charImportStatus = colorCodes.POSITIVE.."Items and skills successfully imported."
 	--ConPrintTable(charItemData)
-	for _, itemData in pairs(charItemData) do
+	for _, itemData in ipairs(charItemData) do
 		self:ImportItem(itemData)
 	end
+
+	local funcGetGemInstance = function(skillData)
+		local typeLine = sanitiseText(skillData.typeLine) .. (skillData.support and " Support" or "")
+		local gemId = self.build.data.gemForBaseName[typeLine:lower()]
+
+		if gemId then
+			local gemInstance = { level = 20, quality = 0, enabled = true, enableGlobal1 = true, gemId = gemId }
+			gemInstance.nameSpec = self.build.data.gems[gemId].name
+			gemInstance.support = skillData.support
+
+			for _, property in pairs(skillData.properties) do
+				if property.name == "Level" then
+					gemInstance.level = tonumber(property.values[1][1]:match("%d+"))
+				elseif escapeGGGString(property.name) == "Quality" then
+					gemInstance.quality = tonumber(property.values[1][1]:match("%d+"))
+				end
+			end
+
+			return gemInstance
+		end
+		return nil
+	end
+	for _, skillData in pairs(charData.skills) do
+		local gemInstance = funcGetGemInstance(skillData)
+		
+		if gemInstance then
+			local group = { label = "", enabled = true, gemList = { } }
+			t_insert(group.gemList, gemInstance )
+
+			for _, anotherSkillData in pairs(skillData.socketedItems) do
+				local anotherGemInstance = funcGetGemInstance(anotherSkillData)
+				if anotherGemInstance then
+					t_insert(group.gemList, anotherGemInstance )
+				end
+			end
+
+			t_insert(self.build.skillsTab.socketGroupList, group)
+			self.build.skillsTab:ProcessSocketGroup(group)
+		end
+	end
+
 	if skillOrder then
 		local groupOrder = { }
 		for index, socketGroup in ipairs(self.build.skillsTab.socketGroupList) do
@@ -630,7 +687,7 @@ local slotMap = { ["Weapon"] = "Weapon 1", ["Offhand"] = "Weapon 2", ["Weapon2"]
 function ImportTabClass:ImportItem(itemData, slotName)
 	if not slotName then
 		if itemData.inventoryId == "PassiveJewels" then
-			slotName = "Jewel "..self.build.latestTree.jewelSlots[itemData.x + 1]
+			slotName = "Jewel ".. (self.build.latestTree.jewelSlots and self.build.latestTree.jewelSlots[itemData.x + 1] or itemData.x + 1)
 		elseif itemData.inventoryId == "Flask" then
 			if itemData.x > 1 then
 				slotName = "Charm " .. (itemData.x - 1)
@@ -957,17 +1014,4 @@ function UrlDecode(url)
 	url = url:gsub("+", " ")
 	url = url:gsub("%%(%x%x)", HexToChar)
 	return url
-end
-
-function ImportTabClass:ProcessJSON(json)
-	local func, errMsg = loadstring("return "..jsonToLua(json))
-	if errMsg then
-		return nil, errMsg
-	end
-	setfenv(func, { }) -- Sandbox the function just in case
-	local data = func()
-	if type(data) ~= "table" then
-		return nil, "Return type is not a table"
-	end
-	return data
 end
