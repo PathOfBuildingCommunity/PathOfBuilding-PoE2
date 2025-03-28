@@ -96,10 +96,12 @@ return {
 			ascendancies={
 				[1]={
 					id="Deadeye",
+					internalId="Ranger1",
 					name="Deadeye"
 				},
 				[2]={
 					id="Pathfinder",
+					internalId="Ranger3",
 					name="Pathfinder"
 				}
 			},
@@ -112,10 +114,12 @@ return {
 			ascendancies={
 				[1]={
 					id="Titan",
+					internalId="Warrior1",
 					name="Titan"
 				},
 				[2]={
 					id="Warbringer",
+					internalId="Warrior2",
 					name="Warbringer"
 				}
 			},
@@ -128,10 +132,12 @@ return {
 			ascendancies={
 				[1]={
 					id="Witchhunter",
+					internalId="Mercenary2",
 					name="Witchhunter"
 				},
 				[2]={
 					id="Gemling Legionnaire",
+					internalId="Mercenary3",
 					name="Gemling Legionnaire"
 				}
 			},
@@ -144,10 +150,12 @@ return {
 			ascendancies={
 				[1]={
 					id="Infernalist",
+					internalId="Witch1",
 					name="Infernalist"
 				},
 				[2]={
 					id="Blood Mage",
+					internalId="Witch2",
 					name="Blood Mage"
 				}
 			},
@@ -160,10 +168,12 @@ return {
 			ascendancies={
 				[1]={
 					id="Stormweaver",
+					internalId="Sorceress1",
 					name="Stormweaver"
 				},
 				[2]={
 					id="Chronomancer",
+					internalId="Sorceress2",
 					name="Chronomancer"
 				}
 			},
@@ -176,10 +186,12 @@ return {
 			ascendancies={
 				[1]={
 					id="Invoker",
+					internalId="Monk2",
 					name="Invoker"
 				},
 				[2]={
 					id="Acolyte of Chayula",
+					internalId="Monk3",
 					name="Acolyte of Chayula"
 				}
 			},

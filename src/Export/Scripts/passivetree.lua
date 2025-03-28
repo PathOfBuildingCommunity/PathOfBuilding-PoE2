@@ -616,6 +616,7 @@ for i, classId in ipairs(psg.passives) do
 			table.insert(classDef.ascendancies, {
 				["id"] = ascendency.Name,
 				["name"] = ascendency.Name,
+				["internalId"] = ascendency.Id
 			})
 
 			-- add assets
