@@ -14342,6 +14342,32 @@ return {
 			y=-6091.4571409843
 		}
 	},
+	jewelSlots={
+		[1]=26725,
+		[2]=36634,
+		[3]=33989,
+		[4]=41263,
+		[5]=60735,
+		[6]=61834,
+		[7]=31683,
+		[8]=28475,
+		[9]=6230,
+		[10]=48768,
+		[11]=34483,
+		[12]=7960,
+		[13]=46882,
+		[14]=55190,
+		[15]=61419,
+		[16]=2491,
+		[17]=54127,
+		[18]=32763,
+		[19]=26196,
+		[20]=33631,
+		[21]=21984,
+		[22]=59740,
+		[23]=63132,
+		[24]=36044
+	},
 	["max_x"]=22310.387360804,
 	["max_y"]=23700.966667042,
 	["min_x"]=-22030.845566528,
@@ -26401,7 +26427,8 @@ return {
 			},
 			skill=11526,
 			stats={
-				[1]="Arrows gain Critical Hit Chance as they travel farther, up to 60% increased Critical Hit Chance"
+				[1]="Arrows gain Critical Hit Chance as they travel farther, up to",
+				[2]="60% increased Critical Hit Chance after 7 metres"
 			}
 		},
 		[11578]={
@@ -36238,7 +36265,7 @@ return {
 			},
 			skill=21380,
 			stats={
-				[1]="100% increased Critical Damage Bonus against Enemies that are on Full Life"
+				[1]="Critical Damage Bonus vs full life enemies 100%"
 			}
 		},
 		[21387]={
@@ -70022,7 +70049,7 @@ return {
 			orbitIndex=15,
 			skill=52630,
 			stats={
-				[1]="40% increased Critical Damage Bonus against Enemies that are on Full Life"
+				[1]="Critical Damage Bonus vs full life enemies 40%"
 			}
 		},
 		[52659]={
@@ -79894,7 +79921,7 @@ return {
 			orbitIndex=13,
 			skill=61800,
 			stats={
-				[1]="40% increased Critical Damage Bonus against Enemies that are on Full Life"
+				[1]="Critical Damage Bonus vs full life enemies 40%"
 			}
 		},
 		[61804]={

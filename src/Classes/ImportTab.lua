@@ -527,9 +527,9 @@ function ImportTabClass:ImportPassiveTreeAndJewels(charData)
 			end
 		end
 	end
-	-- for _, itemData in ipairs(charData.jewels) do
-	-- 	self:ImportItem(itemData)
-	-- end
+	for _, itemData in ipairs(charData.jewels) do
+		self:ImportItem(itemData)
+	end
 	self.build.itemsTab:PopulateSlots()
 	self.build.itemsTab:AddUndoState()
 
@@ -708,7 +708,7 @@ local slotMap = { ["Weapon"] = "Weapon 1", ["Offhand"] = "Weapon 2", ["Weapon2"]
 function ImportTabClass:ImportItem(itemData, slotName)
 	if not slotName then
 		if itemData.inventoryId == "PassiveJewels" then
-			slotName = "Jewel ".. (self.build.latestTree.jewelSlots and self.build.latestTree.jewelSlots[itemData.x + 1] or itemData.x + 1)
+			slotName = "Jewel ".. self.build.latestTree.jewelSlots[itemData.x + 1]
 		elseif itemData.inventoryId == "Flask" then
 			if itemData.x > 1 then
 				slotName = "Charm " .. (itemData.x - 1)
@@ -793,7 +793,7 @@ function ImportTabClass:ImportItem(itemData, slotName)
 	end
 	if itemData.properties then
 		for _, property in pairs(itemData.properties) do
-			if property.name == "Quality" then
+			if escapeGGGString(property.name) == "Quality" then
 				item.quality = tonumber(property.values[1][1]:match("%d+"))
 			elseif property.name == "Radius" then
 				item.jewelRadiusLabel = property.values[1][1]
@@ -941,40 +941,7 @@ function ImportTabClass:ImportSocketedItems(item, socketedItems, slotName)
 			self:ImportItem(socketedItem, slotName .. " Abyssal Socket "..abyssalSocketId)
 			abyssalSocketId = abyssalSocketId + 1
 		else
-			local normalizedBasename, qualityType = self.build.skillsTab:GetBaseNameAndQuality(socketedItem.typeLine, nil)
-			local gemId = self.build.data.gemForBaseName[normalizedBasename:lower()]
-			if socketedItem.hybrid then
-				-- Used by transfigured gems and dual-skill gems (currently just Stormbind) 
-				normalizedBasename, qualityType  = self.build.skillsTab:GetBaseNameAndQuality(socketedItem.hybrid.baseTypeName, nil)
-				gemId = self.build.data.gemForBaseName[normalizedBasename:lower()]
-				if gemId and socketedItem.hybrid.isVaalGem then
-					gemId = self.build.data.gemGrantedEffectIdForVaalGemId[self.build.data.gems[gemId].grantedEffectId]
-				end
-			end
-			if gemId then
-				local gemInstance = { level = 20, quality = 0, enabled = true, enableGlobal1 = true, gemId = gemId }
-				gemInstance.nameSpec = self.build.data.gems[gemId].name
-				gemInstance.support = socketedItem.support
-				gemInstance.qualityId = qualityType
-				for _, property in pairs(socketedItem.properties) do
-					if property.name == "Level" then
-						gemInstance.level = tonumber(property.values[1][1]:match("%d+"))
-					elseif property.name == "Quality" then
-						gemInstance.quality = tonumber(property.values[1][1]:match("%d+"))
-					end
-				end
-				local groupID = item.sockets[socketedItem.socket + 1].group
-				if not itemSocketGroupList[groupID] then
-					itemSocketGroupList[groupID] = { label = "", enabled = true, gemList = { }, slot = slotName }
-				end
-				local socketGroup = itemSocketGroupList[groupID]
-				if not socketedItem.support and socketGroup.gemList[1] and socketGroup.gemList[1].support and item.title ~= "Dialla's Malefaction" then
-					-- If the first gemInstance is a support gemInstance, put the first active gemInstance before it
-					t_insert(socketGroup.gemList, 1, gemInstance)
-				else
-					t_insert(socketGroup.gemList, gemInstance)
-				end
-			end
+			
 		end
 	end
 
