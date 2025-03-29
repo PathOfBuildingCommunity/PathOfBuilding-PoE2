@@ -80,16 +80,13 @@ local ImportTabClass = newClass("ImportTab", "ControlHost", "Control", function(
 	end
 	self.controls.charImportHeader = new("LabelControl", {"TOPLEFT",self.controls.charSelect,"BOTTOMLEFT"}, {0, 16, 200, 16}, "Import:")
 	self.controls.charImportTree = new("ButtonControl", {"LEFT",self.controls.charImportHeader, "RIGHT"}, {8, 0, 170, 20}, "Passive Tree and Jewels", function()
-		local proceed = false
 		if self.build.spec:CountAllocNodes() > 0 then
 			main:OpenConfirmPopup("Character Import", "Importing the passive tree will overwrite your current tree.", "Import", function()
-				proceed = true
+				self:CheckApiBeforeCallback(function()
+					self:DownloadPassiveTree()
+				end)
 			end)
 		else
-			proceed = true
-		end
-
-		if proceed then
 			self:CheckApiBeforeCallback(function()
 				self:DownloadPassiveTree()
 			end)
@@ -308,8 +305,10 @@ function ImportTabClass:CheckApiBeforeCallback(callback)
 	-- validate the status of the api
 	self.api:ValidateAuth(function(valid, updateSettings)
 		if valid then 
-			self.charImportMode = "GETACCOUNTNAME"
-			self.charImportStatus = "Authenticated"
+			if self.charImportMode == "AUTHENTICATION" then
+				self.charImportMode = "GETACCOUNTNAME"
+				self.charImportStatus = "Authenticated"
+			end
 			if updateSettings then
 				main.lastToken = self.api.authToken
 				main.lastRefreshToken = self.api.refreshToken
