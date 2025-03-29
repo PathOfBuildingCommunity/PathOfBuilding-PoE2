@@ -1,30 +1,18 @@
 -- Start a server
+local url = ...
 local socket = require("socket")
 local server = assert(socket.bind("*", 49082) or socket.bind("*", 49083) or socket.bind("*", 49084))
 server:settimeout(30)
 local host, port = server:getsockname()
 ConPrintf("Server started on %s:%s", host, port)
 
-local code, state
-local client = server:accept()
-if client then
-	client:settimeout(10)
-	local request, err = client:receive("*l")
-	
-	if not err and request then
-		local _, _, method, path, version = request:find("^(%S+)%s(%S+)%s(%S+)")
-		if method ~= "GET" then
-			return
-		end
-		local queryParams = {}
-		for k, v in path:gmatch("(%w+)=(%w+)") do
-			queryParams[k] = v
-		end
+local redirect_uri= string.format(
+	"http://localhost:%d", port
+)
+ConPrintf("Redirect URI: %s", redirect_uri)
+url = url .. string.format("&redirect_uri=%s", redirect_uri)
 
-		-- TODO: Handle errors (they come back as 'error' and 'error_description' query parameters)
-		-- TODO: Create a proper page the user sees, and close tab with Javascript
-		-- Send HTTP Response
-		local responseOk = [[
+local commonResponse = [[
 HTTP/1.1 200 OK
 Content-Type: text/html
 
@@ -68,6 +56,15 @@ Content-Type: text/html
 			font-size: 18px;
 			margin-bottom: 15px;
 		}
+		.card code {
+			background: #f8d7da;
+			color: #721c24;
+			padding: 3px 6px;
+			border-radius: 4px;
+			font-family: monospace;
+			display: inline-block;
+			margin-bottom: 10px;
+		}
 		.close-button {
 			padding: 10px 20px;
 			background: #4CAF50;
@@ -86,17 +83,57 @@ Content-Type: text/html
 <body>
 	<div class="container">
 		<div class="card">
-			<h1>PoB 2 - Authentication Successful</h1>
-			<p>✅ Your authentication is complete! You can now return to the app.</p>
-			<button class="close-button" onclick="window.close()">Close</button>
+]]
+
+local commonResponseEnd = [[
 		</div>
 	</div>
 </body>
 </html>
 ]]
-		client:send(responseOk)
-		code = queryParams["code"]
-		state = queryParams["state"]
+
+ConPrintf("Opening URL: %s", url)
+OpenURL(url)
+
+local code, state
+local client = server:accept()
+if client then
+	client:settimeout(10)
+	local request, err = client:receive("*l")
+	
+	if not err and request then
+		local response
+		local _, _, method, path, version = request:find("^(%S+)%s(%S+)%s(%S+)")
+		if method ~= "GET" then
+			return
+		end
+		local queryParams = {}
+		for k, v in path:gmatch("([^&=?]+)=([^&=?]+)") do
+			queryParams[k] = v:gsub("%%(%x%x)", function(hex)
+				return string.char(tonumber(hex, 16))
+			end)
+		end
+
+		if queryParams["code"] ~= nil then
+			response = commonResponse .. [[
+			<h1>PoB 2 - Authentication Successful</h1>
+			<p>✅ Your authentication is complete! You can now return to the app.</p>
+			<button class="close-button" onclick="window.close()">Close</button>
+			]] .. commonResponseEnd
+			code = queryParams["code"]
+			state = queryParams["state"]
+		else
+			response = commonResponse .. [[
+			<h1>PoB 2 - Authentication Failed</h1>
+			<p>❌ Authentication failed. Please try again.</p>
+			<code>]] .. queryParams["error"] .. ": " .. queryParams["error_description"] .. [[</code>
+			<button class="close-button" onclick="window.close()">Close</button>
+			]] .. commonResponseEnd
+		end
+
+		-- Send HTTP Response
+		ConPrintf("Sending response: %s", response)
+		client:send(response)
 	end
 	client:close()
 end

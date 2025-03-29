@@ -19,7 +19,7 @@ local ImportTabClass = newClass("ImportTab", "ControlHost", "Control", function(
 	self.Control()
 
 	self.build = build
-	self.api = new("PoEAPI")
+	self.api = new("PoEAPI", main.lastToken, main.lastRefreshToken)
 
 	self.charImportMode = "AUTHENTICATION"
 	self.charImportStatus = colorCodes.WARNING.."Not authenticated"
@@ -37,6 +37,12 @@ local ImportTabClass = newClass("ImportTab", "ControlHost", "Control", function(
 			if self.api.authToken then
 				self.charImportMode = "GETACCOUNTNAME"
 				self.charImportStatus = "Authenticated"
+
+				main.lastToken = self.api.authToken
+				main.lastRefreshToken = self.api.refreshToken
+				main:SaveSettings()
+			else
+				self.charImportStatus = colorCodes.WARNING.."Not authenticated"
 			end
 		end)
 		self.charImportStatus = "Logging in..."
@@ -54,7 +60,9 @@ local ImportTabClass = newClass("ImportTab", "ControlHost", "Control", function(
 	self.controls.accountRealm:SelByValue( main.lastRealm or "PC", "id" )
 
 	self.controls.accountNameGo = new("ButtonControl", {"LEFT",self.controls.accountNameHeader,"RIGHT"}, {8, 0, 60, 20}, "Start", function()
-		self:DownloadCharacterList()
+		self:CheckApiBeforeCallback(function()
+			self:DownloadCharacterList()
+		end)
 	end)
 
 	-- Stage: select character and import data
@@ -72,12 +80,19 @@ local ImportTabClass = newClass("ImportTab", "ControlHost", "Control", function(
 	end
 	self.controls.charImportHeader = new("LabelControl", {"TOPLEFT",self.controls.charSelect,"BOTTOMLEFT"}, {0, 16, 200, 16}, "Import:")
 	self.controls.charImportTree = new("ButtonControl", {"LEFT",self.controls.charImportHeader, "RIGHT"}, {8, 0, 170, 20}, "Passive Tree and Jewels", function()
+		local proceed = false
 		if self.build.spec:CountAllocNodes() > 0 then
 			main:OpenConfirmPopup("Character Import", "Importing the passive tree will overwrite your current tree.", "Import", function()
-				self:DownloadPassiveTree()
+				proceed = true
 			end)
 		else
-			self:DownloadPassiveTree()
+			proceed = true
+		end
+
+		if proceed then
+			self:CheckApiBeforeCallback(function()
+				self:DownloadPassiveTree()
+			end)
 		end
 	end)
 	self.controls.charImportTree.enabled = function()
@@ -85,7 +100,9 @@ local ImportTabClass = newClass("ImportTab", "ControlHost", "Control", function(
 	end
 	self.controls.charImportTreeClearJewels = new("CheckBoxControl", {"LEFT",self.controls.charImportTree,"RIGHT"}, {90, 0, 18}, "Delete jewels:", nil, "Delete all existing jewels when importing.", true)
 	self.controls.charImportItems = new("ButtonControl", {"LEFT",self.controls.charImportTree, "LEFT"}, {0, 36, 110, 20}, "Items and Skills", function()
-		self:DownloadItems()
+		self:CheckApiBeforeCallback(function()
+				self:DownloadItems()
+		end)
 	end)
 	self.controls.charImportItems.enabled = function()
 		return self.charImportMode == "SELECTCHAR"
@@ -281,7 +298,30 @@ local ImportTabClass = newClass("ImportTab", "ControlHost", "Control", function(
 			self.controls.importCodeGo.onClick()
 		end
 	end
+
+	self:CheckApiBeforeCallback(function()
+		-- all good
+	end)
 end)
+
+function ImportTabClass:CheckApiBeforeCallback(callback)
+	-- validate the status of the api
+	self.api:ValidateAuth(function(valid, updateSettings)
+		if valid then 
+			self.charImportMode = "GETACCOUNTNAME"
+			self.charImportStatus = "Authenticated"
+			if updateSettings then
+				main.lastToken = self.api.authToken
+				main.lastRefreshToken = self.api.refreshToken
+				main:SaveSettings()
+			end
+			callback()
+		else
+			self.charImportMode = "AUTHENTICATION"
+			self.charImportStatus = colorCodes.WARNING.."Not authenticated"
+		end
+	end)
+end
 
 function ImportTabClass:Load(xml, fileName)
 	self.lastRealm = xml.attrib.lastRealm
