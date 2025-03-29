@@ -410,6 +410,10 @@ function ImportTabClass:DownloadCharacterList()
 		main.lastRealm = realm.id
 		local leagueList = { }
 		for i, char in ipairs(charList) do
+			-- validate if the class have internal class
+			if self.build.latestTree.internalAscendNameMap[char.class] ~= nil then
+				char.class = self.build.latestTree.internalAscendNameMap[char.class].ascendClass.name
+			end
 			if not isValueInArray(leagueList, char.league) then
 				t_insert(leagueList, char.league)
 			end
