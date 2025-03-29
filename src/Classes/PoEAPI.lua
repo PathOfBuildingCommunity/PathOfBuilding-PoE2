@@ -39,6 +39,7 @@ function PoEAPIClass:FetchAuthToken(callback)
 					local responseLua = dkjson.decode(response.body)
 					self.authToken = responseLua.access_token
 					ConPrintf(self.authToken)
+					SetForeground()
 					callback()
 				end, { body = formText })
 			end
