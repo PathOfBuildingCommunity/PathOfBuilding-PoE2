@@ -448,27 +448,8 @@ function ImportTabClass:BuildCharacterList(league)
 
 			classColor = colorCodes.DEFAULT
 			if charClass ~= "?" then
-				classColor = colorCodes[charClass:upper()]
-
-				if classColor == nil then
-					if (charClass == "Elementalist" or charClass == "Necromancer" or charClass == "Occultist") then
-						classColor = colorCodes["WITCH"]
-					elseif (charClass == "Guardian" or charClass == "Inquisitor" or charClass == "Hierophant") then
-						classColor = colorCodes["TEMPLAR"]
-					elseif (charClass == "Assassin" or charClass == "Trickster" or charClass == "Saboteur") then
-						classColor = colorCodes["SHADOW"]
-					elseif (charClass == "Gladiator" or charClass == "Slayer" or charClass == "Champion") then
-						classColor = colorCodes["DUELIST"]
-					elseif (charClass == "Raider" or charClass == "Pathfinder" or charClass == "Deadeye" or charClass == "Warden") then
-						classColor = colorCodes["RANGER"]
-					elseif (charClass == "Juggernaut" or charClass == "Berserker" or charClass == "Chieftain") then
-						classColor = colorCodes["MARAUDER"]
-					elseif (charClass == "Ascendant") then
-						classColor = colorCodes["SCION"]
-					else
-						classColor = "^7"
-					end
-				end
+				local tree = main:LoadTree(latestTreeVersion .. (char.league:match("Ruthless") and "_ruthless" or ""))
+				classColor = colorCodes[charClass:upper()] or colorCodes[tree.ascendNameMap[charClass].class.name:upper()] or "^7"
 			end
 
 			local detail
