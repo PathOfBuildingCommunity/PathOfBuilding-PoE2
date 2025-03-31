@@ -848,12 +848,15 @@ function ImportTabClass:ImportItem(itemData, slotName)
 	item.corrupted = itemData.corrupted
 	if itemData.sockets and itemData.sockets[1] then
 		item.sockets = { }
+		item.itemSocketCount = 0
 		for i, socket in pairs(itemData.sockets) do
-			item.sockets[i] = { group = socket.group, color = socket.sColour }
+			item.sockets[i] = { }
+			item.itemSocketCount = item.itemSocketCount + 1
 		end
 	end
-	-- TODO: Import runes and soul cores
-	if itemData.socketedItems and false then
+
+	item.runes = { }
+	if itemData.socketedItems then
 		self:ImportSocketedItems(item, itemData.socketedItems, slotName)
 	end
 	if itemData.requirements and (not itemData.socketedItems or not itemData.socketedItems[1]) then
@@ -958,47 +961,8 @@ end
 
 function ImportTabClass:ImportSocketedItems(item, socketedItems, slotName)
 	-- Build socket group list
-	local itemSocketGroupList = { }
-	local abyssalSocketId = 1
 	for _, socketedItem in ipairs(socketedItems) do
-		if socketedItem.abyssJewel then
-			self:ImportItem(socketedItem, slotName .. " Abyssal Socket "..abyssalSocketId)
-			abyssalSocketId = abyssalSocketId + 1
-		else
-			
-		end
-	end
-
-	-- Import the socket groups
-	for _, itemSocketGroup in pairs(itemSocketGroupList) do
-		-- Check if this socket group matches an existing one
-		local repGroup
-		for index, socketGroup in pairs(self.build.skillsTab.socketGroupList) do
-			if #socketGroup.gemList == #itemSocketGroup.gemList and (not socketGroup.slot or socketGroup.slot == slotName) then
-				local match = true
-				for gemIndex, gem in pairs(socketGroup.gemList) do
-					if gem.nameSpec:lower() ~= itemSocketGroup.gemList[gemIndex].nameSpec:lower() then
-						match = false
-						break
-					end
-				end
-				if match then
-					repGroup = socketGroup
-					break
-				end
-			end
-		end
-		if repGroup then
-			-- Update the existing one
-			for gemIndex, gem in pairs(repGroup.gemList) do
-				local itemGem = itemSocketGroup.gemList[gemIndex]
-				gem.level = itemGem.level
-				gem.quality = itemGem.quality
-			end
-		else
-			t_insert(self.build.skillsTab.socketGroupList, itemSocketGroup)
-		end
-		self.build.skillsTab:ProcessSocketGroup(itemSocketGroup)
+		t_insert(item.runes, socketedItem.baseType)
 	end
 end
 
