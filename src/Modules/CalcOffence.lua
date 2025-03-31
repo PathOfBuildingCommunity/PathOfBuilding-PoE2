@@ -274,53 +274,12 @@ local function setMoltenStrikeTertiaryRadiusBreakdown(breakdown, deadzoneRadius,
 	-- Trigger the inclusion of the radius display.
 	breakdownRadius.radius = currentDist
 end
--- Returns base reload time according to stored values of Crossbow item base that is used for the skill
--- NOTE: This is a temporary workaround to allow for testing until the export of Reload Time data from the game files is sorted out
--- TODO: get data from item base itself rather than using hardcoded values
----@param actor table @actor table that contains the data for the weapon
----@return number
-local function getCrossbowBaseReloadTime(actor)
-	local weaponName = actor.weaponData1.name or "No Weapon Equipped" -- assuming Crossbows can only be wielded in mainhand for now
-	local crossbowBases = {
-		["Makeshift Crossbow"] = 0.8,
-		["Tense Crossbow"] = 0.85,
-		["Sturdy Crossbow"] = 0.75,
-		["Varnished Crossbow"] = 0.8,
-		["Dyad Crossbow"] = 1.1,
-		["Alloy Crossbow"] = 0.7,
-		["Bombard Crossbow"] = 0.75,
-		["Construct Crossbow"] = 0.8,
-		["Blackfire Crossbow"] = 0.85,
-		["Piercing Crossbow"] = 0.85,
-		["Cumbrous Crossbow"] = 0.9,
-		["Dedalian Crossbow"] = 0.85,
-		["Esoteric Crossbow"] = 0.8,
-		["Advanced Tense Crossbow"] = 0.85,
-		["Advanced Sturdy Crossbow"] = 0.75,
-		["Advanced Varnished Crossbow"] = 0.8,
-		["Advanced Dyad Crossbow"] = 1.1,
-		["Advanced Bombard Crossbow"] = 0.75,
-		["Advanced Forlorn Crossbow"] = 0.8,
-		["Expert Sturdy Crossbow"] = 0.75,
-		["Expert Varnished Crossbow"] = 0.8,
-		["Expert Tense Crossbow"] = 0.85,
-		["Expert Dyad Crossbow"] = 1.1,
-		["Expert Bombard Crossbow"] = 0.75,
-		["Expert Forlorn Crossbow"] = 0.8,
-	}
-
-	for baseName, reloadTime in pairs(crossbowBases) do
-		if string.find(weaponName, ", " .. baseName) then return reloadTime end -- need to add ", " to avoid false matches from non-Advanced/Expert versions
-	end
-	return 0 -- in case there are no matches, it's an invalid base and reload time is ignored
-end
 -- Calculate and return reload time in seconds for a specific Crossbow skill
 ---@param actor table @actor using the skill
----@param ammoSkill table @skill of type SkillType.CrossbowAmmoSkill
 ---@param boltSkill table @skill that uses the ammo to shoot bolts
 ---@return number
-local function calcCrossbowReloadTime(actor, ammoSkill, boltSkill)
-	local baseReloadTime = getCrossbowBaseReloadTime(actor)
+local function calcCrossbowReloadTime(weaponData, boltSkill)
+	local baseReloadTime = weaponData.ReloadTime
 	local reloadTimeMulti = calcLib.mod(boltSkill.skillModList, boltSkill.skillCfg, "ReloadSpeed" )
 	return baseReloadTime / reloadTimeMulti
 end
@@ -342,19 +301,25 @@ local function calcCrossbowAmmoStats(actor, activeSkill)
 			local ammoSkillStats = {
 				cost = skill.activeEffect.grantedEffectLevel.cost,
 				boltCount = activeSkill.skillModList:Sum("BASE", activeSkill.skillCfg, "CrossbowBoltCount"),
-				reloadTime = calcCrossbowReloadTime(actor, skill, activeSkill)
+				reloadTime = calcCrossbowReloadTime(actor.weaponData1,  activeSkill)
 			}
 			return ammoSkillStats
 		end
 	end
-	-- In case no ammo skill exists (e.g. basic Crossbow Shot)
-	-- todo this is not yet working correctly because base Crossbow Shot ammunition data is not on the gem and therefore isn't exported
+	-- In case no ammo skill exists (e.g. basic Crossbow Shot), make sure necessary data exists
+	if activeSkill.activeEffect.grantedEffect.id == "MeleeCrossbowPlayer" then
+		-- Crossbow Shot ammunition data is not on the gem and therefore isn't exported. It is manually added instead
+		-- TODO: remove hardcoded value, once base skill ammo data is available on export
+		activeSkill.skillModList:ReplaceMod("CrossbowBoltCount", "BASE", 7, activeSkill.activeEffect.grantedEffect.name)
+	else
+		-- Ensure minimum 1 base bolt count in any case
+		activeSkill.skillModList:ReplaceMod("CrossbowBoltCount", "BASE", 1, activeSkill.activeEffect.grantedEffect.name)
+	end
 	local dummySkillStats = {
 		cost = activeSkill.activeEffect.grantedEffectLevel.cost,
 		boltCount = m_max(activeSkill.skillModList:Sum("BASE", activeSkill.skillCfg, "CrossbowBoltCount"), 1), -- ensure minimum one bolt
-		reloadTime = calcCrossbowReloadTime(actor, activeSkill, activeSkill)
+		reloadTime = calcCrossbowReloadTime(actor.weaponData1, activeSkill)
 	}
-	-- todo workaround for "transfer" of ammo skill mods, if no ammo exists
 	return dummySkillStats
 end
 
@@ -2510,7 +2475,7 @@ function calcs.offence(env, actor, activeSkill)
 					t_insert(globalBreakdown.TotalFiringTime, s_format("= %.2fs ^8(total firing time)", output.TotalFiringTime))
 
 					globalBreakdown.ReloadTime = { }
-					local baseReloadTime = getCrossbowBaseReloadTime(actor)
+					local baseReloadTime = source.ReloadTime
 					local incReloadSpeed = skillModList:Sum("INC", skillCfg, "ReloadSpeed")
 					local moreReloadSpeed = (100 + skillModList:Sum("MORE", skillCfg, "ReloadSpeed")) / 100
 					t_insert(globalBreakdown.ReloadTime, s_format("  1.00s / %.2f ^8(base reload time)", baseReloadTime))
