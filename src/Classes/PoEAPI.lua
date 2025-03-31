@@ -102,6 +102,7 @@ end
 function PoEAPIClass:DownloadWithRefresh(endpoint, callback)
 	launch:DownloadPage(self.baseUrl .. endpoint, function (response, errMsg)
 		if errMsg and errMsg:match("401") and self.retries < 1 then
+			self.retries = self.retries + 1
 			self:FetchAuthToken(function()
 				self:DownloadWithRefresh(endpoint, callback)
 			end)
