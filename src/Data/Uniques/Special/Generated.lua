@@ -96,7 +96,7 @@ do
 	table.insert(data.uniques.generated, table.concat(prism, "\n"))
 end
 
-local treedata = LoadModule("TreeData/0_1/tree.lua")
+local treedata = LoadModule("TreeData/" .. latestTreeVersion .. "/tree.lua")
 local nodes = treedata.nodes
 
 do
