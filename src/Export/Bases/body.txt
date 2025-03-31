@@ -27,4 +27,4 @@ local itemBases = ...
 #baseMatch Metadata/Items/Armours/BodyArmours/FourBodyStrDexIntBase
 
 #subType
-#baseMatch BaseType Metadata/Items/Armours/BodyArmours/BodyDemigods1
+#baseMatch Metadata/Items/Armours/BodyArmours/BodyDemigods1

@@ -1478,3 +1478,13 @@ itemBases["Garment"] = {
 	req = { },
 }
 
+itemBases["Golden Mantle"] = {
+	type = "Body Armour",
+	quality = 20,
+	socketLimit = 3,
+	tags = { body_armour = true, str_dex_int_armour = true, demigods = true, armour = true, not_for_sale = true, default = true, },
+	implicit = "+(15-25)% to all Elemental Resistances",
+	implicitModTypes = { { "elemental", "fire", "cold", "lightning", "resistance" }, },
+	armour = { Armour = 51, Evasion = 44, EnergyShield = 21, },
+	req = { level = 20, str = 8, dex = 8, int = 8, },
+}

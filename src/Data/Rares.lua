@@ -323,6 +323,7 @@ Crafted: true
 Ring
 Emerald Ring
 Crafted: true
+Prefix: IncreasedAccuracy6
 ]],[[
 Ring
 Iron Ring
@@ -337,11 +338,17 @@ Heavy Belt
 Crafted: true
 Prefix: IncreasedLife7
 Suffix: Strength7
+Suffix: StunThreshold7
 ]],[[
 Belt
 Plate Belt
 Crafted: true
 Prefix: IncreasedPhysicalDamageReductionRating5
+Prefix: IncreasedLife7
+]],[[
+Belt
+Fine Belt
+Crafted: true
 Prefix: IncreasedLife7
 ]],
 -- Quivers
@@ -362,12 +369,12 @@ Suffix: AttackCriticalStrikeChance3
 ]],
 -- Sceptres
 [[
-Minion Sceptre
++4 Minion Sceptre
 Rattling Sceptre
 Crafted: true
-Prefix: LocalIncreasedSpiritPercent4
-Prefix: NearbyAlliesAllDamage4
-Suffix: GlobalMinionSpellSkillGemLevelWeapon3
+Prefix: LocalIncreasedSpiritPercent5
+Prefix: NearbyAlliesAllDamage5
+Suffix: GlobalMinionSpellSkillGemLevelWeapon4
 ]],[[
 Discipline Sceptre
 Stoic Sceptre
@@ -376,8 +383,8 @@ Crafted: true
 Malice Sceptre
 Omen Sceptre
 Crafted: true
-Suffix: NearbyAlliesCriticalMultiplier3
-Suffix: NearbyAlliesCriticalStrikeChance3 
+Suffix: NearbyAlliesCriticalMultiplier5
+Suffix: NearbyAlliesCriticalStrikeChance5
 ]],[[
 Purity Aura Sceptre
 Shrine Sceptre
@@ -385,8 +392,8 @@ Variant: Purity of Fire
 Variant: Purity of Ice
 Variant: Purity of Lightning
 Crafted: true
-Prefix: LocalIncreasedSpiritPercent4
-Suffix: NearbyAlliesAllResistances3
+Prefix: LocalIncreasedSpiritPercent6
+Suffix: NearbyAlliesAllResistances5
 Implicits: 3
 {variant:1}Grants Skill: Level (1-20) Purity of Fire
 {variant:2}Grants Skill: Level (1-20) Purity of Ice
@@ -396,7 +403,7 @@ Implicits: 3
 
 -- Bows
 [[
-Physical Bow
++4 Physical Bow
 Expert Zealot Bow
 Crafted: true
 Prefix: LocalIncreasedPhysicalDamagePercent5
@@ -404,9 +411,9 @@ Prefix: LocalIncreasedPhysicalDamagePercentAndAccuracyRating5
 Prefix: LocalAddedPhysicalDamage6
 Suffix: LocalIncreasedAttackSpeed2
 Suffix: LocalCriticalStrikeChance3
-Suffix: LocalCriticalMultiplier4
+Suffix: GlobalProjectileSkillGemLevelWeapon4
 ]],[[
-Elemental Bow
++4 Elemental Bow
 Expert Zealot Bow
 Crafted: true
 Prefix: LocalAddedFireDamage8
@@ -414,9 +421,9 @@ Prefix: LocalAddedColdDamage8
 Prefix: LocalAddedLightningDamage8
 Suffix: LocalIncreasedAttackSpeed2
 Suffix: LocalCriticalStrikeChance3
-Suffix: LocalCriticalMultiplier4
+Suffix: GlobalProjectileSkillGemLevelWeapon4
 ]],[[
-Physical Bow
++4 Physical Bow
 Expert Dualstring Bow
 Crafted: true
 Prefix: LocalIncreasedPhysicalDamagePercent5
@@ -424,9 +431,9 @@ Prefix: LocalIncreasedPhysicalDamagePercentAndAccuracyRating5
 Prefix: LocalAddedPhysicalDamage6
 Suffix: LocalIncreasedAttackSpeed2
 Suffix: LocalCriticalStrikeChance3
-Suffix: LocalCriticalMultiplier4
+Suffix: GlobalProjectileSkillGemLevelWeapon4
 ]],[[
-Elemental Bow
++4 Elemental Bow
 Expert Dualstring Bow
 Crafted: true
 Prefix: LocalAddedFireDamage8
@@ -434,9 +441,9 @@ Prefix: LocalAddedColdDamage8
 Prefix: LocalAddedLightningDamage8
 Suffix: LocalIncreasedAttackSpeed2
 Suffix: LocalCriticalStrikeChance3
-Suffix: LocalCriticalMultiplier4
+Suffix: GlobalProjectileSkillGemLevelWeapon4
 ]],[[
-Physical Bow
++4 Physical Bow
 Expert Warden Bow
 Crafted: true
 Prefix: LocalIncreasedPhysicalDamagePercent5
@@ -444,9 +451,9 @@ Prefix: LocalIncreasedPhysicalDamagePercentAndAccuracyRating5
 Prefix: LocalAddedPhysicalDamage6
 Suffix: LocalIncreasedAttackSpeed2
 Suffix: LocalCriticalStrikeChance3
-Suffix: LocalCriticalMultiplier4
+Suffix: GlobalProjectileSkillGemLevelWeapon4
 ]],[[
-Elemental Bow
++4 Elemental Bow
 Expert Warden Bow
 Crafted: true
 Prefix: LocalAddedFireDamage8
@@ -454,16 +461,16 @@ Prefix: LocalAddedColdDamage8
 Prefix: LocalAddedLightningDamage8
 Suffix: LocalIncreasedAttackSpeed2
 Suffix: LocalCriticalStrikeChance3
-Suffix: LocalCriticalMultiplier4
+Suffix: GlobalProjectileSkillGemLevelWeapon4
 ]],[[
-Chaos Bow
++4 Chaos Bow
 Expert Cultist Bow
 Crafted: true
 Prefix: LocalAddedFireDamage8
 Prefix: WeaponElementalDamage4
 Suffix: LocalIncreasedAttackSpeed2
 Suffix: LocalCriticalStrikeChance3
-Suffix: LocalCriticalMultiplier4
+Suffix: GlobalProjectileSkillGemLevelWeapon4
 ]],-- Crossbows
 [[
 Physical Crossbow
@@ -555,7 +562,7 @@ Prefix: LocalIncreasedPhysicalDamagePercentAndAccuracyRating5
 Prefix: LocalAddedPhysicalDamage6
 Suffix: LocalIncreasedAttackSpeed3
 Suffix: LocalCriticalStrikeChance3
-Suffix: LocalCriticalMultiplier4
+Suffix: GlobalProjectileSkillGemLevelWeapon4
 ]],[[
 Elemental 1H Mace
 Expert Brigand Mace
@@ -565,7 +572,7 @@ Prefix: LocalAddedColdDamage8
 Prefix: LocalAddedLightningDamage8
 Suffix: LocalIncreasedAttackSpeed3
 Suffix: LocalCriticalStrikeChance3
-Suffix: LocalCriticalMultiplier4
+Suffix: GlobalProjectileSkillGemLevelWeapon4
 ]],[[
 Physical 1H Mace
 Expert Warpick
@@ -575,7 +582,7 @@ Prefix: LocalIncreasedPhysicalDamagePercentAndAccuracyRating5
 Prefix: LocalAddedPhysicalDamage6
 Suffix: LocalIncreasedAttackSpeed3
 Suffix: LocalCriticalStrikeChance3
-Suffix: LocalCriticalMultiplier4
+Suffix: GlobalProjectileSkillGemLevelWeapon4
 ]],[[
 Elemental 1H Mace
 Expert Warpick
@@ -585,7 +592,7 @@ Prefix: LocalAddedColdDamage8
 Prefix: LocalAddedLightningDamage8
 Suffix: LocalIncreasedAttackSpeed3
 Suffix: LocalCriticalStrikeChance3
-Suffix: LocalCriticalMultiplier4
+Suffix: GlobalProjectileSkillGemLevelWeapon4
 ]],[[
 Physical 1H Mace
 Expert Construct Hammer
@@ -595,7 +602,7 @@ Prefix: LocalIncreasedPhysicalDamagePercentAndAccuracyRating5
 Prefix: LocalAddedPhysicalDamage6
 Suffix: LocalIncreasedAttackSpeed3
 Suffix: LocalCriticalStrikeChance3
-Suffix: LocalCriticalMultiplier4
+Suffix: GlobalProjectileSkillGemLevelWeapon4
 ]],[[
 Elemental 1H Mace
 Expert Construct Hammer
@@ -605,7 +612,7 @@ Prefix: LocalAddedColdDamage8
 Prefix: LocalAddedLightningDamage8
 Suffix: LocalIncreasedAttackSpeed3
 Suffix: LocalCriticalStrikeChance3
-Suffix: LocalCriticalMultiplier4
+Suffix: GlobalProjectileSkillGemLevelWeapon4
 ]],-- Two Hand Maces
 [[
 Physical 2H Mace
@@ -616,7 +623,7 @@ Prefix: LocalIncreasedPhysicalDamagePercentAndAccuracyRating5
 Prefix: LocalAddedPhysicalDamageTwoHand6
 Suffix: LocalIncreasedAttackSpeed3
 Suffix: LocalCriticalStrikeChance3
-Suffix: LocalCriticalMultiplier4
+Suffix: GlobalProjectileSkillGemLevelWeapon5
 ]],[[
 Elemental 2H Mace
 Expert Leaden Greathammer
@@ -626,7 +633,7 @@ Prefix: LocalAddedColdDamageTwoHand8
 Prefix: LocalAddedLightningDamageTwoHand8
 Suffix: LocalIncreasedAttackSpeed3
 Suffix: LocalCriticalStrikeChance3
-Suffix: LocalCriticalMultiplier4
+Suffix: GlobalProjectileSkillGemLevelWeapon5
 ]],[[
 Physical 2H Mace
 Expert Crumbling Maul
@@ -636,7 +643,7 @@ Prefix: LocalIncreasedPhysicalDamagePercentAndAccuracyRating5
 Prefix: LocalAddedPhysicalDamageTwoHand6
 Suffix: LocalIncreasedAttackSpeed3
 Suffix: LocalCriticalStrikeChance3
-Suffix: LocalCriticalMultiplier4
+Suffix: GlobalProjectileSkillGemLevelWeapon5
 ]],[[
 Elemental 2H Mace
 Expert Crumbling Maul
@@ -646,7 +653,7 @@ Prefix: LocalAddedColdDamageTwoHand8
 Prefix: LocalAddedLightningDamageTwoHand8
 Suffix: LocalIncreasedAttackSpeed3
 Suffix: LocalCriticalStrikeChance3
-Suffix: LocalCriticalMultiplier4
+Suffix: GlobalProjectileSkillGemLevelWeapon5
 ]],[[
 Physical 2H Mace
 Expert Cultist Greathammer
@@ -656,7 +663,7 @@ Prefix: LocalIncreasedPhysicalDamagePercentAndAccuracyRating5
 Prefix: LocalAddedPhysicalDamageTwoHand6
 Suffix: LocalIncreasedAttackSpeed3
 Suffix: LocalCriticalStrikeChance3
-Suffix: LocalCriticalMultiplier4
+Suffix: GlobalProjectileSkillGemLevelWeapon5
 ]],[[
 Elemental 2H Mace
 Expert Cultist Greathammer
@@ -666,7 +673,7 @@ Prefix: LocalAddedColdDamageTwoHand8
 Prefix: LocalAddedLightningDamageTwoHand8
 Suffix: LocalIncreasedAttackSpeed3
 Suffix: LocalCriticalStrikeChance3
-Suffix: LocalCriticalMultiplier4
+Suffix: GlobalProjectileSkillGemLevelWeapon5
 ]],[[
 Physical 2H Mace
 Expert Oak Greathammer
@@ -676,7 +683,7 @@ Prefix: LocalIncreasedPhysicalDamagePercentAndAccuracyRating5
 Prefix: LocalAddedPhysicalDamageTwoHand6
 Suffix: LocalIncreasedAttackSpeed3
 Suffix: LocalCriticalStrikeChance3
-Suffix: LocalCriticalMultiplier4
+Suffix: GlobalProjectileSkillGemLevelWeapon5
 ]],[[
 Elemental 2H Mace
 Expert Oak Greathammer
@@ -686,7 +693,7 @@ Prefix: LocalAddedColdDamageTwoHand8
 Prefix: LocalAddedLightningDamageTwoHand8
 Suffix: LocalIncreasedAttackSpeed3
 Suffix: LocalCriticalStrikeChance3
-Suffix: LocalCriticalMultiplier4
+Suffix: GlobalProjectileSkillGemLevelWeapon5
 ]],-- Warstaves
 [[
 Physical Staff
@@ -697,7 +704,7 @@ Prefix: LocalIncreasedPhysicalDamagePercentAndAccuracyRating5
 Prefix: LocalAddedPhysicalDamageTwoHand6
 Suffix: LocalIncreasedAttackSpeed3
 Suffix: LocalCriticalStrikeChance3
-Suffix: LocalCriticalMultiplier4
+Suffix: GlobalProjectileSkillGemLevelWeapon5
 ]],[[
 Elemental Staff
 Expert Slicing Quarterstaff
@@ -707,7 +714,7 @@ Prefix: LocalAddedColdDamageTwoHand8
 Prefix: LocalAddedLightningDamageTwoHand8
 Suffix: LocalIncreasedAttackSpeed3
 Suffix: LocalCriticalStrikeChance3
-Suffix: LocalCriticalMultiplier4
+Suffix: GlobalProjectileSkillGemLevelWeapon5
 ]],[[
 Physical Staff
 Expert Barrier Quarterstaff
@@ -717,7 +724,7 @@ Prefix: LocalIncreasedPhysicalDamagePercentAndAccuracyRating5
 Prefix: LocalAddedPhysicalDamageTwoHand6
 Suffix: LocalIncreasedAttackSpeed3
 Suffix: LocalCriticalStrikeChance3
-Suffix: LocalCriticalMultiplier4
+Suffix: GlobalProjectileSkillGemLevelWeapon5
 ]],[[
 Elemental Staff
 Expert Barrier Quarterstaff
@@ -727,7 +734,7 @@ Prefix: LocalAddedColdDamageTwoHand8
 Prefix: LocalAddedLightningDamageTwoHand8
 Suffix: LocalIncreasedAttackSpeed3
 Suffix: LocalCriticalStrikeChance3
-Suffix: LocalCriticalMultiplier4
+Suffix: GlobalProjectileSkillGemLevelWeapon5
 ]],[[
 Physical Staff
 Expert Long Quarterstaff
@@ -737,7 +744,7 @@ Prefix: LocalIncreasedPhysicalDamagePercentAndAccuracyRating5
 Prefix: LocalAddedPhysicalDamageTwoHand6
 Suffix: LocalIncreasedAttackSpeed3
 Suffix: LocalCriticalStrikeChance3
-Suffix: LocalCriticalMultiplier4
+Suffix: GlobalProjectileSkillGemLevelWeapon5
 ]],[[
 Elemental Staff
 Expert Long Quarterstaff
@@ -747,7 +754,7 @@ Prefix: LocalAddedColdDamageTwoHand8
 Prefix: LocalAddedLightningDamageTwoHand8
 Suffix: LocalIncreasedAttackSpeed3
 Suffix: LocalCriticalStrikeChance3
-Suffix: LocalCriticalMultiplier4
+Suffix: GlobalProjectileSkillGemLevelWeapon5
 ]],[[
 Elemental Staff
 Expert Crackling Quarterstaff
@@ -757,7 +764,7 @@ Prefix: LocalAddedColdDamageTwoHand8
 Prefix: LocalAddedLightningDamageTwoHand8
 Suffix: LocalIncreasedAttackSpeed3
 Suffix: LocalCriticalStrikeChance3
-Suffix: LocalCriticalMultiplier4
+Suffix: GlobalProjectileSkillGemLevelWeapon5
 ]],-- Spell Staves
 [[
 Fire Staff
@@ -784,7 +791,7 @@ Prefix: LocalAddedColdDamageTwoHand8
 Prefix: LocalAddedLightningDamageTwoHand8
 Suffix: LocalIncreasedAttackSpeed3
 Suffix: LocalCriticalStrikeChance3
-Suffix: LocalCriticalMultiplier4
+Suffix: GlobalProjectileSkillGemLevelWeapon5
 ]],-- Wands
 [[
 Chaos Wand
@@ -844,11 +851,38 @@ Suffix: GlobalSpellGemsLevelWeapon3
 ---setBase Mail Breaker, Elemental %s, [ ]
 ---setBase Bloodletting Dagger, Physical %s, [ ]
 ---setBase Bloodletting Dagger, Elemental %s, [ ]
----- Spears
----setBase Helix Spear, Physical %s, [ Prefix: LocalIncreasedPhysicalDamagePercent5, Prefix: LocalIncreasedPhysicalDamagePercentAndAccuracyRating5, Prefix: LocalAddedPhysicalDamage6, Suffix: LocalIncreasedAttackSpeed3, Suffix: LocalCriticalStrikeChance3, Suffix: LocalCriticalMultiplier4]
----setBase Helix Spear, Elemental %s, [ Prefix: LocalAddedFireDamage8, Prefix: LocalAddedColdDamage8, Prefix: LocalAddedLightningDamage8, Suffix: LocalIncreasedAttackSpeed3, Suffix: LocalCriticalStrikeChance3, Suffix: LocalCriticalMultiplier4]
----setBase Striking Spear, Elemental %s, [ Prefix: LocalAddedFireDamage8, Prefix: LocalAddedColdDamage8, Prefix: LocalAddedLightningDamage8, Suffix: LocalIncreasedAttackSpeed3, Suffix: LocalCriticalStrikeChance3, Suffix: LocalCriticalMultiplier4]
----- Flails
+-- Spears
+[[
+Physical Spear
+Helix Spear
+Crafted: true
+Prefix: LocalIncreasedPhysicalDamagePercent5
+Prefix: LocalIncreasedPhysicalDamagePercentAndAccuracyRating5
+Prefix: LocalAddedPhysicalDamage6
+Suffix: LocalIncreasedAttackSpeed3
+Suffix: LocalCriticalStrikeChance3
+Suffix: GlobalMeleeSkillGemLevelWeapon4
+]],[[
+Elemental Spear
+Helix Spear
+Crafted: true
+Prefix: LocalAddedFireDamage8
+Prefix: LocalAddedColdDamage8
+Prefix: LocalAddedLightningDamage8
+Suffix: LocalIncreasedAttackSpeed3
+Suffix: LocalCriticalStrikeChance3
+Suffix: GlobalMeleeSkillGemLevelWeapon4
+]],[[
+Elemental Spear
+Striking Spear
+Crafted: true
+Prefix: LocalAddedFireDamage8
+Prefix: LocalAddedColdDamage8
+Prefix: LocalAddedLightningDamage8
+Suffix: LocalIncreasedAttackSpeed3
+Suffix: LocalCriticalStrikeChance3
+Suffix: GlobalMeleeSkillGemLevelWeapon4
+]],---- Flails
 ---setBase Abyssal Flail, Physical %s, [ ] -- For some reason Flails and Spears don't grab the BaseGroup like maces and axes do.
 ---setBase Abyssal Flail, Elemental %s, [ ]
 ---- One Hand Axes
@@ -872,7 +906,70 @@ Jewel
 Sapphire
 Crafted: true
 ]],
+-- Jewels
+[[
+Radius Jewel
+Time-Lost Ruby
+Crafted: true
+]],[[
+Radius Jewel
+Time-Lost Emerald
+Crafted: true
+]],[[
+Radius Jewel
+Time-Lost Sapphire
+Crafted: true
+]],
 -- Flasks
--- Instant CB/Bleed immune Divine Life Flask
+			[[
+			Rarity: MAGIC
+			Seething Ultimate Life Flask of the Verdant
+			Crafted: true
+			Prefix: {range:0.5}FlaskFullInstantRecovery1
+			Suffix: {range:0.88}FlaskFillChargesPerMinute2
+			Quality: 20
+			LevelReq: 60
+			Implicits: 0
+			50% reduced Amount Recovered
+			Instant Recovery
+			Gains 0.20 Charges per Second
+			]],
+			[[
+			Rarity: MAGIC
+			Seething Ultimate Mana Flask of the Verdant
+			Crafted: true
+			Prefix: {range:0.5}FlaskFullInstantRecovery1
+			Suffix: {range:0.954}FlaskFillChargesPerMinute2
+			Quality: 20
+			LevelReq: 60
+			Implicits: 0
+			50% reduced Amount Recovered
+			Instant Recovery
+			Gains 0.20 Charges per Second
+			]],
+			[[
+			Rarity: MAGIC
+			Potent Ultimate Life Flask of the Distiller
+			Crafted: true
+			Prefix: {range:0.338}FlaskIncreasedRecoveryAmount7
+			Suffix: {range:0.887}FlaskChargesUsed4__
+			Quality: 20
+			LevelReq: 60
+			Implicits: 0
+			72% increased Amount Recovered
+			26% reduced Charges per use
+			]],
+			[[
+			Rarity: MAGIC
+			Potent Ultimate Mana Flask of the Distiller
+			Crafted: true
+			Prefix: {range:0.338}FlaskIncreasedRecoveryAmount7
+			Suffix: {range:0.887}FlaskChargesUsed4__
+			Quality: 20
+			LevelReq: 60
+			Implicits: 0
+			72% increased Amount Recovered
+			26% reduced Charges per use
+			]],
 
 			}
