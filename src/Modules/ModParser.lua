@@ -2123,7 +2123,6 @@ local specialModList = {
 	["removes all energy shield"] = { mod("EnergyShield", "MORE", -100) },
 	["converts all energy shield to mana"] = { mod("EnergyShieldConvertToMana", "BASE", 100) },
 	["skills cost life instead of mana"] = { flag("CostLifeInsteadOfMana") },
-	["skill mana costs converted to life costs"] = { flag("CostLifeInsteadOfMana") },
 	["skills reserve life instead of mana"] = { flag("BloodMagicReserved") },
 	["non%-aura skills cost no mana or life while focus?sed"] = {
 		mod("ManaCost", "MORE", -100, { type = "Condition", var = "Focused" }, { type = "SkillType", skillType = SkillType.Aura, neg = true }),
@@ -4828,11 +4827,6 @@ local specialModList = {
 		flag("DealNoChaos",{ type = "Condition", var = "LowLife", neg = true }),
 		flag("DealNoPhysical", { type = "Condition", var = "LowLife", neg = true }),
 	},
-	["attacks have blood magic"] = { flag("CostLifeInsteadOfMana", nil, ModFlag.Attack) },
-	["attacks cost life instead of mana"] = { flag("CostLifeInsteadOfMana", nil, ModFlag.Attack) },
-	["attack skills cost life instead of (%d+)%% of mana cost"] = function(num) return { 
-		mod("HybridManaAndLifeCost_Life", "BASE", num, nil, ModFlag.Attack) 
-	} end,
 	["trigger a socketed elemental spell on block, with a ([%d%.]+) second cooldown"] = { mod("ExtraSupport", "LIST", { skillId = "SupportTriggerElementalSpellOnBlock", level = 1 }, { type = "SocketedIn", slotName = "{SlotName}" }) },
 	["(%d+)%% chance to cast a? ?socketed lightning spells? on hit"] = { mod("ExtraSupport", "LIST", { skillId = "SupportUniqueMjolnerLightningSpellsCastOnHit", level = 1 }, { type = "SocketedIn", slotName = "{SlotName}" }) },
 	["cast a socketed lightning spell on hit"] = { mod("ExtraSupport", "LIST", { skillId = "SupportUniqueMjolnerLightningSpellsCastOnHit", level = 1 }, { type = "SocketedIn", slotName = "{SlotName}" }) },
@@ -5142,6 +5136,9 @@ local specialModList = {
 	["gain sacrificial zeal when you use a skill, dealing you %d+%% of the skill's mana cost as physical damage per second"] = {
 		flag("Condition:SacrificialZeal"),
 	},
+	["attacks have blood magic"] = { flag("CostLifeInsteadOfMana", nil, ModFlag.Attack) },
+	["attacks cost life instead of mana"] = { flag("CostLifeInsteadOfMana", nil, ModFlag.Attack) },
+	
 	["skills gain a base life cost equal to (%d+)%% of base mana cost"] = function(num) return {
 		mod("ManaCostAsLifeCost", "BASE", num),
 	} end,
@@ -5154,9 +5151,13 @@ local specialModList = {
 	["(%d+)%% of skill mana costs converted to life costs"] = function(num) return {
         mod("HybridManaAndLifeCost_Life", "BASE", num),
     } end,
+	["skill mana costs converted to life costs"] = { mod("HybridManaAndLifeCost_Life", "BASE", 100, nil) },
 	["(%d+)%% of spell mana cost converted to life cost"] = function(num) return {
         mod("HybridManaAndLifeCost_Life", "BASE", num,{ type = "SkillType", skillType = SkillType.Spell }),
     } end,
+	["attack skills cost life instead of (%d+)%% of mana cost"] = function(num) return { 
+		mod("HybridManaAndLifeCost_Life", "BASE", num, nil, ModFlag.Attack) 
+	} end,
 	["(%d+)%% increased cost of arc and crackling lance"] = function(num) return {
 		mod("Cost", "INC", num, { type = "SkillName", skillNameList = { "Arc", "Crackling Lance" }, includeTransfigured = true }),
 	} end,

@@ -1666,7 +1666,7 @@ function calcs.offence(env, actor, activeSkill)
 		-- First pass to calculate base costs. Used for cost conversion (e.g. Petrified Blood)
 		local additionalLifeCost = skillModList:Sum("BASE", skillCfg, "ManaCostAsLifeCost") / 100 -- Extra cost (e.g. Petrified Blood) calculations
 		local additionalESCost = skillModList:Sum("BASE", skillCfg, "ManaCostAsEnergyShieldCost") / 100 -- Extra cost (e.g. Replica Covenant) calculations
-		local hybridLifeCost = skillModList:Sum("BASE", skillCfg, "HybridManaAndLifeCost_Life") / 100 -- Life/Mana mastery
+		local hybridLifeCost = m_min(skillModList:Sum("BASE", skillCfg, "HybridManaAndLifeCost_Life"), 100) / 100 -- Blood Magic, Lifetap and tree mods capped at 100
 		for resource, val in pairs(costs) do
 			local skillCost = skillModList:Override(skillCfg, "Base"..resource.."CostOverride") or activeSkill.activeEffect.grantedEffectLevel.cost and activeSkill.activeEffect.grantedEffectLevel.cost[resource] or nil
 			local baseCost = round(skillCost and skillCost / data.costs[resource].Divisor or 0, 2)
@@ -1690,7 +1690,7 @@ function calcs.offence(env, actor, activeSkill)
 			val.baseCostRaw = val.baseCostRaw and (val.baseCost * mult + val.baseCostNoMult + divineBlessingCorrection)
 			if val.type == "Life" then
 				local manaType = resource:gsub("Life", "Mana")
-				if skillModList:Flag(skillCfg, "CostLifeInsteadOfMana") then -- Blood Magic / Lifetap
+				if skillModList:Flag(skillCfg, "CostLifeInsteadOfMana") then -- Blood Magic / Lifetap in PoE 1, not used in PoE 2 yet
 					val.baseCost = val.baseCost + costs[manaType].baseCost
 					val.baseCostNoMult = val.baseCostNoMult + costs[manaType].baseCostNoMult
 					val.finalBaseCost = val.finalBaseCost + costs[manaType].finalBaseCost

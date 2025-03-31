@@ -3123,7 +3123,7 @@ c["Share Charges with Allies in your Presence"]={nil,"Share Charges with "}
 c["Shocking Hits have a 50% chance to also Shock enemies in a 1.5 metre radius"]={nil,"Shocking Hits have a 50% chance to also Shock enemies in a 1.5 metre radius "}
 c["Shocks you when you reach maximum Power Charges"]={nil,"Shocks you when you reach maximum Power Charges "}
 c["Skill Gems have 30% more Attribute Requirements"]={{[1]={flags=0,keywordFlags=0,name="GlobalGemAttributeRequirements",type="MORE",value=30}},nil}
-c["Skill Mana Costs Converted to Life Costs"]={{[1]={flags=0,keywordFlags=0,name="CostLifeInsteadOfMana",type="FLAG",value=true}},nil}
+c["Skill Mana Costs Converted to Life Costs"]={{[1]={flags=0,keywordFlags=0,name="HybridManaAndLifeCost_Life",type="BASE",value=100}},nil}
 c["Skills Cost +3 Rage"]={{[1]={flags=0,keywordFlags=0,name="RageCostBase",type="BASE",value=3}},nil}
 c["Skills Supported by Unleash have 10% increased Seal gain frequency"]={{[1]={flags=0,keywordFlags=0,name="SealGainFrequency",type="INC",value=10}},nil}
 c["Skills Supported by Unleash have 25% increased Seal gain frequency"]={{[1]={flags=0,keywordFlags=0,name="SealGainFrequency",type="INC",value=25}},nil}
