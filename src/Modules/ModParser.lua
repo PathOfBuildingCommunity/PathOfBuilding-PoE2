@@ -5151,7 +5151,7 @@ local specialModList = {
 	["(%d+)%% of skill mana costs converted to life costs"] = function(num) return {
         mod("HybridManaAndLifeCost_Life", "BASE", num),
     } end,
-	["skill mana costs converted to life costs"] = { mod("HybridManaAndLifeCost_Life", "BASE", 100, nil) },
+	["skill mana costs converted to life costs"] = { mod("HybridManaAndLifeCost_Life", "BASE", 100) },
 	["(%d+)%% of spell mana cost converted to life cost"] = function(num) return {
         mod("HybridManaAndLifeCost_Life", "BASE", num,{ type = "SkillType", skillType = SkillType.Spell }),
     } end,
