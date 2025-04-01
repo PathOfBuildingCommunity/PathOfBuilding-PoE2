@@ -2751,6 +2751,19 @@ function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode)
 			for _, modLine in ipairs(modList) do
 				if item:CheckModLineVariant(modLine) then
 					tooltip:AddLine(16, itemLib.formatModLine(modLine, dbMode))
+					-- Show mods from granted Notables
+					if modLine.modList[1] and modLine.modList[1].name == "GrantedPassive" then
+						local node = self.build.spec.tree.notableMap[modLine.modList[1].value]
+						if node then
+							for _, stat in ipairs(node.sd) do
+								tooltip:AddLine(16, "^x7F7F7F"..stat)
+							end
+						end
+						-- Add separator only for anoints
+						if item.implicitModLines then
+							tooltip:AddSeparator(10)
+						end
+					end
 				end
 			end
 			tooltip:AddSeparator(10)
