@@ -763,6 +763,19 @@ skills["AttritionPlayer"] = {
 			label = "Attrition",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "attrition",
+			statMap = {
+				["skill_attrition_presence_max_seconds"] = {
+					mod("Multiplier:AttritionMaxDamage", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff"}),
+				},
+				["skill_attrition_culling_strike_at_x_or_more_stacks"] = {
+					mod("Multiplier:AttritionCullSeconds", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff"}),
+				},
+				["skill_attrition_hit_damage_+%_final_vs_rare_or_unique_enemy_per_second_ever_in_presence_up_to_max"] = {
+					{mod("Damage", "MORE", nil, 0, KeywordFlag.Hit, { type = "GlobalEffect", effectType = "Buff"}, { type = "Multiplier", var = "EnemyPresenceSeconds", actor = "enemy", limitVar = "AttritionMaxDamage", div = 2, limitTotal = true }, { type = "ActorCondition", actor = "enemy", var = "RareOrUnique" })},
+					{mod("CullPercent", "MAX", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff"}, { type = "MultiplierThreshold", var = "EnemyPresenceSeconds", actor = "enemy", thresholdVar = "AttritionCullSeconds"}, { type = "ActorCondition", actor = "enemy", var = "RareOrUnique" }),
+					value = 10,}
+					},
+			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -875,6 +888,19 @@ skills["BerserkPlayer"] = {
 			label = "Berserk",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "berserk",
+			statMap = {
+				["life_loss_%_per_minute_per_rage_while_not_losing_rage"] = {
+					mod("LifeDegen", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff" }, { type = "Multiplier", var = "RageEffect" }),
+					div = 60
+				},
+				["life_leech_from_physical_attack_damage_permyriad_per_rage"] = {
+					mod("PhysicalDamageLifeLeech", "BASE", nil, ModFlag.Attack, 0, { type = "GlobalEffect", effectType = "Buff" }, { type = "Multiplier", var = "RageEffect" }),
+					div = 100,
+				},
+				["rage_effect_+%"] = {
+					mod( "RageEffect", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff" } ),
+				}
+			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -1919,7 +1945,7 @@ skills["DefianceBannerPlayer"] = {
 	skillTypes = { [SkillType.Banner] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Nonpathing] = true, },
 	castTime = 1,
 	qualityStats = {
-		{ "non_skill_base_all_damage_%_to_gain_as_lightning_with_spells_from_buff", 0.5 },
+		{ "banner_buff_effect_+%_final_per_resource", 0.1 },
 	},
 	levels = {
 		[1] = { levelRequirement = 0, },
@@ -1978,6 +2004,7 @@ skills["DefianceBannerPlayer"] = {
 				},
 			},
 			baseFlags = {
+				duration = true,
 			},
 			constantStats = {
 				{ "active_skill_base_area_of_effect_radius", 40 },
@@ -1992,6 +2019,7 @@ skills["DefianceBannerPlayer"] = {
 				"skill_defiance_banner_movement_speed_+%",
 				"can_perform_skill_while_moving",
 				"base_deal_no_damage",
+				"quality_display_banner_buff_effect_+%_final_per_resource_is_gem",
 			},
 			levels = {
 				[1] = { 6000, 6, 5, statInterpolation = { 1, 1, 1, }, actorLevel = 1, },
@@ -2161,6 +2189,7 @@ skills["DreadBannerPlayer"] = {
 				"skill_dread_banner_flask_gen_per_min",
 				"can_perform_skill_while_moving",
 				"base_deal_no_damage",
+				"quality_display_banner_buff_effect_+%_final_per_resource_is_gem",
 			},
 			levels = {
 				[1] = { 6000, 12, 10, statInterpolation = { 1, 1, 1, }, actorLevel = 1, },
@@ -12572,6 +12601,7 @@ skills["WarBannerPlayer"] = {
 				},
 			},
 			baseFlags = {
+				duration = true,
 			},
 			constantStats = {
 				{ "active_skill_base_area_of_effect_radius", 40 },
@@ -12586,6 +12616,7 @@ skills["WarBannerPlayer"] = {
 				"skill_war_banner_accuracy_+%",
 				"can_perform_skill_while_moving",
 				"base_deal_no_damage",
+				"quality_display_banner_buff_effect_+%_final_per_resource_is_gem",
 			},
 			levels = {
 				[1] = { 6000, 5, 30, statInterpolation = { 1, 1, 1, }, actorLevel = 1, },

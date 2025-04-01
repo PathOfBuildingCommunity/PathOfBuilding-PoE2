@@ -413,6 +413,11 @@ statMap = {
 
 #skill SupportGlacierPlayer
 #set SupportGlacierPlayer
+statMap = {
+	["support_glacier_ice_crystal_maximum_life_+%_final"] = {
+		mod("IceCrystalLife", "MORE", nil),
+	},
+},
 #mods
 #skillEnd
 
@@ -457,6 +462,11 @@ statMap = {
 
 #skill SupportIciclePlayer
 #set SupportIciclePlayer
+statMap = {
+	["support_icicle_ice_crystal_maximum_life_+%_final"] = {
+		mod("IceCrystalLife", "MORE", nil),
+	},
+},
 #mods
 #skillEnd
 

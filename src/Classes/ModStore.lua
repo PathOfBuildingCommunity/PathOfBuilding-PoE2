@@ -363,6 +363,14 @@ function ModStoreClass:EvalMod(mod, cfg)
 			end
 		elseif tag.type == "MultiplierThreshold" then
 			local target = self
+			local thresholdTarget = self
+			if tag.thresholdActor then
+				if self.actor[tag.thresholdActor] then
+					thresholdTarget = self.actor[tag.thresholdActor].modDB
+				else
+					return
+				end
+			end
 			if tag.actor then
 				if self.actor[tag.actor] then
 					target = self.actor[tag.actor].modDB
@@ -378,7 +386,7 @@ function ModStoreClass:EvalMod(mod, cfg)
 			else
 				mult = target:GetMultiplier(tag.var, cfg)
 			end
-			local threshold = tag.threshold or target:GetMultiplier(tag.thresholdVar, cfg)
+			local threshold = tag.threshold or thresholdTarget:GetMultiplier(tag.thresholdVar, cfg)
 			if (tag.upper and mult > threshold) or (not tag.upper and mult < threshold) then
 				return
 			end

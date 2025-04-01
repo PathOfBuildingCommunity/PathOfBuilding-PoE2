@@ -709,7 +709,7 @@ skills["SupportExploitWeaknessPlayer"] = {
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
 				["support_gem_consume_enemy_fully_broken_armour_to_gain_damage_+%_final"] = {
-					mod("Damage", "MORE", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "ArmourBroken"})
+					mod("Damage", "MORE", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "ArmourFullyBroken"})
 				},
 			},
 			baseFlags = {
@@ -1939,7 +1939,17 @@ skills["SupportStompingGroundPlayer"] = {
 			label = "Shockwave",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "stomping_ground_shockwave",
+			statMap = {
+				["attack_minimum_added_physical_damage_as_%_of_strength"] = {
+					skill("PhysicalMin", nil, { type = "PercentStat", stat = "Str", percent = 1 }),
+				},
+				["attack_maximum_added_physical_damage_as_%_of_strength"] = {
+					skill("PhysicalMax", nil, { type = "PercentStat", stat = "Str", percent = 1 }),
+				},
+			},
 			baseFlags = {
+				attack = true,
+				area = true,
 			},
 			constantStats = {
 				{ "active_skill_base_area_of_effect_radius", 18 },

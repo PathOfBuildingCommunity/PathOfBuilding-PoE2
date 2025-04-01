@@ -229,12 +229,14 @@ function buildMode:Init(dbFileName, buildName, buildXML, convertBuild, importLin
 				self.spec:AddUndoState()
 				self.spec:SetWindowTitleWithBuildClass()
 				self.buildFlag = true
+				self.treeTab.viewer.searchNeedsForceUpdate = true
 			else
 				main:OpenConfirmPopup("Class Change", "Changing class to "..value.label.." will reset your passive tree.\nThis can be avoided by connecting one of the "..value.label.." starting nodes to your tree.", "Continue", function()
 					self.spec:SelectClass(value.classId)
 					self.spec:AddUndoState()
 					self.spec:SetWindowTitleWithBuildClass()
-					self.buildFlag = true					
+					self.buildFlag = true
+					self.treeTab.viewer.searchNeedsForceUpdate = true
 				end)
 			end
 		end

@@ -495,8 +495,9 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 	end
 
 	-- Update cached node data
-	if self.searchStrCached ~= self.searchStr then
+	if self.searchStrCached ~= self.searchStr or self.searchNeedsForceUpdate == true then
 		self.searchStrCached = self.searchStr
+		self.searchNeedsForceUpdate = false
 
 		local function prepSearch(search)
 			search = search:lower()

@@ -69,6 +69,14 @@ statMap = {
 #skill SupportBlasphemyPlayer
 #set SupportBlasphemyPlayer
 #flags area
+statMap = {
+	["support_blasphemy_curse_effect_+%_final"] = {
+		mod("CurseEffect", "MORE", nil),
+	},
+	["active_skill_base_area_of_effect_radius"] = {
+		skill("radiusExtra", nil),
+	},
+},
 #mods
 #skillEnd
 
@@ -318,6 +326,12 @@ statMap = {
 #skill DisciplinePlayer
 #set DisciplinePlayer
 #flags
+statMap = {
+	["discipline_grant_allies_total_maximum_energy_shield_+"] = {
+		mod("EnergyShield", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Aura" }),
+	},
+},
+#baseMod skill("auraCannotAffectSelf", true)
 #mods
 #skillEnd
 
@@ -351,6 +365,14 @@ statMap = {
 #skill EnfeeblePlayer
 #set EnfeeblePlayer
 #flags area spell duration
+statMap = {
+	["enfeeble_damage_+%_final"] = {
+		mod("Damage", "MORE", nil, 0, 0, { type = "GlobalEffect", effectType = "Curse" }, { type = "Condition", var = "Unique", neg = true }),
+	},
+	["enfeeble_damage_+%_vs_unique_final"] = {
+		mod("Damage", "MORE", nil, 0, 0, { type = "GlobalEffect", effectType = "Curse" }, { type = "Condition", var = "Unique" }),
+	},
+},
 #mods
 #skillEnd
 
@@ -512,6 +534,11 @@ statMap = {
 #skill FrozenLocusPlayer
 #set FrozenLocusPlayer
 #flags duration
+statMap = {
+	["frozen_locus_crystal_display_stat"] = {
+		-- Display Only
+	},
+},
 #mods
 #set FrozenLocusGroundPlayer
 #flags area duration
@@ -817,6 +844,12 @@ statMap = {
 #skill SacrificePlayer
 #set SacrificePlayer
 #flags minion
+statMap = {
+	["harvester_minion_resummon_speed_+%_final"] = {
+		mod("MinionRevivalTime", "MORE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff" } ),
+		mult = -1,
+	},
+},
 #mods
 #skillEnd
 
@@ -843,6 +876,14 @@ statMap = {
 #skill SigilOfPowerPlayer
 #set SigilOfPowerPlayer
 #flags spell area duration
+statMap = {
+	["circle_of_power_max_stages"] = {
+		mod("Multiplier:SigilOfPowerMaxStages", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", unscalable = true }),
+	},
+	["circle_of_power_spell_damage_+%_final_per_stage"] = {
+		mod("Damage", "MORE", nil, ModFlag.Spell, 0, { type = "GlobalEffect", effectType = "Buff" }, { type = "Multiplier", var = "SigilOfPowerStage", limitVar = "SigilOfPowerMaxStages" } ),
+	},
+},
 #mods
 #skillEnd
 
