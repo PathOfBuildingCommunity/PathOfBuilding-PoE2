@@ -25,7 +25,7 @@ return {
 #setBestBase Body Armour, Armour/Energy Shield, Armour/Energy Shield Chest, [ Prefix: LocalBaseArmourAndEnergyShield5, Prefix: LocalIncreasedArmourAndEnergyShield5, Prefix: IncreasedLife9]
 #setBestBase Body Armour, Evasion/Energy Shield, Evasion/Energy Shield Chest, [ Prefix: LocalBaseEvasionRatingAndEnergyShield5_, Prefix: LocalIncreasedEvasionAndEnergyShield5_, Prefix: IncreasedLife9]
 #setBase Expert Scalper's Jacket, Movement Speed Chest, [ Prefix: LocalIncreasedEvasionRating5, Prefix: LocalIncreasedEvasionRatingPercent5, Prefix: IncreasedLife9]
-#setBase Expert Shaman Mantle, Spirit Chest, [ Prefix: LocalBaseArmourAndEnergyShield5, Prefix: LocalIncreasedArmourAndEnergyShield5, Prefix: IncreasedLife9]
+#setBase Expert Shaman Mantle, Spirit Chest, [ Prefix: LocalBaseArmourAndEnergyShield5, Prefix: LocalIncreasedArmourAndEnergyShield5, Prefix: IncreasedSpirit6]
 
 -- Boots
 #setBestBase Boots, Armour, [ Prefix: LocalIncreasedPhysicalDamageReductionRatingPercent5, Prefix: IncreasedLife6, Prefix: MovementVelocity5]
@@ -42,19 +42,19 @@ return {
 #setBestBase Shield, Armour/Energy Shield, [ Prefix: LocalIncreasedBlockPercentage5, Prefix: LocalIncreasedArmourAndEnergyShield5, Prefix: IncreasedLife8]
 
 -- Focus
-#setBase Expert Plumed Focus, Energy Shield, [ Prefix: LocalIncreasedEnergyShield5 ]
+#setBase Expert Plumed Focus, +2 Energy Shield, [ Prefix: LocalIncreasedEnergyShield8, Prefix: LocalIncreasedEnergyShieldPercent6, Suffix: GlobalSpellGemsLevel2]
 
 -- Amulets
-#setBase Amber Amulet, [ Suffix: Strength5]
-#setBase Jade Amulet, [ Suffix: Dexterity5]
-#setBase Lapis Amulet, [ Suffix: Intelligence5]
-#setBase Stellar Amulet, [ Suffix: AllAttributes5]
+#setBase Amber Amulet, Strength Amulet, [ Suffix: Strength5]
+#setBase Jade Amulet, Dexterity Amulet, [ Suffix: Dexterity5]
+#setBase Lapis Amulet, Intelligence Amulet, [ Suffix: Intelligence5]
+#setBase Stellar Amulet, Attribute Amulet, [ Suffix: AllAttributes5]
 #setBase Solar Amulet, Spirit Amulet, [ Prefix: IncreasedSpirit4 ]
 #setBase Azure Amulet, Mana Amulet, [ Prefix: IncreasedMana7, Suffix: Intelligence5, Suffix: ManaRegeneration4]
 #setBase Lunar Amulet, Energy Shield Amulet, [ Prefix: IncreasedEnergyShield7, Prefix: IncreasedEnergyShieldPercent5, Suffix: Intelligence5]
 
 -- Rings
-#baseGroup Resistance Ring, [ Suffix: FireResist4, Suffix: ColdResist4, Suffix: LightningResist4]
+#baseGroup Resistance Ring, [ Suffix: FireResist5, Suffix: ColdResist5, Suffix: LightningResist5]
 #setBase Lazuli Ring, Mana Ring, [ Prefix: IncreasedMana7, Suffix: Intelligence5, Suffix: ManaRegeneration4]
 #setBase Ruby Ring, Resistance Ring, [ ]
 #setBase Sapphire Ring, Resistance Ring, [ ]
@@ -62,7 +62,7 @@ return {
 #setBase Prismatic Ring, Resistance Ring, [ ]
 #setBase Amethyst Ring, Chaos Resistance Ring, [ Suffix: ChaosResist4]
 #setBase Unset Ring, [ ]
-#setBase Pearl Ring, [ ]
+#setBase Pearl Ring, [ Suffix: IncreasedCastSpeed3]
 #setBase Emerald Ring, [ Prefix: IncreasedAccuracy6]
 #setBase Iron Ring, [ Prefix: AddedPhysicalDamage5, Prefix: IncreasedAccuracy4]
 
@@ -72,8 +72,8 @@ return {
 #setBase Fine Belt, [ Prefix: IncreasedLife7]
 
 -- Quivers
-#setBase Toxic Quiver, Poison %s, [ Prefix: DamageWithBows4, Suffix: IncreasedAttackSpeed3, Suffix: GlobalProjectileSkillGemLevel1]
-#setBase Visceral Quiver, Critical %s, [ Prefix: DamageWithBows4, Suffix: AttackCriticalStrikeMultiplier3, Suffix: AttackCriticalStrikeChance3]
+#setBase Toxic Quiver, +2 Poison %s, [ Prefix: DamageWithBows4, Suffix: IncreasedAttackSpeed3, Suffix: GlobalProjectileSkillGemLevel2]
+#setBase Visceral Quiver, +2 Critical %s, [ Prefix: DamageWithBows4, Suffix: AttackCriticalStrikeMultiplier3, Suffix: AttackCriticalStrikeChance3, Suffix: GlobalProjectileSkillGemLevel2]
 
 -- Sceptres
 #setBase Rattling Sceptre, +4 Minion %s, [ Prefix: LocalIncreasedSpiritPercent5, Prefix: NearbyAlliesAllDamage5, Suffix: GlobalMinionSpellSkillGemLevelWeapon4]
@@ -83,10 +83,10 @@ return {
 
 -- Weapons
 #baseGroup Spell One Handed, [ Prefix: SpellDamageOnWeapon5, Prefix: SpellDamageAndManaOnWeapon4, Suffix: SpellCriticalStrikeChance3, Suffix: LocalCriticalMultiplier4]
-#baseGroup Physical One Handed, [ Prefix: LocalIncreasedPhysicalDamagePercent5, Prefix: LocalIncreasedPhysicalDamagePercentAndAccuracyRating5, Prefix: LocalAddedPhysicalDamage6, Suffix: LocalIncreasedAttackSpeed3, Suffix: LocalCriticalStrikeChance3, Suffix: GlobalProjectileSkillGemLevelWeapon4]
-#baseGroup Elemental One Handed, [ Prefix: LocalAddedFireDamage8, Prefix: LocalAddedColdDamage8, Prefix: LocalAddedLightningDamage8, Suffix: LocalIncreasedAttackSpeed3, Suffix: LocalCriticalStrikeChance3, Suffix: GlobalProjectileSkillGemLevelWeapon4]
-#baseGroup Physical Two Handed, [ Prefix: LocalIncreasedPhysicalDamagePercent5, Prefix: LocalIncreasedPhysicalDamagePercentAndAccuracyRating5, Prefix: LocalAddedPhysicalDamageTwoHand6, Suffix: LocalIncreasedAttackSpeed3, Suffix: LocalCriticalStrikeChance3, Suffix: GlobalProjectileSkillGemLevelWeapon5]
-#baseGroup Elemental Two Handed, [ Prefix: LocalAddedFireDamageTwoHand8_, Prefix: LocalAddedColdDamageTwoHand8, Prefix: LocalAddedLightningDamageTwoHand8, Suffix: LocalIncreasedAttackSpeed3, Suffix: LocalCriticalStrikeChance3, Suffix: GlobalProjectileSkillGemLevelWeapon5]
+#baseGroup Physical One Handed, [ Prefix: LocalIncreasedPhysicalDamagePercent5, Prefix: LocalIncreasedPhysicalDamagePercentAndAccuracyRating5, Prefix: LocalAddedPhysicalDamage6, Suffix: LocalIncreasedAttackSpeed3, Suffix: LocalCriticalStrikeChance3, Suffix: GlobalMeleeSkillGemLevelWeapon4]
+#baseGroup Elemental One Handed, [ Prefix: LocalAddedFireDamage8, Prefix: LocalAddedColdDamage8, Prefix: LocalAddedLightningDamage8, Suffix: LocalIncreasedAttackSpeed3, Suffix: LocalCriticalStrikeChance3, Suffix: GlobalMeleeSkillGemLevelWeapon4]
+#baseGroup Physical Two Handed, [ Prefix: LocalIncreasedPhysicalDamagePercent5, Prefix: LocalIncreasedPhysicalDamagePercentAndAccuracyRating5, Prefix: LocalAddedPhysicalDamageTwoHand6, Suffix: LocalIncreasedAttackSpeed3, Suffix: LocalCriticalStrikeChance3, Suffix: GlobalMeleeSkillGemLevelTwoHandWeapon4]
+#baseGroup Elemental Two Handed, [ Prefix: LocalAddedFireDamageTwoHand8_, Prefix: LocalAddedColdDamageTwoHand8, Prefix: LocalAddedLightningDamageTwoHand8, Suffix: LocalIncreasedAttackSpeed3, Suffix: LocalCriticalStrikeChance3, Suffix: GlobalMeleeSkillGemLevelTwoHandWeapon4]
 
 -- Bows
 #setBase Expert Zealot Bow, +4 Physical %s, [ Prefix: LocalIncreasedPhysicalDamagePercent5, Prefix: LocalIncreasedPhysicalDamagePercentAndAccuracyRating5, Prefix: LocalAddedPhysicalDamage6, Suffix: LocalIncreasedAttackSpeed2, Suffix: LocalCriticalStrikeChance3, Suffix: GlobalProjectileSkillGemLevelWeapon4]
@@ -96,15 +96,17 @@ return {
 #setBase Expert Warden Bow, +4 Physical %s, [ Prefix: LocalIncreasedPhysicalDamagePercent5, Prefix: LocalIncreasedPhysicalDamagePercentAndAccuracyRating5, Prefix: LocalAddedPhysicalDamage6, Suffix: LocalIncreasedAttackSpeed2, Suffix: LocalCriticalStrikeChance3, Suffix: GlobalProjectileSkillGemLevelWeapon4]
 #setBase Expert Warden Bow, +4 Elemental %s, [ Prefix: LocalAddedFireDamage8, Prefix: LocalAddedColdDamage8, Prefix: LocalAddedLightningDamage8, Suffix: LocalIncreasedAttackSpeed2, Suffix: LocalCriticalStrikeChance3, Suffix: GlobalProjectileSkillGemLevelWeapon4]
 #setBase Expert Cultist Bow, +4 Chaos %s, [ Prefix: LocalAddedFireDamage8, Prefix: WeaponElementalDamage4, Suffix: LocalIncreasedAttackSpeed2, Suffix: LocalCriticalStrikeChance3, Suffix: GlobalProjectileSkillGemLevelWeapon4]
+
 -- Crossbows
-#setBase Expert Forlorn Crossbow, Physical %s, [ Prefix: LocalIncreasedPhysicalDamagePercent5, Prefix: LocalIncreasedPhysicalDamagePercentAndAccuracyRating5, Prefix: LocalAddedPhysicalDamage6, Suffix: LocalIncreasedAttackSpeed2, Suffix: LocalCriticalStrikeChance3, Suffix: LocalCriticalMultiplier4]
-#setBase Expert Forlorn Crossbow, Elemental %s, [ Prefix: LocalAddedFireDamage8, Prefix: LocalAddedColdDamage8, Prefix: LocalAddedLightningDamage8, Suffix: LocalIncreasedAttackSpeed2, Suffix: LocalCriticalStrikeChance3, Suffix: LocalCriticalMultiplier4]
-#setBase Expert Bombard Crossbow, Physical %s, [ Prefix: LocalIncreasedPhysicalDamagePercent5, Prefix: LocalIncreasedPhysicalDamagePercentAndAccuracyRating5, Prefix: LocalAddedPhysicalDamage6, Suffix: LocalIncreasedAttackSpeed2, Suffix: LocalCriticalStrikeChance3, Suffix: LocalCriticalMultiplier4]
-#setBase Expert Bombard Crossbow, Elemental %s, [ Prefix: LocalAddedFireDamage8, Prefix: LocalAddedColdDamage8, Prefix: LocalAddedLightningDamage8, Suffix: LocalIncreasedAttackSpeed2, Suffix: LocalCriticalStrikeChance3, Suffix: LocalCriticalMultiplier4]
-#setBase Expert Dyad Crossbow, Physical %s, [ Prefix: LocalIncreasedPhysicalDamagePercent5, Prefix: LocalIncreasedPhysicalDamagePercentAndAccuracyRating5, Prefix: LocalAddedPhysicalDamage6, Suffix: LocalIncreasedAttackSpeed2, Suffix: LocalCriticalStrikeChance3, Suffix: LocalCriticalMultiplier4]
-#setBase Expert Dyad Crossbow, Elemental %s, [ Prefix: LocalAddedFireDamage8, Prefix: LocalAddedColdDamage8, Prefix: LocalAddedLightningDamage8, Suffix: LocalIncreasedAttackSpeed2, Suffix: LocalCriticalStrikeChance3, Suffix: LocalCriticalMultiplier4]
-#setBase Expert Tense Crossbow, Physical %s, [ Prefix: LocalIncreasedPhysicalDamagePercent5, Prefix: LocalIncreasedPhysicalDamagePercentAndAccuracyRating5, Prefix: LocalAddedPhysicalDamage6, Suffix: LocalIncreasedAttackSpeed2, Suffix: LocalCriticalStrikeChance3, Suffix: LocalCriticalMultiplier4]
-#setBase Expert Tense Crossbow, Elemental %s, [ Prefix: LocalAddedFireDamage8, Prefix: LocalAddedColdDamage8, Prefix: LocalAddedLightningDamage8, Suffix: LocalIncreasedAttackSpeed2, Suffix: LocalCriticalStrikeChance3, Suffix: LocalCriticalMultiplier4]
+#setBase Expert Forlorn Crossbow, +6 Physical %s, [ Prefix: LocalIncreasedPhysicalDamagePercent5, Prefix: LocalIncreasedPhysicalDamagePercentAndAccuracyRating5, Prefix: LocalAddedPhysicalDamage6, Suffix: LocalIncreasedAttackSpeed2, Suffix: LocalCriticalStrikeChance3, Suffix: GlobalProjectileSkillGemLevelTwoHandWeapon4]
+#setBase Expert Forlorn Crossbow, +6 Elemental %s, [ Prefix: LocalAddedFireDamage8, Prefix: LocalAddedColdDamage8, Prefix: LocalAddedLightningDamage8, Suffix: LocalIncreasedAttackSpeed2, Suffix: LocalCriticalStrikeChance3, Suffix: GlobalProjectileSkillGemLevelTwoHandWeapon4]
+#setBase Expert Bombard Crossbow, +6 Physical %s, [ Prefix: LocalIncreasedPhysicalDamagePercent5, Prefix: LocalIncreasedPhysicalDamagePercentAndAccuracyRating5, Prefix: LocalAddedPhysicalDamage6, Suffix: LocalIncreasedAttackSpeed2, Suffix: LocalCriticalStrikeChance3, Suffix: GlobalProjectileSkillGemLevelTwoHandWeapon4]
+#setBase Expert Bombard Crossbow, +6 Elemental %s, [ Prefix: LocalAddedFireDamage8, Prefix: LocalAddedColdDamage8, Prefix: LocalAddedLightningDamage8, Suffix: LocalIncreasedAttackSpeed2, Suffix: LocalCriticalStrikeChance3, Suffix: GlobalProjectileSkillGemLevelTwoHandWeapon4]
+#setBase Expert Dyad Crossbow, +6 Physical %s, [ Prefix: LocalIncreasedPhysicalDamagePercent5, Prefix: LocalIncreasedPhysicalDamagePercentAndAccuracyRating5, Prefix: LocalAddedPhysicalDamage6, Suffix: LocalIncreasedAttackSpeed2, Suffix: LocalCriticalStrikeChance3, Suffix: GlobalProjectileSkillGemLevelTwoHandWeapon4]
+#setBase Expert Dyad Crossbow, +6 Elemental %s, [ Prefix: LocalAddedFireDamage8, Prefix: LocalAddedColdDamage8, Prefix: LocalAddedLightningDamage8, Suffix: LocalIncreasedAttackSpeed2, Suffix: LocalCriticalStrikeChance3, Suffix: GlobalProjectileSkillGemLevelTwoHandWeapon4]
+#setBase Expert Tense Crossbow, +6 Physical %s, [ Prefix: LocalIncreasedPhysicalDamagePercent5, Prefix: LocalIncreasedPhysicalDamagePercentAndAccuracyRating5, Prefix: LocalAddedPhysicalDamage6, Suffix: LocalIncreasedAttackSpeed2, Suffix: LocalCriticalStrikeChance3, Suffix: GlobalProjectileSkillGemLevelTwoHandWeapon4]
+#setBase Expert Tense Crossbow, +6 Elemental %s, [ Prefix: LocalAddedFireDamage8, Prefix: LocalAddedColdDamage8, Prefix: LocalAddedLightningDamage8, Suffix: LocalIncreasedAttackSpeed2, Suffix: LocalCriticalStrikeChance3, Suffix: GlobalProjectileSkillGemLevelTwoHandWeapon4]
+
 -- One Hand Maces
 #setBase Expert Brigand Mace, Physical %s, [ ]
 #setBase Expert Brigand Mace, Elemental %s, [ ]
@@ -112,6 +114,7 @@ return {
 #setBase Expert Warpick, Elemental %s, [ ]
 #setBase Expert Construct Hammer, Physical %s, [ ]
 #setBase Expert Construct Hammer, Elemental %s, [ ]
+
 -- Two Hand Maces
 #setBase Expert Leaden Greathammer, Physical %s, [ ]
 #setBase Expert Leaden Greathammer, Elemental %s, [ ]
@@ -121,6 +124,7 @@ return {
 #setBase Expert Cultist Greathammer, Elemental %s, [ ]
 #setBase Expert Oak Greathammer, Physical %s, [ ]
 #setBase Expert Oak Greathammer, Elemental %s, [ ]
+
 -- Warstaves
 #setBase Expert Slicing Quarterstaff, Physical %s, [ ]
 #setBase Expert Slicing Quarterstaff, Elemental %s, [ ]
@@ -129,20 +133,22 @@ return {
 #setBase Expert Long Quarterstaff, Physical %s, [ ]
 #setBase Expert Long Quarterstaff, Elemental %s, [ ]
 #setBase Expert Crackling Quarterstaff, Elemental %s, [ ]
--- Spell Staves
-#setBase Ashen Staff, Fire %s, [ ] -- problem, used the two hand modifiers
-#setBase Gelid Staff, Cold %s, [ ] -- problem, used the two hand modifiers
-#setBase Voltaic Staff, Lightning %s, [ ] -- problem, used the two hand modifiers
-#setBase Pyrophyte Staff, Fire %s, [ ] -- problem, used the two hand modifiers
-#setBase Chiming Staff, Elemental %s, [ ] -- problem, used the two hand modifiers
--- Wands
-#setBase Withered Wand, Chaos %s, [ Prefix: ChaosDamagePrefixOnWeapon4, Prefix: SpellDamageOnWeapon4, Prefix: SpellDamageAndManaOnWeapon4, Suffix: GlobalSpellGemsLevelWeapon3]
-#setBase Bone Wand, Physical %s, [ Prefix: PhysicalDamagePrefixOnWeapon4, Prefix: SpellDamageOnWeapon4, Prefix: SpellDamageAndManaOnWeapon4, Suffix: GlobalSpellGemsLevelWeapon3]
-#setBase Siphoning Wand, Elemental %s, [ Prefix: FireDamagePrefixOnWeapon4, Prefix: ColdDamagePrefixOnWeapon4, Prefix: LightningDamagePrefixOnWeapon4, Suffix: GlobalSpellGemsLevelWeapon3]
-#setBase Volatile Wand, Fire %s, [ Prefix: FireDamagePrefixOnWeapon4, Prefix: SpellDamageOnWeapon4, Prefix: SpellDamageAndManaOnWeapon4, Suffix: GlobalSpellGemsLevelWeapon3]
-#setBase Attuned Wand, Elemental %s, [ Prefix: FireDamagePrefixOnWeapon4, Prefix: ColdDamagePrefixOnWeapon4, Prefix: LightningDamagePrefixOnWeapon4, Suffix: GlobalSpellGemsLevelWeapon3]
 
--- Not in game yet. Flails are throwing an error on hover too
+-- Spell Staves
+#setBase Ashen Staff, Fire %s, [ Prefix: SpellDamageOnTwoHandWeapon6, Prefix: SpellDamageGainedAsFire5, Prefix: FireDamagePrefixOnTwoHandWeapon6, Suffix: GlobalFireSpellGemsLevelTwoHandWeapon4]
+#setBase Pyrophyte Staff, Fire %s, [ Prefix: SpellDamageOnTwoHandWeapon6, Prefix: SpellDamageGainedAsFire5, Prefix: FireDamagePrefixOnTwoHandWeapon6,]
+#setBase Gelid Staff, Cold %s, [ Prefix: SpellDamageOnTwoHandWeapon6, Prefix: SpellDamageGainedAsCold5, Prefix: ColdDamagePrefixOnTwoHandWeapon6, Suffix: GlobalColdSpellGemsLevelTwoHandWeapon4, Suffix: FreezeDamageIncrease4]
+#setBase Voltaic Staff, Lightning %s, [ Prefix: SpellDamageOnTwoHandWeapon6, Prefix: SpellDamageGainedAsLightning5, Prefix: LightningDamagePrefixOnTwoHandWeapon6,]
+#setBase Chiming Staff, Elemental %s, [ Prefix: SpellDamageOnTwoHandWeapon6, Prefix: SpellDamageAndManaOnTwoHandWeapon6, Prefix: IncreasedManaTwoHandWeapon9, Suffix: GlobalSpellGemsLevelTwoHandWeapon3, Suffix: IncreasedCastSpeedTwoHand5]
+
+-- Wands
+#setBase Withered Wand, Chaos %s, [ Prefix: ChaosDamagePrefixOnWeapon6, Prefix: SpellDamageOnWeapon6, Prefix: SpellDamageAndManaOnWeapon5, Suffix: GlobalChaosSpellGemsLevelWeapon4]
+#setBase Bone Wand, Physical %s, [ Prefix: PhysicalDamagePrefixOnWeapon6, Prefix: SpellDamageOnWeapon6, Prefix: SpellDamageAndManaOnWeapon5, Suffix: GlobalPhysicalSpellGemsLevelWeapon4]
+#setBase Volatile Wand, Fire %s, [ Prefix: FireDamagePrefixOnWeapon6, Prefix: SpellDamageOnWeapon6, Prefix: SpellDamageAndManaOnWeapon5, Suffix: GlobalFireSpellGemsLevelWeapon4]
+#setBase Attuned Wand, Elemental %s, [ Prefix: FireDamagePrefixOnWeapon6, Prefix: ColdDamagePrefixOnWeapon6, Prefix: LightningDamagePrefixOnWeapon6, Suffix: GlobalSpellGemsLevelWeapon4]
+#setBase Siphoning Wand, Elemental %s, [ Prefix: FireDamagePrefixOnWeapon6, Prefix: ColdDamagePrefixOnWeapon6, Prefix: LightningDamagePrefixOnWeapon6, Suffix: GlobalSpellGemsLevelWeapon4]
+
+-- Not in game yet.
 ---- One Hand Swords
 ---setBase Dark Blade, Physical %s, [ ]
 ---setBase Dark Blade, Elemental %s, [ ]
@@ -160,9 +166,9 @@ return {
 ---setBase Bloodletting Dagger, Physical %s, [ ]
 ---setBase Bloodletting Dagger, Elemental %s, [ ]
 -- Spears
-#setBase Helix Spear, Physical %s, [ Prefix: LocalIncreasedPhysicalDamagePercent5, Prefix: LocalIncreasedPhysicalDamagePercentAndAccuracyRating5, Prefix: LocalAddedPhysicalDamage6, Suffix: LocalIncreasedAttackSpeed3, Suffix: LocalCriticalStrikeChance3, Suffix: GlobalMeleeSkillGemLevelWeapon4]
-#setBase Helix Spear, Elemental %s, [ Prefix: LocalAddedFireDamage8, Prefix: LocalAddedColdDamage8, Prefix: LocalAddedLightningDamage8, Suffix: LocalIncreasedAttackSpeed3, Suffix: LocalCriticalStrikeChance3, Suffix: GlobalMeleeSkillGemLevelWeapon4]
-#setBase Striking Spear, Elemental %s, [ Prefix: LocalAddedFireDamage8, Prefix: LocalAddedColdDamage8, Prefix: LocalAddedLightningDamage8, Suffix: LocalIncreasedAttackSpeed3, Suffix: LocalCriticalStrikeChance3, Suffix: GlobalMeleeSkillGemLevelWeapon4]
+#setBase Helix Spear, +4 Physical %s, [ Prefix: LocalIncreasedPhysicalDamagePercent5, Prefix: LocalIncreasedPhysicalDamagePercentAndAccuracyRating5, Prefix: LocalAddedPhysicalDamage6, Suffix: LocalIncreasedAttackSpeed3, Suffix: LocalCriticalStrikeChance3, Suffix: GlobalMeleeSkillGemLevelWeapon4]
+#setBase Helix Spear, +4 Elemental %s, [ Prefix: LocalAddedFireDamage8, Prefix: LocalAddedColdDamage8, Prefix: LocalAddedLightningDamage8, Suffix: LocalIncreasedAttackSpeed3, Suffix: LocalCriticalStrikeChance3, Suffix: GlobalMeleeSkillGemLevelWeapon4]
+#setBase Striking Spear, +4 Lightning %s, [ Prefix: WeaponElementalDamage5, Prefix: LocalAddedLightningDamage8, Suffix: LocalIncreasedAttackSpeed3, Suffix: LocalCriticalStrikeChance3, Suffix: GlobalMeleeSkillGemLevelWeapon4]
 ---- Flails
 ---setBase Abyssal Flail, Physical %s, [ ] -- For some reason Flails and Spears don't grab the BaseGroup like maces and axes do.
 ---setBase Abyssal Flail, Elemental %s, [ ]
