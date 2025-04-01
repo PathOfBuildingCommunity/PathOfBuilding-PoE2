@@ -846,17 +846,19 @@ function calcs.initEnv(build, mode, override, specEnv)
 				local slotName = slot.slotName
 				if items[slotName] then
 					local srcList = items[slotName].modList or items[slotName].slotModList[slot.slotNum]
-					for _, mod in ipairs(srcList) do
-						-- checks if it disables another slot
-						for _, tag in ipairs(mod) do
-							if tag.type == "DisablesItem" then
-								-- e.g. Tincture in Flask 5 while using a Micro-Distillery Belt
-								if tag.excludeItemType and items[tag.slotName] and items[tag.slotName].type == tag.excludeItemType then
+					if srcList then
+						for _, mod in ipairs(srcList) do
+							-- checks if it disables another slot
+							for _, tag in ipairs(mod) do
+								if tag.type == "DisablesItem" then
+									-- e.g. Tincture in Flask 5 while using a Micro-Distillery Belt
+									if tag.excludeItemType and items[tag.slotName] and items[tag.slotName].type == tag.excludeItemType then
+										break
+									end
+									itemDisablers[slotName] = tag.slotName
+									itemDisabled[tag.slotName] = slotName
 									break
 								end
-								itemDisablers[slotName] = tag.slotName
-								itemDisabled[tag.slotName] = slotName
-								break
 							end
 						end
 					end
@@ -1066,7 +1068,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 					else
 						env.itemModDB.multipliers["NonCorruptedItem"] = (env.itemModDB.multipliers["NonCorruptedItem"] or 0) + 1
 					end
-					local otherRing = items[(slotName == "Ring 1" and "Ring 2") or (slotName == "Ring 2" and "Ring 1")]
+					local otherRing = items[(slotName == "Ring 1" and "Ring 2") or (slotName == "Ring 2" and "Ring 1") or (slotName == "Ring 3" and "Ring 2")]
 					if otherRing and not otherRing.name:match("Kalandra's Touch") then
 						for _, mod in ipairs(otherRing.modList or otherRing.slotModList[slot.slotNum] or {}) do
 							-- Filter out SocketedIn type mods

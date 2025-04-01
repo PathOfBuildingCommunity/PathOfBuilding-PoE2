@@ -4189,6 +4189,10 @@ local specialModList = {
 	["projectiles deal (%d+)%% increased damage with hits and ailments for each enemy pierced"] = function(num) return { mod("Damage", "INC", num, nil, 0, bor(KeywordFlag.Hit, KeywordFlag.Ailment), { type = "PerStat", stat = "PiercedCount" }, { type = "SkillType", skillType = SkillType.Projectile }) } end,
 	["(%d+)%% increased bonuses gained from equipped quiver"] = function(num) return {mod("EffectOfBonusesFromQuiver", "INC", num)} end,
 	["(%d+)%% increased bonuses gained from equipped rings"] = function(num) return {mod("EffectOfBonusesFromRings", "INC", num)} end,
+	["(%d+)%% increased bonuses gained from equipped rings and amulets"] = function(num) return {
+		mod("EffectOfBonusesFromRings", "INC", num),
+		mod("EffectOfBonusesFromAmulets", "INC", num),
+	} end,
 	["(%d+)%% chance for spell skills to fire 2 additional projectiles"] = function(num) return { mod("TwoAdditionalProjectilesChance", "BASE", num, nil , ModFlag.Spell) } end,
 	-- Strike Skills
 	["non%-vaal strike skills target (%d+) additional nearby enem[yi]e?s?"] = function(num) return { mod("AdditionalStrikeTarget", "BASE", num, { type = "SkillType", skillType = SkillType.MeleeSingleTarget}, { type = "SkillType", skillType = SkillType.Vaal, neg = true}) } end,
