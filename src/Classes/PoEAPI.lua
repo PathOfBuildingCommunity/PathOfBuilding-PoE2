@@ -8,10 +8,11 @@ local scopesOAuth = {
 	"account:characters",
 }
 
-local PoEAPIClass = newClass("PoEAPI", function(self, authToken, refreshToken)
+local PoEAPIClass = newClass("PoEAPI", function(self, authToken, refreshToken, tokenExpiry)
 	self.retries = 0
 	self.authToken = authToken
 	self.refreshToken = refreshToken
+	self.tokenExpiry = tokenExpiry
 	self.baseUrl = "https://api.pathofexile.com"
 end)
 
@@ -36,6 +37,7 @@ function PoEAPIClass:ValidateAuth(callback)
 					local responseLua = dkjson.decode(response.body)
 					self.authToken = responseLua.access_token
 					self.refreshToken = responseLua.refresh_token
+					self.tokenExpiry = os.time() + responseLua.expires_in
 					self.retries = 0
 					callback(true, true)
 				end, { body = formText })
@@ -58,13 +60,15 @@ function PoEAPIClass:FetchAuthToken(callback)
 	local code_verifier = base64_encode(tostring(secret))
 	local code_challenge = base64_encode(sha.hex_to_bin(sha.sha256(code_verifier)))
 
-	-- TODO: Generate state
-	local state = "test"
+	-- 16 character hex string
+	local initialState = string.gsub('xxxxxxxxxxxxxxxx', 'x', function()
+		return string.format('%x', math.random(0, 0xf))
+	end)
 
 	local authUrl = string.format(
 		"https://www.pathofexile.com/oauth/authorize?client_id=pob&response_type=code&scope=%s&state=%s&code_challenge=%s&code_challenge_method=S256"
 		,table.concat(scopesOAuth, " ")
-		,state
+		,initialState
 		,code_challenge
 	)
 
@@ -80,17 +84,17 @@ function PoEAPIClass:FetchAuthToken(callback)
 					return
 				end
 
-				if "test" ~= state then
+				if initialState ~= state then
 					return
 				end
-				local formText = "client_id=pob&grant_type=authorization_code&code=" .. code .. "&redirect_uri=http://localhost:" .. port .. "&scope=account:profile account:leagues account:characters&code_verifier=" .. code_verifier
+				local formText = "client_id=pob&grant_type=authorization_code&code=" .. code .. "&redirect_uri=http://localhost:" .. port .. "&scope=" .. table.concat(scopesOAuth, " ") .. "&code_verifier=" .. code_verifier
 				launch:DownloadPage("https://www.pathofexile.com/oauth/token", function (response, errMsg)
 					-- TODO : Check for error in response
 					local responseLua = dkjson.decode(response.body)
 					self.authToken = responseLua.access_token
 					self.refreshToken = responseLua.refresh_token
+					self.tokenExpiry = os.time() + responseLua.expires_in
 					self.retries = 0
-					ConPrintf(self.authToken)
 					SetForeground()
 					callback()
 				end, { body = formText })

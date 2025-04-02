@@ -118,7 +118,6 @@ if client then
 			response = commonResponse .. [[
 			<h1>PoB 2 - Authentication Successful</h1>
 			<p>✅ Your authentication is complete! You can now return to the app.</p>
-			<button class="close-button" onclick="window.close()">Close</button>
 			]] .. commonResponseEnd
 			code = queryParams["code"]
 			state = queryParams["state"]
@@ -127,7 +126,6 @@ if client then
 			<h1>PoB 2 - Authentication Failed</h1>
 			<p>❌ Authentication failed. Please try again.</p>
 			<code>]] .. queryParams["error"] .. ": " .. queryParams["error_description"] .. [[</code>
-			<button class="close-button" onclick="window.close()">Close</button>
 			]] .. commonResponseEnd
 		end
 

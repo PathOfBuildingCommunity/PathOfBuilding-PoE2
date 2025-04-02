@@ -19,7 +19,7 @@ local ImportTabClass = newClass("ImportTab", "ControlHost", "Control", function(
 	self.Control()
 
 	self.build = build
-	self.api = new("PoEAPI", main.lastToken, main.lastRefreshToken)
+	self.api = new("PoEAPI", main.lastToken, main.lastRefreshToken, main.tokenExpiry)
 
 	self.charImportMode = "AUTHENTICATION"
 	self.charImportStatus = colorCodes.WARNING.."Not authenticated"
@@ -40,6 +40,7 @@ local ImportTabClass = newClass("ImportTab", "ControlHost", "Control", function(
 
 				main.lastToken = self.api.authToken
 				main.lastRefreshToken = self.api.refreshToken
+				main.tokenExpiry = self.api.tokenExpiry
 				main:SaveSettings()
 			else
 				self.charImportStatus = colorCodes.WARNING.."Not authenticated"
@@ -302,6 +303,16 @@ local ImportTabClass = newClass("ImportTab", "ControlHost", "Control", function(
 end)
 
 function ImportTabClass:CheckApiBeforeCallback(callback)
+	-- check if the token has expired
+	if (self.api.tokenExpiry or 0) > os.time() then
+		if self.charImportMode == "AUTHENTICATION" then
+			self.charImportMode = "GETACCOUNTNAME"
+			self.charImportStatus = "Authenticated"
+		end
+		callback()
+		return
+	end
+
 	-- validate the status of the api
 	self.api:ValidateAuth(function(valid, updateSettings)
 		if valid then 
@@ -312,6 +323,7 @@ function ImportTabClass:CheckApiBeforeCallback(callback)
 			if updateSettings then
 				main.lastToken = self.api.authToken
 				main.lastRefreshToken = self.api.refreshToken
+				main.tokenExpiry = self.api.tokenExpiry
 				main:SaveSettings()
 			end
 			callback()
