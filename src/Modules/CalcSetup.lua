@@ -846,19 +846,17 @@ function calcs.initEnv(build, mode, override, specEnv)
 				local slotName = slot.slotName
 				if items[slotName] then
 					local srcList = items[slotName].modList or items[slotName].slotModList[slot.slotNum]
-					if srcList then
-						for _, mod in ipairs(srcList) do
-							-- checks if it disables another slot
-							for _, tag in ipairs(mod) do
-								if tag.type == "DisablesItem" then
-									-- e.g. Tincture in Flask 5 while using a Micro-Distillery Belt
-									if tag.excludeItemType and items[tag.slotName] and items[tag.slotName].type == tag.excludeItemType then
-										break
-									end
-									itemDisablers[slotName] = tag.slotName
-									itemDisabled[tag.slotName] = slotName
+					for _, mod in ipairs(srcList) do
+						-- checks if it disables another slot
+						for _, tag in ipairs(mod) do
+							if tag.type == "DisablesItem" then
+								-- e.g. Tincture in Flask 5 while using a Micro-Distillery Belt
+								if tag.excludeItemType and items[tag.slotName] and items[tag.slotName].type == tag.excludeItemType then
 									break
 								end
+								itemDisablers[slotName] = tag.slotName
+								itemDisabled[tag.slotName] = slotName
+								break
 							end
 						end
 					end

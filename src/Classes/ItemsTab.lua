@@ -122,8 +122,9 @@ local ItemsTabClass = newClass("ItemsTab", "UndoHandler", "ControlHost", "Contro
 			end
 		elseif slotName == "Ring 3" then
 			slot.shown = function()
-				return self.build.spec and self.build.spec.allocNodes[self.build.latestTree.ascendancyMap["gem studded"].skill]
-				--return self.build.spec and self.build.spec.allocNodes[self.build.latestTree.ascendancyMap["unfurled finger"].skill]
+				-- local nodeCheck = self.build.latestTree.ascendancyMap["gem studded"]
+				local nodeCheck = self.build.latestTree.ascendancyMap["unfurled finger"]
+				return self.build.spec and nodeCheck and self.build.spec.allocNodes[nodeCheck.skill]
 			end
 		end
 	end
@@ -3039,7 +3040,7 @@ function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode)
 		-- Build sorted list of slots to compare with
 		local compareSlots = { }
 		for slotName, slot in pairs(self.slots) do
-			if self:IsItemValidForSlot(item, slotName) and not slot.inactive and (not slot.weaponSet or slot.weaponSet == (self.activeItemSet.useSecondWeaponSet and 2 or 1)) then
+			if self:IsItemValidForSlot(item, slotName) and not slot.inactive and (not slot.weaponSet or slot.weaponSet == (self.activeItemSet.useSecondWeaponSet and 2 or 1)) and slot.shown() then
 				t_insert(compareSlots, slot)
 			end
 		end
