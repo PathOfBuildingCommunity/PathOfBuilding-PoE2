@@ -317,6 +317,14 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 				if hotkeyPressed then
 					processAttributeHotkeys(hoverNode.isAttribute)
 				elseif hoverNode.isAttribute then
+					-- If the attribute node is already set to str, int, or dex create a toggle effect between attrs
+					if hoverNode.dn == "Intelligence" then
+						spec.attributeIndex = 1
+					elseif hoverNode.dn == "Dexterity" then
+						spec.attributeIndex = 3
+					elseif hoverNode.dn == "Strength" then
+						spec.attributeIndex = 2
+					end
 					spec:SwitchAttributeNode(hoverNode.id, spec.attributeIndex or 1)
 				end
 				spec:AllocNode(hoverNode, self.tracePath and hoverNode == self.tracePath[#self.tracePath] and self.tracePath)
