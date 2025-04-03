@@ -6,115 +6,110 @@
 --
 local minions, mod, flag = ...
 
--- Blackguard
--- Bandit
--- Beast
--- Blood Apes
--- Bone Stalker
--- Bull
--- Cage Spider
--- Cannibals
--- Goatmen
--- Miscreation
--- Maw
--- Chimeral
--- Ghost Pirate
--- Undying Grappler
--- Ribbon
--- Gut flayer
--- Solar Guard
--- Construct
--- Carrion Queen
--- Kaom's Warriors
--- Kitava's Cultist
--- Kitava's Herald
--- Birdman
--- Delve League
--- Hellion
--- Knitted Horror
--- Miners
--- Voidbearer
--- Stone golem
--- Mother of Flames
--- Necromancer
--- Undying Bomber
--- Stygian Revenant
--- Sea Witch
--- Skeleton
--- Snake
--- Spider
--- Statue
--- Ophidian
--- Templar
--- Undying
--- Wicker Man
--- Redemption Sentry
--- Baranite Thaumaturge
--- Baranite Sister
--- Baranite Preacher
--- Scale of Esh
--- Scinteel Synthete
--- Redemption Knight
--- Primal Crushclaw
--- Primal Rhex Matriarch
--- Templar Tactician
--- Frost Auto-Scout
--- Syndicate Operative
--- Cloud Retch
--- Artless Assassin
--- Ashblessed Warden
--- Snow Rhex
--- Flickershade
--- Trial Galecaller
--- Trial Windchaser
--- Hyrri's Watch
--- Demon Harpy
--- Pale Angel
--- Demon Herder
--- Pale Seraphim
--- Ravenous Mishapen
--- Aurid Synthete
--- Ruins Hellion
--- Arena Master
--- They of Tul
--- Ancient Suffering
--- Ancient Wraith
--- Forged Frostbearer
+-- Goliath
+minions["Metadata/Monsters/TwoheadedTitan/TwoHeadedTitanSpectre"] = {
+	name = "Goliath",
+	monsterTags = { "allows_inc_aoe", "humanoid", "melee", "MonsterBlunt_onhit_audio", "physical_affinity", "very_slow_movement", },
+	life = 2.5,
+	baseDamageIgnoresAttackSpeed = true,
+	fireResist = 75,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 2.88,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 20,
+	accuracy = 1,
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"GATwoHeadedTitanSlam",
+		"GATwoHeadedTitanStomp",
+	},
+	modList = {
+	},
+}
 
-	-- Affliction Corpses
--- Frozen Cannibal
--- Fiery Cannibal
--- Hydra
--- Dark Marionette
--- Hulking Miscreation
--- Spirit of Fortune
--- Naval Officer
--- Dancing Sword
--- Needle Horror
--- Serpent Warrior
--- Pain Artist
--- Sawblade Horror
--- Restless Knight
--- Slashing Horror
--- Druidic Alchemist
--- Escaped Prototype
--- Blasphemer
--- Judgemental Spirit
--- Primal Thunderbird
--- Primal Demiurge
--- Runic Skeleton
--- Warlord
--- Dark Reaper
--- Sanguimancer Demon
--- Spider Matriarch
--- Meatsack
--- Eldritch Eye
--- Forest Tiger
--- Guardian Turtle
--- Shadow Construct
--- Forest Warrior
--- Shadow Berserker
--- Riftcaster
--- Blood Demon
--- Half-remembered Goliath
--- Wretched Defiler
+-- Quadrilla
+minions["Metadata/Monsters/Quadrilla/QuadrillaElite"] = {
+	name = "Silverback Quadrilla",
+	monsterTags = { "beast", "mammal_beast", "MonsterBlunt_onhit_audio", "not_dex", "not_int", "red_blood", "very_fast_movement", },
+	life = 2.5,
+	baseDamageIgnoresAttackSpeed = true,
+	armour = 0.75,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 2.5,
+	damageSpread = 0.2,
+	attackTime = 1.995,
+	attackRange = 27,
+	accuracy = 1,
+	skillList = {
+		"MeleeAtAnimationSpeedUnique",
+		"EAAQuadrillaBossCleaveLeft",
+		"EAAQuadrillaBossCleaveRight",
+		"EAAQuadrillaBossSpin",
+		"EAAQuadrillaBossSlam",
+		"GAQuadrillaBossSlamCircle",
+		"GAQuadrillaBossRectSlam",
+		"GAQuadrillaBossSunder",
+		"DTTQuadrillaCommandoRoll",
+	},
+	modList = {
+	},
+}
+
+-- Sentinel
+minions["Metadata/Monsters/VaalConstructs/Sentinel/VaalConstructSentinel"] = {
+	name = "Stone Sentinel",
+	monsterTags = { "2HBluntWood_onhit_audio", "allows_inc_aoe", "cannot_be_monolith", "construct", "melee", "not_dex", "not_int", "physical_affinity", "stone_construct", "vaal", "very_slow_movement", },
+	life = 2.5,
+	baseDamageIgnoresAttackSpeed = true,
+	armour = 1,
+	fireResist = 30,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 2.5,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 13,
+	accuracy = 1,
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"GAVaalConstructSentinelGroundSlam",
+		"GAVaalConstructSentinelFootSlam",
+		"GAVaalConstructSentinelImpact",
+	},
+	modList = {
+	},
+}
+
+-- Shade
+minions["Metadata/Monsters/VaalMonsters/Machinarium/Wraith/ProwlingShade"] = {
+	name = "Prowling Shade",
+	monsterTags = { "allows_inc_aoe", "caster", "Claw_onhit_audio", "cold_affinity", "fast_movement", "ghost", "ghost_blood", "melee", "not_str", "undead", },
+	life = 2.25,
+	baseDamageIgnoresAttackSpeed = true,
+	energyShield = 0.132,
+	evasion = 0.33,
+	fireResist = 0,
+	coldResist = 75,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 2.25,
+	damageSpread = 0.2,
+	attackTime = 1.32,
+	attackRange = 16,
+	accuracy = 1,
+	skillList = {
+		"MeleeAtAnimationSpeedComboTEMP",
+		"GSProwlingShadeIceBeam",
+		"DTTProwlingShadeDash",
+		"MeleeAtAnimationSpeedComboTEMP2",
+	},
+	modList = {
+	},
+}

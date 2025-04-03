@@ -202,8 +202,8 @@ directiveTable.spectre = function(state, args, out)
 	directiveTable.emit(state, "", out)
 end
 
---for _, name in pairs({"Spectres","Minions"}) do -- Add back when Spectres are in the game again
-for _, name in pairs({"Minions"}) do
+for _, name in pairs({"Spectres","Minions"}) do -- Add back when Spectres are in the game again
+--for _, name in pairs({"Minions"}) do
 	processTemplateFile(name, "Minions/", "../Data/", directiveTable)
 end
 
