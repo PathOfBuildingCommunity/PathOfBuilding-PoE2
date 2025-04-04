@@ -8,6 +8,8 @@ local scopesOAuth = {
 	"account:characters",
 }
 
+local filename = "poeapiresponse.json"
+
 local PoEAPIClass = newClass("PoEAPI", function(self, authToken, refreshToken, tokenExpiry)
 	self.retries = 0
 	self.authToken = authToken
@@ -124,11 +126,16 @@ function PoEAPIClass:DownloadWithRefresh(endpoint, callback)
 				self:DownloadWithRefresh(endpoint, callback)
 			else
 				self.retries = 0
-				ConPrintf("Download %s", endpoint)
 				if errMsg then
 					ConPrintf("Failed to download %s: %s", endpoint, errMsg)
 				elseif response and response.body then
-					ConPrintf("Download %s:\n%s\n", endpoint, response.body)
+					-- create the file and log the name file
+					local file = io.open(filename, "w")
+					if file then
+						file:write(response.body)
+						file:close()
+					end
+					ConPrintf("Download %s:\n%s\n", endpoint, filename)
 				end
 				callback(response.body, errMsg, updateSettings)
 			end
