@@ -23,29 +23,38 @@ UniqueTriggerEmberFusilladeOnSpellCast1
 ]],[[
 Earthbound
 Voltaic Staff
+Variant: Pre 0.2.0
+Variant: Current
 Implicits: 1
 Grants Skill: Level (1-20) Lightning Bolt
 Grants Skill: Level (1-20) Spark
 UniqueLightningDamageOnWeapon1
-UniqueIncreasedCastSpeed3
+{variant:1}UniqueIncreasedCastSpeed3[10,20]
+{variant:2}UniqueIncreasedCastSpeed3
 UniqueManaRegeneration6
 UniqueTriggerSparkOnKillingShockedEnemy1
 ]],[[
 The Searing Touch
 Pyrophyte Staff
+Variant: Pre 0.2.0
+Variant: Current
 Implicits: 1
 Grants Skill: Level (1-20) Living Bomb
 UniqueFireDamageOnWeapon1
-UniqueIncreasedCastSpeed3
+{variant:1}UniqueIncreasedCastSpeed3[10,20]
+{variant:2}UniqueIncreasedCastSpeed3
 UniqueIgniteChanceIncrease1
 UniqueIgniteEffect2
 ]],[[
 Taryn's Shiver
 Gelid Staff
+Variant: Pre 0.2.0
+Variant: Current
 Implicits: 1
 Grants Skill: Level (1-20) Freezing Shards
 UniqueColdDamageOnWeapon1
-UniqueIncreasedCastSpeed3
+{variant:1}UniqueIncreasedCastSpeed3[10,20]
+{variant:2}UniqueIncreasedCastSpeed3
 UniqueFreezeDamageIncrease1
 UniqueFrozenMonstersTakeIncreasedDamage1
 ]],
