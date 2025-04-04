@@ -534,7 +534,7 @@ c["+350 to Accuracy Rating"]={{[1]={flags=0,keywordFlags=0,name="Accuracy",type=
 c["+36 to maximum Mana"]={{[1]={flags=0,keywordFlags=0,name="Mana",type="BASE",value=36}},nil}
 c["+37% to Chaos Resistance"]={{[1]={flags=0,keywordFlags=0,name="ChaosResist",type="BASE",value=37}},nil}
 c["+39 to Evasion Rating"]={{[1]={flags=0,keywordFlags=0,name="Evasion",type="BASE",value=39}},nil}
-c["+4 to Ailment Threshold per Dexterity"]={{[1]={flags=0,keywordFlags=0,name="Dex",type="BASE",value=4}}," Ailment Threshold per  "}
+c["+4 to Ailment Threshold per Dexterity"]={{[1]={[1]={stat="Dex",type="PerStat"},flags=0,keywordFlags=0,name="AilmentThreshold",type="BASE",value=4}},nil}
 c["+4 to Level of all Chaos Spell Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keywordList={[1]="chaos",[2]="spell"},value=4}}},nil}
 c["+4 to Level of all Elemental Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keyword="elemental",value=4}}},nil}
 c["+4 to Level of all Fire Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keyword="fire",value=4}}},nil}
@@ -553,6 +553,7 @@ c["+4% to all Elemental Resistances"]={{[1]={flags=0,keywordFlags=0,name="Elemen
 c["+4% to all Elemental Resistances per socketed Grand Spectrum"]={{[1]={[1]={type="Multiplier",var="GrandSpectrum"},flags=0,keywordFlags=0,name="ElementalResist",type="BASE",value=4}},nil}
 c["+4% to maximum Block chance"]={{[1]={flags=0,keywordFlags=0,name="BlockChanceMax",type="BASE",value=4}},nil}
 c["+40 to Accuracy Rating"]={{[1]={flags=0,keywordFlags=0,name="Accuracy",type="BASE",value=40}},nil}
+c["+40 to Ailment Threshold"]={{[1]={flags=0,keywordFlags=0,name="AilmentThreshold",type="BASE",value=40}},nil}
 c["+40 to Armour"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="BASE",value=40}},nil}
 c["+40 to Dexterity"]={{[1]={flags=0,keywordFlags=0,name="Dex",type="BASE",value=40}},nil}
 c["+40 to Evasion Rating"]={{[1]={flags=0,keywordFlags=0,name="Evasion",type="BASE",value=40}},nil}
@@ -598,8 +599,7 @@ c["+5% to all Maximum Elemental Resistances"]={{[1]={flags=0,keywordFlags=0,name
 c["+5% to maximum Block chance"]={{[1]={flags=0,keywordFlags=0,name="BlockChanceMax",type="BASE",value=5}},nil}
 c["+5% to maximum Chaos Resistance"]={{[1]={flags=0,keywordFlags=0,name="ChaosResistMax",type="BASE",value=5}},nil}
 c["+50 to Accuracy Rating"]={{[1]={flags=0,keywordFlags=0,name="Accuracy",type="BASE",value=50}},nil}
-c["+50 to Ailment Threshold"]={{}," Ailment Threshold "}
-c["+50 to Ailment Threshold Iron Reflexes"]={{}," Ailment Threshold Iron Reflexes "}
+c["+50 to Ailment Threshold"]={{[1]={flags=0,keywordFlags=0,name="AilmentThreshold",type="BASE",value=50}},nil}
 c["+50 to Armour"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="BASE",value=50}},nil}
 c["+50 to Dexterity"]={{[1]={flags=0,keywordFlags=0,name="Dex",type="BASE",value=50}},nil}
 c["+50 to Evasion Rating"]={{[1]={flags=0,keywordFlags=0,name="Evasion",type="BASE",value=50}},nil}
@@ -1096,7 +1096,7 @@ c["15% increased Duration of Damaging Ailments on Enemies"]={{[1]={flags=0,keywo
 c["15% increased Duration of Ignite, Shock and Chill on Enemies"]={{[1]={flags=0,keywordFlags=0,name="EnemyShockDuration",type="INC",value=15},[2]={flags=0,keywordFlags=0,name="EnemyChillDuration",type="INC",value=15},[3]={flags=0,keywordFlags=0,name="EnemyIgniteDuration",type="INC",value=15}},nil}
 c["15% increased Effect of your Mark Skills"]={{[1]={[1]={skillType=109,type="SkillType"},flags=0,keywordFlags=0,name="LocalEffect",type="INC",value=15}},nil}
 c["15% increased Electrocute Buildup"]={{}," Electrocute Buildup "}
-c["15% increased Elemental Ailment Threshold"]={{}," Elemental Ailment Threshold "}
+c["15% increased Elemental Ailment Threshold"]={{[1]={flags=0,keywordFlags=0,name="AilmentThreshold",type="INC",value=15}}," Elemental  "}
 c["15% increased Energy Shield Recharge Rate"]={{[1]={flags=0,keywordFlags=0,name="EnergyShieldRecharge",type="INC",value=15}},nil}
 c["15% increased Energy Shield Recovery rate"]={{[1]={flags=0,keywordFlags=0,name="EnergyShieldRecoveryRate",type="INC",value=15}},nil}
 c["15% increased Evasion Rating"]={{[1]={flags=0,keywordFlags=0,name="Evasion",type="INC",value=15}},nil}
@@ -1518,7 +1518,7 @@ c["25% increased Daze Buildup 25% increased Daze Duration"]={{[1]={flags=0,keywo
 c["25% increased Daze Duration"]={{[1]={flags=0,keywordFlags=0,name="Duration",type="INC",value=25}}," Daze  "}
 c["25% increased Defences from Equipped Shield"]={{[1]={[1]={slotName="Weapon 2",type="SlotName"},[2]={type="Condition",var="UsingShield"},flags=0,keywordFlags=0,name="Defences",type="INC",value=25}},nil}
 c["25% increased Electrocute Buildup"]={{}," Electrocute Buildup "}
-c["25% increased Elemental Ailment Threshold"]={{}," Elemental Ailment Threshold "}
+c["25% increased Elemental Ailment Threshold"]={{[1]={flags=0,keywordFlags=0,name="AilmentThreshold",type="INC",value=25}}," Elemental  "}
 c["25% increased Energy Shield Recharge Rate"]={{[1]={flags=0,keywordFlags=0,name="EnergyShieldRecharge",type="INC",value=25}},nil}
 c["25% increased Evasion Rating"]={{[1]={flags=0,keywordFlags=0,name="Evasion",type="INC",value=25}},nil}
 c["25% increased Evasion Rating if you've Dodge Rolled Recently"]={{[1]={[1]={type="Condition",var="DodgeRolledRecently"},flags=0,keywordFlags=0,name="Evasion",type="INC",value=25}},nil}
@@ -1702,7 +1702,7 @@ c["30% increased Daze Buildup with Quarterstaves 30% increased Freeze Buildup wi
 c["30% increased Defences from Equipped Shield"]={{[1]={[1]={slotName="Weapon 2",type="SlotName"},[2]={type="Condition",var="UsingShield"},flags=0,keywordFlags=0,name="Defences",type="INC",value=30}},nil}
 c["30% increased Defences while wielding a Staff"]={{[1]={[1]={type="Condition",var="UsingStaff"},flags=0,keywordFlags=0,name="Defences",type="INC",value=30}},nil}
 c["30% increased Electrocute Buildup"]={{}," Electrocute Buildup "}
-c["30% increased Elemental Ailment Threshold"]={{}," Elemental Ailment Threshold "}
+c["30% increased Elemental Ailment Threshold"]={{[1]={flags=0,keywordFlags=0,name="AilmentThreshold",type="INC",value=30}}," Elemental  "}
 c["30% increased Elemental Damage"]={{[1]={flags=0,keywordFlags=0,name="ElementalDamage",type="INC",value=30}},nil}
 c["30% increased Elemental Damage if you've Chilled an Enemy Recently"]={{[1]={[1]={type="Condition",var="ChilledEnemyRecently"},flags=0,keywordFlags=0,name="ElementalDamage",type="INC",value=30}},nil}
 c["30% increased Elemental Damage if you've Ignited an Enemy Recently"]={{[1]={[1]={type="Condition",var="IgnitedEnemyRecently"},flags=0,keywordFlags=0,name="ElementalDamage",type="INC",value=30}},nil}
@@ -1890,8 +1890,8 @@ c["40% increased Damage with Warcries"]={{[1]={flags=0,keywordFlags=4,name="Dama
 c["40% increased Defences from Equipped Shield"]={{[1]={[1]={slotName="Weapon 2",type="SlotName"},[2]={type="Condition",var="UsingShield"},flags=0,keywordFlags=0,name="Defences",type="INC",value=40}},nil}
 c["40% increased Electrocute Buildup"]={{}," Electrocute Buildup "}
 c["40% increased Electrocute Buildup 30% increased Shock Chance against Electrocuted Enemies"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Electrocuted"},flags=0,keywordFlags=0,name="EnemyShockChance",type="INC",value=40}}," Electrocute Buildup 30% increased   "}
-c["40% increased Elemental Ailment Threshold"]={{}," Elemental Ailment Threshold "}
-c["40% increased Elemental Ailment Threshold 10% reduced Duration of Ailments on You"]={{[1]={flags=0,keywordFlags=0,name="SelfAilmentDuration",type="INC",value=40}}," Elemental Ailment Threshold 10% reduced  "}
+c["40% increased Elemental Ailment Threshold"]={{[1]={flags=0,keywordFlags=0,name="AilmentThreshold",type="INC",value=40}}," Elemental  "}
+c["40% increased Elemental Ailment Threshold 10% reduced Duration of Ailments on You"]={{[1]={flags=0,keywordFlags=0,name="AilmentThreshold",type="INC",value=40}}," Elemental  10% reduced Duration of Ailments on You "}
 c["40% increased Elemental Damage"]={{[1]={flags=0,keywordFlags=0,name="ElementalDamage",type="INC",value=40}},nil}
 c["40% increased Elemental Damage if you've dealt a Critical Hit Recently"]={{[1]={[1]={type="Condition",var="CritRecently"},flags=0,keywordFlags=0,name="ElementalDamage",type="INC",value=40}},nil}
 c["40% increased Elemental Damage with Attack Skills during any Flask Effect"]={{[1]={[1]={type="Condition",var="UsingFlask"},flags=0,keywordFlags=65536,name="ElementalDamage",type="INC",value=40}},nil}
@@ -2506,7 +2506,6 @@ c["Allocates Breath of Lightning"]={{[1]={flags=0,keywordFlags=0,name="GrantedPa
 c["Allocates Bringer of Order"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="bringer of order"}},nil}
 c["Allocates Briny Carapace"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="briny carapace"}},nil}
 c["Allocates Brutal"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="brutal"}},nil}
-c["Allocates Brute Strength"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="brute strength"}},nil}
 c["Allocates Building Toxins"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="building toxins"}},nil}
 c["Allocates Burn Away"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="burn away"}},nil}
 c["Allocates Burning Nature"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="burning nature"}},nil}
@@ -2645,7 +2644,6 @@ c["Allocates Feel the Earth"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive
 c["Allocates Feral Force"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="feral force"}},nil}
 c["Allocates Fervour"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="fervour"}},nil}
 c["Allocates Final Barrage"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="final barrage"}},nil}
-c["Allocates Finality"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="finality"}},nil}
 c["Allocates Finesse"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="finesse"}},nil}
 c["Allocates Finishing Blows"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="finishing blows"}},nil}
 c["Allocates Fireproof"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="fireproof"}},nil}
@@ -3011,7 +3009,6 @@ c["Allocates Unbreaking"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",ty
 c["Allocates Unerring Impact"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="unerring impact"}},nil}
 c["Allocates Unexpected Finesse"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="unexpected finesse"}},nil}
 c["Allocates Unforgiving"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="unforgiving"}},nil}
-c["Allocates Unhindered"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="unhindered"}},nil}
 c["Allocates Unimpeded"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="unimpeded"}},nil}
 c["Allocates Unnatural Resilience"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="unnatural resilience"}},nil}
 c["Allocates Unsight"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="unsight"}},nil}
@@ -3911,12 +3908,11 @@ c["Thorns damage is triggered by all Hits"]={nil,"Thorns damage is triggered by 
 c["Totems Regenerate 3% of Life per second"]={nil,"Totems Regenerate 3% of Life per second "}
 c["Totems gain +12% to all Elemental Resistances"]={{[1]={flags=0,keywordFlags=0,name="TotemElementalResist",type="BASE",value=12}},nil}
 c["Totems gain +20% to all Elemental Resistances"]={{[1]={flags=0,keywordFlags=0,name="TotemElementalResist",type="BASE",value=20}},nil}
-c["Totems have 12% additional Physical Damage Reduction"]={nil,"Totems have 12% additional Physical Damage Reduction "}
-c["Totems have 2% increased Attack Speed per Summoned Totem"]={nil,"Totems have 2% increased Attack Speed per Summoned Totem "}
-c["Totems have 2% increased Cast Speed per Summoned Totem"]={nil,"Totems have 2% increased Cast Speed per Summoned Totem "}
-c["Totems have 2% increased Cast Speed per Summoned Totem Totems have 2% increased Attack Speed per Summoned Totem"]={nil,"Totems have 2% increased Cast Speed per Summoned Totem Totems have 2% increased Attack Speed per Summoned Totem "}
-c["Totems have 20% additional Physical Damage Reduction"]={nil,"Totems have 20% additional Physical Damage Reduction "}
-c["Totems have 4% increased Attack Speed per Summoned Totem"]={nil,"Totems have 4% increased Attack Speed per Summoned Totem "}
+c["Totems have 12% additional Physical Damage Reduction"]={{[1]={flags=0,keywordFlags=16384,name="PhysicalDamageReduction",type="BASE",value=12}},nil}
+c["Totems have 2% increased Attack Speed per Summoned Totem"]={{[1]={[1]={stat="TotemsSummoned",type="PerStat"},flags=1,keywordFlags=16384,name="Speed",type="INC",value=2}},nil}
+c["Totems have 2% increased Cast Speed per Summoned Totem"]={{[1]={[1]={stat="TotemsSummoned",type="PerStat"},flags=16,keywordFlags=16384,name="Speed",type="INC",value=2}},nil}
+c["Totems have 20% additional Physical Damage Reduction"]={{[1]={flags=0,keywordFlags=16384,name="PhysicalDamageReduction",type="BASE",value=20}},nil}
+c["Totems have 4% increased Attack Speed per Summoned Totem"]={{[1]={[1]={stat="TotemsSummoned",type="PerStat"},flags=1,keywordFlags=16384,name="Speed",type="INC",value=4}},nil}
 c["Totems reserve 100 Spirit each"]={nil,"Totems reserve 100 Spirit each "}
 c["Trigger Ancestral Spirits when you Summon a Totem"]={nil,"Trigger Ancestral Spirits when you Summon a Totem "}
 c["Trigger Ancestral Spirits when you Summon a Totem Grants Skill: Ancestral Spirits"]={nil,"Trigger Ancestral Spirits when you Summon a Totem Grants Skill: Ancestral Spirits "}

@@ -1388,6 +1388,8 @@ local modTagList = {
 	-- Per stat
 	["per (%d+)%% of maximum mana they reserve"] = function(num) return { tag = { type = "PerStat", stat = "ManaReservedPercent", div = num } } end,
 	["per strength"] = { tag = { type = "PerStat", stat = "Str"} },
+	["per dexterity"] = { tag = { type = "PerStat", stat = "Dex"} },
+	["per intelligence"] = { tag = { type = "PerStat", stat = "Int"} },
 	["per (%d+) strength"] = function(num) return { tag = { type = "PerStat", stat = "Str", div = num } } end,
 	["per (%d+) dexterity"] = function(num) return { tag = { type = "PerStat", stat = "Dex", div = num } } end,
 	["per (%d+) intelligence"] = function(num) return { tag = { type = "PerStat", stat = "Int", div = num } } end,
