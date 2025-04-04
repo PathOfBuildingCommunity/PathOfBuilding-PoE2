@@ -128,7 +128,7 @@ function PoEAPIClass:DownloadWithRefresh(endpoint, callback)
 			return
 		end
 
-		launch:DownloadPage(self.baseUrl .. endpoint, function (response, errMsg)
+		launch:DownloadPage( endpoint, function (response, errMsg)
 			if errMsg and errMsg:match("401") and self.retries < 1 then
 				-- try once again with refresh token
 				self.retries = 1
@@ -159,12 +159,13 @@ function PoEAPIClass:DownloadWithRateLimit(policy, url, callback)
 	if now >= timeNext then
 		local requestId = self.rateLimiter:InsertRequest(policy)
 		local onComplete = function(response, errMsg)
-			if errMsg then
-				callback(response, errMsg)
-				return
-			end
 			self.rateLimiter:FinishRequest(policy, requestId)
 			self.rateLimiter:UpdateFromHeader(response.header)
+			if response.header:match("HTTP/[%d%.]+ (%d+)") == "429" then
+				timeNext = self.rateLimiter:NextRequestTime(policy, now)
+				callback(timeNext, "Response code: 429")
+				return
+			end
 			callback(response.body, errMsg)
 		end
 		self:DownloadWithRefresh(url, onComplete)
