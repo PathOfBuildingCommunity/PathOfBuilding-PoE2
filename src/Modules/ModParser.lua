@@ -381,6 +381,8 @@ local modNameList = {
 	["elemental damage taken recouped as energy shield"] = { "LightningEnergyShieldRecoup", "ColdEnergyShieldRecoup", "FireEnergyShieldRecoup" },
 	["damage taken recouped as mana"] = "ManaRecoup",
 	["damage taken recouped as life, mana and energy shield"] = { "LifeRecoup", "EnergyShieldRecoup", "ManaRecoup" },
+	["speed of recoup effects"] = "RecoupSpeed",
+	["physical damage prevented recouped as life"] = "PhysicalDamageMitigatedLifeRecoup",
 	-- Stun/knockback modifiers
 	["stun recovery"] = "StunRecovery",
 	["stun and block recovery"] = "StunRecovery",
