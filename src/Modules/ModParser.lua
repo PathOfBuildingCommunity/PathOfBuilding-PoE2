@@ -3123,7 +3123,7 @@ local specialModList = {
 		mod((resFrom:gsub("^%l", string.upper)).."MaxResConvertTo"..(resTo1:gsub("^%l", string.upper)), "BASE", 100),
 		mod((resFrom:gsub("^%l", string.upper)).."MaxResConvertTo"..(resTo2:gsub("^%l", string.upper)), "BASE", 100),
 	} end,
-	["modifiers to (%a+) resistance also apply to (%a+) and (%a+) resistances at (%d+)%% of their value"] = function(_, resFrom, resTo1, resTo2, rate) return {
+	["modifiers to (%a+) resistance also [ga][rp][ap][nl][ty] ?t?o? (%a+) and (%a+) resistances? at (%d+)%% of their value"] = function(_, resFrom, resTo1, resTo2, rate) return {
 		mod((resFrom:gsub("^%l", string.upper)).."ResConvertTo"..(resTo1:gsub("^%l", string.upper)), "BASE", tonumber(rate)),
 		mod((resFrom:gsub("^%l", string.upper)).."ResConvertTo"..(resTo2:gsub("^%l", string.upper)), "BASE", tonumber(rate)),
 	} end,
