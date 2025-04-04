@@ -955,6 +955,12 @@ statMap = {
 #skill SolarOrbPlayer
 #set SolarOrbPlayer
 #flags spell area duration
+statMap = {
+	["solar_orb_base_pulse_frequency_ms"] = {
+		skill("hitTimeOverride", nil),
+		div = 1000,
+	},
+},
 #mods
 #set SolarOrbAuraPlayer
 #flags spell area duration

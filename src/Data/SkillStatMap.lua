@@ -2455,4 +2455,7 @@ return {
 ["quality_display_banner_buff_effect_+%_final_per_resource_is_gem"] = {
 	-- Display Only
 },
+["quality_display_siege_cascade_damage_+%_final_vs_immobilised_enemies_is_gem"] = {
+	-- Display Only
+},
 }
