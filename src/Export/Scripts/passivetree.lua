@@ -916,6 +916,18 @@ for i, group in ipairs(psg.groups) do
 			if passiveRow.MultipleChoiceOption then
 				node["isMultipleChoiceOption"] = true
 			end
+
+			-- Support for Smith of Kitava
+			if passiveRow["FreeAllocate"] == true then
+				node["isMultipleChoice"] = true
+			end
+
+			if passiveRow["ApplyToArmour?"] == true then
+				node["isFreeAllocate"] = true
+				node["isMultipleChoiceOption"] = true
+			end
+
+
 		end
 		
 		for k, connection in ipairs(passive.connections) do
