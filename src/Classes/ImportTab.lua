@@ -61,9 +61,7 @@ local ImportTabClass = newClass("ImportTab", "ControlHost", "Control", function(
 	self.controls.accountRealm:SelByValue( main.lastRealm or "PC", "id" )
 
 	self.controls.accountNameGo = new("ButtonControl", {"LEFT",self.controls.accountNameHeader,"RIGHT"}, {8, 0, 60, 20}, "Start", function()
-		self:CheckApiBeforeCallback(function()
-			self:DownloadCharacterList()
-		end)
+		self:DownloadCharacterList()
 	end)
 
 	-- Stage: select character and import data
@@ -83,14 +81,10 @@ local ImportTabClass = newClass("ImportTab", "ControlHost", "Control", function(
 	self.controls.charImportTree = new("ButtonControl", {"LEFT",self.controls.charImportHeader, "RIGHT"}, {8, 0, 170, 20}, "Passive Tree and Jewels", function()
 		if self.build.spec:CountAllocNodes() > 0 then
 			main:OpenConfirmPopup("Character Import", "Importing the passive tree will overwrite your current tree.", "Import", function()
-				self:CheckApiBeforeCallback(function()
-					self:DownloadPassiveTree()
-				end)
-			end)
-		else
-			self:CheckApiBeforeCallback(function()
 				self:DownloadPassiveTree()
 			end)
+		else
+			self:DownloadPassiveTree()
 		end
 	end)
 	self.controls.charImportTree.enabled = function()
@@ -98,9 +92,7 @@ local ImportTabClass = newClass("ImportTab", "ControlHost", "Control", function(
 	end
 	self.controls.charImportTreeClearJewels = new("CheckBoxControl", {"LEFT",self.controls.charImportTree,"RIGHT"}, {90, 0, 18}, "Delete jewels:", nil, "Delete all existing jewels when importing.", true)
 	self.controls.charImportItems = new("ButtonControl", {"LEFT",self.controls.charImportTree, "LEFT"}, {0, 36, 110, 20}, "Items and Skills", function()
-		self:CheckApiBeforeCallback(function()
-				self:DownloadItems()
-		end)
+		self:DownloadItems()
 	end)
 	self.controls.charImportItems.enabled = function()
 		return self.charImportMode == "SELECTCHAR"
@@ -297,23 +289,7 @@ local ImportTabClass = newClass("ImportTab", "ControlHost", "Control", function(
 		end
 	end
 
-	self:CheckApiBeforeCallback(function()
-		-- all good
-	end)
-end)
-
-function ImportTabClass:CheckApiBeforeCallback(callback)
-	-- check if the token has expired
-	if (self.api.tokenExpiry or 0) > os.time() then
-		if self.charImportMode == "AUTHENTICATION" then
-			self.charImportMode = "GETACCOUNTNAME"
-			self.charImportStatus = "Authenticated"
-		end
-		callback()
-		return
-	end
-
-	-- validate the status of the api
+	-- validate the status of the api the first time
 	self.api:ValidateAuth(function(valid, updateSettings)
 		if valid then 
 			if self.charImportMode == "AUTHENTICATION" then
@@ -321,17 +297,20 @@ function ImportTabClass:CheckApiBeforeCallback(callback)
 				self.charImportStatus = "Authenticated"
 			end
 			if updateSettings then
-				main.lastToken = self.api.authToken
-				main.lastRefreshToken = self.api.refreshToken
-				main.tokenExpiry = self.api.tokenExpiry
-				main:SaveSettings()
+				self:SaveApiSettings()
 			end
-			callback()
 		else
 			self.charImportMode = "AUTHENTICATION"
 			self.charImportStatus = colorCodes.WARNING.."Not authenticated"
 		end
 	end)
+end)
+
+function ImportTabClass:SaveApiSettings()
+	main.lastToken = self.api.authToken
+	main.lastRefreshToken = self.api.refreshToken
+	main.tokenExpiry = self.api.tokenExpiry
+	main:SaveSettings()
 end
 
 function ImportTabClass:Load(xml, fileName)
@@ -384,8 +363,15 @@ function ImportTabClass:DownloadCharacterList()
 	self.charImportMode = "DOWNLOADCHARLIST"
 	self.charImportStatus = "Retrieving character list..."
 	local realm = realmList[self.controls.accountRealm.selIndex]
-	self.api:DownloadCharacterList(realm.realmCode, function(body, errMsg)
-		if errMsg == "Response code: 401" then
+	self.api:DownloadCharacterList(realm.realmCode, function(body, errMsg, updateSettings)
+		if updateSettings then
+			self:SaveApiSettings()
+		end
+		if errMsg == self.api.ERROR_NO_AUTH then
+			self.charImportMode = "AUTHENTICATION"
+			self.charImportStatus = colorCodes.WARNING.."Not authenticated"
+			return
+		elseif errMsg == "Response code: 401" then
 			self.charImportStatus = colorCodes.NEGATIVE.."Sign-in is required."
 			self.charImportMode = "GETSESSIONID"
 			return
@@ -498,11 +484,20 @@ function ImportTabClass:DownloadCharacter(callback)
 	local realm = realmList[self.controls.accountRealm.selIndex]
 	local charSelect = self.controls.charSelect
 	local charData = charSelect.list[charSelect.selIndex].char
-	self.api:DownloadCharacter(realm.realmCode, charData.name, function(body, errMsg)
+	self.api:DownloadCharacter(realm.realmCode, charData.name, function(body, errMsg, updateSettings)
 		self.charImportMode = "SELECTCHAR"
+		if updateSettings then
+			self:SaveApiSettings()
+		end
 		if errMsg then
-			self.charImportStatus = colorCodes.NEGATIVE.."Error importing character data, try again ("..errMsg:gsub("\n"," ")..")"
-			return
+			if errMsg == self.api.ERROR_NO_AUTH then
+				self.charImportMode = "AUTHENTICATION"
+				self.charImportStatus = colorCodes.WARNING.."Not authenticated"
+				return
+			else
+				self.charImportStatus = colorCodes.NEGATIVE.."Error importing character data, try again ("..errMsg:gsub("\n"," ")..")"
+				return
+			end
 		elseif body == "false" then
 			self.charImportStatus = colorCodes.NEGATIVE.."Failed to retrieve character data, try again."
 			return

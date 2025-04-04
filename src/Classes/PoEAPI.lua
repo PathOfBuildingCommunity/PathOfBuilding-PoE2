@@ -12,8 +12,10 @@ local PoEAPIClass = newClass("PoEAPI", function(self, authToken, refreshToken, t
 	self.retries = 0
 	self.authToken = authToken
 	self.refreshToken = refreshToken
-	self.tokenExpiry = tokenExpiry
+	self.tokenExpiry = tokenExpiry or 0
 	self.baseUrl = "https://api.pathofexile.com"
+
+	self.ERROR_NO_AUTH = "No auth token"
 end)
 
 -- func callback(valid, updateSettings)
@@ -21,30 +23,29 @@ function PoEAPIClass:ValidateAuth(callback)
 	ConPrintf("Validating auth token")
 	-- make a call for profile if not error we are good
 	-- if error 401 then try to recreate the token with 
-	if self.authToken and self.refreshToken then
-		launch:DownloadPage(self.baseUrl .. "/profile", function (response, errMsg)
-			if errMsg and errMsg:match("401") then
-				-- here recreate the token with the refresh_token
-				local formText = "client_id=pob&grant_type=refresh_token&refresh_token=" .. self.refreshToken
-				launch:DownloadPage("https://www.pathofexile.com/oauth/token", function (response, errMsg)
-					ConPrintf("Recreating auth token")
-					if errMsg then
-						ConPrintf("Failed to recreate auth token: %s", errMsg)
-						callback(false, false)
-						return
-					end
-					-- TODO : Check for error in response
-					local responseLua = dkjson.decode(response.body)
-					self.authToken = responseLua.access_token
-					self.refreshToken = responseLua.refresh_token
-					self.tokenExpiry = os.time() + responseLua.expires_in
-					self.retries = 0
-					callback(true, true)
-				end, { body = formText })
-			else
-				callback(true, false)
-			end
-		end, { header = "Authorization: Bearer " .. self.authToken })
+	if self.authToken and self.refreshToken and self.tokenExpiry then
+		if self.tokenExpiry < os.time() then
+			ConPrintf("Auth token expired")
+			-- here recreate the token with the refresh_token
+			local formText = "client_id=pob&grant_type=refresh_token&refresh_token=" .. self.refreshToken
+			launch:DownloadPage("https://www.pathofexile.com/oauth/token", function (response, errMsg)
+				ConPrintf("Recreating auth token")
+				if errMsg then
+					ConPrintf("Failed to recreate auth token: %s", errMsg)
+					callback(false, false)
+					return
+				end
+				-- TODO : Check for error in response
+				local responseLua = dkjson.decode(response.body)
+				self.authToken = responseLua.access_token
+				self.refreshToken = responseLua.refresh_token
+				self.tokenExpiry = os.time() + responseLua.expires_in
+				self.retries = 0
+				callback(true, true)
+			end, { body = formText })
+		else
+			callback(true, false)
+		end
 	else
 		callback(false, false)
 	end
@@ -103,24 +104,45 @@ function PoEAPIClass:FetchAuthToken(callback)
 	end
 end
 
+-- func callback(response, errorMsg, updateSettings)
 function PoEAPIClass:DownloadWithRefresh(endpoint, callback)
-	launch:DownloadPage(self.baseUrl .. endpoint, function (response, errMsg)
-		if errMsg and errMsg:match("401") and self.retries < 1 then
-			self.retries = self.retries + 1
-			self:FetchAuthToken(function()
-				self:DownloadWithRefresh(endpoint, callback)
-			end)
-		else
-			self.retries = 0
-			callback(response.body, errMsg)
+	self:ValidateAuth(function(valid, updateSettings)
+		if not valid then
+			-- Clean info about token and refresh token
+			self.authToken = nil
+			self.refreshToken = nil
+			self.tokenExpiry = nil
+			callback(nil, self.ERROR_NO_AUTH, true)
+			return
 		end
-	end, { header = "Authorization: Bearer " .. self.authToken })
+
+		launch:DownloadPage(self.baseUrl .. endpoint, function (response, errMsg)
+			if errMsg and errMsg:match("401") and self.retries < 1 then
+				-- try once again with refresh token
+				self.retries = 1
+				self.tokenExpiry = 0
+				self:DownloadWithRefresh(endpoint, callback)
+			else
+				self.retries = 0
+				ConPrintf("Download %s", endpoint)
+				if errMsg then
+					ConPrintf("Failed to download %s: %s", endpoint, errMsg)
+				elseif response and response.body then
+					ConPrintf("Download %s:\n%s\n", endpoint, response.body)
+				end
+				callback(response.body, errMsg, updateSettings)
+			end
+		end, { header = "Authorization: Bearer " .. self.authToken })
+	end)
 end
 
+-- func callback(response, errorMsg, updateSettings)
 function PoEAPIClass:DownloadCharacterList(realm, callback)
 	self:DownloadWithRefresh("/character" .. (realm == "pc" and "" or "/" .. realm), callback)
 end
 
+
+-- func callback(response, errorMsg, updateSettings)
 function PoEAPIClass:DownloadCharacter(realm, name, callback)
 	self:DownloadWithRefresh("/character" .. (realm == "pc" and "" or "/" .. realm) .. "/" .. name, callback)
 end
