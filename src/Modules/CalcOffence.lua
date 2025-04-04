@@ -2181,8 +2181,7 @@ function calcs.offence(env, actor, activeSkill)
 				}
 			end
 		end
-
-		if not isAttack or skillModList:Flag(cfg, "CannotBeEvaded") or skillData.cannotBeEvaded or (env.mode_effective and enemyDB:Flag(nil, "CannotEvade")) or enemyDB:Flag(nil, "Condition:Pinned") then
+		if not isAttack or skillModList:Flag(cfg, "CannotBeEvaded") or skillData.cannotBeEvaded or (env.mode_effective and enemyDB:Flag(nil, "CannotEvade")) then
 			output.AccuracyHitChance = 100
 		else
 			local enemyEvasion = m_max(round(calcLib.val(enemyDB, "Evasion")), 0)

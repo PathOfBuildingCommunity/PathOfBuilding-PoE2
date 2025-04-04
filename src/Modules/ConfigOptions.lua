@@ -1532,6 +1532,8 @@ Huge sets the radius to 11.
 	{ var = "conditionEnemyPinned", type = "check", label = "Is the enemy Pinned?", ifEnemyCond = "Pinned", tooltip ="Pinned enemies cannot move for 4 seconds.", apply = function(val, modList, enemyModList)
 		enemyModList:NewMod("Condition:Pinned", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
 		enemyModList:NewMod("Condition:Immobilised", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
+		enemyModList:NewMod("Condition:CannotEvade", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
+		enemyModList:NewMod("Condition:StunnedRecently", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
 	end },
 	{ var = "conditionEnemyTaunted", type = "check", label = "Is the enemy Taunted?", ifEnemyCond = "Taunted", apply = function(val, modList, enemyModList)
 		enemyModList:NewMod("Condition:Taunted", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
