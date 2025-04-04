@@ -1167,6 +1167,7 @@ local preFlagList = {
 	["^non%-vaal skills deal "] = { tag = { type = "SkillType", skillType = SkillType.Vaal, neg = true } },
 	["^skills [hgdf][aei][vari][eln] "] = { },
 	["^triggered spells [hd][ae][va][el] "] = { keywordFlags = KeywordFlag.Spell, tag = { type = "SkillType", skillType = SkillType.Triggered  } },
+	["^persistent buffs have "] = { tagList = { { type = "SkillType", skillType = SkillType.Persistent }, { type = "SkillType", skillType = SkillType.Buff } } },
 	-- Slot specific
 	["^left ring slot: "] = { tag = { type = "SlotNumber", num = 1 } },
 	["^right ring slot: "] = { tag = { type = "SlotNumber", num = 2 } },
