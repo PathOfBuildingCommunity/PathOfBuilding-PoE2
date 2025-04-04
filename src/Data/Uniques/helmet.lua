@@ -120,10 +120,15 @@ Enemies in your Presence are Ignited as though dealt 100 Base Fire Damage
 [[
 Atziri's Disdain
 Gold Circlet
+Variant: 0.2.0
+Variant: Current
 +(40-60) to maximum Mana
-(10-20)% increased Rarity of Items found
-(20-25)% of Damage taken bypasses Energy Shield
-Gain (25-30)% of Maximum Life as Extra Maximum Energy Shield
+{variant:1}(10-20)% increased Rarity of Items found
+{variant:2}(10-15)% increased Rarity of Items found
+{variant:1}(20-25)% of Damage taken bypasses Energy Shield
+{variant:2}10% of Damage taken bypasses Energy Shield
+{variant:1}Gain (25-30)% of maximum Life as Extra maximum Energy Shield
+{variant:2}Gain (10-15)% of maximum Life as Extra maximum Energy Shield
 ]],[[
 Crown of Thorns
 Twig Circlet
@@ -270,7 +275,10 @@ Variant: Current
 ]],[[
 Cornathaum
 Heavy Crown
-(10-20)% increased Rarity of Items found
+Variant: Pre 0.2.0
+Variant: Current
+{variant:1}(10-20)% increased Rarity of Items found
+{variant:2}(10-15)% increased Rarity of Items found
 +(40-50) to Intelligence
 30% increased Light Radius
 5% increased Experience gain
@@ -287,7 +295,10 @@ Thorns damage is triggered by all Hits
 ]],[[
 Crown of the Victor
 Iron Crown
-(10-20)% increased Rarity of Items found
+Variant: Pre 0.2.0
+Variant: Current
+{variant:1}(10-20)% increased Rarity of Items found
+{variant:2}(10-15)% increased Rarity of Items found
 Gain 10 Life per Enemy Killed
 Gain 10 Mana per Enemy Killed
 +1 to Level of all Skills

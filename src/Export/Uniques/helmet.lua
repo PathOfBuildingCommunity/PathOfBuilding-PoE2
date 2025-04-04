@@ -119,10 +119,15 @@ UniqueIgniteEnemiesInPresence1
 [[
 Atziri's Disdain
 Gold Circlet
+Variant: 0.2.0
+Variant: Current
 UniqueIncreasedMana7
-UniqueItemFoundRarityIncrease2
-UniqueDamageBypassEnergyShieldPercent1
-UniqueEnergyShieldAsPercentOfLife1
+{variant:1}UniqueItemFoundRarityIncrease2[10,20]
+{variant:2}UniqueItemFoundRarityIncrease2
+{variant:1}UniqueDamageBypassEnergyShieldPercent1[20,25]
+{variant:2}UniqueDamageBypassEnergyShieldPercent1
+{variant:1}UniqueEnergyShieldAsPercentOfLife1[25,30]
+{variant:2}UniqueEnergyShieldAsPercentOfLife1
 ]],[[
 Crown of Thorns
 Twig Circlet
@@ -269,7 +274,10 @@ UniqueReducedShockEffectOnSelf1
 ]],[[
 Cornathaum
 Heavy Crown
-UniqueItemFoundRarityIncrease2
+Variant: Pre 0.2.0
+Variant: Current
+{variant:1}UniqueItemFoundRarityIncrease2[10,20]
+{variant:2}UniqueItemFoundRarityIncrease2
 UniqueIntelligence16
 UniqueLightRadius7
 UniqueExperienceIncrease1
@@ -286,7 +294,10 @@ UniqueThornsOnAnyHit1
 ]],[[
 Crown of the Victor
 Iron Crown
-UniqueItemFoundRarityIncrease2
+Variant: Pre 0.2.0
+Variant: Current
+{variant:1}UniqueItemFoundRarityIncrease2[10,20]
+{variant:2}UniqueItemFoundRarityIncrease2
 UniqueLifeGainedFromEnemyDeath2
 UniqueManaGainedFromEnemyDeath3
 UniqueGlobalSkillGemLevel1
