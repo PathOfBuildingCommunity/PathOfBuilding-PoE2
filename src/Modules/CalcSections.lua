@@ -1578,7 +1578,7 @@ return {
 	{ label = "Armour Defense", haveOutput = "RawArmourDefense", { format = "{0:output:RawArmourDefense}%", { modName = "ArmourDefense" }, }, },
 	{ label = "Phys. Dmg. Reduct", { format = "{0:output:PhysicalDamageReduction}%",
 		{ breakdown = "PhysicalDamageReduction" },
-		{ modName = { "PhysicalDamageReduction", "PhysicalDamageReductionWhenHit", "ArmourDoesNotApplyToPhysicalDamageTaken", "DamageReductionMax" } },
+		{ modName = { "PhysicalDamageReduction", "PhysicalDamageReductionWhenHit", "ArmourDoesNotApplyToPhysicalDamageTaken", "DamageReductionMax", "PhysicalDamageReductionMax" } },
 	}, },
 	{ label = "Fire Dmg. Reduct", haveOutput = "FireDamageReduction", { format = "{0:output:FireDamageReduction}%",
 		{ breakdown = "FireDamageReduction" },

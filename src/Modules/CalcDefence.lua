@@ -349,9 +349,9 @@ function calcs.applyDmgTakenConversion(activeSkill, output, breakdown, sourceTyp
 				local effArmour = (output.Armour * percentOfArmourApplies / 100) * (1 + output.ArmourDefense)
 				-- effArmour needs to consider the "EvasionAddsToPdr" flag mod, and add the evasion to armour
 				armourReduct = round(effArmour ~= 0 and damage ~= 0 and calcs.armourReductionF(effArmour, damage) or 0)
-				armourReduct = m_min(output.DamageReductionMax, armourReduct)
+				armourReduct = m_min(output[damageType.."DamageReductionMax"], armourReduct)
 			end
-			reductMult = (1 - m_max(m_min(output.DamageReductionMax, armourReduct + reduction), 0) / 100) * damageTakenMods
+			reductMult = (1 - m_max(m_min(output[damageType.."DamageReductionMax"], armourReduct + reduction), 0) / 100) * damageTakenMods
 			local combinedMult = resMult * reductMult
 			local finalDamage = damage * combinedMult
 			totalDamageTaken = totalDamageTaken + finalDamage
@@ -384,9 +384,9 @@ function calcs.takenHitFromDamage(rawDamage, damageType, actor)
 		local effectiveAppliedArmour = output[type .."EffectiveAppliedArmour"]
 		local armourDRPercent = calcs.armourReductionF(effectiveAppliedArmour, damage)
 		local flatDRPercent = modDB:Flag(nil, "SelfIgnore".."Base".. type .."DamageReduction") and 0 or output["Base".. type .."DamageReductionWhenHit"] or output["Base".. type .."DamageReduction"]
-		local totalDRPercent = m_min(output.DamageReductionMax, armourDRPercent + flatDRPercent)
+		local totalDRPercent = m_min(output[damageType.."DamageReductionMax"], armourDRPercent + flatDRPercent)
 		local enemyOverwhelmPercent = modDB:Flag(nil, "SelfIgnore".. type .."DamageReduction") and 0 or output[type .."EnemyOverwhelm"]
-		local totalDRMulti = 1 - m_max(m_min(output.DamageReductionMax, totalDRPercent - enemyOverwhelmPercent), 0) / 100
+		local totalDRMulti = 1 - m_max(m_min(output[damageType.."DamageReductionMax"], totalDRPercent - enemyOverwhelmPercent), 0) / 100
 		local totalResistMult = output[type .."ResistTakenHitMulti"]
 		return totalResistMult * totalDRMulti
 	end
@@ -1634,11 +1634,20 @@ function calcs.defence(env, actor)
 	end
 
 	-- Damage Reduction
-	output.DamageReductionMax = modDB:Override(nil, "DamageReductionMax") or data.misc.DamageReductionCap
+	output.DamageReductionMax = modDB:Max(nil, "DamageReductionMax") or data.misc.DamageReductionCap
 	modDB:NewMod("ArmourAppliesToPhysicalDamageTaken", "BASE", 100)
 	for _, damageType in ipairs(dmgTypeList) do
-		output["Base"..damageType.."DamageReduction"] = m_min(m_max(0, modDB:Sum("BASE", nil, damageType.."DamageReduction", isElemental[damageType] and "ElementalDamageReduction")), output.DamageReductionMax)
-		output["Base"..damageType.."DamageReductionWhenHit"] = m_min(m_max(0, output["Base"..damageType.."DamageReduction"] + modDB:Sum("BASE", nil, damageType.."DamageReductionWhenHit")), output.DamageReductionMax)
+		output[damageType.."DamageReductionMax"] = m_min(modDB:Max(nil, damageType.."DamageReductionMax") or data.misc.DamageReductionCap, output.DamageReductionMax)
+
+		local base = m_max(0, modDB:Sum("BASE", nil, damageType.."DamageReduction", isElemental[damageType] and "ElementalDamageReduction"))
+		local typeMax = m_min(base, output[damageType.."DamageReductionMax"])
+		local globalMax = m_min(typeMax, output[damageType.."DamageReductionMax"])
+		output["Base"..damageType.."DamageReduction"] = globalMax
+
+		local baseWhenHit = globalMax + modDB:Sum("BASE", nil, damageType.."DamageReductionWhenHit")
+		local typeMaxWhenHit = m_min(baseWhenHit, output[damageType.."DamageReductionMax"])
+		local globalMaxWhenHit = m_min(typeMaxWhenHit, output[damageType.."DamageReductionMax"])
+		output["Base"..damageType.."DamageReductionWhenHit"] = globalMaxWhenHit
 	end
 
 	-- Miscellaneous: move speed, avoidance, weapon swap speed
@@ -2120,16 +2129,16 @@ function calcs.buildDefenceEstimations(env, actor)
 		output[damageType.."takenFlat"] = takenFlat
 		if percentOfArmourApplies > 0 then
 			armourReduct = calcs.armourReduction(effectiveAppliedArmour, damage)
-			armourReduct = m_min(output.DamageReductionMax, armourReduct)
+			armourReduct = m_min(output[damageType.."DamageReductionMax"], armourReduct)
 			if impaleDamage > 0 then
-				impaleArmourReduct = m_min(output.DamageReductionMax, calcs.armourReduction(effectiveAppliedArmour, impaleDamage))
+				impaleArmourReduct = m_min(output[damageType.."DamageReductionMax"], calcs.armourReduction(effectiveAppliedArmour, impaleDamage))
 			end
 		end
-		local totalReduct = m_min(output.DamageReductionMax, armourReduct + reduction)
-		reductMult = 1 - m_max(m_min(output.DamageReductionMax, totalReduct - enemyOverwhelm), 0) / 100
+		local totalReduct = m_min(output[damageType.."DamageReductionMax"], armourReduct + reduction)
+		reductMult = 1 - m_max(m_min(output[damageType.."DamageReductionMax"], totalReduct - enemyOverwhelm), 0) / 100
 		output[damageType.."DamageReduction"] = 100 - reductMult * 100
 		if impaleDamage > 0 then
-			impaleDamage = impaleDamage * resMult * (1 - m_max(m_min(output.DamageReductionMax, m_min(output.DamageReductionMax, impaleArmourReduct + reduction) - enemyOverwhelm), 0) / 100)
+			impaleDamage = impaleDamage * resMult * (1 - m_max(m_min(output[damageType.."DamageReductionMax"], m_min(output[damageType.."DamageReductionMax"], impaleArmourReduct + reduction) - enemyOverwhelm), 0) / 100)
 			impaleDamage = impaleDamage * enemyImpaleChance / 100 * 5 * output[damageType.."TakenReflect"]
 		end
 		if breakdown then
@@ -3372,7 +3381,7 @@ function calcs.buildDefenceEstimations(env, actor)
 
 						-- tack on some caps
 						local noDRMaxHit = totalHitPool / damageConvertedMulti / totalResistMult / totalTakenMulti * (1 - takenFlat * totalTakenMulti / totalHitPool)
-						local maxDRMaxHit = noDRMaxHit / (1 - (output.DamageReductionMax - enemyOverwhelmPercent) / 100)
+						local maxDRMaxHit = noDRMaxHit / (1 - (output[damageType.."DamageReductionMax"] - enemyOverwhelmPercent) / 100)
 						hitTaken = m_floor(m_max(m_min(RAW, maxDRMaxHit), noDRMaxHit))
 						useConversionSmoothing = useConversionSmoothing or convertPercent ~= 100
 					end
