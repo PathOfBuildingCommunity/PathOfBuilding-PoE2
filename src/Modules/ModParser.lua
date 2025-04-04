@@ -4499,6 +4499,9 @@ local specialModList = {
 	["gain stun threshold equal to the lowest of evasion and armour on your helmet"] = {
 		mod("StunThreshold", "BASE", 1, { type = "PerStat", stat = "LowestOfArmourAndEvasionOnHelmet" }),
 	},
+	["gain (%d+)%% of (%a+) as extra (%a+) threshold"] = function(num, _, stat, thresholdType) return { 
+		mod(firstToUpper(thresholdType) .. "Threshold", "BASE", 1, { type = "PercentStat", stat = stat:gsub("^%l", string.upper):gsub(" %l", string.upper):gsub(" ", ""), percent = num })
+	} end,
 	["your stun threshold is doubled"] = {
 		mod("StunThreshold", "MORE", 100),
 	},
