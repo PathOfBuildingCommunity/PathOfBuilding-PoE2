@@ -1560,6 +1560,7 @@ local modTagList = {
 	["wh[ie][ln]e? you have energy shield"] = { tag = { type = "Condition", var = "HaveEnergyShield" } },
 	["wh[ie][ln]e? you have no energy shield"] = { tag = { type = "Condition", var = "HaveEnergyShield", neg = true } },
 	["if you have energy shield"] = { tag = { type = "Condition", var = "HaveEnergyShield" } },
+	["if you have no energy shield"] = { tag = { type = "Condition", var = "HaveEnergyShield", neg = true } },
 	["while stationary"] = { tag = { type = "Condition", var = "Stationary" } },
 	["while you are stationary"] = { tag = { type = "ActorCondition", actor = "player", var = "Stationary" }},
 	["while moving"] = { tag = { type = "Condition", var = "Moving" } },
