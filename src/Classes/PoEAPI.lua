@@ -16,6 +16,7 @@ local PoEAPIClass = newClass("PoEAPI", function(self, authToken, refreshToken, t
 	self.refreshToken = refreshToken
 	self.tokenExpiry = tokenExpiry or 0
 	self.baseUrl = "https://api.pathofexile.com"
+	self.rateLimiter = new("TradeQueryRateLimiter")
 
 	self.ERROR_NO_AUTH = "No auth token"
 end)
@@ -137,19 +138,51 @@ function PoEAPIClass:DownloadWithRefresh(endpoint, callback)
 					end
 					ConPrintf("Download %s:\n%s\n", endpoint, filename)
 				end
-				callback(response.body, errMsg, updateSettings)
+				callback(response, errMsg, updateSettings)
 			end
 		end, { header = "Authorization: Bearer " .. self.authToken })
 	end)
 end
 
+function PoEAPIClass:DownloadWithRateLimit(policy, url, callback)
+	local now = os.time()
+	local timeNext = self.rateLimiter:NextRequestTime(policy, now)
+	if now >= timeNext then
+		local requestId = self.rateLimiter:InsertRequest(policy)
+		local onComplete = function(response, errMsg)
+			self.rateLimiter:FinishRequest(policy, requestId)
+			self.rateLimiter:UpdateFromHeader(response.header)
+			callback(response.body, errMsg)
+		end
+		self:DownloadWithRefresh(url, onComplete)
+	else
+		callback(timeNext, "Response code: 429")
+	end
+end
+
+function PoEAPIClass:DownloadWithRateLimit(policy, url, callback)
+	local now = os.time()
+	local timeNext = self.rateLimiter:NextRequestTime(policy, now)
+	if now >= timeNext then
+		local requestId = self.rateLimiter:InsertRequest(policy)
+		local onComplete = function(response, errMsg)
+			self.rateLimiter:FinishRequest(policy, requestId)
+			self.rateLimiter:UpdateFromHeader(response.header)
+			callback(response.body, errMsg)
+		end
+		self:DownloadWithRefresh(url, onComplete)
+	else
+		callback(timeNext, "Response code: 429")
+	end
+end
+
 -- func callback(response, errorMsg, updateSettings)
 function PoEAPIClass:DownloadCharacterList(realm, callback)
-	self:DownloadWithRefresh("/character" .. (realm == "pc" and "" or "/" .. realm), callback)
+	self:DownloadWithRateLimit("character-list-request-limit-poe2", "/character" .. (realm == "pc" and "" or "/" .. realm), callback)
 end
 
 
 -- func callback(response, errorMsg, updateSettings)
 function PoEAPIClass:DownloadCharacter(realm, name, callback)
-	self:DownloadWithRefresh("/character" .. (realm == "pc" and "" or "/" .. realm) .. "/" .. name, callback)
+	self:DownloadWithRateLimit("character-request-limit-poe2", "/character" .. (realm == "pc" and "" or "/" .. realm) .. "/" .. name, callback)
 end

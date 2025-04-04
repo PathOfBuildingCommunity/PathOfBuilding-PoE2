@@ -8,6 +8,7 @@ local t_insert = table.insert
 local t_remove = table.remove
 local b_rshift = bit.rshift
 local band = bit.band
+local m_max = math.max
 local dkjson = require "dkjson"
 
 local realmList = {
@@ -410,6 +411,10 @@ function ImportTabClass:DownloadCharacterList()
 			return
 		elseif errMsg == "Response code: 404" then
 			self.charImportStatus = colorCodes.NEGATIVE.."Account name is incorrect."
+			self.charImportMode = "GETACCOUNTNAME"
+			return
+		elseif errMsg == "Response code: 429" then
+			self.charImportStatus = function() return colorCodes.NEGATIVE.."Requests are being sent too fast, try again in " .. tostring(m_max(0, body - os.time())) .. " seconds." end
 			self.charImportMode = "GETACCOUNTNAME"
 			return
 		elseif errMsg then
