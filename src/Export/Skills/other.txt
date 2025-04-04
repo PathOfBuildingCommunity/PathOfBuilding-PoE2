@@ -66,15 +66,39 @@ statMap = {
 #skill ElementalStormPlayer
 #set ElementalStormPlayer
 #flags area duration
+statMap = {
+	["tornado_base_damage_interval_ms"] = {
+		skill("hitTimeOverride", nil),
+		div = 1000,
+	},
+},
 #mods
 #set ElementalStormFirePlayer
 #flags spell area duration
+statMap = {
+	["tornado_base_damage_interval_ms"] = {
+		skill("hitTimeOverride", nil),
+		div = 1000,
+	},
+},
 #mods
 #set ElementalStormLightningPlayer
 #flags spell area duration
+statMap = {
+	["tornado_base_damage_interval_ms"] = {
+		skill("hitTimeOverride", nil),
+		div = 1000,
+	},
+},
 #mods
 #set ElementalStormColdPlayer
 #flags spell area duration
+statMap = {
+	["tornado_base_damage_interval_ms"] = {
+		skill("hitTimeOverride", nil),
+		div = 1000,
+	},
+},
 #mods
 #skillEnd
 

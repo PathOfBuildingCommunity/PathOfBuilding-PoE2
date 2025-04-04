@@ -109,7 +109,7 @@ do
     }
     local megalomaniacMods = { }
     for _, node in pairs(nodes) do
-        if node.isNotable == true and not node.ascendancyName then
+        if node.isNotable == true and node.recipe then
             table.insert(megalomaniacMods, node)
         end
     end

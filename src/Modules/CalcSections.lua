@@ -702,7 +702,7 @@ return {
 		{ breakdown = "EnemyCurseLimit" },
 		{ modName = { "CurseLimitIsMaximumPowerCharges", "EnemyCurseLimit" } },
 	}, },
-	{ label = "Ice Crystal Life", { format = "{0:output:IceCrystalLife}",
+	{ label = "Ice Crystal Life", haveOutput = "IceCrystalLife", { format = "{0:output:IceCrystalLife}",
 		{ breakdown = "IceCrystalLife" },
 		{ modName = { "IceCrystalLife" }, cfg = "skill" }
 	},},
