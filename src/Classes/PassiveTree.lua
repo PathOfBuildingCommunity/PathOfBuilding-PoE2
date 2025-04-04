@@ -125,6 +125,7 @@ local PassiveTreeClass = newClass("PassiveTree", function(self, treeVersion)
 		self:LoadImage(file, data, "CLAMP")
 		for name, position in pairs(fileInfo) do
 			self.ddsMap[name] = {
+				found = data.width > 0,
 				handle = data.handle,
 				width = data.width,
 				height = data.height,

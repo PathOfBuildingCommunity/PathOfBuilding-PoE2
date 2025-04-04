@@ -5,6 +5,7 @@ local json = require("dkjson")
 -- by session we would like to don't extract the same file multiple times
 main.treeCacheExtract = main.treeCacheExtract or { }
 local cacheExtract = main.treeCacheExtract
+local ignoreFilter = "^%[DNT"
 
 if not loadStatFile then
 	dofile("statdesc.lua")
@@ -245,7 +246,7 @@ local uiImages = parseUIImages()
 -- print_table(uiImages, 0)
 
 -- Set to true if you want to generate assets
-local generateAssets = true
+local generateAssets = false
 local use4kIfPossible = false
 -- Find a way to get the default passive tree
 local idPassiveTree = 'Default'
@@ -501,10 +502,15 @@ addToSheet(getSheet("lines"), "art/2dart/passivetree/passiveskillscreencurvesnor
 -- adding jewel sockets
 local jewelArt = dat("PassiveJewelArt")
 for jewel in jewelArt:Rows() do
+	if jewel.Item.Name:find(ignoreFilter) ~= nil then
+		printf("Ignoring jewel socket " .. jewel.Item.Name)
+		goto nexttogo
+	end
 	local asset = uiImages[string.lower(jewel.JewelArt)]
 	printf("Adding jewel socket " .. jewel.Item.Name .. " " .. asset.path .. " to sprite")
 	local name = jewel.Item.Name
 	addToSheet(getSheet("jewel-sockets"), asset.path, "jewelpassive", commonMetadata(name))
+	:: nexttogo	::
 end
 
 -- adding legion assets
@@ -568,7 +574,6 @@ local tree = {
 }
 
 printf("Generating classes...")
-local ignoreFilter = "^%[DNT%]"
 for i, classId in ipairs(psg.passives) do
 	local passiveRow = dat("passiveskills"):GetRow("PassiveSkillNodeId", classId)
 	if passiveRow == nil then
@@ -609,13 +614,14 @@ for i, classId in ipairs(psg.passives) do
 
 		local ascendancies = dat("ascendancy"):GetRowList("Class", character)
 		for k, ascendency in ipairs(ascendancies) do
-			if ascendency.Name:find(ignoreFilter) ~= nil then
+			if ascendency.Name:find(ignoreFilter) ~= nil or ascendency.Id == 'Monk1' then
 				printf("Ignoring ascendency " .. ascendency.Name .. " for class " .. character.Name)
 				goto continue3
 			end
 			table.insert(classDef.ascendancies, {
 				["id"] = ascendency.Name,
 				["name"] = ascendency.Name,
+				["internalId"] = ascendency.Id
 			})
 
 			-- add assets
@@ -706,7 +712,11 @@ for i, group in ipairs(psg.groups) do
 		if passiveRow == nil then
 			printf("Passive skill " .. passive.id .. " not found")
 		else
-			if passiveRow.Name:find(ignoreFilter) ~= nil then
+			if passiveRow.Name == "" then
+				printf("Ignoring passive skill " .. passive.id .. " No name")
+				goto exitNode
+			end
+			if passiveRow.Name:find(ignoreFilter) ~= nil and passiveRow.Name ~= "[DNT] Kite Fisher" and passiveRow.Name ~= "[DNT] Troller" and passiveRow.Name ~= "[DNT] Spearfisher" and passiveRow.Name ~= "[DNT] Angler" and passiveRow.Name ~= "[DNT] Whaler" then
 				printf("Ignoring passive skill " .. passiveRow.Name)
 				goto exitNode
 			end
@@ -734,7 +744,7 @@ for i, group in ipairs(psg.groups) do
 			-- Ascendancy
 			if passiveRow.Ascendancy ~= nil then
 				groupIsAscendancy = true
-				if passiveRow.Ascendancy.Name:find(ignoreFilter) ~= nil then
+				if passiveRow.Ascendancy.Name:find(ignoreFilter) ~= nil or passiveRow.Ascendancy.Id == "Monk1" then
 					printf("Ignoring node ascendancy " .. passiveRow.Ascendancy.Name)
 					goto exitNode
 				end
@@ -992,6 +1002,9 @@ for i, classId in ipairs(psg.passives) do
 		for _, ascendancy in ipairs(class.ascendancies) do
 			local info = ascendancyGroups[ascendancy.id]
 			local ascendancyNode = tree.nodes[info.startId]
+			if ascendancyNode == nil then
+				printf("Ascendancy node " .. ascendancy.id .. " not found")
+			end
 			local groupAscendancy = tree.groups[ascendancyNode.group]
 
 			local angle = startAngle + (j - 1) * angleStep
