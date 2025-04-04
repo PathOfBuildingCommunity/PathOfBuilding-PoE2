@@ -1722,6 +1722,7 @@ function calcs.defence(env, actor)
 		end
 	end
 
+	output.AilmentThreshold = modDB:Sum("BASE", nil, "AilmentThreshold")
 	for _, ailment in ipairs(data.nonElementalAilmentTypeList) do
 		output[ailment.."AvoidChance"] = modDB:Flag(nil, ailment.."Immune") and 100 or m_floor(m_min(modDB:Sum("BASE", nil, "Avoid"..ailment, "AvoidAilments"), 100))
 	end

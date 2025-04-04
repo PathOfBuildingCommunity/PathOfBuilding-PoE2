@@ -1801,6 +1801,7 @@ return {
 	{ label = "Knockback Immune", haveOutput = "KnockbackImmunity", { format = "True", { modName = "KnockbackImmune" }, }, },
 	{ label = "Blind Duration", haveOutput = "SelfBlindDuration", { format = "{0:output:SelfBlindDuration}%", { modName = "SelfBlindDuration" }, }, },
 } }, { defaultCollapsed = true, label = "Other Ailment Defences", data = {
+	{ label = "Ailment Threshold", { format = "{2:output:AilmentThreshold}", { modName = { "AilmentThreshold" }, }, }, },
 	{ label = "Freeze Duration", { format = "{1:output:SelfFreezeDuration}%", { modName = { "SelfFreezeDuration", "SelfDebuffExpirationRate", "SelfFreezeDebuffExpirationRate", "SelfAilmentDuration", "SelfElementalAilmentDuration", "SelfIgniteDurationToElementalAilments" }, }, }, },
 	{ label = "Chill Duration", { format = "{1:output:SelfChillDuration}%", { modName = { "SelfChillDuration", "SelfDebuffExpirationRate", "SelfChillDebuffExpirationRate", "SelfAilmentDuration", "SelfElementalAilmentDuration", "SelfIgniteDurationToElementalAilments" }, }, }, },
 	{ label = "Shock Duration", { format = "{1:output:SelfShockDuration}%", { modName = { "SelfShockDuration", "SelfDebuffExpirationRate", "SelfShockDebuffExpirationRate", "SelfAilmentDuration", "SelfElementalAilmentDuration", "SelfIgniteDurationToElementalAilments" }, }, }, },
