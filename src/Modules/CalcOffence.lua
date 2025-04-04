@@ -2194,6 +2194,26 @@ function calcs.offence(env, actor, activeSkill)
 				}
 			end
 		end
+		-- Accounting for mods that enable "Chance to hit with Attacks can exceed 100%"
+		if skillModList:Flag(nil,"Condition:HitChanceCanExceed100") and output.AccuracyHitChance == 100 then
+			local enemyEvasion = m_max(round(calcLib.val(enemyDB, "Evasion")), 0)
+			output.AccuracyHitChanceUncapped = m_max(calcs.hitChanceUncapped(enemyEvasion, accuracyVsEnemy) * calcLib.mod(skillModList, cfg, "HitChance"), output.AccuracyHitChance) -- keep higher chance in case of "CannotBeEvaded"
+			if breakdown and breakdown.AccuracyHitChance then
+				t_insert(breakdown.AccuracyHitChance, "Uncapped hit chance: " .. output.AccuracyHitChanceUncapped .. "%")
+			elseif breakdown then
+				breakdown.AccuracyHitChance = {
+					"Enemy level: "..env.enemyLevel..(env.configInput.enemyLevel and " ^8(overridden from the Configuration tab" or " ^8(can be overridden in the Configuration tab)"),
+					"Enemy evasion: "..enemyEvasion,
+					"Approximate hit chance: "..output.AccuracyHitChance.."%",
+					"Uncapped hit chance: " .. output.AccuracyHitChanceUncapped .. "%"
+				}
+			end
+			local handCondition = (pass.label == "Off Hand") and "OffHandAttack" or "MainHandAttack"
+			if output.AccuracyHitChanceUncapped - 100 > 0 then
+				skillModList:NewMod("Multiplier:ExcessHitChance", "BASE", round(output.AccuracyHitChanceUncapped - 100, 2), "HitChanceCanExceed100", { type = "Condition", var = handCondition})
+			end
+
+		end
 		--enemy block chance
 		output.enemyBlockChance = m_max(m_min((enemyDB:Sum("BASE", cfg, "BlockChance") or 0), 100) - skillModList:Sum("BASE", cfg, "reduceEnemyBlock"), 0)
 		if enemyDB:Flag(nil, "CannotBlockAttacks") and isAttack then
@@ -2451,6 +2471,7 @@ function calcs.offence(env, actor, activeSkill)
 		-- Combine hit chance and attack speed
 		combineStat("AccuracyHitChance", "AVERAGE")
 		combineStat("HitChance", "AVERAGE")
+		combineStat("AccuracyHitChanceUncapped", "AVERAGE")
 		combineStat("Speed", "AVERAGE")
 		combineStat("HitSpeed", "OR")
 		combineStat("HitTime", "OR")
