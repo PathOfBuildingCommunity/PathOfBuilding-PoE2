@@ -2371,6 +2371,7 @@ local specialModList = {
 	} end,
 	-- Amazon
 	["chance to hit with attacks can exceed 100%%"] = {flag("Condition:HitChanceCanExceed100", { type = "Skilltype", skillType = SkillType.Attack})},
+	["gain additional critical hit chance equal to (%d+)%% of excess chance to hit with attacks"] = function(num) return { mod("CritChance", "BASE", 0.01, { type = "Multiplier", var = "ExcessHitChance", div = 1 / num   }, { type = "SkillType", skillType = SkillType.Attack})} end,
 	-- Ascendant
 	["grants (%d+) passive skill points?"] = function(num) return { mod("ExtraPoints", "BASE", num) } end,
 	["can allocate passives from the %a+'s starting point"] = { },
