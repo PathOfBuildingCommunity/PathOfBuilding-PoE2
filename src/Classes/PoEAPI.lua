@@ -160,29 +160,18 @@ function PoEAPIClass:DownloadWithRateLimit(policy, url, callback)
 	end
 end
 
-function PoEAPIClass:DownloadWithRateLimit(policy, url, callback)
-	local now = os.time()
-	local timeNext = self.rateLimiter:NextRequestTime(policy, now)
-	if now >= timeNext then
-		local requestId = self.rateLimiter:InsertRequest(policy)
-		local onComplete = function(response, errMsg)
-			self.rateLimiter:FinishRequest(policy, requestId)
-			self.rateLimiter:UpdateFromHeader(response.header)
-			callback(response.body, errMsg)
-		end
-		self:DownloadWithRefresh(url, onComplete)
-	else
-		callback(timeNext, "Response code: 429")
-	end
-end
-
--- func callback(response, errorMsg, updateSettings)
+---Fetches character list from PoE's OAuth api
+---@param realm string Realm to fetch the list from (always poe2)
+---@param callback function callback(response, errorMsg, updateSettings)
 function PoEAPIClass:DownloadCharacterList(realm, callback)
 	self:DownloadWithRateLimit("character-list-request-limit-poe2", "/character" .. (realm == "pc" and "" or "/" .. realm), callback)
 end
 
 
--- func callback(response, errorMsg, updateSettings)
+---Fetches character from PoE's OAuth api
+---@param realm string Realm to fetch the character from (always poe2)
+---@param name string Character name to fetch
+---@param callback function callback(response, errorMsg, updateSettings)
 function PoEAPIClass:DownloadCharacter(realm, name, callback)
 	self:DownloadWithRateLimit("character-request-limit-poe2", "/character" .. (realm == "pc" and "" or "/" .. realm) .. "/" .. name, callback)
 end

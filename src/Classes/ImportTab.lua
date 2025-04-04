@@ -26,7 +26,7 @@ local ImportTabClass = newClass("ImportTab", "ControlHost", "Control", function(
 	self.charImportStatus = colorCodes.WARNING.."Not authenticated"
 	self.controls.sectionCharImport = new("SectionControl", {"TOPLEFT",self,"TOPLEFT"}, {10, 18, 650, 250}, "Character Import")
 	self.controls.charImportStatusLabel = new("LabelControl", {"TOPLEFT",self.controls.sectionCharImport,"TOPLEFT"}, {6, 14, 200, 16}, function()
-		return "^7Character import status: "..self.charImportStatus
+		return "^7Character import status: "..(type(self.charImportStatus) == "function" and self.charImportStatus() or self.charImportStatus)
 	end)
 	
 	self.controls.characterImportAnchor = new("Control", {"TOPLEFT",self.controls.sectionCharImport,"TOPLEFT"}, {6, 40, 200, 16})
@@ -528,6 +528,10 @@ function ImportTabClass:DownloadCharacter(callback)
 				self.charImportMode = "AUTHENTICATION"
 				self.charImportStatus = colorCodes.WARNING.."Not authenticated"
 				return
+			elseif errMsg == "Response code: 429" then
+				self.charImportStatus = function() return colorCodes.NEGATIVE.."Requests are being sent too fast, try again in " .. tostring(m_max(0, body - os.time())) .. " seconds." end
+				self.charImportMode = "GETACCOUNTNAME"
+				return
 			else
 				self.charImportStatus = colorCodes.NEGATIVE.."Error importing character data, try again ("..errMsg:gsub("\n"," ")..")"
 				return
@@ -556,27 +560,15 @@ function ImportTabClass:DownloadCharacter(callback)
 end
 
 function ImportTabClass:DownloadPassiveTree()
-	local charSelect = self.controls.charSelect
-	local charData = charSelect.list[charSelect.selIndex].char
-	if not charData.passives then
-		self:DownloadCharacter(function(charData)
-			self:ImportPassiveTreeAndJewels(charData)
-		end)
-	else
+	self:DownloadCharacter(function(charData)
 		self:ImportPassiveTreeAndJewels(charData)
-	end
+	end)
 end
 
 function ImportTabClass:DownloadItems()
-	local charSelect = self.controls.charSelect
-	local charData = charSelect.list[charSelect.selIndex].char
-	if not charData.equipment then
-		self:DownloadCharacter(function(charData)
-			self:ImportItemsAndSkills(charData)
-		end)
-	else
+	self:DownloadCharacter(function(charData)
 		self:ImportItemsAndSkills(charData)
-	end
+	end)
 end
 
 function ImportTabClass:ImportPassiveTreeAndJewels(charData)

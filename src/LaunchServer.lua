@@ -130,7 +130,7 @@ if client then
 		end
 
 		-- Send HTTP Response
-		ConPrintf("Sending response: %s", response)
+		--ConPrintf("Sending response: %s", response)
 		client:send(response)
 	end
 	client:close()
