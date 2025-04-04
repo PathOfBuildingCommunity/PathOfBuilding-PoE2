@@ -185,6 +185,7 @@ local ImportTabClass = newClass("ImportTab", "ControlHost", "Control", function(
 		self.importCodeDetail = ""
 		self.importCodeXML = nil
 		self.importCodeValid = false
+		self.importCodeJson = nil
 
 		if #buf == 0 then
 			return
@@ -212,6 +213,28 @@ local ImportTabClass = newClass("ImportTab", "ControlHost", "Control", function(
 				end
 				return
 			end
+		end
+
+		-- If we are in dev mode and the string is a json
+		if launch.devMode and urlText:match("^%{.*%}$") ~= nil then
+			local jsonData, _, errDecode = dkjson.decode(urlText)
+			if errDecode then
+				self.importCodeDetail = colorCodes.NEGATIVE.."Invalid JSON format (decode error)"
+				return
+			end
+			if not jsonData.character then
+				self.importCodeDetail = colorCodes.NEGATIVE.."Invalid JSON format (character missing)"
+				return
+			end
+			jsonData = jsonData.character
+			if not jsonData.equipment or not jsonData.passives then
+				self.importCodeDetail = colorCodes.NEGATIVE.."Invalid JSON format (equipment or passives missing)"
+				return
+			end
+			self.importCodeJson = jsonData
+			self.importCodeDetail = colorCodes.POSITIVE.."JSON is valid"
+			self.importCodeValid = true
+			return
 		end
 
 		local xmlText = Inflate(common.base64.decode(buf:gsub("-","+"):gsub("_","/")))
@@ -272,6 +295,12 @@ local ImportTabClass = newClass("ImportTab", "ControlHost", "Control", function(
 					importSelectedBuild()
 				end
 			end)
+			return
+		end
+
+		if self.importCodeJson then
+			self:ImportItemsAndSkills(self.importCodeJson)
+			self:ImportPassiveTreeAndJewels(self.importCodeJson)
 			return
 		end
 
