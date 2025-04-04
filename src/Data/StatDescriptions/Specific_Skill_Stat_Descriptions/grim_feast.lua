@@ -11,15 +11,6 @@ return {
 						[2]="#"
 					}
 				},
-				text="Energy Shield recovered per Remnant {0}"
-			},
-			[2]={
-				limit={
-					[1]={
-						[1]=1,
-						[2]="#"
-					}
-				},
 				text="Grim Remnants recover {0} Energy Shield"
 			}
 		},
@@ -77,8 +68,25 @@ return {
 			[1]="grim_remnant_chance_to_spawn_orb_on_enemy_and_minion_death_in_presence_%"
 		}
 	},
+	[4]={
+		[1]={
+			[1]={
+				limit={
+					[1]={
+						[1]=1,
+						[2]="#"
+					}
+				},
+				text="Energy Shield recovered per Remnant {0}"
+			}
+		},
+		stats={
+			[1]="virtual_grim_feast_energy_shield_gain_per_globe"
+		}
+	},
 	["grim_feast_energy_shield_gain_+%_final_from_minions"]=2,
 	["grim_feast_energy_shield_gain_per_globe"]=1,
 	["grim_remnant_chance_to_spawn_orb_on_enemy_and_minion_death_in_presence_%"]=3,
-	parent="skill_stat_descriptions"
+	parent="skill_stat_descriptions",
+	["virtual_grim_feast_energy_shield_gain_per_globe"]=4
 }

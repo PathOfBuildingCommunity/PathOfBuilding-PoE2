@@ -141,31 +141,10 @@ return {
 			[1]="base_skill_effect_duration"
 		}
 	},
-	[6]={
-		[1]={
-			[1]={
-				[1]={
-					k="milliseconds_to_seconds_2dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Shocked Ground duration {0}s"
-			}
-		},
-		stats={
-			[1]="skill_ground_effect_duration"
-		}
-	},
 	["active_skill_area_of_effect_radius"]=1,
 	["active_skill_base_area_of_effect_radius"]=2,
 	["active_skill_base_secondary_area_of_effect_radius"]=3,
 	["active_skill_secondary_area_of_effect_radius"]=4,
 	["base_skill_effect_duration"]=5,
-	parent="skill_stat_descriptions",
-	["skill_ground_effect_duration"]=6
+	parent="skill_stat_descriptions"
 }

@@ -58,7 +58,7 @@ local skills, mod, flag, skill = ...
 
 #skill DeathStormSkeletonStormMageMinion
 #set DeathStormSkeletonStormMageMinion
-#flags spell area
+#flags spell area hit
 #mods
 #skillEnd
 

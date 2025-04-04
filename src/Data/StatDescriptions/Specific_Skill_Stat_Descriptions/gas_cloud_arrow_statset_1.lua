@@ -38,9 +38,13 @@ return {
 					[1]={
 						[1]=10,
 						[2]=10
+					},
+					[2]={
+						[1]=0,
+						[2]=0
 					}
 				},
-				text="Cloud radius is {0} metre"
+				text="{0:+d} metre to cloud radius"
 			},
 			[2]={
 				[1]={
@@ -51,13 +55,52 @@ return {
 					[1]={
 						[1]="#",
 						[2]="#"
+					},
+					[2]={
+						[1]=0,
+						[2]=0
+					}
+				},
+				text="{0:+d} metres to cloud radius"
+			},
+			[3]={
+				[1]={
+					k="divide_by_ten_1dp_if_required",
+					v=1
+				},
+				limit={
+					[1]={
+						[1]=10,
+						[2]=10
+					},
+					[2]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Cloud radius is {0} metre"
+			},
+			[4]={
+				[1]={
+					k="divide_by_ten_1dp_if_required",
+					v=1
+				},
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					},
+					[2]={
+						[1]="#",
+						[2]="#"
 					}
 				},
 				text="Cloud radius is {0} metres"
 			}
 		},
 		stats={
-			[1]="active_skill_base_area_of_effect_radius"
+			[1]="active_skill_base_area_of_effect_radius",
+			[2]="quality_display_active_skill_base_area_of_effect_radius_is_gem"
 		}
 	},
 	[4]={
@@ -117,6 +160,7 @@ return {
 	["active_skill_base_area_of_effect_radius"]=3,
 	["base_skill_effect_duration"]=4,
 	parent="specific_skill_stat_descriptions/gas_cloud_arrow_statset_0",
+	["quality_display_active_skill_base_area_of_effect_radius_is_gem"]=3,
 	["skill_effect_duration"]=5,
 	["total_number_of_arrows_to_fire"]=1
 }

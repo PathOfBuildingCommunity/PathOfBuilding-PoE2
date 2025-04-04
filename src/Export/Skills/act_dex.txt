@@ -47,6 +47,9 @@ statMap = {
 		mod("BarrageRepeatDamage", "MORE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Barrage" }),
 		mult = -1
 	},
+	["quality_display_barrage_is_gem"] = {
+		-- Display only
+	},
 },
 #mods
 #skillEnd
@@ -90,7 +93,12 @@ statMap = {
 
 #skill ElectrocutingArrowPlayer
 #set ElectrocutingArrowPlayer
-#flags attack projectile
+#flags attack projectile duration
+statMap = {
+	["quality_display_base_skill_effect_duration_is_gem"] = {
+		-- Display only
+	},
+},
 #mods
 #skillEnd
 
@@ -291,7 +299,7 @@ statMap = {
 
 #skill ToxicGrowthPlayer
 #set ToxicGrowthPlayer
-#flags attack projectile area duration
+#flags attack projectile area
 #mods
 #skillEnd
 

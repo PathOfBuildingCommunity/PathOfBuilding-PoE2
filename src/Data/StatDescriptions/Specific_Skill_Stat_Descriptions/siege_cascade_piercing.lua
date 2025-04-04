@@ -110,70 +110,6 @@ return {
 			[1]="active_skill_secondary_area_of_effect_radius"
 		}
 	},
-	[8]={
-		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					},
-					[2]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="More damage against Immobilised enemies {0}%"
-			},
-			[2]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					},
-					[2]={
-						[1]=0,
-						[2]=0
-					}
-				},
-				text="{0:+d}% more damage against Immobilised enemies"
-			},
-			[3]={
-				limit={
-					[1]={
-						[1]=1,
-						[2]="#"
-					},
-					[2]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="{0}% more damage against Immobilised enemies"
-			},
-			[4]={
-				[1]={
-					k="negate",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]=-1
-					},
-					[2]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="{0}% less damage against Immobilised enemies"
-			}
-		},
-		stats={
-			[1]="siege_cascade_damage_+%_final_vs_immobilised_enemies",
-			[2]="quality_display_siege_cascade_damage_+%_final_vs_immobilised_enemies_is_gem"
-		}
-	},
 	["active_skill_area_of_effect_radius"]=4,
 	["active_skill_base_area_of_effect_radius"]=5,
 	["active_skill_base_secondary_area_of_effect_radius"]=6,
@@ -181,7 +117,5 @@ return {
 	["active_skill_secondary_area_of_effect_radius"]=7,
 	["never_freeze"]=3,
 	parent="skill_stat_descriptions",
-	["quality_display_siege_cascade_damage_+%_final_vs_immobilised_enemies_is_gem"]=8,
-	["siege_cascade_damage_+%_final_vs_immobilised_enemies"]=8,
 	["total_number_of_projectiles_to_fire"]=1
 }

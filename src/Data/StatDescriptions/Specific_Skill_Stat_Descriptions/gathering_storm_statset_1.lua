@@ -4,7 +4,7 @@
 return {
 	[1]={
 		stats={
-			[1]="added_attack_time_ms"
+			[1]="total_attack_time_+_ms"
 		}
 	},
 	[2]={
@@ -62,6 +62,6 @@ return {
 	},
 	["active_skill_area_of_effect_radius"]=2,
 	["active_skill_base_area_of_effect_radius"]=3,
-	["added_attack_time_ms"]=1,
-	parent="skill_stat_descriptions"
+	parent="skill_stat_descriptions",
+	["total_attack_time_+_ms"]=1
 }

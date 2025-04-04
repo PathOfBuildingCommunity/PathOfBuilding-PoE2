@@ -122,7 +122,7 @@ skills["SupportDazedBreakPlayer"] = {
 			baseFlags = {
 			},
 			constantStats = {
-				{ "support_daze_break_duration_ms", 6000 },
+				{ "support_daze_break_duration_ms", 8000 },
 			},
 			stats = {
 				"support_apply_daze_on_armour_break",
@@ -213,13 +213,14 @@ skills["SupportBurstingPlaguePlayer"] = {
 		[1] = {
 			label = "Plague Burst",
 			incrementalEffectiveness = 0.054999999701977,
-			statDescriptionScope = "skill_stat_descriptions",
+			statDescriptionScope = "plague_burst",
 			baseFlags = {
 			},
 			constantStats = {
 				{ "active_skill_base_area_of_effect_radius", 18 },
 				{ "plague_burst_area_+%_final_maximum", 100 },
 				{ "plague_burst_%_stored_value_to_deal_as_physical_damage", 100 },
+				{ "additional_base_critical_strike_chance", 500 },
 			},
 			stats = {
 				"is_area_damage",
@@ -277,7 +278,7 @@ skills["SupportCloseCombatPlayer"] = {
 	excludeSkillTypes = { },
 	ignoreMinionTypes = true,
 	levels = {
-		[1] = { manaMultiplier = 40, levelRequirement = 0, },
+		[1] = { manaMultiplier = 20, levelRequirement = 0, },
 	},
 	statSets = {
 		[1] = {
@@ -307,24 +308,10 @@ skills["SupportComboFinisherPlayer"] = {
 	description = "Supports Melee Attacks you use yourself. Supported Skills cannot be used until enough Combo has been built up, but deal massively more damage. Cannot support skills which already Combo, or Triggered Skills.",
 	color = 2,
 	support = true,
-	requireSkillTypes = { SkillType.Attack, SkillType.Damage, SkillType.CrossbowAmmoSkill, },
-	addSkillTypes = { SkillType.ComboStacking, SkillType.SupportedByComboFinisher, },
-	excludeSkillTypes = { SkillType.Cooldown, SkillType.Herald, SkillType.Triggered, SkillType.InbuiltTrigger, SkillType.SummonsTotem, SkillType.UsedByTotem, SkillType.Trapped, SkillType.RemoteMined, SkillType.Spell, SkillType.Warcry, SkillType.ComboStacking, SkillType.SupportedByComboFinisher, SkillType.NOT, SkillType.AND, },
+	requireSkillTypes = { SkillType.Melee, },
+	addSkillTypes = { SkillType.ComboStacking, SkillType.SupportedByComboFinisher, SkillType.HasUsageCondition, },
+	excludeSkillTypes = { SkillType.Cooldown, SkillType.Herald, SkillType.Triggered, SkillType.InbuiltTrigger, SkillType.SummonsTotem, SkillType.UsedByTotem, SkillType.Trapped, SkillType.RemoteMined, SkillType.Spell, SkillType.Warcry, SkillType.HasUsageCondition, SkillType.SupportedByComboFinisher, SkillType.NOT, SkillType.AND, },
 	ignoreMinionTypes = true,
-	weaponTypes = {
-		["None"] = true,
-		["One Handed Mace"] = true,
-		["Flail"] = true,
-		["Two Handed Sword"] = true,
-		["Dagger"] = true,
-		["Staff"] = true,
-		["Spear"] = true,
-		["Two Handed Axe"] = true,
-		["Two Handed Mace"] = true,
-		["One Handed Axe"] = true,
-		["Claw"] = true,
-		["One Handed Sword"] = true,
-	},
 	levels = {
 		[1] = { levelRequirement = 0, },
 	},
@@ -338,7 +325,7 @@ skills["SupportComboFinisherPlayer"] = {
 			constantStats = {
 				{ "support_combo_finisher_required_number_of_combo_stacks", 5 },
 				{ "support_combo_finisher_damage_+%_final", 40 },
-				{ "base_combo_stacks_decay_delay_ms", 8000 },
+				{ "base_combo_stacks_decay_delay_ms", 4000 },
 			},
 			stats = {
 			},
@@ -377,7 +364,7 @@ skills["SupportMultiplePoisonPlayer"] = {
 			},
 			constantStats = {
 				{ "number_of_additional_poison_stacks", 1 },
-				{ "support_multi_poison_poison_duration_+%_final", -30 },
+				{ "support_multi_poison_poison_duration_+%_final", -20 },
 			},
 			stats = {
 			},
@@ -430,7 +417,7 @@ skills["SupportCorrosionPlayer"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { SkillType.ConsumesFullyBrokenArmour, },
 	levels = {
-		[1] = { levelRequirement = 0, },
+		[1] = { manaMultiplier = 10, levelRequirement = 0, },
 	},
 	statSets = {
 		[1] = {
@@ -459,7 +446,7 @@ skills["SupportCrescendoPlayer"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	levels = {
-		[1] = { levelRequirement = 0, },
+		[1] = { manaMultiplier = 20, levelRequirement = 0, },
 	},
 	statSets = {
 		[1] = {
@@ -516,8 +503,8 @@ skills["SupportCulminationPlayer"] = {
 	color = 2,
 	support = true,
 	requireSkillTypes = { SkillType.Attack, SkillType.Melee, SkillType.AND, },
-	addSkillTypes = { SkillType.ComboStacking, SkillType.SupportedByComboMastery, },
-	excludeSkillTypes = { SkillType.ComboStacking, SkillType.SupportedByComboMastery, SkillType.NOT, SkillType.AND, },
+	addSkillTypes = { SkillType.ComboStacking, SkillType.SupportedByComboMastery, SkillType.HasUsageCondition, },
+	excludeSkillTypes = { SkillType.HasUsageCondition, SkillType.SupportedByComboMastery, SkillType.NOT, SkillType.AND, },
 	levels = {
 		[1] = { levelRequirement = 0, },
 	},
@@ -529,8 +516,8 @@ skills["SupportCulminationPlayer"] = {
 			baseFlags = {
 			},
 			constantStats = {
-				{ "support_damage_+%_final_per_combo_stack", 2 },
-				{ "base_combo_stacks_decay_delay_ms", 3000 },
+				{ "support_damage_+%_final_per_combo_stack", 3 },
+				{ "base_combo_stacks_decay_delay_ms", 4000 },
 			},
 			stats = {
 				"skill_uncapped_combo_counter",
@@ -675,7 +662,7 @@ skills["SupportEncumberancePlayer"] = {
 	description = "Supports any skill, causing inflicted Slows to be more powerful.",
 	color = 2,
 	support = true,
-	requireSkillTypes = { SkillType.Damage, SkillType.Attack, SkillType.Spell, SkillType.DegenOnlySpellDamage, SkillType.Minion, SkillType.CrossbowAmmoSkill, },
+	requireSkillTypes = { SkillType.Damage, SkillType.Attack, SkillType.Spell, SkillType.DegenOnlySpellDamage, SkillType.CrossbowAmmoSkill, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	levels = {
@@ -734,8 +721,8 @@ skills["SupportFerocityPlayer"] = {
 	color = 2,
 	support = true,
 	requireSkillTypes = { SkillType.Damage, SkillType.CrossbowAmmoSkill, SkillType.Attack, },
-	addSkillTypes = { SkillType.SkillConsumesFrenzyChargesOnUse, SkillType.SupportedByFerocity, },
-	excludeSkillTypes = { SkillType.Minion, SkillType.SummonsTotem, SkillType.UsedByTotem, SkillType.Persistent, SkillType.SkillConsumesFrenzyChargesOnUse, SkillType.SupportedByFerocity, SkillType.NOT, SkillType.AND, },
+	addSkillTypes = { SkillType.SupportedByFerocity, },
+	excludeSkillTypes = { SkillType.Minion, SkillType.SummonsTotem, SkillType.SupportedByTumult, SkillType.UsedByTotem, SkillType.Persistent, SkillType.SkillConsumesFrenzyChargesOnUse, SkillType.SupportedByFerocity, SkillType.NOT, SkillType.AND, },
 	levels = {
 		[1] = { levelRequirement = 0, },
 	},
@@ -788,7 +775,7 @@ skills["SupportForkPlayer"] = {
 			},
 			constantStats = {
 				{ "terrain_arrow_attachment_chance_reduction_+%", 100 },
-				{ "support_fork_forked_projectile_damage_+%_final", -50 },
+				{ "support_fork_forked_projectile_damage_+%_final", -30 },
 			},
 			stats = {
 				"projectiles_fork",
@@ -863,7 +850,7 @@ skills["SupportInnervatePlayer"] = {
 			},
 			constantStats = {
 				{ "support_innervate_buff_grant_%_added_lightning_attack_damage", 35 },
-				{ "support_innervate_buff_base_duration_ms", 3000 },
+				{ "support_innervate_buff_base_duration_ms", 5000 },
 			},
 			stats = {
 			},
@@ -882,7 +869,7 @@ skills["SupportLastingShockPlayer"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	levels = {
-		[1] = { manaMultiplier = 20, levelRequirement = 0, },
+		[1] = { levelRequirement = 0, },
 	},
 	statSets = {
 		[1] = {
@@ -898,7 +885,7 @@ skills["SupportLastingShockPlayer"] = {
 			},
 			constantStats = {
 				{ "shock_duration_+%", 100 },
-				{ "support_lasting_shock_chance_to_shock_+%_final", -25 },
+				{ "support_lasting_shock_chance_to_shock_+%_final", -30 },
 			},
 			stats = {
 			},
@@ -1040,7 +1027,6 @@ skills["SupportAddedLightningDamagePlayer"] = {
 			label = "Lightning Infusion",
 			baseEffectiveness = 0.52710002660751,
 			incrementalEffectiveness = 0.092720001935959,
-			damageIncrementalEffectiveness = 0.037200000137091,
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
 				["support_cold_and_fire_damage_+%_final"] = {
@@ -1100,7 +1086,7 @@ skills["SupportLockdownPlayer"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	levels = {
-		[1] = { manaMultiplier = 20, levelRequirement = 0, },
+		[1] = { levelRequirement = 0, },
 	},
 	statSets = {
 		[1] = {
@@ -1145,7 +1131,7 @@ skills["SupportFarCombatPlayer"] = {
 			baseFlags = {
 			},
 			constantStats = {
-				{ "support_far_combat_attack_damage_+%_final_from_distance", 35 },
+				{ "support_far_combat_attack_damage_+%_final_from_distance", 30 },
 			},
 			stats = {
 			},
@@ -1222,7 +1208,7 @@ skills["SupportFasterAttackPlayer"] = {
 	support = true,
 	requireSkillTypes = { SkillType.Attack, SkillType.CrossbowAmmoSkill, },
 	addSkillTypes = { },
-	excludeSkillTypes = { SkillType.Herald, },
+	excludeSkillTypes = { SkillType.Herald, SkillType.NoAttackOrCastTime, },
 	levels = {
 		[1] = { levelRequirement = 0, },
 	},
@@ -1240,7 +1226,7 @@ skills["SupportFasterAttackPlayer"] = {
 			baseFlags = {
 			},
 			constantStats = {
-				{ "support_faster_attacks_attack_speed_+%_final", 25 },
+				{ "support_faster_attacks_attack_speed_+%_final", 20 },
 				{ "support_faster_attacks_damage_+%_final", 0 },
 			},
 			stats = {
@@ -1256,7 +1242,7 @@ skills["SupportMobilityPlayer"] = {
 	description = "Supports skills that can be used while moving, allowing you to move faster while using them.",
 	color = 2,
 	support = true,
-	requireSkillTypes = { SkillType.Nonpathing, },
+	requireSkillTypes = { SkillType.UsableWhileMoving, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	levels = {
@@ -1271,7 +1257,7 @@ skills["SupportMobilityPlayer"] = {
 			},
 			constantStats = {
 				{ "support_mobility_damage_+%_final", 0 },
-				{ "support_mobility_movement_speed_penalty_+%_final_while_performing_action", -30 },
+				{ "support_mobility_movement_speed_penalty_+%_final_while_performing_action", -25 },
 			},
 			stats = {
 			},
@@ -1359,7 +1345,7 @@ skills["SupportNeuralOverloadPlayer"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	levels = {
-		[1] = { manaMultiplier = 20, levelRequirement = 0, },
+		[1] = { levelRequirement = 0, },
 	},
 	statSets = {
 		[1] = {
@@ -1444,7 +1430,7 @@ skills["SupportIncreaseLimitPlayer"] = {
 }
 skills["SupportOverchargePlayer"] = {
 	name = "Overcharge",
-	description = "Supports any skill that Hits enemies, making its Shocks more effective but last for a shorter duration.",
+	description = "Supports any skill that Hits enemies, making its Shocks more effective but reflecting them back to you as well.",
 	color = 2,
 	support = true,
 	requireSkillTypes = { SkillType.Damage, SkillType.Attack, SkillType.CrossbowAmmoSkill, },
@@ -1461,10 +1447,10 @@ skills["SupportOverchargePlayer"] = {
 			baseFlags = {
 			},
 			constantStats = {
-				{ "support_pure_shock_shock_duration_+%_final", -50 },
-				{ "shock_effect_+%", 75 },
+				{ "shock_effect_+%", 50 },
 			},
 			stats = {
+				"shocks_reflected_to_self",
 			},
 			levels = {
 				[1] = { actorLevel = 1, },
@@ -1554,7 +1540,7 @@ skills["SupportPiercePlayer"] = {
 			},
 			constantStats = {
 				{ "base_chance_to_pierce_%", 100 },
-				{ "support_pierce_projectile_damage_+%_final_if_pierced_enemy", -30 },
+				{ "support_pierce_projectile_damage_+%_final_if_pierced_enemy", -20 },
 			},
 			stats = {
 			},
@@ -1694,7 +1680,7 @@ skills["SupportRicochetPlayer"] = {
 	support = true,
 	requireSkillTypes = { SkillType.Projectile, },
 	addSkillTypes = { },
-	excludeSkillTypes = { SkillType.CannotChain, },
+	excludeSkillTypes = { SkillType.CannotChain, SkillType.CannotTerrainChain, },
 	levels = {
 		[1] = { levelRequirement = 0, },
 	},
@@ -1745,7 +1731,7 @@ skills["SupportMultipleProjectilesPlayer"] = {
 			},
 			constantStats = {
 				{ "number_of_additional_projectiles", 2 },
-				{ "support_multiple_damage_+%_final", -20 },
+				{ "support_multiple_damage_+%_final", -35 },
 				{ "terrain_arrow_attachment_chance_reduction_+%", 200 },
 				{ "support_multiple_attack_and_cast_speed_+%_final", -20 },
 			},
@@ -1840,7 +1826,7 @@ skills["SupportSwiftAfflictionPlayer"] = {
 			baseFlags = {
 			},
 			constantStats = {
-				{ "support_rapid_decay_damage_over_time_+%_final", 35 },
+				{ "support_rapid_decay_damage_over_time_+%_final", 30 },
 				{ "support_swift_affliction_skill_effect_and_damaging_ailment_duration_+%_final", -20 },
 			},
 			stats = {
@@ -1891,7 +1877,7 @@ skills["SupportKnockbackWavePlayer"] = {
 		[1] = {
 			label = "Wind Wave",
 			incrementalEffectiveness = 0.054999999701977,
-			statDescriptionScope = "skill_stat_descriptions",
+			statDescriptionScope = "knockback_wave",
 			baseFlags = {
 			},
 			constantStats = {
@@ -1900,11 +1886,11 @@ skills["SupportKnockbackWavePlayer"] = {
 				{ "generic_knockback_+%_final_at_max_distance", -90 },
 				{ "generic_knockback_distance_limit", 20 },
 				{ "active_skill_base_area_of_effect_radius", 20 },
+				{ "base_knockback_speed_+%", 300 },
 			},
 			stats = {
 				"trigger_on_stunned_while_performing_supported_skill",
 				"base_deal_no_damage",
-				"global_knockback",
 			},
 			levels = {
 				[1] = { actorLevel = 1, },
@@ -1936,8 +1922,8 @@ skills["SupportWindowOfOpportunityPlayer"] = {
 			baseFlags = {
 			},
 			constantStats = {
-				{ "perfect_timing_window_ms_+%", -25 },
-				{ "support_window_of_opportunity_perfect_timing_damage_+%_final", 50 },
+				{ "perfect_timing_window_ms_+%", -35 },
+				{ "support_window_of_opportunity_perfect_timing_damage_+%_final", 35 },
 			},
 			stats = {
 			},

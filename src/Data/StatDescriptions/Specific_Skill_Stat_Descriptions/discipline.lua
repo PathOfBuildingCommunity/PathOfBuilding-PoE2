@@ -7,26 +7,81 @@ return {
 			[1]={
 				limit={
 					[1]={
-						[1]="#",
+						[1]=1,
 						[2]="#"
 					}
 				},
-				text="Total Maximum Energy Shield granted {0:+d}"
+				text="Aura grants {0}% increased Energy Shield Recharge Rate"
 			},
 			[2]={
+				[1]={
+					k="negate",
+					v=1
+				},
+				limit={
+					[1]={
+						[1]="#",
+						[2]=-1
+					}
+				},
+				text="Aura grants {0}% reduced Energy Shield Recharge Rate"
+			}
+		},
+		stats={
+			[1]="base_skill_buff_energy_shield_recharge_rate_+%_to_apply"
+		}
+	},
+	[2]={
+		[1]={
+			[1]={
 				limit={
 					[1]={
 						[1]="#",
 						[2]="#"
 					}
 				},
-				text="Grants Allies {0:+d} to their Total Maximum Energy Shield"
+				text="Aura grants {0:+d} to Total Maximum Energy Shield"
 			}
 		},
 		stats={
-			[1]="discipline_grant_allies_total_maximum_energy_shield_+"
+			[1]="base_skill_buff_total_maximum_energy_shield_+_to_apply"
 		}
 	},
-	["discipline_grant_allies_total_maximum_energy_shield_+"]=1,
-	parent="skill_stat_descriptions"
+	[3]={
+		[1]={
+			[1]={
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Energy Shield Recharge Rate granted {0:+d}%"
+			}
+		},
+		stats={
+			[1]="skill_aura_buff_energy_shield_recharge_rate_+%_magnitude_to_apply"
+		}
+	},
+	[4]={
+		[1]={
+			[1]={
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Total Maximum Energy Shield granted {0:+d}"
+			}
+		},
+		stats={
+			[1]="skill_aura_buff_total_maximum_energy_shield_+_magnitude_to_apply"
+		}
+	},
+	["base_skill_buff_energy_shield_recharge_rate_+%_to_apply"]=1,
+	["base_skill_buff_total_maximum_energy_shield_+_to_apply"]=2,
+	parent="skill_stat_descriptions",
+	["skill_aura_buff_energy_shield_recharge_rate_+%_magnitude_to_apply"]=3,
+	["skill_aura_buff_total_maximum_energy_shield_+_magnitude_to_apply"]=4
 }

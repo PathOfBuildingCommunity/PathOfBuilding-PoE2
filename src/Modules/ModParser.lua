@@ -2269,7 +2269,7 @@ local specialModList = {
 		mod("ArmourAppliesToColdDamageTaken", "BASE", num),
 		mod("ArmourAppliesToLightningDamageTaken", "BASE", num),
 	} end,
-	["armour also applies to (%a+) damage taken from hits"] = function(dmgType) return { mod("ArmourAppliesTo"..firstToUpper(dmgType).."DamageTaken", "BASE", 100) } end,
+	["armour also applies to (%a+) damage taken from hits"] = function(_, dmgType) return { mod("ArmourAppliesTo"..firstToUpper(dmgType).."DamageTaken", "BASE", 100) } end,
 	["(%d+)%% of armour also applies to (%a+) damage taken from hits"] = function(num, _, dmgType) return { mod("ArmourAppliesTo"..firstToUpper(dmgType).."DamageTaken", "BASE", num) } end,
 	["maximum damage reduction for any damage type is (%d+)%%"] = function(num) return { mod("DamageReductionMax", "OVERRIDE", num) } end,
 	["gain additional elemental damage reduction equal to half your chaos resistance"] = {
@@ -4551,7 +4551,6 @@ local specialModList = {
 		mod("MinimumActionSpeed", "MAX", 100, { type = "Condition", var = "SelfCast"..curse:gsub("^%l", string.upper):gsub(" %l", string.upper):gsub(" ", "") })
 	} end,
 	["nearby allies' action speed cannot be modified to below base value"] = { mod("ExtraAura", "LIST", { onlyAllies = true, mod = mod("MinimumActionSpeed", "MAX", 100, { type = "GlobalEffect", effectType = "Global", unscalable = true }) }) },
-	["armour also applies to lightning damage taken from hits"] = { mod("ArmourAppliesToLightningDamageTaken", "BASE", 100), },
 	["lightning resistance does not affect lightning damage taken"] = { flag("SelfIgnoreLightningResistance") },
 	["(%d+)%% increased maximum life and reduced fire resistance"] = function(num) return {
 		mod("Life", "INC", num),

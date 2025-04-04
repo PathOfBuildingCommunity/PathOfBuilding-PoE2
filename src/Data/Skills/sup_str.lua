@@ -92,7 +92,7 @@ skills["SupportArmourExplosionPlayer"] = {
 }skills["ArmourExplosionPlayer"] = {
 	name = "",
 	hidden = true,
-	skillTypes = { [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.Damage] = true, [SkillType.Triggered] = true, [SkillType.Triggerable] = true, [SkillType.SkillGrantedBySupport] = true, },
+	skillTypes = { [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.Damage] = true, [SkillType.Triggered] = true, [SkillType.Triggerable] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.NoAttackOrCastTime] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -262,7 +262,7 @@ skills["SupportEnduranceChargeOnArmourBreak"] = {
 			baseFlags = {
 			},
 			constantStats = {
-				{ "chance_to_gain_endurance_charge_on_armour_break_%", 20 },
+				{ "chance_to_gain_endurance_charge_on_armour_break_%", 40 },
 			},
 			stats = {
 			},
@@ -296,7 +296,7 @@ skills["SupportBrutalityPlayer"] = {
 			baseFlags = {
 			},
 			constantStats = {
-				{ "support_brutality_physical_damage_+%_final", 35 },
+				{ "support_brutality_physical_damage_+%_final", 25 },
 			},
 			stats = {
 				"deal_no_elemental_damage",
@@ -332,7 +332,7 @@ skills["SupportCannibalismPlayer"] = {
 			baseFlags = {
 			},
 			constantStats = {
-				{ "support_cannibalism_recover_%_maximum_life_on_kill", 4 },
+				{ "support_cannibalism_recover_%_maximum_life_on_kill", 2 },
 			},
 			stats = {
 			},
@@ -491,7 +491,7 @@ skills["SupportIncreasedArmourBreakPlayer"] = {
 			baseFlags = {
 			},
 			constantStats = {
-				{ "support_increased_armour_break_armour_break_amount_+%_final", 40 },
+				{ "support_increased_armour_break_armour_break_amount_+%_final", 50 },
 			},
 			stats = {
 			},
@@ -506,7 +506,7 @@ skills["SupportGroundEffectDurationPlayer"] = {
 	description = "Supports Skills that create Ground Surfaces, causing those surfaces to last longer.",
 	color = 1,
 	support = true,
-	requireSkillTypes = { SkillType.CreatesGroundEffect, },
+	requireSkillTypes = { SkillType.CreatesGroundEffect, SkillType.Duration, SkillType.AND, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	levels = {
@@ -681,7 +681,7 @@ skills["SupportExecutePlayer"] = {
 			baseFlags = {
 			},
 			constantStats = {
-				{ "support_executioner_damage_vs_enemies_on_low_life_+%_final", 40 },
+				{ "support_executioner_damage_vs_enemies_on_low_life_+%_final", 50 },
 			},
 			stats = {
 			},
@@ -715,7 +715,7 @@ skills["SupportExploitWeaknessPlayer"] = {
 			baseFlags = {
 			},
 			constantStats = {
-				{ "support_gem_consume_enemy_fully_broken_armour_to_gain_damage_+%_final", 50 },
+				{ "support_gem_consume_enemy_fully_broken_armour_to_gain_damage_+%_final", 40 },
 			},
 			stats = {
 				"cannot_break_armour",
@@ -728,7 +728,7 @@ skills["SupportExploitWeaknessPlayer"] = {
 }
 skills["LessDurationSupportPlayer"] = {
 	name = "Fast Forward",
-	description = "Supports any skill that has a duration, making that duration shorter.",
+	description = "Supports any skill that has a duration making that duration shorter.",
 	color = 1,
 	support = true,
 	requireSkillTypes = { SkillType.Duration, },
@@ -870,7 +870,7 @@ skills["FistOfWarSupportPlayer"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { SkillType.SummonsTotem, SkillType.UsedByTotem, SkillType.Trapped, SkillType.RemoteMined, SkillType.Vaal, },
 	levels = {
-		[1] = { manaMultiplier = 40, levelRequirement = 0, },
+		[1] = { manaMultiplier = 50, levelRequirement = 0, },
 	},
 	statSets = {
 		[1] = {
@@ -908,7 +908,7 @@ skills["SupportBloodFountainPlayer"] = {
 	support = true,
 	requireSkillTypes = { SkillType.SupportedByFountains, SkillType.Orb, SkillType.SummonsTotem, SkillType.Offering, },
 	addSkillTypes = { },
-	excludeSkillTypes = { },
+	excludeSkillTypes = { SkillType.Minion, SkillType.Persistent, SkillType.AND, },
 	levels = {
 		[1] = { levelRequirement = 0, },
 	},
@@ -944,7 +944,7 @@ skills["SupportRageFountainPlayer"] = {
 	support = true,
 	requireSkillTypes = { SkillType.SupportedByFountains, SkillType.Orb, SkillType.SummonsTotem, SkillType.Offering, },
 	addSkillTypes = { },
-	excludeSkillTypes = { },
+	excludeSkillTypes = { SkillType.Minion, SkillType.Persistent, SkillType.AND, },
 	levels = {
 		[1] = { levelRequirement = 0, },
 	},
@@ -1058,14 +1058,14 @@ skills["SupportHeftPlayer"] = {
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
-				["support_maximum_physical_hit_damage_+%_final"] = {
+				["support_heft_maximum_physical_damage_+%_final"] = {
 					mod("MaxPhysicalDamage", "MORE", nil, ModFlag.Hit),
 				},
 			},
 			baseFlags = {
 			},
 			constantStats = {
-				{ "support_maximum_physical_hit_damage_+%_final", 30 },
+				{ "support_heft_maximum_physical_damage_+%_final", 30 },
 			},
 			stats = {
 			},
@@ -1115,7 +1115,7 @@ skills["SupportHolyDescentPlayer"] = {
 	color = 1,
 	support = true,
 	requireSkillTypes = { SkillType.Jumping, },
-	addSkillTypes = { SkillType.CreatesGroundEffect, },
+	addSkillTypes = { SkillType.CreatesGroundEffect, SkillType.Area, SkillType.Duration, },
 	excludeSkillTypes = { },
 	levels = {
 		[1] = { levelRequirement = 0, },
@@ -1137,6 +1137,7 @@ skills["SupportHolyDescentPlayer"] = {
 			},
 			constantStats = {
 				{ "support_holy_descent_consecrated_ground_base_duration_ms", 4000 },
+				{ "support_holy_descent_consecrated_ground_on_landing_radius", 14 },
 			},
 			stats = {
 				"support_holy_descent_consecrated_ground_on_landing",
@@ -1197,7 +1198,6 @@ skills["SupportImmolatePlayer"] = {
 			label = "Immolate",
 			baseEffectiveness = 0.88889998197556,
 			incrementalEffectiveness = 0.092720001935959,
-			damageIncrementalEffectiveness = 0.034000001847744,
 			statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
@@ -1235,7 +1235,7 @@ skills["ImpactShockwaveSupportPlayer"] = {
 			baseFlags = {
 			},
 			constantStats = {
-				{ "support_impact_shockwave_base_splash_radius", 20 },
+				{ "support_impact_shockwave_base_splash_radius", 18 },
 			},
 			stats = {
 			},
@@ -1247,12 +1247,12 @@ skills["ImpactShockwaveSupportPlayer"] = {
 }
 skills["SupportInfernalLegionPlayer"] = {
 	name = "Infernal Legion",
-	description = "Supports skills which create Minions, causing them and enemies near them to Burn. Damage dealt by the Burning is based off the Life of the supported Minion.",
+	description = "Supports skills which create Minions which can be damaged, causing them and enemies near them to Burn. Damage dealt by the Burning is based off the Life of the supported Minion.",
 	color = 1,
 	support = true,
 	requireSkillTypes = { SkillType.CreatesMinion, },
 	addSkillTypes = { SkillType.CausesBurning, },
-	excludeSkillTypes = { },
+	excludeSkillTypes = { SkillType.MinionsAreUndamagable, },
 	levels = {
 		[1] = { levelRequirement = 0, },
 	},
@@ -1261,7 +1261,6 @@ skills["SupportInfernalLegionPlayer"] = {
 			label = "Infernal Legion",
 			baseEffectiveness = 5.9082999229431,
 			incrementalEffectiveness = 0.092720001935959,
-			damageIncrementalEffectiveness = 0.056499999016523,
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
 				["minion_fire_damage_%_of_maximum_life_taken_per_minute"] = {
@@ -1314,7 +1313,7 @@ skills["SupportInspirationPlayer"] = {
 			baseFlags = {
 			},
 			constantStats = {
-				{ "support_inspiration_cost_+%_final", -40 },
+				{ "support_inspiration_cost_+%_final", -30 },
 			},
 			stats = {
 			},
@@ -1433,7 +1432,7 @@ skills["SupportLifeLeechPlayer"] = {
 			baseFlags = {
 			},
 			constantStats = {
-				{ "base_life_leech_from_physical_attack_damage_permyriad", 600 },
+				{ "base_life_leech_from_physical_attack_damage_permyriad", 800 },
 			},
 			stats = {
 			},
@@ -1475,7 +1474,7 @@ skills["SupportBloodMagicPlayer"] = {
 }
 skills["SupportLongFusePlayer"] = {
 	name = "Long Fuse",
-	description = "Supports Skills which fire Grenades, causing those Grenades to have much higher duration and damage.",
+	description = "Supports Skills which fire Grenades, causing those Grenades to have much higher Detonation Time and damage.",
 	color = 1,
 	support = true,
 	requireSkillTypes = { SkillType.Grenade, },
@@ -1492,8 +1491,8 @@ skills["SupportLongFusePlayer"] = {
 			baseFlags = {
 			},
 			constantStats = {
-				{ "skill_effect_duration_+%", 50 },
 				{ "support_grenade_damage_+%_final", 30 },
+				{ "skill_detonation_time_+%", 50 },
 			},
 			stats = {
 				"skill_grenade_detonate_only_at_end_of_duration",
@@ -1506,12 +1505,12 @@ skills["SupportLongFusePlayer"] = {
 }
 skills["SupportMeatShieldPlayer"] = {
 	name = "Meat Shield",
-	description = "Supports skills which create Minions, granting them more life but making them deal less damage.",
+	description = "Supports skills which create Minions, granting them less damage taken but making them deal less damage. Cannot support skills which create undamageable Minions.",
 	color = 1,
 	support = true,
 	requireSkillTypes = { SkillType.CreatesMinion, },
 	addSkillTypes = { },
-	excludeSkillTypes = { },
+	excludeSkillTypes = { SkillType.MinionsAreUndamagable, },
 	levels = {
 		[1] = { levelRequirement = 0, },
 	},
@@ -1521,8 +1520,8 @@ skills["SupportMeatShieldPlayer"] = {
 			incrementalEffectiveness = 0.092720001935959,
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
-				["support_minion_maximum_life_+%_final"] = {
-					mod("MinionModifier", "LIST", { mod = mod("Life", "MORE", nil) }),
+				["support_minion_defensive_stance_minion_damage_taken_+%_final"] = {
+					mod("MinionModifier", "LIST", { mod = mod("DamageTaken", "MORE", nil) }),
 				},
 				["support_meat_shield_minion_damage_+%_final"] = {
 					mod("MinionModifier", "LIST", { mod = mod("Damage", "MORE", nil) }),
@@ -1531,7 +1530,7 @@ skills["SupportMeatShieldPlayer"] = {
 			baseFlags = {
 			},
 			constantStats = {
-				{ "support_minion_maximum_life_+%_final", 50 },
+				{ "support_minion_defensive_stance_minion_damage_taken_+%_final", -35 },
 				{ "support_meat_shield_minion_damage_+%_final", -35 },
 			},
 			stats = {
@@ -1699,7 +1698,6 @@ skills["SupportRagePlayer"] = {
 			label = "Rage",
 			baseEffectiveness = 0.18000000715256,
 			incrementalEffectiveness = 0.092720001935959,
-			damageIncrementalEffectiveness = 0.035000000149012,
 			statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
@@ -1874,7 +1872,7 @@ skills["SupportArmourBreakPlayer"] = {
 	description = "Supports Skills that Hit Enemies, causing those Hits to Break Armour based on a portion of Physical Damage dealt.",
 	color = 1,
 	support = true,
-	requireSkillTypes = { SkillType.Attack, SkillType.Damage, SkillType.CrossbowAmmoSkill, SkillType.Physical, },
+	requireSkillTypes = { SkillType.Attack, SkillType.Damage, SkillType.CrossbowAmmoSkill, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	levels = {
@@ -1927,12 +1925,12 @@ skills["SupportStompingGroundPlayer"] = {
 }skills["StompingGroundShockwavePlayer"] = {
 	name = "Stomping Ground Shockwave",
 	hidden = true,
-	skillTypes = { [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.Damage] = true, [SkillType.Triggered] = true, [SkillType.Triggerable] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.UseGlobalStats] = true, },
+	skillTypes = { [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.Damage] = true, [SkillType.Triggered] = true, [SkillType.Triggerable] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.UseGlobalStats] = true, [SkillType.NoAttackOrCastTime] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
 	levels = {
-		[1] = { levelRequirement = 0, },
+		[1] = { critChance = 5, levelRequirement = 0, },
 	},
 	statSets = {
 		[1] = {
@@ -1952,10 +1950,10 @@ skills["SupportStompingGroundPlayer"] = {
 				area = true,
 			},
 			constantStats = {
-				{ "active_skill_base_area_of_effect_radius", 18 },
+				{ "active_skill_base_area_of_effect_radius", 20 },
 				{ "stomping_ground_trigger_on_footstep_%_chance", 100 },
-				{ "attack_minimum_added_physical_damage_as_%_of_strength", 80 },
-				{ "attack_maximum_added_physical_damage_as_%_of_strength", 120 },
+				{ "attack_minimum_added_physical_damage_as_%_of_strength", 100 },
+				{ "attack_maximum_added_physical_damage_as_%_of_strength", 150 },
 			},
 			stats = {
 				"is_area_damage",
@@ -2022,7 +2020,8 @@ skills["UnbreakableSupportPlayer"] = {
 			baseFlags = {
 			},
 			constantStats = {
-				{ "support_unbreakable_stun_threshold_+%_final_while_performing_action", 200 },
+				{ "support_unbreakable_light_stun_threshold_+%_final_while_performing_action", 200 },
+				{ "support_stability_heavy_stun_threshold_+%_final_while_performing_action", 30 },
 			},
 			stats = {
 			},

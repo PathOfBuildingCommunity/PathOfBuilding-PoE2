@@ -171,7 +171,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Regenerate {0}% of Mana per second"
+				text="Regenerate {0}% of maximum Mana per second"
 			}
 		},
 		stats={
@@ -191,7 +191,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Regenerate {0}% of Mana per second per Power Charge"
+				text="Regenerate {0}% of maximum Mana per second per Power Charge"
 			}
 		},
 		stats={
@@ -319,7 +319,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Converts all Energy Shield to Mana"
+				text="Converts all Energy Shield to Mana\nDoubles Mana Costs"
 			}
 		},
 		stats={
@@ -399,7 +399,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Can Evade all Hits\n70% less Evasion Rating"
+				text="Can Evade all Hits\n75% less Evasion Rating"
 			}
 		},
 		stats={
@@ -431,22 +431,6 @@ return {
 						[2]="#"
 					}
 				},
-				text="1% increased Projectile Attack damage per 2 Strength\nStrength provides no bonus to Life"
-			}
-		},
-		stats={
-			[1]="keystone_strong_bowman"
-		}
-	},
-	[26]={
-		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
 				text="Projectile Attack Hits deal up to 30% more Damage to targets at the start of their movement, dealing less Damage to targets as the projectile travels farther"
 			}
 		},
@@ -454,7 +438,7 @@ return {
 			[1]="keystone_point_blank"
 		}
 	},
-	[27]={
+	[26]={
 		[1]={
 			[1]={
 				limit={
@@ -470,7 +454,7 @@ return {
 			[1]="keystone_conduit"
 		}
 	},
-	[28]={
+	[27]={
 		[1]={
 			[1]={
 				limit={
@@ -486,7 +470,7 @@ return {
 			[1]="keystone_projectile_evasion"
 		}
 	},
-	[29]={
+	[28]={
 		[1]={
 			[1]={
 				limit={
@@ -495,14 +479,14 @@ return {
 						[2]="#"
 					}
 				},
-				text="Removes all Mana\nSkill Mana Costs Converted to Life Costs"
+				text="You have no Mana\nSkill Mana Costs Converted to Life Costs"
 			}
 		},
 		stats={
 			[1]="keystone_blood_magic"
 		}
 	},
-	[30]={
+	[29]={
 		[1]={
 			[1]={
 				limit={
@@ -518,7 +502,7 @@ return {
 			[1]="keystone_minion_instability"
 		}
 	},
-	[31]={
+	[30]={
 		[1]={
 			[1]={
 				limit={
@@ -534,7 +518,7 @@ return {
 			[1]="keystone_elemental_equilibrium"
 		}
 	},
-	[32]={
+	[31]={
 		[1]={
 			[1]={
 				limit={
@@ -543,14 +527,14 @@ return {
 						[2]="#"
 					}
 				},
-				text="Maximum Life becomes 1, Immune to Chaos Damage"
+				text="Maximum Life is 1\nImmune to Chaos Damage"
 			}
 		},
 		stats={
 			[1]="keystone_chaos_inoculation"
 		}
 	},
-	[33]={
+	[32]={
 		[1]={
 			[1]={
 				limit={
@@ -566,7 +550,7 @@ return {
 			[1]="keystone_vaal_pact"
 		}
 	},
-	[34]={
+	[33]={
 		[1]={
 			[1]={
 				limit={
@@ -595,7 +579,7 @@ return {
 			[1]="critical_strike_chance_+%"
 		}
 	},
-	[35]={
+	[34]={
 		[1]={
 			[1]={
 				limit={
@@ -611,7 +595,7 @@ return {
 			[1]="staff_block_%"
 		}
 	},
-	[36]={
+	[35]={
 		[1]={
 			[1]={
 				limit={
@@ -627,7 +611,7 @@ return {
 			[1]="keystone_mana_shield"
 		}
 	},
-	[37]={
+	[36]={
 		[1]={
 			[1]={
 				limit={
@@ -643,7 +627,7 @@ return {
 			[1]="resolute_technique"
 		}
 	},
-	[38]={
+	[37]={
 		[1]={
 			[1]={
 				limit={
@@ -652,14 +636,14 @@ return {
 						[2]="#"
 					}
 				},
-				text="Your Stun Threshold is doubled\nCannot Dodge Roll"
+				text="Cannot be Light Stunned\nCannot Dodge Roll"
 			}
 		},
 		stats={
 			[1]="keystone_unwavering_stance"
 		}
 	},
-	[39]={
+	[38]={
 		[1]={
 			[1]={
 				limit={
@@ -675,7 +659,7 @@ return {
 			[1]="passive_can_be_allocated_without_connection"
 		}
 	},
-	[40]={
+	[39]={
 		[1]={
 			[1]={
 				limit={
@@ -691,7 +675,7 @@ return {
 			[1]="base_strength_and_dexterity"
 		}
 	},
-	[41]={
+	[40]={
 		[1]={
 			[1]={
 				limit={
@@ -707,7 +691,7 @@ return {
 			[1]="base_strength_and_intelligence"
 		}
 	},
-	[42]={
+	[41]={
 		[1]={
 			[1]={
 				limit={
@@ -723,7 +707,7 @@ return {
 			[1]="base_dexterity_and_intelligence"
 		}
 	},
-	[43]={
+	[42]={
 		[1]={
 			[1]={
 				limit={
@@ -748,7 +732,7 @@ return {
 			[1]="global_chance_to_blind_on_hit_%"
 		}
 	},
-	[44]={
+	[43]={
 		[1]={
 			[1]={
 				limit={
@@ -782,7 +766,7 @@ return {
 			[2]="number_of_additional_projectiles"
 		}
 	},
-	[45]={
+	[44]={
 		[1]={
 			[1]={
 				limit={
@@ -798,7 +782,7 @@ return {
 			[1]="base_number_of_golems_allowed"
 		}
 	},
-	[46]={
+	[45]={
 		[1]={
 			[1]={
 				limit={
@@ -859,7 +843,7 @@ return {
 			[1]="display_can_take_character_start_point"
 		}
 	},
-	[47]={
+	[46]={
 		[1]={
 			[1]={
 				limit={
@@ -884,7 +868,7 @@ return {
 			[1]="consecrate_ground_on_kill_%_for_3_seconds"
 		}
 	},
-	[48]={
+	[47]={
 		[1]={
 			[1]={
 				[1]={
@@ -904,7 +888,7 @@ return {
 			[1]="ascendancy_chronomancer_apex_of_the_moment_base_slow_aura_value"
 		}
 	},
-	[49]={
+	[48]={
 		[1]={
 			[1]={
 				limit={
@@ -933,7 +917,7 @@ return {
 			[1]="chill_effect_+%"
 		}
 	},
-	[50]={
+	[49]={
 		[1]={
 			[1]={
 				limit={
@@ -949,7 +933,7 @@ return {
 			[1]="crushing_blow"
 		}
 	},
-	[51]={
+	[50]={
 		[1]={
 			[1]={
 				limit={
@@ -958,14 +942,14 @@ return {
 						[2]="#"
 					}
 				},
-				text="DNT Enemies in Close Range are Taunted"
+				text="Enemies within 2 metres of you are Taunted"
 			}
 		},
 		stats={
 			[1]="display_nearby_enemies_are_taunted"
 		}
 	},
-	[52]={
+	[51]={
 		[1]={
 			[1]={
 				limit={
@@ -981,7 +965,7 @@ return {
 			[1]="display_you_have_x_fortification"
 		}
 	},
-	[53]={
+	[52]={
 		[1]={
 			[1]={
 				[1]={
@@ -999,6 +983,22 @@ return {
 		},
 		stats={
 			[1]="every_1_second_nearby_enemies_withered_for_X_ms"
+		}
+	},
+	[53]={
+		[1]={
+			[1]={
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="You can have two Companions of different types\nYou have 30% less Defences\nCompanions have +1 to each Defence for every 2 of that Defence you have"
+			}
+		},
+		stats={
+			[1]="keystone_2_companions"
 		}
 	},
 	[54]={
@@ -1026,6 +1026,22 @@ return {
 						[2]="#"
 					}
 				},
+				text="Bleeding you inflict is Aggravated\nBase Bleeding Duration is 1 second"
+			}
+		},
+		stats={
+			[1]="keystone_crimson_assault"
+		}
+	},
+	[56]={
+		[1]={
+			[1]={
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
 				text="You can inflict Bleeding on an Enemy up to 8 times\nYour Bleeding does not deal extra Damage while the Enemy is moving\n50% less Damage with Bleeding"
 			}
 		},
@@ -1033,7 +1049,7 @@ return {
 			[1]="keystone_crimson_dance"
 		}
 	},
-	[56]={
+	[57]={
 		[1]={
 			[1]={
 				limit={
@@ -1049,7 +1065,7 @@ return {
 			[1]="keystone_dance_with_death"
 		}
 	},
-	[57]={
+	[58]={
 		[1]={
 			[1]={
 				limit={
@@ -1058,14 +1074,14 @@ return {
 						[2]="#"
 					}
 				},
-				text="You can wield Two-Handed Axes, Maces and Swords in one hand\nTriple Attribute requirements of weapons"
+				text="You can wield Two-Handed Axes, Maces and Swords in one hand\nTriple Attribute requirements of Martial Weapons"
 			}
 		},
 		stats={
 			[1]="keystone_giants_blood"
 		}
 	},
-	[58]={
+	[59]={
 		[1]={
 			[1]={
 				limit={
@@ -1081,7 +1097,7 @@ return {
 			[1]="keystone_zealots_oath"
 		}
 	},
-	[59]={
+	[60]={
 		[1]={
 			[1]={
 				limit={
@@ -1110,7 +1126,7 @@ return {
 			[1]="life_mastery_nearby_enemy_life_regeneration_rate_+%"
 		}
 	},
-	[60]={
+	[61]={
 		[1]={
 			[1]={
 				limit={
@@ -1126,7 +1142,7 @@ return {
 			[1]="no_barrage_projectile_spread"
 		}
 	},
-	[61]={
+	[62]={
 		[1]={
 			[1]={
 				limit={
@@ -1155,7 +1171,7 @@ return {
 			[1]="physical_damage_+%"
 		}
 	},
-	[62]={
+	[63]={
 		[1]={
 			[1]={
 				limit={
@@ -1184,7 +1200,7 @@ return {
 			[1]="shock_effect_+%"
 		}
 	},
-	[63]={
+	[64]={
 		[1]={
 			[1]={
 				limit={
@@ -1200,7 +1216,7 @@ return {
 			[1]="start_at_zero_energy_shield"
 		}
 	},
-	[64]={
+	[65]={
 		[1]={
 			[1]={
 				limit={
@@ -1216,7 +1232,7 @@ return {
 			[1]="base_phasing_without_visual"
 		}
 	},
-	[65]={
+	[66]={
 		[1]={
 			[1]={
 				limit={
@@ -1241,22 +1257,6 @@ return {
 			[1]="local_jewel_display_number_of_allocated_passives_between_jewel_and_class_start"
 		}
 	},
-	[66]={
-		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Dexterity's inherent bonus is 1% increased Armour per 2 Dexterity instead"
-			}
-		},
-		stats={
-			[1]="keystone_alternate_dexterity_bonus"
-		}
-	},
 	[67]={
 		[1]={
 			[1]={
@@ -1266,11 +1266,11 @@ return {
 						[2]="#"
 					}
 				},
-				text="Intelligence's inherent bonus is 1% increased Evasion Rating per 2 Intelligence instead"
+				text="Gain no inherent bonus from Dexterity\n1% increased Armour per 2 Dexterity"
 			}
 		},
 		stats={
-			[1]="keystone_alternate_intelligence_bonus"
+			[1]="keystone_alternate_dexterity_bonus"
 		}
 	},
 	[68]={
@@ -1282,14 +1282,30 @@ return {
 						[2]="#"
 					}
 				},
-				text="Strength's inherent bonus is 1% increased Energy Shield per 2 Strength instead"
+				text="Gain no inherent bonus from Intelligence\n1% increased Evasion Rating per 2 Intelligence"
+			}
+		},
+		stats={
+			[1]="keystone_alternate_intelligence_bonus"
+		}
+	},
+	[69]={
+		[1]={
+			[1]={
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Gain no inherent bonus from Strength\n1% increased Energy Shield per 2 Strength"
 			}
 		},
 		stats={
 			[1]="keystone_alternate_strength_bonus"
 		}
 	},
-	[69]={
+	[70]={
 		[1]={
 			[1]={
 				limit={
@@ -1305,7 +1321,7 @@ return {
 			[1]="keystone_barbed_tips"
 		}
 	},
-	[70]={
+	[71]={
 		[1]={
 			[1]={
 				limit={
@@ -1321,7 +1337,7 @@ return {
 			[1]="keystone_blind_monk"
 		}
 	},
-	[71]={
+	[72]={
 		[1]={
 			[1]={
 				limit={
@@ -1337,7 +1353,7 @@ return {
 			[1]="keystone_call_to_arms"
 		}
 	},
-	[72]={
+	[73]={
 		[1]={
 			[1]={
 				limit={
@@ -1353,7 +1369,7 @@ return {
 			[1]="keystone_charge_cycle"
 		}
 	},
-	[73]={
+	[74]={
 		[1]={
 			[1]={
 				limit={
@@ -1362,14 +1378,14 @@ return {
 						[2]="#"
 					}
 				},
-				text="Every second, Consume a nearby Corpse to Recover 5% of Life and Mana\n10% more Damage taken if you haven't Consumed a Corpse Recently"
+				text="Every second, Consume a nearby Corpse to Recover 5% of maximum Life and Mana\n10% more Damage taken if you haven't Consumed a Corpse Recently"
 			}
 		},
 		stats={
 			[1]="keystone_disciple_of_kitava"
 		}
 	},
-	[74]={
+	[75]={
 		[1]={
 			[1]={
 				limit={
@@ -1385,7 +1401,7 @@ return {
 			[1]="keystone_divine_flesh"
 		}
 	},
-	[75]={
+	[76]={
 		[1]={
 			[1]={
 				limit={
@@ -1401,7 +1417,7 @@ return {
 			[1]="keystone_divine_shield"
 		}
 	},
-	[76]={
+	[77]={
 		[1]={
 			[1]={
 				limit={
@@ -1417,7 +1433,7 @@ return {
 			[1]="keystone_elemental_overload"
 		}
 	},
-	[77]={
+	[78]={
 		[1]={
 			[1]={
 				limit={
@@ -1433,7 +1449,7 @@ return {
 			[1]="keystone_emperors_heart"
 		}
 	},
-	[78]={
+	[79]={
 		[1]={
 			[1]={
 				limit={
@@ -1449,7 +1465,7 @@ return {
 			[1]="keystone_eternal_youth"
 		}
 	},
-	[79]={
+	[80]={
 		[1]={
 			[1]={
 				limit={
@@ -1465,7 +1481,7 @@ return {
 			[1]="keystone_focused_rage"
 		}
 	},
-	[80]={
+	[81]={
 		[1]={
 			[1]={
 				limit={
@@ -1481,7 +1497,7 @@ return {
 			[1]="keystone_glancing_blows"
 		}
 	},
-	[81]={
+	[82]={
 		[1]={
 			[1]={
 				limit={
@@ -1497,7 +1513,7 @@ return {
 			[1]="keystone_heartstopper"
 		}
 	},
-	[82]={
+	[83]={
 		[1]={
 			[1]={
 				limit={
@@ -1513,7 +1529,7 @@ return {
 			[1]="keystone_herald_of_doom"
 		}
 	},
-	[83]={
+	[84]={
 		[1]={
 			[1]={
 				limit={
@@ -1529,7 +1545,7 @@ return {
 			[1]="keystone_hex_master"
 		}
 	},
-	[84]={
+	[85]={
 		[1]={
 			[1]={
 				limit={
@@ -1545,7 +1561,7 @@ return {
 			[1]="keystone_impale"
 		}
 	},
-	[85]={
+	[86]={
 		[1]={
 			[1]={
 				limit={
@@ -1554,14 +1570,30 @@ return {
 						[2]="#"
 					}
 				},
-				text="Dexterity provides no inherent bonus to Evasion Rating\n+1% Chance to Suppress Spell Damage per 15 Dexterity"
+				text="Gain no inherent bonus from Strength\n1% increased Projectile Attack damage per 2 Strength"
 			}
 		},
 		stats={
-			[1]="keystone_magebane"
+			[1]="keystone_iron_grip"
 		}
 	},
-	[86]={
+	[87]={
+		[1]={
+			[1]={
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Gain no inherent bonus from Strength\n1% increased Spell damage per 2 Strength"
+			}
+		},
+		stats={
+			[1]="keystone_iron_will"
+		}
+	},
+	[88]={
 		[1]={
 			[1]={
 				limit={
@@ -1577,7 +1609,7 @@ return {
 			[1]="keystone_magnetic_charge"
 		}
 	},
-	[87]={
+	[89]={
 		[1]={
 			[1]={
 				limit={
@@ -1593,7 +1625,7 @@ return {
 			[1]="keystone_mental_conditioning"
 		}
 	},
-	[88]={
+	[90]={
 		[1]={
 			[1]={
 				limit={
@@ -1609,7 +1641,7 @@ return {
 			[1]="keystone_natures_presence"
 		}
 	},
-	[89]={
+	[91]={
 		[1]={
 			[1]={
 				limit={
@@ -1625,7 +1657,7 @@ return {
 			[1]="keystone_oasis"
 		}
 	},
-	[90]={
+	[92]={
 		[1]={
 			[1]={
 				limit={
@@ -1641,7 +1673,7 @@ return {
 			[1]="keystone_precise_technique"
 		}
 	},
-	[91]={
+	[93]={
 		[1]={
 			[1]={
 				limit={
@@ -1657,7 +1689,7 @@ return {
 			[1]="keystone_prismatic_bulwark"
 		}
 	},
-	[92]={
+	[94]={
 		[1]={
 			[1]={
 				limit={
@@ -1673,7 +1705,7 @@ return {
 			[1]="keystone_quiet_might"
 		}
 	},
-	[93]={
+	[95]={
 		[1]={
 			[1]={
 				limit={
@@ -1689,7 +1721,7 @@ return {
 			[1]="keystone_runebinder"
 		}
 	},
-	[94]={
+	[96]={
 		[1]={
 			[1]={
 				limit={
@@ -1705,7 +1737,7 @@ return {
 			[1]="keystone_sacred_bastion"
 		}
 	},
-	[95]={
+	[97]={
 		[1]={
 			[1]={
 				limit={
@@ -1721,7 +1753,7 @@ return {
 			[1]="keystone_secrets_of_suffering"
 		}
 	},
-	[96]={
+	[98]={
 		[1]={
 			[1]={
 				limit={
@@ -1737,55 +1769,7 @@ return {
 			[1]="keystone_sharp_and_brittle"
 		}
 	},
-	[97]={
-		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Intelligence provides no inherent bonus to Energy Shield\n2% reduced Duration of Elemental Ailments on you per 15 Intelligence"
-			}
-		},
-		stats={
-			[1]="keystone_solipsism"
-		}
-	},
-	[98]={
-		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="DNT Ded."
-			}
-		},
-		stats={
-			[1]="keystone_strength_of_blood"
-		}
-	},
 	[99]={
-		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Auras from your Skills can only affect you\nAura Skills have 1% more Aura Effect per 2% of maximum Mana they Reserve\n40% more Mana Reservation of Aura Skills"
-			}
-		},
-		stats={
-			[1]="keystone_supreme_ego"
-		}
-	},
-	[100]={
 		[1]={
 			[1]={
 				limit={
@@ -1801,7 +1785,7 @@ return {
 			[1]="keystone_supreme_prodigy"
 		}
 	},
-	[101]={
+	[100]={
 		[1]={
 			[1]={
 				limit={
@@ -1817,7 +1801,7 @@ return {
 			[1]="keystone_tempered_by_war"
 		}
 	},
-	[102]={
+	[101]={
 		[1]={
 			[1]={
 				limit={
@@ -1833,7 +1817,7 @@ return {
 			[1]="keystone_hollow_palm_technique"
 		}
 	},
-	[103]={
+	[102]={
 		[1]={
 			[1]={
 				limit={
@@ -1849,7 +1833,7 @@ return {
 			[1]="keystone_versatile_combatant"
 		}
 	},
-	[104]={
+	[103]={
 		[1]={
 			[1]={
 				limit={
@@ -1865,7 +1849,7 @@ return {
 			[1]="keystone_veterans_awareness"
 		}
 	},
-	[105]={
+	[104]={
 		[1]={
 			[1]={
 				limit={
@@ -1881,128 +1865,110 @@ return {
 			[1]="keystone_wind_dancer"
 		}
 	},
-	[106]={
-		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="1% increased Spell damage per 2 Strength\nStrength provides no bonus to Life"
-			}
-		},
-		stats={
-			[1]="strong_casting"
-		}
-	},
-	["active_skill_additional_projectiles_description_mode"]=44,
+	["active_skill_additional_projectiles_description_mode"]=43,
 	["add_frenzy_charge_on_kill"]=15,
-	["ascendancy_chronomancer_apex_of_the_moment_base_slow_aura_value"]=48,
+	["ascendancy_chronomancer_apex_of_the_moment_base_slow_aura_value"]=47,
 	["base_devotion"]=2,
 	["base_dexterity"]=5,
-	["base_dexterity_and_intelligence"]=42,
+	["base_dexterity_and_intelligence"]=41,
 	["base_intelligence"]=7,
-	["base_number_of_golems_allowed"]=45,
+	["base_number_of_golems_allowed"]=44,
 	["base_number_of_raging_spirits_allowed"]=22,
 	["base_number_of_skeletons_allowed"]=21,
 	["base_number_of_spectres_allowed"]=20,
-	["base_phasing_without_visual"]=64,
+	["base_phasing_without_visual"]=65,
 	["base_strength"]=3,
-	["base_strength_and_dexterity"]=40,
-	["base_strength_and_intelligence"]=41,
-	["chill_effect_+%"]=49,
-	["consecrate_ground_on_kill_%_for_3_seconds"]=47,
-	["critical_strike_chance_+%"]=34,
-	["crushing_blow"]=50,
+	["base_strength_and_dexterity"]=39,
+	["base_strength_and_intelligence"]=40,
+	["chill_effect_+%"]=48,
+	["consecrate_ground_on_kill_%_for_3_seconds"]=46,
+	["critical_strike_chance_+%"]=33,
+	["crushing_blow"]=49,
 	["damage_taken_+%_from_hits"]=1,
 	["dexterity_+%"]=6,
-	["display_can_take_character_start_point"]=46,
-	["display_nearby_enemies_are_taunted"]=51,
-	["display_you_have_x_fortification"]=52,
-	["every_1_second_nearby_enemies_withered_for_X_ms"]=53,
-	["global_chance_to_blind_on_hit_%"]=43,
+	["display_can_take_character_start_point"]=45,
+	["display_nearby_enemies_are_taunted"]=50,
+	["display_you_have_x_fortification"]=51,
+	["every_1_second_nearby_enemies_withered_for_X_ms"]=52,
+	["global_chance_to_blind_on_hit_%"]=42,
 	["intelligence_+%"]=8,
+	["keystone_2_companions"]=53,
 	["keystone_acrobatics"]=23,
-	["keystone_alternate_dexterity_bonus"]=66,
-	["keystone_alternate_intelligence_bonus"]=67,
-	["keystone_alternate_strength_bonus"]=68,
+	["keystone_alternate_dexterity_bonus"]=67,
+	["keystone_alternate_intelligence_bonus"]=68,
+	["keystone_alternate_strength_bonus"]=69,
 	["keystone_ancestral_bond"]=19,
 	["keystone_avatar_of_fire"]=17,
-	["keystone_barbed_tips"]=69,
-	["keystone_blind_monk"]=70,
-	["keystone_blood_magic"]=29,
+	["keystone_barbed_tips"]=70,
+	["keystone_blind_monk"]=71,
+	["keystone_blood_magic"]=28,
 	["keystone_bulwark"]=54,
-	["keystone_call_to_arms"]=71,
-	["keystone_chaos_inoculation"]=32,
-	["keystone_charge_cycle"]=72,
-	["keystone_conduit"]=27,
-	["keystone_crimson_dance"]=55,
-	["keystone_dance_with_death"]=56,
-	["keystone_disciple_of_kitava"]=73,
-	["keystone_divine_flesh"]=74,
-	["keystone_divine_shield"]=75,
+	["keystone_call_to_arms"]=72,
+	["keystone_chaos_inoculation"]=31,
+	["keystone_charge_cycle"]=73,
+	["keystone_conduit"]=26,
+	["keystone_crimson_assault"]=55,
+	["keystone_crimson_dance"]=56,
+	["keystone_dance_with_death"]=57,
+	["keystone_disciple_of_kitava"]=74,
+	["keystone_divine_flesh"]=75,
+	["keystone_divine_shield"]=76,
 	["keystone_eldritch_battery"]=18,
-	["keystone_elemental_equilibrium"]=31,
-	["keystone_elemental_overload"]=76,
-	["keystone_emperors_heart"]=77,
-	["keystone_eternal_youth"]=78,
-	["keystone_focused_rage"]=79,
-	["keystone_giants_blood"]=57,
-	["keystone_glancing_blows"]=80,
-	["keystone_heartstopper"]=81,
-	["keystone_herald_of_doom"]=82,
-	["keystone_hex_master"]=83,
-	["keystone_hollow_palm_technique"]=102,
-	["keystone_impale"]=84,
+	["keystone_elemental_equilibrium"]=30,
+	["keystone_elemental_overload"]=77,
+	["keystone_emperors_heart"]=78,
+	["keystone_eternal_youth"]=79,
+	["keystone_focused_rage"]=80,
+	["keystone_giants_blood"]=58,
+	["keystone_glancing_blows"]=81,
+	["keystone_heartstopper"]=82,
+	["keystone_herald_of_doom"]=83,
+	["keystone_hex_master"]=84,
+	["keystone_hollow_palm_technique"]=101,
+	["keystone_impale"]=85,
+	["keystone_iron_grip"]=86,
 	["keystone_iron_reflexes"]=16,
-	["keystone_magebane"]=85,
-	["keystone_magnetic_charge"]=86,
-	["keystone_mana_shield"]=36,
-	["keystone_mental_conditioning"]=87,
-	["keystone_minion_instability"]=30,
-	["keystone_natures_presence"]=88,
-	["keystone_oasis"]=89,
+	["keystone_iron_will"]=87,
+	["keystone_magnetic_charge"]=88,
+	["keystone_mana_shield"]=35,
+	["keystone_mental_conditioning"]=89,
+	["keystone_minion_instability"]=29,
+	["keystone_natures_presence"]=90,
+	["keystone_oasis"]=91,
 	["keystone_pain_attunement"]=24,
-	["keystone_point_blank"]=26,
-	["keystone_precise_technique"]=90,
-	["keystone_prismatic_bulwark"]=91,
-	["keystone_projectile_evasion"]=28,
-	["keystone_quiet_might"]=92,
-	["keystone_runebinder"]=93,
-	["keystone_sacred_bastion"]=94,
-	["keystone_secrets_of_suffering"]=95,
-	["keystone_sharp_and_brittle"]=96,
-	["keystone_solipsism"]=97,
-	["keystone_strength_of_blood"]=98,
-	["keystone_strong_bowman"]=25,
-	["keystone_supreme_ego"]=99,
-	["keystone_supreme_prodigy"]=100,
-	["keystone_tempered_by_war"]=101,
-	["keystone_unwavering_stance"]=38,
-	["keystone_vaal_pact"]=33,
-	["keystone_versatile_combatant"]=103,
-	["keystone_veterans_awareness"]=104,
-	["keystone_wind_dancer"]=105,
-	["keystone_zealots_oath"]=58,
-	["life_mastery_nearby_enemy_life_regeneration_rate_+%"]=59,
-	["local_jewel_display_number_of_allocated_passives_between_jewel_and_class_start"]=65,
+	["keystone_point_blank"]=25,
+	["keystone_precise_technique"]=92,
+	["keystone_prismatic_bulwark"]=93,
+	["keystone_projectile_evasion"]=27,
+	["keystone_quiet_might"]=94,
+	["keystone_runebinder"]=95,
+	["keystone_sacred_bastion"]=96,
+	["keystone_secrets_of_suffering"]=97,
+	["keystone_sharp_and_brittle"]=98,
+	["keystone_supreme_prodigy"]=99,
+	["keystone_tempered_by_war"]=100,
+	["keystone_unwavering_stance"]=37,
+	["keystone_vaal_pact"]=32,
+	["keystone_versatile_combatant"]=102,
+	["keystone_veterans_awareness"]=103,
+	["keystone_wind_dancer"]=104,
+	["keystone_zealots_oath"]=59,
+	["life_mastery_nearby_enemy_life_regeneration_rate_+%"]=60,
+	["local_jewel_display_number_of_allocated_passives_between_jewel_and_class_start"]=66,
 	["mana_regeneration_rate_per_minute_%"]=9,
 	["mana_regeneration_rate_per_minute_%_per_power_charge"]=10,
 	["max_endurance_charges"]=11,
 	["max_frenzy_charges"]=12,
 	["max_power_charges"]=13,
-	["no_barrage_projectile_spread"]=60,
-	["number_of_additional_projectiles"]=44,
+	["no_barrage_projectile_spread"]=61,
+	["number_of_additional_projectiles"]=43,
 	parent="stat_descriptions",
-	["passive_can_be_allocated_without_connection"]=39,
-	["physical_damage_+%"]=61,
+	["passive_can_be_allocated_without_connection"]=38,
+	["physical_damage_+%"]=62,
 	["physical_damage_+%_per_frenzy_charge"]=14,
-	["resolute_technique"]=37,
-	["shock_effect_+%"]=62,
-	["staff_block_%"]=35,
-	["start_at_zero_energy_shield"]=63,
-	["strength_+%"]=4,
-	["strong_casting"]=106
+	["resolute_technique"]=36,
+	["shock_effect_+%"]=63,
+	["staff_block_%"]=34,
+	["start_at_zero_energy_shield"]=64,
+	["strength_+%"]=4
 }

@@ -13,9 +13,13 @@ return {
 					[1]={
 						[1]=1000,
 						[2]=1000
+					},
+					[2]={
+						[1]=0,
+						[2]=0
 					}
 				},
-				text="Debuff duration is {0} second"
+				text="{0:+d} second to Debuff duration"
 			},
 			[2]={
 				[1]={
@@ -26,13 +30,52 @@ return {
 					[1]={
 						[1]="#",
 						[2]="#"
+					},
+					[2]={
+						[1]=0,
+						[2]=0
+					}
+				},
+				text="{0:+d} seconds to Debuff duration"
+			},
+			[3]={
+				[1]={
+					k="milliseconds_to_seconds_2dp_if_required",
+					v=1
+				},
+				limit={
+					[1]={
+						[1]=1000,
+						[2]=1000
+					},
+					[2]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Debuff duration is {0} second"
+			},
+			[4]={
+				[1]={
+					k="milliseconds_to_seconds_2dp_if_required",
+					v=1
+				},
+				limit={
+					[1]={
+						[1]="!",
+						[2]=0
+					},
+					[2]={
+						[1]="#",
+						[2]="#"
 					}
 				},
 				text="Debuff duration is {0} seconds"
 			}
 		},
 		stats={
-			[1]="base_skill_effect_duration"
+			[1]="base_skill_effect_duration",
+			[2]="quality_display_base_skill_effect_duration_is_gem"
 		}
 	},
 	[2]={
@@ -57,5 +100,6 @@ return {
 	},
 	["base_skill_effect_duration"]=1,
 	parent="skill_stat_descriptions",
+	["quality_display_base_skill_effect_duration_is_gem"]=1,
 	["skill_effect_duration"]=2
 }

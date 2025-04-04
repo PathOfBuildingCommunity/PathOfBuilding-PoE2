@@ -171,6 +171,10 @@ return {
 				limit={
 					[1]={
 						[1]="#",
+						[2]=-1
+					},
+					[2]={
+						[1]="#",
 						[2]="#"
 					}
 				},
@@ -181,11 +185,41 @@ return {
 					[1]={
 						[1]=1,
 						[2]="#"
+					},
+					[2]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Copied Projectiles damage bonus {0}%"
+			},
+			[3]={
+				limit={
+					[1]={
+						[1]=1,
+						[2]="#"
+					},
+					[2]={
+						[1]=0,
+						[2]=0
+					}
+				},
+				text="Copied Projectiles deal {0:+d}% more damage"
+			},
+			[4]={
+				limit={
+					[1]={
+						[1]=1,
+						[2]="#"
+					},
+					[2]={
+						[1]="#",
+						[2]="#"
 					}
 				},
 				text="Copied Projectiles deal {0}% more damage"
 			},
-			[3]={
+			[5]={
 				[1]={
 					k="negate",
 					v=1
@@ -194,13 +228,18 @@ return {
 					[1]={
 						[1]="#",
 						[2]=-1
+					},
+					[2]={
+						[1]="#",
+						[2]="#"
 					}
 				},
 				text="Copied Projectiles deal {0}% less damage"
 			}
 		},
 		stats={
-			[1]="tornado_shot_projectile_damage_+%_final"
+			[1]="tornado_shot_projectile_damage_+%_final",
+			[2]="quality_display_tornado_shot_is_gem"
 		}
 	},
 	[10]={
@@ -259,6 +298,7 @@ return {
 	["number_of_tornado_shots_allowed"]=6,
 	parent="specific_skill_stat_descriptions/tornado_shot_statset_0",
 	["quality_display_base_number_of_projectiles_is_gem"]=2,
+	["quality_display_tornado_shot_is_gem"]=9,
 	["skill_can_fire_arrows"]=3,
 	["skill_effect_duration"]=7,
 	["tornado_shot_number_of_hits_allowed"]=8,

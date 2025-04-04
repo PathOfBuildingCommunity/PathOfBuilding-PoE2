@@ -506,8 +506,8 @@ statMap = {
 #mods
 #skillEnd
 
-#skill SupportChaoticAssassinationPlayer
-#set SupportChaoticAssassinationPlayer
+#skill SupportIntenseAgonyPlayer
+#set SupportIntenseAgonyPlayer
 statMap = {
 	["support_chaotic_assassination_damage_over_time_+%_final_against_full_life_enemies"] = {
 		mod("Damage", "MORE", nil, ModFlag.Dot, 0, { type = "ActorCondition", actor = "enemy", var = "FullLife" }),

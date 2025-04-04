@@ -276,7 +276,7 @@ statMap = {
 #skill SupportHeftPlayer
 #set SupportHeftPlayer
 statMap = {
-	["support_maximum_physical_hit_damage_+%_final"] = {
+	["support_heft_maximum_physical_damage_+%_final"] = {
 		mod("MaxPhysicalDamage", "MORE", nil, ModFlag.Hit),
 	},
 },
@@ -385,8 +385,8 @@ statMap = {
 #skill SupportMeatShieldPlayer
 #set SupportMeatShieldPlayer
 statMap = {
-	["support_minion_maximum_life_+%_final"] = {
-		mod("MinionModifier", "LIST", { mod = mod("Life", "MORE", nil) }),
+	["support_minion_defensive_stance_minion_damage_taken_+%_final"] = {
+		mod("MinionModifier", "LIST", { mod = mod("DamageTaken", "MORE", nil) }),
 	},
 	["support_meat_shield_minion_damage_+%_final"] = {
 		mod("MinionModifier", "LIST", { mod = mod("Damage", "MORE", nil) }),

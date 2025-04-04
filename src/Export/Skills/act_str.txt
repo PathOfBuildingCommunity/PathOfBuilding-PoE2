@@ -135,7 +135,7 @@ statMap = {
 
 #skill ClusterGrenadeMiniPlayer
 #set ClusterGrenadeMiniPlayer
-#flags attack area projectile duration
+#flags attack area projectile
 #mods
 #skillEnd
 
@@ -153,11 +153,11 @@ statMap = {
 #set DefianceBannerPlayer
 #flags duration
 statMap = {
-	["skill_defiance_banner_armour_evasion_+%_final"] = {
+	["base_skill_buff_armour_evasion_+%_final_to_apply"] = {
 		mod("Armour", "MORE", nil, 0, 0, { type = "Condition", var = "BannerPlanted" }, { type = "GlobalEffect", effectType = "Aura"}),
 		mod("Evasion", "MORE", nil, 0, 0, { type = "Condition", var = "BannerPlanted" }, { type = "GlobalEffect", effectType = "Aura"}),
 	},
-	["skill_defiance_banner_movement_speed_+%"] = {
+	["base_skill_buff_movement_speed_+%_to_apply"] = {
 		mod("MovementSpeed", "INC", nil, 0, 0, { type = "Condition", var = "BannerPlanted" }, { type = "GlobalEffect", effectType = "Aura"}),
 	},
 },
@@ -170,6 +170,12 @@ statMap = {
 #skill DreadBannerPlayer
 #set DreadBannerPlayer
 #flags duration
+statMap = {
+	["base_skill_buff_flask_charge_per_min_to_apply"] = {
+		mod("FlaskChargesGenerated", "BASE", nil, 0, 0, { type = "Condition", var = "BannerPlanted" }, { type = "GlobalEffect", effectType = "Aura"}),
+		div = 60,
+	},
+},
 #mods
 #skillEnd
 
@@ -217,7 +223,7 @@ statMap = {
 
 #skill ExplosiveGrenadePlayer
 #set ExplosiveGrenadePlayer
-#flags attack area projectile duration
+#flags attack area projectile
 #mods
 #skillEnd
 
@@ -226,11 +232,14 @@ statMap = {
 #set ExsanguinatePlayer
 #flags spell duration chaining
 #mods
+#set ExsanguinateDotPlayer
+#flags spell duration chaining
+#mods
 #skillEnd
 
 #skill FlashGrenadePlayer
 #set FlashGrenadePlayer
-#flags attack area projectile duration
+#flags attack area projectile
 #mods
 #skillEnd
 
@@ -624,7 +633,7 @@ statMap = {
 
 #skill ShieldWallPlayer
 #set ShieldWallPlayer
-#flags attack shieldAttack
+#flags attack shieldAttack melee
 #mods
 #skillEnd
 
@@ -687,7 +696,7 @@ statMap = {
 
 #skill ShockGrenadePlayer
 #set ShockGrenadePlayer
-#flags attack area projectile duration
+#flags attack area projectile
 #mods
 #skillEnd
 
@@ -698,10 +707,10 @@ statMap = {
 #set WarBannerPlayer
 #flags duration
 statMap = {
-	["skill_war_banner_attack_damage_+%_final"] = {
+	["base_skill_buff_attack_damage_+%_final_to_apply"] = {
 		mod("Damage", "MORE", nil,  ModFlag.Attack, 0, { type = "Condition", var = "BannerPlanted" }, { type = "GlobalEffect", effectType = "Aura"}),
 	},
-	["skill_war_banner_accuracy_+%"] = {
+	["base_skill_buff_banner_accuracy_+%_to_apply"] = {
 		mod("Accuracy", "INC", nil, 0, 0, { type = "Condition", var = "BannerPlanted" }, { type = "GlobalEffect", effectType = "Aura"}),
 	},
 },

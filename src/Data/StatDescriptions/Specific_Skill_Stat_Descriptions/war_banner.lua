@@ -58,6 +58,64 @@ return {
 	[3]={
 		[1]={
 			[1]={
+				limit={
+					[1]={
+						[1]=1,
+						[2]="#"
+					}
+				},
+				text="Aura grants {0}% more Attack damage"
+			},
+			[2]={
+				[1]={
+					k="negate",
+					v=1
+				},
+				limit={
+					[1]={
+						[1]="#",
+						[2]=-1
+					}
+				},
+				text="Aura grants {0}% less Attack damage"
+			}
+		},
+		stats={
+			[1]="base_skill_buff_attack_damage_+%_final_to_apply"
+		}
+	},
+	[4]={
+		[1]={
+			[1]={
+				limit={
+					[1]={
+						[1]=1,
+						[2]="#"
+					}
+				},
+				text="Aura grants {0}% increased Accuracy Rating"
+			},
+			[2]={
+				[1]={
+					k="negate",
+					v=1
+				},
+				limit={
+					[1]={
+						[1]="#",
+						[2]=-1
+					}
+				},
+				text="Aura grants {0}% reduced Accuracy Rating"
+			}
+		},
+		stats={
+			[1]="base_skill_buff_banner_accuracy_+%_to_apply"
+		}
+	},
+	[5]={
+		[1]={
+			[1]={
 				[1]={
 					k="milliseconds_to_seconds_2dp_if_required",
 					v=1
@@ -88,7 +146,39 @@ return {
 			[1]="base_skill_effect_duration"
 		}
 	},
-	[4]={
+	[6]={
+		[1]={
+			[1]={
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="More Attack damage granted {0}%"
+			}
+		},
+		stats={
+			[1]="skill_aura_buff_attack_damage_+%_final_magnitude_to_apply"
+		}
+	},
+	[7]={
+		[1]={
+			[1]={
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Increased Accuracy granted {0}%"
+			}
+		},
+		stats={
+			[1]="skill_aura_buff_banner_accuracy_+%_magnitude_to_apply"
+		}
+	},
+	[8]={
 		[1]={
 			[1]={
 				[1]={
@@ -108,87 +198,13 @@ return {
 			[1]="skill_effect_duration"
 		}
 	},
-	[5]={
-		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Increased Accuracy granted {0}%"
-			},
-			[2]={
-				limit={
-					[1]={
-						[1]=1,
-						[2]="#"
-					}
-				},
-				text="Aura grants {0}% increased Accuracy"
-			},
-			[3]={
-				[1]={
-					k="negate",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]=-1
-					}
-				},
-				text="Aura grants {0}% reduced Accuracy"
-			}
-		},
-		stats={
-			[1]="skill_war_banner_accuracy_+%"
-		}
-	},
-	[6]={
-		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="More Attack damage granted {0}%"
-			},
-			[2]={
-				limit={
-					[1]={
-						[1]=1,
-						[2]="#"
-					}
-				},
-				text="Aura grants {0}% more Attack damage"
-			},
-			[3]={
-				[1]={
-					k="negate",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]=-1
-					}
-				},
-				text="Aura grants {0}% less Attack damage"
-			}
-		},
-		stats={
-			[1]="skill_war_banner_attack_damage_+%_final"
-		}
-	},
 	["active_skill_area_of_effect_radius"]=1,
 	["active_skill_base_area_of_effect_radius"]=2,
-	["base_skill_effect_duration"]=3,
+	["base_skill_buff_attack_damage_+%_final_to_apply"]=3,
+	["base_skill_buff_banner_accuracy_+%_to_apply"]=4,
+	["base_skill_effect_duration"]=5,
 	parent="skill_stat_descriptions",
-	["skill_effect_duration"]=4,
-	["skill_war_banner_accuracy_+%"]=5,
-	["skill_war_banner_attack_damage_+%_final"]=6
+	["skill_aura_buff_attack_damage_+%_final_magnitude_to_apply"]=6,
+	["skill_aura_buff_banner_accuracy_+%_magnitude_to_apply"]=7,
+	["skill_effect_duration"]=8
 }

@@ -78,7 +78,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="{0}% more Evasion Rating per stage\nOn being Hit by a Melee Attack, consume all stages to trigger Gale Force"
+				text="{0}% more Evasion Rating per stage\nOn being Hit by an Enemy, consume all\nstages to trigger Gale Force"
 			},
 			[3]={
 				[1]={
@@ -91,7 +91,7 @@ return {
 						[2]=-1
 					}
 				},
-				text="{0}% less Evasion Rating per stage\nOn being Hit by a Melee Attack, consume all stages to trigger Gale Force"
+				text="{0}% less Evasion Rating per stage\nOn being Hit by an Enemy, consume all\nstages to trigger Gale Force"
 			}
 		},
 		stats={

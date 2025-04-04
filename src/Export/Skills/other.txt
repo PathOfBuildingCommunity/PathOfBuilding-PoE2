@@ -10,6 +10,16 @@ local skills, mod, flag, skill = ...
 #skill AncestralSpiritsPlayer
 #set AncestralSpiritsPlayer
 #flags spell minion
+statMap = {
+	["minion_1%_damage_+%_per_X_player_strength"] = {
+		mod("MinionModifier", "LIST", { mod = mod("Damage", "INC", nil, 0, 0, { type = "PerStat", stat = "Str", actor = "parent", div = 3 }) }),
+		div = 3,
+	},
+	["minion_1%_accuracy_rating_+%_per_X_player_dexterity"] = {
+		mod("MinionModifier", "LIST", { mod = mod("Accuracy", "INC", nil, 0, 0, { type = "PerStat", stat = "Dex", actor = "parent", div = 3 }) }),
+		div = 3,
+	},
+},
 #mods
 #skillEnd
 
@@ -36,6 +46,9 @@ statMap = {
 #skill MeleeCrossbowPlayer
 #set MeleeCrossbowPlayer
 #flags attack area projectile
+#mods
+#set UnloadAmmoPlayer
+#flags
 #mods
 #skillEnd
 
@@ -206,7 +219,7 @@ statMap = {
 #from item
 #skill ShieldBlockPlayer
 #set ShieldBlockPlayer
-#flags
+#flags attack area
 #mods
 #skillEnd
 
