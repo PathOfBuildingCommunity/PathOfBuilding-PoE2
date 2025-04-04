@@ -1250,6 +1250,7 @@ function calcs.defence(env, actor)
 				output.EvadeChance = output.MeleeEvadeChance
 				output.noSplitEvade = true
 			end
+			output.EvadeChance = m_min(output.EvadeChance, modDB:Max(nil, "EvadeChanceMax") or 100)
 			if breakdown then
 				breakdown.EvadeChance = {
 					s_format("Enemy level: %d ^8(%s the Configuration tab)", env.enemyLevel, env.configInput.enemyLevel and "overridden from" or "can be overridden in"),

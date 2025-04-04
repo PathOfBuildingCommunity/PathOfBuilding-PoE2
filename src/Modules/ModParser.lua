@@ -4290,6 +4290,7 @@ local specialModList = {
 	["cannot evade enemy attacks"] = { flag("CannotEvade") },
 	["attacks cannot hit you"] = { flag("AlwaysEvade") },
 	["attacks against you always hit"] = { flag("CannotEvade") },
+	["maximum evade chance is (%d+)%%"] = function(num) return { mod("EvadeChanceMax", "MAX", num) } end,
 	["modifiers to maximum block chance instead apply to maximum resistances"] = { flag("MaxBlockChanceModsApplyMaxResist") },
 	["you cannot block"] = { flag("CannotBlockAttacks")},
 	["cannot block"] = { flag("CannotBlockAttacks"), flag("CannotBlockSpells") },
