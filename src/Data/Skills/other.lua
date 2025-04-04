@@ -990,6 +990,12 @@ skills["ElementalStormPlayer"] = {
 			incrementalEffectiveness = 0.14000000059605,
 			damageIncrementalEffectiveness = 0.0065000001341105,
 			statDescriptionScope = "tornado_triggered",
+			statMap = {
+				["tornado_base_damage_interval_ms"] = {
+					skill("hitTimeOverride", nil),
+					div = 1000,
+				},
+			},
 			baseFlags = {
 				area = true,
 				duration = true,
@@ -1058,6 +1064,12 @@ skills["ElementalStormPlayer"] = {
 			incrementalEffectiveness = 0.14000000059605,
 			damageIncrementalEffectiveness = 0.0065000001341105,
 			statDescriptionScope = "tornado_triggered",
+			statMap = {
+				["tornado_base_damage_interval_ms"] = {
+					skill("hitTimeOverride", nil),
+					div = 1000,
+				},
+			},
 			baseFlags = {
 				spell = true,
 				area = true,
@@ -1129,6 +1141,12 @@ skills["ElementalStormPlayer"] = {
 			incrementalEffectiveness = 0.14000000059605,
 			damageIncrementalEffectiveness = 0.0065000001341105,
 			statDescriptionScope = "tornado_triggered",
+			statMap = {
+				["tornado_base_damage_interval_ms"] = {
+					skill("hitTimeOverride", nil),
+					div = 1000,
+				},
+			},
 			baseFlags = {
 				spell = true,
 				area = true,
@@ -1200,6 +1218,12 @@ skills["ElementalStormPlayer"] = {
 			incrementalEffectiveness = 0.14000000059605,
 			damageIncrementalEffectiveness = 0.0065000001341105,
 			statDescriptionScope = "tornado_triggered",
+			statMap = {
+				["tornado_base_damage_interval_ms"] = {
+					skill("hitTimeOverride", nil),
+					div = 1000,
+				},
+			},
 			baseFlags = {
 				spell = true,
 				area = true,

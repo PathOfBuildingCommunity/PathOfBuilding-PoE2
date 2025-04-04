@@ -15076,6 +15076,12 @@ skills["SolarOrbPlayer"] = {
 			incrementalEffectiveness = 0.14000000059605,
 			damageIncrementalEffectiveness = 0.0065000001341105,
 			statDescriptionScope = "solar_orb_statset_0",
+			statMap = {
+				["solar_orb_base_pulse_frequency_ms"] = {
+					skill("hitTimeOverride", nil),
+					div = 1000,
+				},
+			},
 			baseFlags = {
 				spell = true,
 				area = true,

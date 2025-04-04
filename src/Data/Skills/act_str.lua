@@ -8319,6 +8319,11 @@ skills["SiegeCascadePlayer"] = {
 			label = "Impact",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "siege_cascade_piercing",
+			statMap = {
+				["siege_cascade_damage_+%_final_vs_immobilised_enemies"] = {
+					mod("Damage", "MORE", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "Immobilised" }),
+				},
+			},
 			baseFlags = {
 				attack = true,
 				projectile = true,
@@ -8394,6 +8399,11 @@ skills["SiegeCascadePlayer"] = {
 			label = "Explosion",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "siege_cascade_piercing",
+			statMap = {
+				["siege_cascade_damage_+%_final_vs_immobilised_enemies"] = {
+					mod("Damage", "MORE", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "Immobilised" }),
+				},
+			},
 			baseFlags = {
 				attack = true,
 				projectile = true,

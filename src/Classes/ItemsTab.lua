@@ -1094,14 +1094,10 @@ function ItemsTabClass:Draw(viewPort, inputEvents)
 				self:Redo()
 				self.build.buildFlag = true
 			elseif event.key == "f" and IsKeyDown("CTRL") then
-				local selUnique = self.selControl == self.controls.uniqueDB.controls.search
-				local selRare = self.selControl == self.controls.rareDB.controls.search
-				if selUnique or (self.controls.selectDB:IsShown() and not selRare and self.controls.selectDB.selIndex == 2) then
+				if self.selectedDB == "RARE" then
 					self:SelectControl(self.controls.rareDB.controls.search)
-					self.controls.selectDB.selIndex = 2
 				else
 					self:SelectControl(self.controls.uniqueDB.controls.search)
-					self.controls.selectDB.selIndex = 1
 				end
 			elseif event.key == "d" and IsKeyDown("CTRL") then
 				self.showStatDifferences = not self.showStatDifferences
