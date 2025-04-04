@@ -38,7 +38,6 @@ function PoEAPIClass:ValidateAuth(callback)
 					callback(false, false)
 					return
 				end
-				-- TODO : Check for error in response
 				local responseLua = dkjson.decode(response.body)
 				self.authToken = responseLua.access_token
 				self.refreshToken = responseLua.refresh_token
@@ -84,7 +83,10 @@ function PoEAPIClass:FetchAuthToken(callback)
 			callback = function(code, state, port)
 				if not code then
 					ConPrintf("Failed to get code from server")
-					callback()
+					self.authToken = nil
+					self.refreshToken = nil
+					self.tokenExpiry = nil
+					callback(nil, self.ERROR_NO_AUTH, true)
 					return
 				end
 
@@ -93,7 +95,14 @@ function PoEAPIClass:FetchAuthToken(callback)
 				end
 				local formText = "client_id=pob&grant_type=authorization_code&code=" .. code .. "&redirect_uri=http://localhost:" .. port .. "&scope=" .. table.concat(scopesOAuth, " ") .. "&code_verifier=" .. code_verifier
 				launch:DownloadPage("https://www.pathofexile.com/oauth/token", function (response, errMsg)
-					-- TODO : Check for error in response
+					if errMsg then
+						ConPrintf("Failed to get token from server: " .. errMsg)
+						self.authToken = nil
+						self.refreshToken = nil
+						self.tokenExpiry = nil
+						callback()
+						return
+					end
 					local responseLua = dkjson.decode(response.body)
 					self.authToken = responseLua.access_token
 					self.refreshToken = responseLua.refresh_token
@@ -150,6 +159,10 @@ function PoEAPIClass:DownloadWithRateLimit(policy, url, callback)
 	if now >= timeNext then
 		local requestId = self.rateLimiter:InsertRequest(policy)
 		local onComplete = function(response, errMsg)
+			if errMsg then
+				callback(response, errMsg)
+				return
+			end
 			self.rateLimiter:FinishRequest(policy, requestId)
 			self.rateLimiter:UpdateFromHeader(response.header)
 			callback(response.body, errMsg)
