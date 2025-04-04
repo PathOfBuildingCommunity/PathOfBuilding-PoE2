@@ -16,9 +16,6 @@ launch = { }
 SetMainObject(launch)
 
 function launch:OnInit()
-	package.cpath = package.cpath .. ';C:/Users/trevo/.vscode/extensions/tangzx.emmylua-0.9.16-win32-x64/debugger/emmy/windows/x64/?.dll'
-        local dbg = require('emmy_core')
-        dbg.tcpListen('localhost', 9966)
 	self.devMode = false
 	self.installedMode = false
 	self.versionNumber = "?"
