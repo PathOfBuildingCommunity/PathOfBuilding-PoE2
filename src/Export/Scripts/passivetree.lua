@@ -245,13 +245,13 @@ local uiImages = parseUIImages()
 -- print_table(uiImages, 0)
 
 -- Set to true if you want to generate assets
-local generateAssets = false
+local generateAssets = true
 local use4kIfPossible = false
 -- Find a way to get the default passive tree
 local idPassiveTree = 'Default'
 -- Find a way to get version
 local basePath = GetWorkDir() .. "/../TreeData/"
-local version = "0_1"
+local version = "0_2"
 local path = basePath .. version .. "/"
 local fileTree = path .. "tree.lua"
 
@@ -940,6 +940,7 @@ for i, group in ipairs(psg.groups) do
 	end
 end
 
+MakeDir(basePath .. version)
 -- write file with missing Stats
 if #missingStatInfo > 0 then
 	local file = io.open(basePath .. version .. "/missingStats.txt", "w")
@@ -1018,8 +1019,6 @@ for i, classId in ipairs(psg.passives) do
 		end
 	end
 end
-
-MakeDir(basePath .. version)
 
 printf("Generating sprite info...")
 for i, sheet in ipairs(sheets) do
