@@ -3,5 +3,28 @@ local itemBases = ...
 
 #type Body Armour
 #socketLimit 3
-#baseMatch BaseType Metadata/Items/Armours/BodyArmours/AbstractBodyArmour
-#baseMatch BaseType Metadata/Items/Armours/BodyArmours/BodyArmourDemigods
+
+#subType Armour
+#baseMatch Metadata/Items/Armours/BodyArmours/FourBodyStr%d+
+
+#subType Evasion
+#baseMatch Metadata/Items/Armours/BodyArmours/FourBodyDex%d+
+
+#subType Energy Shield
+#baseMatch Metadata/Items/Armours/BodyArmours/FourBodyInt%d+
+
+#subType Armour/Evasion
+#baseMatch Metadata/Items/Armours/BodyArmours/FourBodyStrDex%d+
+
+#subType Armour/Energy Shield
+#baseMatch Metadata/Items/Armours/BodyArmours/FourBodyStrInt%d+
+
+#subType Evasion/Energy Shield
+#baseMatch Metadata/Items/Armours/BodyArmours/FourBodyDexInt%d+
+
+#subType Armour/Evasion/Energy Shield
+#baseMatch Metadata/Items/Armours/BodyArmours/FourBodyStrDexInt%d+
+#baseMatch Metadata/Items/Armours/BodyArmours/FourBodyStrDexIntBase
+
+#subType
+#baseMatch Metadata/Items/Armours/BodyArmours/BodyDemigods1

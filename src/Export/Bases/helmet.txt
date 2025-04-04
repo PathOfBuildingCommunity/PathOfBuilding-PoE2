@@ -4,5 +4,27 @@ local itemBases = ...
 #type Helmet
 #socketLimit 2
 
-#baseMatch BaseType Metadata/Items/Armours/Helmets/AbstractHelmet
-#baseMatch BaseType Metadata/Items/Armours/Helmets/HelmetDemigods
+#subType Armour
+#baseMatch Metadata/Items/Armours/Helmets/FourHelmetStr%d+
+
+#subType Evasion
+#baseMatch Metadata/Items/Armours/Helmets/FourHelmetDex%d+
+
+#subType Energy Shield
+#baseMatch Metadata/Items/Armours/Helmets/FourHelmetInt%d+
+
+#subType Armour/Evasion
+#baseMatch Metadata/Items/Armours/Helmets/FourHelmetStrDex%d+
+
+#subType Armour/Energy Shield
+#baseMatch Metadata/Items/Armours/Helmets/FourHelmetStrInt%d+
+
+#subType Evasion/Energy Shield
+#baseMatch Metadata/Items/Armours/Helmets/FourHelmetDexInt%d+
+
+#subType Armour/Evasion/Energy Shield
+#baseMatch Metadata/Items/Armours/Helmets/FourHelmetStrDexInt%d+
+
+#subType
+#baseMatch Metadata/Items/Armours/Helmets/HelmetWreath1
+#baseMatch Metadata/Items/Armours/Helmets/HelmetDemigods1

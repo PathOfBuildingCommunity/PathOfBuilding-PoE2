@@ -40,6 +40,9 @@ end
 function calcs.armourReductionF(armour, raw)
 	if armour == 0 and raw == 0 then
 		return 0
+	elseif armour < 0 then -- account for Armour break below zero
+		armour = -armour -- revert value to positive for calculation
+		return -((armour / (armour + raw * data.misc.ArmourRatio) * 100))
 	end
 	return (armour / (armour + raw * data.misc.ArmourRatio) * 100)
 end
@@ -232,7 +235,7 @@ function calcs.doActorLifeManaSpiritReservation(actor)
 					values.reservedFlat = values.reservedFlat * activeSkillCount
 				end
 				
-				if activeSkill.skillTypes[SkillType.CanHaveMultipleOngoingSkillInstances] and activeSkill.activeEffect.srcInstance.supportEffect and activeSkill.activeEffect.srcInstance.supportEffect.isSupporting then
+				if activeSkill.skillTypes[SkillType.IsBlasphemy] and activeSkill.activeEffect.srcInstance.supportEffect and activeSkill.activeEffect.srcInstance.supportEffect.isSupporting then
 					-- Sadly no better way to get key/val table element count in lua.
 					local instances = 0
 					for _ in pairs(activeSkill.activeEffect.srcInstance.supportEffect.isSupporting) do
@@ -755,7 +758,12 @@ function calcs.defence(env, actor)
 		total = m_modf(total)
 		-- Unnatural Resilience needs FireResistTotal before we calc FireResistMax
 		output[elem.."ResistTotal"] = total
-		max = modDB:Override(nil, elem.."ResistMax") or m_min(data.misc.MaxResistCap, modDB:Sum("BASE", nil, elem.."ResistMax", isElemental[elem] and "ElementalResistMax"))
+		if modDB:Flag(nil, "MaxBlockChanceModsApplyMaxResist") then
+			local blockMaxBonus = modDB:Sum("BASE", nil, "BlockChanceMax") - 75 -- Subtract base block cap
+			max = (modDB:Override(nil, elem.."ResistMax") or m_min(data.misc.MaxResistCap, modDB:Sum("BASE", nil, elem.."ResistMax", isElemental[elem] and "ElementalResistMax"))) + blockMaxBonus
+		else
+			max = modDB:Override(nil, elem.."ResistMax") or m_min(data.misc.MaxResistCap, modDB:Sum("BASE", nil, elem.."ResistMax", isElemental[elem] and "ElementalResistMax"))
+		end		
 		
 		dotTotal = dotTotal and m_modf(dotTotal) or total
 		totemTotal = m_modf(totemTotal)
@@ -805,7 +813,11 @@ function calcs.defence(env, actor)
 	end
 
 	-- Block
-	output.BlockChanceMax = m_min(modDB:Sum("BASE", nil, "BlockChanceMax"), data.misc.BlockChanceCap)
+	if modDB:Flag(nil, "MaxBlockChanceModsApplyMaxResist") then
+		output.BlockChanceMax = 75
+	else
+		output.BlockChanceMax = m_min(modDB:Sum("BASE", nil, "BlockChanceMax"), data.misc.BlockChanceCap)
+	end
 	if modDB:Flag(nil, "MaximumBlockAttackChanceIsEqualToParent") then
 		output.BlockChanceMax = actor.parent.output.BlockChanceMax
 	elseif modDB:Flag(nil, "MaximumBlockAttackChanceIsEqualToPartyMember") then

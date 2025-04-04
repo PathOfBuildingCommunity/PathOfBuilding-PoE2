@@ -178,7 +178,7 @@ statMap = {
 #set SupportExploitWeaknessPlayer
 statMap = {
 	["support_gem_consume_enemy_fully_broken_armour_to_gain_damage_+%_final"] = {
-		mod("Damage", "MORE", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "ArmourBroken"})
+		mod("Damage", "MORE", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "ArmourFullyBroken"})
 	},
 },
 #mods
@@ -484,6 +484,15 @@ statMap = {
 #skillEnd
 #skill StompingGroundShockwavePlayer
 #set StompingGroundShockwavePlayer
+#flags attack area
+statMap = {
+	["attack_minimum_added_physical_damage_as_%_of_strength"] = {
+		skill("PhysicalMin", nil, { type = "PercentStat", stat = "Str", percent = 1 }),
+	},
+	["attack_maximum_added_physical_damage_as_%_of_strength"] = {
+		skill("PhysicalMax", nil, { type = "PercentStat", stat = "Str", percent = 1 }),
+	},
+},
 #mods
 #skillEnd
 

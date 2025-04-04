@@ -885,6 +885,14 @@ skills["SupportBlasphemyPlayer"] = {
 			label = "Curses",
 			incrementalEffectiveness = 0.092720001935959,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_blasphemy_curse_effect_+%_final"] = {
+					mod("CurseEffect", "MORE", nil),
+				},
+				["active_skill_base_area_of_effect_radius"] = {
+					skill("radiusExtra", nil),
+				},
+			},
 			baseFlags = {
 				area = true,
 			},
@@ -4198,7 +4206,6 @@ skills["DarkEffigyPlayer"] = {
 	skillTotemId = 24,
 	castTime = 1,
 	qualityStats = {
-		{ "withered_on_hit_for_2_seconds_%_chance", 2.5 },
 	},
 	levels = {
 		[1] = { levelRequirement = 0, cost = { Mana = 14, }, },
@@ -4319,6 +4326,7 @@ skills["DarkEffigyProjectilePlayer"] = {
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Projectile] = true, [SkillType.Chaos] = true, [SkillType.Area] = true, [SkillType.AreaSpell] = true, [SkillType.ProjectilesNumberModifiersNotApplied] = true, [SkillType.ProjectileNoCollision] = true, },
 	castTime = 1,
 	qualityStats = {
+		{ "withered_on_hit_for_2_seconds_%_chance", 2.5 },
 	},
 	levels = {
 		[1] = { critChance = 11, levelRequirement = 0, },
@@ -4937,7 +4945,15 @@ skills["DisciplinePlayer"] = {
 			label = "Discipline",
 			incrementalEffectiveness = 0.092720001935959,
 			statDescriptionScope = "discipline",
+			statMap = {
+				["discipline_grant_allies_total_maximum_energy_shield_+"] = {
+					mod("EnergyShield", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Aura" }),
+				},
+			},
 			baseFlags = {
+			},
+			baseMods = {
+				skill("auraCannotAffectSelf", true),
 			},
 			constantStats = {
 				{ "skill_desired_amount_override", 1 },
@@ -5580,6 +5596,14 @@ skills["EnfeeblePlayer"] = {
 			baseEffectiveness = 0,
 			incrementalEffectiveness = 0.092720001935959,
 			statDescriptionScope = "enfeeble",
+			statMap = {
+				["enfeeble_damage_+%_final"] = {
+					mod("Damage", "MORE", nil, 0, 0, { type = "GlobalEffect", effectType = "Curse" }, { type = "Condition", var = "Unique", neg = true }),
+				},
+				["enfeeble_damage_+%_vs_unique_final"] = {
+					mod("Damage", "MORE", nil, 0, 0, { type = "GlobalEffect", effectType = "Curse" }, { type = "Condition", var = "Unique" }),
+				},
+			},
 			baseFlags = {
 				area = true,
 				spell = true,
@@ -8300,6 +8324,11 @@ skills["FrozenLocusPlayer"] = {
 			label = "Crystal",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "ice_ambush_statset_0",
+			statMap = {
+				["frozen_locus_crystal_display_stat"] = {
+					-- Display Only
+				},
+			},
 			baseFlags = {
 				duration = true,
 			},
@@ -13282,6 +13311,12 @@ skills["SacrificePlayer"] = {
 			label = "Sacrifice",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "harvester",
+			statMap = {
+				["harvester_minion_resummon_speed_+%_final"] = {
+					mod("MinionRevivalTime", "MORE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff" } ),
+					mult = -1,
+				},
+			},
 			baseFlags = {
 				minion = true,
 			},
@@ -13768,6 +13803,14 @@ skills["SigilOfPowerPlayer"] = {
 			incrementalEffectiveness = 0.14000000059605,
 			damageIncrementalEffectiveness = 0.0065000001341105,
 			statDescriptionScope = "circle_of_power",
+			statMap = {
+				["circle_of_power_max_stages"] = {
+					mod("Multiplier:SigilOfPowerMaxStages", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", unscalable = true }),
+				},
+				["circle_of_power_spell_damage_+%_final_per_stage"] = {
+					mod("Damage", "MORE", nil, ModFlag.Spell, 0, { type = "GlobalEffect", effectType = "Buff" }, { type = "Multiplier", var = "SigilOfPowerStage", limitVar = "SigilOfPowerMaxStages" } ),
+				},
+			},
 			baseFlags = {
 				spell = true,
 				area = true,
@@ -15033,6 +15076,12 @@ skills["SolarOrbPlayer"] = {
 			incrementalEffectiveness = 0.14000000059605,
 			damageIncrementalEffectiveness = 0.0065000001341105,
 			statDescriptionScope = "solar_orb_statset_0",
+			statMap = {
+				["solar_orb_base_pulse_frequency_ms"] = {
+					skill("hitTimeOverride", nil),
+					div = 1000,
+				},
+			},
 			baseFlags = {
 				spell = true,
 				area = true,

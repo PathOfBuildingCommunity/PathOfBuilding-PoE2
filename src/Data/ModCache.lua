@@ -144,6 +144,9 @@ c["+100 to maximum Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="EnergyShi
 c["+100 to maximum Life"]={{[1]={flags=0,keywordFlags=0,name="Life",type="BASE",value=100}},nil}
 c["+100 to maximum Mana"]={{[1]={flags=0,keywordFlags=0,name="Mana",type="BASE",value=100}},nil}
 c["+1000 to maximum Life"]={{[1]={flags=0,keywordFlags=0,name="Life",type="BASE",value=1000}},nil}
+c["+104 to Accuracy Rating"]={{[1]={flags=0,keywordFlags=0,name="Accuracy",type="BASE",value=104}},nil}
+c["+110 to maximum Life"]={{[1]={flags=0,keywordFlags=0,name="Life",type="BASE",value=110}},nil}
+c["+111 to Accuracy Rating"]={{[1]={flags=0,keywordFlags=0,name="Accuracy",type="BASE",value=111}},nil}
 c["+113 to Stun Threshold"]={{[1]={flags=0,keywordFlags=0,name="StunThreshold",type="BASE",value=113}},nil}
 c["+12 to Strength"]={{[1]={flags=0,keywordFlags=0,name="Str",type="BASE",value=12}},nil}
 c["+12% chance to Suppress Spell Damage"]={{[1]={flags=0,keywordFlags=0,name="SpellSuppressionChance",type="BASE",value=12}},nil}
@@ -163,12 +166,15 @@ c["+13 to Intelligence"]={{[1]={flags=0,keywordFlags=0,name="Int",type="BASE",va
 c["+13 to Spirit"]={{[1]={flags=0,keywordFlags=0,name="Spirit",type="BASE",value=13}},nil}
 c["+13 to Strength"]={{[1]={flags=0,keywordFlags=0,name="Str",type="BASE",value=13}},nil}
 c["+13 to all Attributes"]={{[1]={flags=0,keywordFlags=0,name="Str",type="BASE",value=13},[2]={flags=0,keywordFlags=0,name="Dex",type="BASE",value=13},[3]={flags=0,keywordFlags=0,name="Int",type="BASE",value=13},[4]={flags=0,keywordFlags=0,name="All",type="BASE",value=13}},nil}
+c["+13% to Block chance"]={{[1]={flags=0,keywordFlags=0,name="BlockChance",type="BASE",value=13}},nil}
 c["+13% to Chaos Resistance"]={{[1]={flags=0,keywordFlags=0,name="ChaosResist",type="BASE",value=13}},nil}
 c["+13% to Cold Resistance"]={{[1]={flags=0,keywordFlags=0,name="ColdResist",type="BASE",value=13}},nil}
 c["+13% to Lightning Resistance"]={{[1]={flags=0,keywordFlags=0,name="LightningResist",type="BASE",value=13}},nil}
 c["+13% to all Elemental Resistances"]={{[1]={flags=0,keywordFlags=0,name="ElementalResist",type="BASE",value=13}},nil}
+c["+135 to maximum Life"]={{[1]={flags=0,keywordFlags=0,name="Life",type="BASE",value=135}},nil}
 c["+140 to Accuracy Rating"]={{[1]={flags=0,keywordFlags=0,name="Accuracy",type="BASE",value=140}},nil}
 c["+140 to Armour"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="BASE",value=140}},nil}
+c["+144 to Stun Threshold"]={{[1]={flags=0,keywordFlags=0,name="StunThreshold",type="BASE",value=144}},nil}
 c["+15 to Dexterity"]={{[1]={flags=0,keywordFlags=0,name="Dex",type="BASE",value=15}},nil}
 c["+15 to Evasion Rating"]={{[1]={flags=0,keywordFlags=0,name="Evasion",type="BASE",value=15}},nil}
 c["+15 to Intelligence"]={{[1]={flags=0,keywordFlags=0,name="Int",type="BASE",value=15}},nil}
@@ -178,6 +184,7 @@ c["+15 to all Attributes"]={{[1]={flags=0,keywordFlags=0,name="Str",type="BASE",
 c["+15 to maximum Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="EnergyShield",type="BASE",value=15}},nil}
 c["+15 to maximum Life"]={{[1]={flags=0,keywordFlags=0,name="Life",type="BASE",value=15}},nil}
 c["+15 to maximum Mana"]={{[1]={flags=0,keywordFlags=0,name="Mana",type="BASE",value=15}},nil}
+c["+15% to Block chance"]={{[1]={flags=0,keywordFlags=0,name="BlockChance",type="BASE",value=15}},nil}
 c["+15% to Chaos Resistance"]={{[1]={flags=0,keywordFlags=0,name="ChaosResist",type="BASE",value=15}},nil}
 c["+15% to Cold Resistance"]={{[1]={flags=0,keywordFlags=0,name="ColdResist",type="BASE",value=15}},nil}
 c["+15% to Critical Hit Chance"]={{[1]={flags=0,keywordFlags=0,name="CritChance",type="BASE",value=15}},nil}
@@ -195,10 +202,13 @@ c["+16% to Chaos Resistance"]={{[1]={flags=0,keywordFlags=0,name="ChaosResist",t
 c["+160 to Accuracy Rating"]={{[1]={flags=0,keywordFlags=0,name="Accuracy",type="BASE",value=160}},nil}
 c["+17% to Chaos Resistance"]={{[1]={flags=0,keywordFlags=0,name="ChaosResist",type="BASE",value=17}},nil}
 c["+175 to Stun Threshold"]={{[1]={flags=0,keywordFlags=0,name="StunThreshold",type="BASE",value=175}},nil}
+c["+18% to Chaos Resistance"]={{[1]={flags=0,keywordFlags=0,name="ChaosResist",type="BASE",value=18}},nil}
+c["+19 to maximum Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="EnergyShield",type="BASE",value=19}},nil}
 c["+19% to Chaos Resistance"]={{[1]={flags=0,keywordFlags=0,name="ChaosResist",type="BASE",value=19}},nil}
 c["+2 Charm Slot"]={{[1]={flags=0,keywordFlags=0,name="CharmLimit",type="BASE",value=2}},nil}
 c["+2 to Evasion Rating per 1 Maximum Energy Shield on Equipped Helmet"]={{[1]={[1]={div=1,stat="EnergyShieldOnHelmet",type="PerStat"},flags=0,keywordFlags=0,name="Evasion",type="BASE",value=2}},nil}
 c["+2 to Level of all Minion Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keyword="minion",value=2}}},nil}
+c["+2 to Level of all Projectile Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keyword="projectile",value=2}}},nil}
 c["+2 to Level of all Spell Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keyword="spell",value=2}}},nil}
 c["+2 to Level of all Withering Presence Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keyword="withering presence",value=2}}},nil}
 c["+2 to Maximum Endurance Charges"]={{[1]={flags=0,keywordFlags=0,name="EnduranceChargesMax",type="BASE",value=2}},nil}
@@ -211,6 +221,7 @@ c["+2% to Maximum Cold Resistance"]={{[1]={flags=0,keywordFlags=0,name="ColdResi
 c["+2% to Maximum Fire Resistance"]={{[1]={flags=0,keywordFlags=0,name="FireResistMax",type="BASE",value=2}},nil}
 c["+2% to Maximum Lightning Resistance"]={{[1]={flags=0,keywordFlags=0,name="LightningResistMax",type="BASE",value=2}},nil}
 c["+2% to Quality of all Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="quality",keyOfScaledMod="value",keyword="all",value=2}}},nil}
+c["+2.4% to Critical Hit Chance"]={{[1]={flags=0,keywordFlags=0,name="CritChance",type="BASE",value=2.4}},nil}
 c["+20 to Armour"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="BASE",value=20}},nil}
 c["+20 to Dexterity"]={{[1]={flags=0,keywordFlags=0,name="Dex",type="BASE",value=20}},nil}
 c["+20 to Evasion Rating"]={{[1]={flags=0,keywordFlags=0,name="Evasion",type="BASE",value=20}},nil}
@@ -227,6 +238,11 @@ c["+20% to Fire Resistance"]={{[1]={flags=0,keywordFlags=0,name="FireResist",typ
 c["+20% to Lightning Resistance"]={{[1]={flags=0,keywordFlags=0,name="LightningResist",type="BASE",value=20}},nil}
 c["+20% to all Elemental Resistances"]={{[1]={flags=0,keywordFlags=0,name="ElementalResist",type="BASE",value=20}},nil}
 c["+200 to Stun Threshold"]={{[1]={flags=0,keywordFlags=0,name="StunThreshold",type="BASE",value=200}},nil}
+c["+202 to Accuracy Rating"]={{[1]={flags=0,keywordFlags=0,name="Accuracy",type="BASE",value=202}},nil}
+c["+218 to maximum Mana"]={{[1]={flags=0,keywordFlags=0,name="Mana",type="BASE",value=218}},nil}
+c["+23 to Dexterity"]={{[1]={flags=0,keywordFlags=0,name="Dex",type="BASE",value=23}},nil}
+c["+23 to Intelligence"]={{[1]={flags=0,keywordFlags=0,name="Int",type="BASE",value=23}},nil}
+c["+23 to Strength"]={{[1]={flags=0,keywordFlags=0,name="Str",type="BASE",value=23}},nil}
 c["+23% to Chaos Resistance"]={{[1]={flags=0,keywordFlags=0,name="ChaosResist",type="BASE",value=23}},nil}
 c["+23% to Fire Resistance"]={{[1]={flags=0,keywordFlags=0,name="FireResist",type="BASE",value=23}},nil}
 c["+23% to Lightning Resistance"]={{[1]={flags=0,keywordFlags=0,name="LightningResist",type="BASE",value=23}},nil}
@@ -235,6 +251,7 @@ c["+25 to Armour"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="BASE",value
 c["+25 to Dexterity"]={{[1]={flags=0,keywordFlags=0,name="Dex",type="BASE",value=25}},nil}
 c["+25 to Evasion Rating"]={{[1]={flags=0,keywordFlags=0,name="Evasion",type="BASE",value=25}},nil}
 c["+25 to Intelligence"]={{[1]={flags=0,keywordFlags=0,name="Int",type="BASE",value=25}},nil}
+c["+25 to Spirit"]={{[1]={flags=0,keywordFlags=0,name="Spirit",type="BASE",value=25}},nil}
 c["+25 to Strength"]={{[1]={flags=0,keywordFlags=0,name="Str",type="BASE",value=25}},nil}
 c["+25 to maximum Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="EnergyShield",type="BASE",value=25}},nil}
 c["+25 to maximum Life"]={{[1]={flags=0,keywordFlags=0,name="Life",type="BASE",value=25}},nil}
@@ -249,7 +266,11 @@ c["+25% to Thorns Critical Hit Chance 15 to 25 Physical Thorns damage"]={{[1]={f
 c["+250 to Accuracy against Bleeding Enemies"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Bleeding"},flags=0,keywordFlags=0,name="AccuracyVsEnemy",type="BASE",value=250}},nil}
 c["+250 to Stun Threshold"]={{[1]={flags=0,keywordFlags=0,name="StunThreshold",type="BASE",value=250}},nil}
 c["+2500 to Stun Threshold"]={{[1]={flags=0,keywordFlags=0,name="StunThreshold",type="BASE",value=2500}},nil}
+c["+28 to maximum Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="EnergyShield",type="BASE",value=28}},nil}
 c["+28% to Cold Resistance"]={{[1]={flags=0,keywordFlags=0,name="ColdResist",type="BASE",value=28}},nil}
+c["+28% to Fire Resistance"]={{[1]={flags=0,keywordFlags=0,name="FireResist",type="BASE",value=28}},nil}
+c["+28% to Lightning Resistance"]={{[1]={flags=0,keywordFlags=0,name="LightningResist",type="BASE",value=28}},nil}
+c["+29 to Strength"]={{[1]={flags=0,keywordFlags=0,name="Str",type="BASE",value=29}},nil}
 c["+3 to Level of all Alchemist's Boon Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keyword="alchemist's boon",value=3}}},nil}
 c["+3 to Level of all Ancestral Spirits Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keyword="ancestral spirits",value=3}}},nil}
 c["+3 to Level of all Ancestral Warrior Totem Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keyword="ancestral warrior totem",value=3}}},nil}
@@ -505,14 +526,24 @@ c["+35 to Spirit"]={{[1]={flags=0,keywordFlags=0,name="Spirit",type="BASE",value
 c["+35 to maximum Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="EnergyShield",type="BASE",value=35}},nil}
 c["+35 to maximum Life"]={{[1]={flags=0,keywordFlags=0,name="Life",type="BASE",value=35}},nil}
 c["+35% to Cold Resistance"]={{[1]={flags=0,keywordFlags=0,name="ColdResist",type="BASE",value=35}},nil}
+c["+35% to Critical Damage Bonus"]={{[1]={flags=0,keywordFlags=0,name="CritMultiplier",type="BASE",value=35}},nil}
 c["+35% to Fire Resistance"]={{[1]={flags=0,keywordFlags=0,name="FireResist",type="BASE",value=35}},nil}
 c["+35% to Lightning Resistance"]={{[1]={flags=0,keywordFlags=0,name="LightningResist",type="BASE",value=35}},nil}
 c["+35% to all Elemental Resistances"]={{[1]={flags=0,keywordFlags=0,name="ElementalResist",type="BASE",value=35}},nil}
 c["+350 to Accuracy Rating"]={{[1]={flags=0,keywordFlags=0,name="Accuracy",type="BASE",value=350}},nil}
+c["+36 to maximum Mana"]={{[1]={flags=0,keywordFlags=0,name="Mana",type="BASE",value=36}},nil}
 c["+37% to Chaos Resistance"]={{[1]={flags=0,keywordFlags=0,name="ChaosResist",type="BASE",value=37}},nil}
+c["+39 to Evasion Rating"]={{[1]={flags=0,keywordFlags=0,name="Evasion",type="BASE",value=39}},nil}
 c["+4 to Ailment Threshold per Dexterity"]={{[1]={flags=0,keywordFlags=0,name="Dex",type="BASE",value=4}}," Ailment Threshold per  "}
+c["+4 to Level of all Chaos Spell Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keywordList={[1]="chaos",[2]="spell"},value=4}}},nil}
 c["+4 to Level of all Elemental Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keyword="elemental",value=4}}},nil}
 c["+4 to Level of all Fire Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keyword="fire",value=4}}},nil}
+c["+4 to Level of all Fire Spell Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keywordList={[1]="fire",[2]="spell"},value=4}}},nil}
+c["+4 to Level of all Melee Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keyword="melee",value=4}}},nil}
+c["+4 to Level of all Minion Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keyword="minion",value=4}}},nil}
+c["+4 to Level of all Physical Spell Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keywordList={[1]="physical",[2]="spell"},value=4}}},nil}
+c["+4 to Level of all Projectile Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keyword="projectile",value=4}}},nil}
+c["+4 to Level of all Spell Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keyword="spell",value=4}}},nil}
 c["+4 to Maximum Rage"]={{[1]={flags=0,keywordFlags=0,name="MaximumRage",type="BASE",value=4}},nil}
 c["+4% to Critical Hit Chance"]={{[1]={flags=0,keywordFlags=0,name="CritChance",type="BASE",value=4}},nil}
 c["+4% to Maximum Cold Resistance"]={{[1]={flags=0,keywordFlags=0,name="ColdResistMax",type="BASE",value=4}},nil}
@@ -532,12 +563,17 @@ c["+40 to maximum Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="EnergyShie
 c["+40 to maximum Life"]={{[1]={flags=0,keywordFlags=0,name="Life",type="BASE",value=40}},nil}
 c["+40 to maximum Mana"]={{[1]={flags=0,keywordFlags=0,name="Mana",type="BASE",value=40}},nil}
 c["+40% to Cold Resistance"]={{[1]={flags=0,keywordFlags=0,name="ColdResist",type="BASE",value=40}},nil}
+c["+40% to Critical Damage Bonus"]={{[1]={flags=0,keywordFlags=0,name="CritMultiplier",type="BASE",value=40}},nil}
 c["+40% to Fire Resistance"]={{[1]={flags=0,keywordFlags=0,name="FireResist",type="BASE",value=40}},nil}
 c["+40% to Lightning Resistance"]={{[1]={flags=0,keywordFlags=0,name="LightningResist",type="BASE",value=40}},nil}
 c["+40% to all Elemental Resistances"]={{[1]={flags=0,keywordFlags=0,name="ElementalResist",type="BASE",value=40}},nil}
 c["+400 to Accuracy Rating"]={{[1]={flags=0,keywordFlags=0,name="Accuracy",type="BASE",value=400}},nil}
+c["+45 to Armour"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="BASE",value=45}},nil}
 c["+45 to Intelligence"]={{[1]={flags=0,keywordFlags=0,name="Int",type="BASE",value=45}},nil}
+c["+45 to Spirit"]={{[1]={flags=0,keywordFlags=0,name="Spirit",type="BASE",value=45}},nil}
 c["+45 to Strength"]={{[1]={flags=0,keywordFlags=0,name="Str",type="BASE",value=45}},nil}
+c["+45 to maximum Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="EnergyShield",type="BASE",value=45}},nil}
+c["+48 to Evasion Rating"]={{[1]={flags=0,keywordFlags=0,name="Evasion",type="BASE",value=48}},nil}
 c["+5 to Dexterity"]={{[1]={flags=0,keywordFlags=0,name="Dex",type="BASE",value=5}},nil}
 c["+5 to Dexterity and Intelligence"]={{[1]={flags=0,keywordFlags=0,name="Dex",type="BASE",value=5},[2]={flags=0,keywordFlags=0,name="Int",type="BASE",value=5},[3]={flags=0,keywordFlags=0,name="DexInt",type="BASE",value=5}},nil}
 c["+5 to Intelligence"]={{[1]={flags=0,keywordFlags=0,name="Int",type="BASE",value=5}},nil}
@@ -577,6 +613,13 @@ c["+50 to maximum Mana"]={{[1]={flags=0,keywordFlags=0,name="Mana",type="BASE",v
 c["+50% to Cold Resistance"]={{[1]={flags=0,keywordFlags=0,name="ColdResist",type="BASE",value=50}},nil}
 c["+50% to Fire Resistance"]={{[1]={flags=0,keywordFlags=0,name="FireResist",type="BASE",value=50}},nil}
 c["+50% to Lightning Resistance"]={{[1]={flags=0,keywordFlags=0,name="LightningResist",type="BASE",value=50}},nil}
+c["+52 to Spirit"]={{[1]={flags=0,keywordFlags=0,name="Spirit",type="BASE",value=52}},nil}
+c["+54 to maximum Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="EnergyShield",type="BASE",value=54}},nil}
+c["+57 to maximum Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="EnergyShield",type="BASE",value=57}},nil}
+c["+6 to Level of all Cold Spell Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keywordList={[1]="cold",[2]="spell"},value=6}}},nil}
+c["+6 to Level of all Fire Spell Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keywordList={[1]="fire",[2]="spell"},value=6}}},nil}
+c["+6 to Level of all Melee Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keyword="melee",value=6}}},nil}
+c["+6 to Level of all Projectile Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keyword="projectile",value=6}}},nil}
 c["+6 to all Attributes"]={{[1]={flags=0,keywordFlags=0,name="Str",type="BASE",value=6},[2]={flags=0,keywordFlags=0,name="Dex",type="BASE",value=6},[3]={flags=0,keywordFlags=0,name="Int",type="BASE",value=6},[4]={flags=0,keywordFlags=0,name="All",type="BASE",value=6}},nil}
 c["+6% chance to Suppress Spell Damage"]={{[1]={flags=0,keywordFlags=0,name="SpellSuppressionChance",type="BASE",value=6}},nil}
 c["+6% to Critical Hit Chance of Herald Skills"]={{[1]={[1]={skillType=62,type="SkillType"},flags=0,keywordFlags=0,name="CritChance",type="BASE",value=6}},nil}
@@ -589,7 +632,9 @@ c["+60 to maximum Life"]={{[1]={flags=0,keywordFlags=0,name="Life",type="BASE",v
 c["+60 to maximum Mana"]={{[1]={flags=0,keywordFlags=0,name="Mana",type="BASE",value=60}},nil}
 c["+60% to Critical Damage Bonus"]={{[1]={flags=0,keywordFlags=0,name="CritMultiplier",type="BASE",value=60}},nil}
 c["+63% to Cold Resistance"]={{[1]={flags=0,keywordFlags=0,name="ColdResist",type="BASE",value=63}},nil}
+c["+64 to Evasion Rating"]={{[1]={flags=0,keywordFlags=0,name="Evasion",type="BASE",value=64}},nil}
 c["+65 to maximum Life"]={{[1]={flags=0,keywordFlags=0,name="Life",type="BASE",value=65}},nil}
+c["+67 to maximum Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="EnergyShield",type="BASE",value=67}},nil}
 c["+7 to all Attributes"]={{[1]={flags=0,keywordFlags=0,name="Str",type="BASE",value=7},[2]={flags=0,keywordFlags=0,name="Dex",type="BASE",value=7},[3]={flags=0,keywordFlags=0,name="Int",type="BASE",value=7},[4]={flags=0,keywordFlags=0,name="All",type="BASE",value=7}},nil}
 c["+7% to Chaos Resistance"]={{[1]={flags=0,keywordFlags=0,name="ChaosResist",type="BASE",value=7}},nil}
 c["+7.5% to Critical Hit Chance"]={{[1]={flags=0,keywordFlags=0,name="CritChance",type="BASE",value=7.5}},nil}
@@ -600,9 +645,12 @@ c["+70 to Stun Threshold"]={{[1]={flags=0,keywordFlags=0,name="StunThreshold",ty
 c["+70 to maximum Life"]={{[1]={flags=0,keywordFlags=0,name="Life",type="BASE",value=70}},nil}
 c["+70 to maximum Mana"]={{[1]={flags=0,keywordFlags=0,name="Mana",type="BASE",value=70}},nil}
 c["+70% to Critical Damage Bonus"]={{[1]={flags=0,keywordFlags=0,name="CritMultiplier",type="BASE",value=70}},nil}
+c["+72 to Armour"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="BASE",value=72}},nil}
 c["+75 to Accuracy Rating"]={{[1]={flags=0,keywordFlags=0,name="Accuracy",type="BASE",value=75}},nil}
 c["+75 to maximum Mana"]={{[1]={flags=0,keywordFlags=0,name="Mana",type="BASE",value=75}},nil}
 c["+75% to Cold Resistance"]={{[1]={flags=0,keywordFlags=0,name="ColdResist",type="BASE",value=75}},nil}
+c["+76 to Armour"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="BASE",value=76}},nil}
+c["+77 to maximum Life"]={{[1]={flags=0,keywordFlags=0,name="Life",type="BASE",value=77}},nil}
 c["+8 to Dexterity"]={{[1]={flags=0,keywordFlags=0,name="Dex",type="BASE",value=8}},nil}
 c["+8 to Evasion Rating"]={{[1]={flags=0,keywordFlags=0,name="Evasion",type="BASE",value=8}},nil}
 c["+8 to Intelligence"]={{[1]={flags=0,keywordFlags=0,name="Int",type="BASE",value=8}},nil}
@@ -618,9 +666,15 @@ c["+80 to Evasion Rating"]={{[1]={flags=0,keywordFlags=0,name="Evasion",type="BA
 c["+80 to Stun Threshold"]={{[1]={flags=0,keywordFlags=0,name="StunThreshold",type="BASE",value=80}},nil}
 c["+80 to maximum Life"]={{[1]={flags=0,keywordFlags=0,name="Life",type="BASE",value=80}},nil}
 c["+80 to maximum Mana"]={{[1]={flags=0,keywordFlags=0,name="Mana",type="BASE",value=80}},nil}
+c["+85 to maximum Mana"]={{[1]={flags=0,keywordFlags=0,name="Mana",type="BASE",value=85}},nil}
+c["+86 to maximum Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="EnergyShield",type="BASE",value=86}},nil}
+c["+9% to all Elemental Resistances"]={{[1]={flags=0,keywordFlags=0,name="ElementalResist",type="BASE",value=9}},nil}
 c["+90 to all Attributes"]={{[1]={flags=0,keywordFlags=0,name="Str",type="BASE",value=90},[2]={flags=0,keywordFlags=0,name="Dex",type="BASE",value=90},[3]={flags=0,keywordFlags=0,name="Int",type="BASE",value=90},[4]={flags=0,keywordFlags=0,name="All",type="BASE",value=90}},nil}
 c["+90 to maximum Life"]={{[1]={flags=0,keywordFlags=0,name="Life",type="BASE",value=90}},nil}
 c["+90 to maximum Mana"]={{[1]={flags=0,keywordFlags=0,name="Mana",type="BASE",value=90}},nil}
+c["+92 to maximum Life"]={{[1]={flags=0,keywordFlags=0,name="Life",type="BASE",value=92}},nil}
+c["+93 to Armour"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="BASE",value=93}},nil}
+c["+94 to Armour"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="BASE",value=94}},nil}
 c["-1 to all Attributes per Level"]={{[1]={[1]={type="Multiplier",var="Level"},flags=0,keywordFlags=0,name="Str",type="BASE",value=-1},[2]={[1]={type="Multiplier",var="Level"},flags=0,keywordFlags=0,name="Dex",type="BASE",value=-1},[3]={[1]={type="Multiplier",var="Level"},flags=0,keywordFlags=0,name="Int",type="BASE",value=-1},[4]={[1]={type="Multiplier",var="Level"},flags=0,keywordFlags=0,name="All",type="BASE",value=-1}},nil}
 c["-1% to all Maximum Elemental Resistances"]={{[1]={flags=0,keywordFlags=0,name="ElementalResistMax",type="BASE",value=-1}},nil}
 c["-10 Physical Damage taken from Attack Hits"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamageTakenFromAttacks",type="BASE",value=-10}},nil}
@@ -891,6 +945,7 @@ c["100% of Lightning Damage Converted to Cold Damage"]={{[1]={flags=0,keywordFla
 c["100% of Strength Requirements from Boots, Gloves and Helmets also added to Armour"]={{[1]={[1]={percent=100,stat="StrRequirementsOnBoots",type="PerStat"},flags=0,keywordFlags=0,name="Armour",type="BASE",value=1},[2]={[1]={percent=100,stat="StrRequirementsOnGloves",type="PerStat"},flags=0,keywordFlags=0,name="Armour",type="BASE",value=1},[3]={[1]={percent=100,stat="StrRequirementsOnHelmet",type="PerStat"},flags=0,keywordFlags=0,name="Armour",type="BASE",value=1}},nil}
 c["11% increased Chaos Damage"]={{[1]={flags=0,keywordFlags=0,name="ChaosDamage",type="INC",value=11}},nil}
 c["11% increased Rarity of Items found"]={{[1]={flags=0,keywordFlags=0,name="LootRarity",type="INC",value=11}},nil}
+c["119% increased Spell Damage"]={{[1]={flags=2,keywordFlags=0,name="Damage",type="INC",value=119}},nil}
 c["12 Life Regeneration per second"]={{[1]={flags=0,keywordFlags=0,name="LifeRegen",type="BASE",value=12}},nil}
 c["12% chance for Spell Skills to fire 2 additional Projectiles"]={{[1]={flags=2,keywordFlags=0,name="TwoAdditionalProjectilesChance",type="BASE",value=12}},nil}
 c["12% increased Accuracy Rating"]={{[1]={flags=0,keywordFlags=0,name="Accuracy",type="INC",value=12}},nil}
@@ -900,6 +955,7 @@ c["12% increased Armour and Evasion Rating"]={{[1]={flags=0,keywordFlags=0,name=
 c["12% increased Attack Area Damage"]={{[1]={flags=513,keywordFlags=0,name="Damage",type="INC",value=12}},nil}
 c["12% increased Attack Damage"]={{[1]={flags=1,keywordFlags=0,name="Damage",type="INC",value=12}},nil}
 c["12% increased Attack Damage while Dual Wielding"]={{[1]={[1]={type="Condition",var="DualWielding"},flags=1,keywordFlags=0,name="Damage",type="INC",value=12}},nil}
+c["12% increased Attack Speed"]={{[1]={flags=1,keywordFlags=0,name="Speed",type="INC",value=12}},nil}
 c["12% increased Attack Speed during any Flask Effect"]={{[1]={[1]={type="Condition",var="UsingFlask"},flags=1,keywordFlags=0,name="Speed",type="INC",value=12}},nil}
 c["12% increased Attack Speed if you've been Hit Recently"]={{[1]={[1]={type="Condition",var="BeenHitRecently"},flags=1,keywordFlags=0,name="Speed",type="INC",value=12}},nil}
 c["12% increased Attack and Cast Speed if you've summoned a Totem Recently"]={{[1]={[1]={type="Condition",var="SummonedTotemRecently"},flags=0,keywordFlags=0,name="Speed",type="INC",value=12}},nil}
@@ -959,6 +1015,7 @@ c["120% increased Evasion and Energy Shield"]={{[1]={flags=0,keywordFlags=0,name
 c["120% increased Fire Damage"]={{[1]={flags=0,keywordFlags=0,name="FireDamage",type="INC",value=120}},nil}
 c["120% increased Lightning Damage"]={{[1]={flags=0,keywordFlags=0,name="LightningDamage",type="INC",value=120}},nil}
 c["120% increased Physical Damage"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamage",type="INC",value=120}},nil}
+c["120% increased Spell Damage"]={{[1]={flags=2,keywordFlags=0,name="Damage",type="INC",value=120}},nil}
 c["125% increased Armour"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="INC",value=125}},nil}
 c["125% increased Armour and Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="ArmourAndEnergyShield",type="INC",value=125}},nil}
 c["125% increased Armour and Evasion"]={{[1]={flags=0,keywordFlags=0,name="ArmourAndEvasion",type="INC",value=125}},nil}
@@ -968,6 +1025,7 @@ c["125% increased Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="EnergyShie
 c["125% increased Evasion Rating"]={{[1]={flags=0,keywordFlags=0,name="Evasion",type="INC",value=125}},nil}
 c["125% increased Evasion and Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="EvasionAndEnergyShield",type="INC",value=125}},nil}
 c["13% chance to Gain 50% of Damage with Hits as Extra Chaos Damage"]={{[1]={flags=4,keywordFlags=0,name="DamageGainAsChaos",type="BASE",value=6.5}},nil}
+c["13% chance to Poison on Hit with Attacks"]={{[1]={flags=0,keywordFlags=65536,name="PoisonChance",type="BASE",value=13}},nil}
 c["13% increased Attack Speed"]={{[1]={flags=1,keywordFlags=0,name="Speed",type="INC",value=13}},nil}
 c["13% increased Cast Speed"]={{[1]={flags=16,keywordFlags=0,name="Speed",type="INC",value=13}},nil}
 c["13% increased Movement Speed"]={{[1]={flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=13}},nil}
@@ -996,6 +1054,7 @@ c["15% chance for Crossbow Attacks to not consume a bolt"]={{}," for  Attacks to
 c["15% chance to Blind Enemies on Hit with Attacks"]={{[1]={flags=0,keywordFlags=65536,name="BlindChance",type="BASE",value=15}},nil}
 c["15% chance to Pierce an Enemy"]={{}," to Pierce an Enemy "}
 c["15% chance to Pierce an Enemy 15% increased Projectile Damage"]={{[1]={flags=1024,keywordFlags=0,name="Damage",type="BASE",value=15}}," to Pierce an Enemy 15% increased  "}
+c["15% chance to Poison on Hit with Attacks"]={{[1]={flags=0,keywordFlags=65536,name="PoisonChance",type="BASE",value=15}},nil}
 c["15% chance to gain a Power Charge on Critical Hit"]={nil,"a Power Charge "}
 c["15% chance to inflict Bleeding on Critical Hit"]={{[1]={[1]={type="Condition",var="CriticalStrike"},flags=0,keywordFlags=0,name="BleedChance",type="BASE",value=15}},nil}
 c["15% chance to not destroy Corpses when Consuming Corpses"]={{}," to not destroy Corpses when Consuming Corpses "}
@@ -1157,9 +1216,11 @@ c["16% reduced Skill Effect Duration"]={{[1]={flags=0,keywordFlags=0,name="Durat
 c["160% increased Armour"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="INC",value=160}},nil}
 c["160% increased Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="EnergyShield",type="INC",value=160}},nil}
 c["160% increased Physical Damage"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamage",type="INC",value=160}},nil}
+c["172% increased Physical Damage"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamage",type="INC",value=172}},nil}
 c["175% increased Armour"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="INC",value=175}},nil}
 c["175% increased Armour and Evasion"]={{[1]={flags=0,keywordFlags=0,name="ArmourAndEvasion",type="INC",value=175}},nil}
 c["175% increased Evasion and Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="EvasionAndEnergyShield",type="INC",value=175}},nil}
+c["179% increased Spell Damage"]={{[1]={flags=2,keywordFlags=0,name="Damage",type="INC",value=179}},nil}
 c["18% increased Armour"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="INC",value=18}},nil}
 c["18% increased Attack Speed"]={{[1]={flags=1,keywordFlags=0,name="Speed",type="INC",value=18}},nil}
 c["18% increased Chaos Damage"]={{[1]={flags=0,keywordFlags=0,name="ChaosDamage",type="INC",value=18}},nil}
@@ -1178,6 +1239,7 @@ c["18% increased maximum Energy Shield"]={{[1]={[1]={type="Global"},flags=0,keyw
 c["18% of Damage taken Recouped as Life"]={{[1]={flags=0,keywordFlags=0,name="LifeRecoup",type="BASE",value=18}},nil}
 c["18% of Damage taken Recouped as Mana"]={{[1]={flags=0,keywordFlags=0,name="ManaRecoup",type="BASE",value=18}},nil}
 c["18% of Skill Mana Costs Converted to Life Costs"]={{[1]={flags=0,keywordFlags=0,name="HybridManaAndLifeCost_Life",type="BASE",value=18}},nil}
+c["19% increased Cast Speed"]={{[1]={flags=16,keywordFlags=0,name="Speed",type="INC",value=19}},nil}
 c["2 Mana gained when you Block"]={{[1]={flags=0,keywordFlags=0,name="ManaOnBlock",type="BASE",value=2}},nil}
 c["2% chance to Recover all Life when you Kill an Enemy"]={{[1]={[1]={percent=2,stat="Life",type="PercentStat"},[2]={type="Condition",var="AverageResourceGain"},flags=0,keywordFlags=0,name="LifeOnKill",type="BASE",value=1},[2]={[1]={percent=100,stat="Life",type="PercentStat"},[2]={type="Condition",var="MaxResourceGain"},flags=0,keywordFlags=0,name="LifeOnKill",type="BASE",value=1}},nil}
 c["2% increased Area of Effect for Attacks per 5 Intelligence"]={{[1]={[1]={div=5,stat="Int",type="PerStat"},flags=1,keywordFlags=0,name="AreaOfEffect",type="INC",value=2}},nil}
@@ -1367,9 +1429,11 @@ c["200% increased Armour"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="INC
 c["200% increased Armour and Evasion"]={{[1]={flags=0,keywordFlags=0,name="ArmourAndEvasion",type="INC",value=200}},nil}
 c["200% increased Critical Hit Chance"]={{[1]={flags=0,keywordFlags=0,name="CritChance",type="INC",value=200}},nil}
 c["200% increased Evasion and Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="EvasionAndEnergyShield",type="INC",value=200}},nil}
-c["200% increased Ice Crystal Life"]={{[1]={flags=0,keywordFlags=0,name="Life",type="INC",value=200}}," Ice Crystal  "}
+c["200% increased Ice Crystal Life"]={{[1]={flags=0,keywordFlags=0,name="IceCrystalLife",type="INC",value=200}},nil}
 c["200% increased Stun Recovery"]={{[1]={flags=0,keywordFlags=0,name="StunRecovery",type="INC",value=200}},nil}
 c["200% increased bonuses gained from Equipped Quiver"]={{[1]={flags=0,keywordFlags=0,name="EffectOfBonusesFromQuiver",type="INC",value=200}},nil}
+c["22% increased Critical Damage Bonus for Attack Damage"]={{[1]={flags=1,keywordFlags=0,name="CritMultiplier",type="INC",value=22}},nil}
+c["22% increased Critical Hit Chance for Attacks"]={{[1]={flags=1,keywordFlags=0,name="CritChance",type="INC",value=22}},nil}
 c["22.5 Life Regeneration per second"]={{[1]={flags=0,keywordFlags=0,name="LifeRegen",type="BASE",value=22.5}},nil}
 c["225% increased Duration"]={{[1]={flags=0,keywordFlags=0,name="Duration",type="INC",value=225}},nil}
 c["23% chance to Gain 25% of Damage with Hits as Extra Chaos Damage"]={{[1]={flags=4,keywordFlags=0,name="DamageGainAsChaos",type="BASE",value=5.75}},nil}
@@ -1394,6 +1458,7 @@ c["25% chance for Projectiles to Pierce Enemies within 3m distance of you"]={{[1
 c["25% chance for Trigger skills to refund half of Energy Spent"]={{}," for Trigger skills to refund half of Energy Spent "}
 c["25% chance on Consuming a Shock on an Enemy to reapply it"]={{}," on Consuming a Shock on an Enemy to reapply it "}
 c["25% chance on Shocking Enemies to created Shocked Ground"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="OnShockedGround"},flags=0,keywordFlags=0,name="ShockBase",type="BASE",value=20}},nil}
+c["25% chance to Avoid Chaos Damage from Hits"]={{[1]={flags=0,keywordFlags=0,name="AvoidChaosDamageChance",type="BASE",value=25}},nil}
 c["25% chance to Avoid Physical Damage from Hits"]={{[1]={flags=0,keywordFlags=0,name="AvoidPhysicalDamageChance",type="BASE",value=25}},nil}
 c["25% chance to Intimidate Enemies for 4 seconds on Hit"]={{}," to Intimidate Enemies   "}
 c["25% chance to Poison on Hit"]={{[1]={flags=0,keywordFlags=0,name="PoisonChance",type="BASE",value=25}},nil}
@@ -1544,6 +1609,7 @@ c["250% increased Duration"]={{[1]={flags=0,keywordFlags=0,name="Duration",type=
 c["250% increased bonuses gained from Equipped Quiver"]={{[1]={flags=0,keywordFlags=0,name="EffectOfBonusesFromQuiver",type="INC",value=250}},nil}
 c["250% of Melee Physical Damage taken reflected to Attacker"]={{[1]={flags=256,keywordFlags=0,name="PhysicalDamage",type="BASE",value=250}},"  taken reflected to Attacker "}
 c["250% of Melee Physical Damage taken reflected to Attacker Regenerate 5% of Life per second while Surrounded"]={{[1]={[1]={type="Condition",var="Surrounded"},flags=256,keywordFlags=0,name="PhysicalDamage",type="BASE",value=250}},"  taken reflected to Attacker Regenerate 5% of Life per second  "}
+c["26% reduced Charges per use"]={{[1]={flags=0,keywordFlags=0,name="FlaskChargesUsed",type="INC",value=-26}},nil}
 c["28% increased maximum Energy Shield"]={{[1]={[1]={type="Global"},flags=0,keywordFlags=0,name="EnergyShield",type="INC",value=28}},nil}
 c["29% increased Chaos Damage"]={{[1]={flags=0,keywordFlags=0,name="ChaosDamage",type="INC",value=29}},nil}
 c["3 Life Regeneration per second"]={{[1]={flags=0,keywordFlags=0,name="LifeRegen",type="BASE",value=3}},nil}
@@ -1583,6 +1649,9 @@ c["3% of Damage Taken Recouped as Life, Mana and Energy Shield"]={{[1]={flags=0,
 c["3% of Damage taken Recouped as Life"]={{[1]={flags=0,keywordFlags=0,name="LifeRecoup",type="BASE",value=3}},nil}
 c["30 to 40 Physical Thorns damage"]={{[1]={flags=0,keywordFlags=0,name="Damage",type="BASE",value=30}}," to 40 Physical Thorns  "}
 c["30% chance that if you would gain Frenzy Charges, you instead gain up to your maximum number of Frenzy Charges"]={{[1]={flags=0,keywordFlags=0,name="FlaskCharges",type="BASE",value=30}}," that if you would gain Frenzy , you instead gain up to your maximum number of Frenzy Charges "}
+c["30% chance to Chain an additional time"]={{}," to Chain an additional time "}
+c["30% chance to Chain an additional time 172% increased Physical Damage"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamage",type="BASE",value=30}}," to Chain an additional time 172% increased  "}
+c["30% chance to Chain an additional time Adds 44 to 66 Fire Damage"]={{[1]={flags=0,keywordFlags=0,name="FireDamage",type="BASE",value=30}}," to Chain an additional time Adds 44 to 66  "}
 c["30% chance to Pierce an Enemy"]={{}," to Pierce an Enemy "}
 c["30% chance to Pierce an Enemy Projectiles have 10% chance to Chain an additional time from terrain"]={{[1]={flags=0,keywordFlags=0,name="ProjectileCount",type="BASE",value=30}}," to Pierce an Enemy  have 10% chance to Chain an additional time from terrain "}
 c["30% chance to Poison on Hit"]={{[1]={flags=0,keywordFlags=0,name="PoisonChance",type="BASE",value=30}},nil}
@@ -1591,7 +1660,7 @@ c["30% faster start of Energy Shield Recharge when not on Full Life"]={{[1]={[1]
 c["30% increased Accuracy Rating"]={{[1]={flags=0,keywordFlags=0,name="Accuracy",type="INC",value=30}},nil}
 c["30% increased Accuracy Rating against Rare or Unique Enemies"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="RareOrUnique"},flags=0,keywordFlags=0,name="Accuracy",type="INC",value=30}},nil}
 c["30% increased Accuracy Rating at Close Range"]={{[1]={[1]={type="Condition",var="AtCloseRange"},flags=0,keywordFlags=0,name="AccuracyVsEnemy",type="INC",value=30}},nil}
-c["30% increased Area of Effect if you've Stunned an Enemy with a Two Handed Melee Weapon Recently"]={{[1]={[1]={type="Condition",var="StunnedEnemyRecently"},flags=38654705664,keywordFlags=0,name="AreaOfEffect",type="INC",value=30}},nil}
+c["30% increased Area of Effect if you've Stunned an Enemy with a Two Handed Melee Weapon Recently"]={{[1]={[1]={type="Condition",var="UsingTwoHandedWeapon"},[2]={type="Condition",var="UsingMeleeWeapon"},[3]={type="Condition",var="StunnedEnemyRecently"},flags=0,keywordFlags=0,name="AreaOfEffect",type="INC",value=30}},nil}
 c["30% increased Armour"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="INC",value=30}},nil}
 c["30% increased Armour while Surrounded"]={{[1]={[1]={type="Condition",var="Surrounded"},flags=0,keywordFlags=0,name="Armour",type="INC",value=30}},nil}
 c["30% increased Attack Damage against Rare or Unique Enemies"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="RareOrUnique"},flags=1,keywordFlags=0,name="Damage",type="INC",value=30}},nil}
@@ -1600,7 +1669,9 @@ c["30% increased Attack Damage when on Full Life"]={{[1]={[1]={type="Condition",
 c["30% increased Attack Speed"]={{[1]={flags=1,keywordFlags=0,name="Speed",type="INC",value=30}},nil}
 c["30% increased Block chance"]={{[1]={flags=0,keywordFlags=0,name="BlockChance",type="INC",value=30}},nil}
 c["30% increased Bolt Speed"]={{}," Bolt Speed "}
+c["30% increased Bolt Speed 172% increased Physical Damage"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamage",type="INC",value=30}}," Bolt Speed 172% increased  "}
 c["30% increased Bolt Speed 60% increased Physical Damage"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamage",type="INC",value=30}}," Bolt Speed 60% increased  "}
+c["30% increased Bolt Speed Adds 44 to 66 Fire Damage"]={{[1]={flags=0,keywordFlags=0,name="FireDamage",type="INC",value=30}}," Bolt Speed Adds 44 to 66  "}
 c["30% increased Cast Speed"]={{[1]={flags=16,keywordFlags=0,name="Speed",type="INC",value=30}},nil}
 c["30% increased Charm Charges used"]={{[1]={flags=0,keywordFlags=0,name="CharmChargesUsed",type="INC",value=30}},nil}
 c["30% increased Chill Duration on Enemies"]={{[1]={flags=0,keywordFlags=0,name="EnemyChillDuration",type="INC",value=30}},nil}
@@ -1756,6 +1827,7 @@ c["35% less Poison Duration"]={{[1]={flags=0,keywordFlags=0,name="EnemyPoisonDur
 c["35% less minimum Physical Attack Damage"]={{[1]={[1]={skillType=1,type="SkillType"},flags=0,keywordFlags=0,name="MinPhysicalDamage",type="MORE",value=-35}},nil}
 c["35% more maximum Physical Attack Damage"]={{[1]={[1]={skillType=1,type="SkillType"},flags=0,keywordFlags=0,name="MaxPhysicalDamage",type="MORE",value=35}},nil}
 c["36% increased Damage if you've dealt a Critical Hit in the past 8 seconds"]={{[1]={[1]={type="Condition",var="CritInPast8Sec"},flags=0,keywordFlags=0,name="Damage",type="INC",value=36}},nil}
+c["36% increased maximum Energy Shield"]={{[1]={[1]={type="Global"},flags=0,keywordFlags=0,name="EnergyShield",type="INC",value=36}},nil}
 c["37% increased Chaos Damage"]={{[1]={flags=0,keywordFlags=0,name="ChaosDamage",type="INC",value=37}},nil}
 c["38% increased Armour"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="INC",value=38}},nil}
 c["4 Life Regeneration per second"]={{[1]={flags=0,keywordFlags=0,name="LifeRegen",type="BASE",value=4}},nil}
@@ -1780,8 +1852,7 @@ c["4% reduced Mana Cost of Skills"]={{[1]={flags=0,keywordFlags=0,name="ManaCost
 c["4% reduced Reservation of Herald Skills"]={{[1]={[1]={skillType=62,type="SkillType"},flags=0,keywordFlags=0,name="Reserved",type="INC",value=-4}},nil}
 c["4.5 Life Regeneration per second"]={{[1]={flags=0,keywordFlags=0,name="LifeRegen",type="BASE",value=4.5}},nil}
 c["4.6 Life Regeneration per second"]={{[1]={flags=0,keywordFlags=0,name="LifeRegen",type="BASE",value=4.6}},nil}
-c["40% chance to Avoid Chaos Damage from Hits"]={{[1]={flags=0,keywordFlags=0,name="ChaosDamage",type="BASE",value=40}}," to Avoid  from Hits "}
-c["40% chance to Avoid Chaos Damage from Hits Enemies in your Presence are Intimidated"]={{[1]={flags=0,keywordFlags=0,name="ChaosDamage",type="BASE",value=40}}," to Avoid  from Hits Enemies in your Presence are Intimidated "}
+c["40% chance to Avoid Chaos Damage from Hits"]={{[1]={flags=0,keywordFlags=0,name="AvoidChaosDamageChance",type="BASE",value=40}},nil}
 c["40% chance to Avoid Physical Damage from Hits"]={{[1]={flags=0,keywordFlags=0,name="AvoidPhysicalDamageChance",type="BASE",value=40}},nil}
 c["40% faster Curse Activation"]={{[1]={flags=0,keywordFlags=0,name="CurseFrequency",type="INC",value=40}},nil}
 c["40% faster start of Energy Shield Recharge"]={{[1]={flags=0,keywordFlags=0,name="EnergyShieldRechargeFaster",type="INC",value=40}},nil}
@@ -1812,6 +1883,7 @@ c["40% increased Curse Duration"]={{[1]={flags=0,keywordFlags=2,name="Duration",
 c["40% increased Damage"]={{[1]={flags=0,keywordFlags=0,name="Damage",type="INC",value=40}},nil}
 c["40% increased Damage if you've Triggered a Skill Recently"]={{[1]={flags=0,keywordFlags=0,name="Damage",type="INC",value=40}},"  if you've Triggered a Skill Recently "}
 c["40% increased Damage if you've Triggered a Skill Recently Meta Skills gain 15% increased Energy"]={{[1]={flags=0,keywordFlags=0,name="Damage",type="INC",value=40}},"  if you've Triggered a Skill Recently Meta Skills gain 15% increased Energy "}
+c["40% increased Damage with Bow Skills"]={{[1]={flags=0,keywordFlags=1024,name="Damage",type="INC",value=40}},nil}
 c["40% increased Damage with Hits against Ignited Enemies"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Ignited"},flags=0,keywordFlags=262144,name="Damage",type="INC",value=40}},nil}
 c["40% increased Damage with Two Handed Weapons"]={{[1]={flags=34359738372,keywordFlags=0,name="Damage",type="INC",value=40}},nil}
 c["40% increased Damage with Warcries"]={{[1]={flags=0,keywordFlags=4,name="Damage",type="INC",value=40}},nil}
@@ -1880,6 +1952,7 @@ c["40% reduced Light Radius"]={{[1]={flags=0,keywordFlags=0,name="LightRadius",t
 c["40% reduced Rarity of Items found"]={{[1]={flags=0,keywordFlags=0,name="LootRarity",type="INC",value=-40}},nil}
 c["40% reduced Shock duration on you"]={{[1]={flags=0,keywordFlags=0,name="SelfShockDuration",type="INC",value=-40}},nil}
 c["400% increased Armour"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="INC",value=400}},nil}
+c["41% increased Cast Speed"]={{[1]={flags=16,keywordFlags=0,name="Speed",type="INC",value=41}},nil}
 c["43% reduced Effect of Chill on you"]={{[1]={flags=0,keywordFlags=0,name="SelfChillEffect",type="INC",value=-43}},nil}
 c["43% reduced effect of Ignite on you"]={{[1]={flags=0,keywordFlags=0,name="SelfIgniteEffect",type="INC",value=-43}},nil}
 c["43% reduced effect of Shock on you"]={{[1]={flags=0,keywordFlags=0,name="SelfShockEffect",type="INC",value=-43}},nil}
@@ -1887,8 +1960,10 @@ c["45% increased Armour"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="INC"
 c["45% increased Armour and Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="ArmourAndEnergyShield",type="INC",value=45}},nil}
 c["45% increased Critical Damage Bonus"]={{[1]={flags=0,keywordFlags=0,name="CritMultiplier",type="INC",value=45}},nil}
 c["45% increased Evasion and Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="EvasionAndEnergyShield",type="INC",value=45}},nil}
+c["45% increased Mana Regeneration Rate"]={{[1]={flags=0,keywordFlags=0,name="ManaRegen",type="INC",value=45}},nil}
 c["45% increased Rarity of Items found"]={{[1]={flags=0,keywordFlags=0,name="LootRarity",type="INC",value=45}},nil}
 c["450% increased Armour"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="INC",value=450}},nil}
+c["48% increased Spirit"]={{[1]={flags=0,keywordFlags=0,name="Spirit",type="INC",value=48}},nil}
 c["5 Life Regeneration per second"]={{[1]={flags=0,keywordFlags=0,name="LifeRegen",type="BASE",value=5}},nil}
 c["5 to 10 Physical Thorns damage"]={{[1]={flags=0,keywordFlags=0,name="Damage",type="BASE",value=5}}," to 10 Physical Thorns  "}
 c["5 to 10 Physical Thorns damage Pain Attunement"]={{[1]={flags=0,keywordFlags=0,name="Damage",type="BASE",value=5}}," to 10 Physical Thorns  Pain Attunement "}
@@ -1928,6 +2003,7 @@ c["5% increased Magnitude of Ailments you inflict"]={{[1]={flags=0,keywordFlags=
 c["5% increased Mana Cost of Skills"]={{[1]={flags=0,keywordFlags=0,name="ManaCost",type="INC",value=5}},nil}
 c["5% increased Maximum Life per Socketed Rune or Soul Core"]={{[1]={[1]={type="Multiplier",var="RunesSocketedIn{SlotName}"},flags=0,keywordFlags=0,name="Life",type="INC",value=5}},nil}
 c["5% increased Maximum Mana per Socketed Rune or Soul Core"]={{[1]={[1]={type="Multiplier",var="RunesSocketedIn{SlotName}"},flags=0,keywordFlags=0,name="Mana",type="INC",value=5}},nil}
+c["5% increased Movement Speed"]={{[1]={flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=5}},nil}
 c["5% increased Movement Speed if you've Pinned an Enemy Recently"]={{[1]={[1]={type="Condition",var="PinnedEnemyRecently"},flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=5}},nil}
 c["5% increased Movement Speed per Frenzy Charge"]={{[1]={[1]={type="Multiplier",var="FrenzyCharge"},flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=5}},nil}
 c["5% increased Skill Effect Duration"]={{[1]={flags=0,keywordFlags=0,name="Duration",type="INC",value=5}},nil}
@@ -2027,6 +2103,7 @@ c["50% of Maximum Life Converted to Energy Shield"]={{[1]={flags=0,keywordFlags=
 c["50% of Physical Damage prevented Recouped as Life"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamage",type="BASE",value=50}},"  prevented Recouped as Life "}
 c["50% of charges used by Charms granted to your Life Flasks"]={{[1]={[3]={type="Multiplier",var="AvgCharmChargesUsed"},flags=0,keywordFlags=0,name="FlaskChargesGained",type="MORE",value=0.5}},nil}
 c["50% of your Life Regeneration is granted to Allies in your Presence"]={{[1]={flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=0,keywordFlags=0,name="LifeRegen",type="BASE",value=50},onlyAllies=true}}}," your  is granted to "}
+c["50% reduced Amount Recovered"]={{[1]={flags=0,keywordFlags=0,name="FlaskRecovery",type="INC",value=-50}},nil}
 c["50% reduced Bleeding Duration on you"]={{[1]={flags=0,keywordFlags=0,name="SelfBleedDuration",type="INC",value=-50}},nil}
 c["50% reduced Chill Duration on you"]={{[1]={flags=0,keywordFlags=0,name="SelfChillDuration",type="INC",value=-50}},nil}
 c["50% reduced Darkness Reservation Duration"]={{[1]={flags=0,keywordFlags=0,name="Reserved",type="INC",value=-50}}," Darkness  Duration "}
@@ -2047,6 +2124,7 @@ c["500% increased Armour"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="INC
 c["500% increased Armour and Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="ArmourAndEnergyShield",type="INC",value=500}},nil}
 c["500% increased effect of Socketed Soul Cores"]={{[1]={flags=0,keywordFlags=0,name="SocketedSoulCoreEffect",type="INC",value=500}},nil}
 c["53% increased Chaos Damage"]={{[1]={flags=0,keywordFlags=0,name="ChaosDamage",type="INC",value=53}},nil}
+c["53% increased Spirit"]={{[1]={flags=0,keywordFlags=0,name="Spirit",type="INC",value=53}},nil}
 c["6 Life Regeneration per second"]={{[1]={flags=0,keywordFlags=0,name="LifeRegen",type="BASE",value=6}},nil}
 c["6 Life gained when you Block"]={{[1]={flags=0,keywordFlags=0,name="LifeOnBlock",type="BASE",value=6}},nil}
 c["6% chance for Spell Skills to fire 2 additional Projectiles"]={{[1]={flags=2,keywordFlags=0,name="TwoAdditionalProjectilesChance",type="BASE",value=6}},nil}
@@ -2107,14 +2185,16 @@ c["60% increased Stun Threshold for each time you've been Stunned Recently"]={{[
 c["60% increased bonuses gained from Equipped Rings"]={{[1]={flags=0,keywordFlags=0,name="EffectOfBonusesFromRings",type="INC",value=60}},nil}
 c["60% increased maximum Energy Shield"]={{[1]={[1]={type="Global"},flags=0,keywordFlags=0,name="EnergyShield",type="INC",value=60}},nil}
 c["60% reduced Bleeding Duration on you"]={{[1]={flags=0,keywordFlags=0,name="SelfBleedDuration",type="INC",value=-60}},nil}
-c["60% reduced Ice Crystal Life"]={{[1]={flags=0,keywordFlags=0,name="Life",type="INC",value=-60}}," Ice Crystal  "}
+c["60% reduced Ice Crystal Life"]={{[1]={flags=0,keywordFlags=0,name="IceCrystalLife",type="INC",value=-60}},nil}
 c["65% increased Armour"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="INC",value=65}},nil}
 c["65% increased Armour and Evasion"]={{[1]={flags=0,keywordFlags=0,name="ArmourAndEvasion",type="INC",value=65}},nil}
 c["65% increased Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="EnergyShield",type="INC",value=65}},nil}
 c["65% increased Evasion Rating"]={{[1]={flags=0,keywordFlags=0,name="Evasion",type="INC",value=65}},nil}
 c["65% increased Evasion and Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="EvasionAndEnergyShield",type="INC",value=65}},nil}
+c["66% increased Freeze Buildup"]={{}," Freeze Buildup "}
 c["666% increased Armour and Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="ArmourAndEnergyShield",type="INC",value=666}},nil}
 c["666% increased effect of Socketed Soul Cores"]={{[1]={flags=0,keywordFlags=0,name="SocketedSoulCoreEffect",type="INC",value=666}},nil}
+c["67% increased Elemental Damage with Attacks"]={{[1]={flags=0,keywordFlags=65536,name="ElementalDamage",type="INC",value=67}},nil}
 c["7% chance to Gain 100% of Damage with Hits as Extra Chaos Damage"]={{[1]={flags=4,keywordFlags=0,name="DamageGainAsChaos",type="BASE",value=7}},nil}
 c["7% increased Attributes"]={{[1]={flags=0,keywordFlags=0,name="Str",type="INC",value=7},[2]={flags=0,keywordFlags=0,name="Dex",type="INC",value=7},[3]={flags=0,keywordFlags=0,name="Int",type="INC",value=7},[4]={flags=0,keywordFlags=0,name="All",type="INC",value=7}},nil}
 c["7% increased Chaos Damage"]={{[1]={flags=0,keywordFlags=0,name="ChaosDamage",type="INC",value=7}},nil}
@@ -2128,6 +2208,13 @@ c["70% increased Evasion and Energy Shield"]={{[1]={flags=0,keywordFlags=0,name=
 c["70% increased Rarity of Items found"]={{[1]={flags=0,keywordFlags=0,name="LootRarity",type="INC",value=70}},nil}
 c["70% increased Spell Damage"]={{[1]={flags=2,keywordFlags=0,name="Damage",type="INC",value=70}},nil}
 c["70% less Evasion Rating"]={{[1]={flags=0,keywordFlags=0,name="Evasion",type="MORE",value=-70}},nil}
+c["72% increased Amount Recovered"]={{[1]={flags=0,keywordFlags=0,name="FlaskRecovery",type="INC",value=72}},nil}
+c["74% increased Armour"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="INC",value=74}},nil}
+c["74% increased Armour and Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="ArmourAndEnergyShield",type="INC",value=74}},nil}
+c["74% increased Armour and Evasion"]={{[1]={flags=0,keywordFlags=0,name="ArmourAndEvasion",type="INC",value=74}},nil}
+c["74% increased Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="EnergyShield",type="INC",value=74}},nil}
+c["74% increased Evasion Rating"]={{[1]={flags=0,keywordFlags=0,name="Evasion",type="INC",value=74}},nil}
+c["74% increased Evasion and Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="EvasionAndEnergyShield",type="INC",value=74}},nil}
 c["75% increased Armour"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="INC",value=75}},nil}
 c["75% increased Armour and Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="ArmourAndEnergyShield",type="INC",value=75}},nil}
 c["75% increased Armour and Evasion"]={{[1]={flags=0,keywordFlags=0,name="ArmourAndEvasion",type="INC",value=75}},nil}
@@ -2137,6 +2224,7 @@ c["75% increased Energy Shield from Equipped Focus"]={{[1]={[1]={slotName="Weapo
 c["75% increased Evasion from Equipped Shield"]={{[1]={[1]={slotName="Weapon 2",type="SlotName"},[2]={type="Condition",var="UsingShield"},flags=0,keywordFlags=0,name="Evasion",type="INC",value=75}},nil}
 c["75% increased Thorns damage if you've Blocked Recently"]={{[1]={[1]={type="Condition",var="BlockedRecently"},flags=0,keywordFlags=0,name="Damage",type="INC",value=75}}," Thorns   "}
 c["75% of Damage Converted to Fire Damage"]={{[1]={flags=0,keywordFlags=0,name="DamageConvertToFire",type="BASE",value=75}},nil}
+c["79% increased Elemental Damage with Attacks"]={{[1]={flags=0,keywordFlags=65536,name="ElementalDamage",type="INC",value=79}},nil}
 c["8 Life Regeneration per second"]={{[1]={flags=0,keywordFlags=0,name="LifeRegen",type="BASE",value=8}},nil}
 c["8% Chance to Block Spell Damage"]={{[1]={flags=0,keywordFlags=0,name="SpellBlockChance",type="BASE",value=8}},nil}
 c["8% chance to Aftershock for Slam Skills you use with Maces"]={{}," to Aftershock for Slam Skills you use  "}
@@ -2222,6 +2310,13 @@ c["80% increased Stun Recovery"]={{[1]={flags=0,keywordFlags=0,name="StunRecover
 c["80% increased bonuses gained from Equipped Rings"]={{[1]={flags=0,keywordFlags=0,name="EffectOfBonusesFromRings",type="INC",value=80}},nil}
 c["80% less Knockback Distance for Blocked Hits"]={{[1]={flags=0,keywordFlags=0,name="EnemyKnockbackDistance",type="MORE",value=-80}},"  for Blocked Hits "}
 c["80% of Maximum Mana is Converted to twice that much Armour"]={{[1]={flags=0,keywordFlags=0,name="Mana",type="BASE",value=80}},"  is Converted to twice that much Armour "}
+c["82% increased Chaos Damage"]={{[1]={flags=0,keywordFlags=0,name="ChaosDamage",type="INC",value=82}},nil}
+c["82% increased Cold Damage"]={{[1]={flags=0,keywordFlags=0,name="ColdDamage",type="INC",value=82}},nil}
+c["82% increased Fire Damage"]={{[1]={flags=0,keywordFlags=0,name="FireDamage",type="INC",value=82}},nil}
+c["82% increased Lightning Damage"]={{[1]={flags=0,keywordFlags=0,name="LightningDamage",type="INC",value=82}},nil}
+c["82% increased Spell Physical Damage"]={{[1]={flags=2,keywordFlags=0,name="PhysicalDamage",type="INC",value=82}},nil}
+c["86% increased Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="EnergyShield",type="INC",value=86}},nil}
+c["9% increased Attack Speed"]={{[1]={flags=1,keywordFlags=0,name="Speed",type="INC",value=9}},nil}
 c["9% increased Cast Speed"]={{[1]={flags=16,keywordFlags=0,name="Speed",type="INC",value=9}},nil}
 c["9.5 Life Regeneration per second"]={{[1]={flags=0,keywordFlags=0,name="LifeRegen",type="BASE",value=9.5}},nil}
 c["90% increased Armour"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="INC",value=90}},nil}
@@ -2262,10 +2357,12 @@ c["Adds 14 to 24 Cold Damage"]={{[1]={flags=0,keywordFlags=0,name="ColdMin",type
 c["Adds 14 to 24 Physical Damage"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=14},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=24}},nil}
 c["Adds 15 to 25 Physical Damage"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=15},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=25}},nil}
 c["Adds 16 to 25 Cold Damage"]={{[1]={flags=0,keywordFlags=0,name="ColdMin",type="BASE",value=16},[2]={flags=0,keywordFlags=0,name="ColdMax",type="BASE",value=25}},nil}
+c["Adds 17 to 29 Physical Damage"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=17},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=29}},nil}
 c["Adds 18 to 25 Physical Damage"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=18},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=25}},nil}
 c["Adds 20 to 26 Physical Damage"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=20},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=26}},nil}
 c["Adds 20 to 27 Physical Damage"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=20},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=27}},nil}
 c["Adds 22 to 28 Physical Damage"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=22},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=28}},nil}
+c["Adds 24 to 41 Physical Damage"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=24},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=41}},nil}
 c["Adds 29 to 45 Fire Damage"]={{[1]={flags=0,keywordFlags=0,name="FireMin",type="BASE",value=29},[2]={flags=0,keywordFlags=0,name="FireMax",type="BASE",value=45}},nil}
 c["Adds 3 to 5 Chaos Damage to Attacks"]={{[1]={flags=0,keywordFlags=65536,name="ChaosMin",type="BASE",value=3},[2]={flags=0,keywordFlags=65536,name="ChaosMax",type="BASE",value=5}},nil}
 c["Adds 3 to 5 Fire Damage"]={{[1]={flags=0,keywordFlags=0,name="FireMin",type="BASE",value=3},[2]={flags=0,keywordFlags=0,name="FireMax",type="BASE",value=5}},nil}
@@ -2274,12 +2371,15 @@ c["Adds 3 to 5 Physical Damage"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin
 c["Adds 3 to 6 Physical Damage to Attacks"]={{[1]={flags=0,keywordFlags=65536,name="PhysicalMin",type="BASE",value=3},[2]={flags=0,keywordFlags=65536,name="PhysicalMax",type="BASE",value=6}},nil}
 c["Adds 32 to 50 Fire Damage"]={{[1]={flags=0,keywordFlags=0,name="FireMin",type="BASE",value=32},[2]={flags=0,keywordFlags=0,name="FireMax",type="BASE",value=50}},nil}
 c["Adds 33 to 78 Physical Damage"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=33},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=78}},nil}
+c["Adds 36 to 55 Cold Damage"]={{[1]={flags=0,keywordFlags=0,name="ColdMin",type="BASE",value=36},[2]={flags=0,keywordFlags=0,name="ColdMax",type="BASE",value=55}},nil}
 c["Adds 36 to 81 Physical Damage"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=36},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=81}},nil}
+c["Adds 4 to 107 Lightning Damage"]={{[1]={flags=0,keywordFlags=0,name="LightningMin",type="BASE",value=4},[2]={flags=0,keywordFlags=0,name="LightningMax",type="BASE",value=107}},nil}
 c["Adds 4 to 7 Cold damage to Attacks"]={{[1]={flags=0,keywordFlags=65536,name="ColdMin",type="BASE",value=4},[2]={flags=0,keywordFlags=65536,name="ColdMax",type="BASE",value=7}},nil}
 c["Adds 4 to 8 Cold damage to Attacks"]={{[1]={flags=0,keywordFlags=65536,name="ColdMin",type="BASE",value=4},[2]={flags=0,keywordFlags=65536,name="ColdMax",type="BASE",value=8}},nil}
 c["Adds 4 to 8 Fire damage to Attacks"]={{[1]={flags=0,keywordFlags=65536,name="FireMin",type="BASE",value=4},[2]={flags=0,keywordFlags=65536,name="FireMax",type="BASE",value=8}},nil}
 c["Adds 4 to 8 Physical Damage"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=4},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=8}},nil}
 c["Adds 4 to 9 Physical Damage to Attacks"]={{[1]={flags=0,keywordFlags=65536,name="PhysicalMin",type="BASE",value=4},[2]={flags=0,keywordFlags=65536,name="PhysicalMax",type="BASE",value=9}},nil}
+c["Adds 44 to 66 Fire Damage"]={{[1]={flags=0,keywordFlags=0,name="FireMin",type="BASE",value=44},[2]={flags=0,keywordFlags=0,name="FireMax",type="BASE",value=66}},nil}
 c["Adds 5 to 10 Physical Damage to Attacks"]={{[1]={flags=0,keywordFlags=65536,name="PhysicalMin",type="BASE",value=5},[2]={flags=0,keywordFlags=65536,name="PhysicalMax",type="BASE",value=10}},nil}
 c["Adds 5 to 11 Physical Damage"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=5},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=11}},nil}
 c["Adds 5 to 8 Cold damage to Attacks"]={{[1]={flags=0,keywordFlags=65536,name="ColdMin",type="BASE",value=5},[2]={flags=0,keywordFlags=65536,name="ColdMax",type="BASE",value=8}},nil}
@@ -2288,12 +2388,16 @@ c["Adds 5 to 9 Chaos Damage to Attacks"]={{[1]={flags=0,keywordFlags=65536,name=
 c["Adds 5 to 9 Fire Damage"]={{[1]={flags=0,keywordFlags=0,name="FireMin",type="BASE",value=5},[2]={flags=0,keywordFlags=0,name="FireMax",type="BASE",value=9}},nil}
 c["Adds 5 to 9 Fire damage to Attacks"]={{[1]={flags=0,keywordFlags=65536,name="FireMin",type="BASE",value=5},[2]={flags=0,keywordFlags=65536,name="FireMax",type="BASE",value=9}},nil}
 c["Adds 5 to 9 Physical Damage"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=5},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=9}},nil}
+c["Adds 51 to 77 Cold Damage"]={{[1]={flags=0,keywordFlags=0,name="ColdMin",type="BASE",value=51},[2]={flags=0,keywordFlags=0,name="ColdMax",type="BASE",value=77}},nil}
 c["Adds 6 to 10 Chaos Damage to Attacks"]={{[1]={flags=0,keywordFlags=65536,name="ChaosMin",type="BASE",value=6},[2]={flags=0,keywordFlags=65536,name="ChaosMax",type="BASE",value=10}},nil}
 c["Adds 6 to 10 Fire Damage"]={{[1]={flags=0,keywordFlags=0,name="FireMin",type="BASE",value=6},[2]={flags=0,keywordFlags=0,name="FireMax",type="BASE",value=10}},nil}
 c["Adds 6 to 10 Physical Damage"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=6},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=10}},nil}
+c["Adds 6 to 11 Physical Damage to Attacks"]={{[1]={flags=0,keywordFlags=65536,name="PhysicalMin",type="BASE",value=6},[2]={flags=0,keywordFlags=65536,name="PhysicalMax",type="BASE",value=11}},nil}
 c["Adds 6 to 12 Cold Damage"]={{[1]={flags=0,keywordFlags=0,name="ColdMin",type="BASE",value=6},[2]={flags=0,keywordFlags=0,name="ColdMax",type="BASE",value=12}},nil}
 c["Adds 6 to 12 Physical Damage"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=6},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=12}},nil}
+c["Adds 6 to 153 Lightning Damage"]={{[1]={flags=0,keywordFlags=0,name="LightningMin",type="BASE",value=6},[2]={flags=0,keywordFlags=0,name="LightningMax",type="BASE",value=153}},nil}
 c["Adds 62 to 106 Physical Damage"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=62},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=106}},nil}
+c["Adds 62 to 94 Fire Damage"]={{[1]={flags=0,keywordFlags=0,name="FireMin",type="BASE",value=62},[2]={flags=0,keywordFlags=0,name="FireMax",type="BASE",value=94}},nil}
 c["Adds 65 to 110 Physical Damage"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=65},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=110}},nil}
 c["Adds 8 to 13 Cold Damage"]={{[1]={flags=0,keywordFlags=0,name="ColdMin",type="BASE",value=8},[2]={flags=0,keywordFlags=0,name="ColdMax",type="BASE",value=13}},nil}
 c["Adds 8 to 14 Physical Damage to Attacks"]={{[1]={flags=0,keywordFlags=65536,name="PhysicalMin",type="BASE",value=8},[2]={flags=0,keywordFlags=65536,name="PhysicalMax",type="BASE",value=14}},nil}
@@ -2322,17 +2426,627 @@ c["Allies in your Presence deal 1 to 15 additional Attack Lightning Damage"]={{[
 c["Allies in your Presence deal 5 to 8 additional Attack Cold Damage"]={{[1]={flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=0,keywordFlags=65536,name="ColdMin",type="BASE",value=5},onlyAllies=true}},[2]={flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=0,keywordFlags=65536,name="ColdMax",type="BASE",value=8},onlyAllies=true}}},nil}
 c["Allies in your Presence deal 50% increased Damage"]={{[1]={flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=0,keywordFlags=0,name="Damage",type="INC",value=50},onlyAllies=true}}},nil}
 c["Allies in your Presence deal 6 to 10 additional Attack Fire Damage"]={{[1]={flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=0,keywordFlags=65536,name="FireMin",type="BASE",value=6},onlyAllies=true}},[2]={flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=0,keywordFlags=65536,name="FireMax",type="BASE",value=10},onlyAllies=true}}},nil}
+c["Allies in your Presence deal 70% increased Damage"]={{[1]={flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=0,keywordFlags=0,name="Damage",type="INC",value=70},onlyAllies=true}}},nil}
 c["Allies in your Presence have +100 to Accuracy Rating"]={{[1]={flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=0,keywordFlags=0,name="Accuracy",type="BASE",value=100},onlyAllies=true}}},nil}
+c["Allies in your Presence have +16% to all Elemental Resistances"]={{[1]={flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=0,keywordFlags=0,name="ElementalResist",type="BASE",value=16},onlyAllies=true}}},nil}
 c["Allies in your Presence have 15% increased Attack Speed"]={{[1]={flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=1,keywordFlags=0,name="Speed",type="INC",value=15},onlyAllies=true}}},nil}
 c["Allies in your Presence have 15% increased Cast Speed"]={{[1]={flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=16,keywordFlags=0,name="Speed",type="INC",value=15},onlyAllies=true}}},nil}
 c["Allies in your Presence have 20% increased Attack Speed"]={{[1]={flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=1,keywordFlags=0,name="Speed",type="INC",value=20},onlyAllies=true}}},nil}
 c["Allies in your Presence have 20% increased Cast Speed"]={{[1]={flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=16,keywordFlags=0,name="Speed",type="INC",value=20},onlyAllies=true}}},nil}
+c["Allies in your Presence have 32% increased Critical Damage Bonus"]={{[1]={flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=0,keywordFlags=0,name="CritMultiplier",type="INC",value=32},onlyAllies=true}}},nil}
+c["Allies in your Presence have 32% increased Critical Hit Chance"]={{[1]={flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=0,keywordFlags=0,name="CritChance",type="INC",value=32},onlyAllies=true}}},nil}
 c["Allies in your Presence have 40% increased Critical Damage Bonus"]={{[1]={flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=0,keywordFlags=0,name="CritMultiplier",type="INC",value=40},onlyAllies=true}}},nil}
 c["Allies in your Presence have 40% increased Critical Hit Chance"]={{[1]={flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=0,keywordFlags=0,name="CritChance",type="INC",value=40},onlyAllies=true}}},nil}
 c["Allies in your Presence have 50% increased Critical Damage Bonus"]={{[1]={flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=0,keywordFlags=0,name="CritMultiplier",type="INC",value=50},onlyAllies=true}}},nil}
 c["Allies in your Presence have 50% increased Critical Hit Chance"]={{[1]={flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=0,keywordFlags=0,name="CritChance",type="INC",value=50},onlyAllies=true}}},nil}
 c["Allies in your Presence have 6% increased Attack Speed"]={{[1]={flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=1,keywordFlags=0,name="Speed",type="INC",value=6},onlyAllies=true}}},nil}
 c["Allies in your Presence have Block Chance equal to yours"]={nil,"Block Chance equal to yours "}
+c["Allocates Acceleration"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="acceleration"}},nil}
+c["Allocates Adamant Recovery"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="adamant recovery"}},nil}
+c["Allocates Admonisher"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="admonisher"}},nil}
+c["Allocates Adrenaline Rush"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="adrenaline rush"}},nil}
+c["Allocates Advanced Munitions"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="advanced munitions"}},nil}
+c["Allocates Adverse Growth"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="adverse growth"}},nil}
+c["Allocates Afterimage"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="afterimage"}},nil}
+c["Allocates Aftershocks"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="aftershocks"}},nil}
+c["Allocates Aggravation"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="aggravation"}},nil}
+c["Allocates All Natural"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="all natural"}},nil}
+c["Allocates Altered Brain Chemistry"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="altered brain chemistry"}},nil}
+c["Allocates Alternating Current"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="alternating current"}},nil}
+c["Allocates Ancestral Alacrity"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="ancestral alacrity"}},nil}
+c["Allocates Ancestral Artifice"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="ancestral artifice"}},nil}
+c["Allocates Ancestral Conduits"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="ancestral conduits"}},nil}
+c["Allocates Ancestral Mending"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="ancestral mending"}},nil}
+c["Allocates Ancestral Reach"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="ancestral reach"}},nil}
+c["Allocates Ancestral Unity"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="ancestral unity"}},nil}
+c["Allocates Ancient Aegis"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="ancient aegis"}},nil}
+c["Allocates Anticipation"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="anticipation"}},nil}
+c["Allocates Apocalypse"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="apocalypse"}},nil}
+c["Allocates Arcane Alchemy"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="arcane alchemy"}},nil}
+c["Allocates Arcane Blossom"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="arcane blossom"}},nil}
+c["Allocates Arcane Intensity"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="arcane intensity"}},nil}
+c["Allocates Arcane Mixtures"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="arcane mixtures"}},nil}
+c["Allocates Asceticism"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="asceticism"}},nil}
+c["Allocates Aspiring Genius"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="aspiring genius"}},nil}
+c["Allocates Austerity Measures"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="austerity measures"}},nil}
+c["Allocates Authority"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="authority"}},nil}
+c["Allocates Back in Action"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="back in action"}},nil}
+c["Allocates Backstabbing"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="backstabbing"}},nil}
+c["Allocates Backup Plan"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="backup plan"}},nil}
+c["Allocates Ball and Chain"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="ball and chain"}},nil}
+c["Allocates Barbaric Strength"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="barbaric strength"}},nil}
+c["Allocates Battle Fever"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="battle fever"}},nil}
+c["Allocates Battle Trance"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="battle trance"}},nil}
+c["Allocates Battle-hardened"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="battle-hardened"}},nil}
+c["Allocates Beastial Skin"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="beastial skin"}},nil}
+c["Allocates Beef"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="beef"}},nil}
+c["Allocates Bestial Rage"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="bestial rage"}},nil}
+c["Allocates Blade Catcher"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="blade catcher"}},nil}
+c["Allocates Blade Flurry"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="blade flurry"}},nil}
+c["Allocates Bleeding Out"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="bleeding out"}},nil}
+c["Allocates Blinding Flash"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="blinding flash"}},nil}
+c["Allocates Blinding Strike"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="blinding strike"}},nil}
+c["Allocates Blood Rush"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="blood rush"}},nil}
+c["Allocates Blood Tearing"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="blood tearing"}},nil}
+c["Allocates Bloodletting"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="bloodletting"}},nil}
+c["Allocates Bloodthirsty"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="bloodthirsty"}},nil}
+c["Allocates Blur"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="blur"}},nil}
+c["Allocates Blurred Motion"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="blurred motion"}},nil}
+c["Allocates Bolstering Presence"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="bolstering presence"}},nil}
+c["Allocates Bolstering Yell"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="bolstering yell"}},nil}
+c["Allocates Branching Bolts"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="branching bolts"}},nil}
+c["Allocates Bravado"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="bravado"}},nil}
+c["Allocates Break Focus"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="break focus"}},nil}
+c["Allocates Breakage"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="breakage"}},nil}
+c["Allocates Breaking Blows"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="breaking blows"}},nil}
+c["Allocates Breaking Point"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="breaking point"}},nil}
+c["Allocates Breath of Fire"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="breath of fire"}},nil}
+c["Allocates Breath of Ice"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="breath of ice"}},nil}
+c["Allocates Breath of Lightning"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="breath of lightning"}},nil}
+c["Allocates Bringer of Order"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="bringer of order"}},nil}
+c["Allocates Briny Carapace"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="briny carapace"}},nil}
+c["Allocates Brutal"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="brutal"}},nil}
+c["Allocates Brute Strength"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="brute strength"}},nil}
+c["Allocates Building Toxins"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="building toxins"}},nil}
+c["Allocates Burn Away"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="burn away"}},nil}
+c["Allocates Burning Nature"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="burning nature"}},nil}
+c["Allocates Burning Strikes"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="burning strikes"}},nil}
+c["Allocates Burnout"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="burnout"}},nil}
+c["Allocates Cacophony"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="cacophony"}},nil}
+c["Allocates Calibration"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="calibration"}},nil}
+c["Allocates Careful Aim"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="careful aim"}},nil}
+c["Allocates Careful Assassin"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="careful assassin"}},nil}
+c["Allocates Careful Consideration"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="careful consideration"}},nil}
+c["Allocates Carved Earth"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="carved earth"}},nil}
+c["Allocates Casting Cascade"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="casting cascade"}},nil}
+c["Allocates Catalysis"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="catalysis"}},nil}
+c["Allocates Catapult"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="catapult"}},nil}
+c["Allocates Catlike Agility"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="catlike agility"}},nil}
+c["Allocates Cautious Concoctions"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="cautious concoctions"}},nil}
+c["Allocates Chilled to the Bone"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="chilled to the bone"}},nil}
+c["Allocates Chronomancy"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="chronomancy"}},nil}
+c["Allocates Clean Shot"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="clean shot"}},nil}
+c["Allocates Clear Space"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="clear space"}},nil}
+c["Allocates Clever Construction"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="clever construction"}},nil}
+c["Allocates Climate Change"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="climate change"}},nil}
+c["Allocates Close Confines"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="close confines"}},nil}
+c["Allocates Cluster Bombs"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="cluster bombs"}},nil}
+c["Allocates Coated Arms"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="coated arms"}},nil}
+c["Allocates Coated Knife"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="coated knife"}},nil}
+c["Allocates Cold Nature"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="cold nature"}},nil}
+c["Allocates Colossal Weapon"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="colossal weapon"}},nil}
+c["Allocates Combat Alchemy"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="combat alchemy"}},nil}
+c["Allocates Coming Calamity"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="coming calamity"}},nil}
+c["Allocates Conservative Casting"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="conservative casting"}},nil}
+c["Allocates Controlling Magic"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="controlling magic"}},nil}
+c["Allocates Convalescence"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="convalescence"}},nil}
+c["Allocates Cooked"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="cooked"}},nil}
+c["Allocates Core of the Guardian"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="core of the guardian"}},nil}
+c["Allocates Coursing Energy"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="coursing energy"}},nil}
+c["Allocates Covering Ward"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="covering ward"}},nil}
+c["Allocates Cranial Impact"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="cranial impact"}},nil}
+c["Allocates Crashing Wave"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="crashing wave"}},nil}
+c["Allocates Cremation"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="cremation"}},nil}
+c["Allocates Crippling Toxins"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="crippling toxins"}},nil}
+c["Allocates Critical Exploit"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="critical exploit"}},nil}
+c["Allocates Critical Overload"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="critical overload"}},nil}
+c["Allocates Cross Strike"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="cross strike"}},nil}
+c["Allocates Cruel Fate"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="cruel fate"}},nil}
+c["Allocates Cruel Methods"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="cruel methods"}},nil}
+c["Allocates Crushing Judgement"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="crushing judgement"}},nil}
+c["Allocates Crushing Verdict"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="crushing verdict"}},nil}
+c["Allocates Crystal Elixir"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="crystal elixir"}},nil}
+c["Allocates Crystalline Flesh"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="crystalline flesh"}},nil}
+c["Allocates Cull the Hordes"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="cull the hordes"}},nil}
+c["Allocates Curved Weapon"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="curved weapon"}},nil}
+c["Allocates Cut to the Bone"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="cut to the bone"}},nil}
+c["Allocates Dampening Shield"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="dampening shield"}},nil}
+c["Allocates Dark Entries"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="dark entries"}},nil}
+c["Allocates Dead can Dance"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="dead can dance"}},nil}
+c["Allocates Deadly Flourish"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="deadly flourish"}},nil}
+c["Allocates Deadly Force"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="deadly force"}},nil}
+c["Allocates Deadly Swarm"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="deadly swarm"}},nil}
+c["Allocates Deafening Cries"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="deafening cries"}},nil}
+c["Allocates Death from Afar"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="death from afar"}},nil}
+c["Allocates Deep Trance"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="deep trance"}},nil}
+c["Allocates Deep Wounds"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="deep wounds"}},nil}
+c["Allocates Defender's Resolve"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="defender's resolve"}},nil}
+c["Allocates Defensive Reflexes"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="defensive reflexes"}},nil}
+c["Allocates Defiance"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="defiance"}},nil}
+c["Allocates Deflection"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="deflection"}},nil}
+c["Allocates Deft Recovery"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="deft recovery"}},nil}
+c["Allocates Dependable Ward"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="dependable ward"}},nil}
+c["Allocates Desensitisation"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="desensitisation"}},nil}
+c["Allocates Desperate Times"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="desperate times"}},nil}
+c["Allocates Destructive Apparatus"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="destructive apparatus"}},nil}
+c["Allocates Deterioration"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="deterioration"}},nil}
+c["Allocates Determined Precision"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="determined precision"}},nil}
+c["Allocates Devastation"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="devastation"}},nil}
+c["Allocates Devestating Devices"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="devestating devices"}},nil}
+c["Allocates Devoted Protector"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="devoted protector"}},nil}
+c["Allocates Direct Approach"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="direct approach"}},nil}
+c["Allocates Dispatch Foes"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="dispatch foes"}},nil}
+c["Allocates Distracting Presence"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="distracting presence"}},nil}
+c["Allocates Doomsayer"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="doomsayer"}},nil}
+c["Allocates Dreamcatcher"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="dreamcatcher"}},nil}
+c["Allocates Drenched"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="drenched"}},nil}
+c["Allocates Dynamism"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="dynamism"}},nil}
+c["Allocates Eagle Eye"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="eagle eye"}},nil}
+c["Allocates Echoing Flames"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="echoing flames"}},nil}
+c["Allocates Echoing Frost"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="echoing frost"}},nil}
+c["Allocates Echoing Pulse"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="echoing pulse"}},nil}
+c["Allocates Echoing Thunder"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="echoing thunder"}},nil}
+c["Allocates Effervescent"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="effervescent"}},nil}
+c["Allocates Efficient Alchemy"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="efficient alchemy"}},nil}
+c["Allocates Eldritch Will"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="eldritch will"}},nil}
+c["Allocates Electric Amplification"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="electric amplification"}},nil}
+c["Allocates Electrifying Nature"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="electrifying nature"}},nil}
+c["Allocates Electrocution"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="electrocution"}},nil}
+c["Allocates Electrotherapy"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="electrotherapy"}},nil}
+c["Allocates Emboldened Avatar"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="emboldened avatar"}},nil}
+c["Allocates Endless Blizzard"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="endless blizzard"}},nil}
+c["Allocates Endless Circuit"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="endless circuit"}},nil}
+c["Allocates Endurance"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="endurance"}},nil}
+c["Allocates Energise"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="energise"}},nil}
+c["Allocates Enhanced Barrier"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="enhanced barrier"}},nil}
+c["Allocates Enhanced Reflexes"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="enhanced reflexes"}},nil}
+c["Allocates Enraged Reaver"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="enraged reaver"}},nil}
+c["Allocates Entropic Incarnation"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="entropic incarnation"}},nil}
+c["Allocates Equilibrium"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="equilibrium"}},nil}
+c["Allocates Erraticism"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="erraticism"}},nil}
+c["Allocates Escalating Toxins"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="escalating toxins"}},nil}
+c["Allocates Escalation"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="escalation"}},nil}
+c["Allocates Escape Strategy"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="escape strategy"}},nil}
+c["Allocates Escape Velocity"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="escape velocity"}},nil}
+c["Allocates Essence Infusion"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="essence infusion"}},nil}
+c["Allocates Essence of the Mountain"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="essence of the mountain"}},nil}
+c["Allocates Essence of the Storm"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="essence of the storm"}},nil}
+c["Allocates Ether Flow"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="ether flow"}},nil}
+c["Allocates Event Horizon"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="event horizon"}},nil}
+c["Allocates Exploit"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="exploit"}},nil}
+c["Allocates Exploit the Elements"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="exploit the elements"}},nil}
+c["Allocates Explosive Impact"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="explosive impact"}},nil}
+c["Allocates Exposed Wounds"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="exposed wounds"}},nil}
+c["Allocates Exposed to the Cosmos"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="exposed to the cosmos"}},nil}
+c["Allocates Exposed to the Inferno"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="exposed to the inferno"}},nil}
+c["Allocates Exposed to the Storm"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="exposed to the storm"}},nil}
+c["Allocates Falcon Dive"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="falcon dive"}},nil}
+c["Allocates Falcon Technique"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="falcon technique"}},nil}
+c["Allocates Fan the Flames"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="fan the flames"}},nil}
+c["Allocates Far Sighted"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="far sighted"}},nil}
+c["Allocates Fast Acting Toxins"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="fast acting toxins"}},nil}
+c["Allocates Fast Metabolism"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="fast metabolism"}},nil}
+c["Allocates Fate Finding"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="fate finding"}},nil}
+c["Allocates Fated End"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="fated end"}},nil}
+c["Allocates Fear of Death"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="fear of death"}},nil}
+c["Allocates Feathered Fletching"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="feathered fletching"}},nil}
+c["Allocates Feel no Pain"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="feel no pain"}},nil}
+c["Allocates Feel the Earth"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="feel the earth"}},nil}
+c["Allocates Feral Force"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="feral force"}},nil}
+c["Allocates Fervour"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="fervour"}},nil}
+c["Allocates Final Barrage"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="final barrage"}},nil}
+c["Allocates Finality"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="finality"}},nil}
+c["Allocates Finesse"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="finesse"}},nil}
+c["Allocates Finishing Blows"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="finishing blows"}},nil}
+c["Allocates Fireproof"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="fireproof"}},nil}
+c["Allocates Firestarter"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="firestarter"}},nil}
+c["Allocates First Approach"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="first approach"}},nil}
+c["Allocates Flash Storm"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="flash storm"}},nil}
+c["Allocates Flashy Deflection"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="flashy deflection"}},nil}
+c["Allocates Fleshcrafting"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="fleshcrafting"}},nil}
+c["Allocates Flip the Script"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="flip the script"}},nil}
+c["Allocates Flow Like Water"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="flow like water"}},nil}
+c["Allocates Flow State"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="flow state"}},nil}
+c["Allocates Flurry"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="flurry"}},nil}
+c["Allocates For the Jugular"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="for the jugular"}},nil}
+c["Allocates Forces of Nature"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="forces of nature"}},nil}
+c["Allocates Forcewave"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="forcewave"}},nil}
+c["Allocates Forthcoming"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="forthcoming"}},nil}
+c["Allocates Fortifying Blood"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="fortifying blood"}},nil}
+c["Allocates Frazzled"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="frazzled"}},nil}
+c["Allocates Freedom of Movement"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="freedom of movement"}},nil}
+c["Allocates Frenetic"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="frenetic"}},nil}
+c["Allocates Full Recovery"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="full recovery"}},nil}
+c["Allocates Full Salvo"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="full salvo"}},nil}
+c["Allocates Fulmination"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="fulmination"}},nil}
+c["Allocates General Electric"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="general electric"}},nil}
+c["Allocates General's Bindings"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="general's bindings"}},nil}
+c["Allocates Giantslayer"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="giantslayer"}},nil}
+c["Allocates Glaciation"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="glaciation"}},nil}
+c["Allocates Glazed Flesh"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="glazed flesh"}},nil}
+c["Allocates Goring"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="goring"}},nil}
+c["Allocates Gravedigger"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="gravedigger"}},nil}
+c["Allocates Greatest Defence"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="greatest defence"}},nil}
+c["Allocates Grenadier"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="grenadier"}},nil}
+c["Allocates Grip of Evil"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="grip of evil"}},nil}
+c["Allocates Grit"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="grit"}},nil}
+c["Allocates Growing Swarm"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="growing swarm"}},nil}
+c["Allocates Guts"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="guts"}},nil}
+c["Allocates Guttural Roar"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="guttural roar"}},nil}
+c["Allocates Hale Heart"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="hale heart"}},nil}
+c["Allocates Hale Traveller"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="hale traveller"}},nil}
+c["Allocates Hallowed"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="hallowed"}},nil}
+c["Allocates Hard to Kill"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="hard to kill"}},nil}
+c["Allocates Hardened Wood"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="hardened wood"}},nil}
+c["Allocates Harmonic Generator"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="harmonic generator"}},nil}
+c["Allocates Harness the Elements"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="harness the elements"}},nil}
+c["Allocates Harsh Winter"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="harsh winter"}},nil}
+c["Allocates Heart Tissue"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="heart tissue"}},nil}
+c["Allocates Heartbreaking"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="heartbreaking"}},nil}
+c["Allocates Heartstopping"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="heartstopping"}},nil}
+c["Allocates Heatproofing"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="heatproofing"}},nil}
+c["Allocates Heavy Ammunition"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="heavy ammunition"}},nil}
+c["Allocates Heavy Armour"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="heavy armour"}},nil}
+c["Allocates Heavy Blade"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="heavy blade"}},nil}
+c["Allocates Heavy Buffer"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="heavy buffer"}},nil}
+c["Allocates Heavy Contact"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="heavy contact"}},nil}
+c["Allocates Heavy Drinker"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="heavy drinker"}},nil}
+c["Allocates Heavy Frost"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="heavy frost"}},nil}
+c["Allocates Heavy Weaponry"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="heavy weaponry"}},nil}
+c["Allocates Hefty Unit"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="hefty unit"}},nil}
+c["Allocates High Alert"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="high alert"}},nil}
+c["Allocates Hindered Capabilities"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="hindered capabilities"}},nil}
+c["Allocates Hold Focus"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="hold focus"}},nil}
+c["Allocates Holy Protector"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="holy protector"}},nil}
+c["Allocates Honed Instincts"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="honed instincts"}},nil}
+c["Allocates Honourless"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="honourless"}},nil}
+c["Allocates Hulking Smash"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="hulking smash"}},nil}
+c["Allocates Hunker Down"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="hunker down"}},nil}
+c["Allocates Hunter's Talisman"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="hunter's talisman"}},nil}
+c["Allocates Ice Walls"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="ice walls"}},nil}
+c["Allocates Icebreaker"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="icebreaker"}},nil}
+c["Allocates Ignore Pain"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="ignore pain"}},nil}
+c["Allocates Illuminated Crown"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="illuminated crown"}},nil}
+c["Allocates Immaterial"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="immaterial"}},nil}
+c["Allocates Immolation"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="immolation"}},nil}
+c["Allocates Immortal Infamy"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="immortal infamy"}},nil}
+c["Allocates Immortal Thirst"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="immortal thirst"}},nil}
+c["Allocates Impact Area"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="impact area"}},nil}
+c["Allocates Impact Force"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="impact force"}},nil}
+c["Allocates Impair"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="impair"}},nil}
+c["Allocates Impending Doom"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="impending doom"}},nil}
+c["Allocates Impenetrable Shell"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="impenetrable shell"}},nil}
+c["Allocates In Your Face"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="in your face"}},nil}
+c["Allocates In the Thick of It"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="in the thick of it"}},nil}
+c["Allocates Incendiary"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="incendiary"}},nil}
+c["Allocates Inescapable Cold"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="inescapable cold"}},nil}
+c["Allocates Infused Flesh"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="infused flesh"}},nil}
+c["Allocates Ingenuity"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="ingenuity"}},nil}
+c["Allocates Initiative"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="initiative"}},nil}
+c["Allocates Inner Faith"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="inner faith"}},nil}
+c["Allocates Insightfulness"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="insightfulness"}},nil}
+c["Allocates Instant Reload"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="instant reload"}},nil}
+c["Allocates Insulated Treads"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="insulated treads"}},nil}
+c["Allocates Intense Flames"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="intense flames"}},nil}
+c["Allocates Internal Bleeding"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="internal bleeding"}},nil}
+c["Allocates Investing Energies"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="investing energies"}},nil}
+c["Allocates Invocated Efficiency"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="invocated efficiency"}},nil}
+c["Allocates Irreparable"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="irreparable"}},nil}
+c["Allocates Jack of all Trades"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="jack of all trades"}},nil}
+c["Allocates Javelin"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="javelin"}},nil}
+c["Allocates Killer Instinct"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="killer instinct"}},nil}
+c["Allocates Kite Runner"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="kite runner"}},nil}
+c["Allocates Lasting Concoctions"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="lasting concoctions"}},nil}
+c["Allocates Lasting Incantations"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="lasting incantations"}},nil}
+c["Allocates Lasting Toxins"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="lasting toxins"}},nil}
+c["Allocates Lasting Trauma"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="lasting trauma"}},nil}
+c["Allocates Lay Siege"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="lay siege"}},nil}
+c["Allocates Leaping Ambush"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="leaping ambush"}},nil}
+c["Allocates Leather Bound Gauntlets"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="leather bound gauntlets"}},nil}
+c["Allocates Leeching Toxins"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="leeching toxins"}},nil}
+c["Allocates Left Hand of Darkness"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="left hand of darkness"}},nil}
+c["Allocates Life from Death"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="life from death"}},nil}
+c["Allocates Lightning Quick"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="lightning quick"}},nil}
+c["Allocates Lightning Rod"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="lightning rod"}},nil}
+c["Allocates Lingering Horror"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="lingering horror"}},nil}
+c["Allocates Lingering Whispers"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="lingering whispers"}},nil}
+c["Allocates Living Death"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="living death"}},nil}
+c["Allocates Locked On"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="locked on"}},nil}
+c["Allocates Loose Flesh"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="loose flesh"}},nil}
+c["Allocates Lord of Horrors"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="lord of horrors"}},nil}
+c["Allocates Low Tolerance"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="low tolerance"}},nil}
+c["Allocates Lucidity"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="lucidity"}},nil}
+c["Allocates Lucky Rabbit Foot"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="lucky rabbit foot"}},nil}
+c["Allocates Lust for Power"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="lust for power"}},nil}
+c["Allocates Lust for Sacrifice"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="lust for sacrifice"}},nil}
+c["Allocates Made to Last"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="made to last"}},nil}
+c["Allocates Madness in the Bones"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="madness in the bones"}},nil}
+c["Allocates Maiming Strike"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="maiming strike"}},nil}
+c["Allocates Mana Blessing"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="mana blessing"}},nil}
+c["Allocates Manifold Method"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="manifold method"}},nil}
+c["Allocates Marked Agility"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="marked agility"}},nil}
+c["Allocates Marked for Death"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="marked for death"}},nil}
+c["Allocates Marked for Sickness"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="marked for sickness"}},nil}
+c["Allocates Martial Artistry"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="martial artistry"}},nil}
+c["Allocates Mass Hysteria"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="mass hysteria"}},nil}
+c["Allocates Mass Rejuvenation"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="mass rejuvenation"}},nil}
+c["Allocates Master Fletching"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="master fletching"}},nil}
+c["Allocates Master of Hexes"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="master of hexes"}},nil}
+c["Allocates Meat Recycling"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="meat recycling"}},nil}
+c["Allocates Melding"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="melding"}},nil}
+c["Allocates Mental Alacrity"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="mental alacrity"}},nil}
+c["Allocates Mental Perseverance"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="mental perseverance"}},nil}
+c["Allocates Mental Toughness"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="mental toughness"}},nil}
+c["Allocates Mind Eraser"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="mind eraser"}},nil}
+c["Allocates Mindful Awareness"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="mindful awareness"}},nil}
+c["Allocates Moment of Truth"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="moment of truth"}},nil}
+c["Allocates Morning Star"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="morning star"}},nil}
+c["Allocates Multitasking"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="multitasking"}},nil}
+c["Allocates Mystic Stance"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="mystic stance"}},nil}
+c["Allocates Natural Immunity"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="natural immunity"}},nil}
+c["Allocates Near Sighted"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="near sighted"}},nil}
+c["Allocates Near at Hand"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="near at hand"}},nil}
+c["Allocates Necrotic Touch"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="necrotic touch"}},nil}
+c["Allocates Necrotised Flesh"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="necrotised flesh"}},nil}
+c["Allocates No Escape"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="no escape"}},nil}
+c["Allocates Offensive Stance"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="offensive stance"}},nil}
+c["Allocates One with the River"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="one with the river"}},nil}
+c["Allocates One with the Storm"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="one with the storm"}},nil}
+c["Allocates Open Mind"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="open mind"}},nil}
+c["Allocates Overexposure"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="overexposure"}},nil}
+c["Allocates Overflowing Power"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="overflowing power"}},nil}
+c["Allocates Overheating Blow"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="overheating blow"}},nil}
+c["Allocates Overload"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="overload"}},nil}
+c["Allocates Overwhelm"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="overwhelm"}},nil}
+c["Allocates Overwhelming Strike"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="overwhelming strike"}},nil}
+c["Allocates Overzealous"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="overzealous"}},nil}
+c["Allocates Parrying Motion"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="parrying motion"}},nil}
+c["Allocates Path of Flame"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="path of flame"}},nil}
+c["Allocates Path of Storms"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="path of storms"}},nil}
+c["Allocates Path of Winter"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="path of winter"}},nil}
+c["Allocates Patient Barrier"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="patient barrier"}},nil}
+c["Allocates Perfect Opportunity"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="perfect opportunity"}},nil}
+c["Allocates Perfectly Placed Knife"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="perfectly placed knife"}},nil}
+c["Allocates Perforation"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="perforation"}},nil}
+c["Allocates Perpetual Freeze"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="perpetual freeze"}},nil}
+c["Allocates Personal Touch"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="personal touch"}},nil}
+c["Allocates Pierce the Heart"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="pierce the heart"}},nil}
+c["Allocates Piercing Shot"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="piercing shot"}},nil}
+c["Allocates Pile On"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="pile on"}},nil}
+c["Allocates Pin and Run"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="pin and run"}},nil}
+c["Allocates Pinned Down"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="pinned down"}},nil}
+c["Allocates Pinpoint Shot"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="pinpoint shot"}},nil}
+c["Allocates Pliable Flesh"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="pliable flesh"}},nil}
+c["Allocates Pocket Sand"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="pocket sand"}},nil}
+c["Allocates Polished Iron"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="polished iron"}},nil}
+c["Allocates Polymathy"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="polymathy"}},nil}
+c["Allocates Potent Concoctions"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="potent concoctions"}},nil}
+c["Allocates Potent Incantation"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="potent incantation"}},nil}
+c["Allocates Power Conduction"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="power conduction"}},nil}
+c["Allocates Power Shots"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="power shots"}},nil}
+c["Allocates Practiced Signs"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="practiced signs"}},nil}
+c["Allocates Precise Point"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="precise point"}},nil}
+c["Allocates Preemptive Strike"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="preemptive strike"}},nil}
+c["Allocates Presence Present"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="presence present"}},nil}
+c["Allocates Preservation"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="preservation"}},nil}
+c["Allocates Pressure Points"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="pressure points"}},nil}
+c["Allocates Price of Freedom"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="price of freedom"}},nil}
+c["Allocates Primal Growth"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="primal growth"}},nil}
+c["Allocates Primal Protection"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="primal protection"}},nil}
+c["Allocates Prism Guard"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="prism guard"}},nil}
+c["Allocates Proficiency"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="proficiency"}},nil}
+c["Allocates Projectile Bulwark"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="projectile bulwark"}},nil}
+c["Allocates Prolonged Assault"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="prolonged assault"}},nil}
+c["Allocates Prolonged Fury"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="prolonged fury"}},nil}
+c["Allocates Protraction"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="protraction"}},nil}
+c["Allocates Psychic Fragmentation"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="psychic fragmentation"}},nil}
+c["Allocates Pure Chaos"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="pure chaos"}},nil}
+c["Allocates Pure Energy"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="pure energy"}},nil}
+c["Allocates Pure Power"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="pure power"}},nil}
+c["Allocates Push the Advantage"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="push the advantage"}},nil}
+c["Allocates Quick Recovery"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="quick recovery"}},nil}
+c["Allocates Quick Response"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="quick response"}},nil}
+c["Allocates Quick-change Act"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="quick-change act"}},nil}
+c["Allocates Radial Force"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="radial force"}},nil}
+c["Allocates Rapid Recharge"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="rapid recharge"}},nil}
+c["Allocates Rapid Strike"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="rapid strike"}},nil}
+c["Allocates Rattled"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="rattled"}},nil}
+c["Allocates Rattling Ball"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="rattling ball"}},nil}
+c["Allocates Raw Mana"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="raw mana"}},nil}
+c["Allocates Raw Power"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="raw power"}},nil}
+c["Allocates Reaching Strike"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="reaching strike"}},nil}
+c["Allocates Reaving"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="reaving"}},nil}
+c["Allocates Refills"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="refills"}},nil}
+c["Allocates Refocus"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="refocus"}},nil}
+c["Allocates Regenerative Flesh"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="regenerative flesh"}},nil}
+c["Allocates Reinforced Barrier"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="reinforced barrier"}},nil}
+c["Allocates Reinvigoration"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="reinvigoration"}},nil}
+c["Allocates Relentless"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="relentless"}},nil}
+c["Allocates Relentless Fallen"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="relentless fallen"}},nil}
+c["Allocates Relentless Vindicator"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="relentless vindicator"}},nil}
+c["Allocates Remorseless"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="remorseless"}},nil}
+c["Allocates Repeating Explosives"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="repeating explosives"}},nil}
+c["Allocates Reprisal"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="reprisal"}},nil}
+c["Allocates Repulsion"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="repulsion"}},nil}
+c["Allocates Resilient Soul"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="resilient soul"}},nil}
+c["Allocates Resolution"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="resolution"}},nil}
+c["Allocates Resourceful Ally"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="resourceful ally"}},nil}
+c["Allocates Restless Dead"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="restless dead"}},nil}
+c["Allocates Retaliation"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="retaliation"}},nil}
+c["Allocates Reusable Ammunition"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="reusable ammunition"}},nil}
+c["Allocates Revenge"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="revenge"}},nil}
+c["Allocates Reverberating Impact"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="reverberating impact"}},nil}
+c["Allocates Reverberation"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="reverberation"}},nil}
+c["Allocates Ricochet"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="ricochet"}},nil}
+c["Allocates Right Hand of Darkness"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="right hand of darkness"}},nil}
+c["Allocates Ripping Blade"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="ripping blade"}},nil}
+c["Allocates Roil"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="roil"}},nil}
+c["Allocates Roll and Strike"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="roll and strike"}},nil}
+c["Allocates Ruin"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="ruin"}},nil}
+c["Allocates Sand in the Eyes"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="sand in the eyes"}},nil}
+c["Allocates Savagery"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="savagery"}},nil}
+c["Allocates Savoured Blood"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="savoured blood"}},nil}
+c["Allocates Savouring"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="savouring"}},nil}
+c["Allocates Seeing Stars"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="seeing stars"}},nil}
+c["Allocates Self Mortification"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="self mortification"}},nil}
+c["Allocates Serrated Edges"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="serrated edges"}},nil}
+c["Allocates Shadow Dancing"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="shadow dancing"}},nil}
+c["Allocates Sharp Sight"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="sharp sight"}},nil}
+c["Allocates Sharpened Claw"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="sharpened claw"}},nil}
+c["Allocates Shatter Palm"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="shatter palm"}},nil}
+c["Allocates Shattered Crystal"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="shattered crystal"}},nil}
+c["Allocates Shattering"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="shattering"}},nil}
+c["Allocates Shattering Blow"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="shattering blow"}},nil}
+c["Allocates Shedding Skin"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="shedding skin"}},nil}
+c["Allocates Shield Expertise"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="shield expertise"}},nil}
+c["Allocates Shimmering"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="shimmering"}},nil}
+c["Allocates Shockwaves"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="shockwaves"}},nil}
+c["Allocates Short Shot"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="short shot"}},nil}
+c["Allocates Shrapnel"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="shrapnel"}},nil}
+c["Allocates Shredding Force"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="shredding force"}},nil}
+c["Allocates Sigil of Fire"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="sigil of fire"}},nil}
+c["Allocates Sigil of Ice"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="sigil of ice"}},nil}
+c["Allocates Sigil of Lightning"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="sigil of lightning"}},nil}
+c["Allocates Silent Guardian"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="silent guardian"}},nil}
+c["Allocates Silent Shiv"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="silent shiv"}},nil}
+c["Allocates Singular Purpose"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="singular purpose"}},nil}
+c["Allocates Siphon"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="siphon"}},nil}
+c["Allocates Skullcrusher"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="skullcrusher"}},nil}
+c["Allocates Slippery Ice"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="slippery ice"}},nil}
+c["Allocates Slow Burn"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="slow burn"}},nil}
+c["Allocates Smash"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="smash"}},nil}
+c["Allocates Smoke Inhalation"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="smoke inhalation"}},nil}
+c["Allocates Smooth Buckler"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="smooth buckler"}},nil}
+c["Allocates Sniper"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="sniper"}},nil}
+c["Allocates Snowpiercer"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="snowpiercer"}},nil}
+c["Allocates Soul Bloom"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="soul bloom"}},nil}
+c["Allocates Spaghettification"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="spaghettification"}},nil}
+c["Allocates Spectral Ward"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="spectral ward"}},nil}
+c["Allocates Spell Haste"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="spell haste"}},nil}
+c["Allocates Spellblade"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="spellblade"}},nil}
+c["Allocates Spike Pit"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="spike pit"}},nil}
+c["Allocates Spiked Armour"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="spiked armour"}},nil}
+c["Allocates Spiked Shield"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="spiked shield"}},nil}
+c["Allocates Spiked Whip"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="spiked whip"}},nil}
+c["Allocates Spiral into Depression"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="spiral into depression"}},nil}
+c["Allocates Spiral into Insanity"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="spiral into insanity"}},nil}
+c["Allocates Spiral into Mania"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="spiral into mania"}},nil}
+c["Allocates Spirit Bond"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="spirit bond"}},nil}
+c["Allocates Spirit Bonds"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="spirit bonds"}},nil}
+c["Allocates Split Shot"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="split shot"}},nil}
+c["Allocates Split the Earth"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="split the earth"}},nil}
+c["Allocates Spreading Shocks"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="spreading shocks"}},nil}
+c["Allocates Stacking Toxins"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="stacking toxins"}},nil}
+c["Allocates Staggering Palm"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="staggering palm"}},nil}
+c["Allocates Stance Breaker"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="stance breaker"}},nil}
+c["Allocates Stand Ground"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="stand ground"}},nil}
+c["Allocates Stand and Deliver"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="stand and deliver"}},nil}
+c["Allocates Stars Aligned"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="stars aligned"}},nil}
+c["Allocates Staunching"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="staunching"}},nil}
+c["Allocates Step Like Mist"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="step like mist"}},nil}
+c["Allocates Stigmata"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="stigmata"}},nil}
+c["Allocates Stimulants"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="stimulants"}},nil}
+c["Allocates Storm Surge"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="storm surge"}},nil}
+c["Allocates Storm Swell"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="storm swell"}},nil}
+c["Allocates Stormbreaker"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="stormbreaker"}},nil}
+c["Allocates Stormcharged"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="stormcharged"}},nil}
+c["Allocates Strong Chin"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="strong chin"}},nil}
+c["Allocates Strong Links"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="strong links"}},nil}
+c["Allocates Struck Through"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="struck through"}},nil}
+c["Allocates Stupefy"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="stupefy"}},nil}
+c["Allocates Sturdy Ally"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="sturdy ally"}},nil}
+c["Allocates Sturdy Metal"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="sturdy metal"}},nil}
+c["Allocates Sturdy Mind"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="sturdy mind"}},nil}
+c["Allocates Stylebender"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="stylebender"}},nil}
+c["Allocates Subterfuge Mask"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="subterfuge mask"}},nil}
+c["Allocates Succour"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="succour"}},nil}
+c["Allocates Sudden Escalation"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="sudden escalation"}},nil}
+c["Allocates Sudden Infuriation"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="sudden infuriation"}},nil}
+c["Allocates Suffusion"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="suffusion"}},nil}
+c["Allocates Sundering"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="sundering"}},nil}
+c["Allocates Supportive Ancestors"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="supportive ancestors"}},nil}
+c["Allocates Surging Currents"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="surging currents"}},nil}
+c["Allocates Swift Claw"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="swift claw"}},nil}
+c["Allocates Swift Skewering"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="swift skewering"}},nil}
+c["Allocates Tainted Strike"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="tainted strike"}},nil}
+c["Allocates Taste for Blood"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="taste for blood"}},nil}
+c["Allocates Taut Flesh"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="taut flesh"}},nil}
+c["Allocates Tempered Mind"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="tempered mind"}},nil}
+c["Allocates Tenfold Attacks"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="tenfold attacks"}},nil}
+c["Allocates The Power Within"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="the power within"}},nil}
+c["Allocates Thickened Arteries"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="thickened arteries"}},nil}
+c["Allocates Thicket Warding"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="thicket warding"}},nil}
+c["Allocates Thin Ice"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="thin ice"}},nil}
+c["Allocates Thornhide"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="thornhide"}},nil}
+c["Allocates Thrill of Battle"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="thrill of battle"}},nil}
+c["Allocates Throatseeker"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="throatseeker"}},nil}
+c["Allocates Thunderstruck"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="thunderstruck"}},nil}
+c["Allocates Tides of Change"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="tides of change"}},nil}
+c["Allocates Time Manipulation"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="time manipulation"}},nil}
+c["Allocates Titan's Determination"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="titan's determination"}},nil}
+c["Allocates Titanic"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="titanic"}},nil}
+c["Allocates Total Incineration"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="total incineration"}},nil}
+c["Allocates Touch the Arcane"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="touch the arcane"}},nil}
+c["Allocates Tough Claw"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="tough claw"}},nil}
+c["Allocates Towering Shield"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="towering shield"}},nil}
+c["Allocates Trick Shot"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="trick shot"}},nil}
+c["Allocates True Strike"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="true strike"}},nil}
+c["Allocates Turn the Clock Back"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="turn the clock back"}},nil}
+c["Allocates Turn the Clock Forward"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="turn the clock forward"}},nil}
+c["Allocates Twinned Tethers"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="twinned tethers"}},nil}
+c["Allocates Two-Pronged Attack"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="two-pronged attack"}},nil}
+c["Allocates Unbending"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="unbending"}},nil}
+c["Allocates Unbound Forces"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="unbound forces"}},nil}
+c["Allocates Unbreaking"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="unbreaking"}},nil}
+c["Allocates Unerring Impact"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="unerring impact"}},nil}
+c["Allocates Unexpected Finesse"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="unexpected finesse"}},nil}
+c["Allocates Unforgiving"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="unforgiving"}},nil}
+c["Allocates Unhindered"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="unhindered"}},nil}
+c["Allocates Unimpeded"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="unimpeded"}},nil}
+c["Allocates Unnatural Resilience"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="unnatural resilience"}},nil}
+c["Allocates Unsight"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="unsight"}},nil}
+c["Allocates Unstoppable Barrier"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="unstoppable barrier"}},nil}
+c["Allocates Urgent Call"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="urgent call"}},nil}
+c["Allocates Vale Shelter"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="vale shelter"}},nil}
+c["Allocates Vengeance"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="vengeance"}},nil}
+c["Allocates Vengeful Fury"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="vengeful fury"}},nil}
+c["Allocates Versatile Arms"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="versatile arms"}},nil}
+c["Allocates Viciousness"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="viciousness"}},nil}
+c["Allocates Vigilance"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="vigilance"}},nil}
+c["Allocates Vile Mending"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="vile mending"}},nil}
+c["Allocates Vile Wounds"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="vile wounds"}},nil}
+c["Allocates Vocal Empowerment"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="vocal empowerment"}},nil}
+c["Allocates Void"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="void"}},nil}
+c["Allocates Volatile Catalyst"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="volatile catalyst"}},nil}
+c["Allocates Volatile Grenades"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="volatile grenades"}},nil}
+c["Allocates Volcanic Skin"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="volcanic skin"}},nil}
+c["Allocates Voracious"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="voracious"}},nil}
+c["Allocates Vulgar Methods"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="vulgar methods"}},nil}
+c["Allocates Warding Fetish"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="warding fetish"}},nil}
+c["Allocates Warding Potions"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="warding potions"}},nil}
+c["Allocates Warm the Heart"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="warm the heart"}},nil}
+c["Allocates Wasting"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="wasting"}},nil}
+c["Allocates Watchtowers"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="watchtowers"}},nil}
+c["Allocates Waters of Life"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="waters of life"}},nil}
+c["Allocates Way of the Wind"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="way of the wind"}},nil}
+c["Allocates Wellspring"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="wellspring"}},nil}
+c["Allocates Whirling Assault"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="whirling assault"}},nil}
+c["Allocates Whirling Onslaught"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="whirling onslaught"}},nil}
+c["Allocates Wide Barrier"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="wide barrier"}},nil}
+c["Allocates Wild Storm"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="wild storm"}},nil}
+c["Allocates Wither Away"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="wither away"}},nil}
+c["Allocates Woodland Aspect"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="woodland aspect"}},nil}
+c["Allocates Zone of Control"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="zone of control"}},nil}
 c["Alternating every 5 seconds:"]={nil,"Alternating every 5 seconds: "}
 c["Alternating every 5 seconds: Take 30% less Damage from Hits"]={nil,"Alternating every 5 seconds: Take 30% less Damage from Hits "}
 c["Always deals Critical Hits against Heavy Stunned Enemies"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="HeavyStunned"},[2]={type="Condition",var="{Hand}Attack"},flags=0,keywordFlags=0,name="CritChance",type="OVERRIDE",value=100}},nil}
@@ -2385,21 +3099,14 @@ c["Blocking Damage Poisons the Enemy as though dealing 100 Base Chaos Damage Blo
 c["Blocking Damage Poisons the Enemy as though dealing 200 Base Chaos Damage"]={nil,"Blocking Damage Poisons the Enemy as though dealing 200 Base Chaos Damage "}
 c["Bow Attacks fire 3 additional Arrows"]={{[1]={flags=131072,keywordFlags=0,name="ProjectileCount",type="BASE",value=3}},nil}
 c["Bow Attacks fire an additional Arrow"]={{[1]={flags=131072,keywordFlags=0,name="ProjectileCount",type="BASE",value=1}},nil}
-c["Break 10% increased Armour"]={nil,"Break 10% increased Armour "}
-c["Break 10% increased Armour 6% increased Physical Damage"]={nil,"Break 10% increased Armour 6% increased Physical Damage "}
-c["Break 10% increased Armour 8% increased Attack Area Damage"]={nil,"Break 10% increased Armour 8% increased Attack Area Damage "}
-c["Break 15% increased Armour"]={nil,"Break 15% increased Armour "}
-c["Break 20% increased Armour"]={nil,"Break 20% increased Armour "}
-c["Break 25% increased Armour"]={nil,"Break 25% increased Armour "}
-c["Break 25% increased Armour 16% increased Area of Effect for Attacks"]={nil,"Break 25% increased Armour 16% increased Area of Effect for Attacks "}
-c["Break 30% increased Armour on enemies affected by Ailments"]={nil,"Break 30% increased Armour on enemies affected by Ailments "}
-c["Break 30% increased Armour on enemies affected by Ailments +10 to Strength"]={nil,"Break 30% increased Armour on enemies affected by Ailments +10 to Strength "}
-c["Break 30% increased Armour on enemies affected by Ailments +10 to Strength 25% increased Physical Damage"]={nil,"Break 30% increased Armour on enemies affected by Ailments +10 to Strength 25% increased Physical Damage "}
-c["Break 40% increased Armour"]={nil,"Break 40% increased Armour "}
-c["Break 40% increased Armour 25% increased Physical Damage"]={nil,"Break 40% increased Armour 25% increased Physical Damage "}
+c["Break 10% increased Armour"]={{[1]={flags=0,keywordFlags=0,name="ArmourBreakPerHit",type="INC",value=10}},nil}
+c["Break 15% increased Armour"]={{[1]={flags=0,keywordFlags=0,name="ArmourBreakPerHit",type="INC",value=15}},nil}
+c["Break 20% increased Armour"]={{[1]={flags=0,keywordFlags=0,name="ArmourBreakPerHit",type="INC",value=20}},nil}
+c["Break 25% increased Armour"]={{[1]={flags=0,keywordFlags=0,name="ArmourBreakPerHit",type="INC",value=25}},nil}
+c["Break 30% increased Armour on enemies affected by Ailments"]={{[1]={[1]={actor="enemy",type="ActorCondition",varList={[1]="Frozen",[2]="Chilled",[3]="Shocked",[4]="Electrocuted",[5]="Ignited",[6]="Poisoned",[7]="Bleeding"}},flags=0,keywordFlags=0,name="ArmourBreakPerHit",type="INC",value=30}},nil}
+c["Break 40% increased Armour"]={{[1]={flags=0,keywordFlags=0,name="ArmourBreakPerHit",type="INC",value=40}},nil}
 c["Break 50% of Armour on Heavy Stunning an Enemy"]={{[1]={[1]={effectName="ArmourBreak",effectType="Buff",type="GlobalEffect"},flags=0,keywordFlags=0,name="Condition:CanArmourBreak",type="FLAG",value=true}},nil}
-c["Break 60% increased Armour"]={nil,"Break 60% increased Armour "}
-c["Break 60% increased Armour 10% chance to Defend with 200% of Armour"]={nil,"Break 60% increased Armour 10% chance to Defend with 200% of Armour "}
+c["Break 60% increased Armour"]={{[1]={flags=0,keywordFlags=0,name="ArmourBreakPerHit",type="INC",value=60}},nil}
 c["Break Armour equal to 10% of Hit Damage dealt"]={{[1]={[1]={effectName="ArmourBreak",effectType="Buff",type="GlobalEffect"},flags=0,keywordFlags=0,name="Condition:CanArmourBreak",type="FLAG",value=true}},nil}
 c["Break Armour on Critical Hit with Spells equal to 10% of Physical Damage dealt"]={{[1]={[1]={effectName="ArmourBreak",effectType="Buff",type="GlobalEffect"},[2]={neg=true,type="Condition",var="NeverCrit"},flags=0,keywordFlags=0,name="Condition:CanArmourBreak",type="FLAG",value=true}},nil}
 c["Break Armour on Critical Hit with Spells equal to 5% of Physical Damage dealt"]={{[1]={[1]={effectName="ArmourBreak",effectType="Buff",type="GlobalEffect"},[2]={neg=true,type="Condition",var="NeverCrit"},flags=0,keywordFlags=0,name="Condition:CanArmourBreak",type="FLAG",value=true}},nil}
@@ -2433,13 +3140,19 @@ c["Cannot use Life Flasks"]={nil,"Cannot use Life Flasks "}
 c["Cannot use Shield Skills"]={nil,"Cannot use Shield Skills "}
 c["Carry a Chest which adds 20 Inventory Slots"]={nil,"Carry a Chest which adds 20 Inventory Slots "}
 c["Causes 50% increased Stun Buildup"]={nil,"Causes 50% increased Stun Buildup "}
+c["Causes 50% increased Stun Buildup 172% increased Physical Damage"]={nil,"Causes 50% increased Stun Buildup 172% increased Physical Damage "}
 c["Causes 50% increased Stun Buildup 80% increased Physical Damage"]={nil,"Causes 50% increased Stun Buildup 80% increased Physical Damage "}
+c["Causes 50% increased Stun Buildup Adds 62 to 94 Fire Damage"]={{[1]={flags=0,keywordFlags=0,name="FireMin",type="BASE",value=62},[2]={flags=0,keywordFlags=0,name="FireMax",type="BASE",value=94}},"Causes 50% increased Stun Buildup  "}
 c["Causes 50% increased Stun Buildup Always deals Critical Hits against Heavy Stunned Enemies"]={nil,"Causes 50% increased Stun Buildup Always deals Critical Hits against Heavy Stunned Enemies "}
 c["Causes Bleeding on Hit"]={{[1]={[1]={type="Condition",var="{Hand}Attack"},flags=0,keywordFlags=0,name="BleedChance",type="BASE",value=100}},nil}
 c["Causes Daze buildup equal to 100% of Damage dealt"]={nil,"Causes Daze buildup equal to 100% of Damage dealt "}
+c["Causes Daze buildup equal to 100% of Damage dealt 172% increased Physical Damage"]={nil,"Causes Daze buildup equal to 100% of Damage dealt 172% increased Physical Damage "}
+c["Causes Daze buildup equal to 100% of Damage dealt Adds 44 to 66 Fire Damage"]={{[1]={flags=0,keywordFlags=0,name="FireMin",type="BASE",value=44},[2]={flags=0,keywordFlags=0,name="FireMax",type="BASE",value=66}},"Causes Daze buildup equal to 100% of  dealt  "}
 c["Causes Double Stun Buildup"]={nil,"Causes Double Stun Buildup "}
 c["Causes Enemies to Explode on Critical kill, for 10% of their Life as Physical Damage"]={nil,"Causes Enemies to Explode on Critical kill, for 10% of their Life as Physical Damage "}
 c["Causes Enemies to Explode on Critical kill, for 10% of their Life as Physical Damage 120% increased Physical Damage"]={nil,"Causes Enemies to Explode on Critical kill, for 10% of their Life as Physical Damage 120% increased Physical Damage "}
+c["Causes Enemies to Explode on Critical kill, for 10% of their Life as Physical Damage 172% increased Physical Damage"]={nil,"Causes Enemies to Explode on Critical kill, for 10% of their Life as Physical Damage 172% increased Physical Damage "}
+c["Causes Enemies to Explode on Critical kill, for 10% of their Life as Physical Damage Adds 62 to 94 Fire Damage"]={{[1]={flags=0,keywordFlags=0,name="FireMin",type="BASE",value=62},[2]={flags=0,keywordFlags=0,name="FireMax",type="BASE",value=94}},"Causes Enemies to Explode on Critical kill, for 10% of their  as Physical Damage  "}
 c["Chance is doubled against Undead and Demons"]={nil,"Chance is doubled against Undead and Demons "}
 c["Chance to Ignite is doubled"]={{[1]={flags=0,keywordFlags=0,name="EnemyIgniteChance",type="MORE",value=100}},nil}
 c["Chaos Damage from Hits also Contributes to Electrocute Buildup"]={nil,"Chaos Damage from Hits also Contributes to Electrocute Buildup "}
@@ -2582,8 +3295,7 @@ c["Enemies in your Presence are Slowed by 20%"]={nil,"Enemies in your Presence a
 c["Enemies in your Presence gain Critical Weakness every second"]={{[1]={flags=0,keywordFlags=0,name="ApplyCriticalWeakness",type="FLAG",value=true}},nil}
 c["Enemies in your Presence have 10% reduced Cooldown Recovery Rate"]={nil,"Enemies in your Presence have 10% reduced Cooldown Recovery Rate "}
 c["Enemies in your Presence have Fire Exposure"]={nil,"Enemies in your Presence have Fire Exposure "}
-c["Enemies in your Presence have Lightning Resistance equal to yours"]={nil,"Enemies in your Presence have Lightning Resistance equal to yours "}
-c["Enemies in your Presence have Lightning Resistance equal to yours Lightning Resistance does not affect Lightning damage taken"]={nil,"Enemies in your Presence have Lightning Resistance equal to yours Lightning Resistance does not affect Lightning damage taken "}
+c["Enemies in your Presence have Lightning Resistance equal to yours"]={{[1]={flags=0,keywordFlags=0,name="EnemyLightningResistEqualToYours",type="FLAG",value=true}},nil}
 c["Enemies killed by anyone in your Presence count as being killed by you instead"]={nil,"anyone in your Presence count as being killed by you instead "}
 c["Enemies near Enemies you Mark are Blinded"]={nil,"Enemies near Enemies you Mark are Blinded "}
 c["Enemies near Enemies you Mark are Blinded Enemies you Mark cannot deal Critical Hits"]={nil,"Enemies near Enemies you Mark are Blinded Enemies you Mark cannot deal Critical Hits "}
@@ -2670,6 +3382,9 @@ c["Gain 25 Life per Enemy Killed"]={{[1]={flags=0,keywordFlags=0,name="LifeOnKil
 c["Gain 25 Mana per Enemy Killed"]={{[1]={flags=0,keywordFlags=0,name="ManaOnKill",type="BASE",value=25}},nil}
 c["Gain 25% of Cold Damage as Extra Fire Damage against Frozen Enemies"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Frozen"},flags=0,keywordFlags=0,name="ColdDamageGainAsFire",type="BASE",value=25}},nil}
 c["Gain 25% of Maximum Mana as Extra Maximum Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="ManaGainAsEnergyShield",type="BASE",value=25}},nil}
+c["Gain 26% of Damage as Extra Cold Damage"]={{[1]={flags=0,keywordFlags=0,name="DamageGainAsCold",type="BASE",value=26}},nil}
+c["Gain 26% of Damage as Extra Fire Damage"]={{[1]={flags=0,keywordFlags=0,name="DamageGainAsFire",type="BASE",value=26}},nil}
+c["Gain 26% of Damage as Extra Lightning Damage"]={{[1]={flags=0,keywordFlags=0,name="DamageGainAsLightning",type="BASE",value=26}},nil}
 c["Gain 28% of Maximum Life as Extra Maximum Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="LifeGainAsEnergyShield",type="BASE",value=28}},nil}
 c["Gain 3 Life per Enemy Killed"]={{[1]={flags=0,keywordFlags=0,name="LifeOnKill",type="BASE",value=3}},nil}
 c["Gain 3 Rage when Hit by an Enemy"]={{[1]={flags=0,keywordFlags=0,name="Condition:CanGainRage",type="FLAG",value=true}},nil}
@@ -2727,8 +3442,10 @@ c["Gain a stack of Jade every second Grants Skill: Encase in Jade"]={nil,"a stac
 c["Gain an Endurance Charge when you Heavy Stun a Rare or Unique Enemy"]={nil,"an Endurance Charge when you Heavy Stun a Rare or Unique Enemy "}
 c["Gain an additional Charge when you gain a Charge"]={nil,"an additional Charge when you gain a Charge "}
 c["Gain no inherent bonuses from Attributes"]={{[1]={flags=0,keywordFlags=0,name="NoAttributeBonuses",type="FLAG",value=true}},nil}
+c["Gains 0.20 Charges per Second"]={{[1]={flags=0,keywordFlags=0,name="FlaskChargesGenerated",type="BASE",value=0.2}},nil}
 c["Giant's Blood"]={{[1]={flags=0,keywordFlags=0,name="Keystone",type="LIST",value="Giant's Blood"}},nil}
 c["Grants 1 Passive Skill Point"]={{[1]={flags=0,keywordFlags=0,name="ExtraPoints",type="BASE",value=1}},nil}
+c["Grants 1 additional Skill Slot"]={{[1]={flags=0,keywordFlags=0,name="SkillSlots",type="BASE",value=1}},nil}
 c["Grants 3 additional Skill Slots"]={{[1]={flags=0,keywordFlags=0,name="SkillSlots",type="BASE",value=3}},nil}
 c["Grants 5 Passive Skill Point"]={{[1]={flags=0,keywordFlags=0,name="ExtraPoints",type="BASE",value=5}},nil}
 c["Grants Skill: Ancestral Spirits"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=1,skillId="AncestralSpiritsPlayer"}}},nil}
@@ -2742,7 +3459,9 @@ c["Grants Skill: Explosive Concoction"]={{[1]={flags=0,keywordFlags=0,name="Extr
 c["Grants Skill: Fulminating Concoction"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=1,skillId="FulminatingConcoctionPlayer"}}},nil}
 c["Grants Skill: Into the Breach"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=1,skillId="IntoTheBreachPlayer"}}},nil}
 c["Grants Skill: Level 11 Bone Blast"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=11,skillId="BoneBlastPlayer"}}},nil}
+c["Grants Skill: Level 11 Chaos Bolt"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=11,skillId="WeaponGrantedChaosboltPlayer"}}},nil}
 c["Grants Skill: Level 11 Decompose"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=11,skillId="CorpseCloudPlayer"}}},nil}
+c["Grants Skill: Level 11 Discipline"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=11,skillId="DisciplinePlayer"}}},nil}
 c["Grants Skill: Level 11 Ember Fusillade"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=11,skillId="BlazingClusterPlayer"}}},nil}
 c["Grants Skill: Level 11 Firebolt"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=11,skillId="FireboltPlayer"}}},nil}
 c["Grants Skill: Level 11 Freezing Shards"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=11,skillId="FreezingShardsPlayer"}}},nil}
@@ -2751,14 +3470,18 @@ c["Grants Skill: Level 11 Lightning Bolt"]={{[1]={flags=0,keywordFlags=0,name="E
 c["Grants Skill: Level 11 Living Bomb"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=11,skillId="LivingBombPlayer"}}},nil}
 c["Grants Skill: Level 11 Malice"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=11,skillId="MalicePlayer"}}},nil}
 c["Grants Skill: Level 11 Mana Drain"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=11,skillId="ManaDrainPlayer"}}},nil}
+c["Grants Skill: Level 11 Power Siphon"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=11,skillId="PowerSiphonPlayer"}}},nil}
 c["Grants Skill: Level 11 Purity of Fire"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=11,skillId="PurityOfFirePlayer"}}},nil}
 c["Grants Skill: Level 11 Purity of Lightning"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=11,skillId="PurityOfLightningPlayer"}}},nil}
+c["Grants Skill: Level 11 Raise Shield"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=11,skillId="ShieldBlockPlayer"}}},nil}
 c["Grants Skill: Level 11 Sigil of Power"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=11,skillId="SigilOfPowerPlayer"}}},nil}
 c["Grants Skill: Level 11 Skeletal Warrior Minion"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=11,skillId="SummonSkeletalWarriorsPlayer"}}},nil}
 c["Grants Skill: Level 11 Spark"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=11,skillId="SparkPlayer"}}},nil}
 c["Grants Skill: Level 11 Volatile Dead"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=11,skillId="VolatileDeadPlayer"}}},nil}
 c["Grants Skill: Level 20 Bone Blast"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=20,skillId="BoneBlastPlayer"}}},nil}
+c["Grants Skill: Level 20 Chaos Bolt"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=20,skillId="WeaponGrantedChaosboltPlayer"}}},nil}
 c["Grants Skill: Level 20 Decompose"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=20,skillId="CorpseCloudPlayer"}}},nil}
+c["Grants Skill: Level 20 Discipline"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=20,skillId="DisciplinePlayer"}}},nil}
 c["Grants Skill: Level 20 Ember Fusillade"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=20,skillId="BlazingClusterPlayer"}}},nil}
 c["Grants Skill: Level 20 Firebolt"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=20,skillId="FireboltPlayer"}}},nil}
 c["Grants Skill: Level 20 Freezing Shards"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=20,skillId="FreezingShardsPlayer"}}},nil}
@@ -2767,10 +3490,14 @@ c["Grants Skill: Level 20 Lightning Bolt"]={{[1]={flags=0,keywordFlags=0,name="E
 c["Grants Skill: Level 20 Living Bomb"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=20,skillId="LivingBombPlayer"}}},nil}
 c["Grants Skill: Level 20 Malice"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=20,skillId="MalicePlayer"}}},nil}
 c["Grants Skill: Level 20 Mana Drain"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=20,skillId="ManaDrainPlayer"}}},nil}
+c["Grants Skill: Level 20 Power Siphon"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=20,skillId="PowerSiphonPlayer"}}},nil}
 c["Grants Skill: Level 20 Purity of Fire"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=20,skillId="PurityOfFirePlayer"}}},nil}
 c["Grants Skill: Level 20 Purity of Ice"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=20,skillId="PurityOfIcePlayer"}}},nil}
 c["Grants Skill: Level 20 Purity of Lightning"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=20,skillId="PurityOfLightningPlayer"}}},nil}
+c["Grants Skill: Level 20 Raise Shield"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=20,skillId="ShieldBlockPlayer"}}},nil}
 c["Grants Skill: Level 20 Sigil of Power"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=20,skillId="SigilOfPowerPlayer"}}},nil}
+c["Grants Skill: Level 20 Skeletal Warrior"]={nil,nil}
+c["Grants Skill: Level 20 Skeletal Warrior 48% increased Spirit"]={nil,nil}
 c["Grants Skill: Level 20 Skeletal Warrior Minion"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=20,skillId="SummonSkeletalWarriorsPlayer"}}},nil}
 c["Grants Skill: Level 20 Spark"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=20,skillId="SparkPlayer"}}},nil}
 c["Grants Skill: Level 20 Volatile Dead"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=20,skillId="VolatileDeadPlayer"}}},nil}
@@ -2786,7 +3513,7 @@ c["Grants Skill: Time Freeze"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",t
 c["Grants Skill: Time Snap"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=1,skillId="TimeSnapPlayer"}}},nil}
 c["Grants Skill: Unbound Avatar"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=1,skillId="UnboundAvatarPlayer"}}},nil}
 c["Grenade Skills Fire an additional Projectile"]={{[1]={[1]={skillType=169,type="SkillType"},flags=1024,keywordFlags=0,name="ProjectileCount",type="BASE",value=1}},nil}
-c["Grenade Skills have +1 Cooldown Use"]={nil,"Grenade Skills have +1 Cooldown Use "}
+c["Grenade Skills have +1 Cooldown Use"]={{[1]={[1]={skillType=169,type="SkillType"},flags=0,keywordFlags=0,name="AdditionalCooldownUses",type="BASE",value=1}},nil}
 c["Grenades have 15% chance to activate a second time"]={{[1]={[1]={skillType=169,type="SkillType"},flags=1024,keywordFlags=0,name="DPS",type="MORE",value=15}},nil}
 c["Has 6 Rune Sockets"]={nil,"Has 6 Rune Sockets "}
 c["Herald Skills deal 20% increased Damage"]={{[1]={[1]={skillType=62,type="SkillType"},flags=0,keywordFlags=0,name="Damage",type="INC",value=20}},nil}
@@ -2879,6 +3606,9 @@ c["Link Skills have 10% increased Buff Effect"]={{[1]={[1]={skillType=118,type="
 c["Link Skills have 20% increased Buff Effect"]={{[1]={[1]={skillType=118,type="SkillType"},flags=0,keywordFlags=0,name="BuffEffect",type="INC",value=20}},nil}
 c["Link Skills have 20% increased Skill Effect Duration"]={{[1]={[1]={skillType=118,type="SkillType"},flags=0,keywordFlags=0,name="Duration",type="INC",value=20}},nil}
 c["Link Skills have 8% increased Cast Speed"]={{[1]={[1]={skillType=118,type="SkillType"},flags=16,keywordFlags=0,name="Speed",type="INC",value=8}},nil}
+c["Loads an additional bolt"]={nil,"Loads an additional bolt "}
+c["Loads an additional bolt 172% increased Physical Damage"]={nil,"Loads an additional bolt 172% increased Physical Damage "}
+c["Loads an additional bolt Adds 44 to 66 Fire Damage"]={{[1]={flags=0,keywordFlags=0,name="FireMin",type="BASE",value=44},[2]={flags=0,keywordFlags=0,name="FireMax",type="BASE",value=66}},"Loads an additional bolt  "}
 c["Lose 1% of Life on Kill"]={{[1]={[1]={percent=1,stat="Life",type="PercentStat"},flags=0,keywordFlags=0,name="LifeOnKill",type="BASE",value=-1}},nil}
 c["Lose 1% of Mana on Kill"]={{[1]={[1]={percent=1,stat="Mana",type="PercentStat"},flags=0,keywordFlags=0,name="ManaOnKill",type="BASE",value=-1}},nil}
 c["Lose 2% of Life on Kill"]={{[1]={[1]={percent=2,stat="Life",type="PercentStat"},flags=0,keywordFlags=0,name="LifeOnKill",type="BASE",value=-1}},nil}
@@ -2919,11 +3649,11 @@ c["Meta Skills gain 35% more Energy"]={nil,"Meta Skills gain 35% more Energy "}
 c["Meta Skills gain 8% increased Energy"]={nil,"Meta Skills gain 8% increased Energy "}
 c["Minions Recoup 10% of Damage taken as Life"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="LifeRecoup",type="BASE",value=10}}}},nil}
 c["Minions Regenerate 3% of Life per second"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="LifeRegenPercent",type="BASE",value=3}}}},nil}
-c["Minions Revive 15% faster"]={nil,"Revive 15% faster "}
-c["Minions Revive 15% faster You gain 2% Life when one of your Minions is Revived"]={nil,"Revive 15% faster You gain 2% Life when one of your Minions is Revived "}
-c["Minions Revive 25% faster"]={nil,"Revive 25% faster "}
-c["Minions Revive 5% faster"]={nil,"Revive 5% faster "}
-c["Minions Revive 50% faster"]={nil,"Revive 50% faster "}
+c["Minions Revive 13% faster"]={{[1]={flags=0,keywordFlags=0,name="MinionRevivalTime",type="INC",value=-13}},nil}
+c["Minions Revive 15% faster"]={{[1]={flags=0,keywordFlags=0,name="MinionRevivalTime",type="INC",value=-15}},nil}
+c["Minions Revive 25% faster"]={{[1]={flags=0,keywordFlags=0,name="MinionRevivalTime",type="INC",value=-25}},nil}
+c["Minions Revive 5% faster"]={{[1]={flags=0,keywordFlags=0,name="MinionRevivalTime",type="INC",value=-5}},nil}
+c["Minions Revive 50% faster"]={{[1]={flags=0,keywordFlags=0,name="MinionRevivalTime",type="INC",value=-50}},nil}
 c["Minions deal (25-35)% increased Damage"]={nil,"(25-35)% increased Damage "}
 c["Minions deal (8-13)% increased Damage"]={nil,"(8-13)% increased Damage "}
 c["Minions deal 10% increased Damage"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Damage",type="INC",value=10}}}},nil}
@@ -2961,7 +3691,7 @@ c["Minions have 10% increased maximum Life"]={{[1]={flags=0,keywordFlags=0,name=
 c["Minions have 10% reduced Life Recovery rate"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="LifeRecoveryRate",type="INC",value=-10}}}},nil}
 c["Minions have 12% additional Physical Damage Reduction"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="PhysicalDamageReduction",type="BASE",value=12}}}},nil}
 c["Minions have 12% increased maximum Life"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Life",type="INC",value=12}}}},nil}
-c["Minions have 12% reduced Reservation"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Reserved",type="INC",value=-12}}}},nil}
+c["Minions have 12% reduced Reservation"]={{[1]={[1]={skillType=9,type="SkillType"},flags=0,keywordFlags=0,name="Reserved",type="INC",value=-12}},nil}
 c["Minions have 13% increased maximum Life"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Life",type="INC",value=13}}}},nil}
 c["Minions have 15% increased Critical Damage Bonus"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="CritMultiplier",type="INC",value=15}}}},nil}
 c["Minions have 15% increased maximum Life"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Life",type="INC",value=15}}}},nil}
@@ -2983,7 +3713,7 @@ c["Minions have 8% increased Attack and Cast Speed"]={{[1]={flags=0,keywordFlags
 c["Minions have 8% increased maximum Life"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Life",type="INC",value=8}}}},nil}
 c["Minions have 80% increased maximum Life"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Life",type="INC",value=80}}}},nil}
 c["Minions' Resistances are equal to yours"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={[1]={actor="parent",stat="FireResist",type="PerStat"},flags=0,keywordFlags=0,name="FireResist",type="OVERRIDE",value=1}}},[2]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={[1]={actor="parent",stat="ColdResist",type="PerStat"},flags=0,keywordFlags=0,name="ColdResist",type="OVERRIDE",value=1}}},[3]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={[1]={actor="parent",stat="LightningResist",type="PerStat"},flags=0,keywordFlags=0,name="LightningResist",type="OVERRIDE",value=1}}},[4]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={[1]={actor="parent",stat="ChaosResist",type="PerStat"},flags=0,keywordFlags=0,name="ChaosResist",type="OVERRIDE",value=1}}}},nil}
-c["Modifiers to Maximum Block Chance instead apply to Maximum Resistances"]={nil,"Modifiers to Maximum Block Chance instead apply to Maximum Resistances "}
+c["Modifiers to Maximum Block Chance instead apply to Maximum Resistances"]={{[1]={flags=0,keywordFlags=0,name="MaxBlockChanceModsApplyMaxResist",type="FLAG",value=true}},nil}
 c["Moving while Bleeding doesn't cause you to take extra damage"]={nil,"Moving while Bleeding doesn't cause you to take extra damage "}
 c["Nearby Allies and Enemies Share Charges with you"]={nil,"Nearby Allies and Enemies Share Charges with you "}
 c["Nearby Allies and Enemies Share Charges with you Enemies Hitting you have 10% chance to gain an Endurance, "]={nil,"Nearby Allies and Enemies Share Charges with you Enemies Hitting you have 10% chance to gain an Endurance,  "}
@@ -3127,7 +3857,7 @@ c["Share Charges with Allies in your Presence"]={nil,"Share Charges with "}
 c["Shocking Hits have a 50% chance to also Shock enemies in a 1.5 metre radius"]={nil,"Shocking Hits have a 50% chance to also Shock enemies in a 1.5 metre radius "}
 c["Shocks you when you reach maximum Power Charges"]={nil,"Shocks you when you reach maximum Power Charges "}
 c["Skill Gems have 30% more Attribute Requirements"]={{[1]={flags=0,keywordFlags=0,name="GlobalGemAttributeRequirements",type="MORE",value=30}},nil}
-c["Skill Mana Costs Converted to Life Costs"]={{[1]={flags=0,keywordFlags=0,name="CostLifeInsteadOfMana",type="FLAG",value=true}},nil}
+c["Skill Mana Costs Converted to Life Costs"]={{[1]={flags=0,keywordFlags=0,name="HybridManaAndLifeCost_Life",type="BASE",value=100}},nil}
 c["Skills Cost +3 Rage"]={{[1]={flags=0,keywordFlags=0,name="RageCostBase",type="BASE",value=3}},nil}
 c["Skills Supported by Unleash have 10% increased Seal gain frequency"]={{[1]={flags=0,keywordFlags=0,name="SealGainFrequency",type="INC",value=10}},nil}
 c["Skills Supported by Unleash have 25% increased Seal gain frequency"]={{[1]={flags=0,keywordFlags=0,name="SealGainFrequency",type="INC",value=25}},nil}
@@ -3155,6 +3885,9 @@ c["Spells Cast by Totems have 4% increased Cast Speed"]={{[1]={flags=18,keywordF
 c["Stagger empties 50% faster while your Shield is lowered"]={nil,"Stagger empties 50% faster while your Shield is lowered "}
 c["Strength can satisfy other Attribute Requirements of Melee Weapons and Melee Skills"]={nil,"Strength can satisfy other Attribute Requirements of Melee Weapons and Melee Skills "}
 c["Strength's inherent bonus is 1% increased Energy Shield per 2 Strength instead"]={{[1]={[1]={div="2",stat="Str",type="PerStat"},flags=0,keywordFlags=0,name="EnergyShield",type="INC",value=1},[2]={flags=0,keywordFlags=0,name="NoStrBonusToLife",type="FLAG",value=true}},nil}
+c["Strikes deal Splash damage to targets within 1.8 metres"]={nil,"Strikes deal Splash damage to targets within 1.8 metres "}
+c["Strikes deal Splash damage to targets within 1.8 metres 172% increased Physical Damage"]={nil,"Strikes deal Splash damage to targets within 1.8 metres 172% increased Physical Damage "}
+c["Strikes deal Splash damage to targets within 1.8 metres Adds 62 to 94 Fire Damage"]={{[1]={flags=0,keywordFlags=0,name="FireMin",type="BASE",value=62},[2]={flags=0,keywordFlags=0,name="FireMax",type="BASE",value=94}},"Strikes deal Splash  to targets within 1.8 metres  "}
 c["Stun Threshold is based on 30% of your Energy Shield instead of Life"]={{[1]={flags=0,keywordFlags=0,name="StunThresholdBasedOnEnergyShieldInsteadOfLife",type="FLAG",value=true},[2]={flags=0,keywordFlags=0,name="StunThresholdEnergyShieldPercent",type="BASE",value=30}},nil}
 c["Take 100 Fire Damage when you Ignite an Enemy"]={{[1]={flags=0,keywordFlags=0,name="EyeOfInnocenceSelfDamage",type="LIST",value={baseDamage=100,damageType="fire"}}},nil}
 c["Take 30% less Damage from Hits"]={{[1]={flags=0,keywordFlags=0,name="DamageTaken",type="MORE",value=-30}},"  from Hits "}
@@ -3202,7 +3935,7 @@ c["Triggered Spells deal 45% increased Spell Damage"]={{[1]={[1]={skillType=41,t
 c["Triple Attribute requirements of weapons"]={{[1]={flags=0,keywordFlags=0,name="GlobalWeaponAttributeRequirements",type="MORE",value=200}},nil}
 c["Unaffected by Chill during Dodge Roll"]={nil,"Unaffected by Chill during Dodge Roll "}
 c["Unaffected by Chill while Leeching Mana"]={{[1]={[1]={type="Condition",var="LeechingMana"},flags=0,keywordFlags=0,name="SelfChillEffect",type="MORE",value=-100}},nil}
-c["Undead Minions have 20% reduced Reservation"]={nil,"Undead Minions have 20% reduced Reservation "}
+c["Undead Minions have 20% reduced Reservation"]={{[1]={[1]={skillType=138,type="SkillType"},flags=0,keywordFlags=0,name="Reserved",type="INC",value=-20}},nil}
 c["Unlimited number of Summoned Totems"]={nil,"Unlimited number of Summoned Totems "}
 c["Unlimited number of Summoned Totems Totems reserve 100 Spirit each"]={nil,"Unlimited number of Summoned Totems Totems reserve 100 Spirit each "}
 c["Unwavering Stance"]={{[1]={flags=0,keywordFlags=0,name="Keystone",type="LIST",value="Unwavering Stance"}},nil}
@@ -3222,7 +3955,7 @@ c["While not on Low Infernal Flame, all Damage from you and Allies in your Prese
 c["While on High Infernal Flame, you and Allies in your"]={nil,"While on High Infernal Flame, you and Allies in your "}
 c["While on High Infernal Flame, you and Allies in your Presence Gain 20% of Damage as Fire Damage"]={nil,"While on High Infernal Flame, you and 20% of Damage as Fire Damage "}
 c["You are Blind"]={{[1]={[1]={neg=true,type="Condition",var="CannotBeBlinded"},flags=0,keywordFlags=0,name="Condition:Blinded",type="FLAG",value=true}},nil}
-c["You can Break Enemy Armour to below 0"]={nil,"You can Break Enemy Armour to below 0 "}
+c["You can Break Enemy Armour to below 0"]={{[1]={[1]={effectName="ImplodingImpacts",effectType="Buff",type="GlobalEffect"},flags=0,keywordFlags=0,name="Condition:CanArmourBreakBelowZero",type="FLAG",value=true}},nil}
 c["You can apply an additional Curse"]={{[1]={flags=0,keywordFlags=0,name="EnemyCurseLimit",type="BASE",value=1}},nil}
 c["You can apply an additional Mark"]={{[1]={flags=0,keywordFlags=0,name="EnemyMarkLimit",type="BASE",value=1}},nil}
 c["You can only Socket Emerald Jewels in this item"]={nil,"You can only Socket Emerald Jewels in this item "}
@@ -3232,8 +3965,7 @@ c["You can only Socket Ruby Jewels in this item You can only Socket Sapphire Jew
 c["You can only Socket Sapphire Jewels in this item"]={nil,"You can only Socket Sapphire Jewels in this item "}
 c["You can use two copies of the same Support Gem in different Skills"]={{[1]={flags=0,keywordFlags=0,name="MaxSupportGemCopies",type="OVERRIDE",value=2}},nil}
 c["You can wield Two-Handed Axes, Maces and Swords in one hand"]={{[1]={flags=0,keywordFlags=0,name="GiantsBlood",type="FLAG",value=true}},nil}
-c["You cannot Block"]={nil,"You cannot Block "}
-c["You cannot Block Modifiers to Maximum Block Chance instead apply to Maximum Resistances"]={nil,"You cannot Block Modifiers to Maximum Block Chance instead apply to Maximum Resistances "}
+c["You cannot Block"]={{[1]={flags=0,keywordFlags=0,name="CannotBlockAttacks",type="FLAG",value=true}},nil}
 c["You cannot Recharge Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="NoEnergyShieldRecharge",type="FLAG",value=true}},nil}
 c["You cannot be Chilled for 6 seconds after being Chilled"]={nil,"You cannot be Chilled for 6 seconds after being Chilled "}
 c["You cannot be Chilled for 6 seconds after being Chilled You cannot be Frozen for 6 seconds after being Frozen"]={nil,"You cannot be Chilled for 6 seconds after being Chilled You cannot be Frozen for 6 seconds after being Frozen "}

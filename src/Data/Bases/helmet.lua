@@ -3,6 +3,1073 @@
 local itemBases = ...
 
 
+itemBases["Rusted Greathelm"] = {
+	type = "Helmet",
+	subType = "Armour",
+	quality = 20,
+	socketLimit = 2,
+	tags = { str_armour = true, helmet = true, armour = true, ezomyte_basetype = true, default = true, },
+	implicitModTypes = { },
+	armour = { Armour = 29, },
+	req = { },
+}
+itemBases["Soldier Greathelm"] = {
+	type = "Helmet",
+	subType = "Armour",
+	quality = 20,
+	socketLimit = 2,
+	tags = { str_armour = true, helmet = true, armour = true, ezomyte_basetype = true, default = true, },
+	implicitModTypes = { },
+	armour = { Armour = 66, },
+	req = { level = 12, str = 23, },
+}
+itemBases["Wrapped Greathelm"] = {
+	type = "Helmet",
+	subType = "Armour",
+	quality = 20,
+	socketLimit = 2,
+	tags = { maraketh_basetype = true, str_armour = true, helmet = true, armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Armour = 79, },
+	req = { level = 16, str = 30, },
+}
+itemBases["Spired Greathelm"] = {
+	type = "Helmet",
+	subType = "Armour",
+	quality = 20,
+	socketLimit = 2,
+	tags = { maraketh_basetype = true, str_armour = true, helmet = true, armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Armour = 116, },
+	req = { level = 27, str = 50, },
+}
+itemBases["Elite Greathelm"] = {
+	type = "Helmet",
+	subType = "Armour",
+	quality = 20,
+	socketLimit = 2,
+	tags = { str_armour = true, helmet = true, armour = true, vaal_basetype = true, default = true, },
+	implicitModTypes = { },
+	armour = { Armour = 136, },
+	req = { level = 33, str = 61, },
+}
+itemBases["Warrior Greathelm"] = {
+	type = "Helmet",
+	subType = "Armour",
+	quality = 20,
+	socketLimit = 2,
+	tags = { str_armour = true, helmet = true, armour = true, vaal_basetype = true, default = true, },
+	implicitModTypes = { },
+	armour = { Armour = 146, },
+	req = { level = 36, str = 66, },
+}
+itemBases["Commander Greathelm"] = {
+	type = "Helmet",
+	subType = "Armour",
+	quality = 20,
+	socketLimit = 2,
+	tags = { helmet = true, armour = true, str_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Armour = 176, },
+	req = { level = 45, str = 83, },
+}
+itemBases["Fierce Greathelm"] = {
+	type = "Helmet",
+	subType = "Armour",
+	quality = 20,
+	socketLimit = 2,
+	tags = { helmet = true, armour = true, str_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Armour = 196, },
+	req = { level = 51, str = 94, },
+}
+itemBases["Dueling Greathelm"] = {
+	type = "Helmet",
+	subType = "Armour",
+	quality = 20,
+	socketLimit = 2,
+	tags = { helmet = true, armour = true, str_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Armour = 200, },
+	req = { level = 52, str = 95, },
+}
+itemBases["Goliath Greathelm"] = {
+	type = "Helmet",
+	subType = "Armour",
+	quality = 20,
+	socketLimit = 2,
+	tags = { helmet = true, armour = true, str_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Armour = 216, },
+	req = { level = 57, str = 104, },
+}
+itemBases["Guardian Greathelm"] = {
+	type = "Helmet",
+	subType = "Armour",
+	quality = 20,
+	socketLimit = 2,
+	tags = { helmet = true, armour = true, str_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Armour = 243, },
+	req = { level = 65, str = 118, },
+}
+itemBases["Advanced Rusted Greathelm"] = {
+	type = "Helmet",
+	subType = "Armour",
+	quality = 20,
+	socketLimit = 2,
+	tags = { helmet = true, armour = true, str_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Armour = 176, },
+	req = { level = 45, str = 83, },
+}
+itemBases["Advanced Soldier Greathelm"] = {
+	type = "Helmet",
+	subType = "Armour",
+	quality = 20,
+	socketLimit = 2,
+	tags = { helmet = true, armour = true, str_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Armour = 186, },
+	req = { level = 48, str = 88, },
+}
+itemBases["Advanced Wrapped Greathelm"] = {
+	type = "Helmet",
+	subType = "Armour",
+	quality = 20,
+	socketLimit = 2,
+	tags = { helmet = true, armour = true, str_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Armour = 196, },
+	req = { level = 51, str = 94, },
+}
+itemBases["Advanced Spired Greathelm"] = {
+	type = "Helmet",
+	subType = "Armour",
+	quality = 20,
+	socketLimit = 2,
+	tags = { helmet = true, armour = true, str_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Armour = 210, },
+	req = { level = 55, str = 101, },
+}
+itemBases["Advanced Elite Greathelm"] = {
+	type = "Helmet",
+	subType = "Armour",
+	quality = 20,
+	socketLimit = 2,
+	tags = { helmet = true, armour = true, str_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Armour = 223, },
+	req = { level = 59, str = 108, },
+}
+itemBases["Expert Soldier Greathelm"] = {
+	type = "Helmet",
+	subType = "Armour",
+	quality = 20,
+	socketLimit = 2,
+	tags = { helmet = true, armour = true, str_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Armour = 243, },
+	req = { level = 65, str = 118, },
+}
+itemBases["Expert Spired Greathelm"] = {
+	type = "Helmet",
+	subType = "Armour",
+	quality = 20,
+	socketLimit = 2,
+	tags = { helmet = true, armour = true, str_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Armour = 267, },
+	req = { level = 70, str = 129, },
+}
+itemBases["Expert Elite Greathelm"] = {
+	type = "Helmet",
+	subType = "Armour",
+	quality = 20,
+	socketLimit = 2,
+	tags = { helmet = true, armour = true, str_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Armour = 292, },
+	req = { level = 75, str = 139, },
+}
+
+itemBases["Shabby Hood"] = {
+	type = "Helmet",
+	subType = "Evasion",
+	quality = 20,
+	socketLimit = 2,
+	tags = { ezomyte_basetype = true, dex_armour = true, helmet = true, armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Evasion = 19, },
+	req = { },
+}
+itemBases["Felt Cap"] = {
+	type = "Helmet",
+	subType = "Evasion",
+	quality = 20,
+	socketLimit = 2,
+	tags = { ezomyte_basetype = true, dex_armour = true, helmet = true, armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Evasion = 48, },
+	req = { level = 10, dex = 20, },
+}
+itemBases["Lace Hood"] = {
+	type = "Helmet",
+	subType = "Evasion",
+	quality = 20,
+	socketLimit = 2,
+	tags = { maraketh_basetype = true, dex_armour = true, helmet = true, armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Evasion = 67, },
+	req = { level = 16, dex = 30, },
+}
+itemBases["Swathed Cap"] = {
+	type = "Helmet",
+	subType = "Evasion",
+	quality = 20,
+	socketLimit = 2,
+	tags = { maraketh_basetype = true, dex_armour = true, helmet = true, armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Evasion = 98, },
+	req = { level = 26, dex = 49, },
+}
+itemBases["Hunter Hood"] = {
+	type = "Helmet",
+	subType = "Evasion",
+	quality = 20,
+	socketLimit = 2,
+	tags = { dex_armour = true, helmet = true, armour = true, vaal_basetype = true, default = true, },
+	implicitModTypes = { },
+	armour = { Evasion = 121, },
+	req = { level = 33, dex = 61, },
+}
+itemBases["Viper Cap"] = {
+	type = "Helmet",
+	subType = "Evasion",
+	quality = 20,
+	socketLimit = 2,
+	tags = { dex_armour = true, helmet = true, armour = true, vaal_basetype = true, default = true, },
+	implicitModTypes = { },
+	armour = { Evasion = 136, },
+	req = { level = 38, dex = 70, },
+}
+itemBases["Corsair Cap"] = {
+	type = "Helmet",
+	subType = "Evasion",
+	quality = 20,
+	socketLimit = 2,
+	tags = { helmet = true, armour = true, dex_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Evasion = 158, },
+	req = { level = 45, dex = 83, },
+}
+itemBases["Leatherbound Hood"] = {
+	type = "Helmet",
+	subType = "Evasion",
+	quality = 20,
+	socketLimit = 2,
+	tags = { helmet = true, armour = true, dex_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Evasion = 177, },
+	req = { level = 51, dex = 94, },
+}
+itemBases["Velvet Cap"] = {
+	type = "Helmet",
+	subType = "Evasion",
+	quality = 20,
+	socketLimit = 2,
+	tags = { helmet = true, armour = true, dex_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Evasion = 181, },
+	req = { level = 52, dex = 95, },
+}
+itemBases["Covert Hood"] = {
+	type = "Helmet",
+	subType = "Evasion",
+	quality = 20,
+	socketLimit = 2,
+	tags = { helmet = true, armour = true, dex_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Evasion = 193, },
+	req = { level = 56, dex = 102, },
+}
+itemBases["Armoured Cap"] = {
+	type = "Helmet",
+	subType = "Evasion",
+	quality = 20,
+	socketLimit = 2,
+	tags = { helmet = true, armour = true, dex_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Evasion = 222, },
+	req = { level = 65, dex = 118, },
+}
+itemBases["Advanced Shabby Hood"] = {
+	type = "Helmet",
+	subType = "Evasion",
+	quality = 20,
+	socketLimit = 2,
+	tags = { helmet = true, armour = true, dex_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Evasion = 158, },
+	req = { level = 45, dex = 83, },
+}
+itemBases["Advanced Felt Cap"] = {
+	type = "Helmet",
+	subType = "Evasion",
+	quality = 20,
+	socketLimit = 2,
+	tags = { helmet = true, armour = true, dex_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Evasion = 168, },
+	req = { level = 48, dex = 88, },
+}
+itemBases["Advanced Lace Hood"] = {
+	type = "Helmet",
+	subType = "Evasion",
+	quality = 20,
+	socketLimit = 2,
+	tags = { helmet = true, armour = true, dex_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Evasion = 177, },
+	req = { level = 51, dex = 94, },
+}
+itemBases["Advanced Swathed Cap"] = {
+	type = "Helmet",
+	subType = "Evasion",
+	quality = 20,
+	socketLimit = 2,
+	tags = { helmet = true, armour = true, dex_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Evasion = 190, },
+	req = { level = 55, dex = 101, },
+}
+itemBases["Advanced Hunter Hood"] = {
+	type = "Helmet",
+	subType = "Evasion",
+	quality = 20,
+	socketLimit = 2,
+	tags = { helmet = true, armour = true, dex_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Evasion = 203, },
+	req = { level = 59, dex = 108, },
+}
+itemBases["Expert Felt Cap"] = {
+	type = "Helmet",
+	subType = "Evasion",
+	quality = 20,
+	socketLimit = 2,
+	tags = { helmet = true, armour = true, dex_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Evasion = 222, },
+	req = { level = 65, dex = 118, },
+}
+itemBases["Expert Swathed Cap"] = {
+	type = "Helmet",
+	subType = "Evasion",
+	quality = 20,
+	socketLimit = 2,
+	tags = { helmet = true, armour = true, dex_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Evasion = 244, },
+	req = { level = 70, dex = 129, },
+}
+itemBases["Expert Hunter Hood"] = {
+	type = "Helmet",
+	subType = "Evasion",
+	quality = 20,
+	socketLimit = 2,
+	tags = { helmet = true, armour = true, dex_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Evasion = 266, },
+	req = { level = 75, dex = 139, },
+}
+
+itemBases["Twig Circlet"] = {
+	type = "Helmet",
+	subType = "Energy Shield",
+	quality = 20,
+	socketLimit = 2,
+	tags = { ezomyte_basetype = true, int_armour = true, helmet = true, armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { EnergyShield = 19, },
+	req = { },
+}
+itemBases["Wicker Tiara"] = {
+	type = "Helmet",
+	subType = "Energy Shield",
+	quality = 20,
+	socketLimit = 2,
+	tags = { ezomyte_basetype = true, int_armour = true, helmet = true, armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { EnergyShield = 28, },
+	req = { level = 10, int = 20, },
+}
+itemBases["Beaded Circlet"] = {
+	type = "Helmet",
+	subType = "Energy Shield",
+	quality = 20,
+	socketLimit = 2,
+	tags = { maraketh_basetype = true, int_armour = true, helmet = true, armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { EnergyShield = 34, },
+	req = { level = 16, int = 30, },
+}
+itemBases["Chain Tiara"] = {
+	type = "Helmet",
+	subType = "Energy Shield",
+	quality = 20,
+	socketLimit = 2,
+	tags = { maraketh_basetype = true, int_armour = true, helmet = true, armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { EnergyShield = 44, },
+	req = { level = 26, int = 49, },
+}
+itemBases["Feathered Tiara"] = {
+	type = "Helmet",
+	subType = "Energy Shield",
+	quality = 20,
+	socketLimit = 2,
+	tags = { int_armour = true, helmet = true, armour = true, vaal_basetype = true, default = true, },
+	implicitModTypes = { },
+	armour = { EnergyShield = 51, },
+	req = { level = 33, int = 61, },
+}
+itemBases["Gold Circlet"] = {
+	type = "Helmet",
+	subType = "Energy Shield",
+	quality = 20,
+	socketLimit = 2,
+	tags = { int_armour = true, helmet = true, armour = true, vaal_basetype = true, default = true, },
+	implicitModTypes = { },
+	armour = { EnergyShield = 58, },
+	req = { level = 40, int = 74, },
+}
+itemBases["Coral Circlet"] = {
+	type = "Helmet",
+	subType = "Energy Shield",
+	quality = 20,
+	socketLimit = 2,
+	tags = { helmet = true, armour = true, int_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { EnergyShield = 63, },
+	req = { level = 45, int = 83, },
+}
+itemBases["Jade Tiara"] = {
+	type = "Helmet",
+	subType = "Energy Shield",
+	quality = 20,
+	socketLimit = 2,
+	tags = { helmet = true, armour = true, int_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { EnergyShield = 69, },
+	req = { level = 50, int = 92, },
+}
+itemBases["Noble Circlet"] = {
+	type = "Helmet",
+	subType = "Energy Shield",
+	quality = 20,
+	socketLimit = 2,
+	tags = { helmet = true, armour = true, int_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { EnergyShield = 71, },
+	req = { level = 52, int = 95, },
+}
+itemBases["Twilight Tiara"] = {
+	type = "Helmet",
+	subType = "Energy Shield",
+	quality = 20,
+	socketLimit = 2,
+	tags = { helmet = true, armour = true, int_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { EnergyShield = 77, },
+	req = { level = 58, int = 106, },
+}
+itemBases["Magus Tiara"] = {
+	type = "Helmet",
+	subType = "Energy Shield",
+	quality = 20,
+	socketLimit = 2,
+	tags = { helmet = true, armour = true, int_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { EnergyShield = 84, },
+	req = { level = 65, int = 118, },
+}
+itemBases["Advanced Twig Circlet"] = {
+	type = "Helmet",
+	subType = "Energy Shield",
+	quality = 20,
+	socketLimit = 2,
+	tags = { helmet = true, armour = true, int_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { EnergyShield = 63, },
+	req = { level = 45, int = 83, },
+}
+itemBases["Advanced Wicker Tiara"] = {
+	type = "Helmet",
+	subType = "Energy Shield",
+	quality = 20,
+	socketLimit = 2,
+	tags = { helmet = true, armour = true, int_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { EnergyShield = 67, },
+	req = { level = 48, int = 88, },
+}
+itemBases["Advanced Beaded Circlet"] = {
+	type = "Helmet",
+	subType = "Energy Shield",
+	quality = 20,
+	socketLimit = 2,
+	tags = { helmet = true, armour = true, int_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { EnergyShield = 70, },
+	req = { level = 51, int = 94, },
+}
+itemBases["Advanced Chain Tiara"] = {
+	type = "Helmet",
+	subType = "Energy Shield",
+	quality = 20,
+	socketLimit = 2,
+	tags = { helmet = true, armour = true, int_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { EnergyShield = 74, },
+	req = { level = 55, int = 101, },
+}
+itemBases["Advanced Feathered Tiara"] = {
+	type = "Helmet",
+	subType = "Energy Shield",
+	quality = 20,
+	socketLimit = 2,
+	tags = { helmet = true, armour = true, int_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { EnergyShield = 78, },
+	req = { level = 59, int = 108, },
+}
+itemBases["Expert Wicker Tiara"] = {
+	type = "Helmet",
+	subType = "Energy Shield",
+	quality = 20,
+	socketLimit = 2,
+	tags = { helmet = true, armour = true, int_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { EnergyShield = 84, },
+	req = { level = 65, int = 118, },
+}
+itemBases["Expert Chain Tiara"] = {
+	type = "Helmet",
+	subType = "Energy Shield",
+	quality = 20,
+	socketLimit = 2,
+	tags = { helmet = true, armour = true, int_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { EnergyShield = 92, },
+	req = { level = 70, int = 129, },
+}
+itemBases["Expert Feathered Tiara"] = {
+	type = "Helmet",
+	subType = "Energy Shield",
+	quality = 20,
+	socketLimit = 2,
+	tags = { helmet = true, armour = true, int_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { EnergyShield = 101, },
+	req = { level = 75, int = 139, },
+}
+
+itemBases["Brimmed Helm"] = {
+	type = "Helmet",
+	subType = "Armour/Evasion",
+	quality = 20,
+	socketLimit = 2,
+	tags = { str_dex_armour = true, ezomyte_basetype = true, helmet = true, armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Armour = 23, Evasion = 18, },
+	req = { level = 5, str = 7, dex = 7, },
+}
+itemBases["Guarded Helm"] = {
+	type = "Helmet",
+	subType = "Armour/Evasion",
+	quality = 20,
+	socketLimit = 2,
+	tags = { str_dex_armour = true, ezomyte_basetype = true, helmet = true, armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Armour = 34, Evasion = 28, },
+	req = { level = 11, str = 13, dex = 13, },
+}
+itemBases["Visored Helm"] = {
+	type = "Helmet",
+	subType = "Armour/Evasion",
+	quality = 20,
+	socketLimit = 2,
+	tags = { maraketh_basetype = true, str_dex_armour = true, helmet = true, armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Armour = 44, Evasion = 37, },
+	req = { level = 16, str = 18, dex = 18, },
+}
+itemBases["Cowled Helm"] = {
+	type = "Helmet",
+	subType = "Armour/Evasion",
+	quality = 20,
+	socketLimit = 2,
+	tags = { maraketh_basetype = true, str_dex_armour = true, helmet = true, armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Armour = 62, Evasion = 54, },
+	req = { level = 26, str = 27, dex = 27, },
+}
+itemBases["Shielded Helm"] = {
+	type = "Helmet",
+	subType = "Armour/Evasion",
+	quality = 20,
+	socketLimit = 2,
+	tags = { str_dex_armour = true, helmet = true, armour = true, vaal_basetype = true, default = true, },
+	implicitModTypes = { },
+	armour = { Armour = 75, Evasion = 66, },
+	req = { level = 33, str = 34, dex = 34, },
+}
+itemBases["Closed Helm"] = {
+	type = "Helmet",
+	subType = "Armour/Evasion",
+	quality = 20,
+	socketLimit = 2,
+	tags = { helmet = true, armour = true, str_dex_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Armour = 97, Evasion = 87, },
+	req = { level = 45, str = 46, dex = 46, },
+}
+itemBases["Decorated Helm"] = {
+	type = "Helmet",
+	subType = "Armour/Evasion",
+	quality = 20,
+	socketLimit = 2,
+	tags = { helmet = true, armour = true, str_dex_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Armour = 110, Evasion = 99, },
+	req = { level = 52, str = 53, dex = 53, },
+}
+itemBases["Gallant Helm"] = {
+	type = "Helmet",
+	subType = "Armour/Evasion",
+	quality = 20,
+	socketLimit = 2,
+	tags = { helmet = true, armour = true, str_dex_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Armour = 134, Evasion = 122, },
+	req = { level = 65, str = 65, dex = 65, },
+}
+itemBases["Advanced Brimmed Helm"] = {
+	type = "Helmet",
+	subType = "Armour/Evasion",
+	quality = 20,
+	socketLimit = 2,
+	tags = { helmet = true, armour = true, str_dex_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Armour = 97, Evasion = 87, },
+	req = { level = 45, str = 46, dex = 46, },
+}
+itemBases["Advanced Guarded Helm"] = {
+	type = "Helmet",
+	subType = "Armour/Evasion",
+	quality = 20,
+	socketLimit = 2,
+	tags = { helmet = true, armour = true, str_dex_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Armour = 102, Evasion = 92, },
+	req = { level = 48, str = 49, dex = 49, },
+}
+itemBases["Advanced Visored Helm"] = {
+	type = "Helmet",
+	subType = "Armour/Evasion",
+	quality = 20,
+	socketLimit = 2,
+	tags = { helmet = true, armour = true, str_dex_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Armour = 108, Evasion = 98, },
+	req = { level = 51, str = 52, dex = 52, },
+}
+itemBases["Advanced Cowled Helm"] = {
+	type = "Helmet",
+	subType = "Armour/Evasion",
+	quality = 20,
+	socketLimit = 2,
+	tags = { helmet = true, armour = true, str_dex_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Armour = 115, Evasion = 105, },
+	req = { level = 55, str = 55, dex = 55, },
+}
+itemBases["Advanced Shielded Helm"] = {
+	type = "Helmet",
+	subType = "Armour/Evasion",
+	quality = 20,
+	socketLimit = 2,
+	tags = { helmet = true, armour = true, str_dex_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Armour = 123, Evasion = 111, },
+	req = { level = 59, str = 59, dex = 59, },
+}
+itemBases["Expert Guarded Helm"] = {
+	type = "Helmet",
+	subType = "Armour/Evasion",
+	quality = 20,
+	socketLimit = 2,
+	tags = { helmet = true, armour = true, str_dex_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Armour = 134, Evasion = 122, },
+	req = { level = 65, str = 65, dex = 65, },
+}
+itemBases["Expert Cowled Helm"] = {
+	type = "Helmet",
+	subType = "Armour/Evasion",
+	quality = 20,
+	socketLimit = 2,
+	tags = { helmet = true, armour = true, str_dex_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Armour = 147, Evasion = 134, },
+	req = { level = 70, str = 70, dex = 70, },
+}
+itemBases["Expert Shielded Helm"] = {
+	type = "Helmet",
+	subType = "Armour/Evasion",
+	quality = 20,
+	socketLimit = 2,
+	tags = { helmet = true, armour = true, str_dex_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Armour = 160, Evasion = 146, },
+	req = { level = 75, str = 76, dex = 76, },
+}
+
+itemBases["Iron Crown"] = {
+	type = "Helmet",
+	subType = "Armour/Energy Shield",
+	quality = 20,
+	socketLimit = 2,
+	tags = { str_int_armour = true, ezomyte_basetype = true, helmet = true, armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Armour = 23, EnergyShield = 12, },
+	req = { level = 5, str = 7, int = 7, },
+}
+itemBases["Horned Crown"] = {
+	type = "Helmet",
+	subType = "Armour/Energy Shield",
+	quality = 20,
+	socketLimit = 2,
+	tags = { str_int_armour = true, ezomyte_basetype = true, helmet = true, armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Armour = 33, EnergyShield = 15, },
+	req = { level = 10, str = 12, int = 12, },
+}
+itemBases["Cultist Crown"] = {
+	type = "Helmet",
+	subType = "Armour/Energy Shield",
+	quality = 20,
+	socketLimit = 2,
+	tags = { maraketh_basetype = true, str_int_armour = true, helmet = true, armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Armour = 44, EnergyShield = 19, },
+	req = { level = 16, str = 18, int = 18, },
+}
+itemBases["Martyr Crown"] = {
+	type = "Helmet",
+	subType = "Armour/Energy Shield",
+	quality = 20,
+	socketLimit = 2,
+	tags = { maraketh_basetype = true, str_int_armour = true, helmet = true, armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Armour = 66, EnergyShield = 25, },
+	req = { level = 28, str = 30, int = 30, },
+}
+itemBases["Heavy Crown"] = {
+	type = "Helmet",
+	subType = "Armour/Energy Shield",
+	quality = 20,
+	socketLimit = 2,
+	tags = { str_int_armour = true, helmet = true, armour = true, vaal_basetype = true, default = true, },
+	implicitModTypes = { },
+	armour = { Armour = 75, EnergyShield = 28, },
+	req = { level = 33, str = 34, int = 34, },
+}
+itemBases["Spiritbone Crown"] = {
+	type = "Helmet",
+	subType = "Armour/Energy Shield",
+	quality = 20,
+	socketLimit = 2,
+	tags = { helmet = true, armour = true, str_int_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Armour = 97, EnergyShield = 35, },
+	req = { level = 45, str = 46, int = 46, },
+}
+itemBases["Lavish Crown"] = {
+	type = "Helmet",
+	subType = "Armour/Energy Shield",
+	quality = 20,
+	socketLimit = 2,
+	tags = { helmet = true, armour = true, str_int_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Armour = 110, EnergyShield = 39, },
+	req = { level = 52, str = 53, int = 53, },
+}
+itemBases["Templar Crown"] = {
+	type = "Helmet",
+	subType = "Armour/Energy Shield",
+	quality = 20,
+	socketLimit = 2,
+	tags = { helmet = true, armour = true, str_int_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Armour = 134, EnergyShield = 46, },
+	req = { level = 65, str = 65, int = 65, },
+}
+itemBases["Advanced Iron Crown"] = {
+	type = "Helmet",
+	subType = "Armour/Energy Shield",
+	quality = 20,
+	socketLimit = 2,
+	tags = { helmet = true, armour = true, str_int_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Armour = 97, EnergyShield = 35, },
+	req = { level = 45, str = 46, int = 46, },
+}
+itemBases["Advanced Horned Crown"] = {
+	type = "Helmet",
+	subType = "Armour/Energy Shield",
+	quality = 20,
+	socketLimit = 2,
+	tags = { helmet = true, armour = true, str_int_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Armour = 102, EnergyShield = 37, },
+	req = { level = 48, str = 49, int = 49, },
+}
+itemBases["Advanced Cultist Crown"] = {
+	type = "Helmet",
+	subType = "Armour/Energy Shield",
+	quality = 20,
+	socketLimit = 2,
+	tags = { helmet = true, armour = true, str_int_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Armour = 108, EnergyShield = 38, },
+	req = { level = 51, str = 52, int = 52, },
+}
+itemBases["Advanced Martyr Crown"] = {
+	type = "Helmet",
+	subType = "Armour/Energy Shield",
+	quality = 20,
+	socketLimit = 2,
+	tags = { helmet = true, armour = true, str_int_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Armour = 115, EnergyShield = 41, },
+	req = { level = 55, str = 55, int = 55, },
+}
+itemBases["Advanced Heavy Crown"] = {
+	type = "Helmet",
+	subType = "Armour/Energy Shield",
+	quality = 20,
+	socketLimit = 2,
+	tags = { helmet = true, armour = true, str_int_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Armour = 123, EnergyShield = 43, },
+	req = { level = 59, str = 59, int = 59, },
+}
+itemBases["Expert Horned Crown"] = {
+	type = "Helmet",
+	subType = "Armour/Energy Shield",
+	quality = 20,
+	socketLimit = 2,
+	tags = { helmet = true, armour = true, str_int_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Armour = 134, EnergyShield = 46, },
+	req = { level = 65, str = 65, int = 65, },
+}
+itemBases["Expert Martyr Crown"] = {
+	type = "Helmet",
+	subType = "Armour/Energy Shield",
+	quality = 20,
+	socketLimit = 2,
+	tags = { helmet = true, armour = true, str_int_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Armour = 147, EnergyShield = 51, },
+	req = { level = 70, str = 70, int = 70, },
+}
+itemBases["Expert Heavy Crown"] = {
+	type = "Helmet",
+	subType = "Armour/Energy Shield",
+	quality = 20,
+	socketLimit = 2,
+	tags = { helmet = true, armour = true, str_int_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Armour = 160, EnergyShield = 55, },
+	req = { level = 75, str = 76, int = 76, },
+}
+
+itemBases["Hewn Mask"] = {
+	type = "Helmet",
+	subType = "Evasion/Energy Shield",
+	quality = 20,
+	socketLimit = 2,
+	tags = { ezomyte_basetype = true, helmet = true, armour = true, default = true, dex_int_armour = true, },
+	implicitModTypes = { },
+	armour = { Evasion = 18, EnergyShield = 12, },
+	req = { level = 5, dex = 7, int = 7, },
+}
+itemBases["Face Mask"] = {
+	type = "Helmet",
+	subType = "Evasion/Energy Shield",
+	quality = 20,
+	socketLimit = 2,
+	tags = { ezomyte_basetype = true, helmet = true, armour = true, default = true, dex_int_armour = true, },
+	implicitModTypes = { },
+	armour = { Evasion = 26, EnergyShield = 15, },
+	req = { level = 10, dex = 12, int = 12, },
+}
+itemBases["Hooded Mask"] = {
+	type = "Helmet",
+	subType = "Evasion/Energy Shield",
+	quality = 20,
+	socketLimit = 2,
+	tags = { maraketh_basetype = true, helmet = true, armour = true, default = true, dex_int_armour = true, },
+	implicitModTypes = { },
+	armour = { Evasion = 37, EnergyShield = 19, },
+	req = { level = 16, dex = 18, int = 18, },
+}
+itemBases["Veiled Mask"] = {
+	type = "Helmet",
+	subType = "Evasion/Energy Shield",
+	quality = 20,
+	socketLimit = 2,
+	tags = { maraketh_basetype = true, helmet = true, armour = true, default = true, dex_int_armour = true, },
+	implicitModTypes = { },
+	armour = { Evasion = 58, EnergyShield = 25, },
+	req = { level = 28, dex = 30, int = 30, },
+}
+itemBases["Tribal Mask"] = {
+	type = "Helmet",
+	subType = "Evasion/Energy Shield",
+	quality = 20,
+	socketLimit = 2,
+	tags = { vaal_basetype = true, helmet = true, armour = true, default = true, dex_int_armour = true, },
+	implicitModTypes = { },
+	armour = { Evasion = 66, EnergyShield = 28, },
+	req = { level = 33, dex = 34, int = 34, },
+}
+itemBases["Solid Mask"] = {
+	type = "Helmet",
+	subType = "Evasion/Energy Shield",
+	quality = 20,
+	socketLimit = 2,
+	tags = { helmet = true, armour = true, dex_int_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Evasion = 87, EnergyShield = 35, },
+	req = { level = 45, dex = 46, int = 46, },
+}
+itemBases["Shaded Mask"] = {
+	type = "Helmet",
+	subType = "Evasion/Energy Shield",
+	quality = 20,
+	socketLimit = 2,
+	tags = { helmet = true, armour = true, dex_int_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Evasion = 99, EnergyShield = 39, },
+	req = { level = 52, dex = 53, int = 53, },
+}
+itemBases["Death Mask"] = {
+	type = "Helmet",
+	subType = "Evasion/Energy Shield",
+	quality = 20,
+	socketLimit = 2,
+	tags = { helmet = true, armour = true, dex_int_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Evasion = 122, EnergyShield = 46, },
+	req = { level = 65, dex = 65, int = 65, },
+}
+itemBases["Advanced Hewn Mask"] = {
+	type = "Helmet",
+	subType = "Evasion/Energy Shield",
+	quality = 20,
+	socketLimit = 2,
+	tags = { helmet = true, armour = true, dex_int_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Evasion = 87, EnergyShield = 35, },
+	req = { level = 45, dex = 46, int = 46, },
+}
+itemBases["Advanced Face Mask"] = {
+	type = "Helmet",
+	subType = "Evasion/Energy Shield",
+	quality = 20,
+	socketLimit = 2,
+	tags = { helmet = true, armour = true, dex_int_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Evasion = 92, EnergyShield = 37, },
+	req = { level = 48, dex = 49, int = 49, },
+}
+itemBases["Advanced Hooded Mask"] = {
+	type = "Helmet",
+	subType = "Evasion/Energy Shield",
+	quality = 20,
+	socketLimit = 2,
+	tags = { helmet = true, armour = true, dex_int_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Evasion = 98, EnergyShield = 38, },
+	req = { level = 51, dex = 52, int = 52, },
+}
+itemBases["Advanced Veiled Mask"] = {
+	type = "Helmet",
+	subType = "Evasion/Energy Shield",
+	quality = 20,
+	socketLimit = 2,
+	tags = { helmet = true, armour = true, dex_int_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Evasion = 105, EnergyShield = 41, },
+	req = { level = 55, dex = 55, int = 55, },
+}
+itemBases["Advanced Tribal Mask"] = {
+	type = "Helmet",
+	subType = "Evasion/Energy Shield",
+	quality = 20,
+	socketLimit = 2,
+	tags = { helmet = true, armour = true, dex_int_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Evasion = 111, EnergyShield = 43, },
+	req = { level = 59, dex = 59, int = 59, },
+}
+itemBases["Expert Face Mask"] = {
+	type = "Helmet",
+	subType = "Evasion/Energy Shield",
+	quality = 20,
+	socketLimit = 2,
+	tags = { helmet = true, armour = true, dex_int_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Evasion = 122, EnergyShield = 46, },
+	req = { level = 65, dex = 65, int = 65, },
+}
+itemBases["Expert Veiled Mask"] = {
+	type = "Helmet",
+	subType = "Evasion/Energy Shield",
+	quality = 20,
+	socketLimit = 2,
+	tags = { helmet = true, armour = true, dex_int_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Evasion = 134, EnergyShield = 51, },
+	req = { level = 70, dex = 70, int = 70, },
+}
+itemBases["Expert Tribal Mask"] = {
+	type = "Helmet",
+	subType = "Evasion/Energy Shield",
+	quality = 20,
+	socketLimit = 2,
+	tags = { helmet = true, armour = true, dex_int_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Evasion = 146, EnergyShield = 55, },
+	req = { level = 75, dex = 76, int = 76, },
+}
+
+itemBases["Grand Visage"] = {
+	type = "Helmet",
+	subType = "Armour/Evasion/Energy Shield",
+	quality = 20,
+	socketLimit = 2,
+	tags = { helmet = true, armour = true, str_dex_int_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Armour = 88, Evasion = 80, EnergyShield = 30, },
+	req = { level = 65, str = 46, dex = 46, int = 46, },
+}
+
 itemBases["Golden Wreath"] = {
 	type = "Helmet",
 	quality = 20,
@@ -22,958 +1089,4 @@ itemBases["Golden Visage"] = {
 	implicitModTypes = { { "elemental", "fire", "cold", "lightning", "resistance" }, },
 	armour = { },
 	req = { level = 12, },
-}
-itemBases["Rusted Greathelm"] = {
-	type = "Helmet",
-	quality = 20,
-	socketLimit = 2,
-	tags = { str_armour = true, helmet = true, armour = true, ezomyte_basetype = true, default = true, },
-	implicitModTypes = { },
-	armour = { Armour = 29, },
-	req = { },
-}
-itemBases["Soldier Greathelm"] = {
-	type = "Helmet",
-	quality = 20,
-	socketLimit = 2,
-	tags = { str_armour = true, helmet = true, armour = true, ezomyte_basetype = true, default = true, },
-	implicitModTypes = { },
-	armour = { Armour = 66, },
-	req = { level = 12, str = 23, },
-}
-itemBases["Wrapped Greathelm"] = {
-	type = "Helmet",
-	quality = 20,
-	socketLimit = 2,
-	tags = { maraketh_basetype = true, str_armour = true, helmet = true, armour = true, default = true, },
-	implicitModTypes = { },
-	armour = { Armour = 79, },
-	req = { level = 16, str = 30, },
-}
-itemBases["Spired Greathelm"] = {
-	type = "Helmet",
-	quality = 20,
-	socketLimit = 2,
-	tags = { maraketh_basetype = true, str_armour = true, helmet = true, armour = true, default = true, },
-	implicitModTypes = { },
-	armour = { Armour = 116, },
-	req = { level = 27, str = 50, },
-}
-itemBases["Elite Greathelm"] = {
-	type = "Helmet",
-	quality = 20,
-	socketLimit = 2,
-	tags = { str_armour = true, helmet = true, armour = true, vaal_basetype = true, default = true, },
-	implicitModTypes = { },
-	armour = { Armour = 136, },
-	req = { level = 33, str = 61, },
-}
-itemBases["Warrior Greathelm"] = {
-	type = "Helmet",
-	quality = 20,
-	socketLimit = 2,
-	tags = { str_armour = true, helmet = true, armour = true, vaal_basetype = true, default = true, },
-	implicitModTypes = { },
-	armour = { Armour = 146, },
-	req = { level = 36, str = 66, },
-}
-itemBases["Commander Greathelm"] = {
-	type = "Helmet",
-	quality = 20,
-	socketLimit = 2,
-	tags = { helmet = true, armour = true, str_armour = true, default = true, },
-	implicitModTypes = { },
-	armour = { Armour = 176, },
-	req = { level = 45, str = 83, },
-}
-itemBases["Fierce Greathelm"] = {
-	type = "Helmet",
-	quality = 20,
-	socketLimit = 2,
-	tags = { helmet = true, armour = true, str_armour = true, default = true, },
-	implicitModTypes = { },
-	armour = { Armour = 196, },
-	req = { level = 51, str = 94, },
-}
-itemBases["Dueling Greathelm"] = {
-	type = "Helmet",
-	quality = 20,
-	socketLimit = 2,
-	tags = { helmet = true, armour = true, str_armour = true, default = true, },
-	implicitModTypes = { },
-	armour = { Armour = 200, },
-	req = { level = 52, str = 95, },
-}
-itemBases["Goliath Greathelm"] = {
-	type = "Helmet",
-	quality = 20,
-	socketLimit = 2,
-	tags = { helmet = true, armour = true, str_armour = true, default = true, },
-	implicitModTypes = { },
-	armour = { Armour = 216, },
-	req = { level = 57, str = 104, },
-}
-itemBases["Guardian Greathelm"] = {
-	type = "Helmet",
-	quality = 20,
-	socketLimit = 2,
-	tags = { helmet = true, armour = true, str_armour = true, default = true, },
-	implicitModTypes = { },
-	armour = { Armour = 243, },
-	req = { level = 65, str = 118, },
-}
-itemBases["Shabby Hood"] = {
-	type = "Helmet",
-	quality = 20,
-	socketLimit = 2,
-	tags = { ezomyte_basetype = true, dex_armour = true, helmet = true, armour = true, default = true, },
-	implicitModTypes = { },
-	armour = { Evasion = 19, },
-	req = { },
-}
-itemBases["Felt Cap"] = {
-	type = "Helmet",
-	quality = 20,
-	socketLimit = 2,
-	tags = { ezomyte_basetype = true, dex_armour = true, helmet = true, armour = true, default = true, },
-	implicitModTypes = { },
-	armour = { Evasion = 48, },
-	req = { level = 10, dex = 20, },
-}
-itemBases["Lace Hood"] = {
-	type = "Helmet",
-	quality = 20,
-	socketLimit = 2,
-	tags = { maraketh_basetype = true, dex_armour = true, helmet = true, armour = true, default = true, },
-	implicitModTypes = { },
-	armour = { Evasion = 67, },
-	req = { level = 16, dex = 30, },
-}
-itemBases["Swathed Cap"] = {
-	type = "Helmet",
-	quality = 20,
-	socketLimit = 2,
-	tags = { maraketh_basetype = true, dex_armour = true, helmet = true, armour = true, default = true, },
-	implicitModTypes = { },
-	armour = { Evasion = 98, },
-	req = { level = 26, dex = 49, },
-}
-itemBases["Hunter Hood"] = {
-	type = "Helmet",
-	quality = 20,
-	socketLimit = 2,
-	tags = { dex_armour = true, helmet = true, armour = true, vaal_basetype = true, default = true, },
-	implicitModTypes = { },
-	armour = { Evasion = 121, },
-	req = { level = 33, dex = 61, },
-}
-itemBases["Viper Cap"] = {
-	type = "Helmet",
-	quality = 20,
-	socketLimit = 2,
-	tags = { dex_armour = true, helmet = true, armour = true, vaal_basetype = true, default = true, },
-	implicitModTypes = { },
-	armour = { Evasion = 136, },
-	req = { level = 38, dex = 70, },
-}
-itemBases["Corsair Cap"] = {
-	type = "Helmet",
-	quality = 20,
-	socketLimit = 2,
-	tags = { helmet = true, armour = true, dex_armour = true, default = true, },
-	implicitModTypes = { },
-	armour = { Evasion = 158, },
-	req = { level = 45, dex = 83, },
-}
-itemBases["Leatherbound Hood"] = {
-	type = "Helmet",
-	quality = 20,
-	socketLimit = 2,
-	tags = { helmet = true, armour = true, dex_armour = true, default = true, },
-	implicitModTypes = { },
-	armour = { Evasion = 177, },
-	req = { level = 51, dex = 94, },
-}
-itemBases["Velvet Cap"] = {
-	type = "Helmet",
-	quality = 20,
-	socketLimit = 2,
-	tags = { helmet = true, armour = true, dex_armour = true, default = true, },
-	implicitModTypes = { },
-	armour = { Evasion = 181, },
-	req = { level = 52, dex = 95, },
-}
-itemBases["Covert Hood"] = {
-	type = "Helmet",
-	quality = 20,
-	socketLimit = 2,
-	tags = { helmet = true, armour = true, dex_armour = true, default = true, },
-	implicitModTypes = { },
-	armour = { Evasion = 193, },
-	req = { level = 56, dex = 102, },
-}
-itemBases["Armoured Cap"] = {
-	type = "Helmet",
-	quality = 20,
-	socketLimit = 2,
-	tags = { helmet = true, armour = true, dex_armour = true, default = true, },
-	implicitModTypes = { },
-	armour = { Evasion = 222, },
-	req = { level = 65, dex = 118, },
-}
-itemBases["Twig Circlet"] = {
-	type = "Helmet",
-	quality = 20,
-	socketLimit = 2,
-	tags = { ezomyte_basetype = true, int_armour = true, helmet = true, armour = true, default = true, },
-	implicitModTypes = { },
-	armour = { EnergyShield = 19, },
-	req = { },
-}
-itemBases["Wicker Tiara"] = {
-	type = "Helmet",
-	quality = 20,
-	socketLimit = 2,
-	tags = { ezomyte_basetype = true, int_armour = true, helmet = true, armour = true, default = true, },
-	implicitModTypes = { },
-	armour = { EnergyShield = 28, },
-	req = { level = 10, int = 20, },
-}
-itemBases["Beaded Circlet"] = {
-	type = "Helmet",
-	quality = 20,
-	socketLimit = 2,
-	tags = { maraketh_basetype = true, int_armour = true, helmet = true, armour = true, default = true, },
-	implicitModTypes = { },
-	armour = { EnergyShield = 34, },
-	req = { level = 16, int = 30, },
-}
-itemBases["Chain Tiara"] = {
-	type = "Helmet",
-	quality = 20,
-	socketLimit = 2,
-	tags = { maraketh_basetype = true, int_armour = true, helmet = true, armour = true, default = true, },
-	implicitModTypes = { },
-	armour = { EnergyShield = 44, },
-	req = { level = 26, int = 49, },
-}
-itemBases["Feathered Tiara"] = {
-	type = "Helmet",
-	quality = 20,
-	socketLimit = 2,
-	tags = { int_armour = true, helmet = true, armour = true, vaal_basetype = true, default = true, },
-	implicitModTypes = { },
-	armour = { EnergyShield = 51, },
-	req = { level = 33, int = 61, },
-}
-itemBases["Gold Circlet"] = {
-	type = "Helmet",
-	quality = 20,
-	socketLimit = 2,
-	tags = { int_armour = true, helmet = true, armour = true, vaal_basetype = true, default = true, },
-	implicitModTypes = { },
-	armour = { EnergyShield = 58, },
-	req = { level = 40, int = 74, },
-}
-itemBases["Coral Circlet"] = {
-	type = "Helmet",
-	quality = 20,
-	socketLimit = 2,
-	tags = { helmet = true, armour = true, int_armour = true, default = true, },
-	implicitModTypes = { },
-	armour = { EnergyShield = 63, },
-	req = { level = 45, int = 83, },
-}
-itemBases["Jade Tiara"] = {
-	type = "Helmet",
-	quality = 20,
-	socketLimit = 2,
-	tags = { helmet = true, armour = true, int_armour = true, default = true, },
-	implicitModTypes = { },
-	armour = { EnergyShield = 69, },
-	req = { level = 50, int = 92, },
-}
-itemBases["Noble Circlet"] = {
-	type = "Helmet",
-	quality = 20,
-	socketLimit = 2,
-	tags = { helmet = true, armour = true, int_armour = true, default = true, },
-	implicitModTypes = { },
-	armour = { EnergyShield = 71, },
-	req = { level = 52, int = 95, },
-}
-itemBases["Twilight Tiara"] = {
-	type = "Helmet",
-	quality = 20,
-	socketLimit = 2,
-	tags = { helmet = true, armour = true, int_armour = true, default = true, },
-	implicitModTypes = { },
-	armour = { EnergyShield = 77, },
-	req = { level = 58, int = 106, },
-}
-itemBases["Magus Tiara"] = {
-	type = "Helmet",
-	quality = 20,
-	socketLimit = 2,
-	tags = { helmet = true, armour = true, int_armour = true, default = true, },
-	implicitModTypes = { },
-	armour = { EnergyShield = 84, },
-	req = { level = 65, int = 118, },
-}
-itemBases["Brimmed Helm"] = {
-	type = "Helmet",
-	quality = 20,
-	socketLimit = 2,
-	tags = { str_dex_armour = true, ezomyte_basetype = true, helmet = true, armour = true, default = true, },
-	implicitModTypes = { },
-	armour = { Armour = 23, Evasion = 18, },
-	req = { level = 5, str = 7, dex = 7, },
-}
-itemBases["Guarded Helm"] = {
-	type = "Helmet",
-	quality = 20,
-	socketLimit = 2,
-	tags = { str_dex_armour = true, ezomyte_basetype = true, helmet = true, armour = true, default = true, },
-	implicitModTypes = { },
-	armour = { Armour = 34, Evasion = 28, },
-	req = { level = 11, str = 13, dex = 13, },
-}
-itemBases["Visored Helm"] = {
-	type = "Helmet",
-	quality = 20,
-	socketLimit = 2,
-	tags = { maraketh_basetype = true, str_dex_armour = true, helmet = true, armour = true, default = true, },
-	implicitModTypes = { },
-	armour = { Armour = 44, Evasion = 37, },
-	req = { level = 16, str = 18, dex = 18, },
-}
-itemBases["Cowled Helm"] = {
-	type = "Helmet",
-	quality = 20,
-	socketLimit = 2,
-	tags = { maraketh_basetype = true, str_dex_armour = true, helmet = true, armour = true, default = true, },
-	implicitModTypes = { },
-	armour = { Armour = 62, Evasion = 54, },
-	req = { level = 26, str = 27, dex = 27, },
-}
-itemBases["Shielded Helm"] = {
-	type = "Helmet",
-	quality = 20,
-	socketLimit = 2,
-	tags = { str_dex_armour = true, helmet = true, armour = true, vaal_basetype = true, default = true, },
-	implicitModTypes = { },
-	armour = { Armour = 75, Evasion = 66, },
-	req = { level = 33, str = 34, dex = 34, },
-}
-itemBases["Closed Helm"] = {
-	type = "Helmet",
-	quality = 20,
-	socketLimit = 2,
-	tags = { helmet = true, armour = true, str_dex_armour = true, default = true, },
-	implicitModTypes = { },
-	armour = { Armour = 97, Evasion = 87, },
-	req = { level = 45, str = 46, dex = 46, },
-}
-itemBases["Decorated Helm"] = {
-	type = "Helmet",
-	quality = 20,
-	socketLimit = 2,
-	tags = { helmet = true, armour = true, str_dex_armour = true, default = true, },
-	implicitModTypes = { },
-	armour = { Armour = 110, Evasion = 99, },
-	req = { level = 52, str = 53, dex = 53, },
-}
-itemBases["Gallant Helm"] = {
-	type = "Helmet",
-	quality = 20,
-	socketLimit = 2,
-	tags = { helmet = true, armour = true, str_dex_armour = true, default = true, },
-	implicitModTypes = { },
-	armour = { Armour = 134, Evasion = 122, },
-	req = { level = 65, str = 65, dex = 65, },
-}
-itemBases["Iron Crown"] = {
-	type = "Helmet",
-	quality = 20,
-	socketLimit = 2,
-	tags = { str_int_armour = true, ezomyte_basetype = true, helmet = true, armour = true, default = true, },
-	implicitModTypes = { },
-	armour = { Armour = 23, EnergyShield = 12, },
-	req = { level = 5, str = 7, int = 7, },
-}
-itemBases["Horned Crown"] = {
-	type = "Helmet",
-	quality = 20,
-	socketLimit = 2,
-	tags = { str_int_armour = true, ezomyte_basetype = true, helmet = true, armour = true, default = true, },
-	implicitModTypes = { },
-	armour = { Armour = 33, EnergyShield = 15, },
-	req = { level = 10, str = 12, int = 12, },
-}
-itemBases["Cultist Crown"] = {
-	type = "Helmet",
-	quality = 20,
-	socketLimit = 2,
-	tags = { maraketh_basetype = true, str_int_armour = true, helmet = true, armour = true, default = true, },
-	implicitModTypes = { },
-	armour = { Armour = 44, EnergyShield = 19, },
-	req = { level = 16, str = 18, int = 18, },
-}
-itemBases["Martyr Crown"] = {
-	type = "Helmet",
-	quality = 20,
-	socketLimit = 2,
-	tags = { maraketh_basetype = true, str_int_armour = true, helmet = true, armour = true, default = true, },
-	implicitModTypes = { },
-	armour = { Armour = 66, EnergyShield = 25, },
-	req = { level = 28, str = 30, int = 30, },
-}
-itemBases["Heavy Crown"] = {
-	type = "Helmet",
-	quality = 20,
-	socketLimit = 2,
-	tags = { str_int_armour = true, helmet = true, armour = true, vaal_basetype = true, default = true, },
-	implicitModTypes = { },
-	armour = { Armour = 75, EnergyShield = 28, },
-	req = { level = 33, str = 34, int = 34, },
-}
-itemBases["Spiritbone Crown"] = {
-	type = "Helmet",
-	quality = 20,
-	socketLimit = 2,
-	tags = { helmet = true, armour = true, str_int_armour = true, default = true, },
-	implicitModTypes = { },
-	armour = { Armour = 97, EnergyShield = 35, },
-	req = { level = 45, str = 46, int = 46, },
-}
-itemBases["Lavish Crown"] = {
-	type = "Helmet",
-	quality = 20,
-	socketLimit = 2,
-	tags = { helmet = true, armour = true, str_int_armour = true, default = true, },
-	implicitModTypes = { },
-	armour = { Armour = 110, EnergyShield = 39, },
-	req = { level = 52, str = 53, int = 53, },
-}
-itemBases["Templar Crown"] = {
-	type = "Helmet",
-	quality = 20,
-	socketLimit = 2,
-	tags = { helmet = true, armour = true, str_int_armour = true, default = true, },
-	implicitModTypes = { },
-	armour = { Armour = 134, EnergyShield = 46, },
-	req = { level = 65, str = 65, int = 65, },
-}
-itemBases["Hewn Mask"] = {
-	type = "Helmet",
-	quality = 20,
-	socketLimit = 2,
-	tags = { ezomyte_basetype = true, helmet = true, armour = true, default = true, dex_int_armour = true, },
-	implicitModTypes = { },
-	armour = { Evasion = 18, EnergyShield = 12, },
-	req = { level = 5, dex = 7, int = 7, },
-}
-itemBases["Face Mask"] = {
-	type = "Helmet",
-	quality = 20,
-	socketLimit = 2,
-	tags = { ezomyte_basetype = true, helmet = true, armour = true, default = true, dex_int_armour = true, },
-	implicitModTypes = { },
-	armour = { Evasion = 26, EnergyShield = 15, },
-	req = { level = 10, dex = 12, int = 12, },
-}
-itemBases["Hooded Mask"] = {
-	type = "Helmet",
-	quality = 20,
-	socketLimit = 2,
-	tags = { maraketh_basetype = true, helmet = true, armour = true, default = true, dex_int_armour = true, },
-	implicitModTypes = { },
-	armour = { Evasion = 37, EnergyShield = 19, },
-	req = { level = 16, dex = 18, int = 18, },
-}
-itemBases["Veiled Mask"] = {
-	type = "Helmet",
-	quality = 20,
-	socketLimit = 2,
-	tags = { maraketh_basetype = true, helmet = true, armour = true, default = true, dex_int_armour = true, },
-	implicitModTypes = { },
-	armour = { Evasion = 58, EnergyShield = 25, },
-	req = { level = 28, dex = 30, int = 30, },
-}
-itemBases["Tribal Mask"] = {
-	type = "Helmet",
-	quality = 20,
-	socketLimit = 2,
-	tags = { vaal_basetype = true, helmet = true, armour = true, default = true, dex_int_armour = true, },
-	implicitModTypes = { },
-	armour = { Evasion = 66, EnergyShield = 28, },
-	req = { level = 33, dex = 34, int = 34, },
-}
-itemBases["Solid Mask"] = {
-	type = "Helmet",
-	quality = 20,
-	socketLimit = 2,
-	tags = { helmet = true, armour = true, dex_int_armour = true, default = true, },
-	implicitModTypes = { },
-	armour = { Evasion = 87, EnergyShield = 35, },
-	req = { level = 45, dex = 46, int = 46, },
-}
-itemBases["Shaded Mask"] = {
-	type = "Helmet",
-	quality = 20,
-	socketLimit = 2,
-	tags = { helmet = true, armour = true, dex_int_armour = true, default = true, },
-	implicitModTypes = { },
-	armour = { Evasion = 99, EnergyShield = 39, },
-	req = { level = 52, dex = 53, int = 53, },
-}
-itemBases["Death Mask"] = {
-	type = "Helmet",
-	quality = 20,
-	socketLimit = 2,
-	tags = { helmet = true, armour = true, dex_int_armour = true, default = true, },
-	implicitModTypes = { },
-	armour = { Evasion = 122, EnergyShield = 46, },
-	req = { level = 65, dex = 65, int = 65, },
-}
-itemBases["Grand Visage"] = {
-	type = "Helmet",
-	quality = 20,
-	socketLimit = 2,
-	tags = { helmet = true, armour = true, str_dex_int_armour = true, default = true, },
-	implicitModTypes = { },
-	armour = { Armour = 88, Evasion = 80, EnergyShield = 30, },
-	req = { level = 65, str = 46, dex = 46, int = 46, },
-}
-itemBases["Advanced Rusted Greathelm"] = {
-	type = "Helmet",
-	quality = 20,
-	socketLimit = 2,
-	tags = { helmet = true, armour = true, str_armour = true, default = true, },
-	implicitModTypes = { },
-	armour = { Armour = 176, },
-	req = { level = 45, str = 83, },
-}
-itemBases["Advanced Soldier Greathelm"] = {
-	type = "Helmet",
-	quality = 20,
-	socketLimit = 2,
-	tags = { helmet = true, armour = true, str_armour = true, default = true, },
-	implicitModTypes = { },
-	armour = { Armour = 186, },
-	req = { level = 48, str = 88, },
-}
-itemBases["Advanced Wrapped Greathelm"] = {
-	type = "Helmet",
-	quality = 20,
-	socketLimit = 2,
-	tags = { helmet = true, armour = true, str_armour = true, default = true, },
-	implicitModTypes = { },
-	armour = { Armour = 196, },
-	req = { level = 51, str = 94, },
-}
-itemBases["Advanced Spired Greathelm"] = {
-	type = "Helmet",
-	quality = 20,
-	socketLimit = 2,
-	tags = { helmet = true, armour = true, str_armour = true, default = true, },
-	implicitModTypes = { },
-	armour = { Armour = 210, },
-	req = { level = 55, str = 101, },
-}
-itemBases["Advanced Elite Greathelm"] = {
-	type = "Helmet",
-	quality = 20,
-	socketLimit = 2,
-	tags = { helmet = true, armour = true, str_armour = true, default = true, },
-	implicitModTypes = { },
-	armour = { Armour = 223, },
-	req = { level = 59, str = 108, },
-}
-itemBases["Advanced Shabby Hood"] = {
-	type = "Helmet",
-	quality = 20,
-	socketLimit = 2,
-	tags = { helmet = true, armour = true, dex_armour = true, default = true, },
-	implicitModTypes = { },
-	armour = { Evasion = 158, },
-	req = { level = 45, dex = 83, },
-}
-itemBases["Advanced Felt Cap"] = {
-	type = "Helmet",
-	quality = 20,
-	socketLimit = 2,
-	tags = { helmet = true, armour = true, dex_armour = true, default = true, },
-	implicitModTypes = { },
-	armour = { Evasion = 168, },
-	req = { level = 48, dex = 88, },
-}
-itemBases["Advanced Lace Hood"] = {
-	type = "Helmet",
-	quality = 20,
-	socketLimit = 2,
-	tags = { helmet = true, armour = true, dex_armour = true, default = true, },
-	implicitModTypes = { },
-	armour = { Evasion = 177, },
-	req = { level = 51, dex = 94, },
-}
-itemBases["Advanced Swathed Cap"] = {
-	type = "Helmet",
-	quality = 20,
-	socketLimit = 2,
-	tags = { helmet = true, armour = true, dex_armour = true, default = true, },
-	implicitModTypes = { },
-	armour = { Evasion = 190, },
-	req = { level = 55, dex = 101, },
-}
-itemBases["Advanced Hunter Hood"] = {
-	type = "Helmet",
-	quality = 20,
-	socketLimit = 2,
-	tags = { helmet = true, armour = true, dex_armour = true, default = true, },
-	implicitModTypes = { },
-	armour = { Evasion = 203, },
-	req = { level = 59, dex = 108, },
-}
-itemBases["Advanced Twig Circlet"] = {
-	type = "Helmet",
-	quality = 20,
-	socketLimit = 2,
-	tags = { helmet = true, armour = true, int_armour = true, default = true, },
-	implicitModTypes = { },
-	armour = { EnergyShield = 63, },
-	req = { level = 45, int = 83, },
-}
-itemBases["Advanced Wicker Tiara"] = {
-	type = "Helmet",
-	quality = 20,
-	socketLimit = 2,
-	tags = { helmet = true, armour = true, int_armour = true, default = true, },
-	implicitModTypes = { },
-	armour = { EnergyShield = 67, },
-	req = { level = 48, int = 88, },
-}
-itemBases["Advanced Beaded Circlet"] = {
-	type = "Helmet",
-	quality = 20,
-	socketLimit = 2,
-	tags = { helmet = true, armour = true, int_armour = true, default = true, },
-	implicitModTypes = { },
-	armour = { EnergyShield = 70, },
-	req = { level = 51, int = 94, },
-}
-itemBases["Advanced Chain Tiara"] = {
-	type = "Helmet",
-	quality = 20,
-	socketLimit = 2,
-	tags = { helmet = true, armour = true, int_armour = true, default = true, },
-	implicitModTypes = { },
-	armour = { EnergyShield = 74, },
-	req = { level = 55, int = 101, },
-}
-itemBases["Advanced Feathered Tiara"] = {
-	type = "Helmet",
-	quality = 20,
-	socketLimit = 2,
-	tags = { helmet = true, armour = true, int_armour = true, default = true, },
-	implicitModTypes = { },
-	armour = { EnergyShield = 78, },
-	req = { level = 59, int = 108, },
-}
-itemBases["Advanced Brimmed Helm"] = {
-	type = "Helmet",
-	quality = 20,
-	socketLimit = 2,
-	tags = { helmet = true, armour = true, str_dex_armour = true, default = true, },
-	implicitModTypes = { },
-	armour = { Armour = 97, Evasion = 87, },
-	req = { level = 45, str = 46, dex = 46, },
-}
-itemBases["Advanced Guarded Helm"] = {
-	type = "Helmet",
-	quality = 20,
-	socketLimit = 2,
-	tags = { helmet = true, armour = true, str_dex_armour = true, default = true, },
-	implicitModTypes = { },
-	armour = { Armour = 102, Evasion = 92, },
-	req = { level = 48, str = 49, dex = 49, },
-}
-itemBases["Advanced Visored Helm"] = {
-	type = "Helmet",
-	quality = 20,
-	socketLimit = 2,
-	tags = { helmet = true, armour = true, str_dex_armour = true, default = true, },
-	implicitModTypes = { },
-	armour = { Armour = 108, Evasion = 98, },
-	req = { level = 51, str = 52, dex = 52, },
-}
-itemBases["Advanced Cowled Helm"] = {
-	type = "Helmet",
-	quality = 20,
-	socketLimit = 2,
-	tags = { helmet = true, armour = true, str_dex_armour = true, default = true, },
-	implicitModTypes = { },
-	armour = { Armour = 115, Evasion = 105, },
-	req = { level = 55, str = 55, dex = 55, },
-}
-itemBases["Advanced Shielded Helm"] = {
-	type = "Helmet",
-	quality = 20,
-	socketLimit = 2,
-	tags = { helmet = true, armour = true, str_dex_armour = true, default = true, },
-	implicitModTypes = { },
-	armour = { Armour = 123, Evasion = 111, },
-	req = { level = 59, str = 59, dex = 59, },
-}
-itemBases["Advanced Iron Crown"] = {
-	type = "Helmet",
-	quality = 20,
-	socketLimit = 2,
-	tags = { helmet = true, armour = true, str_int_armour = true, default = true, },
-	implicitModTypes = { },
-	armour = { Armour = 97, EnergyShield = 35, },
-	req = { level = 45, str = 46, int = 46, },
-}
-itemBases["Advanced Horned Crown"] = {
-	type = "Helmet",
-	quality = 20,
-	socketLimit = 2,
-	tags = { helmet = true, armour = true, str_int_armour = true, default = true, },
-	implicitModTypes = { },
-	armour = { Armour = 102, EnergyShield = 37, },
-	req = { level = 48, str = 49, int = 49, },
-}
-itemBases["Advanced Cultist Crown"] = {
-	type = "Helmet",
-	quality = 20,
-	socketLimit = 2,
-	tags = { helmet = true, armour = true, str_int_armour = true, default = true, },
-	implicitModTypes = { },
-	armour = { Armour = 108, EnergyShield = 38, },
-	req = { level = 51, str = 52, int = 52, },
-}
-itemBases["Advanced Martyr Crown"] = {
-	type = "Helmet",
-	quality = 20,
-	socketLimit = 2,
-	tags = { helmet = true, armour = true, str_int_armour = true, default = true, },
-	implicitModTypes = { },
-	armour = { Armour = 115, EnergyShield = 41, },
-	req = { level = 55, str = 55, int = 55, },
-}
-itemBases["Advanced Heavy Crown"] = {
-	type = "Helmet",
-	quality = 20,
-	socketLimit = 2,
-	tags = { helmet = true, armour = true, str_int_armour = true, default = true, },
-	implicitModTypes = { },
-	armour = { Armour = 123, EnergyShield = 43, },
-	req = { level = 59, str = 59, int = 59, },
-}
-itemBases["Advanced Hewn Mask"] = {
-	type = "Helmet",
-	quality = 20,
-	socketLimit = 2,
-	tags = { helmet = true, armour = true, dex_int_armour = true, default = true, },
-	implicitModTypes = { },
-	armour = { Evasion = 87, EnergyShield = 35, },
-	req = { level = 45, dex = 46, int = 46, },
-}
-itemBases["Advanced Face Mask"] = {
-	type = "Helmet",
-	quality = 20,
-	socketLimit = 2,
-	tags = { helmet = true, armour = true, dex_int_armour = true, default = true, },
-	implicitModTypes = { },
-	armour = { Evasion = 92, EnergyShield = 37, },
-	req = { level = 48, dex = 49, int = 49, },
-}
-itemBases["Advanced Hooded Mask"] = {
-	type = "Helmet",
-	quality = 20,
-	socketLimit = 2,
-	tags = { helmet = true, armour = true, dex_int_armour = true, default = true, },
-	implicitModTypes = { },
-	armour = { Evasion = 98, EnergyShield = 38, },
-	req = { level = 51, dex = 52, int = 52, },
-}
-itemBases["Advanced Veiled Mask"] = {
-	type = "Helmet",
-	quality = 20,
-	socketLimit = 2,
-	tags = { helmet = true, armour = true, dex_int_armour = true, default = true, },
-	implicitModTypes = { },
-	armour = { Evasion = 105, EnergyShield = 41, },
-	req = { level = 55, dex = 55, int = 55, },
-}
-itemBases["Advanced Tribal Mask"] = {
-	type = "Helmet",
-	quality = 20,
-	socketLimit = 2,
-	tags = { helmet = true, armour = true, dex_int_armour = true, default = true, },
-	implicitModTypes = { },
-	armour = { Evasion = 111, EnergyShield = 43, },
-	req = { level = 59, dex = 59, int = 59, },
-}
-itemBases["Expert Soldier Greathelm"] = {
-	type = "Helmet",
-	quality = 20,
-	socketLimit = 2,
-	tags = { helmet = true, armour = true, str_armour = true, default = true, },
-	implicitModTypes = { },
-	armour = { Armour = 243, },
-	req = { level = 65, str = 118, },
-}
-itemBases["Expert Spired Greathelm"] = {
-	type = "Helmet",
-	quality = 20,
-	socketLimit = 2,
-	tags = { helmet = true, armour = true, str_armour = true, default = true, },
-	implicitModTypes = { },
-	armour = { Armour = 267, },
-	req = { level = 70, str = 129, },
-}
-itemBases["Expert Elite Greathelm"] = {
-	type = "Helmet",
-	quality = 20,
-	socketLimit = 2,
-	tags = { helmet = true, armour = true, str_armour = true, default = true, },
-	implicitModTypes = { },
-	armour = { Armour = 292, },
-	req = { level = 75, str = 139, },
-}
-itemBases["Expert Felt Cap"] = {
-	type = "Helmet",
-	quality = 20,
-	socketLimit = 2,
-	tags = { helmet = true, armour = true, dex_armour = true, default = true, },
-	implicitModTypes = { },
-	armour = { Evasion = 222, },
-	req = { level = 65, dex = 118, },
-}
-itemBases["Expert Swathed Cap"] = {
-	type = "Helmet",
-	quality = 20,
-	socketLimit = 2,
-	tags = { helmet = true, armour = true, dex_armour = true, default = true, },
-	implicitModTypes = { },
-	armour = { Evasion = 244, },
-	req = { level = 70, dex = 129, },
-}
-itemBases["Expert Hunter Hood"] = {
-	type = "Helmet",
-	quality = 20,
-	socketLimit = 2,
-	tags = { helmet = true, armour = true, dex_armour = true, default = true, },
-	implicitModTypes = { },
-	armour = { Evasion = 266, },
-	req = { level = 75, dex = 139, },
-}
-itemBases["Expert Wicker Tiara"] = {
-	type = "Helmet",
-	quality = 20,
-	socketLimit = 2,
-	tags = { helmet = true, armour = true, int_armour = true, default = true, },
-	implicitModTypes = { },
-	armour = { EnergyShield = 84, },
-	req = { level = 65, int = 118, },
-}
-itemBases["Expert Chain Tiara"] = {
-	type = "Helmet",
-	quality = 20,
-	socketLimit = 2,
-	tags = { helmet = true, armour = true, int_armour = true, default = true, },
-	implicitModTypes = { },
-	armour = { EnergyShield = 92, },
-	req = { level = 70, int = 129, },
-}
-itemBases["Expert Feathered Tiara"] = {
-	type = "Helmet",
-	quality = 20,
-	socketLimit = 2,
-	tags = { helmet = true, armour = true, int_armour = true, default = true, },
-	implicitModTypes = { },
-	armour = { EnergyShield = 101, },
-	req = { level = 75, int = 139, },
-}
-itemBases["Expert Guarded Helm"] = {
-	type = "Helmet",
-	quality = 20,
-	socketLimit = 2,
-	tags = { helmet = true, armour = true, str_dex_armour = true, default = true, },
-	implicitModTypes = { },
-	armour = { Armour = 134, Evasion = 122, },
-	req = { level = 65, str = 65, dex = 65, },
-}
-itemBases["Expert Cowled Helm"] = {
-	type = "Helmet",
-	quality = 20,
-	socketLimit = 2,
-	tags = { helmet = true, armour = true, str_dex_armour = true, default = true, },
-	implicitModTypes = { },
-	armour = { Armour = 147, Evasion = 134, },
-	req = { level = 70, str = 70, dex = 70, },
-}
-itemBases["Expert Shielded Helm"] = {
-	type = "Helmet",
-	quality = 20,
-	socketLimit = 2,
-	tags = { helmet = true, armour = true, str_dex_armour = true, default = true, },
-	implicitModTypes = { },
-	armour = { Armour = 160, Evasion = 146, },
-	req = { level = 75, str = 76, dex = 76, },
-}
-itemBases["Expert Horned Crown"] = {
-	type = "Helmet",
-	quality = 20,
-	socketLimit = 2,
-	tags = { helmet = true, armour = true, str_int_armour = true, default = true, },
-	implicitModTypes = { },
-	armour = { Armour = 134, EnergyShield = 46, },
-	req = { level = 65, str = 65, int = 65, },
-}
-itemBases["Expert Martyr Crown"] = {
-	type = "Helmet",
-	quality = 20,
-	socketLimit = 2,
-	tags = { helmet = true, armour = true, str_int_armour = true, default = true, },
-	implicitModTypes = { },
-	armour = { Armour = 147, EnergyShield = 51, },
-	req = { level = 70, str = 70, int = 70, },
-}
-itemBases["Expert Heavy Crown"] = {
-	type = "Helmet",
-	quality = 20,
-	socketLimit = 2,
-	tags = { helmet = true, armour = true, str_int_armour = true, default = true, },
-	implicitModTypes = { },
-	armour = { Armour = 160, EnergyShield = 55, },
-	req = { level = 75, str = 76, int = 76, },
-}
-itemBases["Expert Face Mask"] = {
-	type = "Helmet",
-	quality = 20,
-	socketLimit = 2,
-	tags = { helmet = true, armour = true, dex_int_armour = true, default = true, },
-	implicitModTypes = { },
-	armour = { Evasion = 122, EnergyShield = 46, },
-	req = { level = 65, dex = 65, int = 65, },
-}
-itemBases["Expert Veiled Mask"] = {
-	type = "Helmet",
-	quality = 20,
-	socketLimit = 2,
-	tags = { helmet = true, armour = true, dex_int_armour = true, default = true, },
-	implicitModTypes = { },
-	armour = { Evasion = 134, EnergyShield = 51, },
-	req = { level = 70, dex = 70, int = 70, },
-}
-itemBases["Expert Tribal Mask"] = {
-	type = "Helmet",
-	quality = 20,
-	socketLimit = 2,
-	tags = { helmet = true, armour = true, dex_int_armour = true, default = true, },
-	implicitModTypes = { },
-	armour = { Evasion = 146, EnergyShield = 55, },
-	req = { level = 75, dex = 76, int = 76, },
 }

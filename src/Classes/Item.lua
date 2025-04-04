@@ -1583,6 +1583,16 @@ function ItemClass:BuildModList()
 		self.requirements.strMod = 0
 		self.requirements.dexMod = 0
 		self.requirements.intMod = 0
+	elseif calcLocal(baseList, "AttributeRequirementsConverted", "FLAG", 0) then
+		local strConversion = calcLocal(baseList, "AttributeRequirementsConvertedToStrength", "BASE", 0) / 100  
+		local dexConversion = calcLocal(baseList, "AttributeRequirementsConvertedToDexterity", "BASE", 0) / 100 
+		local intConversion = calcLocal(baseList, "AttributeRequirementsConvertedToIntelligence", "BASE", 0) / 100 
+		self.requirements.intBase = intConversion * (self.requirements.str + self.requirements.dex) + (self.requirements.int + calcLocal(baseList, "IntRequirement", "BASE", 0)) - self.requirements.int * (strConversion + dexConversion)
+		self.requirements.intMod = m_floor(self.requirements.intBase * (1 + calcLocal(baseList, "IntRequirement", "INC", 0) / 100))
+		self.requirements.dexBase = dexConversion * (self.requirements.str + self.requirements.int) + (self.requirements.dex + calcLocal(baseList, "DexRequirement", "BASE", 0)) - self.requirements.dex * (strConversion + intConversion)
+		self.requirements.dexMod = m_floor( self.requirements.dexBase * (1 + calcLocal(baseList, "DexRequirement", "INC", 0) / 100))
+		self.requirements.strBase = strConversion * (self.requirements.int + self.requirements.dex) + (self.requirements.str + calcLocal(baseList, "StrRequirement", "BASE", 0)) - self.requirements.str * (dexConversion + intConversion)
+		self.requirements.strMod = m_floor(self.requirements.strBase * (1 + calcLocal(baseList, "StrRequirement", "INC", 0) / 100))
 	else
 		self.requirements.strMod = m_floor((self.requirements.str + calcLocal(baseList, "StrRequirement", "BASE", 0)) * (1 + calcLocal(baseList, "StrRequirement", "INC", 0) / 100))
 		self.requirements.dexMod = m_floor((self.requirements.dex + calcLocal(baseList, "DexRequirement", "BASE", 0)) * (1 + calcLocal(baseList, "DexRequirement", "INC", 0) / 100))
