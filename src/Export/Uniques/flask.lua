@@ -20,6 +20,14 @@ UniqueFlaskTakeDamageWhenEnds1
 ]],
 -- Charm
 [[
+Arakaali's Gift
+Antidote Charm
+Implicits: 1
+CharmImplicitUseOnPoison1
+UniqueCharmRecoverLifeBasedOnManaFlask1
+UniqueCharmRecoverManaBasedOnLifeFlask1
+]],
+[[
 The Fall of the Axe
 Silver Charm
 Implicits: 1

@@ -21,6 +21,14 @@ Deals 25% of current Mana as Chaos Damage to you when Effect ends
 ]],
 -- Charm
 [[
+Arakaali's Gift
+Antidote Charm
+Implicits: 1
+Used when you become Poisoned
+Recover Life equal to (15-20)% of Mana Flask's Recovery Amount when used
+Recover Mana equal to (15-20)% of Life Flask's Recovery Amount when used
+]],
+[[
 The Fall of the Axe
 Silver Charm
 Implicits: 1
