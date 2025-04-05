@@ -97,6 +97,14 @@ UniqueMaximumManaIncrease1
 UniqueManaRegeneration3
 UniqueCannotBeChilledOrFrozen1
 ]],[[
+Evergrasping Ring
+Pearl Ring
+Implicits: 1
+RingImplicitIncreasedCastSpeed1
+UniqueIncreasedMana12
+UniqueAlliesInPresenceGainedAsChaos1
+UniqueEnemiesInPresenceGainedAsChaos1
+]],[[
 Glowswarm
 Lazuli Ring
 Implicits: 1

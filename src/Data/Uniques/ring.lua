@@ -97,6 +97,14 @@ Implicits: 1
 {tags:mana}(30-50)% increased Mana Regeneration Rate
 You cannot be Chilled or Frozen
 ]],[[
+Evergrasping Ring
+Pearl Ring
+Implicits: 1
+{tags:caster,speed}(7-10)% increased Cast Speed
+{tags:mana}+(60-100) to maximum Mana
+{tags:chaos}Allies in your Presence Gain (15-25)% of Damage as Extra Chaos Damage
+{tags:chaos}Enemies in your Presence Gain (6-12)% of Damage as Extra Chaos Damage
+]],[[
 Glowswarm
 Lazuli Ring
 Implicits: 1
