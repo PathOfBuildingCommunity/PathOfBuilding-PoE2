@@ -313,6 +313,15 @@ UniqueMaximumLifeIncrease2
 UniqueAllAttributes1
 UniqueLightRadius5
 UniqueSetElementalResistances1
+]],[[
+The Deepest Tower
+Spiritbone Crown
+UniqueLocalIncreasedArmourAndEnergyShield18
+UniqueIncreasedLife46
+UniqueChaosResist14
+UniquePresenceRadius2
+UniqueLightRadius19
+UniqueEnemiesInPresenceLowLife1
 ]],
 -- Helmet: Evasion/Energy Shield
 [[

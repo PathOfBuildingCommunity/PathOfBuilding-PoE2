@@ -316,6 +316,15 @@ Martyr Crown
 +(10-20) to all Attributes
 40% reduced Light Radius
 You have no Elemental Resistances
+]],[[
+The Deepest Tower
+Spiritbone Crown
+(70-130)% increased Armour and Energy Shield
++(70-100) to maximum Life
++(17-23)% to Chaos Resistance
+50% reduced Presence Area of Effect
+10% reduced Light Radius
+Enemies in your Presence count as being on Low Life
 ]],
 -- Helmet: Evasion/Energy Shield
 [[
