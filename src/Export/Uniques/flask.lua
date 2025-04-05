@@ -47,6 +47,13 @@ Implicits: 1
 CharmImplicitUseOnSlow1
 UniqueCharmOnslaughtDuringEffect1
 ]],[[
+Forsaken Bangle
+Amethyst Charm
+Implicits: 1
+CharmImplicitUseOnChaosDamage1
+UniqueCharmIncreasedDuration1
+UniqueCharmRecoupChaosDamagePrevented1
+]],[[
 Nascent Hope
 Thawing Charm   
 Implicits: 1

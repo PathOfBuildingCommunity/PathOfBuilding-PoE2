@@ -48,6 +48,13 @@ Implicits: 1
 Used when you are affected by a Slow
 Grants Onslaught during effect
 ]],[[
+Forsaken Bangle
+Amethyst Charm
+Implicits: 1
+Used when you take Chaos damage from a Hit
+(15-25)% increased Duration
+50% of Chaos damage you prevent when Hit Recouped as Life and Mana during effect
+]],[[
 Nascent Hope
 Thawing Charm   
 Implicits: 1
