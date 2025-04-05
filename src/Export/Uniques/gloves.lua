@@ -151,6 +151,14 @@ UniqueDexterity2
 UniqueAttackAndCastSpeed1
 UniqueLightningDamageCanElectrocute1
 ]],[[
+Leopold's Applause
+Embroidered Gloves
+UniqueLocalIncreasedEnergyShieldPercent1
+UniqueIncreasedMana12
+UniqueItemFoundRarityIncrease21
+UniqueElementalPenetration1
+UniqueElementalPenetrationBelowZero1
+]],[[
 Painter's Servant
 Torn Gloves
 Variant: Pre 0.1.1

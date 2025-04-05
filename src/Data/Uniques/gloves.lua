@@ -151,6 +151,14 @@ Jewelled Gloves
 (10-15)% reduced Attack and Cast Speed
 Lightning damage from Hits Contributes to Electrocution Buildup
 ]],[[
+Leopold's Applause
+Embroidered Gloves
+(60-100)% increased Energy Shield
++(60-100) to maximum Mana
+(10-15)% increased Rarity of Items found
+Damage Penetrates 10% Elemental Resistances
+Your Hits can Penetrate Elemental Resistances down to a minimum of -50%
+]],[[
 Painter's Servant
 Torn Gloves
 Variant: Pre 0.1.1
