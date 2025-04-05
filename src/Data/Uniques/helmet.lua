@@ -201,6 +201,14 @@ Closed Helm
 (30-50)% increased Critical Hit Chance
 Skills have a (100-150)% longer Perfect Timing window
 ]],[[
+The Bringer of Rain
+Decorated Helm
+(600-800)% increased Armour and Evasion
++(200-300) to Accuracy Rating
+(30-60) Life Regeneration per second
+Can't use Body Armour
+You can wield Two-Handed Axes, Maces and Swords in one hand
+]],[[
 Erian's Cobble
 Guarded Helm
 Variant: Pre 0.1.1

@@ -200,6 +200,14 @@ UniqueIncreasedAccuracy10
 UniqueCriticalStrikeChance11
 UniquePerfectTimingWindow1
 ]],[[
+The Bringer of Rain
+Decorated Helm
+UniqueLocalIncreasedArmourAndEvasion27
+UniqueIncreasedAccuracy11
+UniqueLifeRegeneration16
+UniqueDisableChestSlot1
+UniqueUseTwoHandedWeaponOneHand1
+]],[[
 Erian's Cobble
 Guarded Helm
 Variant: Pre 0.1.1
