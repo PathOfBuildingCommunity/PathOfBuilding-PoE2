@@ -36,4 +36,14 @@ UniqueIgniteChanceIncrease3
 UniqueAlwaysPierceBurningEnemies1
 UniqueDamageAddedAsFireAttacks1
 ]],
+[[
+Rearguard
+Blunt Quiver
+Implicits: 1
+QuiverImplicitStunThresholdReduction1
+UniqueAddedPhysicalDamage5
+UniqueIncreasedPhysicalDamageReductionRating4
+UniqueProjectileSpeed3
+UniqueBlockPercent2
+]],
 }

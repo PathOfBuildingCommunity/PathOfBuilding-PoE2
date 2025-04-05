@@ -36,4 +36,14 @@ Adds 3 to 5 Fire damage to Attacks
 Projectiles Pierce all Ignited enemies
 Attacks Gain (5-10)% of Damage as Extra Fire Damage
 ]],
+[[
+Rearguard
+Blunt Quiver
+Implicits: 1
+(20-30)% reduced Enemy Stun Threshold
+Adds (7-11) to (14-20) Physical Damage to Attacks
++(150-200) to Armour
+(20-30)% increased Projectile Speed
++(15-25)% to Block chance
+]],
 }
