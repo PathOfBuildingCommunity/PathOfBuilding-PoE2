@@ -1444,7 +1444,11 @@ function calcs.defence(env, actor)
 			output[resource.."Regen"] = regenRate
 		end
 		output[resource.."RegenInc"] = inc
-		local baseDegen = (modDB:Sum("BASE", nil, resource.."Degen") + pool * modDB:Sum("BASE", nil, resource.."DegenPercent") / 100)
+		if resourceName == "Life" and modDB:Sum("BASE", nil, "LifeDemonDegenPercent") > 0 then
+			local demonFormDegen = m_max(pool * modDB:Sum("BASE", nil, "LifeDemonDegenPercent") / 100, 1) * modDB:Sum("BASE", nil, "Multiplier:DemonFlameStacks")
+			modDB:NewMod("LifeDegen", "BASE", demonFormDegen, "Demon Flame Degen")
+		end
+		local baseDegen = modDB:Sum("BASE", nil, resource.."Degen") + pool * modDB:Sum("BASE", nil, resource.."DegenPercent") / 100
 		local degenRate = (baseDegen > 0) and baseDegen * calcLib.mod(modDB, nil, resource.."Degen") or 0
 		output[resource.."Degen"] = degenRate
 		local recoveryRate = modDB:Sum("BASE", nil, resource.."Recovery") * recoveryRateMod
