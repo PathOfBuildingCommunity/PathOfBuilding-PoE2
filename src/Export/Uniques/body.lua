@@ -378,6 +378,16 @@ UniqueIncreasedTotemLife1
 UniqueAdditionalTotems1
 UniqueRandomlyCursedWhenTotemsDie1
 ]],
+[[
+Waveshaper
+Tideseer Mantle
+UniqueLocalIncreasedEnergyShield16
+UniqueIncreasedSpirit9
+UniqueFireResist30
+UniqueColdResist29
+UniqueManaRegenAppliesToRecharge1
+UniqueGainManaAsExtraArmour1
+]],
 -- Body: Evasion/Energy Shield
 [[
 Apron of Emiran

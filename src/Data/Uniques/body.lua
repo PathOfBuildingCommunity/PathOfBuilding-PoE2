@@ -384,6 +384,17 @@ Sacrificial Mantle
 +1 to maximum number of Summoned Totems
 Inflicts a random Curse on you when your Totems die, ignoring Curse limit
 ]],
+[[
+Waveshaper
+Tideseer Mantle
++(100-200) to maximum Energy Shield
++(20-40) to Spirit
++(25-35)% to Fire Resistance
++(25-35)% to Cold Resistance
+Increases and Reductions to Mana Regeneration Rate also
+apply to Energy Shield Recharge Rate
+Gain (30-50)% of Maximum Mana as Armour
+]],
 -- Body: Evasion/Energy Shield
 [[
 Apron of Emiran
