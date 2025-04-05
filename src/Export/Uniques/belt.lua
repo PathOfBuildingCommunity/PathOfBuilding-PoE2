@@ -136,6 +136,16 @@ UniqueIntelligence9
 UniqueLoseEnergyShieldPerSecond1
 UniqueLifeLeechExcessToEnergyShield1
 ]],[[
+Waistgate Heavy Belt
+Heavy Belt
+Implicits: 1
+BeltImplicitIncreasedStunThreshold1
+UniqueIncreasedLife45
+UniqueIncreasedMana50
+UniqueFlaskLifeRecoveryRate6
+UniqueFlaskManaRecoveryRate4
+UniqueLifeManaFlaskAnySlot1
+]],[[
 Zerphi's Genesis
 Heavy Belt
 Requires Level 56

@@ -136,6 +136,16 @@ Implicits: 1
 You lose 5% of Energy Shield per second
 Excess Life Recovery from Leech is applied to Energy Shield
 ]],[[
+Waistgate Heavy Belt
+Heavy Belt
+Implicits: 1
+(20-30)% increased Stun Threshold
++(50-80) to maximum Life
++(50-80) to maximum Mana
+(20-30)% increased Flask Life Recovery rate
+(20-30)% increased Flask Mana Recovery rate
+Life and Mana Flasks can be equipped in either slot
+]],[[
 Zerphi's Genesis
 Heavy Belt
 Requires Level 56
