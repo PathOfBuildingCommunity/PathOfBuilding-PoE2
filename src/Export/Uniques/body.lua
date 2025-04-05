@@ -275,6 +275,16 @@ UniqueLocalIncreasedEnergyShieldPercent14
 UniqueIncreasedMana20
 UniqueManaRegeneration29
 UniqueDamageRemovedFromManaBeforeLife1
+]],[[
+Silks of Veneration
+Havoc Raiment
+Implicits: 1
+BodyArmourImplicitManaRegeneration1
+UniqueIncreasedSpirit11
+UniqueIntelligence39
+UniqueAllResistances6
+UniqueEnergyShieldRechargeRate4
+UniqueEnergyShieldAppliesElementalReduction1
 ]],
 -- Body: Armour/Evasion
 [[

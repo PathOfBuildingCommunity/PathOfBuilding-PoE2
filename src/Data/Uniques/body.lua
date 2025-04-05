@@ -281,6 +281,16 @@ Havoc Raiment
 +(100-150) to maximum Mana
 50% increased Mana Regeneration Rate
 30% of Damage is taken from Mana before Life
+]],[[
+Silks of Veneration
+Havoc Raiment
+Implicits: 1
+(40-50)% increased Mana Regeneration Rate
++(30-50) to Spirit
++(20-30) to Intelligence
++(10-20)% to all Elemental Resistances
+(30-50)% increased Energy Shield Recharge Rate
+Current Energy Shield also grants Elemental Damage reduction
 ]],
 -- Body: Armour/Evasion
 [[
