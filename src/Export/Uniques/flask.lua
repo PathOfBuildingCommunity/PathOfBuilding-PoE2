@@ -60,5 +60,12 @@ Implicits: 1
 CharmImplicitUseOnFreeze1
 UniqueFlaskChanceRechargeOnKill1
 UniqueCharmStartEnergyShieldRecharge1
+]],[[
+Valako's Roar
+Topaz Charm   
+Implicits: 1
+CharmImplicitUseOnLightningDamage1
+UniqueFlaskChargesAddedPercent1
+UniqueCharmGrantsFrenzyCharge1
 ]],
 }

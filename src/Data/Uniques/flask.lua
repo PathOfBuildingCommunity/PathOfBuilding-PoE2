@@ -61,5 +61,12 @@ Implicits: 1
 Used when you become Frozen
 (20-25)% Chance to gain a Charge when you Kill an Enemy
 Energy Shield Recharge starts on use
+]],[[
+Valako's Roar
+Topaz Charm   
+Implicits: 1
+Used when you take Lightning damage from a Hit
+(30-40)% increased Charges gained
+Grants a Frenzy Charge on use
 ]],
 }
