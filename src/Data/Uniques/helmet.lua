@@ -84,6 +84,14 @@ Armoured Cap
 +(50-75)% to Cold Resistance
 Presence Radius is doubled
 ]],[[
+The Black Insignia
+Corsair Cap
+(70-100)% increased Evasion Rating
+(10-20)% increased Rarity of Items found
++(15-25)% to Lightning Resistance
+Gain Tailwind on Critical Hit, no more than once per second
+Lose all Tailwind when Hit
+]],[[
 Elevore
 Hunter Hood
 Variant: Pre 0.1.1

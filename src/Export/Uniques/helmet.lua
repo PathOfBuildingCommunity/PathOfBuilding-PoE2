@@ -83,6 +83,14 @@ UniqueIncreasedSpirit1
 UniqueColdResist16
 UniqueDoublePresenceRadius1
 ]],[[
+The Black Insignia
+Corsair Cap
+UniqueLocalIncreasedEvasionRatingPercent24
+UniqueItemFoundRarityIncrease14
+UniqueLightningResist24
+UniqueTailwindOnCriticalStrike1
+UniqueLoseTailwindOnHit1
+]],[[
 Elevore
 Hunter Hood
 Variant: Pre 0.1.1
