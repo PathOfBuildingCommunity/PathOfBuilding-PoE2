@@ -191,5 +191,15 @@ Implicits: 1
 {tags:life}(10-15)% increased maximum Life
 {tags:fire}+(20-30)% to Fire Resistance
 Enemies in your Presence have Fire Exposure
+]],[[
+Yoke of Suffering
+Bloodstone Amulet
+Implicits: 1
+{tags:life}+(30-40) to maximum Life
+{tags:fire,cold,lightning}+(10-15)% to all Elemental Resistances
+(15-30)% increased Elemental Damage
+Enemies take (5-10)% increased Damage for each Elemental Ailment type among
+your Ailments on them
+(20-30)% reduced Duration of Ignite, Shock and Chill on Enemies
 ]],
 }
