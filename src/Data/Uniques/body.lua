@@ -259,6 +259,13 @@ Variant: Current
 {variant:2}+(20-30) to Intelligence
 +(17-23)% to Chaos Resistance
 Life Recharges
+]],[[
+Vis Mortis
+Plated Raiment
+(70-100)% increased Energy Shield
++(70-100) to maximum Mana
+Minions have 50% reduced maximum Life
+Minions have Unholy Might
 ]],
 -- Body: Armour/Evasion
 [[

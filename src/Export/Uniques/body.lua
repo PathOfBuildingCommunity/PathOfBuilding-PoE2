@@ -253,6 +253,13 @@ UniqueStrength10
 {variant:2}UniqueIntelligence32
 UniqueChaosResist1
 UniqueLifeRecharge1
+]],[[
+Vis Mortis
+Plated Raiment
+UniqueLocalIncreasedEnergyShieldPercent22
+UniqueIncreasedMana43
+UniqueMinionLife5
+UniqueMinionsHaveUnholyMight1
 ]],
 -- Body: Armour/Evasion
 [[
