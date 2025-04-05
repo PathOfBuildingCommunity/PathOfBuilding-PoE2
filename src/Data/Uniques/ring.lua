@@ -259,6 +259,18 @@ Implicits: 1
 {tags:cold}+(-40-40)% to Cold Resistance
 {tags:lightning}+(-40-40)% to Lightning Resistance
 ]],[[
+Vigilant View
+Emerald Ring
+Requires Level 26
+Implicits: 1
+{tags:attack}+(120-160) to Accuracy Rating
+{tags:attack}+(100-150) to Accuracy Rating
+{tags:defences}+(100-150) to Evasion Rating
+(10-20)% increased Rarity of Items found
+{tags:attribute}+(20-30) to Dexterity
+Enemies have an Accuracy Penalty against you based on Distance
+Maximum Chance to Evade is 50%
+]],[[
 Whisper of the Brotherhood
 Sapphire Ring
 Requires Level 32

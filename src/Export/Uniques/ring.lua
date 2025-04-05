@@ -259,6 +259,18 @@ UniqueFireResist24
 UniqueColdResist20
 UniqueLightningResist18
 ]],[[
+Vigilant View
+Emerald Ring
+Requires Level 26
+Implicits: 1
+RingImplicitIncreasedAccuracy1
+UniqueIncreasedAccuracy12
+UniqueIncreasedEvasionRating3
+UniqueItemFoundRarityIncrease20
+UniqueDexterity37
+UniqueEnemyAccuracyDistanceFalloff1
+UniqueMaximumEvadeChanceOverride1
+]],[[
 Whisper of the Brotherhood
 Sapphire Ring
 Requires Level 32
