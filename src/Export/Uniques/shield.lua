@@ -98,6 +98,15 @@ UniqueIntelligence6
 UniqueProjectileParryInfiniteDistance1
 UniqueParriedDebuffDuration1
 ]],[[
+Dunkelhalt
+Leather Buckler
+Implicits: 1
+Grants Skill: Parry
+UniqueLocalBlockChance9
+UniqueLocalIncreasedEvasionRating6
+UniqueBaseBlockDamageTaken2
+UniqueParriedDebuffMagnitude1
+]],[[
 Nocturne
 Wooden Buckler
 Implicits: 1

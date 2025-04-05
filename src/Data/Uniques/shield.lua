@@ -99,6 +99,15 @@ Grants Skill: Parry
 Infinite Projectile Parry Range
 50% increased Parried Debuff Duration
 ]],[[
+Dunkelhalt
+Leather Buckler
+Implicits: 1
+Grants Skill: Parry
+(30-50)% increased Block chance
++(20-30) to Evasion Rating
+You take 50% of damage from Blocked Hits
+50% increased Parried Debuff Magnitude
+]],[[
 Nocturne
 Wooden Buckler
 Implicits: 1
