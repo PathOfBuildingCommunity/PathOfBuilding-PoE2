@@ -136,6 +136,14 @@ UniqueSpellDamage1
 UniqueIncreasedCastSpeed6
 AmuletImplicitIntelligence1
 ]],[[
+Essentia Sanguis
+Furtive Wraps
+UniqueLocalIncreasedEvasionAndEnergyShield17
+UniqueAddedLightningDamage3
+UniqueIntelligence31
+UniqueLightningResist26
+UniqueLeechEnergyShieldInsteadofLife1
+]],[[
 Kitoko's Current
 Jewelled Gloves
 UniqueLocalIncreasedEnergyShieldPercent7

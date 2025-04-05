@@ -136,6 +136,14 @@ Variant: Current
 (15-25)% reduced Cast Speed
 +(10-15) to Intelligence
 ]],[[
+Essentia Sanguis
+Furtive Wraps
+(50-70)% increased Evasion and Energy Shield
+Adds 1 to (30-50) Lightning damage to Attacks
++(15-25) to Intelligence
++(25-35)% to Lightning Resistance
+Life Leech is Converted to Energy Shield Leech
+]],[[
 Kitoko's Current
 Jewelled Gloves
 (30-50)% increased Energy Shield
