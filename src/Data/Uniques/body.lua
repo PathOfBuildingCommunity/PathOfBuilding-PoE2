@@ -274,6 +274,13 @@ Elementalist Robe
 +(25-35)% to Cold Resistance
 1000% increased Energy Shield Recharge Rate
 Your base Energy Shield Recharge Delay is 10 seconds
+]],[[
+Cloak of Defiance
+Havoc Raiment
+(50-100)% increased Energy Shield
++(100-150) to maximum Mana
+50% increased Mana Regeneration Rate
+30% of Damage is taken from Mana before Life
 ]],
 -- Body: Armour/Evasion
 [[

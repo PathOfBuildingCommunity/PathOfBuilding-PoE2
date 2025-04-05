@@ -268,6 +268,13 @@ UniqueIncreasedSpirit10
 UniqueColdResist31
 UniqueEnergyShieldRechargeRate6
 UniqueEnergyShieldRechargeOverride1
+]],[[
+Cloak of Defiance
+Havoc Raiment
+UniqueLocalIncreasedEnergyShieldPercent14
+UniqueIncreasedMana20
+UniqueManaRegeneration29
+UniqueDamageRemovedFromManaBeforeLife1
 ]],
 -- Body: Armour/Evasion
 [[
