@@ -169,12 +169,16 @@ Cannot be Poisoned
 ]],[[
 Queen of the Forest
 Smuggler Coat
+Variant: Pre 0.2.0
+Variant: Current
 (100-150)% increased Evasion Rating
 -(15-10)% to Fire Resistance
 +(25-30)% to Cold Resistance
 +(10-15)% to Lightning Resistance
-1% increased Movement Speed per 500 Evasion Rating
-Other Modifiers to Movement Speed do not apply
+{variant:1}1% increased Movement Speed per 500 Evasion Rating
+{variant:2}1% increased Movement Speed per 800 Evasion Rating
+{variant:1}Other Modifiers to Movement Speed do not apply
+{variant:2}Other Modifiers to Movement Speed do not apply
 ]],[[
 The Rat Cage
 Scout's Vest
@@ -218,9 +222,12 @@ Skills gain a Base Life Cost equal to 50% of Base Mana Cost
 ]],[[
 Ghostwrithe
 Tattered Robe
+Variant: Pre 0.2.0
+Variant: Current
 +100 to maximum Energy Shield
 +(29-37)% to Chaos Resistance
-50% of Maximum Life Converted to Energy Shield
+{variant:1}50% of Maximum Life Converted to Energy Shield
+{variant:2}25% of Maximum Life Converted to Energy Shield
 ]],[[
 Necromantle
 Bone Raiment

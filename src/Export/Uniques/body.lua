@@ -165,11 +165,14 @@ UniqueCannotBePoisoned1
 ]],[[
 Queen of the Forest
 Smuggler Coat
+Variant: Pre 0.2.0
+Variant: Current
 UniqueLocalIncreasedEvasionRatingPercent4
 UniqueFireResist17
 UniqueColdResist17
 UniqueLightningResist14
-UniqueSetMovementVelocityPerEvasion1
+{variant:1}UniqueSetMovementVelocityPerEvasion1[500,500]
+{variant:2}UniqueSetMovementVelocityPerEvasion1
 ]],[[
 The Rat Cage
 Scout's Vest
@@ -212,9 +215,12 @@ UniqueLifeCostAsManaCost1
 ]],[[
 Ghostwrithe
 Tattered Robe
+Variant: Pre 0.2.0
+Variant: Current
 UniqueLocalIncreasedEnergyShield3
 UniqueChaosResist4
-UniqueLifeConvertedToEnergyShield1
+{variant:1}UniqueLifeConvertedToEnergyShield1[50,50]
+{variant:2}UniqueLifeConvertedToEnergyShield1
 ]],[[
 Necromantle
 Bone Raiment
