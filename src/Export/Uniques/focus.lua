@@ -3,6 +3,14 @@
 return {
 -- Focus
 [[
+Apep's Supremacy
+Voodoo Focus
+UniqueLocalIncreasedEnergyShieldPercent13
+UniqueEnergyShieldRechargeRate7
+UniqueEnergyShieldDelay5
+UniqueElementalDamageTakenAsChaos1
+UniqueChanceToBePoisoned1
+]],[[
 Carrion Call
 Engraved Focus
 Variant: Pre 0.1.1
