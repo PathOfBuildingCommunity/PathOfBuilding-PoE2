@@ -247,6 +247,18 @@ UniqueDisablesOtherRingSlot1
 UniqueManaGainPerTarget1
 UniqueSelfCurseDuration1
 ]],[[
+Venopuncture
+Iron Ring
+Requires Level 36
+Implicits: 1
+RingImplicitPhysicalDamage1
+UniqueAddedPhysicalDamage8
+UniqueStrength41
+UniqueChilledWhileBleeding1
+UniqueNonChilledEnemiesBleedAndChill1
+UniqueGlobalChanceToBleed2
+UniqueBleedEffect1
+]],[[
 Ventor's Gamble
 Gold Ring
 Requires Level 64

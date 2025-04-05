@@ -247,6 +247,18 @@ Can't use other Rings
 {tags:mana,attack}Gain 15 Mana per Enemy Hit with Attacks
 {tags:caster}50% reduced Duration of Curses on you
 ]],[[
+Venopuncture
+Iron Ring
+Requires Level 36
+Implicits: 1
+{tags:physical,attack}Adds 1 to 4 Physical Damage to Attacks
+{tags:physical,attack}Adds (5-7) to (9-13) Physical Damage to Attacks
+{tags:attribute}+(20-30) to Strength
+{tags:cold}All Damage taken from Hits while Bleeding Contributes to Magnitude of Chill on you
+{tags:cold}All Damage from Hits against Bleeding targets Contributes to Chill Magnitude
+(10-20)% chance to inflict Bleeding on Hit
+{tags:physical,attack}(15-25)% increased Magnitude of Bleeding you inflict
+]],[[
 Ventor's Gamble
 Gold Ring
 Requires Level 64
