@@ -66,7 +66,16 @@ Variant: Current
 +(20-30) to Dexterity
 Gain 1 Rage on Melee Hit
 Every Rage also grants 1% increased Stun Threshold
+]],[[
+Blood Price
+Fierce Greathelm
+(80-120)% increased Armour
+(10-15) Life Regeneration per second
++(100-150) to Stun Threshold
+(30-60)% increased Presence Area of Effect
+Enemies in your Presence have at least 10% of Life Reserved
 ]],
+
 -- Helmet: Evasion
 [[
 Alpha's Howl

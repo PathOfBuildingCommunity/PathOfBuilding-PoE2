@@ -65,7 +65,16 @@ UniqueItemFoundRarityIncrease4
 UniqueDexterity3
 UniqueRageOnHit1
 UniqueIncreasedStunThresholdPerRage1
+]],[[
+Blood Price
+Fierce Greathelm
+UniqueLocalIncreasedPhysicalDamageReductionRatingPercent29
+UniqueEnemiesInPresenceReservesLife1
+UniqueLifeRegeneration18
+UniqueStunThreshold18
+UniquePresenceRadius3
 ]],
+
 -- Helmet: Evasion
 [[
 Alpha's Howl
