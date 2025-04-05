@@ -275,10 +275,7 @@ Variant: Current
 ]],[[
 Cornathaum
 Heavy Crown
-Variant: Pre 0.2.0
-Variant: Current
-{variant:1}(10-20)% increased Rarity of Items found
-{variant:2}(10-15)% increased Rarity of Items found
+(10-20)% increased Rarity of Items found
 +(40-50) to Intelligence
 30% increased Light Radius
 5% increased Experience gain

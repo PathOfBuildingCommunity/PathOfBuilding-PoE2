@@ -23,38 +23,29 @@ Trigger Ember Fusillade Skill on casting a Spell
 ]],[[
 Earthbound
 Voltaic Staff
-Variant: Pre 0.2.0
-Variant: Current
 Implicits: 1
 Grants Skill: Level (1-20) Lightning Bolt
 Grants Skill: Level (1-20) Spark
 (80-120)% increased Lightning Damage
-{variant:1}(10-20)% increased Cast Speed
-{variant:2}(15-25)% increased Cast Speed
+(10-20)% increased Cast Speed
 (20-30)% increased Mana Regeneration Rate
 Trigger Spark Skill on killing a Shocked Enemy
 ]],[[
 The Searing Touch
 Pyrophyte Staff
-Variant: Pre 0.2.0
-Variant: Current
 Implicits: 1
 Grants Skill: Level (1-20) Living Bomb
 (80-120)% increased Fire Damage
-{variant:1}(10-20)% increased Cast Speed
-{variant:2}(15-25)% increased Cast Speed
+(10-20)% increased Cast Speed
 100% increased chance to Ignite
 100% increased Magnitude of Ignite you inflict
 ]],[[
 Taryn's Shiver
 Gelid Staff
-Variant: Pre 0.2.0
-Variant: Current
 Implicits: 1
 Grants Skill: Level (1-20) Freezing Shards
 (80-120)% increased Cold Damage
-{variant:1}(10-20)% increased Cast Speed
-{variant:2}(15-25)% increased Cast Speed
+(10-20)% increased Cast Speed
 100% increased Freeze Buildup
 Enemies Frozen by you take 50% increased Damage
 ]],

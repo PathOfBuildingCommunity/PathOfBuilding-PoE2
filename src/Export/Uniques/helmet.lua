@@ -274,10 +274,7 @@ UniqueReducedShockEffectOnSelf1
 ]],[[
 Cornathaum
 Heavy Crown
-Variant: Pre 0.2.0
-Variant: Current
-{variant:1}UniqueItemFoundRarityIncrease2[10,20]
-{variant:2}UniqueItemFoundRarityIncrease2
+UniqueItemFoundRarityIncrease10
 UniqueIntelligence16
 UniqueLightRadius7
 UniqueExperienceIncrease1
