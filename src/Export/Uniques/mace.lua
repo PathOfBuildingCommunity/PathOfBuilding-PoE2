@@ -135,5 +135,14 @@ Variant: Current
 UniqueLocalIncreasedAttackSpeed5
 UniqueLocalStunDamageIncrease1
 UniqueAlwaysCritHeavyStun1
+]],[[
+Shyaba
+Temple Maul
+UniqueDexterityRequirements1
+UniqueStrengthRequirements1
+UniqueLocalIncreasedPhysicalDamagePercent5
+UniqueLocalIncreasedAttackSpeed15
+UniqueLightRadius17
+UniqueAlwaysHits1
 ]],
 }

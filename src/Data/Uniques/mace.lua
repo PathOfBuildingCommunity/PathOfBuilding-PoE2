@@ -136,5 +136,14 @@ Variant: Current
 (10-15)% increased Attack Speed
 Causes (30-50)% increased Stun Buildup
 Always deals Critical Hits against Heavy Stunned Enemies
+]],[[
+Shyaba
+Temple Maul
++50 Dexterity Requirement
+-15 Strength Requirement
+(80-120)% increased Physical Damage
+50% increased Attack Speed
+(15-25)% increased Light Radius
+Always Hits
 ]],
 }
