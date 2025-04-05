@@ -146,11 +146,14 @@ Grants Skill: Raise Shield
 (30-50)% increased Cooldown Recovery Rate
 ]],[[
 Mahuxotl's Machination
+Variant: Pre 0.2.0
+Variant: Current
 Omen Crest Shield
 Implicits: 1
 Grants Skill: Raise Shield
 (333-666)% increased Armour and Energy Shield
-(333-666)% increased effect of Socketed Soul Cores
+{variant:1}(333-666)% increased effect of Socketed Soul Cores
+{variant:2}100% increased effect of Socketed Soul Cores
 ]],[[
 Oaksworn
 Sigil Crest Shield

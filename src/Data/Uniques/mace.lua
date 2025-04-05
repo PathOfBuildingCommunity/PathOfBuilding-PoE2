@@ -29,7 +29,10 @@ Culling Strike against Frozen Enemies
 ]],[[
 Olrovasara
 Torment Club
-Adds 1 to (60-80) Lightning Damage
+Variant: Pre 0.2.0
+Variant: Current
+{variant:1}Adds 1 to (60-80) Lightning Damage
+{variant:2}Adds 1 to (80-120) Lightning Damage
 +(300-400) to Accuracy Rating
 (5-30)% increased Attack Speed
 On Hitting an enemy, gains maximum added Lightning damage equal to

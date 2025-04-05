@@ -29,7 +29,10 @@ UniqueLocalCullingStrikeFrozenEnemies1
 ]],[[
 Olrovasara
 Torment Club
-UniqueLocalAddedLightningDamage1
+Variant: Pre 0.2.0
+Variant: Current
+{variant:1}UniqueLocalAddedLightningDamage1[1,1][60,80]
+{variant:2}UniqueLocalAddedLightningDamage1
 UniqueLocalIncreasedAccuracy5
 UniqueLocalIncreasedAttackSpeed10
 UniqueMaximumLightningDamagePerPower1

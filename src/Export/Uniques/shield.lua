@@ -146,11 +146,14 @@ UniqueManaRegeneration3
 UniqueGlobalCooldownRecovery1
 ]],[[
 Mahuxotl's Machination
+Variant: Pre 0.2.0
+Variant: Current
 Omen Crest Shield
 Implicits: 1
 Grants Skill: Raise Shield
 UniqueLocalIncreasedArmourAndEnergyShield16
-UniqueLocalSoulCoreEffect1
+{variant:1}UniqueLocalSoulCoreEffect1[333,666]
+{variant:2}UniqueLocalSoulCoreEffect1
 ]],[[
 Oaksworn
 Sigil Crest Shield

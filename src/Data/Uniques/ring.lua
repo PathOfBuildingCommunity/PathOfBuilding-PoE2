@@ -91,9 +91,12 @@ Implicits: 1
 ]],[[
 Dream Fragments
 Sapphire Ring
+Variant: Pre 0.2.0
+Variant: Current
 Implicits: 1
 {tags:cold}+(20-30)% to Cold Resistance
-{tags:mana}20% increased maximum Mana
+{variant:1}{tags:mana}20% increased maximum Mana
+{variant:2}{tags:mana}10% increased maximum Mana
 {tags:mana}(30-50)% increased Mana Regeneration Rate
 You cannot be Chilled or Frozen
 ]],[[
