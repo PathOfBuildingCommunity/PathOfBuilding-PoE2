@@ -260,6 +260,14 @@ UniqueLocalIncreasedEnergyShieldPercent22
 UniqueIncreasedMana43
 UniqueMinionLife5
 UniqueMinionsHaveUnholyMight1
+]],[[
+Gloamgown
+Elementalist Robe
+UniqueLocalIncreasedEnergyShieldPercent16
+UniqueIncreasedSpirit10
+UniqueColdResist31
+UniqueEnergyShieldRechargeRate6
+UniqueEnergyShieldRechargeOverride1
 ]],
 -- Body: Armour/Evasion
 [[

@@ -266,6 +266,14 @@ Plated Raiment
 +(70-100) to maximum Mana
 Minions have 50% reduced maximum Life
 Minions have Unholy Might
+]],[[
+Gloamgown
+Elementalist Robe
+(100-140)% increased Energy Shield
++(30-40) to Spirit
++(25-35)% to Cold Resistance
+1000% increased Energy Shield Recharge Rate
+Your base Energy Shield Recharge Delay is 10 seconds
 ]],
 -- Body: Armour/Evasion
 [[
