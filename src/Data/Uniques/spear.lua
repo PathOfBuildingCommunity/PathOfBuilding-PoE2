@@ -64,5 +64,15 @@ Adds (10-15) to (21-26) Physical Damage
 (10-20)% increased Attack Speed
 (30-60)% increased Melee Damage if you've dealt a Projectile Attack Hit in the past eight seconds
 (30-60)% increased Projectile Damage if you've dealt a Melee Hit in the past eight seconds
+]],[[
+Saitha's Spear
+Barbed Spear
+Implicits: 1
+Grants Skill: Spear Throw
+Adds (14-26) to (27-32) Physical Damage
+Adds (33-41) to (47-53) Fire Damage
+(15-25)% chance to cause Bleeding on Hit
+Aggravating any Bleeding with this Weapon also Aggravates all Ignites on the target
+(25-40)% chance to Aggravate Bleeding on Hit
 ]],
 }

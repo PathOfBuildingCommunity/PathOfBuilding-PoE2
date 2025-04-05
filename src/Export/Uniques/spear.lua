@@ -64,5 +64,15 @@ UniqueIncreasedEvasionRating4
 UniqueLocalIncreasedAttackSpeed20
 UniqueMeleeDamageIfProjectileHitRecently1
 UniqueProjectileDamageIfMeleeHitRecently1
+]],[[
+Saitha's Spear
+Barbed Spear
+Implicits: 1
+Grants Skill: Spear Throw
+UniqueLocalAddedPhysicalDamage20
+UniqueLocalAddedFireDamage1
+UniqueLocalChanceToBleed2
+UniqueAggravateIgnites1
+UniqueLocalChanceToAggravateBleed1
 ]],
 }
