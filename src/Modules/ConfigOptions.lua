@@ -628,7 +628,7 @@ local configSettings = {
 		modList:NewMod("WarcryPower", "OVERRIDE", val, "Config")
 	end },
 	{ label = "Whirlwind Stages:", ifSkill = "Whirlwind Lance" },
-	{ var = "whirlwindStges", type = "count", label = "# of Whirlwind Stages:", ifSkill = "Whirlwind Lance", apply = function(val, modList, enemyModList)
+	{ var = "whirlwindStages", type = "count", label = "# of Whirlwind Stages:", ifSkill = "Whirlwind Lance", apply = function(val, modList, enemyModList)
 		modList:NewMod("Multiplier:WhirlwindStageAfterFirst", "BASE", m_min(val - 1, 3), "Config", { type = "Condition", var = "Combat" })
 		modList:NewMod("Multiplier:WhirlwindStages", "BASE", m_min(val, 4), "Config", { type = "Condition", var = "Combat" })
 	end },

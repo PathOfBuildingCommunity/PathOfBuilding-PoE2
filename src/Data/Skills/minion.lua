@@ -997,7 +997,7 @@ skills["DTTAnimateWeaponSpearDashStabImpact"] = {
 	}
 }
 skills["GAAnimateWeaponQuarterstaffSweep"] = {
-	name = "Quaterstaff Sweep",
+	name = "Quarterstaff Sweep",
 	hidden = true,
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Melee] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Area] = true, },
 	castTime = 1,

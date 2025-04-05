@@ -173,7 +173,7 @@ skills["MinionInstability"] = {
 #skillEnd
 
 #addSkillTypes Melee MeleeSingleTarget Area
-#skill GAAnimateWeaponQuarterstaffSweep Quaterstaff Sweep
+#skill GAAnimateWeaponQuarterstaffSweep Quarterstaff Sweep
 #set GAAnimateWeaponQuarterstaffSweep
 #flags attack melee
 #mods
