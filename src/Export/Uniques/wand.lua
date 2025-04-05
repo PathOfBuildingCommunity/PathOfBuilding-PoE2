@@ -39,5 +39,14 @@ UniqueSpellDamageOnWeapon2
 UniqueLifeGainedFromEnemyDeath7
 UniqueGlobalChanceToBleed3
 UniqueSpellLifeCostPercent1
+]],[[
+The Wicked Quill
+Withered Wand
+Implicits: 1
+Grants Skill: Level (1-20) Chaos Bolt
+UniqueSpellDamageOnWeapon6
+UniqueIncreasedMana12
+UniqueChaosResist29
+UniqueSpellWitherOnHitChance1
 ]],
 }

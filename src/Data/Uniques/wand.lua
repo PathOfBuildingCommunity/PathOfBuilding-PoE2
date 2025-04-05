@@ -39,5 +39,14 @@ Grants Skill: Level (1-20) Bone Blast
 Gain (10-15) Life per Enemy Killed
 25% chance to inflict Bleeding on Hit
 25% of Spell Mana Cost Converted to Life Cost
+]],[[
+The Wicked Quill
+Withered Wand
+Implicits: 1
+Grants Skill: Level (1-20) Chaos Bolt
+(60-100)% increased Spell Damage
++(60-100) to maximum Mana
++(7-13)% to Chaos Resistance
+Spells have a 25% chance to inflict Withered for 4 seconds on Hit
 ]],
 }
