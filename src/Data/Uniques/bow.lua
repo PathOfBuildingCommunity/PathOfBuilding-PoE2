@@ -36,6 +36,13 @@ Variant: Current
 (20-30)% increased Projectile Speed
 Projectiles Split towards +2 targets
 ]],[[
+Voltaxic Rift
+Fanatic Bow
+Adds 1 to (200-300) Lightning Damage
+(10-15)% increased Attack Speed
+100% of Lightning Damage Converted to Chaos Damage
+Chaos Damage from Hits also Contributes to Shock Chance
+]],[[
 Widowhail
 Crude Bow
 (150-250)% increased bonuses gained from Equipped Quiver

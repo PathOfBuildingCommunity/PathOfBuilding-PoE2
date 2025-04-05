@@ -36,6 +36,13 @@ UniqueLocalIncreasedAccuracy3
 UniqueProjectileSpeed2
 UniqueProjectilesSplitCount1
 ]],[[
+Voltaxic Rift
+Fanatic Bow
+UniqueLocalAddedLightningDamage6
+UniqueLocalIncreasedAttackSpeed17
+UniqueLightningDamageConvertToChaos1
+UniqueChaosDamageCanShock1
+]],[[
 Widowhail
 Crude Bow
 UniqueQuiverModifierEffect1
