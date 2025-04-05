@@ -88,6 +88,17 @@ UniqueChaosResist31
 UniqueLifeRegeneration21
 UniqueApplyCorruptedBloodOnBlock1
 ]],
+[[
+Nocturne
+Wooden Buckler
+Implicits: 1
+Grants Skill: Parry
+UniqueIncreasedMana44
+UniqueAllResistances25
+UniqueIncreasedAccuracyPercent1
+UniqueParriedCausesSpellDamageTaken1
+UniqueParriedDebuffDuration2
+]],
 -- Shield: Energy Shield
 
 -- Shield: Armour/Evasion

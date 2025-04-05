@@ -89,6 +89,17 @@ Grants Skill: Parry
 Inflict Corrupted Blood for 5 seconds on Block, dealing 50% of
 your maximum Life as Physical damage per second
 ]],
+[[
+Nocturne
+Wooden Buckler
+Implicits: 1
+Grants Skill: Parry
++(60-80) to maximum Mana
++(10-15)% to all Elemental Resistances
+20% increased Accuracy Rating
+Parried enemies take more Spell Damage instead of more Attack Damage
+100% increased Parried Debuff Duration
+]],
 -- Shield: Energy Shield
 
 -- Shield: Armour/Evasion
