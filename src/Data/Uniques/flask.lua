@@ -27,8 +27,14 @@ Implicits: 1
 Used when you become Poisoned
 Recover Life equal to (15-20)% of Mana Flask's Recovery Amount when used
 Recover Mana equal to (15-20)% of Life Flask's Recovery Amount when used
-]],
-[[
+]],[[
+Beira's Anguish
+Dousing Charm
+Implicits: 1
+Used when you become Ignited
+(20-25)% Chance to gain a Charge when you Kill an Enemy
+Ignite Enemies in Presence as though dealing Fire damage equal to 500% of your maximum Life when used
+]],[[
 The Fall of the Axe
 Silver Charm
 Implicits: 1

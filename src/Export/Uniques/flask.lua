@@ -26,8 +26,14 @@ Implicits: 1
 CharmImplicitUseOnPoison1
 UniqueCharmRecoverLifeBasedOnManaFlask1
 UniqueCharmRecoverManaBasedOnLifeFlask1
-]],
-[[
+]],[[
+Beira's Anguish
+Dousing Charm
+Implicits: 1
+CharmImplicitUseOnIgnite1
+UniqueFlaskChanceRechargeOnKill2
+UniqueCharmIgniteEnemiesInPresence1
+]],[[
 The Fall of the Axe
 Silver Charm
 Implicits: 1
