@@ -13,6 +13,14 @@ UniqueLocalIncreasedPhysicalDamageReductionRatingPercent11
 UniqueIntelligence9
 UniqueCriticalStrikesLeechIsInstant1
 ]],[[
+Dreadfist
+Bolstered Mitts
+UniqueLocalIncreasedPhysicalDamageReductionRatingPercent10
+UniqueCriticalMultiplier1
+UniqueImpaleOnCriticalHit1
+UniqueCriticalsCannotConsumeImpale1
+UniqueAttackerTakesDamage8
+]],[[
 Hateforge
 Moulded Mitts
 UniqueLocalIncreasedPhysicalDamageReductionRatingPercent4

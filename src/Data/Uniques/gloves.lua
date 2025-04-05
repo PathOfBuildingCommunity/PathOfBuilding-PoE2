@@ -13,6 +13,14 @@ Variant: Current
 +(20-30) to Intelligence
 Leech from Critical Hits is instant
 ]],[[
+Dreadfist
+Bolstered Mitts
+(50-100)% increased Armour
+(20-30)% increased Critical Damage Bonus
+Critical Hits inflict Impale
+Critical Hits cannot Extract Impale
+(20-31) to (31-49) Physical Thorns damage
+]],[[
 Hateforge
 Moulded Mitts
 (50-80)% increased Armour
