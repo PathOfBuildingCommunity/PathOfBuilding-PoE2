@@ -386,3 +386,53 @@ minions["UnearthBoneConstruct"] = {
 		-- MonsterNoDropsOrExperience [monster_no_drops_or_experience = 1]
 	},
 }
+
+minions["SummonedRhoa"] = {
+	name = "Rhoa Companion",
+	monsterTags = { "beast", "fast_movement", "mammal_beast", "MonsterBlunt_onhit_audio", "not_int", "red_blood", },
+	life = 2,
+	baseDamageIgnoresAttackSpeed = true,
+	armour = 0.5,
+	evasion = 0.5,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 2,
+	damageSpread = 0.2,
+	attackTime = 1.23,
+	attackRange = 16,
+	accuracy = 1,
+	skillList = {
+		"MinionMelee",
+	},
+	modList = {
+		-- MonsterNoDropsOrExperience [monster_no_drops_or_experience = 1]
+		-- MonsterIgnoreActorScaleFromStats [ignore_actor_scale_from_stats = 1]
+	},
+}
+
+minions["ManifestWeapon"] = {
+	name = "Animated Weapon",
+	monsterTags = { "construct", "fast_movement", },
+	life = 1,
+	baseDamageIgnoresAttackSpeed = true,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1,
+	damageSpread = 0,
+	attackTime = 1,
+	attackRange = 10,
+	accuracy = 1,
+	skillList = {
+		"MinionMelee",
+		"GAAnimateWeaponMaceSlam",
+		"DTTAnimateWeaponSpearDashStab",
+		"DTTAnimateWeaponSpearDashStabImpact",
+		"GAAnimateWeaponQuarterstaffSweep",
+	},
+	modList = {
+	},
+}

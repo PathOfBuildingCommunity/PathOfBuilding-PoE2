@@ -424,6 +424,10 @@ local configSettings = {
 	{ var = "momentumDamage", type = "check", label = "Moved 2m during Skill use?", ifSkill = "Momentum", ifFlag = "CanPerformSkillWhileMoving", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:Moved2m", "FLAG", true, "Config")
 	end },
+	{ label = "Parry:", ifSkill = "Parry" },
+	{ var = "parryActive", type = "check", label = "Enemy has Parry Debuff", ifSkill = "Parry", tooltip = "The Parry debuff grants:\n\tEnemies take 50% more Attack Damage", apply = function(val, modList, enemyModList)
+		enemyModList:NewMod("Condition:ParryActive", "FLAG", true, "Config")
+	end },
 	{ label = "Plague Bearer:", ifSkill = "Plague Bearer"},
 	{ var = "plagueBearerState", type = "list", label = "State:", ifSkill = "Plague Bearer", list = {{val="INC",label="Incubating"},{val="INF",label="Infecting"}}, apply = function(val, modList, enemyModList)
 		if val == "INC" then
@@ -519,6 +523,10 @@ local configSettings = {
 		modList:NewMod("Multiplier:EnemyAffectedBySiphoningTrap", "BASE", val, "Config")
 		modList:NewMod("Condition:SiphoningTrapSiphoning", "FLAG", true, "Config")
 	end },
+	{ label = "Spearfield:", ifSkill = "Spearfield" },
+	{ var = "conditionOldSpear", type = "check", label = "Spear older than 0.5s?", ifSkill = "Spearfield", apply = function(val, modList, enemyModList)
+		modList:NewMod("Condition:SpearOlderThanHalfSecond", "FLAG", true, "Config")
+	end },
 	{ label = "Spectral Wolf:", ifSkill = "Summon Spectral Wolf" },
 	{ var = "configSpectralWolfCount", type = "count", label = "# of Active Spectral Wolves:", ifSkill = "Summon Spectral Wolf", tooltip = "Sets the number of active Spectral Wolves.\nThe maximum number of Spectral Wolves is 10.", apply = function(val, modList, enemyModList)
 		modList:NewMod("Multiplier:SpectralWolfCount", "BASE", m_min(val, 10), "Config")
@@ -585,9 +593,19 @@ local configSettings = {
 	{ var = "traumaStacks", type = "count", label = "# of Trauma Stacks:", ifFlag = "HasTrauma", apply = function(val, modList, enemyModList)
 		modList:NewMod("Multiplier:TraumaStacks", "BASE", val, "Config", { type = "Condition", var = "Combat" })
 	end },
-	{ label = "Trinity Support:", ifSkill = "Trinity" },
+	{ label = "Trinity:", ifSkill = "Trinity" },
 	{ var = "configResonanceCount", type = "count", label = "Lowest Resonance Count:", ifSkill = "Trinity", tooltip = "Sets the amount of resonance on the lowest element.", apply = function(val, modList, enemyModList)
-		modList:NewMod("Multiplier:ResonanceCount", "BASE", m_max(m_min(val, 50), 0), "Config")
+		modList:NewMod("Multiplier:ResonanceCount", "BASE", m_max(m_min(val, 100), 0), "Config")
+	end },
+	{ label = "Twister:", ifSkill = "Twister" },
+	{ var = "twisterCold", type = "check", label = "Twister gained ^x3F6DB3Cold^7 Element:", ifSkill = "Twister", tooltip = "Twister has passed over ^x3F6DB3Cold^7 Ground or consumed a ^x3F6DB3Cold^7 Whirlwind.", apply = function(val, modList, enemyModList)
+		modList:NewMod("Condition:TwisterCold", "FLAG", true, "Config")
+	end },
+	{ var = "twisterFire", type = "check", label = "Twister gained ^xB97123Fire^7 Element:", ifSkill = "Twister", tooltip = "Twister has passed over ^xB97123Fire^7 Ground or consumed a ^xB97123Fire^7 Whirlwind.", apply = function(val, modList, enemyModList)
+		modList:NewMod("Condition:TwisterFire", "FLAG", true, "Config")
+	end },
+	{ var = "twisterLightning", type = "check", label = "Twister gained ^xADAA47Lightning^7 Element:", ifSkill = "Twister", tooltip = "Twister has passed over ^xADAA47Lightning^7 Ground or consumed a ^xADAA47Lightning^7 Whirlwind.", apply = function(val, modList, enemyModList)
+		modList:NewMod("Condition:TwisterLightning", "FLAG", true, "Config")
 	end },
 	{ label = "Unhinge:", ifSkill = "Unhinge" },
 	{ var = "conditionInsane", type = "check", label = "Are you Insane?", ifCond = "Insane", apply = function(val, modList, enemyModList)
@@ -599,7 +617,7 @@ local configSettings = {
 	end },
 	{ label = "Voltaxic Burst:", ifSkill = "Voltaxic Burst" },
 	{ var = "voltaxicBurstSpellsQueued", type = "count", label = "# of Casts currently waiting:", ifSkill = "Voltaxic Burst", apply = function(val, modList, enemyModList)
-		modList:NewMod("Multiplier:VoltaxicWaitingStages", "BASE", val, "Config")
+		modList:NewMod("Multiplier:WhirlwindStages", "BASE", val, "Config")
 	end },
 	{ label = "Vortex:", ifSkill = "Vortex of Projection" },
 	{ var = "vortexCastOnFrostbolt", type = "check", label = "Cast on Frostbolt?", ifSkill = "Vortex of Projection", apply = function(val, modList, enemyModList)
@@ -609,8 +627,13 @@ local configSettings = {
 	{ var = "multiplierWarcryPower", type = "count", label = "Warcry Power:", ifFlag = "UsesWarcryPower", tooltip = "Power determines how strong your Warcry buffs will be, and is based on the total strength of nearby enemies.\nPower is assumed to be 20 if your target is a Boss, but you can override it here if necessary.\n\tEach Normal enemy grants 1 Power\n\tEach Magic enemy grants 2 Power\n\tEach Rare enemy grants 10 Power\n\tEach Unique enemy grants 20 Power", apply = function(val, modList, enemyModList)
 		modList:NewMod("WarcryPower", "OVERRIDE", val, "Config")
 	end },
+	{ label = "Whirlwind Stages:", ifSkill = "Whirlwind Lance" },
+	{ var = "whirlwindStges", type = "count", label = "# of Whirlwind Stages:", ifSkill = "Whirlwind Lance", apply = function(val, modList, enemyModList)
+		modList:NewMod("Multiplier:WhirlwindStageAfterFirst", "BASE", m_min(val - 1, 3), "Config", { type = "Condition", var = "Combat" })
+		modList:NewMod("Multiplier:WhirlwindStages", "BASE", m_min(val, 4), "Config", { type = "Condition", var = "Combat" })
+	end },
 	{ label = "Wind Dancer:", ifSkill = "Wind Dancer" },
-	{ var = "windDancerStacks", type = "count", label = "# of Wind Dancer Stacks:", ifSkill = "Wind Dancer", apply = function(val, modList, enemyModList)
+	{ var = "windDancerStacks", type = "countAllowZero", label = "# of Wind Dancer Stacks:", ifSkill = "Wind Dancer", apply = function(val, modList, enemyModList)
 		modList:NewMod("Multiplier:WindDancerStacks", "BASE", val, "Config")
 	end },
 	{ var = "conditionEmpowered", type = "check", label = "Is the skill Empowered?", ifCond = "Empowered", tooltip = "Skills can be temporarily Empowered by certain buff skills.", apply = function(val, modList, enemyModList)

@@ -10,16 +10,6 @@ local skills, mod, flag, skill = ...
 #skill AncestralSpiritsPlayer
 #set AncestralSpiritsPlayer
 #flags spell minion
-statMap = {
-	["minion_1%_damage_+%_per_X_player_strength"] = {
-		mod("MinionModifier", "LIST", { mod = mod("Damage", "INC", nil, 0, 0, { type = "PerStat", stat = "Str", actor = "parent", div = 3 }) }),
-		div = 3,
-	},
-	["minion_1%_accuracy_rating_+%_per_X_player_dexterity"] = {
-		mod("MinionModifier", "LIST", { mod = mod("Accuracy", "INC", nil, 0, 0, { type = "PerStat", stat = "Dex", actor = "parent", div = 3 }) }),
-		div = 3,
-	},
-},
 #mods
 #skillEnd
 
@@ -32,6 +22,23 @@ statMap = {
 		mod("AilmentMagnitude", "MORE", nil, 0, KeywordFlag.Bleed),
 	},
 },
+#mods
+#skillEnd
+
+#from tree
+#skill BloodBoilPlayer
+#set BloodBoilPlayer
+#flags
+#mods
+#skillEnd
+
+#from item
+#skill MetaCastOnCharmUsePlayer
+#set MetaCastOnCharmUsePlayer
+#flags
+#mods
+#set SupportMetaCastOnCharmUsePlayer
+#flags
 #mods
 #skillEnd
 
@@ -149,6 +156,19 @@ statMap = {
 #skillEnd
 
 #from tree
+#skill AmazonTriggerElementalInfusionPlayer
+#set AmazonTriggerColdInfusionPlayer
+#flags attack area
+#mods
+#set AmazonTriggerFireInfusionPlayer
+#flags attack area
+#mods
+#set AmazonTriggerLightningInfusionPlayer
+#flags attack area
+#mods
+#skillEnd
+
+#from tree
 #skill IntoTheBreachPlayer
 #set IntoTheBreachPlayer
 #flags
@@ -184,9 +204,33 @@ statMap = {
 #skillEnd
 
 #from tree
+#minionList ManifestWeapon
+#skill ManifestWeaponPlayer
+minionHasItemSet = true,
+minionUses = {
+	["Weapon 1"] = true,
+},
+#set ManifestWeaponPlayer
+#flags spell minion duration
+#mods
+#skillEnd
+
+#from tree
 #skill MeditatePlayer
 #set MeditatePlayer
 #flags
+#mods
+#skillEnd
+
+#from tree
+#skill ParryPlayer
+#set ParryPlayer
+#flags attack melee duration shieldAttack
+statMap = {
+	["base_parry_buff_damage_taken_+%_final_to_apply"] = {
+		mod("DamageTaken", "MORE", nil, ModFlag.Attack, 0, { type = "GlobalEffect", effectType = "Debuff", effectName = "Parry" }, { type = "Condition", var = "ParryActive" }),
+	},
+},
 #mods
 #skillEnd
 
@@ -219,6 +263,13 @@ statMap = {
 #from item
 #skill ShieldBlockPlayer
 #set ShieldBlockPlayer
+#flags attack area shieldAttack
+#mods
+#skillEnd
+
+#from tree
+#skill RitualSacrificePlayer
+#set RitualSacrificePlayer
 #flags attack area
 #mods
 #skillEnd
@@ -243,11 +294,60 @@ statMap = {
 #mods
 #skillEnd
 
+#from item
+#skill MeleeSpearOffHandPlayer
+#set MeleeSpearOffHandPlayer
+#flags attack melee area
+#mods
+#skillEnd
+
+#from item
+#skill MeleeSpearPlayer
+#set MeleeSpearPlayer
+#flags attack melee area
+#mods
+#skillEnd
+
+#from item
+#skill SpearThrowPlayer
+#set SpearThrowPlayer
+#flags attack area
+#mods
+#set SpearThrowFrenzyChargePlayer
+#flags attack area
+#mods
+#skillEnd
+
 #from tree
 #minionList SummonedHellhound
 #skill SummonInfernalHoundPlayer
 #set SummonInfernalHoundPlayer
 #flags spell minion permanentMinion
+#mods
+#skillEnd
+
+#from tree
+#minionList
+#skill SupportingFirePlayer
+#set SupportingFirePlayer
+#flags minion permanentMinion
+#mods
+#set CommandDeathFromAbovePlayer
+#flags minion permanentMinion
+#mods
+#skillEnd
+
+#from tree
+#skill TemperWeaponPlayer
+#set TemperWeaponPlayer
+#flags
+#mods
+#skillEnd
+
+#from tree
+#skill TemperWeaponCombustionPlayer
+#set TemperWeaponCombustionPlayer
+#flags attack area
 #mods
 #skillEnd
 

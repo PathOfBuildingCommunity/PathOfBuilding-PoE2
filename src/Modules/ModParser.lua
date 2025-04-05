@@ -626,6 +626,7 @@ local modNameList = {
 	["chaos damage"] = "ChaosDamage",
 	["non-chaos damage"] = "NonChaosDamage",
 	["elemental damage"] = "ElementalDamage",
+	["thorns damage"] = "ThornsDamage",
 	-- Other damage forms
 	["attack damage"] = { "Damage", flags = ModFlag.Attack },
 	["attack physical damage"] = { "PhysicalDamage", flags = ModFlag.Attack },

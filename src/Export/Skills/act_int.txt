@@ -274,6 +274,15 @@ statMap = {
 #mods
 #skillEnd
 
+#skill ConvalescencePlayer
+#set ConvalescencePlayer
+#flags
+#mods
+#set ConvalescenceActivePlayer
+#flags duration
+#mods
+#skillEnd
+
 #skill DarkEffigyPlayer
 #set DarkEffigyPlayer
 #flags area spell totem duration
@@ -967,6 +976,22 @@ statMap = {
 #skill SparkPlayer
 #set SparkPlayer
 #flags spell projectile duration
+#mods
+#skillEnd
+
+#skill SummonSpectrePlayer
+#set SummonSpectrePlayer
+#flags spell minion spectre duration permanentMinion
+minionList = {
+},
+statMap = {
+	["accuracy_rating"] = {
+		mod("MinionModifier", "LIST", { mod = mod("Accuracy", "BASE", nil) })
+	},
+	["raised_spectre_level"] = {
+		skill("minionLevel", nil),
+	},
+},
 #mods
 #skillEnd
 

@@ -139,6 +139,9 @@ return {
 ["base_skill_show_average_damage_instead_of_dps"] = {
 	skill("showAverage", true),
 },
+["skill_requires_X_ultimate_charge"] = {
+	skill("showAverage", true),
+},
 ["cast_time_overrides_attack_duration"] = {
 	skill("castTimeOverridesAttackTime", true),
 },
@@ -310,7 +313,9 @@ return {
 ["skill_cannot_gain_repeat_bonuses"] = {
 	flag("NoRepeatBonuses"),
 },
-
+["hazard_rearm_%_chance"] = {
+	mod("DPS", "INC", nil),
+},
 --
 -- Defensive modifiers
 --
@@ -905,6 +910,9 @@ return {
 	flag("SpellDamageAppliesToAttacks"),
 	mod("ImprovedSpellDamageAppliesToAttacks", "MAX", nil),
 },
+["additive_thorns_damage_modifiers_apply_to_attack_damage"] = {
+	flag("ThornsDamageAppliesToHits"),
+},
 ["active_skill_main_hand_weapon_damage_+%_final"] = {
 	mod("Damage", "MORE", nil, 0, 0, { type = "Condition", var = "MainHandAttack" }),
 },
@@ -1254,6 +1262,9 @@ return {
 ["active_skill_bleeding_damage_+%_final"] = {
 	mod("Damage", "MORE", nil, 0, KeywordFlag.Bleed),
 },
+["active_skill_bleeding_effect_+%_final"] = {
+	mod("AilmentMagnitude", "MORE", nil, 0, KeywordFlag.Bleed),
+},
 ["active_skill_bleeding_damage_+%_final_in_blood_stance"] = {
 	mod("Damage", "MORE", nil, 0, KeywordFlag.Bleed, { type = "Condition", var = "BloodStance" }),
 },
@@ -1485,6 +1496,12 @@ return {
 ["support_pierce_projectile_damage_+%_final_if_pierced_enemy"] = {
 	mod("Damage", "MORE", nil, ModFlag.Projectile, 0, { type = "StatThreshold", stat = "PiercedCount", threshold = 1 }),
 },
+["projectiles_cannot_fork"] = {
+	flag("CannotFork"),
+},
+["base_projectiles_cannot_chain"] = {
+	flag("CannotChain"),
+},
 ["projectile_behaviour_only_explode"] = {
 	flag("CannotSplit"),
 },
@@ -1522,9 +1539,6 @@ return {
 },
 ["number_of_additional_projectiles"] = {
 	mod("ProjectileCount", "BASE", nil),
-},
-["base_projectiles_cannot_chain"] = {
-	flag("BaseProjectilesCannotChain"),
 },
 ["projectile_damage_+%_per_remaining_chain"] = {
 	mod("Damage", "INC", nil, ModFlag.Projectile, 0, { type = "PerStat", stat = "ChainRemaining" }),
@@ -1814,6 +1828,12 @@ return {
 ["off_hand_maximum_added_physical_damage_per_15_shield_armour_and_evasion_rating"] = {
 	mod("PhysicalMax", "BASE", nil, 0, 0, { type = "Condition", var = "OffHandAttack" }, { type = "PerStat", statList = { "ArmourOnWeapon 2", "EvasionOnWeapon 2" }, div = 15, }),
 },
+["off_hand_minimum_added_physical_damage_per_5_shield_evasion_rating"] = {
+	mod("PhysicalMin", "BASE", nil, 0, 0, { type = "Condition", var = "OffHandAttack" }, { type = "PerStat", stat = "EvasionOnWeapon 2", div = 5, }),
+},
+["off_hand_maximum_added_physical_damage_per_5_shield_evasion_rating"] = {
+	mod("PhysicalMax", "BASE", nil, 0, 0, { type = "Condition", var = "OffHandAttack" }, { type = "PerStat", stat = "EvasionOnWeapon 2", div = 5, }),
+},
 ["off_hand_minimum_added_cold_damage_per_15_shield_evasion"] = {
 	mod("ColdMin", "BASE", nil, 0, 0, { type = "Condition", var = "OffHandAttack" }, { type = "PerStat", stat = "EvasionOnWeapon 2", div = 15 }),
 },
@@ -2053,6 +2073,9 @@ return {
 ["minion_critical_strike_multiplier_+"] = {
 	mod("MinionModifier", "LIST", { mod = mod("CritMultiplier", "BASE", nil) }),
 },
+["minion_accuracy_rating_+%"] = {
+	mod("MinionModifier", "LIST", { mod = mod("Accuracy", "INC", nil) }),
+},
 ["minion_maximum_life_+%"] = {
 	mod("MinionModifier", "LIST", { mod = mod("Life", "INC", nil) }),
 },
@@ -2104,6 +2127,14 @@ return {
 },
 ["minion_block_%"] = {
 	mod("MinionModifier", "LIST", { mod = mod("BlockChance", "BASE", nil) }),
+},
+["minion_1%_damage_+%_per_X_player_strength"] = {
+	mod("MinionModifier", "LIST", { mod = mod("Damage", "INC", nil, 0, 0, { type = "PerStat", stat = "Str", actor = "parent", div = 3 }) }),
+	div = 3,
+},
+["minion_1%_accuracy_rating_+%_per_X_player_dexterity"] = {
+	mod("MinionModifier", "LIST", { mod = mod("Accuracy", "INC", nil, 0, 0, { type = "PerStat", stat = "Dex", actor = "parent", div = 3 }) }),
+	div = 3,
 },
 ["base_number_of_zombies_allowed"] = {
 	mod("ActiveZombieLimit", "BASE", nil),
@@ -2504,6 +2535,12 @@ return {
 	-- Display Only
 },
 ["quality_display_active_skill_damage_+%_final_vs_immobilised_enemies_is_gem"] = {
+	-- Display Only
+},
+["quality_display_base_number_of_projectiles_is_gem"] = {
+	-- Display Only
+},
+["quality_display_sandstorm_swipe_is_gem"] = {
 	-- Display Only
 },
 
