@@ -28,6 +28,14 @@ Twig Focus
 +(5-10) to Intelligence
 20% chance for Energy Shield Recharge to start when you Kill an Enemy
 ]],[[
+Effigy of Cruelty
+Antler Focus
++(20-30) to maximum Energy Shield
+(60-80)% increased Spell Damage
++10 to Intelligence
++(7-13)% to Chaos Resistance
+Critical Hits with Spells apply (3-5) Stacks of Critical Weakness
+]],[[
 The Eternal Spark
 Crystal Focus
 Variant: Pre 0.1.1

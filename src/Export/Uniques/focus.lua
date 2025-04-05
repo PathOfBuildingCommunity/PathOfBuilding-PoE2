@@ -28,6 +28,14 @@ UniqueSpellDamageOnWeapon1
 UniqueIntelligence3
 UniqueEnergyShieldRechargeOnKill1
 ]],[[
+Effigy of Cruelty
+Antler Focus
+UniqueLocalIncreasedEnergyShield14
+UniqueSpellDamageOnWeapon5
+UniqueIntelligence41
+UniqueChaosResist16
+UniqueCriticalWeaknessOnSpellCrit1
+]],[[
 The Eternal Spark
 Crystal Focus
 Variant: Pre 0.1.1
