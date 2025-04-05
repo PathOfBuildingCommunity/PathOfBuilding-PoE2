@@ -282,6 +282,14 @@ UniqueIntelligence16
 UniqueLightRadius7
 UniqueExperienceIncrease1
 ]],[[
+Crown of Eyes
+Coral Circlet
+UniqueLocalIncreasedEnergyShieldPercent23
+UniqueIncreasedAccuracy9
+UniqueAllAttributes7
+UniqueFireResist9
+SpellDamageModifiersApplyToAttackDamageUniqueHelmetInt7
+]],[[
 Crown of the Pale King
 Cultist Crown
 Variant: Pre 0.1.1

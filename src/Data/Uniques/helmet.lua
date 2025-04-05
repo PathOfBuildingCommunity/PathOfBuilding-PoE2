@@ -283,6 +283,14 @@ Heavy Crown
 30% increased Light Radius
 5% increased Experience gain
 ]],[[
+Crown of Eyes
+Coral Circlet
+(100-140)% increased Energy Shield
++(150-200) to Accuracy Rating
++(10-15) to all Attributes
+-10% to Fire Resistance
+Increases and Reductions to Spell Damage also apply to Attacks at 150% of their value
+]],[[
 Crown of the Pale King
 Cultist Crown
 Variant: Pre 0.1.1
