@@ -3,6 +3,15 @@
 return {
 -- Belt
 [[
+Bijouborne
+Double Belt
+Implicits: 1
++(50-100) to maximum Mana
+(10-50)% reduced Charm Effect Duration
++2 Charm Slots
++(15-25) to Dexterity
+(20-30)% increased Charm Charges gained
+]],[[
 Birthright Buckle
 Wide Belt
 Implicits: 1
@@ -32,7 +41,16 @@ Implicits: 1
 -(20-10) to Strength
 +(20-30) to Dexterity
 (30-40)% increased Life and Mana Recovery from Flasks
-You count as on Low Life while at 75% of maximum Life or below
+You count as on Low Life while at 75% of maximum Life or below instead
+]],[[
+Goregirdle
+Plate Belt
+Implicits: 1
++(100-140) to Armour
++(20-30) to Strength
+(10-20) Life Regeneration per second
+Defend with 200% of Armour
+Maximum Physical Damage Reduction is 50%
 ]],[[
 Headhunter
 Heavy Belt
@@ -128,14 +146,5 @@ Implicits: 1
 Corrupted Blood cannot be inflicted on you
 50% of charges used by Charms granted to your Life Flasks
 (10-30)% increased Charm Charges used
-]],[[
-Bijouborne
-Double Belt
-Implicits: 1
-+(50-100) to maximum Mana
-(10-50)% reduced Charm Effect Duration
-+2 Charm Slots
-+(15-25) to Dexterity
-(20-30)% increased Charm Charges gained
 ]],
 }

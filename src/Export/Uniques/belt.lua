@@ -3,6 +3,15 @@
 return {
 -- Belt
 [[
+Bijouborne
+Double Belt
+Implicits: 1
+UniqueIncreasedMana51
+UniqueGlobalCharmIncreasedDuration1
+UniqueAdditionalCharm3
+UniqueDexterity41
+UniqueIncreasedCharmChargesGained2
+]],[[
 Birthright Buckle
 Wide Belt
 Implicits: 1
@@ -33,6 +42,15 @@ UniqueStrength4
 UniqueDexterity3
 UniqueBeltFlaskRecoveryRate1
 UniqueLowLifeThreshold1
+]],[[
+Goregirdle
+Plate Belt
+Implicits: 1
+BeltImplicitPhysicalDamageReductionRating1
+UniqueStrength10
+UniqueLifeRegeneration17
+UniqueDoubleArmourEffect1
+UniqueMaximumPhysicalReductionOverride1
 ]],[[
 Headhunter
 Heavy Belt
@@ -128,14 +146,5 @@ UniqueStrength28
 UniqueCorruptedBloodImmunity1
 UniqueCharmChargesToLifeFlasks1
 UniqueReducedCharmChargesUsed1
-]],[[
-Bijouborne
-Double Belt
-Implicits: 1
-UniqueIncreasedMana51
-UniqueGlobalCharmIncreasedDuration1
-UniqueAdditionalCharm3
-UniqueDexterity41
-UniqueIncreasedCharmChargesGained2
 ]],
 }
