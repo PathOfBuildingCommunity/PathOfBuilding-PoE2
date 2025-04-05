@@ -12,6 +12,13 @@ Bow Attacks fire 3 additional Arrows
 Gain (20-30) Life per Enemy Killed
 Gain (12-18) Mana per Enemy Killed
 ]],[[
+Doomfletch
+Composite Bow
+Adds (5-7) to (10-12) Physical Damage
++10 to Dexterity
+(30-50)% increased Mana Regeneration Rate
+Attacks with this Weapon gain 50% of Physical damage as Extra damage of each Element
+]],[[
 Quill Rain
 Shortbow
 100% increased Attack Speed

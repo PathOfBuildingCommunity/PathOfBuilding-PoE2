@@ -12,6 +12,13 @@ UniqueAdditionalArrow1
 UniqueLifeGainedFromEnemyDeath4
 UniqueManaGainedFromEnemyDeath6
 ]],[[
+Doomfletch
+Composite Bow
+UniqueLocalAddedPhysicalDamage7
+UniqueDexterity4
+UniqueManaRegeneration3
+UniqueLocalPhysicalDamageAddedAsEachElement1
+]],[[
 Quill Rain
 Shortbow
 UniqueLocalIncreasedAttackSpeed2
