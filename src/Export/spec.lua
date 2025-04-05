@@ -1506,7 +1506,7 @@ return {
 		},
 		[14]={
 			list=false,
-			name="",
+			name="isDisabled",
 			refTo="",
 			type="Bool",
 			width=150

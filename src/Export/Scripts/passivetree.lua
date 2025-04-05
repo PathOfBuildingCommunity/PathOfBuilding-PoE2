@@ -614,7 +614,7 @@ for i, classId in ipairs(psg.passives) do
 
 		local ascendancies = dat("ascendancy"):GetRowList("Class", character)
 		for k, ascendency in ipairs(ascendancies) do
-			if ascendency.Name:find(ignoreFilter) ~= nil or ascendency.Id == 'Monk1' then
+			if ascendency.Name:find(ignoreFilter) ~= nil or ascendency.isDisabled then
 				printf("Ignoring ascendency " .. ascendency.Name .. " for class " .. character.Name)
 				goto continue3
 			end
@@ -744,7 +744,7 @@ for i, group in ipairs(psg.groups) do
 			-- Ascendancy
 			if passiveRow.Ascendancy ~= nil then
 				groupIsAscendancy = true
-				if passiveRow.Ascendancy.Name:find(ignoreFilter) ~= nil or passiveRow.Ascendancy.Id == "Monk1" then
+				if passiveRow.Ascendancy.Name:find(ignoreFilter) ~= nil or passiveRow.Ascendancy.isDisabled then
 					printf("Ignoring node ascendancy " .. passiveRow.Ascendancy.Name)
 					goto exitNode
 				end
