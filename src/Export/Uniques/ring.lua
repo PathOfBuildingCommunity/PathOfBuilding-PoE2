@@ -105,6 +105,15 @@ UniqueIncreasedMana12
 UniqueAlliesInPresenceGainedAsChaos1
 UniqueEnemiesInPresenceGainedAsChaos1
 ]],[[
+Gifts from Above
+Prismatic Ring
+Implicits: 1
+RingImplicitAllResistances1
+UniqueCriticalStrikeChance12
+UniqueLightRadius16
+UniqueKilledMonsterItemRarityOnCrit1
+UniqueConsecratedGroundStationaryRing1
+]],[[
 Glowswarm
 Lazuli Ring
 Implicits: 1

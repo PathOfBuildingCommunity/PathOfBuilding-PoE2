@@ -105,6 +105,15 @@ Implicits: 1
 {tags:chaos}Allies in your Presence Gain (15-25)% of Damage as Extra Chaos Damage
 {tags:chaos}Enemies in your Presence Gain (6-12)% of Damage as Extra Chaos Damage
 ]],[[
+Gifts from Above
+Prismatic Ring
+Implicits: 1
+{tags:fire,cold,lightning}+(7-10)% to all Elemental Resistances
+(20-30)% increased Critical Hit Chance
+(20-30)% increased Light Radius
+(20-30)% increased Rarity of Items Dropped by Enemies killed with a Critical Hit
+You have Consecrated Ground around you while stationary
+]],[[
 Glowswarm
 Lazuli Ring
 Implicits: 1
