@@ -128,5 +128,14 @@ Implicits: 1
 Corrupted Blood cannot be inflicted on you
 50% of charges used by Charms granted to your Life Flasks
 (10-30)% increased Charm Charges used
+]],[[
+Bijouborne
+Double Belt
+Implicits: 1
++(50-100) to maximum Mana
+(10-50)% reduced Charm Effect Duration
++2 Charm Slots
++(15-25) to Dexterity
+(20-30)% increased Charm Charges gained
 ]],
 }

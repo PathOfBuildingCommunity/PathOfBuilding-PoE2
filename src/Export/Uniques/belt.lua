@@ -128,5 +128,14 @@ UniqueStrength28
 UniqueCorruptedBloodImmunity1
 UniqueCharmChargesToLifeFlasks1
 UniqueReducedCharmChargesUsed1
+]],[[
+Bijouborne
+Double Belt
+Implicits: 1
+UniqueIncreasedMana51
+UniqueGlobalCharmIncreasedDuration1
+UniqueAdditionalCharm3
+UniqueDexterity41
+UniqueIncreasedCharmChargesGained2
 ]],
 }
