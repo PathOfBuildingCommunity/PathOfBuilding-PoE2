@@ -117,6 +117,16 @@ Grants Skill: Parry
 20% increased Accuracy Rating
 Parried enemies take more Spell Damage instead of more Attack Damage
 100% increased Parried Debuff Duration
+]],[[
+Rondel de Ezo
+Plated Buckler
+Implicits: 1
+Grants Skill: Parry
+(50-150)% increased Evasion Rating
++(10-20) to Dexterity
+5 Life Regeneration per second
+100% increased Block chance against Projectiles
+Curse Enemies with Enfeeble on Block
 ]],
 -- Shield: Energy Shield
 

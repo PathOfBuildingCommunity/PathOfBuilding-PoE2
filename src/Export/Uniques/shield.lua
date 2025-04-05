@@ -116,6 +116,16 @@ UniqueAllResistances25
 UniqueIncreasedAccuracyPercent1
 UniqueParriedCausesSpellDamageTaken1
 UniqueParriedDebuffDuration2
+]],[[
+Rondel de Ezo
+Plated Buckler
+Implicits: 1
+Grants Skill: Parry
+UniqueLocalIncreasedEvasionRatingPercent27
+UniqueDexterity2
+UniqueLifeRegeneration24
+UniqueBlockChanceProjectiles1
+UniqueEnfeebleOnBlockChance1
 ]],
 -- Shield: Energy Shield
 
