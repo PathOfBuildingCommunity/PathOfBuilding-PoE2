@@ -53,5 +53,16 @@ UniqueStrength38
 UniqueMeleeSplash1
 UniqueLocalKnockback1
 UniqueCannotBeThrown1
+]],[[
+Daevata's Wind
+War Spear
+Implicits: 2
+Grants Skill: Spear Throw
+SpearImplicitLocalProjectileSpeed1
+UniqueLocalAddedPhysicalDamage22
+UniqueIncreasedEvasionRating4
+UniqueLocalIncreasedAttackSpeed20
+UniqueMeleeDamageIfProjectileHitRecently1
+UniqueProjectileDamageIfMeleeHitRecently1
 ]],
 }

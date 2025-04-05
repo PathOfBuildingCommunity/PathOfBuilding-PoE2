@@ -53,5 +53,16 @@ Grants Skill: Spear Throw
 Strikes deal Splash damage to targets within 1.8 metres
 Knocks Back Enemies on Hit
 Cannot use Projectile Attacks
+]],[[
+Daevata's Wind
+War Spear
+Implicits: 2
+Grants Skill: Spear Throw
+(25-35)% increased Projectile Speed with this Weapon
+Adds (10-15) to (21-26) Physical Damage
++100 to Evasion Rating
+(10-20)% increased Attack Speed
+(30-60)% increased Melee Damage if you've dealt a Projectile Attack Hit in the past eight seconds
+(30-60)% increased Projectile Damage if you've dealt a Melee Hit in the past eight seconds
 ]],
 }
