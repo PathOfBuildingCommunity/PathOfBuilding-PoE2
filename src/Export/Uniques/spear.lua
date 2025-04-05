@@ -42,5 +42,16 @@ UniqueLocalCriticalStrikeChance8
 UniqueIntelligence34
 UniqueRollCriticalChanceTwice1
 UniqueLifeCost2
+]],[[
+Tyranny's Grip
+Ironhead Spear
+Implicits: 1
+Grants Skill: Spear Throw
+UniqueLocalIncreasedPhysicalDamagePercent11
+UniqueLocalIncreasedAttackSpeed16
+UniqueStrength38
+UniqueMeleeSplash1
+UniqueLocalKnockback1
+UniqueCannotBeThrown1
 ]],
 }

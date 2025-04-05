@@ -42,5 +42,16 @@ Adds (14-18) to (30-36) Physical Damage
 +(15-25) to Intelligence
 Forks Critical Hits
 10% of Skill Mana Costs Converted to Life Costs
+]],[[
+Tyranny's Grip
+Ironhead Spear
+Implicits: 1
+Grants Skill: Spear Throw
+(150-200)% increased Physical Damage
+(10-15)% reduced Attack Speed
++(15-30) to Strength
+Strikes deal Splash damage to targets within 1.8 metres
+Knocks Back Enemies on Hit
+Cannot use Projectile Attacks
 ]],
 }
