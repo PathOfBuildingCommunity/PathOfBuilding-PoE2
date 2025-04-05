@@ -8,7 +8,7 @@ local scopesOAuth = {
 	"account:characters",
 }
 
-local filename = "poeapiresponse.json"
+local filename = "poe_api_response.json"
 
 local PoEAPIClass = newClass("PoEAPI", function(self, authToken, refreshToken, tokenExpiry)
 	self.retries = 0
@@ -128,7 +128,7 @@ function PoEAPIClass:DownloadWithRefresh(endpoint, callback)
 			return
 		end
 
-		launch:DownloadPage( endpoint, function (response, errMsg)
+		launch:DownloadPage( self.baseUrl .. endpoint, function (response, errMsg)
 			if errMsg and errMsg:match("401") and self.retries < 1 then
 				-- try once again with refresh token
 				self.retries = 1
