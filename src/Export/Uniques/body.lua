@@ -368,6 +368,15 @@ UniqueLocalIncreasedArmourAndEnergyShield7
 UniqueMaximumManaIncrease2
 {variant:2}UniqueChaosResist24
 UniquePowerChargeOnCritChance1
+]],[[
+Soul Mantle
+Sacrificial Mantle
+UniqueLocalIncreasedArmourAndEnergyShield12
+UniqueStrength42
+UniqueIntelligence40
+UniqueIncreasedTotemLife1
+UniqueAdditionalTotems1
+UniqueRandomlyCursedWhenTotemsDie1
 ]],
 -- Body: Evasion/Energy Shield
 [[

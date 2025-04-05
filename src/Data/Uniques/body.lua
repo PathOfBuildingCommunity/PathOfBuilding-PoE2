@@ -374,6 +374,15 @@ Variant: Current
 25% reduced maximum Mana
 {variant:2}+(13-17)% to Chaos Resistance
 25% chance to gain a Power Charge on Critical Hit
+]],[[
+Soul Mantle
+Sacrificial Mantle
+(80-120)% increased Armour and Energy Shield
++10 to Strength
++15 to Intelligence
+(20-30)% reduced Totem Life
++1 to maximum number of Summoned Totems
+Inflicts a random Curse on you when your Totems die, ignoring Curse limit
 ]],
 -- Body: Evasion/Energy Shield
 [[
