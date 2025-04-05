@@ -177,7 +177,17 @@ UniqueLocalIncreasedEvasionRatingPercent4
 UniqueIncreasedLife26
 UniqueReducedLocalAttributeRequirements1
 UniqueFireDamageTakenAsPhysical1
+]],[[
+Sands of Silk
+Shrouded Vest
+UniqueLocalIncreasedEvasionRatingPercent20
+UniqueIncreasedMana38
+UniqueDexterity2
+UniqueIntelligence6
+UniqueFireResist34
+GlobalCooldownRecoveryUnique__2
 ]],
+
 -- Body: Energy Shield
 [[
 Bitterbloom

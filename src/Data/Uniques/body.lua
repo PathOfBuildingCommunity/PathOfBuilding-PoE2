@@ -182,7 +182,17 @@ Scout's Vest
 +300 to maximum Life
 25% reduced Attribute Requirements
 100% of Fire Damage from Hits taken as Physical Damage
+]],[[
+Sands of Silk
+Shrouded Vest
+(50-100)% increased Evasion Rating
++(50-80) to maximum Mana
++(10-20) to Dexterity
++(10-20) to Intelligence
++(10-15)% to Fire Resistance
+(15-30)% increased Cooldown Recovery Rate
 ]],
+
 -- Body: Energy Shield
 [[
 Bitterbloom
