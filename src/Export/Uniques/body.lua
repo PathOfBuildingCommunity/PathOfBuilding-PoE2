@@ -325,6 +325,16 @@ UniqueIncreasedLife7
 UniqueStunThreshold4
 UniqueReceiveBleedingWhenHit1
 ]],[[
+The Coming Calamity
+Heroic Armour
+Implicits: 4
+Grants Skill: Herald of Ash
+Grants Skill: Herald of Ice
+Grants Skill: Herald of Thunder
+BodyArmourImplicitIncreasedLife1
+UniqueAllResistances20
+UniqueEnemiesInPresenceNoElementalResist1
+]],[[
 Doryani's Prototype
 Scale Mail
 UniqueLocalIncreasedArmourAndEvasion6

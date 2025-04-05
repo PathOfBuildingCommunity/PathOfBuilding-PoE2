@@ -331,6 +331,16 @@ Chain Mail
 +(75-150) to Stun Threshold
 25% chance to be inflicted with Bleeding when Hit
 ]],[[
+The Coming Calamity
+Heroic Armour
+Implicits: 4
+Grants Skill: Herald of Ash
+Grants Skill: Herald of Ice
+Grants Skill: Herald of Thunder
++(60-80) to maximum Life
++(30-40)% to all Elemental Resistances
+Enemies in your Presence have no Elemental Resistances
+]],[[
 Doryani's Prototype
 Scale Mail
 (50-100)% increased Armour and Evasion
