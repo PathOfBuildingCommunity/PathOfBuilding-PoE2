@@ -774,7 +774,6 @@ statMap = {
 		mod("FireResist", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Aura" }),
 	},
 },
-#baseMod skill("auraCannotAffectSelf", true)
 #mods
 #skillEnd
 
@@ -787,7 +786,6 @@ statMap = {
 		mod("ColdResist", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Aura" }),
 	},
 },
-#baseMod skill("auraCannotAffectSelf", true)
 #mods
 #skillEnd
 
@@ -800,7 +798,6 @@ statMap = {
 		mod("LightningResist", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Aura" }),
 	},
 },
-#baseMod skill("auraCannotAffectSelf", true)
 #mods
 #skillEnd
 
