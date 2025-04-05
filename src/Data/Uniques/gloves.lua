@@ -37,6 +37,14 @@ Variant: Current
 (10-15)% reduced maximum Mana
 Share Charges with Allies in your Presence
 ]],[[
+Empire's Grasp
+Titan Mitts
+(150-200)% increased Armour
++(20-30) to Strength
+Gain (30-50) Life per Enemy Killed
+(10-20)% increased Global Physical Damage
+Knockback direction is reversed
+]],[[
 Treefingers
 Riveted Mitts
 Variant: Pre 0.1.1

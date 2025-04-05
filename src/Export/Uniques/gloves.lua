@@ -37,6 +37,14 @@ UniqueIncreasedLife3
 UniqueMaximumManaIncrease3
 UniqueShareChargesWithAllies1
 ]],[[
+Empire's Grasp
+Titan Mitts
+UniqueLocalIncreasedPhysicalDamageReductionRatingPercent30
+UniqueStrength23
+UniqueLifeGainedFromEnemyDeath11
+UniqueIncreasedPhysicalDamagePercent1
+UniqueEnemyKnockbackDirectionReversed1
+]],[[
 Treefingers
 Riveted Mitts
 Variant: Pre 0.1.1
