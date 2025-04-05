@@ -343,6 +343,15 @@ UniqueArmourAppliesToLightningDamage1
 UniqueNearbyEnemyLightningResistanceEqual1
 UniqueLightningResistNoReduction1
 ]],[[
+The Fallen Formation
+Lamellar Mail
+UniqueLocalIncreasedArmourAndEvasion29
+UniqueStrength20
+UniqueDexterity37
+UniqueLifeRegeneration19
+UniqueMaximumValour1
+UniqueValourAlwaysMaximum1
+]],[[
 Irongrasp
 Vagabond Armour
 Variant: Pre 0.1.1

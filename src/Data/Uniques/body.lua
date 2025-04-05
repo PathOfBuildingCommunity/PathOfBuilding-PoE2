@@ -349,6 +349,15 @@ Armour also applies to Lightning damage taken from Hits
 Enemies in your Presence have Lightning Resistance equal to yours
 Lightning Resistance does not affect Lightning damage taken
 ]],[[
+The Fallen Formation
+Lamellar Mail
+(100-200)% increased Armour and Evasion
++(20-30) to Strength
++(20-30) to Dexterity
+(8-12) Life Regeneration per second
+-20 to maximum Valour
+Banners always have maximum Valour
+]],[[
 Irongrasp
 Vagabond Armour
 Variant: Pre 0.1.1
