@@ -400,6 +400,15 @@ Explorer Armour
 +(10-20)% to all Elemental Resistances
 -17% to Chaos Resistance
 Charms use no Charges
+]],[[
+Widow's Reign
+Knight Armour
+(100-150)% increased Armour and Evasion
++(100-150) to maximum Life
++(17-23)% to Chaos Resistance
++(200-300) to Ailment Threshold
+Life that would be lost by taking Damage is instead Reserved
+until you take no Damage to Life for 5 seconds
 ]],
 -- Body: Armour/Energy Shield
 [[
