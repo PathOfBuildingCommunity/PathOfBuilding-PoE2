@@ -186,6 +186,15 @@ UniqueDexterity2
 UniqueIntelligence6
 UniqueFireResist34
 GlobalCooldownRecoveryUnique__2
+]],[[
+Yriel's Fostering
+Strider Vest
+UniqueLocalIncreasedEvasionRatingPercent32
+UniqueIncreasedLife53
+UniqueIncreasedSpirit12
+UniqueReducedBleedDuration4
+UniqueReducedPoisonDuration1
+UniqueMultipleCompanions1
 ]],
 
 -- Body: Energy Shield

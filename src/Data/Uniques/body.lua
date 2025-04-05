@@ -191,6 +191,15 @@ Shrouded Vest
 +(10-20) to Intelligence
 +(10-15)% to Fire Resistance
 (15-30)% increased Cooldown Recovery Rate
+]],[[
+Yriel's Fostering
+Strider Vest
+(100-150)% increased Evasion Rating
++(80-120) to maximum Life
++(10-30) to Spirit
+(40-60)% reduced Bleeding Duration on you
+(40-60)% reduced Poison Duration on you
+You can have two Companions of different types
 ]],
 
 -- Body: Energy Shield
