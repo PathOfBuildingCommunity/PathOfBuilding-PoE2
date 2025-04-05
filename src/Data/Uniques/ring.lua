@@ -132,6 +132,18 @@ Implicits: 1
 {tags:physical}300 Physical Damage taken on Minion Death
 Minions Revive (10-15)% faster
 ]],[[
+Icefang Orbit
+Iron Ring
+Requires Level 36
+Implicits: 1
+{tags:physical,attack}Adds 1 to 4 Physical Damage to Attacks
+{tags:physical,attack}Adds (5-7) to (9-13) Physical Damage to Attacks
+{tags:attribute}+(20-30) to Dexterity
+(10-20)% chance to Poison on Hit
+{tags:cold}All Damage taken from Hits while Poisoned Contributes to Magnitude of Chill on you
+{tags:cold}All Damage from Hits against Poisoned targets Contributes to Chill Magnitude
+(15-25)% increased Magnitude of Poison you inflict
+]],[[
 Kalandra's Touch
 Ring
 Reflects your other Ring

@@ -132,6 +132,18 @@ UniqueManaRegeneration11
 UniqueSelfPhysicalDamageOnMinionDeath1
 UniqueMinionReviveSpeed2
 ]],[[
+Icefang Orbit
+Iron Ring
+Requires Level 36
+Implicits: 1
+RingImplicitPhysicalDamage1
+UniqueAddedPhysicalDamage7
+UniqueDexterity37
+UniqueBaseChanceToPoison3
+UniqueChilledWhilePoisoned1
+UniqueNonChilledEnemiesPoisonAndChill1
+UniquePoisonEffect1
+]],[[
 Kalandra's Touch
 Ring
 UniqueDuplicatesRingStats1
