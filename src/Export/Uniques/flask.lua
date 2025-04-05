@@ -22,6 +22,15 @@ UniqueFlaskTakeDamageWhenEnds1
 [[
 The Fall of the Axe
 Silver Charm
+Implicits: 1
+CharmImplicitUseOnSlow1
 UniqueCharmOnslaughtDuringEffect1
+]],[[
+Nascent Hope
+Thawing Charm   
+Implicits: 1
+CharmImplicitUseOnFreeze1
+UniqueFlaskChanceRechargeOnKill1
+UniqueCharmStartEnergyShieldRecharge1
 ]],
 }

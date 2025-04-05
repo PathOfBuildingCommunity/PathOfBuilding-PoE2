@@ -26,5 +26,12 @@ Silver Charm
 Implicits: 1
 Used when you are affected by a Slow
 Grants Onslaught during effect
+]],[[
+Nascent Hope
+Thawing Charm   
+Implicits: 1
+Used when you become Frozen
+(20-25)% Chance to gain a Charge when you Kill an Enemy
+Energy Shield Recharge starts on use
 ]],
 }
