@@ -68,6 +68,16 @@ Grants Skill: Raise Shield
 Can Block damage from all Hits
 Cannot use Shield Skills
 ]],[[
+Window to Paradise
+Barricade Tower Shield
+Implicits: 1
+Grants Skill: Raise Shield
+(60-120)% increased Armour
++(60-100) to maximum Mana
++(10-15)% to all Elemental Resistances
+Apply Elemental Exposure to Enemies 3 metres in front of you
+for 4 seconds while Shield is raised
+]],[[
 Wulfsbane
 Painted Tower Shield
 Implicits: 1

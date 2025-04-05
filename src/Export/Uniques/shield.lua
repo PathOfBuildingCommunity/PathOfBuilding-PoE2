@@ -68,6 +68,15 @@ UniqueStunThreshold9
 UniqueCanBlockAllDamage1
 UniqueDisableShieldSkills1
 ]],[[
+Window to Paradise
+Barricade Tower Shield
+Implicits: 1
+Grants Skill: Raise Shield
+UniqueLocalIncreasedPhysicalDamageReductionRatingPercent25
+UniqueIncreasedMana47
+UniqueAllResistances24
+UniqueRaiseShieldApplyExposure1
+]],[[
 Wulfsbane
 Painted Tower Shield
 Implicits: 1
