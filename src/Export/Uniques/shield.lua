@@ -78,7 +78,16 @@ UniqueStunThreshold7
 UniqueEnemiesBlockedAreIntimidated1
 ]],
 -- Shield: Evasion
-
+[[
+Bloodbarrier
+Iron Buckler
+Implicits: 1
+Grants Skill: Parry
+UniqueLocalBlockChance14
+UniqueChaosResist31
+UniqueLifeRegeneration21
+UniqueApplyCorruptedBloodOnBlock1
+]],
 -- Shield: Energy Shield
 
 -- Shield: Armour/Evasion
