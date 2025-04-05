@@ -476,6 +476,15 @@ UniqueLocalIncreasedEvasionAndEnergyShield5
 UniqueLightningResist2
 UniqueEnergyShieldDelay1
 UniqueReverseChill1
+]],[[
+Zerphi's Serape
+Scalper's Jacket
+UniqueLocalIncreasedEvasionAndEnergyShield11
+UniqueIncreasedMana7
+UniqueReducedLocalAttributeRequirements4
+UniqueLifeRegenerationRate2
+UniqueManaRegeneration31
+UniqueHasSoulEater1
 ]],
 -- Body: Armour/Evasion/Energy Shield
 [[

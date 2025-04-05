@@ -483,6 +483,15 @@ Marabout Garb
 +(15-25)% to Lightning Resistance
 (30-50)% faster start of Energy Shield Recharge
 The Effect of Chill on you is reversed
+]],[[
+Zerphi's Serape
+Scalper's Jacket
+(60-80)% increased Evasion and Energy Shield
++(40-60) to maximum Mana
+50% increased Attribute Requirements
+(-30-30)% reduced Life Regeneration rate
+(-30-30)% reduced Mana Regeneration Rate
+Soul Eater
 ]],
 -- Body: Armour/Evasion/Energy Shield
 [[
