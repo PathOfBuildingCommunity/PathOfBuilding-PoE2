@@ -421,6 +421,15 @@ UniqueIntelligence9
 UniqueColdResist7
 UniqueFreezeDamageMaximumMana1
 ]],[[
+The Mutable Star
+Cleric Vestments
+UniqueLocalIncreasedArmourAndEnergyShield20
+UniqueEnergyShieldRechargeRate5
+UniqueLifeRegeneration22
+UniqueReducedBleedDuration3
+UniqueReducedBurnDuration2
+UniqueDefendWithArmourPerEnergyShield1
+]],[[
 Soul Mantle
 Sacrificial Mantle
 UniqueLocalIncreasedArmourAndEnergyShield12

@@ -427,6 +427,15 @@ Mail Vestments
 +(30-40)% to Cold Resistance
 Freeze as though dealing Cold damage equal to 10% of your maximum Mana when Hit
 ]],[[
+The Mutable Star
+Cleric Vestments
+(100-150)% increased Armour and Energy Shield
+(50-100)% increased Energy Shield Recharge Rate
+(25-35) Life Regeneration per second
+(30-50)% reduced Bleeding Duration on you
+(30-50)% reduced Ignite Duration on you
+Defend against Hits as though you had 1% more Armour per 1% current Energy Shield
+]],[[
 Soul Mantle
 Sacrificial Mantle
 (80-120)% increased Armour and Energy Shield
