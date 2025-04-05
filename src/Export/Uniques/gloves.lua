@@ -159,6 +159,15 @@ UniqueItemFoundRarityIncrease21
 UniqueElementalPenetration1
 UniqueElementalPenetrationBelowZero1
 ]],[[
+Nightscale
+Pauascale Gloves
+UniqueLocalIncreasedEnergyShieldPercent26
+UniqueCriticalStrikeChance14
+UniqueIntelligence29
+UniqueColdResist34
+UniqueManaRegenerationRateIfCritRecently1
+UniqueNoManaRegenIfNotCritRecently1
+]],[[
 Painter's Servant
 Torn Gloves
 Variant: Pre 0.1.1
