@@ -216,6 +216,15 @@ UniqueAddedPhysicalDamage3
 UniqueIncreasedLife6
 UniqueIncreasedAttackSpeed2
 UniqueStrengthSatisfiesAllWeaponRequirements1
+]],[[
+Valako's Vice
+Plate Gauntlets
+UniqueLocalIncreasedArmourAndEvasion23
+UniqueIncreasedAttackSpeed9
+UniqueStrength41
+UniqueDexterity37
+UniqueLightningResist23
+UniqueFireDamageConvertToLightning1
 ]],
 -- Gloves: Armour/Energy Shield
 [[

@@ -216,6 +216,15 @@ Adds (2-3) to (5-6) Physical Damage to Attacks
 +(30-50) to maximum Life
 (4-8)% increased Attack Speed
 Strength can satisfy other Attribute Requirements of Melee Weapons and Melee Skills
+]],[[
+Valako's Vice
+Plate Gauntlets
+(50-100)% increased Armour and Evasion
+(5-10)% increased Attack Speed
++(20-30) to Strength
++(20-30) to Dexterity
++(30-50)% to Lightning Resistance
+100% of Fire damage Converted to Lightning damage
 ]],
 -- Gloves: Armour/Energy Shield
 [[
