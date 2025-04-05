@@ -192,6 +192,16 @@ Implicits: 1
 {tags:attribute}+(10-15) to Strength
 Enemies Chilled by your Hits can be Shattered as though Frozen
 ]],[[
+Prized Pain
+Iron Ring
+Requires Level 48
+Implicits: 1
+{tags:physical,attack}Adds 1 to 4 Physical Damage to Attacks
+{tags:attribute}+(20-30) to Strength
+Skills gain a Base Life Cost equal to 10% of Base Mana Cost
+Deal your Thorns Damage to Enemies you Stun with Melee Attacks
+{tags:physical}(24-35) to (35-53) Physical Thorns damage
+]],[[
 Seed of Cataclysm
 Lazuli Ring
 Implicits: 1

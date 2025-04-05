@@ -192,6 +192,16 @@ UniqueIncreasedMana7
 UniqueStrength3
 UniqueChillHitsCauseShattering1
 ]],[[
+Prized Pain
+Iron Ring
+Requires Level 48
+Implicits: 1
+RingImplicitPhysicalDamage1
+UniqueStrength41
+UniqueLifeCostAsManaCost2
+UniqueThornsDamageOnStun1
+UniqueAttackerTakesDamage7
+]],[[
 Seed of Cataclysm
 Lazuli Ring
 Implicits: 1
