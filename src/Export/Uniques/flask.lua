@@ -19,5 +19,9 @@ UniqueFlaskRecoverAllMana1
 UniqueFlaskTakeDamageWhenEnds1
 ]],
 -- Charm
-
+[[
+The Fall of the Axe
+Silver Charm
+UniqueCharmOnslaughtDuringEffect1
+]],
 }

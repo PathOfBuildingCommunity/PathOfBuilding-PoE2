@@ -20,5 +20,11 @@ Recover all Mana when Used
 Deals 25% of current Mana as Chaos Damage to you when Effect ends
 ]],
 -- Charm
-
+[[
+The Fall of the Axe
+Silver Charm
+Implicits: 1
+Used when you are affected by a Slow
+Grants Onslaught during effect
+]],
 }
