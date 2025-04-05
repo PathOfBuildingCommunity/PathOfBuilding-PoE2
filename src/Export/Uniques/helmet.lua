@@ -11,6 +11,14 @@ UniquePercentageStrength1
 UniquePercentageDexterity1
 UniquePercentageIntelligence1
 ]],[[
+Blood Price
+Fierce Greathelm
+UniqueLocalIncreasedPhysicalDamageReductionRatingPercent29
+UniqueEnemiesInPresenceReservesLife1
+UniqueLifeRegeneration18
+UniqueStunThreshold18
+UniquePresenceRadius3
+]],[[
 Corona of the Red Sun
 Warrior Greathelm
 Variant: Pre 0.1.1
@@ -65,16 +73,7 @@ UniqueItemFoundRarityIncrease4
 UniqueDexterity3
 UniqueRageOnHit1
 UniqueIncreasedStunThresholdPerRage1
-]],[[
-Blood Price
-Fierce Greathelm
-UniqueLocalIncreasedPhysicalDamageReductionRatingPercent29
-UniqueEnemiesInPresenceReservesLife1
-UniqueLifeRegeneration18
-UniqueStunThreshold18
-UniquePresenceRadius3
 ]],
-
 -- Helmet: Evasion
 [[
 Alpha's Howl
@@ -300,6 +299,15 @@ UniqueLifeGainedFromEnemyDeath2
 UniqueManaGainedFromEnemyDeath3
 UniqueGlobalSkillGemLevel1
 ]],[[
+The Deepest Tower
+Spiritbone Crown
+UniqueLocalIncreasedArmourAndEnergyShield18
+UniqueIncreasedLife46
+UniqueChaosResist14
+UniquePresenceRadius2
+UniqueLightRadius19
+UniqueEnemiesInPresenceLowLife1
+]],[[
 Keeper of the Arc
 Spiritbone Crown
 UniqueLocalIncreasedArmourAndEnergyShield7
@@ -313,15 +321,6 @@ UniqueMaximumLifeIncrease2
 UniqueAllAttributes1
 UniqueLightRadius5
 UniqueSetElementalResistances1
-]],[[
-The Deepest Tower
-Spiritbone Crown
-UniqueLocalIncreasedArmourAndEnergyShield18
-UniqueIncreasedLife46
-UniqueChaosResist14
-UniquePresenceRadius2
-UniqueLightRadius19
-UniqueEnemiesInPresenceLowLife1
 ]],
 -- Helmet: Evasion/Energy Shield
 [[

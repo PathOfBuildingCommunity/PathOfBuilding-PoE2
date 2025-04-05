@@ -11,6 +11,14 @@ Wrapped Greathelm
 (5-15)% increased Dexterity
 (5-15)% increased Intelligence
 ]],[[
+Blood Price
+Fierce Greathelm
+(80-120)% increased Armour
+(10-15) Life Regeneration per second
++(100-150) to Stun Threshold
+(30-60)% increased Presence Area of Effect
+Enemies in your Presence have at least 10% of Life Reserved
+]],[[
 Corona of the Red Sun
 Warrior Greathelm
 Variant: Pre 0.1.1
@@ -66,16 +74,7 @@ Variant: Current
 +(20-30) to Dexterity
 Gain 1 Rage on Melee Hit
 Every Rage also grants 1% increased Stun Threshold
-]],[[
-Blood Price
-Fierce Greathelm
-(80-120)% increased Armour
-(10-15) Life Regeneration per second
-+(100-150) to Stun Threshold
-(30-60)% increased Presence Area of Effect
-Enemies in your Presence have at least 10% of Life Reserved
 ]],
-
 -- Helmet: Evasion
 [[
 Alpha's Howl
@@ -301,6 +300,15 @@ Gain 10 Life per Enemy Killed
 Gain 10 Mana per Enemy Killed
 +1 to Level of all Skills
 ]],[[
+The Deepest Tower
+Spiritbone Crown
+(70-130)% increased Armour and Energy Shield
++(70-100) to maximum Life
++(17-23)% to Chaos Resistance
+50% reduced Presence Area of Effect
+10% reduced Light Radius
+Enemies in your Presence count as being on Low Life
+]],[[
 Keeper of the Arc
 Spiritbone Crown
 (100-150)% increased Armour and Energy Shield
@@ -316,15 +324,6 @@ Martyr Crown
 +(10-20) to all Attributes
 40% reduced Light Radius
 You have no Elemental Resistances
-]],[[
-The Deepest Tower
-Spiritbone Crown
-(70-130)% increased Armour and Energy Shield
-+(70-100) to maximum Life
-+(17-23)% to Chaos Resistance
-50% reduced Presence Area of Effect
-10% reduced Light Radius
-Enemies in your Presence count as being on Low Life
 ]],
 -- Helmet: Evasion/Energy Shield
 [[

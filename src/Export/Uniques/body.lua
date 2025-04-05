@@ -206,6 +206,13 @@ UniqueIntelligence2
 {variant:2}UniqueColdResist26
 UniqueDrainManaHealLife1
 ]],[[
+Cloak of Defiance
+Havoc Raiment
+UniqueLocalIncreasedEnergyShieldPercent14
+UniqueIncreasedMana20
+UniqueManaRegeneration29
+UniqueDamageRemovedFromManaBeforeLife1
+]],[[
 Cloak of Flame
 Silk Robe
 UniqueFireResist1
@@ -226,6 +233,14 @@ UniqueLocalIncreasedEnergyShield3
 UniqueChaosResist4
 UniqueLifeConvertedToEnergyShield1
 ]],[[
+Gloamgown
+Elementalist Robe
+UniqueLocalIncreasedEnergyShieldPercent16
+UniqueIncreasedSpirit10
+UniqueColdResist31
+UniqueEnergyShieldRechargeRate6
+UniqueEnergyShieldRechargeOverride1
+]],[[
 Necromantle
 Bone Raiment
 Variant: Pre 0.1.1
@@ -245,6 +260,16 @@ UniqueIntelligence13
 {variant:2}UniqueLightningResist22
 UniqueEnergyShieldDelay2
 UniqueRechargeNotInterruptedRecently1
+]],[[
+Silks of Veneration
+Havoc Raiment
+Implicits: 1
+BodyArmourImplicitManaRegeneration1
+UniqueIncreasedSpirit11
+UniqueIntelligence39
+UniqueAllResistances6
+UniqueEnergyShieldRechargeRate4
+UniqueEnergyShieldAppliesElementalReduction1
 ]],[[
 Temporalis
 Silk Robe
@@ -270,31 +295,6 @@ UniqueLocalIncreasedEnergyShieldPercent22
 UniqueIncreasedMana43
 UniqueMinionLife5
 UniqueMinionsHaveUnholyMight1
-]],[[
-Gloamgown
-Elementalist Robe
-UniqueLocalIncreasedEnergyShieldPercent16
-UniqueIncreasedSpirit10
-UniqueColdResist31
-UniqueEnergyShieldRechargeRate6
-UniqueEnergyShieldRechargeOverride1
-]],[[
-Cloak of Defiance
-Havoc Raiment
-UniqueLocalIncreasedEnergyShieldPercent14
-UniqueIncreasedMana20
-UniqueManaRegeneration29
-UniqueDamageRemovedFromManaBeforeLife1
-]],[[
-Silks of Veneration
-Havoc Raiment
-Implicits: 1
-BodyArmourImplicitManaRegeneration1
-UniqueIncreasedSpirit11
-UniqueIntelligence39
-UniqueAllResistances6
-UniqueEnergyShieldRechargeRate4
-UniqueEnergyShieldAppliesElementalReduction1
 ]],
 -- Body: Armour/Evasion
 [[
@@ -402,6 +402,15 @@ UniqueIntelligence9
 UniqueColdResist7
 UniqueFreezeDamageMaximumMana1
 ]],[[
+Soul Mantle
+Sacrificial Mantle
+UniqueLocalIncreasedArmourAndEnergyShield12
+UniqueStrength42
+UniqueIntelligence40
+UniqueIncreasedTotemLife1
+UniqueAdditionalTotems1
+UniqueRandomlyCursedWhenTotemsDie1
+]],[[
 Voll's Protector
 Ironclad Vestments
 Variant: Pre 0.1.1
@@ -411,16 +420,6 @@ UniqueMaximumManaIncrease2
 {variant:2}UniqueChaosResist24
 UniquePowerChargeOnCritChance1
 ]],[[
-Soul Mantle
-Sacrificial Mantle
-UniqueLocalIncreasedArmourAndEnergyShield12
-UniqueStrength42
-UniqueIntelligence40
-UniqueIncreasedTotemLife1
-UniqueAdditionalTotems1
-UniqueRandomlyCursedWhenTotemsDie1
-]],
-[[
 Waveshaper
 Tideseer Mantle
 UniqueLocalIncreasedEnergyShield16

@@ -23,7 +23,7 @@ Variant: Current
 +(60-100) to Stun Threshold
 {variant:2}Cannot Evade Enemy Attacks
 250% of Melee Physical Damage taken reflected to Attacker
-{variant:2}Regenerate 5% of Life per second while Surrounded
+{variant:2}Regenerate 5% of maximum Life per second while Surrounded
 ]],[[
 The Brass Dome
 Champion Cuirass
@@ -80,7 +80,7 @@ Full Plate
 +(40-60) to maximum Mana
 +(5-10)% to all Elemental Resistances
 25% reduced Endurance Charge Duration
-Recover 5% of Life for each Endurance Charge consumed
+Recover 5% of maximum Life for each Endurance Charge consumed
 ]],[[
 Titanrot Cataphract
 Maraketh Cuirass
@@ -144,7 +144,7 @@ Studded Vest
 (100-150)% increased Evasion Rating
 +(20-30)% to Cold Resistance
 Maximum 10 Fragile Regrowth
-0.5% of Life Regenerated per second per Fragile Regrowth
+0.5% of maximum Life Regenerated per second per Fragile Regrowth
 10% increased Mana Regeneration Rate per Fragile Regrowth
 Lose all Fragile Regrowth when Hit
 Gain 1 Fragile Regrowth each second
@@ -173,7 +173,7 @@ Smuggler Coat
 -(15-10)% to Fire Resistance
 +(25-30)% to Cold Resistance
 +(10-15)% to Lightning Resistance
-1% increased Movement Speed per 500 Evasion Rating
+1% increased Movement Speed per 800 Evasion Rating
 Other Modifiers to Movement Speed do not apply
 ]],[[
 The Rat Cage
@@ -210,7 +210,14 @@ Variant: Current
 +(10-30) to Intelligence
 {variant:2}+(10-20)% to Cold Resistance
 Damage over Time bypasses your Energy Shield
-While not on Full Life, Sacrifice 10% of Mana per Second to Recover that much Life
+While not on Full Life, Sacrifice 10% of maximum Mana per Second to Recover that much Life
+]],[[
+Cloak of Defiance
+Havoc Raiment
+(50-100)% increased Energy Shield
++(100-150) to maximum Mana
+50% increased Mana Regeneration Rate
+30% of Damage is taken from Mana before Life
 ]],[[
 Cloak of Flame
 Silk Robe
@@ -232,6 +239,14 @@ Tattered Robe
 +(29-37)% to Chaos Resistance
 50% of Maximum Life Converted to Energy Shield
 ]],[[
+Gloamgown
+Elementalist Robe
+(100-140)% increased Energy Shield
++(30-40) to Spirit
++(25-35)% to Cold Resistance
+1000% increased Energy Shield Recharge Rate
+Your base Energy Shield Recharge Delay is 10 seconds
+]],[[
 Necromantle
 Bone Raiment
 Variant: Pre 0.1.1
@@ -239,7 +254,7 @@ Variant: Current
 +(40-60) to maximum Life
 +(30-50) to maximum Mana
 {variant:2}Minions have +(17-23)% to Chaos Resistance
-Minions gain (20-30)% of their Maximum Life as Extra Maximum Energy Shield
+Minions gain (20-30)% of their maximum Life as Extra maximum Energy Shield
 Minions Revive 50% faster
 ]],[[
 Prayers for Rain
@@ -252,13 +267,23 @@ Variant: Current
 30% slower start of Energy Shield Recharge
 Energy Shield Recharge is not interrupted by Damage if Recharge began Recently
 ]],[[
+Silks of Veneration
+Havoc Raiment
+Implicits: 1
+(40-50)% increased Mana Regeneration Rate
++(30-50) to Spirit
++(20-30) to Intelligence
++(10-20)% to all Elemental Resistances
+(30-50)% increased Energy Shield Recharge Rate
+Current Energy Shield also grants Elemental Damage reduction
+]],[[
 Temporalis
 Silk Robe
 +(100-150) to maximum Energy Shield
 +(10-20)% to all Elemental Resistances
 (5-30)% of Damage taken Recouped as Life
 (5-30)% of Damage taken Recouped as Mana
-Skills have -(4-2) seconds to Cooldown
+Skills have -(2-1) seconds to Cooldown
 ]],[[
 Tetzlapokal's Desire
 Votive Raiment
@@ -276,31 +301,6 @@ Plated Raiment
 +(70-100) to maximum Mana
 Minions have 50% reduced maximum Life
 Minions have Unholy Might
-]],[[
-Gloamgown
-Elementalist Robe
-(100-140)% increased Energy Shield
-+(30-40) to Spirit
-+(25-35)% to Cold Resistance
-1000% increased Energy Shield Recharge Rate
-Your base Energy Shield Recharge Delay is 10 seconds
-]],[[
-Cloak of Defiance
-Havoc Raiment
-(50-100)% increased Energy Shield
-+(100-150) to maximum Mana
-50% increased Mana Regeneration Rate
-30% of Damage is taken from Mana before Life
-]],[[
-Silks of Veneration
-Havoc Raiment
-Implicits: 1
-(40-50)% increased Mana Regeneration Rate
-+(30-50) to Spirit
-+(20-30) to Intelligence
-+(10-20)% to all Elemental Resistances
-(30-50)% increased Energy Shield Recharge Rate
-Current Energy Shield also grants Elemental Damage reduction
 ]],
 -- Body: Armour/Evasion
 [[
@@ -387,7 +387,7 @@ Pilgrim Vestments
 (50-100)% increased Armour and Energy Shield
 +100 to Spirit
 +(5-15)% to all Elemental Resistances
-Intelligence provides no inherent bonus to Maximum Mana
+Gain no inherent bonus from Intelligence
 ]],[[
 Husk of Dreams
 Shaman Mantle
@@ -408,6 +408,15 @@ Mail Vestments
 +(30-40)% to Cold Resistance
 Freeze as though dealing Cold damage equal to 10% of your maximum Mana when Hit
 ]],[[
+Soul Mantle
+Sacrificial Mantle
+(80-120)% increased Armour and Energy Shield
++10 to Strength
++15 to Intelligence
+(20-30)% reduced Totem Life
++1 to maximum number of Summoned Totems
+Inflicts a random Curse on you when your Totems die, ignoring Curse limit
+]],[[
 Voll's Protector
 Ironclad Vestments
 Variant: Pre 0.1.1
@@ -417,16 +426,6 @@ Variant: Current
 {variant:2}+(13-17)% to Chaos Resistance
 25% chance to gain a Power Charge on Critical Hit
 ]],[[
-Soul Mantle
-Sacrificial Mantle
-(80-120)% increased Armour and Energy Shield
-+10 to Strength
-+15 to Intelligence
-(20-30)% reduced Totem Life
-+1 to maximum number of Summoned Totems
-Inflicts a random Curse on you when your Totems die, ignoring Curse limit
-]],
-[[
 Waveshaper
 Tideseer Mantle
 +(100-200) to maximum Energy Shield
@@ -501,13 +500,13 @@ Variant: All Resistances
 Variant: Attributes
 Sockets: S S S S
 (200-300)% increased Armour, Evasion and Energy Shield
-{variant:7}5% increased Attributes per Socketed Rune or Soul Core
-{variant:4}10% increased Global Defences per Socketed Rune or Soul Core
-{variant:5}10% increased Rarity of Items found per Socketed Rune or Soul Core
-{variant:2}5% increased Maximum Life per Socketed Rune or Soul Core
-{variant:3}5% increased Maximum Mana per Socketed Rune or Soul Core
-{variant:6}+10% to all Elemental Resistances per Socketed Rune or Soul Core
-{variant:1}+10 to Spirit per Socketed Rune or Soul Core
+{variant:7}5% increased Attributes per Socket filled
+{variant:4}(6-10)% increased Global Defences per Socket filled
+{variant:5}10% increased Rarity of Items found per Socket filled
+{variant:2}5% increased Maximum Life per Socket filled
+{variant:3}5% increased Maximum Mana per Socket filled
+{variant:6}+(5-7)% to all Elemental Resistances per Socket filled
+{variant:1}+(6-10) to Spirit per Socket filled
 ]],[[
 Skin of the Loyal
 Garment

@@ -87,8 +87,7 @@ UniqueLocalBlockChance14
 UniqueChaosResist31
 UniqueLifeRegeneration21
 UniqueApplyCorruptedBloodOnBlock1
-]],
-[[
+]],[[
 Nocturne
 Wooden Buckler
 Implicits: 1

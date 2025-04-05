@@ -88,8 +88,7 @@ Grants Skill: Parry
 (5-10) Life Regeneration per second
 Inflict Corrupted Blood for 5 seconds on Block, dealing 50% of
 your maximum Life as Physical damage per second
-]],
-[[
+]],[[
 Nocturne
 Wooden Buckler
 Implicits: 1

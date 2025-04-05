@@ -35,8 +35,7 @@ Adds 3 to 5 Fire damage to Attacks
 50% increased chance to Ignite
 Projectiles Pierce all Ignited enemies
 Attacks Gain (5-10)% of Damage as Extra Fire Damage
-]],
-[[
+]],[[
 Rearguard
 Blunt Quiver
 Implicits: 1
