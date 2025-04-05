@@ -34,6 +34,13 @@ CharmImplicitUseOnIgnite1
 UniqueFlaskChanceRechargeOnKill2
 UniqueCharmIgniteEnemiesInPresence1
 ]],[[
+Breath of the Mountains
+Sapphire Charm
+Implicits: 1
+CharmImplicitUseOnColdDamage1
+UniqueFlaskChargesUsed2
+UniqueCharmGrantsPowerCharge1
+]],[[
 The Fall of the Axe
 Silver Charm
 Implicits: 1

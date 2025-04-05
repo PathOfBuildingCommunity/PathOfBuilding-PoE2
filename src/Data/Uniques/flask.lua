@@ -35,6 +35,13 @@ Used when you become Ignited
 (20-25)% Chance to gain a Charge when you Kill an Enemy
 Ignite Enemies in Presence as though dealing Fire damage equal to 500% of your maximum Life when used
 ]],[[
+Breath of the Mountains
+Sapphire Charm
+Implicits: 1
+Used when you take Cold damage from a Hit
+(10-15)% reduced Charges per use
+Grants a Power Charge on use
+]],[[
 The Fall of the Axe
 Silver Charm
 Implicits: 1
