@@ -32,5 +32,15 @@ Adds (2-3) to (6-8) Physical Damage
 20% increased Melee Strike Range with this weapon
 Any number of Poisons from this Weapon can affect a target at the same time
 Always Poison on Hit with this weapon
+]],[[
+Tangletongue
+Forked Spear
+Implicits: 1
+Grants Skill: Spear Throw
+Adds (14-18) to (30-36) Physical Damage
++(10-20)% to Critical Hit Chance
++(15-25) to Intelligence
+Forks Critical Hits
+10% of Skill Mana Costs Converted to Life Costs
 ]],
 }

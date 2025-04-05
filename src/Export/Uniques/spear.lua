@@ -32,5 +32,15 @@ UniqueLocalAddedPhysicalDamage3
 UniqueLocalWeaponRangeIncrease1
 UniqueLocalInfinitePoisonStackCount1
 UniqueLocalPoisonOnHit1
+]],[[
+Tangletongue
+Forked Spear
+Implicits: 1
+Grants Skill: Spear Throw
+UniqueLocalAddedPhysicalDamage21
+UniqueLocalCriticalStrikeChance8
+UniqueIntelligence34
+UniqueRollCriticalChanceTwice1
+UniqueLifeCost2
 ]],
 }
