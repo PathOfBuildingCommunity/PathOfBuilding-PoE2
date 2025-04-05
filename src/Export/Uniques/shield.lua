@@ -88,6 +88,16 @@ UniqueChaosResist31
 UniqueLifeRegeneration21
 UniqueApplyCorruptedBloodOnBlock1
 ]],[[
+Calgyra's Arc
+Ornate Buckler
+Implicits: 1
+Grants Skill: Parry
+UniqueLocalIncreasedEvasionRatingPercent28
+UniqueIncreasedMana12
+UniqueIntelligence6
+UniqueProjectileParryInfiniteDistance1
+UniqueParriedDebuffDuration1
+]],[[
 Nocturne
 Wooden Buckler
 Implicits: 1

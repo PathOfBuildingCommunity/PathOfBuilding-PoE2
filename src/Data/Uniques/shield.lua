@@ -89,6 +89,16 @@ Grants Skill: Parry
 Inflict Corrupted Blood for 5 seconds on Block, dealing 50% of
 your maximum Life as Physical damage per second
 ]],[[
+Calgyra's Arc
+Ornate Buckler
+Implicits: 1
+Grants Skill: Parry
+(60-100)% increased Evasion Rating
++(60-100) to maximum Mana
++(10-20) to Intelligence
+Infinite Projectile Parry Range
+50% increased Parried Debuff Duration
+]],[[
 Nocturne
 Wooden Buckler
 Implicits: 1
