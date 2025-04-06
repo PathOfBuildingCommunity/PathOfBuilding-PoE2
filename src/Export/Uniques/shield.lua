@@ -136,6 +136,15 @@ UniqueLifeRegeneration24
 UniqueBlockChanceProjectiles1
 UniqueEnfeebleOnBlockChance1
 ]],[[
+Silverthorne
+Spiked Buckler
+Implicits: 1
+Grants Skill: Parry
+UniqueLocalIncreasedEvasionRatingPercent29
+UniqueAllResistances19
+UniqueCriticalWeaknessOnParry1
+UniqueParryDamage1
+]],[[
 Sunsplinter
 Array Buckler
 Has Alt Variant: true

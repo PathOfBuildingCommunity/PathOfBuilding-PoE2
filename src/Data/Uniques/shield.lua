@@ -138,6 +138,15 @@ Grants Skill: Parry
 100% increased Block chance against Projectiles
 Curse Enemies with Enfeeble on Block
 ]],[[
+Silverthorne
+Spiked Buckler
+Implicits: 1
+Grants Skill: Parry
+(50-80)% increased Evasion Rating
++(10-15)% to all Elemental Resistances
+Parrying applies 10 Stacks of Critical Weakness
+100% increased Parry Damage
+]],[[
 Sunsplinter
 Array Buckler
 Has Alt Variant: true
