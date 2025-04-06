@@ -34,6 +34,14 @@ UniqueLocalIncreasedAccuracy5
 UniqueLocalIncreasedAttackSpeed10
 UniqueMaximumLightningDamagePerPower1
 ]],[[
+Sculpted Suffering
+Warpick
+MaceImplicitCriticalMultiplier1
+UniqueLocalAddedPhysicalDamage18
+UniqueLocalIncreasedAttackSpeed17
+UniqueLocalArmourBreakOnDamage1
+UniqueFullyArmourBrokenShatterOnKill1
+]],[[
 Seeing Stars
 Plated Mace
 Variant: Pre 0.1.1
