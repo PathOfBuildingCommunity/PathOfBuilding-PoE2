@@ -1693,6 +1693,14 @@ skills["SupportEnormityPlayer"] = {
 			label = "Enormity",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_titanblood_minion_damage_+%_final"] = {
+					mod("MinionModifier", "LIST", { mod = mod("Damage", "MORE", nil) }),
+				},
+				["support_titanblood_minion_life_+%_final"] = {
+					mod("MinionModifier", "LIST", { mod = mod("Life", "MORE", nil) }),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -2777,6 +2785,11 @@ skills["SupportLoyaltyPlayer"] = {
 			label = "Loyalty",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_trusty_companion_minion_life_+%_final"] = {
+					mod("MinionModifier", "LIST", { mod = mod("Life", "MORE", nil) }),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -3064,6 +3077,11 @@ skills["SupportMysticismPlayer"] = {
 			label = "Mysticism",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_spell_damage_spirit_cost_spell_damage_+%_on_full_energy_shield"] = {
+					mod("Damage", "INC", nil, ModFlag.Spell, 0, { type = "Condition", var = "FullEnergyShield" }, { type = "GlobalEffect", effectType = "Buff", effectName = "Mysticism" }),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -3544,6 +3562,11 @@ skills["SupportStrongHeartedPlayer"] = {
 			label = "Strong Hearted",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_shock_protection_spirit_cost_shock_duration_on_self_+%_final"] = {
+					mod("SelfShockDuration", "MORE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Strong Hearted" }),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {

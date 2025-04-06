@@ -369,6 +369,14 @@ statMap = {
 
 #skill SupportEnormityPlayer
 #set SupportEnormityPlayer
+statMap = {
+	["support_titanblood_minion_damage_+%_final"] = {
+		mod("MinionModifier", "LIST", { mod = mod("Damage", "MORE", nil) }),
+	},
+	["support_titanblood_minion_life_+%_final"] = {
+		mod("MinionModifier", "LIST", { mod = mod("Life", "MORE", nil) }),
+	},
+},
 #mods
 #skillEnd
 
@@ -625,6 +633,11 @@ statMap = {
 
 #skill SupportLoyaltyPlayer
 #set SupportLoyaltyPlayer
+statMap = {
+	["support_trusty_companion_minion_life_+%_final"] = {
+		mod("MinionModifier", "LIST", { mod = mod("Life", "MORE", nil) }),
+	},
+},
 #mods
 #skillEnd
 
@@ -689,6 +702,11 @@ statMap = {
 
 #skill SupportMysticismPlayer
 #set SupportMysticismPlayer
+statMap = {
+	["support_spell_damage_spirit_cost_spell_damage_+%_on_full_energy_shield"] = {
+		mod("Damage", "INC", nil, ModFlag.Spell, 0, { type = "Condition", var = "FullEnergyShield" }, { type = "GlobalEffect", effectType = "Buff", effectName = "Mysticism" }),
+	},
+},
 #mods
 #skillEnd
 
@@ -795,6 +813,11 @@ statMap = {
 
 #skill SupportStrongHeartedPlayer
 #set SupportStrongHeartedPlayer
+statMap = {
+	["support_shock_protection_spirit_cost_shock_duration_on_self_+%_final"] = {
+		mod("SelfShockDuration", "MORE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Strong Hearted" }),
+	},
+},
 #mods
 #skillEnd
 

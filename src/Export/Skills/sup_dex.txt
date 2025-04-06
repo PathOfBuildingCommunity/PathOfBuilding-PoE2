@@ -470,6 +470,11 @@ statMap = {
 
 #skill SupportOverextendPlayer
 #set SupportOverextendPlayer
+statMap = {
+	["support_overextend_critical_strike_multiplier_+%_final"] = {
+		mod("CritMultiplier", "MORE", nil),
+	},
+},
 #mods
 #skillEnd
 

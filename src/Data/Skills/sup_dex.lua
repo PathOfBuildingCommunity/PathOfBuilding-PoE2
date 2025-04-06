@@ -2145,6 +2145,11 @@ skills["SupportOverextendPlayer"] = {
 			label = "Overextend",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_overextend_critical_strike_multiplier_+%_final"] = {
+					mod("CritMultiplier", "MORE", nil),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
