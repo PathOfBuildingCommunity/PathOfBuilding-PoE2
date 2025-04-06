@@ -894,7 +894,7 @@ c["10% increased Physical Damage"]={{[1]={flags=0,keywordFlags=0,name="PhysicalD
 c["10% increased Poison Duration"]={{[1]={flags=0,keywordFlags=0,name="EnemyPoisonDuration",type="INC",value=10}},nil}
 c["10% increased Poison Duration for each Poison you have inflicted Recently, up to a maximum of 100%"]={{[1]={[1]={globalLimit=100,globalLimitKey="NoxiousStrike",type="Multiplier",var="PoisonAppliedRecently"},flags=0,keywordFlags=0,name="EnemyPoisonDuration",type="INC",value=10}},nil}
 c["10% increased Presence Area of Effect"]={{[1]={flags=0,keywordFlags=0,name="AreaOfEffect",type="INC",value=10}}," Presence  "}
-c["10% increased Presence Area of Effect Companions have 10% increased Area of Effect"]={{[1]={flags=512,keywordFlags=0,name="AreaOfEffect",type="INC",value=10}}," Presence  Companions have 10% increased  of Effect "}
+c["10% increased Presence Area of Effect Companions have 10% increased Area of Effect"]={{[1]={[1]={skillType=198,type="SkillType"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=512,keywordFlags=0,name="AreaOfEffect",type="INC",value=10}}}}," Presence  10% increased  of Effect "}
 c["10% increased Projectile Damage"]={{[1]={flags=1024,keywordFlags=0,name="Damage",type="INC",value=10}},nil}
 c["10% increased Projectile Speed"]={{[1]={flags=0,keywordFlags=0,name="ProjectileSpeed",type="INC",value=10}},nil}
 c["10% increased Rarity of Items found"]={{[1]={flags=0,keywordFlags=0,name="LootRarity",type="INC",value=10}},nil}
@@ -1724,7 +1724,7 @@ c["3% increased Attack Speed per 25 Dexterity"]={{[1]={[1]={div=25,stat="Dex",ty
 c["3% increased Attack Speed while Dual Wielding"]={{[1]={[1]={type="Condition",var="DualWielding"},flags=1,keywordFlags=0,name="Speed",type="INC",value=3}},nil}
 c["3% increased Attack Speed while holding a Shield"]={{[1]={[1]={type="Condition",varList={[1]="UsingShield"}},flags=1,keywordFlags=0,name="Speed",type="INC",value=3}},nil}
 c["3% increased Attack Speed while in the Presence of your Companion"]={{[1]={flags=1,keywordFlags=0,name="Speed",type="INC",value=3}},"  while in the Presence of your Companion "}
-c["3% increased Attack Speed while in the Presence of your Companion Companions have 4% increased Attack Speed"]={{[1]={flags=1,keywordFlags=0,name="Speed",type="INC",value=3}},"  while in the Presence of your Companion Companions have 4% increased Attack Speed "}
+c["3% increased Attack Speed while in the Presence of your Companion Companions have 4% increased Attack Speed"]={{[1]={[1]={skillType=198,type="SkillType"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=1,keywordFlags=0,name="Speed",type="INC",value=3}}}},"  while in the Presence of your Companion 4% increased Attack Speed "}
 c["3% increased Attack Speed with Axes"]={{[1]={flags=65541,keywordFlags=0,name="Speed",type="INC",value=3}},nil}
 c["3% increased Attack Speed with Bows"]={{[1]={flags=131077,keywordFlags=0,name="Speed",type="INC",value=3}},nil}
 c["3% increased Attack Speed with Daggers"]={{[1]={flags=524293,keywordFlags=0,name="Speed",type="INC",value=3}},nil}
@@ -2312,7 +2312,6 @@ c["60% increased Armour from Equipped Body Armour"]={{[1]={[1]={slotName="Body A
 c["60% increased Armour, Evasion and Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="Defences",type="INC",value=60}},nil}
 c["60% increased Block chance"]={{[1]={flags=0,keywordFlags=0,name="BlockChance",type="INC",value=60}},nil}
 c["60% increased Critical Damage Bonus"]={{[1]={flags=0,keywordFlags=0,name="CritMultiplier",type="INC",value=60}},nil}
-c["60% increased Critical Hit Chance after 7 metres"]={{[1]={flags=0,keywordFlags=0,name="CritChance",type="INC",value=60}},"  after 7 metres "}
 c["60% increased Damage with Hits against Enemies that are on Low Life"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="LowLife"},flags=0,keywordFlags=262144,name="Damage",type="INC",value=60}},nil}
 c["60% increased Effect of Poison you inflict on targets that are not Poisoned"]={{[1]={flags=0,keywordFlags=0,name="LocalEffect",type="INC",value=60}},"  of Poison you inflict on targets that are not Poisoned "}
 c["60% increased Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="EnergyShield",type="INC",value=60}},nil}
@@ -2404,7 +2403,7 @@ c["8% increased Damage while in the Presence of your Companion"]={{[1]={flags=0,
 c["8% increased Dexterity"]={{[1]={flags=0,keywordFlags=0,name="Dex",type="INC",value=8}},nil}
 c["8% increased Effect of your Mark Skills"]={{[1]={[1]={skillType=98,type="SkillType"},flags=0,keywordFlags=0,name="LocalEffect",type="INC",value=8}},nil}
 c["8% increased Elemental Ailment Threshold"]={{[1]={flags=0,keywordFlags=0,name="AilmentThreshold",type="INC",value=8}}," Elemental  "}
-c["8% increased Elemental Ailment Threshold Companions have +12% to all Elemental Resistances"]={{[1]={flags=0,keywordFlags=0,name="AilmentThreshold",type="INC",value=8}}," Elemental  Companions have +12% to all Elemental Resistances "}
+c["8% increased Elemental Ailment Threshold Companions have +12% to all Elemental Resistances"]={{[1]={[1]={skillType=198,type="SkillType"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="AilmentThreshold",type="INC",value=8}}}}," Elemental  +12% to all Elemental Resistances "}
 c["8% increased Elemental Damage"]={{[1]={flags=0,keywordFlags=0,name="ElementalDamage",type="INC",value=8}},nil}
 c["8% increased Evasion Rating per Frenzy Charge"]={{[1]={[1]={type="Multiplier",var="FrenzyCharge"},flags=0,keywordFlags=0,name="Evasion",type="INC",value=8}},nil}
 c["8% increased Fire Damage"]={{[1]={flags=0,keywordFlags=0,name="FireDamage",type="INC",value=8}},nil}
@@ -3187,7 +3186,7 @@ c["Armour applies to Fire, Cold and Lightning Damage taken from Hits instead of 
 c["Armour is increased by Overcapped Fire Resistance"]={{[1]={flags=0,keywordFlags=0,name="ArmourIncreasedByOvercappedFireRes",type="FLAG",value=true}},nil}
 c["Arrows Pierce an additional Target"]={{[1]={flags=1,keywordFlags=0,name="PierceCount",type="BASE",value=1}},nil}
 c["Arrows gain Critical Hit Chance as they travel farther, up to"]={nil,"Arrows gain Critical Hit Chance as they travel farther, up to "}
-c["Arrows gain Critical Hit Chance as they travel farther, up to 60% increased Critical Hit Chance after 7 metres"]={nil,"Arrows gain Critical Hit Chance as they travel farther, up to 60% increased Critical Hit Chance after 7 metres "}
+c["Arrows gain Critical Hit Chance as they travel farther, up to 60% increased Critical Hit Chance after 7 metres"]={{[1]={[1]={ramp={[1]={[1]=35,[2]=0},[2]={[1]=70,[2]=1}},type="DistanceRamp"},flags=131072,keywordFlags=0,name="CritChance",type="INC",value=60}},nil}
 c["Attack Damage Penetrates 15% of Enemy Elemental Resistances"]={{[1]={flags=1,keywordFlags=0,name="ElementalPenetration",type="BASE",value=15}},nil}
 c["Attack Hits Aggravate any Bleeding on targets which is older than 4 seconds"]={nil,"Attack Hits Aggravate any Bleeding on targets which is older than 4 seconds "}
 c["Attack Skills deal 10% increased Damage while holding a Shield"]={{[1]={[1]={type="Condition",varList={[1]="UsingShield"}},flags=0,keywordFlags=65536,name="Damage",type="INC",value=10}},nil}
@@ -3333,26 +3332,22 @@ c["Charms use no Charges"]={{[1]={flags=0,keywordFlags=0,name="CharmsUseNoCharge
 c["Cold Damage from Hits Contributes to Ignite Chance and Magnitude instead of Chill Magnitude"]={nil,"Cold Damage from Hits Contributes to Ignite Chance and Magnitude instead of Chill Magnitude "}
 c["Cold Damage from Hits Contributes to Ignite Chance and Magnitude instead of Chill Magnitude Lightning Damage from Hits Contributes to Freeze Buildup instead of Shock Chance"]={nil,"Cold Damage from Hits Contributes to Ignite Chance and Magnitude instead of Chill Magnitude Lightning Damage from Hits Contributes to Freeze Buildup instead of Shock Chance "}
 c["Cold Exposure you inflict lowers Total Cold Resistance by an extra 5%"]={{[1]={flags=0,keywordFlags=0,name="ExtraColdExposure",type="BASE",value=-5}},nil}
-c["Companions deal 12% increased Damage"]={nil,"Companions deal 12% increased Damage "}
-c["Companions deal 12% increased Damage 8% increased Damage while in the Presence of your Companion"]={nil,"Companions deal 12% increased Damage 8% increased Damage while in the Presence of your Companion "}
+c["Companions deal 12% increased Damage"]={{[1]={[1]={skillType=198,type="SkillType"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Damage",type="INC",value=12}}}},nil}
 c["Companions gain your Dexterity"]={nil,"Companions gain your Dexterity "}
 c["Companions gain your Dexterity +15 to Dexterity"]={nil,"Companions gain your Dexterity +15 to Dexterity "}
 c["Companions gain your Strength"]={nil,"Companions gain your Strength "}
 c["Companions gain your Strength +15 to Strength"]={nil,"Companions gain your Strength +15 to Strength "}
-c["Companions have +1 to each Defence for every 2 of that Defence you have"]={nil,"Companions have +1 to each Defence for every 2 of that Defence you have "}
-c["Companions have +12% to all Elemental Resistances"]={nil,"Companions have +12% to all Elemental Resistances "}
-c["Companions have +30% to Chaos Resistance"]={nil,"Companions have +30% to Chaos Resistance "}
-c["Companions have +30% to Chaos Resistance Companions have +30% to all Elemental Resistances"]={nil,"Companions have +30% to Chaos Resistance Companions have +30% to all Elemental Resistances "}
-c["Companions have +30% to all Elemental Resistances"]={nil,"Companions have +30% to all Elemental Resistances "}
-c["Companions have 10% increased Accuracy Rating"]={nil,"Companions have 10% increased Accuracy Rating "}
-c["Companions have 10% increased Area of Effect"]={nil,"Companions have 10% increased Area of Effect "}
-c["Companions have 12% increased maximum Life"]={nil,"Companions have 12% increased maximum Life "}
-c["Companions have 12% increased maximum Life 10% increased Defences while your Companion is in your Presence"]={nil,"Companions have 12% increased maximum Life 10% increased Defences while your Companion is in your Presence "}
-c["Companions have 20% increased maximum Life"]={nil,"Companions have 20% increased maximum Life "}
-c["Companions have 20% increased maximum Life 20% increased Life Recovery Rate while in the Presence of your Companion"]={nil,"Companions have 20% increased maximum Life 20% increased Life Recovery Rate while in the Presence of your Companion "}
-c["Companions have 20% reduced Reservation"]={nil,"Companions have 20% reduced Reservation "}
-c["Companions have 4% increased Attack Speed"]={nil,"Companions have 4% increased Attack Speed "}
-c["Companions have 5% reduced Reservation"]={nil,"Companions have 5% reduced Reservation "}
+c["Companions have +1 to each Defence for every 2 of that Defence you have"]={{}," each Defence for every 2 of that Defence you have "}
+c["Companions have +12% to all Elemental Resistances"]={{[1]={[1]={skillType=198,type="SkillType"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="ElementalResist",type="BASE",value=12}}}},nil}
+c["Companions have +30% to Chaos Resistance"]={{[1]={[1]={skillType=198,type="SkillType"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="ChaosResist",type="BASE",value=30}}}},nil}
+c["Companions have +30% to all Elemental Resistances"]={{[1]={[1]={skillType=198,type="SkillType"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="ElementalResist",type="BASE",value=30}}}},nil}
+c["Companions have 10% increased Accuracy Rating"]={{[1]={[1]={skillType=198,type="SkillType"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Accuracy",type="INC",value=10}}}},nil}
+c["Companions have 10% increased Area of Effect"]={{[1]={[1]={skillType=198,type="SkillType"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="AreaOfEffect",type="INC",value=10}}}},nil}
+c["Companions have 12% increased maximum Life"]={{[1]={[1]={skillType=198,type="SkillType"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Life",type="INC",value=12}}}},nil}
+c["Companions have 20% increased maximum Life"]={{[1]={[1]={skillType=198,type="SkillType"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Life",type="INC",value=20}}}},nil}
+c["Companions have 20% reduced Reservation"]={{[1]={[1]={skillType=198,type="SkillType"},flags=0,keywordFlags=0,name="Reserved",type="INC",value=-20}},nil}
+c["Companions have 4% increased Attack Speed"]={{[1]={[1]={skillType=198,type="SkillType"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=1,keywordFlags=0,name="Speed",type="INC",value=4}}}},nil}
+c["Companions have 5% reduced Reservation"]={{[1]={[1]={skillType=198,type="SkillType"},flags=0,keywordFlags=0,name="Reserved",type="INC",value=-5}},nil}
 c["Converts all Energy Shield to Mana"]={{[1]={flags=0,keywordFlags=0,name="EnergyShieldConvertToMana",type="BASE",value=100}},nil}
 c["Converts all Evasion Rating to Armour"]={{[1]={flags=0,keywordFlags=0,name="IronReflexes",type="FLAG",value=true},[2]={flags=0,keywordFlags=0,name="EvasionConvertToArmour",type="BASE",value=100}},nil}
 c["Corpses in your Presence Explode when you Warcry,"]={nil,"Corpses in your Presence Explode when you Warcry, "}
@@ -4232,7 +4227,7 @@ c["You can apply an additional Curse"]={{[1]={flags=0,keywordFlags=0,name="Enemy
 c["You can apply an additional Mark"]={{[1]={flags=0,keywordFlags=0,name="EnemyMarkLimit",type="BASE",value=1}},nil}
 c["You can have two Companions of different types"]={nil,"You can have two Companions of different types "}
 c["You can have two Companions of different types You have 30% less Defences"]={nil,"You can have two Companions of different types You have 30% less Defences "}
-c["You can have two Companions of different types You have 30% less Defences Companions have +1 to each Defence for every 2 of that Defence you have"]={nil,"You can have two Companions of different types You have 30% less Defences Companions have +1 to each Defence for every 2 of that Defence you have "}
+c["You can have two Companions of different types You have 30% less Defences Companions have +1 to each Defence for every 2 of that Defence you have"]={nil,"You can have two Companions of different types You have 30% less Defences +1 to each Defence for every 2 of that Defence you have "}
 c["You can only Socket Emerald Jewels in this item"]={nil,"You can only Socket Emerald Jewels in this item "}
 c["You can only Socket Emerald Jewels in this item You can only Socket Ruby Jewels in this item"]={nil,"You can only Socket Emerald Jewels in this item You can only Socket Ruby Jewels in this item "}
 c["You can only Socket Ruby Jewels in this item"]={nil,"You can only Socket Ruby Jewels in this item "}
@@ -4258,7 +4253,7 @@ c["You count as on Low Life while at 75% of maximum Life or below"]={{[1]={flags
 c["You count as on Low Mana while at 35% of maximum Life or below"]={{[1]={flags=0,keywordFlags=0,name="LowManaPercentage",type="BASE",value=0.35}},nil}
 c["You gain Onslaught for 4 seconds on Kill"]={{[1]={[1]={type="Condition",var="KilledRecently"},flags=0,keywordFlags=0,name="Condition:Onslaught",type="FLAG",value=true}},nil}
 c["You have 30% less Defences"]={nil,"30% less Defences "}
-c["You have 30% less Defences Companions have +1 to each Defence for every 2 of that Defence you have"]={nil,"30% less Defences Companions have +1 to each Defence for every 2 of that Defence you have "}
+c["You have 30% less Defences Companions have +1 to each Defence for every 2 of that Defence you have"]={nil,"30% less Defences +1 to each Defence for every 2 of that Defence you have "}
 c["You have Arcane Surge"]={{[1]={flags=0,keywordFlags=0,name="Condition:ArcaneSurge",type="FLAG",value=true}},nil}
 c["You have a Smoke Cloud around you while stationary"]={nil,"a Smoke Cloud around you  "}
 c["You have no Accuracy Penalty at Distance"]={nil,"no Accuracy Penalty at Distance "}
