@@ -43,6 +43,16 @@ UniqueDexterity3
 UniqueBeltFlaskRecoveryRate1
 UniqueLowLifeThreshold1
 ]],[[
+The Gnashing Sash
+Wide Belt
+Requires Level 60
+Implicits: 1
+UniqueIncreasedFlaskChargesGained4
+UniqueFlaskLifeRecoveryRate7
+UniqueChaosResist14
+UniqueLifeDegenerationPercentGracePeriod2
+UniqueLifeFlasksOvercapLife1
+]],[[
 Goregirdle
 Plate Belt
 Implicits: 1
