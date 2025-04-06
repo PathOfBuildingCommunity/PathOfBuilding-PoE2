@@ -161,6 +161,14 @@ UniqueChaosResist1
 UniqueManaRegeneration6
 UniqueAdditionalChargeGeneration1
 ]],[[
+Stone of Lazhwar
+Lapis Amulet
+Implicits: 1
+AmuletImplicitIntelligence1
+UniqueIncreasedMana3
+UniqueIncreasedCastSpeed3
+UniqueBlockPercentWithFocus1
+]],[[
 Surefooted Sigil
 Jade Amulet
 Implicits: 1

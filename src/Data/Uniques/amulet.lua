@@ -161,6 +161,14 @@ Implicits: 1
 {tags:mana}(20-30)% increased Mana Regeneration Rate
 Gain an additional Charge when you gain a Charge
 ]],[[
+Stone of Lazhwar
+Lapis Amulet
+Implicits: 1
+{tags:attribute}+(10-15) to Intelligence
+{tags:mana}+(50-100) to maximum Mana
+{tags:caster,speed}(15-25)% increased Cast Speed
++(15-25)% to Block Chance while holding a Focus
+]],[[
 Surefooted Sigil
 Jade Amulet
 Implicits: 1
