@@ -189,6 +189,14 @@ UniqueDexterity3
 UniqueEnemiesInPresenceBlinded1
 UniqueEnemiesInPresenceGainCritWeakness1
 ]],[[
+Scold's Bridle
+Jade Tiara
+UniqueLocalIncreasedEnergyShield17
+UniqueSpellDamage3
+UniqueIncreasedMana28
+UniqueIncreasedCastSpeed12
+UniquePhysicalDamageOnSkillUse1
+]],[[
 Visage of Ayah
 Beaded Circlet
 Variant: Pre 0.1.1

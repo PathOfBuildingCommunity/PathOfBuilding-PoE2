@@ -188,7 +188,15 @@ Chain Tiara
 +(80-120) to maximum Energy Shield
 +(20-30) to Dexterity
 Enemies in your Presence are Blinded
-Enemies in your Presence gain Critical Weakness every second
+Enemies in your Presence gain Critical Weakness every seconds
+]],[[
+Scold's Bridle
+Jade Tiara
++(75-150) to maximum Energy Shield
+(60-100)% increased Spell Damage
++(80-100) to maximum Mana
+15% reduced Cast Speed
+Take (25-100)% of Mana Costs you pay for Skills as Physical Damage
 ]],[[
 Visage of Ayah
 Beaded Circlet
