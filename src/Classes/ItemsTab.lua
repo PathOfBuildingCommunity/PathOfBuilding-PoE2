@@ -122,9 +122,7 @@ local ItemsTabClass = newClass("ItemsTab", "UndoHandler", "ControlHost", "Contro
 			end
 		elseif slotName == "Ring 3" then
 			slot.shown = function()
-				-- local nodeCheck = self.build.latestTree.ascendancyMap["gem studded"]
-				local nodeCheck = self.build.latestTree.ascendancyMap["unfurled finger"]
-				return self.build.spec and nodeCheck and self.build.spec.allocNodes[nodeCheck.skill]
+				return self.build.calcsTab.mainEnv.modDB:Flag(nil, "AdditionalRingSlot")
 			end
 		end
 	end
