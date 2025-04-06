@@ -40,6 +40,17 @@ Grants Skill: Level (1-20) Living Bomb
 100% increased chance to Ignite
 100% increased Magnitude of Ignite you inflict
 ]],[[
+Sire of Shards
+Chiming Staff
+Implicits: 1
+Grants Skill: Level (1-20) Sigil of Power
+(80-120)% increased Spell Damage
+(10-20)% increased Cast Speed
++(5-10)% to all Elemental Resistances
+20% increased Light Radius
+Spells fire 4 additional Projectiles
+Spells fire Projectiles in a circle
+]],[[
 Taryn's Shiver
 Gelid Staff
 Implicits: 1

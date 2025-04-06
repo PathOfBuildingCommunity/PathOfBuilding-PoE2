@@ -40,6 +40,16 @@ UniqueIncreasedCastSpeed3
 UniqueIgniteChanceIncrease1
 UniqueIgniteEffect2
 ]],[[
+Sire of Shards
+Chiming Staff
+Implicits: 1
+Grants Skill: Level (1-20) Sigil of Power
+UniqueSpellDamageOnWeapon7
+UniqueIncreasedCastSpeed4
+UniqueAllResistances22
+LightRadiusUniqueStaff10_
+UniqueSpellAdditionalProjectilesInCircle1
+]],[[
 Taryn's Shiver
 Gelid Staff
 Implicits: 1
