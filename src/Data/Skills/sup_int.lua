@@ -1019,7 +1019,7 @@ skills["SupportConsideredCastingPlayer"] = {
 					mod("Speed", "MORE", nil, ModFlag.Cast),
 				},
 				["support_slow_cast_spell_damage_+%_final"] = {
-					mod("Damage", "MORE", nil, OR64(ModFlag.Hit, ModFlag.Spell)),
+					mod("Damage", "MORE", nil),
 				},
 			},
 			baseFlags = {
@@ -1054,7 +1054,7 @@ skills["SupportControlledDestructionPlayer"] = {
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
 				["support_controlled_destruction_spell_damage_+%_final"] = {
-					mod("Damage", "MORE", nil, ModFlag.Spell),
+					mod("Damage", "MORE", nil, ModFlag.Hit),
 				},
 			},
 			baseFlags = {
