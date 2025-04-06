@@ -50,6 +50,16 @@ Accuracy Rating is Doubled
 {variant:1}Blocking Damage Poisons the Enemy as though dealing 100 Base Chaos Damage
 {variant:2}Blocking Damage Poisons the Enemy as though dealing 200 Base Chaos Damage
 ]],[[
+Redblade Banner
+Heraldric Tower Shield
+Implicits: 1
+Grants Skill: Raise Shield
+(20-30)% increased Block chance
+(60-100)% increased Armour
++(20-30) to Strength
++(100-150) to Stun Threshold
+Enemies in your Presence count as having double Power
+]],[[
 The Surrender
 Stone Tower Shield
 Implicits: 1

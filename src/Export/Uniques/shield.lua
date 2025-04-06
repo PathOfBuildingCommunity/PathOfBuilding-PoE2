@@ -50,6 +50,16 @@ UniqueDoubleAccuracyRating1
 {variant:1}UniquePoisonOnBlock1[100,100]
 {variant:2}UniquePoisonOnBlock1
 ]],[[
+Redblade Banner
+Heraldric Tower Shield
+Implicits: 1
+Grants Skill: Raise Shield
+UniqueLocalBlockChance14
+UniqueLocalIncreasedPhysicalDamageReductionRatingPercent27
+UniqueStrength36
+UniqueStunThreshold18
+UniqueEnemiesInPresenceMonsterPower1
+]],[[
 The Surrender
 Stone Tower Shield
 Implicits: 1
