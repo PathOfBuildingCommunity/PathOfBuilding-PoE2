@@ -275,6 +275,15 @@ statMap = {
 #mods
 #skillEnd
 
+#skill HeraldOfBloodPlayer
+#set HeraldOfBloodPlayer
+#flags
+#mods
+#set HeraldOfBloodExplosionPlayer
+#flags
+#mods
+#skillEnd
+
 #skill InfernalCryPlayer
 #set InfernalCryPlayer
 #flags warcry area duration
@@ -290,6 +299,15 @@ statMap = {
 #skill LeapSlamPlayer
 #set LeapSlamPlayer
 #flags attack area melee
+#mods
+#skillEnd
+
+#skill MetaCastLightningSpellOnHitPlayer
+#set MetaCastLightningSpellOnHitPlayer
+#flags spell
+#mods
+#set SupportMetaCastLightningSpellOnHitPlayer
+#flags
 #mods
 #skillEnd
 

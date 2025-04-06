@@ -274,6 +274,15 @@ statMap = {
 #mods
 #skillEnd
 
+#skill ConvalescencePlayer
+#set ConvalescencePlayer
+#flags
+#mods
+#set ConvalescenceActivePlayer
+#flags duration
+#mods
+#skillEnd
+
 #skill DarkEffigyPlayer
 #set DarkEffigyPlayer
 #flags area spell totem duration
@@ -774,7 +783,6 @@ statMap = {
 		mod("FireResist", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Aura" }),
 	},
 },
-#baseMod skill("auraCannotAffectSelf", true)
 #mods
 #skillEnd
 
@@ -787,7 +795,6 @@ statMap = {
 		mod("ColdResist", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Aura" }),
 	},
 },
-#baseMod skill("auraCannotAffectSelf", true)
 #mods
 #skillEnd
 
@@ -800,7 +807,6 @@ statMap = {
 		mod("LightningResist", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Aura" }),
 	},
 },
-#baseMod skill("auraCannotAffectSelf", true)
 #mods
 #skillEnd
 
@@ -970,6 +976,22 @@ statMap = {
 #skill SparkPlayer
 #set SparkPlayer
 #flags spell projectile duration
+#mods
+#skillEnd
+
+#skill SummonSpectrePlayer
+#set SummonSpectrePlayer
+#flags spell minion spectre duration permanentMinion
+minionList = {
+},
+statMap = {
+	["accuracy_rating"] = {
+		mod("MinionModifier", "LIST", { mod = mod("Accuracy", "BASE", nil) })
+	},
+	["raised_spectre_level"] = {
+		skill("minionLevel", nil),
+	},
+},
 #mods
 #skillEnd
 

@@ -36,6 +36,14 @@ function calcs.hitChance(evasion, accuracy)
 	return m_max(m_min(round(rawChance), 100), 5)	
 end
 
+-- Calculate uncapped hit chance for mods that enable "Chance to hit with Attacks can exceed 100%"
+function calcs.hitChanceUncapped(evasion, accuracy)
+	if accuracy < 0 then
+		return 5
+	end
+	local rawChance = ( accuracy * 1.5 ) / ( accuracy + evasion ) * 100
+	return m_max(round(rawChance), 5)	
+end
 -- Calculate damage reduction from armour, float
 function calcs.armourReductionF(armour, raw)
 	if armour == 0 and raw == 0 then

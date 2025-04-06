@@ -136,42 +136,20 @@ while handle do
 	end
 end
 
-local specificSkillDirectoryList = {
-	"blazing_cluster",
-	"bone_spike",
-	"channel_stampede",
-	"channelled_slam",
-	"corpse_cloud",
-	"earthquake",
-	"extract_elements",
-	"gas_cloud_arrow",
-	"gathering_storm",
-	"glacial_lance",
-	"herald_of_thunder",
-	"ice_ambush",
-	"incinerate_player",
-	"lightning_arrow",
-	"lightning_burst",
-	"magnetic_salvo",
-	"molten_blast",
-	"new_sunder",
-	"overcharged_spear",
-	"poison_vine_arrow",
-	"poisonbloom_arrow",
-	"remote_spear_mine",
-	"serpent_spear",
-	"siege_cascade_stormblast",
-	"sniper_gas_shot",
-	"solar_orb",
-	"solaris_spear",
-	"spear_wall",
-	"spike_slam",
-	"tempest_bell",
-	"tornado_shot",
-	"toxic_grenade",
-}
+-- Lua implementation of PHP scandir function. Scans for folders
+function scandir(directory)
+    local i, t, popen = 0, {}, io.popen
+    local pfile = popen('dir "'..directory..'" /b /ad')
+    for filename in pfile:lines() do
+        i = i + 1
+        t[i] = filename
+    end
+    pfile:close()
+    return t
+end
+local skillSpecificFolders = scandir(main.ggpk.oozPath.."Metadata/StatDescriptions/Specific_Skill_Stat_Descriptions")
 
-for _, name in ipairs(specificSkillDirectoryList) do
+for _, name in ipairs(skillSpecificFolders) do
 	local handle = NewFileSearch("ggpk/Metadata/StatDescriptions/Specific_Skill_Stat_Descriptions/"..name.."/*.csd")
 	while handle do
 		processStatFile("specific_skill_stat_descriptions/"..name.."/"..handle:GetFileName():gsub("%.csd", ""), true)

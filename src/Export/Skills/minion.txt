@@ -157,3 +157,24 @@ skills["MinionInstability"] = {
 		},
 	}
 }
+
+#addSkillTypes Melee MeleeSingleTarget Area
+#skill GAAnimateWeaponMaceSlam Mace Slam
+#set GAAnimateWeaponMaceSlam
+#flags attack melee area
+#mods
+#skillEnd
+
+#addSkillTypes Melee MeleeSingleTarget Area
+#skill DTTAnimateWeaponSpearDashStabImpact Spear Dash
+#set DTTAnimateWeaponSpearDashStabImpact
+#flags attack melee area
+#mods
+#skillEnd
+
+#addSkillTypes Melee MeleeSingleTarget Area
+#skill GAAnimateWeaponQuarterstaffSweep Quarterstaff Sweep
+#set GAAnimateWeaponQuarterstaffSweep
+#flags attack melee
+#mods
+#skillEnd

@@ -348,7 +348,7 @@ local function determineCursePriority(curseName, activeSkill)
 	elseif source ~= "" then
 		sourcePriority = data.cursePriority["CurseFromEquipment"]
 	end
-	if source ~= "" and slotPriority == data.cursePriority["Ring 2"] then
+	if source ~= "" and (slotPriority == data.cursePriority["Ring 2"] or slotPriority == data.cursePriority["Ring 3"]) then
 		-- Implicit and explicit curses from rings have equal priority; only curses from socketed skill gems care about which ring slot they're equipped in
 		slotPriority = data.cursePriority["Ring 1"]
 	end
@@ -498,6 +498,9 @@ local function doActorMisc(env, actor)
 		if modDB:Flag(nil, "Condition:CanBeWithered") then
 			local effect = 5 * (100 + modDB:Sum("INC", nil, "WitherEffectOnSelf")) / 100 * modDB:More(nil, "WitherEffectOnSelf")
 			modDB:NewMod("ChaosDamageTaken", "INC", effect, "Withered", { type = "Multiplier", var = "WitheredStack", limit = 10 } )
+		end
+		if enemyDB:Flag(nil, "Condition:ArmourFullyBroken") then
+			enemyDB:NewMod("PhysicalDamageTaken", "INC", 20, "Fully Broken Armour", ModFlag.Hit)
 		end
 		if modDB:Flag(nil, "Blind") and not modDB:Flag(nil, "CannotBeBlinded") then
 			if not modDB:Flag(nil, "IgnoreBlindHitChance") then
@@ -1066,7 +1069,7 @@ function calcs.perform(env, skipEHP)
 				end
 
 				local modCopy = copyTable(mod)
-				modCopy.source = "Many Sources:".. colorCodes.UNIQUE .. "Ingenuity " .. colorCodes.SOURCE .. tostring(ringsEffectMod * 100) .. "% Ring 1 Bonus Effect"
+				modCopy.source = "Many Sources:".. colorCodes.SOURCE .. tostring(ringsEffectMod * 100) .. "% Ring 1 Bonus Effect"
 				modDB:ScaleAddMod(modCopy, ringsEffectMod)
 
 				::skip_mod::
@@ -1088,8 +1091,50 @@ function calcs.perform(env, skipEHP)
 				end
 
 				local modCopy = copyTable(mod)
-				modCopy.source = "Many Sources:".. colorCodes.UNIQUE .. "Ingenuity " .. colorCodes.SOURCE .. tostring(ringsEffectMod * 100) .. "% Ring 2 Bonus Effect"
+				modCopy.source = "Many Sources:".. colorCodes.SOURCE .. tostring(ringsEffectMod * 100) .. "% Ring 2 Bonus Effect"
 				modDB:ScaleAddMod(modCopy, ringsEffectMod)
+
+				::skip_mod::
+			end
+		end
+		if env.player.itemList["Ring 3"] then
+			local slotName = "Ring 3"
+
+			if env.player.itemList["Ring 3"].name:match("Kalandra's Touch") and env.player.itemList["Ring 2"] and not env.player.itemList["Ring 2"].name:match("Kalandra's Touch") then
+				slotName = "Ring 2"
+			end
+
+			for _, mod in ipairs(env.player.itemList[slotName].modList or env.player.itemList[slotName].slotModList[1]) do
+				-- Filter out SocketedIn type mods
+				for _, tag in ipairs(mod) do
+					if tag.type == "SocketedIn" then
+						goto skip_mod
+					end
+				end
+
+				local modCopy = copyTable(mod)
+				modCopy.source = "Many Sources:".. colorCodes.SOURCE .. tostring(ringsEffectMod * 100) .. "% Ring 3 Bonus Effect"
+				modDB:ScaleAddMod(modCopy, ringsEffectMod)
+
+				::skip_mod::
+			end
+		end
+	end
+
+	local amuletsEffectMod = modDB:Sum("INC", nil, "EffectOfBonusesFromAmulets") / 100
+	if amuletsEffectMod > 0 then
+		if env.player.itemList["Amulet"] then
+			for _, mod in ipairs(env.player.itemList["Amulet"].modList or env.player.itemList["Amulet"].slotModList[1]) do
+				-- Filter out SocketedIn type mods
+				for _, tag in ipairs(mod) do
+					if tag.type == "SocketedIn" then
+						goto skip_mod
+					end
+				end
+
+				local modCopy = copyTable(mod)
+				modCopy.source = "Many Sources:".. colorCodes.SOURCE .. tostring(amuletsEffectMod * 100) .. "% Amulet Bonus Effect"
+				modDB:ScaleAddMod(modCopy, amuletsEffectMod)
 
 				::skip_mod::
 			end
