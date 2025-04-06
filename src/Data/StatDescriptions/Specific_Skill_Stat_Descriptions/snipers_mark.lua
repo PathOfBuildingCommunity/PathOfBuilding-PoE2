@@ -49,7 +49,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Critical Damage Bonus applied +{0}%"
+				text="Increased Critical Damage Bonus applied {0}%"
 			},
 			[2]={
 				limit={
@@ -58,7 +58,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Next Critical Hit against Marked Enemy has {0:+d}% to Critical Damage Bonus"
+				text="Next Critical Hit against Marked Enemy has {0}% increased Critical Damage Bonus"
 			}
 		},
 		stats={

@@ -59,6 +59,26 @@ return {
 		[1]={
 			[1]={
 				[1]={
+					k="negate",
+					v=1
+				},
+				limit={
+					[1]={
+						[1]="#",
+						[2]=-1
+					}
+				},
+				text="Curse Slows targets by {0}%"
+			}
+		},
+		stats={
+			[1]="base_skill_debuff_action_speed_+%_final_to_inflict"
+		}
+	},
+	[4]={
+		[1]={
+			[1]={
+				[1]={
 					k="milliseconds_to_seconds_2dp_if_required",
 					v=1
 				},
@@ -88,31 +108,18 @@ return {
 			[1]="base_skill_effect_duration"
 		}
 	},
-	[4]={
+	[5]={
 		[1]={
 			[1]={
-				[1]={
-					k="negate",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Effect expiry speed reduction inflicted {0}%"
-			},
-			[2]={
 				limit={
 					[1]={
 						[1]=1,
 						[2]="#"
 					}
 				},
-				text="Other effects on Cursed enemies expire {0}% faster"
+				text="Curse makes other effects on targets expire {0}% faster"
 			},
-			[3]={
+			[2]={
 				[1]={
 					k="negate",
 					v=1
@@ -123,31 +130,11 @@ return {
 						[2]=-1
 					}
 				},
-				text="Other effects on Cursed enemies expire {0}% slower"
+				text="Curse makes other effects on targets expire {0}% slower"
 			}
 		},
 		stats={
-			[1]="buff_time_passed_+%_other_than_temporal_chains"
-		}
-	},
-	[5]={
-		[1]={
-			[1]={
-				[1]={
-					k="milliseconds_to_seconds_2dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Curse duration {0}s"
-			}
-		},
-		stats={
-			[1]="skill_effect_duration"
+			[1]="base_temporal_chains_other_buff_time_passed_+%_to_apply"
 		}
 	},
 	[6]={
@@ -167,10 +154,30 @@ return {
 			}
 		},
 		stats={
-			[1]="temporal_chains_action_speed_+%_final_to_apply"
+			[1]="skill_curse_action_speed_+%_final_magnitude_to_inflict"
 		}
 	},
 	[7]={
+		[1]={
+			[1]={
+				[1]={
+					k="milliseconds_to_seconds_2dp_if_required",
+					v=1
+				},
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Curse duration {0}s"
+			}
+		},
+		stats={
+			[1]="skill_effect_duration"
+		}
+	},
+	[8]={
 		[1]={
 			[1]={
 				[1]={
@@ -180,22 +187,23 @@ return {
 				limit={
 					[1]={
 						[1]="#",
-						[2]=-1
+						[2]="#"
 					}
 				},
-				text="Cursed enemies are Slowed by {0}%"
+				text="Effect expiry speed reduction inflicted {0}%"
 			}
 		},
 		stats={
-			[1]="temporal_chains_base_action_speed_+%_final_to_apply"
+			[1]="temporal_chains_other_buff_time_passed_+%_magnitude_to_apply"
 		}
 	},
 	["active_skill_area_of_effect_radius"]=1,
 	["active_skill_base_area_of_effect_radius"]=2,
-	["base_skill_effect_duration"]=3,
-	["buff_time_passed_+%_other_than_temporal_chains"]=4,
+	["base_skill_debuff_action_speed_+%_final_to_inflict"]=3,
+	["base_skill_effect_duration"]=4,
+	["base_temporal_chains_other_buff_time_passed_+%_to_apply"]=5,
 	parent="skill_stat_descriptions",
-	["skill_effect_duration"]=5,
-	["temporal_chains_action_speed_+%_final_to_apply"]=6,
-	["temporal_chains_base_action_speed_+%_final_to_apply"]=7
+	["skill_curse_action_speed_+%_final_magnitude_to_inflict"]=6,
+	["skill_effect_duration"]=7,
+	["temporal_chains_other_buff_time_passed_+%_magnitude_to_apply"]=8
 }

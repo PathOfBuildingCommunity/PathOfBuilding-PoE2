@@ -90,6 +90,27 @@ return {
 				limit={
 					[1]={
 						[1]="#",
+						[2]=-1
+					},
+					[2]={
+						[1]=0,
+						[2]=0
+					}
+				},
+				text="Delay between missile accumulation is {0} seconds shorter"
+			},
+			[2]={
+				[1]={
+					k="milliseconds_to_seconds_2dp_if_required",
+					v=1
+				},
+				limit={
+					[1]={
+						[1]=1,
+						[2]="#"
+					},
+					[2]={
+						[1]="#",
 						[2]="#"
 					}
 				},
@@ -97,7 +118,8 @@ return {
 			}
 		},
 		stats={
-			[1]="freezing_salvo_seals_gain_base_interval_ms"
+			[1]="freezing_salvo_seals_gain_base_interval_ms",
+			[2]="quality_display_freezing_salvo_is_gem"
 		}
 	},
 	[5]={
@@ -125,5 +147,6 @@ return {
 	["freezing_salvo_maximum_number_of_seals"]=3,
 	["freezing_salvo_seals_gain_base_interval_ms"]=4,
 	["freezing_salvo_seals_gain_interval_ms"]=5,
-	parent="skill_stat_descriptions"
+	parent="skill_stat_descriptions",
+	["quality_display_freezing_salvo_is_gem"]=4
 }

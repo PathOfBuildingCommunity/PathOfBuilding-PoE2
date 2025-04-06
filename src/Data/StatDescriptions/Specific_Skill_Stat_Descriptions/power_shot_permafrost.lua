@@ -88,8 +88,57 @@ return {
 			[1]="base_skill_effect_duration"
 		}
 	},
+	[4]={
+		[1]={
+			[1]={
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					},
+					[2]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Ice Crystal maximum Life {0}"
+			},
+			[2]={
+				limit={
+					[1]={
+						[1]=1,
+						[2]="#"
+					},
+					[2]={
+						[1]=0,
+						[2]=0
+					}
+				},
+				text="Ice Crystals have {0} maximum Life"
+			},
+			[3]={
+				limit={
+					[1]={
+						[1]=1,
+						[2]="#"
+					},
+					[2]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Ice Crystal has {0} maximum Life"
+			}
+		},
+		stats={
+			[1]="frost_wall_maximum_life",
+			[2]="frozen_locus_crystal_display_stat"
+		}
+	},
 	["active_skill_area_of_effect_radius"]=1,
 	["active_skill_base_area_of_effect_radius"]=2,
 	["base_skill_effect_duration"]=3,
+	["frost_wall_maximum_life"]=4,
+	["frozen_locus_crystal_display_stat"]=4,
 	parent="skill_stat_descriptions"
 }

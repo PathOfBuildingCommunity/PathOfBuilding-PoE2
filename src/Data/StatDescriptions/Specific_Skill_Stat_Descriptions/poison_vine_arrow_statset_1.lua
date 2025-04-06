@@ -139,11 +139,28 @@ return {
 					[1]={
 						[1]="#",
 						[2]="#"
+					},
+					[2]={
+						[1]=1,
+						[2]="#"
 					}
 				},
 				text="Incoming Poison stored {0}%"
 			},
 			[2]={
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					},
+					[2]={
+						[1]=0,
+						[2]=0
+					}
+				},
+				text="Plant deals additional Chaos Damage per second equal to {0}% of Poison Damage per second"
+			},
+			[3]={
 				[1]={
 					k="multiplicative_damage_modifier",
 					v=1
@@ -152,13 +169,18 @@ return {
 					[1]={
 						[1]="#",
 						[2]="#"
+					},
+					[2]={
+						[1]=1,
+						[2]="#"
 					}
 				},
 				text="Poisoning the plant causes it to deal additional Chaos Damage per second equal to {0}% of Poison Damage per second"
 			}
 		},
 		stats={
-			[1]="poison_vine_arrow_vine_stored_poison_damage_+%_final"
+			[1]="poison_vine_arrow_vine_stored_poison_damage_+%_final",
+			[2]="display_statset_hide_usage_stats"
 		}
 	},
 	[7]={
@@ -186,6 +208,7 @@ return {
 	["active_skill_base_slow_debuff_movement_speed_+%_final"]=3,
 	["active_skill_slow_debuff_movement_speed_+%_final"]=4,
 	["base_skill_effect_duration"]=5,
+	["display_statset_hide_usage_stats"]=6,
 	parent="skill_stat_descriptions",
 	["poison_vine_arrow_vine_stored_poison_damage_+%_final"]=6,
 	["skill_effect_duration"]=7

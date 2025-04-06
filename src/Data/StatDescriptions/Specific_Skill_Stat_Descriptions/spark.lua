@@ -55,7 +55,54 @@ return {
 			[1]="skill_effect_duration"
 		}
 	},
+	[3]={
+		[1]={
+			[1]={
+				[1]={
+					k="milliseconds_to_seconds_2dp_if_required",
+					v=1
+				},
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Target re-Hit interval  {0}s"
+			},
+			[2]={
+				[1]={
+					k="milliseconds_to_seconds_2dp_if_required",
+					v=1
+				},
+				limit={
+					[1]={
+						[1]=1000,
+						[2]=1000
+					}
+				},
+				text="Projectiles fired at the same time can Hit the same\ntarget no more than once per second"
+			},
+			[3]={
+				[1]={
+					k="milliseconds_to_seconds_2dp_if_required",
+					v=1
+				},
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Projectiles fired at the same time can Hit the same\ntarget no more than once every {0} seconds"
+			}
+		},
+		stats={
+			[1]="spark_min_time_between_target_clearing_ms"
+		}
+	},
 	["base_skill_effect_duration"]=1,
 	parent="skill_stat_descriptions",
-	["skill_effect_duration"]=2
+	["skill_effect_duration"]=2,
+	["spark_min_time_between_target_clearing_ms"]=3
 }

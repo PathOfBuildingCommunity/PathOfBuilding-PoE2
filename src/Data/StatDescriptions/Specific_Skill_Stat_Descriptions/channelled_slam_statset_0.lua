@@ -105,6 +105,10 @@ return {
 					[1]={
 						[1]="#",
 						[2]="#"
+					},
+					[2]={
+						[1]="#",
+						[2]="#"
 					}
 				},
 				text="Maximum Stages {0}"
@@ -112,6 +116,36 @@ return {
 			[2]={
 				limit={
 					[1]={
+						[1]=1,
+						[2]=1
+					},
+					[2]={
+						[1]=0,
+						[2]=0
+					}
+				},
+				text="{0:+d} maximum Stage"
+			},
+			[3]={
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					},
+					[2]={
+						[1]=0,
+						[2]=0
+					}
+				},
+				text="{0:+d} maximum Stages"
+			},
+			[4]={
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					},
+					[2]={
 						[1]="#",
 						[2]="#"
 					}
@@ -120,7 +154,8 @@ return {
 			}
 		},
 		stats={
-			[1]="channelled_slam_max_stages"
+			[1]="channelled_slam_max_stages",
+			[2]="quality_display_supercharged_slam_is_gem"
 		}
 	},
 	["active_skill_area_of_effect_radius"]=2,
@@ -128,5 +163,6 @@ return {
 	["base_skill_effect_duration"]=1,
 	["channelled_slam_damage_+%_final_per_stage"]=4,
 	["channelled_slam_max_stages"]=5,
-	parent="skill_stat_descriptions"
+	parent="skill_stat_descriptions",
+	["quality_display_supercharged_slam_is_gem"]=5
 }

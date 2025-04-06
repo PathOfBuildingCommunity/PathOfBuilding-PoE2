@@ -69,6 +69,34 @@ itemBases["Gold Amulet"] = {
 	type = "Amulet",
 	tags = { amulet = true, default = true, },
 	implicit = "(12-20)% increased Rarity of Items found",
-	implicitModTypes = { {  }, },
+	implicitModTypes = { { "drop" }, },
 	req = { level = 35, },
+}
+itemBases["Dusk Amulet"] = {
+	type = "Amulet",
+	tags = { amulet = true, default = true, },
+	implicit = "+1 Prefix Modifier allowed\n-1 Suffix Modifier allowed",
+	implicitModTypes = { {  }, {  }, },
+	req = { },
+}
+itemBases["Gloam Amulet"] = {
+	type = "Amulet",
+	tags = { amulet = true, default = true, },
+	implicit = "-1 Prefix Modifier allowed\n+1 Suffix Modifier allowed",
+	implicitModTypes = { {  }, {  }, },
+	req = { },
+}
+itemBases["Penumbra Amulet"] = {
+	type = "Amulet",
+	tags = { amulet = true, default = true, },
+	implicit = "+2 Prefix Modifiers allowed\n-2 Suffix Modifiers allowed",
+	implicitModTypes = { {  }, {  }, },
+	req = { },
+}
+itemBases["Tenebrous Amulet"] = {
+	type = "Amulet",
+	tags = { amulet = true, default = true, },
+	implicit = "-2 Prefix Modifiers allowed\n+2 Suffix Modifiers allowed",
+	implicitModTypes = { {  }, {  }, },
+	req = { },
 }

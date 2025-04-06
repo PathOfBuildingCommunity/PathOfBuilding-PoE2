@@ -158,7 +158,7 @@ return {
 			}
 		},
 		stats={
-			[1]="skill_ground_effect_duration"
+			[1]="skill_chilled_ground_effect_duration_ms"
 		}
 	},
 	["active_skill_area_of_effect_radius"]=1,
@@ -167,5 +167,5 @@ return {
 	["active_skill_secondary_area_of_effect_radius"]=4,
 	["base_skill_effect_duration"]=5,
 	parent="skill_stat_descriptions",
-	["skill_ground_effect_duration"]=6
+	["skill_chilled_ground_effect_duration_ms"]=6
 }

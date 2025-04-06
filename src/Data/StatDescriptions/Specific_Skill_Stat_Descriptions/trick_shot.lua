@@ -8,6 +8,11 @@ return {
 		}
 	},
 	[2]={
+		stats={
+			[1]="base_consume_enemy_shock_on_hit"
+		}
+	},
+	[3]={
 		[1]={
 			[1]={
 				[1]={
@@ -27,7 +32,7 @@ return {
 			[1]="active_skill_area_of_effect_radius"
 		}
 	},
-	[3]={
+	[4]={
 		[1]={
 			[1]={
 				[1]={
@@ -60,22 +65,6 @@ return {
 			[1]="active_skill_base_area_of_effect_radius"
 		}
 	},
-	[4]={
-		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Arrows always Pierce while flying towards a Shocked enemy"
-			}
-		},
-		stats={
-			[1]="always_pierce_non_shocked_enemies_if_targeting_shocked_enemy"
-		}
-	},
 	[5]={
 		[1]={
 			[1]={
@@ -101,9 +90,9 @@ return {
 			[1]="number_of_chains"
 		}
 	},
-	["active_skill_area_of_effect_radius"]=2,
-	["active_skill_base_area_of_effect_radius"]=3,
-	["always_pierce_non_shocked_enemies_if_targeting_shocked_enemy"]=4,
+	["active_skill_area_of_effect_radius"]=3,
+	["active_skill_base_area_of_effect_radius"]=4,
+	["base_consume_enemy_shock_on_hit"]=2,
 	["never_shock"]=1,
 	["number_of_chains"]=5,
 	parent="skill_stat_descriptions"

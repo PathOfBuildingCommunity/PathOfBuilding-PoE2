@@ -229,12 +229,14 @@ function buildMode:Init(dbFileName, buildName, buildXML, convertBuild, importLin
 				self.spec:AddUndoState()
 				self.spec:SetWindowTitleWithBuildClass()
 				self.buildFlag = true
+				self.treeTab.viewer.searchNeedsForceUpdate = true
 			else
 				main:OpenConfirmPopup("Class Change", "Changing class to "..value.label.." will reset your passive tree.\nThis can be avoided by connecting one of the "..value.label.." starting nodes to your tree.", "Continue", function()
 					self.spec:SelectClass(value.classId)
 					self.spec:AddUndoState()
 					self.spec:SetWindowTitleWithBuildClass()
-					self.buildFlag = true					
+					self.buildFlag = true
+					self.treeTab.viewer.searchNeedsForceUpdate = true
 				end)
 			end
 		end
@@ -787,7 +789,8 @@ function buildMode:SyncLoadouts()
 
 	-- Try to select loadout in dropdown based on currently selected tree
 	if self.treeTab then
-		local treeName = self.treeTab.specList[self.treeTab.activeSpec].title or "Default"
+		local spec = self.treeTab.specList[self.treeTab.activeSpec]
+		local treeName = spec and spec.title or "Default"
 		for i, loadout in ipairs(filteredList) do
 			if loadout == treeName then
 				local linkMatch = string.match(treeName, "%{(%w+)%}") or treeName

@@ -6,7 +6,7 @@ itemBases["Golden Obi"] = {
 	type = "Belt",
 	tags = { demigods = true, not_for_sale = true, default = true, belt = true, },
 	implicit = "(20-30)% increased Rarity of Items found",
-	implicitModTypes = { {  }, },
+	implicitModTypes = { { "drop" }, },
 	req = { },
 }
 itemBases["Rawhide Belt"] = {

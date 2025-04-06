@@ -2,4 +2,16 @@
 local itemBases = ...
 
 #type Sceptre
-#baseMatch BaseType Metadata/Items/Sceptres/AbstractSceptre
+#baseMatch Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre%d+
+
+#forceHide true
+#baseMatch Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre6a
+#baseMatch Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre6b
+#baseMatch Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre6c
+#forceHide false
+
+#forceShow true
+#base Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre6a Shrine Sceptre (Purity of Fire)
+#base Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre6b Shrine Sceptre (Purity of Cold)
+#base Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre6c Shrine Sceptre (Purity of Lighting)
+#forceShow false

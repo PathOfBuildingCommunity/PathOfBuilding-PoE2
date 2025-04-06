@@ -60,8 +60,38 @@ return {
 			[1]="active_skill_base_area_of_effect_radius"
 		}
 	},
+	[4]={
+		[1]={
+			[1]={
+				limit={
+					[1]={
+						[1]=1000,
+						[2]=1000
+					}
+				},
+				text="Shockwave can be triggered once every second"
+			},
+			[2]={
+				[1]={
+					k="milliseconds_to_seconds_2dp_if_required",
+					v=1
+				},
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Shockwave can be triggered once every {0} seconds"
+			}
+		},
+		stats={
+			[1]="tempest_bell_shockwave_cooldown_ms"
+		}
+	},
 	["active_skill_area_of_effect_radius"]=2,
 	["active_skill_base_area_of_effect_radius"]=3,
 	parent="specific_skill_stat_descriptions/tempest_bell_statset_0",
-	["tempest_bell_hit_limit"]=1
+	["tempest_bell_hit_limit"]=1,
+	["tempest_bell_shockwave_cooldown_ms"]=4
 }

@@ -9,6 +9,16 @@ local skills, mod, flag, skill = ...
 #mods
 #skillEnd
 
+#skill SupportAncestralAidPlayer
+#set SupportAncestralAidPlayer
+#mods
+#skillEnd
+
+#skill SupportAncestralCallPlayer
+#set SupportAncestralCallPlayer
+#mods
+#skillEnd
+
 #skill SupportAncestralUrgencyPlayer
 #set SupportAncestralUrgencyPlayer
 #mods
@@ -23,8 +33,25 @@ local skills, mod, flag, skill = ...
 #mods
 #skillEnd
 
+#skill SupportArmsLengthPlayer
+#set SupportArmsLengthPlayer
+#mods
+#skillEnd
+
 #skill SupportAutoReloadPlayer
 #set SupportAutoReloadPlayer
+#mods
+#skillEnd
+
+#skill SupportBarbsPlayer
+#set SupportBarbsPlayer
+#mods
+#skillEnd
+
+#skill SupportBattershoutPlayer
+#set SupportBattershoutPlayer
+#mods
+#set TriggeredBattershoutExplosionPlayer
 #mods
 #skillEnd
 
@@ -53,6 +80,11 @@ statMap = {
 #mods
 #skillEnd
 
+#skill SupportBrinkPlayer
+#set SupportBrinkPlayer
+#mods
+#skillEnd
+
 #skill SupportBrutalityPlayer
 #set SupportBrutalityPlayer
 statMap = {
@@ -70,6 +102,21 @@ statMap = {
 		mod("LifeOnKill", "BASE", nil, 0, 0, { type = "PercentStat", stat = "Life", percent = 1 }, { type = "GlobalEffect", effectType = "Buff", effectName = "Cannibalism" }),
 	},
 },
+#mods
+#skillEnd
+
+#skill SupportClashPlayer
+#set SupportClashPlayer
+#mods
+#skillEnd
+
+#skill SupportConcoctPlayer
+#set SupportConcoctPlayer
+#mods
+#skillEnd
+
+#skill SupportCoolheadedPlayer
+#set SupportCoolheadedPlayer
 #mods
 #skillEnd
 
@@ -101,6 +148,11 @@ statMap = {
 #mods
 #skillEnd
 
+#skill SupportDauntlessPlayer
+#set SupportDauntlessPlayer
+#mods
+#skillEnd
+
 #skill SupportDazingCryPlayer
 #set SupportDazingCryPlayer
 #mods
@@ -119,6 +171,11 @@ statMap = {
 #mods
 #skillEnd
 
+#skill SupportDefyPlayer
+#set SupportDefyPlayer
+#mods
+#skillEnd
+
 #skill SupportIncreasedArmourBreakPlayer
 #set SupportIncreasedArmourBreakPlayer
 statMap = {
@@ -126,6 +183,11 @@ statMap = {
 		mod("ArmourBreakEffect", "MORE", nil),
 	},
 },
+#mods
+#skillEnd
+
+#skill SupportDesperationPlayer
+#set SupportDesperationPlayer
 #mods
 #skillEnd
 
@@ -141,6 +203,16 @@ statMap = {
 		flag("Condition:CanArmourBreak", { type = "GlobalEffect", effectType = "Buff", effectName = "ArmourBreak" } ),
 	},
 },
+#mods
+#skillEnd
+
+#skill SupportDirestrikePlayer
+#set SupportDirestrikePlayer
+#mods
+#skillEnd
+
+#skill SupportDomainPlayer
+#set SupportDomainPlayer
 #mods
 #skillEnd
 
@@ -183,6 +255,11 @@ statMap = {
 #mods
 #skillEnd
 
+#skill SupportExpeditePlayer
+#set SupportExpeditePlayer
+#mods
+#skillEnd
+
 #skill SupportExploitWeaknessPlayer
 #set SupportExploitWeaknessPlayer
 statMap = {
@@ -200,6 +277,11 @@ statMap = {
 		mod("Duration", "MORE", nil),
 	},
 },
+#mods
+#skillEnd
+
+#skill SupportFigureheadPlayer
+#set SupportFigureheadPlayer
 #mods
 #skillEnd
 
@@ -229,6 +311,11 @@ statMap = {
 #mods
 #skillEnd
 
+#skill SupportFirstBloodPlayer
+#set SupportFirstBloodPlayer
+#mods
+#skillEnd
+
 #skill FistOfWarSupportPlayer
 #set FistOfWarSupportPlayer
 statMap = {
@@ -239,6 +326,11 @@ statMap = {
 },
 #baseMod mod("FistOfWarDamageMultiplier", "BASE", 20)
 #baseMod mod("FistOfWarMOREAoE", "BASE", 20)
+#mods
+#skillEnd
+
+#skill SupportFlamepiercePlayer
+#set SupportFlamepiercePlayer
 #mods
 #skillEnd
 
@@ -274,6 +366,18 @@ statMap = {
 #mods
 #skillEnd
 
+#skill SupportGreatwoodPlayer
+#set SupportGreatwoodPlayer
+#mods
+#skillEnd
+
+#skill SupportHaemocrystalsPlayer
+#set SupportHaemocrystalsPlayer
+#mods
+#set SupportHaemocrystalsPlayer
+#mods
+#skillEnd
+
 #skill SupportMeleePhysicalDamagePlayer
 #set SupportMeleePhysicalDamagePlayer
 statMap = {
@@ -290,7 +394,7 @@ statMap = {
 #skill SupportHeftPlayer
 #set SupportHeftPlayer
 statMap = {
-	["support_maximum_physical_hit_damage_+%_final"] = {
+	["support_heft_maximum_physical_damage_+%_final"] = {
 		mod("MaxPhysicalDamage", "MORE", nil, ModFlag.Hit),
 	},
 },
@@ -340,6 +444,11 @@ statMap = {
 #mods
 #skillEnd
 
+#skill SupportIncisionPlayer
+#set SupportIncisionPlayer
+#mods
+#skillEnd
+
 #skill SupportInfernalLegionPlayer
 #set SupportInfernalLegionPlayer
 statMap = {
@@ -363,6 +472,11 @@ statMap = {
 		mod("Cost", "MORE", nil),
 	},
 },
+#mods
+#skillEnd
+
+#skill SupportInterludePlayer
+#set SupportInterludePlayer
 #mods
 #skillEnd
 
@@ -399,8 +513,8 @@ statMap = {
 #skill SupportMeatShieldPlayer
 #set SupportMeatShieldPlayer
 statMap = {
-	["support_minion_maximum_life_+%_final"] = {
-		mod("MinionModifier", "LIST", { mod = mod("Life", "MORE", nil) }),
+	["support_minion_defensive_stance_minion_damage_taken_+%_final"] = {
+		mod("MinionModifier", "LIST", { mod = mod("DamageTaken", "MORE", nil) }),
 	},
 	["support_meat_shield_minion_damage_+%_final"] = {
 		mod("MinionModifier", "LIST", { mod = mod("Damage", "MORE", nil) }),
@@ -449,6 +563,13 @@ statMap = {
 #mods
 #skillEnd
 
+#skill SupportQuillburstPlayer
+#set SupportQuillburstPlayer
+#mods
+#set TriggeredQuillburstPlayer
+#mods
+#skillEnd
+
 #skill SupportRagePlayer
 #set SupportRagePlayer
 #mods
@@ -464,8 +585,38 @@ statMap = {
 #mods
 #skillEnd
 
+#skill SupportRallyPlayer
+#set SupportRallyPlayer
+#mods
+#skillEnd
+
+#skill SupportRefractionPlayer
+#set SupportRefractionPlayer
+#mods
+#skillEnd
+
+#skill SupportRetaliatePlayer
+#set SupportRetaliatePlayer
+#mods
+#skillEnd
+
+#skill SupportReveberatePlayer
+#set SupportReveberatePlayer
+#mods
+#skillEnd
+
+#skill SupportRipPlayer
+#set SupportRipPlayer
+#mods
+#skillEnd
+
 #skill SupportRupturePlayer
 #set SupportRupturePlayer
+#mods
+#skillEnd
+
+#skill SupportRustedSpikesPlayer
+#set SupportRustedSpikesPlayer
 #mods
 #skillEnd
 
@@ -487,8 +638,23 @@ statMap = {
 #mods
 #skillEnd
 
+#skill SupportSeeRedPlayer
+#set SupportSeeRedPlayer
+#mods
+#skillEnd
+
+#skill SupportSparPlayer
+#set SupportSparPlayer
+#mods
+#skillEnd
+
 #skill SupportArmourBreakPlayer
 #set SupportArmourBreakPlayer
+#mods
+#skillEnd
+
+#skill SupportSteadfastPlayer
+#set SupportSteadfastPlayer
 #mods
 #skillEnd
 
@@ -498,11 +664,45 @@ statMap = {
 #skillEnd
 #skill StompingGroundShockwavePlayer
 #set StompingGroundShockwavePlayer
+#flags attack area
+statMap = {
+	["attack_minimum_added_physical_damage_as_%_of_strength"] = {
+		skill("PhysicalMin", nil, { type = "PercentStat", stat = "Str", percent = 1 }),
+	},
+	["attack_maximum_added_physical_damage_as_%_of_strength"] = {
+		skill("PhysicalMax", nil, { type = "PercentStat", stat = "Str", percent = 1 }),
+	},
+},
+#mods
+#skillEnd
+
+#skill SupportSyzygyPlayer
+#set SupportSyzygyPlayer
+#mods
+#skillEnd
+
+#skill SupportTearPlayer
+#set SupportTearPlayer
+#mods
+#skillEnd
+
+#skill SupportThornskinPlayer
+#set SupportThornskinPlayer
+#mods
+#skillEnd
+
+#skill SupportTirelessPlayer
+#set SupportTirelessPlayer
 #mods
 #skillEnd
 
 #skill SupportTremorsPlayer
 #set SupportTremorsPlayer
+#mods
+#skillEnd
+
+#skill SupportUnabatingPlayer
+#set SupportUnabatingPlayer
 #mods
 #skillEnd
 
@@ -513,6 +713,21 @@ statMap = {
 		mod("StunThreshold", "MORE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", unscalable = true }),
 	},
 },
+#mods
+#skillEnd
+
+#skill SupportUnderminePlayer
+#set SupportUnderminePlayer
+#mods
+#skillEnd
+
+#skill SupportUnsteadyTempoPlayer
+#set SupportUnsteadyTempoPlayer
+#mods
+#skillEnd
+
+#skill SupportUnyieldingPlayer
+#set SupportUnyieldingPlayer
 #mods
 #skillEnd
 
@@ -537,5 +752,12 @@ statMap = {
 		div = 60,
 	},
 },
+#mods
+#skillEnd
+
+#skill SupportVolcanicEruptionPlayer
+#set SupportVolcanicEruptionPlayer
+#mods
+#set TriggeredVolcanicEruptionPlayer
 #mods
 #skillEnd

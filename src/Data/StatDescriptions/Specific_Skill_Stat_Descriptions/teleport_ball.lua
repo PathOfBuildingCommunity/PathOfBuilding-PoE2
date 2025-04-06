@@ -85,7 +85,7 @@ return {
 			}
 		},
 		stats={
-			[1]="lightning_warp_shocked_ground_base_duration_ms"
+			[1]="base_secondary_skill_effect_duration"
 		}
 	},
 	[4]={
@@ -105,12 +105,12 @@ return {
 			}
 		},
 		stats={
-			[1]="lightning_warp_shocked_ground_duration_ms"
+			[1]="secondary_skill_shocked_ground_effect_duration_ms"
 		}
 	},
 	["active_skill_area_of_effect_radius"]=1,
 	["active_skill_base_area_of_effect_radius"]=2,
-	["lightning_warp_shocked_ground_base_duration_ms"]=3,
-	["lightning_warp_shocked_ground_duration_ms"]=4,
-	parent="skill_stat_descriptions"
+	["base_secondary_skill_effect_duration"]=3,
+	parent="skill_stat_descriptions",
+	["secondary_skill_shocked_ground_effect_duration_ms"]=4
 }

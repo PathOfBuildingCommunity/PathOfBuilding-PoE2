@@ -139,6 +139,9 @@ return {
 ["base_skill_show_average_damage_instead_of_dps"] = {
 	skill("showAverage", true),
 },
+["skill_requires_X_ultimate_charge"] = {
+	skill("showAverage", true),
+},
 ["cast_time_overrides_attack_duration"] = {
 	skill("castTimeOverridesAttackTime", true),
 },
@@ -310,7 +313,9 @@ return {
 ["skill_cannot_gain_repeat_bonuses"] = {
 	flag("NoRepeatBonuses"),
 },
-
+["hazard_rearm_%_chance"] = {
+	mod("DPS", "INC", nil),
+},
 --
 -- Defensive modifiers
 --
@@ -365,7 +370,7 @@ return {
 	mod("ManaRegen", "BASE", nil),
 	div = 60,
 },
-["energy_shield_recharge_rate_+%"] = {
+["base_skill_buff_energy_shield_recharge_rate_+%_to_apply"] = {
 	mod("EnergyShieldRecharge", "INC", nil),
 },
 ["base_mana_cost_-%"] = {
@@ -625,21 +630,6 @@ return {
 ["critical_strike_multiplier_+_if_dexterity_higher_than_intelligence"] = {
 	skill("CritMultiplier", nil, { type = "Condition", var = "DexHigherThanInt" }),
 },
-["damage_+%_per_endurance_charge"] = {
-	mod("Damage", "INC", nil, 0, 0, { type = "Multiplier", var = "EnduranceCharge" }),
-},
-["active_skill_attack_damage_+%_final_per_endurance_charge"] = {
-	mod("Damage", "MORE", nil, ModFlag.Attack, 0, { type = "Multiplier", var = "EnduranceCharge" }),
-},
-["attack_damage_+%_per_450_physical_damage_reduction_rating"] = {
-	mod("Damage", "INC", nil, ModFlag.Attack, 0, { type = "PerStat", stat = "Armour", div = 450 }),
-},
-["attack_damage_+%_per_450_evasion"] = {
-	mod("Damage", "INC", nil, ModFlag.Attack, 0, { type = "PerStat", stat = "Evasion", div = 450 }),
-},
-["damage_+%_per_frenzy_charge"] = {
-	mod("Damage", "INC", nil, 0, 0, { type = "Multiplier", var = "FrenzyCharge" }),
-},
 ["additional_critical_strike_chance_permyriad_while_affected_by_elusive"] = {
 	mod("CritChance", "BASE", nil, 0, 0, { type = "Condition", var = "Elusive" }, { type = "Condition", varList = { "UsingClaw", "UsingDagger"} }, { type = "Condition", varList = { "UsingSword", "UsingAxe", "UsingMace" }, neg = true} ),
 	div = 100,
@@ -791,6 +781,24 @@ return {
 ["active_skill_damage_+%_final_vs_chilled_enemies"] = {
 	mod("Damage", "MORE", nil, ModFlag.Hit, 0, { type = "ActorCondition", actor = "enemy", var = "Chilled" }),
 },
+["damage_+%_per_endurance_charge"] = {
+	mod("Damage", "INC", nil, 0, 0, { type = "Multiplier", var = "EnduranceCharge" }),
+},
+["active_skill_attack_damage_+%_final_per_endurance_charge"] = {
+	mod("Damage", "MORE", nil, ModFlag.Attack, 0, { type = "Multiplier", var = "EnduranceCharge" }),
+},
+["attack_damage_+%_per_450_physical_damage_reduction_rating"] = {
+	mod("Damage", "INC", nil, ModFlag.Attack, 0, { type = "PerStat", stat = "Armour", div = 450 }),
+},
+["attack_damage_+%_per_450_evasion"] = {
+	mod("Damage", "INC", nil, ModFlag.Attack, 0, { type = "PerStat", stat = "Evasion", div = 450 }),
+},
+["damage_+%_per_frenzy_charge"] = {
+	mod("Damage", "INC", nil, 0, 0, { type = "Multiplier", var = "FrenzyCharge" }),
+},
+["active_skill_damage_+%_final_vs_immobilised_enemies"] = {
+	mod("Damage", "MORE", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "Immobilised" }),
+},
 ["base_reduce_enemy_fire_resistance_%"] = {
 	mod("FirePenetration", "BASE", nil),
 },
@@ -902,6 +910,9 @@ return {
 	flag("SpellDamageAppliesToAttacks"),
 	mod("ImprovedSpellDamageAppliesToAttacks", "MAX", nil),
 },
+["additive_thorns_damage_modifiers_apply_to_attack_damage"] = {
+	flag("ThornsDamageAppliesToHits"),
+},
 ["active_skill_main_hand_weapon_damage_+%_final"] = {
 	mod("Damage", "MORE", nil, 0, 0, { type = "Condition", var = "MainHandAttack" }),
 },
@@ -919,6 +930,9 @@ return {
 -- Conversion
 ["physical_damage_%_to_add_as_lightning"] = {
 	mod("PhysicalDamageGainAsLightning", "BASE", nil),
+},
+["active_skill_base_physical_damage_%_to_gain_as_cold"] = {
+	mod("SkillPhysicalDamageGainAsCold", "BASE", nil),
 },
 ["physical_damage_%_to_add_as_cold"] = {
 	mod("PhysicalDamageGainAsCold", "BASE", nil),
@@ -1048,6 +1062,9 @@ return {
 	mod("PhysicalDamageConvertToRandom", "BASE", nil)
 },
 -- Ailments
+["skill_overwhelming_pressure_aura_enemy_ailment_threshold_+%"] = {
+	mod("AilmentThreshold", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Debuff", effectName = "Overwhelming Presence"}),
+},
 ["bleed_on_hit_with_attacks_%"] = {
 	mod("BleedChance", "BASE", nil, ModFlag.Attack),
 },
@@ -1244,6 +1261,9 @@ return {
 },
 ["active_skill_bleeding_damage_+%_final"] = {
 	mod("Damage", "MORE", nil, 0, KeywordFlag.Bleed),
+},
+["active_skill_bleeding_effect_+%_final"] = {
+	mod("AilmentMagnitude", "MORE", nil, 0, KeywordFlag.Bleed),
 },
 ["active_skill_bleeding_damage_+%_final_in_blood_stance"] = {
 	mod("Damage", "MORE", nil, 0, KeywordFlag.Bleed, { type = "Condition", var = "BloodStance" }),
@@ -1476,6 +1496,12 @@ return {
 ["support_pierce_projectile_damage_+%_final_if_pierced_enemy"] = {
 	mod("Damage", "MORE", nil, ModFlag.Projectile, 0, { type = "StatThreshold", stat = "PiercedCount", threshold = 1 }),
 },
+["projectiles_cannot_fork"] = {
+	flag("CannotFork"),
+},
+["base_projectiles_cannot_chain"] = {
+	flag("CannotChain"),
+},
 ["projectile_behaviour_only_explode"] = {
 	flag("CannotSplit"),
 },
@@ -1513,9 +1539,6 @@ return {
 },
 ["number_of_additional_projectiles"] = {
 	mod("ProjectileCount", "BASE", nil),
-},
-["base_projectiles_cannot_chain"] = {
-	flag("BaseProjectilesCannotChain"),
 },
 ["projectile_damage_+%_per_remaining_chain"] = {
 	mod("Damage", "INC", nil, ModFlag.Projectile, 0, { type = "PerStat", stat = "ChainRemaining" }),
@@ -1727,6 +1750,12 @@ return {
 ["attack_maximum_added_physical_damage_with_weapons"] = {
 	mod("PhysicalMax", "BASE", nil, ModFlag.Weapon, KeywordFlag.Attack),
 },
+["main_hand_weapon_minimum_physical_damage"] = {
+	mod("PhysicalMin", "BASE", nil, 0, KeywordFlag.Attack),
+},
+["main_hand_weapon_maximum_physical_damage"] = {
+	mod("PhysicalMax", "BASE", nil, 0, KeywordFlag.Attack),
+},
 ["attack_minimum_added_lightning_damage"] = {
 	mod("LightningMin", "BASE", nil, 0, KeywordFlag.Attack),
 },
@@ -1747,6 +1776,12 @@ return {
 	mod("FireMin", "BASE", nil, 0, KeywordFlag.Attack),
 },
 ["attack_maximum_added_fire_damage"] = {
+	mod("FireMax", "BASE", nil, 0, KeywordFlag.Attack),
+},
+["main_hand_weapon_minimum_fire_damage"] = {
+	mod("FireMin", "BASE", nil, 0, KeywordFlag.Attack),
+},
+["main_hand_weapon_maximum_fire_damage"] = {
 	mod("FireMax", "BASE", nil, 0, KeywordFlag.Attack),
 },
 ["attack_minimum_added_chaos_damage"] = {
@@ -1793,6 +1828,12 @@ return {
 ["off_hand_maximum_added_physical_damage_per_15_shield_armour_and_evasion_rating"] = {
 	mod("PhysicalMax", "BASE", nil, 0, 0, { type = "Condition", var = "OffHandAttack" }, { type = "PerStat", statList = { "ArmourOnWeapon 2", "EvasionOnWeapon 2" }, div = 15, }),
 },
+["off_hand_minimum_added_physical_damage_per_5_shield_evasion_rating"] = {
+	mod("PhysicalMin", "BASE", nil, 0, 0, { type = "Condition", var = "OffHandAttack" }, { type = "PerStat", stat = "EvasionOnWeapon 2", div = 5, }),
+},
+["off_hand_maximum_added_physical_damage_per_5_shield_evasion_rating"] = {
+	mod("PhysicalMax", "BASE", nil, 0, 0, { type = "Condition", var = "OffHandAttack" }, { type = "PerStat", stat = "EvasionOnWeapon 2", div = 5, }),
+},
 ["off_hand_minimum_added_cold_damage_per_15_shield_evasion"] = {
 	mod("ColdMin", "BASE", nil, 0, 0, { type = "Condition", var = "OffHandAttack" }, { type = "PerStat", stat = "EvasionOnWeapon 2", div = 15 }),
 },
@@ -1811,11 +1852,17 @@ return {
 ["off_hand_maximum_added_physical_damage_per_15_shield_armour"] = {
 	mod("PhysicalMax", "BASE", nil, 0, 0, { type = "Condition", var = "OffHandAttack" }, { type = "PerStat", stat = "ArmourOnWeapon 2", div = 15 }),
 },
+["off_hand_minimum_added_physical_damage_per_5_shield_armour"] = {
+	mod("PhysicalMin", "BASE", nil, 0, 0, { type = "Condition", var = "OffHandAttack" }, { type = "PerStat", stat = "ArmourOnWeapon 2", div = 5 }),
+},
+["off_hand_maximum_added_physical_damage_per_5_shield_armour"] = {
+	mod("PhysicalMax", "BASE", nil, 0, 0, { type = "Condition", var = "OffHandAttack" }, { type = "PerStat", stat = "ArmourOnWeapon 2", div = 5 }),
+},
 ["additional_critical_strike_chance_per_10_shield_maximum_energy_shield_permyriad"] = {
 	mod("CritChance", "BASE", nil, 0, 0, { type = "PerStat", stat = "EnergyShieldOnWeapon 2", div = 10, }),
 	div = 100,
 },
-["added_attack_time_ms"] = {
+["total_attack_time_+_ms"] = {
 	mod("TotalAttackTime", "BASE", nil),
 	div = 1000,
 },
@@ -1841,7 +1888,7 @@ return {
 ["base_cast_speed_+%"] = {
 	mod("Speed", "INC", nil, ModFlag.Cast),
 },
-["added_cast_time_ms"] = {
+["total_cast_time_+_ms"] = {
 	mod("TotalCastTime", "BASE", nil),
 	div = 1000,
 },
@@ -2026,6 +2073,9 @@ return {
 ["minion_critical_strike_multiplier_+"] = {
 	mod("MinionModifier", "LIST", { mod = mod("CritMultiplier", "BASE", nil) }),
 },
+["minion_accuracy_rating_+%"] = {
+	mod("MinionModifier", "LIST", { mod = mod("Accuracy", "INC", nil) }),
+},
 ["minion_maximum_life_+%"] = {
 	mod("MinionModifier", "LIST", { mod = mod("Life", "INC", nil) }),
 },
@@ -2077,6 +2127,14 @@ return {
 },
 ["minion_block_%"] = {
 	mod("MinionModifier", "LIST", { mod = mod("BlockChance", "BASE", nil) }),
+},
+["minion_1%_damage_+%_per_X_player_strength"] = {
+	mod("MinionModifier", "LIST", { mod = mod("Damage", "INC", nil, 0, 0, { type = "PerStat", stat = "Str", actor = "parent", div = 3 }) }),
+	div = 3,
+},
+["minion_1%_accuracy_rating_+%_per_X_player_dexterity"] = {
+	mod("MinionModifier", "LIST", { mod = mod("Accuracy", "INC", nil, 0, 0, { type = "PerStat", stat = "Dex", actor = "parent", div = 3 }) }),
+	div = 3,
 },
 ["base_number_of_zombies_allowed"] = {
 	mod("ActiveZombieLimit", "BASE", nil),
@@ -2261,7 +2319,7 @@ return {
 	flag("Condition:CannotRecallBrand"),
 },
 -- Banner
-["banner_buff_effect_+%_final_per_resource"] = {
+["banner_aura_magnitude_+%_final_per_resource"] = {
 	mod("AuraEffect", "MORE", nil, 0, 0, { type = "Multiplier", var = "BannerValour" }, { type = "Condition", var = "BannerPlanted" }),
 },
 
@@ -2287,6 +2345,10 @@ return {
 },
 ["support_grenade_damage_+%_final"] = {
 	mod("Damage", "MORE", nil),
+},
+-- Ice Crystal
+["frost_wall_maximum_life"] = {
+	mod("IceCrystalLifeBase", "BASE", nil),
 },
 -- Other
 ["triggered_skill_damage_+%"] = {
@@ -2321,6 +2383,9 @@ return {
 	flag("Condition:CanWither"),
 },
 ["withered_on_chaos_damage_hit_chance_%"] = {
+	flag("Condition:CanWither"),
+},
+["withered_on_hit_chance_%_for_every_100%_target_ailment_threshold_dealt_as_chaos_damage"] = {
 	flag("Condition:CanWither"),
 },
 ["discharge_damage_+%_if_3_charge_types_removed"] = {
@@ -2460,4 +2525,35 @@ return {
 ["quality_display_banner_buff_effect_+%_final_per_resource_is_gem"] = {
 	-- Display Only
 },
+["quality_display_siege_cascade_damage_+%_final_vs_immobilised_enemies_is_gem"] = {
+	-- Display Only
+},
+["quality_display_active_skill_base_area_of_effect_radius_is_gem"] = {
+	-- Display Only
+},
+["quality_display_lightning_arrow_is_gem"] = {
+	-- Display Only
+},
+["quality_display_active_skill_base_area_of_effect_radius_is_gem"] = {
+	-- Display Only
+},
+["quality_display_base_skill_effect_duration_is_gem"] = {
+	-- Display Only
+},
+["quality_display_mana_tempest_is_gem"] = {
+	-- Display Only
+},
+["quality_display_active_skill_base_secondary_area_of_effect_radius_is_gem"] = {
+	-- Display Only
+},
+["quality_display_active_skill_damage_+%_final_vs_immobilised_enemies_is_gem"] = {
+	-- Display Only
+},
+["quality_display_base_number_of_projectiles_is_gem"] = {
+	-- Display Only
+},
+["quality_display_sandstorm_swipe_is_gem"] = {
+	-- Display Only
+},
+
 }

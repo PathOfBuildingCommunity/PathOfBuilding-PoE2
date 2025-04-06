@@ -122,7 +122,7 @@ itemBases["Heavy Bow"] = {
 	weapon = { PhysicalMin = 45, PhysicalMax = 75, CritChanceBase = 5, AttackRateBase = 1.2, Range = 120, },
 	req = { level = 65, dex = 148, },
 }
-itemBases["Advanced Shortbow"] = {
+itemBases["Snakewood Shortbow"] = {
 	type = "Bow",
 	quality = 20,
 	socketLimit = 3,
@@ -131,7 +131,7 @@ itemBases["Advanced Shortbow"] = {
 	weapon = { PhysicalMin = 29, PhysicalMax = 54, CritChanceBase = 5, AttackRateBase = 1.25, Range = 120, },
 	req = { level = 45, dex = 104, },
 }
-itemBases["Advanced Warden Bow"] = {
+itemBases["Protector Bow"] = {
 	type = "Bow",
 	quality = 20,
 	socketLimit = 3,
@@ -141,7 +141,7 @@ itemBases["Advanced Warden Bow"] = {
 	weapon = { PhysicalMin = 35, PhysicalMax = 53, CritChanceBase = 5, AttackRateBase = 1.15, Range = 120, },
 	req = { level = 48, dex = 110, },
 }
-itemBases["Advanced Composite Bow"] = {
+itemBases["Rider Bow"] = {
 	type = "Bow",
 	quality = 20,
 	socketLimit = 3,
@@ -150,7 +150,7 @@ itemBases["Advanced Composite Bow"] = {
 	weapon = { PhysicalMin = 36, PhysicalMax = 61, CritChanceBase = 5, AttackRateBase = 1.2, Range = 120, },
 	req = { level = 51, dex = 117, },
 }
-itemBases["Advanced Dualstring Bow"] = {
+itemBases["Twin Bow"] = {
 	type = "Bow",
 	quality = 20,
 	socketLimit = 3,
@@ -160,7 +160,7 @@ itemBases["Advanced Dualstring Bow"] = {
 	weapon = { PhysicalMin = 29, PhysicalMax = 54, CritChanceBase = 5, AttackRateBase = 1.2, Range = 120, },
 	req = { level = 55, dex = 126, },
 }
-itemBases["Advanced Cultist Bow"] = {
+itemBases["Adherent Bow"] = {
 	type = "Bow",
 	quality = 20,
 	socketLimit = 3,
@@ -169,7 +169,7 @@ itemBases["Advanced Cultist Bow"] = {
 	weapon = { ChaosMin = 41, ChaosMax = 69, CritChanceBase = 5, AttackRateBase = 1.2, Range = 120, },
 	req = { level = 59, dex = 135, },
 }
-itemBases["Advanced Zealot Bow"] = {
+itemBases["Militant Bow"] = {
 	type = "Bow",
 	quality = 20,
 	socketLimit = 3,
@@ -178,7 +178,7 @@ itemBases["Advanced Zealot Bow"] = {
 	weapon = { PhysicalMin = 46, PhysicalMax = 69, CritChanceBase = 5, AttackRateBase = 1.2, Range = 120, },
 	req = { level = 62, dex = 142, },
 }
-itemBases["Expert Shortbow"] = {
+itemBases["Ironwood Shortbow"] = {
 	type = "Bow",
 	quality = 20,
 	socketLimit = 3,
@@ -187,7 +187,7 @@ itemBases["Expert Shortbow"] = {
 	weapon = { PhysicalMin = 41, PhysicalMax = 76, CritChanceBase = 5, AttackRateBase = 1.25, Range = 120, },
 	req = { level = 67, dex = 174, },
 }
-itemBases["Expert Composite Bow"] = {
+itemBases["Cavalry Bow"] = {
 	type = "Bow",
 	quality = 20,
 	socketLimit = 3,
@@ -196,7 +196,7 @@ itemBases["Expert Composite Bow"] = {
 	weapon = { PhysicalMin = 49, PhysicalMax = 82, CritChanceBase = 5, AttackRateBase = 1.2, Range = 120, },
 	req = { level = 72, dex = 193, },
 }
-itemBases["Expert Warden Bow"] = {
+itemBases["Guardian Bow"] = {
 	type = "Bow",
 	quality = 20,
 	socketLimit = 3,
@@ -206,7 +206,7 @@ itemBases["Expert Warden Bow"] = {
 	weapon = { PhysicalMin = 53, PhysicalMax = 80, CritChanceBase = 5, AttackRateBase = 1.15, Range = 120, },
 	req = { level = 77, dex = 212, },
 }
-itemBases["Expert Dualstring Bow"] = {
+itemBases["Gemini Bow"] = {
 	type = "Bow",
 	quality = 20,
 	socketLimit = 3,
@@ -216,7 +216,7 @@ itemBases["Expert Dualstring Bow"] = {
 	weapon = { PhysicalMin = 39, PhysicalMax = 73, CritChanceBase = 5, AttackRateBase = 1.2, Range = 120, },
 	req = { level = 78, dex = 212, },
 }
-itemBases["Expert Cultist Bow"] = {
+itemBases["Fanatic Bow"] = {
 	type = "Bow",
 	quality = 20,
 	socketLimit = 3,
@@ -225,7 +225,7 @@ itemBases["Expert Cultist Bow"] = {
 	weapon = { ChaosMin = 52, ChaosMax = 87, CritChanceBase = 5, AttackRateBase = 1.2, Range = 120, },
 	req = { level = 79, dex = 212, },
 }
-itemBases["Expert Zealot Bow"] = {
+itemBases["Warmonger Bow"] = {
 	type = "Bow",
 	quality = 20,
 	socketLimit = 3,

@@ -47,7 +47,31 @@ statMap = {
 		mod("BarrageRepeatDamage", "MORE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Barrage" }),
 		mult = -1
 	},
+	["quality_display_barrage_is_gem"] = {
+		-- Display only
+	},
 },
+#mods
+#skillEnd
+
+#skill BloodHuntPlayer
+#set BloodHuntPlayer
+#flags attack melee area
+#mods
+#set BloodHuntExplosionPlayer
+#flags attack melee area
+#mods
+#skillEnd
+
+#skill BloodhoundsMarkPlayer
+#set BloodhoundsMarkPlayer
+#flags
+#mods
+#skillEnd
+
+#skill BloodhoundsMarkExplosionPlayer
+#set BloodhoundsMarkExplosionPlayer
+#flags nonWeaponAttack
 #mods
 #skillEnd
 
@@ -60,6 +84,12 @@ statMap = {
 		div = 1000,
 	},
 },
+#mods
+#skillEnd
+
+#skill SummonBeastPlayer
+#set SummonBeastPlayer
+#flags
 #mods
 #skillEnd
 
@@ -88,15 +118,80 @@ statMap = {
 #mods
 #skillEnd
 
+#skill DisengagePlayer
+#set DisengagePlayer
+#flags attack area melee
+#mods
+#set DisengageShockwavePlayer
+#flags attack area melee
+#mods
+#skillEnd
+
 #skill ElectrocutingArrowPlayer
 #set ElectrocutingArrowPlayer
-#flags attack projectile
+#flags attack projectile duration
+statMap = {
+	["quality_display_base_skill_effect_duration_is_gem"] = {
+		-- Display only
+	},
+},
+#mods
+#skillEnd
+
+#skill ElementalSiphonPlayer
+#set ElementalSiphonPlayer
+#flags attack area melee
+#mods
+#set ElementalSiphonColdPlayer
+#flags
+#mods
+#set ElementalSiphonFirePlayer
+#flags
+#mods
+#set ElementalSiphonLightningPlayer
+#flags
+#mods
+#skillEnd
+
+#skill ElementalSunderingPlayer
+#set ElementalSunderingPlayer
+#flags
+#mods
+#set ElementalSunderingColdPlayer
+#flags attack area
+#mods
+#set ElementalSunderingFirePlayer
+#flags attack area
+#mods
+#set ElementalSunderingLightningPlayer
+#flags attack area
 #mods
 #skillEnd
 
 #skill EscapeShotPlayer
 #set EscapeShotPlayer
 #flags attack projectile area
+#mods
+#skillEnd
+
+#skill ExplosiveSpearPlayer
+#set ExplosiveSpearPlayer
+#flags attack projectile
+#mods
+#set ExplosiveSpearExplodePlayer
+#flags attack area
+#mods
+#set ExplosiveSpearInfusedExplodePlayer
+#flags attack area duration
+#mods
+#skillEnd
+
+#skill FangsOfFrostPlayer
+#set FangsOfFrostPlayer
+#flags attack melee area
+#mods
+#set FangsOfFrostBurstPlayer
+#flags attack melee area duration
 #mods
 #skillEnd
 
@@ -115,6 +210,15 @@ statMap = {
 #mods
 #set GasArrowGasExplosionPlayer
 #flags attack area projectile
+#mods
+#skillEnd
+
+#skill GlacialLancePlayer
+#set GlacialLancePlayer
+#flags attack projectile duration
+#mods
+#set GlacialLanceWallsPlayer
+#flags attack area
 #mods
 #skillEnd
 
@@ -167,6 +271,26 @@ statMap = {
 #mods
 #skillEnd
 
+#skill LightningSpearPlayer
+#set LightningSpearPlayer
+#flags attack projectile
+statMap = {
+	["lightning_spear_damage_+%_final_when_charged"] = {
+		mod("Damage", "MORE", nil, 0, 0, { type = "MultiplierThreshold", var = "RemovableFrenzyCharge", threshold = 1 }),
+	},
+	["lightning_spear_additional_number_to_split_when_charged"] = {
+		mod("SplitCount", "BASE", nil, 0, 0, { type = "MultiplierThreshold", var = "RemovableFrenzyCharge", threshold = 1 }),
+	},
+	["lightning_burst_display"] = {
+		-- Display Only
+	},
+},
+#mods
+#set LightningSpearSecondaryProjectilePlayer
+#flags attack projectile
+#mods
+#skillEnd
+
 #skill MagneticSalvoPlayer
 #set MagneticSalvoPlayer
 #flags attack projectile
@@ -202,6 +326,18 @@ statMap = {
 #mods
 #skillEnd
 
+#skill PrimalStrikesPlayer
+#set PrimalStrikesPlayer
+#flags attack melee area
+#mods
+#set PrimalStrikesStagWavePlayer
+#flags attack melee area
+#mods
+#set PrimalStrikesFinalPlayer
+#flags attack melee area
+#mods
+#skillEnd
+
 #skill RainOfArrowsPlayer
 #set RainOfArrowsPlayer
 #flags attack projectile area
@@ -213,6 +349,39 @@ statMap = {
 		mod("ProjectileNumber", "MORE", nil, 0, 0, { type = "Multiplier", var = "RemovableFrenzyCharge" }),
 	},
 },
+#mods
+#skillEnd
+
+#skill RakePlayer
+#set RakePlayer
+#flags attack melee area
+statMap = {
+	["base_dash_additional_damage_from_distance_+%_final"] = {
+		mod("Damage", "MORE", nil, 0, 0, { type = "DistanceRamp", ramp = {{0,0},{50,1}} }),
+	},
+	["quality_display_spear_puncture_is_gem"] = {
+		-- Display only
+	},
+},
+#mods
+#skillEnd
+
+#skill RapidAssaultPlayer
+#set RapidAssaultPlayer
+#flags attack melee area
+#mods
+#set RapidAssaultFinalHitPlayer
+#flags attack melee area
+#mods
+#set RapidAssaultDetonation
+#flags attack area
+#mods
+#skillEnd
+
+#minionList SummonedRhoa
+#skill RhoaMountPlayer
+#set RhoaMountPlayer
+#flags minion
 #mods
 #skillEnd
 
@@ -253,6 +422,42 @@ statMap = {
 #mods
 #skillEnd
 
+#skill SpearOfSolarisPlayer
+#set SpearOfSolarisImpactPlayer
+#flags attack projectile area
+#mods
+#set SpearOfSolarisPulsePlayer
+#flags attack area
+statMap = {
+	["solaris_spear_pulse_delay_ms"] = {
+		skill("hitTimeOverride", nil),
+		div = 1000,
+	},
+	["solaris_spear_number_of_pulses"] = {
+		-- Display only
+	},
+},
+#mods
+#set SpearOfSolarisGroundPlayer
+#flags attack area
+#baseMod mod("EnemyIgniteChance", "BASE", 100)
+#mods
+#skillEnd
+
+#skill SpearfieldPlayer
+#set SpearfieldPlayer
+#flags attack area melee duration
+#mods
+#set SpearfieldHazardPlayer
+#flags attack area
+statMap = {
+	["spearfield_spear_damage_+%_final_after_half_seconds"] = {
+		mod("Damage", "MORE", nil, 0, 0, { type = "Condition", var = "SpearOlderThanHalfSecond" }),
+	},
+},
+#mods
+#skillEnd
+
 #skill SpiralVolleyPlayer
 #set SpiralVolleyPlayer
 #flags attack projectile
@@ -270,12 +475,51 @@ statMap = {
 #mods
 #skillEnd
 
+#skill StormLancePlayer
+#set StormLancePlayer
+#flags projectile attack
+#mods
+#set StormLanceInfusedPlayer
+#flags projectile attack duration
+statMap = {
+	["overcharged_spear_base_frequency_ms"] = {
+		skill("hitTimeOverride", nil),
+		div = 1000,
+	},
+},
+#mods
+#set StormLanceBeamPlayer
+#flags projectile attack duration
+statMap = {
+	["overcharged_spear_base_frequency_ms"] = {
+		skill("hitTimeOverride", nil),
+		div = 1000,
+	},
+},
+#mods
+#set StormLanceDetonatedBeamPlayer
+#flags projectile attack
+#mods
+#skillEnd
+
 #skill StormcallerArrowPlayer
 #set StormcallerArrowPlayer
 #flags attack projectile
 #mods
 #set StormcallerArrowBoltPlayer
 #flags attack area
+#mods
+#skillEnd
+
+#skill TameBeastPlayer
+#set TameBeastPlayer
+#flags
+#mods
+#skillEnd
+
+#skill ThunderousLeapPlayer
+#set ThunderousLeapPlayer
+#flags attack area melee
 #mods
 #skillEnd
 
@@ -291,7 +535,52 @@ statMap = {
 
 #skill ToxicGrowthPlayer
 #set ToxicGrowthPlayer
-#flags attack projectile area duration
+#flags attack projectile area
+#mods
+#skillEnd
+
+#skill TrailOfCaltropsPlayer
+#set TrailOfCaltropsPlayer
+#flags
+#mods
+#skillEnd
+
+#skill TriggeredTrailOfCaltropsPlayer
+#set TriggeredTrailOfCaltropsPlayer
+#flags projectile duration
+#mods
+#skillEnd
+
+#skill TrinityPlayer
+#set TrinityPlayer
+#flags buff duration
+statMap = {
+	["trinity_damage_+%_final_to_grant_per_50_resonance"] = {
+		mod("Damage", "MORE", nil, 0, 0, { type = "Multiplier", var = "ResonanceCount", div = 50 },{ type = "GlobalEffect", effectType = "Buff", effectName = "Trinity" }),
+	},
+	["quality_display_trinity_is_gem"] = {
+		-- Display only
+	},
+	["trinity_loss_per_hit"] = {
+		-- Display only
+	},
+},
+#mods
+#skillEnd
+
+#skill TwisterPlayer
+#set TwisterPlayer
+#flags attack area duration projectile
+statMap = {
+	["twister_gain_%_elemental_damage_of_corresponding_type"] = {
+		mod("SkillDamageGainAsCold", "BASE", nil, 0, 0, { type = "Condition", var = "TwisterCold"}),
+		mod("SkillDamageGainAsFire", "BASE", nil, 0, 0, { type = "Condition", var = "TwisterFire"}),
+		mod("SkillDamageGainAsLightning", "BASE", nil, 0, 0, { type = "Condition", var = "TwisterLightning"}),
+	},
+	["twister_damage_+%_final_per_whirling_slash_stage"] = {
+		mod("Damage", "MORE", nil, 0, 0, { type = "Multiplier", var = "WhirlwindStages" }),
+	},
+},
 #mods
 #skillEnd
 
@@ -315,6 +604,51 @@ statMap = {
 statMap = {
 	["thaumaturgist_mark_enemies_shocked_chance_+%_final"] = {
 		mod("EnemyShockChance", "MORE", nil, 0, 0, { type = "GlobalEffect", effectType = "Curse" }),
+	},
+},
+#mods
+#skillEnd
+
+#skill WhirlingSlashPlayer
+#set WhirlingSlashPlayer
+#flags attack area melee
+statMap = {
+	["sandstorm_swipe_storm_damage_+%_final_per_stage"] = {
+		-- Display Only
+	},
+},
+#mods
+#set WhirlingSlashSandstormPlayer
+#flags attack area melee
+statMap = {
+	["sandstorm_swipe_storm_damage_+%_final_per_stage"] = {
+		mod("Damage", "MORE", nil, 0, 0, { type = "Multiplier", var = "WhirlwindStageAfterFirst", limit = 2 })
+	},
+	["sandstorm_swipe_storm_radius_+_per_stage"] = {
+		mod("radiusExtra", "MORE", nil, 0, 0, { type = "Multiplier", var = "WhirlwindStageAfterFirst", limit = 2 })
+	},
+	["sandstorm_swipe_max_stages"] = {
+		-- Display Only
+	},
+},
+#mods
+#skillEnd
+
+#skill WhirlwindLancePlayer
+#set WhirlwindLancePlayer
+#flags attack area melee
+#mods
+#set WhirlwindLanceStormPlayer
+#flags attack area melee
+statMap = {
+	["sandstorm_swipe_storm_damage_+%_final_per_stage"] = {
+		mod("Damage", "MORE", nil, 0, 0, { type = "Multiplier", var = "WhirlwindStageAfterFirst", limit = 3 })
+	},
+	["sandstorm_swipe_storm_radius_+_per_stage"] = {
+		mod("radiusExtra", "MORE", nil, 0, 0, { type = "Multiplier", var = "WhirlwindStageAfterFirst", limit = 3 })
+	},
+	["sandstorm_swipe_max_stages"] = {
+		-- Display Only
 	},
 },
 #mods
@@ -354,5 +688,17 @@ statMap = {
 		mod("EnemyKnockbackDistance", "MORE", nil, 0, 0, { type = "Multiplier", var = "WindDancerStacks", limitVar = "WindDancerStacksLimit" }),
 	},
 },
+#mods
+#skillEnd
+
+#skill WindSerpentsFuryPlayer
+#set WindSerpentsFuryPlayer
+#flags attack area melee
+#mods
+#set WindSerpentsFurySnakePlayer
+#flags attack area melee
+#mods
+#set WindSerpentsFuryKnockbackExplosionPlayer
+#flags attack area melee
 #mods
 #skillEnd

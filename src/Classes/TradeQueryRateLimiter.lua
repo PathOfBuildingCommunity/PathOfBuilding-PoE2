@@ -52,7 +52,9 @@ local TradeQueryRateLimiterClass = newClass("TradeQueryRateLimiter", function(se
     -- state shows more requests than expected (external requests)
     self.pendingRequests = {
         ["trade-search-request-limit"] = {},
-        ["trade-fetch-request-limit"] = {}
+        ["trade-fetch-request-limit"] = {},
+        ["character-list-request-limit-poe2"] = {},
+        ["character-request-limit-poe2"] = {}
     }
 end)
 

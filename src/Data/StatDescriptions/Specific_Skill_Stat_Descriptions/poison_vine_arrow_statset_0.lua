@@ -55,7 +55,24 @@ return {
 			[1]="active_skill_base_area_of_effect_radius"
 		}
 	},
+	[3]={
+		[1]={
+			[1]={
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Plant Limit@{0}"
+			}
+		},
+		stats={
+			[1]="virtual_vine_arrow_pod_limit"
+		}
+	},
 	["active_skill_area_of_effect_radius"]=1,
 	["active_skill_base_area_of_effect_radius"]=2,
-	parent="skill_stat_descriptions"
+	parent="skill_stat_descriptions",
+	["virtual_vine_arrow_pod_limit"]=3
 }

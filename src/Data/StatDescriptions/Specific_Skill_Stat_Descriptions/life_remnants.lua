@@ -87,15 +87,6 @@ return {
 						[2]="#"
 					}
 				},
-				text="Life recovered per Remnant {0}"
-			},
-			[2]={
-				limit={
-					[1]={
-						[1]=1,
-						[2]="#"
-					}
-				},
 				text="Each Remnant grants {0} Life"
 			}
 		},
@@ -103,8 +94,25 @@ return {
 			[1]="life_remnants_gain_per_globe"
 		}
 	},
+	[4]={
+		[1]={
+			[1]={
+				limit={
+					[1]={
+						[1]=1,
+						[2]="#"
+					}
+				},
+				text="Life recovered per Remnant {0}"
+			}
+		},
+		stats={
+			[1]="virtual_life_remnants_gain_per_globe"
+		}
+	},
 	["life_remnants_chance_to_spawn_orb_on_killing_enemy_%"]=1,
 	["life_remnants_gain_per_globe"]=3,
 	["life_remnants_spawn_remnant_on_crit_vs_enemy_every_X_ms"]=2,
-	parent="skill_stat_descriptions"
+	parent="skill_stat_descriptions",
+	["virtual_life_remnants_gain_per_globe"]=4
 }

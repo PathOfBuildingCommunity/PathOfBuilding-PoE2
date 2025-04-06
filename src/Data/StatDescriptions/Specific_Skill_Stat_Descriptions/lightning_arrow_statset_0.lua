@@ -62,6 +62,10 @@ return {
 					[1]={
 						[1]="#",
 						[2]="#"
+					},
+					[2]={
+						[1]="#",
+						[2]="#"
 					}
 				},
 				text="Beams fired {0}"
@@ -71,26 +75,62 @@ return {
 					[1]={
 						[1]=1,
 						[2]=1
+					},
+					[2]={
+						[1]=0,
+						[2]=0
 					}
 				},
-				text="Fires beams at up to {0} additional enemy near the target"
+				text="Fires beams at up to {0:+d} additional Enemy near the target"
 			},
 			[3]={
 				limit={
 					[1]={
 						[1]="#",
 						[2]="#"
+					},
+					[2]={
+						[1]=0,
+						[2]=0
 					}
 				},
-				text="Fires beams at up to {0} additional enemies near the target"
+				text="Fires beams at up to {0:+d} additional Enemies near the target"
+			},
+			[4]={
+				limit={
+					[1]={
+						[1]=1,
+						[2]=1
+					},
+					[2]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Fires beams at up to {0} additional Enemy near the target"
+			},
+			[5]={
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					},
+					[2]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Fires beams at up to {0} additional Enemies near the target"
 			}
 		},
 		stats={
-			[1]="lightning_arrow_maximum_number_of_extra_targets"
+			[1]="lightning_arrow_maximum_number_of_extra_targets",
+			[2]="quality_display_lightning_arrow_is_gem"
 		}
 	},
 	["active_skill_area_of_effect_radius"]=1,
 	["active_skill_base_area_of_effect_radius"]=2,
 	["lightning_arrow_maximum_number_of_extra_targets"]=3,
-	parent="skill_stat_descriptions"
+	parent="skill_stat_descriptions",
+	["quality_display_lightning_arrow_is_gem"]=3
 }

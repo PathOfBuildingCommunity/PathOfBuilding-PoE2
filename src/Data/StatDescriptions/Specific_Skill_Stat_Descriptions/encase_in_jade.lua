@@ -15,7 +15,7 @@ return {
 						[2]=1000
 					}
 				},
-				text="Encasement duration is {0} second"
+				text="Guard duration is {0} second"
 			},
 			[2]={
 				[1]={
@@ -28,7 +28,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Encasement duration is {0} seconds"
+				text="Guard duration is {0} seconds"
 			}
 		},
 		stats={
@@ -48,7 +48,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Encasement duration {0}s"
+				text="Guard duration {0}s"
 			}
 		},
 		stats={

@@ -60,8 +60,43 @@ return {
 			[1]="active_skill_base_area_of_effect_radius"
 		}
 	},
+	[4]={
+		[1]={
+			[1]={
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Additional bolts on Shock Consume {0}"
+			},
+			[2]={
+				limit={
+					[1]={
+						[1]=1,
+						[2]=1
+					}
+				},
+				text="{0} additional bolt hits targets if at least one Shock Consumed"
+			},
+			[3]={
+				limit={
+					[1]={
+						[1]=2,
+						[2]="#"
+					}
+				},
+				text="{0} additional bolts hit targets if at least one Shock Consumed"
+			}
+		},
+		stats={
+			[1]="lightning_conduit_x_additional_strikes_if_consumed_a_shock"
+		}
+	},
 	["active_skill_area_of_effect_radius"]=2,
 	["active_skill_base_area_of_effect_radius"]=3,
+	["lightning_conduit_x_additional_strikes_if_consumed_a_shock"]=4,
 	["never_shock"]=1,
 	parent="skill_stat_descriptions"
 }

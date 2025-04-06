@@ -87,15 +87,6 @@ return {
 						[2]="#"
 					}
 				},
-				text="Mana recovered per Remnant {0}"
-			},
-			[2]={
-				limit={
-					[1]={
-						[1]=1,
-						[2]="#"
-					}
-				},
 				text="Each Remnant grants {0} Mana"
 			}
 		},
@@ -103,8 +94,25 @@ return {
 			[1]="mana_remnants_mana_gain_per_globe"
 		}
 	},
+	[4]={
+		[1]={
+			[1]={
+				limit={
+					[1]={
+						[1]=1,
+						[2]="#"
+					}
+				},
+				text="Mana recovered per Remnant {0}"
+			}
+		},
+		stats={
+			[1]="virtual_mana_remnants_mana_gain_per_globe"
+		}
+	},
 	["mana_remnants_chance_to_spawn_orb_on_killing_shocked_enemy_%"]=1,
 	["mana_remnants_mana_gain_per_globe"]=3,
 	["mana_remnants_spawn_remnant_on_crit_vs_shocked_enemy_every_X_ms"]=2,
-	parent="skill_stat_descriptions"
+	parent="skill_stat_descriptions",
+	["virtual_mana_remnants_mana_gain_per_globe"]=4
 }

@@ -11,7 +11,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Damage Gained from Ground Surfaces {0}%"
+				text="Damage Gained from Elemental Ground Effects {0}%"
 			},
 			[2]={
 				limit={
@@ -20,13 +20,13 @@ return {
 						[2]="#"
 					}
 				},
-				text="Gains {0}% of damage as the corresponding Type when\npassing over a Ground Surface"
+				text="Gains {0}% of damage as damage of the corresponding\nType when passing over an Elemental Ground Effect"
 			}
 		},
 		stats={
-			[1]="eye_of_winter_damage_+%_final_per_ground_effect_type"
+			[1]="eye_of_winter_damage_%_to_gain_as_element_per_ground_effect_type"
 		}
 	},
-	["eye_of_winter_damage_+%_final_per_ground_effect_type"]=1,
+	["eye_of_winter_damage_%_to_gain_as_element_per_ground_effect_type"]=1,
 	parent="skill_stat_descriptions"
 }

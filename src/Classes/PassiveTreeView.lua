@@ -317,6 +317,14 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 				if hotkeyPressed then
 					processAttributeHotkeys(hoverNode.isAttribute)
 				elseif hoverNode.isAttribute then
+					-- If the attribute node is already set to str, int, or dex create a toggle effect between attrs
+					if hoverNode.dn == "Intelligence" then
+						spec.attributeIndex = 1
+					elseif hoverNode.dn == "Dexterity" then
+						spec.attributeIndex = 3
+					elseif hoverNode.dn == "Strength" then
+						spec.attributeIndex = 2
+					end
 					spec:SwitchAttributeNode(hoverNode.id, spec.attributeIndex or 1)
 				end
 				spec:AllocNode(hoverNode, self.tracePath and hoverNode == self.tracePath[#self.tracePath] and self.tracePath)
@@ -495,8 +503,9 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 	end
 
 	-- Update cached node data
-	if self.searchStrCached ~= self.searchStr then
+	if self.searchStrCached ~= self.searchStr or self.searchNeedsForceUpdate == true then
 		self.searchStrCached = self.searchStr
+		self.searchNeedsForceUpdate = false
 
 		local function prepSearch(search)
 			search = search:lower()
@@ -907,7 +916,7 @@ end
 
 -- Draws the given asset at the given position
 function PassiveTreeViewClass:DrawAsset(data, x, y, scale, isHalf)
-	if not data then
+	if not data or not data.found then
 		return
 	end
 	if data.width == 0 then
