@@ -47,20 +47,11 @@ return {
 						[2]="#"
 					}
 				},
-				text="Maximum Ghost Shrouds {0}"
-			},
-			[2]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
 				text="Maximum {0} Ghost Shrouds"
 			}
 		},
 		stats={
-			[1]="virtual_ghost_dance_max_stacks"
+			[1]="ghost_dance_max_stacks"
 		}
 	},
 	[4]={
@@ -70,13 +61,31 @@ return {
 					[1]={
 						[1]="#",
 						[2]="#"
+					},
+					[2]={
+						[1]=0,
+						[2]=0
+					}
+				},
+				text="Ghost Shrouds recover Energy Shield equal to {0:+d}% of your Evasion"
+			},
+			[2]={
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					},
+					[2]={
+						[1]="#",
+						[2]="#"
 					}
 				},
 				text="When Hit, Consume a Ghost Shroud to\nrecover Energy Shield equal to {0}% of your Evasion"
 			}
 		},
 		stats={
-			[1]="skill_base_ghost_dance_grants_%_evasion_as_energy_shield_when_hit"
+			[1]="skill_base_ghost_dance_grants_%_evasion_as_energy_shield_when_hit",
+			[2]="quality_display_ghost_dance_is_gem"
 		}
 	},
 	[5]={
@@ -99,10 +108,28 @@ return {
 			[1]="skill_effect_duration"
 		}
 	},
+	[6]={
+		[1]={
+			[1]={
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Maximum Ghost Shrouds {0}"
+			}
+		},
+		stats={
+			[1]="virtual_ghost_dance_max_stacks"
+		}
+	},
 	["base_skill_effect_duration"]=1,
 	["display_skill_ghost_dance_grants_energy_shield_when_hit"]=2,
+	["ghost_dance_max_stacks"]=3,
 	parent="skill_stat_descriptions",
+	["quality_display_ghost_dance_is_gem"]=4,
 	["skill_base_ghost_dance_grants_%_evasion_as_energy_shield_when_hit"]=4,
 	["skill_effect_duration"]=5,
-	["virtual_ghost_dance_max_stacks"]=3
+	["virtual_ghost_dance_max_stacks"]=6
 }

@@ -702,7 +702,7 @@ return {
 		{ breakdown = "EnemyCurseLimit" },
 		{ modName = { "CurseLimitIsMaximumPowerCharges", "EnemyCurseLimit" } },
 	}, },
-	{ label = "Ice Crystal Life", { format = "{0:output:IceCrystalLife}",
+	{ label = "Ice Crystal Life", haveOutput = "IceCrystalLife", { format = "{0:output:IceCrystalLife}",
 		{ breakdown = "IceCrystalLife" },
 		{ modName = { "IceCrystalLife" }, cfg = "skill" }
 	},},
@@ -1578,7 +1578,7 @@ return {
 	{ label = "Armour Defense", haveOutput = "RawArmourDefense", { format = "{0:output:RawArmourDefense}%", { modName = "ArmourDefense" }, }, },
 	{ label = "Phys. Dmg. Reduct", { format = "{0:output:PhysicalDamageReduction}%",
 		{ breakdown = "PhysicalDamageReduction" },
-		{ modName = { "PhysicalDamageReduction", "PhysicalDamageReductionWhenHit", "ArmourDoesNotApplyToPhysicalDamageTaken", "DamageReductionMax" } },
+		{ modName = { "PhysicalDamageReduction", "PhysicalDamageReductionWhenHit", "ArmourDoesNotApplyToPhysicalDamageTaken", "DamageReductionMax", "PhysicalDamageReductionMax" } },
 	}, },
 	{ label = "Fire Dmg. Reduct", haveOutput = "FireDamageReduction", { format = "{0:output:FireDamageReduction}%",
 		{ breakdown = "FireDamageReduction" },
@@ -1801,6 +1801,7 @@ return {
 	{ label = "Knockback Immune", haveOutput = "KnockbackImmunity", { format = "True", { modName = "KnockbackImmune" }, }, },
 	{ label = "Blind Duration", haveOutput = "SelfBlindDuration", { format = "{0:output:SelfBlindDuration}%", { modName = "SelfBlindDuration" }, }, },
 } }, { defaultCollapsed = true, label = "Other Ailment Defences", data = {
+	{ label = "Ailment Threshold", { format = "{2:output:AilmentThreshold}", { modName = { "AilmentThreshold" }, }, }, },
 	{ label = "Freeze Duration", { format = "{1:output:SelfFreezeDuration}%", { modName = { "SelfFreezeDuration", "SelfDebuffExpirationRate", "SelfFreezeDebuffExpirationRate", "SelfAilmentDuration", "SelfElementalAilmentDuration", "SelfIgniteDurationToElementalAilments" }, }, }, },
 	{ label = "Chill Duration", { format = "{1:output:SelfChillDuration}%", { modName = { "SelfChillDuration", "SelfDebuffExpirationRate", "SelfChillDebuffExpirationRate", "SelfAilmentDuration", "SelfElementalAilmentDuration", "SelfIgniteDurationToElementalAilments" }, }, }, },
 	{ label = "Shock Duration", { format = "{1:output:SelfShockDuration}%", { modName = { "SelfShockDuration", "SelfDebuffExpirationRate", "SelfShockDebuffExpirationRate", "SelfAilmentDuration", "SelfElementalAilmentDuration", "SelfIgniteDurationToElementalAilments" }, }, }, },

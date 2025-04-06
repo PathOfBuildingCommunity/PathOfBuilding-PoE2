@@ -69,7 +69,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="{0}% more Effect of Socketed Curses"
+				text="Supported Curses have {0}% more Magnitudes"
 			},
 			[2]={
 				[1]={
@@ -82,7 +82,7 @@ return {
 						[2]=-1
 					}
 				},
-				text="{0}% less Effect of Socketed Curses"
+				text="Supported Curses have {0}% less Magnitudes"
 			}
 		},
 		stats={
@@ -174,13 +174,18 @@ return {
 					[1]={
 						[1]=1,
 						[2]="#"
+					},
+					[2]={
+						[1]="#",
+						[2]="#"
 					}
 				},
 				text="Socketed Skills have {0:+d} metres to base radius"
 			}
 		},
 		stats={
-			[1]="active_skill_base_area_of_effect_radius"
+			[1]="active_skill_base_area_of_effect_radius",
+			[2]="quality_display_active_skill_base_area_of_effect_radius_is_gem"
 		}
 	},
 	[8]={
@@ -221,7 +226,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="{0}% increased Effect of Socketed Curses"
+				text="Supported Curses have {0}% increased Magnitudes"
 			},
 			[2]={
 				[1]={
@@ -234,7 +239,7 @@ return {
 						[2]=-1
 					}
 				},
-				text="{0}% reduced Effect of Socketed Curses"
+				text="Supported Curses have {0}% reduced Magnitudes"
 			}
 		},
 		stats={
@@ -458,6 +463,7 @@ return {
 	["generic_ongoing_trigger_triggers_at_maximum_energy"]=11,
 	["mark_effect_+%"]=12,
 	parent="gem_stat_descriptions",
+	["quality_display_active_skill_base_area_of_effect_radius_is_gem"]=7,
 	["skill_empower_limitation_specifier_for_stat_description"]=15,
 	["skill_empowers_next_x_melee_attacks"]=15,
 	["support_additional_totem_damage_+%_final"]=2,

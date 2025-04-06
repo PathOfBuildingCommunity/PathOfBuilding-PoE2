@@ -8,6 +8,11 @@ return {
 		}
 	},
 	[2]={
+		stats={
+			[1]="virtual_number_of_marks_allowed_per_type"
+		}
+	},
+	[3]={
 		[1]={
 			[1]={
 				[1]={
@@ -40,7 +45,7 @@ return {
 			[1]="active_skill_base_secondary_area_of_effect_radius"
 		}
 	},
-	[3]={
+	[4]={
 		[1]={
 			[1]={
 				[1]={
@@ -60,7 +65,7 @@ return {
 			[1]="active_skill_secondary_area_of_effect_radius"
 		}
 	},
-	[4]={
+	[5]={
 		[1]={
 			[1]={
 				[1]={
@@ -93,7 +98,7 @@ return {
 			[1]="base_skill_effect_duration"
 		}
 	},
-	[5]={
+	[6]={
 		[1]={
 			[1]={
 				limit={
@@ -109,7 +114,7 @@ return {
 			[1]="orb_of_storms_base_maximum_number_of_orbs"
 		}
 	},
-	[6]={
+	[7]={
 		[1]={
 			[1]={
 				limit={
@@ -125,7 +130,7 @@ return {
 			[1]="orb_of_storms_maximum_number_of_orbs"
 		}
 	},
-	[7]={
+	[8]={
 		[1]={
 			[1]={
 				[1]={
@@ -146,11 +151,12 @@ return {
 		}
 	},
 	["active_skill_base_area_of_effect_radius"]=1,
-	["active_skill_base_secondary_area_of_effect_radius"]=2,
-	["active_skill_secondary_area_of_effect_radius"]=3,
-	["base_skill_effect_duration"]=4,
-	["orb_of_storms_base_maximum_number_of_orbs"]=5,
-	["orb_of_storms_maximum_number_of_orbs"]=6,
+	["active_skill_base_secondary_area_of_effect_radius"]=3,
+	["active_skill_secondary_area_of_effect_radius"]=4,
+	["base_skill_effect_duration"]=5,
+	["orb_of_storms_base_maximum_number_of_orbs"]=6,
+	["orb_of_storms_maximum_number_of_orbs"]=7,
 	parent="skill_stat_descriptions",
-	["skill_effect_duration"]=7
+	["skill_effect_duration"]=8,
+	["virtual_number_of_marks_allowed_per_type"]=2
 }

@@ -234,7 +234,7 @@ end
 
 writeMods("../Data/ModItem.lua", function(mod)
 	return mod.Domain == 1 and (mod.GenerationType == 1 or mod.GenerationType == 2)
-	and (mod.Family[1] and mod.Family[1].Id ~= "AuraBonus" or not mod.Family[1]) and (not mod.Id:match("Cowards")) and not mod.IsEssence and not mod.Id:match("Master")
+	and (mod.Family[1] and mod.Family[1].Id ~= "AuraBonus" or not mod.Family[1]) and (not mod.Id:match("Cowards")) and not mod.Id:match("Master")
 end)
 writeMods("../Data/ModCorrupted.lua", function(mod)
 	return (mod.Domain == 11 or mod.Domain == 1) and (mod.GenerationType == 3 and mod.Id:match("SpecialCorruption") or mod.GenerationType == 5)

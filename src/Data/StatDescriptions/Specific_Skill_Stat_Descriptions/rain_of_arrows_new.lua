@@ -162,19 +162,6 @@ return {
 						[2]="#"
 					}
 				},
-				text="Arrow landing interval {0}s"
-			},
-			[2]={
-				[1]={
-					k="milliseconds_to_seconds_2dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
 				text="One arrow lands every {0} seconds"
 			}
 		},
@@ -232,6 +219,42 @@ return {
 			[1]="rain_of_arrows_projectile_count_multiplier_per_frenzy_charge"
 		}
 	},
+	[10]={
+		[1]={
+			[1]={
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Modifiers to Projectile speed apply to arrow landing frequency"
+			}
+		},
+		stats={
+			[1]="skill_specific_stat_description_mode"
+		}
+	},
+	[11]={
+		[1]={
+			[1]={
+				[1]={
+					k="milliseconds_to_seconds_2dp_if_required",
+					v=1
+				},
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Arrow landing interval {0}s"
+			}
+		},
+		stats={
+			[1]="virtual_rain_of_arrows_delay_per_arrow_display_ms"
+		}
+	},
 	["active_skill_area_of_effect_radius"]=1,
 	["active_skill_base_area_of_effect_radius"]=2,
 	["active_skill_base_secondary_area_of_effect_radius"]=3,
@@ -241,5 +264,7 @@ return {
 	parent="skill_stat_descriptions",
 	["rain_of_arrows_delay_per_arrow"]=7,
 	["rain_of_arrows_projectile_count_multiplier_if_any_frenzy_charge_spent"]=8,
-	["rain_of_arrows_projectile_count_multiplier_per_frenzy_charge"]=9
+	["rain_of_arrows_projectile_count_multiplier_per_frenzy_charge"]=9,
+	["skill_specific_stat_description_mode"]=10,
+	["virtual_rain_of_arrows_delay_per_arrow_display_ms"]=11
 }

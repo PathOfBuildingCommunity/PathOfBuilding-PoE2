@@ -4,4 +4,4 @@ local itemBases = ...
 #type Fishing Rod
 #socketLimit 3
 #forceShow true
-#baseMatch BaseTypeMetadata/Items/Weapons/TwoHandWeapon/FishingRods/AbstractFishingRod
+#baseMatch Metadata/Items/Weapons/TwoHandWeapon/FishingRods/FishingRod1

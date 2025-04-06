@@ -5,6 +5,7 @@ local json = require("dkjson")
 -- by session we would like to don't extract the same file multiple times
 main.treeCacheExtract = main.treeCacheExtract or { }
 local cacheExtract = main.treeCacheExtract
+local ignoreFilter = "^%[DNT"
 
 if not loadStatFile then
 	dofile("statdesc.lua")
@@ -251,7 +252,7 @@ local use4kIfPossible = false
 local idPassiveTree = 'Default'
 -- Find a way to get version
 local basePath = GetWorkDir() .. "/../TreeData/"
-local version = "0_1"
+local version = "0_2"
 local path = basePath .. version .. "/"
 local fileTree = path .. "tree.lua"
 
@@ -501,10 +502,15 @@ addToSheet(getSheet("lines"), "art/2dart/passivetree/passiveskillscreencurvesnor
 -- adding jewel sockets
 local jewelArt = dat("PassiveJewelArt")
 for jewel in jewelArt:Rows() do
+	if jewel.Item.Name:find(ignoreFilter) ~= nil then
+		printf("Ignoring jewel socket " .. jewel.Item.Name)
+		goto nexttogo
+	end
 	local asset = uiImages[string.lower(jewel.JewelArt)]
 	printf("Adding jewel socket " .. jewel.Item.Name .. " " .. asset.path .. " to sprite")
 	local name = jewel.Item.Name
 	addToSheet(getSheet("jewel-sockets"), asset.path, "jewelpassive", commonMetadata(name))
+	:: nexttogo	::
 end
 
 -- adding legion assets
@@ -544,6 +550,7 @@ local tree = {
 	["nodes"]= { },
 	["assets"]={},
 	["ddsCoords"] = {},
+	["jewelSlots"] = {},
 	["constants"]= { -- calculate this
         ["classes"]= {
             ["StrDexIntClass"]= 0,
@@ -568,7 +575,6 @@ local tree = {
 }
 
 printf("Generating classes...")
-local ignoreFilter = "^%[DNT%]"
 for i, classId in ipairs(psg.passives) do
 	local passiveRow = dat("passiveskills"):GetRow("PassiveSkillNodeId", classId)
 	if passiveRow == nil then
@@ -609,13 +615,14 @@ for i, classId in ipairs(psg.passives) do
 
 		local ascendancies = dat("ascendancy"):GetRowList("Class", character)
 		for k, ascendency in ipairs(ascendancies) do
-			if ascendency.Name:find(ignoreFilter) ~= nil then
+			if ascendency.Name:find(ignoreFilter) ~= nil or ascendency.isDisabled then
 				printf("Ignoring ascendency " .. ascendency.Name .. " for class " .. character.Name)
 				goto continue3
 			end
 			table.insert(classDef.ascendancies, {
 				["id"] = ascendency.Name,
 				["name"] = ascendency.Name,
+				["internalId"] = ascendency.Id
 			})
 
 			-- add assets
@@ -706,7 +713,11 @@ for i, group in ipairs(psg.groups) do
 		if passiveRow == nil then
 			printf("Passive skill " .. passive.id .. " not found")
 		else
-			if passiveRow.Name:find(ignoreFilter) ~= nil then
+			if passiveRow.Name == "" then
+				printf("Ignoring passive skill " .. passive.id .. " No name")
+				goto exitNode
+			end
+			if passiveRow.Name:find(ignoreFilter) ~= nil and passiveRow.Name ~= "[DNT] Kite Fisher" and passiveRow.Name ~= "[DNT] Troller" and passiveRow.Name ~= "[DNT] Spearfisher" and passiveRow.Name ~= "[DNT] Angler" and passiveRow.Name ~= "[DNT] Whaler" then
 				printf("Ignoring passive skill " .. passiveRow.Name)
 				goto exitNode
 			end
@@ -734,7 +745,7 @@ for i, group in ipairs(psg.groups) do
 			-- Ascendancy
 			if passiveRow.Ascendancy ~= nil then
 				groupIsAscendancy = true
-				if passiveRow.Ascendancy.Name:find(ignoreFilter) ~= nil then
+				if passiveRow.Ascendancy.Name:find(ignoreFilter) ~= nil or passiveRow.Ascendancy.isDisabled then
 					printf("Ignoring node ascendancy " .. passiveRow.Ascendancy.Name)
 					goto exitNode
 				end
@@ -906,6 +917,18 @@ for i, group in ipairs(psg.groups) do
 			if passiveRow.MultipleChoiceOption then
 				node["isMultipleChoiceOption"] = true
 			end
+
+			-- Support for Smith of Kitava
+			if passiveRow["FreeAllocate"] == true then
+				node["isMultipleChoice"] = true
+			end
+
+			if passiveRow["ApplyToArmour?"] == true then
+				node["isFreeAllocate"] = true
+				node["isMultipleChoiceOption"] = true
+			end
+
+
 		end
 		
 		for k, connection in ipairs(passive.connections) do
@@ -940,6 +963,7 @@ for i, group in ipairs(psg.groups) do
 	end
 end
 
+MakeDir(basePath .. version)
 -- write file with missing Stats
 if #missingStatInfo > 0 then
 	local file = io.open(basePath .. version .. "/missingStats.txt", "w")
@@ -947,6 +971,13 @@ if #missingStatInfo > 0 then
 		file:write(line .. "\n")
 	end
 	file:close()
+end
+
+-- Generating jewel slots
+printf("Generating jewel slots...")
+local jewelSlots = dat("passivejewelslots")
+for jewelSlot in jewelSlots:Rows() do
+	table.insert(tree.jewelSlots, jewelSlot.Passive.PassiveSkillNodeId)
 end
 
 -- updating skillsPerOrbit
@@ -991,6 +1022,9 @@ for i, classId in ipairs(psg.passives) do
 		for _, ascendancy in ipairs(class.ascendancies) do
 			local info = ascendancyGroups[ascendancy.id]
 			local ascendancyNode = tree.nodes[info.startId]
+			if ascendancyNode == nil then
+				printf("Ascendancy node " .. ascendancy.id .. " not found")
+			end
 			local groupAscendancy = tree.groups[ascendancyNode.group]
 
 			local angle = startAngle + (j - 1) * angleStep
@@ -1018,8 +1052,6 @@ for i, classId in ipairs(psg.passives) do
 		end
 	end
 end
-
-MakeDir(basePath .. version)
 
 printf("Generating sprite info...")
 for i, sheet in ipairs(sheets) do

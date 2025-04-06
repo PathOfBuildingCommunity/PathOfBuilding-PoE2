@@ -120,7 +120,7 @@ itemBases["Magus Focus"] = {
 	armour = { EnergyShield = 52, },
 	req = { level = 65, int = 118, },
 }
-itemBases["Advanced Woven Focus"] = {
+itemBases["Wreath Focus"] = {
 	type = "Focus",
 	quality = 20,
 	socketLimit = 2,
@@ -129,7 +129,7 @@ itemBases["Advanced Woven Focus"] = {
 	armour = { EnergyShield = 40, },
 	req = { level = 45, int = 83, },
 }
-itemBases["Advanced Antler Focus"] = {
+itemBases["Staghorn Focus"] = {
 	type = "Focus",
 	quality = 20,
 	socketLimit = 2,
@@ -138,7 +138,7 @@ itemBases["Advanced Antler Focus"] = {
 	armour = { EnergyShield = 42, },
 	req = { level = 48, int = 88, },
 }
-itemBases["Advanced Tonal Focus"] = {
+itemBases["Jingling Focus"] = {
 	type = "Focus",
 	quality = 20,
 	socketLimit = 2,
@@ -147,7 +147,7 @@ itemBases["Advanced Tonal Focus"] = {
 	armour = { EnergyShield = 43, },
 	req = { level = 51, int = 94, },
 }
-itemBases["Advanced Crystal Focus"] = {
+itemBases["Arrayed Focus"] = {
 	type = "Focus",
 	quality = 20,
 	socketLimit = 2,
@@ -156,7 +156,7 @@ itemBases["Advanced Crystal Focus"] = {
 	armour = { EnergyShield = 46, },
 	req = { level = 55, int = 101, },
 }
-itemBases["Advanced Voodoo Focus"] = {
+itemBases["Cultist Focus"] = {
 	type = "Focus",
 	quality = 20,
 	socketLimit = 2,
@@ -165,7 +165,7 @@ itemBases["Advanced Voodoo Focus"] = {
 	armour = { EnergyShield = 49, },
 	req = { level = 59, int = 108, },
 }
-itemBases["Advanced Plumed Focus"] = {
+itemBases["Hallowed Focus"] = {
 	type = "Focus",
 	quality = 20,
 	socketLimit = 2,
@@ -174,7 +174,7 @@ itemBases["Advanced Plumed Focus"] = {
 	armour = { EnergyShield = 50, },
 	req = { level = 61, int = 112, },
 }
-itemBases["Expert Antler Focus"] = {
+itemBases["Druidic Focus"] = {
 	type = "Focus",
 	quality = 20,
 	socketLimit = 2,
@@ -183,7 +183,7 @@ itemBases["Expert Antler Focus"] = {
 	armour = { EnergyShield = 52, },
 	req = { level = 65, int = 118, },
 }
-itemBases["Expert Crystal Focus"] = {
+itemBases["Leyline Focus"] = {
 	type = "Focus",
 	quality = 20,
 	socketLimit = 2,
@@ -192,7 +192,7 @@ itemBases["Expert Crystal Focus"] = {
 	armour = { EnergyShield = 58, },
 	req = { level = 70, int = 129, },
 }
-itemBases["Expert Plumed Focus"] = {
+itemBases["Sacred Focus"] = {
 	type = "Focus",
 	quality = 20,
 	socketLimit = 2,

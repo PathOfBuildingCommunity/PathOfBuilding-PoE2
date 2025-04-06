@@ -81,7 +81,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Shards that have existed for at\nleast one second deal {0}% more Damage"
+				text="Shards that have existed for at\nleast 0.5 seconds deal {0}% more Damage"
 			},
 			[3]={
 				[1]={
@@ -98,7 +98,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Shards that have existed for at\nleast one second deal {0}% less Damage"
+				text="Shards that have existed for at\nleast 0.5 seconds deal {0}% less Damage"
 			},
 			[4]={
 				limit={
@@ -111,7 +111,7 @@ return {
 						[2]=0
 					}
 				},
-				text="Shards that have existed for at\nleast one second deal {0:+d}% more Damage"
+				text="Shards that have existed for at\nleast 0.5 seconds deal {0:+d}% more Damage"
 			}
 		},
 		stats={

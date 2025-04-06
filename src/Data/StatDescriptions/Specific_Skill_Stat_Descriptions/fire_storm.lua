@@ -38,9 +38,13 @@ return {
 					[1]={
 						[1]=10,
 						[2]=10
+					},
+					[2]={
+						[1]=0,
+						[2]=0
 					}
 				},
-				text="Impact radius is {0} metre"
+				text="{0:+d} metre to impact radius"
 			},
 			[2]={
 				[1]={
@@ -51,13 +55,52 @@ return {
 					[1]={
 						[1]="#",
 						[2]="#"
+					},
+					[2]={
+						[1]=0,
+						[2]=0
+					}
+				},
+				text="{0:+d} metres to impact radius"
+			},
+			[3]={
+				[1]={
+					k="divide_by_ten_1dp_if_required",
+					v=1
+				},
+				limit={
+					[1]={
+						[1]=10,
+						[2]=10
+					},
+					[2]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Impact radius is {0} metre"
+			},
+			[4]={
+				[1]={
+					k="divide_by_ten_1dp_if_required",
+					v=1
+				},
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					},
+					[2]={
+						[1]="#",
+						[2]="#"
 					}
 				},
 				text="Impact radius is {0} metres"
 			}
 		},
 		stats={
-			[1]="active_skill_base_area_of_effect_radius"
+			[1]="active_skill_base_area_of_effect_radius",
+			[2]="quality_display_active_skill_base_area_of_effect_radius_is_gem"
 		}
 	},
 	[4]={
@@ -210,6 +253,31 @@ return {
 						[2]=1
 					}
 				},
+				text="{0} Improved Bolt per Ignite Consumed"
+			},
+			[2]={
+				limit={
+					[1]={
+						[1]=2,
+						[2]="#"
+					}
+				},
+				text="{0} Improved Bolts per Ignite Consumed"
+			}
+		},
+		stats={
+			[1]="firestorm_improved_bolts_per_ignite_consumed"
+		}
+	},
+	[9]={
+		[1]={
+			[1]={
+				limit={
+					[1]={
+						[1]=1,
+						[2]=1
+					}
+				},
 				text="Limit {0} Firestorm"
 			},
 			[2]={
@@ -226,7 +294,7 @@ return {
 			[1]="firestorm_max_number_of_storms"
 		}
 	},
-	[9]={
+	[10]={
 		[1]={
 			[1]={
 				[1]={
@@ -246,7 +314,7 @@ return {
 			[1]="skill_effect_duration"
 		}
 	},
-	[10]={
+	[11]={
 		[1]={
 			[1]={
 				limit={
@@ -268,10 +336,12 @@ return {
 	["active_skill_secondary_area_of_effect_radius"]=5,
 	["base_skill_effect_duration"]=6,
 	["fire_storm_fireball_delay_ms"]=7,
-	["firestorm_max_number_of_storms"]=8,
+	["firestorm_improved_bolts_per_ignite_consumed"]=8,
+	["firestorm_max_number_of_storms"]=9,
 	["never_ignite"]=1,
 	parent="skill_stat_descriptions",
-	["skill_effect_duration"]=9,
+	["quality_display_active_skill_base_area_of_effect_radius_is_gem"]=3,
+	["skill_effect_duration"]=10,
 	["vaal_firestorm_number_of_meteors"]=7,
-	["virtual_firestorm_max_number_of_storms"]=10
+	["virtual_firestorm_max_number_of_storms"]=11
 }

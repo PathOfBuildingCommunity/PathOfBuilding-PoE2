@@ -7,16 +7,20 @@ liveTargetVersion = "0_1"
 -- Skill tree versions
 ---Added for convenient indexing of skill tree versions.
 ---@type string[]
-treeVersionList = { "0_1" }
+treeVersionList = { "0_1", "0_2" }
 --- Always points to the latest skill tree version.
 latestTreeVersion = treeVersionList[#treeVersionList]
 ---Tree version where multiple skill trees per build were introduced to PoBC.
 defaultTreeVersion = treeVersionList[1]
 ---Display, comparison and export data for all supported skill tree versions.
----@type table<string, {display: string, num: number, url: string}>
+---@type table<string, {display: string, num: number}>
 treeVersions = {
 	["0_1"] = {
 		display = "0_1",
 		num = 0.1,
+	},
+	["0_2"] = {
+		display = "0_2",
+		num = 0.2,
 	},
 }

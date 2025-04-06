@@ -107,7 +107,7 @@ itemBases["Golden Charm"] = {
 	tags = { flask = true, utility_flask = true, default = true, },
 	implicit = "Used when you Kill a Rare or Unique Enemy",
 	implicitModTypes = { {  }, },
-	charm = { duration = 1, chargesUsed = 80, chargesMax = 80, buff = { "20% increased Rarity of Items found" }, },
+	charm = { duration = 1, chargesUsed = 80, chargesMax = 80, buff = { "15% increased Rarity of Items found" }, },
 	req = { level = 50, },
 }
 

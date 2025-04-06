@@ -115,13 +115,26 @@ return {
 						[2]="#"
 					},
 					[2]={
+						[1]=0,
+						[2]=0
+					}
+				},
+				text="Hits against Marked enemy cause {0:+d}% more Freeze buildup"
+			},
+			[3]={
+				limit={
+					[1]={
+						[1]=1,
+						[2]="#"
+					},
+					[2]={
 						[1]="#",
 						[2]="#"
 					}
 				},
 				text="Hits against Marked enemy cause {0}% more Freeze buildup"
 			},
-			[3]={
+			[4]={
 				[1]={
 					k="negate",
 					v=1
@@ -137,19 +150,6 @@ return {
 					}
 				},
 				text="Hits against Marked enemy cause {0}% less Freeze buildup"
-			},
-			[4]={
-				limit={
-					[1]={
-						[1]=1,
-						[2]="#"
-					},
-					[2]={
-						[1]=0,
-						[2]=0
-					}
-				},
-				text="Hits against Marked enemy cause {0:+d}% more Freeze buildup"
 			}
 		},
 		stats={

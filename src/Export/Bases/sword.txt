@@ -2,10 +2,8 @@
 local itemBases = ...
 
 #type One Handed Sword
-#socketLimit 3
-
+#socketLimit 2
 #baseMatch BaseType Metadata/Items/Weapons/OneHandWeapons/OneHandSwords/AbstractOneHandSword
-#baseMatch BaseType Metadata/Items/Weapons/OneHandWeapons/OneHandSwords/OneHandSwordDemigods
 
 #forceHide true
 #base Metadata/Items/Weapons/OneHandWeapons/OneHandSwords/StormBladeOneHand

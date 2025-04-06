@@ -52,7 +52,7 @@ return {
 			}
 		},
 		stats={
-			[1]="skill_effect_duration"
+			[1]="skill_ignited_ground_effect_duration_ms"
 		}
 	},
 	[3]={
@@ -78,7 +78,7 @@ return {
 	},
 	["base_skill_effect_duration"]=1,
 	parent="skill_stat_descriptions",
-	["skill_effect_duration"]=2,
+	["skill_ignited_ground_effect_duration_ms"]=2,
 	["spell_maximum_base_fire_damage"]=3,
 	["spell_minimum_base_fire_damage"]=3
 }

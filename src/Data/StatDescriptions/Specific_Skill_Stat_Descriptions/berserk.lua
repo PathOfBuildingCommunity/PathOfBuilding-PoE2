@@ -61,7 +61,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Lose {0}% of Life per Rage per second while not losing Rage"
+				text="Lose {0}% of maximum Life per Rage per second while not losing Rage"
 			}
 		},
 		stats={

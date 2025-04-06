@@ -18,9 +18,13 @@ return {
 					[1]={
 						[1]=1000,
 						[2]=1000
+					},
+					[2]={
+						[1]=0,
+						[2]=0
 					}
 				},
-				text="Spike duration is {0} second"
+				text="{0:+d} second to Spike duration"
 			},
 			[2]={
 				[1]={
@@ -31,13 +35,52 @@ return {
 					[1]={
 						[1]="#",
 						[2]="#"
+					},
+					[2]={
+						[1]=0,
+						[2]=0
+					}
+				},
+				text="{0:+d} seconds to Spike duration"
+			},
+			[3]={
+				[1]={
+					k="milliseconds_to_seconds_2dp_if_required",
+					v=1
+				},
+				limit={
+					[1]={
+						[1]=1000,
+						[2]=1000
+					},
+					[2]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Spike duration is {0} second"
+			},
+			[4]={
+				[1]={
+					k="milliseconds_to_seconds_2dp_if_required",
+					v=1
+				},
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					},
+					[2]={
+						[1]="#",
+						[2]="#"
 					}
 				},
 				text="Spike duration is {0} seconds"
 			}
 		},
 		stats={
-			[1]="base_skill_effect_duration"
+			[1]="base_skill_effect_duration",
+			[2]="quality_display_active_skill_base_area_of_effect_radius_is_gem"
 		}
 	},
 	[3]={
@@ -49,7 +92,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Buff grants you {0}% more Spell damage"
+				text="Buff grants you {0}% increased Spell damage"
 			},
 			[2]={
 				[1]={
@@ -62,11 +105,11 @@ return {
 						[2]=-1
 					}
 				},
-				text="Buff grants you {0}% less Spell damage"
+				text="Buff grants you {0}% reduced Spell damage"
 			}
 		},
 		stats={
-			[1]="power_offering_buff_spell_damage_+%_final"
+			[1]="power_offering_buff_spell_damage_+%"
 		}
 	},
 	[4]={
@@ -92,6 +135,7 @@ return {
 	["base_secondary_skill_effect_duration"]=1,
 	["base_skill_effect_duration"]=2,
 	parent="skill_stat_descriptions",
-	["power_offering_buff_spell_damage_+%_final"]=3,
+	["power_offering_buff_spell_damage_+%"]=3,
+	["quality_display_active_skill_base_area_of_effect_radius_is_gem"]=2,
 	["skill_effect_duration"]=4
 }

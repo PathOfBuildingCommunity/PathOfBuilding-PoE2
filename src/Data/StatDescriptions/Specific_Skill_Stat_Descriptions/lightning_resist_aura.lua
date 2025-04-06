@@ -11,22 +11,30 @@ return {
 						[2]="#"
 					}
 				},
-				text="Lightning Resistance granted {0}%"
-			},
-			[2]={
+				text="Aura grants {0:+d}% to Lightning Resistance"
+			}
+		},
+		stats={
+			[1]="base_skill_buff_lightning_damage_resistance_%_to_apply"
+		}
+	},
+	[2]={
+		[1]={
+			[1]={
 				limit={
 					[1]={
 						[1]=1,
 						[2]="#"
 					}
 				},
-				text="Allies gain {0}% additional Lightning Resistance"
+				text="Lightning Resistance granted {0}%"
 			}
 		},
 		stats={
-			[1]="skill_granted_lightning_damage_resistance_%"
+			[1]="skill_aura_buff_lightning_damage_resistance_%_magnitude_to_apply"
 		}
 	},
+	["base_skill_buff_lightning_damage_resistance_%_to_apply"]=1,
 	parent="skill_stat_descriptions",
-	["skill_granted_lightning_damage_resistance_%"]=1
+	["skill_aura_buff_lightning_damage_resistance_%_magnitude_to_apply"]=2
 }

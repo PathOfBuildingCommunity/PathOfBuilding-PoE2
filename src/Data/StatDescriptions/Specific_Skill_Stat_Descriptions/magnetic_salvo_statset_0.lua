@@ -65,10 +65,48 @@ return {
 			[1]={
 				limit={
 					[1]={
+						[1]=1,
+						[2]=1
+					},
+					[2]={
+						[1]="#",
+						[2]="#"
+					},
+					[3]={
+						[1]=0,
+						[2]=0
+					}
+				},
+				text="Fires up to {0:+d} missile"
+			},
+			[2]={
+				limit={
+					[1]={
 						[1]=2,
 						[2]="#"
 					},
 					[2]={
+						[1]="#",
+						[2]="#"
+					},
+					[3]={
+						[1]=0,
+						[2]=0
+					}
+				},
+				text="Fires up to {0:+d} missiles"
+			},
+			[3]={
+				limit={
+					[1]={
+						[1]=2,
+						[2]="#"
+					},
+					[2]={
+						[1]="#",
+						[2]="#"
+					},
+					[3]={
 						[1]="#",
 						[2]="#"
 					}
@@ -78,7 +116,8 @@ return {
 		},
 		stats={
 			[1]="base_number_of_projectiles",
-			[2]="skill_can_fire_arrows"
+			[2]="skill_can_fire_arrows",
+			[3]="quality_display_base_number_of_projectiles_is_gem"
 		}
 	},
 	[5]={
@@ -101,7 +140,7 @@ return {
 	["active_skill_base_area_of_effect_radius"]=3,
 	["base_number_of_projectiles"]=4,
 	parent="skill_stat_descriptions",
-	["quality_display_base_number_of_projectiles_is_gem"]=1,
+	["quality_display_base_number_of_projectiles_is_gem"]=4,
 	["skill_can_fire_arrows"]=4,
 	["total_number_of_projectiles_to_fire"]=5
 }

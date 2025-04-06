@@ -78,7 +78,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Lose {0}% of Life per second per Demonflame"
+				text="Lose {0}% of maximum Life per second per Demonflame"
 			}
 		},
 		stats={
@@ -99,6 +99,19 @@ return {
 					}
 				},
 				text="Life Loss per second per Demonflame {0}"
+			},
+			[2]={
+				[1]={
+					k="per_minute_to_per_second",
+					v=1
+				},
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="{0} Life Loss per second per Demonflame"
 			}
 		},
 		stats={
