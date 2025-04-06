@@ -69,6 +69,13 @@ Used when you become Frozen
 (20-25)% Chance to gain a Charge when you Kill an Enemy
 Energy Shield Recharge starts on use
 ]],[[
+Ngamahu's Chosen
+Ruby Charm   
+Implicits: 1
+Used when you take Fire damage from a Hit
+(30-40)% increased Charges
+Grants up to your maximum Rage on use
+]],[[
 Sanguis Heroum
 Staunching Charm   
 Implicits: 1

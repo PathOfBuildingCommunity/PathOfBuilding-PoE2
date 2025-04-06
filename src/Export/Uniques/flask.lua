@@ -68,6 +68,13 @@ CharmImplicitUseOnFreeze1
 UniqueFlaskChanceRechargeOnKill1
 UniqueCharmStartEnergyShieldRecharge1
 ]],[[
+Ngamahu's Chosen
+Ruby Charm   
+Implicits: 1
+CharmImplicitUseOnFireDamage1
+UniqueFlaskExtraCharges1
+UniqueCharmGrantsMaximumRage1
+]],[[
 Sanguis Heroum
 Staunching Charm   
 Implicits: 1
