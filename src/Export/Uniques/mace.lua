@@ -35,7 +35,7 @@ UniqueIntelligenceRequirements2
 UniqueStrengthRequirements2
 UniqueLocalIncreasedPhysicalDamagePercent12
 UniqueLocalIncreasedAttackSpeed20
-UniqueGlobalLightningGemLevel1
+UniqueGlobalLightningGemLevel2
 ]],[[
 Nebuloch
 Brigand Mace

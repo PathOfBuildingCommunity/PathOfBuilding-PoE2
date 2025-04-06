@@ -35,7 +35,7 @@ Grants Skill: Level (1-20) Lightning Spell on Hit
 +100 Strength Requirement
 (150-200)% increased Physical Damage
 (10-20)% increased Attack Speed
-+1 to Level of all Lightning Skills
++(1-2) to Level of all Lightning Skills
 ]],[[
 Nebuloch
 Brigand Mace
