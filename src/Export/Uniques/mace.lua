@@ -93,6 +93,14 @@ UniqueIncreasedMana22
 {variant:1}UniqueLocalCriticalStrikeChance3
 UniqueMinionDamageAffectsYou1
 ]],[[
+The Hammer of Faith
+Giant Maul
+UniqueLocalIncreasedPhysicalDamagePercent9
+UniqueLocalIncreasedAttackSpeed14
+UniqueAllResistances21
+UniqueManaRegeneration29
+UniqueShrineBuffAlternating1
+]],[[
 Hoghunt
 Felled Greatclub
 Variant: Pre 0.1.1

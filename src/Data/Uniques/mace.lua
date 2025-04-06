@@ -94,6 +94,14 @@ Variant: Current
 {variant:1}+5% to Critical Hit Chance
 Increases and Reductions to Minion Damage also affect you
 ]],[[
+The Hammer of Faith
+Giant Maul
+(200-250)% increased Physical Damage
+10% reduced Attack Speed
++10% to all Elemental Resistances
+50% increased Mana Regeneration Rate
+Gain a random Shrine buff every 10 seconds
+]],[[
 Hoghunt
 Felled Greatclub
 Variant: Pre 0.1.1
