@@ -270,6 +270,15 @@ UniqueLocalIncreasedArmourAndEnergyShield10
 UniqueIncreasedSpirit2
 UniqueChaosResist1
 ]],[[
+Prism Guardian
+Sectarian Crest Shield
+Implicits: 1
+Grants Skill: Raise Shield
+UniqueLocalIncreasedArmourAndEnergyShield22
+UniqueDexterity37
+UniqueAllResistances26
+UniqueSpiritPerMaximumLife1
+]],[[
 Rise of the Phoenix
 Omen Crest Shield
 Implicits: 1

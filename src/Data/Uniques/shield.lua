@@ -296,6 +296,15 @@ Grants Skill: Raise Shield
 +50 to Spirit
 +(17-23)% to Chaos Resistance
 ]],[[
+Prism Guardian
+Sectarian Crest Shield
+Implicits: 1
+Grants Skill: Raise Shield
+(80-150)% increased Armour and Energy Shield
++(20-30) to Dexterity
++(10-20)% to all Elemental Resistances
++1 to Maximum Spirit per 50 Maximum Life
+]],[[
 Rise of the Phoenix
 Omen Crest Shield
 Implicits: 1
