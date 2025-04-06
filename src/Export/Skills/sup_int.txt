@@ -84,6 +84,7 @@ statMap = {
 #set SupportBoneShrapnelPlayer
 #mods
 #skillEnd
+
 #skill TriggeredBoneShrapnelPlayer
 #set TriggeredBoneShrapnelPlayer
 #mods
@@ -401,8 +402,8 @@ statMap = {
 	["support_ailment_cooldown_ailment_chance_+%_final"] = {
 		mod("EnemyIgniteChance", "MORE", nil),
 		mod("EnemyShockChance", "MORE", nil),
-		mod("EnemyBleedChance", "MORE", nil),
-		mod("EnemyPoisonChance", "MORE", nil),
+		mod("BleedChance", "MORE", nil),
+		mod("PoisonChance", "MORE", nil),
 	},
 },
 #mods

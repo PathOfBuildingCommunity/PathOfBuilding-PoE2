@@ -13997,14 +13997,14 @@ return {
 			name="TutorialVideo",
 			refTo="",
 			type="String",
-			width=150
+			width=100
 		},
 		[24]={
 			list=false,
 			name="HoverImage",
 			refTo="",
 			type="String",
-			width=150
+			width=100
 		},
 		[25]={
 			list=false,
@@ -14043,10 +14043,26 @@ return {
 		},
 		[30]={
 			list=true,
-			name="",
-			refTo="",
+			name="SearchTerms",
+			refTo="SkillGemSearchTerms",
 			type="Key",
-			width=100
+			width=220
+		}
+	},
+	skillgemsearchterms={
+		[1]={
+			list=false,
+			name="Id",
+			refTo="",
+			type="String",
+			width=150
+		},
+		[2]={
+			list=false,
+			name="Name",
+			refTo="",
+			type="String",
+			width=150
 		}
 	},
 	skillgemsforuniquestat={

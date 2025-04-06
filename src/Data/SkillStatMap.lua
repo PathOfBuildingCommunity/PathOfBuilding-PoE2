@@ -884,6 +884,9 @@ return {
 ["damage_+%_when_on_low_life"] = {
 	mod("Damage", "INC", nil, 0, 0, { type = "Condition", var = "LowLife"})
 },
+["attack_damage_is_lucky_if_surrounded"] = {
+	flag("LuckyHits", { type = "Condition", var = "Surrounded" })
+},
 ["damage_vs_enemies_on_low_life_+%"] = {
 	mod("Damage", "INC", nil, ModFlag.Hit, 0, { type = "ActorCondition", actor = "enemy", var = "LowLife"})
 },
@@ -1091,6 +1094,9 @@ return {
 },
 ["chance_to_bleed_on_hit_%_vs_maimed"] = {
 	mod("BleedChance", "BASE", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "Maimed" })
+},
+["bleed_chance_+%_vs_full_life_enemy"] = {
+	mod("BleedChance", "INC", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "FullLife"}),
 },
 ["faster_bleed_%"] = {
 	mod("BleedFaster", "INC", nil),
@@ -1481,6 +1487,9 @@ return {
 	mod("PierceCount", "BASE", nil),
 	div = 100,
 },
+["chance_to_pierce_ignited_enemy_%"] = {
+	flag("PierceAllTargets", { type = "ActorCondition", actor = "enemy", var = "Ignited" }),
+},
 ["always_pierce"] = {
 	flag("PierceAllTargets"),
 },
@@ -1752,6 +1761,10 @@ return {
 },
 ["main_hand_weapon_minimum_physical_damage"] = {
 	mod("PhysicalMin", "BASE", nil, 0, KeywordFlag.Attack),
+},
+["main_hand_base_physical_damage_from_%_dex"] = {
+	mod("PhysicalMin", "BASE", nil, 0, 0, { type = "PercentStat", stat = "Dex", percent = 1 }),
+	mod("PhysicalMax", "BASE", nil, 0, 0, { type = "PercentStat", stat = "Dex", percent = 1 }),
 },
 ["main_hand_weapon_maximum_physical_damage"] = {
 	mod("PhysicalMax", "BASE", nil, 0, KeywordFlag.Attack),
@@ -2425,6 +2438,9 @@ return {
 ["apply_X_armour_break_on_hit"] = {
 	flag("Condition:CanArmourBreak", { type = "GlobalEffect", effectType = "Buff", effectName = "ArmourBreak" }),
 	mod("ArmourBreakPerHit", "BASE", nil),
+},
+["apply_X_incision_on_hit"] = {
+	flag("Condition:CanInflictIncision", { type = "GlobalEffect", effectType = "Buff", effectName = "Incision" }),
 },
 ["armour_break_physical_damage_%_dealt_as_armour_break"] = {
 	flag("Condition:CanArmourBreak", { type = "GlobalEffect", effectType = "Buff", effectName = "ArmourBreak" }),

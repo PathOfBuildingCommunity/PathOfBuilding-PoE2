@@ -416,11 +416,28 @@ skills["SupportCaltropsPlayer"] = {
 				[1] = { actorLevel = 1, },
 			},
 		},
-		[2] = {
+	}
+}
+skills["TriggeredCaltropsPlayer"] = {
+	name = "Caltrops",
+	hidden = true,
+	description = "Maims and deals Physical area damage when triggered by an Enemy. Caltrops are destroyed when triggered, and a maximum of 20 Caltrops can be active at once.",
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Physical] = true, [SkillType.Projectile] = true, [SkillType.ProjectileNoCollision] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.Hazard] = true, [SkillType.Duration] = true, [SkillType.CannotChain] = true, [SkillType.Attack] = true, [SkillType.GroundTargetedProjectile] = true, [SkillType.NoAttackOrCastTime] = true, },
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { attackTime = 1, critChance = 5, levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
 			label = "Caltrops",
 			incrementalEffectiveness = 0.054999999701977,
-			statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "triggered_caltrops",
 			baseFlags = {
+				projectile = true,
+				duration = true,
+				area = true,
 			},
 			constantStats = {
 				{ "triggered_by_caltrops_support_%", 100 },
@@ -431,7 +448,6 @@ skills["SupportCaltropsPlayer"] = {
 				{ "main_hand_base_physical_damage_from_%_dex", 60 },
 			},
 			stats = {
-				"trigger_caltrops_at_end_of_projectile_flight",
 				"global_maim_on_hit",
 				"additive_thorns_damage_modifiers_apply_to_attack_damage",
 				"replace_main_hand_unarmed_attack_stats_with_nothing_type",
@@ -441,7 +457,7 @@ skills["SupportCaltropsPlayer"] = {
 				"projectiles_not_offset",
 			},
 			levels = {
-				[1] = { critChance = 5, actorLevel = 1, },
+				[1] = { actorLevel = 1, },
 			},
 		},
 	}

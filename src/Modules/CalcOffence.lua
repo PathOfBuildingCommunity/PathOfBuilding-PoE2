@@ -4533,9 +4533,12 @@ function calcs.offence(env, actor, activeSkill)
 				output[flatAilment.."ChanceOnCrit"] = 0
 				skillFlags["inflict"..flatAilment] = false
 			else
-				local flatChance = m_min(100, skillModList:Sum("BASE", cfg, flatAilment.."Chance") + enemyDB:Sum("BASE", nil, "Self"..flatAilment.."Chance"))
-				output[flatAilment.."ChanceOnHit"] = flatChance
-				output[flatAilment.."ChanceOnCrit"] = flatChance
+				local base = skillModList:Sum("BASE", cfg, flatAilment.."Chance") + enemyDB:Sum("BASE", nil, "Self"..flatAilment.."Chance")
+				local inc = skillModList:Sum("INC", cfg, flatAilment.."Chance")
+				local more = skillModList:More(cfg, flatAilment.."Chance")
+				local chance = m_min(100, base * (1 + inc / 100) * more)
+				output[flatAilment.."ChanceOnHit"] = chance
+				output[flatAilment.."ChanceOnCrit"] = chance
 				skillFlags["inflict"..flatAilment] = true
 			end
 		end

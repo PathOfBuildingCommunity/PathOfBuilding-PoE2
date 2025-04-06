@@ -781,7 +781,7 @@ c["1% increased Movement Speed per 800 Evasion Rating"]={{[1]={[1]={div=800,stat
 c["1% reduced Attack Speed"]={{[1]={flags=1,keywordFlags=0,name="Speed",type="INC",value=-1}},nil}
 c["1% to Maximum Fire Resistance for each 40% Uncapped Fire Resistance"]={{[1]={[1]={div=40,stat="FireResistTotal",type="PerStat"},flags=0,keywordFlags=0,name="FireResistMax",type="BASE",value=1}},nil}
 c["10 Life Regeneration per second"]={{[1]={flags=0,keywordFlags=0,name="LifeRegen",type="BASE",value=10}},nil}
-c["10% chance for Attack Hits to apply ten Incision"]={{}," for Attack Hits to apply ten Incision "}
+c["10% chance for Attack Hits to apply ten Incision"]={{[1]={flags=0,keywordFlags=0,name="Condition:CanInflictIncision",type="FLAG",value=true}},nil}
 c["10% chance for Enemies you Kill to Explode, dealing 100%"]={{}," for Enemies you Kill to Explode, dealing 100% "}
 c["10% chance for Enemies you Kill to Explode, dealing 100% of their maximum Life as Physical Damage"]={{[1]={flags=0,keywordFlags=0,name="Life",type="BASE",value=10}}," for Enemies you Kill to Explode, dealing 100% of their  as Physical Damage "}
 c["10% chance for Enemies you Kill to Explode, dealing 100% of their maximum Life as Physical Damage Chance is doubled against Undead and Demons"]={{[1]={flags=0,keywordFlags=0,name="Life",type="BASE",value=10}}," for Enemies you Kill to Explode, dealing 100% of their  as Physical Damage Chance is doubled against Undead and Demons "}
@@ -1196,7 +1196,7 @@ c["15% increased Life Regeneration Rate while stationary"]={{[1]={[1]={type="Con
 c["15% increased Life Regeneration rate"]={{[1]={flags=0,keywordFlags=0,name="LifeRegen",type="INC",value=15}},nil}
 c["15% increased Life and Mana Recovery from Flasks"]={{[1]={flags=0,keywordFlags=0,name="FlaskLifeRecovery",type="INC",value=15},[2]={flags=0,keywordFlags=0,name="FlaskManaRecovery",type="INC",value=15}},nil}
 c["15% increased Magnitude of Bleeding you inflict"]={{[1]={flags=0,keywordFlags=4194304,name="AilmentMagnitude",type="INC",value=15}},nil}
-c["15% increased Magnitude of Bleeding you inflict against Enemies affected by Incision"]={{[1]={flags=0,keywordFlags=4194304,name="AilmentMagnitude",type="INC",value=15}},"  against Enemies affected by Incision "}
+c["15% increased Magnitude of Bleeding you inflict against Enemies affected by Incision"]={{[1]={[1]={actor="enemy",threshold=1,type="MultiplierThreshold",var="IncisionStack"},flags=0,keywordFlags=4194304,name="AilmentMagnitude",type="INC",value=15}},nil}
 c["15% increased Magnitude of Bleeding you inflict with Critical Hits"]={{[1]={[1]={type="Condition",var="CriticalStrike"},flags=0,keywordFlags=4194304,name="AilmentMagnitude",type="INC",value=15}},nil}
 c["15% increased Magnitude of Chill you inflict"]={{[1]={flags=0,keywordFlags=0,name="EnemyChillMagnitude",type="INC",value=15}},nil}
 c["15% increased Magnitude of Damaging Ailments you inflict with Critical Hits"]={{[1]={[1]={type="Condition",var="CriticalStrike"},flags=0,keywordFlags=14680064,name="AilmentMagnitude",type="INC",value=15}},nil}
@@ -1352,7 +1352,7 @@ c["2% increased maximum Mana"]={{[1]={flags=0,keywordFlags=0,name="Mana",type="I
 c["20 Life Regeneration per second"]={{[1]={flags=0,keywordFlags=0,name="LifeRegen",type="BASE",value=20}},nil}
 c["20 Passive Skill Points become Weapon Set Skill Points"]={{[1]={flags=0,keywordFlags=0,name="PassivePointsToWeaponSetPoints",type="BASE",value=20}},nil}
 c["20 to 30 Physical Thorns damage"]={{[1]={flags=0,keywordFlags=0,name="ThornsDamage",type="BASE",value=20}}," to 30 Physical  "}
-c["20% chance for Attack Hits to apply Incision"]={{}," for Attack Hits to apply Incision "}
+c["20% chance for Attack Hits to apply Incision"]={{[1]={flags=0,keywordFlags=0,name="Condition:CanInflictIncision",type="FLAG",value=true}},nil}
 c["20% chance for Bleeding to be Aggravated when Inflicted against Enemies on Jagged Ground"]={{},"  to be Aggravated when Inflicted against Enemies on Jagged Ground "}
 c["20% chance for Bleeding to be Aggravated when Inflicted against Enemies on Jagged Ground 40% increased Jagged Ground Duration"]={{[1]={flags=0,keywordFlags=4194304,name="Duration",type="BASE",value=20}},"  to be Aggravated when Inflicted against Enemies on Jagged Ground 40% increased Jagged Ground  "}
 c["20% chance for Charms you use to not consume Charges"]={{[1]={flags=0,keywordFlags=0,name="FlaskCharges",type="BASE",value=20}}," for Charms you use to not consume  "}
@@ -2246,7 +2246,7 @@ c["50% increased Totem Placement range"]={{[1]={flags=0,keywordFlags=16384,name=
 c["50% increased Weapon Swap Speed"]={{[1]={flags=0,keywordFlags=0,name="WeaponSwapSpeed",type="INC",value=50}},nil}
 c["50% increased amount of Mana Leeched"]={{[1]={flags=0,keywordFlags=0,name="MaxManaLeechRate",type="INC",value=50}},nil}
 c["50% increased chance to Ignite"]={{[1]={flags=0,keywordFlags=0,name="EnemyIgniteChance",type="INC",value=50}},nil}
-c["50% increased effect of Incision"]={{[1]={flags=0,keywordFlags=0,name="LocalEffect",type="INC",value=50}},"  of Incision "}
+c["50% increased effect of Incision"]={{[1]={flags=0,keywordFlags=0,name="IncisionEffect",type="INC",value=50}},nil}
 c["50% increased effect of Small Passive Skills"]={{[1]={flags=0,keywordFlags=0,name="SmallPassiveSkillEffect",type="INC",value=50}},nil}
 c["50% increased effect of Sorcery Ward"]={{[1]={[1]={includeTransfigured=true,skillName="Sorcery Ward",type="SkillName"},flags=0,keywordFlags=0,name="LocalEffect",type="INC",value=50}},"  of"}
 c["50% increased effect of Sorcery Ward Sorcery Ward recovers 50% faster"]={{[1]={[1]={includeTransfigured=true,skillName="Sorcery Ward",type="SkillName"},flags=0,keywordFlags=0,name="LocalEffect",type="INC",value=50}},"  ofSorcery Ward recovers 50% faster "}
@@ -3520,7 +3520,7 @@ c["Enemies you Electrocute have 20% increased Damage taken"]={{[1]={flags=0,keyw
 c["Enemies you Mark cannot deal Critical Hits"]={{[1]={flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={[1]={type="Condition",var="Marked"},flags=0,keywordFlags=0,name="NeverCrit",type="FLAG",value=true}}},[2]={flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={[1]={type="Condition",var="Marked"},flags=0,keywordFlags=0,name="Condition:NeverCrit",type="FLAG",value=true}}}},nil}
 c["Enemies you Mark have 10% reduced Accuracy Rating"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Marked"},flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Accuracy",type="INC",value=-10}}}},nil}
 c["Enemies you Mark take 10% increased Damage"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Marked"},flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="DamageTaken",type="INC",value=10}}}},nil}
-c["Enemies you apply Incision to take 2% increased Physical Damage per Incision"]={nil,"Enemies you apply Incision to take 2% increased Physical Damage per Incision "}
+c["Enemies you apply Incision to take 2% increased Physical Damage per Incision"]={{[1]={flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={[1]={type="Multiplier",var="IncisionStack"},flags=0,keywordFlags=0,name="PhysicalDamageTaken",type="INC",value=2}}}},nil}
 c["Enemies' Damage with Critical Hits against you is Lucky"]={nil,"Enemies' Damage with Critical Hits  is Lucky "}
 c["Energy Generation is doubled"]={nil,"Energy Generation is doubled "}
 c["Energy Shield Recharge is not interrupted by Damage if Recharge began Recently"]={nil,"Energy Shield Recharge is not interrupted by Damage if Recharge began Recently "}

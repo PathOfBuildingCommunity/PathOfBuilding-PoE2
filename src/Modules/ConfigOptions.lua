@@ -155,7 +155,7 @@ local configSettings = {
 	{ var = "ailmentMode", type = "list", label = "Ailment calculation mode:", tooltip = "Controls how the base damage for applying Ailments is calculated:\n\tAverage: damage is based on the average application, including both crits and non-crits\n\tCrits Only: damage is based solely on Ailments inflicted with crits", list = {{val="AVERAGE",label="Average"},{val="CRIT",label="Crits Only"}} },
 	{ var = "cooldownMode", type = "list", label = "Cooldown calculation mode:", tooltip = "Controls how the cooldown for skills is calculated:\n\tBase: The cooldown is calculated with normal behavior.\n\tAverage: The cooldown is adjusted to reflect the average time between uses, factoring in effects such as a chance to not consume a cooldown.", list = {{val="BASE",label="Base"},{val="AVERAGE",label="Average"}} },
 	{ var = "physMode", type = "list", label = "Random element mode:", ifFlag = "randomPhys", tooltip = "Controls how modifiers which choose a random element will function.\n\tAverage: Modifiers will grant one third of their value to ^xB97123Fire^7, ^x3F6DB3Cold^7, and ^xADAA47Lightning ^7simultaneously\n\t^xB97123Fire ^7/ ^x3F6DB3Cold ^7/ ^xADAA47Lightning^7: Modifiers will grant their full value as the specified element\nIf a modifier chooses between just two elements, the full value can only be given as those two elements.", list = {{val="AVERAGE",label="Average"},{val="FIRE",label="^xB97123Fire"},{val="COLD",label="^x3F6DB3Cold"},{val="LIGHTNING",label="^xADAA47Lightning"}} },
-	{ var = "lifeRegenMode", type = "list", label = "^xE05030Life ^7regen calculation mode:", ifCond = { "LifeRegenBurstAvg", "LifeRegenBurstFull" }, tooltip = "Controls how ^xE05030life ^7regeneration is calculated:\n\tMinimum: does not include burst regen\n\tAverage: includes burst regen, averaged based on uptime\n\tBurst: includes full burst regen", list = {{val="MIN",label="Minimum"},{val="AVERAGE",label="Average"},{val="FULL",label="Burst"}}, apply = function(val, modList, enemyModList)
+	{ var = "lifeRegenMode", type = "list", label = "^xE05030Life ^7regen calculation mode:", ifCond = { "LifeRegenBurstAvg", "LifeRegenBurstFull" }, tooltip = "Controls how ^xE05030Life ^7regeneration is calculated:\n\tMinimum: does not include burst regen\n\tAverage: includes burst regen, averaged based on uptime\n\tBurst: includes full burst regen", list = {{val="MIN",label="Minimum"},{val="AVERAGE",label="Average"},{val="FULL",label="Burst"}}, apply = function(val, modList, enemyModList)
 		if val == "AVERAGE" then
 			modList:NewMod("Condition:LifeRegenBurstAvg", "FLAG", true, "Config")
 		elseif val == "FULL" then
@@ -280,9 +280,17 @@ local configSettings = {
 	{ var = "stoneGolemEqualsCarrionGolem", type = "check", label = "# Stone Golem = # Carrion Golem:", ifCond = "StoneEqualCarrionGolem", ifSkill = "Summon Carrion Golem", includeTransfigured = true, apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:StoneEqualCarrionGolem", "FLAG", true, "Config")
 	end },
+	{ label = "Clash Support:", ifSkill = "Clash" },
+	{ var = "clashCondition", type = "check", label = "Enemy ^xE05030Life ^7% higher than Player?", ifSkill = "Clash", tooltip = "Does the Enemy have a higher percentage of ^xE05030Life ^7remaining than the player", apply = function(val, modList, enemyModList)
+		modList:NewMod("Condition:EnemyHigherLifePercent", "FLAG", true, "Config")
+	end },
 	{ label = "Cold Snap:", ifSkill = "Cold Snap", includeTransfigured = true },
 	{ var = "ColdSnapBypassCD", type = "check", label = "Bypass CD?", ifSkill = "Cold Snap", includeTransfigured = true, apply = function(val, modList, enemyModList)
 		modList:NewMod("CooldownRecovery", "OVERRIDE", 0, "Config", { type = "SkillName", skillName = "Cold Snap", includeTransfigured = true })
+	end },
+	{ label = "Concoct:", ifSkill = "Concoct" },
+	{ var = "concoctLifeFlaskChargesUsed", type = "count", label = "# of Life Flask charges used:", ifSkill = "Concoct", apply = function(val, modList, enemyModList)
+		modList:NewMod("Multiplier:LifeFlaskChargesUsed", "BASE", val, "Config")
 	end },
 	{ label = "Consecrated Path of Endurance:", ifSkill = "Consecrated Path of Endurance" },
 	{ var = "ConcPathBypassCD", type = "check", label = "Bypass CD?", ifSkill = "Consecrated Path of Endurance", defaultState = true, apply = function(val, modList, enemyModList)
@@ -381,6 +389,10 @@ local configSettings = {
 	{ label = "Ice Nova:", ifSkill = "Ice Nova of Frostbolts" },
 	{ var = "iceNovaCastOnFrostbolt", type = "check", label = "Cast on Frostbolt?", ifSkill = "Ice Nova of Frostbolts", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:CastOnFrostbolt", "FLAG", true, "Config", { type = "SkillName", skillName = "Ice Nova of Frostbolts" })
+	end },
+	{ label = "Incision Support:", ifSkill = "Incision" },
+	{ var = "incisionConsumedRecently", type = "count", label = "# of Incisions consumed recently:", ifSkill = "Incision", apply = function(val, modList, enemyModList)
+		modList:NewMod("Multiplier:IncisionConsumedRecently", "BASE", val, "Config")
 	end },
 	{ label = "Inevitable Critical Support:", ifSkill = "Inevitable Critical" },
 	{ var = "SecondsSinceInevitableCrit", type = "count", label = "# of seconds since Inevitable crit:", ifSkill = "Inevitable Critical", tooltip = "Also implies you've crit recently if the value is 3s or below", apply = function(val, modList, enemyModList)
@@ -1522,6 +1534,9 @@ Huge sets the radius to 11.
 	end },
 	{ var = "multiplierRuptureStacks", type = "count", label = "# of Rupture stacks?", ifFlag = "Condition:CanInflictRupture", tooltip = "Rupture applies more bleed damage and faster bleeds for 3 seconds, up to 3 stacks", apply = function(val, modList, enemyModList)
 		enemyModList:NewMod("Multiplier:RuptureStack", "BASE", val, "Config", { type = "Condition", var = "Effective" })
+	end },
+	{ var = "multiplierIncisionStackCount", type = "count", label = "# of Incision Stacks:", ifFlag = "Condition:CanInflictIncision", tooltip = "Incision applies 10% chance to Bleed the enemy, up to 10 stacks.", apply = function(val, modList, enemyModList)
+		enemyModList:NewMod("Multiplier:IncisionStack", "BASE", m_min(val, 10), "Config", { type = "Condition", var = "Effective" })
 	end },
 	{ var = "conditionEnemyPoisoned", type = "check", label = "Is the enemy Poisoned?", ifEnemyCond = "Poisoned", apply = function(val, modList, enemyModList)
 		enemyModList:NewMod("Condition:Poisoned", "FLAG", true, "Config", { type = "Condition", var = "Effective" })

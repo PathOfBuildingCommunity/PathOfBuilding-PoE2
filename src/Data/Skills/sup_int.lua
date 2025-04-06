@@ -359,7 +359,8 @@ skills["SupportBoneShrapnelPlayer"] = {
 			},
 		},
 	}
-}skills["TriggeredBoneShrapnelPlayer"] = {
+}
+skills["TriggeredBoneShrapnelPlayer"] = {
 	name = "Bone Shrapnel Explosion",
 	hidden = true,
 	description = "Deal Physical Area Damage based off of the maximum Life of the Pinned target slain.",
@@ -1736,7 +1737,7 @@ skills["SupportEssenceHarvestPlayer"] = {
 			baseFlags = {
 			},
 			constantStats = {
-				{ "recover_mana_%_on_minion_death", 10 },
+				{ "recover_mana_%_on_minion_death", 4 },
 			},
 			stats = {
 			},
@@ -1801,8 +1802,8 @@ skills["SupportExecratePlayer"] = {
 				["support_ailment_cooldown_ailment_chance_+%_final"] = {
 					mod("EnemyIgniteChance", "MORE", nil),
 					mod("EnemyShockChance", "MORE", nil),
-					mod("EnemyBleedChance", "MORE", nil),
-					mod("EnemyPoisonChance", "MORE", nil),
+					mod("BleedChance", "MORE", nil),
+					mod("PoisonChance", "MORE", nil),
 				},
 			},
 			baseFlags = {

@@ -199,6 +199,11 @@ skills["SupportArmsLengthPlayer"] = {
 			label = "Arms Length",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_arms_length_knockback_distance_+%_final"] = {
+					mod("EnemyKnockbackDistance", "MORE", nil),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -457,6 +462,11 @@ skills["SupportBrinkPlayer"] = {
 			label = "Brink",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_brink_damage_+%_final_vs_heavy_stunned_target"] = {
+					mod("Damage", "MORE", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "HeavyStunned" }),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -557,6 +567,14 @@ skills["SupportClashPlayer"] = {
 			label = "Clash",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_melee_damage_+%_final_vs_higher_percent_life_target"] = {
+					mod("Damage", "MORE", nil, ModFlag.Melee, 0, { type = "Condition", var = "EnemyHigherLifePercent" }),
+				},
+				["support_melee_damage_+%_final_vs_lower_percent_life_target"] = {
+					mod("Damage", "MORE", nil, ModFlag.Melee, 0, { type = "Condition", var = "EnemyHigherLifePercent", neg = true }),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -587,6 +605,14 @@ skills["SupportConcoctPlayer"] = {
 			label = "Concoct",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_concoct_bleed_effect_+%_final_per_life_flask_charge_consumed"] = {
+					mod("AilmentMagnitude", "MORE", nil, 0, KeywordFlag.Bleed, { type = "Multiplier", var = "LifeFlaskChargesUsed"}),
+				},
+				["consume_%_of_maximum_life_flask_charges_on_skill_use"] = {
+					-- Display only
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -617,6 +643,11 @@ skills["SupportCoolheadedPlayer"] = {
 			label = "Cool Headed",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_ignite_protection_spirit_cost_ignite_duration_on_self_+%_final"] = {
+					mod("SelfIgniteDuration", "MORE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Cool Headed" }),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -704,6 +735,14 @@ skills["SupportDauntlessPlayer"] = {
 			label = "Dauntless",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_unmoving_damage_+%_final_per_250_ms_stationary"] = {
+					mod("Damage", "MORE", nil, ModFlag.Hit, 0, { type = "Condition", var = "Stationary" }, { type = "Multiplier", var = "StationarySeconds", div = 0.25, limitVar = "DauntlessMaxDamage", limitTotal = true }),
+				},
+				["support_unmoving_damage_multiplier_cap"] = {
+					mod("Multiplier:DauntlessMaxDamage", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff"}),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -953,6 +992,11 @@ skills["SupportDirestrikePlayer"] = {
 			label = "Direstrike",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_attack_damage_spirit_cost_attack_damage_+%_on_low_life"] = {
+					mod("Damage", "INC", nil, ModFlag.Attack, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Direstrike" }),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -1625,15 +1669,29 @@ skills["SupportHaemocrystalsPlayer"] = {
 				[1] = { actorLevel = 1, },
 			},
 		},
-		[2] = {
+	}
+}
+skills["TriggeredHaemocrystalsPlayer"] = {
+	name = "Haemocrystals",
+	hidden = true,
+	description = "Deal Physical Area Damage based on a percentage of the expected Damage of the Consumed Bleed. ",
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Physical] = true, [SkillType.SkillGrantedBySupport] = true, },
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
 			label = "Haemocrystals",
 			incrementalEffectiveness = 0.054999999701977,
-			statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "triggered_haemocrystals",
 			baseFlags = {
+				hit = true,
+				area = true,
 			},
 			constantStats = {
-				{ "consume_bleed_to_create_X_haemocrystals", 4 },
-				{ "support_haemocrystals_maximum_allowed_crystals", 20 },
 				{ "consume_bleed_to_create_X_haemocrystals", 4 },
 				{ "support_haemocrystals_maximum_allowed_crystals", 20 },
 			},
@@ -1879,7 +1937,7 @@ skills["ImpactShockwaveSupportPlayer"] = {
 			baseFlags = {
 			},
 			constantStats = {
-				{ "support_impact_shockwave_base_splash_radius", 18 },
+				{ "support_impact_shockwave_base_splash_radius", 15 },
 			},
 			stats = {
 			},
@@ -1905,6 +1963,11 @@ skills["SupportIncisionPlayer"] = {
 			label = "Incision",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_incision_bleeding_effect_+%_final_per_incision_consumed_recently_up_to_30%"] = {
+					mod("AilmentMagnitude", "MORE", nil, 0, KeywordFlag.Bleed, { type = "Multiplier", var = "IncisionConsumedRecently", limit = 30, limitTotal = true }),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -2571,6 +2634,16 @@ skills["SupportRefractionPlayer"] = {
 			label = "Refraction",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_tempered_valour_%_armour_to_apply_to_elemental_damage"] = {
+					mod("ArmourAppliesToFireDamageTaken", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Refractive Plating" }, { type = "MultiplierThreshold", var = "ValourStacks", thresholdVar = "RefractionMinimumValour" }),
+					mod("ArmourAppliesToColdDamageTaken", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Refractive Plating" }, { type = "MultiplierThreshold", var = "ValourStacks", thresholdVar = "RefractionMinimumValour" }),
+					mod("ArmourAppliesToLightningDamageTaken", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Refractive Plating"}, { type = "MultiplierThreshold", var = "ValourStacks", thresholdVar = "RefractionMinimumValour" }),
+				},
+				["support_tempered_valour_minimum_valour_to_apply_buff"] = {
+					mod("Multiplier:RefractionMinimumValour", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff"}),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -3063,6 +3136,11 @@ skills["SupportThornskinPlayer"] = {
 			label = "Thornskin",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_thorns_spirit_cost_thorns_damage_+%"] = {
+					mod("ThornsDamage", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Thornskin" }),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -3395,14 +3473,29 @@ skills["SupportVolcanicEruptionPlayer"] = {
 				[1] = { actorLevel = 1, },
 			},
 		},
-		[2] = {
+	}
+}
+skills["TriggeredVolcanicEruptionPlayer"] = {
+	name = "Volcanic Eruption",
+	hidden = true,
+	description = "Fire molten Projectiles from the struck target, which will land nearby dealing Attack damage in an area.",
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Fire] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.Attack] = true, [SkillType.Projectile] = true, [SkillType.ProjectileNoCollision] = true, [SkillType.NoAttackOrCastTime] = true, },
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { baseMultiplier = 0.4, storedUses = 1, levelRequirement = 0, cooldown = 0.4, },
+	},
+	statSets = {
+		[1] = {
 			label = "Volcanic Eruption",
 			incrementalEffectiveness = 0.054999999701977,
-			statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "triggered_volcanic_eruption",
 			baseFlags = {
+				attack = true,
+				area = true,
 			},
 			constantStats = {
-				{ "support_volcanic_eruption_%_chance_to_trigger_vs_ignited_enemies", 100 },
 				{ "active_skill_base_area_of_effect_radius", 10 },
 				{ "chance_to_trigger_volcanic_eruption", 100 },
 				{ "base_number_of_projectiles", 4 },
@@ -3414,7 +3507,7 @@ skills["SupportVolcanicEruptionPlayer"] = {
 				"base_is_projectile",
 			},
 			levels = {
-				[1] = { baseMultiplier = 0.4, actorLevel = 1, },
+				[1] = { actorLevel = 1, },
 			},
 		},
 	}

@@ -35,6 +35,11 @@ local skills, mod, flag, skill = ...
 
 #skill SupportArmsLengthPlayer
 #set SupportArmsLengthPlayer
+statMap = {
+	["support_arms_length_knockback_distance_+%_final"] = {
+		mod("EnemyKnockbackDistance", "MORE", nil),
+	},
+},
 #mods
 #skillEnd
 
@@ -82,6 +87,11 @@ statMap = {
 
 #skill SupportBrinkPlayer
 #set SupportBrinkPlayer
+statMap = {
+	["support_brink_damage_+%_final_vs_heavy_stunned_target"] = {
+		mod("Damage", "MORE", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "HeavyStunned" }),
+	},
+},
 #mods
 #skillEnd
 
@@ -107,16 +117,37 @@ statMap = {
 
 #skill SupportClashPlayer
 #set SupportClashPlayer
+statMap = {
+	["support_melee_damage_+%_final_vs_higher_percent_life_target"] = {
+		mod("Damage", "MORE", nil, ModFlag.Melee, 0, { type = "Condition", var = "EnemyHigherLifePercent" }),
+	},
+	["support_melee_damage_+%_final_vs_lower_percent_life_target"] = {
+		mod("Damage", "MORE", nil, ModFlag.Melee, 0, { type = "Condition", var = "EnemyHigherLifePercent", neg = true }),
+	},
+},
 #mods
 #skillEnd
 
 #skill SupportConcoctPlayer
 #set SupportConcoctPlayer
+statMap = {
+	["support_concoct_bleed_effect_+%_final_per_life_flask_charge_consumed"] = {
+		mod("AilmentMagnitude", "MORE", nil, 0, KeywordFlag.Bleed, { type = "Multiplier", var = "LifeFlaskChargesUsed"}),
+	},
+	["consume_%_of_maximum_life_flask_charges_on_skill_use"] = {
+		-- Display only
+	},
+},
 #mods
 #skillEnd
 
 #skill SupportCoolheadedPlayer
 #set SupportCoolheadedPlayer
+statMap = {
+	["support_ignite_protection_spirit_cost_ignite_duration_on_self_+%_final"] = {
+		mod("SelfIgniteDuration", "MORE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Cool Headed" }),
+	},
+},
 #mods
 #skillEnd
 
@@ -150,6 +181,14 @@ statMap = {
 
 #skill SupportDauntlessPlayer
 #set SupportDauntlessPlayer
+statMap = {
+	["support_unmoving_damage_+%_final_per_250_ms_stationary"] = {
+		mod("Damage", "MORE", nil, ModFlag.Hit, 0, { type = "Condition", var = "Stationary" }, { type = "Multiplier", var = "StationarySeconds", div = 0.25, limitVar = "DauntlessMaxDamage", limitTotal = true }),
+	},
+	["support_unmoving_damage_multiplier_cap"] = {
+		mod("Multiplier:DauntlessMaxDamage", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff"}),
+	},
+},
 #mods
 #skillEnd
 
@@ -208,6 +247,11 @@ statMap = {
 
 #skill SupportDirestrikePlayer
 #set SupportDirestrikePlayer
+statMap = {
+	["support_attack_damage_spirit_cost_attack_damage_+%_on_low_life"] = {
+		mod("Damage", "INC", nil, ModFlag.Attack, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Direstrike" }),
+	},
+},
 #mods
 #skillEnd
 
@@ -374,7 +418,11 @@ statMap = {
 #skill SupportHaemocrystalsPlayer
 #set SupportHaemocrystalsPlayer
 #mods
+#skillEnd
+
+#skill TriggeredHaemocrystalsPlayer
 #set SupportHaemocrystalsPlayer
+#flags hit area
 #mods
 #skillEnd
 
@@ -446,6 +494,11 @@ statMap = {
 
 #skill SupportIncisionPlayer
 #set SupportIncisionPlayer
+statMap = {
+	["support_incision_bleeding_effect_+%_final_per_incision_consumed_recently_up_to_30%"] = {
+		mod("AilmentMagnitude", "MORE", nil, 0, KeywordFlag.Bleed, { type = "Multiplier", var = "IncisionConsumedRecently", limit = 30, limitTotal = true }),
+	},
+},
 #mods
 #skillEnd
 
@@ -592,6 +645,16 @@ statMap = {
 
 #skill SupportRefractionPlayer
 #set SupportRefractionPlayer
+statMap = {
+	["support_tempered_valour_%_armour_to_apply_to_elemental_damage"] = {
+		mod("ArmourAppliesToFireDamageTaken", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Refractive Plating" }, { type = "MultiplierThreshold", var = "ValourStacks", thresholdVar = "RefractionMinimumValour" }),
+		mod("ArmourAppliesToColdDamageTaken", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Refractive Plating" }, { type = "MultiplierThreshold", var = "ValourStacks", thresholdVar = "RefractionMinimumValour" }),
+		mod("ArmourAppliesToLightningDamageTaken", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Refractive Plating"}, { type = "MultiplierThreshold", var = "ValourStacks", thresholdVar = "RefractionMinimumValour" }),
+	},
+	["support_tempered_valour_minimum_valour_to_apply_buff"] = {
+		mod("Multiplier:RefractionMinimumValour", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff"}),
+	},
+},
 #mods
 #skillEnd
 
@@ -688,6 +751,11 @@ statMap = {
 
 #skill SupportThornskinPlayer
 #set SupportThornskinPlayer
+statMap = {
+	["support_thorns_spirit_cost_thorns_damage_+%"] = {
+		mod("ThornsDamage", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Thornskin" }),
+	},
+},
 #mods
 #skillEnd
 
@@ -758,6 +826,10 @@ statMap = {
 #skill SupportVolcanicEruptionPlayer
 #set SupportVolcanicEruptionPlayer
 #mods
+#skillEnd
+
+#skill TriggeredVolcanicEruptionPlayer
 #set TriggeredVolcanicEruptionPlayer
+#flags attack area
 #mods
 #skillEnd

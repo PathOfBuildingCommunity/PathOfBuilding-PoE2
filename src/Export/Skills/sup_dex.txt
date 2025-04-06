@@ -86,7 +86,11 @@ statMap = {
 #skill SupportCaltropsPlayer
 #set SupportCaltropsPlayer
 #mods
+#skillEnd
+
+#skill TriggeredCaltropsPlayer
 #set TriggeredCaltropsPlayer
+#flags projectile duration area
 #mods
 #skillEnd
 
