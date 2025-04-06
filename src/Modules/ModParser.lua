@@ -13,7 +13,18 @@ local m_huge = math.huge
 local function firstToUpper(str)
 	return (str:gsub("^%l", string.upper))
 end
-
+-- Remove spaces from strings with multiple words and convert first letter to upper case, returns recombined string
+---@param str string @string that is to be split and combined
+---@param sepPattern? string @[optional]pattern that is used for separating the string "%S+" as default for "space"
+---@return string
+local function combineToUpper(str, sepPattern)
+	sepPattern = sepPattern or "%S+" -- assume "space" as default separator
+	local outStr = ""
+	for word in string.gmatch(str, sepPattern) do
+		outStr = outStr .. firstToUpper(word)
+	end
+	return outStr
+end
 -- Radius jewels that modify other nodes
 local function getSimpleConv(srcList, dst, type, remove, factor)
 	return function(node, out, data)
@@ -2765,6 +2776,8 @@ local specialModList = {
 	["(%d+)%% increased magnitude of unholy might buffs you grant per (%d+) maximum mana"] = function(num, _, num2) return { mod("ExtraAura", "LIST", { mod = mod("Multiplier:UnholyMightMagnitude", "BASE", num, { type = "PerStat", stat = "Mana", div = tonumber(num2), actor = "parent"}), { type = "GlobalEffect", effectName = "BlackenedHeart", effectType = "Aura", unscaleable = true}}) } end,
 	["non%-channelling spells cost an additional (%d+)%% of maximum energy shield"] = function(num) return { mod("ESCostBase", "BASE", 1, nil, 0, KeywordFlag.Spell, { type = "PercentStat", percent = num, stat = "EnergyShield" }, { type = "SkillType", skillType = SkillType.Channel, neg = true } )} end,
 	["non%-channelling spells consume power charges to deal (%d+)%% more damage"] = function(num) return { mod("Damage", "MORE", num, nil, 0,KeywordFlag.Spell, { type = "SkillType", skillType = SkillType.Channel, neg = true }, { type = "MultiplierThreshold", var = "RemovablePowerCharge", threshold = 1 })} end,
+	["no inherent mana regeneration"] = { flag("Condition:NoInherentManaRegen") },
+	["regenerate (%D+) equal to (%d+)%% of maximum (%D+) per second"] = function(_, resource1, num, resource2) return { mod( combineToUpper(resource1) .. "Regen", "BASE", 1, { type = "PercentStat", stat = combineToUpper(resource2), percent = num } )} end,
 	-- Mercenary
 	-- +2 Weapon Set Passive Skill Points
 	["%+(%d) weapon set passive skill points"] = function(num) return { mod("WeaponSetPassivePoints", "BASE", num) } end,
@@ -5502,6 +5515,7 @@ local flagTypes = {
 	["chilled"] = "Condition:Chilled",
 	["blinded"] = "Condition:Blinded",
 	["no life regeneration"] = "NoLifeRegen",
+	["no inherent mana regeneration"] = "Condition:NoInherentManaRegen",
 	["hexproof"] = { name = "CurseEffectOnSelf", value = -100, type = "MORE" },
 	["hindered,? with (%d+)%% reduced movement speed"] = "Condition:Hindered",
 	["unnerved"] = "Condition:Unnerved",

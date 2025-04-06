@@ -1274,7 +1274,7 @@ end
 
 -- Returns the slot control and equipped jewel for the given node ID
 function ItemsTabClass:GetSocketAndJewelForNodeID(nodeId)
-	return self.sockets[nodeId], self.items[self.sockets[nodeId].selItemId]
+	return self.sockets[nodeId], self.sockets[nodeId] and self.items[self.sockets[nodeId].selItemId] or nil
 end
 
 -- Adds the given item to the build's item list
