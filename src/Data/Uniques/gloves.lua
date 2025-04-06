@@ -200,6 +200,15 @@ Layered Gauntlets
 (40-50)% increased Rarity of Items found
 Lose 2% of maximum Life on Kill
 ]],[[
+Death Articulated
+Ornate Gauntlets
+(100-150)% increased Armour and Evasion
+(5-10)% increased Attack Speed
++(17-23)% to Chaos Resistance
+Lose 5% of maximum Life per second
+Regenerate 5 Rage per second
+No Inherent loss of Rage
+]],[[
 Deathblow
 Doubled Gauntlets
 Variant: Pre 0.1.1

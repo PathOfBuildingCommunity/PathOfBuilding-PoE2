@@ -200,6 +200,15 @@ UniqueLocalIncreasedArmourAndEvasion1
 UniqueItemFoundRarityIncrease1
 UniqueMaximumLifeOnKillPercent1
 ]],[[
+Death Articulated
+Ornate Gauntlets
+UniqueLocalIncreasedArmourAndEvasion26
+UniqueIncreasedAttackSpeed8
+UniqueChaosResist25
+UniqueLifeDegenerationPercentGracePeriod1
+UniqueRageRegeneration1
+UniqueNonherentRageLoss1
+]],[[
 Deathblow
 Doubled Gauntlets
 Variant: Pre 0.1.1
