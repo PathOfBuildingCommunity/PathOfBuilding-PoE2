@@ -55,6 +55,12 @@ Implicits: 1
 Used when you are affected by a Slow
 Grants Onslaught during effect
 ]],[[
+For Utopia
+Stone Charm
+Implicits: 1
+Used when you become Stunned
+Defend with 200% of Armour during effect
+]],[[
 Forsaken Bangle
 Amethyst Charm
 Implicits: 1

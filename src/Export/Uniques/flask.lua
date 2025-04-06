@@ -54,6 +54,12 @@ Implicits: 1
 CharmImplicitUseOnSlow1
 UniqueCharmOnslaughtDuringEffect1
 ]],[[
+For Utopia
+Stone Charm
+Implicits: 1
+CharmImplicitUseOnStun1
+UniqueCharmDoubleArmourEffect1
+]],[[
 Forsaken Bangle
 Amethyst Charm
 Implicits: 1
