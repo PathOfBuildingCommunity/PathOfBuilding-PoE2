@@ -315,10 +315,10 @@ statMap = {
 #from item
 #skill SpearThrowPlayer
 #set SpearThrowPlayer
-#flags attack area
+#flags attack projectile
 #mods
 #set SpearThrowFrenzyChargePlayer
-#flags attack area
+#flags attack projectile area
 #mods
 #skillEnd
 

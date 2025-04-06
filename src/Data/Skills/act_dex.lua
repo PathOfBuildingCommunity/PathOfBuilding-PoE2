@@ -1084,6 +1084,7 @@ skills["DetonatingArrowPlayer"] = {
 				attack = true,
 				area = true,
 				channelRelease = true,
+				projectile = true,
 			},
 			constantStats = {
 				{ "active_skill_override_turn_duration_ms", 120 },
@@ -2300,6 +2301,7 @@ skills["ExplosiveSpearPlayer"] = {
 			baseFlags = {
 				attack = true,
 				area = true,
+				projectile = true,
 			},
 			constantStats = {
 				{ "movement_speed_+%_final_while_performing_action", -70 },
@@ -2375,6 +2377,7 @@ skills["ExplosiveSpearPlayer"] = {
 				attack = true,
 				area = true,
 				duration = true,
+				projectile = true,
 			},
 			constantStats = {
 				{ "movement_speed_+%_final_while_performing_action", -70 },
@@ -3194,7 +3197,8 @@ skills["GlacialLancePlayer"] = {
 			statDescriptionScope = "glacial_lance_statset_1",
 			baseFlags = {
 				attack = true,
-				area = true,
+				projectile = true,
+				duration = true,
 			},
 			constantStats = {
 				{ "active_skill_base_physical_damage_%_to_convert_to_cold", 60 },
@@ -6582,6 +6586,7 @@ skills["SpearOfSolarisPlayer"] = {
 			},
 			baseFlags = {
 				attack = true,
+				projectile = true,
 				area = true,
 			},
 			constantStats = {
@@ -6647,6 +6652,7 @@ skills["SpearOfSolarisPlayer"] = {
 			statDescriptionScope = "solaris_spear_statset_2",
 			baseFlags = {
 				attack = true,
+				projectile = true,
 				area = true,
 			},
 			baseMods = {
@@ -7550,6 +7556,7 @@ skills["StormcallerArrowPlayer"] = {
 			statDescriptionScope = "shocking_arrow",
 			baseFlags = {
 				attack = true,
+				projectile = true,
 				area = true,
 			},
 			constantStats = {
@@ -7994,8 +8001,10 @@ skills["TornadoShotPlayer"] = {
 			damageIncrementalEffectiveness = 0.0092000002041459,
 			statDescriptionScope = "tornado_shot_statset_1",
 			baseFlags = {
-				duration = true,
+				attack = true,
+				projectile = true,
 				area = true,
+				duration = true,
 			},
 			baseMods = {
 				skill("dotIsArea", true),
@@ -8377,6 +8386,7 @@ skills["TriggeredTrailOfCaltropsPlayer"] = {
 			incrementalEffectiveness = 0.27349999547005,
 			statDescriptionScope = "triggered_caltrops_on_dodge",
 			baseFlags = {
+				attack = true,
 				projectile = true,
 				duration = true,
 			},
@@ -8852,6 +8862,8 @@ skills["VineArrowPlayer"] = {
 				},
 			},
 			baseFlags = {
+				attack = true,
+				projectile = true,
 				duration = true,
 			},
 			constantStats = {
@@ -9314,8 +9326,7 @@ skills["WhirlwindLancePlayer"] = {
 			statDescriptionScope = "windstorm_lance",
 			baseFlags = {
 				attack = true,
-				area = true,
-				melee = true,
+				projectile = true,
 			},
 			constantStats = {
 				{ "movement_speed_+%_final_while_performing_action", -70 },
@@ -9392,8 +9403,7 @@ skills["WhirlwindLancePlayer"] = {
 			},
 			baseFlags = {
 				attack = true,
-				area = true,
-				melee = true,
+				duration = true,
 			},
 			constantStats = {
 				{ "movement_speed_+%_final_while_performing_action", -70 },

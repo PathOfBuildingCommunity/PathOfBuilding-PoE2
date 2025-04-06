@@ -109,7 +109,7 @@ statMap = {
 },
 #mods
 #set DetonatingArrowExplosionPlayer
-#flags attack area channelRelease
+#flags attack area channelRelease projectile
 statMap = {
 	["detonating_arrow_max_number_of_stages"] = {
 		mod("Multiplier:DetonatingArrowMaxStages", "BASE", nil),
@@ -179,10 +179,10 @@ statMap = {
 #flags attack projectile
 #mods
 #set ExplosiveSpearExplodePlayer
-#flags attack area
+#flags attack area projectile
 #mods
 #set ExplosiveSpearInfusedExplodePlayer
-#flags attack area duration
+#flags attack area duration projectile
 #mods
 #skillEnd
 
@@ -218,7 +218,7 @@ statMap = {
 #flags attack projectile duration
 #mods
 #set GlacialLanceWallsPlayer
-#flags attack area
+#flags attack projectile duration
 #mods
 #skillEnd
 
@@ -427,7 +427,7 @@ statMap = {
 #flags attack projectile area
 #mods
 #set SpearOfSolarisPulsePlayer
-#flags attack area
+#flags attack projectile area
 statMap = {
 	["solaris_spear_pulse_delay_ms"] = {
 		skill("hitTimeOverride", nil),
@@ -439,7 +439,7 @@ statMap = {
 },
 #mods
 #set SpearOfSolarisGroundPlayer
-#flags attack area
+#flags attack projectile area
 #baseMod mod("EnemyIgniteChance", "BASE", 100)
 #mods
 #skillEnd
@@ -507,7 +507,7 @@ statMap = {
 #flags attack projectile
 #mods
 #set StormcallerArrowBoltPlayer
-#flags attack area
+#flags attack projectile area
 #mods
 #skillEnd
 
@@ -528,7 +528,7 @@ statMap = {
 #flags attack projectile area
 #mods
 #set TornadoShotNovaPlayer
-#flags duration area
+#flags attack projectile area duration
 #baseMod skill("dotIsArea", true)
 #mods
 #skillEnd
@@ -547,7 +547,7 @@ statMap = {
 
 #skill TriggeredTrailOfCaltropsPlayer
 #set TriggeredTrailOfCaltropsPlayer
-#flags projectile duration
+#flags attack projectile duration
 #mods
 #skillEnd
 
@@ -589,7 +589,7 @@ statMap = {
 #flags attack projectile
 #mods
 #set VineArrowFlowerPlayer
-#flags duration
+#flags attack projectile duration
 statMap = {
 	["active_skill_base_slow_debuff_movement_speed_+%_final"] = {
 		mod("MovementSpeed", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Debuff", effectName = "Vine Arrow"}),
@@ -636,10 +636,10 @@ statMap = {
 
 #skill WhirlwindLancePlayer
 #set WhirlwindLancePlayer
-#flags attack area melee
+#flags attack projectile
 #mods
 #set WhirlwindLanceStormPlayer
-#flags attack area melee
+#flags attack duration
 statMap = {
 	["sandstorm_swipe_storm_damage_+%_final_per_stage"] = {
 		mod("Damage", "MORE", nil, 0, 0, { type = "Multiplier", var = "WhirlwindStageAfterFirst", limit = 3 })

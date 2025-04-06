@@ -358,7 +358,7 @@ statMap = {
 #flags spell duration projectile
 #mods
 #set BlazingClusterExplosionPlayer
-#flags spell area
+#flags spell area projectile
 #mods
 #skillEnd
 
@@ -406,7 +406,7 @@ statMap = {
 #flags spell projectile
 #mods
 #set FireballExplosionPlayer
-#flags spell area
+#flags spell area projectile
 #mods
 #set FireballSecondaryProjectilePlayer
 #flags spell projectile
@@ -419,7 +419,7 @@ statMap = {
 #flags spell projectile
 #mods
 #set FireboltExplosionPlayer
-#flags spell area
+#flags spell area projectile
 #mods
 #skillEnd
 
@@ -525,7 +525,7 @@ statMap = {
 #flags spell area duration projectile
 #mods
 #set FrostboltExplosionPlayer
-#flags spell area
+#flags spell area projectile
 #mods
 #skillEnd
 

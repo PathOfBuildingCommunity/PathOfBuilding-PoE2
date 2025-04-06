@@ -5444,6 +5444,9 @@ skills["FragmentationRoundsPlayer"] = {
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "burst_shot_piercing",
 			baseFlags = {
+				attack = true,
+				projectile = true,
+				area = true,
 			},
 			constantStats = {
 				{ "projectiles_normal_distribution_height_mean", 3 },
@@ -6038,7 +6041,6 @@ skills["GlacialBoltPlayer"] = {
 			baseFlags = {
 				attack = true,
 				projectile = true,
-				area = true,
 			},
 			constantStats = {
 				{ "action_required_target_facing_angle_tolerance_degrees", 90 },
@@ -6118,6 +6120,7 @@ skills["GlacialBoltPlayer"] = {
 				attack = true,
 				area = true,
 				duration = true,
+				projectile = true,
 			},
 			constantStats = {
 				{ "action_required_target_facing_angle_tolerance_degrees", 90 },
@@ -6631,7 +6634,6 @@ skills["HighVelocityRoundsPlayer"] = {
 			baseFlags = {
 				attack = true,
 				projectile = true,
-				area = true,
 			},
 			constantStats = {
 				{ "broken_armour_consume_art_variation", 2 },
@@ -6713,7 +6715,6 @@ skills["HighVelocityRoundsPlayer"] = {
 			baseFlags = {
 				attack = true,
 				projectile = true,
-				area = true,
 			},
 			constantStats = {
 				{ "broken_armour_consume_art_variation", 2 },
@@ -6973,7 +6974,6 @@ skills["IceShardsPlayer"] = {
 			baseFlags = {
 				attack = true,
 				projectile = true,
-				area = true,
 			},
 			constantStats = {
 				{ "action_required_target_facing_angle_tolerance_degrees", 60 },
@@ -7315,7 +7315,6 @@ skills["IncendiaryShotPlayer"] = {
 			baseFlags = {
 				attack = true,
 				projectile = true,
-				area = true,
 			},
 			constantStats = {
 				{ "projectiles_normal_distribution_height_mean", 3 },
@@ -7579,7 +7578,6 @@ skills["PermafrostBoltsPlayer"] = {
 			baseFlags = {
 				attack = true,
 				projectile = true,
-				area = true,
 			},
 			constantStats = {
 				{ "projectiles_normal_distribution_height_mean", 3 },
@@ -8437,7 +8435,6 @@ skills["ShockburstRoundsPlayer"] = {
 			baseFlags = {
 				attack = true,
 				projectile = true,
-				area = true,
 			},
 			constantStats = {
 				{ "action_required_target_facing_angle_tolerance_degrees", 60 },
@@ -9113,6 +9110,7 @@ skills["StormblastBoltsPlayer"] = {
 			baseFlags = {
 				attack = true,
 				projectile = true,
+				area = true,
 			},
 			constantStats = {
 				{ "action_required_target_facing_angle_tolerance_degrees", 90 },
@@ -10569,7 +10567,6 @@ skills["RipwireBallistaProjectilePlayer"] = {
 			baseFlags = {
 				attack = true,
 				projectile = true,
-				duration = true,
 				totem = true,
 			},
 			constantStats = {

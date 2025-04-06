@@ -4314,7 +4314,7 @@ skills["SpearThrowPlayer"] = {
 			statDescriptionScope = "player_ranged_spear",
 			baseFlags = {
 				attack = true,
-				area = true,
+				projectile = true,
 			},
 			constantStats = {
 				{ "movement_speed_+%_final_while_performing_action", -70 },
@@ -4379,6 +4379,7 @@ skills["SpearThrowPlayer"] = {
 			statDescriptionScope = "player_ranged_spear",
 			baseFlags = {
 				attack = true,
+				projectile = true,
 				area = true,
 			},
 			constantStats = {

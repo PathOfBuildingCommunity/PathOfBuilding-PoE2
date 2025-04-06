@@ -349,7 +349,7 @@ statMap = {
 #flags attack projectile
 #mods
 #set FragmentationRoundsFreezeShatterPlayer
-#flags
+#flags attack projectile area
 #mods
 #skillEnd
 
@@ -376,10 +376,10 @@ statMap = {
 
 #skill GlacialBoltPlayer
 #set GlacialBoltPlayer
-#flags attack projectile area
+#flags attack projectile
 #mods
 #set GlacialBoltWallPlayer
-#flags attack area duration
+#flags attack area duration projectile
 #mods
 #skillEnd
 
@@ -403,10 +403,10 @@ statMap = {
 
 #skill HighVelocityRoundsPlayer
 #set HighVelocityRoundsPlayer
-#flags attack projectile area
+#flags attack projectile
 #mods
 #set HighVelocityRoundsArmourBrokenPlayer
-#flags attack projectile area
+#flags attack projectile
 #mods
 #skillEnd
 
@@ -418,7 +418,7 @@ statMap = {
 
 #skill IceShardsPlayer
 #set IceShardsPlayer
-#flags attack projectile area
+#flags attack projectile
 #mods
 #set IceShardsShardPlayer
 #flags attack projectile area
@@ -433,7 +433,7 @@ statMap = {
 
 #skill IncendiaryShotPlayer
 #set IncendiaryShotPlayer
-#flags attack projectile area
+#flags attack projectile
 #mods
 #skillEnd
 
@@ -445,7 +445,7 @@ statMap = {
 
 #skill PermafrostBoltsPlayer
 #set PermafrostBoltsPlayer
-#flags attack projectile area
+#flags attack projectile
 #mods
 #skillEnd
 
@@ -484,7 +484,7 @@ statMap = {
 
 #skill ShockburstRoundsPlayer
 #set ShockburstRoundsPlayer
-#flags attack projectile area
+#flags attack projectile
 #mods
 #set ShockburstRoundsExplosionPlayer
 #flags attack projectile area
@@ -524,7 +524,7 @@ statMap = {
 
 #skill StormblastBoltsPlayer
 #set StormblastBoltsPlayer
-#flags attack projectile
+#flags attack projectile area
 #mods
 #set StormblastBoltsExplosionPlayer
 #flags attack projectile area
@@ -598,7 +598,7 @@ end,
 
 #skill RipwireBallistaProjectilePlayer
 #set RipwireBallistaProjectilePlayer
-#flags attack projectile duration totem
+#flags attack projectile totem
 #mods
 #skillEnd
 

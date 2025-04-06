@@ -5636,6 +5636,7 @@ skills["BlazingClusterPlayer"] = {
 			baseFlags = {
 				spell = true,
 				area = true,
+				projectile = true,
 			},
 			constantStats = {
 				{ "blazing_cluster_delay_between_projectiles_ms", 100 },
@@ -6441,6 +6442,7 @@ skills["FireballPlayer"] = {
 			baseFlags = {
 				spell = true,
 				area = true,
+				projectile = true,
 			},
 			constantStats = {
 				{ "movement_speed_+%_final_while_performing_action", -70 },
@@ -6708,6 +6710,7 @@ skills["FireboltPlayer"] = {
 			baseFlags = {
 				spell = true,
 				area = true,
+				projectile = true,
 			},
 			constantStats = {
 				{ "movement_speed_+%_final_while_performing_action", -70 },
@@ -8428,6 +8431,7 @@ skills["FrostboltPlayer"] = {
 			baseFlags = {
 				spell = true,
 				area = true,
+				projectile = true,
 			},
 			constantStats = {
 				{ "movement_speed_+%_final_while_performing_action", -70 },
