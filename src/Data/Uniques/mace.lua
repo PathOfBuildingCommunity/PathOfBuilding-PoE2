@@ -58,7 +58,7 @@ Variant: Current
 {variant:2,3}Adds (13-15) to (22-25) Physical Damage
 (20-30)% increased Attack Speed
 {variant:2}+(1-3) to Level of all Minion Skills
-{variant:3}+(1-3) to Level of all Minion Skills
+{variant:3}+(1-2) to Level of all Minion Skills
 Increases and Reductions to Minion Attack Speed also affect you
 ]],[[
 Wylund's Stake
