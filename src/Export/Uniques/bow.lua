@@ -26,6 +26,15 @@ UniqueDexterity2
 UniqueArrowSpeed1
 UniqueWeaponDamageFinalPercent1
 ]],[[
+Slivertongue
+Zealot Bow
+UniqueLocalAddedPhysicalDamage14
+UniqueLocalCriticalStrikeChance6
+UniqueLifeLeechLocal1
+UniqueManaLeechLocal1
+UniqueArrowsFork1
+UniqueArrowsAlwaysPierceAfterForking1
+]],[[
 Splinterheart
 Recurve Bow
 Variant: Pre 0.1.1

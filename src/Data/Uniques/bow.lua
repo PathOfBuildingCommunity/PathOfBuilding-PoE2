@@ -26,6 +26,15 @@ Shortbow
 (50-100)% increased Arrow Speed
 40% less Attack Damage
 ]],[[
+Slivertongue
+Zealot Bow
+Adds (40-48) to (65-72) Physical Damage
++(4-6)% to Critical Hit Chance
+Leeches (5-8)% of Physical Damage as Life
+Leeches (4-7)% of Physical Damage as Mana
+Arrows Fork
+Arrows Pierce all targets after Forking
+]],[[
 Splinterheart
 Recurve Bow
 Variant: Pre 0.1.1
