@@ -27,6 +27,16 @@ Variant: Current
 All Damage from Hits with this Weapon Contributes to Freeze Buildup
 Culling Strike against Frozen Enemies
 ]],[[
+Mjölner
+Torment Club
+Implicits: 1
+Grants Skill: Level (1-20) Lightning Spell on Hit
++200 Intelligence Requirement
++100 Strength Requirement
+(150-200)% increased Physical Damage
+(10-20)% increased Attack Speed
++1 to Level of all Lightning Skills
+]],[[
 Nebuloch
 Brigand Mace
 Adds (39-48) to (69-79) Physical Damage

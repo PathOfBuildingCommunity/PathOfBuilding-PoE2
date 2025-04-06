@@ -27,6 +27,16 @@ Variant: Current
 UniqueLocalAllDamageCanFreeze1
 UniqueLocalCullingStrikeFrozenEnemies1
 ]],[[
+Mjölner
+Torment Club
+Implicits: 1
+Grants Skill: Level (1-20) Lightning Spell on Hit
+UniqueIntelligenceRequirements2
+UniqueStrengthRequirements2
+UniqueLocalIncreasedPhysicalDamagePercent12
+UniqueLocalIncreasedAttackSpeed20
+UniqueGlobalLightningGemLevel1
+]],[[
 Nebuloch
 Brigand Mace
 UniqueLocalAddedPhysicalDamage17
