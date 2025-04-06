@@ -448,6 +448,17 @@ UniqueReducedBleedDuration3
 UniqueReducedBurnDuration2
 UniqueDefendWithArmourPerEnergyShield1
 ]],[[
+Sacrosanctum
+Corvus Mantle
+Implicits: 1
+BodyArmourImplicitIncreasedSpirit1
+UniqueLocalIncreasedArmourAndEnergyShield23
+UniqueStrength33
+UniqueIntelligence33
+UniqueChaosResist33
+UniqueDamageTakenGainedAsLife2
+UniqueLifeRecoupAppliesToEnergyShield1
+]],[[
 Soul Mantle
 Sacrificial Mantle
 UniqueLocalIncreasedArmourAndEnergyShield12
