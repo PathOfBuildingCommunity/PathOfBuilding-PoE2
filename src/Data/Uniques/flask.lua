@@ -69,6 +69,13 @@ Used when you become Frozen
 (20-25)% Chance to gain a Charge when you Kill an Enemy
 Energy Shield Recharge starts on use
 ]],[[
+Sanguis Heroum
+Staunching Charm   
+Implicits: 1
+Used when you start Bleeding
+Creates Consecrated Ground on use
+Gains (0.15-0.2) Charges per Second
+]],[[
 Valako's Roar
 Topaz Charm   
 Implicits: 1

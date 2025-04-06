@@ -68,6 +68,13 @@ CharmImplicitUseOnFreeze1
 UniqueFlaskChanceRechargeOnKill1
 UniqueCharmStartEnergyShieldRecharge1
 ]],[[
+Sanguis Heroum
+Staunching Charm   
+Implicits: 1
+CharmImplicitUseOnBleed1
+UniqueCharmCreateConsecratedGround1
+UniqueFlaskFillChargesPerMinute1
+]],[[
 Valako's Roar
 Topaz Charm   
 Implicits: 1
