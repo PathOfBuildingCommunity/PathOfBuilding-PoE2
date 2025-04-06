@@ -108,6 +108,14 @@ Felt Cap
 10% increased Rarity of Items found
 +(25-35)% to all Elemental Resistances
 ]],[[
+Heatshiver
+Velvet Cap
+(50-70)% increased Evasion Rating
++(60-100) to maximum Mana
++(20-30)% to Fire Resistance
++(20-30)% to Cold Resistance
+Gain 1% of Cold damage as Extra Fire damage per 1% Chill Magnitude on enemy
+]],[[
 Innsmouth
 Shabby Hood
 Variant: Pre 0.1.1

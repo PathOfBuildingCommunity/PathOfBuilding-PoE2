@@ -107,6 +107,14 @@ UniqueLocalIncreasedEvasionRating1
 UniqueItemFoundRarityIncrease3
 UniqueAllResistances1
 ]],[[
+Heatshiver
+Velvet Cap
+UniqueLocalIncreasedEvasionRatingPercent31
+UniqueIncreasedMana45
+UniqueFireResist33
+UniqueColdResist28
+UniqueColdAddedAsFireChilledEnemy1
+]],[[
 Innsmouth
 Shabby Hood
 Variant: Pre 0.1.1
