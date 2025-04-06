@@ -27,6 +27,14 @@ Variant: Current
 All Damage from Hits with this Weapon Contributes to Freeze Buildup
 Culling Strike against Frozen Enemies
 ]],[[
+Nebuloch
+Brigand Mace
+Adds (39-48) to (69-79) Physical Damage
++(20-30)% to Critical Damage Bonus
+Adds (25-36) to (44-55) Chaos damage
+Attacks consume an Endurance Charge to Critically Hit
+Take 100 Chaos damage per second per Endurance Charge
+]],[[
 Olrovasara
 Torment Club
 Adds 1 to (60-80) Lightning Damage

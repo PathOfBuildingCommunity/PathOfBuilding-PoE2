@@ -27,6 +27,14 @@ Variant: Current
 UniqueLocalAllDamageCanFreeze1
 UniqueLocalCullingStrikeFrozenEnemies1
 ]],[[
+Nebuloch
+Brigand Mace
+UniqueLocalAddedPhysicalDamage17
+UniqueLocalCriticalMultiplier2
+UniqueLocalChaosDamage1
+UniqueConsumeEnduranceChargeAlwaysCrit1
+UniqueChaosDamagePerEnduranceCharge1
+]],[[
 Olrovasara
 Torment Club
 UniqueLocalAddedLightningDamage1
