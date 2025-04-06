@@ -435,8 +435,10 @@ The Effect of Chill on you is reversed
 Morior Invictus
 Grand Regalia
 Has Alt Variant: true
+Has Alt Variant Two: true
 Selected Variant: 1
 Selected Alt Variant: 2
+Selected Alt Variant Two: 3
 Variant: Spirit
 Variant: Life
 Variant: Mana
