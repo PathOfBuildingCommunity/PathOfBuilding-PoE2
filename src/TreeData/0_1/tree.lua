@@ -96,10 +96,12 @@ return {
 			ascendancies={
 				[1]={
 					id="Deadeye",
+					internalId="Ranger1",
 					name="Deadeye"
 				},
 				[2]={
 					id="Pathfinder",
+					internalId="Ranger3",
 					name="Pathfinder"
 				}
 			},
@@ -112,10 +114,12 @@ return {
 			ascendancies={
 				[1]={
 					id="Titan",
+					internalId="Warrior1",
 					name="Titan"
 				},
 				[2]={
 					id="Warbringer",
+					internalId="Warrior2",
 					name="Warbringer"
 				}
 			},
@@ -128,10 +132,12 @@ return {
 			ascendancies={
 				[1]={
 					id="Witchhunter",
+					internalId="Mercenary2",
 					name="Witchhunter"
 				},
 				[2]={
 					id="Gemling Legionnaire",
+					internalId="Mercenary3",
 					name="Gemling Legionnaire"
 				}
 			},
@@ -144,10 +150,12 @@ return {
 			ascendancies={
 				[1]={
 					id="Infernalist",
+					internalId="Witch1",
 					name="Infernalist"
 				},
 				[2]={
 					id="Blood Mage",
+					internalId="Witch2",
 					name="Blood Mage"
 				}
 			},
@@ -160,10 +168,12 @@ return {
 			ascendancies={
 				[1]={
 					id="Stormweaver",
+					internalId="Sorceress1",
 					name="Stormweaver"
 				},
 				[2]={
 					id="Chronomancer",
+					internalId="Sorceress2",
 					name="Chronomancer"
 				}
 			},
@@ -176,10 +186,12 @@ return {
 			ascendancies={
 				[1]={
 					id="Invoker",
+					internalId="Monk2",
 					name="Invoker"
 				},
 				[2]={
 					id="Acolyte of Chayula",
+					internalId="Monk3",
 					name="Acolyte of Chayula"
 				}
 			},
@@ -14330,6 +14342,32 @@ return {
 			y=-6091.4571409843
 		}
 	},
+	jewelSlots={
+		[1]=26725,
+		[2]=36634,
+		[3]=33989,
+		[4]=41263,
+		[5]=60735,
+		[6]=61834,
+		[7]=31683,
+		[8]=28475,
+		[9]=6230,
+		[10]=48768,
+		[11]=34483,
+		[12]=7960,
+		[13]=46882,
+		[14]=55190,
+		[15]=61419,
+		[16]=2491,
+		[17]=54127,
+		[18]=32763,
+		[19]=26196,
+		[20]=33631,
+		[21]=21984,
+		[22]=59740,
+		[23]=63132,
+		[24]=36044
+	},
 	["max_x"]=22310.387360804,
 	["max_y"]=23700.966667042,
 	["min_x"]=-22030.845566528,
@@ -26389,7 +26427,8 @@ return {
 			},
 			skill=11526,
 			stats={
-				[1]="Arrows gain Critical Hit Chance as they travel farther, up to 60% increased Critical Hit Chance"
+				[1]="Arrows gain Critical Hit Chance as they travel farther, up to",
+				[2]="60% increased Critical Hit Chance after 7 metres"
 			}
 		},
 		[11578]={
@@ -36226,7 +36265,7 @@ return {
 			},
 			skill=21380,
 			stats={
-				[1]="100% increased Critical Damage Bonus against Enemies that are on Full Life"
+				[1]="Critical Damage Bonus vs full life enemies 100%"
 			}
 		},
 		[21387]={
@@ -70010,7 +70049,7 @@ return {
 			orbitIndex=15,
 			skill=52630,
 			stats={
-				[1]="40% increased Critical Damage Bonus against Enemies that are on Full Life"
+				[1]="Critical Damage Bonus vs full life enemies 40%"
 			}
 		},
 		[52659]={
@@ -79882,7 +79921,7 @@ return {
 			orbitIndex=13,
 			skill=61800,
 			stats={
-				[1]="40% increased Critical Damage Bonus against Enemies that are on Full Life"
+				[1]="Critical Damage Bonus vs full life enemies 40%"
 			}
 		},
 		[61804]={

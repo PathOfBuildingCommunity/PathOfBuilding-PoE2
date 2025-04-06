@@ -5,9 +5,12 @@ return {
 [[
 Death's Harp
 Dualstring Bow
+Variant: 0.2.0
+Variant: Current
 Implicits: 1
 Bow Attacks fire an additional Arrow
-+(50-70)% to Critical Damage Bonus
+{variant:1}+(50-70)% to Critical Damage Bonus
+{variant:2}+(30-40)% to Critical Damage Bonus
 Bow Attacks fire 3 additional Arrows
 Gain (20-30) Life per Enemy Killed
 Gain (12-18) Mana per Enemy Killed

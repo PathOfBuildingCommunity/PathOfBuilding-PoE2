@@ -5,19 +5,25 @@ return {
 [[
 The Anvil
 Bloodstone Amulet
+Variant: Pre 0.2.0
+Variant: Current
 Implicits: 1
 {tags:life}+(30-40) to maximum Life
 {tags:speed}10% reduced Movement Speed
 10% reduced Skill Speed
 {tags:defences}(25-50)% increased Armour
-20% increased Block chance
+{variant:1}20% increased Block chance
+{variant:2}25% increased Block chance
 +(3-5)% to maximum Block chance
 ]],[[
 Astramentis
 Stellar Amulet
+Variant: Pre 0.2.0
+Variant: Current
 Implicits: 1
 {tags:attribute}+(5-7) to all Attributes
-{tags:attribute}+(80-100) to all Attributes
+{variant:1}{tags:attribute}+(80-100) to all Attributes
+{variant:2}{tags:attribute}+(50-100) to all Attributes
 {tags:physical,attack}-4 Physical Damage taken from Attack Hits
 ]],[[
 Beacon of Azis
@@ -41,11 +47,11 @@ Implicits: 1
 Choir of the Storm
 Jade Amulet
 Implicits: 2
-Grants Skill: Level (1-20) Greater Lightning Bolt
+Grants Skill: Level (1-20) Lightning Bolt
 {tags:attribute}+(10-15) to Dexterity
 {tags:lightning}+(20-30)% to Lightning Resistance
 Critical Hits Ignore Enemy Monster Lightning Resistance
-Trigger Greater Lightning Bolt Skill on Critical Hit
+Trigger Lightning Bolt Skill on Critical Hit
 ]],[[
 Defiance of Destiny
 Jade Amulet
@@ -62,26 +68,36 @@ Implicits: 1
 ]],[[
 The Everlasting Gaze
 Azure Amulet
+Variant: Pre 0.2.0
+Variant: Current
 Implicits: 1
 {tags:mana}(20-30)% increased Mana Regeneration Rate
-{tags:mana}+50 to maximum Mana
+{variant:1}{tags:mana}+50 to maximum Mana
+{variant:2}{tags:mana}+(40-60) to maximum Mana
 {tags:mana}50% increased Mana Regeneration Rate
-{tags:defences}Gain (20-30)% of Maximum Mana as Extra Maximum Energy Shield
+{variant:1}{tags:defences}Gain (20-30)% of maximum Mana as Extra maximum Energy Shield
+{variant:2}{tags:defences}Gain (4-6)% of maximum Mana as Extra maximum Energy Shield
 ]],[[
 Eye of Chayula
 Gold Amulet
+Variant: Pre 0.2.0
+Variant: Current
 Implicits: 1
 (12-20)% increased Rarity of Items found
 {tags:life}(20-30)% reduced maximum Life
 {tags:attribute}+(10-15) to all Attributes
-+2500 to Stun Threshold
+{variant:1}+2500 to Stun Threshold
+{variant:2}Cannot be Light Stunned
 ]],[[
 Fireflower
 Solar Amulet
+Variant: Pre 0.2.0
+Variant: Current
 Requires Level 52
 Implicits: 1
 +(10-15) to Spirit
-(10-20)% increased Rarity of Items found
+{variant:1}(10-20)% increased Rarity of Items found
+{variant:2}(10-15)% increased Rarity of Items found
 {tags:mana}(30-40)% increased Mana Regeneration Rate
 {tags:fire}Take 100 Fire Damage when you Ignite an Enemy
 {tags:fire}+(1-4) to Level of all Fire Skills

@@ -165,11 +165,14 @@ UniqueCannotBePoisoned1
 ]],[[
 Queen of the Forest
 Smuggler Coat
+Variant: Pre 0.2.0
+Variant: Current
 UniqueLocalIncreasedEvasionRatingPercent4
 UniqueFireResist17
 UniqueColdResist17
 UniqueLightningResist14
-UniqueSetMovementVelocityPerEvasion1
+{variant:1}UniqueSetMovementVelocityPerEvasion1[500,500]
+{variant:2}UniqueSetMovementVelocityPerEvasion1
 ]],[[
 The Rat Cage
 Scout's Vest
@@ -238,9 +241,12 @@ UniqueLifeCostAsManaCost1
 ]],[[
 Ghostwrithe
 Tattered Robe
+Variant: Pre 0.2.0
+Variant: Current
 UniqueLocalIncreasedEnergyShield3
 UniqueChaosResist4
-UniqueLifeConvertedToEnergyShield1
+{variant:1}UniqueLifeConvertedToEnergyShield1[50,50]
+{variant:2}UniqueLifeConvertedToEnergyShield1
 ]],[[
 Gloamgown
 Elementalist Robe
@@ -282,11 +288,14 @@ UniqueEnergyShieldAppliesElementalReduction1
 ]],[[
 Temporalis
 Silk Robe
+Variant: Pre 0.2.0
+Variant: Current
 UniqueLocalIncreasedEnergyShield9
 UniqueAllResistances6
 UniqueDamageTakenGainedAsLife1
 UniqueDamageTakenGoesToMana2
-UniqueFlatCooldownRecovery1
+{variant:1}UniqueFlatCooldownRecovery1[-4000,-2000]
+{variant:2}UniqueFlatCooldownRecovery1
 ]],[[
 Tetzlapokal's Desire
 Votive Raiment
@@ -548,24 +557,46 @@ UniqueHasSoulEater1
 Morior Invictus
 Grand Regalia
 Has Alt Variant: true
-Selected Variant: 1
-Selected Alt Variant: 2
+Has Alt Variant Two: true
+Selected Variant: 2
+Selected Alt Variant: 4
+Selected Alt Variant Two: 6
+Variant: Spirit (Pre 0.2.0)
 Variant: Spirit
+Variant: Life (Pre 0.2.0)
 Variant: Life
+Variant: Mana (Pre 0.2.0)
 Variant: Mana
+Variant: Global Defences (Pre 0.2.0)
 Variant: Global Defences
-Variant: Item Rarity
+Variant: Item Rarity (Pre 0.2.0)
+Variant: All Resistances (Pre 0.2.0)
 Variant: All Resistances
+Variant: Attributes (Pre 0.2.0)
 Variant: Attributes
+Variant: Chaos Resistance
+Variant: Stun Threshold
+Variant: Life Regeneration
+Variant: Reduced Crit Damage
 Sockets: S S S S
 UniqueLocalArmourAndEvasionAndEnergyShield1
-{variant:1}UniqueSpiritPerSocketable1
-{variant:2}UniqueMaximumLifePerSocketable1
-{variant:3}UniqueMaximumManaPerSocketable1
-{variant:4}UniqueGlobalDefencesPerSocketable1
-{variant:5}UniqueItemRarityPerSocketable1
-{variant:6}UniqueAllResistancesPerSocketable1
-{variant:7}UniquePercentAllAttributesPerSocketable1
+{variant:1}UniqueSpiritPerSocketable1[10,10]
+{variant:2}UniqueSpiritPerSocketable1
+{variant:3}UniqueMaximumLifePerSocketable1
+{variant:4}UniqueBaseLifePerSocketable1
+{variant:5}UniqueMaximumManaPerSocketable1
+{variant:6}UniqueBaseManaPerSocketable1
+{variant:7}UniqueGlobalDefencesPerSocketable1[10,10]
+{variant:8}UniqueGlobalDefencesPerSocketable1
+{variant:9}UniqueItemRarityPerSocketable1
+{variant:10}UniqueAllResistancesPerSocketable1[10,10]
+{variant:11}UniqueAllResistancesPerSocketable1
+{variant:12}UniquePercentAllAttributesPerSocketable1
+{variant:13}UniqueAllAttributesPerSocketable1
+{variant:14}UniqueChaosResistancePerSocketable1
+{variant:15}UniqueStunThresholdPerSocketable1
+{variant:16}UniqueLifeRegenerationPerSocketable1
+{variant:17}UniqueReducedExtraDamageFromCritsPerSocketable1
 ]],[[
 Skin of the Loyal
 Garment

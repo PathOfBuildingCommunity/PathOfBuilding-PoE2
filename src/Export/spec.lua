@@ -1485,10 +1485,10 @@ return {
 		},
 		[11]={
 			list=false,
-			name="",
+			name="TreeRegionAngle",
 			refTo="",
 			type="Int",
-			width=70
+			width=100
 		},
 		[12]={
 			list=false,
@@ -1506,7 +1506,7 @@ return {
 		},
 		[14]={
 			list=false,
-			name="",
+			name="isDisabled",
 			refTo="",
 			type="Bool",
 			width=150

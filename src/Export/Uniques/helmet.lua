@@ -151,10 +151,16 @@ UniqueDamageRemovedFromCompanion1
 [[
 Atziri's Disdain
 Gold Circlet
-UniqueIncreasedMana7
-UniqueItemFoundRarityIncrease2
-UniqueDamageBypassEnergyShieldPercent1
-UniqueEnergyShieldAsPercentOfLife1
+Variant: 0.2.0
+Variant: Current
+{variant:1}UniqueIncreasedMana7[60,100]
+{variant:2}UniqueIncreasedMana7
+{variant:1}UniqueItemFoundRarityIncrease2[10,20]
+{variant:2}UniqueItemFoundRarityIncrease2
+{variant:1}UniqueDamageBypassEnergyShieldPercent1[20,25]
+{variant:2}UniqueDamageBypassEnergyShieldPercent1
+{variant:1}UniqueEnergyShieldAsPercentOfLife1[25,30]
+{variant:2}UniqueEnergyShieldAsPercentOfLife1
 ]],[[
 Crown of Eyes
 Coral Circlet
@@ -207,11 +213,14 @@ UniqueCannotGainEnergyShield1
 UniqueLifeRegenPerEnergyShield1
 ]],[[
 Sandstorm Visage
+Variant: Pre 0.2.0
+Variant: Current
 Chain Tiara
 UniqueLocalIncreasedEnergyShield8
 UniqueDexterity3
 UniqueEnemiesInPresenceBlinded1
-UniqueEnemiesInPresenceGainCritWeakness1
+{variant:1}UniqueEnemiesInPresenceGainCritWeakness1[1,1]
+{variant:2}UniqueEnemiesInPresenceGainCritWeakness1
 ]],[[
 Scold's Bridle
 Jade Tiara
@@ -333,7 +342,7 @@ UniqueReducedShockEffectOnSelf1
 ]],[[
 Cornathaum
 Heavy Crown
-UniqueItemFoundRarityIncrease2
+UniqueItemFoundRarityIncrease10
 UniqueIntelligence16
 UniqueLightRadius7
 UniqueExperienceIncrease1
@@ -350,7 +359,10 @@ UniqueThornsOnAnyHit1
 ]],[[
 Crown of the Victor
 Iron Crown
-UniqueItemFoundRarityIncrease2
+Variant: Pre 0.2.0
+Variant: Current
+{variant:1}UniqueItemFoundRarityIncrease2[10,20]
+{variant:2}UniqueItemFoundRarityIncrease2
 UniqueLifeGainedFromEnemyDeath2
 UniqueManaGainedFromEnemyDeath3
 UniqueGlobalSkillGemLevel1

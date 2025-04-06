@@ -916,7 +916,7 @@ end
 
 -- Draws the given asset at the given position
 function PassiveTreeViewClass:DrawAsset(data, x, y, scale, isHalf)
-	if not data then
+	if not data or not data.found then
 		return
 	end
 	if data.width == 0 then

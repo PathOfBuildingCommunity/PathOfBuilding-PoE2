@@ -936,3 +936,92 @@ skills["MPSAncestralTotemSpiritSoulCasterProjectile"] = {
 					},
 				}
 			}
+
+skills["GAAnimateWeaponMaceSlam"] = {
+	name = "Mace Slam",
+	hidden = true,
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Area] = true, },
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { attackSpeedMultiplier = -50, storedUses = 1, baseMultiplier = 1.8, cooldown = 10, levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Slam (Mace)",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				attack = true,
+				melee = true,
+				area = true,
+			},
+			stats = {
+				"is_area_damage",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["DTTAnimateWeaponSpearDashStabImpact"] = {
+	name = "Spear Dash",
+	hidden = true,
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Area] = true, },
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { baseMultiplier = 1.8, levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Spear Dash",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				attack = true,
+				melee = true,
+				area = true,
+			},
+			stats = {
+				"is_area_damage",
+				"action_attack_or_cast_time_uses_animation_length",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["GAAnimateWeaponQuarterstaffSweep"] = {
+	name = "Quarterstaff Sweep",
+	hidden = true,
+	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Melee] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Area] = true, },
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { baseMultiplier = 0.9, storedUses = 1, levelRequirement = 0, cooldown = 10, },
+	},
+	statSets = {
+		[1] = {
+			label = "Sweep (Quarterstaff)",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				attack = true,
+				melee = true,
+			},
+			stats = {
+				"is_area_damage",
+				"action_attack_or_cast_time_uses_animation_length",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}

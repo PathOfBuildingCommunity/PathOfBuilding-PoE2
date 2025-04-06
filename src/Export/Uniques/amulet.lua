@@ -5,19 +5,25 @@ return {
 [[
 The Anvil
 Bloodstone Amulet
+Variant: Pre 0.2.0
+Variant: Current
 Implicits: 1
 AmuletImplicitIncreasedLife1
 UniqueMovementVelocity6
 UniqueIncreasedSkillSpeed2
 UniqueIncreasedPhysicalDamageReductionRatingPercent1
-UniqueBlockChanceIncrease1
+{variant:1}UniqueBlockChanceIncrease1[20,20]
+{variant:2}UniqueBlockChanceIncrease1
 UniqueMaximumBlockChance1
 ]],[[
 Astramentis
 Stellar Amulet
+Variant: Pre 0.2.0
+Variant: Current
 Implicits: 1
 AmuletImplicitAllAttributes1
-UniqueAllAttributes3
+{variant:1}UniqueAllAttributes3[80,100]
+{variant:2}UniqueAllAttributes3
 UniquePhysicalAttackDamageTaken2
 ]],[[
 Beacon of Azis
@@ -42,7 +48,7 @@ Choir of the Storm
 Jade Amulet
 Implicits: 2
 AmuletImplicitDexterity1
-Grants Skill: Level (1-20) Greater Lightning Bolt
+Grants Skill: Level (1-20) Lightning Bolt
 UniqueLightningResist4
 UniqueCriticalStrikesIgnoreLightningResistance1
 UniqueTriggerLightningBoltOnCriticalStrike1
@@ -62,26 +68,36 @@ UniqueManaRegeneration13
 ]],[[
 The Everlasting Gaze
 Azure Amulet
+Variant: Pre 0.2.0
+Variant: Current
 Implicits: 1
 AmuletImplicitManaRegeneration1
-UniqueIncreasedMana32
+{variant:1}UniqueIncreasedMana32[50,50]
+{variant:2}UniqueIncreasedMana32
 UniqueManaRegeneration8
-UniqueGainManaAsExtraEnergyShield1
+{variant:1}UniqueGainManaAsExtraEnergyShield1[20,30]
+{variant:2}UniqueGainManaAsExtraEnergyShield1
 ]],[[
 Eye of Chayula
 Gold Amulet
+Variant: Pre 0.2.0
+Variant: Current
 Implicits: 1
 AmuletImplicitItemFoundRarityIncrease1
 UniqueMaximumLifeIncrease1
 UniqueAllAttributes7
-UniqueStunThreshold13
+{variant:1}UniqueStunThreshold13
+{variant:2}UniqueCannotBeLightStunned1
 ]],[[
 Fireflower
 Solar Amulet
+Variant: Pre 0.2.0
+Variant: Current
 Requires Level 52
 Implicits: 1
 AmuletImplicitBaseSpirit1
-UniqueItemFoundRarityIncrease2
+{variant:1}UniqueItemFoundRarityIncrease2[10,20]
+{variant:2}UniqueItemFoundRarityIncrease2
 UniqueManaRegeneration7
 UniqueTakeFireDamageOnIgnite1
 UniqueGlobalFireGemLevel1

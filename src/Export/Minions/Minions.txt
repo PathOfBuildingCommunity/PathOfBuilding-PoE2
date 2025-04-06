@@ -58,3 +58,9 @@ local minions, mod = ...
 
 #monster Metadata/Monsters/SkeletalConstruct/BoneConstructPlayerSummoned UnearthBoneConstruct
 #emit
+
+#monster Metadata/Monsters/RhoaPlayerSummoned/RhoaPlayerSummoned SummonedRhoa
+#emit
+
+#monster Metadata/Monsters/AnimatedItem/AnimatedWeaponPlayerSummoned ManifestWeapon
+#emit

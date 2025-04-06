@@ -36,8 +36,7 @@ Variant: Current
 (60-100)% increased Armour
 {variant:2}+(10-20) to Strength
 (20-30)% increased Warcry Speed
-Corpses in your Presence Explode when you Warcry,
-dealing 10% of their Life as Physical Damage
+Warcries Explode Corpses dealing 10% of their Life as Physical Damage
 Warcry Skills have (20-30)% increased Area of Effect
 ]],[[
 Ezomyte Peak
@@ -152,10 +151,16 @@ Leatherbound Hood
 [[
 Atziri's Disdain
 Gold Circlet
-+(40-60) to maximum Mana
-(10-20)% increased Rarity of Items found
-(20-25)% of Damage taken bypasses Energy Shield
-Gain (25-30)% of Maximum Life as Extra Maximum Energy Shield
+Variant: 0.2.0
+Variant: Current
+{variant:1}+(60-100) to maximum Mana
+{variant:2}+(40-60) to maximum Mana
+{variant:1}(10-20)% increased Rarity of Items found
+{variant:2}(10-15)% increased Rarity of Items found
+{variant:1}(20-25)% of Damage taken bypasses Energy Shield
+{variant:2}10% of Damage taken bypasses Energy Shield
+{variant:1}Gain (25-30)% of maximum Life as Extra maximum Energy Shield
+{variant:2}Gain (10-15)% of maximum Life as Extra maximum Energy Shield
 ]],[[
 Crown of Eyes
 Coral Circlet
@@ -180,7 +185,7 @@ Variant: Current
 {variant:2}+(40-60) to maximum Life
 +(10-20) to Intelligence
 +(13-19)% to Chaos Resistance
-Every 3 seconds, Consume a nearby Corpse to Recover 20% of Life
+Every 3 seconds, Consume a nearby Corpse to Recover 20% of maximum Life
 ]],[[
 Forbidden Gaze
 Chain Tiara
@@ -208,11 +213,14 @@ Cannot have Energy Shield
 Regenerate 0.05 Life per second per Maximum Energy Shield
 ]],[[
 Sandstorm Visage
+Variant: Pre 0.2.0
+Variant: Current
 Chain Tiara
 +(80-120) to maximum Energy Shield
 +(20-30) to Dexterity
 Enemies in your Presence are Blinded
-Enemies in your Presence gain Critical Weakness every seconds
+{variant:1}Every second, inflicts Critical Weakness on enemies in your Presence for 1 second
+{variant:2}Every second, inflicts Critical Weakness on enemies in your Presence for 15 seconds
 ]],[[
 Scold's Bridle
 Jade Tiara
@@ -347,11 +355,14 @@ Variant: Current
 +(40-80) to maximum Life
 10% increased Rarity of Items found
 {variant:2}(10-15) to (20-25) Physical Thorns damage
-Thorns damage is triggered by all Hits
+Thorns can Retaliate against all Hits
 ]],[[
 Crown of the Victor
 Iron Crown
-(10-20)% increased Rarity of Items found
+Variant: Pre 0.2.0
+Variant: Current
+{variant:1}(10-20)% increased Rarity of Items found
+{variant:2}(10-15)% increased Rarity of Items found
 Gain 10 Life per Enemy Killed
 Gain 10 Mana per Enemy Killed
 +1 to Level of all Skills
@@ -402,7 +413,7 @@ Can be modified while Corrupted
 +(-30-30)% to Fire Resistance
 +(-30-30)% to Cold Resistance
 +(-30-30)% to Lightning Resistance
-Chaos Resistance is Zero
+Chaos Resistance is zero
 ]],[[
 The Hollow Mask
 Hewn Mask
@@ -428,7 +439,7 @@ Solid Mask
 (40-60)% increased Evasion and Energy Shield
 +(10-20)% to all Elemental Resistances
 Fire Damage from Hits Contributes to Shock Chance instead of Ignite Chance and Magnitude
-Cold Damage from Hits Contributes to Ignite Chance and Magnitude instead of Chill Magnitude
+Cold Damage from Hits Contributes to Ignite Chance and Magnitude instead of Chill Magnitude or Freeze Buildup
 Lightning Damage from Hits Contributes to Freeze Buildup instead of Shock Chance
 ]],[[
 The Vertex
@@ -446,6 +457,6 @@ Grand Visage
 25% increased Light Radius
 (100-150)% increased Armour, Evasion and Energy Shield
 Equipment and Skill Gems have 25% increased Attribute Requirements
-You can use two copies of the same Support Gem in different Skills
+You can use each type of Support Gem an additional time in different Skills
 ]],
 }

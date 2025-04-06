@@ -91,9 +91,12 @@ UniqueAdditionalCurseOnEnemies1
 ]],[[
 Dream Fragments
 Sapphire Ring
+Variant: Pre 0.2.0
+Variant: Current
 Implicits: 1
 RingImplicitColdResistance1
-UniqueMaximumManaIncrease1
+{variant:1}UniqueMaximumManaIncrease1[20,20]
+{variant:2}UniqueMaximumManaIncrease1
 UniqueManaRegeneration3
 UniqueCannotBeChilledOrFrozen1
 ]],[[
@@ -217,7 +220,7 @@ Variant: Ruby
 Variant: Emerald
 Variant: Sapphire
 Requires Level 40
-UniqueItemFoundRarityIncrease2
+UniqueItemFoundRarityIncrease20
 UniqueAllAttributes1
 UniqueLightningResistanceNoPenalty1
 {variant:1}UniqueOnlySocketRubyJewel1
@@ -261,12 +264,15 @@ UniqueBleedEffect1
 ]],[[
 Ventor's Gamble
 Gold Ring
+Variant: Pre 0.2.0
+Variant: Current
 Requires Level 64
 Implicits: 1
 RingImplicitItemFoundRarityIncrease1
 UniqueIncreasedLife39
 UniqueIncreasedSpirit7
-UniqueItemFoundRarityIncrease17
+{variant:1}UniqueItemFoundRarityIncrease17[-40,40]
+{variant:2}UniqueItemFoundRarityIncrease17
 UniqueFireResist24
 UniqueColdResist20
 UniqueLightningResist18

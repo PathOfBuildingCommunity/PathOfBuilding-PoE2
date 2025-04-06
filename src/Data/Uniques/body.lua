@@ -169,12 +169,16 @@ Cannot be Poisoned
 ]],[[
 Queen of the Forest
 Smuggler Coat
+Variant: Pre 0.2.0
+Variant: Current
 (100-150)% increased Evasion Rating
 -(15-10)% to Fire Resistance
 +(25-30)% to Cold Resistance
 +(10-15)% to Lightning Resistance
-1% increased Movement Speed per 800 Evasion Rating
-Other Modifiers to Movement Speed do not apply
+{variant:1}1% increased Movement Speed per 500 Evasion Rating
+{variant:2}1% increased Movement Speed per 800 Evasion Rating
+{variant:1}Other Modifiers to Movement Speed do not apply
+{variant:2}Other Modifiers to Movement Speed do not apply
 ]],[[
 The Rat Cage
 Scout's Vest
@@ -244,9 +248,12 @@ Skills gain a Base Life Cost equal to 50% of Base Mana Cost
 ]],[[
 Ghostwrithe
 Tattered Robe
+Variant: Pre 0.2.0
+Variant: Current
 +100 to maximum Energy Shield
 +(29-37)% to Chaos Resistance
-50% of Maximum Life Converted to Energy Shield
+{variant:1}50% of Maximum Life Converted to Energy Shield
+{variant:2}25% of Maximum Life Converted to Energy Shield
 ]],[[
 Gloamgown
 Elementalist Robe
@@ -288,11 +295,14 @@ Current Energy Shield also grants Elemental Damage reduction
 ]],[[
 Temporalis
 Silk Robe
+Variant: Pre 0.2.0
+Variant: Current
 +(100-150) to maximum Energy Shield
 +(10-20)% to all Elemental Resistances
 (5-30)% of Damage taken Recouped as Life
 (5-30)% of Damage taken Recouped as Mana
-Skills have -(2-1) seconds to Cooldown
+{variant:1}Skills have -(4-2) seconds to Cooldown
+{variant:2}Skills have -(2-1) seconds to Cooldown
 ]],[[
 Tetzlapokal's Desire
 Votive Raiment
@@ -555,24 +565,46 @@ Soul Eater
 Morior Invictus
 Grand Regalia
 Has Alt Variant: true
-Selected Variant: 1
-Selected Alt Variant: 2
+Has Alt Variant Two: true
+Selected Variant: 2
+Selected Alt Variant: 4
+Selected Alt Variant Two: 6
+Variant: Spirit (Pre 0.2.0)
 Variant: Spirit
+Variant: Life (Pre 0.2.0)
 Variant: Life
+Variant: Mana (Pre 0.2.0)
 Variant: Mana
+Variant: Global Defences (Pre 0.2.0)
 Variant: Global Defences
-Variant: Item Rarity
+Variant: Item Rarity (Pre 0.2.0)
+Variant: All Resistances (Pre 0.2.0)
 Variant: All Resistances
+Variant: Attributes (Pre 0.2.0)
 Variant: Attributes
+Variant: Chaos Resistance
+Variant: Stun Threshold
+Variant: Life Regeneration
+Variant: Reduced Crit Damage
 Sockets: S S S S
 (200-300)% increased Armour, Evasion and Energy Shield
-{variant:7}5% increased Attributes per Socket filled
-{variant:4}(6-10)% increased Global Defences per Socket filled
-{variant:5}10% increased Rarity of Items found per Socket filled
-{variant:2}5% increased Maximum Life per Socket filled
-{variant:3}5% increased Maximum Mana per Socket filled
-{variant:6}+(5-7)% to all Elemental Resistances per Socket filled
-{variant:1}+(6-10) to Spirit per Socket filled
+{variant:13}+(4-6) to all Attributes per Socket filled
+{variant:12}5% increased Attributes per Socket filled
+{variant:14}+(7-10)% to Chaos Resistance per Socket filled
+{variant:16}(4-6) Life Regeneration per second per Socket filled
+{variant:4}+(25-40) to maximum Life per Socket filled
+{variant:6}+(20-30) to maximum Mana per Socket filled
+{variant:17}Hits against you have (10-15)% reduced Critical Damage Bonus per Socket filled
+{variant:7}10% increased Global Defences per Socket filled
+{variant:8}(6-10)% increased Global Defences per Socket filled
+{variant:9}10% increased Rarity of Items found per Socket filled
+{variant:3}5% increased Maximum Life per Socket filled
+{variant:5}5% increased Maximum Mana per Socket filled
+{variant:10}+10% to all Elemental Resistances per Socket filled
+{variant:11}+(5-7)% to all Elemental Resistances per Socket filled
+{variant:1}+10 to Spirit per Socket filled
+{variant:2}+(6-10) to Spirit per Socket filled
+{variant:15}+(40-60) to Stun Threshold per Socket filled
 ]],[[
 Skin of the Loyal
 Garment

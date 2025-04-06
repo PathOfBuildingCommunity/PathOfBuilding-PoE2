@@ -14,6 +14,16 @@ statMap = {
 #mods
 #skillEnd
 
+#skill SupportAdherePlayer
+#set SupportAdherePlayer
+#mods
+#skillEnd
+
+#skill SupportAlignmentPlayer
+#set SupportAlignmentPlayer
+#mods
+#skillEnd
+
 #skill SupportAmmoConservationPlayer
 #set SupportAmmoConservationPlayer
 statMap = {
@@ -26,6 +36,16 @@ statMap = {
 
 #skill SupportBlindPlayer
 #set SupportBlindPlayer
+#mods
+#skillEnd
+
+#skill SupportBlindsidePlayer
+#set SupportBlindsidePlayer
+#mods
+#skillEnd
+
+#skill SupportBloodInTheEyesPlayer
+#set SupportBloodInTheEyesPlayer
 #mods
 #skillEnd
 
@@ -53,6 +73,18 @@ statMap = {
 #mods
 #skillEnd
 
+#skill SupportCadencePlayer
+#set SupportCadencePlayer
+#mods
+#skillEnd
+
+#skill SupportCaltropsPlayer
+#set SupportCaltropsPlayer
+#mods
+#set TriggeredCaltropsPlayer
+#mods
+#skillEnd
+
 #skill SupportChainPlayer
 #set SupportChainPlayer
 statMap = {
@@ -60,6 +92,16 @@ statMap = {
 		mod("Damage", "MORE", nil, ModFlag.Hit),
 	},
 },
+#mods
+#skillEnd
+
+#skill SupportChargedShotsPlayer
+#set SupportChargedShotsPlayer
+#mods
+#skillEnd
+
+#skill SupportCharmBountyPlayer
+#set SupportCharmBountyPlayer
 #mods
 #skillEnd
 
@@ -75,6 +117,11 @@ statMap = {
 
 #skill SupportComboFinisherPlayer
 #set SupportComboFinisherPlayer
+#mods
+#skillEnd
+
+#skill SupportCommiseratePlayer
+#set SupportCommiseratePlayer
 #mods
 #skillEnd
 
@@ -128,6 +175,16 @@ statMap = {
 #mods
 #skillEnd
 
+#skill SupportDazzlePlayer
+#set SupportDazzlePlayer
+#mods
+#skillEnd
+
+#skill SupportDeadlyHeraldsPlayer
+#set SupportDeadlyHeraldsPlayer
+#mods
+#skillEnd
+
 #skill SupportDeadlyPoisonPlayer
 #set SupportDeadlyPoisonPlayer
 statMap = {
@@ -151,6 +208,21 @@ statMap = {
 #mods
 #skillEnd
 
+#skill SupportDelayedGratificationPlayer
+#set SupportDelayedGratificationPlayer
+#mods
+#skillEnd
+
+#skill SupportDelayedReactionPlayer
+#set SupportDelayedReactionPlayer
+#mods
+#skillEnd
+
+#skill SupportDeliberationPlayer
+#set SupportDeliberationPlayer
+#mods
+#skillEnd
+
 #skill SupportDazingPlayer
 #set SupportDazingPlayer
 #mods
@@ -171,6 +243,11 @@ statMap = {
 #mods
 #skillEnd
 
+#skill SupportExcoriatePlayer
+#set SupportExcoriatePlayer
+#mods
+#skillEnd
+
 #skill SupportFerocityPlayer
 #set SupportFerocityPlayer
 statMap = {
@@ -181,6 +258,11 @@ statMap = {
 #mods
 #skillEnd
 
+#skill SupportFlowPlayer
+#set SupportFlowPlayer
+#mods
+#skillEnd
+
 #skill SupportForkPlayer
 #set SupportForkPlayer
 statMap = {
@@ -188,6 +270,21 @@ statMap = {
 		mod("Damage", "MORE", nil, 0, 0, { type = "StatThreshold", stat = "ForkedCount", threshold = 1 }),
 	},
 },
+#mods
+#skillEnd
+
+#skill SupportGambleshotPlayer
+#set SupportGambleshotPlayer
+#mods
+#skillEnd
+
+#skill SupportHitAndRunPlayer
+#set SupportHitAndRunPlayer
+#mods
+#skillEnd
+
+#skill SupportImpalePlayer
+#set SupportImpalePlayer
 #mods
 #skillEnd
 
@@ -281,6 +378,11 @@ statMap = {
 #mods
 #skillEnd
 
+#skill SupportMaladyPlayer
+#set SupportMaladyPlayer
+#mods
+#skillEnd
+
 #skill SupportManaFlaskPlayer
 #set SupportManaFlaskPlayer
 #mods
@@ -332,6 +434,11 @@ statMap = {
 #mods
 #skillEnd
 
+#skill SupportOutmaneuverPlayer
+#set SupportOutmaneuverPlayer
+#mods
+#skillEnd
+
 #skill SupportIncreaseLimitPlayer
 #set SupportIncreaseLimitPlayer
 statMap = {
@@ -347,8 +454,18 @@ statMap = {
 #mods
 #skillEnd
 
+#skill SupportOverextendPlayer
+#set SupportOverextendPlayer
+#mods
+#skillEnd
+
 #skill SupportPayloadPlayer
 #set SupportPayloadPlayer
+#mods
+#skillEnd
+
+#skill SupportPerfectionPlayer
+#set SupportPerfectionPlayer
 #mods
 #skillEnd
 
@@ -387,8 +504,43 @@ statMap = {
 #mods
 #skillEnd
 
+#skill SupportPunchThroughPlayer
+#set SupportPunchThroughPlayer
+#mods
+#skillEnd
+
+#skill SupportPursuitPlayer
+#set SupportPursuitPlayer
+#mods
+#skillEnd
+
+#skill SupportReachPlayer
+#set SupportReachPlayer
+#mods
+#skillEnd
+
+#skill SupportRearmPlayer
+#set SupportRearmPlayer
+#mods
+#skillEnd
+
+#skill SupportRetortPlayer
+#set SupportRetortPlayer
+#mods
+#skillEnd
+
+#skill SupportRetreatPlayer
+#set SupportRetreatPlayer
+#mods
+#skillEnd
+
 #skill SupportRicochetPlayer
 #set SupportRicochetPlayer
+#mods
+#skillEnd
+
+#skill SupportSalvoPlayer
+#set SupportSalvoPlayer
 #mods
 #skillEnd
 
@@ -410,8 +562,28 @@ statMap = {
 #mods
 #skillEnd
 
+#skill SupportShockingLeapPlayer
+#set SupportShockingLeapPlayer
+#mods
+#skillEnd
+
+#skill SupportSingleOutPlayer
+#set SupportSingleOutPlayer
+#mods
+#skillEnd
+
 #skill SupportManaOnCullPlayer
 #set SupportManaOnCullPlayer
+#mods
+#skillEnd
+
+#skill SupportSpectralVolleyPlayer
+#set SupportSpectralVolleyPlayer
+#mods
+#skillEnd
+
+#skill SupportStormchainPlayer
+#set SupportStormchainPlayer
 #mods
 #skillEnd
 
@@ -422,6 +594,36 @@ statMap = {
 		mod("Damage", "MORE", nil, ModFlag.Dot),
 	},
 },
+#mods
+#skillEnd
+
+#skill SupportTumultPlayer
+#set SupportTumultPlayer
+#mods
+#skillEnd
+
+#skill SupportTwofoldPlayer
+#set SupportTwofoldPlayer
+#mods
+#skillEnd
+
+#skill SupportUnerringPowerPlayer
+#set SupportUnerringPowerPlayer
+#mods
+#skillEnd
+
+#skill SupportUntouchablePlayer
+#set SupportUntouchablePlayer
+#mods
+#skillEnd
+
+#skill SupportVoltPlayer
+#set SupportVoltPlayer
+#mods
+#skillEnd
+
+#skill SupportWarmbloodedPlayer
+#set SupportWarmbloodedPlayer
 #mods
 #skillEnd
 
