@@ -353,9 +353,9 @@ Chain Mail
 The Coming Calamity
 Heroic Armour
 Implicits: 4
-Grants Skill: Herald of Ash
-Grants Skill: Herald of Ice
-Grants Skill: Herald of Thunder
+Grants Skill: Level (1-20) Herald of Ash
+Grants Skill: Level (1-20) Herald of Ice
+Grants Skill: Level (1-20) Herald of Thunder
 +(60-80) to maximum Life
 +(30-40)% to all Elemental Resistances
 Enemies in your Presence have no Elemental Resistances

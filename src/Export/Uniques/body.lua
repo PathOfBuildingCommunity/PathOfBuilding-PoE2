@@ -346,9 +346,9 @@ UniqueReceiveBleedingWhenHit1
 The Coming Calamity
 Heroic Armour
 Implicits: 4
-Grants Skill: Herald of Ash
-Grants Skill: Herald of Ice
-Grants Skill: Herald of Thunder
+Grants Skill: Level (1-20) Herald of Ash
+Grants Skill: Level (1-20) Herald of Ice
+Grants Skill: Level (1-20) Herald of Thunder
 BodyArmourImplicitIncreasedLife1
 UniqueAllResistances20
 UniqueEnemiesInPresenceNoElementalResist1
