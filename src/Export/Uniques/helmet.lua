@@ -175,6 +175,14 @@ UniqueMaximumColdResist1
 {variant:2}UniqueColdResist8
 UniqueLightRadius1
 ]],[[
+Indigon
+Magus Tiara
+UniqueLocalIncreasedEnergyShieldPercent20
+UniqueIncreasedMana49
+UniqueSpellDamagePerManaSpent1
+UniqueManaCostPerManaSpent1
+UniqueCannotRecoverManaExceptRegen1
+]],[[
 Mask of the Stitched Demon
 Feathered Tiara
 UniqueLocalIncreasedEnergyShieldPercent18

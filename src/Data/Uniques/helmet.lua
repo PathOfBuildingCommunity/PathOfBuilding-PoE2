@@ -176,6 +176,14 @@ Variant: Current
 {variant:2}+(30-50)% to Cold Resistance
 25% reduced Light Radius
 ]],[[
+Indigon
+Magus Tiara
+(60-100)% increased Energy Shield
++(80-120) to maximum Mana
+(35-50)% increased Cost of Skills for each 200 total Mana Spent Recently
+(35-50)% increased Spell damage for each 200 total Mana you have Spent Recently
+Mana Recovery other than Regeneration cannot Recover Mana
+]],[[
 Mask of the Stitched Demon
 Feathered Tiara
 (120-160)% increased Energy Shield
