@@ -34,6 +34,13 @@ CharmImplicitUseOnIgnite1
 UniqueFlaskChanceRechargeOnKill2
 UniqueCharmIgniteEnemiesInPresence1
 ]],[[
+The Black Cat
+Grounding Charm
+Implicits: 1
+CharmImplicitUseOnShock1
+UniqueCharmIncreasedDuration2
+UniqueCharmEnemyExtraLightningDamageRoll1
+]],[[
 Breath of the Mountains
 Sapphire Charm
 Implicits: 1

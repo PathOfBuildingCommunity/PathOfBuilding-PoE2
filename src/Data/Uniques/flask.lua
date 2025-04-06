@@ -35,6 +35,13 @@ Used when you become Ignited
 (20-25)% Chance to gain a Charge when you Kill an Enemy
 Ignite Enemies in Presence as though dealing Fire damage equal to 500% of your maximum Life when used
 ]],[[
+The Black Cat
+Grounding Charm
+Implicits: 1
+Used when you become Shocked
+(10-20)% increased Duration
+Lightning Damage of Enemies Hitting you is Unlucky during effect
+]],[[
 Breath of the Mountains
 Sapphire Charm
 Implicits: 1
