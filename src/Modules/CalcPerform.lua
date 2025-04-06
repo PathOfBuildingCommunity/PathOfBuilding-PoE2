@@ -1051,92 +1051,31 @@ function calcs.perform(env, skipEHP)
 		end
 	end
 
-	local ringsEffectMod = modDB:Sum("INC", nil, "EffectOfBonusesFromRings") / 100
-	if ringsEffectMod > 0 then
-		if env.player.itemList["Ring 1"] then
-			local slotName = "Ring 1"
-
-			if env.player.itemList["Ring 1"].name:match("Kalandra's Touch") and env.player.itemList["Ring 2"] and not env.player.itemList["Ring 2"].name:match("Kalandra's Touch") then
-				slotName = "Ring 2"
-			end
-
-			for _, mod in ipairs(env.player.itemList[slotName].modList or env.player.itemList[slotName].slotModList[1]) do
-				-- Filter out SocketedIn type mods
-				for _, tag in ipairs(mod) do
-					if tag.type == "SocketedIn" then
-						goto skip_mod
-					end
+	for slot, item in pairs(env.player.itemList) do
+		local slotEffectMod = modDB:Sum("INC", nil, "EffectOfBonusesFrom" .. slot) / 100
+		if slotEffectMod > 0 then
+			if item.name:match("Kalandra's Touch") then
+				if slot == "Ring 2" then
+					item = env.player.itemList["Ring 1"]
+				else
+					item = env.player.itemList["Ring 2"]
 				end
-
-				local modCopy = copyTable(mod)
-				modCopy.source = "Many Sources:".. colorCodes.SOURCE .. tostring(ringsEffectMod * 100) .. "% Ring 1 Bonus Effect"
-				modDB:ScaleAddMod(modCopy, ringsEffectMod)
-
-				::skip_mod::
 			end
-		end
-		if env.player.itemList["Ring 2"] then
-			local slotName = "Ring 2"
-
-			if env.player.itemList["Ring 2"].name:match("Kalandra's Touch") and env.player.itemList["Ring 1"] and not env.player.itemList["Ring 1"].name:match("Kalandra's Touch") then
-				slotName = "Ring 1"
-			end
-
-			for _, mod in ipairs(env.player.itemList[slotName].modList or env.player.itemList[slotName].slotModList[2]) do
-				-- Filter out SocketedIn type mods
-				for _, tag in ipairs(mod) do
-					if tag.type == "SocketedIn" then
-						goto skip_mod
+			if item then
+				for _, mod in ipairs(item.modList or item.slotModList[2]) do
+					-- Filter out SocketedIn type mods
+					for _, tag in ipairs(mod) do
+						if tag.type == "SocketedIn" then
+							goto skip_mod
+						end
 					end
+
+					local modCopy = copyTable(mod)
+					modCopy.source = "Many Sources:".. colorCodes.SOURCE .. tostring(slotEffectMod * 100) .. "% " .. slot .. " Bonus Effect"
+					modDB:ScaleAddMod(modCopy, slotEffectMod)
+
+					::skip_mod::
 				end
-
-				local modCopy = copyTable(mod)
-				modCopy.source = "Many Sources:".. colorCodes.SOURCE .. tostring(ringsEffectMod * 100) .. "% Ring 2 Bonus Effect"
-				modDB:ScaleAddMod(modCopy, ringsEffectMod)
-
-				::skip_mod::
-			end
-		end
-		if env.player.itemList["Ring 3"] then
-			local slotName = "Ring 3"
-
-			if env.player.itemList["Ring 3"].name:match("Kalandra's Touch") and env.player.itemList["Ring 2"] and not env.player.itemList["Ring 2"].name:match("Kalandra's Touch") then
-				slotName = "Ring 2"
-			end
-
-			for _, mod in ipairs(env.player.itemList[slotName].modList or env.player.itemList[slotName].slotModList[1]) do
-				-- Filter out SocketedIn type mods
-				for _, tag in ipairs(mod) do
-					if tag.type == "SocketedIn" then
-						goto skip_mod
-					end
-				end
-
-				local modCopy = copyTable(mod)
-				modCopy.source = "Many Sources:".. colorCodes.SOURCE .. tostring(ringsEffectMod * 100) .. "% Ring 3 Bonus Effect"
-				modDB:ScaleAddMod(modCopy, ringsEffectMod)
-
-				::skip_mod::
-			end
-		end
-	end
-
-	local amuletsEffectMod = modDB:Sum("INC", nil, "EffectOfBonusesFromAmulets") / 100
-	if amuletsEffectMod > 0 then
-		if env.player.itemList["Amulet"] then
-			for _, mod in ipairs(env.player.itemList["Amulet"].modList or env.player.itemList["Amulet"].slotModList[1]) do
-				-- Filter out SocketedIn type mods
-				for _, tag in ipairs(mod) do
-					if tag.type == "SocketedIn" then
-						goto skip_mod
-					end
-				end
-
-				local modCopy = copyTable(mod)
-				modCopy.source = "Many Sources:".. colorCodes.SOURCE .. tostring(amuletsEffectMod * 100) .. "% Amulet Bonus Effect"
-				modDB:ScaleAddMod(modCopy, amuletsEffectMod)
-
-				::skip_mod::
 			end
 		end
 	end

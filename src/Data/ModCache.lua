@@ -1683,7 +1683,9 @@ c["25% increased Trap Damage"]={{[1]={flags=0,keywordFlags=4096,name="Damage",ty
 c["25% increased Warcry Cooldown Recovery Rate"]={{[1]={flags=0,keywordFlags=4,name="CooldownRecovery",type="INC",value=25}},nil}
 c["25% increased Warcry Speed"]={{[1]={flags=0,keywordFlags=4,name="WarcrySpeed",type="INC",value=25}},nil}
 c["25% increased amount of Mana Leeched"]={{[1]={flags=0,keywordFlags=0,name="MaxManaLeechRate",type="INC",value=25}},nil}
-c["25% increased bonuses gained from Equipped Rings and Amulets"]={{[1]={flags=0,keywordFlags=0,name="EffectOfBonusesFromRings",type="INC",value=25},[2]={flags=0,keywordFlags=0,name="EffectOfBonusesFromAmulets",type="INC",value=25}},nil}
+c["25% increased bonuses gained from Equipped Rings and Amulets"]={{[1]={flags=0,keywordFlags=0,name="EffectOfBonusesFromRing 1",type="INC",value=25},[2]={flags=0,keywordFlags=0,name="EffectOfBonusesFromRing 2",type="INC",value=25},[3]={flags=0,keywordFlags=0,name="EffectOfBonusesFromRing 3",type="INC",value=25},[4]={flags=0,keywordFlags=0,name="EffectOfBonusesFromAmulet",type="INC",value=25}},nil}
+c["25% increased bonuses gained from left Equipped Ring"]={{[1]={flags=0,keywordFlags=0,name="EffectOfBonusesFromRing 1",type="INC",value=25}},nil}
+c["25% increased bonuses gained from right Equipped Ring"]={{[1]={flags=0,keywordFlags=0,name="EffectOfBonusesFromRing 2",type="INC",value=25}},nil}
 c["25% increased chance to Ignite"]={{[1]={flags=0,keywordFlags=0,name="EnemyIgniteChance",type="INC",value=25}},nil}
 c["25% increased chance to Shock"]={{[1]={flags=0,keywordFlags=0,name="EnemyShockChance",type="INC",value=25}},nil}
 c["25% increased chance to inflict Ailments against Rare or Unique Enemies"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="RareOrUnique"},flags=0,keywordFlags=0,name="AilmentChance",type="INC",value=25}},nil}
@@ -1918,10 +1920,8 @@ c["30% increased Totem Placement speed"]={{[1]={flags=0,keywordFlags=0,name="Tot
 c["30% increased Warcry Speed"]={{[1]={flags=0,keywordFlags=4,name="WarcrySpeed",type="INC",value=30}},nil}
 c["30% increased amount of Life Leeched"]={{[1]={flags=0,keywordFlags=0,name="MaxLifeLeechRate",type="INC",value=30}},nil}
 c["30% increased amount of Mana Leeched"]={{[1]={flags=0,keywordFlags=0,name="MaxManaLeechRate",type="INC",value=30}},nil}
-c["30% increased bonuses gained from left Equipped Ring"]={{}," bonuses gained from left Equipped Ring "}
-c["30% increased bonuses gained from left Equipped Ring 30% increased bonuses gained from right Equipped Ring"]={{}," bonuses gained from left Equipped Ring 30% increased bonuses gained from right Equipped Ring "}
-c["30% increased bonuses gained from right Equipped Ring"]={{}," bonuses gained from right Equipped Ring "}
-c["30% increased bonuses gained from right Equipped Ring 80% increased bonuses gained from Equipped Rings"]={{}," bonuses gained from right Equipped Ring 80% increased bonuses gained from Equipped Rings "}
+c["30% increased bonuses gained from left Equipped Ring"]={{[1]={flags=0,keywordFlags=0,name="EffectOfBonusesFromRing 1",type="INC",value=30}},nil}
+c["30% increased bonuses gained from right Equipped Ring"]={{[1]={flags=0,keywordFlags=0,name="EffectOfBonusesFromRing 2",type="INC",value=30}},nil}
 c["30% increased chance to Ignite"]={{[1]={flags=0,keywordFlags=0,name="EnemyIgniteChance",type="INC",value=30}},nil}
 c["30% increased chance to Shock"]={{[1]={flags=0,keywordFlags=0,name="EnemyShockChance",type="INC",value=30}},nil}
 c["30% increased chance to inflict Ailments against Rare or Unique Enemies"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="RareOrUnique"},flags=0,keywordFlags=0,name="AilmentChance",type="INC",value=30}},nil}
@@ -2483,7 +2483,7 @@ c["80% increased Physical Damage"]={{[1]={flags=0,keywordFlags=0,name="PhysicalD
 c["80% increased Projectile Attack Damage"]={{[1]={flags=1025,keywordFlags=0,name="Damage",type="INC",value=80}},nil}
 c["80% increased Spell Damage"]={{[1]={flags=2,keywordFlags=0,name="Damage",type="INC",value=80}},nil}
 c["80% increased Stun Recovery"]={{[1]={flags=0,keywordFlags=0,name="StunRecovery",type="INC",value=80}},nil}
-c["80% increased bonuses gained from Equipped Rings"]={{[1]={flags=0,keywordFlags=0,name="EffectOfBonusesFromRings",type="INC",value=80}},nil}
+c["80% increased bonuses gained from Equipped Rings"]={{[1]={flags=0,keywordFlags=0,name="EffectOfBonusesFromRing 1",type="INC",value=80},[2]={flags=0,keywordFlags=0,name="EffectOfBonusesFromRing 2",type="INC",value=80},[3]={flags=0,keywordFlags=0,name="EffectOfBonusesFromRing 3",type="INC",value=80}},nil}
 c["80% less Knockback Distance for Blocked Hits"]={{[1]={flags=0,keywordFlags=0,name="EnemyKnockbackDistance",type="MORE",value=-80}},"  for Blocked Hits "}
 c["80% of Maximum Mana is Converted to twice that much Armour"]={{[1]={flags=0,keywordFlags=0,name="Mana",type="BASE",value=80}},"  is Converted to twice that much Armour "}
 c["82% increased Chaos Damage"]={{[1]={flags=0,keywordFlags=0,name="ChaosDamage",type="INC",value=82}},nil}
@@ -3860,9 +3860,9 @@ c["Link Skills have 20% increased Buff Effect"]={{[1]={[1]={skillType=107,type="
 c["Link Skills have 20% increased Skill Effect Duration"]={{[1]={[1]={skillType=107,type="SkillType"},flags=0,keywordFlags=0,name="Duration",type="INC",value=20}},nil}
 c["Link Skills have 8% increased Cast Speed"]={{[1]={[1]={skillType=107,type="SkillType"},flags=16,keywordFlags=0,name="Speed",type="INC",value=8}},nil}
 c["Loads an additional bolt"]={{[1]={[1]={skillType=116,type="SkillType"},flags=67108864,keywordFlags=0,name="CrossbowBoltCount",type="BASE",value=1}},nil}
-c["Lose 1% of maximum Life on Kill"]={{[1]={[1]={type="Condition",var="KilledRecently"},flags=0,keywordFlags=0,name="Life",type="BASE",value=-1}},nil}
+c["Lose 1% of maximum Life on Kill"]={{[1]={[1]={percent=1,stat="Life",type="PercentStat"},flags=0,keywordFlags=0,name="LifeOnKill",type="BASE",value=-1}},nil}
 c["Lose 1% of maximum Mana on Kill"]={{[1]={[1]={type="Condition",var="KilledRecently"},flags=0,keywordFlags=0,name="Mana",type="BASE",value=-1}},nil}
-c["Lose 2% of maximum Life on Kill"]={{[1]={[1]={type="Condition",var="KilledRecently"},flags=0,keywordFlags=0,name="Life",type="BASE",value=-2}},nil}
+c["Lose 2% of maximum Life on Kill"]={{[1]={[1]={percent=2,stat="Life",type="PercentStat"},flags=0,keywordFlags=0,name="LifeOnKill",type="BASE",value=-1}},nil}
 c["Lose 3% of maximum Life and Energy Shield when you use a Chaos Skill"]={{[1]={flags=0,keywordFlags=0,name="Life",type="BASE",value=-3}},"  and Energy Shield when you use a Chaos Skill "}
 c["Lose 5 Life when you use a Skill"]={{[1]={flags=0,keywordFlags=0,name="Life",type="BASE",value=-5}},"  when you use a Skill "}
 c["Lose 5 Life when you use a Skill 5 to 10 Physical Thorns damage"]={{[1]={flags=0,keywordFlags=0,name="Life",type="BASE",value=-5}},"  when you use a Skill 5 to 10 Physical Thorns damage "}
@@ -4089,7 +4089,7 @@ c["Recover 3% of maximum Life on Kill"]={nil,"Recover 3% of maximum Life on Kill
 c["Recover 3% of maximum Life when you create an Offering"]={nil,"Recover 3% of maximum Life when you create an Offering "}
 c["Recover 3% of maximum Mana when you Invoke a Spell"]={nil,"Recover 3% of maximum Mana when you Invoke a Spell "}
 c["Recover 3% of maximum Mana when you Invoke a Spell Triggered Spells deal 45% increased Spell Damage"]={nil,"Recover 3% of maximum Mana when you Invoke a Spell Triggered Spells deal 45% increased Spell Damage "}
-c["Recover 4% of maximum Life when you Block"]={nil,"Recover 4% of maximum Life when you Block "}
+c["Recover 4% of maximum Life when you Block"]={{[1]={[1]={percent=4,stat="Life",type="PercentStat"},flags=0,keywordFlags=0,name="LifeOnBlock",type="BASE",value=1}},nil}
 c["Recover 5 Life when you Block"]={{[1]={flags=0,keywordFlags=0,name="LifeOnBlock",type="BASE",value=5}},nil}
 c["Recover 5% of Missing Life before being Hit by an Enemy"]={nil,"Recover 5% of Missing Life before being Hit by an Enemy "}
 c["Recover 5% of Missing Life before being Hit by an Enemy Recover 10% of Missing Life before being Hit by an Enemy"]={nil,"Recover 5% of Missing Life before being Hit by an Enemy Recover 10% of Missing Life before being Hit by an Enemy "}
@@ -4254,7 +4254,7 @@ c["When you Kill a Rare monster, you gain its Modifiers for 20 seconds"]={nil,"W
 c["When you Leech Life from a Hit, Allies in your Presence also Leech the same amount of Life"]={nil,"When you Leech Life from a Hit, also Leech the same amount of Life "}
 c["When you leave your Banner's Area, recover 15% of the Valour consumed for that Banner"]={nil,"When you leave your Banner's Area, recover 15% of the Valour consumed for that Banner "}
 c["While not on Full Life, Sacrifice 1% of Mana per Second to Recover that much Life"]={{[1]={[1]={neg=true,type="Condition",var="FullLife"},flags=0,keywordFlags=0,name="ManaDegenPercent",type="BASE",value=1},[2]={[1]={percent=1,stat="Mana",type="PercentStat"},[2]={neg=true,type="Condition",var="FullLife"},flags=0,keywordFlags=0,name="LifeRecovery",type="BASE",value=1}},nil}
-c["While not on Full Life, Sacrifice 10% of maximum Mana per Second to Recover that much Life"]={nil,"While not on Full Life, Sacrifice 10% of maximum Mana per Second to Recover that much Life "}
+c["While not on Full Life, Sacrifice 10% of maximum Mana per Second to Recover that much Life"]={{[1]={[1]={neg=true,type="Condition",var="FullLife"},flags=0,keywordFlags=0,name="ManaDegenPercent",type="BASE",value=10},[2]={[1]={percent=10,stat="Mana",type="PercentStat"},[2]={neg=true,type="Condition",var="FullLife"},flags=0,keywordFlags=0,name="LifeRecovery",type="BASE",value=1}},nil}
 c["While on High Infernal Flame, you and Allies in your"]={nil,"While on High Infernal Flame, you and Allies in your "}
 c["While on High Infernal Flame, you and Allies in your Presence Gain 50% of Damage as Fire Damage"]={nil,"While on High Infernal Flame, you and 50% of Damage as Fire Damage "}
 c["While you are not on Low Mana, you and Allies in your Presence have Unholy Might"]={nil,"While you are not on Low Mana, you and Unholy Might "}
@@ -4272,7 +4272,7 @@ c["You can only Socket Emerald Jewels in this item You can only Socket Ruby Jewe
 c["You can only Socket Ruby Jewels in this item"]={nil,"You can only Socket Ruby Jewels in this item "}
 c["You can only Socket Ruby Jewels in this item You can only Socket Sapphire Jewels in this item"]={nil,"You can only Socket Ruby Jewels in this item You can only Socket Sapphire Jewels in this item "}
 c["You can only Socket Sapphire Jewels in this item"]={nil,"You can only Socket Sapphire Jewels in this item "}
-c["You can use each type of Support Gem an additional time in different Skills"]={nil,"You can use each type of Support Gem an additional time in different Skills "}
+c["You can use each type of Support Gem an additional time in different Skills"]={{[1]={flags=0,keywordFlags=0,name="MaxSupportGemCopies",type="OVERRIDE",value=2}},nil}
 c["You can wield Two-Handed Axes, Maces and Swords in one hand"]={{[1]={flags=0,keywordFlags=0,name="GiantsBlood",type="FLAG",value=true}},nil}
 c["You cannot Block"]={{[1]={flags=0,keywordFlags=0,name="CannotBlockAttacks",type="FLAG",value=true}},nil}
 c["You cannot Recharge Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="NoEnergyShieldRecharge",type="FLAG",value=true}},nil}
