@@ -152,6 +152,16 @@ UniqueDexterity3
 UniqueMovementVelocityOnFullLife1
 UniqueGlobalEvasionOnFullLife1
 ]],[[
+Hyrri's Ire
+Armoured Vest
+Implicits: 1
+BodyArmourImplicitIncreasedAilmentThreshold1
+UniqueLocalIncreasedEvasionRatingPercent33
+UniqueAddedColdDamage3
+UniqueDexterity38
+UniqueChillDuration2
+UniqueCanEvadeAllDamageNotHitRecently1
+]],[[
 Quatl's Molt
 Serpentscale Coat
 Variant: Pre 0.1.1

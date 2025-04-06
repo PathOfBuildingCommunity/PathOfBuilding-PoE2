@@ -156,6 +156,16 @@ Quilted Vest
 10% increased Movement Speed when on Full Life
 100% increased Evasion Rating when on Full Life
 ]],[[
+Hyrri's Ire
+Armoured Vest
+Implicits: 1
+(30-40)% increased Elemental Ailment Threshold
+(100-130)% increased Evasion Rating
+Adds (13-20) to (21-31) Cold damage to Attacks
++(30-40) to Dexterity
+25% increased Chill Duration on Enemies
+Can Evade all Hits if you have not been Hit Recently
+]],[[
 Quatl's Molt
 Serpentscale Coat
 Variant: Pre 0.1.1
