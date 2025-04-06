@@ -13,9 +13,11 @@ UniqueFlaskOverhealToGuard1
 [[
 Melting Maelstrom
 Ultimate Mana Flask
+Variant: Pre 0.2.0
+Variant: Current
 UniqueFlaskEffectNotRemovedOnFullMana1
 UniqueFlaskDealChaosDamageNova1
-UniqueFlaskRecoverAllMana1
+{variant:1}UniqueFlaskRecoverAllMana1
 UniqueFlaskTakeDamageWhenEnds1
 ]],
 -- Charm

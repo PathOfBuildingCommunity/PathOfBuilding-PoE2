@@ -216,8 +216,8 @@ Variant: Current
 (60-80)% increased Evasion and Energy Shield
 +(10-20) to Intelligence
 +1 to Maximum Power Charges
-{variant:1}+8% to Critical Damage Bonus per Power Charge
-{variant:2}+12% to Critical Damage Bonus per Power Charge
+{variant:1}8% increased Critical Damage Bonus per Power Charge
+{variant:2}12% increased Critical Damage Bonus per Power Charge
 ]],
 -- Boots: Armour/Evasion/Energy Shield
 [[

@@ -32,7 +32,7 @@ Implicits: 1
 -(20-10) to Strength
 +(20-30) to Dexterity
 (30-40)% increased Life and Mana Recovery from Flasks
-You count as on Low Life while at 75% of maximum Life or below
+You are considered on Low Life while at 75% of maximum Life or below instead
 ]],[[
 Headhunter
 Heavy Belt
@@ -57,9 +57,16 @@ Implicits: 1
 ]],[[
 Ingenuity
 Utility Belt
+Variant: Pre 0.2.0
+Variant: Current
 Implicits: 1
 20% of Flask Recovery applied Instantly
-(40-80)% increased bonuses gained from Equipped Rings
+{variant:2}+(1-2) Charm Slot
+{variant:2}(-20-20)% reduced Charm Charges gained
+{variant:2}(-10-10)% reduced Charm Charges used
+{variant:2}(20-30)% increased bonuses gained from left Equipped Ring
+{variant:2}(20-30)% increased bonuses gained from right Equipped Ring
+{variant:1}(40-80)% increased bonuses gained from Equipped Rings
 ]],[[
 Keelhaul
 Linen Belt
@@ -115,7 +122,7 @@ Implicits: 1
 (15-20)% increased Charm Effect Duration
 +(40-60) to maximum Energy Shield
 +(20-30) to Intelligence
-You lose 5% of Energy Shield per second
+You lose 5% of maximum Energy Shield per second
 Excess Life Recovery from Leech is applied to Energy Shield
 ]],[[
 Zerphi's Genesis

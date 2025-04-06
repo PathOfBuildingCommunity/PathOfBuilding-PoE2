@@ -71,12 +71,15 @@ UniqueCriticalStrikeMultiplierOverride1
 Northpaw
 Suede Bracers
 Variant: Pre 0.1.1
+Variant: Pre 0.2.0
 Variant: Current
-{variant:2}UniqueLocalIncreasedEvasionRating4
+{variant:2,3}UniqueLocalIncreasedEvasionRating4
 {variant:1}UniqueAddedPhysicalDamage2[2,3][5,6]
-{variant:2}UniqueAddedPhysicalDamage2
-UniqueCriticalMultiplier1
-UniqueOverrideWeaponBaseCritical1
+{variant:2,3}UniqueAddedPhysicalDamage2
+{variant:2}UniqueCriticalMultiplier1[20,30]
+{variant:3}UniqueCriticalMultiplier1
+{variant:2}UniqueOverrideWeaponBaseCritical1[800,800]
+{variant:3}UniqueOverrideWeaponBaseCritical1
 ]],[[
 Snakebite
 Spined Bracers
@@ -218,10 +221,14 @@ UniqueFireExposureOnShock1
 UniqueLightningExposureOnCrit1
 ]],[[
 Hand of Wisdom and Action
-Furtive Wraps
+Variant: Pre 0.2.0
+Variant: Current
+{variant:1}Furtive Wraps
+{variant:2}Spiral Wraps
 UniqueDexterity31
 UniqueIntelligence31
-UniqueIncreasedAttackSpeedPerDexterity1
+{variant:1}UniqueIncreasedAttackSpeedPerDexterity1[3,3]
+{variant:2}UniqueIncreasedAttackSpeedPerDexterity1
 UniqueLightningDamageToAttacksPerIntelligence1
 ]],[[
 Killjoy

@@ -71,12 +71,15 @@ Your Critical Damage Bonus is 300%
 Northpaw
 Suede Bracers
 Variant: Pre 0.1.1
+Variant: Pre 0.2.0
 Variant: Current
-{variant:2}+(15-25) to Evasion Rating
+{variant:2,3}+(15-25) to Evasion Rating
 {variant:1}Adds (2-3) to (5-6) Physical Damage to Attacks
-{variant:2}Adds (3-5) to (8-10) Physical Damage to Attacks
-(20-30)% increased Critical Damage Bonus
-Base Critical Hit Chance for Attacks with Weapons is 8%
+{variant:2,3}Adds (3-5) to (8-10) Physical Damage to Attacks
+{variant:2}(20-30)% increased Critical Damage Bonus
+{variant:3}(10-15)% increased Critical Damage Bonus
+{variant:2}Base Critical Hit Chance for Attacks with Weapons is 8%
+{variant:3}Base Critical Hit Chance for Attacks with Weapons is 7%
 ]],[[
 Snakebite
 Spined Bracers
@@ -154,7 +157,7 @@ Aurseize
 Layered Gauntlets
 (40-60)% increased Armour and Evasion
 (40-50)% increased Rarity of Items found
-Lose 2% of Life on Kill
+Lose 2% of maximum Life on Kill
 ]],[[
 Deathblow
 Doubled Gauntlets
@@ -196,7 +199,7 @@ Variant: Current
 {variant:2}+(10-15)% to Cold Resistance
 Gain (7-10) Life per Enemy Killed
 Gain (4-6) Mana per Enemy Killed
-Enemies killed by anyone in your Presence count as being killed by you instead
+Enemies in your Presence killed by anyone count as being killed by you instead
 ]],[[
 Shackles of the Wretched
 Aged Cuffs
@@ -219,11 +222,15 @@ Inflict Fire Exposure on Shocking an Enemy
 Inflict Lightning Exposure on Critical Hit
 ]],[[
 Hand of Wisdom and Action
-Furtive Wraps
+Variant: Pre 0.2.0
+Variant: Current
+{variant:1}Furtive Wraps
+{variant:2}Spiral Wraps
 +(15-25) to Dexterity
 +(15-25) to Intelligence
-3% increased Attack Speed per 25 Dexterity
-Adds 1 to 10 Lightning Damage to Attacks per 10 Intelligence
+{variant:1}3% increased Attack Speed per 20 Dexterity
+{variant:2}1% increased Attack Speed per 20 Dexterity
+Adds 1 to 10 Lightning Damage to Attacks per 20 Intelligence
 ]],[[
 Killjoy
 Linen Wraps

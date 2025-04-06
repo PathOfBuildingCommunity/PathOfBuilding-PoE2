@@ -120,7 +120,7 @@ Minions Revive (10-15)% faster
 ]],[[
 Kalandra's Touch
 Ring
-Reflects your other Ring
+Reflects opposite Ring
 Mirrored
 ]],[[
 Levinstone
@@ -136,7 +136,7 @@ Amethyst Ring
 Implicits: 1
 {tags:chaos}+(7-13)% to Chaos Resistance
 {tags:life}20% reduced maximum Life
-Gain (30-40)% of Damage as Extra Chaos Damage
+{tags:chaos}Gain (30-40)% of Damage as Extra Chaos Damage
 {tags:defences}30% reduced Global Defences
 ]],[[
 Original Sin
@@ -147,7 +147,7 @@ Implicits: 1
 {tags:chaos}+(7-13)% to Chaos Resistance
 {variant:2}{tags:chaos}+(17-23)% to Chaos Resistance
 100% of Elemental Damage Converted to Chaos Damage
-{variant:1}{tags:chaos}Chaos Resistance is Zero
+{variant:1}{tags:chaos}Chaos Resistance is zero
 ]],[[
 Perandus Seal
 Gold Ring
@@ -213,12 +213,15 @@ Can't use other Rings
 ]],[[
 Ventor's Gamble
 Gold Ring
+Variant: Pre 0.2.0
+Variant: Current
 Requires Level 64
 Implicits: 1
 (6-15)% increased Rarity of Items found
 {tags:life}+(0-80) to maximum Life
 +(0-20) to Spirit
-(-40-40)% reduced Rarity of Items found
+{variant:1}(-40-40)% reduced Rarity of Items found
+{variant:2}(-25-25)% reduced Rarity of Items found
 {tags:fire}+(-40-40)% to Fire Resistance
 {tags:cold}+(-40-40)% to Cold Resistance
 {tags:lightning}+(-40-40)% to Lightning Resistance

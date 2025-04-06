@@ -121,7 +121,8 @@ Atziri's Disdain
 Gold Circlet
 Variant: 0.2.0
 Variant: Current
-UniqueIncreasedMana7
+{variant:1}UniqueIncreasedMana7[60,100]
+{variant:2}UniqueIncreasedMana7
 {variant:1}UniqueItemFoundRarityIncrease2[10,20]
 {variant:2}UniqueItemFoundRarityIncrease2
 {variant:1}UniqueDamageBypassEnergyShieldPercent1[20,25]
@@ -164,11 +165,14 @@ UniqueCannotGainEnergyShield1
 UniqueLifeRegenPerEnergyShield1
 ]],[[
 Sandstorm Visage
+Variant: Pre 0.2.0
+Variant: Current
 Chain Tiara
 UniqueLocalIncreasedEnergyShield8
 UniqueDexterity3
 UniqueEnemiesInPresenceBlinded1
-UniqueEnemiesInPresenceGainCritWeakness1
+{variant:1}UniqueEnemiesInPresenceGainCritWeakness1[1,1]
+{variant:2}UniqueEnemiesInPresenceGainCritWeakness1
 ]],[[
 Visage of Ayah
 Beaded Circlet

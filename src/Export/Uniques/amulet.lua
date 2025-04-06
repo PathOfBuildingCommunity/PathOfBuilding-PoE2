@@ -48,7 +48,7 @@ Choir of the Storm
 Jade Amulet
 Implicits: 2
 AmuletImplicitDexterity1
-Grants Skill: Level (1-20) Greater Lightning Bolt
+Grants Skill: Level (1-20) Lightning Bolt
 UniqueLightningResist4
 UniqueCriticalStrikesIgnoreLightningResistance1
 UniqueTriggerLightningBoltOnCriticalStrike1
@@ -80,11 +80,14 @@ UniqueManaRegeneration8
 ]],[[
 Eye of Chayula
 Gold Amulet
+Variant: Pre 0.2.0
+Variant: Current
 Implicits: 1
 AmuletImplicitItemFoundRarityIncrease1
 UniqueMaximumLifeIncrease1
 UniqueAllAttributes7
-UniqueStunThreshold13
+{variant:1}UniqueStunThreshold13
+{variant:2}UniqueCannotBeLightStunned1
 ]],[[
 Fireflower
 Solar Amulet

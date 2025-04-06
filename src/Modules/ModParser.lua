@@ -600,6 +600,7 @@ local modNameList = {
 	["melee weapon and unarmed range"] = { "MeleeWeaponRange", "UnarmedRange" },
 	["melee weapon and unarmed attack range"] = { "MeleeWeaponRange", "UnarmedRange" },
 	["melee strike range"] = { "MeleeWeaponRange", "UnarmedRange" },
+	["melee strike range with this weapon"] = "MeleeWeaponRange",
 	["metres to melee strike range"] = { "MeleeWeaponRangeMetre", "UnarmedRangeMetre" },
 	["metre to melee strike range"] = { "MeleeWeaponRangeMetre", "UnarmedRangeMetre" },
 	["to deal double damage"] = "DoubleDamageChance",
@@ -1301,6 +1302,7 @@ local modTagList = {
 	["per defiance"] = { tag = { type = "Multiplier", var = "Defiance" } },
 	["per (%d+)%% (%a+) effect on enemy"] = function(num, _, effectName) return { tag = { type = "Multiplier", var = firstToUpper(effectName) .. "Effect", div = num, actor = "enemy" } } end,
 	["per socketed rune or soul core"] = { tag = { type = "Multiplier", var = "RunesSocketedIn{SlotName}" } },
+	["per socket filled"] = { tag = { type = "Multiplier", var = "RunesSocketedIn{SlotName}" } },
 	["per (%d+) (%a+) support gems socketed"] = function(num, _, color) return { tag = { type = "Multiplier", var = firstToUpper(color) .. "SupportGems", div = num } } end,
 	["for each equipped normal item"] = { tag = { type = "Multiplier", var = "NormalItem" } },
 	["for each normal item equipped"] = { tag = { type = "Multiplier", var = "NormalItem" } },
@@ -2926,6 +2928,9 @@ local specialModList = {
 	["reflects your other ring"] = {
 		-- Display only. For Kalandra's Touch.
 	},
+	["reflects opposite ring"] = {
+		-- Display only. For Kalandra's Touch.
+	},
 	["maximum quality is 50%%"] = {
 		-- Display only. For Breach Rings.
 	},
@@ -3882,6 +3887,7 @@ local specialModList = {
 	["lightning exposure you inflict lowers total lightning resistance by an extra (%d+)%%"] = function(num) return { mod("ExtraLightningExposure", "BASE", -num) } end,
 	["exposure you inflict applies at least (%-%d+)%% to the affected resistance"] = function(num) return { mod("ExposureMin", "OVERRIDE", num) } end,
 	["enemies in your presence gain critical weakness every second"] = { flag("ApplyCriticalWeakness") },
+	["every second, inflicts critical weakness on enemies in your presence for %d+ seconds?"] = { flag("ApplyCriticalWeakness") },
 	["applies critical weakness to enemies every ([%d%.]+) seconds?"] = { flag("ApplyCriticalWeakness") },
 	["inflicts critical weakness on hit"] = { flag("ApplyCriticalWeakness") },
 	["modifiers to minimum endurance charges instead apply to minimum brutal charges"] = { flag("MinimumEnduranceChargesEqualsMinimumBrutalCharges") },
@@ -3896,8 +3902,8 @@ local specialModList = {
 	["regenerate (%d+)%% life over one second when hit while sane"] = function(num) return {
 		mod("LifeRegenPercent", "BASE", num, { type = "Condition", var = "Insane", neg = true }, { type = "Condition", var = "BeenHitRecently" }),
 	} end,
-	["you count as on low (%a+) while at (%d+)%% of maximum (%a+) or below"] = function(_, resourceType, numStr) return { mod("Low"..resourceType:gsub("^%l", string.upper).."Percentage", "BASE", tonumber(numStr) / 100.0) } end,
-	["you count as on full (%a+) while at (%d+)%% of maximum (%a+) or above"] = function(_, resourceType, numStr) return { mod("Full"..resourceType:gsub("^%l", string.upper).."Percentage", "BASE", tonumber(numStr) / 100.0) } end,
+	["you [ac][ro][eu][ n][ct][o ][na]si?d?e?r?e?d? on low (%a+) while at (%d+)%% of maximum (%a+) or below ?i?n?s?t?e?a?d?"] = function(_, resourceType, numStr) return { mod("Low"..resourceType:gsub("^%l", string.upper).."Percentage", "BASE", tonumber(numStr) / 100.0) } end,
+	["you [ac][ro][eu][ n][ct][o ][na]si?d?e?r?e?d? on full (%a+) while at (%d+)%% of maximum (%a+) or above ?i?n?s?t?e?a?d?"] = function(_, resourceType, numStr) return { mod("Full"..resourceType:gsub("^%l", string.upper).."Percentage", "BASE", tonumber(numStr) / 100.0) } end,
 	["(%d+)%% more maximum life if you have at least (%d+) life masteries allocated"] = function(num, _, thresh) return {
 		mod("Life", "MORE", num, { type = "MultiplierThreshold", var = "AllocatedLifeMastery", threshold = tonumber(thresh) }),
 	} end,
@@ -5000,8 +5006,10 @@ local specialModList = {
 	["skills which throw traps cost life instead of mana"] = { flag("CostLifeInsteadOfMana", { type = "SkillType", skillType = SkillType.Trapped }) },
 	["strength provides no bonus to maximum life"] = { flag("NoStrBonusToLife") },
 	["strength provides no inherent bonus to maximum life"] = { flag("NoStrBonusToLife") },
+	["gain no inherent bonus from strength"] = { flag("NoStrBonusToLife") },
 	["intelligence provides no bonus to maximum mana"] = { flag("NoIntBonusToMana") },
 	["intelligence provides no inherent bonus to maximum mana"] = { flag("NoIntBonusToMana") },
+	["gain no inherent bonus from intelligence"] = { flag("NoIntBonusToMana") },
 	["strength's inherent bonus is (%d+)%% increased energy shield per (%d+) strength instead"] = function(num, _, stat) return {
 		mod("EnergyShield", "INC", num, { type = "PerStat", stat = "Str", div = stat }),
 		flag("NoStrBonusToLife") 

@@ -51,11 +51,13 @@ UniqueDoubleEnergyGain1
 Trenchtimbre
 Spiked Club
 Variant: Pre 0.1.1
+Variant: Pre 0.2.0
 Variant: Current
 {variant:1}UniqueLocalAddedPhysicalDamage10[10,12][18,35]
-{variant:2}UniqueLocalAddedPhysicalDamage10
+{variant:2,3}UniqueLocalAddedPhysicalDamage10
 UniqueLocalIncreasedAttackSpeed11
-UniqueGlobalMinionSpellSkillGemLevel1
+{variant:2}UniqueGlobalMinionSpellSkillGemLevel1[1,3]
+{variant:3}UniqueGlobalMinionSpellSkillGemLevel1[1,3]
 UniqueMinionAttackSpeedAffectsYou1
 ]],[[
 Wylund's Stake

@@ -47,11 +47,11 @@ Implicits: 1
 Choir of the Storm
 Jade Amulet
 Implicits: 2
-Grants Skill: Level (1-20) Greater Lightning Bolt
+Grants Skill: Level (1-20) Lightning Bolt
 {tags:attribute}+(10-15) to Dexterity
 {tags:lightning}+(20-30)% to Lightning Resistance
 Critical Hits Ignore Enemy Monster Lightning Resistance
-Trigger Greater Lightning Bolt Skill on Critical Hit
+Trigger Lightning Bolt Skill on Critical Hit
 ]],[[
 Defiance of Destiny
 Jade Amulet
@@ -80,11 +80,14 @@ Implicits: 1
 ]],[[
 Eye of Chayula
 Gold Amulet
+Variant: Pre 0.2.0
+Variant: Current
 Implicits: 1
 (12-20)% increased Rarity of Items found
 {tags:life}(20-30)% reduced maximum Life
 {tags:attribute}+(10-15) to all Attributes
-+2500 to Stun Threshold
+{variant:1}+2500 to Stun Threshold
+{variant:2}Cannot be Light Stunned
 ]],[[
 Fireflower
 Solar Amulet

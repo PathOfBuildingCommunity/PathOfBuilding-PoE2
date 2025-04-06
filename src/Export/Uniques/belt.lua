@@ -57,9 +57,16 @@ UniqueMaximumFireResist1
 ]],[[
 Ingenuity
 Utility Belt
+Variant: Pre 0.2.0
+Variant: Current
 Implicits: 1
 BeltImplicitInstantFlaskRecoveryPercent1
-UniqueIncreasedRingBonuses1
+{variant:2}UniqueAdditionalCharm2
+{variant:2}UniqueIncreasedCharmChargesGained1
+{variant:2}UniqueReducedCharmChargesUsed2
+{variant:2}UniqueIncreasedLeftRingBonuses1
+{variant:2}UniqueIncreasedRightRingBonuses1
+{variant:1}UniqueIncreasedRingBonuses1
 ]],[[
 Keelhaul
 Linen Belt

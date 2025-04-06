@@ -154,15 +154,19 @@ Grants Skill: Raise Shield
 UniqueLocalIncreasedArmourAndEnergyShield16
 {variant:1}UniqueLocalSoulCoreEffect1[333,666]
 {variant:2}UniqueLocalSoulCoreEffect1
+{variant:2}UniqueEverlastingSacrifice1
 ]],[[
 Oaksworn
+Variant: Pre 0.2.0
+Variant: Current
 Sigil Crest Shield
 Implicits: 1
 Grants Skill: Raise Shield
 UniqueLocalBlockChance5
 UniqueLocalIncreasedArmourAndEnergyShield10
-UniqueIncreasedSpirit2
+{variant:1}UniqueIncreasedSpirit2
 UniqueChaosResist1
+{variant:2}UniqueLifeRegenerationRate1
 ]],[[
 Rise of the Phoenix
 Omen Crest Shield

@@ -47,7 +47,7 @@ Grants Skill: Raise Shield
 (40-60)% increased Block chance
 (150-200)% increased Armour
 +(150-200) to Stun Threshold
-Recover 4% of Life when you Block
+Recover 4% of maximum Life when you Block
 ]],[[
 Svalinn
 Crucible Tower Shield
@@ -93,8 +93,8 @@ Grants Skill: Raise Shield
 (60-100)% increased Armour and Evasion
 {variant:2}+(40-60) to maximum Life
 {variant:2}+(40-60) to maximum Mana
-Lose 1% of Life on Kill
-Lose 1% of Mana on Kill
+Lose 1% of maximum Life on Kill
+Lose 1% of maximum Mana on Kill
 (30-50)% increased Skill Effect Duration
 ]],[[
 Feathered Fortress
@@ -154,15 +154,19 @@ Grants Skill: Raise Shield
 (333-666)% increased Armour and Energy Shield
 {variant:1}(333-666)% increased effect of Socketed Soul Cores
 {variant:2}100% increased effect of Socketed Soul Cores
+{variant:2}Everlasting Sacrifice
 ]],[[
 Oaksworn
+Variant: Pre 0.2.0
+Variant: Current
 Sigil Crest Shield
 Implicits: 1
 Grants Skill: Raise Shield
 (40-60)% increased Block chance
 (80-120)% increased Armour and Energy Shield
-+50 to Spirit
+{variant:1}+50 to Spirit
 +(17-23)% to Chaos Resistance
+{variant:2}50% increased Life Regeneration rate
 ]],[[
 Rise of the Phoenix
 Omen Crest Shield
@@ -171,8 +175,8 @@ Grants Skill: Raise Shield
 +5% to Maximum Fire Resistance
 +(20-25)% to Fire Resistance
 +25% to Fire Resistance while on Low Life
-Regenerate 3% of Life per second
-Regenerate 3% of Life per second while on Low Life
+Regenerate 3% of maximum Life per second
+Regenerate 3% of maximum Life per second while on Low Life
 ]],[[
 Saffell's Frame
 Emblem Crest Shield

@@ -90,11 +90,15 @@ UniqueStunDuration1
 UniqueLocalDazeBuildup1
 ]],[[
 Pillar of the Caged God
+Variant: Pre 0.2.0
+Variant: Current
 Long Quarterstaff
 Implicits: 1
 QuarterstaffWeaponRange1
-UniqueAttackAreaOfEffectPerIntelligence1
-UniqueAttackSpeedPerDexterity1
+{variant:1}UniqueAttackAreaOfEffectPerIntelligence1[2,2]
+{variant:2}UniqueAttackAreaOfEffectPerIntelligence1
+{variant:1}UniqueAttackSpeedPerDexterity1[2,2]
+{variant:2}UniqueAttackSpeedPerDexterity1
 UniqueWeaponDamagePerStrength1
 ]],[[
 The Sentry

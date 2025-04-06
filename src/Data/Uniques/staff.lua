@@ -90,12 +90,16 @@ Variant: Current
 Causes Daze buildup equal to 100% of Damage dealt
 ]],[[
 Pillar of the Caged God
+Variant: Pre 0.2.0
+Variant: Current
 Long Quarterstaff
 Implicits: 1
-16% increased Range
-2% increased Area of Effect for Attacks per 5 Intelligence
-2% increased Attack Speed per 5 Dexterity
-10% increased Weapon Damage per 5 Strength
+16% increased Melee Strike Range with this weapon
+{variant:1}2% increased Area of Effect for Attacks per 10 Intelligence
+{variant:2}1% increased Area of Effect for Attacks per 10 Intelligence
+{variant:1}2% increased Attack Speed per 10 Dexterity
+{variant:2}1% increased Attack Speed per 10 Dexterity
+10% increased Weapon Damage per 10 Strength
 ]],[[
 The Sentry
 Gothic Quarterstaff
