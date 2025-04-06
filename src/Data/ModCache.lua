@@ -724,6 +724,7 @@ c["+80 to maximum Mana"]={{[1]={flags=0,keywordFlags=0,name="Mana",type="BASE",v
 c["+85 to maximum Mana"]={{[1]={flags=0,keywordFlags=0,name="Mana",type="BASE",value=85}},nil}
 c["+86 to maximum Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="EnergyShield",type="BASE",value=86}},nil}
 c["+9% to all Elemental Resistances"]={{[1]={flags=0,keywordFlags=0,name="ElementalResist",type="BASE",value=9}},nil}
+c["+90 to all Attributes"]={{[1]={flags=0,keywordFlags=0,name="Str",type="BASE",value=90},[2]={flags=0,keywordFlags=0,name="Dex",type="BASE",value=90},[3]={flags=0,keywordFlags=0,name="Int",type="BASE",value=90},[4]={flags=0,keywordFlags=0,name="All",type="BASE",value=90}},nil}
 c["+90 to maximum Life"]={{[1]={flags=0,keywordFlags=0,name="Life",type="BASE",value=90}},nil}
 c["+90 to maximum Mana"]={{[1]={flags=0,keywordFlags=0,name="Mana",type="BASE",value=90}},nil}
 c["+92 to maximum Life"]={{[1]={flags=0,keywordFlags=0,name="Life",type="BASE",value=92}},nil}
@@ -1032,8 +1033,7 @@ c["12% increased Attack Damage"]={{[1]={flags=1,keywordFlags=0,name="Damage",typ
 c["12% increased Attack Damage while Dual Wielding"]={{[1]={[1]={type="Condition",var="DualWielding"},flags=1,keywordFlags=0,name="Damage",type="INC",value=12}},nil}
 c["12% increased Attack Physical Damage"]={{[1]={flags=1,keywordFlags=0,name="PhysicalDamage",type="INC",value=12}},nil}
 c["12% increased Attack Speed"]={{[1]={flags=1,keywordFlags=0,name="Speed",type="INC",value=12}},nil}
-c["12% increased Attack Speed if you've successfully Parried Recently"]={{[1]={flags=1,keywordFlags=0,name="Speed",type="INC",value=12}},"  if you've successfully Parried Recently "}
-c["12% increased Attack Speed if you've successfully Parried Recently 6% increased Movement Speed if you've successfully Parried Recently"]={{[1]={flags=1,keywordFlags=0,name="Speed",type="INC",value=12}},"  if you've successfully Parried Recently 6% increased Movement Speed if you've successfully Parried Recently "}
+c["12% increased Attack Speed if you've successfully Parried Recently"]={{[1]={[1]={type="Condition",var="ParriedRecently"},flags=1,keywordFlags=0,name="Speed",type="INC",value=12}},nil}
 c["12% increased Attack and Cast Speed if you've summoned a Totem Recently"]={{[1]={[1]={type="Condition",var="SummonedTotemRecently"},flags=0,keywordFlags=0,name="Speed",type="INC",value=12}},nil}
 c["12% increased Block chance"]={{[1]={flags=0,keywordFlags=0,name="BlockChance",type="INC",value=12}},nil}
 c["12% increased Cast Speed"]={{[1]={flags=16,keywordFlags=0,name="Speed",type="INC",value=12}},nil}
@@ -1886,7 +1886,7 @@ c["30% increased Presence Area of Effect Aura Skills have 6% increased Magnitude
 c["30% increased Presence Area of Effect Minions have 20% increased Area of Effect"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="AreaOfEffect",type="INC",value=30}}}}," Presence  s have 20% increased Area of Effect "}
 c["30% increased Projectile Damage if you've dealt a Melee Hit in the past eight seconds"]={{[1]={flags=1280,keywordFlags=0,name="Damage",type="INC",value=30}},"  if you've dealt a  Hit in the past eight seconds "}
 c["30% increased Projectile Parry Range"]={{[1]={[1]={includeTransfigured=true,skillName="Parry",type="SkillName"},flags=0,keywordFlags=0,name="ProjectileCount",type="INC",value=30}}," Range "}
-c["30% increased Projectile Parry Range Your Heavy Stun buildup empties 50% faster if you've successfully Parried Recently"]={{[1]={[1]={includeTransfigured=true,skillName="Parry",type="SkillName"},flags=0,keywordFlags=0,name="ProjectileCount",type="INC",value=30}}," Range Your Heavy Stun buildup empties 50% faster if you've successfully Parried Recently "}
+c["30% increased Projectile Parry Range Your Heavy Stun buildup empties 50% faster if you've successfully Parried Recently"]={{[1]={[1]={type="Condition",var="ParriedRecently"},[2]={includeTransfigured=true,skillName="Parry",type="SkillName"},flags=0,keywordFlags=0,name="ProjectileCount",type="INC",value=30}}," Range Your Heavy Stun buildup empties 50% faster  "}
 c["30% increased Projectile Speed"]={{[1]={flags=0,keywordFlags=0,name="ProjectileSpeed",type="INC",value=30}},nil}
 c["30% increased Shock Chance against Electrocuted Enemies"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Electrocuted"},flags=0,keywordFlags=0,name="EnemyShockChance",type="INC",value=30}},nil}
 c["30% increased Skill Speed"]={{[1]={flags=0,keywordFlags=0,name="Speed",type="INC",value=30},[2]={flags=0,keywordFlags=0,name="WarcrySpeed",type="INC",value=30}},nil}
@@ -2314,7 +2314,7 @@ c["6% increased Fire Damage"]={{[1]={flags=0,keywordFlags=0,name="FireDamage",ty
 c["6% increased Intelligence"]={{[1]={flags=0,keywordFlags=0,name="Int",type="INC",value=6}},nil}
 c["6% increased Magnitude of Damaging Ailments you inflict"]={{[1]={flags=0,keywordFlags=14680064,name="AilmentMagnitude",type="INC",value=6}},nil}
 c["6% increased Mana Regeneration Rate"]={{[1]={flags=0,keywordFlags=0,name="ManaRegen",type="INC",value=6}},nil}
-c["6% increased Movement Speed if you've successfully Parried Recently"]={{[1]={flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=6}},"  if you've successfully Parried Recently "}
+c["6% increased Movement Speed if you've successfully Parried Recently"]={{[1]={[1]={type="Condition",var="ParriedRecently"},flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=6}},nil}
 c["6% increased Movement Speed while you have an active Charm"]={{[1]={[1]={type="Condition",var="UsingCharm"},flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=6}},nil}
 c["6% increased Physical Damage"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamage",type="INC",value=6}},nil}
 c["6% increased Skill Speed"]={{[1]={flags=0,keywordFlags=0,name="Speed",type="INC",value=6},[2]={flags=0,keywordFlags=0,name="WarcrySpeed",type="INC",value=6}},nil}
@@ -4145,10 +4145,10 @@ c["Skills gain 20% increased Damage per socketed red Support Gem Skills gain 6% 
 c["Skills gain 6% increased Skill Speed per socketed green Support Gem"]={{[1]={flags=0,keywordFlags=0,name="Speed",type="INC",value=6},[2]={flags=0,keywordFlags=0,name="WarcrySpeed",type="INC",value=6}},"  per socketed green Support Gem "}
 c["Skills gain a Base Life Cost equal to 50% of Base Mana Cost"]={{[1]={flags=0,keywordFlags=0,name="ManaCostAsLifeCost",type="BASE",value=50}},nil}
 c["Skills gain a Base Life Cost equal to Base Mana Cost"]={{[1]={flags=0,keywordFlags=0,name="ManaCostAsLifeCost",type="BASE",value=100}},nil}
-c["Skills have +0 seconds to Cooldown"]={{}," seconds to Cooldown "}
-c["Skills have +0 seconds to Cooldown Skills have -1 seconds to Cooldown"]={{}," seconds to Cooldown Skills have -1 seconds to Cooldown "}
 c["Skills have +1 to Limit"]={{}," Limit "}
 c["Skills have -1 seconds to Cooldown"]={{}," seconds to Cooldown "}
+c["Skills have -2 seconds to Cooldown"]={{}," seconds to Cooldown "}
+c["Skills have -2 seconds to Cooldown Skills have -1 seconds to Cooldown"]={{}," seconds to Cooldown Skills have -1 seconds to Cooldown "}
 c["Skills have 33% chance to not consume a Cooldown when used"]={{[1]={[1]={skillType=90,type="SkillType"},flags=0,keywordFlags=0,name="CooldownChanceNotConsume",type="BASE",value=0.33}},nil}
 c["Skills have a 125% longer Perfect Timing window"]={{[1]={flags=0,keywordFlags=0,name="PerfectTiming",type="INC",value=125}},nil}
 c["Skills have a 150% longer Perfect Timing window"]={{[1]={flags=0,keywordFlags=0,name="PerfectTiming",type="INC",value=150}},nil}

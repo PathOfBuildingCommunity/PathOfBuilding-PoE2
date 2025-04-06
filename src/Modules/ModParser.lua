@@ -1742,6 +1742,7 @@ local modTagList = {
 	["if you[' ]h?a?ve taken spell damage recently"] = { tag = { type = "Condition", var = "HitBySpellDamageRecently" } },
 	["if you haven't taken damage recently"] = { tag = { type = "Condition", var = "BeenHitRecently", neg = true } },
 	["if you[' ]h?a?ve blocked recently"] = { tag = { type = "Condition", var = "BlockedRecently" } },
+	["if you[' ]h?a?ve successfully parried recently"] = { tag = { type = "Condition", var = "ParriedRecently" } },
 	["if you[' ]h?a?ve blocked with active block recently"] = { tag = { type = "Condition", var = "ActiveBlockedRecently" } },
 	["if you haven't blocked recently"] = { tag = { type = "Condition", var = "BlockedRecently", neg = true } },
 	["if you[' ]h?a?ve blocked an attack recently"] = { tag = { type = "Condition", var = "BlockedAttackRecently" } },

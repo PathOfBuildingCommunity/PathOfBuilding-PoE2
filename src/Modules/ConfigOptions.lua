@@ -1192,6 +1192,10 @@ Huge sets the radius to 11.
 		modList:NewMod("Condition:BlockedSpellRecently", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
 		modList:NewMod("Condition:BlockedRecently", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
 	end },
+	{ var = "conditionParriedRecently", type = "check", label = "Have you Parried Recently?", ifCond = "ParriedRecently", apply = function(val, modList, enemyModList)
+		modList:NewMod("Condition:ParriedRecently", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
+		modList:NewMod("Condition:BlockedRecently", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
+	end },
 	{ var = "conditionDodgeRolledRecently", type = "check", label = "Have you Dodge Rolled Recently?", ifCond = "DodgeRolledRecently", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:DodgeRolledRecently", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
 	end },
