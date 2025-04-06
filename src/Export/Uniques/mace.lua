@@ -126,6 +126,14 @@ UniqueLifeGainedFromEnemyDeath8
 UniqueLocalCritChanceOverride1
 UniqueLocalNoCriticalStrikeMultiplier1
 ]],[[
+Tidebreaker
+Pointed Maul
+UniqueLocalIncreasedPhysicalDamagePercent13
+UniqueGlobalIncreaseMeleeSkillGemLevel1
+UniqueIntelligence39
+UniqueLocalStunDamageIncrease2
+UniqueLocalAllDamageCanChill1
+]],[[
 Trephina
 Forge Maul
 Variant: Pre 0.1.1

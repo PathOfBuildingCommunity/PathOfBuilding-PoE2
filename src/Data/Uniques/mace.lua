@@ -127,6 +127,14 @@ Gain 30 Life per Enemy Killed
 This Weapon's Critical Hit Chance is 100%
 Critical Hits do not deal extra Damage
 ]],[[
+Tidebreaker
+Pointed Maul
+(120-150)% increased Physical Damage
++(2-3) to Level of all Melee Skills
++(20-30) to Intelligence
+Causes (150-200)% increased Stun Buildup
+All Damage from Hits with this Weapon Contributes to Chill Magnitude
+]],[[
 Trephina
 Forge Maul
 Variant: Pre 0.1.1
