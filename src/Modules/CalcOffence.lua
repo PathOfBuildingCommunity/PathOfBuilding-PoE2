@@ -2528,13 +2528,13 @@ function calcs.offence(env, actor, activeSkill)
 					globalBreakdown.ReloadTime = { }
 					local baseReloadTime = source.ReloadTime
 					local incReloadSpeed = skillModList:Sum("INC", skillCfg, "ReloadSpeed")
-					local moreReloadSpeed = (100 + skillModList:Sum("MORE", skillCfg, "ReloadSpeed")) / 100
+					local moreReloadSpeed = skillModList:More("MORE", skillCfg, "ReloadSpeed")
 					t_insert(globalBreakdown.ReloadTime, s_format("  1.00s / %.2f ^8(base reload time)", baseReloadTime))
 					t_insert(globalBreakdown.ReloadTime, s_format("= %.2f ^8(base reload rate)", 1 / baseReloadTime))
 					t_insert(globalBreakdown.ReloadTime, s_format("\n"))
 					t_insert(globalBreakdown.ReloadTime, s_format("^8Note: modifiers to attack speed also affect reload speed"))
 					t_insert(globalBreakdown.ReloadTime, s_format("x %.2f ^8(increased/reduced)", 1 + (incReloadSpeed/100) + (inc/100) ))
-					t_insert(globalBreakdown.ReloadTime, s_format("x %.2f ^8(more/less)", moreReloadSpeed * (1 + (more/100)) ))
+					t_insert(globalBreakdown.ReloadTime, s_format("x %.2f ^8(more/less)",  1 * moreReloadSpeed * more ))
 					t_insert(globalBreakdown.ReloadTime, s_format("= %.2f ^8(reload rate)", output.ReloadRate))
 					t_insert(globalBreakdown.ReloadTime, s_format("\n"))
 					t_insert(globalBreakdown.ReloadTime, s_format("   1.00s / %.2f ^8(reload rate)", output.ReloadRate))
