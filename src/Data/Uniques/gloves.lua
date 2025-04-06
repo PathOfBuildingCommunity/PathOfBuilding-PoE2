@@ -248,6 +248,16 @@ Gain (7-10) Life per Enemy Killed
 Gain (4-6) Mana per Enemy Killed
 Enemies killed by anyone in your Presence count as being killed by you instead
 ]],[[
+The Prisoner's Manacles
+Diviner Cuffs
+(200-300)% increased Armour and Energy Shield
++100 to maximum Life
+100% increased Attribute Requirements
++(20-40)% to Lightning Resistance
+(15-30) Life Regeneration per second
+Debuffs you inflict have (20-30)% increased Slow Magnitude
+Cannot Immobilise enemies
+]],[[
 Shackles of the Wretched
 Aged Cuffs
 (30-50)% increased Armour and Energy Shield

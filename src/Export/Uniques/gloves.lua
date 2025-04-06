@@ -248,6 +248,16 @@ UniqueLifeGainedFromEnemyDeath3
 UniqueManaGainedFromEnemyDeath4
 UniqueEnemiesKilledCountAsYours1
 ]],[[
+The Prisoner's Manacles
+Diviner Cuffs
+UniqueLocalIncreasedArmourAndEnergyShield21
+UniqueIncreasedLife54
+UniqueReducedLocalAttributeRequirements5
+UniqueLightningResist28
+UniqueLifeRegeneration23
+UniqueSlowEffect1
+UniqueCannotImmobilise1
+]],[[
 Shackles of the Wretched
 Aged Cuffs
 UniqueLocalIncreasedArmourAndEnergyShield2
