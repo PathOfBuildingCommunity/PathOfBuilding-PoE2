@@ -137,6 +137,63 @@ Grants Skill: Parry
 5 Life Regeneration per second
 100% increased Block chance against Projectiles
 Curse Enemies with Enfeeble on Block
+]],[[
+Sunsplinter
+Array Buckler
+Has Alt Variant: true
+Selected Variant: 1
+Selected Alt Variant: 7
+Variant: Max Res: 1 Fire, 2 Cold, 3 Lightning
+Variant: Max Res: 1 Fire, 3 Cold, 2 Lightning
+Variant: Max Res: 2 Fire, 1 Cold, 3 Lightning
+Variant: Max Res: 2 Fire, 3 Cold, 1 Lightning
+Variant: Max Res: 3 Fire, 1 Cold, 2 Lightning
+Variant: Max Res: 3 Fire, 2 Cold, 1 Lightning
+Variant: Level: 2 Cold, 1 Fire, 3 Lightning
+Variant: Level: 3 Cold, 1 Fire, 2 Lightning
+Variant: Level: 1 Cold, 2 Fire, 3 Lightning
+Variant: Level: 3 Cold, 2 Fire, 1 Lightning
+Variant: Level: 1 Cold, 3 Fire, 2 Lightning
+Variant: Level: 2 Cold, 3 Fire, 1 Lightning
+Implicits: 1
+Grants Skill: Parry
+(100-300)% increased Evasion Rating
+{variant:1}+1% to Maximum Fire Resistance
+{variant:2}+1% to Maximum Fire Resistance
+{variant:3}+2% to Maximum Fire Resistance
+{variant:4}+2% to Maximum Fire Resistance
+{variant:5}+3% to Maximum Fire Resistance
+{variant:6}+3% to Maximum Fire Resistance
+{variant:1}+2% to Maximum Cold Resistance
+{variant:2}+3% to Maximum Cold Resistance
+{variant:3}+1% to Maximum Cold Resistance
+{variant:4}+3% to Maximum Cold Resistance
+{variant:5}+1% to Maximum Cold Resistance
+{variant:6}+2% to Maximum Cold Resistance
+{variant:1}+3% to Maximum Lightning Resistance
+{variant:2}+2% to Maximum Lightning Resistance
+{variant:3}+3% to Maximum Lightning Resistance
+{variant:4}+1% to Maximum Lightning Resistance
+{variant:5}+2% to Maximum Lightning Resistance
+{variant:6}+1% to Maximum Lightning Resistance
+{variant:7}+2 to Level of all Cold Skills
+{variant:8}+3 to Level of all Cold Skills
+{variant:9}+1 to Level of all Cold Skills
+{variant:10}+3 to Level of all Cold Skills
+{variant:11}+1 to Level of all Cold Skills
+{variant:12}+2 to Level of all Cold Skills
+{variant:7}+1 to Level of all Fire Skills
+{variant:8}+1 to Level of all Fire Skills
+{variant:9}+2 to Level of all Fire Skills
+{variant:10}+2 to Level of all Fire Skills
+{variant:11}+3 to Level of all Fire Skills
+{variant:12}+3 to Level of all Fire Skills
+{variant:7}+3 to Level of all Lightning Skills
+{variant:8}+2 to Level of all Lightning Skills
+{variant:9}+3 to Level of all Lightning Skills
+{variant:10}+1 to Level of all Lightning Skills
+{variant:11}+2 to Level of all Lightning Skills
+{variant:12}+1 to Level of all Lightning Skills
 ]],
 -- Shield: Energy Shield
 

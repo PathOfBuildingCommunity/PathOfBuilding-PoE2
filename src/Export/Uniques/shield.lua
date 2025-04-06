@@ -135,6 +135,39 @@ UniqueDexterity2
 UniqueLifeRegeneration24
 UniqueBlockChanceProjectiles1
 UniqueEnfeebleOnBlockChance1
+]],[[
+Sunsplinter
+Array Buckler
+Has Alt Variant: true
+Selected Variant: 1
+Selected Alt Variant: 7
+Variant: Max Res: 1 Fire, 2 Cold, 3 Lightning
+Variant: Max Res: 1 Fire, 3 Cold, 2 Lightning
+Variant: Max Res: 2 Fire, 1 Cold, 3 Lightning
+Variant: Max Res: 2 Fire, 3 Cold, 1 Lightning
+Variant: Max Res: 3 Fire, 1 Cold, 2 Lightning
+Variant: Max Res: 3 Fire, 2 Cold, 1 Lightning
+Variant: Level: 2 Cold, 1 Fire, 3 Lightning
+Variant: Level: 3 Cold, 1 Fire, 2 Lightning
+Variant: Level: 1 Cold, 2 Fire, 3 Lightning
+Variant: Level: 3 Cold, 2 Fire, 1 Lightning
+Variant: Level: 1 Cold, 3 Fire, 2 Lightning
+Variant: Level: 2 Cold, 3 Fire, 1 Lightning
+Implicits: 1
+Grants Skill: Parry
+UniqueLocalIncreasedEvasionRatingPercent25
+{variant:1}UniqueMaximumElementalResistances1
+{variant:2}UniqueMaximumElementalResistances2
+{variant:3}UniqueMaximumElementalResistances3
+{variant:4}UniqueMaximumElementalResistances4
+{variant:5}UniqueMaximumElementalResistances5
+{variant:6}UniqueMaximumElementalResistances6
+{variant:7}UniqueAdditionalElementalGemLevels1
+{variant:8}UniqueAdditionalElementalGemLevels2
+{variant:9}UniqueAdditionalElementalGemLevels3
+{variant:10}UniqueAdditionalElementalGemLevels4
+{variant:11}UniqueAdditionalElementalGemLevels5
+{variant:12}UniqueAdditionalElementalGemLevels6
 ]],
 -- Shield: Energy Shield
 
