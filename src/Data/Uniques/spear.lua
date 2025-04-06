@@ -54,6 +54,17 @@ Adds 1 to (80-120) Lightning Damage
 (50-100)% increased chance to Shock
 Rolls only the minimum or maximum Damage value for each Damage Type
 ]],[[
+Spire of Ire
+Helix Spear
+Implicits: 2
+Grants Skill: Spear Throw
+Grants Skill: Level (1-20) Chaotic Infusion
+(15-20)% increased Attack Speed
+Leeches (6-10)% of Physical Damage as Life
+Adds (106-146) to (181-221) Chaos damage
+When you Consume a Charge Trigger Chaotic Infusion to gain 2 Chaos Infusion
+Life Leech recovers based on your Chaos damage instead of Physical damage
+]],[[
 Tangletongue
 Forked Spear
 Implicits: 1

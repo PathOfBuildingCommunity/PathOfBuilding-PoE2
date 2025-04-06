@@ -54,6 +54,17 @@ UniqueLocalIncreasedAttackSpeed3
 UniqueShockChanceIncrease1
 UniqueLocalAlwaysMinimumOrMaximum1
 ]],[[
+Spire of Ire
+Helix Spear
+Implicits: 2
+Grants Skill: Spear Throw
+Grants Skill: Level (1-20) Chaotic Infusion
+UniqueLocalIncreasedAttackSpeed21
+UniqueLifeLeechLocal3
+UniqueLocalChaosDamage2
+UniqueChaosInfusionFromCharge1
+UniqueLifeLeechChaosDamage1
+]],[[
 Tangletongue
 Forked Spear
 Implicits: 1
