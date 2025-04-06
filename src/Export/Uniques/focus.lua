@@ -47,6 +47,14 @@ RingImplicitLightningResistance1
 {variant:1}UniqueManaRegenerationWhileStationary1[50,50]
 {variant:2}UniqueManaRegenerationWhileStationary1
 ]],[[
+Rathpith Globe
+Sacred Focus
+UniqueLocalIncreasedEnergyShieldPercent21
+UniqueIncreasedLife50
+UniqueNonChannellingSpellLifeCost1
+UniqueNonChannellingSpellCriticalChance1
+UniqueNonChannellingSpellDamage1
+]],[[
 Serpent's Lesson
 Tonal Focus
 UniqueIncreasedLife22

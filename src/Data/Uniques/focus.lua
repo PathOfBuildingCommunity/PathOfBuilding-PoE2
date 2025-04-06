@@ -47,6 +47,14 @@ Variant: Current
 {variant:1}50% increased Mana Regeneration Rate while stationary
 {variant:2}40% increased Mana Regeneration Rate while stationary
 ]],[[
+Rathpith Globe
+Sacred Focus
+(60-100)% increased Energy Shield
++(60-100) to maximum Life
+Non-Channelling Spells cost an additional 6% of your maximum Life
+Non-Channelling Spells have 5% increased Critical Hit Chance per 100 maximum Life
+Non-Channelling Spells deal 10% increased Damage per 100 maximum Life
+]],[[
 Serpent's Lesson
 Tonal Focus
 +(60-100) to maximum Life
