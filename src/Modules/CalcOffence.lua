@@ -280,7 +280,8 @@ end
 ---@return number
 local function calcCrossbowReloadTime(weaponData, boltSkill)
 	local baseReloadTime = weaponData.ReloadTime
-	local reloadTimeMulti = calcLib.mod(boltSkill.skillModList, boltSkill.skillCfg, "ReloadSpeed" )
+
+	local reloadTimeMulti = calcLib.mod(boltSkill.skillModList, boltSkill.skillCfg, "ReloadSpeed", "Speed" )
 	return baseReloadTime / reloadTimeMulti
 end
 -- Calculate stats from parent Ammo skill that are not available on children, such as mana cost and reload speed
@@ -2531,8 +2532,9 @@ function calcs.offence(env, actor, activeSkill)
 					t_insert(globalBreakdown.ReloadTime, s_format("  1.00s / %.2f ^8(base reload time)", baseReloadTime))
 					t_insert(globalBreakdown.ReloadTime, s_format("= %.2f ^8(base reload rate)", 1 / baseReloadTime))
 					t_insert(globalBreakdown.ReloadTime, s_format("\n"))
-					t_insert(globalBreakdown.ReloadTime, s_format("x %.2f ^8(increased/reduced)", 1 + incReloadSpeed/100 ))
-					t_insert(globalBreakdown.ReloadTime, s_format("x %.2f ^8(more/less)", moreReloadSpeed ))
+					t_insert(globalBreakdown.ReloadTime, s_format("^8Note: modifiers to attack speed also affect reload speed"))
+					t_insert(globalBreakdown.ReloadTime, s_format("x %.2f ^8(increased/reduced)", 1 + (incReloadSpeed/100) + (inc/100) ))
+					t_insert(globalBreakdown.ReloadTime, s_format("x %.2f ^8(more/less)", moreReloadSpeed * (1 + (more/100)) ))
 					t_insert(globalBreakdown.ReloadTime, s_format("= %.2f ^8(reload rate)", output.ReloadRate))
 					t_insert(globalBreakdown.ReloadTime, s_format("\n"))
 					t_insert(globalBreakdown.ReloadTime, s_format("   1.00s / %.2f ^8(reload rate)", output.ReloadRate))
