@@ -54,6 +54,10 @@ statMap = {
 #set MeleeCrossbowPlayer
 #flags attack area projectile
 #mods
+#skillEnd
+
+#from item
+#skill UnloadAmmoPlayer
 #set UnloadAmmoPlayer
 #flags
 #mods

@@ -306,15 +306,8 @@ local function calcCrossbowAmmoStats(actor, activeSkill)
 			return ammoSkillStats
 		end
 	end
-	-- In case no ammo skill exists (e.g. basic Crossbow Shot), make sure necessary data exists
-	if activeSkill.activeEffect.grantedEffect.id == "MeleeCrossbowPlayer" then
-		-- Crossbow Shot ammunition data is not on the gem and therefore isn't exported. It is manually added instead
-		-- TODO: remove hardcoded value, once base skill ammo data is available on export
-		activeSkill.skillModList:ReplaceMod("CrossbowBoltCount", "BASE", 7, activeSkill.activeEffect.grantedEffect.name)
-	else
-		-- Ensure minimum 1 base bolt count in any case
-		activeSkill.skillModList:ReplaceMod("CrossbowBoltCount", "BASE", 1, activeSkill.activeEffect.grantedEffect.name)
-	end
+	-- Ensure minimum 1 base bolt count in any case
+	activeSkill.skillModList:ReplaceMod("CrossbowBoltCount", "BASE", 1, activeSkill.activeEffect.grantedEffect.name)
 	local dummySkillStats = {
 		cost = activeSkill.activeEffect.grantedEffectLevel.cost,
 		boltCount = m_max(activeSkill.skillModList:Sum("BASE", activeSkill.skillCfg, "CrossbowBoltCount"), 1), -- ensure minimum one bolt
