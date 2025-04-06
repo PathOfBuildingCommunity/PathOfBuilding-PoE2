@@ -93,6 +93,16 @@ UniqueIncreasedMana22
 {variant:1}UniqueLocalCriticalStrikeChance3
 UniqueMinionDamageAffectsYou1
 ]],[[
+The Empty Roar
+Cultist Greathammer
+Implicits: 1
+MaceImplicitSplashDamage1
+UniqueLocalAddedPhysicalDamage15
+UniqueLifeLeechLocal2
+UniqueLocalChanceToBleed1
+UniqueAttacksCountAsExerted1
+UniqueCannotUseWarcries1
+]],[[
 The Hammer of Faith
 Giant Maul
 UniqueLocalIncreasedPhysicalDamagePercent9

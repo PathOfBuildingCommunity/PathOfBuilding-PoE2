@@ -94,6 +94,16 @@ Variant: Current
 {variant:1}+5% to Critical Hit Chance
 Increases and Reductions to Minion Damage also affect you
 ]],[[
+The Empty Roar
+Cultist Greathammer
+Implicits: 1
+Strikes deal Splash damage to targets within 1.8 metres
+Adds (25-35) to (40-50) Physical Damage
+Leeches 10% of Physical Damage as Life
+(10-20)% chance to cause Bleeding on Hit
+All Attacks count as Empowered Attacks
+Cannot use Warcries
+]],[[
 The Hammer of Faith
 Giant Maul
 (200-250)% increased Physical Damage
