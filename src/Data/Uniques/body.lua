@@ -257,7 +257,7 @@ Variant: Current
 +(10-20)% to all Elemental Resistances
 (5-30)% of Damage taken Recouped as Life
 (5-30)% of Damage taken Recouped as Mana
-{variant:1}Skills have +0 seconds to Cooldown
+{variant:1}Skills have -(4-2) seconds to Cooldown
 {variant:2}Skills have -(2-1) seconds to Cooldown
 ]],[[
 Tetzlapokal's Desire

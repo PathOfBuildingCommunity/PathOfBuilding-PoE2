@@ -57,7 +57,7 @@ Variant: Current
 {variant:2,3}UniqueLocalAddedPhysicalDamage10
 UniqueLocalIncreasedAttackSpeed11
 {variant:2}UniqueGlobalMinionSpellSkillGemLevel1[1,3]
-{variant:3}UniqueGlobalMinionSpellSkillGemLevel1[1,3]
+{variant:3}UniqueGlobalMinionSpellSkillGemLevel1
 UniqueMinionAttackSpeedAffectsYou1
 ]],[[
 Wylund's Stake
