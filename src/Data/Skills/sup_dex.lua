@@ -56,6 +56,11 @@ skills["SupportAdherePlayer"] = {
 			label = "Adhere",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_sticky_grenade_damage_+%_final"] = {
+					mod("Damage", "MORE", nil),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -1180,6 +1185,15 @@ skills["SupportExcoriatePlayer"] = {
 			label = "Excoriate",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_elemental_assault_melee_damage_+%_final_per_elemental_ailment_on_target"] = {
+					mod("Damage", "MORE", nil, ModFlag.Melee, 0, { type = "ActorCondition", actor = "enemy", var = "Ignited" }),
+					mod("Damage", "MORE", nil, ModFlag.Melee, 0, { type = "ActorCondition", actor = "enemy", var = "Chilled" }),
+					mod("Damage", "MORE", nil, ModFlag.Melee, 0, { type = "ActorCondition", actor = "enemy", var = "Frozen" }),
+					mod("Damage", "MORE", nil, ModFlag.Melee, 0, { type = "ActorCondition", actor = "enemy", var = "Shocked" }),
+					mod("Damage", "MORE", nil, ModFlag.Melee, 0, { type = "ActorCondition", actor = "enemy", var = "Electrocuted" }),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
