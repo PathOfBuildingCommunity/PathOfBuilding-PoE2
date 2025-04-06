@@ -250,7 +250,7 @@ UniqueLocalIncreasedEnergyShield9
 UniqueAllResistances6
 UniqueDamageTakenGainedAsLife1
 UniqueDamageTakenGoesToMana2
-{variant:1}UniqueFlatCooldownRecovery1[-4,-2]
+{variant:1}UniqueFlatCooldownRecovery1[-4000,-2000]
 {variant:2}UniqueFlatCooldownRecovery1
 ]],[[
 Tetzlapokal's Desire
