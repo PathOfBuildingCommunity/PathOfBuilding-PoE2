@@ -138,6 +138,14 @@ UniqueLocalIncreasedEvasionRatingPercent1
 UniqueFireResist6
 UniqueLightRadius7
 UniqueIgniteEnemiesInPresence1
+]],[[
+Starkonja's Head
+Leatherbound Hood
+UniqueLocalIncreasedEvasionRatingPercent26
+UniqueCriticalStrikeChance13
+UniqueDexterity38
+EvasionRatingPercentOnLowLifeUniqueHelmetDex4
+UniqueDamageRemovedFromCompanion1
 ]],
 -- Helmet: Energy Shield
 [[

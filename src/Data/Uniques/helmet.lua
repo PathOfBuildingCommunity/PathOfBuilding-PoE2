@@ -139,6 +139,14 @@ Lace Hood
 +(15-25)% to Fire Resistance
 30% increased Light Radius
 Enemies in your Presence are Ignited as though dealt 100 Base Fire Damage
+]],[[
+Starkonja's Head
+Leatherbound Hood
+(100-200)% increased Evasion Rating
+(15-25)% increased Critical Hit Chance
++(30-40) to Dexterity
+150% increased Global Evasion Rating when on Low Life
+15% of Damage from Hits is taken from your Companion's Life before you
 ]],
 -- Helmet: Energy Shield
 [[
