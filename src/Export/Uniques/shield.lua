@@ -3,6 +3,16 @@
 return {
 -- Shield: Armour
 [[
+Chernobog's Pillar
+Blacksteel Tower Shield
+Implicits: 1
+Grants Skill: Raise Shield
+UniqueLocalIncreasedPhysicalDamageReductionRatingPercent28
+UniqueFireResist8
+UniqueChaosResist32
+UniqueStunThreshold19
+UniqueDamageGainedAsFirePerBlock1
+]],[[
 Dionadair
 Splintered Tower Shield
 Variant: Pre 0.1.1

@@ -3,6 +3,16 @@
 return {
 -- Shield: Armour
 [[
+Chernobog's Pillar
+Blacksteel Tower Shield
+Implicits: 1
+Grants Skill: Raise Shield
+(100-150)% increased Armour
++(30-40)% to Fire Resistance
++(23-29)% to Chaos Resistance
++(150-200) to Stun Threshold
+Gain 1% of damage as Fire damage per 1% Chance to Block
+]],[[
 Dionadair
 Splintered Tower Shield
 Variant: Pre 0.1.1
