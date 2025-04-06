@@ -1,16 +1,17 @@
 VERSION[0.6.0][2025/04/06]
+
 --- New to Path of Building ---
-* Support importing characters from PoE API by (@Wires77, @justjuangui) in https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/845
+* Support importing characters from PoE API (Wires77, trompetin17)
 * Add 0.2 Passive Tree (trompetin17)
 * Add support for all new active gems (LocalIdentity)
-* Add new Uniques (Blitz54)
-* Update some Uniques and create Variants by (@Blitz54, @Wires77) in https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/880
+* Add some new 0.2 Uniques (mods are not supported yet) (Blitz54)
+* Update existing uniques with changes from 0.2 (Blitz54, Wires77)
 
 --- Mechanics ---
 * Implement Rare item templates (Blitz54)
-* Add support for various Crossbow mechanics (Reload Time, Additional Projectiles, Bolt Count, Mana costs, Fresh Clip Support)) (majochem)
+* Add support for various Crossbow mechanics (DPS, Reload Time, Additional Projectiles, Bolt Count) (majochem)
 * Added support for break armour on hit (MrHB212)
-* Add Damage Buff for fully broken enemy rmour (lucs66)
+* Add Damage Buff for fully broken enemy armour (lucs66)
 * Add support for Soul Core stat requirement conversion (haugenc)
 * Add support for Minion Revival Time (Blitz54)
 * Add support for Ice Crystal life (Blitz54)
@@ -38,7 +39,7 @@ VERSION[0.6.0][2025/04/06]
 * Add support for Berserk Gem (Blitz54)
 * Add support for Excoriate and Adhere (Blitz54)
 * Add support for Mysticism, Enormity, Strong Hearted, Loyalty, Overextend (Blitz54)
-* Add support for a number of Support gems (LocalIdentity)
+* Add support for 15 new Support gems (LocalIdentity)
 * Add support for Skeletal Warrior gem quality (Blitz54)
 * Add support for Enfeeble "enemies deal less damage" mods (Blitz54)
 * Add Base Attack Damage for Stomping Ground support (Blitz54)

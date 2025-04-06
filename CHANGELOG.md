@@ -6,77 +6,77 @@
 
 ## What's Changed
 ### New to Path of Building
-* Support importing characters from PoE API by (@Wires77, @justjuangui) in https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/845
-- Add 0.2 Passive Tree [\#872](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/872) ([trompetin17](https://github.com/justjuangui))
-- Add support for all new active gems [\#885](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/885) ([LocalIdentity](https://github.com/LocalIdentity))
-- Add new Uniques [\#881](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/881) ([Blitz54](https://github.com/Blitz54))
-* Update some Uniques and create Variants by (@Blitz54, @Wires77) in https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/880
+- Support importing characters from PoE API [\#845](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/845) ([Wires77](https://github.com/Wires77), [trompetin17](https://github.com/justjuangui))
+- Add 0.2 Passive Tree [\#872](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/872) ([trompetin17](https://github.com/justjuangui))
+- Add support for all new active gems [\#885](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/885) ([LocalIdentity](https://github.com/LocalIdentity))
+- Add some new 0.2 Uniques (mods are not supported yet) [\#881](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/881) ([Blitz54](https://github.com/Blitz54))
+- Update existing uniques with changes from 0.2 [\#880](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/880) ([Blitz54](https://github.com/Blitz54), [Wires77](https://github.com/Wires77))
 ### Mechanics
-- Implement Rare item templates [\#826](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/826) ([Blitz54](https://github.com/Blitz54))
-- Add support for various Crossbow mechanics (Reload Time, Additional Projectiles, Bolt Count, Mana costs, Fresh Clip Support)) [\#818](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/818) ([majochem](https://github.com/majochem))
-- Added support for break armour on hit [\#756](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/756) ([MrHB212](https://github.com/MrHB212))
-- Add Damage Buff for fully broken enemy rmour [\#876](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/876) ([lucs66](https://github.com/lucs66))
-- Add support for Soul Core stat requirement conversion [\#835](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/835) ([haugenc](https://github.com/haugenc))
-- Add support for Minion Revival Time [\#847](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/847) ([Blitz54](https://github.com/Blitz54))
-- Add support for Ice Crystal life [\#843](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/843) ([Blitz54](https://github.com/Blitz54))
-- Add support for Parried Recently [\#891](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/891) ([Blitz54](https://github.com/Blitz54))
-- Update Pinned enemy conditions [\#875](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/875) ([lucs66](https://github.com/lucs66))
-- Update Charge Duration, Unarmed Speed, and Cruel Ogham Manor reward [\#868](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/868) ([Blitz54](https://github.com/Blitz54))
-- Update Sceptres Auras to apply to Self [\#882](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/882) ([Blitz54](https://github.com/Blitz54))
+- Implement Rare item templates [\#826](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/826) ([Blitz54](https://github.com/Blitz54))
+- Add support for various Crossbow mechanics (DPS, Reload Time, Additional Projectiles, Bolt Count) [\#818](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/818) ([majochem](https://github.com/majochem))
+- Added support for break armour on hit [\#756](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/756) ([MrHB212](https://github.com/MrHB212))
+- Add Damage Buff for fully broken enemy armour [\#876](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/876) ([lucs66](https://github.com/lucs66))
+- Add support for Soul Core stat requirement conversion [\#835](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/835) ([haugenc](https://github.com/haugenc))
+- Add support for Minion Revival Time [\#847](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/847) ([Blitz54](https://github.com/Blitz54))
+- Add support for Ice Crystal life [\#843](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/843) ([Blitz54](https://github.com/Blitz54))
+- Add support for Parried Recently [\#891](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/891) ([Blitz54](https://github.com/Blitz54))
+- Update Pinned enemy conditions [\#875](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/875) ([lucs66](https://github.com/lucs66))
+- Update Charge Duration, Unarmed Speed, and Cruel Ogham Manor reward [\#868](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/868) ([Blitz54](https://github.com/Blitz54))
+- Update Sceptres Auras to apply to Self [\#882](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/882) ([Blitz54](https://github.com/Blitz54))
 ### Ascendancy
-- Add support for Break Enemy Armour Below 0 - "Imploding Impacts" Warbringer [\#759](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/759) ([majochem](https://github.com/majochem))
-- Add support for "Price Of Power" (Lich Ascendancy Notable) [\#865](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/865) ([majochem](https://github.com/majochem))
-- Add support for "Rupture The Soul" (Lich Ascendancy Notable) [\#863](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/863) ([majochem](https://github.com/majochem))
-- Add support for "Eldritch Empowerment" (Lich Ascendancy Notable) [\#862](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/862) ([majochem](https://github.com/majochem))
-- Add Support for "Necromantic Conduit" and "Blackened Heart" (Lich Ascendancy Notables) [\#860](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/860) ([majochem](https://github.com/majochem))
-- Add support for "A Solid Plan" - (Tactition Notable) [\#871](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/871) ([Blitz54](https://github.com/Blitz54))
-- Add support for "Critical Strike" (Amazon Ascendancy Notable) [\#879](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/879) ([majochem](https://github.com/majochem))
-- Add support for "Soulless Form" (Lich Ascendancy Notable) [\#877](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/877) ([majochem](https://github.com/majochem))
-- Adds Support for Unfurled Finger and Mystic Attunement [\#857](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/857) ([Nostrademous](https://github.com/Nostrademous))
+- Add support for Break Enemy Armour Below 0 - "Imploding Impacts" Warbringer [\#759](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/759) ([majochem](https://github.com/majochem))
+- Add support for "Price Of Power" (Lich Ascendancy Notable) [\#865](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/865) ([majochem](https://github.com/majochem))
+- Add support for "Rupture The Soul" (Lich Ascendancy Notable) [\#863](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/863) ([majochem](https://github.com/majochem))
+- Add support for "Eldritch Empowerment" (Lich Ascendancy Notable) [\#862](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/862) ([majochem](https://github.com/majochem))
+- Add Support for "Necromantic Conduit" and "Blackened Heart" (Lich Ascendancy Notables) [\#860](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/860) ([majochem](https://github.com/majochem))
+- Add support for "A Solid Plan" - (Tactition Notable) [\#871](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/871) ([Blitz54](https://github.com/Blitz54))
+- Add support for "Critical Strike" (Amazon Ascendancy Notable) [\#879](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/879) ([majochem](https://github.com/majochem))
+- Add support for "Soulless Form" (Lich Ascendancy Notable) [\#877](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/877) ([majochem](https://github.com/majochem))
+- Adds Support for Unfurled Finger and Mystic Attunement [\#857](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/857) ([Nostrademous](https://github.com/Nostrademous))
 ### Skills
-- Add support for Discipline [\#816](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/816) ([Blitz54](https://github.com/Blitz54))
-- Add support for Bidding support gem [\#792](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/792) ([Blitz54](https://github.com/Blitz54))
-- Add support for Sigil of Power [\#824](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/824) ([Blitz54](https://github.com/Blitz54))
-- Add support for Attrition [\#777](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/777) ([Blitz54](https://github.com/Blitz54))
-- Add support for Berserk Gem [\#813](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/813) ([Blitz54](https://github.com/Blitz54))
-- Add support for Excoriate and Adhere [\#888](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/888) ([Blitz54](https://github.com/Blitz54))
-- Add support for Mysticism, Enormity, Strong Hearted, Loyalty, Overextend [\#890](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/890) ([Blitz54](https://github.com/Blitz54))
-- Add support for a number of Support gems [\#893](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/893) ([LocalIdentity](https://github.com/LocalIdentity))
-- Add support for Skeletal Warrior gem quality [\#822](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/822) ([Blitz54](https://github.com/Blitz54))
-- Add support for Enfeeble "enemies deal less damage" mods [\#797](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/797) ([Blitz54](https://github.com/Blitz54))
-- Add Base Attack Damage for Stomping Ground support [\#846](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/846) ([Blitz54](https://github.com/Blitz54))
-- Add support for Ailment part of Overwhelming Presence skill [\#839](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/839) ([mauriliogenovese](https://github.com/mauriliogenovese))
-- Add support for Siege Cascade dmg vs Immobilised enemy [\#869](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/869) ([Blitz54](https://github.com/Blitz54))
-- Add support for Blasphemy's "Socketed Skills have +1 metres to base radius" [\#806](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/806) ([lutharous](https://github.com/lutharous))
-- Add support for Blasphemy less curse effect [\#800](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/800) ([Blitz54](https://github.com/Blitz54))
+- Add support for Discipline [\#816](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/816) ([Blitz54](https://github.com/Blitz54))
+- Add support for Bidding support gem [\#792](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/792) ([Blitz54](https://github.com/Blitz54))
+- Add support for Sigil of Power [\#824](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/824) ([Blitz54](https://github.com/Blitz54))
+- Add support for Attrition [\#777](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/777) ([Blitz54](https://github.com/Blitz54))
+- Add support for Berserk Gem [\#813](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/813) ([Blitz54](https://github.com/Blitz54))
+- Add support for Excoriate and Adhere [\#888](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/888) ([Blitz54](https://github.com/Blitz54))
+- Add support for Mysticism, Enormity, Strong Hearted, Loyalty, Overextend [\#890](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/890) ([Blitz54](https://github.com/Blitz54))
+- Add support for 15 new Support gems [\#893](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/893) ([LocalIdentity](https://github.com/LocalIdentity))
+- Add support for Skeletal Warrior gem quality [\#822](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/822) ([Blitz54](https://github.com/Blitz54))
+- Add support for Enfeeble "enemies deal less damage" mods [\#797](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/797) ([Blitz54](https://github.com/Blitz54))
+- Add Base Attack Damage for Stomping Ground support [\#846](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/846) ([Blitz54](https://github.com/Blitz54))
+- Add support for Ailment part of Overwhelming Presence skill [\#839](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/839) ([mauriliogenovese](https://github.com/mauriliogenovese))
+- Add support for Siege Cascade dmg vs Immobilised enemy [\#869](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/869) ([Blitz54](https://github.com/Blitz54))
+- Add support for Blasphemy's "Socketed Skills have +1 metres to base radius" [\#806](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/806) ([lutharous](https://github.com/lutharous))
+- Add support for Blasphemy less curse effect [\#800](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/800) ([Blitz54](https://github.com/Blitz54))
 ### Uniques
-- Add support for Megalomaniac [\#856](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/856) ([Blitz54](https://github.com/Blitz54))
-- Add support for Candlemaker "chance to ignite is doubled" [\#775](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/775) ([Blitz54](https://github.com/Blitz54))
-- Add support for Saffel's Frame "max block mods apply to max resist" [\#837](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/837) ([Blitz54](https://github.com/Blitz54))
-- Add support for Perfidy "% chance to avoid chaos damage from hits" [\#784](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/784) ([Blitz54](https://github.com/Blitz54))
-- Add support for Bones of Ullr mod and fix Lord of Horrors [\#740](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/740) ([Blitz54](https://github.com/Blitz54))
+- Add support for Megalomaniac [\#856](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/856) ([Blitz54](https://github.com/Blitz54))
+- Add support for Candlemaker "chance to ignite is doubled" [\#775](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/775) ([Blitz54](https://github.com/Blitz54))
+- Add support for Saffel's Frame "max block mods apply to max resist" [\#837](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/837) ([Blitz54](https://github.com/Blitz54))
+- Add support for Perfidy "% chance to avoid chaos damage from hits" [\#784](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/784) ([Blitz54](https://github.com/Blitz54))
+- Add support for Bones of Ullr mod and fix Lord of Horrors [\#740](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/740) ([Blitz54](https://github.com/Blitz54))
 ### Tree
-- Add support for Grenadier tree node [\#791](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/791) ([Blitz54](https://github.com/Blitz54))
-- Add support for "enemies in your presence have resistance equal to yours" [\#786](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/786) ([Blitz54](https://github.com/Blitz54))
-- Add parsing for some new mods [\#878](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/878) ([Paliak](https://github.com/Paliak))
-- Add support for basic Companion nodes [\#886](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/886) ([Blitz54](https://github.com/Blitz54))
+- Add support for Grenadier tree node [\#791](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/791) ([Blitz54](https://github.com/Blitz54))
+- Add support for "enemies in your presence have resistance equal to yours" [\#786](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/786) ([Blitz54](https://github.com/Blitz54))
+- Add parsing for some new mods [\#878](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/878) ([Paliak](https://github.com/Paliak))
+- Add support for basic Companion nodes [\#886](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/886) ([Blitz54](https://github.com/Blitz54))
 ### User Interface
-- Toggle Attribute Nodes with Right Click [\#867](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/867) ([Kylixen](https://github.com/Kylixen))
-- Only show bleed/ignite/poison options when needed [\#431](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/431) ([deathbeam](https://github.com/deathbeam))
+- Toggle Attribute Nodes with Right Click [\#867](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/867) ([Kylixen](https://github.com/Kylixen))
+- Only show bleed/ignite/poison options when needed [\#431](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/431) ([deathbeam](https://github.com/deathbeam))
 ### Fixed Calculations
-- Fix unleash seal gain time depends on base cast speed [\#793](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/793) ([mauriliogenovese](https://github.com/mauriliogenovese))
-- Fix Blasphemy logic applying to Trigger Spells [\#781](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/781) ([Blitz54](https://github.com/Blitz54))
-- Fix Burden of Shadows Life cost calculation [\#851](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/851) ([LocalIdentity](https://github.com/LocalIdentity))
-- Fix warcry speed scaled by cast speed instead of warcry speed [\#805](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/805) ([mauriliogenovese](https://github.com/mauriliogenovese))
-- Add support for Elemental Storm and Solar Orb hit rate [\#866](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/866) ([Blitz54](https://github.com/Blitz54))
+- Fix unleash seal gain time depends on base cast speed [\#793](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/793) ([mauriliogenovese](https://github.com/mauriliogenovese))
+- Fix Blasphemy logic applying to Trigger Spells [\#781](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/781) ([Blitz54](https://github.com/Blitz54))
+- Fix Burden of Shadows Life cost calculation [\#851](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/851) ([LocalIdentity](https://github.com/LocalIdentity))
+- Fix warcry speed scaled by cast speed instead of warcry speed [\#805](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/805) ([mauriliogenovese](https://github.com/mauriliogenovese))
+- Add support for Elemental Storm and Solar Orb hit rate [\#866](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/866) ([Blitz54](https://github.com/Blitz54))
 ### Fixed Behaviours
-- Fix Weapon comparison with Giant's Blood [\#809](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/809) ([mauriliogenovese](https://github.com/mauriliogenovese))
-- Fix node search not updating when switching between Sorceress and Witch [\#850](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/850) ([Blitz54](https://github.com/Blitz54))
-- Fix "Exploit Weakness" Support not applying for "ArmourFullyBroken" [\#801](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/801) ([majochem](https://github.com/majochem))
-- Fix Shockwave tree node not applying to all AoE skills [\#790](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/790) ([mauriliogenovese](https://github.com/mauriliogenovese))
-- Fix Unholy Might to use PoE 2 version [\#854](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/854) ([majochem](https://github.com/majochem))
+- Fix Weapon comparison with Giant's Blood [\#809](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/809) ([mauriliogenovese](https://github.com/mauriliogenovese))
+- Fix node search not updating when switching between Sorceress and Witch [\#850](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/850) ([Blitz54](https://github.com/Blitz54))
+- Fix "Exploit Weakness" Support not applying for "ArmourFullyBroken" [\#801](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/801) ([majochem](https://github.com/majochem))
+- Fix Shockwave tree node not applying to all AoE skills [\#790](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/790) ([mauriliogenovese](https://github.com/mauriliogenovese))
+- Fix Unholy Might to use PoE 2 version [\#854](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/854) ([majochem](https://github.com/majochem))
 ### Other changes
-- Fix skill tree textures not displaying correctly on old hardware [\#74](https://github.com/PathOfBuildingCommunity/PathOfBuilding-SimpleGraphic/pull/74) ([Zao](https://github.com/Zao))
+- Fix skill tree textures not displaying correctly on old hardware [\#74](https://github.com/PathOfBuildingCommunity/PathOfBuilding-SimpleGraphic/pull/74) ([Zao](https://github.com/Zao))
 
 
 ## [v0.5.0](https://github.com/PathOfBuildingCommunity/PathOfBuilding/tree/v0.5.0) (2025/02/12)
