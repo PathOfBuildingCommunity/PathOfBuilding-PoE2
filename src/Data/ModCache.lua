@@ -2794,7 +2794,7 @@ c["All Damage from Hits with this Weapon Contributes to Freeze Buildup Culling S
 c["All Damage from Hits with this Weapon Contributes to Pin Buildup"]={nil,"All Damage from Hits with this Weapon Contributes to Pin Buildup "}
 c["All Damage from Hits with this Weapon Contributes to Pin Buildup 30% increased Projectile Speed with this Weapon"]={nil,"All Damage from Hits with this Weapon Contributes to Pin Buildup 30% increased Projectile Speed with this Weapon "}
 c["All Damage from you and Allies in your Presence"]={nil,"All Damage from you and "}
-c["All Damage from you and Allies in your Presence contributes to Ignite Chance and Magnitude"]={nil,"All Damage from you and contributes to Ignite Chance and Magnitude "}
+c["All Damage from you and Allies in your Presence contributes to Ignite Chance and Magnitude"]={{[1]={flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=0,keywordFlags=0,name="ColdCanIgnite",type="FLAG",value=true}}},[2]={flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=0,keywordFlags=0,name="LightningCanIgnite",type="FLAG",value=true}}},[3]={flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=0,keywordFlags=0,name="ChaosCanIgnite",type="FLAG",value=true}}},[4]={flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=0,keywordFlags=0,name="PhysicalCanIgnite",type="FLAG",value=true}}}},nil}
 c["All Damage is taken from Mana before Life"]={{[1]={flags=0,keywordFlags=0,name="DamageTakenFromManaBeforeLife",type="BASE",value=100}},nil}
 c["All Damage taken bypasses Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="PhysicalEnergyShieldBypass",type="OVERRIDE",value=100},[2]={flags=0,keywordFlags=0,name="LightningEnergyShieldBypass",type="OVERRIDE",value=100},[3]={flags=0,keywordFlags=0,name="ColdEnergyShieldBypass",type="OVERRIDE",value=100},[4]={flags=0,keywordFlags=0,name="FireEnergyShieldBypass",type="OVERRIDE",value=100},[5]={flags=0,keywordFlags=0,name="ChaosEnergyShieldBypass",type="OVERRIDE",value=100}},nil}
 c["All Damage taken from Hits while Bleeding Contributes to Magnitude of Chill on you"]={nil,"All Damage taken from Hits while Bleeding Contributes to Magnitude of Chill on you "}
@@ -4677,7 +4677,6 @@ c["Your base Energy Shield Recharge Delay is 10 seconds"]={{[1]={flags=0,keyword
 c["Your speed is unaffected by Slows"]={{[1]={flags=0,keywordFlags=0,name="UnaffectedBySlows",type="FLAG",value=true}},nil}
 c["apply to Energy Shield Recharge Rate"]={nil,"apply to Energy Shield Recharge Rate "}
 c["apply to Energy Shield Recharge Rate Gain 50% of Maximum Mana as Armour"]={nil,"apply to Energy Shield Recharge Rate Gain 50% of Maximum Mana as Armour "}
-c["contributes to Ignite Chance and Magnitude"]={nil,"contributes to Ignite Chance and Magnitude "}
 c["for 4 seconds while Shield is raised"]={nil,"for 4 seconds while Shield is raised "}
 c["of their maximum Life as Physical Damage"]={nil,"of their maximum Life as Physical Damage "}
 c["of their maximum Life as Physical Damage Chance is doubled against Undead and Demons"]={nil,"of their maximum Life as Physical Damage Chance is doubled against Undead and Demons "}

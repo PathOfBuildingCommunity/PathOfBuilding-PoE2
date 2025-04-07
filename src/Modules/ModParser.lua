@@ -3579,6 +3579,12 @@ local specialModList = {
 		flag("ColdCanPoison"),
 		flag("LightningCanPoison"),
 	},
+	["all damage from you and allies in your presence contributes to ignite chance and magnitude"] = {
+		mod("ExtraAura", "LIST", { mod = flag("ColdCanIgnite") }),
+		mod("ExtraAura", "LIST", { mod = flag("LightningCanIgnite") }),
+		mod("ExtraAura", "LIST", { mod = flag("ChaosCanIgnite") }),
+		mod("ExtraAura", "LIST", { mod = flag("PhysicalCanIgnite") }),
+	},
 	["your chaos damage poisons enemies"] = { mod("ChaosPoisonChance", "BASE", 100) },
 	["your chaos damage has (%d+)%% chance to poison enemies"] = function(num) return { mod("ChaosPoisonChance", "BASE", num) } end,
 	["melee attacks poison on hit"] = { mod("PoisonChance", "BASE", 100, nil, ModFlag.Melee) },
