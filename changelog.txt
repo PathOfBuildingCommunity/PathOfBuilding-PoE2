@@ -26,7 +26,7 @@ VERSION[0.6.0][2025/04/06]
 * Add support for "Rupture The Soul" (Lich Ascendancy Notable) (majochem)
 * Add support for "Eldritch Empowerment" (Lich Ascendancy Notable) (majochem)
 * Add Support for "Necromantic Conduit" and "Blackened Heart" (Lich Ascendancy Notables) (majochem)
-* Add support for "A Solid Plan" - (Tactition Notable) (Blitz54)
+* Add support for "A Solid Plan" - (Tactician Notable) (Blitz54)
 * Add support for "Critical Strike" (Amazon Ascendancy Notable) (majochem)
 * Add support for "Soulless Form" (Lich Ascendancy Notable) (majochem)
 * Adds Support for Unfurled Finger and Mystic Attunement (Nostrademous)
@@ -51,7 +51,7 @@ VERSION[0.6.0][2025/04/06]
 --- Uniques ---
 * Add support for Megalomaniac (Blitz54)
 * Add support for Candlemaker "chance to ignite is doubled" (Blitz54)
-* Add support for Saffel's Frame "max block mods apply to max resist" (Blitz54)
+* Add support for Saffell's Frame "max block mods apply to max resist" (Blitz54)
 * Add support for Perfidy "% chance to avoid chaos damage from hits" (Blitz54)
 * Add support for Bones of Ullr mod and fix Lord of Horrors (Blitz54)
 

@@ -29,7 +29,7 @@
 - Add support for "Rupture The Soul" (Lich Ascendancy Notable) [\#863](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/863) ([majochem](https://github.com/majochem))
 - Add support for "Eldritch Empowerment" (Lich Ascendancy Notable) [\#862](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/862) ([majochem](https://github.com/majochem))
 - Add Support for "Necromantic Conduit" and "Blackened Heart" (Lich Ascendancy Notables) [\#860](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/860) ([majochem](https://github.com/majochem))
-- Add support for "A Solid Plan" - (Tactition Notable) [\#871](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/871) ([Blitz54](https://github.com/Blitz54))
+- Add support for "A Solid Plan" - (Tactician Notable) [\#871](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/871) ([Blitz54](https://github.com/Blitz54))
 - Add support for "Critical Strike" (Amazon Ascendancy Notable) [\#879](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/879) ([majochem](https://github.com/majochem))
 - Add support for "Soulless Form" (Lich Ascendancy Notable) [\#877](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/877) ([majochem](https://github.com/majochem))
 - Adds Support for Unfurled Finger and Mystic Attunement [\#857](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/857) ([Nostrademous](https://github.com/Nostrademous))
@@ -52,7 +52,7 @@
 ### Uniques
 - Add support for Megalomaniac [\#856](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/856) ([Blitz54](https://github.com/Blitz54))
 - Add support for Candlemaker "chance to ignite is doubled" [\#775](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/775) ([Blitz54](https://github.com/Blitz54))
-- Add support for Saffel's Frame "max block mods apply to max resist" [\#837](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/837) ([Blitz54](https://github.com/Blitz54))
+- Add support for Saffell's Frame "max block mods apply to max resist" [\#837](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/837) ([Blitz54](https://github.com/Blitz54))
 - Add support for Perfidy "% chance to avoid chaos damage from hits" [\#784](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/784) ([Blitz54](https://github.com/Blitz54))
 - Add support for Bones of Ullr mod and fix Lord of Horrors [\#740](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/740) ([Blitz54](https://github.com/Blitz54))
 ### Tree
