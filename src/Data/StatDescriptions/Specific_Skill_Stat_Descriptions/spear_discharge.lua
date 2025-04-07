@@ -4,19 +4,6 @@
 return {
 	[1]={
 		[1]={
-			[1]={
-				[1]={
-					k="divide_by_ten_1dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Explosion radius {0}m"
-			}
 		},
 		stats={
 			[1]="active_skill_area_of_effect_radius"
@@ -68,19 +55,6 @@ return {
 						[2]="#"
 					}
 				},
-				text="Additional explosion radius per previous explosion +{0}m"
-			},
-			[2]={
-				[1]={
-					k="divide_by_ten_1dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]=1,
-						[2]="#"
-					}
-				},
 				text="+{0} metres to explosion radius per previous explosion"
 			}
 		},
@@ -91,15 +65,6 @@ return {
 	[4]={
 		[1]={
 			[1]={
-				limit={
-					[1]={
-						[1]=1,
-						[2]="#"
-					}
-				},
-				text="Physical damage Converted to Infusion's type {0}%"
-			},
-			[2]={
 				limit={
 					[1]={
 						[1]=1,

@@ -146,15 +146,6 @@ return {
 	},
 	[5]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="More Attack damage taken inflicted {0}%"
-			}
 		},
 		stats={
 			[1]="parry_buff_attack_damage_taken_+%_final_magnitude_to_apply"
@@ -162,15 +153,6 @@ return {
 	},
 	[6]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="More Spell damage taken inflicted {0}%"
-			}
 		},
 		stats={
 			[1]="parry_buff_spell_damage_taken_+%_final_magnitude_to_apply"
@@ -178,19 +160,6 @@ return {
 	},
 	[7]={
 		[1]={
-			[1]={
-				[1]={
-					k="milliseconds_to_seconds_2dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Parried duration {0}s"
-			}
 		},
 		stats={
 			[1]="skill_effect_duration"
@@ -198,19 +167,6 @@ return {
 	},
 	[8]={
 		[1]={
-			[1]={
-				[1]={
-					k="divide_by_ten_1dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Projectile Parry range {0}m"
-			}
 		},
 		stats={
 			[1]="virtual_parry_blocked_projectile_distance"

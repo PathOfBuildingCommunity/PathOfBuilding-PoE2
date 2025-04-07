@@ -24,19 +24,6 @@ return {
 	},
 	[2]={
 		[1]={
-			[1]={
-				[1]={
-					k="divide_by_ten_1dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Bolt search radius {0}m"
-			}
 		},
 		stats={
 			[1]="active_skill_secondary_area_of_effect_radius"
@@ -47,22 +34,13 @@ return {
 			[1]={
 				limit={
 					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Number of bolts fired {0}"
-			},
-			[2]={
-				limit={
-					[1]={
 						[1]=1,
 						[2]=1
 					}
 				},
 				text="Fires {0} bolt"
 			},
-			[3]={
+			[2]={
 				limit={
 					[1]={
 						[1]=2,

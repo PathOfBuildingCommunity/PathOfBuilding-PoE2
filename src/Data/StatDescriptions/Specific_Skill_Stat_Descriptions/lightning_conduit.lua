@@ -9,19 +9,6 @@ return {
 	},
 	[2]={
 		[1]={
-			[1]={
-				[1]={
-					k="divide_by_ten_1dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Cone length {0}m"
-			}
 		},
 		stats={
 			[1]="active_skill_area_of_effect_radius"
@@ -65,22 +52,13 @@ return {
 			[1]={
 				limit={
 					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Additional bolts on Shock Consume {0}"
-			},
-			[2]={
-				limit={
-					[1]={
 						[1]=1,
 						[2]=1
 					}
 				},
 				text="{0} additional bolt hits targets if at least one Shock Consumed"
 			},
-			[3]={
+			[2]={
 				limit={
 					[1]={
 						[1]=2,

@@ -4719,22 +4719,13 @@ return {
 			[1]={
 				limit={
 					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Self-Hobble from first Attack in sequence from Life {0}%"
-			},
-			[2]={
-				limit={
-					[1]={
 						[1]=100,
 						[2]=100
 					}
 				},
 				text="First Attack in sequence with Supported Skill inflicts Hobble on you equal to your Life"
 			},
-			[3]={
+			[2]={
 				limit={
 					[1]={
 						[1]="#",
@@ -4757,18 +4748,9 @@ return {
 						[2]="#"
 					}
 				},
-				text="More Critical Hit chance on second Attack in sequence {0}%"
-			},
-			[2]={
-				limit={
-					[1]={
-						[1]=1,
-						[2]="#"
-					}
-				},
 				text="Second Attack in sequence with Supported Skill has {0}% more chance to Critically Hit"
 			},
-			[3]={
+			[2]={
 				[1]={
 					k="negate",
 					v=1
@@ -4856,18 +4838,9 @@ return {
 						[2]="#"
 					}
 				},
-				text="More Damage on third Attack in sequence {0}%"
-			},
-			[2]={
-				limit={
-					[1]={
-						[1]=1,
-						[2]="#"
-					}
-				},
 				text="Third Attack in sequence with\nSupported Skill deals {0}% more Damage"
 			},
-			[3]={
+			[2]={
 				[1]={
 					k="negate",
 					v=1
@@ -5551,15 +5524,6 @@ return {
 						[2]="#"
 					}
 				},
-				text="Easy Target magnitude applied per metre of Expected Knockback Distance {0}%"
-			},
-			[2]={
-				limit={
-					[1]={
-						[1]=1,
-						[2]="#"
-					}
-				},
 				text="Supported Skills apply Easy Target on Knockback\nEasy Target applied this way has a magnitude of {0}% per metre of Expected Knockback Distance"
 			}
 		},
@@ -5647,15 +5611,6 @@ return {
 	[223]={
 		[1]={
 			[1]={
-				limit={
-					[1]={
-						[1]=1,
-						[2]="#"
-					}
-				},
-				text="Percentage of Physical Damage as Armour Break vs Parried {0}%"
-			},
-			[2]={
 				limit={
 					[1]={
 						[1]=1,
@@ -7541,27 +7496,9 @@ return {
 						[2]=100
 					}
 				},
-				text="Breaks Armour equal to Dexterity vs Parried"
-			},
-			[2]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Percentage of Dexterity as Armour Break vs Parried {0}%"
-			},
-			[3]={
-				limit={
-					[1]={
-						[1]=100,
-						[2]=100
-					}
-				},
 				text="Supported Skills Break Armour equal to your Dexterity against Parried Enemies"
 			},
-			[4]={
+			[2]={
 				limit={
 					[1]={
 						[1]="#",
@@ -9155,15 +9092,6 @@ return {
 	[364]={
 		[1]={
 			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Hits are Crushing Blows against Ignited and Fully Armour Broken Enemies"
-			},
-			[2]={
 				limit={
 					[1]={
 						[1]="#",
@@ -11670,15 +11598,6 @@ return {
 						[2]="#"
 					}
 				},
-				text="Damage Gained as Extra from Infusing your Weapon {0}%"
-			},
-			[2]={
-				limit={
-					[1]={
-						[1]=1,
-						[2]="#"
-					}
-				},
 				text="Infusion granted by Supported Skills grants {0}% of Damage Gained as Extra of the matching Elemental Damage Type when Consumed"
 			}
 		},
@@ -11792,15 +11711,6 @@ return {
 	[476]={
 		[1]={
 			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Intimidates Ignited Fully Armour Broken Enemies on Heavy Stun"
-			},
-			[2]={
 				limit={
 					[1]={
 						[1]="#",
@@ -14286,15 +14196,6 @@ return {
 	[586]={
 		[1]={
 			[1]={
-				limit={
-					[1]={
-						[1]=1,
-						[2]="#"
-					}
-				},
-				text="Mana Recovered over four seconds on Cull {0}%"
-			},
-			[2]={
 				limit={
 					[1]={
 						[1]=1,
@@ -25925,15 +25826,6 @@ return {
 	},
 	[1028]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]=100,
-						[2]=100
-					}
-				},
-				text="Triggers Burning Inscription on expiry"
-			}
 		},
 		stats={
 			[1]="triggers_burning_runes_on_placing_ground_rune"

@@ -39757,7 +39757,7 @@ return {
 			},
 			skill=21380,
 			stats={
-				[1]="Critical Damage Bonus vs full life enemies 100%"
+				[1]="100% increased Critical Damage Bonus against Enemies that are on Full Life"
 			}
 		},
 		[21387]={
@@ -75936,7 +75936,7 @@ return {
 			orbitIndex=15,
 			skill=52630,
 			stats={
-				[1]="Critical Damage Bonus vs full life enemies 40%"
+				[1]="40% increased Critical Damage Bonus against Enemies that are on Full Life"
 			}
 		},
 		[52659]={
@@ -86510,7 +86510,7 @@ return {
 			orbitIndex=13,
 			skill=61800,
 			stats={
-				[1]="Critical Damage Bonus vs full life enemies 40%"
+				[1]="40% increased Critical Damage Bonus against Enemies that are on Full Life"
 			}
 		},
 		[61804]={

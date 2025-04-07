@@ -4,19 +4,6 @@
 return {
 	[1]={
 		[1]={
-			[1]={
-				[1]={
-					k="divide_by_ten_1dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Curse radius {0}m"
-			}
 		},
 		stats={
 			[1]="active_skill_area_of_effect_radius"
@@ -139,19 +126,6 @@ return {
 	},
 	[6]={
 		[1]={
-			[1]={
-				[1]={
-					k="negate",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]=-1
-					}
-				},
-				text="Slow inflicted {0}%"
-			}
 		},
 		stats={
 			[1]="skill_curse_action_speed_+%_final_magnitude_to_inflict"
@@ -159,19 +133,6 @@ return {
 	},
 	[7]={
 		[1]={
-			[1]={
-				[1]={
-					k="milliseconds_to_seconds_2dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Curse duration {0}s"
-			}
 		},
 		stats={
 			[1]="skill_effect_duration"
@@ -179,19 +140,6 @@ return {
 	},
 	[8]={
 		[1]={
-			[1]={
-				[1]={
-					k="negate",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Effect expiry speed reduction inflicted {0}%"
-			}
 		},
 		stats={
 			[1]="temporal_chains_other_buff_time_passed_+%_magnitude_to_apply"

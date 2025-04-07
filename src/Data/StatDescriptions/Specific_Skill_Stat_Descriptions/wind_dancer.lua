@@ -11,15 +11,6 @@ return {
 						[2]="#"
 					}
 				},
-				text="Maximum stages {0}"
-			},
-			[2]={
-				limit={
-					[1]={
-						[1]=1,
-						[2]="#"
-					}
-				},
 				text="{0} maximum stages"
 			}
 		},
@@ -30,19 +21,6 @@ return {
 	[2]={
 		[1]={
 			[1]={
-				[1]={
-					k="milliseconds_to_seconds_2dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]=1,
-						[2]="#"
-					}
-				},
-				text="Stage gain interval {0}s"
-			},
-			[2]={
 				[1]={
 					k="milliseconds_to_seconds_2dp_if_required",
 					v=1
@@ -65,22 +43,13 @@ return {
 			[1]={
 				limit={
 					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="More Evasion Rating per stage {0}%"
-			},
-			[2]={
-				limit={
-					[1]={
 						[1]=1,
 						[2]="#"
 					}
 				},
 				text="{0}% more Evasion Rating per stage\nOn being Hit by an Enemy, consume all\nstages to trigger Gale Force"
 			},
-			[3]={
+			[2]={
 				[1]={
 					k="negate",
 					v=1

@@ -4,19 +4,6 @@
 return {
 	[1]={
 		[1]={
-			[1]={
-				[1]={
-					k="divide_by_ten_1dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Explosion radius {0}m"
-			}
 		},
 		stats={
 			[1]="active_skill_area_of_effect_radius"
@@ -60,19 +47,6 @@ return {
 			[1]={
 				limit={
 					[1]={
-						[1]="#",
-						[2]="#"
-					},
-					[2]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="More damage after one second {0}%"
-			},
-			[2]={
-				limit={
-					[1]={
 						[1]=1,
 						[2]="#"
 					},
@@ -83,7 +57,7 @@ return {
 				},
 				text="Shards that have existed for at\nleast 0.5 seconds deal {0}% more Damage"
 			},
-			[3]={
+			[2]={
 				[1]={
 					k="negate",
 					v=1
@@ -100,7 +74,7 @@ return {
 				},
 				text="Shards that have existed for at\nleast 0.5 seconds deal {0}% less Damage"
 			},
-			[4]={
+			[3]={
 				limit={
 					[1]={
 						[1]="#",
@@ -124,22 +98,13 @@ return {
 			[1]={
 				limit={
 					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Maximum shards {0}"
-			},
-			[2]={
-				limit={
-					[1]={
 						[1]=1,
 						[2]=1
 					}
 				},
 				text="Maximum {0} active shard"
 			},
-			[3]={
+			[2]={
 				limit={
 					[1]={
 						[1]=2,

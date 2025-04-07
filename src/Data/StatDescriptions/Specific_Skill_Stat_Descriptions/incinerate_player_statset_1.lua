@@ -37,19 +37,6 @@ return {
 	},
 	[2]={
 		[1]={
-			[1]={
-				[1]={
-					k="milliseconds_to_seconds_2dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Ignited Ground duration {0}s"
-			}
 		},
 		stats={
 			[1]="skill_ignited_ground_effect_duration_ms"

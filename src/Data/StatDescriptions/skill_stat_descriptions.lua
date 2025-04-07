@@ -366,19 +366,6 @@ return {
 						[2]="#"
 					}
 				},
-				text="Physical damage from Corpse Life {0}%"
-			},
-			[2]={
-				[1]={
-					k="divide_by_ten_1dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]=1,
-						[2]="#"
-					}
-				},
 				text="Deals Physical damage equal to {0}% of\nCorpse's maximum Life"
 			}
 		},
@@ -1097,18 +1084,9 @@ return {
 						[2]=99
 					}
 				},
-				text="Knockback chance {0}%"
-			},
-			[2]={
-				limit={
-					[1]={
-						[1]=1,
-						[2]=99
-					}
-				},
 				text="{0}% chance to Knock Enemies Back on Hit"
 			},
-			[3]={
+			[2]={
 				limit={
 					[1]={
 						[1]=100,
@@ -1820,23 +1798,6 @@ return {
 			[1]={
 				limit={
 					[1]={
-						[1]="#",
-						[2]="#"
-					},
-					[2]={
-						[1]=0,
-						[2]=0
-					},
-					[3]={
-						[1]=0,
-						[2]=0
-					}
-				},
-				text="Targets Pierced {0}"
-			},
-			[2]={
-				limit={
-					[1]={
 						[1]=1,
 						[2]=1
 					},
@@ -1851,7 +1812,7 @@ return {
 				},
 				text="Projectiles Pierce 1 target"
 			},
-			[3]={
+			[2]={
 				limit={
 					[1]={
 						[1]=2,
@@ -1868,7 +1829,7 @@ return {
 				},
 				text="Projectiles Pierce {0} targets"
 			},
-			[4]={
+			[3]={
 				limit={
 					[1]={
 						[1]="#",
@@ -5156,22 +5117,9 @@ return {
 						[2]=99
 					}
 				},
-				text="Projectile Return chance {0}%"
-			},
-			[2]={
-				limit={
-					[1]={
-						[1]=0,
-						[2]=0
-					},
-					[2]={
-						[1]=1,
-						[2]=99
-					}
-				},
 				text="Projectiles have {1}% chance to Return to you"
 			},
-			[3]={
+			[2]={
 				limit={
 					[1]={
 						[1]=0,
@@ -5184,7 +5132,7 @@ return {
 				},
 				text="Projectiles Return to you"
 			},
-			[4]={
+			[3]={
 				limit={
 					[1]={
 						[1]="!",
@@ -5708,22 +5656,13 @@ return {
 			[1]={
 				limit={
 					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Additional Strikes per Power Charge {0}"
-			},
-			[2]={
-				limit={
-					[1]={
 						[1]=1,
 						[2]=1
 					}
 				},
 				text="Teleports and Strikes {0} additional time per Power Charge, with 285% more Attack Speed"
 			},
-			[3]={
+			[2]={
 				limit={
 					[1]={
 						[1]="#",
@@ -6436,22 +6375,13 @@ return {
 			[1]={
 				limit={
 					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="More damage per Stage {0}%"
-			},
-			[2]={
-				limit={
-					[1]={
 						[1]=1,
 						[2]="#"
 					}
 				},
 				text="{0}% more damage per Stage"
 			},
-			[3]={
+			[2]={
 				[1]={
 					k="negate",
 					v=1
@@ -7652,18 +7582,9 @@ return {
 						[2]="#"
 					}
 				},
-				text="More Melee Physical damage vs Bleeding enemies {0}%"
-			},
-			[2]={
-				limit={
-					[1]={
-						[1]=1,
-						[2]="#"
-					}
-				},
 				text="{0}% more Melee Physical damage vs Bleeding enemies"
 			},
-			[3]={
+			[2]={
 				[1]={
 					k="negate",
 					v=1
@@ -8544,15 +8465,6 @@ return {
 						[2]="#"
 					}
 				},
-				text="Expected Poison damage stored {0}%"
-			},
-			[2]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
 				text="Stores {0}% of Expected Poison damage"
 			}
 		},
@@ -8859,84 +8771,6 @@ return {
 	},
 	[374]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]=2,
-						[2]=2
-					},
-					[2]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="More Stun Buildup every second use {1}%"
-			},
-			[2]={
-				limit={
-					[1]={
-						[1]=3,
-						[2]=3
-					},
-					[2]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="More Stun Buildup every third use {1}%"
-			},
-			[3]={
-				limit={
-					[1]={
-						[1]=4,
-						[2]=4
-					},
-					[2]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="More Stun Buildup every fourth use {1}%"
-			},
-			[4]={
-				limit={
-					[1]={
-						[1]=5,
-						[2]=5
-					},
-					[2]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="More Stun Buildup every fifth use {1}%"
-			},
-			[5]={
-				limit={
-					[1]={
-						[1]=6,
-						[2]=6
-					},
-					[2]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="More Stun Buildup every sixth use {1}%"
-			},
-			[6]={
-				limit={
-					[1]={
-						[1]=7,
-						[2]=7
-					},
-					[2]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="More Stun Buildup every seventh use {1}%"
-			}
 		},
 		stats={
 			[1]="support_ruthless_big_hit_max_count",
@@ -9113,19 +8947,6 @@ return {
 	},
 	[382]={
 		[1]={
-			[1]={
-				[1]={
-					k="milliseconds_to_seconds_2dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Ancestral Boost interval {0}s"
-			}
 		},
 		stats={
 			[1]="ancestral_call_spirit_strike_interval_ms"
@@ -9133,19 +8954,6 @@ return {
 	},
 	[383]={
 		[1]={
-			[1]={
-				[1]={
-					k="milliseconds_to_seconds_2dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Ancestral Boost interval {0}s"
-			}
 		},
 		stats={
 			[1]="ancestral_slam_interval_duration"
@@ -9589,19 +9397,6 @@ return {
 						[2]=-1
 					}
 				},
-				text="Enemy movement speed Slow {0}%"
-			},
-			[2]={
-				[1]={
-					k="negate",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]=-1
-					}
-				},
 				text="Slows enemy movement speed by {0}%"
 			}
 		},
@@ -9669,15 +9464,6 @@ return {
 	},
 	[406]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Electrocutes Primed enemies on Hit"
-			}
 		},
 		stats={
 			[1]="active_skill_can_overload"
@@ -9824,26 +9610,13 @@ return {
 						[2]="#"
 					},
 					[2]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="More damage against Immobilised enemies {0}%"
-			},
-			[2]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					},
-					[2]={
 						[1]=0,
 						[2]=0
 					}
 				},
 				text="{0:+d}% more damage against Immobilised enemies"
 			},
-			[3]={
+			[2]={
 				limit={
 					[1]={
 						[1]=1,
@@ -9856,7 +9629,7 @@ return {
 				},
 				text="{0}% more damage against Immobilised enemies"
 			},
-			[4]={
+			[3]={
 				[1]={
 					k="negate",
 					v=1
@@ -10103,22 +9876,13 @@ return {
 			[1]={
 				limit={
 					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Freeze Buildup modifier {0}%"
-			},
-			[2]={
-				limit={
-					[1]={
 						[1]=1,
 						[2]="#"
 					}
 				},
 				text="{0}% more Freeze Buildup"
 			},
-			[3]={
+			[2]={
 				[1]={
 					k="negate",
 					v=1
@@ -10395,26 +10159,13 @@ return {
 						[2]="#"
 					},
 					[2]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Pin buildup modifier {0}%"
-			},
-			[2]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					},
-					[2]={
 						[1]=0,
 						[2]=0
 					}
 				},
 				text="Pins Enemies as though dealing {0:+d}% more Damage"
 			},
-			[3]={
+			[2]={
 				limit={
 					[1]={
 						[1]=1,
@@ -10427,7 +10178,7 @@ return {
 				},
 				text="Pins Enemies as though dealing {0}% more Damage"
 			},
-			[4]={
+			[3]={
 				[1]={
 					k="negate",
 					v=1
@@ -10795,24 +10546,6 @@ return {
 	},
 	[444]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]=1,
-						[2]=99
-					}
-				},
-				text="Chance to build an additional Combo on Hit {0}%"
-			},
-			[2]={
-				limit={
-					[1]={
-						[1]=100,
-						[2]="#"
-					}
-				},
-				text="Build an additional Combo on Hit"
-			}
 		},
 		stats={
 			[1]="additional_combo_gain_chance_%"
@@ -11130,15 +10863,6 @@ return {
 	},
 	[460]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Number of Blocked Hits to use {0}"
-			}
 		},
 		stats={
 			[1]="ancestral_aid_required_count_of_recent_blocks"
@@ -11307,19 +11031,6 @@ return {
 			[1]={
 				limit={
 					[1]={
-						[1]="#",
-						[2]="#"
-					},
-					[2]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="More Damage for each remaining Chain {0}%"
-			},
-			[2]={
-				limit={
-					[1]={
 						[1]=1,
 						[2]="#"
 					},
@@ -11330,7 +11041,7 @@ return {
 				},
 				text="{0:+d}% more Damage for each remaining Chain"
 			},
-			[3]={
+			[2]={
 				limit={
 					[1]={
 						[1]=1,
@@ -11343,7 +11054,7 @@ return {
 				},
 				text="{0}% more Damage for each remaining Chain"
 			},
-			[4]={
+			[3]={
 				[1]={
 					k="negate",
 					v=1
@@ -11684,15 +11395,6 @@ return {
 	},
 	[483]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Armour Break from Poison damage {0}%"
-			}
 		},
 		stats={
 			[1]="armour_break_for_%_of_poison_damage_over_poison_duration"
@@ -11700,15 +11402,6 @@ return {
 	},
 	[484]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Break Armour from Physical damage {0}%"
-			}
 		},
 		stats={
 			[1]="armour_break_physical_damage_%_dealt_as_armour_break"
@@ -11803,19 +11496,6 @@ return {
 	},
 	[488]={
 		[1]={
-			[1]={
-				[1]={
-					k="milliseconds_to_seconds_2dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Attack time {0}s"
-			}
 		},
 		stats={
 			[1]="attack_duration_ms"
@@ -12001,15 +11681,6 @@ return {
 	[497]={
 		[1]={
 			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Enemy Hit damage required to gain 1 Energy {0}"
-			},
-			[2]={
 				limit={
 					[1]={
 						[1]="#",
@@ -12264,26 +11935,13 @@ return {
 						[2]="#"
 					},
 					[2]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Maxmimum more damage from distance {0}%"
-			},
-			[2]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					},
-					[2]={
 						[1]=0,
 						[2]=0
 					}
 				},
 				text="Deals up to an additional {0:+d}% more Damage, based on the distance travelled"
 			},
-			[3]={
+			[2]={
 				limit={
 					[1]={
 						[1]=1,
@@ -12296,7 +11954,7 @@ return {
 				},
 				text="Deals up to {0}% more Damage, based on the distance travelled"
 			},
-			[4]={
+			[3]={
 				[1]={
 					k="negate",
 					v=1
@@ -14104,19 +13762,6 @@ return {
 	[576]={
 		[1]={
 			[1]={
-				[1]={
-					k="milliseconds_to_seconds_2dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Flame of Chayula manifestation interval {0}s"
-			},
-			[2]={
 				limit={
 					[1]={
 						[1]=1000,
@@ -14125,7 +13770,7 @@ return {
 				},
 				text="A Flame of Chayula manifests nearby every second"
 			},
-			[3]={
+			[2]={
 				[1]={
 					k="milliseconds_to_seconds_2dp_if_required",
 					v=1
@@ -14198,22 +13843,13 @@ return {
 			[1]={
 				limit={
 					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Caltrop bursts {0}"
-			},
-			[2]={
-				limit={
-					[1]={
 						[1]=1,
 						[2]=1
 					}
 				},
 				text="Scatters a burst of caltrops when you dodge"
 			},
-			[3]={
+			[2]={
 				limit={
 					[1]={
 						[1]="#",
@@ -14261,15 +13897,6 @@ return {
 	},
 	[582]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Stun buildup cannot reach 100%"
-			}
 		},
 		stats={
 			[1]="cannot_cause_stun_but_allow_stun_buildup"
@@ -14368,19 +13995,6 @@ return {
 						[2]="#"
 					}
 				},
-				text="Energy gained per enemy Power on Melee Hit {0}"
-			},
-			[2]={
-				[1]={
-					k="divide_by_one_hundred_2dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
 				text="Gains {0} Energy per Power of enemies you Hit with Melee Attacks, modified by the percentage of the enemy's Ailment Threshold the Hit will deal"
 			}
 		},
@@ -14391,19 +14005,6 @@ return {
 	[589]={
 		[1]={
 			[1]={
-				[1]={
-					k="divide_by_one_hundred_2dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Energy gained per enemy Power on Melee Hit {0}"
-			},
-			[2]={
 				[1]={
 					k="divide_by_one_hundred_2dp_if_required",
 					v=1
@@ -14434,19 +14035,6 @@ return {
 						[2]="#"
 					}
 				},
-				text="Energy gained on Block {0}"
-			},
-			[2]={
-				[1]={
-					k="divide_by_one_hundred_2dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
 				text="Gains {0} Energy when you Block"
 			}
 		},
@@ -14457,19 +14045,6 @@ return {
 	[591]={
 		[1]={
 			[1]={
-				[1]={
-					k="divide_by_one_hundred_2dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Energy gained per Power of enemies Critically Hit {0}"
-			},
-			[2]={
 				[1]={
 					k="divide_by_one_hundred_2dp_if_required",
 					v=1
@@ -14521,15 +14096,6 @@ return {
 						[2]="#"
 					}
 				},
-				text="Energy gained when you are Hit {0}"
-			},
-			[2]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
 				text="Gains {0} Energy when you take Damage from a Hit"
 			}
 		},
@@ -14556,19 +14122,6 @@ return {
 	[595]={
 		[1]={
 			[1]={
-				[1]={
-					k="divide_by_one_hundred_2dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Energy gained per metre rolled {0}"
-			},
-			[2]={
 				[1]={
 					k="divide_by_one_hundred_2dp_if_required",
 					v=1
@@ -14624,19 +14177,6 @@ return {
 						[2]="#"
 					}
 				},
-				text="Energy gained per Power of Frozen enemies {0}"
-			},
-			[2]={
-				[1]={
-					k="divide_by_one_hundred_2dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
 				text="Gains {0} Energy per Power of enemies you Freeze with\nHits from Skills"
 			}
 		},
@@ -14647,19 +14187,6 @@ return {
 	[598]={
 		[1]={
 			[1]={
-				[1]={
-					k="divide_by_one_hundred_2dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Energy gained per Power of Ignited enemies {0}"
-			},
-			[2]={
 				[1]={
 					k="divide_by_one_hundred_2dp_if_required",
 					v=1
@@ -14686,15 +14213,6 @@ return {
 						[2]="#"
 					}
 				},
-				text="Energy gained on Melee kill {0}"
-			},
-			[2]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
 				text="Gains {0} Energy when you kill an enemy with a Melee Hit"
 			}
 		},
@@ -14705,15 +14223,6 @@ return {
 	[600]={
 		[1]={
 			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Energy gained per enemy Power on Melee Heavy Stun {0}"
-			},
-			[2]={
 				limit={
 					[1]={
 						[1]="#",
@@ -14736,15 +14245,6 @@ return {
 						[2]="#"
 					}
 				},
-				text="Energy gained per enemy Power on Melee Stun {0}"
-			},
-			[2]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
 				text="Gains {0} Energy per enemy Power when you Stun an enemy with a Melee Hit"
 			}
 		},
@@ -14755,15 +14255,6 @@ return {
 	[602]={
 		[1]={
 			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Base Energy gained when a Minion is Killed modified by Minion Power 50"
-			},
-			[2]={
 				limit={
 					[1]={
 						[1]="#",
@@ -14790,19 +14281,6 @@ return {
 						[2]="#"
 					}
 				},
-				text="Energy gained per Power of Shocked enemies {0}"
-			},
-			[2]={
-				[1]={
-					k="divide_by_one_hundred_2dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
 				text="Gains {0} Energy per Power of enemies you Shock with\nHits from Skills"
 			}
 		},
@@ -14813,19 +14291,6 @@ return {
 	[604]={
 		[1]={
 			[1]={
-				[1]={
-					k="divide_by_one_hundred_2dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="When a Charm is used Energy gained per Charge used {0}"
-			},
-			[2]={
 				[1]={
 					k="divide_by_one_hundred_2dp_if_required",
 					v=1
@@ -14868,15 +14333,6 @@ return {
 						[2]="#"
 					}
 				},
-				text="Energy gained when you are Stunned {0}"
-			},
-			[2]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
 				text="Gains {0} Energy when you are Stunned"
 			}
 		},
@@ -14887,15 +14343,6 @@ return {
 	[607]={
 		[1]={
 			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Energy gained per second while Channelling {0}"
-			},
-			[2]={
 				limit={
 					[1]={
 						[1]="#",
@@ -15056,27 +14503,9 @@ return {
 						[2]=99
 					}
 				},
-				text="Chance for benefits from Charge consumption to be doubled {0}%"
-			},
-			[2]={
-				limit={
-					[1]={
-						[1]=100,
-						[2]="#"
-					}
-				},
-				text="Benefits from Charge consumption are doubled"
-			},
-			[3]={
-				limit={
-					[1]={
-						[1]=1,
-						[2]=99
-					}
-				},
 				text="Benefits from consuming Charges have {0}% chance to be doubled for this skill"
 			},
-			[4]={
+			[2]={
 				limit={
 					[1]={
 						[1]=100,
@@ -15257,22 +14686,13 @@ return {
 			[1]={
 				limit={
 					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Chance to gain an additional Charge {0}%"
-			},
-			[2]={
-				limit={
-					[1]={
 						[1]=1,
 						[2]=99
 					}
 				},
 				text="{0}% chance when you gain a Charge to gain an additional Charge"
 			},
-			[3]={
+			[2]={
 				limit={
 					[1]={
 						[1]=100,
@@ -15288,15 +14708,6 @@ return {
 	},
 	[626]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Endurance Charge chance on Full Armour Break {0}%"
-			}
 		},
 		stats={
 			[1]="chance_to_gain_endurance_charge_on_armour_break_%"
@@ -15538,15 +14949,6 @@ return {
 						[2]="#"
 					}
 				},
-				text="Chance to not destroy Consumed Corpses {0}%"
-			},
-			[2]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
 				text="{0}% chance to not destroy Consumed Corpse"
 			}
 		},
@@ -15701,15 +15103,6 @@ return {
 	},
 	[639]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Explosion chance on Ignited death {0}%"
-			}
 		},
 		stats={
 			[1]="chance_to_trigger_fiery_death_on_ignited_enemy_death_%"
@@ -15975,15 +15368,6 @@ return {
 						[2]="#"
 					}
 				},
-				text="Chance to not remove Charges {0}%"
-			},
-			[2]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
 				text="{0}% Chance to not remove Charges on use"
 			}
 		},
@@ -16119,19 +15503,6 @@ return {
 	},
 	[661]={
 		[1]={
-			[1]={
-				[1]={
-					k="milliseconds_to_seconds_2dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Chilled Ground duration on Freeze {0}s"
-			}
 		},
 		stats={
 			[1]="chilling_ice_create_chilled_ground_on_freeze_base_duration_ms"
@@ -16368,15 +15739,6 @@ return {
 						[2]="#"
 					}
 				},
-				text="Minion targeting Life threshold {0}"
-			},
-			[2]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
 				text="Can target Minions with {0} Life or less"
 			}
 		},
@@ -16524,22 +15886,13 @@ return {
 			[1]={
 				limit={
 					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="More Stun Buildup when Consuming Daze {0}%"
-			},
-			[2]={
-				limit={
-					[1]={
 						[1]=1,
 						[2]="#"
 					}
 				},
 				text="Consume Daze on Enemies to cause {0}% more Stun Buildup"
 			},
-			[3]={
+			[2]={
 				[1]={
 					k="negate",
 					v=1
@@ -16594,22 +15947,13 @@ return {
 			[1]={
 				limit={
 					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Hit damage per 5% enemy Shock {0}%"
-			},
-			[2]={
-				limit={
-					[1]={
 						[1]=1,
 						[2]="#"
 					}
 				},
 				text="{0}% more damage with Hits per 5% Shock Effect on Enemy"
 			},
-			[3]={
+			[2]={
 				[1]={
 					k="negate",
 					v=1
@@ -16688,30 +16032,13 @@ return {
 						[2]="#"
 					},
 					[3]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="More Damage per spread (max) {0}% ({1}%)"
-			},
-			[2]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					},
-					[2]={
-						[1]="#",
-						[2]="#"
-					},
-					[3]={
 						[1]=0,
 						[2]=0
 					}
 				},
 				text="{1:+d}% to maximum Debuff Damage bonus from spreading"
 			},
-			[3]={
+			[2]={
 				limit={
 					[1]={
 						[1]="#",
@@ -17154,28 +16481,6 @@ return {
 	},
 	[702]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]=1,
-						[2]="#"
-					}
-				},
-				text="Increased Critical Hit Chance against Immobilised Enemies {0}%"
-			},
-			[2]={
-				[1]={
-					k="negate",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]=-1
-					}
-				},
-				text="Reduced Critical Hit Chance against Immobilised Enemies {0}%"
-			}
 		},
 		stats={
 			[1]="critical_strike_chance_+%_vs_immobilised_enemies"
@@ -17228,15 +16533,6 @@ return {
 	},
 	[705]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Reloads automatically on Heavy Stunning an enemy"
-			}
 		},
 		stats={
 			[1]="crossbow_reload_on_heavy_stun"
@@ -17314,15 +16610,6 @@ return {
 	},
 	[709]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Creates Cursed Ground"
-			}
 		},
 		stats={
 			[1]="curse_apply_as_curse_zone"
@@ -18367,44 +17654,6 @@ return {
 	},
 	[757]={
 		[1]={
-			[1]={
-				[1]={
-					k="divide_by_one_hundred",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]=0,
-						[2]="#"
-					},
-					[2]={
-						[1]=0,
-						[2]=0
-					}
-				},
-				text="Estimated main hand Critical Chance from Hit Chance {0:+d}%"
-			},
-			[2]={
-				[1]={
-					k="divide_by_one_hundred",
-					v=1
-				},
-				[2]={
-					k="divide_by_one_hundred",
-					v=2
-				},
-				limit={
-					[1]={
-						[1]=0,
-						[2]="#"
-					},
-					[2]={
-						[1]=0,
-						[2]="#"
-					}
-				},
-				text="Estimated main hand Critical Chance from Hit Chance {0:+d}% - {1:+d}%"
-			}
 		},
 		stats={
 			[1]="display_estimate_main_hand_min_added_crit_chance_permyriad_from_excess_hit_chance",
@@ -18413,19 +17662,6 @@ return {
 	},
 	[758]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					},
-					[2]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Estimated main hand Chill Magnitude {0}% - {1}%"
-			}
 		},
 		stats={
 			[1]="display_estimate_minimum_roll_main_hand_chill_magnitude",
@@ -18434,19 +17670,6 @@ return {
 	},
 	[759]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					},
-					[2]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Estimated off hand Chill Magnitude {0}% - {1}%"
-			}
 		},
 		stats={
 			[1]="display_estimate_minimum_roll_off_hand_chill_magnitude",
@@ -18455,19 +17678,6 @@ return {
 	},
 	[760]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					},
-					[2]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Estimated Chill Magnitude {0}% - {1}%"
-			}
 		},
 		stats={
 			[1]="display_estimate_minimum_roll_secondary_chill_magnitude",
@@ -18476,19 +17686,6 @@ return {
 	},
 	[761]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					},
-					[2]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Estimated Chill Magnitude {0}% - {1}%"
-			}
 		},
 		stats={
 			[1]="display_estimate_minimum_roll_spell_chill_magnitude",
@@ -18665,23 +17862,6 @@ return {
 	},
 	[769]={
 		[1]={
-			[1]={
-				[1]={
-					k="divide_by_ten_1dp_if_required",
-					v=2
-				},
-				limit={
-					[1]={
-						[1]=0,
-						[2]="#"
-					},
-					[2]={
-						[1]=0,
-						[2]="#"
-					}
-				},
-				text="Estimated main hand Chance to Hit at {1}m {0}%"
-			}
 		},
 		stats={
 			[1]="display_main_hand_chance_to_hit_%_at_max_range",
@@ -18690,23 +17870,6 @@ return {
 	},
 	[770]={
 		[1]={
-			[1]={
-				[1]={
-					k="divide_by_ten_1dp_if_required",
-					v=2
-				},
-				limit={
-					[1]={
-						[1]=0,
-						[2]="#"
-					},
-					[2]={
-						[1]=0,
-						[2]="#"
-					}
-				},
-				text="Estimated main hand Chance to Hit at {1}m {0}%"
-			}
 		},
 		stats={
 			[1]="display_main_hand_chance_to_hit_%_at_mid_range",
@@ -18715,23 +17878,6 @@ return {
 	},
 	[771]={
 		[1]={
-			[1]={
-				[1]={
-					k="divide_by_ten_1dp_if_required",
-					v=2
-				},
-				limit={
-					[1]={
-						[1]=0,
-						[2]="#"
-					},
-					[2]={
-						[1]=0,
-						[2]="#"
-					}
-				},
-				text="Estimated main hand Chance to Hit at {1}m {0}%"
-			}
 		},
 		stats={
 			[1]="display_main_hand_chance_to_hit_%_at_min_range",
@@ -18740,15 +17886,6 @@ return {
 	},
 	[772]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Unbound Fury required {0}"
-			}
 		},
 		stats={
 			[1]="display_max_ailment_bearer_charges"
@@ -18838,27 +17975,6 @@ return {
 	},
 	[777]={
 		[1]={
-			[1]={
-				[1]={
-					k="per_minute_to_per_second_2dp_if_required",
-					v=1
-				},
-				[2]={
-					k="per_minute_to_per_second_2dp_if_required",
-					v=2
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					},
-					[2]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Main Hand estimated Bleeding damage per second {0} to {1}"
-			}
 		},
 		stats={
 			[1]="display_minimum_roll_main_hand_bleeding_damage_per_minute",
@@ -18867,27 +17983,6 @@ return {
 	},
 	[778]={
 		[1]={
-			[1]={
-				[1]={
-					k="per_minute_to_per_second_2dp_if_required",
-					v=1
-				},
-				[2]={
-					k="per_minute_to_per_second_2dp_if_required",
-					v=2
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					},
-					[2]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Main Hand estimated Ignite damage per second {0} to {1}"
-			}
 		},
 		stats={
 			[1]="display_minimum_roll_main_hand_ignite_damage_per_minute",
@@ -18896,27 +17991,6 @@ return {
 	},
 	[779]={
 		[1]={
-			[1]={
-				[1]={
-					k="per_minute_to_per_second_2dp_if_required",
-					v=1
-				},
-				[2]={
-					k="per_minute_to_per_second_2dp_if_required",
-					v=2
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					},
-					[2]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Main Hand estimated Poison damage per second {0} to {1}"
-			}
 		},
 		stats={
 			[1]="display_minimum_roll_main_hand_poison_damage_per_minute",
@@ -18925,27 +17999,6 @@ return {
 	},
 	[780]={
 		[1]={
-			[1]={
-				[1]={
-					k="per_minute_to_per_second_2dp_if_required",
-					v=1
-				},
-				[2]={
-					k="per_minute_to_per_second_2dp_if_required",
-					v=2
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					},
-					[2]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Off Hand estimated Bleeding damage per second {0} to {1}"
-			}
 		},
 		stats={
 			[1]="display_minimum_roll_off_hand_bleeding_damage_per_minute",
@@ -18954,27 +18007,6 @@ return {
 	},
 	[781]={
 		[1]={
-			[1]={
-				[1]={
-					k="per_minute_to_per_second_2dp_if_required",
-					v=1
-				},
-				[2]={
-					k="per_minute_to_per_second_2dp_if_required",
-					v=2
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					},
-					[2]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Off Hand estimated Ignite damage per second {0} to {1}"
-			}
 		},
 		stats={
 			[1]="display_minimum_roll_off_hand_ignite_damage_per_minute",
@@ -18983,27 +18015,6 @@ return {
 	},
 	[782]={
 		[1]={
-			[1]={
-				[1]={
-					k="per_minute_to_per_second_2dp_if_required",
-					v=1
-				},
-				[2]={
-					k="per_minute_to_per_second_2dp_if_required",
-					v=2
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					},
-					[2]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Off Hand estimated Poison damage per second {0} to {1}"
-			}
 		},
 		stats={
 			[1]="display_minimum_roll_off_hand_poison_damage_per_minute",
@@ -19012,27 +18023,6 @@ return {
 	},
 	[783]={
 		[1]={
-			[1]={
-				[1]={
-					k="per_minute_to_per_second_2dp_if_required",
-					v=1
-				},
-				[2]={
-					k="per_minute_to_per_second_2dp_if_required",
-					v=2
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					},
-					[2]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Estimated Bleeding damage per second {0} to {1}"
-			}
 		},
 		stats={
 			[1]="display_minimum_roll_secondary_bleeding_damage_per_minute",
@@ -19041,27 +18031,6 @@ return {
 	},
 	[784]={
 		[1]={
-			[1]={
-				[1]={
-					k="per_minute_to_per_second_2dp_if_required",
-					v=1
-				},
-				[2]={
-					k="per_minute_to_per_second_2dp_if_required",
-					v=2
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					},
-					[2]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Estimated Ignite damage per second {0} to {1}"
-			}
 		},
 		stats={
 			[1]="display_minimum_roll_secondary_ignite_damage_per_minute",
@@ -19070,27 +18039,6 @@ return {
 	},
 	[785]={
 		[1]={
-			[1]={
-				[1]={
-					k="per_minute_to_per_second_2dp_if_required",
-					v=1
-				},
-				[2]={
-					k="per_minute_to_per_second_2dp_if_required",
-					v=2
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					},
-					[2]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Estimated Poison damage per second {0} to {1}"
-			}
 		},
 		stats={
 			[1]="display_minimum_roll_secondary_poison_damage_per_minute",
@@ -19099,27 +18047,6 @@ return {
 	},
 	[786]={
 		[1]={
-			[1]={
-				[1]={
-					k="per_minute_to_per_second_2dp_if_required",
-					v=1
-				},
-				[2]={
-					k="per_minute_to_per_second_2dp_if_required",
-					v=2
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					},
-					[2]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Estimated Bleeding damage per second {0} to {1}"
-			}
 		},
 		stats={
 			[1]="display_minimum_roll_spell_bleeding_damage_per_minute",
@@ -19128,27 +18055,6 @@ return {
 	},
 	[787]={
 		[1]={
-			[1]={
-				[1]={
-					k="per_minute_to_per_second_2dp_if_required",
-					v=1
-				},
-				[2]={
-					k="per_minute_to_per_second_2dp_if_required",
-					v=2
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					},
-					[2]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Estimated Ignite damage per second {0} to {1}"
-			}
 		},
 		stats={
 			[1]="display_minimum_roll_spell_ignite_damage_per_minute",
@@ -19157,27 +18063,6 @@ return {
 	},
 	[788]={
 		[1]={
-			[1]={
-				[1]={
-					k="per_minute_to_per_second_2dp_if_required",
-					v=1
-				},
-				[2]={
-					k="per_minute_to_per_second_2dp_if_required",
-					v=2
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					},
-					[2]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Estimated Poison damage per second {0} to {1}"
-			}
 		},
 		stats={
 			[1]="display_minimum_roll_spell_poison_damage_per_minute",
@@ -19247,23 +18132,6 @@ return {
 	},
 	[792]={
 		[1]={
-			[1]={
-				[1]={
-					k="divide_by_ten_1dp_if_required",
-					v=2
-				},
-				limit={
-					[1]={
-						[1]=0,
-						[2]="#"
-					},
-					[2]={
-						[1]=0,
-						[2]="#"
-					}
-				},
-				text="Estimated off hand Chance to Hit at {1}m {0}%"
-			}
 		},
 		stats={
 			[1]="display_off_hand_chance_to_hit_%_at_max_range",
@@ -19272,23 +18140,6 @@ return {
 	},
 	[793]={
 		[1]={
-			[1]={
-				[1]={
-					k="divide_by_ten_1dp_if_required",
-					v=2
-				},
-				limit={
-					[1]={
-						[1]=0,
-						[2]="#"
-					},
-					[2]={
-						[1]=0,
-						[2]="#"
-					}
-				},
-				text="Estimated off hand Chance to Hit at {1}m {0}%"
-			}
 		},
 		stats={
 			[1]="display_off_hand_chance_to_hit_%_at_mid_range",
@@ -19297,23 +18148,6 @@ return {
 	},
 	[794]={
 		[1]={
-			[1]={
-				[1]={
-					k="divide_by_ten_1dp_if_required",
-					v=2
-				},
-				limit={
-					[1]={
-						[1]=0,
-						[2]="#"
-					},
-					[2]={
-						[1]=0,
-						[2]="#"
-					}
-				},
-				text="Estimated off hand Chance to Hit at {1}m {0}%"
-			}
 		},
 		stats={
 			[1]="display_off_hand_chance_to_hit_%_at_min_range",
@@ -19370,19 +18204,6 @@ return {
 	},
 	[798]={
 		[1]={
-			[1]={
-				[1]={
-					k="milliseconds_to_seconds_2dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Cooldown {0}s"
-			}
 		},
 		stats={
 			[1]="display_skill_cooldown_time_ms"
@@ -19406,15 +18227,6 @@ return {
 	},
 	[800]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Slain monster item drop Rarity modifier {0}%"
-			}
 		},
 		stats={
 			[1]="display_skill_increased_item_rarity_+%"
@@ -19442,19 +18254,6 @@ return {
 	},
 	[802]={
 		[1]={
-			[1]={
-				[1]={
-					k="milliseconds_to_seconds_2dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Bleeding duration {0}s"
-			}
 		},
 		stats={
 			[1]="display_total_bleeding_duration"
@@ -19462,19 +18261,6 @@ return {
 	},
 	[803]={
 		[1]={
-			[1]={
-				[1]={
-					k="milliseconds_to_seconds_2dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Chill duration {0}s"
-			}
 		},
 		stats={
 			[1]="display_total_chill_duration"
@@ -19482,19 +18268,6 @@ return {
 	},
 	[804]={
 		[1]={
-			[1]={
-				[1]={
-					k="milliseconds_to_seconds_2dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Ignite duration {0}s"
-			}
 		},
 		stats={
 			[1]="display_total_ignite_duration"
@@ -19502,19 +18275,6 @@ return {
 	},
 	[805]={
 		[1]={
-			[1]={
-				[1]={
-					k="milliseconds_to_seconds_2dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Poison duration {0}s"
-			}
 		},
 		stats={
 			[1]="display_total_poison_duration"
@@ -19986,19 +18746,6 @@ return {
 						[2]="#"
 					}
 				},
-				text="Energy gained per Power of Frozen enemies {0}"
-			},
-			[2]={
-				[1]={
-					k="divide_by_one_hundred_2dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
 				text="Gains {0} Energy per Power of enemies you Freeze with\nHits from Skills"
 			}
 		},
@@ -20019,19 +18766,6 @@ return {
 						[2]="#"
 					}
 				},
-				text="Energy gained per Power of Ignited enemies {0}"
-			},
-			[2]={
-				[1]={
-					k="divide_by_one_hundred_2dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
 				text="Gains {0} Energy per Power of enemies you Ignite with Hits from Skills, modified by the percentage of the enemy's Ailment Threshold the Ignite will deal"
 			}
 		},
@@ -20042,19 +18776,6 @@ return {
 	[830]={
 		[1]={
 			[1]={
-				[1]={
-					k="divide_by_one_hundred_2dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Energy gained per Power of Shocked enemies {0}"
-			},
-			[2]={
 				[1]={
 					k="divide_by_one_hundred_2dp_if_required",
 					v=1
@@ -20122,19 +18843,6 @@ return {
 			[1]={
 				limit={
 					[1]={
-						[1]="#",
-						[2]="#"
-					},
-					[2]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="More damage per previous Ember fired {0}%"
-			},
-			[2]={
-				limit={
-					[1]={
 						[1]=1,
 						[2]="#"
 					},
@@ -20145,7 +18853,7 @@ return {
 				},
 				text="Embers deal {0:+d}% more Damage for each previous Ember fired in sequence"
 			},
-			[3]={
+			[2]={
 				limit={
 					[1]={
 						[1]=1,
@@ -20158,7 +18866,7 @@ return {
 				},
 				text="Embers deal {0}% more Damage for each previous Ember fired in sequence"
 			},
-			[4]={
+			[3]={
 				[1]={
 					k="negate",
 					v=1
@@ -20411,22 +19119,13 @@ return {
 			[1]={
 				limit={
 					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Energy gain modifier {0}%"
-			},
-			[2]={
-				limit={
-					[1]={
 						[1]=1,
 						[2]="#"
 					}
 				},
 				text="{0}% increased Energy gained"
 			},
-			[3]={
+			[2]={
 				[1]={
 					k="negate",
 					v=1
@@ -20558,15 +19257,6 @@ return {
 	},
 	[849]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Hobble from Bleed damage {0}%"
-			}
 		},
 		stats={
 			[1]="evasion_break_for_%_of_bleed_damage_over_bleed_duration"
@@ -21310,15 +20000,6 @@ return {
 						[2]="#"
 					}
 				},
-				text="Maximum Stages {0}"
-			},
-			[2]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
 				text="{0} maximum Stages"
 			}
 		},
@@ -21441,22 +20122,13 @@ return {
 			[1]={
 				limit={
 					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Mana Flask charges Consumed {0}"
-			},
-			[2]={
-				limit={
-					[1]={
 						[1]=1,
 						[2]=1
 					}
 				},
 				text="Consumes {0} Charge from your Mana Flask"
 			},
-			[3]={
+			[2]={
 				limit={
 					[1]={
 						[1]="#",
@@ -22257,15 +20929,6 @@ return {
 	},
 	[925]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Maximum Life {0}"
-			}
 		},
 		stats={
 			[1]="frost_wall_total_maximum_life"
@@ -22442,15 +21105,6 @@ return {
 						[2]="#"
 					}
 				},
-				text="Volatility gained if used while Empowered {0}"
-			},
-			[2]={
-				limit={
-					[1]={
-						[1]=1,
-						[2]="#"
-					}
-				},
 				text="Gain {0} Volatility on use while this skill is Empowered"
 			}
 		},
@@ -22578,15 +21232,6 @@ return {
 	},
 	[941]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Rage gained on Hit {0}"
-			}
 		},
 		stats={
 			[1]="gain_x_rage_on_hit"
@@ -22651,15 +21296,6 @@ return {
 	},
 	[945]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Rage gained on Melee Hit {0}"
-			}
 		},
 		stats={
 			[1]="gain_x_rage_on_melee_hit"
@@ -22998,15 +21634,6 @@ return {
 	},
 	[958]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Chance to activate a second time {0}%"
-			}
 		},
 		stats={
 			[1]="grenade_skill_%_chance_to_explode_twice"
@@ -23032,23 +21659,6 @@ return {
 				text="Gains {0:+d}% more Radius per second, up to a maximum of {1:+d}%"
 			},
 			[2]={
-				limit={
-					[1]={
-						[1]="!",
-						[2]=0
-					},
-					[2]={
-						[1]="!",
-						[2]=0
-					},
-					[3]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="More Radius per second (maximum {1}%) {0}%"
-			},
-			[3]={
 				limit={
 					[1]={
 						[1]="!",
@@ -23110,27 +21720,9 @@ return {
 						[2]=100
 					}
 				},
-				text="Hazards rearm"
-			},
-			[2]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Hazards rearming chance {0}%"
-			},
-			[3]={
-				limit={
-					[1]={
-						[1]=100,
-						[2]=100
-					}
-				},
 				text="Hazards created by this Skill rearm after being triggered"
 			},
-			[4]={
+			[2]={
 				limit={
 					[1]={
 						[1]="#",
@@ -23606,19 +22198,6 @@ return {
 	},
 	[984]={
 		[1]={
-			[1]={
-				[1]={
-					k="divide_by_one_hundred_2dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Average damage per use {0}"
-			}
 		},
 		stats={
 			[1]="hundred_times_average_damage_per_skill_use"
@@ -23646,19 +22225,6 @@ return {
 	},
 	[986]={
 		[1]={
-			[1]={
-				[1]={
-					k="divide_by_one_hundred_2dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Damage per second {0}"
-			}
 		},
 		stats={
 			[1]="hundred_times_damage_per_second"
@@ -23830,26 +22396,13 @@ return {
 				},
 				limit={
 					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Magma infusion window {0}s"
-			},
-			[2]={
-				[1]={
-					k="milliseconds_to_seconds_2dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
 						[1]=1000,
 						[2]=1000
 					}
 				},
 				text="Raising your shield infuses it with magma for {0} second"
 			},
-			[3]={
+			[2]={
 				[1]={
 					k="milliseconds_to_seconds_2dp_if_required",
 					v=1
@@ -23869,15 +22422,6 @@ return {
 	},
 	[993]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]=1,
-						[2]="#"
-					}
-				},
-				text="More Ignite Magnitude when Consuming Freeze {0}%"
-			}
 		},
 		stats={
 			[1]="ignite_effect_+%_final_against_frozen_enemies"
@@ -24178,15 +22722,6 @@ return {
 	[1006]={
 		[1]={
 			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="More Fire Damage per Corpse Power {0}%"
-			},
-			[2]={
 				limit={
 					[1]={
 						[1]="#",
@@ -24563,19 +23098,6 @@ return {
 	},
 	[1025]={
 		[1]={
-			[1]={
-				[1]={
-					k="milliseconds_to_seconds",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Jagged Ground duration {0}s"
-			}
 		},
 		stats={
 			[1]="jagged_ground_duration_ms"
@@ -25155,15 +23677,6 @@ return {
 	},
 	[1049]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Main Hand Accuracy Rating {0}"
-			}
 		},
 		stats={
 			[1]="main_hand_accuracy_rating"
@@ -25171,15 +23684,6 @@ return {
 	},
 	[1050]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]=1,
-						[2]="#"
-					}
-				},
-				text="Main Hand Chaos Resistance Penetration {0}%"
-			}
 		},
 		stats={
 			[1]="main_hand_attack_damage_penetrates_chaos_resist_%"
@@ -25187,15 +23691,6 @@ return {
 	},
 	[1051]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]=1,
-						[2]="#"
-					}
-				},
-				text="Main Hand Cold Resistance Penetration {0}%"
-			}
 		},
 		stats={
 			[1]="main_hand_attack_damage_penetrates_cold_resist_%"
@@ -25203,15 +23698,6 @@ return {
 	},
 	[1052]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]=1,
-						[2]="#"
-					}
-				},
-				text="Main Hand Fire Resistance Penetration {0}%"
-			}
 		},
 		stats={
 			[1]="main_hand_attack_damage_penetrates_fire_resist_%"
@@ -25219,15 +23705,6 @@ return {
 	},
 	[1053]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]=1,
-						[2]="#"
-					}
-				},
-				text="Main Hand Lightning Resistance Penetration {0}%"
-			}
 		},
 		stats={
 			[1]="main_hand_attack_damage_penetrates_lightning_resist_%"
@@ -25235,15 +23712,6 @@ return {
 	},
 	[1054]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Main Hand Critical Damage Bonus +{0}%"
-			}
 		},
 		stats={
 			[1]="main_hand_critical_hit_damage_bonus"
@@ -25251,19 +23719,6 @@ return {
 	},
 	[1055]={
 		[1]={
-			[1]={
-				[1]={
-					k="divide_by_one_hundred_2dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Main Hand Critical Hit Chance {0}%"
-			}
 		},
 		stats={
 			[1]="main_hand_critical_strike_chance"
@@ -25271,19 +23726,6 @@ return {
 	},
 	[1056]={
 		[1]={
-			[1]={
-				[1]={
-					k="divide_by_one_hundred_2dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Main Hand Effective Chance for Critical Hit {0}%"
-			}
 		},
 		stats={
 			[1]="main_hand_effetive_total_chance_permyriad_for_hit_to_be_critical"
@@ -25291,19 +23733,6 @@ return {
 	},
 	[1057]={
 		[1]={
-			[1]={
-				[1]={
-					k="divide_by_one_hundred_2dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Main Hand Effective Chance for Twice-Critical Hit {0}%"
-			}
 		},
 		stats={
 			[1]="main_hand_effetive_total_chance_permyriad_for_hit_to_be_double_critical"
@@ -25311,19 +23740,6 @@ return {
 	},
 	[1058]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					},
-					[2]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Main Hand Chaos damage {0} – {1}"
-			}
 		},
 		stats={
 			[1]="main_hand_minimum_chaos_damage",
@@ -25332,19 +23748,6 @@ return {
 	},
 	[1059]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					},
-					[2]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Main Hand Cold damage {0} – {1}"
-			}
 		},
 		stats={
 			[1]="main_hand_minimum_cold_damage",
@@ -25353,19 +23756,6 @@ return {
 	},
 	[1060]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					},
-					[2]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Main Hand Fire damage {0} – {1}"
-			}
 		},
 		stats={
 			[1]="main_hand_minimum_fire_damage",
@@ -25374,19 +23764,6 @@ return {
 	},
 	[1061]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					},
-					[2]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Main Hand Lightning damage {0} – {1}"
-			}
 		},
 		stats={
 			[1]="main_hand_minimum_lightning_damage",
@@ -25395,19 +23772,6 @@ return {
 	},
 	[1062]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					},
-					[2]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Main Hand Physical damage {0} – {1}"
-			}
 		},
 		stats={
 			[1]="main_hand_minimum_physical_damage",
@@ -25416,19 +23780,6 @@ return {
 	},
 	[1063]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					},
-					[2]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Main Hand total damage {0} – {1}"
-			}
 		},
 		stats={
 			[1]="main_hand_minimum_total_damage",
@@ -25437,19 +23788,6 @@ return {
 	},
 	[1064]={
 		[1]={
-			[1]={
-				[1]={
-					k="milliseconds_to_seconds_2dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Reload time {0}s"
-			}
 		},
 		stats={
 			[1]="main_hand_reload_time"
@@ -25587,15 +23925,6 @@ return {
 	},
 	[1071]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Mark effect modifier {0}%"
-			}
 		},
 		stats={
 			[1]="mark_effect_+%"
@@ -25719,23 +24048,6 @@ return {
 				},
 				limit={
 					[1]={
-						[1]="#",
-						[2]="#"
-					},
-					[2]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Stage gain interval\nMaximum Stages {0}s\n{1}"
-			},
-			[2]={
-				[1]={
-					k="milliseconds_to_seconds_2dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
 						[1]=1000,
 						[2]=1000
 					},
@@ -25746,7 +24058,7 @@ return {
 				},
 				text="Gains a Stage every second, up to a maximum of {1} Stages"
 			},
-			[3]={
+			[2]={
 				[1]={
 					k="milliseconds_to_seconds_2dp_if_required",
 					v=1
@@ -25966,22 +24278,13 @@ return {
 			[1]={
 				limit={
 					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="More Energy Shield Recharge Rate {0}%"
-			},
-			[2]={
-				limit={
-					[1]={
 						[1]=1,
 						[2]="#"
 					}
 				},
 				text="{0}% more Energy Shield Recharge Rate"
 			},
-			[3]={
+			[2]={
 				[1]={
 					k="negate",
 					v=1
@@ -26027,19 +24330,6 @@ return {
 	[1088]={
 		[1]={
 			[1]={
-				[1]={
-					k="divide_by_one_hundred_2dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Energy gained per enemy Power on Melee kill {0}"
-			},
-			[2]={
 				[1]={
 					k="divide_by_one_hundred_2dp_if_required",
 					v=1
@@ -27230,15 +25520,6 @@ return {
 	},
 	[1137]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]=1,
-						[2]="#"
-					}
-				},
-				text="Damage Gained as Fire vs Ignited enemies {0}%"
-			}
 		},
 		stats={
 			[1]="non_skill_base_all_damage_%_to_gain_as_fire_with_attacks_vs_burning_enemies"
@@ -27253,26 +25534,13 @@ return {
 						[2]="#"
 					},
 					[2]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Empowered Spell damage Gained as Lightning {0}%"
-			},
-			[2]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					},
-					[2]={
 						[1]=0,
 						[2]=0
 					}
 				},
 				text="Empowered Spells Gain {0:+d}% of damage as Lightning Damage"
 			},
-			[3]={
+			[2]={
 				limit={
 					[1]={
 						[1]="#",
@@ -27309,19 +25577,6 @@ return {
 	},
 	[1140]={
 		[1]={
-			[1]={
-				[1]={
-					k="milliseconds_to_seconds_2dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Use time {0}s"
-			}
 		},
 		stats={
 			[1]="non_spell_cast_duration_ms"
@@ -27329,15 +25584,6 @@ return {
 	},
 	[1141]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Casts at the targeted location instead of around you"
-			}
 		},
 		stats={
 			[1]="nova_skills_cast_at_target_location"
@@ -27370,15 +25616,6 @@ return {
 	},
 	[1143]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Additional fissures created {0}"
-			}
 		},
 		stats={
 			[1]="number_of_additional_fissures"
@@ -27452,15 +25689,6 @@ return {
 	},
 	[1147]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Bolts loaded per reload {0}"
-			}
 		},
 		stats={
 			[1]="number_of_crossbow_bolts"
@@ -27618,15 +25846,6 @@ return {
 	},
 	[1154]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Bone Construct Limit {0}"
-			}
 		},
 		stats={
 			[1]="number_of_skeletal_constructs_allowed"
@@ -27634,15 +25853,6 @@ return {
 	},
 	[1155]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Bell Limit {0}"
-			}
 		},
 		stats={
 			[1]="number_of_tempest_bells_allowed"
@@ -27666,15 +25876,6 @@ return {
 	},
 	[1157]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Off Hand Accuracy Rating {0}"
-			}
 		},
 		stats={
 			[1]="off_hand_accuracy_rating"
@@ -27682,15 +25883,6 @@ return {
 	},
 	[1158]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]=1,
-						[2]="#"
-					}
-				},
-				text="Off Hand Chaos Resistance Penetration {0}%"
-			}
 		},
 		stats={
 			[1]="off_hand_attack_damage_penetrates_chaos_resist_%"
@@ -27698,15 +25890,6 @@ return {
 	},
 	[1159]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]=1,
-						[2]="#"
-					}
-				},
-				text="Off Hand Cold Resistance Penetration {0}%"
-			}
 		},
 		stats={
 			[1]="off_hand_attack_damage_penetrates_cold_resist_%"
@@ -27714,15 +25897,6 @@ return {
 	},
 	[1160]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]=1,
-						[2]="#"
-					}
-				},
-				text="Off Hand Fire Resistance Penetration {0}%"
-			}
 		},
 		stats={
 			[1]="off_hand_attack_damage_penetrates_fire_resist_%"
@@ -27730,15 +25904,6 @@ return {
 	},
 	[1161]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]=1,
-						[2]="#"
-					}
-				},
-				text="Off Hand Lightning Resistance Penetration {0}%"
-			}
 		},
 		stats={
 			[1]="off_hand_attack_damage_penetrates_lightning_resist_%"
@@ -27746,15 +25911,6 @@ return {
 	},
 	[1162]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Off Hand Critical Damage Bonus +{0}%"
-			}
 		},
 		stats={
 			[1]="off_hand_critical_hit_damage_bonus"
@@ -27762,19 +25918,6 @@ return {
 	},
 	[1163]={
 		[1]={
-			[1]={
-				[1]={
-					k="divide_by_one_hundred_2dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Off Hand Critical Hit Chance {0}%"
-			}
 		},
 		stats={
 			[1]="off_hand_critical_strike_chance"
@@ -27782,19 +25925,6 @@ return {
 	},
 	[1164]={
 		[1]={
-			[1]={
-				[1]={
-					k="divide_by_one_hundred_2dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Off Hand Effective Chance for Critical Hit {0}%"
-			}
 		},
 		stats={
 			[1]="off_hand_effetive_total_chance_permyriad_for_hit_to_be_critical"
@@ -27802,19 +25932,6 @@ return {
 	},
 	[1165]={
 		[1]={
-			[1]={
-				[1]={
-					k="divide_by_one_hundred_2dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Off Hand Effective Chance for Twice-Critical Hit {0}%"
-			}
 		},
 		stats={
 			[1]="off_hand_effetive_total_chance_permyriad_for_hit_to_be_double_critical"
@@ -27822,19 +25939,6 @@ return {
 	},
 	[1166]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					},
-					[2]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Off Hand Chaos damage {0} – {1}"
-			}
 		},
 		stats={
 			[1]="off_hand_minimum_chaos_damage",
@@ -27843,19 +25947,6 @@ return {
 	},
 	[1167]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					},
-					[2]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Off Hand Cold damage {0} – {1}"
-			}
 		},
 		stats={
 			[1]="off_hand_minimum_cold_damage",
@@ -27864,19 +25955,6 @@ return {
 	},
 	[1168]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					},
-					[2]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Off Hand Fire damage {0} – {1}"
-			}
 		},
 		stats={
 			[1]="off_hand_minimum_fire_damage",
@@ -27885,19 +25963,6 @@ return {
 	},
 	[1169]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					},
-					[2]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Off Hand Lightning damage {0} – {1}"
-			}
 		},
 		stats={
 			[1]="off_hand_minimum_lightning_damage",
@@ -27906,19 +25971,6 @@ return {
 	},
 	[1170]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					},
-					[2]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Off Hand Physical damage {0} – {1}"
-			}
 		},
 		stats={
 			[1]="off_hand_minimum_physical_damage",
@@ -27927,19 +25979,6 @@ return {
 	},
 	[1171]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					},
-					[2]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Off Hand total damage {0} – {1}"
-			}
 		},
 		stats={
 			[1]="off_hand_minimum_total_damage",
@@ -27948,19 +25987,6 @@ return {
 	},
 	[1172]={
 		[1]={
-			[1]={
-				[1]={
-					k="milliseconds_to_seconds_2dp",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Bolt firing interval {0}s"
-			}
 		},
 		stats={
 			[1]="orb_of_storms_bolt_frequency_ms"
@@ -28002,15 +26028,6 @@ return {
 	[1174]={
 		[1]={
 			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Maximum bolts fired {0}"
-			},
-			[2]={
 				limit={
 					[1]={
 						[1]="#",
@@ -28371,15 +26388,6 @@ return {
 						[2]="#"
 					}
 				},
-				text="Hobble from Physical Damage against Bleeding {0}%"
-			},
-			[2]={
-				limit={
-					[1]={
-						[1]=1,
-						[2]="#"
-					}
-				},
 				text="Hobble equal to {0}% of Physical Hit Damage dealt against Bleeding Enemies"
 			}
 		},
@@ -28464,19 +26472,6 @@ return {
 	[1194]={
 		[1]={
 			[1]={
-				[1]={
-					k="multiply_by_one_hundred",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Maximum more Area of Effect from stored Poison {0}%"
-			},
-			[2]={
 				[1]={
 					k="multiply_by_one_hundred",
 					v=1
@@ -28584,30 +26579,13 @@ return {
 						[2]="#"
 					},
 					[2]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Maximum additional explosion radius from Poison +{1}m"
-			},
-			[2]={
-				[1]={
-					k="divide_by_ten_1dp_if_required",
-					v=2
-				},
-				limit={
-					[1]={
-						[1]=1,
-						[2]="#"
-					},
-					[2]={
 						[1]=10,
 						[2]=10
 					}
 				},
 				text="Stored Poison adds up to {1} metre to base explosion radius"
 			},
-			[3]={
+			[2]={
 				[1]={
 					k="divide_by_ten_1dp_if_required",
 					v=2
@@ -28633,19 +26611,6 @@ return {
 	[1200]={
 		[1]={
 			[1]={
-				limit={
-					[1]={
-						[1]=1,
-						[2]="#"
-					},
-					[2]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Maximum more explosion damage from Poison {1}%"
-			},
-			[2]={
 				limit={
 					[1]={
 						[1]=1,
@@ -28992,15 +26957,6 @@ return {
 	},
 	[1214]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Projectile speed modifier {0:+d}%"
-			}
 		},
 		stats={
 			[1]="projectile_speed_+%"
@@ -29037,15 +26993,6 @@ return {
 	},
 	[1216]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Multiple Projectiles can hit the same target"
-			}
 		},
 		stats={
 			[1]="projectiles_can_shotgun"
@@ -29539,23 +27486,6 @@ return {
 	},
 	[1238]={
 		[1]={
-			[1]={
-				[1]={
-					k="per_minute_to_per_second_2dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					},
-					[2]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Life loss per second {0}% ({1}% more per second)"
-			}
 		},
 		stats={
 			[1]="reaver_enrage_base_life_%_degen_per_minute",
@@ -29613,15 +27543,6 @@ return {
 	},
 	[1241]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]=1,
-						[2]="#"
-					}
-				},
-				text="Life Recovered on Cull {0}%"
-			}
 		},
 		stats={
 			[1]="recover_%_maximum_life_on_cull"
@@ -29630,15 +27551,6 @@ return {
 	[1242]={
 		[1]={
 			[1]={
-				limit={
-					[1]={
-						[1]=1,
-						[2]="#"
-					}
-				},
-				text="Mana Recovered over four seconds on Cull {0}%"
-			},
-			[2]={
 				limit={
 					[1]={
 						[1]=1,
@@ -29674,15 +27586,6 @@ return {
 	},
 	[1244]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]=1,
-						[2]="#"
-					}
-				},
-				text="Chaos Resistance Penetration {0}%"
-			}
 		},
 		stats={
 			[1]="reduce_enemy_chaos_resistance_%"
@@ -29706,15 +27609,6 @@ return {
 	},
 	[1246]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]=1,
-						[2]="#"
-					}
-				},
-				text="Cold Resistance Penetration {0}%"
-			}
 		},
 		stats={
 			[1]="reduce_enemy_cold_resistance_%"
@@ -29722,15 +27616,6 @@ return {
 	},
 	[1247]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]=1,
-						[2]="#"
-					}
-				},
-				text="Fire Resistance Penetration {0}%"
-			}
 		},
 		stats={
 			[1]="reduce_enemy_fire_resistance_%"
@@ -29738,15 +27623,6 @@ return {
 	},
 	[1248]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]=1,
-						[2]="#"
-					}
-				},
-				text="Lightning Resistance Penetration {0}%"
-			}
 		},
 		stats={
 			[1]="reduce_enemy_lightning_resistance_%"
@@ -29770,28 +27646,6 @@ return {
 	},
 	[1250]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]=1,
-						[2]="#"
-					}
-				},
-				text="Increased Reload Speed +{0}%"
-			},
-			[2]={
-				[1]={
-					k="negate",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]=-1
-					}
-				},
-				text="Reduced Reload Speed +{0}%"
-			}
 		},
 		stats={
 			[1]="reload_speed_+%"
@@ -29815,15 +27669,6 @@ return {
 	},
 	[1252]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]=1,
-						[2]="#"
-					}
-				},
-				text="Can be performed twice in succession"
-			}
 		},
 		stats={
 			[1]="repeat_last_step_of_combo_attack"
@@ -30013,15 +27858,6 @@ return {
 	},
 	[1260]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]=1,
-						[2]="#"
-					}
-				},
-				text="Life Sacrificed on use {0}%"
-			}
 		},
 		stats={
 			[1]="sacrifice_%_life_on_skill_use"
@@ -30065,15 +27901,6 @@ return {
 						[2]="#"
 					}
 				},
-				text="Maximum stages {0}"
-			},
-			[2]={
-				limit={
-					[1]={
-						[1]=1,
-						[2]="#"
-					}
-				},
 				text="Maximum {0} stages"
 			}
 		},
@@ -30090,26 +27917,13 @@ return {
 						[2]="#"
 					},
 					[2]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="More collapse damage per additional stage {0}%"
-			},
-			[2]={
-				limit={
-					[1]={
-						[1]=1,
-						[2]="#"
-					},
-					[2]={
 						[1]=0,
 						[2]=0
 					}
 				},
 				text="Collapse deals {0:+d}% more damage per additional stage"
 			},
-			[3]={
+			[2]={
 				limit={
 					[1]={
 						[1]=1,
@@ -30122,7 +27936,7 @@ return {
 				},
 				text="Collapse deals {0}% more damage per additional stage"
 			},
-			[4]={
+			[3]={
 				[1]={
 					k="negate",
 					v=1
@@ -30148,15 +27962,6 @@ return {
 	[1264]={
 		[1]={
 			[1]={
-				limit={
-					[1]={
-						[1]=1,
-						[2]="#"
-					}
-				},
-				text="Radius per additional stage +{0}"
-			},
-			[2]={
 				limit={
 					[1]={
 						[1]=1,
@@ -30251,15 +28056,6 @@ return {
 	},
 	[1268]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Critical Damage Bonus +{0}%"
-			}
 		},
 		stats={
 			[1]="secondary_critical_hit_damage_bonus"
@@ -30267,19 +28063,6 @@ return {
 	},
 	[1269]={
 		[1]={
-			[1]={
-				[1]={
-					k="divide_by_one_hundred_2dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Critical Hit Chance {0}%"
-			}
 		},
 		stats={
 			[1]="secondary_critical_strike_chance"
@@ -30287,19 +28070,6 @@ return {
 	},
 	[1270]={
 		[1]={
-			[1]={
-				[1]={
-					k="divide_by_one_hundred_2dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Effective Chance for Critical Hit {0}%"
-			}
 		},
 		stats={
 			[1]="secondary_effetive_total_chance_permyriad_for_hit_to_be_critical"
@@ -30307,19 +28077,6 @@ return {
 	},
 	[1271]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					},
-					[2]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Chaos damage {0} – {1}"
-			}
 		},
 		stats={
 			[1]="secondary_minimum_chaos_damage",
@@ -30328,19 +28085,6 @@ return {
 	},
 	[1272]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					},
-					[2]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Cold damage {0} – {1}"
-			}
 		},
 		stats={
 			[1]="secondary_minimum_cold_damage",
@@ -30349,19 +28093,6 @@ return {
 	},
 	[1273]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					},
-					[2]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Fire damage {0} – {1}"
-			}
 		},
 		stats={
 			[1]="secondary_minimum_fire_damage",
@@ -30370,19 +28101,6 @@ return {
 	},
 	[1274]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					},
-					[2]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Lightning damage {0} – {1}"
-			}
 		},
 		stats={
 			[1]="secondary_minimum_lightning_damage",
@@ -30391,19 +28109,6 @@ return {
 	},
 	[1275]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					},
-					[2]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Physical damage {0} – {1}"
-			}
 		},
 		stats={
 			[1]="secondary_minimum_physical_damage",
@@ -30412,19 +28117,6 @@ return {
 	},
 	[1276]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					},
-					[2]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Total damage {0} – {1}"
-			}
 		},
 		stats={
 			[1]="secondary_minimum_total_damage",
@@ -31011,19 +28703,6 @@ return {
 	[1302]={
 		[1]={
 			[1]={
-				[1]={
-					k="negate",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]=0,
-						[2]="#"
-					}
-				},
-				text="Covered in Oil Fire Exposure Total Resistance modifier {0}%"
-			},
-			[2]={
 				limit={
 					[1]={
 						[1]=0,
@@ -31060,19 +28739,6 @@ return {
 	[1304]={
 		[1]={
 			[1]={
-				[1]={
-					k="negate",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]=0,
-						[2]="#"
-					}
-				},
-				text="Oil Ground applies Fire Exposure Total Resistance modifier {0}%"
-			},
-			[2]={
 				limit={
 					[1]={
 						[1]=0,
@@ -31162,15 +28828,6 @@ return {
 	},
 	[1308]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]=1,
-						[2]="#"
-					}
-				},
-				text="More Skill Speed on Frenzy Charge Consumption {0}%"
-			}
 		},
 		stats={
 			[1]="skill_consume_frenzy_charge_to_gain_skill_speed_+%_final"
@@ -31178,15 +28835,6 @@ return {
 	},
 	[1309]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]=1,
-						[2]="#"
-					}
-				},
-				text="More Critical Hit chance on Power Charge Consumption {0}%"
-			}
 		},
 		stats={
 			[1]="skill_consume_power_charge_to_gain_critical_strike_chance_+%_final"
@@ -31194,19 +28842,6 @@ return {
 	},
 	[1310]={
 		[1]={
-			[1]={
-				[1]={
-					k="negate",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]=0
-					}
-				},
-				text="Covered in Oil movement speed Slow {0}%"
-			}
 		},
 		stats={
 			[1]="skill_covered_in_oil_movement_speed_+%_final_to_apply"
@@ -31243,32 +28878,6 @@ return {
 	},
 	[1312]={
 		[1]={
-			[1]={
-				[1]={
-					k="milliseconds_to_seconds_2dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]=1000,
-						[2]=1000
-					}
-				},
-				text="Detonation Time {0}s"
-			},
-			[2]={
-				[1]={
-					k="milliseconds_to_seconds_2dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Detonation Time {0}s"
-			}
 		},
 		stats={
 			[1]="skill_detonation_time"
@@ -31386,19 +28995,6 @@ return {
 	},
 	[1318]={
 		[1]={
-			[1]={
-				[1]={
-					k="negate",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]=0
-					}
-				},
-				text="Oil Ground movement speed Slow {0}%"
-			}
 		},
 		stats={
 			[1]="skill_ground_oil_movement_speed_+%_final_to_apply"
@@ -31471,15 +29067,6 @@ return {
 	},
 	[1322]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Targets an additional skeletal Minion"
-			}
 		},
 		stats={
 			[1]="skill_offering_targets_an_additional_skeleton"
@@ -31670,19 +29257,6 @@ return {
 	},
 	[1332]={
 		[1]={
-			[1]={
-				[1]={
-					k="milliseconds_to_seconds_2dp",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]=1,
-						[2]="#"
-					}
-				},
-				text="Pulse interval {0}s"
-			}
 		},
 		stats={
 			[1]="solar_orb_pulse_frequency_ms"
@@ -31922,19 +29496,6 @@ return {
 	},
 	[1344]={
 		[1]={
-			[1]={
-				[1]={
-					k="milliseconds_to_seconds_2dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Cast time {0}s"
-			}
 		},
 		stats={
 			[1]="spell_cast_duration_ms"
@@ -31958,15 +29519,6 @@ return {
 	},
 	[1346]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Critical Damage Bonus +{0}%"
-			}
 		},
 		stats={
 			[1]="spell_critical_hit_damage_bonus"
@@ -31974,19 +29526,6 @@ return {
 	},
 	[1347]={
 		[1]={
-			[1]={
-				[1]={
-					k="divide_by_one_hundred_2dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Critical Hit Chance {0}%"
-			}
 		},
 		stats={
 			[1]="spell_critical_strike_chance"
@@ -32010,19 +29549,6 @@ return {
 	},
 	[1349]={
 		[1]={
-			[1]={
-				[1]={
-					k="divide_by_one_hundred_2dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Effective Chance for Critical Hit {0}%"
-			}
 		},
 		stats={
 			[1]="spell_effetive_total_chance_permyriad_for_hit_to_be_critical"
@@ -32067,19 +29593,6 @@ return {
 	},
 	[1352]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					},
-					[2]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Chaos damage {0} – {1}"
-			}
 		},
 		stats={
 			[1]="spell_minimum_chaos_damage",
@@ -32088,19 +29601,6 @@ return {
 	},
 	[1353]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					},
-					[2]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Cold damage {0} – {1}"
-			}
 		},
 		stats={
 			[1]="spell_minimum_cold_damage",
@@ -32109,19 +29609,6 @@ return {
 	},
 	[1354]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					},
-					[2]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Fire damage {0} – {1}"
-			}
 		},
 		stats={
 			[1]="spell_minimum_fire_damage",
@@ -32130,19 +29617,6 @@ return {
 	},
 	[1355]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					},
-					[2]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Lightning damage {0} – {1}"
-			}
 		},
 		stats={
 			[1]="spell_minimum_lightning_damage",
@@ -32151,19 +29625,6 @@ return {
 	},
 	[1356]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					},
-					[2]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Physical damage {0} – {1}"
-			}
 		},
 		stats={
 			[1]="spell_minimum_physical_damage",
@@ -32172,19 +29633,6 @@ return {
 	},
 	[1357]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					},
-					[2]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Total damage {0} – {1}"
-			}
 		},
 		stats={
 			[1]="spell_minimum_total_damage",
@@ -32193,15 +29641,6 @@ return {
 	},
 	[1358]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Chance to fire 8 additional Projectiles in a circle {0}%"
-			}
 		},
 		stats={
 			[1]="spell_skill_%_chance_to_fire_8_additional_projectiles_in_nova"
@@ -33050,15 +30489,6 @@ return {
 						[2]="#"
 					}
 				},
-				text="Maximum active Bolts {0}"
-			},
-			[2]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
 				text="Maximum of {0} active Bolts"
 			}
 		},
@@ -33068,15 +30498,6 @@ return {
 	},
 	[1393]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Shock does not expire on Ignited enemies"
-			}
 		},
 		stats={
 			[1]="stormfire_support_shocks_from_skill_do_not_expire_on_ingited_targets"
@@ -33277,27 +30698,6 @@ return {
 	},
 	[1402]={
 		[1]={
-			[1]={
-				[1]={
-					k="divide_by_ten_1dp",
-					v=2
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					},
-					[2]={
-						[1]=1,
-						[2]="#"
-					},
-					[3]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Chance to Shock enemies within {1}m on Shock {0}%"
-			}
 		},
 		stats={
 			[1]="support_%_chance_to_shock_nearby_enemy_on_shock",
@@ -33307,15 +30707,6 @@ return {
 	},
 	[1403]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]=1,
-						[2]="#"
-					}
-				},
-				text="More damage when Consuming Freeze {0}%"
-			}
 		},
 		stats={
 			[1]="support_active_skill_consume_enemy_freeze_to_gain_damage_+%_final"
@@ -33387,15 +30778,6 @@ return {
 	},
 	[1408]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]=1,
-						[2]="#"
-					}
-				},
-				text="More Critical Hit Chance against Full Life enemies {0}%"
-			}
 		},
 		stats={
 			[1]="support_ambush_critical_strike_chance_vs_enemies_on_full_life_+%_final"
@@ -33403,15 +30785,6 @@ return {
 	},
 	[1409]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]=1,
-						[2]="#"
-					}
-				},
-				text="Maximum Seals {0}"
-			}
 		},
 		stats={
 			[1]="support_anticipation_rapid_fire_count"
@@ -33460,15 +30833,6 @@ return {
 	},
 	[1412]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Trigger Armour Explosion on Full Armour Break"
-			}
 		},
 		stats={
 			[1]="support_armour_explosion"
@@ -33525,27 +30889,6 @@ return {
 	},
 	[1415]={
 		[1]={
-			[1]={
-				[1]={
-					k="per_minute_to_per_second",
-					v=1
-				},
-				[2]={
-					k="divide_by_ten_1dp_if_required",
-					v=2
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					},
-					[2]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Life Regeneration granted within {1}m of Font {0}%"
-			}
 		},
 		stats={
 			[1]="support_blood_fountain_life_regeneration_rate_per_minute_%",
@@ -33579,19 +30922,6 @@ return {
 	},
 	[1417]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]=1,
-						[2]="#"
-					},
-					[2]={
-						[1]=1,
-						[2]="#"
-					}
-				},
-				text="Poison damage added as Plague up to {1}% of Enemy Life {0}%"
-			}
 		},
 		stats={
 			[1]="support_bursting_plague_store_%_poison_applied_magnitude_towards_burst",
@@ -33600,15 +30930,6 @@ return {
 	},
 	[1418]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Life Recovery on Kill granted to you {0}%"
-			}
 		},
 		stats={
 			[1]="support_cannibalism_recover_%_maximum_life_on_kill"
@@ -33616,15 +30937,6 @@ return {
 	},
 	[1419]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]=1,
-						[2]="#"
-					}
-				},
-				text="More damage over time with non-Ailment Debuffs inflicted on Full Life enemies {0}%"
-			}
 		},
 		stats={
 			[1]="support_chaotic_assassination_damage_over_time_+%_final_against_full_life_enemies"
@@ -33632,15 +30944,6 @@ return {
 	},
 	[1420]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Chaos damage against Debuffed targets Contributes to Freeze buildup"
-			}
 		},
 		stats={
 			[1]="support_chaotic_freeze_dots_allow_enemies_to_be_frozen_by_chaos_damage"
@@ -33648,15 +30951,6 @@ return {
 	},
 	[1421]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Increased Mana Regeneration granted to you {0}%"
-			}
 		},
 		stats={
 			[1]="support_clarity_mana_regeneration_rate_+%"
@@ -33664,15 +30958,6 @@ return {
 	},
 	[1422]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]=1,
-						[2]="#"
-					}
-				},
-				text="More Attack damage to enemies within 1m {0}%"
-			}
 		},
 		stats={
 			[1]="support_close_combat_attack_damage_+%_final_from_distance"
@@ -33783,19 +31068,6 @@ return {
 	},
 	[1427]={
 		[1]={
-			[1]={
-				[1]={
-					k="per_minute_to_per_second_2dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Corrupted Blood Physical damage per second {0}"
-			}
 		},
 		stats={
 			[1]="support_corrupting_cry_corrupted_blood_damage_per_minute"
@@ -33803,19 +31075,6 @@ return {
 	},
 	[1428]={
 		[1]={
-			[1]={
-				[1]={
-					k="milliseconds_to_seconds_2dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Corrupted Blood duration {0}s"
-			}
 		},
 		stats={
 			[1]="support_corrupting_cry_corrupted_blood_duration_ms"
@@ -33843,15 +31102,6 @@ return {
 	},
 	[1430]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Hits have Culling Strike against Rare or Unique Enemies"
-			}
 		},
 		stats={
 			[1]="support_culling_strike_vs_rare_or_unique_enemy"
@@ -33859,15 +31109,6 @@ return {
 	},
 	[1431]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]=1,
-						[2]="#"
-					}
-				},
-				text="More damage per Combo lost {0}%"
-			}
 		},
 		stats={
 			[1]="support_damage_+%_final_per_combo_stack"
@@ -33875,15 +31116,6 @@ return {
 	},
 	[1432]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]=1,
-						[2]="#"
-					}
-				},
-				text="More damage per bolt reloaded in past 6s {0}%"
-			}
 		},
 		stats={
 			[1]="support_damage_+%_final_per_crossbow_bolt_reloaded_in_past_6_seconds"
@@ -33891,19 +31123,6 @@ return {
 	},
 	[1433]={
 		[1]={
-			[1]={
-				[1]={
-					k="milliseconds_to_seconds_2dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Daze on Full Armour Break duration {0}s"
-			}
 		},
 		stats={
 			[1]="support_daze_break_duration_ms"
@@ -33911,19 +31130,6 @@ return {
 	},
 	[1434]={
 		[1]={
-			[1]={
-				[1]={
-					k="milliseconds_to_seconds_2dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Enemy Daze on use {0}s"
-			}
 		},
 		stats={
 			[1]="support_dazed_cry_duration_ms"
@@ -33969,15 +31175,6 @@ return {
 	},
 	[1436]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]=1,
-						[2]="#"
-					}
-				},
-				text="More damage over time when Consuming a random Ailment {0}%"
-			}
 		},
 		stats={
 			[1]="support_drained_ailment_damage_over_time_+%_final_if_ailment_consumed"
@@ -33985,15 +31182,6 @@ return {
 	},
 	[1437]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Grants Culling Strike to Empowered Skills"
-			}
 		},
 		stats={
 			[1]="support_empowered_culling_strike"
@@ -34001,15 +31189,6 @@ return {
 	},
 	[1438]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]=1,
-						[2]="#"
-					}
-				},
-				text="More damage granted to Empowered Skills {0}%"
-			}
 		},
 		stats={
 			[1]="support_empowered_damage_+%_final"
@@ -34037,15 +31216,6 @@ return {
 	},
 	[1440]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]=1,
-						[2]="#"
-					}
-				},
-				text="More Hit damage vs Low Life enemies {0}%"
-			}
 		},
 		stats={
 			[1]="support_executioner_damage_vs_enemies_on_low_life_+%_final"
@@ -34053,19 +31223,6 @@ return {
 	},
 	[1441]={
 		[1]={
-			[1]={
-				[1]={
-					k="milliseconds_to_seconds_0dp",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]=1,
-						[2]="#"
-					}
-				},
-				text="Modifier steal time on killing Rare monster {0}s"
-			}
 		},
 		stats={
 			[1]="support_executioner_gain_one_rare_monster_mod_on_kill_ms"
@@ -34089,15 +31246,6 @@ return {
 	},
 	[1443]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Exposure effect modifier {0}%"
-			}
 		},
 		stats={
 			[1]="support_exposure_effect_+%"
@@ -34150,19 +31298,6 @@ return {
 	},
 	[1446]={
 		[1]={
-			[1]={
-				[1]={
-					k="negate",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]=-1
-					}
-				},
-				text="Less Projectile damage after Forking {0}%"
-			}
 		},
 		stats={
 			[1]="support_fork_forked_projectile_damage_+%_final"
@@ -34170,15 +31305,6 @@ return {
 	},
 	[1447]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]=1,
-						[2]="#"
-					}
-				},
-				text="More damage when Consuming Fully Broken Armour {0}%"
-			}
 		},
 		stats={
 			[1]="support_gem_consume_enemy_fully_broken_armour_to_gain_damage_+%_final"
@@ -34304,19 +31430,6 @@ return {
 						[2]="#"
 					}
 				},
-				text="More Area of Effect per second (maximum {1}%) {0}%"
-			},
-			[2]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					},
-					[2]={
-						[1]="#",
-						[2]="#"
-					}
-				},
 				text="Gains {0}% more Area of Effect per second, up to a maximum of {1}%"
 			}
 		},
@@ -34327,15 +31440,6 @@ return {
 	},
 	[1453]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]=1,
-						[2]="#"
-					}
-				},
-				text="Increased Flask Life Recovery granted to you {0}%"
-			}
 		},
 		stats={
 			[1]="support_herbalism_life_recovery_+%_from_life_flasks"
@@ -34343,15 +31447,6 @@ return {
 	},
 	[1454]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Chaos damage over time also Hinders enemies"
-			}
 		},
 		stats={
 			[1]="support_hinder_dots_also_apply_hinder"
@@ -34359,19 +31454,6 @@ return {
 	},
 	[1455]={
 		[1]={
-			[1]={
-				[1]={
-					k="milliseconds_to_seconds_2dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Consecrated Ground duration on landing {0}s"
-			}
 		},
 		stats={
 			[1]="support_holy_descent_consecrated_ground_duration_ms"
@@ -34408,23 +31490,6 @@ return {
 	},
 	[1457]={
 		[1]={
-			[1]={
-				[1]={
-					k="milliseconds_to_seconds",
-					v=2
-				},
-				limit={
-					[1]={
-						[1]=1,
-						[2]="#"
-					},
-					[2]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Attack damage Gained as Cold for {1} seconds on Freeze {0}%"
-			}
 		},
 		stats={
 			[1]="support_ice_bite_buff_grant_%_added_cold_attack_damage",
@@ -34491,19 +31556,6 @@ return {
 	},
 	[1460]={
 		[1]={
-			[1]={
-				[1]={
-					k="divide_by_ten_1dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Ignite Spread radius after 2 seconds {0}m"
-			}
 		},
 		stats={
 			[1]="support_ignite_proliferation_radius"
@@ -34511,19 +31563,6 @@ return {
 	},
 	[1461]={
 		[1]={
-			[1]={
-				[1]={
-					k="divide_by_ten_1dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Aftershock radius on Heavy Stun {0}m"
-			}
 		},
 		stats={
 			[1]="support_impact_shockwave_base_splash_radius"
@@ -34552,23 +31591,6 @@ return {
 	},
 	[1463]={
 		[1]={
-			[1]={
-				[1]={
-					k="milliseconds_to_seconds",
-					v=2
-				},
-				limit={
-					[1]={
-						[1]=1,
-						[2]="#"
-					},
-					[2]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Attack damage Gained as Lightning for {1} seconds on kill vs Shocked {0}%"
-			}
 		},
 		stats={
 			[1]="support_innervate_buff_grant_%_added_lightning_attack_damage",
@@ -34606,15 +31628,6 @@ return {
 	},
 	[1465]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Trigger Wind Wave when Stunned during use"
-			}
 		},
 		stats={
 			[1]="support_knockback_wave_on_stunned"
@@ -34622,15 +31635,6 @@ return {
 	},
 	[1466]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]=1,
-						[2]="#"
-					}
-				},
-				text="More Life Flask Charges gained from kills {0}%"
-			}
 		},
 		stats={
 			[1]="support_life_flask_charges_gained_+%_final_from_killing_blow"
@@ -34761,15 +31765,6 @@ return {
 	},
 	[1472]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]=1,
-						[2]="#"
-					}
-				},
-				text="More Mana Flask Charges gained from kills {0}%"
-			}
 		},
 		stats={
 			[1]="support_mana_flask_charges_gained_+%_final_from_killing_blow"
@@ -34777,23 +31772,6 @@ return {
 	},
 	[1473]={
 		[1]={
-			[1]={
-				[1]={
-					k="divide_by_ten_1dp_if_required",
-					v=2
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					},
-					[2]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Increased Mana Regeneration granted within {1}m of Font {0}%"
-			}
 		},
 		stats={
 			[1]="support_mana_fountain_mana_regeneration_rate_+%",
@@ -34939,19 +31917,6 @@ return {
 	},
 	[1479]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					},
-					[2]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="More damage when removing {0}% of your Life from a Minion {1}%"
-			}
 		},
 		stats={
 			[1]="support_minion_pact_user_life_%_removed_from_nearby_minion",
@@ -35080,19 +32045,6 @@ return {
 	},
 	[1484]={
 		[1]={
-			[1]={
-				[1]={
-					k="milliseconds_to_seconds_2dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]=1,
-						[2]="#"
-					}
-				},
-				text="Uninterrupted Energy Shield Recharge when Stunned {0}s"
-			}
 		},
 		stats={
 			[1]="support_no_energy_shield_recharge_delay_for_duration_ms_on_stunned"
@@ -35185,15 +32137,6 @@ return {
 						[2]="#"
 					}
 				},
-				text="Daze buildup from Physical damage {0}%"
-			},
-			[2]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
 				text="Causes Daze buildup equal to {0}% of Physical damage dealt"
 			}
 		},
@@ -35203,19 +32146,6 @@ return {
 	},
 	[1489]={
 		[1]={
-			[1]={
-				[1]={
-					k="negate",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]=-1
-					}
-				},
-				text="Less Projectile damage after Piercing {0}%"
-			}
 		},
 		stats={
 			[1]="support_pierce_projectile_damage_+%_final_if_pierced_enemy"
@@ -35297,27 +32227,6 @@ return {
 	},
 	[1493]={
 		[1]={
-			[1]={
-				[1]={
-					k="per_minute_to_per_second",
-					v=1
-				},
-				[2]={
-					k="divide_by_ten_1dp_if_required",
-					v=2
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					},
-					[2]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Rage Regeneration granted within {1}m of Font {0}"
-			}
 		},
 		stats={
 			[1]="support_rage_fountain_rage_regeneration_per_minute",
@@ -35346,19 +32255,6 @@ return {
 	},
 	[1495]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					},
-					[2]={
-						[1]=1,
-						[2]="#"
-					}
-				},
-				text="More damage on Consuming {0} Rage {1}%"
-			}
 		},
 		stats={
 			[1]="support_rageforged_consumes_X_rage_to_enrage_skill_use",
@@ -35367,15 +32263,6 @@ return {
 	},
 	[1496]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Energy Shield Recovered on killing a Shocked Enemy {0}%"
-			}
 		},
 		stats={
 			[1]="support_recover_%_maximum_energy_shield_killing_shocked_enemies"
@@ -35448,15 +32335,6 @@ return {
 	},
 	[1500]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Aggravate Bleeding on Hitting Heavy Stunned Enemies"
-			}
 		},
 		stats={
 			[1]="support_rupture_aggravate_bleeding_on_hitting_heavy_stunned_enemy"
@@ -35519,15 +32397,6 @@ return {
 	},
 	[1503]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Chance for an additional Aftershock {0}%"
-			}
 		},
 		stats={
 			[1]="support_slam_chance_for_one_additional_aftershock_%"
@@ -35535,15 +32404,6 @@ return {
 	},
 	[1504]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Chance for three additional Aftershocks {0}%"
-			}
 		},
 		stats={
 			[1]="support_slam_chance_for_three_additional_aftershocks_%"
@@ -35551,15 +32411,6 @@ return {
 	},
 	[1505]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Chance for two additional Aftershocks {0}%"
-			}
 		},
 		stats={
 			[1]="support_slam_chance_for_two_additional_aftershocks_%"
@@ -35779,15 +32630,6 @@ return {
 	},
 	[1512]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Area of effect modifiers for Cascades {0}%"
-			}
 		},
 		stats={
 			[1]="support_spell_cascade_area_of_effect_+%_per_cascade"
@@ -35795,19 +32637,6 @@ return {
 	},
 	[1513]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="!",
-						[2]=0
-					},
-					[2]={
-						[1]=0,
-						[2]=0
-					}
-				},
-				text="Also affects areas on either side of the targeted area"
-			}
 		},
 		stats={
 			[1]="support_spell_cascade_number_of_cascades_per_side",
@@ -35816,15 +32645,6 @@ return {
 	},
 	[1514]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]=1,
-						[2]="#"
-					}
-				},
-				text="More Echo Area of Effect {0}%"
-			}
 		},
 		stats={
 			[1]="support_spell_echo_area_of_effect_+%_final"
@@ -35977,15 +32797,6 @@ return {
 	},
 	[1520]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Echo count {0}"
-			}
 		},
 		stats={
 			[1]="support_spell_echo_number_of_echo_cascades"
@@ -35993,19 +32804,6 @@ return {
 	},
 	[1521]={
 		[1]={
-			[1]={
-				[1]={
-					k="negate",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]=-1
-					}
-				},
-				text="Less damage when reoccuring {0}%"
-			}
 		},
 		stats={
 			[1]="support_spell_rapid_fire_repeat_use_damage_+%_final"
@@ -36013,15 +32811,6 @@ return {
 	},
 	[1522]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]=1,
-						[2]="#"
-					}
-				},
-				text="More Heavy Stun Threshold while using Skill {0}%"
-			}
 		},
 		stats={
 			[1]="support_stability_heavy_stun_threshold_+%_final_while_performing_action"
@@ -36029,15 +32818,6 @@ return {
 	},
 	[1523]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Trigger a Shockwave on taking a step"
-			}
 		},
 		stats={
 			[1]="support_stomping_ground"
@@ -36352,15 +33132,6 @@ return {
 	},
 	[1536]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Triggers Mana Flare on Critical Hit"
-			}
 		},
 		stats={
 			[1]="support_trigger_mana_flare_on_crit"
@@ -36397,15 +33168,6 @@ return {
 	},
 	[1538]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]=1,
-						[2]="#"
-					}
-				},
-				text="More Light Stun Threshold while using Skill {0}%"
-			}
 		},
 		stats={
 			[1]="support_unbreakable_light_stun_threshold_+%_final_while_performing_action"
@@ -36413,19 +33175,6 @@ return {
 	},
 	[1539]={
 		[1]={
-			[1]={
-				[1]={
-					k="per_minute_to_per_second",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Life Regeneration granted to you {0}%"
-			}
 		},
 		stats={
 			[1]="support_vitality_life_regeneration_rate_per_minute_%"
@@ -36433,19 +33182,6 @@ return {
 	},
 	[1540]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]=1,
-						[2]="#"
-					},
-					[2]={
-						[1]=1,
-						[2]="#"
-					}
-				},
-				text="More Empowered Attack damage on Consuming {0} Rage {1}%"
-			}
 		},
 		stats={
 			[1]="support_warcry_consumes_up_to_X_rage",
@@ -36771,19 +33507,6 @@ return {
 	},
 	[1556]={
 		[1]={
-			[1]={
-				[1]={
-					k="milliseconds_to_seconds_2dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Damage interval {0}s"
-			}
 		},
 		stats={
 			[1]="tornado_damage_interval_ms"
@@ -36840,15 +33563,6 @@ return {
 	},
 	[1559]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Projectiles fired per use {0}"
-			}
 		},
 		stats={
 			[1]="total_number_of_projectiles_to_fire"
@@ -36912,15 +33626,6 @@ return {
 	},
 	[1563]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]=1,
-						[2]="#"
-					}
-				},
-				text="Curse spreads to enemies within 3m on enemy death"
-			}
 		},
 		stats={
 			[1]="transfer_hexes_to_X_nearby_enemies_on_kill"
@@ -37521,15 +34226,6 @@ return {
 	},
 	[1585]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Chance for Triggered Skills to refund half of their Energy cost {0}%"
-			}
 		},
 		stats={
 			[1]="trigger_skills_refund_half_energy_spent_chance_%"
@@ -37537,15 +34233,6 @@ return {
 	},
 	[1586]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Trigger Doom Blast on Curse expiry"
-			}
 		},
 		stats={
 			[1]="trigger_vicious_hex_explosion_when_curse_ends"
@@ -37893,26 +34580,13 @@ return {
 				},
 				limit={
 					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Explosion radius per Stage {0}m"
-			},
-			[2]={
-				[1]={
-					k="divide_by_ten_1dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
 						[1]=10,
 						[2]=10
 					}
 				},
 				text="Explosion radius is {0} metre per Stage"
 			},
-			[3]={
+			[2]={
 				[1]={
 					k="divide_by_ten_1dp_if_required",
 					v=1
@@ -38132,15 +34806,6 @@ return {
 	},
 	[1612]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Barrier value {0}"
-			}
 		},
 		stats={
 			[1]="virtual_aegis_unique_shield_max_value"
@@ -38148,15 +34813,6 @@ return {
 	},
 	[1613]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Increased Armour while using Skill {0}%"
-			}
 		},
 		stats={
 			[1]="virtual_armour_+%_while_performing_action_per_250_ms_attack_time"
@@ -38205,15 +34861,6 @@ return {
 	},
 	[1616]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Chill Magnitude modifier {0}%"
-			}
 		},
 		stats={
 			[1]="virtual_chill_effect_+%_final"
@@ -38237,24 +34884,6 @@ return {
 	},
 	[1618]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]=-100,
-						[2]=-100
-					}
-				},
-				text="No Main Hand Stun buildup"
-			},
-			[2]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Main Hand Non-Physical Stun buildup modifier {0}%"
-			}
 		},
 		stats={
 			[1]="virtual_combined_non_physical_main_hand_hit_damage_stun_multiplier"
@@ -38262,24 +34891,6 @@ return {
 	},
 	[1619]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]=-100,
-						[2]=-100
-					}
-				},
-				text="No Off Hand Stun buildup"
-			},
-			[2]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Off Hand Non-Physical Stun buildup modifier {0}%"
-			}
 		},
 		stats={
 			[1]="virtual_combined_non_physical_off_hand_hit_damage_stun_multiplier"
@@ -38287,24 +34898,6 @@ return {
 	},
 	[1620]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]=-100,
-						[2]=-100
-					}
-				},
-				text="No Stun buildup"
-			},
-			[2]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Non-Physical Stun buildup modifier {0}%"
-			}
 		},
 		stats={
 			[1]="virtual_combined_non_physical_other_hit_damage_stun_multiplier"
@@ -38312,24 +34905,6 @@ return {
 	},
 	[1621]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]=-100,
-						[2]=-100
-					}
-				},
-				text="No Spell Stun buildup"
-			},
-			[2]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Spell Non-Physical Stun buildup modifier {0}%"
-			}
 		},
 		stats={
 			[1]="virtual_combined_non_physical_spell_hit_damage_stun_multiplier"
@@ -38337,24 +34912,6 @@ return {
 	},
 	[1622]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]=-100,
-						[2]=-100
-					}
-				},
-				text="No Main Hand Stun buildup"
-			},
-			[2]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Main Hand Physical Stun buildup modifier {0}%"
-			}
 		},
 		stats={
 			[1]="virtual_combined_physical_main_hand_hit_damage_stun_multiplier"
@@ -38362,24 +34919,6 @@ return {
 	},
 	[1623]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]=-100,
-						[2]=-100
-					}
-				},
-				text="No Off Hand Stun buildup"
-			},
-			[2]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Off Hand Physical Stun buildup modifier {0}%"
-			}
 		},
 		stats={
 			[1]="virtual_combined_physical_off_hand_hit_damage_stun_multiplier"
@@ -38387,24 +34926,6 @@ return {
 	},
 	[1624]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]=-100,
-						[2]=-100
-					}
-				},
-				text="No Stun buildup"
-			},
-			[2]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Physical Stun buildup modifier {0}%"
-			}
 		},
 		stats={
 			[1]="virtual_combined_physical_other_hit_damage_stun_multiplier"
@@ -38412,24 +34933,6 @@ return {
 	},
 	[1625]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]=-100,
-						[2]=-100
-					}
-				},
-				text="No Spell Stun buildup"
-			},
-			[2]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Spell Physical Stun buildup modifier {0}%"
-			}
 		},
 		stats={
 			[1]="virtual_combined_physical_spell_hit_damage_stun_multiplier"
@@ -38437,15 +34940,6 @@ return {
 	},
 	[1626]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Chance to not consume a bolt {0}%"
-			}
 		},
 		stats={
 			[1]="virtual_crossbow_attack_%_chance_to_not_consume_ammo"
@@ -38453,19 +34947,6 @@ return {
 	},
 	[1627]={
 		[1]={
-			[1]={
-				[1]={
-					k="milliseconds_to_seconds_2dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Curse application delay {0}s"
-			}
 		},
 		stats={
 			[1]="virtual_curse_delay_duration_ms"
@@ -38473,15 +34954,6 @@ return {
 	},
 	[1628]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Maximum damage absorbed per Jade consumed {0}"
-			}
 		},
 		stats={
 			[1]="virtual_damage_absorbed_per_jade_consumed"
@@ -38489,15 +34961,6 @@ return {
 	},
 	[1629]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Damage Taken while using Skill Recouped as Life {0}%"
-			}
 		},
 		stats={
 			[1]="virtual_damage_taken_%_recouped_as_life_while_performing_attack_per_250_ms_attack_time"
@@ -38505,15 +34968,6 @@ return {
 	},
 	[1630]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Damage Taken while using Skill Recouped as Mana {0}%"
-			}
 		},
 		stats={
 			[1]="virtual_damage_taken_%_recouped_as_mana_while_performing_spell_per_250_ms_cast_time"
@@ -38521,19 +34975,6 @@ return {
 	},
 	[1631]={
 		[1]={
-			[1]={
-				[1]={
-					k="per_minute_to_per_second_2dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Chaos damage per second to Cursed targets {0}"
-			}
 		},
 		stats={
 			[1]="virtual_deal_chaos_damage_per_minute_for_8_seconds_on_curse"
@@ -38541,15 +34982,6 @@ return {
 	},
 	[1632]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Main Hand chance to inflict Bleeding on Hit {0}%"
-			}
 		},
 		stats={
 			[1]="virtual_display_total_main_hand_chance_to_inflict_bleeding_on_hit_%"
@@ -38557,15 +34989,6 @@ return {
 	},
 	[1633]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Main Hand chance to Poison {0}%"
-			}
 		},
 		stats={
 			[1]="virtual_display_total_main_hand_chance_to_inflict_poison_on_hit_%"
@@ -38573,15 +34996,6 @@ return {
 	},
 	[1634]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Off Hand chance to inflict Bleeding on Hit {0}%"
-			}
 		},
 		stats={
 			[1]="virtual_display_total_off_hand_chance_to_inflict_bleeding_on_hit_%"
@@ -38589,15 +35003,6 @@ return {
 	},
 	[1635]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Off Hand chance to Poison {0}%"
-			}
 		},
 		stats={
 			[1]="virtual_display_total_off_hand_chance_to_inflict_poison_on_hit_%"
@@ -38605,15 +35010,6 @@ return {
 	},
 	[1636]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Chance to inflict Bleeding on Hit {0}%"
-			}
 		},
 		stats={
 			[1]="virtual_display_total_secondary_chance_to_inflict_bleeding_on_hit_%"
@@ -38621,15 +35017,6 @@ return {
 	},
 	[1637]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Chance to Poison {0}%"
-			}
 		},
 		stats={
 			[1]="virtual_display_total_secondary_chance_to_inflict_poison_on_hit_%"
@@ -38637,15 +35024,6 @@ return {
 	},
 	[1638]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Chance to inflict Bleeding on Hit {0}%"
-			}
 		},
 		stats={
 			[1]="virtual_display_total_spell_chance_to_inflict_bleeding_on_hit_%"
@@ -38653,15 +35031,6 @@ return {
 	},
 	[1639]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Chance to Poison {0}%"
-			}
 		},
 		stats={
 			[1]="virtual_display_total_spell_chance_to_inflict_poison_on_hit_%"
@@ -38685,15 +35054,6 @@ return {
 	},
 	[1641]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Increased Evasion Rating while using Skill {0}%"
-			}
 		},
 		stats={
 			[1]="virtual_evasion_+%_while_performing_action_per_250_ms_attack_time"
@@ -38701,15 +35061,6 @@ return {
 	},
 	[1642]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Maximum Energy {0}"
-			}
 		},
 		stats={
 			[1]="virtual_generic_ongoing_trigger_maximum_energy"
@@ -38718,19 +35069,6 @@ return {
 	[1643]={
 		[1]={
 			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					},
-					[2]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="More Area of Effect per second (maximum {1}%) {0}%"
-			},
-			[2]={
 				limit={
 					[1]={
 						[1]="#",
@@ -38783,22 +35121,13 @@ return {
 			[2]={
 				limit={
 					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Stun buildup modifier {0}%"
-			},
-			[3]={
-				limit={
-					[1]={
 						[1]=1,
 						[2]="#"
 					}
 				},
 				text="{0}% more Stun buildup"
 			},
-			[4]={
+			[3]={
 				[1]={
 					k="negate",
 					v=1
@@ -38818,15 +35147,6 @@ return {
 	},
 	[1646]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Knockback distance modifier {0}%"
-			}
 		},
 		stats={
 			[1]="virtual_knockback_distance_+%"
@@ -38834,15 +35154,6 @@ return {
 	},
 	[1647]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Main Hand Armour Break on Hit {0}"
-			}
 		},
 		stats={
 			[1]="virtual_main_hand_apply_X_armour_break_on_hit"
@@ -38850,24 +35161,6 @@ return {
 	},
 	[1648]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]=-100,
-						[2]=-100
-					}
-				},
-				text="No Main Hand Stun buildup"
-			},
-			[2]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Main Hand Stun buildup modifier {0}%"
-			}
 		},
 		stats={
 			[1]="virtual_main_hand_hit_damage_stun_multiplier_+%"
@@ -38875,15 +35168,6 @@ return {
 	},
 	[1649]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Main hand Aftershock chance {0}%"
-			}
 		},
 		stats={
 			[1]="virtual_main_hand_non_slam_aftershock_chance_%"
@@ -38891,15 +35175,6 @@ return {
 	},
 	[1650]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Main hand Aftershock chance {0}%"
-			}
 		},
 		stats={
 			[1]="virtual_main_hand_slam_aftershock_chance_%"
@@ -38965,15 +35240,6 @@ return {
 	},
 	[1653]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Cannot inflict Chill"
-			}
 		},
 		stats={
 			[1]="virtual_never_chill"
@@ -38981,15 +35247,6 @@ return {
 	},
 	[1654]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Cannot cause Freeze buildup"
-			}
 		},
 		stats={
 			[1]="virtual_never_freeze"
@@ -38997,15 +35254,6 @@ return {
 	},
 	[1655]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Cannot Ignite"
-			}
 		},
 		stats={
 			[1]="virtual_never_ignite"
@@ -39013,15 +35261,6 @@ return {
 	},
 	[1656]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Cannot inflict Shock"
-			}
 		},
 		stats={
 			[1]="virtual_never_shock"
@@ -39070,15 +35309,6 @@ return {
 	},
 	[1659]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Marked target Limit {0}"
-			}
 		},
 		stats={
 			[1]="virtual_number_of_marks_allowed_per_type"
@@ -39086,15 +35316,6 @@ return {
 	},
 	[1660]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Off Hand Armour Break on Hit {0}"
-			}
 		},
 		stats={
 			[1]="virtual_off_hand_apply_X_armour_break_on_hit"
@@ -39102,24 +35323,6 @@ return {
 	},
 	[1661]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]=-100,
-						[2]=-100
-					}
-				},
-				text="No Off Hand Stun buildup"
-			},
-			[2]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Off Hand Stun buildup modifier {0}%"
-			}
 		},
 		stats={
 			[1]="virtual_off_hand_hit_damage_stun_multiplier_+%"
@@ -39127,15 +35330,6 @@ return {
 	},
 	[1662]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Off hand Aftershock chance {0}%"
-			}
 		},
 		stats={
 			[1]="virtual_off_hand_non_slam_aftershock_chance_%"
@@ -39143,15 +35337,6 @@ return {
 	},
 	[1663]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Off hand Aftershock chance {0}%"
-			}
 		},
 		stats={
 			[1]="virtual_off_hand_slam_aftershock_chance_%"
@@ -39184,15 +35369,6 @@ return {
 	},
 	[1665]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Physical Damage is Pinning"
-			}
 		},
 		stats={
 			[1]="virtual_physical_damage_can_pin"
@@ -39216,15 +35392,6 @@ return {
 	},
 	[1667]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Projectile Split targets {0}"
-			}
 		},
 		stats={
 			[1]="virtual_projectile_number_to_split"
@@ -39232,15 +35399,6 @@ return {
 	},
 	[1668]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Projectiles Fork"
-			}
 		},
 		stats={
 			[1]="virtual_projectiles_fork"
@@ -39264,15 +35422,6 @@ return {
 	},
 	[1670]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Ritual Limit {0}"
-			}
 		},
 		stats={
 			[1]="virtual_ritual_of_power_maximum_number_of_rituals"
@@ -39280,15 +35429,6 @@ return {
 	},
 	[1671]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Melee Attacks Empowered {0}"
-			}
 		},
 		stats={
 			[1]="virtual_skill_empowers_next_x_melee_attacks"
@@ -39296,15 +35436,6 @@ return {
 	},
 	[1672]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Combo required {0}"
-			}
 		},
 		stats={
 			[1]="virtual_skill_required_number_of_combo_stacks"
@@ -39402,19 +35533,6 @@ return {
 	},
 	[1677]={
 		[1]={
-			[1]={
-				[1]={
-					k="milliseconds_to_seconds_2dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]=1,
-						[2]="#"
-					}
-				},
-				text="Seal gain interval {0}s"
-			}
 		},
 		stats={
 			[1]="virtual_support_anticipation_charge_gain_interval_ms"
@@ -39422,15 +35540,6 @@ return {
 	},
 	[1678]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Chance for an additional Aftershock {0}%"
-			}
 		},
 		stats={
 			[1]="virtual_support_slam_chance_for_one_additional_aftershock_%"
@@ -39438,15 +35547,6 @@ return {
 	},
 	[1679]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Chance for three additional Aftershocks {0}%"
-			}
 		},
 		stats={
 			[1]="virtual_support_slam_chance_for_three_additional_aftershocks_%"
@@ -39454,15 +35554,6 @@ return {
 	},
 	[1680]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Chance for two additional Aftershocks {0}%"
-			}
 		},
 		stats={
 			[1]="virtual_support_slam_chance_for_two_additional_aftershocks_%"
@@ -39506,15 +35597,6 @@ return {
 	},
 	[1683]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]=2,
-						[2]="#"
-					}
-				},
-				text="Cooldown uses {0}"
-			}
 		},
 		stats={
 			[1]="virtual_total_cooldown_count"
@@ -39522,15 +35604,6 @@ return {
 	},
 	[1684]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Totem Cold Resistance {0}%"
-			}
 		},
 		stats={
 			[1]="virtual_totem_cold_resistance_%"
@@ -39538,15 +35611,6 @@ return {
 	},
 	[1685]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Totem Fire Resistance {0}%"
-			}
 		},
 		stats={
 			[1]="virtual_totem_fire_resistance_%"
@@ -39554,15 +35618,6 @@ return {
 	},
 	[1686]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Totem Lightning Resistance {0}%"
-			}
 		},
 		stats={
 			[1]="virtual_totem_lightning_resistance_%"
@@ -39984,15 +36039,6 @@ return {
 	},
 	[1705]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Walls are created in a Circle"
-			}
 		},
 		stats={
 			[1]="wall_is_created_in_a_circle_instead"
@@ -40231,23 +36277,6 @@ return {
 			[1]={
 				limit={
 					[1]={
-						[1]="#",
-						[2]="#"
-					},
-					[2]={
-						[1]="!",
-						[2]=0
-					},
-					[3]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Attacks Empowered per Endurance Charge {0}"
-			},
-			[2]={
-				limit={
-					[1]={
 						[1]=1,
 						[2]=1
 					},
@@ -40262,7 +36291,7 @@ return {
 				},
 				text="Empowers the next Melee Attack you perform"
 			},
-			[3]={
+			[2]={
 				limit={
 					[1]={
 						[1]=1,
@@ -40279,7 +36308,7 @@ return {
 				},
 				text="Empowers the next Melee Attack you perform, plus an additional Attack per Endurance Charge consumed"
 			},
-			[4]={
+			[3]={
 				limit={
 					[1]={
 						[1]=1,
@@ -40296,7 +36325,7 @@ return {
 				},
 				text="Empowers the next Melee Attack you perform, plus an additional {1} Attacks per Endurance Charge consumed"
 			},
-			[5]={
+			[4]={
 				limit={
 					[1]={
 						[1]="#",
@@ -40313,7 +36342,7 @@ return {
 				},
 				text="Empowers the next {0} Melee Attacks you perform"
 			},
-			[6]={
+			[5]={
 				limit={
 					[1]={
 						[1]="#",
@@ -40330,7 +36359,7 @@ return {
 				},
 				text="Empowers the next {0} Melee Attacks you perform, plus an additional Attack per Endurance Charge consumed"
 			},
-			[7]={
+			[6]={
 				limit={
 					[1]={
 						[1]="#",
@@ -40347,7 +36376,7 @@ return {
 				},
 				text="Empowers the next {0} Melee Attacks you perform, plus an additional {1} Attacks per Endurance Charge consumed"
 			},
-			[8]={
+			[7]={
 				limit={
 					[1]={
 						[1]=1,
@@ -40364,7 +36393,7 @@ return {
 				},
 				text="Empowers the next Melee Strike Attack you perform"
 			},
-			[9]={
+			[8]={
 				limit={
 					[1]={
 						[1]=1,
@@ -40381,7 +36410,7 @@ return {
 				},
 				text="Empowers the next Melee Strike Attack you perform, plus an additional Attack per Endurance Charge consumed"
 			},
-			[10]={
+			[9]={
 				limit={
 					[1]={
 						[1]=1,
@@ -40398,7 +36427,7 @@ return {
 				},
 				text="Empowers the next Melee Strike Attack you perform, plus an additional {1} Attacks per Endurance Charge consumed"
 			},
-			[11]={
+			[10]={
 				limit={
 					[1]={
 						[1]="#",
@@ -40415,7 +36444,7 @@ return {
 				},
 				text="Empowers the next {0} Melee Strike Attacks you perform"
 			},
-			[12]={
+			[11]={
 				limit={
 					[1]={
 						[1]="#",
@@ -40432,7 +36461,7 @@ return {
 				},
 				text="Empowers the next {0} Melee Strike Attacks you perform, plus an additional Attack per Endurance Charge consumed"
 			},
-			[13]={
+			[12]={
 				limit={
 					[1]={
 						[1]="#",
@@ -40449,7 +36478,7 @@ return {
 				},
 				text="Empowers the next {0} Melee Strike Attacks you perform, plus an additional {1} Attacks per Endurance Charge consumed"
 			},
-			[14]={
+			[13]={
 				limit={
 					[1]={
 						[1]=1,
@@ -40466,7 +36495,7 @@ return {
 				},
 				text="Empowers the next Melee Slam Attack you perform"
 			},
-			[15]={
+			[14]={
 				limit={
 					[1]={
 						[1]=1,
@@ -40483,7 +36512,7 @@ return {
 				},
 				text="Empowers the next Melee Slam Attack you perform, plus an additional Attack per Endurance Charge consumed"
 			},
-			[16]={
+			[15]={
 				limit={
 					[1]={
 						[1]=1,
@@ -40500,7 +36529,7 @@ return {
 				},
 				text="Empowers the next Melee Slam Attack you perform, plus an additional {1} Attacks per Endurance Charge consumed"
 			},
-			[17]={
+			[16]={
 				limit={
 					[1]={
 						[1]="#",
@@ -40517,7 +36546,7 @@ return {
 				},
 				text="Empowers the next {0} Melee Slam Attacks you perform"
 			},
-			[18]={
+			[17]={
 				limit={
 					[1]={
 						[1]="#",
@@ -40534,7 +36563,7 @@ return {
 				},
 				text="Empowers the next {0} Melee Slam Attacks you perform, plus an additional Attack per Endurance Charge consumed"
 			},
-			[19]={
+			[18]={
 				limit={
 					[1]={
 						[1]="#",
@@ -40551,7 +36580,7 @@ return {
 				},
 				text="Empowers the next {0} Melee Slam Attacks you perform, plus an additional {1} Attacks per Endurance Charge consumed"
 			},
-			[20]={
+			[19]={
 				limit={
 					[1]={
 						[1]=1,
@@ -40568,7 +36597,7 @@ return {
 				},
 				text="Buff is removed to Empower the next Melee Attack you perform\nAttacks Exerted by this Skill cannot be Exerted by other Skills"
 			},
-			[21]={
+			[20]={
 				limit={
 					[1]={
 						[1]="#",
@@ -40905,15 +36934,6 @@ return {
 	},
 	[1733]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]=1,
-						[2]="#"
-					}
-				},
-				text="Rage granted per 5 counted enemy Power {0}"
-			}
 		},
 		stats={
 			[1]="warcry_grant_X_rage_per_5_power"
@@ -41038,15 +37058,6 @@ return {
 						[2]="#"
 					}
 				},
-				text="More Knockback distance per stage {0}%"
-			},
-			[2]={
-				limit={
-					[1]={
-						[1]=1,
-						[2]="#"
-					}
-				},
 				text="{0}% more Knockback distance per stage"
 			}
 		},
@@ -41120,19 +37131,6 @@ return {
 	},
 	[1744]={
 		[1]={
-			[1]={
-				[1]={
-					k="one_hundred_divide_by_value",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]=1,
-						[2]="#"
-					}
-				},
-				text="Withered chance per {0}% Enemy Ailment Threshold dealt as Chaos 1%"
-			}
 		},
 		stats={
 			[1]="withered_on_hit_chance_%_for_every_100%_target_ailment_threshold_dealt_as_chaos_damage"
@@ -41222,26 +37220,13 @@ return {
 				},
 				limit={
 					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Magma infusion recovery time {0}s"
-			},
-			[2]={
-				[1]={
-					k="milliseconds_to_seconds_2dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
 						[1]=1000,
 						[2]=1000
 					}
 				},
 				text="Cannot perform a magma-infused block for\n{0} second after magma dissipates"
 			},
-			[3]={
+			[2]={
 				[1]={
 					k="milliseconds_to_seconds_2dp_if_required",
 					v=1
@@ -41499,30 +37484,13 @@ return {
 						[2]="#"
 					},
 					[3]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Empowered Attack Damage as Fire per 5 Power (max) {0}% ({1}%)"
-			},
-			[2]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					},
-					[2]={
-						[1]="#",
-						[2]="#"
-					},
-					[3]={
 						[1]=0,
 						[2]=0
 					}
 				},
 				text="Empowered Attacks Gain {0:+d}% of Damage as Fire Damage per 5 Power of enemies in range, up to {1:+d}%"
 			},
-			[3]={
+			[2]={
 				limit={
 					[1]={
 						[1]="#",

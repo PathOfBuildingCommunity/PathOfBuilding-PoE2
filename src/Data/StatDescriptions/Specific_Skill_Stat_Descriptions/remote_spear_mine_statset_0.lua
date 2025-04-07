@@ -92,15 +92,6 @@ return {
 	},
 	[5]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Lodged spear limit {0}"
-			}
 		},
 		stats={
 			[1]="number_of_remote_spear_mines_allowed"
@@ -108,15 +99,6 @@ return {
 	},
 	[6]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Projectile limit per use {0}"
-			}
 		},
 		stats={
 			[1]="number_of_thrown_remote_spears_allowed"
@@ -124,19 +106,6 @@ return {
 	},
 	[7]={
 		[1]={
-			[1]={
-				[1]={
-					k="milliseconds_to_seconds_2dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Lodged spear duration {0}s"
-			}
 		},
 		stats={
 			[1]="skill_effect_duration"

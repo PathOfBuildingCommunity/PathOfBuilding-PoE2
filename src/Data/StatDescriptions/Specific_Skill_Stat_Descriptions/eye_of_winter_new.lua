@@ -11,15 +11,6 @@ return {
 						[2]="#"
 					}
 				},
-				text="Damage Gained from Elemental Ground Effects {0}%"
-			},
-			[2]={
-				limit={
-					[1]={
-						[1]=1,
-						[2]="#"
-					}
-				},
 				text="Gains {0}% of damage as damage of the corresponding\nType when passing over an Elemental Ground Effect"
 			}
 		},

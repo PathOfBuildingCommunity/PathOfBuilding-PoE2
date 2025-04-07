@@ -20,15 +20,6 @@ return {
 	},
 	[2]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]=1,
-						[2]="#"
-					}
-				},
-				text="Lightning Resistance granted {0}%"
-			}
 		},
 		stats={
 			[1]="skill_aura_buff_lightning_damage_resistance_%_magnitude_to_apply"

@@ -49,15 +49,6 @@ return {
 	},
 	[3]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Energy Shield Recharge Rate granted {0:+d}%"
-			}
 		},
 		stats={
 			[1]="skill_aura_buff_energy_shield_recharge_rate_+%_magnitude_to_apply"
@@ -65,15 +56,6 @@ return {
 	},
 	[4]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Total Maximum Energy Shield granted {0:+d}"
-			}
 		},
 		stats={
 			[1]="skill_aura_buff_total_maximum_energy_shield_+_magnitude_to_apply"

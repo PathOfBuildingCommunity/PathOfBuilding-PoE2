@@ -9,19 +9,6 @@ return {
 	},
 	[2]={
 		[1]={
-			[1]={
-				[1]={
-					k="divide_by_ten_1dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Shockwave radius {0}m"
-			}
 		},
 		stats={
 			[1]="active_skill_area_of_effect_radius"
@@ -69,26 +56,13 @@ return {
 						[2]="#"
 					},
 					[2]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Maximum shockwaves per use {0}"
-			},
-			[2]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					},
-					[2]={
 						[1]=0,
 						[2]=0
 					}
 				},
 				text="Maximum {0:+d} shockwaves per use"
 			},
-			[3]={
+			[2]={
 				limit={
 					[1]={
 						[1]="#",

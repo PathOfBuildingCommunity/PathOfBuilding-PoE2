@@ -37,19 +37,6 @@ return {
 	},
 	[2]={
 		[1]={
-			[1]={
-				[1]={
-					k="divide_by_ten_1dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Explosion radius {0}m"
-			}
 		},
 		stats={
 			[1]="active_skill_secondary_area_of_effect_radius"
@@ -60,22 +47,13 @@ return {
 			[1]={
 				limit={
 					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="More damage after 0.5 seconds {0}%"
-			},
-			[2]={
-				limit={
-					[1]={
 						[1]=1,
 						[2]="#"
 					}
 				},
 				text="Spears that have existed for at\nleast 0.5 seconds deal {0}% more Damage"
 			},
-			[3]={
+			[2]={
 				[1]={
 					k="negate",
 					v=1

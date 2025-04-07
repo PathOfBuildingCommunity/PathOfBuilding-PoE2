@@ -4,19 +4,6 @@
 return {
 	[1]={
 		[1]={
-			[1]={
-				[1]={
-					k="divide_by_ten_1dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Beam targeting radius {0}m"
-			}
 		},
 		stats={
 			[1]="active_skill_area_of_effect_radius"
@@ -60,19 +47,6 @@ return {
 			[1]={
 				limit={
 					[1]={
-						[1]="#",
-						[2]="#"
-					},
-					[2]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Beams fired {0}"
-			},
-			[2]={
-				limit={
-					[1]={
 						[1]=1,
 						[2]=1
 					},
@@ -83,7 +57,7 @@ return {
 				},
 				text="Fires beams at up to {0:+d} additional Enemy near the target"
 			},
-			[3]={
+			[2]={
 				limit={
 					[1]={
 						[1]="#",
@@ -96,7 +70,7 @@ return {
 				},
 				text="Fires beams at up to {0:+d} additional Enemies near the target"
 			},
-			[4]={
+			[3]={
 				limit={
 					[1]={
 						[1]=1,
@@ -109,7 +83,7 @@ return {
 				},
 				text="Fires beams at up to {0} additional Enemy near the target"
 			},
-			[5]={
+			[4]={
 				limit={
 					[1]={
 						[1]="#",

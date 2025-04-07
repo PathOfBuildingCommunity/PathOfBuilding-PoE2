@@ -24,15 +24,6 @@ return {
 	},
 	[5]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Caltrops per burst {0}"
-			}
 		},
 		stats={
 			[1]="total_number_of_projectiles_to_fire"

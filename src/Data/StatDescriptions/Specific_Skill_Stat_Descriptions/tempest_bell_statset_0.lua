@@ -42,19 +42,6 @@ return {
 	},
 	[3]={
 		[1]={
-			[1]={
-				[1]={
-					k="milliseconds_to_seconds_2dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Bell duration {0}s"
-			}
 		},
 		stats={
 			[1]="skill_effect_duration"
@@ -63,19 +50,6 @@ return {
 	[4]={
 		[1]={
 			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					},
-					[2]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Bell maximum Hits {0}"
-			},
-			[2]={
 				limit={
 					[1]={
 						[1]=1,
@@ -88,7 +62,7 @@ return {
 				},
 				text="Bell is destroyed after {0:+d} Hits"
 			},
-			[3]={
+			[2]={
 				limit={
 					[1]={
 						[1]=1,

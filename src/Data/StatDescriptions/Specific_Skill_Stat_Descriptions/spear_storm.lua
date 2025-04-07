@@ -4,19 +4,6 @@
 return {
 	[1]={
 		[1]={
-			[1]={
-				[1]={
-					k="divide_by_ten_1dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Twister radius {0}m"
-			}
 		},
 		stats={
 			[1]="active_skill_area_of_effect_radius"
@@ -106,19 +93,6 @@ return {
 	},
 	[5]={
 		[1]={
-			[1]={
-				[1]={
-					k="milliseconds_to_seconds_2dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Twister duration {0}s"
-			}
 		},
 		stats={
 			[1]="skill_effect_duration"
@@ -127,15 +101,6 @@ return {
 	[6]={
 		[1]={
 			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Additional twisters per Whirlwind stage\nMore damage per Whirlwind stage 1\n{0}%"
-			},
-			[2]={
 				limit={
 					[1]={
 						[1]="#",
@@ -158,15 +123,6 @@ return {
 						[2]="#"
 					}
 				},
-				text="Elemental twister damage Gain {0}%"
-			},
-			[2]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
 				text="Elemental twisters Gain {0}% of damage as damage of the corresponding Type"
 			}
 		},
@@ -183,26 +139,13 @@ return {
 				},
 				limit={
 					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Target re-Hit interval  {0}s"
-			},
-			[2]={
-				[1]={
-					k="milliseconds_to_seconds_2dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
 						[1]=1000,
 						[2]=1000
 					}
 				},
 				text="Twisters fired at the same time can Hit the same\ntarget no more than once per second"
 			},
-			[3]={
+			[2]={
 				[1]={
 					k="milliseconds_to_seconds_2dp_if_required",
 					v=1
@@ -223,15 +166,6 @@ return {
 	[9]={
 		[1]={
 			[1]={
-				limit={
-					[1]={
-						[1]=1,
-						[2]="#"
-					}
-				},
-				text="Chance for additional twister {0}%"
-			},
-			[2]={
 				limit={
 					[1]={
 						[1]=1,

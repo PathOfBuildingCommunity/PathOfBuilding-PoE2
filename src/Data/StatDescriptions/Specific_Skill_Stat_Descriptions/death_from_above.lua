@@ -9,19 +9,6 @@ return {
 	},
 	[2]={
 		[1]={
-			[1]={
-				[1]={
-					k="divide_by_ten_1dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Volley length {0}m"
-			}
 		},
 		stats={
 			[1]="active_skill_area_of_effect_radius"
@@ -95,19 +82,6 @@ return {
 	},
 	[5]={
 		[1]={
-			[1]={
-				[1]={
-					k="divide_by_ten_1dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Volley width {0}m"
-			}
 		},
 		stats={
 			[1]="active_skill_secondary_area_of_effect_radius"
@@ -116,15 +90,6 @@ return {
 	[6]={
 		[1]={
 			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Number of Volleys {0}"
-			},
-			[2]={
 				limit={
 					[1]={
 						[1]="#",
@@ -141,19 +106,6 @@ return {
 	[7]={
 		[1]={
 			[1]={
-				[1]={
-					k="milliseconds_to_seconds_2dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]=1,
-						[2]="#"
-					}
-				},
-				text="Time between Volleys {0}s"
-			},
-			[2]={
 				[1]={
 					k="milliseconds_to_seconds_2dp_if_required",
 					v=1

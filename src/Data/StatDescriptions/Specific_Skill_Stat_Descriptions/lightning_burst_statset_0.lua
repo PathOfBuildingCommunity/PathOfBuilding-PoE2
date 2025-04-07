@@ -47,15 +47,6 @@ return {
 						[2]="#"
 					}
 				},
-				text="Split count when Consuming Frenzy Charge {0}"
-			},
-			[2]={
-				limit={
-					[1]={
-						[1]=2,
-						[2]="#"
-					}
-				},
 				text="Splits towards {0} targets when Consuming a Frenzy Charge"
 			}
 		},
@@ -66,15 +57,6 @@ return {
 	[7]={
 		[1]={
 			[1]={
-				limit={
-					[1]={
-						[1]=1,
-						[2]="#"
-					}
-				},
-				text="More damage when Consuming Frenzy Charge {0}%"
-			},
-			[2]={
 				limit={
 					[1]={
 						[1]=1,

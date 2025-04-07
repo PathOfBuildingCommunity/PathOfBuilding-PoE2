@@ -49,15 +49,6 @@ return {
 						[2]="#"
 					}
 				},
-				text="Death explosion Blood Loss threshold {0}%"
-			},
-			[2]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
 				text="Marked target releases a blood explosion when Heavy Stunned\nMarked target releases a blood explosion on death if they had at least {0}% Heavy Stun buildup from Blood Loss"
 			}
 		},
@@ -74,15 +65,6 @@ return {
 						[2]="#"
 					}
 				},
-				text="Heavy Stun buildup from Blood Loss {0}%"
-			},
-			[2]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
 				text="Marked target receives Heavy Stun buildup equal to\n{0}% of Blood Loss"
 			}
 		},
@@ -92,19 +74,6 @@ return {
 	},
 	[5]={
 		[1]={
-			[1]={
-				[1]={
-					k="milliseconds_to_seconds_2dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Mark duration {0}s"
-			}
 		},
 		stats={
 			[1]="skill_effect_duration"
