@@ -249,8 +249,8 @@ function calcs.doActorLifeManaSpiritReservation(actor)
 					for _ in pairs(activeSkill.activeEffect.srcInstance.supportEffect.isSupporting) do
 						instances = instances + 1
 					end
-					values.reservedFlat = values.reservedFlat * instances
-					values.reservedPercent = values.reservedPercent * instances
+					values.reservedFlat = values.reservedFlat * instances * mult
+					values.reservedPercent = values.reservedPercent * instances * mult
 				end
 					-- Blood Sacrament increases reservation per stage channelled
 				if activeSkill.skillCfg.skillName == "Blood Sacrament" and activeSkill.activeStageCount then
