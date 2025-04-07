@@ -725,9 +725,10 @@ statMap = {
 #set SupportStompingGroundPlayer
 #mods
 #skillEnd
+
 #skill StompingGroundShockwavePlayer
 #set StompingGroundShockwavePlayer
-#flags attack area
+#flags nonWeaponAttack area
 statMap = {
 	["attack_minimum_added_physical_damage_as_%_of_strength"] = {
 		skill("PhysicalMin", nil, { type = "PercentStat", stat = "Str", percent = 1 }),
@@ -736,6 +737,7 @@ statMap = {
 		skill("PhysicalMax", nil, { type = "PercentStat", stat = "Str", percent = 1 }),
 	},
 },
+#baseMod skill("showAverage", true)
 #mods
 #skillEnd
 
