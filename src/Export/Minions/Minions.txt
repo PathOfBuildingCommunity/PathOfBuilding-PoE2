@@ -41,6 +41,10 @@ local minions, mod = ...
 #limit ActiveSkeletonLimit
 #emit
 
+#monster Metadata/Monsters/Skeletons/PlayerSummoned/SkeletonWarriorPlayerSummoned RaisedSkeletonWarriors
+#limit ActiveSkeletonLimit
+#emit
+
 #monster Metadata/Monsters/Hellhound/HellhoundPlayerSummoned SummonedHellhound
 #emit
 
