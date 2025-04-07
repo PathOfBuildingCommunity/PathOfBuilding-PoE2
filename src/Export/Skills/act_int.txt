@@ -12,6 +12,9 @@ statMap = {
 	["arc_damage_+%_final_for_each_remaining_chain"] = {
 		mod("Damage", "MORE", nil, 0, 0, { type = "PerStat", stat = "ChainRemaining" }),
 	},
+	["quality_display_arc_is_gem"] = {
+		-- Display only
+	},
 },
 #mods
 #skillEnd
@@ -40,6 +43,12 @@ statMap = {
 #skill BallLightningPlayer
 #set BallLightningPlayer
 #flags spell area projectile
+statMap = {
+	["ball_lightning_base_hit_frequency_ms"] = {
+		skill("hitTimeOverride", nil),
+		div = 1000,
+	},
+},
 #mods
 #skillEnd
 
@@ -553,6 +562,15 @@ statMap = {
 #skill GalvanicFieldPlayer
 #set GalvanicFieldPlayer
 #flags area duration chaining
+statMap = {
+	["galvanic_field_retargeting_delay_ms"] = {
+		skill("hitTimeOverride", nil),
+		div = 1000,
+	},
+	["base_chance_to_shock_%_from_skill"] = {
+		mod("EnemyShockChance", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Aura", effectName = "Galvanic Field" }),
+	},
+},
 #mods
 #skillEnd
 

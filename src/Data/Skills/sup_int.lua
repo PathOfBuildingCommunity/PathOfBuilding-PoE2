@@ -945,6 +945,14 @@ skills["SupportCommandment"] = {
 			label = "Commandment",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_minion_damage_with_non_command_skills_+%_final"] = {
+					mod("MinionModifier", "LIST", { mod = mod("Damage", "MORE", nil, 0, 0, {type = "Condition", var = "CommandableSkill", neg = true}) }),
+				},
+				["minion_command_skill_cooldown_speed_+%"] = {
+					mod("MinionModifier", "LIST", { mod = mod("CooldownRecovery", "INC", nil, 0, 0, {type = "Condition", var = "CommandableSkill"}) }),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {

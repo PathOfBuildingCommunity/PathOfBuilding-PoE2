@@ -69,6 +69,9 @@ skills["ArcPlayer"] = {
 				["arc_damage_+%_final_for_each_remaining_chain"] = {
 					mod("Damage", "MORE", nil, 0, 0, { type = "PerStat", stat = "ChainRemaining" }),
 				},
+				["quality_display_arc_is_gem"] = {
+					-- Display only
+				},
 			},
 			baseFlags = {
 				spell = true,
@@ -427,6 +430,12 @@ skills["BallLightningPlayer"] = {
 			incrementalEffectiveness = 0.14000000059605,
 			damageIncrementalEffectiveness = 0.0054999999701977,
 			statDescriptionScope = "ball_lightning",
+			statMap = {
+				["ball_lightning_base_hit_frequency_ms"] = {
+					skill("hitTimeOverride", nil),
+					div = 1000,
+				},
+			},
 			baseFlags = {
 				spell = true,
 				area = true,
@@ -8836,6 +8845,15 @@ skills["GalvanicFieldPlayer"] = {
 			incrementalEffectiveness = 0.14000000059605,
 			damageIncrementalEffectiveness = 0.0082000000402331,
 			statDescriptionScope = "skill_stat_descriptions",
+			statMap = {
+				["galvanic_field_retargeting_delay_ms"] = {
+					skill("hitTimeOverride", nil),
+					div = 1000,
+				},
+				["base_chance_to_shock_%_from_skill"] = {
+					mod("EnemyShockChance", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Aura", effectName = "Galvanic Field" }),
+				},
+			},
 			baseFlags = {
 				area = true,
 				duration = true,
