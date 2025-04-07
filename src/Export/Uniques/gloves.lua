@@ -13,6 +13,14 @@ UniqueLocalIncreasedPhysicalDamageReductionRatingPercent11
 UniqueIntelligence9
 UniqueCriticalStrikesLeechIsInstant1
 ]],[[
+Dreadfist
+Bolstered Mitts
+UniqueLocalIncreasedPhysicalDamageReductionRatingPercent10
+UniqueCriticalMultiplier2
+UniqueImpaleOnCriticalHit1
+UniqueCriticalsCannotConsumeImpale1
+UniqueAttackerTakesDamage8
+]],[[
 Hateforge
 Moulded Mitts
 UniqueLocalIncreasedPhysicalDamageReductionRatingPercent4
@@ -28,6 +36,14 @@ UniqueIncreasedSkillSpeed1
 UniqueIncreasedLife3
 UniqueMaximumManaIncrease3
 UniqueShareChargesWithAllies1
+]],[[
+Empire's Grasp
+Titan Mitts
+UniqueLocalIncreasedPhysicalDamageReductionRatingPercent30
+UniqueStrength23
+UniqueLifeGainedFromEnemyDeath11
+UniqueIncreasedPhysicalDamagePercent1
+UniqueEnemyKnockbackDirectionReversed1
 ]],[[
 Treefingers
 Riveted Mitts
@@ -71,12 +87,15 @@ UniqueCriticalStrikeMultiplierOverride1
 Northpaw
 Suede Bracers
 Variant: Pre 0.1.1
+Variant: Pre 0.2.0
 Variant: Current
-{variant:2}UniqueLocalIncreasedEvasionRating4
+{variant:2,3}UniqueLocalIncreasedEvasionRating4
 {variant:1}UniqueAddedPhysicalDamage2[2,3][5,6]
-{variant:2}UniqueAddedPhysicalDamage2
-UniqueCriticalMultiplier1
-UniqueOverrideWeaponBaseCritical1
+{variant:2,3}UniqueAddedPhysicalDamage2
+{variant:2}UniqueCriticalMultiplier1[20,30]
+{variant:3}UniqueCriticalMultiplier1
+{variant:2}UniqueOverrideWeaponBaseCritical1[800,800]
+{variant:3}UniqueOverrideWeaponBaseCritical1
 ]],[[
 Snakebite
 Spined Bracers
@@ -120,12 +139,37 @@ UniqueSpellDamage1
 UniqueIncreasedCastSpeed6
 AmuletImplicitIntelligence1
 ]],[[
+Essentia Sanguis
+Furtive Wraps
+UniqueLocalIncreasedEvasionAndEnergyShield17
+UniqueAddedLightningDamage3
+UniqueIntelligence31
+UniqueLightningResist26
+UniqueLeechEnergyShieldInsteadofLife1
+]],[[
 Kitoko's Current
 Jewelled Gloves
 UniqueLocalIncreasedEnergyShieldPercent7
 UniqueDexterity2
 UniqueAttackAndCastSpeed1
 UniqueLightningDamageCanElectrocute1
+]],[[
+Leopold's Applause
+Embroidered Gloves
+UniqueLocalIncreasedEnergyShieldPercent1
+UniqueIncreasedMana12
+UniqueItemFoundRarityIncrease21
+UniqueElementalPenetration1
+UniqueElementalPenetrationBelowZero1
+]],[[
+Nightscale
+Pauascale Gloves
+UniqueLocalIncreasedEnergyShieldPercent26
+UniqueCriticalStrikeChance14
+UniqueIntelligence29
+UniqueColdResist34
+UniqueManaRegenerationRateIfCritRecently1
+UniqueNoManaRegenIfNotCritRecently1
 ]],[[
 Painter's Servant
 Torn Gloves
@@ -175,6 +219,15 @@ UniqueAddedPhysicalDamage3
 UniqueIncreasedLife6
 UniqueIncreasedAttackSpeed2
 UniqueStrengthSatisfiesAllWeaponRequirements1
+]],[[
+Valako's Vice
+Plate Gauntlets
+UniqueLocalIncreasedArmourAndEvasion23
+UniqueIncreasedAttackSpeed9
+UniqueStrength41
+UniqueDexterity37
+UniqueLightningResist23
+UniqueFireDamageConvertToLightning1
 ]],
 -- Gloves: Armour/Energy Shield
 [[
@@ -198,6 +251,16 @@ UniqueLifeGainedFromEnemyDeath3
 UniqueManaGainedFromEnemyDeath4
 UniqueEnemiesKilledCountAsYours1
 ]],[[
+The Prisoner's Manacles
+Diviner Cuffs
+UniqueLocalIncreasedArmourAndEnergyShield21
+UniqueIncreasedLife54
+UniqueReducedLocalAttributeRequirements5
+UniqueLightningResist28
+UniqueLifeRegeneration23
+UniqueSlowEffect1
+UniqueCannotImmobilise1
+]],[[
 Shackles of the Wretched
 Aged Cuffs
 UniqueLocalIncreasedArmourAndEnergyShield2
@@ -218,10 +281,14 @@ UniqueFireExposureOnShock1
 UniqueLightningExposureOnCrit1
 ]],[[
 Hand of Wisdom and Action
-Furtive Wraps
+Variant: Pre 0.2.0
+Variant: Current
+{variant:1}Furtive Wraps
+{variant:2}Spiral Wraps
 UniqueDexterity31
 UniqueIntelligence31
-UniqueIncreasedAttackSpeedPerDexterity1
+{variant:1}UniqueIncreasedAttackSpeedPerDexterity1[3,3]
+{variant:2}UniqueIncreasedAttackSpeedPerDexterity1
 UniqueLightningDamageToAttacksPerIntelligence1
 ]],[[
 Killjoy

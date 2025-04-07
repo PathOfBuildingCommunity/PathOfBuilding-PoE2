@@ -4,19 +4,6 @@
 return {
 	[1]={
 		[1]={
-			[1]={
-				[1]={
-					k="divide_by_ten_1dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Cone length {0}m"
-			}
 		},
 		stats={
 			[1]="active_skill_area_of_effect_radius"
@@ -64,15 +51,6 @@ return {
 						[2]="#"
 					}
 				},
-				text="More damage per stage {0}%"
-			},
-			[2]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
 				text="Deals {0}% more damage per stage"
 			}
 		},
@@ -83,19 +61,6 @@ return {
 	[4]={
 		[1]={
 			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					},
-					[2]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Fire Exposure inflicted at maximum stages (maximum) {0}% ({1}%)"
-			},
-			[2]={
 				limit={
 					[1]={
 						[1]="#",
@@ -117,15 +82,6 @@ return {
 	[5]={
 		[1]={
 			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Maximum stages {0}"
-			},
-			[2]={
 				limit={
 					[1]={
 						[1]="#",

@@ -11,15 +11,6 @@ return {
 						[2]="#"
 					}
 				},
-				text="Flask recovery granted to Allies {0}%"
-			},
-			[2]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
 				text="{0}% of recovery from your Flasks is also\ngranted to Allies in your Presence"
 			}
 		},
@@ -30,19 +21,6 @@ return {
 	[2]={
 		[1]={
 			[1]={
-				[1]={
-					k="per_minute_to_per_second_2dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Flask charges per second {0}"
-			},
-			[2]={
 				[1]={
 					k="per_minute_to_per_second_2dp_if_required",
 					v=1

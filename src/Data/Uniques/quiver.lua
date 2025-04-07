@@ -35,5 +35,23 @@ Adds 3 to 5 Fire damage to Attacks
 50% increased chance to Ignite
 Projectiles Pierce all Ignited enemies
 Attacks Gain (5-10)% of Damage as Extra Fire Damage
+]],[[
+The Lethal Draw
+Sacral Quiver
+Implicits: 1
+Gain (2-3) Life per Enemy Hit with Attacks
+(5-10)% increased Attack Speed
+Gain 5 Life per Enemy Hit with Attacks
+(15-25)% chance to Pierce an Enemy
+Bow Attacks consume 10% of your maximum Life Flask Charges if possible to deal added Physical damage equal to 5% of Flask's Life Recovery amount
+]],[[
+Rearguard
+Blunt Quiver
+Implicits: 1
+(20-30)% reduced Enemy Stun Threshold
+Adds (7-11) to (14-20) Physical Damage to Attacks
++(150-200) to Armour
+(20-30)% increased Projectile Speed
++(15-25)% to Block chance
 ]],
 }

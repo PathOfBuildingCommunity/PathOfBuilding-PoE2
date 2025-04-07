@@ -348,7 +348,7 @@ local function determineCursePriority(curseName, activeSkill)
 	elseif source ~= "" then
 		sourcePriority = data.cursePriority["CurseFromEquipment"]
 	end
-	if source ~= "" and slotPriority == data.cursePriority["Ring 2"] then
+	if source ~= "" and (slotPriority == data.cursePriority["Ring 2"] or slotPriority == data.cursePriority["Ring 3"]) then
 		-- Implicit and explicit curses from rings have equal priority; only curses from socketed skill gems care about which ring slot they're equipped in
 		slotPriority = data.cursePriority["Ring 1"]
 	end
@@ -436,8 +436,9 @@ local function doActorMisc(env, actor)
 			modDB:NewMod("AreaOfEffect", "INC", effect, "Fanaticism", ModFlag.Cast)
 		end
 		if modDB:Flag(nil, "UnholyMight") then
-			local effect = 1 + (modDB:Sum("INC", nil, "BuffEffectOnSelf") / 100) + (modDB:Sum("INC", nil, "UnholyMightMagnitude") / 100)
-			modDB:NewMod("DamageGainAsChaos", "BASE", m_floor(30 * effect), "Unholy Might")
+			local effect = 1 + (modDB:Sum("INC", nil, "BuffEffectOnSelf") / 100) 
+			modDB:NewMod("Multiplier:UnholyMightMagnitude", "BASE", 100, "Unholy Might") -- Unholy Might Magnitude has to be implemented via Multiplier, because some stat data (Mana) is not yet available here for "perStat" mods
+			modDB:NewMod("DamageGainAsChaos", "BASE", 0.3 * effect, "Unholy Might", { type = "Multiplier", var = "UnholyMightMagnitude" })
 		end
 		if modDB:Flag(nil, "ChaoticMight") then
 			local effect = m_floor(30 * (1 + modDB:Sum("INC", nil, "BuffEffectOnSelf") / 100))
@@ -494,9 +495,16 @@ local function doActorMisc(env, actor)
 			local effect = modDB:Max(nil, "WitherEffectStack")
 			enemyDB:NewMod("ChaosDamageTaken", "INC", effect, "Withered", { type = "Multiplier", var = "WitheredStack", limit = 10 } )
 		end
+		if modDB:Flag(nil, "Condition:CanInflictIncision") then
+			local effect = 10 * (1 + modDB:Sum("INC", nil, "IncisionEffect") / 100)
+			enemyDB:NewMod("SelfBleedChance", "BASE", effect, "Incision", { type = "Multiplier", var = "IncisionStack", limit = 10 } )
+		end
 		if modDB:Flag(nil, "Condition:CanBeWithered") then
 			local effect = 5 * (100 + modDB:Sum("INC", nil, "WitherEffectOnSelf")) / 100 * modDB:More(nil, "WitherEffectOnSelf")
 			modDB:NewMod("ChaosDamageTaken", "INC", effect, "Withered", { type = "Multiplier", var = "WitheredStack", limit = 10 } )
+		end
+		if enemyDB:Flag(nil, "Condition:ArmourFullyBroken") then
+			enemyDB:NewMod("PhysicalDamageTaken", "INC", 20, "Fully Broken Armour", ModFlag.Hit)
 		end
 		if modDB:Flag(nil, "Blind") and not modDB:Flag(nil, "CannotBeBlinded") then
 			if not modDB:Flag(nil, "IgnoreBlindHitChance") then
@@ -1047,50 +1055,31 @@ function calcs.perform(env, skipEHP)
 		end
 	end
 
-	local ringsEffectMod = modDB:Sum("INC", nil, "EffectOfBonusesFromRings") / 100
-	if ringsEffectMod > 0 then
-		if env.player.itemList["Ring 1"] then
-			local slotName = "Ring 1"
-
-			if env.player.itemList["Ring 1"].name:match("Kalandra's Touch") and env.player.itemList["Ring 2"] and not env.player.itemList["Ring 2"].name:match("Kalandra's Touch") then
-				slotName = "Ring 2"
-			end
-
-			for _, mod in ipairs(env.player.itemList[slotName].modList or env.player.itemList[slotName].slotModList[1]) do
-				-- Filter out SocketedIn type mods
-				for _, tag in ipairs(mod) do
-					if tag.type == "SocketedIn" then
-						goto skip_mod
-					end
+	for slot, item in pairs(env.player.itemList) do
+		local slotEffectMod = modDB:Sum("INC", nil, "EffectOfBonusesFrom" .. slot) / 100
+		if slotEffectMod > 0 then
+			if item.name:match("Kalandra's Touch") then
+				if slot == "Ring 2" then
+					item = env.player.itemList["Ring 1"]
+				else
+					item = env.player.itemList["Ring 2"]
 				end
-
-				local modCopy = copyTable(mod)
-				modCopy.source = "Many Sources:".. colorCodes.UNIQUE .. "Ingenuity " .. colorCodes.SOURCE .. tostring(ringsEffectMod * 100) .. "% Ring 1 Bonus Effect"
-				modDB:ScaleAddMod(modCopy, ringsEffectMod)
-
-				::skip_mod::
 			end
-		end
-		if env.player.itemList["Ring 2"] then
-			local slotName = "Ring 2"
-
-			if env.player.itemList["Ring 2"].name:match("Kalandra's Touch") and env.player.itemList["Ring 1"] and not env.player.itemList["Ring 1"].name:match("Kalandra's Touch") then
-				slotName = "Ring 1"
-			end
-
-			for _, mod in ipairs(env.player.itemList[slotName].modList or env.player.itemList[slotName].slotModList[2]) do
-				-- Filter out SocketedIn type mods
-				for _, tag in ipairs(mod) do
-					if tag.type == "SocketedIn" then
-						goto skip_mod
+			if item then
+				for _, mod in ipairs(item.modList or item.slotModList[2]) do
+					-- Filter out SocketedIn type mods
+					for _, tag in ipairs(mod) do
+						if tag.type == "SocketedIn" then
+							goto skip_mod
+						end
 					end
+
+					local modCopy = copyTable(mod)
+					modCopy.source = "Many Sources:".. colorCodes.SOURCE .. tostring(slotEffectMod * 100) .. "% " .. slot .. " Bonus Effect"
+					modDB:ScaleAddMod(modCopy, slotEffectMod)
+
+					::skip_mod::
 				end
-
-				local modCopy = copyTable(mod)
-				modCopy.source = "Many Sources:".. colorCodes.UNIQUE .. "Ingenuity " .. colorCodes.SOURCE .. tostring(ringsEffectMod * 100) .. "% Ring 2 Bonus Effect"
-				modDB:ScaleAddMod(modCopy, ringsEffectMod)
-
-				::skip_mod::
 			end
 		end
 	end

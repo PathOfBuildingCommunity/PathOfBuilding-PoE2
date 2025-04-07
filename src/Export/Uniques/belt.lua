@@ -3,6 +3,15 @@
 return {
 -- Belt
 [[
+Bijouborne
+Double Belt
+Implicits: 1
+UniqueIncreasedMana51
+UniqueGlobalCharmIncreasedDuration1
+UniqueAdditionalCharm3
+UniqueDexterity41
+UniqueIncreasedCharmChargesGained2
+]],[[
 Birthright Buckle
 Wide Belt
 Implicits: 1
@@ -34,6 +43,15 @@ UniqueDexterity3
 UniqueBeltFlaskRecoveryRate1
 UniqueLowLifeThreshold1
 ]],[[
+Goregirdle
+Plate Belt
+Implicits: 1
+BeltImplicitPhysicalDamageReductionRating1
+UniqueStrength10
+UniqueLifeRegeneration17
+UniqueDoubleArmourEffect1
+UniqueMaximumPhysicalReductionOverride1
+]],[[
 Headhunter
 Heavy Belt
 Implicits: 1
@@ -57,9 +75,16 @@ UniqueMaximumFireResist1
 ]],[[
 Ingenuity
 Utility Belt
+Variant: Pre 0.2.0
+Variant: Current
 Implicits: 1
 BeltImplicitInstantFlaskRecoveryPercent1
-UniqueIncreasedRingBonuses1
+{variant:2}UniqueAdditionalCharm2
+{variant:2}UniqueIncreasedCharmChargesGained1
+{variant:2}UniqueReducedCharmChargesUsed2
+{variant:2}UniqueIncreasedLeftRingBonuses1
+{variant:2}UniqueIncreasedRightRingBonuses1
+{variant:1}UniqueIncreasedRingBonuses1
 ]],[[
 Keelhaul
 Linen Belt
@@ -117,6 +142,16 @@ UniqueIncreasedEnergyShield2
 UniqueIntelligence9
 UniqueLoseEnergyShieldPerSecond1
 UniqueLifeLeechExcessToEnergyShield1
+]],[[
+Waistgate Heavy Belt
+Heavy Belt
+Implicits: 1
+BeltImplicitIncreasedStunThreshold1
+UniqueIncreasedLife45
+UniqueIncreasedMana50
+UniqueFlaskLifeRecoveryRate6
+UniqueFlaskManaRecoveryRate4
+UniqueLifeManaFlaskAnySlot1
 ]],[[
 Zerphi's Genesis
 Heavy Belt

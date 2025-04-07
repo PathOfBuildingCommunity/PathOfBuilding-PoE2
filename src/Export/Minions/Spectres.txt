@@ -6,10 +6,10 @@
 local minions, mod, flag = ...
 
 -- Goliath
-#spectre Metadata/Monsters/TwoheadedTitan/TwoHeadedTitanSpectre
+#spectre Metadata/Monsters/TwoheadedTitan/TwoHeadedTitan
 
 -- Quadrilla
-#spectre Metadata/Monsters/Quadrilla/QuadrillaElite
+#spectre Metadata/Monsters/Quadrilla/Quadrilla
 
 -- Sentinel
 #spectre Metadata/Monsters/VaalConstructs/Sentinel/VaalConstructSentinel

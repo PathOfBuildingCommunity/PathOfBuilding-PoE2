@@ -174,7 +174,7 @@ function PassiveSpecClass:Load(xml, dbFileName)
 				end
 			end
 		end
-		self:ImportFromNodeList(tonumber(xml.attrib.classId), tonumber(xml.attrib.ascendClassId), tonumber(xml.attrib.secondaryAscendClassId or 0), hashList, weaponSets, copyTable(self.hashOverrides, true), masteryEffects)
+		self:ImportFromNodeList(nil, tonumber(xml.attrib.classId), tonumber(xml.attrib.ascendClassId), tonumber(xml.attrib.secondaryAscendClassId or 0), hashList, weaponSets, copyTable(self.hashOverrides, true), masteryEffects)
 	elseif url then
 		self:DecodeURL(url)
 	end
@@ -263,13 +263,17 @@ function PassiveSpecClass:PostLoad()
 end
 
 -- Import passive spec from the provided class IDs and node hash list
-function PassiveSpecClass:ImportFromNodeList(classId, ascendClassId, secondaryAscendClassId, hashList, weaponSets, hashOverrides, masteryEffects, treeVersion)
+function PassiveSpecClass:ImportFromNodeList(className, classId, ascendClassId, secondaryAscendClassId, hashList, weaponSets, hashOverrides, masteryEffects, treeVersion)
   if hashOverrides == nil then hashOverrides = {} end
 	if treeVersion and treeVersion ~= self.treeVersion then
 		self:Init(treeVersion)
 		self.build.treeTab.showConvert = self.treeVersion ~= latestTreeVersion
 	end
 	self:ResetNodes()
+	if className then
+		classId = self.tree.classNameMap[className] or (self.tree.ascendNameMap[className] and self.tree.ascendNameMap[className].classId) or (self.tree.internalAscendNameMap[className] and self.tree.internalAscendNameMap[className].classId)
+		ascendClassId = (self.tree.ascendNameMap[className] and self.tree.ascendNameMap[className].ascendClassId) or (self.tree.internalAscendNameMap[className] and self.tree.internalAscendNameMap[className].ascendClassId) or 0
+	end
 	self:SelectClass(classId)
 	self:SelectAscendClass(ascendClassId)
 	self:SelectSecondaryAscendClass(secondaryAscendClassId)
@@ -755,7 +759,7 @@ end
 function PassiveSpecClass:CountAllocNodes()
 	local used, ascUsed, secondaryAscUsed, sockets, weaponSet1Used, weaponSet2Used = 0, 0, 0, 0, 0, 0
 	for _, node in pairs(self.allocNodes) do
-		if node.type ~= "ClassStart" and node.type ~= "AscendClassStart" then
+		if node.type ~= "ClassStart" and node.type ~= "AscendClassStart" and node.isFreeAllocate == nil then
 			if node.ascendancyName then
 				if not node.isMultipleChoiceOption then
 					if self.tree.secondaryAscendNameMap and self.tree.secondaryAscendNameMap[node.ascendancyName] then
@@ -1953,7 +1957,7 @@ function PassiveSpecClass:CreateUndoState()
 end
 
 function PassiveSpecClass:RestoreUndoState(state, treeVersion)
-	self:ImportFromNodeList(state.classId, state.ascendClassId, state.secondaryAscendClassId, state.hashList, state.weaponSets, state.hashOverrides, state.masteryEffects, treeVersion or state.treeVersion)
+	self:ImportFromNodeList(nil, state.classId, state.ascendClassId, state.secondaryAscendClassId, state.hashList, state.weaponSets, state.hashOverrides, state.masteryEffects, treeVersion or state.treeVersion)
 	self:SetWindowTitleWithBuildClass()
 end
 

@@ -23,6 +23,7 @@ local groupSlotDropList = {
 	{ label = "Amulet", slotName = "Amulet" },
 	{ label = "Ring 1", slotName = "Ring 1" },
 	{ label = "Ring 2", slotName = "Ring 2" },
+	{ label = "Ring 3", slotName = "Ring 3" },
 	{ label = "Belt", slotName = "Belt" },
 }
 
@@ -1080,9 +1081,9 @@ function SkillsTabClass:ProcessSocketGroup(socketGroup)
 			calcLib.validateGemLevel(gemInstance)
 			if gemInstance.gemData then
 				gemInstance.reqLevel = grantedEffect.levels[gemInstance.level].levelRequirement
-				gemInstance.reqStr = calcLib.getGemStatRequirement(gemInstance.reqLevel, gemInstance.gemData.reqStr)
-				gemInstance.reqDex = calcLib.getGemStatRequirement(gemInstance.reqLevel, gemInstance.gemData.reqDex)
-				gemInstance.reqInt = calcLib.getGemStatRequirement(gemInstance.reqLevel, gemInstance.gemData.reqInt)
+				gemInstance.reqStr = calcLib.getGemStatRequirement(gemInstance.reqLevel, gemInstance.gemData.reqStr, grantedEffect.support)
+				gemInstance.reqDex = calcLib.getGemStatRequirement(gemInstance.reqLevel, gemInstance.gemData.reqDex, grantedEffect.support)
+				gemInstance.reqInt = calcLib.getGemStatRequirement(gemInstance.reqLevel, gemInstance.gemData.reqInt, grantedEffect.support)
 			end
 		end
 	end

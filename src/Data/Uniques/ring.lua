@@ -91,11 +91,31 @@ Implicits: 1
 ]],[[
 Dream Fragments
 Sapphire Ring
+Variant: Pre 0.2.0
+Variant: Current
 Implicits: 1
 {tags:cold}+(20-30)% to Cold Resistance
-{tags:mana}20% increased maximum Mana
+{variant:1}{tags:mana}20% increased maximum Mana
+{variant:2}{tags:mana}10% increased maximum Mana
 {tags:mana}(30-50)% increased Mana Regeneration Rate
 You cannot be Chilled or Frozen
+]],[[
+Evergrasping Ring
+Pearl Ring
+Implicits: 1
+{tags:caster,speed}(7-10)% increased Cast Speed
+{tags:mana}+(60-100) to maximum Mana
+{tags:chaos}Allies in your Presence Gain (15-25)% of Damage as Extra Chaos Damage
+{tags:chaos}Enemies in your Presence Gain (6-12)% of Damage as Extra Chaos Damage
+]],[[
+Gifts from Above
+Prismatic Ring
+Implicits: 1
+{tags:fire,cold,lightning}+(7-10)% to all Elemental Resistances
+(20-30)% increased Critical Hit Chance
+(20-30)% increased Light Radius
+(20-30)% increased Rarity of Items Dropped by Enemies killed with a Critical Hit
+You have Consecrated Ground around you while stationary
 ]],[[
 Glowswarm
 Lazuli Ring
@@ -115,9 +135,21 @@ Implicits: 1
 {tags:physical}300 Physical Damage taken on Minion Death
 Minions Revive (10-15)% faster
 ]],[[
+Icefang Orbit
+Iron Ring
+Requires Level 36
+Implicits: 1
+{tags:physical,attack}Adds 1 to 4 Physical Damage to Attacks
+{tags:physical,attack}Adds (5-7) to (9-13) Physical Damage to Attacks
+{tags:attribute}+(20-30) to Dexterity
+(10-20)% chance to Poison on Hit
+{tags:cold}All Damage taken from Hits while Poisoned Contributes to Magnitude of Chill on you
+{tags:cold}All Damage from Hits against Poisoned targets Contributes to Chill Magnitude
+(15-25)% increased Magnitude of Poison you inflict
+]],[[
 Kalandra's Touch
 Ring
-Reflects your other Ring
+Reflects opposite Ring
 Mirrored
 ]],[[
 Levinstone
@@ -133,7 +165,7 @@ Amethyst Ring
 Implicits: 1
 {tags:chaos}+(7-13)% to Chaos Resistance
 {tags:life}20% reduced maximum Life
-Gain (30-40)% of Damage as Extra Chaos Damage
+{tags:chaos}Gain (30-40)% of Damage as Extra Chaos Damage
 {tags:defences}30% reduced Global Defences
 ]],[[
 Original Sin
@@ -144,7 +176,7 @@ Implicits: 1
 {tags:chaos}+(7-13)% to Chaos Resistance
 {variant:2}{tags:chaos}+(17-23)% to Chaos Resistance
 100% of Elemental Damage Converted to Chaos Damage
-{variant:1}{tags:chaos}Chaos Resistance is Zero
+{variant:1}{tags:chaos}Chaos Resistance is zero
 ]],[[
 Perandus Seal
 Gold Ring
@@ -162,6 +194,16 @@ Implicits: 1
 {tags:mana}+(40-60) to maximum Mana
 {tags:attribute}+(10-15) to Strength
 Enemies Chilled by your Hits can be Shattered as though Frozen
+]],[[
+Prized Pain
+Iron Ring
+Requires Level 48
+Implicits: 1
+{tags:physical,attack}Adds 1 to 4 Physical Damage to Attacks
+{tags:attribute}+(20-30) to Strength
+Skills gain a Base Life Cost equal to 10% of Base Mana Cost
+Deal your Thorns Damage to Enemies you Stun with Melee Attacks
+{tags:physical}(24-35) to (35-53) Physical Thorns damage
 ]],[[
 Seed of Cataclysm
 Lazuli Ring
@@ -208,17 +250,44 @@ Can't use other Rings
 {tags:mana,attack}Gain 15 Mana per Enemy Hit with Attacks
 {tags:caster}50% reduced Duration of Curses on you
 ]],[[
+Venopuncture
+Iron Ring
+Requires Level 36
+Implicits: 1
+{tags:physical,attack}Adds 1 to 4 Physical Damage to Attacks
+{tags:physical,attack}Adds (5-7) to (9-13) Physical Damage to Attacks
+{tags:attribute}+(20-30) to Strength
+{tags:cold}All Damage taken from Hits while Bleeding Contributes to Magnitude of Chill on you
+{tags:cold}All Damage from Hits against Bleeding targets Contributes to Chill Magnitude
+(10-20)% chance to inflict Bleeding on Hit
+{tags:physical,attack}(15-25)% increased Magnitude of Bleeding you inflict
+]],[[
 Ventor's Gamble
 Gold Ring
+Variant: Pre 0.2.0
+Variant: Current
 Requires Level 64
 Implicits: 1
 (6-15)% increased Rarity of Items found
 {tags:life}+(0-80) to maximum Life
 +(0-20) to Spirit
-(-40-40)% reduced Rarity of Items found
+{variant:1}(-40-40)% reduced Rarity of Items found
+{variant:2}(-25-25)% reduced Rarity of Items found
 {tags:fire}+(-40-40)% to Fire Resistance
 {tags:cold}+(-40-40)% to Cold Resistance
 {tags:lightning}+(-40-40)% to Lightning Resistance
+]],[[
+Vigilant View
+Emerald Ring
+Requires Level 26
+Implicits: 1
+{tags:attack}+(120-160) to Accuracy Rating
+{tags:attack}+(100-150) to Accuracy Rating
+{tags:defences}+(100-150) to Evasion Rating
+(10-20)% increased Rarity of Items found
+{tags:attribute}+(20-30) to Dexterity
+Enemies have an Accuracy Penalty against you based on Distance
+Maximum Chance to Evade is 50%
 ]],[[
 Whisper of the Brotherhood
 Sapphire Ring

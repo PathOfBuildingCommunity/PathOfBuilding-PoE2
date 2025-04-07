@@ -27,13 +27,43 @@ Variant: Current
 All Damage from Hits with this Weapon Contributes to Freeze Buildup
 Culling Strike against Frozen Enemies
 ]],[[
+Mjölner
+Torment Club
+Implicits: 1
+Grants Skill: Level (1-20) Lightning Spell on Hit
++200 Intelligence Requirement
++100 Strength Requirement
+(150-200)% increased Physical Damage
+(10-20)% increased Attack Speed
++(1-2) to Level of all Lightning Skills
+]],[[
+Nebuloch
+Brigand Mace
+Adds (39-48) to (69-79) Physical Damage
++(20-30)% to Critical Damage Bonus
+Adds (25-36) to (44-55) Chaos damage
+Attacks consume an Endurance Charge to Critically Hit
+Take 100 Chaos damage per second per Endurance Charge
+]],[[
 Olrovasara
 Torment Club
-Adds 1 to (60-80) Lightning Damage
+Variant: Pre 0.2.0
+Variant: Current
+{variant:1}Adds 1 to (60-80) Lightning Damage
+{variant:2}Adds 1 to (80-120) Lightning Damage
 +(300-400) to Accuracy Rating
 (5-30)% increased Attack Speed
 On Hitting an enemy, gains maximum added Lightning damage equal to
 the enemy's Power for 6 seconds, up to a total of 500
+]],[[
+Sculpted Suffering
+Warpick
+Implicits: 1
++(10-15)% to Critical Damage Bonus
+Adds (21-26) to (25-31) Physical Damage
+(10-15)% increased Attack Speed
+Breaks Armour equal to 40% of damage from Hits with this weapon
+Fully Armour Broken enemies you kill with Hits Shatter
 ]],[[
 Seeing Stars
 Plated Mace
@@ -49,11 +79,13 @@ Energy Generation is doubled
 Trenchtimbre
 Spiked Club
 Variant: Pre 0.1.1
+Variant: Pre 0.2.0
 Variant: Current
 {variant:1}Adds (10-12) to (18-35) Physical Damage
-{variant:2}Adds (13-15) to (22-25) Physical Damage
+{variant:2,3}Adds (13-15) to (22-25) Physical Damage
 (20-30)% increased Attack Speed
-+(1-3) to Level of all Minion Skills
+{variant:2}+(1-3) to Level of all Minion Skills
+{variant:3}+(1-2) to Level of all Minion Skills
 Increases and Reductions to Minion Attack Speed also affect you
 ]],[[
 Wylund's Stake
@@ -67,7 +99,7 @@ Variant: Current
 {variant:2}+(10-20) to Strength
 {variant:2}+(20-30)% to Fire Resistance
 Hits Break (30-50) Armour
-Apply Fire Exposure when fully breaking enemy Armour
+Inflicts Fire Exposure when this Weapon Fully Breaks Armour
 ]],
 -- Weapon: Two Handed Mace
 [[
@@ -93,6 +125,24 @@ Variant: Current
 {variant:2}+50 to Spirit
 {variant:1}+5% to Critical Hit Chance
 Increases and Reductions to Minion Damage also affect you
+]],[[
+The Empty Roar
+Cultist Greathammer
+Implicits: 1
+Strikes deal Splash damage to targets within 1.5 metres
+Adds (25-35) to (40-50) Physical Damage
+Leeches 10% of Physical Damage as Life
+(10-20)% chance to cause Bleeding on Hit
+All Attacks count as Empowered Attacks
+Cannot use Warcries
+]],[[
+The Hammer of Faith
+Giant Maul
+(200-250)% increased Physical Damage
+10% reduced Attack Speed
++10% to all Elemental Resistances
+50% increased Mana Regeneration Rate
+Gain a random Shrine buff every 10 seconds
 ]],[[
 Hoghunt
 Felled Greatclub
@@ -127,6 +177,14 @@ Gain 30 Life per Enemy Killed
 This Weapon's Critical Hit Chance is 100%
 Critical Hits do not deal extra Damage
 ]],[[
+Tidebreaker
+Pointed Maul
+(120-150)% increased Physical Damage
++(2-3) to Level of all Melee Skills
++(20-30) to Intelligence
+Causes (150-200)% increased Stun Buildup
+All Damage from Hits with this Weapon Contributes to Chill Magnitude
+]],[[
 Trephina
 Forge Maul
 Variant: Pre 0.1.1
@@ -136,5 +194,14 @@ Variant: Current
 (10-15)% increased Attack Speed
 Causes (30-50)% increased Stun Buildup
 Always deals Critical Hits against Heavy Stunned Enemies
+]],[[
+Shyaba
+Temple Maul
++50 Dexterity Requirement
+-15 Strength Requirement
+(80-120)% increased Physical Damage
+50% increased Attack Speed
+(15-25)% increased Light Radius
+Always Hits
 ]],
 }

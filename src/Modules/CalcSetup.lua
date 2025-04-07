@@ -27,7 +27,7 @@ function calcs.initModDB(env, modDB)
 	modDB:NewMod("BlockChanceMax", "BASE", 75, "Base")
 	modDB:NewMod("SpellBlockChanceMax", "BASE", 75, "Base")
 	modDB:NewMod("SpellDodgeChanceMax", "BASE", 75, "Base")
-	modDB:NewMod("ChargeDuration", "BASE", 10, "Base")
+	modDB:NewMod("ChargeDuration", "BASE", 15, "Base")
 	modDB:NewMod("PowerChargesMax", "BASE", 3, "Base")
 	modDB:NewMod("FrenzyChargesMax", "BASE", 3, "Base")
 	modDB:NewMod("EnduranceChargesMax", "BASE", 3, "Base")
@@ -554,7 +554,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 		calcs.initModDB(env, modDB)
 		modDB:NewMod("Life", "BASE", 12, "Base", { type = "Multiplier", var = "Level", base = 16 })
 		modDB:NewMod("Mana", "BASE", 4, "Base", { type = "Multiplier", var = "Level", base = 30 })
-		modDB:NewMod("ManaRegen", "BASE", 0.04, "Base", { type = "PerStat", stat = "Mana", div = 1 })
+		modDB:NewMod("ManaRegen", "BASE", 0.04, "Base", { type = "PerStat", stat = "Mana", div = 1 }, { type = "Condition", var = "NoInherentManaRegen", neg = true })
 		modDB:NewMod("Spirit", "BASE", 0, "Base")
 		modDB:NewMod("Devotion", "BASE", 0, "Base")
 		modDB:NewMod("Evasion", "BASE", 3, "Base", { type = "Multiplier", var = "Level", base = 27 })
@@ -712,14 +712,21 @@ function calcs.initEnv(build, mode, override, specEnv)
 	if not accelerate.requirementsItems then
 		local items = {}
 		local jewelLimits = {}
+		local giantsBlood = true
+		if build.calcsTab and build.calcsTab.mainEnv then
+			giantsBlood = build.calcsTab.mainEnv.modDB:Flag(nil, "GiantsBlood")
+		end
 		for _, slot in pairs(build.itemsTab.orderedSlots) do
 			local slotName = slot.slotName
 			local item
 			if slotName == override.repSlotName then
 				item = override.repItem
 			elseif override.repItem and override.repSlotName:match("^Weapon 1") and slotName:match("^Weapon 2") and
-			(override.repItem.base.type == "Staff" or override.repItem.base.type == "Two Handed Sword" or override.repItem.base.type == "Two Handed Axe" or override.repItem.base.type == "Two Handed Mace"
-			or (override.repItem.base.type == "Bow" and item and item.base.type ~= "Quiver")) then
+			(
+				override.repItem.base.type == "Staff"
+				or (not giantsBlood and (override.repItem.base.type == "Two Handed Sword" or override.repItem.base.type == "Two Handed Axe" or override.repItem.base.type == "Two Handed Mace"))
+				or (override.repItem.base.type == "Bow" and item and item.base.type ~= "Quiver")
+			) then
 				goto continue
 			elseif slot.nodeId and override.spec then
 				item = build.itemsTab.items[env.spec.jewels[slot.nodeId]]
@@ -1066,7 +1073,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 					else
 						env.itemModDB.multipliers["NonCorruptedItem"] = (env.itemModDB.multipliers["NonCorruptedItem"] or 0) + 1
 					end
-					local otherRing = items[(slotName == "Ring 1" and "Ring 2") or (slotName == "Ring 2" and "Ring 1")]
+					local otherRing = items[(slotName == "Ring 1" and "Ring 2") or (slotName == "Ring 2" and "Ring 1") or (slotName == "Ring 3" and "Ring 2")]
 					if otherRing and not otherRing.name:match("Kalandra's Touch") then
 						for _, mod in ipairs(otherRing.modList or otherRing.slotModList[slot.slotNum] or {}) do
 							-- Filter out SocketedIn type mods

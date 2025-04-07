@@ -96,7 +96,7 @@ directiveTable.base = function(state, args, out)
 	if state.subType and #state.subType > 0 then
 		out:write('\tsubType = "', state.subType, '",\n')
 	end
-	if maximumQuality ~= 0 then
+	if maximumQuality ~= 0 then --If it crashes on this line, you are missing a .It file for a base ConPrintf(baseItemType.BaseType)
 		out:write('\tquality = ', maximumQuality, ',\n')
 	end
 	if state.type == "Belt" then
@@ -196,6 +196,9 @@ directiveTable.base = function(state, args, out)
 		out:write('CritChanceBase = ', weaponType.CritChance / 100, ', ')
 		out:write('AttackRateBase = ', round(1000 / weaponType.Speed, 2), ', ')
 		out:write('Range = ', weaponType.Range, ', ')
+		if weaponType.ReloadTime > 0 then
+			out:write('ReloadTimeBase = ', round(weaponType.ReloadTime / 1000, 2), ', ')
+		end
 		out:write('},\n')
 		itemValueSum = weaponType.DamageMin + weaponType.DamageMax
 	end

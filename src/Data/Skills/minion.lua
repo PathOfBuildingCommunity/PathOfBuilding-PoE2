@@ -9,7 +9,7 @@ local skills, mod, flag, skill = ...
 skills["MeleeAtAnimationSpeed"] = {
 	name = "Basic Attack",
 	hidden = true,
-	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Multistrikeable] = true, [SkillType.Melee] = true, [SkillType.ProjectilesFromUser] = true, },
+	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.ProjectilesFromUser] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -42,7 +42,7 @@ skills["MeleeAtAnimationSpeed"] = {
 skills["MinionMelee"] = {
 	name = "Basic Attack",
 	hidden = true,
-	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Multistrikeable] = true, [SkillType.Melee] = true, [SkillType.ProjectilesFromUser] = true, },
+	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.ProjectilesFromUser] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -73,7 +73,7 @@ skills["MinionMelee"] = {
 skills["MinionMeleeStep"] = {
 	name = "Basic Attack",
 	hidden = true,
-	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Multistrikeable] = true, [SkillType.Melee] = true, [SkillType.ProjectilesFromUser] = true, },
+	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.ProjectilesFromUser] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -107,7 +107,7 @@ skills["MinionMeleeStep"] = {
 skills["MinionMeleeBow"] = {
 	name = "Basic Attack",
 	hidden = true,
-	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Multistrikeable] = true, [SkillType.Melee] = true, [SkillType.ProjectilesFromUser] = true, },
+	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.ProjectilesFromUser] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -143,8 +143,8 @@ skills["MinionMeleeBow"] = {
 skills["GasShotSkeletonSniperMinion"] = {
 	name = "Gas Arrow",
 	hidden = true,
-	description = "Rains an arrow down from above, creating a cloud of flammable poisonous gas where it lands. The cloud will detonate if hit by a Detonator skill or if an Ignited enemy touches it, creating a fiery explosion.",
-	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Area] = true, [SkillType.ProjectileNumber] = true, [SkillType.ProjectileSpeed] = true, [SkillType.Rain] = true, [SkillType.DamageOverTime] = true, [SkillType.Cooldown] = true, [SkillType.Duration] = true, },
+	description = "Rain an arrow down from above, creating a cloud of flammable poisonous gas where it lands. The cloud will detonate if hit by a Detonator skill or if an Ignited enemy touches it, creating a fiery explosion.",
+	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Area] = true, [SkillType.ProjectileNumber] = true, [SkillType.ProjectileSpeed] = true, [SkillType.Rain] = true, [SkillType.DamageOverTime] = true, [SkillType.Cooldown] = true, [SkillType.Duration] = true, [SkillType.GroundTargetedProjectile] = true, [SkillType.CreatesGroundEffect] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -175,6 +175,7 @@ skills["GasShotSkeletonSniperMinion"] = {
 				"skill_cannot_be_electrocuted",
 				"skill_cannot_be_knocked_back",
 				"skill_cannot_be_stunned",
+				"quality_display_active_skill_ground_effect_area_of_effect_+%_final_per_second_max_is_gem",
 			},
 			levels = {
 				[1] = { actorLevel = 1, },
@@ -182,9 +183,7 @@ skills["GasShotSkeletonSniperMinion"] = {
 		},
 		[2] = {
 			label = "Poison Cloud",
-			baseEffectiveness = 4,
-			incrementalEffectiveness = 0.059399999678135,
-			damageIncrementalEffectiveness = 0.071489997208118,
+			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "sniper_gas_shot_statset_1",
 			baseFlags = {
 				attack = true,
@@ -196,8 +195,8 @@ skills["GasShotSkeletonSniperMinion"] = {
 				{ "active_skill_base_secondary_area_of_effect_radius", 20 },
 				{ "command_minion_marker_additional_time_ms", 300 },
 				{ "base_skill_effect_duration", 8000 },
-				{ "active_skill_ground_effect_area_of_effect_+%_final_per_second", 40 },
-				{ "active_skill_ground_effect_area_of_effect_+%_final_per_second_max", 200 },
+				{ "active_skill_ground_effect_area_of_effect_+%_final_per_second", 20 },
+				{ "active_skill_ground_effect_area_of_effect_+%_final_per_second_max", 80 },
 			},
 			stats = {
 				"is_commandable_skill",
@@ -208,6 +207,7 @@ skills["GasShotSkeletonSniperMinion"] = {
 				"skill_cannot_be_electrocuted",
 				"skill_cannot_be_knocked_back",
 				"skill_cannot_be_stunned",
+				"quality_display_active_skill_ground_effect_area_of_effect_+%_final_per_second_max_is_gem",
 				"display_statset_no_hit_damage",
 				"display_statset_hide_usage_stats",
 				"display_fake_attack_hit_poison",
@@ -240,6 +240,7 @@ skills["GasShotSkeletonSniperMinion"] = {
 				"skill_cannot_be_electrocuted",
 				"skill_cannot_be_knocked_back",
 				"skill_cannot_be_stunned",
+				"quality_display_active_skill_ground_effect_area_of_effect_+%_final_per_second_max_is_gem",
 			},
 			levels = {
 				[1] = { baseMultiplier = 6.3, actorLevel = 1, },
@@ -251,19 +252,17 @@ skills["BoneshatterBruteMinion"] = {
 	name = "Bonebreaker",
 	hidden = true,
 	description = "A Strike that causes a Heavy Stun on enemies that are Primed for Stun. Upon causing a Heavy Stun it will also create a Shockwave, dealing a large amount of damage in an area.",
-	skillTypes = { [SkillType.Attack] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Multistrikeable] = true, [SkillType.Melee] = true, [SkillType.Area] = true, [SkillType.Cooldown] = true, },
+	skillTypes = { [SkillType.Attack] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.Area] = true, [SkillType.Cooldown] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
 	levels = {
-		[1] = { attackSpeedMultiplier = 20, storedUses = 1, baseMultiplier = 0.5, cooldown = 4, levelRequirement = 0, },
+		[1] = { attackSpeedMultiplier = 20, storedUses = 1, baseMultiplier = 1.2, cooldown = 4, levelRequirement = 0, },
 	},
 	statSets = {
 		[1] = {
 			label = "Initial Strike",
-			baseEffectiveness = 0.18279999494553,
-			incrementalEffectiveness = 0.092720001935959,
-			damageIncrementalEffectiveness = 0.053700000047684,
+			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
 				attack = true,
@@ -282,9 +281,7 @@ skills["BoneshatterBruteMinion"] = {
 		},
 		[2] = {
 			label = "Shockwave",
-			baseEffectiveness = 0.18279999494553,
-			incrementalEffectiveness = 0.092720001935959,
-			damageIncrementalEffectiveness = 0.053700000047684,
+			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
 				attack = true,
@@ -294,14 +291,13 @@ skills["BoneshatterBruteMinion"] = {
 				{ "melee_range_+", 2 },
 				{ "melee_conditional_step_distance", 3 },
 				{ "active_skill_base_area_of_effect_radius", 20 },
-				{ "active_skill_damage_+%_final", 300 },
 			},
 			stats = {
 				"crushing_blow",
 				"is_area_damage",
 			},
 			levels = {
-				[1] = { actorLevel = 1, },
+				[1] = { baseMultiplier = 2.4, actorLevel = 1, },
 			},
 		},
 	}
@@ -310,7 +306,7 @@ skills["ArcSkeletonMageMinion"] = {
 	name = "Arc",
 	hidden = true,
 	description = "An arc of Lightning stretches from the caster to a targeted enemy and Chains on to other nearby enemies.",
-	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Chains] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Lightning] = true, [SkillType.CanRapidFire] = true, [SkillType.Invokable] = true, [SkillType.Nonpathing] = true, },
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Chains] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Lightning] = true, [SkillType.CanRapidFire] = true, [SkillType.Invokable] = true, [SkillType.UsableWhileMoving] = true, },
 	castTime = 1.25,
 	qualityStats = {
 	},
@@ -320,9 +316,9 @@ skills["ArcSkeletonMageMinion"] = {
 	statSets = {
 		[1] = {
 			label = "Arc",
-			baseEffectiveness = 0.77499997615814,
-			incrementalEffectiveness = 0.059399999678135,
-			damageIncrementalEffectiveness = 0.071489997208118,
+			baseEffectiveness = 1.2000000476837,
+			incrementalEffectiveness = 0.18000000715256,
+			damageIncrementalEffectiveness = 0.032999999821186,
 			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
 				spell = true,
@@ -330,16 +326,19 @@ skills["ArcSkeletonMageMinion"] = {
 			},
 			constantStats = {
 				{ "arc_chain_distance", 35 },
-				{ "number_of_chains", 2 },
 				{ "active_skill_shock_chance_+%_final", 100 },
 			},
 			stats = {
 				"spell_minimum_base_lightning_damage",
 				"spell_maximum_base_lightning_damage",
+				"number_of_chains",
 				"disable_visual_hit_effect",
 			},
 			levels = {
-				[1] = { 0.10000000149012, 1.8999999761581, statInterpolation = { 3, 3, }, actorLevel = 1, },
+				[1] = { 1, 9, 2, statInterpolation = { 1, 1, 1, }, actorLevel = 1, },
+				[2] = { 4, 73, 3, statInterpolation = { 1, 1, 1, }, actorLevel = 20, },
+				[3] = { 13, 252, 4, statInterpolation = { 1, 1, 1, }, actorLevel = 40, },
+				[4] = { 37, 699, 5, statInterpolation = { 1, 1, 1, }, actorLevel = 60, },
 			},
 		},
 	}
@@ -358,13 +357,14 @@ skills["DeathStormSkeletonStormMageMinion"] = {
 	statSets = {
 		[1] = {
 			label = "Death Storm",
-			baseEffectiveness = 6.5999999046326,
-			incrementalEffectiveness = 0.059399999678135,
-			damageIncrementalEffectiveness = 0.071489997208118,
+			baseEffectiveness = 7.5,
+			incrementalEffectiveness = 0.18000000715256,
+			damageIncrementalEffectiveness = 0.035999998450279,
 			statDescriptionScope = "death_storm",
 			baseFlags = {
 				spell = true,
 				area = true,
+				hit = true,
 			},
 			constantStats = {
 				{ "ground_lightning_art_variation", 1003 },
@@ -400,9 +400,9 @@ skills["FrostBoltSkeletonMageMinion"] = {
 	statSets = {
 		[1] = {
 			label = "Projectile",
-			baseEffectiveness = 0.77499997615814,
-			incrementalEffectiveness = 0.059399999678135,
-			damageIncrementalEffectiveness = 0.071489997208118,
+			baseEffectiveness = 1.0499999523163,
+			incrementalEffectiveness = 0.18000000715256,
+			damageIncrementalEffectiveness = 0.029999999329448,
 			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
 				spell = true,
@@ -428,9 +428,9 @@ skills["FrostBoltSkeletonMageMinion"] = {
 		},
 		[2] = {
 			label = "Explosion",
-			baseEffectiveness = 0.77499997615814,
-			incrementalEffectiveness = 0.059399999678135,
-			damageIncrementalEffectiveness = 0.071489997208118,
+			baseEffectiveness = 0.85000002384186,
+			incrementalEffectiveness = 0.18000000715256,
+			damageIncrementalEffectiveness = 0.029999999329448,
 			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
 				area = true,
@@ -468,14 +468,14 @@ skills["IceBombSkeletonMageMinion"] = {
 	qualityStats = {
 	},
 	levels = {
-		[1] = { critChance = 12, storedUses = 1, levelRequirement = 0, cooldown = 6, },
+		[1] = { critChance = 12, storedUses = 1, levelRequirement = 0, cooldown = 8, },
 	},
 	statSets = {
 		[1] = {
 			label = "Ice Bomb",
-			baseEffectiveness = 3.3599998950958,
-			incrementalEffectiveness = 0.06140000000596,
-			damageIncrementalEffectiveness = 0.064489997923374,
+			baseEffectiveness = 5,
+			incrementalEffectiveness = 0.18000000715256,
+			damageIncrementalEffectiveness = 0.035999998450279,
 			statDescriptionScope = "ice_bomb",
 			baseFlags = {
 				spell = true,
@@ -521,50 +521,50 @@ skills["HealSkeletonClericMinion"] = {
 				{ "base_skill_effect_duration", 4000 },
 			},
 			stats = {
-				"base_life_regeneration_rate_per_minute",
+				"skeletal_cleric_grants_base_life_regeneration_rate_per_minute",
 				"display_minion_heal",
 			},
 			levels = {
-				[1] = { 780, statInterpolation = { 1, }, actorLevel = 1, },
-				[2] = { 1266, statInterpolation = { 1, }, actorLevel = 3, },
-				[3] = { 1836, statInterpolation = { 1, }, actorLevel = 5, },
-				[4] = { 2500, statInterpolation = { 1, }, actorLevel = 7, },
-				[5] = { 3271, statInterpolation = { 1, }, actorLevel = 9, },
-				[6] = { 4162, statInterpolation = { 1, }, actorLevel = 11, },
-				[7] = { 5189, statInterpolation = { 1, }, actorLevel = 13, },
-				[8] = { 6370, statInterpolation = { 1, }, actorLevel = 15, },
-				[9] = { 7725, statInterpolation = { 1, }, actorLevel = 17, },
-				[10] = { 9275, statInterpolation = { 1, }, actorLevel = 19, },
-				[11] = { 11046, statInterpolation = { 1, }, actorLevel = 21, },
-				[12] = { 13063, statInterpolation = { 1, }, actorLevel = 23, },
-				[13] = { 15358, statInterpolation = { 1, }, actorLevel = 25, },
-				[14] = { 17965, statInterpolation = { 1, }, actorLevel = 27, },
-				[15] = { 20921, statInterpolation = { 1, }, actorLevel = 29, },
-				[16] = { 24270, statInterpolation = { 1, }, actorLevel = 31, },
-				[17] = { 28058, statInterpolation = { 1, }, actorLevel = 33, },
-				[18] = { 32337, statInterpolation = { 1, }, actorLevel = 35, },
-				[19] = { 37166, statInterpolation = { 1, }, actorLevel = 37, },
-				[20] = { 42611, statInterpolation = { 1, }, actorLevel = 39, },
-				[21] = { 48742, statInterpolation = { 1, }, actorLevel = 41, },
-				[22] = { 55642, statInterpolation = { 1, }, actorLevel = 43, },
-				[23] = { 63398, statInterpolation = { 1, }, actorLevel = 45, },
-				[24] = { 72111, statInterpolation = { 1, }, actorLevel = 47, },
-				[25] = { 81890, statInterpolation = { 1, }, actorLevel = 49, },
-				[26] = { 92858, statInterpolation = { 1, }, actorLevel = 51, },
-				[27] = { 105152, statInterpolation = { 1, }, actorLevel = 53, },
-				[28] = { 118922, statInterpolation = { 1, }, actorLevel = 55, },
-				[29] = { 134336, statInterpolation = { 1, }, actorLevel = 57, },
-				[30] = { 151580, statInterpolation = { 1, }, actorLevel = 59, },
-				[31] = { 170860, statInterpolation = { 1, }, actorLevel = 61, },
-				[32] = { 192405, statInterpolation = { 1, }, actorLevel = 63, },
-				[33] = { 216468, statInterpolation = { 1, }, actorLevel = 65, },
-				[34] = { 243330, statInterpolation = { 1, }, actorLevel = 67, },
-				[35] = { 273304, statInterpolation = { 1, }, actorLevel = 69, },
-				[36] = { 306733, statInterpolation = { 1, }, actorLevel = 71, },
-				[37] = { 344001, statInterpolation = { 1, }, actorLevel = 73, },
-				[38] = { 385529, statInterpolation = { 1, }, actorLevel = 75, },
-				[39] = { 431789, statInterpolation = { 1, }, actorLevel = 77, },
-				[40] = { 483297, statInterpolation = { 1, }, actorLevel = 79, },
+				[1] = { 729, statInterpolation = { 1, }, actorLevel = 1, },
+				[2] = { 1269, statInterpolation = { 1, }, actorLevel = 3, },
+				[3] = { 1863, statInterpolation = { 1, }, actorLevel = 5, },
+				[4] = { 2538, statInterpolation = { 1, }, actorLevel = 7, },
+				[5] = { 3240, statInterpolation = { 1, }, actorLevel = 9, },
+				[6] = { 4023, statInterpolation = { 1, }, actorLevel = 11, },
+				[7] = { 4860, statInterpolation = { 1, }, actorLevel = 13, },
+				[8] = { 5778, statInterpolation = { 1, }, actorLevel = 15, },
+				[9] = { 6777, statInterpolation = { 1, }, actorLevel = 17, },
+				[10] = { 7857, statInterpolation = { 1, }, actorLevel = 19, },
+				[11] = { 8991, statInterpolation = { 1, }, actorLevel = 21, },
+				[12] = { 10260, statInterpolation = { 1, }, actorLevel = 23, },
+				[13] = { 11637, statInterpolation = { 1, }, actorLevel = 25, },
+				[14] = { 13068, statInterpolation = { 1, }, actorLevel = 27, },
+				[15] = { 14688, statInterpolation = { 1, }, actorLevel = 29, },
+				[16] = { 16416, statInterpolation = { 1, }, actorLevel = 31, },
+				[17] = { 18279, statInterpolation = { 1, }, actorLevel = 33, },
+				[18] = { 20250, statInterpolation = { 1, }, actorLevel = 35, },
+				[19] = { 22437, statInterpolation = { 1, }, actorLevel = 37, },
+				[20] = { 24759, statInterpolation = { 1, }, actorLevel = 39, },
+				[21] = { 27297, statInterpolation = { 1, }, actorLevel = 41, },
+				[22] = { 29970, statInterpolation = { 1, }, actorLevel = 43, },
+				[23] = { 32886, statInterpolation = { 1, }, actorLevel = 45, },
+				[24] = { 35991, statInterpolation = { 1, }, actorLevel = 47, },
+				[25] = { 39393, statInterpolation = { 1, }, actorLevel = 49, },
+				[26] = { 43011, statInterpolation = { 1, }, actorLevel = 51, },
+				[27] = { 46899, statInterpolation = { 1, }, actorLevel = 53, },
+				[28] = { 51111, statInterpolation = { 1, }, actorLevel = 55, },
+				[29] = { 55620, statInterpolation = { 1, }, actorLevel = 57, },
+				[30] = { 60453, statInterpolation = { 1, }, actorLevel = 59, },
+				[31] = { 65664, statInterpolation = { 1, }, actorLevel = 61, },
+				[32] = { 71280, statInterpolation = { 1, }, actorLevel = 63, },
+				[33] = { 77274, statInterpolation = { 1, }, actorLevel = 65, },
+				[34] = { 83727, statInterpolation = { 1, }, actorLevel = 67, },
+				[35] = { 90639, statInterpolation = { 1, }, actorLevel = 69, },
+				[36] = { 98064, statInterpolation = { 1, }, actorLevel = 71, },
+				[37] = { 106056, statInterpolation = { 1, }, actorLevel = 73, },
+				[38] = { 114642, statInterpolation = { 1, }, actorLevel = 75, },
+				[39] = { 123795, statInterpolation = { 1, }, actorLevel = 77, },
+				[40] = { 133677, statInterpolation = { 1, }, actorLevel = 79, },
 			},
 		},
 	}
@@ -573,7 +573,7 @@ skills["FireBombSkeletonMinion"] = {
 	name = "Fire Bomb",
 	hidden = true,
 	description = "Attacks with a bouncing bomb that explodes on hit.",
-	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Area] = true, [SkillType.ProjectileNumber] = true, [SkillType.ProjectileSpeed] = true, [SkillType.Duration] = true, [SkillType.Grenade] = true, [SkillType.CreatesGroundEffect] = true, },
+	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Area] = true, [SkillType.ProjectileNumber] = true, [SkillType.ProjectileSpeed] = true, [SkillType.Duration] = true, [SkillType.Grenade] = true, [SkillType.CreatesGroundEffect] = true, [SkillType.DetonatesAfterTime] = true, [SkillType.Projectile] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -591,7 +591,7 @@ skills["FireBombSkeletonMinion"] = {
 				duration = true,
 			},
 			constantStats = {
-				{ "base_skill_effect_duration", 2000 },
+				{ "base_skill_detonation_time", 2000 },
 				{ "active_skill_base_physical_damage_%_to_convert_to_fire", 70 },
 				{ "active_skill_base_area_of_effect_radius", 16 },
 			},
@@ -614,7 +614,7 @@ skills["FireBombSkeletonMinion"] = {
 			baseFlags = {
 			},
 			constantStats = {
-				{ "base_skill_effect_duration", 2000 },
+				{ "base_skill_detonation_time", 2000 },
 				{ "active_skill_base_physical_damage_%_to_convert_to_fire", 70 },
 				{ "active_skill_base_area_of_effect_radius", 16 },
 				{ "base_secondary_skill_effect_duration", 0 },
@@ -636,7 +636,7 @@ skills["DestructiveLinkSkeletonBombadierMinion"] = {
 	name = "Explosive Demise",
 	baseTypeName = "Explosive Demise",
 	color = 2,
-	description = "Detonates an allied Minion whose current Life is below a threshold, dealing heavy damage to nearby enemies.",
+	description = "Detonate an allied Minion whose current Life is below a threshold, dealing heavy damage to nearby enemies.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Cooldown] = true, [SkillType.Area] = true, [SkillType.Fire] = true, [SkillType.Damage] = true, },
 	castTime = 0.6,
 	qualityStats = {
@@ -687,18 +687,17 @@ skills["DestructiveLinkSkeletonBombadierMinion"] = {
 	statSets = {
 		[1] = {
 			label = "Explosive Demise",
-			baseEffectiveness = 2.4000000953674,
-			incrementalEffectiveness = 0.06140000000596,
-			damageIncrementalEffectiveness = 0.064489997923374,
+			baseEffectiveness = 4,
+			incrementalEffectiveness = 0.18000000715256,
+			damageIncrementalEffectiveness = 0.035999998450279,
 			statDescriptionScope = "bombadier_destructive_link",
 			baseFlags = {
 				area = true,
 				spell = true,
 			},
 			constantStats = {
-				{ "active_skill_base_area_of_effect_radius", 20 },
-				{ "bombadier_skill_damage_+%_final_per_rage", 10 },
-				{ "arsonist_destructive_link_%_of_life_as_fire_damage", 15 },
+				{ "active_skill_base_area_of_effect_radius", 24 },
+				{ "arsonist_destructive_link_%_of_life_as_fire_damage", 12 },
 			},
 			stats = {
 				"spell_minimum_base_fire_damage",
@@ -710,48 +709,49 @@ skills["DestructiveLinkSkeletonBombadierMinion"] = {
 				"skill_cannot_be_electrocuted",
 				"skill_cannot_be_knocked_back",
 				"skill_cannot_be_stunned",
+				"quality_display_arsonist_is_gem",
 			},
 			levels = {
-				[1] = { 7, 11, 27, statInterpolation = { 1, 1, 1, }, actorLevel = 1, },
-				[2] = { 9, 14, 49, statInterpolation = { 1, 1, 1, }, actorLevel = 3, },
-				[3] = { 12, 18, 73, statInterpolation = { 1, 1, 1, }, actorLevel = 5, },
-				[4] = { 15, 22, 100, statInterpolation = { 1, 1, 1, }, actorLevel = 7, },
-				[5] = { 18, 28, 130, statInterpolation = { 1, 1, 1, }, actorLevel = 9, },
-				[6] = { 22, 34, 164, statInterpolation = { 1, 1, 1, }, actorLevel = 11, },
-				[7] = { 27, 41, 201, statInterpolation = { 1, 1, 1, }, actorLevel = 13, },
-				[8] = { 33, 50, 243, statInterpolation = { 1, 1, 1, }, actorLevel = 15, },
-				[9] = { 40, 60, 289, statInterpolation = { 1, 1, 1, }, actorLevel = 17, },
-				[10] = { 48, 73, 340, statInterpolation = { 1, 1, 1, }, actorLevel = 19, },
-				[11] = { 58, 87, 396, statInterpolation = { 1, 1, 1, }, actorLevel = 21, },
-				[12] = { 69, 104, 459, statInterpolation = { 1, 1, 1, }, actorLevel = 23, },
-				[13] = { 83, 124, 528, statInterpolation = { 1, 1, 1, }, actorLevel = 25, },
-				[14] = { 98, 148, 603, statInterpolation = { 1, 1, 1, }, actorLevel = 27, },
-				[15] = { 117, 175, 688, statInterpolation = { 1, 1, 1, }, actorLevel = 29, },
-				[16] = { 138, 207, 780, statInterpolation = { 1, 1, 1, }, actorLevel = 31, },
-				[17] = { 163, 245, 883, statInterpolation = { 1, 1, 1, }, actorLevel = 33, },
-				[18] = { 193, 289, 994, statInterpolation = { 1, 1, 1, }, actorLevel = 35, },
-				[19] = { 227, 341, 1118, statInterpolation = { 1, 1, 1, }, actorLevel = 37, },
-				[20] = { 267, 401, 1253, statInterpolation = { 1, 1, 1, }, actorLevel = 39, },
-				[21] = { 314, 471, 1403, statInterpolation = { 1, 1, 1, }, actorLevel = 41, },
-				[22] = { 368, 553, 1566, statInterpolation = { 1, 1, 1, }, actorLevel = 43, },
-				[23] = { 432, 648, 1744, statInterpolation = { 1, 1, 1, }, actorLevel = 45, },
-				[24] = { 506, 758, 1940, statInterpolation = { 1, 1, 1, }, actorLevel = 47, },
-				[25] = { 591, 887, 2156, statInterpolation = { 1, 1, 1, }, actorLevel = 49, },
-				[26] = { 691, 1036, 2391, statInterpolation = { 1, 1, 1, }, actorLevel = 51, },
-				[27] = { 806, 1210, 2649, statInterpolation = { 1, 1, 1, }, actorLevel = 53, },
-				[28] = { 941, 1411, 2932, statInterpolation = { 1, 1, 1, }, actorLevel = 55, },
-				[29] = { 1096, 1644, 3241, statInterpolation = { 1, 1, 1, }, actorLevel = 57, },
-				[30] = { 1276, 1915, 3578, statInterpolation = { 1, 1, 1, }, actorLevel = 59, },
-				[31] = { 1485, 2228, 3948, statInterpolation = { 1, 1, 1, }, actorLevel = 61, },
-				[32] = { 1727, 2591, 4352, statInterpolation = { 1, 1, 1, }, actorLevel = 63, },
-				[33] = { 2007, 3011, 4793, statInterpolation = { 1, 1, 1, }, actorLevel = 65, },
-				[34] = { 2331, 3497, 5275, statInterpolation = { 1, 1, 1, }, actorLevel = 67, },
-				[35] = { 2706, 4058, 5801, statInterpolation = { 1, 1, 1, }, actorLevel = 69, },
-				[36] = { 3139, 4708, 6375, statInterpolation = { 1, 1, 1, }, actorLevel = 71, },
-				[37] = { 3639, 5458, 7003, statInterpolation = { 1, 1, 1, }, actorLevel = 73, },
-				[38] = { 4217, 6325, 7688, statInterpolation = { 1, 1, 1, }, actorLevel = 75, },
-				[39] = { 4884, 7326, 8434, statInterpolation = { 1, 1, 1, }, actorLevel = 77, },
-				[40] = { 5654, 8481, 9249, statInterpolation = { 1, 1, 1, }, actorLevel = 79, },
+				[1] = { 12, 19, 27, statInterpolation = { 1, 1, 1, }, actorLevel = 1, },
+				[2] = { 18, 27, 47, statInterpolation = { 1, 1, 1, }, actorLevel = 3, },
+				[3] = { 25, 37, 69, statInterpolation = { 1, 1, 1, }, actorLevel = 5, },
+				[4] = { 32, 48, 94, statInterpolation = { 1, 1, 1, }, actorLevel = 7, },
+				[5] = { 40, 60, 120, statInterpolation = { 1, 1, 1, }, actorLevel = 9, },
+				[6] = { 50, 74, 149, statInterpolation = { 1, 1, 1, }, actorLevel = 11, },
+				[7] = { 60, 90, 180, statInterpolation = { 1, 1, 1, }, actorLevel = 13, },
+				[8] = { 72, 108, 214, statInterpolation = { 1, 1, 1, }, actorLevel = 15, },
+				[9] = { 85, 127, 251, statInterpolation = { 1, 1, 1, }, actorLevel = 17, },
+				[10] = { 100, 149, 291, statInterpolation = { 1, 1, 1, }, actorLevel = 19, },
+				[11] = { 116, 174, 333, statInterpolation = { 1, 1, 1, }, actorLevel = 21, },
+				[12] = { 134, 201, 380, statInterpolation = { 1, 1, 1, }, actorLevel = 23, },
+				[13] = { 155, 232, 431, statInterpolation = { 1, 1, 1, }, actorLevel = 25, },
+				[14] = { 177, 266, 484, statInterpolation = { 1, 1, 1, }, actorLevel = 27, },
+				[15] = { 202, 303, 544, statInterpolation = { 1, 1, 1, }, actorLevel = 29, },
+				[16] = { 230, 345, 608, statInterpolation = { 1, 1, 1, }, actorLevel = 31, },
+				[17] = { 261, 391, 677, statInterpolation = { 1, 1, 1, }, actorLevel = 33, },
+				[18] = { 295, 442, 750, statInterpolation = { 1, 1, 1, }, actorLevel = 35, },
+				[19] = { 332, 498, 831, statInterpolation = { 1, 1, 1, }, actorLevel = 37, },
+				[20] = { 374, 561, 917, statInterpolation = { 1, 1, 1, }, actorLevel = 39, },
+				[21] = { 420, 629, 1011, statInterpolation = { 1, 1, 1, }, actorLevel = 41, },
+				[22] = { 470, 705, 1110, statInterpolation = { 1, 1, 1, }, actorLevel = 43, },
+				[23] = { 526, 789, 1218, statInterpolation = { 1, 1, 1, }, actorLevel = 45, },
+				[24] = { 587, 881, 1333, statInterpolation = { 1, 1, 1, }, actorLevel = 47, },
+				[25] = { 655, 982, 1459, statInterpolation = { 1, 1, 1, }, actorLevel = 49, },
+				[26] = { 729, 1093, 1593, statInterpolation = { 1, 1, 1, }, actorLevel = 51, },
+				[27] = { 810, 1215, 1737, statInterpolation = { 1, 1, 1, }, actorLevel = 53, },
+				[28] = { 900, 1350, 1893, statInterpolation = { 1, 1, 1, }, actorLevel = 55, },
+				[29] = { 998, 1497, 2060, statInterpolation = { 1, 1, 1, }, actorLevel = 57, },
+				[30] = { 1106, 1659, 2239, statInterpolation = { 1, 1, 1, }, actorLevel = 59, },
+				[31] = { 1225, 1837, 2432, statInterpolation = { 1, 1, 1, }, actorLevel = 61, },
+				[32] = { 1355, 2032, 2640, statInterpolation = { 1, 1, 1, }, actorLevel = 63, },
+				[33] = { 1497, 2245, 2862, statInterpolation = { 1, 1, 1, }, actorLevel = 65, },
+				[34] = { 1653, 2479, 3101, statInterpolation = { 1, 1, 1, }, actorLevel = 67, },
+				[35] = { 1824, 2735, 3357, statInterpolation = { 1, 1, 1, }, actorLevel = 69, },
+				[36] = { 2010, 3016, 3632, statInterpolation = { 1, 1, 1, }, actorLevel = 71, },
+				[37] = { 2215, 3322, 3928, statInterpolation = { 1, 1, 1, }, actorLevel = 73, },
+				[38] = { 2439, 3658, 4246, statInterpolation = { 1, 1, 1, }, actorLevel = 75, },
+				[39] = { 2683, 4025, 4585, statInterpolation = { 1, 1, 1, }, actorLevel = 77, },
+				[40] = { 2950, 4426, 4951, statInterpolation = { 1, 1, 1, }, actorLevel = 79, },
 			},
 		},
 	}
@@ -777,7 +777,7 @@ skills["EnrageSkeletonReaverMinion"] = {
 			constantStats = {
 				{ "reaver_enrage_decay_rate_increase_+%_final", 20 },
 				{ "reaver_enrage_base_life_%_degen_per_minute", 60 },
-				{ "gain_rage_on_hit", 2 },
+				{ "gain_x_rage_on_attack_hit", 2 },
 			},
 			stats = {
 				"is_commandable_skill",
@@ -829,11 +829,13 @@ skills["TCAncestralLeagueKaruiHulk"] = {
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Movement] = true, [SkillType.Travel] = true, },
 	weaponTypes = {
 		["None"] = true,
+		["One Handed Sword"] = true,
 		["One Handed Mace"] = true,
-		["Claw"] = true,
+		["Flail"] = true,
+		["Spear"] = true,
 		["One Handed Axe"] = true,
 		["Dagger"] = true,
-		["One Handed Sword"] = true,
+		["Claw"] = true,
 	},
 	castTime = 1,
 	qualityStats = {
@@ -934,3 +936,92 @@ skills["MPSAncestralTotemSpiritSoulCasterProjectile"] = {
 					},
 				}
 			}
+
+skills["GAAnimateWeaponMaceSlam"] = {
+	name = "Mace Slam",
+	hidden = true,
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Area] = true, },
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { attackSpeedMultiplier = -50, storedUses = 1, baseMultiplier = 1.8, cooldown = 10, levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Slam (Mace)",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				attack = true,
+				melee = true,
+				area = true,
+			},
+			stats = {
+				"is_area_damage",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["DTTAnimateWeaponSpearDashStabImpact"] = {
+	name = "Spear Dash",
+	hidden = true,
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Area] = true, },
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { baseMultiplier = 1.8, levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Spear Dash",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				attack = true,
+				melee = true,
+				area = true,
+			},
+			stats = {
+				"is_area_damage",
+				"action_attack_or_cast_time_uses_animation_length",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["GAAnimateWeaponQuarterstaffSweep"] = {
+	name = "Quarterstaff Sweep",
+	hidden = true,
+	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Melee] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Area] = true, },
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { baseMultiplier = 0.9, storedUses = 1, levelRequirement = 0, cooldown = 10, },
+	},
+	statSets = {
+		[1] = {
+			label = "Sweep (Quarterstaff)",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				attack = true,
+				melee = true,
+			},
+			stats = {
+				"is_area_damage",
+				"action_attack_or_cast_time_uses_animation_length",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}

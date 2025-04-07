@@ -40,6 +40,73 @@ skills["SupportFasterProjectilesPlayer"] = {
 		},
 	}
 }
+skills["SupportAdherePlayer"] = {
+	name = "Adhere",
+	description = "Supports Grenade Skills. Grenades from Supported Skills do not bounce, instead halting movement where they intially land, but doing lower damage when they detonate.",
+	color = 2,
+	support = true,
+	requireSkillTypes = { SkillType.Grenade, },
+	addSkillTypes = { },
+	excludeSkillTypes = { },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Adhere",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_sticky_grenade_damage_+%_final"] = {
+					mod("Damage", "MORE", nil),
+				},
+			},
+			baseFlags = {
+			},
+			constantStats = {
+				{ "support_sticky_grenade_damage_+%_final", -20 },
+			},
+			stats = {
+				"grenade_skill_does_not_bounce_off_ground",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["SupportAlignmentPlayer"] = {
+	name = "Alignment",
+	description = "Supports Bow Attacks. Supported Skills indicate one of four directions, changing indicated direction when an Attack with Supported Skill matches that direction. Attacks from Supported Skills which match the indicated direction deal much more Damage. Cannot Support Channelled Skills.",
+	color = 2,
+	support = true,
+	requireSkillTypes = { SkillType.Attack, SkillType.Bow, SkillType.AND, },
+	addSkillTypes = { },
+	excludeSkillTypes = { SkillType.Channel, },
+	levels = {
+		[1] = { manaMultiplier = 20, levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Alignment",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "support_called_shots_projectile_damage_+%_final_when_matching_direction", 30 },
+				{ "called_shot_aiming_delay_ms", 1000 },
+				{ "called_shot_angle_allowance_degs", 40 },
+			},
+			stats = {
+				"support_called_shots_enable_directional_buff",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
 skills["SupportAmmoConservationPlayer"] = {
 	name = "Ammo Conservation",
 	description = "Supports Crossbow Ammunition Skills, granting a chance to not consume a Bolt when firing.",
@@ -103,6 +170,66 @@ skills["SupportBlindPlayer"] = {
 		},
 	}
 }
+skills["SupportBlindsidePlayer"] = {
+	name = "Blindside",
+	description = "Supports Skills which can cause Damaging Hits. Supported Skills are more likely to Critically Hit Blinded Enemies, and deal more Damage with Critical Hits against Blinded Enemies, but cannot themselves inflict Blind.",
+	color = 2,
+	support = true,
+	requireSkillTypes = { SkillType.Attack, SkillType.Damage, SkillType.CrossbowSkill, SkillType.CrossbowAmmoSkill, },
+	addSkillTypes = { },
+	excludeSkillTypes = { SkillType.DegenOnlySpellDamage, },
+	levels = {
+		[1] = { manaMultiplier = 20, levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Blindside",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "support_unseen_critical_damage_multiplier_+%_final_vs_blinded_enemies", 15 },
+				{ "support_unseen_critical_strike_chance_+%_final_vs_blinded_enemies", 15 },
+			},
+			stats = {
+				"cannot_inflict_blind",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["SupportBloodInTheEyesPlayer"] = {
+	name = "Blood in the Eyes",
+	description = "Supports Skills that Hit Enemies, causing those Hits to Hobble Bleeding Enemies based on a portion of Physical Damage dealt.",
+	color = 2,
+	support = true,
+	requireSkillTypes = { SkillType.Damage, SkillType.Attack, SkillType.CrossbowAmmoSkill, },
+	addSkillTypes = { },
+	excludeSkillTypes = { },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Blood in the Eyes",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "physical_damage_%_dealt_as_evasion_break_vs_bleeding", 15 },
+			},
+			stats = {
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
 skills["SupportDazedBreakPlayer"] = {
 	name = "Break Posture",
 	description = "Supports Attacks, causing them to Daze Enemies when they fully Break Armour.",
@@ -122,7 +249,7 @@ skills["SupportDazedBreakPlayer"] = {
 			baseFlags = {
 			},
 			constantStats = {
-				{ "support_daze_break_duration_ms", 6000 },
+				{ "support_daze_break_duration_ms", 8000 },
 			},
 			stats = {
 				"support_apply_daze_on_armour_break",
@@ -213,17 +340,121 @@ skills["SupportBurstingPlaguePlayer"] = {
 		[1] = {
 			label = "Plague Burst",
 			incrementalEffectiveness = 0.054999999701977,
-			statDescriptionScope = "skill_stat_descriptions",
+			statDescriptionScope = "plague_burst",
 			baseFlags = {
 			},
 			constantStats = {
 				{ "active_skill_base_area_of_effect_radius", 18 },
 				{ "plague_burst_area_+%_final_maximum", 100 },
 				{ "plague_burst_%_stored_value_to_deal_as_physical_damage", 100 },
+				{ "additional_base_critical_strike_chance", 500 },
 			},
 			stats = {
 				"is_area_damage",
 				"plague_burst_triggered_by_bursting_plague_death",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["SupportCadencePlayer"] = {
+	name = "Cadence",
+	description = "Supports Attacks you use yourself. Supported Skills gain more Attack speed each time you use them, but will become unusable if used too frequently in a short time frame.",
+	color = 2,
+	support = true,
+	requireSkillTypes = { SkillType.Attack, },
+	addSkillTypes = { },
+	excludeSkillTypes = { SkillType.UsedByTotem, SkillType.SummonsTotem, SkillType.NoAttackOrCastTime, },
+	ignoreMinionTypes = true,
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Cadence",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "support_measured_speed_attack_speed_+%_final_per_stack", 8 },
+				{ "support_measured_speed_maximum_stacks", 6 },
+				{ "support_measured_speed_disabled_ms", 10000 },
+			},
+			stats = {
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["SupportCaltropsPlayer"] = {
+	name = "Caltrops",
+	description = "Supports Ranged Spear Attacks. Supported Skills create Caltrops when Projectiles they create reach the end of their flight.",
+	color = 2,
+	support = true,
+	requireSkillTypes = { SkillType.Spear, SkillType.RangedAttack, SkillType.AND, },
+	addSkillTypes = { },
+	excludeSkillTypes = { SkillType.SkillGrantedBySupport, },
+	levels = {
+		[1] = { attackTime = 1, levelRequirement = 0, manaMultiplier = 20, },
+	},
+	statSets = {
+		[1] = {
+			label = "Caltrops",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			stats = {
+				"trigger_caltrops_at_end_of_projectile_flight",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["TriggeredCaltropsPlayer"] = {
+	name = "Caltrops",
+	hidden = true,
+	description = "Maims and deals Physical area damage when triggered by an Enemy. Caltrops are destroyed when triggered, and a maximum of 20 Caltrops can be active at once.",
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Physical] = true, [SkillType.Projectile] = true, [SkillType.ProjectileNoCollision] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.Hazard] = true, [SkillType.Duration] = true, [SkillType.CannotChain] = true, [SkillType.Attack] = true, [SkillType.GroundTargetedProjectile] = true, [SkillType.NoAttackOrCastTime] = true, },
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { attackTime = 1, critChance = 5, levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Caltrops",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "triggered_caltrops",
+			baseFlags = {
+				projectile = true,
+				duration = true,
+				area = true,
+			},
+			constantStats = {
+				{ "triggered_by_caltrops_support_%", 100 },
+				{ "base_number_of_projectiles", 1 },
+				{ "active_skill_base_area_of_effect_radius", 5 },
+				{ "active_skill_base_secondary_area_of_effect_radius", 30 },
+				{ "base_skill_effect_duration", 8000 },
+				{ "main_hand_base_physical_damage_from_%_dex", 60 },
+			},
+			stats = {
+				"global_maim_on_hit",
+				"additive_thorns_damage_modifiers_apply_to_attack_damage",
+				"replace_main_hand_unarmed_attack_stats_with_nothing_type",
+				"base_is_projectile",
+				"is_hazard",
+				"is_area_damage",
+				"projectiles_not_offset",
 			},
 			levels = {
 				[1] = { actorLevel = 1, },
@@ -267,6 +498,67 @@ skills["SupportChainPlayer"] = {
 		},
 	}
 }
+skills["SupportChargedShotsPlayer"] = {
+	name = "Charged Shots",
+	description = "Supports Bow Attacks. Every third shot with Supported Skills restores a portion of it's Mana cost and Gains Damage as extra Lightning Damage.",
+	color = 2,
+	support = true,
+	requireSkillTypes = { SkillType.Attack, SkillType.Bow, SkillType.AND, },
+	addSkillTypes = { },
+	excludeSkillTypes = { },
+	ignoreMinionTypes = true,
+	levels = {
+		[1] = { manaMultiplier = 10, levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Charged Shots",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "support_charged_shots_applies_every_X_shots", 3 },
+				{ "support_charged_shots_recover_%_mana_cost_on_use", 100 },
+				{ "support_charged_shots_%_damage_to_gain_as_lightning", 30 },
+			},
+			stats = {
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["SupportCharmBountyPlayer"] = {
+	name = "Charm Bounty",
+	description = "Supports any Skill that Hits Enemies, causing Enemies it kills to grant more Charm charges.",
+	color = 2,
+	support = true,
+	requireSkillTypes = { SkillType.Damage, SkillType.Attack, SkillType.CrossbowSkill, SkillType.CrossbowAmmoSkill, },
+	addSkillTypes = { },
+	excludeSkillTypes = { },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Charm Bounty",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "support_charm_charges_gained_+%_final_from_killing_blow", 100 },
+			},
+			stats = {
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
 skills["SupportCloseCombatPlayer"] = {
 	name = "Close Combat",
 	description = "Supports Attacks, causing them to deal more damage to enemies based on how close they are to you.",
@@ -277,7 +569,7 @@ skills["SupportCloseCombatPlayer"] = {
 	excludeSkillTypes = { },
 	ignoreMinionTypes = true,
 	levels = {
-		[1] = { manaMultiplier = 40, levelRequirement = 0, },
+		[1] = { manaMultiplier = 20, levelRequirement = 0, },
 	},
 	statSets = {
 		[1] = {
@@ -307,24 +599,10 @@ skills["SupportComboFinisherPlayer"] = {
 	description = "Supports Melee Attacks you use yourself. Supported Skills cannot be used until enough Combo has been built up, but deal massively more damage. Cannot support skills which already Combo, or Triggered Skills.",
 	color = 2,
 	support = true,
-	requireSkillTypes = { SkillType.Attack, SkillType.Damage, SkillType.CrossbowAmmoSkill, },
-	addSkillTypes = { SkillType.ComboStacking, SkillType.SupportedByComboFinisher, },
-	excludeSkillTypes = { SkillType.Cooldown, SkillType.Herald, SkillType.Triggered, SkillType.InbuiltTrigger, SkillType.SummonsTotem, SkillType.UsedByTotem, SkillType.Trapped, SkillType.RemoteMined, SkillType.Spell, SkillType.Warcry, SkillType.ComboStacking, SkillType.SupportedByComboFinisher, SkillType.NOT, SkillType.AND, },
+	requireSkillTypes = { SkillType.Melee, },
+	addSkillTypes = { SkillType.ComboStacking, SkillType.SupportedByComboFinisher, SkillType.HasUsageCondition, },
+	excludeSkillTypes = { SkillType.Cooldown, SkillType.Herald, SkillType.Triggered, SkillType.InbuiltTrigger, SkillType.SummonsTotem, SkillType.UsedByTotem, SkillType.Trapped, SkillType.RemoteMined, SkillType.Spell, SkillType.Warcry, SkillType.HasUsageCondition, SkillType.SupportedByComboFinisher, SkillType.NOT, SkillType.AND, },
 	ignoreMinionTypes = true,
-	weaponTypes = {
-		["None"] = true,
-		["One Handed Mace"] = true,
-		["Flail"] = true,
-		["Two Handed Sword"] = true,
-		["Dagger"] = true,
-		["Staff"] = true,
-		["Spear"] = true,
-		["Two Handed Axe"] = true,
-		["Two Handed Mace"] = true,
-		["One Handed Axe"] = true,
-		["Claw"] = true,
-		["One Handed Sword"] = true,
-	},
 	levels = {
 		[1] = { levelRequirement = 0, },
 	},
@@ -338,9 +616,39 @@ skills["SupportComboFinisherPlayer"] = {
 			constantStats = {
 				{ "support_combo_finisher_required_number_of_combo_stacks", 5 },
 				{ "support_combo_finisher_damage_+%_final", 40 },
-				{ "base_combo_stacks_decay_delay_ms", 8000 },
+				{ "base_combo_stacks_decay_delay_ms", 4000 },
 			},
 			stats = {
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["SupportCommiseratePlayer"] = {
+	name = "Commiserate",
+	description = "Supports Skills you use yourself which can cause Damaging Hits. Supported Skills inflict more powerful Ailments if you are afflicted with those Ailments when you inflict them, while also removing from you any Ailment that they inflict.",
+	color = 2,
+	support = true,
+	requireSkillTypes = { SkillType.Attack, SkillType.Damage, SkillType.CrossbowSkill, SkillType.CrossbowAmmoSkill, },
+	addSkillTypes = { },
+	excludeSkillTypes = { SkillType.Minion, SkillType.UsedByTotem, SkillType.SummonsTotem, SkillType.DegenOnlySpellDamage, },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Commiserate",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "ailment_effect_+%_while_afflicted_by_relevant_ailment", 30 },
+			},
+			stats = {
+				"remove_ailment_when_applying_relevant_ailment",
 			},
 			levels = {
 				[1] = { actorLevel = 1, },
@@ -377,7 +685,7 @@ skills["SupportMultiplePoisonPlayer"] = {
 			},
 			constantStats = {
 				{ "number_of_additional_poison_stacks", 1 },
-				{ "support_multi_poison_poison_duration_+%_final", -30 },
+				{ "support_multi_poison_poison_duration_+%_final", -20 },
 			},
 			stats = {
 			},
@@ -430,7 +738,7 @@ skills["SupportCorrosionPlayer"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { SkillType.ConsumesFullyBrokenArmour, },
 	levels = {
-		[1] = { levelRequirement = 0, },
+		[1] = { manaMultiplier = 10, levelRequirement = 0, },
 	},
 	statSets = {
 		[1] = {
@@ -459,7 +767,7 @@ skills["SupportCrescendoPlayer"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	levels = {
-		[1] = { levelRequirement = 0, },
+		[1] = { manaMultiplier = 20, levelRequirement = 0, },
 	},
 	statSets = {
 		[1] = {
@@ -516,8 +824,8 @@ skills["SupportCulminationPlayer"] = {
 	color = 2,
 	support = true,
 	requireSkillTypes = { SkillType.Attack, SkillType.Melee, SkillType.AND, },
-	addSkillTypes = { SkillType.ComboStacking, SkillType.SupportedByComboMastery, },
-	excludeSkillTypes = { SkillType.ComboStacking, SkillType.SupportedByComboMastery, SkillType.NOT, SkillType.AND, },
+	addSkillTypes = { SkillType.ComboStacking, SkillType.SupportedByComboMastery, SkillType.HasUsageCondition, },
+	excludeSkillTypes = { SkillType.HasUsageCondition, SkillType.SupportedByComboMastery, SkillType.NOT, SkillType.AND, },
 	levels = {
 		[1] = { levelRequirement = 0, },
 	},
@@ -529,11 +837,68 @@ skills["SupportCulminationPlayer"] = {
 			baseFlags = {
 			},
 			constantStats = {
-				{ "support_damage_+%_final_per_combo_stack", 2 },
-				{ "base_combo_stacks_decay_delay_ms", 3000 },
+				{ "support_damage_+%_final_per_combo_stack", 3 },
+				{ "base_combo_stacks_decay_delay_ms", 4000 },
 			},
 			stats = {
 				"skill_uncapped_combo_counter",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["SupportDazzlePlayer"] = {
+	name = "Dazzle",
+	description = "Supports Attack Skills. Supported Skills always hit Dazed Enemies, but Consume Daze on Hit, and cannot themselves inflict Daze.",
+	color = 2,
+	support = true,
+	requireSkillTypes = { SkillType.Attack, SkillType.CrossbowSkill, SkillType.CrossbowAmmoSkill, },
+	addSkillTypes = { },
+	excludeSkillTypes = { },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Dazzle",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			stats = {
+				"consume_enemy_daze_to_always_hit",
+				"cannot_daze",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["SupportDeadlyHeraldsPlayer"] = {
+	name = "Deadly Herald",
+	description = "Supports Herald Skills, making their triggered effects deal more damage at the expense of higher Spirit cost.",
+	color = 2,
+	support = true,
+	requireSkillTypes = { SkillType.Herald, },
+	addSkillTypes = { },
+	excludeSkillTypes = { },
+	levels = {
+		[1] = { spiritReservationFlat = 20, levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Deadly Herald",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "support_deadly_heralds_damage_+%_final", 30 },
+			},
+			stats = {
 			},
 			levels = {
 				[1] = { actorLevel = 1, },
@@ -613,6 +978,98 @@ skills["SupportSlowerProjectilesPlayer"] = {
 		},
 	}
 }
+skills["SupportDelayedGratificationPlayer"] = {
+	name = "Delayed Gratification",
+	description = "Supports Skills which require some Condition to be met for use. Supported Skills can be used an additional time after their Condition has been met, but meeting that Condition is harder.",
+	color = 2,
+	support = true,
+	requireSkillTypes = { SkillType.HasUsageCondition, },
+	addSkillTypes = { },
+	excludeSkillTypes = { },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Delayed Gratification",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "difficulty_of_meeting_conditional_requirement_+%", 150 },
+				{ "conditional_skill_additional_usages_after_meeting_requirement", 1 },
+				{ "conditional_skill_additional_usages_duration_ms", 10000 },
+			},
+			stats = {
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["SupportDelayedReactionPlayer"] = {
+	name = "Delayed Reaction",
+	description = "Supports Skills which create Hazards, causing those Hazards to only be able to trigger immediately after creation or at the end of their duration. Created Hazards have significantly lowered duration, and deal more damage.",
+	color = 2,
+	support = true,
+	requireSkillTypes = { SkillType.Hazard, },
+	addSkillTypes = { },
+	excludeSkillTypes = { },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Delayed Reaction",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "support_sunblast_hazard_hazard_damage_+%_final", 15 },
+				{ "support_sunblast_hazard_hazard_duration_+%_final", -70 },
+			},
+			stats = {
+				"hazards_trigger_at_end_of_duration_instead",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["SupportDeliberationPlayer"] = {
+	name = "Deliberation",
+	description = "Supports skills that can be used while moving, causing you to move slower while using them, but granting more damage in exchange.",
+	color = 2,
+	support = true,
+	requireSkillTypes = { SkillType.UsableWhileMoving, },
+	addSkillTypes = { },
+	excludeSkillTypes = { },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Deliberation",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "support_deliberation_movement_speed_penalty_+%_final_while_performing_action", 30 },
+				{ "support_deliberation_damage_+%_final", 20 },
+			},
+			stats = {
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
 skills["SupportDazingPlayer"] = {
 	name = "Discombobulate",
 	description = "Supports Attacks, causing them to build up Daze based on a portion of Physical Damage dealt.",
@@ -675,7 +1132,7 @@ skills["SupportEncumberancePlayer"] = {
 	description = "Supports any skill, causing inflicted Slows to be more powerful.",
 	color = 2,
 	support = true,
-	requireSkillTypes = { SkillType.Damage, SkillType.Attack, SkillType.Spell, SkillType.DegenOnlySpellDamage, SkillType.Minion, SkillType.CrossbowAmmoSkill, },
+	requireSkillTypes = { SkillType.Damage, SkillType.Attack, SkillType.Spell, SkillType.DegenOnlySpellDamage, SkillType.CrossbowAmmoSkill, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	levels = {
@@ -728,14 +1185,53 @@ skills["SupportChanceToPoisonPlayer"] = {
 		},
 	}
 }
+skills["SupportExcoriatePlayer"] = {
+	name = "Excoriate",
+	description = "Supports Melee Attack Skills. Supported Skills deal more Melee Damage for each Elemental Ailment on Enemies they hit, but cannot themselves inflict Elemental Ailments.",
+	color = 2,
+	support = true,
+	requireSkillTypes = { SkillType.Attack, SkillType.Melee, SkillType.AND, },
+	addSkillTypes = { },
+	excludeSkillTypes = { },
+	levels = {
+		[1] = { manaMultiplier = 15, levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Excoriate",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_elemental_assault_melee_damage_+%_final_per_elemental_ailment_on_target"] = {
+					mod("Damage", "MORE", nil, ModFlag.Melee, 0, { type = "ActorCondition", actor = "enemy", var = "Ignited" }),
+					mod("Damage", "MORE", nil, ModFlag.Melee, 0, { type = "ActorCondition", actor = "enemy", var = "Chilled" }),
+					mod("Damage", "MORE", nil, ModFlag.Melee, 0, { type = "ActorCondition", actor = "enemy", var = "Frozen" }),
+					mod("Damage", "MORE", nil, ModFlag.Melee, 0, { type = "ActorCondition", actor = "enemy", var = "Shocked" }),
+					mod("Damage", "MORE", nil, ModFlag.Melee, 0, { type = "ActorCondition", actor = "enemy", var = "Electrocuted" }),
+				},
+			},
+			baseFlags = {
+			},
+			constantStats = {
+				{ "support_elemental_assault_melee_damage_+%_final_per_elemental_ailment_on_target", 10 },
+			},
+			stats = {
+				"cannot_inflict_elemental_ailments",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
 skills["SupportFerocityPlayer"] = {
 	name = "Ferocity",
 	description = "Supports Skills that you use yourself. Supported Skills will consume a Frenzy Charge on use if possible, and will gain significant Skill Speed if they do. Supported Skills cannot generate Frenzy Charges.",
 	color = 2,
 	support = true,
 	requireSkillTypes = { SkillType.Damage, SkillType.CrossbowAmmoSkill, SkillType.Attack, },
-	addSkillTypes = { SkillType.SkillConsumesFrenzyChargesOnUse, SkillType.SupportedByFerocity, },
-	excludeSkillTypes = { SkillType.Minion, SkillType.SummonsTotem, SkillType.UsedByTotem, SkillType.Persistent, SkillType.SkillConsumesFrenzyChargesOnUse, SkillType.SupportedByFerocity, SkillType.NOT, SkillType.AND, },
+	addSkillTypes = { SkillType.SupportedByFerocity, },
+	excludeSkillTypes = { SkillType.Minion, SkillType.SummonsTotem, SkillType.SupportedByTumult, SkillType.UsedByTotem, SkillType.Persistent, SkillType.SkillConsumesFrenzyChargesOnUse, SkillType.SupportedByFerocity, SkillType.NOT, SkillType.AND, },
 	levels = {
 		[1] = { levelRequirement = 0, },
 	},
@@ -756,6 +1252,35 @@ skills["SupportFerocityPlayer"] = {
 			},
 			stats = {
 				"skill_cannot_generate_frenzy_charges",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["SupportFlowPlayer"] = {
+	name = "Flow",
+	description = "Supports Skills which require Combo to use. Supported Skills lose their Combo stacks after a longer delay spent not gaining any Combo.",
+	color = 2,
+	support = true,
+	requireSkillTypes = { SkillType.ComboStacking, },
+	addSkillTypes = { },
+	excludeSkillTypes = { },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Flow",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "combo_falloff_speed_+%", -60 },
+			},
+			stats = {
 			},
 			levels = {
 				[1] = { actorLevel = 1, },
@@ -788,10 +1313,101 @@ skills["SupportForkPlayer"] = {
 			},
 			constantStats = {
 				{ "terrain_arrow_attachment_chance_reduction_+%", 100 },
-				{ "support_fork_forked_projectile_damage_+%_final", -50 },
+				{ "support_fork_forked_projectile_damage_+%_final", -30 },
 			},
 			stats = {
 				"projectiles_fork",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["SupportGambleshotPlayer"] = {
+	name = "Gambleshot",
+	description = "Supports Skills which fire Projectiles that are not ground targeted. Projectiles from Supported Skills randomly Fork, Chain or Pierce.",
+	color = 2,
+	support = true,
+	requireSkillTypes = { SkillType.Projectile, },
+	addSkillTypes = { },
+	excludeSkillTypes = { SkillType.GroundTargetedProjectile, },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Gambleshot",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "support_gambleshot_projectile_damage_+%_final", -15 },
+			},
+			stats = {
+				"projectile_randomly_fork_chain_or_pierce",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["SupportHitAndRunPlayer"] = {
+	name = "Hit and Run",
+	description = "Supports Attack Skills you use yourself which do not have already have some Condition for use. Supported Skills can only be used after you have moved a certain distance, but have massively increased Skill Speed. Cannot support Skills which have a Cooldown or that are Triggered.",
+	color = 2,
+	support = true,
+	requireSkillTypes = { SkillType.Attack, },
+	addSkillTypes = { SkillType.HasUsageCondition, SkillType.SupportedByMobileAssault, },
+	excludeSkillTypes = { SkillType.HasUsageCondition, SkillType.SupportedByMobileAssault, SkillType.NOT, SkillType.AND, SkillType.Instant, SkillType.Cooldown, SkillType.Triggered, SkillType.UsedByTotem, },
+	ignoreMinionTypes = true,
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Hit and Run",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "support_mobile_assault_skill_speed_+%_final", 40 },
+				{ "skill_unusable_until_moved_X_distance", 100 },
+			},
+			stats = {
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["SupportImpalePlayer"] = {
+	name = "Impale",
+	description = "Supports Attacks, causing them to Impale on Hit but making them unable to Extract Impale themselves.",
+	color = 2,
+	support = true,
+	requireSkillTypes = { SkillType.Attack, SkillType.CrossbowSkill, SkillType.CrossbowAmmoSkill, },
+	addSkillTypes = { },
+	excludeSkillTypes = { },
+	levels = {
+		[1] = { manaMultiplier = 20, levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Impale",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "impale_on_hit_%_chance", 100 },
+			},
+			stats = {
+				"cannot_consume_impale",
 			},
 			levels = {
 				[1] = { actorLevel = 1, },
@@ -863,7 +1479,7 @@ skills["SupportInnervatePlayer"] = {
 			},
 			constantStats = {
 				{ "support_innervate_buff_grant_%_added_lightning_attack_damage", 35 },
-				{ "support_innervate_buff_base_duration_ms", 3000 },
+				{ "support_innervate_buff_base_duration_ms", 5000 },
 			},
 			stats = {
 			},
@@ -882,7 +1498,7 @@ skills["SupportLastingShockPlayer"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	levels = {
-		[1] = { manaMultiplier = 20, levelRequirement = 0, },
+		[1] = { levelRequirement = 0, },
 	},
 	statSets = {
 		[1] = {
@@ -898,7 +1514,7 @@ skills["SupportLastingShockPlayer"] = {
 			},
 			constantStats = {
 				{ "shock_duration_+%", 100 },
-				{ "support_lasting_shock_chance_to_shock_+%_final", -25 },
+				{ "support_lasting_shock_chance_to_shock_+%_final", -30 },
 			},
 			stats = {
 			},
@@ -1040,7 +1656,6 @@ skills["SupportAddedLightningDamagePlayer"] = {
 			label = "Lightning Infusion",
 			baseEffectiveness = 0.52710002660751,
 			incrementalEffectiveness = 0.092720001935959,
-			damageIncrementalEffectiveness = 0.037200000137091,
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
 				["support_cold_and_fire_damage_+%_final"] = {
@@ -1100,7 +1715,7 @@ skills["SupportLockdownPlayer"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	levels = {
-		[1] = { manaMultiplier = 20, levelRequirement = 0, },
+		[1] = { levelRequirement = 0, },
 	},
 	statSets = {
 		[1] = {
@@ -1145,7 +1760,7 @@ skills["SupportFarCombatPlayer"] = {
 			baseFlags = {
 			},
 			constantStats = {
-				{ "support_far_combat_attack_damage_+%_final_from_distance", 35 },
+				{ "support_far_combat_attack_damage_+%_final_from_distance", 30 },
 			},
 			stats = {
 			},
@@ -1179,6 +1794,34 @@ skills["SupportMaimPlayer"] = {
 				{ "maim_on_hit_%", 100 },
 			},
 			stats = {
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["SupportMaladyPlayer"] = {
+	name = "Malady",
+	description = "Supports Skills which can cause Damaging Hits, causing base chance to inflict Bleed with Supported Skills to instead apply to base chance to Poison, and causing base chance to Poison to instead apply to Bleed.",
+	color = 2,
+	support = true,
+	requireSkillTypes = { SkillType.Damage, SkillType.Attack, SkillType.CrossbowSkill, SkillType.CrossbowAmmoSkill, },
+	addSkillTypes = { },
+	excludeSkillTypes = { },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Malady",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			stats = {
+				"base_bleed_chance_is_poison_chance_instead",
+				"base_poison_chance_is_bleed_chance_instead",
 			},
 			levels = {
 				[1] = { actorLevel = 1, },
@@ -1222,7 +1865,7 @@ skills["SupportFasterAttackPlayer"] = {
 	support = true,
 	requireSkillTypes = { SkillType.Attack, SkillType.CrossbowAmmoSkill, },
 	addSkillTypes = { },
-	excludeSkillTypes = { SkillType.Herald, },
+	excludeSkillTypes = { SkillType.Herald, SkillType.NoAttackOrCastTime, },
 	levels = {
 		[1] = { levelRequirement = 0, },
 	},
@@ -1240,7 +1883,7 @@ skills["SupportFasterAttackPlayer"] = {
 			baseFlags = {
 			},
 			constantStats = {
-				{ "support_faster_attacks_attack_speed_+%_final", 25 },
+				{ "support_faster_attacks_attack_speed_+%_final", 20 },
 				{ "support_faster_attacks_damage_+%_final", 0 },
 			},
 			stats = {
@@ -1256,7 +1899,7 @@ skills["SupportMobilityPlayer"] = {
 	description = "Supports skills that can be used while moving, allowing you to move faster while using them.",
 	color = 2,
 	support = true,
-	requireSkillTypes = { SkillType.Nonpathing, },
+	requireSkillTypes = { SkillType.UsableWhileMoving, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	levels = {
@@ -1271,7 +1914,7 @@ skills["SupportMobilityPlayer"] = {
 			},
 			constantStats = {
 				{ "support_mobility_damage_+%_final", 0 },
-				{ "support_mobility_movement_speed_penalty_+%_final_while_performing_action", -30 },
+				{ "support_mobility_movement_speed_penalty_+%_final_while_performing_action", -25 },
 			},
 			stats = {
 			},
@@ -1359,7 +2002,7 @@ skills["SupportNeuralOverloadPlayer"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	levels = {
-		[1] = { manaMultiplier = 20, levelRequirement = 0, },
+		[1] = { levelRequirement = 0, },
 	},
 	statSets = {
 		[1] = {
@@ -1407,6 +2050,36 @@ skills["SupportNimbleReloadPlayer"] = {
 		},
 	}
 }
+skills["SupportOutmaneuverPlayer"] = {
+	name = "Outmaneuver",
+	description = "Supports Skills you use yourself which can cause Damaging Hits. Supported Skills Break Armour against Parried Enemies.",
+	color = 2,
+	support = true,
+	requireSkillTypes = { SkillType.Damage, SkillType.Attack, SkillType.CrossbowSkill, SkillType.CrossbowAmmoSkill, },
+	addSkillTypes = { },
+	excludeSkillTypes = { SkillType.UsedByTotem, SkillType.SummonsTotem, SkillType.Minion, SkillType.Trapped, SkillType.RemoteMined, },
+	ignoreMinionTypes = true,
+	levels = {
+		[1] = { manaMultiplier = 15, levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Outmaneuver",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "armour_break_physical_damage_%_dealt_as_armour_break_vs_parried_enemies", 25 },
+			},
+			stats = {
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
 skills["SupportIncreaseLimitPlayer"] = {
 	name = "Overabundance",
 	description = "Supports skills which can have a Limited number of effects active at once, increasing that Limit at the cost of their duration. Only applies to restrictions that use the word \"Limit\".",
@@ -1444,7 +2117,7 @@ skills["SupportIncreaseLimitPlayer"] = {
 }
 skills["SupportOverchargePlayer"] = {
 	name = "Overcharge",
-	description = "Supports any skill that Hits enemies, making its Shocks more effective but last for a shorter duration.",
+	description = "Supports any skill that Hits enemies, making its Shocks more effective but reflecting them back to you as well.",
 	color = 2,
 	support = true,
 	requireSkillTypes = { SkillType.Damage, SkillType.Attack, SkillType.CrossbowAmmoSkill, },
@@ -1461,8 +2134,43 @@ skills["SupportOverchargePlayer"] = {
 			baseFlags = {
 			},
 			constantStats = {
-				{ "support_pure_shock_shock_duration_+%_final", -50 },
-				{ "shock_effect_+%", 75 },
+				{ "shock_effect_+%", 50 },
+			},
+			stats = {
+				"shocks_reflected_to_self",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["SupportOverextendPlayer"] = {
+	name = "Overextend",
+	description = "Supports Attack Skills you use yourself. Supported Skills deal more Damage with Critical Hits, but Critically Hitting an Enemy with them will Daze you for a short time.",
+	color = 2,
+	support = true,
+	requireSkillTypes = { SkillType.Attack, },
+	addSkillTypes = { },
+	excludeSkillTypes = { SkillType.Minion, SkillType.SummonsTotem, SkillType.UsedByTotem, },
+	levels = {
+		[1] = { manaMultiplier = 15, levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Overextend",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_overextend_critical_strike_multiplier_+%_final"] = {
+					mod("CritMultiplier", "MORE", nil),
+				},
+			},
+			baseFlags = {
+			},
+			constantStats = {
+				{ "support_overextend_critical_strike_multiplier_+%_final", 30 },
+				{ "daze_self_on_critical_hit_for_X_ms", 5000 },
 			},
 			stats = {
 			},
@@ -1493,6 +2201,35 @@ skills["SupportPayloadPlayer"] = {
 			constantStats = {
 				{ "grenade_skill_%_chance_to_explode_twice", 50 },
 				{ "base_cooldown_speed_+%", -70 },
+			},
+			stats = {
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["SupportPerfectionPlayer"] = {
+	name = "Perfection",
+	description = "Supports skills which have a benefit for Perfectly Timing their use. On successfully executing Perfect Timing with Supported Skills, gain Perfection, which is a powerful damage buff. However, failing to execute any Perfect Timing (even with skills not supported by Perfection) will remove all Perfection on you.",
+	color = 2,
+	support = true,
+	requireSkillTypes = { SkillType.PerfectTiming, },
+	addSkillTypes = { },
+	excludeSkillTypes = { },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Perfection",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "gain_X_perfection_on_successful_perfect_timing", 1 },
 			},
 			stats = {
 			},
@@ -1554,7 +2291,7 @@ skills["SupportPiercePlayer"] = {
 			},
 			constantStats = {
 				{ "base_chance_to_pierce_%", 100 },
-				{ "support_pierce_projectile_damage_+%_final_if_pierced_enemy", -30 },
+				{ "support_pierce_projectile_damage_+%_final_if_pierced_enemy", -20 },
 			},
 			stats = {
 			},
@@ -1687,6 +2424,184 @@ skills["SupportMultipleChargesPlayer"] = {
 		},
 	}
 }
+skills["SupportPunchThroughPlayer"] = {
+	name = "Punch Through",
+	description = "Supports Melee Attack Skills. Supported Skills apply Easy Target when Knocking Back Enemies, causing the next Projectile Attack Hit they take to deal increased Damage.",
+	color = 2,
+	support = true,
+	requireSkillTypes = { SkillType.Melee, },
+	addSkillTypes = { },
+	excludeSkillTypes = { },
+	levels = {
+		[1] = { manaMultiplier = 15, levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Punch Through",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "apply_attack_projectile_weakness_%_per_1m_knockback", 3 },
+			},
+			stats = {
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["SupportPursuitPlayer"] = {
+	name = "Pursuit",
+	description = "Supports Melee Attacks. Supported Skills deal more Melee damage if you have struck with a Projectile Attack Hit in the last eight seconds, but cannot themselves deal Projectile Damage.",
+	color = 2,
+	support = true,
+	requireSkillTypes = { SkillType.Melee, SkillType.Attack, SkillType.AND, },
+	addSkillTypes = { },
+	excludeSkillTypes = { },
+	levels = {
+		[1] = { manaMultiplier = 20, levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Pursuit",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "support_advancing_assault_melee_damage_+%_final_if_projectile_attack_damage_hit_in_past_8_seconds", 25 },
+				{ "support_advancing_assault_projectile_damage_+%_final", -100 },
+			},
+			stats = {
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["SupportReachPlayer"] = {
+	name = "Reach",
+	description = "Supports Attack Skills which deal Damage in an Area. Supported Skills have significantly increased Area of Effect, but are less Accurate against nearby targets.",
+	color = 2,
+	support = true,
+	requireSkillTypes = { SkillType.Attack, SkillType.Area, SkillType.AND, },
+	addSkillTypes = { },
+	excludeSkillTypes = { },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Reach",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "support_reach_area_of_effect_+%_final", 35 },
+				{ "support_reach_accuracy_within_2m_+%_final", -80 },
+			},
+			stats = {
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["SupportRearmPlayer"] = {
+	name = "Rearm",
+	description = "Supports Skills which create Hazards. Hazards created by Supported Skills have a chance to be rearmed a short duration after triggering.",
+	color = 2,
+	support = true,
+	requireSkillTypes = { SkillType.Hazard, },
+	addSkillTypes = { },
+	excludeSkillTypes = { },
+	levels = {
+		[1] = { manaMultiplier = 10, levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Rearm",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "hazard_rearm_%_chance", 25 },
+			},
+			stats = {
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["SupportRetortPlayer"] = {
+	name = "Retort",
+	description = "Supports Attacks you use yourself, causing them to Consume the Parried Debuff on Hit to grant you a Frenzy Charge. Cannot support Skills which already Consume the Parried Debuff.",
+	color = 2,
+	support = true,
+	requireSkillTypes = { SkillType.Attack, },
+	addSkillTypes = { },
+	excludeSkillTypes = { SkillType.Minion, SkillType.UsedByTotem, SkillType.SkillConsumesParried, },
+	ignoreMinionTypes = true,
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Retort",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "consume_parry_debuff_on_hit_to_gain_X_frenzy_charges", 1 },
+			},
+			stats = {
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["SupportRetreatPlayer"] = {
+	name = "Retreat",
+	description = "Supports Skills which create Projectiles. Supported Skills deal more damage with Projectiles if you have struck with a Melee Hit in the last eight seconds, but cannot themselves deal Melee Damage.",
+	color = 2,
+	support = true,
+	requireSkillTypes = { SkillType.Projectile, },
+	addSkillTypes = { },
+	excludeSkillTypes = { },
+	levels = {
+		[1] = { manaMultiplier = 20, levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Retreat",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "support_retreating_assault_projectile_damage_+%_final_if_melee_hit_in_past_8_seconds", 25 },
+				{ "support_retreating_assault_melee_damage_+%_final", -100 },
+			},
+			stats = {
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
 skills["SupportRicochetPlayer"] = {
 	name = "Ricochet",
 	description = "Supports any Skill which creates Projectiles, giving those Projectiles a chance to Chain when impacting terrain.",
@@ -1694,7 +2609,7 @@ skills["SupportRicochetPlayer"] = {
 	support = true,
 	requireSkillTypes = { SkillType.Projectile, },
 	addSkillTypes = { },
-	excludeSkillTypes = { SkillType.CannotChain, },
+	excludeSkillTypes = { SkillType.CannotChain, SkillType.CannotTerrainChain, },
 	levels = {
 		[1] = { levelRequirement = 0, },
 	},
@@ -1709,6 +2624,38 @@ skills["SupportRicochetPlayer"] = {
 				{ "projectile_chance_to_chain_1_extra_time_from_terrain_%", 40 },
 			},
 			stats = {
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["SupportSalvoPlayer"] = {
+	name = "Salvo",
+	description = "Supports Attack Skills you use yourself which fire Projectiles. Supported Skills accumulate Seals over time, and consume them when used. For each Seal consumed, the Attack will fire additional Projectiles. Projectiles from Supported Skills are fired in random directions. Cannot Support Skills which require Combo, have a Cooldown or already gain Seals.",
+	color = 2,
+	support = true,
+	requireSkillTypes = { SkillType.Attack, SkillType.Projectile, SkillType.AND, },
+	addSkillTypes = { SkillType.HasSeals, SkillType.SupportedBySalvo, },
+	excludeSkillTypes = { SkillType.Minion, SkillType.UsedByTotem, SkillType.Vaal, SkillType.Cooldown, SkillType.ComboStacking, SkillType.HasSeals, SkillType.SupportedBySalvo, SkillType.NOT, SkillType.AND, },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Salvo",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "support_salvo_seals_gain_base_interval_ms", 2000 },
+				{ "support_salvo_additional_projectiles_fired_per_seal", 2 },
+				{ "support_salvo_maximum_seals", 3 },
+			},
+			stats = {
+				"random_projectile_direction",
 			},
 			levels = {
 				[1] = { actorLevel = 1, },
@@ -1745,7 +2692,7 @@ skills["SupportMultipleProjectilesPlayer"] = {
 			},
 			constantStats = {
 				{ "number_of_additional_projectiles", 2 },
-				{ "support_multiple_damage_+%_final", -20 },
+				{ "support_multiple_damage_+%_final", -35 },
 				{ "terrain_arrow_attachment_chance_reduction_+%", 200 },
 				{ "support_multiple_attack_and_cast_speed_+%_final", -20 },
 			},
@@ -1787,6 +2734,66 @@ skills["SupportSecondWindPlayer"] = {
 		},
 	}
 }
+skills["SupportShockingLeapPlayer"] = {
+	name = "Shocking Leap",
+	description = "Supports Skills that leap into the air and deal damage, causing them to create Shocked Ground the first time they Critically Hit an enemy.",
+	color = 2,
+	support = true,
+	requireSkillTypes = { SkillType.Jumping, },
+	addSkillTypes = { SkillType.CreatesGroundEffect, SkillType.Area, SkillType.Duration, },
+	excludeSkillTypes = { },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Shocking Leap",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "support_shocking_leap_shocked_ground_duration_ms", 4000 },
+				{ "support_shocking_leap_shocked_ground_radius", 20 },
+			},
+			stats = {
+				"support_shocking_leap_create_shocked_ground_on_leap",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["SupportSingleOutPlayer"] = {
+	name = "Single Out",
+	description = "Supports Mark Skills. Enemies affected by Supported Marks will have their Armour Broken by Physical Damage they take.",
+	color = 2,
+	support = true,
+	requireSkillTypes = { SkillType.Mark, },
+	addSkillTypes = { },
+	excludeSkillTypes = { },
+	levels = {
+		[1] = { manaMultiplier = 20, levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Single Out",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "marked_target_%_physical_damage_taken_as_armour_break", 10 },
+			},
+			stats = {
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
 skills["SupportManaOnCullPlayer"] = {
 	name = "Soul Drain",
 	description = "Supports any skill that Hits enemies, causing you to recover Mana when it Culls an enemy.",
@@ -1809,6 +2816,71 @@ skills["SupportManaOnCullPlayer"] = {
 				{ "recover_%_maximum_mana_on_cull", 12 },
 			},
 			stats = {
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["SupportSpectralVolleyPlayer"] = {
+	name = "Spectral Volley",
+	description = "Supports Bow or Spear Projectile Attacks you use yourself. Supported Skills deal lower damage initially, but generate Spectral Projectiles, which deal more damage when they fire. Spectral Projectiles linger and will fire a short duration after no new Spectral Projectiles have been created. Cannot support Channelling Skills, Leaping skills, or skills which rain Projectiles from above.",
+	color = 2,
+	support = true,
+	requireSkillTypes = { SkillType.Bow, SkillType.Attack, SkillType.AND, SkillType.Spear, SkillType.Projectile, SkillType.AND, SkillType.Attack, SkillType.AND, SkillType.OR, },
+	addSkillTypes = { },
+	excludeSkillTypes = { SkillType.Rain, SkillType.Channel, SkillType.Jumping, },
+	levels = {
+		[1] = { manaMultiplier = 20, levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Spectral Volley",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "support_spectral_arrows_damage_+%_final_with_spectral_projectiles", 20 },
+				{ "support_spectral_arrows_damage_+%_final_with_non_spectral_projectiles", -60 },
+				{ "support_spectral_arrows_base_duration_ms", 3000 },
+				{ "support_spectral_arrows_delay_between_projectiles_ms", 100 },
+				{ "support_spectral_arrows_maximum_spectral_arrows", 5 },
+			},
+			stats = {
+				"skill_has_spectral_arrows",
+				"triggered_skills_ignore_cost",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["SupportStormchainPlayer"] = {
+	name = "Stormchain",
+	description = "Supports Projectile Skills and Skills which can Chain. Supported Skills always Chain when initially Hitting a Shocked Enemy, but cannot themselves inflict Shock. Does not support Skills which cannot Chain.",
+	color = 2,
+	support = true,
+	requireSkillTypes = { SkillType.Chains, SkillType.Projectile, },
+	addSkillTypes = { SkillType.SupportedByStormchain, },
+	excludeSkillTypes = { SkillType.ProjectileNoCollision, SkillType.CannotChain, },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Stormchain",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "chance_to_chain_from_shocked_enemy_%", 100 },
+			},
+			stats = {
+				"never_shock",
 			},
 			levels = {
 				[1] = { actorLevel = 1, },
@@ -1840,8 +2912,190 @@ skills["SupportSwiftAfflictionPlayer"] = {
 			baseFlags = {
 			},
 			constantStats = {
-				{ "support_rapid_decay_damage_over_time_+%_final", 35 },
+				{ "support_rapid_decay_damage_over_time_+%_final", 30 },
 				{ "support_swift_affliction_skill_effect_and_damaging_ailment_duration_+%_final", -20 },
+			},
+			stats = {
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["SupportTumultPlayer"] = {
+	name = "Tumult",
+	description = "Supports Skills you use yourself which can cause Damaging Hits. Supported Skills consume a Frenzy Charge on use to powerfully Break Armour.",
+	color = 2,
+	support = true,
+	requireSkillTypes = { SkillType.Attack, SkillType.Damage, SkillType.CrossbowSkill, },
+	addSkillTypes = { SkillType.SupportedByTumult, },
+	excludeSkillTypes = { SkillType.UsedByTotem, SkillType.SummonsTotem, SkillType.Minion, SkillType.Trapped, SkillType.RemoteMined, SkillType.SkillConsumesFrenzyChargesOnUse, SkillType.SupportedByTumult, SkillType.NOT, SkillType.AND, },
+	ignoreMinionTypes = true,
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Tumult",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "skill_consume_frenzy_charge_to_armour_break_for_%_of_physical_damage", 50 },
+			},
+			stats = {
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["SupportTwofoldPlayer"] = {
+	name = "Twofold",
+	description = "Supports any Skill that Consumes Charges, granting a chance for benefits of that Consumption to be doubled.",
+	color = 2,
+	support = true,
+	requireSkillTypes = { SkillType.ConsumesCharges, },
+	addSkillTypes = { },
+	excludeSkillTypes = { },
+	ignoreMinionTypes = true,
+	levels = {
+		[1] = { manaMultiplier = 15, levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Twofold",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "chance_%_to_double_effect_of_removing_charges", 20 },
+			},
+			stats = {
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["SupportUnerringPowerPlayer"] = {
+	name = "Unerring Power",
+	description = "Supports Attack Skills you use yourself. When Supported Attacks are Empowered, they have significantly lowered cost and raised Accuracy.",
+	color = 2,
+	support = true,
+	requireSkillTypes = { SkillType.Attack, SkillType.CrossbowSkill, SkillType.CrossbowAmmoSkill, },
+	addSkillTypes = { },
+	excludeSkillTypes = { SkillType.UsedByTotem, SkillType.SummonsTotem, },
+	ignoreMinionTypes = true,
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Unerring Power",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "support_discount_skill_cost_+%_final_if_empowered", -30 },
+				{ "support_discount_accuracy_rating_+%_final_if_empowered", 30 },
+			},
+			stats = {
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["SupportUntouchablePlayer"] = {
+	name = "Untouchable",
+	description = "Supports Attack Skills you use yourself. While using Supported Skills, you gain increased Evasion Rating, with the increase scaling higher the longer the Attack time of the supported Skill. Cannot Support Channelling Skills.",
+	color = 2,
+	support = true,
+	requireSkillTypes = { SkillType.Attack, },
+	addSkillTypes = { },
+	excludeSkillTypes = { SkillType.Minion, SkillType.UsedByTotem, SkillType.SummonsTotem, SkillType.Channel, },
+	ignoreMinionTypes = true,
+	levels = {
+		[1] = { manaMultiplier = 20, levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Untouchable",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "evasion_+%_while_performing_action_per_250_ms_attack_time", 25 },
+			},
+			stats = {
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["SupportVoltPlayer"] = {
+	name = "Volt",
+	description = "Supports Projectile Attack Skills you use yourself. Supported Skills gain Voltaic Charge as you move, up to a maximum. When used, Supported Skills expend that Charge to gain extra Lightning Damage and Chain.",
+	color = 2,
+	support = true,
+	requireSkillTypes = { SkillType.RangedAttack, },
+	addSkillTypes = { },
+	excludeSkillTypes = { SkillType.Minion, SkillType.UsedByTotem, },
+	levels = {
+		[1] = { manaMultiplier = 20, levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Volt",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "support_static_charge_charge_gain_per_metre", 3 },
+				{ "support_static_charge_X_chains_per_10_charge", 1 },
+				{ "support_static_charge_%_damage_gained_as_lightning_per_10_charge", 5 },
+				{ "support_static_charge_maximum_charge", 30 },
+			},
+			stats = {
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["SupportWarmbloodedPlayer"] = {
+	name = "Warm Blooded",
+	description = "Supports Persistent Buff Skills, causing Freeze applied to you to last for a shorter duration while the Supported Skill is active.",
+	color = 2,
+	support = true,
+	requireSkillTypes = { SkillType.Persistent, SkillType.Buff, SkillType.AND, },
+	addSkillTypes = { },
+	excludeSkillTypes = { },
+	levels = {
+		[1] = { spiritReservationFlat = 15, levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Warm Blooded",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "support_freeze_protection_spirit_cost_freeze_duration_on_self_+%_final", -50 },
 			},
 			stats = {
 			},
@@ -1891,7 +3145,7 @@ skills["SupportKnockbackWavePlayer"] = {
 		[1] = {
 			label = "Wind Wave",
 			incrementalEffectiveness = 0.054999999701977,
-			statDescriptionScope = "skill_stat_descriptions",
+			statDescriptionScope = "knockback_wave",
 			baseFlags = {
 			},
 			constantStats = {
@@ -1900,11 +3154,11 @@ skills["SupportKnockbackWavePlayer"] = {
 				{ "generic_knockback_+%_final_at_max_distance", -90 },
 				{ "generic_knockback_distance_limit", 20 },
 				{ "active_skill_base_area_of_effect_radius", 20 },
+				{ "base_knockback_speed_+%", 300 },
 			},
 			stats = {
 				"trigger_on_stunned_while_performing_supported_skill",
 				"base_deal_no_damage",
-				"global_knockback",
 			},
 			levels = {
 				[1] = { actorLevel = 1, },
@@ -1936,8 +3190,8 @@ skills["SupportWindowOfOpportunityPlayer"] = {
 			baseFlags = {
 			},
 			constantStats = {
-				{ "perfect_timing_window_ms_+%", -25 },
-				{ "support_window_of_opportunity_perfect_timing_damage_+%_final", 50 },
+				{ "perfect_timing_window_ms_+%", -35 },
+				{ "support_window_of_opportunity_perfect_timing_damage_+%_final", 35 },
 			},
 			stats = {
 			},

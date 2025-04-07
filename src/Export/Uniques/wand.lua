@@ -3,6 +3,16 @@
 return {
 -- Weapon: Wand
 [[
+Cursecarver
+Acrid Wand
+Implicits: 1
+Grants Skill: Level (1-20) Decompose
+UniqueSpellDamageOnWeapon8
+UniqueIncreasedCastSpeed15
+UniqueManaRegeneration30
+UniqueLifeGainedFromEnemyDeath10
+UniqueHypothermiaGemLevel1
+]],[[
 Enezun's Charge
 Volatile Wand
 Implicits: 1
@@ -29,5 +39,14 @@ UniqueSpellDamageOnWeapon2
 UniqueLifeGainedFromEnemyDeath7
 UniqueGlobalChanceToBleed3
 UniqueSpellLifeCostPercent1
+]],[[
+The Wicked Quill
+Withered Wand
+Implicits: 1
+Grants Skill: Level (1-20) Chaos Bolt
+UniqueSpellDamageOnWeapon6
+UniqueIncreasedMana12
+UniqueChaosResist29
+UniqueSpellWitherOnHitChance1
 ]],
 }

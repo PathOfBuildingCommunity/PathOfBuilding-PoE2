@@ -27,7 +27,7 @@ local socketDropList = {
 	{ label = colorCodes.SCION.."S", color = "W" }
 }
 
-local baseSlots = { "Weapon 1", "Weapon 2", "Helmet", "Body Armour", "Gloves", "Boots", "Amulet", "Ring 1", "Ring 2", "Belt", "Charm 1", "Charm 2", "Charm 3", "Flask 1", "Flask 2" }
+local baseSlots = { "Weapon 1", "Weapon 2", "Helmet", "Body Armour", "Gloves", "Boots", "Amulet", "Ring 1", "Ring 2", "Ring 3","Belt", "Charm 1", "Charm 2", "Charm 3", "Flask 1", "Flask 2" }
 
 local catalystQualityFormat = {
 	"^x7F7F7FQuality (Life Modifiers): "..colorCodes.MAGIC.."+%d%% (augmented)",
@@ -119,6 +119,10 @@ local ItemsTabClass = newClass("ItemsTab", "UndoHandler", "ControlHost", "Contro
 			swapSlot.weaponSet = 2
 			swapSlot.shown = function()
 				return self.activeItemSet.useSecondWeaponSet
+			end
+		elseif slotName == "Ring 3" then
+			slot.shown = function()
+				return self.build.calcsTab.mainEnv.modDB:Flag(nil, "AdditionalRingSlot")
 			end
 		end
 	end
@@ -1094,14 +1098,10 @@ function ItemsTabClass:Draw(viewPort, inputEvents)
 				self:Redo()
 				self.build.buildFlag = true
 			elseif event.key == "f" and IsKeyDown("CTRL") then
-				local selUnique = self.selControl == self.controls.uniqueDB.controls.search
-				local selRare = self.selControl == self.controls.rareDB.controls.search
-				if selUnique or (self.controls.selectDB:IsShown() and not selRare and self.controls.selectDB.selIndex == 2) then
+				if self.selectedDB == "RARE" then
 					self:SelectControl(self.controls.rareDB.controls.search)
-					self.controls.selectDB.selIndex = 2
 				else
 					self:SelectControl(self.controls.uniqueDB.controls.search)
-					self.controls.selectDB.selIndex = 1
 				end
 			elseif event.key == "d" and IsKeyDown("CTRL") then
 				self.showStatDifferences = not self.showStatDifferences
@@ -1278,7 +1278,7 @@ end
 
 -- Returns the slot control and equipped jewel for the given node ID
 function ItemsTabClass:GetSocketAndJewelForNodeID(nodeId)
-	return self.sockets[nodeId], self.items[self.sockets[nodeId].selItemId]
+	return self.sockets[nodeId], self.sockets[nodeId] and self.items[self.sockets[nodeId].selItemId] or nil
 end
 
 -- Adds the given item to the build's item list
@@ -2640,6 +2640,9 @@ function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode)
 		end
 		tooltip:AddLine(16, s_format("^x7F7F7FCritical Hit Chance: %s%.2f%%", main:StatColor(weaponData.CritChance, base.weapon.CritChanceBase), weaponData.CritChance))
 		tooltip:AddLine(16, s_format("^x7F7F7FAttacks per Second: %s%.2f", main:StatColor(weaponData.AttackRate, base.weapon.AttackRateBase), weaponData.AttackRate))
+		if weaponData.ReloadTime then
+			tooltip:AddLine(16, s_format("^x7F7F7FReload Time: %s%.2f", main:StatColor(weaponData.ReloadTime, base.weapon.ReloadTimeBase), weaponData.ReloadTime))
+		end
 		if weaponData.range < 120 then
 			tooltip:AddLine(16, s_format("^x7F7F7FWeapon Range: %s%.1f ^x7F7F7Fmetres", main:StatColor(weaponData.range, base.weapon.Range), weaponData.range / 10))
 		end
@@ -3058,7 +3061,7 @@ function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode)
 		-- Build sorted list of slots to compare with
 		local compareSlots = { }
 		for slotName, slot in pairs(self.slots) do
-			if self:IsItemValidForSlot(item, slotName) and not slot.inactive and (not slot.weaponSet or slot.weaponSet == (self.activeItemSet.useSecondWeaponSet and 2 or 1)) then
+			if self:IsItemValidForSlot(item, slotName) and not slot.inactive and (not slot.weaponSet or slot.weaponSet == (self.activeItemSet.useSecondWeaponSet and 2 or 1)) and slot.shown() then
 				t_insert(compareSlots, slot)
 			end
 		end

@@ -101,19 +101,6 @@ return {
 						[2]="#"
 					}
 				},
-				text="Projectile added Fire damage {0}–{1}"
-			},
-			[2]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					},
-					[2]={
-						[1]="#",
-						[2]="#"
-					}
-				},
 				text="Projectiles which pass through the wall deal {0} to {1} Added Fire Damage"
 			}
 		},
@@ -125,15 +112,6 @@ return {
 	[5]={
 		[1]={
 			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Projectile gains extra {0}% damage as Fire"
-			},
-			[2]={
 				limit={
 					[1]={
 						[1]="#",
@@ -189,19 +167,6 @@ return {
 	},
 	[8]={
 		[1]={
-			[1]={
-				[1]={
-					k="milliseconds_to_seconds_2dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Lingering Ignite duration {0}s"
-			}
 		},
 		stats={
 			[1]="secondary_skill_effect_duration"
@@ -209,19 +174,6 @@ return {
 	},
 	[9]={
 		[1]={
-			[1]={
-				[1]={
-					k="milliseconds_to_seconds_2dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Wall duration {0}s"
-			}
 		},
 		stats={
 			[1]="skill_effect_duration"

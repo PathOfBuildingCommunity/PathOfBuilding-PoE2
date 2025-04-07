@@ -216,10 +216,10 @@ describe("TestItemParse", function()
 		assert.are.equals("+50% chance to Ignite", item.explicitModLines[1].line)
 	end)
 
-	it("attribute coverted", function()
+	it("attribute converted", function()
 		local item = new("Item", [[
 			Test Item
-			Expert Barrier Quarterstaff
+			Aegis Quarterstaff
 			Quality: 20
 			Sockets: S S S
 			Rune: Soul Core of Cholotl

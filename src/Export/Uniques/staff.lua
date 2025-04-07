@@ -27,7 +27,7 @@ Implicits: 1
 Grants Skill: Level (1-20) Lightning Bolt
 Grants Skill: Level (1-20) Spark
 UniqueLightningDamageOnWeapon1
-UniqueIncreasedCastSpeed3
+UniqueIncreasedCastSpeed4
 UniqueManaRegeneration6
 UniqueTriggerSparkOnKillingShockedEnemy1
 ]],[[
@@ -36,16 +36,26 @@ Pyrophyte Staff
 Implicits: 1
 Grants Skill: Level (1-20) Living Bomb
 UniqueFireDamageOnWeapon1
-UniqueIncreasedCastSpeed3
+UniqueIncreasedCastSpeed4
 UniqueIgniteChanceIncrease1
 UniqueIgniteEffect2
+]],[[
+Sire of Shards
+Chiming Staff
+Implicits: 1
+Grants Skill: Level (1-20) Sigil of Power
+UniqueSpellDamageOnWeapon7
+UniqueIncreasedCastSpeed4
+UniqueAllResistances22
+LightRadiusUniqueStaff10_
+UniqueSpellAdditionalProjectilesInCircle1
 ]],[[
 Taryn's Shiver
 Gelid Staff
 Implicits: 1
 Grants Skill: Level (1-20) Freezing Shards
 UniqueColdDamageOnWeapon1
-UniqueIncreasedCastSpeed3
+UniqueIncreasedCastSpeed4
 UniqueFreezeDamageIncrease1
 UniqueFrozenMonstersTakeIncreasedDamage1
 ]],
@@ -90,11 +100,15 @@ UniqueStunDuration1
 UniqueLocalDazeBuildup1
 ]],[[
 Pillar of the Caged God
+Variant: Pre 0.2.0
+Variant: Current
 Long Quarterstaff
 Implicits: 1
 QuarterstaffWeaponRange1
-UniqueAttackAreaOfEffectPerIntelligence1
-UniqueAttackSpeedPerDexterity1
+{variant:1}UniqueAttackAreaOfEffectPerIntelligence1[2,2]
+{variant:2}UniqueAttackAreaOfEffectPerIntelligence1
+{variant:1}UniqueAttackSpeedPerDexterity1[2,2]
+{variant:2}UniqueAttackSpeedPerDexterity1
 UniqueWeaponDamagePerStrength1
 ]],[[
 The Sentry

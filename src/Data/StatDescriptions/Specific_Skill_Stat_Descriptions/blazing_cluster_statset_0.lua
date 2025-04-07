@@ -44,15 +44,6 @@ return {
 						[2]="#"
 					}
 				},
-				text="Maximum accumulated Embers {0}"
-			},
-			[2]={
-				limit={
-					[1]={
-						[1]=2,
-						[2]="#"
-					}
-				},
 				text="Can accumulate up to {0} Embers\nModifiers to number of Projectiles instead\napply to number of Embers accumulated"
 			}
 		},
@@ -62,19 +53,6 @@ return {
 	},
 	[3]={
 		[1]={
-			[1]={
-				[1]={
-					k="milliseconds_to_seconds_2dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Hover duration {0}s"
-			}
 		},
 		stats={
 			[1]="skill_effect_duration"
@@ -82,15 +60,6 @@ return {
 	},
 	[4]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Embers conjured per use {0}"
-			}
 		},
 		stats={
 			[1]="total_number_of_projectiles_to_fire"

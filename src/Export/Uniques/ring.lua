@@ -91,11 +91,31 @@ UniqueAdditionalCurseOnEnemies1
 ]],[[
 Dream Fragments
 Sapphire Ring
+Variant: Pre 0.2.0
+Variant: Current
 Implicits: 1
 RingImplicitColdResistance1
-UniqueMaximumManaIncrease1
+{variant:1}UniqueMaximumManaIncrease1[20,20]
+{variant:2}UniqueMaximumManaIncrease1
 UniqueManaRegeneration3
 UniqueCannotBeChilledOrFrozen1
+]],[[
+Evergrasping Ring
+Pearl Ring
+Implicits: 1
+RingImplicitIncreasedCastSpeed1
+UniqueIncreasedMana12
+UniqueAlliesInPresenceGainedAsChaos1
+UniqueEnemiesInPresenceGainedAsChaos1
+]],[[
+Gifts from Above
+Prismatic Ring
+Implicits: 1
+RingImplicitAllResistances1
+UniqueCriticalStrikeChance12
+UniqueLightRadius16
+UniqueKilledMonsterItemRarityOnCrit1
+UniqueConsecratedGroundStationaryRing1
 ]],[[
 Glowswarm
 Lazuli Ring
@@ -114,6 +134,18 @@ UniqueLifeRegeneration3
 UniqueManaRegeneration11
 UniqueSelfPhysicalDamageOnMinionDeath1
 UniqueMinionReviveSpeed2
+]],[[
+Icefang Orbit
+Iron Ring
+Requires Level 36
+Implicits: 1
+RingImplicitPhysicalDamage1
+UniqueAddedPhysicalDamage7
+UniqueDexterity37
+UniqueBaseChanceToPoison3
+UniqueChilledWhilePoisoned1
+UniqueNonChilledEnemiesPoisonAndChill1
+UniquePoisonEffect1
 ]],[[
 Kalandra's Touch
 Ring
@@ -163,6 +195,16 @@ UniqueIncreasedMana7
 UniqueStrength3
 UniqueChillHitsCauseShattering1
 ]],[[
+Prized Pain
+Iron Ring
+Requires Level 48
+Implicits: 1
+RingImplicitPhysicalDamage1
+UniqueStrength41
+UniqueLifeCostAsManaCost2
+UniqueThornsDamageOnStun1
+UniqueAttackerTakesDamage7
+]],[[
 Seed of Cataclysm
 Lazuli Ring
 Implicits: 1
@@ -178,7 +220,7 @@ Variant: Ruby
 Variant: Emerald
 Variant: Sapphire
 Requires Level 40
-UniqueItemFoundRarityIncrease2
+UniqueItemFoundRarityIncrease20
 UniqueAllAttributes1
 UniqueLightningResistanceNoPenalty1
 {variant:1}UniqueOnlySocketRubyJewel1
@@ -208,17 +250,44 @@ UniqueDisablesOtherRingSlot1
 UniqueManaGainPerTarget1
 UniqueSelfCurseDuration1
 ]],[[
+Venopuncture
+Iron Ring
+Requires Level 36
+Implicits: 1
+RingImplicitPhysicalDamage1
+UniqueAddedPhysicalDamage8
+UniqueStrength41
+UniqueChilledWhileBleeding1
+UniqueNonChilledEnemiesBleedAndChill1
+UniqueGlobalChanceToBleed2
+UniqueBleedEffect1
+]],[[
 Ventor's Gamble
 Gold Ring
+Variant: Pre 0.2.0
+Variant: Current
 Requires Level 64
 Implicits: 1
 RingImplicitItemFoundRarityIncrease1
 UniqueIncreasedLife39
 UniqueIncreasedSpirit7
-UniqueItemFoundRarityIncrease17
+{variant:1}UniqueItemFoundRarityIncrease17[-40,40]
+{variant:2}UniqueItemFoundRarityIncrease17
 UniqueFireResist24
 UniqueColdResist20
 UniqueLightningResist18
+]],[[
+Vigilant View
+Emerald Ring
+Requires Level 26
+Implicits: 1
+RingImplicitIncreasedAccuracy1
+UniqueIncreasedAccuracy12
+UniqueIncreasedEvasionRating3
+UniqueItemFoundRarityIncrease20
+UniqueDexterity37
+UniqueEnemyAccuracyDistanceFalloff1
+UniqueMaximumEvadeChanceOverride1
 ]],[[
 Whisper of the Brotherhood
 Sapphire Ring

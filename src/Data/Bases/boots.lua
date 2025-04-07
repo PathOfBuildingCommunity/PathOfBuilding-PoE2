@@ -83,7 +83,7 @@ itemBases["Totemic Greaves"] = {
 	armour = { Armour = 182, },
 	req = { level = 65, str = 111, },
 }
-itemBases["Advanced Iron Greaves"] = {
+itemBases["Plated Greaves"] = {
 	type = "Boots",
 	subType = "Armour",
 	quality = 20,
@@ -93,7 +93,7 @@ itemBases["Advanced Iron Greaves"] = {
 	armour = { Armour = 132, },
 	req = { level = 45, str = 78, },
 }
-itemBases["Advanced Bronze Greaves"] = {
+itemBases["Lionheart Greaves"] = {
 	type = "Boots",
 	subType = "Armour",
 	quality = 20,
@@ -103,7 +103,7 @@ itemBases["Advanced Bronze Greaves"] = {
 	armour = { Armour = 147, },
 	req = { level = 51, str = 88, },
 }
-itemBases["Advanced Trimmed Greaves"] = {
+itemBases["Elegant Greaves"] = {
 	type = "Boots",
 	subType = "Armour",
 	quality = 20,
@@ -113,7 +113,7 @@ itemBases["Advanced Trimmed Greaves"] = {
 	armour = { Armour = 157, },
 	req = { level = 55, str = 95, },
 }
-itemBases["Advanced Stone Greaves"] = {
+itemBases["Carved Greaves"] = {
 	type = "Boots",
 	subType = "Armour",
 	quality = 20,
@@ -123,7 +123,7 @@ itemBases["Advanced Stone Greaves"] = {
 	armour = { Armour = 167, },
 	req = { level = 59, str = 101, },
 }
-itemBases["Expert Iron Greaves"] = {
+itemBases["Bulwark Greaves"] = {
 	type = "Boots",
 	subType = "Armour",
 	quality = 20,
@@ -133,7 +133,7 @@ itemBases["Expert Iron Greaves"] = {
 	armour = { Armour = 182, },
 	req = { level = 65, str = 111, },
 }
-itemBases["Expert Trimmed Greaves"] = {
+itemBases["Ornate Greaves"] = {
 	type = "Boots",
 	subType = "Armour",
 	quality = 20,
@@ -143,7 +143,7 @@ itemBases["Expert Trimmed Greaves"] = {
 	armour = { Armour = 200, },
 	req = { level = 70, str = 121, },
 }
-itemBases["Expert Stone Greaves"] = {
+itemBases["Vaal Greaves"] = {
 	type = "Boots",
 	subType = "Armour",
 	quality = 20,
@@ -234,7 +234,7 @@ itemBases["Embroidered Boots"] = {
 	armour = { Evasion = 166, },
 	req = { level = 65, dex = 111, },
 }
-itemBases["Advanced Laced Boots"] = {
+itemBases["Bound Boots"] = {
 	type = "Boots",
 	subType = "Evasion",
 	quality = 20,
@@ -244,7 +244,7 @@ itemBases["Advanced Laced Boots"] = {
 	armour = { Evasion = 119, },
 	req = { level = 45, dex = 78, },
 }
-itemBases["Advanced Embossed Boots"] = {
+itemBases["Sleek Boots"] = {
 	type = "Boots",
 	subType = "Evasion",
 	quality = 20,
@@ -254,7 +254,7 @@ itemBases["Advanced Embossed Boots"] = {
 	armour = { Evasion = 133, },
 	req = { level = 51, dex = 88, },
 }
-itemBases["Advanced Steeltoe Boots"] = {
+itemBases["Studded Boots"] = {
 	type = "Boots",
 	subType = "Evasion",
 	quality = 20,
@@ -264,7 +264,7 @@ itemBases["Advanced Steeltoe Boots"] = {
 	armour = { Evasion = 143, },
 	req = { level = 55, dex = 95, },
 }
-itemBases["Advanced Lizardscale Boots"] = {
+itemBases["Serpentscale Boots"] = {
 	type = "Boots",
 	subType = "Evasion",
 	quality = 20,
@@ -274,7 +274,7 @@ itemBases["Advanced Lizardscale Boots"] = {
 	armour = { Evasion = 152, },
 	req = { level = 59, dex = 101, },
 }
-itemBases["Expert Laced Boots"] = {
+itemBases["Cinched Boots"] = {
 	type = "Boots",
 	subType = "Evasion",
 	quality = 20,
@@ -284,7 +284,7 @@ itemBases["Expert Laced Boots"] = {
 	armour = { Evasion = 166, },
 	req = { level = 65, dex = 111, },
 }
-itemBases["Expert Steeltoe Boots"] = {
+itemBases["Cavalry Boots"] = {
 	type = "Boots",
 	subType = "Evasion",
 	quality = 20,
@@ -294,7 +294,7 @@ itemBases["Expert Steeltoe Boots"] = {
 	armour = { Evasion = 183, },
 	req = { level = 70, dex = 121, },
 }
-itemBases["Expert Lizardscale Boots"] = {
+itemBases["Dragonscale Boots"] = {
 	type = "Boots",
 	subType = "Evasion",
 	quality = 20,
@@ -385,7 +385,7 @@ itemBases["Elaborate Sandals"] = {
 	armour = { EnergyShield = 63, },
 	req = { level = 65, int = 111, },
 }
-itemBases["Advanced Wrapped Sandals"] = {
+itemBases["Laced Sandals"] = {
 	type = "Boots",
 	subType = "Energy Shield",
 	quality = 20,
@@ -395,7 +395,7 @@ itemBases["Advanced Wrapped Sandals"] = {
 	armour = { EnergyShield = 48, },
 	req = { level = 45, int = 78, },
 }
-itemBases["Advanced Lattice Sandals"] = {
+itemBases["Bangled Sandals"] = {
 	type = "Boots",
 	subType = "Energy Shield",
 	quality = 20,
@@ -405,7 +405,7 @@ itemBases["Advanced Lattice Sandals"] = {
 	armour = { EnergyShield = 52, },
 	req = { level = 51, int = 88, },
 }
-itemBases["Advanced Silk Slippers"] = {
+itemBases["Elegant Slippers"] = {
 	type = "Boots",
 	subType = "Energy Shield",
 	quality = 20,
@@ -415,7 +415,7 @@ itemBases["Advanced Silk Slippers"] = {
 	armour = { EnergyShield = 55, },
 	req = { level = 55, int = 95, },
 }
-itemBases["Advanced Feathered Sandals"] = {
+itemBases["Dunerunner Sandals"] = {
 	type = "Boots",
 	subType = "Energy Shield",
 	quality = 20,
@@ -425,7 +425,7 @@ itemBases["Advanced Feathered Sandals"] = {
 	armour = { EnergyShield = 58, },
 	req = { level = 59, int = 101, },
 }
-itemBases["Expert Wrapped Sandals"] = {
+itemBases["Bound Sandals"] = {
 	type = "Boots",
 	subType = "Energy Shield",
 	quality = 20,
@@ -435,7 +435,7 @@ itemBases["Expert Wrapped Sandals"] = {
 	armour = { EnergyShield = 63, },
 	req = { level = 65, int = 111, },
 }
-itemBases["Expert Silk Slippers"] = {
+itemBases["Luxurious Slippers"] = {
 	type = "Boots",
 	subType = "Energy Shield",
 	quality = 20,
@@ -445,7 +445,7 @@ itemBases["Expert Silk Slippers"] = {
 	armour = { EnergyShield = 69, },
 	req = { level = 70, int = 121, },
 }
-itemBases["Expert Feathered Sandals"] = {
+itemBases["Sandsworn Sandals"] = {
 	type = "Boots",
 	subType = "Energy Shield",
 	quality = 20,
@@ -516,7 +516,7 @@ itemBases["Bold Sabatons"] = {
 	armour = { Armour = 100, Evasion = 91, },
 	req = { level = 65, str = 61, dex = 61, },
 }
-itemBases["Advanced Mail Sabatons"] = {
+itemBases["Soldiering Sabatons"] = {
 	type = "Boots",
 	subType = "Armour/Evasion",
 	quality = 20,
@@ -526,7 +526,7 @@ itemBases["Advanced Mail Sabatons"] = {
 	armour = { Armour = 73, Evasion = 65, },
 	req = { level = 45, str = 43, dex = 43, },
 }
-itemBases["Advanced Braced Sabatons"] = {
+itemBases["Goldwork Sabatons"] = {
 	type = "Boots",
 	subType = "Armour/Evasion",
 	quality = 20,
@@ -536,7 +536,7 @@ itemBases["Advanced Braced Sabatons"] = {
 	armour = { Armour = 81, Evasion = 73, },
 	req = { level = 51, str = 49, dex = 49, },
 }
-itemBases["Advanced Stacked Sabatons"] = {
+itemBases["Bastion Sabatons"] = {
 	type = "Boots",
 	subType = "Armour/Evasion",
 	quality = 20,
@@ -546,7 +546,7 @@ itemBases["Advanced Stacked Sabatons"] = {
 	armour = { Armour = 92, Evasion = 84, },
 	req = { level = 59, str = 56, dex = 56, },
 }
-itemBases["Expert Mail Sabatons"] = {
+itemBases["Veteran Sabatons"] = {
 	type = "Boots",
 	subType = "Armour/Evasion",
 	quality = 20,
@@ -556,7 +556,7 @@ itemBases["Expert Mail Sabatons"] = {
 	armour = { Armour = 100, Evasion = 91, },
 	req = { level = 65, str = 61, dex = 61, },
 }
-itemBases["Expert Braced Sabatons"] = {
+itemBases["Noble Sabatons"] = {
 	type = "Boots",
 	subType = "Armour/Evasion",
 	quality = 20,
@@ -566,7 +566,7 @@ itemBases["Expert Braced Sabatons"] = {
 	armour = { Armour = 110, Evasion = 101, },
 	req = { level = 70, str = 66, dex = 66, },
 }
-itemBases["Expert Stacked Sabatons"] = {
+itemBases["Fortress Sabatons"] = {
 	type = "Boots",
 	subType = "Armour/Evasion",
 	quality = 20,
@@ -637,7 +637,7 @@ itemBases["Pious Leggings"] = {
 	armour = { Armour = 100, EnergyShield = 35, },
 	req = { level = 65, str = 61, int = 61, },
 }
-itemBases["Advanced Padded Leggings"] = {
+itemBases["Adherent Leggings"] = {
 	type = "Boots",
 	subType = "Armour/Energy Shield",
 	quality = 20,
@@ -647,7 +647,7 @@ itemBases["Advanced Padded Leggings"] = {
 	armour = { Armour = 73, EnergyShield = 26, },
 	req = { level = 45, str = 43, int = 43, },
 }
-itemBases["Advanced Secured Leggings"] = {
+itemBases["Bound Leggings"] = {
 	type = "Boots",
 	subType = "Armour/Energy Shield",
 	quality = 20,
@@ -657,7 +657,7 @@ itemBases["Advanced Secured Leggings"] = {
 	armour = { Armour = 81, EnergyShield = 29, },
 	req = { level = 51, str = 49, int = 49, },
 }
-itemBases["Advanced Pelt Leggings"] = {
+itemBases["Shamanistic Leggings"] = {
 	type = "Boots",
 	subType = "Armour/Energy Shield",
 	quality = 20,
@@ -667,7 +667,7 @@ itemBases["Advanced Pelt Leggings"] = {
 	armour = { Armour = 92, EnergyShield = 32, },
 	req = { level = 59, str = 56, int = 56, },
 }
-itemBases["Expert Padded Leggings"] = {
+itemBases["Faithful Leggings"] = {
 	type = "Boots",
 	subType = "Armour/Energy Shield",
 	quality = 20,
@@ -677,7 +677,7 @@ itemBases["Expert Padded Leggings"] = {
 	armour = { Armour = 100, EnergyShield = 35, },
 	req = { level = 65, str = 61, int = 61, },
 }
-itemBases["Expert Secured Leggings"] = {
+itemBases["Apostle Leggings"] = {
 	type = "Boots",
 	subType = "Armour/Energy Shield",
 	quality = 20,
@@ -687,7 +687,7 @@ itemBases["Expert Secured Leggings"] = {
 	armour = { Armour = 110, EnergyShield = 38, },
 	req = { level = 70, str = 66, int = 66, },
 }
-itemBases["Expert Pelt Leggings"] = {
+itemBases["Warlock Leggings"] = {
 	type = "Boots",
 	subType = "Armour/Energy Shield",
 	quality = 20,
@@ -758,7 +758,7 @@ itemBases["Bladed Shoes"] = {
 	armour = { Evasion = 91, EnergyShield = 35, },
 	req = { level = 65, dex = 61, int = 61, },
 }
-itemBases["Advanced Frayed Shoes"] = {
+itemBases["Wayfarer Shoes"] = {
 	type = "Boots",
 	subType = "Evasion/Energy Shield",
 	quality = 20,
@@ -768,7 +768,7 @@ itemBases["Advanced Frayed Shoes"] = {
 	armour = { Evasion = 65, EnergyShield = 26, },
 	req = { level = 45, dex = 43, int = 43, },
 }
-itemBases["Advanced Threaded Shoes"] = {
+itemBases["Silverbuckled Shoes"] = {
 	type = "Boots",
 	subType = "Evasion/Energy Shield",
 	quality = 20,
@@ -778,7 +778,7 @@ itemBases["Advanced Threaded Shoes"] = {
 	armour = { Evasion = 73, EnergyShield = 29, },
 	req = { level = 51, dex = 49, int = 49, },
 }
-itemBases["Advanced Hunting Shoes"] = {
+itemBases["Treerunner Shoes"] = {
 	type = "Boots",
 	subType = "Evasion/Energy Shield",
 	quality = 20,
@@ -788,7 +788,7 @@ itemBases["Advanced Hunting Shoes"] = {
 	armour = { Evasion = 84, EnergyShield = 32, },
 	req = { level = 59, dex = 56, int = 56, },
 }
-itemBases["Expert Frayed Shoes"] = {
+itemBases["Wanderer Shoes"] = {
 	type = "Boots",
 	subType = "Evasion/Energy Shield",
 	quality = 20,
@@ -798,7 +798,7 @@ itemBases["Expert Frayed Shoes"] = {
 	armour = { Evasion = 91, EnergyShield = 35, },
 	req = { level = 65, dex = 61, int = 61, },
 }
-itemBases["Expert Threaded Shoes"] = {
+itemBases["Charmed Shoes"] = {
 	type = "Boots",
 	subType = "Evasion/Energy Shield",
 	quality = 20,
@@ -808,7 +808,7 @@ itemBases["Expert Threaded Shoes"] = {
 	armour = { Evasion = 101, EnergyShield = 38, },
 	req = { level = 70, dex = 66, int = 66, },
 }
-itemBases["Expert Hunting Shoes"] = {
+itemBases["Quickslip Shoes"] = {
 	type = "Boots",
 	subType = "Evasion/Energy Shield",
 	quality = 20,

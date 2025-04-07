@@ -43,9 +43,9 @@ itemBases["Warpick"] = {
 	quality = 20,
 	socketLimit = 2,
 	tags = { maraketh_basetype = true, onehand = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
-	implicit = "+(30-40)% to Critical Damage Bonus",
+	implicit = "+(10-15)% to Critical Damage Bonus",
 	implicitModTypes = { { "damage", "attack", "critical" }, },
-	weapon = { PhysicalMin = 18, PhysicalMax = 24, CritChanceBase = 8, AttackRateBase = 1.45, Range = 11, },
+	weapon = { PhysicalMin = 18, PhysicalMax = 24, CritChanceBase = 7, AttackRateBase = 1.45, Range = 11, },
 	req = { level = 22, str = 52, },
 }
 itemBases["Plated Mace"] = {
@@ -122,7 +122,7 @@ itemBases["Torment Club"] = {
 	weapon = { PhysicalMin = 44, PhysicalMax = 73, CritChanceBase = 5, AttackRateBase = 1.45, Range = 11, },
 	req = { level = 65, str = 148, },
 }
-itemBases["Advanced Smithing Hammer"] = {
+itemBases["Calescent Hammer"] = {
 	type = "One Handed Mace",
 	quality = 20,
 	socketLimit = 2,
@@ -131,7 +131,7 @@ itemBases["Advanced Smithing Hammer"] = {
 	weapon = { PhysicalMin = 19, PhysicalMax = 32, FireMin = 19, FireMax = 32, CritChanceBase = 5, AttackRateBase = 1.45, Range = 11, },
 	req = { level = 45, str = 104, },
 }
-itemBases["Advanced Slim Mace"] = {
+itemBases["Flared Mace"] = {
 	type = "One Handed Mace",
 	quality = 20,
 	socketLimit = 2,
@@ -140,17 +140,17 @@ itemBases["Advanced Slim Mace"] = {
 	weapon = { PhysicalMin = 33, PhysicalMax = 50, CritChanceBase = 5, AttackRateBase = 1.55, Range = 11, },
 	req = { level = 48, str = 110, },
 }
-itemBases["Advanced Warpick"] = {
+itemBases["Battle Pick"] = {
 	type = "One Handed Mace",
 	quality = 20,
 	socketLimit = 2,
 	tags = { onehand = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
-	implicit = "+(30-40)% to Critical Damage Bonus",
+	implicit = "+(10-15)% to Critical Damage Bonus",
 	implicitModTypes = { { "damage", "attack", "critical" }, },
-	weapon = { PhysicalMin = 34, PhysicalMax = 46, CritChanceBase = 8, AttackRateBase = 1.45, Range = 11, },
+	weapon = { PhysicalMin = 35, PhysicalMax = 47, CritChanceBase = 7, AttackRateBase = 1.45, Range = 11, },
 	req = { level = 51, str = 117, },
 }
-itemBases["Advanced Plated Mace"] = {
+itemBases["Marching Mace"] = {
 	type = "One Handed Mace",
 	quality = 20,
 	socketLimit = 2,
@@ -159,7 +159,7 @@ itemBases["Advanced Plated Mace"] = {
 	weapon = { PhysicalMin = 34, PhysicalMax = 70, CritChanceBase = 5, AttackRateBase = 1.4, Range = 11, },
 	req = { level = 55, str = 126, },
 }
-itemBases["Advanced Brigand Mace"] = {
+itemBases["Bandit Mace"] = {
 	type = "One Handed Mace",
 	quality = 20,
 	socketLimit = 2,
@@ -168,7 +168,7 @@ itemBases["Advanced Brigand Mace"] = {
 	weapon = { PhysicalMin = 45, PhysicalMax = 61, CritChanceBase = 5, AttackRateBase = 1.45, Range = 11, },
 	req = { level = 59, str = 135, },
 }
-itemBases["Advanced Construct Hammer"] = {
+itemBases["Structured Hammer"] = {
 	type = "One Handed Mace",
 	quality = 20,
 	socketLimit = 2,
@@ -178,7 +178,7 @@ itemBases["Advanced Construct Hammer"] = {
 	weapon = { PhysicalMin = 49, PhysicalMax = 60, CritChanceBase = 5, AttackRateBase = 1.4, Range = 11, },
 	req = { level = 62, str = 142, },
 }
-itemBases["Expert Slim Mace"] = {
+itemBases["Flanged Mace"] = {
 	type = "One Handed Mace",
 	quality = 20,
 	socketLimit = 2,
@@ -187,7 +187,7 @@ itemBases["Expert Slim Mace"] = {
 	weapon = { PhysicalMin = 45, PhysicalMax = 67, CritChanceBase = 5, AttackRateBase = 1.55, Range = 11, },
 	req = { level = 67, str = 174, },
 }
-itemBases["Expert Plated Mace"] = {
+itemBases["Crown Mace"] = {
 	type = "One Handed Mace",
 	quality = 20,
 	socketLimit = 2,
@@ -196,7 +196,7 @@ itemBases["Expert Plated Mace"] = {
 	weapon = { PhysicalMin = 43, PhysicalMax = 89, CritChanceBase = 5, AttackRateBase = 1.4, Range = 11, },
 	req = { level = 72, str = 193, },
 }
-itemBases["Expert Smithing Hammer"] = {
+itemBases["Molten Hammer"] = {
 	type = "One Handed Mace",
 	quality = 20,
 	socketLimit = 2,
@@ -205,17 +205,17 @@ itemBases["Expert Smithing Hammer"] = {
 	weapon = { PhysicalMin = 30, PhysicalMax = 50, FireMin = 30, FireMax = 50, CritChanceBase = 5, AttackRateBase = 1.45, Range = 11, },
 	req = { level = 77, str = 212, },
 }
-itemBases["Expert Warpick"] = {
+itemBases["Strife Pick"] = {
 	type = "One Handed Mace",
 	quality = 20,
 	socketLimit = 2,
 	tags = { onehand = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
-	implicit = "+(30-40)% to Critical Damage Bonus",
+	implicit = "+(10-15)% to Critical Damage Bonus",
 	implicitModTypes = { { "damage", "attack", "critical" }, },
-	weapon = { PhysicalMin = 48, PhysicalMax = 64, CritChanceBase = 8, AttackRateBase = 1.45, Range = 11, },
+	weapon = { PhysicalMin = 49, PhysicalMax = 66, CritChanceBase = 7, AttackRateBase = 1.45, Range = 11, },
 	req = { level = 78, str = 212, },
 }
-itemBases["Expert Construct Hammer"] = {
+itemBases["Fortified Hammer"] = {
 	type = "One Handed Mace",
 	quality = 20,
 	socketLimit = 2,
@@ -225,7 +225,7 @@ itemBases["Expert Construct Hammer"] = {
 	weapon = { PhysicalMin = 60, PhysicalMax = 73, CritChanceBase = 5, AttackRateBase = 1.4, Range = 11, },
 	req = { level = 79, str = 212, },
 }
-itemBases["Expert Brigand Mace"] = {
+itemBases["Marauding Mace"] = {
 	type = "One Handed Mace",
 	quality = 20,
 	socketLimit = 2,
@@ -277,7 +277,7 @@ itemBases["Cultist Greathammer"] = {
 	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, maraketh_basetype = true, mace = true, weapon = true, twohand = true, default = true, },
-	implicit = "Strikes deal Splash damage to targets within 1.8 metres",
+	implicit = "Strikes deal Splash damage to targets within 1.5 metres",
 	implicitModTypes = { { "attack" }, },
 	weapon = { PhysicalMin = 32, PhysicalMax = 43, CritChanceBase = 5, AttackRateBase = 1.05, Range = 13, },
 	req = { level = 22, str = 52, },
@@ -356,7 +356,7 @@ itemBases["Giant Maul"] = {
 	weapon = { PhysicalMin = 96, PhysicalMax = 144, CritChanceBase = 5, AttackRateBase = 1.1, Range = 13, },
 	req = { level = 65, str = 148, },
 }
-itemBases["Advanced Oak Greathammer"] = {
+itemBases["Snakewood Greathammer"] = {
 	type = "Two Handed Mace",
 	quality = 20,
 	socketLimit = 3,
@@ -366,7 +366,7 @@ itemBases["Advanced Oak Greathammer"] = {
 	weapon = { PhysicalMin = 59, PhysicalMax = 109, CritChanceBase = 5, AttackRateBase = 1.05, Range = 13, },
 	req = { level = 45, str = 104, },
 }
-itemBases["Advanced Forge Maul"] = {
+itemBases["Blacksmith Maul"] = {
 	type = "Two Handed Mace",
 	quality = 20,
 	socketLimit = 3,
@@ -375,17 +375,17 @@ itemBases["Advanced Forge Maul"] = {
 	weapon = { PhysicalMin = 84, PhysicalMax = 113, CritChanceBase = 5, AttackRateBase = 1.05, Range = 13, },
 	req = { level = 48, str = 110, },
 }
-itemBases["Advanced Cultist Greathammer"] = {
+itemBases["Zealot Greathammer"] = {
 	type = "Two Handed Mace",
 	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, mace = true, weapon = true, twohand = true, default = true, },
-	implicit = "Strikes deal Splash damage to targets within 1.8 metres",
+	implicit = "Strikes deal Splash damage to targets within 1.5 metres",
 	implicitModTypes = { { "attack" }, },
 	weapon = { PhysicalMin = 62, PhysicalMax = 83, CritChanceBase = 5, AttackRateBase = 1.05, Range = 13, },
 	req = { level = 51, str = 117, },
 }
-itemBases["Advanced Temple Maul"] = {
+itemBases["Solemn Maul"] = {
 	type = "Two Handed Mace",
 	quality = 20,
 	socketLimit = 3,
@@ -394,7 +394,7 @@ itemBases["Advanced Temple Maul"] = {
 	weapon = { PhysicalMin = 60, PhysicalMax = 125, CritChanceBase = 5, AttackRateBase = 1.2, Range = 13, },
 	req = { level = 55, str = 126, },
 }
-itemBases["Advanced Leaden Greathammer"] = {
+itemBases["Heavy Greathammer"] = {
 	type = "Two Handed Mace",
 	quality = 20,
 	socketLimit = 3,
@@ -403,7 +403,7 @@ itemBases["Advanced Leaden Greathammer"] = {
 	weapon = { PhysicalMin = 94, PhysicalMax = 127, CritChanceBase = 5, AttackRateBase = 1.1, Range = 13, },
 	req = { level = 59, str = 135, },
 }
-itemBases["Advanced Crumbling Maul"] = {
+itemBases["Disintegrating Maul"] = {
 	type = "Two Handed Mace",
 	quality = 20,
 	socketLimit = 3,
@@ -413,7 +413,7 @@ itemBases["Advanced Crumbling Maul"] = {
 	weapon = { PhysicalMin = 93, PhysicalMax = 114, CritChanceBase = 5, AttackRateBase = 1.1, Range = 13, },
 	req = { level = 62, str = 142, },
 }
-itemBases["Expert Forge Maul"] = {
+itemBases["Anvil Maul"] = {
 	type = "Two Handed Mace",
 	quality = 20,
 	socketLimit = 3,
@@ -422,7 +422,7 @@ itemBases["Expert Forge Maul"] = {
 	weapon = { PhysicalMin = 112, PhysicalMax = 151, CritChanceBase = 5, AttackRateBase = 1.05, Range = 13, },
 	req = { level = 67, str = 174, },
 }
-itemBases["Expert Temple Maul"] = {
+itemBases["Sacred Maul"] = {
 	type = "Two Handed Mace",
 	quality = 20,
 	socketLimit = 3,
@@ -431,7 +431,7 @@ itemBases["Expert Temple Maul"] = {
 	weapon = { PhysicalMin = 76, PhysicalMax = 158, CritChanceBase = 5, AttackRateBase = 1.2, Range = 13, },
 	req = { level = 72, str = 193, },
 }
-itemBases["Expert Oak Greathammer"] = {
+itemBases["Ironwood Greathammer"] = {
 	type = "Two Handed Mace",
 	quality = 20,
 	socketLimit = 3,
@@ -441,17 +441,17 @@ itemBases["Expert Oak Greathammer"] = {
 	weapon = { PhysicalMin = 94, PhysicalMax = 174, CritChanceBase = 5, AttackRateBase = 1.05, Range = 13, },
 	req = { level = 77, str = 212, },
 }
-itemBases["Expert Cultist Greathammer"] = {
+itemBases["Fanatic Greathammer"] = {
 	type = "Two Handed Mace",
 	quality = 20,
 	socketLimit = 3,
 	tags = { two_hand_weapon = true, mace = true, weapon = true, twohand = true, default = true, },
-	implicit = "Strikes deal Splash damage to targets within 1.8 metres",
+	implicit = "Strikes deal Splash damage to targets within 1.5 metres",
 	implicitModTypes = { { "attack" }, },
 	weapon = { PhysicalMin = 89, PhysicalMax = 120, CritChanceBase = 5, AttackRateBase = 1.05, Range = 13, },
 	req = { level = 78, str = 212, },
 }
-itemBases["Expert Crumbling Maul"] = {
+itemBases["Ruination Maul"] = {
 	type = "Two Handed Mace",
 	quality = 20,
 	socketLimit = 3,
@@ -461,7 +461,7 @@ itemBases["Expert Crumbling Maul"] = {
 	weapon = { PhysicalMin = 113, PhysicalMax = 138, CritChanceBase = 5, AttackRateBase = 1.1, Range = 13, },
 	req = { level = 79, str = 212, },
 }
-itemBases["Expert Leaden Greathammer"] = {
+itemBases["Massive Greathammer"] = {
 	type = "Two Handed Mace",
 	quality = 20,
 	socketLimit = 3,

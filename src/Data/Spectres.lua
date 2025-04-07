@@ -7,7 +7,7 @@
 local minions, mod, flag = ...
 
 -- Goliath
-minions["Metadata/Monsters/TwoheadedTitan/TwoHeadedTitanSpectre"] = {
+minions["Metadata/Monsters/TwoheadedTitan/TwoHeadedTitan"] = {
 	name = "Goliath",
 	monsterTags = { "allows_inc_aoe", "humanoid", "melee", "MonsterBlunt_onhit_audio", "physical_affinity", "very_slow_movement", },
 	life = 2.5,
@@ -31,31 +31,30 @@ minions["Metadata/Monsters/TwoheadedTitan/TwoHeadedTitanSpectre"] = {
 }
 
 -- Quadrilla
-minions["Metadata/Monsters/Quadrilla/QuadrillaElite"] = {
-	name = "Silverback Quadrilla",
-	monsterTags = { "beast", "mammal_beast", "MonsterBlunt_onhit_audio", "not_dex", "not_int", "red_blood", "very_fast_movement", },
-	life = 2.5,
+minions["Metadata/Monsters/Quadrilla/Quadrilla"] = {
+	name = "Quadrilla",
+	monsterTags = { "allows_inc_aoe", "beast", "fast_movement", "mammal_beast", "melee", "MonsterBlunt_onhit_audio", "not_dex", "not_int", "physical_affinity", "red_blood", },
+	life = 2,
 	baseDamageIgnoresAttackSpeed = true,
 	armour = 0.75,
 	fireResist = 0,
 	coldResist = 0,
 	lightningResist = 0,
 	chaosResist = 0,
-	damage = 2.5,
+	damage = 2,
 	damageSpread = 0.2,
 	attackTime = 1.995,
-	attackRange = 27,
+	attackRange = 21,
 	accuracy = 1,
 	skillList = {
-		"MeleeAtAnimationSpeedUnique",
-		"EAAQuadrillaBossCleaveLeft",
-		"EAAQuadrillaBossCleaveRight",
-		"EAAQuadrillaBossSpin",
-		"EAAQuadrillaBossSlam",
-		"GAQuadrillaBossSlamCircle",
-		"GAQuadrillaBossRectSlam",
-		"GAQuadrillaBossSunder",
-		"DTTQuadrillaCommandoRoll",
+		"GAQuadrillaSunder",
+		"EAAQuadrillaThrow",
+		"MeleeAtAnimationSpeed",
+		"GPAQuadrillaRock",
+		"SSMQuadrillaRock",
+		"QuadrillaShieldCharge",
+		"TCQuadrillaCharge",
+		"EASQuadrillaTaunt",
 	},
 	modList = {
 	},

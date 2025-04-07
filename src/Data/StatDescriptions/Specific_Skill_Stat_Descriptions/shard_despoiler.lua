@@ -5,19 +5,6 @@ return {
 	[1]={
 		[1]={
 			[1]={
-				[1]={
-					k="milliseconds_to_seconds_2dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Minimum reload interval {0}s"
-			},
-			[2]={
 				limit={
 					[1]={
 						[1]=1000,
@@ -26,7 +13,7 @@ return {
 				},
 				text="Instantly reloads your Crossbow upon Consuming\nFreeze, Shock, Ignite, or Fully Broken Armour, no more than\nonce per second"
 			},
-			[3]={
+			[2]={
 				[1]={
 					k="milliseconds_to_seconds_2dp_if_required",
 					v=1

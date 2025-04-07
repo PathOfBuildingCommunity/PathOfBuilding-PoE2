@@ -35,5 +35,23 @@ UniqueIncreasedMana5
 UniqueIgniteChanceIncrease3
 UniqueAlwaysPierceBurningEnemies1
 UniqueDamageAddedAsFireAttacks1
+]],[[
+The Lethal Draw
+Sacral Quiver
+Implicits: 1
+QuiverImplicitLifeGainPerTarget1
+UniqueIncreasedAttackSpeed5
+UniqueLifeGainPerTarget2
+UniqueArrowPierceChance1
+UniqueBowDamageFromLifeFlaskCharges1
+]],[[
+Rearguard
+Blunt Quiver
+Implicits: 1
+QuiverImplicitStunThresholdReduction1
+UniqueAddedPhysicalDamage5
+UniqueIncreasedPhysicalDamageReductionRating4
+UniqueProjectileSpeed3
+UniqueBlockPercent2
 ]],
 }

@@ -9,19 +9,6 @@ return {
 	},
 	[2]={
 		[1]={
-			[1]={
-				[1]={
-					k="milliseconds_to_seconds_2dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Charging time {0}s"
-			}
 		},
 		stats={
 			[1]="display_rapid_shot_charge_up_time_ms"
@@ -30,15 +17,6 @@ return {
 	[3]={
 		[1]={
 			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Damage Gained as extra Fire per Heat {0}%"
-			},
-			[2]={
 				limit={
 					[1]={
 						[1]="#",
@@ -61,15 +39,6 @@ return {
 						[2]="#"
 					}
 				},
-				text="Attack time required to charge {0}%"
-			},
-			[2]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
 				text="Charges for {0}% of Attack Time before firing if used when you have no Heat"
 			}
 		},
@@ -80,19 +49,6 @@ return {
 	[5]={
 		[1]={
 			[1]={
-				[1]={
-					k="per_minute_to_per_second_2dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Heat gained per second {0}"
-			},
-			[2]={
 				limit={
 					[1]={
 						[1]=60,
@@ -101,7 +57,7 @@ return {
 				},
 				text="Gain Heat once per second while firing"
 			},
-			[3]={
+			[2]={
 				[1]={
 					k="per_minute_to_per_second_2dp_if_required",
 					v=1
@@ -122,15 +78,6 @@ return {
 	[6]={
 		[1]={
 			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Grenade Damage Gained as extra Fire per Heat {0}%"
-			},
-			[2]={
 				limit={
 					[1]={
 						[1]="#",

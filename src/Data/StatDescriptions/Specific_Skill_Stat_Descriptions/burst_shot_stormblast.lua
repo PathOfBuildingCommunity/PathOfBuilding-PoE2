@@ -67,16 +67,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Multiple fragments can Hit the same target, combining Damage"
-			},
-			[2]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Multiple fragments can Hit the same target\nMultiple Fragments hitting a target simultaniously will combine their damage into a single Hit"
+				text="Multiple fragments can Hit the same target\nMultiple Fragments hitting a target simultaneously will combine their damage into a single Hit"
 			}
 		},
 		stats={

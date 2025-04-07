@@ -3,6 +3,14 @@
 return {
 -- Focus
 [[
+Apep's Supremacy
+Voodoo Focus
+UniqueLocalIncreasedEnergyShieldPercent13
+UniqueEnergyShieldRechargeRate7
+UniqueEnergyShieldDelay5
+UniqueElementalDamageTakenAsChaos1
+UniqueChanceToBePoisoned1
+]],[[
 Carrion Call
 Engraved Focus
 Variant: Pre 0.1.1
@@ -19,6 +27,14 @@ UniqueLocalIncreasedEnergyShield1
 UniqueSpellDamageOnWeapon1
 UniqueIntelligence3
 UniqueEnergyShieldRechargeOnKill1
+]],[[
+Effigy of Cruelty
+Antler Focus
+UniqueLocalIncreasedEnergyShield14
+UniqueSpellDamageOnWeapon5
+UniqueIntelligence41
+UniqueChaosResist16
+UniqueCriticalWeaknessOnSpellCrit1
 ]],[[
 The Eternal Spark
 Crystal Focus

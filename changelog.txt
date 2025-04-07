@@ -1,3 +1,87 @@
+VERSION[0.6.0][2025/04/06]
+
+--- New to Path of Building ---
+* Support importing characters from PoE API (Wires77, trompetin17)
+* Add 0.2 Passive Tree (trompetin17)
+* Add support for all new active gems (LocalIdentity)
+* Add some new 0.2 Uniques (mods are not supported yet) (Blitz54)
+* Update existing uniques with changes from 0.2 (Blitz54, Wires77)
+
+--- Mechanics ---
+* Implement Rare item templates (Blitz54)
+* Add support for various Crossbow mechanics (DPS, Reload Time, Additional Projectiles, Bolt Count) (majochem)
+* Added support for break armour on hit (MrHB212)
+* Add Damage Buff for fully broken enemy armour (lucs66)
+* Add support for Soul Core stat requirement conversion (haugenc)
+* Add support for Minion Revival Time (Blitz54)
+* Add support for Ice Crystal life (Blitz54)
+* Add support for Parried Recently (Blitz54)
+* Update Pinned enemy conditions (lucs66)
+* Update Charge Duration, Unarmed Speed, and Cruel Ogham Manor reward (Blitz54)
+* Update Sceptres Auras to apply to Self (Blitz54)
+
+--- Ascendancy ---
+* Add support for Break Enemy Armour Below 0 - "Imploding Impacts" Warbringer (majochem)
+* Add support for "Price Of Power" (Lich Ascendancy Notable) (majochem)
+* Add support for "Rupture The Soul" (Lich Ascendancy Notable) (majochem)
+* Add support for "Eldritch Empowerment" (Lich Ascendancy Notable) (majochem)
+* Add Support for "Necromantic Conduit" and "Blackened Heart" (Lich Ascendancy Notables) (majochem)
+* Add support for "A Solid Plan" - (Tactician Notable) (Blitz54)
+* Add support for "Critical Strike" (Amazon Ascendancy Notable) (majochem)
+* Add support for "Soulless Form" (Lich Ascendancy Notable) (majochem)
+* Adds Support for Unfurled Finger and Mystic Attunement (Nostrademous)
+
+--- Skills ---
+* Add support for Discipline (Blitz54)
+* Add support for Bidding support gem (Blitz54)
+* Add support for Sigil of Power (Blitz54)
+* Add support for Attrition (Blitz54)
+* Add support for Berserk Gem (Blitz54)
+* Add support for Excoriate and Adhere (Blitz54)
+* Add support for Mysticism, Enormity, Strong Hearted, Loyalty, Overextend (Blitz54)
+* Add support for 15 new Support gems (LocalIdentity)
+* Add support for Skeletal Warrior gem quality (Blitz54)
+* Add support for Enfeeble "enemies deal less damage" mods (Blitz54)
+* Add Base Attack Damage for Stomping Ground support (Blitz54)
+* Add support for Ailment part of Overwhelming Presence skill (mauriliogenovese)
+* Add support for Siege Cascade dmg vs Immobilised enemy (Blitz54)
+* Add support for Blasphemy's "Socketed Skills have +1 metres to base radius" (lutharous)
+* Add support for Blasphemy less curse effect (Blitz54)
+
+--- Uniques ---
+* Add support for Megalomaniac (Blitz54)
+* Add support for Candlemaker "chance to ignite is doubled" (Blitz54)
+* Add support for Saffell's Frame "max block mods apply to max resist" (Blitz54)
+* Add support for Perfidy "% chance to avoid chaos damage from hits" (Blitz54)
+* Add support for Bones of Ullr mod and fix Lord of Horrors (Blitz54)
+
+--- Tree ---
+* Add support for Grenadier tree node (Blitz54)
+* Add support for "enemies in your presence have resistance equal to yours" (Blitz54)
+* Add parsing for some new mods (Paliak)
+* Add support for basic Companion nodes (Blitz54)
+
+--- User Interface ---
+* Toggle Attribute Nodes with Right Click (Kylixen)
+* Only show bleed/ignite/poison options when needed (deathbeam)
+
+--- Fixed Calculations ---
+* Fix unleash seal gain time depends on base cast speed (mauriliogenovese)
+* Fix Blasphemy logic applying to Trigger Spells (Blitz54)
+* Fix Burden of Shadows Life cost calculation (LocalIdentity)
+* Fix warcry speed scaled by cast speed instead of warcry speed (mauriliogenovese)
+* Add support for Elemental Storm and Solar Orb hit rate (Blitz54)
+
+--- Fixed Behaviours ---
+* Fix Weapon comparison with Giant's Blood (mauriliogenovese)
+* Fix node search not updating when switching between Sorceress and Witch (Blitz54)
+* Fix "Exploit Weakness" Support not applying for "ArmourFullyBroken" (majochem)
+* Fix Shockwave tree node not applying to all AoE skills (mauriliogenovese)
+* Fix Unholy Might to use PoE 2 version (majochem)
+
+--- Other changes ---
+* Fix skill tree textures not displaying correctly on old hardware (Zao)
+
 VERSION[0.5.0][12/02/2025]
 
 --- New to Path of Building ---

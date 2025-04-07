@@ -4,19 +4,6 @@
 return {
 	[1]={
 		[1]={
-			[1]={
-				[1]={
-					k="divide_by_ten_1dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Wave length {0}m"
-			}
 		},
 		stats={
 			[1]="active_skill_area_of_effect_radius"
@@ -66,9 +53,13 @@ return {
 					[1]={
 						[1]=10,
 						[2]=10
+					},
+					[2]={
+						[1]=0,
+						[2]=0
 					}
 				},
-				text="Wave width is {0} metre"
+				text="Wave width is {0:+d} metre"
 			},
 			[2]={
 				[1]={
@@ -79,18 +70,32 @@ return {
 					[1]={
 						[1]="#",
 						[2]="#"
+					},
+					[2]={
+						[1]=0,
+						[2]=0
 					}
 				},
-				text="Wave width is {0} metres"
-			}
-		},
-		stats={
-			[1]="active_skill_base_secondary_area_of_effect_radius"
-		}
-	},
-	[4]={
-		[1]={
-			[1]={
+				text="Wave width is {0:+d} metres"
+			},
+			[3]={
+				[1]={
+					k="divide_by_ten_1dp_if_required",
+					v=1
+				},
+				limit={
+					[1]={
+						[1]=10,
+						[2]=10
+					},
+					[2]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Wave width is {0} metre"
+			},
+			[4]={
 				[1]={
 					k="divide_by_ten_1dp_if_required",
 					v=1
@@ -99,10 +104,22 @@ return {
 					[1]={
 						[1]="#",
 						[2]="#"
+					},
+					[2]={
+						[1]="#",
+						[2]="#"
 					}
 				},
-				text="Wave width {0}m"
+				text="Wave width is {0} metres"
 			}
+		},
+		stats={
+			[1]="active_skill_base_secondary_area_of_effect_radius",
+			[2]="quality_display_active_skill_base_secondary_area_of_effect_radius_is_gem"
+		}
+	},
+	[4]={
+		[1]={
 		},
 		stats={
 			[1]="active_skill_secondary_area_of_effect_radius"
@@ -112,5 +129,6 @@ return {
 	["active_skill_base_area_of_effect_radius"]=2,
 	["active_skill_base_secondary_area_of_effect_radius"]=3,
 	["active_skill_secondary_area_of_effect_radius"]=4,
-	parent="skill_stat_descriptions"
+	parent="skill_stat_descriptions",
+	["quality_display_active_skill_base_secondary_area_of_effect_radius_is_gem"]=3
 }

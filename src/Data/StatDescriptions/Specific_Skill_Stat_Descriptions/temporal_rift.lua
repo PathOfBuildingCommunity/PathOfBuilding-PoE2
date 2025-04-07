@@ -11,15 +11,6 @@ return {
 						[2]="#"
 					}
 				},
-				text="Maximum afterimages {0}"
-			},
-			[2]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
 				text="Maximum {0} afterimages"
 			}
 		},
@@ -30,19 +21,6 @@ return {
 	[2]={
 		[1]={
 			[1]={
-				[1]={
-					k="milliseconds_to_seconds_2dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Afterimage creation interval {0}s"
-			},
-			[2]={
 				[1]={
 					k="milliseconds_to_seconds_2dp_if_required",
 					v=1

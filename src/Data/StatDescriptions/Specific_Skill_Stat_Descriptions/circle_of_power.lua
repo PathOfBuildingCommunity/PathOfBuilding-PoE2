@@ -9,19 +9,6 @@ return {
 	},
 	[2]={
 		[1]={
-			[1]={
-				[1]={
-					k="divide_by_ten_1dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Sigil radius {0}m"
-			}
 		},
 		stats={
 			[1]="active_skill_area_of_effect_radius"
@@ -63,15 +50,6 @@ return {
 	[4]={
 		[1]={
 			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Mana spend required to gain a Stage {0}%"
-			},
-			[2]={
 				limit={
 					[1]={
 						[1]="#",
@@ -123,22 +101,13 @@ return {
 			[1]={
 				limit={
 					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Maximum Stages {0}"
-			},
-			[2]={
-				limit={
-					[1]={
 						[1]=1,
 						[2]=1
 					}
 				},
 				text="Maximum {0} Stage"
 			},
-			[3]={
+			[2]={
 				limit={
 					[1]={
 						[1]=2,
@@ -157,22 +126,13 @@ return {
 			[1]={
 				limit={
 					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="More Spell Damage granted per stage {0}%"
-			},
-			[2]={
-				limit={
-					[1]={
 						[1]=1,
 						[2]="#"
 					}
 				},
 				text="Buff grants {0}% more Spell damage per Stage"
 			},
-			[3]={
+			[2]={
 				[1]={
 					k="negate",
 					v=1
@@ -192,19 +152,6 @@ return {
 	},
 	[8]={
 		[1]={
-			[1]={
-				[1]={
-					k="milliseconds_to_seconds_2dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Sigil duration {0}s"
-			}
 		},
 		stats={
 			[1]="skill_effect_duration"

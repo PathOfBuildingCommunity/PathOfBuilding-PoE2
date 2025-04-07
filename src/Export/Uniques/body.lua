@@ -165,11 +165,14 @@ UniqueCannotBePoisoned1
 ]],[[
 Queen of the Forest
 Smuggler Coat
+Variant: Pre 0.2.0
+Variant: Current
 UniqueLocalIncreasedEvasionRatingPercent4
 UniqueFireResist17
 UniqueColdResist17
 UniqueLightningResist14
-UniqueSetMovementVelocityPerEvasion1
+{variant:1}UniqueSetMovementVelocityPerEvasion1[500,500]
+{variant:2}UniqueSetMovementVelocityPerEvasion1
 ]],[[
 The Rat Cage
 Scout's Vest
@@ -177,7 +180,26 @@ UniqueLocalIncreasedEvasionRatingPercent4
 UniqueIncreasedLife26
 UniqueReducedLocalAttributeRequirements1
 UniqueFireDamageTakenAsPhysical1
+]],[[
+Sands of Silk
+Shrouded Vest
+UniqueLocalIncreasedEvasionRatingPercent20
+UniqueIncreasedMana38
+UniqueDexterity2
+UniqueIntelligence6
+UniqueFireResist34
+GlobalCooldownRecoveryUnique__2
+]],[[
+Yriel's Fostering
+Strider Vest
+UniqueLocalIncreasedEvasionRatingPercent32
+UniqueIncreasedLife53
+UniqueIncreasedSpirit12
+UniqueReducedBleedDuration4
+UniqueReducedPoisonDuration1
+UniqueMultipleCompanions1
 ]],
+
 -- Body: Energy Shield
 [[
 Bitterbloom
@@ -196,6 +218,13 @@ UniqueIntelligence2
 {variant:2}UniqueColdResist26
 UniqueDrainManaHealLife1
 ]],[[
+Cloak of Defiance
+Havoc Raiment
+UniqueLocalIncreasedEnergyShieldPercent14
+UniqueIncreasedMana20
+UniqueManaRegeneration29
+UniqueDamageRemovedFromManaBeforeLife1
+]],[[
 Cloak of Flame
 Silk Robe
 UniqueFireResist1
@@ -212,9 +241,20 @@ UniqueLifeCostAsManaCost1
 ]],[[
 Ghostwrithe
 Tattered Robe
+Variant: Pre 0.2.0
+Variant: Current
 UniqueLocalIncreasedEnergyShield3
 UniqueChaosResist4
-UniqueLifeConvertedToEnergyShield1
+{variant:1}UniqueLifeConvertedToEnergyShield1[50,50]
+{variant:2}UniqueLifeConvertedToEnergyShield1
+]],[[
+Gloamgown
+Elementalist Robe
+UniqueLocalIncreasedEnergyShieldPercent16
+UniqueIncreasedSpirit10
+UniqueColdResist31
+UniqueEnergyShieldRechargeRate6
+UniqueEnergyShieldRechargeOverride1
 ]],[[
 Necromantle
 Bone Raiment
@@ -236,13 +276,26 @@ UniqueIntelligence13
 UniqueEnergyShieldDelay2
 UniqueRechargeNotInterruptedRecently1
 ]],[[
+Silks of Veneration
+Havoc Raiment
+Implicits: 1
+BodyArmourImplicitManaRegeneration1
+UniqueIncreasedSpirit11
+UniqueIntelligence39
+UniqueAllResistances6
+UniqueEnergyShieldRechargeRate4
+UniqueEnergyShieldAppliesElementalReduction1
+]],[[
 Temporalis
 Silk Robe
+Variant: Pre 0.2.0
+Variant: Current
 UniqueLocalIncreasedEnergyShield9
 UniqueAllResistances6
 UniqueDamageTakenGainedAsLife1
 UniqueDamageTakenGoesToMana2
-UniqueFlatCooldownRecovery1
+{variant:1}UniqueFlatCooldownRecovery1[-4000,-2000]
+{variant:2}UniqueFlatCooldownRecovery1
 ]],[[
 Tetzlapokal's Desire
 Votive Raiment
@@ -253,6 +306,13 @@ UniqueStrength10
 {variant:2}UniqueIntelligence32
 UniqueChaosResist1
 UniqueLifeRecharge1
+]],[[
+Vis Mortis
+Plated Raiment
+UniqueLocalIncreasedEnergyShieldPercent22
+UniqueIncreasedMana43
+UniqueMinionLife5
+UniqueMinionsHaveUnholyMight1
 ]],
 -- Body: Armour/Evasion
 [[
@@ -283,6 +343,16 @@ UniqueIncreasedLife7
 UniqueStunThreshold4
 UniqueReceiveBleedingWhenHit1
 ]],[[
+The Coming Calamity
+Heroic Armour
+Implicits: 4
+Grants Skill: Herald of Ash
+Grants Skill: Herald of Ice
+Grants Skill: Herald of Thunder
+BodyArmourImplicitIncreasedLife1
+UniqueAllResistances20
+UniqueEnemiesInPresenceNoElementalResist1
+]],[[
 Doryani's Prototype
 Scale Mail
 UniqueLocalIncreasedArmourAndEvasion6
@@ -290,6 +360,15 @@ BodyArmourImplicitIncreasedLife1
 UniqueArmourAppliesToLightningDamage1
 UniqueNearbyEnemyLightningResistanceEqual1
 UniqueLightningResistNoReduction1
+]],[[
+The Fallen Formation
+Lamellar Mail
+UniqueLocalIncreasedArmourAndEvasion29
+UniqueStrength20
+UniqueDexterity37
+UniqueLifeRegeneration19
+UniqueMaximumValour1
+UniqueValourAlwaysMaximum1
 ]],[[
 Irongrasp
 Vagabond Armour
@@ -324,6 +403,15 @@ UniqueLocalIncreasedArmourAndEvasion22
 UniqueAllResistances6
 UniqueChaosResist19
 UniqueCharmsNoCharges1
+]],[[
+Widow's Reign
+Knight Armour
+(100-150)% increased Armour and Evasion
++(100-150) to maximum Life
++(17-23)% to Chaos Resistance
++(200-300) to Ailment Threshold
+Life that would be lost by taking Damage is instead Reserved
+until you take no Damage to Life for 5 seconds
 ]],
 -- Body: Armour/Energy Shield
 [[
@@ -360,6 +448,35 @@ UniqueIntelligence9
 UniqueColdResist7
 UniqueFreezeDamageMaximumMana1
 ]],[[
+The Mutable Star
+Cleric Vestments
+UniqueLocalIncreasedArmourAndEnergyShield20
+UniqueEnergyShieldRechargeRate5
+UniqueLifeRegeneration22
+UniqueReducedBleedDuration3
+UniqueReducedBurnDuration2
+UniqueDefendWithArmourPerEnergyShield1
+]],[[
+Sacrosanctum
+Corvus Mantle
+Implicits: 1
+BodyArmourImplicitIncreasedSpirit1
+UniqueLocalIncreasedArmourAndEnergyShield23
+UniqueStrength33
+UniqueIntelligence33
+UniqueChaosResist33
+UniqueDamageTakenGainedAsLife2
+UniqueLifeRecoupAppliesToEnergyShield1
+]],[[
+Soul Mantle
+Sacrificial Mantle
+UniqueLocalIncreasedArmourAndEnergyShield12
+UniqueStrength42
+UniqueIntelligence40
+UniqueIncreasedTotemLife1
+UniqueAdditionalTotems1
+UniqueRandomlyCursedWhenTotemsDie1
+]],[[
 Voll's Protector
 Ironclad Vestments
 Variant: Pre 0.1.1
@@ -368,6 +485,15 @@ UniqueLocalIncreasedArmourAndEnergyShield7
 UniqueMaximumManaIncrease2
 {variant:2}UniqueChaosResist24
 UniquePowerChargeOnCritChance1
+]],[[
+Waveshaper
+Tideseer Mantle
+UniqueLocalIncreasedEnergyShield16
+UniqueIncreasedSpirit9
+UniqueFireResist30
+UniqueColdResist29
+UniqueManaRegenAppliesToRecharge1
+UniqueGainManaAsExtraArmour1
 ]],
 -- Body: Evasion/Energy Shield
 [[
@@ -416,30 +542,61 @@ UniqueLocalIncreasedEvasionAndEnergyShield5
 UniqueLightningResist2
 UniqueEnergyShieldDelay1
 UniqueReverseChill1
+]],[[
+Zerphi's Serape
+Scalper's Jacket
+UniqueLocalIncreasedEvasionAndEnergyShield11
+UniqueIncreasedMana7
+UniqueReducedLocalAttributeRequirements4
+UniqueLifeRegenerationRate2
+UniqueManaRegeneration31
+UniqueHasSoulEater1
 ]],
 -- Body: Armour/Evasion/Energy Shield
 [[
 Morior Invictus
 Grand Regalia
 Has Alt Variant: true
-Selected Variant: 1
-Selected Alt Variant: 2
+Has Alt Variant Two: true
+Selected Variant: 2
+Selected Alt Variant: 4
+Selected Alt Variant Two: 6
+Variant: Spirit (Pre 0.2.0)
 Variant: Spirit
+Variant: Life (Pre 0.2.0)
 Variant: Life
+Variant: Mana (Pre 0.2.0)
 Variant: Mana
+Variant: Global Defences (Pre 0.2.0)
 Variant: Global Defences
-Variant: Item Rarity
+Variant: Item Rarity (Pre 0.2.0)
+Variant: All Resistances (Pre 0.2.0)
 Variant: All Resistances
+Variant: Attributes (Pre 0.2.0)
 Variant: Attributes
+Variant: Chaos Resistance
+Variant: Stun Threshold
+Variant: Life Regeneration
+Variant: Reduced Crit Damage
 Sockets: S S S S
 UniqueLocalArmourAndEvasionAndEnergyShield1
-{variant:1}UniqueSpiritPerSocketable1
-{variant:2}UniqueMaximumLifePerSocketable1
-{variant:3}UniqueMaximumManaPerSocketable1
-{variant:4}UniqueGlobalDefencesPerSocketable1
-{variant:5}UniqueItemRarityPerSocketable1
-{variant:6}UniqueAllResistancesPerSocketable1
-{variant:7}UniquePercentAllAttributesPerSocketable1
+{variant:1}UniqueSpiritPerSocketable1[10,10]
+{variant:2}UniqueSpiritPerSocketable1
+{variant:3}UniqueMaximumLifePerSocketable1
+{variant:4}UniqueBaseLifePerSocketable1
+{variant:5}UniqueMaximumManaPerSocketable1
+{variant:6}UniqueBaseManaPerSocketable1
+{variant:7}UniqueGlobalDefencesPerSocketable1[10,10]
+{variant:8}UniqueGlobalDefencesPerSocketable1
+{variant:9}UniqueItemRarityPerSocketable1
+{variant:10}UniqueAllResistancesPerSocketable1[10,10]
+{variant:11}UniqueAllResistancesPerSocketable1
+{variant:12}UniquePercentAllAttributesPerSocketable1
+{variant:13}UniqueAllAttributesPerSocketable1
+{variant:14}UniqueChaosResistancePerSocketable1
+{variant:15}UniqueStunThresholdPerSocketable1
+{variant:16}UniqueLifeRegenerationPerSocketable1
+{variant:17}UniqueReducedExtraDamageFromCritsPerSocketable1
 ]],[[
 Skin of the Loyal
 Garment

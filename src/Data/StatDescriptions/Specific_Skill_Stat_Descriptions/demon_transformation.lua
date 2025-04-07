@@ -11,18 +11,9 @@ return {
 						[2]="#"
 					}
 				},
-				text="Increased Cast Speed granted {0}%"
-			},
-			[2]={
-				limit={
-					[1]={
-						[1]=1,
-						[2]="#"
-					}
-				},
 				text="{0}% increased Cast Speed while in Demon Form"
 			},
-			[3]={
+			[2]={
 				[1]={
 					k="negate",
 					v=1
@@ -49,15 +40,6 @@ return {
 						[2]="#"
 					}
 				},
-				text="Spell Skill levels granted +{0}"
-			},
-			[2]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
 				text="{0:+d} to Level of all Spell Skills while in Demon Form"
 			}
 		},
@@ -78,7 +60,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Lose {0}% of Life per second per Demonflame"
+				text="Lose {0}% of maximum Life per second per Demonflame"
 			}
 		},
 		stats={
@@ -98,7 +80,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Life Loss per second per Demonflame {0}"
+				text="{0} Life Loss per second per Demonflame"
 			}
 		},
 		stats={
@@ -114,18 +96,9 @@ return {
 						[2]="#"
 					}
 				},
-				text="Increased Spell damage granted per Demonflame {0}%"
-			},
-			[2]={
-				limit={
-					[1]={
-						[1]=1,
-						[2]="#"
-					}
-				},
 				text="Deal {0}% increased Spell damage per Demonflame"
 			},
-			[3]={
+			[2]={
 				limit={
 					[1]={
 						[1]="#",
@@ -141,15 +114,6 @@ return {
 	},
 	[6]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Maximum Demonflame {0}"
-			}
 		},
 		stats={
 			[1]="max_demon_form_stacks"

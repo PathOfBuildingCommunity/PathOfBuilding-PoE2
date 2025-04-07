@@ -184,7 +184,20 @@ function modLib.formatValue(value)
 			t_insert(paramNames, name)
 		end
 	end
-	t_sort(paramNames)
+
+	t_sort(paramNames, function (a, b)
+		if type(a) == "number" and type(b) == "number" then
+			return a < b
+		end
+		if type(a) == "number" then
+			return true
+		end
+		if type(b) == "number" then
+			return false
+		end
+		return a < b
+	end)
+
 	if haveType then
 		t_insert(paramNames, 1, "type")
 	end

@@ -32,7 +32,7 @@ do
 	local variantCount = #against
 	table.insert(against, "Selected Variant: 1")
 	table.insert(against, "Selected Alt Variant: 2")
-	table.insert(against, "Radius: Large")
+	table.insert(against, "Radius: Medium")
 	table.insert(against, "Implicits: 0")
 	local smallLine = "Small Passive Skills in Radius also grant "
 	local notableLine = "Notable Passive Skills in Radius also grant "
@@ -109,7 +109,7 @@ do
     }
     local megalomaniacMods = { }
     for _, node in pairs(nodes) do
-        if node.isNotable == true and not node.ascendancyName then
+        if node.isNotable == true and node.recipe then
             table.insert(megalomaniacMods, node)
         end
     end

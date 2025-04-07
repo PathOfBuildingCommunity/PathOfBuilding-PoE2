@@ -4,19 +4,6 @@
 return {
 	[1]={
 		[1]={
-			[1]={
-				[1]={
-					k="divide_by_ten_1dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Explosion and Shocked Ground radius {0}m"
-			}
 		},
 		stats={
 			[1]="active_skill_area_of_effect_radius"
@@ -85,32 +72,19 @@ return {
 			}
 		},
 		stats={
-			[1]="lightning_warp_shocked_ground_base_duration_ms"
+			[1]="base_secondary_skill_effect_duration"
 		}
 	},
 	[4]={
 		[1]={
-			[1]={
-				[1]={
-					k="milliseconds_to_seconds_2dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Shocked Ground duration {0}s"
-			}
 		},
 		stats={
-			[1]="lightning_warp_shocked_ground_duration_ms"
+			[1]="secondary_skill_shocked_ground_effect_duration_ms"
 		}
 	},
 	["active_skill_area_of_effect_radius"]=1,
 	["active_skill_base_area_of_effect_radius"]=2,
-	["lightning_warp_shocked_ground_base_duration_ms"]=3,
-	["lightning_warp_shocked_ground_duration_ms"]=4,
-	parent="skill_stat_descriptions"
+	["base_secondary_skill_effect_duration"]=3,
+	parent="skill_stat_descriptions",
+	["secondary_skill_shocked_ground_effect_duration_ms"]=4
 }

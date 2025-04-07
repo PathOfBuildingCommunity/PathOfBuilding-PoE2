@@ -300,6 +300,8 @@ function GGPKClass:GetNeededFiles()
 		"Data/QuestRewardOffers.dat",
 		"Data/QuestRewardType.dat",
 		"Data/WieldableClasses.dat",
+		"Data/ActiveSkillWeaponRequirement.dat",
+		"Data/SkillGemSearchTerms.dat",
 	}
 	local csdFiles = {
 		"^Metadata/StatDescriptions/specific_skill_stat_descriptions/\\w+.csd$",
@@ -343,6 +345,7 @@ function GGPKClass:GetNeededFiles()
 		"Metadata/Items/Belts/AbstractBelt.it",
 		"Metadata/Items/Armours/AbstractArmour.it",
 		"Metadata/Items/Armours/Shields/AbstractShield.it",
+		"Metadata/Items/Armours/Shields/AbstractBuckler.it",
 		"Metadata/Items/Armours/Helmets/AbstractHelmet.it",
 		"Metadata/Items/Armours/Gloves/AbstractGloves.it",
 		"Metadata/Items/Armours/Focus/AbstractFocus.it",

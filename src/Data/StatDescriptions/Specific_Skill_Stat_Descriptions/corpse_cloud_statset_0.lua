@@ -4,19 +4,6 @@
 return {
 	[1]={
 		[1]={
-			[1]={
-				[1]={
-					k="divide_by_ten_1dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Explosion radius {0}m"
-			}
 		},
 		stats={
 			[1]="active_skill_area_of_effect_radius"
@@ -33,6 +20,10 @@ return {
 					[1]={
 						[1]=10,
 						[2]=10
+					},
+					[2]={
+						[1]="#",
+						[2]="#"
 					}
 				},
 				text="Cloud radius is {0} metre"
@@ -46,13 +37,18 @@ return {
 					[1]={
 						[1]="#",
 						[2]="#"
+					},
+					[2]={
+						[1]="#",
+						[2]="#"
 					}
 				},
 				text="Cloud radius is {0} metres"
 			}
 		},
 		stats={
-			[1]="active_skill_base_area_of_effect_radius"
+			[1]="active_skill_base_area_of_effect_radius",
+			[2]="quality_display_active_skill_base_area_of_effect_radius_is_gem"
 		}
 	},
 	[3]={
@@ -66,9 +62,13 @@ return {
 					[1]={
 						[1]=1000,
 						[2]=1000
+					},
+					[2]={
+						[1]=0,
+						[2]=0
 					}
 				},
-				text="Cloud duration is {0} second"
+				text="{0:+d} second to Cloud duration"
 			},
 			[2]={
 				[1]={
@@ -79,18 +79,32 @@ return {
 					[1]={
 						[1]="#",
 						[2]="#"
+					},
+					[2]={
+						[1]=0,
+						[2]=0
 					}
 				},
-				text="Cloud duration is {0} seconds"
-			}
-		},
-		stats={
-			[1]="base_skill_effect_duration"
-		}
-	},
-	[4]={
-		[1]={
-			[1]={
+				text="{0:+d} seconds to Cloud duration"
+			},
+			[3]={
+				[1]={
+					k="milliseconds_to_seconds_2dp_if_required",
+					v=1
+				},
+				limit={
+					[1]={
+						[1]=1000,
+						[2]=1000
+					},
+					[2]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Cloud duration is {0} second"
+			},
+			[4]={
 				[1]={
 					k="milliseconds_to_seconds_2dp_if_required",
 					v=1
@@ -99,10 +113,22 @@ return {
 					[1]={
 						[1]="#",
 						[2]="#"
+					},
+					[2]={
+						[1]="#",
+						[2]="#"
 					}
 				},
-				text="Cloud duration {0}s"
+				text="Cloud duration is {0} seconds"
 			}
+		},
+		stats={
+			[1]="base_skill_effect_duration",
+			[2]="quality_display_base_skill_effect_duration_is_gem"
+		}
+	},
+	[4]={
+		[1]={
 		},
 		stats={
 			[1]="skill_effect_duration"
@@ -112,5 +138,7 @@ return {
 	["active_skill_base_area_of_effect_radius"]=2,
 	["base_skill_effect_duration"]=3,
 	parent="specific_skill_stat_descriptions/gas_cloud_arrow_statset_0",
+	["quality_display_active_skill_base_area_of_effect_radius_is_gem"]=2,
+	["quality_display_base_skill_effect_duration_is_gem"]=3,
 	["skill_effect_duration"]=4
 }

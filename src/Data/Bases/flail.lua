@@ -43,7 +43,8 @@ itemBases["Twin Flail"] = {
 	quality = 20,
 	socketLimit = 2,
 	tags = { maraketh_basetype = true, onehand = true, flail = true, weapon = true, one_hand_weapon = true, default = true, },
-	implicitModTypes = { },
+	implicit = "Forks Critical Hits",
+	implicitModTypes = { {  }, },
 	weapon = { PhysicalMin = 8, PhysicalMax = 18, CritChanceBase = 10, AttackRateBase = 1.4, Range = 11, },
 	req = { level = 20, str = 37, int = 16, },
 }

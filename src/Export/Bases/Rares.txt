@@ -24,8 +24,8 @@ return {
 #setBestBase Body Armour, Armour/Evasion, Armour/Evasion Chest, [ Prefix: LocalBaseArmourAndEvasionRating5, Prefix: LocalIncreasedArmourAndEvasion5, Prefix: IncreasedLife9]
 #setBestBase Body Armour, Armour/Energy Shield, Armour/Energy Shield Chest, [ Prefix: LocalBaseArmourAndEnergyShield5, Prefix: LocalIncreasedArmourAndEnergyShield5, Prefix: IncreasedLife9]
 #setBestBase Body Armour, Evasion/Energy Shield, Evasion/Energy Shield Chest, [ Prefix: LocalBaseEvasionRatingAndEnergyShield5_, Prefix: LocalIncreasedEvasionAndEnergyShield5_, Prefix: IncreasedLife9]
-#setBase Expert Scalper's Jacket, Movement Speed Chest, [ Prefix: LocalIncreasedEvasionRating5, Prefix: LocalIncreasedEvasionRatingPercent5, Prefix: IncreasedLife9]
-#setBase Expert Shaman Mantle, Spirit Chest, [ Prefix: LocalBaseArmourAndEnergyShield5, Prefix: LocalIncreasedArmourAndEnergyShield5, Prefix: IncreasedSpirit6]
+#setBase Falconer's Jacket, Movement Speed Chest, [ Prefix: LocalIncreasedEvasionRating5, Prefix: LocalIncreasedEvasionRatingPercent5, Prefix: IncreasedLife9]
+#setBase Occultist Mantle, Spirit Chest, [ Prefix: LocalBaseArmourAndEnergyShield5, Prefix: LocalIncreasedArmourAndEnergyShield5, Prefix: IncreasedSpirit6]
 
 -- Boots
 #setBestBase Boots, Armour, [ Prefix: LocalIncreasedPhysicalDamageReductionRatingPercent5, Prefix: IncreasedLife6, Prefix: MovementVelocity5]
@@ -42,7 +42,7 @@ return {
 #setBestBase Shield, Armour/Energy Shield, [ Prefix: LocalIncreasedBlockPercentage5, Prefix: LocalIncreasedArmourAndEnergyShield5, Prefix: IncreasedLife8]
 
 -- Focus
-#setBase Expert Plumed Focus, +2 Energy Shield, [ Prefix: LocalIncreasedEnergyShield8, Prefix: LocalIncreasedEnergyShieldPercent6, Suffix: GlobalSpellGemsLevel2]
+#setBase Hallowed Focus, +2 Energy Shield, [ Prefix: LocalIncreasedEnergyShield8, Prefix: LocalIncreasedEnergyShieldPercent6, Suffix: GlobalSpellGemsLevel2]
 
 -- Amulets
 #setBase Amber Amulet, Strength Amulet, [ Suffix: Strength5]
@@ -89,50 +89,50 @@ return {
 #baseGroup Elemental Two Handed, [ Prefix: LocalAddedFireDamageTwoHand8_, Prefix: LocalAddedColdDamageTwoHand8, Prefix: LocalAddedLightningDamageTwoHand8, Suffix: LocalIncreasedAttackSpeed3, Suffix: LocalCriticalStrikeChance3, Suffix: GlobalMeleeSkillGemLevelTwoHandWeapon4]
 
 -- Bows
-#setBase Expert Zealot Bow, +4 Physical %s, [ Prefix: LocalIncreasedPhysicalDamagePercent5, Prefix: LocalIncreasedPhysicalDamagePercentAndAccuracyRating5, Prefix: LocalAddedPhysicalDamage6, Suffix: LocalIncreasedAttackSpeed2, Suffix: LocalCriticalStrikeChance3, Suffix: GlobalProjectileSkillGemLevelWeapon4]
-#setBase Expert Zealot Bow, +4 Elemental %s, [ Prefix: LocalAddedFireDamage8, Prefix: LocalAddedColdDamage8, Prefix: LocalAddedLightningDamage8, Suffix: LocalIncreasedAttackSpeed2, Suffix: LocalCriticalStrikeChance3, Suffix: GlobalProjectileSkillGemLevelWeapon4]
-#setBase Expert Dualstring Bow, +4 Physical %s, [ Prefix: LocalIncreasedPhysicalDamagePercent5, Prefix: LocalIncreasedPhysicalDamagePercentAndAccuracyRating5, Prefix: LocalAddedPhysicalDamage6, Suffix: LocalIncreasedAttackSpeed2, Suffix: LocalCriticalStrikeChance3, Suffix: GlobalProjectileSkillGemLevelWeapon4]
-#setBase Expert Dualstring Bow, +4 Elemental %s, [ Prefix: LocalAddedFireDamage8, Prefix: LocalAddedColdDamage8, Prefix: LocalAddedLightningDamage8, Suffix: LocalIncreasedAttackSpeed2, Suffix: LocalCriticalStrikeChance3, Suffix: GlobalProjectileSkillGemLevelWeapon4]
-#setBase Expert Warden Bow, +4 Physical %s, [ Prefix: LocalIncreasedPhysicalDamagePercent5, Prefix: LocalIncreasedPhysicalDamagePercentAndAccuracyRating5, Prefix: LocalAddedPhysicalDamage6, Suffix: LocalIncreasedAttackSpeed2, Suffix: LocalCriticalStrikeChance3, Suffix: GlobalProjectileSkillGemLevelWeapon4]
-#setBase Expert Warden Bow, +4 Elemental %s, [ Prefix: LocalAddedFireDamage8, Prefix: LocalAddedColdDamage8, Prefix: LocalAddedLightningDamage8, Suffix: LocalIncreasedAttackSpeed2, Suffix: LocalCriticalStrikeChance3, Suffix: GlobalProjectileSkillGemLevelWeapon4]
-#setBase Expert Cultist Bow, +4 Chaos %s, [ Prefix: LocalAddedFireDamage8, Prefix: WeaponElementalDamage4, Suffix: LocalIncreasedAttackSpeed2, Suffix: LocalCriticalStrikeChance3, Suffix: GlobalProjectileSkillGemLevelWeapon4]
+#setBase Warmonger Bow, +4 Physical %s, [ Prefix: LocalIncreasedPhysicalDamagePercent5, Prefix: LocalIncreasedPhysicalDamagePercentAndAccuracyRating5, Prefix: LocalAddedPhysicalDamage6, Suffix: LocalIncreasedAttackSpeed2, Suffix: LocalCriticalStrikeChance3, Suffix: GlobalProjectileSkillGemLevelWeapon4]
+#setBase Warmonger Bow, +4 Elemental %s, [ Prefix: LocalAddedFireDamage8, Prefix: LocalAddedColdDamage8, Prefix: LocalAddedLightningDamage8, Suffix: LocalIncreasedAttackSpeed2, Suffix: LocalCriticalStrikeChance3, Suffix: GlobalProjectileSkillGemLevelWeapon4]
+#setBase Gemini Bow, +4 Physical %s, [ Prefix: LocalIncreasedPhysicalDamagePercent5, Prefix: LocalIncreasedPhysicalDamagePercentAndAccuracyRating5, Prefix: LocalAddedPhysicalDamage6, Suffix: LocalIncreasedAttackSpeed2, Suffix: LocalCriticalStrikeChance3, Suffix: GlobalProjectileSkillGemLevelWeapon4]
+#setBase Gemini Bow, +4 Elemental %s, [ Prefix: LocalAddedFireDamage8, Prefix: LocalAddedColdDamage8, Prefix: LocalAddedLightningDamage8, Suffix: LocalIncreasedAttackSpeed2, Suffix: LocalCriticalStrikeChance3, Suffix: GlobalProjectileSkillGemLevelWeapon4]
+#setBase Guardian Bow, +4 Physical %s, [ Prefix: LocalIncreasedPhysicalDamagePercent5, Prefix: LocalIncreasedPhysicalDamagePercentAndAccuracyRating5, Prefix: LocalAddedPhysicalDamage6, Suffix: LocalIncreasedAttackSpeed2, Suffix: LocalCriticalStrikeChance3, Suffix: GlobalProjectileSkillGemLevelWeapon4]
+#setBase Guardian Bow, +4 Elemental %s, [ Prefix: LocalAddedFireDamage8, Prefix: LocalAddedColdDamage8, Prefix: LocalAddedLightningDamage8, Suffix: LocalIncreasedAttackSpeed2, Suffix: LocalCriticalStrikeChance3, Suffix: GlobalProjectileSkillGemLevelWeapon4]
+#setBase Fanatic Bow, +4 Chaos %s, [ Prefix: LocalAddedFireDamage8, Prefix: WeaponElementalDamage4, Suffix: LocalIncreasedAttackSpeed2, Suffix: LocalCriticalStrikeChance3, Suffix: GlobalProjectileSkillGemLevelWeapon4]
 
 -- Crossbows
-#setBase Expert Forlorn Crossbow, +6 Physical %s, [ Prefix: LocalIncreasedPhysicalDamagePercent5, Prefix: LocalIncreasedPhysicalDamagePercentAndAccuracyRating5, Prefix: LocalAddedPhysicalDamage6, Suffix: LocalIncreasedAttackSpeed2, Suffix: LocalCriticalStrikeChance3, Suffix: GlobalProjectileSkillGemLevelTwoHandWeapon4]
-#setBase Expert Forlorn Crossbow, +6 Elemental %s, [ Prefix: LocalAddedFireDamage8, Prefix: LocalAddedColdDamage8, Prefix: LocalAddedLightningDamage8, Suffix: LocalIncreasedAttackSpeed2, Suffix: LocalCriticalStrikeChance3, Suffix: GlobalProjectileSkillGemLevelTwoHandWeapon4]
-#setBase Expert Bombard Crossbow, +6 Physical %s, [ Prefix: LocalIncreasedPhysicalDamagePercent5, Prefix: LocalIncreasedPhysicalDamagePercentAndAccuracyRating5, Prefix: LocalAddedPhysicalDamage6, Suffix: LocalIncreasedAttackSpeed2, Suffix: LocalCriticalStrikeChance3, Suffix: GlobalProjectileSkillGemLevelTwoHandWeapon4]
-#setBase Expert Bombard Crossbow, +6 Elemental %s, [ Prefix: LocalAddedFireDamage8, Prefix: LocalAddedColdDamage8, Prefix: LocalAddedLightningDamage8, Suffix: LocalIncreasedAttackSpeed2, Suffix: LocalCriticalStrikeChance3, Suffix: GlobalProjectileSkillGemLevelTwoHandWeapon4]
-#setBase Expert Dyad Crossbow, +6 Physical %s, [ Prefix: LocalIncreasedPhysicalDamagePercent5, Prefix: LocalIncreasedPhysicalDamagePercentAndAccuracyRating5, Prefix: LocalAddedPhysicalDamage6, Suffix: LocalIncreasedAttackSpeed2, Suffix: LocalCriticalStrikeChance3, Suffix: GlobalProjectileSkillGemLevelTwoHandWeapon4]
-#setBase Expert Dyad Crossbow, +6 Elemental %s, [ Prefix: LocalAddedFireDamage8, Prefix: LocalAddedColdDamage8, Prefix: LocalAddedLightningDamage8, Suffix: LocalIncreasedAttackSpeed2, Suffix: LocalCriticalStrikeChance3, Suffix: GlobalProjectileSkillGemLevelTwoHandWeapon4]
-#setBase Expert Tense Crossbow, +6 Physical %s, [ Prefix: LocalIncreasedPhysicalDamagePercent5, Prefix: LocalIncreasedPhysicalDamagePercentAndAccuracyRating5, Prefix: LocalAddedPhysicalDamage6, Suffix: LocalIncreasedAttackSpeed2, Suffix: LocalCriticalStrikeChance3, Suffix: GlobalProjectileSkillGemLevelTwoHandWeapon4]
-#setBase Expert Tense Crossbow, +6 Elemental %s, [ Prefix: LocalAddedFireDamage8, Prefix: LocalAddedColdDamage8, Prefix: LocalAddedLightningDamage8, Suffix: LocalIncreasedAttackSpeed2, Suffix: LocalCriticalStrikeChance3, Suffix: GlobalProjectileSkillGemLevelTwoHandWeapon4]
+#setBase Desolate Crossbow, +6 Physical %s, [ Prefix: LocalIncreasedPhysicalDamagePercent5, Prefix: LocalIncreasedPhysicalDamagePercentAndAccuracyRating5, Prefix: LocalAddedPhysicalDamage6, Suffix: LocalIncreasedAttackSpeed2, Suffix: LocalCriticalStrikeChance3, Suffix: GlobalProjectileSkillGemLevelTwoHandWeapon4]
+#setBase Desolate Crossbow, +6 Elemental %s, [ Prefix: LocalAddedFireDamageTwoHand8_, Prefix: LocalAddedColdDamageTwoHand8, Prefix: LocalAddedLightningDamageTwoHand8, Suffix: LocalIncreasedAttackSpeed2, Suffix: LocalCriticalStrikeChance3, Suffix: GlobalProjectileSkillGemLevelTwoHandWeapon4]
+#setBase Siege Crossbow, +6 Physical %s, [ Prefix: LocalIncreasedPhysicalDamagePercent5, Prefix: LocalIncreasedPhysicalDamagePercentAndAccuracyRating5, Prefix: LocalAddedPhysicalDamage6, Suffix: LocalIncreasedAttackSpeed2, Suffix: LocalCriticalStrikeChance3, Suffix: GlobalProjectileSkillGemLevelTwoHandWeapon4]
+#setBase Siege Crossbow, +6 Elemental %s, [ Prefix: LocalAddedFireDamageTwoHand8_, Prefix: LocalAddedColdDamageTwoHand8, Prefix: LocalAddedLightningDamageTwoHand8, Suffix: LocalIncreasedAttackSpeed2, Suffix: LocalCriticalStrikeChance3, Suffix: GlobalProjectileSkillGemLevelTwoHandWeapon4]
+#setBase Gemini Crossbow, +6 Physical %s, [ Prefix: LocalIncreasedPhysicalDamagePercent5, Prefix: LocalIncreasedPhysicalDamagePercentAndAccuracyRating5, Prefix: LocalAddedPhysicalDamage6, Suffix: LocalIncreasedAttackSpeed2, Suffix: LocalCriticalStrikeChance3, Suffix: GlobalProjectileSkillGemLevelTwoHandWeapon4]
+#setBase Gemini Crossbow, +6 Elemental %s, [ Prefix: LocalAddedFireDamageTwoHand8_, Prefix: LocalAddedColdDamageTwoHand8, Prefix: LocalAddedLightningDamageTwoHand8, Suffix: LocalIncreasedAttackSpeed2, Suffix: LocalCriticalStrikeChance3, Suffix: GlobalProjectileSkillGemLevelTwoHandWeapon4]
+#setBase Flexed Crossbow, +6 Physical %s, [ Prefix: LocalIncreasedPhysicalDamagePercent5, Prefix: LocalIncreasedPhysicalDamagePercentAndAccuracyRating5, Prefix: LocalAddedPhysicalDamage6, Suffix: LocalIncreasedAttackSpeed2, Suffix: LocalCriticalStrikeChance3, Suffix: GlobalProjectileSkillGemLevelTwoHandWeapon4]
+#setBase Flexed Crossbow, +6 Elemental %s, [ Prefix: LocalAddedFireDamageTwoHand8_, Prefix: LocalAddedColdDamageTwoHand8, Prefix: LocalAddedLightningDamageTwoHand8, Suffix: LocalIncreasedAttackSpeed2, Suffix: LocalCriticalStrikeChance3, Suffix: GlobalProjectileSkillGemLevelTwoHandWeapon4]
 
 -- One Hand Maces
-#setBase Expert Brigand Mace, Physical %s, [ ]
-#setBase Expert Brigand Mace, Elemental %s, [ ]
-#setBase Expert Warpick, Physical %s, [ ]
-#setBase Expert Warpick, Elemental %s, [ ]
-#setBase Expert Construct Hammer, Physical %s, [ ]
-#setBase Expert Construct Hammer, Elemental %s, [ ]
+#setBase Marauding Mace, Physical %s, [ ]
+#setBase Marauding Mace, Elemental %s, [ ]
+#setBase Strife Pick, Physical %s, [ ]
+#setBase Strife Pick, Elemental %s, [ ]
+#setBase Fortified Hammer, Physical %s, [ ]
+#setBase Fortified Hammer, Elemental %s, [ ]
 
 -- Two Hand Maces
-#setBase Expert Leaden Greathammer, Physical %s, [ ]
-#setBase Expert Leaden Greathammer, Elemental %s, [ ]
-#setBase Expert Crumbling Maul, Physical %s, [ ]
-#setBase Expert Crumbling Maul, Elemental %s, [ ]
-#setBase Expert Cultist Greathammer, Physical %s, [ ]
-#setBase Expert Cultist Greathammer, Elemental %s, [ ]
-#setBase Expert Oak Greathammer, Physical %s, [ ]
-#setBase Expert Oak Greathammer, Elemental %s, [ ]
+#setBase Massive Greathammer, Physical %s, [ ]
+#setBase Massive Greathammer, Elemental %s, [ ]
+#setBase Ruination Maul, Physical %s, [ ]
+#setBase Ruination Maul, Elemental %s, [ ]
+#setBase Fanatic Greathammer, Physical %s, [ ]
+#setBase Fanatic Greathammer, Elemental %s, [ ]
+#setBase Ironwood Greathammer, Physical %s, [ ]
+#setBase Ironwood Greathammer, Elemental %s, [ ]
 
 -- Warstaves
-#setBase Expert Slicing Quarterstaff, Physical %s, [ ]
-#setBase Expert Slicing Quarterstaff, Elemental %s, [ ]
-#setBase Expert Barrier Quarterstaff, Physical %s, [ ]
-#setBase Expert Barrier Quarterstaff, Elemental %s, [ ]
-#setBase Expert Long Quarterstaff, Physical %s, [ ]
-#setBase Expert Long Quarterstaff, Elemental %s, [ ]
-#setBase Expert Crackling Quarterstaff, Elemental %s, [ ]
+#setBase Razor Quarterstaff, Physical %s, [ ]
+#setBase Razor Quarterstaff, Elemental %s, [ ]
+#setBase Aegis Quarterstaff, Physical %s, [ ]
+#setBase Aegis Quarterstaff, Elemental %s, [ ]
+#setBase Striking Quarterstaff, Physical %s, [ ]
+#setBase Striking Quarterstaff, Elemental %s, [ ]
+#setBase Bolting Quarterstaff, Elemental %s, [ ]
 
 -- Spell Staves
 #setBase Ashen Staff, Fire %s, [ Prefix: SpellDamageOnTwoHandWeapon6, Prefix: SpellDamageGainedAsFire5, Prefix: FireDamagePrefixOnTwoHandWeapon6, Suffix: GlobalFireSpellGemsLevelTwoHandWeapon4]
@@ -166,9 +166,9 @@ return {
 ---setBase Bloodletting Dagger, Physical %s, [ ]
 ---setBase Bloodletting Dagger, Elemental %s, [ ]
 -- Spears
-#setBase Helix Spear, +4 Physical %s, [ Prefix: LocalIncreasedPhysicalDamagePercent5, Prefix: LocalIncreasedPhysicalDamagePercentAndAccuracyRating5, Prefix: LocalAddedPhysicalDamage6, Suffix: LocalIncreasedAttackSpeed3, Suffix: LocalCriticalStrikeChance3, Suffix: GlobalMeleeSkillGemLevelWeapon4]
-#setBase Helix Spear, +4 Elemental %s, [ Prefix: LocalAddedFireDamage8, Prefix: LocalAddedColdDamage8, Prefix: LocalAddedLightningDamage8, Suffix: LocalIncreasedAttackSpeed3, Suffix: LocalCriticalStrikeChance3, Suffix: GlobalMeleeSkillGemLevelWeapon4]
-#setBase Striking Spear, +4 Lightning %s, [ Prefix: WeaponElementalDamage5, Prefix: LocalAddedLightningDamage8, Suffix: LocalIncreasedAttackSpeed3, Suffix: LocalCriticalStrikeChance3, Suffix: GlobalMeleeSkillGemLevelWeapon4]
+#setBase Spiked Spear, +4 Physical %s, [ Prefix: LocalIncreasedPhysicalDamagePercent5, Prefix: LocalIncreasedPhysicalDamagePercentAndAccuracyRating5, Prefix: LocalAddedPhysicalDamage6, Suffix: LocalIncreasedAttackSpeed3, Suffix: LocalCriticalStrikeChance3, Suffix: GlobalMeleeSkillGemLevelWeapon4]
+#setBase Spiked Spear, +4 Elemental %s, [ Prefix: LocalAddedFireDamage8, Prefix: LocalAddedColdDamage8, Prefix: LocalAddedLightningDamage8, Suffix: LocalIncreasedAttackSpeed3, Suffix: LocalCriticalStrikeChance3, Suffix: GlobalMeleeSkillGemLevelWeapon4]
+#setBase Flying Spear, +4 Lightning %s, [ Prefix: WeaponElementalDamage5, Prefix: LocalAddedLightningDamage8, Suffix: LocalIncreasedAttackSpeed3, Suffix: LocalCriticalStrikeChance3, Suffix: GlobalMeleeSkillGemLevelWeapon4]
 ---- Flails
 ---setBase Abyssal Flail, Physical %s, [ ] -- For some reason Flails and Spears don't grab the BaseGroup like maces and axes do.
 ---setBase Abyssal Flail, Elemental %s, [ ]

@@ -12,22 +12,13 @@ return {
 			[1]={
 				limit={
 					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Additional Power Charge chance {0}%"
-			},
-			[2]={
-				limit={
-					[1]={
 						[1]=1,
 						[2]=99
 					}
 				},
 				text="{0}% chance to grant an additional Power Charge on Cull"
 			},
-			[3]={
+			[2]={
 				limit={
 					[1]={
 						[1]=100,

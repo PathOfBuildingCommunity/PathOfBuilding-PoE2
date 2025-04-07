@@ -24,19 +24,6 @@ return {
 	},
 	[2]={
 		[1]={
-			[1]={
-				[1]={
-					k="milliseconds_to_seconds_2dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Duration between randomisations {0}s"
-			}
 		},
 		stats={
 			[1]="skill_effect_duration"
@@ -47,22 +34,13 @@ return {
 			[1]={
 				limit={
 					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="More damage granted {0}%"
-			},
-			[2]={
-				limit={
-					[1]={
 						[1]=1,
 						[2]="#"
 					}
 				},
 				text="Buff grants {0}% more damage with the affected Element"
 			},
-			[3]={
+			[2]={
 				[1]={
 					k="negate",
 					v=1

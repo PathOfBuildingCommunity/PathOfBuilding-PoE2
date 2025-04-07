@@ -3,6 +3,16 @@
 return {
 -- Shield: Armour
 [[
+Chernobog's Pillar
+Blacksteel Tower Shield
+Implicits: 1
+Grants Skill: Raise Shield
+UniqueLocalIncreasedPhysicalDamageReductionRatingPercent28
+UniqueFireResist8
+UniqueChaosResist32
+UniqueStunThreshold19
+UniqueDamageGainedAsFirePerBlock1
+]],[[
 Dionadair
 Splintered Tower Shield
 Variant: Pre 0.1.1
@@ -40,6 +50,16 @@ UniqueDoubleAccuracyRating1
 {variant:1}UniquePoisonOnBlock1[100,100]
 {variant:2}UniquePoisonOnBlock1
 ]],[[
+Redblade Banner
+Heraldric Tower Shield
+Implicits: 1
+Grants Skill: Raise Shield
+UniqueLocalBlockChance14
+UniqueLocalIncreasedPhysicalDamageReductionRatingPercent27
+UniqueStrength36
+UniqueStunThreshold18
+UniqueEnemiesInPresenceMonsterPower1
+]],[[
 The Surrender
 Stone Tower Shield
 Implicits: 1
@@ -68,6 +88,15 @@ UniqueStunThreshold9
 UniqueCanBlockAllDamage1
 UniqueDisableShieldSkills1
 ]],[[
+Window to Paradise
+Barricade Tower Shield
+Implicits: 1
+Grants Skill: Raise Shield
+UniqueLocalIncreasedPhysicalDamageReductionRatingPercent25
+UniqueIncreasedMana47
+UniqueAllResistances24
+UniqueRaiseShieldApplyExposure1
+]],[[
 Wulfsbane
 Painted Tower Shield
 Implicits: 1
@@ -78,7 +107,97 @@ UniqueStunThreshold7
 UniqueEnemiesBlockedAreIntimidated1
 ]],
 -- Shield: Evasion
-
+[[
+Bloodbarrier
+Iron Buckler
+Implicits: 1
+Grants Skill: Parry
+UniqueLocalBlockChance14
+UniqueChaosResist31
+UniqueLifeRegeneration21
+UniqueApplyCorruptedBloodOnBlock1
+]],[[
+Calgyra's Arc
+Ornate Buckler
+Implicits: 1
+Grants Skill: Parry
+UniqueLocalIncreasedEvasionRatingPercent28
+UniqueIncreasedMana12
+UniqueIntelligence6
+UniqueProjectileParryInfiniteDistance1
+UniqueParriedDebuffDuration1
+]],[[
+Dunkelhalt
+Leather Buckler
+Implicits: 1
+Grants Skill: Parry
+UniqueLocalBlockChance9
+UniqueLocalIncreasedEvasionRating6
+UniqueBaseBlockDamageTaken2
+UniqueParriedDebuffMagnitude1
+]],[[
+Nocturne
+Wooden Buckler
+Implicits: 1
+Grants Skill: Parry
+UniqueIncreasedMana44
+UniqueAllResistances25
+UniqueIncreasedAccuracyPercent1
+UniqueParriedCausesSpellDamageTaken1
+UniqueParriedDebuffDuration2
+]],[[
+Rondel de Ezo
+Plated Buckler
+Implicits: 1
+Grants Skill: Parry
+UniqueLocalIncreasedEvasionRatingPercent27
+UniqueDexterity2
+UniqueLifeRegeneration24
+UniqueBlockChanceProjectiles1
+UniqueEnfeebleOnBlockChance1
+]],[[
+Silverthorne
+Spiked Buckler
+Implicits: 1
+Grants Skill: Parry
+UniqueLocalIncreasedEvasionRatingPercent29
+UniqueAllResistances19
+UniqueCriticalWeaknessOnParry1
+UniqueParryDamage1
+]],[[
+Sunsplinter
+Array Buckler
+Has Alt Variant: true
+Selected Variant: 1
+Selected Alt Variant: 7
+Variant: Max Res: 1 Fire, 2 Cold, 3 Lightning
+Variant: Max Res: 1 Fire, 3 Cold, 2 Lightning
+Variant: Max Res: 2 Fire, 1 Cold, 3 Lightning
+Variant: Max Res: 2 Fire, 3 Cold, 1 Lightning
+Variant: Max Res: 3 Fire, 1 Cold, 2 Lightning
+Variant: Max Res: 3 Fire, 2 Cold, 1 Lightning
+Variant: Level: 2 Cold, 1 Fire, 3 Lightning
+Variant: Level: 3 Cold, 1 Fire, 2 Lightning
+Variant: Level: 1 Cold, 2 Fire, 3 Lightning
+Variant: Level: 3 Cold, 2 Fire, 1 Lightning
+Variant: Level: 1 Cold, 3 Fire, 2 Lightning
+Variant: Level: 2 Cold, 3 Fire, 1 Lightning
+Implicits: 1
+Grants Skill: Parry
+UniqueLocalIncreasedEvasionRatingPercent25
+{variant:1}UniqueMaximumElementalResistances1
+{variant:2}UniqueMaximumElementalResistances2
+{variant:3}UniqueMaximumElementalResistances3
+{variant:4}UniqueMaximumElementalResistances4
+{variant:5}UniqueMaximumElementalResistances5
+{variant:6}UniqueMaximumElementalResistances6
+{variant:7}UniqueAdditionalElementalGemLevels1
+{variant:8}UniqueAdditionalElementalGemLevels2
+{variant:9}UniqueAdditionalElementalGemLevels3
+{variant:10}UniqueAdditionalElementalGemLevels4
+{variant:11}UniqueAdditionalElementalGemLevels5
+{variant:12}UniqueAdditionalElementalGemLevels6
+]],
 -- Shield: Energy Shield
 
 -- Shield: Armour/Evasion
@@ -146,20 +265,36 @@ UniqueManaRegeneration3
 UniqueGlobalCooldownRecovery1
 ]],[[
 Mahuxotl's Machination
+Variant: Pre 0.2.0
+Variant: Current
 Omen Crest Shield
 Implicits: 1
 Grants Skill: Raise Shield
 UniqueLocalIncreasedArmourAndEnergyShield16
-UniqueLocalSoulCoreEffect1
+{variant:1}UniqueLocalSoulCoreEffect1[333,666]
+{variant:2}UniqueLocalSoulCoreEffect1
+{variant:2}UniqueEverlastingSacrifice1
 ]],[[
 Oaksworn
+Variant: Pre 0.2.0
+Variant: Current
 Sigil Crest Shield
 Implicits: 1
 Grants Skill: Raise Shield
 UniqueLocalBlockChance5
 UniqueLocalIncreasedArmourAndEnergyShield10
-UniqueIncreasedSpirit2
+{variant:1}UniqueIncreasedSpirit2
 UniqueChaosResist1
+{variant:2}UniqueLifeRegenerationRate1
+]],[[
+Prism Guardian
+Sectarian Crest Shield
+Implicits: 1
+Grants Skill: Raise Shield
+UniqueLocalIncreasedArmourAndEnergyShield22
+UniqueDexterity37
+UniqueAllResistances26
+UniqueSpiritPerMaximumLife1
 ]],[[
 Rise of the Phoenix
 Omen Crest Shield

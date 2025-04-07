@@ -3,6 +3,16 @@
 return {
 -- Weapon: Wand
 [[
+Cursecarver
+Acrid Wand
+Implicits: 1
+Grants Skill: Level (1-20) Decompose
+(80-100)% increased Spell Damage
+(10-20)% increased Cast Speed
+Lose 10 Life per Enemy Killed
+(30-50)% increased Mana Regeneration Rate
++4 to Level of Hypothermia Skills
+]],[[
 Enezun's Charge
 Volatile Wand
 Implicits: 1
@@ -29,5 +39,14 @@ Grants Skill: Level (1-20) Bone Blast
 Gain (10-15) Life per Enemy Killed
 25% chance to inflict Bleeding on Hit
 25% of Spell Mana Cost Converted to Life Cost
+]],[[
+The Wicked Quill
+Withered Wand
+Implicits: 1
+Grants Skill: Level (1-20) Chaos Bolt
+(60-100)% increased Spell Damage
++(60-100) to maximum Mana
++(7-13)% to Chaos Resistance
+Spells have a 25% chance to inflict Withered for 4 seconds on Hit
 ]],
 }

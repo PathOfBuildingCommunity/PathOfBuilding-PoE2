@@ -157,6 +157,7 @@ data.misc = { -- magic numbers
 	TemporalChainsEffectCap = 75,
 	BuffExpirationSlowCap = 0.25,
 	DamageReductionCap = 90,
+	EnemyPhysicalDamageReductionCap = 75,
 	ResistFloor = -200,
 	MaxResistCap = 90,
 	EvadeChanceCap = 95,
@@ -263,7 +264,8 @@ data.cursePriority = {
 	["Boots"] = 7000,
 	["Ring 1"] = 8000,
 	["Ring 2"] = 9000,
-	["CurseFromEquipment"] = 10000,
+	["Ring 3"] = 10000,
+	["CurseFromEquipment"] = 11000,
 	["CurseFromAura"] = 20000,
 }
 
@@ -488,13 +490,13 @@ data.weaponTypeInfo = {
 	["Two Handed Sword"] = { oneHand = false, melee = true, flag = "Sword" },
 }
 data.unarmedWeaponData = {
-	[0] = { type = "None", AttackRate = 1.2, CritChance = 0, PhysicalMin = 2, PhysicalMax = 6 }, -- Scion
-	[1] = { type = "None", AttackRate = 1.2, CritChance = 0, PhysicalMin = 2, PhysicalMax = 8 }, -- Marauder
-	[2] = { type = "None", AttackRate = 1.2, CritChance = 0, PhysicalMin = 2, PhysicalMax = 5 }, -- Ranger
-	[3] = { type = "None", AttackRate = 1.2, CritChance = 0, PhysicalMin = 2, PhysicalMax = 5 }, -- Witch
-	[4] = { type = "None", AttackRate = 1.2, CritChance = 0, PhysicalMin = 2, PhysicalMax = 6 }, -- Duelist
-	[5] = { type = "None", AttackRate = 1.2, CritChance = 0, PhysicalMin = 2, PhysicalMax = 6 }, -- Templar
-	[6] = { type = "None", AttackRate = 1.2, CritChance = 0, PhysicalMin = 2, PhysicalMax = 5 }, -- Shadow
+	[0] = { type = "None", AttackRate = 1.4, CritChance = 0, PhysicalMin = 2, PhysicalMax = 6 }, -- Scion
+	[1] = { type = "None", AttackRate = 1.4, CritChance = 0, PhysicalMin = 2, PhysicalMax = 8 }, -- Marauder
+	[2] = { type = "None", AttackRate = 1.4, CritChance = 0, PhysicalMin = 2, PhysicalMax = 5 }, -- Ranger
+	[3] = { type = "None", AttackRate = 1.4, CritChance = 0, PhysicalMin = 2, PhysicalMax = 5 }, -- Witch
+	[4] = { type = "None", AttackRate = 1.4, CritChance = 0, PhysicalMin = 2, PhysicalMax = 6 }, -- Duelist
+	[5] = { type = "None", AttackRate = 1.4, CritChance = 0, PhysicalMin = 2, PhysicalMax = 6 }, -- Templar
+	[6] = { type = "None", AttackRate = 1.4, CritChance = 0, PhysicalMin = 2, PhysicalMax = 5 }, -- Shadow
 }
 
 data.setJewelRadiiGlobally = function(treeVersion)

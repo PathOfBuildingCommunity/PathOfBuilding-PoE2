@@ -3,6 +3,14 @@
 return {
 -- Focus
 [[
+Apep's Supremacy
+Voodoo Focus
+(100-200)% increased Energy Shield
+(30-50)% increased Energy Shield Recharge Rate
+(30-50)% faster start of Energy Shield Recharge
+20% of Elemental damage from Hits taken as Chaos damage
++25% chance to be Poisoned
+]],[[
 Carrion Call
 Engraved Focus
 Variant: Pre 0.1.1
@@ -19,6 +27,14 @@ Twig Focus
 (20-40)% increased Spell Damage
 +(5-10) to Intelligence
 20% chance for Energy Shield Recharge to start when you Kill an Enemy
+]],[[
+Effigy of Cruelty
+Antler Focus
++(20-30) to maximum Energy Shield
+(60-80)% increased Spell Damage
++10 to Intelligence
++(7-13)% to Chaos Resistance
+Critical Hits with Spells apply (3-5) Stacks of Critical Weakness
 ]],[[
 The Eternal Spark
 Crystal Focus

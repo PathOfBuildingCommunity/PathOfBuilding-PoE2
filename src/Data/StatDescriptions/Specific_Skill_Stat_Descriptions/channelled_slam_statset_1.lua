@@ -9,19 +9,6 @@ return {
 	},
 	[2]={
 		[1]={
-			[1]={
-				[1]={
-					k="divide_by_ten_1dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Explosion radius {0}m"
-			}
 		},
 		stats={
 			[1]="active_skill_area_of_effect_radius"
@@ -69,26 +56,13 @@ return {
 				},
 				limit={
 					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Radius per successive aftershock {0:+d}m"
-			},
-			[2]={
-				[1]={
-					k="divide_by_ten_1dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
 						[1]=10,
 						[2]=10
 					}
 				},
 				text="Each successive aftershock gains {0:+d} metre to radius, up to 3 metres"
 			},
-			[3]={
+			[2]={
 				[1]={
 					k="divide_by_ten_1dp_if_required",
 					v=1
@@ -111,22 +85,13 @@ return {
 			[1]={
 				limit={
 					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="More Hit damage per stage {0}%"
-			},
-			[2]={
-				limit={
-					[1]={
 						[1]=1,
 						[2]="#"
 					}
 				},
 				text="{0}% more damage with Hits for each stage"
 			},
-			[3]={
+			[2]={
 				[1]={
 					k="negate",
 					v=1

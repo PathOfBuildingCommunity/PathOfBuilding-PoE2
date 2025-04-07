@@ -5,42 +5,42 @@
 -- Helmet
 [[
 Armour Helmet
-Expert Elite Greathelm
+Paragon Greathelm
 Crafted: true
 Prefix: LocalIncreasedPhysicalDamageReductionRating5
 Prefix: LocalIncreasedPhysicalDamageReductionRatingPercent5
 Prefix: IncreasedLife7
 ]],[[
 Evasion Helmet
-Expert Hunter Hood
+Trapper Hood
 Crafted: true
 Prefix: LocalIncreasedEvasionRating5
 Prefix: LocalIncreasedEvasionRatingPercent5
 Prefix: IncreasedLife7
 ]],[[
 Energy Shield Helmet
-Expert Feathered Tiara
+Kamasan Tiara
 Crafted: true
 Prefix: IncreasedLife7
 Prefix: LocalIncreasedEnergyShieldPercent5
 Prefix: LocalIncreasedEnergyShield7
 ]],[[
 Armour/Evasion Helmet
-Expert Shielded Helm
+Champion Helm
 Crafted: true
 Prefix: LocalBaseArmourAndEvasionRating3
 Prefix: LocalIncreasedArmourAndEvasion5
 Prefix: IncreasedLife7
 ]],[[
 Armour/Energy Shield Helmet
-Expert Heavy Crown
+Divine Crown
 Crafted: true
 Prefix: LocalBaseArmourAndEnergyShield3
 Prefix: LocalIncreasedArmourAndEnergyShield5
 Prefix: IncreasedLife7
 ]],[[
 Evasion/Energy Shield Helmet
-Expert Tribal Mask
+Soaring Mask
 Crafted: true
 Prefix: LocalBaseEvasionRatingAndEnergyShield3
 Prefix: LocalIncreasedEvasionAndEnergyShield5_
@@ -49,42 +49,42 @@ Prefix: IncreasedLife7
 -- Gloves
 [[
 Armour Gloves
-Expert Moulded Mitts
+Vaal Mitts
 Crafted: true
 Prefix: LocalIncreasedPhysicalDamageReductionRating4
 Prefix: LocalIncreasedPhysicalDamageReductionRatingPercent5
 Prefix: IncreasedLife6
 ]],[[
 Evasion Gloves
-Expert Spined Bracers
+Barbed Bracers
 Crafted: true
 Prefix: LocalIncreasedEvasionRating3
 Prefix: LocalIncreasedEvasionRatingPercent5
 Prefix: IncreasedLife6
 ]],[[
 Energy Shield Gloves
-Expert Intricate Gloves
+Vaal Gloves
 Crafted: true
 Prefix: IncreasedLife6
 Prefix: LocalIncreasedEnergyShieldPercent5
 Prefix: LocalIncreasedEnergyShield6
 ]],[[
 Armour/Evasion Gloves
-Expert Doubled Gauntlets
+Cultist Gauntlets
 Crafted: true
 Prefix: LocalBaseArmourAndEvasionRating3
 Prefix: LocalIncreasedArmourAndEvasion5
 Prefix: IncreasedLife6
 ]],[[
 Armour/Energy Shield Gloves
-Expert Goldcast Cuffs
+Gleaming Cuffs
 Crafted: true
 Prefix: LocalBaseArmourAndEnergyShield3_
 Prefix: LocalIncreasedArmourAndEnergyShield5
 Prefix: IncreasedLife6
 ]],[[
 Evasion/Energy Shield Gloves
-Expert Spiral Wraps
+Vaal Wraps
 Crafted: true
 Prefix: LocalBaseEvasionRatingAndEnergyShield3
 Prefix: LocalIncreasedEvasionAndEnergyShield5_
@@ -135,14 +135,14 @@ Prefix: LocalIncreasedEvasionAndEnergyShield5_
 Prefix: IncreasedLife9
 ]],[[
 Movement Speed Chest
-Expert Scalper's Jacket
+Falconer's Jacket
 Crafted: true
 Prefix: LocalIncreasedEvasionRating5
 Prefix: LocalIncreasedEvasionRatingPercent5
 Prefix: IncreasedLife9
 ]],[[
 Spirit Chest
-Expert Shaman Mantle
+Occultist Mantle
 Crafted: true
 Prefix: LocalBaseArmourAndEnergyShield5
 Prefix: LocalIncreasedArmourAndEnergyShield5
@@ -151,42 +151,42 @@ Prefix: IncreasedSpirit6
 -- Boots
 [[
 Armour Boots
-Expert Stone Greaves
+Vaal Greaves
 Crafted: true
 Prefix: LocalIncreasedPhysicalDamageReductionRatingPercent5
 Prefix: IncreasedLife6
 Prefix: MovementVelocity5
 ]],[[
 Evasion Boots
-Expert Lizardscale Boots
+Dragonscale Boots
 Crafted: true
 Prefix: LocalIncreasedEvasionRatingPercent5
 Prefix: IncreasedLife6
 Prefix: MovementVelocity5
 ]],[[
 Energy Shield Boots
-Expert Feathered Sandals
+Sandsworn Sandals
 Crafted: true
 Prefix: IncreasedLife6
 Prefix: LocalIncreasedEnergyShieldPercent5
 Prefix: MovementVelocity5
 ]],[[
 Armour/Evasion Boots
-Expert Stacked Sabatons
+Fortress Sabatons
 Crafted: true
 Prefix: LocalIncreasedArmourAndEvasion5
 Prefix: IncreasedLife6
 Prefix: MovementVelocity5
 ]],[[
 Armour/Energy Shield Boots
-Expert Pelt Leggings
+Warlock Leggings
 Crafted: true
 Prefix: LocalIncreasedArmourAndEnergyShield5
 Prefix: IncreasedLife6
 Prefix: MovementVelocity5
 ]],[[
 Evasion/Energy Shield Boots
-Expert Hunting Shoes
+Quickslip Shoes
 Crafted: true
 Prefix: LocalIncreasedEvasionAndEnergyShield5_
 Prefix: IncreasedLife6
@@ -195,28 +195,28 @@ Prefix: MovementVelocity5
 -- Shields
 [[
 Armour Shield
-Expert Stone Tower Shield
+Vaal Tower Shield
 Crafted: true
 Prefix: LocalIncreasedBlockPercentage5
 Prefix: LocalIncreasedPhysicalDamageReductionRatingPercent5
 Prefix: IncreasedLife8
 ]],[[
 Evasion Shield
-Expert Edged Buckler
+Ancient Buckler
 Crafted: true
 Prefix: LocalIncreasedBlockPercentage5
 Prefix: LocalIncreasedEvasionRatingPercent5
 Prefix: IncreasedLife8
 ]],[[
 Armour/Evasion Shield
-Expert Feathered Targe
+Soaring Targe
 Crafted: true
 Prefix: LocalIncreasedBlockPercentage5
 Prefix: LocalIncreasedArmourAndEvasion5
 Prefix: IncreasedLife8
 ]],[[
 Armour/Energy Shield Shield
-Expert Omen Crest Shield
+Vaal Crest Shield
 Crafted: true
 Prefix: LocalIncreasedBlockPercentage5
 Prefix: LocalIncreasedArmourAndEnergyShield5
@@ -225,7 +225,7 @@ Prefix: IncreasedLife8
 -- Focus
 [[
 +2 Energy Shield
-Expert Plumed Focus
+Hallowed Focus
 Crafted: true
 Prefix: LocalIncreasedEnergyShield8
 Prefix: LocalIncreasedEnergyShieldPercent6
@@ -408,7 +408,7 @@ Implicits: 3
 -- Bows
 [[
 +4 Physical Bow
-Expert Zealot Bow
+Warmonger Bow
 Crafted: true
 Prefix: LocalIncreasedPhysicalDamagePercent5
 Prefix: LocalIncreasedPhysicalDamagePercentAndAccuracyRating5
@@ -418,7 +418,7 @@ Suffix: LocalCriticalStrikeChance3
 Suffix: GlobalProjectileSkillGemLevelWeapon4
 ]],[[
 +4 Elemental Bow
-Expert Zealot Bow
+Warmonger Bow
 Crafted: true
 Prefix: LocalAddedFireDamage8
 Prefix: LocalAddedColdDamage8
@@ -428,7 +428,7 @@ Suffix: LocalCriticalStrikeChance3
 Suffix: GlobalProjectileSkillGemLevelWeapon4
 ]],[[
 +4 Physical Bow
-Expert Dualstring Bow
+Gemini Bow
 Crafted: true
 Prefix: LocalIncreasedPhysicalDamagePercent5
 Prefix: LocalIncreasedPhysicalDamagePercentAndAccuracyRating5
@@ -438,7 +438,7 @@ Suffix: LocalCriticalStrikeChance3
 Suffix: GlobalProjectileSkillGemLevelWeapon4
 ]],[[
 +4 Elemental Bow
-Expert Dualstring Bow
+Gemini Bow
 Crafted: true
 Prefix: LocalAddedFireDamage8
 Prefix: LocalAddedColdDamage8
@@ -448,7 +448,7 @@ Suffix: LocalCriticalStrikeChance3
 Suffix: GlobalProjectileSkillGemLevelWeapon4
 ]],[[
 +4 Physical Bow
-Expert Warden Bow
+Guardian Bow
 Crafted: true
 Prefix: LocalIncreasedPhysicalDamagePercent5
 Prefix: LocalIncreasedPhysicalDamagePercentAndAccuracyRating5
@@ -458,7 +458,7 @@ Suffix: LocalCriticalStrikeChance3
 Suffix: GlobalProjectileSkillGemLevelWeapon4
 ]],[[
 +4 Elemental Bow
-Expert Warden Bow
+Guardian Bow
 Crafted: true
 Prefix: LocalAddedFireDamage8
 Prefix: LocalAddedColdDamage8
@@ -468,7 +468,7 @@ Suffix: LocalCriticalStrikeChance3
 Suffix: GlobalProjectileSkillGemLevelWeapon4
 ]],[[
 +4 Chaos Bow
-Expert Cultist Bow
+Fanatic Bow
 Crafted: true
 Prefix: LocalAddedFireDamage8
 Prefix: WeaponElementalDamage4
@@ -479,7 +479,7 @@ Suffix: GlobalProjectileSkillGemLevelWeapon4
 -- Crossbows
 [[
 +6 Physical Crossbow
-Expert Forlorn Crossbow
+Desolate Crossbow
 Crafted: true
 Prefix: LocalIncreasedPhysicalDamagePercent5
 Prefix: LocalIncreasedPhysicalDamagePercentAndAccuracyRating5
@@ -489,17 +489,17 @@ Suffix: LocalCriticalStrikeChance3
 Suffix: GlobalProjectileSkillGemLevelTwoHandWeapon4
 ]],[[
 +6 Elemental Crossbow
-Expert Forlorn Crossbow
+Desolate Crossbow
 Crafted: true
-Prefix: LocalAddedFireDamage8
-Prefix: LocalAddedColdDamage8
-Prefix: LocalAddedLightningDamage8
+Prefix: LocalAddedFireDamageTwoHand8_
+Prefix: LocalAddedColdDamageTwoHand8
+Prefix: LocalAddedLightningDamageTwoHand8
 Suffix: LocalIncreasedAttackSpeed2
 Suffix: LocalCriticalStrikeChance3
 Suffix: GlobalProjectileSkillGemLevelTwoHandWeapon4
 ]],[[
 +6 Physical Crossbow
-Expert Bombard Crossbow
+Siege Crossbow
 Crafted: true
 Prefix: LocalIncreasedPhysicalDamagePercent5
 Prefix: LocalIncreasedPhysicalDamagePercentAndAccuracyRating5
@@ -509,17 +509,17 @@ Suffix: LocalCriticalStrikeChance3
 Suffix: GlobalProjectileSkillGemLevelTwoHandWeapon4
 ]],[[
 +6 Elemental Crossbow
-Expert Bombard Crossbow
+Siege Crossbow
 Crafted: true
-Prefix: LocalAddedFireDamage8
-Prefix: LocalAddedColdDamage8
-Prefix: LocalAddedLightningDamage8
+Prefix: LocalAddedFireDamageTwoHand8_
+Prefix: LocalAddedColdDamageTwoHand8
+Prefix: LocalAddedLightningDamageTwoHand8
 Suffix: LocalIncreasedAttackSpeed2
 Suffix: LocalCriticalStrikeChance3
 Suffix: GlobalProjectileSkillGemLevelTwoHandWeapon4
 ]],[[
 +6 Physical Crossbow
-Expert Dyad Crossbow
+Gemini Crossbow
 Crafted: true
 Prefix: LocalIncreasedPhysicalDamagePercent5
 Prefix: LocalIncreasedPhysicalDamagePercentAndAccuracyRating5
@@ -529,17 +529,17 @@ Suffix: LocalCriticalStrikeChance3
 Suffix: GlobalProjectileSkillGemLevelTwoHandWeapon4
 ]],[[
 +6 Elemental Crossbow
-Expert Dyad Crossbow
+Gemini Crossbow
 Crafted: true
-Prefix: LocalAddedFireDamage8
-Prefix: LocalAddedColdDamage8
-Prefix: LocalAddedLightningDamage8
+Prefix: LocalAddedFireDamageTwoHand8_
+Prefix: LocalAddedColdDamageTwoHand8
+Prefix: LocalAddedLightningDamageTwoHand8
 Suffix: LocalIncreasedAttackSpeed2
 Suffix: LocalCriticalStrikeChance3
 Suffix: GlobalProjectileSkillGemLevelTwoHandWeapon4
 ]],[[
 +6 Physical Crossbow
-Expert Tense Crossbow
+Flexed Crossbow
 Crafted: true
 Prefix: LocalIncreasedPhysicalDamagePercent5
 Prefix: LocalIncreasedPhysicalDamagePercentAndAccuracyRating5
@@ -549,11 +549,11 @@ Suffix: LocalCriticalStrikeChance3
 Suffix: GlobalProjectileSkillGemLevelTwoHandWeapon4
 ]],[[
 +6 Elemental Crossbow
-Expert Tense Crossbow
+Flexed Crossbow
 Crafted: true
-Prefix: LocalAddedFireDamage8
-Prefix: LocalAddedColdDamage8
-Prefix: LocalAddedLightningDamage8
+Prefix: LocalAddedFireDamageTwoHand8_
+Prefix: LocalAddedColdDamageTwoHand8
+Prefix: LocalAddedLightningDamageTwoHand8
 Suffix: LocalIncreasedAttackSpeed2
 Suffix: LocalCriticalStrikeChance3
 Suffix: GlobalProjectileSkillGemLevelTwoHandWeapon4
@@ -561,7 +561,7 @@ Suffix: GlobalProjectileSkillGemLevelTwoHandWeapon4
 -- One Hand Maces
 [[
 Physical 1H Mace
-Expert Brigand Mace
+Marauding Mace
 Crafted: true
 Prefix: LocalIncreasedPhysicalDamagePercent5
 Prefix: LocalIncreasedPhysicalDamagePercentAndAccuracyRating5
@@ -571,7 +571,7 @@ Suffix: LocalCriticalStrikeChance3
 Suffix: GlobalMeleeSkillGemLevelWeapon4
 ]],[[
 Elemental 1H Mace
-Expert Brigand Mace
+Marauding Mace
 Crafted: true
 Prefix: LocalAddedFireDamage8
 Prefix: LocalAddedColdDamage8
@@ -581,7 +581,7 @@ Suffix: LocalCriticalStrikeChance3
 Suffix: GlobalMeleeSkillGemLevelWeapon4
 ]],[[
 Physical 1H Mace
-Expert Warpick
+Strife Pick
 Crafted: true
 Prefix: LocalIncreasedPhysicalDamagePercent5
 Prefix: LocalIncreasedPhysicalDamagePercentAndAccuracyRating5
@@ -591,7 +591,7 @@ Suffix: LocalCriticalStrikeChance3
 Suffix: GlobalMeleeSkillGemLevelWeapon4
 ]],[[
 Elemental 1H Mace
-Expert Warpick
+Strife Pick
 Crafted: true
 Prefix: LocalAddedFireDamage8
 Prefix: LocalAddedColdDamage8
@@ -601,7 +601,7 @@ Suffix: LocalCriticalStrikeChance3
 Suffix: GlobalMeleeSkillGemLevelWeapon4
 ]],[[
 Physical 1H Mace
-Expert Construct Hammer
+Fortified Hammer
 Crafted: true
 Prefix: LocalIncreasedPhysicalDamagePercent5
 Prefix: LocalIncreasedPhysicalDamagePercentAndAccuracyRating5
@@ -611,7 +611,7 @@ Suffix: LocalCriticalStrikeChance3
 Suffix: GlobalMeleeSkillGemLevelWeapon4
 ]],[[
 Elemental 1H Mace
-Expert Construct Hammer
+Fortified Hammer
 Crafted: true
 Prefix: LocalAddedFireDamage8
 Prefix: LocalAddedColdDamage8
@@ -623,7 +623,7 @@ Suffix: GlobalMeleeSkillGemLevelWeapon4
 -- Two Hand Maces
 [[
 Physical 2H Mace
-Expert Leaden Greathammer
+Massive Greathammer
 Crafted: true
 Prefix: LocalIncreasedPhysicalDamagePercent5
 Prefix: LocalIncreasedPhysicalDamagePercentAndAccuracyRating5
@@ -633,7 +633,7 @@ Suffix: LocalCriticalStrikeChance3
 Suffix: GlobalMeleeSkillGemLevelTwoHandWeapon4
 ]],[[
 Elemental 2H Mace
-Expert Leaden Greathammer
+Massive Greathammer
 Crafted: true
 Prefix: LocalAddedFireDamageTwoHand8_
 Prefix: LocalAddedColdDamageTwoHand8
@@ -643,7 +643,7 @@ Suffix: LocalCriticalStrikeChance3
 Suffix: GlobalMeleeSkillGemLevelTwoHandWeapon4
 ]],[[
 Physical 2H Mace
-Expert Crumbling Maul
+Ruination Maul
 Crafted: true
 Prefix: LocalIncreasedPhysicalDamagePercent5
 Prefix: LocalIncreasedPhysicalDamagePercentAndAccuracyRating5
@@ -653,7 +653,7 @@ Suffix: LocalCriticalStrikeChance3
 Suffix: GlobalMeleeSkillGemLevelTwoHandWeapon4
 ]],[[
 Elemental 2H Mace
-Expert Crumbling Maul
+Ruination Maul
 Crafted: true
 Prefix: LocalAddedFireDamageTwoHand8_
 Prefix: LocalAddedColdDamageTwoHand8
@@ -663,7 +663,7 @@ Suffix: LocalCriticalStrikeChance3
 Suffix: GlobalMeleeSkillGemLevelTwoHandWeapon4
 ]],[[
 Physical 2H Mace
-Expert Cultist Greathammer
+Fanatic Greathammer
 Crafted: true
 Prefix: LocalIncreasedPhysicalDamagePercent5
 Prefix: LocalIncreasedPhysicalDamagePercentAndAccuracyRating5
@@ -673,7 +673,7 @@ Suffix: LocalCriticalStrikeChance3
 Suffix: GlobalMeleeSkillGemLevelTwoHandWeapon4
 ]],[[
 Elemental 2H Mace
-Expert Cultist Greathammer
+Fanatic Greathammer
 Crafted: true
 Prefix: LocalAddedFireDamageTwoHand8_
 Prefix: LocalAddedColdDamageTwoHand8
@@ -683,7 +683,7 @@ Suffix: LocalCriticalStrikeChance3
 Suffix: GlobalMeleeSkillGemLevelTwoHandWeapon4
 ]],[[
 Physical 2H Mace
-Expert Oak Greathammer
+Ironwood Greathammer
 Crafted: true
 Prefix: LocalIncreasedPhysicalDamagePercent5
 Prefix: LocalIncreasedPhysicalDamagePercentAndAccuracyRating5
@@ -693,7 +693,7 @@ Suffix: LocalCriticalStrikeChance3
 Suffix: GlobalMeleeSkillGemLevelTwoHandWeapon4
 ]],[[
 Elemental 2H Mace
-Expert Oak Greathammer
+Ironwood Greathammer
 Crafted: true
 Prefix: LocalAddedFireDamageTwoHand8_
 Prefix: LocalAddedColdDamageTwoHand8
@@ -705,7 +705,7 @@ Suffix: GlobalMeleeSkillGemLevelTwoHandWeapon4
 -- Warstaves
 [[
 Physical Staff
-Expert Slicing Quarterstaff
+Razor Quarterstaff
 Crafted: true
 Prefix: LocalIncreasedPhysicalDamagePercent5
 Prefix: LocalIncreasedPhysicalDamagePercentAndAccuracyRating5
@@ -715,7 +715,7 @@ Suffix: LocalCriticalStrikeChance3
 Suffix: GlobalMeleeSkillGemLevelTwoHandWeapon4
 ]],[[
 Elemental Staff
-Expert Slicing Quarterstaff
+Razor Quarterstaff
 Crafted: true
 Prefix: LocalAddedFireDamageTwoHand8_
 Prefix: LocalAddedColdDamageTwoHand8
@@ -725,7 +725,7 @@ Suffix: LocalCriticalStrikeChance3
 Suffix: GlobalMeleeSkillGemLevelTwoHandWeapon4
 ]],[[
 Physical Staff
-Expert Barrier Quarterstaff
+Aegis Quarterstaff
 Crafted: true
 Prefix: LocalIncreasedPhysicalDamagePercent5
 Prefix: LocalIncreasedPhysicalDamagePercentAndAccuracyRating5
@@ -735,7 +735,7 @@ Suffix: LocalCriticalStrikeChance3
 Suffix: GlobalMeleeSkillGemLevelTwoHandWeapon4
 ]],[[
 Elemental Staff
-Expert Barrier Quarterstaff
+Aegis Quarterstaff
 Crafted: true
 Prefix: LocalAddedFireDamageTwoHand8_
 Prefix: LocalAddedColdDamageTwoHand8
@@ -745,7 +745,7 @@ Suffix: LocalCriticalStrikeChance3
 Suffix: GlobalMeleeSkillGemLevelTwoHandWeapon4
 ]],[[
 Physical Staff
-Expert Long Quarterstaff
+Striking Quarterstaff
 Crafted: true
 Prefix: LocalIncreasedPhysicalDamagePercent5
 Prefix: LocalIncreasedPhysicalDamagePercentAndAccuracyRating5
@@ -755,7 +755,7 @@ Suffix: LocalCriticalStrikeChance3
 Suffix: GlobalMeleeSkillGemLevelTwoHandWeapon4
 ]],[[
 Elemental Staff
-Expert Long Quarterstaff
+Striking Quarterstaff
 Crafted: true
 Prefix: LocalAddedFireDamageTwoHand8_
 Prefix: LocalAddedColdDamageTwoHand8
@@ -765,7 +765,7 @@ Suffix: LocalCriticalStrikeChance3
 Suffix: GlobalMeleeSkillGemLevelTwoHandWeapon4
 ]],[[
 Elemental Staff
-Expert Crackling Quarterstaff
+Bolting Quarterstaff
 Crafted: true
 Prefix: LocalAddedFireDamageTwoHand8_
 Prefix: LocalAddedColdDamageTwoHand8
@@ -878,7 +878,7 @@ Suffix: GlobalSpellGemsLevelWeapon4
 -- Spears
 [[
 +4 Physical Spear
-Helix Spear
+Spiked Spear
 Crafted: true
 Prefix: LocalIncreasedPhysicalDamagePercent5
 Prefix: LocalIncreasedPhysicalDamagePercentAndAccuracyRating5
@@ -888,7 +888,7 @@ Suffix: LocalCriticalStrikeChance3
 Suffix: GlobalMeleeSkillGemLevelWeapon4
 ]],[[
 +4 Elemental Spear
-Helix Spear
+Spiked Spear
 Crafted: true
 Prefix: LocalAddedFireDamage8
 Prefix: LocalAddedColdDamage8
@@ -898,7 +898,7 @@ Suffix: LocalCriticalStrikeChance3
 Suffix: GlobalMeleeSkillGemLevelWeapon4
 ]],[[
 +4 Lightning Spear
-Striking Spear
+Flying Spear
 Crafted: true
 Prefix: WeaponElementalDamage5
 Prefix: LocalAddedLightningDamage8

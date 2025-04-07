@@ -639,9 +639,9 @@ function GemSelectClass:AddGrantedEffectInfo(gemInstance, grantedEffect, addReq)
 	self.tooltip:AddSeparator(10)
 	if addReq then
 		local reqLevel = grantedEffect.levels[gemInstance.level] and grantedEffect.levels[gemInstance.level].levelRequirement or 1
-		local reqStr = calcLib.getGemStatRequirement(reqLevel, gemInstance.gemData.reqStr)
-		local reqDex = calcLib.getGemStatRequirement(reqLevel, gemInstance.gemData.reqDex)
-		local reqInt = calcLib.getGemStatRequirement(reqLevel, gemInstance.gemData.reqInt)
+		local reqStr = calcLib.getGemStatRequirement(reqLevel, gemInstance.gemData.reqStr, grantedEffect.support)
+		local reqDex = calcLib.getGemStatRequirement(reqLevel, gemInstance.gemData.reqDex, grantedEffect.support)
+		local reqInt = calcLib.getGemStatRequirement(reqLevel, gemInstance.gemData.reqInt, grantedEffect.support)
 		self.skillsTab.build:AddRequirementsToTooltip(self.tooltip, reqLevel, reqStr, reqDex, reqInt)
 	end
 	if grantedEffect.description then

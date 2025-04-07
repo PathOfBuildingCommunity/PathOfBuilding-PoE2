@@ -11,6 +11,14 @@ UniquePercentageStrength1
 UniquePercentageDexterity1
 UniquePercentageIntelligence1
 ]],[[
+Blood Price
+Fierce Greathelm
+UniqueLocalIncreasedPhysicalDamageReductionRatingPercent29
+UniqueEnemiesInPresenceReservesLife1
+UniqueLifeRegeneration18
+UniqueStunThreshold18
+UniquePresenceRadius3
+]],[[
 Corona of the Red Sun
 Warrior Greathelm
 Variant: Pre 0.1.1
@@ -75,6 +83,14 @@ UniqueIncreasedSpirit1
 UniqueColdResist16
 UniqueDoublePresenceRadius1
 ]],[[
+The Black Insignia
+Corsair Cap
+UniqueLocalIncreasedEvasionRatingPercent24
+UniqueItemFoundRarityIncrease14
+UniqueLightningResist24
+UniqueTailwindOnCriticalStrike1
+UniqueLoseTailwindOnHit1
+]],[[
 Elevore
 Hunter Hood
 Variant: Pre 0.1.1
@@ -90,6 +106,14 @@ Felt Cap
 UniqueLocalIncreasedEvasionRating1
 UniqueItemFoundRarityIncrease3
 UniqueAllResistances1
+]],[[
+Heatshiver
+Velvet Cap
+UniqueLocalIncreasedEvasionRatingPercent31
+UniqueIncreasedMana45
+UniqueFireResist33
+UniqueColdResist28
+UniqueColdAddedAsFireChilledEnemy1
 ]],[[
 Innsmouth
 Shabby Hood
@@ -114,15 +138,37 @@ UniqueLocalIncreasedEvasionRatingPercent1
 UniqueFireResist6
 UniqueLightRadius7
 UniqueIgniteEnemiesInPresence1
+]],[[
+Starkonja's Head
+Leatherbound Hood
+UniqueLocalIncreasedEvasionRatingPercent26
+UniqueCriticalStrikeChance13
+UniqueDexterity38
+EvasionRatingPercentOnLowLifeUniqueHelmetDex4
+UniqueDamageRemovedFromCompanion1
 ]],
 -- Helmet: Energy Shield
 [[
 Atziri's Disdain
 Gold Circlet
-UniqueIncreasedMana7
-UniqueItemFoundRarityIncrease2
-UniqueDamageBypassEnergyShieldPercent1
-UniqueEnergyShieldAsPercentOfLife1
+Variant: 0.2.0
+Variant: Current
+{variant:1}UniqueIncreasedMana7[60,100]
+{variant:2}UniqueIncreasedMana7
+{variant:1}UniqueItemFoundRarityIncrease2[10,20]
+{variant:2}UniqueItemFoundRarityIncrease2
+{variant:1}UniqueDamageBypassEnergyShieldPercent1[20,25]
+{variant:2}UniqueDamageBypassEnergyShieldPercent1
+{variant:1}UniqueEnergyShieldAsPercentOfLife1[25,30]
+{variant:2}UniqueEnergyShieldAsPercentOfLife1
+]],[[
+Crown of Eyes
+Coral Circlet
+UniqueLocalIncreasedEnergyShieldPercent23
+UniqueIncreasedAccuracy9
+UniqueAllAttributes7
+UniqueFireResist9
+SpellDamageModifiersApplyToAttackDamageUniqueHelmetInt7
 ]],[[
 Crown of Thorns
 Twig Circlet
@@ -151,6 +197,14 @@ UniqueMaximumColdResist1
 {variant:2}UniqueColdResist8
 UniqueLightRadius1
 ]],[[
+Indigon
+Magus Tiara
+UniqueLocalIncreasedEnergyShieldPercent20
+UniqueIncreasedMana49
+UniqueSpellDamagePerManaSpent1
+UniqueManaCostPerManaSpent1
+UniqueCannotRecoverManaExceptRegen1
+]],[[
 Mask of the Stitched Demon
 Feathered Tiara
 UniqueLocalIncreasedEnergyShieldPercent18
@@ -159,11 +213,22 @@ UniqueCannotGainEnergyShield1
 UniqueLifeRegenPerEnergyShield1
 ]],[[
 Sandstorm Visage
+Variant: Pre 0.2.0
+Variant: Current
 Chain Tiara
 UniqueLocalIncreasedEnergyShield8
 UniqueDexterity3
 UniqueEnemiesInPresenceBlinded1
-UniqueEnemiesInPresenceGainCritWeakness1
+{variant:1}UniqueEnemiesInPresenceGainCritWeakness1[1,1]
+{variant:2}UniqueEnemiesInPresenceGainCritWeakness1
+]],[[
+Scold's Bridle
+Jade Tiara
+UniqueLocalIncreasedEnergyShield17
+UniqueSpellDamage3
+UniqueIncreasedMana28
+UniqueIncreasedCastSpeed12
+UniquePhysicalDamageOnSkillUse1
 ]],[[
 Visage of Ayah
 Beaded Circlet
@@ -183,6 +248,14 @@ UniqueLocalIncreasedArmourAndEvasion6
 UniqueIncreasedAccuracy10
 UniqueCriticalStrikeChance11
 UniquePerfectTimingWindow1
+]],[[
+The Bringer of Rain
+Decorated Helm
+UniqueLocalIncreasedArmourAndEvasion27
+UniqueIncreasedAccuracy11
+UniqueLifeRegeneration16
+UniqueDisableChestSlot1
+UniqueUseTwoHandedWeaponOneHand1
 ]],[[
 Erian's Cobble
 Guarded Helm
@@ -269,7 +342,7 @@ UniqueReducedShockEffectOnSelf1
 ]],[[
 Cornathaum
 Heavy Crown
-UniqueItemFoundRarityIncrease2
+UniqueItemFoundRarityIncrease10
 UniqueIntelligence16
 UniqueLightRadius7
 UniqueExperienceIncrease1
@@ -286,10 +359,22 @@ UniqueThornsOnAnyHit1
 ]],[[
 Crown of the Victor
 Iron Crown
-UniqueItemFoundRarityIncrease2
+Variant: Pre 0.2.0
+Variant: Current
+{variant:1}UniqueItemFoundRarityIncrease2[10,20]
+{variant:2}UniqueItemFoundRarityIncrease2
 UniqueLifeGainedFromEnemyDeath2
 UniqueManaGainedFromEnemyDeath3
 UniqueGlobalSkillGemLevel1
+]],[[
+The Deepest Tower
+Spiritbone Crown
+UniqueLocalIncreasedArmourAndEnergyShield18
+UniqueIncreasedLife46
+UniqueChaosResist14
+UniquePresenceRadius2
+UniqueLightRadius19
+UniqueEnemiesInPresenceLowLife1
 ]],[[
 Keeper of the Arc
 Spiritbone Crown

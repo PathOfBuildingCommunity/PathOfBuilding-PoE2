@@ -42,19 +42,6 @@ return {
 	},
 	[3]={
 		[1]={
-			[1]={
-				[1]={
-					k="milliseconds_to_seconds_2dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Bell duration {0}s"
-			}
 		},
 		stats={
 			[1]="skill_effect_duration"
@@ -65,16 +52,24 @@ return {
 			[1]={
 				limit={
 					[1]={
-						[1]="#",
+						[1]=1,
 						[2]="#"
+					},
+					[2]={
+						[1]=0,
+						[2]=0
 					}
 				},
-				text="Bell maximum Hits {0}"
+				text="Bell is destroyed after {0:+d} Hits"
 			},
 			[2]={
 				limit={
 					[1]={
 						[1]=1,
+						[2]="#"
+					},
+					[2]={
+						[1]="#",
 						[2]="#"
 					}
 				},
@@ -82,12 +77,14 @@ return {
 			}
 		},
 		stats={
-			[1]="tempest_bell_hit_limit"
+			[1]="tempest_bell_hit_limit",
+			[2]="quality_display_tempest_bell_is_gem"
 		}
 	},
 	["base_secondary_skill_effect_duration"]=1,
 	["base_skill_effect_duration"]=2,
 	parent="skill_stat_descriptions",
+	["quality_display_tempest_bell_is_gem"]=4,
 	["skill_effect_duration"]=3,
 	["tempest_bell_hit_limit"]=4
 }

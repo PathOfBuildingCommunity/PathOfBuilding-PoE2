@@ -83,7 +83,7 @@ itemBases["Fierce Greathelm"] = {
 	armour = { Armour = 196, },
 	req = { level = 51, str = 94, },
 }
-itemBases["Dueling Greathelm"] = {
+itemBases["Sentinel Greathelm"] = {
 	type = "Helmet",
 	subType = "Armour",
 	quality = 20,
@@ -113,7 +113,7 @@ itemBases["Guardian Greathelm"] = {
 	armour = { Armour = 243, },
 	req = { level = 65, str = 118, },
 }
-itemBases["Advanced Rusted Greathelm"] = {
+itemBases["Corroded Greathelm"] = {
 	type = "Helmet",
 	subType = "Armour",
 	quality = 20,
@@ -123,7 +123,7 @@ itemBases["Advanced Rusted Greathelm"] = {
 	armour = { Armour = 176, },
 	req = { level = 45, str = 83, },
 }
-itemBases["Advanced Soldier Greathelm"] = {
+itemBases["Mercenary Greathelm"] = {
 	type = "Helmet",
 	subType = "Armour",
 	quality = 20,
@@ -133,7 +133,7 @@ itemBases["Advanced Soldier Greathelm"] = {
 	armour = { Armour = 186, },
 	req = { level = 48, str = 88, },
 }
-itemBases["Advanced Wrapped Greathelm"] = {
+itemBases["Homeguard Greathelm"] = {
 	type = "Helmet",
 	subType = "Armour",
 	quality = 20,
@@ -143,7 +143,7 @@ itemBases["Advanced Wrapped Greathelm"] = {
 	armour = { Armour = 196, },
 	req = { level = 51, str = 94, },
 }
-itemBases["Advanced Spired Greathelm"] = {
+itemBases["Elegant Greathelm"] = {
 	type = "Helmet",
 	subType = "Armour",
 	quality = 20,
@@ -153,7 +153,7 @@ itemBases["Advanced Spired Greathelm"] = {
 	armour = { Armour = 210, },
 	req = { level = 55, str = 101, },
 }
-itemBases["Advanced Elite Greathelm"] = {
+itemBases["Noble Greathelm"] = {
 	type = "Helmet",
 	subType = "Armour",
 	quality = 20,
@@ -163,7 +163,7 @@ itemBases["Advanced Elite Greathelm"] = {
 	armour = { Armour = 223, },
 	req = { level = 59, str = 108, },
 }
-itemBases["Expert Soldier Greathelm"] = {
+itemBases["Warmonger Greathelm"] = {
 	type = "Helmet",
 	subType = "Armour",
 	quality = 20,
@@ -173,7 +173,7 @@ itemBases["Expert Soldier Greathelm"] = {
 	armour = { Armour = 243, },
 	req = { level = 65, str = 118, },
 }
-itemBases["Expert Spired Greathelm"] = {
+itemBases["Masked Greathelm"] = {
 	type = "Helmet",
 	subType = "Armour",
 	quality = 20,
@@ -183,7 +183,7 @@ itemBases["Expert Spired Greathelm"] = {
 	armour = { Armour = 267, },
 	req = { level = 70, str = 129, },
 }
-itemBases["Expert Elite Greathelm"] = {
+itemBases["Paragon Greathelm"] = {
 	type = "Helmet",
 	subType = "Armour",
 	quality = 20,
@@ -304,7 +304,7 @@ itemBases["Armoured Cap"] = {
 	armour = { Evasion = 222, },
 	req = { level = 65, dex = 118, },
 }
-itemBases["Advanced Shabby Hood"] = {
+itemBases["Rotted Hood"] = {
 	type = "Helmet",
 	subType = "Evasion",
 	quality = 20,
@@ -314,7 +314,7 @@ itemBases["Advanced Shabby Hood"] = {
 	armour = { Evasion = 158, },
 	req = { level = 45, dex = 83, },
 }
-itemBases["Advanced Felt Cap"] = {
+itemBases["Wool Cap"] = {
 	type = "Helmet",
 	subType = "Evasion",
 	quality = 20,
@@ -324,7 +324,7 @@ itemBases["Advanced Felt Cap"] = {
 	armour = { Evasion = 168, },
 	req = { level = 48, dex = 88, },
 }
-itemBases["Advanced Lace Hood"] = {
+itemBases["Narrow Hood"] = {
 	type = "Helmet",
 	subType = "Evasion",
 	quality = 20,
@@ -334,7 +334,7 @@ itemBases["Advanced Lace Hood"] = {
 	armour = { Evasion = 177, },
 	req = { level = 51, dex = 94, },
 }
-itemBases["Advanced Swathed Cap"] = {
+itemBases["Wrapped Cap"] = {
 	type = "Helmet",
 	subType = "Evasion",
 	quality = 20,
@@ -344,7 +344,7 @@ itemBases["Advanced Swathed Cap"] = {
 	armour = { Evasion = 190, },
 	req = { level = 55, dex = 101, },
 }
-itemBases["Advanced Hunter Hood"] = {
+itemBases["Deerstalker Hood"] = {
 	type = "Helmet",
 	subType = "Evasion",
 	quality = 20,
@@ -354,7 +354,7 @@ itemBases["Advanced Hunter Hood"] = {
 	armour = { Evasion = 203, },
 	req = { level = 59, dex = 108, },
 }
-itemBases["Expert Felt Cap"] = {
+itemBases["Woven Cap"] = {
 	type = "Helmet",
 	subType = "Evasion",
 	quality = 20,
@@ -364,7 +364,7 @@ itemBases["Expert Felt Cap"] = {
 	armour = { Evasion = 222, },
 	req = { level = 65, dex = 118, },
 }
-itemBases["Expert Swathed Cap"] = {
+itemBases["Desert Cap"] = {
 	type = "Helmet",
 	subType = "Evasion",
 	quality = 20,
@@ -374,7 +374,7 @@ itemBases["Expert Swathed Cap"] = {
 	armour = { Evasion = 244, },
 	req = { level = 70, dex = 129, },
 }
-itemBases["Expert Hunter Hood"] = {
+itemBases["Trapper Hood"] = {
 	type = "Helmet",
 	subType = "Evasion",
 	quality = 20,
@@ -495,7 +495,7 @@ itemBases["Magus Tiara"] = {
 	armour = { EnergyShield = 84, },
 	req = { level = 65, int = 118, },
 }
-itemBases["Advanced Twig Circlet"] = {
+itemBases["Druidic Circlet"] = {
 	type = "Helmet",
 	subType = "Energy Shield",
 	quality = 20,
@@ -505,7 +505,7 @@ itemBases["Advanced Twig Circlet"] = {
 	armour = { EnergyShield = 63, },
 	req = { level = 45, int = 83, },
 }
-itemBases["Advanced Wicker Tiara"] = {
+itemBases["Avian Tiara"] = {
 	type = "Helmet",
 	subType = "Energy Shield",
 	quality = 20,
@@ -515,7 +515,7 @@ itemBases["Advanced Wicker Tiara"] = {
 	armour = { EnergyShield = 67, },
 	req = { level = 48, int = 88, },
 }
-itemBases["Advanced Beaded Circlet"] = {
+itemBases["Desert Circlet"] = {
 	type = "Helmet",
 	subType = "Energy Shield",
 	quality = 20,
@@ -525,7 +525,7 @@ itemBases["Advanced Beaded Circlet"] = {
 	armour = { EnergyShield = 70, },
 	req = { level = 51, int = 94, },
 }
-itemBases["Advanced Chain Tiara"] = {
+itemBases["Sandsworn Tiara"] = {
 	type = "Helmet",
 	subType = "Energy Shield",
 	quality = 20,
@@ -535,7 +535,7 @@ itemBases["Advanced Chain Tiara"] = {
 	armour = { EnergyShield = 74, },
 	req = { level = 55, int = 101, },
 }
-itemBases["Advanced Feathered Tiara"] = {
+itemBases["Jungle Tiara"] = {
 	type = "Helmet",
 	subType = "Energy Shield",
 	quality = 20,
@@ -545,7 +545,7 @@ itemBases["Advanced Feathered Tiara"] = {
 	armour = { EnergyShield = 78, },
 	req = { level = 59, int = 108, },
 }
-itemBases["Expert Wicker Tiara"] = {
+itemBases["Skycrown Tiara"] = {
 	type = "Helmet",
 	subType = "Energy Shield",
 	quality = 20,
@@ -555,7 +555,7 @@ itemBases["Expert Wicker Tiara"] = {
 	armour = { EnergyShield = 84, },
 	req = { level = 65, int = 118, },
 }
-itemBases["Expert Chain Tiara"] = {
+itemBases["Sorcerous Tiara"] = {
 	type = "Helmet",
 	subType = "Energy Shield",
 	quality = 20,
@@ -565,7 +565,7 @@ itemBases["Expert Chain Tiara"] = {
 	armour = { EnergyShield = 92, },
 	req = { level = 70, int = 129, },
 }
-itemBases["Expert Feathered Tiara"] = {
+itemBases["Kamasan Tiara"] = {
 	type = "Helmet",
 	subType = "Energy Shield",
 	quality = 20,
@@ -656,7 +656,7 @@ itemBases["Gallant Helm"] = {
 	armour = { Armour = 134, Evasion = 122, },
 	req = { level = 65, str = 65, dex = 65, },
 }
-itemBases["Advanced Brimmed Helm"] = {
+itemBases["Domed Helm"] = {
 	type = "Helmet",
 	subType = "Armour/Evasion",
 	quality = 20,
@@ -666,7 +666,7 @@ itemBases["Advanced Brimmed Helm"] = {
 	armour = { Armour = 97, Evasion = 87, },
 	req = { level = 45, str = 46, dex = 46, },
 }
-itemBases["Advanced Guarded Helm"] = {
+itemBases["Engraved Helm"] = {
 	type = "Helmet",
 	subType = "Armour/Evasion",
 	quality = 20,
@@ -676,7 +676,7 @@ itemBases["Advanced Guarded Helm"] = {
 	armour = { Armour = 102, Evasion = 92, },
 	req = { level = 48, str = 49, dex = 49, },
 }
-itemBases["Advanced Visored Helm"] = {
+itemBases["Soldier Helm"] = {
 	type = "Helmet",
 	subType = "Armour/Evasion",
 	quality = 20,
@@ -686,7 +686,7 @@ itemBases["Advanced Visored Helm"] = {
 	armour = { Armour = 108, Evasion = 98, },
 	req = { level = 51, str = 52, dex = 52, },
 }
-itemBases["Advanced Cowled Helm"] = {
+itemBases["Cabalist Helm"] = {
 	type = "Helmet",
 	subType = "Armour/Evasion",
 	quality = 20,
@@ -696,7 +696,7 @@ itemBases["Advanced Cowled Helm"] = {
 	armour = { Armour = 115, Evasion = 105, },
 	req = { level = 55, str = 55, dex = 55, },
 }
-itemBases["Advanced Shielded Helm"] = {
+itemBases["Gladiatoral Helm"] = {
 	type = "Helmet",
 	subType = "Armour/Evasion",
 	quality = 20,
@@ -706,7 +706,7 @@ itemBases["Advanced Shielded Helm"] = {
 	armour = { Armour = 123, Evasion = 111, },
 	req = { level = 59, str = 59, dex = 59, },
 }
-itemBases["Expert Guarded Helm"] = {
+itemBases["Warded Helm"] = {
 	type = "Helmet",
 	subType = "Armour/Evasion",
 	quality = 20,
@@ -716,7 +716,7 @@ itemBases["Expert Guarded Helm"] = {
 	armour = { Armour = 134, Evasion = 122, },
 	req = { level = 65, str = 65, dex = 65, },
 }
-itemBases["Expert Cowled Helm"] = {
+itemBases["Cryptic Helm"] = {
 	type = "Helmet",
 	subType = "Armour/Evasion",
 	quality = 20,
@@ -726,7 +726,7 @@ itemBases["Expert Cowled Helm"] = {
 	armour = { Armour = 147, Evasion = 134, },
 	req = { level = 70, str = 70, dex = 70, },
 }
-itemBases["Expert Shielded Helm"] = {
+itemBases["Champion Helm"] = {
 	type = "Helmet",
 	subType = "Armour/Evasion",
 	quality = 20,
@@ -807,7 +807,7 @@ itemBases["Lavish Crown"] = {
 	armour = { Armour = 110, EnergyShield = 39, },
 	req = { level = 52, str = 53, int = 53, },
 }
-itemBases["Templar Crown"] = {
+itemBases["Archon Crown"] = {
 	type = "Helmet",
 	subType = "Armour/Energy Shield",
 	quality = 20,
@@ -817,7 +817,7 @@ itemBases["Templar Crown"] = {
 	armour = { Armour = 134, EnergyShield = 46, },
 	req = { level = 65, str = 65, int = 65, },
 }
-itemBases["Advanced Iron Crown"] = {
+itemBases["Mailed Crown"] = {
 	type = "Helmet",
 	subType = "Armour/Energy Shield",
 	quality = 20,
@@ -827,7 +827,7 @@ itemBases["Advanced Iron Crown"] = {
 	armour = { Armour = 97, EnergyShield = 35, },
 	req = { level = 45, str = 46, int = 46, },
 }
-itemBases["Advanced Horned Crown"] = {
+itemBases["Forest Crown"] = {
 	type = "Helmet",
 	subType = "Armour/Energy Shield",
 	quality = 20,
@@ -837,7 +837,7 @@ itemBases["Advanced Horned Crown"] = {
 	armour = { Armour = 102, EnergyShield = 37, },
 	req = { level = 48, str = 49, int = 49, },
 }
-itemBases["Advanced Cultist Crown"] = {
+itemBases["Zealot Crown"] = {
 	type = "Helmet",
 	subType = "Armour/Energy Shield",
 	quality = 20,
@@ -847,7 +847,7 @@ itemBases["Advanced Cultist Crown"] = {
 	armour = { Armour = 108, EnergyShield = 38, },
 	req = { level = 51, str = 52, int = 52, },
 }
-itemBases["Advanced Martyr Crown"] = {
+itemBases["Hallowed Crown"] = {
 	type = "Helmet",
 	subType = "Armour/Energy Shield",
 	quality = 20,
@@ -857,7 +857,7 @@ itemBases["Advanced Martyr Crown"] = {
 	armour = { Armour = 115, EnergyShield = 41, },
 	req = { level = 55, str = 55, int = 55, },
 }
-itemBases["Advanced Heavy Crown"] = {
+itemBases["Inquisitor Crown"] = {
 	type = "Helmet",
 	subType = "Armour/Energy Shield",
 	quality = 20,
@@ -867,7 +867,7 @@ itemBases["Advanced Heavy Crown"] = {
 	armour = { Armour = 123, EnergyShield = 43, },
 	req = { level = 59, str = 59, int = 59, },
 }
-itemBases["Expert Horned Crown"] = {
+itemBases["Druidic Crown"] = {
 	type = "Helmet",
 	subType = "Armour/Energy Shield",
 	quality = 20,
@@ -877,7 +877,7 @@ itemBases["Expert Horned Crown"] = {
 	armour = { Armour = 134, EnergyShield = 46, },
 	req = { level = 65, str = 65, int = 65, },
 }
-itemBases["Expert Martyr Crown"] = {
+itemBases["Saintly Crown"] = {
 	type = "Helmet",
 	subType = "Armour/Energy Shield",
 	quality = 20,
@@ -887,7 +887,7 @@ itemBases["Expert Martyr Crown"] = {
 	armour = { Armour = 147, EnergyShield = 51, },
 	req = { level = 70, str = 70, int = 70, },
 }
-itemBases["Expert Heavy Crown"] = {
+itemBases["Divine Crown"] = {
 	type = "Helmet",
 	subType = "Armour/Energy Shield",
 	quality = 20,
@@ -978,7 +978,7 @@ itemBases["Death Mask"] = {
 	armour = { Evasion = 122, EnergyShield = 46, },
 	req = { level = 65, dex = 65, int = 65, },
 }
-itemBases["Advanced Hewn Mask"] = {
+itemBases["Oak Mask"] = {
 	type = "Helmet",
 	subType = "Evasion/Energy Shield",
 	quality = 20,
@@ -988,7 +988,7 @@ itemBases["Advanced Hewn Mask"] = {
 	armour = { Evasion = 87, EnergyShield = 35, },
 	req = { level = 45, dex = 46, int = 46, },
 }
-itemBases["Advanced Face Mask"] = {
+itemBases["Bandit Mask"] = {
 	type = "Helmet",
 	subType = "Evasion/Energy Shield",
 	quality = 20,
@@ -998,7 +998,7 @@ itemBases["Advanced Face Mask"] = {
 	armour = { Evasion = 92, EnergyShield = 37, },
 	req = { level = 48, dex = 49, int = 49, },
 }
-itemBases["Advanced Hooded Mask"] = {
+itemBases["Skulking Mask"] = {
 	type = "Helmet",
 	subType = "Evasion/Energy Shield",
 	quality = 20,
@@ -1008,7 +1008,7 @@ itemBases["Advanced Hooded Mask"] = {
 	armour = { Evasion = 98, EnergyShield = 38, },
 	req = { level = 51, dex = 52, int = 52, },
 }
-itemBases["Advanced Veiled Mask"] = {
+itemBases["Pariah Mask"] = {
 	type = "Helmet",
 	subType = "Evasion/Energy Shield",
 	quality = 20,
@@ -1018,7 +1018,7 @@ itemBases["Advanced Veiled Mask"] = {
 	armour = { Evasion = 105, EnergyShield = 41, },
 	req = { level = 55, dex = 55, int = 55, },
 }
-itemBases["Advanced Tribal Mask"] = {
+itemBases["Avian Mask"] = {
 	type = "Helmet",
 	subType = "Evasion/Energy Shield",
 	quality = 20,
@@ -1028,7 +1028,7 @@ itemBases["Advanced Tribal Mask"] = {
 	armour = { Evasion = 111, EnergyShield = 43, },
 	req = { level = 59, dex = 59, int = 59, },
 }
-itemBases["Expert Face Mask"] = {
+itemBases["Brigand Mask"] = {
 	type = "Helmet",
 	subType = "Evasion/Energy Shield",
 	quality = 20,
@@ -1038,7 +1038,7 @@ itemBases["Expert Face Mask"] = {
 	armour = { Evasion = 122, EnergyShield = 46, },
 	req = { level = 65, dex = 65, int = 65, },
 }
-itemBases["Expert Veiled Mask"] = {
+itemBases["Faridun Mask"] = {
 	type = "Helmet",
 	subType = "Evasion/Energy Shield",
 	quality = 20,
@@ -1048,7 +1048,7 @@ itemBases["Expert Veiled Mask"] = {
 	armour = { Evasion = 134, EnergyShield = 51, },
 	req = { level = 70, dex = 70, int = 70, },
 }
-itemBases["Expert Tribal Mask"] = {
+itemBases["Soaring Mask"] = {
 	type = "Helmet",
 	subType = "Evasion/Energy Shield",
 	quality = 20,

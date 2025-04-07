@@ -4,19 +4,6 @@
 return {
 	[1]={
 		[1]={
-			[1]={
-				[1]={
-					k="divide_by_ten_1dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Impact radius {0}m"
-			}
 		},
 		stats={
 			[1]="active_skill_area_of_effect_radius"
@@ -55,7 +42,24 @@ return {
 			[1]="active_skill_base_area_of_effect_radius"
 		}
 	},
+	[3]={
+		[1]={
+			[1]={
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Plant Limit@{0}"
+			}
+		},
+		stats={
+			[1]="virtual_vine_arrow_pod_limit"
+		}
+	},
 	["active_skill_area_of_effect_radius"]=1,
 	["active_skill_base_area_of_effect_radius"]=2,
-	parent="skill_stat_descriptions"
+	parent="skill_stat_descriptions",
+	["virtual_vine_arrow_pod_limit"]=3
 }

@@ -8,26 +8,18 @@ return {
 		}
 	},
 	[2]={
+		stats={
+			[1]="base_consume_enemy_freeze_on_hit"
+		}
+	},
+	[3]={
 		[1]={
-			[1]={
-				[1]={
-					k="divide_by_ten_1dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Explosion radius {0}m"
-			}
 		},
 		stats={
 			[1]="active_skill_area_of_effect_radius"
 		}
 	},
-	[3]={
+	[4]={
 		[1]={
 			[1]={
 				[1]={
@@ -60,8 +52,9 @@ return {
 			[1]="active_skill_base_area_of_effect_radius"
 		}
 	},
-	["active_skill_area_of_effect_radius"]=2,
-	["active_skill_base_area_of_effect_radius"]=3,
+	["active_skill_area_of_effect_radius"]=3,
+	["active_skill_base_area_of_effect_radius"]=4,
+	["base_consume_enemy_freeze_on_hit"]=2,
 	["never_freeze"]=1,
 	parent="skill_stat_descriptions"
 }

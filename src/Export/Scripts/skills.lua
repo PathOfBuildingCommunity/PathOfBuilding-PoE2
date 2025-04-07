@@ -22,7 +22,6 @@ local skillTypes = {
 	"MeleeSingleTarget",
 	"Multicastable",
 	"TotemCastsAlone",
-	"Multistrikeable",
 	"CausesBurning",
 	"SummonsTotem",
 	"TotemCastsWhenNotDetached",
@@ -31,6 +30,7 @@ local skillTypes = {
 	"Cold",
 	"Lightning",
 	"Triggerable",
+	"Triggers",
 	"Trapped",
 	"Movement",
 	"DamageOverTime",
@@ -138,7 +138,7 @@ local skillTypes = {
 	"SkillConsumesShock",
 	"Wall",
 	"Persistent",
-	"Nonpathing",
+	"UsableWhileMoving",
 	"CanBecomeArrowRain",
 	"MultipleReservation",
 	"SupportedByElementalDischarge",
@@ -181,7 +181,45 @@ local skillTypes = {
 	"IsBlasphemy",
 	"PersistentShowsCastTime",
 	"GeneratesEnergy",
+	"GeneratesRemnants",
 	"CommandableMinion",
+	"Bow",
+	"AffectsPresence",
+	"GainsStages",
+	"HasSeals",
+	"SupportedByUnleash",
+	"SupportedBySalvo",
+	"Spear",
+	"GroundTargetedProjectile",
+	"SupportedByFusillade",
+	"HasUsageCondition",
+	"SupportedByMobileAssault",
+	"RequiresBuckler",
+	"UsableWhileMounted",
+	"Companion",
+	"ConsumesInstillment",
+	"CanCancelActions",
+	"SupportedByUnmoving",
+	"SupportedByCleanse",
+	"Hazard",
+	"SupportedByRally",
+	"SupportedByFlamepierce",
+	"SupportedByStormchain",
+	"SupportedByFreezefork",
+	"Palm",
+	"CannotSpiritStrike",
+	"SkillConsumesBleeding",
+	"SkillConsumesPoison",
+	"TargetsDestructibleRareCorpses",
+	"SupportedByAncestralAid",
+	"MinionsAreUndamagable",
+	"GeneratesInfusion",
+	"SkillConsumesParried",
+	"DetonatesAfterTime",
+	"NoAttackOrCastTime",
+	"CreatesCompanion",
+	"CannotTerrainChain",
+	"SupportedByTumult",
 }
 
 -- This is here to fix name collisions like in the case of Barrage
@@ -491,9 +529,11 @@ directiveTable.skill = function(state, args, out)
 			out:write('\tignoreMinionTypes = true,\n')
 		end
 		local weaponTypes = { }
-		for _, class in ipairs(granted.WeaponRestrictions) do
-			if weaponClassMap[class.Id] then
-				weaponTypes[weaponClassMap[class.Id]] = true
+		if granted.WeaponRestrictions[1] then
+			for _, class in ipairs(granted.WeaponRestrictions[1].WeaponClass) do
+				if weaponClassMap[class.ItemClass.Id] then
+					weaponTypes[weaponClassMap[class.ItemClass.Id]] = true
+				end
 			end
 		end
 		if next(weaponTypes) then
@@ -525,9 +565,11 @@ directiveTable.skill = function(state, args, out)
 			out:write('},\n')
 		end
 		local weaponTypes = { }
-		for _, class in ipairs(granted.ActiveSkill.WeaponRestrictions) do
-			if weaponClassMap[class.Id] then
-				weaponTypes[weaponClassMap[class.Id]] = true
+		if granted.ActiveSkill.WeaponRestrictions then
+			for _, class in ipairs(granted.ActiveSkill.WeaponRestrictions.WeaponClass) do
+				if weaponClassMap[class.ItemClass.Id] then
+					weaponTypes[weaponClassMap[class.ItemClass.Id]] = true
+				end
 			end
 		end
 		if next(weaponTypes) then

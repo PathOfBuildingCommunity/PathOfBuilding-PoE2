@@ -13,6 +13,14 @@ Variant: Current
 +(20-30) to Intelligence
 Leech from Critical Hits is instant
 ]],[[
+Dreadfist
+Bolstered Mitts
+(50-100)% increased Armour
+(20-30)% increased Critical Damage Bonus
+Critical Hits inflict Impale
+Critical Hits cannot Extract Impale
+(20-31) to (31-49) Physical Thorns damage
+]],[[
 Hateforge
 Moulded Mitts
 (50-80)% increased Armour
@@ -28,6 +36,14 @@ Variant: Current
 +(40-60) to maximum Life
 (10-15)% reduced maximum Mana
 Share Charges with Allies in your Presence
+]],[[
+Empire's Grasp
+Titan Mitts
+(150-200)% increased Armour
++(20-30) to Strength
+Gain (30-50) Life per Enemy Killed
+(10-20)% increased Global Physical Damage
+Knockback direction is reversed
 ]],[[
 Treefingers
 Riveted Mitts
@@ -71,12 +87,15 @@ Your Critical Damage Bonus is 300%
 Northpaw
 Suede Bracers
 Variant: Pre 0.1.1
+Variant: Pre 0.2.0
 Variant: Current
-{variant:2}+(15-25) to Evasion Rating
+{variant:2,3}+(15-25) to Evasion Rating
 {variant:1}Adds (2-3) to (5-6) Physical Damage to Attacks
-{variant:2}Adds (3-5) to (8-10) Physical Damage to Attacks
-(20-30)% increased Critical Damage Bonus
-Base Critical Hit Chance for Attacks with Weapons is 8%
+{variant:2,3}Adds (3-5) to (8-10) Physical Damage to Attacks
+{variant:2}(20-30)% increased Critical Damage Bonus
+{variant:3}(10-15)% increased Critical Damage Bonus
+{variant:2}Base Critical Hit Chance for Attacks with Weapons is 8%
+{variant:3}Base Critical Hit Chance for Attacks with Weapons is 7%
 ]],[[
 Snakebite
 Spined Bracers
@@ -120,12 +139,37 @@ Variant: Current
 (15-25)% reduced Cast Speed
 +(10-15) to Intelligence
 ]],[[
+Essentia Sanguis
+Furtive Wraps
+(50-70)% increased Evasion and Energy Shield
+Adds 1 to (30-50) Lightning damage to Attacks
++(15-25) to Intelligence
++(25-35)% to Lightning Resistance
+Life Leech is Converted to Energy Shield Leech
+]],[[
 Kitoko's Current
 Jewelled Gloves
 (30-50)% increased Energy Shield
 +(10-20) to Dexterity
 (10-15)% reduced Attack and Cast Speed
 Lightning damage from Hits Contributes to Electrocution Buildup
+]],[[
+Leopold's Applause
+Embroidered Gloves
+(60-100)% increased Energy Shield
++(60-100) to maximum Mana
+(10-15)% increased Rarity of Items found
+Damage Penetrates 10% Elemental Resistances
+Your Hits can Penetrate Elemental Resistances down to a minimum of -50%
+]],[[
+Nightscale
+Pauascale Gloves
+(60-100)% increased Energy Shield
+(30-50)% increased Critical Hit Chance
++(10-20) to Intelligence
++(20-30)% to Cold Resistance
+150% increased Mana Regeneration Rate if you've dealt a Critical Hit Recently
+Cannot Regenerate Mana if you haven't dealt a Critical Hit Recently
 ]],[[
 Painter's Servant
 Torn Gloves
@@ -154,7 +198,7 @@ Aurseize
 Layered Gauntlets
 (40-60)% increased Armour and Evasion
 (40-50)% increased Rarity of Items found
-Lose 2% of Life on Kill
+Lose 2% of maximum Life on Kill
 ]],[[
 Deathblow
 Doubled Gauntlets
@@ -175,6 +219,15 @@ Adds (2-3) to (5-6) Physical Damage to Attacks
 +(30-50) to maximum Life
 (4-8)% increased Attack Speed
 Strength can satisfy other Attribute Requirements of Melee Weapons and Melee Skills
+]],[[
+Valako's Vice
+Plate Gauntlets
+(50-100)% increased Armour and Evasion
+(5-10)% increased Attack Speed
++(20-30) to Strength
++(20-30) to Dexterity
++(30-50)% to Lightning Resistance
+100% of Fire damage Converted to Lightning damage
 ]],
 -- Gloves: Armour/Energy Shield
 [[
@@ -196,7 +249,17 @@ Variant: Current
 {variant:2}+(10-15)% to Cold Resistance
 Gain (7-10) Life per Enemy Killed
 Gain (4-6) Mana per Enemy Killed
-Enemies killed by anyone in your Presence count as being killed by you instead
+Enemies in your Presence killed by anyone count as being killed by you instead
+]],[[
+The Prisoner's Manacles
+Diviner Cuffs
+(200-300)% increased Armour and Energy Shield
++100 to maximum Life
+100% increased Attribute Requirements
++(20-40)% to Lightning Resistance
+(15-30) Life Regeneration per second
+Debuffs you inflict have (20-30)% increased Slow Magnitude
+Cannot Immobilise enemies
 ]],[[
 Shackles of the Wretched
 Aged Cuffs
@@ -219,11 +282,15 @@ Inflict Fire Exposure on Shocking an Enemy
 Inflict Lightning Exposure on Critical Hit
 ]],[[
 Hand of Wisdom and Action
-Furtive Wraps
+Variant: Pre 0.2.0
+Variant: Current
+{variant:1}Furtive Wraps
+{variant:2}Spiral Wraps
 +(15-25) to Dexterity
 +(15-25) to Intelligence
-3% increased Attack Speed per 25 Dexterity
-Adds 1 to 10 Lightning Damage to Attacks per 10 Intelligence
+{variant:1}3% increased Attack Speed per 20 Dexterity
+{variant:2}1% increased Attack Speed per 20 Dexterity
+Adds 1 to 10 Lightning Damage to Attacks per 20 Intelligence
 ]],[[
 Killjoy
 Linen Wraps

@@ -150,12 +150,12 @@ itemBases["Abyssal Cuirass"] = {
 	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, armour = true, str_armour = true, default = true, },
-	implicit = "Regenerate (1.5-2.5)% of Life per second",
+	implicit = "Regenerate (1.5-2.5)% of maximum Life per second",
 	implicitModTypes = { { "resource", "life" }, },
 	armour = { Armour = 445, MovementPenalty = 0.05, },
 	req = { level = 73, str = 157, },
 }
-itemBases["Advanced Fur Plate"] = {
+itemBases["Barbarian Plate"] = {
 	type = "Body Armour",
 	subType = "Armour",
 	quality = 20,
@@ -165,7 +165,7 @@ itemBases["Advanced Fur Plate"] = {
 	armour = { Armour = 269, MovementPenalty = 0.05, },
 	req = { level = 45, str = 94, },
 }
-itemBases["Advanced Iron Cuirass"] = {
+itemBases["Rugged Cuirass"] = {
 	type = "Body Armour",
 	subType = "Armour",
 	quality = 20,
@@ -175,7 +175,7 @@ itemBases["Advanced Iron Cuirass"] = {
 	armour = { Armour = 284, MovementPenalty = 0.05, },
 	req = { level = 48, str = 99, },
 }
-itemBases["Advanced Maraketh Cuirass"] = {
+itemBases["Sandsworn Cuirass"] = {
 	type = "Body Armour",
 	subType = "Armour",
 	quality = 20,
@@ -185,7 +185,7 @@ itemBases["Advanced Maraketh Cuirass"] = {
 	armour = { Armour = 299, MovementPenalty = 0.05, },
 	req = { level = 51, str = 105, },
 }
-itemBases["Advanced Steel Plate"] = {
+itemBases["Elegant Plate"] = {
 	type = "Body Armour",
 	subType = "Armour",
 	quality = 20,
@@ -195,7 +195,7 @@ itemBases["Advanced Steel Plate"] = {
 	armour = { Armour = 320, MovementPenalty = 0.05, },
 	req = { level = 55, str = 113, },
 }
-itemBases["Advanced Full Plate"] = {
+itemBases["Heavy Plate"] = {
 	type = "Body Armour",
 	subType = "Armour",
 	quality = 20,
@@ -205,7 +205,7 @@ itemBases["Advanced Full Plate"] = {
 	armour = { Armour = 340, MovementPenalty = 0.05, },
 	req = { level = 59, str = 122, },
 }
-itemBases["Advanced Vaal Cuirass"] = {
+itemBases["Stone Cuirass"] = {
 	type = "Body Armour",
 	subType = "Armour",
 	quality = 20,
@@ -215,7 +215,7 @@ itemBases["Advanced Vaal Cuirass"] = {
 	armour = { Armour = 355, MovementPenalty = 0.05, },
 	req = { level = 62, str = 128, },
 }
-itemBases["Expert Iron Cuirass"] = {
+itemBases["Soldier Cuirass"] = {
 	type = "Body Armour",
 	subType = "Armour",
 	quality = 20,
@@ -225,18 +225,18 @@ itemBases["Expert Iron Cuirass"] = {
 	armour = { Armour = 534, MovementPenalty = 0.05, },
 	req = { level = 65, str = 157, },
 }
-itemBases["Expert Steel Plate"] = {
+itemBases["Ornate Plate"] = {
 	type = "Body Armour",
 	subType = "Armour",
 	quality = 20,
 	socketLimit = 3,
 	tags = { body_armour = true, armour = true, str_armour = true, default = true, },
-	implicit = "Regenerate (1.5-2.5)% of Life per second",
+	implicit = "Regenerate (1.5-2.5)% of maximum Life per second",
 	implicitModTypes = { { "resource", "life" }, },
 	armour = { Armour = 445, MovementPenalty = 0.05, },
 	req = { level = 70, str = 157, },
 }
-itemBases["Expert Vaal Cuirass"] = {
+itemBases["Utzaal Cuirass"] = {
 	type = "Body Armour",
 	subType = "Armour",
 	quality = 20,
@@ -400,7 +400,7 @@ itemBases["Armoured Vest"] = {
 	armour = { Evasion = 406, MovementPenalty = 0.03, },
 	req = { level = 73, dex = 157, },
 }
-itemBases["Advanced Quilted Vest"] = {
+itemBases["Patchwork Vest"] = {
 	type = "Body Armour",
 	subType = "Evasion",
 	quality = 20,
@@ -410,7 +410,7 @@ itemBases["Advanced Quilted Vest"] = {
 	armour = { Evasion = 242, MovementPenalty = 0.03, },
 	req = { level = 45, dex = 94, },
 }
-itemBases["Advanced Pathfinder Coat"] = {
+itemBases["Hunting Coat"] = {
 	type = "Body Armour",
 	subType = "Evasion",
 	quality = 20,
@@ -420,7 +420,7 @@ itemBases["Advanced Pathfinder Coat"] = {
 	armour = { Evasion = 256, MovementPenalty = 0.03, },
 	req = { level = 48, dex = 99, },
 }
-itemBases["Advanced Rhoahide Coat"] = {
+itemBases["Riding Coat"] = {
 	type = "Body Armour",
 	subType = "Evasion",
 	quality = 20,
@@ -430,7 +430,7 @@ itemBases["Advanced Rhoahide Coat"] = {
 	armour = { Evasion = 271, MovementPenalty = 0.03, },
 	req = { level = 51, dex = 105, },
 }
-itemBases["Advanced Studded Vest"] = {
+itemBases["Layered Vest"] = {
 	type = "Body Armour",
 	subType = "Evasion",
 	quality = 20,
@@ -440,7 +440,7 @@ itemBases["Advanced Studded Vest"] = {
 	armour = { Evasion = 290, MovementPenalty = 0.03, },
 	req = { level = 55, dex = 113, },
 }
-itemBases["Advanced Scout's Vest"] = {
+itemBases["Runner Vest"] = {
 	type = "Body Armour",
 	subType = "Evasion",
 	quality = 20,
@@ -450,7 +450,7 @@ itemBases["Advanced Scout's Vest"] = {
 	armour = { Evasion = 309, MovementPenalty = 0.03, },
 	req = { level = 59, dex = 122, },
 }
-itemBases["Advanced Serpentscale Coat"] = {
+itemBases["Lizardscale Coat"] = {
 	type = "Body Armour",
 	subType = "Evasion",
 	quality = 20,
@@ -460,7 +460,7 @@ itemBases["Advanced Serpentscale Coat"] = {
 	armour = { Evasion = 324, MovementPenalty = 0.03, },
 	req = { level = 62, dex = 128, },
 }
-itemBases["Expert Pathfinder Coat"] = {
+itemBases["Swiftstalker Coat"] = {
 	type = "Body Armour",
 	subType = "Evasion",
 	quality = 20,
@@ -471,7 +471,7 @@ itemBases["Expert Pathfinder Coat"] = {
 	armour = { Evasion = 406, MovementPenalty = 0.03, },
 	req = { level = 65, dex = 157, },
 }
-itemBases["Expert Studded Vest"] = {
+itemBases["Slipstrike Vest"] = {
 	type = "Body Armour",
 	subType = "Evasion",
 	quality = 20,
@@ -481,7 +481,7 @@ itemBases["Expert Studded Vest"] = {
 	armour = { Evasion = 487, MovementPenalty = 0.03, },
 	req = { level = 70, dex = 157, },
 }
-itemBases["Expert Serpentscale Coat"] = {
+itemBases["Wyrmscale Coat"] = {
 	type = "Body Armour",
 	subType = "Evasion",
 	quality = 20,
@@ -645,7 +645,7 @@ itemBases["Arcane Robe"] = {
 	armour = { EnergyShield = 153, MovementPenalty = 0.03, },
 	req = { level = 73, int = 157, },
 }
-itemBases["Advanced Feathered Robe"] = {
+itemBases["Avian Robe"] = {
 	type = "Body Armour",
 	subType = "Energy Shield",
 	quality = 20,
@@ -655,7 +655,7 @@ itemBases["Advanced Feathered Robe"] = {
 	armour = { EnergyShield = 97, MovementPenalty = 0.03, },
 	req = { level = 45, int = 94, },
 }
-itemBases["Advanced Hexer's Robe"] = {
+itemBases["Cursespeaker's Robe"] = {
 	type = "Body Armour",
 	subType = "Energy Shield",
 	quality = 20,
@@ -665,7 +665,7 @@ itemBases["Advanced Hexer's Robe"] = {
 	armour = { EnergyShield = 101, MovementPenalty = 0.03, },
 	req = { level = 48, int = 99, },
 }
-itemBases["Advanced Silk Robe"] = {
+itemBases["Luxurious Robe"] = {
 	type = "Body Armour",
 	subType = "Energy Shield",
 	quality = 20,
@@ -675,7 +675,7 @@ itemBases["Advanced Silk Robe"] = {
 	armour = { EnergyShield = 106, MovementPenalty = 0.03, },
 	req = { level = 51, int = 105, },
 }
-itemBases["Advanced Keth Raiment"] = {
+itemBases["River Raiment"] = {
 	type = "Body Armour",
 	subType = "Energy Shield",
 	quality = 20,
@@ -685,7 +685,7 @@ itemBases["Advanced Keth Raiment"] = {
 	armour = { EnergyShield = 112, MovementPenalty = 0.03, },
 	req = { level = 55, int = 113, },
 }
-itemBases["Advanced Votive Raiment"] = {
+itemBases["Adherent's Raiment"] = {
 	type = "Body Armour",
 	subType = "Energy Shield",
 	quality = 20,
@@ -695,7 +695,7 @@ itemBases["Advanced Votive Raiment"] = {
 	armour = { EnergyShield = 119, MovementPenalty = 0.03, },
 	req = { level = 59, int = 122, },
 }
-itemBases["Advanced Altar Robe"] = {
+itemBases["Ceremonial Robe"] = {
 	type = "Body Armour",
 	subType = "Energy Shield",
 	quality = 20,
@@ -705,7 +705,7 @@ itemBases["Advanced Altar Robe"] = {
 	armour = { EnergyShield = 123, MovementPenalty = 0.03, },
 	req = { level = 62, int = 128, },
 }
-itemBases["Expert Hexer's Robe"] = {
+itemBases["Vile Robe"] = {
 	type = "Body Armour",
 	subType = "Energy Shield",
 	quality = 20,
@@ -715,7 +715,7 @@ itemBases["Expert Hexer's Robe"] = {
 	armour = { EnergyShield = 184, MovementPenalty = 0.03, },
 	req = { level = 65, int = 157, },
 }
-itemBases["Expert Keth Raiment"] = {
+itemBases["Flowing Raiment"] = {
 	type = "Body Armour",
 	subType = "Energy Shield",
 	quality = 20,
@@ -726,7 +726,7 @@ itemBases["Expert Keth Raiment"] = {
 	armour = { EnergyShield = 153, MovementPenalty = 0.03, },
 	req = { level = 70, int = 157, },
 }
-itemBases["Expert Altar Robe"] = {
+itemBases["Sacramental Robe"] = {
 	type = "Body Armour",
 	subType = "Energy Shield",
 	quality = 20,
@@ -892,7 +892,7 @@ itemBases["Slayer Armour"] = {
 	armour = { Armour = 294, Evasion = 268, MovementPenalty = 0.04, },
 	req = { level = 73, str = 86, dex = 86, },
 }
-itemBases["Advanced Chain Mail"] = {
+itemBases["Ring Mail"] = {
 	type = "Body Armour",
 	subType = "Armour/Evasion",
 	quality = 20,
@@ -902,7 +902,7 @@ itemBases["Advanced Chain Mail"] = {
 	armour = { Armour = 148, Evasion = 133, MovementPenalty = 0.04, },
 	req = { level = 45, str = 51, dex = 51, },
 }
-itemBases["Advanced Rogue Armour"] = {
+itemBases["Scoundrel Armour"] = {
 	type = "Body Armour",
 	subType = "Armour/Evasion",
 	quality = 20,
@@ -912,7 +912,7 @@ itemBases["Advanced Rogue Armour"] = {
 	armour = { Armour = 156, Evasion = 141, MovementPenalty = 0.04, },
 	req = { level = 48, str = 55, dex = 55, },
 }
-itemBases["Advanced Vagabond Armour"] = {
+itemBases["Wanderer Armour"] = {
 	type = "Body Armour",
 	subType = "Armour/Evasion",
 	quality = 20,
@@ -922,7 +922,7 @@ itemBases["Advanced Vagabond Armour"] = {
 	armour = { Armour = 165, Evasion = 149, MovementPenalty = 0.04, },
 	req = { level = 51, str = 59, dex = 59, },
 }
-itemBases["Advanced Cloaked Mail"] = {
+itemBases["Mantled Mail"] = {
 	type = "Body Armour",
 	subType = "Armour/Evasion",
 	quality = 20,
@@ -932,7 +932,7 @@ itemBases["Advanced Cloaked Mail"] = {
 	armour = { Armour = 176, Evasion = 159, MovementPenalty = 0.04, },
 	req = { level = 55, str = 62, dex = 62, },
 }
-itemBases["Advanced Explorer Armour"] = {
+itemBases["Trailblazer Armour"] = {
 	type = "Body Armour",
 	subType = "Armour/Evasion",
 	quality = 20,
@@ -942,7 +942,7 @@ itemBases["Advanced Explorer Armour"] = {
 	armour = { Armour = 187, Evasion = 170, MovementPenalty = 0.04, },
 	req = { level = 59, str = 67, dex = 67, },
 }
-itemBases["Advanced Scale Mail"] = {
+itemBases["Golden Mail"] = {
 	type = "Body Armour",
 	subType = "Armour/Evasion",
 	quality = 20,
@@ -952,7 +952,7 @@ itemBases["Advanced Scale Mail"] = {
 	armour = { Armour = 195, Evasion = 178, MovementPenalty = 0.04, },
 	req = { level = 62, str = 70, dex = 70, },
 }
-itemBases["Expert Rogue Armour"] = {
+itemBases["Dastard Armour"] = {
 	type = "Body Armour",
 	subType = "Armour/Evasion",
 	quality = 20,
@@ -963,7 +963,7 @@ itemBases["Expert Rogue Armour"] = {
 	armour = { Armour = 245, Evasion = 223, MovementPenalty = 0.04, },
 	req = { level = 65, str = 86, dex = 86, },
 }
-itemBases["Expert Cloaked Mail"] = {
+itemBases["Shrouded Mail"] = {
 	type = "Body Armour",
 	subType = "Armour/Evasion",
 	quality = 20,
@@ -974,7 +974,7 @@ itemBases["Expert Cloaked Mail"] = {
 	armour = { Armour = 245, Evasion = 223, MovementPenalty = 0.04, },
 	req = { level = 70, str = 86, dex = 86, },
 }
-itemBases["Expert Cloaked Mail"] = {
+itemBases["Shrouded Mail"] = {
 	type = "Body Armour",
 	subType = "Armour/Evasion",
 	quality = 20,
@@ -985,7 +985,7 @@ itemBases["Expert Cloaked Mail"] = {
 	armour = { Armour = 245, Evasion = 223, MovementPenalty = 0.04, },
 	req = { level = 70, str = 86, dex = 86, },
 }
-itemBases["Expert Cloaked Mail"] = {
+itemBases["Shrouded Mail"] = {
 	type = "Body Armour",
 	subType = "Armour/Evasion",
 	quality = 20,
@@ -996,7 +996,7 @@ itemBases["Expert Cloaked Mail"] = {
 	armour = { Armour = 245, Evasion = 223, MovementPenalty = 0.04, },
 	req = { level = 70, str = 86, dex = 86, },
 }
-itemBases["Expert Scale Mail"] = {
+itemBases["Death Mail"] = {
 	type = "Body Armour",
 	subType = "Armour/Evasion",
 	quality = 20,
@@ -1139,7 +1139,7 @@ itemBases["Zenith Vestments"] = {
 	armour = { Armour = 294, EnergyShield = 101, MovementPenalty = 0.04, },
 	req = { level = 73, str = 86, int = 86, },
 }
-itemBases["Advanced Pilgrim Vestments"] = {
+itemBases["Templar Vestments"] = {
 	type = "Body Armour",
 	subType = "Armour/Energy Shield",
 	quality = 20,
@@ -1149,7 +1149,7 @@ itemBases["Advanced Pilgrim Vestments"] = {
 	armour = { Armour = 148, EnergyShield = 53, MovementPenalty = 0.04, },
 	req = { level = 45, str = 51, int = 51, },
 }
-itemBases["Advanced Pelt Mantle"] = {
+itemBases["Bearskin Mantle"] = {
 	type = "Body Armour",
 	subType = "Armour/Energy Shield",
 	quality = 20,
@@ -1159,7 +1159,7 @@ itemBases["Advanced Pelt Mantle"] = {
 	armour = { Armour = 156, EnergyShield = 56, MovementPenalty = 0.04, },
 	req = { level = 48, str = 55, int = 55, },
 }
-itemBases["Advanced Mail Vestments"] = {
+itemBases["Chain Vestments"] = {
 	type = "Body Armour",
 	subType = "Armour/Energy Shield",
 	quality = 20,
@@ -1169,7 +1169,7 @@ itemBases["Advanced Mail Vestments"] = {
 	armour = { Armour = 165, EnergyShield = 58, MovementPenalty = 0.04, },
 	req = { level = 51, str = 59, int = 59, },
 }
-itemBases["Advanced Shaman Mantle"] = {
+itemBases["Occultist Mantle"] = {
 	type = "Body Armour",
 	subType = "Armour/Energy Shield",
 	quality = 20,
@@ -1179,7 +1179,7 @@ itemBases["Advanced Shaman Mantle"] = {
 	armour = { Armour = 176, EnergyShield = 62, MovementPenalty = 0.04, },
 	req = { level = 55, str = 62, int = 62, },
 }
-itemBases["Advanced Ironclad Vestments"] = {
+itemBases["Plated Vestments"] = {
 	type = "Body Armour",
 	subType = "Armour/Energy Shield",
 	quality = 20,
@@ -1189,7 +1189,7 @@ itemBases["Advanced Ironclad Vestments"] = {
 	armour = { Armour = 187, EnergyShield = 65, MovementPenalty = 0.04, },
 	req = { level = 59, str = 67, int = 67, },
 }
-itemBases["Advanced Sacrificial Mantle"] = {
+itemBases["Heartcarver Mantle"] = {
 	type = "Body Armour",
 	subType = "Armour/Energy Shield",
 	quality = 20,
@@ -1199,7 +1199,7 @@ itemBases["Advanced Sacrificial Mantle"] = {
 	armour = { Armour = 195, EnergyShield = 68, MovementPenalty = 0.04, },
 	req = { level = 62, str = 70, int = 70, },
 }
-itemBases["Expert Pelt Mantle"] = {
+itemBases["Wolfskin Mantle"] = {
 	type = "Body Armour",
 	subType = "Armour/Energy Shield",
 	quality = 20,
@@ -1209,7 +1209,7 @@ itemBases["Expert Pelt Mantle"] = {
 	armour = { Armour = 294, EnergyShield = 101, MovementPenalty = 0.04, },
 	req = { level = 65, str = 86, int = 86, },
 }
-itemBases["Expert Shaman Mantle"] = {
+itemBases["Conjurer Mantle"] = {
 	type = "Body Armour",
 	subType = "Armour/Energy Shield",
 	quality = 20,
@@ -1220,7 +1220,7 @@ itemBases["Expert Shaman Mantle"] = {
 	armour = { Armour = 245, EnergyShield = 84, MovementPenalty = 0.04, },
 	req = { level = 70, str = 86, int = 86, },
 }
-itemBases["Expert Sacrificial Mantle"] = {
+itemBases["Death Mantle"] = {
 	type = "Body Armour",
 	subType = "Armour/Energy Shield",
 	quality = 20,
@@ -1364,7 +1364,7 @@ itemBases["Assassin Garb"] = {
 	armour = { Evasion = 223, EnergyShield = 84, MovementPenalty = 0.03, },
 	req = { level = 73, dex = 86, int = 86, },
 }
-itemBases["Advanced Hermit Garb"] = {
+itemBases["Ascetic Garb"] = {
 	type = "Body Armour",
 	subType = "Evasion/Energy Shield",
 	quality = 20,
@@ -1374,7 +1374,7 @@ itemBases["Advanced Hermit Garb"] = {
 	armour = { Evasion = 133, EnergyShield = 53, MovementPenalty = 0.03, },
 	req = { level = 45, dex = 51, int = 51, },
 }
-itemBases["Advanced Waxed Jacket"] = {
+itemBases["Oiled Jacket"] = {
 	type = "Body Armour",
 	subType = "Evasion/Energy Shield",
 	quality = 20,
@@ -1384,7 +1384,7 @@ itemBases["Advanced Waxed Jacket"] = {
 	armour = { Evasion = 141, EnergyShield = 56, MovementPenalty = 0.03, },
 	req = { level = 48, dex = 55, int = 55, },
 }
-itemBases["Advanced Marabout Garb"] = {
+itemBases["Evangelist Garb"] = {
 	type = "Body Armour",
 	subType = "Evasion/Energy Shield",
 	quality = 20,
@@ -1394,7 +1394,7 @@ itemBases["Advanced Marabout Garb"] = {
 	armour = { Evasion = 149, EnergyShield = 58, MovementPenalty = 0.03, },
 	req = { level = 51, dex = 59, int = 59, },
 }
-itemBases["Advanced Wayfarer Jacket"] = {
+itemBases["Itinerant Jacket"] = {
 	type = "Body Armour",
 	subType = "Evasion/Energy Shield",
 	quality = 20,
@@ -1404,7 +1404,7 @@ itemBases["Advanced Wayfarer Jacket"] = {
 	armour = { Evasion = 159, EnergyShield = 62, MovementPenalty = 0.03, },
 	req = { level = 55, dex = 62, int = 62, },
 }
-itemBases["Advanced Anchorite Garb"] = {
+itemBases["Hatungo Garb"] = {
 	type = "Body Armour",
 	subType = "Evasion/Energy Shield",
 	quality = 20,
@@ -1414,7 +1414,7 @@ itemBases["Advanced Anchorite Garb"] = {
 	armour = { Evasion = 170, EnergyShield = 65, MovementPenalty = 0.03, },
 	req = { level = 59, dex = 67, int = 67, },
 }
-itemBases["Advanced Scalper's Jacket"] = {
+itemBases["Hawker's Jacket"] = {
 	type = "Body Armour",
 	subType = "Evasion/Energy Shield",
 	quality = 20,
@@ -1424,7 +1424,7 @@ itemBases["Advanced Scalper's Jacket"] = {
 	armour = { Evasion = 178, EnergyShield = 68, MovementPenalty = 0.03, },
 	req = { level = 62, dex = 70, int = 70, },
 }
-itemBases["Expert Waxed Jacket"] = {
+itemBases["Sleek Jacket"] = {
 	type = "Body Armour",
 	subType = "Evasion/Energy Shield",
 	quality = 20,
@@ -1434,7 +1434,7 @@ itemBases["Expert Waxed Jacket"] = {
 	armour = { Evasion = 268, EnergyShield = 101, MovementPenalty = 0.03, },
 	req = { level = 65, dex = 86, int = 86, },
 }
-itemBases["Expert Wayfarer Jacket"] = {
+itemBases["Rambler Jacket"] = {
 	type = "Body Armour",
 	subType = "Evasion/Energy Shield",
 	quality = 20,
@@ -1445,7 +1445,7 @@ itemBases["Expert Wayfarer Jacket"] = {
 	armour = { Evasion = 223, EnergyShield = 84, MovementPenalty = 0.03, },
 	req = { level = 70, dex = 86, int = 86, },
 }
-itemBases["Expert Scalper's Jacket"] = {
+itemBases["Falconer's Jacket"] = {
 	type = "Body Armour",
 	subType = "Evasion/Energy Shield",
 	quality = 20,

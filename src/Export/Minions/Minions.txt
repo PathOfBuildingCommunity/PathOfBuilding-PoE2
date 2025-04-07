@@ -17,10 +17,6 @@ local minions, mod = ...
 #limit ActiveSkeletonLimit
 #emit
 
-#monster Metadata/Monsters/Skeletons/PlayerSummoned/SkeletonWarriorPlayerSummoned RaisedSkeletonWarrior
-#limit ActiveSkeletonLimit
-#emit
-
 #monster Metadata/Monsters/Skeletons/PlayerSummoned/SkeletonBrutePlayerSummoned_ RaisedSkeletonBrute
 #limit ActiveSkeletonLimit
 #emit
@@ -61,4 +57,10 @@ local minions, mod = ...
 #emit
 
 #monster Metadata/Monsters/SkeletalConstruct/BoneConstructPlayerSummoned UnearthBoneConstruct
+#emit
+
+#monster Metadata/Monsters/RhoaPlayerSummoned/RhoaPlayerSummoned SummonedRhoa
+#emit
+
+#monster Metadata/Monsters/AnimatedItem/AnimatedWeaponPlayerSummoned ManifestWeapon
 #emit

@@ -83,7 +83,7 @@ itemBases["Grand Mitts"] = {
 	armour = { Armour = 122, },
 	req = { level = 65, str = 104, },
 }
-itemBases["Advanced Riveted Mitts"] = {
+itemBases["Plated Mitts"] = {
 	type = "Gloves",
 	subType = "Armour",
 	quality = 20,
@@ -93,7 +93,7 @@ itemBases["Advanced Riveted Mitts"] = {
 	armour = { Armour = 88, },
 	req = { level = 45, str = 73, },
 }
-itemBases["Advanced Tempered Mitts"] = {
+itemBases["Elegant Mitts"] = {
 	type = "Gloves",
 	subType = "Armour",
 	quality = 20,
@@ -103,7 +103,7 @@ itemBases["Advanced Tempered Mitts"] = {
 	armour = { Armour = 98, },
 	req = { level = 51, str = 82, },
 }
-itemBases["Advanced Bolstered Mitts"] = {
+itemBases["Ancient Mitts"] = {
 	type = "Gloves",
 	subType = "Armour",
 	quality = 20,
@@ -113,7 +113,7 @@ itemBases["Advanced Bolstered Mitts"] = {
 	armour = { Armour = 105, },
 	req = { level = 55, str = 88, },
 }
-itemBases["Advanced Moulded Mitts"] = {
+itemBases["Feathered Mitts"] = {
 	type = "Gloves",
 	subType = "Armour",
 	quality = 20,
@@ -123,7 +123,7 @@ itemBases["Advanced Moulded Mitts"] = {
 	armour = { Armour = 111, },
 	req = { level = 59, str = 95, },
 }
-itemBases["Expert Riveted Mitts"] = {
+itemBases["Knightly Mitts"] = {
 	type = "Gloves",
 	subType = "Armour",
 	quality = 20,
@@ -133,7 +133,7 @@ itemBases["Expert Riveted Mitts"] = {
 	armour = { Armour = 122, },
 	req = { level = 65, str = 104, },
 }
-itemBases["Expert Bolstered Mitts"] = {
+itemBases["Ornate Mitts"] = {
 	type = "Gloves",
 	subType = "Armour",
 	quality = 20,
@@ -143,7 +143,7 @@ itemBases["Expert Bolstered Mitts"] = {
 	armour = { Armour = 134, },
 	req = { level = 70, str = 113, },
 }
-itemBases["Expert Moulded Mitts"] = {
+itemBases["Vaal Mitts"] = {
 	type = "Gloves",
 	subType = "Armour",
 	quality = 20,
@@ -234,7 +234,7 @@ itemBases["Engraved Bracers"] = {
 	armour = { Evasion = 111, },
 	req = { level = 65, dex = 104, },
 }
-itemBases["Advanced Firm Bracers"] = {
+itemBases["Hunting Bracers"] = {
 	type = "Gloves",
 	subType = "Evasion",
 	quality = 20,
@@ -244,7 +244,7 @@ itemBases["Advanced Firm Bracers"] = {
 	armour = { Evasion = 79, },
 	req = { level = 45, dex = 73, },
 }
-itemBases["Advanced Bound Bracers"] = {
+itemBases["Swift Bracers"] = {
 	type = "Gloves",
 	subType = "Evasion",
 	quality = 20,
@@ -254,7 +254,7 @@ itemBases["Advanced Bound Bracers"] = {
 	armour = { Evasion = 89, },
 	req = { level = 51, dex = 82, },
 }
-itemBases["Advanced Sectioned Bracers"] = {
+itemBases["Refined Bracers"] = {
 	type = "Gloves",
 	subType = "Evasion",
 	quality = 20,
@@ -264,7 +264,7 @@ itemBases["Advanced Sectioned Bracers"] = {
 	armour = { Evasion = 95, },
 	req = { level = 55, dex = 88, },
 }
-itemBases["Advanced Spined Bracers"] = {
+itemBases["Spiked Bracers"] = {
 	type = "Gloves",
 	subType = "Evasion",
 	quality = 20,
@@ -274,7 +274,7 @@ itemBases["Advanced Spined Bracers"] = {
 	armour = { Evasion = 101, },
 	req = { level = 59, dex = 95, },
 }
-itemBases["Expert Firm Bracers"] = {
+itemBases["Stalking Bracers"] = {
 	type = "Gloves",
 	subType = "Evasion",
 	quality = 20,
@@ -284,7 +284,7 @@ itemBases["Expert Firm Bracers"] = {
 	armour = { Evasion = 111, },
 	req = { level = 65, dex = 104, },
 }
-itemBases["Expert Sectioned Bracers"] = {
+itemBases["Grand Bracers"] = {
 	type = "Gloves",
 	subType = "Evasion",
 	quality = 20,
@@ -294,7 +294,7 @@ itemBases["Expert Sectioned Bracers"] = {
 	armour = { Evasion = 122, },
 	req = { level = 70, dex = 113, },
 }
-itemBases["Expert Spined Bracers"] = {
+itemBases["Barbed Bracers"] = {
 	type = "Gloves",
 	subType = "Evasion",
 	quality = 20,
@@ -385,7 +385,7 @@ itemBases["Adorned Gloves"] = {
 	armour = { EnergyShield = 42, },
 	req = { level = 65, int = 104, },
 }
-itemBases["Advanced Sombre Gloves"] = {
+itemBases["Ominous Gloves"] = {
 	type = "Gloves",
 	subType = "Energy Shield",
 	quality = 20,
@@ -395,7 +395,7 @@ itemBases["Advanced Sombre Gloves"] = {
 	armour = { EnergyShield = 32, },
 	req = { level = 45, int = 73, },
 }
-itemBases["Advanced Stitched Gloves"] = {
+itemBases["Embroidered Gloves"] = {
 	type = "Gloves",
 	subType = "Energy Shield",
 	quality = 20,
@@ -405,7 +405,7 @@ itemBases["Advanced Stitched Gloves"] = {
 	armour = { EnergyShield = 35, },
 	req = { level = 51, int = 82, },
 }
-itemBases["Advanced Jewelled Gloves"] = {
+itemBases["Baroque Gloves"] = {
 	type = "Gloves",
 	subType = "Energy Shield",
 	quality = 20,
@@ -415,7 +415,7 @@ itemBases["Advanced Jewelled Gloves"] = {
 	armour = { EnergyShield = 37, },
 	req = { level = 55, int = 88, },
 }
-itemBases["Advanced Intricate Gloves"] = {
+itemBases["Gold Gloves"] = {
 	type = "Gloves",
 	subType = "Energy Shield",
 	quality = 20,
@@ -425,7 +425,7 @@ itemBases["Advanced Intricate Gloves"] = {
 	armour = { EnergyShield = 39, },
 	req = { level = 59, int = 95, },
 }
-itemBases["Expert Sombre Gloves"] = {
+itemBases["Grim Gloves"] = {
 	type = "Gloves",
 	subType = "Energy Shield",
 	quality = 20,
@@ -435,7 +435,7 @@ itemBases["Expert Sombre Gloves"] = {
 	armour = { EnergyShield = 42, },
 	req = { level = 65, int = 104, },
 }
-itemBases["Expert Jewelled Gloves"] = {
+itemBases["Opulent Gloves"] = {
 	type = "Gloves",
 	subType = "Energy Shield",
 	quality = 20,
@@ -445,7 +445,7 @@ itemBases["Expert Jewelled Gloves"] = {
 	armour = { EnergyShield = 46, },
 	req = { level = 70, int = 113, },
 }
-itemBases["Expert Intricate Gloves"] = {
+itemBases["Vaal Gloves"] = {
 	type = "Gloves",
 	subType = "Energy Shield",
 	quality = 20,
@@ -516,7 +516,7 @@ itemBases["Ornate Gauntlets"] = {
 	armour = { Armour = 67, Evasion = 61, },
 	req = { level = 65, str = 57, dex = 57, },
 }
-itemBases["Advanced Ringmail Gauntlets"] = {
+itemBases["Ironmail Gauntlets"] = {
 	type = "Gloves",
 	subType = "Armour/Evasion",
 	quality = 20,
@@ -526,7 +526,7 @@ itemBases["Advanced Ringmail Gauntlets"] = {
 	armour = { Armour = 48, Evasion = 44, },
 	req = { level = 45, str = 40, dex = 40, },
 }
-itemBases["Advanced Layered Gauntlets"] = {
+itemBases["Captain Gauntlets"] = {
 	type = "Gloves",
 	subType = "Armour/Evasion",
 	quality = 20,
@@ -536,7 +536,7 @@ itemBases["Advanced Layered Gauntlets"] = {
 	armour = { Armour = 54, Evasion = 49, },
 	req = { level = 51, str = 46, dex = 46, },
 }
-itemBases["Advanced Doubled Gauntlets"] = {
+itemBases["Zealot Gauntlets"] = {
 	type = "Gloves",
 	subType = "Armour/Evasion",
 	quality = 20,
@@ -546,7 +546,7 @@ itemBases["Advanced Doubled Gauntlets"] = {
 	armour = { Armour = 61, Evasion = 56, },
 	req = { level = 59, str = 52, dex = 52, },
 }
-itemBases["Expert Ringmail Gauntlets"] = {
+itemBases["Steelmail Gauntlets"] = {
 	type = "Gloves",
 	subType = "Armour/Evasion",
 	quality = 20,
@@ -556,7 +556,7 @@ itemBases["Expert Ringmail Gauntlets"] = {
 	armour = { Armour = 67, Evasion = 61, },
 	req = { level = 65, str = 57, dex = 57, },
 }
-itemBases["Expert Layered Gauntlets"] = {
+itemBases["Commander Gauntlets"] = {
 	type = "Gloves",
 	subType = "Armour/Evasion",
 	quality = 20,
@@ -566,7 +566,7 @@ itemBases["Expert Layered Gauntlets"] = {
 	armour = { Armour = 74, Evasion = 67, },
 	req = { level = 70, str = 62, dex = 62, },
 }
-itemBases["Expert Doubled Gauntlets"] = {
+itemBases["Cultist Gauntlets"] = {
 	type = "Gloves",
 	subType = "Armour/Evasion",
 	quality = 20,
@@ -637,7 +637,7 @@ itemBases["Signet Cuffs"] = {
 	armour = { Armour = 67, EnergyShield = 23, },
 	req = { level = 65, str = 57, int = 57, },
 }
-itemBases["Advanced Rope Cuffs"] = {
+itemBases["Braided Cuffs"] = {
 	type = "Gloves",
 	subType = "Armour/Energy Shield",
 	quality = 20,
@@ -647,7 +647,7 @@ itemBases["Advanced Rope Cuffs"] = {
 	armour = { Armour = 48, EnergyShield = 17, },
 	req = { level = 45, str = 40, int = 40, },
 }
-itemBases["Advanced Aged Cuffs"] = {
+itemBases["Heirloom Cuffs"] = {
 	type = "Gloves",
 	subType = "Armour/Energy Shield",
 	quality = 20,
@@ -657,7 +657,7 @@ itemBases["Advanced Aged Cuffs"] = {
 	armour = { Armour = 54, EnergyShield = 19, },
 	req = { level = 51, str = 46, int = 46, },
 }
-itemBases["Advanced Goldcast Cuffs"] = {
+itemBases["Ornate Cuffs"] = {
 	type = "Gloves",
 	subType = "Armour/Energy Shield",
 	quality = 20,
@@ -667,7 +667,7 @@ itemBases["Advanced Goldcast Cuffs"] = {
 	armour = { Armour = 61, EnergyShield = 21, },
 	req = { level = 59, str = 52, int = 52, },
 }
-itemBases["Expert Rope Cuffs"] = {
+itemBases["Bound Cuffs"] = {
 	type = "Gloves",
 	subType = "Armour/Energy Shield",
 	quality = 20,
@@ -677,7 +677,7 @@ itemBases["Expert Rope Cuffs"] = {
 	armour = { Armour = 67, EnergyShield = 23, },
 	req = { level = 65, str = 57, int = 57, },
 }
-itemBases["Expert Aged Cuffs"] = {
+itemBases["Ancient Cuffs"] = {
 	type = "Gloves",
 	subType = "Armour/Energy Shield",
 	quality = 20,
@@ -687,7 +687,7 @@ itemBases["Expert Aged Cuffs"] = {
 	armour = { Armour = 74, EnergyShield = 25, },
 	req = { level = 70, str = 62, int = 62, },
 }
-itemBases["Expert Goldcast Cuffs"] = {
+itemBases["Gleaming Cuffs"] = {
 	type = "Gloves",
 	subType = "Armour/Energy Shield",
 	quality = 20,
@@ -758,7 +758,7 @@ itemBases["Utility Wraps"] = {
 	armour = { Evasion = 61, EnergyShield = 23, },
 	req = { level = 65, dex = 57, int = 57, },
 }
-itemBases["Advanced Gauze Wraps"] = {
+itemBases["Bandage Wraps"] = {
 	type = "Gloves",
 	subType = "Evasion/Energy Shield",
 	quality = 20,
@@ -768,7 +768,7 @@ itemBases["Advanced Gauze Wraps"] = {
 	armour = { Evasion = 44, EnergyShield = 17, },
 	req = { level = 45, dex = 40, int = 40, },
 }
-itemBases["Advanced Linen Wraps"] = {
+itemBases["Cambric Wraps"] = {
 	type = "Gloves",
 	subType = "Evasion/Energy Shield",
 	quality = 20,
@@ -778,7 +778,7 @@ itemBases["Advanced Linen Wraps"] = {
 	armour = { Evasion = 49, EnergyShield = 19, },
 	req = { level = 51, dex = 46, int = 46, },
 }
-itemBases["Advanced Spiral Wraps"] = {
+itemBases["Adorned Wraps"] = {
 	type = "Gloves",
 	subType = "Evasion/Energy Shield",
 	quality = 20,
@@ -788,7 +788,7 @@ itemBases["Advanced Spiral Wraps"] = {
 	armour = { Evasion = 56, EnergyShield = 21, },
 	req = { level = 59, dex = 52, int = 52, },
 }
-itemBases["Expert Gauze Wraps"] = {
+itemBases["War Wraps"] = {
 	type = "Gloves",
 	subType = "Evasion/Energy Shield",
 	quality = 20,
@@ -798,7 +798,7 @@ itemBases["Expert Gauze Wraps"] = {
 	armour = { Evasion = 61, EnergyShield = 23, },
 	req = { level = 65, dex = 57, int = 57, },
 }
-itemBases["Expert Linen Wraps"] = {
+itemBases["Elegant Wraps"] = {
 	type = "Gloves",
 	subType = "Evasion/Energy Shield",
 	quality = 20,
@@ -808,7 +808,7 @@ itemBases["Expert Linen Wraps"] = {
 	armour = { Evasion = 67, EnergyShield = 25, },
 	req = { level = 70, dex = 62, int = 62, },
 }
-itemBases["Expert Spiral Wraps"] = {
+itemBases["Vaal Wraps"] = {
 	type = "Gloves",
 	subType = "Evasion/Energy Shield",
 	quality = 20,
