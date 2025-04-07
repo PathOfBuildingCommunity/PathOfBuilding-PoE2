@@ -22,7 +22,7 @@ local tradeCategoryNames = {
 	["Quiver"] = { "Quiver" },
 	["Shield"] = { "Shield" },
 	["Focus"] = { "Focus" },
-	["1HWeapon"] = { "One Handed Mace", "Wand", "Sceptre" },
+	["1HWeapon"] = { "One Handed Mace", "Wand", "Sceptre", "Flail", "Spear" },
 	["2HWeapon"] = { "Staff", "Staff: Warstaff", "Two Handed Mace", "Crossbow", "Bow" },
 	-- ["1HAxe"] = { "One Handed Axe" },
 	-- ["1HSword"] = { "One Handed Sword", "Thrusting One Handed Sword" },
@@ -48,8 +48,8 @@ local tradeCategoryNames = {
 	-- ["RadiusJewel"] = { "Jewel: Radius" },
 	-- not in the game yet.
 	-- ["TrapTool"] = { "TrapTool"}, Unsure if correct
-	-- ["Flail"] = { "Flail" },
-	-- ["Spear"] = { "Spear" }
+	 ["Flail"] = { "Flail" },
+	 ["Spear"] = { "Spear" }
 }
 
 -- Build lists of tags present on a given item category
@@ -414,7 +414,7 @@ function TradeQueryGeneratorClass:InitMods()
 	-- rune mods
 	for name, modLines in pairs(data.itemMods.Runes) do
 		self:ProcessMod(modLines.armour, tradeQueryStatsParsed, regularItemMask, { ["Shield"] = true, ["Chest"] = true, ["Helmet"] = true, ["Gloves"] = true, ["Boots"] = true, ["Focus"] = true })
-		self:ProcessMod(modLines.weapon, tradeQueryStatsParsed, regularItemMask, { ["1HWeapon"] = true, ["2HWeapon"] = true, ["1HMace"] = true, ["Claw"] = true, ["Quarterstaff"] = true, ["Bow"] = true, ["2HMace"] = true, ["Crossbow"] = true })
+		self:ProcessMod(modLines.weapon, tradeQueryStatsParsed, regularItemMask, { ["1HWeapon"] = true, ["2HWeapon"] = true, ["1HMace"] = true, ["Claw"] = true, ["Quarterstaff"] = true, ["Bow"] = true, ["2HMace"] = true, ["Crossbow"] = true, ["Spear"] = true, ["Flail"] = true  })
 	end
 
 	local queryModsFile = io.open(queryModFilePath, 'w')
@@ -559,7 +559,7 @@ function TradeQueryGeneratorClass:StartQuery(slot, options)
 			elseif existingItem.type == "Focus" then
 				itemCategoryQueryStr = "armour.focus"
 				itemCategory = "Focus"
-			elseif existingItem.type == "Buckler" then -- not in game
+			elseif existingItem.type == "Buckler" then
 				itemCategoryQueryStr = "armour.buckler"
 				itemCategory = "Buckler"
 			elseif existingItem.type == "Quiver" then
@@ -592,10 +592,10 @@ function TradeQueryGeneratorClass:StartQuery(slot, options)
 			elseif existingItem.type == "One Handed Sword" then
 				itemCategoryQueryStr = "weapon.onesword"
 				itemCategory = "1HSword"
-			elseif existingItem.type == "Spear" then -- not in game
+			elseif existingItem.type == "Spear" then
 				itemCategoryQueryStr = "weapon.spear"
-				itemCategory = "1HSword"
-			elseif existingItem.type == "Flail" then -- not in game
+				itemCategory = "Spear"
+			elseif existingItem.type == "Flail" then
 				itemCategoryQueryStr = "weapon.flail"
 				itemCategory = "weapon.flail"
 			elseif existingItem.type == "One Handed Axe" then

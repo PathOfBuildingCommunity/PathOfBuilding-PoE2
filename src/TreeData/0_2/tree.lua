@@ -16339,13 +16339,12 @@ return {
 			}
 		},
 		[110]={
+			applyToArmour=true,
 			ascendancyName="Smith of Kitava",
 			connections={
 			},
 			group=11,
 			icon="Art/2DArt/SkillIcons/passives/SmithofKitava/SmithOfKitavaNormalArmourBonus10.dds",
-			isFreeAllocate=true,
-			isMultipleChoiceOption=true,
 			isNotable=true,
 			name="Internal Layer",
 			orbit=0,
@@ -25174,13 +25173,12 @@ return {
 			}
 		},
 		[8525]={
+			applyToArmour=true,
 			ascendancyName="Smith of Kitava",
 			connections={
 			},
 			group=15,
 			icon="Art/2DArt/SkillIcons/passives/SmithofKitava/SmithOfKitavaNormalArmourBonus7.dds",
-			isFreeAllocate=true,
-			isMultipleChoiceOption=true,
 			isNotable=true,
 			name="Leather Bindings",
 			orbit=0,
@@ -27142,7 +27140,7 @@ return {
 			},
 			group=32,
 			icon="Art/2DArt/SkillIcons/passives/SmithofKitava/SmithOfKitavaCanOnlyWearNormalRarityBodyArmour.dds",
-			isMultipleChoice=true,
+			isFreeAllocate=true,
 			isNotable=true,
 			name="Smith's Masterwork",
 			orbit=0,
@@ -27191,13 +27189,12 @@ return {
 			}
 		},
 		[9997]={
+			applyToArmour=true,
 			ascendancyName="Smith of Kitava",
 			connections={
 			},
 			group=20,
 			icon="Art/2DArt/SkillIcons/passives/SmithofKitava/SmithOfKitavaNormalArmourBonus9.dds",
-			isFreeAllocate=true,
-			isMultipleChoiceOption=true,
 			isNotable=true,
 			name="Molten Symbol",
 			orbit=0,
@@ -31612,13 +31609,12 @@ return {
 			}
 		},
 		[13772]={
+			applyToArmour=true,
 			ascendancyName="Smith of Kitava",
 			connections={
 			},
 			group=24,
 			icon="Art/2DArt/SkillIcons/passives/SmithofKitava/SmithOfKitavaNormalArmourBonus8.dds",
-			isFreeAllocate=true,
-			isMultipleChoiceOption=true,
 			isNotable=true,
 			name="Flowing Metal",
 			orbit=0,
@@ -34208,13 +34204,12 @@ return {
 			}
 		},
 		[16276]={
+			applyToArmour=true,
 			ascendancyName="Smith of Kitava",
 			connections={
 			},
 			group=41,
 			icon="Art/2DArt/SkillIcons/passives/SmithofKitava/SmithOfKitavaNormalArmourBonus2.dds",
-			isFreeAllocate=true,
-			isMultipleChoiceOption=true,
 			isNotable=true,
 			name="Padded Plates",
 			orbit=0,
@@ -38708,13 +38703,12 @@ return {
 			}
 		},
 		[20195]={
+			applyToArmour=true,
 			ascendancyName="Smith of Kitava",
 			connections={
 			},
 			group=40,
 			icon="Art/2DArt/SkillIcons/passives/SmithofKitava/SmithOfKitavaNormalArmourBonus3.dds",
-			isFreeAllocate=true,
-			isMultipleChoiceOption=true,
 			isNotable=true,
 			name="Lead Lining",
 			orbit=0,
@@ -41415,13 +41409,12 @@ return {
 			}
 		},
 		[22908]={
+			applyToArmour=true,
 			ascendancyName="Smith of Kitava",
 			connections={
 			},
 			group=12,
 			icon="Art/2DArt/SkillIcons/passives/SmithofKitava/SmithOfKitavaNormalArmourBonus6.dds",
-			isFreeAllocate=true,
-			isMultipleChoiceOption=true,
 			isNotable=true,
 			name="Heavy Bracing",
 			orbit=0,
@@ -44233,13 +44226,12 @@ return {
 			}
 		},
 		[25438]={
+			applyToArmour=true,
 			ascendancyName="Smith of Kitava",
 			connections={
 			},
 			group=33,
 			icon="Art/2DArt/SkillIcons/passives/SmithofKitava/SmithOfKitavaNormalArmourBonus12.dds",
-			isFreeAllocate=true,
-			isMultipleChoiceOption=true,
 			isNotable=true,
 			name="Heatproofing",
 			orbit=0,
@@ -71976,13 +71968,12 @@ return {
 			}
 		},
 		[49340]={
+			applyToArmour=true,
 			ascendancyName="Smith of Kitava",
 			connections={
 			},
 			group=34,
 			icon="Art/2DArt/SkillIcons/passives/SmithofKitava/SmithOfKitavaNormalArmourBonus4.dds",
-			isFreeAllocate=true,
-			isMultipleChoiceOption=true,
 			isNotable=true,
 			name="Support Straps",
 			orbit=0,
@@ -85358,13 +85349,12 @@ return {
 			}
 		},
 		[60913]={
+			applyToArmour=true,
 			ascendancyName="Smith of Kitava",
 			connections={
 			},
 			group=36,
 			icon="Art/2DArt/SkillIcons/passives/SmithofKitava/SmithOfKitavaNormalArmourBonus5.dds",
-			isFreeAllocate=true,
-			isMultipleChoiceOption=true,
 			isNotable=true,
 			name="Kitavan Engraving",
 			orbit=0,
@@ -85441,13 +85431,12 @@ return {
 			}
 		},
 		[61039]={
+			applyToArmour=true,
 			ascendancyName="Smith of Kitava",
 			connections={
 			},
 			group=39,
 			icon="Art/2DArt/SkillIcons/passives/SmithofKitava/SmithOfKitavaNormalArmourBonus1.dds",
-			isFreeAllocate=true,
-			isMultipleChoiceOption=true,
 			isNotable=true,
 			name="Tantalum Alloy",
 			orbit=0,
@@ -89866,13 +89855,12 @@ return {
 			}
 		},
 		[64962]={
+			applyToArmour=true,
 			ascendancyName="Smith of Kitava",
 			connections={
 			},
 			group=10,
 			icon="Art/2DArt/SkillIcons/passives/SmithofKitava/SmithOfKitavaNormalArmourBonus11.dds",
-			isFreeAllocate=true,
-			isMultipleChoiceOption=true,
 			isNotable=true,
 			name="Dedication to Kitava",
 			orbit=0,

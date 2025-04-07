@@ -759,7 +759,7 @@ end
 function PassiveSpecClass:CountAllocNodes()
 	local used, ascUsed, secondaryAscUsed, sockets, weaponSet1Used, weaponSet2Used = 0, 0, 0, 0, 0, 0
 	for _, node in pairs(self.allocNodes) do
-		if node.type ~= "ClassStart" and node.type ~= "AscendClassStart" then
+		if node.type ~= "ClassStart" and node.type ~= "AscendClassStart" and node.isFreeAllocate == nil then
 			if node.ascendancyName then
 				if not node.isMultipleChoiceOption then
 					if self.tree.secondaryAscendNameMap and self.tree.secondaryAscendNameMap[node.ascendancyName] then
