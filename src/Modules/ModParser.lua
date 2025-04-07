@@ -616,7 +616,7 @@ local modNameList = {
 	["metre to melee strike range"] = { "MeleeWeaponRangeMetre", "UnarmedRangeMetre" },
 	["to deal double damage"] = "DoubleDamageChance",
 	["to deal triple damage"] = "TripleDamageChance",
-	["curse activation"] = "CurseFrequency",
+	["curse activation"] = "CurseActivation",
 	["ice crystal life"] = "IceCrystalLife",
 	-- Effects
 	["onslaught effect"] = "OnslaughtEffect",

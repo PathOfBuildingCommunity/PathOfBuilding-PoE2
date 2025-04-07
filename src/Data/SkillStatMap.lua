@@ -2275,7 +2275,7 @@ return {
 	div = 1000,
 },
 ["base_curse_delay_+%"] = {
-	mod("CurseFrequency", "INC", nil),
+	mod("CurseDelay", "INC", nil),
 },
 -- Hex
 ["curse_maximum_doom"] = {

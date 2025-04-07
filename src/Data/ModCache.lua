@@ -857,7 +857,7 @@ c["10% chance to inflict Fire Exposure on Hit if you have at least 150 Devotion"
 c["10% chance to inflict Lightning Exposure on Hit if you have at least 150 Devotion"]={{[1]={[1]={stat="Devotion",threshold=150,type="StatThreshold"},flags=0,keywordFlags=0,name="LightningExposureChance",type="BASE",value=10}},nil}
 c["10% chance to refresh Ignite Duration on Critical Hit"]={{[1]={[1]={type="Condition",var="CriticalStrike"},flags=0,keywordFlags=0,name="EnemyIgniteDuration",type="BASE",value=10}}," to refresh  "}
 c["10% chance when a Charm is used to use another Charm without consuming Charges"]={{[1]={flags=0,keywordFlags=0,name="FlaskCharges",type="BASE",value=10}}," when a Charm is used to use another Charm without consuming  "}
-c["10% faster Curse Activation"]={{[1]={flags=0,keywordFlags=0,name="CurseFrequency",type="INC",value=10}},nil}
+c["10% faster Curse Activation"]={{[1]={flags=0,keywordFlags=0,name="CurseActivation",type="INC",value=10}},nil}
 c["10% faster start of Energy Shield Recharge"]={{[1]={flags=0,keywordFlags=0,name="EnergyShieldRechargeFaster",type="INC",value=10}},nil}
 c["10% increased Accuracy Rating"]={{[1]={flags=0,keywordFlags=0,name="Accuracy",type="INC",value=10}},nil}
 c["10% increased Accuracy Rating while Dual Wielding"]={{[1]={[1]={type="Condition",var="DualWielding"},flags=0,keywordFlags=0,name="Accuracy",type="INC",value=10}},nil}
@@ -1872,7 +1872,7 @@ c["3% increased Attributes"]={{[1]={flags=0,keywordFlags=0,name="Str",type="INC"
 c["3% increased Cast Speed"]={{[1]={flags=16,keywordFlags=0,name="Speed",type="INC",value=3}},nil}
 c["3% increased Cast Speed with Cold Skills"]={{[1]={flags=16,keywordFlags=64,name="Speed",type="INC",value=3}},nil}
 c["3% increased Curse Magnitudes"]={{}," Curse Magnitudes "}
-c["3% increased Curse Magnitudes 10% faster Curse Activation"]={{[1]={flags=0,keywordFlags=0,name="CurseFrequency",type="INC",value=3}}," Curse Magnitudes 10% faster  "}
+c["3% increased Curse Magnitudes 10% faster Curse Activation"]={{[1]={flags=0,keywordFlags=0,name="CurseActivation",type="INC",value=3}}," Curse Magnitudes 10% faster  "}
 c["3% increased Melee Attack Speed"]={{[1]={flags=257,keywordFlags=0,name="Speed",type="INC",value=3}},nil}
 c["3% increased Movement Speed"]={{[1]={flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=3}},nil}
 c["3% increased Movement Speed if you've Killed Recently"]={{[1]={[1]={type="Condition",var="KilledRecently"},flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=3}},nil}
@@ -2143,7 +2143,7 @@ c["4.6 Life Regeneration per second"]={{[1]={flags=0,keywordFlags=0,name="LifeRe
 c["40% chance to Aggravate Bleeding on Hit"]={{}," to Aggravate Bleeding  "}
 c["40% chance to Avoid Chaos Damage from Hits"]={{[1]={flags=0,keywordFlags=0,name="AvoidChaosDamageChance",type="BASE",value=40}},nil}
 c["40% chance to Avoid Physical Damage from Hits"]={{[1]={flags=0,keywordFlags=0,name="AvoidPhysicalDamageChance",type="BASE",value=40}},nil}
-c["40% faster Curse Activation"]={{[1]={flags=0,keywordFlags=0,name="CurseFrequency",type="INC",value=40}},nil}
+c["40% faster Curse Activation"]={{[1]={flags=0,keywordFlags=0,name="CurseActivation",type="INC",value=40}},nil}
 c["40% faster start of Energy Shield Recharge"]={{[1]={flags=0,keywordFlags=0,name="EnergyShieldRechargeFaster",type="INC",value=40}},nil}
 c["40% increased Accuracy Rating at Close Range"]={{[1]={[1]={type="Condition",var="AtCloseRange"},flags=0,keywordFlags=0,name="AccuracyVsEnemy",type="INC",value=40}},nil}
 c["40% increased Area of Effect of Aftershocks you create yourself"]={{[1]={flags=0,keywordFlags=0,name="AreaOfEffect",type="INC",value=40}},"  of Aftershocks you create yourself "}

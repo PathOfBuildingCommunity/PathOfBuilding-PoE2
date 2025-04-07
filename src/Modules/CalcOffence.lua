@@ -1193,20 +1193,20 @@ function calcs.offence(env, actor, activeSkill)
 			breakdown.CurseEffectMod = breakdown.mod(skillModList, skillCfg, "CurseEffect")
 		end
 
-		local curseFrequencyMod = calcLib.mod(skillModList, skillCfg, "CurseFrequency")
+		local curseActivationMod = calcLib.mod(skillModList, skillCfg, "CurseActivation")
 		local curseDelayMod = calcLib.mod(skillModList, skillCfg, "CurseDelay")
 		output.CurseDelayBase = (skillData.curseDelay or 0) + skillModList:Sum("BASE", skillCfg, "CurseDelayBase")
-		output.CurseDelay = output.CurseDelayBase / curseFrequencyMod * curseDelayMod
+		output.CurseDelay = output.CurseDelayBase / curseActivationMod * curseDelayMod
 		output.CurseDelay = m_ceil(output.CurseDelay * data.misc.ServerTickRate) / data.misc.ServerTickRate
 		if breakdown and output.CurseDelay ~= output.CurseDelayBase then
 			breakdown.CurseDelay = {
 				s_format("%.2fs ^8(base)", output.CurseDelayBase),
 			}
-			if curseFrequencyMod ~= 1 then
-				t_insert(breakdown.CurseDelay, s_format("x %.4f ^8(frequency modifier)", curseFrequencyMod))
-			end
 			if curseDelayMod ~= 1 then
 				t_insert(breakdown.CurseDelay, s_format("x %.4f ^8(delay modifier)", curseDelayMod))
+			end
+			if curseActivationMod ~= 1 then
+				t_insert(breakdown.CurseDelay, s_format("/ %.4f ^8(activation modifier)", curseActivationMod))
 			end
 			t_insert(breakdown.CurseDelay, s_format("rounded up to nearest server tick"))
 			t_insert(breakdown.CurseDelay, s_format("= %.3fs", output.CurseDelay))
