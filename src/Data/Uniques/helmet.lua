@@ -153,8 +153,8 @@ Atziri's Disdain
 Gold Circlet
 Variant: 0.2.0
 Variant: Current
-{variant:1}+(60-100) to maximum Mana
-{variant:2}+(40-60) to maximum Mana
+{variant:1}+(40-60) to maximum Mana
+{variant:2}+(60-100) to maximum Mana
 {variant:1}(10-20)% increased Rarity of Items found
 {variant:2}(10-15)% increased Rarity of Items found
 {variant:1}(20-25)% of Damage taken bypasses Energy Shield
