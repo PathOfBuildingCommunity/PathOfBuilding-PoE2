@@ -1298,7 +1298,7 @@ function ItemClass:BuildModListForSlotNum(baseList, slotNum)
 	if self.spiritValue then
 		local spiritBase = self.base.spirit + calcLocal(modList, "Spirit", "BASE", 0)
 		local spiritInc = calcLocal(modList, "Spirit", "INC", 0)
-		self.spiritValue = round( spiritBase * (1 + spiritInc / 100) * (1 + ((self.quality or 0) / 100)))
+		self.spiritValue = round( spiritBase * (1 + spiritInc / 100))
 	end
 	if self.charmLimit then
 		self.charmLimit = self.base.charmLimit + calcLocal(modList, "CharmLimit", "BASE", 0)
