@@ -178,3 +178,29 @@ skills["MinionInstability"] = {
 #flags attack melee
 #mods
 #skillEnd
+
+-- Spectres here for now as spectres aren't using the spectre.lua skills file
+
+#skill GATwoHeadedTitanSlam Slam
+#set GATwoHeadedTitanSlam
+#flags attack melee area
+#mods
+#skillEnd
+
+#skill GATwoHeadedTitanStomp Stomp
+#set GATwoHeadedTitanStomp
+#flags attack melee area
+#mods
+#skillEnd
+
+#skill MMSVaalGuardGrenade
+#set MMSVaalGuardGrenade
+#flags attack area projectile duration
+#mods
+#skillEnd
+
+#skill MMSVaalGuardOilTrap
+#set MMSVaalGuardOilTrap
+#flags attack area projectile duration
+#mods
+#skillEnd

@@ -30,6 +30,35 @@ minions["Metadata/Monsters/TwoheadedTitan/TwoHeadedTitan"] = {
 	},
 }
 
+-- Sentinel
+minions["Metadata/Monsters/VaalConstructs/Sentinel/VaalConstructSentinel"] = {
+	name = "Stone Sentinel",
+	monsterTags = { "2HBluntWood_onhit_audio", "allows_inc_aoe", "cannot_be_monolith", "construct", "melee", "not_dex", "not_int", "physical_affinity", "stone_construct", "vaal", "very_slow_movement", },
+	life = 2.5,
+	baseDamageIgnoresAttackSpeed = true,
+	armour = 1,
+	fireResist = 30,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 2.5,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 13,
+	accuracy = 1,
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"GAVaalConstructSentinelGroundSlam",
+		"GAVaalConstructSentinelFootSlam",
+		"GAVaalConstructSentinelImpact",
+	},
+	modList = {
+	},
+}
+
+-- Shade -- not working, error CalcActiveSkill.lua 909 grantedEffect (nil)
+--spectre Metadata/Monsters/VaalMonsters/Machinarium/Wraith/ProwlingShade
+
 -- Quadrilla
 minions["Metadata/Monsters/Quadrilla/Quadrilla"] = {
 	name = "Quadrilla",
@@ -60,55 +89,30 @@ minions["Metadata/Monsters/Quadrilla/Quadrilla"] = {
 	},
 }
 
--- Sentinel
-minions["Metadata/Monsters/VaalConstructs/Sentinel/VaalConstructSentinel"] = {
-	name = "Stone Sentinel",
-	monsterTags = { "2HBluntWood_onhit_audio", "allows_inc_aoe", "cannot_be_monolith", "construct", "melee", "not_dex", "not_int", "physical_affinity", "stone_construct", "vaal", "very_slow_movement", },
-	life = 2.5,
+-- Vaal Humanoid
+minions["Metadata/Monsters/VaalMonsters/Living/VaalGuardMortarLiving"] = {
+	name = "Vaal Guard",
+	monsterTags = { "allows_additional_projectiles", "allows_inc_aoe", "fire_affinity", "human", "humanoid", "not_int", "not_str", "ranged", "red_blood", "Unarmed_onhit_audio", "very_slow_movement", },
+	life = 1,
 	baseDamageIgnoresAttackSpeed = true,
-	armour = 1,
-	fireResist = 30,
+	evasion = 0.5,
+	fireResist = 0,
 	coldResist = 0,
 	lightningResist = 0,
 	chaosResist = 0,
-	damage = 2.5,
+	damage = 1,
 	damageSpread = 0.2,
 	attackTime = 1.5,
-	attackRange = 13,
+	attackRange = 10,
 	accuracy = 1,
 	skillList = {
 		"MeleeAtAnimationSpeed",
-		"GAVaalConstructSentinelGroundSlam",
-		"GAVaalConstructSentinelFootSlam",
-		"GAVaalConstructSentinelImpact",
+		"MMSVaalGuardGrenade",
+		"MMSVaalGuardOilTrap",
+		"MMSVaalGuardGrenadeDeath",
+		"MMSVaalGuardOilTrapDeath",
 	},
 	modList = {
-	},
-}
-
--- Shade
-minions["Metadata/Monsters/VaalMonsters/Machinarium/Wraith/ProwlingShade"] = {
-	name = "Prowling Shade",
-	monsterTags = { "allows_inc_aoe", "caster", "Claw_onhit_audio", "cold_affinity", "fast_movement", "ghost", "ghost_blood", "melee", "not_str", "undead", },
-	life = 2.25,
-	baseDamageIgnoresAttackSpeed = true,
-	energyShield = 0.132,
-	evasion = 0.33,
-	fireResist = 0,
-	coldResist = 75,
-	lightningResist = 0,
-	chaosResist = 0,
-	damage = 2.25,
-	damageSpread = 0.2,
-	attackTime = 1.32,
-	attackRange = 16,
-	accuracy = 1,
-	skillList = {
-		"MeleeAtAnimationSpeedComboTEMP",
-		"GSProwlingShadeIceBeam",
-		"DTTProwlingShadeDash",
-		"MeleeAtAnimationSpeedComboTEMP2",
-	},
-	modList = {
+		-- SpectrePlayDeathAction [is_spectre_with_death_action = 1]
 	},
 }

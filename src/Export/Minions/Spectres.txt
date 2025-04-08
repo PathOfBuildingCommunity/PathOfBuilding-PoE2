@@ -8,11 +8,14 @@ local minions, mod, flag = ...
 -- Goliath
 #spectre Metadata/Monsters/TwoheadedTitan/TwoHeadedTitan
 
--- Quadrilla
-#spectre Metadata/Monsters/Quadrilla/Quadrilla
-
 -- Sentinel
 #spectre Metadata/Monsters/VaalConstructs/Sentinel/VaalConstructSentinel
 
--- Shade
-#spectre Metadata/Monsters/VaalMonsters/Machinarium/Wraith/ProwlingShade
+-- Shade -- not working, error CalcActiveSkill.lua 909 grantedEffect (nil)
+--spectre Metadata/Monsters/VaalMonsters/Machinarium/Wraith/ProwlingShade
+
+-- Quadrilla
+#spectre Metadata/Monsters/Quadrilla/Quadrilla
+
+-- Vaal Humanoid
+#spectre Metadata/Monsters/VaalMonsters/Living/VaalGuardMortarLiving
