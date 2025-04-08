@@ -240,7 +240,8 @@ function calcs.doActorLifeManaSpiritReservation(actor)
 				end
 				if activeSkill.skillTypes[SkillType.MultipleReservation] then
 					local activeSkillCount, enabled = calcs.getActiveSkillCount(activeSkill)
-					values.reservedFlat = values.reservedFlat * activeSkillCount
+					local minionFreeSpiritCount = skillModList:Sum("BASE", skillCfg, "MinionFreeSpiritCount")
+					values.reservedFlat = values.reservedFlat * m_max(activeSkillCount - minionFreeSpiritCount, 0)
 				end
 				
 				if activeSkill.skillTypes[SkillType.IsBlasphemy] and activeSkill.activeEffect.srcInstance.supportEffect and activeSkill.activeEffect.srcInstance.supportEffect.isSupporting then

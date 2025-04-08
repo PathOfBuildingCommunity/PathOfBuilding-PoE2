@@ -236,6 +236,34 @@ minions["RaisedSkeletonReaver"] = {
 	},
 }
 
+minions["RaisedSkeletonWarriors"] = {
+	name = "Skeletal Warrior",
+	monsterTags = { "1HSword_onhit_audio", "bone_armour", "bones", "fast_movement", "has_one_hand_sword", "has_one_handed_melee", "medium_height", "melee", "not_dex", "not_int", "physical_affinity", "skeleton", "slashing_weapon", "undead", },
+	life = 0.88,
+	baseDamageIgnoresAttackSpeed = true,
+	armour = 0.5,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 0.7,
+	damageSpread = 0.3,
+	attackTime = 1,
+	attackRange = 12,
+	accuracy = 1,
+	weaponType1 = "One Handed Sword",
+	weaponType2 = "Shield",
+	limit = "ActiveSkeletonLimit",
+	skillList = {
+		"MinionMeleeStep",
+	},
+	modList = {
+		-- MonsterNoDropsOrExperience [monster_no_drops_or_experience = 1]
+		mod("BlockChance", "BASE", 30, 0, 0), -- SkeletonWarriorPlayerMinionBlockChance [monster_base_block_% = 30]
+		-- SkeletonWarriorPlayerMinionBlockChance [additional_maximum_block_% = 0]
+	},
+}
+
 minions["SummonedHellhound"] = {
 	name = "Infernal Hound",
 	monsterTags = { "beast", "demon", "medium_movement", "not_int", "red_blood", "Unarmed_onhit_audio", },

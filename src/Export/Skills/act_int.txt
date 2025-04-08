@@ -958,6 +958,14 @@ statMap = {
 #mods
 #skillEnd
 
+#from item
+#minionList RaisedSkeletonWarriors
+#skill SummonSkeletalWarriorsPlayer
+#set SummonSkeletalWarriorsPlayer
+#flags spell minion permanentMinion
+#mods
+#skillEnd
+
 #skill SolarOrbPlayer
 #set SolarOrbPlayer
 #flags spell area duration
@@ -981,13 +989,6 @@ statMap = {
 		mod("Damage", "INC", nil, ModFlag.Spell, 0, { type = "GlobalEffect", effectType = "Buff" }),
 	},
 },
-#mods
-#skillEnd
-
-#from item
-#skill SoulrendPlayer
-#set SoulrendPlayer
-#flags spell projectile duration
 #mods
 #skillEnd
 

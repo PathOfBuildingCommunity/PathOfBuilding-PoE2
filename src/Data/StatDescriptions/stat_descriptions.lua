@@ -171865,7 +171865,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Can Reroll Favours at Ritual Altars in your Maps any number of times"
+				text="Can Reroll Favours at Ritual Altars in your Maps twice as many times"
 			}
 		},
 		stats={

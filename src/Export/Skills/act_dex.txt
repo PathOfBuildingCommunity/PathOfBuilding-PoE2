@@ -93,6 +93,12 @@ statMap = {
 #mods
 #skillEnd
 
+#skill CullTheWeakPlayer
+#set CullTheWeakPlayer
+#flags attack melee area
+#mods
+#skillEnd
+
 #skill DetonatingArrowPlayer
 preDamageFunc = function(activeSkill, output)
 	activeSkill.skillData.hitTimeMultiplier = activeSkill.skillModList:Sum("BASE", activeSkill.skillCfg, "Multiplier:DetonatingArrowStage")

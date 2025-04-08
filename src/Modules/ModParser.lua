@@ -1144,6 +1144,7 @@ local preFlagList = {
 	["^hits with this weapon [hd][ae][va][el] "] = { flags = ModFlag.Hit, tagList = { { type = "Condition", var = "{Hand}Attack" }, { type = "SkillType", skillType = SkillType.Attack } } },
 	-- Skill types
 	["^attacks [ghd][ae][iva][eln] "] = { flags = ModFlag.Attack },
+	["^attacks using your weapons [ghd][ae][iva][eln] "] = { flags = ModFlag.Attack, tag = { type = "SkillType", skillType = SkillType.NonWeaponAttack, neg = true }},
 	["^attack skills [hd][ae][va][el] "] = { keywordFlags = KeywordFlag.Attack },
 	["^spells [hd][ae][va][el] a? ?"] = { flags = ModFlag.Spell },
 	["^spell skills [hd][ae][va][el] "] = { keywordFlags = KeywordFlag.Spell },
@@ -1931,7 +1932,8 @@ local gemIdLookup = {
 }
 for name, grantedEffect in pairs(data.skills) do
 	if not grantedEffect.hidden or grantedEffect.fromItem or grantedEffect.fromTree then
-		gemIdLookup[grantedEffect.name:lower()] = grantedEffect.id
+		local gemName = grantedEffect.baseTypeName and grantedEffect.baseTypeName:lower() or grantedEffect.name:lower()
+		gemIdLookup[gemName] = grantedEffect.id
 	end
 end
 local function grantedExtraSkill(name, level, noSupports)
@@ -2409,6 +2411,12 @@ local specialModList = {
 	-- Amazon
 	["chance to hit with attacks can exceed 100%%"] = {flag("Condition:HitChanceCanExceed100", { type = "Skilltype", skillType = SkillType.Attack})},
 	["gain additional critical hit chance equal to (%d+)%% of excess chance to hit with attacks"] = function(num) return { mod("CritChance", "BASE", 0.01 * num, { type = "Multiplier", var = "ExcessHitChance" }, { type = "SkillType", skillType = SkillType.Attack})} end,
+	["attacks using your weapons have added (%a+) damage equal to (%d+)%% of the accuracy rating on the weapon"] = function(_, dmgType, num) return {
+			mod(firstToUpper(dmgType) .. "Min", "BASE", 1, nil, ModFlag.Attack, { type = "PercentStat", stat = "AccuracyOnWeapon 1", percent = num }, { type = "SkillType", skillType = SkillType.NonWeaponAttack, neg = true } , { type = "Condition", var = "MainHandAttack" }),
+			mod(firstToUpper(dmgType) .. "Max", "BASE", 1, nil, ModFlag.Attack, { type = "PercentStat", stat = "AccuracyOnWeapon 1", percent = num }, { type = "SkillType", skillType = SkillType.NonWeaponAttack, neg = true } , { type = "Condition", var = "MainHandAttack" }),
+			mod(firstToUpper(dmgType) .. "Min", "BASE", 1, nil, ModFlag.Attack, { type = "PercentStat", stat = "AccuracyOnWeapon 2", percent = num }, { type = "SkillType", skillType = SkillType.NonWeaponAttack, neg = true } , { type = "Condition", var = "OffHandAttack" }),
+			mod(firstToUpper(dmgType) .. "Max", "BASE", 1, nil, ModFlag.Attack, { type = "PercentStat", stat = "AccuracyOnWeapon 2", percent = num }, { type = "SkillType", skillType = SkillType.NonWeaponAttack, neg = true } , { type = "Condition", var = "OffHandAttack" }),
+		} end,
 	-- Ascendant
 	["grants (%d+) passive skill points?"] = function(num) return { mod("ExtraPoints", "BASE", num) } end,
 	["can allocate passives from the %a+'s starting point"] = { },
@@ -5585,7 +5593,7 @@ local preSkillNameList = { }
 for gemId, gemData in pairs(data.gems) do
 	local grantedEffect = gemData.grantedEffect
 	if not grantedEffect.hidden and not grantedEffect.support then
-		local skillName = grantedEffect.name
+		local skillName = grantedEffect.baseTypeName or grantedEffect.name
 		skillNameList[" "..skillName:lower().." "] = { tag = { type = "SkillName", skillName = skillName, includeTransfigured = true } }
 		preSkillNameList["^"..skillName:lower().." "] = { tag = { type = "SkillName", skillName = skillName, includeTransfigured = true } }
 		preSkillNameList["^"..skillName:lower().." has ?a? "] = { tag = { type = "SkillName", skillName = skillName, includeTransfigured = true } }

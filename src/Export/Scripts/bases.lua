@@ -141,11 +141,12 @@ directiveTable.base = function(state, args, out)
 	end
 	local inherentSkillType = dat("ItemInherentSkills"):GetRow("BaseItemType", baseItemType)
 	if inherentSkillType then
-		local skillGem = dat("SkillGems"):GetRow("BaseItemType", inherentSkillType.Skill)
+		local skillGem = dat("SkillGems"):GetRow("BaseItemType", inherentSkillType.Skill[1].BaseItemType)
+		local gemEffect = dat("GemEffects"):GetRow("GrantedEffect", skillGem.GemEffects[1].GrantedEffect)
 		if #inherentSkillType.Skill > 1 then
 			print("Unhandled Instance - Inherent Skill number more than 1")
 		end
-		out:write('\timplicit = "Grants Skill: Level (1-20) ', inherentSkillType.Skill[1].BaseItemType.Name, '",\n')
+		out:write('\timplicit = "Grants Skill: Level (1-20) ', gemEffect.GrantedEffect.ActiveSkill.DisplayName, '",\n')
 	end
 	out:write('\timplicitModTypes = { ')
 	for i=1,#implicitModTypes do

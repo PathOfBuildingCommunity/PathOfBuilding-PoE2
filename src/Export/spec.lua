@@ -7238,7 +7238,7 @@ return {
 			list=true,
 			name="Skill",
 			refTo="SkillGems",
-			type="ShortKey",
+			type="Key",
 			width=400
 		},
 		[3]={
