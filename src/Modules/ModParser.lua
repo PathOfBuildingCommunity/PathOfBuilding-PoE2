@@ -1930,7 +1930,8 @@ local gemIdLookup = {
 }
 for name, grantedEffect in pairs(data.skills) do
 	if not grantedEffect.hidden or grantedEffect.fromItem or grantedEffect.fromTree then
-		gemIdLookup[grantedEffect.name:lower()] = grantedEffect.id
+		local gemName = grantedEffect.baseTypeName and grantedEffect.baseTypeName:lower() or grantedEffect.name:lower()
+		gemIdLookup[gemName] = grantedEffect.id
 	end
 end
 local function grantedExtraSkill(name, level, noSupports)
@@ -5570,7 +5571,7 @@ local preSkillNameList = { }
 for gemId, gemData in pairs(data.gems) do
 	local grantedEffect = gemData.grantedEffect
 	if not grantedEffect.hidden and not grantedEffect.support then
-		local skillName = grantedEffect.name
+		local skillName = grantedEffect.baseTypeName or grantedEffect.name
 		skillNameList[" "..skillName:lower().." "] = { tag = { type = "SkillName", skillName = skillName, includeTransfigured = true } }
 		preSkillNameList["^"..skillName:lower().." "] = { tag = { type = "SkillName", skillName = skillName, includeTransfigured = true } }
 		preSkillNameList["^"..skillName:lower().." has ?a? "] = { tag = { type = "SkillName", skillName = skillName, includeTransfigured = true } }

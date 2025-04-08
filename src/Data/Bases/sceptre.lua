@@ -7,7 +7,7 @@ itemBases["Rattling Sceptre"] = {
 	quality = 20,
 	spirit = 100,
 	tags = { default = true, onehand = true, sceptre = true, },
-	implicit = "Grants Skill: Level (1-20) Skeletal Warrior",
+	implicit = "Grants Skill: Level (1-20) Skeletal Warrior Minion",
 	implicitModTypes = { },
 	req = { },
 }
@@ -25,7 +25,7 @@ itemBases["Lupine Sceptre"] = {
 	quality = 20,
 	spirit = 100,
 	tags = { default = true, onehand = true, sceptre = true, },
-	implicit = "Grants Skill: Level (1-20) Skeletal Warrior",
+	implicit = "Grants Skill: Level (1-20) Skeletal Warrior Minion",
 	implicitModTypes = { },
 	req = { },
 }
@@ -43,7 +43,7 @@ itemBases["Ochre Sceptre"] = {
 	quality = 20,
 	spirit = 100,
 	tags = { default = true, onehand = true, sceptre = true, },
-	implicit = "Grants Skill: Level (1-20) Skeletal Warrior",
+	implicit = "Grants Skill: Level (1-20) Skeletal Warrior Minion",
 	implicitModTypes = { },
 	req = { },
 }
@@ -79,7 +79,7 @@ itemBases["Devouring Sceptre"] = {
 	quality = 20,
 	spirit = 100,
 	tags = { default = true, onehand = true, sceptre = true, },
-	implicit = "Grants Skill: Level (1-20) Skeletal Warrior",
+	implicit = "Grants Skill: Level (1-20) Skeletal Warrior Minion",
 	implicitModTypes = { },
 	req = { },
 }
@@ -88,7 +88,7 @@ itemBases["Clasped Sceptre"] = {
 	quality = 20,
 	spirit = 100,
 	tags = { default = true, onehand = true, sceptre = true, },
-	implicit = "Grants Skill: Level (1-20) Skeletal Warrior",
+	implicit = "Grants Skill: Level (1-20) Skeletal Warrior Minion",
 	implicitModTypes = { },
 	req = { },
 }
@@ -97,7 +97,7 @@ itemBases["Devotional Sceptre"] = {
 	quality = 20,
 	spirit = 100,
 	tags = { default = true, onehand = true, sceptre = true, },
-	implicit = "Grants Skill: Level (1-20) Skeletal Warrior",
+	implicit = "Grants Skill: Level (1-20) Skeletal Warrior Minion",
 	implicitModTypes = { },
 	req = { },
 }
@@ -106,7 +106,7 @@ itemBases["Wrath Sceptre"] = {
 	quality = 20,
 	spirit = 100,
 	tags = { default = true, onehand = true, sceptre = true, },
-	implicit = "Grants Skill: Level (1-20) Skeletal Warrior",
+	implicit = "Grants Skill: Level (1-20) Skeletal Warrior Minion",
 	implicitModTypes = { },
 	req = { },
 }
@@ -115,7 +115,7 @@ itemBases["Aromatic Sceptre"] = {
 	quality = 20,
 	spirit = 100,
 	tags = { default = true, onehand = true, sceptre = true, },
-	implicit = "Grants Skill: Level (1-20) Skeletal Warrior",
+	implicit = "Grants Skill: Level (1-20) Skeletal Warrior Minion",
 	implicitModTypes = { },
 	req = { },
 }
@@ -124,7 +124,7 @@ itemBases["Pious Sceptre"] = {
 	quality = 20,
 	spirit = 100,
 	tags = { default = true, onehand = true, sceptre = true, },
-	implicit = "Grants Skill: Level (1-20) Skeletal Warrior",
+	implicit = "Grants Skill: Level (1-20) Skeletal Warrior Minion",
 	implicitModTypes = { },
 	req = { },
 }
@@ -133,7 +133,7 @@ itemBases["Hallowed Sceptre"] = {
 	quality = 20,
 	spirit = 100,
 	tags = { default = true, onehand = true, sceptre = true, },
-	implicit = "Grants Skill: Level (1-20) Skeletal Warrior",
+	implicit = "Grants Skill: Level (1-20) Skeletal Warrior Minion",
 	implicitModTypes = { },
 	req = { },
 }
