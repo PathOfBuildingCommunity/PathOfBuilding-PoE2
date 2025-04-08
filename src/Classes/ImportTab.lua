@@ -986,7 +986,11 @@ function ImportTabClass:ImportItem(itemData, slotName)
 		else
 			self.build.itemsTab:AddItem(item, true)
 		end
-		self.build.itemsTab.slots[slotName]:SetSelItemId(item.id)
+		if self.build.itemsTab.slots[slotName] then
+			self.build.itemsTab.slots[slotName]:SetSelItemId(item.id)
+		else
+			ConPrintf("Unrecognised slot name in imported item: %s", slotName)
+		end
 	end
 end
 
