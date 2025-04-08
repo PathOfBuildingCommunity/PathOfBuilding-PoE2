@@ -5,6 +5,7 @@ return {
 [[
 Olroth's Resolve
 Ultimate Life Flask
+Source: Drops from unique{Olroth, Origin of the Fall}
 Instant Recovery
 (100-150)% increased Charges per use
 Excess Life Recovery added as Guard for 10 seconds
@@ -13,6 +14,7 @@ Excess Life Recovery added as Guard for 10 seconds
 [[
 Melting Maelstrom
 Ultimate Mana Flask
+Source: Drops from unique{Kosis, The Revelation}
 Variant: Pre 0.2.0
 Variant: Current
 Effect is not removed when Unreserved Mana is Filled

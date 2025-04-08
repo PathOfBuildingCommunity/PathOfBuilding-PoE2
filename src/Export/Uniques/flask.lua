@@ -5,6 +5,7 @@ return {
 [[
 Olroth's Resolve
 Ultimate Life Flask
+Source: Drops from unique{Olroth, Origin of the Fall}
 UniqueFlaskFullInstantRecovery1
 UniqueFlaskChargesUsed1
 UniqueFlaskOverhealToGuard1
@@ -13,6 +14,7 @@ UniqueFlaskOverhealToGuard1
 [[
 Melting Maelstrom
 Ultimate Mana Flask
+Source: Drops from unique{Kosis, The Revelation}
 Variant: Pre 0.2.0
 Variant: Current
 UniqueFlaskEffectNotRemovedOnFullMana1

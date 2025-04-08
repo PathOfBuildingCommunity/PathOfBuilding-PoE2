@@ -17,6 +17,7 @@ UniqueDamageAddedAsColdAttacks1
 ]],[[
 Beyond Reach
 Visceral Quiver
+Source: Drops from unique{Xesht, We That Are One} in normal{Twisted Domain}
 Implicits: 1
 QuiverImplicitCriticalStrikeChance1
 UniqueIncreasedAttackSpeed6

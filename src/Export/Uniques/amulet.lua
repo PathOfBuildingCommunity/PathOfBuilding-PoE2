@@ -46,6 +46,7 @@ UniqueLifeLeechAmount1
 ]],[[
 Choir of the Storm
 Jade Amulet
+Source: Drops from unique{Xesht, We That Are One} in normal{Twisted Domain}
 Implicits: 2
 AmuletImplicitDexterity1
 Grants Skill: Level (1-20) Lightning Bolt
@@ -144,6 +145,7 @@ UniqueEnergyShieldRegenerationFromLife1
 ]],[[
 The Pandemonius
 Lapis Amulet
+Source: Drops from unique{Xesht, We That Are One} in normal{Twisted Domain}
 Requires Level 52
 Implicits: 1
 AmuletImplicitIntelligence1
@@ -210,6 +212,7 @@ UniqueNoCriticalStrikeMultiplier1
 ]],[[
 Xoph's Blood
 Amber Amulet
+Source: Drops from unique{Xesht, We That Are One} in normal{Twisted Domain}
 Implicits: 1
 AmuletImplicitStrength1
 UniqueMaximumLifeIncrease7

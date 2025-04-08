@@ -17,6 +17,7 @@ Attacks Gain (5-10)% of Damage as Extra Cold Damage
 ]],[[
 Beyond Reach
 Visceral Quiver
+Source: Drops from unique{Xesht, We That Are One} in normal{Twisted Domain}
 Implicits: 1
 (20-30)% increased Critical Hit Chance for Attacks
 (10-15)% reduced Attack Speed

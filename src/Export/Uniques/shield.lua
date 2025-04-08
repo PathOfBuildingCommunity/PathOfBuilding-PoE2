@@ -71,6 +71,7 @@ UniqueRecoverLifePercentOnBlock1
 ]],[[
 Svalinn
 Crucible Tower Shield
+Source: Drops from unique{Olroth, Origin of the Fall}
 Implicits: 2
 Grants Skill: Raise Shield
 Grants Skill: Cast on Block
@@ -265,9 +266,10 @@ UniqueManaRegeneration3
 UniqueGlobalCooldownRecovery1
 ]],[[
 Mahuxotl's Machination
+Omen Crest Shield
 Variant: Pre 0.2.0
 Variant: Current
-Omen Crest Shield
+Source: Drops from unique{Trialmaster} in normal{The Trial of Chaos}
 Implicits: 1
 Grants Skill: Raise Shield
 UniqueLocalIncreasedArmourAndEnergyShield16

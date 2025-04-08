@@ -409,6 +409,7 @@ Variant: Current
 ]],[[
 Perfidy
 Knight Armour
+Source: Drops from unique{Kosis, The Revelation}
 (100-150)% increased Armour and Evasion
 (10-40)% chance to Avoid Physical Damage from Hits
 (10-40)% chance to Avoid Chaos Damage from Hits
@@ -416,6 +417,7 @@ Enemies in your Presence are Intimidated
 ]],[[
 Pragmatism
 Explorer Armour
+Source: Drops from unique{The King in the Mists} in normal{Crux of Nothingness}
 (200-300)% increased Armour and Evasion
 +(10-20)% to all Elemental Resistances
 -17% to Chaos Resistance
@@ -576,6 +578,7 @@ Morior Invictus
 Grand Regalia
 Has Alt Variant: true
 Has Alt Variant Two: true
+Source: Drops from unique{Arbiter of Ash} in normal{The Burning Monolith}
 Selected Variant: 2
 Selected Alt Variant: 4
 Selected Alt Variant Two: 6
@@ -618,6 +621,7 @@ Sockets: S S S S
 ]],[[
 Skin of the Loyal
 Garment
+Source: Drops from unique{Xesht, We That Are One} in normal{Twisted Domain}
 +(5-40)% to all Elemental Resistances
 Elemental Ailment Threshold is increased by Overcapped Chaos Resistance
 Armour is increased by Overcapped Fire Resistance

@@ -85,6 +85,7 @@ Implicits: 1
 ]],[[
 Ingenuity
 Utility Belt
+Source: Drops from unique{The King in the Mists} in normal{Crux of Nothingness}
 Variant: Pre 0.2.0
 Variant: Current
 Implicits: 1
@@ -165,6 +166,7 @@ Life and Mana Flasks can be equipped in either slot
 ]],[[
 Zerphi's Genesis
 Heavy Belt
+Source: Drops from unique{Trialmaster} in normal{The Trial of Chaos}
 Requires Level 56
 Implicits: 1
 (20-30)% increased Stun Threshold

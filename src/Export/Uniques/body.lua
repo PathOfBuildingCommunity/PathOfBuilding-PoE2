@@ -402,6 +402,7 @@ UniqueManaCostReduction1
 ]],[[
 Perfidy
 Knight Armour
+Source: Drops from unique{Kosis, The Revelation}
 UniqueLocalIncreasedArmourAndEvasion7
 UniquePhysicalDamageAvoidance1
 UniqueChaosDamageAvoidance1
@@ -409,6 +410,7 @@ UniqueEnemiesInPresenceIntimidate1
 ]],[[
 Pragmatism
 Explorer Armour
+Source: Drops from unique{The King in the Mists} in normal{Crux of Nothingness}
 UniqueLocalIncreasedArmourAndEvasion22
 UniqueAllResistances6
 UniqueChaosResist19
@@ -568,6 +570,7 @@ Morior Invictus
 Grand Regalia
 Has Alt Variant: true
 Has Alt Variant Two: true
+Source: Drops from unique{Arbiter of Ash} in normal{The Burning Monolith}
 Selected Variant: 2
 Selected Alt Variant: 4
 Selected Alt Variant Two: 6
@@ -610,6 +613,7 @@ UniqueLocalArmourAndEvasionAndEnergyShield1
 ]],[[
 Skin of the Loyal
 Garment
+Source: Drops from unique{Xesht, We That Are One} in normal{Twisted Domain}
 UniqueAllResistances16
 UniqueAilmentThresholdOvercappedChaosResistance1
 UniqueArmourOvercappedFireResistance1
