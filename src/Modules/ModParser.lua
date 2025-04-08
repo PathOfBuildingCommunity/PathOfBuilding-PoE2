@@ -2881,6 +2881,11 @@ local specialModList = {
 	["gain (%d+)%% increased attack speed for 20 seconds when you kill a rare or unique enemy"] = function(num) return { mod("Speed", "INC", num, nil, ModFlag.Attack, 0, { type = "Condition", var = "KilledUniqueEnemy" }) } end,
 	["kill enemies that have (%d+)%% or lower life when hit by your skills"] = function(num) return { mod("CullPercent", "MAX", num) } end,
 	["you are unaffected by bleeding while leeching"] = { mod("SelfBleedEffect", "MORE", -100, { type = "Condition", var = "Leeching" }) },
+	-- Tactician
+	["allies in your presence gain added attack damage equal to (%d+)%% of your main hand weapon's damage"] = function(num) return {
+			mod("ExtraAura", "LIST", { onlyAllies = true, mod = flag("GainMainHandDmgFromParent") }),
+			mod("Multiplier:MainHandDamageToAllies", "BASE", num),
+		} end,
 	-- Warrior - Titan
 	["(%d+)%% increased effect of small passive skills"] = function(num) return { mod("SmallPassiveSkillEffect", "INC", num) } end,
 	-- Warrior - Warbringer

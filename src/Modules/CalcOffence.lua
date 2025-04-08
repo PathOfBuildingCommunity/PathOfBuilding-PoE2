@@ -651,6 +651,22 @@ function calcs.offence(env, actor, activeSkill)
 			output["AccuracyOnWeapon " .. i] = actor.itemList["Weapon " .. i].baseModList:Sum("BASE", nil, "Accuracy")
 		end
 	end
+	-- Add bonus mods for Tactician's "Watch How I Do It" (technically this could be done in ModParser, but it would always add 10 mods instead of just the necessary ones)
+	if actor.parent and actor.modDB:Flag(nil, "GainMainHandDmgFromParent") and actor.parent.itemList["Weapon 1"] then
+		local modSource = ""
+		for i, value in ipairs(actor.modDB:Tabulate("FLAG", nil, "GainMainHandDmgFromParent")) do
+			modSource = value.mod.source
+		end
+		local modValue = actor.parent.modDB:Sum("BASE", { source = modSource }, "Multiplier:MainHandDamageToAllies")
+		for _, damageType in ipairs(dmgTypeList) do
+			if actor.parent.weaponData1[damageType .. "Min"] then
+				skillModList:NewMod(damageType .. "Min", "BASE", 1, modSource, { type = "PercentStat", stat = damageType .. "MinOnWeapon 1", percent = modValue, actor = "parent" }, { type = "SkillType", skillType = SkillType.Attack })
+			end
+			if actor.parent.weaponData1[damageType .. "Max"] then
+				skillModList:NewMod(damageType .. "Max", "BASE", 1, modSource, { type = "PercentStat", stat = damageType .. "MaxOnWeapon 1", percent = modValue, actor = "parent" }, { type = "SkillType", skillType = SkillType.Attack })
+			end
+		end
+	end
 	if skillModList:Flag(nil, "MinionDamageAppliesToPlayer") or skillModList:Flag(skillCfg, "MinionDamageAppliesToPlayer") then
 		-- Minion Damage conversion from Spiritual Aid and The Scourge
 		local multiplier = (skillModList:Max(skillCfg, "ImprovedMinionDamageAppliesToPlayer") or 100) / 100
