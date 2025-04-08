@@ -4426,6 +4426,9 @@ local specialModList = {
 	["energy shield does not recharge"] = { flag("NoEnergyShieldRecharge") },
 	["you cannot regenerate energy shield" ] = { flag("NoEnergyShieldRegen") },
 	["cannot recharge or regenerate energy shield"] = { flag("NoEnergyShieldRecharge"), flag("NoEnergyShieldRegen") },
+	["enemies you (%a+) cannot recharge energy shield"] = function(_, cond) return {
+		mod("EnemyModifier", "LIST", { mod = flag("NoEnergyShieldRecharge" )}, { type = "Condition", var = cond:gsub("^%a", string.upper) })
+	} end,
 	["left ring slot: you cannot recharge or regenerate energy shield"] = { flag("NoEnergyShieldRecharge", { type = "SlotNumber", num = 1 }), flag("NoEnergyShieldRegen", { type = "SlotNumber", num = 1 }) },
 	["cannot gain energy shield"] = { flag("CannotGainEnergyShield") },
 	["cannot gain life"] = { flag("CannotGainLife") },
