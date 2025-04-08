@@ -527,7 +527,7 @@ function calcs.offence(env, actor, activeSkill)
 			func(activeSkill, output, breakdown)
 		end
 	end
-	-- Checks if a given item is calssified as a martial weapon base on global data.weaponTypeInfo table
+	-- Checks if a given item is classified as a martial weapon base on global data.weaponTypeInfo table
 	-- Note: long-term it might be better to add "MartialWeapon" flags to items instead potentially once PR #688 is complete
 	---@param item table @item as contained in actor.itemList
 	---@return boolean
