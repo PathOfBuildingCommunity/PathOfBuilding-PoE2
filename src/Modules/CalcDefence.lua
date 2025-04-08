@@ -239,13 +239,9 @@ function calcs.doActorLifeManaSpiritReservation(actor)
 					values.reservedPercent = values.reservedPercent * activeSkill.activeMineCount
 				end
 				if activeSkill.skillTypes[SkillType.MultipleReservation] then
-					if activeSkill.skillCfg.skillName == "Skeletal Warrior Minion" then
-						local activeSkillCount, enabled = calcs.getActiveSkillCount(activeSkill)
-						values.reservedFlat = values.reservedFlat * m_max(activeSkillCount - 2, 0)
-					else
-						local activeSkillCount, enabled = calcs.getActiveSkillCount(activeSkill)
-						values.reservedFlat = values.reservedFlat * activeSkillCount
-					end
+					local activeSkillCount, enabled = calcs.getActiveSkillCount(activeSkill)
+					local minionFreeSpiritCount= skillModList:Sum("BASE", skillCfg, "MinionFreeSpiritCount")
+					values.reservedFlat = values.reservedFlat * m_max(activeSkillCount - minionFreeSpiritCount, 0)
 				end
 				
 				if activeSkill.skillTypes[SkillType.IsBlasphemy] and activeSkill.activeEffect.srcInstance.supportEffect and activeSkill.activeEffect.srcInstance.supportEffect.isSupporting then

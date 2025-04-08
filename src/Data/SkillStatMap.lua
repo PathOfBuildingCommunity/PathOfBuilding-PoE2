@@ -2221,6 +2221,9 @@ return {
 ["number_of_mage_skeletons_to_summon"] = {
 	mod("MinionPerCastCount", "BASE", nil)
 },
+["first_X_minions_have_0_base_spirit_reservation"] = {
+	mod("MinionFreeSpiritCount", "BASE", nil)
+},
 ["minion_always_crit"] = {
 	mod("MinionModifier", "LIST", { mod = mod("CritChance", "OVERRIDE", nil) }),
 	value = 100,

@@ -945,11 +945,6 @@ statMap = {
 #skill SummonSkeletalWarriorsPlayer
 #set SummonSkeletalWarriorsPlayer
 #flags spell minion permanentMinion
-statMap = {
-	["first_X_minions_have_0_base_spirit_reservation"] = {
-		-- Display only, done in CalcDefence.lua
-	},
-},
 #mods
 #skillEnd
 

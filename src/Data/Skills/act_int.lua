@@ -15185,11 +15185,6 @@ skills["SummonSkeletalWarriorsPlayer"] = {
 			baseEffectiveness = 0,
 			incrementalEffectiveness = 0.092720001935959,
 			statDescriptionScope = "skill_stat_descriptions",
-			statMap = {
-				["first_X_minions_have_0_base_spirit_reservation"] = {
-					-- Display only, done in CalcDefence.lua
-				},
-			},
 			baseFlags = {
 				spell = true,
 				minion = true,
