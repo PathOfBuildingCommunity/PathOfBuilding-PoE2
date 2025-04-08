@@ -898,7 +898,7 @@ c["10% increased Critical Hit Chance with Daggers"]={{[1]={flags=524292,keywordF
 c["10% increased Critical Hit Chance with One Handed Melee Weapons"]={{[1]={flags=21474836484,keywordFlags=0,name="CritChance",type="INC",value=10}},nil}
 c["10% increased Critical Hit Chance with Traps"]={{[1]={flags=0,keywordFlags=4096,name="CritChance",type="INC",value=10}},nil}
 c["10% increased Curse Duration"]={{[1]={flags=0,keywordFlags=2,name="Duration",type="INC",value=10}},nil}
-c["10% increased Curse Magnitudes"]={{}," Curse Magnitudes "}
+c["10% increased Curse Magnitudes"]={{[1]={flags=0,keywordFlags=0,name="CurseEffect",type="INC",value=10}},nil}
 c["10% increased Damage"]={{[1]={flags=0,keywordFlags=0,name="Damage",type="INC",value=10}},nil}
 c["10% increased Damage per Endurance Charge"]={{[1]={[1]={type="Multiplier",var="EnduranceCharge"},flags=0,keywordFlags=0,name="Damage",type="INC",value=10}},nil}
 c["10% increased Damage per Frenzy Charge"]={{[1]={[1]={type="Multiplier",var="FrenzyCharge"},flags=0,keywordFlags=0,name="Damage",type="INC",value=10}},nil}
@@ -1399,7 +1399,7 @@ c["18% increased Chaos Damage"]={{[1]={flags=0,keywordFlags=0,name="ChaosDamage"
 c["18% increased Charm Effect Duration"]={{[1]={flags=0,keywordFlags=0,name="CharmDuration",type="INC",value=18}},nil}
 c["18% increased Cold Damage"]={{[1]={flags=0,keywordFlags=0,name="ColdDamage",type="INC",value=18}},nil}
 c["18% increased Critical Damage Bonus with Quarterstaves"]={{[1]={flags=2097156,keywordFlags=0,name="CritMultiplier",type="INC",value=18}},nil}
-c["18% increased Curse Magnitudes"]={{}," Curse Magnitudes "}
+c["18% increased Curse Magnitudes"]={{[1]={flags=0,keywordFlags=0,name="CurseEffect",type="INC",value=18}},nil}
 c["18% increased Fire Damage"]={{[1]={flags=0,keywordFlags=0,name="FireDamage",type="INC",value=18}},nil}
 c["18% increased Lightning Damage"]={{[1]={flags=0,keywordFlags=0,name="LightningDamage",type="INC",value=18}},nil}
 c["18% increased Mana Regeneration Rate"]={{[1]={flags=0,keywordFlags=0,name="ManaRegen",type="INC",value=18}},nil}
@@ -1871,8 +1871,7 @@ c["3% increased Attack and Cast Speed with Lightning Skills"]={{[1]={flags=0,key
 c["3% increased Attributes"]={{[1]={flags=0,keywordFlags=0,name="Str",type="INC",value=3},[2]={flags=0,keywordFlags=0,name="Dex",type="INC",value=3},[3]={flags=0,keywordFlags=0,name="Int",type="INC",value=3},[4]={flags=0,keywordFlags=0,name="All",type="INC",value=3}},nil}
 c["3% increased Cast Speed"]={{[1]={flags=16,keywordFlags=0,name="Speed",type="INC",value=3}},nil}
 c["3% increased Cast Speed with Cold Skills"]={{[1]={flags=16,keywordFlags=64,name="Speed",type="INC",value=3}},nil}
-c["3% increased Curse Magnitudes"]={{}," Curse Magnitudes "}
-c["3% increased Curse Magnitudes 10% faster Curse Activation"]={{[1]={flags=0,keywordFlags=0,name="CurseActivation",type="INC",value=3}}," Curse Magnitudes 10% faster  "}
+c["3% increased Curse Magnitudes"]={{[1]={flags=0,keywordFlags=0,name="CurseEffect",type="INC",value=3}},nil}
 c["3% increased Melee Attack Speed"]={{[1]={flags=257,keywordFlags=0,name="Speed",type="INC",value=3}},nil}
 c["3% increased Movement Speed"]={{[1]={flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=3}},nil}
 c["3% increased Movement Speed if you've Killed Recently"]={{[1]={[1]={type="Condition",var="KilledRecently"},flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=3}},nil}
@@ -2458,7 +2457,7 @@ c["6% increased Cast Speed"]={{[1]={flags=16,keywordFlags=0,name="Speed",type="I
 c["6% increased Cast Speed for each different Non-Instant Spell you've Cast Recently"]={{[1]={[1]={type="Multiplier",var="NonInstantSpellCastRecently"},flags=16,keywordFlags=0,name="Speed",type="INC",value=6}},nil}
 c["6% increased Cooldown Recovery Rate"]={{[1]={flags=0,keywordFlags=0,name="CooldownRecovery",type="INC",value=6}},nil}
 c["6% increased Critical Hit Chance"]={{[1]={flags=0,keywordFlags=0,name="CritChance",type="INC",value=6}},nil}
-c["6% increased Curse Magnitudes"]={{}," Curse Magnitudes "}
+c["6% increased Curse Magnitudes"]={{[1]={flags=0,keywordFlags=0,name="CurseEffect",type="INC",value=6}},nil}
 c["6% increased Fire Damage"]={{[1]={flags=0,keywordFlags=0,name="FireDamage",type="INC",value=6}},nil}
 c["6% increased Intelligence"]={{[1]={flags=0,keywordFlags=0,name="Int",type="INC",value=6}},nil}
 c["6% increased Magnitude of Damaging Ailments you inflict"]={{[1]={flags=0,keywordFlags=14680064,name="AilmentMagnitude",type="INC",value=6}},nil}
@@ -2582,8 +2581,7 @@ c["8% increased Cold Damage"]={{[1]={flags=0,keywordFlags=0,name="ColdDamage",ty
 c["8% increased Critical Damage Bonus"]={{[1]={flags=0,keywordFlags=0,name="CritMultiplier",type="INC",value=8}},nil}
 c["8% increased Critical Damage Bonus per Power Charge"]={{[1]={[1]={type="Multiplier",var="PowerCharge"},flags=0,keywordFlags=0,name="CritMultiplier",type="INC",value=8}},nil}
 c["8% increased Critical Hit Chance for Attacks"]={{[1]={flags=1,keywordFlags=0,name="CritChance",type="INC",value=8}},nil}
-c["8% increased Curse Magnitudes"]={{}," Curse Magnitudes "}
-c["8% increased Curse Magnitudes Enemies you Curse are Hindered, with 15% reduced Movement Speed"]={{[1]={flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=8}}," Curse Magnitudes Enemies you Curse are Hindered, with 15% reduced  "}
+c["8% increased Curse Magnitudes"]={{[1]={flags=0,keywordFlags=0,name="CurseEffect",type="INC",value=8}},nil}
 c["8% increased Damage for each time you've Warcried Recently"]={{[1]={[1]={type="Multiplier",var="WarcryUsedRecently"},flags=0,keywordFlags=0,name="Damage",type="INC",value=8}},nil}
 c["8% increased Damage while in the Presence of your Companion"]={{[1]={flags=0,keywordFlags=0,name="Damage",type="INC",value=8}},"  while in the Presence of your Companion "}
 c["8% increased Dexterity"]={{[1]={flags=0,keywordFlags=0,name="Dex",type="INC",value=8}},nil}

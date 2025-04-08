@@ -772,6 +772,7 @@ local modNameList = {
 	["bleed duration on you"] = "SelfBleedDuration",
 	["bleeding duration on you"] = "SelfBleedDuration",
 	["to blind enemies on hit"] = { "BlindChance" },
+	["curse magnitudes"] = { "CurseEffect" },
 	-- Misc modifiers
 	["movement speed"] = "MovementSpeed",
 	["attack, cast and movement speed"] = { "Speed", "MovementSpeed" },
