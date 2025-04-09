@@ -2564,6 +2564,9 @@ local specialModList = {
 	} end,
 	-- Deadeye
 	["projectiles pierce all nearby targets"] = { flag("PierceAllTargets") },
+	["you have no accuracy penalty at distance"] = { flag("NoAccuracyDistancePenalty") },
+	["enemies have an accuracy penalty against you based on distance"] = { flag("EnemyAccuracyDistancePenalty") },
+	["has no accuracy penalty from range"] = { flag("NoAccuracyDistancePenalty", { type = "Condition", var = "{Hand}Attack" }) },
 	["gain %+(%d+) life when you hit a bleeding enemy"] = function(num) return { mod("LifeOnHit", "BASE", num, nil, ModFlag.Hit, { type = "ActorCondition", actor = "enemy", var = "Bleeding" }) } end,
 	["accuracy rating is doubled"] = { mod("Accuracy", "MORE", 100) },
 	["(%d+)%% increased blink arrow and mirror arrow cooldown recovery speed"] = function(num) return {
@@ -3042,6 +3045,7 @@ local specialModList = {
 	-- Skill modifiers
 	["([%+%-]%d+)%% to quality of all skills"] = function(num) return { mod("GemProperty", "LIST", { keyword = "grants_active_skill", key = "quality", value = num, keyOfScaledMod = "value"  }) } end,
 	["([%+%-]%d+)%%? to (%a+) of all ?([%a%-' ]*) skills? ?w?i?t?h? ?a?n? ?(%a+) ?r?e?q?u?i?r?e?m?e?n?t?"] = function(num, _, property, type, gemReq)
+		if type == "" then type = "all" end
 		local gemReqType
 		if gemReq == "intelligence" then
 			gemReqType = "reqInt"

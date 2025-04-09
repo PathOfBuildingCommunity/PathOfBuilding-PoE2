@@ -28,21 +28,12 @@ local dmgTypeList = {"Physical", "Lightning", "Cold", "Fire", "Chaos"}
 local resistTypeList = { "Fire", "Cold", "Lightning", "Chaos" }
 
 -- Calculate hit chance
-function calcs.hitChance(evasion, accuracy)
+function calcs.hitChance(evasion, accuracy, capped)
 	if accuracy < 0 then
 		return 5
 	end
 	local rawChance = ( accuracy * 1.5 ) / ( accuracy + evasion ) * 100
-	return m_max(m_min(round(rawChance), 100), 5)	
-end
-
--- Calculate uncapped hit chance for mods that enable "Chance to hit with Attacks can exceed 100%"
-function calcs.hitChanceUncapped(evasion, accuracy)
-	if accuracy < 0 then
-		return 5
-	end
-	local rawChance = ( accuracy * 1.5 ) / ( accuracy + evasion ) * 100
-	return m_max(round(rawChance), 5)	
+	return capped and m_max(round(rawChance), 5) or m_max(m_min(round(rawChance), 100), 5)	
 end
 -- Calculate damage reduction from armour, float
 function calcs.armourReductionF(armour, raw)
@@ -1247,11 +1238,17 @@ function calcs.defence(env, actor)
 			output.ProjectileEvadeChance = 100
 		else
 			local enemyAccuracy = round(calcLib.val(enemyDB, "Accuracy"))
+			if modDB:Flag(nil, "EnemyAccuracyDistancePenalty") then
+				local enemyDistance = m_max(m_min(modDB:Sum("BASE", nil, "Multiplier:enemyDistance"), 120), 20)
+				local accuracyPenalty = 1 - ((enemyDistance - 20) / 100) * (1 - 0.1)
+				enemyAccuracy = m_floor(enemyAccuracy * accuracyPenalty)
+			end
 			local evadeChance = modDB:Sum("BASE", nil, "EvadeChance")
 			local hitChance = calcLib.mod(enemyDB, nil, "HitChance")
+			local evadeMax = modDB:Max(nil, "EvadeChanceMax") or data.misc.EvadeChanceCap
 			output.EvadeChance = 100 - (calcs.hitChance(output.Evasion, enemyAccuracy) - evadeChance) * hitChance
-			output.MeleeEvadeChance = m_max(0, m_min(data.misc.EvadeChanceCap, (100 - (calcs.hitChance(output.MeleeEvasion, enemyAccuracy) - evadeChance) * hitChance) * calcLib.mod(modDB, nil, "EvadeChance", "MeleeEvadeChance")))
-			output.ProjectileEvadeChance = m_max(0, m_min(data.misc.EvadeChanceCap, (100 - (calcs.hitChance(output.ProjectileEvasion, enemyAccuracy) - evadeChance) * hitChance) * calcLib.mod(modDB, nil, "EvadeChance", "ProjectileEvadeChance")))
+			output.MeleeEvadeChance = m_max(0, m_min(evadeMax, (100 - (calcs.hitChance(output.MeleeEvasion, enemyAccuracy) - evadeChance) * hitChance) * calcLib.mod(modDB, nil, "EvadeChance", "MeleeEvadeChance")))
+			output.ProjectileEvadeChance = m_max(0, m_min(evadeMax, (100 - (calcs.hitChance(output.ProjectileEvasion, enemyAccuracy) - evadeChance) * hitChance) * calcLib.mod(modDB, nil, "EvadeChance", "ProjectileEvadeChance")))
 			-- Condition for displaying evade chance only if melee or projectile evade chance have the same values
 			if output.MeleeEvadeChance ~= output.ProjectileEvadeChance then
 				output.splitEvade = true
@@ -1259,7 +1256,7 @@ function calcs.defence(env, actor)
 				output.EvadeChance = output.MeleeEvadeChance
 				output.noSplitEvade = true
 			end
-			output.EvadeChance = m_min(output.EvadeChance, modDB:Max(nil, "EvadeChanceMax") or 100)
+			output.EvadeChance = m_min(output.EvadeChance, evadeMax)
 			if breakdown then
 				breakdown.EvadeChance = {
 					s_format("Enemy level: %d ^8(%s the Configuration tab)", env.enemyLevel, env.configInput.enemyLevel and "overridden from" or "can be overridden in"),

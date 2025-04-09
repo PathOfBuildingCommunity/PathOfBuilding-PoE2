@@ -229,9 +229,9 @@ c["+2 to Level of all Fire Skills"]={{[1]={flags=0,keywordFlags=0,name="GemPrope
 c["+2 to Level of all Lightning Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keyword="lightning",value=2}}},nil}
 c["+2 to Level of all Minion Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keyword="minion",value=2}}},nil}
 c["+2 to Level of all Projectile Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keyword="projectile",value=2}}},nil}
-c["+2 to Level of all Skills with a Dexterity requirement"]={{[1]={flags=0,keywordFlags=0,name="DexRequirement",type="BASE",value=2}}," Level of all Skills with a  "}
-c["+2 to Level of all Skills with a Strength requirement"]={{[1]={flags=0,keywordFlags=0,name="StrRequirement",type="BASE",value=2}}," Level of all Skills with a  "}
-c["+2 to Level of all Skills with an Intelligence requirement"]={{[1]={flags=0,keywordFlags=0,name="IntRequirement",type="BASE",value=2}}," Level of all Skills with an  "}
+c["+2 to Level of all Skills with a Dexterity requirement"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={gemRequirements={reqDex=1},key="level",keyOfScaledMod="value",keyword="all",value=2}}},nil}
+c["+2 to Level of all Skills with a Strength requirement"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={gemRequirements={reqStr=1},key="level",keyOfScaledMod="value",keyword="all",value=2}}},nil}
+c["+2 to Level of all Skills with an Intelligence requirement"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={gemRequirements={reqInt=1},key="level",keyOfScaledMod="value",keyword="all",value=2}}},nil}
 c["+2 to Level of all Spell Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keyword="spell",value=2}}},nil}
 c["+2 to Level of all Withering Presence Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keyword="withering presence",value=2}}},nil}
 c["+2 to Maximum Endurance Charges"]={{[1]={flags=0,keywordFlags=0,name="EnduranceChargesMax",type="BASE",value=2}},nil}
@@ -3746,9 +3746,7 @@ c["Enemies are Culled on Block"]={nil,"Enemies are Culled on Block "}
 c["Enemies have Maximum Concentration equal to 40% of their Maximum Life"]={nil,"Enemies have Maximum Concentration equal to 40% of their Maximum Life "}
 c["Enemies have Maximum Concentration equal to 40% of their Maximum Life Break enemy Concentration on Hit equal to 100% of Damage Dealt"]={nil,"Enemies have Maximum Concentration equal to 40% of their Maximum Life Break enemy Concentration on Hit equal to 100% of Damage Dealt "}
 c["Enemies have Maximum Concentration equal to 40% of their Maximum Life Break enemy Concentration on Hit equal to 100% of Damage Dealt Enemies regain 10% of Concentration every second if they haven't lost Concentration in the past 5 seconds"]={nil,"Enemies have Maximum Concentration equal to 40% of their Maximum Life Break enemy Concentration on Hit equal to 100% of Damage Dealt Enemies regain 10% of Concentration every second if they haven't lost Concentration in the past 5 seconds "}
-c["Enemies have an Accuracy Penalty against you based on Distance"]={nil,"Enemies have an Accuracy Penalty  based on Distance "}
-c["Enemies have an Accuracy Penalty against you based on Distance Maximum Chance to Evade is 50%"]={{[1]={flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Accuracy",type="OVERRIDE",value=50}}}},"Enemies have an  Penalty  based on Distance Maximum Chance to Evade "}
-c["Enemies have an Accuracy Penalty against you based on Distance Maximum Chance to Evade is 50% Maximum Physical Damage Reduction is 50%"]={{[1]={flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Accuracy",type="OVERRIDE",value=50}}}},"Enemies have an  Penalty  based on Distance Maximum Chance to Evade Maximum Physical Damage Reduction is 50% "}
+c["Enemies have an Accuracy Penalty against you based on Distance"]={{[1]={flags=0,keywordFlags=0,name="EnemyAccuracyDistancePenalty",type="FLAG",value=true}},nil}
 c["Enemies in Jagged Ground you create take 10% increased Damage"]={nil,"Enemies in Jagged Ground you create take 10% increased Damage "}
 c["Enemies in your Presence Gain 12% of Damage as Extra Chaos Damage"]={nil,"Enemies in your Presence Gain 12% of Damage as Extra Chaos Damage "}
 c["Enemies in your Presence Resist Elemental Damage based on their Lowest Resistance"]={nil,"Enemies in your Presence Resist Elemental Damage based on their Lowest Resistance "}
@@ -4645,7 +4643,7 @@ c["You have 30% less Defences Companions have +1 to each Defence for every 2 of 
 c["You have Arcane Surge"]={{[1]={flags=0,keywordFlags=0,name="Condition:ArcaneSurge",type="FLAG",value=true}},nil}
 c["You have Consecrated Ground around you while stationary"]={{[1]={[1]={type="Condition",var="Stationary"},flags=0,keywordFlags=0,name="Condition:OnConsecratedGround",type="FLAG",value=true}},nil}
 c["You have a Smoke Cloud around you while stationary"]={nil,"a Smoke Cloud around you  "}
-c["You have no Accuracy Penalty at Distance"]={nil,"no Accuracy Penalty at Distance "}
+c["You have no Accuracy Penalty at Distance"]={{[1]={flags=0,keywordFlags=0,name="NoAccuracyDistancePenalty",type="FLAG",value=true}},nil}
 c["You have no Elemental Resistances"]={{[1]={flags=0,keywordFlags=0,name="FireResist",type="OVERRIDE",value=0},[2]={flags=0,keywordFlags=0,name="ColdResist",type="OVERRIDE",value=0},[3]={flags=0,keywordFlags=0,name="LightningResist",type="OVERRIDE",value=0}},nil}
 c["You have no Life Regeneration"]={{[1]={flags=0,keywordFlags=0,name="NoLifeRegen",type="FLAG",value=true}},nil}
 c["You have no Mana"]={{[1]={flags=0,keywordFlags=0,name="Mana",type="MORE",value=-100}},nil}

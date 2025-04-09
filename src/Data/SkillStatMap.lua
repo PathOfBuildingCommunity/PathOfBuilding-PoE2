@@ -1741,6 +1741,9 @@ return {
 ["accuracy_rating_+%_when_on_low_life"] = {
 	mod("Accuracy", "INC", nil, 0, 0, { type = "Condition", var = "LowLife"})
 },
+["accuracy_range_penalty_+%"] = {
+	mod("AccuracyPenalty", "INC", nil),
+},
 ["attack_damage_+%"] = {
 	mod("Damage", "INC", nil, ModFlag.Attack),
 },
