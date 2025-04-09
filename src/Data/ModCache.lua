@@ -4547,7 +4547,7 @@ c["Trigger skills refund half of Energy spent"]={nil,"Trigger skills refund half
 c["Triggered Spells deal 14% increased Spell Damage"]={{[1]={[1]={skillType=37,type="SkillType"},flags=2,keywordFlags=131072,name="Damage",type="INC",value=14}},nil}
 c["Triggered Spells deal 16% increased Spell Damage"]={{[1]={[1]={skillType=37,type="SkillType"},flags=2,keywordFlags=131072,name="Damage",type="INC",value=16}},nil}
 c["Triggered Spells deal 45% increased Spell Damage"]={{[1]={[1]={skillType=37,type="SkillType"},flags=2,keywordFlags=131072,name="Damage",type="INC",value=45}},nil}
-c["Triple Attribute requirements of Martial Weapons"]={nil,"Triple Attribute requirements of Martial Weapons "}
+c["Triple Attribute requirements of Martial Weapons"]={{[1]={flags=0,keywordFlags=0,name="GlobalWeaponAttributeRequirements",type="MORE",value=200}},nil}
 c["Unaffected by Chill during Dodge Roll"]={nil,"Unaffected by Chill during Dodge Roll "}
 c["Unaffected by Chill while Leeching Mana"]={{[1]={[1]={type="Condition",var="LeechingMana"},flags=0,keywordFlags=0,name="SelfChillEffect",type="MORE",value=-100}},nil}
 c["Undead Minions have 20% reduced Reservation"]={{[1]={[1]={skillType=127,type="SkillType"},flags=0,keywordFlags=0,name="Reserved",type="INC",value=-20}},nil}
