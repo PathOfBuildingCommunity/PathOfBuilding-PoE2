@@ -3050,7 +3050,7 @@ local specialModList = {
 		local gemRequirements
 		if gemReqType then
 			gemRequirements = {}
-			gemRequirements[gemReqType] = 1 -- At least one int req
+			gemRequirements[gemReqType] = 1 -- Check if the gem has at least 1 of this attribute requirement.
 		end
 
 		if gemIdLookup[type] or gemIdLookup["load " .. type] or gemIdLookup[type .. " minion"] then
