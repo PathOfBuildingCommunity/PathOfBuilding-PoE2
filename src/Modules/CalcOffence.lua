@@ -1793,7 +1793,7 @@ function calcs.offence(env, actor, activeSkill)
 		--Support cost multipliers are calculated first and rounded down after 4 digits
 		local mult = floor(skillModList:More(skillCfg, "SupportManaMultiplier"), 4)
 		-- First pass to calculate base costs. Used for cost conversion (e.g. Petrified Blood)
-		local additionalLifeCost = skillModList:Sum("BASE", skillCfg, "ManaCostAsLifeCost") / 100 -- Extra cost (e.g. Petrified Blood) calculations
+		local additionalLifeCost = skillModList:Sum("BASE", skillCfg, "BaseManaCostAsLifeCost") / 100 -- Extra cost (e.g. Petrified Blood) calculations
 		local additionalESCost = skillModList:Sum("BASE", skillCfg, "ManaCostAsEnergyShieldCost") / 100 -- Extra cost (e.g. Replica Covenant) calculations
 		local hybridLifeCost = m_min(skillModList:Sum("BASE", skillCfg, "HybridManaAndLifeCost_Life"), 100) / 100 -- Blood Magic, Lifetap and tree mods capped at 100
 		for resource, val in pairs(costs) do
@@ -1829,7 +1829,7 @@ function calcs.offence(env, actor, activeSkill)
 					costs[manaType].baseCostNoMult = 0
 				elseif additionalLifeCost > 0 or hybridLifeCost > 0 then
 					val.baseCost = costs[manaType].baseCost
-					val.finalBaseCost = val.finalBaseCost + round(costs[manaType].finalBaseCost * (hybridLifeCost + additionalLifeCost))
+					val.finalBaseCost = val.finalBaseCost + round(costs[manaType].finalBaseCost * hybridLifeCost) + m_floor(val.baseCost * mult) * additionalLifeCost
 				end
 			elseif val.type == "ES" then
 				local manaType = resource:gsub("ES", "Mana")

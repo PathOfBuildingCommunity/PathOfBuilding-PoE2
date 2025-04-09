@@ -4468,9 +4468,9 @@ c["Skills gain 20% increased Critical Hit Chance per socketed blue Support Gem S
 c["Skills gain 20% increased Damage per socketed red Support Gem"]={{[1]={flags=0,keywordFlags=0,name="Damage",type="INC",value=20}},"  per socketed red Support Gem "}
 c["Skills gain 20% increased Damage per socketed red Support Gem Skills gain 6% increased Skill Speed per socketed green Support Gem"]={{[1]={flags=0,keywordFlags=0,name="Damage",type="INC",value=20}},"  per socketed red Support Gem Skills gain 6% increased Skill Speed per socketed green Support Gem "}
 c["Skills gain 6% increased Skill Speed per socketed green Support Gem"]={{[1]={flags=0,keywordFlags=0,name="Speed",type="INC",value=6},[2]={flags=0,keywordFlags=0,name="WarcrySpeed",type="INC",value=6}},"  per socketed green Support Gem "}
-c["Skills gain a Base Life Cost equal to 10% of Base Mana Cost"]={{[1]={flags=0,keywordFlags=0,name="ManaCostAsLifeCost",type="BASE",value=10}},nil}
-c["Skills gain a Base Life Cost equal to 50% of Base Mana Cost"]={{[1]={flags=0,keywordFlags=0,name="ManaCostAsLifeCost",type="BASE",value=50}},nil}
-c["Skills gain a Base Life Cost equal to Base Mana Cost"]={{[1]={flags=0,keywordFlags=0,name="ManaCostAsLifeCost",type="BASE",value=100}},nil}
+c["Skills gain a Base Life Cost equal to 10% of Base Mana Cost"]={{[1]={flags=0,keywordFlags=0,name="BaseManaCostAsLifeCost",type="BASE",value=10}},nil}
+c["Skills gain a Base Life Cost equal to 50% of Base Mana Cost"]={{[1]={flags=0,keywordFlags=0,name="BaseManaCostAsLifeCost",type="BASE",value=50}},nil}
+c["Skills gain a Base Life Cost equal to Base Mana Cost"]={{[1]={flags=0,keywordFlags=0,name="BaseManaCostAsLifeCost",type="BASE",value=100}},nil}
 c["Skills have +1 to Limit"]={{}," Limit "}
 c["Skills have -1 seconds to Cooldown"]={{}," seconds to Cooldown "}
 c["Skills have -2 seconds to Cooldown"]={{}," seconds to Cooldown "}

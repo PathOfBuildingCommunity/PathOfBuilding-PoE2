@@ -2506,7 +2506,7 @@ local specialModList = {
 	["deal (%d+)%% less damage"] = function(num) return { mod("Damage", "MORE", -num) } end,
 	["warcries exert twice as many attacks"] = { mod("ExtraExertedAttacks", "MORE", 100) },
 	--Blood Mage
-	["skills gain a base life cost equal to base mana cost"] = { mod("ManaCostAsLifeCost", "BASE", 100) },
+	["skills gain a base life cost equal to base mana cost"] = { mod("BaseManaCostAsLifeCost", "BASE", 100) },
 	["gain energy shield from equipped body armour as extra maximum life"] = {
 		mod("Life", "BASE", 1, { type = "PerStat", stat = "EnergyShieldOnBody Armour", div = 1 }),
 	},
@@ -5273,7 +5273,7 @@ local specialModList = {
 	["attacks cost life instead of mana"] = { flag("CostLifeInsteadOfMana", nil, ModFlag.Attack) },
 	
 	["skills gain a base life cost equal to (%d+)%% of base mana cost"] = function(num) return {
-		mod("ManaCostAsLifeCost", "BASE", num),
+		mod("BaseManaCostAsLifeCost", "BASE", num),
 	} end,
 	["skills gain a base energy shield cost equal to (%d+)%% of base mana cost"] = function(num) return {
 		mod("ManaCostAsEnergyShieldCost", "BASE", num),
