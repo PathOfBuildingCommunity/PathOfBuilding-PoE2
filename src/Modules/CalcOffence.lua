@@ -2263,11 +2263,20 @@ function calcs.offence(env, actor, activeSkill)
 		local incVsEnemy = skillModList:Sum("INC", cfg, "Accuracy", "AccuracyVsEnemy")
 		local more = skillModList:More("MORE", cfg, "Accuracy")
 		local moreVsEnemy = skillModList:More("MORE", cfg, "Accuracy", "AccuracyVsEnemy")
-		local enemyDistance = m_max(m_min(env.modDB:Sum("BASE", nil, "Multiplier:enemyDistance"), data.misc.AccuracyFalloffEnd), data.misc.AccuracyFalloffStart)
-		local accuracyPenalty = 1 - ((enemyDistance - data.misc.AccuracyFalloffStart) / 100) * m_floor(data.misc.MaxAccuracyRangePenalty * calcLib.mod(skillModList, cfg, "AccuracyPenalty")) / 100
-
+		
+		local enemyDistance = env.modDB:Sum("BASE", nil, "Multiplier:enemyDistance") / 10
+		local enemyDistanceCapped = m_max(m_min(enemyDistance * 10, data.misc.AccuracyFalloffEnd), data.misc.AccuracyFalloffStart)
+		local modValue = m_floor(data.misc.MaxAccuracyRangePenalty * calcLib.mod(skillModList, cfg, "AccuracyPenalty"))
+		local accuracyPenalty = 1 - ((enemyDistanceCapped - data.misc.AccuracyFalloffStart) / 100) * modValue / 100
+		local accuracyPenalties = {}
+		local distances = {2, 5, 9, 12}
+		for _, distance in ipairs(distances) do
+			accuracyPenalties["accuracyPenalty" .. distance .. "m"] = 1 - ((distance * 10 - data.misc.AccuracyFalloffStart) / 100) * modValue / 100
+		end
+		
 		output.Accuracy = m_max(0, m_floor(base * (1 + inc / 100) * more))
 		local accuracyVsEnemy = m_max(0, m_floor(baseVsEnemy * (1 + incVsEnemy / 100) * moreVsEnemy))
+		local accuracyVsEnemyBase = accuracyVsEnemy
 		if not modDB:Flag(cfg, "NoAccuracyDistancePenalty") then
 			accuracyVsEnemy = m_floor(accuracyVsEnemy * accuracyPenalty)
 		end
@@ -2307,13 +2316,30 @@ function calcs.offence(env, actor, activeSkill)
 			output.AccuracyHitChance = 100
 		else
 			local enemyEvasion = m_max(round(calcLib.val(enemyDB, "Evasion")), 0)
-			output.AccuracyHitChance = calcs.hitChance(enemyEvasion, accuracyVsEnemy) * calcLib.mod(skillModList, cfg, "HitChance")
+			local hitChanceMod = calcLib.mod(skillModList, cfg, "HitChance")
+			output.AccuracyHitChance = calcs.hitChance(enemyEvasion, accuracyVsEnemy) * hitChanceMod
+			local hitChances = {}
+			for _, distance in ipairs(distances) do
+				local adjustedAccuracy = m_floor(accuracyVsEnemyBase * accuracyPenalties["accuracyPenalty" .. distance .. "m"])
+				hitChances["hitChance" .. distance .. "m"] = calcs.hitChance(enemyEvasion, adjustedAccuracy) * hitChanceMod
+			end
 			if breakdown then
 				breakdown.AccuracyHitChance = {
-					"Enemy level: "..env.enemyLevel..(env.configInput.enemyLevel and " ^8(overridden from the Configuration tab" or " ^8(can be overridden in the Configuration tab)"),
-					"Enemy evasion: "..enemyEvasion,
-					"Approximate hit chance: "..output.AccuracyHitChance.."%",
+					"Enemy level: " .. env.enemyLevel .. (env.configInput.enemyLevel and " ^8(overridden from the Configuration tab" or " ^8(can be overridden in the Configuration tab)"),
+					"Enemy evasion: " .. enemyEvasion,
+					"",
+					"Approximate hit chance at:",
 				}
+				for i = 1, #distances do
+					local lower = distances[i]
+    				local upper = distances[i + 1]
+					if enemyDistance ~= lower then
+						t_insert(breakdown.AccuracyHitChance, lower .. "m: "..hitChances["hitChance" .. lower .. "m"].."%")
+					end
+					if enemyDistance >= lower and enemyDistance < upper then
+						t_insert(breakdown.AccuracyHitChance, enemyDistance.."m: "..output.AccuracyHitChance.."% ^8(current config)")
+					end
+				end
 			end
 		end
 		-- Accounting for mods that enable "Chance to hit with Attacks can exceed 100%"
