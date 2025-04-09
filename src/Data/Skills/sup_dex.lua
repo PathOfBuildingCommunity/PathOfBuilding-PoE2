@@ -893,6 +893,11 @@ skills["SupportDeadlyHeraldsPlayer"] = {
 			label = "Deadly Herald",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_deadly_heralds_damage_+%_final"] = {
+					mod("Damage", "MORE", nil),
+				}
+			},
 			baseFlags = {
 			},
 			constantStats = {

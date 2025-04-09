@@ -191,6 +191,11 @@ statMap = {
 
 #skill SupportDeadlyHeraldsPlayer
 #set SupportDeadlyHeraldsPlayer
+statMap = {
+	["support_deadly_heralds_damage_+%_final"] = {
+		mod("Damage", "MORE", nil),
+	}
+},
 #mods
 #skillEnd
 
