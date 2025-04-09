@@ -267,7 +267,7 @@ statMap = {
 #from item
 #skill ShieldBlockPlayer
 #set ShieldBlockPlayer
-#flags attack area shieldAttack
+#flags attack area shieldAttack melee
 #mods
 #skillEnd
 

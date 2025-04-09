@@ -542,11 +542,6 @@ statMap = {
 #mods
 #skillEnd
 
-#skill SupportHoarfrostPlayer
-#set SupportHoarfrostPlayer
-#mods
-#skillEnd
-
 #skill SupportHourglassPlayer
 #set SupportHourglassPlayer
 statMap = {

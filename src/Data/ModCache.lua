@@ -525,6 +525,7 @@ c["+3 to Level of all Skeletal Frost Mage Skills"]={{[1]={flags=0,keywordFlags=0
 c["+3 to Level of all Skeletal Reaver Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keyword="skeletal reaver",value=3}}},nil}
 c["+3 to Level of all Skeletal Sniper Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keyword="skeletal sniper",value=3}}},nil}
 c["+3 to Level of all Skeletal Storm Mage Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keyword="skeletal storm mage",value=3}}},nil}
+c["+3 to Level of all Skeletal Warrior Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keyword="skeletal warrior",value=3}}},nil}
 c["+3 to Level of all Snipe Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keyword="snipe",value=3}}},nil}
 c["+3 to Level of all Sniper's Mark Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keyword="sniper's mark",value=3}}},nil}
 c["+3 to Level of all Solar Orb Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keyword="solar orb",value=3}}},nil}
@@ -2819,7 +2820,7 @@ c["Allies in your Presence deal 50% increased Damage"]={{[1]={flags=0,keywordFla
 c["Allies in your Presence deal 6 to 10 additional Attack Fire Damage"]={{[1]={flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=0,keywordFlags=65536,name="FireMin",type="BASE",value=6},onlyAllies=true}},[2]={flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=0,keywordFlags=65536,name="FireMax",type="BASE",value=10},onlyAllies=true}}},nil}
 c["Allies in your Presence deal 70% increased Damage"]={{[1]={flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=0,keywordFlags=0,name="Damage",type="INC",value=70},onlyAllies=true}}},nil}
 c["Allies in your Presence gain added Attack Damage equal"]={nil,"added Attack Damage equal "}
-c["Allies in your Presence gain added Attack Damage equal to 25% of your main hand Weapon's Damage"]={nil,"added Attack Damage equal to 25% of your main hand Weapon's Damage "}
+c["Allies in your Presence gain added Attack Damage equal to 25% of your main hand Weapon's Damage"]={{[1]={flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=0,keywordFlags=0,name="GainMainHandDmgFromParent",type="FLAG",value=true},onlyAllies=true}},[2]={flags=0,keywordFlags=0,name="Multiplier:MainHandDamageToAllies",type="BASE",value=25}},nil}
 c["Allies in your Presence have +100 to Accuracy Rating"]={{[1]={flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=0,keywordFlags=0,name="Accuracy",type="BASE",value=100},onlyAllies=true}}},nil}
 c["Allies in your Presence have +16% to all Elemental Resistances"]={{[1]={flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=0,keywordFlags=0,name="ElementalResist",type="BASE",value=16},onlyAllies=true}}},nil}
 c["Allies in your Presence have 15% increased Attack Speed"]={{[1]={flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=1,keywordFlags=0,name="Speed",type="INC",value=15},onlyAllies=true}}},nil}
@@ -3454,8 +3455,8 @@ c["Attacks have +1% to Critical Hit Chance"]={{[1]={flags=1,keywordFlags=0,name=
 c["Attacks have 10% chance to Maim on Hit"]={{}," to Maim  "}
 c["Attacks have 25% chance to Maim on Hit"]={{}," to Maim  "}
 c["Attacks used by Totems have 4% increased Attack Speed"]={{[1]={flags=1,keywordFlags=16384,name="Speed",type="INC",value=4}},nil}
-c["Attacks using your Weapons have Added Physical Damage equal"]={nil,"Attacks using your Weapons have Added Physical Damage equal "}
-c["Attacks using your Weapons have Added Physical Damage equal to 25% of the Accuracy Rating on the Weapon"]={nil,"Attacks using your Weapons have Added Physical Damage equal to 25% of the Accuracy Rating on the Weapon "}
+c["Attacks using your Weapons have Added Physical Damage equal"]={nil,"Added Physical Damage equal "}
+c["Attacks using your Weapons have Added Physical Damage equal to 25% of the Accuracy Rating on the Weapon"]={{[1]={[1]={percent="25",stat="AccuracyOnWeapon 1",type="PercentStat"},[2]={neg=true,skillType=167,type="SkillType"},[3]={type="Condition",var="MainHandAttack"},flags=1,keywordFlags=0,name="PhysicalMin",type="BASE",value=1},[2]={[1]={percent="25",stat="AccuracyOnWeapon 1",type="PercentStat"},[2]={neg=true,skillType=167,type="SkillType"},[3]={type="Condition",var="MainHandAttack"},flags=1,keywordFlags=0,name="PhysicalMax",type="BASE",value=1},[3]={[1]={percent="25",stat="AccuracyOnWeapon 2",type="PercentStat"},[2]={neg=true,skillType=167,type="SkillType"},[3]={type="Condition",var="OffHandAttack"},flags=1,keywordFlags=0,name="PhysicalMin",type="BASE",value=1},[4]={[1]={percent="25",stat="AccuracyOnWeapon 2",type="PercentStat"},[2]={neg=true,skillType=167,type="SkillType"},[3]={type="Condition",var="OffHandAttack"},flags=1,keywordFlags=0,name="PhysicalMax",type="BASE",value=1}},nil}
 c["Attacks with this Weapon gain 50% of Physical damage as Extra damage of each Element"]={{[1]={[1]={type="Condition",var="{Hand}Attack"},[2]={skillType=1,type="SkillType"},flags=0,keywordFlags=0,name="PhysicalDamage",type="BASE",value=50}},"  as Extra damage of each Element "}
 c["Attribute Requirements of Gems can be satisified by your highest Attribute"]={{[1]={flags=0,keywordFlags=0,name="GemAttributeRequirementsSatisfiedByHighestAttribute",type="FLAG",value=true}},nil}
 c["Aura Skills have 1% more Aura Effect per 2% of maximum Mana they Reserve"]={{[1]={[1]={skillType=39,type="SkillType"},[2]={div=2,stat="ManaReservedPercent",type="PerStat"},flags=0,keywordFlags=0,name="AuraEffect",type="MORE",value=1}},nil}
@@ -3775,8 +3776,8 @@ c["Enemies regain 10% of Concentration every second if they haven't lost Concent
 c["Enemies take 10% increased Damage for each Elemental Ailment type among"]={nil,"Enemies take 10% increased Damage for each Elemental Ailment type among "}
 c["Enemies take 10% increased Damage for each Elemental Ailment type among your Ailments on them"]={nil,"Enemies take 10% increased Damage for each Elemental Ailment type among your Ailments on them "}
 c["Enemies you Curse are Hindered, with 15% reduced Movement Speed"]={{[1]={flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={[1]={type="Condition",var="Cursed"},flags=0,keywordFlags=0,name="Condition:Hindered",type="FLAG",value=true}}}},nil}
-c["Enemies you Curse cannot Recharge Energy Shield"]={nil,"cannot Recharge Energy Shield "}
-c["Enemies you Curse have -3% to Chaos Resistance"]={nil,"-3% to Chaos Resistance "}
+c["Enemies you Curse cannot Recharge Energy Shield"]={{[1]={[1]={type="Condition",var="Curse"},flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="NoEnergyShieldRecharge",type="FLAG",value=true}}}},nil}
+c["Enemies you Curse have -3% to Chaos Resistance"]={{[1]={flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={[1]={type="Condition",var="Curse"},flags=0,keywordFlags=0,name="ChaosResist",type="BASE",value=-3}}}},nil}
 c["Enemies you Electrocute have 20% increased Damage taken"]={{[1]={flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={[1]={type="Condition",var="Electrocuted"},flags=0,keywordFlags=0,name="DamageTaken",type="INC",value=20}}}},nil}
 c["Enemies you Mark cannot deal Critical Hits"]={{[1]={flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={[1]={type="Condition",var="Marked"},flags=0,keywordFlags=0,name="NeverCrit",type="FLAG",value=true}}},[2]={flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={[1]={type="Condition",var="Marked"},flags=0,keywordFlags=0,name="Condition:NeverCrit",type="FLAG",value=true}}}},nil}
 c["Enemies you Mark have 10% reduced Accuracy Rating"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Marked"},flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Accuracy",type="INC",value=-10}}}},nil}
@@ -3981,6 +3982,7 @@ c["Grants Skill: Level 11 Purity of Fire"]={{[1]={flags=0,keywordFlags=0,name="E
 c["Grants Skill: Level 11 Purity of Lightning"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=11,skillId="PurityOfLightningPlayer"}}},nil}
 c["Grants Skill: Level 11 Raise Shield"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=11,skillId="ShieldBlockPlayer"}}},nil}
 c["Grants Skill: Level 11 Sigil of Power"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=11,skillId="SigilOfPowerPlayer"}}},nil}
+c["Grants Skill: Level 11 Skeletal Warrior Minion"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=11,skillId="SummonSkeletalWarriorsPlayer"}}},nil}
 c["Grants Skill: Level 11 Spark"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=11,skillId="SparkPlayer"}}},nil}
 c["Grants Skill: Level 11 Volatile Dead"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=11,skillId="VolatileDeadPlayer"}}},nil}
 c["Grants Skill: Level 20 Bone Blast"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=20,skillId="BoneBlastPlayer"}}},nil}
@@ -4008,10 +4010,7 @@ c["Grants Skill: Level 20 Purity of Ice"]={{[1]={flags=0,keywordFlags=0,name="Ex
 c["Grants Skill: Level 20 Purity of Lightning"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=20,skillId="PurityOfLightningPlayer"}}},nil}
 c["Grants Skill: Level 20 Raise Shield"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=20,skillId="ShieldBlockPlayer"}}},nil}
 c["Grants Skill: Level 20 Sigil of Power"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=20,skillId="SigilOfPowerPlayer"}}},nil}
-c["Grants Skill: Level 20 Skeletal Warrior"]={nil,nil}
-c["Grants Skill: Level 20 Skeletal Warrior 48% increased Spirit"]={nil,nil}
-c["Grants Skill: Level 20 Skeletal Warrior Minion"]={nil,nil}
-c["Grants Skill: Level 20 Skeletal Warrior Minion +30 to maximum Mana"]={nil,nil}
+c["Grants Skill: Level 20 Skeletal Warrior Minion"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=20,skillId="SummonSkeletalWarriorsPlayer"}}},nil}
 c["Grants Skill: Level 20 Spark"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=20,skillId="SparkPlayer"}}},nil}
 c["Grants Skill: Level 20 Volatile Dead"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=20,skillId="VolatileDeadPlayer"}}},nil}
 c["Grants Skill: Life Remnants"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=1,skillId="LifeRemnantsPlayer"}}},nil}
@@ -4692,8 +4691,6 @@ c["of their maximum Life as Physical Damage"]={nil,"of their maximum Life as Phy
 c["of their maximum Life as Physical Damage Chance is doubled against Undead and Demons"]={nil,"of their maximum Life as Physical Damage Chance is doubled against Undead and Demons "}
 c["the enemy's Power for 6 seconds, up to a total of 500"]={nil,"the enemy's Power for 6 seconds, up to a total of 500 "}
 c["the same damage to enemies within 1.8 metres"]={nil,"the same damage to enemies within 1.8 metres "}
-c["to 25% of the Accuracy Rating on the Weapon"]={nil,"to 25% of the Accuracy Rating on the Weapon "}
-c["to 25% of your main hand Weapon's Damage"]={nil,"to 25% of your main hand Weapon's Damage "}
 c["until you take no Damage to Life for 5 seconds"]={nil,"until you take no Damage to Life for 5 seconds "}
 c["your Ailments on them"]={nil,"your Ailments on them "}
 c["your Ailments on them 30% reduced Duration of Ignite, Shock and Chill on Enemies"]={nil,"your Ailments on them 30% reduced Duration of Ignite, Shock and Chill on Enemies "}

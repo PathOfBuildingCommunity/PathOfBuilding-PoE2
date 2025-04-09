@@ -6919,7 +6919,7 @@ return {
 	["Can Block damage from all Hits"] = {  },
 	["Can Block from all Directions while Shield is Raised"] = {  },
 	["Can Evade all Hits if you have not been Hit Recently"] = {  },
-	["Can Reroll Favours at Ritual Altars in your Maps any number of times"] = {  },
+	["Can Reroll Favours at Ritual Altars in your Maps twice as many times"] = {  },
 	["Can Scout nearby Enemy Patrols and Elite Patrols during Heists"] = {  },
 	["Can Socket a non-Unique Basic Jewel into the Phylactery"] = {  },
 	["Can be modified while Corrupted"] = {  },
