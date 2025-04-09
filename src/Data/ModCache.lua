@@ -1490,7 +1490,7 @@ c["20% increased Critical Hit Chance for Attacks"]={{[1]={flags=1,keywordFlags=0
 c["20% increased Critical Hit Chance if you have Killed Recently"]={{[1]={[1]={type="Condition",var="KilledRecently"},flags=0,keywordFlags=0,name="CritChance",type="INC",value=20}},nil}
 c["20% increased Critical Hit Chance if you haven't dealt a Critical Hit Recently"]={{[1]={[1]={neg=true,type="Condition",var="CritRecently"},flags=0,keywordFlags=0,name="CritChance",type="INC",value=20}},nil}
 c["20% increased Curse Duration"]={{[1]={flags=0,keywordFlags=2,name="Duration",type="INC",value=20}},nil}
-c["20% increased Damage against Dazed Enemies"]={{[1]={flags=0,keywordFlags=0,name="Damage",type="INC",value=20}},"  against Dazed Enemies "}
+c["20% increased Damage against Dazed Enemies"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Dazed"},flags=0,keywordFlags=0,name="Damage",type="INC",value=20}},nil}
 c["20% increased Damage against Enemies with Fully Broken Armour"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="ArmourFullyBroken"},flags=0,keywordFlags=0,name="Damage",type="INC",value=20}},nil}
 c["20% increased Damage for each different Warcry you've used Recently"]={{[1]={flags=0,keywordFlags=4,name="Damage",type="INC",value=20}},"  for each different  you've used Recently "}
 c["20% increased Damage if you've dealt a Critical Hit Recently"]={{[1]={[1]={type="Condition",var="CritRecently"},flags=0,keywordFlags=0,name="Damage",type="INC",value=20}},nil}
@@ -1716,17 +1716,14 @@ c["25% increased Critical Damage Bonus if you've dealt a Non-Critical Hit Recent
 c["25% increased Critical Damage Bonus with Daggers"]={{[1]={flags=524292,keywordFlags=0,name="CritMultiplier",type="INC",value=25}},nil}
 c["25% increased Critical Damage Bonus with Quarterstaves"]={{[1]={flags=2097156,keywordFlags=0,name="CritMultiplier",type="INC",value=25}},nil}
 c["25% increased Critical Hit Chance"]={{[1]={flags=0,keywordFlags=0,name="CritChance",type="INC",value=25}},nil}
-c["25% increased Critical Hit Chance against Dazed Enemies"]={{[1]={flags=0,keywordFlags=0,name="CritChance",type="INC",value=25}},"  against Dazed Enemies "}
-c["25% increased Critical Hit Chance against Dazed Enemies 25% increased Damage against Dazed Enemies"]={{[1]={flags=0,keywordFlags=0,name="CritChance",type="INC",value=25}},"  against Dazed Enemies 25% increased Damage against Dazed Enemies "}
-c["25% increased Critical Hit Chance against Dazed Enemies 25% increased Damage against Dazed Enemies 25% increased Daze Buildup"]={{[1]={flags=0,keywordFlags=0,name="CritChance",type="INC",value=25}},"  against Dazed Enemies 25% increased Damage against Dazed Enemies 25% increased Daze Buildup "}
+c["25% increased Critical Hit Chance against Dazed Enemies"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Dazed"},flags=0,keywordFlags=0,name="CritChance",type="INC",value=25}},nil}
 c["25% increased Critical Hit Chance against Shocked Enemies"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Shocked"},flags=0,keywordFlags=0,name="CritChance",type="INC",value=25}},nil}
 c["25% increased Critical Hit Chance for Attacks"]={{[1]={flags=1,keywordFlags=0,name="CritChance",type="INC",value=25}},nil}
 c["25% increased Critical Hit Chance for Spells"]={{[1]={flags=2,keywordFlags=0,name="CritChance",type="INC",value=25}},nil}
 c["25% increased Critical Hit Chance with Traps"]={{[1]={flags=0,keywordFlags=4096,name="CritChance",type="INC",value=25}},nil}
 c["25% increased Culling Strike Threshold"]={{}," Culling Strike Threshold "}
 c["25% increased Curse Duration"]={{[1]={flags=0,keywordFlags=2,name="Duration",type="INC",value=25}},nil}
-c["25% increased Damage against Dazed Enemies"]={{[1]={flags=0,keywordFlags=0,name="Damage",type="INC",value=25}},"  against Dazed Enemies "}
-c["25% increased Damage against Dazed Enemies 25% increased Daze Buildup"]={{[1]={flags=0,keywordFlags=0,name="Damage",type="INC",value=25}},"  against Dazed Enemies 25% increased Daze Buildup "}
+c["25% increased Damage against Dazed Enemies"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Dazed"},flags=0,keywordFlags=0,name="Damage",type="INC",value=25}},nil}
 c["25% increased Damage while you have a Totem"]={{[1]={[1]={type="Condition",var="HaveTotem"},flags=0,keywordFlags=0,name="Damage",type="INC",value=25}},nil}
 c["25% increased Damage with Crossbows for each type of Ammunition fired in the past 10 seconds"]={{[1]={flags=67108868,keywordFlags=0,name="Damage",type="INC",value=25}},"   for each type of Ammunition fired in the past 10 seconds "}
 c["25% increased Damage with Flails"]={{[1]={flags=134217732,keywordFlags=0,name="Damage",type="INC",value=25}},nil}
@@ -3937,7 +3934,7 @@ c["Gain a stack of Jade every second Grants Skill: Encase in Jade"]={nil,"a stac
 c["Gain additional Critical Hit Chance equal to 25% of excess chance to Hit with Attacks"]={{[1]={[1]={type="Multiplier",var="ExcessHitChance"},[2]={skillType=1,type="SkillType"},flags=0,keywordFlags=0,name="CritChance",type="BASE",value=0.25}},nil}
 c["Gain additional Stun Threshold equal to 12% of maximum Energy Shield"]={{[1]={[1]={percent="12",stat="EnergyShield",type="PercentStat"},flags=0,keywordFlags=0,name="StunThreshold",type="BASE",value=1}},nil}
 c["Gain additional Stun Threshold equal to 20% of maximum Energy Shield"]={{[1]={[1]={percent="20",stat="EnergyShield",type="PercentStat"},flags=0,keywordFlags=0,name="StunThreshold",type="BASE",value=1}},nil}
-c["Gain additional Stun Threshold equal to 50% of Armour on Equipped Items"]={nil,"additional Stun Threshold equal to 50% of Armour on Equipped Items "}
+c["Gain additional Stun Threshold equal to 50% of Armour on Equipped Items"]={{[1]={[1]={percent=50,stat="ArmourOnHelmet",type="PercentStat"},flags=0,keywordFlags=0,name="StunThreshold",type="BASE",value=1},[2]={[1]={percent=50,stat="ArmourOnGloves",type="PercentStat"},flags=0,keywordFlags=0,name="StunThreshold",type="BASE",value=1},[3]={[1]={percent=50,stat="ArmourOnBoots",type="PercentStat"},flags=0,keywordFlags=0,name="StunThreshold",type="BASE",value=1},[4]={[1]={percent=50,stat="ArmourOnBody Armour",type="PercentStat"},flags=0,keywordFlags=0,name="StunThreshold",type="BASE",value=1}},nil}
 c["Gain additional Stun Threshold equal to 8% of maximum Energy Shield"]={{[1]={[1]={percent="8",stat="EnergyShield",type="PercentStat"},flags=0,keywordFlags=0,name="StunThreshold",type="BASE",value=1}},nil}
 c["Gain additional maximum Life equal to 100% of the Energy Shield on Equipped Body Armour"]={nil,"additional maximum Life equal to 100% of the Energy Shield on Equipped Body Armour "}
 c["Gain an Endurance Charge when you Heavy Stun a Rare or Unique Enemy"]={nil,"an Endurance Charge when you Heavy Stun a Rare or Unique Enemy "}
@@ -4102,7 +4099,7 @@ c["Inflict Lightning Exposure on Critical Hit"]={nil,"Inflict Lightning Exposure
 c["Inflicts Fire Exposure when this Weapon Fully Breaks Armour"]={nil,"Inflicts Fire Exposure when this Weapon Fully Breaks Armour "}
 c["Inflicts a random Curse on you when your Totems die, ignoring Curse limit"]={nil,"Inflicts a random Curse on you when your Totems die, ignoring Curse limit "}
 c["Inherent Rage Loss starts 1 second later"]={{[1]={flags=0,keywordFlags=0,name="InherentRageLossDelay",type="BASE",value=1}},nil}
-c["Inherent bonuses gained from Attributes are doubled"]={nil,"Inherent bonuses gained from Attributes are doubled "}
+c["Inherent bonuses gained from Attributes are doubled"]={{[1]={flags=0,keywordFlags=0,name="DoubledInherentAttributeBonuses",type="FLAG",value=true}},nil}
 c["Inherent loss of Rage is 10% slower"]={{[1]={flags=0,keywordFlags=0,name="InherentRageLoss",type="INC",value=-10}},nil}
 c["Inherent loss of Rage is 25% slower"]={{[1]={flags=0,keywordFlags=0,name="InherentRageLoss",type="INC",value=-25}},nil}
 c["Instant Recovery"]={{[1]={flags=0,keywordFlags=0,name="FlaskInstantRecovery",type="BASE",value=100}},nil}

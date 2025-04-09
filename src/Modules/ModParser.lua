@@ -1857,6 +1857,7 @@ local modTagList = {
 	["against enemies that are on low life"] = { tag = { type = "ActorCondition", actor = "enemy", var = "LowLife" } },
 	["to enemies which have energy shield"] = { tag = { type = "ActorCondition", actor = "enemy", var = "HaveEnergyShield" }, keywordFlags = bor(KeywordFlag.Hit, KeywordFlag.Ailment) },
 	["against cursed enemies"] = { tag = { type = "ActorCondition", actor = "enemy", var = "Cursed" } },
+	["against dazed enemies"] = { tag = { type = "ActorCondition", actor = "enemy", var = "Dazed" } },
 	["against stunned enemies"] = { tag = { type = "ActorCondition", actor = "enemy", var = "Stunned" } },
 	["against heavy stunned enemies"] = { tag = { type = "ActorCondition", actor = "enemy", var = "HeavyStunned" } },
 	["against enemies with fully broken armour"] = { tag = { type = "ActorCondition", actor = "enemy", var = "ArmourFullyBroken" } },
@@ -4589,10 +4590,16 @@ local specialModList = {
 		mod("StunThreshold", "MORE", 100),
 	},
 	["(%d+)%% of base armour from equipment also added to stun threshold"] = function(num) return {
-		mod("StunThreshold", "BASE", 1, { type = "PerStat", stat = "ArmourOnHelmet", percent = num }),
-		mod("StunThreshold", "BASE", 1, { type = "PerStat", stat = "ArmourOnGloves", percent = num }),
-		mod("StunThreshold", "BASE", 1, { type = "PerStat", stat = "ArmourOnBoots", percent = num }),
-		mod("StunThreshold", "BASE", 1, { type = "PerStat", stat = "ArmourOnBody Armour", percent = num }),
+		mod("StunThreshold", "BASE", 1, { type = "PercentStat", stat = "ArmourOnHelmet", percent = num }),
+		mod("StunThreshold", "BASE", 1, { type = "PercentStat", stat = "ArmourOnGloves", percent = num }),
+		mod("StunThreshold", "BASE", 1, { type = "PercentStat", stat = "ArmourOnBoots", percent = num }),
+		mod("StunThreshold", "BASE", 1, { type = "PercentStat", stat = "ArmourOnBody Armour", percent = num }),
+	} end,
+	["gain additional stun threshold equal to (%d+)%% of armour on equipped items"] = function(num) return {
+		mod("StunThreshold", "BASE", 1, { type = "PercentStat", stat = "ArmourOnHelmet", percent = num }),
+		mod("StunThreshold", "BASE", 1, { type = "PercentStat", stat = "ArmourOnGloves", percent = num }),
+		mod("StunThreshold", "BASE", 1, { type = "PercentStat", stat = "ArmourOnBoots", percent = num }),
+		mod("StunThreshold", "BASE", 1, { type = "PercentStat", stat = "ArmourOnBody Armour", percent = num }),
 	} end,
 	-- This mod doesn't work the way it should. It prevents self-chill among other issues.
 	--Since we don't currently really do anything with enemy ailment infliction, this should probably be removed
@@ -5054,6 +5061,7 @@ local specialModList = {
 		flag("OmniscienceRequirements")
 	} end,
 	["inherent bonuses from intelligence, strength and dexterity are doubled"] = { flag("DoubledInherentAttributeBonuses") },
+	["inherent bonuses gained from attributes are doubled"] = { flag("DoubledInherentAttributeBonuses") },
 	["you have far shot while you do not have iron reflexes"] = { flag("FarShot", { neg = true, type = "Condition", var = "HaveIronReflexes" }) },
 	["you have resolute technique while you do not have elemental overload"] = { mod("Keystone", "LIST", "Resolute Technique", { neg = true, type = "Condition", var = "HaveElementalOverload" }) },
 	["hits ignore enemy monster fire resistance while you are ignited"] = { flag("IgnoreFireResistance", { type = "Condition", var = "Ignited" }) },
