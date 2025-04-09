@@ -181,6 +181,18 @@ skills["MinionInstability"] = {
 
 -- Spectres here for now as spectres aren't using the spectre.lua skills file
 
+#skill GAMediumBeetleChargedSunder Charged Sunder
+#set GAMediumBeetleChargedSunder
+#flags attack area
+#mods
+#skillEnd
+
+#skill GAMediumBeetleSunder Sunder
+#set GAMediumBeetleSunder
+#flags attack area
+#mods
+#skillEnd
+
 #skill GATwoHeadedTitanSlam Slam
 #set GATwoHeadedTitanSlam
 #flags attack melee area

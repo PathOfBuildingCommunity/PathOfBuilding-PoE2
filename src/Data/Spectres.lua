@@ -30,6 +30,31 @@ minions["Metadata/Monsters/TwoheadedTitan/TwoHeadedTitan"] = {
 	},
 }
 
+-- Scarab
+minions["Metadata/Monsters/EtchedBeetles/MediumEtchedBeetleArmouredDull"] = {
+	name = "Tarnished Scarab",
+	monsterTags = { "2HSharpMetal_onhit_audio", "allows_inc_aoe", "beast", "fast_movement", "insect", "lightning_affinity", "melee", "not_dex", "not_int", },
+	life = 1.5,
+	baseDamageIgnoresAttackSpeed = true,
+	armour = 0.7,
+	fireResist = 0,
+	coldResist = -30,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1.5,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 12,
+	accuracy = 1,
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"GAMediumBeetleChargedSunder",
+		"GAMediumBeetleSunder",
+	},
+	modList = {
+	},
+}
+
 -- Sentinel
 minions["Metadata/Monsters/VaalConstructs/Sentinel/VaalConstructSentinel"] = {
 	name = "Stone Sentinel",

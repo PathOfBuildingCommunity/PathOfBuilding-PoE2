@@ -8,6 +8,9 @@ local minions, mod, flag = ...
 -- Goliath
 #spectre Metadata/Monsters/TwoheadedTitan/TwoHeadedTitan
 
+-- Scarab
+#spectre Metadata/Monsters/EtchedBeetles/MediumEtchedBeetleArmouredDull
+
 -- Sentinel
 #spectre Metadata/Monsters/VaalConstructs/Sentinel/VaalConstructSentinel
 

@@ -1027,6 +1027,72 @@ skills["GAAnimateWeaponQuarterstaffSweep"] = {
 }
 -- Spectres here for now as spectres aren't using the spectre.lua skills file
 
+skills["GAMediumBeetleChargedSunder"] = {
+	name = "Charged Sunder",
+	hidden = true,
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Attack] = true, },
+	castTime = 2,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { attackSpeedMultiplier = -25, storedUses = 1, baseMultiplier = 2, cooldown = 5.5, levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Charged Sunder",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				attack = true,
+				area = true,
+			},
+			constantStats = {
+				{ "attack_maximum_action_distance_+", 20 },
+				{ "active_skill_base_physical_damage_%_to_convert_to_lightning", 60 },
+			},
+			stats = {
+				"is_area_damage",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+				[2] = { actorLevel = 20, },
+				[3] = { actorLevel = 21, },
+				[4] = { actorLevel = 84, },
+			},
+		},
+	}
+}
+skills["GAMediumBeetleSunder"] = {
+	name = "Sunder",
+	hidden = true,
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Attack] = true, },
+	castTime = 2,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { attackSpeedMultiplier = -25, storedUses = 1, baseMultiplier = 1.35, cooldown = 5.5, levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Sunder",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				attack = true,
+				area = true,
+			},
+			constantStats = {
+				{ "attack_maximum_action_distance_+", 14 },
+			},
+			stats = {
+				"is_area_damage",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
 skills["GATwoHeadedTitanSlam"] = {
 	name = "Slam",
 	hidden = true,
