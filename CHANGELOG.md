@@ -1,5 +1,55 @@
 # Changelog
 
+## [v0.7.0](https://github.com/PathOfBuildingCommunity/PathOfBuilding/tree/v0.7.0) (2025/04/09)
+
+[Full Changelog](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/compare/v0.6.0...v0.7.0)
+
+## What's Changed
+### New to Path of Building
+- Add support for Accuracy Penalties at distance [\#954](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/954) ([LocalIdentity](https://github.com/LocalIdentity))
+- Add resource lost information to enemy damage breakdown [\#952](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/952) ([Edvinas-Smita](https://github.com/Edvinas-Smita))
+- Add 4 More Uniques [\#898](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/898) ([Blitz54](https://github.com/Blitz54))
+- Add support for Commandment, Reach, and various gem mods [\#924](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/924) ([Blitz54](https://github.com/Blitz54))
+- Add support for Deadly Herald [\#959](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/959) ([Blitz54](https://github.com/Blitz54))
+- Add support for "Enemies you X have" and "Enemies you X cannot recharge energy shield" [\#938](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/938) ([madxmike](https://github.com/madxmike))
+- Add Daze config and fix tree parsing for 0.2.0 [\#939](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/939) ([Blitz54](https://github.com/Blitz54))
+- Add support for player elemental Ailment Threshold calcs [\#943](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/943) ([LocalIdentity](https://github.com/LocalIdentity))
+### Ascendancy
+- Add support for Infernalist's Bringer of Flame ascendancy [\#913](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/913) ([LocalIdentity](https://github.com/LocalIdentity))
+- Add support for Amazon's Penetrate node [\#932](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/932) ([majochem](https://github.com/majochem))
+- Add support for Amazon's Mystic Harvest and Stalking Panther ascendancies [\#942](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/942) ([LocalIdentity](https://github.com/LocalIdentity))
+- Add support for Tactician's Watch How I Do It ascendancy [\#931](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/931) ([majochem](https://github.com/majochem))
+- Add support for Acolyte of Chayula's Ravenous Doubts ascendancy [\#946](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/946) ([LocalIdentity](https://github.com/LocalIdentity))
+- Add support for Warbringer's Warcaller's Bellow ascendancy [\#947](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/947) ([LocalIdentity](https://github.com/LocalIdentity))
+- Add support for Blood Mage's Blood Barbs and Between the Cracks ascendancies [\#951](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/951) ([LocalIdentity](https://github.com/LocalIdentity))
+- Add support for Gemling Legionnaire's Implanted Gems ascendancies [\#950](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/950) ([Paliak](https://github.com/Paliak))
+- Add support for Gemling Legionnaire's Integrated Efficiency ascendancy [\#955](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/955) ([LocalIdentity](https://github.com/LocalIdentity))
+### Fixed Crashes
+- Fix crash when hovering over some jewel sockets with a 0.1 tree [\#928](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/928) ([trompetin17](https://github.com/justjuangui))
+- Fix crash when importing 0.1 characters that used old jewel sockets [\#927](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/927) ([trompetin17](https://github.com/justjuangui))
+### Fixed Calculations
+- Fix Area and Projectile flags for many skills [\#896](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/896) ([LocalIdentity](https://github.com/LocalIdentity))
+- Fix quality of Sceptres affecting Spirit total [\#910](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/910) ([LocalIdentity](https://github.com/LocalIdentity))
+- Fix calculation of Curse delay from support gems [\#915](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/915) ([LocalIdentity](https://github.com/LocalIdentity))
+- Fix Heightened Curse not affecting Blasphemy Spirit cost [\#916](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/916) ([LocalIdentity](https://github.com/LocalIdentity))
+- Fix Stomping Ground damage calculation [\#920](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/920) ([LocalIdentity](https://github.com/LocalIdentity))
+- Fix "increased Ailment chance" mods not working [\#940](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/940) ([LocalIdentity](https://github.com/LocalIdentity))
+- Fix Life cost calculation when using Sanguimancy and Archmage [\#949](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/949) ([LocalIdentity](https://github.com/LocalIdentity))
+### Fixed Behaviours
+- Fix damage flags on Considered Casting and Controlled Destruction [\#897](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/897) ([LocalIdentity](https://github.com/LocalIdentity))
+- Fix some support gems showing a stat requirement [\#912](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/912) ([LocalIdentity](https://github.com/LocalIdentity))
+- Fix Smith's Masterwork not allowing you to allocate multiple nodes [\#919](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/919) ([trompetin17](https://github.com/justjuangui))
+- Fix Import for skills granted by items [\#929](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/929) ([trompetin17](https://github.com/justjuangui))
+- Add back Skeletal Warriors for Sceptres [\#922](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/922) ([Blitz54](https://github.com/Blitz54))
+- Fix Rupture The Soul, Necromantic Conduit, Price of Power, Crimson Power and Stay Light, Use Cover ascendancies not working [\#941](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/941) ([LocalIdentity](https://github.com/LocalIdentity))
+- Fix "Could not generate search" error when using only Full DPS as a weight and not using Full DPS [\#944](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/944) ([Paliak](https://github.com/Paliak))
+### Accuracy Improvements
+- Fix Stat descriptions on gem tooltips and crit node on tree [\#909](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/909) ([LocalIdentity](https://github.com/LocalIdentity))
+- Add support for "Curse Magnitudes" [\#926](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/926) ([madxmike](https://github.com/madxmike))
+- Fix support for some Keystones that changed the wording of their mods [\#905](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/905) ([Blitz54](https://github.com/Blitz54))
+
+
+
 ## [v0.6.0](https://github.com/PathOfBuildingCommunity/PathOfBuilding/tree/v0.6.0) (2025/04/06)
 
 [Full Changelog](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/compare/v0.5.0...v0.6.0)

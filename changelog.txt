@@ -1,3 +1,53 @@
+VERSION[0.7.0][2025/04/09]
+--- New to Path of Building ---
+* Add support for Accuracy Penalties at distance (LocalIdentity)
+* Add resource lost information to enemy damage breakdown (Edvinas-Smita)
+* Add 4 More Uniques (Blitz54)
+* Add support for Commandment, Reach, and various gem mods (Blitz54)
+* Add support for Deadly Herald (Blitz54)
+* Add support for "Enemies you X have" and "Enemies you X cannot recharge energy shield" (madxmike)
+* Add Daze config and fix tree parsing for 0.2.0 (Blitz54)
+* Add support for player elemental Ailment Threshold calcs (LocalIdentity)
+
+--- Ascendancy ---
+* Add support for Infernalist's Bringer of Flame ascendancy (LocalIdentity)
+* Add support for Amazon's Penetrate node (majochem)
+* Add support for Amazon's Mystic Harvest and Stalking Panther ascendancies (LocalIdentity)
+* Add support for Tactician's Watch How I Do It ascendancy (majochem)
+* Add support for Acolyte of Chayula's Ravenous Doubts ascendancy (LocalIdentity)
+* Add support for Warbringer's Warcaller's Bellow ascendancy (LocalIdentity)
+* Add support for Blood Mage's Blood Barbs and Between the Cracks ascendancies (LocalIdentity)
+* Add support for Gemling Legionnaire's Implanted Gems ascendancies (Paliak)
+* Add support for Gemling Legionnaire's Integrated Efficiency ascendancy (LocalIdentity)
+
+--- Fixed Crashes ---
+* Fix crash when hovering over some jewel sockets with a 0.1 tree (trompetin17)
+* Fix crash when importing 0.1 characters that used old jewel sockets (trompetin17)
+
+--- Fixed Calculations ---
+* Fix Area and Projectile flags for many skills (LocalIdentity)
+* Fix quality of Sceptres affecting Spirit total (LocalIdentity)
+* Fix calculation of Curse delay from support gems (LocalIdentity)
+* Fix Heightened Curse not affecting Blasphemy Spirit cost (LocalIdentity)
+* Fix Stomping Ground damage calculation (LocalIdentity)
+* Fix "increased Ailment chance" mods not working (LocalIdentity)
+* Fix Life cost calculation when using Sanguimancy and Archmage (LocalIdentity)
+
+--- Fixed Behaviours ---
+* Fix damage flags on Considered Casting and Controlled Destruction (LocalIdentity)
+* Fix some support gems showing a stat requirement (LocalIdentity)
+* Fix Smith's Masterwork not allowing you to allocate multiple nodes (trompetin17)
+* Fix Import for skills granted by items (trompetin17)
+* Add back Skeletal Warriors for Sceptres (Blitz54)
+* Fix Rupture The Soul, Necromantic Conduit, Price of Power, Crimson Power and Stay Light, Use Cover ascendancies not working (LocalIdentity)
+* Fix "Could not generate search" error when using only Full DPS as a weight and not using Full DPS (Paliak)
+
+--- Accuracy Improvements ---
+* Fix Stat descriptions on gem tooltips and crit node on tree (LocalIdentity)
+* Add support for "Curse Magnitudes" (madxmike)
+* Fix support for some Keystones that changed the wording of their mods (Blitz54)
+
+
 VERSION[0.6.0][2025/04/06]
 
 --- New to Path of Building ---
