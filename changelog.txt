@@ -1,4 +1,5 @@
 VERSION[0.7.0][2025/04/09]
+
 --- New to Path of Building ---
 * Add support for Accuracy Penalties at distance (LocalIdentity)
 * Add resource lost information to enemy damage breakdown (Edvinas-Smita)
