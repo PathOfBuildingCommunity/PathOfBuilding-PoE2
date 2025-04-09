@@ -4063,7 +4063,7 @@ function calcs.buildDefenceEstimations(env, actor)
 			end
 			if resourcesLost.energyShield then
 				resourcesLostSum = resourcesLostSum + resourcesLost.energyShield
-				t_insert(breakdownTable, s_format("\t%d "..colorCodes.ES.."Energy Shield", resourcesLost.energyShield))
+				t_insert(breakdownTable, s_format("\t%d "..colorCodes.ES.."Energy Shield%s", resourcesLost.energyShield, damageType == "Chaos" and "^8 (ES takes double damage from chaos)" or ""))
 			end
 			if resourcesLost.mana then
 				resourcesLostSum = resourcesLostSum + resourcesLost.mana
