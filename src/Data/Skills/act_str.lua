@@ -2182,6 +2182,10 @@ skills["DreadBannerPlayer"] = {
 					mod("FlaskChargesGenerated", "BASE", nil, 0, 0, { type = "Condition", var = "BannerPlanted" }, { type = "GlobalEffect", effectType = "Aura"}),
 					div = 60,
 				},
+				["base_skill_buff_stun_and_ailment_threshold_+%_final_to_apply"] = {
+					mod("AilmentThreshold", "MORE", nil, 0, 0, { type = "Condition", var = "BannerPlanted" }, { type = "GlobalEffect", effectType = "Aura"}),
+					mod("StunThreshold", "MORE", nil, 0, 0, { type = "Condition", var = "BannerPlanted" }, { type = "GlobalEffect", effectType = "Aura"}),
+				},
 			},
 			baseFlags = {
 				duration = true,
