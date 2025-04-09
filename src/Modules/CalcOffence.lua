@@ -4583,9 +4583,9 @@ function calcs.offence(env, actor, activeSkill)
 				output[flatAilment.."ChanceOnCrit"] = 0
 				skillFlags["inflict"..flatAilment] = false
 			else
-				local base = skillModList:Sum("BASE", cfg, flatAilment.."Chance") + enemyDB:Sum("BASE", nil, "Self"..flatAilment.."Chance")
-				local inc = skillModList:Sum("INC", cfg, flatAilment.."Chance")
-				local more = skillModList:More(cfg, flatAilment.."Chance")
+				local base = skillModList:Sum("BASE", cfg, flatAilment.."Chance", "AilmentChance") + enemyDB:Sum("BASE", nil, "Self"..flatAilment.."Chance")
+				local inc = skillModList:Sum("INC", cfg, flatAilment.."Chance", "AilmentChance")
+				local more = skillModList:More(cfg, flatAilment.."Chance", "AilmentChance")
 				local chance = m_min(100, base * (1 + inc / 100) * more)
 				output[flatAilment.."ChanceOnHit"] = chance
 				output[flatAilment.."ChanceOnCrit"] = chance
@@ -4619,9 +4619,9 @@ function calcs.offence(env, actor, activeSkill)
 			-- TODO: average for now, can do more complicated calculation later
 			local hitAvg = hitMin + (hitMax - hitMin) / 2
 			local critAvg = critMin + (critMax - critMin) / 2
-			local base = skillModList:Sum("BASE", cfg, "Enemy"..ailment.."Chance") + enemyDB:Sum("BASE", nil, "Self"..ailment.."Chance")
-			local inc = skillModList:Sum("INC", cfg, "Enemy"..ailment.."Chance")
-			local more = skillModList:More(cfg, "Enemy"..ailment.."Chance")
+			local base = skillModList:Sum("BASE", cfg, "Enemy"..ailment.."Chance", "AilmentChance") + enemyDB:Sum("BASE", nil, "Self"..ailment.."Chance")
+			local inc = skillModList:Sum("INC", cfg, "Enemy"..ailment.."Chance", "AilmentChance")
+			local more = skillModList:More(cfg, "Enemy"..ailment.."Chance", "AilmentChance")
 			local hitElementalAilmentChance = hitAvg / enemyThreshold * data.gameConstants[ailment .. "ChanceMultiplier"]
 			hitElementalAilmentChance = (hitElementalAilmentChance + base) * (1 + inc / 100) * more
 			local critElementalAilmentChance = critAvg / enemyThreshold * data.gameConstants[ailment .. "ChanceMultiplier"]

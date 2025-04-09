@@ -3717,7 +3717,7 @@ function calcs.buildDefenceEstimations(env, actor)
 		local enemyBleedChance = 0
 		local enemyIgniteChance = 0
 		if output.SelfIgniteEffect ~= 0 and output.IgniteAvoidChance < 100 and output.SelfIgniteDuration ~= 0 and damageCategoryConfig ~= "DamageOverTime" then
-			enemyIgniteChance = enemyDB:Sum("BASE", nil, "IgniteChance", "ElementalAilmentChance")
+			enemyIgniteChance = enemyDB:Sum("BASE", nil, "IgniteChance", "ElementalAilmentChance", "AilmentChance")
 			local enemyCritAilmentChance = (not modDB:Flag(nil, "CritsOnYouDontAlwaysApplyElementalAilments")) and ((output.EnemyCritChance > enemyCritThreshold or enemyIgniteChance > 0) and output.EnemyCritChance or 0) or 0
 			enemyIgniteChance = (enemyCritAilmentChance + (1 - enemyCritAilmentChance / 100) * enemyIgniteChance) * (1 - output.IgniteAvoidChance / 100)
 		end
