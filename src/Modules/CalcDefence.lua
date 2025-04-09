@@ -28,12 +28,12 @@ local dmgTypeList = {"Physical", "Lightning", "Cold", "Fire", "Chaos"}
 local resistTypeList = { "Fire", "Cold", "Lightning", "Chaos" }
 
 -- Calculate hit chance
-function calcs.hitChance(evasion, accuracy, capped)
+function calcs.hitChance(evasion, accuracy, uncapped)
 	if accuracy < 0 then
 		return 5
 	end
 	local rawChance = ( accuracy * 1.5 ) / ( accuracy + evasion ) * 100
-	return capped and m_max(round(rawChance), 5) or m_max(m_min(round(rawChance), 100), 5)	
+	return uncapped and m_max(round(rawChance), 5) or m_max(m_min(round(rawChance), 100), 5)	
 end
 -- Calculate damage reduction from armour, float
 function calcs.armourReductionF(armour, raw)
