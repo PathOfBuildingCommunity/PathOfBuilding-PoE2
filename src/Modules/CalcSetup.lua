@@ -381,6 +381,11 @@ local function applyGemMods(effect, modList)
 		elseif not calcLib.gemIsType(effect.gemData, value.keyword, true) then
 			match = false
 		end
+		if value.gemRequirements then
+			for req, val in pairs(value.gemRequirements) do
+				match = match and effect.gemData[req] > val
+			end
+		end
 		if match then
 			effect[value.key] = (effect[value.key] or 0) + value.value
 			effect.gemPropertyInfo = effect.gemPropertyInfo or {}

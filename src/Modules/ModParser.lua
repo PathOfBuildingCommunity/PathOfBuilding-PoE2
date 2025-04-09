@@ -3037,19 +3037,33 @@ local specialModList = {
 	["has no attribute requirements"] = { flag("NoAttributeRequirements") },
 	-- Skill modifiers
 	["([%+%-]%d+)%% to quality of all skills"] = function(num) return { mod("GemProperty", "LIST", { keyword = "grants_active_skill", key = "quality", value = num, keyOfScaledMod = "value"  }) } end,
-	["([%+%-]%d+)%%? to (%a+) of all ?([%a%-' ]*) skills"] = function(num, _, property, type)
-		if type == "" then type = "all" end
+	["([%+%-]%d+)%%? to (%a+) of all ?([%a%-' ]*) skills? ?w?i?t?h? ?a?n? ?(%a+) ?r?e?q?u?i?r?e?m?e?n?t?"] = function(num, _, property, type, gemReq)
+		local gemReqType
+		if gemReq == "intelligence" then
+			gemReqType = "reqInt"
+		elseif gemReq == "dexterity" then
+			gemReqType = "reqDex"
+		elseif gemReq == "strength" then
+			gemReqType = "reqStr"
+		end
+
+		local gemRequirements
+		if gemReqType then
+			gemRequirements = {}
+			gemRequirements[gemReqType] = 1 -- At least one int req
+		end
+
 		if gemIdLookup[type] or gemIdLookup["load " .. type] or gemIdLookup[type .. " minion"] then
-			return { mod("GemProperty", "LIST", {keyword = type, key = "level", value = num, keyOfScaledMod = "value" }) }
+			return { mod("GemProperty", "LIST", {keyword = type, key = "level", value = num, keyOfScaledMod = "value", gemRequirements = gemRequirements }) }
 		end
 		local wordList = {}
 		for tag in type:gmatch("%w+") do
 			table.insert(wordList, tag)
 		end
 		if #wordList == 1 then
-			return { mod("GemProperty", "LIST", { keyword = wordList[1], key = property, value = num, keyOfScaledMod = "value" }) }
+			return { mod("GemProperty", "LIST", { keyword = wordList[1], key = property, value = num, keyOfScaledMod = "value", gemRequirements = gemRequirements }) }
 		end
-		return { mod("GemProperty", "LIST", { keywordList = wordList, key = property, value = num, keyOfScaledMod = "value" }) }
+		return { mod("GemProperty", "LIST", { keywordList = wordList, key = property, value = num, keyOfScaledMod = "value", gemRequirements = gemRequirements }) }
 	end,
 	["grants level (%d+) snipe skill"] = function(num) return {
 		mod("ExtraSkill", "LIST", { skillId = "Snipe", level = num }),
