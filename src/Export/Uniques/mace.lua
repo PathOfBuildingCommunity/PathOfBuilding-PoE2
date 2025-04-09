@@ -47,6 +47,7 @@ UniqueChaosDamagePerEnduranceCharge1
 ]],[[
 Olrovasara
 Torment Club
+Source: Drops from unique{Olroth, Origin of the Fall}
 Variant: Pre 0.2.0
 Variant: Current
 {variant:1}UniqueLocalAddedLightningDamage1[1,1][60,80]

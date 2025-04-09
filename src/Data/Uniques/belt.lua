@@ -43,6 +43,16 @@ Implicits: 1
 (30-40)% increased Life and Mana Recovery from Flasks
 You are considered on Low Life while at 75% of maximum Life or below instead
 ]],[[
+The Gnashing Sash
+Wide Belt
+Requires Level 60
+Implicits: 1
+(20-30)% increased Flask Charges gained
+(15-35)% increased Flask Life Recovery rate
++(17-23)% to Chaos Resistance
+Lose 5% of maximum Life per second
+Life Recovery from Flasks can Overflow Maximum Life
+]],[[
 Goregirdle
 Plate Belt
 Implicits: 1
@@ -75,6 +85,7 @@ Implicits: 1
 ]],[[
 Ingenuity
 Utility Belt
+Source: Drops from unique{The King in the Mists} in normal{Crux of Nothingness}
 Variant: Pre 0.2.0
 Variant: Current
 Implicits: 1
@@ -155,6 +166,7 @@ Life and Mana Flasks can be equipped in either slot
 ]],[[
 Zerphi's Genesis
 Heavy Belt
+Source: Drops from unique{Trialmaster} in normal{The Trial of Chaos}
 Requires Level 56
 Implicits: 1
 (20-30)% increased Stun Threshold

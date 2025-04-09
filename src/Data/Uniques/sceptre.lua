@@ -43,6 +43,7 @@ Implicits: 3
 ]],[[
 Sacred Flame
 Shrine Sceptre
+Source: Drops from unique{Arbiter of Ash} in normal{The Burning Monolith}
 Implicits: 1
 Grants Skill: Level (1-20) Purity of Fire
 Gain (40-60)% of Damage as Extra Fire Damage

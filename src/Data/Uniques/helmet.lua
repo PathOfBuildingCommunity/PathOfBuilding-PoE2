@@ -153,8 +153,8 @@ Atziri's Disdain
 Gold Circlet
 Variant: 0.2.0
 Variant: Current
-{variant:1}+(60-100) to maximum Mana
-{variant:2}+(40-60) to maximum Mana
+{variant:1}+(40-60) to maximum Mana
+{variant:2}+(60-100) to maximum Mana
 {variant:1}(10-20)% increased Rarity of Items found
 {variant:2}(10-15)% increased Rarity of Items found
 {variant:1}(20-25)% of Damage taken bypasses Energy Shield
@@ -244,6 +244,7 @@ Eldritch Battery
 [[
 Assailum
 Closed Helm
+Source: Drops from unique{Kosis, The Revelation}
 (50-100)% increased Armour and Evasion
 +(200-400) to Accuracy Rating
 (30-50)% increased Critical Hit Chance
@@ -378,6 +379,7 @@ Enemies in your Presence count as being on Low Life
 ]],[[
 Keeper of the Arc
 Spiritbone Crown
+Source: Drops from unique{Olroth, Origin of the Fall}
 (100-150)% increased Armour and Energy Shield
 (15-25) Life Regeneration per second
 (15-25)% increased Mana Regeneration Rate
@@ -407,6 +409,7 @@ Critical Hits Poison the enemy
 ]],[[
 Glimpse of Chaos
 Tribal Mask
+Source: Drops from unique{Trialmaster} in normal{The Trial of Chaos}
 Can be modified while Corrupted
 +(50-150) to maximum Life
 +(50-150) to maximum Mana
@@ -453,6 +456,7 @@ Equipment and Skill Gems have 50% reduced Attribute Requirements
 [[
 Solus Ipse
 Grand Visage
+Source: Drops from unique{Arbiter of Ash} in normal{The Burning Monolith}
 +(60-100) to maximum Mana
 25% increased Light Radius
 (100-150)% increased Armour, Evasion and Energy Shield

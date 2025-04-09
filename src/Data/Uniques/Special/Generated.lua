@@ -56,6 +56,7 @@ do
 	local fromNothing = {
 		"From Nothing",
 		"Diamond",
+		"Source: Drops from unique{The King in the Mists} in normal{Crux of Nothingness}",
 		"Limited to: 1",
 		"Radius: Small",
 	}
@@ -84,6 +85,7 @@ do
 	local prism = {
 		"Prism of Belief",
 		"Diamond",
+		"Source: Drops from unique{Arbiter of Ash} in normal{The Burning Monolith}",
 		"Limited to: 1",
 	}
 	for _, name in ipairs(gems) do
@@ -103,6 +105,7 @@ do
     local megalomaniac = {
         "Megalomaniac",
         "Diamond",
+		"Source: Drops from unique{Kosis, The Revelation}",
         "Limited to: 1",
         "Has Alt Variant: true",
         "Has Alt Variant Two: true",

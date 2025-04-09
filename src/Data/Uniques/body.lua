@@ -156,6 +156,16 @@ Quilted Vest
 10% increased Movement Speed when on Full Life
 100% increased Evasion Rating when on Full Life
 ]],[[
+Hyrri's Ire
+Armoured Vest
+Implicits: 1
+(30-40)% increased Elemental Ailment Threshold
+(100-130)% increased Evasion Rating
+Adds (13-20) to (21-31) Cold damage to Attacks
++(30-40) to Dexterity
+25% increased Chill Duration on Enemies
+Can Evade all Hits if you have not been Hit Recently
+]],[[
 Quatl's Molt
 Serpentscale Coat
 Variant: Pre 0.1.1
@@ -353,9 +363,9 @@ Chain Mail
 The Coming Calamity
 Heroic Armour
 Implicits: 4
-Grants Skill: Herald of Ash
-Grants Skill: Herald of Ice
-Grants Skill: Herald of Thunder
+Grants Skill: Level (1-20) Herald of Ash
+Grants Skill: Level (1-20) Herald of Ice
+Grants Skill: Level (1-20) Herald of Thunder
 +(60-80) to maximum Life
 +(30-40)% to all Elemental Resistances
 Enemies in your Presence have no Elemental Resistances
@@ -399,6 +409,7 @@ Variant: Current
 ]],[[
 Perfidy
 Knight Armour
+Source: Drops from unique{Kosis, The Revelation}
 (100-150)% increased Armour and Evasion
 (10-40)% chance to Avoid Physical Damage from Hits
 (10-40)% chance to Avoid Chaos Damage from Hits
@@ -406,6 +417,7 @@ Enemies in your Presence are Intimidated
 ]],[[
 Pragmatism
 Explorer Armour
+Source: Drops from unique{The King in the Mists} in normal{Crux of Nothingness}
 (200-300)% increased Armour and Evasion
 +(10-20)% to all Elemental Resistances
 -17% to Chaos Resistance
@@ -566,6 +578,7 @@ Morior Invictus
 Grand Regalia
 Has Alt Variant: true
 Has Alt Variant Two: true
+Source: Drops from unique{Arbiter of Ash} in normal{The Burning Monolith}
 Selected Variant: 2
 Selected Alt Variant: 4
 Selected Alt Variant Two: 6
@@ -608,6 +621,7 @@ Sockets: S S S S
 ]],[[
 Skin of the Loyal
 Garment
+Source: Drops from unique{Xesht, We That Are One} in normal{Twisted Domain}
 +(5-40)% to all Elemental Resistances
 Elemental Ailment Threshold is increased by Overcapped Chaos Resistance
 Armour is increased by Overcapped Fire Resistance

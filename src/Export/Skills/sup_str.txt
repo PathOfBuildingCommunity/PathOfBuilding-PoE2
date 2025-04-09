@@ -768,6 +768,11 @@ statMap = {
 
 #skill SupportTremorsPlayer
 #set SupportTremorsPlayer
+statMap = {
+	["support_unstable_earth_damage_+%_final"] = {
+		mod("Damage", "MORE", nil),
+	},
+},
 #mods
 #skillEnd
 

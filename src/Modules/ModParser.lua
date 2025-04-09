@@ -772,6 +772,7 @@ local modNameList = {
 	["bleed duration on you"] = "SelfBleedDuration",
 	["bleeding duration on you"] = "SelfBleedDuration",
 	["to blind enemies on hit"] = { "BlindChance" },
+	["curse magnitudes"] = { "CurseEffect" },
 	-- Misc modifiers
 	["movement speed"] = "MovementSpeed",
 	["attack, cast and movement speed"] = { "Speed", "MovementSpeed" },
@@ -1143,6 +1144,7 @@ local preFlagList = {
 	["^hits with this weapon [hd][ae][va][el] "] = { flags = ModFlag.Hit, tagList = { { type = "Condition", var = "{Hand}Attack" }, { type = "SkillType", skillType = SkillType.Attack } } },
 	-- Skill types
 	["^attacks [ghd][ae][iva][eln] "] = { flags = ModFlag.Attack },
+	["^attacks using your weapons [ghd][ae][iva][eln] "] = { flags = ModFlag.Attack, tag = { type = "SkillType", skillType = SkillType.NonWeaponAttack, neg = true }},
 	["^attack skills [hd][ae][va][el] "] = { keywordFlags = KeywordFlag.Attack },
 	["^spells [hd][ae][va][el] a? ?"] = { flags = ModFlag.Spell },
 	["^spell skills [hd][ae][va][el] "] = { keywordFlags = KeywordFlag.Spell },
@@ -1930,7 +1932,8 @@ local gemIdLookup = {
 }
 for name, grantedEffect in pairs(data.skills) do
 	if not grantedEffect.hidden or grantedEffect.fromItem or grantedEffect.fromTree then
-		gemIdLookup[grantedEffect.name:lower()] = grantedEffect.id
+		local gemName = grantedEffect.baseTypeName and grantedEffect.baseTypeName:lower() or grantedEffect.name:lower()
+		gemIdLookup[gemName] = grantedEffect.id
 	end
 end
 local function grantedExtraSkill(name, level, noSupports)
@@ -2124,6 +2127,10 @@ local specialModList = {
 		flag("ChaosInoculation"),
 		mod("ChaosDamageTaken", "MORE", -100)
 	},
+	["immune to chaos damage"] = {
+		flag("ChaosInoculation"),
+		mod("ChaosDamageTaken", "MORE", -100)
+	},
 	["leech life (%d+)%% slower"] = function(num) return {mod("LifeLeechRate", "INC", -num)} end,
 	["leech life (%d+)%% faster"] = function(num) return {mod("LifeLeechRate", "INC", num)} end,
 	["life regeneration is applied to energy shield instead"] = { flag("ZealotsOath") },
@@ -2155,6 +2162,8 @@ local specialModList = {
 	["all damage is taken from mana before life"] = { mod("DamageTakenFromManaBeforeLife", "BASE", 100) },
 	["removes all mana%. spend life instead of mana for skills"] = { mod("Mana", "MORE", -100), flag("CostLifeInsteadOfMana") },
 	["removes all mana"] = { mod("Mana", "MORE", -100) },
+	["you have no mana"] = { mod("Mana", "MORE", -100) },
+	["doubles mana costs"] = { mod("ManaCost", "MORE", 100) },
 	["removes all energy shield"] = { mod("EnergyShield", "MORE", -100) },
 	["converts all energy shield to mana"] = { mod("EnergyShieldConvertToMana", "BASE", 100) },
 	["skills cost life instead of mana"] = { flag("CostLifeInsteadOfMana") },
@@ -2195,7 +2204,7 @@ local specialModList = {
 	["leech energy shield instead of life"] = { flag("GhostReaver") },
 	["minions explode when reduced to low life, dealing 33%% of their maximum life as fire damage to surrounding enemies"] = { mod("ExtraMinionSkill", "LIST", { skillId = "MinionInstability" }) },
 	["minions explode when reduced to low life, dealing 33%% of their life as fire damage to surrounding enemies"] = { mod("ExtraMinionSkill", "LIST", { skillId = "MinionInstability" }) },
-	["all bonuses from an equipped amulet apply to your minions instead of you"] = { }, -- The node itself is detected by the code that handles it
+	["all bonuses from ?a?n? equipped amulet apply to your minions instead of you"] = { }, -- The node itself is detected by the code that handles it
 	["spend energy shield before mana for skill m?a?n?a? ?costs"] = { },
 	["you have perfect agony if you've dealt a critical hit recently"] = { mod("Keystone", "LIST", "Perfect Agony", { type = "Condition", var = "CritRecently" }) },
 	["energy shield protects mana instead of life"] = { flag("EnergyShieldProtectsMana") },
@@ -2402,6 +2411,12 @@ local specialModList = {
 	-- Amazon
 	["chance to hit with attacks can exceed 100%%"] = {flag("Condition:HitChanceCanExceed100", { type = "Skilltype", skillType = SkillType.Attack})},
 	["gain additional critical hit chance equal to (%d+)%% of excess chance to hit with attacks"] = function(num) return { mod("CritChance", "BASE", 0.01 * num, { type = "Multiplier", var = "ExcessHitChance" }, { type = "SkillType", skillType = SkillType.Attack})} end,
+	["attacks using your weapons have added (%a+) damage equal to (%d+)%% of the accuracy rating on the weapon"] = function(_, dmgType, num) return {
+			mod(firstToUpper(dmgType) .. "Min", "BASE", 1, nil, ModFlag.Attack, { type = "PercentStat", stat = "AccuracyOnWeapon 1", percent = num }, { type = "SkillType", skillType = SkillType.NonWeaponAttack, neg = true } , { type = "Condition", var = "MainHandAttack" }),
+			mod(firstToUpper(dmgType) .. "Max", "BASE", 1, nil, ModFlag.Attack, { type = "PercentStat", stat = "AccuracyOnWeapon 1", percent = num }, { type = "SkillType", skillType = SkillType.NonWeaponAttack, neg = true } , { type = "Condition", var = "MainHandAttack" }),
+			mod(firstToUpper(dmgType) .. "Min", "BASE", 1, nil, ModFlag.Attack, { type = "PercentStat", stat = "AccuracyOnWeapon 2", percent = num }, { type = "SkillType", skillType = SkillType.NonWeaponAttack, neg = true } , { type = "Condition", var = "OffHandAttack" }),
+			mod(firstToUpper(dmgType) .. "Max", "BASE", 1, nil, ModFlag.Attack, { type = "PercentStat", stat = "AccuracyOnWeapon 2", percent = num }, { type = "SkillType", skillType = SkillType.NonWeaponAttack, neg = true } , { type = "Condition", var = "OffHandAttack" }),
+		} end,
 	-- Ascendant
 	["grants (%d+) passive skill points?"] = function(num) return { mod("ExtraPoints", "BASE", num) } end,
 	["can allocate passives from the %a+'s starting point"] = { },
@@ -2874,6 +2889,11 @@ local specialModList = {
 	["gain (%d+)%% increased attack speed for 20 seconds when you kill a rare or unique enemy"] = function(num) return { mod("Speed", "INC", num, nil, ModFlag.Attack, 0, { type = "Condition", var = "KilledUniqueEnemy" }) } end,
 	["kill enemies that have (%d+)%% or lower life when hit by your skills"] = function(num) return { mod("CullPercent", "MAX", num) } end,
 	["you are unaffected by bleeding while leeching"] = { mod("SelfBleedEffect", "MORE", -100, { type = "Condition", var = "Leeching" }) },
+	-- Tactician
+	["allies in your presence gain added attack damage equal to (%d+)%% of your main hand weapon's damage"] = function(num) return {
+			mod("ExtraAura", "LIST", { onlyAllies = true, mod = flag("GainMainHandDmgFromParent") }),
+			mod("Multiplier:MainHandDamageToAllies", "BASE", num),
+		} end,
 	-- Warrior - Titan
 	["(%d+)%% increased effect of small passive skills"] = function(num) return { mod("SmallPassiveSkillEffect", "INC", num) } end,
 	-- Warrior - Warbringer
@@ -4564,6 +4584,9 @@ local specialModList = {
 	["gain (%d+)%% of maximum energy shield as additional (%a+) threshold"] = function(num, _, statType)
 		return { mod(firstToUpper(statType) .. "Threshold", "BASE", 1, { type = "PercentStat", stat = "EnergyShield", percent = num }) }
 	end,
+	["gain additional (%a+) threshold equal to (%d+)%% of maximum energy shield"] = function(_, statType, num)
+		return { mod(firstToUpper(statType) .. "Threshold", "BASE", 1, { type = "PercentStat", stat = "EnergyShield", percent = num }) }
+	end,
 	["(%d+)%% increased maximum life, mana and energy shield"] = function(num) return {
 		mod("Life", "INC", num),
 		mod("Mana", "INC", num),
@@ -5570,7 +5593,7 @@ local preSkillNameList = { }
 for gemId, gemData in pairs(data.gems) do
 	local grantedEffect = gemData.grantedEffect
 	if not grantedEffect.hidden and not grantedEffect.support then
-		local skillName = grantedEffect.name
+		local skillName = grantedEffect.baseTypeName or grantedEffect.name
 		skillNameList[" "..skillName:lower().." "] = { tag = { type = "SkillName", skillName = skillName, includeTransfigured = true } }
 		preSkillNameList["^"..skillName:lower().." "] = { tag = { type = "SkillName", skillName = skillName, includeTransfigured = true } }
 		preSkillNameList["^"..skillName:lower().." has ?a? "] = { tag = { type = "SkillName", skillName = skillName, includeTransfigured = true } }

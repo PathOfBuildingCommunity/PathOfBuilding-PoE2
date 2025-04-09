@@ -23,6 +23,7 @@ UniqueAttackerTakesDamage8
 ]],[[
 Hateforge
 Moulded Mitts
+Source: Drops from unique{Trialmaster} in normal{The Trial of Chaos}
 UniqueLocalIncreasedPhysicalDamageReductionRatingPercent4
 UniqueGainChargesOnMaximumRage1
 UniqueLoseRageOnMaximumRage1
@@ -200,6 +201,15 @@ UniqueLocalIncreasedArmourAndEvasion1
 UniqueItemFoundRarityIncrease1
 UniqueMaximumLifeOnKillPercent1
 ]],[[
+Death Articulated
+Ornate Gauntlets
+UniqueLocalIncreasedArmourAndEvasion26
+UniqueIncreasedAttackSpeed8
+UniqueChaosResist25
+UniqueLifeDegenerationPercentGracePeriod1
+UniqueRageRegeneration1
+UniqueNonherentRageLoss1
+]],[[
 Deathblow
 Doubled Gauntlets
 Variant: Pre 0.1.1
@@ -283,6 +293,7 @@ UniqueLightningExposureOnCrit1
 Hand of Wisdom and Action
 Variant: Pre 0.2.0
 Variant: Current
+Source: Drops from unique{Xesht, We That Are One} in normal{Twisted Domain}
 {variant:1}Furtive Wraps
 {variant:2}Spiral Wraps
 UniqueDexterity31
@@ -315,6 +326,7 @@ UniqueAllDamageCanPoison1
 [[
 Sine Aequo
 Grand Manchettes
+Source: Drops from unique{Arbiter of Ash} in normal{The Burning Monolith}
 UniqueIncreasedSkillSpeed1
 UniqueLocalArmourAndEvasionAndEnergyShield3
 UniqueImmobiliseThreshold1

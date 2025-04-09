@@ -527,6 +527,22 @@ function calcs.offence(env, actor, activeSkill)
 			func(activeSkill, output, breakdown)
 		end
 	end
+	-- Checks if a given item is classified as a martial weapon base on global data.weaponTypeInfo table
+	-- Note: long-term it might be better to add "MartialWeapon" flags to items instead potentially once PR #688 is complete
+	---@param item table @item as contained in actor.itemList
+	---@return boolean
+	local function isMartialWeapon(item)
+		local itemType = item.type or "None"
+		if itemType == "Staff" and not (item.base.subType == "Warstaff" or (item.baseName and item.baseName:find("Quarterstaff"))) then return false end -- Workaround to rule out caster staves
+		local nonMartialWeapons = {"None", "Wand", "Fishing Rod" } -- filter out other non-martial bases
+		for _, val in pairs(nonMartialWeapons) do
+			if val == itemType then return false end
+		end
+		for key, _ in pairs(data.weaponTypeInfo) do
+			if itemType == key then return true end
+		end
+		return false
+	end
 
 	runSkillFunc("initialFunc")
 
@@ -614,6 +630,40 @@ function calcs.offence(env, actor, activeSkill)
 			for _, damageType in ipairs(dmgTypeList) do
 				skillModList:NewMod(damageType.."Min", "BASE", m_floor((actor.weaponData2[damageType.."Min"] or 0) * multiplier), "Spellblade Off Hand", ModFlag.Spell)
 				skillModList:NewMod(damageType.."Max", "BASE", m_floor((actor.weaponData2[damageType.."Max"] or 0) * multiplier), "Spellblade Off Hand", ModFlag.Spell)
+			end
+		end
+	end
+	-- Add weapon base stats to output for use in mods like Tactician's ""Watch How I Do It" Ascendancy notable" and Amazon's "Penetrate"
+	-- Note: This might run into issues with Energy Blade or similar mechanics that could "replace" the weapon items, but it's hard to test because PoE2 doesn't have those mechanics yet
+	for i in pairs({ "1", "2" }) do
+		-- Section for martial weapons only for now
+		if actor.itemList["Weapon " .. i] and isMartialWeapon(actor.itemList["Weapon " .. i]) then
+			-- Add base min and max damage
+			for _, damageType in ipairs(dmgTypeList) do
+				if actor.itemList["Weapon " .. i] and actor["weaponData" .. i][damageType .. "Min"] then
+					output[damageType .. "Min" .. "OnWeapon " .. i] = actor["weaponData" .. i][damageType .. "Min"]
+				end
+				if actor["weaponData" .. i][damageType .. "Max"] then
+					output[damageType .. "Max" .. "OnWeapon " .. i] = actor["weaponData" .. i][damageType .. "Max"]
+				end
+			end
+			-- Add total local accuracy
+			output["AccuracyOnWeapon " .. i] = actor.itemList["Weapon " .. i].baseModList:Sum("BASE", nil, "Accuracy")
+		end
+	end
+	-- Add bonus mods for Tactician's "Watch How I Do It" (technically this could be done in ModParser, but it would always add 10 mods instead of just the necessary ones)
+	if actor.parent and actor.modDB:Flag(nil, "GainMainHandDmgFromParent") and actor.parent.itemList["Weapon 1"] then
+		local modSource = ""
+		for i, value in ipairs(actor.modDB:Tabulate("FLAG", nil, "GainMainHandDmgFromParent")) do
+			modSource = value.mod.source
+		end
+		local modValue = actor.parent.modDB:Sum("BASE", { source = modSource }, "Multiplier:MainHandDamageToAllies")
+		for _, damageType in ipairs(dmgTypeList) do
+			if actor.parent.weaponData1[damageType .. "Min"] then
+				skillModList:NewMod(damageType .. "Min", "BASE", 1, modSource, { type = "PercentStat", stat = damageType .. "MinOnWeapon 1", percent = modValue, actor = "parent" }, { type = "SkillType", skillType = SkillType.Attack })
+			end
+			if actor.parent.weaponData1[damageType .. "Max"] then
+				skillModList:NewMod(damageType .. "Max", "BASE", 1, modSource, { type = "PercentStat", stat = damageType .. "MaxOnWeapon 1", percent = modValue, actor = "parent" }, { type = "SkillType", skillType = SkillType.Attack })
 			end
 		end
 	end

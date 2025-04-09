@@ -71,6 +71,7 @@ Recover 4% of maximum Life when you Block
 ]],[[
 Svalinn
 Crucible Tower Shield
+Source: Drops from unique{Olroth, Origin of the Fall}
 Implicits: 2
 Grants Skill: Raise Shield
 Grants Skill: Cast on Block
@@ -291,9 +292,10 @@ Grants Skill: Raise Shield
 (30-50)% increased Cooldown Recovery Rate
 ]],[[
 Mahuxotl's Machination
+Omen Crest Shield
 Variant: Pre 0.2.0
 Variant: Current
-Omen Crest Shield
+Source: Drops from unique{Trialmaster} in normal{The Trial of Chaos}
 Implicits: 1
 Grants Skill: Raise Shield
 (333-666)% increased Armour and Energy Shield

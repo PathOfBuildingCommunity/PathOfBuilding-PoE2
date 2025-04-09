@@ -46,6 +46,7 @@ Implicits: 1
 ]],[[
 Choir of the Storm
 Jade Amulet
+Source: Drops from unique{Xesht, We That Are One} in normal{Twisted Domain}
 Implicits: 2
 Grants Skill: Level (1-20) Lightning Bolt
 {tags:attribute}+(10-15) to Dexterity
@@ -144,6 +145,7 @@ Life Regeneration is applied to Energy Shield instead
 ]],[[
 The Pandemonius
 Lapis Amulet
+Source: Drops from unique{Xesht, We That Are One} in normal{Twisted Domain}
 Requires Level 52
 Implicits: 1
 {tags:attribute}+(10-15) to Intelligence
@@ -210,6 +212,7 @@ Your Critical Hits do not deal extra Damage
 ]],[[
 Xoph's Blood
 Amber Amulet
+Source: Drops from unique{Xesht, We That Are One} in normal{Twisted Domain}
 Implicits: 1
 {tags:attribute}+(10-15) to Strength
 {tags:life}(10-15)% increased maximum Life

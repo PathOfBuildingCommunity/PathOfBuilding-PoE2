@@ -945,6 +945,14 @@ skills["SupportCommandment"] = {
 			label = "Commandment",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_minion_damage_with_non_command_skills_+%_final"] = {
+					mod("MinionModifier", "LIST", { mod = mod("Damage", "MORE", nil, 0, 0, {type = "Condition", var = "CommandableSkill", neg = true}) }),
+				},
+				["minion_command_skill_cooldown_speed_+%"] = {
+					mod("MinionModifier", "LIST", { mod = mod("CooldownRecovery", "INC", nil, 0, 0, {type = "Condition", var = "CommandableSkill"}) }),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -2386,36 +2394,6 @@ skills["SupportHinderPlayer"] = {
 			},
 			stats = {
 				"support_hinder_dots_also_apply_hinder",
-			},
-			levels = {
-				[1] = { actorLevel = 1, },
-			},
-		},
-	}
-}
-skills["SupportHoarfrostPlayer"] = {
-	name = "Hoarfrost",
-	description = "Supports Skills which create Ice Crystals. Supported Skills create chilling areas which deal Cold Damage over time instead of creating Ice Crystals.",
-	color = 3,
-	support = true,
-	requireSkillTypes = { SkillType.IceCrystal, },
-	addSkillTypes = { SkillType.Duration, SkillType.Damage, SkillType.Cold, SkillType.DamageOverTime, },
-	excludeSkillTypes = { },
-	levels = {
-		[1] = { levelRequirement = 0, },
-	},
-	statSets = {
-		[1] = {
-			label = "Hoarfrost",
-			incrementalEffectiveness = 0.054999999701977,
-			statDescriptionScope = "gem_stat_descriptions",
-			baseFlags = {
-			},
-			constantStats = {
-				{ "hoarfrost_cold_damage_to_deal_per_minute_per_1000_ice_crystal_life", 500 },
-			},
-			stats = {
-				"ice_crystals_are_hoarfrost",
 			},
 			levels = {
 				[1] = { actorLevel = 1, },

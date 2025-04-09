@@ -153,8 +153,8 @@ Atziri's Disdain
 Gold Circlet
 Variant: 0.2.0
 Variant: Current
-{variant:1}UniqueIncreasedMana7[60,100]
-{variant:2}UniqueIncreasedMana7
+{variant:1}UniqueIncreasedMana12[40,60]
+{variant:2}UniqueIncreasedMana12
 {variant:1}UniqueItemFoundRarityIncrease2[10,20]
 {variant:2}UniqueItemFoundRarityIncrease2
 {variant:1}UniqueDamageBypassEnergyShieldPercent1[20,25]
@@ -244,6 +244,7 @@ UniqueEldritchBattery1
 [[
 Assailum
 Closed Helm
+Source: Drops from unique{Kosis, The Revelation}
 UniqueLocalIncreasedArmourAndEvasion6
 UniqueIncreasedAccuracy10
 UniqueCriticalStrikeChance11
@@ -378,6 +379,7 @@ UniqueEnemiesInPresenceLowLife1
 ]],[[
 Keeper of the Arc
 Spiritbone Crown
+Source: Drops from unique{Olroth, Origin of the Fall}
 UniqueLocalIncreasedArmourAndEnergyShield7
 UniqueLifeRegeneration10
 UniqueManaRegeneration26
@@ -405,6 +407,7 @@ UniquePoisonOnCrit1
 ]],[[
 Glimpse of Chaos
 Tribal Mask
+Source: Drops from unique{Trialmaster} in normal{The Trial of Chaos}
 UniqueModifyableWhileCorrupted1
 UniqueIncreasedLife37
 UniqueIncreasedMana33
@@ -451,6 +454,7 @@ UniqueGlobalItemAttributeRequirements1
 [[
 Solus Ipse
 Grand Visage
+Source: Drops from unique{Arbiter of Ash} in normal{The Burning Monolith}
 UniqueIncreasedMana12
 UniqueLightRadius9
 UniqueLocalArmourAndEvasionAndEnergyShield2

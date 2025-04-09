@@ -5,6 +5,7 @@ return {
 [[
 The Burden of Shadows
 Chiming Staff
+Source: Drops from unique{The King in the Mists} in normal{Crux of Nothingness}
 Implicits: 1
 Grants Skill: Level (1-20) Sigil of Power
 UniqueIncreasedCastSpeed11
@@ -73,6 +74,7 @@ UniqueAttackerTakesDamage1
 ]],[[
 Collapsing Horizon
 Wyrm Quarterstaff
+Source: Drops from unique{Kosis, The Revelation}
 UniqueWeaponElementalDamage1
 UniqueLocalCriticalStrikeChance4
 UniqueGlobalElementalGemLevel1

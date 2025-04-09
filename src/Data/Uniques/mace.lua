@@ -47,6 +47,7 @@ Take 100 Chaos damage per second per Endurance Charge
 ]],[[
 Olrovasara
 Torment Club
+Source: Drops from unique{Olroth, Origin of the Fall}
 Variant: Pre 0.2.0
 Variant: Current
 {variant:1}Adds 1 to (60-80) Lightning Damage

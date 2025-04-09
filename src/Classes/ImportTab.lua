@@ -941,6 +941,19 @@ function ImportTabClass:ImportItem(itemData, slotName)
 		end
 	end
 
+	if itemData.grantedSkills then
+		for _, grantedSkillInfo in ipairs(itemData.grantedSkills) do
+			local level = grantedSkillInfo.values and #grantedSkillInfo.values > 0 and #grantedSkillInfo.values[1] > 0 and grantedSkillInfo.values[1][1] or "unknown"
+			local grantedSkills =  string.format(
+				"%s: %s",
+				grantedSkillInfo.name,
+				level
+			)
+			local modList, extra = modLib.parseMod(grantedSkills)
+			t_insert(item.implicitModLines, { line = grantedSkills, extra = extra, mods = modList or { } })
+		end
+	end
+
 	-- Sometimes flavour text has actual mods that PoB cares about
 	-- Right now, the only known one is "This item can be anointed by Cassia"
 	if itemData.flavourText then
@@ -986,7 +999,11 @@ function ImportTabClass:ImportItem(itemData, slotName)
 		else
 			self.build.itemsTab:AddItem(item, true)
 		end
-		self.build.itemsTab.slots[slotName]:SetSelItemId(item.id)
+		if self.build.itemsTab.slots[slotName] then
+			self.build.itemsTab.slots[slotName]:SetSelItemId(item.id)
+		else
+			ConPrintf("Unrecognised slot name in imported item: %s", slotName)
+		end
 	end
 end
 

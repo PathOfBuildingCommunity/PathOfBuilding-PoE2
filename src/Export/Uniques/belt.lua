@@ -43,6 +43,16 @@ UniqueDexterity3
 UniqueBeltFlaskRecoveryRate1
 UniqueLowLifeThreshold1
 ]],[[
+The Gnashing Sash
+Wide Belt
+Requires Level 60
+Implicits: 1
+UniqueIncreasedFlaskChargesGained4
+UniqueFlaskLifeRecoveryRate7
+UniqueChaosResist14
+UniqueLifeDegenerationPercentGracePeriod2
+UniqueLifeFlasksOvercapLife1
+]],[[
 Goregirdle
 Plate Belt
 Implicits: 1
@@ -75,6 +85,7 @@ UniqueMaximumFireResist1
 ]],[[
 Ingenuity
 Utility Belt
+Source: Drops from unique{The King in the Mists} in normal{Crux of Nothingness}
 Variant: Pre 0.2.0
 Variant: Current
 Implicits: 1
@@ -155,6 +166,7 @@ UniqueLifeManaFlaskAnySlot1
 ]],[[
 Zerphi's Genesis
 Heavy Belt
+Source: Drops from unique{Trialmaster} in normal{The Trial of Chaos}
 Requires Level 56
 Implicits: 1
 BeltImplicitIncreasedStunThreshold1

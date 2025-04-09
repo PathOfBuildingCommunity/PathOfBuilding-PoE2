@@ -23,6 +23,7 @@ Critical Hits cannot Extract Impale
 ]],[[
 Hateforge
 Moulded Mitts
+Source: Drops from unique{Trialmaster} in normal{The Trial of Chaos}
 (50-80)% increased Armour
 Gain (1-3) random Charge on reaching Maximum Rage
 Lose all Rage on reaching Maximum Rage
@@ -200,6 +201,15 @@ Layered Gauntlets
 (40-50)% increased Rarity of Items found
 Lose 2% of maximum Life on Kill
 ]],[[
+Death Articulated
+Ornate Gauntlets
+(100-150)% increased Armour and Evasion
+(5-10)% increased Attack Speed
++(17-23)% to Chaos Resistance
+Lose 5% of maximum Life per second
+Regenerate 5 Rage per second
+No Inherent loss of Rage
+]],[[
 Deathblow
 Doubled Gauntlets
 Variant: Pre 0.1.1
@@ -284,6 +294,7 @@ Inflict Lightning Exposure on Critical Hit
 Hand of Wisdom and Action
 Variant: Pre 0.2.0
 Variant: Current
+Source: Drops from unique{Xesht, We That Are One} in normal{Twisted Domain}
 {variant:1}Furtive Wraps
 {variant:2}Spiral Wraps
 +(15-25) to Dexterity
@@ -316,6 +327,7 @@ All Damage from Hits Contributes to Poison Magnitude
 [[
 Sine Aequo
 Grand Manchettes
+Source: Drops from unique{Arbiter of Ash} in normal{The Burning Monolith}
 (10-15)% increased Skill Speed
 (40-60)% increased Armour, Evasion and Energy Shield
 Immobilise enemies at 50% buildup instead of 100%
