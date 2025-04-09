@@ -4585,9 +4585,8 @@ c["Used when you take Fire damage from a Hit 40% increased Charges"]={nil,"Used 
 c["Used when you take Lightning damage from a Hit"]={nil,"Used when you take Lightning damage from a Hit "}
 c["Used when you take Lightning damage from a Hit 40% increased Charges gained"]={nil,"Used when you take Lightning damage from a Hit 40% increased Charges gained "}
 c["Warcries Empower an additional Attack"]={nil,"Warcries Empower an additional Attack "}
-c["Warcries Explode Corpses dealing 10% of their Life as Physical Damage"]={nil,"Warcries Explode Corpses dealing 10% of their Life as Physical Damage "}
-c["Warcries Explode Corpses dealing 10% of their Life as Physical Damage Warcry Skills have 30% increased Area of Effect"]={nil,"Warcries Explode Corpses dealing 10% of their Life as Physical Damage Warcry Skills have 30% increased Area of Effect "}
-c["Warcries Explode Corpses dealing 25% of their Life as Physical Damage"]={nil,"Warcries Explode Corpses dealing 25% of their Life as Physical Damage "}
+c["Warcries Explode Corpses dealing 10% of their Life as Physical Damage"]={{[1]={flags=0,keywordFlags=0,name="ExplodeMod",type="LIST",value={amount=10,chance=1,keyOfScaledMod="chance",type="Physical"}},[2]={flags=0,keywordFlags=0,name="CanExplode",type="FLAG",value=true}},nil}
+c["Warcries Explode Corpses dealing 25% of their Life as Physical Damage"]={{[1]={flags=0,keywordFlags=0,name="ExplodeMod",type="LIST",value={amount=25,chance=1,keyOfScaledMod="chance",type="Physical"}},[2]={flags=0,keywordFlags=0,name="CanExplode",type="FLAG",value=true}},nil}
 c["Warcry Skills have 25% increased Area of Effect"]={{[1]={[1]={skillType=63,type="SkillType"},flags=0,keywordFlags=0,name="AreaOfEffect",type="INC",value=25}},nil}
 c["Warcry Skills have 30% increased Area of Effect"]={{[1]={[1]={skillType=63,type="SkillType"},flags=0,keywordFlags=0,name="AreaOfEffect",type="INC",value=30}},nil}
 c["When a Party Member in your Presence Casts a Spell, you"]={nil,"When a Party Member in your Presence Casts a Spell, you "}

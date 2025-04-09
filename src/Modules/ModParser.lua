@@ -2077,6 +2077,9 @@ local specialModList = {
 	["enemies taunted by your warcries explode on death, dealing (%d+)%% of their maximum life as (.+) damage"] = function(amount, _, type)	-- Al Dhih
 		return explodeFunc(100, amount, type, { type = "ActorCondition", actor = "enemy", var = "Taunted" }, { type = "Condition", var = "UsedWarcryRecently" })
 	end,
+	["warcries explode corpses dealing (%d+)%% of their life as (.+) damage"] = function(amount, _, type)	-- Warcaller's Bellow
+		return explodeFunc(100, amount, type)
+	end,
 	["totems explode on death, dealing (%d+)%% of their life as (.+) damage"] = function(amount, _, type)	-- Crucible weapon mod
 		return explodeFunc(100, amount, type)
 	end,
