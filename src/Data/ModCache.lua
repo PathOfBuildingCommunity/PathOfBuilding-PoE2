@@ -3477,8 +3477,7 @@ c["Become Ignited when you deal a Critical Hit, taking 15% of your maximum Life 
 c["Bleeding you inflict deals Damage 10% faster"]={{[1]={flags=0,keywordFlags=0,name="BleedFaster",type="INC",value=10}},nil}
 c["Bleeding you inflict is Aggravated"]={nil,"Bleeding you inflict is Aggravated "}
 c["Bleeding you inflict is Aggravated Base Bleeding Duration is 1 second"]={{[1]={flags=0,keywordFlags=0,name="EnemyBleedDuration",type="OVERRIDE",value=1}},"Bleeding you inflict is Aggravated Base  second "}
-c["Bleeding you inflict on Cursed targets is Aggravated"]={nil,"Bleeding you inflict on Cursed targets is Aggravated "}
-c["Bleeding you inflict on Cursed targets is Aggravated Elemental Damage also Contributes to Bleeding Magnitude"]={nil,"Bleeding you inflict on Cursed targets is Aggravated Elemental Damage also Contributes to Bleeding Magnitude "}
+c["Bleeding you inflict on Cursed targets is Aggravated"]={{[1]={flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={[1]={type="Condition",var="Cursed"},flags=0,keywordFlags=0,name="Condition:BleedAggravated",type="FLAG",value=true}}}},nil}
 c["Blind Chilled enemies on Hit"]={nil,"Blind Chilled enemies on Hit "}
 c["Blind Enemies when they Stun you"]={nil,"Blind Enemies when they Stun you "}
 c["Blind does not affect your Light Radius"]={nil,"Blind does not affect your Light Radius "}
@@ -3621,7 +3620,7 @@ c["Critical Hits cannot Extract Impale"]={nil,"Critical Hits cannot Extract Impa
 c["Critical Hits cannot Extract Impale 31 to 49 Physical Thorns damage"]={nil,"Critical Hits cannot Extract Impale 31 to 49 Physical Thorns damage "}
 c["Critical Hits do not deal extra Damage"]={{[1]={flags=0,keywordFlags=0,name="NoCritMultiplier",type="FLAG",value=true}},nil}
 c["Critical Hits ignore Enemy Monster Elemental Resistances"]={{[1]={[1]={type="Condition",var="CriticalStrike"},flags=0,keywordFlags=0,name="IgnoreElementalResistances",type="FLAG",value=true}},nil}
-c["Critical Hits ignore Monster Armour"]={nil,"Critical Hits ignore Monster Armour "}
+c["Critical Hits ignore Monster Armour"]={{[1]={[1]={type="Condition",var="CriticalStrike"},flags=0,keywordFlags=0,name="IgnoreEnemyArmour",type="FLAG",value=true}},nil}
 c["Critical Hits ignore non-negative Enemy Monster Elemental Resistances"]={{[1]={[1]={type="Condition",var="CriticalStrike"},flags=0,keywordFlags=0,name="IgnoreNonNegativeEleRes",type="FLAG",value=true}},nil}
 c["Critical Hits inflict Impale"]={nil,"Critical Hits inflict Impale "}
 c["Critical Hits inflict Impale Critical Hits cannot Extract Impale"]={nil,"Critical Hits inflict Impale Critical Hits cannot Extract Impale "}
