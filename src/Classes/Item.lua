@@ -315,9 +315,18 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 		end
 	end
 	if self.rawLines[l] then
-		self.name = self.rawLines[l]
 		-- Determine if "Unidentified" item
 		local unidentified = false
+		local unidentifiedBase = data.itemBases[self.rawLines[l]]
+		local identifiedBase = data.itemBases[self.rawLines[l+1]]
+		if unidentifiedBase and not identifiedBase then
+			unidentified = true
+			self.name = "Unidentified item"
+			self.baseName = self.rawLines[l]
+			self.base = unidentifiedBase
+		else
+			self.name = self.rawLines[l]
+		end
 		for _, line in ipairs(self.rawLines) do
 			if line == "Unidentified" then
 				unidentified = true
