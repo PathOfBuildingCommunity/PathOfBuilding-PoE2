@@ -134,6 +134,13 @@ statMap = {
 #skillEnd
 
 #from tree
+#skill MetaCastFireSpellOnHitPlayer
+#set MetaCastFireSpellOnHitPlayer
+#flags
+#mods
+#skillEnd
+
+#from tree
 #skill ExplosiveConcoctionPlayer
 #set ExplosiveConcoctionPlayer
 #flags attack projectile duration unarmed
