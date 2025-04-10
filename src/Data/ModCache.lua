@@ -3495,9 +3495,9 @@ c["Body Armour grants 100% increased Stun Threshold"]={{[1]={[1]={itemSlot="Body
 c["Body Armour grants 15% increased maximum Life"]={{[1]={[1]={itemSlot="Body Armour",rarityCond="NORMAL",type="ItemCondition"},flags=0,keywordFlags=0,name="Life",type="INC",value=15}},nil}
 c["Body Armour grants 20% increased Strength"]={{[1]={[1]={itemSlot="Body Armour",rarityCond="NORMAL",type="ItemCondition"},flags=0,keywordFlags=0,name="Str",type="INC",value=20}},nil}
 c["Body Armour grants 25% of Physical Damage from Hits taken as Fire Damage"]={{[1]={[1]={itemSlot="Body Armour",rarityCond="NORMAL",type="ItemCondition"},flags=0,keywordFlags=0,name="PhysicalDamageFromHitsTakenAsFire",type="BASE",value=25}},nil}
-c["Body Armour grants Armour also applies to Chaos Damage taken from Hits"]={nil,"Armour also applies to Chaos Damage taken from Hits "}
-c["Body Armour grants Hits against you have 50% reduced Critical Damage Bonus"]={nil,"Hits against you have 50% reduced Critical Damage Bonus "}
-c["Body Armour grants Unaffected by Ignite"]={nil,"Unaffected by Ignite "}
+c["Body Armour grants Armour also applies to Chaos Damage taken from Hits"]={{[1]={[1]={itemSlot="Body Armour",rarityCond="NORMAL",type="ItemCondition"},flags=0,keywordFlags=0,name="ArmourAppliesToChaosDamageTaken",type="BASE",value=100}},nil}
+c["Body Armour grants Hits against you have 50% reduced Critical Damage Bonus"]={{[1]={[1]={itemSlot="Body Armour",rarityCond="NORMAL",type="ItemCondition"},flags=0,keywordFlags=0,name="ReduceCritExtraDamage",type="BASE",value=50}},nil}
+c["Body Armour grants Unaffected by Ignite"]={{[1]={[1]={itemSlot="Body Armour",rarityCond="NORMAL",type="ItemCondition"},flags=0,keywordFlags=0,name="SelfIgniteEffect",type="MORE",value=-100}},nil}
 c["Body Armour grants regenerate 5% of maximum Life per second"]={{[1]={[1]={itemSlot="Body Armour",rarityCond="NORMAL",type="ItemCondition"},flags=0,keywordFlags=0,name="LifeRegenPercent",type="BASE",value=5}},nil}
 c["Bow Attacks consume 10% of your maximum Life Flask Charges if possible to deal added Physical damage equal to 5% of Flask's Life Recovery amount"]={nil,"Bow Attacks consume 10% of your maximum Life Flask Charges if possible to deal added Physical damage equal to 5% of Flask's Life Recovery amount "}
 c["Bow Attacks fire 3 additional Arrows"]={{[1]={flags=131072,keywordFlags=0,name="ProjectileCount",type="BASE",value=3}},nil}
