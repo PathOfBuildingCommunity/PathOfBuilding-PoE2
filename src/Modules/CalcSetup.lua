@@ -175,7 +175,7 @@ function calcs.buildModListForNode(env, node, incSmallPassiveSkill)
 			t_insert(node.grantedSkills, {
 				skillId = skill.skillId,
 				level = skill.level,
-				noSupports = true,
+				noSupports = skill.noSupports ~= nil and skill.noSupports,
 				source = "Tree:"..node.id
 			})
 		end
@@ -710,9 +710,6 @@ function calcs.initEnv(build, mode, override, specEnv)
 	if allocatedMasteryTypes["Life Mastery"] and allocatedMasteryTypes["Life Mastery"] > 0 then
 		modDB:NewMod("Multiplier:AllocatedLifeMastery", "BASE", allocatedMasteryTypes["Life Mastery"])
 	end
-
-	-- add Conditional WeaponSet# base on weapon set from item
-	modDB:NewMod("Condition:WeaponSet" .. (build.itemsTab.activeItemSet.useSecondWeaponSet and 2 or 1) , "FLAG", true, "Weapon Set")
 
 	-- Build and merge item modifiers, and create list of radius jewels
 	if not accelerate.requirementsItems then
@@ -1271,6 +1268,22 @@ function calcs.initEnv(build, mode, override, specEnv)
 					end
 				end
 				if not group then
+					for _, removeSocketGroup in pairs(build.skillsTab.removedSocketGroupList) do
+						if removeSocketGroup.source == grantedSkill.source and removeSocketGroup.slot == grantedSkill.slotName then
+							if removeSocketGroup.gemList[1] and removeSocketGroup.gemList[1].skillId == grantedSkill.skillId and (removeSocketGroup.gemList[1].level == grantedSkill.level or removeSocketGroup.gemList[1].level == getNormalizedSkillLevel(grantedSkill)) then
+								group = removeSocketGroup
+								break
+							end
+						end
+					end
+
+					if group then
+						build.skillsTab.removedSocketGroupList[group.source] = nil
+						t_insert(build.skillsTab.socketGroupList, group)
+						markList[group] = true
+					end
+				end
+				if not group then
 					-- Create a new group for this skill
 					group = { label = "", enabled = true, gemList = { }, source = grantedSkill.source, slot = grantedSkill.slotName }
 					t_insert(build.skillsTab.socketGroupList, group)
@@ -1294,8 +1307,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 				group.noSupports = grantedSkill.noSupports
 				activeGemInstance.triggered = grantedSkill.triggered
 				activeGemInstance.triggerChance = grantedSkill.triggerChance
-				wipeTable(group.gemList)
-				t_insert(group.gemList, activeGemInstance)
+				group.gemList[1] = activeGemInstance
 				build.skillsTab:ProcessSocketGroup(group)
 			end
 
@@ -1347,10 +1359,14 @@ function calcs.initEnv(build, mode, override, specEnv)
 			while build.skillsTab.socketGroupList[i] do
 				local socketGroup = build.skillsTab.socketGroupList[i]
 				if socketGroup.source and not markList[socketGroup] then
-					t_remove(build.skillsTab.socketGroupList, i)
+					build.skillsTab.socketGroupList[i].shown = false
+					local removed = t_remove(build.skillsTab.socketGroupList, i)
 					if build.skillsTab.displayGroup == socketGroup then
 						build.skillsTab.displayGroup = nil
 					end
+
+					-- add in the removed group to the list of groups to be removed
+					build.skillsTab.removedSocketGroupList[removed.source] = removed
 				else
 					i = i + 1
 				end
@@ -1392,15 +1408,22 @@ function calcs.initEnv(build, mode, override, specEnv)
 			t_insert(env.crossLinkedSupportGroups[mod.mod.sourceSlot], mod.value.targetSlotName)
 		end
 
+		-- alway use WeaponSet 1 for condition unless set 1 false and set 2 true
+		local mainSkill =  build.skillsTab.socketGroupList[env.mainSocketGroup]
+		local usingSkillSet = mainSkill and not mainSkill.set1 and mainSkill.set2 and 2 or 1
+
+		env.usingSkillSet = usingSkillSet
+		modDB:NewMod("Condition:WeaponSet" .. usingSkillSet , "FLAG", true, "Weapon Set")
+
 		local supportLists = { }
 		local groupCfgList = { }
 		local processedSockets = {}
 		-- Process support gems adding them to applicable support lists
 		for index, group in ipairs(build.skillsTab.socketGroupList) do
-			local slot = group.slot and build.itemsTab.slots[group.slot]
-			group.slotEnabled = not slot or not slot.weaponSet or slot.weaponSet == (build.itemsTab.activeItemSet.useSecondWeaponSet and 2 or 1)
+			group.usingSkillSet = not group.set1 and group.set2 and 2 or 1
+
 			-- if group is main skill or group is enabled 
-			if index == env.mainSocketGroup or (group.enabled and group.slotEnabled) then
+			if index == env.mainSocketGroup or (group.enabled and group.usingSkillSet == env.usingSkillSet) then
 				local slotName = group.slot and group.slot:gsub(" Swap","")
 				groupCfgList[slotName or "noSlot"] = groupCfgList[slotName or "noSlot"] or {}
 				groupCfgList[slotName or "noSlot"][group] = groupCfgList[slotName or "noSlot"][group] or {
@@ -1506,7 +1529,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 		-- Process active skills adding the applicable supports
 		local socketGroupSkillListList = { }
 		for index, group in ipairs(build.skillsTab.socketGroupList) do
-			if index == env.mainSocketGroup or (group.enabled and group.slotEnabled) then
+			if index == env.mainSocketGroup or (group.enabled and group.usingSkillSet == env.usingSkillSet) then
 				local slotName = group.slot and group.slot:gsub(" Swap","")
 				groupCfgList[slotName or "noSlot"][group] = groupCfgList[slotName or "noSlot"][group] or {
 					slotName = slotName,
@@ -1634,7 +1657,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 			socketGroupSkillListList[slotName or "noSlot"] = socketGroupSkillListList[slotName or "noSlot"] or {}
 			socketGroupSkillListList[slotName or "noSlot"][group] = socketGroupSkillListList[slotName or "noSlot"][group] or {}
 			local socketGroupSkillList = socketGroupSkillListList[slotName or "noSlot"][group]
-			if index == env.mainSocketGroup or (group.enabled and group.slotEnabled) then
+			if index == env.mainSocketGroup or (group.enabled and group.usingSkillSet == env.usingSkillSet) then
 				groupCfgList[slotName or "noSlot"][group] = groupCfgList[slotName or "noSlot"][group] or {
 					slotName = slotName,
 					propertyModList = env.modDB:Tabulate("LIST", {slotName = slotName}, "GemProperty")
