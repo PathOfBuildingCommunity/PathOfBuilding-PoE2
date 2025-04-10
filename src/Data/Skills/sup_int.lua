@@ -410,6 +410,14 @@ skills["SupportBurgeonPlayer"] = {
 			label = "Burgeon",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_chanelling_damage_+%_final_per_second_channelling"] = {
+					mod("Damage", "MORE", nil, 0, 0, { type = "Condition", var = "Channelling" }, { type = "Multiplier", var = "ChannellingTime", limitVar = "BurgeonDamageCap", limitTotal = true }),
+				},
+				["support_channelling_damage_cap"] = {
+					mod("Multiplier:BurgeonDamageCap", "BASE"),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
