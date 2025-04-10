@@ -3159,6 +3159,14 @@ skills["SupportPinpointCriticalPlayer"] = {
 			label = "Pinpoint Critical",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_pinpoint_critical_strike_chance_+%_final"] = {
+					mod("CritChance", "MORE", nil),
+				},
+				["support_pinpoint_critical_strike_multiplier_+%_final"] = {
+					mod("CritMultiplier", "MORE", nil),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
