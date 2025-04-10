@@ -229,6 +229,14 @@ statMap = {
 
 #skill SupportDelayedReactionPlayer
 #set SupportDelayedReactionPlayer
+statMap = {
+	["support_sunblast_hazard_hazard_damage_+%_final"] = {
+		mod("Damage", "MORE", nil),
+	},
+	["support_sunblast_hazard_hazard_duration_+%_final"] = {
+		mod("Duration", "MORE", nil),
+	},
+},
 #mods
 #skillEnd
 

@@ -1030,6 +1030,14 @@ skills["SupportDelayedReactionPlayer"] = {
 			label = "Delayed Reaction",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_sunblast_hazard_hazard_damage_+%_final"] = {
+					mod("Damage", "MORE", nil),
+				},
+				["support_sunblast_hazard_hazard_duration_+%_final"] = {
+					mod("Duration", "MORE", nil),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
