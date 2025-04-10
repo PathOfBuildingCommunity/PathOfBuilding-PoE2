@@ -3850,6 +3850,15 @@ return {
 				["type"] = "explicit", 
 			}, 
 		}, 
+		["7044_LocalRuneAndSoulCoreEffect"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_2748623647", 
+				["text"] = "#% increased effect of Socketed Items", 
+				["type"] = "explicit", 
+			}, 
+		}, 
 		["7154_MaceStun"] = {
 			["specialCaseData"] = {
 			}, 
@@ -4916,7 +4925,7 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "explicit.stat_2106365538", 
+				["id"] = "explicit.stat_124859000", 
 				["text"] = "#% increased Evasion Rating", 
 				["type"] = "explicit", 
 			}, 
@@ -4945,7 +4954,7 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "explicit.stat_2106365538", 
+				["id"] = "explicit.stat_124859000", 
 				["text"] = "#% increased Evasion Rating", 
 				["type"] = "explicit", 
 			}, 
@@ -4958,7 +4967,7 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "explicit.stat_2106365538", 
+				["id"] = "explicit.stat_124859000", 
 				["text"] = "#% increased Evasion Rating", 
 				["type"] = "explicit", 
 			}, 
@@ -4979,7 +4988,7 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "explicit.stat_2106365538", 
+				["id"] = "explicit.stat_124859000", 
 				["text"] = "#% increased Evasion Rating", 
 				["type"] = "explicit", 
 			}, 
@@ -4992,7 +5001,7 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "explicit.stat_2106365538", 
+				["id"] = "explicit.stat_124859000", 
 				["text"] = "#% increased Evasion Rating", 
 				["type"] = "explicit", 
 			}, 
@@ -5030,6 +5039,10 @@ return {
 			["Helmet"] = {
 				["max"] = 100, 
 				["min"] = 15, 
+			}, 
+			["Shield"] = {
+				["max"] = 110, 
+				["min"] = 101, 
 			}, 
 			["specialCaseData"] = {
 			}, 
@@ -5319,6 +5332,10 @@ return {
 			["Helmet"] = {
 				["max"] = 100, 
 				["min"] = 15, 
+			}, 
+			["Shield"] = {
+				["max"] = 110, 
+				["min"] = 101, 
 			}, 
 			["specialCaseData"] = {
 			}, 
@@ -6132,7 +6149,7 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "explicit.stat_2106365538", 
+				["id"] = "explicit.stat_124859000", 
 				["text"] = "#% increased Evasion Rating", 
 				["type"] = "explicit", 
 			}, 
@@ -10368,6 +10385,10 @@ return {
 				["max"] = 25, 
 				["min"] = 15, 
 			}, 
+			["Helmet"] = {
+				["max"] = 16, 
+				["min"] = 8, 
+			}, 
 			["Ring"] = {
 				["max"] = 10, 
 				["min"] = 7, 
@@ -12444,6 +12465,39 @@ return {
 				["type"] = "rune", 
 			}, 
 			["usePositiveSign"] = true, 
+		}, 
+		["8812"] = {
+			["Boots"] = {
+				["max"] = 10, 
+				["min"] = 10, 
+			}, 
+			["Chest"] = {
+				["max"] = 10, 
+				["min"] = 10, 
+			}, 
+			["Focus"] = {
+				["max"] = 10, 
+				["min"] = 10, 
+			}, 
+			["Gloves"] = {
+				["max"] = 10, 
+				["min"] = 10, 
+			}, 
+			["Helmet"] = {
+				["max"] = 10, 
+				["min"] = 10, 
+			}, 
+			["Shield"] = {
+				["max"] = 10, 
+				["min"] = 10, 
+			}, 
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "rune.stat_3801067695", 
+				["text"] = "#% reduced effect of Shock on you", 
+				["type"] = "rune", 
+			}, 
 		}, 
 		["914"] = {
 			["1HMace"] = {
