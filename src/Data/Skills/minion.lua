@@ -1027,6 +1027,74 @@ skills["GAAnimateWeaponQuarterstaffSweep"] = {
 }
 -- Spectres here for now as spectres aren't using the spectre.lua skills file
 
+skills["DTTHellscapeStabbySkyStab"] = {
+	name = "Basic Attack",
+	hidden = true,
+	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.ProjectilesFromUser] = true, },
+	castTime = 2.5,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { baseMultiplier = 1.5, storedUses = 1, levelRequirement = 0, cooldown = 8, },
+	},
+	statSets = {
+		[1] = {
+			label = "Basic Attack",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				attack = true,
+				melee = true,
+				projectile = true,
+			},
+			constantStats = {
+				{ "attack_maximum_action_distance_+", 37 },
+				{ "active_skill_base_physical_damage_%_to_convert_to_lightning", 40 },
+			},
+			stats = {
+				"skill_can_fire_arrows",
+				"skill_can_fire_wand_projectiles",
+				"action_attack_or_cast_time_uses_animation_length",
+				"projectile_uses_contact_position",
+				"use_scaled_contact_offset",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["GAHellscapePaleEliteSkyStab"] = {
+	name = "Stab Attack",
+	hidden = true,
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Attack] = true, },
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { baseMultiplier = 1.25, levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Stab Attack",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				attack = true,
+				triggerable = true,
+			},
+			constantStats = {
+				{ "active_skill_shock_chance_+%_final", 50 },
+			},
+			stats = {
+				"is_area_damage",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
 skills["GAMediumBeetleChargedSunder"] = {
 	name = "Charged Sunder",
 	hidden = true,
@@ -1043,8 +1111,8 @@ skills["GAMediumBeetleChargedSunder"] = {
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
+				triggerable = true,
 				attack = true,
-				area = true,
 			},
 			constantStats = {
 				{ "attack_maximum_action_distance_+", 20 },
@@ -1078,8 +1146,8 @@ skills["GAMediumBeetleSunder"] = {
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
+				triggerable = true,
 				attack = true,
-				area = true,
 			},
 			constantStats = {
 				{ "attack_maximum_action_distance_+", 14 },
@@ -1109,9 +1177,8 @@ skills["GATwoHeadedTitanSlam"] = {
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
+				triggerable = true,
 				attack = true,
-				melee = true,
-				area = true,
 			},
 			constantStats = {
 				{ "attack_maximum_action_distance_+", 20 },
@@ -1142,9 +1209,8 @@ skills["GATwoHeadedTitanStomp"] = {
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
+				triggerable = true,
 				attack = true,
-				melee = true,
-				area = true,
 			},
 			constantStats = {
 				{ "attack_maximum_action_distance_+", -8 },
@@ -1152,6 +1218,116 @@ skills["GATwoHeadedTitanStomp"] = {
 			stats = {
 				"is_area_damage",
 				"action_attack_or_cast_time_uses_animation_length",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["GSHellscapePaleEliteBoltImpact"] = {
+	name = "Bolt Impact",
+	hidden = true,
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, },
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { critChance = 5, levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Bolt Impact",
+			baseEffectiveness = 3,
+			incrementalEffectiveness = 0.10000000149012,
+			damageIncrementalEffectiveness = 0.017500000074506,
+			statDescriptionScope = "geometry_spell",
+			baseFlags = {
+				triggerable = true,
+				spell = true,
+				hit = true,
+			},
+			constantStats = {
+				{ "generic_skill_trigger_id", 1 },
+				{ "shock_art_variation", 10 },
+				{ "damage_hit_effect_index", 103 },
+			},
+			stats = {
+				"spell_minimum_base_lightning_damage",
+				"spell_maximum_base_lightning_damage",
+			},
+			levels = {
+				[1] = { 0.5, 1.5, statInterpolation = { 3, 3, }, actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["GSHellscapePaleEliteOmegaBeam"] = {
+	name = "Omega Beam",
+	hidden = true,
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, },
+	castTime = 2.333,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { critChance = 5, storedUses = 1, levelRequirement = 0, cooldown = 10, },
+	},
+	statSets = {
+		[1] = {
+			label = "Omega Beam",
+			baseEffectiveness = 6.1500000953674,
+			incrementalEffectiveness = 0.10000000149012,
+			damageIncrementalEffectiveness = 0.017500000074506,
+			statDescriptionScope = "geometry_spell",
+			baseFlags = {
+				triggerable = true,
+				spell = true,
+				hit = true,
+			},
+			constantStats = {
+				{ "spell_maximum_action_distance_+%", -55 },
+				{ "shock_art_variation", 10 },
+				{ "damage_hit_effect_index", 103 },
+			},
+			stats = {
+				"spell_minimum_base_lightning_damage",
+				"spell_maximum_base_lightning_damage",
+			},
+			levels = {
+				[1] = { 0.5, 1.5, statInterpolation = { 3, 3, }, actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["MeleeAtAnimationSpeedLightning"] = {
+	name = "Basic Attack (Lightning)",
+	hidden = true,
+	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.ProjectilesFromUser] = true, },
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Basic Attack (Lightning)",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				attack = true,
+				projectile = true,
+				melee = true,
+			},
+			constantStats = {
+				{ "active_skill_base_physical_damage_%_to_convert_to_lightning", 40 },
+			},
+			stats = {
+				"skill_can_fire_arrows",
+				"skill_can_fire_wand_projectiles",
+				"action_attack_or_cast_time_uses_animation_length",
+				"projectile_uses_contact_position",
+				"use_scaled_contact_offset",
 			},
 			levels = {
 				[1] = { actorLevel = 1, },
@@ -1252,6 +1428,124 @@ skills["MMSVaalGuardOilTrap"] = {
 			},
 			levels = {
 				[1] = { 20, -25, -25, 10, 10, statInterpolation = { 1, 1, 1, 1, 1, }, actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["TBHellscapePaleLightningBoltSpammableLeft"] = {
+	name = "Lightning Bolt",
+	hidden = true,
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Triggerable] = true, [SkillType.Attack] = true, [SkillType.Damage] = true, },
+	castTime = 1.333,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { critChance = 5, levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Lightning Bolt",
+			baseEffectiveness = 0.75,
+			incrementalEffectiveness = 0.10000000149012,
+			damageIncrementalEffectiveness = 0.017500000074506,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				spell = true,
+				hit = true,
+				triggerable = true,
+			},
+			constantStats = {
+				{ "generic_skill_trigger_skills_with_id", 1 },
+				{ "shock_art_variation", 10 },
+				{ "damage_hit_effect_index", 103 },
+				{ "active_skill_cast_speed_+%_final", 15 },
+			},
+			stats = {
+				"spell_minimum_base_lightning_damage",
+				"spell_maximum_base_lightning_damage",
+			},
+			levels = {
+				[1] = { 0.5, 1.5, statInterpolation = { 3, 3, }, actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["TCHellscapePaleElite2Charge"] = {
+	name = "Charge",
+	hidden = true,
+	description = "Charges at an enemy, bashing it with the character's shield and striking it. This knocks it back and stuns it. Enemies in the way are pushed to the side. Damage and stun are proportional to distance travelled. Cannot be supported by Multistrike.",
+	skillTypes = { [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Movement] = true, [SkillType.Travel] = true, },
+	weaponTypes = {
+		["None"] = true,
+		["One Handed Sword"] = true,
+		["One Handed Mace"] = true,
+		["Flail"] = true,
+		["Spear"] = true,
+		["One Handed Axe"] = true,
+		["Dagger"] = true,
+		["Claw"] = true,
+	},
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { baseMultiplier = 0.3, storedUses = 1, levelRequirement = 0, cooldown = 8, },
+	},
+	statSets = {
+		[1] = {
+			label = "Charge",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				attack = true,
+				melee = true,
+			},
+			stats = {
+				"ignores_proximity_shield",
+				"is_area_damage",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["TCHellscapePaleElite2Charge"] = {
+	name = "Charge",
+	hidden = true,
+	description = "Charges at an enemy, bashing it with the character's shield and striking it. This knocks it back and stuns it. Enemies in the way are pushed to the side. Damage and stun are proportional to distance travelled. Cannot be supported by Multistrike.",
+	skillTypes = { [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Movement] = true, [SkillType.Travel] = true, },
+	weaponTypes = {
+		["None"] = true,
+		["One Handed Sword"] = true,
+		["One Handed Mace"] = true,
+		["Flail"] = true,
+		["Spear"] = true,
+		["One Handed Axe"] = true,
+		["Dagger"] = true,
+		["Claw"] = true,
+	},
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { baseMultiplier = 0.3, storedUses = 1, levelRequirement = 0, cooldown = 8, },
+	},
+	statSets = {
+		[1] = {
+			label = "Charge",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				attack = true,
+				melee = true,
+			},
+			stats = {
+				"ignores_proximity_shield",
+				"is_area_damage",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
 			},
 		},
 	}

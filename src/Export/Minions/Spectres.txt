@@ -5,6 +5,10 @@
 --
 local minions, mod, flag = ...
 
+-- Beyond
+#spectre Metadata/Monsters/LeagueHellscape/PaleFaction/HellscapePaleElite1_
+#spectre Metadata/Monsters/LeagueHellscape/PaleFaction/HellscapePaleElite2__
+
 -- Goliath
 #spectre Metadata/Monsters/TwoheadedTitan/TwoHeadedTitan
 

@@ -6,6 +6,66 @@
 --
 local minions, mod, flag = ...
 
+-- Beyond
+minions["Metadata/Monsters/LeagueHellscape/PaleFaction/HellscapePaleElite1_"] = {
+	name = "Pale Angel",
+	monsterTags = { "beyond_demon", "demon", "medium_movement", "not_dex", "not_str", "red_blood", "Unarmed_onhit_audio", },
+	life = 2.12,
+	baseDamageIgnoresAttackSpeed = true,
+	energyShield = 0.12,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 75,
+	chaosResist = 0,
+	damage = 2.35,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 9,
+	accuracy = 1,
+	weaponType1 = "None",
+	skillList = {
+		"TBHellscapePaleLightningBoltSpammableLeft",
+		"TBHellscapePaleLightningBoltSpammableRight",
+		"GSHellscapePaleEliteBoltImpact",
+		"GSHellscapePaleEliteOmegaBeam",
+		"TeleportHellscapePaleElite",
+	},
+	modList = {
+	},
+}
+minions["Metadata/Monsters/LeagueHellscape/PaleFaction/HellscapePaleElite2__"] = {
+	name = "Pale Seraphim",
+	monsterTags = { "beyond_demon", "demon", "fast_movement", "MonsterStab_onhit_audio", "not_int", "pale_faction", "red_blood", },
+	life = 2.25,
+	baseDamageIgnoresAttackSpeed = true,
+	armour = 0.25,
+	evasion = 0.25,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 75,
+	chaosResist = 0,
+	damage = 1.97,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 18,
+	accuracy = 1,
+	weaponType1 = "None",
+	skillList = {
+		"DTTHellscapeStabbySkyStab",
+		"DTTHellscapeStabWeb",
+		"GAHellscapeStabWeb",
+		"GAHellscapePaleEliteSkyStab",
+		"TCHellscapePaleElite2Charge",
+		"GSHellscapePaleElite2Charge",
+		"MeleeAtAnimationSpeedLightning",
+		"MeleeAtAnimationSpeedLightningCombo35",
+	},
+	modList = {
+		-- HellscapeYellowLightningOverride [shock_art_variation = 10]
+		-- HellscapeYellowLightningOverride [damage_hit_effect_index = 103]
+	},
+}
+
 -- Goliath
 minions["Metadata/Monsters/TwoheadedTitan/TwoHeadedTitan"] = {
 	name = "Goliath",
