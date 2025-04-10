@@ -124,6 +124,11 @@ local function doActorAttribsConditions(env, actor)
 		else
 			condList["UsingTwoHandedWeapon"] = true
 		end
+		local weapon1Base = actor.itemList["Weapon 1"] and actor.itemList["Weapon 1"].base
+		local weapon2Base = actor.itemList["Weapon 2"] and actor.itemList["Weapon 2"].base
+		if (weapon1Base and weapon1Base.weapon) or (weapon2Base and weapon2Base.weapon) then -- technically checking weapon2 is unnecessary as there is currently no way to only attack with off-hand, but maybe it will come
+			condList["UsingMartialWeapon"] = true
+		end
 	end
 	local armourSlots = { "Helmet", "Body Armour", "Gloves", "Boots" }
 	for _, slotName in ipairs(armourSlots) do
