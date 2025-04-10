@@ -3487,18 +3487,18 @@ c["Block chance is Lucky"]={{[1]={flags=0,keywordFlags=0,name="BlockChanceIsLuck
 c["Blocking Damage Poisons the Enemy as though dealing 100 Base Chaos Damage"]={nil,"Blocking Damage Poisons the Enemy as though dealing 100 Base Chaos Damage "}
 c["Blocking Damage Poisons the Enemy as though dealing 100 Base Chaos Damage Blocking Damage Poisons the Enemy as though dealing 200 Base Chaos Damage"]={nil,"Blocking Damage Poisons the Enemy as though dealing 100 Base Chaos Damage Blocking Damage Poisons the Enemy as though dealing 200 Base Chaos Damage "}
 c["Blocking Damage Poisons the Enemy as though dealing 200 Base Chaos Damage"]={nil,"Blocking Damage Poisons the Enemy as though dealing 200 Base Chaos Damage "}
-c["Body Armour grants +5% to Maximum Fire Resistance"]={nil,"Body Armour grants +5% to Maximum Fire Resistance "}
-c["Body Armour grants +75% to Cold Resistance"]={nil,"Body Armour grants +75% to Cold Resistance "}
-c["Body Armour grants +75% to Fire Resistance"]={nil,"Body Armour grants +75% to Fire Resistance "}
-c["Body Armour grants +75% to Lightning Resistance"]={nil,"Body Armour grants +75% to Lightning Resistance "}
-c["Body Armour grants 100% increased Stun Threshold"]={nil,"Body Armour grants 100% increased Stun Threshold "}
-c["Body Armour grants 15% increased maximum Life"]={nil,"Body Armour grants 15% increased maximum Life "}
-c["Body Armour grants 20% increased Strength"]={nil,"Body Armour grants 20% increased Strength "}
-c["Body Armour grants 25% of Physical Damage from Hits taken as Fire Damage"]={nil,"Body Armour grants 25% of Physical Damage from Hits taken as Fire Damage "}
-c["Body Armour grants Armour also applies to Chaos Damage taken from Hits"]={nil,"Body Armour grants Armour also applies to Chaos Damage taken from Hits "}
-c["Body Armour grants Hits against you have 50% reduced Critical Damage Bonus"]={nil,"Body Armour grants Hits  have 50% reduced Critical Damage Bonus "}
-c["Body Armour grants Unaffected by Ignite"]={nil,"Body Armour grants Unaffected by Ignite "}
-c["Body Armour grants regenerate 5% of maximum Life per second"]={nil,"Body Armour grants regenerate 5% of maximum Life per second "}
+c["Body Armour grants +5% to Maximum Fire Resistance"]={{[1]={[1]={itemSlot="Body Armour",rarityCond="NORMAL",type="ItemCondition"},flags=0,keywordFlags=0,name="FireResistMax",type="BASE",value=5}},nil}
+c["Body Armour grants +75% to Cold Resistance"]={{[1]={[1]={itemSlot="Body Armour",rarityCond="NORMAL",type="ItemCondition"},flags=0,keywordFlags=0,name="ColdResist",type="BASE",value=75}},nil}
+c["Body Armour grants +75% to Fire Resistance"]={{[1]={[1]={itemSlot="Body Armour",rarityCond="NORMAL",type="ItemCondition"},flags=0,keywordFlags=0,name="FireResist",type="BASE",value=75}},nil}
+c["Body Armour grants +75% to Lightning Resistance"]={{[1]={[1]={itemSlot="Body Armour",rarityCond="NORMAL",type="ItemCondition"},flags=0,keywordFlags=0,name="LightningResist",type="BASE",value=75}},nil}
+c["Body Armour grants 100% increased Stun Threshold"]={{[1]={[1]={itemSlot="Body Armour",rarityCond="NORMAL",type="ItemCondition"},flags=0,keywordFlags=0,name="StunThreshold",type="INC",value=100}},nil}
+c["Body Armour grants 15% increased maximum Life"]={{[1]={[1]={itemSlot="Body Armour",rarityCond="NORMAL",type="ItemCondition"},flags=0,keywordFlags=0,name="Life",type="INC",value=15}},nil}
+c["Body Armour grants 20% increased Strength"]={{[1]={[1]={itemSlot="Body Armour",rarityCond="NORMAL",type="ItemCondition"},flags=0,keywordFlags=0,name="Str",type="INC",value=20}},nil}
+c["Body Armour grants 25% of Physical Damage from Hits taken as Fire Damage"]={{[1]={[1]={itemSlot="Body Armour",rarityCond="NORMAL",type="ItemCondition"},flags=0,keywordFlags=0,name="PhysicalDamageFromHitsTakenAsFire",type="BASE",value=25}},nil}
+c["Body Armour grants Armour also applies to Chaos Damage taken from Hits"]={nil,"Armour also applies to Chaos Damage taken from Hits "}
+c["Body Armour grants Hits against you have 50% reduced Critical Damage Bonus"]={nil,"Hits against you have 50% reduced Critical Damage Bonus "}
+c["Body Armour grants Unaffected by Ignite"]={nil,"Unaffected by Ignite "}
+c["Body Armour grants regenerate 5% of maximum Life per second"]={{[1]={[1]={itemSlot="Body Armour",rarityCond="NORMAL",type="ItemCondition"},flags=0,keywordFlags=0,name="LifeRegenPercent",type="BASE",value=5}},nil}
 c["Bow Attacks consume 10% of your maximum Life Flask Charges if possible to deal added Physical damage equal to 5% of Flask's Life Recovery amount"]={nil,"Bow Attacks consume 10% of your maximum Life Flask Charges if possible to deal added Physical damage equal to 5% of Flask's Life Recovery amount "}
 c["Bow Attacks fire 3 additional Arrows"]={{[1]={flags=131072,keywordFlags=0,name="ProjectileCount",type="BASE",value=3}},nil}
 c["Bow Attacks fire an additional Arrow"]={{[1]={flags=131072,keywordFlags=0,name="ProjectileCount",type="BASE",value=1}},nil}
