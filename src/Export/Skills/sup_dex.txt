@@ -673,6 +673,11 @@ statMap = {
 
 #skill SupportWarmbloodedPlayer
 #set SupportWarmbloodedPlayer
+statMap = {
+	["support_freeze_protection_spirit_cost_freeze_duration_on_self_+%_final"] = {
+		mod("SelfFreezeDuration", "MORE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Warm Blooded" }),
+	},
+},
 #mods
 #skillEnd
 

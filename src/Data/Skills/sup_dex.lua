@@ -3118,6 +3118,11 @@ skills["SupportWarmbloodedPlayer"] = {
 			label = "Warm Blooded",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_freeze_protection_spirit_cost_freeze_duration_on_self_+%_final"] = {
+					mod("SelfFreezeDuration", "MORE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Warm Blooded" }),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
