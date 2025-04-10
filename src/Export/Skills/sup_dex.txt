@@ -298,6 +298,11 @@ statMap = {
 
 #skill SupportGambleshotPlayer
 #set SupportGambleshotPlayer
+statMap = {
+	[ "support_gambleshot_projectile_damage_+%_final"] = {
+		mod("Damage", "MORE", nil),
+	},
+},
 #mods
 #skillEnd
 

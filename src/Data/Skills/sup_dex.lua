@@ -1345,6 +1345,11 @@ skills["SupportGambleshotPlayer"] = {
 			label = "Gambleshot",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				[ "support_gambleshot_projectile_damage_+%_final"] = {
+					mod("Damage", "MORE", nil),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
