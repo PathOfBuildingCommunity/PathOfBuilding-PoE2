@@ -2277,7 +2277,8 @@ function calcs.offence(env, actor, activeSkill)
 		output.Accuracy = m_max(0, m_floor(base * (1 + inc / 100) * more))
 		local accuracyVsEnemy = m_max(0, m_floor(baseVsEnemy * (1 + incVsEnemy / 100) * moreVsEnemy))
 		local accuracyVsEnemyBase = accuracyVsEnemy
-		if not modDB:Flag(cfg, "NoAccuracyDistancePenalty") then
+		local noAccuracyDistancePenalty = modDB:Flag(cfg, "NoAccuracyDistancePenalty") -- saving this in local variable as it gets used again later
+		if not noAccuracyDistancePenalty then
 			accuracyVsEnemy = m_floor(accuracyVsEnemy * accuracyPenalty)
 		end
 		if breakdown then
@@ -2312,16 +2313,19 @@ function calcs.offence(env, actor, activeSkill)
 				}
 			end
 		end
-		if not isAttack or skillModList:Flag(cfg, "CannotBeEvaded") or skillData.cannotBeEvaded or (env.mode_effective and enemyDB:Flag(nil, "CannotEvade")) then
+		if not isAttack then
 			output.AccuracyHitChance = 100
 		else
 			local enemyEvasion = m_max(round(calcLib.val(enemyDB, "Evasion")), 0)
 			local hitChanceMod = calcLib.mod(skillModList, cfg, "HitChance")
-			output.AccuracyHitChance = calcs.hitChance(enemyEvasion, accuracyVsEnemy) * hitChanceMod
-			local hitChances = {}
-			for _, distance in ipairs(distances) do
-				local adjustedAccuracy = m_floor(accuracyVsEnemyBase * accuracyPenalties["accuracyPenalty" .. distance .. "m"])
-				hitChances["hitChance" .. distance .. "m"] = calcs.hitChance(enemyEvasion, adjustedAccuracy) * hitChanceMod
+			local cannotBeEvaded = skillModList:Flag(cfg, "CannotBeEvaded") or skillData.cannotBeEvaded or (env.mode_effective and enemyDB:Flag(nil, "CannotEvade"))
+			output.AccuracyHitChance = (cannotBeEvaded and 100) or calcs.hitChance(enemyEvasion, accuracyVsEnemy) * hitChanceMod
+			-- Accounting for mods that enable "Chance to hit with Attacks can exceed 100%"
+			local exceedsHitChance = skillModList:Flag(nil,"Condition:HitChanceCanExceed100") and calcs.hitChance(enemyEvasion, (m_floor(accuracyVsEnemyBase * accuracyPenalties["accuracyPenalty" .. distances[1] .. "m"])) * hitChanceMod) -- Check for flag and at least 100% hit chance at minimum distance
+			output.AccuracyHitChanceUncapped = exceedsHitChance and m_max(calcs.hitChance(enemyEvasion, accuracyVsEnemy, true) * calcLib.mod(skillModList, cfg, "HitChance"), output.AccuracyHitChance) -- keep higher chance in case of "CannotBeEvaded"
+			local handCondition = (pass.label == "Off Hand") and "OffHandAttack" or "MainHandAttack"
+			if exceedsHitChance and output.AccuracyHitChanceUncapped - 100 > 0 then
+				skillModList:NewMod("Multiplier:ExcessHitChance", "BASE", round(output.AccuracyHitChanceUncapped - 100, 2), "HitChanceCanExceed100", { type = "Condition", var = handCondition})
 			end
 			if breakdown then
 				breakdown.AccuracyHitChance = {
@@ -2329,38 +2333,39 @@ function calcs.offence(env, actor, activeSkill)
 					"Enemy evasion: " .. enemyEvasion,
 					"",
 					"Approximate hit chance at:",
+					}
+				-- Calculating individual hit chances at different distances
+				local hitChances = {}
+				hitChances[1] = {distance = enemyDistance}
+				local buffers = {
+					dist = {"     ", "   ", "  ", ""}, -- these define the number of required spaces based on string length to have the numbers aligned (it's not a simple length * x due to linting that happens later)
+					chance = {"    ", "  ", ""}
 				}
-				for i = 1, #distances do
-					local lower = distances[i]
-    				local upper = distances[i + 1] or lower
-					if enemyDistance ~= lower then -- This ugly formatting keeps the text aligned in the display
-						t_insert(breakdown.AccuracyHitChance, string.rep("  ", 4 - string.len(lower))..string.rep(" ", string.len(lower) - 2)..lower .. "m: "..hitChances["hitChance" .. lower .. "m"].."%")
-					end
-					if enemyDistance >= lower and enemyDistance < upper then
-						t_insert(breakdown.AccuracyHitChance, string.rep("  ", 4 - string.len(enemyDistance))..string.rep(" ", string.len(enemyDistance) - 2)..enemyDistance.."m: "..output.AccuracyHitChance.."% ^8(current config)")
+				for _, distance in ipairs(distances) do -- put distance values in order, incl. config value
+					if distance < hitChances[#hitChances].distance then 
+						t_insert(hitChances, #hitChances, { distance = distance })
+					elseif distance > hitChances[#hitChances].distance then
+						t_insert(hitChances, { distance = distance })
 					end
 				end
+				for _, entry in ipairs(hitChances) do
+					entry.adjustedAccuracy = ((entry.distance == enemyDistance) and accuracyVsEnemy) or  m_floor(accuracyVsEnemyBase * ((noAccuracyDistancePenalty and 1) or accuracyPenalties["accuracyPenalty" .. entry.distance .. "m"])) -- checking here for noAccuracyDistancePenalty again because it's otherwise only used to calculate accuracyVsEnemy, which uses the config distance value
+					entry.capped = ((entry.distance == enemyDistance) and output.AccuracyHitChance) or (cannotBeEvaded and 100) or m_max(calcs.hitChance(enemyEvasion, entry.adjustedAccuracy) * hitChanceMod)
+					entry.uncapped = exceedsHitChance and m_max(calcs.hitChance(enemyEvasion, entry.adjustedAccuracy, true) * hitChanceMod, entry.capped) -- compare to capped to account for cannotBeEvaded
+					entry.excess = exceedsHitChance and entry.uncapped > 100 and entry.uncapped - entry.capped
+					entry.distBuffer = buffers.dist[string.len(entry.distance)] -- buffer defines the number of spaces needed to align the output numbers
+					entry.cappedBuffer = buffers.chance[string.len(entry.capped)]
+					entry.excessText = entry.excess and " ^8(+" .. buffers.chance[string.len(entry.excess)+1] .. entry.excess .. "%)" or ""
+					entry.config = (entry.distance == enemyDistance) and " ^8(current config)" or ""
+					t_insert(breakdown.AccuracyHitChance, entry.distBuffer .. entry.distance .. "m: " .. entry.cappedBuffer .. entry.capped .. "%" .. entry.excessText .. entry.config)
+				end
+				-- Add note for uncapped hit chance / "Chance to hit with Attacks can exceed 100%"
+				if exceedsHitChance then
+					t_insert(breakdown.AccuracyHitChance, "") -- empty line for better readability
+					t_insert(breakdown.AccuracyHitChance, "^8Note: Your hit chance can exceed 100%.\nExcess values are shown as (+x%)")
+					t_insert(breakdown.AccuracyHitChance, "") -- empty line for better readability
+				end
 			end
-		end
-		-- Accounting for mods that enable "Chance to hit with Attacks can exceed 100%"
-		if skillModList:Flag(nil,"Condition:HitChanceCanExceed100") and output.AccuracyHitChance == 100 then
-			local enemyEvasion = m_max(round(calcLib.val(enemyDB, "Evasion")), 0)
-			output.AccuracyHitChanceUncapped = m_max(calcs.hitChance(enemyEvasion, accuracyVsEnemy, true) * calcLib.mod(skillModList, cfg, "HitChance"), output.AccuracyHitChance) -- keep higher chance in case of "CannotBeEvaded"
-			if breakdown and breakdown.AccuracyHitChance then
-				t_insert(breakdown.AccuracyHitChance, "Uncapped hit chance: " .. output.AccuracyHitChanceUncapped .. "%")
-			elseif breakdown then
-				breakdown.AccuracyHitChance = {
-					"Enemy level: "..env.enemyLevel..(env.configInput.enemyLevel and " ^8(overridden from the Configuration tab" or " ^8(can be overridden in the Configuration tab)"),
-					"Enemy evasion: "..enemyEvasion,
-					"Approximate hit chance: "..output.AccuracyHitChance.."%",
-					"Uncapped hit chance: " .. output.AccuracyHitChanceUncapped .. "%"
-				}
-			end
-			local handCondition = (pass.label == "Off Hand") and "OffHandAttack" or "MainHandAttack"
-			if output.AccuracyHitChanceUncapped - 100 > 0 then
-				skillModList:NewMod("Multiplier:ExcessHitChance", "BASE", round(output.AccuracyHitChanceUncapped - 100, 2), "HitChanceCanExceed100", { type = "Condition", var = handCondition})
-			end
-
 		end
 		--enemy block chance
 		output.enemyBlockChance = m_max(m_min((enemyDB:Sum("BASE", cfg, "BlockChance") or 0), 100) - skillModList:Sum("BASE", cfg, "reduceEnemyBlock"), 0)
