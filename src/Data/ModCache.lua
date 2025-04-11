@@ -3467,7 +3467,7 @@ c["Banner Skills have 20% increased Area of Effect"]={{[1]={[1]={skillType=88,ty
 c["Banner Skills have 20% increased Duration"]={{[1]={[1]={skillType=88,type="SkillType"},flags=0,keywordFlags=0,name="Duration",type="INC",value=20}},nil}
 c["Banners also grant +5% to all Elemental Resistances to you and Allies"]={{[1]={[1]={skillType=88,type="SkillType"},flags=0,keywordFlags=0,name="ExtraAuraEffect",type="LIST",value={mod={flags=0,keywordFlags=0,name="ElementalResist",type="BASE",value=5}}}},nil}
 c["Banners always have maximum Valour"]={nil,"Banners always have maximum Valour "}
-c["Base Bleeding Duration is 1 second"]={{[1]={flags=0,keywordFlags=0,name="EnemyBleedDuration",type="OVERRIDE",value=1}},"Base  second "}
+c["Base Bleeding Duration is 1 second"]={{[1]={flags=0,keywordFlags=0,name="EnemyBleedDuration",type="MORE",value=-80}},nil}
 c["Base Critical Hit Chance for Attacks with Weapons is 7%"]={{[1]={flags=0,keywordFlags=0,name="WeaponBaseCritChance",type="OVERRIDE",value=7}},nil}
 c["Base Critical Hit Chance for Attacks with Weapons is 8%"]={{[1]={flags=0,keywordFlags=0,name="WeaponBaseCritChance",type="OVERRIDE",value=8}},nil}
 c["Base Critical Hit Chance for Spells is 15%"]={{[1]={[1]={skillType=2,type="SkillType"},flags=0,keywordFlags=0,name="CritChanceBase",type="OVERRIDE",value=15}},nil}
@@ -3475,8 +3475,7 @@ c["Base Maximum Darkness is 100"]={{[1]={flags=0,keywordFlags=0,name="PlayerHasD
 c["Become Ignited when you deal a Critical Hit, taking 15% of your maximum Life and Energy Shield as Fire Damage per second"]={nil,"Become Ignited when you deal a Critical Hit, taking 15% of your maximum Life and Energy Shield as Fire Damage per second "}
 c["Become Ignited when you deal a Critical Hit, taking 15% of your maximum Life and Energy Shield as Fire Damage per second 50% more Critical Damage Bonus"]={nil,"Become Ignited when you deal a Critical Hit, taking 15% of your maximum Life and Energy Shield as Fire Damage per second 50% more Critical Damage Bonus "}
 c["Bleeding you inflict deals Damage 10% faster"]={{[1]={flags=0,keywordFlags=0,name="BleedFaster",type="INC",value=10}},nil}
-c["Bleeding you inflict is Aggravated"]={nil,"Bleeding you inflict is Aggravated "}
-c["Bleeding you inflict is Aggravated Base Bleeding Duration is 1 second"]={{[1]={flags=0,keywordFlags=0,name="EnemyBleedDuration",type="OVERRIDE",value=1}},"Bleeding you inflict is Aggravated Base  second "}
+c["Bleeding you inflict is Aggravated"]={{[1]={flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Condition:BleedAggravated",type="FLAG",value=true}}}},nil}
 c["Bleeding you inflict on Cursed targets is Aggravated"]={{[1]={flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={[1]={type="Condition",var="Cursed"},flags=0,keywordFlags=0,name="Condition:BleedAggravated",type="FLAG",value=true}}}},nil}
 c["Blind Chilled enemies on Hit"]={nil,"Blind Chilled enemies on Hit "}
 c["Blind Enemies when they Stun you"]={nil,"Blind Enemies when they Stun you "}
