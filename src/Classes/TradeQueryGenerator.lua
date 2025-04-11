@@ -48,8 +48,8 @@ local tradeCategoryNames = {
 	-- ["RadiusJewel"] = { "Jewel: Radius" },
 	-- not in the game yet.
 	-- ["TrapTool"] = { "TrapTool"}, Unsure if correct
-	 ["Flail"] = { "Flail" },
-	 ["Spear"] = { "Spear" }
+	["Flail"] = { "Flail" },
+	["Spear"] = { "Spear" }
 }
 
 -- Build lists of tags present on a given item category
@@ -83,6 +83,7 @@ local tradeStatCategoryIndices = {
 	["Explicit"] = 1,
 	["Implicit"] = 2,
 	["Corrupted"] = 3,
+	["AllocatesXEnchant"] = 3,
 	["Rune"] = 4,
 }
 
@@ -349,6 +350,7 @@ function TradeQueryGeneratorClass:InitMods()
 		["Explicit"] = { },
 		["Implicit"] = { },
 		["Enchant"] = { },
+		["AllocatesXEnchant"] = { },
 		["Corrupted"] = { },
 		["Rune"] = { },
 	}
@@ -375,14 +377,13 @@ function TradeQueryGeneratorClass:InitMods()
 	self:GenerateModData(data.itemMods.Flask, tradeQueryStatsParsed, { ["LifeFlask"] = true, ["ManaFlask"] = true })
 	self:GenerateModData(data.itemMods.Charm, tradeQueryStatsParsed, { ["Charm"] = true })
 
-	-- megalomaniac tbd
-	-- local clusterNotableMods = {}
-	-- for k, v in pairs(data.itemMods.JewelCluster) do
-	-- 	if k:find("AfflictionNotable") then
-	-- 		clusterNotableMods[k] = v
-	-- 	end
-	-- end
-	-- self:GenerateModData(clusterNotableMods, tradeQueryStatsParsed)
+	for _, entry in ipairs(tradeQueryStatsParsed.result[tradeStatCategoryIndices.AllocatesXEnchant].entries) do
+		if entry.text:sub(1, 10) == "Allocates " then
+			-- The trade id for allocatesX enchants end with "|[nodeID]" for the allocated node.
+			local nodeId = entry.id:sub(entry.id:find("|") + 1)
+			self.modData.AllocatesXEnchant[nodeId] = { tradeMod = entry, specialCaseData = { } }
+		end
+	end
 
 	-- implicit mods
 	for baseName, entry in pairs(data.itemBases) do
@@ -492,16 +493,21 @@ end
 
 function TradeQueryGeneratorClass:GeneratePassiveNodeWeights(nodesToTest)
 	local start = GetTime()
-	for _, entry in pairs(nodesToTest) do
+	for nodeId, entry in pairs(nodesToTest) do
 		if self.alreadyWeightedMods[entry.tradeMod.id] ~= nil then
+			ConPrintf("Node %s already evaluated", nodeId)
 			goto continue
 		end
-		
-		local nodeName = entry.tradeMod.text:match("1 Added Passive Skill is (.*)") or entry.tradeMod.text:match("Allocates (.*)")
-		if not nodeName then
-			goto continue
+
+		local node = self.itemsTab.build.spec.nodes[tonumber(nodeId)]
+		if not node then
+			local nodeName = entry.tradeMod.text:match("1 Added Passive Skill is (.*)") or entry.tradeMod.text:match("Allocates (.*)")
+			node = nodeName and self.itemsTab.build.spec.tree.notableMap[nodeName:lower()]
+			if not node then
+				ConPrintf("Failed to find node %s", nodeId)
+				goto continue
+			end
 		end
-		local node = self.itemsTab.build.spec.tree.clusterNodeMap[nodeName] or self.itemsTab.build.spec.tree.notableMap[nodeName]
 		
 		local baseOutput = self.calcContext.baseOutput
 		local output = self.calcContext.calcFunc({ addNodes = { [node] = true } })
@@ -549,7 +555,7 @@ function TradeQueryGeneratorClass:StartQuery(slot, options)
 				queryFilters = {},
 				queryExtra = {
 					name = "Megalomaniac",
-					type = "Medium Cluster Jewel"
+					type = "Diamond"
 				},
 				calcNodesInsteadOfMods = true,
 			}
@@ -718,7 +724,7 @@ end
 
 function TradeQueryGeneratorClass:ExecuteQuery()
 	if self.calcContext.special.calcNodesInsteadOfMods then
-		self:GeneratePassiveNodeWeights(self.modData.PassiveNode)
+		self:GeneratePassiveNodeWeights(self.modData.AllocatesXEnchant)
 		return
 	end
 	self:GenerateModWeights(self.modData["Explicit"])
@@ -866,7 +872,7 @@ function TradeQueryGeneratorClass:RequestQuery(slot, context, statWeights, callb
 	controls.includeCorrupted.state = not context.slotTbl.alreadyCorrupted and (self.lastIncludeCorrupted == nil or self.lastIncludeCorrupted == true)
 	controls.includeCorrupted.enabled = not context.slotTbl.alreadyCorrupted
 
-	local canHaveRunes = slot.slotName:find("Weapon 1") or slot.slotName:find("Weapon 2") or slot.slotName:find("Helmet") or slot.slotName:find("Body Armour") or slot.slotName:find("Gloves") or slot.slotName:find("Boots")
+	local canHaveRunes = slot and (slot.slotName:find("Weapon 1") or slot.slotName:find("Weapon 2") or slot.slotName:find("Helmet") or slot.slotName:find("Body Armour") or slot.slotName:find("Gloves") or slot.slotName:find("Boots"))
 	controls.includeRunes = new("CheckBoxControl", {"TOPRIGHT",controls.includeCorrupted,"BOTTOMRIGHT"}, {0, 5, 18}, "Rune Mods:", function(state) end)
 	controls.includeRunes.state = canHaveRunes and (self.lastIncludeRunes == nil or self.lastIncludeRunes == true)
 	controls.includeRunes.enabled = canHaveRunes

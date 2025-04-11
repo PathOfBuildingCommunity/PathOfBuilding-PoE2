@@ -2,6 +2,5156 @@
 -- Stat data (c) Grinding Gear Games
 
 return {
+	["AllocatesXEnchant"] = {
+		["10029"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|10029", 
+				["text"] = "Allocates Repulsion", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["10265"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|10265", 
+				["text"] = "Allocates Javelin", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["10295"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|10295", 
+				["text"] = "Allocates Overzealous", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["10315"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|10315", 
+				["text"] = "Allocates Easy Going", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["10398"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|10398", 
+				["text"] = "Allocates Sudden Escalation", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["10423"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|10423", 
+				["text"] = "Allocates Exposed to the Inferno", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["10602"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|10602", 
+				["text"] = "Allocates Reaving", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["10681"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|10681", 
+				["text"] = "Allocates Offensive Stance", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["10772"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|10772", 
+				["text"] = "Allocates Bloodthirsty", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["1087"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|1087", 
+				["text"] = "Allocates Shockwaves", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["10873"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|10873", 
+				["text"] = "Allocates Bestial Rage", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["10998"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|10998", 
+				["text"] = "Allocates Strong Chin", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["1104"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|1104", 
+				["text"] = "Allocates Lust for Power", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["11178"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|11178", 
+				["text"] = "Allocates Whirling Onslaught", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["11366"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|11366", 
+				["text"] = "Allocates Volcanic Skin", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["11376"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|11376", 
+				["text"] = "Allocates Necrotic Touch", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["11526"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|11526", 
+				["text"] = "Allocates Sniper", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["11578"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|11578", 
+				["text"] = "Allocates Spreading Shocks", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["116"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|116", 
+				["text"] = "Allocates Insightfulness", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["1169"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|1169", 
+				["text"] = "Allocates Urgent Call", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["11826"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|11826", 
+				["text"] = "Allocates Heavy Ammunition", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["11838"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|11838", 
+				["text"] = "Allocates Dreamcatcher", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["12337"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|12337", 
+				["text"] = "Allocates Flash Storm", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["12611"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|12611", 
+				["text"] = "Allocates Harness the Elements", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["12661"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|12661", 
+				["text"] = "Allocates Asceticism", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["12750"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|12750", 
+				["text"] = "Allocates Vale Shelter", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["12822"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|12822", 
+				["text"] = "Allocates Adaptable Assault", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["12998"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|12998", 
+				["text"] = "Allocates Warm the Heart", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["13407"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|13407", 
+				["text"] = "Allocates Heartbreaking", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["13457"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|13457", 
+				["text"] = "Allocates Shadow Dancing", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["1352"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|1352", 
+				["text"] = "Allocates Unbending", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["13542"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|13542", 
+				["text"] = "Allocates Loose Flesh", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["13708"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|13708", 
+				["text"] = "Allocates Curved Weapon", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["13724"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|13724", 
+				["text"] = "Allocates Deadly Force", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["13738"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|13738", 
+				["text"] = "Allocates Lightning Quick", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["13823"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|13823", 
+				["text"] = "Allocates Controlling Magic", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["13895"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|13895", 
+				["text"] = "Allocates Precise Point", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["13980"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|13980", 
+				["text"] = "Allocates Split the Earth", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["14324"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|14324", 
+				["text"] = "Allocates Arcane Blossom", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["14343"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|14343", 
+				["text"] = "Allocates Deterioration", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["14383"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|14383", 
+				["text"] = "Allocates Suffusion", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["14777"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|14777", 
+				["text"] = "Allocates Bravado", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["14934"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|14934", 
+				["text"] = "Allocates Spiral into Mania", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["14945"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|14945", 
+				["text"] = "Allocates Growing Swarm", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["15030"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|15030", 
+				["text"] = "Allocates Consistent Intake", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["15083"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|15083", 
+				["text"] = "Allocates Power Conduction", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["15374"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|15374", 
+				["text"] = "Allocates Hale Heart", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["1546"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|1546", 
+				["text"] = "Allocates Spiral into Depression", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["15617"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|15617", 
+				["text"] = "Allocates Heavy Drinker", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["15644"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|15644", 
+				["text"] = "Allocates Shedding Skin", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["15829"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|15829", 
+				["text"] = "Allocates Siphon", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["15986"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|15986", 
+				["text"] = "Allocates Building Toxins", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["16150"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|16150", 
+				["text"] = "Allocates Inspiring Ally", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["16256"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|16256", 
+				["text"] = "Allocates Ether Flow", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["16466"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|16466", 
+				["text"] = "Allocates Mental Alacrity", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["16499"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|16499", 
+				["text"] = "Allocates Lingering Whispers", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["16618"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|16618", 
+				["text"] = "Allocates Jack of all Trades", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["16626"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|16626", 
+				["text"] = "Allocates Impact Area", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["16816"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|16816", 
+				["text"] = "Allocates Pinpoint Shot", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["17029"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|17029", 
+				["text"] = "Allocates Blade Catcher", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["17150"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|17150", 
+				["text"] = "Allocates General's Bindings", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["17229"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|17229", 
+				["text"] = "Allocates Silent Guardian", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["17254"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|17254", 
+				["text"] = "Allocates Spell Haste", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["17260"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|17260", 
+				["text"] = "Allocates Tough Claw", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["17330"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|17330", 
+				["text"] = "Allocates Perforation", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["17340"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|17340", 
+				["text"] = "Allocates Adrenaline Rush", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["17372"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|17372", 
+				["text"] = "Allocates Reaching Strike", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["17548"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|17548", 
+				["text"] = "Allocates Moment of Truth", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["17600"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|17600", 
+				["text"] = "Allocates Thirsting Ally", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["17664"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|17664", 
+				["text"] = "Allocates Decisive Retreat", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["17762"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|17762", 
+				["text"] = "Allocates Vengeance", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["17854"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|17854", 
+				["text"] = "Allocates Escape Velocity", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["17882"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|17882", 
+				["text"] = "Allocates Volatile Grenades", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["17955"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|17955", 
+				["text"] = "Allocates Careful Consideration", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["18086"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|18086", 
+				["text"] = "Allocates Breath of Ice", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["1823"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|1823", 
+				["text"] = "Allocates Illuminated Crown", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["18308"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|18308", 
+				["text"] = "Allocates Bleeding Out", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["18397"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|18397", 
+				["text"] = "Allocates Savoured Blood", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["18419"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|18419", 
+				["text"] = "Allocates Ancestral Mending", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["18496"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|18496", 
+				["text"] = "Allocates Lasting Trauma", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["18505"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|18505", 
+				["text"] = "Allocates Crushing Verdict", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["19044"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|19044", 
+				["text"] = "Allocates Arcane Intensity", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["19125"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|19125", 
+				["text"] = "Allocates Potent Incantation", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["19156"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|19156", 
+				["text"] = "Allocates Immaterial", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["19236"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|19236", 
+				["text"] = "Allocates Projectile Bulwark", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["19249"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|19249", 
+				["text"] = "Allocates Supportive Ancestors", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["19337"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|19337", 
+				["text"] = "Allocates Precision Salvo", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["19442"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|19442", 
+				["text"] = "Allocates Prolonged Assault", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["19644"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|19644", 
+				["text"] = "Allocates Left Hand of Darkness", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["19715"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|19715", 
+				["text"] = "Allocates Cremation", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["19722"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|19722", 
+				["text"] = "Allocates Thin Ice", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["19955"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|19955", 
+				["text"] = "Allocates Endless Blizzard", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["20008"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|20008", 
+				["text"] = "Allocates Unleash Fire", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["20032"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|20032", 
+				["text"] = "Allocates Erraticism", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["2021"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|2021", 
+				["text"] = "Allocates Wellspring", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["20388"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|20388", 
+				["text"] = "Allocates Regenerative Flesh", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["20397"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|20397", 
+				["text"] = "Allocates Authority", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["20414"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|20414", 
+				["text"] = "Allocates Reprisal", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["20416"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|20416", 
+				["text"] = "Allocates Grit", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["20677"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|20677", 
+				["text"] = "Allocates For the Jugular", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["20916"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|20916", 
+				["text"] = "Allocates Blinding Strike", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["2113"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|2113", 
+				["text"] = "Allocates Martial Artistry", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["21164"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|21164", 
+				["text"] = "Allocates Fleshcrafting", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["21206"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|21206", 
+				["text"] = "Allocates Explosive Impact", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["2138"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|2138", 
+				["text"] = "Allocates Spiral into Insanity", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["21380"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|21380", 
+				["text"] = "Allocates Preemptive Strike", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["21453"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|21453", 
+				["text"] = "Allocates Breakage", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["21537"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|21537", 
+				["text"] = "Allocates Fervour", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["21748"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|21748", 
+				["text"] = "Allocates Impending Doom", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["21935"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|21935", 
+				["text"] = "Allocates Calibration", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["22626"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|22626", 
+				["text"] = "Allocates Irreparable", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["22817"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|22817", 
+				["text"] = "Allocates Inevitable Rupture", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["22864"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|22864", 
+				["text"] = "Allocates Tainted Strike", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["22967"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|22967", 
+				["text"] = "Allocates Vigilance", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["23078"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|23078", 
+				["text"] = "Allocates Holy Protector", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["23221"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|23221", 
+				["text"] = "Allocates Trick Shot", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["23227"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|23227", 
+				["text"] = "Allocates Initiative", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["2335"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|2335", 
+				["text"] = "Allocates Turn the Clock Forward", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["23362"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|23362", 
+				["text"] = "Allocates Slippery Ice", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["23427"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|23427", 
+				["text"] = "Allocates Chilled to the Bone", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["23738"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|23738", 
+				["text"] = "Allocates Madness in the Bones", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["23764"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|23764", 
+				["text"] = "Allocates Alternating Current", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["23939"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|23939", 
+				["text"] = "Allocates Glazed Flesh", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["2394"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|2394", 
+				["text"] = "Allocates Blade Flurry", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["23940"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|23940", 
+				["text"] = "Allocates Adamant Recovery", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["24062"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|24062", 
+				["text"] = "Allocates Immortal Infamy", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["24120"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|24120", 
+				["text"] = "Allocates Mental Toughness", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["24240"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|24240", 
+				["text"] = "Allocates Time Manipulation", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["24438"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|24438", 
+				["text"] = "Allocates Hardened Wood", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["24483"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|24483", 
+				["text"] = "Allocates Direct Approach", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["24630"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|24630", 
+				["text"] = "Allocates Fulmination", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["24655"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|24655", 
+				["text"] = "Allocates Breath of Fire", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["24753"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|24753", 
+				["text"] = "Allocates Determined Precision", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["2486"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|2486", 
+				["text"] = "Allocates Stars Aligned", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["2511"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|2511", 
+				["text"] = "Allocates Sundering", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["25482"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|25482", 
+				["text"] = "Allocates Beef", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["25513"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|25513", 
+				["text"] = "Allocates Overwhelm", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["25619"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|25619", 
+				["text"] = "Allocates Sand in the Eyes", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["25620"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|25620", 
+				["text"] = "Allocates Meat Recycling", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["25711"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|25711", 
+				["text"] = "Allocates Thrill of Battle", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["2575"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|2575", 
+				["text"] = "Allocates Ancestral Alacrity", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["25971"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|25971", 
+				["text"] = "Allocates Tenfold Attacks", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["26070"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|26070", 
+				["text"] = "Allocates Bolstering Yell", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["26107"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|26107", 
+				["text"] = "Allocates Kite Runner", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["26291"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|26291", 
+				["text"] = "Allocates Electrifying Nature", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["26331"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|26331", 
+				["text"] = "Allocates Harsh Winter", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["26339"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|26339", 
+				["text"] = "Allocates Ancestral Artifice", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["26447"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|26447", 
+				["text"] = "Allocates Refocus", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["2645"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|2645", 
+				["text"] = "Allocates Skullcrusher", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["26518"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|26518", 
+				["text"] = "Allocates Cold Nature", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["27009"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|27009", 
+				["text"] = "Allocates Lust for Sacrifice", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["27108"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|27108", 
+				["text"] = "Allocates Mass Hysteria", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["27176"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|27176", 
+				["text"] = "Allocates The Power Within", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["27290"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|27290", 
+				["text"] = "Allocates Heavy Blade", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["27303"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|27303", 
+				["text"] = "Allocates Vulgar Methods", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["27388"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|27388", 
+				["text"] = "Allocates Aspiring Genius", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["27417"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|27417", 
+				["text"] = "Allocates Destructive Apparatus", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["27491"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|27491", 
+				["text"] = "Allocates Heavy Buffer", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["27626"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|27626", 
+				["text"] = "Allocates Touch the Arcane", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["27687"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|27687", 
+				["text"] = "Allocates Greatest Defence", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["27875"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|27875", 
+				["text"] = "Allocates General Electric", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["27950"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|27950", 
+				["text"] = "Allocates Polished Iron", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["28044"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|28044", 
+				["text"] = "Allocates Coming Calamity", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["28267"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|28267", 
+				["text"] = "Allocates Desensitisation", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["28329"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|28329", 
+				["text"] = "Allocates Pressure Points", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["28482"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|28482", 
+				["text"] = "Allocates Total Incineration", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["2863"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|2863", 
+				["text"] = "Allocates Perpetual Freeze", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["28963"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|28963", 
+				["text"] = "Allocates Way of the Wind", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["28975"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|28975", 
+				["text"] = "Allocates Pure Power", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["29372"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|29372", 
+				["text"] = "Allocates Sudden Infuriation", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["29514"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|29514", 
+				["text"] = "Allocates Cluster Bombs", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["29527"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|29527", 
+				["text"] = "Allocates First Approach", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["29762"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|29762", 
+				["text"] = "Allocates Guttural Roar", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["2999"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|2999", 
+				["text"] = "Allocates Final Barrage", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["30132"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|30132", 
+				["text"] = "Allocates Wrapped Quiver", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["30341"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|30341", 
+				["text"] = "Allocates Master Fletching", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["30392"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|30392", 
+				["text"] = "Allocates Succour", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["30456"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|30456", 
+				["text"] = "Allocates High Alert", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["30523"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|30523", 
+				["text"] = "Allocates Dead can Dance", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["30562"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|30562", 
+				["text"] = "Allocates Inner Faith", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["30720"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|30720", 
+				["text"] = "Allocates Entropic Incarnation", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["31129"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|31129", 
+				["text"] = "Allocates Lifelong Friend", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["31172"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|31172", 
+				["text"] = "Allocates Falcon Technique", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["31175"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|31175", 
+				["text"] = "Allocates Grip of Evil", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["31189"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|31189", 
+				["text"] = "Allocates Unexpected Finesse", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["31326"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|31326", 
+				["text"] = "Allocates Slow Burn", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["31364"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|31364", 
+				["text"] = "Allocates Primal Protection", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["31373"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|31373", 
+				["text"] = "Allocates Vocal Empowerment", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["31433"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|31433", 
+				["text"] = "Allocates Catalysis", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["31826"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|31826", 
+				["text"] = "Allocates Long Distance Relationship", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["3188"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|3188", 
+				["text"] = "Allocates Revenge", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["31925"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|31925", 
+				["text"] = "Allocates Warding Fetish", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["32071"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|32071", 
+				["text"] = "Allocates Primal Growth", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["32148"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|32148", 
+				["text"] = "Allocates Rattling Ball", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["3215"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|3215", 
+				["text"] = "Allocates Melding", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["32301"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|32301", 
+				["text"] = "Allocates Frazzled", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["32353"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|32353", 
+				["text"] = "Allocates Swift Claw", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["32354"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|32354", 
+				["text"] = "Allocates Defiance", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["32507"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|32507", 
+				["text"] = "Allocates Cut to the Bone", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["32543"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|32543", 
+				["text"] = "Allocates Unhindered", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["32655"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|32655", 
+				["text"] = "Allocates Tandem Assault", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["32664"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|32664", 
+				["text"] = "Allocates Flurry", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["32951"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|32951", 
+				["text"] = "Allocates Preservation", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["33059"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|33059", 
+				["text"] = "Allocates Back in Action", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["33093"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|33093", 
+				["text"] = "Allocates Effervescent", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["33099"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|33099", 
+				["text"] = "Allocates Hunter's Talisman", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["33216"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|33216", 
+				["text"] = "Allocates Deep Wounds", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["33240"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|33240", 
+				["text"] = "Allocates Lord of Horrors", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["33585"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|33585", 
+				["text"] = "Allocates Unspoken Bond", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["336"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|336", 
+				["text"] = "Allocates Storm Swell", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["33887"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|33887", 
+				["text"] = "Allocates Full Salvo", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["33978"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|33978", 
+				["text"] = "Allocates Unstoppable Barrier", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["34300"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|34300", 
+				["text"] = "Allocates Conservative Casting", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["34308"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|34308", 
+				["text"] = "Allocates Personal Touch", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["34316"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|34316", 
+				["text"] = "Allocates One with the River", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["34324"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|34324", 
+				["text"] = "Allocates Spectral Ward", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["34340"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|34340", 
+				["text"] = "Allocates Mass Rejuvenation", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["34473"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|34473", 
+				["text"] = "Allocates Spaghettification", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["34531"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|34531", 
+				["text"] = "Allocates Hallowed", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["3492"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|3492", 
+				["text"] = "Allocates Void", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["35028"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|35028", 
+				["text"] = "Allocates In the Thick of It", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["35324"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|35324", 
+				["text"] = "Allocates Burnout", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["35369"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|35369", 
+				["text"] = "Allocates Investing Energies", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["35477"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|35477", 
+				["text"] = "Allocates Far Sighted", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["35564"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|35564", 
+				["text"] = "Allocates Turn the Clock Back", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["35581"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|35581", 
+				["text"] = "Allocates Near at Hand", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["3567"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|3567", 
+				["text"] = "Allocates Raw Mana", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["35739"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|35739", 
+				["text"] = "Allocates Crushing Judgement", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["35809"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|35809", 
+				["text"] = "Allocates Reinvigoration", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["35849"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|35849", 
+				["text"] = "Allocates Thickened Arteries", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["35855"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|35855", 
+				["text"] = "Allocates Fortifying Blood", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["35876"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|35876", 
+				["text"] = "Allocates Admonisher", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["35966"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|35966", 
+				["text"] = "Allocates Heart Tissue", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["36085"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|36085", 
+				["text"] = "Allocates Serrated Edges", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["36341"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|36341", 
+				["text"] = "Allocates Cull the Hordes", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["36364"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|36364", 
+				["text"] = "Allocates Electrocution", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["36507"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|36507", 
+				["text"] = "Allocates Vile Mending", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["36623"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|36623", 
+				["text"] = "Allocates Convalescence", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["36630"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|36630", 
+				["text"] = "Allocates Incision", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["36808"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|36808", 
+				["text"] = "Allocates Spiked Shield", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["3688"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|3688", 
+				["text"] = "Allocates Dynamism", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["36976"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|36976", 
+				["text"] = "Allocates Marked for Death", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["3698"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|3698", 
+				["text"] = "Allocates Spike Pit", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["372"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|372", 
+				["text"] = "Allocates Heatproofing", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["37244"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|37244", 
+				["text"] = "Allocates Shield Expertise", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["37266"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|37266", 
+				["text"] = "Allocates Nourishing Ally", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["37276"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|37276", 
+				["text"] = "Allocates Battle Trance", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["37408"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|37408", 
+				["text"] = "Allocates Staunching", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["37458"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|37458", 
+				["text"] = "Allocates Strong Links", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["37514"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|37514", 
+				["text"] = "Allocates Whirling Assault", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["37543"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|37543", 
+				["text"] = "Allocates Full Recovery", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["37688"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|37688", 
+				["text"] = "Allocates Devestating Devices", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["37742"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|37742", 
+				["text"] = "Allocates Manifold Method", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["37806"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|37806", 
+				["text"] = "Allocates Branching Bolts", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["37872"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|37872", 
+				["text"] = "Allocates Presence Present", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["38053"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|38053", 
+				["text"] = "Allocates Deafening Cries", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["38111"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|38111", 
+				["text"] = "Allocates Pliable Flesh", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["38342"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|38342", 
+				["text"] = "Allocates Stupefy", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["38398"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|38398", 
+				["text"] = "Allocates Apocalypse", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["38459"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|38459", 
+				["text"] = "Allocates Disorientation", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["38479"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|38479", 
+				["text"] = "Allocates Close Confines", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["38535"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|38535", 
+				["text"] = "Allocates Stormcharged", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["38537"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|38537", 
+				["text"] = "Allocates Heartstopping", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["38614"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|38614", 
+				["text"] = "Allocates Psychic Fragmentation", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["38628"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|38628", 
+				["text"] = "Allocates Escalating Toxins", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["38888"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|38888", 
+				["text"] = "Allocates Unerring Impact", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["38895"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|38895", 
+				["text"] = "Allocates Crystal Elixir", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["3894"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|3894", 
+				["text"] = "Allocates Eldritch Will", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["38969"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|38969", 
+				["text"] = "Allocates Finesse", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["38972"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|38972", 
+				["text"] = "Allocates Restless Dead", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["39050"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|39050", 
+				["text"] = "Allocates Exploit", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["39083"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|39083", 
+				["text"] = "Allocates Blood Rush", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["3921"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|3921", 
+				["text"] = "Allocates Fate Finding", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["39347"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|39347", 
+				["text"] = "Allocates Breaking Blows", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["39369"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|39369", 
+				["text"] = "Allocates Struck Through", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["39567"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|39567", 
+				["text"] = "Allocates Ingenuity", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["3985"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|3985", 
+				["text"] = "Allocates Forces of Nature", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["39881"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|39881", 
+				["text"] = "Allocates Staggering Palm", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["39990"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|39990", 
+				["text"] = "Allocates Chronomancy", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["40073"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|40073", 
+				["text"] = "Allocates Drenched", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["40117"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|40117", 
+				["text"] = "Allocates Spiked Armour", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["40166"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|40166", 
+				["text"] = "Allocates Deep Trance", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["40213"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|40213", 
+				["text"] = "Allocates Taste for Blood", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["40270"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|40270", 
+				["text"] = "Allocates Frenetic", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["4031"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|4031", 
+				["text"] = "Allocates Icebreaker", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["40325"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|40325", 
+				["text"] = "Allocates Resolution", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["40345"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|40345", 
+				["text"] = "Allocates Master of Hexes", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["40399"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|40399", 
+				["text"] = "Allocates Energise", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["40480"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|40480", 
+				["text"] = "Allocates Harmonic Generator", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["40803"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|40803", 
+				["text"] = "Allocates Sigil of Ice", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["40990"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|40990", 
+				["text"] = "Allocates Exposed to the Storm", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["41512"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|41512", 
+				["text"] = "Allocates Heavy Weaponry", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["41580"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|41580", 
+				["text"] = "Allocates Maiming Strike", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["41811"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|41811", 
+				["text"] = "Allocates Shatter Palm", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["41905"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|41905", 
+				["text"] = "Allocates Gravedigger", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["41972"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|41972", 
+				["text"] = "Allocates Glaciation", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["42036"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|42036", 
+				["text"] = "Allocates Glancing Hits", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["42065"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|42065", 
+				["text"] = "Allocates Surging Currents", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["42077"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|42077", 
+				["text"] = "Allocates Essence Infusion", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["42177"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|42177", 
+				["text"] = "Allocates Blurred Motion", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["42302"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|42302", 
+				["text"] = "Allocates Split Shot", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["42354"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|42354", 
+				["text"] = "Allocates Blinding Flash", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["4238"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|4238", 
+				["text"] = "Allocates Versatile Arms", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["42390"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|42390", 
+				["text"] = "Allocates Overheating Blow", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["42714"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|42714", 
+				["text"] = "Allocates Thousand Cuts", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["42813"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|42813", 
+				["text"] = "Allocates Tides of Change", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["42914"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|42914", 
+				["text"] = "Allocates Ball and Chain", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["4295"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|4295", 
+				["text"] = "Allocates Adverse Growth", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["42959"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|42959", 
+				["text"] = "Allocates Low Tolerance", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["42981"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|42981", 
+				["text"] = "Allocates Cruel Methods", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["43082"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|43082", 
+				["text"] = "Allocates Acceleration", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["43090"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|43090", 
+				["text"] = "Allocates Electrotherapy", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["43139"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|43139", 
+				["text"] = "Allocates Stormbreaker", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["43396"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|43396", 
+				["text"] = "Allocates Ancestral Reach", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["43423"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|43423", 
+				["text"] = "Allocates Emboldened Avatar", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["43677"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|43677", 
+				["text"] = "Allocates Crippling Toxins", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["43711"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|43711", 
+				["text"] = "Allocates Thornhide", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["43829"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|43829", 
+				["text"] = "Allocates Advanced Munitions", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["43939"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|43939", 
+				["text"] = "Allocates Fireproof", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["43944"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|43944", 
+				["text"] = "Allocates Instability", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["44005"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|44005", 
+				["text"] = "Allocates Casting Cascade", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["4423"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|4423", 
+				["text"] = "Allocates Coated Knife", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["44299"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|44299", 
+				["text"] = "Allocates Enhanced Barrier", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["44330"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|44330", 
+				["text"] = "Allocates Coated Arms", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["44373"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|44373", 
+				["text"] = "Allocates Wither Away", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["44566"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|44566", 
+				["text"] = "Allocates Lightning Rod", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["44756"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|44756", 
+				["text"] = "Allocates Marked Agility", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["44765"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|44765", 
+				["text"] = "Allocates Distracting Presence", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["44917"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|44917", 
+				["text"] = "Allocates Self Mortification", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["44952"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|44952", 
+				["text"] = "Allocates Made to Last", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["45013"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|45013", 
+				["text"] = "Allocates Finishing Blows", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["45244"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|45244", 
+				["text"] = "Allocates Refills", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["4534"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|4534", 
+				["text"] = "Allocates Piercing Shot", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["4547"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|4547", 
+				["text"] = "Allocates Unnatural Resilience", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["45488"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|45488", 
+				["text"] = "Allocates Cross Strike", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["45599"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|45599", 
+				["text"] = "Allocates Lay Siege", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["45612"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|45612", 
+				["text"] = "Allocates Defensive Reflexes", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["45632"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|45632", 
+				["text"] = "Allocates Mind Eraser", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["45713"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|45713", 
+				["text"] = "Allocates Savouring", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["46024"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|46024", 
+				["text"] = "Allocates Sigil of Lightning", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["46060"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|46060", 
+				["text"] = "Allocates Voracious", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["46197"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|46197", 
+				["text"] = "Allocates Careful Assassin", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["46224"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|46224", 
+				["text"] = "Allocates Arcane Alchemy", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["4627"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|4627", 
+				["text"] = "Allocates Climate Change", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["46296"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|46296", 
+				["text"] = "Allocates Short Shot", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["46384"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|46384", 
+				["text"] = "Allocates Wide Barrier", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["46499"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|46499", 
+				["text"] = "Allocates Guts", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["46565"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|46565", 
+				["text"] = "Allocates Stance Breaker", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["4661"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|4661", 
+				["text"] = "Allocates Inspiring Leader", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["46692"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|46692", 
+				["text"] = "Allocates Efficient Alchemy", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["46696"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|46696", 
+				["text"] = "Allocates Impair", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["4673"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|4673", 
+				["text"] = "Allocates Hulking Smash", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["46972"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|46972", 
+				["text"] = "Allocates Arcane Mixtures", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["4709"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|4709", 
+				["text"] = "Allocates Near Sighted", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["4716"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|4716", 
+				["text"] = "Allocates Afterimage", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["47270"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|47270", 
+				["text"] = "Allocates Inescapable Cold", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["47316"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|47316", 
+				["text"] = "Allocates Goring", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["47363"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|47363", 
+				["text"] = "Allocates Colossal Weapon", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["47418"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|47418", 
+				["text"] = "Allocates Warding Potions", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["47441"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|47441", 
+				["text"] = "Allocates Stigmata", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["47635"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|47635", 
+				["text"] = "Allocates Overload", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["47782"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|47782", 
+				["text"] = "Allocates Quick-change Act", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["48006"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|48006", 
+				["text"] = "Allocates Devastation", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["48014"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|48014", 
+				["text"] = "Allocates Honourless", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["48103"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|48103", 
+				["text"] = "Allocates Forcewave", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["48240"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|48240", 
+				["text"] = "Allocates Quick Recovery", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["48418"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|48418", 
+				["text"] = "Allocates Hefty Unit", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["48565"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|48565", 
+				["text"] = "Allocates Bringer of Order", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["48581"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|48581", 
+				["text"] = "Allocates Exploit the Elements", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["48658"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|48658", 
+				["text"] = "Allocates Shattering", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["48774"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|48774", 
+				["text"] = "Allocates Taut Flesh", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["48974"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|48974", 
+				["text"] = "Allocates Altered Brain Chemistry", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["49088"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|49088", 
+				["text"] = "Allocates Fear of Death", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["4931"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|4931", 
+				["text"] = "Allocates Dependable Ward", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["49370"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|49370", 
+				["text"] = "Allocates Morning Star", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["49550"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|49550", 
+				["text"] = "Allocates Prolonged Fury", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["4959"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|4959", 
+				["text"] = "Allocates Heavy Frost", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["49618"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|49618", 
+				["text"] = "Allocates Deadly Flourish", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["49661"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|49661", 
+				["text"] = "Allocates Perfectly Placed Knife", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["49740"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|49740", 
+				["text"] = "Allocates Shattered Crystal", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["4985"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|4985", 
+				["text"] = "Allocates Flip the Script", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["49984"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|49984", 
+				["text"] = "Allocates Spellblade", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["50062"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|50062", 
+				["text"] = "Allocates Reinforced Barrier", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["5009"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|5009", 
+				["text"] = "Allocates Seeing Stars", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["50253"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|50253", 
+				["text"] = "Allocates Aftershocks", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["50389"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|50389", 
+				["text"] = "Allocates Twinned Tethers", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["50485"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|50485", 
+				["text"] = "Allocates Zone of Control", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["50562"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|50562", 
+				["text"] = "Allocates Barbaric Strength", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["50687"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|50687", 
+				["text"] = "Allocates Coursing Energy", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["50795"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|50795", 
+				["text"] = "Allocates Careful Aim", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["50884"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|50884", 
+				["text"] = "Allocates Primal Sundering", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["51105"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|51105", 
+				["text"] = "Allocates Spirit Bond", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["51129"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|51129", 
+				["text"] = "Allocates Pile On", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["51169"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|51169", 
+				["text"] = "Allocates Soul Bloom", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["51213"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|51213", 
+				["text"] = "Allocates Wasting", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["51394"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|51394", 
+				["text"] = "Allocates Unimpeded", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["51446"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|51446", 
+				["text"] = "Allocates Leather Bound Gauntlets", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["51509"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|51509", 
+				["text"] = "Allocates Waters of Life", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["51602"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|51602", 
+				["text"] = "Allocates Unsight", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["51606"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|51606", 
+				["text"] = "Allocates Freedom of Movement", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["51707"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|51707", 
+				["text"] = "Allocates Enhanced Reflexes", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["51820"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|51820", 
+				["text"] = "Allocates Ancestral Conduits", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["51871"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|51871", 
+				["text"] = "Allocates Immortal Thirst", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["51891"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|51891", 
+				["text"] = "Allocates Lucidity", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["51934"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|51934", 
+				["text"] = "Allocates Invocated Efficiency", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["52191"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|52191", 
+				["text"] = "Allocates Event Horizon", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["52199"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|52199", 
+				["text"] = "Allocates Overexposure", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["5227"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|5227", 
+				["text"] = "Allocates Escape Strategy", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["52348"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|52348", 
+				["text"] = "Allocates Carved Earth", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["52392"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|52392", 
+				["text"] = "Allocates Singular Purpose", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["5257"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|5257", 
+				["text"] = "Allocates Echoing Frost", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["52618"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|52618", 
+				["text"] = "Allocates Feral Force", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["52803"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|52803", 
+				["text"] = "Allocates Hale Traveller", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["5284"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|5284", 
+				["text"] = "Allocates Shredding Force", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["52971"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|52971", 
+				["text"] = "Allocates Quick Response", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["53030"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|53030", 
+				["text"] = "Allocates Immolation", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["53150"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|53150", 
+				["text"] = "Allocates Sharp Sight", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["53294"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|53294", 
+				["text"] = "Allocates Burn Away", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["53367"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|53367", 
+				["text"] = "Allocates Symbol of Defiance", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["53527"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|53527", 
+				["text"] = "Allocates Shattering Blow", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["53823"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|53823", 
+				["text"] = "Allocates Towering Shield", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["53853"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|53853", 
+				["text"] = "Allocates Backup Plan", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["53921"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|53921", 
+				["text"] = "Allocates Unbreaking", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["53935"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|53935", 
+				["text"] = "Allocates Briny Carapace", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["53941"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|53941", 
+				["text"] = "Allocates Shimmering", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["54148"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|54148", 
+				["text"] = "Allocates Smoke Inhalation", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["54805"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|54805", 
+				["text"] = "Allocates Hindered Capabilities", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["54814"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|54814", 
+				["text"] = "Allocates Profane Commander", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["54911"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|54911", 
+				["text"] = "Allocates Firestarter", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["54937"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|54937", 
+				["text"] = "Allocates Vengeful Fury", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["54990"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|54990", 
+				["text"] = "Allocates Bloodletting", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["54998"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|54998", 
+				["text"] = "Allocates Protraction", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["55"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|55", 
+				["text"] = "Allocates Fast Acting Toxins", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["55060"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|55060", 
+				["text"] = "Allocates Shrapnel", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["55149"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|55149", 
+				["text"] = "Allocates Pure Chaos", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["55180"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|55180", 
+				["text"] = "Allocates Relentless Fallen", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["55193"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|55193", 
+				["text"] = "Allocates Subterfuge Mask", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["55568"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|55568", 
+				["text"] = "Allocates Forthcoming", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["55708"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|55708", 
+				["text"] = "Allocates Electric Amplification", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["5580"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|5580", 
+				["text"] = "Allocates Watchtowers", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["55835"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|55835", 
+				["text"] = "Allocates Exposed to the Cosmos", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["55847"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|55847", 
+				["text"] = "Allocates Ice Walls", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["56063"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|56063", 
+				["text"] = "Allocates Lingering Horror", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["56265"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|56265", 
+				["text"] = "Allocates Throatseeker", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["56366"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|56366", 
+				["text"] = "Allocates Silent Shiv", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["56453"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|56453", 
+				["text"] = "Allocates Killer Instinct", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["56616"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|56616", 
+				["text"] = "Allocates Desperate Times", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["5663"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|5663", 
+				["text"] = "Allocates Endurance", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["56776"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|56776", 
+				["text"] = "Allocates Cooked", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["56806"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|56806", 
+				["text"] = "Allocates Parrying Motion", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["56893"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|56893", 
+				["text"] = "Allocates Thicket Warding", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["56997"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|56997", 
+				["text"] = "Allocates Heavy Contact", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["56999"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|56999", 
+				["text"] = "Allocates Locked On", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["5703"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|5703", 
+				["text"] = "Allocates Echoing Thunder", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["57047"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|57047", 
+				["text"] = "Allocates Polymathy", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["57097"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|57097", 
+				["text"] = "Allocates Spirit Bonds", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["57110"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|57110", 
+				["text"] = "Allocates Infused Flesh", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["57190"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|57190", 
+				["text"] = "Allocates Doomsayer", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["57204"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|57204", 
+				["text"] = "Allocates Critical Exploit", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["5728"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|5728", 
+				["text"] = "Allocates Ancient Aegis", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["57379"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|57379", 
+				["text"] = "Allocates In Your Face", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["57388"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|57388", 
+				["text"] = "Allocates Overwhelming Strike", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["57471"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|57471", 
+				["text"] = "Allocates Hunker Down", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["57805"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|57805", 
+				["text"] = "Allocates Clear Space", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["58016"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|58016", 
+				["text"] = "Allocates All Natural", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["5802"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|5802", 
+				["text"] = "Allocates Stand and Deliver", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["58096"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|58096", 
+				["text"] = "Allocates Lasting Incantations", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["58183"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|58183", 
+				["text"] = "Allocates Blood Tearing", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["58397"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|58397", 
+				["text"] = "Allocates Proficiency", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["58426"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|58426", 
+				["text"] = "Allocates Pocket Sand", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["58714"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|58714", 
+				["text"] = "Allocates Grenadier", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["58939"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|58939", 
+				["text"] = "Allocates Dispatch Foes", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["59214"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|59214", 
+				["text"] = "Allocates Fated End", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["59263"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|59263", 
+				["text"] = "Allocates Ripping Blade", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["59303"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|59303", 
+				["text"] = "Allocates Lucky Rabbit Foot", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["59541"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|59541", 
+				["text"] = "Allocates Necrotised Flesh", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["59589"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|59589", 
+				["text"] = "Allocates Heavy Armour", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["59596"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|59596", 
+				["text"] = "Allocates Covering Ward", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["59720"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|59720", 
+				["text"] = "Allocates Beastial Skin", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["60034"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|60034", 
+				["text"] = "Allocates Falcon Dive", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["60083"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|60083", 
+				["text"] = "Allocates Pin and Run", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["60138"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|60138", 
+				["text"] = "Allocates Stylebender", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["60269"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|60269", 
+				["text"] = "Allocates Roil", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["60404"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|60404", 
+				["text"] = "Allocates Perfect Opportunity", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["60464"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|60464", 
+				["text"] = "Allocates Fan the Flames", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["60692"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|60692", 
+				["text"] = "Allocates Echoing Flames", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["60764"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|60764", 
+				["text"] = "Allocates Feathered Fletching", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["61026"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|61026", 
+				["text"] = "Allocates Crystalline Flesh", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["61104"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|61104", 
+				["text"] = "Allocates Staggering Wounds", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["61112"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|61112", 
+				["text"] = "Allocates Roll and Strike", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["6133"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|6133", 
+				["text"] = "Allocates Core of the Guardian", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["61338"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|61338", 
+				["text"] = "Allocates Breath of Lightning", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["61404"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|61404", 
+				["text"] = "Allocates Equilibrium", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["61444"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|61444", 
+				["text"] = "Allocates Anticipation", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["61493"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|61493", 
+				["text"] = "Allocates Austerity Measures", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["61601"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|61601", 
+				["text"] = "Allocates True Strike", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["61703"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|61703", 
+				["text"] = "Allocates Sharpened Claw", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["61741"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|61741", 
+				["text"] = "Allocates Lasting Toxins", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["6178"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|6178", 
+				["text"] = "Allocates Power Shots", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["61921"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|61921", 
+				["text"] = "Allocates Storm Surge", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["62001"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|62001", 
+				["text"] = "Allocates Backstabbing", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["62034"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|62034", 
+				["text"] = "Allocates Prism Guard", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["62185"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|62185", 
+				["text"] = "Allocates Rattled", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["62230"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|62230", 
+				["text"] = "Allocates Patient Barrier", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["6229"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|6229", 
+				["text"] = "Allocates Push the Advantage", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["62310"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|62310", 
+				["text"] = "Allocates Incendiary", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["62439"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|62439", 
+				["text"] = "Allocates Enraged Reaver", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["62455"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|62455", 
+				["text"] = "Allocates Bannerman", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["62609"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|62609", 
+				["text"] = "Allocates Ancestral Unity", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["62803"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|62803", 
+				["text"] = "Allocates Woodland Aspect", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["62887"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|62887", 
+				["text"] = "Allocates Living Death", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["63037"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|63037", 
+				["text"] = "Allocates Sigil of Fire", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["6304"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|6304", 
+				["text"] = "Allocates Stand Ground", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["63074"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|63074", 
+				["text"] = "Allocates Dark Entries", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["63255"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|63255", 
+				["text"] = "Allocates Savagery", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["63431"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|63431", 
+				["text"] = "Allocates Leeching Toxins", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["63451"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|63451", 
+				["text"] = "Allocates Cranial Impact", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["63585"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|63585", 
+				["text"] = "Allocates Thunderstruck", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["63659"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|63659", 
+				["text"] = "Allocates Clever Construction", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["63759"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|63759", 
+				["text"] = "Allocates Stacking Toxins", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["63830"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|63830", 
+				["text"] = "Allocates Marked for Sickness", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["63981"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|63981", 
+				["text"] = "Allocates Deft Recovery", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["64119"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|64119", 
+				["text"] = "Allocates Instant Reload", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["64240"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|64240", 
+				["text"] = "Allocates Battle Fever", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["64443"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|64443", 
+				["text"] = "Allocates Impact Force", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["64543"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|64543", 
+				["text"] = "Allocates Unbound Forces", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["64851"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|64851", 
+				["text"] = "Allocates Flashy Deflection", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["65016"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|65016", 
+				["text"] = "Allocates Intense Flames", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["65023"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|65023", 
+				["text"] = "Allocates Impenetrable Shell", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["6514"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|6514", 
+				["text"] = "Allocates Cacophony", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["65160"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|65160", 
+				["text"] = "Allocates Titanic", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["65193"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|65193", 
+				["text"] = "Allocates Viciousness", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["65204"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|65204", 
+				["text"] = "Allocates Overflowing Power", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["65243"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|65243", 
+				["text"] = "Allocates Enveloping Presence", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["65265"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|65265", 
+				["text"] = "Allocates Swift Deflection", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["6544"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|6544", 
+				["text"] = "Allocates Burning Strikes", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["65468"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|65468", 
+				["text"] = "Allocates Repeating Explosives", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["6655"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|6655", 
+				["text"] = "Allocates Aggravation", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["7062"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|7062", 
+				["text"] = "Allocates Reusable Ammunition", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["7163"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|7163", 
+				["text"] = "Allocates Stimulants", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["7302"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|7302", 
+				["text"] = "Allocates Echoing Pulse", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["7341"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|7341", 
+				["text"] = "Allocates Ignore Pain", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["7395"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|7395", 
+				["text"] = "Allocates Retaliation", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["7604"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|7604", 
+				["text"] = "Allocates Rapid Strike", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["7651"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|7651", 
+				["text"] = "Allocates Pierce the Heart", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["7668"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|7668", 
+				["text"] = "Allocates Internal Bleeding", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["7777"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|7777", 
+				["text"] = "Allocates Breaking Point", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["7809"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|7809", 
+				["text"] = "Allocates Wild Storm", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["8273"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|8273", 
+				["text"] = "Allocates Endless Circuit", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["8483"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|8483", 
+				["text"] = "Allocates Ruin", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["8531"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|8531", 
+				["text"] = "Allocates Leaping Ambush", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["8535"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|8535", 
+				["text"] = "Allocates Spiked Whip", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["8554"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|8554", 
+				["text"] = "Allocates Burning Nature", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["8660"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|8660", 
+				["text"] = "Allocates Reverberation", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["8791"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|8791", 
+				["text"] = "Allocates Sturdy Ally", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["8810"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|8810", 
+				["text"] = "Allocates Multitasking", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["8827"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|8827", 
+				["text"] = "Allocates Fast Metabolism", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["8831"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|8831", 
+				["text"] = "Allocates Tempered Mind", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["8881"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|8881", 
+				["text"] = "Allocates Unforgiving", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["8904"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|8904", 
+				["text"] = "Allocates Death from Afar", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["8957"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|8957", 
+				["text"] = "Allocates Right Hand of Darkness", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["9020"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|9020", 
+				["text"] = "Allocates Giantslayer", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["9187"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|9187", 
+				["text"] = "Allocates Escalation", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["9226"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|9226", 
+				["text"] = "Allocates Mental Perseverance", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["9227"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|9227", 
+				["text"] = "Allocates Focused Thrust", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["934"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|934", 
+				["text"] = "Allocates Natural Immunity", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["9421"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|9421", 
+				["text"] = "Allocates Snowpiercer", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["9444"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|9444", 
+				["text"] = "Allocates One with the Storm", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["9472"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|9472", 
+				["text"] = "Allocates Catapult", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["9736"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|9736", 
+				["text"] = "Allocates Insulated Treads", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["9908"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|9908", 
+				["text"] = "Allocates Price of Freedom", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["9968"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|9968", 
+				["text"] = "Allocates Feel the Earth", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+	}, 
 	["Corrupted"] = {
 		["1090_AllDamage"] = {
 			["Quiver"] = {

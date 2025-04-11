@@ -655,6 +655,9 @@ function calcs.initEnv(build, mode, override, specEnv)
 			nodes = { }
 			if override.addNodes then
 				for node in pairs(override.addNodes) do
+					if not node.allocMode then
+						node.allocMode = 0
+					end
 					nodes[node.id] = node
 					if node.type == "Mastery" then
 						allocatedMasteryCount = allocatedMasteryCount + 1
