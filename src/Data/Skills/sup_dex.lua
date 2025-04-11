@@ -186,6 +186,14 @@ skills["SupportBlindsidePlayer"] = {
 			label = "Blindside",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_unseen_critical_damage_multiplier_+%_final_vs_blinded_enemies"] = {
+					mod("CritMultiplier", "MORE", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "Blinded" } ),
+				},
+				["support_unseen_critical_strike_chance_+%_final_vs_blinded_enemies"] = {
+					mod("CritChance", "MORE", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "Blinded" } ),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -2474,6 +2482,14 @@ skills["SupportPursuitPlayer"] = {
 			label = "Pursuit",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_advancing_assault_melee_damage_+%_final_if_projectile_attack_damage_hit_in_past_8_seconds"] = {
+					mod("Damage", "MORE", nil, ModFlag.Melee, 0, { type = "Condition", var = "HitProjectileRecently" } ),
+				},
+				["support_advancing_assault_projectile_damage_+%_final"] = {
+					mod("Damage", "MORE", nil, ModFlag.Projectile),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -2601,6 +2617,14 @@ skills["SupportRetreatPlayer"] = {
 			label = "Retreat",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_retreating_assault_projectile_damage_+%_final_if_melee_hit_in_past_8_seconds"] = {
+					mod("Damage", "MORE", nil, ModFlag.Projectile, 0, { type = "Condition", var = "HitMeleeRecently" } ),
+				},
+				["support_retreating_assault_melee_damage_+%_final"] = {
+					mod("Damage", "MORE", nil, ModFlag.Melee),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
