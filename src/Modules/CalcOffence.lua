@@ -617,24 +617,6 @@ function calcs.offence(env, actor, activeSkill)
 			end
 		end
 	end
-	-- Add weapon base stats to output for use in mods like Tactician's ""Watch How I Do It" Ascendancy notable" and Amazon's "Penetrate"
-	-- Note: This might run into issues with Energy Blade or similar mechanics that could "replace" the weapon items, but it's hard to test because PoE2 doesn't have those mechanics yet
-	for i in pairs({ "1", "2" }) do
-		-- Section for martial weapons only for now
-		if actor.itemList["Weapon " .. i] and actor.itemList["Weapon " .. i].base and actor.itemList["Weapon " .. i].base.weapon then
-			-- Add base min and max damage
-			for _, damageType in ipairs(dmgTypeList) do
-				if actor.itemList["Weapon " .. i] and actor["weaponData" .. i][damageType .. "Min"] then
-					output[damageType .. "Min" .. "OnWeapon " .. i] = actor["weaponData" .. i][damageType .. "Min"]
-				end
-				if actor["weaponData" .. i][damageType .. "Max"] then
-					output[damageType .. "Max" .. "OnWeapon " .. i] = actor["weaponData" .. i][damageType .. "Max"]
-				end
-			end
-			-- Add total local accuracy
-			output["AccuracyOnWeapon " .. i] = actor.itemList["Weapon " .. i].baseModList:Sum("BASE", nil, "Accuracy")
-		end
-	end
 	-- Add bonus mods for Tactician's "Watch How I Do It" (technically this could be done in ModParser, but it would always add 10 mods instead of just the necessary ones)
 	if actor.parent and actor.modDB:Flag(nil, "GainMainHandDmgFromParent") and actor.parent.itemList["Weapon 1"] then
 		local modSource = ""
