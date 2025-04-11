@@ -1027,6 +1027,43 @@ skills["GAAnimateWeaponQuarterstaffSweep"] = {
 }
 -- Spectres here for now as spectres aren't using the spectre.lua skills file
 
+skills["CGEBloodPriestBoilingBlood"] = {
+	name = "Boiling Blood",
+	hidden = true,
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, [SkillType.Duration] = true, [SkillType.AreaSpell] = true, },
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Boiling Blood",
+			baseEffectiveness = 12,
+			incrementalEffectiveness = 0.10000000149012,
+			damageIncrementalEffectiveness = 0.017500000074506,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				spell = true,
+				area = true,
+				triggerable = true,
+				duration = true,
+			},
+			constantStats = {
+				{ "base_skill_effect_duration", 3000 },
+				{ "ground_blood_art_variation", 1003 },
+				{ "active_skill_area_of_effect_radius_+%_final", -25 },
+			},
+			stats = {
+				"base_physical_damage_to_deal_per_minute",
+			},
+			levels = {
+				[1] = { 16.666667039196, statInterpolation = { 3, }, actorLevel = 1, },
+			},
+		},
+	}
+}
 skills["DTTHellscapeStabbySkyStab"] = {
 	name = "Basic Attack",
 	hidden = true,
@@ -1432,6 +1469,48 @@ skills["MMSVaalGuardOilTrap"] = {
 		},
 	}
 }
+skills["MPSVaalBloodPriestProj"] = {
+	name = "Blood Projectile",
+	hidden = true,
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, },
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { critChance = 5, levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Blood Projectile",
+			baseEffectiveness = 3,
+			incrementalEffectiveness = 0.10000000149012,
+			damageIncrementalEffectiveness = 0.017500000074506,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				spell = true,
+				projectile = true,
+				triggerable = true,
+				hit = true,
+			},
+			constantStats = {
+				{ "monster_projectile_variation", 1047 },
+				{ "spell_maximum_action_distance_+%", -35 },
+			},
+			stats = {
+				"spell_minimum_base_physical_damage",
+				"spell_maximum_base_physical_damage",
+				"base_is_projectile",
+				"projectile_uses_contact_position",
+				"use_scaled_contact_offset",
+				"action_attack_or_cast_time_uses_animation_length",
+				"check_for_targets_between_initiator_and_projectile_source",
+			},
+			levels = {
+				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
+			},
+		},
+	}
+}
 skills["TBHellscapePaleLightningBoltSpammableLeft"] = {
 	name = "Lightning Bolt",
 	hidden = true,
@@ -1510,42 +1589,122 @@ skills["TCHellscapePaleElite2Charge"] = {
 		},
 	}
 }
-skills["TCHellscapePaleElite2Charge"] = {
-	name = "Charge",
+skills["VaalBloodPriestDetonateDead"] = {
+	name = "Detonate Dead",
 	hidden = true,
-	description = "Charges at an enemy, bashing it with the character's shield and striking it. This knocks it back and stuns it. Enemies in the way are pushed to the side. Damage and stun are proportional to distance travelled. Cannot be supported by Multistrike.",
-	skillTypes = { [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Movement] = true, [SkillType.Travel] = true, },
-	weaponTypes = {
-		["None"] = true,
-		["One Handed Sword"] = true,
-		["One Handed Mace"] = true,
-		["Flail"] = true,
-		["Spear"] = true,
-		["One Handed Axe"] = true,
-		["Dagger"] = true,
-		["Claw"] = true,
-	},
-	castTime = 1,
+	skillTypes = { [SkillType.Area] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, },
+	castTime = 1.25,
 	qualityStats = {
 	},
 	levels = {
-		[1] = { baseMultiplier = 0.3, storedUses = 1, levelRequirement = 0, cooldown = 8, },
+		[1] = { critChance = 5, levelRequirement = 0, },
 	},
 	statSets = {
 		[1] = {
-			label = "Charge",
-			incrementalEffectiveness = 0.054999999701977,
+			label = "Detonate Dead",
+			baseEffectiveness = 6,
+			incrementalEffectiveness = 0.10000000149012,
+			damageIncrementalEffectiveness = 0.017500000074506,
 			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
-				attack = true,
-				melee = true,
+				area = true,
+				triggerable = true,
+			},
+			constantStats = {
+				{ "base_skill_effect_duration", 2000 },
+				{ "upheaval_number_of_spikes", 4 },
+				{ "active_skill_base_physical_damage_%_to_convert_to_fire", 25 },
 			},
 			stats = {
-				"ignores_proximity_shield",
+				"spell_minimum_base_physical_damage",
+				"spell_maximum_base_physical_damage",
 				"is_area_damage",
 			},
 			levels = {
-				[1] = { actorLevel = 1, },
+				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["VaalBloodPriestExsanguinate"] = {
+	name = "Exsanguinate",
+	hidden = true,
+	description = "Expel your own blood as Chaining blood tendrils in a cone in front of you. Enemies hit by the tendrils take Physical damage and are inflicted with a Debuff that deals Physical damage over time.",
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Chains] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Physical] = true, [SkillType.CanRapidFire] = true, [SkillType.DamageOverTime] = true, [SkillType.Duration] = true, [SkillType.UsableWhileMoving] = true, },
+	castTime = 2.2,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { critChance = 5, levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Exsanguinate",
+			baseEffectiveness = 2.5,
+			incrementalEffectiveness = 0.10000000149012,
+			damageIncrementalEffectiveness = 0.017500000074506,
+			statDescriptionScope = "exsanguinate",
+			baseFlags = {
+				spell = true,
+				hit = true,
+				triggerable = true,
+				duration = true,
+				chaining = true,
+			},
+			constantStats = {
+				{ "base_skill_effect_duration", 1000 },
+				{ "number_of_chains", 1 },
+				{ "spell_maximum_action_distance_+%", -40 },
+				{ "active_skill_base_radius_+", -8 },
+			},
+			stats = {
+				"spell_minimum_base_physical_damage",
+				"spell_maximum_base_physical_damage",
+				"base_physical_damage_to_deal_per_minute",
+				"blood_tendrils_beam_count",
+				"spell_damage_modifiers_apply_to_skill_dot",
+			},
+			levels = {
+				[1] = { 0.80000001192093, 1.2000000476837, 66.666668156783, 2, statInterpolation = { 3, 3, 3, 1, }, actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["VaalBloodPriestSoulrend"] = {
+	name = "Soulrend",
+	hidden = true,
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Projectile] = true, [SkillType.DamageOverTime] = true, [SkillType.Chaos] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Trappable] = true, [SkillType.Mineable] = true, [SkillType.Totemable] = true, [SkillType.DegenOnlySpellDamage] = true, [SkillType.AreaSpell] = true, },
+	castTime = 3.7,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Soulrend",
+			baseEffectiveness = 4,
+			incrementalEffectiveness = 0.10000000149012,
+			damageIncrementalEffectiveness = 0.017500000074506,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				spell = true,
+				area = true,
+				duration = true,
+				projectile = true,
+				Triggerable = true,
+			},
+			constantStats = {
+				{ "base_skill_effect_duration", 500 },
+				{ "spell_maximum_action_distance_+%", -35 },
+			},
+			stats = {
+				"base_physical_damage_to_deal_per_minute",
+				"base_is_projectile",
+				"projectile_uses_contact_position",
+			},
+			levels = {
+				[1] = { 50.000001117587, statInterpolation = { 3, }, actorLevel = 1, },
 			},
 		},
 	}

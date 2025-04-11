@@ -26,3 +26,5 @@ local minions, mod, flag = ...
 
 -- Vaal Humanoid
 #spectre Metadata/Monsters/VaalMonsters/Living/VaalGuardMortarLiving
+#spectre Metadata/Monsters/VaalMonsters/Living/BloodPriests/VaalBloodPriestMale
+#spectre Metadata/Monsters/VaalMonsters/Living/BloodPriests/VaalBloodPriestFemale

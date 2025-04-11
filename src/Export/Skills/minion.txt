@@ -181,6 +181,12 @@ skills["MinionInstability"] = {
 
 -- Spectres here for now as spectres aren't using the spectre.lua skills file
 
+#skill CGEBloodPriestBoilingBlood Boiling Blood
+#set CGEBloodPriestBoilingBlood
+#flags spell area triggerable duration
+#mods
+#skillEnd
+
 #skill DTTHellscapeStabbySkyStab
 #set DTTHellscapeStabbySkyStab
 #flags attack melee projectile
@@ -247,6 +253,12 @@ skills["MinionInstability"] = {
 #mods
 #skillEnd
 
+#skill MPSVaalBloodPriestProj Blood Projectile
+#set MPSVaalBloodPriestProj
+#flags spell projectile triggerable hit
+#mods
+#skillEnd
+
 #skill TBHellscapePaleLightningBoltSpammableLeft Lightning Bolt
 #set TBHellscapePaleLightningBoltSpammableLeft
 #flags spell hit triggerable
@@ -259,8 +271,20 @@ skills["MinionInstability"] = {
 #mods
 #skillEnd
 
-#skill TCHellscapePaleElite2Charge Charge
-#set TCHellscapePaleElite2Charge
-#flags attack melee
+#skill VaalBloodPriestDetonateDead Detonate Dead
+#set VaalBloodPriestDetonateDead
+#flags area triggerable
+#mods
+#skillEnd
+
+#skill VaalBloodPriestExsanguinate
+#set VaalBloodPriestExsanguinate
+#flags spell hit triggerable duration chaining
+#mods
+#skillEnd
+
+#skill VaalBloodPriestSoulrend Soulrend
+#set VaalBloodPriestSoulrend
+#flags spell area duration projectile Triggerable
 #mods
 #skillEnd
