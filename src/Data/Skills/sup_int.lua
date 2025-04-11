@@ -410,6 +410,14 @@ skills["SupportBurgeonPlayer"] = {
 			label = "Burgeon",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_chanelling_damage_+%_final_per_second_channelling"] = {
+					mod("Damage", "MORE", nil, 0, 0, { type = "Condition", var = "Channelling" }, { type = "Multiplier", var = "ChannellingTime", limitVar = "BurgeonDamageCap", limitTotal = true }),
+				},
+				["support_channelling_damage_cap"] = {
+					mod("Multiplier:BurgeonDamageCap", "BASE"),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -3151,6 +3159,14 @@ skills["SupportPinpointCriticalPlayer"] = {
 			label = "Pinpoint Critical",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_pinpoint_critical_strike_chance_+%_final"] = {
+					mod("CritChance", "MORE", nil),
+				},
+				["support_pinpoint_critical_strike_multiplier_+%_final"] = {
+					mod("CritMultiplier", "MORE", nil),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {

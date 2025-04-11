@@ -1030,6 +1030,14 @@ skills["SupportDelayedReactionPlayer"] = {
 			label = "Delayed Reaction",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_sunblast_hazard_hazard_damage_+%_final"] = {
+					mod("Damage", "MORE", nil),
+				},
+				["support_sunblast_hazard_hazard_duration_+%_final"] = {
+					mod("Duration", "MORE", nil),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -1345,6 +1353,11 @@ skills["SupportGambleshotPlayer"] = {
 			label = "Gambleshot",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				[ "support_gambleshot_projectile_damage_+%_final"] = {
+					mod("Damage", "MORE", nil),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -3105,6 +3118,11 @@ skills["SupportWarmbloodedPlayer"] = {
 			label = "Warm Blooded",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_freeze_protection_spirit_cost_freeze_duration_on_self_+%_final"] = {
+					mod("SelfFreezeDuration", "MORE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Warm Blooded" }),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
