@@ -527,22 +527,6 @@ function calcs.offence(env, actor, activeSkill)
 			func(activeSkill, output, breakdown)
 		end
 	end
-	-- Checks if a given item is classified as a martial weapon base on global data.weaponTypeInfo table
-	-- Note: long-term it might be better to add "MartialWeapon" flags to items instead potentially once PR #688 is complete
-	---@param item table @item as contained in actor.itemList
-	---@return boolean
-	local function isMartialWeapon(item)
-		local itemType = item.type or "None"
-		if itemType == "Staff" and not (item.base.subType == "Warstaff" or (item.baseName and item.baseName:find("Quarterstaff"))) then return false end -- Workaround to rule out caster staves
-		local nonMartialWeapons = {"None", "Wand", "Fishing Rod" } -- filter out other non-martial bases
-		for _, val in pairs(nonMartialWeapons) do
-			if val == itemType then return false end
-		end
-		for key, _ in pairs(data.weaponTypeInfo) do
-			if itemType == key then return true end
-		end
-		return false
-	end
 
 	runSkillFunc("initialFunc")
 
@@ -637,7 +621,7 @@ function calcs.offence(env, actor, activeSkill)
 	-- Note: This might run into issues with Energy Blade or similar mechanics that could "replace" the weapon items, but it's hard to test because PoE2 doesn't have those mechanics yet
 	for i in pairs({ "1", "2" }) do
 		-- Section for martial weapons only for now
-		if actor.itemList["Weapon " .. i] and isMartialWeapon(actor.itemList["Weapon " .. i]) then
+		if actor.itemList["Weapon " .. i] and actor.itemList["Weapon " .. i].base and actor.itemList["Weapon " .. i].base.weapon then
 			-- Add base min and max damage
 			for _, damageType in ipairs(dmgTypeList) do
 				if actor.itemList["Weapon " .. i] and actor["weaponData" .. i][damageType .. "Min"] then
