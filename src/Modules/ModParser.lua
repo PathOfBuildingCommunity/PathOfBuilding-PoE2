@@ -2520,9 +2520,7 @@ local specialModList = {
 	["gain additional maximum life equal to (%d+)%% of the energy shield on equipped body armour"] = function(num) return {
 		mod("Life", "BASE", 1, { type = "PercentStat", stat = "EnergyShieldOnBody Armour", percent = num }),
 	} end,
-	["bleeding you inflict on cursed targets is aggravated"] = function(num) return {
-		mod("EnemyModifier", "LIST", { mod = flag("Condition:BleedAggravated", { type = "Condition", var = "Cursed" }) }),
-	} end,
+	["bleeding you inflict on cursed targets is aggravated"] = { mod("EnemyModifier", "LIST", { mod = flag("Condition:BleedAggravated", { type = "Condition", var = "Cursed" }) }) },
 	["critical hits ignore monster armour"] = { flag("IgnoreEnemyArmour", { type = "Condition", var = "CriticalStrike" }) },
 	["(%d+)%% of life loss from hits is prevented, then that much life is lost over 4 seconds instead"] = function(num) return { mod("LifeLossPrevented", "BASE", num) } end,
 	-- Champion
