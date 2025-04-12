@@ -66,6 +66,30 @@ minions["Metadata/Monsters/LeagueHellscape/PaleFaction/HellscapePaleElite2__"] =
 	},
 }
 
+-- Dinosaur
+minions["Metadata/Monsters/BoneCultists/BoneCultists_Beast/BoneCultistBeast"] = {
+	name = "Drudge Osseodon",
+	monsterTags = { "beast", "melee", "MonsterBlunt_onhit_audio", "not_dex", "not_int", "physical_affinity", "red_blood", "reptile_beast", "slow_movement", },
+	life = 2.5,
+	baseDamageIgnoresAttackSpeed = true,
+	armour = 0.7,
+	fireResist = 0,
+	coldResist = 30,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 2.75,
+	damageSpread = 0.2,
+	attackTime = 1.665,
+	attackRange = 19,
+	accuracy = 1,
+	skillList = {
+		"MeleeAtAnimationSpeedComboTEMP",
+		"CultistBeastSunder",
+	},
+	modList = {
+	},
+}
+
 -- Goliath
 minions["Metadata/Monsters/TwoheadedTitan/TwoHeadedTitan"] = {
 	name = "Goliath",

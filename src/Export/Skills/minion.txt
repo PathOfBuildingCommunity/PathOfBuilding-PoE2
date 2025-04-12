@@ -187,6 +187,12 @@ skills["MinionInstability"] = {
 #mods
 #skillEnd
 
+#skill CultistBeastSunder Sunder
+#set CultistBeastSunder
+#flags triggerable attack
+#mods
+#skillEnd
+
 #skill DTTHellscapeStabbySkyStab
 #set DTTHellscapeStabbySkyStab
 #flags attack melee projectile
@@ -235,9 +241,15 @@ skills["MinionInstability"] = {
 #mods
 #skillEnd
 
+#skill MeleeAtAnimationSpeedComboTEMP
+#set MeleeAtAnimationSpeedComboTEMP
+#flags attack melee
+#mods
+#skillEnd
+
 #skill MeleeAtAnimationSpeedLightning Basic Attack (Lightning)
 #set MeleeAtAnimationSpeedLightning
-#flags attack projectile melee
+#flags attack melee
 #mods
 #skillEnd
 

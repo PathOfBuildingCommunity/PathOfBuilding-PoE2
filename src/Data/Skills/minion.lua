@@ -1064,6 +1064,34 @@ skills["CGEBloodPriestBoilingBlood"] = {
 		},
 	}
 }
+skills["CultistBeastSunder"] = {
+	name = "Sunder",
+	hidden = true,
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Attack] = true, },
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { attackSpeedMultiplier = -25, baseMultiplier = 1.75, levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Sunder",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				triggerable = true,
+				attack = true,
+			},
+			stats = {
+				"is_area_damage",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
 skills["DTTHellscapeStabbySkyStab"] = {
 	name = "Basic Attack",
 	hidden = true,
@@ -1336,6 +1364,38 @@ skills["GSHellscapePaleEliteOmegaBeam"] = {
 		},
 	}
 }
+skills["MeleeAtAnimationSpeedComboTEMP"] = {
+	name = "Basic Attack",
+	hidden = true,
+	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.ProjectilesFromUser] = true, },
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Basic Attack",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				attack = true,
+				melee = true,
+			},
+			stats = {
+				"skill_can_fire_arrows",
+				"skill_can_fire_wand_projectiles",
+				"action_attack_or_cast_time_uses_animation_length",
+				"projectile_uses_contact_position",
+				"use_scaled_contact_offset",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
 skills["MeleeAtAnimationSpeedLightning"] = {
 	name = "Basic Attack (Lightning)",
 	hidden = true,
@@ -1353,7 +1413,6 @@ skills["MeleeAtAnimationSpeedLightning"] = {
 			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
 				attack = true,
-				projectile = true,
 				melee = true,
 			},
 			constantStats = {
