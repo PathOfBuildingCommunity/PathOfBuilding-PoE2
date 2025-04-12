@@ -4468,6 +4468,7 @@ local specialModList = {
 	["([%d%.]+)%% of physical damage prevented from hits recently is regenerated as energy shield per second"] = function(num) return { mod("PhysicalDamageMitigatedEnergyShieldPseudoRecoup", "BASE", num * 4) } end,
 	["cannot leech or regenerate mana"] = { flag("NoManaRegen"), flag("CannotLeechMana") },
 	["right ring slot: you cannot regenerate mana" ] = { flag("NoManaRegen", { type = "SlotNumber", num = 2 }) },
+	["cannot regenerate mana if you haven't dealt a critical hit recently"] = { flag("NoManaRegen", { type = "Condition", var = "CritRecently", neg = true} ) },
 	["y?o?u? ?cannot recharge energy shield"] = { flag("NoEnergyShieldRecharge") },
 	["energy shield does not recharge"] = { flag("NoEnergyShieldRecharge") },
 	["you cannot regenerate energy shield" ] = { flag("NoEnergyShieldRegen") },
