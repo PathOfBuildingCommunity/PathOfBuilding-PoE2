@@ -1615,11 +1615,12 @@ function calcs.defence(env, actor)
 				})
 			end
 		end
-		output.EnergyShieldRechargeDelay = data.misc.EnergyShieldRechargeDelay / (1 + modDB:Sum("INC", nil, "EnergyShieldRechargeFaster") / 100)
+		local rechargeBase = modDB:Override(nil, "EnergyShieldRechargeBase") or data.misc.EnergyShieldRechargeDelay
+		output.EnergyShieldRechargeDelay = rechargeBase / (1 + modDB:Sum("INC", nil, "EnergyShieldRechargeFaster") / 100)
 		if breakdown then
-			if output.EnergyShieldRechargeDelay ~= data.misc.EnergyShieldRechargeDelay then
+			if output.EnergyShieldRechargeDelay ~= rechargeBase then
 				breakdown.EnergyShieldRechargeDelay = {
-					s_format("%.2fs ^8(base)", data.misc.EnergyShieldRechargeDelay),
+					s_format("%.2fs ^8(base)", rechargeBase),
 					s_format("/ %.2f ^8(faster start)", 1 + modDB:Sum("INC", nil, "EnergyShieldRechargeFaster") / 100),
 					s_format("= %.2fs", output.EnergyShieldRechargeDelay)
 				}
