@@ -638,8 +638,7 @@ c["+4 to Level of all Physical Spell Skills"]={{[1]={flags=0,keywordFlags=0,name
 c["+4 to Level of all Projectile Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keyword="projectile",value=4}}},nil}
 c["+4 to Level of all Spell Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keyword="spell",value=4}}},nil}
 c["+4 to Maximum Rage"]={{[1]={flags=0,keywordFlags=0,name="MaximumRage",type="BASE",value=4}},nil}
-c["+4 to Melee Strike Range if you've dealt a Projectile Attack Hit in the past eight seconds"]={{[1]={flags=0,keywordFlags=0,name="MeleeWeaponRange",type="BASE",value=4},[2]={flags=0,keywordFlags=0,name="UnarmedRange",type="BASE",value=4}},"  if you've dealt a Projectile Attack Hit in the past eight seconds "}
-c["+4 to Melee Strike Range if you've dealt a Projectile Attack Hit in the past eight seconds Projectiles have 25% chance to Fork if you've dealt a Melee Hit in the past eight seconds"]={{[1]={flags=256,keywordFlags=0,name="MeleeWeaponRange",type="BASE",value=4},[2]={flags=256,keywordFlags=0,name="UnarmedRange",type="BASE",value=4}},"  if you've dealt a Projectile Attack Hit in the past eight seconds Projectiles have 25% chance to Fork if you've dealt a  Hit in the past eight seconds "}
+c["+4 to Melee Strike Range if you've dealt a Projectile Attack Hit in the past eight seconds"]={{[1]={[1]={type="Condition",var="HitProjectileRecently"},flags=0,keywordFlags=0,name="MeleeWeaponRange",type="BASE",value=4},[2]={[1]={type="Condition",var="HitProjectileRecently"},flags=0,keywordFlags=0,name="UnarmedRange",type="BASE",value=4}},nil}
 c["+4% to Critical Hit Chance"]={{[1]={flags=0,keywordFlags=0,name="CritChance",type="BASE",value=4}},nil}
 c["+4% to Maximum Cold Resistance"]={{[1]={flags=0,keywordFlags=0,name="ColdResistMax",type="BASE",value=4}},nil}
 c["+4% to Maximum Fire Resistance"]={{[1]={flags=0,keywordFlags=0,name="FireResistMax",type="BASE",value=4}},nil}
@@ -961,7 +960,7 @@ c["10% increased Physical Damage"]={{[1]={flags=0,keywordFlags=0,name="PhysicalD
 c["10% increased Poison Duration"]={{[1]={flags=0,keywordFlags=0,name="EnemyPoisonDuration",type="INC",value=10}},nil}
 c["10% increased Poison Duration for each Poison you have inflicted Recently, up to a maximum of 100%"]={{[1]={[1]={globalLimit=100,globalLimitKey="NoxiousStrike",type="Multiplier",var="PoisonAppliedRecently"},flags=0,keywordFlags=0,name="EnemyPoisonDuration",type="INC",value=10}},nil}
 c["10% increased Presence Area of Effect"]={{[1]={flags=0,keywordFlags=0,name="AreaOfEffect",type="INC",value=10}}," Presence  "}
-c["10% increased Presence Area of Effect Companions have 10% increased Area of Effect"]={{[1]={[1]={skillType=198,type="SkillType"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=512,keywordFlags=0,name="AreaOfEffect",type="INC",value=10}}}}," Presence  10% increased  of Effect "}
+c["10% increased Presence Area of Effect Companions have 10% increased Area of Effect"]={{[1]={flags=512,keywordFlags=0,name="AreaOfEffect",type="INC",value=10}}," Presence  Companions have 10% increased  of Effect "}
 c["10% increased Projectile Damage"]={{[1]={flags=1024,keywordFlags=0,name="Damage",type="INC",value=10}},nil}
 c["10% increased Projectile Speed"]={{[1]={flags=0,keywordFlags=0,name="ProjectileSpeed",type="INC",value=10}},nil}
 c["10% increased Rarity of Items found"]={{[1]={flags=0,keywordFlags=0,name="LootRarity",type="INC",value=10}},nil}
@@ -1286,7 +1285,7 @@ c["15% increased Mana Flask Charges gained"]={{[1]={flags=0,keywordFlags=0,name=
 c["15% increased Mana Recovery rate"]={{[1]={flags=0,keywordFlags=0,name="ManaRecoveryRate",type="INC",value=15}},nil}
 c["15% increased Mana Regeneration Rate"]={{[1]={flags=0,keywordFlags=0,name="ManaRegen",type="INC",value=15}},nil}
 c["15% increased Melee Damage"]={{[1]={flags=256,keywordFlags=0,name="Damage",type="INC",value=15}},nil}
-c["15% increased Melee Damage if you've dealt a Projectile Attack Hit in the past eight seconds"]={{[1]={flags=256,keywordFlags=0,name="Damage",type="INC",value=15}},"  if you've dealt a Projectile Attack Hit in the past eight seconds "}
+c["15% increased Melee Damage if you've dealt a Projectile Attack Hit in the past eight seconds"]={{[1]={[1]={type="Condition",var="HitProjectileRecently"},flags=256,keywordFlags=0,name="Damage",type="INC",value=15}},nil}
 c["15% increased Melee Damage with Hits at Close Range"]={{[1]={[1]={type="Condition",var="AtCloseRange"},flags=256,keywordFlags=262144,name="Damage",type="INC",value=15}},nil}
 c["15% increased Minion Accuracy Rating"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Accuracy",type="INC",value=15}}}},nil}
 c["15% increased Movement Speed"]={{[1]={flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=15}},nil}
@@ -1294,7 +1293,7 @@ c["15% increased Parried Debuff Duration"]={{[1]={flags=0,keywordFlags=0,name="D
 c["15% increased Pin Buildup"]={{}," Pin Buildup "}
 c["15% increased Presence Area of Effect"]={{[1]={flags=0,keywordFlags=0,name="AreaOfEffect",type="INC",value=15}}," Presence  "}
 c["15% increased Projectile Damage"]={{[1]={flags=1024,keywordFlags=0,name="Damage",type="INC",value=15}},nil}
-c["15% increased Projectile Damage if you've dealt a Melee Hit in the past eight seconds"]={{[1]={flags=1280,keywordFlags=0,name="Damage",type="INC",value=15}},"  if you've dealt a  Hit in the past eight seconds "}
+c["15% increased Projectile Damage if you've dealt a Melee Hit in the past eight seconds"]={{[1]={[1]={type="Condition",var="HitMeleeRecently"},flags=1024,keywordFlags=0,name="Damage",type="INC",value=15}},nil}
 c["15% increased Projectile Speed"]={{[1]={flags=0,keywordFlags=0,name="ProjectileSpeed",type="INC",value=15}},nil}
 c["15% increased Projectile Stun Buildup"]={{[1]={flags=0,keywordFlags=0,name="ProjectileCount",type="INC",value=15}},"  Stun Buildup "}
 c["15% increased Quantity of Gold Dropped by Slain Enemies"]={{}," Quantity of Gold Dropped by Slain Enemies "}
@@ -1857,7 +1856,7 @@ c["3% increased Attack Speed per 20 Dexterity"]={{[1]={[1]={div=20,stat="Dex",ty
 c["3% increased Attack Speed while Dual Wielding"]={{[1]={[1]={type="Condition",var="DualWielding"},flags=1,keywordFlags=0,name="Speed",type="INC",value=3}},nil}
 c["3% increased Attack Speed while holding a Shield"]={{[1]={[1]={type="Condition",varList={[1]="UsingShield"}},flags=1,keywordFlags=0,name="Speed",type="INC",value=3}},nil}
 c["3% increased Attack Speed while in the Presence of your Companion"]={{[1]={flags=1,keywordFlags=0,name="Speed",type="INC",value=3}},"  while in the Presence of your Companion "}
-c["3% increased Attack Speed while in the Presence of your Companion Companions have 4% increased Attack Speed"]={{[1]={[1]={skillType=198,type="SkillType"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=1,keywordFlags=0,name="Speed",type="INC",value=3}}}},"  while in the Presence of your Companion 4% increased Attack Speed "}
+c["3% increased Attack Speed while in the Presence of your Companion Companions have 4% increased Attack Speed"]={{[1]={flags=1,keywordFlags=0,name="Speed",type="INC",value=3}},"  while in the Presence of your Companion Companions have 4% increased Attack Speed "}
 c["3% increased Attack Speed with Axes"]={{[1]={flags=65541,keywordFlags=0,name="Speed",type="INC",value=3}},nil}
 c["3% increased Attack Speed with Bows"]={{[1]={flags=131077,keywordFlags=0,name="Speed",type="INC",value=3}},nil}
 c["3% increased Attack Speed with Daggers"]={{[1]={flags=524293,keywordFlags=0,name="Speed",type="INC",value=3}},nil}
@@ -1985,8 +1984,7 @@ c["30% increased Magnitude of Poison you inflict"]={{[1]={flags=0,keywordFlags=2
 c["30% increased Magnitude of Shock you inflict"]={{[1]={flags=0,keywordFlags=0,name="EnemyShockMagnitude",type="INC",value=30}},nil}
 c["30% increased Mana Recovery from Flasks"]={{[1]={flags=0,keywordFlags=0,name="FlaskManaRecovery",type="INC",value=30}},nil}
 c["30% increased Mana Regeneration Rate"]={{[1]={flags=0,keywordFlags=0,name="ManaRegen",type="INC",value=30}},nil}
-c["30% increased Melee Damage if you've dealt a Projectile Attack Hit in the past eight seconds"]={{[1]={flags=256,keywordFlags=0,name="Damage",type="INC",value=30}},"  if you've dealt a Projectile Attack Hit in the past eight seconds "}
-c["30% increased Melee Damage if you've dealt a Projectile Attack Hit in the past eight seconds 30% increased Projectile Damage if you've dealt a Melee Hit in the past eight seconds"]={{[1]={flags=256,keywordFlags=0,name="Damage",type="INC",value=30}},"  if you've dealt a Projectile Attack Hit in the past eight seconds 30% increased Projectile Damage if you've dealt a  Hit in the past eight seconds "}
+c["30% increased Melee Damage if you've dealt a Projectile Attack Hit in the past eight seconds"]={{[1]={[1]={type="Condition",var="HitProjectileRecently"},flags=256,keywordFlags=0,name="Damage",type="INC",value=30}},nil}
 c["30% increased Melee Damage when on Full Life"]={{[1]={[1]={type="Condition",var="FullLife"},flags=256,keywordFlags=0,name="Damage",type="INC",value=30}},nil}
 c["30% increased Movement Speed"]={{[1]={flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=30}},nil}
 c["30% increased Parried Debuff Magnitude"]={{}," Parried Debuff Magnitude "}
@@ -1997,7 +1995,7 @@ c["30% increased Presence Area of Effect"]={{[1]={flags=0,keywordFlags=0,name="A
 c["30% increased Presence Area of Effect 5% increased Spirit"]={{[1]={flags=0,keywordFlags=0,name="AreaOfEffect",type="INC",value=30}}," Presence  5% increased Spirit "}
 c["30% increased Presence Area of Effect Aura Skills have 6% increased Magnitudes"]={{[1]={flags=0,keywordFlags=0,name="AreaOfEffect",type="INC",value=30}}," Presence  Aura Skills have 6% increased Magnitudes "}
 c["30% increased Presence Area of Effect Minions have 20% increased Area of Effect"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="AreaOfEffect",type="INC",value=30}}}}," Presence  s have 20% increased Area of Effect "}
-c["30% increased Projectile Damage if you've dealt a Melee Hit in the past eight seconds"]={{[1]={flags=1280,keywordFlags=0,name="Damage",type="INC",value=30}},"  if you've dealt a  Hit in the past eight seconds "}
+c["30% increased Projectile Damage if you've dealt a Melee Hit in the past eight seconds"]={{[1]={[1]={type="Condition",var="HitMeleeRecently"},flags=1024,keywordFlags=0,name="Damage",type="INC",value=30}},nil}
 c["30% increased Projectile Parry Range"]={{[1]={[1]={includeTransfigured=true,skillName="Parry",type="SkillName"},flags=0,keywordFlags=0,name="ProjectileCount",type="INC",value=30}}," Range "}
 c["30% increased Projectile Parry Range Your Heavy Stun buildup empties 50% faster if you've successfully Parried Recently"]={{[1]={[1]={type="Condition",var="ParriedRecently"},[2]={includeTransfigured=true,skillName="Parry",type="SkillName"},flags=0,keywordFlags=0,name="ProjectileCount",type="INC",value=30}}," Range Your Heavy Stun buildup empties 50% faster  "}
 c["30% increased Projectile Speed"]={{[1]={flags=0,keywordFlags=0,name="ProjectileSpeed",type="INC",value=30}},nil}
@@ -2255,6 +2253,8 @@ c["45% increased Armour and Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="
 c["45% increased Critical Damage Bonus"]={{[1]={flags=0,keywordFlags=0,name="CritMultiplier",type="INC",value=45}},nil}
 c["45% increased Evasion and Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="EvasionAndEnergyShield",type="INC",value=45}},nil}
 c["45% increased Mana Regeneration Rate"]={{[1]={flags=0,keywordFlags=0,name="ManaRegen",type="INC",value=45}},nil}
+c["45% increased Melee Damage if you've dealt a Projectile Attack Hit in the past eight seconds"]={{[1]={[1]={type="Condition",var="HitProjectileRecently"},flags=256,keywordFlags=0,name="Damage",type="INC",value=45}},nil}
+c["45% increased Projectile Damage if you've dealt a Melee Hit in the past eight seconds"]={{[1]={[1]={type="Condition",var="HitMeleeRecently"},flags=1024,keywordFlags=0,name="Damage",type="INC",value=45}},nil}
 c["45% increased Rarity of Items found"]={{[1]={flags=0,keywordFlags=0,name="LootRarity",type="INC",value=45}},nil}
 c["450% increased Armour"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="INC",value=450}},nil}
 c["48% increased Spirit"]={{[1]={flags=0,keywordFlags=0,name="Spirit",type="INC",value=48}},nil}
@@ -2497,12 +2497,11 @@ c["60% increased Evasion and Energy Shield"]={{[1]={flags=0,keywordFlags=0,name=
 c["60% increased Flask Life Recovery rate"]={{[1]={flags=0,keywordFlags=0,name="FlaskLifeRecoveryRate",type="INC",value=60}},nil}
 c["60% increased Flask Mana Recovery rate"]={{[1]={flags=0,keywordFlags=0,name="FlaskManaRecoveryRate",type="INC",value=60}},nil}
 c["60% increased Freeze Threshold"]={{[1]={flags=0,keywordFlags=0,name="FreezeThreshold",type="INC",value=60}},nil}
-c["60% increased Melee Damage if you've dealt a Projectile Attack Hit in the past eight seconds"]={{[1]={flags=256,keywordFlags=0,name="Damage",type="INC",value=60}},"  if you've dealt a Projectile Attack Hit in the past eight seconds "}
-c["60% increased Melee Damage if you've dealt a Projectile Attack Hit in the past eight seconds 60% increased Projectile Damage if you've dealt a Melee Hit in the past eight seconds"]={{[1]={flags=256,keywordFlags=0,name="Damage",type="INC",value=60}},"  if you've dealt a Projectile Attack Hit in the past eight seconds 60% increased Projectile Damage if you've dealt a  Hit in the past eight seconds "}
+c["60% increased Melee Damage if you've dealt a Projectile Attack Hit in the past eight seconds"]={{[1]={[1]={type="Condition",var="HitProjectileRecently"},flags=256,keywordFlags=0,name="Damage",type="INC",value=60}},nil}
 c["60% increased Physical Damage"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamage",type="INC",value=60}},nil}
 c["60% increased Presence Area of Effect"]={{[1]={flags=0,keywordFlags=0,name="AreaOfEffect",type="INC",value=60}}," Presence  "}
 c["60% increased Presence Area of Effect Enemies in your Presence have at least 10% of Life Reserved"]={{[1]={flags=0,keywordFlags=0,name="AreaOfEffect",type="INC",value=60}}," Presence  Enemies in your Presence have at least 10% of Life Reserved "}
-c["60% increased Projectile Damage if you've dealt a Melee Hit in the past eight seconds"]={{[1]={flags=1280,keywordFlags=0,name="Damage",type="INC",value=60}},"  if you've dealt a  Hit in the past eight seconds "}
+c["60% increased Projectile Damage if you've dealt a Melee Hit in the past eight seconds"]={{[1]={[1]={type="Condition",var="HitMeleeRecently"},flags=1024,keywordFlags=0,name="Damage",type="INC",value=60}},nil}
 c["60% increased Rarity of Items found"]={{[1]={flags=0,keywordFlags=0,name="LootRarity",type="INC",value=60}},nil}
 c["60% increased Stun Threshold for each time you've been Stunned Recently"]={{[1]={[1]={type="Multiplier",var="StunnedRecently"},flags=0,keywordFlags=0,name="StunThreshold",type="INC",value=60}},nil}
 c["60% increased maximum Energy Shield"]={{[1]={[1]={type="Global"},flags=0,keywordFlags=0,name="EnergyShield",type="INC",value=60}},nil}
@@ -4380,7 +4379,7 @@ c["Projectiles from Spells cannot Pierce"]={{[1]={flags=2,keywordFlags=0,name="C
 c["Projectiles have 10% chance to Chain an additional time from terrain"]={{[1]={flags=1024,keywordFlags=0,name="TerrainChainChance",type="BASE",value=10}},nil}
 c["Projectiles have 15% chance to Chain an additional time from terrain"]={{[1]={flags=1024,keywordFlags=0,name="TerrainChainChance",type="BASE",value=15}},nil}
 c["Projectiles have 25% chance for an additional Projectile when Forking"]={{[1]={flags=1024,keywordFlags=0,name="ProjectileCount",type="BASE",value=25}}," for an additional  when Forking "}
-c["Projectiles have 25% chance to Fork if you've dealt a Melee Hit in the past eight seconds"]={{}," to Fork if you've dealt a  Hit in the past eight seconds "}
+c["Projectiles have 25% chance to Fork if you've dealt a Melee Hit in the past eight seconds"]={{}," to Fork  "}
 c["Projectiles have 25% increased Critical Hit Chance against Enemies further than 6m"]={{[1]={[1]={threshold=60,type="MultiplierThreshold",var="enemyDistance"},flags=1024,keywordFlags=0,name="CritChance",type="INC",value=25}},nil}
 c["Projectiles have 40% increased Critical Damage Bonus against Enemies within 2m"]={{[1]={[1]={threshold=20,type="MultiplierThreshold",upper=true,var="enemyDistance"},flags=1024,keywordFlags=0,name="CritMultiplier",type="INC",value=40}},nil}
 c["Projectiles have 5% chance to Chain an additional time from terrain"]={{[1]={flags=1024,keywordFlags=0,name="TerrainChainChance",type="BASE",value=5}},nil}
@@ -4618,7 +4617,7 @@ c["You can apply an additional Curse"]={{[1]={flags=0,keywordFlags=0,name="Enemy
 c["You can apply an additional Mark"]={{[1]={flags=0,keywordFlags=0,name="EnemyMarkLimit",type="BASE",value=1}},nil}
 c["You can have two Companions of different types"]={nil,"You can have two Companions of different types "}
 c["You can have two Companions of different types You have 30% less Defences"]={nil,"You can have two Companions of different types You have 30% less Defences "}
-c["You can have two Companions of different types You have 30% less Defences Companions have +1 to each Defence for every 2 of that Defence you have"]={nil,"You can have two Companions of different types You have 30% less Defences +1 to each Defence for every 2 of that Defence you have "}
+c["You can have two Companions of different types You have 30% less Defences Companions have +1 to each Defence for every 2 of that Defence you have"]={nil,"You can have two Companions of different types You have 30% less Defences Companions have +1 to each Defence for every 2 of that Defence you have "}
 c["You can only Socket Emerald Jewels in this item"]={nil,"You can only Socket Emerald Jewels in this item "}
 c["You can only Socket Emerald Jewels in this item You can only Socket Ruby Jewels in this item"]={nil,"You can only Socket Emerald Jewels in this item You can only Socket Ruby Jewels in this item "}
 c["You can only Socket Ruby Jewels in this item"]={nil,"You can only Socket Ruby Jewels in this item "}
@@ -4642,7 +4641,7 @@ c["You count as on Low Life while at 35% of maximum Mana or below"]={{[1]={flags
 c["You count as on Low Mana while at 35% of maximum Life or below"]={{[1]={flags=0,keywordFlags=0,name="LowManaPercentage",type="BASE",value=0.35}},nil}
 c["You gain Onslaught for 4 seconds on Kill"]={{[1]={[1]={type="Condition",var="KilledRecently"},flags=0,keywordFlags=0,name="Condition:Onslaught",type="FLAG",value=true}},nil}
 c["You have 30% less Defences"]={nil,"30% less Defences "}
-c["You have 30% less Defences Companions have +1 to each Defence for every 2 of that Defence you have"]={nil,"30% less Defences +1 to each Defence for every 2 of that Defence you have "}
+c["You have 30% less Defences Companions have +1 to each Defence for every 2 of that Defence you have"]={nil,"30% less Defences Companions have +1 to each Defence for every 2 of that Defence you have "}
 c["You have Arcane Surge"]={{[1]={flags=0,keywordFlags=0,name="Condition:ArcaneSurge",type="FLAG",value=true}},nil}
 c["You have Consecrated Ground around you while stationary"]={{[1]={[1]={type="Condition",var="Stationary"},flags=0,keywordFlags=0,name="Condition:OnConsecratedGround",type="FLAG",value=true}},nil}
 c["You have a Smoke Cloud around you while stationary"]={nil,"a Smoke Cloud around you  "}
