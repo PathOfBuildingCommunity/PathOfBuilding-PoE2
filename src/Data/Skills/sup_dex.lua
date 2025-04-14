@@ -3013,6 +3013,14 @@ skills["SupportUnerringPowerPlayer"] = {
 			label = "Unerring Power",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_discount_skill_cost_+%_final_if_empowered"] = {
+					mod("Cost", "MORE", nil, 0, 0, { type = "Condition", var = "Empowered" } )
+				},
+				["support_discount_accuracy_rating_+%_final_if_empowered"] = {
+					mod("Accuracy", "MORE", nil, 0, 0, { type = "Condition", var = "Empowered" } )
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
