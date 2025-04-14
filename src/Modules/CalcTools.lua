@@ -148,7 +148,7 @@ function calcLib.buildSkillInstanceStats(skillInstance, grantedEffect, statSet)
 			if statSetLevel.statInterpolation[index] == 3 then
 				-- Effectiveness interpolation
 				if not availableEffectiveness then
-					actorLevel = #statSet.levels == 1 and skillInstance.actorLevel or statSetLevel.actorLevel
+					actorLevel = #statSet.levels < 5 and skillInstance.actorLevel or statSetLevel.actorLevel
 					availableEffectiveness =
 						data.gameConstants["SkillDamageBaseEffectiveness"] * (statSet.baseEffectiveness or 1)
 							* (1 + (statSet.incrementalEffectiveness or 0) * (actorLevel - 1)) 

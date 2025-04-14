@@ -733,7 +733,7 @@ directiveTable.set = function(state, args, out)
 					statMapOrderIndex = statMapOrderIndex + 1
 				end
 			end
-			if resolveInterpolation and #statsPerLevel > 1 then -- Don't resolve values for minion skills as it will break them
+			if resolveInterpolation and #statsPerLevel > 5 then -- Don't resolve values for minion skills as it will break them
 				table.insert(level, statRow.BaseResolvedValues[i])
 				if state.skill.setIndex ~= 1 then
 					-- Modify the correct statInterpolation value in the current set by offsetting the value from the count in the base set

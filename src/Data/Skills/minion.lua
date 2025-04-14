@@ -335,10 +335,10 @@ skills["ArcSkeletonMageMinion"] = {
 				"disable_visual_hit_effect",
 			},
 			levels = {
-				[1] = { 1, 9, 2, statInterpolation = { 1, 1, 1, }, actorLevel = 1, },
-				[2] = { 5, 103, 3, statInterpolation = { 1, 1, 1, }, actorLevel = 20, },
-				[3] = { 21, 408, 4, statInterpolation = { 1, 1, 1, }, actorLevel = 40, },
-				[4] = { 66, 1260, 5, statInterpolation = { 1, 1, 1, }, actorLevel = 60, },
+				[1] = { 0.10000000149012, 1.8999999761581, 2, statInterpolation = { 3, 3, 1, }, actorLevel = 1, },
+				[2] = { 0.10000000149012, 1.8999999761581, 3, statInterpolation = { 3, 3, 1, }, actorLevel = 20, },
+				[3] = { 0.10000000149012, 1.8999999761581, 4, statInterpolation = { 3, 3, 1, }, actorLevel = 40, },
+				[4] = { 0.10000000149012, 1.8999999761581, 5, statInterpolation = { 3, 3, 1, }, actorLevel = 60, },
 			},
 		},
 	}
