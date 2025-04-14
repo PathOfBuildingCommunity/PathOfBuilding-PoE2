@@ -1496,8 +1496,8 @@ function calcs.defence(env, actor)
 		local resource = resourceName:gsub(" ", "")
 		local pool = output[resource] or 0
 		local baseRegen = 0
-		local inc = modDB:Sum("INC", nil, resource.."Regen")
-		local more = modDB:More(nil, resource.."Regen")
+		local inc = modDB:Sum("INC", nil, resource.."Regen", resource.."RecoveryRate")
+		local more = modDB:More(nil, resource.."Regen", resource.."RecoveryRate")
 		local regen = 0
 		local regenRate = 0
 		local recoveryRateMod = output[resource.."RecoveryRateMod"] or 1
@@ -1531,7 +1531,7 @@ function calcs.defence(env, actor)
 					end
 				end
 			end
-			regenRate = round(regen * recoveryRateMod, 1)
+			regenRate = round(regen, 1)
 			output[resource.."Regen"] = regenRate
 		end
 		output[resource.."RegenInc"] = inc
@@ -1552,7 +1552,6 @@ function calcs.defence(env, actor)
 				base = { "%.1f ^8(base)", baseRegen },
 				{ "%.2f ^8(increased/reduced)", 1 + inc/100 },
 				{ "%.2f ^8(more/less)", more },
-				{ "%.2f ^8(recovery rate modifier)", recoveryRateMod },
 				total = s_format("= %.1f ^8per second", regenRate)
 			})
 			if modDB:Flag(nil, "UnaffectedBy"..resource.."Regen") then
