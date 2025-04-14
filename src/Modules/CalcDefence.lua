@@ -176,7 +176,7 @@ function calcs.doActorLifeManaSpiritReservation(actor)
 		if (activeSkill.skillTypes[SkillType.HasReservation] or activeSkill.skillData.SupportedByAutoexertion) and not activeSkill.skillTypes[SkillType.ReservationBecomesCost] then
 			local skillModList = activeSkill.skillModList
 			local skillCfg = activeSkill.skillCfg
-			local mult = floor(skillModList:More(skillCfg, "SupportManaMultiplier"), 4)
+			local mult = floor(skillModList:More(skillCfg, "ReservationMultiplier"), 4)
 			local pool = { ["Mana"] = { }, ["Life"] = { }, ["Spirit"] = { } }
 			pool.Mana.baseFlat = activeSkill.skillData.manaReservationFlat or activeSkill.activeEffect.grantedEffectLevel.manaReservationFlat or 0
 			pool.Spirit.baseFlat = activeSkill.skillData.spiritReservationFlat or activeSkill.activeEffect.grantedEffectLevel.spiritReservationFlat or 0
@@ -232,7 +232,7 @@ function calcs.doActorLifeManaSpiritReservation(actor)
 				if activeSkill.skillTypes[SkillType.MultipleReservation] then
 					local activeSkillCount, enabled = calcs.getActiveSkillCount(activeSkill)
 					local minionFreeSpiritCount = skillModList:Sum("BASE", skillCfg, "MinionFreeSpiritCount")
-					values.reservedFlat = values.reservedFlat * m_max(activeSkillCount - minionFreeSpiritCount, 0)
+					values.reservedFlat = values.reservedFlat * mult * m_max(activeSkillCount - minionFreeSpiritCount, 0)
 				end
 				
 				if activeSkill.skillTypes[SkillType.IsBlasphemy] and activeSkill.activeEffect.srcInstance.supportEffect and activeSkill.activeEffect.srcInstance.supportEffect.isSupporting then

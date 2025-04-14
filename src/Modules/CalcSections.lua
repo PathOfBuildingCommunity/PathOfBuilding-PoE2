@@ -691,15 +691,15 @@ return {
 	}, },
 	{ label = "Mana Reserve Mod", haveOutput = "ManaReservedMod", { format = "x {2:output:ManaReservedMod}",
 		{ breakdown = "ManaReservedMod" },
-		{ modName = { "ManaReserved", "Reserved", "SupportManaMultiplier", "ManaReservationEfficiency", "ReservationEfficiency" }, cfg = "skill"}
+		{ modName = { "ManaReserved", "Reserved", "ReservationMultiplier", "ManaReservationEfficiency", "ReservationEfficiency" }, cfg = "skill"}
 	}, },
 	{ label = "Life Reserve Mod", haveOutput = "LifeReservedMod", { format = "x {2:output:LifeReservedMod}",
 		{ breakdown = "LifeReservedMod" },
-		{ modName = { "LifeReserved", "Reserved", "SupportManaMultiplier", "LifeReservationEfficiency", "ReservationEfficiency"  }, cfg = "skill"}
+		{ modName = { "LifeReserved", "Reserved", "ReservationMultiplier", "LifeReservationEfficiency", "ReservationEfficiency"  }, cfg = "skill"}
 	}, },
 	{ label = "Spirit Reserve Mod", haveOutput = "SpiritReservedMod", { format = "x {2:output:SpiritReservedMod}",
 		{ breakdown = "SpiritReservedMod" },
-		{ modName = { "SpiritReserved", "Reserved", "SupportManaMultiplier", "SpiritReservationEfficiency", "ReservationEfficiency", "ExtraSpirit"  }, cfg = "skill"}
+		{ modName = { "SpiritReserved", "Reserved", "ReservationMultiplier", "SpiritReservationEfficiency", "ReservationEfficiency", "ExtraSpirit"  }, cfg = "skill"}
 	}, },
 	{ label = "Curse Effect Mod", haveOutput = "CurseEffectMod", { format = "x {2:output:CurseEffectMod}",
 		{ breakdown = "CurseEffectMod" },

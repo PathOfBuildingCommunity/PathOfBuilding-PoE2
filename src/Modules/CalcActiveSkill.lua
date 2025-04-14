@@ -543,6 +543,9 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 			if level.manaMultiplier then
 				skillModList:NewMod("SupportManaMultiplier", "MORE", level.manaMultiplier, skillEffect.grantedEffect.modSource)
 			end
+			if level.reservationMultiplier then
+				skillModList:NewMod("ReservationMultiplier", "MORE", level.reservationMultiplier, skillEffect.grantedEffect.modSource)
+			end
 			if level.manaReservationPercent then
 				activeSkill.skillData.manaReservationPercent = level.manaReservationPercent
 			end

@@ -432,6 +432,9 @@ directiveTable.skill = function(state, args, out)
 		if levelRow.SpiritReservation ~= 0 then
 			level.extra.spiritReservationFlat = levelRow.SpiritReservation
 		end
+		if levelRow.ReservationMultiplier ~= 100 then
+			level.extra.reservationMultiplier = levelRow.ReservationMultiplier - 100
+		end
 		--if levelRow.ManaReservationFlat ~= 0 then
 		--	level.extra.manaReservationFlat = levelRow.ManaReservationFlat
 		--end

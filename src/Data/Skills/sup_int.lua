@@ -1695,7 +1695,7 @@ skills["SupportEnormityPlayer"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	levels = {
-		[1] = { spiritReservationFlat = 10, levelRequirement = 0, },
+		[1] = { spiritReservationFlat = 10, reservationMultiplier = 30, levelRequirement = 0, },
 	},
 	statSets = {
 		[1] = {
@@ -1735,7 +1735,7 @@ skills["SupportEssenceHarvestPlayer"] = {
 	excludeSkillTypes = { SkillType.Buff, SkillType.OngoingSkill, SkillType.MinionsAreUndamagable, },
 	ignoreMinionTypes = true,
 	levels = {
-		[1] = { levelRequirement = 0, },
+		[1] = { reservationMultiplier = 10, levelRequirement = 0, },
 	},
 	statSets = {
 		[1] = {
@@ -2324,7 +2324,7 @@ skills["SupportCurseEffectPlayer"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	levels = {
-		[1] = { manaMultiplier = 40, levelRequirement = 0, },
+		[1] = { reservationMultiplier = 40, manaMultiplier = 40, levelRequirement = 0, },
 	},
 	statSets = {
 		[1] = {

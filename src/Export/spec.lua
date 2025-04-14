@@ -6389,7 +6389,7 @@ return {
 		},
 		[23]={
 			list=false,
-			name="EffectOnPlayer",
+			name="ReservationMultiplier",
 			refTo="",
 			type="Int",
 			width=150

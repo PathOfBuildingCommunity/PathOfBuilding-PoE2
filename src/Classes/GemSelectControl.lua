@@ -570,11 +570,19 @@ function GemSelectClass:AddGrantedEffectInfo(gemInstance, grantedEffect, addReq)
 		))
 	end
 	if grantedEffect.support then
-		if grantedEffectLevel.manaMultiplier then
+		if grantedEffectLevel.manaMultiplier and grantedEffectLevel.reservationMultiplier and grantedEffectLevel.manaMultiplier == grantedEffectLevel.reservationMultiplier then
+			self.tooltip:AddLine(16, string.format("^x7F7F7FCost & Reservation Multiplier: ^7%d%%", grantedEffectLevel.manaMultiplier + 100))
+		elseif grantedEffectLevel.reservationMultiplier then
+			self.tooltip:AddLine(16, string.format("^x7F7F7FReservation Multiplier: ^7%d%%", grantedEffectLevel.reservationMultiplier + 100))
+		elseif grantedEffectLevel.manaMultiplier then
 			self.tooltip:AddLine(16, string.format("^x7F7F7FCost Multiplier: ^7%d%%", grantedEffectLevel.manaMultiplier + 100))
 		end
 		if grantedEffectLevel.spiritReservationFlat then
-			self.tooltip:AddLine(16, string.format("^x7F7F7FReservation: ^7%d Spirit", grantedEffectLevel.spiritReservationFlat))
+			if grantedEffect.support then
+				self.tooltip:AddLine(16, string.format("^x7F7F7FAdditional Reservation: ^7%d Spirit", grantedEffectLevel.spiritReservationFlat))
+			else
+				self.tooltip:AddLine(16, string.format("^x7F7F7FReservation: ^7%d Spirit", grantedEffectLevel.spiritReservationFlat))
+			end
 		end
 		if grantedEffectLevel.cooldown then
 			local string = string.format("^x7F7F7FCooldown Time: ^7%.2f sec", grantedEffectLevel.cooldown)

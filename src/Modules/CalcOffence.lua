@@ -1186,12 +1186,12 @@ function calcs.offence(env, actor, activeSkill)
 	if activeSkill.skillTypes[SkillType.HasReservation] and not activeSkill.skillTypes[SkillType.ReservationBecomesCost] then
 		for _, pool in ipairs({"Spirit"}) do
 			output[pool .. "ReservedMod"] = 0
-			if calcLib.mod(skillModList, skillCfg, "SupportManaMultiplier") > 0 and calcLib.mod(skillModList, skillCfg, pool .. "Reserved", "Reserved") > 0 then
-				output[pool .. "ReservedMod"] = calcLib.mod(skillModList, skillCfg, pool .. "Reserved", "Reserved") * floor(calcLib.mod(skillModList, skillCfg, "SupportManaMultiplier"), 4) / m_max(0, calcLib.mod(skillModList, skillCfg, pool .. "ReservationEfficiency", "ReservationEfficiency"))
+			if calcLib.mod(skillModList, skillCfg, "ReservationMultiplier") > 0 and calcLib.mod(skillModList, skillCfg, pool .. "Reserved", "Reserved") > 0 then
+				output[pool .. "ReservedMod"] = calcLib.mod(skillModList, skillCfg, pool .. "Reserved", "Reserved") * floor(calcLib.mod(skillModList, skillCfg, "ReservationMultiplier"), 4) / m_max(0, calcLib.mod(skillModList, skillCfg, pool .. "ReservationEfficiency", "ReservationEfficiency"))
 			end
 			if breakdown then
-				local inc = skillModList:Sum("INC", skillCfg, pool .. "Reserved", "Reserved", "SupportManaMultiplier")
-				local more = skillModList:More(skillCfg, pool .. "Reserved", "Reserved", "SupportManaMultiplier")
+				local inc = skillModList:Sum("INC", skillCfg, pool .. "Reserved", "Reserved", "ReservationMultiplier")
+				local more = skillModList:More(skillCfg, pool .. "Reserved", "Reserved", "ReservationMultiplier")
 				if inc ~= 0 and more ~= 1 then
 					breakdown[pool .. "ReservedMod"] = {
 						s_format("%.2f ^8(increased/reduced)", 1 + inc/100),
