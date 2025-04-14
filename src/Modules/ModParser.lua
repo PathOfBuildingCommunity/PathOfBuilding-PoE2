@@ -2231,10 +2231,9 @@ local specialModList = {
 		mod("BleedStacksMax", "OVERRIDE", num),
 		flag("Condition:HaveCrimsonDance"),
 	} end,
-	["base (%a+) duration is (%d+) seconds?"] = function(_, ailment, num) -- Crimson Assault (but also supports poison & ignite variants with same wording)
-		ailment = firstToUpper(ailment) 
-		local defaultBase = data.gameConstants["Base" .. ailment .. "Duration"]
-		return { defaultBase and mod("Enemy" .. string.gsub(ailment, "ing", "") .. "Duration", "MORE", ((num / defaultBase) - 1) * 100) } end, -- mod for "bleeding" duration is "bleed" duration, so removing "ing"
+	["base (%a+) duration is (%d+) seconds?"] = function(_, ailment, num) return {-- Crimson Assault (but also supports poison & ignite variants with same wording)
+		mod(firstToUpper(ailment:gsub("ing",""))  .. "DurationBase", "OVERRIDE", num)
+	} end,
 	["bleeding you inflict is aggravated"] = { mod("EnemyModifier", "LIST", { mod = flag("Condition:BleedAggravated") }) },
 	["your minions spread caustic ground on death, dealing 20%% of their maximum life as chaos damage per second"] = { mod("ExtraMinionSkill", "LIST", { skillId = "SiegebreakerCausticGround" }) },
 	["your minions spread burning ground on death, dealing 20%% of their maximum life as fire damage per second"] = { mod("ExtraMinionSkill", "LIST", { skillId = "ReplicaSiegebreakerBurningGround" }) },

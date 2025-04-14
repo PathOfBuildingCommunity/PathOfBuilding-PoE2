@@ -4341,7 +4341,7 @@ function calcs.offence(env, actor, activeSkill)
 				ailmentTypeMod = ailmentDamageType
 			end
 			local rateMod = (calcLib.mod(skillModList, cfg, ailment .. "Faster") + enemyDB:Sum("INC", nil, "Self" .. ailment .. "Faster") / 100)  / calcLib.mod(skillModList, cfg, ailment .. "Slower")
-			local durationBase = data.misc[ailment .. "DurationBase"]
+			local durationBase = env.modDB:Override(nil, ailment .. "DurationBase") or data.misc[ailment .. "DurationBase"]
 			local durationMod = m_max(calcLib.mod(skillModList, dotCfg, "Enemy" .. ailment .. "Duration", "EnemyAilmentDuration", "Enemy" .. ailmentTypeMod .. "AilmentDuration", "SkillAndDamagingAilmentDuration") * calcLib.mod(enemyDB, nil, "Self" .. ailment .. "Duration", "SelfAilmentDuration", "Self" .. ailmentTypeMod .. "AilmentDuration"), 0)
 			durationMod = m_max(durationMod, 0)
 			globalOutput[ailment .. "Duration"] = durationBase * durationMod / rateMod * debuffDurationMult
@@ -4588,7 +4588,7 @@ function calcs.offence(env, actor, activeSkill)
 						t_insert(breakdown[ailment .. "Damage"], s_format("x %.2fs ^8(ailment duration)", globalOutput[ailment .. "Duration"]))
 						t_insert(breakdown[ailment .. "Damage"], s_format("= %.1f ^8total damage of all stacks", output[ailment .. "Damage"]))
 					end
-					if globalOutput[ailment .. "Duration"] ~= data.misc[ailment .. "DurationBase"] then
+					if globalOutput[ailment .. "Duration"] ~= durationBase then
 						globalBreakdown[ailment .. "Duration"] = {
 							s_format("%.2fs ^8(base duration)", durationBase)
 						}
