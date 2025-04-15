@@ -863,14 +863,14 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 							for _, v in ipairs(values) do
 								-- Incrementing is done first as to reach the target you will need to add a count as such it should be more efficient.
 								-- Try increasing (if it doesn't overshoot or exceed maximum number of remaining runes)
-								if sum + v <= target and count + 1 < remainingRunes then
+								if sum + tonumber(v) <= target and count + 1 < remainingRunes then
 									result[v] = (result[v] or 0) + 1
 									checkAndAdjustCombination(values, target, result, best, visited, sum + v, count + 1)
 									result[v] = result[v] - 1
 								end
 
 								-- Try decreasing (if possible and only if target is still reachable).
-								if (result[v] or 0) > 0 and (not best or target < sum - v + values[#values] * (best.count - count - 1)) then
+								if (result[v] or 0) > 0 and (not best or target < sum - tonumber(v) + values[#values] * (best.count - count - 1)) then
 									result[v] = result[v] - 1
 									adjustCombination(values, target, result, best, visited, sum - v, count - 1)
 									result[v] = result[v] + 1
@@ -1249,8 +1249,8 @@ function ItemClass:UpdateRunes()
 				if statOrder[order] then
 					-- Combine stats
 					local start = 1
-					statOrder[order].line = statOrder[order].line:gsub("%d+", function(num)
-						local s, e, other = line:find("(%d+)", start)
+					statOrder[order].line = statOrder[order].line:gsub("(%d%.?%d*)", function(num)
+						local s, e, other = line:find("(%d%.?%d*)", start)
 						start = e + 1
 						return tonumber(num) + tonumber(other)
 					end)
