@@ -808,7 +808,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 			end
 
 			-- Sort table to ensure first entries are always largest.
-			for strippedRuneModLine, runes in pairs(statGroupedRunes) do
+			for _, runes in pairs(statGroupedRunes) do
 				table.sort(runes,  function(a, b) return a[2] > b[2] end)
 			end
 
@@ -841,7 +841,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 								visited[key] = true
 
 								-- If it's a valid solution, update best
-								if sum == target then
+								if math.abs(sum-target) <  1e-9 then
 									if not best.count or count < best.count then
 										best.count = count
 										-- Copy solution to avoid side effects from continued searching.
@@ -863,14 +863,14 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 							for _, v in ipairs(values) do
 								-- Incrementing is done first as to reach the target you will need to add a count as such it should be more efficient.
 								-- Try increasing (if it doesn't overshoot or exceed maximum number of remaining runes)
-								if sum + tonumber(v) <= target and count + 1 < remainingRunes then
+								if sum + tonumber(v) <= target + 1e-9 and count + 1 < remainingRunes then
 									result[v] = (result[v] or 0) + 1
 									checkAndAdjustCombination(values, target, result, best, visited, sum + v, count + 1)
 									result[v] = result[v] - 1
 								end
 
 								-- Try decreasing (if possible and only if target is still reachable).
-								if (result[v] or 0) > 0 and (not best.count or target < sum - tonumber(v) + values[#values] * (best.count - count - 1)) then
+								if (result[v] or 0) > -1e-9 and (not best.count or target - 1e-9 < sum - tonumber(v) + values[#values] * (best.count - count - 1)) then
 									result[v] = result[v] - 1
 									adjustCombination(values, target, result, best, visited, sum - v, count - 1)
 									result[v] = result[v] + 1
@@ -927,9 +927,8 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 					end
 					local result, numRunes = getNumberOfRunesOfEachType(values, tonumber(value))
 
-					remainingRunes = remainingRunes - numRunes
-
 					if result then -- we have found a valid combo for that rune category
+						remainingRunes = remainingRunes - numRunes
 						modLine.soulcore = groupedRunes[1][1]:match("Soul Core") ~= nil
 						modLine.runeCount = numRunes
 
