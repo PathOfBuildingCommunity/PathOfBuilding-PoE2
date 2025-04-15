@@ -627,7 +627,13 @@ c["+36 to maximum Mana"]={{[1]={flags=0,keywordFlags=0,name="Mana",type="BASE",v
 c["+37% to Chaos Resistance"]={{[1]={flags=0,keywordFlags=0,name="ChaosResist",type="BASE",value=37}},nil}
 c["+39 to Evasion Rating"]={{[1]={flags=0,keywordFlags=0,name="Evasion",type="BASE",value=39}},nil}
 c["+4 to Ailment Threshold per Dexterity"]={{[1]={[1]={stat="Dex",type="PerStat"},flags=0,keywordFlags=0,name="AilmentThreshold",type="BASE",value=4}},nil}
-c["+4 to Level of Hypothermia Skills"]={{}," Level ofSkills "}
+c["+4 to Level of Conductivity Skills"]={{[1]={[1]={skillName="Conductivity",type="SkillName"},flags=0,keywordFlags=0,name="SupportedGemProperty",type="LIST",value={key="level",keyword="grants_active_skill",value=4}}},nil}
+c["+4 to Level of Despair Skills"]={{[1]={[1]={skillName="Despair",type="SkillName"},flags=0,keywordFlags=0,name="SupportedGemProperty",type="LIST",value={key="level",keyword="grants_active_skill",value=4}}},nil}
+c["+4 to Level of Enfeeble Skills"]={{[1]={[1]={skillName="Enfeeble",type="SkillName"},flags=0,keywordFlags=0,name="SupportedGemProperty",type="LIST",value={key="level",keyword="grants_active_skill",value=4}}},nil}
+c["+4 to Level of Flammability Skills"]={{[1]={[1]={skillName="Flammability",type="SkillName"},flags=0,keywordFlags=0,name="SupportedGemProperty",type="LIST",value={key="level",keyword="grants_active_skill",value=4}}},nil}
+c["+4 to Level of Hypothermia Skills"]={{[1]={[1]={skillName="Hypothermia",type="SkillName"},flags=0,keywordFlags=0,name="SupportedGemProperty",type="LIST",value={key="level",keyword="grants_active_skill",value=4}}},nil}
+c["+4 to Level of Temporal Chains Skills"]={{[1]={[1]={skillName="Temporal chains",type="SkillName"},flags=0,keywordFlags=0,name="SupportedGemProperty",type="LIST",value={key="level",keyword="grants_active_skill",value=4}}},nil}
+c["+4 to Level of Vulnerability Skills"]={{[1]={[1]={skillName="Vulnerability",type="SkillName"},flags=0,keywordFlags=0,name="SupportedGemProperty",type="LIST",value={key="level",keyword="grants_active_skill",value=4}}},nil}
 c["+4 to Level of all Chaos Spell Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keywordList={[1]="chaos",[2]="spell"},value=4}}},nil}
 c["+4 to Level of all Elemental Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keyword="elemental",value=4}}},nil}
 c["+4 to Level of all Fire Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keyword="fire",value=4}}},nil}
@@ -773,6 +779,7 @@ c["+85 to maximum Life"]={{[1]={flags=0,keywordFlags=0,name="Life",type="BASE",v
 c["+85 to maximum Mana"]={{[1]={flags=0,keywordFlags=0,name="Mana",type="BASE",value=85}},nil}
 c["+86 to maximum Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="EnergyShield",type="BASE",value=86}},nil}
 c["+9% to all Elemental Resistances"]={{[1]={flags=0,keywordFlags=0,name="ElementalResist",type="BASE",value=9}},nil}
+c["+90 to all Attributes"]={{[1]={flags=0,keywordFlags=0,name="Str",type="BASE",value=90},[2]={flags=0,keywordFlags=0,name="Dex",type="BASE",value=90},[3]={flags=0,keywordFlags=0,name="Int",type="BASE",value=90},[4]={flags=0,keywordFlags=0,name="All",type="BASE",value=90}},nil}
 c["+90 to maximum Life"]={{[1]={flags=0,keywordFlags=0,name="Life",type="BASE",value=90}},nil}
 c["+90 to maximum Mana"]={{[1]={flags=0,keywordFlags=0,name="Mana",type="BASE",value=90}},nil}
 c["+92 to maximum Life"]={{[1]={flags=0,keywordFlags=0,name="Life",type="BASE",value=92}},nil}

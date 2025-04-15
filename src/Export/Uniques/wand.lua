@@ -5,13 +5,26 @@ return {
 [[
 Cursecarver
 Acrid Wand
+Variant: Flammability
+Variant: Hypothermia
+Variant: Conductivity
+Variant: Vulnerability
+Variant: Despair
+Variant: Enfeeble
+Variant: Temporal Chains
 Implicits: 1
 Grants Skill: Level (1-20) Decompose
 UniqueSpellDamageOnWeapon8
 UniqueIncreasedCastSpeed15
 UniqueManaRegeneration30
 UniqueLifeGainedFromEnemyDeath10
-UniqueHypothermiaGemLevel1
+{variant:1}UniqueFlammabilityGemLevel1
+{variant:2}UniqueHypothermiaGemLevel1
+{variant:3}UniqueConductivityGemLevel1
+{variant:4}UniqueVulnerabilityGemLevel1
+{variant:5}UniqueDespairGemLevel1
+{variant:6}UniqueEnfeebleGemLevel1
+{variant:7}UniqueTemporalChainsGemLevel1
 ]],[[
 Enezun's Charge
 Volatile Wand

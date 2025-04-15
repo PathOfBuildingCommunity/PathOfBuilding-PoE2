@@ -3062,6 +3062,7 @@ local specialModList = {
 	["(%d+)%% of recovery applied instantly"] = function(num) return { mod("FlaskInstantRecovery", "BASE", num) } end,
 	["has no attribute requirements"] = { flag("NoAttributeRequirements") },
 	-- Skill modifiers
+	["([%+%-]%d+)%%? to level of ([%a%s]+) skills"] = function(num, _, name) return { mod("SupportedGemProperty", "LIST", { keyword = "grants_active_skill", key = "level", value = num }, 0, 0, { type = "SkillName", skillName = firstToUpper(name) } ),} end,
 	["([%+%-]%d+)%% to quality of all skills"] = function(num) return { mod("GemProperty", "LIST", { keyword = "grants_active_skill", key = "quality", value = num, keyOfScaledMod = "value"  }) } end,
 	["([%+%-]%d+)%%? to (%a+) of all ?([%a%-' ]*) skills? ?w?i?t?h? ?a?n? ?(%a+) ?r?e?q?u?i?r?e?m?e?n?t?"] = function(num, _, property, type, gemReq)
 		if type == "" then type = "all" end
