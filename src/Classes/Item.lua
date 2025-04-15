@@ -828,9 +828,8 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 					local function getNumberOfRunesOfEachType(values, target)
 						local function adjustCombination(values, target, result, best, visited, sum, count)
 							-- This is used to avoid unnecessary checks on decrement.
-							local function checkAndAdjustCombiation(values, target, result, best, visited, sum, count)
-
-								-- Generate a unique key from the result table this prevenents duplicates combinations being searched
+							local function checkAndAdjustCombination(values, target, result, best, visited, sum, count)
+								-- Generate a unique key from the result table this prevents duplicates combinations being searched
 								local key = ""
 								for _, v in ipairs(values) do
 									if result[v] and result[v] > 0 then
@@ -866,7 +865,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 								-- Try increasing (if it doesn't overshoot or exceed maximum number of remaining runes)
 								if sum + v <= target and count + 1 < remainingRunes then
 									result[v] = (result[v] or 0) + 1
-									checkAndAdjustCombiation(values, target, result, best, visited, sum + v, count + 1)
+									checkAndAdjustCombination(values, target, result, best, visited, sum + v, count + 1)
 									result[v] = result[v] - 1
 								end
 
