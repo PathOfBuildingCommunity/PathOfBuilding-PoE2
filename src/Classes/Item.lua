@@ -868,7 +868,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 								
 								-- Incrementing is done first as to reach the target you will need to add a count as such it should be more efficient.
 								-- Try increasing (if it doesn't overshoot or exceed maximum number of remaining runes)
-								if sum + tonumber(v) <= target + 1e-9 and count + 1 < remainingRunes then
+								if sum + tonumber(v) <= target + 1e-9 and count < remainingRunes then
 									result[v] = (result[v] or 0) + 1
 									if checkUnique(result) then
 										checkAndAdjustCombination(values, target, result, best, visited, sum + v, count + 1)
@@ -898,10 +898,10 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 						end
 
 						local greedyCount = 0
+						for v, c in pairs(greedySolution) do
+							greedyCount = greedyCount + c
+						end
 						if math.abs(leftover) <= 1e-9 then -- Greedy search found a solution
-							for v, c in pairs(greedySolution) do
-								greedyCount = greedyCount + c
-							end
 							return greedySolution, greedyCount
 						end
 
