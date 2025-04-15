@@ -889,12 +889,12 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 							leftover = leftover - count * v
 						end
 
+						local greedyCount = 0
 						if leftover == 0 then -- Greedy search found a solution
-							local count = 0
 							for v, c in pairs(greedySolution) do
-								count = count + c
+								greedyCount = greedyCount + c
 							end
-							return greedySolution, count
+							return greedySolution, greedyCount
 						end
 
 						-- Try check if only 1 rune type was used.
@@ -912,7 +912,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 						local best = {count = nil, solution = nil}
 						local visited = {}
 
-						adjustCombination(values, target, greedySolution, best, visited)
+						adjustCombination(values, target, greedySolution, best, visited, target - leftover, greedyCount)
 
 						return best.solution, best.count
 					end
