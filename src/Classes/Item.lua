@@ -870,8 +870,8 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 									result[v] = result[v] - 1
 								end
 
-								-- Try decreasing (if possible)
-								if (result[v] or 0) > 0 then
+								-- Try decreasing (if possible and only if target is still reachable).
+								if (result[v] or 0) > 0 and (not best or target < sum - v + values[#values] * (best.count - count - 1)) then
 									result[v] = result[v] - 1
 									adjustCombination(values, target, result, best, visited, sum - v, count - 1)
 									result[v] = result[v] + 1
