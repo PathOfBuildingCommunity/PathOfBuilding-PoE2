@@ -788,24 +788,152 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 		if self.base.weapon or self.base.armour then
 			local shouldFixRunesOnItem = #self.runes == 0
 
+			-- Form a key value table with the following format
+			-- { "strippedModeLine" = { { runeName1, runeValue1 }, etc, }, etc}
+			-- This will be used to more easily grab the relevant runes that combinations will need to be of.
+			-- This could be refactored to only needs to be called once.
+			local statGroupedRunes = { }
+			local type = self.base.weapon and "weapon" or "armour" -- minor optimisation
+			for runeName, runeMods in pairs(data.itemMods.Runes) do
+				-- gets the first value in the mod and its stripped line.
+				local runeValue
+				local runeStrippedModeLine = runeMods[type][1]:gsub("(%d%.?%d*)", function(val)
+					runeValue = val
+					return "#"
+				end)
+				if statGroupedRunes[runeStrippedModeLine] == nil then
+					statGroupedRunes[runeStrippedModeLine] = { }
+				end
+				t_insert(statGroupedRunes[runeStrippedModeLine], { runeName, runeValue });
+			end
+
+			-- Sort table to ensure first entries are always largest.
+			for strippedRuneModLine, runes in pairs(statGroupedRunes) do
+				table.sort(runes,  function(a, b) return a[2] > b[2] end)
+			end
+
+			local remainingRunes = self.itemSocketCount
 			for i, modLine in ipairs(self.runeModLines) do
 				local value
-				local strippedModeLine = modLine.line:gsub("(%d%.?%d*)", function(val)
+				local strippedModLine = modLine.line:gsub("(%d%.?%d*)", function(val)
 					value = val
 					return "#"
 				end)
-				for name, runeMods in pairs(data.itemMods.Runes) do
-					local runeValue
-					local runeStrippedModeLine = (self.base.weapon and runeMods.weapon or runeMods.armour)[1]:gsub("(%d%.?%d*)", function(val)
-						runeValue = val
-						return "#"
-					end)
-					if strippedModeLine == runeStrippedModeLine then
-						modLine.soulcore = name:match("Soul Core") ~= nil
-						modLine.runeCount = round(value/runeValue)
+				local groupedRunes = statGroupedRunes[strippedModLine]
+				if groupedRunes then -- found the rune category with the relevant stat.
+					-- Use a greedy first linear combination search that try it best guess than exhaustively searches to find a minimal combination.
+					-- This is fairly efficient as extra code has been added to check the typical cases of all of one tier of rune and it won't explore
+					-- caseless cases e.g. 1 rune when it obviously needs a minium of 4. This was mostly structured with help from ChatGPT but has been modified
+					-- to suit.
+					local function getNumberOfRunesOfEachType(values, target)
+						local function adjustCombination(values, target, result, best, visited, sum, count)
+							-- This is used to avoid unnecessary checks on decrement.
+							local function checkAndAdjustCombiation(values, target, result, best, visited, sum, count)
+
+								-- Generate a unique key from the result table this prevenents duplicates combinations being searched
+								local key = ""
+								for _, v in ipairs(values) do
+									if result[v] and result[v] > 0 then
+										key = key .. v .. "x" .. result[v]
+									end
+								end
+
+								if visited[key] then return end
+								visited[key] = true
+
+								-- If it's a valid solution, update best
+								if sum == target then
+									if not best.count or count < best.count then
+										best.count = count
+										-- Copy solution to avoid side effects from continued searching.
+										local solution = {}
+										for k, v in pairs(result) do
+											solution[k] = v
+										end
+										best.solution = solution
+									end
+									return
+								end
+
+								-- Prune if we already used more runes than the best found
+								if best.count and count >= best.count then return end
+
+								return adjustCombination(values, target, result, best, visited, sum, count)
+							end
+
+							for _, v in ipairs(values) do
+								-- Incrementing is done first as to reach the target you will need to add a count as such it should be more efficient.
+								-- Try increasing (if it doesn't overshoot or exceed maximum number of remaining runes)
+								if sum + v <= target and count + 1 < remainingRunes then
+									result[v] = (result[v] or 0) + 1
+									checkAndAdjustCombiation(values, target, result, best, visited, sum + v, count + 1)
+									result[v] = result[v] - 1
+								end
+
+								-- Try decreasing (if possible)
+								if (result[v] or 0) > 0 then
+									result[v] = result[v] - 1
+									adjustCombination(values, target, result, best, visited, sum - v, count - 1)
+									result[v] = result[v] + 1
+								end
+							end
+						end
+						
+						-- Step 1: Perform greedy search and tests if a single rune is used as these are the most common use case.
+						local greedySolution = {}
+						local leftover = target
+
+						for _, v in ipairs(values) do
+							local count = math.floor(leftover / v)
+							greedySolution[v] = count
+							leftover = leftover - count * v
+						end
+
+						if leftover == 0 then -- Greedy search found a solution
+							local count = 0
+							for v, c in pairs(greedySolution) do
+								count = count + c
+							end
+							return greedySolution, count
+						end
+
+						-- Try check if only 1 rune type was used.
+						for _, v in ipairs(values) do
+							local ratio = target / v
+							if math.abs(ratio - round(ratio)) < 1e-9 then
+								local count = round(ratio)
+								if count >= 0 then
+									return { [v] =  count}, count
+								end
+							end
+						end
+
+						-- Step 2. Perform search starting from the greedy base
+						local best = {count = nil, solution = nil}
+						local visited = {}
+
+						adjustCombination(values, target, greedySolution, best, visited)
+
+						return best.solution, best.count
+					end
+
+					local values = { }
+					for i, runes in ipairs(groupedRunes) do
+						t_insert(values, runes[2])
+					end
+					local result, numRunes = getNumberOfRunesOfEachType(values, value)
+
+					remainingRunes = remainingRunes - numRunes
+
+					if result then -- we have found a valid combo for that rune category
+						modLine.soulcore = groupedRunes[1][1]:match("Soul Core") ~= nil
+						modLine.runeCount = numRunes
+
 						if shouldFixRunesOnItem then
-							for i = 1, modLine.runeCount do
-								t_insert(self.runes, name)
+							for i, rune in ipairs(groupedRunes) do
+								for _ = 1, tonumber(result[rune[2]]) do
+									t_insert(self.runes, groupedRunes[i][1])
+								end
 							end
 						end
 					end
