@@ -829,17 +829,6 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 						local function adjustCombination(values, target, result, best, visited, sum, count)
 							-- This is used to avoid unnecessary checks on decrement.
 							local function checkAndAdjustCombination(values, target, result, best, visited, sum, count)
-								-- Generate a unique key from the result table this prevents duplicates combinations being searched
-								local key = ""
-								for _, v in ipairs(values) do
-									if result[v] and result[v] > 0 then
-										key = key .. v .. "x" .. result[v]
-									end
-								end
-
-								if visited[key] then return end
-								visited[key] = true
-
 								-- If it's a valid solution, update best
 								if math.abs(sum-target) <  1e-9 then
 									if not best.count or count < best.count then
@@ -861,18 +850,34 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 							end
 
 							for _, v in ipairs(values) do
+								local function checkUnique(result)
+									-- Generate a unique key from the result table this prevents duplicates combinations being searched
+									local key = ""
+									for value, count in ipairs(result) do
+										if count > 0 then
+											key = key .. value .. "x" .. count
+										end
+									end
+									if visited[key] then return end
+									visited[key] = true
+								end
+								
 								-- Incrementing is done first as to reach the target you will need to add a count as such it should be more efficient.
 								-- Try increasing (if it doesn't overshoot or exceed maximum number of remaining runes)
 								if sum + tonumber(v) <= target + 1e-9 and count + 1 < remainingRunes then
 									result[v] = (result[v] or 0) + 1
-									checkAndAdjustCombination(values, target, result, best, visited, sum + v, count + 1)
+									if checkUnique(result) then
+										checkAndAdjustCombination(values, target, result, best, visited, sum + v, count + 1)
+									end
 									result[v] = result[v] - 1
 								end
 
 								-- Try decreasing (if possible and only if target is still reachable).
 								if (result[v] or 0) > -1e-9 and (not best.count or target - 1e-9 < sum - tonumber(v) + values[#values] * (best.count - count - 1)) then
 									result[v] = result[v] - 1
-									adjustCombination(values, target, result, best, visited, sum - v, count - 1)
+									if checkUnique(result) then
+										adjustCombination(values, target, result, best, visited, sum - v, count - 1)
+									end
 									result[v] = result[v] + 1
 								end
 							end
@@ -889,7 +894,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 						end
 
 						local greedyCount = 0
-						if leftover == 0 then -- Greedy search found a solution
+						if math.abs(leftover) <= 1e-9 then -- Greedy search found a solution
 							for v, c in pairs(greedySolution) do
 								greedyCount = greedyCount + c
 							end
