@@ -853,13 +853,17 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 								local function checkUnique(result)
 									-- Generate a unique key from the result table this prevents duplicates combinations being searched
 									local key = ""
-									for value, count in ipairs(result) do
+									for value, count in pairs(result) do
 										if count > 0 then
-											key = key .. value .. "x" .. count
+											key = key .. value .. "x" .. count .. " "
 										end
 									end
-									if visited[key] then return end
-									visited[key] = true
+									if visited[key] then 
+										return false 
+									else
+										visited[key] = true
+										return true
+									end
 								end
 								
 								-- Incrementing is done first as to reach the target you will need to add a count as such it should be more efficient.
@@ -873,7 +877,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 								end
 
 								-- Try decreasing (if possible and only if target is still reachable).
-								if (result[v] or 0) > -1e-9 and (not best.count or target - 1e-9 < sum - tonumber(v) + values[#values] * (best.count - count - 1)) then
+								if (result[v] or 0) > 1e-9 and (not best.count or target - 1e-9 < sum - tonumber(v) + values[#values] * (best.count - count - 1)) then
 									result[v] = result[v] - 1
 									if checkUnique(result) then
 										adjustCombination(values, target, result, best, visited, sum - v, count - 1)
