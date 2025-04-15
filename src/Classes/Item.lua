@@ -870,7 +870,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 								end
 
 								-- Try decreasing (if possible and only if target is still reachable).
-								if (result[v] or 0) > 0 and (not best or target < sum - tonumber(v) + values[#values] * (best.count - count - 1)) then
+								if (result[v] or 0) > 0 and (not best.count or target < sum - tonumber(v) + values[#values] * (best.count - count - 1)) then
 									result[v] = result[v] - 1
 									adjustCombination(values, target, result, best, visited, sum - v, count - 1)
 									result[v] = result[v] + 1
@@ -925,7 +925,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 					for i, runes in ipairs(groupedRunes) do
 						t_insert(values, runes[2])
 					end
-					local result, numRunes = getNumberOfRunesOfEachType(values, value)
+					local result, numRunes = getNumberOfRunesOfEachType(values, tonumber(value))
 
 					remainingRunes = remainingRunes - numRunes
 
