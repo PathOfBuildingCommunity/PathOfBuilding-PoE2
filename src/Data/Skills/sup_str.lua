@@ -740,7 +740,7 @@ skills["SupportDauntlessPlayer"] = {
 					mod("Damage", "MORE", nil, ModFlag.Hit, 0, { type = "Condition", var = "Stationary" }, { type = "Multiplier", var = "StationarySeconds", div = 0.25, limitVar = "DauntlessMaxDamage", limitTotal = true }),
 				},
 				["support_unmoving_damage_multiplier_cap"] = {
-					mod("Multiplier:DauntlessMaxDamage", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff"}),
+					mod("Multiplier:DauntlessMaxDamage", "BASE", nil),
 				},
 			},
 			baseFlags = {
