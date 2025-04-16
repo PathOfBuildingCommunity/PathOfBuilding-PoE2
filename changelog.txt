@@ -1,11 +1,12 @@
 VERSION[0.8.0][2025/04/16]
+
 --- New to Path of Building ---
 * Add support for Megalomaniac in PoB Trader (Edvinas-Smita)
 * Add proper support for pasting items with Lesser and Greater Runes (QuickStick123)
 
 --- Tree ---
 * Add support for Eternal Life ascendancy notable (Edvinas-Smita)
-* Add support for Smith of Kitava's Body Armour mods by (@Peechey, @LocalIdentity) in https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/967
+* Add support for Smith of Kitava's Body Armour mods (Peechey, LocalIdentity)
 * Add support for "Crimson Assault" Keystone (majochem)
 
 --- Skills ---

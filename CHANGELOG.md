@@ -10,7 +10,7 @@
 - Add proper support for pasting items with Lesser and Greater Runes [\#1010](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1010) ([QuickStick123](https://github.com/QuickStick123))
 ### Tree
 - Add support for Eternal Life ascendancy notable [\#1011](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1011) ([Edvinas-Smita](https://github.com/Edvinas-Smita))
-* Add support for Smith of Kitava's Body Armour mods by (@Peechey, @LocalIdentity) in https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/967
+- Add support for Smith of Kitava's Body Armour mods [\#967](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/967) ([Peechey](https://github.com/Peechey), [LocalIdentity](https://github.com/LocalIdentity))
 - Add support for "Crimson Assault" Keystone [\#979](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/979) ([majochem](https://github.com/majochem))
 ### Skills
 - Add support for Dread Banner Ailment and Stun threshold [\#960](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/960) ([Blitz54](https://github.com/Blitz54))
