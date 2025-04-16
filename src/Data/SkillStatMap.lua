@@ -81,12 +81,6 @@ return {
 ["secondary_maximum_base_chaos_damage"] = {
 	skill("ChaosMax", nil),
 },
-["main_hand_weapon_minimum_lightning_damage"] = {
-	skill("LightningMin", nil)
-},
-["main_hand_weapon_maximum_lightning_damage"] = {
-	skill("LightningMax", nil)
-},
 ["spell_minimum_base_lightning_damage_per_removable_power_charge"] = {
 	skill("LightningMin", nil, { type = "Multiplier", var = "RemovablePowerCharge" }),
 },
@@ -107,12 +101,6 @@ return {
 },
 ["spell_minimum_base_cold_damage_+_per_10_intelligence"] = {
 	skill("ColdMin", nil, { type = "PerStat", stat = "Int", div = 10 }),
-},
-["main_hand_weapon_minimum_cold_damage"] = {
-	skill("ColdMin", "BASE", nil),
-},
-["main_hand_weapon_maximum_cold_damage"] = {
-	skill("ColdMax", "BASE", nil),
 },
 ["spell_maximum_base_cold_damage_+_per_10_intelligence"] = {
 	skill("ColdMax", nil, { type = "PerStat", stat = "Int", div = 10 }),
@@ -1765,17 +1753,23 @@ return {
 ["main_hand_weapon_minimum_physical_damage"] = {
 	mod("PhysicalMin", "BASE", nil, 0, KeywordFlag.Attack),
 },
+["main_hand_weapon_maximum_physical_damage"] = {
+	mod("PhysicalMax", "BASE", nil, 0, KeywordFlag.Attack),
+},
 ["main_hand_base_physical_damage_from_%_dex"] = {
 	mod("PhysicalMin", "BASE", nil, 0, 0, { type = "PercentStat", stat = "Dex", percent = 1 }),
 	mod("PhysicalMax", "BASE", nil, 0, 0, { type = "PercentStat", stat = "Dex", percent = 1 }),
-},
-["main_hand_weapon_maximum_physical_damage"] = {
-	mod("PhysicalMax", "BASE", nil, 0, KeywordFlag.Attack),
 },
 ["attack_minimum_added_lightning_damage"] = {
 	mod("LightningMin", "BASE", nil, 0, KeywordFlag.Attack),
 },
 ["attack_maximum_added_lightning_damage"] = {
+	mod("LightningMax", "BASE", nil, 0, KeywordFlag.Attack),
+},
+["main_hand_weapon_minimum_lightning_damage"] = {
+	mod("LightningMin", "BASE", nil, 0, KeywordFlag.Attack),
+},
+["main_hand_weapon_maximum_lightning_damage"] = {
 	mod("LightningMax", "BASE", nil, 0, KeywordFlag.Attack),
 },
 ["attack_skills_have_added_lightning_damage_equal_to_%_of_maximum_mana"] = {
@@ -1786,6 +1780,12 @@ return {
 	mod("ColdMin", "BASE", nil, 0, KeywordFlag.Attack),
 },
 ["attack_maximum_added_cold_damage"] = {
+	mod("ColdMax", "BASE", nil, 0, KeywordFlag.Attack),
+},
+["main_hand_weapon_minimum_cold_damage"] = {
+	mod("ColdMin", "BASE", nil, 0, KeywordFlag.Attack),
+},
+["main_hand_weapon_maximum_cold_damage"] = {
 	mod("ColdMax", "BASE", nil, 0, KeywordFlag.Attack),
 },
 ["attack_minimum_added_fire_damage"] = {

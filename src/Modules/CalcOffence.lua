@@ -2070,6 +2070,9 @@ function calcs.offence(env, actor, activeSkill)
 			-- Unarmed override for Concoction skills
 			if skillFlags.unarmed then
 				source = copyTable(data.unarmedWeaponData[env.classId])
+				if skillData.CritChance then
+					source.CritChance = skillData.CritChance
+				end
 			end
 			if critOverride and source.type and source.type ~= "None" then
 				source.CritChance = critOverride
@@ -2091,6 +2094,9 @@ function calcs.offence(env, actor, activeSkill)
 			-- Unarmed override for Concoction skills
 			if skillFlags.unarmed then
 				source = copyTable(data.unarmedWeaponData[env.classId])
+				if skillData.CritChance then
+					source.CritChance = skillData.CritChance
+				end
 			end
 			if critOverride and source.type and source.type ~= "None" then
 				source.CritChance = critOverride
