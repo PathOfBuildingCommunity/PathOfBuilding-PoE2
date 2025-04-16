@@ -877,7 +877,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 								end
 
 								-- Try decreasing (if possible and only if target is still reachable).
-								if (result[v] or 0) > 1e-9 and (not best.count or target - 1e-9 < sum - tonumber(v) + values[1] * (best.count - count + 1)) then
+								if (result[v] or 0) > 0 and (not best.count or target - 1e-9 < sum - tonumber(v) + values[1] * (best.count - count + 1)) then
 									result[v] = result[v] - 1
 									if checkUnique(result) then
 										adjustCombination(values, target, result, best, visited, sum - v, count - 1)
