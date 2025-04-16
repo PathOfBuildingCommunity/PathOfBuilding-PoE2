@@ -19,10 +19,6 @@ local m_sqrt = math.sqrt
 local m_rad = math.rad
 local m_atan2 = math.atan2
 
--- These values are from the 3.6 tree; older trees are missing values for these constants
-local legacySkillsPerOrbit = { 1, 6, 12, 12, 40 }
-local legacyOrbitRadii = { 0, 82, 162, 335, 493 }
-
 -- Retrieve the file at the given URL
 -- This is currently disabled as it does not work due to issues
 -- its possible to fix this but its never used due to us performing preprocessing on tree
@@ -116,12 +112,9 @@ local PassiveTreeClass = newClass("PassiveTree", function(self, treeVersion)
 		end
 	end
 
-	self.skillsPerOrbit = self.constants.skillsPerOrbit or legacySkillsPerOrbit
-	self.orbitRadii = self.constants.orbitRadii or legacyOrbitRadii
-	self.orbitAnglesByOrbit = {}
-	for orbit, skillsInOrbit in ipairs(self.skillsPerOrbit) do
-		self.orbitAnglesByOrbit[orbit] = self:CalcOrbitAngles(skillsInOrbit)
-	end
+	self.skillsPerOrbit = self.constants.skillsPerOrbit
+	self.orbitRadii = self.constants.orbitRadii
+	self.orbitAnglesByOrbit = self.constants.orbitAnglesByOrbit
 
 	ConPrintf("Loading passive tree assets...")
 	for name, data in pairs(self.assets) do
@@ -285,31 +278,6 @@ local PassiveTreeClass = newClass("PassiveTree", function(self, treeVersion)
 			group.ascendancyName = node.ascendancyName
 			if node.isAscendancyStart then
 				group.isAscendancyStart = true
-				self.ascendNameMap[node.ascendancyName].ascendClass.background = {
-					image = "Classes" ..  self.ascendNameMap[node.ascendancyName].ascendClass.name,
-					section = "AscendancyBackground",
-					x = group.x,
-					y = group.y,
-					width = 1500 * self.scaleImage,
-					height = 1500 * self.scaleImage
-				}
-			end
-			if node.classesStart then
-				for _, className in ipairs(node.classesStart) do
-					local class = self.classes[self.classNameMap[className]]
-					if class ~= nil then
-						class.background = {
-							["active"] = { width = 2000 * self.scaleImage, height = 2000 * self.scaleImage },
-							["bg"] = { width = 2000 * self.scaleImage, height = 2000 * self.scaleImage },
-							image = "Classes" .. className,
-							section = "AscendancyBackground",
-							x = 0,
-							y = 0,
-							width = 1500 * self.scaleImage,
-							height = 1500 * self.scaleImage
-						}
-					end
-				end
 			end
 		elseif node.type == "Notable" or node.type == "Keystone" then
 			self.clusterNodeMap[node.dn] = node

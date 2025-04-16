@@ -1478,7 +1478,7 @@ return {
 		},
 		[10]={
 			list=false,
-			name="",
+			name="distanceTree",
 			refTo="",
 			type="Int",
 			width=180
