@@ -910,14 +910,12 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 							local ratio = target / v
 							if math.abs(ratio - round(ratio)) < 1e-9 then
 								local count = round(ratio)
-								if count >= 0 then
-									local solution = {}
-									for _, otherValue in ipairs(values) do
-										if otherValue ~= v then solution[otherValue] = 0 end
-									end
-									solution[v] = count
-									return solution, count
+								local solution = {}
+								for _, otherValue in ipairs(values) do
+									if otherValue ~= v then solution[otherValue] = 0 end
 								end
+								solution[v] = count
+								return solution, count
 							end
 						end
 
