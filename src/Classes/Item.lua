@@ -823,9 +823,9 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 				if groupedRunes then -- found the rune category with the relevant stat.
 					-- First a greedy base is found using the runes in the groupedRunes. If this matches the target value then that set of runes is applied.
 					-- If the greedy base isn't a solution we search all the possible combinations that could lead to a valid combination.
-					-- This done by recursing through all combinations that could lead to a a valid value this is done by pruning values that exceed the number
-					-- of runes and solutions that it would be impossible to reach the target value from. Visted combinations are recorded and are used such 
-					-- that candidates are only searched once. This makes for a fairly efficient algorithim that doesn't search unneeded values very much.
+					-- This done by recursing through all combinations that could lead to a valid value and pruning values that exceed the number
+					-- of runes and solutions that it would be impossible to reach the target value from. Visited combinations are recorded and are used such 
+					-- that candidates are only searched once. This makes for a fairly efficient algorithm that doesn't search unneeded values very much.
 					local function getNumberOfRunesOfEachType(values, target)
 						local function adjustCombination(values, target, result, best, visited, sum, count)
 							-- This is used to avoid unnecessary checks on decrement.
