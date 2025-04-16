@@ -1048,8 +1048,23 @@ for skillGem in dat("SkillGems"):Rows() do
 				end
 			end
 			out:write('\t\t},\n')
+			local weaponRequirement = { }
+			if gemEffect.GrantedEffect.ActiveSkill and gemEffect.GrantedEffect.ActiveSkill.WeaponRestrictions then
+				if gemEffect.GrantedEffect.ActiveSkill.WeaponRestrictions.String then
+					table.insert(weaponRequirement, escapeGGGString(gemEffect.GrantedEffect.ActiveSkill.WeaponRestrictions.String.Text))
+				else
+					for _, class in ipairs(gemEffect.GrantedEffect.ActiveSkill.WeaponRestrictions.WeaponClass) do
+						if weaponClassMap[class.ItemClass.Id] then
+							table.insert(weaponRequirement, escapeGGGString(class.ItemClass.ItemClassCategory.Name))
+						end
+					end
+				end
+			end
 			out:write('\t\tgemType = "', gemType, '",\n')
 			out:write('\t\ttagString = "', table.concat(tagNames, ", "), '",\n')
+			if next(weaponRequirement) then
+				out:write('\t\tweaponRequirements = "', table.concat(weaponRequirement, ", "), '",\n')
+			end
 			out:write('\t\treqStr = ', skillGem.Str, ',\n')
 			out:write('\t\treqDex = ', skillGem.Dex, ',\n')
 			out:write('\t\treqInt = ', skillGem.Int, ',\n')
