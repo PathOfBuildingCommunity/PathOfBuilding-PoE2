@@ -789,7 +789,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 			local shouldFixRunesOnItem = #self.runes == 0
 
 			-- Form a key value table with the following format
-			-- { "strippedModeLine" = { { runeName1, runeValue1 }, etc, }, etc}
+			-- { [strippedModLine] = { { runeName1, runeValue1 }, etc, }, etc}
 			-- This will be used to more easily grab the relevant runes that combinations will need to be of.
 			-- This could be refactored to only needs to be called once.
 			local statGroupedRunes = { }
@@ -821,10 +821,11 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 				end)
 				local groupedRunes = statGroupedRunes[strippedModLine]
 				if groupedRunes then -- found the rune category with the relevant stat.
-					-- Use a greedy first linear combination search that try it best guess than exhaustively searches to find a minimal combination.
-					-- This is fairly efficient as extra code has been added to check the typical cases of all of one tier of rune and it won't explore
-					-- caseless cases e.g. 1 rune when it obviously needs a minium of 4. This was mostly structured with help from ChatGPT but has been modified
-					-- to suit.
+					-- First a greedy base is found using the runes in the groupedRunes. If this matches the target value then that set of runes is applied.
+					-- If the greedy base isn't a solution we search all the possible combinations that could lead to a valid combination.
+					-- This done by recursing through all combinations that could lead to a a valid value this is done by pruning values that exceed the number
+					-- of runes and solutions that it would be impossible to reach the target value from. Visted combinations are recorded and are used such 
+					-- that candidates are only searched once. This makes for a fairly efficient algorithim that doesn't search unneeded values very much.
 					local function getNumberOfRunesOfEachType(values, target)
 						local function adjustCombination(values, target, result, best, visited, sum, count)
 							-- This is used to avoid unnecessary checks on decrement.
@@ -903,20 +904,6 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 						end
 						if math.abs(leftover) <= 1e-9 then -- Greedy search found a solution
 							return greedySolution, greedyCount
-						end
-
-						-- Try check if only 1 rune type was used.
-						for _, v in ipairs(values) do
-							local ratio = target / v
-							if math.abs(ratio - round(ratio)) < 1e-9 then
-								local count = round(ratio)
-								local solution = {}
-								for _, otherValue in ipairs(values) do
-									if otherValue ~= v then solution[otherValue] = 0 end
-								end
-								solution[v] = count
-								return solution, count
-							end
 						end
 
 						-- Step 2. Perform search starting from the greedy base
