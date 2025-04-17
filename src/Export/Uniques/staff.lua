@@ -43,6 +43,7 @@ UniqueIgniteEffect2
 ]],[[
 Sire of Shards
 Chiming Staff
+League: Dawn of the Hunt
 Implicits: 1
 Grants Skill: Level (1-20) Sigil of Power
 UniqueSpellDamageOnWeapon7

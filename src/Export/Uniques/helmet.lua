@@ -13,6 +13,7 @@ UniquePercentageIntelligence1
 ]],[[
 Blood Price
 Fierce Greathelm
+League: Dawn of the Hunt
 UniqueLocalIncreasedPhysicalDamageReductionRatingPercent29
 UniqueEnemiesInPresenceReservesLife1
 UniqueLifeRegeneration18
@@ -85,6 +86,7 @@ UniqueDoublePresenceRadius1
 ]],[[
 The Black Insignia
 Corsair Cap
+League: Dawn of the Hunt
 UniqueLocalIncreasedEvasionRatingPercent24
 UniqueItemFoundRarityIncrease14
 UniqueLightningResist24
@@ -109,6 +111,7 @@ UniqueAllResistances1
 ]],[[
 Heatshiver
 Velvet Cap
+League: Dawn of the Hunt
 UniqueLocalIncreasedEvasionRatingPercent31
 UniqueIncreasedMana45
 UniqueFireResist33
@@ -141,6 +144,7 @@ UniqueIgniteEnemiesInPresence1
 ]],[[
 Starkonja's Head
 Leatherbound Hood
+League: Dawn of the Hunt
 UniqueLocalIncreasedEvasionRatingPercent26
 UniqueCriticalStrikeChance13
 UniqueDexterity38
@@ -164,6 +168,7 @@ Variant: Current
 ]],[[
 Crown of Eyes
 Coral Circlet
+League: Dawn of the Hunt
 UniqueLocalIncreasedEnergyShieldPercent23
 UniqueIncreasedAccuracy9
 UniqueAllAttributes7
@@ -199,6 +204,7 @@ UniqueLightRadius1
 ]],[[
 Indigon
 Magus Tiara
+League: Dawn of the Hunt
 UniqueLocalIncreasedEnergyShieldPercent20
 UniqueIncreasedMana49
 UniqueSpellDamagePerManaSpent1
@@ -224,6 +230,7 @@ UniqueEnemiesInPresenceBlinded1
 ]],[[
 Scold's Bridle
 Jade Tiara
+League: Dawn of the Hunt
 UniqueLocalIncreasedEnergyShield17
 UniqueSpellDamage3
 UniqueIncreasedMana28
@@ -252,6 +259,7 @@ UniquePerfectTimingWindow1
 ]],[[
 The Bringer of Rain
 Decorated Helm
+League: Dawn of the Hunt
 UniqueLocalIncreasedArmourAndEvasion27
 UniqueIncreasedAccuracy11
 UniqueLifeRegeneration16
@@ -370,6 +378,7 @@ UniqueGlobalSkillGemLevel1
 ]],[[
 The Deepest Tower
 Spiritbone Crown
+League: Dawn of the Hunt
 UniqueLocalIncreasedArmourAndEnergyShield18
 UniqueIncreasedLife46
 UniqueChaosResist14

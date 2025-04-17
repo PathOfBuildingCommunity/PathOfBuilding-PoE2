@@ -13,6 +13,7 @@ Wrapped Greathelm
 ]],[[
 Blood Price
 Fierce Greathelm
+League: Dawn of the Hunt
 (80-120)% increased Armour
 (10-15) Life Regeneration per second
 +(100-150) to Stun Threshold
@@ -85,6 +86,7 @@ Presence Radius is doubled
 ]],[[
 The Black Insignia
 Corsair Cap
+League: Dawn of the Hunt
 (70-100)% increased Evasion Rating
 (10-20)% increased Rarity of Items found
 +(15-25)% to Lightning Resistance
@@ -109,6 +111,7 @@ Felt Cap
 ]],[[
 Heatshiver
 Velvet Cap
+League: Dawn of the Hunt
 (50-70)% increased Evasion Rating
 +(60-100) to maximum Mana
 +(20-30)% to Fire Resistance
@@ -141,6 +144,7 @@ Enemies in your Presence are Ignited as though dealt 100 Base Fire Damage
 ]],[[
 Starkonja's Head
 Leatherbound Hood
+League: Dawn of the Hunt
 (100-200)% increased Evasion Rating
 (15-25)% increased Critical Hit Chance
 +(30-40) to Dexterity
@@ -164,6 +168,7 @@ Variant: Current
 ]],[[
 Crown of Eyes
 Coral Circlet
+League: Dawn of the Hunt
 (100-140)% increased Energy Shield
 +(150-200) to Accuracy Rating
 +(10-15) to all Attributes
@@ -199,6 +204,7 @@ Variant: Current
 ]],[[
 Indigon
 Magus Tiara
+League: Dawn of the Hunt
 (60-100)% increased Energy Shield
 +(80-120) to maximum Mana
 (35-50)% increased Cost of Skills for each 200 total Mana Spent Recently
@@ -224,6 +230,7 @@ Enemies in your Presence are Blinded
 ]],[[
 Scold's Bridle
 Jade Tiara
+League: Dawn of the Hunt
 +(75-150) to maximum Energy Shield
 (60-100)% increased Spell Damage
 +(80-100) to maximum Mana
@@ -252,6 +259,7 @@ Skills have a (100-150)% longer Perfect Timing window
 ]],[[
 The Bringer of Rain
 Decorated Helm
+League: Dawn of the Hunt
 (600-800)% increased Armour and Evasion
 +(200-300) to Accuracy Rating
 (30-60) Life Regeneration per second
@@ -370,6 +378,7 @@ Gain 10 Mana per Enemy Killed
 ]],[[
 The Deepest Tower
 Spiritbone Crown
+League: Dawn of the Hunt
 (70-130)% increased Armour and Energy Shield
 +(70-100) to maximum Life
 +(17-23)% to Chaos Resistance
