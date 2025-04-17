@@ -4311,9 +4311,9 @@ c["Non-Channelling Spells consume a Power Charge if able to deal 25% more Damage
 c["Non-Channelling Spells cost an additional 3% of maximum Energy Shield"]={{[1]={[1]={percent=3,stat="EnergyShield",type="PercentStat"},[2]={neg=true,skillType=48,type="SkillType"},flags=0,keywordFlags=131072,name="ESCostBase",type="BASE",value=1}},nil}
 c["Non-Channelling Spells cost an additional 6% of your maximum Life"]={nil,"cost an additional 6% of your maximum Life "}
 c["Non-Channelling Spells cost an additional 6% of your maximum Life Non-Channelling Spells have 5% increased Critical Hit Chance per 100 maximum Life"]={nil,"cost an additional 6% of your maximum Life Non-Channelling Spells have 5% increased Critical Hit Chance per 100 maximum Life "}
-c["Non-Channelling Spells deal 10% increased Damage per 100 maximum Life"]={{[1]={[1]={neg=true,skillType=48,type="SkillType"},[2]={div=100,stat="Life",type="PerStat"},flags=0,keywordFlags=131072,name="Damage",type="INC",value=10}},nil}
-c["Non-Channelling Spells deal 30% more Damage"]={{[1]={[1]={neg=true,skillType=48,type="SkillType"},flags=0,keywordFlags=131072,name="Damage",type="MORE",value=30}},nil}
-c["Non-Channelling Spells have 5% increased Critical Hit Chance per 100 maximum Life"]={{[1]={[1]={neg=true,skillType=48,type="SkillType"},[2]={div=100,stat="Life",type="PerStat"},flags=0,keywordFlags=131072,name="CritChance",type="INC",value=5}},nil}
+c["Non-Channelling Spells deal 10% increased Damage per 100 maximum Life"]={{[1]={[1]={neg=true,skillType=48,type="SkillType"},[2]={div=100,stat="Life",type="PerStat"},flags=2,keywordFlags=0,name="Damage",type="INC",value=10}},nil}
+c["Non-Channelling Spells deal 30% more Damage"]={{[1]={[1]={neg=true,skillType=48,type="SkillType"},flags=2,keywordFlags=0,name="Damage",type="MORE",value=30}},nil}
+c["Non-Channelling Spells have 5% increased Critical Hit Chance per 100 maximum Life"]={{[1]={[1]={neg=true,skillType=48,type="SkillType"},[2]={div=100,stat="Life",type="PerStat"},flags=2,keywordFlags=0,name="CritChance",type="INC",value=5}},nil}
 c["Offering Skills have 20% increased Area of Effect"]={{[1]={[1]={skillType=154,type="SkillType"},flags=0,keywordFlags=0,name="AreaOfEffect",type="INC",value=20}},nil}
 c["Offering Skills have 30% increased Duration"]={{[1]={[1]={skillType=154,type="SkillType"},flags=0,keywordFlags=0,name="Duration",type="INC",value=30}},nil}
 c["Offering Skills have 30% reduced Duration"]={{[1]={[1]={skillType=154,type="SkillType"},flags=0,keywordFlags=0,name="Duration",type="INC",value=-30}},nil}

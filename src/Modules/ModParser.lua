@@ -1187,7 +1187,7 @@ local preFlagList = {
 	["^non%-curse aura skills have "] = { tagList = { { type = "SkillType", skillType = SkillType.Aura }, { type = "SkillType", skillType = SkillType.AppliesCurse, neg = true } } },
 	["^non%-channelling skills have "] = { tag = { type = "SkillType", skillType = SkillType.Channel, neg = true } },
 	["^non%-channelling spells "] = { keywordFlags = KeywordFlag.Spell, tag = { type = "SkillType", skillType = SkillType.Channel, neg = true } },
-	["^non%-channelling spells [hd][ae][va][el] "] = { keywordFlags = KeywordFlag.Spell, tag = { type = "SkillType", skillType = SkillType.Channel, neg = true } },
+	["^non%-channelling spells [hd][ae][va][el] "] = { flags = ModFlag.Spell, tag = { type = "SkillType", skillType = SkillType.Channel, neg = true } },
 	["^non%-vaal skills deal "] = { tag = { type = "SkillType", skillType = SkillType.Vaal, neg = true } },
 	["^skills [hgdf][aei][vari][eln] "] = { },
 	["^triggered spells [hd][ae][va][el] "] = { keywordFlags = KeywordFlag.Spell, tag = { type = "SkillType", skillType = SkillType.Triggered  } },
