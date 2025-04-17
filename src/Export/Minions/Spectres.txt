@@ -27,6 +27,9 @@ local minions, mod, flag = ...
 -- Shade -- not working, error CalcActiveSkill.lua 909 grantedEffect (nil)
 --spectre Metadata/Monsters/VaalMonsters/Machinarium/Wraith/ProwlingShade
 
+--Terracotta Soldier
+#spectre Metadata/Monsters/TerracottaGuardians/TerracottaGuardianSceptre
+
 -- Quadrilla
 #spectre Metadata/Monsters/Quadrilla/Quadrilla
 

@@ -193,6 +193,32 @@ minions["Metadata/Monsters/VaalConstructs/Sentinel/VaalConstructSentinel"] = {
 -- Shade -- not working, error CalcActiveSkill.lua 909 grantedEffect (nil)
 --spectre Metadata/Monsters/VaalMonsters/Machinarium/Wraith/ProwlingShade
 
+--Terracotta Soldier
+minions["Metadata/Monsters/TerracottaGuardians/TerracottaGuardianSceptre"] = {
+	name = "Terracotta Soldier",
+	monsterTags = { "1HBluntMetal_onhit_audio", "construct", "melee", "not_dex", "not_int", "physical_affinity", "very_slow_movement", },
+	life = 1.54,
+	baseDamageIgnoresAttackSpeed = true,
+	armour = 0.5,
+	fireResist = 0,
+	coldResist = 30,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1.27,
+	damageSpread = 0.2,
+	attackTime = 1.17,
+	attackRange = 12,
+	accuracy = 1,
+	weaponType1 = "One Handed Mace",
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"EGTerracottaTransitionSideways",
+		"EGTerracottaTransition",
+	},
+	modList = {
+	},
+}
+
 -- Quadrilla
 minions["Metadata/Monsters/Quadrilla/Quadrilla"] = {
 	name = "Quadrilla",
