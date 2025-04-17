@@ -66,6 +66,31 @@ minions["Metadata/Monsters/LeagueHellscape/PaleFaction/HellscapePaleElite2__"] =
 	},
 }
 
+-- Boar
+minions["Metadata/Monsters/GoreCharger/GoreCharger"] = {
+	name = "Diretusk Boar",
+	monsterTags = { "beast", "mammal_beast", "medium_movement", "melee", "MonsterBlunt_onhit_audio", "not_dex", "not_int", "physical_affinity", "red_blood", },
+	life = 1.7,
+	baseDamageIgnoresAttackSpeed = true,
+	armour = 0.3,
+	fireResist = 0,
+	coldResist = 30,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1.7,
+	damageSpread = 0.2,
+	attackTime = 1.065,
+	attackRange = 13,
+	accuracy = 1,
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"GoreChargerCharge",
+	},
+	modList = {
+		mod("BleedChance", "BASE", 25, 1, 0), -- MonsterBleedOnHitChance [bleed_on_hit_with_attacks_% = 25]
+	},
+}
+
 -- Dinosaur
 minions["Metadata/Monsters/BoneCultists/BoneCultists_Beast/BoneCultistBeast"] = {
 	name = "Drudge Osseodon",
@@ -100,7 +125,7 @@ minions["Metadata/Monsters/TwoheadedTitan/TwoHeadedTitan"] = {
 	coldResist = 0,
 	lightningResist = 0,
 	chaosResist = 0,
-	damage = 2.88,
+	damage = 2.5,
 	damageSpread = 0.2,
 	attackTime = 1.5,
 	attackRange = 20,

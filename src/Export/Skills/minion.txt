@@ -229,6 +229,12 @@ skills["MinionInstability"] = {
 #mods
 #skillEnd
 
+#skill GoreChargerCharge Charge
+#set GoreChargerCharge
+#flags attack melee
+#mods
+#skillEnd
+
 #skill GSHellscapePaleEliteBoltImpact Bolt Impact
 #set GSHellscapePaleEliteBoltImpact
 #flags triggerable spell hit

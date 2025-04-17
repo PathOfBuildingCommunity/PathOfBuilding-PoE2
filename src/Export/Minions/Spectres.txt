@@ -9,6 +9,9 @@ local minions, mod, flag = ...
 #spectre Metadata/Monsters/LeagueHellscape/PaleFaction/HellscapePaleElite1_
 #spectre Metadata/Monsters/LeagueHellscape/PaleFaction/HellscapePaleElite2__
 
+-- Boar
+#spectre Metadata/Monsters/GoreCharger/GoreCharger
+
 -- Dinosaur
 #spectre Metadata/Monsters/BoneCultists/BoneCultists_Beast/BoneCultistBeast
 

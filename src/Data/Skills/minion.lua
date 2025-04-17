@@ -1234,7 +1234,7 @@ skills["GATwoHeadedTitanSlam"] = {
 	qualityStats = {
 	},
 	levels = {
-		[1] = { baseMultiplier = 1.2, levelRequirement = 0, },
+		[1] = { levelRequirement = 0, },
 	},
 	statSets = {
 		[1] = {
@@ -1282,6 +1282,49 @@ skills["GATwoHeadedTitanStomp"] = {
 			},
 			stats = {
 				"is_area_damage",
+				"action_attack_or_cast_time_uses_animation_length",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["GoreChargerCharge"] = {
+	name = "Charge",
+	hidden = true,
+	description = "Charges at an enemy, bashing it with the character's shield and striking it. This knocks it back and stuns it. Enemies in the way are pushed to the side. Damage and stun are proportional to distance travelled. Cannot be supported by Multistrike.",
+	skillTypes = { [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Movement] = true, [SkillType.Travel] = true, },
+	weaponTypes = {
+		["None"] = true,
+		["One Handed Sword"] = true,
+		["One Handed Mace"] = true,
+		["Flail"] = true,
+		["Spear"] = true,
+		["One Handed Axe"] = true,
+		["Dagger"] = true,
+		["Claw"] = true,
+	},
+	castTime = 0.8,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { baseMultiplier = 1.43, storedUses = 1, levelRequirement = 0, cooldown = 4.5, },
+	},
+	statSets = {
+		[1] = {
+			label = "Charge",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				attack = true,
+				melee = true,
+			},
+			constantStats = {
+				{ "base_movement_velocity_+%", 92 },
+			},
+			stats = {
+				"ignores_proximity_shield",
 				"action_attack_or_cast_time_uses_animation_length",
 			},
 			levels = {
