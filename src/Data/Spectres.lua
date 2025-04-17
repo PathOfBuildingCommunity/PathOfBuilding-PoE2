@@ -91,6 +91,31 @@ minions["Metadata/Monsters/GoreCharger/GoreCharger"] = {
 	},
 }
 
+-- Demon
+minions["Metadata/Monsters/Sanctified/Monstrosity/SanctifiedMonstrosity"] = {
+	name = "Fettered Monstrosity",
+	monsterTags = { "demon", "medium_movement", "MonsterBlunt_onhit_audio", "mud_blood", },
+	life = 3.5,
+	baseDamageIgnoresAttackSpeed = true,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 2.28,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 28,
+	accuracy = 1,
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"MPWCleansedMonstrosityRailgun",
+		"CGESanctifiedMonstrosityPusGround",
+	},
+	modList = {
+		-- CleansedMonsterNoEquipmentDrops [drop_no_equipment = 1]
+	},
+}
+
 -- Dinosaur
 minions["Metadata/Monsters/BoneCultists/BoneCultists_Beast/BoneCultistBeast"] = {
 	name = "Drudge Osseodon",

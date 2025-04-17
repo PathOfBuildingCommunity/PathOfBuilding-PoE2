@@ -187,6 +187,12 @@ skills["MinionInstability"] = {
 #mods
 #skillEnd
 
+#skill CGESanctifiedMonstrosityPusGround Pus Ground
+#set CGESanctifiedMonstrosityPusGround
+#flags spell area triggerable duration
+#mods
+#skillEnd
+
 #skill CultistBeastSunder Sunder
 #set CultistBeastSunder
 #flags triggerable attack
@@ -274,6 +280,12 @@ skills["MinionInstability"] = {
 #skill MPSVaalBloodPriestProj Blood Projectile
 #set MPSVaalBloodPriestProj
 #flags spell projectile triggerable hit
+#mods
+#skillEnd
+
+#skill MPWCleansedMonstrosityRailgun Railgun
+#set MPWCleansedMonstrosityRailgun
+#flags attack projectile triggerable
 #mods
 #skillEnd
 

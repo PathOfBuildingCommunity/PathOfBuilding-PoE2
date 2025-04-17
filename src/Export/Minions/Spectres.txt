@@ -12,6 +12,9 @@ local minions, mod, flag = ...
 -- Boar
 #spectre Metadata/Monsters/GoreCharger/GoreCharger
 
+-- Demon
+#spectre Metadata/Monsters/Sanctified/Monstrosity/SanctifiedMonstrosity
+
 -- Dinosaur
 #spectre Metadata/Monsters/BoneCultists/BoneCultists_Beast/BoneCultistBeast
 

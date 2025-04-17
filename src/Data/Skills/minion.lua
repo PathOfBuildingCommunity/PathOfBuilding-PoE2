@@ -1064,6 +1064,44 @@ skills["CGEBloodPriestBoilingBlood"] = {
 		},
 	}
 }
+skills["CGESanctifiedMonstrosityPusGround"] = {
+	name = "Pus Ground",
+	hidden = true,
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, [SkillType.Duration] = true, [SkillType.AreaSpell] = true, },
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Pus Ground",
+			baseEffectiveness = 8,
+			incrementalEffectiveness = 0.10000000149012,
+			damageIncrementalEffectiveness = 0.017500000074506,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				spell = true,
+				area = true,
+				triggerable = true,
+				duration = true,
+			},
+			constantStats = {
+				{ "active_skill_area_of_effect_radius_+%_final", -40 },
+				{ "base_skill_effect_duration", 4000 },
+				{ "ground_caustic_art_variation", 1030 },
+			},
+			stats = {
+				"base_chaos_damage_to_deal_per_minute",
+				"is_area_damage",
+			},
+			levels = {
+				[1] = { 16.666667039196, statInterpolation = { 3, }, actorLevel = 1, },
+			},
+		},
+	}
+}
 skills["CultistBeastSunder"] = {
 	name = "Sunder",
 	hidden = true,
@@ -1609,6 +1647,45 @@ skills["MPSVaalBloodPriestProj"] = {
 			},
 			levels = {
 				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["MPWCleansedMonstrosityRailgun"] = {
+	name = "Railgun",
+	hidden = true,
+	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, },
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { baseMultiplier = 2.15, storedUses = 1, levelRequirement = 0, cooldown = 15, },
+	},
+	statSets = {
+		[1] = {
+			label = "Railgun",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				attack = true,
+				projectile = true,
+				triggerable = true,
+			},
+			constantStats = {
+				{ "monster_projectile_variation", 1157 },
+				{ "spell_maximum_action_distance_+%", -40 },
+			},
+			stats = {
+				"base_is_projectile",
+				"action_attack_or_cast_time_uses_animation_length",
+				"check_for_targets_between_initiator_and_projectile_source",
+				"projectile_uses_contact_position",
+				"maintain_projectile_direction_when_using_contact_position",
+				"use_scaled_contact_offset",
+				"projectile_ballistic_angle_from_target_distance",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
 			},
 		},
 	}
