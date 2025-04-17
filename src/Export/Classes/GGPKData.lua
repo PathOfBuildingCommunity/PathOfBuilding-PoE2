@@ -258,7 +258,6 @@ function GGPKClass:GetNeededFiles()
 		"Data/GrantedSkillSocketNumbers.dat",
 		"Data/AdvancedCraftingBenchCustomTags.dat",
 		"Data/AdvancedCraftingBenchTabFilterTypes.dat",
-		"Data/BeltTypes.dat",
 		"Data/CharacterMeleeSkills.dat",
 		"Data/ClientStrings2.dat",
 		"Data/CraftableModTypes.dat",

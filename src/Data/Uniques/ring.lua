@@ -70,7 +70,7 @@ Implicits: 1
 {tags:fire}(20-30)% increased Fire Damage
 {tags:life}(3.1-6) Life Regeneration per second
 {tags:mana}(20-30)% increased Mana Regeneration Rate
-Ignites you inflict spread to other Enemies that stay within 1.5 metres for 2 seconds
+Ignites you inflict spread to other Enemies that stay within 1.5 metres for 1 second
 ]],[[
 Death Rush
 Emerald Ring

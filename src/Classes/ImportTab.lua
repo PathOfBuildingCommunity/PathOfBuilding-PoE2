@@ -598,8 +598,11 @@ function ImportTabClass:ImportPassiveTreeAndJewels(charData)
 		end
 	end
 
+	self.build.spec:ImportFromNodeList(charData.class, nil, nil, charPassiveData.alternate_ascendancy or 0, hashes, weaponSets, {}, charPassiveData.mastery_effects or {}, latestTreeVersion .. (charData.league:match("Ruthless") and "_ruthless" or ""))
+
+	-- workaround to update the ui to last option
+	self.build.treeTab.controls.versionSelect.selIndex = #self.build.treeTab.treeVersions
 	-- attributes nodes
-	self.build.spec.hashOverrides = {}
 	for skillId, nodeInfo in pairs(charPassiveData.skill_overrides) do
 		local changeAttributeId = 0
 		if nodeInfo.name == "Intelligence" then
@@ -611,13 +614,16 @@ function ImportTabClass:ImportPassiveTreeAndJewels(charData)
 		end
 
 		if changeAttributeId > 0 then
-			self.build.spec:SwitchAttributeNode(tonumber(skillId), changeAttributeId)
+			local id = tonumber(skillId)
+			self.build.spec:SwitchAttributeNode(id, changeAttributeId)
+			local node = self.build.spec.nodes[id]
+
+			if node then
+				self.build.spec:ReplaceNode(node, self.build.spec.hashOverrides[id])
+			end
 		end
 	end
 
-	local attributesOverrides = copyTable(self.build.spec.hashOverrides, true)
-
-	self.build.spec:ImportFromNodeList(charData.class, nil, nil, charPassiveData.alternate_ascendancy or 0, hashes, weaponSets, attributesOverrides, charPassiveData.mastery_effects or {}, latestTreeVersion .. (charData.league:match("Ruthless") and "_ruthless" or ""))
 	self.build.spec:AddUndoState()
 	self.build.characterLevel = charData.level
 	self.build.characterLevelAutoMode = false
@@ -672,7 +678,7 @@ function ImportTabClass:ImportItemsAndSkills(charData)
 		local gemId = self.build.data.gemForBaseName[typeLine:lower()]
 
 		if gemId then
-			local gemInstance = { level = 20, quality = 0, enabled = true, enableGlobal1 = true, gemId = gemId }
+			local gemInstance = { level = 20, quality = 0, enabled = true, enableGlobal1 = true, enableGlobal2 = true, count = 1,  gemId = gemId }
 			gemInstance.nameSpec = self.build.data.gems[gemId].name
 			gemInstance.support = skillData.support
 

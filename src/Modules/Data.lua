@@ -166,6 +166,9 @@ data.misc = { -- magic numbers
 	SuppressionChanceCap = 100,
 	SuppressionEffect = 50,
 	AvoidChanceCap = 75,
+	AccuracyFalloffStart = 20,
+	AccuracyFalloffEnd = 120,
+	MaxAccuracyRangePenalty = 90,
 	ArmourRatio = 10,
 	NegArmourDmgBonusCap = 100,
 	EnergyShieldRechargeBase = 0.125,
@@ -466,6 +469,9 @@ data.highPrecisionMods = {
 		["BASE"] = 2,
 	},
 	["SupportManaMultiplier"] = {
+		["MORE"] = 4,
+	},
+	["ReservationMultiplier"] = {
 		["MORE"] = 4,
 	},
 }

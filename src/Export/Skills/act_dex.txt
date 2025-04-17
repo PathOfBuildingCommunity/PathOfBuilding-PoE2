@@ -224,7 +224,7 @@ statMap = {
 #flags attack projectile duration
 #mods
 #set GlacialLanceWallsPlayer
-#flags attack projectile duration
+#flags attack projectile duration area
 #mods
 #skillEnd
 
@@ -645,7 +645,7 @@ statMap = {
 #flags attack projectile
 #mods
 #set WhirlwindLanceStormPlayer
-#flags attack duration
+#flags attack duration melee
 statMap = {
 	["sandstorm_swipe_storm_damage_+%_final_per_stage"] = {
 		mod("Damage", "MORE", nil, 0, 0, { type = "Multiplier", var = "WhirlwindStageAfterFirst", limit = 3 })

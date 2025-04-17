@@ -1478,7 +1478,7 @@ return {
 		},
 		[10]={
 			list=false,
-			name="",
+			name="distanceTree",
 			refTo="",
 			type="Int",
 			width=180
@@ -1982,22 +1982,6 @@ return {
 	},
 	battlepasstracks={
 	},
-	belttypes={
-		[1]={
-			list=false,
-			name="BaseItemType",
-			refTo="BaseItemTypes",
-			type="Key",
-			width=210
-		},
-		[2]={
-			list=false,
-			name="CharmCount",
-			refTo="",
-			type="Int",
-			width=100
-		}
-	},
 	bestiarycapturablemonsters={
 	},
 	bestiaryencounters={
@@ -2098,6 +2082,13 @@ return {
 			name="NameShort",
 			refTo="",
 			type="String",
+			width=150
+		},
+		[6]={
+			list=false,
+			name="MapMod",
+			refTo="Mods",
+			type="Key",
 			width=150
 		}
 	},
@@ -3219,24 +3210,31 @@ return {
 	charactermeleeskills={
 		[1]={
 			list=false,
-			name="",
-			refTo="",
+			name="MainHandItem",
+			refTo="WieldableClasses",
 			type="Key",
-			width=150
+			width=200
 		},
 		[2]={
 			list=false,
-			name="",
-			refTo="",
+			name="OffHandItem",
+			refTo="WieldableClasses",
 			type="Key",
-			width=150
+			width=200
 		},
 		[3]={
-			list=false,
+			list=true,
 			name="SkillGem",
 			refTo="SkillGems",
 			type="Key",
-			width=400
+			width=700
+		},
+		[4]={
+			list=false,
+			name="",
+			refTo="",
+			type="Bool",
+			width=50
 		}
 	},
 	characterpaneldescriptionmodes={
@@ -4234,7 +4232,7 @@ return {
 	craftablemodtypes={
 		[1]={
 			list=false,
-			name="",
+			name="Id",
 			refTo="ModType",
 			type="Key",
 			width=320
@@ -5697,7 +5695,7 @@ return {
 		},
 		[11]={
 			list=false,
-			name="",
+			name="SpiritGem",
 			refTo="",
 			type="Bool",
 			width=150
@@ -5891,17 +5889,17 @@ return {
 		},
 		[8]={
 			list=false,
-			name="",
-			refTo="",
+			name="CraftableModTypes",
+			refTo="CraftableModTypes",
 			type="Key",
-			width=100
+			width=250
 		},
 		[9]={
 			list=true,
-			name="",
-			refTo="",
+			name="CraftingTags",
+			refTo="AdvancedCraftingBenchCustomTags",
 			type="Key",
-			width=100
+			width=250
 		}
 	},
 	goldrespecprices={
@@ -6389,7 +6387,7 @@ return {
 		},
 		[23]={
 			list=false,
-			name="EffectOnPlayer",
+			name="ReservationMultiplier",
 			refTo="",
 			type="Int",
 			width=150
@@ -6422,21 +6420,21 @@ return {
 			name="ConstantStats",
 			refTo="Stats",
 			type="Key",
-			width=1000
+			width=800
 		},
 		[5]={
 			list=true,
 			name="ConstantStatsValues",
 			refTo="",
 			type="Int",
-			width=250
+			width=200
 		},
 		[6]={
 			list=false,
 			name="BaseEffectiveness",
 			refTo="",
 			type="Float",
-			width=150
+			width=120
 		},
 		[7]={
 			list=false,
@@ -6457,7 +6455,7 @@ return {
 			name="RemoveStats",
 			refTo="Stats",
 			type="Key",
-			width=180
+			width=870
 		},
 		[10]={
 			list=false,
