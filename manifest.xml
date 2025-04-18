@@ -133,7 +133,7 @@
 	<File name="Data/Gems.lua" part="program" sha1="d5bfdab9a91136ac571a6596fb154667f56c13d3" />
 	<File name="Data/Global.lua" part="program" sha1="72b626ed3237ebb18653e65cc11128fbb48a57b0" />
 	<File name="Data/Minions.lua" part="program" sha1="f8644082ab035d6112025916f22f7b7dc35cfedb" />
-	<File name="Data/Misc.lua" part="program" sha1="42051136b267b8eb4a496a1f362469469486fee4" />
+	<File name="Data/Misc.lua" part="program" sha1="c21cb1f83201420ae31e6b8eabafc60967987e25" />
 	<File name="Data/ModCache.lua" part="program" sha1="93c7a2fc6f252ca10b86a935760c4a61e396fd8e" />
 	<File name="Data/ModCharm.lua" part="program" sha1="89c174bf64bc8efe48f9328e010547cb374742b1" />
 	<File name="Data/ModCorrupted.lua" part="program" sha1="8eb720da19dc5f1cd784efe1668acd2c3fd187ea" />
@@ -511,7 +511,7 @@
 	<File name="Modules/BuildSiteTools.lua" part="program" sha1="8a8aac3aecd4ae267614b4b850a1169f4c56413d" />
 	<File name="Modules/CalcActiveSkill.lua" part="program" sha1="db3d63e89cbc65eadfa8db9e9a00662b710c1942" />
 	<File name="Modules/CalcBreakdown.lua" part="program" sha1="cc2454eaf888b48ad57047c38509d69792fc4e7f" />
-	<File name="Modules/CalcDefence.lua" part="program" sha1="9ee303e9352809dd09208c6bfd1561811f63b840" />
+	<File name="Modules/CalcDefence.lua" part="program" sha1="fca9f084ff05e4f9518b22aced1fb6df90d1813b" />
 	<File name="Modules/CalcMirages.lua" part="program" sha1="64dfcbb7530fc7a69c483348cce0833912e2416f" />
 	<File name="Modules/CalcOffence.lua" part="program" sha1="79b0427740b476bb1a2092190965913946b38d8a" />
 	<File name="Modules/CalcPerform.lua" part="program" sha1="ec4b51b2dda29b009554b3034731d69f73c4dab9" />
@@ -522,7 +522,7 @@
 	<File name="Modules/CalcTriggers.lua" part="program" sha1="68df4210c923ad7ff4783f36462ec0d668f1cf73" />
 	<File name="Modules/Common.lua" part="program" sha1="dd8add7e5336d73f419f44cbb38447fdb61b1980" />
 	<File name="Modules/ConfigOptions.lua" part="program" sha1="fc454455b8789c62f9186b9b92b35f2b0982d169" />
-	<File name="Modules/Data.lua" part="program" sha1="b07fcf42f2d0c61354997f4b335bd76029451ae9" />
+	<File name="Modules/Data.lua" part="program" sha1="0c07456cd10df536be68e8c0d75d400d788f58cc" />
 	<File name="Modules/DataLegionLookUpTableHelper.lua" part="program" sha1="170699925a438275137ba621206800e29f453eb3" />
 	<File name="Modules/ItemTools.lua" part="program" sha1="d298657b36fa53eb75d428c3f56a8541de722aee" />
 	<File name="Modules/Main.lua" part="program" sha1="c32b13183c63c5aa5ab1ab08281fff44ec461b27" />
