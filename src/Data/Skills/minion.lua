@@ -1167,6 +1167,76 @@ skills["DTTHellscapeStabbySkyStab"] = {
 		},
 	}
 }
+skills["GSCenobiteBloaterOnDeath"] = {
+	name = "Death Explosion",
+	hidden = true,
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, },
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { critChance = 5, levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Death Explosion",
+			baseEffectiveness = 10,
+			incrementalEffectiveness = 0.10000000149012,
+			damageIncrementalEffectiveness = 0.017500000074506,
+			statDescriptionScope = "geometry_spell",
+			baseFlags = {
+				spell = true,
+				triggerable = true,
+			},
+			constantStats = {
+				{ "voll_slam_damage_+%_final_at_centre", 35 },
+			},
+			stats = {
+				"spell_minimum_base_physical_damage",
+				"spell_maximum_base_physical_damage",
+				"is_area_damage",
+			},
+			levels = {
+				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["GACenobiteBloaterSlam"] = {
+	name = "Slam",
+	hidden = true,
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Attack] = true, },
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { baseMultiplier = 2, storedUses = 1, levelRequirement = 0, cooldown = 6, },
+	},
+	statSets = {
+		[1] = {
+			label = "Slam",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				triggerable = true,
+				attack = true,
+				melee = true,
+			},
+			constantStats = {
+				{ "melee_range_+", 15 },
+			},
+			stats = {
+				"is_area_damage",
+				"action_attack_or_cast_time_uses_animation_length",
+				"base_skill_cannot_be_blocked",
+				"base_skill_cannot_be_avoided_by_dodge_roll",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
 skills["GAHellscapePaleEliteSkyStab"] = {
 	name = "Stab Attack",
 	hidden = true,

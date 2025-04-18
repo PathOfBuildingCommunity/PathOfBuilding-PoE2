@@ -205,6 +205,18 @@ skills["MinionInstability"] = {
 #mods
 #skillEnd
 
+#skill GSCenobiteBloaterOnDeath Death Explosion
+#set GSCenobiteBloaterOnDeath
+#flags spell triggerable
+#mods
+#skillEnd
+
+#skill GACenobiteBloaterSlam Slam
+#set GACenobiteBloaterSlam
+#flags triggerable attack melee
+#mods
+#skillEnd
+
 #skill GAHellscapePaleEliteSkyStab Stab Attack
 #set GAHellscapePaleEliteSkyStab
 #flags attack triggerable

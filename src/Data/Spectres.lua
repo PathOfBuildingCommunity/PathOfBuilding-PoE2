@@ -140,6 +140,33 @@ minions["Metadata/Monsters/BoneCultists/BoneCultists_Beast/BoneCultistBeast"] = 
 	},
 }
 
+-- Filthy Firstborn
+minions["Metadata/Monsters/Cenobite/CenobiteBloater/CenobiteBloater"] = {
+	name = "Filthy First-born",
+	monsterTags = { "allows_inc_aoe", "humanoid", "melee", "monster_has_on_death_mechanic", "MonsterBlunt_onhit_audio", "no_minion_revival", "not_dex", "not_int", "physical_affinity", "red_blood", "very_slow_movement", },
+	life = 2.5,
+	baseDamageIgnoresAttackSpeed = true,
+	armour = 0.75,
+	fireResist = 0,
+	coldResist = 30,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 2.5,
+	damageSpread = 0.2,
+	attackTime = 3.99,
+	attackRange = 14,
+	accuracy = 1,
+	weaponType1 = "Two Handed Mace",
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"GSCenobiteBloaterOnDeath",
+		"GACenobiteBloaterSlam",
+	},
+	modList = {
+		-- SpectrePlayDeathAction [is_spectre_with_death_action = 1]
+	},
+}
+
 -- Goliath
 minions["Metadata/Monsters/TwoheadedTitan/TwoHeadedTitan"] = {
 	name = "Goliath",
