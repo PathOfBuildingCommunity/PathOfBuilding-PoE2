@@ -6,115 +6,382 @@
 --
 local minions, mod, flag = ...
 
--- Blackguard
--- Bandit
--- Beast
--- Blood Apes
--- Bone Stalker
--- Bull
--- Cage Spider
--- Cannibals
--- Goatmen
--- Miscreation
--- Maw
--- Chimeral
--- Ghost Pirate
--- Undying Grappler
--- Ribbon
--- Gut flayer
--- Solar Guard
--- Construct
--- Carrion Queen
--- Kaom's Warriors
--- Kitava's Cultist
--- Kitava's Herald
--- Birdman
--- Delve League
--- Hellion
--- Knitted Horror
--- Miners
--- Voidbearer
--- Stone golem
--- Mother of Flames
--- Necromancer
--- Undying Bomber
--- Stygian Revenant
--- Sea Witch
--- Skeleton
--- Snake
--- Spider
--- Statue
--- Ophidian
--- Templar
--- Undying
--- Wicker Man
--- Redemption Sentry
--- Baranite Thaumaturge
--- Baranite Sister
--- Baranite Preacher
--- Scale of Esh
--- Scinteel Synthete
--- Redemption Knight
--- Primal Crushclaw
--- Primal Rhex Matriarch
--- Templar Tactician
--- Frost Auto-Scout
--- Syndicate Operative
--- Cloud Retch
--- Artless Assassin
--- Ashblessed Warden
--- Snow Rhex
--- Flickershade
--- Trial Galecaller
--- Trial Windchaser
--- Hyrri's Watch
--- Demon Harpy
--- Pale Angel
--- Demon Herder
--- Pale Seraphim
--- Ravenous Mishapen
--- Aurid Synthete
--- Ruins Hellion
--- Arena Master
--- They of Tul
--- Ancient Suffering
--- Ancient Wraith
--- Forged Frostbearer
+-- Beyond
+minions["Metadata/Monsters/LeagueHellscape/PaleFaction/HellscapePaleElite1_"] = {
+	name = "Pale Angel",
+	monsterTags = { "beyond_demon", "demon", "medium_movement", "not_dex", "not_str", "red_blood", "Unarmed_onhit_audio", },
+	life = 2.12,
+	baseDamageIgnoresAttackSpeed = true,
+	energyShield = 0.12,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 75,
+	chaosResist = 0,
+	damage = 2.35,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 9,
+	accuracy = 1,
+	weaponType1 = "None",
+	skillList = {
+		"TBHellscapePaleLightningBoltSpammableLeft",
+		"TBHellscapePaleLightningBoltSpammableRight",
+		"GSHellscapePaleEliteBoltImpact",
+		"GSHellscapePaleEliteOmegaBeam",
+		"TeleportHellscapePaleElite",
+	},
+	modList = {
+	},
+}
+minions["Metadata/Monsters/LeagueHellscape/PaleFaction/HellscapePaleElite2__"] = {
+	name = "Pale Seraphim",
+	monsterTags = { "beyond_demon", "demon", "fast_movement", "MonsterStab_onhit_audio", "not_int", "pale_faction", "red_blood", },
+	life = 2.25,
+	baseDamageIgnoresAttackSpeed = true,
+	armour = 0.25,
+	evasion = 0.25,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 75,
+	chaosResist = 0,
+	damage = 1.97,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 18,
+	accuracy = 1,
+	weaponType1 = "None",
+	skillList = {
+		"DTTHellscapeStabbySkyStab",
+		"DTTHellscapeStabWeb",
+		"GAHellscapeStabWeb",
+		"GAHellscapePaleEliteSkyStab",
+		"TCHellscapePaleElite2Charge",
+		"GSHellscapePaleElite2Charge",
+		"MeleeAtAnimationSpeedLightning",
+		"MeleeAtAnimationSpeedLightningCombo35",
+	},
+	modList = {
+		-- HellscapeYellowLightningOverride [shock_art_variation = 10]
+		-- HellscapeYellowLightningOverride [damage_hit_effect_index = 103]
+	},
+}
 
-	-- Affliction Corpses
--- Frozen Cannibal
--- Fiery Cannibal
--- Hydra
--- Dark Marionette
--- Hulking Miscreation
--- Spirit of Fortune
--- Naval Officer
--- Dancing Sword
--- Needle Horror
--- Serpent Warrior
--- Pain Artist
--- Sawblade Horror
--- Restless Knight
--- Slashing Horror
--- Druidic Alchemist
--- Escaped Prototype
--- Blasphemer
--- Judgemental Spirit
--- Primal Thunderbird
--- Primal Demiurge
--- Runic Skeleton
--- Warlord
--- Dark Reaper
--- Sanguimancer Demon
--- Spider Matriarch
--- Meatsack
--- Eldritch Eye
--- Forest Tiger
--- Guardian Turtle
--- Shadow Construct
--- Forest Warrior
--- Shadow Berserker
--- Riftcaster
--- Blood Demon
--- Half-remembered Goliath
--- Wretched Defiler
+-- Boar
+minions["Metadata/Monsters/GoreCharger/GoreCharger"] = {
+	name = "Diretusk Boar",
+	monsterTags = { "beast", "mammal_beast", "medium_movement", "melee", "MonsterBlunt_onhit_audio", "not_dex", "not_int", "physical_affinity", "red_blood", },
+	life = 1.7,
+	baseDamageIgnoresAttackSpeed = true,
+	armour = 0.3,
+	fireResist = 0,
+	coldResist = 30,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1.7,
+	damageSpread = 0.2,
+	attackTime = 1.065,
+	attackRange = 13,
+	accuracy = 1,
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"GoreChargerCharge",
+	},
+	modList = {
+		mod("BleedChance", "BASE", 25, 1, 0), -- MonsterBleedOnHitChance [bleed_on_hit_with_attacks_% = 25]
+	},
+}
+
+-- Demon
+minions["Metadata/Monsters/Sanctified/Monstrosity/SanctifiedMonstrosity"] = {
+	name = "Fettered Monstrosity",
+	monsterTags = { "demon", "medium_movement", "MonsterBlunt_onhit_audio", "mud_blood", },
+	life = 3.5,
+	baseDamageIgnoresAttackSpeed = true,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 2.28,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 28,
+	accuracy = 1,
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"MPWCleansedMonstrosityRailgun",
+		"CGESanctifiedMonstrosityPusGround",
+	},
+	modList = {
+		-- CleansedMonsterNoEquipmentDrops [drop_no_equipment = 1]
+	},
+}
+
+-- Dinosaur
+minions["Metadata/Monsters/BoneCultists/BoneCultists_Beast/BoneCultistBeast"] = {
+	name = "Drudge Osseodon",
+	monsterTags = { "beast", "melee", "MonsterBlunt_onhit_audio", "not_dex", "not_int", "physical_affinity", "red_blood", "reptile_beast", "slow_movement", },
+	life = 2.5,
+	baseDamageIgnoresAttackSpeed = true,
+	armour = 0.7,
+	fireResist = 0,
+	coldResist = 30,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 2.75,
+	damageSpread = 0.2,
+	attackTime = 1.665,
+	attackRange = 19,
+	accuracy = 1,
+	skillList = {
+		"MeleeAtAnimationSpeedComboTEMP",
+		"CultistBeastSunder",
+	},
+	modList = {
+	},
+}
+
+-- Filthy Firstborn
+minions["Metadata/Monsters/Cenobite/CenobiteBloater/CenobiteBloater"] = {
+	name = "Filthy First-born",
+	monsterTags = { "allows_inc_aoe", "humanoid", "melee", "monster_has_on_death_mechanic", "MonsterBlunt_onhit_audio", "no_minion_revival", "not_dex", "not_int", "physical_affinity", "red_blood", "very_slow_movement", },
+	life = 2.5,
+	baseDamageIgnoresAttackSpeed = true,
+	armour = 0.75,
+	fireResist = 0,
+	coldResist = 30,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 2.5,
+	damageSpread = 0.2,
+	attackTime = 3.99,
+	attackRange = 14,
+	accuracy = 1,
+	weaponType1 = "Two Handed Mace",
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"GSCenobiteBloaterOnDeath",
+		"GACenobiteBloaterSlam",
+	},
+	modList = {
+		-- SpectrePlayDeathAction [is_spectre_with_death_action = 1]
+	},
+}
+
+-- Goliath
+minions["Metadata/Monsters/TwoheadedTitan/TwoHeadedTitan"] = {
+	name = "Goliath",
+	monsterTags = { "allows_inc_aoe", "humanoid", "melee", "MonsterBlunt_onhit_audio", "physical_affinity", "very_slow_movement", },
+	life = 2.5,
+	baseDamageIgnoresAttackSpeed = true,
+	fireResist = 75,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 2.5,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 20,
+	accuracy = 1,
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"GATwoHeadedTitanSlam",
+		"GATwoHeadedTitanStomp",
+	},
+	modList = {
+	},
+}
+
+-- Scarab
+minions["Metadata/Monsters/EtchedBeetles/MediumEtchedBeetleArmouredDull"] = {
+	name = "Tarnished Scarab",
+	monsterTags = { "2HSharpMetal_onhit_audio", "allows_inc_aoe", "beast", "fast_movement", "insect", "lightning_affinity", "melee", "not_dex", "not_int", },
+	life = 1.5,
+	baseDamageIgnoresAttackSpeed = true,
+	armour = 0.7,
+	fireResist = 0,
+	coldResist = -30,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1.5,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 12,
+	accuracy = 1,
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"GAMediumBeetleChargedSunder",
+		"GAMediumBeetleSunder",
+	},
+	modList = {
+	},
+}
+
+-- Sentinel
+minions["Metadata/Monsters/VaalConstructs/Sentinel/VaalConstructSentinel"] = {
+	name = "Stone Sentinel",
+	monsterTags = { "2HBluntWood_onhit_audio", "allows_inc_aoe", "cannot_be_monolith", "construct", "melee", "not_dex", "not_int", "physical_affinity", "stone_construct", "vaal", "very_slow_movement", },
+	life = 2.5,
+	baseDamageIgnoresAttackSpeed = true,
+	armour = 1,
+	fireResist = 30,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 2.5,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 13,
+	accuracy = 1,
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"GAVaalConstructSentinelGroundSlam",
+		"GAVaalConstructSentinelFootSlam",
+		"GAVaalConstructSentinelImpact",
+	},
+	modList = {
+	},
+}
+
+-- Shade -- not working, error CalcActiveSkill.lua 909 grantedEffect (nil)
+--spectre Metadata/Monsters/VaalMonsters/Machinarium/Wraith/ProwlingShade
+
+--Terracotta Soldier
+minions["Metadata/Monsters/TerracottaGuardians/TerracottaGuardianSceptre"] = {
+	name = "Terracotta Soldier",
+	monsterTags = { "1HBluntMetal_onhit_audio", "construct", "melee", "not_dex", "not_int", "physical_affinity", "very_slow_movement", },
+	life = 1.54,
+	baseDamageIgnoresAttackSpeed = true,
+	armour = 0.5,
+	fireResist = 0,
+	coldResist = 30,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1.27,
+	damageSpread = 0.2,
+	attackTime = 1.17,
+	attackRange = 12,
+	accuracy = 1,
+	weaponType1 = "One Handed Mace",
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"EGTerracottaTransitionSideways",
+		"EGTerracottaTransition",
+	},
+	modList = {
+	},
+}
+
+-- Quadrilla
+minions["Metadata/Monsters/Quadrilla/Quadrilla"] = {
+	name = "Quadrilla",
+	monsterTags = { "allows_inc_aoe", "beast", "fast_movement", "mammal_beast", "melee", "MonsterBlunt_onhit_audio", "not_dex", "not_int", "physical_affinity", "red_blood", },
+	life = 2,
+	baseDamageIgnoresAttackSpeed = true,
+	armour = 0.75,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 2,
+	damageSpread = 0.2,
+	attackTime = 1.995,
+	attackRange = 21,
+	accuracy = 1,
+	skillList = {
+		"GAQuadrillaSunder",
+		"EAAQuadrillaThrow",
+		"MeleeAtAnimationSpeed",
+		"GPAQuadrillaRock",
+		"SSMQuadrillaRock",
+		"QuadrillaShieldCharge",
+		"TCQuadrillaCharge",
+		"EASQuadrillaTaunt",
+	},
+	modList = {
+	},
+}
+
+-- Vaal Humanoid
+minions["Metadata/Monsters/VaalMonsters/Living/VaalGuardMortarLiving"] = {
+	name = "Vaal Guard",
+	monsterTags = { "allows_additional_projectiles", "allows_inc_aoe", "fire_affinity", "human", "humanoid", "not_int", "not_str", "ranged", "red_blood", "Unarmed_onhit_audio", "very_slow_movement", },
+	life = 1,
+	baseDamageIgnoresAttackSpeed = true,
+	evasion = 0.5,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 10,
+	accuracy = 1,
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"MMSVaalGuardGrenade",
+		"MMSVaalGuardOilTrap",
+		"MMSVaalGuardGrenadeDeath",
+		"MMSVaalGuardOilTrapDeath",
+	},
+	modList = {
+		-- SpectrePlayDeathAction [is_spectre_with_death_action = 1]
+	},
+}
+minions["Metadata/Monsters/VaalMonsters/Living/BloodPriests/VaalBloodPriestMale"] = {
+	name = "Blood Priest",
+	monsterTags = { "1HSword_onhit_audio", "allows_additional_projectiles", "allows_inc_aoe", "caster", "cultist", "fast_movement", "human", "humanoid", "not_str", "physical_affinity", "ranged", "red_blood", },
+	life = 2,
+	baseDamageIgnoresAttackSpeed = true,
+	energyShield = 0.08,
+	evasion = 0.15,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 2,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 12,
+	accuracy = 1,
+	weaponType1 = "Dagger",
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"VaalBloodPriestExsanguinate",
+		"VaalBloodPriestDetonateDead",
+		"MPSVaalBloodPriestProj",
+		"EGBloodPriestSacrifice",
+		"EASBloodPriestSummonElemental",
+		"CGEBloodPriestBoilingBlood",
+	},
+	modList = {
+	},
+}
+minions["Metadata/Monsters/VaalMonsters/Living/BloodPriests/VaalBloodPriestFemale"] = {
+	name = "Blood Priestess",
+	monsterTags = { "1HSword_onhit_audio", "allows_additional_projectiles", "allows_inc_aoe", "caster", "cultist", "fast_movement", "human", "humanoid", "not_str", "physical_affinity", "ranged", "red_blood", },
+	life = 2,
+	baseDamageIgnoresAttackSpeed = true,
+	energyShield = 0.08,
+	evasion = 0.15,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 2,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 12,
+	accuracy = 1,
+	weaponType1 = "Dagger",
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"VaalBloodPriestSoulrend",
+		"EGBloodPriestVolatileDead",
+		"MPSVaalBloodPriestProj",
+		"EGBloodPriestSacrifice",
+		"EASBloodPriestSummonElemental",
+	},
+	modList = {
+	},
+}
