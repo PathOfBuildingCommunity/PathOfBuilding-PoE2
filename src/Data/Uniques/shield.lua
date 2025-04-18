@@ -5,6 +5,7 @@ return {
 [[
 Chernobog's Pillar
 Blacksteel Tower Shield
+League: Dawn of the Hunt
 Implicits: 1
 Grants Skill: Raise Shield
 (100-150)% increased Armour
@@ -52,6 +53,7 @@ Accuracy Rating is Doubled
 ]],[[
 Redblade Banner
 Heraldric Tower Shield
+League: Dawn of the Hunt
 Implicits: 1
 Grants Skill: Raise Shield
 (20-30)% increased Block chance
@@ -91,6 +93,7 @@ Cannot use Shield Skills
 ]],[[
 Window to Paradise
 Barricade Tower Shield
+League: Dawn of the Hunt
 Implicits: 1
 Grants Skill: Raise Shield
 (60-120)% increased Armour
@@ -112,6 +115,7 @@ Permanently Intimidate enemies on Block
 [[
 Bloodbarrier
 Iron Buckler
+League: Dawn of the Hunt
 Implicits: 1
 Grants Skill: Parry
 (20-30)% increased Block chance
@@ -122,6 +126,7 @@ your maximum Life as Physical damage per second
 ]],[[
 Calgyra's Arc
 Ornate Buckler
+League: Dawn of the Hunt
 Implicits: 1
 Grants Skill: Parry
 (60-100)% increased Evasion Rating
@@ -132,6 +137,7 @@ Infinite Projectile Parry Range
 ]],[[
 Dunkelhalt
 Leather Buckler
+League: Dawn of the Hunt
 Implicits: 1
 Grants Skill: Parry
 (30-50)% increased Block chance
@@ -141,6 +147,7 @@ You take 50% of damage from Blocked Hits
 ]],[[
 Nocturne
 Wooden Buckler
+League: Dawn of the Hunt
 Implicits: 1
 Grants Skill: Parry
 +(60-80) to maximum Mana
@@ -151,6 +158,7 @@ Parried enemies take more Spell Damage instead of more Attack Damage
 ]],[[
 Rondel de Ezo
 Plated Buckler
+League: Dawn of the Hunt
 Implicits: 1
 Grants Skill: Parry
 (50-150)% increased Evasion Rating
@@ -161,6 +169,7 @@ Curse Enemies with Enfeeble on Block
 ]],[[
 Silverthorne
 Spiked Buckler
+League: Dawn of the Hunt
 Implicits: 1
 Grants Skill: Parry
 (50-80)% increased Evasion Rating
@@ -170,6 +179,7 @@ Parrying applies 10 Stacks of Critical Weakness
 ]],[[
 Sunsplinter
 Array Buckler
+League: Dawn of the Hunt
 Has Alt Variant: true
 Selected Variant: 1
 Selected Alt Variant: 7
@@ -317,6 +327,7 @@ Grants Skill: Raise Shield
 ]],[[
 Prism Guardian
 Sectarian Crest Shield
+League: Dawn of the Hunt
 Implicits: 1
 Grants Skill: Raise Shield
 (80-150)% increased Armour and Energy Shield

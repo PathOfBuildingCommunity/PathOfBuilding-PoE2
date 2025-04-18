@@ -17,6 +17,7 @@ Gain (12-18) Mana per Enemy Killed
 ]],[[
 Doomfletch
 Composite Bow
+League: Dawn of the Hunt
 Adds (5-7) to (10-12) Physical Damage
 +10 to Dexterity
 (30-50)% increased Mana Regeneration Rate
@@ -31,6 +32,7 @@ Shortbow
 ]],[[
 Slivertongue
 Zealot Bow
+League: Dawn of the Hunt
 Adds (40-48) to (65-72) Physical Damage
 +(4-6)% to Critical Hit Chance
 Leeches (5-8)% of Physical Damage as Life
@@ -50,6 +52,7 @@ Projectiles Split towards +2 targets
 ]],[[
 Voltaxic Rift
 Fanatic Bow
+League: Dawn of the Hunt
 Adds 1 to (200-300) Lightning Damage
 (10-15)% increased Attack Speed
 100% of Lightning Damage Converted to Chaos Damage

@@ -53,6 +53,16 @@ UniqueLightningResist4
 {variant:2}UniqueManaRegeneration27
 UniqueEnemyExtraDamageRollsWithLightningDamage1
 ]],[[
+Bursting Decay
+Unset Ring
+League: Dawn of the Hunt
+Implicits: 1
+RingImplicitAdditionalSkillSlots1
+UniqueItemFoundRarityIncrease22
+UniqueChaosResist17
+UniqueLifeDegenerationPercentGracePeriod3
+UniquePhysicalDamageMaximumLife1
+]],[[
 Call of the Brotherhood
 Topaz Ring
 Requires Level 32
@@ -102,6 +112,7 @@ UniqueCannotBeChilledOrFrozen1
 ]],[[
 Evergrasping Ring
 Pearl Ring
+League: Dawn of the Hunt
 Implicits: 1
 RingImplicitIncreasedCastSpeed1
 UniqueIncreasedMana12
@@ -110,6 +121,7 @@ UniqueEnemiesInPresenceGainedAsChaos1
 ]],[[
 Gifts from Above
 Prismatic Ring
+League: Dawn of the Hunt
 Implicits: 1
 RingImplicitAllResistances1
 UniqueCriticalStrikeChance12
@@ -137,6 +149,7 @@ UniqueMinionReviveSpeed2
 ]],[[
 Icefang Orbit
 Iron Ring
+League: Dawn of the Hunt
 Requires Level 36
 Implicits: 1
 RingImplicitPhysicalDamage1
@@ -197,6 +210,7 @@ UniqueChillHitsCauseShattering1
 ]],[[
 Prized Pain
 Iron Ring
+League: Dawn of the Hunt
 Requires Level 48
 Implicits: 1
 RingImplicitPhysicalDamage1
@@ -252,6 +266,7 @@ UniqueSelfCurseDuration1
 ]],[[
 Venopuncture
 Iron Ring
+League: Dawn of the Hunt
 Requires Level 36
 Implicits: 1
 RingImplicitPhysicalDamage1
@@ -279,6 +294,7 @@ UniqueLightningResist18
 ]],[[
 Vigilant View
 Emerald Ring
+League: Dawn of the Hunt
 Requires Level 26
 Implicits: 1
 RingImplicitIncreasedAccuracy1

@@ -154,6 +154,7 @@ UniqueGlobalEvasionOnFullLife1
 ]],[[
 Hyrri's Ire
 Armoured Vest
+League: Dawn of the Hunt
 Implicits: 1
 BodyArmourImplicitIncreasedAilmentThreshold1
 UniqueLocalIncreasedEvasionRatingPercent33
@@ -193,6 +194,7 @@ UniqueFireDamageTakenAsPhysical1
 ]],[[
 Sands of Silk
 Shrouded Vest
+League: Dawn of the Hunt
 UniqueLocalIncreasedEvasionRatingPercent20
 UniqueIncreasedMana38
 UniqueDexterity2
@@ -202,6 +204,7 @@ GlobalCooldownRecoveryUnique__2
 ]],[[
 Yriel's Fostering
 Strider Vest
+League: Dawn of the Hunt
 UniqueLocalIncreasedEvasionRatingPercent32
 UniqueIncreasedLife53
 UniqueIncreasedSpirit12
@@ -230,6 +233,7 @@ UniqueDrainManaHealLife1
 ]],[[
 Cloak of Defiance
 Havoc Raiment
+League: Dawn of the Hunt
 UniqueLocalIncreasedEnergyShieldPercent14
 UniqueIncreasedMana20
 UniqueManaRegeneration29
@@ -260,6 +264,7 @@ UniqueChaosResist4
 ]],[[
 Gloamgown
 Elementalist Robe
+League: Dawn of the Hunt
 UniqueLocalIncreasedEnergyShieldPercent16
 UniqueIncreasedSpirit10
 UniqueColdResist31
@@ -287,7 +292,8 @@ UniqueEnergyShieldDelay2
 UniqueRechargeNotInterruptedRecently1
 ]],[[
 Silks of Veneration
-Havoc Raiment
+Enlightened Robe
+League: Dawn of the Hunt
 Implicits: 1
 BodyArmourImplicitManaRegeneration1
 UniqueIncreasedSpirit11
@@ -319,6 +325,7 @@ UniqueLifeRecharge1
 ]],[[
 Vis Mortis
 Plated Raiment
+League: Dawn of the Hunt
 UniqueLocalIncreasedEnergyShieldPercent22
 UniqueIncreasedMana43
 UniqueMinionLife5
@@ -355,6 +362,7 @@ UniqueReceiveBleedingWhenHit1
 ]],[[
 The Coming Calamity
 Heroic Armour
+League: Dawn of the Hunt
 Implicits: 4
 Grants Skill: Level (1-20) Herald of Ash
 Grants Skill: Level (1-20) Herald of Ice
@@ -373,6 +381,7 @@ UniqueLightningResistNoReduction1
 ]],[[
 The Fallen Formation
 Lamellar Mail
+League: Dawn of the Hunt
 UniqueLocalIncreasedArmourAndEvasion29
 UniqueStrength20
 UniqueDexterity37
@@ -418,6 +427,7 @@ UniqueCharmsNoCharges1
 ]],[[
 Widow's Reign
 Knight Armour
+League: Dawn of the Hunt
 (100-150)% increased Armour and Evasion
 +(100-150) to maximum Life
 +(17-23)% to Chaos Resistance
@@ -462,6 +472,7 @@ UniqueFreezeDamageMaximumMana1
 ]],[[
 The Mutable Star
 Cleric Vestments
+League: Dawn of the Hunt
 UniqueLocalIncreasedArmourAndEnergyShield20
 UniqueEnergyShieldRechargeRate5
 UniqueLifeRegeneration22
@@ -471,6 +482,7 @@ UniqueDefendWithArmourPerEnergyShield1
 ]],[[
 Sacrosanctum
 Corvus Mantle
+League: Dawn of the Hunt
 Implicits: 1
 BodyArmourImplicitIncreasedSpirit1
 UniqueLocalIncreasedArmourAndEnergyShield23
@@ -482,6 +494,7 @@ UniqueLifeRecoupAppliesToEnergyShield1
 ]],[[
 Soul Mantle
 Sacrificial Mantle
+League: Dawn of the Hunt
 UniqueLocalIncreasedArmourAndEnergyShield12
 UniqueStrength42
 UniqueIntelligence40
@@ -500,6 +513,7 @@ UniquePowerChargeOnCritChance1
 ]],[[
 Waveshaper
 Tideseer Mantle
+League: Dawn of the Hunt
 UniqueLocalIncreasedEnergyShield16
 UniqueIncreasedSpirit9
 UniqueFireResist30
@@ -557,6 +571,7 @@ UniqueReverseChill1
 ]],[[
 Zerphi's Serape
 Scalper's Jacket
+League: Dawn of the Hunt
 UniqueLocalIncreasedEvasionAndEnergyShield11
 UniqueIncreasedMana7
 UniqueReducedLocalAttributeRequirements4
@@ -622,6 +637,7 @@ UniqueEvasionOvercappedLightningResistance1
 ]],[[
 Tabula Rasa
 Garment
+League: Dawn of the Hunt
 Sockets: S S S S S S
 Has 6 Rune Sockets
 ]],

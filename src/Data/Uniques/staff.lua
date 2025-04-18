@@ -43,6 +43,7 @@ Grants Skill: Level (1-20) Living Bomb
 ]],[[
 Sire of Shards
 Chiming Staff
+League: Dawn of the Hunt
 Implicits: 1
 Grants Skill: Level (1-20) Sigil of Power
 (80-120)% increased Spell Damage

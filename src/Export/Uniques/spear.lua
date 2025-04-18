@@ -5,6 +5,7 @@ return {
 [[
 Chainsting
 Hunting Spear
+League: Dawn of the Hunt
 Implicits: 2
 Grants Skill: Spear Throw
 SpearImplicitLocalChanceToMaim1
@@ -16,6 +17,7 @@ UniqueLocalIncreasedProjectileSpeed1
 ]],[[
 Daevata's Wind
 War Spear
+League: Dawn of the Hunt
 Implicits: 2
 Grants Skill: Spear Throw
 SpearImplicitLocalProjectileSpeed1
@@ -27,6 +29,7 @@ UniqueProjectileDamageIfMeleeHitRecently1
 ]],[[
 Saitha's Spear
 Barbed Spear
+League: Dawn of the Hunt
 Implicits: 1
 Grants Skill: Spear Throw
 UniqueLocalAddedPhysicalDamage20
@@ -37,6 +40,7 @@ UniqueLocalChanceToAggravateBleed1
 ]],[[
 Splinter of Loratta
 Hardwood Spear
+League: Dawn of the Hunt
 Implicits: 1
 Grants Skill: Spear Throw
 UniqueLocalAddedPhysicalDamage3
@@ -46,6 +50,7 @@ UniqueLocalPoisonOnHit1
 ]],[[
 Skysliver
 Winged Spear
+League: Dawn of the Hunt
 Implicits: 1
 Grants Skill: Spear Throw
 UniqueLocalNoWeaponPhysicalDamage1
@@ -56,6 +61,7 @@ UniqueLocalAlwaysMinimumOrMaximum1
 ]],[[
 Spire of Ire
 Helix Spear
+League: Dawn of the Hunt
 Implicits: 2
 Grants Skill: Spear Throw
 Grants Skill: Level (1-20) Chaotic Infusion
@@ -67,6 +73,7 @@ UniqueLifeLeechChaosDamage1
 ]],[[
 Tangletongue
 Forked Spear
+League: Dawn of the Hunt
 Implicits: 1
 Grants Skill: Spear Throw
 UniqueLocalAddedPhysicalDamage21
@@ -77,6 +84,7 @@ UniqueLifeCost2
 ]],[[
 Tyranny's Grip
 Ironhead Spear
+League: Dawn of the Hunt
 Implicits: 1
 Grants Skill: Spear Throw
 UniqueLocalIncreasedPhysicalDamagePercent11

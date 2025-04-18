@@ -5,6 +5,7 @@ return {
 [[
 Apep's Supremacy
 Voodoo Focus
+League: Dawn of the Hunt
 UniqueLocalIncreasedEnergyShieldPercent13
 UniqueEnergyShieldRechargeRate7
 UniqueEnergyShieldDelay5
@@ -30,6 +31,7 @@ UniqueEnergyShieldRechargeOnKill1
 ]],[[
 Effigy of Cruelty
 Antler Focus
+League: Dawn of the Hunt
 UniqueLocalIncreasedEnergyShield14
 UniqueSpellDamageOnWeapon5
 UniqueIntelligence41
@@ -49,6 +51,7 @@ RingImplicitLightningResistance1
 ]],[[
 Rathpith Globe
 Sacred Focus
+League: Dawn of the Hunt
 UniqueLocalIncreasedEnergyShieldPercent21
 UniqueIncreasedLife50
 UniqueNonChannellingSpellLifeCost1

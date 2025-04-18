@@ -5,6 +5,7 @@ return {
 [[
 Cursecarver
 Acrid Wand
+League: Dawn of the Hunt
 Variant: Flammability
 Variant: Hypothermia
 Variant: Conductivity
@@ -55,6 +56,7 @@ Gain (10-15) Life per Enemy Killed
 ]],[[
 The Wicked Quill
 Withered Wand
+League: Dawn of the Hunt
 Implicits: 1
 Grants Skill: Level (1-20) Chaos Bolt
 (60-100)% increased Spell Damage

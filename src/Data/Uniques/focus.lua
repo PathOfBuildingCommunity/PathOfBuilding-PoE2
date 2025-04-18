@@ -5,6 +5,7 @@ return {
 [[
 Apep's Supremacy
 Voodoo Focus
+League: Dawn of the Hunt
 (100-200)% increased Energy Shield
 (30-50)% increased Energy Shield Recharge Rate
 (30-50)% faster start of Energy Shield Recharge
@@ -30,6 +31,7 @@ Twig Focus
 ]],[[
 Effigy of Cruelty
 Antler Focus
+League: Dawn of the Hunt
 +(20-30) to maximum Energy Shield
 (60-80)% increased Spell Damage
 +10 to Intelligence
@@ -49,6 +51,7 @@ Variant: Current
 ]],[[
 Rathpith Globe
 Sacred Focus
+League: Dawn of the Hunt
 (60-100)% increased Energy Shield
 +(60-100) to maximum Life
 Non-Channelling Spells cost an additional 6% of your maximum Life

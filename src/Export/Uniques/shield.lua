@@ -5,6 +5,7 @@ return {
 [[
 Chernobog's Pillar
 Blacksteel Tower Shield
+League: Dawn of the Hunt
 Implicits: 1
 Grants Skill: Raise Shield
 UniqueLocalIncreasedPhysicalDamageReductionRatingPercent28
@@ -52,6 +53,7 @@ UniqueDoubleAccuracyRating1
 ]],[[
 Redblade Banner
 Heraldric Tower Shield
+League: Dawn of the Hunt
 Implicits: 1
 Grants Skill: Raise Shield
 UniqueLocalBlockChance14
@@ -91,6 +93,7 @@ UniqueDisableShieldSkills1
 ]],[[
 Window to Paradise
 Barricade Tower Shield
+League: Dawn of the Hunt
 Implicits: 1
 Grants Skill: Raise Shield
 UniqueLocalIncreasedPhysicalDamageReductionRatingPercent25
@@ -111,6 +114,7 @@ UniqueEnemiesBlockedAreIntimidated1
 [[
 Bloodbarrier
 Iron Buckler
+League: Dawn of the Hunt
 Implicits: 1
 Grants Skill: Parry
 UniqueLocalBlockChance14
@@ -120,6 +124,7 @@ UniqueApplyCorruptedBloodOnBlock1
 ]],[[
 Calgyra's Arc
 Ornate Buckler
+League: Dawn of the Hunt
 Implicits: 1
 Grants Skill: Parry
 UniqueLocalIncreasedEvasionRatingPercent28
@@ -130,6 +135,7 @@ UniqueParriedDebuffDuration1
 ]],[[
 Dunkelhalt
 Leather Buckler
+League: Dawn of the Hunt
 Implicits: 1
 Grants Skill: Parry
 UniqueLocalBlockChance9
@@ -139,6 +145,7 @@ UniqueParriedDebuffMagnitude1
 ]],[[
 Nocturne
 Wooden Buckler
+League: Dawn of the Hunt
 Implicits: 1
 Grants Skill: Parry
 UniqueIncreasedMana44
@@ -149,6 +156,7 @@ UniqueParriedDebuffDuration2
 ]],[[
 Rondel de Ezo
 Plated Buckler
+League: Dawn of the Hunt
 Implicits: 1
 Grants Skill: Parry
 UniqueLocalIncreasedEvasionRatingPercent27
@@ -159,6 +167,7 @@ UniqueEnfeebleOnBlockChance1
 ]],[[
 Silverthorne
 Spiked Buckler
+League: Dawn of the Hunt
 Implicits: 1
 Grants Skill: Parry
 UniqueLocalIncreasedEvasionRatingPercent29
@@ -168,6 +177,7 @@ UniqueParryDamage1
 ]],[[
 Sunsplinter
 Array Buckler
+League: Dawn of the Hunt
 Has Alt Variant: true
 Selected Variant: 1
 Selected Alt Variant: 7
@@ -291,6 +301,7 @@ UniqueChaosResist1
 ]],[[
 Prism Guardian
 Sectarian Crest Shield
+League: Dawn of the Hunt
 Implicits: 1
 Grants Skill: Raise Shield
 UniqueLocalIncreasedArmourAndEnergyShield22

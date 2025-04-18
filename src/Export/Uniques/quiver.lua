@@ -39,6 +39,7 @@ UniqueDamageAddedAsFireAttacks1
 ]],[[
 The Lethal Draw
 Sacral Quiver
+League: Dawn of the Hunt
 Implicits: 1
 QuiverImplicitLifeGainPerTarget1
 UniqueIncreasedAttackSpeed5
@@ -48,6 +49,7 @@ UniqueBowDamageFromLifeFlaskCharges1
 ]],[[
 Rearguard
 Blunt Quiver
+League: Dawn of the Hunt
 Implicits: 1
 QuiverImplicitStunThresholdReduction1
 UniqueAddedPhysicalDamage5

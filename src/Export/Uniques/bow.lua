@@ -17,6 +17,7 @@ UniqueManaGainedFromEnemyDeath6
 ]],[[
 Doomfletch
 Composite Bow
+League: Dawn of the Hunt
 UniqueLocalAddedPhysicalDamage7
 UniqueDexterity4
 UniqueManaRegeneration3
@@ -31,6 +32,7 @@ UniqueWeaponDamageFinalPercent1
 ]],[[
 Slivertongue
 Zealot Bow
+League: Dawn of the Hunt
 UniqueLocalAddedPhysicalDamage14
 UniqueLocalCriticalStrikeChance6
 UniqueLifeLeechLocal1
@@ -50,6 +52,7 @@ UniqueProjectilesSplitCount1
 ]],[[
 Voltaxic Rift
 Fanatic Bow
+League: Dawn of the Hunt
 UniqueLocalAddedLightningDamage6
 UniqueLocalIncreasedAttackSpeed17
 UniqueLightningDamageConvertToChaos1
