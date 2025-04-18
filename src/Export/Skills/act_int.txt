@@ -488,7 +488,7 @@ statMap = {
 
 #skill FlickerStrikePlayer
 #set FlickerStrikePlayer
-#flags attack melee
+#flags attack melee area
 #mods
 #skillEnd
 
