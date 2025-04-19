@@ -251,6 +251,9 @@ local PassiveTreeClass = newClass("PassiveTree", function(self, treeVersion)
 					self.notableMap[node.dn:lower()] = node
 				end
 			else
+				if node.containJewelSocket then
+					self.sockets[node.id] = node
+				end
 				self.ascendancyMap[node.dn:lower()] = node
 				if not self.classNotables[self.ascendNameMap[node.ascendancyName].class.name] then
 					self.classNotables[self.ascendNameMap[node.ascendancyName].class.name] = { }
@@ -334,7 +337,7 @@ local PassiveTreeClass = newClass("PassiveTree", function(self, treeVersion)
 	for nodeId, socket in pairs(self.sockets) do
 		if socket.name == "Charm Socket" then
 			socket.charmSocket = true
-		else
+		elseif not socket.containJewelSocket then
 			socket.nodesInRadius = { }
 			socket.attributesInRadius = { }
 			for radiusIndex, _ in ipairs(data.jewelRadius) do
@@ -508,9 +511,8 @@ end
 
 -- Common processing code for nodes (used for both real tree nodes and subgraph nodes)
 function PassiveTreeClass:ProcessNode(node)
-
 	node.targetSize = self:GetNodeTargetSize(node)
-	node.overlay = self.nodeOverlay[node.type]
+	node.overlay = node.containJewelSocket and node.jewelOverlay or self.nodeOverlay[node.type]
 	if node.overlay then
 		local size = node.targetSize["overlay"] and node.targetSize["overlay"].width or node.targetSize.width
 		node.rsq = size * size
@@ -760,6 +762,11 @@ function PassiveTreeClass:GetNodeTargetSize(node)
 		return {
 			['overlay'] = { width = math.floor(80 * self.scaleImage), height = math.floor(80 * self.scaleImage) },
 			width = math.floor(37  * self.scaleImage), height = math.floor( 37  * self.scaleImage)
+		}
+	elseif node.containJewelSocket then
+		return {
+			['overlay'] = { width = math.floor(80 * self.scaleImage), height = math.floor(80 * self.scaleImage) },
+			width = math.floor(80 * self.scaleImage), height = math.floor(80 * self.scaleImage)
 		}
 	elseif node.ascendancyName then
 		return {
