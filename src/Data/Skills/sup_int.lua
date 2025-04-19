@@ -1382,6 +1382,12 @@ skills["SupportDerangePlayer"] = {
 			label = "Derange",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_shield_sacrifice_damage_over_time_+%_final_per_100_intelligence"] = {
+					mod("Damage", "MORE", nil, ModFlag.Dot, 0, { type = "PerStat", stat = "Int", div = 100 }),
+				},
+			},
+
 			baseFlags = {
 			},
 			constantStats = {
