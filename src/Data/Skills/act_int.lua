@@ -7590,6 +7590,7 @@ skills["FlickerStrikePlayer"] = {
 			baseFlags = {
 				attack = true,
 				melee = true,
+				area = true,
 			},
 			constantStats = {
 				{ "flicker_strike_additional_flickers_from_power_charges", 2 },
