@@ -22,6 +22,7 @@ minions["RaisedZombie"] = {
 	accuracy = 1,
 	weaponType1 = "One Handed Axe",
 	limit = "ActiveZombieLimit",
+	experienceMultiplier = 1,
 	skillList = {
 		"MinionMeleeStep",
 	},
@@ -45,6 +46,7 @@ minions["SummonedRagingSpirit"] = {
 	attackRange = 12,
 	accuracy = 1,
 	limit = "ActiveRagingSpiritLimit",
+	experienceMultiplier = 1,
 	skillList = {
 		"MinionMeleeStep",
 	},
@@ -69,6 +71,7 @@ minions["RaisedSkeletonSniper"] = {
 	accuracy = 1,
 	weaponType1 = "Bow",
 	limit = "ActiveSkeletonLimit",
+	experienceMultiplier = 1,
 	skillList = {
 		"MinionMeleeBow",
 		"GasShotSkeletonSniperMinion",
@@ -95,6 +98,7 @@ minions["RaisedSkeletonBrute"] = {
 	accuracy = 1,
 	weaponType1 = "Two Handed Mace",
 	limit = "ActiveSkeletonLimit",
+	experienceMultiplier = 1,
 	skillList = {
 		"MinionMeleeStep",
 		"BoneshatterBruteMinion",
@@ -121,6 +125,7 @@ minions["RaisedSkeletonStormMage"] = {
 	accuracy = 1,
 	weaponType1 = "Staff",
 	limit = "ActiveSkeletonLimit",
+	experienceMultiplier = 1,
 	skillList = {
 		"ArcSkeletonMageMinion",
 		"DeathStormSkeletonStormMageMinion",
@@ -147,6 +152,7 @@ minions["RaisedSkeletonFrostMage"] = {
 	accuracy = 1,
 	weaponType1 = "None",
 	limit = "ActiveSkeletonLimit",
+	experienceMultiplier = 1,
 	skillList = {
 		"FrostBoltSkeletonMageMinion",
 		"IceBombSkeletonMageMinion",
@@ -173,6 +179,7 @@ minions["RaisedSkeletonCleric"] = {
 	accuracy = 1,
 	weaponType1 = "One Handed Mace",
 	limit = "ActiveSkeletonLimit",
+	experienceMultiplier = 1,
 	skillList = {
 		"HealSkeletonClericMinion",
 		"ResurrectSkeletonClericMinion",
@@ -200,6 +207,7 @@ minions["RaisedSkeletonArsonist"] = {
 	accuracy = 1,
 	weaponType1 = "None",
 	limit = "ActiveSkeletonLimit",
+	experienceMultiplier = 1,
 	skillList = {
 		"FireBombSkeletonMinion",
 		"DestructiveLinkSkeletonBombadierMinion",
@@ -227,6 +235,7 @@ minions["RaisedSkeletonReaver"] = {
 	weaponType1 = "One Handed Axe",
 	weaponType2 = "One Handed Axe",
 	limit = "ActiveSkeletonLimit",
+	experienceMultiplier = 1,
 	skillList = {
 		"MinionMeleeStep",
 		"EnrageSkeletonReaverMinion",
@@ -254,6 +263,7 @@ minions["RaisedSkeletonWarriors"] = {
 	weaponType1 = "One Handed Sword",
 	weaponType2 = "Shield",
 	limit = "ActiveSkeletonLimit",
+	experienceMultiplier = 1,
 	skillList = {
 		"MinionMeleeStep",
 	},
@@ -280,6 +290,7 @@ minions["SummonedHellhound"] = {
 	attackTime = 0.75,
 	attackRange = 10,
 	accuracy = 1,
+	experienceMultiplier = 1,
 	skillList = {
 		"MinionMelee",
 	},
@@ -303,6 +314,7 @@ minions["AncestralSpiritTurtle"] = {
 	attackTime = 1,
 	attackRange = 15,
 	accuracy = 1,
+	experienceMultiplier = 1,
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"ABTTTortoiseTotemBubble",
@@ -330,6 +342,7 @@ minions["AncestralSpiritHulk"] = {
 	attackTime = 1,
 	attackRange = 14,
 	accuracy = 1,
+	experienceMultiplier = 1,
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"DTTAncestralJadeHulkLeapSlam",
@@ -357,6 +370,7 @@ minions["AncestralSpiritCaster"] = {
 	attackTime = 1,
 	attackRange = 14,
 	accuracy = 1,
+	experienceMultiplier = 1,
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"MPSAncestralTotemSpiritSoulCasterProjectile",
@@ -384,6 +398,7 @@ minions["AncestralSpiritWarhorn"] = {
 	attackTime = 1,
 	attackRange = 27,
 	accuracy = 1,
+	experienceMultiplier = 1,
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"EGTotemSpiritJadeHornBlow",
@@ -407,6 +422,7 @@ minions["UnearthBoneConstruct"] = {
 	attackTime = 1.06,
 	attackRange = 12,
 	accuracy = 1,
+	experienceMultiplier = 1,
 	skillList = {
 		"MinionMelee",
 	},
@@ -431,6 +447,7 @@ minions["SummonedRhoa"] = {
 	attackTime = 1.23,
 	attackRange = 16,
 	accuracy = 1,
+	experienceMultiplier = 1,
 	skillList = {
 		"MinionMelee",
 	},
@@ -454,6 +471,7 @@ minions["ManifestWeapon"] = {
 	attackTime = 1,
 	attackRange = 10,
 	accuracy = 1,
+	experienceMultiplier = 1,
 	skillList = {
 		"MinionMelee",
 		"GAAnimateWeaponMaceSlam",

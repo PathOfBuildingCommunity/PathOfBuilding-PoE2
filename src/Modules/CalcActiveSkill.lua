@@ -515,7 +515,6 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 		skillModList:NewMod("Damage", "MORE", -100 * activeSkill.actor.minionData.damageFixup, "Damage Fixup", ModFlag.Attack)
 		skillModList:NewMod("Speed", "MORE", 100 * activeSkill.actor.minionData.damageFixup, "Damage Fixup", ModFlag.Attack)
 	end
-
 	if skillModList:Flag(activeSkill.skillCfg, "DisableSkill") and not skillModList:Flag(activeSkill.skillCfg, "EnableSkill") then
 		skillFlags.disable = true
 		activeSkill.disableReason = "Skills of this type are disabled"
@@ -534,7 +533,12 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 		activeEffect.grantedEffectLevel = grantedEffectLevel
 		return
 	end
-
+	-- For Spectre base reservation
+	if activeSkill.actor and activeSkill.actor.minionData and activeSkill.actor.minionData.experienceMultiplier then
+		local xpMult = activeSkill.actor.minionData.experienceMultiplier
+		local newBaseReserve = round(50 * m_max(xpMult, 0) / 10) * 10
+		env.player.mainSkill.skillData.spiritReservationFlat = newBaseReserve
+	end
 	-- Add support gem modifiers to skill mod list
 	for _, skillEffect in pairs(activeSkill.effectList) do
 		if skillEffect.grantedEffect.support then
@@ -551,7 +555,7 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 			end
 			if level.spiritReservationFlat then
 				skillModList:NewMod("ExtraSpirit", "BASE", level.spiritReservationFlat, skillEffect.grantedEffect.modSource)
-			end	
+			end
 			-- Handle multiple triggers situation and if triggered by a trigger skill save a reference to the trigger.
 			local match = skillEffect.grantedEffect.addSkillTypes and (not skillFlags.disable)
 			if match and skillEffect.grantedEffect.isTrigger then

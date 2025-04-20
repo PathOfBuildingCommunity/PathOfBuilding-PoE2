@@ -153,6 +153,9 @@ directiveTable.emit = function(state, args, out)
 	if state.limit then
 		out:write('\tlimit = "', state.limit, '",\n')
 	end
+	if monsterVariety.ExperienceMultiplier then
+		out:write('\texperienceMultiplier = ', (monsterVariety.ExperienceMultiplier / 100), ',\n')
+	end
 	out:write('\tskillList = {\n')
 	for _, grantedEffect in ipairs(monsterVariety.GrantedEffects) do
 		out:write('\t\t"', grantedEffect.Id, '",\n')

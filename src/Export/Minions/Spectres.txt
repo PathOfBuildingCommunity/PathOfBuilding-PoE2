@@ -35,6 +35,7 @@ local minions, mod, flag = ...
 
 --Terracotta Soldier
 #spectre Metadata/Monsters/TerracottaGuardians/TerracottaGuardianSceptre
+#spectre Metadata/Monsters/TerracottaGuardians/TerracottaGuardianSceptreAmbush__
 
 -- Quadrilla
 #spectre Metadata/Monsters/Quadrilla/Quadrilla
