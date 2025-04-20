@@ -168,7 +168,7 @@ Coral Circlet
 +(150-200) to Accuracy Rating
 +(10-15) to all Attributes
 -10% to Fire Resistance
-Increases and Reductions to Spell Damage also apply to Attacks at 150% of their value
+Increases and Reductions to Spell damage also apply to Attacks
 ]],[[
 Crown of Thorns
 Twig Circlet

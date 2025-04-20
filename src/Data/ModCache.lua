@@ -4096,7 +4096,7 @@ c["Increases and Reductions to Mana Regeneration Rate also apply to Energy Shiel
 c["Increases and Reductions to Minion Attack Speed also affect you"]={{[1]={flags=0,keywordFlags=0,name="MinionAttackSpeedAppliesToPlayer",type="FLAG",value=true},[2]={flags=0,keywordFlags=0,name="ImprovedMinionAttackSpeedAppliesToPlayer",type="MAX",value=100}},nil}
 c["Increases and Reductions to Minion Damage also affect you"]={{[1]={flags=0,keywordFlags=0,name="MinionDamageAppliesToPlayer",type="FLAG",value=true},[2]={flags=0,keywordFlags=0,name="ImprovedMinionDamageAppliesToPlayer",type="MAX",value=100}},nil}
 c["Increases and Reductions to Projectile Speed also apply to Damage with Bows"]={{[1]={flags=0,keywordFlags=0,name="ProjectileSpeedAppliesToBowDamage",type="FLAG",value=true}},nil}
-c["Increases and Reductions to Spell Damage also apply to Attacks at 150% of their value"]={{[1]={flags=0,keywordFlags=0,name="SpellDamageAppliesToAttacks",type="FLAG",value=true},[2]={flags=0,keywordFlags=0,name="ImprovedSpellDamageAppliesToAttacks",type="MAX",value=150}},nil}
+c["Increases and Reductions to Spell damage also apply to Attacks"]={{[1]={flags=0,keywordFlags=0,name="SpellDamageAppliesToAttacks",type="FLAG",value=true},[2]={flags=0,keywordFlags=0,name="ImprovedSpellDamageAppliesToAttacks",type="MAX",value=100}},nil}
 c["Infinite Projectile Parry Range"]={nil,"Infinite Projectile Parry Range "}
 c["Infinite Projectile Parry Range 50% increased Parried Debuff Duration"]={nil,"Infinite Projectile Parry Range 50% increased Parried Debuff Duration "}
 c["Inflict Cold Exposure on Igniting an Enemy"]={nil,"Inflict Cold Exposure on Igniting an Enemy "}

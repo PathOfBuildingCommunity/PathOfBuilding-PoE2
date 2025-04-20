@@ -168,7 +168,7 @@ UniqueLocalIncreasedEnergyShieldPercent23
 UniqueIncreasedAccuracy9
 UniqueAllAttributes7
 UniqueFireResist9
-SpellDamageModifiersApplyToAttackDamageUniqueHelmetInt7
+UniqueSpellDamageModifiersApplyToAttackDamage1
 ]],[[
 Crown of Thorns
 Twig Circlet
