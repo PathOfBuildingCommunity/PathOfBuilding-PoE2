@@ -304,6 +304,7 @@ UniqueEnergyShieldAppliesElementalReduction1
 ]],[[
 Temporalis
 Silk Robe
+Source: Drops from unique{Zarokh, the Temporal}
 Variant: Pre 0.2.0
 Variant: Current
 UniqueLocalIncreasedEnergyShield9

@@ -230,13 +230,16 @@ UniqueManaCostReduction2
 ]],[[
 Sekhema's Resolve
 Ring
+Source: Drops from unique{Zarokh, the Temporal}
 Variant: Ruby
 Variant: Emerald
 Variant: Sapphire
 Requires Level 40
 UniqueItemFoundRarityIncrease20
 UniqueAllAttributes1
-UniqueLightningResistanceNoPenalty1
+{variant:1}UniqueFireResistanceNoPenalty1
+{variant:2}UniqueColdResistanceNoPenalty1
+{variant:3}UniqueLightningResistanceNoPenalty1
 {variant:1}UniqueOnlySocketRubyJewel1
 {variant:2}UniqueOnlySocketEmeraldJewel1
 {variant:3}UniqueOnlySocketSapphireJewel1

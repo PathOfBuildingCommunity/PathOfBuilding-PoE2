@@ -219,9 +219,10 @@ Cannot have Energy Shield
 Regenerate 0.05 Life per second per Maximum Energy Shield
 ]],[[
 Sandstorm Visage
+Chain Tiara
+Source: Drops from unique{Zarokh, the Temporal}
 Variant: Pre 0.2.0
 Variant: Current
-Chain Tiara
 +(80-120) to maximum Energy Shield
 +(20-30) to Dexterity
 Enemies in your Presence are Blinded

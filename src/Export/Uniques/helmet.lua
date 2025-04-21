@@ -219,9 +219,10 @@ UniqueCannotGainEnergyShield1
 UniqueLifeRegenPerEnergyShield1
 ]],[[
 Sandstorm Visage
+Chain Tiara
+Source: Drops from unique{Zarokh, the Temporal}
 Variant: Pre 0.2.0
 Variant: Current
-Chain Tiara
 UniqueLocalIncreasedEnergyShield8
 UniqueDexterity3
 UniqueEnemiesInPresenceBlinded1

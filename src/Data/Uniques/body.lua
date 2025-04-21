@@ -311,6 +311,7 @@ Current Energy Shield also grants Elemental Damage reduction
 ]],[[
 Temporalis
 Silk Robe
+Source: Drops from unique{Zarokh, the Temporal}
 Variant: Pre 0.2.0
 Variant: Current
 +(100-150) to maximum Energy Shield

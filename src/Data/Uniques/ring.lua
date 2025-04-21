@@ -230,13 +230,16 @@ Implicits: 1
 ]],[[
 Sekhema's Resolve
 Ring
+Source: Drops from unique{Zarokh, the Temporal}
 Variant: Ruby
 Variant: Emerald
 Variant: Sapphire
 Requires Level 40
 (10-20)% increased Rarity of Items found
 {tags:attribute}+(10-20) to all Attributes
-Lightning Resistance is unaffected by Area Penalties
+{variant:2}Cold Resistance is unaffected by Area Penalties
+{variant:1}Fire Resistance is unaffected by Area Penalties
+{variant:3}Lightning Resistance is unaffected by Area Penalties
 {variant:2}You can only Socket Emerald Jewels in this item
 {variant:1}You can only Socket Ruby Jewels in this item
 {variant:3}You can only Socket Sapphire Jewels in this item

@@ -292,6 +292,7 @@ UniqueReflectCurseToSelf1
 [[
 Blessed Bonds
 Linen Wraps
+Source: Drops from unique{Zarokh, the Temporal}
 UniqueLocalBaseEvasionRatingAndEnergyShield1
 UniqueManaGainedFromEnemyDeath8
 UniqueColdExposureOnIgnite1
