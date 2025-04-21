@@ -18,6 +18,9 @@ local minions, mod, flag = ...
 -- Dinosaur
 #spectre Metadata/Monsters/BoneCultists/BoneCultists_Beast/BoneCultistBeast
 
+-- Faridun
+#spectre Metadata/Monsters/Mutewind/MutewindWomanSpearSandCrusted
+
 -- Filthy First-born
 #spectre Metadata/Monsters/Cenobite/CenobiteBloater/CenobiteBloater
 

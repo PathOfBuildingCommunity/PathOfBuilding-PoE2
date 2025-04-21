@@ -235,6 +235,19 @@ skills["MinionInstability"] = {
 #mods
 #skillEnd
 
+#skill GAMutewindWomanSpearStab1 Spear Stab
+#set GAMutewindWomanSpearStab1
+#flags triggerable attack
+#mods
+#skillEnd
+
+#skill MutewindBanditWomanLeap Leap Slam
+#set MutewindBanditWomanLeap
+#flags triggerable attack cooldown
+#baseMod skill("cooldown", 10)
+#mods
+#skillEnd
+
 #skill GATwoHeadedTitanSlam Slam
 #set GATwoHeadedTitanSlam
 #flags triggerable attack

@@ -145,6 +145,39 @@ minions["Metadata/Monsters/BoneCultists/BoneCultists_Beast/BoneCultistBeast"] = 
 	},
 }
 
+-- Faridun
+minions["Metadata/Monsters/Mutewind/MutewindWomanSpearSandCrusted"] = {
+	name = "Faridun Spearwoman",
+	monsterTags = { "fast_movement", "human", "humanoid", "melee", "not_int", "not_str", "physical_affinity", "red_blood", "SpearMetal_onhit_audio", },
+	life = 1.1,
+	baseDamageIgnoresAttackSpeed = true,
+	evasion = 0.8,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1.1,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 21,
+	accuracy = 1,
+	experienceMultiplier = 1.1,
+	skillList = {
+		"MeleeAtAnimationSpeedComboTEMP",
+		"EmptyActionMutewindBanditLeap",
+		"MutewindBanditWomanLeap",
+		"EmptyActionMutewindBanditCombo",
+		"MutewindBanditWomanCombo1",
+		"MutewindBanditWomanCombo2",
+		"MutewindBanditWomanCombo3",
+		"WalkEmergeMutewind",
+		"GAMutewindWomanSpearStab1",
+		"GAMutewindWomanSpearStab2",
+	},
+	modList = {
+	},
+}
+
 -- Filthy First-born
 minions["Metadata/Monsters/Cenobite/CenobiteBloater/CenobiteBloater"] = {
 	name = "Filthy First-born",
