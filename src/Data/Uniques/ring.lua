@@ -53,6 +53,17 @@ Implicits: 1
 {variant:2}{tags:mana}(30-50)% increased Mana Regeneration Rate
 {tags:lightning}Lightning Damage of Enemies Hitting you is Unlucky
 ]],[[
+Bursting Decay
+Unset Ring
+League: Dawn of the Hunt
+Requires Level 60
+Implicits: 1
+Grants 1 additional Skill Slot
+(15-25)% increased Rarity of Items found
+{tags:chaos}+(17-23)% to Chaos Resistance
+Lose 5% of maximum Life per second
+Attacks have added Physical damage equal to 3% of maximum Life
+]],[[
 Call of the Brotherhood
 Topaz Ring
 Requires Level 32

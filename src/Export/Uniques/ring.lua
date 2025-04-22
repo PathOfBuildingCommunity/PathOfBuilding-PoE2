@@ -53,6 +53,17 @@ UniqueLightningResist4
 {variant:2}UniqueManaRegeneration27
 UniqueEnemyExtraDamageRollsWithLightningDamage1
 ]],[[
+Bursting Decay
+Unset Ring
+League: Dawn of the Hunt
+Requires Level 60
+Implicits: 1
+RingImplicitAdditionalSkillSlots1
+UniqueItemFoundRarityIncrease22
+UniqueChaosResist34
+UniqueLifeDegenerationPercentGracePeriod3
+UniquePhysicalDamageMaximumLife1
+]],[[
 Call of the Brotherhood
 Topaz Ring
 Requires Level 32
