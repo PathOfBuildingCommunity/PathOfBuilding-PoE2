@@ -1782,6 +1782,7 @@ c["25% increased Movement Speed while affected by an Ailment"]={{[1]={[1]={type=
 c["25% increased Physical Damage"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamage",type="INC",value=25}},nil}
 c["25% increased Presence Area of Effect"]={{[1]={flags=0,keywordFlags=0,name="AreaOfEffect",type="INC",value=25}}," Presence  "}
 c["25% increased Projectile Speed"]={{[1]={flags=0,keywordFlags=0,name="ProjectileSpeed",type="INC",value=25}},nil}
+c["25% increased Rarity of Items found"]={{[1]={flags=0,keywordFlags=0,name="LootRarity",type="INC",value=25}},nil}
 c["25% increased Shock Duration"]={{[1]={flags=0,keywordFlags=0,name="EnemyShockDuration",type="INC",value=25}},nil}
 c["25% increased Skill Effect Duration"]={{[1]={flags=0,keywordFlags=0,name="Duration",type="INC",value=25}},nil}
 c["25% increased Spell Damage"]={{[1]={flags=2,keywordFlags=0,name="Damage",type="INC",value=25}},nil}
@@ -3457,6 +3458,7 @@ c["Attacks gain increased Accuracy Rating equal to their Critical Hit Chance"]={
 c["Attacks have +1% to Critical Hit Chance"]={{[1]={flags=1,keywordFlags=0,name="CritChance",type="BASE",value=1}},nil}
 c["Attacks have 10% chance to Maim on Hit"]={{}," to Maim  "}
 c["Attacks have 25% chance to Maim on Hit"]={{}," to Maim  "}
+c["Attacks have added Physical damage equal to 3% of maximum Life"]={{[1]={[1]={percent=3,stat="Life",type="PercentStat"},[2]={skillType=1,type="SkillType"},flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=1},[2]={[1]={percent=3,stat="Life",type="PercentStat"},[2]={skillType=1,type="SkillType"},flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=1}},nil}
 c["Attacks used by Totems have 4% increased Attack Speed"]={{[1]={flags=1,keywordFlags=16384,name="Speed",type="INC",value=4}},nil}
 c["Attacks using your Weapons have Added Physical Damage equal"]={nil,"Added Physical Damage equal "}
 c["Attacks using your Weapons have Added Physical Damage equal to 25% of the Accuracy Rating on the Weapon"]={{[1]={[1]={percent="25",stat="AccuracyOnWeapon 1",type="PercentStat"},[2]={neg=true,skillType=167,type="SkillType"},[3]={type="Condition",var="MainHandAttack"},flags=1,keywordFlags=0,name="PhysicalMin",type="BASE",value=1},[2]={[1]={percent="25",stat="AccuracyOnWeapon 1",type="PercentStat"},[2]={neg=true,skillType=167,type="SkillType"},[3]={type="Condition",var="MainHandAttack"},flags=1,keywordFlags=0,name="PhysicalMax",type="BASE",value=1},[3]={[1]={percent="25",stat="AccuracyOnWeapon 2",type="PercentStat"},[2]={neg=true,skillType=167,type="SkillType"},[3]={type="Condition",var="OffHandAttack"},flags=1,keywordFlags=0,name="PhysicalMin",type="BASE",value=1},[4]={[1]={percent="25",stat="AccuracyOnWeapon 2",type="PercentStat"},[2]={neg=true,skillType=167,type="SkillType"},[3]={type="Condition",var="OffHandAttack"},flags=1,keywordFlags=0,name="PhysicalMax",type="BASE",value=1}},nil}
