@@ -3688,6 +3688,7 @@ local specialModList = {
 		flag("PoisonCanStack"),
 		mod("PoisonStacks", "OVERRIDE", math.huge , { type = "Condition", var = "{Hand}Attack" }, { type = "SkillType", skillType = SkillType.NonWeaponAttack, neg = true })
 		},
+	["always poison on hit with this weapon"] = { mod("PoisonChance", "OVERRIDE", 100 , nil, ModFlag.Weapon, 0, { type = "Condition", var = "{Hand}Attack" }, { type = "SkillType", skillType = SkillType.NonWeaponAttack, neg = true })},
 	-- Suppression
 	["y?o?u?r? ?chance to suppress spell damage is lucky"] = { flag("SpellSuppressionChanceIsLucky") },
 	["y?o?u?r? ?chance to suppress spell damage is unlucky"] = { flag("SpellSuppressionChanceIsUnlucky") },
