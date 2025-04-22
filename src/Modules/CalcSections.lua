@@ -952,7 +952,11 @@ return {
 { 1, "Poison", 1, colorCodes.OFFENCE, {{ defaultCollapsed = false, label = "Poison", data = {
 	extra = "{0:output:PoisonChance}% {1:output:PoisonDPS} {2:output:PoisonDuration}s",
 	flag = "poison",
-	{ label = "Max Poison Stacks", { format = "{1:output:PoisonStacksMax}", { modName = "PoisonStacks" }, }, },
+	{ label = "Max Poison Stacks", { format = "{1:output:PoisonStacksMax}", 
+		{ modName = "PoisonStacks" },
+		{ label = "Main Hand", flag = "weapon1Attack", modName = "PoisonStacks", cfg = "weapon1" },
+		{ label = "Off Hand", flag = "weapon2Attack", modName = "PoisonStacks", cfg = "weapon2" },
+	}, },
 	{ label = "Stack Potential", { format = "{2:output:PoisonStackPotentialPercent}%", { breakdown = "PoisonStackPotential" } }},
 	{ label = "Average Poison Roll", { format = "{2:output:PoisonRollAverage}%", { breakdown = "PoisonRollAverage" } }},
 	{ label = "Chance to Poison", { format = "{0:output:PoisonChance}%", 
