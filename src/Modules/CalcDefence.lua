@@ -241,9 +241,9 @@ function calcs.doActorLifeManaSpiritReservation(actor)
 						instances = instances + 1
 					end
 
-					-- Extra reservation of blasphemy needs to be seperated from the reservation caused by curses
-					local blashpemyFlat = activeSkill.skillData["blasphemyReservationFlat" .. name]
-					local blasphemyEffectiveFlat = m_max(m_ceil(blashpemyFlat * mult * (100 + values.inc) / 100 * values.more / (1 + values.efficiency / 100), 0), 0)
+					-- Extra reservation of blasphemy needs to be separated from the reservation caused by curses
+					local blasphemyFlat = activeSkill.skillData["blasphemyReservationFlat" .. name]
+					local blasphemyEffectiveFlat = m_max(m_ceil(blasphemyFlat * mult * (100 + values.inc) / 100 * values.more / (1 + values.efficiency / 100), 0), 0)
 					values.reservedFlat = values.reservedFlat + blasphemyEffectiveFlat * instances
 				end
 					-- Blood Sacrament increases reservation per stage channelled
