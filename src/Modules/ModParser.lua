@@ -2090,6 +2090,9 @@ local specialModList = {
 	["nearby corpses explode when you warcry, dealing (%d+)%% of their life as (.+) damage"] = function(amount, _, type)	-- Ruthless Berserker node
 		return explodeFunc(100, amount, type)
 	end,
+	["(%d+)%% chance for enemies you kill to explode, dealing (%d+)%% of their maximum life as (.+) damage"] = function(chance, _, amount, type)	-- Zealous Inquisition (Witchhunter Ascendancy)
+		return explodeFunc(chance, amount, type)
+	end,
 	-- Keystones
 	["(%d+)%% more skill speed while off hand is empty and you have a one%-handed martial weapon equipped in your main hand"] = function(num) return {
 		mod("Speed", "MORE", num, {type = "Condition", var = "UsingOneHandedWeapon"}, {type = "Condition", var = "OffHandIsEmpty"}), 

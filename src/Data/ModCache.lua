@@ -841,8 +841,7 @@ c["1% to Maximum Fire Resistance for each 40% Uncapped Fire Resistance"]={{[1]={
 c["10 Life Regeneration per second"]={{[1]={flags=0,keywordFlags=0,name="LifeRegen",type="BASE",value=10}},nil}
 c["10% chance for Attack Hits to apply ten Incision"]={{[1]={flags=0,keywordFlags=0,name="Condition:CanInflictIncision",type="FLAG",value=true}},nil}
 c["10% chance for Enemies you Kill to Explode, dealing 100%"]={{}," for Enemies you Kill to Explode, dealing 100% "}
-c["10% chance for Enemies you Kill to Explode, dealing 100% of their maximum Life as Physical Damage"]={{[1]={flags=0,keywordFlags=0,name="Life",type="BASE",value=10}}," for Enemies you Kill to Explode, dealing 100% of their  as Physical Damage "}
-c["10% chance for Enemies you Kill to Explode, dealing 100% of their maximum Life as Physical Damage Chance is doubled against Undead and Demons"]={{[1]={flags=0,keywordFlags=0,name="Life",type="BASE",value=10}}," for Enemies you Kill to Explode, dealing 100% of their  as Physical Damage Chance is doubled against Undead and Demons "}
+c["10% chance for Enemies you Kill to Explode, dealing 100% of their maximum Life as Physical Damage"]={{[1]={flags=0,keywordFlags=0,name="ExplodeMod",type="LIST",value={amount=100,chance=0.1,keyOfScaledMod="chance",type="Physical"}},[2]={flags=0,keywordFlags=0,name="CanExplode",type="FLAG",value=true}},nil}
 c["10% chance for Flasks you use to not consume Charges"]={{[1]={flags=0,keywordFlags=0,name="FlaskChanceNotConsumeCharges",type="BASE",value=10}},nil}
 c["10% chance for Mace Slam Skills you use yourself to cause Aftershocks"]={{}," for Mace Slam Skills you use yourself to cause Aftershocks "}
 c["10% chance for Mace Slam Skills you use yourself to cause Aftershocks 10% chance for Mace Strike Skills you use yourself to cause Aftershocks, dealing"]={{}," for Mace Slam Skills you use yourself to cause Aftershocks 10% chance forSkills you use yourself to cause Aftershocks, dealing "}
@@ -4690,8 +4689,6 @@ c["Your speed is unaffected by Slows"]={{[1]={flags=0,keywordFlags=0,name="Unaff
 c["apply to Energy Shield Recharge Rate"]={nil,"apply to Energy Shield Recharge Rate "}
 c["apply to Energy Shield Recharge Rate Gain 50% of Maximum Mana as Armour"]={nil,"apply to Energy Shield Recharge Rate Gain 50% of Maximum Mana as Armour "}
 c["for 4 seconds while Shield is raised"]={nil,"for 4 seconds while Shield is raised "}
-c["of their maximum Life as Physical Damage"]={nil,"of their maximum Life as Physical Damage "}
-c["of their maximum Life as Physical Damage Chance is doubled against Undead and Demons"]={nil,"of their maximum Life as Physical Damage Chance is doubled against Undead and Demons "}
 c["the enemy's Power for 6 seconds, up to a total of 500"]={nil,"the enemy's Power for 6 seconds, up to a total of 500 "}
 c["the same damage to enemies within 1.8 metres"]={nil,"the same damage to enemies within 1.8 metres "}
 c["until you take no Damage to Life for 5 seconds"]={nil,"until you take no Damage to Life for 5 seconds "}
