@@ -1289,7 +1289,7 @@ return {
 		{ label = "Player modifiers", notFlag = "attack", modName = { "EnemyShockMagnitude", "AilmentMagnitude", "ShockAsThoughDealing" }, cfg = "skill" },
 		{ label = "Main hand modifiers", flag = "weapon1Attack", modName = { "EnemyShockMagnitude", "AilmentMagnitude", "ShockAsThoughDealing" }, cfg = "weapon1" },
 		{ label = "Off hand modifiers", flag = "weapon2Attack", modName = { "EnemyShockMagnitude", "AilmentMagnitude", "ShockAsThoughDealing" }, cfg = "weapon2" },
-		{ label = "Enemy modifiers", modName = "SelfShockEffect", enemy = true },
+		{ label = "Enemy modifiers", modName = "SelfShockMagnitude", enemy = true },
 	}, },
 	{ label = "Chance to Shock", bgCol = colorCodes.SHOCKBG, flag = "shock", { format = "{0:output:ShockChance}%",
 		{ breakdown = "MainHand.ShockChance" },
