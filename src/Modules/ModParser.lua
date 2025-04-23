@@ -4361,6 +4361,11 @@ local specialModList = {
 		mod("InstantManaLeech", "BASE", 100, { type = "Condition", var = "CriticalStrike" }),
 		mod("InstantEnergyShieldLeech", "BASE", 100, { type = "Condition", var = "CriticalStrike" })
 	},
+	["leech from critical hits is instant"] = { -- Atziri's Acuity
+		mod("InstantLifeLeech", "BASE", 100, { type = "Condition", var = "CriticalStrike" }),
+		mod("InstantManaLeech", "BASE", 100, { type = "Condition", var = "CriticalStrike" }),
+		mod("InstantEnergyShieldLeech", "BASE", 100, { type = "Condition", var = "CriticalStrike" })
+	},
 	["gain life and mana from leech instantly on critical hit"] = {
 		mod("InstantLifeLeech", "BASE", 100, { type = "Condition", var = "CriticalStrike" }),
 		mod("InstantManaLeech", "BASE", 100, { type = "Condition", var = "CriticalStrike" }),

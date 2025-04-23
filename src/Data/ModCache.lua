@@ -4126,7 +4126,7 @@ c["Leech Life 15% faster"]={{[1]={flags=0,keywordFlags=0,name="LifeLeechRate",ty
 c["Leech Life 20% slower"]={{[1]={flags=0,keywordFlags=0,name="LifeLeechRate",type="INC",value=-20}},nil}
 c["Leech Life 25% faster"]={{[1]={flags=0,keywordFlags=0,name="LifeLeechRate",type="INC",value=25}},nil}
 c["Leech Life 5% slower"]={{[1]={flags=0,keywordFlags=0,name="LifeLeechRate",type="INC",value=-5}},nil}
-c["Leech from Critical Hits is instant"]={nil,"Leech from Critical Hits is instant "}
+c["Leech from Critical Hits is instant"]={{[1]={[1]={type="Condition",var="CriticalStrike"},flags=0,keywordFlags=0,name="InstantLifeLeech",type="BASE",value=100},[2]={[1]={type="Condition",var="CriticalStrike"},flags=0,keywordFlags=0,name="InstantManaLeech",type="BASE",value=100},[3]={[1]={type="Condition",var="CriticalStrike"},flags=0,keywordFlags=0,name="InstantEnergyShieldLeech",type="BASE",value=100}},nil}
 c["Leeches 1% of maximum Life when you Cast a Spell"]={nil,"Leeches 1% of maximum Life when you Cast a Spell "}
 c["Leeches 10% of Physical Damage as Life"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamageLifeLeech",type="BASE",value=10}},nil}
 c["Leeches 5.5% of Physical Damage as Mana"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamageManaLeech",type="BASE",value=5.5}},nil}
