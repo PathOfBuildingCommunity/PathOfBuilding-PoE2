@@ -3621,7 +3621,7 @@ c["Converts all Evasion Rating to Armour"]={{[1]={flags=0,keywordFlags=0,name="I
 c["Corrupted Blood cannot be inflicted on you"]={{[1]={flags=0,keywordFlags=0,name="CorruptedBloodImmune",type="FLAG",value=true}},nil}
 c["Creates Consecrated Ground on use"]={{},nil}
 c["Critical Hits Ignore Enemy Monster Lightning Resistance"]={{[1]={[1]={type="Condition",var="CriticalStrike"},flags=0,keywordFlags=0,name="IgnoreLightningResistance",type="FLAG",value=true}},nil}
-c["Critical Hits Poison the enemy"]={nil,"Critical Hits Poison the enemy "}
+c["Critical Hits Poison the enemy"]={{[1]={[1]={type="Condition",var="CriticalStrike"},flags=0,keywordFlags=0,name="PoisonChance",type="OVERRIDE",value=100}},nil}
 c["Critical Hits cannot Extract Impale"]={nil,"Critical Hits cannot Extract Impale "}
 c["Critical Hits cannot Extract Impale 31 to 49 Physical Thorns damage"]={nil,"Critical Hits cannot Extract Impale 31 to 49 Physical Thorns damage "}
 c["Critical Hits do not deal extra Damage"]={{[1]={flags=0,keywordFlags=0,name="NoCritMultiplier",type="FLAG",value=true}},nil}
