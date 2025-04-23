@@ -3415,6 +3415,7 @@ local specialModList = {
 	["your cold damage cannot chill"] = { flag("ColdCannotChill") },
 	["your lightning damage can freeze but not shock"] = { flag("LightningCanFreeze"), flag("LightningCannotShock") },
 	["your chaos damage can shock"] = { flag("ChaosCanShock") },
+	["chaos damage from hits also contributes to shock chance"] = { flag("ChaosCanShock") },
 	["your chaos damage can chill"] = { flag("ChaosCanChill") },
 	["your chaos damage can ignite"] = { flag("ChaosCanIgnite") },
 	["chaos damage can ignite, chill and shock"] = { flag("ChaosCanIgnite"), flag("ChaosCanChill"), flag("ChaosCanShock") },
