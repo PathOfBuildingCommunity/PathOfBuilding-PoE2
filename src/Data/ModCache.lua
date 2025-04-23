@@ -779,6 +779,7 @@ c["+85 to maximum Life"]={{[1]={flags=0,keywordFlags=0,name="Life",type="BASE",v
 c["+85 to maximum Mana"]={{[1]={flags=0,keywordFlags=0,name="Mana",type="BASE",value=85}},nil}
 c["+86 to maximum Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="EnergyShield",type="BASE",value=86}},nil}
 c["+9% to all Elemental Resistances"]={{[1]={flags=0,keywordFlags=0,name="ElementalResist",type="BASE",value=9}},nil}
+c["+90 to all Attributes"]={{[1]={flags=0,keywordFlags=0,name="Str",type="BASE",value=90},[2]={flags=0,keywordFlags=0,name="Dex",type="BASE",value=90},[3]={flags=0,keywordFlags=0,name="Int",type="BASE",value=90},[4]={flags=0,keywordFlags=0,name="All",type="BASE",value=90}},nil}
 c["+90 to maximum Life"]={{[1]={flags=0,keywordFlags=0,name="Life",type="BASE",value=90}},nil}
 c["+90 to maximum Mana"]={{[1]={flags=0,keywordFlags=0,name="Mana",type="BASE",value=90}},nil}
 c["+92 to maximum Life"]={{[1]={flags=0,keywordFlags=0,name="Life",type="BASE",value=92}},nil}
@@ -3910,7 +3911,7 @@ c["Gain 8% of Evasion Rating as extra Armour"]={{[1]={flags=0,keywordFlags=0,nam
 c["Gain 9 Life per Enemy Killed"]={{[1]={flags=0,keywordFlags=0,name="LifeOnKill",type="BASE",value=9}},nil}
 c["Gain Accuracy Rating equal to your Intelligence"]={{[1]={[1]={stat="Int",type="PerStat"},flags=0,keywordFlags=0,name="Accuracy",type="BASE",value=1}},nil}
 c["Gain Accuracy Rating equal to your Strength"]={{[1]={[1]={stat="Str",type="PerStat"},flags=0,keywordFlags=0,name="Accuracy",type="BASE",value=1}},nil}
-c["Gain Ailment Threshold equal to the lowest of Evasion and Armour on your Boots"]={nil,"Ailment Threshold equal to the lowest of Evasion and Armour on your Boots "}
+c["Gain Ailment Threshold equal to the lowest of Evasion and Armour on your Boots"]={{[1]={[1]={stat="LowestOfArmourAndEvasionOnBoots",type="PerStat"},flags=0,keywordFlags=0,name="AilmentThreshold",type="BASE",value=1}},nil}
 c["Gain Arcane Surge on Hit with Spells if you have at least 150 Devotion"]={{[1]={[1]={type="Condition",var="HitSpellRecently"},[2]={stat="Devotion",threshold=150,type="StatThreshold"},flags=0,keywordFlags=0,name="Condition:ArcaneSurge",type="FLAG",value=true}},nil}
 c["Gain Endurance Charges instead of Power Charges"]={nil,"Endurance Charges instead of Power Charges "}
 c["Gain Frenzy Charges instead of Endurance Charges"]={nil,"Frenzy Charges instead of Endurance Charges "}
@@ -4055,12 +4056,10 @@ c["Herald Skills deal 20% increased Damage"]={{[1]={[1]={skillType=52,type="Skil
 c["Herald Skills deal 30% increased Damage"]={{[1]={[1]={skillType=52,type="SkillType"},flags=0,keywordFlags=0,name="Damage",type="INC",value=30}},nil}
 c["Herald Skills have 30% increased Area of Effect"]={{[1]={[1]={skillType=52,type="SkillType"},flags=0,keywordFlags=0,name="AreaOfEffect",type="INC",value=30}},nil}
 c["Historic"]={{},nil}
-c["Hits Break 30% increased Armour on targets with Ailments"]={nil,"Hits Break 30% increased Armour on targets with Ailments "}
-c["Hits Break 30% increased Armour on targets with Ailments +10 to Strength"]={nil,"Hits Break 30% increased Armour on targets with Ailments +10 to Strength "}
-c["Hits Break 30% increased Armour on targets with Ailments +10 to Strength 25% increased Physical Damage"]={nil,"Hits Break 30% increased Armour on targets with Ailments +10 to Strength 25% increased Physical Damage "}
+c["Hits Break 30% increased Armour on targets with Ailments"]={{[1]={[1]={actor="enemy",type="ActorCondition",varList={[1]="Frozen",[2]="Chilled",[3]="Shocked",[4]="Electrocuted",[5]="Ignited",[6]="Poisoned",[7]="Bleeding"}},flags=0,keywordFlags=0,name="ArmourBreakPerHit",type="INC",value=30}},nil}
 c["Hits Break 50 Armour"]={nil,"Hits Break 50 Armour "}
 c["Hits Break 50 Armour Inflicts Fire Exposure when this Weapon Fully Breaks Armour"]={nil,"Hits Break 50 Armour Inflicts Fire Exposure when this Weapon Fully Breaks Armour "}
-c["Hits Break 50% increased Armour on targets with Ailments"]={nil,"Hits Break 50% increased Armour on targets with Ailments "}
+c["Hits Break 50% increased Armour on targets with Ailments"]={{[1]={[1]={actor="enemy",type="ActorCondition",varList={[1]="Frozen",[2]="Chilled",[3]="Shocked",[4]="Electrocuted",[5]="Ignited",[6]="Poisoned",[7]="Bleeding"}},flags=0,keywordFlags=0,name="ArmourBreakPerHit",type="INC",value=50}},nil}
 c["Hits against you have 15% reduced Critical Damage Bonus per Socket filled"]={{[1]={flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={[1]={type="Multiplier",var="RunesSocketedIn{SlotName}"},flags=4,keywordFlags=0,name="CritMultiplier",type="INC",value=-15}}}},nil}
 c["Hits against you have 20% reduced Critical Damage Bonus"]={{[1]={flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={flags=4,keywordFlags=0,name="CritMultiplier",type="INC",value=-20}}}},nil}
 c["Hits against you have 25% reduced Critical Damage Bonus"]={{[1]={flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={flags=4,keywordFlags=0,name="CritMultiplier",type="INC",value=-25}}}},nil}

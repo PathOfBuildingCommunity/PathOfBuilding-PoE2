@@ -3775,7 +3775,11 @@ local specialModList = {
 	["break (%d+)%% of armour on heavy stunning an enemy"] = { flag("Condition:CanArmourBreak", { type = "GlobalEffect", effectType = "Buff", effectName = "ArmourBreak" }) },
 	["break (%d+)%% increased armour"] = function(num) return { mod("ArmourBreakPerHit", "INC", num)} end,
 	["break (%d+)%% increased armour on enemies affected by ailments"] = function(num) return { 
-		mod("ArmourBreakPerHit", "INC", num, { type = "ActorCondition", actor = "enemy", varList = { "Frozen","Chilled","Shocked","Electrocuted","Ignited","Poisoned","Bleeding" } } )} end,
+		mod("ArmourBreakPerHit", "INC", num, { type = "ActorCondition", actor = "enemy", varList = { "Frozen","Chilled","Shocked","Electrocuted","Ignited","Poisoned","Bleeding" } } )
+	} end,
+	["hits break (%d+)%% increased armour on targets with ailments"] = function(num) return { 
+		mod("ArmourBreakPerHit", "INC", num, { type = "ActorCondition", actor = "enemy", varList = { "Frozen","Chilled","Shocked","Electrocuted","Ignited","Poisoned","Bleeding" } } )
+	} end,
 	["allies' aura buffs do not affect you"] = { flag("AlliesAurasCannotAffectSelf") },
 	["(%d+)%% increased effect of non%-curse auras from your skills on enemies"] = function(num) return {
 		mod("DebuffEffect", "INC", num, { type = "SkillType", skillType = SkillType.Aura }, { type = "SkillType", skillType = SkillType.AppliesCurse, neg = true }),
@@ -4658,6 +4662,9 @@ local specialModList = {
 	} end,
 	["gain stun threshold equal to the lowest of evasion and armour on your helmet"] = {
 		mod("StunThreshold", "BASE", 1, { type = "PerStat", stat = "LowestOfArmourAndEvasionOnHelmet" }),
+	},
+	["gain ailment threshold equal to the lowest of evasion and armour on your boots"] = {
+		mod("AilmentThreshold", "BASE", 1, { type = "PerStat", stat = "LowestOfArmourAndEvasionOnBoots" }),
 	},
 	["gain (%d+)%% of (%a+) ?r?a?t?i?n?g? as extra (%a+) threshold"] = function(num, _, stat, thresholdType) return {
 		mod(firstToUpper(thresholdType) .. "Threshold", "BASE", 1, { type = "PercentStat", stat = stat:gsub("^%l", string.upper):gsub(" %l", string.upper):gsub(" ", ""), percent = num })
