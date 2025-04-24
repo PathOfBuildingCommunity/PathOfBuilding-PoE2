@@ -590,6 +590,8 @@ local modNameList = {
 	["area of effect of area skills"] = "AreaOfEffect",
 	["aspect of the spider area of effect"] = { "AreaOfEffect", tag = { type = "SkillName", skillName = "Aspect of the Spider" } },
 	["firestorm explosion area of effect"] = { "AreaOfEffectSecondary", tag = { type = "SkillName", skillName = "Firestorm", includeTransfigured = true } },
+	["presence area of effect"] = "PresenceArea",
+	["presence radius"] = "PresenceRadius",
 	["duration"] = "Duration",
 	["skill effect duration"] = "Duration",
 	["fuse duration"] = "Duration",
