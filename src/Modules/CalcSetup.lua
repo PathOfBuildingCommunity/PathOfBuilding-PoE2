@@ -1775,5 +1775,21 @@ function calcs.initEnv(build, mode, override, specEnv)
 	env.modDB.multipliers.GreenSupportGems = (env.modDB.multipliers.GreenSupportGems or 0) + slotSupportGemSocketsCount.G
 	env.modDB.multipliers.BlueSupportGems = (env.modDB.multipliers.BlueSupportGems or 0) + slotSupportGemSocketsCount.B
 
+	do
+		local seen = { }
+		for _, activeSkill in ipairs(env.player.activeSkillList) do
+			local ge = activeSkill.grantedEffect or
+				(activeSkill.activeEffect and activeSkill.activeEffect.grantedEffect)
+			if ge
+				and ge.skillTypes[SkillType.Minion]
+				and ge.skillTypes[SkillType.Persistent] then
+				seen[ge.id] = true
+			end
+		end
+		local total = 0
+		for _ in pairs(seen) do total = total + 1 end
+		env.modDB.multipliers["PersistentMinionTypes"] = total
+	end
+
 	return env, cachedPlayerDB, cachedEnemyDB, cachedMinionDB
 end
