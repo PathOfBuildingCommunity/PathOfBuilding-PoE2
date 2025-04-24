@@ -4604,7 +4604,7 @@ function calcs.offence(env, actor, activeSkill)
 				skillFlags["inflict"..flatAilment] = false
 			else
 				for _, val in pairs({"OnHit", "OnCrit"}) do
-					local critCfg = cfg
+					local critCfg = copyTable(cfg,true)
 					critCfg.skillCond.CriticalStrike = val == "OnCrit" -- force crit config to be true for "OnCrit" chance calculation
 					local base = skillModList:Sum("BASE", critCfg, flatAilment.."Chance", "AilmentChance") + enemyDB:Sum("BASE", nil, "Self"..flatAilment.."Chance")
 					local inc = skillModList:Sum("INC", critCfg, flatAilment.."Chance", "AilmentChance")
