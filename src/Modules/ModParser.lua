@@ -138,6 +138,7 @@ local formList = {
 	["^gain "] = "FLAG",
 	["^you gain "] = "FLAG",
 	["is (%-?%d+)%%? "] = "OVERRIDE",
+	["is doubled"] = "DOUBLED"
 }
 
 -- Map of modifier names
@@ -5960,6 +5961,22 @@ local function parseMod(line, order)
 		modValue = type(modValue) == "table" and modValue.value or true
 	elseif modForm == "OVERRIDE" then
 		modType = "OVERRIDE"
+	elseif modForm == "DOUBLED" then
+		local modNameString
+		-- Need to assign two mod names. One actual "MORE" mod and one multiplier with a limit to prevent applying more than once
+		if type(modName) == "table" then 
+			modNameString = modName[1]
+			modName[2] = "Multiplier:" .. modNameString .. "Doubled"
+		else
+			modNameString = modName
+			modName = modName and {modName, "Multiplier:" .. modName .. "Doubled"}
+		end
+		if modName then
+			modType = { "MORE", "OVERRIDE" } 
+			modValue = { 100, 1 }
+			modExtraTags = { tag = true }
+			modExtraTags[1] = { tag = { type = "Multiplier", var = modNameString .. "Doubled", globalLimit = 100, globalLimitKey = modNameString .. "DoubledLimit" }}
+		end
 	end
 	if not modName then
 		return { }, line
@@ -5969,16 +5986,35 @@ local function parseMod(line, order)
 	local flags = 0
 	local keywordFlags = 0
 	local tagList = { }
+	local modTagList -- need this in case of multiple mods with separate tags
 	local misc = { }
 	for _, data in pairs({ modName, preFlag, modFlag, modTag, modTag2, skillTag, modExtraTags }) do
 		if type(data) == "table" then
 			flags = bor(flags, data.flags or 0)
 			keywordFlags = bor(keywordFlags, data.keywordFlags or 0)
 			if data.tag then
-				t_insert(tagList, copyTable(data.tag))
+				if data[1] and data[1].tag then -- Special handling for multiple mods with different tags within the same modExtraTags
+					modTagList = {}
+					for i, entry in ipairs(data) do
+						modTagList[i] = {}
+						if entry.tag then t_insert(modTagList[i], copyTable(entry.tag)) end
+					end
+				else
+					t_insert(tagList, copyTable(data.tag))
+				end
 			elseif data.tagList then
-				for _, tag in ipairs(data.tagList) do
-					t_insert(tagList, copyTable(tag))
+				if data[1] and data[1].tagList then -- Special handling for multiple mods with different tags within the same modExtraTags
+					modTagList = {}
+					for i, entry in ipairs(data) do
+						modTagList[i] = {}
+						for _, tag in ipairs(entry.tagList) do
+							t_insert(modTagList[i], copyTable(tag))
+						end
+					end
+				else
+					for _, tag in ipairs(data.tagList) do
+						t_insert(tagList, copyTable(tag))
+					end
 				end
 			end
 			for k, v in pairs(data) do
@@ -5993,12 +6029,13 @@ local function parseMod(line, order)
 	for i, name in ipairs(type(nameList) == "table" and nameList or { nameList }) do
 		modList[i] = {
 			name = name .. (modSuffix or misc.modSuffix or ""),
-			type = modType,
+			type = type(modType) == "table" and modType[i] or modType,
 			value = type(modValue) == "table" and modValue[i] or modValue,
 			flags = flags,
 			keywordFlags = keywordFlags,
-			unpack(tagList)
-		}
+			unpack(tagList),
+			}
+		if modTagList and modTagList[i] then t_insert(modList[i], unpack(modTagList[i])) end
 	end
 	if modList[1] then
 		-- Special handling for various modifier types
