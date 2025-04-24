@@ -97,7 +97,26 @@ local function addWeaponBaseStats(actor)
 		end
 	end
 end
-
+-- Calculate Presence radius
+---@param actor table
+local function calcPresenceRadius(actor)
+	-- Calculate modifications to radius first
+	local baseRad = actor.modDB:Sum("BASE", nil, "PresenceRadius")
+	local incRad = actor.modDB:Sum("INC", nil, "PresenceRadius")
+	local moreRad = actor.modDB:More(nil, "PresenceRadius")
+	local scaledRad = actor.modDB:Sum("OVERRIDE", nil, "PresenceRadius") or baseRad * (1 + incRad / 100) * moreRad
+	-- Calculate modifications to area second
+	local baseArea = math.pi * (scaledRad * scaledRad)
+	local incArea = actor.modDB:Sum("INC", nil, "PresenceArea")
+	local moreArea = actor.modDB:More(nil, "PresenceArea")
+	local scaledArea = actor.modDB:Sum("OVERRIDE", nil, "PresenceArea") or baseArea * (1 + incArea / 100) * moreArea
+	-- Convert back to final radius
+	local finalRadius = math.floor(math.sqrt(scaledArea / math.pi))
+	actor.output["PresenceRadius"] = finalRadius
+	if actor.breakdown then
+		actor.breakdown.PresenceRadius = actor.breakdown.area(scaledRad, (1 + incArea / 100) * moreArea, finalRadius)
+	end
+end
 -- Calculate attributes, and set conditions
 ---@param env table
 ---@param actor table
@@ -349,6 +368,9 @@ local function doActorAttribsConditions(env, actor)
 			end
 		end
 	end
+	-- Calculate Presence value and set condition
+	calcPresenceRadius(actor)
+	condList["EnemyInPresence"] = output.PresenceRadius <= env.configInput.enemyDistance
 end
 
 -- Helper function to determine curse priority when processing curses beyond the curse limit
