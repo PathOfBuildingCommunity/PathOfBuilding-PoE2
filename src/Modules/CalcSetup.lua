@@ -89,6 +89,7 @@ function calcs.initModDB(env, modDB)
 	modDB:NewMod("Convergence", "FLAG", true, "Base", { type = "Condition", var = "Convergence" })
 	modDB:NewMod("PhysicalDamageReduction", "BASE", -15, "Base", { type = "Condition", var = "Crushed" })
 	modDB:NewMod("CritChanceCap", "BASE", 100, "Base")
+	modDB:NewMod("PresenceRadius", "BASE", data.misc.presenceRadiusBase, "Base")
 	modDB.conditions["Buffed"] = env.mode_buffs
 	modDB.conditions["Combat"] = env.mode_combat
 	modDB.conditions["Effective"] = env.mode_effective
