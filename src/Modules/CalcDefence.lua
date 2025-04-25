@@ -244,6 +244,11 @@ function calcs.doActorLifeManaSpiritReservation(actor)
 					values.reservedFlat = values.reservedFlat * instances * mult
 					values.reservedPercent = values.reservedPercent * instances * mult
 				end
+				if activeSkill.skillCfg.skillName == "Spectre: {0} " and activeSkill.minion then
+					local xpMult = activeSkill.minion.minionData.experienceMultiplier
+					local selectedSpectreReserve = round(50 * m_max(xpMult, 0) / 10) * 10
+					pool.Spirit.baseFlat = selectedSpectreReserve + skillModList:Sum("BASE", skillCfg, "ExtraSpirit")
+				end
 					-- Blood Sacrament increases reservation per stage channelled
 				if activeSkill.skillCfg.skillName == "Blood Sacrament" and activeSkill.activeStageCount then
 					values.reservedFlat = values.reservedFlat * (activeSkill.activeStageCount + 1)

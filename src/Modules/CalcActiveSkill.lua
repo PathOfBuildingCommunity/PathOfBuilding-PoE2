@@ -533,12 +533,6 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 		activeEffect.grantedEffectLevel = grantedEffectLevel
 		return
 	end
-	-- For Spectre base reservation
-	if activeSkill.actor and activeSkill.actor.minionData and activeSkill.actor.minionData.experienceMultiplier then
-		local xpMult = activeSkill.actor.minionData.experienceMultiplier
-		local newBaseReserve = round(50 * m_max(xpMult, 0) / 10) * 10
-		env.player.mainSkill.skillData.spiritReservationFlat = newBaseReserve
-	end
 	-- Add support gem modifiers to skill mod list
 	for _, skillEffect in pairs(activeSkill.effectList) do
 		if skillEffect.grantedEffect.support then
