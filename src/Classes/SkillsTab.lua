@@ -207,6 +207,24 @@ local SkillsTabClass = newClass("SkillsTab", "UndoHandler", "ControlHost", "Cont
 		return self.displayGroup.source ~= nil
 	end
 
+	self.controls.sourceNote = new("LabelControl", { "TOPLEFT", self.controls.groupLabel, "TOPLEFT" }, { 0, 30 + 28, 0, 16 })
+	self.controls.sourceNote.shown = function()
+		return self.displayGroup.explodeSources ~= nil
+	end
+
+	self.controls.sourceNote.label = function()
+		local label
+		if self.displayGroup.explodeSources then
+			label = [[^7This is a special group created for the enemy explosion effect,
+which comes from the following sources:]]
+			for _, source in ipairs(self.displayGroup.explodeSources) do
+				label = label .. "\n\t" .. colorCodes[source.rarity or "NORMAL"] .. (source.name or source.dn or "???")
+			end
+			label = label .. "^7\nYou cannot delete this group, but it will disappear if you lose the above sources."
+		end
+		return label
+	end
+
 	-- Scroll bar
 	self.controls.scrollBarH = new("ScrollBarControl", nil, {0, 0, 0, 18}, 100, "HORIZONTAL", true)
 
@@ -603,7 +621,7 @@ function SkillsTabClass:CreateGemSlot(index)
 		end)
 	end
 	slot.delete.shown = function()
-		return index <= #self.displayGroup.gemList + 1
+		return index <= #self.displayGroup.gemList + 1 and self.displayGroup.explodeSources == nil
 	end
 	slot.delete.enabled = function()
 		if index == 1 and self.displayGroup and (self.displayGroup.sourceItem or self.displayGroup.sourceNode) then

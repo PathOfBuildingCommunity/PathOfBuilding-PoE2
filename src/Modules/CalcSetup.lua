@@ -175,14 +175,24 @@ function calcs.buildModListForNode(env, node, incSmallPassiveSkill)
 			t_insert(node.grantedSkills, {
 				skillId = skill.skillId,
 				level = skill.level,
-				noSupports = skill.noSupports ~= nil and skill.noSupports,
+				noSupports = skill.noSupports,
 				source = "Tree:"..node.id
 			})
 		end
 	end
 
 	if modList:Flag(nil, "CanExplode") then
-		t_insert(env.explodeSources, node)
+		-- we need to filter because buildModListForNodeList call twice this method
+		local found	= false
+		for _, n in ipairs(env.explodeSources) do
+			if n.id == node.id then
+				found = true
+				break
+			end
+		end
+		if not found then
+			t_insert(env.explodeSources, node)
+		end
 	end
 	
 	for i, mod in ipairs(modList) do
