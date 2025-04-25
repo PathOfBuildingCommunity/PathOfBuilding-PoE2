@@ -1020,11 +1020,27 @@ return {
 	},
 	alternateskilltargetingbehaviours={
 		[1]={
+			enumBase=0,
 			list=false,
 			name="Id",
 			refTo="",
 			type="String",
 			width=270
+		},
+		[2]={
+			list=false,
+			name="",
+			refTo="",
+			type="Int",
+			width=60
+		},
+		[3]={
+			enumBase=0,
+			list=false,
+			name="ClientStrings",
+			refTo="ClientStrings",
+			type="Key",
+			width=220
 		}
 	},
 	alternatetreeart={
@@ -1428,6 +1444,7 @@ return {
 			width=50
 		},
 		[3]={
+			enumBase=0,
 			list=true,
 			name="Class",
 			refTo="Characters",
@@ -1757,6 +1774,7 @@ return {
 			width=560
 		},
 		[2]={
+			enumBase=0,
 			list=false,
 			name="ItemClass",
 			refTo="ItemClasses",
@@ -1981,6 +1999,22 @@ return {
 	battlepassrewardtypes={
 	},
 	battlepasstracks={
+	},
+	belttypes={
+		[1]={
+			list=false,
+			name="Id",
+			refTo="BaseItemTypes",
+			type="Key",
+			width=210
+		},
+		[2]={
+			list=false,
+			name="",
+			refTo="",
+			type="Int",
+			width=150
+		}
 	},
 	bestiarycapturablemonsters={
 	},
@@ -4574,7 +4608,42 @@ return {
 			name="Id",
 			refTo="",
 			type="String",
-			width=280
+			width=290
+		},
+		[2]={
+			list=false,
+			name="",
+			refTo="",
+			type="Int",
+			width=70
+		},
+		[3]={
+			list=true,
+			name="",
+			refTo="",
+			type="Int",
+			width=80
+		},
+		[4]={
+			list=false,
+			name="UnlockType",
+			refTo="",
+			type="String",
+			width=150
+		},
+		[5]={
+			list=true,
+			name="",
+			refTo="",
+			type="Int",
+			width=150
+		},
+		[6]={
+			list=false,
+			name="ObtainedFrom",
+			refTo="",
+			type="String",
+			width=150
 		}
 	},
 	craftingitemclasscategories={
@@ -5290,25 +5359,26 @@ return {
 	},
 	essences={
 		[1]={
+			enumBase=0,
 			list=false,
 			name="BaseItemType",
 			refTo="BaseItemTypes",
 			type="Key",
-			width=350
+			width=370
 		},
 		[2]={
 			list=false,
 			name="HASH32",
 			refTo="",
 			type="UInt",
-			width=150
+			width=100
 		},
 		[3]={
 			list=false,
 			name="Unknown2",
 			refTo="",
 			type="Int",
-			width=150
+			width=60
 		},
 		[4]={
 			enumBase=0,
@@ -5323,14 +5393,14 @@ return {
 			name="Unknown4",
 			refTo="",
 			type="Int",
-			width=120
+			width=60
 		},
 		[6]={
 			list=false,
 			name="",
 			refTo="",
 			type="Int",
-			width=150
+			width=70
 		},
 		[7]={
 			list=false,
@@ -5344,13 +5414,56 @@ return {
 			name="",
 			refTo="",
 			type="Bool",
-			width=150
+			width=80
 		},
 		[9]={
 			list=false,
-			name="",
-			refTo="Mod",
+			name="ModTag",
+			refTo="Tags",
 			type="Key",
+			width=90
+		},
+		[10]={
+			enumBase=0,
+			list=false,
+			name="",
+			refTo="",
+			type="ShortKey",
+			width=50
+		},
+		[11]={
+			list=false,
+			name="EssenceTier",
+			refTo="",
+			type="Int",
+			width=80
+		},
+		[12]={
+			list=false,
+			name="",
+			refTo="",
+			type="Key",
+			width=90
+		},
+		[13]={
+			list=false,
+			name="CraftedMod",
+			refTo="Mods",
+			type="Key",
+			width=150
+		},
+		[14]={
+			list=true,
+			name="ItemClasses",
+			refTo="ItemClasses",
+			type="Key",
+			width=150
+		},
+		[15]={
+			list=false,
+			name="",
+			refTo="",
+			type="Int",
 			width=150
 		}
 	},
@@ -10647,10 +10760,129 @@ return {
 	npcs={
 		[1]={
 			list=false,
-			name="",
+			name="Id",
 			refTo="",
 			type="String",
 			width=360
+		},
+		[2]={
+			list=false,
+			name="Name",
+			refTo="",
+			type="String",
+			width=150
+		},
+		[3]={
+			list=false,
+			name="MetaData",
+			refTo="",
+			type="String",
+			width=150
+		},
+		[4]={
+			list=false,
+			name="",
+			refTo="",
+			type="Key",
+			width=150
+		},
+		[5]={
+			list=false,
+			name="",
+			refTo="NPCMaster",
+			type="Key",
+			width=150
+		},
+		[6]={
+			list=false,
+			name="ShortName",
+			refTo="",
+			type="String",
+			width=150
+		},
+		[7]={
+			list=false,
+			name="",
+			refTo="",
+			type="Int",
+			width=150
+		},
+		[8]={
+			list=true,
+			name="NPCAudios1",
+			refTo="NPCAudio",
+			type="Key",
+			width=150
+		},
+		[9]={
+			list=true,
+			name="NPCAudios2",
+			refTo="NPCAudio",
+			type="Key",
+			width=150
+		},
+		[10]={
+			list=false,
+			name="HASH16",
+			refTo="",
+			type="UInt16",
+			width=150
+		},
+		[11]={
+			list=false,
+			name="Model?",
+			refTo="npcs",
+			type="ShortKey",
+			width=230
+		},
+		[12]={
+			list=false,
+			name="",
+			refTo="",
+			type="Key",
+			width=100
+		},
+		[13]={
+			list=false,
+			name="",
+			refTo="",
+			type="Key",
+			width=100
+		},
+		[14]={
+			list=false,
+			name="",
+			refTo="",
+			type="Key",
+			width=100
+		},
+		[15]={
+			list=false,
+			name="Gender",
+			refTo="",
+			type="String",
+			width=150
+		},
+		[16]={
+			list=false,
+			name="",
+			refTo="",
+			type="Bool",
+			width=100
+		},
+		[17]={
+			list=false,
+			name="",
+			refTo="",
+			type="String",
+			width=150
+		},
+		[18]={
+			list=false,
+			name="",
+			refTo="",
+			type="Key",
+			width=150
 		}
 	},
 	npcshop={
@@ -12352,6 +12584,34 @@ return {
 		}
 	},
 	playertradewhisperformats={
+		[1]={
+			list=false,
+			name="Id",
+			refTo="",
+			type="String",
+			width=170
+		},
+		[2]={
+			list=false,
+			name="Whisper",
+			refTo="",
+			type="String",
+			width=150
+		},
+		[3]={
+			list=false,
+			name="InStash",
+			refTo="",
+			type="Bool",
+			width=150
+		},
+		[4]={
+			list=false,
+			name="IsPriced",
+			refTo="",
+			type="Bool",
+			width=150
+		}
 	},
 	portalaudio={
 	},
@@ -13131,7 +13391,7 @@ return {
 		},
 		[7]={
 			list=false,
-			name="",
+			name="AscendancyPointsRewarded",
 			refTo="",
 			type="Int",
 			width=150
@@ -13145,7 +13405,7 @@ return {
 		},
 		[9]={
 			list=false,
-			name="",
+			name="WeaponSetPointsRewarded",
 			refTo="",
 			type="Int",
 			width=150
@@ -15353,14 +15613,14 @@ return {
 		},
 		[2]={
 			list=false,
-			name="",
+			name="DetonationType",
 			refTo="",
 			type="Int",
 			width=100
 		},
 		[3]={
 			list=false,
-			name="",
+			name="ThrowTime",
 			refTo="",
 			type="Int",
 			width=100
