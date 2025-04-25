@@ -3263,6 +3263,11 @@ local specialModList = {
 		mod("PhysicalDamageGainAsCold", "BASE", num, nil, ModFlag.Weapon),
 		mod("PhysicalDamageGainAsFire", "BASE", num, nil, ModFlag.Weapon),
 	} end,
+	["attacks with this weapon gain (%d+)%% of physical damage as extra damage of each element"] = function(num) return {
+		mod("PhysicalDamageGainAsLightning", "BASE", num, nil, { type = "Condition", var = "{Hand}Attack" }, { type = "SkillType", skillType = SkillType.Attack }),
+		mod("PhysicalDamageGainAsCold", "BASE", num, nil, { type = "Condition", var = "{Hand}Attack" }, { type = "SkillType", skillType = SkillType.Attack }),
+		mod("PhysicalDamageGainAsFire", "BASE", num, nil, { type = "Condition", var = "{Hand}Attack" }, { type = "SkillType", skillType = SkillType.Attack }),
+	} end,
 	["gain (%d+)%% of physical damage as extra damage of each element per spirit charge"] = function(num) return {
 		mod("PhysicalDamageGainAsLightning", "BASE", num, { type = "Multiplier", var = "SpiritCharge" }),
 		mod("PhysicalDamageGainAsCold", "BASE", num, { type = "Multiplier", var = "SpiritCharge" }),
