@@ -1948,10 +1948,7 @@ c["30% increased Daze Buildup"]={{}," Daze Buildup "}
 c["30% increased Daze Buildup with Quarterstaves"]={{}," Daze Buildup  "}
 c["30% increased Daze Buildup with Quarterstaves 30% increased Freeze Buildup with Quarterstaves"]={{}," Daze Buildup  30% increased Freeze Buildup with Quarterstaves "}
 c["30% increased Daze Buildup with Quarterstaves 30% increased Freeze Buildup with Quarterstaves 30% increased Stun Buildup with Quarterstaves"]={{}," Daze Buildup  30% increased Freeze Buildup with Quarterstaves 30% increased Stun Buildup with Quarterstaves "}
-c["30% increased Defences while wielding a Quarterstaff"]={{[1]={flags=0,keywordFlags=0,name="Defences",type="INC",value=30}},"  while wielding a Quarterstaff "}
-c["30% increased Defences while wielding a Quarterstaff 30% increased Daze Buildup with Quarterstaves"]={{[1]={flags=2097156,keywordFlags=0,name="Defences",type="INC",value=30}},"  while wielding a Quarterstaff 30% increased Daze Buildup  "}
-c["30% increased Defences while wielding a Quarterstaff 30% increased Daze Buildup with Quarterstaves 30% increased Freeze Buildup with Quarterstaves"]={{[1]={flags=2097156,keywordFlags=0,name="Defences",type="INC",value=30}},"  while wielding a Quarterstaff 30% increased Daze Buildup  30% increased Freeze Buildup with Quarterstaves "}
-c["30% increased Defences while wielding a Quarterstaff 30% increased Daze Buildup with Quarterstaves 30% increased Freeze Buildup with Quarterstaves 30% increased Stun Buildup with Quarterstaves"]={{[1]={flags=2097156,keywordFlags=0,name="Defences",type="INC",value=30}},"  while wielding a Quarterstaff 30% increased Daze Buildup  30% increased Freeze Buildup with Quarterstaves 30% increased Stun Buildup with Quarterstaves "}
+c["30% increased Defences while wielding a Quarterstaff"]={{[1]={[1]={type="Condition",var="UsingStaff"},flags=0,keywordFlags=0,name="Defences",type="INC",value=30}},nil}
 c["30% increased Electrocute Buildup"]={{}," Electrocute Buildup "}
 c["30% increased Elemental Ailment Threshold"]={{[1]={flags=0,keywordFlags=0,name="AilmentThreshold",type="INC",value=30}},nil}
 c["30% increased Elemental Damage"]={{[1]={flags=0,keywordFlags=0,name="ElementalDamage",type="INC",value=30}},nil}
