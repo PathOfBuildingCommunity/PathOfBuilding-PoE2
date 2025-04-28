@@ -9085,6 +9085,29 @@ return {
 			width=150
 		}
 	},
+	monstercategories={
+		[1]={
+			list=false,
+			name="Tag",
+			refTo="Tags",
+			type="Key",
+			width=150
+		},
+		[2]={
+			list=false,
+			name="Type",
+			refTo="",
+			type="String",
+			width=150
+		},
+		[3]={
+			list=false,
+			name="HudImage",
+			refTo="",
+			type="String",
+			width=420
+		}
+	},
 	monsterchancetodropitemtemplate={
 	},
 	monsterconditionaleffectpacks={
@@ -10528,8 +10551,8 @@ return {
 		},
 		[118]={
 			list=false,
-			name="",
-			refTo="",
+			name="MonsterCategory",
+			refTo="MonsterCategories",
 			type="Key",
 			width=150
 		}

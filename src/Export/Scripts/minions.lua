@@ -46,14 +46,18 @@ local itemClassMap = {
 	["Thrusting One Hand Sword"] = "One Handed Sword",
 	["One Hand Axe"] = "One Handed Axe",
 	["One Hand Mace"] = "One Handed Mace",
+	["Crossbow"] = "Crossbow",
 	["Bow"] = "Bow",
 	["Fishing Rod"] = "Fishing Rod",
 	["Staff"] = "Staff",
+	["Warstaff"] = "Warstaff",
 	["Two Hand Sword"] = "Two Handed Sword",
 	["Two Hand Axe"] = "Two Handed Axe",
 	["Two Hand Mace"] = "Two Handed Mace",
 	["Shield"] = "Shield",
 	["Sceptre"] = "One Handed Mace",
+	["Flail"] = "Flail",
+	["Spear"] = "Spear",
 	["Unarmed"] = "None",
 }
 
@@ -155,6 +159,9 @@ directiveTable.emit = function(state, args, out)
 	end
 	if monsterVariety.ExperienceMultiplier then
 		out:write('\texperienceMultiplier = ', (monsterVariety.ExperienceMultiplier / 100), ',\n')
+	end
+	if monsterVariety.MonsterCategory then
+		out:write('\tmonsterCategory = "', (monsterVariety.MonsterCategory.Type), '",\n')
 	end
 	out:write('\tskillList = {\n')
 	for _, grantedEffect in ipairs(monsterVariety.GrantedEffects) do

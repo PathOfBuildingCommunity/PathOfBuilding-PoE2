@@ -23,6 +23,7 @@ minions["RaisedZombie"] = {
 	weaponType1 = "One Handed Axe",
 	limit = "ActiveZombieLimit",
 	experienceMultiplier = 1,
+	monsterCategory = "Undead",
 	skillList = {
 		"MinionMeleeStep",
 	},
@@ -47,6 +48,7 @@ minions["SummonedRagingSpirit"] = {
 	accuracy = 1,
 	limit = "ActiveRagingSpiritLimit",
 	experienceMultiplier = 1,
+	monsterCategory = "Construct",
 	skillList = {
 		"MinionMeleeStep",
 	},
@@ -72,6 +74,7 @@ minions["RaisedSkeletonSniper"] = {
 	weaponType1 = "Bow",
 	limit = "ActiveSkeletonLimit",
 	experienceMultiplier = 1,
+	monsterCategory = "Undead",
 	skillList = {
 		"MinionMeleeBow",
 		"GasShotSkeletonSniperMinion",
@@ -99,6 +102,7 @@ minions["RaisedSkeletonBrute"] = {
 	weaponType1 = "Two Handed Mace",
 	limit = "ActiveSkeletonLimit",
 	experienceMultiplier = 1,
+	monsterCategory = "Undead",
 	skillList = {
 		"MinionMeleeStep",
 		"BoneshatterBruteMinion",
@@ -126,6 +130,7 @@ minions["RaisedSkeletonStormMage"] = {
 	weaponType1 = "Staff",
 	limit = "ActiveSkeletonLimit",
 	experienceMultiplier = 1,
+	monsterCategory = "Undead",
 	skillList = {
 		"ArcSkeletonMageMinion",
 		"DeathStormSkeletonStormMageMinion",
@@ -153,6 +158,7 @@ minions["RaisedSkeletonFrostMage"] = {
 	weaponType1 = "None",
 	limit = "ActiveSkeletonLimit",
 	experienceMultiplier = 1,
+	monsterCategory = "Undead",
 	skillList = {
 		"FrostBoltSkeletonMageMinion",
 		"IceBombSkeletonMageMinion",
@@ -180,6 +186,7 @@ minions["RaisedSkeletonCleric"] = {
 	weaponType1 = "One Handed Mace",
 	limit = "ActiveSkeletonLimit",
 	experienceMultiplier = 1,
+	monsterCategory = "Undead",
 	skillList = {
 		"HealSkeletonClericMinion",
 		"ResurrectSkeletonClericMinion",
@@ -208,6 +215,7 @@ minions["RaisedSkeletonArsonist"] = {
 	weaponType1 = "None",
 	limit = "ActiveSkeletonLimit",
 	experienceMultiplier = 1,
+	monsterCategory = "Undead",
 	skillList = {
 		"FireBombSkeletonMinion",
 		"DestructiveLinkSkeletonBombadierMinion",
@@ -236,6 +244,7 @@ minions["RaisedSkeletonReaver"] = {
 	weaponType2 = "One Handed Axe",
 	limit = "ActiveSkeletonLimit",
 	experienceMultiplier = 1,
+	monsterCategory = "Undead",
 	skillList = {
 		"MinionMeleeStep",
 		"EnrageSkeletonReaverMinion",
@@ -264,6 +273,7 @@ minions["RaisedSkeletonWarriors"] = {
 	weaponType2 = "Shield",
 	limit = "ActiveSkeletonLimit",
 	experienceMultiplier = 1,
+	monsterCategory = "Undead",
 	skillList = {
 		"MinionMeleeStep",
 	},
@@ -291,6 +301,7 @@ minions["SummonedHellhound"] = {
 	attackRange = 10,
 	accuracy = 1,
 	experienceMultiplier = 1,
+	monsterCategory = "Demon",
 	skillList = {
 		"MinionMelee",
 	},
@@ -315,6 +326,7 @@ minions["AncestralSpiritTurtle"] = {
 	attackRange = 15,
 	accuracy = 1,
 	experienceMultiplier = 1,
+	monsterCategory = "Beast",
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"ABTTTortoiseTotemBubble",
@@ -343,6 +355,7 @@ minions["AncestralSpiritHulk"] = {
 	attackRange = 14,
 	accuracy = 1,
 	experienceMultiplier = 1,
+	monsterCategory = "Beast",
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"DTTAncestralJadeHulkLeapSlam",
@@ -371,6 +384,7 @@ minions["AncestralSpiritCaster"] = {
 	attackRange = 14,
 	accuracy = 1,
 	experienceMultiplier = 1,
+	monsterCategory = "Humanoid",
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"MPSAncestralTotemSpiritSoulCasterProjectile",
@@ -399,6 +413,7 @@ minions["AncestralSpiritWarhorn"] = {
 	attackRange = 27,
 	accuracy = 1,
 	experienceMultiplier = 1,
+	monsterCategory = "Humanoid",
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"EGTotemSpiritJadeHornBlow",
@@ -423,6 +438,7 @@ minions["UnearthBoneConstruct"] = {
 	attackRange = 12,
 	accuracy = 1,
 	experienceMultiplier = 1,
+	monsterCategory = "Undead",
 	skillList = {
 		"MinionMelee",
 	},
@@ -448,6 +464,7 @@ minions["SummonedRhoa"] = {
 	attackRange = 16,
 	accuracy = 1,
 	experienceMultiplier = 1,
+	monsterCategory = "Beast",
 	skillList = {
 		"MinionMelee",
 	},
@@ -472,6 +489,7 @@ minions["ManifestWeapon"] = {
 	attackRange = 10,
 	accuracy = 1,
 	experienceMultiplier = 1,
+	monsterCategory = "Construct",
 	skillList = {
 		"MinionMelee",
 		"GAAnimateWeaponMaceSlam",

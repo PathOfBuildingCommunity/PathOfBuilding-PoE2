@@ -24,6 +24,7 @@ minions["Metadata/Monsters/LeagueHellscape/PaleFaction/HellscapePaleElite1_"] = 
 	accuracy = 1,
 	weaponType1 = "None",
 	experienceMultiplier = 2.35,
+	monsterCategory = "Demon",
 	skillList = {
 		"TBHellscapePaleLightningBoltSpammableLeft",
 		"TBHellscapePaleLightningBoltSpammableRight",
@@ -52,6 +53,7 @@ minions["Metadata/Monsters/LeagueHellscape/PaleFaction/HellscapePaleElite2__"] =
 	accuracy = 1,
 	weaponType1 = "None",
 	experienceMultiplier = 2.25,
+	monsterCategory = "Demon",
 	skillList = {
 		"DTTHellscapeStabbySkyStab",
 		"DTTHellscapeStabWeb",
@@ -85,6 +87,7 @@ minions["Metadata/Monsters/GoreCharger/GoreCharger"] = {
 	attackRange = 13,
 	accuracy = 1,
 	experienceMultiplier = 1.7,
+	monsterCategory = "Beast",
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"GoreChargerCharge",
@@ -111,6 +114,7 @@ minions["Metadata/Monsters/QuillCrab/QuillCrabBigPoison_"] = {
 	attackRange = 50,
 	accuracy = 1,
 	experienceMultiplier = 0.85,
+	monsterCategory = "Beast",
 	skillList = {
 		"QuillCrabSpikeBurstEmptyAction",
 		"QuillCrabSpikeBurstPoison",
@@ -136,6 +140,7 @@ minions["Metadata/Monsters/QuillCrab/QuillCrabTropical"] = {
 	attackRange = 40,
 	accuracy = 1,
 	experienceMultiplier = 0.7,
+	monsterCategory = "Beast",
 	skillList = {
 		"QuillCrabSpikeBurstEmptyAction",
 		"QuillCrabSpikeBurstTropical",
@@ -162,6 +167,7 @@ minions["Metadata/Monsters/QuillCrab/QuillCrab"] = {
 	attackRange = 40,
 	accuracy = 1,
 	experienceMultiplier = 0.7,
+	monsterCategory = "Beast",
 	skillList = {
 		"QuillCrabSpikeBurstEmptyAction",
 		"QuillCrabSpikeBurst",
@@ -187,6 +193,7 @@ minions["Metadata/Monsters/ShellMonster/ShellMonster"] = {
 	attackRange = 9,
 	accuracy = 1,
 	experienceMultiplier = 1.15,
+	monsterCategory = "Beast",
 	skillList = {
 		"MeleeAtAnimationSpeedComboTEMP",
 		"ShellMonsterFirehose",
@@ -214,6 +221,7 @@ minions["Metadata/Monsters/ShellMonster/ShellMonsterPoison"] = {
 	attackRange = 9,
 	accuracy = 1,
 	experienceMultiplier = 1.15,
+	monsterCategory = "Beast",
 	skillList = {
 		"MeleeAtAnimationSpeedComboTEMP",
 		"ShellMonsterDeathMortarPoison",
@@ -241,6 +249,7 @@ minions["Metadata/Monsters/Sanctified/Monstrosity/SanctifiedMonstrosity"] = {
 	attackRange = 28,
 	accuracy = 1,
 	experienceMultiplier = 3.5,
+	monsterCategory = "Demon",
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"MPWCleansedMonstrosityRailgun",
@@ -268,6 +277,7 @@ minions["Metadata/Monsters/BoneCultists/BoneCultists_Beast/BoneCultistBeast"] = 
 	attackRange = 19,
 	accuracy = 1,
 	experienceMultiplier = 2.5,
+	monsterCategory = "Beast",
 	skillList = {
 		"MeleeAtAnimationSpeedComboTEMP",
 		"CultistBeastSunder",
@@ -292,7 +302,9 @@ minions["Metadata/Monsters/Mutewind/MutewindWomanSpearSandCrusted"] = {
 	attackTime = 1.5,
 	attackRange = 21,
 	accuracy = 1,
+	weaponType1 = "Spear",
 	experienceMultiplier = 1.1,
+	monsterCategory = "Humanoid",
 	skillList = {
 		"MeleeAtAnimationSpeedComboTEMP",
 		"EmptyActionMutewindBanditLeap",
@@ -327,6 +339,7 @@ minions["Metadata/Monsters/Cenobite/CenobiteBloater/CenobiteBloater"] = {
 	accuracy = 1,
 	weaponType1 = "Two Handed Mace",
 	experienceMultiplier = 2.5,
+	monsterCategory = "Humanoid",
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"GSCenobiteBloaterOnDeath",
@@ -353,6 +366,7 @@ minions["Metadata/Monsters/TwoheadedTitan/TwoHeadedTitan"] = {
 	attackRange = 20,
 	accuracy = 1,
 	experienceMultiplier = 2.5,
+	monsterCategory = "Humanoid",
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"GATwoHeadedTitanSlam",
@@ -379,6 +393,7 @@ minions["Metadata/Monsters/EtchedBeetles/MediumEtchedBeetleArmouredDull"] = {
 	attackRange = 12,
 	accuracy = 1,
 	experienceMultiplier = 1.5,
+	monsterCategory = "Beast",
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"GAMediumBeetleChargedSunder",
@@ -405,6 +420,7 @@ minions["Metadata/Monsters/VaalConstructs/Sentinel/VaalConstructSentinel"] = {
 	attackRange = 13,
 	accuracy = 1,
 	experienceMultiplier = 2.5,
+	monsterCategory = "Construct",
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"GAVaalConstructSentinelGroundSlam",
@@ -436,6 +452,7 @@ minions["Metadata/Monsters/TerracottaGuardians/TerracottaGuardianSceptre"] = {
 	accuracy = 1,
 	weaponType1 = "One Handed Mace",
 	experienceMultiplier = 1.1,
+	monsterCategory = "Construct",
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"EGTerracottaTransitionSideways",
@@ -461,6 +478,7 @@ minions["Metadata/Monsters/TerracottaGuardians/TerracottaGuardianSceptreAmbush__
 	accuracy = 1,
 	weaponType1 = "One Handed Mace",
 	experienceMultiplier = 0.22,
+	monsterCategory = "Construct",
 	skillList = {
 		"MeleeAtAnimationSpeed",
 	},
@@ -485,6 +503,7 @@ minions["Metadata/Monsters/Quadrilla/Quadrilla"] = {
 	attackRange = 21,
 	accuracy = 1,
 	experienceMultiplier = 2,
+	monsterCategory = "Beast",
 	skillList = {
 		"GAQuadrillaSunder",
 		"EAAQuadrillaThrow",
@@ -516,6 +535,7 @@ minions["Metadata/Monsters/VaalMonsters/Living/VaalGuardMortarLiving"] = {
 	attackRange = 10,
 	accuracy = 1,
 	experienceMultiplier = 1,
+	monsterCategory = "Humanoid",
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"MMSVaalGuardGrenade",
@@ -545,6 +565,7 @@ minions["Metadata/Monsters/VaalMonsters/Living/BloodPriests/VaalBloodPriestMale"
 	accuracy = 1,
 	weaponType1 = "Dagger",
 	experienceMultiplier = 2,
+	monsterCategory = "Humanoid",
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"VaalBloodPriestExsanguinate",
@@ -575,6 +596,7 @@ minions["Metadata/Monsters/VaalMonsters/Living/BloodPriests/VaalBloodPriestFemal
 	accuracy = 1,
 	weaponType1 = "Dagger",
 	experienceMultiplier = 2,
+	monsterCategory = "Humanoid",
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"VaalBloodPriestSoulrend",
