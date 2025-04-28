@@ -3151,6 +3151,8 @@ function calcs.offence(env, actor, activeSkill)
 
 			if critOverride == 100 then
 				output.PreEffectiveCritChance = 100
+				output.PreForkCritChance = 100
+				output.PreHitCheckCritChance = 100
 				output.CritChance = 100
 			else
 				local base = 0
