@@ -3821,8 +3821,7 @@ c["Fire Damage from Hits Contributes to Shock Chance instead of Ignite Chance an
 c["Fire Damage from Hits Contributes to Shock Chance instead of Ignite Chance and Magnitude Cold Damage from Hits Contributes to Ignite Chance and Magnitude instead of Chill Magnitude or Freeze Buildup"]={nil,"Fire Damage from Hits Contributes to Shock Chance instead of Ignite Chance and Magnitude Cold Damage from Hits Contributes to Ignite Chance and Magnitude instead of Chill Magnitude or Freeze Buildup "}
 c["Fire Exposure you inflict lowers Total Fire Resistance by an extra 5%"]={{[1]={flags=0,keywordFlags=0,name="ExtraFireExposure",type="BASE",value=-5}},nil}
 c["Flasks gain 0.17 charges per Second"]={{[1]={flags=0,keywordFlags=0,name="FlaskChargesGenerated",type="BASE",value=0.17}},nil}
-c["Forks Critical Hits"]={nil,"Forks Critical Hits "}
-c["Forks Critical Hits 10% of Skill Mana Costs Converted to Life Costs"]={nil,"Forks Critical Hits 10% of Skill Mana Costs Converted to Life Costs "}
+c["Forks Critical Hits"]={{[1]={flags=0,keywordFlags=0,name="ForkCrit",type="FLAG",value=true}},nil}
 c["Freeze as though dealing Cold damage equal to 10% of your maximum Mana when Hit"]={nil,"Freeze as though dealing Cold damage equal to 10% of your maximum Mana when Hit "}
 c["Frenzy or Power Charge"]={nil,"Frenzy or Power Charge "}
 c["Fully Armour Broken enemies you kill with Hits Shatter"]={nil,"Fully Armour Broken enemies you kill with Hits Shatter "}

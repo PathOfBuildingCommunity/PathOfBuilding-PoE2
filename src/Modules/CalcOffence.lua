@@ -3172,6 +3172,12 @@ function calcs.offence(env, actor, activeSkill)
 				if env.mode_effective and skillModList:Flag(cfg, "CritChanceLucky") then
 					output.CritChance = (1 - (1 - output.CritChance / 100) ^ 2) * 100
 				end
+				output.PreForkCritChance = output.CritChance
+				local preForkCritChance = output.CritChance
+				if env.mode_effective and skillModList:Flag(cfg, "ForkCrit") then
+					output.CritChance = (1 - (1 - output.CritChance / 100) ^ 2) * 100
+				end
+				output.PreHitCheckCritChance = output.CritChance
 				local preHitCheckCritChance = output.CritChance
 				if env.mode_effective then
 					output.CritChance = output.CritChance * output.AccuracyHitChance / 100
@@ -3198,6 +3204,11 @@ function calcs.offence(env, actor, activeSkill)
 					if env.mode_effective and skillModList:Flag(cfg, "CritChanceLucky") then
 						t_insert(breakdown.CritChance, "Crit Chance is Lucky:")
 						t_insert(breakdown.CritChance, s_format("1 - (1 - %.4f) x (1 - %.4f)", preLuckyCritChance / 100, preLuckyCritChance / 100))
+						t_insert(breakdown.CritChance, s_format("= %.2f%%", preForkCritChance))
+					end
+					if env.mode_effective and skillModList:Flag(cfg, "ForkCrit") then
+						t_insert(breakdown.CritChance, "Critical Strike Forks:")
+						t_insert(breakdown.CritChance, s_format("1 - (1 - %.4f) x (1 - %.4f)", preForkCritChance / 100, preForkCritChance / 100))
 						t_insert(breakdown.CritChance, s_format("= %.2f%%", preHitCheckCritChance))
 					end
 					if env.mode_effective and output.AccuracyHitChance < 100 then
@@ -3221,6 +3232,22 @@ function calcs.offence(env, actor, activeSkill)
 				if multiOverride then
 					extraDamage = multiOverride / 100
 				end
+
+				output.PreEffectiveCritMultiplier = 1 + extraDamage
+				-- if crit forks are enabled, roll for crit twice and add multiplier for each
+				if env.mode_effective and skillModList:Flag(cfg, "ForkCrit") then
+					-- get crit chance and calculate odds of critting twice
+					local critChancePercentage = output.PreForkCritChance
+					local preHitCheckCritChance = output.PreHitCheckCritChance
+					local forkMultiChance = (critChancePercentage ^ 2) / preHitCheckCritChance 
+
+					local damageBonus = extraDamage
+					local forkedBonus = forkMultiChance * extraDamage / 100 
+					
+					extraDamage = damageBonus + forkedBonus
+					skillModList:NewMod("CritMultiplier", "MORE", m_floor(forkMultiChance), "Forked Crit Damage Bonus")
+				end
+
 				if env.mode_effective then
 					local enemyInc = 1 + enemyDB:Sum("INC", nil, "SelfCritMultiplier") / 100
 					extraDamage = extraDamage + enemyDB:Sum("BASE", nil, "SelfCritMultiplier") / 100
@@ -3233,6 +3260,8 @@ function calcs.offence(env, actor, activeSkill)
 						}
 					end
 				end
+
+
 				output.CritMultiplier = 1 + m_max(0, extraDamage)
 			end
 			local critChancePercentage = output.CritChance / 100
@@ -3896,6 +3925,7 @@ function calcs.offence(env, actor, activeSkill)
 		-- Combine crit stats, average damage and DPS
 		combineStat("PreEffectiveCritChance", "AVERAGE")
 		combineStat("CritChance", "AVERAGE")
+		combineStat("PreEffectiveCritMultiplier", "AVERAGE")
 		combineStat("CritMultiplier", "AVERAGE")
 		combineStat("AverageDamage", "DPS")
 		combineStat("PvpAverageDamage", "DPS")

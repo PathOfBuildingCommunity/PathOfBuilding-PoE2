@@ -3316,6 +3316,7 @@ local specialModList = {
 	["minion critical hits do not deal extra damage"] = { mod("MinionModifier", "LIST", { mod = flag("NoCritMultiplier") }) },
 	["lightning damage with non%-critical hits is lucky"] = { flag("LightningNoCritLucky") },
 	["your damage with critical hits is lucky"] = { flag("CritLucky") },
+	["forks critical hits"] = { flag("ForkCrit") },
 	["critical hits deal no damage"] = { mod("Damage", "MORE", -100, { type = "Condition", var = "CriticalStrike" }) },
 	["critical hit chance is increased by uncapped lightning resistance"] = { flag("CritChanceIncreasedByUncappedLightningRes") },
 	["critical hit chance is increased by lightning resistance"] = { flag("CritChanceIncreasedByLightningRes") },
