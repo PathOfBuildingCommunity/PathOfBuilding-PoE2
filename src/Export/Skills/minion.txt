@@ -205,6 +205,18 @@ skills["MinionInstability"] = {
 #mods
 #skillEnd
 
+#skill EDSShellMonsterFlamethrower Flamethrower
+#set EDSShellMonsterFlamethrower
+#flags spell triggerable
+#mods
+#skillEnd
+
+#skill EDSShellMonsterPoisonSpray Poison Spray
+#set EDSShellMonsterPoisonSpray
+#flags spell triggerable
+#mods
+#skillEnd
+
 #skill GSCenobiteBloaterOnDeath Death Explosion
 #set GSCenobiteBloaterOnDeath
 #flags spell triggerable
@@ -238,13 +250,6 @@ skills["MinionInstability"] = {
 #skill GAMutewindWomanSpearStab1 Spear Stab
 #set GAMutewindWomanSpearStab1
 #flags triggerable attack
-#mods
-#skillEnd
-
-#skill MutewindBanditWomanLeap Leap Slam
-#set MutewindBanditWomanLeap
-#flags triggerable attack cooldown
-#baseMod skill("cooldown", 10)
 #mods
 #skillEnd
 
@@ -311,6 +316,61 @@ skills["MinionInstability"] = {
 #skill MPWCleansedMonstrosityRailgun Railgun
 #set MPWCleansedMonstrosityRailgun
 #flags attack projectile triggerable
+#mods
+#skillEnd
+
+#skill MutewindBanditWomanLeap Leap Slam
+#set MutewindBanditWomanLeap
+#flags triggerable attack
+#baseMod skill("cooldown", 10)
+#mods
+#skillEnd
+
+#skill QuillCrabSpikeBurst Spike Burst
+#set QuillCrabSpikeBurst
+#flags attack projectile
+#mods
+#skillEnd
+
+#skill QuillCrabSpikeBurstPoison Spike Burst
+#set QuillCrabSpikeBurstPoison
+#flags attack projectile
+#mods
+#skillEnd
+
+#skill QuillCrabSpikeBurstTropical Spike Burst
+#set QuillCrabSpikeBurstTropical
+#flags attack projectile
+#mods
+#skillEnd
+
+#skill ShellMonsterDeathMortar Death Mortar
+#set ShellMonsterDeathMortar
+#flags spell projectile area
+#mods
+#skillEnd
+
+#skill ShellMonsterDeathMortarPoison Death Mortar
+#set ShellMonsterDeathMortarPoison
+#flags spell projectile area
+#mods
+#skillEnd
+
+#skill ShellMonsterFirehose Firehose
+#set ShellMonsterFirehose
+#flags spell triggerable
+#mods
+#skillEnd
+
+#skill ShellMonsterSprayMortar Mortar
+#set ShellMonsterSprayMortar
+#flags spell projectile area
+#mods
+#skillEnd
+
+#skill ShellMonsterSprayMortarPoison Mortar
+#set ShellMonsterSprayMortarPoison
+#flags spell projectile area
 #mods
 #skillEnd
 

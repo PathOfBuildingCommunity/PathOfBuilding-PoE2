@@ -94,6 +94,137 @@ minions["Metadata/Monsters/GoreCharger/GoreCharger"] = {
 	},
 }
 
+-- Crab
+minions["Metadata/Monsters/QuillCrab/QuillCrabBigPoison_"] = {
+	name = "Venomous Crab Matriarch",
+	monsterTags = { "allows_additional_projectiles", "beast", "insect", "monster_applies_poison", "MonsterStab_onhit_audio", "not_dex", "not_int", "physical_affinity", "ranged", "red_blood", "slow_movement", },
+	life = 0.85,
+	baseDamageIgnoresAttackSpeed = true,
+	armour = 0.25,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 0.85,
+	damageSpread = 0.2,
+	attackTime = 1.995,
+	attackRange = 50,
+	accuracy = 1,
+	experienceMultiplier = 0.85,
+	skillList = {
+		"QuillCrabSpikeBurstEmptyAction",
+		"QuillCrabSpikeBurstPoison",
+		"QuillCrabSpikeShrapnelAudioPoison",
+		"QuillCrabSpikeShrapnelPoison",
+	},
+	modList = {
+	},
+}
+minions["Metadata/Monsters/QuillCrab/QuillCrabTropical"] = {
+	name = "Quill Crab",
+	monsterTags = { "beast", "crustacean_beast", "MonsterStab_onhit_audio", "not_dex", "not_int", "red_blood", "slow_movement", },
+	life = 0.7,
+	baseDamageIgnoresAttackSpeed = true,
+	armour = 0.25,
+	fireResist = 0,
+	coldResist = 30,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 0.7,
+	damageSpread = 0.2,
+	attackTime = 1.995,
+	attackRange = 40,
+	accuracy = 1,
+	experienceMultiplier = 0.7,
+	skillList = {
+		"QuillCrabSpikeBurstEmptyAction",
+		"QuillCrabSpikeBurstTropical",
+		"QuillCrabSpikeShrapnelTropical",
+		"CGEQuillCrabTropicalChill",
+		"GSQuillCrabColdImpact",
+	},
+	modList = {
+	},
+}
+minions["Metadata/Monsters/QuillCrab/QuillCrab"] = {
+	name = "Porcupine Crab",
+	monsterTags = { "allows_additional_projectiles", "beast", "fire_affinity", "insect", "MonsterStab_onhit_audio", "not_dex", "not_int", "physical_affinity", "ranged", "red_blood", "slow_movement", },
+	life = 0.7,
+	baseDamageIgnoresAttackSpeed = true,
+	armour = 0.25,
+	fireResist = 30,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 0.7,
+	damageSpread = 0.2,
+	attackTime = 1.995,
+	attackRange = 40,
+	accuracy = 1,
+	experienceMultiplier = 0.7,
+	skillList = {
+		"QuillCrabSpikeBurstEmptyAction",
+		"QuillCrabSpikeBurst",
+		"QuillCrabSpikeShrapnelAudio",
+		"QuillCrabSpikeShrapnel",
+	},
+	modList = {
+	},
+}
+minions["Metadata/Monsters/ShellMonster/ShellMonster"] = {
+	name = "Brimstone Crab",
+	monsterTags = { "allows_additional_projectiles", "allows_inc_aoe", "beast", "crustacean_beast", "fire", "fire_affinity", "melee", "MonsterStab_onhit_audio", "not_dex", "not_int", "ranged", "slow_movement", },
+	life = 1.15,
+	baseDamageIgnoresAttackSpeed = true,
+	armour = 1,
+	fireResist = 30,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1.15,
+	damageSpread = 0.2,
+	attackTime = 1.005,
+	attackRange = 9,
+	accuracy = 1,
+	experienceMultiplier = 1.15,
+	skillList = {
+		"MeleeAtAnimationSpeedComboTEMP",
+		"ShellMonsterFirehose",
+		"ShellMonsterDeathMortar",
+		"EDSShellMonsterFlamethrower",
+		"ShellMonsterSprayMortar",
+	},
+	modList = {
+		-- SpectrePlayDeathAction [is_spectre_with_death_action = 1]
+	},
+}
+minions["Metadata/Monsters/ShellMonster/ShellMonsterPoison"] = {
+	name = "Caustic Crab",
+	monsterTags = { "allows_additional_projectiles", "beast", "crustacean_beast", "MonsterStab_onhit_audio", "not_dex", "not_int", "physical_affinity", "ranged", "slow_movement", },
+	life = 1.15,
+	baseDamageIgnoresAttackSpeed = true,
+	armour = 1,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = -30,
+	chaosResist = 0,
+	damage = 1.15,
+	damageSpread = 0.2,
+	attackTime = 1.005,
+	attackRange = 9,
+	accuracy = 1,
+	experienceMultiplier = 1.15,
+	skillList = {
+		"MeleeAtAnimationSpeedComboTEMP",
+		"ShellMonsterDeathMortarPoison",
+		"EDSShellMonsterPoisonSpray",
+		"ShellMonsterSprayMortarPoison",
+	},
+	modList = {
+		-- SpectrePlayDeathAction [is_spectre_with_death_action = 1]
+	},
+}
+
 -- Demon
 minions["Metadata/Monsters/Sanctified/Monstrosity/SanctifiedMonstrosity"] = {
 	name = "Fettered Monstrosity",

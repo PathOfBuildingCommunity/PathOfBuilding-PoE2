@@ -1167,6 +1167,80 @@ skills["DTTHellscapeStabbySkyStab"] = {
 		},
 	}
 }
+skills["EDSShellMonsterFlamethrower"] = {
+	name = "Flamethrower",
+	hidden = true,
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, },
+	castTime = 3,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { critChance = 5, storedUses = 1, levelRequirement = 0, cooldown = 11, },
+	},
+	statSets = {
+		[1] = {
+			label = "Flamethrower",
+			baseEffectiveness = 1.5,
+			incrementalEffectiveness = 0.10000000149012,
+			damageIncrementalEffectiveness = 0.017500000074506,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				spell = true,
+				triggerable = true,
+			},
+			constantStats = {
+				{ "spell_maximum_action_distance_+%", -75 },
+				{ "monster_penalty_against_minions_damage_+%_final_vs_player_minions", -40 },
+				{ "ignite_chance_+%", 100 },
+			},
+			stats = {
+				"spell_minimum_base_fire_damage",
+				"spell_maximum_base_fire_damage",
+				"is_area_damage",
+				"base_skill_can_be_blocked",
+				"base_skill_can_be_avoided_by_dodge_roll",
+			},
+			levels = {
+				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["EDSShellMonsterPoisonSpray"] = {
+	name = "Poison Spray",
+	hidden = true,
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, },
+	castTime = 3,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { storedUses = 1, levelRequirement = 0, cooldown = 11, },
+	},
+	statSets = {
+		[1] = {
+			label = "Poison Spray",
+			baseEffectiveness = 0.69999998807907,
+			incrementalEffectiveness = 0.10000000149012,
+			damageIncrementalEffectiveness = 0.017500000074506,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				spell = true,
+				triggerable = true,
+			},
+			constantStats = {
+				{ "spell_maximum_action_distance_+%", -65 },
+				{ "base_chance_to_poison_on_hit_%", 50 },
+			},
+			stats = {
+				"spell_minimum_base_chaos_damage",
+				"spell_maximum_base_chaos_damage",
+			},
+			levels = {
+				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
+			},
+		},
+	}
+}
 skills["GSCenobiteBloaterOnDeath"] = {
 	name = "Death Explosion",
 	hidden = true,
@@ -1352,38 +1426,6 @@ skills["GAMutewindWomanSpearStab1"] = {
 			baseFlags = {
 				triggerable = true,
 				attack = true,
-			},
-			stats = {
-				"is_area_damage",
-			},
-			levels = {
-				[1] = { actorLevel = 1, },
-			},
-		},
-	}
-}
-skills["MutewindBanditWomanLeap"] = {
-	name = "Leap Slam",
-	hidden = true,
-	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Attack] = true, },
-	castTime = 1,
-	qualityStats = {
-	},
-	levels = {
-		[1] = { levelRequirement = 0, },
-	},
-	statSets = {
-		[1] = {
-			label = "Leap Slam",
-			incrementalEffectiveness = 0.054999999701977,
-			statDescriptionScope = "skill_stat_descriptions",
-			baseFlags = {
-				triggerable = true,
-				attack = true,
-				cooldown = true,
-			},
-			baseMods = {
-				skill("cooldown", 10),
 			},
 			stats = {
 				"is_area_damage",
@@ -1816,6 +1858,376 @@ skills["MPWCleansedMonstrosityRailgun"] = {
 			},
 			levels = {
 				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["MutewindBanditWomanLeap"] = {
+	name = "Leap Slam",
+	hidden = true,
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Attack] = true, },
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Leap Slam",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				triggerable = true,
+				attack = true,
+			},
+			baseMods = {
+				skill("cooldown", 10),
+			},
+			stats = {
+				"is_area_damage",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["QuillCrabSpikeBurst"] = {
+	name = "Spike Burst",
+	hidden = true,
+	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, },
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { baseMultiplier = 0.7, levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Spike Burst",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				attack = true,
+				projectile = true,
+			},
+			constantStats = {
+				{ "monster_projectile_variation", 1000 },
+				{ "projectile_angle_variance", 0 },
+				{ "monster_reverse_point_blank_damage_-%_at_minimum_range", 20 },
+				{ "active_skill_base_physical_damage_%_to_convert_to_fire", 40 },
+				{ "projectile_spread_radius", 13 },
+			},
+			stats = {
+				"base_is_projectile",
+				"action_attack_or_cast_time_uses_animation_length",
+				"projectile_uses_contact_position",
+				"use_scaled_contact_offset",
+				"projectiles_not_offset",
+				"projectile_ballistic_angle_from_reference_event",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["QuillCrabSpikeBurstPoison"] = {
+	name = "Spike Burst",
+	hidden = true,
+	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, },
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { baseMultiplier = 0.7, levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Spike Burst",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				attack = true,
+				projectile = true,
+			},
+			constantStats = {
+				{ "monster_projectile_variation", 1004 },
+				{ "projectile_angle_variance", 0 },
+				{ "monster_reverse_point_blank_damage_-%_at_minimum_range", 20 },
+				{ "projectile_spread_radius", 13 },
+			},
+			stats = {
+				"base_is_projectile",
+				"action_attack_or_cast_time_uses_animation_length",
+				"projectile_uses_contact_position",
+				"use_scaled_contact_offset",
+				"projectiles_not_offset",
+				"global_poison_on_hit",
+				"projectile_ballistic_angle_from_reference_event",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["QuillCrabSpikeBurstTropical"] = {
+	name = "Spike Burst",
+	hidden = true,
+	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, },
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { baseMultiplier = 0.7, levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Spike Burst",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				attack = true,
+				projectile = true,
+			},
+			constantStats = {
+				{ "monster_projectile_variation", 1049 },
+				{ "projectile_angle_variance", 0 },
+				{ "monster_reverse_point_blank_damage_-%_at_minimum_range", 20 },
+				{ "active_skill_base_physical_damage_%_to_convert_to_cold", 40 },
+				{ "projectile_spread_radius", 13 },
+			},
+			stats = {
+				"base_is_projectile",
+				"action_attack_or_cast_time_uses_animation_length",
+				"projectile_uses_contact_position",
+				"use_scaled_contact_offset",
+				"projectile_ballistic_angle_from_reference_event",
+				"projectiles_not_offset",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["ShellMonsterDeathMortar"] = {
+	name = "Death Mortar",
+	hidden = true,
+	description = "Generic monster mortar skill. Like Monster Projectile but has an impact effect.",
+	skillTypes = { [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.AreaSpell] = true, },
+	castTime = 1.5,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { critChance = 5, levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Death Mortar",
+			baseEffectiveness = 1.6499999761581,
+			incrementalEffectiveness = 0.10000000149012,
+			damageIncrementalEffectiveness = 0.017500000074506,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				spell = true,
+				projectile = true,
+				area = true,
+			},
+			constantStats = {
+				{ "projectile_spread_radius", 6 },
+				{ "mortar_projectile_distance_override", 10 },
+			},
+			stats = {
+				"spell_minimum_base_fire_damage",
+				"spell_maximum_base_fire_damage",
+				"is_area_damage",
+				"base_is_projectile",
+				"projectile_uses_contact_position",
+				"use_scaled_contact_offset",
+				"maintain_projectile_direction_when_using_contact_position",
+				"base_skill_can_be_blocked",
+				"base_skill_can_be_avoided_by_dodge_roll",
+			},
+			levels = {
+				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["ShellMonsterDeathMortarPoison"] = {
+	name = "Death Mortar",
+	hidden = true,
+	description = "Generic monster mortar skill. Like Monster Projectile but has an impact effect.",
+	skillTypes = { [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.AreaSpell] = true, },
+	castTime = 1.5,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { critChance = 5, levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Death Mortar",
+			baseEffectiveness = 2,
+			incrementalEffectiveness = 0.21999999880791,
+			damageIncrementalEffectiveness = 0.013000000268221,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				spell = true,
+				projectile = true,
+				area = true,
+			},
+			constantStats = {
+				{ "projectile_spread_radius", 6 },
+				{ "mortar_projectile_distance_override", 10 },
+				{ "base_chance_to_poison_on_hit_%", 33 },
+			},
+			stats = {
+				"spell_minimum_base_physical_damage",
+				"spell_maximum_base_physical_damage",
+				"is_area_damage",
+				"base_is_projectile",
+				"projectile_uses_contact_position",
+				"use_scaled_contact_offset",
+				"maintain_projectile_direction_when_using_contact_position",
+				"base_skill_can_be_blocked",
+				"base_skill_can_be_avoided_by_dodge_roll",
+			},
+			levels = {
+				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["ShellMonsterFirehose"] = {
+	name = "Firehose",
+	hidden = true,
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, },
+	castTime = 3,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { storedUses = 1, levelRequirement = 0, cooldown = 8, },
+	},
+	statSets = {
+		[1] = {
+			label = "Firehose",
+			baseEffectiveness = 1.5,
+			incrementalEffectiveness = 0.10000000149012,
+			damageIncrementalEffectiveness = 0.017500000074506,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				spell = true,
+				triggerable = true,
+			},
+			constantStats = {
+				{ "wall_maximum_length", 78 },
+				{ "leap_slam_minimum_distance", 20 },
+				{ "monster_penalty_against_minions_damage_+%_final_vs_player_minions", -40 },
+			},
+			stats = {
+				"spell_minimum_base_fire_damage",
+				"spell_maximum_base_fire_damage",
+				"is_area_damage",
+				"cannot_stun",
+			},
+			levels = {
+				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["ShellMonsterSprayMortar"] = {
+	name = "Mortar",
+	hidden = true,
+	description = "Generic monster mortar skill. Like Monster Projectile but has an impact effect.",
+	skillTypes = { [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.AreaSpell] = true, },
+	castTime = 1.5,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { critChance = 5, levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Mortar",
+			baseEffectiveness = 1.6499999761581,
+			incrementalEffectiveness = 0.10000000149012,
+			damageIncrementalEffectiveness = 0.017500000074506,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				spell = true,
+				projectile = true,
+				area = true,
+			},
+			constantStats = {
+				{ "projectile_spread_radius", 10 },
+				{ "mortar_projectile_distance_override", 30 },
+			},
+			stats = {
+				"spell_minimum_base_fire_damage",
+				"spell_maximum_base_fire_damage",
+				"is_area_damage",
+				"base_is_projectile",
+				"projectile_uses_contact_position",
+				"use_scaled_contact_offset",
+				"maintain_projectile_direction_when_using_contact_position",
+				"projectile_uses_contact_direction",
+				"base_skill_can_be_blocked",
+				"base_skill_can_be_avoided_by_dodge_roll",
+				"no_additional_projectiles",
+			},
+			levels = {
+				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["ShellMonsterSprayMortarPoison"] = {
+	name = "Mortar",
+	hidden = true,
+	description = "Generic monster mortar skill. Like Monster Projectile but has an impact effect.",
+	skillTypes = { [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.AreaSpell] = true, },
+	castTime = 1.5,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { critChance = 5, levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Mortar",
+			baseEffectiveness = 2,
+			incrementalEffectiveness = 0.21999999880791,
+			damageIncrementalEffectiveness = 0.013000000268221,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				spell = true,
+				projectile = true,
+				area = true,
+			},
+			constantStats = {
+				{ "projectile_spread_radius", 10 },
+				{ "mortar_projectile_distance_override", 30 },
+				{ "base_chance_to_poison_on_hit_%", 33 },
+			},
+			stats = {
+				"spell_minimum_base_physical_damage",
+				"spell_maximum_base_physical_damage",
+				"is_area_damage",
+				"base_is_projectile",
+				"projectile_uses_contact_position",
+				"use_scaled_contact_offset",
+				"maintain_projectile_direction_when_using_contact_position",
+				"projectile_uses_contact_direction",
+				"base_skill_can_be_blocked",
+				"base_skill_can_be_avoided_by_dodge_roll",
+			},
+			levels = {
+				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
 			},
 		},
 	}

@@ -12,6 +12,13 @@ local minions, mod, flag = ...
 -- Boar
 #spectre Metadata/Monsters/GoreCharger/GoreCharger
 
+-- Crab
+#spectre Metadata/Monsters/QuillCrab/QuillCrabBigPoison_
+#spectre Metadata/Monsters/QuillCrab/QuillCrabTropical
+#spectre Metadata/Monsters/QuillCrab/QuillCrab
+#spectre Metadata/Monsters/ShellMonster/ShellMonster
+#spectre Metadata/Monsters/ShellMonster/ShellMonsterPoison
+
 -- Demon
 #spectre Metadata/Monsters/Sanctified/Monstrosity/SanctifiedMonstrosity
 
