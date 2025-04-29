@@ -7,6 +7,7 @@ local ipairs = ipairs
 local t_insert = table.insert
 local t_remove = table.remove
 local s_format = string.format
+local m_max = math.max
 
 local MinionListClass = newClass("MinionListControl", "ListControl", function(self, anchor, rect, data, list, dest)
 	self.ListControl(anchor, rect, 16, "VERTICAL", not dest, list)
@@ -49,6 +50,7 @@ function MinionListClass:AddValueTooltip(tooltip, index, minionId)
 	if tooltip:CheckForUpdate(minionId) then
 		local minion = self.data.minions[minionId]
 		tooltip:AddLine(18, "^7"..minion.name)
+		tooltip:AddLine(14, s_format("^7Spirit Cost: %s%d", colorCodes.SPIRIT, round(50 * m_max(minion.experienceMultiplier, 0) / 10) * 10))
 		tooltip:AddLine(14, s_format("^7Life Multiplier: x%.2f", minion.life))
 		if minion.energyShield then
 			tooltip:AddLine(14, s_format("^7Energy Shield: %d%% of base Life", minion.energyShield * 100))
