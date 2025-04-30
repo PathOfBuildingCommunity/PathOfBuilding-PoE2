@@ -40,7 +40,10 @@ local minions, mod, flag = ...
 -- Sentinel
 #spectre Metadata/Monsters/VaalConstructs/Sentinel/VaalConstructSentinel
 
--- Shade -- not working, error CalcActiveSkill.lua 909 grantedEffect (nil)
+-- Serpent Shaman
+#spectre Metadata/Monsters/SerpentClanMonster/SerpentClanCaster
+
+-- Shade
 --spectre Metadata/Monsters/VaalMonsters/Machinarium/Wraith/ProwlingShade
 
 --Terracotta Soldier

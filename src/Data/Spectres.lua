@@ -431,7 +431,37 @@ minions["Metadata/Monsters/VaalConstructs/Sentinel/VaalConstructSentinel"] = {
 	},
 }
 
--- Shade -- not working, error CalcActiveSkill.lua 909 grantedEffect (nil)
+-- Serpent Shaman
+minions["Metadata/Monsters/SerpentClanMonster/SerpentClanCaster"] = {
+	name = "Serpent Shaman",
+	monsterTags = { "allows_additional_projectiles", "allows_inc_aoe", "beast", "Beast_onhit_audio", "caster", "fast_movement", "humanoid", "not_dex", "not_str", "physical_affinity", "reptile_beast", },
+	life = 2,
+	baseDamageIgnoresAttackSpeed = true,
+	energyShield = 0.02,
+	fireResist = 0,
+	coldResist = 30,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 2,
+	damageSpread = 0.2,
+	attackTime = 1.005,
+	attackRange = 10,
+	accuracy = 1,
+	experienceMultiplier = 2,
+	monsterCategory = "Beast",
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"SerpentClanTailWhip",
+		"SerpentClanCurse",
+		"DeceleratingProjectileSerpentClan",
+		"GSSerpentClanSpellNova",
+		"SSMSerpentClanVulnerability",
+	},
+	modList = {
+	},
+}
+
+-- Shade
 --spectre Metadata/Monsters/VaalMonsters/Machinarium/Wraith/ProwlingShade
 
 --Terracotta Soldier

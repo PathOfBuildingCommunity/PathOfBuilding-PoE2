@@ -2232,6 +2232,89 @@ skills["ShellMonsterSprayMortarPoison"] = {
 		},
 	}
 }
+skills["SerpentClanCurse"] = {
+	name = "Vulnerability",
+	hidden = true,
+	description = "Curse all targets in an area after a short delay, making Hits against them ignore a portion of their Armour.",
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Cascadable] = true, [SkillType.AppliesCurse] = true, [SkillType.CanRapidFire] = true, [SkillType.AreaSpell] = true, [SkillType.Physical] = true, [SkillType.UsableWhileMoving] = true, },
+	castTime = 1.5,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { storedUses = 1, levelRequirement = 0, cooldown = 6, },
+	},
+	statSets = {
+		[1] = {
+			label = "Vulnerability",
+			baseEffectiveness = 0,
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "vulnerability",
+			statMap = {
+				["physical_damage_taken_+%"] = {
+					mod("PhysicalDamageTaken", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Curse" }),
+				},
+				["receive_bleeding_chance_%_when_hit_by_attack"] = {
+					mod("SelfBleedChance", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Curse" }),
+				},
+			},
+			baseFlags = {
+				area = true,
+				duration = true,
+				curse = true,
+			},
+			constantStats = {
+				{ "base_skill_effect_duration", 4000 },
+				{ "physical_damage_taken_+%", 30 },
+				{ "receive_bleeding_chance_%_when_hit_by_attack", 20 },
+				{ "hex_remove_at_effect_variance", 600 },
+				{ "active_skill_area_of_effect_radius_+%_final", 9 },
+			},
+			stats = {
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["SerpentClanTailWhip"] = {
+	name = "Tail Whip",
+	hidden = true,
+	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.ProjectilesFromUser] = true, },
+	castTime = 1.5,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { baseMultiplier = 1.7, storedUses = 1, levelRequirement = 0, cooldown = 8, },
+		[2] = { baseMultiplier = 1.7, storedUses = 1, levelRequirement = 0, cooldown = 8, },
+	},
+	statSets = {
+		[1] = {
+			label = "Tail Whip",
+			baseEffectiveness = 0,
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				attack = true,
+				melee = true,
+			},
+			constantStats = {
+				{ "voll_slam_damage_+%_final_at_centre", 50 },
+				{ "monster_penalty_against_minions_damage_+%_final_vs_player_minions", 100 },
+				{ "attack_maximum_action_distance_+", 6 },
+			},
+			stats = {
+				"action_attack_or_cast_time_uses_animation_length",
+				"base_skill_can_be_avoided_by_dodge_roll",
+				"base_skill_can_be_blocked",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+				[2] = { actorLevel = 68, },
+			},
+		},
+	}
+}
 skills["TBHellscapePaleLightningBoltSpammableLeft"] = {
 	name = "Lightning Bolt",
 	hidden = true,

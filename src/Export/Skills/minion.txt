@@ -374,6 +374,26 @@ skills["MinionInstability"] = {
 #mods
 #skillEnd
 
+#skill SerpentClanCurse
+#set SerpentClanCurse
+#flags area duration curse
+statMap = {
+	["physical_damage_taken_+%"] = {
+		mod("PhysicalDamageTaken", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Curse" }),
+	},
+	["receive_bleeding_chance_%_when_hit_by_attack"] = {
+		mod("SelfBleedChance", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Curse" }),
+	},
+},
+#mods
+#skillEnd
+
+#skill SerpentClanTailWhip Tail Whip
+#set SerpentClanTailWhip
+#flags attack melee
+#mods
+#skillEnd
+
 #skill TBHellscapePaleLightningBoltSpammableLeft Lightning Bolt
 #set TBHellscapePaleLightningBoltSpammableLeft
 #flags spell hit triggerable
