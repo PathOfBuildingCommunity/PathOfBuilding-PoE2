@@ -181,6 +181,7 @@ Gain an additional Charge when you gain a Charge
 ]],[[
 Stone of Lazhwar
 Lapis Amulet
+League: Dawn of the Hunt
 Implicits: 1
 {tags:attribute}+(10-15) to Intelligence
 {tags:mana}+(50-100) to maximum Mana
@@ -221,6 +222,7 @@ Enemies in your Presence have Fire Exposure
 ]],[[
 Yoke of Suffering
 Bloodstone Amulet
+League: Dawn of the Hunt
 Implicits: 1
 {tags:life}+(30-40) to maximum Life
 {tags:fire,cold,lightning}+(10-15)% to all Elemental Resistances

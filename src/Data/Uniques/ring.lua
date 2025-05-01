@@ -53,6 +53,17 @@ Implicits: 1
 {variant:2}{tags:mana}(30-50)% increased Mana Regeneration Rate
 {tags:lightning}Lightning Damage of Enemies Hitting you is Unlucky
 ]],[[
+Bursting Decay
+Unset Ring
+League: Dawn of the Hunt
+Requires Level 60
+Implicits: 1
+Grants 1 additional Skill Slot
+(15-25)% increased Rarity of Items found
+{tags:chaos}+(17-23)% to Chaos Resistance
+Lose 5% of maximum Life per second
+Attacks have added Physical damage equal to 3% of maximum Life
+]],[[
 Call of the Brotherhood
 Topaz Ring
 Requires Level 32
@@ -102,6 +113,7 @@ You cannot be Chilled or Frozen
 ]],[[
 Evergrasping Ring
 Pearl Ring
+League: Dawn of the Hunt
 Implicits: 1
 {tags:caster,speed}(7-10)% increased Cast Speed
 {tags:mana}+(60-100) to maximum Mana
@@ -110,6 +122,7 @@ Implicits: 1
 ]],[[
 Gifts from Above
 Prismatic Ring
+League: Dawn of the Hunt
 Implicits: 1
 {tags:fire,cold,lightning}+(7-10)% to all Elemental Resistances
 (20-30)% increased Critical Hit Chance
@@ -137,6 +150,7 @@ Minions Revive (10-15)% faster
 ]],[[
 Icefang Orbit
 Iron Ring
+League: Dawn of the Hunt
 Requires Level 36
 Implicits: 1
 {tags:physical,attack}Adds 1 to 4 Physical Damage to Attacks
@@ -197,6 +211,7 @@ Enemies Chilled by your Hits can be Shattered as though Frozen
 ]],[[
 Prized Pain
 Iron Ring
+League: Dawn of the Hunt
 Requires Level 48
 Implicits: 1
 {tags:physical,attack}Adds 1 to 4 Physical Damage to Attacks
@@ -216,13 +231,16 @@ Implicits: 1
 ]],[[
 Sekhema's Resolve
 Ring
+Source: Drops from unique{Zarokh, the Temporal}
 Variant: Ruby
 Variant: Emerald
 Variant: Sapphire
 Requires Level 40
 (10-20)% increased Rarity of Items found
 {tags:attribute}+(10-20) to all Attributes
-Lightning Resistance is unaffected by Area Penalties
+{variant:2}Cold Resistance is unaffected by Area Penalties
+{variant:1}Fire Resistance is unaffected by Area Penalties
+{variant:3}Lightning Resistance is unaffected by Area Penalties
 {variant:2}You can only Socket Emerald Jewels in this item
 {variant:1}You can only Socket Ruby Jewels in this item
 {variant:3}You can only Socket Sapphire Jewels in this item
@@ -252,6 +270,7 @@ Can't use other Rings
 ]],[[
 Venopuncture
 Iron Ring
+League: Dawn of the Hunt
 Requires Level 36
 Implicits: 1
 {tags:physical,attack}Adds 1 to 4 Physical Damage to Attacks
@@ -279,6 +298,7 @@ Implicits: 1
 ]],[[
 Vigilant View
 Emerald Ring
+League: Dawn of the Hunt
 Requires Level 26
 Implicits: 1
 {tags:attack}+(120-160) to Accuracy Rating

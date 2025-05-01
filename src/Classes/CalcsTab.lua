@@ -121,7 +121,7 @@ local CalcsTabClass = newClass("CalcsTab", "UndoHandler", "ControlHost", "Contro
 		{ label = "Beast Library", flag = "summonbeast", { controlName = "mainSkillBeastLibrary",
 		control = new("ButtonControl", nil, {0, 0, 100, 16}, "Manage Beasts...", function()
 			self.build:OpenSpectreLibrary()
-		end)
+			end)
 		} },
 		{ label = "Minion Skill", flag = "haveMinion", { controlName = "mainSkillMinionSkill",
 			control = new("DropDownControl", nil, {0, 0, 200, 16}, nil, function(index, value)

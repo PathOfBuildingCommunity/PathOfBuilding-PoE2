@@ -15,6 +15,7 @@ Leech from Critical Hits is instant
 ]],[[
 Dreadfist
 Bolstered Mitts
+League: Dawn of the Hunt
 (50-100)% increased Armour
 (20-30)% increased Critical Damage Bonus
 Critical Hits inflict Impale
@@ -40,6 +41,7 @@ Share Charges with Allies in your Presence
 ]],[[
 Empire's Grasp
 Titan Mitts
+League: Dawn of the Hunt
 (150-200)% increased Armour
 +(20-30) to Strength
 Gain (30-50) Life per Enemy Killed
@@ -142,6 +144,7 @@ Variant: Current
 ]],[[
 Essentia Sanguis
 Furtive Wraps
+League: Dawn of the Hunt
 (50-70)% increased Evasion and Energy Shield
 Adds 1 to (30-50) Lightning damage to Attacks
 +(15-25) to Intelligence
@@ -157,6 +160,7 @@ Lightning damage from Hits Contributes to Electrocution Buildup
 ]],[[
 Leopold's Applause
 Embroidered Gloves
+League: Dawn of the Hunt
 (60-100)% increased Energy Shield
 +(60-100) to maximum Mana
 (10-15)% increased Rarity of Items found
@@ -165,6 +169,7 @@ Your Hits can Penetrate Elemental Resistances down to a minimum of -50%
 ]],[[
 Nightscale
 Pauascale Gloves
+League: Dawn of the Hunt
 (60-100)% increased Energy Shield
 (30-50)% increased Critical Hit Chance
 +(10-20) to Intelligence
@@ -203,6 +208,7 @@ Lose 2% of maximum Life on Kill
 ]],[[
 Death Articulated
 Ornate Gauntlets
+League: Dawn of the Hunt
 (100-150)% increased Armour and Evasion
 (5-10)% increased Attack Speed
 +(17-23)% to Chaos Resistance
@@ -232,6 +238,7 @@ Strength can satisfy other Attribute Requirements of Melee Weapons and Melee Ski
 ]],[[
 Valako's Vice
 Plate Gauntlets
+League: Dawn of the Hunt
 (50-100)% increased Armour and Evasion
 (5-10)% increased Attack Speed
 +(20-30) to Strength
@@ -263,6 +270,7 @@ Enemies in your Presence killed by anyone count as being killed by you instead
 ]],[[
 The Prisoner's Manacles
 Diviner Cuffs
+League: Dawn of the Hunt
 (200-300)% increased Armour and Energy Shield
 +100 to maximum Life
 100% increased Attribute Requirements
@@ -284,6 +292,7 @@ Curses you inflict are reflected back to you
 [[
 Blessed Bonds
 Linen Wraps
+Source: Drops from unique{Zarokh, the Temporal}
 +(60-100) to Evasion Rating
 +(30-50) to maximum Energy Shield
 Gain (25-35) Mana per Enemy Killed

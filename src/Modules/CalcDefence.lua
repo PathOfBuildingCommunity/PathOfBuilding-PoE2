@@ -240,20 +240,17 @@ function calcs.doActorLifeManaSpiritReservation(actor)
 					local minionFreeSpiritCount = skillModList:Sum("BASE", skillCfg, "MinionFreeSpiritCount")
 					values.reservedFlat = values.reservedFlat * m_max(activeSkillCount - minionFreeSpiritCount, 0)
 				end
-				
-				if activeSkill.skillTypes[SkillType.IsBlasphemy] and activeSkill.activeEffect.srcInstance.supportEffect and activeSkill.activeEffect.srcInstance.supportEffect.isSupporting then
+				if activeSkill.skillTypes[SkillType.IsBlasphemy] and activeSkill.activeEffect.srcInstance.supportEffect and activeSkill.activeEffect.srcInstance.supportEffect.isSupporting and activeSkill.skillData["blasphemyReservationFlat" .. name] then
 					-- Sadly no better way to get key/val table element count in lua.
 					local instances = 0
 					for _ in pairs(activeSkill.activeEffect.srcInstance.supportEffect.isSupporting) do
 						instances = instances + 1
 					end
-					values.reservedFlat = values.reservedFlat * instances * mult
-					values.reservedPercent = values.reservedPercent * instances * mult
-				end
-				if activeSkill.skillCfg.skillName == "Spectre: {0} " and activeSkill.minion then
-					local xpMult = activeSkill.minion.minionData.experienceMultiplier
-					local selectedSpectreReserve = round(50 * m_max(xpMult, 0) / 10) * 10
-					pool.Spirit.baseFlat = selectedSpectreReserve + skillModList:Sum("BASE", skillCfg, "ExtraSpirit")
+
+					-- Extra reservation of blasphemy needs to be separated from the reservation caused by curses
+					local blasphemyFlat = activeSkill.skillData["blasphemyReservationFlat" .. name]
+					local blasphemyEffectiveFlat = m_max(m_ceil(blasphemyFlat * mult * (100 + values.inc) / 100 * values.more / (1 + values.efficiency / 100), 0), 0)
+					values.reservedFlat = values.reservedFlat + blasphemyEffectiveFlat * instances
 				end
 					-- Blood Sacrament increases reservation per stage channelled
 				if activeSkill.skillCfg.skillName == "Blood Sacrament" and activeSkill.activeStageCount then
@@ -559,7 +556,7 @@ function calcs.reducePoolsByDamage(poolTable, damageTable, actor)
 				esPoolRemaining = m_min(esPoolRemaining, energyShield)
 				damageRemainder = damageRemainder - tempDamage
 				resourcesLostToTypeDamage[damageType].energyShield = tempDamage >= 1 and tempDamage * (1 - esBypass) * esDamageTypeMultiplier or nil
-				resourcesLostToTypeDamage[damageType].eternalLifePrevented = tempDamage >= 1 and tempDamage * esBypass * esDamageTypeMultiplier or nil
+				resourcesLostToTypeDamage[damageType].eternalLifePrevented = tempDamage >= 1 and tempDamage * esBypass or nil
 			elseif energyShield > 0 and esBypass < 1 then
 				local MoMEBPool = esBypass > 0 and m_min((MoMPool + lifeHitPool) / esBypass * esDamageTypeMultiplier - (MoMPool + lifeHitPool), energyShield) or energyShield
 				local tempDamage = m_min(damageRemainder * (1 - esBypass), MoMEBPool / esDamageTypeMultiplier)

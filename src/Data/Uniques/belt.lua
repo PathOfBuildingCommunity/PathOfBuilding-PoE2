@@ -5,6 +5,7 @@ return {
 [[
 Bijouborne
 Double Belt
+League: Dawn of the Hunt
 Implicits: 2
 +(50-100) to maximum Mana
 Has (1-3) Charm Slot
@@ -49,6 +50,7 @@ You are considered on Low Life while at 75% of maximum Life or below instead
 ]],[[
 The Gnashing Sash
 Wide Belt
+League: Dawn of the Hunt
 Requires Level 60
 Implicits: 2
 Has (1-3) Charm Slot
@@ -60,6 +62,7 @@ Life Recovery from Flasks can Overflow Maximum Life
 ]],[[
 Goregirdle
 Plate Belt
+League: Dawn of the Hunt
 Implicits: 2
 +(100-140) to Armour
 Has (1-3) Charm Slot
@@ -172,6 +175,7 @@ Excess Life Recovery from Leech is applied to Energy Shield
 ]],[[
 Waistgate Heavy Belt
 Heavy Belt
+League: Dawn of the Hunt
 Implicits: 2
 (20-30)% increased Stun Threshold
 Has (1-3) Charm Slot

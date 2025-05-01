@@ -1452,6 +1452,9 @@ return {
 ["link_buff_effect_on_self_+%"] = {
 	mod("LinkEffectOnSelf", "INC", nil),
 },
+["gain_energy_shield_cost_equal_to_intelligence"] = {
+	mod("ESCostNoMult", "BASE", nil, 0, 0, { type = "PercentStat", stat = "Int", percent = 100 }),
+},
 -- Projectiles
 ["base_projectile_speed_+%"] = {
 	mod("ProjectileSpeed", "INC", nil),
