@@ -1778,6 +1778,7 @@ c["25% increased Movement Speed while affected by an Ailment"]={{[1]={[1]={type=
 c["25% increased Physical Damage"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamage",type="INC",value=25}},nil}
 c["25% increased Presence Area of Effect"]={{[1]={flags=0,keywordFlags=0,name="AreaOfEffect",type="INC",value=25}}," Presence  "}
 c["25% increased Projectile Speed"]={{[1]={flags=0,keywordFlags=0,name="ProjectileSpeed",type="INC",value=25}},nil}
+c["25% increased Projectile Speed with this Weapon"]={{[1]={[1]={type="Condition",var="{Hand}Attack"},[2]={neg=true,skillType=167,type="SkillType"},flags=8192,keywordFlags=0,name="ProjectileSpeed",type="INC",value=25}},nil}
 c["25% increased Rarity of Items found"]={{[1]={flags=0,keywordFlags=0,name="LootRarity",type="INC",value=25}},nil}
 c["25% increased Shock Duration"]={{[1]={flags=0,keywordFlags=0,name="EnemyShockDuration",type="INC",value=25}},nil}
 c["25% increased Skill Effect Duration"]={{[1]={flags=0,keywordFlags=0,name="Duration",type="INC",value=25}},nil}
@@ -3413,7 +3414,7 @@ c["Allocates Zone of Control"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassiv
 c["Alternating every 5 seconds:"]={nil,"Alternating every 5 seconds: "}
 c["Alternating every 5 seconds: Take 30% less Damage from Hits"]={nil,"Alternating every 5 seconds: Take 30% less Damage from Hits "}
 c["Always Hits"]={{[1]={[1]={type="Condition",var="{Hand}Attack"},flags=0,keywordFlags=0,name="CannotBeEvaded",type="FLAG",value=true}},nil}
-c["Always Poison on Hit with this weapon"]={nil,"Always Poison on Hit with this weapon "}
+c["Always Poison on Hit with this weapon"]={{[1]={[1]={type="Condition",var="{Hand}Attack"},[2]={neg=true,skillType=167,type="SkillType"},flags=8192,keywordFlags=0,name="PoisonChance",type="OVERRIDE",value=100}},nil}
 c["Always deals Critical Hits against Heavy Stunned Enemies"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="HeavyStunned"},[2]={type="Condition",var="{Hand}Attack"},flags=0,keywordFlags=0,name="CritChance",type="OVERRIDE",value=100}},nil}
 c["Any number of Poisons from this Weapon can affect a target at the same time"]={{[1]={flags=0,keywordFlags=0,name="PoisonCanStack",type="FLAG",value=true},[2]={[1]={type="Condition",var="{Hand}Attack"},[2]={neg=true,skillType=167,type="SkillType"},flags=0,keywordFlags=0,name="PoisonStacks",type="OVERRIDE",value=math.huge}},nil}
 c["Apply Elemental Exposure to Enemies 3 metres in front of you"]={nil,"Apply Elemental Exposure to Enemies 3 metres in front of you "}
