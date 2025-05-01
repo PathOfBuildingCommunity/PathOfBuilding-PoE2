@@ -1394,6 +1394,7 @@ return {
 		{ modName = "EnemyKnockbackDistance", cfg = "weapon2" },
 	}, },
 	{ label = "Chance to Blind", { format = "{0:mod:1}%", { modName = "BlindChance", modType = "BASE", cfg = "skill" }, }, },
+	{ label = "Inc. Quiver Effect", { format = "{0:mod:1}%", { modName="EffectOfBonusesFromQuiver", modType= "INC", cfg = "skill" }, }, },
 	{ label = "Inc. Item Quantity", { format = "{0:mod:1}%", { modName = "LootQuantity", modType = "INC", cfg = "skill" }, }, },
 	{ label = "IIQ for Normal Mobs", haveOutput = "LootQuantityNormalEnemies", { format = "{0:output:LootQuantityNormalEnemies}%", { modName = { "LootQuantityNormalEnemies", "LootQuantity" } }, }, },
 	{ label = "Inc. Item Rarity", { format = "{0:mod:1}%", { modName = "LootRarity", modType = "INC", cfg = "skill" }, }, },
