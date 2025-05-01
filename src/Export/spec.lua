@@ -1020,7 +1020,6 @@ return {
 	},
 	alternateskilltargetingbehaviours={
 		[1]={
-			enumBase=0,
 			list=false,
 			name="Id",
 			refTo="",
@@ -1035,12 +1034,39 @@ return {
 			width=60
 		},
 		[3]={
-			enumBase=0,
 			list=false,
 			name="ClientStrings",
 			refTo="ClientStrings",
 			type="Key",
 			width=220
+		},
+		[4]={
+			list=false,
+			name="",
+			refTo="",
+			type="Int",
+			width=50
+		},
+		[5]={
+			list=false,
+			name="",
+			refTo="",
+			type="Int",
+			width=50
+		},
+		[6]={
+			list=false,
+			name="",
+			refTo="",
+			type="Int",
+			width=50
+		},
+		[7]={
+			list=true,
+			name="",
+			refTo="",
+			type="Int",
+			width=50
 		}
 	},
 	alternatetreeart={
@@ -1444,7 +1470,6 @@ return {
 			width=50
 		},
 		[3]={
-			enumBase=0,
 			list=true,
 			name="Class",
 			refTo="Characters",
@@ -1774,7 +1799,6 @@ return {
 			width=560
 		},
 		[2]={
-			enumBase=0,
 			list=false,
 			name="ItemClass",
 			refTo="ItemClasses",
@@ -1999,22 +2023,6 @@ return {
 	battlepassrewardtypes={
 	},
 	battlepasstracks={
-	},
-	belttypes={
-		[1]={
-			list=false,
-			name="Id",
-			refTo="BaseItemTypes",
-			type="Key",
-			width=210
-		},
-		[2]={
-			list=false,
-			name="",
-			refTo="",
-			type="Int",
-			width=150
-		}
 	},
 	bestiarycapturablemonsters={
 	},
@@ -4866,7 +4874,6 @@ return {
 			width=100
 		},
 		[17]={
-			enumBase=0,
 			list=false,
 			name="CannotBlockFlag",
 			refTo="Stats",
@@ -5359,7 +5366,6 @@ return {
 	},
 	essences={
 		[1]={
-			enumBase=0,
 			list=false,
 			name="BaseItemType",
 			refTo="BaseItemTypes",
@@ -5375,25 +5381,24 @@ return {
 		},
 		[3]={
 			list=false,
-			name="Unknown2",
+			name="",
 			refTo="",
 			type="Int",
-			width=60
+			width=50
 		},
 		[4]={
-			enumBase=0,
 			list=false,
-			name="Unknown3",
-			refTo="",
-			type="Key",
-			width=110
-		},
-		[5]={
-			list=false,
-			name="Unknown4",
+			name="",
 			refTo="",
 			type="Int",
-			width=60
+			width=50
+		},
+		[5]={
+			list=true,
+			name="MonsterMod1",
+			refTo="Mods",
+			type="Key",
+			width=250
 		},
 		[6]={
 			list=false,
@@ -5404,7 +5409,7 @@ return {
 		},
 		[7]={
 			list=false,
-			name="Mod",
+			name="MonsterMod2",
 			refTo="Mods",
 			type="Key",
 			width=260
@@ -5421,15 +5426,14 @@ return {
 			name="ModTag",
 			refTo="Tags",
 			type="Key",
-			width=90
+			width=70
 		},
 		[10]={
-			enumBase=0,
 			list=false,
-			name="",
-			refTo="",
+			name="GreaterVariant",
+			refTo="Essences",
 			type="ShortKey",
-			width=50
+			width=250
 		},
 		[11]={
 			list=false,
@@ -5440,10 +5444,10 @@ return {
 		},
 		[12]={
 			list=false,
-			name="",
-			refTo="",
+			name="MapMod",
+			refTo="Stats",
 			type="Key",
-			width=90
+			width=250
 		},
 		[13]={
 			list=false,
@@ -5464,7 +5468,7 @@ return {
 			name="",
 			refTo="",
 			type="Int",
-			width=150
+			width=40
 		}
 	},
 	essencestashtablayout={
@@ -13352,21 +13356,21 @@ return {
 			name="QuestFlag",
 			refTo="questflags",
 			type="Key",
-			width=270
+			width=250
 		},
 		[2]={
 			list=false,
 			name="Acts",
 			refTo="",
 			type="Int",
-			width=150
+			width=50
 		},
 		[3]={
 			list=false,
 			name="WeaponPassives",
 			refTo="",
 			type="Int",
-			width=150
+			width=100
 		},
 		[4]={
 			list=true,
@@ -13398,7 +13402,7 @@ return {
 		},
 		[8]={
 			list=false,
-			name="",
+			name="ClientString",
 			refTo="clientstrings",
 			type="Key",
 			width=250
@@ -13415,7 +13419,7 @@ return {
 			name="",
 			refTo="",
 			type="Bool",
-			width=150
+			width=50
 		}
 	},
 	questtrackergroup={
