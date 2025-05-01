@@ -3710,7 +3710,7 @@ local specialModList = {
 	["any number of poisons from this weapon can affect a target at the same time"] = { -- Splinter of Loratta
 		flag("PoisonCanStack"),
 		mod("PoisonStacks", "OVERRIDE", math.huge , { type = "Condition", var = "{Hand}Attack" }, { type = "SkillType", skillType = SkillType.NonWeaponAttack, neg = true })
-		},
+	},
 	["critical hits poison the enemy"] = { mod("PoisonChance", "OVERRIDE", 100, { type = "Condition", var = "CriticalStrike" })},
 	["always poison on hit with this weapon"] = { mod("PoisonChance", "OVERRIDE", 100 , nil, ModFlag.Weapon, 0, { type = "Condition", var = "{Hand}Attack" }, { type = "SkillType", skillType = SkillType.NonWeaponAttack, neg = true })},
 	-- Suppression
