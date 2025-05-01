@@ -656,7 +656,21 @@ function calcs.initEnv(build, mode, override, specEnv)
 	local allocatedMasteryTypeCount = env.spec.allocatedMasteryTypeCount
 	local allocatedMasteryTypes = copyTable(env.spec.allocatedMasteryTypes)
 
+	-- Determine main skill group
+	if env.mode == "CALCS" then
+		env.calcsInput.skill_number = m_min(m_max(#build.skillsTab.socketGroupList, 1), env.calcsInput.skill_number or 1)
+		env.mainSocketGroup = env.calcsInput.skill_number
+	else
+		build.mainSocketGroup = m_min(m_max(#build.skillsTab.socketGroupList, 1), build.mainSocketGroup or 1)
+		env.mainSocketGroup = build.mainSocketGroup
+	end
 
+	-- alway use WeaponSet 1 for condition unless set 1 false and set 2 true
+	local mainSkill =  build.skillsTab.socketGroupList[env.mainSocketGroup]
+	local usingSkillSet = mainSkill and not mainSkill.set1 and mainSkill.set2 and 2 or 1
+
+	env.usingSkillSet = usingSkillSet
+	modDB:NewMod("Condition:WeaponSet" .. usingSkillSet , "FLAG", true, "Weapon Set")
 
 	if not accelerate.nodeAlloc then
 		-- Build list of passive nodes
@@ -1423,28 +1437,12 @@ function calcs.initEnv(build, mode, override, specEnv)
 			env.player.weaponData2 = env.player.itemList["Weapon 2"].weaponData and env.player.itemList["Weapon 2"].weaponData[2] or { }
 		end
 
-		-- Determine main skill group
-		if env.mode == "CALCS" then
-			env.calcsInput.skill_number = m_min(m_max(#build.skillsTab.socketGroupList, 1), env.calcsInput.skill_number or 1)
-			env.mainSocketGroup = env.calcsInput.skill_number
-		else
-			build.mainSocketGroup = m_min(m_max(#build.skillsTab.socketGroupList, 1), build.mainSocketGroup or 1)
-			env.mainSocketGroup = build.mainSocketGroup
-		end
-
 		-- Process supports and put them into the correct buckets
 		env.crossLinkedSupportGroups = {}
 		for _, mod in ipairs(env.modDB:Tabulate("LIST", nil, "LinkedSupport")) do
 			env.crossLinkedSupportGroups[mod.mod.sourceSlot] = env.crossLinkedSupportGroups[mod.mod.sourceSlot] or {}
 			t_insert(env.crossLinkedSupportGroups[mod.mod.sourceSlot], mod.value.targetSlotName)
 		end
-
-		-- alway use WeaponSet 1 for condition unless set 1 false and set 2 true
-		local mainSkill =  build.skillsTab.socketGroupList[env.mainSocketGroup]
-		local usingSkillSet = mainSkill and not mainSkill.set1 and mainSkill.set2 and 2 or 1
-
-		env.usingSkillSet = usingSkillSet
-		modDB:NewMod("Condition:WeaponSet" .. usingSkillSet , "FLAG", true, "Weapon Set")
 
 		local supportLists = { }
 		local groupCfgList = { }
