@@ -3828,7 +3828,7 @@ c["Gain 1 Fragile Regrowth each second"]={{}," Fragile Regrowth each second "}
 c["Gain 1 Rage on Melee Axe Hit"]={{[1]={flags=0,keywordFlags=0,name="Condition:CanGainRage",type="FLAG",value=true}},nil}
 c["Gain 1 Rage on Melee Hit"]={{[1]={flags=0,keywordFlags=0,name="Condition:CanGainRage",type="FLAG",value=true}},nil}
 c["Gain 1% of Cold damage as Extra Fire damage per 1% Chill Magnitude on enemy"]={{[1]={flags=0,keywordFlags=0,name="ColdDamageGainAsFire",type="BASE",value=1}},"   per 1% Chill Magnitude on enemy "}
-c["Gain 1% of Damage as Extra Chaos Damage per 20 Unreserved Darkness"]={{[1]={[1]={div=20,stat="UnreservedDarkness",type="PerStat"},flags=0,keywordFlags=0,name="PhysicalDamageGainAsChaos",type="BASE",value=1}},nil}
+c["Gain 1% of Damage as Extra Chaos Damage per 20 Unreserved Darkness"]={{[1]={[1]={div=20,stat="UnreservedDarkness",type="PerStat"},flags=0,keywordFlags=0,name="DamageGainAsChaos",type="BASE",value=1}},nil}
 c["Gain 1% of damage as Fire damage per 1% Chance to Block"]={{[1]={[1]={div=1,stat="BlockChance",type="PerStat"},flags=0,keywordFlags=0,name="DamageAsFire",type="BASE",value=1}},nil}
 c["Gain 10 Life per Enemy Killed"]={{[1]={flags=0,keywordFlags=0,name="LifeOnKill",type="BASE",value=10}},nil}
 c["Gain 10 Mana per Enemy Killed"]={{[1]={flags=0,keywordFlags=0,name="ManaOnKill",type="BASE",value=10}},nil}
