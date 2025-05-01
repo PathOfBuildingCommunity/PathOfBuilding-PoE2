@@ -7614,11 +7614,19 @@ return {
 			}, 
 		}, 
 		["1092_TotemDamageForJewel"] = {
+			["AnyJewel"] = {
+				["max"] = 18, 
+				["min"] = 10, 
+			}, 
+			["BaseJewel"] = {
+				["max"] = 18, 
+				["min"] = 10, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "explicit.stat_2108821127", 
-				["text"] = "Small Passive Skills in Radius also grant #% increased Totem Damage", 
+				["id"] = "explicit.stat_3851254963", 
+				["text"] = "#% increased Totem Damage", 
 				["type"] = "explicit", 
 			}, 
 		}, 
@@ -7674,11 +7682,19 @@ return {
 			}, 
 		}, 
 		["1178_IncreasedStaffDamageForJewel"] = {
+			["AnyJewel"] = {
+				["max"] = 16, 
+				["min"] = 6, 
+			}, 
+			["BaseJewel"] = {
+				["max"] = 16, 
+				["min"] = 6, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "explicit.stat_821948283", 
-				["text"] = "Small Passive Skills in Radius also grant #% increased Damage with Quarterstaves", 
+				["id"] = "explicit.stat_4045894391", 
+				["text"] = "#% increased Damage with Quarterstaves", 
 				["type"] = "explicit", 
 			}, 
 		}, 
@@ -7717,6 +7733,14 @@ return {
 			}, 
 		}, 
 		["1207_SpearDamage"] = {
+			["AnyJewel"] = {
+				["max"] = 16, 
+				["min"] = 6, 
+			}, 
+			["BaseJewel"] = {
+				["max"] = 16, 
+				["min"] = 6, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -7753,11 +7777,19 @@ return {
 			}, 
 		}, 
 		["1259_StaffAttackSpeedForJewel"] = {
+			["AnyJewel"] = {
+				["max"] = 4, 
+				["min"] = 2, 
+			}, 
+			["BaseJewel"] = {
+				["max"] = 4, 
+				["min"] = 2, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "explicit.stat_111835965", 
-				["text"] = "Notable Passive Skills in Radius also grant #% increased Attack Speed with Quarterstaves", 
+				["id"] = "explicit.stat_3283482523", 
+				["text"] = "#% increased Attack Speed with Quarterstaves", 
 				["type"] = "explicit", 
 			}, 
 		}, 
@@ -7779,11 +7811,19 @@ return {
 			}, 
 		}, 
 		["1266_SpearAttackSpeed"] = {
+			["AnyJewel"] = {
+				["max"] = 4, 
+				["min"] = 2, 
+			}, 
+			["BaseJewel"] = {
+				["max"] = 4, 
+				["min"] = 2, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "explicit.stat_1266413530", 
-				["text"] = "Notable Passive Skills in Radius also grant #% increased Attack Speed with Spears", 
+				["id"] = "explicit.stat_1165163804", 
+				["text"] = "#% increased Attack Speed with Spears", 
 				["type"] = "explicit", 
 			}, 
 		}, 
@@ -7805,20 +7845,36 @@ return {
 			}, 
 		}, 
 		["1280_BowIncreasedAccuracyRating"] = {
+			["AnyJewel"] = {
+				["max"] = 15, 
+				["min"] = 5, 
+			}, 
+			["BaseJewel"] = {
+				["max"] = 15, 
+				["min"] = 5, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "explicit.stat_1285594161", 
-				["text"] = "Small Passive Skills in Radius also grant #% increased Accuracy Rating with Bows", 
+				["id"] = "explicit.stat_169946467", 
+				["text"] = "#% increased Accuracy Rating with Bows", 
 				["type"] = "explicit", 
 			}, 
 		}, 
 		["1331_SpearCriticalDamage"] = {
+			["AnyJewel"] = {
+				["max"] = 20, 
+				["min"] = 10, 
+			}, 
+			["BaseJewel"] = {
+				["max"] = 20, 
+				["min"] = 10, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "explicit.stat_138421180", 
-				["text"] = "Notable Passive Skills in Radius also grant #% increased Critical Damage Bonus with Spears", 
+				["id"] = "explicit.stat_2456523742", 
+				["text"] = "#% increased Critical Damage Bonus with Spears", 
 				["type"] = "explicit", 
 			}, 
 		}, 
@@ -7876,20 +7932,36 @@ return {
 			["usePositiveSign"] = true, 
 		}, 
 		["1445_MaximumLifeOnKillPercent"] = {
+			["AnyJewel"] = {
+				["max"] = 2, 
+				["min"] = 1, 
+			}, 
+			["BaseJewel"] = {
+				["max"] = 2, 
+				["min"] = 1, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "explicit.stat_2726713579", 
-				["text"] = "Notable Passive Skills in Radius also grant Recover #% of maximum Life on Kill", 
+				["id"] = "explicit.stat_2023107756", 
+				["text"] = "Recover #% of maximum Life on Kill", 
 				["type"] = "explicit", 
 			}, 
 		}, 
 		["1451_ManaGainedOnKillPercentage"] = {
+			["AnyJewel"] = {
+				["max"] = 2, 
+				["min"] = 1, 
+			}, 
+			["BaseJewel"] = {
+				["max"] = 2, 
+				["min"] = 1, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "explicit.stat_525523040", 
-				["text"] = "Notable Passive Skills in Radius also grant Recover #% of maximum Mana on Kill", 
+				["id"] = "explicit.stat_1604736568", 
+				["text"] = "Recover #% of maximum Mana on Kill", 
 				["type"] = "explicit", 
 			}, 
 		}, 
@@ -7911,29 +7983,53 @@ return {
 			}, 
 		}, 
 		["1474_BaseCurseDuration"] = {
+			["AnyJewel"] = {
+				["max"] = 25, 
+				["min"] = 15, 
+			}, 
+			["BaseJewel"] = {
+				["max"] = 25, 
+				["min"] = 15, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "explicit.stat_1087108135", 
-				["text"] = "Small Passive Skills in Radius also grant #% increased Curse Duration", 
+				["id"] = "explicit.stat_3824372849", 
+				["text"] = "#% increased Curse Duration", 
 				["type"] = "explicit", 
 			}, 
 		}, 
 		["1547_IncreasedChillDuration"] = {
+			["AnyJewel"] = {
+				["max"] = 25, 
+				["min"] = 15, 
+			}, 
+			["BaseJewel"] = {
+				["max"] = 25, 
+				["min"] = 15, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "explicit.stat_61644361", 
-				["text"] = "Notable Passive Skills in Radius also grant #% increased Chill Duration on Enemies", 
+				["id"] = "explicit.stat_3485067555", 
+				["text"] = "#% increased Chill Duration on Enemies", 
 				["type"] = "explicit", 
 			}, 
 		}, 
 		["1548_ShockDuration"] = {
+			["AnyJewel"] = {
+				["max"] = 25, 
+				["min"] = 15, 
+			}, 
+			["BaseJewel"] = {
+				["max"] = 25, 
+				["min"] = 15, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "explicit.stat_3513818125", 
-				["text"] = "Small Passive Skills in Radius also grant #% increased Shock Duration", 
+				["id"] = "explicit.stat_3668351662", 
+				["text"] = "#% increased Shock Duration", 
 				["type"] = "explicit", 
 			}, 
 		}, 
@@ -7972,11 +8068,19 @@ return {
 			}, 
 		}, 
 		["1657_MinionDamage"] = {
+			["AnyJewel"] = {
+				["max"] = 15, 
+				["min"] = 5, 
+			}, 
+			["BaseJewel"] = {
+				["max"] = 15, 
+				["min"] = 5, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "explicit.stat_2954360902", 
-				["text"] = "Small Passive Skills in Radius also grant Minions deal #% increased Damage", 
+				["id"] = "explicit.stat_1589917703", 
+				["text"] = "Minions deal #% increased Damage", 
 				["type"] = "explicit", 
 			}, 
 		}, 
@@ -8015,11 +8119,19 @@ return {
 			}, 
 		}, 
 		["1682_KnockbackDistance"] = {
+			["AnyJewel"] = {
+				["max"] = 15, 
+				["min"] = 5, 
+			}, 
+			["BaseJewel"] = {
+				["max"] = 15, 
+				["min"] = 5, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "explicit.stat_2976476845", 
-				["text"] = "Notable Passive Skills in Radius also grant #% increased Knockback Distance", 
+				["id"] = "explicit.stat_565784293", 
+				["text"] = "#% increased Knockback Distance", 
 				["type"] = "explicit", 
 			}, 
 		}, 
@@ -8067,11 +8179,19 @@ return {
 			}, 
 		}, 
 		["1833_LifeLeechAmount"] = {
+			["AnyJewel"] = {
+				["max"] = 15, 
+				["min"] = 5, 
+			}, 
+			["BaseJewel"] = {
+				["max"] = 15, 
+				["min"] = 5, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "explicit.stat_3666476747", 
-				["text"] = "Small Passive Skills in Radius also grant #% increased amount of Life Leeched", 
+				["id"] = "explicit.stat_2112395885", 
+				["text"] = "#% increased amount of Life Leeched", 
 				["type"] = "explicit", 
 			}, 
 		}, 
@@ -8204,11 +8324,19 @@ return {
 			}, 
 		}, 
 		["2372_DamageRemovedFromManaBeforeLife"] = {
+			["AnyJewel"] = {
+				["max"] = 4, 
+				["min"] = 2, 
+			}, 
+			["BaseJewel"] = {
+				["max"] = 4, 
+				["min"] = 2, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "explicit.stat_2709646369", 
-				["text"] = "Notable Passive Skills in Radius also grant #% of Damage is taken from Mana before Life", 
+				["id"] = "explicit.stat_458438597", 
+				["text"] = "#% of Damage is taken from Mana before Life", 
 				["type"] = "explicit", 
 			}, 
 		}, 
@@ -8230,11 +8358,19 @@ return {
 			}, 
 		}, 
 		["2573_MinionElementalResistance"] = {
+			["AnyJewel"] = {
+				["max"] = 10, 
+				["min"] = 5, 
+			}, 
+			["BaseJewel"] = {
+				["max"] = 10, 
+				["min"] = 5, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "explicit.stat_3225608889", 
-				["text"] = "Small Passive Skills in Radius also grant Minions have #% to all Elemental Resistances", 
+				["id"] = "explicit.stat_1423639565", 
+				["text"] = "Minions have #% to all Elemental Resistances", 
 				["type"] = "explicit", 
 			}, 
 			["usePositiveSign"] = true, 
@@ -8369,11 +8505,19 @@ return {
 			}, 
 		}, 
 		["2843_DamageVsRareOrUnique"] = {
+			["AnyJewel"] = {
+				["max"] = 20, 
+				["min"] = 10, 
+			}, 
+			["BaseJewel"] = {
+				["max"] = 20, 
+				["min"] = 10, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "explicit.stat_147764878", 
-				["text"] = "Small Passive Skills in Radius also grant #% increased Damage with Hits against Rare and Unique Enemies", 
+				["id"] = "explicit.stat_1852872083", 
+				["text"] = "#% increased Damage with Hits against Rare and Unique Enemies", 
 				["type"] = "explicit", 
 			}, 
 		}, 
@@ -8395,20 +8539,36 @@ return {
 			}, 
 		}, 
 		["2903_FreezeThreshold"] = {
+			["AnyJewel"] = {
+				["max"] = 32, 
+				["min"] = 18, 
+			}, 
+			["BaseJewel"] = {
+				["max"] = 32, 
+				["min"] = 18, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "explicit.stat_830345042", 
-				["text"] = "Small Passive Skills in Radius also grant #% increased Freeze Threshold", 
+				["id"] = "explicit.stat_3780644166", 
+				["text"] = "#% increased Freeze Threshold", 
 				["type"] = "explicit", 
 			}, 
 		}, 
 		["2908_WarcrySpeed"] = {
+			["AnyJewel"] = {
+				["max"] = 20, 
+				["min"] = 10, 
+			}, 
+			["BaseJewel"] = {
+				["max"] = 20, 
+				["min"] = 10, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "explicit.stat_1602294220", 
-				["text"] = "Small Passive Skills in Radius also grant #% increased Warcry Speed", 
+				["id"] = "explicit.stat_1316278494", 
+				["text"] = "#% increased Warcry Speed", 
 				["type"] = "explicit", 
 			}, 
 		}, 
@@ -8524,29 +8684,53 @@ return {
 			}, 
 		}, 
 		["4146_AilmentThresholdfromEnergyShield"] = {
+			["AnyJewel"] = {
+				["max"] = 15, 
+				["min"] = 5, 
+			}, 
+			["BaseJewel"] = {
+				["max"] = 15, 
+				["min"] = 5, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "explicit.stat_2633846058", 
-				["text"] = "Small Passive Skills in Radius also grant Gain additional Ailment Threshold equal to #% of maximum Energy Shield", 
+				["id"] = "explicit.stat_3398301358", 
+				["text"] = "Gain additional Ailment Threshold equal to #% of maximum Energy Shield", 
 				["type"] = "explicit", 
 			}, 
 		}, 
 		["4147_IncreasedAilmentThreshold"] = {
+			["AnyJewel"] = {
+				["max"] = 20, 
+				["min"] = 10, 
+			}, 
+			["BaseJewel"] = {
+				["max"] = 20, 
+				["min"] = 10, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "explicit.stat_3409275777", 
-				["text"] = "Small Passive Skills in Radius also grant #% increased Elemental Ailment Threshold", 
+				["id"] = "explicit.stat_3544800472", 
+				["text"] = "#% increased Elemental Ailment Threshold", 
 				["type"] = "explicit", 
 			}, 
 		}, 
 		["4262_ArmourBreak"] = {
+			["AnyJewel"] = {
+				["max"] = 15, 
+				["min"] = 5, 
+			}, 
+			["BaseJewel"] = {
+				["max"] = 15, 
+				["min"] = 5, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "explicit.stat_4089835882", 
-				["text"] = "Small Passive Skills in Radius also grant Break #% increased Armour", 
+				["id"] = "explicit.stat_1776411443", 
+				["text"] = "Break #% increased Armour", 
 				["type"] = "explicit", 
 			}, 
 		}, 
@@ -8585,29 +8769,53 @@ return {
 			}, 
 		}, 
 		["4450_BannerArea"] = {
+			["AnyJewel"] = {
+				["max"] = 20, 
+				["min"] = 10, 
+			}, 
+			["BaseJewel"] = {
+				["max"] = 20, 
+				["min"] = 10, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "explicit.stat_4142814612", 
-				["text"] = "Small Passive Skills in Radius also grant Banner Skills have #% increased Area of Effect", 
+				["id"] = "explicit.stat_429143663", 
+				["text"] = "Banner Skills have #% increased Area of Effect", 
 				["type"] = "explicit", 
 			}, 
 		}, 
 		["4452_BannerDuration"] = {
+			["AnyJewel"] = {
+				["max"] = 25, 
+				["min"] = 15, 
+			}, 
+			["BaseJewel"] = {
+				["max"] = 25, 
+				["min"] = 15, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "explicit.stat_2690740379", 
-				["text"] = "Small Passive Skills in Radius also grant Banner Skills have #% increased Duration", 
+				["id"] = "explicit.stat_2720982137", 
+				["text"] = "Banner Skills have #% increased Duration", 
 				["type"] = "explicit", 
 			}, 
 		}, 
 		["4455_BannerValourGained"] = {
+			["AnyJewel"] = {
+				["max"] = 20, 
+				["min"] = 15, 
+			}, 
+			["BaseJewel"] = {
+				["max"] = 20, 
+				["min"] = 15, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "explicit.stat_3252357574", 
-				["text"] = "Notable Passive Skills in Radius also grant #% increased Valour gained", 
+				["id"] = "explicit.stat_1050359418", 
+				["text"] = "#% increased Valour gained", 
 				["type"] = "explicit", 
 			}, 
 		}, 
@@ -8629,11 +8837,19 @@ return {
 			}, 
 		}, 
 		["4482_BaseChanceToBleed"] = {
+			["AnyJewel"] = {
+				["max"] = 7, 
+				["min"] = 3, 
+			}, 
+			["BaseJewel"] = {
+				["max"] = 7, 
+				["min"] = 3, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "explicit.stat_944643028", 
-				["text"] = "Small Passive Skills in Radius also grant #% chance to inflict Bleeding on Hit", 
+				["id"] = "explicit.stat_2174054121", 
+				["text"] = "#% chance to inflict Bleeding on Hit", 
 				["type"] = "explicit", 
 			}, 
 		}, 
@@ -8707,20 +8923,36 @@ return {
 			}, 
 		}, 
 		["4699_BlindEffect"] = {
+			["AnyJewel"] = {
+				["max"] = 10, 
+				["min"] = 5, 
+			}, 
+			["BaseJewel"] = {
+				["max"] = 10, 
+				["min"] = 5, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "explicit.stat_2912416697", 
-				["text"] = "Notable Passive Skills in Radius also grant #% increased Blind Effect", 
+				["id"] = "explicit.stat_1585769763", 
+				["text"] = "#% increased Blind Effect", 
 				["type"] = "explicit", 
 			}, 
 		}, 
 		["5048_ForkingProjectiles"] = {
+			["AnyJewel"] = {
+				["max"] = 15, 
+				["min"] = 10, 
+			}, 
+			["BaseJewel"] = {
+				["max"] = 15, 
+				["min"] = 10, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "explicit.stat_4258720395", 
-				["text"] = "Notable Passive Skills in Radius also grant Projectiles have #% chance for an additional Projectile when Forking", 
+				["id"] = "explicit.stat_3003542304", 
+				["text"] = "Projectiles have #% chance for an additional Projectile when Forking", 
 				["type"] = "explicit", 
 			}, 
 		}, 
@@ -8768,6 +9000,14 @@ return {
 			}, 
 		}, 
 		["5232_CompanionDamage"] = {
+			["AnyJewel"] = {
+				["max"] = 20, 
+				["min"] = 10, 
+			}, 
+			["BaseJewel"] = {
+				["max"] = 20, 
+				["min"] = 10, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -8777,6 +9017,14 @@ return {
 			}, 
 		}, 
 		["5234_CompanionLife"] = {
+			["AnyJewel"] = {
+				["max"] = 20, 
+				["min"] = 10, 
+			}, 
+			["BaseJewel"] = {
+				["max"] = 20, 
+				["min"] = 10, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -8786,11 +9034,19 @@ return {
 			}, 
 		}, 
 		["5306_CriticalAilmentEffect"] = {
+			["AnyJewel"] = {
+				["max"] = 20, 
+				["min"] = 10, 
+			}, 
+			["BaseJewel"] = {
+				["max"] = 20, 
+				["min"] = 10, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "explicit.stat_4092130601", 
-				["text"] = "Notable Passive Skills in Radius also grant #% increased Magnitude of Damaging Ailments you inflict with Critical Hits", 
+				["id"] = "explicit.stat_440490623", 
+				["text"] = "#% increased Magnitude of Damaging Ailments you inflict with Critical Hits", 
 				["type"] = "explicit", 
 			}, 
 		}, 
@@ -8829,20 +9085,36 @@ return {
 			}, 
 		}, 
 		["5490_CharmDamageWhileUsing"] = {
+			["AnyJewel"] = {
+				["max"] = 20, 
+				["min"] = 10, 
+			}, 
+			["BaseJewel"] = {
+				["max"] = 20, 
+				["min"] = 10, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "explicit.stat_3649547492", 
-				["text"] = "Small Passive Skills in Radius also grant #% increased Damage while you have an active Charm", 
+				["id"] = "explicit.stat_627767961", 
+				["text"] = "#% increased Damage while you have an active Charm", 
 				["type"] = "explicit", 
 			}, 
 		}, 
 		["5495_HeraldDamage"] = {
+			["AnyJewel"] = {
+				["max"] = 25, 
+				["min"] = 15, 
+			}, 
+			["BaseJewel"] = {
+				["max"] = 25, 
+				["min"] = 15, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "explicit.stat_3065378291", 
-				["text"] = "Small Passive Skills in Radius also grant Herald Skills deal #% increased Damage", 
+				["id"] = "explicit.stat_21071013", 
+				["text"] = "Herald Skills deal #% increased Damage", 
 				["type"] = "explicit", 
 			}, 
 		}, 
@@ -8932,20 +9204,36 @@ return {
 			}, 
 		}, 
 		["5823_EnergyGeneration"] = {
+			["AnyJewel"] = {
+				["max"] = 8, 
+				["min"] = 4, 
+			}, 
+			["BaseJewel"] = {
+				["max"] = 8, 
+				["min"] = 4, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "explicit.stat_2849546516", 
-				["text"] = "Notable Passive Skills in Radius also grant Meta Skills gain #% increased Energy", 
+				["id"] = "explicit.stat_4236566306", 
+				["text"] = "Meta Skills gain #% increased Energy", 
 				["type"] = "explicit", 
 			}, 
 		}, 
 		["5833_FocusEnergyShield"] = {
+			["AnyJewel"] = {
+				["max"] = 50, 
+				["min"] = 30, 
+			}, 
+			["BaseJewel"] = {
+				["max"] = 50, 
+				["min"] = 30, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "explicit.stat_3419203492", 
-				["text"] = "Notable Passive Skills in Radius also grant #% increased Energy Shield from Equipped Focus", 
+				["id"] = "explicit.stat_3174700878", 
+				["text"] = "#% increased Energy Shield from Equipped Focus", 
 				["type"] = "explicit", 
 			}, 
 		}, 
@@ -8963,20 +9251,36 @@ return {
 			}, 
 		}, 
 		["6026_IncreasedFlaskChargesGained"] = {
+			["AnyJewel"] = {
+				["max"] = 10, 
+				["min"] = 5, 
+			}, 
+			["BaseJewel"] = {
+				["max"] = 10, 
+				["min"] = 5, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "explicit.stat_2066964205", 
-				["text"] = "Notable Passive Skills in Radius also grant #% increased Flask Charges gained", 
+				["id"] = "explicit.stat_1836676211", 
+				["text"] = "#% increased Flask Charges gained", 
 				["type"] = "explicit", 
 			}, 
 		}, 
 		["6215_RageOnHit"] = {
+			["AnyJewel"] = {
+				["max"] = 1, 
+				["min"] = 1, 
+			}, 
+			["BaseJewel"] = {
+				["max"] = 1, 
+				["min"] = 1, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "explicit.stat_2969557004", 
-				["text"] = "Notable Passive Skills in Radius also grant Gain # Rage on Melee Hit", 
+				["id"] = "explicit.stat_2709367754", 
+				["text"] = "Gain # Rage on Melee Hit", 
 				["type"] = "explicit", 
 			}, 
 		}, 
@@ -8998,6 +9302,14 @@ return {
 			}, 
 		}, 
 		["6307_HazardDamage"] = {
+			["AnyJewel"] = {
+				["max"] = 20, 
+				["min"] = 10, 
+			}, 
+			["BaseJewel"] = {
+				["max"] = 20, 
+				["min"] = 10, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -9024,29 +9336,53 @@ return {
 			}, 
 		}, 
 		["6568_IgniteEffect"] = {
+			["AnyJewel"] = {
+				["max"] = 15, 
+				["min"] = 5, 
+			}, 
+			["BaseJewel"] = {
+				["max"] = 15, 
+				["min"] = 5, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "explicit.stat_253641217", 
-				["text"] = "Notable Passive Skills in Radius also grant #% increased Magnitude of Ignite you inflict", 
+				["id"] = "explicit.stat_3791899485", 
+				["text"] = "#% increased Magnitude of Ignite you inflict", 
 				["type"] = "explicit", 
 			}, 
 		}, 
 		["6570_ElementalAilmentDuration"] = {
+			["AnyJewel"] = {
+				["max"] = 10, 
+				["min"] = 5, 
+			}, 
+			["BaseJewel"] = {
+				["max"] = 10, 
+				["min"] = 5, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "explicit.stat_1323216174", 
-				["text"] = "Notable Passive Skills in Radius also grant #% increased Duration of Ignite, Shock and Chill on Enemies", 
+				["id"] = "explicit.stat_1062710370", 
+				["text"] = "#% increased Duration of Ignite, Shock and Chill on Enemies", 
 				["type"] = "explicit", 
 			}, 
 		}, 
 		["6706_LifeFlaskChargePercentGeneration"] = {
+			["AnyJewel"] = {
+				["max"] = 20, 
+				["min"] = 10, 
+			}, 
+			["BaseJewel"] = {
+				["max"] = 20, 
+				["min"] = 10, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "explicit.stat_2749798749", 
-				["text"] = "Notable Passive Skills in Radius also grant #% increased Life Flask Charges gained", 
+				["id"] = "explicit.stat_4009879772", 
+				["text"] = "#% increased Life Flask Charges gained", 
 				["type"] = "explicit", 
 			}, 
 		}, 
@@ -9080,33 +9416,6 @@ return {
 				["type"] = "explicit", 
 			}, 
 		}, 
-		["6981_JewelRadiusLargerRadius"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "explicit.stat_3891355829|2", 
-				["text"] = "Upgrades Radius to Large", 
-				["type"] = "explicit", 
-			}, 
-		}, 
-		["7000_JewelRadiusNotableEffect"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "explicit.stat_4234573345", 
-				["text"] = "#% increased Effect of Notable Passive Skills in Radius", 
-				["type"] = "explicit", 
-			}, 
-		}, 
-		["7004_JewelRadiusSmallNodeEffect"] = {
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "explicit.stat_1060572482", 
-				["text"] = "#% increased Effect of Small Passive Skills in Radius", 
-				["type"] = "explicit", 
-			}, 
-		}, 
 		["7046_LocalRuneAndSoulCoreEffect"] = {
 			["specialCaseData"] = {
 			}, 
@@ -9117,11 +9426,19 @@ return {
 			}, 
 		}, 
 		["7156_MaceStun"] = {
+			["AnyJewel"] = {
+				["max"] = 25, 
+				["min"] = 15, 
+			}, 
+			["BaseJewel"] = {
+				["max"] = 25, 
+				["min"] = 15, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "explicit.stat_2392824305", 
-				["text"] = "Notable Passive Skills in Radius also grant #% increased Stun Buildup with Maces", 
+				["id"] = "explicit.stat_872504239", 
+				["text"] = "#% increased Stun Buildup with Maces", 
 				["type"] = "explicit", 
 			}, 
 		}, 
@@ -9143,15 +9460,31 @@ return {
 			}, 
 		}, 
 		["7950_MarkDuration"] = {
+			["AnyJewel"] = {
+				["max"] = 32, 
+				["min"] = 18, 
+			}, 
+			["BaseJewel"] = {
+				["max"] = 32, 
+				["min"] = 18, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "explicit.stat_4162678661", 
-				["text"] = "Small Passive Skills in Radius also grant Mark Skills have #% increased Skill Effect Duration", 
+				["id"] = "explicit.stat_2594634307", 
+				["text"] = "Mark Skills have #% increased Skill Effect Duration", 
 				["type"] = "explicit", 
 			}, 
 		}, 
 		["8019_MeleeDamageIfProjectileHitRecently"] = {
+			["AnyJewel"] = {
+				["max"] = 20, 
+				["min"] = 10, 
+			}, 
+			["BaseJewel"] = {
+				["max"] = 20, 
+				["min"] = 10, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -9161,20 +9494,36 @@ return {
 			}, 
 		}, 
 		["8099_MinionAccuracyRatingForJewel"] = {
+			["AnyJewel"] = {
+				["max"] = 20, 
+				["min"] = 10, 
+			}, 
+			["BaseJewel"] = {
+				["max"] = 20, 
+				["min"] = 10, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "explicit.stat_793875384", 
-				["text"] = "Small Passive Skills in Radius also grant #% increased Minion Accuracy Rating", 
+				["id"] = "explicit.stat_1718147982", 
+				["text"] = "#% increased Minion Accuracy Rating", 
 				["type"] = "explicit", 
 			}, 
 		}, 
 		["8104_MinionAttackSpeedAndCastSpeed"] = {
+			["AnyJewel"] = {
+				["max"] = 4, 
+				["min"] = 2, 
+			}, 
+			["BaseJewel"] = {
+				["max"] = 4, 
+				["min"] = 2, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "explicit.stat_3106718406", 
-				["text"] = "Notable Passive Skills in Radius also grant Minions have #% increased Attack and Cast Speed", 
+				["id"] = "explicit.stat_3091578504", 
+				["text"] = "Minions have #% increased Attack and Cast Speed", 
 				["type"] = "explicit", 
 			}, 
 		}, 
@@ -9196,11 +9545,19 @@ return {
 			}, 
 		}, 
 		["8123_MinionCriticalStrikeMultiplier"] = {
+			["AnyJewel"] = {
+				["max"] = 25, 
+				["min"] = 15, 
+			}, 
+			["BaseJewel"] = {
+				["max"] = 25, 
+				["min"] = 15, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "explicit.stat_593241812", 
-				["text"] = "Notable Passive Skills in Radius also grant Minions have #% increased Critical Damage Bonus", 
+				["id"] = "explicit.stat_1854213750", 
+				["text"] = "Minions have #% increased Critical Damage Bonus", 
 				["type"] = "explicit", 
 			}, 
 		}, 
@@ -10361,11 +10718,19 @@ return {
 			}, 
 		}, 
 		["8404_ParryDamage"] = {
+			["AnyJewel"] = {
+				["max"] = 25, 
+				["min"] = 15, 
+			}, 
+			["BaseJewel"] = {
+				["max"] = 25, 
+				["min"] = 15, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "explicit.stat_2176628242", 
-				["text"] = "Small Passive Skills in Radius also grant #% increased Parry Damage", 
+				["id"] = "explicit.stat_1569159338", 
+				["text"] = "#% increased Parry Damage", 
 				["type"] = "explicit", 
 			}, 
 		}, 
@@ -10463,15 +10828,31 @@ return {
 			}, 
 		}, 
 		["8410_ParriedDebuffDuration"] = {
+			["AnyJewel"] = {
+				["max"] = 15, 
+				["min"] = 10, 
+			}, 
+			["BaseJewel"] = {
+				["max"] = 15, 
+				["min"] = 10, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "explicit.stat_95491901", 
-				["text"] = "Notable Passive Skills in Radius also grant #% increased Parried Debuff Duration", 
+				["id"] = "explicit.stat_3401186585", 
+				["text"] = "#% increased Parried Debuff Duration", 
 				["type"] = "explicit", 
 			}, 
 		}, 
 		["8411_StunThresholdDuringParry"] = {
+			["AnyJewel"] = {
+				["max"] = 25, 
+				["min"] = 15, 
+			}, 
+			["BaseJewel"] = {
+				["max"] = 25, 
+				["min"] = 15, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -10890,6 +11271,14 @@ return {
 			}, 
 		}, 
 		["8555_ProjectileDamageIfMeleeHitRecently"] = {
+			["AnyJewel"] = {
+				["max"] = 20, 
+				["min"] = 10, 
+			}, 
+			["BaseJewel"] = {
+				["max"] = 20, 
+				["min"] = 10, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -11141,11 +11530,19 @@ return {
 			}, 
 		}, 
 		["8607_QuiverModifierEffect"] = {
+			["AnyJewel"] = {
+				["max"] = 6, 
+				["min"] = 4, 
+			}, 
+			["BaseJewel"] = {
+				["max"] = 6, 
+				["min"] = 4, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "explicit.stat_4180952808", 
-				["text"] = "Notable Passive Skills in Radius also grant #% increased bonuses gained from Equipped Quiver", 
+				["id"] = "explicit.stat_1200678966", 
+				["text"] = "#% increased bonuses gained from Equipped Quiver", 
 				["type"] = "explicit", 
 			}, 
 		}, 
@@ -11209,11 +11606,19 @@ return {
 			}, 
 		}, 
 		["8611_MaximumRage"] = {
+			["AnyJewel"] = {
+				["max"] = 1, 
+				["min"] = 1, 
+			}, 
+			["BaseJewel"] = {
+				["max"] = 1, 
+				["min"] = 1, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "explicit.stat_1846980580", 
-				["text"] = "Notable Passive Skills in Radius also grant # to Maximum Rage", 
+				["id"] = "explicit.stat_1181501418", 
+				["text"] = "# to Maximum Rage", 
 				["type"] = "explicit", 
 			}, 
 			["usePositiveSign"] = true, 
@@ -11455,11 +11860,19 @@ return {
 			}, 
 		}, 
 		["8720_CrossbowReloadSpeed"] = {
+			["AnyJewel"] = {
+				["max"] = 15, 
+				["min"] = 10, 
+			}, 
+			["BaseJewel"] = {
+				["max"] = 15, 
+				["min"] = 10, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "explicit.stat_3856744003", 
-				["text"] = "Notable Passive Skills in Radius also grant #% increased Crossbow Reload Speed", 
+				["id"] = "explicit.stat_3192728503", 
+				["text"] = "#% increased Crossbow Reload Speed", 
 				["type"] = "explicit", 
 			}, 
 		}, 
@@ -11933,11 +12346,19 @@ return {
 			}, 
 		}, 
 		["8802_ShockEffect"] = {
+			["AnyJewel"] = {
+				["max"] = 15, 
+				["min"] = 10, 
+			}, 
+			["BaseJewel"] = {
+				["max"] = 15, 
+				["min"] = 10, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "explicit.stat_1166140625", 
-				["text"] = "Notable Passive Skills in Radius also grant #% increased Magnitude of Shock you inflict", 
+				["id"] = "explicit.stat_2527686725", 
+				["text"] = "#% increased Magnitude of Shock you inflict", 
 				["type"] = "explicit", 
 			}, 
 		}, 
@@ -11968,11 +12389,19 @@ return {
 			}, 
 		}, 
 		["881_CharmDuration"] = {
+			["AnyJewel"] = {
+				["max"] = 15, 
+				["min"] = 5, 
+			}, 
+			["BaseJewel"] = {
+				["max"] = 15, 
+				["min"] = 5, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "explicit.stat_3088348485", 
-				["text"] = "Small Passive Skills in Radius also grant #% increased Charm Effect Duration", 
+				["id"] = "explicit.stat_1389754388", 
+				["text"] = "#% increased Charm Effect Duration", 
 				["type"] = "explicit", 
 			}, 
 		}, 
@@ -12352,20 +12781,36 @@ return {
 			}, 
 		}, 
 		["9070_StunThresholdfromEnergyShield"] = {
+			["AnyJewel"] = {
+				["max"] = 15, 
+				["min"] = 5, 
+			}, 
+			["BaseJewel"] = {
+				["max"] = 15, 
+				["min"] = 5, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "explicit.stat_1653682082", 
-				["text"] = "Small Passive Skills in Radius also grant Gain additional Stun Threshold equal to #% of maximum Energy Shield", 
+				["id"] = "explicit.stat_416040624", 
+				["text"] = "Gain additional Stun Threshold equal to #% of maximum Energy Shield", 
 				["type"] = "explicit", 
 			}, 
 		}, 
 		["9072_IncreasedStunThresholdIfNoRecentStun"] = {
+			["AnyJewel"] = {
+				["max"] = 25, 
+				["min"] = 15, 
+			}, 
+			["BaseJewel"] = {
+				["max"] = 25, 
+				["min"] = 15, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "explicit.stat_654207792", 
-				["text"] = "Small Passive Skills in Radius also grant #% increased Stun Threshold if you haven't been Stunned Recently", 
+				["id"] = "explicit.stat_1405298142", 
+				["text"] = "#% increased Stun Threshold if you haven't been Stunned Recently", 
 				["type"] = "explicit", 
 			}, 
 		}, 
@@ -13228,11 +13673,19 @@ return {
 			}, 
 		}, 
 		["932_SpellCritMultiplierForJewel"] = {
+			["AnyJewel"] = {
+				["max"] = 20, 
+				["min"] = 10, 
+			}, 
+			["BaseJewel"] = {
+				["max"] = 20, 
+				["min"] = 10, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "explicit.stat_2466785537", 
-				["text"] = "Notable Passive Skills in Radius also grant #% increased Critical Spell Damage Bonus", 
+				["id"] = "explicit.stat_274716455", 
+				["text"] = "#% increased Critical Spell Damage Bonus", 
 				["type"] = "explicit", 
 			}, 
 		}, 
@@ -13353,11 +13806,19 @@ return {
 			}, 
 		}, 
 		["9372_VolatilityOnKillChance"] = {
+			["AnyJewel"] = {
+				["max"] = 3, 
+				["min"] = 2, 
+			}, 
+			["BaseJewel"] = {
+				["max"] = 3, 
+				["min"] = 2, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "explicit.stat_4236343330", 
-				["text"] = "Notable Passive Skills in Radius also grant #% chance to gain Volatility on Kill", 
+				["id"] = "explicit.stat_3749502527", 
+				["text"] = "#% chance to gain Volatility on Kill", 
 				["type"] = "explicit", 
 			}, 
 		}, 
@@ -13443,11 +13904,19 @@ return {
 			["usePositiveSign"] = true, 
 		}, 
 		["9405_WeaponSwapSpeed"] = {
+			["AnyJewel"] = {
+				["max"] = 25, 
+				["min"] = 15, 
+			}, 
+			["BaseJewel"] = {
+				["max"] = 25, 
+				["min"] = 15, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "explicit.stat_1129429646", 
-				["text"] = "Small Passive Skills in Radius also grant #% increased Weapon Swap Speed", 
+				["id"] = "explicit.stat_3233599707", 
+				["text"] = "#% increased Weapon Swap Speed", 
 				["type"] = "explicit", 
 			}, 
 		}, 
@@ -14084,11 +14553,19 @@ return {
 			}, 
 		}, 
 		["959_LifeRegenerationRate"] = {
+			["AnyJewel"] = {
+				["max"] = 10, 
+				["min"] = 5, 
+			}, 
+			["BaseJewel"] = {
+				["max"] = 10, 
+				["min"] = 5, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "explicit.stat_1185341308", 
-				["text"] = "Notable Passive Skills in Radius also grant #% increased Life Regeneration rate", 
+				["id"] = "explicit.stat_44972811", 
+				["text"] = "#% increased Life Regeneration rate", 
 				["type"] = "explicit", 
 			}, 
 		}, 
@@ -14106,11 +14583,19 @@ return {
 			}, 
 		}, 
 		["960_LifeRecoupForJewel"] = {
+			["AnyJewel"] = {
+				["max"] = 3, 
+				["min"] = 2, 
+			}, 
+			["BaseJewel"] = {
+				["max"] = 3, 
+				["min"] = 2, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "explicit.stat_3669820740", 
-				["text"] = "Notable Passive Skills in Radius also grant #% of Damage taken Recouped as Life", 
+				["id"] = "explicit.stat_1444556985", 
+				["text"] = "#% of Damage taken Recouped as Life", 
 				["type"] = "explicit", 
 			}, 
 		}, 
@@ -14955,6 +15440,14 @@ return {
 			["1HWeapon"] = {
 				["max"] = 80, 
 				["min"] = 36, 
+			}, 
+			["AnyJewel"] = {
+				["max"] = 25, 
+				["min"] = 15, 
+			}, 
+			["BaseJewel"] = {
+				["max"] = 25, 
+				["min"] = 15, 
 			}, 
 			["Sceptre"] = {
 				["max"] = 80, 
