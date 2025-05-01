@@ -4,12 +4,28 @@
 return {
 	[1]={
 		[1]={
+			[1]={
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Collapse deals Melee damage"
+			}
+		},
+		stats={
+			[1]="skill_specific_stat_description_mode"
+		}
+	},
+	[2]={
+		[1]={
 		},
 		stats={
 			[1]="active_skill_area_of_effect_radius"
 		}
 	},
-	[2]={
+	[3]={
 		[1]={
 			[1]={
 				[1]={
@@ -42,7 +58,7 @@ return {
 			[1]="active_skill_base_area_of_effect_radius"
 		}
 	},
-	[3]={
+	[4]={
 		[1]={
 			[1]={
 				[1]={
@@ -75,14 +91,14 @@ return {
 			[1]="base_skill_effect_duration"
 		}
 	},
-	[4]={
+	[5]={
 		[1]={
 		},
 		stats={
 			[1]="skill_effect_duration"
 		}
 	},
-	[5]={
+	[6]={
 		[1]={
 			[1]={
 				limit={
@@ -107,18 +123,19 @@ return {
 			[1]="windstorm_base_maximum_number_of_storms"
 		}
 	},
-	[6]={
+	[7]={
 		[1]={
 		},
 		stats={
 			[1]="windstorm_maximum_number_of_storms"
 		}
 	},
-	["active_skill_area_of_effect_radius"]=1,
-	["active_skill_base_area_of_effect_radius"]=2,
-	["base_skill_effect_duration"]=3,
+	["active_skill_area_of_effect_radius"]=2,
+	["active_skill_base_area_of_effect_radius"]=3,
+	["base_skill_effect_duration"]=4,
 	parent="skill_stat_descriptions",
-	["skill_effect_duration"]=4,
-	["windstorm_base_maximum_number_of_storms"]=5,
-	["windstorm_maximum_number_of_storms"]=6
+	["skill_effect_duration"]=5,
+	["skill_specific_stat_description_mode"]=1,
+	["windstorm_base_maximum_number_of_storms"]=6,
+	["windstorm_maximum_number_of_storms"]=7
 }

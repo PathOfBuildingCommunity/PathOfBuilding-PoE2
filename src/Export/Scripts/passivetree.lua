@@ -12,6 +12,29 @@ if not loadStatFile then
 end
 loadStatFile("passive_skill_stat_descriptions.csd")
 
+local function CalcOrbitAngles(nodesInOrbit)
+	local orbitAngles = {}
+
+	if nodesInOrbit == 16 then
+		-- Every 30 and 45 degrees, per https://github.com/grindinggear/skilltree-export/blob/3.17.0/README.md
+		orbitAngles = { 0, 30, 45, 60, 90, 120, 135, 150, 180, 210, 225, 240, 270, 300, 315, 330 }
+	elseif nodesInOrbit == 40 then
+		-- Every 10 and 45 degrees
+		orbitAngles = { 0, 10, 20, 30, 40, 45, 50, 60, 70, 80, 90, 100, 110, 120, 130, 135, 140, 150, 160, 170, 180, 190, 200, 210, 220, 225, 230, 240, 250, 260, 270, 280, 290, 300, 310, 315, 320, 330, 340, 350 }
+	else
+		-- Uniformly spaced
+		for i = 0, nodesInOrbit do
+			orbitAngles[i + 1] = 360 * i / nodesInOrbit
+		end
+	end
+
+	for i, degrees in ipairs(orbitAngles) do
+		orbitAngles[i] = math.rad(degrees)
+	end
+
+	return orbitAngles
+end
+
 local function extractFromGgpk(listToExtract, useRegex)
 	useRegex = useRegex or false
 	local sweetSpotCharacter = 6000
@@ -542,9 +565,9 @@ end
 local tree = {
 	["tree"] = idPassiveTree,
 	["min_x"]= 0,
-    ["min_y"]= 0,
-    ["max_x"]= 0,
-    ["max_y"]= 0,
+	["min_y"]= 0,
+	["max_x"]= 0,
+	["max_y"]= 0,
 	["classes"] = {},
 	["groups"] = { },
 	["nodes"]= { },
@@ -552,26 +575,27 @@ local tree = {
 	["ddsCoords"] = {},
 	["jewelSlots"] = {},
 	["constants"]= { -- calculate this
-        ["classes"]= {
-            ["StrDexIntClass"]= 0,
-            ["StrClass"]= 1,
-            ["DexClass"]= 2,
-            ["IntClass"]= 3,
-            ["StrDexClass"]= 4,
-            ["StrIntClass"]= 5,
-            ["DexIntClass"]= 6
-        },
-        ["characterAttributes"]= {
-            ["Strength"]= 0,
-            ["Dexterity"]= 1,
-            ["Intelligence"]= 2
-        },
-        ["PSSCentreInnerRadius"]= 130,
-        ["skillsPerOrbit"]= {},
-        ["orbitRadii"]= {
+		["classes"]= {
+			["StrDexIntClass"]= 0,
+			["StrClass"]= 1,
+			["DexClass"]= 2,
+			["IntClass"]= 3,
+			["StrDexClass"]= 4,
+			["StrIntClass"]= 5,
+			["DexIntClass"]= 6
+		},
+		["characterAttributes"]= {
+			["Strength"]= 0,
+			["Dexterity"]= 1,
+			["Intelligence"]= 2
+		},
+		["PSSCentreInnerRadius"]= 130,
+		["skillsPerOrbit"]= {},
+		["orbitAnglesByOrbit"] = {},
+		["orbitRadii"]= {
 			0, 82, 162, 335, 493, 662, 846, 251, 1080, 1322
-        }
-    },
+		},
+	},
 }
 
 printf("Generating classes...")
@@ -605,6 +629,16 @@ for i, classId in ipairs(psg.passives) do
 			["base_dex"] = character.BaseDexterity,
 			["base_int"] = character.BaseIntelligence,
 			["ascendancies"] = {},
+			["background"] = {
+				["active"] = { width = 2000, height = 2000 },
+				["bg"] = { width = 2000, height = 2000 },
+				image = "Classes" .. character.Name,
+				section = "AscendancyBackground",
+				x = 0,
+				y = 0,
+				width = 1500,
+				height = 1500
+			}
 		}
 
 		-- add assets
@@ -622,7 +656,15 @@ for i, classId in ipairs(psg.passives) do
 			table.insert(classDef.ascendancies, {
 				["id"] = ascendency.Name,
 				["name"] = ascendency.Name,
-				["internalId"] = ascendency.Id
+				["internalId"] = ascendency.Id,
+				["background"] = {
+					image = "Classes" .. ascendency.Name,
+					section = "AscendancyBackground",
+					x = 0,
+					y = 0,
+					width = 1500,
+					height = 1500
+				}
 			})
 
 			-- add assets
@@ -985,6 +1027,11 @@ for i, orbit in ipairs(orbitsConstants) do
 	tree.constants.skillsPerOrbit[i] = orbit
 end
 
+-- calculate the orbit radius
+for orbit, skillsInOrbit in ipairs(tree.constants.skillsPerOrbit) do
+	tree.constants.orbitAnglesByOrbit[orbit] = CalcOrbitAngles(skillsInOrbit)
+end
+
 -- Update position of ascendancy base on min / max 
 -- get the orbit radius + hard-coded value, calculate the angle of the class start
 -- translate the ascendancy to the new position in arc position
@@ -1025,12 +1072,25 @@ for i, classId in ipairs(psg.passives) do
 			local groupAscendancy = tree.groups[ascendancyNode.group]
 
 			local angle = startAngle + (j - 1) * angleStep
-			local newX = hardCoded * math.cos(angle)
-			local newY = hardCoded * math.sin(angle)
+			local cX = hardCoded * math.cos(angle)
+			local cY = hardCoded * math.sin(angle)
+
+			ascendancy.background.x = cX
+			ascendancy.background.y = cY
+
+			local innerRadious = dat("ascendancy"):GetRow("Id", ascendancy.internalId).distanceTree
+
+			local newInnerX = cX + math.cos(angleToCenter) * innerRadious
+			local newInnerY = cY + math.sin(angleToCenter) * innerRadious
+
+			local nodeAngle = tree.constants.orbitAnglesByOrbit[ascendancyNode.orbit + 1][ascendancyNode.orbitIndex + 1]
+			local orbitRadius = tree.constants.orbitRadii[ascendancyNode.orbit + 1]
+			local newX = newInnerX - math.sin(nodeAngle) * orbitRadius
+			local newY = newInnerY + math.cos(nodeAngle) * orbitRadius
 
 			local offsetX = newX - groupAscendancy.x
 			local offsetY = newY - groupAscendancy.y
-		
+
 			-- now update the whole groups with the offset
 			for groupId, value in pairs(info) do
 				if type(value) == "boolean" then

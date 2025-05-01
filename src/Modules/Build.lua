@@ -1627,6 +1627,9 @@ function buildMode:AddDisplayStatList(statList, actor)
 			InsertIfNew(self.controls.warnings.lines, line)
 		end
 	end
+	if actor.output.EternalLifeWarning then
+		InsertIfNew(self.controls.warnings.lines, "You cannot pay Life costs of skills while You have Energy Shield and have Eternal Life allocated")
+	end
 	if actor.output.VixensTooMuchCastSpeedWarn then
 		InsertIfNew(self.controls.warnings.lines, "You may have too much cast speed or too little cooldown reduction to effectively use Vixen's Curse replacement")
 	end

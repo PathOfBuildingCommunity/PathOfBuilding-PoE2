@@ -95,15 +95,47 @@ return {
 		[1]={
 			ascendancies={
 				[1]={
+					background={
+						height=1500,
+						image="ClassesDeadeye",
+						section="AscendancyBackground",
+						width=1500,
+						x=13766.890095179,
+						y=6128.5715012329
+					},
 					id="Deadeye",
 					internalId="Ranger1",
 					name="Deadeye"
 				},
 				[2]={
+					background={
+						height=1500,
+						image="ClassesPathfinder",
+						section="AscendancyBackground",
+						width=1500,
+						x=12191.848853047,
+						y=8856.9449068475
+					},
 					id="Pathfinder",
 					internalId="Ranger3",
 					name="Pathfinder"
 				}
+			},
+			background={
+				active={
+					height=2000,
+					width=2000
+				},
+				bg={
+					height=2000,
+					width=2000
+				},
+				height=1500,
+				image="ClassesRanger",
+				section="AscendancyBackground",
+				width=1500,
+				x=0,
+				y=0
 			},
 			["base_dex"]=15,
 			["base_int"]=7,
@@ -113,15 +145,47 @@ return {
 		[2]={
 			ascendancies={
 				[1]={
+					background={
+						height=1500,
+						image="ClassesTitan",
+						section="AscendancyBackground",
+						width=1500,
+						x=-12195.691188436,
+						y=8851.6534034478
+					},
 					id="Titan",
 					internalId="Warrior1",
 					name="Titan"
 				},
 				[2]={
+					background={
+						height=1500,
+						image="ClassesWarbringer",
+						section="AscendancyBackground",
+						width=1500,
+						x=-13769.548300903,
+						y=6122.5967634307
+					},
 					id="Warbringer",
 					internalId="Warrior2",
 					name="Warbringer"
 				}
+			},
+			background={
+				active={
+					height=2000,
+					width=2000
+				},
+				bg={
+					height=2000,
+					width=2000
+				},
+				height=1500,
+				image="ClassesWarrior",
+				section="AscendancyBackground",
+				width=1500,
+				x=0,
+				y=0
 			},
 			["base_dex"]=7,
 			["base_int"]=7,
@@ -131,15 +195,47 @@ return {
 		[3]={
 			ascendancies={
 				[1]={
+					background={
+						height=1500,
+						image="ClassesWitchhunter",
+						section="AscendancyBackground",
+						width=1500,
+						x=1595.0621893959,
+						y=14984.739842601
+					},
 					id="Witchhunter",
 					internalId="Mercenary2",
 					name="Witchhunter"
 				},
 				[2]={
+					background={
+						height=1500,
+						image="ClassesGemling Legionnaire",
+						section="AscendancyBackground",
+						width=1500,
+						x=-1555.2963435605,
+						y=14988.919401417
+					},
 					id="Gemling Legionnaire",
 					internalId="Mercenary3",
 					name="Gemling Legionnaire"
 				}
+			},
+			background={
+				active={
+					height=2000,
+					width=2000
+				},
+				bg={
+					height=2000,
+					width=2000
+				},
+				height=1500,
+				image="ClassesMercenary",
+				section="AscendancyBackground",
+				width=1500,
+				x=0,
+				y=0
 			},
 			["base_dex"]=11,
 			["base_int"]=7,
@@ -149,15 +245,47 @@ return {
 		[4]={
 			ascendancies={
 				[1]={
+					background={
+						height=1500,
+						image="ClassesInfernalist",
+						section="AscendancyBackground",
+						width=1500,
+						x=-4656.6990050971,
+						y=-14331.845865568
+					},
 					id="Infernalist",
 					internalId="Witch1",
 					name="Infernalist"
 				},
 				[2]={
+					background={
+						height=1500,
+						image="ClassesBlood Mage",
+						section="AscendancyBackground",
+						width=1500,
+						x=-1575.1806527255,
+						y=-14986.842811271
+					},
 					id="Blood Mage",
 					internalId="Witch2",
 					name="Blood Mage"
 				}
+			},
+			background={
+				active={
+					height=2000,
+					width=2000
+				},
+				bg={
+					height=2000,
+					width=2000
+				},
+				height=1500,
+				image="ClassesWitch",
+				section="AscendancyBackground",
+				width=1500,
+				x=0,
+				y=0
 			},
 			["base_dex"]=7,
 			["base_int"]=15,
@@ -167,15 +295,47 @@ return {
 		[5]={
 			ascendancies={
 				[1]={
+					background={
+						height=1500,
+						image="ClassesStormweaver",
+						section="AscendancyBackground",
+						width=1500,
+						x=1575.1806527255,
+						y=-14986.842811271
+					},
 					id="Stormweaver",
 					internalId="Sorceress1",
 					name="Stormweaver"
 				},
 				[2]={
+					background={
+						height=1500,
+						image="ClassesChronomancer",
+						section="AscendancyBackground",
+						width=1500,
+						x=4656.6990050971,
+						y=-14331.845865568
+					},
 					id="Chronomancer",
 					internalId="Sorceress2",
 					name="Chronomancer"
 				}
+			},
+			background={
+				active={
+					height=2000,
+					width=2000
+				},
+				bg={
+					height=2000,
+					width=2000
+				},
+				height=1500,
+				image="ClassesSorceress",
+				section="AscendancyBackground",
+				width=1500,
+				x=0,
+				y=0
 			},
 			["base_dex"]=7,
 			["base_int"]=15,
@@ -185,15 +345,47 @@ return {
 		[6]={
 			ascendancies={
 				[1]={
+					background={
+						height=1500,
+						image="ClassesInvoker",
+						section="AscendancyBackground",
+						width=1500,
+						x=12215.667857404,
+						y=-8824.0642753814
+					},
 					id="Invoker",
 					internalId="Monk2",
 					name="Invoker"
 				},
 				[2]={
+					background={
+						height=1500,
+						image="ClassesAcolyte of Chayula",
+						section="AscendancyBackground",
+						width=1500,
+						x=13783.35232946,
+						y=-6091.4571409843
+					},
 					id="Acolyte of Chayula",
 					internalId="Monk3",
 					name="Acolyte of Chayula"
 				}
+			},
+			background={
+				active={
+					height=2000,
+					width=2000
+				},
+				bg={
+					height=2000,
+					width=2000
+				},
+				height=1500,
+				image="ClassesMonk",
+				section="AscendancyBackground",
+				width=1500,
+				x=0,
+				y=0
 			},
 			["base_dex"]=11,
 			["base_int"]=11,
@@ -216,6 +408,555 @@ return {
 			StrDexClass=4,
 			StrDexIntClass=0,
 			StrIntClass=5
+		},
+		orbitAnglesByOrbit={
+			[1]={
+				[1]=0,
+				[2]=6.2831853071796
+			},
+			[2]={
+				[1]=0,
+				[2]=0.5235987755983,
+				[3]=1.0471975511966,
+				[4]=1.5707963267949,
+				[5]=2.0943951023932,
+				[6]=2.6179938779915,
+				[7]=3.1415926535898,
+				[8]=3.6651914291881,
+				[9]=4.1887902047864,
+				[10]=4.7123889803847,
+				[11]=5.235987755983,
+				[12]=5.7595865315813,
+				[13]=6.2831853071796
+			},
+			[3]={
+				[1]=0,
+				[2]=0.26179938779915,
+				[3]=0.5235987755983,
+				[4]=0.78539816339745,
+				[5]=1.0471975511966,
+				[6]=1.3089969389957,
+				[7]=1.5707963267949,
+				[8]=1.832595714594,
+				[9]=2.0943951023932,
+				[10]=2.3561944901923,
+				[11]=2.6179938779915,
+				[12]=2.8797932657906,
+				[13]=3.1415926535898,
+				[14]=3.4033920413889,
+				[15]=3.6651914291881,
+				[16]=3.9269908169872,
+				[17]=4.1887902047864,
+				[18]=4.4505895925855,
+				[19]=4.7123889803847,
+				[20]=4.9741883681838,
+				[21]=5.235987755983,
+				[22]=5.4977871437821,
+				[23]=5.7595865315813,
+				[24]=6.0213859193804,
+				[25]=6.2831853071796
+			},
+			[4]={
+				[1]=0,
+				[2]=0.26179938779915,
+				[3]=0.5235987755983,
+				[4]=0.78539816339745,
+				[5]=1.0471975511966,
+				[6]=1.3089969389957,
+				[7]=1.5707963267949,
+				[8]=1.832595714594,
+				[9]=2.0943951023932,
+				[10]=2.3561944901923,
+				[11]=2.6179938779915,
+				[12]=2.8797932657906,
+				[13]=3.1415926535898,
+				[14]=3.4033920413889,
+				[15]=3.6651914291881,
+				[16]=3.9269908169872,
+				[17]=4.1887902047864,
+				[18]=4.4505895925855,
+				[19]=4.7123889803847,
+				[20]=4.9741883681838,
+				[21]=5.235987755983,
+				[22]=5.4977871437821,
+				[23]=5.7595865315813,
+				[24]=6.0213859193804,
+				[25]=6.2831853071796
+			},
+			[5]={
+				[1]=0,
+				[2]=0.087266462599716,
+				[3]=0.17453292519943,
+				[4]=0.26179938779915,
+				[5]=0.34906585039887,
+				[6]=0.43633231299858,
+				[7]=0.5235987755983,
+				[8]=0.61086523819802,
+				[9]=0.69813170079773,
+				[10]=0.78539816339745,
+				[11]=0.87266462599716,
+				[12]=0.95993108859688,
+				[13]=1.0471975511966,
+				[14]=1.1344640137963,
+				[15]=1.221730476396,
+				[16]=1.3089969389957,
+				[17]=1.3962634015955,
+				[18]=1.4835298641952,
+				[19]=1.5707963267949,
+				[20]=1.6580627893946,
+				[21]=1.7453292519943,
+				[22]=1.832595714594,
+				[23]=1.9198621771938,
+				[24]=2.0071286397935,
+				[25]=2.0943951023932,
+				[26]=2.1816615649929,
+				[27]=2.2689280275926,
+				[28]=2.3561944901923,
+				[29]=2.4434609527921,
+				[30]=2.5307274153918,
+				[31]=2.6179938779915,
+				[32]=2.7052603405912,
+				[33]=2.7925268031909,
+				[34]=2.8797932657906,
+				[35]=2.9670597283904,
+				[36]=3.0543261909901,
+				[37]=3.1415926535898,
+				[38]=3.2288591161895,
+				[39]=3.3161255787892,
+				[40]=3.4033920413889,
+				[41]=3.4906585039887,
+				[42]=3.5779249665884,
+				[43]=3.6651914291881,
+				[44]=3.7524578917878,
+				[45]=3.8397243543875,
+				[46]=3.9269908169872,
+				[47]=4.014257279587,
+				[48]=4.1015237421867,
+				[49]=4.1887902047864,
+				[50]=4.2760566673861,
+				[51]=4.3633231299858,
+				[52]=4.4505895925855,
+				[53]=4.5378560551853,
+				[54]=4.625122517785,
+				[55]=4.7123889803847,
+				[56]=4.7996554429844,
+				[57]=4.8869219055841,
+				[58]=4.9741883681838,
+				[59]=5.0614548307836,
+				[60]=5.1487212933833,
+				[61]=5.235987755983,
+				[62]=5.3232542185827,
+				[63]=5.4105206811824,
+				[64]=5.4977871437821,
+				[65]=5.5850536063819,
+				[66]=5.6723200689816,
+				[67]=5.7595865315813,
+				[68]=5.846852994181,
+				[69]=5.9341194567807,
+				[70]=6.0213859193804,
+				[71]=6.1086523819802,
+				[72]=6.1959188445799,
+				[73]=6.2831853071796
+			},
+			[6]={
+				[1]=0,
+				[2]=0.087266462599716,
+				[3]=0.17453292519943,
+				[4]=0.26179938779915,
+				[5]=0.34906585039887,
+				[6]=0.43633231299858,
+				[7]=0.5235987755983,
+				[8]=0.61086523819802,
+				[9]=0.69813170079773,
+				[10]=0.78539816339745,
+				[11]=0.87266462599716,
+				[12]=0.95993108859688,
+				[13]=1.0471975511966,
+				[14]=1.1344640137963,
+				[15]=1.221730476396,
+				[16]=1.3089969389957,
+				[17]=1.3962634015955,
+				[18]=1.4835298641952,
+				[19]=1.5707963267949,
+				[20]=1.6580627893946,
+				[21]=1.7453292519943,
+				[22]=1.832595714594,
+				[23]=1.9198621771938,
+				[24]=2.0071286397935,
+				[25]=2.0943951023932,
+				[26]=2.1816615649929,
+				[27]=2.2689280275926,
+				[28]=2.3561944901923,
+				[29]=2.4434609527921,
+				[30]=2.5307274153918,
+				[31]=2.6179938779915,
+				[32]=2.7052603405912,
+				[33]=2.7925268031909,
+				[34]=2.8797932657906,
+				[35]=2.9670597283904,
+				[36]=3.0543261909901,
+				[37]=3.1415926535898,
+				[38]=3.2288591161895,
+				[39]=3.3161255787892,
+				[40]=3.4033920413889,
+				[41]=3.4906585039887,
+				[42]=3.5779249665884,
+				[43]=3.6651914291881,
+				[44]=3.7524578917878,
+				[45]=3.8397243543875,
+				[46]=3.9269908169872,
+				[47]=4.014257279587,
+				[48]=4.1015237421867,
+				[49]=4.1887902047864,
+				[50]=4.2760566673861,
+				[51]=4.3633231299858,
+				[52]=4.4505895925855,
+				[53]=4.5378560551853,
+				[54]=4.625122517785,
+				[55]=4.7123889803847,
+				[56]=4.7996554429844,
+				[57]=4.8869219055841,
+				[58]=4.9741883681838,
+				[59]=5.0614548307836,
+				[60]=5.1487212933833,
+				[61]=5.235987755983,
+				[62]=5.3232542185827,
+				[63]=5.4105206811824,
+				[64]=5.4977871437821,
+				[65]=5.5850536063819,
+				[66]=5.6723200689816,
+				[67]=5.7595865315813,
+				[68]=5.846852994181,
+				[69]=5.9341194567807,
+				[70]=6.0213859193804,
+				[71]=6.1086523819802,
+				[72]=6.1959188445799,
+				[73]=6.2831853071796
+			},
+			[7]={
+				[1]=0,
+				[2]=0.087266462599716,
+				[3]=0.17453292519943,
+				[4]=0.26179938779915,
+				[5]=0.34906585039887,
+				[6]=0.43633231299858,
+				[7]=0.5235987755983,
+				[8]=0.61086523819802,
+				[9]=0.69813170079773,
+				[10]=0.78539816339745,
+				[11]=0.87266462599716,
+				[12]=0.95993108859688,
+				[13]=1.0471975511966,
+				[14]=1.1344640137963,
+				[15]=1.221730476396,
+				[16]=1.3089969389957,
+				[17]=1.3962634015955,
+				[18]=1.4835298641952,
+				[19]=1.5707963267949,
+				[20]=1.6580627893946,
+				[21]=1.7453292519943,
+				[22]=1.832595714594,
+				[23]=1.9198621771938,
+				[24]=2.0071286397935,
+				[25]=2.0943951023932,
+				[26]=2.1816615649929,
+				[27]=2.2689280275926,
+				[28]=2.3561944901923,
+				[29]=2.4434609527921,
+				[30]=2.5307274153918,
+				[31]=2.6179938779915,
+				[32]=2.7052603405912,
+				[33]=2.7925268031909,
+				[34]=2.8797932657906,
+				[35]=2.9670597283904,
+				[36]=3.0543261909901,
+				[37]=3.1415926535898,
+				[38]=3.2288591161895,
+				[39]=3.3161255787892,
+				[40]=3.4033920413889,
+				[41]=3.4906585039887,
+				[42]=3.5779249665884,
+				[43]=3.6651914291881,
+				[44]=3.7524578917878,
+				[45]=3.8397243543875,
+				[46]=3.9269908169872,
+				[47]=4.014257279587,
+				[48]=4.1015237421867,
+				[49]=4.1887902047864,
+				[50]=4.2760566673861,
+				[51]=4.3633231299858,
+				[52]=4.4505895925855,
+				[53]=4.5378560551853,
+				[54]=4.625122517785,
+				[55]=4.7123889803847,
+				[56]=4.7996554429844,
+				[57]=4.8869219055841,
+				[58]=4.9741883681838,
+				[59]=5.0614548307836,
+				[60]=5.1487212933833,
+				[61]=5.235987755983,
+				[62]=5.3232542185827,
+				[63]=5.4105206811824,
+				[64]=5.4977871437821,
+				[65]=5.5850536063819,
+				[66]=5.6723200689816,
+				[67]=5.7595865315813,
+				[68]=5.846852994181,
+				[69]=5.9341194567807,
+				[70]=6.0213859193804,
+				[71]=6.1086523819802,
+				[72]=6.1959188445799,
+				[73]=6.2831853071796
+			},
+			[8]={
+				[1]=0,
+				[2]=0.26179938779915,
+				[3]=0.5235987755983,
+				[4]=0.78539816339745,
+				[5]=1.0471975511966,
+				[6]=1.3089969389957,
+				[7]=1.5707963267949,
+				[8]=1.832595714594,
+				[9]=2.0943951023932,
+				[10]=2.3561944901923,
+				[11]=2.6179938779915,
+				[12]=2.8797932657906,
+				[13]=3.1415926535898,
+				[14]=3.4033920413889,
+				[15]=3.6651914291881,
+				[16]=3.9269908169872,
+				[17]=4.1887902047864,
+				[18]=4.4505895925855,
+				[19]=4.7123889803847,
+				[20]=4.9741883681838,
+				[21]=5.235987755983,
+				[22]=5.4977871437821,
+				[23]=5.7595865315813,
+				[24]=6.0213859193804,
+				[25]=6.2831853071796
+			},
+			[9]={
+				[1]=0,
+				[2]=0.087266462599716,
+				[3]=0.17453292519943,
+				[4]=0.26179938779915,
+				[5]=0.34906585039887,
+				[6]=0.43633231299858,
+				[7]=0.5235987755983,
+				[8]=0.61086523819802,
+				[9]=0.69813170079773,
+				[10]=0.78539816339745,
+				[11]=0.87266462599716,
+				[12]=0.95993108859688,
+				[13]=1.0471975511966,
+				[14]=1.1344640137963,
+				[15]=1.221730476396,
+				[16]=1.3089969389957,
+				[17]=1.3962634015955,
+				[18]=1.4835298641952,
+				[19]=1.5707963267949,
+				[20]=1.6580627893946,
+				[21]=1.7453292519943,
+				[22]=1.832595714594,
+				[23]=1.9198621771938,
+				[24]=2.0071286397935,
+				[25]=2.0943951023932,
+				[26]=2.1816615649929,
+				[27]=2.2689280275926,
+				[28]=2.3561944901923,
+				[29]=2.4434609527921,
+				[30]=2.5307274153918,
+				[31]=2.6179938779915,
+				[32]=2.7052603405912,
+				[33]=2.7925268031909,
+				[34]=2.8797932657906,
+				[35]=2.9670597283904,
+				[36]=3.0543261909901,
+				[37]=3.1415926535898,
+				[38]=3.2288591161895,
+				[39]=3.3161255787892,
+				[40]=3.4033920413889,
+				[41]=3.4906585039887,
+				[42]=3.5779249665884,
+				[43]=3.6651914291881,
+				[44]=3.7524578917878,
+				[45]=3.8397243543875,
+				[46]=3.9269908169872,
+				[47]=4.014257279587,
+				[48]=4.1015237421867,
+				[49]=4.1887902047864,
+				[50]=4.2760566673861,
+				[51]=4.3633231299858,
+				[52]=4.4505895925855,
+				[53]=4.5378560551853,
+				[54]=4.625122517785,
+				[55]=4.7123889803847,
+				[56]=4.7996554429844,
+				[57]=4.8869219055841,
+				[58]=4.9741883681838,
+				[59]=5.0614548307836,
+				[60]=5.1487212933833,
+				[61]=5.235987755983,
+				[62]=5.3232542185827,
+				[63]=5.4105206811824,
+				[64]=5.4977871437821,
+				[65]=5.5850536063819,
+				[66]=5.6723200689816,
+				[67]=5.7595865315813,
+				[68]=5.846852994181,
+				[69]=5.9341194567807,
+				[70]=6.0213859193804,
+				[71]=6.1086523819802,
+				[72]=6.1959188445799,
+				[73]=6.2831853071796
+			},
+			[10]={
+				[1]=0,
+				[2]=0.043633231299858,
+				[3]=0.087266462599716,
+				[4]=0.13089969389957,
+				[5]=0.17453292519943,
+				[6]=0.21816615649929,
+				[7]=0.26179938779915,
+				[8]=0.30543261909901,
+				[9]=0.34906585039887,
+				[10]=0.39269908169872,
+				[11]=0.43633231299858,
+				[12]=0.47996554429844,
+				[13]=0.5235987755983,
+				[14]=0.56723200689816,
+				[15]=0.61086523819802,
+				[16]=0.65449846949787,
+				[17]=0.69813170079773,
+				[18]=0.74176493209759,
+				[19]=0.78539816339745,
+				[20]=0.82903139469731,
+				[21]=0.87266462599716,
+				[22]=0.91629785729702,
+				[23]=0.95993108859688,
+				[24]=1.0035643198967,
+				[25]=1.0471975511966,
+				[26]=1.0908307824965,
+				[27]=1.1344640137963,
+				[28]=1.1780972450962,
+				[29]=1.221730476396,
+				[30]=1.2653637076959,
+				[31]=1.3089969389957,
+				[32]=1.3526301702956,
+				[33]=1.3962634015955,
+				[34]=1.4398966328953,
+				[35]=1.4835298641952,
+				[36]=1.527163095495,
+				[37]=1.5707963267949,
+				[38]=1.6144295580948,
+				[39]=1.6580627893946,
+				[40]=1.7016960206945,
+				[41]=1.7453292519943,
+				[42]=1.7889624832942,
+				[43]=1.832595714594,
+				[44]=1.8762289458939,
+				[45]=1.9198621771938,
+				[46]=1.9634954084936,
+				[47]=2.0071286397935,
+				[48]=2.0507618710933,
+				[49]=2.0943951023932,
+				[50]=2.1380283336931,
+				[51]=2.1816615649929,
+				[52]=2.2252947962928,
+				[53]=2.2689280275926,
+				[54]=2.3125612588925,
+				[55]=2.3561944901923,
+				[56]=2.3998277214922,
+				[57]=2.4434609527921,
+				[58]=2.4870941840919,
+				[59]=2.5307274153918,
+				[60]=2.5743606466916,
+				[61]=2.6179938779915,
+				[62]=2.6616271092914,
+				[63]=2.7052603405912,
+				[64]=2.7488935718911,
+				[65]=2.7925268031909,
+				[66]=2.8361600344908,
+				[67]=2.8797932657906,
+				[68]=2.9234264970905,
+				[69]=2.9670597283904,
+				[70]=3.0106929596902,
+				[71]=3.0543261909901,
+				[72]=3.0979594222899,
+				[73]=3.1415926535898,
+				[74]=3.1852258848897,
+				[75]=3.2288591161895,
+				[76]=3.2724923474894,
+				[77]=3.3161255787892,
+				[78]=3.3597588100891,
+				[79]=3.4033920413889,
+				[80]=3.4470252726888,
+				[81]=3.4906585039887,
+				[82]=3.5342917352885,
+				[83]=3.5779249665884,
+				[84]=3.6215581978882,
+				[85]=3.6651914291881,
+				[86]=3.708824660488,
+				[87]=3.7524578917878,
+				[88]=3.7960911230877,
+				[89]=3.8397243543875,
+				[90]=3.8833575856874,
+				[91]=3.9269908169872,
+				[92]=3.9706240482871,
+				[93]=4.014257279587,
+				[94]=4.0578905108868,
+				[95]=4.1015237421867,
+				[96]=4.1451569734865,
+				[97]=4.1887902047864,
+				[98]=4.2324234360862,
+				[99]=4.2760566673861,
+				[100]=4.319689898686,
+				[101]=4.3633231299858,
+				[102]=4.4069563612857,
+				[103]=4.4505895925855,
+				[104]=4.4942228238854,
+				[105]=4.5378560551853,
+				[106]=4.5814892864851,
+				[107]=4.625122517785,
+				[108]=4.6687557490848,
+				[109]=4.7123889803847,
+				[110]=4.7560222116845,
+				[111]=4.7996554429844,
+				[112]=4.8432886742843,
+				[113]=4.8869219055841,
+				[114]=4.930555136884,
+				[115]=4.9741883681838,
+				[116]=5.0178215994837,
+				[117]=5.0614548307836,
+				[118]=5.1050880620834,
+				[119]=5.1487212933833,
+				[120]=5.1923545246831,
+				[121]=5.235987755983,
+				[122]=5.2796209872828,
+				[123]=5.3232542185827,
+				[124]=5.3668874498826,
+				[125]=5.4105206811824,
+				[126]=5.4541539124823,
+				[127]=5.4977871437821,
+				[128]=5.541420375082,
+				[129]=5.5850536063819,
+				[130]=5.6286868376817,
+				[131]=5.6723200689816,
+				[132]=5.7159533002814,
+				[133]=5.7595865315813,
+				[134]=5.8032197628811,
+				[135]=5.846852994181,
+				[136]=5.8904862254809,
+				[137]=5.9341194567807,
+				[138]=5.9777526880806,
+				[139]=6.0213859193804,
+				[140]=6.0650191506803,
+				[141]=6.1086523819802,
+				[142]=6.15228561328,
+				[143]=6.1959188445799,
+				[144]=6.2395520758797,
+				[145]=6.2831853071796
+			}
 		},
 		orbitRadii={
 			[1]=0,
@@ -468,183 +1209,183 @@ return {
 		},
 		["skills-disabled_128_128_BC1.dds.zst"]={
 			["Art/2DArt/SkillIcons/passives/AcolyteofChayula/AcolyteOfChayulaBreachFlameDoubles.dds"]=8,
-			["Art/2DArt/SkillIcons/passives/AcolyteofChayula/AcolyteOfChayulaBreachWalk.dds"]=62,
+			["Art/2DArt/SkillIcons/passives/AcolyteofChayula/AcolyteOfChayulaBreachWalk.dds"]=61,
 			["Art/2DArt/SkillIcons/passives/AcolyteofChayula/AcolyteOfChayulaDarknessProtectsLonger.dds"]=51,
-			["Art/2DArt/SkillIcons/passives/AcolyteofChayula/AcolyteOfChayulaExtraChaosDamage.dds"]=55,
+			["Art/2DArt/SkillIcons/passives/AcolyteofChayula/AcolyteOfChayulaExtraChaosDamage.dds"]=56,
 			["Art/2DArt/SkillIcons/passives/AcolyteofChayula/AcolyteOfChayulaExtraChaosDamagePerDarkness.dds"]=14,
-			["Art/2DArt/SkillIcons/passives/AcolyteofChayula/AcolyteOfChayulaExtraChaosResistance.dds"]=53,
+			["Art/2DArt/SkillIcons/passives/AcolyteofChayula/AcolyteOfChayulaExtraChaosResistance.dds"]=55,
 			["Art/2DArt/SkillIcons/passives/AcolyteofChayula/AcolyteOfChayulaManaLeechEnergyShield.dds"]=4,
 			["Art/2DArt/SkillIcons/passives/AcolyteofChayula/AcolyteOfChayulaManaLeechInstant.dds"]=34,
-			["Art/2DArt/SkillIcons/passives/AcolyteofChayula/AcolyteOfChayulaReplaceSpiritWithDarkness.dds"]=108,
-			["Art/2DArt/SkillIcons/passives/Annihilation.dds"]=147,
-			["Art/2DArt/SkillIcons/passives/AspectOfTheLynx.dds"]=140,
-			["Art/2DArt/SkillIcons/passives/Blood2.dds"]=95,
-			["Art/2DArt/SkillIcons/passives/Bloodmage/BloodMageCritDamagePerLife.dds"]=126,
+			["Art/2DArt/SkillIcons/passives/AcolyteofChayula/AcolyteOfChayulaReplaceSpiritWithDarkness.dds"]=113,
+			["Art/2DArt/SkillIcons/passives/Annihilation.dds"]=149,
+			["Art/2DArt/SkillIcons/passives/AspectOfTheLynx.dds"]=57,
+			["Art/2DArt/SkillIcons/passives/Blood2.dds"]=94,
+			["Art/2DArt/SkillIcons/passives/Bloodmage/BloodMageCritDamagePerLife.dds"]=129,
 			["Art/2DArt/SkillIcons/passives/Bloodmage/BloodMageCurseInfiniteDuration.dds"]=28,
-			["Art/2DArt/SkillIcons/passives/Bloodmage/BloodMageDamageLeechedLife.dds"]=118,
+			["Art/2DArt/SkillIcons/passives/Bloodmage/BloodMageDamageLeechedLife.dds"]=121,
 			["Art/2DArt/SkillIcons/passives/Bloodmage/BloodMageGainLifeEnergyShield.dds"]=30,
-			["Art/2DArt/SkillIcons/passives/Bloodmage/BloodMageHigherSpellBaseCritStrike.dds"]=56,
+			["Art/2DArt/SkillIcons/passives/Bloodmage/BloodMageHigherSpellBaseCritStrike.dds"]=54,
 			["Art/2DArt/SkillIcons/passives/Bloodmage/BloodMageLeaveBloodOrbs.dds"]=12,
 			["Art/2DArt/SkillIcons/passives/Bloodmage/BloodMageLifeLoss.dds"]=37,
-			["Art/2DArt/SkillIcons/passives/Bloodmage/BloodPhysicalDamageExtraGore.dds"]=163,
-			["Art/2DArt/SkillIcons/passives/BowDamage.dds"]=155,
-			["Art/2DArt/SkillIcons/passives/BulwarkKeystone.dds"]=124,
-			["Art/2DArt/SkillIcons/passives/ChainingProjectiles.dds"]=148,
-			["Art/2DArt/SkillIcons/passives/ChannellingAttacksNotable2.dds"]=54,
-			["Art/2DArt/SkillIcons/passives/CharmNotable1.dds"]=175,
+			["Art/2DArt/SkillIcons/passives/Bloodmage/BloodPhysicalDamageExtraGore.dds"]=162,
+			["Art/2DArt/SkillIcons/passives/BowDamage.dds"]=67,
+			["Art/2DArt/SkillIcons/passives/BulwarkKeystone.dds"]=127,
+			["Art/2DArt/SkillIcons/passives/ChainingProjectiles.dds"]=150,
+			["Art/2DArt/SkillIcons/passives/ChannellingAttacksNotable2.dds"]=52,
+			["Art/2DArt/SkillIcons/passives/CharmNotable1.dds"]=174,
 			["Art/2DArt/SkillIcons/passives/ClawsOfTheMagpie.dds"]=47,
-			["Art/2DArt/SkillIcons/passives/CriticalStrikesNotable.dds"]=168,
+			["Art/2DArt/SkillIcons/passives/CriticalStrikesNotable.dds"]=166,
 			["Art/2DArt/SkillIcons/passives/DancewithDeathKeystone.dds"]=9,
 			["Art/2DArt/SkillIcons/passives/DeadEye/DeadeyeDealMoreProjectileDamageClose.dds"]=25,
 			["Art/2DArt/SkillIcons/passives/DeadEye/DeadeyeDealMoreProjectileDamageFarAway.dds"]=64,
-			["Art/2DArt/SkillIcons/passives/DeadEye/DeadeyeFrenzyChargesGeneration.dds"]=61,
-			["Art/2DArt/SkillIcons/passives/DeadEye/DeadeyeFrenzyChargesHaveMoreEffect.dds"]=109,
+			["Art/2DArt/SkillIcons/passives/DeadEye/DeadeyeFrenzyChargesGeneration.dds"]=53,
+			["Art/2DArt/SkillIcons/passives/DeadEye/DeadeyeFrenzyChargesHaveMoreEffect.dds"]=114,
 			["Art/2DArt/SkillIcons/passives/DeadEye/DeadeyeGrantsTwoAdditionalProjectiles.dds"]=24,
-			["Art/2DArt/SkillIcons/passives/DeadEye/DeadeyeMarkEnemiesSpread.dds"]=133,
-			["Art/2DArt/SkillIcons/passives/DeadEye/DeadeyeMoreAccuracy.dds"]=71,
+			["Art/2DArt/SkillIcons/passives/DeadEye/DeadeyeMarkEnemiesSpread.dds"]=135,
+			["Art/2DArt/SkillIcons/passives/DeadEye/DeadeyeMoreAccuracy.dds"]=72,
 			["Art/2DArt/SkillIcons/passives/DeadEye/DeadeyeProjectileDamageChoose.dds"]=27,
 			["Art/2DArt/SkillIcons/passives/DeadEye/DeadeyeTailwind.dds"]=63,
-			["Art/2DArt/SkillIcons/passives/DeadEye/DeadeyeWindward.dds"]=70,
-			["Art/2DArt/SkillIcons/passives/Deflection.dds"]=176,
+			["Art/2DArt/SkillIcons/passives/DeadEye/DeadeyeWindward.dds"]=74,
+			["Art/2DArt/SkillIcons/passives/Deflection.dds"]=175,
 			["Art/2DArt/SkillIcons/passives/DragonStyle.dds"]=40,
-			["Art/2DArt/SkillIcons/passives/ElementalDamagewithAttacks2.dds"]=119,
-			["Art/2DArt/SkillIcons/passives/ElementalResistance2.dds"]=110,
+			["Art/2DArt/SkillIcons/passives/ElementalDamagewithAttacks2.dds"]=122,
+			["Art/2DArt/SkillIcons/passives/ElementalResistance2.dds"]=93,
 			["Art/2DArt/SkillIcons/passives/EternalYouth.dds"]=2,
 			["Art/2DArt/SkillIcons/passives/EvasionAndBlindNotable.dds"]=154,
 			["Art/2DArt/SkillIcons/passives/FlaskNotableCritStrikeRecharge.dds"]=11,
 			["Art/2DArt/SkillIcons/passives/FlaskNotableFlasksLastLonger.dds"]=1,
 			["Art/2DArt/SkillIcons/passives/Gemling/GemlingBuffSkillsReserveLessSpirit.dds"]=13,
 			["Art/2DArt/SkillIcons/passives/Gemling/GemlingHighestAttributeSatisfiesGemRequirements.dds"]=6,
-			["Art/2DArt/SkillIcons/passives/Gemling/GemlingInherentBonusesFromAttributesDouble.dds"]=117,
-			["Art/2DArt/SkillIcons/passives/Gemling/GemlingLevelAllSkillGems.dds"]=81,
+			["Art/2DArt/SkillIcons/passives/Gemling/GemlingInherentBonusesFromAttributesDouble.dds"]=120,
+			["Art/2DArt/SkillIcons/passives/Gemling/GemlingLevelAllSkillGems.dds"]=84,
 			["Art/2DArt/SkillIcons/passives/Gemling/GemlingMaxElementalResistanceSupportColour.dds"]=23,
-			["Art/2DArt/SkillIcons/passives/Gemling/GemlingSameSupportMultipleTimes.dds"]=79,
+			["Art/2DArt/SkillIcons/passives/Gemling/GemlingSameSupportMultipleTimes.dds"]=82,
 			["Art/2DArt/SkillIcons/passives/Gemling/GemlingSkillGemQuality.dds"]=3,
-			["Art/2DArt/SkillIcons/passives/Gemling/GemlingSkillsAdditionalSupport.dds"]=69,
-			["Art/2DArt/SkillIcons/passives/GiantBloodKeystone.dds"]=113,
-			["Art/2DArt/SkillIcons/passives/GlancingBlows.dds"]=166,
-			["Art/2DArt/SkillIcons/passives/Harrier.dds"]=158,
+			["Art/2DArt/SkillIcons/passives/Gemling/GemlingSkillsAdditionalSupport.dds"]=71,
+			["Art/2DArt/SkillIcons/passives/GiantBloodKeystone.dds"]=117,
+			["Art/2DArt/SkillIcons/passives/GlancingBlows.dds"]=86,
+			["Art/2DArt/SkillIcons/passives/Harrier.dds"]=159,
 			["Art/2DArt/SkillIcons/passives/HeartstopperKeystone.dds"]=26,
-			["Art/2DArt/SkillIcons/passives/Hearty.dds"]=122,
-			["Art/2DArt/SkillIcons/passives/HiredKiller2.dds"]=173,
-			["Art/2DArt/SkillIcons/passives/Hunter.dds"]=161,
-			["Art/2DArt/SkillIcons/passives/IncreasedManaCostNotable.dds"]=130,
-			["Art/2DArt/SkillIcons/passives/IncreasedMaximumLifeNotable.dds"]=149,
-			["Art/2DArt/SkillIcons/passives/Infernalist/FuryManifest.dds"]=138,
-			["Art/2DArt/SkillIcons/passives/Infernalist/InfernalFamiliar.dds"]=98,
-			["Art/2DArt/SkillIcons/passives/Infernalist/InfernalistConvertLifeToEnergyShield.dds"]=170,
-			["Art/2DArt/SkillIcons/passives/Infernalist/InfernalistConvertLifeToMana.dds"]=116,
-			["Art/2DArt/SkillIcons/passives/Infernalist/InfernalistConvertLifeToSpirit.dds"]=141,
+			["Art/2DArt/SkillIcons/passives/Hearty.dds"]=124,
+			["Art/2DArt/SkillIcons/passives/HiredKiller2.dds"]=172,
+			["Art/2DArt/SkillIcons/passives/Hunter.dds"]=160,
+			["Art/2DArt/SkillIcons/passives/IncreasedManaCostNotable.dds"]=134,
+			["Art/2DArt/SkillIcons/passives/IncreasedMaximumLifeNotable.dds"]=151,
+			["Art/2DArt/SkillIcons/passives/Infernalist/FuryManifest.dds"]=140,
+			["Art/2DArt/SkillIcons/passives/Infernalist/InfernalFamiliar.dds"]=104,
+			["Art/2DArt/SkillIcons/passives/Infernalist/InfernalistConvertLifeToEnergyShield.dds"]=171,
+			["Art/2DArt/SkillIcons/passives/Infernalist/InfernalistConvertLifeToMana.dds"]=119,
+			["Art/2DArt/SkillIcons/passives/Infernalist/InfernalistConvertLifeToSpirit.dds"]=142,
 			["Art/2DArt/SkillIcons/passives/Infernalist/InfernalistInfernalHeat.dds"]=39,
-			["Art/2DArt/SkillIcons/passives/Infernalist/InfernalistTransformIntoDemon1.dds"]=143,
-			["Art/2DArt/SkillIcons/passives/Infernalist/InfernalistTransformIntoDemon2.dds"]=97,
-			["Art/2DArt/SkillIcons/passives/Infernalist/MoltenFury.dds"]=142,
-			["Art/2DArt/SkillIcons/passives/Infernalist/ScorchTheEarth.dds"]=80,
-			["Art/2DArt/SkillIcons/passives/Invoker/InvokerChillChanceBasedOnDamage.dds"]=123,
-			["Art/2DArt/SkillIcons/passives/Invoker/InvokerCriticalStrikesIgnoreResistances.dds"]=136,
+			["Art/2DArt/SkillIcons/passives/Infernalist/InfernalistTransformIntoDemon1.dds"]=144,
+			["Art/2DArt/SkillIcons/passives/Infernalist/InfernalistTransformIntoDemon2.dds"]=145,
+			["Art/2DArt/SkillIcons/passives/Infernalist/MoltenFury.dds"]=143,
+			["Art/2DArt/SkillIcons/passives/Infernalist/ScorchTheEarth.dds"]=83,
+			["Art/2DArt/SkillIcons/passives/Invoker/InvokerChillChanceBasedOnDamage.dds"]=126,
+			["Art/2DArt/SkillIcons/passives/Invoker/InvokerCriticalStrikesIgnoreResistances.dds"]=139,
 			["Art/2DArt/SkillIcons/passives/Invoker/InvokerEnergyDoubled.dds"]=65,
-			["Art/2DArt/SkillIcons/passives/Invoker/InvokerEvasionEnergyShieldGrantsSpirit.dds"]=135,
+			["Art/2DArt/SkillIcons/passives/Invoker/InvokerEvasionEnergyShieldGrantsSpirit.dds"]=137,
 			["Art/2DArt/SkillIcons/passives/Invoker/InvokerEvasionGrantsPhysicalDamageReduction.dds"]=31,
 			["Art/2DArt/SkillIcons/passives/Invoker/InvokerGrantsMeditate.dds"]=66,
-			["Art/2DArt/SkillIcons/passives/Invoker/InvokerShockMagnitude.dds"]=57,
-			["Art/2DArt/SkillIcons/passives/Invoker/InvokerUnboundAvatar.dds"]=99,
-			["Art/2DArt/SkillIcons/passives/Invoker/InvokerWildStrike.dds"]=153,
-			["Art/2DArt/SkillIcons/passives/KeystoneAcrobatics.dds"]=73,
-			["Art/2DArt/SkillIcons/passives/KeystoneAvatarOfFire.dds"]=114,
-			["Art/2DArt/SkillIcons/passives/KeystoneBloodMagic.dds"]=139,
+			["Art/2DArt/SkillIcons/passives/Invoker/InvokerShockMagnitude.dds"]=69,
+			["Art/2DArt/SkillIcons/passives/Invoker/InvokerUnboundAvatar.dds"]=105,
+			["Art/2DArt/SkillIcons/passives/Invoker/InvokerWildStrike.dds"]=156,
+			["Art/2DArt/SkillIcons/passives/KeystoneAcrobatics.dds"]=75,
+			["Art/2DArt/SkillIcons/passives/KeystoneAvatarOfFire.dds"]=109,
+			["Art/2DArt/SkillIcons/passives/KeystoneBloodMagic.dds"]=141,
 			["Art/2DArt/SkillIcons/passives/KeystoneChaosInoculation.dds"]=32,
-			["Art/2DArt/SkillIcons/passives/KeystoneConduit.dds"]=121,
+			["Art/2DArt/SkillIcons/passives/KeystoneConduit.dds"]=125,
 			["Art/2DArt/SkillIcons/passives/KeystoneEldritchBattery.dds"]=10,
 			["Art/2DArt/SkillIcons/passives/KeystoneElementalEquilibrium.dds"]=44,
-			["Art/2DArt/SkillIcons/passives/KeystoneIronReflexes.dds"]=137,
-			["Art/2DArt/SkillIcons/passives/KeystonePainAttunement.dds"]=100,
+			["Art/2DArt/SkillIcons/passives/KeystoneIronReflexes.dds"]=138,
+			["Art/2DArt/SkillIcons/passives/KeystonePainAttunement.dds"]=164,
 			["Art/2DArt/SkillIcons/passives/KeystoneResoluteTechnique.dds"]=29,
-			["Art/2DArt/SkillIcons/passives/KeystoneUnwaveringStance.dds"]=84,
-			["Art/2DArt/SkillIcons/passives/KeystoneWhispersOfDoom.dds"]=156,
-			["Art/2DArt/SkillIcons/passives/Meleerange.dds"]=150,
-			["Art/2DArt/SkillIcons/passives/MineManaReservationNotable.dds"]=145,
-			["Art/2DArt/SkillIcons/passives/MiracleMaker.dds"]=159,
-			["Art/2DArt/SkillIcons/passives/NecromanticTalismanKeystone.dds"]=83,
-			["Art/2DArt/SkillIcons/passives/OasisKeystone2.dds"]=177,
-			["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds"]=52,
+			["Art/2DArt/SkillIcons/passives/KeystoneUnwaveringStance.dds"]=89,
+			["Art/2DArt/SkillIcons/passives/KeystoneWhispersOfDoom.dds"]=157,
+			["Art/2DArt/SkillIcons/passives/Meleerange.dds"]=152,
+			["Art/2DArt/SkillIcons/passives/MineManaReservationNotable.dds"]=146,
+			["Art/2DArt/SkillIcons/passives/MiracleMaker.dds"]=97,
+			["Art/2DArt/SkillIcons/passives/NecromanticTalismanKeystone.dds"]=90,
+			["Art/2DArt/SkillIcons/passives/OasisKeystone2.dds"]=176,
+			["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds"]=62,
 			["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderBrewConcoction.dds"]=58,
-			["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderBrewConcoctionBleed.dds"]=92,
+			["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderBrewConcoctionBleed.dds"]=99,
 			["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderBrewConcoctionCold.dds"]=59,
 			["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderBrewConcoctionFire.dds"]=60,
 			["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderBrewConcoctionLightning.dds"]=19,
-			["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderBrewConcoctionPoison.dds"]=67,
-			["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderCannotBeSlowed.dds"]=134,
+			["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderBrewConcoctionPoison.dds"]=68,
+			["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderCannotBeSlowed.dds"]=136,
 			["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderEnemiesMultiplePoisons.dds"]=49,
 			["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderFlasksConsumeLessCharges.dds"]=17,
-			["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderLifeFlasks.dds"]=167,
+			["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderLifeFlasks.dds"]=168,
 			["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderMoreMovemenSpeedUsingSkills.dds"]=20,
 			["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderPoisonSpreadsNearbyEnemies.dds"]=45,
-			["Art/2DArt/SkillIcons/passives/PhysicalDamageOverTimeNotable.dds"]=68,
+			["Art/2DArt/SkillIcons/passives/PhysicalDamageOverTimeNotable.dds"]=70,
 			["Art/2DArt/SkillIcons/passives/Poison.dds"]=33,
-			["Art/2DArt/SkillIcons/passives/PressurePoints.dds"]=165,
-			["Art/2DArt/SkillIcons/passives/ProjectilesNotable.dds"]=106,
-			["Art/2DArt/SkillIcons/passives/ResonanceKeystone.dds"]=88,
-			["Art/2DArt/SkillIcons/passives/SpellMultiplyer2.dds"]=131,
-			["Art/2DArt/SkillIcons/passives/SpellSupressionNotable1.dds"]=174,
-			["Art/2DArt/SkillIcons/passives/Storm Weaver.dds"]=169,
-			["Art/2DArt/SkillIcons/passives/Stormweaver/AllDamageCanChill.dds"]=85,
-			["Art/2DArt/SkillIcons/passives/Stormweaver/AllDamageCanShock.dds"]=75,
-			["Art/2DArt/SkillIcons/passives/Stormweaver/ChillAddditionalTime.dds"]=74,
+			["Art/2DArt/SkillIcons/passives/PressurePoints.dds"]=147,
+			["Art/2DArt/SkillIcons/passives/ProjectilesNotable.dds"]=112,
+			["Art/2DArt/SkillIcons/passives/ResonanceKeystone.dds"]=177,
+			["Art/2DArt/SkillIcons/passives/SpellMultiplyer2.dds"]=132,
+			["Art/2DArt/SkillIcons/passives/SpellSupressionNotable1.dds"]=173,
+			["Art/2DArt/SkillIcons/passives/Storm Weaver.dds"]=167,
+			["Art/2DArt/SkillIcons/passives/Stormweaver/AllDamageCanChill.dds"]=91,
+			["Art/2DArt/SkillIcons/passives/Stormweaver/AllDamageCanShock.dds"]=77,
+			["Art/2DArt/SkillIcons/passives/Stormweaver/ChillAddditionalTime.dds"]=76,
 			["Art/2DArt/SkillIcons/passives/Stormweaver/ElementalDamageHealsYou.dds"]=42,
-			["Art/2DArt/SkillIcons/passives/Stormweaver/ElementalResistanceInverted.dds"]=86,
-			["Art/2DArt/SkillIcons/passives/Stormweaver/GrantsArcaneSurge.dds"]=160,
+			["Art/2DArt/SkillIcons/passives/Stormweaver/ElementalResistanceInverted.dds"]=92,
+			["Art/2DArt/SkillIcons/passives/Stormweaver/GrantsArcaneSurge.dds"]=163,
 			["Art/2DArt/SkillIcons/passives/Stormweaver/GrantsElementalStorm.dds"]=178,
-			["Art/2DArt/SkillIcons/passives/Stormweaver/ImprovedArcaneSurge.dds"]=146,
+			["Art/2DArt/SkillIcons/passives/Stormweaver/ImprovedArcaneSurge.dds"]=148,
 			["Art/2DArt/SkillIcons/passives/Stormweaver/ImprovedElementalStorm.dds"]=22,
-			["Art/2DArt/SkillIcons/passives/Stormweaver/ShockAddditionalTime.dds"]=76,
-			["Art/2DArt/SkillIcons/passives/Temporalist/TemporalistChanceSkillNoCooldownSkill.dds"]=104,
+			["Art/2DArt/SkillIcons/passives/Stormweaver/ShockAddditionalTime.dds"]=78,
+			["Art/2DArt/SkillIcons/passives/Temporalist/TemporalistChanceSkillNoCooldownSkill.dds"]=85,
 			["Art/2DArt/SkillIcons/passives/Temporalist/TemporalistFasterRecoup.dds"]=16,
-			["Art/2DArt/SkillIcons/passives/Temporalist/TemporalistGainMoreCastSpeed8Seconds.dds"]=115,
-			["Art/2DArt/SkillIcons/passives/Temporalist/TemporalistGrantsReloadCooldownsSkill.dds"]=112,
+			["Art/2DArt/SkillIcons/passives/Temporalist/TemporalistGainMoreCastSpeed8Seconds.dds"]=118,
+			["Art/2DArt/SkillIcons/passives/Temporalist/TemporalistGrantsReloadCooldownsSkill.dds"]=116,
 			["Art/2DArt/SkillIcons/passives/Temporalist/TemporalistGrantsTemporalRiftSkill.dds"]=18,
-			["Art/2DArt/SkillIcons/passives/Temporalist/TemporalistGrantsTimeStopSkill.dds"]=144,
+			["Art/2DArt/SkillIcons/passives/Temporalist/TemporalistGrantsTimeStopSkill.dds"]=103,
 			["Art/2DArt/SkillIcons/passives/Temporalist/TemporalistLifeRecoup.dds"]=43,
-			["Art/2DArt/SkillIcons/passives/Temporalist/TemporalistNearbyEnemiesProjectilesSlowed.dds"]=125,
-			["Art/2DArt/SkillIcons/passives/Titan/TitanAdditionalInventory.dds"]=50,
+			["Art/2DArt/SkillIcons/passives/Temporalist/TemporalistNearbyEnemiesProjectilesSlowed.dds"]=128,
+			["Art/2DArt/SkillIcons/passives/Titan/TitanAdditionalInventory.dds"]=100,
 			["Art/2DArt/SkillIcons/passives/Titan/TitanMoreBodyArmour.dds"]=36,
-			["Art/2DArt/SkillIcons/passives/Titan/TitanMoreMaxLife.dds"]=82,
-			["Art/2DArt/SkillIcons/passives/Titan/TitanMoreStunBuildupEnemies.dds"]=77,
+			["Art/2DArt/SkillIcons/passives/Titan/TitanMoreMaxLife.dds"]=88,
+			["Art/2DArt/SkillIcons/passives/Titan/TitanMoreStunBuildupEnemies.dds"]=108,
 			["Art/2DArt/SkillIcons/passives/Titan/TitanSlamSkillsAftershock.dds"]=48,
-			["Art/2DArt/SkillIcons/passives/Titan/TitanSlamSkillsFistOfWar.dds"]=101,
-			["Art/2DArt/SkillIcons/passives/Titan/TitanSmallPassiveDoubled.dds"]=102,
-			["Art/2DArt/SkillIcons/passives/Titan/TitanYourHitsCrushEnemies.dds"]=93,
+			["Art/2DArt/SkillIcons/passives/Titan/TitanSlamSkillsFistOfWar.dds"]=50,
+			["Art/2DArt/SkillIcons/passives/Titan/TitanSmallPassiveDoubled.dds"]=80,
+			["Art/2DArt/SkillIcons/passives/Titan/TitanYourHitsCrushEnemies.dds"]=79,
 			["Art/2DArt/SkillIcons/passives/Warbringer/WarbringerBlockChance.dds"]=7,
 			["Art/2DArt/SkillIcons/passives/Warbringer/WarbringerBreakEnemyArmour.dds"]=5,
-			["Art/2DArt/SkillIcons/passives/Warbringer/WarbringerCanBlockAllDamageShieldNotRaised.dds"]=105,
-			["Art/2DArt/SkillIcons/passives/Warbringer/WarbringerDamageTakenByTotems.dds"]=91,
-			["Art/2DArt/SkillIcons/passives/Warbringer/WarbringerEncasedInJade.dds"]=103,
-			["Art/2DArt/SkillIcons/passives/Warbringer/WarbringerEnemyArmourBrokenBelowZero.dds"]=72,
-			["Art/2DArt/SkillIcons/passives/Warbringer/WarbringerTotemsDefendedByAncestors.dds"]=89,
+			["Art/2DArt/SkillIcons/passives/Warbringer/WarbringerCanBlockAllDamageShieldNotRaised.dds"]=111,
+			["Art/2DArt/SkillIcons/passives/Warbringer/WarbringerDamageTakenByTotems.dds"]=98,
+			["Art/2DArt/SkillIcons/passives/Warbringer/WarbringerEncasedInJade.dds"]=110,
+			["Art/2DArt/SkillIcons/passives/Warbringer/WarbringerEnemyArmourBrokenBelowZero.dds"]=73,
+			["Art/2DArt/SkillIcons/passives/Warbringer/WarbringerTotemsDefendedByAncestors.dds"]=95,
 			["Art/2DArt/SkillIcons/passives/Warbringer/WarbringerWarcriesNoCooldown.dds"]=38,
 			["Art/2DArt/SkillIcons/passives/Warbringer/WarbringerWarcryExplodesCorpses.dds"]=21,
-			["Art/2DArt/SkillIcons/passives/Warrior.dds"]=132,
+			["Art/2DArt/SkillIcons/passives/Warrior.dds"]=133,
 			["Art/2DArt/SkillIcons/passives/Witchhunter/WitchunterArmourEvasionConvertedSpellAegis.dds"]=15,
-			["Art/2DArt/SkillIcons/passives/Witchhunter/WitchunterCullingStrike.dds"]=78,
-			["Art/2DArt/SkillIcons/passives/Witchhunter/WitchunterDamageMonsterMissingFocus.dds"]=87,
+			["Art/2DArt/SkillIcons/passives/Witchhunter/WitchunterCullingStrike.dds"]=81,
+			["Art/2DArt/SkillIcons/passives/Witchhunter/WitchunterDamageMonsterMissingFocus.dds"]=102,
 			["Art/2DArt/SkillIcons/passives/Witchhunter/WitchunterDrainMonsterFocus.dds"]=41,
 			["Art/2DArt/SkillIcons/passives/Witchhunter/WitchunterMonsterHolyExplosion.dds"]=35,
-			["Art/2DArt/SkillIcons/passives/Witchhunter/WitchunterRemovePercentageFullLifeEnemies.dds"]=164,
-			["Art/2DArt/SkillIcons/passives/Witchhunter/WitchunterSpecPoints.dds"]=152,
+			["Art/2DArt/SkillIcons/passives/Witchhunter/WitchunterRemovePercentageFullLifeEnemies.dds"]=165,
+			["Art/2DArt/SkillIcons/passives/Witchhunter/WitchunterSpecPoints.dds"]=155,
 			["Art/2DArt/SkillIcons/passives/Witchhunter/WitchunterStrongerSpellAegis.dds"]=46,
-			["Art/2DArt/SkillIcons/passives/bodysoul.dds"]=129,
-			["Art/2DArt/SkillIcons/passives/deepwisdom.dds"]=151,
-			["Art/2DArt/SkillIcons/passives/eagleeye.dds"]=171,
-			["Art/2DArt/SkillIcons/passives/executioner.dds"]=172,
-			["Art/2DArt/SkillIcons/passives/finesse.dds"]=157,
-			["Art/2DArt/SkillIcons/passives/heroicspirit.dds"]=111,
-			["Art/2DArt/SkillIcons/passives/icebite.dds"]=94,
-			["Art/2DArt/SkillIcons/passives/lifeleech.dds"]=107,
-			["Art/2DArt/SkillIcons/passives/liferegentoenergyshield.dds"]=162,
-			["Art/2DArt/SkillIcons/passives/newnewattackspeed.dds"]=96,
-			["Art/2DArt/SkillIcons/passives/steelspan.dds"]=120,
-			["Art/2DArt/SkillIcons/passives/strongarm.dds"]=127,
-			["Art/2DArt/SkillIcons/passives/totemmax.dds"]=90,
-			["Art/2DArt/SkillIcons/passives/vaalpact.dds"]=128
+			["Art/2DArt/SkillIcons/passives/bodysoul.dds"]=131,
+			["Art/2DArt/SkillIcons/passives/deepwisdom.dds"]=153,
+			["Art/2DArt/SkillIcons/passives/eagleeye.dds"]=169,
+			["Art/2DArt/SkillIcons/passives/executioner.dds"]=170,
+			["Art/2DArt/SkillIcons/passives/finesse.dds"]=158,
+			["Art/2DArt/SkillIcons/passives/heroicspirit.dds"]=115,
+			["Art/2DArt/SkillIcons/passives/icebite.dds"]=101,
+			["Art/2DArt/SkillIcons/passives/lifeleech.dds"]=87,
+			["Art/2DArt/SkillIcons/passives/liferegentoenergyshield.dds"]=107,
+			["Art/2DArt/SkillIcons/passives/newnewattackspeed.dds"]=106,
+			["Art/2DArt/SkillIcons/passives/steelspan.dds"]=123,
+			["Art/2DArt/SkillIcons/passives/strongarm.dds"]=161,
+			["Art/2DArt/SkillIcons/passives/totemmax.dds"]=96,
+			["Art/2DArt/SkillIcons/passives/vaalpact.dds"]=130
 		},
 		["skills-disabled_172_172_BC1.dds.zst"]={
 			["Art/2DArt/SkillIcons/passives/MasteryBlank.dds"]=1
@@ -653,312 +1394,309 @@ return {
 			["Art/2DArt/SkillIcons/passives/Infernalist/Fireblood.dds"]=1
 		},
 		["skills-disabled_64_64_BC1.dds.zst"]={
-			["Art/2DArt/SkillIcons/ExplosiveGrenade.dds"]=84,
-			["Art/2DArt/SkillIcons/WitchBoneStorm.dds"]=34,
-			["Art/2DArt/SkillIcons/icongroundslam.dds"]=68,
-			["Art/2DArt/SkillIcons/passives/2handeddamage.dds"]=39,
-			["Art/2DArt/SkillIcons/passives/AcolyteofChayula/AcolyteOfChayulaNode.dds"]=37,
-			["Art/2DArt/SkillIcons/passives/AreaDmgNode.dds"]=65,
-			["Art/2DArt/SkillIcons/passives/ArmourAndEnergyShieldNode.dds"]=83,
-			["Art/2DArt/SkillIcons/passives/ArmourAndEvasionNode.dds"]=92,
-			["Art/2DArt/SkillIcons/passives/ArmourBreak1BuffIcon.dds"]=33,
-			["Art/2DArt/SkillIcons/passives/ArmourBreak2BuffIcon.dds"]=88,
-			["Art/2DArt/SkillIcons/passives/Ascendants/SkillPoint.dds"]=108,
-			["Art/2DArt/SkillIcons/passives/Bloodmage/BloodMageNode.dds"]=117,
-			["Art/2DArt/SkillIcons/passives/ChannellingAttacksNode.dds"]=126,
-			["Art/2DArt/SkillIcons/passives/ChaosDamagenode.dds"]=86,
-			["Art/2DArt/SkillIcons/passives/CharmNode1.dds"]=123,
-			["Art/2DArt/SkillIcons/passives/ColdDamagenode.dds"]=95,
-			["Art/2DArt/SkillIcons/passives/ColdResistNode.dds"]=119,
+			["Art/2DArt/SkillIcons/ExplosiveGrenade.dds"]=77,
+			["Art/2DArt/SkillIcons/WitchBoneStorm.dds"]=27,
+			["Art/2DArt/SkillIcons/icongroundslam.dds"]=60,
+			["Art/2DArt/SkillIcons/passives/2handeddamage.dds"]=28,
+			["Art/2DArt/SkillIcons/passives/AcolyteofChayula/AcolyteOfChayulaNode.dds"]=31,
+			["Art/2DArt/SkillIcons/passives/AreaDmgNode.dds"]=41,
+			["Art/2DArt/SkillIcons/passives/ArmourAndEnergyShieldNode.dds"]=76,
+			["Art/2DArt/SkillIcons/passives/ArmourAndEvasionNode.dds"]=84,
+			["Art/2DArt/SkillIcons/passives/ArmourBreak1BuffIcon.dds"]=55,
+			["Art/2DArt/SkillIcons/passives/ArmourBreak2BuffIcon.dds"]=65,
+			["Art/2DArt/SkillIcons/passives/Ascendants/SkillPoint.dds"]=100,
+			["Art/2DArt/SkillIcons/passives/Bloodmage/BloodMageNode.dds"]=110,
+			["Art/2DArt/SkillIcons/passives/ChannellingAttacksNode.dds"]=122,
+			["Art/2DArt/SkillIcons/passives/ChaosDamagenode.dds"]=113,
+			["Art/2DArt/SkillIcons/passives/CharmNode1.dds"]=119,
+			["Art/2DArt/SkillIcons/passives/ColdDamagenode.dds"]=18,
+			["Art/2DArt/SkillIcons/passives/ColdResistNode.dds"]=79,
 			["Art/2DArt/SkillIcons/passives/CorpseDamage.dds"]=20,
-			["Art/2DArt/SkillIcons/passives/CurseEffectNode.dds"]=19,
-			["Art/2DArt/SkillIcons/passives/DeadEye/DeadeyeNode.dds"]=25,
-			["Art/2DArt/SkillIcons/passives/ElementalDamagenode.dds"]=89,
-			["Art/2DArt/SkillIcons/passives/EnergyShieldNode.dds"]=47,
-			["Art/2DArt/SkillIcons/passives/EvasionNode.dds"]=114,
-			["Art/2DArt/SkillIcons/passives/EvasionandEnergyShieldNode.dds"]=93,
-			["Art/2DArt/SkillIcons/passives/FireDamagenode.dds"]=66,
-			["Art/2DArt/SkillIcons/passives/FireResistNode.dds"]=82,
-			["Art/2DArt/SkillIcons/passives/Gemling/GemlingNode.dds"]=42,
-			["Art/2DArt/SkillIcons/passives/GreenAttackSmallPassive.dds"]=61,
-			["Art/2DArt/SkillIcons/passives/HeraldBuffEffectNode2.dds"]=79,
-			["Art/2DArt/SkillIcons/passives/IncreasedProjectileSpeedNode.dds"]=7,
-			["Art/2DArt/SkillIcons/passives/Infernalist/InfernalistNode.dds"]=63,
-			["Art/2DArt/SkillIcons/passives/Inquistitor/IncreasedElementalDamageAttackCasteSpeed.dds"]=8,
-			["Art/2DArt/SkillIcons/passives/Invoker/InvokerNode.dds"]=18,
-			["Art/2DArt/SkillIcons/passives/LifeRecoupNode.dds"]=118,
-			["Art/2DArt/SkillIcons/passives/LightningDamagenode.dds"]=67,
-			["Art/2DArt/SkillIcons/passives/LightningResistNode.dds"]=103,
-			["Art/2DArt/SkillIcons/passives/ManaLeechThemedNode.dds"]=62,
-			["Art/2DArt/SkillIcons/passives/MarkNode.dds"]=75,
-			["Art/2DArt/SkillIcons/passives/MeleeAoENode.dds"]=31,
-			["Art/2DArt/SkillIcons/passives/MineAreaOfEffectNode.dds"]=96,
-			["Art/2DArt/SkillIcons/passives/MinionChaosResistanceNode.dds"]=71,
+			["Art/2DArt/SkillIcons/passives/CurseEffectNode.dds"]=107,
+			["Art/2DArt/SkillIcons/passives/DeadEye/DeadeyeNode.dds"]=16,
+			["Art/2DArt/SkillIcons/passives/ElementalDamagenode.dds"]=81,
+			["Art/2DArt/SkillIcons/passives/EnergyShieldNode.dds"]=36,
+			["Art/2DArt/SkillIcons/passives/EvasionNode.dds"]=42,
+			["Art/2DArt/SkillIcons/passives/EvasionandEnergyShieldNode.dds"]=88,
+			["Art/2DArt/SkillIcons/passives/FireDamagenode.dds"]=56,
+			["Art/2DArt/SkillIcons/passives/FireResistNode.dds"]=74,
+			["Art/2DArt/SkillIcons/passives/Gemling/GemlingNode.dds"]=53,
+			["Art/2DArt/SkillIcons/passives/GreenAttackSmallPassive.dds"]=52,
+			["Art/2DArt/SkillIcons/passives/HeraldBuffEffectNode2.dds"]=98,
+			["Art/2DArt/SkillIcons/passives/IncreasedProjectileSpeedNode.dds"]=6,
+			["Art/2DArt/SkillIcons/passives/Infernalist/InfernalistNode.dds"]=94,
+			["Art/2DArt/SkillIcons/passives/Inquistitor/IncreasedElementalDamageAttackCasteSpeed.dds"]=7,
+			["Art/2DArt/SkillIcons/passives/Invoker/InvokerNode.dds"]=17,
+			["Art/2DArt/SkillIcons/passives/LifeRecoupNode.dds"]=35,
+			["Art/2DArt/SkillIcons/passives/LightningDamagenode.dds"]=58,
+			["Art/2DArt/SkillIcons/passives/LightningResistNode.dds"]=19,
+			["Art/2DArt/SkillIcons/passives/ManaLeechThemedNode.dds"]=121,
+			["Art/2DArt/SkillIcons/passives/MarkNode.dds"]=69,
+			["Art/2DArt/SkillIcons/passives/MeleeAoENode.dds"]=12,
+			["Art/2DArt/SkillIcons/passives/MineAreaOfEffectNode.dds"]=89,
+			["Art/2DArt/SkillIcons/passives/MinionChaosResistanceNode.dds"]=87,
 			["Art/2DArt/SkillIcons/passives/MinionElementalResistancesNode.dds"]=2,
-			["Art/2DArt/SkillIcons/passives/MinionsandManaNode.dds"]=91,
-			["Art/2DArt/SkillIcons/passives/NodeDualWieldingDamage.dds"]=113,
-			["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderNode.dds"]=14,
-			["Art/2DArt/SkillIcons/passives/PhysicalDamageChaosNode.dds"]=105,
-			["Art/2DArt/SkillIcons/passives/PhysicalDamageNode.dds"]=72,
-			["Art/2DArt/SkillIcons/passives/PhysicalDamageOverTimeNode.dds"]=36,
-			["Art/2DArt/SkillIcons/passives/Rage.dds"]=81,
-			["Art/2DArt/SkillIcons/passives/ReducedSkillEffectDurationNode.dds"]=5,
-			["Art/2DArt/SkillIcons/passives/ShieldNodeOffensive.dds"]=99,
-			["Art/2DArt/SkillIcons/passives/SpellSuppresionNode.dds"]=100,
-			["Art/2DArt/SkillIcons/passives/Stormweaver/StormweaverNode.dds"]=74,
-			["Art/2DArt/SkillIcons/passives/Temporalist/TemporalistNode.dds"]=101,
-			["Art/2DArt/SkillIcons/passives/Titan/TitanNode.dds"]=35,
-			["Art/2DArt/SkillIcons/passives/WarCryEffect.dds"]=77,
-			["Art/2DArt/SkillIcons/passives/Warbringer/WarbringerNode.dds"]=9,
+			["Art/2DArt/SkillIcons/passives/MinionsandManaNode.dds"]=82,
+			["Art/2DArt/SkillIcons/passives/NodeDualWieldingDamage.dds"]=117,
+			["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderNode.dds"]=13,
+			["Art/2DArt/SkillIcons/passives/PhysicalDamageChaosNode.dds"]=51,
+			["Art/2DArt/SkillIcons/passives/PhysicalDamageNode.dds"]=11,
+			["Art/2DArt/SkillIcons/passives/PhysicalDamageOverTimeNode.dds"]=29,
+			["Art/2DArt/SkillIcons/passives/Rage.dds"]=75,
+			["Art/2DArt/SkillIcons/passives/ReducedSkillEffectDurationNode.dds"]=4,
+			["Art/2DArt/SkillIcons/passives/ShieldNodeOffensive.dds"]=93,
+			["Art/2DArt/SkillIcons/passives/SpellSuppresionNode.dds"]=95,
+			["Art/2DArt/SkillIcons/passives/Stormweaver/StormweaverNode.dds"]=68,
+			["Art/2DArt/SkillIcons/passives/Temporalist/TemporalistNode.dds"]=97,
+			["Art/2DArt/SkillIcons/passives/Titan/TitanNode.dds"]=26,
+			["Art/2DArt/SkillIcons/passives/WarCryEffect.dds"]=123,
+			["Art/2DArt/SkillIcons/passives/Warbringer/WarbringerNode.dds"]=8,
 			["Art/2DArt/SkillIcons/passives/Witchhunter/WitchunterNode.dds"]=1,
-			["Art/2DArt/SkillIcons/passives/accuracydex.dds"]=22,
-			["Art/2DArt/SkillIcons/passives/accuracystr.dds"]=52,
-			["Art/2DArt/SkillIcons/passives/areaofeffect.dds"]=38,
-			["Art/2DArt/SkillIcons/passives/attackspeed.dds"]=13,
-			["Art/2DArt/SkillIcons/passives/attackspeedbow.dds"]=125,
-			["Art/2DArt/SkillIcons/passives/auraeffect.dds"]=80,
-			["Art/2DArt/SkillIcons/passives/avoidchilling.dds"]=55,
-			["Art/2DArt/SkillIcons/passives/axedmgspeed.dds"]=94,
-			["Art/2DArt/SkillIcons/passives/blankDex.dds"]=116,
-			["Art/2DArt/SkillIcons/passives/blankInt.dds"]=106,
-			["Art/2DArt/SkillIcons/passives/blankStr.dds"]=23,
-			["Art/2DArt/SkillIcons/passives/blockstr.dds"]=29,
-			["Art/2DArt/SkillIcons/passives/castspeed.dds"]=48,
-			["Art/2DArt/SkillIcons/passives/chargedex.dds"]=124,
-			["Art/2DArt/SkillIcons/passives/chargeint.dds"]=87,
-			["Art/2DArt/SkillIcons/passives/chargestr.dds"]=76,
-			["Art/2DArt/SkillIcons/passives/clustersLinknode2.dds"]=111,
-			["Art/2DArt/SkillIcons/passives/colddamage.dds"]=54,
-			["Art/2DArt/SkillIcons/passives/coldresist.dds"]=32,
-			["Art/2DArt/SkillIcons/passives/criticaldaggerint.dds"]=27,
-			["Art/2DArt/SkillIcons/passives/criticalstrikechance.dds"]=30,
-			["Art/2DArt/SkillIcons/passives/criticalstrikechance2.dds"]=58,
-			["Art/2DArt/SkillIcons/passives/damage.dds"]=41,
-			["Art/2DArt/SkillIcons/passives/damage_blue.dds"]=59,
-			["Art/2DArt/SkillIcons/passives/damageaxe.dds"]=43,
-			["Art/2DArt/SkillIcons/passives/damagedualwield.dds"]=109,
-			["Art/2DArt/SkillIcons/passives/damagespells.dds"]=70,
-			["Art/2DArt/SkillIcons/passives/damagestaff.dds"]=26,
-			["Art/2DArt/SkillIcons/passives/damagesword.dds"]=78,
-			["Art/2DArt/SkillIcons/passives/dmgreduction.dds"]=21,
-			["Art/2DArt/SkillIcons/passives/elementaldamage.dds"]=53,
-			["Art/2DArt/SkillIcons/passives/energyshield.dds"]=44,
-			["Art/2DArt/SkillIcons/passives/evade.dds"]=15,
-			["Art/2DArt/SkillIcons/passives/firedamage.dds"]=28,
-			["Art/2DArt/SkillIcons/passives/firedamageint.dds"]=10,
-			["Art/2DArt/SkillIcons/passives/firedamagestr.dds"]=56,
-			["Art/2DArt/SkillIcons/passives/fireresist.dds"]=60,
-			["Art/2DArt/SkillIcons/passives/flaskdex.dds"]=121,
-			["Art/2DArt/SkillIcons/passives/flaskint.dds"]=120,
-			["Art/2DArt/SkillIcons/passives/flaskstr.dds"]=24,
-			["Art/2DArt/SkillIcons/passives/increasedrunspeeddex.dds"]=12,
-			["Art/2DArt/SkillIcons/passives/knockback.dds"]=110,
-			["Art/2DArt/SkillIcons/passives/life1.dds"]=73,
-			["Art/2DArt/SkillIcons/passives/lifepercentage.dds"]=64,
-			["Art/2DArt/SkillIcons/passives/lightningint.dds"]=97,
-			["Art/2DArt/SkillIcons/passives/lightningstr.dds"]=16,
-			["Art/2DArt/SkillIcons/passives/macedmg.dds"]=4,
-			["Art/2DArt/SkillIcons/passives/mana.dds"]=49,
-			["Art/2DArt/SkillIcons/passives/manaregeneration.dds"]=11,
-			["Art/2DArt/SkillIcons/passives/manastr.dds"]=107,
-			["Art/2DArt/SkillIcons/passives/miniondamageBlue.dds"]=40,
-			["Art/2DArt/SkillIcons/passives/minionlife.dds"]=90,
-			["Art/2DArt/SkillIcons/passives/onehanddamage.dds"]=46,
-			["Art/2DArt/SkillIcons/passives/plusattribute.dds"]=69,
-			["Art/2DArt/SkillIcons/passives/plusdexterity.dds"]=122,
-			["Art/2DArt/SkillIcons/passives/plusintelligence.dds"]=85,
-			["Art/2DArt/SkillIcons/passives/plusintelligencedexterity.dds"]=17,
-			["Art/2DArt/SkillIcons/passives/plusstrength.dds"]=112,
-			["Art/2DArt/SkillIcons/passives/plusstrengthdexterity.dds"]=104,
-			["Art/2DArt/SkillIcons/passives/plusstrengthintelligence.dds"]=3,
-			["Art/2DArt/SkillIcons/passives/projectilespeed.dds"]=102,
-			["Art/2DArt/SkillIcons/passives/shieldblock.dds"]=45,
-			["Art/2DArt/SkillIcons/passives/spellcritical.dds"]=98,
-			["Art/2DArt/SkillIcons/passives/stun2h.dds"]=51,
-			["Art/2DArt/SkillIcons/passives/stunstr.dds"]=50,
-			["Art/2DArt/SkillIcons/passives/tempint.dds"]=115,
-			["Art/2DArt/SkillIcons/passives/totemandbrandlife.dds"]=57,
-			["Art/2DArt/SkillIcons/passives/trapdamage.dds"]=6
+			["Art/2DArt/SkillIcons/passives/accuracydex.dds"]=78,
+			["Art/2DArt/SkillIcons/passives/accuracystr.dds"]=106,
+			["Art/2DArt/SkillIcons/passives/areaofeffect.dds"]=9,
+			["Art/2DArt/SkillIcons/passives/attackspeed.dds"]=49,
+			["Art/2DArt/SkillIcons/passives/attackspeedbow.dds"]=112,
+			["Art/2DArt/SkillIcons/passives/auraeffect.dds"]=73,
+			["Art/2DArt/SkillIcons/passives/avoidchilling.dds"]=62,
+			["Art/2DArt/SkillIcons/passives/axedmgspeed.dds"]=64,
+			["Art/2DArt/SkillIcons/passives/blankDex.dds"]=109,
+			["Art/2DArt/SkillIcons/passives/blankInt.dds"]=99,
+			["Art/2DArt/SkillIcons/passives/blankStr.dds"]=14,
+			["Art/2DArt/SkillIcons/passives/blockstr.dds"]=23,
+			["Art/2DArt/SkillIcons/passives/castspeed.dds"]=37,
+			["Art/2DArt/SkillIcons/passives/chargedex.dds"]=120,
+			["Art/2DArt/SkillIcons/passives/chargeint.dds"]=80,
+			["Art/2DArt/SkillIcons/passives/chargestr.dds"]=70,
+			["Art/2DArt/SkillIcons/passives/clustersLinknode2.dds"]=104,
+			["Art/2DArt/SkillIcons/passives/colddamage.dds"]=43,
+			["Art/2DArt/SkillIcons/passives/coldresist.dds"]=15,
+			["Art/2DArt/SkillIcons/passives/criticaldaggerint.dds"]=39,
+			["Art/2DArt/SkillIcons/passives/criticalstrikechance.dds"]=83,
+			["Art/2DArt/SkillIcons/passives/criticalstrikechance2.dds"]=48,
+			["Art/2DArt/SkillIcons/passives/damage.dds"]=32,
+			["Art/2DArt/SkillIcons/passives/damage_blue.dds"]=47,
+			["Art/2DArt/SkillIcons/passives/damageaxe.dds"]=111,
+			["Art/2DArt/SkillIcons/passives/damagedualwield.dds"]=101,
+			["Art/2DArt/SkillIcons/passives/damagespells.dds"]=63,
+			["Art/2DArt/SkillIcons/passives/damagestaff.dds"]=22,
+			["Art/2DArt/SkillIcons/passives/damagesword.dds"]=72,
+			["Art/2DArt/SkillIcons/passives/dmgreduction.dds"]=38,
+			["Art/2DArt/SkillIcons/passives/elementaldamage.dds"]=46,
+			["Art/2DArt/SkillIcons/passives/energyshield.dds"]=57,
+			["Art/2DArt/SkillIcons/passives/evade.dds"]=86,
+			["Art/2DArt/SkillIcons/passives/firedamage.dds"]=5,
+			["Art/2DArt/SkillIcons/passives/firedamageint.dds"]=34,
+			["Art/2DArt/SkillIcons/passives/firedamagestr.dds"]=25,
+			["Art/2DArt/SkillIcons/passives/fireresist.dds"]=85,
+			["Art/2DArt/SkillIcons/passives/flaskdex.dds"]=116,
+			["Art/2DArt/SkillIcons/passives/flaskint.dds"]=115,
+			["Art/2DArt/SkillIcons/passives/flaskstr.dds"]=21,
+			["Art/2DArt/SkillIcons/passives/increasedrunspeeddex.dds"]=105,
+			["Art/2DArt/SkillIcons/passives/knockback.dds"]=103,
+			["Art/2DArt/SkillIcons/passives/life1.dds"]=67,
+			["Art/2DArt/SkillIcons/passives/lifepercentage.dds"]=54,
+			["Art/2DArt/SkillIcons/passives/lightningint.dds"]=90,
+			["Art/2DArt/SkillIcons/passives/lightningstr.dds"]=59,
+			["Art/2DArt/SkillIcons/passives/macedmg.dds"]=3,
+			["Art/2DArt/SkillIcons/passives/mana.dds"]=50,
+			["Art/2DArt/SkillIcons/passives/manaregeneration.dds"]=10,
+			["Art/2DArt/SkillIcons/passives/manastr.dds"]=102,
+			["Art/2DArt/SkillIcons/passives/miniondamageBlue.dds"]=33,
+			["Art/2DArt/SkillIcons/passives/minionlife.dds"]=114,
+			["Art/2DArt/SkillIcons/passives/onehanddamage.dds"]=30,
+			["Art/2DArt/SkillIcons/passives/plusattribute.dds"]=44,
+			["Art/2DArt/SkillIcons/passives/plusdexterity.dds"]=118,
+			["Art/2DArt/SkillIcons/passives/plusintelligence.dds"]=92,
+			["Art/2DArt/SkillIcons/passives/plusstrength.dds"]=24,
+			["Art/2DArt/SkillIcons/passives/projectilespeed.dds"]=96,
+			["Art/2DArt/SkillIcons/passives/shieldblock.dds"]=66,
+			["Art/2DArt/SkillIcons/passives/spellcritical.dds"]=91,
+			["Art/2DArt/SkillIcons/passives/stun2h.dds"]=40,
+			["Art/2DArt/SkillIcons/passives/stunstr.dds"]=61,
+			["Art/2DArt/SkillIcons/passives/tempint.dds"]=108,
+			["Art/2DArt/SkillIcons/passives/totemandbrandlife.dds"]=45,
+			["Art/2DArt/SkillIcons/passives/trapdamage.dds"]=71
 		},
 		["skills_128_128_BC1.dds.zst"]={
 			["Art/2DArt/SkillIcons/passives/AcolyteofChayula/AcolyteOfChayulaBreachFlameDoubles.dds"]=8,
-			["Art/2DArt/SkillIcons/passives/AcolyteofChayula/AcolyteOfChayulaBreachWalk.dds"]=61,
-			["Art/2DArt/SkillIcons/passives/AcolyteofChayula/AcolyteOfChayulaDarknessProtectsLonger.dds"]=50,
-			["Art/2DArt/SkillIcons/passives/AcolyteofChayula/AcolyteOfChayulaExtraChaosDamage.dds"]=54,
-			["Art/2DArt/SkillIcons/passives/AcolyteofChayula/AcolyteOfChayulaExtraChaosDamagePerDarkness.dds"]=14,
-			["Art/2DArt/SkillIcons/passives/AcolyteofChayula/AcolyteOfChayulaExtraChaosResistance.dds"]=52,
+			["Art/2DArt/SkillIcons/passives/AcolyteofChayula/AcolyteOfChayulaBreachWalk.dds"]=62,
+			["Art/2DArt/SkillIcons/passives/AcolyteofChayula/AcolyteOfChayulaDarknessProtectsLonger.dds"]=52,
+			["Art/2DArt/SkillIcons/passives/AcolyteofChayula/AcolyteOfChayulaExtraChaosDamage.dds"]=57,
+			["Art/2DArt/SkillIcons/passives/AcolyteofChayula/AcolyteOfChayulaExtraChaosDamagePerDarkness.dds"]=15,
+			["Art/2DArt/SkillIcons/passives/AcolyteofChayula/AcolyteOfChayulaExtraChaosResistance.dds"]=56,
 			["Art/2DArt/SkillIcons/passives/AcolyteofChayula/AcolyteOfChayulaManaLeechEnergyShield.dds"]=4,
-			["Art/2DArt/SkillIcons/passives/AcolyteofChayula/AcolyteOfChayulaManaLeechInstant.dds"]=34,
-			["Art/2DArt/SkillIcons/passives/AcolyteofChayula/AcolyteOfChayulaReplaceSpiritWithDarkness.dds"]=110,
+			["Art/2DArt/SkillIcons/passives/AcolyteofChayula/AcolyteOfChayulaManaLeechInstant.dds"]=35,
+			["Art/2DArt/SkillIcons/passives/AcolyteofChayula/AcolyteOfChayulaReplaceSpiritWithDarkness.dds"]=109,
 			["Art/2DArt/SkillIcons/passives/Annihilation.dds"]=148,
-			["Art/2DArt/SkillIcons/passives/AspectOfTheLynx.dds"]=170,
-			["Art/2DArt/SkillIcons/passives/Blood2.dds"]=86,
-			["Art/2DArt/SkillIcons/passives/Bloodmage/BloodMageCritDamagePerLife.dds"]=128,
-			["Art/2DArt/SkillIcons/passives/Bloodmage/BloodMageCurseInfiniteDuration.dds"]=28,
-			["Art/2DArt/SkillIcons/passives/Bloodmage/BloodMageDamageLeechedLife.dds"]=120,
-			["Art/2DArt/SkillIcons/passives/Bloodmage/BloodMageGainLifeEnergyShield.dds"]=30,
+			["Art/2DArt/SkillIcons/passives/AspectOfTheLynx.dds"]=168,
+			["Art/2DArt/SkillIcons/passives/Blood2.dds"]=34,
+			["Art/2DArt/SkillIcons/passives/Bloodmage/BloodMageCritDamagePerLife.dds"]=120,
+			["Art/2DArt/SkillIcons/passives/Bloodmage/BloodMageCurseInfiniteDuration.dds"]=29,
+			["Art/2DArt/SkillIcons/passives/Bloodmage/BloodMageDamageLeechedLife.dds"]=121,
+			["Art/2DArt/SkillIcons/passives/Bloodmage/BloodMageGainLifeEnergyShield.dds"]=31,
 			["Art/2DArt/SkillIcons/passives/Bloodmage/BloodMageHigherSpellBaseCritStrike.dds"]=55,
 			["Art/2DArt/SkillIcons/passives/Bloodmage/BloodMageLeaveBloodOrbs.dds"]=12,
-			["Art/2DArt/SkillIcons/passives/Bloodmage/BloodMageLifeLoss.dds"]=37,
-			["Art/2DArt/SkillIcons/passives/Bloodmage/BloodPhysicalDamageExtraGore.dds"]=163,
+			["Art/2DArt/SkillIcons/passives/Bloodmage/BloodMageLifeLoss.dds"]=38,
+			["Art/2DArt/SkillIcons/passives/Bloodmage/BloodPhysicalDamageExtraGore.dds"]=161,
 			["Art/2DArt/SkillIcons/passives/BowDamage.dds"]=155,
-			["Art/2DArt/SkillIcons/passives/BulwarkKeystone.dds"]=126,
+			["Art/2DArt/SkillIcons/passives/BulwarkKeystone.dds"]=71,
 			["Art/2DArt/SkillIcons/passives/ChainingProjectiles.dds"]=149,
 			["Art/2DArt/SkillIcons/passives/ChannellingAttacksNotable2.dds"]=53,
-			["Art/2DArt/SkillIcons/passives/CharmNotable1.dds"]=168,
-			["Art/2DArt/SkillIcons/passives/ClawsOfTheMagpie.dds"]=174,
-			["Art/2DArt/SkillIcons/passives/CriticalStrikesNotable.dds"]=167,
+			["Art/2DArt/SkillIcons/passives/CharmNotable1.dds"]=169,
+			["Art/2DArt/SkillIcons/passives/ClawsOfTheMagpie.dds"]=48,
+			["Art/2DArt/SkillIcons/passives/CriticalStrikesNotable.dds"]=58,
 			["Art/2DArt/SkillIcons/passives/DancewithDeathKeystone.dds"]=9,
-			["Art/2DArt/SkillIcons/passives/DeadEye/DeadeyeDealMoreProjectileDamageClose.dds"]=25,
-			["Art/2DArt/SkillIcons/passives/DeadEye/DeadeyeDealMoreProjectileDamageFarAway.dds"]=63,
-			["Art/2DArt/SkillIcons/passives/DeadEye/DeadeyeFrenzyChargesGeneration.dds"]=60,
-			["Art/2DArt/SkillIcons/passives/DeadEye/DeadeyeFrenzyChargesHaveMoreEffect.dds"]=111,
-			["Art/2DArt/SkillIcons/passives/DeadEye/DeadeyeGrantsTwoAdditionalProjectiles.dds"]=24,
+			["Art/2DArt/SkillIcons/passives/DeadEye/DeadeyeDealMoreProjectileDamageClose.dds"]=26,
+			["Art/2DArt/SkillIcons/passives/DeadEye/DeadeyeDealMoreProjectileDamageFarAway.dds"]=65,
+			["Art/2DArt/SkillIcons/passives/DeadEye/DeadeyeFrenzyChargesGeneration.dds"]=54,
+			["Art/2DArt/SkillIcons/passives/DeadEye/DeadeyeFrenzyChargesHaveMoreEffect.dds"]=110,
+			["Art/2DArt/SkillIcons/passives/DeadEye/DeadeyeGrantsTwoAdditionalProjectiles.dds"]=25,
 			["Art/2DArt/SkillIcons/passives/DeadEye/DeadeyeMarkEnemiesSpread.dds"]=134,
-			["Art/2DArt/SkillIcons/passives/DeadEye/DeadeyeMoreAccuracy.dds"]=71,
-			["Art/2DArt/SkillIcons/passives/DeadEye/DeadeyeProjectileDamageChoose.dds"]=27,
-			["Art/2DArt/SkillIcons/passives/DeadEye/DeadeyeTailwind.dds"]=62,
-			["Art/2DArt/SkillIcons/passives/DeadEye/DeadeyeWindward.dds"]=70,
-			["Art/2DArt/SkillIcons/passives/Deflection.dds"]=176,
-			["Art/2DArt/SkillIcons/passives/DragonStyle.dds"]=40,
-			["Art/2DArt/SkillIcons/passives/ElementalDamagewithAttacks2.dds"]=121,
-			["Art/2DArt/SkillIcons/passives/ElementalResistance2.dds"]=78,
+			["Art/2DArt/SkillIcons/passives/DeadEye/DeadeyeMoreAccuracy.dds"]=75,
+			["Art/2DArt/SkillIcons/passives/DeadEye/DeadeyeProjectileDamageChoose.dds"]=28,
+			["Art/2DArt/SkillIcons/passives/DeadEye/DeadeyeTailwind.dds"]=64,
+			["Art/2DArt/SkillIcons/passives/DeadEye/DeadeyeWindward.dds"]=77,
+			["Art/2DArt/SkillIcons/passives/Deflection.dds"]=174,
+			["Art/2DArt/SkillIcons/passives/DragonStyle.dds"]=41,
+			["Art/2DArt/SkillIcons/passives/ElementalDamagewithAttacks2.dds"]=122,
+			["Art/2DArt/SkillIcons/passives/ElementalResistance2.dds"]=111,
 			["Art/2DArt/SkillIcons/passives/EternalYouth.dds"]=2,
-			["Art/2DArt/SkillIcons/passives/EvasionAndBlindNotable.dds"]=154,
+			["Art/2DArt/SkillIcons/passives/EvasionAndBlindNotable.dds"]=68,
 			["Art/2DArt/SkillIcons/passives/FlaskNotableCritStrikeRecharge.dds"]=11,
 			["Art/2DArt/SkillIcons/passives/FlaskNotableFlasksLastLonger.dds"]=1,
-			["Art/2DArt/SkillIcons/passives/Gemling/GemlingBuffSkillsReserveLessSpirit.dds"]=13,
+			["Art/2DArt/SkillIcons/passives/Gemling/GemlingBuffSkillsReserveLessSpirit.dds"]=14,
 			["Art/2DArt/SkillIcons/passives/Gemling/GemlingHighestAttributeSatisfiesGemRequirements.dds"]=6,
-			["Art/2DArt/SkillIcons/passives/Gemling/GemlingInherentBonusesFromAttributesDouble.dds"]=122,
-			["Art/2DArt/SkillIcons/passives/Gemling/GemlingLevelAllSkillGems.dds"]=82,
-			["Art/2DArt/SkillIcons/passives/Gemling/GemlingMaxElementalResistanceSupportColour.dds"]=23,
-			["Art/2DArt/SkillIcons/passives/Gemling/GemlingSameSupportMultipleTimes.dds"]=80,
+			["Art/2DArt/SkillIcons/passives/Gemling/GemlingInherentBonusesFromAttributesDouble.dds"]=119,
+			["Art/2DArt/SkillIcons/passives/Gemling/GemlingLevelAllSkillGems.dds"]=87,
+			["Art/2DArt/SkillIcons/passives/Gemling/GemlingMaxElementalResistanceSupportColour.dds"]=24,
+			["Art/2DArt/SkillIcons/passives/Gemling/GemlingSameSupportMultipleTimes.dds"]=85,
 			["Art/2DArt/SkillIcons/passives/Gemling/GemlingSkillGemQuality.dds"]=3,
-			["Art/2DArt/SkillIcons/passives/Gemling/GemlingSkillsAdditionalSupport.dds"]=69,
+			["Art/2DArt/SkillIcons/passives/Gemling/GemlingSkillsAdditionalSupport.dds"]=74,
 			["Art/2DArt/SkillIcons/passives/GiantBloodKeystone.dds"]=115,
-			["Art/2DArt/SkillIcons/passives/GlancingBlows.dds"]=164,
-			["Art/2DArt/SkillIcons/passives/Harrier.dds"]=104,
-			["Art/2DArt/SkillIcons/passives/HeartstopperKeystone.dds"]=26,
-			["Art/2DArt/SkillIcons/passives/Hearty.dds"]=147,
-			["Art/2DArt/SkillIcons/passives/HiredKiller2.dds"]=173,
-			["Art/2DArt/SkillIcons/passives/Hunter.dds"]=159,
-			["Art/2DArt/SkillIcons/passives/IncreasedManaCostNotable.dds"]=130,
+			["Art/2DArt/SkillIcons/passives/GlancingBlows.dds"]=165,
+			["Art/2DArt/SkillIcons/passives/Harrier.dds"]=13,
+			["Art/2DArt/SkillIcons/passives/HeartstopperKeystone.dds"]=27,
+			["Art/2DArt/SkillIcons/passives/Hearty.dds"]=125,
+			["Art/2DArt/SkillIcons/passives/HiredKiller2.dds"]=172,
+			["Art/2DArt/SkillIcons/passives/Hunter.dds"]=158,
+			["Art/2DArt/SkillIcons/passives/IncreasedManaCostNotable.dds"]=132,
 			["Art/2DArt/SkillIcons/passives/IncreasedMaximumLifeNotable.dds"]=150,
-			["Art/2DArt/SkillIcons/passives/Infernalist/FuryManifest.dds"]=139,
-			["Art/2DArt/SkillIcons/passives/Infernalist/InfernalFamiliar.dds"]=101,
-			["Art/2DArt/SkillIcons/passives/Infernalist/InfernalistConvertLifeToEnergyShield.dds"]=169,
-			["Art/2DArt/SkillIcons/passives/Infernalist/InfernalistConvertLifeToMana.dds"]=119,
-			["Art/2DArt/SkillIcons/passives/Infernalist/InfernalistConvertLifeToSpirit.dds"]=142,
-			["Art/2DArt/SkillIcons/passives/Infernalist/InfernalistInfernalHeat.dds"]=39,
-			["Art/2DArt/SkillIcons/passives/Infernalist/InfernalistTransformIntoDemon1.dds"]=103,
-			["Art/2DArt/SkillIcons/passives/Infernalist/InfernalistTransformIntoDemon2.dds"]=100,
-			["Art/2DArt/SkillIcons/passives/Infernalist/MoltenFury.dds"]=143,
-			["Art/2DArt/SkillIcons/passives/Infernalist/ScorchTheEarth.dds"]=81,
-			["Art/2DArt/SkillIcons/passives/Invoker/InvokerChillChanceBasedOnDamage.dds"]=124,
+			["Art/2DArt/SkillIcons/passives/Infernalist/FuryManifest.dds"]=138,
+			["Art/2DArt/SkillIcons/passives/Infernalist/InfernalFamiliar.dds"]=102,
+			["Art/2DArt/SkillIcons/passives/Infernalist/InfernalistConvertLifeToEnergyShield.dds"]=170,
+			["Art/2DArt/SkillIcons/passives/Infernalist/InfernalistConvertLifeToMana.dds"]=118,
+			["Art/2DArt/SkillIcons/passives/Infernalist/InfernalistConvertLifeToSpirit.dds"]=141,
+			["Art/2DArt/SkillIcons/passives/Infernalist/InfernalistInfernalHeat.dds"]=40,
+			["Art/2DArt/SkillIcons/passives/Infernalist/InfernalistTransformIntoDemon1.dds"]=143,
+			["Art/2DArt/SkillIcons/passives/Infernalist/InfernalistTransformIntoDemon2.dds"]=101,
+			["Art/2DArt/SkillIcons/passives/Infernalist/MoltenFury.dds"]=142,
+			["Art/2DArt/SkillIcons/passives/Infernalist/ScorchTheEarth.dds"]=86,
+			["Art/2DArt/SkillIcons/passives/Invoker/InvokerChillChanceBasedOnDamage.dds"]=126,
 			["Art/2DArt/SkillIcons/passives/Invoker/InvokerCriticalStrikesIgnoreResistances.dds"]=137,
-			["Art/2DArt/SkillIcons/passives/Invoker/InvokerEnergyDoubled.dds"]=64,
+			["Art/2DArt/SkillIcons/passives/Invoker/InvokerEnergyDoubled.dds"]=66,
 			["Art/2DArt/SkillIcons/passives/Invoker/InvokerEvasionEnergyShieldGrantsSpirit.dds"]=136,
-			["Art/2DArt/SkillIcons/passives/Invoker/InvokerEvasionGrantsPhysicalDamageReduction.dds"]=31,
-			["Art/2DArt/SkillIcons/passives/Invoker/InvokerGrantsMeditate.dds"]=65,
-			["Art/2DArt/SkillIcons/passives/Invoker/InvokerShockMagnitude.dds"]=56,
-			["Art/2DArt/SkillIcons/passives/Invoker/InvokerUnboundAvatar.dds"]=102,
-			["Art/2DArt/SkillIcons/passives/Invoker/InvokerWildStrike.dds"]=153,
-			["Art/2DArt/SkillIcons/passives/KeystoneAcrobatics.dds"]=73,
-			["Art/2DArt/SkillIcons/passives/KeystoneAvatarOfFire.dds"]=166,
-			["Art/2DArt/SkillIcons/passives/KeystoneBloodMagic.dds"]=140,
-			["Art/2DArt/SkillIcons/passives/KeystoneChaosInoculation.dds"]=32,
-			["Art/2DArt/SkillIcons/passives/KeystoneConduit.dds"]=123,
+			["Art/2DArt/SkillIcons/passives/Invoker/InvokerEvasionGrantsPhysicalDamageReduction.dds"]=32,
+			["Art/2DArt/SkillIcons/passives/Invoker/InvokerGrantsMeditate.dds"]=67,
+			["Art/2DArt/SkillIcons/passives/Invoker/InvokerShockMagnitude.dds"]=72,
+			["Art/2DArt/SkillIcons/passives/Invoker/InvokerUnboundAvatar.dds"]=103,
+			["Art/2DArt/SkillIcons/passives/Invoker/InvokerWildStrike.dds"]=154,
+			["Art/2DArt/SkillIcons/passives/KeystoneAcrobatics.dds"]=78,
+			["Art/2DArt/SkillIcons/passives/KeystoneAvatarOfFire.dds"]=100,
+			["Art/2DArt/SkillIcons/passives/KeystoneBloodMagic.dds"]=139,
+			["Art/2DArt/SkillIcons/passives/KeystoneChaosInoculation.dds"]=33,
+			["Art/2DArt/SkillIcons/passives/KeystoneConduit.dds"]=124,
 			["Art/2DArt/SkillIcons/passives/KeystoneEldritchBattery.dds"]=10,
-			["Art/2DArt/SkillIcons/passives/KeystoneElementalEquilibrium.dds"]=44,
-			["Art/2DArt/SkillIcons/passives/KeystoneIronReflexes.dds"]=138,
-			["Art/2DArt/SkillIcons/passives/KeystonePainAttunement.dds"]=84,
-			["Art/2DArt/SkillIcons/passives/KeystoneResoluteTechnique.dds"]=29,
-			["Art/2DArt/SkillIcons/passives/KeystoneUnwaveringStance.dds"]=118,
+			["Art/2DArt/SkillIcons/passives/KeystoneElementalEquilibrium.dds"]=45,
+			["Art/2DArt/SkillIcons/passives/KeystoneIronReflexes.dds"]=69,
+			["Art/2DArt/SkillIcons/passives/KeystonePainAttunement.dds"]=162,
+			["Art/2DArt/SkillIcons/passives/KeystoneResoluteTechnique.dds"]=30,
+			["Art/2DArt/SkillIcons/passives/KeystoneUnwaveringStance.dds"]=116,
 			["Art/2DArt/SkillIcons/passives/KeystoneWhispersOfDoom.dds"]=156,
 			["Art/2DArt/SkillIcons/passives/Meleerange.dds"]=151,
 			["Art/2DArt/SkillIcons/passives/MineManaReservationNotable.dds"]=145,
-			["Art/2DArt/SkillIcons/passives/MiracleMaker.dds"]=114,
-			["Art/2DArt/SkillIcons/passives/NecromanticTalismanKeystone.dds"]=87,
-			["Art/2DArt/SkillIcons/passives/OasisKeystone2.dds"]=177,
-			["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds"]=51,
-			["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderBrewConcoction.dds"]=57,
-			["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderBrewConcoctionBleed.dds"]=96,
-			["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderBrewConcoctionCold.dds"]=58,
-			["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderBrewConcoctionFire.dds"]=59,
-			["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderBrewConcoctionLightning.dds"]=19,
-			["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderBrewConcoctionPoison.dds"]=66,
+			["Art/2DArt/SkillIcons/passives/MiracleMaker.dds"]=104,
+			["Art/2DArt/SkillIcons/passives/NecromanticTalismanKeystone.dds"]=92,
+			["Art/2DArt/SkillIcons/passives/OasisKeystone2.dds"]=175,
+			["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds"]=63,
+			["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderBrewConcoction.dds"]=59,
+			["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderBrewConcoctionBleed.dds"]=98,
+			["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderBrewConcoctionCold.dds"]=60,
+			["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderBrewConcoctionFire.dds"]=61,
+			["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderBrewConcoctionLightning.dds"]=20,
+			["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderBrewConcoctionPoison.dds"]=70,
 			["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderCannotBeSlowed.dds"]=135,
-			["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderEnemiesMultiplePoisons.dds"]=48,
-			["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderFlasksConsumeLessCharges.dds"]=17,
-			["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderLifeFlasks.dds"]=165,
-			["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderMoreMovemenSpeedUsingSkills.dds"]=20,
-			["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderPoisonSpreadsNearbyEnemies.dds"]=45,
-			["Art/2DArt/SkillIcons/passives/PhysicalDamageOverTimeNotable.dds"]=68,
-			["Art/2DArt/SkillIcons/passives/Poison.dds"]=33,
-			["Art/2DArt/SkillIcons/passives/PressurePoints.dds"]=161,
+			["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderEnemiesMultiplePoisons.dds"]=50,
+			["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderFlasksConsumeLessCharges.dds"]=18,
+			["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderLifeFlasks.dds"]=166,
+			["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderMoreMovemenSpeedUsingSkills.dds"]=21,
+			["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderPoisonSpreadsNearbyEnemies.dds"]=46,
+			["Art/2DArt/SkillIcons/passives/PhysicalDamageOverTimeNotable.dds"]=73,
+			["Art/2DArt/SkillIcons/passives/Poison.dds"]=176,
+			["Art/2DArt/SkillIcons/passives/PressurePoints.dds"]=163,
 			["Art/2DArt/SkillIcons/passives/ProjectilesNotable.dds"]=108,
-			["Art/2DArt/SkillIcons/passives/ResonanceKeystone.dds"]=92,
-			["Art/2DArt/SkillIcons/passives/SpellMultiplyer2.dds"]=133,
-			["Art/2DArt/SkillIcons/passives/SpellSupressionNotable1.dds"]=175,
-			["Art/2DArt/SkillIcons/passives/Storm Weaver.dds"]=141,
-			["Art/2DArt/SkillIcons/passives/Stormweaver/AllDamageCanChill.dds"]=88,
-			["Art/2DArt/SkillIcons/passives/Stormweaver/AllDamageCanShock.dds"]=75,
-			["Art/2DArt/SkillIcons/passives/Stormweaver/ChillAddditionalTime.dds"]=74,
-			["Art/2DArt/SkillIcons/passives/Stormweaver/ElementalDamageHealsYou.dds"]=42,
-			["Art/2DArt/SkillIcons/passives/Stormweaver/ElementalResistanceInverted.dds"]=89,
-			["Art/2DArt/SkillIcons/passives/Stormweaver/GrantsArcaneSurge.dds"]=158,
+			["Art/2DArt/SkillIcons/passives/ResonanceKeystone.dds"]=177,
+			["Art/2DArt/SkillIcons/passives/SpellMultiplyer2.dds"]=131,
+			["Art/2DArt/SkillIcons/passives/SpellSupressionNotable1.dds"]=173,
+			["Art/2DArt/SkillIcons/passives/Storm Weaver.dds"]=167,
+			["Art/2DArt/SkillIcons/passives/Stormweaver/AllDamageCanChill.dds"]=91,
+			["Art/2DArt/SkillIcons/passives/Stormweaver/AllDamageCanShock.dds"]=80,
+			["Art/2DArt/SkillIcons/passives/Stormweaver/ChillAddditionalTime.dds"]=79,
+			["Art/2DArt/SkillIcons/passives/Stormweaver/ElementalDamageHealsYou.dds"]=43,
+			["Art/2DArt/SkillIcons/passives/Stormweaver/ElementalResistanceInverted.dds"]=93,
+			["Art/2DArt/SkillIcons/passives/Stormweaver/GrantsArcaneSurge.dds"]=159,
 			["Art/2DArt/SkillIcons/passives/Stormweaver/GrantsElementalStorm.dds"]=178,
-			["Art/2DArt/SkillIcons/passives/Stormweaver/ImprovedArcaneSurge.dds"]=146,
-			["Art/2DArt/SkillIcons/passives/Stormweaver/ImprovedElementalStorm.dds"]=22,
-			["Art/2DArt/SkillIcons/passives/Stormweaver/ShockAddditionalTime.dds"]=76,
-			["Art/2DArt/SkillIcons/passives/Temporalist/TemporalistChanceSkillNoCooldownSkill.dds"]=83,
-			["Art/2DArt/SkillIcons/passives/Temporalist/TemporalistFasterRecoup.dds"]=16,
+			["Art/2DArt/SkillIcons/passives/Stormweaver/ImprovedArcaneSurge.dds"]=147,
+			["Art/2DArt/SkillIcons/passives/Stormweaver/ImprovedElementalStorm.dds"]=23,
+			["Art/2DArt/SkillIcons/passives/Stormweaver/ShockAddditionalTime.dds"]=81,
+			["Art/2DArt/SkillIcons/passives/Temporalist/TemporalistChanceSkillNoCooldownSkill.dds"]=88,
+			["Art/2DArt/SkillIcons/passives/Temporalist/TemporalistFasterRecoup.dds"]=17,
 			["Art/2DArt/SkillIcons/passives/Temporalist/TemporalistGainMoreCastSpeed8Seconds.dds"]=117,
-			["Art/2DArt/SkillIcons/passives/Temporalist/TemporalistGrantsReloadCooldownsSkill.dds"]=113,
-			["Art/2DArt/SkillIcons/passives/Temporalist/TemporalistGrantsTemporalRiftSkill.dds"]=18,
+			["Art/2DArt/SkillIcons/passives/Temporalist/TemporalistGrantsReloadCooldownsSkill.dds"]=112,
+			["Art/2DArt/SkillIcons/passives/Temporalist/TemporalistGrantsTemporalRiftSkill.dds"]=19,
 			["Art/2DArt/SkillIcons/passives/Temporalist/TemporalistGrantsTimeStopSkill.dds"]=144,
-			["Art/2DArt/SkillIcons/passives/Temporalist/TemporalistLifeRecoup.dds"]=43,
+			["Art/2DArt/SkillIcons/passives/Temporalist/TemporalistLifeRecoup.dds"]=44,
 			["Art/2DArt/SkillIcons/passives/Temporalist/TemporalistNearbyEnemiesProjectilesSlowed.dds"]=127,
-			["Art/2DArt/SkillIcons/passives/Titan/TitanAdditionalInventory.dds"]=109,
-			["Art/2DArt/SkillIcons/passives/Titan/TitanMoreBodyArmour.dds"]=36,
-			["Art/2DArt/SkillIcons/passives/Titan/TitanMoreMaxLife.dds"]=97,
-			["Art/2DArt/SkillIcons/passives/Titan/TitanMoreStunBuildupEnemies.dds"]=47,
-			["Art/2DArt/SkillIcons/passives/Titan/TitanSlamSkillsAftershock.dds"]=116,
+			["Art/2DArt/SkillIcons/passives/Titan/TitanAdditionalInventory.dds"]=51,
+			["Art/2DArt/SkillIcons/passives/Titan/TitanMoreBodyArmour.dds"]=37,
+			["Art/2DArt/SkillIcons/passives/Titan/TitanMoreMaxLife.dds"]=90,
+			["Art/2DArt/SkillIcons/passives/Titan/TitanMoreStunBuildupEnemies.dds"]=82,
+			["Art/2DArt/SkillIcons/passives/Titan/TitanSlamSkillsAftershock.dds"]=49,
 			["Art/2DArt/SkillIcons/passives/Titan/TitanSlamSkillsFistOfWar.dds"]=105,
-			["Art/2DArt/SkillIcons/passives/Titan/TitanSmallPassiveDoubled.dds"]=49,
-			["Art/2DArt/SkillIcons/passives/Titan/TitanYourHitsCrushEnemies.dds"]=77,
+			["Art/2DArt/SkillIcons/passives/Titan/TitanSmallPassiveDoubled.dds"]=83,
+			["Art/2DArt/SkillIcons/passives/Titan/TitanYourHitsCrushEnemies.dds"]=99,
 			["Art/2DArt/SkillIcons/passives/Warbringer/WarbringerBlockChance.dds"]=7,
 			["Art/2DArt/SkillIcons/passives/Warbringer/WarbringerBreakEnemyArmour.dds"]=5,
 			["Art/2DArt/SkillIcons/passives/Warbringer/WarbringerCanBlockAllDamageShieldNotRaised.dds"]=107,
-			["Art/2DArt/SkillIcons/passives/Warbringer/WarbringerDamageTakenByTotems.dds"]=95,
+			["Art/2DArt/SkillIcons/passives/Warbringer/WarbringerDamageTakenByTotems.dds"]=97,
 			["Art/2DArt/SkillIcons/passives/Warbringer/WarbringerEncasedInJade.dds"]=106,
-			["Art/2DArt/SkillIcons/passives/Warbringer/WarbringerEnemyArmourBrokenBelowZero.dds"]=72,
-			["Art/2DArt/SkillIcons/passives/Warbringer/WarbringerTotemsDefendedByAncestors.dds"]=93,
-			["Art/2DArt/SkillIcons/passives/Warbringer/WarbringerWarcriesNoCooldown.dds"]=38,
-			["Art/2DArt/SkillIcons/passives/Warbringer/WarbringerWarcryExplodesCorpses.dds"]=21,
-			["Art/2DArt/SkillIcons/passives/Warrior.dds"]=67,
-			["Art/2DArt/SkillIcons/passives/Witchhunter/WitchunterArmourEvasionConvertedSpellAegis.dds"]=15,
-			["Art/2DArt/SkillIcons/passives/Witchhunter/WitchunterCullingStrike.dds"]=79,
-			["Art/2DArt/SkillIcons/passives/Witchhunter/WitchunterDamageMonsterMissingFocus.dds"]=90,
-			["Art/2DArt/SkillIcons/passives/Witchhunter/WitchunterDrainMonsterFocus.dds"]=41,
-			["Art/2DArt/SkillIcons/passives/Witchhunter/WitchunterMonsterHolyExplosion.dds"]=35,
-			["Art/2DArt/SkillIcons/passives/Witchhunter/WitchunterRemovePercentageFullLifeEnemies.dds"]=162,
-			["Art/2DArt/SkillIcons/passives/Witchhunter/WitchunterSpecPoints.dds"]=152,
-			["Art/2DArt/SkillIcons/passives/Witchhunter/WitchunterStrongerSpellAegis.dds"]=46,
-			["Art/2DArt/SkillIcons/passives/bodysoul.dds"]=132,
-			["Art/2DArt/SkillIcons/passives/deepwisdom.dds"]=94,
-			["Art/2DArt/SkillIcons/passives/eagleeye.dds"]=171,
-			["Art/2DArt/SkillIcons/passives/executioner.dds"]=172,
+			["Art/2DArt/SkillIcons/passives/Warbringer/WarbringerEnemyArmourBrokenBelowZero.dds"]=76,
+			["Art/2DArt/SkillIcons/passives/Warbringer/WarbringerTotemsDefendedByAncestors.dds"]=95,
+			["Art/2DArt/SkillIcons/passives/Warbringer/WarbringerWarcriesNoCooldown.dds"]=39,
+			["Art/2DArt/SkillIcons/passives/Warbringer/WarbringerWarcryExplodesCorpses.dds"]=22,
+			["Art/2DArt/SkillIcons/passives/Warrior.dds"]=133,
+			["Art/2DArt/SkillIcons/passives/Witchhunter/WitchunterArmourEvasionConvertedSpellAegis.dds"]=16,
+			["Art/2DArt/SkillIcons/passives/Witchhunter/WitchunterCullingStrike.dds"]=84,
+			["Art/2DArt/SkillIcons/passives/Witchhunter/WitchunterDamageMonsterMissingFocus.dds"]=94,
+			["Art/2DArt/SkillIcons/passives/Witchhunter/WitchunterDrainMonsterFocus.dds"]=42,
+			["Art/2DArt/SkillIcons/passives/Witchhunter/WitchunterMonsterHolyExplosion.dds"]=36,
+			["Art/2DArt/SkillIcons/passives/Witchhunter/WitchunterRemovePercentageFullLifeEnemies.dds"]=164,
+			["Art/2DArt/SkillIcons/passives/Witchhunter/WitchunterSpecPoints.dds"]=153,
+			["Art/2DArt/SkillIcons/passives/Witchhunter/WitchunterStrongerSpellAegis.dds"]=47,
+			["Art/2DArt/SkillIcons/passives/bodysoul.dds"]=130,
+			["Art/2DArt/SkillIcons/passives/deepwisdom.dds"]=152,
+			["Art/2DArt/SkillIcons/passives/eagleeye.dds"]=140,
+			["Art/2DArt/SkillIcons/passives/executioner.dds"]=171,
 			["Art/2DArt/SkillIcons/passives/finesse.dds"]=157,
-			["Art/2DArt/SkillIcons/passives/heroicspirit.dds"]=112,
-			["Art/2DArt/SkillIcons/passives/icebite.dds"]=98,
-			["Art/2DArt/SkillIcons/passives/lifeleech.dds"]=85,
+			["Art/2DArt/SkillIcons/passives/heroicspirit.dds"]=113,
+			["Art/2DArt/SkillIcons/passives/icebite.dds"]=114,
+			["Art/2DArt/SkillIcons/passives/lifeleech.dds"]=89,
 			["Art/2DArt/SkillIcons/passives/liferegentoenergyshield.dds"]=160,
-			["Art/2DArt/SkillIcons/passives/newnewattackspeed.dds"]=99,
-			["Art/2DArt/SkillIcons/passives/steelspan.dds"]=125,
-			["Art/2DArt/SkillIcons/passives/strongarm.dds"]=129,
-			["Art/2DArt/SkillIcons/passives/totemmax.dds"]=91,
-			["Art/2DArt/SkillIcons/passives/vaalpact.dds"]=131
+			["Art/2DArt/SkillIcons/passives/newnewattackspeed.dds"]=146,
+			["Art/2DArt/SkillIcons/passives/steelspan.dds"]=123,
+			["Art/2DArt/SkillIcons/passives/strongarm.dds"]=128,
+			["Art/2DArt/SkillIcons/passives/totemmax.dds"]=96,
+			["Art/2DArt/SkillIcons/passives/vaalpact.dds"]=129
 		},
 		["skills_172_172_BC1.dds.zst"]={
 			["Art/2DArt/SkillIcons/passives/MasteryBlank.dds"]=1
@@ -967,132 +1705,129 @@ return {
 			["Art/2DArt/SkillIcons/passives/Infernalist/Fireblood.dds"]=1
 		},
 		["skills_64_64_BC1.dds.zst"]={
-			["Art/2DArt/SkillIcons/ExplosiveGrenade.dds"]=82,
-			["Art/2DArt/SkillIcons/WitchBoneStorm.dds"]=65,
-			["Art/2DArt/SkillIcons/icongroundslam.dds"]=44,
-			["Art/2DArt/SkillIcons/passives/2handeddamage.dds"]=35,
-			["Art/2DArt/SkillIcons/passives/AcolyteofChayula/AcolyteOfChayulaNode.dds"]=36,
+			["Art/2DArt/SkillIcons/ExplosiveGrenade.dds"]=78,
+			["Art/2DArt/SkillIcons/WitchBoneStorm.dds"]=64,
+			["Art/2DArt/SkillIcons/icongroundslam.dds"]=37,
+			["Art/2DArt/SkillIcons/passives/2handeddamage.dds"]=26,
+			["Art/2DArt/SkillIcons/passives/AcolyteofChayula/AcolyteOfChayulaNode.dds"]=28,
 			["Art/2DArt/SkillIcons/passives/AreaDmgNode.dds"]=61,
-			["Art/2DArt/SkillIcons/passives/ArmourAndEnergyShieldNode.dds"]=81,
-			["Art/2DArt/SkillIcons/passives/ArmourAndEvasionNode.dds"]=69,
-			["Art/2DArt/SkillIcons/passives/ArmourBreak1BuffIcon.dds"]=55,
-			["Art/2DArt/SkillIcons/passives/ArmourBreak2BuffIcon.dds"]=88,
-			["Art/2DArt/SkillIcons/passives/Ascendants/SkillPoint.dds"]=109,
-			["Art/2DArt/SkillIcons/passives/Bloodmage/BloodMageNode.dds"]=119,
-			["Art/2DArt/SkillIcons/passives/ChannellingAttacksNode.dds"]=75,
-			["Art/2DArt/SkillIcons/passives/ChaosDamagenode.dds"]=86,
-			["Art/2DArt/SkillIcons/passives/CharmNode1.dds"]=124,
-			["Art/2DArt/SkillIcons/passives/ColdDamagenode.dds"]=96,
-			["Art/2DArt/SkillIcons/passives/ColdResistNode.dds"]=85,
-			["Art/2DArt/SkillIcons/passives/CorpseDamage.dds"]=95,
-			["Art/2DArt/SkillIcons/passives/CurseEffectNode.dds"]=115,
-			["Art/2DArt/SkillIcons/passives/DeadEye/DeadeyeNode.dds"]=25,
-			["Art/2DArt/SkillIcons/passives/ElementalDamagenode.dds"]=91,
-			["Art/2DArt/SkillIcons/passives/EnergyShieldNode.dds"]=9,
-			["Art/2DArt/SkillIcons/passives/EvasionNode.dds"]=116,
-			["Art/2DArt/SkillIcons/passives/EvasionandEnergyShieldNode.dds"]=92,
-			["Art/2DArt/SkillIcons/passives/FireDamagenode.dds"]=43,
-			["Art/2DArt/SkillIcons/passives/FireResistNode.dds"]=23,
-			["Art/2DArt/SkillIcons/passives/Gemling/GemlingNode.dds"]=100,
-			["Art/2DArt/SkillIcons/passives/GreenAttackSmallPassive.dds"]=104,
-			["Art/2DArt/SkillIcons/passives/HeraldBuffEffectNode2.dds"]=79,
-			["Art/2DArt/SkillIcons/passives/IncreasedProjectileSpeedNode.dds"]=7,
-			["Art/2DArt/SkillIcons/passives/Infernalist/InfernalistNode.dds"]=57,
-			["Art/2DArt/SkillIcons/passives/Inquistitor/IncreasedElementalDamageAttackCasteSpeed.dds"]=8,
-			["Art/2DArt/SkillIcons/passives/Invoker/InvokerNode.dds"]=19,
-			["Art/2DArt/SkillIcons/passives/LifeRecoupNode.dds"]=41,
-			["Art/2DArt/SkillIcons/passives/LightningDamagenode.dds"]=64,
-			["Art/2DArt/SkillIcons/passives/LightningResistNode.dds"]=122,
-			["Art/2DArt/SkillIcons/passives/ManaLeechThemedNode.dds"]=58,
-			["Art/2DArt/SkillIcons/passives/MarkNode.dds"]=73,
-			["Art/2DArt/SkillIcons/passives/MeleeAoENode.dds"]=62,
-			["Art/2DArt/SkillIcons/passives/MineAreaOfEffectNode.dds"]=97,
-			["Art/2DArt/SkillIcons/passives/MinionChaosResistanceNode.dds"]=93,
+			["Art/2DArt/SkillIcons/passives/ArmourAndEnergyShieldNode.dds"]=77,
+			["Art/2DArt/SkillIcons/passives/ArmourAndEvasionNode.dds"]=87,
+			["Art/2DArt/SkillIcons/passives/ArmourBreak1BuffIcon.dds"]=21,
+			["Art/2DArt/SkillIcons/passives/ArmourBreak2BuffIcon.dds"]=46,
+			["Art/2DArt/SkillIcons/passives/Ascendants/SkillPoint.dds"]=103,
+			["Art/2DArt/SkillIcons/passives/Bloodmage/BloodMageNode.dds"]=113,
+			["Art/2DArt/SkillIcons/passives/ChannellingAttacksNode.dds"]=122,
+			["Art/2DArt/SkillIcons/passives/ChaosDamagenode.dds"]=81,
+			["Art/2DArt/SkillIcons/passives/CharmNode1.dds"]=120,
+			["Art/2DArt/SkillIcons/passives/ColdDamagenode.dds"]=91,
+			["Art/2DArt/SkillIcons/passives/ColdResistNode.dds"]=58,
+			["Art/2DArt/SkillIcons/passives/CorpseDamage.dds"]=90,
+			["Art/2DArt/SkillIcons/passives/CurseEffectNode.dds"]=41,
+			["Art/2DArt/SkillIcons/passives/DeadEye/DeadeyeNode.dds"]=15,
+			["Art/2DArt/SkillIcons/passives/ElementalDamagenode.dds"]=84,
+			["Art/2DArt/SkillIcons/passives/EnergyShieldNode.dds"]=35,
+			["Art/2DArt/SkillIcons/passives/EvasionNode.dds"]=110,
+			["Art/2DArt/SkillIcons/passives/EvasionandEnergyShieldNode.dds"]=89,
+			["Art/2DArt/SkillIcons/passives/FireDamagenode.dds"]=9,
+			["Art/2DArt/SkillIcons/passives/FireResistNode.dds"]=76,
+			["Art/2DArt/SkillIcons/passives/Gemling/GemlingNode.dds"]=30,
+			["Art/2DArt/SkillIcons/passives/GreenAttackSmallPassive.dds"]=98,
+			["Art/2DArt/SkillIcons/passives/HeraldBuffEffectNode2.dds"]=99,
+			["Art/2DArt/SkillIcons/passives/IncreasedProjectileSpeedNode.dds"]=5,
+			["Art/2DArt/SkillIcons/passives/Infernalist/InfernalistNode.dds"]=96,
+			["Art/2DArt/SkillIcons/passives/Inquistitor/IncreasedElementalDamageAttackCasteSpeed.dds"]=6,
+			["Art/2DArt/SkillIcons/passives/Invoker/InvokerNode.dds"]=16,
+			["Art/2DArt/SkillIcons/passives/LifeRecoupNode.dds"]=34,
+			["Art/2DArt/SkillIcons/passives/LightningDamagenode.dds"]=63,
+			["Art/2DArt/SkillIcons/passives/LightningResistNode.dds"]=79,
+			["Art/2DArt/SkillIcons/passives/ManaLeechThemedNode.dds"]=55,
+			["Art/2DArt/SkillIcons/passives/MarkNode.dds"]=71,
+			["Art/2DArt/SkillIcons/passives/MeleeAoENode.dds"]=51,
+			["Art/2DArt/SkillIcons/passives/MineAreaOfEffectNode.dds"]=92,
+			["Art/2DArt/SkillIcons/passives/MinionChaosResistanceNode.dds"]=13,
 			["Art/2DArt/SkillIcons/passives/MinionElementalResistancesNode.dds"]=2,
-			["Art/2DArt/SkillIcons/passives/MinionsandManaNode.dds"]=16,
-			["Art/2DArt/SkillIcons/passives/NodeDualWieldingDamage.dds"]=20,
-			["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderNode.dds"]=15,
-			["Art/2DArt/SkillIcons/passives/PhysicalDamageChaosNode.dds"]=106,
-			["Art/2DArt/SkillIcons/passives/PhysicalDamageNode.dds"]=71,
-			["Art/2DArt/SkillIcons/passives/PhysicalDamageOverTimeNode.dds"]=34,
-			["Art/2DArt/SkillIcons/passives/Rage.dds"]=30,
-			["Art/2DArt/SkillIcons/passives/ReducedSkillEffectDurationNode.dds"]=5,
-			["Art/2DArt/SkillIcons/passives/ShieldNodeOffensive.dds"]=33,
-			["Art/2DArt/SkillIcons/passives/SpellSuppresionNode.dds"]=102,
-			["Art/2DArt/SkillIcons/passives/Stormweaver/StormweaverNode.dds"]=76,
-			["Art/2DArt/SkillIcons/passives/Temporalist/TemporalistNode.dds"]=101,
-			["Art/2DArt/SkillIcons/passives/Titan/TitanNode.dds"]=31,
-			["Art/2DArt/SkillIcons/passives/WarCryEffect.dds"]=126,
-			["Art/2DArt/SkillIcons/passives/Warbringer/WarbringerNode.dds"]=10,
+			["Art/2DArt/SkillIcons/passives/MinionsandManaNode.dds"]=86,
+			["Art/2DArt/SkillIcons/passives/NodeDualWieldingDamage.dds"]=108,
+			["Art/2DArt/SkillIcons/passives/PathFinder/PathfinderNode.dds"]=12,
+			["Art/2DArt/SkillIcons/passives/PhysicalDamageChaosNode.dds"]=100,
+			["Art/2DArt/SkillIcons/passives/PhysicalDamageNode.dds"]=69,
+			["Art/2DArt/SkillIcons/passives/PhysicalDamageOverTimeNode.dds"]=25,
+			["Art/2DArt/SkillIcons/passives/Rage.dds"]=22,
+			["Art/2DArt/SkillIcons/passives/ReducedSkillEffectDurationNode.dds"]=3,
+			["Art/2DArt/SkillIcons/passives/ShieldNodeOffensive.dds"]=95,
+			["Art/2DArt/SkillIcons/passives/SpellSuppresionNode.dds"]=10,
+			["Art/2DArt/SkillIcons/passives/Stormweaver/StormweaverNode.dds"]=70,
+			["Art/2DArt/SkillIcons/passives/Temporalist/TemporalistNode.dds"]=97,
+			["Art/2DArt/SkillIcons/passives/Titan/TitanNode.dds"]=23,
+			["Art/2DArt/SkillIcons/passives/WarCryEffect.dds"]=123,
+			["Art/2DArt/SkillIcons/passives/Warbringer/WarbringerNode.dds"]=7,
 			["Art/2DArt/SkillIcons/passives/Witchhunter/WitchunterNode.dds"]=1,
-			["Art/2DArt/SkillIcons/passives/accuracydex.dds"]=80,
-			["Art/2DArt/SkillIcons/passives/accuracystr.dds"]=114,
-			["Art/2DArt/SkillIcons/passives/areaofeffect.dds"]=68,
-			["Art/2DArt/SkillIcons/passives/attackspeed.dds"]=54,
-			["Art/2DArt/SkillIcons/passives/attackspeedbow.dds"]=120,
-			["Art/2DArt/SkillIcons/passives/auraeffect.dds"]=83,
-			["Art/2DArt/SkillIcons/passives/avoidchilling.dds"]=48,
-			["Art/2DArt/SkillIcons/passives/axedmgspeed.dds"]=94,
-			["Art/2DArt/SkillIcons/passives/blankDex.dds"]=118,
-			["Art/2DArt/SkillIcons/passives/blankInt.dds"]=108,
-			["Art/2DArt/SkillIcons/passives/blankStr.dds"]=21,
-			["Art/2DArt/SkillIcons/passives/blockstr.dds"]=89,
-			["Art/2DArt/SkillIcons/passives/castspeed.dds"]=42,
-			["Art/2DArt/SkillIcons/passives/chargedex.dds"]=125,
-			["Art/2DArt/SkillIcons/passives/chargeint.dds"]=87,
-			["Art/2DArt/SkillIcons/passives/chargestr.dds"]=74,
-			["Art/2DArt/SkillIcons/passives/clustersLinknode2.dds"]=112,
-			["Art/2DArt/SkillIcons/passives/colddamage.dds"]=14,
-			["Art/2DArt/SkillIcons/passives/coldresist.dds"]=121,
-			["Art/2DArt/SkillIcons/passives/criticaldaggerint.dds"]=27,
-			["Art/2DArt/SkillIcons/passives/criticalstrikechance.dds"]=49,
-			["Art/2DArt/SkillIcons/passives/criticalstrikechance2.dds"]=53,
-			["Art/2DArt/SkillIcons/passives/damage.dds"]=40,
-			["Art/2DArt/SkillIcons/passives/damage_blue.dds"]=52,
-			["Art/2DArt/SkillIcons/passives/damageaxe.dds"]=70,
-			["Art/2DArt/SkillIcons/passives/damagedualwield.dds"]=110,
-			["Art/2DArt/SkillIcons/passives/damagespells.dds"]=32,
-			["Art/2DArt/SkillIcons/passives/damagestaff.dds"]=26,
-			["Art/2DArt/SkillIcons/passives/damagesword.dds"]=78,
-			["Art/2DArt/SkillIcons/passives/dmgreduction.dds"]=66,
-			["Art/2DArt/SkillIcons/passives/elementaldamage.dds"]=47,
-			["Art/2DArt/SkillIcons/passives/energyshield.dds"]=63,
-			["Art/2DArt/SkillIcons/passives/evade.dds"]=24,
-			["Art/2DArt/SkillIcons/passives/firedamage.dds"]=28,
-			["Art/2DArt/SkillIcons/passives/firedamageint.dds"]=50,
-			["Art/2DArt/SkillIcons/passives/firedamagestr.dds"]=67,
-			["Art/2DArt/SkillIcons/passives/fireresist.dds"]=90,
-			["Art/2DArt/SkillIcons/passives/flaskdex.dds"]=13,
-			["Art/2DArt/SkillIcons/passives/flaskint.dds"]=123,
-			["Art/2DArt/SkillIcons/passives/flaskstr.dds"]=77,
-			["Art/2DArt/SkillIcons/passives/increasedrunspeeddex.dds"]=113,
-			["Art/2DArt/SkillIcons/passives/knockback.dds"]=111,
+			["Art/2DArt/SkillIcons/passives/accuracydex.dds"]=53,
+			["Art/2DArt/SkillIcons/passives/accuracystr.dds"]=109,
+			["Art/2DArt/SkillIcons/passives/areaofeffect.dds"]=114,
+			["Art/2DArt/SkillIcons/passives/attackspeed.dds"]=48,
+			["Art/2DArt/SkillIcons/passives/attackspeedbow.dds"]=116,
+			["Art/2DArt/SkillIcons/passives/auraeffect.dds"]=75,
+			["Art/2DArt/SkillIcons/passives/avoidchilling.dds"]=44,
+			["Art/2DArt/SkillIcons/passives/axedmgspeed.dds"]=17,
+			["Art/2DArt/SkillIcons/passives/blankDex.dds"]=112,
+			["Art/2DArt/SkillIcons/passives/blankInt.dds"]=101,
+			["Art/2DArt/SkillIcons/passives/blankStr.dds"]=67,
+			["Art/2DArt/SkillIcons/passives/blockstr.dds"]=20,
+			["Art/2DArt/SkillIcons/passives/castspeed.dds"]=36,
+			["Art/2DArt/SkillIcons/passives/chargedex.dds"]=121,
+			["Art/2DArt/SkillIcons/passives/chargeint.dds"]=82,
+			["Art/2DArt/SkillIcons/passives/chargestr.dds"]=33,
+			["Art/2DArt/SkillIcons/passives/clustersLinknode2.dds"]=106,
+			["Art/2DArt/SkillIcons/passives/colddamage.dds"]=42,
+			["Art/2DArt/SkillIcons/passives/coldresist.dds"]=31,
+			["Art/2DArt/SkillIcons/passives/criticaldaggerint.dds"]=39,
+			["Art/2DArt/SkillIcons/passives/criticalstrikechance.dds"]=83,
+			["Art/2DArt/SkillIcons/passives/criticalstrikechance2.dds"]=49,
+			["Art/2DArt/SkillIcons/passives/damage.dds"]=8,
+			["Art/2DArt/SkillIcons/passives/damage_blue.dds"]=43,
+			["Art/2DArt/SkillIcons/passives/damageaxe.dds"]=59,
+			["Art/2DArt/SkillIcons/passives/damagedualwield.dds"]=104,
+			["Art/2DArt/SkillIcons/passives/damagespells.dds"]=24,
+			["Art/2DArt/SkillIcons/passives/damagestaff.dds"]=19,
+			["Art/2DArt/SkillIcons/passives/damagesword.dds"]=74,
+			["Art/2DArt/SkillIcons/passives/dmgreduction.dds"]=115,
+			["Art/2DArt/SkillIcons/passives/elementaldamage.dds"]=107,
+			["Art/2DArt/SkillIcons/passives/energyshield.dds"]=32,
+			["Art/2DArt/SkillIcons/passives/evade.dds"]=88,
+			["Art/2DArt/SkillIcons/passives/firedamage.dds"]=4,
+			["Art/2DArt/SkillIcons/passives/firedamageint.dds"]=66,
+			["Art/2DArt/SkillIcons/passives/firedamagestr.dds"]=57,
+			["Art/2DArt/SkillIcons/passives/fireresist.dds"]=18,
+			["Art/2DArt/SkillIcons/passives/flaskdex.dds"]=118,
+			["Art/2DArt/SkillIcons/passives/flaskint.dds"]=117,
+			["Art/2DArt/SkillIcons/passives/flaskstr.dds"]=85,
+			["Art/2DArt/SkillIcons/passives/increasedrunspeeddex.dds"]=119,
+			["Art/2DArt/SkillIcons/passives/knockback.dds"]=105,
 			["Art/2DArt/SkillIcons/passives/life1.dds"]=72,
-			["Art/2DArt/SkillIcons/passives/lifepercentage.dds"]=59,
-			["Art/2DArt/SkillIcons/passives/lightningint.dds"]=98,
-			["Art/2DArt/SkillIcons/passives/lightningstr.dds"]=56,
-			["Art/2DArt/SkillIcons/passives/macedmg.dds"]=46,
-			["Art/2DArt/SkillIcons/passives/mana.dds"]=84,
-			["Art/2DArt/SkillIcons/passives/manaregeneration.dds"]=12,
-			["Art/2DArt/SkillIcons/passives/manastr.dds"]=107,
-			["Art/2DArt/SkillIcons/passives/miniondamageBlue.dds"]=37,
-			["Art/2DArt/SkillIcons/passives/minionlife.dds"]=29,
-			["Art/2DArt/SkillIcons/passives/onehanddamage.dds"]=11,
-			["Art/2DArt/SkillIcons/passives/plusattribute.dds"]=38,
-			["Art/2DArt/SkillIcons/passives/plusdexterity.dds"]=39,
+			["Art/2DArt/SkillIcons/passives/lifepercentage.dds"]=56,
+			["Art/2DArt/SkillIcons/passives/lightningint.dds"]=93,
+			["Art/2DArt/SkillIcons/passives/lightningstr.dds"]=65,
+			["Art/2DArt/SkillIcons/passives/macedmg.dds"]=11,
+			["Art/2DArt/SkillIcons/passives/mana.dds"]=80,
+			["Art/2DArt/SkillIcons/passives/manaregeneration.dds"]=14,
+			["Art/2DArt/SkillIcons/passives/manastr.dds"]=102,
+			["Art/2DArt/SkillIcons/passives/miniondamageBlue.dds"]=29,
+			["Art/2DArt/SkillIcons/passives/minionlife.dds"]=68,
+			["Art/2DArt/SkillIcons/passives/onehanddamage.dds"]=27,
+			["Art/2DArt/SkillIcons/passives/plusattribute.dds"]=45,
+			["Art/2DArt/SkillIcons/passives/plusdexterity.dds"]=62,
 			["Art/2DArt/SkillIcons/passives/plusintelligence.dds"]=60,
-			["Art/2DArt/SkillIcons/passives/plusintelligencedexterity.dds"]=18,
-			["Art/2DArt/SkillIcons/passives/plusstrength.dds"]=22,
-			["Art/2DArt/SkillIcons/passives/plusstrengthdexterity.dds"]=105,
-			["Art/2DArt/SkillIcons/passives/plusstrengthintelligence.dds"]=3,
-			["Art/2DArt/SkillIcons/passives/projectilespeed.dds"]=103,
-			["Art/2DArt/SkillIcons/passives/shieldblock.dds"]=17,
-			["Art/2DArt/SkillIcons/passives/spellcritical.dds"]=99,
-			["Art/2DArt/SkillIcons/passives/stun2h.dds"]=45,
-			["Art/2DArt/SkillIcons/passives/stunstr.dds"]=4,
-			["Art/2DArt/SkillIcons/passives/tempint.dds"]=117,
-			["Art/2DArt/SkillIcons/passives/totemandbrandlife.dds"]=51,
-			["Art/2DArt/SkillIcons/passives/trapdamage.dds"]=6
+			["Art/2DArt/SkillIcons/passives/plusstrength.dds"]=47,
+			["Art/2DArt/SkillIcons/passives/projectilespeed.dds"]=54,
+			["Art/2DArt/SkillIcons/passives/shieldblock.dds"]=38,
+			["Art/2DArt/SkillIcons/passives/spellcritical.dds"]=94,
+			["Art/2DArt/SkillIcons/passives/stun2h.dds"]=40,
+			["Art/2DArt/SkillIcons/passives/stunstr.dds"]=52,
+			["Art/2DArt/SkillIcons/passives/tempint.dds"]=111,
+			["Art/2DArt/SkillIcons/passives/totemandbrandlife.dds"]=50,
+			["Art/2DArt/SkillIcons/passives/trapdamage.dds"]=73
 		}
 	},
 	groups={
@@ -1103,8 +1838,8 @@ return {
 			orbits={
 				[1]=0
 			},
-			x=-14496.148300903,
-			y=5452.3167634307
+			x=-14917.359553884,
+			y=5694.7571591651
 		},
 		[3]={
 			nodes={
@@ -1113,8 +1848,8 @@ return {
 			orbits={
 				[1]=0
 			},
-			x=-14496.148300903,
-			y=5815.3167634307
+			x=-14917.359553884,
+			y=6057.7571591651
 		},
 		[4]={
 			nodes={
@@ -1123,8 +1858,8 @@ return {
 			orbits={
 				[1]=0
 			},
-			x=-14496.148300903,
-			y=6178.3167634307
+			x=-14917.359553884,
+			y=6420.7571591651
 		},
 		[5]={
 			nodes={
@@ -1133,8 +1868,8 @@ return {
 			orbits={
 				[1]=0
 			},
-			x=-14429.118300903,
-			y=5202.1467634307
+			x=-14850.329553884,
+			y=5444.5871591651
 		},
 		[6]={
 			nodes={
@@ -1143,8 +1878,8 @@ return {
 			orbits={
 				[1]=0
 			},
-			x=-14339.388300903,
-			y=5624.0267634307
+			x=-14760.599553884,
+			y=5866.4671591651
 		},
 		[7]={
 			nodes={
@@ -1153,8 +1888,8 @@ return {
 			orbits={
 				[1]=0
 			},
-			x=-14339.388300903,
-			y=6037.1767634307
+			x=-14760.599553884,
+			y=6279.6171591651
 		},
 		[9]={
 			nodes={
@@ -1163,8 +1898,8 @@ return {
 			orbits={
 				[1]=0
 			},
-			x=-14241.668300903,
-			y=5202.1067634307
+			x=-14662.879553884,
+			y=5444.5471591651
 		},
 		[11]={
 			nodes={
@@ -1173,8 +1908,8 @@ return {
 			orbits={
 				[1]=0
 			},
-			x=-14174.808300903,
-			y=6716.2967634307
+			x=-14596.019553884,
+			y=6958.7371591651
 		},
 		[12]={
 			nodes={
@@ -1183,8 +1918,8 @@ return {
 			orbits={
 				[1]=0
 			},
-			x=-14174.628300903,
-			y=5452.3167634307
+			x=-14595.839553884,
+			y=5694.7571591651
 		},
 		[13]={
 			nodes={
@@ -1193,8 +1928,8 @@ return {
 			orbits={
 				[1]=0
 			},
-			x=-14174.628300903,
-			y=5815.3167634307
+			x=-14595.839553884,
+			y=6057.7571591651
 		},
 		[14]={
 			nodes={
@@ -1203,8 +1938,8 @@ return {
 			orbits={
 				[1]=0
 			},
-			x=-14174.628300903,
-			y=6542.0967634307
+			x=-14595.839553884,
+			y=6784.5371591651
 		},
 		[15]={
 			nodes={
@@ -1213,8 +1948,8 @@ return {
 			orbits={
 				[1]=0
 			},
-			x=-14174.008300903,
-			y=6178.3167634307
+			x=-14595.219553884,
+			y=6420.7571591651
 		},
 		[16]={
 			nodes={
@@ -1223,8 +1958,8 @@ return {
 			orbits={
 				[1]=6
 			},
-			x=-13769.548300903,
-			y=6122.5967634307
+			x=-14190.759553884,
+			y=6365.0371591651
 		},
 		[17]={
 			nodes={
@@ -1233,8 +1968,8 @@ return {
 			orbits={
 				[1]=0
 			},
-			x=-13720.868300903,
-			y=6795.3467634307
+			x=-14142.079553884,
+			y=7037.7871591651
 		},
 		[18]={
 			nodes={
@@ -1243,8 +1978,8 @@ return {
 			orbits={
 				[1]=0
 			},
-			x=-13717.058300903,
-			y=6464.9067634307
+			x=-14138.269553884,
+			y=6707.3471591651
 		},
 		[19]={
 			nodes={
@@ -1253,8 +1988,8 @@ return {
 			orbits={
 				[1]=0
 			},
-			x=-13266.078300903,
-			y=6395.2167634307
+			x=-13687.289553884,
+			y=6637.6571591651
 		},
 		[20]={
 			nodes={
@@ -1263,8 +1998,8 @@ return {
 			orbits={
 				[1]=0
 			},
-			x=-13266.078300903,
-			y=6864.3867634307
+			x=-13687.289553884,
+			y=7106.8271591651
 		},
 		[22]={
 			nodes={
@@ -1273,8 +2008,8 @@ return {
 			orbits={
 				[1]=0
 			},
-			x=-13076.698300903,
-			y=6542.0967634307
+			x=-13497.909553884,
+			y=6784.5371591651
 		},
 		[23]={
 			nodes={
@@ -1283,8 +2018,8 @@ return {
 			orbits={
 				[1]=0
 			},
-			x=-13076.698300903,
-			y=6716.2967634307
+			x=-13497.909553884,
+			y=6958.7371591651
 		},
 		[25]={
 			nodes={
@@ -1293,8 +2028,8 @@ return {
 			orbits={
 				[1]=0
 			},
-			x=-13031.501188436,
-			y=8293.7734034478
+			x=-13040.484349216,
+			y=8298.2137991822
 		},
 		[26]={
 			nodes={
@@ -1303,8 +2038,8 @@ return {
 			orbits={
 				[1]=0
 			},
-			x=-12634.551188436,
-			y=8070.8734034478
+			x=-12643.534349216,
+			y=8075.3137991822
 		},
 		[27]={
 			nodes={
@@ -1313,8 +2048,8 @@ return {
 			orbits={
 				[1]=0
 			},
-			x=-12456.631188436,
-			y=8579.6634034478
+			x=-12465.614349216,
+			y=8584.1037991822
 		},
 		[28]={
 			nodes={
@@ -1337,8 +2072,8 @@ return {
 				[4]=7,
 				[5]=9
 			},
-			x=-12195.691188436,
-			y=8851.6534034478
+			x=-12204.674349216,
+			y=8856.0937991822
 		},
 		[29]={
 			nodes={
@@ -1347,8 +2082,8 @@ return {
 			orbits={
 				[1]=0
 			},
-			x=-12130.191188436,
-			y=9854.5734034478
+			x=-12139.174349216,
+			y=9859.0137991822
 		},
 		[30]={
 			nodes={
@@ -1357,8 +2092,8 @@ return {
 			orbits={
 				[1]=0
 			},
-			x=-12089.821188436,
-			y=9213.4234034478
+			x=-12098.804349216,
+			y=9217.8637991822
 		},
 		[31]={
 			nodes={
@@ -1367,8 +2102,8 @@ return {
 			orbits={
 				[1]=0
 			},
-			x=-11736.201188436,
-			y=9629.1734034478
+			x=-11745.184349216,
+			y=9633.6137991822
 		},
 		[37]={
 			nodes={
@@ -2264,8 +2999,8 @@ return {
 			orbits={
 				[1]=0
 			},
-			x=494.95218939594,
-			y=15228.739842601
+			x=496.71934300261,
+			y=15238.738670366
 		},
 		[104]={
 			nodes={
@@ -2473,8 +3208,8 @@ return {
 			orbits={
 				[1]=0
 			},
-			x=761.71218939594,
-			y=16024.069842601
+			x=763.47934300261,
+			y=16034.068670366
 		},
 		[122]={
 			nodes={
@@ -2603,8 +3338,8 @@ return {
 			orbits={
 				[1]=0
 			},
-			x=1056.8821893959,
-			y=15084.319842601
+			x=1058.6493430026,
+			y=15094.318670366
 		},
 		[133]={
 			nodes={
@@ -2872,8 +3607,8 @@ return {
 				[5]=9,
 				[6]=8
 			},
-			x=1595.0621893959,
-			y=14984.739842601
+			x=1596.8293430026,
+			y=14994.738670366
 		},
 		[153]={
 			nodes={
@@ -3054,8 +3789,8 @@ return {
 			orbits={
 				[1]=0
 			},
-			x=2133.2321893959,
-			y=15084.319842601
+			x=2134.9993430026,
+			y=15094.318670366
 		},
 		[166]={
 			nodes={
@@ -3185,7 +3920,7 @@ return {
 				[1]=0
 			},
 			x=4153.1390050971,
-			y=-15644.835865568
+			y=-15654.835865568
 		},
 		[176]={
 			nodes={
@@ -3195,7 +3930,7 @@ return {
 				[1]=0
 			},
 			x=4153.1390050971,
-			y=-13441.015865568
+			y=-13451.015865568
 		},
 		[177]={
 			nodes={
@@ -3239,8 +3974,8 @@ return {
 			orbits={
 				[1]=0
 			},
-			x=2430.1421893959,
-			y=16024.069842601
+			x=2431.9093430026,
+			y=16034.068670366
 		},
 		[180]={
 			nodes={
@@ -3260,7 +3995,7 @@ return {
 				[1]=0
 			},
 			x=4255.0590050971,
-			y=-15207.235865568
+			y=-15217.235865568
 		},
 		[182]={
 			nodes={
@@ -3321,7 +4056,7 @@ return {
 				[1]=0
 			},
 			x=4467.1090050971,
-			y=-14545.815865568
+			y=-14555.815865568
 		},
 		[187]={
 			nodes={
@@ -3368,8 +4103,8 @@ return {
 			orbits={
 				[1]=0
 			},
-			x=2695.7521893959,
-			y=15228.739842601
+			x=2697.5193430026,
+			y=15238.738670366
 		},
 		[191]={
 			nodes={
@@ -3389,7 +4124,7 @@ return {
 				[1]=0
 			},
 			x=4533.7590050971,
-			y=-13441.015865568
+			y=-13451.015865568
 		},
 		[193]={
 			nodes={
@@ -3492,7 +4227,7 @@ return {
 				[1]=2
 			},
 			x=4656.6990050971,
-			y=-15271.545865568
+			y=-15281.545865568
 		},
 		[200]={
 			nodes={
@@ -3502,7 +4237,7 @@ return {
 				[1]=9
 			},
 			x=4656.6990050971,
-			y=-14331.845865568
+			y=-14341.845865568
 		},
 		[202]={
 			nodes={
@@ -3512,7 +4247,7 @@ return {
 				[1]=4
 			},
 			x=4720.4690050971,
-			y=-15191.545865568
+			y=-15201.545865568
 		},
 		[203]={
 			nodes={
@@ -3546,7 +4281,7 @@ return {
 				[1]=0
 			},
 			x=4796.5490050971,
-			y=-13440.615865568
+			y=-13450.615865568
 		},
 		[206]={
 			nodes={
@@ -3556,7 +4291,7 @@ return {
 				[1]=0
 			},
 			x=4829.0790050971,
-			y=-14545.815865568
+			y=-14555.815865568
 		},
 		[207]={
 			nodes={
@@ -3565,8 +4300,8 @@ return {
 			orbits={
 				[1]=0
 			},
-			x=-2649.9263435605,
-			y=14817.049401417
+			x=-2648.1591899539,
+			y=14827.048229182
 		},
 		[208]={
 			nodes={
@@ -3667,8 +4402,8 @@ return {
 			orbits={
 				[1]=0
 			},
-			x=-2514.0463435605,
-			y=15324.159401417
+			x=-2512.2791899539,
+			y=15334.158229182
 		},
 		[215]={
 			nodes={
@@ -3693,7 +4428,7 @@ return {
 				[1]=0
 			},
 			x=5020.0290050971,
-			y=-15442.485865568
+			y=-15452.485865568
 		},
 		[217]={
 			nodes={
@@ -3713,7 +4448,7 @@ return {
 				[1]=0
 			},
 			x=5054.3490050971,
-			y=-15207.235865568
+			y=-15217.235865568
 		},
 		[219]={
 			nodes={
@@ -3732,8 +4467,8 @@ return {
 			orbits={
 				[1]=0
 			},
-			x=-2429.3763435605,
-			y=14405.429401417
+			x=-2427.6091899539,
+			y=14415.428229182
 		},
 		[221]={
 			nodes={
@@ -3854,7 +4589,7 @@ return {
 				[1]=0
 			},
 			x=5159.6990050971,
-			y=-15651.845865568
+			y=-15661.845865568
 		},
 		[231]={
 			nodes={
@@ -3864,7 +4599,7 @@ return {
 				[1]=0
 			},
 			x=5159.6990050971,
-			y=-13440.615865568
+			y=-13450.615865568
 		},
 		[232]={
 			nodes={
@@ -3935,8 +4670,8 @@ return {
 			orbits={
 				[1]=0
 			},
-			x=-2293.5063435605,
-			y=14912.539401417
+			x=-2291.7391899539,
+			y=14922.538229182
 		},
 		[237]={
 			nodes={
@@ -3992,8 +4727,8 @@ return {
 			orbits={
 				[1]=0
 			},
-			x=-2157.6163435605,
-			y=15419.659401417
+			x=-2155.8491899539,
+			y=15429.658229182
 		},
 		[242]={
 			nodes={
@@ -4065,8 +4800,8 @@ return {
 			orbits={
 				[1]=0
 			},
-			x=-2021.7363435605,
-			y=15926.769401417
+			x=-2019.9691899539,
+			y=15936.768229182
 		},
 		[248]={
 			nodes={
@@ -4307,8 +5042,8 @@ return {
 			orbits={
 				[1]=9
 			},
-			x=-1555.2963435605,
-			y=14988.919401417
+			x=-1553.5291899539,
+			y=14998.918229182
 		},
 		[267]={
 			nodes={
@@ -4615,8 +5350,8 @@ return {
 			orbits={
 				[1]=0
 			},
-			x=-1210.1363435605,
-			y=15161.309401417
+			x=-1208.3691899539,
+			y=15171.308229182
 		},
 		[289]={
 			nodes={
@@ -4705,8 +5440,8 @@ return {
 			orbits={
 				[1]=0
 			},
-			x=-1085.2463435605,
-			y=15930.409401417
+			x=-1083.4791899539,
+			y=15940.408229182
 		},
 		[297]={
 			nodes={
@@ -4727,8 +5462,8 @@ return {
 			orbits={
 				[1]=0
 			},
-			x=-1073.9963435605,
-			y=14653.229401417
+			x=-1072.2291899539,
+			y=14663.228229182
 		},
 		[299]={
 			nodes={
@@ -4787,8 +5522,8 @@ return {
 			orbits={
 				[1]=0
 			},
-			x=-949.10634356052,
-			y=15422.339401417
+			x=-947.33918995386,
+			y=15432.338229182
 		},
 		[305]={
 			nodes={
@@ -4855,7 +5590,7 @@ return {
 				[4]=8
 			},
 			x=1575.1806527255,
-			y=-14986.842811271
+			y=-14996.842811271
 		},
 		[309]={
 			nodes={
@@ -4884,8 +5619,8 @@ return {
 			orbits={
 				[1]=0
 			},
-			x=-849.38634356052,
-			y=16166.269401417
+			x=-847.61918995386,
+			y=16176.268229182
 		},
 		[312]={
 			nodes={
@@ -4894,8 +5629,8 @@ return {
 			orbits={
 				[1]=0
 			},
-			x=-812.96634356052,
-			y=14914.259401417
+			x=-811.19918995386,
+			y=14924.258229182
 		},
 		[313]={
 			nodes={
@@ -4961,8 +5696,8 @@ return {
 			orbits={
 				[1]=0
 			},
-			x=-712.99634356052,
-			y=15657.229401417
+			x=-711.22918995386,
+			y=15667.228229182
 		},
 		[317]={
 			nodes={
@@ -4981,8 +5716,8 @@ return {
 			orbits={
 				[1]=0
 			},
-			x=-676.82634356052,
-			y=14406.179401417
+			x=-675.05918995386,
+			y=14416.178229182
 		},
 		[319]={
 			nodes={
@@ -5058,8 +5793,8 @@ return {
 			orbits={
 				[1]=0
 			},
-			x=-576.58634356052,
-			y=15148.189401417
+			x=-574.81918995386,
+			y=15158.188229182
 		},
 		[325]={
 			nodes={
@@ -5231,8 +5966,8 @@ return {
 			orbits={
 				[1]=0
 			},
-			x=-440.18634356052,
-			y=14639.139401417
+			x=-438.41918995386,
+			y=14649.138229182
 		},
 		[339]={
 			nodes={
@@ -6946,7 +7681,7 @@ return {
 				[1]=0
 			},
 			x=-4948.9690050971,
-			y=-14993.055865568
+			y=-15003.055865568
 		},
 		[471]={
 			nodes={
@@ -7193,7 +7928,7 @@ return {
 				[4]=8
 			},
 			x=-4656.6990050971,
-			y=-14331.845865568
+			y=-14341.845865568
 		},
 		[487]={
 			nodes={
@@ -7707,7 +8442,7 @@ return {
 				[1]=0
 			},
 			x=-4086.0390050971,
-			y=-14753.775865568
+			y=-14763.775865568
 		},
 		[530]={
 			nodes={
@@ -8556,7 +9291,7 @@ return {
 				[1]=0
 			},
 			x=-2333.1006527255,
-			y=-15936.832811271
+			y=-15946.832811271
 		},
 		[599]={
 			nodes={
@@ -8667,7 +9402,7 @@ return {
 				[1]=0
 			},
 			x=-2257.2906527255,
-			y=-14850.802811271
+			y=-14860.802811271
 		},
 		[608]={
 			nodes={
@@ -9030,7 +9765,7 @@ return {
 				[1]=0
 			},
 			x=-1819.1806527255,
-			y=-14556.092811271
+			y=-14566.092811271
 		},
 		[633]={
 			nodes={
@@ -9199,7 +9934,7 @@ return {
 				[4]=8
 			},
 			x=-1575.1806527255,
-			y=-14986.842811271
+			y=-14996.842811271
 		},
 		[648]={
 			nodes={
@@ -9411,7 +10146,7 @@ return {
 				[1]=0
 			},
 			x=-1331.1606527255,
-			y=-14556.092811271
+			y=-14566.092811271
 		},
 		[665]={
 			nodes={
@@ -9791,7 +10526,7 @@ return {
 				[1]=0
 			},
 			x=-904.29065272554,
-			y=-14850.802811271
+			y=-14860.802811271
 		},
 		[694]={
 			nodes={
@@ -9865,7 +10600,7 @@ return {
 				[1]=0
 			},
 			x=-816.76065272554,
-			y=-15936.802811271
+			y=-15946.802811271
 		},
 		[700]={
 			nodes={
@@ -13993,8 +14728,8 @@ return {
 			orbits={
 				[1]=0
 			},
-			x=13677.940095179,
-			y=7117.1115012329
+			x=13686.634378546,
+			y=7122.0525572288
 		},
 		[1030]={
 			nodes={
@@ -14016,8 +14751,8 @@ return {
 				[5]=8,
 				[6]=9
 			},
-			x=13766.890095179,
-			y=6128.5715012329
+			x=13775.584378546,
+			y=6133.5125572288
 		},
 		[1031]={
 			nodes={
@@ -14026,8 +14761,8 @@ return {
 			orbits={
 				[1]=0
 			},
-			x=13858.710095179,
-			y=6667.4315012329
+			x=13867.404378546,
+			y=6672.3725572288
 		},
 		[1032]={
 			nodes={
@@ -14036,8 +14771,8 @@ return {
 			orbits={
 				[1]=0
 			},
-			x=13960.960095179,
-			y=7041.2815012329
+			x=13969.654378546,
+			y=7046.2225572288
 		},
 		[1033]={
 			nodes={
@@ -14070,8 +14805,8 @@ return {
 				[5]=8,
 				[6]=9
 			},
-			x=12215.667857404,
-			y=-8824.0642753814
+			x=12226.152197907,
+			y=-8825.8948253775
 		},
 		[1034]={
 			nodes={
@@ -14080,8 +14815,8 @@ return {
 			orbits={
 				[1]=0
 			},
-			x=14225.230095179,
-			y=6496.0715012329
+			x=14233.924378546,
+			y=6501.0125572288
 		},
 		[1035]={
 			nodes={
@@ -14090,8 +14825,8 @@ return {
 			orbits={
 				[1]=0
 			},
-			x=14243.980095179,
-			y=6965.4415012329
+			x=14252.674378546,
+			y=6970.3825572288
 		},
 		[1036]={
 			nodes={
@@ -14100,8 +14835,8 @@ return {
 			orbits={
 				[1]=0
 			},
-			x=14277.950095179,
-			y=5940.2315012329
+			x=14286.644378546,
+			y=5945.1725572288
 		},
 		[1037]={
 			nodes={
@@ -14110,8 +14845,8 @@ return {
 			orbits={
 				[1]=0
 			},
-			x=14318.750095179,
-			y=6333.0715012329
+			x=14327.444378546,
+			y=6338.0125572288
 		},
 		[1039]={
 			nodes={
@@ -14120,8 +14855,8 @@ return {
 			orbits={
 				[1]=0
 			},
-			x=14670.730095179,
-			y=5450.3415012329
+			x=14679.424378546,
+			y=5455.2825572288
 		},
 		[1040]={
 			nodes={
@@ -14130,8 +14865,8 @@ return {
 			orbits={
 				[1]=0
 			},
-			x=14722.620095179,
-			y=5738.7015012329
+			x=14731.314378546,
+			y=5743.6425572288
 		},
 		[1041]={
 			nodes={
@@ -14147,8 +14882,8 @@ return {
 				[1]=9,
 				[2]=8
 			},
-			x=12191.848853047,
-			y=8856.9449068475
+			x=12200.543136413,
+			y=8861.8859628434
 		},
 		[1042]={
 			nodes={
@@ -14157,8 +14892,8 @@ return {
 			orbits={
 				[1]=0
 			},
-			x=14775.690095179,
-			y=6026.8615012329
+			x=14784.384378546,
+			y=6031.8025572288
 		},
 		[1043]={
 			nodes={
@@ -14167,8 +14902,8 @@ return {
 			orbits={
 				[1]=0
 			},
-			x=12692.888853047,
-			y=8402.4449068475
+			x=12701.583136413,
+			y=8407.3859628434
 		},
 		[1044]={
 			nodes={
@@ -14177,8 +14912,8 @@ return {
 			orbits={
 				[1]=0
 			},
-			x=12692.888853047,
-			y=8523.4449068475
+			x=12701.583136413,
+			y=8528.3859628434
 		},
 		[1045]={
 			nodes={
@@ -14187,8 +14922,8 @@ return {
 			orbits={
 				[1]=0
 			},
-			x=12797.688853047,
-			y=8341.9449068475
+			x=12806.383136413,
+			y=8346.8859628434
 		},
 		[1046]={
 			nodes={
@@ -14197,8 +14932,8 @@ return {
 			orbits={
 				[1]=0
 			},
-			x=12797.688853047,
-			y=8462.9449068475
+			x=12806.383136413,
+			y=8467.8859628434
 		},
 		[1047]={
 			nodes={
@@ -14207,8 +14942,8 @@ return {
 			orbits={
 				[1]=0
 			},
-			x=12797.688853047,
-			y=8990.7249068475
+			x=12806.383136413,
+			y=8995.6659628434
 		},
 		[1048]={
 			nodes={
@@ -14217,8 +14952,8 @@ return {
 			orbits={
 				[1]=0
 			},
-			x=12902.478853047,
-			y=8401.0449068475
+			x=12911.173136413,
+			y=8405.9859628434
 		},
 		[1049]={
 			nodes={
@@ -14227,8 +14962,8 @@ return {
 			orbits={
 				[1]=0
 			},
-			x=12902.478853047,
-			y=8523.4449068475
+			x=12911.173136413,
+			y=8528.3859628434
 		},
 		[1050]={
 			nodes={
@@ -14237,8 +14972,8 @@ return {
 			orbits={
 				[1]=0
 			},
-			x=13002.908853047,
-			y=8990.6549068475
+			x=13011.603136413,
+			y=8995.5959628434
 		},
 		[1051]={
 			nodes={
@@ -14247,8 +14982,8 @@ return {
 			orbits={
 				[1]=0
 			},
-			x=13092.478853047,
-			y=8656.4449068475
+			x=13101.173136413,
+			y=8661.3859628434
 		},
 		[1052]={
 			nodes={
@@ -14257,8 +14992,8 @@ return {
 			orbits={
 				[1]=0
 			},
-			x=13182.028853047,
-			y=8322.0149068475
+			x=13190.723136413,
+			y=8326.9559628434
 		},
 		[1053]={
 			nodes={
@@ -14267,8 +15002,8 @@ return {
 			orbits={
 				[1]=0
 			},
-			x=13193.918853047,
-			y=8990.6549068475
+			x=13202.613136413,
+			y=8995.5959628434
 		},
 		[1054]={
 			nodes={
@@ -14277,8 +15012,8 @@ return {
 			orbits={
 				[1]=0
 			},
-			x=13335.008853047,
-			y=8990.6549068475
+			x=13343.703136413,
+			y=8995.5959628434
 		},
 		[1055]={
 			nodes={
@@ -14287,8 +15022,8 @@ return {
 			orbits={
 				[1]=0
 			},
-			x=13346.868853047,
-			y=8322.0149068475
+			x=13355.563136413,
+			y=8326.9559628434
 		},
 		[1056]={
 			nodes={
@@ -14297,8 +15032,8 @@ return {
 			orbits={
 				[1]=0
 			},
-			x=13436.718853047,
-			y=8657.3249068475
+			x=13445.413136413,
+			y=8662.2659628434
 		},
 		[1057]={
 			nodes={
@@ -14307,8 +15042,8 @@ return {
 			orbits={
 				[1]=0
 			},
-			x=13526.098853047,
-			y=8990.6549068475
+			x=13534.793136413,
+			y=8995.5959628434
 		},
 		[1058]={
 			nodes={
@@ -14338,8 +15073,8 @@ return {
 				[3]=9,
 				[4]=5
 			},
-			x=13783.35232946,
-			y=-6091.4571409843
+			x=13793.836669963,
+			y=-6093.2876909803
 		}
 	},
 	jewelSlots={
@@ -14368,10 +15103,10 @@ return {
 		[23]=63132,
 		[24]=36044
 	},
-	["max_x"]=22310.387360804,
-	["max_y"]=23700.966667042,
-	["min_x"]=-22030.845566528,
-	["min_y"]=-23471.530076896,
+	["max_x"]=22319.081644171,
+	["max_y"]=23710.965494807,
+	["min_x"]=-22452.056819509,
+	["min_y"]=-23481.530076896,
 	nodes={
 		[4]={
 			connections={
@@ -36265,7 +37000,7 @@ return {
 			},
 			skill=21380,
 			stats={
-				[1]="Critical Damage Bonus vs full life enemies 100%"
+				[1]="100% increased Critical Damage Bonus against Enemies that are on Full Life"
 			}
 		},
 		[21387]={
@@ -70049,7 +70784,7 @@ return {
 			orbitIndex=15,
 			skill=52630,
 			stats={
-				[1]="Critical Damage Bonus vs full life enemies 40%"
+				[1]="40% increased Critical Damage Bonus against Enemies that are on Full Life"
 			}
 		},
 		[52659]={
@@ -79921,7 +80656,7 @@ return {
 			orbitIndex=13,
 			skill=61800,
 			stats={
-				[1]="Critical Damage Bonus vs full life enemies 40%"
+				[1]="40% increased Critical Damage Bonus against Enemies that are on Full Life"
 			}
 		},
 		[61804]={

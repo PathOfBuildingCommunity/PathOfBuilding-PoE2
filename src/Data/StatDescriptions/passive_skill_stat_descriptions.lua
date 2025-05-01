@@ -527,7 +527,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Maximum Life is 1\nImmune to Chaos Damage"
+				text="Maximum Life is 1\nImmune to Chaos Damage and Bleeding"
 			}
 		},
 		stats={

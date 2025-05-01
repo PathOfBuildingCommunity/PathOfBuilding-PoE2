@@ -74,6 +74,29 @@ local function mergeKeystones(env)
 		end
 	end
 end
+-- Add certain weapon base stats to output for use as "Stat" in mods like Tactician's ""Watch How I Do It" Ascendancy notable" and Amazon's "Penetrate"
+-- Note: This might run into issues with Energy Blade, Shapeshifting or similar mechanics that could "replace" the weapon items, but it's hard to test because PoE2 doesn't have those mechanics yet
+---@param actor table
+local function addWeaponBaseStats(actor)
+	local output = actor.output
+	local dmgTypeList = {"Physical", "Lightning", "Cold", "Fire", "Chaos"} -- Note: we're using local dmgTypeList vars a lot, might be better to eventually just use a global since it presumably won't change
+	for i in pairs({ "1", "2" }) do
+		-- Section for martial weapons only for now
+		if actor.itemList["Weapon " .. i] and actor.itemList["Weapon " .. i].base and actor.itemList["Weapon " .. i].base.weapon then
+			-- Add base min and max damage
+			for _, damageType in ipairs(dmgTypeList) do
+				if actor.itemList["Weapon " .. i] and actor["weaponData" .. i][damageType .. "Min"] then
+					output[damageType .. "Min" .. "OnWeapon " .. i] = actor["weaponData" .. i][damageType .. "Min"]
+				end
+				if actor["weaponData" .. i][damageType .. "Max"] then
+					output[damageType .. "Max" .. "OnWeapon " .. i] = actor["weaponData" .. i][damageType .. "Max"]
+				end
+			end
+			-- Add total local accuracy
+			output["AccuracyOnWeapon " .. i] = actor.itemList["Weapon " .. i].baseModList:Sum("BASE", nil, "Accuracy")
+		end
+	end
+end
 
 -- Calculate attributes, and set conditions
 ---@param env table
@@ -129,6 +152,7 @@ local function doActorAttribsConditions(env, actor)
 		if (weapon1Base and weapon1Base.weapon) or (weapon2Base and weapon2Base.weapon) then -- technically checking weapon2 is unnecessary as there is currently no way to only attack with off-hand, but maybe it will come
 			condList["UsingMartialWeapon"] = true
 		end
+		addWeaponBaseStats(actor)
 	end
 	local armourSlots = { "Helmet", "Body Armour", "Gloves", "Boots" }
 	for _, slotName in ipairs(armourSlots) do
@@ -2789,9 +2813,9 @@ function calcs.perform(env, skipEHP)
 					-- if not, use the generic modifiers
 					-- Scorch/Sap/Brittle do not have guaranteed sources from hits, and therefore will only end up in this bit of code if it's not supposed to apply the skillModList, which is bad
 					if ailment ~= "Scorch" and ailment ~= "Sap" and ailment ~= "Brittle" and not env.player.mainSkill.skillModList:Flag(nil, "Cannot"..ailment) and hitFlag and modDB:Flag(nil, "ChecksHighestDamage") then
-						effect = effect * calcLib.mod(env.player.mainSkill.skillModList, env.player.mainSkill.skillModList.skillCfg, "Enemy"..ailment.."Magnitude", "AilmentMagnitude")
+						effect = effect * calcLib.mod(env.player.mainSkill.skillModList, env.player.mainSkill.skillModList.skillCfg, "Enemy"..ailment.."Magnitude", "AilmentMagnitude") * calcLib.mod(enemyDB, nil, "Self"..ailment.."Magnitude", "AilmentMagnitude")
 					else
-						effect = effect * calcLib.mod(env.player.mainSkill.skillModList, env.player.mainSkill.skillModList.skillCfg, "Enemy"..ailment.."Magnitude", "AilmentMagnitude")
+						effect = effect * calcLib.mod(env.player.mainSkill.skillModList, env.player.mainSkill.skillModList.skillCfg, "Enemy"..ailment.."Magnitude", "AilmentMagnitude") * calcLib.mod(enemyDB, nil, "Self"..ailment.."Magnitude", "AilmentMagnitude")
 					end
 					modDB:NewMod(ailment.."Override", "BASE", effect, mod.source, mod.flags, mod.keywordFlags, unpack(mod))
 					if mod.name == ailment.."Minimum" then

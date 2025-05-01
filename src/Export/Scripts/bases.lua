@@ -100,10 +100,7 @@ directiveTable.base = function(state, args, out)
 		out:write('\tquality = ', maximumQuality, ',\n')
 	end
 	if state.type == "Belt" then
-		local beltType = dat("BeltTypes"):GetRow("BaseItemType", baseItemType)
-		if beltType then
-			out:write('\tcharmLimit = ', beltType.CharmCount, ',\n')
-		end
+			out:write('\tcharmLimit = 0,\n')
 	end
 	local itemSpirit = dat("ItemSpirit"):GetRow("BaseItemType", baseItemType)
 	if itemSpirit then
@@ -135,6 +132,9 @@ directiveTable.base = function(state, args, out)
 			table.insert(implicitLines, line)
 			table.insert(implicitModTypes, modDesc.modTags)
 		end
+	end
+	if state.type == "Belt" then
+		table.insert(implicitLines, "Has (1-3) Charm Slots")
 	end
 	if #implicitLines > 0 then
 		out:write('\timplicit = "', table.concat(implicitLines, "\\n"), '",\n')

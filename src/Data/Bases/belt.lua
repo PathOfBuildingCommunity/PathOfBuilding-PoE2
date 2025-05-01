@@ -4,96 +4,97 @@ local itemBases = ...
 
 itemBases["Golden Obi"] = {
 	type = "Belt",
+	charmLimit = 0,
 	tags = { demigods = true, not_for_sale = true, default = true, belt = true, },
-	implicit = "(20-30)% increased Rarity of Items found",
+	implicit = "(20-30)% increased Rarity of Items found\nHas (1-3) Charm Slots",
 	implicitModTypes = { { "drop" }, },
 	req = { },
 }
 itemBases["Rawhide Belt"] = {
 	type = "Belt",
-	charmLimit = 1,
+	charmLimit = 0,
 	tags = { belt = true, default = true, },
-	implicit = "(20-30)% increased Life Recovery from Flasks",
+	implicit = "(20-30)% increased Life Recovery from Flasks\nHas (1-3) Charm Slots",
 	implicitModTypes = { { "flask", "resource", "life" }, },
 	req = { },
 }
 itemBases["Linen Belt"] = {
 	type = "Belt",
-	charmLimit = 1,
+	charmLimit = 0,
 	tags = { belt = true, default = true, },
-	implicit = "(20-30)% increased Mana Recovery from Flasks",
+	implicit = "(20-30)% increased Mana Recovery from Flasks\nHas (1-3) Charm Slots",
 	implicitModTypes = { { "flask", "resource", "mana" }, },
 	req = { },
 }
 itemBases["Wide Belt"] = {
 	type = "Belt",
-	charmLimit = 1,
+	charmLimit = 0,
 	tags = { belt = true, default = true, },
-	implicit = "(20-30)% increased Flask Charges gained",
+	implicit = "(20-30)% increased Flask Charges gained\nHas (1-3) Charm Slots",
 	implicitModTypes = { { "flask" }, },
 	req = { level = 14, },
 }
 itemBases["Long Belt"] = {
 	type = "Belt",
-	charmLimit = 1,
+	charmLimit = 0,
 	tags = { belt = true, default = true, },
-	implicit = "(15-20)% increased Charm Effect Duration",
+	implicit = "(15-20)% increased Charm Effect Duration\nHas (1-3) Charm Slots",
 	implicitModTypes = { {  }, },
 	req = { level = 20, },
 }
 itemBases["Plate Belt"] = {
 	type = "Belt",
-	charmLimit = 1,
+	charmLimit = 0,
 	tags = { belt = true, default = true, },
-	implicit = "+(100-140) to Armour",
+	implicit = "+(100-140) to Armour\nHas (1-3) Charm Slots",
 	implicitModTypes = { { "armour", "defences" }, },
 	req = { level = 24, },
 }
 itemBases["Ornate Belt"] = {
 	type = "Belt",
-	charmLimit = 1,
+	charmLimit = 0,
 	tags = { belt = true, default = true, },
-	implicit = "(10-15)% reduced Charm Charges used",
+	implicit = "(10-15)% reduced Charm Charges used\nHas (1-3) Charm Slots",
 	implicitModTypes = { {  }, },
 	req = { level = 31, },
 }
 itemBases["Mail Belt"] = {
 	type = "Belt",
-	charmLimit = 1,
+	charmLimit = 0,
 	tags = { belt = true, default = true, },
-	implicit = "(10-15)% reduced Flask Charges used",
+	implicit = "(10-15)% reduced Flask Charges used\nHas (1-3) Charm Slots",
 	implicitModTypes = { { "flask" }, },
 	req = { level = 40, },
 }
 itemBases["Double Belt"] = {
 	type = "Belt",
-	charmLimit = 1,
+	charmLimit = 0,
 	tags = { belt = true, default = true, },
-	implicit = "(20-30)% increased Charm Charges gained",
+	implicit = "(20-30)% increased Charm Charges gained\nHas (1-3) Charm Slots",
 	implicitModTypes = { {  }, },
 	req = { level = 44, },
 }
 itemBases["Heavy Belt"] = {
 	type = "Belt",
-	charmLimit = 1,
+	charmLimit = 0,
 	tags = { belt = true, default = true, },
-	implicit = "(20-30)% increased Stun Threshold",
+	implicit = "(20-30)% increased Stun Threshold\nHas (1-3) Charm Slots",
 	implicitModTypes = { {  }, },
 	req = { level = 50, },
 }
 itemBases["Utility Belt"] = {
 	type = "Belt",
-	charmLimit = 1,
+	charmLimit = 0,
 	tags = { belt = true, default = true, },
-	implicit = "20% of Flask Recovery applied Instantly",
+	implicit = "20% of Flask Recovery applied Instantly\nHas (1-3) Charm Slots",
 	implicitModTypes = { {  }, },
 	req = { level = 55, },
 }
 itemBases["Fine Belt"] = {
 	type = "Belt",
-	charmLimit = 1,
+	charmLimit = 0,
 	tags = { belt = true, default = true, },
-	implicit = "Flasks gain 0.17 charges per Second",
+	implicit = "Flasks gain 0.17 charges per Second\nHas (1-3) Charm Slots",
 	implicitModTypes = { {  }, },
 	req = { level = 62, },
 }

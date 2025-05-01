@@ -78,6 +78,31 @@ return {
 			[1]={
 				limit={
 					[1]={
+						[1]=1,
+						[2]=1
+					}
+				},
+				text="Empowered Spells Split to {0} additional target"
+			},
+			[2]={
+				limit={
+					[1]={
+						[1]=2,
+						[2]="#"
+					}
+				},
+				text="Empowered Spells Split to {0} additional targets"
+			}
+		},
+		stats={
+			[1]="mana_tempest_empowered_spells_split_to_X_additional_targets"
+		}
+	},
+	[6]={
+		[1]={
+			[1]={
+				limit={
+					[1]={
 						[1]="#",
 						[2]="#"
 					}
@@ -93,6 +118,7 @@ return {
 	["mana_costing_lightning_spells_number_of_additional_beam_chains"]=2,
 	["mana_costing_lightning_spells_number_of_additional_beam_splits"]=3,
 	["mana_costing_lightning_spells_projectiles_fork"]=4,
-	["mana_tempest_mana_cost_%_to_add_to_cost_per_second"]=5,
+	["mana_tempest_empowered_spells_split_to_X_additional_targets"]=5,
+	["mana_tempest_mana_cost_%_to_add_to_cost_per_second"]=6,
 	parent="skill_stat_descriptions"
 }

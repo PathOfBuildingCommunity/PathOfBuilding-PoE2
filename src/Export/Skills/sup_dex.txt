@@ -46,6 +46,14 @@ statMap = {
 
 #skill SupportBlindsidePlayer
 #set SupportBlindsidePlayer
+statMap = {
+	["support_unseen_critical_damage_multiplier_+%_final_vs_blinded_enemies"] = {
+		mod("CritMultiplier", "MORE", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "Blinded" } ),
+	},
+	["support_unseen_critical_strike_chance_+%_final_vs_blinded_enemies"] = {
+		mod("CritChance", "MORE", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "Blinded" } ),
+	},
+},
 #mods
 #skillEnd
 
@@ -229,6 +237,14 @@ statMap = {
 
 #skill SupportDelayedReactionPlayer
 #set SupportDelayedReactionPlayer
+statMap = {
+	["support_sunblast_hazard_hazard_damage_+%_final"] = {
+		mod("Damage", "MORE", nil),
+	},
+	["support_sunblast_hazard_hazard_duration_+%_final"] = {
+		mod("Duration", "MORE", nil),
+	},
+},
 #mods
 #skillEnd
 
@@ -298,6 +314,11 @@ statMap = {
 
 #skill SupportGambleshotPlayer
 #set SupportGambleshotPlayer
+statMap = {
+	[ "support_gambleshot_projectile_damage_+%_final"] = {
+		mod("Damage", "MORE", nil),
+	},
+},
 #mods
 #skillEnd
 
@@ -316,6 +337,18 @@ statMap = {
 statMap = {
 	["support_cooldown_reduction_cooldown_recovery_+%"] = {
 		mod("CooldownRecovery", "INC", nil),
+	},
+},
+#mods
+#skillEnd
+
+#skill SupportInhibitorPlayer
+#set SupportInhibitorPlayer
+statMap = {
+	["support_inhibitor_damage_+%_final_per_charge_type"] = {
+		mod("Damage", "MORE", nil, 0, 0, { type = "MultiplierThreshold", var = "FrenzyCharge", threshold = 1 }),
+		mod("Damage", "MORE", nil, 0, 0, { type = "MultiplierThreshold", var = "PowerCharge", threshold = 1 }),
+		mod("Damage", "MORE", nil, 0, 0, { type = "MultiplierThreshold", var = "EnduranceCharge", threshold = 1 }),
 	},
 },
 #mods
@@ -539,6 +572,14 @@ statMap = {
 
 #skill SupportPursuitPlayer
 #set SupportPursuitPlayer
+statMap = {
+	["support_advancing_assault_melee_damage_+%_final_if_projectile_attack_damage_hit_in_past_8_seconds"] = {
+		mod("Damage", "MORE", nil, ModFlag.Melee, 0, { type = "Condition", var = "HitProjectileRecently" } ),
+	},
+	["support_advancing_assault_projectile_damage_+%_final"] = {
+		mod("Damage", "MORE", nil, ModFlag.Projectile),
+	},
+},
 #mods
 #skillEnd
 
@@ -567,6 +608,14 @@ statMap = {
 
 #skill SupportRetreatPlayer
 #set SupportRetreatPlayer
+statMap = {
+	["support_retreating_assault_projectile_damage_+%_final_if_melee_hit_in_past_8_seconds"] = {
+		mod("Damage", "MORE", nil, ModFlag.Projectile, 0, { type = "Condition", var = "HitMeleeRecently" } ),
+	},
+	["support_retreating_assault_melee_damage_+%_final"] = {
+		mod("Damage", "MORE", nil, ModFlag.Melee),
+	},
+},
 #mods
 #skillEnd
 
@@ -645,6 +694,14 @@ statMap = {
 
 #skill SupportUnerringPowerPlayer
 #set SupportUnerringPowerPlayer
+statMap = {
+	["support_discount_skill_cost_+%_final_if_empowered"] = {
+		mod("Cost", "MORE", nil, 0, 0, { type = "Condition", var = "Empowered" } )
+	},
+	["support_discount_accuracy_rating_+%_final_if_empowered"] = {
+		mod("Accuracy", "MORE", nil, 0, 0, { type = "Condition", var = "Empowered" } )
+	},
+},
 #mods
 #skillEnd
 
@@ -660,6 +717,11 @@ statMap = {
 
 #skill SupportWarmbloodedPlayer
 #set SupportWarmbloodedPlayer
+statMap = {
+	["support_freeze_protection_spirit_cost_freeze_duration_on_self_+%_final"] = {
+		mod("SelfFreezeDuration", "MORE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Warm Blooded" }),
+	},
+},
 #mods
 #skillEnd
 

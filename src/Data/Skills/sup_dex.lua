@@ -186,6 +186,14 @@ skills["SupportBlindsidePlayer"] = {
 			label = "Blindside",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_unseen_critical_damage_multiplier_+%_final_vs_blinded_enemies"] = {
+					mod("CritMultiplier", "MORE", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "Blinded" } ),
+				},
+				["support_unseen_critical_strike_chance_+%_final_vs_blinded_enemies"] = {
+					mod("CritChance", "MORE", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "Blinded" } ),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -1030,6 +1038,14 @@ skills["SupportDelayedReactionPlayer"] = {
 			label = "Delayed Reaction",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_sunblast_hazard_hazard_damage_+%_final"] = {
+					mod("Damage", "MORE", nil),
+				},
+				["support_sunblast_hazard_hazard_duration_+%_final"] = {
+					mod("Duration", "MORE", nil),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -1345,6 +1361,11 @@ skills["SupportGambleshotPlayer"] = {
 			label = "Gambleshot",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				[ "support_gambleshot_projectile_damage_+%_final"] = {
+					mod("Damage", "MORE", nil),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -1361,7 +1382,7 @@ skills["SupportGambleshotPlayer"] = {
 }
 skills["SupportHitAndRunPlayer"] = {
 	name = "Hit and Run",
-	description = "Supports Attack Skills you use yourself which do not have already have some Condition for use. Supported Skills can only be used after you have moved a certain distance, but have massively increased Skill Speed. Cannot support Skills which have a Cooldown or that are Triggered.",
+	description = "Supports Attack Skills you use yourself which do not already have some Condition for use. Supported Skills can only be used after you have moved a certain distance, but have massively increased Skill Speed. Cannot support Skills which have a Cooldown or that are Triggered.",
 	color = 2,
 	support = true,
 	requireSkillTypes = { SkillType.Attack, },
@@ -1447,6 +1468,43 @@ skills["SupportCooldownReductionPlayer"] = {
 				{ "support_cooldown_reduction_cooldown_recovery_+%", 30 },
 			},
 			stats = {
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["SupportInhibitorPlayer"] = {
+	name = "Inhibitor",
+	description = "Supports any Skill you use yourself or that you Trigger. Supported Skills cannot consume Charges by any means. Cannot Support Skills which require Charges to be used.",
+	color = 2,
+	support = true,
+	requireSkillTypes = { SkillType.Damage, SkillType.Attack, SkillType.CrossbowSkill, SkillType.CrossbowAmmoSkill, SkillType.Spell, SkillType.DegenOnlySpellDamage, },
+	addSkillTypes = { SkillType.CannotConsumeCharges, },
+	excludeSkillTypes = { SkillType.UsedByTotem, SkillType.Trapped, SkillType.RemoteMined, SkillType.RequiresCharges, },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Inhibitor",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_inhibitor_damage_+%_final_per_charge_type"] = {
+					mod("Damage", "MORE", nil, 0, 0, { type = "MultiplierThreshold", var = "FrenzyCharge", threshold = 1 }),
+					mod("Damage", "MORE", nil, 0, 0, { type = "MultiplierThreshold", var = "PowerCharge", threshold = 1 }),
+					mod("Damage", "MORE", nil, 0, 0, { type = "MultiplierThreshold", var = "EnduranceCharge", threshold = 1 }),
+				},
+			},
+			baseFlags = {
+			},
+			constantStats = {
+				{ "support_inhibitor_damage_+%_final_per_charge_type", 4 },
+			},
+			stats = {
+				"cannot_consume_power_frenzy_endurance_charges",
 			},
 			levels = {
 				[1] = { actorLevel = 1, },
@@ -1618,7 +1676,7 @@ skills["SupportLifeOnCullPlayer"] = {
 }
 skills["SupportLightningExposurePlayer"] = {
 	name = "Lightning Exposure",
-	description = "Supports any skill that Hits enemies, causing it to inflict Lightning Exposure when it Shocks an enemy.",
+	description = "Supports any skill that Hits enemies, causing it to inflict Lightning Exposure when inflicting Shock.",
 	color = 2,
 	support = true,
 	requireSkillTypes = { SkillType.Attack, SkillType.Damage, SkillType.CrossbowAmmoSkill, },
@@ -2474,6 +2532,14 @@ skills["SupportPursuitPlayer"] = {
 			label = "Pursuit",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_advancing_assault_melee_damage_+%_final_if_projectile_attack_damage_hit_in_past_8_seconds"] = {
+					mod("Damage", "MORE", nil, ModFlag.Melee, 0, { type = "Condition", var = "HitProjectileRecently" } ),
+				},
+				["support_advancing_assault_projectile_damage_+%_final"] = {
+					mod("Damage", "MORE", nil, ModFlag.Projectile),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -2601,6 +2667,14 @@ skills["SupportRetreatPlayer"] = {
 			label = "Retreat",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_retreating_assault_projectile_damage_+%_final_if_melee_hit_in_past_8_seconds"] = {
+					mod("Damage", "MORE", nil, ModFlag.Projectile, 0, { type = "Condition", var = "HitMeleeRecently" } ),
+				},
+				["support_retreating_assault_melee_damage_+%_final"] = {
+					mod("Damage", "MORE", nil, ModFlag.Melee),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -3013,6 +3087,14 @@ skills["SupportUnerringPowerPlayer"] = {
 			label = "Unerring Power",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_discount_skill_cost_+%_final_if_empowered"] = {
+					mod("Cost", "MORE", nil, 0, 0, { type = "Condition", var = "Empowered" } )
+				},
+				["support_discount_accuracy_rating_+%_final_if_empowered"] = {
+					mod("Accuracy", "MORE", nil, 0, 0, { type = "Condition", var = "Empowered" } )
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -3105,6 +3187,11 @@ skills["SupportWarmbloodedPlayer"] = {
 			label = "Warm Blooded",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_freeze_protection_spirit_cost_freeze_duration_on_self_+%_final"] = {
+					mod("SelfFreezeDuration", "MORE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Warm Blooded" }),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {

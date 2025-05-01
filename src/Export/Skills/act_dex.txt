@@ -224,7 +224,7 @@ statMap = {
 #flags attack projectile duration
 #mods
 #set GlacialLanceWallsPlayer
-#flags attack projectile duration
+#flags attack projectile duration area
 #mods
 #skillEnd
 
@@ -609,7 +609,10 @@ statMap = {
 #flags spell
 statMap = {
 	["thaumaturgist_mark_enemies_shocked_chance_+%_final"] = {
-		mod("EnemyShockChance", "MORE", nil, 0, 0, { type = "GlobalEffect", effectType = "Curse" }),
+		mod("SelfShockChance", "MORE", nil, 0, 0, { type = "GlobalEffect", effectType = "Curse" }),
+	},
+	["thaumaturgist_mark_enemy_shock_effect_+%_taken"] = {
+		mod("SelfShockMagnitude", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Curse" }),
 	},
 },
 #mods
@@ -645,7 +648,7 @@ statMap = {
 #flags attack projectile
 #mods
 #set WhirlwindLanceStormPlayer
-#flags attack duration
+#flags attack duration melee
 statMap = {
 	["sandstorm_swipe_storm_damage_+%_final_per_stage"] = {
 		mod("Damage", "MORE", nil, 0, 0, { type = "Multiplier", var = "WhirlwindStageAfterFirst", limit = 3 })

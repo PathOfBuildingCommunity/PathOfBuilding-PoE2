@@ -1,5 +1,48 @@
 # Changelog
 
+## [v0.8.0](https://github.com/PathOfBuildingCommunity/PathOfBuilding/tree/v0.8.0) (2025/04/16)
+
+[Full Changelog](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/compare/v0.7.1...v0.8.0)
+
+## What's Changed
+### New to Path of Building
+- Add support for Megalomaniac in PoB Trader [\#977](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/977) ([Edvinas-Smita](https://github.com/Edvinas-Smita))
+- Add proper support for pasting items with Lesser and Greater Runes [\#1010](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1010) ([QuickStick123](https://github.com/QuickStick123))
+### Tree
+- Add support for Eternal Life ascendancy notable [\#1011](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1011) ([Edvinas-Smita](https://github.com/Edvinas-Smita))
+- Add support for Smith of Kitava's Body Armour mods [\#967](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/967) ([Peechey](https://github.com/Peechey), [LocalIdentity](https://github.com/LocalIdentity))
+- Add support for "Crimson Assault" Keystone [\#979](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/979) ([majochem](https://github.com/majochem))
+### Skills
+- Add support for Dread Banner Ailment and Stun threshold [\#960](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/960) ([Blitz54](https://github.com/Blitz54))
+- Add support for Burgeon, Pinpoint Critical, Warm Blooded, and other partial gems [\#973](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/973) ([Blitz54](https://github.com/Blitz54))
+- Add support for Retreat, Pursuit, and Blindside [\#971](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/971) ([Blitz54](https://github.com/Blitz54))
+- Add support for Unerring Power [\#1002](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1002) ([Blitz54](https://github.com/Blitz54))
+### Items
+- Add support for Sire of Shards +4 projectiles [\#989](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/989) ([Blitz54](https://github.com/Blitz54))
+- Add support for Nightscale "cannot regen mana" mod [\#988](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/988) ([Blitz54](https://github.com/Blitz54))
+- Add support for Gloamgown base ES Recharge Delay [\#987](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/987) ([Blitz54](https://github.com/Blitz54))
+- Add support for Daevata's Wind "past 8 seconds" mod [\#1005](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1005) ([Blitz54](https://github.com/Blitz54))
+### Fixed Crashes
+- Fix a crash when importing a character with tree version 0_1 selected [\#970](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/970) ([trompetin17](https://github.com/justjuangui))
+### User Interface
+- Add Weapon requirements to gem tooltip [\#1017](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1017) ([LocalIdentity](https://github.com/LocalIdentity))
+- Improve Accuracy Breakdown for Excess Hit Chance [\#969](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/969) ([majochem](https://github.com/majochem))
+- Fix Ascendancy node positions on tree [\#1016](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1016) ([trompetin17](https://github.com/justjuangui))
+### Fixed Calculations
+- Fix Concoction skill Crit Chance and base damage [\#1019](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1019) ([LocalIdentity](https://github.com/LocalIdentity))
+- Fix Gem attack speed multiplier affecting Crossbow reload speed [\#1020](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1020) ([LocalIdentity](https://github.com/LocalIdentity))
+- Fix Recovery rate mods multiplying Life / Mana regeneration rate [\#1001](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1001) ([LocalIdentity](https://github.com/LocalIdentity))
+- Fix Support Gem reservation multipliers [\#1000](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1000) ([LocalIdentity](https://github.com/LocalIdentity))
+- Fix Arc skill on Storm Mages not working [\#1004](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1004) ([LocalIdentity](https://github.com/LocalIdentity))
+- Fix Dauntless max damage stacking [\#1014](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1014) ([Blitz54](https://github.com/Blitz54))
+### Fixed Behaviours
+- Fix trader sometimes not finding any mods for weapon slots [\#980](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/980) ([Edvinas-Smita](https://github.com/Edvinas-Smita))
+### Accuracy Improvements
+- Fix Giant's Blood Keystone [\#965](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/965) ([majochem](https://github.com/majochem))
+- Fix Cursecarver variants [\#1008](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1008) ([Blitz54](https://github.com/Blitz54))
+
+
+
 ## [v0.7.1](https://github.com/PathOfBuildingCommunity/PathOfBuilding/tree/v0.7.1) (2025/04/09)
 
 [Full Changelog](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/compare/v0.7.0...v0.7.1)

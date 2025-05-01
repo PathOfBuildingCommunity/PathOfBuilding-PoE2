@@ -410,6 +410,14 @@ skills["SupportBurgeonPlayer"] = {
 			label = "Burgeon",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_chanelling_damage_+%_final_per_second_channelling"] = {
+					mod("Damage", "MORE", nil, 0, 0, { type = "Condition", var = "Channelling" }, { type = "Multiplier", var = "ChannellingTime", limitVar = "BurgeonDamageCap", limitTotal = true }),
+				},
+				["support_channelling_damage_cap"] = {
+					mod("Multiplier:BurgeonDamageCap", "BASE"),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -1374,6 +1382,12 @@ skills["SupportDerangePlayer"] = {
 			label = "Derange",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_shield_sacrifice_damage_over_time_+%_final_per_100_intelligence"] = {
+					mod("Damage", "MORE", nil, ModFlag.Dot, 0, { type = "PerStat", stat = "Int", div = 100 }),
+				},
+			},
+
 			baseFlags = {
 			},
 			constantStats = {
@@ -1695,7 +1709,7 @@ skills["SupportEnormityPlayer"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	levels = {
-		[1] = { spiritReservationFlat = 10, levelRequirement = 0, },
+		[1] = { spiritReservationFlat = 10, reservationMultiplier = 30, levelRequirement = 0, },
 	},
 	statSets = {
 		[1] = {
@@ -1735,7 +1749,7 @@ skills["SupportEssenceHarvestPlayer"] = {
 	excludeSkillTypes = { SkillType.Buff, SkillType.OngoingSkill, SkillType.MinionsAreUndamagable, },
 	ignoreMinionTypes = true,
 	levels = {
-		[1] = { levelRequirement = 0, },
+		[1] = { reservationMultiplier = 10, levelRequirement = 0, },
 	},
 	statSets = {
 		[1] = {
@@ -2324,7 +2338,7 @@ skills["SupportCurseEffectPlayer"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	levels = {
-		[1] = { manaMultiplier = 40, levelRequirement = 0, },
+		[1] = { reservationMultiplier = 40, manaMultiplier = 40, levelRequirement = 0, },
 	},
 	statSets = {
 		[1] = {
@@ -3151,6 +3165,14 @@ skills["SupportPinpointCriticalPlayer"] = {
 			label = "Pinpoint Critical",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_pinpoint_critical_strike_chance_+%_final"] = {
+					mod("CritChance", "MORE", nil),
+				},
+				["support_pinpoint_critical_strike_multiplier_+%_final"] = {
+					mod("CritMultiplier", "MORE", nil),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -3875,7 +3897,7 @@ skills["SupportWildfirePlayer"] = {
 			baseFlags = {
 			},
 			constantStats = {
-				{ "support_ignite_proliferation_radius", 20 },
+				{ "support_ignite_proliferation_radius", 15 },
 			},
 			stats = {
 			},

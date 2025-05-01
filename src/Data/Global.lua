@@ -527,6 +527,8 @@ SkillType = {
 	CreatesCompanion = 219,
 	CannotTerrainChain = 220,
 	SupportedByTumult = 221,
+	RequiresCharges = 222,
+	CannotConsumeCharges = 223,
 }
 
 GlobalCache = { 

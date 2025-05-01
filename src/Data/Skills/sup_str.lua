@@ -740,7 +740,7 @@ skills["SupportDauntlessPlayer"] = {
 					mod("Damage", "MORE", nil, ModFlag.Hit, 0, { type = "Condition", var = "Stationary" }, { type = "Multiplier", var = "StationarySeconds", div = 0.25, limitVar = "DauntlessMaxDamage", limitTotal = true }),
 				},
 				["support_unmoving_damage_multiplier_cap"] = {
-					mod("Multiplier:DauntlessMaxDamage", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff"}),
+					mod("Multiplier:DauntlessMaxDamage", "BASE", nil),
 				},
 			},
 			baseFlags = {
@@ -1303,7 +1303,7 @@ skills["SupportFigureheadPlayer"] = {
 }
 skills["SupportFireExposurePlayer"] = {
 	name = "Fire Exposure",
-	description = "Supports any skill that Hits enemies, causing it to inflict Fire Exposure when it Ignites an enemy.",
+	description = "Supports any skill that Hits enemies, causing it to inflict Fire Exposure when Igniting.",
 	color = 1,
 	support = true,
 	requireSkillTypes = { SkillType.Attack, SkillType.Damage, SkillType.CrossbowAmmoSkill, },
@@ -2110,6 +2110,7 @@ skills["SupportIronwoodPlayer"] = {
 			},
 			constantStats = {
 				{ "totem_elemental_resistance_%", 40 },
+				{ "totem_maximum_all_elemental_resistances_%", 10 },
 			},
 			stats = {
 			},
@@ -2590,12 +2591,12 @@ skills["SupportRagingCryPlayer"] = {
 }
 skills["SupportRallyPlayer"] = {
 	name = "Rally",
-	description = "Supports Slam or Strike Skills. Supported Skills Consume all Endurance Charge on use, causing you to restore a percentage of your maximum Life for each Charge Consumed.",
+	description = "Supports Melee Attacks you use yourself. Supported Skills Consume all Endurance Charge on use, causing you to restore a percentage of your maximum Life for each Charge Consumed.",
 	color = 1,
 	support = true,
-	requireSkillTypes = { SkillType.Slam, SkillType.MeleeSingleTarget, },
+	requireSkillTypes = { SkillType.Melee, },
 	addSkillTypes = { SkillType.ConsumesCharges, SkillType.SupportedByRally, },
-	excludeSkillTypes = { SkillType.Minion, SkillType.SummonsTotem, SkillType.UsedByTotem, SkillType.Persistent, SkillType.SkillConsumesEnduranceChargesOnUse, SkillType.SupportedByRally, SkillType.NOT, SkillType.AND, },
+	excludeSkillTypes = { SkillType.Triggered, SkillType.Minion, SkillType.SummonsTotem, SkillType.UsedByTotem, SkillType.Persistent, SkillType.SkillConsumesEnduranceChargesOnUse, SkillType.SupportedByRally, SkillType.NOT, SkillType.AND, },
 	levels = {
 		[1] = { levelRequirement = 0, },
 	},
@@ -3321,12 +3322,12 @@ skills["SupportUnderminePlayer"] = {
 }
 skills["SupportUnsteadyTempoPlayer"] = {
 	name = "Unsteady Tempo",
-	description = "Supports Melee Attack Skills you use yourself. Attacking with Supported Skills will cycle through various effects, with the first Attack in sequence inflicting Hobble on you. The second and third Attacks in sequence will powerfully scale chance to Critically Hit and overall damage, respectively, at which point the cycle will reset.",
+	description = "Supports Melee Attack Skills you use yourself. Attacking with Supported Skills will cycle through various effects, with the first Attack in sequence inflicting Hobble on you. The second and third Attacks in sequence will powerfully scale chance to Critically Hit and overall damage, respectively, at which point the cycle will reset. Cannot Support Channelling Skills.",
 	color = 1,
 	support = true,
 	requireSkillTypes = { SkillType.Melee, SkillType.Attack, SkillType.AND, },
 	addSkillTypes = { },
-	excludeSkillTypes = { SkillType.UsedByTotem, SkillType.SummonsTotem, },
+	excludeSkillTypes = { SkillType.UsedByTotem, SkillType.SummonsTotem, SkillType.Channel, },
 	ignoreMinionTypes = true,
 	levels = {
 		[1] = { manaMultiplier = 10, levelRequirement = 0, },

@@ -258,7 +258,6 @@ function GGPKClass:GetNeededFiles()
 		"Data/GrantedSkillSocketNumbers.dat",
 		"Data/AdvancedCraftingBenchCustomTags.dat",
 		"Data/AdvancedCraftingBenchTabFilterTypes.dat",
-		"Data/BeltTypes.dat",
 		"Data/CharacterMeleeSkills.dat",
 		"Data/ClientStrings2.dat",
 		"Data/CraftableModTypes.dat",
@@ -302,6 +301,9 @@ function GGPKClass:GetNeededFiles()
 		"Data/WieldableClasses.dat",
 		"Data/ActiveSkillWeaponRequirement.dat",
 		"Data/SkillGemSearchTerms.dat",
+		"Data/PassiveNodeUIArtOverride.dat",
+		"Data/PlayerMinionIntrinsicStats.dat",
+		"Data/MonsterCategories.dat",
 	}
 	local csdFiles = {
 		"^Metadata/StatDescriptions/specific_skill_stat_descriptions/\\w+.csd$",

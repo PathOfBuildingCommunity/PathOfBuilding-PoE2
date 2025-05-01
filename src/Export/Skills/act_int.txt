@@ -17,6 +17,17 @@ statMap = {
 	},
 },
 #mods
+#set ArcExplosionPlayer
+#flags spell area
+statMap = {
+	["arc_damage_+%_final_for_each_remaining_chain"] = {
+		mod("Damage", "MORE", nil, 0, 0, { type = "PerStat", stat = "ChainRemaining" }),
+	},
+	["quality_display_arc_is_gem"] = {
+		-- Display only
+	},
+},
+#mods
 #skillEnd
 
 #skill ArchmagePlayer
@@ -69,7 +80,7 @@ statMap = {
 #flags area
 statMap = {
 	["blasphemy_base_spirit_reservation_per_socketed_curse"] = {
-		mod("SkillData", "LIST", { key = "spiritReservationFlat", value = nil })
+		mod("SkillData", "LIST", { key = "blasphemyReservationFlatSpirit", value = nil })
 	},
 },
 #mods
@@ -477,7 +488,7 @@ statMap = {
 
 #skill FlickerStrikePlayer
 #set FlickerStrikePlayer
-#flags attack melee
+#flags attack melee area
 #mods
 #skillEnd
 

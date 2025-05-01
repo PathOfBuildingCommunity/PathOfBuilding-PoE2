@@ -11,7 +11,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Gains {0}% of damage as damage of the corresponding\nType when passing over an Elemental Ground Effect"
+				text="Gains {0}% of damage as damage of the corresponding\nType when passing over an Elemental Ground Effect or Orb"
 			}
 		},
 		stats={

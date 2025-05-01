@@ -11,7 +11,7 @@ return {
 						[2]=99
 					}
 				},
-				text="{0}% chance to spawn a Remnant on killing a Shocked enemy"
+				text="{0}% chance to spawn a Remnant on killing an enemy affected by an Elemental Ailment"
 			},
 			[2]={
 				limit={
@@ -20,11 +20,11 @@ return {
 						[2]="#"
 					}
 				},
-				text="Spawn a Remnant on killing a Shocked enemy"
+				text="Spawn a Remnant on killing an enemy affected by an Elemental Ailment"
 			}
 		},
 		stats={
-			[1]="mana_remnants_chance_to_spawn_orb_on_killing_shocked_enemy_%"
+			[1]="mana_remnants_chance_to_spawn_orb_on_killing_enemy_with_elemental_ailment_%"
 		}
 	},
 	[2]={
@@ -36,7 +36,7 @@ return {
 						[2]=1000
 					}
 				},
-				text="Spawn a Remnant on Critically Hitting a Shocked target, no more than once per second"
+				text="Spawn a Remnant on Critically Hitting target affected by an Elemental Ailment, no more than once per second"
 			},
 			[2]={
 				[1]={
@@ -49,11 +49,11 @@ return {
 						[2]="#"
 					}
 				},
-				text="Spawn a Remnant on Critically Hitting a Shocked target, no more than once every {0} seconds"
+				text="Spawn a Remnant on Critically Hitting a target affected by an Elemental Ailment, no more than once every {0} seconds"
 			}
 		},
 		stats={
-			[1]="mana_remnants_spawn_remnant_on_crit_vs_shocked_enemy_every_X_ms"
+			[1]="mana_remnants_spawn_remnant_on_crit_vs_elemental_ailment_enemy_every_X_ms"
 		}
 	},
 	[3]={
@@ -79,9 +79,9 @@ return {
 			[1]="virtual_mana_remnants_mana_gain_per_globe"
 		}
 	},
-	["mana_remnants_chance_to_spawn_orb_on_killing_shocked_enemy_%"]=1,
+	["mana_remnants_chance_to_spawn_orb_on_killing_enemy_with_elemental_ailment_%"]=1,
 	["mana_remnants_mana_gain_per_globe"]=3,
-	["mana_remnants_spawn_remnant_on_crit_vs_shocked_enemy_every_X_ms"]=2,
+	["mana_remnants_spawn_remnant_on_crit_vs_elemental_ailment_enemy_every_X_ms"]=2,
 	parent="skill_stat_descriptions",
 	["virtual_mana_remnants_mana_gain_per_globe"]=4
 }

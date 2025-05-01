@@ -1,3 +1,50 @@
+VERSION[0.8.0][2025/04/16]
+
+--- New to Path of Building ---
+* Add support for Megalomaniac in PoB Trader (Edvinas-Smita)
+* Add proper support for pasting items with Lesser and Greater Runes (QuickStick123)
+
+--- Tree ---
+* Add support for Eternal Life ascendancy notable (Edvinas-Smita)
+* Add support for Smith of Kitava's Body Armour mods (Peechey, LocalIdentity)
+* Add support for "Crimson Assault" Keystone (majochem)
+
+--- Skills ---
+* Add support for Dread Banner Ailment and Stun threshold (Blitz54)
+* Add support for Burgeon, Pinpoint Critical, Warm Blooded, and other partial gems (Blitz54)
+* Add support for Retreat, Pursuit, and Blindside (Blitz54)
+* Add support for Unerring Power (Blitz54)
+
+--- Items ---
+* Add support for Sire of Shards +4 projectiles (Blitz54)
+* Add support for Nightscale "cannot regen mana" mod (Blitz54)
+* Add support for Gloamgown base ES Recharge Delay (Blitz54)
+* Add support for Daevata's Wind "past 8 seconds" mod (Blitz54)
+
+--- Fixed Crashes ---
+* Fix a crash when importing a character with tree version 0_1 selected (trompetin17)
+
+--- User Interface ---
+* Add Weapon requirements to gem tooltip (LocalIdentity)
+* Improve Accuracy Breakdown for Excess Hit Chance (majochem)
+* Fix Ascendancy node positions on tree (trompetin17)
+
+--- Fixed Calculations ---
+* Fix Concoction skill Crit Chance and base damage (LocalIdentity)
+* Fix Gem attack speed multiplier affecting Crossbow reload speed (LocalIdentity)
+* Fix Recovery rate mods multiplying Life / Mana regeneration rate (LocalIdentity)
+* Fix Support Gem reservation multipliers (LocalIdentity)
+* Fix Arc skill on Storm Mages not working (LocalIdentity)
+* Fix Dauntless max damage stacking (Blitz54)
+
+--- Fixed Behaviours ---
+* Fix trader sometimes not finding any mods for weapon slots (Edvinas-Smita)
+
+--- Accuracy Improvements ---
+* Fix Giant's Blood Keystone (majochem)
+* Fix Cursecarver variants (Blitz54)
+
+
 VERSION[0.7.1][2025/04/09]
 
 --- Fixed Behaviours ---

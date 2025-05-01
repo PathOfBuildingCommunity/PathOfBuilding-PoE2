@@ -267,6 +267,7 @@ Gambleshot                    		----		SupportGambleshotPlayer
 Hit and Run                   		----		SupportHitAndRunPlayer
 Impale                        		----		SupportImpalePlayer
 Ingenuity                     		----		SupportCooldownReductionPlayer
+Inhibitor                     		----		SupportInhibitorPlayer
 Innervate                     		----		SupportInnervatePlayer
 Lasting Shock                 		----		SupportLastingShockPlayer
 Leverage                      		----		SupportLeveragePlayer
@@ -571,6 +572,7 @@ Elemental Expression          		----		ElementalExpressionTriggeredPlayer
 Elemental Storm               		----		ElementalStormPlayer
 Encase in Jade                		----		EncaseInJadePlayer
 Explosive Concoction          		----		ExplosiveConcoctionPlayer
+Fire Spell on Melee Hit       		----		MetaCastFireSpellOnHitPlayer	SupportMetaCastFireSpellOnHitPlayer	SupportInvisibleMetaGemSupport
 Fulminating Concoction        		----		FulminatingConcoctionPlayer
 Infuse Weapon                 		----		AmazonTriggerElementalInfusionPlayer
 Into the Breach               		----		IntoTheBreachPlayer
