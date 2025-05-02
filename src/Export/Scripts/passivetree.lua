@@ -794,6 +794,33 @@ for i, group in ipairs(psg.groups) do
 				node["ascendancyName"] = passiveRow.Ascendancy.Name
 				node["isAscendancyStart"] = passiveRow.AscendancyStart or nil
 
+				-- support for jewel sockets in ascendancy
+				if passiveRow.JewelSocket then
+					node["containJewelSocket"] = true
+
+					local uioverride = dat("passivenodeuiartoverride"):GetRow("Id", passiveRow.Id)
+
+					if uioverride then
+						local uiSocketNormal = uiImages[string.lower(uioverride.SocketNormal)]
+						addToSheet(getSheet("group-background"), uiSocketNormal.path, "frame", commonMetadata(nil))
+
+						local uiSocketActive = uiImages[string.lower(uioverride.SocketActive)]
+						addToSheet(getSheet("group-background"), uiSocketActive.path, "frame", commonMetadata(nil))
+
+						local uiSocketCanAllocate = uiImages[string.lower(uioverride.SocketCanAllocate)]
+						addToSheet(getSheet("group-background"), uiSocketCanAllocate.path, "frame", commonMetadata(nil))
+
+						node.jewelOverlay = {
+							alloc = uiSocketActive.path,
+							path = uiSocketCanAllocate.path,
+							unalloc = uiSocketNormal.path,
+						}
+						
+					else
+						printf("Jewel socket not found for ascendancy " .. passiveRow.Ascendancy.Name)
+					end
+				end
+
 				ascendancyGroups = ascendancyGroups or {}
 				ascendancyGroups[passiveRow.Ascendancy.Name] = ascendancyGroups[passiveRow.Ascendancy.Name] or { }
 				ascendancyGroups[passiveRow.Ascendancy.Name].startId = passiveRow.AscendancyStart and passive.id or ascendancyGroups[passiveRow.Ascendancy.Name].startId

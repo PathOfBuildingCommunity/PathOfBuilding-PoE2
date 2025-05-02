@@ -181,6 +181,7 @@ UniqueAdditionalChargeGeneration1
 ]],[[
 Stone of Lazhwar
 Lapis Amulet
+League: Dawn of the Hunt
 Implicits: 1
 AmuletImplicitIntelligence1
 UniqueIncreasedMana3
@@ -221,6 +222,7 @@ UniqueEnemiesInPresenceFireExposure1
 ]],[[
 Yoke of Suffering
 Bloodstone Amulet
+League: Dawn of the Hunt
 Implicits: 1
 AmuletImplicitIncreasedLife1
 UniqueAllResistances19

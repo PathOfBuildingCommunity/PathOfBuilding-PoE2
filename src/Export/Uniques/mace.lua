@@ -29,6 +29,7 @@ UniqueLocalCullingStrikeFrozenEnemies1
 ]],[[
 Mjölner
 Torment Club
+League: Dawn of the Hunt
 Implicits: 1
 Grants Skill: Level (1-20) Lightning Spell on Hit
 UniqueIntelligenceRequirements2
@@ -39,6 +40,7 @@ UniqueGlobalLightningGemLevel2
 ]],[[
 Nebuloch
 Brigand Mace
+League: Dawn of the Hunt
 UniqueLocalAddedPhysicalDamage17
 UniqueLocalCriticalMultiplier2
 UniqueLocalChaosDamage1
@@ -58,6 +60,7 @@ UniqueMaximumLightningDamagePerPower1
 ]],[[
 Sculpted Suffering
 Warpick
+League: Dawn of the Hunt
 Implicits: 1
 MaceImplicitCriticalMultiplier1
 UniqueLocalAddedPhysicalDamage18
@@ -128,6 +131,7 @@ UniqueMinionDamageAffectsYou1
 ]],[[
 The Empty Roar
 Cultist Greathammer
+League: Dawn of the Hunt
 Implicits: 1
 MaceImplicitSplashDamage1
 UniqueLocalAddedPhysicalDamage15
@@ -138,6 +142,7 @@ UniqueCannotUseWarcries1
 ]],[[
 The Hammer of Faith
 Giant Maul
+League: Dawn of the Hunt
 UniqueLocalIncreasedPhysicalDamagePercent9
 UniqueLocalIncreasedAttackSpeed14
 UniqueAllResistances21
@@ -179,6 +184,7 @@ UniqueLocalNoCriticalStrikeMultiplier1
 ]],[[
 Tidebreaker
 Pointed Maul
+League: Dawn of the Hunt
 UniqueLocalIncreasedPhysicalDamagePercent13
 UniqueGlobalIncreaseMeleeSkillGemLevel1
 UniqueIntelligence39
@@ -197,6 +203,7 @@ UniqueAlwaysCritHeavyStun1
 ]],[[
 Shyaba
 Temple Maul
+League: Dawn of the Hunt
 UniqueDexterityRequirements1
 UniqueStrengthRequirements1
 UniqueLocalIncreasedPhysicalDamagePercent5

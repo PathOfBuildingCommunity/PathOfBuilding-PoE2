@@ -866,7 +866,7 @@ skills["BlasphemyPlayer"] = {
 			statDescriptionScope = "skill_stat_descriptions",
 			statMap = {
 				["blasphemy_base_spirit_reservation_per_socketed_curse"] = {
-					mod("SkillData", "LIST", { key = "spiritReservationFlat", value = nil })
+					mod("SkillData", "LIST", { key = "blasphemyReservationFlatSpirit", value = nil })
 				},
 			},
 			baseFlags = {
@@ -7590,6 +7590,7 @@ skills["FlickerStrikePlayer"] = {
 			baseFlags = {
 				attack = true,
 				melee = true,
+				area = true,
 			},
 			constantStats = {
 				{ "flicker_strike_additional_flickers_from_power_charges", 2 },

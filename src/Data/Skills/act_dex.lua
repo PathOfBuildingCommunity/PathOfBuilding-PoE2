@@ -9121,7 +9121,10 @@ skills["VoltaicMarkPlayer"] = {
 			statDescriptionScope = "thaumaturgist_mark",
 			statMap = {
 				["thaumaturgist_mark_enemies_shocked_chance_+%_final"] = {
-					mod("EnemyShockChance", "MORE", nil, 0, 0, { type = "GlobalEffect", effectType = "Curse" }),
+					mod("SelfShockChance", "MORE", nil, 0, 0, { type = "GlobalEffect", effectType = "Curse" }),
+				},
+				["thaumaturgist_mark_enemy_shock_effect_+%_taken"] = {
+					mod("SelfShockMagnitude", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Curse" }),
 				},
 			},
 			baseFlags = {

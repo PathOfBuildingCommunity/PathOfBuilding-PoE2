@@ -23,6 +23,7 @@ do
 	local against = {
 		"Against the Darkness",
 		"Time-Lost Diamond",
+		"Source: Drops from unique{Zarokh, the Temporal}",
 		"Limited to: 1",
 		"Has Alt Variant: true",
 	}

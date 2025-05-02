@@ -934,6 +934,17 @@ function calcs.initEnv(build, mode, override, specEnv)
 					scale = scale + node.distanceToClassStart * (item.jewelData.jewelIncEffectFromClassStart / 100)
 				end
 			end
+
+			local addSourceSlotNum = false
+			if slot.nodeId and item and item.type == "Jewel" then
+				local node = env.spec.nodes[slot.nodeId]
+				if node and node.containJewelSocket then
+					addSourceSlotNum = true
+					local inc = node.modList:Sum("INC", nil, "SocketedJewelEffect")
+					scale = scale + (inc / 100)
+				end
+			end
+
 			if item then
 				env.player.itemList[slotName] = item
 				-- Merge mods for this item
@@ -947,6 +958,13 @@ function calcs.initEnv(build, mode, override, specEnv)
 						if mod.name == "Spirit" and mod.type == "BASE" then
 							t_remove(srcList, index)
 						end
+					end
+				end
+
+				if addSourceSlotNum then
+					srcList = copyTable(srcList, false)
+					for _, mod in ipairs(srcList) do
+						mod.sourceSlotNum = slot.slotNum
 					end
 				end
 				
@@ -1113,7 +1131,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 							env.itemModDB:ScaleAddMod(mod, scale)
 						end
 					end
-				elseif env.modDB.multipliers["CorruptedMagicJewelEffect"] and item.type == "Jewel" and item.rarity == "MAGIC" and item.corrupted and slot.nodeId and item.base.subType ~= "Charm" then
+				elseif env.modDB.multipliers["CorruptedMagicJewelEffect"] and item.type == "Jewel" and item.rarity == "MAGIC" and item.corrupted and slot.nodeId and item.base.subType ~= "Charm" and not env.spec.nodes[slot.nodeId].containJewelSocket then
 					scale = scale + env.modDB.multipliers["CorruptedMagicJewelEffect"]
 					local combinedList = new("ModList")
 					for _, mod in ipairs(srcList) do
