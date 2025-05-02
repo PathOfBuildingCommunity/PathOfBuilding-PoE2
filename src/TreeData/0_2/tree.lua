@@ -1117,12 +1117,15 @@ return {
 			PSSkillFrameHighlighted=1
 		},
 		["group-background_152_156_BC7.dds.zst"]={
-			JewelFrameAllocated=2,
-			JewelFrameCanAllocate=5,
-			JewelFrameUnallocated=3,
-			NotableFrameAllocated=1,
-			NotableFrameCanAllocate=6,
-			NotableFrameUnallocated=4
+			JewelFrameAllocated=5,
+			JewelFrameCanAllocate=8,
+			JewelFrameUnallocated=6,
+			NotableFrameAllocated=3,
+			NotableFrameCanAllocate=9,
+			NotableFrameUnallocated=7,
+			["art/textures/interface/2d/2dart/uiimages/ingame/lichpassiveskillscreenjewelsocketactive.dds"]=2,
+			["art/textures/interface/2d/2dart/uiimages/ingame/lichpassiveskillscreenjewelsocketcanallocate.dds"]=1,
+			["art/textures/interface/2d/2dart/uiimages/ingame/lichpassiveskillscreenjewelsocketnormal.dds"]=4
 		},
 		["group-background_160_164_BC7.dds.zst"]={
 			AscendancyFrameSmallAllocated=2,
@@ -37114,9 +37117,15 @@ return {
 			ascendancyName="Lich",
 			connections={
 			},
+			containJewelSocket=true,
 			group=881,
 			icon="Art/2DArt/SkillIcons/passives/MasteryBlank.dds",
 			isNotable=true,
+			jewelOverlay={
+				alloc="art/textures/interface/2d/2dart/uiimages/ingame/lichpassiveskillscreenjewelsocketactive.dds",
+				path="art/textures/interface/2d/2dart/uiimages/ingame/lichpassiveskillscreenjewelsocketcanallocate.dds",
+				unalloc="art/textures/interface/2d/2dart/uiimages/ingame/lichpassiveskillscreenjewelsocketnormal.dds"
+			},
 			name="Crystalline Phylactery",
 			orbit=6,
 			orbitIndex=0,
