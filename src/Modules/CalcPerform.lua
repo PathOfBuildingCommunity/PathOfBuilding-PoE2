@@ -101,20 +101,29 @@ end
 ---@param actor table
 local function calcPresenceRadius(actor)
 	-- Calculate modifications to radius first
-	local baseRad = actor.modDB:Sum("BASE", nil, "PresenceRadius")
-	local incRad = actor.modDB:Sum("INC", nil, "PresenceRadius")
-	local moreRad = actor.modDB:More(nil, "PresenceRadius")
-	local scaledRad = actor.modDB:Sum("OVERRIDE", nil, "PresenceRadius") or baseRad * (1 + incRad / 100) * moreRad
+	local baseRadius = actor.modDB:Sum("BASE", nil, "PresenceRadius")
+	local incRadius = actor.modDB:Sum("INC", nil, "PresenceRadius")
+	local moreRadius = actor.modDB:More(nil, "PresenceRadius")
+	local scaledRadius = actor.modDB:Override(nil, "PresenceRadius") or baseRadius * (1 + incRadius / 100) * moreRadius
 	-- Calculate modifications to area second
-	local baseArea = math.pi * (scaledRad * scaledRad)
+	local baseArea = math.pi * (scaledRadius * scaledRadius)
 	local incArea = actor.modDB:Sum("INC", nil, "PresenceArea")
 	local moreArea = actor.modDB:More(nil, "PresenceArea")
-	local scaledArea = actor.modDB:Sum("OVERRIDE", nil, "PresenceArea") or baseArea * (1 + incArea / 100) * moreArea
+	local scaledArea = actor.modDB:Override(nil, "PresenceArea") or baseArea * (1 + incArea / 100) * moreArea
 	-- Convert back to final radius
 	local finalRadius = math.floor(math.sqrt(scaledArea / math.pi))
 	actor.output["PresenceRadius"] = finalRadius
+	actor.output["PresenceRadiusMetres"] = finalRadius / 10
+	if scaledRadius / baseRadius ~= 1 then actor.output["PresenceMod"] = scaledRadius / baseRadius end
 	if actor.breakdown then
-		actor.breakdown.PresenceRadius = actor.breakdown.area(scaledRad, (1 + incArea / 100) * moreArea, finalRadius)
+		actor.breakdown.PresenceRadius = actor.breakdown.area(scaledRadius, (1 + incArea / 100) * moreArea, finalRadius)
+		if baseRadius ~= scaledRadius then
+			actor.breakdown.PresenceMod = {}
+			t_insert(actor.breakdown.PresenceMod, s_format( "     %.1fm ^8(base radius)", baseRadius / 10))
+			t_insert(actor.breakdown.PresenceMod, s_format( "  x %.2f  ^8(inc)", 1 + incRadius / 100))
+			t_insert(actor.breakdown.PresenceMod, s_format( "  x %.2f  ^8(more)", moreRadius))
+			t_insert(actor.breakdown.PresenceMod, s_format( "  =  %.1fm", scaledRadius / 10))
+		end
 	end
 end
 -- Calculate attributes, and set conditions
