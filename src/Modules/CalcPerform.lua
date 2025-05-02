@@ -379,7 +379,8 @@ local function doActorAttribsConditions(env, actor)
 	end
 	-- Calculate Presence value and set condition
 	calcPresenceRadius(actor)
-	condList["EnemyInPresence"] = output.PresenceRadius <= env.configInput.enemyDistance
+	local enemyDistance = m_max(modDB:Sum("BASE", nil, "Multiplier:enemyDistance"), 0)
+	condList["EnemyInPresence"] = output.PresenceRadius <= enemyDistance
 end
 
 -- Helper function to determine curse priority when processing curses beyond the curse limit
