@@ -138,7 +138,9 @@ local formList = {
 	["^gain "] = "FLAG",
 	["^you gain "] = "FLAG",
 	["is (%-?%d+)%%? "] = "OVERRIDE",
-	["is doubled"] = "DOUBLED"
+	["is doubled"] = "DOUBLED",
+	["doubles?"] = "DOUBLED",
+	["causes? double"] = "DOUBLED",
 }
 
 -- Map of modifier names

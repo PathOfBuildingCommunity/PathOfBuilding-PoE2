@@ -5,8 +5,8 @@ c["(17-23)% increased maximum Mana"]={nil,"(17-23)% increased maximum Mana "}
 c["(17-23)% increased maximum Mana (15-25)% increased Mana Regeneration Rate"]={nil,"(17-23)% increased maximum Mana (15-25)% increased Mana Regeneration Rate "}
 c["(2-3)% increased Cast Speed"]={nil,"(2-3)% increased Cast Speed "}
 c["(2-3)% increased Movement Speed"]={nil,"(2-3)% increased Movement Speed "}
-c["(2-4)% chance to deal Double Damage"]={nil,"(2-4)% chance to deal Double Damage "}
-c["(2-4)% chance to deal Double Damage (25-35)% increased Physical Damage"]={nil,"(2-4)% chance to deal Double Damage (25-35)% increased Physical Damage "}
+c["(2-4)% chance to deal Double Damage"]={{[1]={[1]={globalLimit=100,globalLimitKey="DamageDoubledLimit",type="Multiplier",var="DamageDoubled"},flags=0,keywordFlags=0,name="Damage",type="MORE",value=100},[2]={flags=0,keywordFlags=0,name="Multiplier:DamageDoubled",type="OVERRIDE",value=1}},"(2-4)% chance to deal   "}
+c["(2-4)% chance to deal Double Damage (25-35)% increased Physical Damage"]={{[1]={[1]={globalLimit=100,globalLimitKey="DamageDoubledLimit",type="Multiplier",var="DamageDoubled"},flags=0,keywordFlags=0,name="Damage",type="MORE",value=100},[2]={flags=0,keywordFlags=0,name="Multiplier:DamageDoubled",type="OVERRIDE",value=1}},"(2-4)% chance to deal   (25-35)% increased Physical Damage "}
 c["(2-4)% increased effect of Non-Curse Auras from your Skills"]={nil,"(2-4)% increased effect of Non-Curse Auras from your Skills "}
 c["(2-4)% increased maximum Life"]={nil,"(2-4)% increased maximum Life "}
 c["(20-30)% increased Defences from Equipped Shield"]={nil,"(20-30)% increased Defences from Equipped Shield "}
@@ -3577,12 +3577,12 @@ c["Causes Bleeding on Hit"]={{[1]={[1]={type="Condition",var="{Hand}Attack"},fla
 c["Causes Daze buildup equal to 100% of Damage dealt"]={nil,"Causes Daze buildup equal to 100% of Damage dealt "}
 c["Causes Daze buildup equal to 100% of Damage dealt 172% increased Physical Damage"]={nil,"Causes Daze buildup equal to 100% of Damage dealt 172% increased Physical Damage "}
 c["Causes Daze buildup equal to 100% of Damage dealt Adds 44 to 66 Fire Damage"]={{[1]={flags=0,keywordFlags=0,name="FireMin",type="BASE",value=44},[2]={flags=0,keywordFlags=0,name="FireMax",type="BASE",value=66}},"Causes Daze buildup equal to 100% of  dealt  "}
-c["Causes Double Stun Buildup"]={nil,"Causes Double Stun Buildup "}
+c["Causes Double Stun Buildup"]={{}," Stun Buildup "}
 c["Causes Enemies to Explode on Critical kill, for 10% of their Life as Physical Damage"]={nil,"Causes Enemies to Explode on Critical kill, for 10% of their Life as Physical Damage "}
 c["Causes Enemies to Explode on Critical kill, for 10% of their Life as Physical Damage 120% increased Physical Damage"]={nil,"Causes Enemies to Explode on Critical kill, for 10% of their Life as Physical Damage 120% increased Physical Damage "}
 c["Causes Enemies to Explode on Critical kill, for 10% of their Life as Physical Damage 172% increased Physical Damage"]={nil,"Causes Enemies to Explode on Critical kill, for 10% of their Life as Physical Damage 172% increased Physical Damage "}
 c["Causes Enemies to Explode on Critical kill, for 10% of their Life as Physical Damage Adds 62 to 94 Fire Damage"]={{[1]={flags=0,keywordFlags=0,name="FireMin",type="BASE",value=62},[2]={flags=0,keywordFlags=0,name="FireMax",type="BASE",value=94}},"Causes Enemies to Explode on Critical kill, for 10% of their  as Physical Damage  "}
-c["Chance is doubled against Undead and Demons"]={nil,"Chance is doubled against Undead and Demons "}
+c["Chance is doubled against Undead and Demons"]={{},"Chance  against Undead and Demons "}
 c["Chance to Hit with Attacks can exceed 100%"]={{[1]={[1]={skillType=1,type="Skilltype"},flags=0,keywordFlags=0,name="Condition:HitChanceCanExceed100",type="FLAG",value=true}},nil}
 c["Chance to Ignite is doubled"]={{[1]={flags=0,keywordFlags=0,name="EnemyIgniteChance",type="MORE",value=100}},nil}
 c["Chaos Damage from Hits also Contributes to Electrocute Buildup"]={nil,"Chaos Damage from Hits also Contributes to Electrocute Buildup "}
@@ -3717,7 +3717,7 @@ c["Dodge Roll cannot Avoid Damage"]={nil,"Dodge Roll cannot Avoid Damage "}
 c["Dodge Roll cannot Avoid Damage Take 30% less Damage from Hits while Dodge Rolling"]={nil,"Dodge Roll cannot Avoid Damage Take 30% less Damage from Hits while Dodge Rolling "}
 c["Dodge Roll passes through Enemies"]={nil,"Dodge Roll passes through Enemies "}
 c["Double Activation Delay of Curses"]={{[1]={flags=0,keywordFlags=0,name="CurseDelay",type="MORE",value=100}},nil}
-c["Double Stun Threshold while Shield is Raised"]={nil,"Double Stun Threshold while Shield is Raised "}
+c["Double Stun Threshold while Shield is Raised"]={{[1]={[1]={globalLimit=100,globalLimitKey="StunThresholdDoubledLimit",type="Multiplier",var="StunThresholdDoubled"},flags=0,keywordFlags=0,name="StunThreshold",type="MORE",value=100},[2]={flags=0,keywordFlags=0,name="Multiplier:StunThresholdDoubled",type="OVERRIDE",value=1}},"  while Shield is Raised "}
 c["Double the number of your Poisons that targets can be affected by at the same time"]={{[1]={flags=0,keywordFlags=0,name="PoisonCanStack",type="FLAG",value=true},[2]={flags=0,keywordFlags=0,name="PoisonStacks",type="MORE",value=100}},nil}
 c["Doubles Mana Costs"]={{[1]={flags=0,keywordFlags=0,name="ManaCost",type="MORE",value=100}},nil}
 c["Drop Ignited Ground while moving, which lasts 8 seconds and Ignites as though dealing Fire Damage equal to 10% of your maximum Life"]={nil,"Drop Ignited Ground while moving, which lasts 8 seconds and Ignites as though dealing Fire Damage equal to 10% of your maximum Life "}
@@ -3762,7 +3762,7 @@ c["Enemies in your Presence are Ignited as though dealt 100 Base Fire Damage"]={
 c["Enemies in your Presence are Intimidated"]={nil,"Enemies in your Presence are Intimidated "}
 c["Enemies in your Presence are Slowed by 20%"]={nil,"Enemies in your Presence are Slowed by 20% "}
 c["Enemies in your Presence count as being on Low Life"]={nil,"Enemies in your Presence count as being on Low Life "}
-c["Enemies in your Presence count as having double Power"]={nil,"Enemies in your Presence count as having double Power "}
+c["Enemies in your Presence count as having double Power"]={{},"Enemies in your Presence count as having  Power "}
 c["Enemies in your Presence have 10% reduced Cooldown Recovery Rate"]={nil,"Enemies in your Presence have 10% reduced Cooldown Recovery Rate "}
 c["Enemies in your Presence have Fire Exposure"]={nil,"Enemies in your Presence have Fire Exposure "}
 c["Enemies in your Presence have Lightning Resistance equal to yours"]={{[1]={flags=0,keywordFlags=0,name="EnemyLightningResistEqualToYours",type="FLAG",value=true}},nil}
@@ -3783,7 +3783,7 @@ c["Enemies you Mark have 10% reduced Accuracy Rating"]={{[1]={[1]={actor="enemy"
 c["Enemies you Mark take 10% increased Damage"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Marked"},flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="DamageTaken",type="INC",value=10}}}},nil}
 c["Enemies you apply Incision to take 2% increased Physical Damage per Incision"]={{[1]={flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={[1]={type="Multiplier",var="IncisionStack"},flags=0,keywordFlags=0,name="PhysicalDamageTaken",type="INC",value=2}}}},nil}
 c["Enemies' Damage with Critical Hits against you is Lucky"]={nil,"Enemies' Damage with Critical Hits  is Lucky "}
-c["Energy Generation is doubled"]={nil,"Energy Generation is doubled "}
+c["Energy Generation is doubled"]={{},"Energy Generation  "}
 c["Energy Shield Recharge is not interrupted by Damage if Recharge began Recently"]={nil,"Energy Shield Recharge is not interrupted by Damage if Recharge began Recently "}
 c["Energy Shield Recharge starts on use"]={nil,"Energy Shield Recharge starts on use "}
 c["Energy Shield Recharge starts when you use a Mana Flask"]={nil,"Energy Shield Recharge starts when you use a Mana Flask "}
@@ -4376,7 +4376,7 @@ c["Physical Damage Reduction from Armour is based on your combined Armour and Ev
 c["Physical Damage is Pinning"]={nil,"Physical Damage is Pinning "}
 c["Pinned enemies cannot perform actions"]={nil,"Pinned enemies cannot perform actions "}
 c["Presence Gain 50% of Damage as Fire Damage"]={nil,"Presence Gain 50% of Damage as Fire Damage "}
-c["Presence Radius is doubled"]={nil,"Presence Radius is doubled "}
+c["Presence Radius is doubled"]={{[1]={[1]={globalLimit=100,globalLimitKey="AreaOfEffectDoubledLimit",type="Multiplier",var="AreaOfEffectDoubled"},flags=0,keywordFlags=0,name="AreaOfEffect",type="MORE",value=100},[2]={flags=0,keywordFlags=0,name="Multiplier:AreaOfEffectDoubled",type="OVERRIDE",value=1}},"Presence   "}
 c["Projectile Damage builds Pin"]={nil,"Projectile Damage builds Pin "}
 c["Projectiles Pierce all Ignited enemies"]={nil,"Projectiles Pierce all Ignited enemies "}
 c["Projectiles Pierce all Ignited enemies Attacks Gain 10% of Damage as Extra Fire Damage"]={nil,"Projectiles Pierce all Ignited enemies Attacks Gain 10% of Damage as Extra Fire Damage "}
@@ -4691,7 +4691,7 @@ c["apply to Energy Shield Recharge Rate"]={nil,"apply to Energy Shield Recharge 
 c["apply to Energy Shield Recharge Rate Gain 50% of Maximum Mana as Armour"]={nil,"apply to Energy Shield Recharge Rate Gain 50% of Maximum Mana as Armour "}
 c["for 4 seconds while Shield is raised"]={nil,"for 4 seconds while Shield is raised "}
 c["of their maximum Life as Physical Damage"]={nil,"of their maximum Life as Physical Damage "}
-c["of their maximum Life as Physical Damage Chance is doubled against Undead and Demons"]={nil,"of their maximum Life as Physical Damage Chance is doubled against Undead and Demons "}
+c["of their maximum Life as Physical Damage Chance is doubled against Undead and Demons"]={{[1]={[1]={globalLimit=100,globalLimitKey="LifeDoubledLimit",type="Multiplier",var="LifeDoubled"},flags=0,keywordFlags=0,name="Life",type="MORE",value=100},[2]={flags=0,keywordFlags=0,name="Multiplier:LifeDoubled",type="OVERRIDE",value=1}},"of their  as Physical Damage Chance  against Undead and Demons "}
 c["the enemy's Power for 6 seconds, up to a total of 500"]={nil,"the enemy's Power for 6 seconds, up to a total of 500 "}
 c["the same damage to enemies within 1.8 metres"]={nil,"the same damage to enemies within 1.8 metres "}
 c["until you take no Damage to Life for 5 seconds"]={nil,"until you take no Damage to Life for 5 seconds "}
