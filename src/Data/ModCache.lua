@@ -3593,10 +3593,8 @@ c["Cold Exposure you inflict lowers Total Cold Resistance by an extra 5%"]={{[1]
 c["Cold Resistance is unaffected by Area Penalties"]={nil,"Cold Resistance is unaffected by Area Penalties "}
 c["Cold Resistance is unaffected by Area Penalties Fire Resistance is unaffected by Area Penalties"]={nil,"Cold Resistance is unaffected by Area Penalties Fire Resistance is unaffected by Area Penalties "}
 c["Companions deal 12% increased Damage"]={{[1]={[1]={skillType=198,type="SkillType"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Damage",type="INC",value=12}}}},nil}
-c["Companions gain your Dexterity"]={nil,"Companions gain your Dexterity "}
-c["Companions gain your Dexterity +15 to Dexterity"]={nil,"Companions gain your Dexterity +15 to Dexterity "}
-c["Companions gain your Strength"]={nil,"Companions gain your Strength "}
-c["Companions gain your Strength +15 to Strength"]={nil,"Companions gain your Strength +15 to Strength "}
+c["Companions gain your Dexterity"]={{[1]={flags=0,keywordFlags=0,name="DexterityAddedToCompanions",type="FLAG",value=true}},nil}
+c["Companions gain your Strength"]={{[1]={flags=0,keywordFlags=0,name="StrengthAddedToCompanions",type="FLAG",value=true}},nil}
 c["Companions have +1 to each Defence for every 2 of that Defence you have"]={{}," each Defence for every 2 of that Defence you have "}
 c["Companions have +12% to all Elemental Resistances"]={{[1]={[1]={skillType=198,type="SkillType"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="ElementalResist",type="BASE",value=12}}}},nil}
 c["Companions have +30% to Chaos Resistance"]={{[1]={[1]={skillType=198,type="SkillType"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="ChaosResist",type="BASE",value=30}}}},nil}

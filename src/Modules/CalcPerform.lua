@@ -921,11 +921,17 @@ function calcs.perform(env, skipEHP)
 		if modDB:Flag(nil, "StrengthAddedToMinions") then
 			env.minion.modDB:NewMod("Str", "BASE", round(calcLib.val(modDB, "Str")), "Player")
 		end
+		if modDB:Flag(nil, "StrengthAddedToCompanions") and env.player.mainSkill.skillTypes[SkillType.Companion] then
+			env.minion.modDB:NewMod("Str", "BASE", round(calcLib.val(modDB, "Str")), "Sturdy Ally")
+		end
 		if modDB:Flag(nil, "HalfStrengthAddedToMinions") then
 			env.minion.modDB:NewMod("Str", "BASE", round(calcLib.val(modDB, "Str") * 0.5), "Player")
 		end
 		if modDB:Flag(nil, "DexterityAddedToMinions") then
 			env.minion.modDB:NewMod("Dex", "BASE", round(calcLib.val(modDB, "Dex")), "Dead can Dance")
+		end
+		if modDB:Flag(nil, "DexterityAddedToCompanions") and env.player.mainSkill.skillTypes[SkillType.Companion] then
+			env.minion.modDB:NewMod("Dex", "BASE", round(calcLib.val(modDB, "Dex")), "Tandem Assault")
 		end
 	end
 	if env.talismanModList then
