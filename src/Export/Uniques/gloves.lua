@@ -15,6 +15,7 @@ UniqueCriticalStrikesLeechIsInstant1
 ]],[[
 Dreadfist
 Bolstered Mitts
+League: Dawn of the Hunt
 UniqueLocalIncreasedPhysicalDamageReductionRatingPercent10
 UniqueCriticalMultiplier2
 UniqueImpaleOnCriticalHit1
@@ -40,6 +41,7 @@ UniqueShareChargesWithAllies1
 ]],[[
 Empire's Grasp
 Titan Mitts
+League: Dawn of the Hunt
 UniqueLocalIncreasedPhysicalDamageReductionRatingPercent30
 UniqueStrength23
 UniqueLifeGainedFromEnemyDeath11
@@ -142,6 +144,7 @@ AmuletImplicitIntelligence1
 ]],[[
 Essentia Sanguis
 Furtive Wraps
+League: Dawn of the Hunt
 UniqueLocalIncreasedEvasionAndEnergyShield17
 UniqueAddedLightningDamage3
 UniqueIntelligence31
@@ -157,6 +160,7 @@ UniqueLightningDamageCanElectrocute1
 ]],[[
 Leopold's Applause
 Embroidered Gloves
+League: Dawn of the Hunt
 UniqueLocalIncreasedEnergyShieldPercent1
 UniqueIncreasedMana12
 UniqueItemFoundRarityIncrease21
@@ -165,6 +169,7 @@ UniqueElementalPenetrationBelowZero1
 ]],[[
 Nightscale
 Pauascale Gloves
+League: Dawn of the Hunt
 UniqueLocalIncreasedEnergyShieldPercent26
 UniqueCriticalStrikeChance14
 UniqueIntelligence29
@@ -203,6 +208,7 @@ UniqueMaximumLifeOnKillPercent1
 ]],[[
 Death Articulated
 Ornate Gauntlets
+League: Dawn of the Hunt
 UniqueLocalIncreasedArmourAndEvasion26
 UniqueIncreasedAttackSpeed8
 UniqueChaosResist25
@@ -232,6 +238,7 @@ UniqueStrengthSatisfiesAllWeaponRequirements1
 ]],[[
 Valako's Vice
 Plate Gauntlets
+League: Dawn of the Hunt
 UniqueLocalIncreasedArmourAndEvasion23
 UniqueIncreasedAttackSpeed9
 UniqueStrength41
@@ -263,6 +270,7 @@ UniqueEnemiesKilledCountAsYours1
 ]],[[
 The Prisoner's Manacles
 Diviner Cuffs
+League: Dawn of the Hunt
 UniqueLocalIncreasedArmourAndEnergyShield21
 UniqueIncreasedLife54
 UniqueReducedLocalAttributeRequirements5
@@ -284,6 +292,7 @@ UniqueReflectCurseToSelf1
 [[
 Blessed Bonds
 Linen Wraps
+Source: Drops from unique{Zarokh, the Temporal}
 UniqueLocalBaseEvasionRatingAndEnergyShield1
 UniqueManaGainedFromEnemyDeath8
 UniqueColdExposureOnIgnite1

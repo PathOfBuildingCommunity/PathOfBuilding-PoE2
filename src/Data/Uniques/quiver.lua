@@ -39,6 +39,7 @@ Attacks Gain (5-10)% of Damage as Extra Fire Damage
 ]],[[
 The Lethal Draw
 Sacral Quiver
+League: Dawn of the Hunt
 Implicits: 1
 Gain (2-3) Life per Enemy Hit with Attacks
 (5-10)% increased Attack Speed
@@ -48,6 +49,7 @@ Bow Attacks consume 10% of your maximum Life Flask Charges if possible to deal a
 ]],[[
 Rearguard
 Blunt Quiver
+League: Dawn of the Hunt
 Implicits: 1
 (20-30)% reduced Enemy Stun Threshold
 Adds (7-11) to (14-20) Physical Damage to Attacks

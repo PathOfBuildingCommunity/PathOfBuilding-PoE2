@@ -3228,7 +3228,7 @@ function calcs.offence(env, actor, activeSkill)
 			else
 				local extraDamage = skillModList:Sum("BASE", cfg, "CritMultiplier") / 100
 				local extraDamageInc = 1 + skillModList:Sum("INC", cfg, "CritMultiplier") / 100
-				local extraDamageMore = 1 + skillModList:Sum("MORE", cfg, "CritMultiplier") / 100
+				local extraDamageMore = skillModList:More("MORE", cfg, "CritMultiplier")
 				extraDamage = extraDamage * extraDamageInc * extraDamageMore
 				local multiOverride = skillModList:Override(skillCfg, "CritMultiplier")
 				if multiOverride then
@@ -4635,12 +4635,15 @@ function calcs.offence(env, actor, activeSkill)
 				output[flatAilment.."ChanceOnCrit"] = 0
 				skillFlags["inflict"..flatAilment] = false
 			else
-				local base = skillModList:Sum("BASE", cfg, flatAilment.."Chance", "AilmentChance") + enemyDB:Sum("BASE", nil, "Self"..flatAilment.."Chance")
-				local inc = skillModList:Sum("INC", cfg, flatAilment.."Chance", "AilmentChance")
-				local more = skillModList:More(cfg, flatAilment.."Chance", "AilmentChance")
-				local chance = m_min(100, base * (1 + inc / 100) * more)
-				output[flatAilment.."ChanceOnHit"] = chance
-				output[flatAilment.."ChanceOnCrit"] = chance
+				for _, val in pairs({"OnHit", "OnCrit"}) do
+					local critCfg = copyTable(cfg,true)
+					critCfg.skillCond.CriticalStrike = val == "OnCrit" -- force crit config to be true for "OnCrit" chance calculation
+					local base = skillModList:Sum("BASE", critCfg, flatAilment.."Chance", "AilmentChance") + enemyDB:Sum("BASE", nil, "Self"..flatAilment.."Chance")
+					local inc = skillModList:Sum("INC", critCfg, flatAilment.."Chance", "AilmentChance")
+					local more = skillModList:More(critCfg, flatAilment.."Chance", "AilmentChance")
+					local chance = m_min(100, skillModList:Override(critCfg, flatAilment .. "Chance") or (base * (1 + inc / 100) * more))
+					output[flatAilment.."Chance" .. val] = chance
+				end
 				skillFlags["inflict"..flatAilment] = true
 			end
 		end
@@ -4672,8 +4675,8 @@ function calcs.offence(env, actor, activeSkill)
 			local hitAvg = hitMin + (hitMax - hitMin) / 2
 			local critAvg = critMin + (critMax - critMin) / 2
 			local base = skillModList:Sum("BASE", cfg, "Enemy"..ailment.."Chance", "AilmentChance") + enemyDB:Sum("BASE", nil, "Self"..ailment.."Chance")
-			local inc = skillModList:Sum("INC", cfg, "Enemy"..ailment.."Chance", "AilmentChance")
-			local more = skillModList:More(cfg, "Enemy"..ailment.."Chance", "AilmentChance")
+			local inc = skillModList:Sum("INC", cfg, "Enemy"..ailment.."Chance", "AilmentChance") + enemyDB:Sum("INC", nil, "Self"..ailment.."Chance")
+			local more = skillModList:More(cfg, "Enemy"..ailment.."Chance", "AilmentChance") * enemyDB:More(nil, "Self"..ailment.."Chance")
 			local hitElementalAilmentChance = hitAvg / enemyThreshold * data.gameConstants[ailment .. "ChanceMultiplier"]
 			hitElementalAilmentChance = (hitElementalAilmentChance + base) * (1 + inc / 100) * more
 			local critElementalAilmentChance = critAvg / enemyThreshold * data.gameConstants[ailment .. "ChanceMultiplier"]
@@ -4774,7 +4777,7 @@ function calcs.offence(env, actor, activeSkill)
 					local incDur = skillModList:Sum("INC", cfg, "Enemy"..ailment.."Duration", "EnemyElementalAilmentDuration", "EnemyAilmentDuration") + enemyDB:Sum("INC", nil, "Self"..ailment.."Duration", "SelfElementalAilmentDuration", "SelfAilmentDuration")
 					local moreDur = skillModList:More(cfg, "Enemy"..ailment.."Duration", "EnemyElementalAilmentDuration", "EnemyAilmentDuration") * enemyDB:More(nil, "Self"..ailment.."Duration", "SelfElementalAilmentDuration", "SelfAilmentDuration")
 					output[ailment.."Duration"] = ailmentData[ailment].duration * (1 + incDur / 100) * moreDur * debuffDurationMult
-					output[ailment.."EffectMod"] = calcLib.mod(skillModList, cfg, "Enemy"..ailment.."Magnitude", "AilmentMagnitude")
+					output[ailment.."EffectMod"] = calcLib.mod(skillModList, cfg, "Enemy"..ailment.."Magnitude", "AilmentMagnitude") * calcLib.mod(enemyDB, cfg, "Self"..ailment.."Magnitude", "AilmentMagnitude")
 					if breakdown then
 						local maximum = globalOutput["Maximum"..ailment] or ailmentData[ailment].max
 						local current = m_max(m_min(globalOutput["Current"..ailment] or 0, maximum), 0)

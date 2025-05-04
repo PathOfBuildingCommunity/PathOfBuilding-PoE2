@@ -5,6 +5,7 @@ return {
 [[
 Bijouborne
 Double Belt
+League: Dawn of the Hunt
 Implicits: 2
 BeltImplicitCharmSlots3
 UniqueIncreasedMana51
@@ -49,6 +50,7 @@ UniqueLowLifeThreshold1
 ]],[[
 The Gnashing Sash
 Wide Belt
+League: Dawn of the Hunt
 Requires Level 60
 Implicits: 2
 BeltImplicitCharmSlots3
@@ -60,6 +62,7 @@ UniqueLifeFlasksOvercapLife1
 ]],[[
 Goregirdle
 Plate Belt
+League: Dawn of the Hunt
 Implicits: 2
 BeltImplicitCharmSlots3
 BeltImplicitPhysicalDamageReductionRating1
@@ -172,6 +175,7 @@ UniqueLifeLeechExcessToEnergyShield1
 ]],[[
 Waistgate Heavy Belt
 Heavy Belt
+League: Dawn of the Hunt
 Implicits: 2
 BeltImplicitCharmSlots3
 BeltImplicitIncreasedStunThreshold1

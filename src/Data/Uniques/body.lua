@@ -158,6 +158,7 @@ Quilted Vest
 ]],[[
 Hyrri's Ire
 Armoured Vest
+League: Dawn of the Hunt
 Implicits: 1
 (30-40)% increased Elemental Ailment Threshold
 (100-130)% increased Evasion Rating
@@ -199,6 +200,7 @@ Scout's Vest
 ]],[[
 Sands of Silk
 Shrouded Vest
+League: Dawn of the Hunt
 (50-100)% increased Evasion Rating
 +(50-80) to maximum Mana
 +(10-20) to Dexterity
@@ -208,6 +210,7 @@ Shrouded Vest
 ]],[[
 Yriel's Fostering
 Strider Vest
+League: Dawn of the Hunt
 (100-150)% increased Evasion Rating
 +(80-120) to maximum Life
 +(10-30) to Spirit
@@ -237,6 +240,7 @@ While not on Full Life, Sacrifice 10% of maximum Mana per Second to Recover that
 ]],[[
 Cloak of Defiance
 Havoc Raiment
+League: Dawn of the Hunt
 (50-100)% increased Energy Shield
 +(100-150) to maximum Mana
 50% increased Mana Regeneration Rate
@@ -267,6 +271,7 @@ Variant: Current
 ]],[[
 Gloamgown
 Elementalist Robe
+League: Dawn of the Hunt
 (100-140)% increased Energy Shield
 +(30-40) to Spirit
 +(25-35)% to Cold Resistance
@@ -294,7 +299,8 @@ Variant: Current
 Energy Shield Recharge is not interrupted by Damage if Recharge began Recently
 ]],[[
 Silks of Veneration
-Havoc Raiment
+Enlightened Robe
+League: Dawn of the Hunt
 Implicits: 1
 (40-50)% increased Mana Regeneration Rate
 +(30-50) to Spirit
@@ -305,6 +311,7 @@ Current Energy Shield also grants Elemental Damage reduction
 ]],[[
 Temporalis
 Silk Robe
+Source: Drops from unique{Zarokh, the Temporal}
 Variant: Pre 0.2.0
 Variant: Current
 +(100-150) to maximum Energy Shield
@@ -326,6 +333,7 @@ Life Recharges
 ]],[[
 Vis Mortis
 Plated Raiment
+League: Dawn of the Hunt
 (70-100)% increased Energy Shield
 +(70-100) to maximum Mana
 Minions have 50% reduced maximum Life
@@ -362,6 +370,7 @@ Chain Mail
 ]],[[
 The Coming Calamity
 Heroic Armour
+League: Dawn of the Hunt
 Implicits: 4
 Grants Skill: Level (1-20) Herald of Ash
 Grants Skill: Level (1-20) Herald of Ice
@@ -380,6 +389,7 @@ Lightning Resistance does not affect Lightning damage taken
 ]],[[
 The Fallen Formation
 Lamellar Mail
+League: Dawn of the Hunt
 (100-200)% increased Armour and Evasion
 +(20-30) to Strength
 +(20-30) to Dexterity
@@ -425,6 +435,7 @@ Charms use no Charges
 ]],[[
 Widow's Reign
 Knight Armour
+League: Dawn of the Hunt
 (100-150)% increased Armour and Evasion
 +(100-150) to maximum Life
 +(17-23)% to Chaos Resistance
@@ -469,6 +480,7 @@ Freeze as though dealing Cold damage equal to 10% of your maximum Mana when Hit
 ]],[[
 The Mutable Star
 Cleric Vestments
+League: Dawn of the Hunt
 (100-150)% increased Armour and Energy Shield
 (50-100)% increased Energy Shield Recharge Rate
 (25-35) Life Regeneration per second
@@ -478,6 +490,7 @@ Defend against Hits as though you had 1% more Armour per 1% current Energy Shiel
 ]],[[
 Sacrosanctum
 Corvus Mantle
+League: Dawn of the Hunt
 Implicits: 1
 +(20-30) to Spirit
 (80-120)% increased Armour and Energy Shield
@@ -489,6 +502,7 @@ Damage taken Recouped as Life is also Recouped as Energy Shield
 ]],[[
 Soul Mantle
 Sacrificial Mantle
+League: Dawn of the Hunt
 (80-120)% increased Armour and Energy Shield
 +10 to Strength
 +15 to Intelligence
@@ -507,6 +521,7 @@ Variant: Current
 ]],[[
 Waveshaper
 Tideseer Mantle
+League: Dawn of the Hunt
 +(100-200) to maximum Energy Shield
 +(20-40) to Spirit
 +(25-35)% to Fire Resistance
@@ -565,6 +580,7 @@ The Effect of Chill on you is reversed
 ]],[[
 Zerphi's Serape
 Scalper's Jacket
+League: Dawn of the Hunt
 (60-80)% increased Evasion and Energy Shield
 +(40-60) to maximum Mana
 50% increased Attribute Requirements
@@ -630,6 +646,7 @@ Evasion Rating is increased by Overcapped Lightning Resistance
 ]],[[
 Tabula Rasa
 Garment
+League: Dawn of the Hunt
 Sockets: S S S S S S
 Has 6 Rune Sockets
 ]],

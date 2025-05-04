@@ -146,7 +146,7 @@ local ItemsTabClass = newClass("ItemsTab", "UndoHandler", "ControlHost", "Contro
 	self.sockets = { }
 	local socketOrder = { }
 	for _, node in pairs(build.latestTree.nodes) do
-		if node.type == "Socket" then
+		if node.type == "Socket" or node.containJewelSocket then
 			t_insert(socketOrder, node)
 		end
 	end
@@ -1815,6 +1815,13 @@ function ItemsTabClass:IsItemValidForSlot(item, slotName, itemSet)
 		local node = self.build.spec.tree.nodes[tonumber(slotId)] or self.build.spec.nodes[tonumber(slotId)]
 		if not node or item.type ~= "Jewel" then
 			return false
+		elseif node.containJewelSocket  then
+			if item.rarity == "UNIQUE" or (item.base and item.base.subType ~= nil) then
+				-- Lich socket can only accept basic non-unique jewels
+				-- Need to change this to use ModParser if GGG add different conditional ascendancy jewel sockets
+				return false
+			end
+			return true
 		elseif node.charmSocket or item.base.subType == "Charm" then
 			-- Charm sockets can only have charms, and charms can only be in charm sockets
 			if node.charmSocket and item.base.subType == "Charm" then
@@ -2760,11 +2767,53 @@ function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode)
 		item.requirements.str or 0, item.requirements.dex or 0, item.requirements.int or 0)
 
 	-- Modifiers
+	-- Support for Lich Socket Jewel only for tooltip display
+	-- the real calculation is done in the CalcSetup
+	local scale = 1
+	local extraTooltip = ""
+	if slot and slot.nodeId then
+		local node = self.build.spec.nodes[slot.nodeId]
+		if node and node.containJewelSocket then
+			local jewelEffect = node.modList:Sum("INC", nil, "SocketedJewelEffect")
+			extraTooltip = "^x7F7F7FSocketed Jewel Effect: "			
+			if jewelEffect > 0 then
+				extraTooltip = extraTooltip .. s_format(colorCodes.MAGIC.."+%d%%", jewelEffect)
+				tooltip:AddSeparator(10)
+				tooltip:AddLine(16, extraTooltip)
+				tooltip:AddSeparator(10)
+			end
+			
+			scale = scale + (jewelEffect / 100)
+		end
+	end
+
 	for _, modList in ipairs{item.enchantModLines, item.runeModLines, item.implicitModLines, item.explicitModLines} do
 		if modList[1] then
 			for _, modLine in ipairs(modList) do
 				if item:CheckModLineVariant(modLine) then
-					tooltip:AddLine(16, itemLib.formatModLine(modLine, dbMode))
+					if scale ~= 1 then
+						local codyModLine = copyTable(modLine)
+						local modsList = copyTable(modLine.modList)
+						local scaledList = new("ModList")
+						-- some passive node mods are only Condition/Flag and have no value to scale by default, grab number from line
+						if modsList[1] and modsList[1].type == "FLAG" then
+							modsList[1].value = tonumber(codyModLine.line:match("%d+"))
+						end
+						scaledList:ScaleAddList(modsList, scale)
+						for j, mod in ipairs(scaledList) do
+							local newValue = 0
+							if type(mod.value) == "number" then
+								newValue = mod.value
+							elseif type(mod.value) == "table" then
+								newValue = mod.value.mod.value
+							end
+							codyModLine.line = codyModLine.line:gsub("%d*%.?%d+", math.abs(newValue))
+						end
+						tooltip:AddLine(16, itemLib.formatModLine(codyModLine, dbMode))
+					else
+						tooltip:AddLine(16, itemLib.formatModLine(modLine, dbMode))
+					end
+
 					-- Show mods from granted Notables
 					if modLine.modList[1] and modLine.modList[1].name == "GrantedPassive" then
 						local node = self.build.spec.tree.notableMap[modLine.modList[1].value]
