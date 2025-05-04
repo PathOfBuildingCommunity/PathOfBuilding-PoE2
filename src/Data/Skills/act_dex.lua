@@ -886,7 +886,7 @@ skills["SummonBeastPlayer"] = {
 			baseFlags = {
 				spell = true,
 				minion = true,
-				summonbeast = true,
+				summonBeast = true,
 				duration = true,
 				permanentMinion = true,
 			},

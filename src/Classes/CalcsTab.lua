@@ -118,7 +118,7 @@ local CalcsTabClass = newClass("CalcsTab", "UndoHandler", "ControlHost", "Contro
 				self.build:OpenSpectreLibrary("spectre")
 			end)
 		} },
-		{ label = "Beast Library", flag = "summonbeast", { controlName = "mainSkillBeastLibrary",
+		{ label = "Beast Library", flag = "summonBeast", { controlName = "mainSkillBeastLibrary",
 			control = new("ButtonControl", nil, {0, 0, 100, 16}, "Manage Beasts...", function()
 			self.build:OpenSpectreLibrary("beast")
 			end)
