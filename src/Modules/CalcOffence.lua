@@ -3240,14 +3240,11 @@ function calcs.offence(env, actor, activeSkill)
 				if env.mode_effective and skillModList:Flag(cfg, "ForkCrit") then
 					-- get crit chance and calculate odds of critting twice
 					local critChancePercentage = output.PreForkCritChance
-					local preHitCheckCritChance = output.PreHitCheckCritChance
-					local forkMultiChance = (critChancePercentage ^ 2) / preHitCheckCritChance 
-
+					local forkMultiChance = (critChancePercentage ^ 2) / 100
 					local damageBonus = extraDamage
-					local forkedBonus = forkMultiChance * extraDamage / 100 
-					
+					local forkedBonus = forkMultiChance * extraDamage / 100
 					extraDamage = damageBonus + forkedBonus
-					skillModList:NewMod("CritMultiplier", "MORE", m_floor(forkMultiChance), "Forked Crit Damage Bonus")
+					skillModList:NewMod("CritMultiplier", "MORE", floor(forkMultiChance, 2), "Forked Crit Damage Bonus")
 				end
 
 				if env.mode_effective then
@@ -3262,8 +3259,6 @@ function calcs.offence(env, actor, activeSkill)
 						}
 					end
 				end
-
-
 				output.CritMultiplier = 1 + m_max(0, extraDamage)
 			end
 			local critChancePercentage = output.CritChance / 100
