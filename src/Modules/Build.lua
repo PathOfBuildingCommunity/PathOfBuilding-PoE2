@@ -39,6 +39,7 @@ function buildMode:Init(dbFileName, buildName, buildXML, convertBuild, importLin
 	-- Load build file
 	self.xmlSectionList = { }
 	self.spectreList = { }
+	self.beastList = { }
 	self.timelessData = { jewelType = { }, conquerorType = { }, devotionVariant1 = 1, devotionVariant2 = 1, jewelSocket = { }, fallbackWeightMode = { }, searchList = "", searchListFallback = "", searchResults = { }, sharedResults = { } }
 	self.viewMode = "TREE"
 	self.characterLevel = m_min(m_max(main.defaultCharLevel or 1, 1), 100)
@@ -514,7 +515,10 @@ function buildMode:Init(dbFileName, buildName, buildXML, convertBuild, importLin
 		end
 	end
 	self.controls.mainSkillMinionLibrary = new("ButtonControl", {"LEFT",self.controls.mainSkillMinion,"RIGHT"}, {2, 0, 120, 18}, "Manage Spectres...", function()
-		self:OpenSpectreLibrary()
+		self:OpenSpectreLibrary("spectre")
+	end)
+	self.controls.mainSkillBeastLibrary = new("ButtonControl", {"LEFT",self.controls.mainSkillMinion,"RIGHT"}, {2, 0, 120, 18}, "Manage Beasts...", function()
+		self:OpenSpectreLibrary("beast")
 	end)
 	self.controls.mainSkillMinionSkill = new("DropDownControl", {"TOPLEFT",self.controls.mainSkillMinion,"BOTTOMLEFT",true}, {0, 2, 200, 16}, nil, function(index, value)
 		local mainSocketGroup = self.skillsTab.socketGroupList[self.mainSocketGroup]
@@ -916,10 +920,15 @@ function buildMode:Load(xml, fileName)
 	self.characterLevelAutoMode = xml.attrib.characterLevelAutoMode == "true"
 	self.mainSocketGroup = tonumber(xml.attrib.mainSkillIndex) or tonumber(xml.attrib.mainSocketGroup) or 1
 	wipeTable(self.spectreList)
+	wipeTable(self.beastList)
 	for _, child in ipairs(xml) do
 		if child.elem == "Spectre" then
 			if child.attrib.id and data.minions[child.attrib.id] then
 				t_insert(self.spectreList, child.attrib.id)
+			end
+		elseif child.elem == "BeastCompanion" then
+			if child.attrib.id and data.minions[child.attrib.id] then
+				t_insert(self.beastList, child.attrib.id)
 			end
 		elseif child.elem == "TimelessData" then
 			self.timelessData.jewelType = {
@@ -956,6 +965,9 @@ function buildMode:Save(xml)
 	}
 	for _, id in ipairs(self.spectreList) do
 		t_insert(xml, { elem = "Spectre", attrib = { id = id } })
+	end
+	for _, id in ipairs(self.beastList) do
+		t_insert(xml, { elem = "BeastCompanion", attrib = { id = id } })
 	end
 	local addedStatNames = { }
 	for index, statData in ipairs(self.displayStats) do
@@ -1315,11 +1327,20 @@ function buildMode:OpenSaveAsPopup()
 end
 
 -- Open the spectre library popup
-function buildMode:OpenSpectreLibrary()
-	local destList = copyTable(self.spectreList)
+function buildMode:OpenSpectreLibrary(library)
+	local destList = { }
+	if library == "beast" then
+		destList = copyTable(self.beastList)
+	else
+		destList = copyTable(self.spectreList)
+	end
 	local sourceList = { }
 	for id in pairs(self.data.spectres) do
-		t_insert(sourceList, id)
+		if library == "beast" and self.data.minions[id].monsterCategory == "Beast" then
+			t_insert(sourceList, id)
+		elseif library ~= "beast" then
+			t_insert(sourceList, id)
+		end
 	end
 	table.sort(sourceList, function(a,b) 
 		if self.data.minions[a].name == self.data.minions[b].name then
@@ -1332,7 +1353,11 @@ function buildMode:OpenSpectreLibrary()
 	controls.list = new("MinionListControl", nil, {-100, 40, 190, 250}, self.data, destList)
 	controls.source = new("MinionSearchListControl", nil, {100, 60, 190, 230}, self.data, sourceList, controls.list)
 	controls.save = new("ButtonControl", nil, {-45, 330, 80, 20}, "Save", function()
-		self.spectreList = destList
+		if library == "beast" then
+			self.beastList = destList
+		else
+			self.spectreList = destList
+		end
 		self.modFlag = true
 		self.buildFlag = true
 		main:ClosePopup()
@@ -1340,9 +1365,16 @@ function buildMode:OpenSpectreLibrary()
 	controls.cancel = new("ButtonControl", nil, {45, 330, 80, 20}, "Cancel", function()
 		main:ClosePopup()
 	end)
-	controls.noteLine1 = new("LabelControl", {"TOPLEFT",controls.list,"BOTTOMLEFT"}, {24, 2, 0, 16}, "Spectres in your Library must be assigned to an active")
-	controls.noteLine2 = new("LabelControl", {"TOPLEFT",controls.list,"BOTTOMLEFT"}, {20, 18, 0, 16}, "Raise Spectre gem for their buffs and curses to activate")
-	local spectrePopup = main:OpenPopup(410, 360, "Spectre Library", controls)
+	local spectrePopup
+	if library == "beast" then 
+		spectrePopup = main:OpenPopup(410, 360, "Beast Library", controls)
+		controls.noteLine1 = new("LabelControl", {"TOPLEFT",controls.list,"BOTTOMLEFT"}, {24, 2, 0, 16}, "Beasts in your Library must be assigned to an active")
+		controls.noteLine2 = new("LabelControl", {"TOPLEFT",controls.list,"BOTTOMLEFT"}, {20, 18, 0, 16}, "Companion gem for their buffs and curses to activate")
+	else
+		spectrePopup = main:OpenPopup(410, 360, "Spectre Library", controls)
+		controls.noteLine1 = new("LabelControl", {"TOPLEFT",controls.list,"BOTTOMLEFT"}, {24, 2, 0, 16}, "Spectres in your Library must be assigned to an active")
+		controls.noteLine2 = new("LabelControl", {"TOPLEFT",controls.list,"BOTTOMLEFT"}, {20, 18, 0, 16}, "Raise Spectre gem for their buffs and curses to activate")
+	end
 	spectrePopup:SelectControl(spectrePopup.controls.source.controls.searchText)
 end
 
@@ -1425,6 +1457,7 @@ function buildMode:RefreshSkillSelectControls(controls, mainGroup, suffix)
 		controls.mainSkillStageCount.shown = false
 		controls.mainSkillMinion.shown = false
 		controls.mainSkillMinionLibrary.shown = false
+		controls.mainSkillBeastLibrary.shown = false
 		controls.mainSkillMinionSkill.shown = false
 		controls.mainSkillMinionSkillStatSet.shown = false
 		if displaySkillList[1] then
@@ -1472,7 +1505,18 @@ function buildMode:RefreshSkillSelectControls(controls, mainGroup, suffix)
 						end
 						controls.mainSkillMinion:SelByValue(activeEffect.srcInstance["skillMinionItemSet"..suffix] or 1, "itemSetId")
 					else
-						controls.mainSkillMinionLibrary.shown = (activeEffect.grantedEffect.minionList and not activeEffect.grantedEffect.minionList[1])
+						controls.mainSkillMinionLibrary.shown = (
+							activeEffect.grantedEffect.minionList
+							and not activeEffect.grantedEffect.minionList[1]
+							and activeSkill.activeEffect.grantedEffect.name == "Spectre: {0} "
+							and not (controls.showMinion and controls.showMinion.state == true)
+						)
+						controls.mainSkillBeastLibrary.shown = (
+							activeEffect.grantedEffect.minionList
+							and not activeEffect.grantedEffect.minionList[1]
+							and activeSkill.activeEffect.grantedEffect.name == "Companion: {0}"
+							and not (controls.showMinion and controls.showMinion.state == true)
+						)
 						for _, minionId in ipairs(activeSkill.minionList) do
 							t_insert(controls.mainSkillMinion.list, {
 								label = self.data.minions[minionId].name,

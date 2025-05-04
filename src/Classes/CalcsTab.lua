@@ -115,12 +115,12 @@ local CalcsTabClass = newClass("CalcsTab", "UndoHandler", "ControlHost", "Contro
 		} },
 		{ label = "Spectre Library", flag = "spectre", { controlName = "mainSkillMinionLibrary",
 			control = new("ButtonControl", nil, {0, 0, 100, 16}, "Manage Spectres...", function()
-				self.build:OpenSpectreLibrary()
+				self.build:OpenSpectreLibrary("spectre")
 			end)
 		} },
 		{ label = "Beast Library", flag = "summonbeast", { controlName = "mainSkillBeastLibrary",
-		control = new("ButtonControl", nil, {0, 0, 100, 16}, "Manage Beasts...", function()
-			self.build:OpenSpectreLibrary()
+			control = new("ButtonControl", nil, {0, 0, 100, 16}, "Manage Beasts...", function()
+			self.build:OpenSpectreLibrary("beast")
 			end)
 		} },
 		{ label = "Minion Skill", flag = "haveMinion", { controlName = "mainSkillMinionSkill",

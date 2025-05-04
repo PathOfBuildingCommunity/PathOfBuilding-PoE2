@@ -566,6 +566,13 @@ local configSettings = {
 	{ var = "stormRainActiveArrows", type = "count", label = "# of Active Arrows:", ifSkill = "Storm Rain of the Conduit", apply = function(val, modList, enemyModList)
 		modList:NewMod("SkillData", "LIST", { key = "activeArrowMultiplier", value = val }, "Config", { type = "SkillName", skillName = "Storm Rain of the Conduit" })
 	end },
+	{ label = "Summon Companion:", ifSkill = "Companion: {0}", includeTransfigured = true },
+	{ var = "summonCompanionEnableBuffs", type = "check", defaultState = true, label = "Enable buffs:", ifSkill = "Companion: {0}", includeTransfigured = true, tooltip = "Enable any buff skills that your spectres have.", apply = function(val, modList, enemyModList)
+		modList:NewMod("SkillData", "LIST", { key = "enable", value = true }, "Config", { type = "SkillType", skillType = SkillType.Buff }, { type = "SkillName", skillName = "Companion: {0}", includeTransfigured = true, summonSkill = true })
+	end },
+	{ var = "summonCompanionEnableCurses", type = "check", defaultState = true, label = "Enable curses:", ifSkill = "Companion: {0}", includeTransfigured = true, tooltip = "Enable any curse skills that your spectres have.", apply = function(val, modList, enemyModList)
+		modList:NewMod("SkillData", "LIST", { key = "enable", value = true }, "Config", { type = "SkillType", skillType = SkillType.AppliesCurse }, { type = "SkillName", skillName = "Companion: {0}", includeTransfigured = true, summonSkill = true })
+	end },
 	{ label = "Summon Elemental Relic:", ifSkill = "Summon Elemental Relic" },
 	{ var = "summonElementalRelicEnableAngerAura", type = "check", defaultState = true, label = "Enable Anger Aura:", ifSkill = "Summon Elemental Relic", apply = function(val, modList, enemyModList)
 		modList:NewMod("SkillData", "LIST", { key = "enable", value = true }, "Config", { type = "SkillId", skillId = "Anger" }, { type = "SkillName", skillName = "Summon Elemental Relic", summonSkill = true })
