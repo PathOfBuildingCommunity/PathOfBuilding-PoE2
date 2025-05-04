@@ -119,10 +119,10 @@ local function calcPresenceRadius(actor)
 		actor.breakdown.PresenceRadius = actor.breakdown.area(scaledRadius, (1 + incArea / 100) * moreArea, finalRadius)
 		if baseRadius ~= scaledRadius then
 			actor.breakdown.PresenceMod = {}
-			t_insert(actor.breakdown.PresenceMod, s_format( "     %.1fm ^8(base radius)", baseRadius / 10))
-			t_insert(actor.breakdown.PresenceMod, s_format( "  x %.2f  ^8(inc)", 1 + incRadius / 100))
-			t_insert(actor.breakdown.PresenceMod, s_format( "  x %.2f  ^8(more)", moreRadius))
-			t_insert(actor.breakdown.PresenceMod, s_format( "  =  %.1fm", scaledRadius / 10))
+			t_insert(actor.breakdown.PresenceMod, s_format( "%.1fm ^8(base radius)", baseRadius / 10))
+			t_insert(actor.breakdown.PresenceMod, s_format( " x %.2f  ^8(inc)", 1 + incRadius / 100))
+			t_insert(actor.breakdown.PresenceMod, s_format( " x %.2f  ^8(more)", moreRadius))
+			t_insert(actor.breakdown.PresenceMod, s_format( "= %.1fm", scaledRadius / 10))
 		end
 	end
 end
