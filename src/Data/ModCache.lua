@@ -3747,7 +3747,7 @@ c["Enemies in your Presence are Blinded Every second, inflicts Critical Weakness
 c["Enemies in your Presence are Ignited as though dealt 100 Base Fire Damage"]={nil,"Enemies in your Presence are Ignited as though dealt 100 Base Fire Damage "}
 c["Enemies in your Presence are Intimidated"]={nil,"Enemies in your Presence are Intimidated "}
 c["Enemies in your Presence are Slowed by 20%"]={nil,"Enemies in your Presence are Slowed by 20% "}
-c["Enemies in your Presence count as being on Low Life"]={nil,"Enemies in your Presence count as being on Low Life "}
+c["Enemies in your Presence count as being on Low Life"]={{[1]={[1]={type="Condition",var="EnemyInPresence"},flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Condition:LowLife",type="FLAG",value=true}}}},nil}
 c["Enemies in your Presence count as having double Power"]={{},"Enemies in your Presence count as having  Power "}
 c["Enemies in your Presence have 10% reduced Cooldown Recovery Rate"]={nil,"Enemies in your Presence have 10% reduced Cooldown Recovery Rate "}
 c["Enemies in your Presence have Fire Exposure"]={nil,"Enemies in your Presence have Fire Exposure "}
