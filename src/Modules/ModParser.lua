@@ -2226,7 +2226,7 @@ local specialModList = {
 		}
 	end,
 	["projectile attack hits deal up to 30%% more damage to targets at the start of their movement, dealing less damage to targets as the projectile travels farther"] = { flag("PointBlank") },
-	["leech energy shield instead of life"] = { flag("GhostReaver") },
+	["life leech is converted to energy shield leech"] = { flag("GhostReaver") },
 	["minions explode when reduced to low life, dealing 33%% of their maximum life as fire damage to surrounding enemies"] = { mod("ExtraMinionSkill", "LIST", { skillId = "MinionInstability" }) },
 	["minions explode when reduced to low life, dealing 33%% of their life as fire damage to surrounding enemies"] = { mod("ExtraMinionSkill", "LIST", { skillId = "MinionInstability" }) },
 	["all bonuses from ?a?n? equipped amulet apply to your minions instead of you"] = { }, -- The node itself is detected by the code that handles it
