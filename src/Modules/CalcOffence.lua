@@ -3240,8 +3240,16 @@ function calcs.offence(env, actor, activeSkill)
 					-- get crit chance and calculate odds of critting twice
 					local critChancePercentage = output.PreForkCritChance
 					local forkMultiChance = (critChancePercentage ^ 2) / 100
+					output.CritForks = forkMultiChance
 					local damageBonus = extraDamage
 					local forkedBonus = forkMultiChance * extraDamage / 100
+					if breakdown and enemyInc ~= 1 then
+						breakdown.CritForks = {
+							s_format("%.2f%% ^8(effective crit chance)", critChancePercentage),
+							s_format("x %.2f%%", critChancePercentage),
+							s_format("= %d%% ^8(crit forks chance)", forkMultiChance),
+						}
+					end
 					extraDamage = damageBonus + forkedBonus
 					skillModList:NewMod("CritMultiplier", "MORE", floor(forkMultiChance, 2), "Forked Crit Damage Bonus")
 				end
@@ -3923,6 +3931,7 @@ function calcs.offence(env, actor, activeSkill)
 		combineStat("CritChance", "AVERAGE")
 		combineStat("PreEffectiveCritMultiplier", "AVERAGE")
 		combineStat("CritMultiplier", "AVERAGE")
+		combineStat("CritForks", "AVERAGE")
 		combineStat("AverageDamage", "DPS")
 		combineStat("PvpAverageDamage", "DPS")
 		combineStat("TotalDPS", "DPS")
