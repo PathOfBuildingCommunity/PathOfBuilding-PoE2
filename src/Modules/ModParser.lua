@@ -1290,6 +1290,7 @@ local preFlagList = {
 	-- While in the presence of...
 	["^while a unique enemy is in your presence, "] = { tag = { type = "ActorCondition", actor = "enemy", var = "RareOrUnique" } },
 	["^while a pinnacle atlas boss is in your presence, "] = { tag = { type = "ActorCondition", actor = "enemy", var = "PinnacleBoss" } },
+	["^enemies in your presence "] = { applyToEnemy = true, tag = { type = "Condition", var = "EnemyInPresence" } },
 	["^body armour grants "] = { tag = { type = "ItemCondition", itemSlot = "Body Armour", rarityCond = "NORMAL" } },
 }
 
@@ -5346,7 +5347,7 @@ local specialModList = {
 	},
 	["(%d+)%% chance to gain elusive when you block while dual wielding"] = { flag("Condition:CanBeElusive", { type = "Condition", var = "DualWielding" }) },
 	["elusive is removed from you at (%d+)%% effect"] = function(num) return { mod("ElusiveEffectMinThreshold", "OVERRIDE", num) } end,
-	["enemies in your presence have (%a+) resistance equal to yours"] = function(_, res) return { flag("Enemy"..(res:gsub("^%l", string.upper)).."ResistEqualToYours") } end,
+	["enemies in your presence have (%a+) resistance equal to yours"] = function(_, res) return { flag("Enemy"..(res:gsub("^%l", string.upper)).."ResistEqualToYours", { type = "Condition", var = "EnemyInPresence" }) } end,
 	["for each nearby corpse, regenerate ([%d%.]+)%% life per second, up to ([%d%.]+)%%"] = function(num, _, limit) return { mod("LifeRegenPercent", "BASE", num, { type = "Multiplier", var = "NearbyCorpse", limit = tonumber(limit), limitTotal = true }) } end,
 	["gain sacrificial zeal when you use a skill, dealing you %d+%% of the skill's mana cost as physical damage per second"] = {
 		flag("Condition:SacrificialZeal"),
