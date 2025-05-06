@@ -1997,7 +1997,7 @@ function calcs.buildDefenceEstimations(env, actor)
 				conversionTotal = conversions["total"] + conversions["totalSkill"]
 				-- Calculate the amount converted/gained as
 				for _, damageTypeTo in ipairs(dmgTypeList) do
-					local gainAsPercent = (enemyDB:Sum("BASE", enemyCfg, (damageType.."DamageGainAs"..damageTypeTo)) + conversions[damageTypeTo.."skill"] + conversions[damageTypeTo]) / 100
+					local gainAsPercent = (enemyDB:Sum("BASE", enemyCfg, (damageType.."DamageGainAs"..damageTypeTo), ("DamageGainAs"..damageTypeTo)) + conversions[damageTypeTo.."skill"] + conversions[damageTypeTo]) / 100
 					if gainAsPercent > 0 then
 						enemyDamageConversion[damageTypeTo] = enemyDamageConversion[damageTypeTo] or { }
 						enemyDamageConversion[damageTypeTo][damageType] = enemyDamage * gainAsPercent

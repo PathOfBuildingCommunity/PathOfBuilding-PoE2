@@ -3749,7 +3749,7 @@ c["Enemies in your Presence are Intimidated"]={{[1]={flags=0,keywordFlags=0,name
 c["Enemies in your Presence are Slowed by 20%"]={nil,"Slowed by 20% "}
 c["Enemies in your Presence count as being on Low Life"]={{[1]={[1]={type="Condition",var="EnemyInPresence"},flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Condition:LowLife",type="FLAG",value=true}}}},nil}
 c["Enemies in your Presence count as having double Power"]={{},"count as having  Power "}
-c["Enemies in your Presence have 10% reduced Cooldown Recovery Rate"]={nil,"10% reduced Cooldown Recovery Rate "}
+c["Enemies in your Presence have 10% reduced Cooldown Recovery Rate"]={{[1]={flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={[1]={actor="enemy",type="ActorCondition",var="EnemyInPresence"},flags=0,keywordFlags=0,name="CooldownRecovery",type="INC",value=-10}}}},nil}
 c["Enemies in your Presence have Fire Exposure"]={{[1]={flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={[1]={actor="enemy",type="ActorCondition",var="EnemyInPresence"},flags=0,keywordFlags=0,name="FireExposure",type="BASE",value=-20}}}},nil}
 c["Enemies in your Presence have Lightning Resistance equal to yours"]={{[1]={[1]={type="Condition",var="EnemyInPresence"},flags=0,keywordFlags=0,name="EnemyLightningResistEqualToYours",type="FLAG",value=true}},nil}
 c["Enemies in your Presence have at least 10% of Life Reserved"]={{[1]={flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={[1]={actor="enemy",type="ActorCondition",var="EnemyInPresence"},flags=0,keywordFlags=0,name="LifeReservationPercent",type="BASE",value=10}}}},nil}
