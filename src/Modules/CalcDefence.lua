@@ -1222,11 +1222,11 @@ function calcs.defence(env, actor)
 		end
 
 		local resourceList = {
-			{ name = "Armour", basePerSlot = {}, globalBase = 0, conversionRate = { }, mods = { "Armour", "ArmourAndEvasion", "Defences" }, defence = true },
-			{ name = "Evasion", basePerSlot = {}, globalBase = 0, conversionRate = { }, mods = { "Evasion", "ArmourAndEvasion", "Defences" }, defence = true },
-			{ name = "EnergyShield", basePerSlot = {}, globalBase = 0, conversionRate = { }, mods = { "EnergyShield", "Defences" }, defence = true },
-			{ name = "Life", basePerSlot = {}, globalBase = 0, conversionRate = { }, mods = { "Life" }, },
-			{ name = "Mana", basePerSlot = {}, globalBase = 0, conversionRate = { }, mods = { "Mana" }, },
+			{ name = "Armour", basePerSlot = {}, globalBase = 0, conversionRate = { }, mods = { "Armour", "ArmourAndEvasion", "Defences" }, modsTotal = { "ArmourTotal" }, defence = true },
+			{ name = "Evasion", basePerSlot = {}, globalBase = 0, conversionRate = { }, mods = { "Evasion", "ArmourAndEvasion", "Defences" }, modsTotal = { "EvasionTotal" }, defence = true },
+			{ name = "EnergyShield", basePerSlot = {}, globalBase = 0, conversionRate = { }, mods = { "EnergyShield", "Defences" }, modsTotal = { "EnergyShieldTotal" }, defence = true },
+			{ name = "Life", basePerSlot = {}, globalBase = 0, conversionRate = { }, mods = { "Life" }, modsTotal = { "LifeTotal" }, },
+			{ name = "Mana", basePerSlot = {}, globalBase = 0, conversionRate = { }, mods = { "Mana" }, modsTotal = { "ManaTotal" }, },
 		}
 		for _, source in ipairs(resourceList) do
 			output[source.name] = (output[source.name] or 0)
@@ -1294,7 +1294,7 @@ function calcs.defence(env, actor)
 				for _, slot in pairs({"Helmet","Gloves","Boots","Body Armour","Weapon 2","Weapon 3"}) do
 					output[res.name] = output[res.name] + res.basePerSlot[slot] * calcLib.mod(modDB, { slotName = slot }, unpack(res.mods))
 				end
-				output[res.name] = output[res.name] + res.globalBase * calcLib.mod(modDB, nil, unpack(res.mods))
+				output[res.name] = output[res.name] + res.globalBase * calcLib.mod(modDB, nil, unpack(res.mods)) + modDB:Sum("BASE", nil, unpack(res.modsTotal))
 			else
 				modDB:NewMod("Extra"..res.name, "BASE", res.globalBase, "Conversion")
 			end

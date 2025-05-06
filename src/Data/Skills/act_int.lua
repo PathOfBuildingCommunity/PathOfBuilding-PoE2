@@ -5205,7 +5205,7 @@ skills["DisciplinePlayer"] = {
 			statDescriptionScope = "discipline",
 			statMap = {
 				["base_skill_buff_total_maximum_energy_shield_+_to_apply"] = {
-					mod("EnergyShield", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Aura" }),
+					mod("EnergyShieldTotal", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Aura" }),
 				},
 			},
 			baseFlags = {
