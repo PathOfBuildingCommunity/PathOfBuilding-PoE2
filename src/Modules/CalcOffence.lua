@@ -3247,7 +3247,7 @@ function calcs.offence(env, actor, activeSkill)
 						breakdown.CritForks = {
 							s_format("%.2f%% ^8(effective crit chance)", critChancePercentage),
 							s_format("x %.2f%%", critChancePercentage),
-							s_format("= %d%% ^8(crit forks chance)", forkMultiChance),
+							s_format("= %.2f%% ^8(crit forks chance)", forkMultiChance),
 						}
 					end
 					extraDamage = damageBonus + forkedBonus
