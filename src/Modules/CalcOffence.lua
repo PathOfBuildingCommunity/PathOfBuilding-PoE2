@@ -3152,7 +3152,6 @@ function calcs.offence(env, actor, activeSkill)
 			if critOverride == 100 then
 				output.PreEffectiveCritChance = 100
 				output.PreForkCritChance = 100
-				output.PreHitCheckCritChance = 100
 				output.CritChance = 100
 			else
 				local base = 0
@@ -3170,6 +3169,10 @@ function calcs.offence(env, actor, activeSkill)
 					output.CritChance = m_max(output.CritChance, 0)
 				end
 				output.PreEffectiveCritChance = output.CritChance
+				local preHitCheckCritChance = output.CritChance
+				if env.mode_effective then
+					output.CritChance = output.CritChance * output.AccuracyHitChance / 100
+				end
 				local preLuckyCritChance = output.CritChance
 				if env.mode_effective and skillModList:Flag(cfg, "CritChanceLucky") then
 					output.CritChance = (1 - (1 - output.CritChance / 100) ^ 2) * 100
@@ -3178,11 +3181,6 @@ function calcs.offence(env, actor, activeSkill)
 				local preForkCritChance = output.CritChance
 				if env.mode_effective and skillModList:Flag(cfg, "ForkCrit") then
 					output.CritChance = (1 - (1 - output.CritChance / 100) ^ 2) * 100
-				end
-				output.PreHitCheckCritChance = output.CritChance
-				local preHitCheckCritChance = output.CritChance
-				if env.mode_effective then
-					output.CritChance = output.CritChance * output.AccuracyHitChance / 100
 				end
 				if breakdown and output.CritChance ~= baseCrit then
 					breakdown.CritChance = { }
@@ -3203,6 +3201,13 @@ function calcs.offence(env, actor, activeSkill)
 						local overCap = preCapCritChance - 100
 						t_insert(breakdown.CritChance, s_format("Crit is overcapped by %.2f%% (%d%% increased Critical Hit Chance)", overCap, overCap / more / (baseCrit + base) * 100))
 					end
+					if env.mode_effective and output.AccuracyHitChance < 100 then
+						t_insert(breakdown.CritChance, "")
+						t_insert(breakdown.CritChance, "Effective Crit Chance:")
+						t_insert(breakdown.CritChance, s_format("%.2f%%", preHitCheckCritChance))
+						t_insert(breakdown.CritChance, s_format("x %.2f ^8(chance to hit)", output.AccuracyHitChance / 100))
+						t_insert(breakdown.CritChance, s_format("= %.2f%%", preLuckyCritChance))
+					end
 					if env.mode_effective and skillModList:Flag(cfg, "CritChanceLucky") then
 						t_insert(breakdown.CritChance, "Crit Chance is Lucky:")
 						t_insert(breakdown.CritChance, s_format("1 - (1 - %.4f) x (1 - %.4f)", preLuckyCritChance / 100, preLuckyCritChance / 100))
@@ -3211,12 +3216,6 @@ function calcs.offence(env, actor, activeSkill)
 					if env.mode_effective and skillModList:Flag(cfg, "ForkCrit") then
 						t_insert(breakdown.CritChance, "Critical Strike Forks:")
 						t_insert(breakdown.CritChance, s_format("1 - (1 - %.4f) x (1 - %.4f)", preForkCritChance / 100, preForkCritChance / 100))
-						t_insert(breakdown.CritChance, s_format("= %.2f%%", preHitCheckCritChance))
-					end
-					if env.mode_effective and output.AccuracyHitChance < 100 then
-						t_insert(breakdown.CritChance, "Crit confirmation roll:")
-						t_insert(breakdown.CritChance, s_format("%.2f%%", preHitCheckCritChance))
-						t_insert(breakdown.CritChance, s_format("x %.2f ^8(chance to hit)", output.AccuracyHitChance / 100))
 						t_insert(breakdown.CritChance, s_format("= %.2f%%", output.CritChance))
 					end
 				end
