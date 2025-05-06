@@ -4322,8 +4322,9 @@ function calcs.offence(env, actor, activeSkill)
 				ailmentTypeMod = ailmentDamageType
 			end
 			local rateMod = (calcLib.mod(skillModList, cfg, ailment .. "Faster") + enemyDB:Sum("INC", nil, "Self" .. ailment .. "Faster") / 100)  / calcLib.mod(skillModList, cfg, ailment .. "Slower")
-			local durationBase = env.modDB:Override(nil, ailment .. "DurationBase") or data.misc[ailment .. "DurationBase"]
-			local durationMod = m_max(calcLib.mod(skillModList, dotCfg, "Enemy" .. ailment .. "Duration", "EnemyAilmentDuration", "Enemy" .. ailmentTypeMod .. "AilmentDuration", "SkillAndDamagingAilmentDuration") * calcLib.mod(enemyDB, nil, "Self" .. ailment .. "Duration", "SelfAilmentDuration", "Self" .. ailmentTypeMod .. "AilmentDuration"), 0)
+			local durationBase = skillData[ailment:lower() .. "DurationIsSkillDuration"] and skillData.duration or env.modDB:Override(nil, ailment .. "DurationBase") or data.misc[ailment .. "DurationBase"]
+			local durationMod = m_max(calcLib.mod(skillModList, dotCfg, "Enemy" .. ailment .. "Duration", "EnemyAilmentDuration", "Enemy" .. ailmentTypeMod .. "AilmentDuration", "SkillAndDamagingAilmentDuration", skillData[ailment:lower() .. "DurationIsSkillDuration"] and
+				"Duration" or nil) * calcLib.mod(enemyDB, nil, "Self" .. ailment .. "Duration", "SelfAilmentDuration", "Self" .. ailmentTypeMod .. "AilmentDuration"), 0)
 			durationMod = m_max(durationMod, 0)
 			globalOutput[ailment .. "Duration"] = durationBase * durationMod / rateMod * debuffDurationMult
 

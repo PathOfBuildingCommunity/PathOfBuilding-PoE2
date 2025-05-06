@@ -396,7 +396,11 @@ end
 function CalcsTabClass:CheckFlag(obj)
 	local actor = self.input.showMinion and self.calcsEnv.minion or self.calcsEnv.player
 	local skillFlags = actor.mainSkill.activeEffect.statSetCalcs.skillFlags
+	local skillData = actor.mainSkill.skillData
 	if obj.flag and not skillFlags[obj.flag] then
+		return
+	end
+	if obj.skillData and not skillData[obj.skillData] then
 		return
 	end
 	if obj.flagList then
@@ -410,6 +414,9 @@ function CalcsTabClass:CheckFlag(obj)
 		return
 	end
 	if obj.notFlag and skillFlags[obj.notFlag] then
+		return
+	end
+	if obj.notSkillData and skillData[obj.notSkillData] then
 		return
 	end
 	if obj.notFlagList then
