@@ -3923,6 +3923,11 @@ local specialModList = {
 	["gain maddening presence for 10 seconds when you kill a rare or unique enemy"] = { mod("EnemyModifier", "LIST", { mod = flag("HasMaddeningPresence") }, { type = "Condition", var = "KilledUniqueEnemy" }) },
 	["elemental damage you deal with hits is resisted by lowest elemental resistance instead"] = { flag("ElementalDamageUsesLowestResistance") },
 	["enemies in your presence resist elemental damage based on their lowest resistance"] = { flag("ElementalDamageUsesLowestResistance", { type = "Condition", var = "EnemyInPresence" }) },
+	["enemies in your presence have no elemental resistances"] = {
+		mod("EnemyModifier", "LIST", { mod = mod("FireResist", "OVERRIDE", 0, { type = "ActorCondition", actor = "enemy", var = "EnemyInPresence" })}),
+		mod("EnemyModifier", "LIST", { mod = mod("ColdResist", "OVERRIDE", 0, { type = "ActorCondition", actor = "enemy", var = "EnemyInPresence" })}),
+		mod("EnemyModifier", "LIST", { mod = mod("LightningResist", "OVERRIDE", 0, { type = "ActorCondition", actor = "enemy", var = "EnemyInPresence" })}),
+	},
 	["you take (%d+) chaos damage per second for 3 seconds on kill"] = function(num) return { mod("ChaosDegen", "BASE", num, { type = "Condition", var = "KilledLast3Seconds" }) } end,
 	["regenerate (%d+) life per second for each (%d+)%% uncapped fire resistance"] = function(num, _, percent) return { mod("LifeRegen", "BASE", num, { type = "PerStat", stat = "FireResistTotal", div = 1 / percent }) } end,
 	["regenerate (%d+) life over 1 second for each spell you cast"] = function(num) return { mod("LifeRegen", "BASE", num, { type = "Condition", var = "CastLast1Seconds" }) } end,
