@@ -53,10 +53,10 @@ end
 
 -- Calculate life/mana/spirit pools
 ---@param actor table
-function calcs.doActorLifeManaSpirit(actor)
+function calcs.doActorLifeManaSpirit(actor, skipBreakdown)
 	local modDB = actor.modDB
 	local output = actor.output
-	local breakdown = actor.breakdown
+	local breakdown = (not skipBreakdown) and actor.breakdown
 	local condList = modDB.conditions
 
 	local lowLifePerc = modDB:Sum("BASE", nil, "LowLifePercentage")
@@ -1066,7 +1066,7 @@ function calcs.defence(env, actor)
 	-- Primary defences: Energy shield, evasion and armour
 	do
 		-- Pre-calculate Life/Mana/Spirit for mods such as Beidat's hand
-		calcs.doActorLifeManaSpirit(actor)
+		calcs.doActorLifeManaSpirit(actor, true)
 		local ward = 0
 		local energyShield = 0
 		local armour = 0
