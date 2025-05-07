@@ -676,7 +676,15 @@ function ImportTabClass:ImportItemsAndSkills(charData)
 	local funcGetGemInstance = function(skillData)
 		local typeLine = sanitiseText(skillData.typeLine) .. (skillData.support and " Support" or "")
 		local gemId = self.build.data.gemForBaseName[typeLine:lower()]
-
+		if typeLine:sub(1, 8) == "Spectre:" then
+			gemId = "Metadata/Items/Gems/SkillGemSummonSpectre"
+			local spectreName = typeLine:sub(9) -- gets monster name after "Spectre: "
+		end		
+		if typeLine:sub(1, 10) == "Companion:" then
+			gemId = "Metadata/Items/Gems/SkillGemSummonBeast"
+			local companionName = typeLine:sub(12) -- gets beast name after "Companion: "
+			skillData.skillMinion = "Metadata/Monsters/SerpentClanMonster/SerpentClanCaster"
+		end
 		if gemId then
 			local gemInstance = { level = 20, quality = 0, enabled = true, enableGlobal1 = true, enableGlobal2 = true, count = 1,  gemId = gemId }
 			gemInstance.nameSpec = self.build.data.gems[gemId].name
