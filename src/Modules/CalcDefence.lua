@@ -1065,6 +1065,8 @@ function calcs.defence(env, actor)
 	end
 	-- Primary defences: Energy shield, evasion and armour
 	do
+		-- Pre-calculate Life/Mana/Spirit for mods such as Beidat's hand
+		calcs.doActorLifeManaSpirit(actor)
 		local ward = 0
 		local energyShield = 0
 		local armour = 0
