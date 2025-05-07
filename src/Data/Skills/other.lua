@@ -200,6 +200,7 @@ skills["BleedingConcoctionPlayer"] = {
 				attack = true,
 				projectile = true,
 				unarmed = true,
+				area = true,
 			},
 			constantStats = {
 				{ "flask_throw_base_charges_used", 5 },
@@ -2120,6 +2121,7 @@ skills["ExplosiveConcoctionPlayer"] = {
 				projectile = true,
 				duration = true,
 				unarmed = true,
+				area = true,
 			},
 			constantStats = {
 				{ "flask_throw_base_charges_used", 5 },
@@ -2259,6 +2261,7 @@ skills["FulminatingConcoctionPlayer"] = {
 				projectile = true,
 				duration = true,
 				unarmed = true,
+				area = true,
 			},
 			constantStats = {
 				{ "flask_throw_base_charges_used", 5 },
@@ -3528,6 +3531,7 @@ skills["PoisonousConcoctionPlayer"] = {
 				attack = true,
 				projectile = true,
 				unarmed = true,
+				area = true,
 			},
 			constantStats = {
 				{ "flask_throw_base_charges_used", 5 },
@@ -4070,6 +4074,7 @@ skills["ShatteringConcoctionPlayer"] = {
 				projectile = true,
 				duration = true,
 				unarmed = true,
+				area = true,
 			},
 			constantStats = {
 				{ "flask_throw_base_charges_used", 5 },
