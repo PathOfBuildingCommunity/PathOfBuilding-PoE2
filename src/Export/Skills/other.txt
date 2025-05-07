@@ -221,6 +221,13 @@ statMap = {
 #mods
 #skillEnd
 
+#from item
+#skill ChaosSpearTriggerChaosInfusionPlayer
+#set ChaosSpearTriggerChaosInfusionPlayer
+#flags attack area
+#mods
+#skillEnd
+
 #from tree
 #minionList ManifestWeapon
 #skill ManifestWeaponPlayer

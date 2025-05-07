@@ -31,7 +31,7 @@ Mjölner
 Torment Club
 League: Dawn of the Hunt
 Implicits: 1
-Grants Skill: Level (1-20) Lightning Spell on Hit
+Grants Skill: Level (1-20) Lightning Spell on Melee Hit
 +200 Intelligence Requirement
 +100 Strength Requirement
 (150-200)% increased Physical Damage
