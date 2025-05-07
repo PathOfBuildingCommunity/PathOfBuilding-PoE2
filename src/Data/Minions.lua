@@ -22,7 +22,8 @@ minions["RaisedZombie"] = {
 	accuracy = 1,
 	weaponType1 = "One Handed Axe",
 	limit = "ActiveZombieLimit",
-	experienceMultiplier = 1,
+	spectreReservation = 50,
+	companionReservation = 30,
 	monsterCategory = "Undead",
 	skillList = {
 		"MinionMeleeStep",
@@ -47,7 +48,8 @@ minions["SummonedRagingSpirit"] = {
 	attackRange = 12,
 	accuracy = 1,
 	limit = "ActiveRagingSpiritLimit",
-	experienceMultiplier = 1,
+	spectreReservation = 50,
+	companionReservation = 30,
 	monsterCategory = "Construct",
 	skillList = {
 		"MinionMeleeStep",
@@ -73,7 +75,8 @@ minions["RaisedSkeletonSniper"] = {
 	accuracy = 1,
 	weaponType1 = "Bow",
 	limit = "ActiveSkeletonLimit",
-	experienceMultiplier = 1,
+	spectreReservation = 50,
+	companionReservation = 30,
 	monsterCategory = "Undead",
 	skillList = {
 		"MinionMeleeBow",
@@ -101,7 +104,8 @@ minions["RaisedSkeletonBrute"] = {
 	accuracy = 1,
 	weaponType1 = "Two Handed Mace",
 	limit = "ActiveSkeletonLimit",
-	experienceMultiplier = 1,
+	spectreReservation = 50,
+	companionReservation = 30,
 	monsterCategory = "Undead",
 	skillList = {
 		"MinionMeleeStep",
@@ -129,7 +133,8 @@ minions["RaisedSkeletonStormMage"] = {
 	accuracy = 1,
 	weaponType1 = "Staff",
 	limit = "ActiveSkeletonLimit",
-	experienceMultiplier = 1,
+	spectreReservation = 50,
+	companionReservation = 30,
 	monsterCategory = "Undead",
 	skillList = {
 		"ArcSkeletonMageMinion",
@@ -157,7 +162,8 @@ minions["RaisedSkeletonFrostMage"] = {
 	accuracy = 1,
 	weaponType1 = "None",
 	limit = "ActiveSkeletonLimit",
-	experienceMultiplier = 1,
+	spectreReservation = 50,
+	companionReservation = 30,
 	monsterCategory = "Undead",
 	skillList = {
 		"FrostBoltSkeletonMageMinion",
@@ -185,7 +191,8 @@ minions["RaisedSkeletonCleric"] = {
 	accuracy = 1,
 	weaponType1 = "One Handed Mace",
 	limit = "ActiveSkeletonLimit",
-	experienceMultiplier = 1,
+	spectreReservation = 50,
+	companionReservation = 30,
 	monsterCategory = "Undead",
 	skillList = {
 		"HealSkeletonClericMinion",
@@ -214,7 +221,8 @@ minions["RaisedSkeletonArsonist"] = {
 	accuracy = 1,
 	weaponType1 = "None",
 	limit = "ActiveSkeletonLimit",
-	experienceMultiplier = 1,
+	spectreReservation = 50,
+	companionReservation = 30,
 	monsterCategory = "Undead",
 	skillList = {
 		"FireBombSkeletonMinion",
@@ -243,7 +251,8 @@ minions["RaisedSkeletonReaver"] = {
 	weaponType1 = "One Handed Axe",
 	weaponType2 = "One Handed Axe",
 	limit = "ActiveSkeletonLimit",
-	experienceMultiplier = 1,
+	spectreReservation = 50,
+	companionReservation = 30,
 	monsterCategory = "Undead",
 	skillList = {
 		"MinionMeleeStep",
@@ -272,7 +281,8 @@ minions["RaisedSkeletonWarriors"] = {
 	weaponType1 = "One Handed Sword",
 	weaponType2 = "Shield",
 	limit = "ActiveSkeletonLimit",
-	experienceMultiplier = 1,
+	spectreReservation = 50,
+	companionReservation = 30,
 	monsterCategory = "Undead",
 	skillList = {
 		"MinionMeleeStep",
@@ -300,7 +310,8 @@ minions["SummonedHellhound"] = {
 	attackTime = 0.75,
 	attackRange = 10,
 	accuracy = 1,
-	experienceMultiplier = 1,
+	spectreReservation = 50,
+	companionReservation = 30,
 	monsterCategory = "Demon",
 	skillList = {
 		"MinionMelee",
@@ -325,7 +336,8 @@ minions["AncestralSpiritTurtle"] = {
 	attackTime = 1,
 	attackRange = 15,
 	accuracy = 1,
-	experienceMultiplier = 1,
+	spectreReservation = 50,
+	companionReservation = 30,
 	monsterCategory = "Beast",
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -354,7 +366,8 @@ minions["AncestralSpiritHulk"] = {
 	attackTime = 1,
 	attackRange = 14,
 	accuracy = 1,
-	experienceMultiplier = 1,
+	spectreReservation = 50,
+	companionReservation = 30,
 	monsterCategory = "Beast",
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -383,7 +396,8 @@ minions["AncestralSpiritCaster"] = {
 	attackTime = 1,
 	attackRange = 14,
 	accuracy = 1,
-	experienceMultiplier = 1,
+	spectreReservation = 50,
+	companionReservation = 30,
 	monsterCategory = "Humanoid",
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -412,7 +426,8 @@ minions["AncestralSpiritWarhorn"] = {
 	attackTime = 1,
 	attackRange = 27,
 	accuracy = 1,
-	experienceMultiplier = 1,
+	spectreReservation = 50,
+	companionReservation = 30,
 	monsterCategory = "Humanoid",
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -437,7 +452,8 @@ minions["UnearthBoneConstruct"] = {
 	attackTime = 1.06,
 	attackRange = 12,
 	accuracy = 1,
-	experienceMultiplier = 1,
+	spectreReservation = 50,
+	companionReservation = 30,
 	monsterCategory = "Undead",
 	skillList = {
 		"MinionMelee",
@@ -463,7 +479,8 @@ minions["SummonedRhoa"] = {
 	attackTime = 1.23,
 	attackRange = 16,
 	accuracy = 1,
-	experienceMultiplier = 1,
+	spectreReservation = 50,
+	companionReservation = 30,
 	monsterCategory = "Beast",
 	skillList = {
 		"MinionMelee",
@@ -488,7 +505,8 @@ minions["ManifestWeapon"] = {
 	attackTime = 1,
 	attackRange = 10,
 	accuracy = 1,
-	experienceMultiplier = 1,
+	spectreReservation = 50,
+	companionReservation = 30,
 	monsterCategory = "Construct",
 	skillList = {
 		"MinionMelee",

@@ -23,7 +23,8 @@ minions["Metadata/Monsters/LeagueHellscape/PaleFaction/HellscapePaleElite1_"] = 
 	attackRange = 9,
 	accuracy = 1,
 	weaponType1 = "None",
-	experienceMultiplier = 2.35,
+	spectreReservation = 120,
+	companionReservation = 45.9,
 	monsterCategory = "Demon",
 	skillList = {
 		"TBHellscapePaleLightningBoltSpammableLeft",
@@ -52,7 +53,8 @@ minions["Metadata/Monsters/LeagueHellscape/PaleFaction/HellscapePaleElite2__"] =
 	attackRange = 18,
 	accuracy = 1,
 	weaponType1 = "None",
-	experienceMultiplier = 2.25,
+	spectreReservation = 110,
+	companionReservation = 45,
 	monsterCategory = "Demon",
 	skillList = {
 		"DTTHellscapeStabbySkyStab",
@@ -86,7 +88,8 @@ minions["Metadata/Monsters/GoreCharger/GoreCharger"] = {
 	attackTime = 1.065,
 	attackRange = 13,
 	accuracy = 1,
-	experienceMultiplier = 1.7,
+	spectreReservation = 90,
+	companionReservation = 39,
 	monsterCategory = "Beast",
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -113,7 +116,8 @@ minions["Metadata/Monsters/QuillCrab/QuillCrabBigPoison_"] = {
 	attackTime = 1.995,
 	attackRange = 50,
 	accuracy = 1,
-	experienceMultiplier = 0.85,
+	spectreReservation = 40,
+	companionReservation = 27.6,
 	monsterCategory = "Beast",
 	skillList = {
 		"QuillCrabSpikeBurstEmptyAction",
@@ -139,7 +143,8 @@ minions["Metadata/Monsters/QuillCrab/QuillCrabTropical"] = {
 	attackTime = 1.995,
 	attackRange = 40,
 	accuracy = 1,
-	experienceMultiplier = 0.7,
+	spectreReservation = 40,
+	companionReservation = 25.2,
 	monsterCategory = "Beast",
 	skillList = {
 		"QuillCrabSpikeBurstEmptyAction",
@@ -166,7 +171,8 @@ minions["Metadata/Monsters/QuillCrab/QuillCrab"] = {
 	attackTime = 1.995,
 	attackRange = 40,
 	accuracy = 1,
-	experienceMultiplier = 0.7,
+	spectreReservation = 40,
+	companionReservation = 25.2,
 	monsterCategory = "Beast",
 	skillList = {
 		"QuillCrabSpikeBurstEmptyAction",
@@ -192,7 +198,8 @@ minions["Metadata/Monsters/ShellMonster/ShellMonster"] = {
 	attackTime = 1.005,
 	attackRange = 9,
 	accuracy = 1,
-	experienceMultiplier = 1.15,
+	spectreReservation = 60,
+	companionReservation = 32.1,
 	monsterCategory = "Beast",
 	skillList = {
 		"MeleeAtAnimationSpeedComboTEMP",
@@ -220,7 +227,8 @@ minions["Metadata/Monsters/ShellMonster/ShellMonsterPoison"] = {
 	attackTime = 1.005,
 	attackRange = 9,
 	accuracy = 1,
-	experienceMultiplier = 1.15,
+	spectreReservation = 60,
+	companionReservation = 32.1,
 	monsterCategory = "Beast",
 	skillList = {
 		"MeleeAtAnimationSpeedComboTEMP",
@@ -248,7 +256,8 @@ minions["Metadata/Monsters/Sanctified/Monstrosity/SanctifiedMonstrosity"] = {
 	attackTime = 1.5,
 	attackRange = 28,
 	accuracy = 1,
-	experienceMultiplier = 3.5,
+	spectreReservation = 180,
+	companionReservation = 56.1,
 	monsterCategory = "Demon",
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -276,7 +285,8 @@ minions["Metadata/Monsters/BoneCultists/BoneCultists_Beast/BoneCultistBeast"] = 
 	attackTime = 1.665,
 	attackRange = 19,
 	accuracy = 1,
-	experienceMultiplier = 2.5,
+	spectreReservation = 130,
+	companionReservation = 47.4,
 	monsterCategory = "Beast",
 	skillList = {
 		"MeleeAtAnimationSpeedComboTEMP",
@@ -303,7 +313,8 @@ minions["Metadata/Monsters/Mutewind/MutewindWomanSpearSandCrusted"] = {
 	attackRange = 21,
 	accuracy = 1,
 	weaponType1 = "Spear",
-	experienceMultiplier = 1.1,
+	spectreReservation = 60,
+	companionReservation = 31.5,
 	monsterCategory = "Humanoid",
 	skillList = {
 		"MeleeAtAnimationSpeedComboTEMP",
@@ -338,7 +349,8 @@ minions["Metadata/Monsters/Cenobite/CenobiteBloater/CenobiteBloater"] = {
 	attackRange = 14,
 	accuracy = 1,
 	weaponType1 = "Two Handed Mace",
-	experienceMultiplier = 2.5,
+	spectreReservation = 130,
+	companionReservation = 47.4,
 	monsterCategory = "Humanoid",
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -365,7 +377,8 @@ minions["Metadata/Monsters/TwoheadedTitan/TwoHeadedTitan"] = {
 	attackTime = 1.5,
 	attackRange = 20,
 	accuracy = 1,
-	experienceMultiplier = 2.5,
+	spectreReservation = 130,
+	companionReservation = 47.4,
 	monsterCategory = "Humanoid",
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -392,7 +405,8 @@ minions["Metadata/Monsters/EtchedBeetles/MediumEtchedBeetleArmouredDull"] = {
 	attackTime = 1.5,
 	attackRange = 12,
 	accuracy = 1,
-	experienceMultiplier = 1.5,
+	spectreReservation = 80,
+	companionReservation = 36.6,
 	monsterCategory = "Beast",
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -419,7 +433,8 @@ minions["Metadata/Monsters/VaalConstructs/Sentinel/VaalConstructSentinel"] = {
 	attackTime = 1.5,
 	attackRange = 13,
 	accuracy = 1,
-	experienceMultiplier = 2.5,
+	spectreReservation = 130,
+	companionReservation = 47.4,
 	monsterCategory = "Construct",
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -447,7 +462,8 @@ minions["Metadata/Monsters/SerpentClanMonster/SerpentClanCaster"] = {
 	attackTime = 1.005,
 	attackRange = 10,
 	accuracy = 1,
-	experienceMultiplier = 2,
+	spectreReservation = 100,
+	companionReservation = 42.3,
 	monsterCategory = "Beast",
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -481,7 +497,8 @@ minions["Metadata/Monsters/TerracottaGuardians/TerracottaGuardianSceptre"] = {
 	attackRange = 12,
 	accuracy = 1,
 	weaponType1 = "One Handed Mace",
-	experienceMultiplier = 1.1,
+	spectreReservation = 60,
+	companionReservation = 31.5,
 	monsterCategory = "Construct",
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -507,7 +524,8 @@ minions["Metadata/Monsters/TerracottaGuardians/TerracottaGuardianSceptreAmbush__
 	attackRange = 12,
 	accuracy = 1,
 	weaponType1 = "One Handed Mace",
-	experienceMultiplier = 0.22,
+	spectreReservation = 10,
+	companionReservation = 14.1,
 	monsterCategory = "Construct",
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -532,7 +550,8 @@ minions["Metadata/Monsters/Quadrilla/Quadrilla"] = {
 	attackTime = 1.995,
 	attackRange = 21,
 	accuracy = 1,
-	experienceMultiplier = 2,
+	spectreReservation = 100,
+	companionReservation = 42.3,
 	monsterCategory = "Beast",
 	skillList = {
 		"GAQuadrillaSunder",
@@ -564,7 +583,8 @@ minions["Metadata/Monsters/VaalMonsters/Living/VaalGuardMortarLiving"] = {
 	attackTime = 1.5,
 	attackRange = 10,
 	accuracy = 1,
-	experienceMultiplier = 1,
+	spectreReservation = 50,
+	companionReservation = 30,
 	monsterCategory = "Humanoid",
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -594,7 +614,8 @@ minions["Metadata/Monsters/VaalMonsters/Living/BloodPriests/VaalBloodPriestMale"
 	attackRange = 12,
 	accuracy = 1,
 	weaponType1 = "Dagger",
-	experienceMultiplier = 2,
+	spectreReservation = 100,
+	companionReservation = 42.3,
 	monsterCategory = "Humanoid",
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -625,7 +646,8 @@ minions["Metadata/Monsters/VaalMonsters/Living/BloodPriests/VaalBloodPriestFemal
 	attackRange = 12,
 	accuracy = 1,
 	weaponType1 = "Dagger",
-	experienceMultiplier = 2,
+	spectreReservation = 100,
+	companionReservation = 42.3,
 	monsterCategory = "Humanoid",
 	skillList = {
 		"MeleeAtAnimationSpeed",

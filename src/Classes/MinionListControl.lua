@@ -50,8 +50,8 @@ function MinionListClass:AddValueTooltip(tooltip, index, minionId)
 	if tooltip:CheckForUpdate(minionId) then
 		local minion = self.data.minions[minionId]
 		tooltip:AddLine(18, "^7"..minion.name)
-		tooltip:AddLine(14, s_format("^7Spectre Reservation: %s%d", colorCodes.SPIRIT, round(50 * m_max(minion.experienceMultiplier, 0) / 10) * 10))
-		tooltip:AddLine(14, s_format("^7Companion Reservation: %s%.1f%%", colorCodes.SPIRIT, round(math.sqrt(minion.experienceMultiplier), 2) * 30))
+		tooltip:AddLine(14, s_format("^7Spectre Reservation: %s%d", colorCodes.SPIRIT, tostring(minion.spectreReservation)))
+		tooltip:AddLine(14, s_format("^7Companion Reservation: %s%s%%", colorCodes.SPIRIT, tostring(minion.companionReservation)))
 		tooltip:AddLine(14, "^7Category: "..minion.monsterCategory)
 		tooltip:AddLine(14, s_format("^7Life Multiplier: x%.2f", minion.life))
 		if minion.energyShield then

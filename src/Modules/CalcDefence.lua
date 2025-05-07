@@ -179,10 +179,10 @@ function calcs.doActorLifeManaSpiritReservation(actor)
 			local mult = floor(skillModList:More(skillCfg, "ReservationMultiplier"), 4)
 			local pool = { ["Mana"] = { }, ["Life"] = { }, ["Spirit"] = { } }
 			if activeSkill.skillCfg.skillName == "Companion: {0}" and activeSkill.minion then
-				activeSkill.skillData.spiritReservationPercent = round(math.sqrt(activeSkill.minion.minionData.experienceMultiplier), 2) * 30
+				activeSkill.skillData.spiritReservationPercent = activeSkill.minion.minionData.companionReservation
 			end
 			if activeSkill.skillCfg.skillName == "Spectre: {0} " and activeSkill.minion then
-				activeSkill.skillData.spiritReservationFlat = round(50 * m_max(activeSkill.minion.minionData.experienceMultiplier, 0) / 10) * 10
+				activeSkill.skillData.spiritReservationFlat = activeSkill.minion.minionData.spectreReservation
 			end
 			pool.Mana.baseFlat = activeSkill.skillData.manaReservationFlat or activeSkill.activeEffect.grantedEffectLevel.manaReservationFlat or 0
 			pool.Spirit.baseFlat = activeSkill.skillData.spiritReservationFlat or activeSkill.activeEffect.grantedEffectLevel.spiritReservationFlat or 0
