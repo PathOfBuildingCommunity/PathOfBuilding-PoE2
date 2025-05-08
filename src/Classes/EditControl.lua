@@ -67,9 +67,16 @@ local EditClass = newClass("EditControl", "ControlHost", "Control", "UndoHandler
 		self.controls.buttonDown = new("ButtonControl", {"RIGHT",self,"RIGHT"}, {-2, 0, buttonSize, buttonSize}, "-", function()
 			self:OnKeyUp("DOWN")
 		end)
+		self.controls.buttonDown.enabled = function()
+			return self:IsEnabled()
+		end
+
 		self.controls.buttonUp = new("ButtonControl", {"RIGHT",self.controls.buttonDown,"LEFT"}, {-1, 0, buttonSize, buttonSize}, "+", function()
 			self:OnKeyUp("UP")
 		end)
+		self.controls.buttonUp.enabled = function()
+			return self:IsEnabled()
+		end
 	elseif clearable then
 		self.controls.buttonClear = new("ButtonControl", {"RIGHT",self,"RIGHT"}, {-2, 0, buttonSize, buttonSize}, "x", function()
 			self:SetText("", true)
@@ -277,10 +284,8 @@ function EditClass:Draw(viewPort, noTooltip)
 		end
 		textX = textX + DrawStringWidth(textHeight, self.font, self.prompt) + textHeight/2
 	end
-	if not enabled then
-		return
-	end
-	if mOver and not noTooltip then
+
+	if enabled and mOver and not noTooltip then
 		SetDrawLayer(nil, 100)
 		self:DrawTooltip(x, y, width, height, viewPort)
 		SetDrawLayer(nil, 0)
@@ -290,7 +295,7 @@ function EditClass:Draw(viewPort, noTooltip)
 	local marginR = self.controls.scrollBarV:IsShown() and 14 or 0
 	local marginB = self.controls.scrollBarH:IsShown() and 14 or 0
 	SetViewport(textX, textY, width - 4 - marginL - marginR, height - 4 - marginB)
-	if not self.hasFocus then
+	if not enabled or not self.hasFocus then
 		if self.buf == '' and self.placeholder then
 			SetDrawColor(self.disableCol)
 			DrawString(-self.controls.scrollBarH.offset, -self.controls.scrollBarV.offset, "LEFT", textHeight, self.font, self.placeholder)
