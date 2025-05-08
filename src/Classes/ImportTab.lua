@@ -679,35 +679,43 @@ function ImportTabClass:ImportItemsAndSkills(charData)
 		
 		if typeLine:sub(1, 8) == "Spectre:" then
 			gemId = "Metadata/Items/Gems/SkillGemSummonSpectre"
-			local spectreName = typeLine:sub(10) -- gets monster name after "Spectre: "
-			local spectreList = data.spectres
-			for id, spectre in pairs(spectreList) do
-				if spectre.name == spectreName then
-					if not isValueInArray(self.build.spectreList, id) then
-						t_insert(self.build.spectreList, id)
-					end
-					break
-				end
-			end
 		end		
 		if typeLine:sub(1, 10) == "Companion:" then
 			gemId = "Metadata/Items/Gems/SkillGemSummonBeast"
-			local companionName = typeLine:sub(12) -- gets beast name after "Companion: "
-			local spectreList = data.spectres
-			for id, spectre in pairs(spectreList) do
-				if spectre.name == companionName then
-					if not isValueInArray(self.build.spectreList, id) then
-						t_insert(self.build.spectreList, id)
-					end
-					break
-				end
-			end
 		end
 
 		if gemId then
 			local gemInstance = { level = 20, quality = 0, enabled = true, enableGlobal1 = true, enableGlobal2 = true, count = 1,  gemId = gemId }
 			gemInstance.nameSpec = self.build.data.gems[gemId].name
 			gemInstance.support = skillData.support
+
+			local spectreList = data.spectres
+			if typeLine:sub(1, 8) == "Spectre:" then
+				local spectreName = typeLine:sub(10) -- gets monster name after "Spectre: "
+				for id, spectre in pairs(spectreList) do
+					if spectre.name == spectreName then
+						if not isValueInArray(self.build.spectreList, id) then
+							t_insert(self.build.spectreList, id)
+						end
+						gemInstance.skillMinion = id -- Sets imported minion in dropdown on left
+						gemInstance.skillMinionCalcs = id-- Sets imported minion in dropdown in calcs tab
+						break
+					end
+				end
+			end
+			if typeLine:sub(1, 10) == "Companion:" then
+				local companionName = typeLine:sub(12)
+				for id, spectre in pairs(spectreList) do
+					if spectre.name == companionName then
+						if not isValueInArray(self.build.spectreList, id) then
+							t_insert(self.build.spectreList, id)
+						end
+						gemInstance.skillMinion = id
+						gemInstance.skillMinionCalcs = id
+						break
+					end
+				end
+			end
 
 			for _, property in pairs(skillData.properties) do
 				if property.name == "Level" then
