@@ -302,7 +302,7 @@ return {
 	flag("NoRepeatBonuses"),
 },
 ["hazard_rearm_%_chance"] = {
-	mod("DPS", "INC", nil),
+	mod("Multiplier:ChanceToRearm", "BASE", nil, 0, 0, { type = "SkillType", skillType = SkillType.Hazard } ),
 },
 --
 -- Defensive modifiers
