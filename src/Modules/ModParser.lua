@@ -4112,6 +4112,8 @@ local specialModList = {
 		mod("TrapThrowCount", "BASE", tonumber(num) * tonumber(chance) / 100.0),
 		mod("MineThrowCount", "BASE", tonumber(num) * tonumber(chance) / 100.0),
 	} end,
+	-- Hazards
+	["(%d+)%% increased damage for each hazard triggered recently, up to (%d+)%%"] = function(num, _, limit) return { mod("Damage", "INC", tonumber(num), { type = "Multiplier", var = "HazardsTriggeredRecently", globalLimit = tonumber(limit), globalLimitKey = "DmgPerHazardRecently" }) } end,
 	-- Totems
 	["can have up to (%d+) additional totems? summoned at a time"] = function(num) return { mod("ActiveTotemLimit", "BASE", num) } end,
 	["attack skills can have (%d+) additional totems? summoned at a time"] = function(num) return { mod("ActiveTotemLimit", "BASE", num, nil, 0, KeywordFlag.Attack) } end,

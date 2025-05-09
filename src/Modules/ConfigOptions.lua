@@ -1493,6 +1493,9 @@ Huge sets the radius to 11.
 	{ var = "reservedDarkness", type = "count", label = "Reserved Darkness:", ifFlag = "PlayerHasDarkness", apply = function(val, modList, enemyModList)
 		modList:NewMod("ReservedDarkness", "BASE", val, "Config")
 	end },
+	{ var = "multiplierHazardsTriggeredRecently", type = "count", label = "# of Hazards triggered recently:", ifMult = "HazardsTriggeredRecently", ifFlag = "CanCreateHazards", apply = function(val, modList, enemyModList)
+		modList:NewMod("Multiplier:HazardsTriggeredRecently", "BASE", m_max(val,0), "Config", { type = "Condition", var = "Combat" })
+	end },
 	-- Section: Effective DPS options
 	{ section = "For Effective DPS", col = 1 },
 	{ var = "skillForkCount", type = "count", label = "# of times Skill has Forked:", ifFlag = "forking", apply = function(val, modList, enemyModList)

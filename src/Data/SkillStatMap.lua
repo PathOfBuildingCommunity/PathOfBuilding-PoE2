@@ -1382,6 +1382,9 @@ return {
 ["base_lightning_damage_can_electrocute"] = {
 	flag("LightningCanElectrocute"),
 },
+["is_hazard"] = {
+	flag("CanCreateHazards")
+},
 -- Other effects
 ["enemy_phys_reduction_%_penalty_vs_hit"] = {
 	mod("EnemyPhysicalDamageReduction", "BASE", nil),
