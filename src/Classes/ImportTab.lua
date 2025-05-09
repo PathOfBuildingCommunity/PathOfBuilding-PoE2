@@ -686,7 +686,6 @@ function ImportTabClass:ImportItemsAndSkills(charData)
 
 		if gemId then
 			local gemInstance = { level = 20, quality = 0, enabled = true, enableGlobal1 = true, enableGlobal2 = true, count = 1,  gemId = gemId }
-			gemInstance.nameSpec = self.build.data.gems[gemId].name
 			gemInstance.support = skillData.support
 
 			local spectreList = data.spectres
@@ -717,6 +716,7 @@ function ImportTabClass:ImportItemsAndSkills(charData)
 				end
 			end
 
+			gemInstance.nameSpec = self.build.data.gems[gemId].name
 			for _, property in pairs(skillData.properties) do
 				if property.name == "Level" then
 					gemInstance.level = tonumber(property.values[1][1]:match("%d+"))

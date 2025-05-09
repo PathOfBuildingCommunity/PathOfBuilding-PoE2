@@ -1508,13 +1508,13 @@ function buildMode:RefreshSkillSelectControls(controls, mainGroup, suffix)
 						controls.mainSkillMinionLibrary.shown = (
 							activeEffect.grantedEffect.minionList
 							and not activeEffect.grantedEffect.minionList[1]
-							and activeSkill.activeEffect.grantedEffect.name == "Spectre: {0} "
+							and activeSkill.activeEffect.grantedEffect.name:sub(1,8) == "Spectre:"
 							and not (controls.showMinion and controls.showMinion.state == true)
 						)
 						controls.mainSkillBeastLibrary.shown = (
 							activeEffect.grantedEffect.minionList
 							and not activeEffect.grantedEffect.minionList[1]
-							and activeSkill.activeEffect.grantedEffect.name == "Companion: {0}"
+							and activeSkill.activeEffect.grantedEffect.name:sub(1,10) == "Companion:"
 							and not (controls.showMinion and controls.showMinion.state == true)
 						)
 						for _, minionId in ipairs(activeSkill.minionList) do
