@@ -1256,6 +1256,7 @@ local preFlagList = {
 	["^hits against you "] = { applyToEnemy = true, flags = ModFlag.Hit },
 	["^hits against you [hd][ae][va][el] "] = { applyToEnemy = true, flags = ModFlag.Hit },
 	["^enemies near your totems deal "] = { applyToEnemy = true },
+	["^enemies affected by your hazards recently [hgd][ae][via][enl] "] = { applyToEnemy = true, tag = { type = "ActorCondition", var = "AffectedByHazardRecently" } },
 	-- Other
 	["^your flasks grant "] = { },
 	["^when hit, "] = { },

@@ -3731,9 +3731,8 @@ c["Enemies Hitting you have 10% chance to gain an Endurance,  Frenzy or Power Ch
 c["Enemies Ignited by you have -5% to Fire Resistance"]={{[1]={flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={[1]={type="Condition",var="Ignited"},flags=0,keywordFlags=0,name="FireResist",type="BASE",value=-5}}}},nil}
 c["Enemies Ignited by you take Chaos Damage instead of Fire Damage from Ignite"]={{[1]={flags=0,keywordFlags=0,name="IgniteToChaos",type="FLAG",value=true}},nil}
 c["Enemies Immobilised by you take 25% less Damage"]={{[1]={flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={[1]={type="Condition",var="Immobilised"},flags=0,keywordFlags=0,name="DamageTaken",type="MORE",value=-25}}}},nil}
-c["Enemies affected by your Hazards Recently have 25% reduced Armour"]={nil,"your Hazards Recently have 25% reduced Armour "}
-c["Enemies affected by your Hazards Recently have 25% reduced Armour Enemies affected by your Hazards Recently have 25% reduced Evasion Rating"]={nil,"your Hazards Recently have 25% reduced Armour Enemies affected by your Hazards Recently have 25% reduced Evasion Rating "}
-c["Enemies affected by your Hazards Recently have 25% reduced Evasion Rating"]={nil,"your Hazards Recently have 25% reduced Evasion Rating "}
+c["Enemies affected by your Hazards Recently have 25% reduced Armour"]={{[1]={flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={[1]={type="ActorCondition",var="AffectedByHazardRecently"},flags=0,keywordFlags=0,name="Armour",type="INC",value=-25}}}},nil}
+c["Enemies affected by your Hazards Recently have 25% reduced Evasion Rating"]={{[1]={flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={[1]={type="ActorCondition",var="AffectedByHazardRecently"},flags=0,keywordFlags=0,name="Evasion",type="INC",value=-25}}}},nil}
 c["Enemies are Culled on Block"]={nil,"Enemies are Culled on Block "}
 c["Enemies have Maximum Concentration equal to 40% of their Maximum Life"]={nil,"Enemies have Maximum Concentration equal to 40% of their Maximum Life "}
 c["Enemies have Maximum Concentration equal to 40% of their Maximum Life Break enemy Concentration on Hit equal to 100% of Damage Dealt"]={nil,"Enemies have Maximum Concentration equal to 40% of their Maximum Life Break enemy Concentration on Hit equal to 100% of Damage Dealt "}
