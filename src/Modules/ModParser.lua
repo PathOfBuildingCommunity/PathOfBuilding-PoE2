@@ -4114,6 +4114,7 @@ local specialModList = {
 	} end,
 	-- Hazards
 	["(%d+)%% increased damage for each hazard triggered recently, up to (%d+)%%"] = function(num, _, limit) return { mod("Damage", "INC", tonumber(num), { type = "Multiplier", var = "HazardsTriggeredRecently", globalLimit = tonumber(limit), globalLimitKey = "DmgPerHazardRecently" }) } end,
+	["hazards have (%d+)%% chance to rearm after they are triggered"] = function(num) return { mod("Multiplier:ChanceToRearm", "BASE", tonumber(num), { type = "SkillType", skillType = SkillType.Hazard })} end,
 	-- Totems
 	["can have up to (%d+) additional totems? summoned at a time"] = function(num) return { mod("ActiveTotemLimit", "BASE", num) } end,
 	["attack skills can have (%d+) additional totems? summoned at a time"] = function(num) return { mod("ActiveTotemLimit", "BASE", num, nil, 0, KeywordFlag.Attack) } end,

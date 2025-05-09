@@ -4036,8 +4036,8 @@ c["Has 2 Charm Slots"]={{[1]={flags=0,keywordFlags=0,name="CharmLimit",type="BAS
 c["Has 3 Charm Slot"]={{[1]={flags=0,keywordFlags=0,name="CharmLimit",type="BASE",value=3}},nil}
 c["Has 3 Charm Slots"]={{[1]={flags=0,keywordFlags=0,name="CharmLimit",type="BASE",value=3}},nil}
 c["Has 6 Rune Sockets"]={nil,"Has 6 Rune Sockets "}
-c["Hazards have 15% chance to rearm after they are triggered"]={nil,"Hazards have 15% chance to rearm after they are triggered "}
-c["Hazards have 5% chance to rearm after they are triggered"]={nil,"Hazards have 5% chance to rearm after they are triggered "}
+c["Hazards have 15% chance to rearm after they are triggered"]={{[1]={[1]={skillType=203,type="SkillType"},flags=0,keywordFlags=0,name="Multiplier:ChanceToRearm",type="BASE",value=15}},nil}
+c["Hazards have 5% chance to rearm after they are triggered"]={{[1]={[1]={skillType=203,type="SkillType"},flags=0,keywordFlags=0,name="Multiplier:ChanceToRearm",type="BASE",value=5}},nil}
 c["Herald Skills deal 20% increased Damage"]={{[1]={[1]={skillType=52,type="SkillType"},flags=0,keywordFlags=0,name="Damage",type="INC",value=20}},nil}
 c["Herald Skills deal 30% increased Damage"]={{[1]={[1]={skillType=52,type="SkillType"},flags=0,keywordFlags=0,name="Damage",type="INC",value=30}},nil}
 c["Herald Skills have 30% increased Area of Effect"]={{[1]={[1]={skillType=52,type="SkillType"},flags=0,keywordFlags=0,name="AreaOfEffect",type="INC",value=30}},nil}

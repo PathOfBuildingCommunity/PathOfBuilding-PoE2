@@ -1383,7 +1383,9 @@ return {
 	flag("LightningCanElectrocute"),
 },
 ["is_hazard"] = {
-	flag("CanCreateHazards")
+	flag("CanCreateHazards"),
+	{ mod("Damage", "MORE", nil, 0, 0, { type = "Multiplier", var = "ChanceToRearm" }, { type = "SkillType", skillType = SkillType.Hazard }),
+	value = 1 }
 },
 -- Other effects
 ["enemy_phys_reduction_%_penalty_vs_hit"] = {
