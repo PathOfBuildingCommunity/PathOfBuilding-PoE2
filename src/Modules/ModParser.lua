@@ -977,6 +977,7 @@ local modFlagList = {
 	["that throw traps"] = { keywordFlags = KeywordFlag.Trap },
 	["grenade"] = { tag = { type = "SkillType", skillType = SkillType.Grenade } },
 	["for grenade skills"] = { tag = { type = "SkillType", skillType = SkillType.Grenade } },
+	["hazard"] = { tag = { type = "SkillType", skillType = SkillType.Hazard } },
 	["brand"] = { tag = { type = "SkillType", skillType = SkillType.Brand } },
 	["totem"] = { keywordFlags = KeywordFlag.Totem },
 	["with totem skills"] = { keywordFlags = KeywordFlag.Totem },
