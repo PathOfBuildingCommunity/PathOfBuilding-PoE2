@@ -1028,7 +1028,11 @@ function SkillsTabClass:ProcessSocketGroup(socketGroup)
 			gemInstance.errMsg = nil
 			gemInstance.gemData = data.gems[gemInstance.gemId]
 			if gemInstance.gemData then
-				gemInstance.nameSpec = gemInstance.gemData.name
+				if gemInstance.nameSpec:match("^Companion:") or gemInstance.nameSpec:match("^Spectre:") then
+					gemInstance.nameSpec = gemInstance.nameSpec
+				else
+					gemInstance.nameSpec = gemInstance.gemData.name
+				end
 				gemInstance.skillId = gemInstance.gemData.grantedEffectId
 			end
 		elseif gemInstance.skillId then

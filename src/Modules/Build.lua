@@ -491,18 +491,18 @@ function buildMode:Init(dbFileName, buildName, buildXML, convertBuild, importLin
 		if value.itemSetId then
 			srcInstance.skillMinionItemSet = value.itemSetId
 			srcInstance.skillMinionItemSetCalcs = value.itemSetId
-			if srcInstance.nameSpec:sub(1,8) == "Spectre:" then
+			if srcInstance.nameSpec:match("^Spectre:") then
 				srcInstance.nameSpec = "Spectre: ".. value.label
-			elseif srcInstance.nameSpec:sub(1,10) == "Companion:" then
-				srcInstance.nameSpec = "Spectre: ".. value.label
+			elseif srcInstance.nameSpec:match("^Companion:") then
+				srcInstance.nameSpec = "Companion: ".. value.label
 			end
 		else
 			srcInstance.skillMinion = value.minionId
 			srcInstance.skillMinionCalcs = value.minionId
-			if srcInstance.nameSpec:sub(1,8) == "Spectre:" then
+			if srcInstance.nameSpec:match("^Spectre:") then
 				srcInstance.nameSpec = "Spectre: ".. value.label
-			elseif srcInstance.nameSpec:sub(1,10) == "Companion:" then
-				srcInstance.nameSpec = "Spectre: ".. value.label
+			elseif srcInstance.nameSpec:match("^Companion:") then
+				srcInstance.nameSpec = "Companion: ".. value.label
 			end
 		end
 		self.modFlag = true
@@ -1520,13 +1520,13 @@ function buildMode:RefreshSkillSelectControls(controls, mainGroup, suffix)
 						controls.mainSkillMinionLibrary.shown = (
 							activeEffect.grantedEffect.minionList
 							and not activeEffect.grantedEffect.minionList[1]
-							and activeSkill.activeEffect.grantedEffect.name:sub(1,8) == "Spectre:"
+							and activeSkill.activeEffect.grantedEffect.name:match("^Spectre:")
 							and not (controls.showMinion and controls.showMinion.state == true)
 						)
 						controls.mainSkillBeastLibrary.shown = (
 							activeEffect.grantedEffect.minionList
 							and not activeEffect.grantedEffect.minionList[1]
-							and activeSkill.activeEffect.grantedEffect.name:sub(1,10) == "Companion:"
+							and activeSkill.activeEffect.grantedEffect.name:match("^Companion:")
 							and not (controls.showMinion and controls.showMinion.state == true)
 						)
 						for _, minionId in ipairs(activeSkill.minionList) do
