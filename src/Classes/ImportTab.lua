@@ -721,8 +721,8 @@ function ImportTabClass:ImportItemsAndSkills(charData)
 				local companionName = typeLine:sub(12)
 				for id, spectre in pairs(spectreList) do
 					if spectre.name == companionName then
-						if not isValueInArray(self.build.spectreList, id) then
-							t_insert(self.build.spectreList, id)
+						if not isValueInArray(self.build.beastList, id) then
+							t_insert(self.build.beastList, id)
 						end
 						gemInstance.skillMinion = id
 						gemInstance.skillMinionCalcs = id

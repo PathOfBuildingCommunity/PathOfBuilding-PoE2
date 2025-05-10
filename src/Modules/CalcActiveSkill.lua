@@ -682,13 +682,20 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 	end
 
 	-- Create minion
-	local minionList, isSpectre
-	if activeGrantedEffect.minionList then
+	local minionList, isSpectre, isBeastCompanion
+	if activeGrantedEffect.minionList and activeGrantedEffect.name:match("^Spectre") then
 		if activeGrantedEffect.minionList[1] then
 			minionList = copyTable(activeGrantedEffect.minionList)
 		else
 			minionList = copyTable(env.build.spectreList)
 			isSpectre = true
+		end
+	elseif activeGrantedEffect.minionList and activeGrantedEffect.name:match("^Companion") then
+		if activeGrantedEffect.minionList[1] then
+			minionList = copyTable(activeGrantedEffect.minionList)
+		else
+			minionList = copyTable(env.build.beastList)
+			isBeastCompanion = true
 		end
 	else
 		minionList = { }
