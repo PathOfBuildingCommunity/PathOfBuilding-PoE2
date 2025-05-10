@@ -302,7 +302,7 @@ return {
 	flag("NoRepeatBonuses"),
 },
 ["hazard_rearm_%_chance"] = {
-	mod("Multiplier:ChanceToRearm", "BASE", nil, 0, 0, { type = "SkillType", skillType = SkillType.Hazard } ),
+	mod("HazardRearmChance", "BASE", nil, 0, 0, { type = "SkillType", skillType = SkillType.Hazard } ),
 },
 --
 -- Defensive modifiers
@@ -1384,9 +1384,6 @@ return {
 },
 ["is_hazard"] = {
 	flag("CanCreateHazards"),
-	skill("isHazard", "FLAG", nil),
-	{ mod("DPS", "MORE", nil, 0, 0, { type = "Multiplier", var = "ChanceToRearm" }, { type = "SkillType", skillType = SkillType.Hazard }),
-	value = 1 }
 },
 -- Other effects
 ["enemy_phys_reduction_%_penalty_vs_hit"] = {

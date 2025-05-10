@@ -426,6 +426,7 @@ statMap = {
 #mods
 #set IceShardsShardPlayer
 #flags attack projectile area
+#baseMod flag("CanCreateHazards")
 #mods
 #skillEnd
 

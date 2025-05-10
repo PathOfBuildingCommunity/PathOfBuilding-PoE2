@@ -6981,6 +6981,8 @@ skills["SpearfieldPlayer"] = {
 				["spearfield_spear_damage_+%_final_after_half_seconds"] = {
 					mod("Damage", "MORE", nil, 0, 0, { type = "Condition", var = "SpearOlderThanHalfSecond" }),
 				},
+				["base_skill_show_average_damage_instead_of_dps"] = {
+				},
 			},
 			baseFlags = {
 				attack = true,
