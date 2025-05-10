@@ -973,6 +973,11 @@ return {
 ["base_physical_damage_%_to_convert_to_chaos"] = {
 	mod("PhysicalDamageConvertToChaos", "BASE", nil),
 },
+["windstorm_gain_all_damage_%_as_corresponding_element_if_empowered"] = {
+	mod("DamageGainAsFire", "BASE", nil, 0, 0, { type = "Condition", var = "WhirlwindBuffFire" }),
+	mod("DamageGainAsCold", "BASE", nil, 0, 0, { type = "Condition", var = "WhirlwindBuffCold" }),
+	mod("DamageGainAsLightning", "BASE", nil, 0, 0, { type = "Condition", var = "WhirlwindBuffLightning" }),
+},
 -- Active Skill Physical
 ["active_skill_base_physical_damage_%_to_convert_to_lightning"] = {
 	mod("SkillPhysicalDamageConvertToLightning", "BASE", nil),

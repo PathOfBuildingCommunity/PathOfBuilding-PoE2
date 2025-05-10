@@ -341,7 +341,7 @@ statMap = {
 
 #skill TriggeredElementalDischargePlayer
 #set TriggeredElementalDischargePlayer
-#flags spell
+#flags spell area
 statMap = {
 	["spell_minimum_base_fire_damage_as_%_of_intelligence"] = {
 		mod("FireMin", "BASE", nil, 0, KeywordFlag.Spell, { type = "PercentStat", stat = "Int", percent = 1 }, { type = "Condition", var = "IgniteConsumed" }),
@@ -675,7 +675,7 @@ statMap = {
 #skillEnd
 #skill TriggeredManaFlarePlayer
 #set TriggeredManaFlarePlayer
-#flags spell
+#flags spell area
 #baseMod skill("currentManaPercentage", true)
 statMap = {
 	["support_mana_flare_%_of_current_mana_consumed"] = {

@@ -3151,6 +3151,7 @@ function calcs.offence(env, actor, activeSkill)
 
 			if critOverride == 100 then
 				output.PreEffectiveCritChance = 100
+				output.PreForkCritChance = 100
 				output.CritChance = 100
 			else
 				local base = 0
@@ -3168,13 +3169,18 @@ function calcs.offence(env, actor, activeSkill)
 					output.CritChance = m_max(output.CritChance, 0)
 				end
 				output.PreEffectiveCritChance = output.CritChance
+				local preHitCheckCritChance = output.CritChance
+				if env.mode_effective then
+					output.CritChance = output.CritChance * output.AccuracyHitChance / 100
+				end
 				local preLuckyCritChance = output.CritChance
 				if env.mode_effective and skillModList:Flag(cfg, "CritChanceLucky") then
 					output.CritChance = (1 - (1 - output.CritChance / 100) ^ 2) * 100
 				end
-				local preHitCheckCritChance = output.CritChance
-				if env.mode_effective then
-					output.CritChance = output.CritChance * output.AccuracyHitChance / 100
+				output.PreForkCritChance = output.CritChance
+				local preForkCritChance = output.CritChance
+				if env.mode_effective and skillModList:Flag(cfg, "ForkCrit") then
+					output.CritChance = (1 - (1 - output.CritChance / 100) ^ 2) * 100
 				end
 				if breakdown and output.CritChance ~= baseCrit then
 					breakdown.CritChance = { }
@@ -3195,15 +3201,21 @@ function calcs.offence(env, actor, activeSkill)
 						local overCap = preCapCritChance - 100
 						t_insert(breakdown.CritChance, s_format("Crit is overcapped by %.2f%% (%d%% increased Critical Hit Chance)", overCap, overCap / more / (baseCrit + base) * 100))
 					end
+					if env.mode_effective and output.AccuracyHitChance < 100 then
+						t_insert(breakdown.CritChance, "")
+						t_insert(breakdown.CritChance, "Effective Crit Chance:")
+						t_insert(breakdown.CritChance, s_format("%.2f%%", preHitCheckCritChance))
+						t_insert(breakdown.CritChance, s_format("x %.2f ^8(chance to hit)", output.AccuracyHitChance / 100))
+						t_insert(breakdown.CritChance, s_format("= %.2f%%", preLuckyCritChance))
+					end
 					if env.mode_effective and skillModList:Flag(cfg, "CritChanceLucky") then
 						t_insert(breakdown.CritChance, "Crit Chance is Lucky:")
 						t_insert(breakdown.CritChance, s_format("1 - (1 - %.4f) x (1 - %.4f)", preLuckyCritChance / 100, preLuckyCritChance / 100))
-						t_insert(breakdown.CritChance, s_format("= %.2f%%", preHitCheckCritChance))
+						t_insert(breakdown.CritChance, s_format("= %.2f%%", preForkCritChance))
 					end
-					if env.mode_effective and output.AccuracyHitChance < 100 then
-						t_insert(breakdown.CritChance, "Crit confirmation roll:")
-						t_insert(breakdown.CritChance, s_format("%.2f%%", preHitCheckCritChance))
-						t_insert(breakdown.CritChance, s_format("x %.2f ^8(chance to hit)", output.AccuracyHitChance / 100))
+					if env.mode_effective and skillModList:Flag(cfg, "ForkCrit") then
+						t_insert(breakdown.CritChance, "Critical Strike Forks:")
+						t_insert(breakdown.CritChance, s_format("1 - (1 - %.4f) x (1 - %.4f)", preForkCritChance / 100, preForkCritChance / 100))
 						t_insert(breakdown.CritChance, s_format("= %.2f%%", output.CritChance))
 					end
 				end
@@ -3221,6 +3233,27 @@ function calcs.offence(env, actor, activeSkill)
 				if multiOverride then
 					extraDamage = multiOverride / 100
 				end
+
+				output.PreEffectiveCritMultiplier = 1 + extraDamage
+				-- if crit forks are enabled, roll for crit twice and add multiplier for each
+				if env.mode_effective and skillModList:Flag(cfg, "ForkCrit") then
+					-- get crit chance and calculate odds of critting twice
+					local critChancePercentage = output.PreForkCritChance
+					local forkMultiChance = (critChancePercentage ^ 2) / 100
+					output.CritForks = forkMultiChance
+					local damageBonus = extraDamage
+					local forkedBonus = forkMultiChance * extraDamage / 100
+					if breakdown and enemyInc ~= 1 then
+						breakdown.CritForks = {
+							s_format("%.2f%% ^8(effective crit chance)", critChancePercentage),
+							s_format("x %.2f%%", critChancePercentage),
+							s_format("= %.2f%% ^8(crit forks chance)", forkMultiChance),
+						}
+					end
+					extraDamage = damageBonus + forkedBonus
+					skillModList:NewMod("CritMultiplier", "MORE", floor(forkMultiChance, 2), "Forked Crit Damage Bonus")
+				end
+
 				if env.mode_effective then
 					local enemyInc = 1 + enemyDB:Sum("INC", nil, "SelfCritMultiplier") / 100
 					extraDamage = extraDamage + enemyDB:Sum("BASE", nil, "SelfCritMultiplier") / 100
@@ -3896,7 +3929,9 @@ function calcs.offence(env, actor, activeSkill)
 		-- Combine crit stats, average damage and DPS
 		combineStat("PreEffectiveCritChance", "AVERAGE")
 		combineStat("CritChance", "AVERAGE")
+		combineStat("PreEffectiveCritMultiplier", "AVERAGE")
 		combineStat("CritMultiplier", "AVERAGE")
+		combineStat("CritForks", "AVERAGE")
 		combineStat("AverageDamage", "DPS")
 		combineStat("PvpAverageDamage", "DPS")
 		combineStat("TotalDPS", "DPS")
@@ -4322,8 +4357,9 @@ function calcs.offence(env, actor, activeSkill)
 				ailmentTypeMod = ailmentDamageType
 			end
 			local rateMod = (calcLib.mod(skillModList, cfg, ailment .. "Faster") + enemyDB:Sum("INC", nil, "Self" .. ailment .. "Faster") / 100)  / calcLib.mod(skillModList, cfg, ailment .. "Slower")
-			local durationBase = env.modDB:Override(nil, ailment .. "DurationBase") or data.misc[ailment .. "DurationBase"]
-			local durationMod = m_max(calcLib.mod(skillModList, dotCfg, "Enemy" .. ailment .. "Duration", "EnemyAilmentDuration", "Enemy" .. ailmentTypeMod .. "AilmentDuration", "SkillAndDamagingAilmentDuration") * calcLib.mod(enemyDB, nil, "Self" .. ailment .. "Duration", "SelfAilmentDuration", "Self" .. ailmentTypeMod .. "AilmentDuration"), 0)
+			local durationBase = skillData[ailment:lower() .. "DurationIsSkillDuration"] and skillData.duration or env.modDB:Override(nil, ailment .. "DurationBase") or data.misc[ailment .. "DurationBase"]
+			local durationMod = m_max(calcLib.mod(skillModList, dotCfg, "Enemy" .. ailment .. "Duration", "EnemyAilmentDuration", "Enemy" .. ailmentTypeMod .. "AilmentDuration", "SkillAndDamagingAilmentDuration", skillData[ailment:lower() .. "DurationIsSkillDuration"] and
+				"Duration" or nil) * calcLib.mod(enemyDB, nil, "Self" .. ailment .. "Duration", "SelfAilmentDuration", "Self" .. ailmentTypeMod .. "AilmentDuration"), 0)
 			durationMod = m_max(durationMod, 0)
 			globalOutput[ailment .. "Duration"] = durationBase * durationMod / rateMod * debuffDurationMult
 

@@ -32,6 +32,7 @@ local displayStats = {
 	{ stat = "ReloadTime", label = "Reload Time", fmt = ".2fs", compPercent = true, lowerIsBetter = true, condFunc = function(v,o) return o.ReloadTime end },
 	{ stat = "PreEffectiveCritChance", label = "Crit Chance", fmt = ".2f%%", flag = "hit" },
 	{ stat = "CritChance", label = "Effective Crit Chance", fmt = ".2f%%", flag = "hit", condFunc = function(v,o) return v ~= o.PreEffectiveCritChance end },
+	{ stat = "CritForks", label = "Crit Forks Chance", fmt = ".2f%%", flag = "hit", condFunc = function(v,o) return (o.CritForks or 0) > 0 end },
 	{ stat = "CritMultiplier", label = "Crit Multiplier", fmt = "d%%", pc = true, condFunc = function(v,o) return (o.CritChance or 0) > 0 end },
 	{ stat = "HitChance", label = "Hit Chance", fmt = ".0f%%", flag = "attack" },
 	{ stat = "HitChance", label = "Hit Chance", fmt = ".0f%%", condFunc = function(v,o) return o.enemyHasSpellBlock end },
@@ -182,6 +183,8 @@ local displayStats = {
 	{ label = "Chaos Resistance", val = "Immune", labelStat = "ChaosResist", color = colorCodes.CHAOS, condFunc = function(o) return o.ChaosInoculation end },
 	{ },
 	{ stat = "EffectiveMovementSpeedMod", label = "Movement Speed Modifier", fmt = "+.1f%%", mod = true, condFunc = function() return true end },
+	{ },
+	{ stat = "PresenceRadiusMetres", label = "Presence Radius", fmt = ".1fm", compPercent = true },
 	--[[ potentially useful mods
 	{ stat = "QuantityMultiplier", label = "Quantity Multiplier", fmt = "+d%%" },
 	{ stat = "StoredUses", label = "Stored Uses", fmt = "d" },

@@ -320,7 +320,7 @@ statMap = {
 
 #skill PlagueBearerNovaPlayer
 #set PlagueBearerNovaPlayer
-#flags
+#flags area
 #mods
 #skillEnd
 
@@ -563,7 +563,10 @@ statMap = {
 #flags buff duration
 statMap = {
 	["trinity_damage_+%_final_to_grant_per_50_resonance"] = {
-		mod("Damage", "MORE", nil, 0, 0, { type = "Multiplier", var = "ResonanceCount", div = 50 },{ type = "GlobalEffect", effectType = "Buff", effectName = "Trinity" }),
+		mod("ElementalDamage", "MORE", nil, 0, 0, { type = "Multiplier", var = "ResonanceCount", div = 30 },{ type = "GlobalEffect", effectType = "Buff", effectName = "Trinity" }),
+	},
+	["trinity_attack_speed_+%_while_all_resonance_is_at_least_250_to_grant"] = {
+		mod("Speed", "INC", nil, 0, 0, { type = "MultiplierThreshold", var = "ResonanceCount", threshold = 250 },{ type = "GlobalEffect", effectType = "Buff", effectName = "Trinity" }),
 	},
 	["quality_display_trinity_is_gem"] = {
 		-- Display only

@@ -97,7 +97,35 @@ local function addWeaponBaseStats(actor)
 		end
 	end
 end
-
+-- Calculate Presence radius
+---@param actor table
+local function calcPresenceRadius(actor)
+	-- Calculate modifications to radius first
+	local baseRadius = actor.modDB:Sum("BASE", nil, "PresenceRadius")
+	local incRadius = actor.modDB:Sum("INC", nil, "PresenceRadius")
+	local moreRadius = actor.modDB:More(nil, "PresenceRadius")
+	local scaledRadius = actor.modDB:Override(nil, "PresenceRadius") or baseRadius * (1 + incRadius / 100) * moreRadius
+	-- Calculate modifications to area second
+	local baseArea = math.pi * (scaledRadius * scaledRadius)
+	local incArea = actor.modDB:Sum("INC", nil, "PresenceArea")
+	local moreArea = actor.modDB:More(nil, "PresenceArea")
+	local scaledArea = actor.modDB:Override(nil, "PresenceArea") or baseArea * (1 + incArea / 100) * moreArea
+	-- Convert back to final radius
+	local finalRadius = math.floor(math.sqrt(scaledArea / math.pi))
+	actor.output["PresenceRadius"] = finalRadius
+	actor.output["PresenceRadiusMetres"] = finalRadius / 10
+	if scaledRadius / baseRadius ~= 1 then actor.output["PresenceMod"] = scaledRadius / baseRadius end
+	if actor.breakdown then
+		actor.breakdown.PresenceRadius = actor.breakdown.area(scaledRadius, (1 + incArea / 100) * moreArea, finalRadius)
+		if baseRadius ~= scaledRadius then
+			actor.breakdown.PresenceMod = {}
+			t_insert(actor.breakdown.PresenceMod, s_format( "%.1fm ^8(base radius)", baseRadius / 10))
+			t_insert(actor.breakdown.PresenceMod, s_format( " x %.2f  ^8(inc)", 1 + incRadius / 100))
+			t_insert(actor.breakdown.PresenceMod, s_format( " x %.2f  ^8(more)", moreRadius))
+			t_insert(actor.breakdown.PresenceMod, s_format( "= %.1fm", scaledRadius / 10))
+		end
+	end
+end
 -- Calculate attributes, and set conditions
 ---@param env table
 ---@param actor table
@@ -349,6 +377,10 @@ local function doActorAttribsConditions(env, actor)
 			end
 		end
 	end
+	-- Calculate Presence value and set condition
+	calcPresenceRadius(actor)
+	local enemyDistance = m_max(modDB:Sum("BASE", nil, "Multiplier:enemyDistance"), 0)
+	condList["EnemyInPresence"] = output.PresenceRadius >= enemyDistance
 end
 
 -- Helper function to determine curse priority when processing curses beyond the curse limit
@@ -921,11 +953,17 @@ function calcs.perform(env, skipEHP)
 		if modDB:Flag(nil, "StrengthAddedToMinions") then
 			env.minion.modDB:NewMod("Str", "BASE", round(calcLib.val(modDB, "Str")), "Player")
 		end
+		if modDB:Flag(nil, "StrengthAddedToCompanions") and env.player.mainSkill.skillTypes[SkillType.Companion] then
+			env.minion.modDB:NewMod("Str", "BASE", round(calcLib.val(modDB, "Str")), "Sturdy Ally")
+		end
 		if modDB:Flag(nil, "HalfStrengthAddedToMinions") then
 			env.minion.modDB:NewMod("Str", "BASE", round(calcLib.val(modDB, "Str") * 0.5), "Player")
 		end
 		if modDB:Flag(nil, "DexterityAddedToMinions") then
 			env.minion.modDB:NewMod("Dex", "BASE", round(calcLib.val(modDB, "Dex")), "Dead can Dance")
+		end
+		if modDB:Flag(nil, "DexterityAddedToCompanions") and env.player.mainSkill.skillTypes[SkillType.Companion] then
+			env.minion.modDB:NewMod("Dex", "BASE", round(calcLib.val(modDB, "Dex")), "Tandem Assault")
 		end
 	end
 	if env.talismanModList then

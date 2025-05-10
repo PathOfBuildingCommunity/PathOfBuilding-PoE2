@@ -612,8 +612,8 @@ local configSettings = {
 		modList:NewMod("Multiplier:TraumaStacks", "BASE", val, "Config", { type = "Condition", var = "Combat" })
 	end },
 	{ label = "Trinity:", ifSkill = "Trinity" },
-	{ var = "configResonanceCount", type = "count", label = "Lowest Resonance Count:", ifSkill = "Trinity", tooltip = "Sets the amount of resonance on the lowest element.", apply = function(val, modList, enemyModList)
-		modList:NewMod("Multiplier:ResonanceCount", "BASE", m_max(m_min(val, 100), 0), "Config")
+	{ var = "configResonanceCount", type = "count", label = "Total Resonance Count:", ifSkill = "Trinity", tooltip = "Sets the total Resonance Count.", apply = function(val, modList, enemyModList)
+		modList:NewMod("Multiplier:ResonanceCount", "BASE", m_max(m_min(val, 300), 0), "Config")
 	end },
 	{ label = "Twister:", ifSkill = "Twister" },
 	{ var = "twisterCold", type = "check", label = "Twister gained ^x3F6DB3Cold^7 Element:", ifSkill = "Twister", tooltip = "Twister has passed over ^x3F6DB3Cold^7 Ground or consumed a ^x3F6DB3Cold^7 Whirlwind.", apply = function(val, modList, enemyModList)
@@ -645,10 +645,23 @@ local configSettings = {
 	{ var = "multiplierWarcryPower", type = "count", label = "Warcry Power:", ifFlag = "UsesWarcryPower", tooltip = "Power determines how strong your Warcry buffs will be, and is based on the total strength of nearby enemies.\nPower is assumed to be 20 if your target is a Boss, but you can override it here if necessary.\n\tEach Normal enemy grants 1 Power\n\tEach Magic enemy grants 2 Power\n\tEach Rare enemy grants 10 Power\n\tEach Unique enemy grants 20 Power", apply = function(val, modList, enemyModList)
 		modList:NewMod("WarcryPower", "OVERRIDE", val, "Config")
 	end },
-	{ label = "Whirlwind Stages:", ifSkill = "Whirlwind Lance" },
-	{ var = "whirlwindStages", type = "count", label = "# of Whirlwind Stages:", ifSkill = "Whirlwind Lance", apply = function(val, modList, enemyModList)
+	{ label = "Whirlwind Stages:", ifSkill = { "Whirlwind Lance", "Whirling Slash" } },
+	{ var = "whirlwindStages", type = "count", label = "# of Whirlwind Stages:", ifSkill = { "Whirlwind Lance", "Whirling Slash" }, apply = function(val, modList, enemyModList)
 		modList:NewMod("Multiplier:WhirlwindStageAfterFirst", "BASE", m_min(val - 1, 3), "Config", { type = "Condition", var = "Combat" })
 		modList:NewMod("Multiplier:WhirlwindStages", "BASE", m_min(val, 4), "Config", { type = "Condition", var = "Combat" })
+	end },
+	{ label = "Whirlwind Buffs:", ifSkill = { "Whirlwind Lance", "Whirling Slash" } },
+	{ var = "whirlwindBuffCold", type = "check", label = "Whirlwind gained ^x3F6DB3Cold^7 Element:", ifSkill = { "Whirlwind Lance", "Whirling Slash" }, tooltip = "Whirlwind has passed over ^x3F6DB3Cold^7 Ground.", apply = function(val, modList, enemyModList)
+		modList:NewMod("Condition:WhirlwindBuffCold", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
+		enemyModList:NewMod("Condition:Chilled", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
+	end },
+	{ var = "whirlwindBuffFire", type = "check", label = "Whirlwind gained ^xB97123Fire^7 Element:", ifSkill = { "Whirlwind Lance", "Whirling Slash" }, tooltip = "Whirlwind has passed over ^xB97123Fire^7 Ground.", apply = function(val, modList, enemyModList)
+		modList:NewMod("Condition:WhirlwindBuffFire", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
+		enemyModList:NewMod("Condition:Ignited", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
+	end },
+	{ var = "whirlwindBuffLightning", type = "check", label = "Whirlwind gained ^xADAA47Lightning^7 Element:", ifSkill = { "Whirlwind Lance", "Whirling Slash" }, tooltip = "Whirlwind has passed over ^xADAA47Lightning^7 Ground.", apply = function(val, modList, enemyModList)
+		modList:NewMod("Condition:WhirlwindBuffLightning", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
+		enemyModList:NewMod("Condition:Shocked", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
 	end },
 	{ label = "Wind Dancer:", ifSkill = "Wind Dancer" },
 	{ var = "windDancerStacks", type = "countAllowZero", label = "# of Wind Dancer Stacks:", ifSkill = "Wind Dancer", apply = function(val, modList, enemyModList)

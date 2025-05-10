@@ -1527,7 +1527,7 @@ skills["SupportElementalDischargePlayer"] = {
 skills["TriggeredElementalDischargePlayer"] = {
 	name = "Elemental Discharge",
 	hidden = true,
-	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.Triggerable] = true, [SkillType.Cooldown] = true, [SkillType.Triggered] = true, },
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.Triggerable] = true, [SkillType.Cooldown] = true, [SkillType.Triggered] = true, [SkillType.Area] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -1561,6 +1561,7 @@ skills["TriggeredElementalDischargePlayer"] = {
 			},
 			baseFlags = {
 				spell = true,
+				area = true,
 			},
 			constantStats = {
 				{ "triggered_by_supported_spell_consuming_ignite_freeze_shock_on_hit_%", 100 },
@@ -1573,6 +1574,7 @@ skills["TriggeredElementalDischargePlayer"] = {
 				"spell_maximum_base_cold_damage_as_%_of_intelligence",
 				"spell_minimum_base_lightning_damage_as_%_of_intelligence",
 				"spell_maximum_base_lightning_damage_as_%_of_intelligence",
+				"is_area_damage",
 			},
 			levels = {
 				[1] = { 40, 60, 80, 120, 1, 120, statInterpolation = { 1, 1, 1, 1, 1, 1, }, actorLevel = 1, },
@@ -1976,7 +1978,7 @@ skills["SupportFieryDeathPlayer"] = {
 }skills["TriggeredFieryDeathPlayer"] = {
 	name = "Fiery Death",
 	hidden = true,
-	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.Fire] = true, [SkillType.TargetsDestructibleCorpses] = true, },
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.Fire] = true, [SkillType.TargetsDestructibleCorpses] = true, [SkillType.Area] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -2002,6 +2004,7 @@ skills["SupportFieryDeathPlayer"] = {
 				{ "corpse_explosion_monster_life_%", 10 },
 			},
 			stats = {
+				"is_area_damage",
 			},
 			levels = {
 				[1] = { actorLevel = 1, },
@@ -2887,7 +2890,7 @@ skills["SupportManaFlarePlayer"] = {
 }skills["TriggeredManaFlarePlayer"] = {
 	name = "Mana Flare",
 	hidden = true,
-	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.Triggerable] = true, [SkillType.Cooldown] = true, [SkillType.Triggered] = true, },
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.Triggerable] = true, [SkillType.Cooldown] = true, [SkillType.Triggered] = true, [SkillType.Area] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -2908,6 +2911,7 @@ skills["SupportManaFlarePlayer"] = {
 			},
 			baseFlags = {
 				spell = true,
+				area = true,
 			},
 			baseMods = {
 				skill("currentManaPercentage", true),
@@ -2918,6 +2922,7 @@ skills["SupportManaFlarePlayer"] = {
 				{ "active_skill_base_area_of_effect_radius", 20 },
 			},
 			stats = {
+				"is_area_damage",
 			},
 			levels = {
 				[1] = { actorLevel = 1, },

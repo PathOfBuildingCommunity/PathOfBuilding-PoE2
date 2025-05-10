@@ -16,7 +16,7 @@ local skills, mod, flag, skill = ...
 #from tree
 #skill BleedingConcoctionPlayer
 #set BleedingConcoctionPlayer
-#flags attack projectile unarmed
+#flags attack projectile unarmed area
 statMap = {
 	["flask_throw_bleed_effect_+%_final"] = {
 		mod("AilmentMagnitude", "MORE", nil, 0, KeywordFlag.Bleed),
@@ -150,7 +150,7 @@ statMap = {
 #from tree
 #skill ExplosiveConcoctionPlayer
 #set ExplosiveConcoctionPlayer
-#flags attack projectile duration unarmed
+#flags attack projectile duration unarmed area
 statMap = {
 	["flask_throw_fire_exposure_ms"] = {
 		mod("FireExposureChance", "BASE", nil),
@@ -163,7 +163,7 @@ statMap = {
 #from tree
 #skill FulminatingConcoctionPlayer
 #set FulminatingConcoctionPlayer
-#flags attack projectile duration unarmed
+#flags attack projectile duration unarmed area
 statMap = {
 	["flask_throw_lightning_exposure_ms"] = {
 		mod("LightningExposureChance", "BASE", nil),
@@ -221,6 +221,13 @@ statMap = {
 #mods
 #skillEnd
 
+#from item
+#skill ChaosSpearTriggerChaosInfusionPlayer
+#set ChaosSpearTriggerChaosInfusionPlayer
+#flags attack area
+#mods
+#skillEnd
+
 #from tree
 #minionList ManifestWeapon
 #skill ManifestWeaponPlayer
@@ -255,7 +262,7 @@ statMap = {
 #from tree
 #skill PoisonousConcoctionPlayer
 #set PoisonousConcoctionPlayer
-#flags attack projectile unarmed
+#flags attack projectile unarmed area
 statMap = {
 	["flask_throw_poison_effect_+%_final"] = {
 		mod("AilmentMagnitude", "MORE", nil, 0, KeywordFlag.Poison),
@@ -295,7 +302,7 @@ statMap = {
 #from tree
 #skill ShatteringConcoctionPlayer
 #set ShatteringConcoctionPlayer
-#flags attack projectile duration unarmed
+#flags attack projectile duration unarmed area
 statMap = {
 	["flask_throw_cold_exposure_ms"] = {
 		mod("ColdExposureChance", "BASE", nil),

@@ -315,6 +315,7 @@ skills["SupportBattershoutPlayer"] = {
 				"cannot_break_armour",
 				"consume_armour_break_to_trigger_battershout_explosion",
 				"is_area_damage",
+				"is_warcry",
 			},
 			levels = {
 				[1] = { actorLevel = 1, },
