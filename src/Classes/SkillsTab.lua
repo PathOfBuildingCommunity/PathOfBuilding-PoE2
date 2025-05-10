@@ -1155,7 +1155,7 @@ function SkillsTabClass:AddSocketGroupTooltip(tooltip, socketGroup)
 			tooltip:AddLine(16, "^7Active Skill #" .. index .. "'s Main Minion Skill:")
 			local activeEffect = activeSkill.minion.mainSkill.effectList[1]
 			tooltip:AddLine(20, string.format("%s%s ^7%d/%d",
-				data.skillColorMap[activeEffect.grantedEffect.color],
+				data.skillColorMap[activeEffect.grantedEffect.color] or colorCodes.NORMAL,
 				activeEffect.grantedEffect.name,
 				activeEffect.level,
 				activeEffect.quality

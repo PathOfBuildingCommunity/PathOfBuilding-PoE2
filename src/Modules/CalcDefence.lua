@@ -180,13 +180,17 @@ function calcs.doActorLifeManaSpiritReservation(actor)
 			local pool = { ["Mana"] = { }, ["Life"] = { }, ["Spirit"] = { } }
 			if activeSkill.skillCfg.skillName:sub(1, 10) == "Companion:" and activeSkill.activeEffect.srcInstance.displayEffect and activeSkill.minion then
 				activeSkill.skillData.spiritReservationPercent = activeSkill.minion.minionData.companionReservation
-				activeSkill.activeEffect.srcInstance.displayEffect.grantedEffect.name = "Companion: "..activeSkill.minion.minionData.name
-				--activeSkill.activeEffect.grantedEffect.name = "Companion: "..activeSkill.minion.minionData.name
+				activeSkill.activeEffect.srcInstance.displayEffect.grantedEffect.name = "Companion: "..activeSkill.minion.minionData.name -- for breakdown
+				activeSkill.activeEffect.srcInstance.nameSpec = "Companion: "..activeSkill.minion.minionData.name -- for socket group
+				activeSkill.activeEffect.srcInstance.displayEffect.nameSpec = "Companion: "..activeSkill.minion.minionData.name-- for tooltip
+				activeSkill.activeEffect.srcInstance.gemData.nameSpec = "Companion: "..activeSkill.minion.minionData.name
 			end
 			if activeSkill.skillCfg.skillName:sub(1, 8) == "Spectre:" and activeSkill.activeEffect.srcInstance.displayEffect and activeSkill.minion then
 				activeSkill.skillData.spiritReservationFlat = activeSkill.minion.minionData.spectreReservation
-				activeSkill.activeEffect.srcInstance.displayEffect.grantedEffect.name = "Spectre: "..activeSkill.minion.minionData.name
-				--activeSkill.activeEffect.grantedEffect.name = "Spectre: "..activeSkill.minion.minionData.name
+				activeSkill.activeEffect.srcInstance.displayEffect.grantedEffect.name = "Spectre: "..activeSkill.minion.minionData.name-- for breakdown
+				activeSkill.activeEffect.srcInstance.nameSpec = "Spectre: "..activeSkill.minion.minionData.name -- for socket group
+				activeSkill.activeEffect.srcInstance.displayEffect.nameSpec = "Spectre: "..activeSkill.minion.minionData.name-- for tooltip
+				activeSkill.activeEffect.srcInstance.gemData.nameSpec = "Spectre: "..activeSkill.minion.minionData.name
 			end
 			pool.Mana.baseFlat = activeSkill.skillData.manaReservationFlat or activeSkill.activeEffect.grantedEffectLevel.manaReservationFlat or 0
 			pool.Spirit.baseFlat = activeSkill.skillData.spiritReservationFlat or activeSkill.activeEffect.grantedEffectLevel.spiritReservationFlat or 0

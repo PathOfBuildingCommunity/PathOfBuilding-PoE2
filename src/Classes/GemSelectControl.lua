@@ -529,7 +529,11 @@ function GemSelectClass:AddGemTooltip(gemInstance)
 	local grantedEffect = gemInstance.gemData.grantedEffect
 	local additionalEffects = gemInstance.gemData.additionalGrantedEffects
 
-	self.tooltip:AddLine(20, colorCodes.GEM .. grantedEffect.name)
+	if grantedEffect.name:sub(1,8) == "Spectre:" or grantedEffect.name:sub(1,10) == "Companion:" then
+		self.tooltip:AddLine(20, colorCodes.GEM .. (gemInstance.displayEffect and gemInstance.displayEffect.nameSpec or gemInstance.gemData.name))	
+	else
+		self.tooltip:AddLine(20, colorCodes.GEM .. grantedEffect.name)
+	end
 	self.tooltip:AddSeparator(10)
 	self.tooltip:AddLine(18, colorCodes.NORMAL .. gemInstance.gemData.gemType)
 	if gemInstance.gemData.tagString ~= "" then
@@ -607,7 +611,6 @@ function GemSelectClass:AddGrantedEffectInfo(gemInstance, grantedEffect, addReq)
 			for id, spectre in pairs(spectreList) do
 				if id == selectedMinion then
 					grantedEffectLevel.spiritReservationPercent = spectre.companionReservation
-					--self:SetText("Companion: "..spectre.name)
 				end
 			end
 		end
