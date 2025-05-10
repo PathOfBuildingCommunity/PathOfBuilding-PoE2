@@ -1385,7 +1385,7 @@ return {
 ["is_hazard"] = {
 	flag("CanCreateHazards"),
 	skill("isHazard", "FLAG", nil),
-	{ mod("Damage", "MORE", nil, 0, 0, { type = "Multiplier", var = "ChanceToRearm" }, { type = "SkillType", skillType = SkillType.Hazard }),
+	{ mod("DPS", "MORE", nil, 0, 0, { type = "Multiplier", var = "ChanceToRearm" }, { type = "SkillType", skillType = SkillType.Hazard }),
 	value = 1 }
 },
 -- Other effects
