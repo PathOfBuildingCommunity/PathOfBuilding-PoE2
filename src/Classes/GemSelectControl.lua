@@ -596,7 +596,7 @@ function GemSelectClass:AddGrantedEffectInfo(gemInstance, grantedEffect, addReq)
 			self.tooltip:AddLine(16, string)
 		end
 	else
-		if gemInstance.nameSpec:sub(1, 8) == "Spectre:" then
+		if gemInstance.nameSpec:match("^Spectre:") then
 			local spectreList = data.spectres
 			local selectedMinion = gemInstance.skillMinion
 			for id, spectre in pairs(spectreList) do
@@ -605,7 +605,7 @@ function GemSelectClass:AddGrantedEffectInfo(gemInstance, grantedEffect, addReq)
 				end
 			end
 		end
-		if gemInstance.nameSpec:sub(1, 10) == "Companion:" then
+		if gemInstance.nameSpec:match("^Companion:") then
 			local spectreList = data.spectres
 			local selectedMinion = gemInstance.skillMinion
 			for id, spectre in pairs(spectreList) do

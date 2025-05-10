@@ -178,13 +178,13 @@ function calcs.doActorLifeManaSpiritReservation(actor)
 			local skillCfg = activeSkill.skillCfg
 			local mult = floor(skillModList:More(skillCfg, "ReservationMultiplier"), 4)
 			local pool = { ["Mana"] = { }, ["Life"] = { }, ["Spirit"] = { } }
-			if activeSkill.skillCfg.skillName:sub(1, 10) == "Companion:" and activeSkill.activeEffect.srcInstance.displayEffect and activeSkill.minion then
+			if activeSkill.skillCfg.skillName:match("^Companion:") and activeSkill.activeEffect.srcInstance.displayEffect and activeSkill.minion then
 				activeSkill.skillData.spiritReservationPercent = activeSkill.minion.minionData.companionReservation
 				activeSkill.activeEffect.srcInstance.displayEffect.grantedEffect.name = "Companion: "..activeSkill.minion.minionData.name -- for breakdown
 				activeSkill.activeEffect.srcInstance.nameSpec = "Companion: "..activeSkill.minion.minionData.name -- for socket group
 				activeSkill.activeEffect.srcInstance.displayEffect.nameSpec = "Companion: "..activeSkill.minion.minionData.name-- for tooltip
 			end
-			if activeSkill.skillCfg.skillName:sub(1, 8) == "Spectre:" and activeSkill.activeEffect.srcInstance.displayEffect and activeSkill.minion then
+			if activeSkill.skillCfg.skillName:match("^Spectre:") and activeSkill.activeEffect.srcInstance.displayEffect and activeSkill.minion then
 				activeSkill.skillData.spiritReservationFlat = activeSkill.minion.minionData.spectreReservation
 				activeSkill.activeEffect.srcInstance.displayEffect.grantedEffect.name = "Spectre: "..activeSkill.minion.minionData.name-- for breakdown
 				activeSkill.activeEffect.srcInstance.nameSpec = "Spectre: "..activeSkill.minion.minionData.name -- for socket group

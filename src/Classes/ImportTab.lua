@@ -692,10 +692,10 @@ function ImportTabClass:ImportItemsAndSkills(charData)
 		local typeLine = sanitiseText(skillData.typeLine) .. (skillData.support and " Support" or "")
 		local gemId = self.build.data.gemForBaseName[typeLine:lower()]
 		
-		if typeLine:sub(1, 8) == "Spectre:" then
+		if typeLine:match("^Spectre:") then
 			gemId = "Metadata/Items/Gems/SkillGemSummonSpectre"
 		end		
-		if typeLine:sub(1, 10) == "Companion:" then
+		if typeLine:match("^Companion:") then
 			gemId = "Metadata/Items/Gems/SkillGemSummonBeast"
 		end
 
