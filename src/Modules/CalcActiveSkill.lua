@@ -896,7 +896,7 @@ function calcs.createMinionSkills(env, activeSkill)
 	end
 	if #skillIdList == 0 then
 		-- Not ideal, but let's avoid horrible crashes if a spectre has no skills for some reason
-		t_insert(skillIdList, "Melee")
+		t_insert(skillIdList, "MeleeAtAnimationSpeed")
 	end
 	for _, skillId in ipairs(skillIdList) do
 		local activeEffect = {

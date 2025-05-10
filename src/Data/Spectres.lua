@@ -478,7 +478,34 @@ minions["Metadata/Monsters/SerpentClanMonster/SerpentClanCaster"] = {
 }
 
 -- Shade
---spectre Metadata/Monsters/VaalMonsters/Machinarium/Wraith/ProwlingShade
+minions["Metadata/Monsters/VaalMonsters/Machinarium/Wraith/ProwlingShade"] = {
+	name = "Prowling Shade",
+	monsterTags = { "allows_inc_aoe", "caster", "Claw_onhit_audio", "cold_affinity", "fast_movement", "ghost", "ghost_blood", "melee", "not_str", "undead", },
+	life = 2.25,
+	baseDamageIgnoresAttackSpeed = true,
+	energyShield = 0.132,
+	evasion = 0.33,
+	fireResist = 0,
+	coldResist = 75,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 2.25,
+	damageSpread = 0.2,
+	attackTime = 1.32,
+	attackRange = 16,
+	accuracy = 1,
+	spectreReservation = 110,
+	companionReservation = 45,
+	monsterCategory = "Undead",
+	skillList = {
+		"MeleeAtAnimationSpeedComboTEMP",
+		"GSProwlingShadeIceBeam",
+		"DTTProwlingShadeDash",
+		"MeleeAtAnimationSpeedComboTEMP2",
+	},
+	modList = {
+	},
+}
 
 --Terracotta Soldier
 minions["Metadata/Monsters/TerracottaGuardians/TerracottaGuardianSceptre"] = {

@@ -44,7 +44,7 @@ local minions, mod, flag = ...
 #spectre Metadata/Monsters/SerpentClanMonster/SerpentClanCaster
 
 -- Shade
---spectre Metadata/Monsters/VaalMonsters/Machinarium/Wraith/ProwlingShade
+#spectre Metadata/Monsters/VaalMonsters/Machinarium/Wraith/ProwlingShade
 
 --Terracotta Soldier
 #spectre Metadata/Monsters/TerracottaGuardians/TerracottaGuardianSceptre

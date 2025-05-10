@@ -107,6 +107,12 @@ local skills, mod, flag, skill = ...
 #mods
 #skillEnd
 
+#skill GSProwlingShadeIceBeam Ice Beam
+#set GSProwlingShadeIceBeam
+#flags triggerable spell hit
+#mods
+#skillEnd
+
 #skill MeleeAtAnimationSpeedComboTEMP
 #set MeleeAtAnimationSpeedComboTEMP
 #flags attack melee

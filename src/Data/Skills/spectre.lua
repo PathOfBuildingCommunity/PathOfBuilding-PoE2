@@ -596,6 +596,43 @@ skills["GSHellscapePaleEliteOmegaBeam"] = {
 		},
 	}
 }
+skills["GSProwlingShadeIceBeam"] = {
+	name = "Ice Beam",
+	hidden = true,
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, },
+	castTime = 3.2,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { critChance = 8, storedUses = 1, levelRequirement = 0, cooldown = 8, },
+	},
+	statSets = {
+		[1] = {
+			label = "Ice Beam",
+			baseEffectiveness = 5.5,
+			incrementalEffectiveness = 0.10000000149012,
+			damageIncrementalEffectiveness = 0.017500000074506,
+			statDescriptionScope = "geometry_spell",
+			baseFlags = {
+				triggerable = true,
+				spell = true,
+				hit = true,
+			},
+			constantStats = {
+				{ "active_skill_hit_damage_freeze_multiplier_+%_final", 250 },
+				{ "spell_maximum_action_distance_+%", -45 },
+			},
+			stats = {
+				"spell_minimum_base_cold_damage",
+				"spell_maximum_base_cold_damage",
+				"is_area_damage",
+			},
+			levels = {
+				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 35, },
+			},
+		},
+	}
+}
 skills["MeleeAtAnimationSpeedComboTEMP"] = {
 	name = "Basic Attack",
 	hidden = true,
