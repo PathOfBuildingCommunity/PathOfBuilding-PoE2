@@ -104,10 +104,23 @@ local CalcsTabClass = newClass("CalcsTab", "UndoHandler", "ControlHost", "Contro
 			control = new("DropDownControl", nil, {0, 0, 160, 16}, nil, function(index, value)
 				local mainSocketGroup = self.build.skillsTab.socketGroupList[self.input.skill_number]
 				local srcInstance = mainSocketGroup.displaySkillListCalcs[mainSocketGroup.mainActiveSkillCalcs].activeEffect.srcInstance
+				-- Synchronize DropDownControl between CalcActiveSkill and skillMinionCalcs
 				if value.itemSetId then
 					srcInstance.skillMinionItemSetCalcs = value.itemSetId
+					srcInstance.skillMinionItemSet = value.itemSetId
+					if srcInstance.nameSpec:sub(1,8) == "Spectre:" then
+						srcInstance.nameSpec = "Spectre: ".. value.label
+					elseif srcInstance.nameSpec:sub(1,10) == "Companion:" then
+						srcInstance.nameSpec = "Spectre: ".. value.label
+					end
 				else
 					srcInstance.skillMinionCalcs = value.minionId
+					srcInstance.skillMinion = value.minionId
+					if srcInstance.nameSpec:sub(1,8) == "Spectre:" then
+						srcInstance.nameSpec = "Spectre: ".. value.label
+					elseif srcInstance.nameSpec:sub(1,10) == "Companion:" then
+						srcInstance.nameSpec = "Spectre: ".. value.label
+					end
 				end
 				self:AddUndoState()
 				self.build.buildFlag = true

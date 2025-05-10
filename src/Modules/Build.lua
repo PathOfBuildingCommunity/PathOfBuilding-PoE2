@@ -490,8 +490,20 @@ function buildMode:Init(dbFileName, buildName, buildXML, convertBuild, importLin
 		local srcInstance = mainSocketGroup.displaySkillList[mainSocketGroup.mainActiveSkill].activeEffect.srcInstance
 		if value.itemSetId then
 			srcInstance.skillMinionItemSet = value.itemSetId
+			srcInstance.skillMinionItemSetCalcs = value.itemSetId
+			if srcInstance.nameSpec:sub(1,8) == "Spectre:" then
+				srcInstance.nameSpec = "Spectre: ".. value.label
+			elseif srcInstance.nameSpec:sub(1,10) == "Companion:" then
+				srcInstance.nameSpec = "Spectre: ".. value.label
+			end
 		else
 			srcInstance.skillMinion = value.minionId
+			srcInstance.skillMinionCalcs = value.minionId
+			if srcInstance.nameSpec:sub(1,8) == "Spectre:" then
+				srcInstance.nameSpec = "Spectre: ".. value.label
+			elseif srcInstance.nameSpec:sub(1,10) == "Companion:" then
+				srcInstance.nameSpec = "Spectre: ".. value.label
+			end
 		end
 		self.modFlag = true
 		self.buildFlag = true
