@@ -515,7 +515,6 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 		skillModList:NewMod("Damage", "MORE", -100 * activeSkill.actor.minionData.damageFixup, "Damage Fixup", ModFlag.Attack)
 		skillModList:NewMod("Speed", "MORE", 100 * activeSkill.actor.minionData.damageFixup, "Damage Fixup", ModFlag.Attack)
 	end
-
 	if skillModList:Flag(activeSkill.skillCfg, "DisableSkill") and not skillModList:Flag(activeSkill.skillCfg, "EnableSkill") then
 		skillFlags.disable = true
 		activeSkill.disableReason = "Skills of this type are disabled"
@@ -534,7 +533,6 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 		activeEffect.grantedEffectLevel = grantedEffectLevel
 		return
 	end
-
 	-- Add support gem modifiers to skill mod list
 	for _, skillEffect in pairs(activeSkill.effectList) do
 		if skillEffect.grantedEffect.support then
@@ -551,7 +549,7 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 			end
 			if level.spiritReservationFlat then
 				skillModList:NewMod("ExtraSpirit", "BASE", level.spiritReservationFlat, skillEffect.grantedEffect.modSource)
-			end	
+			end
 			-- Handle multiple triggers situation and if triggered by a trigger skill save a reference to the trigger.
 			local match = skillEffect.grantedEffect.addSkillTypes and (not skillFlags.disable)
 			if match and skillEffect.grantedEffect.isTrigger then
@@ -684,13 +682,20 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 	end
 
 	-- Create minion
-	local minionList, isSpectre
-	if activeGrantedEffect.minionList then
+	local minionList, isSpectre, isBeastCompanion
+	if activeGrantedEffect.minionList and activeGrantedEffect.name:match("^Spectre") then
 		if activeGrantedEffect.minionList[1] then
 			minionList = copyTable(activeGrantedEffect.minionList)
 		else
 			minionList = copyTable(env.build.spectreList)
 			isSpectre = true
+		end
+	elseif activeGrantedEffect.minionList and activeGrantedEffect.name:match("^Companion") then
+		if activeGrantedEffect.minionList[1] then
+			minionList = copyTable(activeGrantedEffect.minionList)
+		else
+			minionList = copyTable(env.build.beastList)
+			isBeastCompanion = true
 		end
 	else
 		minionList = { }
@@ -891,7 +896,7 @@ function calcs.createMinionSkills(env, activeSkill)
 	end
 	if #skillIdList == 0 then
 		-- Not ideal, but let's avoid horrible crashes if a spectre has no skills for some reason
-		t_insert(skillIdList, "Melee")
+		t_insert(skillIdList, "MeleeAtAnimationSpeed")
 	end
 	for _, skillId in ipairs(skillIdList) do
 		local activeEffect = {

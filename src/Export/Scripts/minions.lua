@@ -46,14 +46,18 @@ local itemClassMap = {
 	["Thrusting One Hand Sword"] = "One Handed Sword",
 	["One Hand Axe"] = "One Handed Axe",
 	["One Hand Mace"] = "One Handed Mace",
+	["Crossbow"] = "Crossbow",
 	["Bow"] = "Bow",
 	["Fishing Rod"] = "Fishing Rod",
 	["Staff"] = "Staff",
+	["Warstaff"] = "Warstaff",
 	["Two Hand Sword"] = "Two Handed Sword",
 	["Two Hand Axe"] = "Two Handed Axe",
 	["Two Hand Mace"] = "Two Handed Mace",
 	["Shield"] = "Shield",
 	["Sceptre"] = "One Handed Mace",
+	["Flail"] = "Flail",
+	["Spear"] = "Spear",
 	["Unarmed"] = "None",
 }
 
@@ -153,6 +157,13 @@ directiveTable.emit = function(state, args, out)
 	if state.limit then
 		out:write('\tlimit = "', state.limit, '",\n')
 	end
+	if monsterVariety.ExperienceMultiplier then
+		out:write('\tspectreReservation = ', (round(50 * math.max(monsterVariety.ExperienceMultiplier/100, 0) / 10) * 10), ',\n')
+		out:write('\tcompanionReservation = ', (round(math.sqrt(monsterVariety.ExperienceMultiplier/100), 2) * 30), ',\n') 
+	end
+	if monsterVariety.MonsterCategory then
+		out:write('\tmonsterCategory = "', (monsterVariety.MonsterCategory.Type), '",\n')
+	end
 	out:write('\tskillList = {\n')
 	for _, grantedEffect in ipairs(monsterVariety.GrantedEffects) do
 		out:write('\t\t"', grantedEffect.Id, '",\n')
@@ -202,8 +213,8 @@ directiveTable.spectre = function(state, args, out)
 	directiveTable.emit(state, "", out)
 end
 
---for _, name in pairs({"Spectres","Minions"}) do -- Add back when Spectres are in the game again
-for _, name in pairs({"Minions"}) do
+for _, name in pairs({"Spectres","Minions"}) do -- Add back when Spectres are in the game again
+--for _, name in pairs({"Minions"}) do
 	processTemplateFile(name, "Minions/", "../Data/", directiveTable)
 end
 

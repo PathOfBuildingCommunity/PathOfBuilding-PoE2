@@ -10913,8 +10913,8 @@ return {
 		},
 		[118]={
 			list=false,
-			name="",
-			refTo="",
+			name="MonsterCategory",
+			refTo="MonsterCategories",
 			type="Key",
 			width=150
 		}

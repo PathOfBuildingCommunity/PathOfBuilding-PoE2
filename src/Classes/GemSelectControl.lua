@@ -529,7 +529,11 @@ function GemSelectClass:AddGemTooltip(gemInstance)
 	local grantedEffect = gemInstance.gemData.grantedEffect
 	local additionalEffects = gemInstance.gemData.additionalGrantedEffects
 
-	self.tooltip:AddLine(20, colorCodes.GEM .. grantedEffect.name)
+	if grantedEffect.name:match("^Spectre:") or grantedEffect.name:match("^Companion:") then
+		self.tooltip:AddLine(20, colorCodes.GEM .. (gemInstance.displayEffect and gemInstance.displayEffect.nameSpec or gemInstance.gemData.name))	
+	else
+		self.tooltip:AddLine(20, colorCodes.GEM .. grantedEffect.name)
+	end
 	self.tooltip:AddSeparator(10)
 	self.tooltip:AddLine(18, colorCodes.NORMAL .. gemInstance.gemData.gemType)
 	if gemInstance.gemData.tagString ~= "" then
@@ -592,8 +596,29 @@ function GemSelectClass:AddGrantedEffectInfo(gemInstance, grantedEffect, addReq)
 			self.tooltip:AddLine(16, string)
 		end
 	else
+		if gemInstance.nameSpec:match("^Spectre:") then
+			local spectreList = data.spectres
+			local selectedMinion = gemInstance.skillMinion
+			for id, spectre in pairs(spectreList) do
+				if id == selectedMinion then
+					grantedEffectLevel.spiritReservationFlat = spectre.spectreReservation
+				end
+			end
+		end
+		if gemInstance.nameSpec:match("^Companion:") then
+			local spectreList = data.spectres
+			local selectedMinion = gemInstance.skillMinion
+			for id, spectre in pairs(spectreList) do
+				if id == selectedMinion then
+					grantedEffectLevel.spiritReservationPercent = spectre.companionReservation
+				end
+			end
+		end
 		if grantedEffectLevel.spiritReservationFlat then
 			self.tooltip:AddLine(16, string.format("^x7F7F7FReservation: ^7%d Spirit", grantedEffectLevel.spiritReservationFlat))
+		end
+		if grantedEffectLevel.spiritReservationPercent then
+			self.tooltip:AddLine(16, string.format("^x7F7F7FReservation: ^7%.1f%% Spirit", grantedEffectLevel.spiritReservationPercent))
 		end
 		local cost
 		for _, res in ipairs(self.costs) do
