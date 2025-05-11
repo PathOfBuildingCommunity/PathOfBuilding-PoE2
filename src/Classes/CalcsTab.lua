@@ -111,7 +111,7 @@ local CalcsTabClass = newClass("CalcsTab", "UndoHandler", "ControlHost", "Contro
 					if srcInstance.nameSpec:match("^Spectre:") then
 						srcInstance.nameSpec = "Spectre: ".. value.label
 					elseif srcInstance.nameSpec:match("^Companion:") then
-						srcInstance.nameSpec = "Spectre: ".. value.label
+						srcInstance.nameSpec = "Companion: ".. value.label
 					end
 				else
 					srcInstance.skillMinionCalcs = value.minionId
@@ -119,7 +119,7 @@ local CalcsTabClass = newClass("CalcsTab", "UndoHandler", "ControlHost", "Contro
 					if srcInstance.nameSpec:match("^Spectre:") then
 						srcInstance.nameSpec = "Spectre: ".. value.label
 					elseif srcInstance.nameSpec:match("^Companion:") then
-						srcInstance.nameSpec = "Spectre: ".. value.label
+						srcInstance.nameSpec = "Companion: ".. value.label
 					end
 				end
 				self:AddUndoState()

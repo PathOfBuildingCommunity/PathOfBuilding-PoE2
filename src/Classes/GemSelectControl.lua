@@ -596,22 +596,11 @@ function GemSelectClass:AddGrantedEffectInfo(gemInstance, grantedEffect, addReq)
 			self.tooltip:AddLine(16, string)
 		end
 	else
-		if gemInstance.nameSpec:match("^Spectre:") then
-			local spectreList = data.spectres
-			local selectedMinion = gemInstance.skillMinion
-			for id, spectre in pairs(spectreList) do
-				if id == selectedMinion then
-					grantedEffectLevel.spiritReservationFlat = spectre.spectreReservation
-				end
-			end
-		end
-		if gemInstance.nameSpec:match("^Companion:") then
-			local spectreList = data.spectres
-			local selectedMinion = gemInstance.skillMinion
-			for id, spectre in pairs(spectreList) do
-				if id == selectedMinion then
-					grantedEffectLevel.spiritReservationPercent = spectre.companionReservation
-				end
+		if gemInstance.skillMinion then
+			if gemInstance.nameSpec:match("^Spectre:") then
+				grantedEffectLevel.spiritReservationFlat = data.spectres[gemInstance.skillMinion].spectreReservation
+			elseif gemInstance.nameSpec:match("^Companion:") then
+				grantedEffectLevel.spiritReservationFlat = data.spectres[gemInstance.skillMinion].companionReservation
 			end
 		end
 		if grantedEffectLevel.spiritReservationFlat then

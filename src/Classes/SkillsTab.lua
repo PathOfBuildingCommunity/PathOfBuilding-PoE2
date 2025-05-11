@@ -303,7 +303,9 @@ function SkillsTabClass:LoadSkill(node, skillSetId)
 			if gemData then
 				gemInstance.gemId = gemData.id
 				gemInstance.skillId = gemData.grantedEffectId
-				gemInstance.nameSpec = gemData.nameSpec
+				if gemData.nameSpec then
+					gemInstance.nameSpec = gemData.nameSpec
+				end
 			end
 		elseif child.attrib.skillId then
 			local grantedEffect = self.build.data.skills[child.attrib.skillId]
