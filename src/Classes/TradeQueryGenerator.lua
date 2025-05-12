@@ -419,6 +419,7 @@ function TradeQueryGeneratorClass:InitMods()
 	for name, modLines in pairs(data.itemMods.Runes) do
 		self:ProcessMod(modLines.armour, tradeQueryStatsParsed, regularItemMask, { ["Shield"] = true, ["Chest"] = true, ["Helmet"] = true, ["Gloves"] = true, ["Boots"] = true, ["Focus"] = true })
 		self:ProcessMod(modLines.weapon, tradeQueryStatsParsed, regularItemMask, { ["1HWeapon"] = true, ["2HWeapon"] = true, ["1HMace"] = true, ["Claw"] = true, ["Quarterstaff"] = true, ["Bow"] = true, ["2HMace"] = true, ["Crossbow"] = true, ["Spear"] = true, ["Flail"] = true  })
+		self:ProcessMod(modLines.caster, tradeQueryStatsParsed, regularItemMask, { ["Wand"] = true, ["Staff"] = true })
 	end
 
 	local queryModsFile = io.open(queryModFilePath, 'w')

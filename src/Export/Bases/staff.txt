@@ -2,6 +2,7 @@
 local itemBases = ...
 
 #type Staff
+#socketLimit 3
 #baseMatch BaseType Metadata/Items/Staves/AbstractStaff
 
 #type Staff
