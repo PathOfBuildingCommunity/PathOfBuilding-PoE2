@@ -728,7 +728,7 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 			minion.level = m_min(m_max(minion.level,1),100) 
 			minion.itemList = { }
 			minion.uses = activeGrantedEffect.minionUses
-			minion.lifeTable =env.data.monsterAllyLifeTable
+			minion.lifeTable = env.data.monsterAllyLifeTable
 			local attackTime = minion.minionData.attackTime
 			local damage = (isSpectre and env.data.monsterDamageTable[minion.level] or env.data.monsterAllyDamageTable[minion.level]) * minion.minionData.damage
 			if not minion.minionData.baseDamageIgnoresAttackSpeed then -- minions with this flag do not factor attack time into their base damage

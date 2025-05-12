@@ -886,7 +886,7 @@ function calcs.perform(env, skipEHP)
 		calcs.initModDB(env, env.minion.modDB)
 		env.minion.modDB:NewMod("Life", "BASE", m_floor(env.minion.lifeTable[env.minion.level] * env.minion.minionData.life), "Base")
 		if env.minion.minionData.energyShield then
-			env.minion.modDB:NewMod("EnergyShield", "BASE", m_floor(env.data.monsterAllyLifeTable[env.minion.level] * env.minion.minionData.life * env.minion.minionData.energyShield), "Base")
+			env.minion.modDB:NewMod("LifeConvertToEnergyShield", "BASE", env.minion.minionData.energyShield * 100, "Base")
 		end
 		--Armour formula is math.floor((10 + 2 * level) * 1.067 ^ level)
 		env.minion.modDB:NewMod("Armour", "BASE", round(env.data.monsterArmourTable[env.minion.level] * (env.minion.minionData.armour or 1)), "Base")
