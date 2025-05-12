@@ -241,6 +241,91 @@ minions["Metadata/Monsters/ShellMonster/ShellMonsterPoison"] = {
 	},
 }
 
+-- Cultists
+minions["Metadata/Monsters/CrazedCannibalPicts/PictFemaleBow"] = {
+	name = "Cultist Archer",
+	monsterTags = { "allows_additional_projectiles", "allows_inc_aoe", "Arrow_onhit_audio", "azmeri_cultist_monster", "chaos_affinity", "cultist", "fast_movement", "human", "humanoid", "monster_barely_moves", "not_int", "not_str", "physical_affinity", "ranged", "red_blood", },
+	life = 1.3,
+	baseDamageIgnoresAttackSpeed = true,
+	evasion = 0.4,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1.3,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 65,
+	accuracy = 1,
+	weaponType1 = "Bow",
+	spectreReservation = 70,
+	companionReservation = 34.2,
+	monsterCategory = "Humanoid",
+	skillList = {
+		"MeleeAtAnimationSpeedBow",
+		"AzmeriPictBowRainOfSpores",
+		"MPWAzmeriPictBowSnipe",
+		"SOAzmeriPictBowSpore",
+		"GAAzmeriVirulentPod",
+	},
+	modList = {
+	},
+}
+minions["Metadata/Monsters/CrazedCannibalPicts/PictFemaleDaggerDagger"] = {
+	name = "Cultist Daggerdancer",
+	monsterTags = { "azmeri_cultist_monster", "Claw_onhit_audio", "cultist", "fast_movement", "human", "humanoid", "melee", "not_int", "not_str", "physical_affinity", "red_blood", },
+	life = 1,
+	baseDamageIgnoresAttackSpeed = true,
+	evasion = 0.4,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 7,
+	accuracy = 1,
+	weaponType1 = "Dagger",
+	weaponType2 = "Dagger",
+	spectreReservation = 50,
+	companionReservation = 30,
+	monsterCategory = "Humanoid",
+	skillList = {
+		"MeleeAtAnimationSpeedComboTEMP",
+	},
+	modList = {
+	},
+}
+minions["Metadata/Monsters/CrazedCannibalPicts/PictFemaleStaff"] = {
+	name = "Cultist Witch",
+	monsterTags = { "2HBluntWood_onhit_audio", "allows_additional_projectiles", "allows_inc_aoe", "azmeri_cultist_monster", "caster", "chaos_affinity", "cultist", "human", "humanoid", "monster_barely_moves", "not_dex", "not_str", "ranged", "red_blood", "very_slow_movement", },
+	life = 2,
+	baseDamageIgnoresAttackSpeed = true,
+	energyShield = 0.08,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 2,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 12,
+	accuracy = 1,
+	weaponType1 = "Staff",
+	spectreReservation = 100,
+	companionReservation = 42.3,
+	monsterCategory = "Humanoid",
+	skillList = {
+		"MPSAzmeriPictStaffProj",
+		"MPSAzmeriPictStaffProj2",
+		"AzmeriPictStaffTeleport",
+		"CGEAzmeriPictStaffSwampGround",
+	},
+	modList = {
+	},
+}
+
 -- Demon
 minions["Metadata/Monsters/Sanctified/Monstrosity/SanctifiedMonstrosity"] = {
 	name = "Fettered Monstrosity",

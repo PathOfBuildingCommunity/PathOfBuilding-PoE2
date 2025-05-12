@@ -19,6 +19,11 @@ local minions, mod, flag = ...
 #spectre Metadata/Monsters/ShellMonster/ShellMonster
 #spectre Metadata/Monsters/ShellMonster/ShellMonsterPoison
 
+-- Cultists
+#spectre Metadata/Monsters/CrazedCannibalPicts/PictFemaleBow
+#spectre Metadata/Monsters/CrazedCannibalPicts/PictFemaleDaggerDagger
+#spectre Metadata/Monsters/CrazedCannibalPicts/PictFemaleStaff
+
 -- Demon
 #spectre Metadata/Monsters/Sanctified/Monstrosity/SanctifiedMonstrosity
 

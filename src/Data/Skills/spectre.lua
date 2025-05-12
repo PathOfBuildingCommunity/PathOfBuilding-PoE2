@@ -6,6 +6,56 @@
 --
 local skills, mod, flag, skill = ...
 
+skills["AzmeriPictBowRainOfSpores"] = {
+	name = "Toxic Rain",
+	hidden = true,
+	description = "Fire arrows into the air that rain down around the targeted area, dealing damage to enemies they hit and creating spore pods where they land. Each spore pod deals chaos damage over time to nearby enemies and slows their movement speed. The pods last for a duration before bursting, dealing area damage.",
+	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Area] = true, [SkillType.ProjectileSpeed] = true, [SkillType.Totemable] = true, [SkillType.Trappable] = true, [SkillType.Mineable] = true, [SkillType.Damage] = true, [SkillType.Chaos] = true, [SkillType.Duration] = true, [SkillType.DamageOverTime] = true, [SkillType.ProjectileNumber] = true, [SkillType.Chaos] = true, [SkillType.Triggerable] = true, [SkillType.Rain] = true, [SkillType.Bow] = true, [SkillType.GroundTargetedProjectile] = true, },
+	weaponTypes = {
+		["Bow"] = true,
+	},
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { baseMultiplier = 0.25, storedUses = 1, levelRequirement = 0, cooldown = 8, },
+	},
+	statSets = {
+		[1] = {
+			label = "Toxic Rain",
+			baseEffectiveness = 4,
+			incrementalEffectiveness = 0.10000000149012,
+			damageIncrementalEffectiveness = 0.017500000074506,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				attack = true,
+				area = true,
+				projectile = true,
+				duration = true,
+			},
+			constantStats = {
+				{ "base_skill_effect_duration", 2000 },
+				{ "base_number_of_arrows", 2 },
+				{ "active_skill_base_physical_damage_%_to_convert_to_chaos", 100 },
+				{ "rain_of_spores_vines_movement_speed_+%_final", -5 },
+				{ "minimum_rain_of_spores_movement_speed_+%_final_cap", -30 },
+				{ "active_skill_area_of_effect_radius_+%_final", 20 },
+			},
+			stats = {
+				"base_chaos_damage_to_deal_per_minute",
+				"base_is_projectile",
+				"is_area_damage",
+				"skill_can_fire_arrows",
+				"cannot_pierce",
+				"action_attack_or_cast_time_uses_animation_length",
+				"base_skill_cannot_be_blocked",
+			},
+			levels = {
+				[1] = { 16.666667039196, statInterpolation = { 3, }, actorLevel = 1, },
+			},
+		},
+	}
+}
 skills["CGEBloodPriestBoilingBlood"] = {
 	name = "Boiling Blood",
 	hidden = true,
@@ -633,6 +683,42 @@ skills["GSProwlingShadeIceBeam"] = {
 		},
 	}
 }
+skills["MeleeAtAnimationSpeedBow"] = {
+	name = "Basic Attack",
+	hidden = true,
+	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.ProjectilesFromUser] = true, },
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Basic Attack",
+			baseEffectiveness = 0,
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				attack = true,
+				projectile = true,
+				melee = true,
+			},
+			stats = {
+				"skill_can_fire_arrows",
+				"skill_can_fire_wand_projectiles",
+				"action_attack_or_cast_time_uses_animation_length",
+				"projectile_uses_contact_position",
+				"use_scaled_contact_offset",
+				"maintain_projectile_direction_when_using_contact_position",
+				"check_for_targets_between_initiator_and_projectile_source",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
 skills["MeleeAtAnimationSpeedComboTEMP"] = {
 	name = "Basic Attack",
 	hidden = true,
@@ -793,6 +879,95 @@ skills["MMSVaalGuardOilTrap"] = {
 			},
 			levels = {
 				[1] = { 20, -25, -25, 10, 10, statInterpolation = { 1, 1, 1, 1, 1, }, actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["MPSAzmeriPictStaffProj"] = {
+	name = "Chaos Bolt",
+	hidden = true,
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, },
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { critChance = 6, levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Chaos Bolt",
+			baseEffectiveness = 4,
+			incrementalEffectiveness = 0.10000000149012,
+			damageIncrementalEffectiveness = 0.017500000074506,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				spell = true,
+				projectile = true,
+				triggerable = true,
+				hit = true,
+			},
+			constantStats = {
+				{ "monster_projectile_variation", 231 },
+				{ "spell_maximum_action_distance_+%", -40 },
+			},
+			stats = {
+				"spell_minimum_base_chaos_damage",
+				"spell_maximum_base_chaos_damage",
+				"base_is_projectile",
+				"projectile_uses_contact_position",
+				"use_scaled_contact_offset",
+				"action_attack_or_cast_time_uses_animation_length",
+				"maintain_projectile_direction_when_using_contact_position",
+				"check_for_targets_between_initiator_and_projectile_source",
+			},
+			levels = {
+				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["MPSAzmeriPictStaffProj2"] = {
+	name = "Chaos Bolt",
+	hidden = true,
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, },
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { critChance = 6, storedUses = 1, levelRequirement = 0, cooldown = 5, },
+	},
+	statSets = {
+		[1] = {
+			label = "Chaos Bolt",
+			baseEffectiveness = 4,
+			incrementalEffectiveness = 0.10000000149012,
+			damageIncrementalEffectiveness = 0.017500000074506,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				spell = true,
+				projectile = true,
+				triggerable = true,
+				hit = true,
+			},
+			baseMods = {
+				mod("ProjectileCount", "BASE", 2),
+			},
+			constantStats = {
+				{ "monster_projectile_variation", 231 },
+				{ "spell_maximum_action_distance_+%", -40 },
+			},
+			stats = {
+				"spell_minimum_base_chaos_damage",
+				"spell_maximum_base_chaos_damage",
+				"base_is_projectile",
+				"projectile_uses_contact_position",
+				"use_scaled_contact_offset",
+				"action_attack_or_cast_time_uses_animation_length",
+				"maintain_projectile_direction_when_using_contact_position",
+				"check_for_targets_between_initiator_and_projectile_source",
+			},
+			levels = {
+				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
 			},
 		},
 	}

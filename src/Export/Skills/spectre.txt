@@ -5,6 +5,12 @@
 --
 local skills, mod, flag, skill = ...
 
+#skill AzmeriPictBowRainOfSpores
+#set AzmeriPictBowRainOfSpores
+#flags attack area projectile duration
+#mods
+#skillEnd
+
 #skill CGEBloodPriestBoilingBlood Boiling Blood
 #set CGEBloodPriestBoilingBlood
 #flags spell area triggerable duration
@@ -113,6 +119,12 @@ local skills, mod, flag, skill = ...
 #mods
 #skillEnd
 
+#skill MeleeAtAnimationSpeedBow
+#set MeleeAtAnimationSpeedBow
+#flags attack projectile melee
+#mods
+#skillEnd
+
 #skill MeleeAtAnimationSpeedComboTEMP
 #set MeleeAtAnimationSpeedComboTEMP
 #flags attack melee
@@ -134,6 +146,19 @@ local skills, mod, flag, skill = ...
 #skill MMSVaalGuardOilTrap
 #set MMSVaalGuardOilTrap
 #flags attack area projectile duration
+#mods
+#skillEnd
+
+#skill MPSAzmeriPictStaffProj Chaos Bolt
+#set MPSAzmeriPictStaffProj
+#flags spell projectile triggerable hit
+#mods
+#skillEnd
+
+#skill MPSAzmeriPictStaffProj2 Chaos Bolt
+#set MPSAzmeriPictStaffProj
+#flags spell projectile triggerable hit
+#baseMod mod("ProjectileCount", "BASE", 2)
 #mods
 #skillEnd
 
