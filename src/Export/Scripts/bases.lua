@@ -270,14 +270,22 @@ directiveTable.base = function(state, args, out)
 				local statValue = soulcore["StatsValuesWeapon"][i]
 				stats[statKey.Id] = { min = statValue, max = statValue }
 			end
-			out:write('"Martial Weapons: ', table.concat(describeStats(stats), '", "'), '\\n')
+			out:write('"Martial Weapons: ', table.concat(describeStats(stats), '", "'))
 			stats = { }  -- reset stats to empty
 			for i, statKey in ipairs(soulcore.StatsKeysArmour) do
 				local statValue = soulcore["StatsValuesArmour"][i]
 				stats[statKey.Id] = { min = statValue, max = statValue }
 			end
-			out:write('Armour: ', table.concat(describeStats(stats), '", "'), '"')
-			out:write(',\n')
+			out:write('\\nArmour: ', table.concat(describeStats(stats), '", "'))
+			stats = { }  -- reset stats to empty
+			for i, statKey in ipairs(soulcore.StatsKeysCaster) do
+				local statValue = soulcore["StatsValuesCaster"][i]
+				stats[statKey.Id] = { min = statValue, max = statValue }
+			end
+			if next(stats) then
+				out:write('\\nCaster: ', table.concat(describeStats(stats), '", "'))
+			end
+			out:write('",\n')
 		end
 	end
 	out:write('\treq = { ')

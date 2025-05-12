@@ -791,7 +791,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 	end
 	-- this will need more advanced logic for jewel sockets in items to work properly but could just be removed as items like this was only introduced during development.
 	if self.base then
-		if self.base.weapon or self.base.armour then
+		if self.base.weapon or self.base.armour or self.base.tags.wand or self.base.tags.staff then
 			local shouldFixRunesOnItem = #self.runes == 0
 
 			-- Form a key value table with the following format
@@ -799,18 +799,20 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 			-- This will be used to more easily grab the relevant runes that combinations will need to be of.
 			-- This could be refactored to only needs to be called once.
 			local statGroupedRunes = { }
-			local type = self.base.weapon and "weapon" or "armour" -- minor optimisation
+			local type = self.base.weapon and "weapon" or (self.base.tags.wand or self.base.tags.staff ) and "caster" or "armour" -- minor optimisation
 			for runeName, runeMods in pairs(data.itemMods.Runes) do
-				-- gets the first value in the mod and its stripped line.
-				local runeValue
-				local runeStrippedModeLine = runeMods[type][1]:gsub("(%d%.?%d*)", function(val)
-					runeValue = val
-					return "#"
-				end)
-				if statGroupedRunes[runeStrippedModeLine] == nil then
-					statGroupedRunes[runeStrippedModeLine] = { }
+				if runeMods[type] then -- Check to make sure rune mod exists for base type
+					-- gets the first value in the mod and its stripped line.
+					local runeValue
+					local runeStrippedModeLine = runeMods[type][1]:gsub("(%d%.?%d*)", function(val)
+						runeValue = val
+						return "#"
+					end)
+					if statGroupedRunes[runeStrippedModeLine] == nil then
+						statGroupedRunes[runeStrippedModeLine] = { }
+					end
+					t_insert(statGroupedRunes[runeStrippedModeLine], { runeName, runeValue });
 				end
-				t_insert(statGroupedRunes[runeStrippedModeLine], { runeName, runeValue });
 			end
 
 			-- Sort table to ensure first entries are always largest.
@@ -1192,7 +1194,7 @@ function ItemClass:BuildRaw()
 	if self.quality then
 		t_insert(rawLines, "Quality: " .. self.quality)
 	end
-	if self.itemSocketCount and self.itemSocketCount > 0 and (self.base.weapon or self.base.armour) then
+	if self.itemSocketCount and self.itemSocketCount > 0 and (self.base.weapon or self.base.armour or self.base.tags.wand or self.base.tags.staff) then
 		local socketString = ""
 		for _ = 1, self.itemSocketCount do
 			socketString = socketString .. "S "
@@ -1252,7 +1254,7 @@ function ItemClass:UpdateRunes()
 	for i = 1, self.itemSocketCount do
 		local name = self.runes[i]
 		if name and name ~= "None" then
-			local mod = self.base.weapon and data.itemMods.Runes[name].weapon or self.base.armour and data.itemMods.Runes[name].armour or { }
+			local mod = self.base.weapon and data.itemMods.Runes[name].weapon or self.base.armour and data.itemMods.Runes[name].armour or (item.base.tags.wand or item.base.tags.staff) and data.itemMods.Runes[name].caster or { }
 			for i, line in ipairs(mod) do
 				local order = mod.statOrder[i]
 				if statOrder[order] then
