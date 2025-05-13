@@ -2323,7 +2323,7 @@ function calcs.buildDefenceEstimations(env, actor)
 		if breakdown then
 			breakdown[damageType.."TakenHitMult"] = { }
 			if reduction ~= 0 then
-				t_insert(breakdown[damageType.."TakenHitMult"], s_format("Base %s Damage Reduction: %.2f", damageType, 1 - reduction / 100))
+				t_insert(breakdown[damageType.."TakenHitMult"], s_format("Base %s Damage Taken: %.2f", damageType, 1 - reduction / 100))
 			end
 			if armourReduct ~= 0 then
 				if percentOfArmourApplies ~= 100 then
