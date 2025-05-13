@@ -1281,6 +1281,13 @@ function calcs.offence(env, actor, activeSkill)
 			end
 		end
 	end
+	if skillModList:Flag(skillCfg, "CanCreateHazards") then
+		output.HazardRearmChance = m_min(skillModList:Sum("BASE", skillCfg, "HazardRearmChance"), 100)
+		skillModList:NewMod("DPS", "MORE", output.HazardRearmChance, "Chance To Rearm")
+		if breakdown then
+			output.HazardRearmChance = skillModList:Sum("BASE", skillCfg, "HazardRearmChance")
+		end
+	end
 	if activeSkill.skillTypes[SkillType.Link] then
 		output.LinkEffectMod = calcLib.mod(skillModList, skillCfg, "LinkEffect", "BuffEffect")
 		if breakdown then

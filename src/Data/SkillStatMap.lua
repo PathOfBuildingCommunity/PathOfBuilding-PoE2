@@ -302,7 +302,7 @@ return {
 	flag("NoRepeatBonuses"),
 },
 ["hazard_rearm_%_chance"] = {
-	mod("DPS", "INC", nil),
+	mod("HazardRearmChance", "BASE", nil, 0, 0, { type = "SkillType", skillType = SkillType.Hazard } ),
 },
 --
 -- Defensive modifiers
@@ -1381,6 +1381,9 @@ return {
 },
 ["base_lightning_damage_can_electrocute"] = {
 	flag("LightningCanElectrocute"),
+},
+["is_hazard"] = {
+	flag("CanCreateHazards"),
 },
 -- Other effects
 ["enemy_phys_reduction_%_penalty_vs_hit"] = {

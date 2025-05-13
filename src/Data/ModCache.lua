@@ -1374,7 +1374,7 @@ c["16% increased Cast Speed if you've dealt a Critical Hit Recently"]={{[1]={[1]
 c["16% increased Critical Damage Bonus with Bows"]={{[1]={flags=131076,keywordFlags=0,name="CritMultiplier",type="INC",value=16}},nil}
 c["16% increased Critical Hit Chance for Spells"]={{[1]={flags=2,keywordFlags=0,name="CritChance",type="INC",value=16}},nil}
 c["16% increased Damage with Warcries"]={{[1]={flags=0,keywordFlags=4,name="Damage",type="INC",value=16}},nil}
-c["16% increased Hazard Damage"]={{[1]={flags=0,keywordFlags=0,name="Damage",type="INC",value=16}}," Hazard  "}
+c["16% increased Hazard Damage"]={{[1]={[1]={skillType=203,type="SkillType"},flags=0,keywordFlags=0,name="Damage",type="INC",value=16}},nil}
 c["16% increased Mana Regeneration Rate while not on Low Mana"]={{[1]={[1]={neg=true,type="Condition",var="LowMana"},flags=0,keywordFlags=0,name="ManaRegen",type="INC",value=16}},nil}
 c["16% increased Mana Regeneration Rate while stationary"]={{[1]={[1]={type="Condition",var="Stationary"},flags=0,keywordFlags=0,name="ManaRegen",type="INC",value=16}},nil}
 c["16% increased Melee Damage"]={{[1]={flags=256,keywordFlags=0,name="Damage",type="INC",value=16}},nil}
@@ -1523,7 +1523,7 @@ c["20% increased Freeze Buildup with Quarterstaves"]={{}," Freeze Buildup  "}
 c["20% increased Freeze Duration on Enemies"]={{[1]={flags=0,keywordFlags=0,name="EnemyFreezeDuration",type="INC",value=20}},nil}
 c["20% increased Frenzy Charge Duration"]={{[1]={flags=0,keywordFlags=0,name="FrenzyChargesDuration",type="INC",value=20}},nil}
 c["20% increased Global Physical Damage"]={{[1]={[1]={type="Global"},flags=0,keywordFlags=0,name="PhysicalDamage",type="INC",value=20}},nil}
-c["20% increased Hazard Duration"]={{[1]={flags=0,keywordFlags=0,name="Duration",type="INC",value=20}}," Hazard  "}
+c["20% increased Hazard Duration"]={{[1]={[1]={skillType=203,type="SkillType"},flags=0,keywordFlags=0,name="Duration",type="INC",value=20}},nil}
 c["20% increased Hinder Duration"]={{[1]={flags=0,keywordFlags=0,name="Duration",type="INC",value=20}}," Hinder  "}
 c["20% increased Ignite Duration on Enemies"]={{[1]={flags=0,keywordFlags=0,name="EnemyIgniteDuration",type="INC",value=20}},nil}
 c["20% increased Knockback Distance"]={{[1]={flags=0,keywordFlags=0,name="EnemyKnockbackDistance",type="INC",value=20}},nil}
@@ -2282,7 +2282,7 @@ c["5% increased Cast Speed"]={{[1]={flags=16,keywordFlags=0,name="Speed",type="I
 c["5% increased Chaos Damage"]={{[1]={flags=0,keywordFlags=0,name="ChaosDamage",type="INC",value=5}},nil}
 c["5% increased Cooldown Recovery Rate"]={{[1]={flags=0,keywordFlags=0,name="CooldownRecovery",type="INC",value=5}},nil}
 c["5% increased Critical Hit Chance"]={{[1]={flags=0,keywordFlags=0,name="CritChance",type="INC",value=5}},nil}
-c["5% increased Damage for each Hazard triggered Recently, up to 50%"]={{[1]={flags=0,keywordFlags=0,name="Damage",type="INC",value=5}},"  for each Hazard triggered Recently, up to 50% "}
+c["5% increased Damage for each Hazard triggered Recently, up to 50%"]={{[1]={[1]={globalLimit=50,globalLimitKey="DmgPerHazardRecently",type="Multiplier",var="HazardsTriggeredRecently"},flags=0,keywordFlags=0,name="Damage",type="INC",value=5}},nil}
 c["5% increased Damage taken while on Low Life"]={{[1]={[1]={type="Condition",var="LowLife"},flags=0,keywordFlags=0,name="DamageTaken",type="INC",value=5}},nil}
 c["5% increased Dexterity"]={{[1]={flags=0,keywordFlags=0,name="Dex",type="INC",value=5}},nil}
 c["5% increased Duration of Damaging Ailments on Enemies"]={{[1]={flags=0,keywordFlags=0,name="EnemyIgniteDuration",type="INC",value=5},[2]={flags=0,keywordFlags=0,name="EnemyBleedDuration",type="INC",value=5},[3]={flags=0,keywordFlags=0,name="EnemyPoisonDuration",type="INC",value=5}},nil}
@@ -3731,9 +3731,8 @@ c["Enemies Hitting you have 10% chance to gain an Endurance,  Frenzy or Power Ch
 c["Enemies Ignited by you have -5% to Fire Resistance"]={{[1]={flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={[1]={type="Condition",var="Ignited"},flags=0,keywordFlags=0,name="FireResist",type="BASE",value=-5}}}},nil}
 c["Enemies Ignited by you take Chaos Damage instead of Fire Damage from Ignite"]={{[1]={flags=0,keywordFlags=0,name="IgniteToChaos",type="FLAG",value=true}},nil}
 c["Enemies Immobilised by you take 25% less Damage"]={{[1]={flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={[1]={type="Condition",var="Immobilised"},flags=0,keywordFlags=0,name="DamageTaken",type="MORE",value=-25}}}},nil}
-c["Enemies affected by your Hazards Recently have 25% reduced Armour"]={nil,"your Hazards Recently have 25% reduced Armour "}
-c["Enemies affected by your Hazards Recently have 25% reduced Armour Enemies affected by your Hazards Recently have 25% reduced Evasion Rating"]={nil,"your Hazards Recently have 25% reduced Armour Enemies affected by your Hazards Recently have 25% reduced Evasion Rating "}
-c["Enemies affected by your Hazards Recently have 25% reduced Evasion Rating"]={nil,"your Hazards Recently have 25% reduced Evasion Rating "}
+c["Enemies affected by your Hazards Recently have 25% reduced Armour"]={{[1]={flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={[1]={type="ActorCondition",var="AffectedByHazardRecently"},flags=0,keywordFlags=0,name="Armour",type="INC",value=-25}}}},nil}
+c["Enemies affected by your Hazards Recently have 25% reduced Evasion Rating"]={{[1]={flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={[1]={type="ActorCondition",var="AffectedByHazardRecently"},flags=0,keywordFlags=0,name="Evasion",type="INC",value=-25}}}},nil}
 c["Enemies are Culled on Block"]={nil,"Enemies are Culled on Block "}
 c["Enemies have Maximum Concentration equal to 40% of their Maximum Life"]={nil,"Enemies have Maximum Concentration equal to 40% of their Maximum Life "}
 c["Enemies have Maximum Concentration equal to 40% of their Maximum Life Break enemy Concentration on Hit equal to 100% of Damage Dealt"]={nil,"Enemies have Maximum Concentration equal to 40% of their Maximum Life Break enemy Concentration on Hit equal to 100% of Damage Dealt "}
@@ -4036,8 +4035,8 @@ c["Has 2 Charm Slots"]={{[1]={flags=0,keywordFlags=0,name="CharmLimit",type="BAS
 c["Has 3 Charm Slot"]={{[1]={flags=0,keywordFlags=0,name="CharmLimit",type="BASE",value=3}},nil}
 c["Has 3 Charm Slots"]={{[1]={flags=0,keywordFlags=0,name="CharmLimit",type="BASE",value=3}},nil}
 c["Has 6 Rune Sockets"]={nil,"Has 6 Rune Sockets "}
-c["Hazards have 15% chance to rearm after they are triggered"]={nil,"Hazards have 15% chance to rearm after they are triggered "}
-c["Hazards have 5% chance to rearm after they are triggered"]={nil,"Hazards have 5% chance to rearm after they are triggered "}
+c["Hazards have 15% chance to rearm after they are triggered"]={{[1]={[1]={skillType=203,type="SkillType"},flags=0,keywordFlags=0,name="HazardRearmChance",type="BASE",value=15}},nil}
+c["Hazards have 5% chance to rearm after they are triggered"]={{[1]={[1]={skillType=203,type="SkillType"},flags=0,keywordFlags=0,name="HazardRearmChance",type="BASE",value=5}},nil}
 c["Herald Skills deal 20% increased Damage"]={{[1]={[1]={skillType=52,type="SkillType"},flags=0,keywordFlags=0,name="Damage",type="INC",value=20}},nil}
 c["Herald Skills deal 30% increased Damage"]={{[1]={[1]={skillType=52,type="SkillType"},flags=0,keywordFlags=0,name="Damage",type="INC",value=30}},nil}
 c["Herald Skills have 30% increased Area of Effect"]={{[1]={[1]={skillType=52,type="SkillType"},flags=0,keywordFlags=0,name="AreaOfEffect",type="INC",value=30}},nil}

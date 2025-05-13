@@ -1405,6 +1405,7 @@ return {
 	{ label = "Presence Mod", haveOutput = "PresenceMod", { format = "{2:output:PresenceMod}", { breakdown = "PresenceMod" }, { modName = "PresenceRadius", cfg = "skill" }} , },
 	{ label = "Presence Radius", haveOutput = "PresenceRadius", { format = "{1:output:PresenceRadiusMetres}m", { breakdown = "PresenceRadius" }, { modName = "PresenceArea", cfg = "skill"} }, },
 	{ label = "Chance to Blind", { format = "{0:mod:1}%", { modName = "BlindChance", modType = "BASE", cfg = "skill" }, }, },
+	{ label = "Chance to Rearm", haveOutput = "HazardRearmChance", { format = "{2:mod:1}%", { modName = "HazardRearmChance", modType = "BASE", cfg = "skill"}, }, },
 	{ label = "Inc. Quiver Effect", { format = "{0:mod:1}%", { modName="EffectOfBonusesFromQuiver", modType= "INC", cfg = "skill" }, }, },
 	{ label = "Inc. Item Quantity", { format = "{0:mod:1}%", { modName = "LootQuantity", modType = "INC", cfg = "skill" }, }, },
 	{ label = "IIQ for Normal Mobs", haveOutput = "LootQuantityNormalEnemies", { format = "{0:output:LootQuantityNormalEnemies}%", { modName = { "LootQuantityNormalEnemies", "LootQuantity" } }, }, },

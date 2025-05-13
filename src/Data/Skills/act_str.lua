@@ -7063,6 +7063,9 @@ skills["IceShardsPlayer"] = {
 				projectile = true,
 				area = true,
 			},
+			baseMods = {
+				flag("CanCreateHazards"),
+			},
 			constantStats = {
 				{ "action_required_target_facing_angle_tolerance_degrees", 60 },
 				{ "active_skill_base_physical_damage_%_to_convert_to_cold", 60 },

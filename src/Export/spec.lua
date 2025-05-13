@@ -10612,10 +10612,10 @@ return {
 		},
 		[75]={
 			list=false,
-			name="",
+			name="NotSpectre",
 			refTo="",
 			type="Bool",
-			width=50
+			width=80
 		},
 		[76]={
 			list=false,

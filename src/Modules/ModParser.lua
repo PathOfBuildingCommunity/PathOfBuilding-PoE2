@@ -977,6 +977,7 @@ local modFlagList = {
 	["that throw traps"] = { keywordFlags = KeywordFlag.Trap },
 	["grenade"] = { tag = { type = "SkillType", skillType = SkillType.Grenade } },
 	["for grenade skills"] = { tag = { type = "SkillType", skillType = SkillType.Grenade } },
+	["hazard"] = { tag = { type = "SkillType", skillType = SkillType.Hazard } },
 	["brand"] = { tag = { type = "SkillType", skillType = SkillType.Brand } },
 	["totem"] = { keywordFlags = KeywordFlag.Totem },
 	["with totem skills"] = { keywordFlags = KeywordFlag.Totem },
@@ -1255,6 +1256,7 @@ local preFlagList = {
 	["^hits against you "] = { applyToEnemy = true, flags = ModFlag.Hit },
 	["^hits against you [hd][ae][va][el] "] = { applyToEnemy = true, flags = ModFlag.Hit },
 	["^enemies near your totems deal "] = { applyToEnemy = true },
+	["^enemies affected by your hazards recently [hgd][ae][via][enl] "] = { applyToEnemy = true, tag = { type = "ActorCondition", var = "AffectedByHazardRecently" } },
 	-- Other
 	["^your flasks grant "] = { },
 	["^when hit, "] = { },
@@ -4111,6 +4113,9 @@ local specialModList = {
 		mod("TrapThrowCount", "BASE", tonumber(num) * tonumber(chance) / 100.0),
 		mod("MineThrowCount", "BASE", tonumber(num) * tonumber(chance) / 100.0),
 	} end,
+	-- Hazards
+	["(%d+)%% increased damage for each hazard triggered recently, up to (%d+)%%"] = function(num, _, limit) return { mod("Damage", "INC", tonumber(num), { type = "Multiplier", var = "HazardsTriggeredRecently", globalLimit = tonumber(limit), globalLimitKey = "DmgPerHazardRecently" }) } end,
+	["hazards have (%d+)%% chance to rearm after they are triggered"] = function(num) return { mod("HazardRearmChance", "BASE", tonumber(num), { type = "SkillType", skillType = SkillType.Hazard })} end,
 	-- Totems
 	["can have up to (%d+) additional totems? summoned at a time"] = function(num) return { mod("ActiveTotemLimit", "BASE", num) } end,
 	["attack skills can have (%d+) additional totems? summoned at a time"] = function(num) return { mod("ActiveTotemLimit", "BASE", num, nil, 0, KeywordFlag.Attack) } end,

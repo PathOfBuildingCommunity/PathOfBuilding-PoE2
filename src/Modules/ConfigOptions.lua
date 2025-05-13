@@ -1499,6 +1499,9 @@ Huge sets the radius to 11.
 	{ var = "reservedDarkness", type = "count", label = "Reserved Darkness:", ifFlag = "PlayerHasDarkness", apply = function(val, modList, enemyModList)
 		modList:NewMod("ReservedDarkness", "BASE", val, "Config")
 	end },
+	{ var = "multiplierHazardsTriggeredRecently", type = "count", label = "# of Hazards triggered recently:", ifMult = "HazardsTriggeredRecently", ifFlag = "CanCreateHazards", apply = function(val, modList, enemyModList)
+		modList:NewMod("Multiplier:HazardsTriggeredRecently", "BASE", m_max(val,0), "Config", { type = "Condition", var = "Combat" })
+	end },
 	-- Section: Effective DPS options
 	{ section = "For Effective DPS", col = 1 },
 	{ var = "skillForkCount", type = "count", label = "# of times Skill has Forked:", ifFlag = "forking", apply = function(val, modList, enemyModList)
@@ -1624,6 +1627,9 @@ Huge sets the radius to 11.
 	end },
 	{ var = "conditionEnemyPacified", type = "check", label = "Is the enemy Pacified?", ifSkill = "Pacify", tooltip = "Enemies are Pacified after 60% of Pacify's duration has expired", apply = function(val, modList, enemyModList)
 		enemyModList:NewMod("Condition:Pacified", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
+	end },
+	{ var = "conditionEnemyAffectedByHazardRecently", type = "check", label = "Enemy affected by Hazard recently?", ifEnemyCond = "AffectedByHazardRecently", apply = function(val, modList, enemyModList)
+		enemyModList:NewMod("Condition:AffectedByHazardRecently", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
 	end },
 	{ var = "conditionEnemyBurning", type = "check", label = "Is the enemy ^xB97123Burning?", ifEnemyCond = "Burning", apply = function(val, modList, enemyModList)
 		enemyModList:NewMod("Condition:Burning", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
