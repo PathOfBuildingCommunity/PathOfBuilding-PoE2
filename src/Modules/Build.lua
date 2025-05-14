@@ -1346,25 +1346,147 @@ function buildMode:OpenSpectreLibrary(library)
 	else
 		destList = copyTable(self.spectreList)
 	end
+	local monsterTypeSort = {
+		Beast = true,
+		Humanoid = true,
+		Eldritch = true,
+		Construct = true,
+		Demon = true,
+		Undead = true
+	}
+	local beastList = { }
+	local humanoidList = { }
+	local eldritchList = { }
+	local constructList = { }
+	local demonList = { }
+	local undeadList = { }
 	local sourceList = { }
 	for id in pairs(self.data.spectres) do
-		if library == "beast" and self.data.minions[id].monsterCategory == "Beast" then
-			t_insert(sourceList, id)
-		elseif library ~= "beast" then
-			t_insert(sourceList, id)
+		if self.data.minions[id].monsterCategory == "Beast" then
+			t_insert(beastList, id)
+		elseif self.data.minions[id].monsterCategory == "Humanoid" then
+			t_insert(humanoidList, id)
+		elseif self.data.minions[id].monsterCategory == "Eldritch" then
+			t_insert(eldritchList, id)
+		elseif self.data.minions[id].monsterCategory == "Construct" then
+			t_insert(constructList, id)
+		elseif self.data.minions[id].monsterCategory == "Demon" then
+			t_insert(demonList, id)
+		elseif self.data.minions[id].monsterCategory == "Undead" then
+			t_insert(undeadList, id)
 		end
 	end
-	table.sort(sourceList, function(a,b) 
-		if self.data.minions[a].name == self.data.minions[b].name then
-			return a < b
+	
+	local function buildSourceList(library, sourceList)
+		wipeTable(sourceList)
+		if library == "beast" then
+			if monsterTypeSort["Beast"] then
+				for _, id in ipairs(beastList) do
+					table.insert(sourceList, id)
+				end
+			end
 		else
-			return self.data.minions[a].name < self.data.minions[b].name
+			local monsterCategories = {
+				{ key = "Beast", list = beastList },
+				{ key = "Humanoid", list = humanoidList },
+				{ key = "Eldritch", list = eldritchList },
+				{ key = "Construct", list = constructList },
+				{ key = "Demon", list = demonList },
+				{ key = "Undead", list = undeadList },
+			}
+				for _, category in ipairs(monsterCategories) do
+					if monsterTypeSort[category.key] then
+						for _, id in ipairs(category.list) do
+							table.insert(sourceList, id)
+						end
+					end
+				end
+			end
 		end
-	end)
+	buildSourceList(library, sourceList)
 	local controls = { }
-	controls.list = new("MinionListControl", nil, {-100, 40, 190, 250}, self.data, destList)
-	controls.source = new("MinionSearchListControl", nil, {100, 60, 190, 230}, self.data, sourceList, controls.list)
-	controls.save = new("ButtonControl", nil, {-45, 330, 80, 20}, "Save", function()
+
+	local function sortSourceList()
+		local sortFields = {
+			[1] = { field = "name", asc = true },
+			[2] = { field = "life", asc = false },
+			[3] = { field = "energyShield", asc = false },
+			[4] = { field = "attackTime", asc = true },
+			[5] = { field = "companionReservation", asc = true },
+			[6] = { field = "spectreReservation", asc = true },
+			[7] = { field = "fireResist", asc = false },
+			[8] = { field = "coldResist", asc = false },
+			[9] = { field = "lightningResist", asc = false },
+			[10] = { field = "totalResist", asc = false },
+		}
+		local sortModeIndex = controls.sortModeDropDown and controls.sortModeDropDown.selIndex or 1
+		local sortOption = sortFields[sortModeIndex]
+		if sortOption then
+			table.sort(sourceList, function(a, b)
+				local minionA = self.data.minions[a]
+				local minionB = self.data.minions[b]
+				local valueA = minionA[sortOption.field]
+				local valueB = minionB[sortOption.field]
+				if sortOption.field == "energyShield" then
+					-- Calculate actual ES value
+					local totalLifeA = 2490 * minionA.life
+					local totalLifeB = 2490 * minionB.life
+					local esA = (minionA.energyShield or 0) * totalLifeA
+					local esB = (minionB.energyShield or 0) * totalLifeB
+					-- If both are 0 (no ES), sort by name
+					if esA == 0 and esB == 0 then
+						return minionA.name < minionB.name
+					end
+					valueA = esA
+					valueB = esB
+				end
+				if sortOption.field == "totalResist" then -- currently all minions have one resist, but may have more in future.
+					valueA = minionA.fireResist + minionA.coldResist + minionA.lightningResist + minionA.chaosResist
+					valueB = minionB.fireResist + minionB.coldResist + minionB.lightningResist + minionB.chaosResist
+				end
+				-- If values are equal, sort by name
+				if valueA == valueB then
+					return minionA.name < minionB.name
+				else
+					if sortOption.asc then
+						return valueA < valueB
+					else
+						return valueA > valueB
+					end
+				end
+			end)
+		end
+	end
+
+	sortSourceList()
+	controls.list = new("MinionListControl", nil, {-230, 40, 210, 250}, self.data, destList)
+	controls.source = new("MinionSearchListControl", nil, {0, 60, 210, 230}, self.data, sourceList, controls.list)
+	local function monsterTypeCheckboxChange(name)
+		monsterTypeSort[name] = true
+		return function(state)
+			monsterTypeSort[name] = state
+			self.listBuildFlag = true
+			buildSourceList(library, sourceList)
+			sortSourceList()
+		end
+	end
+	controls.sortMonsterCheckboxBeast = new("CheckBoxControl", {"TOPLEFT", controls.source, "BOTTOMLEFT"}, {0, 24, 26, 26}, "", monsterTypeCheckboxChange("Beast"), "Beast", true)
+	controls.sortMonsterCheckboxBeast.shown = library ~= "beast"
+	controls.sortMonsterCheckboxHumanoid = new("CheckBoxControl", {"TOPLEFT", controls.source, "BOTTOMLEFT"}, {37, 24, 26, 26}, "", monsterTypeCheckboxChange("Humanoid"), "Humanoid", true)
+	controls.sortMonsterCheckboxHumanoid.shown = library ~= "beast"
+	controls.sortMonsterCheckboxEldritch = new("CheckBoxControl", {"TOPLEFT", controls.source, "BOTTOMLEFT"}, {74, 24, 26, 26}, "", monsterTypeCheckboxChange("Eldritch"), "Eldritch", true)
+	controls.sortMonsterCheckboxEldritch.shown = library ~= "beast"
+	controls.sortMonsterCheckboxConstruct = new("CheckBoxControl", {"TOPLEFT", controls.source, "BOTTOMLEFT"}, {111, 24, 26, 26}, "", monsterTypeCheckboxChange("Construct"), "Construct", true)
+	controls.sortMonsterCheckboxConstruct.shown = library ~= "beast"
+	controls.sortMonsterCheckboxDemon = new("CheckBoxControl", {"TOPLEFT", controls.source, "BOTTOMLEFT"}, {148, 24, 26, 26}, "", monsterTypeCheckboxChange("Demon"), "Demon", true)
+	controls.sortMonsterCheckboxDemon.shown = library ~= "beast"
+	controls.sortMonsterCheckboxUndead = new("CheckBoxControl", {"TOPLEFT", controls.source, "BOTTOMLEFT"}, {185, 24, 26, 26}, "", monsterTypeCheckboxChange("Undead"), "Undead", true)
+	controls.sortMonsterCheckboxUndead.shown = library ~= "beast"
+	controls.sortLabel = new("LabelControl", {"TOPLEFT",controls.source,"BOTTOMLEFT"}, {2, 2, 0, 16}, "Sort by:")
+	controls.sortModeDropDown = new("DropDownControl", {"TOPRIGHT",controls.source,"BOTTOMRIGHT"}, {0, 2, 155, 18}, { "Names", "Life", "Energy Shield", "Attack Speed", "Companion Reservation", "Spectre Reservation", "Fire Resistance", "Cold Resistance", "Lightning Resistance", "Total Resistance"}, function(index, value)
+		sortSourceList()
+	end)
+	controls.save = new("ButtonControl", nil, {-45, 390, 80, 20}, "Save", function()
 		if library == "beast" then
 			self.beastList = destList
 		else
@@ -1374,20 +1496,78 @@ function buildMode:OpenSpectreLibrary(library)
 		self.buildFlag = true
 		main:ClosePopup()
 	end)
-	controls.cancel = new("ButtonControl", nil, {45, 330, 80, 20}, "Cancel", function()
+	controls.cancel = new("ButtonControl", nil, {45, 390, 80, 20}, "Cancel", function()
 		main:ClosePopup()
 	end)
 	local spectrePopup
 	if library == "beast" then 
-		spectrePopup = main:OpenPopup(410, 360, "Beast Library", controls)
-		controls.noteLine1 = new("LabelControl", {"TOPLEFT",controls.list,"BOTTOMLEFT"}, {24, 2, 0, 16}, "Beasts in your Library must be assigned to an active")
-		controls.noteLine2 = new("LabelControl", {"TOPLEFT",controls.list,"BOTTOMLEFT"}, {20, 18, 0, 16}, "Companion gem for their buffs and curses to activate")
+		spectrePopup = main:OpenPopup(720, 430, "Beast Library", controls)
+		controls.noteLine1 = new("LabelControl", {"TOP",controls.save,"BOTTOM"}, {45, -60, 0, 16}, "Beasts in your Library must be assigned to an active")
+		controls.noteLine2 = new("LabelControl", {"TOP",controls.save,"BOTTOM"}, {45, -42, 0, 16}, "Companion gem for their buffs and curses to activate")
 	else
-		spectrePopup = main:OpenPopup(410, 360, "Spectre Library", controls)
-		controls.noteLine1 = new("LabelControl", {"TOPLEFT",controls.list,"BOTTOMLEFT"}, {24, 2, 0, 16}, "Spectres in your Library must be assigned to an active")
-		controls.noteLine2 = new("LabelControl", {"TOPLEFT",controls.list,"BOTTOMLEFT"}, {20, 18, 0, 16}, "Raise Spectre gem for their buffs and curses to activate")
+		spectrePopup = main:OpenPopup(720, 430, "Spectre Library", controls)
+		controls.noteLine1 = new("LabelControl", {"TOP",controls.save,"BOTTOM"}, {45, -60, 0, 16}, "Spectres in your Library must be assigned to an active") 
+		controls.noteLine2 = new("LabelControl", {"TOP",controls.save,"BOTTOM"}, {45, -42, 0, 16}, "Raise Spectre gem for their buffs and curses to activate")
 	end
 	spectrePopup:SelectControl(spectrePopup.controls.source.controls.searchText)
+
+	controls.minionNameLabel = new("LabelControl", {"TOP",controls.source,"TOPRIGHT"}, {130, -25, 0, 18}, "Minion Stats")
+	controls.minionGemLevelLabel = new("LabelControl", {"BOTTOM", controls.minionNameLabel, "TOP"}, {-40, -10, 0, 16}, "Gem Level:")
+	controls.minionGemLevel = new("EditControl", {"LEFT", controls.minionGemLevelLabel, "RIGHT"}, {4, 0, 60, 20}, "20", nil, "%D", 3, function()
+		controls.source.OnSelect()
+	end)
+	controls.lifeLabel = new("LabelControl", {"TOP", controls.source, "TOPRIGHT"}, {60, 4, 0, 16}, colorCodes.LIFE.."LIFE")
+	controls.energyshieldLabel = new("LabelControl", {"TOP",controls.source,"TOPRIGHT"}, {190, 4, 0, 16}, colorCodes.ES.."ENERGY SHIELD")
+	controls.armourLabel = new("LabelControl", {"TOP",controls.source,"TOPRIGHT"}, {60, 42, 0, 16}, colorCodes.ARMOUR.."ARMOUR")
+	controls.evasionLabel = new("LabelControl", {"TOP",controls.source,"TOPRIGHT"}, {190, 42, 0, 16}, colorCodes.EVASION.."EVASION")
+	controls.blockLabel = new("LabelControl", {"TOP",controls.source,"TOPRIGHT"}, {60, 80, 0, 16}, colorCodes.NORMAL.."BLOCK")
+	controls.resistsLabel = new("LabelControl", {"TOP",controls.source,"TOPRIGHT"}, {190, 80, 0, 16}, "RESISTS")
+
+	-- Run this code whenever a new minion is selected in the list
+	controls.source.OnSelect = function()
+		local selected = controls.source.selValue
+		local minion = self.data.minions[selected]
+		-- Get the gem level from the control, default to 20 if not set
+		local gemLevel = controls.minionGemLevel.buf
+		local baseLife = self.data.monsterAllyLifeTable[m_min(gemLevel * 2, 100)]
+		local totalLife = baseLife * minion.life
+		local totalES
+		if minion.energyShield then
+			totalES = totalLife * minion.energyShield
+			totalLife = totalLife - (totalLife * minion.energyShield)
+		else
+			totalES = 0
+		end
+		local totalArmour = self.data.monsterArmourTable[m_min(gemLevel * 2, 100)]
+		local totalEvasion = self.data.monsterEvasionTable[m_min(gemLevel * 2, 100)]
+		if minion.armour then
+			totalArmour = (1 + minion.armour) * totalArmour
+		end
+		if minion.evasion then
+			totalEvasion = (1 + minion.evasion) * totalEvasion
+		end
+		-- Check if minion.modList contains a mod for BlockChance and use it for blockLabel
+		local blockChance = 0
+		if minion.modList then
+			for _, mod in ipairs(minion.modList) do
+				if mod.name == "BlockChance" then
+					blockChance = mod.value
+					break
+				end
+			end
+		end
+		controls.minionNameLabel = new("LabelControl", {"TOP",controls.source,"TOPRIGHT"}, {130, -25, 0, 18}, minion.name)
+		controls.lifeLabelNum = new("LabelControl", {"TOP",controls.lifeLabel,"BOTTOM"}, {0, 2, 0, 16}, colorCodes.LIFE..round(totalLife))
+		controls.energyshieldLabelNum = new("LabelControl", {"TOP",controls.energyshieldLabel,"BOTTOM"}, {0, 2, 0, 16}, colorCodes.ES..round(totalES))
+		controls.blockLabelNum = new("LabelControl", {"TOP",controls.blockLabel,"BOTTOM"}, {4, 2, 0, 16}, blockChance.."%")
+		controls.armourLabelNum = new("LabelControl", {"TOP",controls.armourLabel,"BOTTOM"}, {0, 2, 0, 16}, colorCodes.ARMOUR..round(totalArmour))
+		controls.evasionLabelNum = new("LabelControl", {"TOP",controls.evasionLabel,"BOTTOM"}, {0, 2, 0, 16}, colorCodes.EVASION..round(totalEvasion))
+		controls.resistsLabelNum = new("LabelControl", {"TOP",controls.resistsLabel,"BOTTOM"}, {0, 2, 0, 16},
+		colorCodes.FIRE..minion.fireResist.."^7/"..
+		colorCodes.COLD..minion.coldResist.."^7/"..
+		colorCodes.LIGHTNING..minion.lightningResist.."^7/"..
+		colorCodes.CHAOS..minion.chaosResist..colorCodes.NORMAL)
+	end
 end
 
 function buildMode:OpenSimilarPopup()
