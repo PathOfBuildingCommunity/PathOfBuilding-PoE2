@@ -387,8 +387,6 @@ local minions, mod, flag = ...
 #spectre Metadata/Monsters/RatMonster/RatMonsterCistern
 #spectre Metadata/Monsters/SummonedPhantasm/HusbandWifeSpirits
 #spectre Metadata/Monsters/RabidFeralDogMonster/RabidDog
-#spectre Metadata/Monsters/SummonedMercenaryCompanion
-#spectre Metadata/Monsters/OfferingSpike/PainOfferingSpike
 #spectre Metadata/Monsters/KaruiBoar/ExplosivePig
 #spectre Metadata/Monsters/Ghouls/FarudinCrawler
 #spectre Metadata/Monsters/DrudgeMiners/DrudgeBedrockBlaster

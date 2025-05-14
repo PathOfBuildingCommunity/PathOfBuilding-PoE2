@@ -9420,49 +9420,6 @@ minions["Metadata/Monsters/RabidFeralDogMonster/RabidDog"] = {
 	modList = {
 	},
 }
-minions["Metadata/Monsters/SummonedMercenaryCompanion"] = {
-	name = "Mercenary Companion",
-	monsterTags = { "human", "humanoid", "medium_movement", "red_blood", "Unarmed_onhit_audio", },
-	life = 1.5,
-	fireResist = 0,
-	coldResist = 0,
-	lightningResist = 0,
-	chaosResist = 0,
-	damage = 1,
-	damageSpread = 0.2,
-	attackTime = 1,
-	attackRange = 6,
-	accuracy = 1,
-	spectreReservation = 50,
-	companionReservation = 30,
-	monsterCategory = "Humanoid",
-	skillList = {
-	},
-	modList = {
-		-- MonsterNoDropsOrExperience [monster_no_drops_or_experience = 1]
-	},
-}
-minions["Metadata/Monsters/OfferingSpike/PainOfferingSpike"] = {
-	name = "Offering Spike",
-	monsterTags = { "bones", "construct", "immobile", "Unarmed_onhit_audio", },
-	life = 0.18,
-	fireResist = 0,
-	coldResist = 0,
-	lightningResist = 0,
-	chaosResist = 0,
-	damage = 1,
-	damageSpread = 0,
-	attackTime = 0,
-	attackRange = 6,
-	accuracy = 1,
-	spectreReservation = 50,
-	companionReservation = 30,
-	monsterCategory = "Construct",
-	skillList = {
-	},
-	modList = {
-	},
-}
 minions["Metadata/Monsters/KaruiBoar/ExplosivePig"] = {
 	name = "Volatile Boar",
 	monsterTags = { "beast", "Beast_onhit_audio", "mammal_beast", "medium_movement", "red_blood", },

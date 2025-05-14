@@ -210,10 +210,6 @@ Metadata/Monsters/ConstrictorCorpse/ConstrictorCorpse                           
 Metadata/Monsters/ConstrictorCorpse/ConstrictorCorpseRanged_                              		----		Constricted Spitter
 Metadata/Monsters/SpiderMonkey/SpiderMonkey                                               		----		Scorpion Monkey
 Metadata/Monsters/GoreCharger/GoreCharger                                                 		----		Diretusk Boar
-Metadata/Monsters/LeagueAncestral/AncestralTurtleTotemSpirit                              		----		Ancestral Spirit Turtle
-Metadata/Monsters/LeagueAncestral/AncestralJadeHulkTotemSpirit                            		----		Ancestral Jade Hulk
-Metadata/Monsters/LeagueAncestral/AncestralSpiritCasterTotemSpirit                        		----		Ancestral Jadecaster
-Metadata/Monsters/LeagueAncestral/AncestralKaruiHornTotemSpirit                           		----		Ancestral Warhorn
 Metadata/Monsters/CrazedCannibalPicts/PictFemaleBow                                       		----		Cultist Archer
 Metadata/Monsters/CrazedCannibalPicts/PictFemaleDaggerDagger                              		----		Cultist Daggerdancer
 Metadata/Monsters/CrazedCannibalPicts/PictFemaleStaff                                     		----		Cultist Witch
@@ -341,8 +337,6 @@ Metadata/Monsters/RatMonster/RatMonsterCistern                                  
 Metadata/Monsters/SummonedPhantasm/HusbandWifeSpirits                                     		----		Captured Soul
 Metadata/Monsters/MamaMonster/MamaBaby                                                    		----		Malevolent Newborn
 Metadata/Monsters/RabidFeralDogMonster/RabidDog                                           		----		Rabid Dog
-Metadata/Monsters/SummonedMercenaryCompanion                                              		----		Mercenary Companion
-Metadata/Monsters/OfferingSpike/PainOfferingSpike                                         		----		Offering Spike
 Metadata/Monsters/KaruiBoar/ExplosivePig                                                  		----		Volatile Boar
 Metadata/Monsters/Ghouls/FarudinCrawler                                                   		----		Faridun Crawler
 Metadata/Monsters/DrudgeMiners/DrudgeBedrockBlaster                                       		----		Forsaken Miner
@@ -351,7 +345,6 @@ Metadata/Monsters/SkeletalKnight/SkeletalKnight                                 
 Metadata/Monsters/SkeletalReaper/SkeletalReaper                                           		----		Knight-Gaunt
 Metadata/Monsters/TwoheadedTitan/TwoHeadedTitan                                           		----		Goliath
 Metadata/Monsters/Mutewind/MutewindWomanSpearCorrodedElite                                		----		Faridun Impaler
-Metadata/Monsters/RhoaPlayerSummoned/RhoaPlayerSummoned                                   		----		Rhoa Companion
 Metadata/Monsters/VaseMonster/VaseMonster_                                                		----		Urnwalker
 Metadata/Monsters/UndeadMarakethPriest/UndeadMarakethPriest                               		----		Risen Tale-woman
 Metadata/Monsters/Zombies/CourtGuardZombieAxe                                             		----		Rotting Guard
@@ -361,7 +354,6 @@ Metadata/Monsters/ChaosGodTriHeadBat/ChaosGodTri-headBat_                       
 Metadata/Monsters/ChaosGodGorilla/ChaosGodGorilla_                                        		----		Stoneclad Gorilla
 Metadata/Monsters/ChaosGodTriceratops/ChaosGodTriceratops_                                		----		Crested Behemoth
 Metadata/Monsters/Rhoas/Winged/WingedRhoa                                                 		----		Albino Rhoa
-Metadata/Monsters/Hellhound/HellhoundPlayerSummoned                                       		----		Infernal Hound
 Metadata/Monsters/Breach/BreachEliteFallenLunarisMonster__                                		----		It That Hates
 Metadata/Monsters/Breach/BreachEliteCorruptedEliteBloater__                               		----		It That Lashes
 Metadata/Monsters/Breach/BreachFodderCorruptedEliteRanger                                 		----		It That Hunts
@@ -423,4 +415,3 @@ Metadata/Monsters/Sanctified/Spider/SanctifiedSpider                            
 Metadata/Monsters/Sanctified/Tentacle/SanctifiedTentacle                                  		----		Fettered Grasper
 Metadata/Monsters/Sanctified/Writhing/SanctifiedWrithing                                  		----		Fettered Writher
 Metadata/Monsters/Sanctified/Floppy/SanctifiedFloppy                                      		----		Fettered Hook
-Metadata/Monsters/AnimatedItem/AnimatedWeaponPlayerSummoned                               		----		Animated Weapon

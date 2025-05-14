@@ -21,6 +21,9 @@ for monster in dat("MonsterVarieties"):Rows() do
 				goto continue
 			end
 		end
+		if monster.Type.IsPlayerMinion == true then
+			 goto continue
+		end
 		for _, mod in ipairs(monster.ModsKeys2) do
 			if mod.Id == "CannotBeUsedAsMinion" then
 				goto continue
