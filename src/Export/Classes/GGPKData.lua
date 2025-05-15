@@ -307,6 +307,9 @@ function GGPKClass:GetNeededFiles()
 		"Data/MonsterCategories.dat",
 		"Data/ActiveSkillRequirements.dat",
 		"Data/ArchnemesisMods.dat",
+		"Data/MonsterPackEntries.dat",
+		"Data/MonsterPacks.dat",
+		"Data/WorldAreas.dat",
 	}
 	local csdFiles = {
 		"^Metadata/StatDescriptions/specific_skill_stat_descriptions/\\w+.csd$",
