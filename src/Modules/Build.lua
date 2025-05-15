@@ -1417,7 +1417,8 @@ function buildMode:OpenSpectreLibrary(library)
 			[7] = { field = "fireResist", asc = false },
 			[8] = { field = "coldResist", asc = false },
 			[9] = { field = "lightningResist", asc = false },
-			[10] = { field = "totalResist", asc = false },
+			[10] = { field = "chaosResist", asc = false },
+			[11] = { field = "totalResist", asc = false },
 		}
 		local sortModeIndex = controls.sortModeDropDown and controls.sortModeDropDown.selIndex or 1
 		local sortOption = sortFields[sortModeIndex]
@@ -1470,20 +1471,34 @@ function buildMode:OpenSpectreLibrary(library)
 			sortSourceList()
 		end
 	end
-	controls.sortMonsterCheckboxBeast = new("CheckBoxControl", {"TOPLEFT", controls.source, "BOTTOMLEFT"}, {0, 24, 26, 26}, "", monsterTypeCheckboxChange("Beast"), "Beast", true)
-	controls.sortMonsterCheckboxBeast.shown = library ~= "beast"
-	controls.sortMonsterCheckboxHumanoid = new("CheckBoxControl", {"TOPLEFT", controls.source, "BOTTOMLEFT"}, {37, 24, 26, 26}, "", monsterTypeCheckboxChange("Humanoid"), "Humanoid", true)
-	controls.sortMonsterCheckboxHumanoid.shown = library ~= "beast"
-	controls.sortMonsterCheckboxEldritch = new("CheckBoxControl", {"TOPLEFT", controls.source, "BOTTOMLEFT"}, {74, 24, 26, 26}, "", monsterTypeCheckboxChange("Eldritch"), "Eldritch", true)
-	controls.sortMonsterCheckboxEldritch.shown = library ~= "beast"
-	controls.sortMonsterCheckboxConstruct = new("CheckBoxControl", {"TOPLEFT", controls.source, "BOTTOMLEFT"}, {111, 24, 26, 26}, "", monsterTypeCheckboxChange("Construct"), "Construct", true)
-	controls.sortMonsterCheckboxConstruct.shown = library ~= "beast"
-	controls.sortMonsterCheckboxDemon = new("CheckBoxControl", {"TOPLEFT", controls.source, "BOTTOMLEFT"}, {148, 24, 26, 26}, "", monsterTypeCheckboxChange("Demon"), "Demon", true)
-	controls.sortMonsterCheckboxDemon.shown = library ~= "beast"
-	controls.sortMonsterCheckboxUndead = new("CheckBoxControl", {"TOPLEFT", controls.source, "BOTTOMLEFT"}, {185, 24, 26, 26}, "", monsterTypeCheckboxChange("Undead"), "Undead", true)
-	controls.sortMonsterCheckboxUndead.shown = library ~= "beast"
+	local function getMonsterTypeImages()
+		local tree = main:LoadTree(latestTreeVersion)
+		local images = {}
+		for name, value in pairs(monsterTypeSort) do
+			images[name] = tree:GetAssetByName(name)
+		end
+		return images
+	end
+	self.monsterImages = getMonsterTypeImages()
+	
+	local monsterTypeCheckbox = {
+		{ name = "Beast", x = 0 },
+		{ name = "Humanoid", x = 37 },
+		{ name = "Eldritch", x = 74 },
+		{ name = "Construct", x = 111 },
+		{ name = "Demon", x = 148 },
+		{ name = "Undead", x = 185 },
+	}
+	for _, monster in ipairs(monsterTypeCheckbox) do
+		local controlName = "sortMonsterCheckbox" .. monster.name
+		local checkbox = new("CheckBoxControl", {"TOPLEFT", controls.source, "BOTTOMLEFT"}, {monster.x, 24, 26, 26}, "", monsterTypeCheckboxChange(monster.name), monster.name, true)
+		checkbox:SetCheckImage(self.monsterImages[monster.name])
+		checkbox.shown = library ~= "beast"
+		controls[controlName] = checkbox
+	end
+
 	controls.sortLabel = new("LabelControl", {"TOPLEFT",controls.source,"BOTTOMLEFT"}, {2, 2, 0, 16}, "Sort by:")
-	controls.sortModeDropDown = new("DropDownControl", {"TOPRIGHT",controls.source,"BOTTOMRIGHT"}, {0, 2, 155, 18}, { "Names", "Life", "Energy Shield", "Attack Speed", "Companion Reservation", "Spectre Reservation", "Fire Resistance", "Cold Resistance", "Lightning Resistance", "Total Resistance"}, function(index, value)
+	controls.sortModeDropDown = new("DropDownControl", {"TOPRIGHT",controls.source,"BOTTOMRIGHT"}, {0, 2, 155, 18}, { "Names", "Life", "Energy Shield", "Attack Speed", "Companion Reservation", "Spectre Reservation", "Fire Resistance", "Cold Resistance", "Lightning Resistance", "Chaos Resistance", "Total Resistance"}, function(index, value)
 		sortSourceList()
 	end)
 	controls.save = new("ButtonControl", nil, {-45, 390, 80, 20}, "Save", function()
@@ -1527,7 +1542,6 @@ function buildMode:OpenSpectreLibrary(library)
 	controls.source.OnSelect = function()
 		local selected = controls.source.selValue
 		local minion = self.data.minions[selected]
-		-- Get the gem level from the control, default to 20 if not set
 		local gemLevel = controls.minionGemLevel.buf
 		local baseLife = self.data.monsterAllyLifeTable[m_min(gemLevel * 2, 100)]
 		local totalLife = baseLife * minion.life
