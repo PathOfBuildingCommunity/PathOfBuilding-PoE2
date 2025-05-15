@@ -10,7 +10,7 @@ local spectreList = {}
 local uniqueName = {}
 
 for monster in dat("MonsterVarieties"):Rows() do
-	if monster.NotSpectre == false and monster.BossHealthBar == false and not monster.Id:match("NPC") and not monster.Name:match("DNT") and not monster.AIScript:match("NoAI") then
+	if monster.NotSpectre == false and monster.BossHealthBar == false and not monster.Type.IsPlayerMinion == true and not monster.Id:match("NPC") and not monster.Name:match("DNT") and not monster.AIScript:match("NoAI") then
 		for _, name in ipairs(uniqueName) do
 			if name == monster.Name then
 				goto continue
@@ -20,9 +20,6 @@ for monster in dat("MonsterVarieties"):Rows() do
 			if mod.Id == "CannotBeUsedAsMinion" then
 				goto continue
 			end
-		end
-		if monster.Type.IsPlayerMinion == true then
-			 goto continue
 		end
 		for _, mod in ipairs(monster.ModsKeys2) do
 			if mod.Id == "CannotBeUsedAsMinion" then
