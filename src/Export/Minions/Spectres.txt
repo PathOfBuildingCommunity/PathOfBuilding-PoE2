@@ -134,7 +134,6 @@ local minions, mod, flag = ...
 
 #spectre Metadata/Monsters/Monkeys/MonkeyJungle
 #spectre Metadata/Monsters/BloodChieftain/MonkeyChiefJungle
-#spectre Metadata/Monsters/InsectMinion/InsectTest
 #spectre Metadata/Monsters/Spiker/Spiker
 #spectre Metadata/Monsters/MudBurrower/BrambleBurrower
 #spectre Metadata/Monsters/StonebackRhoa/BrambleRhoa

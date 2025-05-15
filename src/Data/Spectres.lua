@@ -2563,28 +2563,6 @@ minions["Metadata/Monsters/BloodChieftain/MonkeyChiefJungle"] = {
 	modList = {
 	},
 }
-minions["Metadata/Monsters/InsectMinion/InsectTest"] = {
-	name = "Testling",
-	monsterTags = { "animal_claw_weapon", "beast", "Claw_onhit_audio", "extra_extra_small_height", "fast_movement", "flesh_armour", "insect", "insect_blood", "is_unarmed", "melee", "physical_affinity", },
-	life = 1,
-	fireResist = 0,
-	coldResist = 0,
-	lightningResist = 0,
-	chaosResist = 0,
-	damage = 1,
-	damageSpread = 0,
-	attackTime = 1.5,
-	attackRange = 6,
-	accuracy = 1,
-	spectreReservation = 50,
-	companionReservation = 30,
-	monsterCategory = "Beast",
-	skillList = {
-		"MeleeAtAnimationSpeed",
-	},
-	modList = {
-	},
-}
 minions["Metadata/Monsters/Spiker/Spiker"] = {
 	name = "Porcupine Goliath",
 	monsterTags = { "allows_additional_projectiles", "animal_claw_weapon", "beast", "Claw_onhit_audio", "flesh_armour", "has_dagger", "has_one_handed_melee", "mammal_beast", "medium_height", "medium_movement", "melee", "monster_has_on_death_mechanic", "physical_affinity", "red_blood", "rodent_beast", },
