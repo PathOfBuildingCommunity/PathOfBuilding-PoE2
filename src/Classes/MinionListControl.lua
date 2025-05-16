@@ -50,6 +50,13 @@ function MinionListClass:AddValueTooltip(tooltip, index, minionId)
 	if tooltip:CheckForUpdate(minionId) then
 		local minion = self.data.minions[minionId]
 		tooltip:AddLine(18, "^7"..minion.name)
+		if #minion.spawnLocation > 0 then
+			local coloredLocations = {}
+			for _, location in ipairs(minion.spawnLocation) do
+				table.insert(coloredLocations, colorCodes.RELIC .. location)
+			end
+			tooltip:AddLine(14, s_format("^7Spawn: %s", table.concat(coloredLocations, ", ")))
+		end
 		tooltip:AddLine(14, s_format("^7Spectre Reservation: %s%d", colorCodes.SPIRIT, tostring(minion.spectreReservation)))
 		tooltip:AddLine(14, s_format("^7Companion Reservation: %s%s%%", colorCodes.SPIRIT, tostring(minion.companionReservation)))
 		tooltip:AddLine(14, "^7Category: "..minion.monsterCategory)

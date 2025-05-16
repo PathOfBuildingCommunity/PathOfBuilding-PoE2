@@ -1531,18 +1531,91 @@ function buildMode:OpenSpectreLibrary(library)
 	controls.minionGemLevel = new("EditControl", {"LEFT", controls.minionGemLevelLabel, "RIGHT"}, {4, 0, 60, 20}, "20", nil, "%D", 3, function()
 		controls.source.OnSelect()
 	end)
-	controls.lifeLabel = new("LabelControl", {"TOP", controls.source, "TOPRIGHT"}, {60, 4, 0, 16}, colorCodes.LIFE.."LIFE")
-	controls.energyshieldLabel = new("LabelControl", {"TOP",controls.source,"TOPRIGHT"}, {190, 4, 0, 16}, colorCodes.ES.."ENERGY SHIELD")
-	controls.armourLabel = new("LabelControl", {"TOP",controls.source,"TOPRIGHT"}, {60, 42, 0, 16}, colorCodes.ARMOUR.."ARMOUR")
-	controls.evasionLabel = new("LabelControl", {"TOP",controls.source,"TOPRIGHT"}, {190, 42, 0, 16}, colorCodes.EVASION.."EVASION")
-	controls.blockLabel = new("LabelControl", {"TOP",controls.source,"TOPRIGHT"}, {60, 80, 0, 16}, colorCodes.NORMAL.."BLOCK")
-	controls.resistsLabel = new("LabelControl", {"TOP",controls.source,"TOPRIGHT"}, {190, 80, 0, 16}, "RESISTS")
+	controls.lifeLabel = new("LabelControl", {"TOP", controls.source, "TOP"}, {170, 4, 0, 16}, colorCodes.LIFE.."LIFE")
+	controls.lifeLabel.Draw = function(self, view)
+		local xPos, yPos = self:GetPos()
+		local width, height = 120, 50
+		SetDrawColor(colorCodes.LIFE)
+		DrawImage(nil, xPos - 45, yPos - 3, width, height)
+		SetDrawColor(0, 0, 0, 1)
+		DrawImage(nil, (xPos+2) - 45, (yPos+2) - 3, width - 4, height - 4)
+		SetDrawColor(colorCodes.LIFE)
+		DrawImage(nil, xPos - 45, yPos + 15, width, 2)
+		SetDrawColor(1,1,1)
+		DrawString(xPos, yPos, "LEFT", 16, "VAR BOLD", "LIFE")
+	end
+	controls.energyshieldLabel = new("LabelControl", {"TOP",controls.source,"TOP"}, {295, 4, 0, 16}, colorCodes.ES.."ENERGY SHIELD")
+	controls.energyshieldLabel.Draw = function(self, view)
+		local xPos, yPos = self:GetPos()
+		local width, height = 120, 50
+		SetDrawColor(colorCodes.ES)
+		DrawImage(nil, xPos - 7, yPos - 3, width, height)
+		SetDrawColor(0, 0, 0, 1)
+		DrawImage(nil, (xPos+2) - 7, (yPos+2) - 3, width - 4, height - 4)
+		SetDrawColor(colorCodes.ES)
+		DrawImage(nil, xPos - 7, yPos + 15, width, 2)
+		SetDrawColor(1,1,1)
+		DrawString(xPos-2, yPos, "LEFT", 16, "VAR BOLD", "ENERGY SHIELD")
+	end
+	controls.armourLabel = new("LabelControl", {"TOP",controls.lifeLabel,"TOP"}, {0, 54, 0, 16}, colorCodes.ARMOUR.."ARMOUR")
+	controls.armourLabel.Draw = function(self, view)
+		local xPos, yPos = self:GetPos()
+		local width, height = 120, 50
+		SetDrawColor(colorCodes.NORMAL)
+		DrawImage(nil, xPos - 29, yPos - 3, width, height)
+		SetDrawColor(0, 0, 0, 1)
+		DrawImage(nil, (xPos+2) - 29, (yPos+2) - 3, width - 4, height - 4)
+		SetDrawColor(colorCodes.NORMAL)
+		DrawImage(nil, xPos - 29, yPos + 15, width, 2)
+		SetDrawColor(1,1,1)
+		DrawString(xPos, yPos, "LEFT", 16, "VAR BOLD", "ARMOUR")
+	end
+	controls.evasionLabel = new("LabelControl", {"TOP",controls.energyshieldLabel,"TOP"}, {0, 54, 0, 16}, colorCodes.EVASION.."EVASION")
+	controls.evasionLabel.Draw = function(self, view)
+		local xPos, yPos = self:GetPos()
+		local width, height = 120, 50
+		SetDrawColor(colorCodes.EVASION)
+		DrawImage(nil, xPos - 32, yPos - 3, width, height)
+		SetDrawColor(0, 0, 0, 1)
+		DrawImage(nil, (xPos+2) - 32, (yPos+2) - 3, width - 4, height - 4)
+		SetDrawColor(colorCodes.EVASION)
+		DrawImage(nil, xPos - 32, yPos + 15, width, 2)
+		SetDrawColor(1,1,1)
+		DrawString(xPos, yPos, "LEFT", 16, "VAR BOLD", "EVASION")
+	end
+	controls.blockLabel = new("LabelControl", {"TOP",controls.armourLabel,"TOP"}, {0, 54, 0, 16}, colorCodes.NORMAL.."BLOCK")
+	controls.blockLabel.Draw = function(self, view)
+		local xPos, yPos = self:GetPos()
+		local width, height = 120, 50
+		SetDrawColor(colorCodes.NORMAL)
+		DrawImage(nil, xPos - 35, yPos - 3, width, height)
+		SetDrawColor(0, 0, 0, 1)
+		DrawImage(nil, (xPos+2) - 35, (yPos+2) - 3, width - 4, height - 4)
+		SetDrawColor(colorCodes.NORMAL)
+		DrawImage(nil, xPos - 35, yPos + 15, width, 2)
+		SetDrawColor(1,1,1)
+		DrawString(xPos, yPos, "LEFT", 16, "VAR BOLD", "BLOCK")
+	end
+	controls.resistsLabel = new("LabelControl", {"TOP",controls.evasionLabel,"TOP"}, {0, 54, 0, 16}, "RESISTS")
+	controls.resistsLabel.Draw = function(self, view)
+		local xPos, yPos = self:GetPos()
+		local width, height = 120, 50
+		SetDrawColor(colorCodes.DEFENCE)
+		DrawImage(nil, xPos - 32, yPos - 3, width, height)
+		SetDrawColor(0, 0, 0, 1)
+		DrawImage(nil, (xPos+2) - 32, (yPos+2) - 3, width - 4, height - 4)
+		SetDrawColor(colorCodes.DEFENCE)
+		DrawImage(nil, xPos - 32, yPos + 15, width, 2)
+		SetDrawColor(1,1,1)
+		DrawString(xPos, yPos, "LEFT", 16, "VAR BOLD", "RESISTS")
+	end
 
 	-- Run this code whenever a new minion is selected in the list
 	controls.source.OnSelect = function()
+		if not controls.source.selValue then return end
 		local selected = controls.source.selValue
 		local minion = self.data.minions[selected]
-		local gemLevel = controls.minionGemLevel.buf
+		local gemLevel = m_max(controls.minionGemLevel.buf,1)
 		local baseLife = self.data.monsterAllyLifeTable[m_min(gemLevel * 2, 100)]
 		local totalLife = baseLife * minion.life
 		local totalES
@@ -1571,16 +1644,21 @@ function buildMode:OpenSpectreLibrary(library)
 			end
 		end
 		controls.minionNameLabel = new("LabelControl", {"TOP",controls.source,"TOPRIGHT"}, {130, -25, 0, 18}, minion.name)
-		controls.lifeLabelNum = new("LabelControl", {"TOP",controls.lifeLabel,"BOTTOM"}, {0, 2, 0, 16}, colorCodes.LIFE..round(totalLife))
-		controls.energyshieldLabelNum = new("LabelControl", {"TOP",controls.energyshieldLabel,"BOTTOM"}, {0, 2, 0, 16}, colorCodes.ES..round(totalES))
-		controls.blockLabelNum = new("LabelControl", {"TOP",controls.blockLabel,"BOTTOM"}, {4, 2, 0, 16}, blockChance.."%")
-		controls.armourLabelNum = new("LabelControl", {"TOP",controls.armourLabel,"BOTTOM"}, {0, 2, 0, 16}, colorCodes.ARMOUR..round(totalArmour))
-		controls.evasionLabelNum = new("LabelControl", {"TOP",controls.evasionLabel,"BOTTOM"}, {0, 2, 0, 16}, colorCodes.EVASION..round(totalEvasion))
-		controls.resistsLabelNum = new("LabelControl", {"TOP",controls.resistsLabel,"BOTTOM"}, {0, 2, 0, 16},
+		controls.lifeLabelNum = new("LabelControl", {"TOP",controls.lifeLabel,"BOTTOM"}, {0, 6, 0, 16}, round(totalLife))
+		controls.energyshieldLabelNum = new("LabelControl", {"TOP",controls.energyshieldLabel,"BOTTOM"}, {0, 6, 0, 16}, (totalES))
+		controls.blockLabelNum = new("LabelControl", {"TOP",controls.blockLabel,"BOTTOM"}, {6, 6, 0, 16}, blockChance.."%")
+		controls.armourLabelNum = new("LabelControl", {"TOP",controls.armourLabel,"BOTTOM"}, {0, 6, 0, 16}, (totalArmour))
+		controls.evasionLabelNum = new("LabelControl", {"TOP",controls.evasionLabel,"BOTTOM"}, {0, 6, 0, 16}, round(totalEvasion))
+		controls.resistsLabelNum = new("LabelControl", {"TOP",controls.resistsLabel,"BOTTOM"}, {0, 6, 0, 16},
 		colorCodes.FIRE..minion.fireResist.."^7/"..
 		colorCodes.COLD..minion.coldResist.."^7/"..
 		colorCodes.LIGHTNING..minion.lightningResist.."^7/"..
-		colorCodes.CHAOS..minion.chaosResist..colorCodes.NORMAL)
+		colorCodes.CHAOS..minion.chaosResist)
+		controls.resistsLabelNum._oldDraw = controls.resistsLabelNum.Draw
+		controls.resistsLabelNum.Draw = function(self, view)
+			self:_oldDraw(view)
+			SetDrawColor(1, 1, 1, 1) -- Reset to white otherwise spectre notes and other lines get colored
+		end
 	end
 end
 

@@ -25,6 +25,8 @@ minions["RaisedZombie"] = {
 	spectreReservation = 50,
 	companionReservation = 30,
 	monsterCategory = "Undead",
+	spawnLocation = {
+	},
 	skillList = {
 		"MinionMeleeStep",
 	},
@@ -51,6 +53,8 @@ minions["SummonedRagingSpirit"] = {
 	spectreReservation = 50,
 	companionReservation = 30,
 	monsterCategory = "Construct",
+	spawnLocation = {
+	},
 	skillList = {
 		"MinionMeleeStep",
 	},
@@ -78,6 +82,8 @@ minions["RaisedSkeletonSniper"] = {
 	spectreReservation = 50,
 	companionReservation = 30,
 	monsterCategory = "Undead",
+	spawnLocation = {
+	},
 	skillList = {
 		"MinionMeleeBow",
 		"GasShotSkeletonSniperMinion",
@@ -107,6 +113,8 @@ minions["RaisedSkeletonBrute"] = {
 	spectreReservation = 50,
 	companionReservation = 30,
 	monsterCategory = "Undead",
+	spawnLocation = {
+	},
 	skillList = {
 		"MinionMeleeStep",
 		"BoneshatterBruteMinion",
@@ -136,6 +144,8 @@ minions["RaisedSkeletonStormMage"] = {
 	spectreReservation = 50,
 	companionReservation = 30,
 	monsterCategory = "Undead",
+	spawnLocation = {
+	},
 	skillList = {
 		"ArcSkeletonMageMinion",
 		"DeathStormSkeletonStormMageMinion",
@@ -165,6 +175,8 @@ minions["RaisedSkeletonFrostMage"] = {
 	spectreReservation = 50,
 	companionReservation = 30,
 	monsterCategory = "Undead",
+	spawnLocation = {
+	},
 	skillList = {
 		"FrostBoltSkeletonMageMinion",
 		"IceBombSkeletonMageMinion",
@@ -194,6 +206,8 @@ minions["RaisedSkeletonCleric"] = {
 	spectreReservation = 50,
 	companionReservation = 30,
 	monsterCategory = "Undead",
+	spawnLocation = {
+	},
 	skillList = {
 		"HealSkeletonClericMinion",
 		"ResurrectSkeletonClericMinion",
@@ -224,6 +238,8 @@ minions["RaisedSkeletonArsonist"] = {
 	spectreReservation = 50,
 	companionReservation = 30,
 	monsterCategory = "Undead",
+	spawnLocation = {
+	},
 	skillList = {
 		"FireBombSkeletonMinion",
 		"DestructiveLinkSkeletonBombadierMinion",
@@ -254,6 +270,8 @@ minions["RaisedSkeletonReaver"] = {
 	spectreReservation = 50,
 	companionReservation = 30,
 	monsterCategory = "Undead",
+	spawnLocation = {
+	},
 	skillList = {
 		"MinionMeleeStep",
 		"EnrageSkeletonReaverMinion",
@@ -284,6 +302,8 @@ minions["RaisedSkeletonWarriors"] = {
 	spectreReservation = 50,
 	companionReservation = 30,
 	monsterCategory = "Undead",
+	spawnLocation = {
+	},
 	skillList = {
 		"MinionMeleeStep",
 	},
@@ -313,6 +333,8 @@ minions["SummonedHellhound"] = {
 	spectreReservation = 50,
 	companionReservation = 30,
 	monsterCategory = "Demon",
+	spawnLocation = {
+	},
 	skillList = {
 		"MinionMelee",
 	},
@@ -339,6 +361,8 @@ minions["AncestralSpiritTurtle"] = {
 	spectreReservation = 50,
 	companionReservation = 30,
 	monsterCategory = "Beast",
+	spawnLocation = {
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"ABTTTortoiseTotemBubble",
@@ -369,6 +393,8 @@ minions["AncestralSpiritHulk"] = {
 	spectreReservation = 50,
 	companionReservation = 30,
 	monsterCategory = "Beast",
+	spawnLocation = {
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"DTTAncestralJadeHulkLeapSlam",
@@ -399,6 +425,8 @@ minions["AncestralSpiritCaster"] = {
 	spectreReservation = 50,
 	companionReservation = 30,
 	monsterCategory = "Humanoid",
+	spawnLocation = {
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"MPSAncestralTotemSpiritSoulCasterProjectile",
@@ -429,6 +457,8 @@ minions["AncestralSpiritWarhorn"] = {
 	spectreReservation = 50,
 	companionReservation = 30,
 	monsterCategory = "Humanoid",
+	spawnLocation = {
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"EGTotemSpiritJadeHornBlow",
@@ -455,6 +485,8 @@ minions["UnearthBoneConstruct"] = {
 	spectreReservation = 50,
 	companionReservation = 30,
 	monsterCategory = "Undead",
+	spawnLocation = {
+	},
 	skillList = {
 		"MinionMelee",
 	},
@@ -482,6 +514,8 @@ minions["SummonedRhoa"] = {
 	spectreReservation = 50,
 	companionReservation = 30,
 	monsterCategory = "Beast",
+	spawnLocation = {
+	},
 	skillList = {
 		"MinionMelee",
 	},
@@ -508,6 +542,8 @@ minions["ManifestWeapon"] = {
 	spectreReservation = 50,
 	companionReservation = 30,
 	monsterCategory = "Construct",
+	spawnLocation = {
+	},
 	skillList = {
 		"MinionMelee",
 		"GAAnimateWeaponMaceSlam",
