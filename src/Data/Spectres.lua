@@ -25,6 +25,11 @@ minions["Metadata/Monsters/EtchedBeetles/SmallEtchedBeetleArmoured"] = {
 	spectreReservation = 40,
 	companionReservation = 27.6,
 	monsterCategory = "Beast",
+	spawnLocation = {
+		"The Lost City",
+		"Trial of the Sekhemas",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"GSBeetleLightningNova",
@@ -51,6 +56,11 @@ minions["Metadata/Monsters/EtchedBeetles/SmallEtchedBeetleArmouredDull"] = {
 	spectreReservation = 40,
 	companionReservation = 27.6,
 	monsterCategory = "Beast",
+	spawnLocation = {
+		"Keth",
+		"The Lost City",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"MeleeBeetleFast",
@@ -78,6 +88,10 @@ minions["Metadata/Monsters/EtchedBeetles/MediumEtchedBeetleArmouredDull"] = {
 	spectreReservation = 80,
 	companionReservation = 36.6,
 	monsterCategory = "Beast",
+	spawnLocation = {
+		"Keth",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"GAMediumBeetleChargedSunder",
@@ -104,6 +118,11 @@ minions["Metadata/Monsters/EtchedBeetles/MediumEtchedBeetleArmouredTuskWide"] = 
 	spectreReservation = 80,
 	companionReservation = 36.6,
 	monsterCategory = "Beast",
+	spawnLocation = {
+		"The Lost City",
+		"Trial of the Sekhemas",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"GAMediumBeetleChargedSunder",
@@ -134,6 +153,8 @@ minions["Metadata/Monsters/LeagueHellscape/DemonFaction/HellscapeDemonFodder1_"]
 	spectreReservation = 60,
 	companionReservation = 32.1,
 	monsterCategory = "Demon",
+	spawnLocation = {
+	},
 	skillList = {
 		"MPSHellscapeDemonFodderProj",
 		"HellscapeDemonFodderFaceLaser",
@@ -160,6 +181,8 @@ minions["Metadata/Monsters/LeagueHellscape/DemonFaction/HellscapeDemonFodder2_"]
 	spectreReservation = 60,
 	companionReservation = 32.1,
 	monsterCategory = "Demon",
+	spawnLocation = {
+	},
 	skillList = {
 		"MeleeAtAnimationSpeedFire",
 	},
@@ -184,6 +207,8 @@ minions["Metadata/Monsters/LeagueHellscape/DemonFaction/HellscapeDemonFodder3_"]
 	spectreReservation = 60,
 	companionReservation = 31.5,
 	monsterCategory = "Demon",
+	spawnLocation = {
+	},
 	skillList = {
 		"MeleeAtAnimationSpeedFire",
 	},
@@ -209,6 +234,8 @@ minions["Metadata/Monsters/LeagueHellscape/DemonFaction/HellscapeDemonElite1_"] 
 	spectreReservation = 100,
 	companionReservation = 42.3,
 	monsterCategory = "Demon",
+	spawnLocation = {
+	},
 	skillList = {
 		"MeleeAtAnimationSpeedFire",
 		"DTTHellscapeDemonElite1",
@@ -238,6 +265,8 @@ minions["Metadata/Monsters/LeagueHellscape/DemonFaction/HellscapeDemonElite2_"] 
 	spectreReservation = 110,
 	companionReservation = 43.5,
 	monsterCategory = "Demon",
+	spawnLocation = {
+	},
 	skillList = {
 		"MMSHellscapeDemonEliteTripleMortar",
 		"GSHellscapeDemonEliteBeamNuke",
@@ -264,6 +293,8 @@ minions["Metadata/Monsters/LeagueHellscape/FleshFaction/HellscapeFleshFodder1_"]
 	spectreReservation = 70,
 	companionReservation = 34.2,
 	monsterCategory = "Demon",
+	spawnLocation = {
+	},
 	skillList = {
 		"MeleeAtAnimationSpeedFireCombo35",
 		"DTTHellscapeFleshLeap",
@@ -291,6 +322,8 @@ minions["Metadata/Monsters/LeagueHellscape/FleshFaction/HellscapeFleshFodder2_"]
 	spectreReservation = 90,
 	companionReservation = 39,
 	monsterCategory = "Demon",
+	spawnLocation = {
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"EAAHellscapeFleshFodderSlam",
@@ -318,6 +351,8 @@ minions["Metadata/Monsters/LeagueHellscape/FleshFaction/HellscapeFleshFodder3_"]
 	spectreReservation = 60,
 	companionReservation = 31.5,
 	monsterCategory = "Demon",
+	spawnLocation = {
+	},
 	skillList = {
 		"MeleeAtAnimationSpeedComboTEMP",
 		"GTHellscapeFleshPustuleParty",
@@ -348,6 +383,8 @@ minions["Metadata/Monsters/LeagueHellscape/FleshFaction/HellscapeFleshFodder4_"]
 	spectreReservation = 60,
 	companionReservation = 32.1,
 	monsterCategory = "Demon",
+	spawnLocation = {
+	},
 	skillList = {
 		"MeleeAtAnimationSpeedLightning",
 		"HellscapeFleshFodderArc",
@@ -374,6 +411,8 @@ minions["Metadata/Monsters/LeagueHellscape/FleshFaction/HellscapeFleshElite1_"] 
 	spectreReservation = 100,
 	companionReservation = 42.3,
 	monsterCategory = "Demon",
+	spawnLocation = {
+	},
 	skillList = {
 		"MPSHellscapeFleshEliteBasicProj",
 		"SOHellscapeFleshEliteBloodOrb",
@@ -408,6 +447,8 @@ minions["Metadata/Monsters/LeagueHellscape/FleshFaction/HellscapeFleshElite2_"] 
 	spectreReservation = 110,
 	companionReservation = 45,
 	monsterCategory = "Demon",
+	spawnLocation = {
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"EAAHellscapeFleshElite2Combo1",
@@ -437,6 +478,8 @@ minions["Metadata/Monsters/LeagueHellscape/PaleFaction/HellscapePaleFodder1_"] =
 	spectreReservation = 60,
 	companionReservation = 33,
 	monsterCategory = "Demon",
+	spawnLocation = {
+	},
 	skillList = {
 		"MPSHellscapePaleHammerhead",
 	},
@@ -462,6 +505,8 @@ minions["Metadata/Monsters/LeagueHellscape/PaleFaction/HellscapePaleFodder2_"] =
 	spectreReservation = 60,
 	companionReservation = 32.1,
 	monsterCategory = "Demon",
+	spawnLocation = {
+	},
 	skillList = {
 		"MeleeAtAnimationSpeedComboTEMP",
 		"EASHellscapePaleDogmanChargeUp",
@@ -491,6 +536,8 @@ minions["Metadata/Monsters/LeagueHellscape/PaleFaction/HellscapePaleFodder3_"] =
 	spectreReservation = 60,
 	companionReservation = 32.1,
 	monsterCategory = "Demon",
+	spawnLocation = {
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"DTTHellscapeSpiderDodgeLeft",
@@ -518,6 +565,8 @@ minions["Metadata/Monsters/LeagueHellscape/PaleFaction/HellscapePaleElite1_"] = 
 	spectreReservation = 120,
 	companionReservation = 45.9,
 	monsterCategory = "Demon",
+	spawnLocation = {
+	},
 	skillList = {
 		"TBHellscapePaleLightningBoltSpammableLeft",
 		"TBHellscapePaleLightningBoltSpammableRight",
@@ -548,6 +597,8 @@ minions["Metadata/Monsters/LeagueHellscape/PaleFaction/HellscapePaleElite2__"] =
 	spectreReservation = 110,
 	companionReservation = 45,
 	monsterCategory = "Demon",
+	spawnLocation = {
+	},
 	skillList = {
 		"DTTHellscapeStabbySkyStab",
 		"DTTHellscapeStabWeb",
@@ -583,6 +634,11 @@ minions["Metadata/Monsters/GoreCharger/GoreCharger"] = {
 	spectreReservation = 90,
 	companionReservation = 39,
 	monsterCategory = "Beast",
+	spawnLocation = {
+		"Chimeral Wetlands",
+		"Infested Barrens",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"GoreChargerCharge",
@@ -611,6 +667,10 @@ minions["Metadata/Monsters/QuillCrab/QuillCrab"] = {
 	spectreReservation = 40,
 	companionReservation = 25.2,
 	monsterCategory = "Beast",
+	spawnLocation = {
+		"The Riverbank",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"QuillCrabSpikeBurstEmptyAction",
 		"QuillCrabSpikeBurst",
@@ -638,6 +698,10 @@ minions["Metadata/Monsters/QuillCrab/QuillCrabBig"] = {
 	spectreReservation = 40,
 	companionReservation = 27.6,
 	monsterCategory = "Beast",
+	spawnLocation = {
+		"The Riverbank",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"QuillCrabSpikeBurstEmptyAction",
 		"QuillCrabSpikeBurst",
@@ -665,6 +729,10 @@ minions["Metadata/Monsters/QuillCrab/QuillCrabBigPoison_"] = {
 	spectreReservation = 40,
 	companionReservation = 27.6,
 	monsterCategory = "Beast",
+	spawnLocation = {
+		"Hunting Grounds",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"QuillCrabSpikeBurstEmptyAction",
 		"QuillCrabSpikeBurstPoison",
@@ -692,6 +760,9 @@ minions["Metadata/Monsters/QuillCrab/QuillCrabTropical"] = {
 	spectreReservation = 40,
 	companionReservation = 25.2,
 	monsterCategory = "Beast",
+	spawnLocation = {
+		"Untainted Paradise",
+	},
 	skillList = {
 		"QuillCrabSpikeBurstEmptyAction",
 		"QuillCrabSpikeBurstTropical",
@@ -720,6 +791,11 @@ minions["Metadata/Monsters/ShellMonster/ShellMonster"] = {
 	spectreReservation = 60,
 	companionReservation = 32.1,
 	monsterCategory = "Beast",
+	spawnLocation = {
+		"Vastiri Outskirts",
+		"The Ziggurat Refuge",
+		"Trial of the Sekhemas",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeedComboTEMP",
 		"ShellMonsterFirehose",
@@ -749,6 +825,9 @@ minions["Metadata/Monsters/ShellMonster/ShellMonsterPoison"] = {
 	spectreReservation = 60,
 	companionReservation = 32.1,
 	monsterCategory = "Beast",
+	spawnLocation = {
+		"Untainted Paradise",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeedComboTEMP",
 		"ShellMonsterDeathMortarPoison",
@@ -780,6 +859,11 @@ minions["Metadata/Monsters/CrazedCannibalPicts/PictFemaleBow"] = {
 	spectreReservation = 70,
 	companionReservation = 34.2,
 	monsterCategory = "Humanoid",
+	spawnLocation = {
+		"Freythorn",
+		"The Ziggurat Refuge",
+		"The Viridian Wildwood",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeedBow",
 		"AzmeriPictBowRainOfSpores",
@@ -810,6 +894,11 @@ minions["Metadata/Monsters/CrazedCannibalPicts/PictFemaleDaggerDagger"] = {
 	spectreReservation = 50,
 	companionReservation = 30,
 	monsterCategory = "Humanoid",
+	spawnLocation = {
+		"Freythorn",
+		"The Ziggurat Refuge",
+		"The Viridian Wildwood",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeedComboTEMP",
 	},
@@ -835,6 +924,11 @@ minions["Metadata/Monsters/CrazedCannibalPicts/PictFemaleStaff"] = {
 	spectreReservation = 100,
 	companionReservation = 42.3,
 	monsterCategory = "Humanoid",
+	spawnLocation = {
+		"The Viridian Wildwood",
+		"The Ziggurat Refuge",
+		"Freythorn",
+	},
 	skillList = {
 		"MPSAzmeriPictStaffProj",
 		"MPSAzmeriPictStaffProj2",
@@ -864,6 +958,8 @@ minions["Metadata/Monsters/Sanctified/Floppy/SanctifiedFloppy"] = {
 	spectreReservation = 50,
 	companionReservation = 30,
 	monsterCategory = "Demon",
+	spawnLocation = {
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 	},
@@ -888,6 +984,8 @@ minions["Metadata/Monsters/Sanctified/Monstrosity/SanctifiedMonstrosity"] = {
 	spectreReservation = 180,
 	companionReservation = 56.1,
 	monsterCategory = "Demon",
+	spawnLocation = {
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"MPWCleansedMonstrosityRailgun",
@@ -915,6 +1013,8 @@ minions["Metadata/Monsters/Sanctified/Scythe/SanctifiedScythe_"] = {
 	spectreReservation = 100,
 	companionReservation = 42.3,
 	monsterCategory = "Demon",
+	spawnLocation = {
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"GASanctifiedScytheImpact",
@@ -942,6 +1042,8 @@ minions["Metadata/Monsters/Sanctified/Snake/SanctifiedSnake"] = {
 	spectreReservation = 110,
 	companionReservation = 44.1,
 	monsterCategory = "Demon",
+	spawnLocation = {
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"GASanctifiedSnakeSlam",
@@ -972,6 +1074,8 @@ minions["Metadata/Monsters/Sanctified/Spider/SanctifiedSpider"] = {
 	spectreReservation = 110,
 	companionReservation = 44.1,
 	monsterCategory = "Beast",
+	spawnLocation = {
+	},
 	skillList = {
 		"MeleeAtAnimationSpeedComboTEMP",
 		"MPWSanctifiedSpiderSpit",
@@ -1002,6 +1106,8 @@ minions["Metadata/Monsters/Sanctified/Tentacle/SanctifiedTentacle"] = {
 	spectreReservation = 70,
 	companionReservation = 36,
 	monsterCategory = "Demon",
+	spawnLocation = {
+	},
 	skillList = {
 		"MeleeAtAnimationSpeedComboTEMP",
 		"MPWSanctifiedTentacleProjectile",
@@ -1029,6 +1135,8 @@ minions["Metadata/Monsters/Sanctified/Writhing/SanctifiedWrithing"] = {
 	spectreReservation = 50,
 	companionReservation = 30,
 	monsterCategory = "Beast",
+	spawnLocation = {
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 	},
@@ -1057,6 +1165,10 @@ minions["Metadata/Monsters/Mutewind/MutewindBanditExecutioner"] = {
 	spectreReservation = 100,
 	companionReservation = 42.3,
 	monsterCategory = "Humanoid",
+	spawnLocation = {
+		"Dreadnought Vanguard",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"DTTMutewindBanditExecutioner",
@@ -1091,6 +1203,13 @@ minions["Metadata/Monsters/Mutewind/MutewindBoy"] = {
 	spectreReservation = 40,
 	companionReservation = 26.7,
 	monsterCategory = "Humanoid",
+	spawnLocation = {
+		"The Halani Gates",
+		"The Spires of Deshar",
+		"The Dreadnought",
+		"Dreadnought Vanguard",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeedComboTEMP",
 		"WalkEmergeMutewind",
@@ -1117,6 +1236,13 @@ minions["Metadata/Monsters/Mutewind/MutewindGirl"] = {
 	spectreReservation = 40,
 	companionReservation = 26.7,
 	monsterCategory = "Humanoid",
+	spawnLocation = {
+		"The Spires of Deshar",
+		"The Halani Gates",
+		"The Dreadnought",
+		"Dreadnought Vanguard",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeedComboTEMP",
 		"MPWMutewindGirlGhostSpear",
@@ -1145,6 +1271,13 @@ minions["Metadata/Monsters/Mutewind/MutewindMan2HSpear"] = {
 	spectreReservation = 60,
 	companionReservation = 33,
 	monsterCategory = "Humanoid",
+	spawnLocation = {
+		"The Spires of Deshar",
+		"The Halani Gates",
+		"The Dreadnought",
+		"Dreadnought Vanguard",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeedComboTEMP",
 		"WalkEmergeMutewind",
@@ -1173,6 +1306,13 @@ minions["Metadata/Monsters/Mutewind/MutewindManDualSword"] = {
 	spectreReservation = 60,
 	companionReservation = 33,
 	monsterCategory = "Humanoid",
+	spawnLocation = {
+		"The Halani Gates",
+		"The Spires of Deshar",
+		"The Dreadnought",
+		"Dreadnought Vanguard",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeedComboTEMP",
 		"WalkEmergeMutewind",
@@ -1201,6 +1341,13 @@ minions["Metadata/Monsters/Mutewind/MutewindManSpearShield_"] = {
 	spectreReservation = 60,
 	companionReservation = 33,
 	monsterCategory = "Humanoid",
+	spawnLocation = {
+		"The Spires of Deshar",
+		"The Halani Gates",
+		"The Dreadnought",
+		"Dreadnought Vanguard",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeedComboTEMP",
 		"WalkEmergeMutewind",
@@ -1232,6 +1379,13 @@ minions["Metadata/Monsters/Mutewind/MutewindWomanDualDaggerSandCrusted"] = {
 	spectreReservation = 50,
 	companionReservation = 30.6,
 	monsterCategory = "Humanoid",
+	spawnLocation = {
+		"The Spires of Deshar",
+		"The Halani Gates",
+		"The Dreadnought",
+		"Dreadnought Vanguard",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeedComboTEMP",
 		"WalkEmergeMutewind",
@@ -1259,6 +1413,13 @@ minions["Metadata/Monsters/Mutewind/MutewindWomanDualSword"] = {
 	spectreReservation = 60,
 	companionReservation = 31.5,
 	monsterCategory = "Humanoid",
+	spawnLocation = {
+		"The Halani Gates",
+		"The Spires of Deshar",
+		"The Dreadnought",
+		"Dreadnought Vanguard",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeedComboTEMP",
 		"EmptyActionMutewindWomanDodgeLeft",
@@ -1290,6 +1451,13 @@ minions["Metadata/Monsters/Mutewind/MutewindWomanJavelin"] = {
 	spectreReservation = 50,
 	companionReservation = 30.6,
 	monsterCategory = "Humanoid",
+	spawnLocation = {
+		"The Halani Gates",
+		"The Spires of Deshar",
+		"The Dreadnought",
+		"Dreadnought Vanguard",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"JavelinThrow",
@@ -1321,6 +1489,9 @@ minions["Metadata/Monsters/Mutewind/MutewindWomanSpearCorrodedElite"] = {
 	spectreReservation = 110,
 	companionReservation = 45.6,
 	monsterCategory = "Humanoid",
+	spawnLocation = {
+		"The Spires of Deshar",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeedComboTEMP",
 		"EAAFarudinSpearThrow",
@@ -1357,6 +1528,12 @@ minions["Metadata/Monsters/Mutewind/MutewindWomanSpearSandCrusted"] = {
 	spectreReservation = 60,
 	companionReservation = 31.5,
 	monsterCategory = "Humanoid",
+	spawnLocation = {
+		"The Halani Gates",
+		"The Spires of Deshar",
+		"The Dreadnought",
+		"Dreadnought Vanguard",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeedComboTEMP",
 		"EmptyActionMutewindBanditLeap",
@@ -1393,6 +1570,13 @@ minions["Metadata/Monsters/Mutewind/MutewindWomanSpearShield"] = {
 	spectreReservation = 60,
 	companionReservation = 31.5,
 	monsterCategory = "Humanoid",
+	spawnLocation = {
+		"The Spires of Deshar",
+		"The Halani Gates",
+		"The Dreadnought",
+		"Dreadnought Vanguard",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeedComboTEMP",
 		"WalkEmergeMutewind",
@@ -1423,6 +1607,11 @@ minions["Metadata/Monsters/Cenobite/CenobiteBloater/CenobiteBloater"] = {
 	spectreReservation = 130,
 	companionReservation = 47.4,
 	monsterCategory = "Humanoid",
+	spawnLocation = {
+		"The Drowned City",
+		"The Ziggurat Refuge",
+		"Apex of Filth",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"GSCenobiteBloaterOnDeath",
@@ -1451,6 +1640,9 @@ minions["Metadata/Monsters/TheCountsEliteGuardCorrupted/MeleeVariantB/CorruptedE
 	spectreReservation = 80,
 	companionReservation = 37.8,
 	monsterCategory = "Demon",
+	spawnLocation = {
+		"Ogham Manor",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"MAASCountEnforcerPullBite",
@@ -1479,6 +1671,10 @@ minions["Metadata/Monsters/TheCountsEliteGuardCorrupted/Ranged/CorruptedEliteRan
 	spectreReservation = 70,
 	companionReservation = 35.4,
 	monsterCategory = "Demon",
+	spawnLocation = {
+		"Ogham Manor",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MPACountsGuardSpike",
 		"EAACountsGuardRangedBarrage",
@@ -1508,6 +1704,11 @@ minions["Metadata/Monsters/TheCountsEliteGuardCorrupted/VariantA/CorruptedEliteS
 	spectreReservation = 60,
 	companionReservation = 33,
 	monsterCategory = "Demon",
+	spawnLocation = {
+		"Ogham Manor",
+		"The Manor Ramparts",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"MAASCountGuardSpearCombo",
@@ -1538,6 +1739,12 @@ minions["Metadata/Monsters/TheCountsEliteGuardCorrupted/VariantB/CorruptedEliteT
 	spectreReservation = 80,
 	companionReservation = 36.6,
 	monsterCategory = "Demon",
+	spawnLocation = {
+		"Ogham Manor",
+		"The Manor Ramparts",
+		"The Ziggurat Refuge",
+		"Ogham Farmlands",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"GSIronGuardToothZone",
@@ -1564,6 +1771,12 @@ minions["Metadata/Monsters/TheCountsGuardEliteCorruptedMageLessCorrupted/Corrupt
 	spectreReservation = 80,
 	companionReservation = 36.6,
 	monsterCategory = "Humanoid",
+	spawnLocation = {
+		"Ogham Manor",
+		"The Manor Ramparts",
+		"The Ziggurat Refuge",
+		"Ogham Farmlands",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"GPSCourtGuardFireball",
@@ -1592,6 +1805,11 @@ minions["Metadata/Monsters/TwoheadedTitan/TwoHeadedTitan"] = {
 	spectreReservation = 130,
 	companionReservation = 47.4,
 	monsterCategory = "Humanoid",
+	spawnLocation = {
+		"The Titan Grotto",
+		"Trial of the Sekhemas",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"GATwoHeadedTitanSlam",
@@ -1620,6 +1838,11 @@ minions["Metadata/Monsters/BoneCultists/BoneCultist_Necromancer/BoneCultistNecro
 	spectreReservation = 60,
 	companionReservation = 33,
 	monsterCategory = "Humanoid",
+	spawnLocation = {
+		"The Ziggurat Refuge",
+		"Mastodon Badlands",
+		"The Bone Pits",
+	},
 	skillList = {
 		"MPSBoneCultistNecromancerLightning",
 		"BoneCultistSummonSkeletons",
@@ -1646,6 +1869,11 @@ minions["Metadata/Monsters/BoneCultists/BoneCultist_Zealots/BoneCultistZealot01"
 	spectreReservation = 70,
 	companionReservation = 34.8,
 	monsterCategory = "Humanoid",
+	spawnLocation = {
+		"The Ziggurat Refuge",
+		"Mastodon Badlands",
+		"The Bone Pits",
+	},
 	skillList = {
 		"MPSBoneCultistZealotLightning",
 		"BoneCultistZealotLightningstorm",
@@ -1672,6 +1900,10 @@ minions["Metadata/Monsters/BoneCultists/BoneCultist_Zealots/FarudinLocustWarlock
 	spectreReservation = 80,
 	companionReservation = 36.6,
 	monsterCategory = "Humanoid",
+	spawnLocation = {
+		"The Ziggurat Refuge",
+		"The Dreadnought",
+	},
 	skillList = {
 		"FarudinWarlockBugRend",
 		"GSWarlockRaiseBugs",
@@ -1699,6 +1931,10 @@ minions["Metadata/Monsters/BoneCultists/BoneCultists_Beast/BoneCultistBeast"] = 
 	spectreReservation = 130,
 	companionReservation = 47.4,
 	monsterCategory = "Beast",
+	spawnLocation = {
+		"The Ziggurat Refuge",
+		"The Bone Pits",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeedComboTEMP",
 		"CultistBeastSunder",
@@ -1725,6 +1961,10 @@ minions["Metadata/Monsters/BoneCultists/BoneCultists_Savage/BoneCultists_Savage_
 	spectreReservation = 70,
 	companionReservation = 34.8,
 	monsterCategory = "Humanoid",
+	spawnLocation = {
+		"The Bone Pits",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"BoneCultistSavageBeastBuff",
@@ -1752,6 +1992,11 @@ minions["Metadata/Monsters/BoneCultists/BoneCultists_Shield/BoneCultistShield"] 
 	spectreReservation = 90,
 	companionReservation = 40.2,
 	monsterCategory = "Humanoid",
+	spawnLocation = {
+		"Mastodon Badlands",
+		"The Bone Pits",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"BoneCultistShieldCharge",
@@ -1782,6 +2027,8 @@ minions["Metadata/Monsters/LeagueExpeditionNew/Skeletons/ExpeditionSkeletonBow_"
 	spectreReservation = 50,
 	companionReservation = 30,
 	monsterCategory = "Undead",
+	spawnLocation = {
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 	},
@@ -1807,6 +2054,8 @@ minions["Metadata/Monsters/LeagueExpeditionNew/Skeletons/ExpeditionSkeletonSword
 	spectreReservation = 50,
 	companionReservation = 30,
 	monsterCategory = "Undead",
+	spawnLocation = {
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 	},
@@ -1833,6 +2082,8 @@ minions["Metadata/Monsters/LeagueExpeditionNew/Skeletons/ExpeditionSkeletonSword
 	spectreReservation = 50,
 	companionReservation = 30,
 	monsterCategory = "Undead",
+	spawnLocation = {
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"WalkEmergeExpeditionArmourCaster",
@@ -1861,6 +2112,8 @@ minions["Metadata/Monsters/LeagueExpeditionNew/SwordSkeleton/ExpeditionMegaSkele
 	spectreReservation = 100,
 	companionReservation = 42.3,
 	monsterCategory = "Undead",
+	spawnLocation = {
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"ExpeditionMegaSkeletonHeavyMelee",
@@ -1887,6 +2140,11 @@ minions["Metadata/Monsters/Skeletons/BoneRabble/BoneRabbleEagle"] = {
 	spectreReservation = 50,
 	companionReservation = 30,
 	monsterCategory = "Undead",
+	spawnLocation = {
+		"Jiquani's Machinarium",
+		"Jiquani's Sanctum",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MASFireConvertAltArtFireArrow",
 		"MPSBoneRabbleBurningArrow",
@@ -1913,6 +2171,11 @@ minions["Metadata/Monsters/Skeletons/BoneRabble/BoneRabbleJaguar_"] = {
 	spectreReservation = 50,
 	companionReservation = 30,
 	monsterCategory = "Undead",
+	spawnLocation = {
+		"Jiquani's Machinarium",
+		"Jiquani's Sanctum",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 	},
@@ -1941,6 +2204,11 @@ minions["Metadata/Monsters/Skeletons/BoneRabble/BoneRabblePriest"] = {
 	spectreReservation = 50,
 	companionReservation = 30,
 	monsterCategory = "Undead",
+	spawnLocation = {
+		"Jiquani's Sanctum",
+		"The Ziggurat Refuge",
+		"Jiquani's Machinarium",
+	},
 	skillList = {
 		"MMSBoneRabbleMortar",
 	},
@@ -1967,6 +2235,11 @@ minions["Metadata/Monsters/Skeletons/BoneRabble/BoneRabbleSquire"] = {
 	spectreReservation = 50,
 	companionReservation = 30,
 	monsterCategory = "Undead",
+	spawnLocation = {
+		"Jiquani's Machinarium",
+		"Jiquani's Sanctum",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 	},
@@ -1994,6 +2267,11 @@ minions["Metadata/Monsters/Skeletons/FungalSkeletonOneHandSword"] = {
 	spectreReservation = 50,
 	companionReservation = 30,
 	monsterCategory = "Undead",
+	spawnLocation = {
+		"The Grim Tangle",
+		"The Grelwood",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 	},
@@ -2019,6 +2297,10 @@ minions["Metadata/Monsters/Skeletons/RetchSkeletonOneHandSword"] = {
 	spectreReservation = 50,
 	companionReservation = 30,
 	monsterCategory = "Undead",
+	spawnLocation = {
+		"Mud Burrow",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 	},
@@ -2043,6 +2325,16 @@ minions["Metadata/Monsters/Skeletons/Maraketh/MarakethSkeletonUnarmed"] = {
 	spectreReservation = 50,
 	companionReservation = 30,
 	monsterCategory = "Undead",
+	spawnLocation = {
+		"Traitor's Passage",
+		"Valley of the Titans",
+		"Path of Mourning",
+		"Keth",
+		"The Lost City",
+		"Buried Shrines",
+		"Trial of the Sekhemas",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 	},
@@ -2069,6 +2361,8 @@ minions["Metadata/Monsters/Skeletons/Rusted/RustedSkeletonOneHandSwordShield"] =
 	spectreReservation = 50,
 	companionReservation = 30,
 	monsterCategory = "Undead",
+	spawnLocation = {
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 	},
@@ -2096,6 +2390,11 @@ minions["Metadata/Monsters/SkeletonSoldier/Rusted/RustedSoldierOneHandSword"] = 
 	spectreReservation = 50,
 	companionReservation = 30,
 	monsterCategory = "Undead",
+	spawnLocation = {
+		"The Red Vale",
+		"The Ziggurat Refuge",
+		"The Phaaryl Megalith",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 	},
@@ -2123,6 +2422,8 @@ minions["Metadata/Monsters/VaalConstructs/Sentinel/VaalConstructSentinel"] = {
 	spectreReservation = 130,
 	companionReservation = 47.4,
 	monsterCategory = "Construct",
+	spawnLocation = {
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"GAVaalConstructSentinelGroundSlam",
@@ -2152,6 +2453,12 @@ minions["Metadata/Monsters/SerpentClanMonster/SerpentClanCaster"] = {
 	spectreReservation = 100,
 	companionReservation = 42.3,
 	monsterCategory = "Beast",
+	spawnLocation = {
+		"The Ziggurat Refuge",
+		"Keth",
+		"Trial of the Sekhemas",
+		"The Lost City",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"SerpentClanTailWhip",
@@ -2184,6 +2491,10 @@ minions["Metadata/Monsters/VaalMonsters/Machinarium/Wraith/ProwlingShade"] = {
 	spectreReservation = 110,
 	companionReservation = 45,
 	monsterCategory = "Undead",
+	spawnLocation = {
+		"Jiquani's Sanctum",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeedComboTEMP",
 		"GSProwlingShadeIceBeam",
@@ -2214,6 +2525,8 @@ minions["Metadata/Monsters/TerracottaGuardians/TerracottaGuardianSceptre"] = {
 	spectreReservation = 60,
 	companionReservation = 31.5,
 	monsterCategory = "Construct",
+	spawnLocation = {
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"EGTerracottaTransitionSideways",
@@ -2241,6 +2554,8 @@ minions["Metadata/Monsters/TerracottaGuardians/TerracottaGuardianSceptreAmbush__
 	spectreReservation = 10,
 	companionReservation = 14.1,
 	monsterCategory = "Construct",
+	spawnLocation = {
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 	},
@@ -2267,6 +2582,10 @@ minions["Metadata/Monsters/Quadrilla/Quadrilla"] = {
 	spectreReservation = 100,
 	companionReservation = 42.3,
 	monsterCategory = "Beast",
+	spawnLocation = {
+		"Jungle Ruins",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"GAQuadrillaSunder",
 		"EAAQuadrillaThrow",
@@ -2300,6 +2619,11 @@ minions["Metadata/Monsters/VaalMonsters/Living/VaalGuardMortarLiving"] = {
 	spectreReservation = 50,
 	companionReservation = 30,
 	monsterCategory = "Humanoid",
+	spawnLocation = {
+		"Library of Kamasa",
+		"Utzaal",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"MMSVaalGuardGrenade",
@@ -2331,6 +2655,10 @@ minions["Metadata/Monsters/VaalMonsters/Living/BloodPriests/VaalBloodPriestMale"
 	spectreReservation = 100,
 	companionReservation = 42.3,
 	monsterCategory = "Humanoid",
+	spawnLocation = {
+		"The Ziggurat Refuge",
+		"Aggorat",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"VaalBloodPriestExsanguinate",
@@ -2363,6 +2691,10 @@ minions["Metadata/Monsters/VaalMonsters/Living/BloodPriests/VaalBloodPriestFemal
 	spectreReservation = 100,
 	companionReservation = 42.3,
 	monsterCategory = "Humanoid",
+	spawnLocation = {
+		"The Ziggurat Refuge",
+		"Aggorat",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"VaalBloodPriestSoulrend",
@@ -2394,6 +2726,10 @@ minions["Metadata/Monsters/VaalMonsters/ViperLegionnaire/ViperLegionnaireSword_"
 	spectreReservation = 80,
 	companionReservation = 37.8,
 	monsterCategory = "Humanoid",
+	spawnLocation = {
+		"Utzaal",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"MeleeAtAnimationSpeedViperLegionnaireCombo",
@@ -2421,6 +2757,10 @@ minions["Metadata/Monsters/Werewolves/WerewolfMoonClan1"] = {
 	spectreReservation = 50,
 	companionReservation = 30.6,
 	monsterCategory = "Beast",
+	spawnLocation = {
+		"Ogham Village",
+		"Ogham Farmlands",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 	},
@@ -2445,6 +2785,12 @@ minions["Metadata/Monsters/Werewolves/WerewolfPack1"] = {
 	spectreReservation = 50,
 	companionReservation = 30.6,
 	monsterCategory = "Beast",
+	spawnLocation = {
+		"The Grelwood",
+		"Ogham Farmlands",
+		"The Ziggurat Refuge",
+		"The Phaaryl Megalith",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"WerewolfPackHowlEAS",
@@ -2470,6 +2816,13 @@ minions["Metadata/Monsters/Werewolves/WerewolfProwler1"] = {
 	spectreReservation = 70,
 	companionReservation = 35.4,
 	monsterCategory = "Beast",
+	spawnLocation = {
+		"The Grelwood",
+		"The Ziggurat Refuge",
+		"The Phaaryl Megalith",
+		"Ogham Village",
+		"Ogham Farmlands",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"WerewolfProwlerHowlEAS",
@@ -2496,6 +2849,10 @@ minions["Metadata/Monsters/Werewolves/WerewolfProwlerRed1"] = {
 	spectreReservation = 70,
 	companionReservation = 35.4,
 	monsterCategory = "Beast",
+	spawnLocation = {
+		"Ogham Manor",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"WerewolfProwlerHowlEAS",
@@ -2523,6 +2880,10 @@ minions["Metadata/Monsters/Monkeys/MonkeyJungle"] = {
 	spectreReservation = 30,
 	companionReservation = 24.3,
 	monsterCategory = "Beast",
+	spawnLocation = {
+		"Jungle Ruins",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeedComboTEMP",
 		"ScavengerThrow",
@@ -2550,6 +2911,10 @@ minions["Metadata/Monsters/BloodChieftain/MonkeyChiefJungle"] = {
 	spectreReservation = 90,
 	companionReservation = 39.6,
 	monsterCategory = "Beast",
+	spawnLocation = {
+		"Jungle Ruins",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"BloodChieftainSummonMonkeys",
@@ -2580,6 +2945,12 @@ minions["Metadata/Monsters/Spiker/Spiker"] = {
 	spectreReservation = 70,
 	companionReservation = 35.4,
 	monsterCategory = "Beast",
+	spawnLocation = {
+		"Deshar",
+		"The Dreadnought's Wake",
+		"Trial of the Sekhemas",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 	},
 	modList = {
@@ -2604,6 +2975,11 @@ minions["Metadata/Monsters/MudBurrower/BrambleBurrower"] = {
 	spectreReservation = 130,
 	companionReservation = 47.4,
 	monsterCategory = "Beast",
+	spawnLocation = {
+		"Hunting Grounds",
+		"The Ziggurat Refuge",
+		"Untainted Paradise",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"RootSpiderBurrow",
@@ -2633,6 +3009,11 @@ minions["Metadata/Monsters/StonebackRhoa/BrambleRhoa"] = {
 	spectreReservation = 70,
 	companionReservation = 34.2,
 	monsterCategory = "Beast",
+	spawnLocation = {
+		"Hunting Grounds",
+		"The Ziggurat Refuge",
+		"Untainted Paradise",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"BrambleRhoaTableCharge",
@@ -2660,6 +3041,11 @@ minions["Metadata/Monsters/Wraith/WraithSpookyCold"] = {
 	spectreReservation = 80,
 	companionReservation = 37.8,
 	monsterCategory = "Undead",
+	spawnLocation = {
+		"Cemetery of the Eternals",
+		"The Ziggurat Refuge",
+		"Trial of the Sekhemas",
+	},
 	skillList = {
 		"SpookyWraithProjectileCold",
 		"SpookyWraithProjectileExplosionCold",
@@ -2689,6 +3075,10 @@ minions["Metadata/Monsters/Wraith/WraithSpookyLightning"] = {
 	spectreReservation = 100,
 	companionReservation = 42.3,
 	monsterCategory = "Undead",
+	spawnLocation = {
+		"Mausoleum of the Praetor",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"SpookyGhostLightningBounce",
 	},
@@ -2712,6 +3102,11 @@ minions["Metadata/Monsters/FungusZombie/FungusZombieMedium"] = {
 	spectreReservation = 60,
 	companionReservation = 32.1,
 	monsterCategory = "Undead",
+	spawnLocation = {
+		"The Grelwood",
+		"The Grim Tangle",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"FungusZombieCausticOnDeathMedium",
 		"FungusZombieExplodeOnDeathMedium",
@@ -2738,6 +3133,11 @@ minions["Metadata/Monsters/FungusZombie/FungusZombieFungalmancer"] = {
 	spectreReservation = 100,
 	companionReservation = 42.3,
 	monsterCategory = "Undead",
+	spawnLocation = {
+		"The Grelwood",
+		"The Ziggurat Refuge",
+		"The Grim Tangle",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"FungalCascade",
@@ -2763,6 +3163,10 @@ minions["Metadata/Monsters/MudGolem/MudGolem"] = {
 	spectreReservation = 80,
 	companionReservation = 38.4,
 	monsterCategory = "Construct",
+	spawnLocation = {
+		"Mud Burrow",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MudGolemSlam",
 		"MudGolemMaggotSummon",
@@ -2788,6 +3192,10 @@ minions["Metadata/Monsters/MudGolem/SandGolem"] = {
 	spectreReservation = 70,
 	companionReservation = 34.2,
 	monsterCategory = "Construct",
+	spawnLocation = {
+		"Keth",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"GASandGolemSlam",
@@ -2812,6 +3220,11 @@ minions["Metadata/Monsters/Zombies/Lumberjack/LumberingDrownedUnarmed"] = {
 	spectreReservation = 50,
 	companionReservation = 30,
 	monsterCategory = "Undead",
+	spawnLocation = {
+		"The Riverbank",
+		"Clearfell",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 	},
@@ -2836,6 +3249,9 @@ minions["Metadata/Monsters/Zombies/Lumberjack/LumberingDrownedDryUnarmed"] = {
 	spectreReservation = 50,
 	companionReservation = 30,
 	monsterCategory = "Undead",
+	spawnLocation = {
+		"Clearfell",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 	},
@@ -2861,6 +3277,12 @@ minions["Metadata/Monsters/Urchins/SlingUrchin1"] = {
 	spectreReservation = 30,
 	companionReservation = 24.3,
 	monsterCategory = "Undead",
+	spawnLocation = {
+		"Clearfell",
+		"The Grelwood",
+		"The Ziggurat Refuge",
+		"The Phaaryl Megalith",
+	},
 	skillList = {
 		"UrchinSlingProjectile",
 		"MeleeAtAnimationSpeedComboTEMP",
@@ -2892,6 +3314,12 @@ minions["Metadata/Monsters/Hags/UrchinHag1"] = {
 	spectreReservation = 100,
 	companionReservation = 42.3,
 	monsterCategory = "Humanoid",
+	spawnLocation = {
+		"The Ziggurat Refuge",
+		"The Phaaryl Megalith",
+		"Clearfell",
+		"The Grelwood",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"ReviveUrchin",
@@ -2919,6 +3347,11 @@ minions["Metadata/Monsters/Hags/TrenchHag"] = {
 	spectreReservation = 100,
 	companionReservation = 42.3,
 	monsterCategory = "Humanoid",
+	spawnLocation = {
+		"The Riverbank",
+		"The Drowned City",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"SSMTrenchHagDrowningOrb",
@@ -2946,6 +3379,10 @@ minions["Metadata/Monsters/HuhuGrub/HuhuGrubLarvae"] = {
 	spectreReservation = 30,
 	companionReservation = 23.1,
 	monsterCategory = "Beast",
+	spawnLocation = {
+		"Mud Burrow",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 	},
@@ -2970,6 +3407,9 @@ minions["Metadata/Monsters/Stalker/Stalker"] = {
 	spectreReservation = 40,
 	companionReservation = 26.7,
 	monsterCategory = "Demon",
+	spawnLocation = {
+		"Cemetery of the Eternals",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeedComboTEMP",
 		"MeleeStalkerDoubleStrike",
@@ -2997,6 +3437,13 @@ minions["Metadata/Monsters/BloodMonsters/BloodCourtesan1"] = {
 	spectreReservation = 100,
 	companionReservation = 42.3,
 	monsterCategory = "Undead",
+	spawnLocation = {
+		"The Ziggurat Refuge",
+		"Ogham Village",
+		"Mausoleum of the Praetor",
+		"The Manor Ramparts",
+		"Ogham Manor",
+	},
 	skillList = {
 		"LivingBloodGroundSmall",
 		"MeleeAtAnimationSpeed",
@@ -3028,6 +3475,11 @@ minions["Metadata/Monsters/BloodMonsters/BloodCarrier1"] = {
 	spectreReservation = 60,
 	companionReservation = 31.5,
 	monsterCategory = "Demon",
+	spawnLocation = {
+		"The Manor Ramparts",
+		"Ogham Manor",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"LivingBloodGroundLarger",
 		"LivingBloodBurstLarger",
@@ -3055,6 +3507,13 @@ minions["Metadata/Monsters/BloodMonsters/BloodCretin1"] = {
 	spectreReservation = 40,
 	companionReservation = 26.7,
 	monsterCategory = "Demon",
+	spawnLocation = {
+		"Mausoleum of the Praetor",
+		"Ogham Village",
+		"The Manor Ramparts",
+		"Ogham Manor",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"LivingBloodGroundSmall",
 		"LivingBloodBurstSmall",
@@ -3082,6 +3541,12 @@ minions["Metadata/Monsters/BloodMonsters/BloodCollector1__"] = {
 	spectreReservation = 70,
 	companionReservation = 34.8,
 	monsterCategory = "Demon",
+	spawnLocation = {
+		"Ogham Village",
+		"The Manor Ramparts",
+		"Ogham Manor",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"LivingBloodGroundMedium",
@@ -3110,6 +3575,11 @@ minions["Metadata/Monsters/Knight/DeathKnight1"] = {
 	spectreReservation = 100,
 	companionReservation = 42.3,
 	monsterCategory = "Construct",
+	spawnLocation = {
+		"Cemetery of the Eternals",
+		"The Manor Ramparts",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"DeathKnightSlamEAA",
 		"MeleeAtAnimationSpeed",
@@ -3137,6 +3607,10 @@ minions["Metadata/Monsters/Gargoyle/GargoyleGolemRed"] = {
 	spectreReservation = 100,
 	companionReservation = 42.3,
 	monsterCategory = "Construct",
+	spawnLocation = {
+		"The Manor Ramparts",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 	},
@@ -3164,6 +3638,12 @@ minions["Metadata/Monsters/Mercenary/Infected/InfectedMercenaryAxe__"] = {
 	spectreReservation = 60,
 	companionReservation = 33,
 	monsterCategory = "Undead",
+	spawnLocation = {
+		"Ogham Farmlands",
+		"The Manor Ramparts",
+		"Ogham Village",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 	},
@@ -3189,6 +3669,10 @@ minions["Metadata/Monsters/Crow/CrowCarrion"] = {
 	spectreReservation = 30,
 	companionReservation = 24.3,
 	monsterCategory = "Beast",
+	spawnLocation = {
+		"Ogham Farmlands",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 	},
@@ -3213,6 +3697,11 @@ minions["Metadata/Monsters/BrambleHulk/BrambleHulk1"] = {
 	spectreReservation = 100,
 	companionReservation = 42.3,
 	monsterCategory = "Beast",
+	spawnLocation = {
+		"Hunting Grounds",
+		"The Ziggurat Refuge",
+		"Untainted Paradise",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"BrambleHulkSlam",
@@ -3241,6 +3730,9 @@ minions["Metadata/Monsters/Ghouls/GhoulCommander"] = {
 	spectreReservation = 70,
 	companionReservation = 34.8,
 	monsterCategory = "Demon",
+	spawnLocation = {
+		"Mausoleum of the Praetor",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"GhoulCommanderVomit",
@@ -3267,6 +3759,8 @@ minions["Metadata/Monsters/Bird/MutantBird"] = {
 	spectreReservation = 60,
 	companionReservation = 31.5,
 	monsterCategory = "Beast",
+	spawnLocation = {
+	},
 	skillList = {
 		"MutantBirdPeck",
 		"MutantBirdMultiPeck",
@@ -3303,6 +3797,8 @@ minions["Metadata/Monsters/Bird/MutantBirdDog"] = {
 	spectreReservation = 60,
 	companionReservation = 31.5,
 	monsterCategory = "Beast",
+	spawnLocation = {
+	},
 	skillList = {
 		"MutantBirdDogMelee",
 		"MutantBirdDogMeleeMove",
@@ -3331,6 +3827,9 @@ minions["Metadata/Monsters/Ghouls/Ghoul"] = {
 	spectreReservation = 40,
 	companionReservation = 26.7,
 	monsterCategory = "Demon",
+	spawnLocation = {
+		"Mausoleum of the Praetor",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 	},
@@ -3354,6 +3853,11 @@ minions["Metadata/Monsters/Zombies/Fungal/FungalArtillery1__"] = {
 	spectreReservation = 60,
 	companionReservation = 33,
 	monsterCategory = "Beast",
+	spawnLocation = {
+		"The Ziggurat Refuge",
+		"The Grim Tangle",
+		"The Grelwood",
+	},
 	skillList = {
 		"FungalArtilleryMortar",
 		"FungalArtilleryFungalGroundFromMortar",
@@ -3379,6 +3883,10 @@ minions["Metadata/Monsters/Wretches/CoffinWretch1"] = {
 	spectreReservation = 60,
 	companionReservation = 33.6,
 	monsterCategory = "Undead",
+	spawnLocation = {
+		"The Ziggurat Refuge",
+		"Cemetery of the Eternals",
+	},
 	skillList = {
 		"CoffinWretchBabySoulrend1",
 		"CoffinWretchBabySoulrend2",
@@ -3404,6 +3912,9 @@ minions["Metadata/Monsters/Wretches/StatueWretch"] = {
 	spectreReservation = 60,
 	companionReservation = 33.6,
 	monsterCategory = "Undead",
+	spawnLocation = {
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"BurdenedWretchSlam",
 		"BurdenedWretchSlamCloseRange",
@@ -3429,6 +3940,10 @@ minions["Metadata/Monsters/Wretches/StatueWretchElite"] = {
 	spectreReservation = 90,
 	companionReservation = 40.2,
 	monsterCategory = "Undead",
+	spawnLocation = {
+		"Cemetery of the Eternals",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"BurdenedWretchSlamUnique",
 		"BearerOfPenitenceSlam",
@@ -3461,6 +3976,9 @@ minions["Metadata/Monsters/Frog/PaleFrog1"] = {
 	spectreReservation = 50,
 	companionReservation = 28.5,
 	monsterCategory = "Beast",
+	spawnLocation = {
+		"The Red Vale",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"PaleFrogShieldCharge",
@@ -3485,6 +4003,8 @@ minions["Metadata/Monsters/ReliquaryMonster/PitCrawler1"] = {
 	spectreReservation = 80,
 	companionReservation = 36.6,
 	monsterCategory = "Demon",
+	spawnLocation = {
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"CryptReliquarianGhoulRevive",
@@ -3512,6 +4032,10 @@ minions["Metadata/Monsters/BoneStalker/TombStalker1"] = {
 	spectreReservation = 80,
 	companionReservation = 36.6,
 	monsterCategory = "Construct",
+	spawnLocation = {
+		"Tomb of the Consort",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"GATombStalkerConeSlam",
@@ -3539,6 +4063,10 @@ minions["Metadata/Monsters/Sentinels/TendrilSentinel1__"] = {
 	spectreReservation = 60,
 	companionReservation = 33.6,
 	monsterCategory = "Humanoid",
+	spawnLocation = {
+		"Ogham Manor",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"WalkEmergeBetrayal",
@@ -3568,6 +4096,10 @@ minions["Metadata/Monsters/Wolves/RottenWolf1_"] = {
 	spectreReservation = 50,
 	companionReservation = 30,
 	monsterCategory = "Beast",
+	spawnLocation = {
+		"Clearfell",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"TauntWolfRespond",
@@ -3594,6 +4126,10 @@ minions["Metadata/Monsters/Wolves/FungalWolf1_"] = {
 	spectreReservation = 50,
 	companionReservation = 30,
 	monsterCategory = "Beast",
+	spawnLocation = {
+		"The Grim Tangle",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 	},
@@ -3617,6 +4153,12 @@ minions["Metadata/Monsters/Skeletons/Basic/GraveSkeletonUnarmed"] = {
 	spectreReservation = 50,
 	companionReservation = 30,
 	monsterCategory = "Undead",
+	spawnLocation = {
+		"Cemetery of the Eternals",
+		"Tomb of the Consort",
+		"Mausoleum of the Praetor",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 	},
@@ -3642,6 +4184,11 @@ minions["Metadata/Monsters/SnakeFlowerMan/BloomSerpent1"] = {
 	spectreReservation = 50,
 	companionReservation = 30,
 	monsterCategory = "Demon",
+	spawnLocation = {
+		"The Red Vale",
+		"Chimeral Wetlands",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"SnakeFlowerManProjectile",
@@ -3667,6 +4214,10 @@ minions["Metadata/Monsters/Zombies/Farmer/FarmerZombieMedium"] = {
 	spectreReservation = 50,
 	companionReservation = 30,
 	monsterCategory = "Undead",
+	spawnLocation = {
+		"Ogham Farmlands",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 	},
@@ -3691,6 +4242,10 @@ minions["Metadata/Monsters/Zombies/Burned/BurnedLumberjackUnarmed"] = {
 	spectreReservation = 50,
 	companionReservation = 30,
 	monsterCategory = "Undead",
+	spawnLocation = {
+		"Ogham Village",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 	},
@@ -3716,6 +4271,11 @@ minions["Metadata/Monsters/Monkeys/Bramble/BrambleMonkey1"] = {
 	spectreReservation = 40,
 	companionReservation = 25.2,
 	monsterCategory = "Beast",
+	spawnLocation = {
+		"Hunting Grounds",
+		"The Ziggurat Refuge",
+		"Untainted Paradise",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 	},
@@ -3741,6 +4301,16 @@ minions["Metadata/Monsters/RisenArbalest__"] = {
 	spectreReservation = 70,
 	companionReservation = 34.8,
 	monsterCategory = "Undead",
+	spawnLocation = {
+		"Buried Shrines",
+		"The Ziggurat Refuge",
+		"The Phaaryl Megalith",
+		"The Red Vale",
+		"The Lost City",
+		"Traitor's Passage",
+		"Valley of the Titans",
+		"Trial of the Sekhemas",
+	},
 	skillList = {
 		"RisenArbalestRainOfArrows",
 		"RisenArbalestSnipe",
@@ -3770,6 +4340,12 @@ minions["Metadata/Monsters/Bugbot/BugbotRocky_"] = {
 	spectreReservation = 30,
 	companionReservation = 23.1,
 	monsterCategory = "Construct",
+	spawnLocation = {
+		"Traitor's Passage",
+		"Valley of the Titans",
+		"Trial of the Sekhemas",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 	},
@@ -3794,6 +4370,10 @@ minions["Metadata/Monsters/FaridunLizards/FaridunLizard_"] = {
 	spectreReservation = 60,
 	companionReservation = 31.5,
 	monsterCategory = "Beast",
+	spawnLocation = {
+		"The Dreadnought's Wake",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"GAFaridunLizardTailSlam",
@@ -3819,6 +4399,10 @@ minions["Metadata/Monsters/FaridunLizards/FaridunLizard_Armoured_"] = {
 	spectreReservation = 60,
 	companionReservation = 31.5,
 	monsterCategory = "Beast",
+	spawnLocation = {
+		"Mawdun Quarry",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"GAFaridunLizardTailSlam",
@@ -3844,6 +4428,11 @@ minions["Metadata/Monsters/Parasites/FishParasite"] = {
 	spectreReservation = 30,
 	companionReservation = 23.1,
 	monsterCategory = "Beast",
+	spawnLocation = {
+		"The Drowned City",
+		"The Matlan Waterways",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"MMSFishParasiteWaterMortar",
@@ -3872,6 +4461,8 @@ minions["Metadata/Monsters/Parasites/PirateFishParasite"] = {
 	spectreReservation = 30,
 	companionReservation = 23.1,
 	monsterCategory = "Beast",
+	spawnLocation = {
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"MMSFishParasiteWaterMortar",
@@ -3899,6 +4490,8 @@ minions["Metadata/Monsters/LeagueExpeditionNew/Zombies/ExpeditionBasicZombie"] =
 	spectreReservation = 50,
 	companionReservation = 30,
 	monsterCategory = "Undead",
+	spawnLocation = {
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 	},
@@ -3922,6 +4515,8 @@ minions["Metadata/Monsters/LeagueExpeditionNew/Zombies/ExpeditionZombieLarge"] =
 	spectreReservation = 80,
 	companionReservation = 38.4,
 	monsterCategory = "Undead",
+	spawnLocation = {
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"GAExpeditionZombieEarthquake",
@@ -3948,6 +4543,8 @@ minions["Metadata/Monsters/LeagueExpeditionNew/MercurialArmour/MercurialArmourCa
 	spectreReservation = 70,
 	companionReservation = 34.2,
 	monsterCategory = "Construct",
+	spawnLocation = {
+	},
 	skillList = {
 		"MPSMercurialCasterEnrage",
 		"GSMercurialCasterBlast",
@@ -3975,6 +4572,8 @@ minions["Metadata/Monsters/LeagueExpeditionNew/MercurialArmour/MercurialArmourAx
 	spectreReservation = 70,
 	companionReservation = 34.2,
 	monsterCategory = "Construct",
+	spawnLocation = {
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"ExpeditionMercurialThrownWeapon",
@@ -4002,6 +4601,8 @@ minions["Metadata/Monsters/LeagueExpeditionNew/Urchin/ExpeditionUrchin"] = {
 	spectreReservation = 30,
 	companionReservation = 24.3,
 	monsterCategory = "Undead",
+	spawnLocation = {
+	},
 	skillList = {
 		"MeleeAtAnimationSpeedComboTEMP",
 		"UrchinLeapGeometryAttack",
@@ -4029,6 +4630,8 @@ minions["Metadata/Monsters/LeagueExpeditionNew/Arbalest/ExpeditionArbalest"] = {
 	spectreReservation = 70,
 	companionReservation = 34.8,
 	monsterCategory = "Undead",
+	spawnLocation = {
+	},
 	skillList = {
 		"MPWExpeditionArbalestProjectile",
 		"MPWExpeditionArbalestSnipe",
@@ -4061,6 +4664,8 @@ minions["Metadata/Monsters/LeagueExpeditionNew/DeathKnight/ExpeditionDeathKnight
 	spectreReservation = 100,
 	companionReservation = 42.3,
 	monsterCategory = "Undead",
+	spawnLocation = {
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"GAExpeditionDeathKnightSlam",
@@ -4089,6 +4694,8 @@ minions["Metadata/Monsters/LeagueExpeditionNew/VaalArmour/ExpeditionArmourCaster
 	spectreReservation = 80,
 	companionReservation = 37.8,
 	monsterCategory = "Undead",
+	spawnLocation = {
+	},
 	skillList = {
 		"MPSArmourCasterBasic",
 		"ExpeditionGroundLaser",
@@ -4119,6 +4726,8 @@ minions["Metadata/Monsters/LeagueExpeditionNew/Golemancer/ExpeditionGolemancer"]
 	spectreReservation = 80,
 	companionReservation = 36.6,
 	monsterCategory = "Undead",
+	spawnLocation = {
+	},
 	skillList = {
 		"EDSGolemancerReapLeft",
 		"EDSGolemancerReapRight",
@@ -4144,6 +4753,8 @@ minions["Metadata/Monsters/LeagueExpeditionNew/BoneCultist/ExpeditionBoneCultist
 	spectreReservation = 80,
 	companionReservation = 36.6,
 	monsterCategory = "Undead",
+	spawnLocation = {
+	},
 	skillList = {
 		"MPSExpeditionBoneCultistProjectiles",
 		"GPSBoneCultistOrb",
@@ -4172,6 +4783,8 @@ minions["Metadata/Monsters/LeagueExpeditionNew/RatMonster/ExpeditionRat"] = {
 	spectreReservation = 50,
 	companionReservation = 30,
 	monsterCategory = "Undead",
+	spawnLocation = {
+	},
 	skillList = {
 		"MeleeAtAnimationSpeedComboTEMP",
 	},
@@ -4196,6 +4809,8 @@ minions["Metadata/Monsters/LeagueExpeditionNew/ScytheHand/ExpeditionScytheHand_"
 	spectreReservation = 80,
 	companionReservation = 36.6,
 	monsterCategory = "Undead",
+	spawnLocation = {
+	},
 	skillList = {
 		"DTTExpeditionScytheHand",
 		"GAExpeditionScytheLeft",
@@ -4227,6 +4842,12 @@ minions["Metadata/Monsters/TwigMonsters/canopy/TwigMonster"] = {
 	spectreReservation = 70,
 	companionReservation = 34.2,
 	monsterCategory = "Construct",
+	spawnLocation = {
+		"Freythorn",
+		"The Ziggurat Refuge",
+		"The Grelwood",
+		"The Phaaryl Megalith",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"SOTwigMonsterVinePod",
@@ -4256,6 +4877,8 @@ minions["Metadata/Monsters/SaplingMonster/TwigMonsterArchnemesis"] = {
 	spectreReservation = 100,
 	companionReservation = 42.3,
 	monsterCategory = "Construct",
+	spawnLocation = {
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"SOTwigMonsterVinePod",
@@ -4282,6 +4905,11 @@ minions["Metadata/Monsters/DemonSpiders/MeleeSpider"] = {
 	spectreReservation = 50,
 	companionReservation = 28.5,
 	monsterCategory = "Beast",
+	spawnLocation = {
+		"Traitor's Passage",
+		"Trial of the Sekhemas",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"MeleeSpiderWebAttach",
@@ -4307,6 +4935,11 @@ minions["Metadata/Monsters/DemonSpiders/SpiderSabre"] = {
 	spectreReservation = 50,
 	companionReservation = 28.5,
 	monsterCategory = "Beast",
+	spawnLocation = {
+		"Mastodon Badlands",
+		"Deshar",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"GAHarvestSabreSpiderDualStrike",
 		"EAAHarvestSpiderLacerate",
@@ -4336,6 +4969,8 @@ minions["Metadata/Monsters/RamGiant/RamGiant"] = {
 	spectreReservation = 130,
 	companionReservation = 47.4,
 	monsterCategory = "Humanoid",
+	spawnLocation = {
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"RamGiantWheelSlam",
@@ -4364,6 +4999,10 @@ minions["Metadata/Monsters/RamGiant/RamGiantQuarry"] = {
 	spectreReservation = 130,
 	companionReservation = 47.4,
 	monsterCategory = "Humanoid",
+	spawnLocation = {
+		"Mawdun Quarry",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"RamGiantWheelSlam",
@@ -4393,6 +5032,11 @@ minions["Metadata/Monsters/RamGiant/RottingRamGiant_"] = {
 	spectreReservation = 130,
 	companionReservation = 47.4,
 	monsterCategory = "Undead",
+	spawnLocation = {
+		"Sandswept Marsh",
+		"The Ziggurat Refuge",
+		"Vastiri Outskirts",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"GTRottingRamGiantVomitSpray",
@@ -4422,6 +5066,8 @@ minions["Metadata/Monsters/RamGiant/RottingRamGiantBog"] = {
 	spectreReservation = 130,
 	companionReservation = 47.4,
 	monsterCategory = "Undead",
+	spawnLocation = {
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"GTRottingRamGiantVomitSpray",
@@ -4450,6 +5096,10 @@ minions["Metadata/Monsters/MaggotHusks/MaggotHusk"] = {
 	spectreReservation = 50,
 	companionReservation = 30,
 	monsterCategory = "Undead",
+	spawnLocation = {
+		"Vastiri Outskirts",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 	},
@@ -4474,6 +5124,12 @@ minions["Metadata/Monsters/SerpentClanMonster/SerpentClan1"] = {
 	spectreReservation = 80,
 	companionReservation = 36.6,
 	monsterCategory = "Beast",
+	spawnLocation = {
+		"Keth",
+		"The Lost City",
+		"Trial of the Sekhemas",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"SerpentClanTailWhip",
@@ -4500,6 +5156,12 @@ minions["Metadata/Monsters/SaltGolem/SaltGolem"] = {
 	spectreReservation = 90,
 	companionReservation = 40.2,
 	monsterCategory = "Construct",
+	spawnLocation = {
+		"The Ziggurat Refuge",
+		"Trial of the Sekhemas",
+		"Valley of the Titans",
+		"Traitor's Passage",
+	},
 	skillList = {
 		"GASaltGolemMelee",
 		"EAASaltGolemSlamRuckus",
@@ -4528,6 +5190,11 @@ minions["Metadata/Monsters/HyenaMonster/HyenaMonster"] = {
 	spectreReservation = 50,
 	companionReservation = 30,
 	monsterCategory = "Beast",
+	spawnLocation = {
+		"Vastiri Outskirts",
+		"The Bone Pits",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"EASHyenaMonsterWhoop",
@@ -4555,6 +5222,11 @@ minions["Metadata/Monsters/HyenaMonster/HyenaCentaurSpear"] = {
 	spectreReservation = 100,
 	companionReservation = 42.3,
 	monsterCategory = "Beast",
+	spawnLocation = {
+		"Vastiri Outskirts",
+		"The Ziggurat Refuge",
+		"The Bone Pits",
+	},
 	skillList = {
 		"HyenaCentaurMeleeStab",
 		"HyenaCentaurMeleeSwipe",
@@ -4582,6 +5254,10 @@ minions["Metadata/Monsters/VultureRegurgitator/VultureRegurgitator_"] = {
 	spectreReservation = 70,
 	companionReservation = 34.8,
 	monsterCategory = "Beast",
+	spawnLocation = {
+		"Deshar",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"VultureRegurgitatorMortar",
@@ -4610,6 +5286,10 @@ minions["Metadata/Monsters/SandLeaper02/DesertLeaper1_"] = {
 	spectreReservation = 30,
 	companionReservation = 23.1,
 	monsterCategory = "Beast",
+	spawnLocation = {
+		"Vastiri Outskirts",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"DesertLeaperDodgeLeftShort",
@@ -4646,6 +5326,10 @@ minions["Metadata/Monsters/SkeletonGolemancer/SkeletonGolemancer"] = {
 	spectreReservation = 80,
 	companionReservation = 36.6,
 	monsterCategory = "Undead",
+	spawnLocation = {
+		"The Ziggurat Refuge",
+		"Tomb of the Consort",
+	},
 	skillList = {
 		"SSMBoneGolemancerSkeletons",
 		"GSSkeletonTornadoWave",
@@ -4678,6 +5362,13 @@ minions["Metadata/Monsters/SandGolemancer/SandGolemancer"] = {
 	spectreReservation = 80,
 	companionReservation = 36.6,
 	monsterCategory = "Undead",
+	spawnLocation = {
+		"Valley of the Titans",
+		"The Ziggurat Refuge",
+		"Trial of the Sekhemas",
+		"Keth",
+		"Traitor's Passage",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"MPSSandGolemancerProjectile",
@@ -4706,6 +5397,11 @@ minions["Metadata/Monsters/MarAcolyte/MarAcolyte"] = {
 	spectreReservation = 80,
 	companionReservation = 36.6,
 	monsterCategory = "Humanoid",
+	spawnLocation = {
+		"Buried Shrines",
+		"Trial of the Sekhemas",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeedFire",
 		"MarAcolyteSlam",
@@ -4732,6 +5428,10 @@ minions["Metadata/Monsters/WingedFiend/WingedFiend"] = {
 	spectreReservation = 40,
 	companionReservation = 26.7,
 	monsterCategory = "Beast",
+	spawnLocation = {
+		"The Spires of Deshar",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"MPSWingedFiendSpit",
@@ -4759,6 +5459,11 @@ minions["Metadata/Monsters/RockSlider"] = {
 	spectreReservation = 40,
 	companionReservation = 26.1,
 	monsterCategory = "Beast",
+	spawnLocation = {
+		"The Halani Gates",
+		"Trial of the Sekhemas",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"RockSliderShieldCharge",
@@ -4785,6 +5490,11 @@ minions["Metadata/Monsters/SkeletonSnake"] = {
 	spectreReservation = 50,
 	companionReservation = 30,
 	monsterCategory = "Undead",
+	spawnLocation = {
+		"Mastodon Badlands",
+		"The Bone Pits",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"MonsterPuncture",
@@ -4809,6 +5519,12 @@ minions["Metadata/Monsters/PitifulFabrications/PitifulFabrication01"] = {
 	spectreReservation = 40,
 	companionReservation = 26.7,
 	monsterCategory = "Undead",
+	spawnLocation = {
+		"Mastodon Badlands",
+		"The Bone Pits",
+		"Freythorn",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MPWAzmeriPitifulFabricationSkullThrow",
 	},
@@ -4832,6 +5548,11 @@ minions["Metadata/Monsters/PitifulFabrications/PitifulFabrication02"] = {
 	spectreReservation = 40,
 	companionReservation = 26.7,
 	monsterCategory = "Undead",
+	spawnLocation = {
+		"Mastodon Badlands",
+		"The Bone Pits",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"PitifulFabricationBuff",
 		"TBPitifulFabricationBuff",
@@ -4857,6 +5578,12 @@ minions["Metadata/Monsters/PitifulFabrications/PitifulFabrication03_"] = {
 	spectreReservation = 40,
 	companionReservation = 26.7,
 	monsterCategory = "Undead",
+	spawnLocation = {
+		"Mastodon Badlands",
+		"The Bone Pits",
+		"Freythorn",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 	},
@@ -4880,6 +5607,10 @@ minions["Metadata/Monsters/Skeletons/TitanGrotto/SkeletonTitanGrottoUnarmed_"] =
 	spectreReservation = 50,
 	companionReservation = 30,
 	monsterCategory = "Undead",
+	spawnLocation = {
+		"The Titan Grotto",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 	},
@@ -4905,6 +5636,10 @@ minions["Metadata/Monsters/Skeletons/TitanGrotto/SkeletonTitanGrottoSword_"] = {
 	spectreReservation = 50,
 	companionReservation = 30,
 	monsterCategory = "Undead",
+	spawnLocation = {
+		"The Titan Grotto",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 	},
@@ -4929,6 +5664,11 @@ minions["Metadata/Monsters/Skeletons/TitanGrotto/SkeletonTitanGrottoCaster"] = {
 	spectreReservation = 50,
 	companionReservation = 30,
 	monsterCategory = "Undead",
+	spawnLocation = {
+		"The Titan Grotto",
+		"Trial of the Sekhemas",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MPSRedSkeletonCaster",
 	},
@@ -4954,6 +5694,12 @@ minions["Metadata/Monsters/PorcupineAnt/PorcupineAntSmall"] = {
 	spectreReservation = 40,
 	companionReservation = 26.7,
 	monsterCategory = "Beast",
+	spawnLocation = {
+		"Deshar",
+		"The Dreadnought's Wake",
+		"Trial of the Sekhemas",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"GPAPorcupineAntSpikeNova",
@@ -4980,6 +5726,11 @@ minions["Metadata/Monsters/CaveDweller/CaveDweller"] = {
 	spectreReservation = 70,
 	companionReservation = 34.8,
 	monsterCategory = "Beast",
+	spawnLocation = {
+		"Traitor's Passage",
+		"Trial of the Sekhemas",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"GSCaveDwellerSonicPulse",
@@ -5007,6 +5758,10 @@ minions["Metadata/Monsters/MineBat/MineBatDesertCave"] = {
 	spectreReservation = 60,
 	companionReservation = 33,
 	monsterCategory = "Beast",
+	spawnLocation = {
+		"Buried Shrines",
+		"Trial of the Sekhemas",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"TBDesertBatZap",
@@ -5034,6 +5789,12 @@ minions["Metadata/Monsters/SummonedPhantasm/DesertPhantasm"] = {
 	spectreReservation = 60,
 	companionReservation = 31.5,
 	monsterCategory = "Undead",
+	spawnLocation = {
+		"The Lost City",
+		"Buried Shrines",
+		"Trial of the Sekhemas",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"MPSDesertPhantasmBolt",
@@ -5061,6 +5822,10 @@ minions["Metadata/Monsters/VultureZombie/VultureDemon"] = {
 	spectreReservation = 110,
 	companionReservation = 45.6,
 	monsterCategory = "Beast",
+	spawnLocation = {
+		"Deshar",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"VultureDemonLeap",
@@ -5088,6 +5853,8 @@ minions["Metadata/Monsters/Kinarha/Kinarha"] = {
 	spectreReservation = 60,
 	companionReservation = 33,
 	monsterCategory = "Construct",
+	spawnLocation = {
+	},
 	skillList = {
 		"KinahraShuriken",
 		"MeleeAtAnimationSpeed",
@@ -5114,6 +5881,12 @@ minions["Metadata/Monsters/Zombies/Maraketh/MarakethZombie"] = {
 	spectreReservation = 50,
 	companionReservation = 30,
 	monsterCategory = "Undead",
+	spawnLocation = {
+		"The Spires of Deshar",
+		"Deshar",
+		"Path of Mourning",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"MarakethZombieDeathGround",
@@ -5141,6 +5914,12 @@ minions["Metadata/Monsters/PlagueMorphs/PlagueMorph1"] = {
 	spectreReservation = 50,
 	companionReservation = 30,
 	monsterCategory = "Demon",
+	spawnLocation = {
+		"The Dreadnought's Wake",
+		"Mawdun Quarry",
+		"Mawdun Mine",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 	},
@@ -5165,6 +5944,12 @@ minions["Metadata/Monsters/PlagueSwarm/PlagueSwarm"] = {
 	spectreReservation = 30,
 	companionReservation = 21.3,
 	monsterCategory = "Beast",
+	spawnLocation = {
+		"The Dreadnought's Wake",
+		"Mawdun Quarry",
+		"The Dreadnought",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 	},
@@ -5189,6 +5974,12 @@ minions["Metadata/Monsters/PlagueNymph/PlagueNymph_"] = {
 	spectreReservation = 60,
 	companionReservation = 33.6,
 	monsterCategory = "Beast",
+	spawnLocation = {
+		"Mawdun Mine",
+		"The Dreadnought's Wake",
+		"The Ziggurat Refuge",
+		"Mud Burrow",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 	},
@@ -5213,6 +6004,12 @@ minions["Metadata/Monsters/PlagueBringer/PlagueBringer"] = {
 	spectreReservation = 100,
 	companionReservation = 42.3,
 	monsterCategory = "Beast",
+	spawnLocation = {
+		"The Dreadnought",
+		"The Ziggurat Refuge",
+		"The Dreadnought's Wake",
+		"Mawdun Quarry",
+	},
 	skillList = {
 		"MASExtraAttackDistance6",
 		"MeleeAtAnimationSpeedComboTEMP2",
@@ -5240,6 +6037,11 @@ minions["Metadata/Monsters/BrainWorm/DuneLurker_"] = {
 	spectreReservation = 80,
 	companionReservation = 38.4,
 	monsterCategory = "Beast",
+	spawnLocation = {
+		"Valley of the Titans",
+		"Trial of the Sekhemas",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"EAADuneLurkerRoll",
@@ -5270,6 +6072,11 @@ minions["Metadata/Monsters/WingedCreature/WingedCreature"] = {
 	spectreReservation = 70,
 	companionReservation = 34.8,
 	monsterCategory = "Beast",
+	spawnLocation = {
+		"The Titan Grotto",
+		"Trial of the Sekhemas",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"GPSWingedCreatureBallLightning",
@@ -5296,6 +6103,11 @@ minions["Metadata/Monsters/MantisRat/MantisRat"] = {
 	spectreReservation = 50,
 	companionReservation = 30,
 	monsterCategory = "Beast",
+	spawnLocation = {
+		"Mawdun Mine",
+		"Valley of the Titans",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"DTTMantisRatLeap",
@@ -5322,6 +6134,9 @@ minions["Metadata/Monsters/MudGolem/MarshBruiser"] = {
 	spectreReservation = 60,
 	companionReservation = 33,
 	monsterCategory = "Construct",
+	spawnLocation = {
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 	},
@@ -5345,6 +6160,10 @@ minions["Metadata/Monsters/BogBodies/BogCorpseUnarmed"] = {
 	spectreReservation = 50,
 	companionReservation = 30,
 	monsterCategory = "Undead",
+	spawnLocation = {
+		"Sandswept Marsh",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"BogCorpseVolatileExplosion",
 		"MeleeAtAnimationSpeed",
@@ -5370,6 +6189,10 @@ minions["Metadata/Monsters/BogBodies/BogCorpseOneHandAxe"] = {
 	spectreReservation = 50,
 	companionReservation = 30,
 	monsterCategory = "Undead",
+	spawnLocation = {
+		"Sandswept Marsh",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"BogCorpseVolatileExplosion",
 		"MeleeAtAnimationSpeed",
@@ -5397,6 +6220,10 @@ minions["Metadata/Monsters/TwigMonsters/DredgeFiend"] = {
 	spectreReservation = 110,
 	companionReservation = 45,
 	monsterCategory = "Construct",
+	spawnLocation = {
+		"The Ziggurat Refuge",
+		"Sandswept Marsh",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"MMSDredgeFiendMortar",
@@ -5428,6 +6255,8 @@ minions["Metadata/Monsters/VaalSavage/CannibalTribeStalker"] = {
 	spectreReservation = 70,
 	companionReservation = 34.2,
 	monsterCategory = "Humanoid",
+	spawnLocation = {
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 	},
@@ -5453,6 +6282,10 @@ minions["Metadata/Monsters/VaalSavage/CannibalTribeSpearThrower"] = {
 	spectreReservation = 50,
 	companionReservation = 30,
 	monsterCategory = "Humanoid",
+	spawnLocation = {
+		"Sandswept Marsh",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeedComboTEMP",
 		"MMAVaalSavageSpearThrow",
@@ -5485,6 +6318,10 @@ minions["Metadata/Monsters/VaalSavage/CannibalTribeSpearMelee"] = {
 	spectreReservation = 50,
 	companionReservation = 30,
 	monsterCategory = "Humanoid",
+	spawnLocation = {
+		"Sandswept Marsh",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeedComboTEMP",
 	},
@@ -5510,6 +6347,10 @@ minions["Metadata/Monsters/VaalSavage/CannibalTribeDagger"] = {
 	spectreReservation = 50,
 	companionReservation = 30,
 	monsterCategory = "Humanoid",
+	spawnLocation = {
+		"Sandswept Marsh",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeedComboTEMP",
 	},
@@ -5535,6 +6376,10 @@ minions["Metadata/Monsters/VaalSavage/CannibalTribeShaman"] = {
 	spectreReservation = 100,
 	companionReservation = 42.3,
 	monsterCategory = "Humanoid",
+	spawnLocation = {
+		"Sandswept Marsh",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"MMSCannibalShamanSwapMortar",
@@ -5564,6 +6409,8 @@ minions["Metadata/Monsters/VaalSavage/CannibalTribeGiant"] = {
 	spectreReservation = 100,
 	companionReservation = 42.3,
 	monsterCategory = "Humanoid",
+	spawnLocation = {
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"GACannibalGiantGroundSlam",
@@ -5593,6 +6440,11 @@ minions["Metadata/Monsters/VaalSavage/VaalSavageStalker"] = {
 	spectreReservation = 70,
 	companionReservation = 35.4,
 	monsterCategory = "Humanoid",
+	spawnLocation = {
+		"The Ziggurat Refuge",
+		"The Matlan Waterways",
+		"The Azak Bog",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"GABogSavageStalkerGroundSlam",
@@ -5627,6 +6479,11 @@ minions["Metadata/Monsters/VaalSavage/VaalSavageSpearThrower_"] = {
 	spectreReservation = 60,
 	companionReservation = 31.5,
 	monsterCategory = "Humanoid",
+	spawnLocation = {
+		"The Azak Bog",
+		"The Matlan Waterways",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MMAVaalSavageSpearThrow",
 		"DTTVaalSavageDaggerDashSlash",
@@ -5661,6 +6518,11 @@ minions["Metadata/Monsters/VaalSavage/VaalSavageSpearMelee"] = {
 	spectreReservation = 60,
 	companionReservation = 31.5,
 	monsterCategory = "Humanoid",
+	spawnLocation = {
+		"The Azak Bog",
+		"The Matlan Waterways",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeedComboTEMP",
 		"EASSavageWeaponFire",
@@ -5688,6 +6550,9 @@ minions["Metadata/Monsters/VaalSavage/VaalSavageBeastMaster"] = {
 	spectreReservation = 80,
 	companionReservation = 36.6,
 	monsterCategory = "Humanoid",
+	spawnLocation = {
+		"The Matlan Waterways",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"GABruteSpearThrust",
@@ -5717,6 +6582,11 @@ minions["Metadata/Monsters/VaalSavage/VaalSavageDagger_"] = {
 	spectreReservation = 50,
 	companionReservation = 30.6,
 	monsterCategory = "Humanoid",
+	spawnLocation = {
+		"The Azak Bog",
+		"The Matlan Waterways",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeedComboTEMP",
 		"EASSavageWeaponFire",
@@ -5743,6 +6613,11 @@ minions["Metadata/Monsters/VaalSavage/VaalSavageShaman"] = {
 	spectreReservation = 100,
 	companionReservation = 42.3,
 	monsterCategory = "Humanoid",
+	spawnLocation = {
+		"The Matlan Waterways",
+		"The Azak Bog",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"GTBogShamanBoneWall1",
@@ -5776,6 +6651,11 @@ minions["Metadata/Monsters/VaalSavage/VaalSavageBrute"] = {
 	spectreReservation = 80,
 	companionReservation = 36.6,
 	monsterCategory = "Humanoid",
+	spawnLocation = {
+		"The Matlan Waterways",
+		"The Ziggurat Refuge",
+		"The Azak Bog",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"EASSavageWeaponFire",
@@ -5806,6 +6686,10 @@ minions["Metadata/Monsters/VaalSavage/VaalSavageDelinquent"] = {
 	spectreReservation = 50,
 	companionReservation = 30,
 	monsterCategory = "Humanoid",
+	spawnLocation = {
+		"The Azak Bog",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MPWVaalSavageBlowDart",
 	},
@@ -5831,6 +6715,9 @@ minions["Metadata/Monsters/VaalSavage/VaalSavageTorchbearer"] = {
 	spectreReservation = 50,
 	companionReservation = 30,
 	monsterCategory = "Humanoid",
+	spawnLocation = {
+		"The Azak Bog",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"EGSavageTorchEffigy",
@@ -5857,6 +6744,10 @@ minions["Metadata/Monsters/VaalSavage/VaalSavageGiant"] = {
 	spectreReservation = 110,
 	companionReservation = 45,
 	monsterCategory = "Humanoid",
+	spawnLocation = {
+		"The Azak Bog",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"GABogGiantGroundSlam",
@@ -5888,6 +6779,10 @@ minions["Metadata/Monsters/PlagueSwarm/BloodDrone"] = {
 	spectreReservation = 30,
 	companionReservation = 21.3,
 	monsterCategory = "Beast",
+	spawnLocation = {
+		"Sandswept Marsh",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"DTTBloodDroneDashAttach",
@@ -5912,6 +6807,10 @@ minions["Metadata/Monsters/SwarmHost/SwarmHost"] = {
 	accuracy = 1,
 	spectreReservation = 130,
 	companionReservation = 47.4,
+	spawnLocation = {
+		"Sandswept Marsh",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"EASSwarmHostDroneSpawn",
@@ -5946,6 +6845,11 @@ minions["Metadata/Monsters/IgguranRaider/BladeStalkerPale"] = {
 	spectreReservation = 80,
 	companionReservation = 37.8,
 	monsterCategory = "Humanoid",
+	spawnLocation = {
+		"Jiquani's Machinarium",
+		"Jiquani's Sanctum",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed3",
 		"MeleeAtAnimationSpeedComboTEMP",
@@ -5972,6 +6876,10 @@ minions["Metadata/Monsters/IgguranRaider/BladeStalker"] = {
 	spectreReservation = 80,
 	companionReservation = 37.8,
 	monsterCategory = "Humanoid",
+	spawnLocation = {
+		"Temple of Kopec",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed3",
 		"MeleeAtAnimationSpeedComboTEMP",
@@ -5997,6 +6905,11 @@ minions["Metadata/Monsters/Anchorite/AnchoriteSpawn_"] = {
 	spectreReservation = 50,
 	companionReservation = 28.5,
 	monsterCategory = "Humanoid",
+	spawnLocation = {
+		"The Drowned City",
+		"Apex of Filth",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"WalkEmergeAnchoriteSpawn",
@@ -6026,6 +6939,11 @@ minions["Metadata/Monsters/Anchorite/AnchoriteFlathead"] = {
 	spectreReservation = 50,
 	companionReservation = 29.1,
 	monsterCategory = "Humanoid",
+	spawnLocation = {
+		"The Drowned City",
+		"Apex of Filth",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"WalkEmergeAnchoriteFlathead",
 		"WalkEmergeAnchoriteFlathead2",
@@ -6057,6 +6975,10 @@ minions["Metadata/Monsters/Anchorite/AnchoriteMother"] = {
 	spectreReservation = 70,
 	companionReservation = 34.2,
 	monsterCategory = "Humanoid",
+	spawnLocation = {
+		"The Ziggurat Refuge",
+		"Apex of Filth",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"AnchoriteInvisibleSpark",
@@ -6087,6 +7009,10 @@ minions["Metadata/Monsters/BaneSapling/BaneSapling"] = {
 	spectreReservation = 60,
 	companionReservation = 33.6,
 	monsterCategory = "Beast",
+	spawnLocation = {
+		"Infested Barrens",
+		"Jungle Ruins",
+	},
 	skillList = {
 		"MMSBaneSapling",
 		"SSMBaneSaplingAntRing",
@@ -6115,6 +7041,11 @@ minions["Metadata/Monsters/ArmadilloDemon/ArmadilloDemon"] = {
 	spectreReservation = 100,
 	companionReservation = 42.3,
 	monsterCategory = "Beast",
+	spawnLocation = {
+		"Jungle Ruins",
+		"Infested Barrens",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"DTTArmadilloDemonRolling",
@@ -6142,6 +7073,11 @@ minions["Metadata/Monsters/ChawMongrel/ChawMongrel"] = {
 	spectreReservation = 50,
 	companionReservation = 30,
 	monsterCategory = "Beast",
+	spawnLocation = {
+		"The Azak Bog",
+		"The Matlan Waterways",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 	},
@@ -6168,6 +7104,11 @@ minions["Metadata/Monsters/ZombieTreasureHunters/IllFatedExplorer1"] = {
 	spectreReservation = 50,
 	companionReservation = 30,
 	monsterCategory = "Undead",
+	spawnLocation = {
+		"Chimeral Wetlands",
+		"Infested Barrens",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"CGEIllFatedCausticPollen",
@@ -6194,6 +7135,8 @@ minions["Metadata/Monsters/NettleAnt/NettleAntSummoned"] = {
 	spectreReservation = 40,
 	companionReservation = 25.2,
 	monsterCategory = "Beast",
+	spawnLocation = {
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 	},
@@ -6218,6 +7161,11 @@ minions["Metadata/Monsters/SnakeHulk/SnakeHulk"] = {
 	spectreReservation = 130,
 	companionReservation = 47.4,
 	monsterCategory = "Undead",
+	spawnLocation = {
+		"The Venom Crypts",
+		"The Ziggurat Refuge",
+		"Jungle Ruins",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"SnakeHulkDualStrike",
@@ -6243,6 +7191,11 @@ minions["Metadata/Monsters/SerpentHusk/SerpentHusk__"] = {
 	spectreReservation = 50,
 	companionReservation = 30,
 	monsterCategory = "Beast",
+	spawnLocation = {
+		"Jungle Ruins",
+		"The Venom Crypts",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"MASExtraAttackDistance4",
@@ -6270,6 +7223,10 @@ minions["Metadata/Monsters/GutViper/GutViper"] = {
 	spectreReservation = 50,
 	companionReservation = 30,
 	monsterCategory = "Beast",
+	spawnLocation = {
+		"The Venom Crypts",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 	},
@@ -6294,6 +7251,8 @@ minions["Metadata/Monsters/RiverSnakeHusk/RiverSnakeHusk"] = {
 	spectreReservation = 50,
 	companionReservation = 30,
 	monsterCategory = "Beast",
+	spawnLocation = {
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 	},
@@ -6319,6 +7278,10 @@ minions["Metadata/Monsters/SpittingSnake/SpittingSnake"] = {
 	spectreReservation = 60,
 	companionReservation = 31.5,
 	monsterCategory = "Beast",
+	spawnLocation = {
+		"The Venom Crypts",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"EDSSpittingSnakeSpray",
@@ -6346,6 +7309,11 @@ minions["Metadata/Monsters/ConstrictorCorpse/ConstrictorCorpse"] = {
 	spectreReservation = 80,
 	companionReservation = 36.6,
 	monsterCategory = "Undead",
+	spawnLocation = {
+		"Jungle Ruins",
+		"The Venom Crypts",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 	},
@@ -6371,6 +7339,11 @@ minions["Metadata/Monsters/ConstrictorCorpse/ConstrictorCorpseRanged_"] = {
 	spectreReservation = 80,
 	companionReservation = 36.6,
 	monsterCategory = "Undead",
+	spawnLocation = {
+		"Jungle Ruins",
+		"The Venom Crypts",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"MMSConstrictorCorpseMortar",
@@ -6398,6 +7371,10 @@ minions["Metadata/Monsters/SpiderMonkey/SpiderMonkey"] = {
 	spectreReservation = 40,
 	companionReservation = 26.7,
 	monsterCategory = "Beast",
+	spawnLocation = {
+		"The Venom Crypts",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeedComboTEMP",
 		"EASSpiderMonkeyEmerge1",
@@ -6427,6 +7404,11 @@ minions["Metadata/Monsters/GoreCharger/GoreCharger"] = {
 	spectreReservation = 90,
 	companionReservation = 39,
 	monsterCategory = "Beast",
+	spawnLocation = {
+		"Chimeral Wetlands",
+		"Infested Barrens",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"GoreChargerCharge",
@@ -6453,6 +7435,11 @@ minions["Metadata/Monsters/CrazedCannibalPicts/PictMaleAxe"] = {
 	spectreReservation = 60,
 	companionReservation = 31.5,
 	monsterCategory = "Humanoid",
+	spawnLocation = {
+		"Freythorn",
+		"The Ziggurat Refuge",
+		"The Viridian Wildwood",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeedComboTEMP",
 		"EASAzmeriPictMaleEffigy",
@@ -6479,6 +7466,11 @@ minions["Metadata/Monsters/CrazedCannibalPicts/PictBigMale"] = {
 	spectreReservation = 80,
 	companionReservation = 36.6,
 	monsterCategory = "Humanoid",
+	spawnLocation = {
+		"Freythorn",
+		"The Ziggurat Refuge",
+		"The Viridian Wildwood",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"MeleeAtAnimationSpeedAzmeriBigPictSweep",
@@ -6506,6 +7498,10 @@ minions["Metadata/Monsters/WereCat/TigerChimeral"] = {
 	spectreReservation = 80,
 	companionReservation = 38.4,
 	monsterCategory = "Beast",
+	spawnLocation = {
+		"Chimeral Wetlands",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"MASStepDistance5",
@@ -6533,6 +7529,12 @@ minions["Metadata/Monsters/Taniwha/RiverTaniwha"] = {
 	spectreReservation = 70,
 	companionReservation = 35.4,
 	monsterCategory = "Beast",
+	spawnLocation = {
+		"Chimeral Wetlands",
+		"The Drowned City",
+		"The Matlan Waterways",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeedComboTEMP",
 		"EDSRiverTaniwhaCloudSpray",
@@ -6560,6 +7562,8 @@ minions["Metadata/Monsters/Taniwha/RiverTaniwhaTropicalIsland_"] = {
 	spectreReservation = 70,
 	companionReservation = 35.4,
 	monsterCategory = "Beast",
+	spawnLocation = {
+	},
 	skillList = {
 		"MeleeAtAnimationSpeedComboTEMP",
 		"EDSRiverTaniwhaCloudSpray",
@@ -6586,6 +7590,8 @@ minions["Metadata/Monsters/WhipTongueChimeral/WhipTongueChimeral"] = {
 	spectreReservation = 50,
 	companionReservation = 30,
 	monsterCategory = "Beast",
+	spawnLocation = {
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 	},
@@ -6610,6 +7616,8 @@ minions["Metadata/Monsters/VaalConstructs/Sentinel/VaalConstructSentinel"] = {
 	spectreReservation = 130,
 	companionReservation = 47.4,
 	monsterCategory = "Construct",
+	spawnLocation = {
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"GAVaalConstructSentinelGroundSlam",
@@ -6637,6 +7645,10 @@ minions["Metadata/Monsters/VaalConstructs/Sentinel/VaalConstructSentinelGolden"]
 	spectreReservation = 130,
 	companionReservation = 47.4,
 	monsterCategory = "Construct",
+	spawnLocation = {
+		"The Molten Vault",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"GAVaalConstructSentinelGroundSlam",
@@ -6665,6 +7677,9 @@ minions["Metadata/Monsters/VaalConstructs/Pyramid/VaalConstructPyramidAncient"] 
 	spectreReservation = 60,
 	companionReservation = 31.5,
 	monsterCategory = "Construct",
+	spawnLocation = {
+		"Jiquani's Machinarium",
+	},
 	skillList = {
 		"VaalConstructPyramidReviveConstructs",
 		"TBVaalPyramidBeam",
@@ -6697,6 +7712,8 @@ minions["Metadata/Monsters/VaalConstructs/Pyramid/VaalConstructPyramidSpawned"] 
 	spectreReservation = 60,
 	companionReservation = 31.5,
 	monsterCategory = "Construct",
+	spawnLocation = {
+	},
 	skillList = {
 		"VaalConstructPyramidReviveConstructs",
 		"TBVaalPyramidBeam",
@@ -6729,6 +7746,8 @@ minions["Metadata/Monsters/VaalConstructs/Golem/VaalConstructGolem"] = {
 	spectreReservation = 60,
 	companionReservation = 32.1,
 	monsterCategory = "Construct",
+	spawnLocation = {
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"GAVaalConstructGolemPhysicalSlam",
@@ -6758,6 +7777,10 @@ minions["Metadata/Monsters/VaalConstructs/Golem/VaalConstructGolemAncient"] = {
 	spectreReservation = 60,
 	companionReservation = 32.1,
 	monsterCategory = "Construct",
+	spawnLocation = {
+		"Jiquani's Machinarium",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"GAVaalConstructGolemPhysicalSlam",
@@ -6785,6 +7808,9 @@ minions["Metadata/Monsters/VaalConstructs/Skitterbot/VaalConstructSkitterbot"] =
 	spectreReservation = 40,
 	companionReservation = 26.7,
 	monsterCategory = "Construct",
+	spawnLocation = {
+		"Jiquani's Machinarium",
+	},
 	skillList = {
 		"GPSVaalSkitterbot",
 		"GSVaalConstructSkitterbotGrenadeExplode",
@@ -6813,6 +7839,8 @@ minions["Metadata/Monsters/VaalConstructs/Monkey/VaalConstructMonkey"] = {
 	spectreReservation = 50,
 	companionReservation = 30,
 	monsterCategory = "Construct",
+	spawnLocation = {
+	},
 	skillList = {
 		"MonsterWaitShort",
 	},
@@ -6838,6 +7866,8 @@ minions["Metadata/Monsters/VaalConstructs/Monkey/VaalConstructMonkeyHead"] = {
 	spectreReservation = 50,
 	companionReservation = 30,
 	monsterCategory = "Construct",
+	spawnLocation = {
+	},
 	skillList = {
 		"GSMonkeyConstructFire",
 		"FaceLastTarget",
@@ -6865,6 +7895,12 @@ minions["Metadata/Monsters/RatMonster/RatMonster"] = {
 	spectreReservation = 40,
 	companionReservation = 26.1,
 	monsterCategory = "Undead",
+	spawnLocation = {
+		"Jiquani's Machinarium",
+		"The Venom Crypts",
+		"Mud Burrow",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"MeleeAtAnimationSpeedComboTEMP2",
@@ -6892,6 +7928,10 @@ minions["Metadata/Monsters/VaalMonsters/Machinarium/VaalGuards/UndeadGuardDagger
 	spectreReservation = 60,
 	companionReservation = 32.1,
 	monsterCategory = "Undead",
+	spawnLocation = {
+		"Jiquani's Sanctum",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeedComboTEMP",
 		"EASUndeadVaalGuardRoar",
@@ -6919,6 +7959,10 @@ minions["Metadata/Monsters/VaalMonsters/Machinarium/VaalGuards/UndeadGuardMortar
 	spectreReservation = 60,
 	companionReservation = 33.6,
 	monsterCategory = "Undead",
+	spawnLocation = {
+		"Jiquani's Sanctum",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"MMSUndeadVaalGuardGrenade",
@@ -6948,6 +7992,11 @@ minions["Metadata/Monsters/Cenobite/CenobiteHighborn/CenobiteHighborn"] = {
 	spectreReservation = 80,
 	companionReservation = 36.6,
 	monsterCategory = "Humanoid",
+	spawnLocation = {
+		"The Ziggurat Refuge",
+		"The Drowned City",
+		"Apex of Filth",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"MDHighbornSpore",
@@ -6974,6 +8023,10 @@ minions["Metadata/Monsters/Cenobite/CenobiteHighborn/CenobitePawn"] = {
 	spectreReservation = 40,
 	companionReservation = 25.2,
 	monsterCategory = "Humanoid",
+	spawnLocation = {
+		"Apex of Filth",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"WalkEmergeCenobiteSwarm",
@@ -7001,6 +8054,11 @@ minions["Metadata/Monsters/Cenobite/CenobiteLeash/CenobiteLeash"] = {
 	spectreReservation = 70,
 	companionReservation = 34.2,
 	monsterCategory = "Humanoid",
+	spawnLocation = {
+		"Apex of Filth",
+		"The Ziggurat Refuge",
+		"The Drowned City",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"MMSCenobiteMortarPoison",
@@ -7033,6 +8091,11 @@ minions["Metadata/Monsters/Cenobite/CenobiteSlam/CenobiteSlam"] = {
 	spectreReservation = 90,
 	companionReservation = 39.6,
 	monsterCategory = "Humanoid",
+	spawnLocation = {
+		"Apex of Filth",
+		"The Ziggurat Refuge",
+		"The Drowned City",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"WalkEmergeCenobiteSwarm",
@@ -7057,6 +8120,11 @@ minions["Metadata/Monsters/Cenobite/CenobiteStoneThrower/CenobiteStoneThrower"] 
 	spectreReservation = 60,
 	companionReservation = 32.1,
 	monsterCategory = "Humanoid",
+	spawnLocation = {
+		"The Drowned City",
+		"Apex of Filth",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"WalkEmergeCenobiteStoneThrower",
@@ -7086,6 +8154,11 @@ minions["Metadata/Monsters/Cenobite/CenobiteSwarmUgly/CenobiteSwarm"] = {
 	spectreReservation = 60,
 	companionReservation = 33,
 	monsterCategory = "Humanoid",
+	spawnLocation = {
+		"The Drowned City",
+		"Apex of Filth",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"WalkEmergeCenobiteSwarm",
@@ -7116,6 +8189,11 @@ minions["Metadata/Monsters/Cenobite/CenobiteBloater/CenobiteBloater"] = {
 	spectreReservation = 130,
 	companionReservation = 47.4,
 	monsterCategory = "Humanoid",
+	spawnLocation = {
+		"The Drowned City",
+		"The Ziggurat Refuge",
+		"Apex of Filth",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"GSCenobiteBloaterOnDeath",
@@ -7143,6 +8221,8 @@ minions["Metadata/Monsters/VaalMonsters/ViperNapuatzi/ViperNapuatziSnakeMinion"]
 	spectreReservation = 50,
 	companionReservation = 30,
 	monsterCategory = "Beast",
+	spawnLocation = {
+	},
 	skillList = {
 		"MeleeAtAnimationSpeedChaos",
 		"CGEViperNapuatziSnakeGroundDegen",
@@ -7171,6 +8251,11 @@ minions["Metadata/Monsters/VaalMonsters/Zealots/VaalZealotDaggersBlood"] = {
 	spectreReservation = 50,
 	companionReservation = 30,
 	monsterCategory = "Humanoid",
+	spawnLocation = {
+		"Aggorat",
+		"The Ziggurat Refuge",
+		"Frigid Bluffs",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 	},
@@ -7197,6 +8282,11 @@ minions["Metadata/Monsters/VaalMonsters/Zealots/VaalZealotDaggersChaos"] = {
 	spectreReservation = 50,
 	companionReservation = 30,
 	monsterCategory = "Humanoid",
+	spawnLocation = {
+		"Utzaal",
+		"Aggorat",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 	},
@@ -7223,6 +8313,12 @@ minions["Metadata/Monsters/VaalMonsters/Zealots/VaalZealotDaggersCold_"] = {
 	spectreReservation = 50,
 	companionReservation = 30,
 	monsterCategory = "Humanoid",
+	spawnLocation = {
+		"Utzaal",
+		"Aggorat",
+		"The Ziggurat Refuge",
+		"Frigid Bluffs",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 	},
@@ -7249,6 +8345,10 @@ minions["Metadata/Monsters/VaalMonsters/Zealots/VaalZealotDaggersFire"] = {
 	spectreReservation = 50,
 	companionReservation = 30,
 	monsterCategory = "Humanoid",
+	spawnLocation = {
+		"Aggorat",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 	},
@@ -7275,6 +8375,9 @@ minions["Metadata/Monsters/VaalMonsters/Zealots/VaalZealotDaggersLightning"] = {
 	spectreReservation = 50,
 	companionReservation = 30,
 	monsterCategory = "Humanoid",
+	spawnLocation = {
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 	},
@@ -7301,6 +8404,8 @@ minions["Metadata/Monsters/VaalMonsters/Zealots/VaalZealotDaggersBannerPatrol"] 
 	spectreReservation = 50,
 	companionReservation = 30,
 	monsterCategory = "Humanoid",
+	spawnLocation = {
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 	},
@@ -7327,6 +8432,11 @@ minions["Metadata/Monsters/VaalMonsters/Living/VaalGuardClawsLiving"] = {
 	spectreReservation = 50,
 	companionReservation = 30.6,
 	monsterCategory = "Humanoid",
+	spawnLocation = {
+		"Library of Kamasa",
+		"Utzaal",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"DTTVaalGuardClawLeap",
@@ -7357,6 +8467,11 @@ minions["Metadata/Monsters/VaalMonsters/Living/VaalOverseerLiving_"] = {
 	spectreReservation = 90,
 	companionReservation = 40.2,
 	monsterCategory = "Humanoid",
+	spawnLocation = {
+		"Library of Kamasa",
+		"The Ziggurat Refuge",
+		"Utzaal",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeedComboTEMP",
 		"MAASVaalOverseerCleave",
@@ -7382,6 +8497,11 @@ minions["Metadata/Monsters/VaalMonsters/Living/VaalGoliathLiving_"] = {
 	spectreReservation = 130,
 	companionReservation = 47.4,
 	monsterCategory = "Humanoid",
+	spawnLocation = {
+		"Aggorat",
+		"Utzaal",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"MeleeAtAnimationSpeed2",
@@ -7414,6 +8534,10 @@ minions["Metadata/Monsters/VaalMonsters/Living/VaalStormcaller"] = {
 	spectreReservation = 100,
 	companionReservation = 42.3,
 	monsterCategory = "Humanoid",
+	spawnLocation = {
+		"The Ziggurat Refuge",
+		"The Black Chambers",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"VaalStormcallerBallLightning",
@@ -7442,6 +8566,9 @@ minions["Metadata/Monsters/VaalMonsters/Living/VaalShapeshifter_"] = {
 	spectreReservation = 80,
 	companionReservation = 36.6,
 	monsterCategory = "Humanoid",
+	spawnLocation = {
+		"Aggorat",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"MPSVaalShadowpriestProj",
@@ -7473,6 +8600,9 @@ minions["Metadata/Monsters/VaalMonsters/Living/VaalEagleKnightLiving"] = {
 	spectreReservation = 90,
 	companionReservation = 39,
 	monsterCategory = "Humanoid",
+	spawnLocation = {
+		"Library of Kamasa",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeedComboTEMP",
 	},
@@ -7498,6 +8628,8 @@ minions["Metadata/Monsters/VaalMonsters/VaalTimeScientist/VaalTimeScientist_"] =
 	spectreReservation = 80,
 	companionReservation = 36.6,
 	monsterCategory = "Humanoid",
+	spawnLocation = {
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"MPSVaalTimeScientistProjectile",
@@ -7525,6 +8657,8 @@ minions["Metadata/Monsters/VaalEagleKnight/VaalEagleKnightUndead"] = {
 	spectreReservation = 60,
 	companionReservation = 33,
 	monsterCategory = "Undead",
+	spawnLocation = {
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 	},
@@ -7549,6 +8683,9 @@ minions["Metadata/Monsters/VaalMonsters/Living/VaalArchivistLiving"] = {
 	spectreReservation = 60,
 	companionReservation = 31.5,
 	monsterCategory = "Humanoid",
+	spawnLocation = {
+		"Library of Kamasa",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"VaalArchivistSpark",
@@ -7592,6 +8729,9 @@ minions["Metadata/Monsters/VaalMonsters/Living/Beasts/VaalJaguar"] = {
 	spectreReservation = 60,
 	companionReservation = 33.6,
 	monsterCategory = "Beast",
+	spawnLocation = {
+		"Utzaal",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"DTTVaalJaguarMinionLeap",
@@ -7619,6 +8759,8 @@ minions["Metadata/Monsters/VaalMonsters/Living/Minions/VaalJaguarMinion"] = {
 	spectreReservation = 60,
 	companionReservation = 32.1,
 	monsterCategory = "Beast",
+	spawnLocation = {
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"DTTVaalJaguarMinionLeap",
@@ -7646,6 +8788,8 @@ minions["Metadata/Monsters/VaalMonsters/Living/Minions/VaalSnakeMinion"] = {
 	spectreReservation = 40,
 	companionReservation = 26.7,
 	monsterCategory = "Beast",
+	spawnLocation = {
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 	},
@@ -7671,6 +8815,8 @@ minions["Metadata/Monsters/VaalMonsters/Living/Minions/VaalMonkeyMinion_"] = {
 	spectreReservation = 40,
 	companionReservation = 26.7,
 	monsterCategory = "Beast",
+	spawnLocation = {
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"ScavengerThrow",
@@ -7698,6 +8844,8 @@ minions["Metadata/Monsters/SerpentHusk/snakes/SerpentHuskSnake"] = {
 	spectreReservation = 30,
 	companionReservation = 21.3,
 	monsterCategory = "Beast",
+	spawnLocation = {
+	},
 	skillList = {
 		"EASSnakeSuitUp",
 		"EASSnakeRetreat",
@@ -7725,6 +8873,10 @@ minions["Metadata/Monsters/Procession/ProcessionAxeShield"] = {
 	spectreReservation = 60,
 	companionReservation = 31.5,
 	monsterCategory = "Undead",
+	spawnLocation = {
+		"The Molten Vault",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 	},
@@ -7751,6 +8903,10 @@ minions["Metadata/Monsters/Procession/ProcessionSpear_"] = {
 	spectreReservation = 60,
 	companionReservation = 31.5,
 	monsterCategory = "Undead",
+	spawnLocation = {
+		"The Molten Vault",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 	},
@@ -7775,6 +8931,10 @@ minions["Metadata/Monsters/Procession/ProcessionDagger"] = {
 	spectreReservation = 60,
 	companionReservation = 31.5,
 	monsterCategory = "Undead",
+	spawnLocation = {
+		"The Molten Vault",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 	},
@@ -7799,6 +8959,10 @@ minions["Metadata/Monsters/Procession/ProcessionBow"] = {
 	spectreReservation = 70,
 	companionReservation = 36,
 	monsterCategory = "Undead",
+	spawnLocation = {
+		"The Ziggurat Refuge",
+		"The Molten Vault",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"SOProcessionBowRainOfArrows",
@@ -7827,6 +8991,8 @@ minions["Metadata/Monsters/Procession/ProcessionBanner"] = {
 	spectreReservation = 60,
 	companionReservation = 33,
 	monsterCategory = "Undead",
+	spawnLocation = {
+	},
 	skillList = {
 		"ABTTProcessionBannerInactive",
 		"ABTTProcessionBannerRegen",
@@ -7854,6 +9020,10 @@ minions["Metadata/Monsters/GoldenOnes/GoldenOnesTwoHandSword"] = {
 	spectreReservation = 50,
 	companionReservation = 30,
 	monsterCategory = "Undead",
+	spawnLocation = {
+		"The Molten Vault",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 	},
@@ -7878,6 +9048,11 @@ minions["Metadata/Monsters/DrownedCrew/DrownedCrewSword_"] = {
 	spectreReservation = 50,
 	companionReservation = 30,
 	monsterCategory = "Undead",
+	spawnLocation = {
+		"The Drowned City",
+		"Castaway",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 	},
@@ -7903,6 +9078,8 @@ minions["Metadata/Monsters/DrownedCrew/DrownedCrewGhost"] = {
 	spectreReservation = 50,
 	companionReservation = 30,
 	monsterCategory = "Undead",
+	spawnLocation = {
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"DrownedCrewSuicideExplosion",
@@ -7934,6 +9111,9 @@ minions["Metadata/Monsters/DrownedCrew/DrownedCrewFigurehead"] = {
 	spectreReservation = 90,
 	companionReservation = 40.2,
 	monsterCategory = "Undead",
+	spawnLocation = {
+		"Castaway",
+	},
 	skillList = {
 		"MASStatueWretchPush",
 		"GAFigureheadSlamGhostFlame",
@@ -7960,6 +9140,10 @@ minions["Metadata/Monsters/VaalForgeMan/VaalForgeMan"] = {
 	spectreReservation = 90,
 	companionReservation = 40.2,
 	monsterCategory = "Construct",
+	spawnLocation = {
+		"The Molten Vault",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"GTVaalForgemanSunder",
@@ -7990,6 +9174,12 @@ minions["Metadata/Monsters/DrownedCrawler/DrownedCrawler__"] = {
 	spectreReservation = 80,
 	companionReservation = 36.6,
 	monsterCategory = "Undead",
+	spawnLocation = {
+		"The Drowned City",
+		"Castaway",
+		"The Ziggurat Refuge",
+		"The Riverbank",
+	},
 	skillList = {
 		"GADrownedCrawlerSwipe",
 		"DTTDrownedCrawlerLeap",
@@ -8016,6 +9206,8 @@ minions["Metadata/Monsters/LiquidElementals/LiquidElementalBlood"] = {
 	spectreReservation = 80,
 	companionReservation = 36.6,
 	monsterCategory = "Construct",
+	spawnLocation = {
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"TCBloodElementalGush",
@@ -8044,6 +9236,10 @@ minions["Metadata/Monsters/BloodBathers/BloodBatherDualWield/BloodBatherDualWiel
 	spectreReservation = 60,
 	companionReservation = 31.5,
 	monsterCategory = "Humanoid",
+	spawnLocation = {
+		"Temple of Kopec",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"GSBloodMageSacrificeBlast",
@@ -8071,6 +9267,10 @@ minions["Metadata/Monsters/BloodBathers/VaalApparition/SunVaalApparition"] = {
 	spectreReservation = 100,
 	companionReservation = 42.3,
 	monsterCategory = "Undead",
+	spawnLocation = {
+		"Temple of Kopec",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MPSVaalSunApparitionBasicProj",
 		"VaalSunApparitionLaser",
@@ -8098,6 +9298,10 @@ minions["Metadata/Monsters/BloodCultistDrones/BloodBatherMage"] = {
 	spectreReservation = 90,
 	companionReservation = 39,
 	monsterCategory = "Humanoid",
+	spawnLocation = {
+		"The Ziggurat Refuge",
+		"Temple of Kopec",
+	},
 	skillList = {
 		"MPSBloodMageBloodProjectile",
 		"EGBloodMageExplodeSacrifice",
@@ -8123,6 +9327,8 @@ minions["Metadata/Monsters/AscendancyBatMonster/AscendancyBat"] = {
 	spectreReservation = 50,
 	companionReservation = 30,
 	monsterCategory = "Beast",
+	spawnLocation = {
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 	},
@@ -8148,6 +9354,8 @@ minions["Metadata/Monsters/VaalConstructs/Ball/VaalBowlingBall"] = {
 	spectreReservation = 60,
 	companionReservation = 32.1,
 	monsterCategory = "Construct",
+	spawnLocation = {
+	},
 	skillList = {
 		"MPSVaalConstructCannon",
 		"GSVaalConstructCannonImpact",
@@ -8176,6 +9384,10 @@ minions["Metadata/Monsters/VaalMonsters/Living/VaalAxeThrower_"] = {
 	spectreReservation = 60,
 	companionReservation = 33,
 	monsterCategory = "Humanoid",
+	spawnLocation = {
+		"Aggorat",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"MPAVaalAxeThrowerAxe",
@@ -8202,6 +9414,11 @@ minions["Metadata/Monsters/CauldronCrone/CauldronCrone"] = {
 	spectreReservation = 110,
 	companionReservation = 45.6,
 	monsterCategory = "Humanoid",
+	spawnLocation = {
+		"Apex of Filth",
+		"The Ziggurat Refuge",
+		"The Drowned City",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"GPSCauldronCroneChunk",
@@ -8234,6 +9451,9 @@ minions["Metadata/Monsters/Pirates/PirateBootyBlaster"] = {
 	spectreReservation = 100,
 	companionReservation = 42.3,
 	monsterCategory = "Undead",
+	spawnLocation = {
+		"Castaway",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"MMSBootyBlasterSoulRelease",
@@ -8263,6 +9483,9 @@ minions["Metadata/Monsters/ManOWar/ManoWar"] = {
 	spectreReservation = 90,
 	companionReservation = 39.6,
 	monsterCategory = "Undead",
+	spawnLocation = {
+		"Castaway",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"GSJellyfishLightningTendrils",
@@ -8292,6 +9515,9 @@ minions["Metadata/Monsters/Pirates/PirateCannon"] = {
 	spectreReservation = 80,
 	companionReservation = 36.6,
 	monsterCategory = "Undead",
+	spawnLocation = {
+		"Castaway",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"MPWPirateCannonball",
@@ -8317,6 +9543,9 @@ minions["Metadata/Monsters/Pirates/PirateGrenade"] = {
 	spectreReservation = 80,
 	companionReservation = 36.6,
 	monsterCategory = "Undead",
+	spawnLocation = {
+		"Castaway",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"MPWPirateGrenade",
@@ -8345,6 +9574,9 @@ minions["Metadata/Monsters/Pirates/PirateBarrel"] = {
 	spectreReservation = 80,
 	companionReservation = 36.6,
 	monsterCategory = "Undead",
+	spawnLocation = {
+		"Castaway",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"MPWPirateBarrelToss",
@@ -8374,6 +9606,9 @@ minions["Metadata/Monsters/Anchorman/BloatedAnchorman"] = {
 	spectreReservation = 130,
 	companionReservation = 47.4,
 	monsterCategory = "Undead",
+	spawnLocation = {
+		"Castaway",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"MASBloatedAnchormanDoubleSwing",
@@ -8405,6 +9640,9 @@ minions["Metadata/Monsters/KelpDreg/KelpDregSword"] = {
 	spectreReservation = 50,
 	companionReservation = 30,
 	monsterCategory = "Undead",
+	spawnLocation = {
+		"Castaway",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 	},
@@ -8430,6 +9668,9 @@ minions["Metadata/Monsters/KelpDreg/KelpDregCrossbowSniper"] = {
 	spectreReservation = 50,
 	companionReservation = 30,
 	monsterCategory = "Undead",
+	spawnLocation = {
+		"Castaway",
+	},
 	skillList = {
 		"MASKelpDregCrossbow",
 		"MPWKelpDregPuncture",
@@ -8456,6 +9697,9 @@ minions["Metadata/Monsters/KelpDreg/KelpDregCrossbowEnsarer"] = {
 	spectreReservation = 50,
 	companionReservation = 30,
 	monsterCategory = "Undead",
+	spawnLocation = {
+		"Castaway",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 	},
@@ -8481,6 +9725,9 @@ minions["Metadata/Monsters/KelpDreg/KelpDregCrossbowIceShot"] = {
 	spectreReservation = 50,
 	companionReservation = 30,
 	monsterCategory = "Undead",
+	spawnLocation = {
+		"Castaway",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 	},
@@ -8506,6 +9753,10 @@ minions["Metadata/Monsters/VaalHumanoids/VaalHumanoidGoliathFist/VaalHumanoidGol
 	spectreReservation = 100,
 	companionReservation = 42.3,
 	monsterCategory = "Construct",
+	spawnLocation = {
+		"The Ziggurat Refuge",
+		"The Black Chambers",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"MPWVaalCyborgRocketFist",
@@ -8534,6 +9785,10 @@ minions["Metadata/Monsters/VaalHumanoids/VaalHumanoidPyramidHands/VaalPyramidHan
 	spectreReservation = 130,
 	companionReservation = 47.4,
 	monsterCategory = "Construct",
+	spawnLocation = {
+		"The Black Chambers",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"EDSPyramidHandLightningLance",
 		"MPSVaalHumanoidPyramidHandsGrenade",
@@ -8561,6 +9816,9 @@ minions["Metadata/Monsters/VaalHumanoids/VaalHumanoidShieldLegs/VallHumanoidShie
 	spectreReservation = 80,
 	companionReservation = 36.6,
 	monsterCategory = "Construct",
+	spawnLocation = {
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"CTS2VaalCyborgShieldGenerator",
@@ -8596,6 +9854,10 @@ minions["Metadata/Monsters/VaalHumanoids/VaalHumanoidSwordShield/VaalHumanoidSwo
 	spectreReservation = 70,
 	companionReservation = 34.8,
 	monsterCategory = "Construct",
+	spawnLocation = {
+		"The Black Chambers",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"MASExtraAttackDistance6",
@@ -8624,6 +9886,10 @@ minions["Metadata/Monsters/VaalHumanoids/VaalHumanoidCannon/VaalHumanoidCannonFi
 	spectreReservation = 70,
 	companionReservation = 35.4,
 	monsterCategory = "Construct",
+	spawnLocation = {
+		"The Black Chambers",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MPAVaalHumanoidCannon",
 		"MPSVaalHumanoidCannonNapalm",
@@ -8656,6 +9922,8 @@ minions["Metadata/Monsters/VaalHumanoids/VaalHumanoidCannon/VaalHumanoidCannonLi
 	spectreReservation = 40,
 	companionReservation = 26.7,
 	monsterCategory = "Construct",
+	spawnLocation = {
+	},
 	skillList = {
 		"SkitterMineDetonate",
 	},
@@ -8681,6 +9949,8 @@ minions["Metadata/Monsters/VaalConstructs/Colossus/VaalColossusMetal"] = {
 	spectreReservation = 140,
 	companionReservation = 49.2,
 	monsterCategory = "Construct",
+	spawnLocation = {
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 	},
@@ -8707,6 +9977,10 @@ minions["Metadata/Monsters/VaalHumanoids/VaalHumanoidBladeHands/VaalHumanoidBlad
 	spectreReservation = 80,
 	companionReservation = 36.6,
 	monsterCategory = "Construct",
+	spawnLocation = {
+		"The Black Chambers",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeedComboTEMP",
 	},
@@ -8733,6 +10007,10 @@ minions["Metadata/Monsters/VaalHumanoids/VaalHumanoidStalker/VaalHumanoidStalker
 	spectreReservation = 70,
 	companionReservation = 34.2,
 	monsterCategory = "Construct",
+	spawnLocation = {
+		"The Black Chambers",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeedComboTEMP",
 		"DTTVaalHumanoidStalkerLeap",
@@ -8760,6 +10038,9 @@ minions["Metadata/Monsters/HarpyMonster/GullHarpy"] = {
 	spectreReservation = 60,
 	companionReservation = 31.5,
 	monsterCategory = "Demon",
+	spawnLocation = {
+		"Castaway",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 	},
@@ -8784,6 +10065,9 @@ minions["Metadata/Monsters/CageSkeleton/CageSkeleton_"] = {
 	spectreReservation = 100,
 	companionReservation = 42.3,
 	monsterCategory = "Undead",
+	spawnLocation = {
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeedComboTEMP",
 	},
@@ -8809,6 +10093,8 @@ minions["Metadata/Monsters/SkeletonProwler/SkeletonProwler_"] = {
 	spectreReservation = 60,
 	companionReservation = 33.6,
 	monsterCategory = "Undead",
+	spawnLocation = {
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 	},
@@ -8835,6 +10121,8 @@ minions["Metadata/Monsters/RatMonster/RatMonsterPrison"] = {
 	spectreReservation = 50,
 	companionReservation = 28.5,
 	monsterCategory = "Undead",
+	spawnLocation = {
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"MeleeAtAnimationSpeedComboTEMP2",
@@ -8861,6 +10149,8 @@ minions["Metadata/Monsters/Zombies/UpperPrison/PrisonZombieUnarmed_"] = {
 	spectreReservation = 50,
 	companionReservation = 30,
 	monsterCategory = "Undead",
+	spawnLocation = {
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"PrisonZombieWalkEmerge",
@@ -8887,6 +10177,8 @@ minions["Metadata/Monsters/ElephantRhino/ElephantRhino"] = {
 	spectreReservation = 180,
 	companionReservation = 56.1,
 	monsterCategory = "Beast",
+	spawnLocation = {
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"EASRhinoElephant180RightSlam",
@@ -8929,6 +10221,8 @@ minions["Metadata/Monsters/Goblins/GoblinSpearman/GoblinSpearman"] = {
 	spectreReservation = 40,
 	companionReservation = 26.1,
 	monsterCategory = "Humanoid",
+	spawnLocation = {
+	},
 	skillList = {
 		"MeleeAtAnimationSpeedComboTEMP",
 		"EASGoblinDance",
@@ -8957,6 +10251,8 @@ minions["Metadata/Monsters/Goblins/GoblinTusker/GoblinTusker"] = {
 	spectreReservation = 50,
 	companionReservation = 28.5,
 	monsterCategory = "Humanoid",
+	spawnLocation = {
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"EASGoblinDance",
@@ -8984,6 +10280,8 @@ minions["Metadata/Monsters/Goblins/GoblinShaman/GoblinShaman"] = {
 	spectreReservation = 60,
 	companionReservation = 33.6,
 	monsterCategory = "Humanoid",
+	spawnLocation = {
+	},
 	skillList = {
 		"MPSGoblinShamanBasicProj",
 		"SOGoblinVoltaxicStorm",
@@ -9016,6 +10314,8 @@ minions["Metadata/Monsters/Goblins/GoblinMiner/GoblinMiner"] = {
 	spectreReservation = 30,
 	companionReservation = 24.3,
 	monsterCategory = "Humanoid",
+	spawnLocation = {
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"MPSGoblinMinerRockThrow",
@@ -9042,6 +10342,8 @@ minions["Metadata/Monsters/TentacleDemonFemale/TentacleWhipper"] = {
 	spectreReservation = 60,
 	companionReservation = 31.5,
 	monsterCategory = "Beast",
+	spawnLocation = {
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"MeleeAtAnimationSpeedComboTEMP2",
@@ -9069,6 +10371,8 @@ minions["Metadata/Monsters/BrineMaiden/BrineMaiden"] = {
 	spectreReservation = 60,
 	companionReservation = 33.6,
 	monsterCategory = "Beast",
+	spawnLocation = {
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"GTBrineMaidenScreech",
@@ -9098,6 +10402,10 @@ minions["Metadata/Monsters/RootedGuys/RootedGuy04/RaisedBranchMonster"] = {
 	spectreReservation = 70,
 	companionReservation = 35.4,
 	monsterCategory = "Beast",
+	spawnLocation = {
+		"The Grelwood",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 	},
@@ -9122,6 +10430,8 @@ minions["Metadata/Monsters/Baron/BaronWerewolfSummon"] = {
 	spectreReservation = 50,
 	companionReservation = 30.6,
 	monsterCategory = "Beast",
+	spawnLocation = {
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"GSBaronWolfSummonDeathExplode",
@@ -9149,6 +10459,10 @@ minions["Metadata/Monsters/ScarecrowBeast/ScarecrowBeast"] = {
 	spectreReservation = 110,
 	companionReservation = 45,
 	monsterCategory = "Beast",
+	spawnLocation = {
+		"Ogham Farmlands",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"DTTScarecrowLeap",
@@ -9181,6 +10495,10 @@ minions["Metadata/Monsters/FallenGods/FallenGodsStalkerFoundry_"] = {
 	spectreReservation = 60,
 	companionReservation = 31.5,
 	monsterCategory = "Demon",
+	spawnLocation = {
+		"Mawdun Mine",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeedComboTEMP",
 		"EASGenericMonsterTaunt",
@@ -9208,6 +10526,10 @@ minions["Metadata/Monsters/FallenGods/FallenGodsCrawlerFoundry_"] = {
 	spectreReservation = 50,
 	companionReservation = 28.5,
 	monsterCategory = "Demon",
+	spawnLocation = {
+		"Mawdun Mine",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"GSForgottenCrawlerLightning",
@@ -9236,6 +10558,10 @@ minions["Metadata/Monsters/FallenGods/FallenHooksFoundry"] = {
 	spectreReservation = 60,
 	companionReservation = 31.5,
 	monsterCategory = "Demon",
+	spawnLocation = {
+		"Mawdun Mine",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"DTTFallenHookDash",
@@ -9263,6 +10589,8 @@ minions["Metadata/Monsters/FallenGods/FallenGodsBloater_"] = {
 	spectreReservation = 130,
 	companionReservation = 47.4,
 	monsterCategory = "Demon",
+	spawnLocation = {
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"EASFallenGodBlasphamy",
@@ -9290,6 +10618,9 @@ minions["Metadata/Monsters/FallenGods/FallenStag"] = {
 	spectreReservation = 110,
 	companionReservation = 45,
 	monsterCategory = "Demon",
+	spawnLocation = {
+		"The Viridian Wildwood",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"TCFallenStag",
@@ -9317,6 +10648,9 @@ minions["Metadata/Monsters/SpinningWheelHag/SpinningWheelHag"] = {
 	spectreReservation = 80,
 	companionReservation = 36.6,
 	monsterCategory = "Humanoid",
+	spawnLocation = {
+		"Mausoleum of the Praetor",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 	},
@@ -9342,6 +10676,8 @@ minions["Metadata/Monsters/RatMonster/RatMonsterCistern"] = {
 	spectreReservation = 40,
 	companionReservation = 26.1,
 	monsterCategory = "Beast",
+	spawnLocation = {
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"MeleeAtAnimationSpeedComboTEMP2",
@@ -9367,6 +10703,8 @@ minions["Metadata/Monsters/SummonedPhantasm/HusbandWifeSpirits"] = {
 	spectreReservation = 50,
 	companionReservation = 30,
 	monsterCategory = "Undead",
+	spawnLocation = {
+	},
 	skillList = {
 		"EASHusbandMonsterConsumeSpirit",
 		"GSHusbandWifeRevive",
@@ -9392,6 +10730,10 @@ minions["Metadata/Monsters/RabidFeralDogMonster/RabidDog"] = {
 	spectreReservation = 50,
 	companionReservation = 30,
 	monsterCategory = "Beast",
+	spawnLocation = {
+		"Ogham Farmlands",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 	},
@@ -9415,6 +10757,8 @@ minions["Metadata/Monsters/KaruiBoar/ExplosivePig"] = {
 	spectreReservation = 60,
 	companionReservation = 31.5,
 	monsterCategory = "Beast",
+	spawnLocation = {
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"GSExplodingPigExplode",
@@ -9444,6 +10788,12 @@ minions["Metadata/Monsters/Ghouls/FarudinCrawler"] = {
 	spectreReservation = 50,
 	companionReservation = 30,
 	monsterCategory = "Undead",
+	spawnLocation = {
+		"Mawdun Quarry",
+		"Mawdun Mine",
+		"The Dreadnought",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"GAFarudinCrawlerSpearSlam",
@@ -9469,6 +10819,11 @@ minions["Metadata/Monsters/DrudgeMiners/DrudgeBedrockBlaster"] = {
 	spectreReservation = 50,
 	companionReservation = 30,
 	monsterCategory = "Undead",
+	spawnLocation = {
+		"Mawdun Quarry",
+		"Mawdun Mine",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"MPWDrudgeExplosiveGrenade",
@@ -9497,6 +10852,11 @@ minions["Metadata/Monsters/TitanWalker/TitanWalker"] = {
 	spectreReservation = 110,
 	companionReservation = 44.1,
 	monsterCategory = "Undead",
+	spawnLocation = {
+		"Valley of the Titans",
+		"Trial of the Sekhemas",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MASExtraAttackDistance20",
 		"MeleeAtAnimationSpeed2",
@@ -9525,6 +10885,11 @@ minions["Metadata/Monsters/SkeletalKnight/SkeletalKnight"] = {
 	spectreReservation = 110,
 	companionReservation = 45,
 	monsterCategory = "Undead",
+	spawnLocation = {
+		"The Ziggurat Refuge",
+		"Mausoleum of the Praetor",
+		"Tomb of the Consort",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"SkeletalKnightCleave",
@@ -9556,6 +10921,11 @@ minions["Metadata/Monsters/SkeletalReaper/SkeletalReaper"] = {
 	spectreReservation = 110,
 	companionReservation = 45,
 	monsterCategory = "Undead",
+	spawnLocation = {
+		"Tomb of the Consort",
+		"The Ziggurat Refuge",
+		"The Red Vale",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"EASSkeletalReaperSubmerge",
@@ -9582,6 +10952,9 @@ minions["Metadata/Monsters/VaseMonster/VaseMonster_"] = {
 	spectreReservation = 90,
 	companionReservation = 39,
 	monsterCategory = "Construct",
+	spawnLocation = {
+		"Trial of the Sekhemas",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"EASSummonScarabs",
@@ -9610,6 +10983,11 @@ minions["Metadata/Monsters/UndeadMarakethPriest/UndeadMarakethPriest"] = {
 	spectreReservation = 80,
 	companionReservation = 36.6,
 	monsterCategory = "Undead",
+	spawnLocation = {
+		"Path of Mourning",
+		"Trial of the Sekhemas",
+		"The Ziggurat Refuge",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeedFire",
 		"MarakethUndeadPriestRollingMagma",
@@ -9638,6 +11016,8 @@ minions["Metadata/Monsters/Zombies/CourtGuardZombieAxe"] = {
 	spectreReservation = 50,
 	companionReservation = 30,
 	monsterCategory = "Undead",
+	spawnLocation = {
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 	},
@@ -9664,6 +11044,8 @@ minions["Metadata/Monsters/ChaosGodRangedFodder/ChaosGodRangedFodder_"] = {
 	spectreReservation = 60,
 	companionReservation = 31.5,
 	monsterCategory = "Beast",
+	spawnLocation = {
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"TCChaosGodRangedFodder",
@@ -9689,6 +11071,8 @@ minions["Metadata/Monsters/ChaosGodJaguar/ChaosGodJaguar_"] = {
 	spectreReservation = 90,
 	companionReservation = 40.8,
 	monsterCategory = "Beast",
+	spawnLocation = {
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"MeleeAtAnimationSpeed2",
@@ -9715,6 +11099,8 @@ minions["Metadata/Monsters/ChaosGodTriHeadBat/ChaosGodTri-headBat_"] = {
 	spectreReservation = 90,
 	companionReservation = 40.8,
 	monsterCategory = "Beast",
+	spawnLocation = {
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"DTTChaosGodTriheadBatLeapSlam",
@@ -9749,6 +11135,8 @@ minions["Metadata/Monsters/ChaosGodGorilla/ChaosGodGorilla_"] = {
 	spectreReservation = 130,
 	companionReservation = 47.4,
 	monsterCategory = "Beast",
+	spawnLocation = {
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"DTTChaosGodGorillaLeapSlam",
@@ -9777,6 +11165,8 @@ minions["Metadata/Monsters/ChaosGodTriceratops/ChaosGodTriceratops_"] = {
 	spectreReservation = 170,
 	companionReservation = 54.6,
 	monsterCategory = "Beast",
+	spawnLocation = {
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"GAChaosGodTriceratopsTailSlam",
@@ -9806,6 +11196,8 @@ minions["Metadata/Monsters/Rhoas/Winged/WingedRhoa"] = {
 	spectreReservation = 50,
 	companionReservation = 30,
 	monsterCategory = "Beast",
+	spawnLocation = {
+	},
 	skillList = {
 	},
 	modList = {
@@ -9829,6 +11221,9 @@ minions["Metadata/Monsters/Breach/BreachEliteFallenLunarisMonster__"] = {
 	spectreReservation = 100,
 	companionReservation = 42.3,
 	monsterCategory = "Demon",
+	spawnLocation = {
+		"Twisted Domain",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeedComboTEMP",
 		"MeleeAtAnimationSpeedComboTEMP2",
@@ -9857,6 +11252,9 @@ minions["Metadata/Monsters/Breach/BreachEliteCorruptedEliteBloater__"] = {
 	spectreReservation = 110,
 	companionReservation = 45.6,
 	monsterCategory = "Demon",
+	spawnLocation = {
+		"Twisted Domain",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"GABreachEliteBleedTentacle",
@@ -9883,6 +11281,9 @@ minions["Metadata/Monsters/Breach/BreachFodderCorruptedEliteRanger"] = {
 	spectreReservation = 60,
 	companionReservation = 33,
 	monsterCategory = "Demon",
+	spawnLocation = {
+		"Twisted Domain",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"MDIronSniperLaser",
@@ -9910,6 +11311,9 @@ minions["Metadata/Monsters/Breach/BreachFodderCorruptedEliteToothy__"] = {
 	spectreReservation = 60,
 	companionReservation = 33,
 	monsterCategory = "Demon",
+	spawnLocation = {
+		"Twisted Domain",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"GSBreachFodderToothZone",
@@ -9936,6 +11340,9 @@ minions["Metadata/Monsters/Breach/BreachEliteCorruptedEliteGuard"] = {
 	spectreReservation = 90,
 	companionReservation = 40.2,
 	monsterCategory = "Humanoid",
+	spawnLocation = {
+		"Twisted Domain",
+	},
 	skillList = {
 		"MPSBreachEliteBoneProjectile",
 		"GPSBreachEliteBonestorm",
@@ -9963,6 +11370,9 @@ minions["Metadata/Monsters/Breach/BreachElitePaleElite1"] = {
 	spectreReservation = 100,
 	companionReservation = 42.3,
 	monsterCategory = "Demon",
+	spawnLocation = {
+		"Twisted Domain",
+	},
 	skillList = {
 		"GSBreachElitePaleEliteBoltImpact",
 		"GSBreachElitePaleEliteOmegaBeam",
@@ -9994,6 +11404,9 @@ minions["Metadata/Monsters/Breach/Monsters/FingerDemon/FingerDemon"] = {
 	spectreReservation = 60,
 	companionReservation = 31.5,
 	monsterCategory = "Demon",
+	spawnLocation = {
+		"Twisted Domain",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeedComboTEMP",
 	},
@@ -10018,6 +11431,9 @@ minions["Metadata/Monsters/Breach/Monsters/HandSpider/HandSpider"] = {
 	spectreReservation = 50,
 	companionReservation = 30,
 	monsterCategory = "Demon",
+	spawnLocation = {
+		"Twisted Domain",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeedComboTEMP",
 	},
@@ -10042,6 +11458,9 @@ minions["Metadata/Monsters/Breach/Monsters/FingersBat/FingersBat"] = {
 	spectreReservation = 60,
 	companionReservation = 33,
 	monsterCategory = "Demon",
+	spawnLocation = {
+		"Twisted Domain",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"MPWBreachBatSpineProjectile",
@@ -10068,6 +11487,9 @@ minions["Metadata/Monsters/Breach/BreachFodderDemonicSpikeThrower"] = {
 	spectreReservation = 60,
 	companionReservation = 32.1,
 	monsterCategory = "Demon",
+	spawnLocation = {
+		"Twisted Domain",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeedComboTEMP",
 		"MPWBreachFodderDemonFemaleRemakeSpike",
@@ -10095,6 +11517,9 @@ minions["Metadata/Monsters/Breach/BreachElitePaleElite2"] = {
 	spectreReservation = 90,
 	companionReservation = 40.2,
 	monsterCategory = "Demon",
+	spawnLocation = {
+		"Twisted Domain",
+	},
 	skillList = {
 		"GABreachEliteHellscapeStabWeb",
 		"GABreachEliteHellscapePaleEliteSkyStab",
@@ -10127,6 +11552,8 @@ minions["Metadata/Monsters/ChaosGodTriHeadLizard/ChaosGodTriHeadLizard_"] = {
 	spectreReservation = 110,
 	companionReservation = 44.4,
 	monsterCategory = "Demon",
+	spawnLocation = {
+	},
 	skillList = {
 		"MPSChaosGodTriHeadLizardBasicProjectile",
 		"EDSChaosLizardBreathe",
@@ -10152,6 +11579,9 @@ minions["Metadata/Monsters/LeagueRitual/DryadFaction/FungalZombie/DruidicFungusZ
 	spectreReservation = 50,
 	companionReservation = 30,
 	monsterCategory = "Undead",
+	spawnLocation = {
+		"The Viridian Wildwood",
+	},
 	skillList = {
 		"FungusZombieCausticOnDeathMedium",
 		"FungusZombieExplodeOnDeathMedium",
@@ -10179,6 +11609,8 @@ minions["Metadata/Monsters/LeagueRitual/DryadFaction/SplitMonster/SplitMonster"]
 	spectreReservation = 80,
 	companionReservation = 36.6,
 	monsterCategory = "Demon",
+	spawnLocation = {
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"EASFallenGodSplitLeft",
@@ -10207,6 +11639,9 @@ minions["Metadata/Monsters/LeagueRitual/DryadFaction/HooksMonster/HooksMonster"]
 	spectreReservation = 60,
 	companionReservation = 31.5,
 	monsterCategory = "Demon",
+	spawnLocation = {
+		"The Viridian Wildwood",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"DTTFallenHookDash",
@@ -10234,6 +11669,9 @@ minions["Metadata/Monsters/LeagueRitual/DryadFaction/RootMonster/RootBehemoth"] 
 	spectreReservation = 130,
 	companionReservation = 47.4,
 	monsterCategory = "Beast",
+	spawnLocation = {
+		"The Viridian Wildwood",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"GPSRootedGuy4Proj",
@@ -10264,6 +11702,9 @@ minions["Metadata/Monsters/LeagueRitual/DryadFaction/RootMonster/TwigMonsterMele
 	spectreReservation = 70,
 	companionReservation = 34.2,
 	monsterCategory = "Construct",
+	spawnLocation = {
+		"The Viridian Wildwood",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"SOTwigMonsterVinePod",
@@ -10292,6 +11733,9 @@ minions["Metadata/Monsters/LeagueRitual/DryadFaction/RootMonster/TwigMonsterCast
 	spectreReservation = 70,
 	companionReservation = 34.2,
 	monsterCategory = "Construct",
+	spawnLocation = {
+		"The Viridian Wildwood",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"SOTwigMonsterVinePod",
@@ -10321,6 +11765,9 @@ minions["Metadata/Monsters/LeagueRitual/DryadFaction/RootMonster/TwigMonsterCast
 	spectreReservation = 70,
 	companionReservation = 34.2,
 	monsterCategory = "Construct",
+	spawnLocation = {
+		"The Viridian Wildwood",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"SOTwigMonsterFungalSpawn",
@@ -10348,6 +11795,9 @@ minions["Metadata/Monsters/LeagueRitual/DemonFaction/CaveDweller_"] = {
 	spectreReservation = 90,
 	companionReservation = 39,
 	monsterCategory = "Beast",
+	spawnLocation = {
+		"The Viridian Wildwood",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"GTRitualCaveDwellerSummonBlood",
@@ -10377,6 +11827,9 @@ minions["Metadata/Monsters/LeagueRitual/DemonFaction/PrimordialMonster3_"] = {
 	spectreReservation = 50,
 	companionReservation = 30,
 	monsterCategory = "Beast",
+	spawnLocation = {
+		"The Viridian Wildwood",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"GSRitualPrimordialBatScreech",
@@ -10404,6 +11857,9 @@ minions["Metadata/Monsters/LeagueRitual/DemonFaction/DemonRhoa"] = {
 	spectreReservation = 70,
 	companionReservation = 34.2,
 	monsterCategory = "Beast",
+	spawnLocation = {
+		"The Viridian Wildwood",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"BrambleRhoaTableCharge",
@@ -10432,6 +11888,9 @@ minions["Metadata/Monsters/LeagueRitual/DemonFaction/DemonRat"] = {
 	spectreReservation = 40,
 	companionReservation = 26.1,
 	monsterCategory = "Undead",
+	spawnLocation = {
+		"The Viridian Wildwood",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"MeleeAtAnimationSpeedComboTEMP2",
@@ -10457,6 +11916,9 @@ minions["Metadata/Monsters/LeagueRitual/DemonFaction/DemonBurrower"] = {
 	spectreReservation = 130,
 	companionReservation = 47.4,
 	monsterCategory = "Beast",
+	spawnLocation = {
+		"The Viridian Wildwood",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"SODemonicBurrowerBloodBoil",
@@ -10488,6 +11950,9 @@ minions["Metadata/Monsters/LeagueRitual/DemonFaction/DemonHulk_"] = {
 	spectreReservation = 100,
 	companionReservation = 42.3,
 	monsterCategory = "Beast",
+	spawnLocation = {
+		"The Viridian Wildwood",
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"DemonHulkSlam",
@@ -10516,6 +11981,8 @@ minions["Metadata/Monsters/LeagueRitual/DemonFaction/DemonMonkey"] = {
 	spectreReservation = 40,
 	companionReservation = 25.2,
 	monsterCategory = "Beast",
+	spawnLocation = {
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 	},
@@ -10542,6 +12009,8 @@ minions["Metadata/Monsters/VaalMonsters/Zealots/VaalFlayedDaggersBloodUltimatium
 	spectreReservation = 50,
 	companionReservation = 30,
 	monsterCategory = "Humanoid",
+	spawnLocation = {
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 	},
@@ -10565,6 +12034,8 @@ minions["Metadata/Monsters/SummonRagingSpirit/RagingFireSpirit"] = {
 	spectreReservation = 50,
 	companionReservation = 30,
 	monsterCategory = "Undead",
+	spawnLocation = {
+	},
 	skillList = {
 		"GSRagingFireSpiritsVolatileSanctum",
 	},
@@ -10588,6 +12059,8 @@ minions["Metadata/Monsters/SummonRagingSpirit/RagingTimeSpirit"] = {
 	spectreReservation = 50,
 	companionReservation = 30,
 	monsterCategory = "Undead",
+	spawnLocation = {
+	},
 	skillList = {
 		"GSRagingTimeSpiritsVolatileSanctum",
 	},
