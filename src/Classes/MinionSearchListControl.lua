@@ -8,12 +8,12 @@ local t_insert = table.insert
 local t_remove = table.remove
 local s_format = string.format
 
-local MinionSearchListClass = newClass("MinionSearchListControl", "MinionListControl", function(self, anchor, rect, data, list, dest)
-	self.MinionListControl(anchor, rect, data, list, dest)	
+local MinionSearchListClass = newClass("MinionSearchListControl", "MinionListControl", function(self, anchor, rect, data, list, dest, label)
+	self.MinionListControl(anchor, rect, data, list, dest, label)	
 	self.unfilteredList = copyTable(list)
 	self.isMutable = false
 
-	self.controls.searchText = new("EditControl", {"BOTTOMLEFT",self,"TOPLEFT"}, {0, -2, 128, 18}, "", "Search", "%c", 100, function(buf)
+	self.controls.searchText = new("EditControl", {"BOTTOMLEFT",self,"TOPLEFT"}, {0, -2, 148, 18}, "", "Search", "%c", 100, function(buf)
 		self:ListFilterChanged(buf, self.controls.searchModeDropDown.selIndex)
 	end, nil, nil, true)	
 	

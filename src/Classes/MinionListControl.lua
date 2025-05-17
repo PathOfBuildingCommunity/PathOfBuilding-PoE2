@@ -7,28 +7,29 @@ local ipairs = ipairs
 local t_insert = table.insert
 local t_remove = table.remove
 local s_format = string.format
+local m_max = math.max
 
-local MinionListClass = newClass("MinionListControl", "ListControl", function(self, anchor, rect, data, list, dest)
+local MinionListClass = newClass("MinionListControl", "ListControl", function(self, anchor, rect, data, list, dest, label)
 	self.ListControl(anchor, rect, 16, "VERTICAL", not dest, list)
 	self.data = data
 	self.dest = dest
 	if dest then
-		self.dragTargetList = { dest }
-		self.label = "^7Available Spectres:"
-		self.controls.add = new("ButtonControl", {"BOTTOMRIGHT",self,"TOPRIGHT"}, {0, -2, 60, 18}, "Add", function()
-			self:AddSel()
-		end)
-		self.controls.add.enabled = function()
-			return self.selValue ~= nil and not isValueInArray(dest.list, self.selValue)
-		end
+    	self.dragTargetList = { dest }
+    	self.label = label or "^7Available Spectres:"
+    	self.controls.add = new("ButtonControl", {"BOTTOMRIGHT",self,"TOPRIGHT"}, {0, -2, 60, 18}, "Add", function()
+    	    self:AddSel()
+    	end)
+    	self.controls.add.enabled = function()
+        	return self.selValue ~= nil and not isValueInArray(dest.list, self.selValue)
+    	end
 	else
-		self.label = "^7Spectres in Build:"
-		self.controls.delete = new("ButtonControl", {"BOTTOMRIGHT",self,"TOPRIGHT"}, {0, -2, 60, 18}, "Remove", function()
-			self:OnSelDelete(self.selIndex, self.selValue)
-		end)
-		self.controls.delete.enabled = function()
-			return self.selValue ~= nil
-		end
+    	self.label = label or "^7Spectres in Build:"
+    	self.controls.delete = new("ButtonControl", {"BOTTOMRIGHT",self,"TOPRIGHT"}, {0, -2, 60, 18}, "Remove", function()
+    	    self:OnSelDelete(self.selIndex, self.selValue)
+    	end)
+    	self.controls.delete.enabled = function()
+    	    return self.selValue ~= nil
+    	end
 	end
 end)
 
@@ -49,6 +50,16 @@ function MinionListClass:AddValueTooltip(tooltip, index, minionId)
 	if tooltip:CheckForUpdate(minionId) then
 		local minion = self.data.minions[minionId]
 		tooltip:AddLine(18, "^7"..minion.name)
+		if #minion.spawnLocation > 0 then
+			local coloredLocations = {}
+			for _, location in ipairs(minion.spawnLocation) do
+				table.insert(coloredLocations, colorCodes.RELIC .. location)
+			end
+			tooltip:AddLine(14, s_format("^7Spawn: %s", table.concat(coloredLocations, ", ")))
+		end
+		tooltip:AddLine(14, s_format("^7Spectre Reservation: %s%d", colorCodes.SPIRIT, tostring(minion.spectreReservation)))
+		tooltip:AddLine(14, s_format("^7Companion Reservation: %s%s%%", colorCodes.SPIRIT, tostring(minion.companionReservation)))
+		tooltip:AddLine(14, "^7Category: "..minion.monsterCategory)
 		tooltip:AddLine(14, s_format("^7Life Multiplier: x%.2f", minion.life))
 		if minion.energyShield then
 			tooltip:AddLine(14, s_format("^7Energy Shield: %d%% of base Life", minion.energyShield * 100))

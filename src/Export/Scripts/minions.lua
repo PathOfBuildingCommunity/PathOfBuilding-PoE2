@@ -46,14 +46,18 @@ local itemClassMap = {
 	["Thrusting One Hand Sword"] = "One Handed Sword",
 	["One Hand Axe"] = "One Handed Axe",
 	["One Hand Mace"] = "One Handed Mace",
+	["Crossbow"] = "Crossbow",
 	["Bow"] = "Bow",
 	["Fishing Rod"] = "Fishing Rod",
 	["Staff"] = "Staff",
+	["Warstaff"] = "Warstaff",
 	["Two Hand Sword"] = "Two Handed Sword",
 	["Two Hand Axe"] = "Two Handed Axe",
 	["Two Hand Mace"] = "Two Handed Mace",
 	["Shield"] = "Shield",
 	["Sceptre"] = "One Handed Mace",
+	["Flail"] = "Flail",
+	["Spear"] = "Spear",
 	["Unarmed"] = "None",
 }
 
@@ -102,6 +106,50 @@ end
 directiveTable.emit = function(state, args, out)
 
 	local monsterVariety = dat("MonsterVarieties"):GetRow("Id", state.varietyId)
+	local matchingEntries = {}
+	local allMonsterPackIds = {}
+
+	-- Step 1: From MonsterPackEntries
+	for i = 1, 2000 do
+	    local entry = dat("MonsterPackEntries"):GetRow("Id", tostring(i))
+	    if entry and entry.MonsterPacksKey then
+	        local packId = entry.MonsterPacksKey.Id
+	        if packId then
+	            allMonsterPackIds[packId] = true -- add to full set of pack IDs
+	            if entry.MonsterVarietiesKey and entry.MonsterVarietiesKey.Name == monsterVariety.Name then
+	                table.insert(matchingEntries, packId)
+	            end
+	        end
+	    end
+	end
+	-- Step 2: Check if monster is in AdditionalMonsters within MonsterPacks
+	for packId, _ in pairs(allMonsterPackIds) do
+	    local pack = dat("MonsterPacks"):GetRow("Id", tostring(packId))
+	    if pack and pack.AdditionalMonsters then
+	        for _, addMon in ipairs(pack.AdditionalMonsters) do
+	            if addMon.Name == monsterVariety.Name then
+	                table.insert(matchingEntries, pack.Id)
+	            end
+	        end
+	    end
+	end
+	-- Step 3: Get WorldAreas for each matching MonsterPack
+	local worldAreaNames = {}
+	local seenAreas = {}
+
+	for _, packId in ipairs(matchingEntries) do
+	    local pack = dat("MonsterPacks"):GetRow("Id", tostring(packId))
+	    if pack and pack.WorldAreas then
+	        for _, worldAreaRef in ipairs(pack.WorldAreas) do
+	            local area = dat("WorldAreas"):GetRow("Id", worldAreaRef.Id)
+	            if area and area.Name ~= "NULL" and not seenAreas[area.Name] then
+	                table.insert(worldAreaNames, area.Name)
+	                seenAreas[area.Name] = true
+	            end
+	        end
+	    end
+	end
+
 	if not monsterVariety then
 		print("Invalid Variety: "..state.varietyId)
 		return
@@ -118,7 +166,7 @@ directiveTable.emit = function(state, args, out)
 		out:write('\tbaseDamageIgnoresAttackSpeed = true,\n')
 	end
 	if monsterVariety.Type.EnergyShield ~= 0 then
-		out:write('\tenergyShield = ', (0.4 * monsterVariety.Type.EnergyShield / 100), ',\n')
+		out:write('\tenergyShield = ', (monsterVariety.Type.EnergyShield / 100), ',\n')
 	end
 	if monsterVariety.Type.Armour ~= 0 then
 		out:write('\tarmour = ', monsterVariety.Type.Armour / 100, ',\n')
@@ -153,6 +201,18 @@ directiveTable.emit = function(state, args, out)
 	if state.limit then
 		out:write('\tlimit = "', state.limit, '",\n')
 	end
+	if monsterVariety.ExperienceMultiplier then
+		out:write('\tspectreReservation = ', (round(50 * math.max(monsterVariety.ExperienceMultiplier/100, 0) / 10) * 10), ',\n')
+		out:write('\tcompanionReservation = ', (round(math.sqrt(monsterVariety.ExperienceMultiplier/100), 2) * 30), ',\n') 
+	end
+	if monsterVariety.MonsterCategory then
+		out:write('\tmonsterCategory = "', (monsterVariety.MonsterCategory.Type), '",\n')
+	end
+	out:write('\tspawnLocation = {\n')
+	for _, name in ipairs(worldAreaNames) do
+	    out:write('\t\t"', name, '",\n')
+	end
+	out:write('\t},\n')
 	out:write('\tskillList = {\n')
 	for _, grantedEffect in ipairs(monsterVariety.GrantedEffects) do
 		out:write('\t\t"', grantedEffect.Id, '",\n')
@@ -202,8 +262,8 @@ directiveTable.spectre = function(state, args, out)
 	directiveTable.emit(state, "", out)
 end
 
---for _, name in pairs({"Spectres","Minions"}) do -- Add back when Spectres are in the game again
-for _, name in pairs({"Minions"}) do
+for _, name in pairs({"Spectres","Minions"}) do -- Add back when Spectres are in the game again
+--for _, name in pairs({"Minions"}) do
 	processTemplateFile(name, "Minions/", "../Data/", directiveTable)
 end
 
