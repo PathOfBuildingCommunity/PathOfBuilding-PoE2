@@ -1341,10 +1341,15 @@ end
 -- Open the spectre library popup
 function buildMode:OpenSpectreLibrary(library)
 	local destList = { }
+	local popularBeastList = { }
+	local popularSpectreList = { }
+	local popularList = { }
 	if library == "beast" then
 		destList = copyTable(self.beastList)
+		popularList = popularBeastList
 	else
 		destList = copyTable(self.spectreList)
+		popularList = popularSpectreList
 	end
 	local monsterTypeSort = {
 		Beast = true,
@@ -1460,8 +1465,10 @@ function buildMode:OpenSpectreLibrary(library)
 	end
 
 	sortSourceList()
-	controls.list = new("MinionListControl", nil, {-230, 40, 210, 250}, self.data, destList)
-	controls.source = new("MinionSearchListControl", nil, {0, 60, 210, 230}, self.data, sourceList, controls.list)
+	local label = (library == "beast" and "Beasts" or "Spectres")
+	controls.list = new("MinionListControl", nil, {-230, 40, 210, 175}, self.data, destList, nil, label.." in Build:")
+	controls.popularList = new("MinionListControl", {"TOP",controls.list,"BOTTOM"}, {0, 25, 210, 175}, self.data, popularList, nil,"^7Popular "..label..":")
+	controls.source = new("MinionSearchListControl", nil, {0, 60, 210, 230}, self.data, sourceList, controls.list, "^7Available "..label..":")
 	local function monsterTypeCheckboxChange(name)
 		monsterTypeSort[name] = true
 		return function(state)
@@ -1644,10 +1651,10 @@ function buildMode:OpenSpectreLibrary(library)
 			end
 		end
 		controls.minionNameLabel = new("LabelControl", {"TOP",controls.source,"TOPRIGHT"}, {130, -25, 0, 18}, minion.name)
-		controls.lifeLabelNum = new("LabelControl", {"TOP",controls.lifeLabel,"BOTTOM"}, {0, 6, 0, 16}, round(totalLife))
-		controls.energyshieldLabelNum = new("LabelControl", {"TOP",controls.energyshieldLabel,"BOTTOM"}, {0, 6, 0, 16}, (totalES))
+		controls.lifeLabelNum = new("LabelControl", {"TOP",controls.lifeLabel,"BOTTOM"}, {0, 6, 0, 16}, "^7"..round(totalLife))
+		controls.energyshieldLabelNum = new("LabelControl", {"TOP",controls.energyshieldLabel,"BOTTOM"}, {0, 6, 0, 16}, round(totalES))
 		controls.blockLabelNum = new("LabelControl", {"TOP",controls.blockLabel,"BOTTOM"}, {6, 6, 0, 16}, blockChance.."%")
-		controls.armourLabelNum = new("LabelControl", {"TOP",controls.armourLabel,"BOTTOM"}, {0, 6, 0, 16}, (totalArmour))
+		controls.armourLabelNum = new("LabelControl", {"TOP",controls.armourLabel,"BOTTOM"}, {0, 6, 0, 16}, round(totalArmour))
 		controls.evasionLabelNum = new("LabelControl", {"TOP",controls.evasionLabel,"BOTTOM"}, {0, 6, 0, 16}, round(totalEvasion))
 		controls.resistsLabelNum = new("LabelControl", {"TOP",controls.resistsLabel,"BOTTOM"}, {0, 6, 0, 16},
 		colorCodes.FIRE..minion.fireResist.."^7/"..

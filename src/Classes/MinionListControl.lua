@@ -9,27 +9,27 @@ local t_remove = table.remove
 local s_format = string.format
 local m_max = math.max
 
-local MinionListClass = newClass("MinionListControl", "ListControl", function(self, anchor, rect, data, list, dest)
+local MinionListClass = newClass("MinionListControl", "ListControl", function(self, anchor, rect, data, list, dest, label)
 	self.ListControl(anchor, rect, 16, "VERTICAL", not dest, list)
 	self.data = data
 	self.dest = dest
 	if dest then
-		self.dragTargetList = { dest }
-		self.label = "^7Available Spectres:"
-		self.controls.add = new("ButtonControl", {"BOTTOMRIGHT",self,"TOPRIGHT"}, {0, -2, 60, 18}, "Add", function()
-			self:AddSel()
-		end)
-		self.controls.add.enabled = function()
-			return self.selValue ~= nil and not isValueInArray(dest.list, self.selValue)
-		end
+    	self.dragTargetList = { dest }
+    	self.label = label or "^7Available Spectres:"
+    	self.controls.add = new("ButtonControl", {"BOTTOMRIGHT",self,"TOPRIGHT"}, {0, -2, 60, 18}, "Add", function()
+    	    self:AddSel()
+    	end)
+    	self.controls.add.enabled = function()
+        	return self.selValue ~= nil and not isValueInArray(dest.list, self.selValue)
+    	end
 	else
-		self.label = "^7Spectres in Build:"
-		self.controls.delete = new("ButtonControl", {"BOTTOMRIGHT",self,"TOPRIGHT"}, {0, -2, 60, 18}, "Remove", function()
-			self:OnSelDelete(self.selIndex, self.selValue)
-		end)
-		self.controls.delete.enabled = function()
-			return self.selValue ~= nil
-		end
+    	self.label = label or "^7Spectres in Build:"
+    	self.controls.delete = new("ButtonControl", {"BOTTOMRIGHT",self,"TOPRIGHT"}, {0, -2, 60, 18}, "Remove", function()
+    	    self:OnSelDelete(self.selIndex, self.selValue)
+    	end)
+    	self.controls.delete.enabled = function()
+    	    return self.selValue ~= nil
+    	end
 	end
 end)
 

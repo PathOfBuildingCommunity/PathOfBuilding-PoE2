@@ -8,8 +8,8 @@ local t_insert = table.insert
 local t_remove = table.remove
 local s_format = string.format
 
-local MinionSearchListClass = newClass("MinionSearchListControl", "MinionListControl", function(self, anchor, rect, data, list, dest)
-	self.MinionListControl(anchor, rect, data, list, dest)	
+local MinionSearchListClass = newClass("MinionSearchListControl", "MinionListControl", function(self, anchor, rect, data, list, dest, label)
+	self.MinionListControl(anchor, rect, data, list, dest, label)	
 	self.unfilteredList = copyTable(list)
 	self.isMutable = false
 
