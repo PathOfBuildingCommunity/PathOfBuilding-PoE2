@@ -716,10 +716,12 @@ function ImportTabClass:ImportItemsAndSkills(charData)
 			local group = { label = "", enabled = true, gemList = { } }
 			t_insert(group.gemList, gemInstance )
 
-			for _, anotherSkillData in pairs(skillData.socketedItems) do
-				local anotherGemInstance = funcGetGemInstance(anotherSkillData)
-				if anotherGemInstance then
-					t_insert(group.gemList, anotherGemInstance )
+			if skillData.socketedItems then
+				for _, anotherSkillData in pairs(skillData.socketedItems) do
+					local anotherGemInstance = funcGetGemInstance(anotherSkillData)
+					if anotherGemInstance then
+						t_insert(group.gemList, anotherGemInstance )
+					end
 				end
 			end
 
