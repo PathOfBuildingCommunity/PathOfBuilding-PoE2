@@ -402,6 +402,9 @@ return {
 ["base_spell_block_%"] = {
 	mod("SpellBlockChance", "BASE", nil),
 },
+["additional_maximum_block_%"] = {
+	mod("BlockChanceMax", "BASE", nil),
+},
 ["base_block_%_damage_taken"] = {
 	mod("BlockEffect", "BASE", nil)
 },

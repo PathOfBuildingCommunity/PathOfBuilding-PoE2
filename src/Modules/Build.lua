@@ -12,6 +12,9 @@ local m_max = math.max
 local m_floor = math.floor
 local m_abs = math.abs
 local s_format = string.format
+local function firstToUpper(str)
+	return (str:gsub("^%l", string.upper))
+end
 
 local buildMode = new("ControlHost")
 
@@ -1340,31 +1343,9 @@ end
 
 -- Open the spectre library popup
 function buildMode:OpenSpectreLibrary(library)
+	local recommendedBeastList, recommendedSpectreList, popularList = {}, {}, {}
+	local beastList, humanoidList, eldritchList, constructList, demonList, undeadList = {}, {}, {}, {}, {}, {}
 	local destList = { }
-	local popularBeastList = { }
-	local popularSpectreList = { }
-	local popularList = { }
-	if library == "beast" then
-		destList = copyTable(self.beastList)
-		popularList = popularBeastList
-	else
-		destList = copyTable(self.spectreList)
-		popularList = popularSpectreList
-	end
-	local monsterTypeSort = {
-		Beast = true,
-		Humanoid = true,
-		Eldritch = true,
-		Construct = true,
-		Demon = true,
-		Undead = true
-	}
-	local beastList = { }
-	local humanoidList = { }
-	local eldritchList = { }
-	local constructList = { }
-	local demonList = { }
-	local undeadList = { }
 	local sourceList = { }
 	for id in pairs(self.data.spectres) do
 		if self.data.minions[id].monsterCategory == "Beast" then
@@ -1380,8 +1361,29 @@ function buildMode:OpenSpectreLibrary(library)
 		elseif self.data.minions[id].monsterCategory == "Undead" then
 			t_insert(undeadList, id)
 		end
+		if self.data.minions[id].extraFlags and self.data.minions[id].extraFlags.recommendedSpectre then
+			t_insert(recommendedSpectreList, id)
+		end
+		if self.data.minions[id].extraFlags and self.data.minions[id].extraFlags.recommendedBeast then
+			t_insert(recommendedBeastList, id)
+		end
 	end
-	
+	if library == "beast" then
+		destList = copyTable(self.beastList)
+		popularList = recommendedBeastList
+	else
+		destList = copyTable(self.spectreList)
+		popularList = recommendedSpectreList
+	end
+	local monsterTypeSort = {
+		Beast = true,
+		Humanoid = true,
+		Eldritch = true,
+		Construct = true,
+		Demon = true,
+		Undead = true,
+		recommendedList = false,
+	}
 	local function buildSourceList(library, sourceList)
 		wipeTable(sourceList)
 		if library == "beast" then
@@ -1399,15 +1401,28 @@ function buildMode:OpenSpectreLibrary(library)
 				{ key = "Demon", list = demonList },
 				{ key = "Undead", list = undeadList },
 			}
-				for _, category in ipairs(monsterCategories) do
-					if monsterTypeSort[category.key] then
-						for _, id in ipairs(category.list) do
-							table.insert(sourceList, id)
-						end
+			for _, category in ipairs(monsterCategories) do
+				if monsterTypeSort[category.key] then
+					for _, id in ipairs(category.list) do
+						table.insert(sourceList, id)
 					end
 				end
 			end
 		end
+		-- Apply 'recommended' filter if checkbox is off
+		if not monsterTypeSort.recommendedList then
+			local allowed = {}
+			for _, id in ipairs(popularList) do
+				allowed[id] = true
+			end
+			for i = #sourceList, 1, -1 do
+				if not allowed[sourceList[i]] then
+					table.remove(sourceList, i)
+				end
+			end
+		end
+	end
+
 	buildSourceList(library, sourceList)
 	local controls = { }
 
@@ -1434,12 +1449,8 @@ function buildMode:OpenSpectreLibrary(library)
 				local valueA = minionA[sortOption.field]
 				local valueB = minionB[sortOption.field]
 				if sortOption.field == "energyShield" then
-					-- Calculate actual ES value
-					local totalLifeA = 2490 * minionA.life
-					local totalLifeB = 2490 * minionB.life
-					local esA = (minionA.energyShield or 0) * totalLifeA
-					local esB = (minionB.energyShield or 0) * totalLifeB
-					-- If both are 0 (no ES), sort by name
+					local esA = (minionA.energyShield or 0) * minionA.life
+					local esB = (minionB.energyShield or 0) * minionB.life
 					if esA == 0 and esB == 0 then
 						return minionA.name < minionB.name
 					end
@@ -1466,8 +1477,7 @@ function buildMode:OpenSpectreLibrary(library)
 
 	sortSourceList()
 	local label = (library == "beast" and "Beasts" or "Spectres")
-	controls.list = new("MinionListControl", nil, {-230, 40, 210, 175}, self.data, destList, nil, label.." in Build:")
-	controls.popularList = new("MinionListControl", {"TOP",controls.list,"BOTTOM"}, {0, 25, 210, 175}, self.data, popularList, nil,"^7Popular "..label..":")
+	controls.list = new("MinionListControl", nil, {-230, 40, 210, 250}, self.data, destList, nil, label.." in Build:")
 	controls.source = new("MinionSearchListControl", nil, {0, 60, 210, 230}, self.data, sourceList, controls.list, "^7Available "..label..":")
 	local function monsterTypeCheckboxChange(name)
 		monsterTypeSort[name] = true
@@ -1475,7 +1485,9 @@ function buildMode:OpenSpectreLibrary(library)
 			monsterTypeSort[name] = state
 			self.listBuildFlag = true
 			buildSourceList(library, sourceList)
-			sortSourceList()
+			controls.source.unfilteredList = copyTable(sourceList)
+			controls.source:ListFilterChanged(controls.source.controls.searchText.buf, controls.source.controls.searchModeDropDown.selIndex)
+			sortSourceList()	
 		end
 	end
 	local function getMonsterTypeImages()
@@ -1490,20 +1502,20 @@ function buildMode:OpenSpectreLibrary(library)
 	
 	local monsterTypeCheckbox = {
 		{ name = "Beast", x = 0 },
-		{ name = "Humanoid", x = 37 },
-		{ name = "Eldritch", x = 74 },
-		{ name = "Construct", x = 111 },
-		{ name = "Demon", x = 148 },
-		{ name = "Undead", x = 185 },
+		{ name = "Humanoid", x = 31 },
+		{ name = "Eldritch", x = 62 },
+		{ name = "Construct", x = 93 },
+		{ name = "Demon", x = 124 },
+		{ name = "Undead", x = 154 },
 	}
-	for _, monster in ipairs(monsterTypeCheckbox) do
-		local controlName = "sortMonsterCheckbox" .. monster.name
-		local checkbox = new("CheckBoxControl", {"TOPLEFT", controls.source, "BOTTOMLEFT"}, {monster.x, 24, 26, 26}, "", monsterTypeCheckboxChange(monster.name), monster.name, true)
-		checkbox:SetCheckImage(self.monsterImages[monster.name])
-		checkbox.shown = library ~= "beast"
+	for _, monsterType in ipairs(monsterTypeCheckbox) do
+		local controlName = "sortMonsterCheckbox" .. monsterType.name
+		local checkbox = new("CheckBoxControl", {"TOPLEFT", controls.source, "BOTTOMLEFT"}, {monsterType.x, 24, 26, 26}, "", monsterTypeCheckboxChange(monsterType.name), monsterType.name, true)
+		checkbox:SetCheckImage(self.monsterImages[monsterType.name])
+		checkbox.shown = library ~= "beast"	
 		controls[controlName] = checkbox
 	end
-
+	controls.sortMonsterCheckboxShowAll = new("CheckBoxControl", {"TOPLEFT", controls.source, "BOTTOMLEFT"}, {184, 24, 26, 26}, "", monsterTypeCheckboxChange("recommendedList"), "Show All " .. firstToUpper(library) .. "s", false)
 	controls.sortLabel = new("LabelControl", {"TOPLEFT",controls.source,"BOTTOMLEFT"}, {2, 2, 0, 16}, "Sort by:")
 	controls.sortModeDropDown = new("DropDownControl", {"TOPRIGHT",controls.source,"BOTTOMRIGHT"}, {0, 2, 155, 18}, { "Names", "Life", "Energy Shield", "Attack Speed", "Companion Reservation", "Spectre Reservation", "Fire Resistance", "Cold Resistance", "Lightning Resistance", "Chaos Resistance", "Total Resistance"}, function(index, value)
 		sortSourceList()

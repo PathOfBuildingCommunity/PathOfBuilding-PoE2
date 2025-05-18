@@ -310,7 +310,7 @@ minions["RaisedSkeletonWarriors"] = {
 	modList = {
 		-- MonsterNoDropsOrExperience [monster_no_drops_or_experience = 1]
 		mod("BlockChance", "BASE", 30, 0, 0), -- SkeletonWarriorPlayerMinionBlockChance [monster_base_block_% = 30]
-		-- SkeletonWarriorPlayerMinionBlockChance [additional_maximum_block_% = 0]
+		mod("BlockChanceMax", "BASE", 0, 0, 0), -- SkeletonWarriorPlayerMinionBlockChance [additional_maximum_block_% = 0]
 	},
 }
 

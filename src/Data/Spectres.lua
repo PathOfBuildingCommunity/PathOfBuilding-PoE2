@@ -38,6 +38,7 @@ minions["Metadata/Monsters/EtchedBeetles/SmallEtchedBeetleArmoured"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/EtchedBeetles/SmallEtchedBeetleArmouredDull"] = {
 	name = "Tarnished Beetle",
 	monsterTags = { "allows_inc_aoe", "beast", "Claw_onhit_audio", "insect", "lightning_affinity", "medium_movement", "melee", "not_dex", "not_int", },
@@ -70,6 +71,7 @@ minions["Metadata/Monsters/EtchedBeetles/SmallEtchedBeetleArmouredDull"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/EtchedBeetles/MediumEtchedBeetleArmouredDull"] = {
 	name = "Tarnished Scarab",
 	monsterTags = { "2HSharpMetal_onhit_audio", "allows_inc_aoe", "beast", "fast_movement", "insect", "lightning_affinity", "melee", "not_dex", "not_int", },
@@ -100,6 +102,7 @@ minions["Metadata/Monsters/EtchedBeetles/MediumEtchedBeetleArmouredDull"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/EtchedBeetles/MediumEtchedBeetleArmouredTuskWide"] = {
 	name = "Adorned Scarab",
 	monsterTags = { "2HSharpMetal_onhit_audio", "allows_inc_aoe", "beast", "fast_movement", "insect", "lightning_affinity", "melee", "not_dex", "not_int", },
@@ -162,6 +165,7 @@ minions["Metadata/Monsters/LeagueHellscape/DemonFaction/HellscapeDemonFodder1_"]
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/LeagueHellscape/DemonFaction/HellscapeDemonFodder2_"] = {
 	name = "Demon Beast",
 	monsterTags = { "beyond_demon", "demon", "fast_movement", "not_int", "not_str", "red_blood", "Unarmed_onhit_audio", "very_fast_movement", },
@@ -189,6 +193,7 @@ minions["Metadata/Monsters/LeagueHellscape/DemonFaction/HellscapeDemonFodder2_"]
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/LeagueHellscape/DemonFaction/HellscapeDemonFodder3_"] = {
 	name = "Demon Ghast",
 	monsterTags = { "beyond_demon", "demon", "fast_movement", "MonsterStab_onhit_audio", "red_blood", "very_fast_movement", },
@@ -215,6 +220,7 @@ minions["Metadata/Monsters/LeagueHellscape/DemonFaction/HellscapeDemonFodder3_"]
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/LeagueHellscape/DemonFaction/HellscapeDemonElite1_"] = {
 	name = "Demon Harpy",
 	monsterTags = { "beyond_demon", "demon", "demon_faction", "fast_movement", "not_int", "not_str", "red_blood", "Unarmed_onhit_audio", "very_fast_movement", },
@@ -246,6 +252,7 @@ minions["Metadata/Monsters/LeagueHellscape/DemonFaction/HellscapeDemonElite1_"] 
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/LeagueHellscape/DemonFaction/HellscapeDemonElite2_"] = {
 	name = "Demon Herder",
 	monsterTags = { "beyond_demon", "demon", "demon_faction", "fast_movement", "not_dex", "not_str", "red_blood", "StaffWood_onhit_audio", },
@@ -274,9 +281,13 @@ minions["Metadata/Monsters/LeagueHellscape/DemonFaction/HellscapeDemonElite2_"] 
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/LeagueHellscape/FleshFaction/HellscapeFleshFodder1_"] = {
 	name = "Ravenous Homunculus",
 	monsterTags = { "beyond_demon", "demon", "fast_movement", "flesh_faction", "not_dex", "not_int", "red_blood", "Unarmed_onhit_audio", },
+	extraFlags = {
+		recommendedSpectre = true,
+	},
 	life = 1.3,
 	baseDamageIgnoresAttackSpeed = true,
 	armour = 0.3,
@@ -303,9 +314,13 @@ minions["Metadata/Monsters/LeagueHellscape/FleshFaction/HellscapeFleshFodder1_"]
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/LeagueHellscape/FleshFaction/HellscapeFleshFodder2_"] = {
 	name = "Ravenous Brute",
 	monsterTags = { "beyond_demon", "demon", "fast_movement", "flesh_faction", "not_dex", "not_int", "red_blood", "Unarmed_onhit_audio", },
+	extraFlags = {
+		recommendedSpectre = true,
+	},
 	life = 1.7,
 	baseDamageIgnoresAttackSpeed = true,
 	armour = 0.4,
@@ -332,6 +347,7 @@ minions["Metadata/Monsters/LeagueHellscape/FleshFaction/HellscapeFleshFodder2_"]
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/LeagueHellscape/FleshFaction/HellscapeFleshFodder3_"] = {
 	name = "Ravenous Digester",
 	monsterTags = { "beyond_demon", "demon", "fast_movement", "flesh_faction", "MonsterStab_onhit_audio", "not_int", "not_str", "red_blood", },
@@ -364,6 +380,7 @@ minions["Metadata/Monsters/LeagueHellscape/FleshFaction/HellscapeFleshFodder3_"]
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/LeagueHellscape/FleshFaction/HellscapeFleshFodder4_"] = {
 	name = "Ravenous Misshapen",
 	monsterTags = { "beyond_demon", "demon", "flesh_faction", "medium_movement", "not_dex", "not_str", "red_blood", "Unarmed_onhit_audio", },
@@ -392,6 +409,7 @@ minions["Metadata/Monsters/LeagueHellscape/FleshFaction/HellscapeFleshFodder4_"]
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/LeagueHellscape/FleshFaction/HellscapeFleshElite1_"] = {
 	name = "Ravenous Bloodshaper",
 	monsterTags = { "beyond_demon", "demon", "fast_movement", "flesh_faction", "not_dex", "not_str", "red_blood", "Unarmed_onhit_audio", "very_fast_movement", },
@@ -428,6 +446,7 @@ minions["Metadata/Monsters/LeagueHellscape/FleshFaction/HellscapeFleshElite1_"] 
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/LeagueHellscape/FleshFaction/HellscapeFleshElite2_"] = {
 	name = "Ravenous Macerator",
 	monsterTags = { "beyond_demon", "demon", "flesh_faction", "MonsterBlunt_onhit_audio", "not_dex", "not_int", "red_blood", "slow_movement", },
@@ -459,6 +478,7 @@ minions["Metadata/Monsters/LeagueHellscape/FleshFaction/HellscapeFleshElite2_"] 
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/LeagueHellscape/PaleFaction/HellscapePaleFodder1_"] = {
 	name = "Pale Cherubim",
 	monsterTags = { "beyond_demon", "demon", "not_dex", "not_str", "red_blood", "slow_movement", "Unarmed_onhit_audio", },
@@ -486,6 +506,7 @@ minions["Metadata/Monsters/LeagueHellscape/PaleFaction/HellscapePaleFodder1_"] =
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/LeagueHellscape/PaleFaction/HellscapePaleFodder2_"] = {
 	name = "Pale Servitor",
 	monsterTags = { "beyond_demon", "Claw_onhit_audio", "demon", "fast_movement", "not_int", "not_str", "red_blood", "very_fast_movement", },
@@ -517,6 +538,7 @@ minions["Metadata/Monsters/LeagueHellscape/PaleFaction/HellscapePaleFodder2_"] =
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/LeagueHellscape/PaleFaction/HellscapePaleFodder3_"] = {
 	name = "Pale Virtue",
 	monsterTags = { "beyond_demon", "demon", "fast_movement", "MonsterStab_onhit_audio", "not_int", "not_str", "red_blood", },
@@ -546,6 +568,7 @@ minions["Metadata/Monsters/LeagueHellscape/PaleFaction/HellscapePaleFodder3_"] =
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/LeagueHellscape/PaleFaction/HellscapePaleElite1_"] = {
 	name = "Pale Angel",
 	monsterTags = { "beyond_demon", "demon", "medium_movement", "not_dex", "not_str", "red_blood", "Unarmed_onhit_audio", },
@@ -577,6 +600,7 @@ minions["Metadata/Monsters/LeagueHellscape/PaleFaction/HellscapePaleElite1_"] = 
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/LeagueHellscape/PaleFaction/HellscapePaleElite2__"] = {
 	name = "Pale Seraphim",
 	monsterTags = { "beyond_demon", "demon", "fast_movement", "MonsterStab_onhit_audio", "not_int", "pale_faction", "red_blood", },
@@ -680,6 +704,7 @@ minions["Metadata/Monsters/QuillCrab/QuillCrab"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/QuillCrab/QuillCrabBig"] = {
 	name = "Porcupine Crab",
 	monsterTags = { "allows_additional_projectiles", "beast", "fire_affinity", "insect", "MonsterStab_onhit_audio", "not_dex", "not_int", "physical_affinity", "ranged", "red_blood", "slow_movement", },
@@ -711,9 +736,14 @@ minions["Metadata/Monsters/QuillCrab/QuillCrabBig"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/QuillCrab/QuillCrabBigPoison_"] = {
 	name = "Venomous Crab Matriarch",
 	monsterTags = { "allows_additional_projectiles", "beast", "insect", "monster_applies_poison", "MonsterStab_onhit_audio", "not_dex", "not_int", "physical_affinity", "ranged", "red_blood", "slow_movement", },
+	extraFlags = {
+		recommendedSpectre = true,
+		recommendedBeast = true,
+	},
 	life = 0.85,
 	baseDamageIgnoresAttackSpeed = true,
 	armour = 0.25,
@@ -742,9 +772,14 @@ minions["Metadata/Monsters/QuillCrab/QuillCrabBigPoison_"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/QuillCrab/QuillCrabTropical"] = {
 	name = "Quill Crab",
 	monsterTags = { "beast", "crustacean_beast", "MonsterStab_onhit_audio", "not_dex", "not_int", "red_blood", "slow_movement", },
+	extraFlags = {
+		recommendedSpectre = true,
+		recommendedBeast = true,
+	},
 	life = 0.7,
 	baseDamageIgnoresAttackSpeed = true,
 	armour = 0.25,
@@ -773,6 +808,7 @@ minions["Metadata/Monsters/QuillCrab/QuillCrabTropical"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/ShellMonster/ShellMonster"] = {
 	name = "Brimstone Crab",
 	monsterTags = { "allows_additional_projectiles", "allows_inc_aoe", "beast", "crustacean_beast", "fire", "fire_affinity", "melee", "MonsterStab_onhit_audio", "not_dex", "not_int", "ranged", "slow_movement", },
@@ -807,9 +843,14 @@ minions["Metadata/Monsters/ShellMonster/ShellMonster"] = {
 		-- SpectrePlayDeathAction [is_spectre_with_death_action = 1]
 	},
 }
+
 minions["Metadata/Monsters/ShellMonster/ShellMonsterPoison"] = {
 	name = "Caustic Crab",
 	monsterTags = { "allows_additional_projectiles", "beast", "crustacean_beast", "MonsterStab_onhit_audio", "not_dex", "not_int", "physical_affinity", "ranged", "slow_movement", },
+	extraFlags = {
+		recommendedSpectre = true,
+		recommendedBeast = true,
+	},
 	life = 1.15,
 	baseDamageIgnoresAttackSpeed = true,
 	armour = 1,
@@ -843,6 +884,9 @@ minions["Metadata/Monsters/ShellMonster/ShellMonsterPoison"] = {
 minions["Metadata/Monsters/CrazedCannibalPicts/PictFemaleBow"] = {
 	name = "Cultist Archer",
 	monsterTags = { "allows_additional_projectiles", "allows_inc_aoe", "Arrow_onhit_audio", "azmeri_cultist_monster", "chaos_affinity", "cultist", "fast_movement", "human", "humanoid", "monster_barely_moves", "not_int", "not_str", "physical_affinity", "ranged", "red_blood", },
+	extraFlags = {
+		recommendedSpectre = true,
+	},
 	life = 1.3,
 	baseDamageIgnoresAttackSpeed = true,
 	evasion = 0.4,
@@ -874,6 +918,7 @@ minions["Metadata/Monsters/CrazedCannibalPicts/PictFemaleBow"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/CrazedCannibalPicts/PictFemaleDaggerDagger"] = {
 	name = "Cultist Daggerdancer",
 	monsterTags = { "azmeri_cultist_monster", "Claw_onhit_audio", "cultist", "fast_movement", "human", "humanoid", "melee", "not_int", "not_str", "physical_affinity", "red_blood", },
@@ -905,6 +950,7 @@ minions["Metadata/Monsters/CrazedCannibalPicts/PictFemaleDaggerDagger"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/CrazedCannibalPicts/PictFemaleStaff"] = {
 	name = "Cultist Witch",
 	monsterTags = { "2HBluntWood_onhit_audio", "allows_additional_projectiles", "allows_inc_aoe", "azmeri_cultist_monster", "caster", "chaos_affinity", "cultist", "human", "humanoid", "monster_barely_moves", "not_dex", "not_str", "ranged", "red_blood", "very_slow_movement", },
@@ -967,6 +1013,7 @@ minions["Metadata/Monsters/Sanctified/Floppy/SanctifiedFloppy"] = {
 		-- CleansedMonsterNoEquipmentDrops [drop_no_equipment = 1]
 	},
 }
+
 minions["Metadata/Monsters/Sanctified/Monstrosity/SanctifiedMonstrosity"] = {
 	name = "Fettered Monstrosity",
 	monsterTags = { "demon", "medium_movement", "MonsterBlunt_onhit_audio", "mud_blood", },
@@ -995,9 +1042,13 @@ minions["Metadata/Monsters/Sanctified/Monstrosity/SanctifiedMonstrosity"] = {
 		-- CleansedMonsterNoEquipmentDrops [drop_no_equipment = 1]
 	},
 }
+
 minions["Metadata/Monsters/Sanctified/Scythe/SanctifiedScythe_"] = {
 	name = "Fettered Scythe",
 	monsterTags = { "demon", "MonsterStab_onhit_audio", "mud_blood", "not_dex", "not_int", "very_slow_movement", },
+	extraFlags = {
+		recommendedSpectre = true,
+	},
 	life = 2,
 	baseDamageIgnoresAttackSpeed = true,
 	armour = 0.75,
@@ -1024,9 +1075,13 @@ minions["Metadata/Monsters/Sanctified/Scythe/SanctifiedScythe_"] = {
 		-- CleansedMonsterNoEquipmentDrops [drop_no_equipment = 1]
 	},
 }
+
 minions["Metadata/Monsters/Sanctified/Snake/SanctifiedSnake"] = {
 	name = "Fettered Snake",
 	monsterTags = { "demon", "fast_movement", "MonsterStab_onhit_audio", "mud_blood", "not_dex", "not_int", },
+	extraFlags = {
+		recommendedSpectre = true,
+	},
 	life = 2.15,
 	baseDamageIgnoresAttackSpeed = true,
 	armour = 0.5,
@@ -1056,6 +1111,7 @@ minions["Metadata/Monsters/Sanctified/Snake/SanctifiedSnake"] = {
 		-- CleansedMonsterNoEquipmentDrops [drop_no_equipment = 1]
 	},
 }
+
 minions["Metadata/Monsters/Sanctified/Spider/SanctifiedSpider"] = {
 	name = "Fettered Spider",
 	monsterTags = { "beast", "fast_movement", "MonsterStab_onhit_audio", "mud_blood", "not_dex", "not_int", "spider", "very_fast_movement", },
@@ -1087,6 +1143,7 @@ minions["Metadata/Monsters/Sanctified/Spider/SanctifiedSpider"] = {
 		-- CleansedMonsterNoEquipmentDrops [drop_no_equipment = 1]
 	},
 }
+
 minions["Metadata/Monsters/Sanctified/Tentacle/SanctifiedTentacle"] = {
 	name = "Fettered Grasper",
 	monsterTags = { "demon", "MonsterStab_onhit_audio", "mud_blood", "not_int", "slow_movement", },
@@ -1117,6 +1174,7 @@ minions["Metadata/Monsters/Sanctified/Tentacle/SanctifiedTentacle"] = {
 		-- CleansedMonsterNoEquipmentDrops [drop_no_equipment = 1]
 	},
 }
+
 minions["Metadata/Monsters/Sanctified/Writhing/SanctifiedWrithing"] = {
 	name = "Fettered Writher",
 	monsterTags = { "beast", "insect", "MonsterStab_onhit_audio", "mud_blood", "not_int", "not_str", "very_slow_movement", },
@@ -1183,6 +1241,7 @@ minions["Metadata/Monsters/Mutewind/MutewindBanditExecutioner"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/Mutewind/MutewindBoy"] = {
 	name = "Faridun Neophyte",
 	monsterTags = { "1HSword_onhit_audio", "fast_movement", "human", "humanoid", "melee", "not_int", "not_str", "physical_affinity", "red_blood", },
@@ -1217,6 +1276,7 @@ minions["Metadata/Monsters/Mutewind/MutewindBoy"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/Mutewind/MutewindGirl"] = {
 	name = "Faridun Fledgling",
 	monsterTags = { "1HSword_onhit_audio", "fast_movement", "human", "humanoid", "melee", "not_int", "not_str", "physical_affinity", "red_blood", },
@@ -1251,9 +1311,13 @@ minions["Metadata/Monsters/Mutewind/MutewindGirl"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/Mutewind/MutewindMan2HSpear"] = {
 	name = "Faridun Spearman",
 	monsterTags = { "1HSword_onhit_audio", "fast_movement", "human", "humanoid", "melee", "not_int", "physical_affinity", "red_blood", },
+	extraFlags = {
+		recommendedSpectre = true,
+	},
 	life = 1.2,
 	baseDamageIgnoresAttackSpeed = true,
 	armour = 0.3,
@@ -1285,6 +1349,7 @@ minions["Metadata/Monsters/Mutewind/MutewindMan2HSpear"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/Mutewind/MutewindManDualSword"] = {
 	name = "Faridun Swordsman",
 	monsterTags = { "1HSword_onhit_audio", "fast_movement", "human", "humanoid", "melee", "not_int", "physical_affinity", "red_blood", },
@@ -1320,6 +1385,7 @@ minions["Metadata/Monsters/Mutewind/MutewindManDualSword"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/Mutewind/MutewindManSpearShield_"] = {
 	name = "Faridun Heavy Infantry",
 	monsterTags = { "1HSword_onhit_audio", "fast_movement", "human", "humanoid", "melee", "monster_blocks_damage", "not_int", "physical_affinity", "red_blood", },
@@ -1359,6 +1425,7 @@ minions["Metadata/Monsters/Mutewind/MutewindManSpearShield_"] = {
 		mod("BlockEffect", "BASE", 10, 0, 0), -- MonsterAttackBlock40Bypass10_ [base_block_%_damage_taken = 10]
 	},
 }
+
 minions["Metadata/Monsters/Mutewind/MutewindWomanDualDaggerSandCrusted"] = {
 	name = "Faridun Wind-slicer",
 	monsterTags = { "Claw_onhit_audio", "fast_movement", "human", "humanoid", "melee", "not_int", "not_str", "physical_affinity", "red_blood", },
@@ -1393,6 +1460,7 @@ minions["Metadata/Monsters/Mutewind/MutewindWomanDualDaggerSandCrusted"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/Mutewind/MutewindWomanDualSword"] = {
 	name = "Faridun Bladedancer",
 	monsterTags = { "1HSword_onhit_audio", "fast_movement", "human", "humanoid", "melee", "not_int", "not_str", "physical_affinity", "red_blood", },
@@ -1432,6 +1500,7 @@ minions["Metadata/Monsters/Mutewind/MutewindWomanDualSword"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/Mutewind/MutewindWomanJavelin"] = {
 	name = "Faridun Javelineer",
 	monsterTags = { "allows_additional_projectiles", "fast_movement", "human", "humanoid", "not_int", "not_str", "physical_affinity", "ranged", "red_blood", "Stab_onhit_audio", },
@@ -1469,9 +1538,13 @@ minions["Metadata/Monsters/Mutewind/MutewindWomanJavelin"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/Mutewind/MutewindWomanSpearCorrodedElite"] = {
 	name = "Faridun Impaler",
 	monsterTags = { "allows_inc_aoe", "fast_movement", "human", "humanoid", "melee", "not_int", "physical_affinity", "red_blood", "SpearMetal_onhit_audio", "very_fast_movement", },
+	extraFlags = {
+		recommendedSpectre = true,
+	},
 	life = 2.3,
 	baseDamageIgnoresAttackSpeed = true,
 	armour = 0.5,
@@ -1509,6 +1582,7 @@ minions["Metadata/Monsters/Mutewind/MutewindWomanSpearCorrodedElite"] = {
 		mod("BleedChance", "BASE", 25, 1, 0), -- MonsterBleedOnHitChance [bleed_on_hit_with_attacks_% = 25]
 	},
 }
+
 minions["Metadata/Monsters/Mutewind/MutewindWomanSpearSandCrusted"] = {
 	name = "Faridun Spearwoman",
 	monsterTags = { "fast_movement", "human", "humanoid", "melee", "not_int", "not_str", "physical_affinity", "red_blood", "SpearMetal_onhit_audio", },
@@ -1549,6 +1623,7 @@ minions["Metadata/Monsters/Mutewind/MutewindWomanSpearSandCrusted"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/Mutewind/MutewindWomanSpearShield"] = {
 	name = "Faridun Infantry",
 	monsterTags = { "human", "humanoid", "medium_movement", "melee", "monster_blocks_damage", "not_int", "physical_affinity", "red_blood", "Stab_onhit_audio", },
@@ -1591,6 +1666,9 @@ minions["Metadata/Monsters/Mutewind/MutewindWomanSpearShield"] = {
 minions["Metadata/Monsters/Cenobite/CenobiteBloater/CenobiteBloater"] = {
 	name = "Filthy First-born",
 	monsterTags = { "allows_inc_aoe", "humanoid", "melee", "monster_has_on_death_mechanic", "MonsterBlunt_onhit_audio", "no_minion_revival", "not_dex", "not_int", "physical_affinity", "red_blood", "very_slow_movement", },
+	extraFlags = {
+		recommendedSpectre = true,
+	},
 	life = 2.5,
 	baseDamageIgnoresAttackSpeed = true,
 	armour = 0.75,
@@ -1653,6 +1731,7 @@ minions["Metadata/Monsters/TheCountsEliteGuardCorrupted/MeleeVariantB/CorruptedE
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/TheCountsEliteGuardCorrupted/Ranged/CorruptedEliteRanger_"] = {
 	name = "Iron Sharpshooter",
 	monsterTags = { "allows_additional_projectiles", "chaos_affinity", "Claw_onhit_audio", "demon", "humanoid", "medium_movement", "not_int", "not_str", "physical_affinity", "ranged", "red_blood", },
@@ -1685,6 +1764,7 @@ minions["Metadata/Monsters/TheCountsEliteGuardCorrupted/Ranged/CorruptedEliteRan
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/TheCountsEliteGuardCorrupted/VariantA/CorruptedEliteSpear_"] = {
 	name = "Iron Spearman",
 	monsterTags = { "allows_inc_aoe", "demon", "fast_movement", "humanoid", "melee", "not_int", "physical_affinity", "red_blood", "SpearMetal_onhit_audio", },
@@ -1720,6 +1800,7 @@ minions["Metadata/Monsters/TheCountsEliteGuardCorrupted/VariantA/CorruptedEliteS
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/TheCountsEliteGuardCorrupted/VariantB/CorruptedEliteToothy"] = {
 	name = "Iron Guard",
 	monsterTags = { "allows_inc_aoe", "Claw_onhit_audio", "demon", "fast_movement", "humanoid", "melee", "not_int", "physical_affinity", "red_blood", "very_fast_movement", },
@@ -1753,6 +1834,7 @@ minions["Metadata/Monsters/TheCountsEliteGuardCorrupted/VariantB/CorruptedEliteT
 		mod("BleedChance", "BASE", 25, 1, 0), -- MonsterBleedOnHitChance [bleed_on_hit_with_attacks_% = 25]
 	},
 }
+
 minions["Metadata/Monsters/TheCountsGuardEliteCorruptedMageLessCorrupted/CorruptedEliteGuard"] = {
 	name = "Iron Thaumaturgist",
 	monsterTags = { "allows_additional_projectiles", "allows_inc_aoe", "caster", "fast_movement", "fire_affinity", "human", "humanoid", "not_dex", "not_str", "ranged", "red_blood", },
@@ -1851,6 +1933,7 @@ minions["Metadata/Monsters/BoneCultists/BoneCultist_Necromancer/BoneCultistNecro
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/BoneCultists/BoneCultist_Zealots/BoneCultistZealot01"] = {
 	name = "Lost-men Zealot",
 	monsterTags = { "allows_inc_aoe", "caster", "cultist", "human", "humanoid", "lightning_affinity", "not_dex", "not_str", "red_blood", "Unarmed_onhit_audio", "very_slow_movement", },
@@ -1882,6 +1965,7 @@ minions["Metadata/Monsters/BoneCultists/BoneCultist_Zealots/BoneCultistZealot01"
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/BoneCultists/BoneCultist_Zealots/FarudinLocustWarlock"] = {
 	name = "Faridun Plaguebringer",
 	monsterTags = { "allows_additional_projectiles", "allows_inc_aoe", "caster", "human", "humanoid", "not_dex", "not_str", "physical_affinity", "ranged", "red_blood", "Unarmed_onhit_audio", "very_slow_movement", },
@@ -1913,9 +1997,13 @@ minions["Metadata/Monsters/BoneCultists/BoneCultist_Zealots/FarudinLocustWarlock
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/BoneCultists/BoneCultists_Beast/BoneCultistBeast"] = {
 	name = "Drudge Osseodon",
 	monsterTags = { "beast", "melee", "MonsterBlunt_onhit_audio", "not_dex", "not_int", "physical_affinity", "red_blood", "reptile_beast", "slow_movement", },
+	extraFlags = {
+		recommendedBeast = true,
+	},
 	life = 2.5,
 	baseDamageIgnoresAttackSpeed = true,
 	armour = 0.7,
@@ -1942,6 +2030,7 @@ minions["Metadata/Monsters/BoneCultists/BoneCultists_Beast/BoneCultistBeast"] = 
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/BoneCultists/BoneCultists_Savage/BoneCultists_Savage__"] = {
 	name = "Lost-men Subjugator",
 	monsterTags = { "2HBluntWood_onhit_audio", "cultist", "fast_movement", "human", "humanoid", "melee", "not_int", "physical_affinity", "red_blood", },
@@ -1973,6 +2062,7 @@ minions["Metadata/Monsters/BoneCultists/BoneCultists_Savage/BoneCultists_Savage_
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/BoneCultists/BoneCultists_Shield/BoneCultistShield"] = {
 	name = "Lost-men Brute",
 	monsterTags = { "2HBluntWood_onhit_audio", "cultist", "human", "humanoid", "melee", "monster_blocks_damage", "not_dex", "not_int", "physical_affinity", "red_blood", "very_slow_movement", },
@@ -2004,7 +2094,7 @@ minions["Metadata/Monsters/BoneCultists/BoneCultists_Shield/BoneCultistShield"] 
 	},
 	modList = {
 		mod("BlockChance", "BASE", 100, 0, 0), -- MonsterBlock100 [monster_base_block_% = 100]
-		-- MonsterBlock100 [additional_maximum_block_% = 25]
+		mod("BlockChanceMax", "BASE", 25, 0, 0), -- MonsterBlock100 [additional_maximum_block_% = 25]
 	},
 }
 
@@ -2036,6 +2126,7 @@ minions["Metadata/Monsters/LeagueExpeditionNew/Skeletons/ExpeditionSkeletonBow_"
 		-- MonsterNecromancerRaisable [undead_description = 1]
 	},
 }
+
 minions["Metadata/Monsters/LeagueExpeditionNew/Skeletons/ExpeditionSkeletonSword"] = {
 	name = "Unearthed Skeletal Swordsman",
 	monsterTags = { "1HSword_onhit_audio", "bone_armour", "bones", "has_one_hand_sword", "has_one_handed_melee", "melee", "physical_affinity", "skeleton", "slashing_weapon", "undead", "very_slow_movement", },
@@ -2063,6 +2154,7 @@ minions["Metadata/Monsters/LeagueExpeditionNew/Skeletons/ExpeditionSkeletonSword
 		-- MonsterNecromancerRaisable [undead_description = 1]
 	},
 }
+
 minions["Metadata/Monsters/LeagueExpeditionNew/Skeletons/ExpeditionSkeletonSwordShield"] = {
 	name = "Unearthed Skeletal Warrior",
 	monsterTags = { "1HSword_onhit_audio", "bone_armour", "bones", "has_one_hand_sword", "has_one_handed_melee", "melee", "physical_affinity", "skeleton", "slashing_weapon", "undead", "very_slow_movement", },
@@ -2094,6 +2186,7 @@ minions["Metadata/Monsters/LeagueExpeditionNew/Skeletons/ExpeditionSkeletonSword
 		mod("BlockEffect", "BASE", 10, 0, 0), -- MonsterAttackBlock30Bypass10 [base_block_%_damage_taken = 10]
 	},
 }
+
 minions["Metadata/Monsters/LeagueExpeditionNew/SwordSkeleton/ExpeditionMegaSkeleton"] = {
 	name = "Order Ostiary",
 	monsterTags = { "1HSword_onhit_audio", "bones", "is_unarmed", "melee", "metal_armour", "not_dex", "not_int", "physical_affinity", "skeleton", "slashing_weapon", "undead", "very_slow_movement", "ward_armour", },
@@ -2122,6 +2215,7 @@ minions["Metadata/Monsters/LeagueExpeditionNew/SwordSkeleton/ExpeditionMegaSkele
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/Skeletons/BoneRabble/BoneRabbleEagle"] = {
 	name = "Vaal Skeletal Archer",
 	monsterTags = { "allows_additional_projectiles", "Arrow_onhit_audio", "fire_affinity", "monster_barely_moves", "ranged", "skeleton", "undead", "very_slow_movement", },
@@ -2153,6 +2247,7 @@ minions["Metadata/Monsters/Skeletons/BoneRabble/BoneRabbleEagle"] = {
 		-- MonsterNecromancerRaisable [undead_description = 1]
 	},
 }
+
 minions["Metadata/Monsters/Skeletons/BoneRabble/BoneRabbleJaguar_"] = {
 	name = "Vaal Skeletal Warrior",
 	monsterTags = { "melee", "monster_barely_moves", "physical_affinity", "skeleton", "SpearMetal_onhit_audio", "undead", "very_slow_movement", },
@@ -2185,6 +2280,7 @@ minions["Metadata/Monsters/Skeletons/BoneRabble/BoneRabbleJaguar_"] = {
 		mod("MeleeWeaponRange", "BASE", 7, 0, 0), -- BoneRabbleMeleeRange [melee_range_+ = 7]
 	},
 }
+
 minions["Metadata/Monsters/Skeletons/BoneRabble/BoneRabblePriest"] = {
 	name = "Vaal Skeletal Priest",
 	monsterTags = { "allows_additional_projectiles", "allows_inc_aoe", "caster", "lightning_affinity", "monster_barely_moves", "not_dex", "not_str", "skeleton", "StaffWood_onhit_audio", "undead", "very_slow_movement", },
@@ -2216,6 +2312,7 @@ minions["Metadata/Monsters/Skeletons/BoneRabble/BoneRabblePriest"] = {
 		-- MonsterNecromancerRaisable [undead_description = 1]
 	},
 }
+
 minions["Metadata/Monsters/Skeletons/BoneRabble/BoneRabbleSquire"] = {
 	name = "Vaal Skeletal Squire",
 	monsterTags = { "1HAxe_onhit_audio", "melee", "monster_barely_moves", "monster_blocks_damage", "physical_affinity", "skeleton", "undead", "very_slow_movement", },
@@ -2249,6 +2346,7 @@ minions["Metadata/Monsters/Skeletons/BoneRabble/BoneRabbleSquire"] = {
 		mod("BlockEffect", "BASE", 10, 0, 0), -- MonsterAttackBlock30Bypass10 [base_block_%_damage_taken = 10]
 	},
 }
+
 minions["Metadata/Monsters/Skeletons/FungalSkeletonOneHandSword"] = {
 	name = "Fungal Rattler",
 	monsterTags = { "1HSword_onhit_audio", "melee", "monster_barely_moves", "physical_affinity", "skeleton", "undead", "very_slow_movement", },
@@ -2279,6 +2377,7 @@ minions["Metadata/Monsters/Skeletons/FungalSkeletonOneHandSword"] = {
 		-- MonsterNecromancerRaisable [undead_description = 1]
 	},
 }
+
 minions["Metadata/Monsters/Skeletons/RetchSkeletonOneHandSword"] = {
 	name = "Wretched Rattler",
 	monsterTags = { "1HSword_onhit_audio", "melee", "monster_barely_moves", "physical_affinity", "skeleton", "undead", "very_slow_movement", },
@@ -2308,6 +2407,7 @@ minions["Metadata/Monsters/Skeletons/RetchSkeletonOneHandSword"] = {
 		-- MonsterNecromancerRaisable [undead_description = 1]
 	},
 }
+
 minions["Metadata/Monsters/Skeletons/Maraketh/MarakethSkeletonUnarmed"] = {
 	name = "Risen Maraketh",
 	monsterTags = { "melee", "monster_barely_moves", "physical_affinity", "skeleton", "Unarmed_onhit_audio", "undead", "very_slow_movement", },
@@ -2342,6 +2442,7 @@ minions["Metadata/Monsters/Skeletons/Maraketh/MarakethSkeletonUnarmed"] = {
 		-- MonsterNecromancerRaisable [undead_description = 1]
 	},
 }
+
 minions["Metadata/Monsters/Skeletons/Rusted/RustedSkeletonOneHandSwordShield"] = {
 	name = "Rust Skeleton",
 	monsterTags = { "1HSword_onhit_audio", "melee", "monster_barely_moves", "skeleton", "undead", "very_slow_movement", },
@@ -2372,6 +2473,7 @@ minions["Metadata/Monsters/Skeletons/Rusted/RustedSkeletonOneHandSwordShield"] =
 		mod("BlockEffect", "BASE", 10, 0, 0), -- MonsterAttackBlock30Bypass10 [base_block_%_damage_taken = 10]
 	},
 }
+
 minions["Metadata/Monsters/SkeletonSoldier/Rusted/RustedSoldierOneHandSword"] = {
 	name = "Ancient Ezomyte",
 	monsterTags = { "1HSword_onhit_audio", "melee", "monster_barely_moves", "physical_affinity", "skeleton", "undead", "very_slow_movement", },
@@ -2438,6 +2540,10 @@ minions["Metadata/Monsters/VaalConstructs/Sentinel/VaalConstructSentinel"] = {
 minions["Metadata/Monsters/SerpentClanMonster/SerpentClanCaster"] = {
 	name = "Serpent Shaman",
 	monsterTags = { "allows_additional_projectiles", "allows_inc_aoe", "beast", "Beast_onhit_audio", "caster", "fast_movement", "humanoid", "not_dex", "not_str", "physical_affinity", "reptile_beast", },
+	extraFlags = {
+		recommendedSpectre = true,
+		recommendedBeast = true,
+	},
 	life = 2,
 	baseDamageIgnoresAttackSpeed = true,
 	energyShield = 0.05,
@@ -2535,9 +2641,13 @@ minions["Metadata/Monsters/TerracottaGuardians/TerracottaGuardianSceptre"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/TerracottaGuardians/TerracottaGuardianSceptreAmbush__"] = {
 	name = "Terracotta Soldier",
 	monsterTags = { "1HBluntMetal_onhit_audio", "construct", "melee", "not_dex", "not_int", "physical_affinity", "very_slow_movement", },
+	extraFlags = {
+		recommendedSpectre = true,
+	},
 	life = 0.99,
 	baseDamageIgnoresAttackSpeed = true,
 	armour = 0.5,
@@ -2567,6 +2677,9 @@ minions["Metadata/Monsters/TerracottaGuardians/TerracottaGuardianSceptreAmbush__
 minions["Metadata/Monsters/Quadrilla/Quadrilla"] = {
 	name = "Quadrilla",
 	monsterTags = { "allows_inc_aoe", "beast", "fast_movement", "mammal_beast", "melee", "MonsterBlunt_onhit_audio", "not_dex", "not_int", "physical_affinity", "red_blood", },
+	extraFlags = {
+		recommendedBeast = true,
+	},
 	life = 2,
 	baseDamageIgnoresAttackSpeed = true,
 	armour = 0.75,
@@ -2604,6 +2717,9 @@ minions["Metadata/Monsters/Quadrilla/Quadrilla"] = {
 minions["Metadata/Monsters/VaalMonsters/Living/VaalGuardMortarLiving"] = {
 	name = "Vaal Guard",
 	monsterTags = { "allows_additional_projectiles", "allows_inc_aoe", "fire_affinity", "human", "humanoid", "not_int", "not_str", "ranged", "red_blood", "Unarmed_onhit_audio", "very_slow_movement", },
+	extraFlags = {
+		recommendedSpectre = true,
+	},
 	life = 1,
 	baseDamageIgnoresAttackSpeed = true,
 	evasion = 0.5,
@@ -2635,6 +2751,7 @@ minions["Metadata/Monsters/VaalMonsters/Living/VaalGuardMortarLiving"] = {
 		-- SpectrePlayDeathAction [is_spectre_with_death_action = 1]
 	},
 }
+
 minions["Metadata/Monsters/VaalMonsters/Living/BloodPriests/VaalBloodPriestMale"] = {
 	name = "Blood Priest",
 	monsterTags = { "1HSword_onhit_audio", "allows_additional_projectiles", "allows_inc_aoe", "caster", "cultist", "fast_movement", "human", "humanoid", "not_str", "physical_affinity", "ranged", "red_blood", },
@@ -2671,6 +2788,7 @@ minions["Metadata/Monsters/VaalMonsters/Living/BloodPriests/VaalBloodPriestMale"
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/VaalMonsters/Living/BloodPriests/VaalBloodPriestFemale"] = {
 	name = "Blood Priestess",
 	monsterTags = { "1HSword_onhit_audio", "allows_additional_projectiles", "allows_inc_aoe", "caster", "cultist", "fast_movement", "human", "humanoid", "not_str", "physical_affinity", "ranged", "red_blood", },
@@ -2706,6 +2824,7 @@ minions["Metadata/Monsters/VaalMonsters/Living/BloodPriests/VaalBloodPriestFemal
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/VaalMonsters/ViperLegionnaire/ViperLegionnaireSword_"] = {
 	name = "Viper Legionnaire",
 	monsterTags = { "2HSharpMetal_onhit_audio", "fast_movement", "human", "humanoid", "melee", "not_int", "physical_affinity", "red_blood", },
@@ -2767,6 +2886,7 @@ minions["Metadata/Monsters/Werewolves/WerewolfMoonClan1"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/Werewolves/WerewolfPack1"] = {
 	name = "Pack Werewolf",
 	monsterTags = { "beast", "Beast_onhit_audio", "mammal_beast", "medium_movement", "melee", "not_int", "not_str", "physical_affinity", "red_blood", },
@@ -2798,6 +2918,7 @@ minions["Metadata/Monsters/Werewolves/WerewolfPack1"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/Werewolves/WerewolfProwler1"] = {
 	name = "Werewolf Prowler",
 	monsterTags = { "beast", "Beast_onhit_audio", "mammal_beast", "medium_movement", "melee", "not_int", "not_str", "physical_affinity", "red_blood", },
@@ -2831,6 +2952,39 @@ minions["Metadata/Monsters/Werewolves/WerewolfProwler1"] = {
 	modList = {
 	},
 }
+
+minions["Metadata/Monsters/Werewolves/WerewolfProwlerRed1"] = {
+	name = "Tendril Prowler",
+	monsterTags = { "beast", "Beast_onhit_audio", "mammal_beast", "medium_movement", "melee", "not_int", "not_str", "physical_affinity", "red_blood", },
+	life = 1.4,
+	baseDamageIgnoresAttackSpeed = true,
+	evasion = 0.4,
+	fireResist = -30,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1.4,
+	damageSpread = 0.2,
+	attackTime = 2.25,
+	attackRange = 12,
+	accuracy = 1,
+	spectreReservation = 70,
+	companionReservation = 35.4,
+	monsterCategory = "Beast",
+	spawnLocation = {
+		"Ogham Manor",
+		"The Ziggurat Refuge",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"WerewolfProwlerHowlEAS",
+		"MeleeAtAnimationSpeed2",
+	},
+	modList = {
+	},
+}
+
+
 minions["Metadata/Monsters/Werewolves/WerewolfProwlerRed1"] = {
 	name = "Tendril Prowler",
 	monsterTags = { "beast", "Beast_onhit_audio", "mammal_beast", "medium_movement", "melee", "not_int", "not_str", "physical_affinity", "red_blood", },
@@ -2892,6 +3046,7 @@ minions["Metadata/Monsters/Monkeys/MonkeyJungle"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/BloodChieftain/MonkeyChiefJungle"] = {
 	name = "Alpha Primate",
 	monsterTags = { "beast", "bludgeoning_weapon", "flesh_armour", "has_one_hand_mace", "has_one_handed_melee", "mammal_beast", "medium_height", "medium_movement", "melee", "MonsterBlunt_onhit_audio", "not_dex", "not_int", "physical_affinity", "primate_beast", "red_blood", },
@@ -2928,6 +3083,7 @@ minions["Metadata/Monsters/BloodChieftain/MonkeyChiefJungle"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/Spiker/Spiker"] = {
 	name = "Porcupine Goliath",
 	monsterTags = { "allows_additional_projectiles", "animal_claw_weapon", "beast", "Claw_onhit_audio", "flesh_armour", "has_dagger", "has_one_handed_melee", "mammal_beast", "medium_height", "medium_movement", "melee", "monster_has_on_death_mechanic", "physical_affinity", "red_blood", "rodent_beast", },
@@ -2957,6 +3113,7 @@ minions["Metadata/Monsters/Spiker/Spiker"] = {
 		-- MonsterDisplayCastsSpikeNovaOnDeath [display_monster_spike_nova_on_death_text = 1]
 	},
 }
+
 minions["Metadata/Monsters/MudBurrower/BrambleBurrower"] = {
 	name = "Bramble Burrower",
 	monsterTags = { "allows_additional_projectiles", "beast", "Beast_onhit_audio", "cannot_be_monolith", "devourer", "hidden_monster", "immobile", "medium_movement", "melee", "not_dex", "not_int", "physical_affinity", "ranged", "red_blood", "spider", },
@@ -2991,6 +3148,7 @@ minions["Metadata/Monsters/MudBurrower/BrambleBurrower"] = {
 		-- ImmuneToKnockback [cannot_be_knocked_back = 1]
 	},
 }
+
 minions["Metadata/Monsters/StonebackRhoa/BrambleRhoa"] = {
 	name = "Bramble Rhoa",
 	monsterTags = { "beast", "medium_movement", "melee", "MonsterBlunt_onhit_audio", "not_int", "not_str", "physical_affinity", "red_blood", },
@@ -3022,6 +3180,7 @@ minions["Metadata/Monsters/StonebackRhoa/BrambleRhoa"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/Wraith/WraithSpookyCold"] = {
 	name = "Frost Wraith",
 	monsterTags = { "allows_additional_projectiles", "allows_inc_aoe", "caster", "cold_affinity", "medium_movement", "not_str", "ranged", "Unarmed_onhit_audio", "undead", },
@@ -3056,6 +3215,7 @@ minions["Metadata/Monsters/Wraith/WraithSpookyCold"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/Wraith/WraithSpookyLightning"] = {
 	name = "Lightning Wraith",
 	monsterTags = { "allows_additional_projectiles", "allows_inc_aoe", "caster", "lightning_affinity", "medium_movement", "not_str", "ranged", "Unarmed_onhit_audio", "undead", },
@@ -3085,6 +3245,7 @@ minions["Metadata/Monsters/Wraith/WraithSpookyLightning"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/FungusZombie/FungusZombieMedium"] = {
 	name = "Fungal Zombie",
 	monsterTags = { "allows_inc_aoe", "melee", "monster_has_on_death_mechanic", "physical_affinity", "Unarmed_onhit_audio", "undead", "very_slow_movement", "zombie", },
@@ -3116,6 +3277,7 @@ minions["Metadata/Monsters/FungusZombie/FungusZombieMedium"] = {
 		-- SpectrePlayDeathAction [is_spectre_with_death_action = 1]
 	},
 }
+
 minions["Metadata/Monsters/FungusZombie/FungusZombieFungalmancer"] = {
 	name = "Fungal Proliferator",
 	monsterTags = { "allows_inc_aoe", "caster", "melee", "physical_affinity", "raises_dead", "Unarmed_onhit_audio", "undead", "very_slow_movement", "zombie", },
@@ -3146,6 +3308,7 @@ minions["Metadata/Monsters/FungusZombie/FungusZombieFungalmancer"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/MudGolem/MudGolem"] = {
 	name = "Mud Simulacrum",
 	monsterTags = { "construct", "earth_elemental", "MonsterBlunt_onhit_audio", "mud_blood", "stone_construct", "very_slow_movement", },
@@ -3175,6 +3338,7 @@ minions["Metadata/Monsters/MudGolem/MudGolem"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/MudGolem/SandGolem"] = {
 	name = "Living Sand",
 	monsterTags = { "allows_inc_aoe", "Beast_onhit_audio", "cannot_be_monolith", "construct", "melee", "monster_barely_moves", "physical_affinity", "very_slow_movement", },
@@ -3203,6 +3367,7 @@ minions["Metadata/Monsters/MudGolem/SandGolem"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/Zombies/Lumberjack/LumberingDrownedUnarmed"] = {
 	name = "Drowned",
 	monsterTags = { "melee", "physical_affinity", "Unarmed_onhit_audio", "undead", "very_slow_movement", "zombie", },
@@ -3232,6 +3397,7 @@ minions["Metadata/Monsters/Zombies/Lumberjack/LumberingDrownedUnarmed"] = {
 		-- MonsterNecromancerRaisable [undead_description = 1]
 	},
 }
+
 minions["Metadata/Monsters/Zombies/Lumberjack/LumberingDrownedDryUnarmed"] = {
 	name = "Lumbering Dead",
 	monsterTags = { "melee", "physical_affinity", "Unarmed_onhit_audio", "undead", "very_slow_movement", "zombie", },
@@ -3259,6 +3425,7 @@ minions["Metadata/Monsters/Zombies/Lumberjack/LumberingDrownedDryUnarmed"] = {
 		-- MonsterNecromancerRaisable [undead_description = 1]
 	},
 }
+
 minions["Metadata/Monsters/Urchins/SlingUrchin1"] = {
 	name = "Vile Imp",
 	monsterTags = { "allows_additional_projectiles", "humanoid", "medium_movement", "melee", "not_int", "not_str", "physical_affinity", "ranged", "Unarmed_onhit_audio", "undead", "zombie", },
@@ -3294,6 +3461,7 @@ minions["Metadata/Monsters/Urchins/SlingUrchin1"] = {
 		mod("Speed", "MORE", -10, 1, 0), -- MonsterAttackSpeedPenalties10 [active_skill_attack_speed_+%_final = -10]
 	},
 }
+
 minions["Metadata/Monsters/Hags/UrchinHag1"] = {
 	name = "Vile Hag",
 	monsterTags = { "allows_inc_aoe", "caster", "Claw_onhit_audio", "fire_affinity", "humanoid", "melee", "monster_barely_moves", "monster_summons_adds", "not_dex", "not_str", "raises_dead", "red_blood", "very_slow_movement", },
@@ -3329,6 +3497,7 @@ minions["Metadata/Monsters/Hags/UrchinHag1"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/Hags/TrenchHag"] = {
 	name = "River Hag",
 	monsterTags = { "allows_inc_aoe", "Beast_onhit_audio", "caster", "cold_affinity", "humanoid", "monster_barely_moves", "monster_summons_adds", "not_dex", "not_str", "raises_dead", "very_slow_movement", },
@@ -3362,6 +3531,7 @@ minions["Metadata/Monsters/Hags/TrenchHag"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/HuhuGrub/HuhuGrubLarvae"] = {
 	name = "Flesh Larva",
 	monsterTags = { "beast", "insect", "melee", "physical_affinity", "ranged", "red_blood", "slow_movement", "Stab_onhit_audio", },
@@ -3389,6 +3559,7 @@ minions["Metadata/Monsters/HuhuGrub/HuhuGrubLarvae"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/Stalker/Stalker"] = {
 	name = "Hungering Stalker",
 	monsterTags = { "Claw_onhit_audio", "demon", "fast_movement", "humanoid", "mammal_beast", "melee", "not_int", "not_str", "physical_affinity", "red_blood", "very_fast_movement", },
@@ -3418,9 +3589,13 @@ minions["Metadata/Monsters/Stalker/Stalker"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/BloodMonsters/BloodCourtesan1"] = {
 	name = "Courtesan",
 	monsterTags = { "allows_additional_projectiles", "allows_inc_aoe", "caster", "medium_movement", "melee", "monster_barely_moves", "not_str", "physical_affinity", "ranged", "red_blood", "Unarmed_onhit_audio", "undead", "zombie", },
+	extraFlags = {
+		recommendedSpectre = true,
+	},
 	life = 2,
 	baseDamageIgnoresAttackSpeed = true,
 	energyShield = 0.2,
@@ -3457,6 +3632,7 @@ minions["Metadata/Monsters/BloodMonsters/BloodCourtesan1"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/BloodMonsters/BloodCarrier1"] = {
 	name = "Blood Carrier",
 	monsterTags = { "allows_inc_aoe", "demon", "fast_movement", "humanoid", "melee", "monster_has_on_death_mechanic", "not_int", "not_str", "physical_affinity", "red_blood", "Unarmed_onhit_audio", },
@@ -3489,6 +3665,7 @@ minions["Metadata/Monsters/BloodMonsters/BloodCarrier1"] = {
 		-- SpectrePlayDeathAction [is_spectre_with_death_action = 1]
 	},
 }
+
 minions["Metadata/Monsters/BloodMonsters/BloodCretin1"] = {
 	name = "Blood Cretin",
 	monsterTags = { "allows_inc_aoe", "demon", "humanoid", "medium_movement", "melee", "monster_has_on_death_mechanic", "not_int", "not_str", "physical_affinity", "red_blood", "Unarmed_onhit_audio", },
@@ -3523,6 +3700,7 @@ minions["Metadata/Monsters/BloodMonsters/BloodCretin1"] = {
 		-- SpectrePlayDeathAction [is_spectre_with_death_action = 1]
 	},
 }
+
 minions["Metadata/Monsters/BloodMonsters/BloodCollector1__"] = {
 	name = "Blood Collector",
 	monsterTags = { "allows_inc_aoe", "demon", "humanoid", "medium_movement", "melee", "monster_has_on_death_mechanic", "not_int", "not_str", "physical_affinity", "red_blood", "Unarmed_onhit_audio", },
@@ -3556,6 +3734,7 @@ minions["Metadata/Monsters/BloodMonsters/BloodCollector1__"] = {
 		-- SpectrePlayDeathAction [is_spectre_with_death_action = 1]
 	},
 }
+
 minions["Metadata/Monsters/Knight/DeathKnight1"] = {
 	name = "Death Knight",
 	monsterTags = { "2HSharpMetal_onhit_audio", "allows_inc_aoe", "construct", "humanoid", "melee", "monster_barely_moves", "not_dex", "not_int", "physical_affinity", "very_slow_movement", },
@@ -3587,6 +3766,7 @@ minions["Metadata/Monsters/Knight/DeathKnight1"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/Gargoyle/GargoyleGolemRed"] = {
 	name = "Gargoyle Demon",
 	monsterTags = { "1HSword_onhit_audio", "construct", "melee", "not_dex", "not_int", "physical_affinity", "slow_movement", "stone_construct", },
@@ -3616,9 +3796,10 @@ minions["Metadata/Monsters/Gargoyle/GargoyleGolemRed"] = {
 	},
 	modList = {
 		mod("BlockChance", "BASE", 100, 0, 0), -- MonsterBlock100 [monster_base_block_% = 100]
-		-- MonsterBlock100 [additional_maximum_block_% = 25]
+		mod("BlockChanceMax", "BASE", 25, 0, 0), -- MonsterBlock100 [additional_maximum_block_% = 25]
 	},
 }
+
 minions["Metadata/Monsters/Mercenary/Infected/InfectedMercenaryAxe__"] = {
 	name = "Decrepit Mercenary",
 	monsterTags = { "1HAxe_onhit_audio", "melee", "not_dex", "not_int", "physical_affinity", "slow_movement", "undead", "zombie", },
@@ -3651,6 +3832,7 @@ minions["Metadata/Monsters/Mercenary/Infected/InfectedMercenaryAxe__"] = {
 		-- MonsterNecromancerRaisable [undead_description = 1]
 	},
 }
+
 minions["Metadata/Monsters/Crow/CrowCarrion"] = {
 	name = "Rotting Crow",
 	monsterTags = { "beast", "flying", "melee", "MonsterStab_onhit_audio", "not_int", "not_str", "physical_affinity", "very_slow_movement", },
@@ -3679,6 +3861,7 @@ minions["Metadata/Monsters/Crow/CrowCarrion"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/BrambleHulk/BrambleHulk1"] = {
 	name = "Bramble Hulk",
 	monsterTags = { "allows_inc_aoe", "beast", "insect", "medium_movement", "melee", "MonsterBlunt_onhit_audio", "not_dex", "not_int", "physical_affinity", "red_blood", },
@@ -3712,6 +3895,7 @@ minions["Metadata/Monsters/BrambleHulk/BrambleHulk1"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/Ghouls/GhoulCommander"] = {
 	name = "Ghoul Commander",
 	monsterTags = { "allows_inc_aoe", "demon", "fast_movement", "humanoid", "melee", "not_int", "not_str", "physical_affinity", "Unarmed_onhit_audio", "very_fast_movement", },
@@ -3742,6 +3926,7 @@ minions["Metadata/Monsters/Ghouls/GhoulCommander"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/Bird/MutantBird"] = {
 	name = "Scourge of the Skies",
 	monsterTags = { "beast", "Beast_onhit_audio", "flying", "immobile", "red_blood", },
@@ -3780,6 +3965,7 @@ minions["Metadata/Monsters/Bird/MutantBird"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/Bird/MutantBirdDog"] = {
 	name = "Flesh Pup",
 	monsterTags = { "beast", "Beast_onhit_audio", "fast_movement", "red_blood", "very_fast_movement", },
@@ -3809,6 +3995,7 @@ minions["Metadata/Monsters/Bird/MutantBirdDog"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/Ghouls/Ghoul"] = {
 	name = "Skulking Ghoul",
 	monsterTags = { "demon", "humanoid", "medium_movement", "melee", "not_int", "not_str", "physical_affinity", "Unarmed_onhit_audio", },
@@ -3836,6 +4023,7 @@ minions["Metadata/Monsters/Ghouls/Ghoul"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/Zombies/Fungal/FungalArtillery1__"] = {
 	name = "Fungal Artillery",
 	monsterTags = { "allows_additional_projectiles", "allows_inc_aoe", "beast", "flying", "monster_barely_moves", "physical_affinity", "ranged", "Unarmed_onhit_audio", "very_slow_movement", },
@@ -3865,9 +4053,13 @@ minions["Metadata/Monsters/Zombies/Fungal/FungalArtillery1__"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/Wretches/CoffinWretch1"] = {
 	name = "Undertaker",
 	monsterTags = { "allows_additional_projectiles", "allows_inc_aoe", "caster", "cold_affinity", "humanoid", "monster_barely_moves", "not_dex", "not_str", "ranged", "Unarmed_onhit_audio", "undead", "very_slow_movement", },
+	extraFlags = {
+		recommendedSpectre = true,
+	},
 	life = 1.25,
 	baseDamageIgnoresAttackSpeed = true,
 	energyShield = 0.2,
@@ -3894,6 +4086,7 @@ minions["Metadata/Monsters/Wretches/CoffinWretch1"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/Wretches/StatueWretch"] = {
 	name = "Burdened Wretch",
 	monsterTags = { "allows_inc_aoe", "humanoid", "melee", "monster_barely_moves", "MonsterBlunt_onhit_audio", "physical_affinity", "undead", "very_slow_movement", },
@@ -3922,6 +4115,7 @@ minions["Metadata/Monsters/Wretches/StatueWretch"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/Wretches/StatueWretchElite"] = {
 	name = "Bearer of Penitence",
 	monsterTags = { "allows_inc_aoe", "humanoid", "melee", "monster_barely_moves", "MonsterBlunt_onhit_audio", "physical_affinity", "undead", "very_slow_movement", },
@@ -3958,6 +4152,7 @@ minions["Metadata/Monsters/Wretches/StatueWretchElite"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/Frog/PaleFrog1"] = {
 	name = "Maw Demon",
 	monsterTags = { "amphibian_beast", "beast", "melee", "not_int", "not_str", "physical_affinity", "red_blood", "slow_movement", "Snap_onhit_audio", },
@@ -3986,6 +4181,7 @@ minions["Metadata/Monsters/Frog/PaleFrog1"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/ReliquaryMonster/PitCrawler1"] = {
 	name = "Pit Crawler",
 	monsterTags = { "demon", "human", "humanoid", "medium_movement", "not_dex", "not_str", "red_blood", "Unarmed_onhit_audio", },
@@ -4015,6 +4211,7 @@ minions["Metadata/Monsters/ReliquaryMonster/PitCrawler1"] = {
 		-- ReliquaryMonsterActionDistance_ [spell_maximum_action_distance_+% = -50]
 	},
 }
+
 minions["Metadata/Monsters/BoneStalker/TombStalker1"] = {
 	name = "Bone Stalker",
 	monsterTags = { "allows_inc_aoe", "construct", "medium_movement", "melee", "MonsterStab_onhit_audio", "physical_affinity", "skeleton", "undead", },
@@ -4044,6 +4241,7 @@ minions["Metadata/Monsters/BoneStalker/TombStalker1"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/Sentinels/TendrilSentinel1__"] = {
 	name = "Tendril Sentinel",
 	monsterTags = { "allows_inc_aoe", "fast_movement", "human", "humanoid", "melee", "not_int", "physical_affinity", "ranged", "red_blood", "Unarmed_onhit_audio", },
@@ -4078,6 +4276,7 @@ minions["Metadata/Monsters/Sentinels/TendrilSentinel1__"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/Wolves/RottenWolf1_"] = {
 	name = "Rotten Wolf",
 	monsterTags = { "beast", "mammal_beast", "medium_movement", "melee", "not_int", "not_str", "physical_affinity", "Snap_onhit_audio", },
@@ -4108,6 +4307,7 @@ minions["Metadata/Monsters/Wolves/RottenWolf1_"] = {
 		mod("Speed", "MORE", -10, 1, 0), -- MonsterAttackSpeedPenalties10 [active_skill_attack_speed_+%_final = -10]
 	},
 }
+
 minions["Metadata/Monsters/Wolves/FungalWolf1_"] = {
 	name = "Fungal Wolf",
 	monsterTags = { "beast", "fast_movement", "mammal_beast", "melee", "not_int", "not_str", "physical_affinity", "Snap_onhit_audio", "very_fast_movement", },
@@ -4136,6 +4336,7 @@ minions["Metadata/Monsters/Wolves/FungalWolf1_"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/Skeletons/Basic/GraveSkeletonUnarmed"] = {
 	name = "Risen Rattler",
 	monsterTags = { "melee", "monster_barely_moves", "physical_affinity", "skeleton", "Unarmed_onhit_audio", "undead", "very_slow_movement", },
@@ -4166,6 +4367,7 @@ minions["Metadata/Monsters/Skeletons/Basic/GraveSkeletonUnarmed"] = {
 		-- MonsterNecromancerRaisable [undead_description = 1]
 	},
 }
+
 minions["Metadata/Monsters/SnakeFlowerMan/BloomSerpent1"] = {
 	name = "Bloom Serpent",
 	monsterTags = { "allows_additional_projectiles", "demon", "medium_movement", "melee", "monster_applies_poison", "not_int", "not_str", "physical_affinity", "ranged", "Unarmed_onhit_audio", },
@@ -4196,6 +4398,7 @@ minions["Metadata/Monsters/SnakeFlowerMan/BloomSerpent1"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/Zombies/Farmer/FarmerZombieMedium"] = {
 	name = "Risen Farmhand",
 	monsterTags = { "1HAxe_onhit_audio", "melee", "physical_affinity", "undead", "very_slow_movement", "zombie", },
@@ -4225,6 +4428,7 @@ minions["Metadata/Monsters/Zombies/Farmer/FarmerZombieMedium"] = {
 		-- MonsterNecromancerRaisable [undead_description = 1]
 	},
 }
+
 minions["Metadata/Monsters/Zombies/Burned/BurnedLumberjackUnarmed"] = {
 	name = "Burning Dead",
 	monsterTags = { "melee", "physical_affinity", "Unarmed_onhit_audio", "undead", "very_slow_movement", "zombie", },
@@ -4253,6 +4457,7 @@ minions["Metadata/Monsters/Zombies/Burned/BurnedLumberjackUnarmed"] = {
 		-- MonsterNecromancerRaisable [undead_description = 1]
 	},
 }
+
 minions["Metadata/Monsters/Monkeys/Bramble/BrambleMonkey1"] = {
 	name = "Bramble Ape",
 	monsterTags = { "beast", "mammal_beast", "medium_movement", "melee", "not_int", "not_str", "physical_affinity", "red_blood", "Unarmed_onhit_audio", },
@@ -4282,6 +4487,7 @@ minions["Metadata/Monsters/Monkeys/Bramble/BrambleMonkey1"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/RisenArbalest__"] = {
 	name = "Risen Arbalest",
 	monsterTags = { "allows_additional_projectiles", "Arrow_onhit_audio", "fire_affinity", "humanoid", "not_dex", "not_int", "physical_affinity", "ranged", "skeleton", "undead", "very_slow_movement", },
@@ -4322,6 +4528,7 @@ minions["Metadata/Monsters/RisenArbalest__"] = {
 		-- MonsterNecromancerRaisable [undead_description = 1]
 	},
 }
+
 minions["Metadata/Monsters/Bugbot/BugbotRocky_"] = {
 	name = "Skitter Golem",
 	monsterTags = { "cannot_be_monolith", "construct", "medium_movement", "melee", "not_dex", "not_int", "physical_affinity", "StaffWood_onhit_audio", },
@@ -4352,6 +4559,7 @@ minions["Metadata/Monsters/Bugbot/BugbotRocky_"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/FaridunLizards/FaridunLizard_"] = {
 	name = "Rhex",
 	monsterTags = { "allows_inc_aoe", "beast", "fast_movement", "melee", "not_int", "not_str", "physical_affinity", "red_blood", "reptile_beast", },
@@ -4381,6 +4589,7 @@ minions["Metadata/Monsters/FaridunLizards/FaridunLizard_"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/FaridunLizards/FaridunLizard_Armoured_"] = {
 	name = "Armoured Rhex",
 	monsterTags = { "allows_inc_aoe", "beast", "fast_movement", "melee", "not_dex", "not_int", "physical_affinity", "red_blood", "reptile_beast", },
@@ -4410,6 +4619,7 @@ minions["Metadata/Monsters/FaridunLizards/FaridunLizard_Armoured_"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/Parasites/FishParasite"] = {
 	name = "Chyme Skitterer",
 	monsterTags = { "allows_additional_projectiles", "beast", "melee", "monster_applies_poison", "not_int", "not_str", "physical_affinity", "ranged", "red_blood", "slow_movement", "Unarmed_onhit_audio", },
@@ -4443,6 +4653,7 @@ minions["Metadata/Monsters/Parasites/FishParasite"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/Parasites/PirateFishParasite"] = {
 	name = "Abyss Fish",
 	monsterTags = { "allows_additional_projectiles", "beast", "melee", "monster_applies_poison", "not_int", "not_str", "physical_affinity", "ranged", "red_blood", "slow_movement", "Unarmed_onhit_audio", },
@@ -4473,6 +4684,7 @@ minions["Metadata/Monsters/Parasites/PirateFishParasite"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/LeagueExpeditionNew/Zombies/ExpeditionBasicZombie"] = {
 	name = "Unearthed Zombie",
 	monsterTags = { "flesh_armour", "humanoid", "is_unarmed", "melee", "physical_affinity", "Unarmed_onhit_audio", "undead", "very_slow_movement", "zombie", },
@@ -4498,6 +4710,7 @@ minions["Metadata/Monsters/LeagueExpeditionNew/Zombies/ExpeditionBasicZombie"] =
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/LeagueExpeditionNew/Zombies/ExpeditionZombieLarge"] = {
 	name = "Unearthed Rampager",
 	monsterTags = { "cold_affinity", "flesh_armour", "humanoid", "is_unarmed", "melee", "physical_affinity", "Unarmed_onhit_audio", "undead", "very_slow_movement", "zombie", },
@@ -4525,9 +4738,13 @@ minions["Metadata/Monsters/LeagueExpeditionNew/Zombies/ExpeditionZombieLarge"] =
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/LeagueExpeditionNew/MercurialArmour/MercurialArmourCaster"] = {
 	name = "Unearthed Runecaster",
 	monsterTags = { "caster", "construct", "fire_affinity", "is_unarmed", "medium_movement", "metal_armour", "not_dex", "not_int", "Unarmed_onhit_audio", "undead", "ward_armour", },
+	extraFlags = {
+		recommendedSpectre = true,
+	},
 	life = 1.3,
 	baseDamageIgnoresAttackSpeed = true,
 	armour = 0.35,
@@ -4552,6 +4769,7 @@ minions["Metadata/Monsters/LeagueExpeditionNew/MercurialArmour/MercurialArmourCa
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/LeagueExpeditionNew/MercurialArmour/MercurialArmourAxeShield"] = {
 	name = "Unearthed Soldier",
 	monsterTags = { "2HSharpMetal_onhit_audio", "cleaving_weapon", "construct", "has_one_hand_axe", "has_one_handed_melee", "medium_movement", "melee", "metal_armour", "not_dex", "not_int", "physical_affinity", "ranged", "undead", "ward_armour", },
@@ -4583,6 +4801,7 @@ minions["Metadata/Monsters/LeagueExpeditionNew/MercurialArmour/MercurialArmourAx
 		mod("BlockEffect", "BASE", 15, 0, 0), -- MonsterAttackBlock30Bypass15 [base_block_%_damage_taken = 15]
 	},
 }
+
 minions["Metadata/Monsters/LeagueExpeditionNew/Urchin/ExpeditionUrchin"] = {
 	name = "Unearthed Urchin",
 	monsterTags = { "fast_movement", "humanoid", "not_int", "not_str", "Unarmed_onhit_audio", "undead", "zombie", },
@@ -4612,9 +4831,13 @@ minions["Metadata/Monsters/LeagueExpeditionNew/Urchin/ExpeditionUrchin"] = {
 		-- MonsterNecromancerRaisable [undead_description = 1]
 	},
 }
+
 minions["Metadata/Monsters/LeagueExpeditionNew/Arbalest/ExpeditionArbalest"] = {
 	name = "Black Scythe Arbalist",
 	monsterTags = { "allows_additional_projectiles", "bone_armour", "bones", "cold_affinity", "fire_affinity", "humanoid", "is_unarmed", "not_dex", "not_int", "puncturing_weapon", "ranged", "skeleton", "Stab_onhit_audio", "undead", "very_slow_movement", },
+	extraFlags = {
+		recommendedSpectre = true,
+	},
 	life = 1.35,
 	baseDamageIgnoresAttackSpeed = true,
 	armour = 0.4,
@@ -4645,6 +4868,7 @@ minions["Metadata/Monsters/LeagueExpeditionNew/Arbalest/ExpeditionArbalest"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/LeagueExpeditionNew/DeathKnight/ExpeditionDeathKnight"] = {
 	name = "Knight of the Sun",
 	monsterTags = { "2HBluntWood_onhit_audio", "humanoid", "not_dex", "not_int", "undead", "very_slow_movement", "ward_armour", },
@@ -4675,6 +4899,7 @@ minions["Metadata/Monsters/LeagueExpeditionNew/DeathKnight/ExpeditionDeathKnight
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/LeagueExpeditionNew/VaalArmour/ExpeditionArmourCaster"] = {
 	name = "Runed Knight",
 	monsterTags = { "caster", "fast_movement", "fire_affinity", "has_staff", "has_two_handed_melee", "humanoid", "lightning_affinity", "metal_armour", "not_dex", "not_int", "puncturing_weapon", "ranged", "Stab_onhit_audio", "undead", "ward_armour", },
@@ -4708,9 +4933,13 @@ minions["Metadata/Monsters/LeagueExpeditionNew/VaalArmour/ExpeditionArmourCaster
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/LeagueExpeditionNew/Golemancer/ExpeditionGolemancer"] = {
 	name = "Priest of the Chalice",
 	monsterTags = { "1HSword_onhit_audio", "bone_armour", "bones", "caster", "cold_affinity", "is_unarmed", "not_dex", "not_int", "skeleton", "slashing_weapon", "slow_movement", "undead", "ward_armour", },
+	extraFlags = {
+		recommendedSpectre = true,
+	},
 	life = 1.5,
 	baseDamageIgnoresAttackSpeed = true,
 	armour = 0.35,
@@ -4736,6 +4965,7 @@ minions["Metadata/Monsters/LeagueExpeditionNew/Golemancer/ExpeditionGolemancer"]
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/LeagueExpeditionNew/BoneCultist/ExpeditionBoneCultist"] = {
 	name = "Druid of the Broken Circle",
 	monsterTags = { "bone_armour", "caster", "chaos_affinity", "human", "humanoid", "is_unarmed", "ranged", "Unarmed_onhit_audio", "undead", "very_slow_movement", "ward_armour", },
@@ -4766,6 +4996,7 @@ minions["Metadata/Monsters/LeagueExpeditionNew/BoneCultist/ExpeditionBoneCultist
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/LeagueExpeditionNew/RatMonster/ExpeditionRat"] = {
 	name = "Druidic Familiar",
 	monsterTags = { "animal_claw_weapon", "beast", "bone_armour", "Claw_onhit_audio", "fast_movement", "is_unarmed", "melee", "physical_affinity", "rodent_beast", "undead", },
@@ -4791,6 +5022,7 @@ minions["Metadata/Monsters/LeagueExpeditionNew/RatMonster/ExpeditionRat"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/LeagueExpeditionNew/ScytheHand/ExpeditionScytheHand_"] = {
 	name = "Black Scythe Mercenary",
 	monsterTags = { "1HSword_onhit_audio", "flesh_armour", "is_unarmed", "melee", "not_dex", "not_int", "physical_affinity", "slashing_weapon", "undead", "very_slow_movement", "ward_armour", },
@@ -4823,6 +5055,7 @@ minions["Metadata/Monsters/LeagueExpeditionNew/ScytheHand/ExpeditionScytheHand_"
 		-- MonsterMaimOnHit [global_maim_on_hit = 1]
 	},
 }
+
 minions["Metadata/Monsters/TwigMonsters/canopy/TwigMonster"] = {
 	name = "Skeleton Spriggan",
 	monsterTags = { "animal_claw_weapon", "caster", "construct", "humanoid", "is_unarmed", "melee", "MonsterStab_onhit_audio", "not_dex", "physical_affinity", "slow_movement", "wood_armour", },
@@ -4857,6 +5090,7 @@ minions["Metadata/Monsters/TwigMonsters/canopy/TwigMonster"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/SaplingMonster/TwigMonsterArchnemesis"] = {
 	name = "Treant",
 	monsterTags = { "animal_claw_weapon", "caster", "construct", "humanoid", "is_unarmed", "melee", "MonsterStab_onhit_audio", "physical_affinity", "slow_movement", "wood_armour", },
@@ -4888,6 +5122,7 @@ minions["Metadata/Monsters/SaplingMonster/TwigMonsterArchnemesis"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/DemonSpiders/MeleeSpider"] = {
 	name = "Vault Lurker",
 	monsterTags = { "allows_additional_projectiles", "beast", "melee", "monster_applies_poison", "physical_affinity", "slow_movement", "spider", "Unarmed_onhit_audio", },
@@ -4918,6 +5153,7 @@ minions["Metadata/Monsters/DemonSpiders/MeleeSpider"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/DemonSpiders/SpiderSabre"] = {
 	name = "Sabre Spider",
 	monsterTags = { "beast", "cannot_be_monolith", "melee", "physical_affinity", "spider", "Unarmed_onhit_audio", "very_slow_movement", },
@@ -4952,6 +5188,7 @@ minions["Metadata/Monsters/DemonSpiders/SpiderSabre"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/RamGiant/RamGiant"] = {
 	name = "Desert Hulk",
 	monsterTags = { "allows_inc_aoe", "giant", "human", "humanoid", "large_model", "melee", "MonsterBlunt_onhit_audio", "physical_affinity", "red_blood", "very_slow_movement", },
@@ -4982,6 +5219,7 @@ minions["Metadata/Monsters/RamGiant/RamGiant"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/RamGiant/RamGiantQuarry"] = {
 	name = "Forsaken Hulk",
 	monsterTags = { "allows_inc_aoe", "giant", "human", "humanoid", "large_model", "melee", "MonsterBlunt_onhit_audio", "physical_affinity", "red_blood", "very_slow_movement", },
@@ -5014,6 +5252,7 @@ minions["Metadata/Monsters/RamGiant/RamGiantQuarry"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/RamGiant/RottingRamGiant_"] = {
 	name = "Rotting Hulk",
 	monsterTags = { "allows_additional_projectiles", "allows_inc_aoe", "giant", "human", "humanoid", "large_model", "melee", "monster_applies_poison", "MonsterBlunt_onhit_audio", "not_dex", "not_int", "physical_affinity", "undead", "very_slow_movement", },
@@ -5048,6 +5287,7 @@ minions["Metadata/Monsters/RamGiant/RottingRamGiant_"] = {
 		-- MonsterNecromancerRaisable [undead_description = 1]
 	},
 }
+
 minions["Metadata/Monsters/RamGiant/RottingRamGiantBog"] = {
 	name = "Bog Hulk",
 	monsterTags = { "allows_additional_projectiles", "allows_inc_aoe", "giant", "human", "humanoid", "large_model", "melee", "monster_applies_poison", "MonsterBlunt_onhit_audio", "not_dex", "not_int", "physical_affinity", "undead", "very_slow_movement", },
@@ -5079,6 +5319,7 @@ minions["Metadata/Monsters/RamGiant/RottingRamGiantBog"] = {
 		-- MonsterNecromancerRaisable [undead_description = 1]
 	},
 }
+
 minions["Metadata/Monsters/MaggotHusks/MaggotHusk"] = {
 	name = "Sandscoured Dead",
 	monsterTags = { "humanoid", "melee", "monster_barely_moves", "no_minion_revival", "physical_affinity", "Unarmed_onhit_audio", "undead", "very_slow_movement", "zombie", },
@@ -5107,6 +5348,7 @@ minions["Metadata/Monsters/MaggotHusks/MaggotHusk"] = {
 		-- MonsterNecromancerRaisable [undead_description = 1]
 	},
 }
+
 minions["Metadata/Monsters/SerpentClanMonster/SerpentClan1"] = {
 	name = "Serpent Clan",
 	monsterTags = { "allows_inc_aoe", "beast", "Claw_onhit_audio", "fast_movement", "humanoid", "melee", "monster_applies_poison", "physical_affinity", "reptile_beast", },
@@ -5138,6 +5380,7 @@ minions["Metadata/Monsters/SerpentClanMonster/SerpentClan1"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/SaltGolem/SaltGolem"] = {
 	name = "Quake Golem",
 	monsterTags = { "allows_inc_aoe", "construct", "melee", "MonsterBlunt_onhit_audio", "not_dex", "not_int", "physical_affinity", "very_slow_movement", },
@@ -5172,6 +5415,7 @@ minions["Metadata/Monsters/SaltGolem/SaltGolem"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/HyenaMonster/HyenaMonster"] = {
 	name = "Hyena Demon",
 	monsterTags = { "beast", "Beast_onhit_audio", "fast_movement", "mammal_beast", "melee", "not_int", "not_str", "physical_affinity", "red_blood", "very_fast_movement", },
@@ -5205,6 +5449,7 @@ minions["Metadata/Monsters/HyenaMonster/HyenaMonster"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/HyenaMonster/HyenaCentaurSpear"] = {
 	name = "Sun Clan Scavenger",
 	monsterTags = { "allows_additional_projectiles", "beast", "fast_movement", "mammal_beast", "melee", "physical_affinity", "red_blood", "SpearMetal_onhit_audio", },
@@ -5237,9 +5482,13 @@ minions["Metadata/Monsters/HyenaMonster/HyenaCentaurSpear"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/VultureRegurgitator/VultureRegurgitator_"] = {
 	name = "Regurgitating Vulture",
 	monsterTags = { "allows_additional_projectiles", "allows_inc_aoe", "avian_beast", "beast", "flying", "melee", "physical_affinity", "ranged", "red_blood", "slow_movement", "Snap_onhit_audio", },
+	extraFlags = {
+		recommendedBeast = true,
+	},
 	life = 1.35,
 	baseDamageIgnoresAttackSpeed = true,
 	fireResist = 0,
@@ -5268,6 +5517,7 @@ minions["Metadata/Monsters/VultureRegurgitator/VultureRegurgitator_"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/SandLeaper02/DesertLeaper1_"] = {
 	name = "Crag Leaper",
 	monsterTags = { "beast", "fast_movement", "insect", "melee", "not_int", "not_str", "physical_affinity", "SpearWood_onhit_audio", "very_fast_movement", },
@@ -5305,6 +5555,7 @@ minions["Metadata/Monsters/SandLeaper02/DesertLeaper1_"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/SkeletonGolemancer/SkeletonGolemancer"] = {
 	name = "Dread Servant",
 	monsterTags = { "1HBluntWood_onhit_audio", "allows_additional_projectiles", "bones", "caster", "fire_affinity", "medium_movement", "monster_barely_moves", "monster_summons_adds", "not_dex", "physical_affinity", "raises_dead", "skeleton", "undead", },
@@ -5341,6 +5592,7 @@ minions["Metadata/Monsters/SkeletonGolemancer/SkeletonGolemancer"] = {
 		-- MonsterNecromancerRaisable [undead_description = 1]
 	},
 }
+
 minions["Metadata/Monsters/SandGolemancer/SandGolemancer"] = {
 	name = "Desiccated Lich",
 	monsterTags = { "allows_additional_projectiles", "bones", "caster", "medium_movement", "not_dex", "physical_affinity", "raises_dead", "skeleton", "Unarmed_onhit_audio", "undead", },
@@ -5378,6 +5630,7 @@ minions["Metadata/Monsters/SandGolemancer/SandGolemancer"] = {
 		-- MonsterNecromancerRaisable [undead_description = 1]
 	},
 }
+
 minions["Metadata/Monsters/MarAcolyte/MarAcolyte"] = {
 	name = "Mar Acolyte",
 	monsterTags = { "allows_additional_projectiles", "allows_inc_aoe", "fire_affinity", "human", "humanoid", "medium_movement", "melee", "not_str", "red_blood", "StaffMetal_onhit_audio", },
@@ -5410,6 +5663,7 @@ minions["Metadata/Monsters/MarAcolyte/MarAcolyte"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/WingedFiend/WingedFiend"] = {
 	name = "Winged Fiend",
 	monsterTags = { "allows_additional_projectiles", "beast", "Claw_onhit_audio", "flying", "melee", "monster_applies_poison", "not_int", "not_str", "physical_affinity", "ranged", "red_blood", "very_slow_movement", },
@@ -5440,6 +5694,7 @@ minions["Metadata/Monsters/WingedFiend/WingedFiend"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/RockSlider"] = {
 	name = "Boulder Ant",
 	monsterTags = { "beast", "Beast_onhit_audio", "cannot_be_monolith", "insect", "medium_movement", "melee", "not_dex", "not_int", "physical_affinity", },
@@ -5472,6 +5727,7 @@ minions["Metadata/Monsters/RockSlider"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/SkeletonSnake"] = {
 	name = "Gilded Cobra",
 	monsterTags = { "beast", "melee", "not_int", "not_str", "physical_affinity", "reptile_beast", "skeleton", "SpearWood_onhit_audio", "undead", "very_slow_movement", },
@@ -5502,6 +5758,7 @@ minions["Metadata/Monsters/SkeletonSnake"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/PitifulFabrications/PitifulFabrication01"] = {
 	name = "Skullslinger",
 	monsterTags = { "allows_inc_aoe", "physical_affinity", "ranged", "skeleton", "slow_movement", "Unarmed_onhit_audio", "undead", },
@@ -5531,9 +5788,13 @@ minions["Metadata/Monsters/PitifulFabrications/PitifulFabrication01"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/PitifulFabrications/PitifulFabrication02"] = {
 	name = "Ribrattle",
 	monsterTags = { "skeleton", "Unarmed_onhit_audio", "undead", "very_slow_movement", },
+	extraFlags = {
+		recommendedSpectre = true,
+	},
 	life = 0.8,
 	baseDamageIgnoresAttackSpeed = true,
 	fireResist = 0,
@@ -5561,6 +5822,7 @@ minions["Metadata/Monsters/PitifulFabrications/PitifulFabrication02"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/PitifulFabrications/PitifulFabrication03_"] = {
 	name = "Spinesnatcher",
 	monsterTags = { "medium_movement", "melee", "physical_affinity", "skeleton", "Unarmed_onhit_audio", "undead", },
@@ -5590,6 +5852,7 @@ minions["Metadata/Monsters/PitifulFabrications/PitifulFabrication03_"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/Skeletons/TitanGrotto/SkeletonTitanGrottoUnarmed_"] = {
 	name = "Sandflesh Skeleton",
 	monsterTags = { "monster_barely_moves", "skeleton", "Unarmed_onhit_audio", "undead", "very_slow_movement", },
@@ -5618,6 +5881,7 @@ minions["Metadata/Monsters/Skeletons/TitanGrotto/SkeletonTitanGrottoUnarmed_"] =
 		-- MonsterNecromancerRaisable [undead_description = 1]
 	},
 }
+
 minions["Metadata/Monsters/Skeletons/TitanGrotto/SkeletonTitanGrottoSword_"] = {
 	name = "Sandflesh Warrior",
 	monsterTags = { "melee", "monster_barely_moves", "physical_affinity", "skeleton", "Unarmed_onhit_audio", "undead", "very_slow_movement", },
@@ -5647,6 +5911,7 @@ minions["Metadata/Monsters/Skeletons/TitanGrotto/SkeletonTitanGrottoSword_"] = {
 		-- MonsterNecromancerRaisable [undead_description = 1]
 	},
 }
+
 minions["Metadata/Monsters/Skeletons/TitanGrotto/SkeletonTitanGrottoCaster"] = {
 	name = "Sandflesh Mage",
 	monsterTags = { "allows_additional_projectiles", "caster", "cold_affinity", "monster_barely_moves", "skeleton", "Unarmed_onhit_audio", "undead", "very_slow_movement", },
@@ -5676,9 +5941,13 @@ minions["Metadata/Monsters/Skeletons/TitanGrotto/SkeletonTitanGrottoCaster"] = {
 		-- MonsterNecromancerRaisable [undead_description = 1]
 	},
 }
+
 minions["Metadata/Monsters/PorcupineAnt/PorcupineAntSmall"] = {
 	name = "Rasp Scavenger",
 	monsterTags = { "allows_additional_projectiles", "allows_inc_aoe", "beast", "insect", "melee", "MonsterStab_onhit_audio", "not_dex", "not_int", "physical_affinity", "ranged", "slow_movement", },
+	extraFlags = {
+		recommendedSpectre = true,
+	},
 	life = 0.8,
 	baseDamageIgnoresAttackSpeed = true,
 	armour = 0.3,
@@ -5708,6 +5977,7 @@ minions["Metadata/Monsters/PorcupineAnt/PorcupineAntSmall"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/CaveDweller/CaveDweller"] = {
 	name = "Tombshrieker",
 	monsterTags = { "allows_inc_aoe", "beast", "Beast_onhit_audio", "mammal_beast", "medium_movement", "melee", "not_dex", "not_int", "physical_affinity", "red_blood", },
@@ -5740,6 +6010,7 @@ minions["Metadata/Monsters/CaveDweller/CaveDweller"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/MineBat/MineBatDesertCave"] = {
 	name = "Vesper Bat",
 	monsterTags = { "allows_additional_projectiles", "allows_inc_aoe", "beast", "cannot_be_monolith", "flying", "lightning_affinity", "mammal_beast", "melee", "MonsterStab_onhit_audio", "not_int", "not_str", "physical_affinity", "ranged", "red_blood", "slow_movement", },
@@ -5771,6 +6042,7 @@ minions["Metadata/Monsters/MineBat/MineBatDesertCave"] = {
 		-- ShockArtVariationDivine [shock_art_variation = 2]
 	},
 }
+
 minions["Metadata/Monsters/SummonedPhantasm/DesertPhantasm"] = {
 	name = "Sand Spirit",
 	monsterTags = { "allows_additional_projectiles", "caster", "fast_movement", "ghost", "ghost_blood", "not_dex", "not_str", "physical_affinity", "ranged", "Unarmed_onhit_audio", "undead", },
@@ -5804,9 +6076,14 @@ minions["Metadata/Monsters/SummonedPhantasm/DesertPhantasm"] = {
 		-- SpectrePlayDeathAction [is_spectre_with_death_action = 1]
 	},
 }
+
 minions["Metadata/Monsters/VultureZombie/VultureDemon"] = {
 	name = "Vile Vulture",
 	monsterTags = { "allows_inc_aoe", "beast", "Beast_onhit_audio", "fast_movement", "flying", "melee", "not_dex", "not_int", "physical_affinity", "red_blood", },
+	extraFlags = {
+		recommendedSpectre = true,
+		recommendedBeast = true,
+	},
 	life = 2.3,
 	baseDamageIgnoresAttackSpeed = true,
 	armour = 0.2,
@@ -5834,6 +6111,7 @@ minions["Metadata/Monsters/VultureZombie/VultureDemon"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/Kinarha/Kinarha"] = {
 	name = "Kinarha",
 	monsterTags = { "2HBluntWood_onhit_audio", "construct", "fast_movement", "melee", "mud_blood", "not_dex", "not_int", "physical_affinity", "ranged", },
@@ -5864,6 +6142,7 @@ minions["Metadata/Monsters/Kinarha/Kinarha"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/Zombies/Maraketh/MarakethZombie"] = {
 	name = "Maraketh Undead",
 	monsterTags = { "melee", "monster_barely_moves", "physical_affinity", "Unarmed_onhit_audio", "undead", "very_slow_movement", "zombie", },
@@ -5897,6 +6176,7 @@ minions["Metadata/Monsters/Zombies/Maraketh/MarakethZombie"] = {
 		-- SpectrePlayDeathAction [is_spectre_with_death_action = 1]
 	},
 }
+
 minions["Metadata/Monsters/PlagueMorphs/PlagueMorph1"] = {
 	name = "Corrupted Corpse",
 	monsterTags = { "2HSharpMetal_onhit_audio", "demon", "melee", "monster_barely_moves", "physical_affinity", "undead", "very_slow_movement", },
@@ -5926,6 +6206,7 @@ minions["Metadata/Monsters/PlagueMorphs/PlagueMorph1"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/PlagueSwarm/PlagueSwarm"] = {
 	name = "Plague Swarm",
 	monsterTags = { "beast", "fast_movement", "insect", "melee", "not_int", "not_str", "physical_affinity", "Unarmed_onhit_audio", "very_fast_movement", },
@@ -5956,6 +6237,7 @@ minions["Metadata/Monsters/PlagueSwarm/PlagueSwarm"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/PlagueNymph/PlagueNymph_"] = {
 	name = "Plague Nymph",
 	monsterTags = { "allows_additional_projectiles", "allows_inc_aoe", "beast", "caster", "insect", "melee", "MonsterStab_onhit_audio", "not_int", "not_str", "physical_affinity", "ranged", "red_blood", "slow_movement", },
@@ -5987,6 +6269,7 @@ minions["Metadata/Monsters/PlagueNymph/PlagueNymph_"] = {
 		-- MonsterMaimOnHitChance [maim_on_hit_% = 25]
 	},
 }
+
 minions["Metadata/Monsters/PlagueBringer/PlagueBringer"] = {
 	name = "Plague Harvester",
 	monsterTags = { "beast", "Claw_onhit_audio", "fast_movement", "insect", "melee", "physical_affinity", "very_fast_movement", },
@@ -6019,6 +6302,7 @@ minions["Metadata/Monsters/PlagueBringer/PlagueBringer"] = {
 		mod("PhysicalDamageLifeLeech", "BASE", 125, 1, 0), -- PlagueBringerLifeLeechInherent [base_life_leech_from_physical_attack_damage_permyriad = 12500]
 	},
 }
+
 minions["Metadata/Monsters/BrainWorm/DuneLurker_"] = {
 	name = "Dune Lurker",
 	monsterTags = { "allows_inc_aoe", "beast", "Beast_onhit_audio", "fast_movement", "insect", "large_model", "melee", "monster_barely_moves", "not_int", "not_str", "physical_affinity", },
@@ -6055,6 +6339,7 @@ minions["Metadata/Monsters/BrainWorm/DuneLurker_"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/WingedCreature/WingedCreature"] = {
 	name = "Winged Horror",
 	monsterTags = { "2HSharpMetal_onhit_audio", "allows_additional_projectiles", "beast", "flying", "lightning_affinity", "medium_movement", "melee", "physical_affinity", "ranged", "red_blood", },
@@ -6085,9 +6370,14 @@ minions["Metadata/Monsters/WingedCreature/WingedCreature"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/MantisRat/MantisRat"] = {
 	name = "Mantis Rat",
 	monsterTags = { "allows_inc_aoe", "beast", "insect", "lightning_affinity", "medium_movement", "melee", "MonsterStab_onhit_audio", "not_int", "not_str", },
+	extraFlags = {
+		recommendedSpectre = true,
+		recommendedBeast = true,
+	},
 	life = 1,
 	baseDamageIgnoresAttackSpeed = true,
 	evasion = 0.4,
@@ -6116,6 +6406,7 @@ minions["Metadata/Monsters/MantisRat/MantisRat"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/MudGolem/MarshBruiser"] = {
 	name = "Swamp Golem",
 	monsterTags = { "2HBluntWood_onhit_audio", "allows_inc_aoe", "construct", "earth_elemental", "humanoid", "melee", "mud_blood", "not_dex", "not_int", "physical_affinity", "very_slow_movement", },
@@ -6143,6 +6434,7 @@ minions["Metadata/Monsters/MudGolem/MarshBruiser"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/BogBodies/BogCorpseUnarmed"] = {
 	name = "Bogfelled Slave",
 	monsterTags = { "humanoid", "melee", "monster_barely_moves", "physical_affinity", "Unarmed_onhit_audio", "undead", "uses_suicide_explode", "very_slow_movement", "zombie", },
@@ -6171,6 +6463,7 @@ minions["Metadata/Monsters/BogBodies/BogCorpseUnarmed"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/BogBodies/BogCorpseOneHandAxe"] = {
 	name = "Bogfelled Commoner",
 	monsterTags = { "1HAxe_onhit_audio", "humanoid", "melee", "monster_barely_moves", "physical_affinity", "undead", "uses_suicide_explode", "very_slow_movement", "zombie", },
@@ -6200,6 +6493,7 @@ minions["Metadata/Monsters/BogBodies/BogCorpseOneHandAxe"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/TwigMonsters/DredgeFiend"] = {
 	name = "Dredge Fiend",
 	monsterTags = { "allows_additional_projectiles", "allows_inc_aoe", "Beast_onhit_audio", "caster", "construct", "humanoid", "not_dex", "physical_affinity", "ranged", "undead", "very_slow_movement", },
@@ -6234,6 +6528,7 @@ minions["Metadata/Monsters/TwigMonsters/DredgeFiend"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/VaalSavage/CannibalTribeStalker"] = {
 	name = "Orok Stalker",
 	monsterTags = { "2HBluntWood_onhit_audio", "fast_movement", "human", "humanoid", "melee", "not_int", "physical_affinity", "red_blood", },
@@ -6263,6 +6558,7 @@ minions["Metadata/Monsters/VaalSavage/CannibalTribeStalker"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/VaalSavage/CannibalTribeSpearThrower"] = {
 	name = "Orok Hunter",
 	monsterTags = { "allows_additional_projectiles", "fast_movement", "human", "humanoid", "melee", "not_int", "not_str", "physical_affinity", "ranged", "red_blood", "SpearWood_onhit_audio", "very_fast_movement", },
@@ -6299,6 +6595,7 @@ minions["Metadata/Monsters/VaalSavage/CannibalTribeSpearThrower"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/VaalSavage/CannibalTribeSpearMelee"] = {
 	name = "Orok Fleshstabber",
 	monsterTags = { "fast_movement", "human", "humanoid", "melee", "not_int", "not_str", "physical_affinity", "red_blood", "SpearWood_onhit_audio", "very_fast_movement", },
@@ -6328,6 +6625,7 @@ minions["Metadata/Monsters/VaalSavage/CannibalTribeSpearMelee"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/VaalSavage/CannibalTribeDagger"] = {
 	name = "Orok Throatcutter",
 	monsterTags = { "Claw_onhit_audio", "fast_movement", "human", "humanoid", "melee", "not_int", "not_str", "physical_affinity", "red_blood", "very_fast_movement", },
@@ -6357,6 +6655,7 @@ minions["Metadata/Monsters/VaalSavage/CannibalTribeDagger"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/VaalSavage/CannibalTribeShaman"] = {
 	name = "Orok Shaman",
 	monsterTags = { "allows_additional_projectiles", "allows_inc_aoe", "caster", "female", "human", "humanoid", "monster_barely_moves", "not_dex", "not_str", "physical_affinity", "ranged", "red_blood", "Unarmed_onhit_audio", "very_slow_movement", },
@@ -6391,6 +6690,7 @@ minions["Metadata/Monsters/VaalSavage/CannibalTribeShaman"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/VaalSavage/CannibalTribeGiant"] = {
 	name = "Orok Mauler",
 	monsterTags = { "2HBluntWood_onhit_audio", "allows_inc_aoe", "human", "humanoid", "medium_movement", "melee", "physical_affinity", "red_blood", },
@@ -6419,6 +6719,7 @@ minions["Metadata/Monsters/VaalSavage/CannibalTribeGiant"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/VaalSavage/VaalSavageStalker"] = {
 	name = "Azak Stalker",
 	monsterTags = { "2HBluntWood_onhit_audio", "allows_inc_aoe", "fast_movement", "human", "humanoid", "melee", "not_int", "physical_affinity", "red_blood", },
@@ -6459,6 +6760,7 @@ minions["Metadata/Monsters/VaalSavage/VaalSavageStalker"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/VaalSavage/VaalSavageSpearThrower_"] = {
 	name = "Azak Spearthrower",
 	monsterTags = { "allows_additional_projectiles", "fast_movement", "human", "humanoid", "melee", "not_int", "physical_affinity", "ranged", "red_blood", "SpearWood_onhit_audio", "very_fast_movement", },
@@ -6498,6 +6800,7 @@ minions["Metadata/Monsters/VaalSavage/VaalSavageSpearThrower_"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/VaalSavage/VaalSavageSpearMelee"] = {
 	name = "Azak Fleshstabber",
 	monsterTags = { "fast_movement", "human", "humanoid", "melee", "not_int", "physical_affinity", "red_blood", "SpearWood_onhit_audio", "very_fast_movement", },
@@ -6530,6 +6833,7 @@ minions["Metadata/Monsters/VaalSavage/VaalSavageSpearMelee"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/VaalSavage/VaalSavageBeastMaster"] = {
 	name = "Azak Mongrelmaster",
 	monsterTags = { "human", "humanoid", "melee", "monster_barely_moves", "not_int", "physical_affinity", "red_blood", "SpearMetal_onhit_audio", "very_slow_movement", },
@@ -6562,6 +6866,7 @@ minions["Metadata/Monsters/VaalSavage/VaalSavageBeastMaster"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/VaalSavage/VaalSavageDagger_"] = {
 	name = "Azak Throatcutter",
 	monsterTags = { "Claw_onhit_audio", "fast_movement", "human", "humanoid", "melee", "not_int", "physical_affinity", "red_blood", "very_fast_movement", },
@@ -6594,6 +6899,7 @@ minions["Metadata/Monsters/VaalSavage/VaalSavageDagger_"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/VaalSavage/VaalSavageShaman"] = {
 	name = "Azak Shaman",
 	monsterTags = { "allows_additional_projectiles", "allows_inc_aoe", "caster", "fast_movement", "fire_affinity", "human", "humanoid", "not_dex", "not_str", "ranged", "red_blood", "Unarmed_onhit_audio", },
@@ -6631,6 +6937,7 @@ minions["Metadata/Monsters/VaalSavage/VaalSavageShaman"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/VaalSavage/VaalSavageBrute"] = {
 	name = "Azak Brute",
 	monsterTags = { "human", "humanoid", "melee", "monster_barely_moves", "not_int", "physical_affinity", "red_blood", "SpearMetal_onhit_audio", "very_slow_movement", },
@@ -6667,6 +6974,7 @@ minions["Metadata/Monsters/VaalSavage/VaalSavageBrute"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/VaalSavage/VaalSavageDelinquent"] = {
 	name = "Azak Fledgling",
 	monsterTags = { "allows_additional_projectiles", "Arrow_onhit_audio", "human", "humanoid", "medium_movement", "melee", "monster_applies_poison", "not_int", "not_str", "physical_affinity", "ranged", "red_blood", },
@@ -6696,6 +7004,7 @@ minions["Metadata/Monsters/VaalSavage/VaalSavageDelinquent"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/VaalSavage/VaalSavageTorchbearer"] = {
 	name = "Azak Torchbearer",
 	monsterTags = { "fast_movement", "fire_affinity", "human", "humanoid", "melee", "not_int", "not_str", "physical_affinity", "red_blood", "SpearWood_onhit_audio", },
@@ -6725,6 +7034,7 @@ minions["Metadata/Monsters/VaalSavage/VaalSavageTorchbearer"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/VaalSavage/VaalSavageGiant"] = {
 	name = "Azak Mauler",
 	monsterTags = { "2HBluntWood_onhit_audio", "allows_inc_aoe", "human", "humanoid", "medium_movement", "melee", "not_dex", "not_int", "physical_affinity", "red_blood", },
@@ -6761,6 +7071,7 @@ minions["Metadata/Monsters/VaalSavage/VaalSavageGiant"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/PlagueSwarm/BloodDrone"] = {
 	name = "Bloodthief Wasp",
 	monsterTags = { "beast", "fast_movement", "flying", "insect", "melee", "not_int", "not_str", "physical_affinity", "red_blood", "Unarmed_onhit_audio", "very_fast_movement", },
@@ -6791,6 +7102,7 @@ minions["Metadata/Monsters/PlagueSwarm/BloodDrone"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/SwarmHost/SwarmHost"] = {
 	name = "Bloodthief Queen",
 	monsterTags = { "allows_inc_aoe", "Beast_onhit_audio", "insect", "melee", "monster_applies_poison", "monster_has_on_death_mechanic", "monster_summons_adds", "physical_affinity", "very_slow_movement", },
@@ -6827,6 +7139,7 @@ minions["Metadata/Monsters/SwarmHost/SwarmHost"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/IgguranRaider/BladeStalkerPale"] = {
 	name = "Pale-stitched Stalker",
 	monsterTags = { "1HSword_onhit_audio", "fast_movement", "humanoid", "melee", "not_int", "not_str", "physical_affinity", "red_blood", "vaal", "very_fast_movement", },
@@ -6858,6 +7171,7 @@ minions["Metadata/Monsters/IgguranRaider/BladeStalkerPale"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/IgguranRaider/BladeStalker"] = {
 	name = "Adorned Miscreation",
 	monsterTags = { "1HSword_onhit_audio", "fast_movement", "humanoid", "melee", "not_int", "not_str", "physical_affinity", "red_blood", "vaal", "very_fast_movement", },
@@ -6888,6 +7202,7 @@ minions["Metadata/Monsters/IgguranRaider/BladeStalker"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/Anchorite/AnchoriteSpawn_"] = {
 	name = "Hunchback Clubber",
 	monsterTags = { "humanoid", "melee", "physical_affinity", "red_blood", "slow_movement", "StaffWood_onhit_audio", },
@@ -6921,6 +7236,7 @@ minions["Metadata/Monsters/Anchorite/AnchoriteSpawn_"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/Anchorite/AnchoriteFlathead"] = {
 	name = "Flathead Clubber",
 	monsterTags = { "2HBluntWood_onhit_audio", "humanoid", "melee", "not_int", "not_str", "physical_affinity", "red_blood", "very_slow_movement", },
@@ -6956,6 +7272,7 @@ minions["Metadata/Monsters/Anchorite/AnchoriteFlathead"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/Anchorite/AnchoriteMother"] = {
 	name = "Pyromushroom Cultivator",
 	monsterTags = { "1HSword_onhit_audio", "humanoid", "not_dex", "red_blood", "very_slow_movement", },
@@ -6991,6 +7308,7 @@ minions["Metadata/Monsters/Anchorite/AnchoriteMother"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/BaneSapling/BaneSapling"] = {
 	name = "Bane Sapling",
 	monsterTags = { "allows_additional_projectiles", "allows_inc_aoe", "beast", "Beast_onhit_audio", "insect", "monster_applies_poison", "monster_summons_adds", "not_int", "not_str", "physical_affinity", "ranged", "very_slow_movement", },
@@ -7023,6 +7341,7 @@ minions["Metadata/Monsters/BaneSapling/BaneSapling"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/ArmadilloDemon/ArmadilloDemon"] = {
 	name = "Antlion Charger",
 	monsterTags = { "beast", "Beast_onhit_audio", "mammal_beast", "melee", "not_dex", "not_int", "physical_affinity", "red_blood", "slow_movement", },
@@ -7054,6 +7373,7 @@ minions["Metadata/Monsters/ArmadilloDemon/ArmadilloDemon"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/ChawMongrel/ChawMongrel"] = {
 	name = "Chaw Mongrel",
 	monsterTags = { "beast", "Beast_onhit_audio", "melee", "not_int", "physical_affinity", "red_blood", "very_slow_movement", },
@@ -7085,6 +7405,7 @@ minions["Metadata/Monsters/ChawMongrel/ChawMongrel"] = {
 		-- MonsterMaimOnHit [global_maim_on_hit = 1]
 	},
 }
+
 minions["Metadata/Monsters/ZombieTreasureHunters/IllFatedExplorer1"] = {
 	name = "Ill-fated Explorer",
 	monsterTags = { "1HSword_onhit_audio", "humanoid", "melee", "not_dex", "not_int", "physical_affinity", "skeleton", "undead", "very_slow_movement", },
@@ -7117,9 +7438,14 @@ minions["Metadata/Monsters/ZombieTreasureHunters/IllFatedExplorer1"] = {
 		-- SpectrePlayDeathAction [is_spectre_with_death_action = 1]
 	},
 }
+
 minions["Metadata/Monsters/NettleAnt/NettleAntSummoned"] = {
 	name = "Nettle Ant",
 	monsterTags = { "beast", "fast_movement", "insect", "not_int", "not_str", "Unarmed_onhit_audio", },
+	extraFlags = {
+		recommendedBeast = true,
+		recommendedSpectre = true,
+	},
 	life = 0.7,
 	baseDamageIgnoresAttackSpeed = true,
 	evasion = 0.3,
@@ -7143,6 +7469,7 @@ minions["Metadata/Monsters/NettleAnt/NettleAntSummoned"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/SnakeHulk/SnakeHulk"] = {
 	name = "Entwined Hulk",
 	monsterTags = { "beast", "Beast_onhit_audio", "melee", "not_dex", "not_int", "physical_affinity", "red_blood", "reptile_beast", "undead", "very_slow_movement", },
@@ -7173,6 +7500,7 @@ minions["Metadata/Monsters/SnakeHulk/SnakeHulk"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/SerpentHusk/SerpentHusk__"] = {
 	name = "Snakethroat Shambler",
 	monsterTags = { "beast", "melee", "monster_applies_poison", "not_dex", "not_int", "physical_affinity", "red_blood", "reptile_beast", "Unarmed_onhit_audio", "very_slow_movement", },
@@ -7205,6 +7533,7 @@ minions["Metadata/Monsters/SerpentHusk/SerpentHusk__"] = {
 		mod("EnemyPoisonDuration", "INC", 0, 0, 0), -- MaligaroSpiderPoisonOnHit [base_poison_duration_+% = 0]
 	},
 }
+
 minions["Metadata/Monsters/GutViper/GutViper"] = {
 	name = "Entrailhome Shambler",
 	monsterTags = { "beast", "melee", "not_dex", "not_int", "physical_affinity", "red_blood", "reptile_beast", "Unarmed_onhit_audio", "very_slow_movement", },
@@ -7233,6 +7562,7 @@ minions["Metadata/Monsters/GutViper/GutViper"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/RiverSnakeHusk/RiverSnakeHusk"] = {
 	name = "Corpse Nest",
 	monsterTags = { "1HSword_onhit_audio", "beast", "not_dex", "not_int", "red_blood", "reptile_beast", "slow_movement", },
@@ -7259,6 +7589,7 @@ minions["Metadata/Monsters/RiverSnakeHusk/RiverSnakeHusk"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/SpittingSnake/SpittingSnake"] = {
 	name = "Slitherspitter",
 	monsterTags = { "allows_additional_projectiles", "allows_inc_aoe", "beast", "melee", "monster_applies_poison", "not_int", "physical_affinity", "ranged", "reptile_beast", "Unarmed_onhit_audio", "very_slow_movement", },
@@ -7292,6 +7623,7 @@ minions["Metadata/Monsters/SpittingSnake/SpittingSnake"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/ConstrictorCorpse/ConstrictorCorpse"] = {
 	name = "Constricted Shambler",
 	monsterTags = { "beast", "melee", "monster_applies_poison", "physical_affinity", "red_blood", "reptile_beast", "Unarmed_onhit_audio", "undead", "very_slow_movement", },
@@ -7322,6 +7654,7 @@ minions["Metadata/Monsters/ConstrictorCorpse/ConstrictorCorpse"] = {
 		mod("EnemyPoisonDuration", "INC", 0, 0, 0), -- MaligaroSpiderPoisonOnHit [base_poison_duration_+% = 0]
 	},
 }
+
 minions["Metadata/Monsters/ConstrictorCorpse/ConstrictorCorpseRanged_"] = {
 	name = "Constricted Spitter",
 	monsterTags = { "allows_additional_projectiles", "beast", "melee", "monster_applies_poison", "physical_affinity", "ranged", "red_blood", "reptile_beast", "Unarmed_onhit_audio", "undead", "very_slow_movement", },
@@ -7353,6 +7686,7 @@ minions["Metadata/Monsters/ConstrictorCorpse/ConstrictorCorpseRanged_"] = {
 		mod("EnemyPoisonDuration", "INC", 0, 0, 0), -- MaligaroSpiderPoisonOnHit [base_poison_duration_+% = 0]
 	},
 }
+
 minions["Metadata/Monsters/SpiderMonkey/SpiderMonkey"] = {
 	name = "Scorpion Monkey",
 	monsterTags = { "beast", "fast_movement", "melee", "not_int", "not_str", "physical_affinity", "red_blood", "Unarmed_onhit_audio", },
@@ -7386,6 +7720,7 @@ minions["Metadata/Monsters/SpiderMonkey/SpiderMonkey"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/GoreCharger/GoreCharger"] = {
 	name = "Diretusk Boar",
 	monsterTags = { "beast", "mammal_beast", "medium_movement", "melee", "MonsterBlunt_onhit_audio", "not_dex", "not_int", "physical_affinity", "red_blood", },
@@ -7417,6 +7752,7 @@ minions["Metadata/Monsters/GoreCharger/GoreCharger"] = {
 		mod("BleedChance", "BASE", 25, 1, 0), -- MonsterBleedOnHitChance [bleed_on_hit_with_attacks_% = 25]
 	},
 }
+
 minions["Metadata/Monsters/CrazedCannibalPicts/PictMaleAxe"] = {
 	name = "Cultist Warrior",
 	monsterTags = { "1HAxe_onhit_audio", "azmeri_cultist_monster", "cultist", "human", "humanoid", "melee", "physical_affinity", "red_blood", "very_slow_movement", },
@@ -7447,6 +7783,7 @@ minions["Metadata/Monsters/CrazedCannibalPicts/PictMaleAxe"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/CrazedCannibalPicts/PictBigMale"] = {
 	name = "Cultist Brute",
 	monsterTags = { "2HSharpMetal_onhit_audio", "azmeri_cultist_monster", "cultist", "human", "humanoid", "melee", "monster_summons_adds", "not_dex", "not_int", "physical_affinity", "red_blood", "very_slow_movement", },
@@ -7479,9 +7816,14 @@ minions["Metadata/Monsters/CrazedCannibalPicts/PictBigMale"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/WereCat/TigerChimeral"] = {
 	name = "Prowling Chimeral",
 	monsterTags = { "beast", "Beast_onhit_audio", "fast_movement", "mammal_beast", "melee", "not_int", "physical_affinity", "red_blood", "very_fast_movement", },
+	extraFlags = {
+		recommendedSpectre = true,
+		recommendedBeast = true,
+	},
 	life = 1.65,
 	baseDamageIgnoresAttackSpeed = true,
 	armour = 0.25,
@@ -7511,6 +7853,7 @@ minions["Metadata/Monsters/WereCat/TigerChimeral"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/Taniwha/RiverTaniwha"] = {
 	name = "River Drake",
 	monsterTags = { "beast", "melee", "not_int", "not_str", "physical_affinity", "red_blood", "reptile_beast", "slow_movement", "Unarmed_onhit_audio", },
@@ -7544,6 +7887,7 @@ minions["Metadata/Monsters/Taniwha/RiverTaniwha"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/Taniwha/RiverTaniwhaTropicalIsland_"] = {
 	name = "Coastal Drake",
 	monsterTags = { "beast", "melee", "not_int", "not_str", "physical_affinity", "red_blood", "reptile_beast", "slow_movement", "Unarmed_onhit_audio", },
@@ -7572,6 +7916,7 @@ minions["Metadata/Monsters/Taniwha/RiverTaniwhaTropicalIsland_"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/WhipTongueChimeral/WhipTongueChimeral"] = {
 	name = "Whiptongue Croaker",
 	monsterTags = { "2HBluntMetal_onhit_audio", "beast", "medium_movement", "not_int", "not_str", "red_blood", "reptile_beast", },
@@ -7598,6 +7943,7 @@ minions["Metadata/Monsters/WhipTongueChimeral/WhipTongueChimeral"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/VaalConstructs/Sentinel/VaalConstructSentinel"] = {
 	name = "Stone Sentinel",
 	monsterTags = { "2HBluntWood_onhit_audio", "allows_inc_aoe", "cannot_be_monolith", "construct", "melee", "not_dex", "not_int", "physical_affinity", "stone_construct", "vaal", "very_slow_movement", },
@@ -7627,6 +7973,7 @@ minions["Metadata/Monsters/VaalConstructs/Sentinel/VaalConstructSentinel"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/VaalConstructs/Sentinel/VaalConstructSentinelGolden"] = {
 	name = "Gold-Melted Sentinel",
 	monsterTags = { "2HBluntMetal_onhit_audio", "allows_inc_aoe", "cannot_be_monolith", "construct", "melee", "not_dex", "not_int", "physical_affinity", "stone_construct", "vaal", "very_slow_movement", },
@@ -7658,6 +8005,7 @@ minions["Metadata/Monsters/VaalConstructs/Sentinel/VaalConstructSentinelGolden"]
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/VaalConstructs/Pyramid/VaalConstructPyramidAncient"] = {
 	name = "Rusted Reconstructor",
 	monsterTags = { "2HBluntMetal_onhit_audio", "caster", "construct", "golem", "lightning_affinity", "monster_barely_moves", "not_dex", "vaal", "very_slow_movement", },
@@ -7693,6 +8041,7 @@ minions["Metadata/Monsters/VaalConstructs/Pyramid/VaalConstructPyramidAncient"] 
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/VaalConstructs/Pyramid/VaalConstructPyramidSpawned"] = {
 	name = "Reconstructor",
 	monsterTags = { "2HBluntMetal_onhit_audio", "bludgeoning_weapon", "caster", "construct", "golem", "is_unarmed", "lightning_affinity", "metal_armour", "monster_barely_moves", "not_dex", "slow_movement", "vaal", },
@@ -7727,6 +8076,7 @@ minions["Metadata/Monsters/VaalConstructs/Pyramid/VaalConstructPyramidSpawned"] 
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/VaalConstructs/Golem/VaalConstructGolem"] = {
 	name = "Shockblade Construct",
 	monsterTags = { "2HBluntMetal_onhit_audio", "allows_inc_aoe", "construct", "fast_movement", "golem", "lightning_affinity", "melee", "mud_blood", "not_dex", "vaal", },
@@ -7758,6 +8108,7 @@ minions["Metadata/Monsters/VaalConstructs/Golem/VaalConstructGolem"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/VaalConstructs/Golem/VaalConstructGolemAncient"] = {
 	name = "Rusted Dyna Golem",
 	monsterTags = { "2HBluntMetal_onhit_audio", "allows_inc_aoe", "caster", "construct", "golem", "lightning_affinity", "medium_movement", "melee", "mud_blood", "not_dex", "vaal", },
@@ -7789,6 +8140,7 @@ minions["Metadata/Monsters/VaalConstructs/Golem/VaalConstructGolemAncient"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/VaalConstructs/Skitterbot/VaalConstructSkitterbot"] = {
 	name = "Crawler Sentinel",
 	monsterTags = { "2HBluntMetal_onhit_audio", "allows_inc_aoe", "cannot_be_monolith", "caster", "construct", "fire_affinity", "golem", "is_unarmed", "metal_armour", "mud_blood", "no_final_gasp", "no_shroud_walker", "not_dex", "ranged", "slow_movement", "uses_suicide_explode", "vaal", },
@@ -7820,6 +8172,7 @@ minions["Metadata/Monsters/VaalConstructs/Skitterbot/VaalConstructSkitterbot"] =
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/VaalConstructs/Monkey/VaalConstructMonkey"] = {
 	name = "Constructed Monkey",
 	monsterTags = { "caster", "Claw_onhit_audio", "construct", "golem", "is_unarmed", "medium_movement", "metal_armour", "not_dex", "vaal", },
@@ -7847,6 +8200,7 @@ minions["Metadata/Monsters/VaalConstructs/Monkey/VaalConstructMonkey"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/VaalConstructs/Monkey/VaalConstructMonkeyHead"] = {
 	name = "Constructed Monkey Head",
 	monsterTags = { "caster", "Claw_onhit_audio", "construct", "golem", "immobile", "is_unarmed", "metal_armour", "not_dex", "vaal", },
@@ -7876,6 +8230,7 @@ minions["Metadata/Monsters/VaalConstructs/Monkey/VaalConstructMonkeyHead"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/RatMonster/RatMonster"] = {
 	name = "Rotted Rat",
 	monsterTags = { "beast", "fast_movement", "mammal_beast", "melee", "not_int", "physical_affinity", "rodent", "rodent_beast", "Snap_onhit_audio", "undead", },
@@ -7908,6 +8263,7 @@ minions["Metadata/Monsters/RatMonster/RatMonster"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/VaalMonsters/Machinarium/VaalGuards/UndeadGuardDaggers"] = {
 	name = "Undead Vaal Bladedancer",
 	monsterTags = { "1HSword_onhit_audio", "fast_movement", "human", "humanoid", "melee", "not_int", "not_str", "physical_affinity", "red_blood", "undead", "vaal", "very_fast_movement", },
@@ -7940,6 +8296,7 @@ minions["Metadata/Monsters/VaalMonsters/Machinarium/VaalGuards/UndeadGuardDagger
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/VaalMonsters/Machinarium/VaalGuards/UndeadGuardMortar"] = {
 	name = "Undead Vaal Guard",
 	monsterTags = { "allows_additional_projectiles", "allows_inc_aoe", "fast_movement", "fire_affinity", "human", "humanoid", "not_int", "ranged", "red_blood", "Unarmed_onhit_audio", "undead", "vaal", },
@@ -7973,6 +8330,7 @@ minions["Metadata/Monsters/VaalMonsters/Machinarium/VaalGuards/UndeadGuardMortar
 		-- SpectrePlayDeathAction [is_spectre_with_death_action = 1]
 	},
 }
+
 minions["Metadata/Monsters/Cenobite/CenobiteHighborn/CenobiteHighborn"] = {
 	name = "Foul Sage",
 	monsterTags = { "1HSword_onhit_audio", "caster", "humanoid", "melee", "monster_barely_moves", "not_dex", "not_str", "physical_affinity", "red_blood", "very_slow_movement", },
@@ -8005,6 +8363,7 @@ minions["Metadata/Monsters/Cenobite/CenobiteHighborn/CenobiteHighborn"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/Cenobite/CenobiteHighborn/CenobitePawn"] = {
 	name = "Flathead Youngling",
 	monsterTags = { "humanoid", "melee", "not_int", "not_str", "physical_affinity", "red_blood", "slow_movement", "Unarmed_onhit_audio", },
@@ -8036,6 +8395,7 @@ minions["Metadata/Monsters/Cenobite/CenobiteHighborn/CenobitePawn"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/Cenobite/CenobiteLeash/CenobiteLeash"] = {
 	name = "Foul Blacksmith",
 	monsterTags = { "2HBluntWood_onhit_audio", "allows_additional_projectiles", "allows_inc_aoe", "humanoid", "melee", "physical_affinity", "ranged", "red_blood", "slow_movement", },
@@ -8072,6 +8432,7 @@ minions["Metadata/Monsters/Cenobite/CenobiteLeash/CenobiteLeash"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/Cenobite/CenobiteSlam/CenobiteSlam"] = {
 	name = "Foul Mauler",
 	monsterTags = { "1HSword_onhit_audio", "humanoid", "melee", "monster_barely_moves", "not_dex", "not_int", "physical_affinity", "red_blood", "very_slow_movement", },
@@ -8103,6 +8464,7 @@ minions["Metadata/Monsters/Cenobite/CenobiteSlam/CenobiteSlam"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/Cenobite/CenobiteStoneThrower/CenobiteStoneThrower"] = {
 	name = "Filthy Lobber",
 	monsterTags = { "allows_additional_projectiles", "fast_movement", "humanoid", "physical_affinity", "ranged", "red_blood", "Unarmed_onhit_audio", },
@@ -8135,6 +8497,7 @@ minions["Metadata/Monsters/Cenobite/CenobiteStoneThrower/CenobiteStoneThrower"] 
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/Cenobite/CenobiteSwarmUgly/CenobiteSwarm"] = {
 	name = "Flathead Warrior",
 	monsterTags = { "humanoid", "medium_movement", "melee", "physical_affinity", "red_blood", "Unarmed_onhit_audio", },
@@ -8170,6 +8533,7 @@ minions["Metadata/Monsters/Cenobite/CenobiteSwarmUgly/CenobiteSwarm"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/Cenobite/CenobiteBloater/CenobiteBloater"] = {
 	name = "Filthy First-born",
 	monsterTags = { "allows_inc_aoe", "humanoid", "melee", "monster_has_on_death_mechanic", "MonsterBlunt_onhit_audio", "no_minion_revival", "not_dex", "not_int", "physical_affinity", "red_blood", "very_slow_movement", },
@@ -8203,6 +8567,7 @@ minions["Metadata/Monsters/Cenobite/CenobiteBloater/CenobiteBloater"] = {
 		-- SpectrePlayDeathAction [is_spectre_with_death_action = 1]
 	},
 }
+
 minions["Metadata/Monsters/VaalMonsters/ViperNapuatzi/ViperNapuatziSnakeMinion"] = {
 	name = "Viper Servant",
 	monsterTags = { "beast", "fast_movement", "not_int", "not_str", "reptile_beast", "Stab_onhit_audio", },
@@ -8231,6 +8596,7 @@ minions["Metadata/Monsters/VaalMonsters/ViperNapuatzi/ViperNapuatziSnakeMinion"]
 		-- MonsterNoDropsOrExperience [monster_no_drops_or_experience = 1]
 	},
 }
+
 minions["Metadata/Monsters/VaalMonsters/Zealots/VaalZealotDaggersBlood"] = {
 	name = "Blood Zealot",
 	monsterTags = { "1HSword_onhit_audio", "cultist", "fast_movement", "human", "humanoid", "melee", "not_int", "not_str", "physical_affinity", "red_blood", "very_fast_movement", },
@@ -8262,6 +8628,7 @@ minions["Metadata/Monsters/VaalMonsters/Zealots/VaalZealotDaggersBlood"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/VaalMonsters/Zealots/VaalZealotDaggersChaos"] = {
 	name = "Chaotic Zealot",
 	monsterTags = { "1HSword_onhit_audio", "chaos_affinity", "cultist", "fast_movement", "human", "humanoid", "melee", "not_int", "not_str", "red_blood", "very_fast_movement", },
@@ -8293,6 +8660,7 @@ minions["Metadata/Monsters/VaalMonsters/Zealots/VaalZealotDaggersChaos"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/VaalMonsters/Zealots/VaalZealotDaggersCold_"] = {
 	name = "Gelid Zealot",
 	monsterTags = { "1HSword_onhit_audio", "cold_affinity", "cultist", "fast_movement", "human", "humanoid", "melee", "not_int", "not_str", "red_blood", "very_fast_movement", },
@@ -8325,6 +8693,7 @@ minions["Metadata/Monsters/VaalMonsters/Zealots/VaalZealotDaggersCold_"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/VaalMonsters/Zealots/VaalZealotDaggersFire"] = {
 	name = "Fiery Zealot",
 	monsterTags = { "1HSword_onhit_audio", "cultist", "fast_movement", "fire_affinity", "human", "humanoid", "melee", "not_int", "not_str", "red_blood", "very_fast_movement", },
@@ -8355,9 +8724,13 @@ minions["Metadata/Monsters/VaalMonsters/Zealots/VaalZealotDaggersFire"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/VaalMonsters/Zealots/VaalZealotDaggersLightning"] = {
 	name = "Powered Zealot",
 	monsterTags = { "1HSword_onhit_audio", "cultist", "fast_movement", "human", "humanoid", "lightning_affinity", "melee", "not_int", "not_str", "red_blood", "very_fast_movement", },
+	extraFlags = {
+		recommendedSpectre = true,
+	},
 	life = 1,
 	baseDamageIgnoresAttackSpeed = true,
 	evasion = 0.3,
@@ -8384,6 +8757,7 @@ minions["Metadata/Monsters/VaalMonsters/Zealots/VaalZealotDaggersLightning"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/VaalMonsters/Zealots/VaalZealotDaggersBannerPatrol"] = {
 	name = "Bannerbearing Zealot",
 	monsterTags = { "1HSword_onhit_audio", "cannot_be_monolith", "cultist", "fast_movement", "human", "humanoid", "melee", "not_int", "not_str", "red_blood", "very_fast_movement", },
@@ -8412,6 +8786,7 @@ minions["Metadata/Monsters/VaalMonsters/Zealots/VaalZealotDaggersBannerPatrol"] 
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/VaalMonsters/Living/VaalGuardClawsLiving"] = {
 	name = "Vaal Excoriator",
 	monsterTags = { "Claw_onhit_audio", "human", "humanoid", "melee", "not_int", "not_str", "physical_affinity", "red_blood", "very_slow_movement", },
@@ -8447,6 +8822,7 @@ minions["Metadata/Monsters/VaalMonsters/Living/VaalGuardClawsLiving"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/VaalMonsters/Living/VaalOverseerLiving_"] = {
 	name = "Vaal Overseer",
 	monsterTags = { "1HSword_onhit_audio", "allows_inc_aoe", "fast_movement", "human", "humanoid", "melee", "not_int", "physical_affinity", "red_blood", },
@@ -8479,6 +8855,7 @@ minions["Metadata/Monsters/VaalMonsters/Living/VaalOverseerLiving_"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/VaalMonsters/Living/VaalGoliathLiving_"] = {
 	name = "Vaal Goliath",
 	monsterTags = { "allows_inc_aoe", "human", "humanoid", "melee", "not_dex", "not_int", "physical_affinity", "red_blood", "Unarmed_onhit_audio", "very_slow_movement", },
@@ -8515,9 +8892,13 @@ minions["Metadata/Monsters/VaalMonsters/Living/VaalGoliathLiving_"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/VaalMonsters/Living/VaalStormcaller"] = {
 	name = "Surgical Experimentalist",
 	monsterTags = { "1HSword_onhit_audio", "allows_additional_projectiles", "allows_inc_aoe", "caster", "cultist", "human", "humanoid", "lightning_affinity", "not_str", "red_blood", "very_slow_movement", },
+	extraFlags = {
+		recommendedSpectre = true,
+	},
 	life = 2,
 	baseDamageIgnoresAttackSpeed = true,
 	energyShield = 0.2,
@@ -8546,6 +8927,7 @@ minions["Metadata/Monsters/VaalMonsters/Living/VaalStormcaller"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/VaalMonsters/Living/VaalShapeshifter_"] = {
 	name = "Vaal Formshifter",
 	monsterTags = { "1HSword_onhit_audio", "caster", "cultist", "human", "humanoid", "medium_movement", "melee", "physical_affinity", "red_blood", },
@@ -8580,6 +8962,7 @@ minions["Metadata/Monsters/VaalMonsters/Living/VaalShapeshifter_"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/VaalMonsters/Living/VaalEagleKnightLiving"] = {
 	name = "Vaal Enforcer",
 	monsterTags = { "2HSharpMetal_onhit_audio", "human", "humanoid", "melee", "not_dex", "not_int", "physical_affinity", "red_blood", "very_slow_movement", },
@@ -8609,6 +8992,7 @@ minions["Metadata/Monsters/VaalMonsters/Living/VaalEagleKnightLiving"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/VaalMonsters/VaalTimeScientist/VaalTimeScientist_"] = {
 	name = "Vaal Temporal Researcher",
 	monsterTags = { "human", "humanoid", "medium_movement", "not_str", "red_blood", "Unarmed_onhit_audio", },
@@ -8638,6 +9022,7 @@ minions["Metadata/Monsters/VaalMonsters/VaalTimeScientist/VaalTimeScientist_"] =
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/VaalEagleKnight/VaalEagleKnightUndead"] = {
 	name = "Undead Vaal Enforcer",
 	monsterTags = { "2HSharpMetal_onhit_audio", "fast_movement", "human", "humanoid", "not_dex", "not_int", "undead", },
@@ -8665,6 +9050,7 @@ minions["Metadata/Monsters/VaalEagleKnight/VaalEagleKnightUndead"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/VaalMonsters/Living/VaalArchivistLiving"] = {
 	name = "Vaal Researcher",
 	monsterTags = { "allows_additional_projectiles", "allows_inc_aoe", "caster", "has_staff", "has_two_handed_melee", "human", "humanoid", "lightning_affinity", "melee", "not_dex", "not_str", "physical_affinity", "plate_armour", "puncturing_weapon", "ranged", "red_blood", "Unarmed_onhit_audio", "very_slow_movement", },
@@ -8710,6 +9096,7 @@ minions["Metadata/Monsters/VaalMonsters/Living/VaalArchivistLiving"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/VaalMonsters/Living/Beasts/VaalJaguar"] = {
 	name = "Loyal Jaguar",
 	monsterTags = { "beast", "Claw_onhit_audio", "medium_movement", "melee", "not_int", "physical_affinity", "red_blood", },
@@ -8740,6 +9127,7 @@ minions["Metadata/Monsters/VaalMonsters/Living/Beasts/VaalJaguar"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/VaalMonsters/Living/Minions/VaalJaguarMinion"] = {
 	name = "Jaguar Familiar",
 	monsterTags = { "beast", "Claw_onhit_audio", "medium_movement", "melee", "not_int", "physical_affinity", "red_blood", },
@@ -8770,6 +9158,7 @@ minions["Metadata/Monsters/VaalMonsters/Living/Minions/VaalJaguarMinion"] = {
 		-- MonsterNoDropsOrExperience [monster_no_drops_or_experience = 1]
 	},
 }
+
 minions["Metadata/Monsters/VaalMonsters/Living/Minions/VaalSnakeMinion"] = {
 	name = "Serpentine Familiar",
 	monsterTags = { "beast", "fast_movement", "not_int", "not_str", "red_blood", "reptile_beast", "Stab_onhit_audio", },
@@ -8797,6 +9186,7 @@ minions["Metadata/Monsters/VaalMonsters/Living/Minions/VaalSnakeMinion"] = {
 		-- MonsterNoDropsOrExperience [monster_no_drops_or_experience = 1]
 	},
 }
+
 minions["Metadata/Monsters/VaalMonsters/Living/Minions/VaalMonkeyMinion_"] = {
 	name = "Primal Familiar",
 	monsterTags = { "animal_claw_weapon", "beast", "cannot_be_map_archnemesis", "Claw_onhit_audio", "fast_movement", "flesh_armour", "is_unarmed", "mammal_beast", "melee", "not_int", "not_str", "physical_affinity", "ranged", "red_blood", "small_height", },
@@ -8826,6 +9216,7 @@ minions["Metadata/Monsters/VaalMonsters/Living/Minions/VaalMonkeyMinion_"] = {
 		-- MonsterNoDropsOrExperience [monster_no_drops_or_experience = 1]
 	},
 }
+
 minions["Metadata/Monsters/SerpentHusk/snakes/SerpentHuskSnake"] = {
 	name = "Snake",
 	monsterTags = { "beast", "not_int", "not_str", "red_blood", "reptile_beast", "Stab_onhit_audio", "very_slow_movement", },
@@ -8853,6 +9244,7 @@ minions["Metadata/Monsters/SerpentHusk/snakes/SerpentHuskSnake"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/Procession/ProcessionAxeShield"] = {
 	name = "Vaal Embalmed Axeman",
 	monsterTags = { "1HSword_onhit_audio", "humanoid", "medium_movement", "melee", "monster_blocks_damage", "not_dex", "not_int", "physical_affinity", "red_blood", "undead", },
@@ -8885,6 +9277,7 @@ minions["Metadata/Monsters/Procession/ProcessionAxeShield"] = {
 		mod("BlockEffect", "BASE", 15, 0, 0), -- MonsterAttackBlock30Bypass15 [base_block_%_damage_taken = 15]
 	},
 }
+
 minions["Metadata/Monsters/Procession/ProcessionSpear_"] = {
 	name = "Vaal Embalmed Spearman",
 	monsterTags = { "fast_movement", "humanoid", "melee", "physical_affinity", "red_blood", "Stab_onhit_audio", "undead", },
@@ -8913,6 +9306,7 @@ minions["Metadata/Monsters/Procession/ProcessionSpear_"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/Procession/ProcessionDagger"] = {
 	name = "Vaal Embalmed Rogue",
 	monsterTags = { "fast_movement", "humanoid", "melee", "physical_affinity", "red_blood", "Stab_onhit_audio", "undead", },
@@ -8941,6 +9335,7 @@ minions["Metadata/Monsters/Procession/ProcessionDagger"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/Procession/ProcessionBow"] = {
 	name = "Vaal Embalmed Archer",
 	monsterTags = { "allows_additional_projectiles", "allows_inc_aoe", "Arrow_onhit_audio", "fire_affinity", "humanoid", "medium_movement", "physical_affinity", "ranged", "red_blood", "undead", },
@@ -8973,6 +9368,7 @@ minions["Metadata/Monsters/Procession/ProcessionBow"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/Procession/ProcessionBanner"] = {
 	name = "Vaal Embalmed Bearer",
 	monsterTags = { "aura_bearer", "humanoid", "medium_movement", "not_dex", "not_str", "physical_affinity", "red_blood", "Unarmed_onhit_audio", "undead", },
@@ -9001,6 +9397,7 @@ minions["Metadata/Monsters/Procession/ProcessionBanner"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/GoldenOnes/GoldenOnesTwoHandSword"] = {
 	name = "Gold-Melted Shambler",
 	monsterTags = { "2HSharpMetal_onhit_audio", "bones", "humanoid", "melee", "monster_barely_moves", "not_dex", "not_int", "physical_affinity", "skeleton", "undead", "very_slow_movement", },
@@ -9030,6 +9427,7 @@ minions["Metadata/Monsters/GoldenOnes/GoldenOnesTwoHandSword"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/DrownedCrew/DrownedCrewSword_"] = {
 	name = "Drowned Explorer",
 	monsterTags = { "1HSword_onhit_audio", "humanoid", "melee", "monster_barely_moves", "physical_affinity", "skeleton", "undead", "very_slow_movement", },
@@ -9059,6 +9457,7 @@ minions["Metadata/Monsters/DrownedCrew/DrownedCrewSword_"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/DrownedCrew/DrownedCrewGhost"] = {
 	name = "Drowned Spectre",
 	monsterTags = { "fast_movement", "humanoid", "not_dex", "not_str", "skeleton", "Unarmed_onhit_audio", "undead", "water", },
@@ -9093,6 +9492,7 @@ minions["Metadata/Monsters/DrownedCrew/DrownedCrewGhost"] = {
 		-- MonsterNoDropsOrExperience [monster_no_drops_or_experience = 1]
 	},
 }
+
 minions["Metadata/Monsters/DrownedCrew/DrownedCrewFigurehead"] = {
 	name = "Drowned Bearer",
 	monsterTags = { "2HBluntWood_onhit_audio", "undead", "very_slow_movement", "zombie", },
@@ -9121,6 +9521,7 @@ minions["Metadata/Monsters/DrownedCrew/DrownedCrewFigurehead"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/VaalForgeMan/VaalForgeMan"] = {
 	name = "Gold-melted Blacksmith",
 	monsterTags = { "2HBluntWood_onhit_audio", "allows_inc_aoe", "construct", "fast_movement", "humanoid", "melee", "mud_blood", "not_dex", "not_int", "physical_affinity", "very_fast_movement", },
@@ -9155,6 +9556,7 @@ minions["Metadata/Monsters/VaalForgeMan/VaalForgeMan"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/DrownedCrawler/DrownedCrawler__"] = {
 	name = "Drowned Crawler",
 	monsterTags = { "fast_movement", "humanoid", "melee", "not_int", "not_str", "physical_affinity", "Unarmed_onhit_audio", "undead", "very_fast_movement", },
@@ -9188,9 +9590,13 @@ minions["Metadata/Monsters/DrownedCrawler/DrownedCrawler__"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/LiquidElementals/LiquidElementalBlood"] = {
 	name = "Blood Elemental",
 	monsterTags = { "construct", "medium_movement", "not_int", "not_str", "red_blood", "Unarmed_onhit_audio", "water_elemental", },
+	extraFlags = {
+		recommendedSpectre = true,
+	},
 	life = 3.38,
 	baseDamageIgnoresAttackSpeed = true,
 	evasion = 0.6,
@@ -9216,6 +9622,7 @@ minions["Metadata/Monsters/LiquidElementals/LiquidElementalBlood"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/BloodBathers/BloodBatherDualWield/BloodBatherDualWield"] = {
 	name = "Bloodrite Guard",
 	monsterTags = { "2HSharpMetal_onhit_audio", "cultist", "human", "humanoid", "medium_movement", "melee", "not_int", "not_str", "physical_damage", "red_blood", },
@@ -9249,9 +9656,13 @@ minions["Metadata/Monsters/BloodBathers/BloodBatherDualWield/BloodBatherDualWiel
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/BloodBathers/VaalApparition/SunVaalApparition"] = {
 	name = "Priest of the Sun",
 	monsterTags = { "allows_additional_projectiles", "caster", "cultist", "fire_affinity", "flying", "ghost", "medium_movement", "not_dex", "not_str", "ranged", "red_blood", "Unarmed_onhit_audio", "undead", },
+	extraFlags = {
+		recommendedSpectre = true,
+	},
 	life = 2,
 	baseDamageIgnoresAttackSpeed = true,
 	energyShield = 0.2,
@@ -9279,9 +9690,13 @@ minions["Metadata/Monsters/BloodBathers/VaalApparition/SunVaalApparition"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/BloodCultistDrones/BloodBatherMage"] = {
 	name = "Bloodrite Priest",
 	monsterTags = { "1HSword_onhit_audio", "allows_additional_projectiles", "caster", "cultist", "human", "humanoid", "medium_movement", "not_dex", "not_str", "physical_affinity", "red_blood", },
+	extraFlags = {
+		recommendedSpectre = true,
+	},
 	life = 1.7,
 	baseDamageIgnoresAttackSpeed = true,
 	energyShield = 0.2,
@@ -9310,6 +9725,7 @@ minions["Metadata/Monsters/BloodCultistDrones/BloodBatherMage"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/AscendancyBatMonster/AscendancyBat"] = {
 	name = "Feral Bat",
 	monsterTags = { "beast", "Claw_onhit_audio", "fast_movement", "flying", "mammal_beast", "red_blood", },
@@ -9335,6 +9751,7 @@ minions["Metadata/Monsters/AscendancyBatMonster/AscendancyBat"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/VaalConstructs/Ball/VaalBowlingBall"] = {
 	name = "Flame Sentry",
 	monsterTags = { "2HBluntMetal_onhit_audio", "construct", "fire_affinity", "medium_movement", "mud_blood", "not_dex", "ranged", },
@@ -9364,6 +9781,7 @@ minions["Metadata/Monsters/VaalConstructs/Ball/VaalBowlingBall"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/VaalMonsters/Living/VaalAxeThrower_"] = {
 	name = "Vaal Axeman",
 	monsterTags = { "2HSharpMetal_onhit_audio", "allows_additional_projectiles", "fast_movement", "human", "humanoid", "melee", "not_int", "not_str", "physical_affinity", "ranged", "red_blood", },
@@ -9395,6 +9813,7 @@ minions["Metadata/Monsters/VaalMonsters/Living/VaalAxeThrower_"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/CauldronCrone/CauldronCrone"] = {
 	name = "Filthy Crone",
 	monsterTags = { "caster", "flying", "humanoid", "medium_movement", "not_dex", "physical_affinity", "ranged", "red_blood", "Unarmed_onhit_audio", },
@@ -9433,6 +9852,7 @@ minions["Metadata/Monsters/CauldronCrone/CauldronCrone"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/Pirates/PirateBootyBlaster"] = {
 	name = "Rotting Soulcatcher",
 	monsterTags = { "humanoid", "not_dex", "not_str", "Unarmed_onhit_audio", "undead", "very_slow_movement", "zombie", },
@@ -9465,6 +9885,7 @@ minions["Metadata/Monsters/Pirates/PirateBootyBlaster"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/ManOWar/ManoWar"] = {
 	name = "Man o' War",
 	monsterTags = { "not_dex", "not_str", "skeleton", "Unarmed_onhit_audio", "undead", "very_slow_movement", "water", },
@@ -9498,6 +9919,7 @@ minions["Metadata/Monsters/ManOWar/ManoWar"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/Pirates/PirateCannon"] = {
 	name = "Rotting Cannoneer",
 	monsterTags = { "humanoid", "skeleton", "Unarmed_onhit_audio", "undead", "very_slow_movement", },
@@ -9526,6 +9948,7 @@ minions["Metadata/Monsters/Pirates/PirateCannon"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/Pirates/PirateGrenade"] = {
 	name = "Rotting Grenadier",
 	monsterTags = { "humanoid", "skeleton", "slow_movement", "Unarmed_onhit_audio", "undead", },
@@ -9557,6 +9980,7 @@ minions["Metadata/Monsters/Pirates/PirateGrenade"] = {
 		-- SpectrePlayDeathAction [is_spectre_with_death_action = 1]
 	},
 }
+
 minions["Metadata/Monsters/Pirates/PirateBarrel"] = {
 	name = "Rotting Demolitionist",
 	monsterTags = { "humanoid", "skeleton", "slow_movement", "StaffWood_onhit_audio", "undead", },
@@ -9587,6 +10011,7 @@ minions["Metadata/Monsters/Pirates/PirateBarrel"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/Anchorman/BloatedAnchorman"] = {
 	name = "Bloated Anchorman",
 	monsterTags = { "2HBluntMetal_onhit_audio", "humanoid", "not_dex", "not_int", "undead", "very_slow_movement", "zombie", },
@@ -9621,6 +10046,7 @@ minions["Metadata/Monsters/Anchorman/BloatedAnchorman"] = {
 		-- SpectrePlayDeathAction [is_spectre_with_death_action = 1]
 	},
 }
+
 minions["Metadata/Monsters/KelpDreg/KelpDregSword"] = {
 	name = "Searot Skeleton",
 	monsterTags = { "1HSword_onhit_audio", "not_dex", "not_int", "skeleton", "undead", "very_slow_movement", },
@@ -9649,6 +10075,7 @@ minions["Metadata/Monsters/KelpDreg/KelpDregSword"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/KelpDreg/KelpDregCrossbowSniper"] = {
 	name = "Searot Harpooner",
 	monsterTags = { "Arrow_onhit_audio", "not_dex", "not_int", "skeleton", "undead", "very_slow_movement", },
@@ -9678,6 +10105,7 @@ minions["Metadata/Monsters/KelpDreg/KelpDregCrossbowSniper"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/KelpDreg/KelpDregCrossbowEnsarer"] = {
 	name = "Searot Ensnarer",
 	monsterTags = { "Arrow_onhit_audio", "not_dex", "not_int", "skeleton", "undead", "very_slow_movement", },
@@ -9706,6 +10134,7 @@ minions["Metadata/Monsters/KelpDreg/KelpDregCrossbowEnsarer"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/KelpDreg/KelpDregCrossbowIceShot"] = {
 	name = "Searot Sniper",
 	monsterTags = { "Arrow_onhit_audio", "not_dex", "not_int", "skeleton", "undead", "very_slow_movement", },
@@ -9734,6 +10163,7 @@ minions["Metadata/Monsters/KelpDreg/KelpDregCrossbowIceShot"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/VaalHumanoids/VaalHumanoidGoliathFist/VaalHumanoidGoliathFist_"] = {
 	name = "Goliath Transcendent",
 	monsterTags = { "allows_additional_projectiles", "allows_inc_aoe", "construct", "humanoid", "lightning_affinity", "medium_movement", "melee", "not_dex", "physical_affinity", "ranged", "red_blood", "Unarmed_onhit_audio", },
@@ -9766,6 +10196,7 @@ minions["Metadata/Monsters/VaalHumanoids/VaalHumanoidGoliathFist/VaalHumanoidGol
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/VaalHumanoids/VaalHumanoidPyramidHands/VaalPyramidHands"] = {
 	name = "Brutal Transcendent",
 	monsterTags = { "2HBluntWood_onhit_audio", "allows_additional_projectiles", "allows_inc_aoe", "construct", "humanoid", "lightning_affinity", "medium_movement", "not_dex", "ranged", "red_blood", },
@@ -9797,6 +10228,7 @@ minions["Metadata/Monsters/VaalHumanoids/VaalHumanoidPyramidHands/VaalPyramidHan
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/VaalHumanoids/VaalHumanoidShieldLegs/VallHumanoidShieldLegs"] = {
 	name = "Shielded Transcendent",
 	monsterTags = { "1HSword_onhit_audio", "allows_additional_projectiles", "allows_inc_aoe", "construct", "humanoid", "lightning_affinity", "medium_movement", "not_dex", "ranged", "red_blood", },
@@ -9833,6 +10265,7 @@ minions["Metadata/Monsters/VaalHumanoids/VaalHumanoidShieldLegs/VallHumanoidShie
 		-- ElderEnergyShieldStartsAtZero [start_at_zero_energy_shield = 1]
 	},
 }
+
 minions["Metadata/Monsters/VaalHumanoids/VaalHumanoidSwordShield/VaalHumanoidSwordShield_"] = {
 	name = "Fused Swordsman",
 	monsterTags = { "1HSword_onhit_audio", "construct", "humanoid", "medium_movement", "melee", "monster_blocks_damage", "not_dex", "physical_affinity", "red_blood", },
@@ -9867,6 +10300,7 @@ minions["Metadata/Monsters/VaalHumanoids/VaalHumanoidSwordShield/VaalHumanoidSwo
 		mod("BlockEffect", "BASE", 20, 0, 0), -- MonsterAttackBlock40Bypass20 [base_block_%_damage_taken = 20]
 	},
 }
+
 minions["Metadata/Monsters/VaalHumanoids/VaalHumanoidCannon/VaalHumanoidCannonFire"] = {
 	name = "Doryani's Elite",
 	monsterTags = { "allows_additional_projectiles", "allows_inc_aoe", "construct", "fast_movement", "fire_affinity", "humanoid", "not_int", "ranged", "red_blood", "Unarmed_onhit_audio", },
@@ -9903,6 +10337,7 @@ minions["Metadata/Monsters/VaalHumanoids/VaalHumanoidCannon/VaalHumanoidCannonFi
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/VaalHumanoids/VaalHumanoidCannon/VaalHumanoidCannonLightningSkitterMine_"] = {
 	name = "Skitter Mine",
 	monsterTags = { "2HBluntMetal_onhit_audio", "caster", "construct", "fast_movement", "golem", "is_unarmed", "metal_armour", "mud_blood", "no_final_gasp", "no_shroud_walker", "not_dex", "uses_suicide_explode", "vaal", "very_fast_movement", },
@@ -9930,6 +10365,7 @@ minions["Metadata/Monsters/VaalHumanoids/VaalHumanoidCannon/VaalHumanoidCannonLi
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/VaalConstructs/Colossus/VaalColossusMetal"] = {
 	name = "Steel Colossus",
 	monsterTags = { "2HBluntMetal_onhit_audio", "construct", "not_dex", "not_int", "very_slow_movement", },
@@ -9957,6 +10393,7 @@ minions["Metadata/Monsters/VaalConstructs/Colossus/VaalColossusMetal"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/VaalHumanoids/VaalHumanoidBladeHands/VaalHumanoidBladeHands"] = {
 	name = "Warrior Transcendent",
 	monsterTags = { "2HSharpMetal_onhit_audio", "construct", "fast_movement", "humanoid", "melee", "physical_affinity", "red_blood", "vaal", "very_fast_movement", },
@@ -9987,9 +10424,13 @@ minions["Metadata/Monsters/VaalHumanoids/VaalHumanoidBladeHands/VaalHumanoidBlad
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/VaalHumanoids/VaalHumanoidStalker/VaalHumanoidStalker"] = {
 	name = "Bladelash Transcendent",
 	monsterTags = { "2HSharpMetal_onhit_audio", "construct", "fast_movement", "humanoid", "melee", "physical_affinity", "red_blood", "vaal", "very_fast_movement", },
+	extraFlags = {
+		recommendedSpectre = true,
+	},
 	life = 1.3,
 	baseDamageIgnoresAttackSpeed = true,
 	energyShield = 0.05,
@@ -10019,6 +10460,7 @@ minions["Metadata/Monsters/VaalHumanoids/VaalHumanoidStalker/VaalHumanoidStalker
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/HarpyMonster/GullHarpy"] = {
 	name = "Gull Shrike",
 	monsterTags = { "avian_beast", "beast", "demon", "flying", "humanoid", "not_int", "red_blood", "slow_movement", "Unarmed_onhit_audio", },
@@ -10047,6 +10489,7 @@ minions["Metadata/Monsters/HarpyMonster/GullHarpy"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/CageSkeleton/CageSkeleton_"] = {
 	name = "Rattling Gibbet",
 	monsterTags = { "1HSword_onhit_audio", "not_dex", "not_int", "skeleton", "undead", "very_slow_movement", },
@@ -10075,6 +10518,7 @@ minions["Metadata/Monsters/CageSkeleton/CageSkeleton_"] = {
 		-- MonsterNecromancerRaisable [undead_description = 1]
 	},
 }
+
 minions["Metadata/Monsters/SkeletonProwler/SkeletonProwler_"] = {
 	name = "Prowling Skeleton",
 	monsterTags = { "fast_movement", "not_dex", "not_int", "skeleton", "Unarmed_onhit_audio", "undead", },
@@ -10102,6 +10546,7 @@ minions["Metadata/Monsters/SkeletonProwler/SkeletonProwler_"] = {
 		-- MonsterNecromancerRaisable [undead_description = 1]
 	},
 }
+
 minions["Metadata/Monsters/RatMonster/RatMonsterPrison"] = {
 	name = "Eaten Rat",
 	monsterTags = { "beast", "fast_movement", "mammal_beast", "not_int", "red_blood", "Snap_onhit_audio", "undead", },
@@ -10131,6 +10576,7 @@ minions["Metadata/Monsters/RatMonster/RatMonsterPrison"] = {
 		-- MonsterNecromancerRaisable [undead_description = 1]
 	},
 }
+
 minions["Metadata/Monsters/Zombies/UpperPrison/PrisonZombieUnarmed_"] = {
 	name = "Eternal Prisoner",
 	monsterTags = { "not_dex", "not_int", "Unarmed_onhit_audio", "undead", "very_slow_movement", "zombie", },
@@ -10159,170 +10605,7 @@ minions["Metadata/Monsters/Zombies/UpperPrison/PrisonZombieUnarmed_"] = {
 		-- MonsterNecromancerRaisable [undead_description = 1]
 	},
 }
-minions["Metadata/Monsters/ElephantRhino/ElephantRhino"] = {
-	name = "Elephant Tortoise",
-	monsterTags = { "beast", "fast_movement", "mammal_beast", "MonsterBlunt_onhit_audio", "not_dex", "not_int", "red_blood", },
-	life = 3.5,
-	baseDamageIgnoresAttackSpeed = true,
-	armour = 1,
-	fireResist = 0,
-	coldResist = 0,
-	lightningResist = 0,
-	chaosResist = 0,
-	damage = 2.45,
-	damageSpread = 0.2,
-	attackTime = 2.145,
-	attackRange = 30,
-	accuracy = 1,
-	spectreReservation = 180,
-	companionReservation = 56.1,
-	monsterCategory = "Beast",
-	spawnLocation = {
-	},
-	skillList = {
-		"MeleeAtAnimationSpeed",
-		"EASRhinoElephant180RightSlam",
-		"EASRhinoElephant45LeftAttack",
-		"EASRhinoElephant45RightAttack",
-		"EASRhinoElephant90LeftAttack",
-		"EASRhinoElephant90RightAttack",
-		"EASRhinoElephant90LeftSlam",
-		"EASRhinoElephant90RightSlam",
-		"EASRhinoElephantDoubleSwipe",
-		"EASRhinoElephantGroundSlam",
-		"EASRhinoElephant90Left",
-		"EASRhinoElephant90Right",
-		"EASRhinoElephant45Left",
-		"EASRhinoElephant45Right",
-		"GAElephantRhinoStomp",
-		"GAElephantRhinoSwipe",
-		"GAElephantRhinoCascade",
-	},
-	modList = {
-	},
-}
-minions["Metadata/Monsters/Goblins/GoblinSpearman/GoblinSpearman"] = {
-	name = "Spearbearer Kin",
-	monsterTags = { "humanoid", "medium_movement", "not_int", "red_blood", "Stab_onhit_audio", },
-	life = 0.75,
-	baseDamageIgnoresAttackSpeed = true,
-	armour = 0.5,
-	evasion = 0.25,
-	fireResist = 0,
-	coldResist = 0,
-	lightningResist = 0,
-	chaosResist = 0,
-	damage = 0.75,
-	damageSpread = 0.2,
-	attackTime = 1.2,
-	attackRange = 12,
-	accuracy = 1,
-	weaponType1 = "Spear",
-	spectreReservation = 40,
-	companionReservation = 26.1,
-	monsterCategory = "Humanoid",
-	spawnLocation = {
-	},
-	skillList = {
-		"MeleeAtAnimationSpeedComboTEMP",
-		"EASGoblinDance",
-		"MPWGoblinSpearThrow",
-	},
-	modList = {
-	},
-}
-minions["Metadata/Monsters/Goblins/GoblinTusker/GoblinTusker"] = {
-	name = "Tuskbearer Kin",
-	monsterTags = { "humanoid", "medium_movement", "not_dex", "not_int", "red_blood", "SpearMetal_onhit_audio", },
-	life = 0.9,
-	baseDamageIgnoresAttackSpeed = true,
-	armour = 0.5,
-	fireResist = 0,
-	coldResist = 0,
-	lightningResist = 0,
-	chaosResist = 0,
-	damage = 0.9,
-	damageSpread = 0.2,
-	attackTime = 1.5,
-	attackRange = 12,
-	accuracy = 1,
-	weaponType1 = "Spear",
-	weaponType2 = "Spear",
-	spectreReservation = 50,
-	companionReservation = 28.5,
-	monsterCategory = "Humanoid",
-	spawnLocation = {
-	},
-	skillList = {
-		"MeleeAtAnimationSpeed",
-		"EASGoblinDance",
-	},
-	modList = {
-	},
-}
-minions["Metadata/Monsters/Goblins/GoblinShaman/GoblinShaman"] = {
-	name = "Shaman Kin",
-	monsterTags = { "caster", "Elemental_onhit_audio", "humanoid", "medium_movement", "not_str", "red_blood", },
-	life = 1,
-	baseDamageIgnoresAttackSpeed = true,
-	energyShield = 0.4,
-	evasion = 0.15,
-	fireResist = 0,
-	coldResist = 0,
-	lightningResist = 0,
-	chaosResist = 0,
-	damage = 1.25,
-	damageSpread = 0.2,
-	attackTime = 1.5,
-	attackRange = 14,
-	accuracy = 1,
-	weaponType1 = "Wand",
-	spectreReservation = 60,
-	companionReservation = 33.6,
-	monsterCategory = "Humanoid",
-	spawnLocation = {
-	},
-	skillList = {
-		"MPSGoblinShamanBasicProj",
-		"SOGoblinVoltaxicStorm",
-		"GSGoblinVoltaxicStorm",
-		"GTGoblinVoltaxicStorm",
-		"GTGoblinVoltaxicStormLesser",
-		"GTGoblinVoltaxicStormGreater",
-		"EASGoblinDance",
-	},
-	modList = {
-	},
-}
-minions["Metadata/Monsters/Goblins/GoblinMiner/GoblinMiner"] = {
-	name = "Prospector Kin",
-	monsterTags = { "fast_movement", "humanoid", "not_int", "red_blood", "SpearWood_onhit_audio", },
-	life = 0.65,
-	baseDamageIgnoresAttackSpeed = true,
-	armour = 0.25,
-	evasion = 0.25,
-	fireResist = 0,
-	coldResist = 0,
-	lightningResist = 0,
-	chaosResist = 0,
-	damage = 0.65,
-	damageSpread = 0.2,
-	attackTime = 1.5,
-	attackRange = 9,
-	accuracy = 1,
-	weaponType1 = "One Handed Mace",
-	spectreReservation = 30,
-	companionReservation = 24.3,
-	monsterCategory = "Humanoid",
-	spawnLocation = {
-	},
-	skillList = {
-		"MeleeAtAnimationSpeed",
-		"MPSGoblinMinerRockThrow",
-	},
-	modList = {
-	},
-}
+
 minions["Metadata/Monsters/TentacleDemonFemale/TentacleWhipper"] = {
 	name = "Ghastly Siren",
 	monsterTags = { "beast", "humanoid", "not_int", "red_blood", "Unarmed_onhit_audio", "very_slow_movement", },
@@ -10352,6 +10635,7 @@ minions["Metadata/Monsters/TentacleDemonFemale/TentacleWhipper"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/BrineMaiden/BrineMaiden"] = {
 	name = "Brine Maiden",
 	monsterTags = { "beast", "Beast_onhit_audio", "humanoid", "medium_movement", "not_str", "red_blood", },
@@ -10384,6 +10668,7 @@ minions["Metadata/Monsters/BrineMaiden/BrineMaiden"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/RootedGuys/RootedGuy04/RaisedBranchMonster"] = {
 	name = "Cultivated Grove",
 	monsterTags = { "beast", "humanoid", "insect", "not_dex", "not_int", "Unarmed_onhit_audio", "very_slow_movement", },
@@ -10412,6 +10697,7 @@ minions["Metadata/Monsters/RootedGuys/RootedGuy04/RaisedBranchMonster"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/Baron/BaronWerewolfSummon"] = {
 	name = "Court Werewolf",
 	monsterTags = { "beast", "Beast_onhit_audio", "fast_movement", "humanoid", "mammal_beast", "not_int", "not_str", "red_blood", },
@@ -10442,6 +10728,7 @@ minions["Metadata/Monsters/Baron/BaronWerewolfSummon"] = {
 		-- BossMinionFlaskChargeIncrease400 [monster_slain_flask_charges_granted_+% = 400]
 	},
 }
+
 minions["Metadata/Monsters/ScarecrowBeast/ScarecrowBeast"] = {
 	name = "Scarecrow Beast",
 	monsterTags = { "2HSharpMetal_onhit_audio", "allows_inc_aoe", "beast", "humanoid", "mammal_beast", "melee", "physical_affinity", "red_blood", "very_slow_movement", },
@@ -10476,6 +10763,7 @@ minions["Metadata/Monsters/ScarecrowBeast/ScarecrowBeast"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/FallenGods/FallenGodsStalkerFoundry_"] = {
 	name = "Forgotten Stalker",
 	monsterTags = { "demon", "fast_movement", "melee", "not_int", "physical_affinity", "red_blood", "Unarmed_onhit_audio", "very_fast_movement", },
@@ -10508,6 +10796,7 @@ minions["Metadata/Monsters/FallenGods/FallenGodsStalkerFoundry_"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/FallenGods/FallenGodsCrawlerFoundry_"] = {
 	name = "Forgotten Crawler",
 	monsterTags = { "demon", "fast_movement", "lightning_affinity", "melee", "not_int", "not_str", "ranged", "red_blood", "Unarmed_onhit_audio", "very_fast_movement", },
@@ -10539,6 +10828,7 @@ minions["Metadata/Monsters/FallenGods/FallenGodsCrawlerFoundry_"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/FallenGods/FallenHooksFoundry"] = {
 	name = "Forgotten Satyr",
 	monsterTags = { "Claw_onhit_audio", "demon", "fast_movement", "humanoid", "melee", "not_int", "physical_affinity", "red_blood", "skeleton", },
@@ -10571,6 +10861,7 @@ minions["Metadata/Monsters/FallenGods/FallenHooksFoundry"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/FallenGods/FallenGodsBloater_"] = {
 	name = "Forgotten Mauler",
 	monsterTags = { "Beast_onhit_audio", "demon", "not_dex", "not_int", "slow_movement", },
@@ -10600,6 +10891,7 @@ minions["Metadata/Monsters/FallenGods/FallenGodsBloater_"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/FallenGods/FallenStag"] = {
 	name = "Forgotten Stag",
 	monsterTags = { "beast", "Beast_onhit_audio", "demon", "fast_movement", "not_dex", "not_int", "red_blood", "skeleton", },
@@ -10630,6 +10922,7 @@ minions["Metadata/Monsters/FallenGods/FallenStag"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/SpinningWheelHag/SpinningWheelHag"] = {
 	name = "Wheelbound Hag",
 	monsterTags = { "Claw_onhit_audio", "humanoid", "melee", "not_dex", "not_str", "physical_affinity", "red_blood", "very_slow_movement", },
@@ -10657,6 +10950,7 @@ minions["Metadata/Monsters/SpinningWheelHag/SpinningWheelHag"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/RatMonster/RatMonsterCistern"] = {
 	name = "Sewer Rat",
 	monsterTags = { "beast", "Beast_onhit_audio", "fast_movement", "mammal_beast", "not_int", "red_blood", "rodent", "rodent_beast", },
@@ -10686,6 +10980,7 @@ minions["Metadata/Monsters/RatMonster/RatMonsterCistern"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/SummonedPhantasm/HusbandWifeSpirits"] = {
 	name = "Captured Soul",
 	monsterTags = { "ghost", "ghost_blood", "Unarmed_onhit_audio", "undead", "very_slow_movement", },
@@ -10712,6 +11007,7 @@ minions["Metadata/Monsters/SummonedPhantasm/HusbandWifeSpirits"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/RabidFeralDogMonster/RabidDog"] = {
 	name = "Rabid Dog",
 	monsterTags = { "beast", "mammal_beast", "melee", "not_int", "not_str", "physical_affinity", "red_blood", "Snap_onhit_audio", "very_slow_movement", },
@@ -10740,6 +11036,7 @@ minions["Metadata/Monsters/RabidFeralDogMonster/RabidDog"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/KaruiBoar/ExplosivePig"] = {
 	name = "Volatile Boar",
 	monsterTags = { "beast", "Beast_onhit_audio", "mammal_beast", "medium_movement", "red_blood", },
@@ -10768,6 +11065,7 @@ minions["Metadata/Monsters/KaruiBoar/ExplosivePig"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/Ghouls/FarudinCrawler"] = {
 	name = "Faridun Crawler",
 	monsterTags = { "Claw_onhit_audio", "fast_movement", "humanoid", "melee", "not_int", "physical_affinity", "undead", "very_fast_movement", "zombie", },
@@ -10802,9 +11100,13 @@ minions["Metadata/Monsters/Ghouls/FarudinCrawler"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/DrudgeMiners/DrudgeBedrockBlaster"] = {
 	name = "Forsaken Miner",
 	monsterTags = { "allows_additional_projectiles", "allows_inc_aoe", "fire_affinity", "humanoid", "monster_barely_moves", "ranged", "red_blood", "Unarmed_onhit_audio", "undead", "very_slow_movement", "zombie", },
+	extraFlags = {
+		recommendedSpectre = true,
+	},
 	life = 1,
 	baseDamageIgnoresAttackSpeed = true,
 	fireResist = 30,
@@ -10835,6 +11137,7 @@ minions["Metadata/Monsters/DrudgeMiners/DrudgeBedrockBlaster"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/TitanWalker/TitanWalker"] = {
 	name = "Walking Goliath",
 	monsterTags = { "allows_inc_aoe", "bones", "melee", "physical_affinity", "skeleton", "Unarmed_onhit_audio", "undead", "very_slow_movement", },
@@ -10866,6 +11169,7 @@ minions["Metadata/Monsters/TitanWalker/TitanWalker"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/SkeletalKnight/SkeletalKnight"] = {
 	name = "Eternal Knight",
 	monsterTags = { "2HSharpMetal_onhit_audio", "allows_additional_projectiles", "allows_inc_aoe", "bones", "humanoid", "melee", "monster_blocks_damage", "not_dex", "not_int", "physical_affinity", "skeleton", "undead", "very_slow_movement", },
@@ -10899,9 +11203,10 @@ minions["Metadata/Monsters/SkeletalKnight/SkeletalKnight"] = {
 	},
 	modList = {
 		mod("BlockChance", "BASE", 100, 0, 0), -- MonsterBlock100 [monster_base_block_% = 100]
-		-- MonsterBlock100 [additional_maximum_block_% = 25]
+		mod("BlockChanceMax", "BASE", 25, 0, 0), -- MonsterBlock100 [additional_maximum_block_% = 25]
 	},
 }
+
 minions["Metadata/Monsters/SkeletalReaper/SkeletalReaper"] = {
 	name = "Knight-Gaunt",
 	monsterTags = { "1HSword_onhit_audio", "bones", "humanoid", "melee", "not_dex", "not_int", "physical_affinity", "skeleton", "undead", "very_slow_movement", },
@@ -10934,6 +11239,7 @@ minions["Metadata/Monsters/SkeletalReaper/SkeletalReaper"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/VaseMonster/VaseMonster_"] = {
 	name = "Urnwalker",
 	monsterTags = { "construct", "melee", "not_dex", "not_int", "physical_affinity", "ranged", "Unarmed_onhit_audio", "undead", "very_slow_movement", },
@@ -10964,6 +11270,7 @@ minions["Metadata/Monsters/VaseMonster/VaseMonster_"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/UndeadMarakethPriest/UndeadMarakethPriest"] = {
 	name = "Risen Tale-woman",
 	monsterTags = { "allows_additional_projectiles", "allows_inc_aoe", "caster", "fire_affinity", "human", "humanoid", "melee", "not_str", "red_blood", "SpearMetal_onhit_audio", "undead", "very_slow_movement", },
@@ -10998,6 +11305,7 @@ minions["Metadata/Monsters/UndeadMarakethPriest/UndeadMarakethPriest"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/Zombies/CourtGuardZombieAxe"] = {
 	name = "Rotting Guard",
 	monsterTags = { "not_dex", "not_int", "Unarmed_onhit_audio", "undead", "very_slow_movement", "zombie", },
@@ -11025,6 +11333,7 @@ minions["Metadata/Monsters/Zombies/CourtGuardZombieAxe"] = {
 		-- MonsterNecromancerRaisable [undead_description = 1]
 	},
 }
+
 minions["Metadata/Monsters/ChaosGodRangedFodder/ChaosGodRangedFodder_"] = {
 	name = "Petulant Stonemaw",
 	monsterTags = { "beast", "Claw_onhit_audio", "mammal_beast", "melee", "not_int", "physical_affinity", "quest_null_monster_mods", "red_blood", "very_slow_movement", },
@@ -11053,6 +11362,7 @@ minions["Metadata/Monsters/ChaosGodRangedFodder/ChaosGodRangedFodder_"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/ChaosGodJaguar/ChaosGodJaguar_"] = {
 	name = "Scute Lizard",
 	monsterTags = { "beast", "Claw_onhit_audio", "feline_beast", "medium_movement", "melee", "not_int", "not_str", "physical_affinity", "quest_null_monster_mods", "red_blood", },
@@ -11080,9 +11390,13 @@ minions["Metadata/Monsters/ChaosGodJaguar/ChaosGodJaguar_"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/ChaosGodTriHeadBat/ChaosGodTri-headBat_"] = {
 	name = "Cerberic Bat",
 	monsterTags = { "allows_inc_aoe", "beast", "Claw_onhit_audio", "mammal_beast", "melee", "not_str", "physical_affinity", "quest_null_monster_mods", "ranged", "red_blood", "very_slow_movement", },
+	extraFlags = {
+		recommendedBeast = true,
+	},
 	life = 1.85,
 	baseDamageIgnoresAttackSpeed = true,
 	energyShield = 0.11,
@@ -11117,6 +11431,7 @@ minions["Metadata/Monsters/ChaosGodTriHeadBat/ChaosGodTri-headBat_"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/ChaosGodGorilla/ChaosGodGorilla_"] = {
 	name = "Stoneclad Gorilla",
 	monsterTags = { "allows_inc_aoe", "beast", "Claw_onhit_audio", "fast_movement", "melee", "not_dex", "not_int", "physical_affinity", "primate_beast", "quest_null_monster_mods", "red_blood", },
@@ -11147,6 +11462,7 @@ minions["Metadata/Monsters/ChaosGodGorilla/ChaosGodGorilla_"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/ChaosGodTriceratops/ChaosGodTriceratops_"] = {
 	name = "Crested Behemoth",
 	monsterTags = { "allows_inc_aoe", "beast", "Beast_onhit_audio", "lightning_affinity", "melee", "not_dex", "not_int", "quest_null_monster_mods", "red_blood", "very_slow_movement", },
@@ -11178,6 +11494,7 @@ minions["Metadata/Monsters/ChaosGodTriceratops/ChaosGodTriceratops_"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/Rhoas/Winged/WingedRhoa"] = {
 	name = "Albino Rhoa",
 	monsterTags = { "beast", "mammal_beast", "medium_movement", "MonsterBlunt_onhit_audio", "not_int", "not_str", "red_blood", },
@@ -11203,9 +11520,13 @@ minions["Metadata/Monsters/Rhoas/Winged/WingedRhoa"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/Breach/BreachEliteFallenLunarisMonster__"] = {
 	name = "It That Hates",
 	monsterTags = { "allows_additional_projectiles", "caster", "chaos_affinity", "demon", "fast_movement", "melee", "not_dex", "not_str", "red_blood", "Stab_onhit_audio", },
+	extraFlags = {
+		recommendedSpectre = true,
+	},
 	life = 2,
 	baseDamageIgnoresAttackSpeed = true,
 	energyShield = 0.08,
@@ -11234,6 +11555,7 @@ minions["Metadata/Monsters/Breach/BreachEliteFallenLunarisMonster__"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/Breach/BreachEliteCorruptedEliteBloater__"] = {
 	name = "It That Lashes",
 	monsterTags = { "allows_inc_aoe", "Claw_onhit_audio", "demon", "humanoid", "melee", "not_dex", "not_int", "physical_affinity", "red_blood", "very_slow_movement", },
@@ -11263,6 +11585,7 @@ minions["Metadata/Monsters/Breach/BreachEliteCorruptedEliteBloater__"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/Breach/BreachFodderCorruptedEliteRanger"] = {
 	name = "It That Hunts",
 	monsterTags = { "caster", "chaos_affinity", "Claw_onhit_audio", "demon", "humanoid", "medium_movement", "melee", "not_int", "not_str", "red_blood", },
@@ -11292,6 +11615,7 @@ minions["Metadata/Monsters/Breach/BreachFodderCorruptedEliteRanger"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/Breach/BreachFodderCorruptedEliteToothy__"] = {
 	name = "It That Shreds",
 	monsterTags = { "allows_inc_aoe", "Claw_onhit_audio", "demon", "fast_movement", "humanoid", "melee", "not_int", "physical_affinity", "red_blood", "very_fast_movement", },
@@ -11322,6 +11646,7 @@ minions["Metadata/Monsters/Breach/BreachFodderCorruptedEliteToothy__"] = {
 		mod("BleedChance", "BASE", 25, 1, 0), -- MonsterBleedOnHitChance [bleed_on_hit_with_attacks_% = 25]
 	},
 }
+
 minions["Metadata/Monsters/Breach/BreachEliteCorruptedEliteGuard"] = {
 	name = "It That Guards",
 	monsterTags = { "allows_additional_projectiles", "caster", "cold_affinity", "fast_movement", "human", "humanoid", "not_dex", "not_str", "ranged", "red_blood", },
@@ -11350,6 +11675,7 @@ minions["Metadata/Monsters/Breach/BreachEliteCorruptedEliteGuard"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/Breach/BreachElitePaleElite1"] = {
 	name = "It That Controls",
 	monsterTags = { "allows_additional_projectiles", "allows_inc_aoe", "animal_claw_weapon", "bone_armour", "caster", "Claw_onhit_audio", "demon", "fire_affinity", "humanoid", "is_unarmed", "lightning_affinity", "medium_movement", "not_str", "red_blood", },
@@ -11386,6 +11712,7 @@ minions["Metadata/Monsters/Breach/BreachElitePaleElite1"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/Breach/Monsters/FingerDemon/FingerDemon"] = {
 	name = "It That Grasps",
 	monsterTags = { "Claw_onhit_audio", "demon", "fast_movement", "humanoid", "melee", "not_int", "not_str", "physical_affinity", "red_blood", "very_fast_movement", },
@@ -11413,6 +11740,7 @@ minions["Metadata/Monsters/Breach/Monsters/FingerDemon/FingerDemon"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/Breach/Monsters/HandSpider/HandSpider"] = {
 	name = "It That Crawls",
 	monsterTags = { "Claw_onhit_audio", "demon", "fast_movement", "insect", "melee", "not_int", "not_str", "physical_affinity", "red_blood", },
@@ -11440,6 +11768,7 @@ minions["Metadata/Monsters/Breach/Monsters/HandSpider/HandSpider"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/Breach/Monsters/FingersBat/FingersBat"] = {
 	name = "It That Watches",
 	monsterTags = { "allows_additional_projectiles", "allows_inc_aoe", "beast", "Beast_onhit_audio", "demon", "fast_movement", "flying", "melee", "not_int", "not_str", "physical_affinity", "ranged", "red_blood", "very_fast_movement", },
@@ -11470,6 +11799,7 @@ minions["Metadata/Monsters/Breach/Monsters/FingersBat/FingersBat"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/Breach/BreachFodderDemonicSpikeThrower"] = {
 	name = "It That Creeps",
 	monsterTags = { "allows_additional_projectiles", "Claw_onhit_audio", "demon", "humanoid", "lightning_affinity", "melee", "ranged", "red_blood", "very_slow_movement", },
@@ -11498,6 +11828,7 @@ minions["Metadata/Monsters/Breach/BreachFodderDemonicSpikeThrower"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/Breach/BreachElitePaleElite2"] = {
 	name = "It That Stalks",
 	monsterTags = { "animal_claw_weapon", "bone_armour", "caster", "Claw_onhit_audio", "demon", "is_unarmed", "lightning_affinity", "medium_movement", "melee", "not_int", "not_str", "red_blood", },
@@ -11534,6 +11865,7 @@ minions["Metadata/Monsters/Breach/BreachElitePaleElite2"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/ChaosGodTriHeadLizard/ChaosGodTriHeadLizard_"] = {
 	name = "Saurian Servant",
 	monsterTags = { "Claw_onhit_audio", "demon", "not_dex", "not_str", "quest_null_monster_mods", "red_blood", "very_slow_movement", },
@@ -11562,6 +11894,7 @@ minions["Metadata/Monsters/ChaosGodTriHeadLizard/ChaosGodTriHeadLizard_"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/LeagueRitual/DryadFaction/FungalZombie/DruidicFungusZombieTree"] = {
 	name = "Treant Foulspawn",
 	monsterTags = { "allows_inc_aoe", "melee", "monster_has_on_death_mechanic", "physical_affinity", "Unarmed_onhit_audio", "undead", "very_slow_movement", "zombie", },
@@ -11591,6 +11924,7 @@ minions["Metadata/Monsters/LeagueRitual/DryadFaction/FungalZombie/DruidicFungusZ
 		-- SpectrePlayDeathAction [is_spectre_with_death_action = 1]
 	},
 }
+
 minions["Metadata/Monsters/LeagueRitual/DryadFaction/SplitMonster/SplitMonster"] = {
 	name = "Treant Splitbeast",
 	monsterTags = { "demon", "fast_movement", "MonsterStab_onhit_audio", "not_dex", "not_int", "red_blood", },
@@ -11620,9 +11954,13 @@ minions["Metadata/Monsters/LeagueRitual/DryadFaction/SplitMonster/SplitMonster"]
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/LeagueRitual/DryadFaction/HooksMonster/HooksMonster"] = {
 	name = "Treant Hookhorror",
 	monsterTags = { "Claw_onhit_audio", "demon", "fast_movement", "humanoid", "melee", "not_int", "red_blood", "skeleton", },
+	extraFlags = {
+		recommendedSpectre = true,
+	},
 	life = 1.1,
 	baseDamageIgnoresAttackSpeed = true,
 	armour = 0.25,
@@ -11651,6 +11989,7 @@ minions["Metadata/Monsters/LeagueRitual/DryadFaction/HooksMonster/HooksMonster"]
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/LeagueRitual/DryadFaction/RootMonster/RootBehemoth"] = {
 	name = "Treant Fungalreaver",
 	monsterTags = { "beast", "humanoid", "insect", "not_dex", "not_int", "Unarmed_onhit_audio", "very_slow_movement", },
@@ -11683,6 +12022,7 @@ minions["Metadata/Monsters/LeagueRitual/DryadFaction/RootMonster/RootBehemoth"] 
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/LeagueRitual/DryadFaction/RootMonster/TwigMonsterMeleeRitual_"] = {
 	name = "Treant Spriggan",
 	monsterTags = { "animal_claw_weapon", "caster", "construct", "humanoid", "is_unarmed", "melee", "MonsterStab_onhit_audio", "not_dex", "physical_affinity", "slow_movement", "wood_armour", },
@@ -11714,6 +12054,7 @@ minions["Metadata/Monsters/LeagueRitual/DryadFaction/RootMonster/TwigMonsterMele
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/LeagueRitual/DryadFaction/RootMonster/TwigMonsterCasterRitual_"] = {
 	name = "Treant Sage",
 	monsterTags = { "animal_claw_weapon", "caster", "construct", "humanoid", "is_unarmed", "melee", "MonsterStab_onhit_audio", "not_dex", "physical_affinity", "slow_movement", "wood_armour", },
@@ -11746,6 +12087,7 @@ minions["Metadata/Monsters/LeagueRitual/DryadFaction/RootMonster/TwigMonsterCast
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/LeagueRitual/DryadFaction/RootMonster/TwigMonsterCasterRitual2"] = {
 	name = "Treant Mystic",
 	monsterTags = { "animal_claw_weapon", "caster", "construct", "humanoid", "is_unarmed", "melee", "MonsterStab_onhit_audio", "not_dex", "physical_affinity", "slow_movement", "wood_armour", },
@@ -11777,6 +12119,7 @@ minions["Metadata/Monsters/LeagueRitual/DryadFaction/RootMonster/TwigMonsterCast
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/LeagueRitual/DemonFaction/CaveDweller_"] = {
 	name = "Nameless Dweller",
 	monsterTags = { "allows_inc_aoe", "beast", "Beast_onhit_audio", "mammal_beast", "medium_movement", "melee", "not_dex", "not_int", "physical_affinity", "red_blood", },
@@ -11808,9 +12151,14 @@ minions["Metadata/Monsters/LeagueRitual/DemonFaction/CaveDweller_"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/LeagueRitual/DemonFaction/PrimordialMonster3_"] = {
 	name = "Nameless Horror",
 	monsterTags = { "beast", "Claw_onhit_audio", "fast_movement", "not_int", "red_blood", },
+	extraFlags = {
+		recommendedSpectre = true,
+		recommendedBeast = true,
+	},
 	life = 1,
 	baseDamageIgnoresAttackSpeed = true,
 	armour = 0.35,
@@ -11839,6 +12187,7 @@ minions["Metadata/Monsters/LeagueRitual/DemonFaction/PrimordialMonster3_"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/LeagueRitual/DemonFaction/DemonRhoa"] = {
 	name = "Nameless Lurker",
 	monsterTags = { "beast", "medium_movement", "MonsterBlunt_onhit_audio", "not_int", "not_str", "red_blood", },
@@ -11869,6 +12218,7 @@ minions["Metadata/Monsters/LeagueRitual/DemonFaction/DemonRhoa"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/LeagueRitual/DemonFaction/DemonRat"] = {
 	name = "Nameless Vermin",
 	monsterTags = { "beast", "fast_movement", "mammal_beast", "melee", "not_int", "physical_affinity", "rodent", "rodent_beast", "Snap_onhit_audio", "undead", },
@@ -11898,6 +12248,7 @@ minions["Metadata/Monsters/LeagueRitual/DemonFaction/DemonRat"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/LeagueRitual/DemonFaction/DemonBurrower"] = {
 	name = "Nameless Burrower",
 	monsterTags = { "beast", "Beast_onhit_audio", "cannot_be_monolith", "cleaving_weapon", "devourer", "hard_armour", "hidden_monster", "immobile", "is_unarmed", "medium_movement", "not_dex", "not_int", "physical_affinity", "ranged", "red_blood", "spider", },
@@ -11932,9 +12283,14 @@ minions["Metadata/Monsters/LeagueRitual/DemonFaction/DemonBurrower"] = {
 		-- ImmuneToKnockback [cannot_be_knocked_back = 1]
 	},
 }
+
 minions["Metadata/Monsters/LeagueRitual/DemonFaction/DemonHulk_"] = {
 	name = "Nameless Hulk",
 	monsterTags = { "beast", "insect", "medium_movement", "MonsterBlunt_onhit_audio", "not_dex", "not_int", "red_blood", },
+	extraFlags = {
+		recommendedSpectre = true,
+		recommendedBeast = true,
+	},
 	life = 2,
 	baseDamageIgnoresAttackSpeed = true,
 	armour = 0.5,
@@ -11963,6 +12319,7 @@ minions["Metadata/Monsters/LeagueRitual/DemonFaction/DemonHulk_"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/LeagueRitual/DemonFaction/DemonMonkey"] = {
 	name = "Nameless Imp",
 	monsterTags = { "beast", "mammal_beast", "medium_movement", "melee", "not_int", "not_str", "physical_affinity", "red_blood", "Unarmed_onhit_audio", },
@@ -11989,6 +12346,7 @@ minions["Metadata/Monsters/LeagueRitual/DemonFaction/DemonMonkey"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/VaalMonsters/Zealots/VaalFlayedDaggersBloodUltimatium"] = {
 	name = "Chaos Zealot",
 	monsterTags = { "1HSword_onhit_audio", "cultist", "fast_movement", "human", "humanoid", "melee", "not_int", "not_str", "physical_affinity", "quest_null_monster_mods", "red_blood", "very_fast_movement", },
@@ -12017,6 +12375,7 @@ minions["Metadata/Monsters/VaalMonsters/Zealots/VaalFlayedDaggersBloodUltimatium
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/SummonRagingSpirit/RagingFireSpirit"] = {
 	name = "Raging Fire Spirit",
 	monsterTags = { "fire", "flying", "slow_movement", "Unarmed_onhit_audio", "undead", },
@@ -12042,6 +12401,7 @@ minions["Metadata/Monsters/SummonRagingSpirit/RagingFireSpirit"] = {
 	modList = {
 	},
 }
+
 minions["Metadata/Monsters/SummonRagingSpirit/RagingTimeSpirit"] = {
 	name = "Raging Time Spirit",
 	monsterTags = { "flying", "slow_movement", "Unarmed_onhit_audio", "undead", },

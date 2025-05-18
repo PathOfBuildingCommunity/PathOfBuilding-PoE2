@@ -68,6 +68,7 @@ directiveTable.monster = function(state, args, out)
 	state.varietyId = nil
 	state.name = nil
 	state.limit = nil
+	state.extraFlags = state.extraFlags or { }
 	state.extraModList = { }
 	state.extraSkillList = { }
 	for arg in args:gmatch("%S+") do
@@ -90,6 +91,13 @@ end
 -- #limit <LimitVarName>
 directiveTable.limit = function(state, args, out)
 	state.limit = args
+end
+
+-- #flags
+directiveTable.flags = function(state, args, out)
+	for flag in args:gmatch("%S+") do
+		table.insert(state.extraFlags, flag)
+	end
 end
 
 -- #mod <ModDecl>
@@ -157,10 +165,17 @@ directiveTable.emit = function(state, args, out)
 	out:write('minions["', state.name, '"] = {\n')
 	out:write('\tname = "', monsterVariety.Name, '",\n')
 	out:write('\tmonsterTags = { ')
-		for _, tag in ipairs(monsterVariety.Tags) do
-			out:write('"',tag.Id, '", ')
-		end
+	for _, tag in ipairs(monsterVariety.Tags) do
+		out:write('"',tag.Id, '", ')
+	end
 	out:write('},\n')
+	if #state.extraFlags > 0 then
+		out:write('\textraFlags = {\n')
+		for _, flag in ipairs(state.extraFlags) do
+			out:write('\t\t', flag, ' = true,\n')
+		end
+		out:write('\t},\n')
+	end
 	out:write('\tlife = ', (monsterVariety.LifeMultiplier/100), ',\n')
 	if monsterVariety.Type.BaseDamageIgnoresAttackSpeed then
 		out:write('\tbaseDamageIgnoresAttackSpeed = true,\n')
@@ -254,12 +269,12 @@ directiveTable.emit = function(state, args, out)
 	end
 	out:write('\t},\n')
 	out:write('}\n')
+	state.extraFlags = { }
 end
 
 -- #spectre <MonsterId> [<Name>]
 directiveTable.spectre = function(state, args, out)
 	directiveTable.monster(state, args, out)
-	directiveTable.emit(state, "", out)
 end
 
 for _, name in pairs({"Spectres","Minions"}) do -- Add back when Spectres are in the game again
