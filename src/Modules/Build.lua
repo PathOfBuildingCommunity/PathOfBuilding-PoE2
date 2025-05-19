@@ -1347,6 +1347,7 @@ function buildMode:OpenSpectreLibrary(library)
 	local beastList, humanoidList, eldritchList, constructList, demonList, undeadList = {}, {}, {}, {}, {}, {}
 	local destList = { }
 	local sourceList = { }
+	local controls = { }
 	for id in pairs(self.data.spectres) do
 		if self.data.minions[id].monsterCategory == "Beast" then
 			t_insert(beastList, id)
@@ -1424,11 +1425,62 @@ function buildMode:OpenSpectreLibrary(library)
 	end
 
 	buildSourceList(library, sourceList)
-	local controls = { }
+
+	local function UpdateMinionDisplay(selected)
+		self.lastSelectedMinion = selected
+		local minion = self.data.minions[selected]
+		local gemLevel = m_max(controls.minionGemLevel.buf,1)
+		local baseLife = self.data.monsterAllyLifeTable[m_min(gemLevel * 2, 100)]
+		local totalLife = baseLife * minion.life
+		local totalES
+		if minion.energyShield then
+			totalES = totalLife * minion.energyShield
+			totalLife = totalLife - (totalLife * minion.energyShield)
+		else
+			totalES = 0
+		end
+		local totalArmour = self.data.monsterArmourTable[m_min(gemLevel * 2, 100)]
+		local totalEvasion = self.data.monsterEvasionTable[m_min(gemLevel * 2, 100)]
+		if minion.armour then
+			totalArmour = (1 + minion.armour) * totalArmour
+		end
+		if minion.evasion then
+			totalEvasion = (1 + minion.evasion) * totalEvasion
+		end
+		-- Check if minion.modList contains a mod for BlockChance and use it for blockLabel
+		local blockChance = 0
+		if minion.modList then
+			for _, mod in ipairs(minion.modList) do
+				if mod.name == "BlockChance" then
+					blockChance = mod.value
+					break
+				end
+			end
+		end
+		controls.minionNameLabel = new("LabelControl", {"TOP",controls.source,"TOPRIGHT"}, {130, -25, 0, 18}, "^7"..minion.name)
+		controls.lifeLabel.lifeValue = round(totalLife)
+		controls.energyshieldLabel.energyShieldValue = round(totalES)
+		controls.armourLabel.armourValue = round(totalArmour)
+		controls.blockLabel.blockValue = blockChance
+		controls.evasionLabel.evasionValue = round(totalEvasion)
+		controls.resistsLabel.resistsValue = (
+			colorCodes.FIRE..minion.fireResist.."^7/"..
+			colorCodes.COLD..minion.coldResist.."^7/"..
+			colorCodes.LIGHTNING..minion.lightningResist.."^7/"..
+			colorCodes.CHAOS..minion.chaosResist)
+	end
+
 
 	local label = (library == "beast" and "Beasts" or "Spectres")
 	controls.list = new("MinionListControl", nil, {-230, 40, 210, 270}, self.data, destList, nil, label.." in Build:")
+	controls.list.OnSelect = function()
+			UpdateMinionDisplay(controls.list.selValue)
+	end
 	controls.source = new("MinionSearchListControl", nil, {0, 80, 210, 230}, self.data, sourceList, controls.list, "^7Available "..label..":")
+	controls.source.OnSelect = function()
+			UpdateMinionDisplay(controls.source.selValue)
+	end
+
 	local function monsterTypeCheckboxChange(name)
 		return function(state)
 			monsterTypeSort[name] = state
@@ -1493,7 +1545,9 @@ function buildMode:OpenSpectreLibrary(library)
 	controls.minionNameLabel = new("LabelControl", {"TOP",controls.source,"TOPRIGHT"}, {130, -25, 0, 18}, "Minion Stats")
 	controls.minionGemLevelLabel = new("LabelControl", {"BOTTOM", controls.minionNameLabel, "TOP"}, {-40, -10, 0, 16}, "Gem Level:")
 	controls.minionGemLevel = new("EditControl", {"LEFT", controls.minionGemLevelLabel, "RIGHT"}, {4, 0, 60, 20}, "20", nil, "%D", 3, function()
-		controls.source.OnSelect()
+		if self.lastSelectedMinion then
+			UpdateMinionDisplay(self.lastSelectedMinion)
+		end
 	end)
 	controls.lifeLabel = new("LabelControl", {"TOP", controls.source, "TOP"}, {170, 4, 0, 16}, colorCodes.LIFE.."LIFE")
 	controls.lifeLabel.Draw = function(self, view)
@@ -1596,53 +1650,6 @@ function buildMode:OpenSpectreLibrary(library)
 		if self.resistsValue then
 			DrawString(xPos + (labelWidth / 2), yPos + 24, "CENTER_X", 16, "VAR", self.resistsValue)
 		end
-	end
-
-
-	-- Run this code whenever a new minion is selected in the list
-	controls.source.OnSelect = function()
-		if not controls.source.selValue then return end
-		local selected = controls.source.selValue
-		local minion = self.data.minions[selected]
-		local gemLevel = m_max(controls.minionGemLevel.buf,1)
-		local baseLife = self.data.monsterAllyLifeTable[m_min(gemLevel * 2, 100)]
-		local totalLife = baseLife * minion.life
-		local totalES
-		if minion.energyShield then
-			totalES = totalLife * minion.energyShield
-			totalLife = totalLife - (totalLife * minion.energyShield)
-		else
-			totalES = 0
-		end
-		local totalArmour = self.data.monsterArmourTable[m_min(gemLevel * 2, 100)]
-		local totalEvasion = self.data.monsterEvasionTable[m_min(gemLevel * 2, 100)]
-		if minion.armour then
-			totalArmour = (1 + minion.armour) * totalArmour
-		end
-		if minion.evasion then
-			totalEvasion = (1 + minion.evasion) * totalEvasion
-		end
-		-- Check if minion.modList contains a mod for BlockChance and use it for blockLabel
-		local blockChance = 0
-		if minion.modList then
-			for _, mod in ipairs(minion.modList) do
-				if mod.name == "BlockChance" then
-					blockChance = mod.value
-					break
-				end
-			end
-		end
-		controls.minionNameLabel = new("LabelControl", {"TOP",controls.source,"TOPRIGHT"}, {130, -25, 0, 18}, "^7"..minion.name)
-		controls.lifeLabel.lifeValue = round(totalLife)
-		controls.energyshieldLabel.energyShieldValue = round(totalES)
-		controls.armourLabel.armourValue = round(totalArmour)
-		controls.blockLabel.blockValue = blockChance
-		controls.evasionLabel.evasionValue = round(totalEvasion)
-		controls.resistsLabel.resistsValue = (
-			colorCodes.FIRE..minion.fireResist.."^7/"..
-			colorCodes.COLD..minion.coldResist.."^7/"..
-			colorCodes.LIGHTNING..minion.lightningResist.."^7/"..
-			colorCodes.CHAOS..minion.chaosResist)
 	end
 end
 
