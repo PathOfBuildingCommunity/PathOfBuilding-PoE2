@@ -25,7 +25,7 @@ local MinionSearchListClass = newClass("MinionSearchListControl", "MinionListCon
 	end)
 	self.controls.sortModeDropDown = new("DropDownControl", {"BOTTOMRIGHT", self.controls.searchModeDropDown, "TOPRIGHT"}, {0, -2, self.width, 18}, {
 		"Sort by Names",
-		"Sort by Total Hit Points",
+		"Sort by Life + ES",
 		"Sort by Life",
 		"Sort by Energy Shield",
 		"Sort by Attack Speed",
