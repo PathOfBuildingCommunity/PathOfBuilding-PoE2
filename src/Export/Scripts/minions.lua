@@ -119,43 +119,43 @@ directiveTable.emit = function(state, args, out)
 
 	-- Step 1: From MonsterPackEntries
 	for i = 1, 2000 do
-	    local entry = dat("MonsterPackEntries"):GetRow("Id", tostring(i))
-	    if entry and entry.MonsterPacksKey then
-	        local packId = entry.MonsterPacksKey.Id
-	        if packId then
-	            allMonsterPackIds[packId] = true -- add to full set of pack IDs
-	            if entry.MonsterVarietiesKey and entry.MonsterVarietiesKey.Name == monsterVariety.Name then
-	                table.insert(matchingEntries, packId)
-	            end
-	        end
-	    end
+		local entry = dat("MonsterPackEntries"):GetRow("Id", tostring(i))
+		if entry and entry.MonsterPacksKey then
+			local packId = entry.MonsterPacksKey.Id
+			if packId then
+				allMonsterPackIds[packId] = true -- add to full set of pack IDs
+				if entry.MonsterVarietiesKey and entry.MonsterVarietiesKey.Name == monsterVariety.Name then
+					table.insert(matchingEntries, packId)
+				end
+			end
+		end
 	end
 	-- Step 2: Check if monster is in AdditionalMonsters within MonsterPacks
 	for packId, _ in pairs(allMonsterPackIds) do
-	    local pack = dat("MonsterPacks"):GetRow("Id", tostring(packId))
-	    if pack and pack.AdditionalMonsters then
-	        for _, addMon in ipairs(pack.AdditionalMonsters) do
-	            if addMon.Name == monsterVariety.Name then
-	                table.insert(matchingEntries, pack.Id)
-	            end
-	        end
-	    end
+		local pack = dat("MonsterPacks"):GetRow("Id", tostring(packId))
+		if pack and pack.AdditionalMonsters then
+			for _, addMon in ipairs(pack.AdditionalMonsters) do
+				if addMon.Name == monsterVariety.Name then
+					table.insert(matchingEntries, pack.Id)
+				end
+			end
+		end
 	end
 	-- Step 3: Get WorldAreas for each matching MonsterPack
 	local worldAreaNames = {}
 	local seenAreas = {}
 
 	for _, packId in ipairs(matchingEntries) do
-	    local pack = dat("MonsterPacks"):GetRow("Id", tostring(packId))
-	    if pack and pack.WorldAreas then
-	        for _, worldAreaRef in ipairs(pack.WorldAreas) do
-	            local area = dat("WorldAreas"):GetRow("Id", worldAreaRef.Id)
-	            if area and area.Name ~= "NULL" and not seenAreas[area.Name] then
-	                table.insert(worldAreaNames, area.Name)
-	                seenAreas[area.Name] = true
-	            end
-	        end
-	    end
+		local pack = dat("MonsterPacks"):GetRow("Id", tostring(packId))
+		if pack and pack.WorldAreas then
+			for _, worldAreaRef in ipairs(pack.WorldAreas) do
+				local area = dat("WorldAreas"):GetRow("Id", worldAreaRef.Id)
+				if area and area.Name ~= "NULL" and not seenAreas[area.Name] then
+					 table.insert(worldAreaNames, area.Name)
+					 seenAreas[area.Name] = true
+				end
+			end
+		end
 	end
 
 	if not monsterVariety then
@@ -225,7 +225,7 @@ directiveTable.emit = function(state, args, out)
 	end
 	out:write('\tspawnLocation = {\n')
 	for _, name in ipairs(worldAreaNames) do
-	    out:write('\t\t"', name, '",\n')
+		out:write('\t\t"', name, '",\n')
 	end
 	out:write('\t},\n')
 	out:write('\tskillList = {\n')

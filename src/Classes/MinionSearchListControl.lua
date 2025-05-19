@@ -109,12 +109,12 @@ function MinionSearchListClass:sortSourceList()
 			local valueA = minionA[sortOption.field]
 			local valueB = minionB[sortOption.field]
 			if sortOption.field == "life" then
-			    valueA = minionA.life * (1 - (minionA.energyShield or 0))
-			    valueB = minionB.life * (1 - (minionB.energyShield or 0))
+				valueA = minionA.life * (1 - (minionA.energyShield or 0))
+				valueB = minionB.life * (1 - (minionB.energyShield or 0))
 			end
 			if sortOption.field == "totalHitPoints" then
-			    valueA = minionA.life
-			    valueB = minionB.life
+				valueA = minionA.life
+				valueB = minionB.life
 			elseif sortOption.field == "energyShield" then
 				valueA = (minionA.energyShield or 0) * minionA.life
 				valueB = (minionB.energyShield or 0) * minionB.life
