@@ -1426,68 +1426,16 @@ function buildMode:OpenSpectreLibrary(library)
 	buildSourceList(library, sourceList)
 	local controls = { }
 
-	local function sortSourceList()
-		local sortFields = {
-			[1] = { field = "name", asc = true },
-			[2] = { field = "life", asc = false },
-			[3] = { field = "energyShield", asc = false },
-			[4] = { field = "attackTime", asc = true },
-			[5] = { field = "companionReservation", asc = true },
-			[6] = { field = "spectreReservation", asc = true },
-			[7] = { field = "fireResist", asc = false },
-			[8] = { field = "coldResist", asc = false },
-			[9] = { field = "lightningResist", asc = false },
-			[10] = { field = "chaosResist", asc = false },
-			[11] = { field = "totalResist", asc = false },
-		}
-		local sortModeIndex = controls.sortModeDropDown and controls.sortModeDropDown.selIndex or 1
-		local sortOption = sortFields[sortModeIndex]
-		if sortOption then
-			table.sort(sourceList, function(a, b)
-				local minionA = self.data.minions[a]
-				local minionB = self.data.minions[b]
-				local valueA = minionA[sortOption.field]
-				local valueB = minionB[sortOption.field]
-				if sortOption.field == "energyShield" then
-					local esA = (minionA.energyShield or 0) * minionA.life
-					local esB = (minionB.energyShield or 0) * minionB.life
-					if esA == 0 and esB == 0 then
-						return minionA.name < minionB.name
-					end
-					valueA = esA
-					valueB = esB
-				end
-				if sortOption.field == "totalResist" then -- currently all minions have one resist, but may have more in future.
-					valueA = minionA.fireResist + minionA.coldResist + minionA.lightningResist + minionA.chaosResist
-					valueB = minionB.fireResist + minionB.coldResist + minionB.lightningResist + minionB.chaosResist
-				end
-				-- If values are equal, sort by name
-				if valueA == valueB then
-					return minionA.name < minionB.name
-				else
-					if sortOption.asc then
-						return valueA < valueB
-					else
-						return valueA > valueB
-					end
-				end
-			end)
-		end
-	end
-
-	sortSourceList()
 	local label = (library == "beast" and "Beasts" or "Spectres")
-	controls.list = new("MinionListControl", nil, {-230, 40, 210, 250}, self.data, destList, nil, label.." in Build:")
-	controls.source = new("MinionSearchListControl", nil, {0, 60, 210, 230}, self.data, sourceList, controls.list, "^7Available "..label..":")
+	controls.list = new("MinionListControl", nil, {-230, 40, 210, 270}, self.data, destList, nil, label.." in Build:")
+	controls.source = new("MinionSearchListControl", nil, {0, 80, 210, 230}, self.data, sourceList, controls.list, "^7Available "..label..":")
 	local function monsterTypeCheckboxChange(name)
-		monsterTypeSort[name] = true
 		return function(state)
 			monsterTypeSort[name] = state
-			self.listBuildFlag = true
 			buildSourceList(library, sourceList)
 			controls.source.unfilteredList = copyTable(sourceList)
 			controls.source:ListFilterChanged(controls.source.controls.searchText.buf, controls.source.controls.searchModeDropDown.selIndex)
-			sortSourceList()	
+			controls.source:sortSourceList()
 		end
 	end
 	local function getMonsterTypeImages()
@@ -1502,25 +1450,22 @@ function buildMode:OpenSpectreLibrary(library)
 	
 	local monsterTypeCheckbox = {
 		{ name = "Beast", x = 0 },
-		{ name = "Humanoid", x = 31 },
-		{ name = "Eldritch", x = 62 },
-		{ name = "Construct", x = 93 },
-		{ name = "Demon", x = 124 },
-		{ name = "Undead", x = 154 },
+		{ name = "Humanoid", x = 37 },
+		{ name = "Eldritch", x = 74 },
+		{ name = "Construct", x = 111 },
+		{ name = "Demon", x = 148 },
+		{ name = "Undead", x = 184 },
 	}
 	for _, monsterType in ipairs(monsterTypeCheckbox) do
 		local controlName = "sortMonsterCheckbox" .. monsterType.name
-		local checkbox = new("CheckBoxControl", {"TOPLEFT", controls.source, "BOTTOMLEFT"}, {monsterType.x, 24, 26, 26}, "", monsterTypeCheckboxChange(monsterType.name), monsterType.name, true)
+		local checkbox = new("CheckBoxControl", {"TOPLEFT", controls.source, "BOTTOMLEFT"}, {monsterType.x, 30, 26, 26}, "", monsterTypeCheckboxChange(monsterType.name), monsterType.name, true)
 		checkbox:SetCheckImage(self.monsterImages[monsterType.name])
 		checkbox.shown = library ~= "beast"	
 		controls[controlName] = checkbox
 	end
-	controls.sortMonsterCheckboxShowAll = new("CheckBoxControl", {"TOPLEFT", controls.source, "BOTTOMLEFT"}, {184, 24, 26, 26}, "", monsterTypeCheckboxChange("recommendedList"), "Show All " .. firstToUpper(library) .. "s", false)
-	controls.sortLabel = new("LabelControl", {"TOPLEFT",controls.source,"BOTTOMLEFT"}, {2, 2, 0, 16}, "Sort by:")
-	controls.sortModeDropDown = new("DropDownControl", {"TOPRIGHT",controls.source,"BOTTOMRIGHT"}, {0, 2, 155, 18}, { "Names", "Life", "Energy Shield", "Attack Speed", "Companion Reservation", "Spectre Reservation", "Fire Resistance", "Cold Resistance", "Lightning Resistance", "Chaos Resistance", "Total Resistance"}, function(index, value)
-		sortSourceList()
-	end)
-	controls.save = new("ButtonControl", nil, {-45, 390, 80, 20}, "Save", function()
+	controls.sortMonsterCheckboxShowAll = new("CheckBoxControl", {"TOPLEFT", controls.source, "BOTTOMLEFT"}, {153, 2, 26, 26}, "", monsterTypeCheckboxChange("recommendedList"), "Show All " .. firstToUpper(library) .. "s", false)
+	controls.showAllLabel = new("LabelControl", {"RIGHT",controls.sortMonsterCheckboxShowAll,"LEFT"}, {-5, 0, 0, 16}, "Show All " .. firstToUpper(library) .. "s:")
+	controls.save = new("ButtonControl", nil, {-45, 410, 80, 20}, "Save", function()
 		if library == "beast" then
 			self.beastList = destList
 		else
@@ -1530,17 +1475,17 @@ function buildMode:OpenSpectreLibrary(library)
 		self.buildFlag = true
 		main:ClosePopup()
 	end)
-	controls.cancel = new("ButtonControl", nil, {45, 390, 80, 20}, "Cancel", function()
+	controls.cancel = new("ButtonControl", nil, {45, 410, 80, 20}, "Cancel", function()
 		main:ClosePopup()
 	end)
 	local spectrePopup
 	if library == "beast" then 
-		spectrePopup = main:OpenPopup(720, 430, "Beast Library", controls)
-		controls.noteLine1 = new("LabelControl", {"TOP",controls.save,"BOTTOM"}, {45, -60, 0, 16}, "Beasts in your Library must be assigned to an active")
+		spectrePopup = main:OpenPopup(720, 450, "Beast Library", controls)
+		controls.noteLine1 = new("LabelControl", {"TOP",controls.save,"BOTTOM"}, {45, -60, 0, 16}, "^7Beasts in your Library must be assigned to an active")
 		controls.noteLine2 = new("LabelControl", {"TOP",controls.save,"BOTTOM"}, {45, -42, 0, 16}, "Companion gem for their buffs and curses to activate")
 	else
-		spectrePopup = main:OpenPopup(720, 430, "Spectre Library", controls)
-		controls.noteLine1 = new("LabelControl", {"TOP",controls.save,"BOTTOM"}, {45, -60, 0, 16}, "Spectres in your Library must be assigned to an active") 
+		spectrePopup = main:OpenPopup(720, 450, "Spectre Library", controls)
+		controls.noteLine1 = new("LabelControl", {"TOP",controls.save,"BOTTOM"}, {45, -60, 0, 16}, "^7Spectres in your Library must be assigned to an active") 
 		controls.noteLine2 = new("LabelControl", {"TOP",controls.save,"BOTTOM"}, {45, -42, 0, 16}, "Raise Spectre gem for their buffs and curses to activate")
 	end
 	spectrePopup:SelectControl(spectrePopup.controls.source.controls.searchText)
@@ -1553,81 +1498,106 @@ function buildMode:OpenSpectreLibrary(library)
 	controls.lifeLabel = new("LabelControl", {"TOP", controls.source, "TOP"}, {170, 4, 0, 16}, colorCodes.LIFE.."LIFE")
 	controls.lifeLabel.Draw = function(self, view)
 		local xPos, yPos = self:GetPos()
-		local width, height = 120, 50
+		local boxWidth, boxHeight = 120, 50
+		local labelWidth = DrawStringWidth(16, "VAR BOLD", "LIFE")
 		SetDrawColor(colorCodes.LIFE)
-		DrawImage(nil, xPos - 45, yPos - 3, width, height)
+		DrawImage(nil, xPos + (labelWidth / 2) - (boxWidth / 2), yPos - 3, boxWidth, boxHeight)
 		SetDrawColor(0, 0, 0, 1)
-		DrawImage(nil, (xPos+2) - 45, (yPos+2) - 3, width - 4, height - 4)
+		DrawImage(nil, xPos + (labelWidth / 2) - (boxWidth / 2) + 2, yPos - 1, boxWidth - 4, boxHeight - 4)
 		SetDrawColor(colorCodes.LIFE)
-		DrawImage(nil, xPos - 45, yPos + 15, width, 2)
-		SetDrawColor(1,1,1)
-		DrawString(xPos, yPos, "LEFT", 16, "VAR BOLD", "LIFE")
+		DrawImage(nil, xPos + (labelWidth / 2) - (boxWidth / 2), yPos + 15, boxWidth, 2)
+		SetDrawColor(1, 1, 1)
+		DrawString(xPos + (labelWidth / 2), yPos, "CENTER_X", 16, "VAR BOLD", "LIFE")
+		if self.lifeValue then
+			DrawString(xPos + (labelWidth / 2), yPos + 24, "CENTER_X", 16, "VAR", self.lifeValue)
+		end
 	end
-	controls.energyshieldLabel = new("LabelControl", {"TOP",controls.source,"TOP"}, {295, 4, 0, 16}, colorCodes.ES.."ENERGY SHIELD")
+	controls.energyshieldLabel = new("LabelControl", {"TOP",controls.source,"TOP"}, {293, 4, 0, 16}, colorCodes.ES.."ENERGY SHIELD")
 	controls.energyshieldLabel.Draw = function(self, view)
 		local xPos, yPos = self:GetPos()
-		local width, height = 120, 50
+		local boxWidth, boxHeight = 120, 50
+		local labelWidth = DrawStringWidth(16, "VAR BOLD", "ENERGY SHIELD")
 		SetDrawColor(colorCodes.ES)
-		DrawImage(nil, xPos - 7, yPos - 3, width, height)
+		DrawImage(nil, xPos + (labelWidth / 2) - (boxWidth / 2), yPos - 3, boxWidth, boxHeight)
 		SetDrawColor(0, 0, 0, 1)
-		DrawImage(nil, (xPos+2) - 7, (yPos+2) - 3, width - 4, height - 4)
+		DrawImage(nil, xPos + (labelWidth / 2) - (boxWidth / 2) + 2, yPos - 1, boxWidth - 4, boxHeight - 4)
 		SetDrawColor(colorCodes.ES)
-		DrawImage(nil, xPos - 7, yPos + 15, width, 2)
-		SetDrawColor(1,1,1)
-		DrawString(xPos-2, yPos, "LEFT", 16, "VAR BOLD", "ENERGY SHIELD")
+		DrawImage(nil, xPos + (labelWidth / 2) - (boxWidth / 2), yPos + 15, boxWidth, 2)
+		SetDrawColor(1, 1, 1)
+		DrawString(xPos + (labelWidth / 2), yPos, "CENTER_X", 16, "VAR BOLD", "ENERGY SHIELD")
+		if self.energyShieldValue then
+			DrawString(xPos + (labelWidth / 2), yPos + 24, "CENTER_X", 16, "VAR", self.energyShieldValue)
+		end
 	end
 	controls.armourLabel = new("LabelControl", {"TOP",controls.lifeLabel,"TOP"}, {0, 54, 0, 16}, colorCodes.ARMOUR.."ARMOUR")
 	controls.armourLabel.Draw = function(self, view)
 		local xPos, yPos = self:GetPos()
-		local width, height = 120, 50
+		local boxWidth, boxHeight = 120, 50
+		local labelWidth = DrawStringWidth(16, "VAR BOLD", "ARMOUR")
 		SetDrawColor(colorCodes.NORMAL)
-		DrawImage(nil, xPos - 29, yPos - 3, width, height)
+		DrawImage(nil, xPos + (labelWidth / 2) - (boxWidth / 2), yPos - 3, boxWidth, boxHeight)
 		SetDrawColor(0, 0, 0, 1)
-		DrawImage(nil, (xPos+2) - 29, (yPos+2) - 3, width - 4, height - 4)
+		DrawImage(nil, xPos + (labelWidth / 2) - (boxWidth / 2) + 2, yPos - 1, boxWidth - 4, boxHeight - 4)
 		SetDrawColor(colorCodes.NORMAL)
-		DrawImage(nil, xPos - 29, yPos + 15, width, 2)
-		SetDrawColor(1,1,1)
-		DrawString(xPos, yPos, "LEFT", 16, "VAR BOLD", "ARMOUR")
+		DrawImage(nil, xPos + (labelWidth / 2) - (boxWidth / 2), yPos + 15, boxWidth, 2)
+		SetDrawColor(1, 1, 1)
+		DrawString(xPos + (labelWidth / 2), yPos, "CENTER_X", 16, "VAR BOLD", "ARMOUR")
+		if self.armourValue then
+			DrawString(xPos + (labelWidth / 2), yPos + 24, "CENTER_X", 16, "VAR", self.armourValue)
+		end
 	end
-	controls.evasionLabel = new("LabelControl", {"TOP",controls.energyshieldLabel,"TOP"}, {0, 54, 0, 16}, colorCodes.EVASION.."EVASION")
+	controls.evasionLabel = new("LabelControl", {"TOP",controls.energyshieldLabel,"TOP"}, {1, 54, 0, 16}, colorCodes.EVASION.."EVASION")
 	controls.evasionLabel.Draw = function(self, view)
 		local xPos, yPos = self:GetPos()
-		local width, height = 120, 50
+		local boxWidth, boxHeight = 120, 50
+		local labelWidth = DrawStringWidth(16, "VAR BOLD", "EVASION")
 		SetDrawColor(colorCodes.EVASION)
-		DrawImage(nil, xPos - 32, yPos - 3, width, height)
+		DrawImage(nil, xPos + (labelWidth / 2) - (boxWidth / 2), yPos - 3, boxWidth, boxHeight)
 		SetDrawColor(0, 0, 0, 1)
-		DrawImage(nil, (xPos+2) - 32, (yPos+2) - 3, width - 4, height - 4)
+		DrawImage(nil, xPos + (labelWidth / 2) - (boxWidth / 2) + 2, yPos - 1, boxWidth - 4, boxHeight - 4)
 		SetDrawColor(colorCodes.EVASION)
-		DrawImage(nil, xPos - 32, yPos + 15, width, 2)
-		SetDrawColor(1,1,1)
-		DrawString(xPos, yPos, "LEFT", 16, "VAR BOLD", "EVASION")
+		DrawImage(nil, xPos + (labelWidth / 2) - (boxWidth / 2), yPos + 15, boxWidth, 2)
+		SetDrawColor(1, 1, 1)
+		DrawString(xPos + (labelWidth / 2), yPos, "CENTER_X", 16, "VAR BOLD", "EVASION")
+		if self.evasionValue then
+			DrawString(xPos + (labelWidth / 2), yPos + 24, "CENTER_X", 16, "VAR", self.evasionValue)
+		end
 	end
-	controls.blockLabel = new("LabelControl", {"TOP",controls.armourLabel,"TOP"}, {0, 54, 0, 16}, colorCodes.NORMAL.."BLOCK")
+	controls.blockLabel = new("LabelControl", {"TOP",controls.armourLabel,"TOP"}, {1, 54, 0, 16}, colorCodes.NORMAL.."BLOCK")
 	controls.blockLabel.Draw = function(self, view)
 		local xPos, yPos = self:GetPos()
-		local width, height = 120, 50
+		local boxWidth, boxHeight = 120, 50
+		local labelWidth = DrawStringWidth(16, "VAR BOLD", "BLOCK")
 		SetDrawColor(colorCodes.NORMAL)
-		DrawImage(nil, xPos - 35, yPos - 3, width, height)
+		DrawImage(nil, xPos + (labelWidth / 2) - (boxWidth / 2), yPos - 3, boxWidth, boxHeight)
 		SetDrawColor(0, 0, 0, 1)
-		DrawImage(nil, (xPos+2) - 35, (yPos+2) - 3, width - 4, height - 4)
+		DrawImage(nil, xPos + (labelWidth / 2) - (boxWidth / 2) + 2, yPos - 1, boxWidth - 4, boxHeight - 4)
 		SetDrawColor(colorCodes.NORMAL)
-		DrawImage(nil, xPos - 35, yPos + 15, width, 2)
-		SetDrawColor(1,1,1)
-		DrawString(xPos, yPos, "LEFT", 16, "VAR BOLD", "BLOCK")
+		DrawImage(nil, xPos + (labelWidth / 2) - (boxWidth / 2), yPos + 15, boxWidth, 2)
+		SetDrawColor(1, 1, 1)
+		DrawString(xPos + labelWidth / 2, yPos, "CENTER_X", 16, "VAR BOLD", "BLOCK")
+		if self.blockValue then
+			DrawString(xPos + (labelWidth / 2), yPos + 24, "CENTER_X", 16, "VAR", self.blockValue)
+		end
 	end
-	controls.resistsLabel = new("LabelControl", {"TOP",controls.evasionLabel,"TOP"}, {0, 54, 0, 16}, "RESISTS")
+	controls.resistsLabel = new("LabelControl", {"TOP",controls.evasionLabel,"TOP"}, {1, 54, 0, 16}, "RESISTS")
 	controls.resistsLabel.Draw = function(self, view)
 		local xPos, yPos = self:GetPos()
-		local width, height = 120, 50
+		local boxWidth, boxHeight = 120, 50
+		local labelWidth = DrawStringWidth(16, "VAR BOLD", "RESISTS")
 		SetDrawColor(colorCodes.DEFENCE)
-		DrawImage(nil, xPos - 32, yPos - 3, width, height)
+		DrawImage(nil, xPos + (labelWidth / 2) - (boxWidth / 2), yPos - 3, boxWidth, boxHeight)
 		SetDrawColor(0, 0, 0, 1)
-		DrawImage(nil, (xPos+2) - 32, (yPos+2) - 3, width - 4, height - 4)
+		DrawImage(nil, xPos + (labelWidth / 2) - (boxWidth / 2) + 2, yPos - 1, boxWidth - 4, boxHeight - 4)
 		SetDrawColor(colorCodes.DEFENCE)
-		DrawImage(nil, xPos - 32, yPos + 15, width, 2)
-		SetDrawColor(1,1,1)
-		DrawString(xPos, yPos, "LEFT", 16, "VAR BOLD", "RESISTS")
+		DrawImage(nil, xPos + (labelWidth / 2) - (boxWidth / 2), yPos + 15, boxWidth, 2)
+		SetDrawColor(1, 1, 1)
+		DrawString(xPos + labelWidth / 2, yPos, "CENTER_X", 16, "VAR BOLD", "RESISTS")
+		if self.resistsValue then
+			DrawString(xPos + (labelWidth / 2), yPos + 24, "CENTER_X", 16, "VAR", self.resistsValue)
+		end
 	end
+
 
 	-- Run this code whenever a new minion is selected in the list
 	controls.source.OnSelect = function()
@@ -1662,22 +1632,17 @@ function buildMode:OpenSpectreLibrary(library)
 				end
 			end
 		end
-		controls.minionNameLabel = new("LabelControl", {"TOP",controls.source,"TOPRIGHT"}, {130, -25, 0, 18}, minion.name)
-		controls.lifeLabelNum = new("LabelControl", {"TOP",controls.lifeLabel,"BOTTOM"}, {0, 6, 0, 16}, "^7"..round(totalLife))
-		controls.energyshieldLabelNum = new("LabelControl", {"TOP",controls.energyshieldLabel,"BOTTOM"}, {0, 6, 0, 16}, round(totalES))
-		controls.blockLabelNum = new("LabelControl", {"TOP",controls.blockLabel,"BOTTOM"}, {6, 6, 0, 16}, blockChance.."%")
-		controls.armourLabelNum = new("LabelControl", {"TOP",controls.armourLabel,"BOTTOM"}, {0, 6, 0, 16}, round(totalArmour))
-		controls.evasionLabelNum = new("LabelControl", {"TOP",controls.evasionLabel,"BOTTOM"}, {0, 6, 0, 16}, round(totalEvasion))
-		controls.resistsLabelNum = new("LabelControl", {"TOP",controls.resistsLabel,"BOTTOM"}, {0, 6, 0, 16},
-		colorCodes.FIRE..minion.fireResist.."^7/"..
-		colorCodes.COLD..minion.coldResist.."^7/"..
-		colorCodes.LIGHTNING..minion.lightningResist.."^7/"..
-		colorCodes.CHAOS..minion.chaosResist)
-		controls.resistsLabelNum._oldDraw = controls.resistsLabelNum.Draw
-		controls.resistsLabelNum.Draw = function(self, view)
-			self:_oldDraw(view)
-			SetDrawColor(1, 1, 1, 1) -- Reset to white otherwise spectre notes and other lines get colored
-		end
+		controls.minionNameLabel = new("LabelControl", {"TOP",controls.source,"TOPRIGHT"}, {130, -25, 0, 18}, "^7"..minion.name)
+		controls.lifeLabel.lifeValue = round(totalLife)
+		controls.energyshieldLabel.energyShieldValue = round(totalES)
+		controls.armourLabel.armourValue = round(totalArmour)
+		controls.blockLabel.blockValue = blockChance
+		controls.evasionLabel.evasionValue = round(totalEvasion)
+		controls.resistsLabel.resistsValue = (
+			colorCodes.FIRE..minion.fireResist.."^7/"..
+			colorCodes.COLD..minion.coldResist.."^7/"..
+			colorCodes.LIGHTNING..minion.lightningResist.."^7/"..
+			colorCodes.CHAOS..minion.chaosResist)
 	end
 end
 
