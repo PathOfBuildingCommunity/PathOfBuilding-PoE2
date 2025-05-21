@@ -100,6 +100,13 @@ data.gameConstants = {
 	["CullingStrikeRareThreshold"] = 10,
 	["CullingStrikeUniqueThreshold"] = 5,
 }
+-- From PlayerMinionIntrinsicStats.dat
+data.playerMinionIntrinsicStats = {
+	["stun_base_duration_override_ms"] = 500,
+	["accuracy_rating_+%_final_at_max_distance_scaled"] = -90,
+	["accuracy_rating_per_level"] = 10,
+	["base_critical_hit_damage_bonus"] = 70,
+}
 -- From MonsterVarieties.dat combined with SkillTotemVariations.dat
 data.totemLifeMult = { [1] = 1, [2] = 1, [3] = 1, [5] = 1, [12] = 1, [18] = 1, [19] = 1, [22] = 1, [15] = 1.2, [23] = 1, [24] = 1, }
 data.monsterVarietyLifeMult = {

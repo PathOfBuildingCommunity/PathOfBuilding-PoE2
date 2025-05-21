@@ -49,6 +49,13 @@ for row in dat("GameConstants"):Rows() do
 end
 out:write('}\n')
 
+out:write('-- From PlayerMinionIntrinsicStats.dat\n')
+out:write('data.playerMinionIntrinsicStats = {\n')
+for row in dat("PlayerMinionIntrinsicStats"):Rows() do
+	out:write('\t["' .. row.Id.Id .. '"] = ' .. row.Value .. ',\n')
+end
+out:write('}\n')
+
 local totemMult = ""
 local keys = { }
 for var in dat("SkillTotemVariations"):Rows() do
