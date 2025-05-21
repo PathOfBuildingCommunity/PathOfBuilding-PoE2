@@ -288,10 +288,6 @@ local configSettings = {
 	{ var = "ColdSnapBypassCD", type = "check", label = "Bypass CD?", ifSkill = "Cold Snap", includeTransfigured = true, apply = function(val, modList, enemyModList)
 		modList:NewMod("CooldownRecovery", "OVERRIDE", 0, "Config", { type = "SkillName", skillName = "Cold Snap", includeTransfigured = true })
 	end },
-	{ label = "Concoct:", ifSkill = "Concoct" },
-	{ var = "concoctLifeFlaskChargesUsed", type = "count", label = "# of Life Flask charges used:", ifSkill = "Concoct", apply = function(val, modList, enemyModList)
-		modList:NewMod("Multiplier:LifeFlaskChargesUsed", "BASE", val, "Config")
-	end },
 	{ label = "Consecrated Path of Endurance:", ifSkill = "Consecrated Path of Endurance" },
 	{ var = "ConcPathBypassCD", type = "check", label = "Bypass CD?", ifSkill = "Consecrated Path of Endurance", defaultState = true, apply = function(val, modList, enemyModList)
 		modList:NewMod("CooldownRecovery", "OVERRIDE", 0, "Config", { type = "SkillName", skillName = "Consecrated Path of Endurance" })
