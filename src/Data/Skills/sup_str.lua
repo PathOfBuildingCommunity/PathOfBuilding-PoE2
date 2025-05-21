@@ -608,10 +608,10 @@ skills["SupportConcoctPlayer"] = {
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
 				["support_concoct_bleed_effect_+%_final_per_life_flask_charge_consumed"] = {
-					mod("AilmentMagnitude", "MORE", nil, 0, KeywordFlag.Bleed, { type = "Multiplier", var = "LifeFlaskChargesUsed"}),
+					mod("AilmentMagnitude", "MORE", nil, 0, KeywordFlag.Bleed, { type = "PercentStat", stat = "LifeFlaskMaxCharges", percentVar = "LifeFlaskMaxChargesPercent", floor = true }),
 				},
 				["consume_%_of_maximum_life_flask_charges_on_skill_use"] = {
-					-- Display only
+					mod("Multiplier:LifeFlaskMaxChargesPercent", "BASE", nil),
 				},
 			},
 			baseFlags = {
