@@ -10,6 +10,8 @@ local ipairs = ipairs
 local t_insert = table.insert
 local m_floor = math.floor
 local m_sqrt = math.sqrt
+local m_min = math.min
+local m_max = math.max
 local s_format = string.format
 
 local breakdown = { }
@@ -108,7 +110,7 @@ function breakdown.area(base, areaMod, total, incBreakpoint, moreBreakpoint, red
 	return out
 end
 
-function breakdown.effMult(damageType, resist, pen, taken, mult, takenMore, sourceRes, useRes, invertChance)
+function breakdown.effMult(damageType, resist, pen, taken, mult, takenMore, sourceRes, useRes, invertChance, minPen)
 	local out = { }
 	local resistForm = (damageType == "Physical") and "physical damage reduction" or "resistance"
 	local resistLabel = resistForm
@@ -132,10 +134,10 @@ function breakdown.effMult(damageType, resist, pen, taken, mult, takenMore, sour
 		if not useRes then
 			t_insert(out, s_format("x %d%% ^8(resistance ignored)", 0))
 			t_insert(out, s_format("= %d%%", (0)))
-		elseif resist <= 0 then
+		elseif resist <= minPen then
 			t_insert(out, s_format("= %d%% ^8(negative resistance unaffected by penetration)", resist))
-		elseif (resist - pen) < 0 then
-			t_insert(out, s_format("= %d%% ^8(penetration cannot bring resistances below 0)", 0))
+		elseif (resist - pen) < minPen then
+			t_insert(out, s_format("= %d%% ^8(penetration cannot bring resistances below %d%%)", m_max(resist - pen, minPen), minPen))
 		else
 			t_insert(out, s_format("= %d%%", (resist - pen)))
 		end

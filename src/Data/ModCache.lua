@@ -4687,7 +4687,7 @@ c["Your Dexterity is added to your Minions"]={{[1]={flags=0,keywordFlags=0,name=
 c["Your Heavy Stun buildup empties 50% faster"]={nil,"Your Heavy Stun buildup empties 50% faster "}
 c["Your Heavy Stun buildup empties 50% faster if you've successfully Parried Recently"]={nil,"Your Heavy Stun buildup empties 50% faster if you've successfully Parried Recently "}
 c["Your Hits are Crushing Blows"]={nil,"Your Hits are Crushing Blows "}
-c["Your Hits can Penetrate Elemental Resistances down to a minimum of -50%"]={nil,"Your Hits can Penetrate Elemental Resistances down to a minimum of -50% "}
+c["Your Hits can Penetrate Elemental Resistances down to a minimum of -50%"]={{[1]={flags=0,keywordFlags=262144,name="ElementalPenetrationMinimum",type="BASE",value=-50}},nil}
 c["Your Hits can't be Evaded"]={{[1]={flags=0,keywordFlags=0,name="CannotBeEvaded",type="FLAG",value=true}},nil}
 c["Your Life cannot change while you have Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="EternalLife",type="FLAG",value=true}},nil}
 c["Your base Energy Shield Recharge Delay is 10 seconds"]={{[1]={flags=0,keywordFlags=0,name="EnergyShieldRechargeBase",type="OVERRIDE",value=10}},nil}
