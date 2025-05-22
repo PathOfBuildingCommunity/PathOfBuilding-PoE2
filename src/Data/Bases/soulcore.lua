@@ -128,7 +128,7 @@ itemBases["Desert Rune"] = {
 	hidden = true,
 	tags = { rune_normal = true, default = true, },
 	implicitModTypes = { },
-	implicit = "Martial Weapons: Adds 7 to 11 Fire Damage\nArmour: +12% to Fire Resistance",
+	implicit = "Martial Weapons: Adds 7 to 11 Fire Damage\nArmour: +12% to Fire Resistance\nCaster: Gain 10% of Damage as Extra Fire Damage",
 	req = { level = 31, },
 }
 itemBases["Glacial Rune"] = {
@@ -136,7 +136,7 @@ itemBases["Glacial Rune"] = {
 	hidden = true,
 	tags = { rune_normal = true, default = true, },
 	implicitModTypes = { },
-	implicit = "Martial Weapons: Adds 6 to 10 Cold Damage\nArmour: +12% to Cold Resistance",
+	implicit = "Martial Weapons: Adds 6 to 10 Cold Damage\nArmour: +12% to Cold Resistance\nCaster: Gain 10% of Damage as Extra Cold Damage",
 	req = { level = 31, },
 }
 itemBases["Storm Rune"] = {
@@ -144,7 +144,7 @@ itemBases["Storm Rune"] = {
 	hidden = true,
 	tags = { rune_normal = true, default = true, },
 	implicitModTypes = { },
-	implicit = "Martial Weapons: Adds 1 to 20 Lightning Damage\nArmour: +12% to Lightning Resistance",
+	implicit = "Martial Weapons: Adds 1 to 20 Lightning Damage\nArmour: +12% to Lightning Resistance\nCaster: Gain 10% of Damage as Extra Lightning Damage",
 	req = { level = 31, },
 }
 itemBases["Iron Rune"] = {
@@ -152,7 +152,7 @@ itemBases["Iron Rune"] = {
 	hidden = true,
 	tags = { rune_normal = true, default = true, },
 	implicitModTypes = { },
-	implicit = "Martial Weapons: 20% increased Physical Damage\nArmour: 20% increased Armour, Evasion and Energy Shield",
+	implicit = "Martial Weapons: 20% increased Physical Damage\nArmour: 20% increased Armour, Evasion and Energy Shield\nCaster: 25% increased Spell Damage",
 	req = { level = 31, },
 }
 itemBases["Body Rune"] = {
@@ -160,7 +160,7 @@ itemBases["Body Rune"] = {
 	hidden = true,
 	tags = { rune_normal = true, default = true, },
 	implicitModTypes = { },
-	implicit = "Martial Weapons: Leeches 2.5% of Physical Damage as Life\nArmour: +30 to maximum Life",
+	implicit = "Martial Weapons: Leeches 2.5% of Physical Damage as Life\nArmour: +30 to maximum Life\nCaster: +30 to maximum Energy Shield",
 	req = { level = 37, },
 }
 itemBases["Mind Rune"] = {
@@ -168,7 +168,7 @@ itemBases["Mind Rune"] = {
 	hidden = true,
 	tags = { rune_normal = true, default = true, },
 	implicitModTypes = { },
-	implicit = "Martial Weapons: Leeches 2% of Physical Damage as Mana\nArmour: +25 to maximum Mana",
+	implicit = "Martial Weapons: Leeches 2% of Physical Damage as Mana\nArmour: +25 to maximum Mana\nCaster: +30 to maximum Mana",
 	req = { level = 37, },
 }
 itemBases["Rebirth Rune"] = {
@@ -176,7 +176,7 @@ itemBases["Rebirth Rune"] = {
 	hidden = true,
 	tags = { rune_normal = true, default = true, },
 	implicitModTypes = { },
-	implicit = "Martial Weapons: Gain 20 Life per Enemy Killed\nArmour: Regenerate 0.3% of maximum Life per second",
+	implicit = "Martial Weapons: Gain 20 Life per Enemy Killed\nArmour: Regenerate 0.3% of maximum Life per second\nCaster: 15% increased Energy Shield Recharge Rate",
 	req = { level = 45, },
 }
 itemBases["Inspiration Rune"] = {
@@ -184,7 +184,7 @@ itemBases["Inspiration Rune"] = {
 	hidden = true,
 	tags = { rune_normal = true, default = true, },
 	implicitModTypes = { },
-	implicit = "Martial Weapons: Gain 16 Mana per Enemy Killed\nArmour: 15% increased Mana Regeneration Rate",
+	implicit = "Martial Weapons: Gain 16 Mana per Enemy Killed\nArmour: 15% increased Mana Regeneration Rate\nCaster: 20% increased Mana Regeneration Rate",
 	req = { level = 45, },
 }
 itemBases["Stone Rune"] = {
@@ -192,7 +192,7 @@ itemBases["Stone Rune"] = {
 	hidden = true,
 	tags = { rune_normal = true, default = true, },
 	implicitModTypes = { },
-	implicit = "Martial Weapons: Causes 25% increased Stun Buildup\nArmour: +40 to Stun Threshold",
+	implicit = "Martial Weapons: Causes 25% increased Stun Buildup\nArmour: +40 to Stun Threshold\nCaster: Gain additional Stun Threshold equal to 12% of maximum Energy Shield",
 	req = { level = 41, },
 }
 itemBases["Vision Rune"] = {
@@ -200,7 +200,7 @@ itemBases["Vision Rune"] = {
 	hidden = true,
 	tags = { rune_normal = true, default = true, },
 	implicitModTypes = { },
-	implicit = "Martial Weapons: +80 to Accuracy Rating\nArmour: 10% increased Life and Mana Recovery from Flasks",
+	implicit = "Martial Weapons: +80 to Accuracy Rating\nArmour: 10% increased Life and Mana Recovery from Flasks\nCaster: 20% increased Critical Hit Chance for Spells",
 	req = { level = 41, },
 }
 itemBases["Lesser Desert Rune"] = {
@@ -208,7 +208,7 @@ itemBases["Lesser Desert Rune"] = {
 	hidden = true,
 	tags = { rune_lesser = true, default = true, },
 	implicitModTypes = { },
-	implicit = "Martial Weapons: Adds 4 to 6 Fire Damage\nArmour: +10% to Fire Resistance",
+	implicit = "Martial Weapons: Adds 4 to 6 Fire Damage\nArmour: +10% to Fire Resistance\nCaster: Gain 8% of Damage as Extra Fire Damage",
 	req = { level = 5, },
 }
 itemBases["Lesser Glacial Rune"] = {
@@ -216,7 +216,7 @@ itemBases["Lesser Glacial Rune"] = {
 	hidden = true,
 	tags = { rune_lesser = true, default = true, },
 	implicitModTypes = { },
-	implicit = "Martial Weapons: Adds 3 to 5 Cold Damage\nArmour: +10% to Cold Resistance",
+	implicit = "Martial Weapons: Adds 3 to 5 Cold Damage\nArmour: +10% to Cold Resistance\nCaster: Gain 8% of Damage as Extra Cold Damage",
 	req = { level = 5, },
 }
 itemBases["Lesser Storm Rune"] = {
@@ -224,7 +224,7 @@ itemBases["Lesser Storm Rune"] = {
 	hidden = true,
 	tags = { rune_lesser = true, default = true, },
 	implicitModTypes = { },
-	implicit = "Martial Weapons: Adds 1 to 10 Lightning Damage\nArmour: +10% to Lightning Resistance",
+	implicit = "Martial Weapons: Adds 1 to 10 Lightning Damage\nArmour: +10% to Lightning Resistance\nCaster: Gain 8% of Damage as Extra Lightning Damage",
 	req = { level = 5, },
 }
 itemBases["Lesser Iron Rune"] = {
@@ -232,7 +232,7 @@ itemBases["Lesser Iron Rune"] = {
 	hidden = true,
 	tags = { rune_lesser = true, default = true, },
 	implicitModTypes = { },
-	implicit = "Martial Weapons: 15% increased Physical Damage\nArmour: 15% increased Armour, Evasion and Energy Shield",
+	implicit = "Martial Weapons: 15% increased Physical Damage\nArmour: 15% increased Armour, Evasion and Energy Shield\nCaster: 20% increased Spell Damage",
 	req = { level = 5, },
 }
 itemBases["Lesser Body Rune"] = {
@@ -240,7 +240,7 @@ itemBases["Lesser Body Rune"] = {
 	hidden = true,
 	tags = { rune_lesser = true, default = true, },
 	implicitModTypes = { },
-	implicit = "Martial Weapons: Leeches 2% of Physical Damage as Life\nArmour: +20 to maximum Life",
+	implicit = "Martial Weapons: Leeches 2% of Physical Damage as Life\nArmour: +20 to maximum Life\nCaster: +25 to maximum Energy Shield",
 	req = { level = 11, },
 }
 itemBases["Lesser Mind Rune"] = {
@@ -248,7 +248,7 @@ itemBases["Lesser Mind Rune"] = {
 	hidden = true,
 	tags = { rune_lesser = true, default = true, },
 	implicitModTypes = { },
-	implicit = "Martial Weapons: Leeches 1.5% of Physical Damage as Mana\nArmour: +15 to maximum Mana",
+	implicit = "Martial Weapons: Leeches 1.5% of Physical Damage as Mana\nArmour: +15 to maximum Mana\nCaster: +25 to maximum Mana",
 	req = { level = 11, },
 }
 itemBases["Lesser Rebirth Rune"] = {
@@ -256,7 +256,7 @@ itemBases["Lesser Rebirth Rune"] = {
 	hidden = true,
 	tags = { rune_lesser = true, default = true, },
 	implicitModTypes = { },
-	implicit = "Martial Weapons: Gain 10 Life per Enemy Killed\nArmour: Regenerate 0.25% of maximum Life per second",
+	implicit = "Martial Weapons: Gain 10 Life per Enemy Killed\nArmour: Regenerate 0.25% of maximum Life per second\nCaster: 12% increased Energy Shield Recharge Rate",
 	req = { level = 21, },
 }
 itemBases["Lesser Inspiration Rune"] = {
@@ -264,7 +264,7 @@ itemBases["Lesser Inspiration Rune"] = {
 	hidden = true,
 	tags = { rune_lesser = true, default = true, },
 	implicitModTypes = { },
-	implicit = "Martial Weapons: Gain 8 Mana per Enemy Killed\nArmour: 12% increased Mana Regeneration Rate",
+	implicit = "Martial Weapons: Gain 8 Mana per Enemy Killed\nArmour: 12% increased Mana Regeneration Rate\nCaster: 16% increased Mana Regeneration Rate",
 	req = { level = 21, },
 }
 itemBases["Lesser Stone Rune"] = {
@@ -272,7 +272,7 @@ itemBases["Lesser Stone Rune"] = {
 	hidden = true,
 	tags = { rune_lesser = true, default = true, },
 	implicitModTypes = { },
-	implicit = "Martial Weapons: Causes 20% increased Stun Buildup\nArmour: +30 to Stun Threshold",
+	implicit = "Martial Weapons: Causes 20% increased Stun Buildup\nArmour: +30 to Stun Threshold\nCaster: Gain additional Stun Threshold equal to 10% of maximum Energy Shield",
 	req = { level = 16, },
 }
 itemBases["Lesser Vision Rune"] = {
@@ -280,7 +280,7 @@ itemBases["Lesser Vision Rune"] = {
 	hidden = true,
 	tags = { rune_lesser = true, default = true, },
 	implicitModTypes = { },
-	implicit = "Martial Weapons: +50 to Accuracy Rating\nArmour: 8% increased Life and Mana Recovery from Flasks",
+	implicit = "Martial Weapons: +50 to Accuracy Rating\nArmour: 8% increased Life and Mana Recovery from Flasks\nCaster: 16% increased Critical Hit Chance for Spells",
 	req = { level = 16, },
 }
 itemBases["Greater Desert Rune"] = {
@@ -288,7 +288,7 @@ itemBases["Greater Desert Rune"] = {
 	hidden = true,
 	tags = { rune_greater = true, default = true, },
 	implicitModTypes = { },
-	implicit = "Martial Weapons: Adds 13 to 16 Fire Damage\nArmour: +14% to Fire Resistance",
+	implicit = "Martial Weapons: Adds 13 to 16 Fire Damage\nArmour: +14% to Fire Resistance\nCaster: Gain 12% of Damage as Extra Fire Damage",
 	req = { level = 52, },
 }
 itemBases["Greater Glacial Rune"] = {
@@ -296,7 +296,7 @@ itemBases["Greater Glacial Rune"] = {
 	hidden = true,
 	tags = { rune_greater = true, default = true, },
 	implicitModTypes = { },
-	implicit = "Martial Weapons: Adds 9 to 15 Cold Damage\nArmour: +14% to Cold Resistance",
+	implicit = "Martial Weapons: Adds 9 to 15 Cold Damage\nArmour: +14% to Cold Resistance\nCaster: Gain 12% of Damage as Extra Cold Damage",
 	req = { level = 52, },
 }
 itemBases["Greater Storm Rune"] = {
@@ -304,7 +304,7 @@ itemBases["Greater Storm Rune"] = {
 	hidden = true,
 	tags = { rune_greater = true, default = true, },
 	implicitModTypes = { },
-	implicit = "Martial Weapons: Adds 1 to 30 Lightning Damage\nArmour: +14% to Lightning Resistance",
+	implicit = "Martial Weapons: Adds 1 to 30 Lightning Damage\nArmour: +14% to Lightning Resistance\nCaster: Gain 12% of Damage as Extra Lightning Damage",
 	req = { level = 52, },
 }
 itemBases["Greater Iron Rune"] = {
@@ -312,7 +312,7 @@ itemBases["Greater Iron Rune"] = {
 	hidden = true,
 	tags = { rune_greater = true, default = true, },
 	implicitModTypes = { },
-	implicit = "Martial Weapons: 25% increased Physical Damage\nArmour: 25% increased Armour, Evasion and Energy Shield",
+	implicit = "Martial Weapons: 25% increased Physical Damage\nArmour: 25% increased Armour, Evasion and Energy Shield\nCaster: 30% increased Spell Damage",
 	req = { level = 52, },
 }
 itemBases["Greater Body Rune"] = {
@@ -320,7 +320,7 @@ itemBases["Greater Body Rune"] = {
 	hidden = true,
 	tags = { rune_greater = true, default = true, },
 	implicitModTypes = { },
-	implicit = "Martial Weapons: Leeches 3% of Physical Damage as Life\nArmour: +40 to maximum Life",
+	implicit = "Martial Weapons: Leeches 3% of Physical Damage as Life\nArmour: +40 to maximum Life\nCaster: +35 to maximum Energy Shield",
 	req = { level = 57, },
 }
 itemBases["Greater Mind Rune"] = {
@@ -328,7 +328,7 @@ itemBases["Greater Mind Rune"] = {
 	hidden = true,
 	tags = { rune_greater = true, default = true, },
 	implicitModTypes = { },
-	implicit = "Martial Weapons: Leeches 2.5% of Physical Damage as Mana\nArmour: +35 to maximum Mana",
+	implicit = "Martial Weapons: Leeches 2.5% of Physical Damage as Mana\nArmour: +35 to maximum Mana\nCaster: +35 to maximum Mana",
 	req = { level = 57, },
 }
 itemBases["Greater Rebirth Rune"] = {
@@ -336,7 +336,7 @@ itemBases["Greater Rebirth Rune"] = {
 	hidden = true,
 	tags = { rune_greater = true, default = true, },
 	implicitModTypes = { },
-	implicit = "Martial Weapons: Gain 30 Life per Enemy Killed\nArmour: Regenerate 0.35% of maximum Life per second",
+	implicit = "Martial Weapons: Gain 30 Life per Enemy Killed\nArmour: Regenerate 0.35% of maximum Life per second\nCaster: 18% increased Energy Shield Recharge Rate",
 	req = { level = 62, },
 }
 itemBases["Greater Inspiration Rune"] = {
@@ -344,7 +344,7 @@ itemBases["Greater Inspiration Rune"] = {
 	hidden = true,
 	tags = { rune_greater = true, default = true, },
 	implicitModTypes = { },
-	implicit = "Martial Weapons: Gain 24 Mana per Enemy Killed\nArmour: 18% increased Mana Regeneration Rate",
+	implicit = "Martial Weapons: Gain 24 Mana per Enemy Killed\nArmour: 18% increased Mana Regeneration Rate\nCaster: 24% increased Mana Regeneration Rate",
 	req = { level = 62, },
 }
 itemBases["Greater Stone Rune"] = {
@@ -352,7 +352,7 @@ itemBases["Greater Stone Rune"] = {
 	hidden = true,
 	tags = { rune_greater = true, default = true, },
 	implicitModTypes = { },
-	implicit = "Martial Weapons: Causes 30% increased Stun Buildup\nArmour: +50 to Stun Threshold",
+	implicit = "Martial Weapons: Causes 30% increased Stun Buildup\nArmour: +50 to Stun Threshold\nCaster: Gain additional Stun Threshold equal to 14% of maximum Energy Shield",
 	req = { level = 59, },
 }
 itemBases["Greater Vision Rune"] = {
@@ -360,7 +360,7 @@ itemBases["Greater Vision Rune"] = {
 	hidden = true,
 	tags = { rune_greater = true, default = true, },
 	implicitModTypes = { },
-	implicit = "Martial Weapons: +110 to Accuracy Rating\nArmour: 12% increased Life and Mana Recovery from Flasks",
+	implicit = "Martial Weapons: +110 to Accuracy Rating\nArmour: 12% increased Life and Mana Recovery from Flasks\nCaster: 24% increased Critical Hit Chance for Spells",
 	req = { level = 59, },
 }
 itemBases["Lesser Robust Rune"] = {
@@ -368,7 +368,7 @@ itemBases["Lesser Robust Rune"] = {
 	hidden = true,
 	tags = { rune_lesser = true, default = true, },
 	implicitModTypes = { },
-	implicit = "Martial Weapons: +6 to Strength\nArmour: +6 to Strength",
+	implicit = "Martial Weapons: +6 to Strength\nArmour: +6 to Strength\nCaster: +6 to Strength",
 	req = { level = 5, },
 }
 itemBases["Robust Rune"] = {
@@ -376,7 +376,7 @@ itemBases["Robust Rune"] = {
 	hidden = true,
 	tags = { rune_normal = true, default = true, },
 	implicitModTypes = { },
-	implicit = "Martial Weapons: +8 to Strength\nArmour: +8 to Strength",
+	implicit = "Martial Weapons: +8 to Strength\nArmour: +8 to Strength\nCaster: +8 to Strength",
 	req = { level = 31, },
 }
 itemBases["Greater Robust Rune"] = {
@@ -384,7 +384,7 @@ itemBases["Greater Robust Rune"] = {
 	hidden = true,
 	tags = { rune_greater = true, default = true, },
 	implicitModTypes = { },
-	implicit = "Martial Weapons: +10 to Strength\nArmour: +10 to Strength",
+	implicit = "Martial Weapons: +10 to Strength\nArmour: +10 to Strength\nCaster: +10 to Strength",
 	req = { level = 52, },
 }
 itemBases["Lesser Adept Rune"] = {
@@ -392,7 +392,7 @@ itemBases["Lesser Adept Rune"] = {
 	hidden = true,
 	tags = { rune_lesser = true, default = true, },
 	implicitModTypes = { },
-	implicit = "Martial Weapons: +5 to Dexterity\nArmour: +6 to Dexterity",
+	implicit = "Martial Weapons: +5 to Dexterity\nArmour: +6 to Dexterity\nCaster: +6 to Dexterity",
 	req = { level = 5, },
 }
 itemBases["Adept Rune"] = {
@@ -400,7 +400,7 @@ itemBases["Adept Rune"] = {
 	hidden = true,
 	tags = { rune_normal = true, default = true, },
 	implicitModTypes = { },
-	implicit = "Martial Weapons: +8 to Dexterity\nArmour: +8 to Dexterity",
+	implicit = "Martial Weapons: +8 to Dexterity\nArmour: +8 to Dexterity\nCaster: +8 to Dexterity",
 	req = { level = 31, },
 }
 itemBases["Greater Adept Rune"] = {
@@ -408,7 +408,7 @@ itemBases["Greater Adept Rune"] = {
 	hidden = true,
 	tags = { rune_greater = true, default = true, },
 	implicitModTypes = { },
-	implicit = "Martial Weapons: +10 to Dexterity\nArmour: +10 to Dexterity",
+	implicit = "Martial Weapons: +10 to Dexterity\nArmour: +10 to Dexterity\nCaster: +10 to Dexterity",
 	req = { level = 52, },
 }
 itemBases["Lesser Resolve Rune"] = {
@@ -416,7 +416,7 @@ itemBases["Lesser Resolve Rune"] = {
 	hidden = true,
 	tags = { rune_lesser = true, default = true, },
 	implicitModTypes = { },
-	implicit = "Martial Weapons: +6 to Intelligence\nArmour: +6 to Intelligence",
+	implicit = "Martial Weapons: +6 to Intelligence\nArmour: +6 to Intelligence\nCaster: +6 to Intelligence",
 	req = { level = 5, },
 }
 itemBases["Resolve Rune"] = {
@@ -424,7 +424,7 @@ itemBases["Resolve Rune"] = {
 	hidden = true,
 	tags = { rune_normal = true, default = true, },
 	implicitModTypes = { },
-	implicit = "Martial Weapons: +8 to Intelligence\nArmour: +8 to Intelligence",
+	implicit = "Martial Weapons: +8 to Intelligence\nArmour: +8 to Intelligence\nCaster: +8 to Intelligence",
 	req = { level = 31, },
 }
 itemBases["Greater Resolve Rune"] = {
@@ -432,7 +432,7 @@ itemBases["Greater Resolve Rune"] = {
 	hidden = true,
 	tags = { rune_greater = true, default = true, },
 	implicitModTypes = { },
-	implicit = "Martial Weapons: +10 to Intelligence\nArmour: +10 to Intelligence",
+	implicit = "Martial Weapons: +10 to Intelligence\nArmour: +10 to Intelligence\nCaster: +10 to Intelligence",
 	req = { level = 52, },
 }
 itemBases["Lesser Tempered Rune"] = {
