@@ -303,7 +303,9 @@ function SkillsTabClass:LoadSkill(node, skillSetId)
 			if gemData then
 				gemInstance.gemId = gemData.id
 				gemInstance.skillId = gemData.grantedEffectId
-				gemInstance.nameSpec = gemData.nameSpec
+				if gemData.nameSpec then
+					gemInstance.nameSpec = gemData.nameSpec
+				end
 			end
 		elseif child.attrib.skillId then
 			local grantedEffect = self.build.data.skills[child.attrib.skillId]
@@ -1028,7 +1030,11 @@ function SkillsTabClass:ProcessSocketGroup(socketGroup)
 			gemInstance.errMsg = nil
 			gemInstance.gemData = data.gems[gemInstance.gemId]
 			if gemInstance.gemData then
-				gemInstance.nameSpec = gemInstance.gemData.name
+				if gemInstance.nameSpec:match("^Companion:") or gemInstance.nameSpec:match("^Spectre:") then
+					gemInstance.nameSpec = gemInstance.nameSpec
+				else
+					gemInstance.nameSpec = gemInstance.gemData.name
+				end
 				gemInstance.skillId = gemInstance.gemData.grantedEffectId
 			end
 		elseif gemInstance.skillId then
@@ -1155,7 +1161,7 @@ function SkillsTabClass:AddSocketGroupTooltip(tooltip, socketGroup)
 			tooltip:AddLine(16, "^7Active Skill #" .. index .. "'s Main Minion Skill:")
 			local activeEffect = activeSkill.minion.mainSkill.effectList[1]
 			tooltip:AddLine(20, string.format("%s%s ^7%d/%d",
-				data.skillColorMap[activeEffect.grantedEffect.color],
+				data.skillColorMap[activeEffect.grantedEffect.color] or colorCodes.NORMAL,
 				activeEffect.grantedEffect.name,
 				activeEffect.level,
 				activeEffect.quality
