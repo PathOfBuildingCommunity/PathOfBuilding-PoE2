@@ -5789,9 +5789,9 @@ minions["Metadata/Monsters/PitifulFabrications/PitifulFabrication01"] = {
 	},
 }
 
-minions["Metadata/Monsters/PitifulFabrications/PitifulFabrication02"] = {
+minions["Metadata/Monsters/PitifulFabrications/Canopy/PitifulFabrication02"] = {
 	name = "Ribrattle",
-	monsterTags = { "skeleton", "Unarmed_onhit_audio", "undead", "very_slow_movement", },
+	monsterTags = { "bones", "skeleton", "Unarmed_onhit_audio", "undead", "very_slow_movement", },
 	extraFlags = {
 		recommendedSpectre = true,
 	},
@@ -5815,9 +5815,9 @@ minions["Metadata/Monsters/PitifulFabrications/PitifulFabrication02"] = {
 		"The Ziggurat Refuge",
 	},
 	skillList = {
-		"PitifulFabricationBuff",
-		"TBPitifulFabricationBuff",
-		"PitifulFabricationBuffTriggered",
+		"AzmeriFabricationDespair",
+		"AzmeriFabricationTemporalChains",
+		"AzmeriFabricationEnfeeble",
 	},
 	modList = {
 	},

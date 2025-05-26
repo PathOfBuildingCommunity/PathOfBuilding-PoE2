@@ -1697,8 +1697,8 @@ function calcs.initEnv(build, mode, override, specEnv)
 								group.displayLabel = (group.displayLabel and group.displayLabel..", " or "") .. grantedEffect.name
 							end
 						end
-						group.displayLabel = group.displayLabel or "<No active skills>"
 					end
+					group.displayLabel = group.displayLabel or "<No active skills>"
 				end
 
 				-- Save the active skill list for display in the socket group tooltip

@@ -574,7 +574,7 @@ local minions, mod, flag = ...
 #spectre Metadata/Monsters/PitifulFabrications/PitifulFabrication01
 #emit
 
-#spectre Metadata/Monsters/PitifulFabrications/PitifulFabrication02
+#spectre Metadata/Monsters/PitifulFabrications/Canopy/PitifulFabrication02
 #flags recommendedSpectre
 #emit
 

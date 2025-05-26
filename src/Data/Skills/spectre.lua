@@ -6,6 +6,117 @@
 --
 local skills, mod, flag, skill = ...
 
+skills["AzmeriFabricationDespair"] = {
+	name = "Despair",
+	hidden = true,
+	description = "Curse all targets in an area after a short delay, lowering their Chaos Resistance.",
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Cascadable] = true, [SkillType.Chaos] = true, [SkillType.AppliesCurse] = true, [SkillType.CanRapidFire] = true, [SkillType.AreaSpell] = true, [SkillType.UsableWhileMoving] = true, },
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Despair",
+			statDescriptionScope = "despair",
+			baseFlags = {
+				spell = true,
+				curse = true,
+				area = true,
+				duration = true,
+			},
+			constantStats = {
+				{ "base_chaos_damage_resistance_%", -30 },
+				{ "active_skill_area_of_effect_radius_+%_final", 100 },
+			},
+			stats = {
+				"base_deal_no_damage",
+				"curse_apply_as_aura",
+				"infinite_skill_effect_duration",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["AzmeriFabricationEnfeeble"] = {
+	name = "Enfeeble",
+	hidden = true,
+	description = "Curse all targets in an area after a short delay, making them deal less damage.",
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Cascadable] = true, [SkillType.AppliesCurse] = true, [SkillType.CanRapidFire] = true, [SkillType.AreaSpell] = true, [SkillType.UsableWhileMoving] = true, },
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Enfeeble",
+			statDescriptionScope = "enfeeble",
+			baseFlags = {
+				spell = true,
+				curse = true,
+				area = true,
+				duration = true,
+			},
+			constantStats = {
+				{ "accuracy_rating_+%", -60 },
+				{ "base_skill_buff_damage_+%_final_to_apply", -60 },
+				{ "base_skill_buff_damage_+%_final_vs_unique_to_apply", -23 },
+				{ "active_skill_area_of_effect_radius_+%_final", 100 },
+			},
+			stats = {
+				"base_deal_no_damage",
+				"curse_apply_as_aura",
+				"infinite_skill_effect_duration",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["AzmeriFabricationTemporalChains"] = {
+	name = "Temporal Chains",
+	hidden = true,
+	description = "Curse all enemies in an area, Slowing them and making other effects on them expire more slowly.",
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Cascadable] = true, [SkillType.AppliesCurse] = true, [SkillType.CanRapidFire] = true, [SkillType.AreaSpell] = true, [SkillType.UsableWhileMoving] = true, },
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Temporal Chains",
+			statDescriptionScope = "temporal_chains",
+			baseFlags = {
+				spell = true,
+				curse = true,
+				area = true,
+				duration = true,
+			},
+			constantStats = {
+				{ "base_skill_debuff_action_speed_+%_final_to_inflict", -30 },
+				{ "base_temporal_chains_other_buff_time_passed_+%_to_apply", -38 },
+				{ "active_skill_area_of_effect_radius_+%_final", 100 },
+			},
+			stats = {
+				"base_deal_no_damage",
+				"curse_apply_as_aura",
+				"infinite_skill_effect_duration",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
 skills["AzmeriPictBowRainOfSpores"] = {
 	name = "Toxic Rain",
 	hidden = true,
@@ -196,6 +307,39 @@ skills["DTTHellscapeStabbySkyStab"] = {
 		},
 	}
 }
+skills["DTTMantisRatLeap"] = {
+	name = "Leap",
+	hidden = true,
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Movement] = true, },
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { storedUses = 1, levelRequirement = 0, cooldown = 7, },
+	},
+	statSets = {
+		[1] = {
+			label = "Leap",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				triggerable = true,
+				attack = true,
+			},
+			constantStats = {
+				{ "walk_emerge_extra_distance", -7 },
+				{ "leap_slam_minimum_distance", 40 },
+				{ "spell_maximum_action_distance_+%", -32 },
+			},
+			stats = {
+				"action_attack_or_cast_time_uses_animation_length",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
 skills["EDSShellMonsterFlamethrower"] = {
 	name = "Flamethrower",
 	hidden = true,
@@ -361,6 +505,37 @@ skills["GAHellscapePaleEliteSkyStab"] = {
 			},
 			constantStats = {
 				{ "active_skill_shock_chance_+%_final", 50 },
+			},
+			stats = {
+				"is_area_damage",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["GAMantisRatDualStrike"] = {
+	name = "Dual Strike",
+	hidden = true,
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Attack] = true, },
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { baseMultiplier = 1.05, levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Dual Strike",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				triggerable = true,
+				attack = true,
+			},
+			constantStats = {
+				{ "active_skill_base_physical_damage_%_to_convert_to_lightning", 50 },
 			},
 			stats = {
 				"is_area_damage",
@@ -972,6 +1147,51 @@ skills["MPSAzmeriPictStaffProj2"] = {
 		},
 	}
 }
+skills["MPSBreachEliteFallenLunarisMonsterChaosSpark"] = {
+	name = "Chaos Spark",
+	hidden = true,
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, },
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { critChance = 5, storedUses = 1, levelRequirement = 0, cooldown = 10, },
+	},
+	statSets = {
+		[1] = {
+			label = "Chaos Spark",
+			baseEffectiveness = 3.25,
+			incrementalEffectiveness = 0.10000000149012,
+			damageIncrementalEffectiveness = 0.017500000074506,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				spell = true,
+				projectile = true,
+				triggerable = true,
+				hit = true,
+			},
+			constantStats = {
+				{ "monster_projectile_variation", 1360 },
+				{ "number_of_additional_projectiles", 5 },
+				{ "projectile_spread_radius", 12 },
+			},
+			stats = {
+				"spell_minimum_base_chaos_damage",
+				"spell_maximum_base_chaos_damage",
+				"base_is_projectile",
+				"projectile_uses_contact_position",
+				"maintain_projectile_direction_when_using_contact_position",
+				"action_attack_or_cast_time_uses_animation_length",
+				"projectile_ballistic_angle_from_reference_event",
+				"ballistic_projectiles_always_bounce",
+				"distribute_projectiles_over_contact_points",
+			},
+			levels = {
+				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
+			},
+		},
+	}
+}
 skills["MPSVaalBloodPriestProj"] = {
 	name = "Blood Projectile",
 	hidden = true,
@@ -1010,6 +1230,44 @@ skills["MPSVaalBloodPriestProj"] = {
 			},
 			levels = {
 				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["MPWAzmeriPitifulFabricationSkullThrow"] = {
+	name = "Skull Throw",
+	hidden = true,
+	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, },
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { baseMultiplier = 1.15, levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Skull Throw",
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				attack = true,
+				projectile = true,
+				triggerable = true,
+			},
+			constantStats = {
+				{ "monster_projectile_variation", 161 },
+				{ "spell_maximum_action_distance_+%", -40 },
+			},
+			stats = {
+				"base_is_projectile",
+				"projectile_uses_contact_position",
+				"use_scaled_contact_offset",
+				"action_attack_or_cast_time_uses_animation_length",
+				"maintain_projectile_direction_when_using_contact_position",
+				"check_for_targets_between_initiator_and_projectile_source",
+				"projectile_ballistic_angle_from_reference_event",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
 			},
 		},
 	}
