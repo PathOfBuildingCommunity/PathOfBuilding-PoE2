@@ -54,6 +54,12 @@ statMap = {
 #mods
 #skillEnd
 
+#skill CoffinWretchBabySoulrend1 Soulrend
+#set CoffinWretchBabySoulrend1
+#flags triggerable spell area duration projectile
+#mods
+#skillEnd
+
 #skill CultistBeastSunder Sunder
 #set CultistBeastSunder
 #flags triggerable attack
@@ -69,6 +75,12 @@ statMap = {
 #skill DTTMantisRatLeap Leap
 #set DTTMantisRatLeap
 #flags triggerable attack
+#mods
+#skillEnd
+
+#skill EDSGolemancerReapLeft
+#set EDSGolemancerReapLeft
+#flags attack melee
 #mods
 #skillEnd
 
@@ -90,9 +102,22 @@ statMap = {
 #mods
 #skillEnd
 
+#skill GSMercurialCasterBlast Rune Blast
+#set GSMercurialCasterBlast
+#flags spell triggerable
+#mods
+#skillEnd
+
 #skill GACenobiteBloaterSlam Slam
 #set GACenobiteBloaterSlam
 #flags triggerable attack melee
+#mods
+#skillEnd
+
+#skill GAHellscapeFleshLeapImpact Leap Slam
+#set GAHellscapeFleshLeapImpact
+#flags attack triggerable
+#baseMod skill("cooldown", 5)
 #mods
 #skillEnd
 
@@ -174,6 +199,12 @@ statMap = {
 #mods
 #skillEnd
 
+#skill MeleeAtAnimationSpeedFireCombo35 Basic Attack (Fire)
+#set MeleeAtAnimationSpeedFireCombo35
+#flags attack melee
+#mods
+#skillEnd
+
 #skill MeleeAtAnimationSpeedLightning Basic Attack (Lightning)
 #set MeleeAtAnimationSpeedLightning
 #flags attack melee
@@ -211,8 +242,20 @@ statMap = {
 #mods
 #skillEnd
 
+#skill MPSMercurialCasterEnrage Basic Spell
+#set MPSMercurialCasterEnrage
+#flags spell projectile triggerable hit
+#mods
+#skillEnd
+
 #skill MPSVaalBloodPriestProj Blood Projectile
 #set MPSVaalBloodPriestProj
+#flags spell projectile triggerable hit
+#mods
+#skillEnd
+
+#skill MPSVaalSunApparitionBasicProj Basic Spell
+#set MPSVaalSunApparitionBasicProj
 #flags spell projectile triggerable hit
 #mods
 #skillEnd
@@ -226,6 +269,31 @@ statMap = {
 #skill MPWCleansedMonstrosityRailgun Railgun
 #set MPWCleansedMonstrosityRailgun
 #flags attack projectile triggerable
+#mods
+#skillEnd
+
+#skill MPWDrudgeExplosiveGrenade Explosive Grenade
+#set MPWDrudgeExplosiveGrenade
+#flags attack triggerable projectile
+#mods
+#skillEnd
+
+#skill MPWExpeditionArbalestProjectile Basic Attack
+#set MPWExpeditionArbalestProjectile
+#flags attack triggerable projectile
+#mods
+#skillEnd
+
+#skill MPWExpeditionArbalestSnipe Snipe
+#set MPWExpeditionArbalestSnipe
+#flags attack triggerable projectile
+#mods
+#skillEnd
+
+#skill MPWFarudinSpearThrow Spear Throw
+#set MPWFarudinSpearThrow
+#flags attack projectile triggerable
+#baseMod skill("cooldown", 8)
 #mods
 #skillEnd
 
@@ -330,6 +398,6 @@ statMap = {
 
 #skill VaalBloodPriestSoulrend Soulrend
 #set VaalBloodPriestSoulrend
-#flags spell area duration projectile Triggerable
+#flags spell area duration projectile triggerable
 #mods
 #skillEnd

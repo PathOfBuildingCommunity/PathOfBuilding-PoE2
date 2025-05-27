@@ -255,6 +255,50 @@ skills["CGESanctifiedMonstrosityPusGround"] = {
 		},
 	}
 }
+skills["CoffinWretchBabySoulrend1"] = {
+	name = "Soulrend",
+	hidden = true,
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Projectile] = true, [SkillType.DamageOverTime] = true, [SkillType.Chaos] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Trappable] = true, [SkillType.Mineable] = true, [SkillType.Totemable] = true, [SkillType.DegenOnlySpellDamage] = true, [SkillType.AreaSpell] = true, },
+	castTime = 2.3,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Soulrend",
+			baseEffectiveness = 13.25,
+			incrementalEffectiveness = 0.10000000149012,
+			damageIncrementalEffectiveness = 0.017500000074506,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				triggerable = true,
+				spell = true,
+				area = true,
+				duration = true,
+				projectile = true,
+			},
+			constantStats = {
+				{ "base_skill_effect_duration", 500 },
+				{ "base_skill_area_of_effect_+%", -40 },
+				{ "spell_maximum_action_distance_+%", -55 },
+				{ "skill_effect_duration_+%", 100 },
+				{ "number_of_additional_projectiles", 2 },
+			},
+			stats = {
+				"base_cold_damage_to_deal_per_minute",
+				"base_is_projectile",
+				"projectile_uses_contact_position",
+				"maintain_projectile_direction_when_using_contact_position",
+				"distribute_projectiles_over_contact_points",
+			},
+			levels = {
+				[1] = { 16.666667039196, statInterpolation = { 3, }, actorLevel = 1, },
+			},
+		},
+	}
+}
 skills["CultistBeastSunder"] = {
 	name = "Sunder",
 	hidden = true,
@@ -346,6 +390,40 @@ skills["DTTMantisRatLeap"] = {
 			},
 			stats = {
 				"action_attack_or_cast_time_uses_animation_length",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["EDSGolemancerReapLeft"] = {
+	name = "Basic Attack",
+	hidden = true,
+	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.ProjectilesFromUser] = true, },
+	castTime = 1.5,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { baseMultiplier = 1.6, levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Basic Attack",
+			baseEffectiveness = 2.0371999740601,
+			incrementalEffectiveness = 0.10000000149012,
+			damageIncrementalEffectiveness = 0.017500000074506,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				attack = true,
+				melee = true,
+			},
+			constantStats = {
+				{ "active_skill_base_physical_damage_%_to_convert_to_cold", 70 },
+				{ "voll_slam_damage_+%_final_at_centre", 30 },
+			},
+			stats = {
+				"is_area_damage",
 			},
 			levels = {
 				[1] = { actorLevel = 1, },
@@ -462,6 +540,47 @@ skills["GSCenobiteBloaterOnDeath"] = {
 		},
 	}
 }
+skills["GSMercurialCasterBlast"] = {
+	name = "Rune Blast",
+	hidden = true,
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, },
+	castTime = 2.5,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { critChance = 5, storedUses = 1, levelRequirement = 0, cooldown = 6, },
+		[2] = { critChance = 5, storedUses = 1, levelRequirement = 0, cooldown = 6, },
+		[3] = { critChance = 5, storedUses = 1, levelRequirement = 0, cooldown = 6, },
+	},
+	statSets = {
+		[1] = {
+			label = "Rune Blast",
+			baseEffectiveness = 6,
+			incrementalEffectiveness = 0.10000000149012,
+			damageIncrementalEffectiveness = 0.017500000074506,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				spell = true,
+				triggerable = true,
+			},
+			constantStats = {
+				{ "ignite_art_variation", 4 },
+				{ "ignite_chance_+%", 40 },
+				{ "spell_maximum_action_distance_+%", -35 },
+			},
+			stats = {
+				"spell_minimum_base_fire_damage",
+				"spell_maximum_base_fire_damage",
+				"is_area_damage",
+			},
+			levels = {
+				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
+				[2] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 45, },
+				[3] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 68, },
+			},
+		},
+	}
+}
 skills["GACenobiteBloaterSlam"] = {
 	name = "Slam",
 	hidden = true,
@@ -490,6 +609,40 @@ skills["GACenobiteBloaterSlam"] = {
 				"action_attack_or_cast_time_uses_animation_length",
 				"base_skill_cannot_be_blocked",
 				"base_skill_cannot_be_avoided_by_dodge_roll",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["GAHellscapeFleshLeapImpact"] = {
+	name = "Leap Slam",
+	hidden = true,
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Attack] = true, },
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { baseMultiplier = 1.15, levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Leap Slam",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				attack = true,
+				triggerable = true,
+			},
+			baseMods = {
+				skill("cooldown", 5),
+			},
+			constantStats = {
+				{ "active_skill_base_physical_damage_%_to_convert_to_fire", 40 },
+			},
+			stats = {
+				"is_area_damage",
 			},
 			levels = {
 				[1] = { actorLevel = 1, },
@@ -939,6 +1092,41 @@ skills["MeleeAtAnimationSpeedComboTEMP"] = {
 		},
 	}
 }
+skills["MeleeAtAnimationSpeedFireCombo35"] = {
+	name = "Basic Attack (Fire)",
+	hidden = true,
+	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.ProjectilesFromUser] = true, },
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Basic Attack (Fire)",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				attack = true,
+				melee = true,
+			},
+			constantStats = {
+				{ "active_skill_base_physical_damage_%_to_convert_to_fire", 35 },
+			},
+			stats = {
+				"skill_can_fire_arrows",
+				"skill_can_fire_wand_projectiles",
+				"action_attack_or_cast_time_uses_animation_length",
+				"projectile_uses_contact_position",
+				"use_scaled_contact_offset",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
 skills["MeleeAtAnimationSpeedLightning"] = {
 	name = "Basic Attack (Lightning)",
 	hidden = true,
@@ -1205,6 +1393,47 @@ skills["MPSBreachEliteFallenLunarisMonsterChaosSpark"] = {
 		},
 	}
 }
+skills["MPSMercurialCasterEnrage"] = {
+	name = "Basic Spell",
+	hidden = true,
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, },
+	castTime = 1.33,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { critChance = 5, levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Basic Spell",
+			baseEffectiveness = 4.3815999031067,
+			incrementalEffectiveness = 0.10000000149012,
+			damageIncrementalEffectiveness = 0.017500000074506,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				spell = true,
+				projectile = true,
+				triggerable = true,
+				hit = true,
+			},
+			constantStats = {
+				{ "monster_projectile_variation", 199 },
+				{ "spell_maximum_action_distance_+%", -30 },
+			},
+			stats = {
+				"spell_minimum_base_fire_damage",
+				"spell_maximum_base_fire_damage",
+				"base_is_projectile",
+				"projectile_uses_contact_position",
+				"use_scaled_contact_offset",
+				"disable_visual_hit_effect",
+			},
+			levels = {
+				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
+			},
+		},
+	}
+}
 skills["MPSVaalBloodPriestProj"] = {
 	name = "Blood Projectile",
 	hidden = true,
@@ -1235,6 +1464,48 @@ skills["MPSVaalBloodPriestProj"] = {
 			stats = {
 				"spell_minimum_base_physical_damage",
 				"spell_maximum_base_physical_damage",
+				"base_is_projectile",
+				"projectile_uses_contact_position",
+				"use_scaled_contact_offset",
+				"action_attack_or_cast_time_uses_animation_length",
+				"check_for_targets_between_initiator_and_projectile_source",
+			},
+			levels = {
+				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["MPSVaalSunApparitionBasicProj"] = {
+	name = "Basic Spell",
+	hidden = true,
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, },
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { critChance = 5, levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Basic Spell",
+			baseEffectiveness = 2.8499999046326,
+			incrementalEffectiveness = 0.10000000149012,
+			damageIncrementalEffectiveness = 0.017500000074506,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				spell = true,
+				projectile = true,
+				triggerable = true,
+				hit = true,
+			},
+			constantStats = {
+				{ "monster_projectile_variation", 1042 },
+				{ "spell_maximum_action_distance_+%", -40 },
+			},
+			stats = {
+				"spell_minimum_base_fire_damage",
+				"spell_maximum_base_fire_damage",
 				"base_is_projectile",
 				"projectile_uses_contact_position",
 				"use_scaled_contact_offset",
@@ -1317,6 +1588,162 @@ skills["MPWCleansedMonstrosityRailgun"] = {
 				"maintain_projectile_direction_when_using_contact_position",
 				"use_scaled_contact_offset",
 				"projectile_ballistic_angle_from_target_distance",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["MPWDrudgeExplosiveGrenade"] = {
+	name = "Explosive Grenade",
+	hidden = true,
+	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, },
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Explosive Grenade",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				attack = true,
+				triggerable = true,
+				projectile = true,
+			},
+			constantStats = {
+				{ "monster_projectile_variation", 1121 },
+				{ "spell_maximum_action_distance_+%", -30 },
+				{ "projectile_spread_radius", 18 },
+				{ "number_of_additional_projectiles", 1 },
+				{ "projectile_speed_variation_+%", 30 },
+			},
+			stats = {
+				"base_is_projectile",
+				"projectile_uses_contact_position",
+				"maintain_projectile_direction_when_using_contact_position",
+				"action_attack_or_cast_time_uses_animation_length",
+				"base_deal_no_damage",
+				"ballistic_projectiles_always_bounce",
+				"projectile_ballistic_angle_from_reference_event",
+				"distribute_projectiles_over_contact_points",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["MPWExpeditionArbalestProjectile"] = {
+	name = "Basic Attack",
+	hidden = true,
+	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, },
+	castTime = 1.5,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Basic Attack",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				attack = true,
+				triggerable = true,
+				projectile = true,
+			},
+			constantStats = {
+				{ "monster_projectile_variation", 145 },
+				{ "active_skill_base_physical_damage_%_to_convert_to_cold", 60 },
+			},
+			stats = {
+				"base_is_projectile",
+				"projectile_uses_contact_position",
+				"use_scaled_contact_offset",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["MPWExpeditionArbalestSnipe"] = {
+	name = "Snipe",
+	hidden = true,
+	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, },
+	castTime = 2,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { attackSpeedMultiplier = -25, storedUses = 1, baseMultiplier = 2.65, cooldown = 8, levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Snipe",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				attack = true,
+				triggerable = true,
+				projectile = true,
+			},
+			constantStats = {
+				{ "monster_projectile_variation", 146 },
+				{ "active_skill_base_physical_damage_%_to_convert_to_cold", 60 },
+				{ "number_of_projectiles_override", 1 },
+			},
+			stats = {
+				"base_is_projectile",
+				"projectile_uses_contact_position",
+				"use_scaled_contact_offset",
+				"always_pierce",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["MPWFarudinSpearThrow"] = {
+	name = "Spear Throw",
+	hidden = true,
+	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, },
+	castTime = 3,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { baseMultiplier = 0.5, levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Spear Throw",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				attack = true,
+				projectile = true,
+				triggerable = true,
+			},
+			baseMods = {
+				skill("cooldown", 8),
+			},
+			constantStats = {
+				{ "number_of_projectiles_override", 1 },
+				{ "melee_range_+", 40 },
+				{ "monster_projectile_variation", 1026 },
+			},
+			stats = {
+				"use_scaled_contact_offset",
+				"projectile_uses_contact_position",
+				"base_is_projectile",
+				"action_attack_or_cast_time_uses_animation_length",
+				"always_pierce",
 			},
 			levels = {
 				[1] = { actorLevel = 1, },
@@ -1958,7 +2385,7 @@ skills["VaalBloodPriestSoulrend"] = {
 				area = true,
 				duration = true,
 				projectile = true,
-				Triggerable = true,
+				triggerable = true,
 			},
 			constantStats = {
 				{ "base_skill_effect_duration", 500 },
