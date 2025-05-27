@@ -907,7 +907,6 @@ function calcs.initEnv(build, mode, override, specEnv)
 			end
 		end
 		
-		local maxLifeCharges, maxManaCharges= 0, 0
 		for _, slot in pairs(build.itemsTab.orderedSlots) do
 			local slotName = slot.slotName
 			local item = items[slotName]
@@ -920,13 +919,8 @@ function calcs.initEnv(build, mode, override, specEnv)
 					if item.flaskData.lifeTotal > highestLifeRecovery then
 						env.itemModDB.multipliers["LifeFlaskRecovery"] = item.flaskData.lifeTotal
 					end
-					maxLifeCharges = maxManaCharges + item.flaskData.chargesMax
-					env.itemModDB.multipliers["LifeFlaskMaxCharges"] = maxLifeCharges + item.flaskData.chargesMax
 				end
-				if item.base.subType == "Mana" then
-					maxManaCharges = maxManaCharges + item.flaskData.chargesMax
-					env.itemModDB.multipliers["ManaFlaskMaxCharges"] = maxManaCharges
-				end
+				env.itemModDB.multipliers[item.base.subType..slotName:gsub(" ", "").."MaxCharges"] = item.flaskData.chargesMax
 				item = nil
 			elseif item and item.type == "Charm" then
 				if slot.active then

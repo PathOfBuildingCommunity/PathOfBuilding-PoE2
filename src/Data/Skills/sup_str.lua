@@ -607,14 +607,18 @@ skills["SupportConcoctPlayer"] = {
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
-				["support_concoct_bleed_effect_+%_final_per_life_flask_charge_consumed"] = {
-					mod("AilmentMagnitude", "MORE", nil, 0, KeywordFlag.Bleed, { type = "PercentStat", stat = "LifeFlaskMaxCharges", percentVar = "LifeFlaskMaxChargesPercent", floor = true }),
-				},
 				["consume_%_of_maximum_life_flask_charges_on_skill_use"] = {
 					mod("Multiplier:LifeFlaskMaxChargesPercent", "BASE", nil),
 				},
+				["support_concoct_bleed_effect_+%_final_per_life_flask_charge_consumed"] = {
+					mod("AilmentMagnitude", "MORE", nil, 0, KeywordFlag.Bleed, { type = "Multiplier", var = "LifeFlaskChargeConsumed"}),
+				},
 			},
 			baseFlags = {
+			},
+			baseMods = {
+				mod("Multiplier:LifeFlaskChargeConsumed", "BASE", 1, 0, 0, { type = "PercentStat", stat = "LifeFlask1MaxCharges", percentVar = "LifeFlaskMaxChargesPercent", floor = true }),
+				mod("Multiplier:LifeFlaskChargeConsumed", "BASE", 1, 0, 0, { type = "PercentStat", stat = "LifeFlask2MaxCharges", percentVar = "LifeFlaskMaxChargesPercent", floor = true }),
 			},
 			constantStats = {
 				{ "consume_%_of_maximum_life_flask_charges_on_skill_use", 20 },

@@ -571,8 +571,10 @@ function calcs.offence(env, actor, activeSkill)
 
 	-- set flask scaling
 	output.LifeFlaskRecovery = env.itemModDB.multipliers["LifeFlaskRecovery"]
-	output.LifeFlaskMaxCharges = env.itemModDB.multipliers["LifeFlaskMaxCharges"]
-	output.ManaFlaskMaxCharges = env.itemModDB.multipliers["ManaFlaskMaxCharges"]
+	output.LifeFlask1MaxCharges = env.itemModDB.multipliers["LifeFlask1MaxCharges"]
+	output.LifeFlask2MaxCharges = env.itemModDB.multipliers["LifeFlask2MaxCharges"]
+	output.ManaFlask1MaxCharges = env.itemModDB.multipliers["ManaFlask1MaxCharges"]
+	output.ManaFlask2MaxCharges = env.itemModDB.multipliers["ManaFlask2MaxCharges"]
 
 	if modDB.conditions["AffectedByEnergyBlade"] then
 		local dmgMod = calcLib.mod(skillModList, skillCfg, "EnergyBladeDamage")
