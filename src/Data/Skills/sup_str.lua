@@ -3048,6 +3048,7 @@ skills["StompingGroundShockwavePlayer"] = {
 			baseFlags = {
 				nonWeaponAttack = true,
 				area = true,
+				melee = true,
 			},
 			baseMods = {
 				skill("showAverage", true),

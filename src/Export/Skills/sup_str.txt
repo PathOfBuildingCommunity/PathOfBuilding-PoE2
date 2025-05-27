@@ -728,7 +728,7 @@ statMap = {
 
 #skill StompingGroundShockwavePlayer
 #set StompingGroundShockwavePlayer
-#flags nonWeaponAttack area
+#flags nonWeaponAttack area melee
 statMap = {
 	["attack_minimum_added_physical_damage_as_%_of_strength"] = {
 		skill("PhysicalMin", nil, { type = "PercentStat", stat = "Str", percent = 1 }),
