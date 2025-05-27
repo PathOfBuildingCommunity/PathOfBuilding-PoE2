@@ -21,6 +21,11 @@ skills["AzmeriFabricationDespair"] = {
 		[1] = {
 			label = "Despair",
 			statDescriptionScope = "despair",
+			statMap = {
+				["base_chaos_damage_resistance_%"] = {
+					mod("ChaosResist", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Curse" }),
+				},
+			},
 			baseFlags = {
 				spell = true,
 				curse = true,
@@ -57,6 +62,14 @@ skills["AzmeriFabricationEnfeeble"] = {
 		[1] = {
 			label = "Enfeeble",
 			statDescriptionScope = "enfeeble",
+			statMap = {
+				["base_skill_buff_damage_+%_final_to_apply"] = {
+					mod("Damage", "MORE", nil, 0, 0, { type = "GlobalEffect", effectType = "Curse" }, { type = "Condition", var = "Unique", neg = true }),
+				},
+				["base_skill_buff_damage_+%_final_vs_unique_to_apply"] = {
+					mod("Damage", "MORE", nil, 0, 0, { type = "GlobalEffect", effectType = "Curse" }, { type = "Condition", var = "Unique" }),
+				},
+			},
 			baseFlags = {
 				spell = true,
 				curse = true,

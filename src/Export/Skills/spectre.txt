@@ -8,12 +8,25 @@ local skills, mod, flag, skill = ...
 #skill AzmeriFabricationDespair
 #set AzmeriFabricationDespair
 #flags spell curse area duration
+statMap = {
+	["base_chaos_damage_resistance_%"] = {
+		mod("ChaosResist", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Curse" }),
+	},
+},
 #mods
 #skillEnd
 
 #skill AzmeriFabricationEnfeeble
 #set AzmeriFabricationEnfeeble
 #flags spell curse area duration
+statMap = {
+	["base_skill_buff_damage_+%_final_to_apply"] = {
+		mod("Damage", "MORE", nil, 0, 0, { type = "GlobalEffect", effectType = "Curse" }, { type = "Condition", var = "Unique", neg = true }),
+	},
+	["base_skill_buff_damage_+%_final_vs_unique_to_apply"] = {
+		mod("Damage", "MORE", nil, 0, 0, { type = "GlobalEffect", effectType = "Curse" }, { type = "Condition", var = "Unique" }),
+	},
+},
 #mods
 #skillEnd
 
