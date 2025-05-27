@@ -3,18 +3,9 @@
 local itemBases = ...
 
 
-itemBases["Golden Flame"] = {
-	type = "Shield",
-	quality = 20,
-	socketLimit = 2,
-	tags = { not_for_sale = true, demigods = true, armour = true, default = true, shield = true, },
-	implicit = "+(11-19)% to Chaos Resistance",
-	implicitModTypes = { { "chaos", "resistance" }, },
-	armour = { BlockChance = 25, },
-	req = { level = 15, },
-}
 itemBases["Splintered Tower Shield"] = {
 	type = "Shield",
+	subType = "Armour",
 	quality = 20,
 	socketLimit = 2,
 	tags = { str_armour = true, ezomyte_basetype = true, str_shield = true, armour = true, default = true, shield = true, },
@@ -25,6 +16,7 @@ itemBases["Splintered Tower Shield"] = {
 }
 itemBases["Painted Tower Shield"] = {
 	type = "Shield",
+	subType = "Armour",
 	quality = 20,
 	socketLimit = 2,
 	tags = { str_armour = true, ezomyte_basetype = true, str_shield = true, armour = true, default = true, shield = true, },
@@ -35,6 +27,7 @@ itemBases["Painted Tower Shield"] = {
 }
 itemBases["Braced Tower Shield"] = {
 	type = "Shield",
+	subType = "Armour",
 	quality = 20,
 	socketLimit = 2,
 	tags = { str_armour = true, ezomyte_basetype = true, str_shield = true, armour = true, default = true, shield = true, },
@@ -45,6 +38,7 @@ itemBases["Braced Tower Shield"] = {
 }
 itemBases["Barricade Tower Shield"] = {
 	type = "Shield",
+	subType = "Armour",
 	quality = 20,
 	socketLimit = 2,
 	tags = { maraketh_basetype = true, str_armour = true, str_shield = true, armour = true, default = true, shield = true, },
@@ -55,6 +49,7 @@ itemBases["Barricade Tower Shield"] = {
 }
 itemBases["Effigial Tower Shield"] = {
 	type = "Shield",
+	subType = "Armour",
 	quality = 20,
 	socketLimit = 2,
 	tags = { maraketh_basetype = true, str_armour = true, str_shield = true, armour = true, default = true, shield = true, },
@@ -65,6 +60,7 @@ itemBases["Effigial Tower Shield"] = {
 }
 itemBases["Rampart Tower Shield"] = {
 	type = "Shield",
+	subType = "Armour",
 	quality = 20,
 	socketLimit = 2,
 	tags = { maraketh_basetype = true, str_armour = true, str_shield = true, armour = true, default = true, shield = true, },
@@ -75,6 +71,7 @@ itemBases["Rampart Tower Shield"] = {
 }
 itemBases["Heraldric Tower Shield"] = {
 	type = "Shield",
+	subType = "Armour",
 	quality = 20,
 	socketLimit = 2,
 	tags = { str_armour = true, vaal_basetype = true, str_shield = true, armour = true, default = true, shield = true, },
@@ -85,6 +82,7 @@ itemBases["Heraldric Tower Shield"] = {
 }
 itemBases["Stone Tower Shield"] = {
 	type = "Shield",
+	subType = "Armour",
 	quality = 20,
 	socketLimit = 2,
 	tags = { str_armour = true, vaal_basetype = true, str_shield = true, armour = true, default = true, shield = true, },
@@ -95,6 +93,7 @@ itemBases["Stone Tower Shield"] = {
 }
 itemBases["Crucible Tower Shield"] = {
 	type = "Shield",
+	subType = "Armour",
 	quality = 20,
 	socketLimit = 2,
 	tags = { str_armour = true, str_shield = true, armour = true, default = true, shield = true, },
@@ -105,6 +104,7 @@ itemBases["Crucible Tower Shield"] = {
 }
 itemBases["Ancestor Tower Shield"] = {
 	type = "Shield",
+	subType = "Armour",
 	quality = 20,
 	socketLimit = 2,
 	tags = { str_armour = true, str_shield = true, armour = true, default = true, shield = true, },
@@ -115,6 +115,7 @@ itemBases["Ancestor Tower Shield"] = {
 }
 itemBases["Phalanx Tower Shield"] = {
 	type = "Shield",
+	subType = "Armour",
 	quality = 20,
 	socketLimit = 2,
 	tags = { str_armour = true, str_shield = true, armour = true, default = true, shield = true, },
@@ -125,6 +126,7 @@ itemBases["Phalanx Tower Shield"] = {
 }
 itemBases["Defiant Tower Shield"] = {
 	type = "Shield",
+	subType = "Armour",
 	quality = 20,
 	socketLimit = 2,
 	tags = { str_armour = true, str_shield = true, armour = true, default = true, shield = true, },
@@ -135,6 +137,7 @@ itemBases["Defiant Tower Shield"] = {
 }
 itemBases["Blacksteel Tower Shield"] = {
 	type = "Shield",
+	subType = "Armour",
 	quality = 20,
 	socketLimit = 2,
 	tags = { str_armour = true, str_shield = true, armour = true, default = true, shield = true, },
@@ -143,8 +146,550 @@ itemBases["Blacksteel Tower Shield"] = {
 	armour = { BlockChance = 26, Armour = 152, MovementPenalty = 0.03, },
 	req = { level = 65, str = 118, },
 }
+itemBases["Aged Tower Shield"] = {
+	type = "Shield",
+	subType = "Armour",
+	quality = 20,
+	socketLimit = 2,
+	tags = { str_armour = true, str_shield = true, armour = true, default = true, shield = true, },
+	implicit = "Grants Skill: Level (1-20) Raise Shield",
+	implicitModTypes = { },
+	armour = { BlockChance = 26, Armour = 110, MovementPenalty = 0.03, },
+	req = { level = 45, str = 83, },
+}
+itemBases["Metalworked Tower Shield"] = {
+	type = "Shield",
+	subType = "Armour",
+	quality = 20,
+	socketLimit = 2,
+	tags = { str_armour = true, str_shield = true, armour = true, default = true, shield = true, },
+	implicit = "Grants Skill: Level (1-20) Raise Shield",
+	implicitModTypes = { },
+	armour = { BlockChance = 26, Armour = 116, MovementPenalty = 0.03, },
+	req = { level = 48, str = 88, },
+}
+itemBases["Cultist Tower Shield"] = {
+	type = "Shield",
+	subType = "Armour",
+	quality = 20,
+	socketLimit = 2,
+	tags = { str_armour = true, str_shield = true, armour = true, default = true, shield = true, },
+	implicit = "Grants Skill: Level (1-20) Raise Shield",
+	implicitModTypes = { },
+	armour = { BlockChance = 26, Armour = 123, MovementPenalty = 0.03, },
+	req = { level = 51, str = 94, },
+}
+itemBases["Bulwark Tower Shield"] = {
+	type = "Shield",
+	subType = "Armour",
+	quality = 20,
+	socketLimit = 2,
+	tags = { str_armour = true, str_shield = true, armour = true, default = true, shield = true, },
+	implicit = "Grants Skill: Level (1-20) Raise Shield",
+	implicitModTypes = { },
+	armour = { BlockChance = 26, Armour = 131, MovementPenalty = 0.03, },
+	req = { level = 55, str = 101, },
+}
+itemBases["Noble Tower Shield"] = {
+	type = "Shield",
+	subType = "Armour",
+	quality = 20,
+	socketLimit = 2,
+	tags = { str_armour = true, str_shield = true, armour = true, default = true, shield = true, },
+	implicit = "Grants Skill: Level (1-20) Raise Shield",
+	implicitModTypes = { },
+	armour = { BlockChance = 26, Armour = 139, MovementPenalty = 0.03, },
+	req = { level = 59, str = 108, },
+}
+itemBases["Goldworked Tower Shield"] = {
+	type = "Shield",
+	subType = "Armour",
+	quality = 20,
+	socketLimit = 2,
+	tags = { str_armour = true, str_shield = true, armour = true, default = true, shield = true, },
+	implicit = "Grants Skill: Level (1-20) Raise Shield",
+	implicitModTypes = { },
+	armour = { BlockChance = 26, Armour = 144, MovementPenalty = 0.03, },
+	req = { level = 61, str = 112, },
+}
+itemBases["Royal Tower Shield"] = {
+	type = "Shield",
+	subType = "Armour",
+	quality = 20,
+	socketLimit = 2,
+	tags = { str_armour = true, str_shield = true, armour = true, default = true, shield = true, },
+	implicit = "Grants Skill: Level (1-20) Raise Shield",
+	implicitModTypes = { },
+	armour = { BlockChance = 26, Armour = 152, MovementPenalty = 0.03, },
+	req = { level = 65, str = 118, },
+}
+itemBases["Fortress Tower Shield"] = {
+	type = "Shield",
+	subType = "Armour",
+	quality = 20,
+	socketLimit = 2,
+	tags = { str_armour = true, str_shield = true, armour = true, default = true, shield = true, },
+	implicit = "Grants Skill: Level (1-20) Raise Shield",
+	implicitModTypes = { },
+	armour = { BlockChance = 26, Armour = 167, MovementPenalty = 0.03, },
+	req = { level = 70, str = 129, },
+}
+itemBases["Vaal Tower Shield"] = {
+	type = "Shield",
+	subType = "Armour",
+	quality = 20,
+	socketLimit = 2,
+	tags = { str_armour = true, str_shield = true, armour = true, default = true, shield = true, },
+	implicit = "Grants Skill: Level (1-20) Raise Shield",
+	implicitModTypes = { },
+	armour = { BlockChance = 26, Armour = 182, MovementPenalty = 0.03, },
+	req = { level = 75, str = 139, },
+}
+itemBases["Aged Tower Shield"] = {
+	type = "Shield",
+	subType = "Armour",
+	quality = 20,
+	socketLimit = 2,
+	tags = { str_armour = true, str_shield = true, armour = true, default = true, shield = true, },
+	implicit = "Grants Skill: Level (1-20) Raise Shield",
+	implicitModTypes = { },
+	armour = { BlockChance = 26, Armour = 110, MovementPenalty = 0.03, },
+	req = { level = 45, str = 83, },
+}
+itemBases["Metalworked Tower Shield"] = {
+	type = "Shield",
+	subType = "Armour",
+	quality = 20,
+	socketLimit = 2,
+	tags = { str_armour = true, str_shield = true, armour = true, default = true, shield = true, },
+	implicit = "Grants Skill: Level (1-20) Raise Shield",
+	implicitModTypes = { },
+	armour = { BlockChance = 26, Armour = 116, MovementPenalty = 0.03, },
+	req = { level = 48, str = 88, },
+}
+itemBases["Cultist Tower Shield"] = {
+	type = "Shield",
+	subType = "Armour",
+	quality = 20,
+	socketLimit = 2,
+	tags = { str_armour = true, str_shield = true, armour = true, default = true, shield = true, },
+	implicit = "Grants Skill: Level (1-20) Raise Shield",
+	implicitModTypes = { },
+	armour = { BlockChance = 26, Armour = 123, MovementPenalty = 0.03, },
+	req = { level = 51, str = 94, },
+}
+itemBases["Bulwark Tower Shield"] = {
+	type = "Shield",
+	subType = "Armour",
+	quality = 20,
+	socketLimit = 2,
+	tags = { str_armour = true, str_shield = true, armour = true, default = true, shield = true, },
+	implicit = "Grants Skill: Level (1-20) Raise Shield",
+	implicitModTypes = { },
+	armour = { BlockChance = 26, Armour = 131, MovementPenalty = 0.03, },
+	req = { level = 55, str = 101, },
+}
+itemBases["Noble Tower Shield"] = {
+	type = "Shield",
+	subType = "Armour",
+	quality = 20,
+	socketLimit = 2,
+	tags = { str_armour = true, str_shield = true, armour = true, default = true, shield = true, },
+	implicit = "Grants Skill: Level (1-20) Raise Shield",
+	implicitModTypes = { },
+	armour = { BlockChance = 26, Armour = 139, MovementPenalty = 0.03, },
+	req = { level = 59, str = 108, },
+}
+itemBases["Goldworked Tower Shield"] = {
+	type = "Shield",
+	subType = "Armour",
+	quality = 20,
+	socketLimit = 2,
+	tags = { str_armour = true, str_shield = true, armour = true, default = true, shield = true, },
+	implicit = "Grants Skill: Level (1-20) Raise Shield",
+	implicitModTypes = { },
+	armour = { BlockChance = 26, Armour = 144, MovementPenalty = 0.03, },
+	req = { level = 61, str = 112, },
+}
+itemBases["Royal Tower Shield"] = {
+	type = "Shield",
+	subType = "Armour",
+	quality = 20,
+	socketLimit = 2,
+	tags = { str_armour = true, str_shield = true, armour = true, default = true, shield = true, },
+	implicit = "Grants Skill: Level (1-20) Raise Shield",
+	implicitModTypes = { },
+	armour = { BlockChance = 26, Armour = 152, MovementPenalty = 0.03, },
+	req = { level = 65, str = 118, },
+}
+itemBases["Fortress Tower Shield"] = {
+	type = "Shield",
+	subType = "Armour",
+	quality = 20,
+	socketLimit = 2,
+	tags = { str_armour = true, str_shield = true, armour = true, default = true, shield = true, },
+	implicit = "Grants Skill: Level (1-20) Raise Shield",
+	implicitModTypes = { },
+	armour = { BlockChance = 26, Armour = 167, MovementPenalty = 0.03, },
+	req = { level = 70, str = 129, },
+}
+itemBases["Vaal Tower Shield"] = {
+	type = "Shield",
+	subType = "Armour",
+	quality = 20,
+	socketLimit = 2,
+	tags = { str_armour = true, str_shield = true, armour = true, default = true, shield = true, },
+	implicit = "Grants Skill: Level (1-20) Raise Shield",
+	implicitModTypes = { },
+	armour = { BlockChance = 26, Armour = 182, MovementPenalty = 0.03, },
+	req = { level = 75, str = 139, },
+}
+
+itemBases["Leather Buckler"] = {
+	type = "Shield",
+	subType = "Evasion",
+	quality = 20,
+	socketLimit = 2,
+	tags = { buckler = true, dex_shield = true, dex_armour = true, ezomyte_basetype = true, armour = true, default = true, shield = true, },
+	implicit = "Grants Skill: Level (1-20) Parry",
+	implicitModTypes = { },
+	armour = { BlockChance = 20, Evasion = 10, },
+	req = { },
+}
+itemBases["Wooden Buckler"] = {
+	type = "Shield",
+	subType = "Evasion",
+	quality = 20,
+	socketLimit = 2,
+	tags = { buckler = true, dex_shield = true, dex_armour = true, ezomyte_basetype = true, armour = true, default = true, shield = true, },
+	implicit = "Grants Skill: Level (1-20) Parry",
+	implicitModTypes = { },
+	armour = { BlockChance = 20, Evasion = 16, },
+	req = { level = 5, dex = 11, },
+}
+itemBases["Plated Buckler"] = {
+	type = "Shield",
+	subType = "Evasion",
+	quality = 20,
+	socketLimit = 2,
+	tags = { buckler = true, dex_shield = true, dex_armour = true, ezomyte_basetype = true, armour = true, default = true, shield = true, },
+	implicit = "Grants Skill: Level (1-20) Parry",
+	implicitModTypes = { },
+	armour = { BlockChance = 20, Evasion = 26, },
+	req = { level = 11, dex = 22, },
+}
+itemBases["Iron Buckler"] = {
+	type = "Shield",
+	subType = "Evasion",
+	quality = 20,
+	socketLimit = 2,
+	tags = { maraketh_basetype = true, buckler = true, dex_shield = true, dex_armour = true, armour = true, default = true, shield = true, },
+	implicit = "Grants Skill: Level (1-20) Parry",
+	implicitModTypes = { },
+	armour = { BlockChance = 20, Evasion = 33, },
+	req = { level = 16, dex = 30, },
+}
+itemBases["Ridged Buckler"] = {
+	type = "Shield",
+	subType = "Evasion",
+	quality = 20,
+	socketLimit = 2,
+	tags = { maraketh_basetype = true, buckler = true, dex_shield = true, dex_armour = true, armour = true, default = true, shield = true, },
+	implicit = "Grants Skill: Level (1-20) Parry",
+	implicitModTypes = { },
+	armour = { BlockChance = 20, Evasion = 43, },
+	req = { level = 22, dex = 42, },
+}
+itemBases["Spiked Buckler"] = {
+	type = "Shield",
+	subType = "Evasion",
+	quality = 20,
+	socketLimit = 2,
+	tags = { maraketh_basetype = true, buckler = true, dex_shield = true, dex_armour = true, armour = true, default = true, shield = true, },
+	implicit = "Grants Skill: Level (1-20) Parry",
+	implicitModTypes = { },
+	armour = { BlockChance = 20, Evasion = 49, },
+	req = { level = 26, dex = 49, },
+}
+itemBases["Ringed Buckler"] = {
+	type = "Shield",
+	subType = "Evasion",
+	quality = 20,
+	socketLimit = 2,
+	tags = { buckler = true, dex_shield = true, dex_armour = true, vaal_basetype = true, armour = true, default = true, shield = true, },
+	implicit = "Grants Skill: Level (1-20) Parry",
+	implicitModTypes = { },
+	armour = { BlockChance = 20, Evasion = 60, },
+	req = { level = 33, dex = 61, },
+}
+itemBases["Edged Buckler"] = {
+	type = "Shield",
+	subType = "Evasion",
+	quality = 20,
+	socketLimit = 2,
+	tags = { buckler = true, dex_shield = true, dex_armour = true, vaal_basetype = true, armour = true, default = true, shield = true, },
+	implicit = "Grants Skill: Level (1-20) Parry",
+	implicitModTypes = { },
+	armour = { BlockChance = 20, Evasion = 70, },
+	req = { level = 39, dex = 72, },
+}
+itemBases["Laminate Buckler"] = {
+	type = "Shield",
+	subType = "Evasion",
+	quality = 20,
+	socketLimit = 2,
+	tags = { buckler = true, dex_shield = true, dex_armour = true, armour = true, default = true, shield = true, },
+	implicit = "Grants Skill: Level (1-20) Parry",
+	implicitModTypes = { },
+	armour = { BlockChance = 20, Evasion = 79, },
+	req = { level = 45, dex = 83, },
+}
+itemBases["Pearl Buckler"] = {
+	type = "Shield",
+	subType = "Evasion",
+	quality = 20,
+	socketLimit = 2,
+	tags = { buckler = true, dex_shield = true, dex_armour = true, armour = true, default = true, shield = true, },
+	implicit = "Grants Skill: Level (1-20) Parry",
+	implicitModTypes = { },
+	armour = { BlockChance = 20, Evasion = 84, },
+	req = { level = 48, dex = 88, },
+}
+itemBases["Ornate Buckler"] = {
+	type = "Shield",
+	subType = "Evasion",
+	quality = 20,
+	socketLimit = 2,
+	tags = { buckler = true, dex_shield = true, dex_armour = true, armour = true, default = true, shield = true, },
+	implicit = "Grants Skill: Level (1-20) Parry",
+	implicitModTypes = { },
+	armour = { BlockChance = 20, Evasion = 90, },
+	req = { level = 52, dex = 95, },
+}
+itemBases["Array Buckler"] = {
+	type = "Shield",
+	subType = "Evasion",
+	quality = 20,
+	socketLimit = 2,
+	tags = { buckler = true, dex_shield = true, dex_armour = true, armour = true, default = true, shield = true, },
+	implicit = "Grants Skill: Level (1-20) Parry",
+	implicitModTypes = { },
+	armour = { BlockChance = 20, Evasion = 95, },
+	req = { level = 55, dex = 101, },
+}
+itemBases["Aegis Buckler"] = {
+	type = "Shield",
+	subType = "Evasion",
+	quality = 20,
+	socketLimit = 2,
+	tags = { buckler = true, dex_shield = true, dex_armour = true, armour = true, default = true, shield = true, },
+	implicit = "Grants Skill: Level (1-20) Parry",
+	implicitModTypes = { },
+	armour = { BlockChance = 20, Evasion = 111, },
+	req = { level = 65, dex = 118, },
+}
+itemBases["Oak Buckler"] = {
+	type = "Shield",
+	subType = "Evasion",
+	quality = 20,
+	socketLimit = 2,
+	tags = { buckler = true, dex_shield = true, dex_armour = true, armour = true, default = true, shield = true, },
+	implicit = "Grants Skill: Level (1-20) Parry",
+	implicitModTypes = { },
+	armour = { BlockChance = 20, Evasion = 79, },
+	req = { level = 45, dex = 83, },
+}
+itemBases["Painted Buckler"] = {
+	type = "Shield",
+	subType = "Evasion",
+	quality = 20,
+	socketLimit = 2,
+	tags = { buckler = true, dex_shield = true, dex_armour = true, armour = true, default = true, shield = true, },
+	implicit = "Grants Skill: Level (1-20) Parry",
+	implicitModTypes = { },
+	armour = { BlockChance = 20, Evasion = 84, },
+	req = { level = 48, dex = 88, },
+}
+itemBases["Coiled Buckler"] = {
+	type = "Shield",
+	subType = "Evasion",
+	quality = 20,
+	socketLimit = 2,
+	tags = { buckler = true, dex_shield = true, dex_armour = true, armour = true, default = true, shield = true, },
+	implicit = "Grants Skill: Level (1-20) Parry",
+	implicitModTypes = { },
+	armour = { BlockChance = 20, Evasion = 89, },
+	req = { level = 51, dex = 94, },
+}
+itemBases["Spikeward Buckler"] = {
+	type = "Shield",
+	subType = "Evasion",
+	quality = 20,
+	socketLimit = 2,
+	tags = { buckler = true, dex_shield = true, dex_armour = true, armour = true, default = true, shield = true, },
+	implicit = "Grants Skill: Level (1-20) Parry",
+	implicitModTypes = { },
+	armour = { BlockChance = 20, Evasion = 95, },
+	req = { level = 55, dex = 101, },
+}
+itemBases["Jingling Buckler"] = {
+	type = "Shield",
+	subType = "Evasion",
+	quality = 20,
+	socketLimit = 2,
+	tags = { buckler = true, dex_shield = true, dex_armour = true, armour = true, default = true, shield = true, },
+	implicit = "Grants Skill: Level (1-20) Parry",
+	implicitModTypes = { },
+	armour = { BlockChance = 20, Evasion = 101, },
+	req = { level = 59, dex = 108, },
+}
+itemBases["Bladeguard Buckler"] = {
+	type = "Shield",
+	subType = "Evasion",
+	quality = 20,
+	socketLimit = 2,
+	tags = { buckler = true, dex_shield = true, dex_armour = true, armour = true, default = true, shield = true, },
+	implicit = "Grants Skill: Level (1-20) Parry",
+	implicitModTypes = { },
+	armour = { BlockChance = 20, Evasion = 105, },
+	req = { level = 61, dex = 112, },
+}
+itemBases["Ornate Buckler"] = {
+	type = "Shield",
+	subType = "Evasion",
+	quality = 20,
+	socketLimit = 2,
+	tags = { buckler = true, dex_shield = true, dex_armour = true, armour = true, default = true, shield = true, },
+	implicit = "Grants Skill: Level (1-20) Parry",
+	implicitModTypes = { },
+	armour = { BlockChance = 20, Evasion = 111, },
+	req = { level = 65, dex = 118, },
+}
+itemBases["Gutspike Buckler"] = {
+	type = "Shield",
+	subType = "Evasion",
+	quality = 20,
+	socketLimit = 2,
+	tags = { buckler = true, dex_shield = true, dex_armour = true, armour = true, default = true, shield = true, },
+	implicit = "Grants Skill: Level (1-20) Parry",
+	implicitModTypes = { },
+	armour = { BlockChance = 20, Evasion = 122, },
+	req = { level = 70, dex = 129, },
+}
+itemBases["Ancient Buckler"] = {
+	type = "Shield",
+	subType = "Evasion",
+	quality = 20,
+	socketLimit = 2,
+	tags = { buckler = true, dex_shield = true, dex_armour = true, armour = true, default = true, shield = true, },
+	implicit = "Grants Skill: Level (1-20) Parry",
+	implicitModTypes = { },
+	armour = { BlockChance = 20, Evasion = 133, },
+	req = { level = 75, dex = 139, },
+}
+itemBases["Oak Buckler"] = {
+	type = "Shield",
+	subType = "Evasion",
+	quality = 20,
+	socketLimit = 2,
+	tags = { buckler = true, dex_shield = true, dex_armour = true, armour = true, default = true, shield = true, },
+	implicit = "Grants Skill: Level (1-20) Parry",
+	implicitModTypes = { },
+	armour = { BlockChance = 20, Evasion = 79, },
+	req = { level = 45, dex = 83, },
+}
+itemBases["Painted Buckler"] = {
+	type = "Shield",
+	subType = "Evasion",
+	quality = 20,
+	socketLimit = 2,
+	tags = { buckler = true, dex_shield = true, dex_armour = true, armour = true, default = true, shield = true, },
+	implicit = "Grants Skill: Level (1-20) Parry",
+	implicitModTypes = { },
+	armour = { BlockChance = 20, Evasion = 84, },
+	req = { level = 48, dex = 88, },
+}
+itemBases["Coiled Buckler"] = {
+	type = "Shield",
+	subType = "Evasion",
+	quality = 20,
+	socketLimit = 2,
+	tags = { buckler = true, dex_shield = true, dex_armour = true, armour = true, default = true, shield = true, },
+	implicit = "Grants Skill: Level (1-20) Parry",
+	implicitModTypes = { },
+	armour = { BlockChance = 20, Evasion = 89, },
+	req = { level = 51, dex = 94, },
+}
+itemBases["Spikeward Buckler"] = {
+	type = "Shield",
+	subType = "Evasion",
+	quality = 20,
+	socketLimit = 2,
+	tags = { buckler = true, dex_shield = true, dex_armour = true, armour = true, default = true, shield = true, },
+	implicit = "Grants Skill: Level (1-20) Parry",
+	implicitModTypes = { },
+	armour = { BlockChance = 20, Evasion = 95, },
+	req = { level = 55, dex = 101, },
+}
+itemBases["Jingling Buckler"] = {
+	type = "Shield",
+	subType = "Evasion",
+	quality = 20,
+	socketLimit = 2,
+	tags = { buckler = true, dex_shield = true, dex_armour = true, armour = true, default = true, shield = true, },
+	implicit = "Grants Skill: Level (1-20) Parry",
+	implicitModTypes = { },
+	armour = { BlockChance = 20, Evasion = 101, },
+	req = { level = 59, dex = 108, },
+}
+itemBases["Bladeguard Buckler"] = {
+	type = "Shield",
+	subType = "Evasion",
+	quality = 20,
+	socketLimit = 2,
+	tags = { buckler = true, dex_shield = true, dex_armour = true, armour = true, default = true, shield = true, },
+	implicit = "Grants Skill: Level (1-20) Parry",
+	implicitModTypes = { },
+	armour = { BlockChance = 20, Evasion = 105, },
+	req = { level = 61, dex = 112, },
+}
+itemBases["Ornate Buckler"] = {
+	type = "Shield",
+	subType = "Evasion",
+	quality = 20,
+	socketLimit = 2,
+	tags = { buckler = true, dex_shield = true, dex_armour = true, armour = true, default = true, shield = true, },
+	implicit = "Grants Skill: Level (1-20) Parry",
+	implicitModTypes = { },
+	armour = { BlockChance = 20, Evasion = 111, },
+	req = { level = 65, dex = 118, },
+}
+itemBases["Gutspike Buckler"] = {
+	type = "Shield",
+	subType = "Evasion",
+	quality = 20,
+	socketLimit = 2,
+	tags = { buckler = true, dex_shield = true, dex_armour = true, armour = true, default = true, shield = true, },
+	implicit = "Grants Skill: Level (1-20) Parry",
+	implicitModTypes = { },
+	armour = { BlockChance = 20, Evasion = 122, },
+	req = { level = 70, dex = 129, },
+}
+itemBases["Ancient Buckler"] = {
+	type = "Shield",
+	subType = "Evasion",
+	quality = 20,
+	socketLimit = 2,
+	tags = { buckler = true, dex_shield = true, dex_armour = true, armour = true, default = true, shield = true, },
+	implicit = "Grants Skill: Level (1-20) Parry",
+	implicitModTypes = { },
+	armour = { BlockChance = 20, Evasion = 133, },
+	req = { level = 75, dex = 139, },
+}
+
 itemBases["Hardwood Targe"] = {
 	type = "Shield",
+	subType = "Armour/Evasion",
 	quality = 20,
 	socketLimit = 2,
 	tags = { str_dex_armour = true, ezomyte_basetype = true, str_dex_shield = true, armour = true, default = true, shield = true, },
@@ -155,6 +700,7 @@ itemBases["Hardwood Targe"] = {
 }
 itemBases["Pelage Targe"] = {
 	type = "Shield",
+	subType = "Armour/Evasion",
 	quality = 20,
 	socketLimit = 2,
 	tags = { str_dex_armour = true, ezomyte_basetype = true, str_dex_shield = true, armour = true, default = true, shield = true, },
@@ -165,6 +711,7 @@ itemBases["Pelage Targe"] = {
 }
 itemBases["Studded Targe"] = {
 	type = "Shield",
+	subType = "Armour/Evasion",
 	quality = 20,
 	socketLimit = 2,
 	tags = { maraketh_basetype = true, str_dex_armour = true, str_dex_shield = true, armour = true, default = true, shield = true, },
@@ -175,6 +722,7 @@ itemBases["Studded Targe"] = {
 }
 itemBases["Crescent Targe"] = {
 	type = "Shield",
+	subType = "Armour/Evasion",
 	quality = 20,
 	socketLimit = 2,
 	tags = { maraketh_basetype = true, str_dex_armour = true, str_dex_shield = true, armour = true, default = true, shield = true, },
@@ -185,6 +733,7 @@ itemBases["Crescent Targe"] = {
 }
 itemBases["Chiseled Targe"] = {
 	type = "Shield",
+	subType = "Armour/Evasion",
 	quality = 20,
 	socketLimit = 2,
 	tags = { str_dex_armour = true, vaal_basetype = true, str_dex_shield = true, armour = true, default = true, shield = true, },
@@ -195,6 +744,7 @@ itemBases["Chiseled Targe"] = {
 }
 itemBases["Feathered Targe"] = {
 	type = "Shield",
+	subType = "Armour/Evasion",
 	quality = 20,
 	socketLimit = 2,
 	tags = { str_dex_armour = true, vaal_basetype = true, str_dex_shield = true, armour = true, default = true, shield = true, },
@@ -205,6 +755,7 @@ itemBases["Feathered Targe"] = {
 }
 itemBases["Stratified Targe"] = {
 	type = "Shield",
+	subType = "Armour/Evasion",
 	quality = 20,
 	socketLimit = 2,
 	tags = { str_dex_armour = true, str_dex_shield = true, armour = true, default = true, shield = true, },
@@ -215,6 +766,7 @@ itemBases["Stratified Targe"] = {
 }
 itemBases["Carved Targe"] = {
 	type = "Shield",
+	subType = "Armour/Evasion",
 	quality = 20,
 	socketLimit = 2,
 	tags = { str_dex_armour = true, str_dex_shield = true, armour = true, default = true, shield = true, },
@@ -225,6 +777,7 @@ itemBases["Carved Targe"] = {
 }
 itemBases["Mosaic Targe"] = {
 	type = "Shield",
+	subType = "Armour/Evasion",
 	quality = 20,
 	socketLimit = 2,
 	tags = { str_dex_armour = true, str_dex_shield = true, armour = true, default = true, shield = true, },
@@ -235,6 +788,7 @@ itemBases["Mosaic Targe"] = {
 }
 itemBases["Aureate Targe"] = {
 	type = "Shield",
+	subType = "Armour/Evasion",
 	quality = 20,
 	socketLimit = 2,
 	tags = { str_dex_armour = true, str_dex_shield = true, armour = true, default = true, shield = true, },
@@ -245,6 +799,7 @@ itemBases["Aureate Targe"] = {
 }
 itemBases["Grand Targe"] = {
 	type = "Shield",
+	subType = "Armour/Evasion",
 	quality = 20,
 	socketLimit = 2,
 	tags = { str_dex_armour = true, str_dex_shield = true, armour = true, default = true, shield = true, },
@@ -253,8 +808,208 @@ itemBases["Grand Targe"] = {
 	armour = { BlockChance = 25, Armour = 84, Evasion = 76, MovementPenalty = 0.015, },
 	req = { level = 65, str = 65, dex = 65, },
 }
+itemBases["Ironwood Targe"] = {
+	type = "Shield",
+	subType = "Armour/Evasion",
+	quality = 20,
+	socketLimit = 2,
+	tags = { str_dex_armour = true, str_dex_shield = true, armour = true, default = true, shield = true, },
+	implicit = "Grants Skill: Level (1-20) Raise Shield",
+	implicitModTypes = { },
+	armour = { BlockChance = 25, Armour = 61, Evasion = 54, MovementPenalty = 0.015, },
+	req = { level = 45, str = 46, dex = 46, },
+}
+itemBases["Fur-lined Targe"] = {
+	type = "Shield",
+	subType = "Armour/Evasion",
+	quality = 20,
+	socketLimit = 2,
+	tags = { str_dex_armour = true, str_dex_shield = true, armour = true, default = true, shield = true, },
+	implicit = "Grants Skill: Level (1-20) Raise Shield",
+	implicitModTypes = { },
+	armour = { BlockChance = 25, Armour = 64, Evasion = 58, MovementPenalty = 0.015, },
+	req = { level = 48, str = 49, dex = 49, },
+}
+itemBases["Mercenary Targe"] = {
+	type = "Shield",
+	subType = "Armour/Evasion",
+	quality = 20,
+	socketLimit = 2,
+	tags = { str_dex_armour = true, str_dex_shield = true, armour = true, default = true, shield = true, },
+	implicit = "Grants Skill: Level (1-20) Raise Shield",
+	implicitModTypes = { },
+	armour = { BlockChance = 25, Armour = 67, Evasion = 61, MovementPenalty = 0.015, },
+	req = { level = 51, str = 52, dex = 52, },
+}
+itemBases["Polished Targe"] = {
+	type = "Shield",
+	subType = "Armour/Evasion",
+	quality = 20,
+	socketLimit = 2,
+	tags = { str_dex_armour = true, str_dex_shield = true, armour = true, default = true, shield = true, },
+	implicit = "Grants Skill: Level (1-20) Raise Shield",
+	implicitModTypes = { },
+	armour = { BlockChance = 25, Armour = 72, Evasion = 65, MovementPenalty = 0.015, },
+	req = { level = 55, str = 55, dex = 55, },
+}
+itemBases["Stone Targe"] = {
+	type = "Shield",
+	subType = "Armour/Evasion",
+	quality = 20,
+	socketLimit = 2,
+	tags = { str_dex_armour = true, str_dex_shield = true, armour = true, default = true, shield = true, },
+	implicit = "Grants Skill: Level (1-20) Raise Shield",
+	implicitModTypes = { },
+	armour = { BlockChance = 25, Armour = 77, Evasion = 70, MovementPenalty = 0.015, },
+	req = { level = 59, str = 59, dex = 59, },
+}
+itemBases["Avian Targe"] = {
+	type = "Shield",
+	subType = "Armour/Evasion",
+	quality = 20,
+	socketLimit = 2,
+	tags = { str_dex_armour = true, str_dex_shield = true, armour = true, default = true, shield = true, },
+	implicit = "Grants Skill: Level (1-20) Raise Shield",
+	implicitModTypes = { },
+	armour = { BlockChance = 25, Armour = 80, Evasion = 73, MovementPenalty = 0.015, },
+	req = { level = 62, str = 62, dex = 62, },
+}
+itemBases["Mammoth Targe"] = {
+	type = "Shield",
+	subType = "Armour/Evasion",
+	quality = 20,
+	socketLimit = 2,
+	tags = { str_dex_armour = true, str_dex_shield = true, armour = true, default = true, shield = true, },
+	implicit = "Grants Skill: Level (1-20) Raise Shield",
+	implicitModTypes = { },
+	armour = { BlockChance = 25, Armour = 84, Evasion = 76, MovementPenalty = 0.015, },
+	req = { level = 65, str = 65, dex = 65, },
+}
+itemBases["Baroque Targe"] = {
+	type = "Shield",
+	subType = "Armour/Evasion",
+	quality = 20,
+	socketLimit = 2,
+	tags = { str_dex_armour = true, str_dex_shield = true, armour = true, default = true, shield = true, },
+	implicit = "Grants Skill: Level (1-20) Raise Shield",
+	implicitModTypes = { },
+	armour = { BlockChance = 25, Armour = 92, Evasion = 84, MovementPenalty = 0.015, },
+	req = { level = 70, str = 70, dex = 70, },
+}
+itemBases["Soaring Targe"] = {
+	type = "Shield",
+	subType = "Armour/Evasion",
+	quality = 20,
+	socketLimit = 2,
+	tags = { str_dex_armour = true, str_dex_shield = true, armour = true, default = true, shield = true, },
+	implicit = "Grants Skill: Level (1-20) Raise Shield",
+	implicitModTypes = { },
+	armour = { BlockChance = 25, Armour = 100, Evasion = 91, MovementPenalty = 0.015, },
+	req = { level = 75, str = 76, dex = 76, },
+}
+itemBases["Ironwood Targe"] = {
+	type = "Shield",
+	subType = "Armour/Evasion",
+	quality = 20,
+	socketLimit = 2,
+	tags = { str_dex_armour = true, str_dex_shield = true, armour = true, default = true, shield = true, },
+	implicit = "Grants Skill: Level (1-20) Raise Shield",
+	implicitModTypes = { },
+	armour = { BlockChance = 25, Armour = 61, Evasion = 54, MovementPenalty = 0.015, },
+	req = { level = 45, str = 46, dex = 46, },
+}
+itemBases["Fur-lined Targe"] = {
+	type = "Shield",
+	subType = "Armour/Evasion",
+	quality = 20,
+	socketLimit = 2,
+	tags = { str_dex_armour = true, str_dex_shield = true, armour = true, default = true, shield = true, },
+	implicit = "Grants Skill: Level (1-20) Raise Shield",
+	implicitModTypes = { },
+	armour = { BlockChance = 25, Armour = 64, Evasion = 58, MovementPenalty = 0.015, },
+	req = { level = 48, str = 49, dex = 49, },
+}
+itemBases["Mercenary Targe"] = {
+	type = "Shield",
+	subType = "Armour/Evasion",
+	quality = 20,
+	socketLimit = 2,
+	tags = { str_dex_armour = true, str_dex_shield = true, armour = true, default = true, shield = true, },
+	implicit = "Grants Skill: Level (1-20) Raise Shield",
+	implicitModTypes = { },
+	armour = { BlockChance = 25, Armour = 67, Evasion = 61, MovementPenalty = 0.015, },
+	req = { level = 51, str = 52, dex = 52, },
+}
+itemBases["Polished Targe"] = {
+	type = "Shield",
+	subType = "Armour/Evasion",
+	quality = 20,
+	socketLimit = 2,
+	tags = { str_dex_armour = true, str_dex_shield = true, armour = true, default = true, shield = true, },
+	implicit = "Grants Skill: Level (1-20) Raise Shield",
+	implicitModTypes = { },
+	armour = { BlockChance = 25, Armour = 72, Evasion = 65, MovementPenalty = 0.015, },
+	req = { level = 55, str = 55, dex = 55, },
+}
+itemBases["Stone Targe"] = {
+	type = "Shield",
+	subType = "Armour/Evasion",
+	quality = 20,
+	socketLimit = 2,
+	tags = { str_dex_armour = true, str_dex_shield = true, armour = true, default = true, shield = true, },
+	implicit = "Grants Skill: Level (1-20) Raise Shield",
+	implicitModTypes = { },
+	armour = { BlockChance = 25, Armour = 77, Evasion = 70, MovementPenalty = 0.015, },
+	req = { level = 59, str = 59, dex = 59, },
+}
+itemBases["Avian Targe"] = {
+	type = "Shield",
+	subType = "Armour/Evasion",
+	quality = 20,
+	socketLimit = 2,
+	tags = { str_dex_armour = true, str_dex_shield = true, armour = true, default = true, shield = true, },
+	implicit = "Grants Skill: Level (1-20) Raise Shield",
+	implicitModTypes = { },
+	armour = { BlockChance = 25, Armour = 80, Evasion = 73, MovementPenalty = 0.015, },
+	req = { level = 62, str = 62, dex = 62, },
+}
+itemBases["Mammoth Targe"] = {
+	type = "Shield",
+	subType = "Armour/Evasion",
+	quality = 20,
+	socketLimit = 2,
+	tags = { str_dex_armour = true, str_dex_shield = true, armour = true, default = true, shield = true, },
+	implicit = "Grants Skill: Level (1-20) Raise Shield",
+	implicitModTypes = { },
+	armour = { BlockChance = 25, Armour = 84, Evasion = 76, MovementPenalty = 0.015, },
+	req = { level = 65, str = 65, dex = 65, },
+}
+itemBases["Baroque Targe"] = {
+	type = "Shield",
+	subType = "Armour/Evasion",
+	quality = 20,
+	socketLimit = 2,
+	tags = { str_dex_armour = true, str_dex_shield = true, armour = true, default = true, shield = true, },
+	implicit = "Grants Skill: Level (1-20) Raise Shield",
+	implicitModTypes = { },
+	armour = { BlockChance = 25, Armour = 92, Evasion = 84, MovementPenalty = 0.015, },
+	req = { level = 70, str = 70, dex = 70, },
+}
+itemBases["Soaring Targe"] = {
+	type = "Shield",
+	subType = "Armour/Evasion",
+	quality = 20,
+	socketLimit = 2,
+	tags = { str_dex_armour = true, str_dex_shield = true, armour = true, default = true, shield = true, },
+	implicit = "Grants Skill: Level (1-20) Raise Shield",
+	implicitModTypes = { },
+	armour = { BlockChance = 25, Armour = 100, Evasion = 91, MovementPenalty = 0.015, },
+	req = { level = 75, str = 76, dex = 76, },
+}
+
 itemBases["Blazon Crest Shield"] = {
 	type = "Shield",
+	subType = "Armour/Energy Shield",
 	quality = 20,
 	socketLimit = 2,
 	tags = { str_int_armour = true, ezomyte_basetype = true, str_int_shield = true, armour = true, default = true, shield = true, },
@@ -265,6 +1020,7 @@ itemBases["Blazon Crest Shield"] = {
 }
 itemBases["Sigil Crest Shield"] = {
 	type = "Shield",
+	subType = "Armour/Energy Shield",
 	quality = 20,
 	socketLimit = 2,
 	tags = { str_int_armour = true, ezomyte_basetype = true, str_int_shield = true, armour = true, default = true, shield = true, },
@@ -275,6 +1031,7 @@ itemBases["Sigil Crest Shield"] = {
 }
 itemBases["Emblem Crest Shield"] = {
 	type = "Shield",
+	subType = "Armour/Energy Shield",
 	quality = 20,
 	socketLimit = 2,
 	tags = { maraketh_basetype = true, str_int_armour = true, str_int_shield = true, armour = true, default = true, shield = true, },
@@ -285,6 +1042,7 @@ itemBases["Emblem Crest Shield"] = {
 }
 itemBases["Jingling Crest Shield"] = {
 	type = "Shield",
+	subType = "Armour/Energy Shield",
 	quality = 20,
 	socketLimit = 2,
 	tags = { maraketh_basetype = true, str_int_armour = true, str_int_shield = true, armour = true, default = true, shield = true, },
@@ -295,6 +1053,7 @@ itemBases["Jingling Crest Shield"] = {
 }
 itemBases["Sectarian Crest Shield"] = {
 	type = "Shield",
+	subType = "Armour/Energy Shield",
 	quality = 20,
 	socketLimit = 2,
 	tags = { str_int_armour = true, vaal_basetype = true, str_int_shield = true, armour = true, default = true, shield = true, },
@@ -305,6 +1064,7 @@ itemBases["Sectarian Crest Shield"] = {
 }
 itemBases["Omen Crest Shield"] = {
 	type = "Shield",
+	subType = "Armour/Energy Shield",
 	quality = 20,
 	socketLimit = 2,
 	tags = { str_int_armour = true, vaal_basetype = true, str_int_shield = true, armour = true, default = true, shield = true, },
@@ -315,6 +1075,7 @@ itemBases["Omen Crest Shield"] = {
 }
 itemBases["Wayward Crest Shield"] = {
 	type = "Shield",
+	subType = "Armour/Energy Shield",
 	quality = 20,
 	socketLimit = 2,
 	tags = { str_int_armour = true, str_int_shield = true, armour = true, default = true, shield = true, },
@@ -325,6 +1086,7 @@ itemBases["Wayward Crest Shield"] = {
 }
 itemBases["Seer Crest Shield"] = {
 	type = "Shield",
+	subType = "Armour/Energy Shield",
 	quality = 20,
 	socketLimit = 2,
 	tags = { str_int_armour = true, str_int_shield = true, armour = true, default = true, shield = true, },
@@ -335,6 +1097,7 @@ itemBases["Seer Crest Shield"] = {
 }
 itemBases["Stoic Crest Shield"] = {
 	type = "Shield",
+	subType = "Armour/Energy Shield",
 	quality = 20,
 	socketLimit = 2,
 	tags = { str_int_armour = true, str_int_shield = true, armour = true, default = true, shield = true, },
@@ -345,6 +1108,7 @@ itemBases["Stoic Crest Shield"] = {
 }
 itemBases["Empyreal Crest Shield"] = {
 	type = "Shield",
+	subType = "Armour/Energy Shield",
 	quality = 20,
 	socketLimit = 2,
 	tags = { str_int_armour = true, str_int_shield = true, armour = true, default = true, shield = true, },
@@ -355,6 +1119,7 @@ itemBases["Empyreal Crest Shield"] = {
 }
 itemBases["Deified Crest Shield"] = {
 	type = "Shield",
+	subType = "Armour/Energy Shield",
 	quality = 20,
 	socketLimit = 2,
 	tags = { str_int_armour = true, str_int_shield = true, armour = true, default = true, shield = true, },
@@ -363,245 +1128,9 @@ itemBases["Deified Crest Shield"] = {
 	armour = { BlockChance = 25, Armour = 84, EnergyShield = 29, MovementPenalty = 0.015, },
 	req = { level = 65, str = 65, int = 65, },
 }
-itemBases["Leather Buckler"] = {
+itemBases["Painted Crest Shield"] = {
 	type = "Shield",
-	quality = 20,
-	socketLimit = 2,
-	tags = { dex_shield = true, dex_armour = true, ezomyte_basetype = true, armour = true, default = true, shield = true, },
-	implicitModTypes = { },
-	armour = { BlockChance = 24, Evasion = 12, },
-	req = { },
-}
-itemBases["Wooden Buckler"] = {
-	type = "Shield",
-	quality = 20,
-	socketLimit = 2,
-	tags = { dex_shield = true, dex_armour = true, ezomyte_basetype = true, armour = true, default = true, shield = true, },
-	implicitModTypes = { },
-	armour = { BlockChance = 24, Evasion = 20, },
-	req = { level = 5, dex = 11, },
-}
-itemBases["Plated Buckler"] = {
-	type = "Shield",
-	quality = 20,
-	socketLimit = 2,
-	tags = { dex_shield = true, dex_armour = true, ezomyte_basetype = true, armour = true, default = true, shield = true, },
-	implicitModTypes = { },
-	armour = { BlockChance = 24, Evasion = 32, },
-	req = { level = 11, dex = 22, },
-}
-itemBases["Iron Buckler"] = {
-	type = "Shield",
-	quality = 20,
-	socketLimit = 2,
-	tags = { maraketh_basetype = true, dex_shield = true, dex_armour = true, armour = true, default = true, shield = true, },
-	implicitModTypes = { },
-	armour = { BlockChance = 24, Evasion = 42, },
-	req = { level = 16, dex = 30, },
-}
-itemBases["Ridged Buckler"] = {
-	type = "Shield",
-	quality = 20,
-	socketLimit = 2,
-	tags = { maraketh_basetype = true, dex_shield = true, dex_armour = true, armour = true, default = true, shield = true, },
-	implicitModTypes = { },
-	armour = { BlockChance = 24, Evasion = 54, },
-	req = { level = 22, dex = 42, },
-}
-itemBases["Spiked Buckler"] = {
-	type = "Shield",
-	quality = 20,
-	socketLimit = 2,
-	tags = { maraketh_basetype = true, dex_shield = true, dex_armour = true, armour = true, default = true, shield = true, },
-	implicitModTypes = { },
-	armour = { BlockChance = 24, Evasion = 62, },
-	req = { level = 26, dex = 49, },
-}
-itemBases["Ringed Buckler"] = {
-	type = "Shield",
-	quality = 20,
-	socketLimit = 2,
-	tags = { dex_shield = true, dex_armour = true, vaal_basetype = true, armour = true, default = true, shield = true, },
-	implicitModTypes = { },
-	armour = { BlockChance = 24, Evasion = 75, },
-	req = { level = 33, dex = 61, },
-}
-itemBases["Edged Buckler"] = {
-	type = "Shield",
-	quality = 20,
-	socketLimit = 2,
-	tags = { dex_shield = true, dex_armour = true, vaal_basetype = true, armour = true, default = true, shield = true, },
-	implicitModTypes = { },
-	armour = { BlockChance = 24, Evasion = 87, },
-	req = { level = 39, dex = 72, },
-}
-itemBases["Laminate Buckler"] = {
-	type = "Shield",
-	quality = 20,
-	socketLimit = 2,
-	tags = { dex_shield = true, dex_armour = true, armour = true, default = true, shield = true, },
-	implicitModTypes = { },
-	armour = { BlockChance = 24, Evasion = 99, },
-	req = { level = 45, dex = 83, },
-}
-itemBases["Pearl Buckler"] = {
-	type = "Shield",
-	quality = 20,
-	socketLimit = 2,
-	tags = { dex_shield = true, dex_armour = true, armour = true, default = true, shield = true, },
-	implicitModTypes = { },
-	armour = { BlockChance = 24, Evasion = 105, },
-	req = { level = 48, dex = 88, },
-}
-itemBases["Ornate Buckler"] = {
-	type = "Shield",
-	quality = 20,
-	socketLimit = 2,
-	tags = { dex_shield = true, dex_armour = true, armour = true, default = true, shield = true, },
-	implicitModTypes = { },
-	armour = { BlockChance = 24, Evasion = 113, },
-	req = { level = 52, dex = 95, },
-}
-itemBases["Array Buckler"] = {
-	type = "Shield",
-	quality = 20,
-	socketLimit = 2,
-	tags = { dex_shield = true, dex_armour = true, armour = true, default = true, shield = true, },
-	implicitModTypes = { },
-	armour = { BlockChance = 24, Evasion = 119, },
-	req = { level = 55, dex = 101, },
-}
-itemBases["Aegis Buckler"] = {
-	type = "Shield",
-	quality = 20,
-	socketLimit = 2,
-	tags = { dex_shield = true, dex_armour = true, armour = true, default = true, shield = true, },
-	implicitModTypes = { },
-	armour = { BlockChance = 24, Evasion = 139, },
-	req = { level = 65, dex = 118, },
-}
-itemBases["Advanced Painted Tower Shield"] = {
-	type = "Shield",
-	quality = 20,
-	socketLimit = 2,
-	tags = { str_armour = true, str_shield = true, armour = true, default = true, shield = true, },
-	implicit = "Grants Skill: Level (1-20) Raise Shield",
-	implicitModTypes = { },
-	armour = { BlockChance = 26, Armour = 110, MovementPenalty = 0.03, },
-	req = { level = 45, str = 83, },
-}
-itemBases["Advanced Braced Tower Shield"] = {
-	type = "Shield",
-	quality = 20,
-	socketLimit = 2,
-	tags = { str_armour = true, str_shield = true, armour = true, default = true, shield = true, },
-	implicit = "Grants Skill: Level (1-20) Raise Shield",
-	implicitModTypes = { },
-	armour = { BlockChance = 26, Armour = 116, MovementPenalty = 0.03, },
-	req = { level = 48, str = 88, },
-}
-itemBases["Advanced Effigial Tower Shield"] = {
-	type = "Shield",
-	quality = 20,
-	socketLimit = 2,
-	tags = { str_armour = true, str_shield = true, armour = true, default = true, shield = true, },
-	implicit = "Grants Skill: Level (1-20) Raise Shield",
-	implicitModTypes = { },
-	armour = { BlockChance = 26, Armour = 123, MovementPenalty = 0.03, },
-	req = { level = 51, str = 94, },
-}
-itemBases["Advanced Rampart Tower Shield"] = {
-	type = "Shield",
-	quality = 20,
-	socketLimit = 2,
-	tags = { str_armour = true, str_shield = true, armour = true, default = true, shield = true, },
-	implicit = "Grants Skill: Level (1-20) Raise Shield",
-	implicitModTypes = { },
-	armour = { BlockChance = 26, Armour = 131, MovementPenalty = 0.03, },
-	req = { level = 55, str = 101, },
-}
-itemBases["Advanced Heraldric Tower Shield"] = {
-	type = "Shield",
-	quality = 20,
-	socketLimit = 2,
-	tags = { str_armour = true, str_shield = true, armour = true, default = true, shield = true, },
-	implicit = "Grants Skill: Level (1-20) Raise Shield",
-	implicitModTypes = { },
-	armour = { BlockChance = 26, Armour = 139, MovementPenalty = 0.03, },
-	req = { level = 59, str = 108, },
-}
-itemBases["Advanced Stone Tower Shield"] = {
-	type = "Shield",
-	quality = 20,
-	socketLimit = 2,
-	tags = { str_armour = true, str_shield = true, armour = true, default = true, shield = true, },
-	implicit = "Grants Skill: Level (1-20) Raise Shield",
-	implicitModTypes = { },
-	armour = { BlockChance = 26, Armour = 144, MovementPenalty = 0.03, },
-	req = { level = 61, str = 112, },
-}
-itemBases["Advanced Hardwood Targe"] = {
-	type = "Shield",
-	quality = 20,
-	socketLimit = 2,
-	tags = { str_dex_armour = true, str_dex_shield = true, armour = true, default = true, shield = true, },
-	implicit = "Grants Skill: Level (1-20) Raise Shield",
-	implicitModTypes = { },
-	armour = { BlockChance = 25, Armour = 61, Evasion = 54, MovementPenalty = 0.015, },
-	req = { level = 45, str = 46, dex = 46, },
-}
-itemBases["Advanced Pelage Targe"] = {
-	type = "Shield",
-	quality = 20,
-	socketLimit = 2,
-	tags = { str_dex_armour = true, str_dex_shield = true, armour = true, default = true, shield = true, },
-	implicit = "Grants Skill: Level (1-20) Raise Shield",
-	implicitModTypes = { },
-	armour = { BlockChance = 25, Armour = 64, Evasion = 58, MovementPenalty = 0.015, },
-	req = { level = 48, str = 49, dex = 49, },
-}
-itemBases["Advanced Studded Targe"] = {
-	type = "Shield",
-	quality = 20,
-	socketLimit = 2,
-	tags = { str_dex_armour = true, str_dex_shield = true, armour = true, default = true, shield = true, },
-	implicit = "Grants Skill: Level (1-20) Raise Shield",
-	implicitModTypes = { },
-	armour = { BlockChance = 25, Armour = 67, Evasion = 61, MovementPenalty = 0.015, },
-	req = { level = 51, str = 52, dex = 52, },
-}
-itemBases["Advanced Crescent Targe"] = {
-	type = "Shield",
-	quality = 20,
-	socketLimit = 2,
-	tags = { str_dex_armour = true, str_dex_shield = true, armour = true, default = true, shield = true, },
-	implicit = "Grants Skill: Level (1-20) Raise Shield",
-	implicitModTypes = { },
-	armour = { BlockChance = 25, Armour = 72, Evasion = 65, MovementPenalty = 0.015, },
-	req = { level = 55, str = 55, dex = 55, },
-}
-itemBases["Advanced Chiseled Targe"] = {
-	type = "Shield",
-	quality = 20,
-	socketLimit = 2,
-	tags = { str_dex_armour = true, str_dex_shield = true, armour = true, default = true, shield = true, },
-	implicit = "Grants Skill: Level (1-20) Raise Shield",
-	implicitModTypes = { },
-	armour = { BlockChance = 25, Armour = 77, Evasion = 70, MovementPenalty = 0.015, },
-	req = { level = 59, str = 59, dex = 59, },
-}
-itemBases["Advanced Feathered Targe"] = {
-	type = "Shield",
-	quality = 20,
-	socketLimit = 2,
-	tags = { str_dex_armour = true, str_dex_shield = true, armour = true, default = true, shield = true, },
-	implicit = "Grants Skill: Level (1-20) Raise Shield",
-	implicitModTypes = { },
-	armour = { BlockChance = 25, Armour = 80, Evasion = 73, MovementPenalty = 0.015, },
-	req = { level = 62, str = 62, dex = 62, },
-}
-itemBases["Advanced Blazon Crest Shield"] = {
-	type = "Shield",
+	subType = "Armour/Energy Shield",
 	quality = 20,
 	socketLimit = 2,
 	tags = { str_int_armour = true, str_int_shield = true, armour = true, default = true, shield = true, },
@@ -610,8 +1139,9 @@ itemBases["Advanced Blazon Crest Shield"] = {
 	armour = { BlockChance = 25, Armour = 61, EnergyShield = 22, MovementPenalty = 0.015, },
 	req = { level = 45, str = 46, int = 46, },
 }
-itemBases["Advanced Sigil Crest Shield"] = {
+itemBases["Engraved Crest Shield"] = {
 	type = "Shield",
+	subType = "Armour/Energy Shield",
 	quality = 20,
 	socketLimit = 2,
 	tags = { str_int_armour = true, str_int_shield = true, armour = true, default = true, shield = true, },
@@ -620,8 +1150,9 @@ itemBases["Advanced Sigil Crest Shield"] = {
 	armour = { BlockChance = 25, Armour = 64, EnergyShield = 23, MovementPenalty = 0.015, },
 	req = { level = 48, str = 49, int = 49, },
 }
-itemBases["Advanced Emblem Crest Shield"] = {
+itemBases["Descry Crest Shield"] = {
 	type = "Shield",
+	subType = "Armour/Energy Shield",
 	quality = 20,
 	socketLimit = 2,
 	tags = { str_int_armour = true, str_int_shield = true, armour = true, default = true, shield = true, },
@@ -630,8 +1161,9 @@ itemBases["Advanced Emblem Crest Shield"] = {
 	armour = { BlockChance = 25, Armour = 67, EnergyShield = 24, MovementPenalty = 0.015, },
 	req = { level = 51, str = 52, int = 52, },
 }
-itemBases["Advanced Jingling Crest Shield"] = {
+itemBases["Dekharan Crest Shield"] = {
 	type = "Shield",
+	subType = "Armour/Energy Shield",
 	quality = 20,
 	socketLimit = 2,
 	tags = { str_int_armour = true, str_int_shield = true, armour = true, default = true, shield = true, },
@@ -640,8 +1172,9 @@ itemBases["Advanced Jingling Crest Shield"] = {
 	armour = { BlockChance = 25, Armour = 72, EnergyShield = 25, MovementPenalty = 0.015, },
 	req = { level = 55, str = 55, int = 55, },
 }
-itemBases["Advanced Sectarian Crest Shield"] = {
+itemBases["Quartered Crest Shield"] = {
 	type = "Shield",
+	subType = "Armour/Energy Shield",
 	quality = 20,
 	socketLimit = 2,
 	tags = { str_int_armour = true, str_int_shield = true, armour = true, default = true, shield = true, },
@@ -650,8 +1183,9 @@ itemBases["Advanced Sectarian Crest Shield"] = {
 	armour = { BlockChance = 25, Armour = 77, EnergyShield = 27, MovementPenalty = 0.015, },
 	req = { level = 59, str = 59, int = 59, },
 }
-itemBases["Advanced Omen Crest Shield"] = {
+itemBases["Glowering Crest Shield"] = {
 	type = "Shield",
+	subType = "Armour/Energy Shield",
 	quality = 20,
 	socketLimit = 2,
 	tags = { str_int_armour = true, str_int_shield = true, armour = true, default = true, shield = true, },
@@ -660,122 +1194,9 @@ itemBases["Advanced Omen Crest Shield"] = {
 	armour = { BlockChance = 25, Armour = 80, EnergyShield = 28, MovementPenalty = 0.015, },
 	req = { level = 62, str = 62, int = 62, },
 }
-itemBases["Advanced Wooden Buckler"] = {
+itemBases["Intricate Crest Shield"] = {
 	type = "Shield",
-	quality = 20,
-	socketLimit = 2,
-	tags = { dex_shield = true, dex_armour = true, armour = true, default = true, shield = true, },
-	implicitModTypes = { },
-	armour = { BlockChance = 24, Evasion = 99, },
-	req = { level = 45, dex = 83, },
-}
-itemBases["Advanced Plated Buckler"] = {
-	type = "Shield",
-	quality = 20,
-	socketLimit = 2,
-	tags = { dex_shield = true, dex_armour = true, armour = true, default = true, shield = true, },
-	implicitModTypes = { },
-	armour = { BlockChance = 24, Evasion = 105, },
-	req = { level = 48, dex = 88, },
-}
-itemBases["Advanced Ridged Buckler"] = {
-	type = "Shield",
-	quality = 20,
-	socketLimit = 2,
-	tags = { dex_shield = true, dex_armour = true, armour = true, default = true, shield = true, },
-	implicitModTypes = { },
-	armour = { BlockChance = 24, Evasion = 111, },
-	req = { level = 51, dex = 94, },
-}
-itemBases["Advanced Spiked Buckler"] = {
-	type = "Shield",
-	quality = 20,
-	socketLimit = 2,
-	tags = { dex_shield = true, dex_armour = true, armour = true, default = true, shield = true, },
-	implicitModTypes = { },
-	armour = { BlockChance = 24, Evasion = 119, },
-	req = { level = 55, dex = 101, },
-}
-itemBases["Advanced Ringed Buckler"] = {
-	type = "Shield",
-	quality = 20,
-	socketLimit = 2,
-	tags = { dex_shield = true, dex_armour = true, armour = true, default = true, shield = true, },
-	implicitModTypes = { },
-	armour = { BlockChance = 24, Evasion = 127, },
-	req = { level = 59, dex = 108, },
-}
-itemBases["Advanced Edged Buckler"] = {
-	type = "Shield",
-	quality = 20,
-	socketLimit = 2,
-	tags = { dex_shield = true, dex_armour = true, armour = true, default = true, shield = true, },
-	implicitModTypes = { },
-	armour = { BlockChance = 24, Evasion = 131, },
-	req = { level = 61, dex = 112, },
-}
-itemBases["Expert Braced Tower Shield"] = {
-	type = "Shield",
-	quality = 20,
-	socketLimit = 2,
-	tags = { str_armour = true, str_shield = true, armour = true, default = true, shield = true, },
-	implicit = "Grants Skill: Level (1-20) Raise Shield",
-	implicitModTypes = { },
-	armour = { BlockChance = 26, Armour = 152, MovementPenalty = 0.03, },
-	req = { level = 65, str = 118, },
-}
-itemBases["Expert Rampart Tower Shield"] = {
-	type = "Shield",
-	quality = 20,
-	socketLimit = 2,
-	tags = { str_armour = true, str_shield = true, armour = true, default = true, shield = true, },
-	implicit = "Grants Skill: Level (1-20) Raise Shield",
-	implicitModTypes = { },
-	armour = { BlockChance = 26, Armour = 167, MovementPenalty = 0.03, },
-	req = { level = 70, str = 129, },
-}
-itemBases["Expert Stone Tower Shield"] = {
-	type = "Shield",
-	quality = 20,
-	socketLimit = 2,
-	tags = { str_armour = true, str_shield = true, armour = true, default = true, shield = true, },
-	implicit = "Grants Skill: Level (1-20) Raise Shield",
-	implicitModTypes = { },
-	armour = { BlockChance = 26, Armour = 182, MovementPenalty = 0.03, },
-	req = { level = 75, str = 139, },
-}
-itemBases["Expert Pelage Targe"] = {
-	type = "Shield",
-	quality = 20,
-	socketLimit = 2,
-	tags = { str_dex_armour = true, str_dex_shield = true, armour = true, default = true, shield = true, },
-	implicit = "Grants Skill: Level (1-20) Raise Shield",
-	implicitModTypes = { },
-	armour = { BlockChance = 25, Armour = 84, Evasion = 76, MovementPenalty = 0.015, },
-	req = { level = 65, str = 65, dex = 65, },
-}
-itemBases["Expert Crescent Targe"] = {
-	type = "Shield",
-	quality = 20,
-	socketLimit = 2,
-	tags = { str_dex_armour = true, str_dex_shield = true, armour = true, default = true, shield = true, },
-	implicit = "Grants Skill: Level (1-20) Raise Shield",
-	implicitModTypes = { },
-	armour = { BlockChance = 25, Armour = 92, Evasion = 84, MovementPenalty = 0.015, },
-	req = { level = 70, str = 70, dex = 70, },
-}
-itemBases["Expert Feathered Targe"] = {
-	type = "Shield",
-	quality = 20,
-	socketLimit = 2,
-	tags = { str_dex_armour = true, str_dex_shield = true, armour = true, default = true, shield = true, },
-	implicit = "Grants Skill: Level (1-20) Raise Shield",
-	implicitModTypes = { },
-	armour = { BlockChance = 25, Armour = 100, Evasion = 91, MovementPenalty = 0.015, },
-	req = { level = 75, str = 76, dex = 76, },
-}
-itemBases["Expert Sigil Crest Shield"] = {
-	type = "Shield",
+	subType = "Armour/Energy Shield",
 	quality = 20,
 	socketLimit = 2,
 	tags = { str_int_armour = true, str_int_shield = true, armour = true, default = true, shield = true, },
@@ -784,8 +1205,9 @@ itemBases["Expert Sigil Crest Shield"] = {
 	armour = { BlockChance = 25, Armour = 84, EnergyShield = 29, MovementPenalty = 0.015, },
 	req = { level = 65, str = 65, int = 65, },
 }
-itemBases["Expert Jingling Crest Shield"] = {
+itemBases["Sekheman Crest Shield"] = {
 	type = "Shield",
+	subType = "Armour/Energy Shield",
 	quality = 20,
 	socketLimit = 2,
 	tags = { str_int_armour = true, str_int_shield = true, armour = true, default = true, shield = true, },
@@ -794,8 +1216,9 @@ itemBases["Expert Jingling Crest Shield"] = {
 	armour = { BlockChance = 25, Armour = 92, EnergyShield = 32, MovementPenalty = 0.015, },
 	req = { level = 70, str = 70, int = 70, },
 }
-itemBases["Expert Omen Crest Shield"] = {
+itemBases["Vaal Crest Shield"] = {
 	type = "Shield",
+	subType = "Armour/Energy Shield",
 	quality = 20,
 	socketLimit = 2,
 	tags = { str_int_armour = true, str_int_shield = true, armour = true, default = true, shield = true, },
@@ -804,30 +1227,113 @@ itemBases["Expert Omen Crest Shield"] = {
 	armour = { BlockChance = 25, Armour = 100, EnergyShield = 35, MovementPenalty = 0.015, },
 	req = { level = 75, str = 76, int = 76, },
 }
-itemBases["Expert Plated Buckler"] = {
+itemBases["Painted Crest Shield"] = {
 	type = "Shield",
+	subType = "Armour/Energy Shield",
 	quality = 20,
 	socketLimit = 2,
-	tags = { dex_shield = true, dex_armour = true, armour = true, default = true, shield = true, },
+	tags = { str_int_armour = true, str_int_shield = true, armour = true, default = true, shield = true, },
+	implicit = "Grants Skill: Level (1-20) Raise Shield",
 	implicitModTypes = { },
-	armour = { BlockChance = 24, Evasion = 139, },
-	req = { level = 65, dex = 118, },
+	armour = { BlockChance = 25, Armour = 61, EnergyShield = 22, MovementPenalty = 0.015, },
+	req = { level = 45, str = 46, int = 46, },
 }
-itemBases["Expert Spiked Buckler"] = {
+itemBases["Engraved Crest Shield"] = {
 	type = "Shield",
+	subType = "Armour/Energy Shield",
 	quality = 20,
 	socketLimit = 2,
-	tags = { dex_shield = true, dex_armour = true, armour = true, default = true, shield = true, },
+	tags = { str_int_armour = true, str_int_shield = true, armour = true, default = true, shield = true, },
+	implicit = "Grants Skill: Level (1-20) Raise Shield",
 	implicitModTypes = { },
-	armour = { BlockChance = 24, Evasion = 152, },
-	req = { level = 70, dex = 129, },
+	armour = { BlockChance = 25, Armour = 64, EnergyShield = 23, MovementPenalty = 0.015, },
+	req = { level = 48, str = 49, int = 49, },
 }
-itemBases["Expert Edged Buckler"] = {
+itemBases["Descry Crest Shield"] = {
+	type = "Shield",
+	subType = "Armour/Energy Shield",
+	quality = 20,
+	socketLimit = 2,
+	tags = { str_int_armour = true, str_int_shield = true, armour = true, default = true, shield = true, },
+	implicit = "Grants Skill: Level (1-20) Raise Shield",
+	implicitModTypes = { },
+	armour = { BlockChance = 25, Armour = 67, EnergyShield = 24, MovementPenalty = 0.015, },
+	req = { level = 51, str = 52, int = 52, },
+}
+itemBases["Dekharan Crest Shield"] = {
+	type = "Shield",
+	subType = "Armour/Energy Shield",
+	quality = 20,
+	socketLimit = 2,
+	tags = { str_int_armour = true, str_int_shield = true, armour = true, default = true, shield = true, },
+	implicit = "Grants Skill: Level (1-20) Raise Shield",
+	implicitModTypes = { },
+	armour = { BlockChance = 25, Armour = 72, EnergyShield = 25, MovementPenalty = 0.015, },
+	req = { level = 55, str = 55, int = 55, },
+}
+itemBases["Quartered Crest Shield"] = {
+	type = "Shield",
+	subType = "Armour/Energy Shield",
+	quality = 20,
+	socketLimit = 2,
+	tags = { str_int_armour = true, str_int_shield = true, armour = true, default = true, shield = true, },
+	implicit = "Grants Skill: Level (1-20) Raise Shield",
+	implicitModTypes = { },
+	armour = { BlockChance = 25, Armour = 77, EnergyShield = 27, MovementPenalty = 0.015, },
+	req = { level = 59, str = 59, int = 59, },
+}
+itemBases["Glowering Crest Shield"] = {
+	type = "Shield",
+	subType = "Armour/Energy Shield",
+	quality = 20,
+	socketLimit = 2,
+	tags = { str_int_armour = true, str_int_shield = true, armour = true, default = true, shield = true, },
+	implicit = "Grants Skill: Level (1-20) Raise Shield",
+	implicitModTypes = { },
+	armour = { BlockChance = 25, Armour = 80, EnergyShield = 28, MovementPenalty = 0.015, },
+	req = { level = 62, str = 62, int = 62, },
+}
+itemBases["Intricate Crest Shield"] = {
+	type = "Shield",
+	subType = "Armour/Energy Shield",
+	quality = 20,
+	socketLimit = 2,
+	tags = { str_int_armour = true, str_int_shield = true, armour = true, default = true, shield = true, },
+	implicit = "Grants Skill: Level (1-20) Raise Shield",
+	implicitModTypes = { },
+	armour = { BlockChance = 25, Armour = 84, EnergyShield = 29, MovementPenalty = 0.015, },
+	req = { level = 65, str = 65, int = 65, },
+}
+itemBases["Sekheman Crest Shield"] = {
+	type = "Shield",
+	subType = "Armour/Energy Shield",
+	quality = 20,
+	socketLimit = 2,
+	tags = { str_int_armour = true, str_int_shield = true, armour = true, default = true, shield = true, },
+	implicit = "Grants Skill: Level (1-20) Raise Shield",
+	implicitModTypes = { },
+	armour = { BlockChance = 25, Armour = 92, EnergyShield = 32, MovementPenalty = 0.015, },
+	req = { level = 70, str = 70, int = 70, },
+}
+itemBases["Vaal Crest Shield"] = {
+	type = "Shield",
+	subType = "Armour/Energy Shield",
+	quality = 20,
+	socketLimit = 2,
+	tags = { str_int_armour = true, str_int_shield = true, armour = true, default = true, shield = true, },
+	implicit = "Grants Skill: Level (1-20) Raise Shield",
+	implicitModTypes = { },
+	armour = { BlockChance = 25, Armour = 100, EnergyShield = 35, MovementPenalty = 0.015, },
+	req = { level = 75, str = 76, int = 76, },
+}
+
+itemBases["Golden Flame"] = {
 	type = "Shield",
 	quality = 20,
 	socketLimit = 2,
-	tags = { dex_shield = true, dex_armour = true, armour = true, default = true, shield = true, },
-	implicitModTypes = { },
-	armour = { BlockChance = 24, Evasion = 166, },
-	req = { level = 75, dex = 139, },
+	tags = { not_for_sale = true, demigods = true, armour = true, default = true, shield = true, },
+	implicit = "+(11-19)% to Chaos Resistance",
+	implicitModTypes = { { "chaos", "resistance" }, },
+	armour = { BlockChance = 25, },
+	req = { level = 15, },
 }

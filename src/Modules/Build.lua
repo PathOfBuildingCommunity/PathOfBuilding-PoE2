@@ -229,12 +229,14 @@ function buildMode:Init(dbFileName, buildName, buildXML, convertBuild, importLin
 				self.spec:AddUndoState()
 				self.spec:SetWindowTitleWithBuildClass()
 				self.buildFlag = true
+				self.treeTab.viewer.searchNeedsForceUpdate = true
 			else
 				main:OpenConfirmPopup("Class Change", "Changing class to "..value.label.." will reset your passive tree.\nThis can be avoided by connecting one of the "..value.label.." starting nodes to your tree.", "Continue", function()
 					self.spec:SelectClass(value.classId)
 					self.spec:AddUndoState()
 					self.spec:SetWindowTitleWithBuildClass()
-					self.buildFlag = true					
+					self.buildFlag = true
+					self.treeTab.viewer.searchNeedsForceUpdate = true
 				end)
 			end
 		end
@@ -594,24 +596,7 @@ function buildMode:Init(dbFileName, buildName, buildXML, convertBuild, importLin
 	--special rebuild to properly initialise boss placeholders
 	self.configTab:BuildModList()
 
-	-- Initialise class dropdown
-	for classId, class in pairs(self.latestTree.classes) do
-		local ascendancies = {}
-		-- Initialise ascendancy dropdown
-		for i = 0, #class.classes do
-			local ascendClass = class.classes[i]
-			t_insert(ascendancies, {
-				label = ascendClass.name,
-				ascendClassId = i,
-			})
-		end
-		t_insert(self.controls.classDrop.list, {
-			label = class.name,
-			classId = classId,
-			ascendancies = ascendancies,
-		})
-	end
-	table.sort(self.controls.classDrop.list, function(a, b) return a.label < b.label end)
+	self:UpdateClassDropdowns()
 
 	-- so we ran into problems with converted trees, trying to check passive tree routes and also consider thread jewels
 	-- but we can't check jewel info because items have not been loaded yet, and they come after passives in the xml.
@@ -787,7 +772,8 @@ function buildMode:SyncLoadouts()
 
 	-- Try to select loadout in dropdown based on currently selected tree
 	if self.treeTab then
-		local treeName = self.treeTab.specList[self.treeTab.activeSpec].title or "Default"
+		local spec = self.treeTab.specList[self.treeTab.activeSpec]
+		local treeName = spec and spec.title or "Default"
 		for i, loadout in ipairs(filteredList) do
 			if loadout == treeName then
 				local linkMatch = string.match(treeName, "%{(%w+)%}") or treeName
@@ -1192,6 +1178,29 @@ function buildMode:OnFrame(inputEvents)
 	self:DrawControls(main.viewPort)
 end
 
+function buildMode:UpdateClassDropdowns(treeVersion)
+	local classes = main.tree[treeVersion or latestTreeVersion].classes
+	wipeTable(self.controls.classDrop.list)
+	-- Initialise class dropdown
+	for classId, class in pairs(classes) do
+		local ascendancies = {}
+		-- Initialise ascendancy dropdown
+		for i = 0, #class.classes do
+			local ascendClass = class.classes[i]
+			t_insert(ascendancies, {
+				label = ascendClass.name,
+				ascendClassId = i,
+			})
+		end
+		t_insert(self.controls.classDrop.list, {
+			label = class.name,
+			classId = classId,
+			ascendancies = ascendancies,
+		})
+	end
+	table.sort(self.controls.classDrop.list, function(a, b) return a.label < b.label end)
+end
+
 -- Opens the game version conversion popup
 function buildMode:OpenConversionPopup()
 	local controls = { }
@@ -1385,12 +1394,12 @@ function buildMode:RefreshSkillSelectControls(controls, mainGroup, suffix)
 	for i, socketGroup in pairs(self.skillsTab.socketGroupList) do
 		controls.mainSocketGroup.list[i] = { val = i, label = socketGroup.displayLabel }
 	end
-  controls.mainSocketGroup:CheckDroppedWidth(true)
+	controls.mainSocketGroup:CheckDroppedWidth(true)
 	if controls.warnings then controls.warnings.shown = #controls.warnings.lines > 0 end
+	controls.statSet.shown = false
 	if #controls.mainSocketGroup.list == 0 then
 		controls.mainSocketGroup.list[1] = { val = 1, label = "<No skills added yet>" }
 		controls.mainSkill.shown = false
-		controls.statSet.shown = false
 		controls.mainSkillPart.shown = false
 		controls.mainSkillMineCount.shown = false
 		controls.mainSkillStageCount.shown = false
@@ -1617,6 +1626,9 @@ function buildMode:AddDisplayStatList(statList, actor)
 			line = line:sub(1, -3)
 			InsertIfNew(self.controls.warnings.lines, line)
 		end
+	end
+	if actor.output.EternalLifeWarning then
+		InsertIfNew(self.controls.warnings.lines, "You cannot pay Life costs of skills while You have Energy Shield and have Eternal Life allocated")
 	end
 	if actor.output.VixensTooMuchCastSpeedWarn then
 		InsertIfNew(self.controls.warnings.lines, "You may have too much cast speed or too little cooldown reduction to effectively use Vixen's Curse replacement")

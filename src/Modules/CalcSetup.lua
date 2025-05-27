@@ -27,7 +27,7 @@ function calcs.initModDB(env, modDB)
 	modDB:NewMod("BlockChanceMax", "BASE", 75, "Base")
 	modDB:NewMod("SpellBlockChanceMax", "BASE", 75, "Base")
 	modDB:NewMod("SpellDodgeChanceMax", "BASE", 75, "Base")
-	modDB:NewMod("ChargeDuration", "BASE", 10, "Base")
+	modDB:NewMod("ChargeDuration", "BASE", 15, "Base")
 	modDB:NewMod("PowerChargesMax", "BASE", 3, "Base")
 	modDB:NewMod("FrenzyChargesMax", "BASE", 3, "Base")
 	modDB:NewMod("EnduranceChargesMax", "BASE", 3, "Base")
@@ -61,6 +61,7 @@ function calcs.initModDB(env, modDB)
 	modDB:NewMod("ScorchStacksMax", "BASE", 1, "Base")
 	modDB:NewMod("MovementSpeed", "INC", -30, "Base", { type = "Condition", var = "Maimed" })
 	modDB:NewMod("Evasion", "INC", -15, "Base", { type = "Condition", var = "Maimed" })
+	modDB:NewMod("AilmentThreshold", "BASE", 50, "Base", { type = "PercentStat", stat = "Life", percent = 1 })
 	modDB:NewMod("DamageTaken", "INC", 10, "Base", ModFlag.Attack, { type = "Condition", var = "Intimidated"})
 	modDB:NewMod("DamageTaken", "INC", 10, "Base", ModFlag.Attack, { type = "Condition", var = "Intimidated", neg = true}, { type = "Condition", var = "Party:Intimidated"})
 	modDB:NewMod("DamageTaken", "INC", 10, "Base", ModFlag.Spell, { type = "Condition", var = "Unnerved"})
@@ -88,6 +89,7 @@ function calcs.initModDB(env, modDB)
 	modDB:NewMod("Convergence", "FLAG", true, "Base", { type = "Condition", var = "Convergence" })
 	modDB:NewMod("PhysicalDamageReduction", "BASE", -15, "Base", { type = "Condition", var = "Crushed" })
 	modDB:NewMod("CritChanceCap", "BASE", 100, "Base")
+	modDB:NewMod("PresenceRadius", "BASE", data.misc.presenceRadiusBase, "Base")
 	modDB.conditions["Buffed"] = env.mode_buffs
 	modDB.conditions["Combat"] = env.mode_combat
 	modDB.conditions["Effective"] = env.mode_effective
@@ -380,6 +382,11 @@ local function applyGemMods(effect, modList)
 		elseif not calcLib.gemIsType(effect.gemData, value.keyword, true) then
 			match = false
 		end
+		if value.gemRequirements then
+			for req, val in pairs(value.gemRequirements) do
+				match = match and effect.gemData[req] > val
+			end
+		end
 		if match then
 			effect[value.key] = (effect[value.key] or 0) + value.value
 			effect.gemPropertyInfo = effect.gemPropertyInfo or {}
@@ -554,7 +561,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 		calcs.initModDB(env, modDB)
 		modDB:NewMod("Life", "BASE", 12, "Base", { type = "Multiplier", var = "Level", base = 16 })
 		modDB:NewMod("Mana", "BASE", 4, "Base", { type = "Multiplier", var = "Level", base = 30 })
-		modDB:NewMod("ManaRegen", "BASE", 0.04, "Base", { type = "PerStat", stat = "Mana", div = 1 })
+		modDB:NewMod("ManaRegen", "BASE", 0.04, "Base", { type = "PerStat", stat = "Mana", div = 1 }, { type = "Condition", var = "NoInherentManaRegen", neg = true })
 		modDB:NewMod("Spirit", "BASE", 0, "Base")
 		modDB:NewMod("Devotion", "BASE", 0, "Base")
 		modDB:NewMod("Evasion", "BASE", 3, "Base", { type = "Multiplier", var = "Level", base = 27 })
@@ -591,7 +598,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 		modDB:NewMod("Speed", "MORE", 20, "Base", ModFlag.Attack, { type = "Condition", var = "DualWielding" }, { type = "Condition", var = "DoubledInherentDualWieldingSpeed"})
 		modDB:NewMod("BlockChance", "BASE", 20, "Base", { type = "Condition", var = "DualWielding" }, { type = "Condition", var = "NoInherentBlock", neg = true}, { type = "Condition", var = "DoubledInherentDualWieldingBlock", neg = true})
 		modDB:NewMod("BlockChance", "BASE", 40, "Base", { type = "Condition", var = "DualWielding" }, { type = "Condition", var = "NoInherentBlock", neg = true}, { type = "Condition", var = "DoubledInherentDualWieldingBlock"})
-		modDB:NewMod("AilmentMagnitude", "MORE", 100, "Base", 0, KeywordFlag.Bleed, { type = "ActorCondition", actor = "enemy", var = "Moving" }, { type = "Condition", var = "NoExtraBleedDamageToMovingEnemy", neg = true })
+		modDB:NewMod("AilmentMagnitude", "MORE", 100, "Base", 0, KeywordFlag.Bleed, { type = "ActorCondition", actor = "enemy", varList = { "Moving", "BleedAggravated" } }, { type = "Condition", var = "NoExtraBleedDamageToMovingEnemy", neg = true })
 		modDB:NewMod("Condition:BloodStance", "FLAG", true, "Base", { type = "Condition", var = "SandStance", neg = true })
 		modDB:NewMod("Condition:PrideMinEffect", "FLAG", true, "Base", { type = "Condition", var = "PrideMaxEffect", neg = true })
 		modDB:NewMod("PerBrutalTripleDamageChance", "BASE", 3, "Base")
@@ -649,6 +656,9 @@ function calcs.initEnv(build, mode, override, specEnv)
 			nodes = { }
 			if override.addNodes then
 				for node in pairs(override.addNodes) do
+					if not node.allocMode then
+						node.allocMode = 0
+					end
 					nodes[node.id] = node
 					if node.type == "Mastery" then
 						allocatedMasteryCount = allocatedMasteryCount + 1
@@ -712,14 +722,21 @@ function calcs.initEnv(build, mode, override, specEnv)
 	if not accelerate.requirementsItems then
 		local items = {}
 		local jewelLimits = {}
+		local giantsBlood = true
+		if build.calcsTab and build.calcsTab.mainEnv then
+			giantsBlood = build.calcsTab.mainEnv.modDB:Flag(nil, "GiantsBlood")
+		end
 		for _, slot in pairs(build.itemsTab.orderedSlots) do
 			local slotName = slot.slotName
 			local item
 			if slotName == override.repSlotName then
 				item = override.repItem
 			elseif override.repItem and override.repSlotName:match("^Weapon 1") and slotName:match("^Weapon 2") and
-			(override.repItem.base.type == "Staff" or override.repItem.base.type == "Two Handed Sword" or override.repItem.base.type == "Two Handed Axe" or override.repItem.base.type == "Two Handed Mace"
-			or (override.repItem.base.type == "Bow" and item and item.base.type ~= "Quiver")) then
+			(
+				override.repItem.base.type == "Staff"
+				or (not giantsBlood and (override.repItem.base.type == "Two Handed Sword" or override.repItem.base.type == "Two Handed Axe" or override.repItem.base.type == "Two Handed Mace"))
+				or (override.repItem.base.type == "Bow" and item and item.base.type ~= "Quiver")
+			) then
 				goto continue
 			elseif slot.nodeId and override.spec then
 				item = build.itemsTab.items[env.spec.jewels[slot.nodeId]]
@@ -889,7 +906,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 				items[slot] = nil
 			end
 		end
-
+		
 		for _, slot in pairs(build.itemsTab.orderedSlots) do
 			local slotName = slot.slotName
 			local item = items[slotName]
@@ -903,6 +920,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 						env.itemModDB.multipliers["LifeFlaskRecovery"] = item.flaskData.lifeTotal
 					end
 				end
+				env.itemModDB.multipliers[item.base.subType..slotName:gsub(" ", "").."MaxCharges"] = item.flaskData.chargesMax
 				item = nil
 			elseif item and item.type == "Charm" then
 				if slot.active then
@@ -917,6 +935,17 @@ function calcs.initEnv(build, mode, override, specEnv)
 					scale = scale + node.distanceToClassStart * (item.jewelData.jewelIncEffectFromClassStart / 100)
 				end
 			end
+
+			local addSourceSlotNum = false
+			if slot.nodeId and item and item.type == "Jewel" then
+				local node = env.spec.nodes[slot.nodeId]
+				if node and node.containJewelSocket then
+					addSourceSlotNum = true
+					local inc = node.modList:Sum("INC", nil, "SocketedJewelEffect")
+					scale = scale + (inc / 100)
+				end
+			end
+
 			if item then
 				env.player.itemList[slotName] = item
 				-- Merge mods for this item
@@ -930,6 +959,13 @@ function calcs.initEnv(build, mode, override, specEnv)
 						if mod.name == "Spirit" and mod.type == "BASE" then
 							t_remove(srcList, index)
 						end
+					end
+				end
+
+				if addSourceSlotNum then
+					srcList = copyTable(srcList, false)
+					for _, mod in ipairs(srcList) do
+						mod.sourceSlotNum = slot.slotNum
 					end
 				end
 				
@@ -1066,7 +1102,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 					else
 						env.itemModDB.multipliers["NonCorruptedItem"] = (env.itemModDB.multipliers["NonCorruptedItem"] or 0) + 1
 					end
-					local otherRing = items[(slotName == "Ring 1" and "Ring 2") or (slotName == "Ring 2" and "Ring 1")]
+					local otherRing = items[(slotName == "Ring 1" and "Ring 2") or (slotName == "Ring 2" and "Ring 1") or (slotName == "Ring 3" and "Ring 2")]
 					if otherRing and not otherRing.name:match("Kalandra's Touch") then
 						for _, mod in ipairs(otherRing.modList or otherRing.slotModList[slot.slotNum] or {}) do
 							-- Filter out SocketedIn type mods
@@ -1096,7 +1132,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 							env.itemModDB:ScaleAddMod(mod, scale)
 						end
 					end
-				elseif env.modDB.multipliers["CorruptedMagicJewelEffect"] and item.type == "Jewel" and item.rarity == "MAGIC" and item.corrupted and slot.nodeId and item.base.subType ~= "Charm" then
+				elseif env.modDB.multipliers["CorruptedMagicJewelEffect"] and item.type == "Jewel" and item.rarity == "MAGIC" and item.corrupted and slot.nodeId and item.base.subType ~= "Charm" and not env.spec.nodes[slot.nodeId].containJewelSocket then
 					scale = scale + env.modDB.multipliers["CorruptedMagicJewelEffect"]
 					local combinedList = new("ModList")
 					for _, mod in ipairs(srcList) do

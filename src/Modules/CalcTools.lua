@@ -120,8 +120,8 @@ function calcLib.gemIsType(gem, type, includeTransfigured)
 end
 
 -- In-game formula
-function calcLib.getGemStatRequirement(level, multi)
-	if multi == 0 then
+function calcLib.getGemStatRequirement(level, multi, isSupport)
+	if multi == 0 or isSupport then
 		return 0
 	end
 	local req = round( ( 5 + ( level - 3 ) * 2.25 ) * ( multi / 100 ) ^ 0.9 ) + 4
@@ -148,7 +148,7 @@ function calcLib.buildSkillInstanceStats(skillInstance, grantedEffect, statSet)
 			if statSetLevel.statInterpolation[index] == 3 then
 				-- Effectiveness interpolation
 				if not availableEffectiveness then
-					actorLevel = #statSet.levels == 1 and skillInstance.actorLevel or statSetLevel.actorLevel
+					actorLevel = #statSet.levels < 5 and skillInstance.actorLevel or statSetLevel.actorLevel
 					availableEffectiveness =
 						data.gameConstants["SkillDamageBaseEffectiveness"] * (statSet.baseEffectiveness or 1)
 							* (1 + (statSet.incrementalEffectiveness or 0) * (actorLevel - 1)) 

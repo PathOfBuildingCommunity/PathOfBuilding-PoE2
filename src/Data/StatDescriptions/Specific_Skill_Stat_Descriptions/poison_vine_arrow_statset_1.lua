@@ -4,19 +4,6 @@
 return {
 	[1]={
 		[1]={
-			[1]={
-				[1]={
-					k="divide_by_ten_1dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Vine attachment radius {0}m"
-			}
 		},
 		stats={
 			[1]="active_skill_area_of_effect_radius"
@@ -75,19 +62,6 @@ return {
 						[2]=-1
 					}
 				},
-				text="Movement speed Slow inflicted by Vines {0}%"
-			},
-			[2]={
-				[1]={
-					k="negate",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]=-1
-					}
-				},
 				text="Vines Slow enemy movement speed by {0}%"
 			}
 		},
@@ -131,17 +105,17 @@ return {
 	[6]={
 		[1]={
 			[1]={
-				[1]={
-					k="multiplicative_damage_modifier",
-					v=1
-				},
 				limit={
 					[1]={
 						[1]="#",
 						[2]="#"
+					},
+					[2]={
+						[1]=0,
+						[2]=0
 					}
 				},
-				text="Incoming Poison stored {0}%"
+				text="Plant deals additional Chaos Damage per second equal to {0}% of Poison Damage per second"
 			},
 			[2]={
 				[1]={
@@ -152,30 +126,22 @@ return {
 					[1]={
 						[1]="#",
 						[2]="#"
+					},
+					[2]={
+						[1]=1,
+						[2]="#"
 					}
 				},
 				text="Poisoning the plant causes it to deal additional Chaos Damage per second equal to {0}% of Poison Damage per second"
 			}
 		},
 		stats={
-			[1]="poison_vine_arrow_vine_stored_poison_damage_+%_final"
+			[1]="poison_vine_arrow_vine_stored_poison_damage_+%_final",
+			[2]="display_statset_hide_usage_stats"
 		}
 	},
 	[7]={
 		[1]={
-			[1]={
-				[1]={
-					k="milliseconds_to_seconds_2dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Plant duration {0}s"
-			}
 		},
 		stats={
 			[1]="skill_effect_duration"
@@ -186,6 +152,7 @@ return {
 	["active_skill_base_slow_debuff_movement_speed_+%_final"]=3,
 	["active_skill_slow_debuff_movement_speed_+%_final"]=4,
 	["base_skill_effect_duration"]=5,
+	["display_statset_hide_usage_stats"]=6,
 	parent="skill_stat_descriptions",
 	["poison_vine_arrow_vine_stored_poison_damage_+%_final"]=6,
 	["skill_effect_duration"]=7

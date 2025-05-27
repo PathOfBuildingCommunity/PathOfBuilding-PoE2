@@ -146,6 +146,8 @@ describe("TestItemParse", function()
 		assert.truthy(item.mirrored)
 		item = new("Item", raw("Corrupted"))
 		assert.truthy(item.corrupted)
+		item = new("Item", raw("Fractured Item"))
+		assert.truthy(item.fractured)
 		item = new("Item", raw("Crafted: true"))
 		assert.truthy(item.crafted)
 		item = new("Item", raw("Unreleased: true"))
@@ -178,6 +180,13 @@ describe("TestItemParse", function()
 		-- enchant also sets enchant and implicit
 		assert.truthy(item.enchantModLines[1].enchant)
 		assert.truthy(item.enchantModLines[1].implicit)
+	end)
+	
+	it("fractured", function()
+		local item = new("Item", raw("{fractured}+8 to Strength"))
+		assert.truthy(item.explicitModLines[1].fractured)
+		item = new("Item", raw("+8 to Strength (fractured)"))
+		assert.truthy(item.explicitModLines[1].fractured)
 	end)
 
 	it("implicit", function()
@@ -214,5 +223,29 @@ describe("TestItemParse", function()
 		assert.are.equals("Rope Cuffs", item.baseName)
 		assert.are.equals(1, #item.explicitModLines)
 		assert.are.equals("+50% chance to Ignite", item.explicitModLines[1].line)
+	end)
+
+	it("attribute converted", function()
+		local item = new("Item", [[
+			Test Item
+			Aegis Quarterstaff
+			Quality: 20
+			Sockets: S S S
+			Rune: Soul Core of Cholotl
+			Rune: Soul Core of Zantipi
+			Rune: Soul Core of Atmohua
+			LevelReq: 79
+			Implicits: 4
+			{enchant}{rune}Convert 20% of Requirements to Dexterity
+			{enchant}{rune}Convert 20% of Requirements to Intelligence
+			{enchant}{rune}Convert 20% of Requirements to Strength
+			{tags:block}{range:1}+(10-15)% to Block chance
+			Corrupted
+			]])
+		item:BuildAndParseRaw()
+		assert.are.equals(45, item.requirements.strMod)
+		assert.are.equals(111, item.requirements.dexMod)
+		assert.are.equals(71, item.requirements.intMod)	
+		
 	end)
 end)

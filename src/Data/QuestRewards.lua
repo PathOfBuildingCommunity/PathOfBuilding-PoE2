@@ -154,7 +154,7 @@ return {
 		["Act"] = 1,
 		["Type"] = "Cruel",
 		["Area"] = "Ogham Manor",
-		["Stat"] = "8% increased maximum Life",
+		["Stat"] = "5% increased maximum Life",
 		["AreaLevel"] = 51,
 		["useConfig"] = true
 	},

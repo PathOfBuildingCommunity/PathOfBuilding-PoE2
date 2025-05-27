@@ -3,4 +3,5 @@ local itemBases = ...
 
 #type Flail
 #socketLimit 2
-#baseMatch BaseType Metadata/Items/Weapons/OneHandWeapons/Flails/AbstractFlail
+#baseMatch Metadata/Items/Weapons/OneHandWeapons/Flails/FourFlail%d+
+-- not working this way? baseMatch BaseType Metadata/Items/Weapons/OneHandWeapons/Flails/AbstractFlail

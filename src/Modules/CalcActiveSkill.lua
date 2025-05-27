@@ -543,6 +543,9 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 			if level.manaMultiplier then
 				skillModList:NewMod("SupportManaMultiplier", "MORE", level.manaMultiplier, skillEffect.grantedEffect.modSource)
 			end
+			if level.reservationMultiplier then
+				skillModList:NewMod("ReservationMultiplier", "MORE", level.reservationMultiplier, skillEffect.grantedEffect.modSource)
+			end
 			if level.manaReservationPercent then
 				activeSkill.skillData.manaReservationPercent = level.manaReservationPercent
 			end
@@ -604,7 +607,7 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 		activeSkill.skillData.attackTime = level.attackTime
 	end
 	if level.attackSpeedMultiplier then
-		skillModList:NewMod("Speed", "MORE", level.attackSpeedMultiplier, activeEffect.grantedEffect.modSource, ModFlag.Attack)
+		activeSkill.skillData.attackSpeedMultiplier = level.attackSpeedMultiplier
 	end
 	if level.cooldown then
 		activeSkill.skillData.cooldown = level.cooldown

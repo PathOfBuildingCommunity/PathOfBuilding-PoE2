@@ -74,7 +74,58 @@ local function mergeKeystones(env)
 		end
 	end
 end
-
+-- Add certain weapon base stats to output for use as "Stat" in mods like Tactician's ""Watch How I Do It" Ascendancy notable" and Amazon's "Penetrate"
+-- Note: This might run into issues with Energy Blade, Shapeshifting or similar mechanics that could "replace" the weapon items, but it's hard to test because PoE2 doesn't have those mechanics yet
+---@param actor table
+local function addWeaponBaseStats(actor)
+	local output = actor.output
+	local dmgTypeList = {"Physical", "Lightning", "Cold", "Fire", "Chaos"} -- Note: we're using local dmgTypeList vars a lot, might be better to eventually just use a global since it presumably won't change
+	for i in pairs({ "1", "2" }) do
+		-- Section for martial weapons only for now
+		if actor.itemList["Weapon " .. i] and actor.itemList["Weapon " .. i].base and actor.itemList["Weapon " .. i].base.weapon then
+			-- Add base min and max damage
+			for _, damageType in ipairs(dmgTypeList) do
+				if actor.itemList["Weapon " .. i] and actor["weaponData" .. i][damageType .. "Min"] then
+					output[damageType .. "Min" .. "OnWeapon " .. i] = actor["weaponData" .. i][damageType .. "Min"]
+				end
+				if actor["weaponData" .. i][damageType .. "Max"] then
+					output[damageType .. "Max" .. "OnWeapon " .. i] = actor["weaponData" .. i][damageType .. "Max"]
+				end
+			end
+			-- Add total local accuracy
+			output["AccuracyOnWeapon " .. i] = actor.itemList["Weapon " .. i].baseModList:Sum("BASE", nil, "Accuracy")
+		end
+	end
+end
+-- Calculate Presence radius
+---@param actor table
+local function calcPresenceRadius(actor)
+	-- Calculate modifications to radius first
+	local baseRadius = actor.modDB:Sum("BASE", nil, "PresenceRadius")
+	local incRadius = actor.modDB:Sum("INC", nil, "PresenceRadius")
+	local moreRadius = actor.modDB:More(nil, "PresenceRadius")
+	local scaledRadius = actor.modDB:Override(nil, "PresenceRadius") or baseRadius * (1 + incRadius / 100) * moreRadius
+	-- Calculate modifications to area second
+	local baseArea = math.pi * (scaledRadius * scaledRadius)
+	local incArea = actor.modDB:Sum("INC", nil, "PresenceArea")
+	local moreArea = actor.modDB:More(nil, "PresenceArea")
+	local scaledArea = actor.modDB:Override(nil, "PresenceArea") or baseArea * (1 + incArea / 100) * moreArea
+	-- Convert back to final radius
+	local finalRadius = math.floor(math.sqrt(scaledArea / math.pi))
+	actor.output["PresenceRadius"] = finalRadius
+	actor.output["PresenceRadiusMetres"] = finalRadius / 10
+	if scaledRadius / baseRadius ~= 1 then actor.output["PresenceMod"] = scaledRadius / baseRadius end
+	if actor.breakdown then
+		actor.breakdown.PresenceRadius = actor.breakdown.area(scaledRadius, (1 + incArea / 100) * moreArea, finalRadius)
+		if baseRadius ~= scaledRadius then
+			actor.breakdown.PresenceMod = {}
+			t_insert(actor.breakdown.PresenceMod, s_format( "%.1fm ^8(base radius)", baseRadius / 10))
+			t_insert(actor.breakdown.PresenceMod, s_format( " x %.2f  ^8(inc)", 1 + incRadius / 100))
+			t_insert(actor.breakdown.PresenceMod, s_format( " x %.2f  ^8(more)", moreRadius))
+			t_insert(actor.breakdown.PresenceMod, s_format( "= %.1fm", scaledRadius / 10))
+		end
+	end
+end
 -- Calculate attributes, and set conditions
 ---@param env table
 ---@param actor table
@@ -124,6 +175,12 @@ local function doActorAttribsConditions(env, actor)
 		else
 			condList["UsingTwoHandedWeapon"] = true
 		end
+		local weapon1Base = actor.itemList["Weapon 1"] and actor.itemList["Weapon 1"].base
+		local weapon2Base = actor.itemList["Weapon 2"] and actor.itemList["Weapon 2"].base
+		if (weapon1Base and weapon1Base.weapon) or (weapon2Base and weapon2Base.weapon) then -- technically checking weapon2 is unnecessary as there is currently no way to only attack with off-hand, but maybe it will come
+			condList["UsingMartialWeapon"] = true
+		end
+		addWeaponBaseStats(actor)
 	end
 	local armourSlots = { "Helmet", "Body Armour", "Gloves", "Boots" }
 	for _, slotName in ipairs(armourSlots) do
@@ -320,6 +377,10 @@ local function doActorAttribsConditions(env, actor)
 			end
 		end
 	end
+	-- Calculate Presence value and set condition
+	calcPresenceRadius(actor)
+	local enemyDistance = m_max(modDB:Sum("BASE", nil, "Multiplier:enemyDistance"), 0)
+	condList["EnemyInPresence"] = output.PresenceRadius >= enemyDistance
 end
 
 -- Helper function to determine curse priority when processing curses beyond the curse limit
@@ -348,7 +409,7 @@ local function determineCursePriority(curseName, activeSkill)
 	elseif source ~= "" then
 		sourcePriority = data.cursePriority["CurseFromEquipment"]
 	end
-	if source ~= "" and slotPriority == data.cursePriority["Ring 2"] then
+	if source ~= "" and (slotPriority == data.cursePriority["Ring 2"] or slotPriority == data.cursePriority["Ring 3"]) then
 		-- Implicit and explicit curses from rings have equal priority; only curses from socketed skill gems care about which ring slot they're equipped in
 		slotPriority = data.cursePriority["Ring 1"]
 	end
@@ -436,9 +497,9 @@ local function doActorMisc(env, actor)
 			modDB:NewMod("AreaOfEffect", "INC", effect, "Fanaticism", ModFlag.Cast)
 		end
 		if modDB:Flag(nil, "UnholyMight") then
-			local effect = 1 + modDB:Sum("INC", nil, "BuffEffectOnSelf") / 100
-			modDB:NewMod("PhysicalDamageConvertToChaos", "BASE", m_floor(100 * effect), "Unholy Might")
-			modDB:NewMod("Condition:CanWither", "FLAG", true, "Unholy Might")
+			local effect = 1 + (modDB:Sum("INC", nil, "BuffEffectOnSelf") / 100) 
+			modDB:NewMod("Multiplier:UnholyMightMagnitude", "BASE", 100, "Unholy Might") -- Unholy Might Magnitude has to be implemented via Multiplier, because some stat data (Mana) is not yet available here for "perStat" mods
+			modDB:NewMod("DamageGainAsChaos", "BASE", 0.3 * effect, "Unholy Might", { type = "Multiplier", var = "UnholyMightMagnitude" })
 		end
 		if modDB:Flag(nil, "ChaoticMight") then
 			local effect = m_floor(30 * (1 + modDB:Sum("INC", nil, "BuffEffectOnSelf") / 100))
@@ -495,9 +556,16 @@ local function doActorMisc(env, actor)
 			local effect = modDB:Max(nil, "WitherEffectStack")
 			enemyDB:NewMod("ChaosDamageTaken", "INC", effect, "Withered", { type = "Multiplier", var = "WitheredStack", limit = 10 } )
 		end
+		if modDB:Flag(nil, "Condition:CanInflictIncision") then
+			local effect = 10 * (1 + modDB:Sum("INC", nil, "IncisionEffect") / 100)
+			enemyDB:NewMod("SelfBleedChance", "BASE", effect, "Incision", { type = "Multiplier", var = "IncisionStack", limit = 10 } )
+		end
 		if modDB:Flag(nil, "Condition:CanBeWithered") then
 			local effect = 5 * (100 + modDB:Sum("INC", nil, "WitherEffectOnSelf")) / 100 * modDB:More(nil, "WitherEffectOnSelf")
 			modDB:NewMod("ChaosDamageTaken", "INC", effect, "Withered", { type = "Multiplier", var = "WitheredStack", limit = 10 } )
+		end
+		if enemyDB:Flag(nil, "Condition:ArmourFullyBroken") then
+			enemyDB:NewMod("PhysicalDamageTaken", "INC", 20, "Fully Broken Armour", ModFlag.Hit)
 		end
 		if modDB:Flag(nil, "Blind") and not modDB:Flag(nil, "CannotBeBlinded") then
 			if not modDB:Flag(nil, "IgnoreBlindHitChance") then
@@ -827,7 +895,7 @@ function calcs.perform(env, skipEHP)
 		if modDB:Flag(nil, "MinionAccuracyEqualsAccuracy") then
 			env.minion.modDB:NewMod("Accuracy", "BASE", calcLib.val(modDB, "Accuracy") + calcLib.val(modDB, "Dex") * (modDB:Override(nil, "DexAccBonusOverride") or data.misc.AccuracyPerDexBase), "Player")
 		else
-			env.minion.modDB:NewMod("Accuracy", "BASE", round(env.data.monsterAccuracyTable[env.minion.level] * (env.minion.minionData.accuracy or 1)), "Base")
+			env.minion.modDB:NewMod("Accuracy", "BASE", round(env.data.monsterAccuracyTable[env.minion.level] * (env.minion.minionData.accuracy or 1)) + data.playerMinionIntrinsicStats.accuracy_rating_per_level * (env.minion.level - 1), "Base")
 		end
 		env.minion.modDB:NewMod("CritMultiplier", "BASE", 100, "Base")
 		env.minion.modDB:NewMod("FireResist", "BASE", env.minion.minionData.fireResist, "Base")
@@ -885,11 +953,17 @@ function calcs.perform(env, skipEHP)
 		if modDB:Flag(nil, "StrengthAddedToMinions") then
 			env.minion.modDB:NewMod("Str", "BASE", round(calcLib.val(modDB, "Str")), "Player")
 		end
+		if modDB:Flag(nil, "StrengthAddedToCompanions") and env.player.mainSkill.skillTypes[SkillType.Companion] then
+			env.minion.modDB:NewMod("Str", "BASE", round(calcLib.val(modDB, "Str")), "Sturdy Ally")
+		end
 		if modDB:Flag(nil, "HalfStrengthAddedToMinions") then
 			env.minion.modDB:NewMod("Str", "BASE", round(calcLib.val(modDB, "Str") * 0.5), "Player")
 		end
 		if modDB:Flag(nil, "DexterityAddedToMinions") then
 			env.minion.modDB:NewMod("Dex", "BASE", round(calcLib.val(modDB, "Dex")), "Dead can Dance")
+		end
+		if modDB:Flag(nil, "DexterityAddedToCompanions") and env.player.mainSkill.skillTypes[SkillType.Companion] then
+			env.minion.modDB:NewMod("Dex", "BASE", round(calcLib.val(modDB, "Dex")), "Tandem Assault")
 		end
 	end
 	if env.talismanModList then
@@ -1048,50 +1122,31 @@ function calcs.perform(env, skipEHP)
 		end
 	end
 
-	local ringsEffectMod = modDB:Sum("INC", nil, "EffectOfBonusesFromRings") / 100
-	if ringsEffectMod > 0 then
-		if env.player.itemList["Ring 1"] then
-			local slotName = "Ring 1"
-
-			if env.player.itemList["Ring 1"].name:match("Kalandra's Touch") and env.player.itemList["Ring 2"] and not env.player.itemList["Ring 2"].name:match("Kalandra's Touch") then
-				slotName = "Ring 2"
-			end
-
-			for _, mod in ipairs(env.player.itemList[slotName].modList or env.player.itemList[slotName].slotModList[1]) do
-				-- Filter out SocketedIn type mods
-				for _, tag in ipairs(mod) do
-					if tag.type == "SocketedIn" then
-						goto skip_mod
-					end
+	for slot, item in pairs(env.player.itemList) do
+		local slotEffectMod = modDB:Sum("INC", nil, "EffectOfBonusesFrom" .. slot) / 100
+		if slotEffectMod > 0 then
+			if item.name:match("Kalandra's Touch") then
+				if slot == "Ring 2" then
+					item = env.player.itemList["Ring 1"]
+				else
+					item = env.player.itemList["Ring 2"]
 				end
-
-				local modCopy = copyTable(mod)
-				modCopy.source = "Many Sources:".. colorCodes.UNIQUE .. "Ingenuity " .. colorCodes.SOURCE .. tostring(ringsEffectMod * 100) .. "% Ring 1 Bonus Effect"
-				modDB:ScaleAddMod(modCopy, ringsEffectMod)
-
-				::skip_mod::
 			end
-		end
-		if env.player.itemList["Ring 2"] then
-			local slotName = "Ring 2"
-
-			if env.player.itemList["Ring 2"].name:match("Kalandra's Touch") and env.player.itemList["Ring 1"] and not env.player.itemList["Ring 1"].name:match("Kalandra's Touch") then
-				slotName = "Ring 1"
-			end
-
-			for _, mod in ipairs(env.player.itemList[slotName].modList or env.player.itemList[slotName].slotModList[2]) do
-				-- Filter out SocketedIn type mods
-				for _, tag in ipairs(mod) do
-					if tag.type == "SocketedIn" then
-						goto skip_mod
+			if item then
+				for _, mod in ipairs(item.modList or item.slotModList[2]) do
+					-- Filter out SocketedIn type mods
+					for _, tag in ipairs(mod) do
+						if tag.type == "SocketedIn" then
+							goto skip_mod
+						end
 					end
+
+					local modCopy = copyTable(mod)
+					modCopy.source = "Many Sources:".. colorCodes.SOURCE .. tostring(slotEffectMod * 100) .. "% " .. slot .. " Bonus Effect"
+					modDB:ScaleAddMod(modCopy, slotEffectMod)
+
+					::skip_mod::
 				end
-
-				local modCopy = copyTable(mod)
-				modCopy.source = "Many Sources:".. colorCodes.UNIQUE .. "Ingenuity " .. colorCodes.SOURCE .. tostring(ringsEffectMod * 100) .. "% Ring 2 Bonus Effect"
-				modDB:ScaleAddMod(modCopy, ringsEffectMod)
-
-				::skip_mod::
 			end
 		end
 	end
@@ -1220,7 +1275,7 @@ function calcs.perform(env, skipEHP)
 					mergeBuff(srcList, flaskBuffs, baseName)
 					mergeBuff(srcList, flaskBuffsPerBase[item.baseName], baseName)
 				end
-				if (not onlyRecovery or checkNonRecoveryFlasksForMinions) and (flasksApplyToMinion or quickSilverAppliesToAllies or (nonUniqueFlasksApplyToMinion and item.rarity ~= "UNIQUE")) then
+				if (not onlyRecovery or checkNonRecoveryFlasksForMinions) and (flasksApplyToMinion or quickSilverAppliesToAllies or (nonUniqueFlasksApplyToMinion and item.rarity ~= "UNIQUE" and item.rarity ~= "RELIC")) then
 					srcList = new("ModList")
 					srcList:ScaleAddList(buffModList, effectModNonPlayer)
 					mergeBuff(srcList, flaskBuffsNonPlayer, baseName)
@@ -1232,7 +1287,7 @@ function calcs.perform(env, skipEHP)
 				local srcList = new("ModList")
 				srcList:ScaleAddList(modList, effectMod)
 				local key
-				if item.rarity == "UNIQUE" then
+				if item.rarity == "UNIQUE" or item.rarity == "RELIC" then
 					key = item.title
 				else
 					key = ""
@@ -1244,7 +1299,7 @@ function calcs.perform(env, skipEHP)
 					mergeBuff(srcList, flaskBuffs, key)
 					mergeBuff(srcList, flaskBuffsPerBase[item.baseName], key)
 				end
-				if (not onlyRecovery or checkNonRecoveryFlasksForMinions) and (flasksApplyToMinion or quickSilverAppliesToAllies or (nonUniqueFlasksApplyToMinion and item.rarity ~= "UNIQUE")) then
+				if (not onlyRecovery or checkNonRecoveryFlasksForMinions) and (flasksApplyToMinion or quickSilverAppliesToAllies or (nonUniqueFlasksApplyToMinion and item.rarity ~= "UNIQUE" and item.rarity ~= "RELIC")) then
 					srcList = new("ModList")
 					srcList:ScaleAddList(modList, effectModNonPlayer)
 					mergeBuff(srcList, flaskBuffsNonPlayer, key)
@@ -1343,7 +1398,7 @@ function calcs.perform(env, skipEHP)
 				local srcList = new("ModList")
 				srcList:ScaleAddList(modList, effectMod)
 				local key
-				if item.rarity == "UNIQUE" then
+				if item.rarity == "UNIQUE" or item.rarity == "RELIC" then
 					key = item.title
 				else
 					key = ""
@@ -2796,9 +2851,9 @@ function calcs.perform(env, skipEHP)
 					-- if not, use the generic modifiers
 					-- Scorch/Sap/Brittle do not have guaranteed sources from hits, and therefore will only end up in this bit of code if it's not supposed to apply the skillModList, which is bad
 					if ailment ~= "Scorch" and ailment ~= "Sap" and ailment ~= "Brittle" and not env.player.mainSkill.skillModList:Flag(nil, "Cannot"..ailment) and hitFlag and modDB:Flag(nil, "ChecksHighestDamage") then
-						effect = effect * calcLib.mod(env.player.mainSkill.skillModList, env.player.mainSkill.skillModList.skillCfg, "Enemy"..ailment.."Magnitude", "AilmentMagnitude")
+						effect = effect * calcLib.mod(env.player.mainSkill.skillModList, env.player.mainSkill.skillModList.skillCfg, "Enemy"..ailment.."Magnitude", "AilmentMagnitude") * calcLib.mod(enemyDB, nil, "Self"..ailment.."Magnitude", "AilmentMagnitude")
 					else
-						effect = effect * calcLib.mod(env.player.mainSkill.skillModList, env.player.mainSkill.skillModList.skillCfg, "Enemy"..ailment.."Magnitude", "AilmentMagnitude")
+						effect = effect * calcLib.mod(env.player.mainSkill.skillModList, env.player.mainSkill.skillModList.skillCfg, "Enemy"..ailment.."Magnitude", "AilmentMagnitude") * calcLib.mod(enemyDB, nil, "Self"..ailment.."Magnitude", "AilmentMagnitude")
 					end
 					modDB:NewMod(ailment.."Override", "BASE", effect, mod.source, mod.flags, mod.keywordFlags, unpack(mod))
 					if mod.name == ailment.."Minimum" then

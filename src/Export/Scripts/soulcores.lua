@@ -106,3 +106,5 @@ end
 
 out:write("}")
 out:close()
+
+print("Soul Cores exported.")

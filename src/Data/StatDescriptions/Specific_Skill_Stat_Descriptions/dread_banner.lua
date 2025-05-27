@@ -4,19 +4,6 @@
 return {
 	[1]={
 		[1]={
-			[1]={
-				[1]={
-					k="divide_by_ten_1dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Banner Aura radius {0}m"
-			}
 		},
 		stats={
 			[1]="active_skill_area_of_effect_radius"
@@ -59,6 +46,55 @@ return {
 		[1]={
 			[1]={
 				[1]={
+					k="per_minute_to_per_second_2dp_if_required",
+					v=1
+				},
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Aura grants {0} Flask charges per second"
+			}
+		},
+		stats={
+			[1]="base_skill_buff_flask_charge_per_min_to_apply"
+		}
+	},
+	[4]={
+		[1]={
+			[1]={
+				limit={
+					[1]={
+						[1]=1,
+						[2]="#"
+					}
+				},
+				text="Aura grants {0}% more Stun Threshold and\nElemental Ailment Threshold"
+			},
+			[2]={
+				[1]={
+					k="negate",
+					v=1
+				},
+				limit={
+					[1]={
+						[1]="#",
+						[2]=-1
+					}
+				},
+				text="Aura grants {0}% less Stun Threshold and\nElemental Ailment Threshold"
+			}
+		},
+		stats={
+			[1]="base_skill_buff_stun_and_ailment_threshold_+%_final_to_apply"
+		}
+	},
+	[5]={
+		[1]={
+			[1]={
+				[1]={
 					k="milliseconds_to_seconds_2dp_if_required",
 					v=1
 				},
@@ -88,92 +124,22 @@ return {
 			[1]="base_skill_effect_duration"
 		}
 	},
-	[4]={
-		[1]={
-			[1]={
-				[1]={
-					k="per_minute_to_per_second_2dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Flask charges per second {0}"
-			},
-			[2]={
-				[1]={
-					k="per_minute_to_per_second_2dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Aura grants {0} Flask charges per second"
-			}
-		},
-		stats={
-			[1]="skill_dread_banner_flask_gen_per_min"
-		}
-	},
-	[5]={
-		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="More Stun and Ailment Threshold {0}%"
-			},
-			[2]={
-				limit={
-					[1]={
-						[1]=1,
-						[2]="#"
-					}
-				},
-				text="Aura grants {0}% more Stun Threshold and\nElemental Ailment Threshold"
-			},
-			[3]={
-				[1]={
-					k="negate",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]=-1
-					}
-				},
-				text="Aura grants {0}% less Stun Threshold and\nElemental Ailment Threshold"
-			}
-		},
-		stats={
-			[1]="skill_dread_banner_stun_and_ailment_threshold_+%_final"
-		}
-	},
 	[6]={
 		[1]={
-			[1]={
-				[1]={
-					k="milliseconds_to_seconds_2dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Maximum Banner duration {0}s"
-			}
+		},
+		stats={
+			[1]="skill_aura_buff_flask_charge_per_min_magnitude_to_apply"
+		}
+	},
+	[7]={
+		[1]={
+		},
+		stats={
+			[1]="skill_aura_buff_stun_and_ailment_threshold_+%_final_magnitude_to_apply"
+		}
+	},
+	[8]={
+		[1]={
 		},
 		stats={
 			[1]="skill_effect_duration"
@@ -181,9 +147,11 @@ return {
 	},
 	["active_skill_area_of_effect_radius"]=1,
 	["active_skill_base_area_of_effect_radius"]=2,
-	["base_skill_effect_duration"]=3,
+	["base_skill_buff_flask_charge_per_min_to_apply"]=3,
+	["base_skill_buff_stun_and_ailment_threshold_+%_final_to_apply"]=4,
+	["base_skill_effect_duration"]=5,
 	parent="skill_stat_descriptions",
-	["skill_dread_banner_flask_gen_per_min"]=4,
-	["skill_dread_banner_stun_and_ailment_threshold_+%_final"]=5,
-	["skill_effect_duration"]=6
+	["skill_aura_buff_flask_charge_per_min_magnitude_to_apply"]=6,
+	["skill_aura_buff_stun_and_ailment_threshold_+%_final_magnitude_to_apply"]=7,
+	["skill_effect_duration"]=8
 }

@@ -16,15 +16,6 @@ return {
 						[2]="#"
 					}
 				},
-				text="Maximum Projectiles {0}"
-			},
-			[2]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
 				text="Can fire up to {0} Projectiles"
 			}
 		},
@@ -67,19 +58,6 @@ return {
 	},
 	[4]={
 		[1]={
-			[1]={
-				[1]={
-					k="milliseconds_to_seconds_2dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Debuff duration {0}s"
-			}
 		},
 		stats={
 			[1]="skill_effect_duration"
@@ -87,15 +65,6 @@ return {
 	},
 	[5]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Projectiles fired per stage {0}"
-			}
 		},
 		stats={
 			[1]="total_number_of_projectiles_to_fire"

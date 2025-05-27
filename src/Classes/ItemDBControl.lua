@@ -100,6 +100,11 @@ function ItemDBClass:DoesItemMatchFilters(item)
 			if not (weaponInfo and weaponInfo.melee and ((typeSel == 4 and weaponInfo.oneHand) or (typeSel == 5 and not weaponInfo.oneHand))) then 
 				return false
 			end
+			if item.type == "Staff" then
+				if item.base.subType ~= "Warstaff" then
+					return false
+				end
+			end
 		elseif item.type ~= self.typeList[typeSel] then
 			return false
 		end

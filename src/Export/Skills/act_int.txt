@@ -12,6 +12,20 @@ statMap = {
 	["arc_damage_+%_final_for_each_remaining_chain"] = {
 		mod("Damage", "MORE", nil, 0, 0, { type = "PerStat", stat = "ChainRemaining" }),
 	},
+	["quality_display_arc_is_gem"] = {
+		-- Display only
+	},
+},
+#mods
+#set ArcExplosionPlayer
+#flags spell area
+statMap = {
+	["arc_damage_+%_final_for_each_remaining_chain"] = {
+		mod("Damage", "MORE", nil, 0, 0, { type = "PerStat", stat = "ChainRemaining" }),
+	},
+	["quality_display_arc_is_gem"] = {
+		-- Display only
+	},
 },
 #mods
 #skillEnd
@@ -40,6 +54,12 @@ statMap = {
 #skill BallLightningPlayer
 #set BallLightningPlayer
 #flags spell area projectile
+statMap = {
+	["ball_lightning_base_hit_frequency_ms"] = {
+		skill("hitTimeOverride", nil),
+		div = 1000,
+	},
+},
 #mods
 #skillEnd
 
@@ -60,7 +80,7 @@ statMap = {
 #flags area
 statMap = {
 	["blasphemy_base_spirit_reservation_per_socketed_curse"] = {
-		mod("SkillData", "LIST", { key = "spiritReservationFlat", value = nil })
+		mod("SkillData", "LIST", { key = "blasphemyReservationFlatSpirit", value = nil })
 	},
 },
 #mods
@@ -69,6 +89,14 @@ statMap = {
 #skill SupportBlasphemyPlayer
 #set SupportBlasphemyPlayer
 #flags area
+statMap = {
+	["support_blasphemy_curse_effect_+%_final"] = {
+		mod("CurseEffect", "MORE", nil),
+	},
+	["active_skill_base_area_of_effect_radius"] = {
+		skill("radiusExtra", nil),
+	},
+},
 #mods
 #skillEnd
 
@@ -105,18 +133,10 @@ statMap = {
 
 #skill BonestormPlayer
 #set BonestormPlayer
-#flags spell duration projectile
-statMap = {
-	["bone_spear_minimum_added_attack_physical_damage_taken"] = {
-		mod("SelfPhysicalMin", "BASE", nil, ModFlag.Attack, 0, { type = "GlobalEffect", effectType = "Debuff", effectName = "Bonestorm", effectCond = "BonestormAddedDamage" }),
-	},
-	["bone_spear_maximum_added_attack_physical_damage_taken"] = {
-		mod("SelfPhysicalMax", "BASE", nil, ModFlag.Attack, 0, { type = "GlobalEffect", effectType = "Debuff", effectName = "Bonestorm", effectCond = "BonestormAddedDamage" }),
-	},
-},
+#flags spell projectile
 #mods
 #set BonestormExplosionPlayer
-#flags spell duration area projectile
+#flags spell area projectile
 #mods
 #skillEnd
 
@@ -261,7 +281,7 @@ statMap = {
 #set ConductivityPlayer
 #flags spell curse area duration
 statMap = {
-	["skill_granted_lightning_damage_resistance_%"] = {
+	["base_skill_buff_lightning_damage_resistance_%_to_apply"] = {
 		mod("LightningResist", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Curse" }),
 	},
 },
@@ -271,6 +291,15 @@ statMap = {
 #skill ContagionPlayer
 #set ContagionPlayer
 #flags area duration spell
+#mods
+#skillEnd
+
+#skill ConvalescencePlayer
+#set ConvalescencePlayer
+#flags
+#mods
+#set ConvalescenceActivePlayer
+#flags duration
 #mods
 #skillEnd
 
@@ -300,7 +329,7 @@ statMap = {
 #set DespairPlayer
 #flags spell curse area duration
 statMap = {
-	["skill_granted_chaos_damage_resistance_%"] = {
+	["base_skill_buff_chaos_damage_resistance_%_to_apply"] = {
 		mod("ChaosResist", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Curse" }),
 	},
 },
@@ -318,6 +347,11 @@ statMap = {
 #skill DisciplinePlayer
 #set DisciplinePlayer
 #flags
+statMap = {
+	["base_skill_buff_total_maximum_energy_shield_+_to_apply"] = {
+		mod("EnergyShieldTotal", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Aura" }),
+	},
+},
 #mods
 #skillEnd
 
@@ -344,13 +378,21 @@ statMap = {
 #flags spell duration projectile
 #mods
 #set BlazingClusterExplosionPlayer
-#flags spell area
+#flags spell area projectile
 #mods
 #skillEnd
 
 #skill EnfeeblePlayer
 #set EnfeeblePlayer
 #flags area spell duration
+statMap = {
+	["base_skill_buff_damage_+%_final_to_apply"] = {
+		mod("Damage", "MORE", nil, 0, 0, { type = "GlobalEffect", effectType = "Curse" }, { type = "Condition", var = "Unique", neg = true }),
+	},
+	["base_skill_buff_damage_+%_final_vs_unique_to_apply"] = {
+		mod("Damage", "MORE", nil, 0, 0, { type = "GlobalEffect", effectType = "Curse" }, { type = "Condition", var = "Unique" }),
+	},
+},
 #mods
 #skillEnd
 
@@ -367,11 +409,6 @@ statMap = {
 #skill EyeOfWinterPlayer
 #set EyeOfWinterPlayer
 #flags spell projectile
-statMap = {
-	["eye_of_winter_number_of_brittle_stacks_to_apply"] = {
-		flag("ApplyCriticalWeakness"),
-	},
-},
 #mods
 #skillEnd
 
@@ -389,7 +426,7 @@ statMap = {
 #flags spell projectile
 #mods
 #set FireballExplosionPlayer
-#flags spell area
+#flags spell area projectile
 #mods
 #set FireballSecondaryProjectilePlayer
 #flags spell projectile
@@ -402,7 +439,7 @@ statMap = {
 #flags spell projectile
 #mods
 #set FireboltExplosionPlayer
-#flags spell area
+#flags spell area projectile
 #mods
 #skillEnd
 
@@ -427,6 +464,9 @@ statMap = {
 	},
 },
 #mods
+#set FlameWallProjectileBuffPlayer
+#flags
+#mods
 #skillEnd
 
 #skill FlameblastPlayer
@@ -439,7 +479,7 @@ statMap = {
 #set FlammabilityPlayer
 #flags spell curse area duration
 statMap = {
-	["skill_granted_fire_damage_resistance_%"] = {
+	["base_skill_buff_fire_damage_resistance_%_to_apply"] = {
 		mod("FireResist", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Curse" }),
 	},
 },
@@ -448,7 +488,7 @@ statMap = {
 
 #skill FlickerStrikePlayer
 #set FlickerStrikePlayer
-#flags attack melee
+#flags attack melee area
 #mods
 #skillEnd
 
@@ -493,7 +533,7 @@ statMap = {
 #set HypothermiaPlayer
 #flags spell curse area duration
 statMap = {
-	["skill_granted_cold_damage_resistance_%"] = {
+	["base_skill_buff_cold_damage_resistance_%_to_apply"] = {
 		mod("ColdResist", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Curse" }),
 	},
 },
@@ -505,13 +545,18 @@ statMap = {
 #flags spell area duration projectile
 #mods
 #set FrostboltExplosionPlayer
-#flags spell area
+#flags spell area projectile
 #mods
 #skillEnd
 
 #skill FrozenLocusPlayer
 #set FrozenLocusPlayer
 #flags duration
+statMap = {
+	["frozen_locus_crystal_display_stat"] = {
+		-- Display Only
+	},
+},
 #mods
 #set FrozenLocusGroundPlayer
 #flags area duration
@@ -528,6 +573,15 @@ statMap = {
 #skill GalvanicFieldPlayer
 #set GalvanicFieldPlayer
 #flags area duration chaining
+statMap = {
+	["galvanic_field_retargeting_delay_ms"] = {
+		skill("hitTimeOverride", nil),
+		div = 1000,
+	},
+	["base_chance_to_shock_%_from_skill"] = {
+		mod("EnemyShockChance", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Aura", effectName = "Galvanic Field" }),
+	},
+},
 #mods
 #skillEnd
 
@@ -543,7 +597,7 @@ end,
 #baseMod mod("Condition:PerfectTiming", "FLAG", true)
 #mods
 #set GatheringStormExplodePlayer
-#flags attack area melee channelRelease
+#flags attack area melee channelRelease duration
 #mods
 #skillEnd
 
@@ -727,8 +781,8 @@ statMap = {
 	["pain_offering_attack_and_cast_speed_+%"] = {
 		mod("Speed", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff" }),
 	},
-	["pain_offering_damage_+%_final"] = {
-		mod("Damage", "MORE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff" }),
+	["pain_offering_damage_+%"] = {
+		mod("Damage", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff" }),
 	},
 },
 #baseMod skill("buffMinions", true)
@@ -754,11 +808,10 @@ statMap = {
 #set PurityOfFirePlayer
 #flags spell aura area
 statMap = {
-	["skill_granted_fire_damage_resistance_%"] = {
+	["base_skill_buff_fire_damage_resistance_%_to_apply"] = {
 		mod("FireResist", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Aura" }),
 	},
 },
-#baseMod skill("auraCannotAffectSelf", true)
 #mods
 #skillEnd
 
@@ -767,11 +820,10 @@ statMap = {
 #set PurityOfIcePlayer
 #flags spell aura area
 statMap = {
-	["skill_granted_cold_damage_resistance_%"] = {
+	["base_skill_buff_cold_damage_resistance_%_to_apply"] = {
 		mod("ColdResist", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Aura" }),
 	},
 },
-#baseMod skill("auraCannotAffectSelf", true)
 #mods
 #skillEnd
 
@@ -780,11 +832,10 @@ statMap = {
 #set PurityOfLightningPlayer
 #flags spell aura area
 statMap = {
-	["skill_granted_lightning_damage_resistance_%"] = {
+	["base_skill_buff_lightning_damage_resistance_%_to_apply"] = {
 		mod("LightningResist", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Aura" }),
 	},
 },
-#baseMod skill("auraCannotAffectSelf", true)
 #mods
 #skillEnd
 
@@ -817,6 +868,12 @@ statMap = {
 #skill SacrificePlayer
 #set SacrificePlayer
 #flags minion
+statMap = {
+	["harvester_minion_resummon_speed_+%_final"] = {
+		mod("MinionRevivalTime", "MORE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff" } ),
+		mult = -1,
+	},
+},
 #mods
 #skillEnd
 
@@ -843,6 +900,14 @@ statMap = {
 #skill SigilOfPowerPlayer
 #set SigilOfPowerPlayer
 #flags spell area duration
+statMap = {
+	["circle_of_power_max_stages"] = {
+		mod("Multiplier:SigilOfPowerMaxStages", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", unscalable = true }),
+	},
+	["circle_of_power_spell_damage_+%_final_per_stage"] = {
+		mod("Damage", "MORE", nil, ModFlag.Spell, 0, { type = "GlobalEffect", effectType = "Buff" }, { type = "Multiplier", var = "SigilOfPowerStage", limitVar = "SigilOfPowerMaxStages" } ),
+	},
+},
 #mods
 #skillEnd
 
@@ -904,7 +969,8 @@ statMap = {
 #mods
 #skillEnd
 
-#minionList RaisedSkeletonWarrior
+#from item
+#minionList RaisedSkeletonWarriors
 #skill SummonSkeletalWarriorsPlayer
 #set SummonSkeletalWarriorsPlayer
 #flags spell minion permanentMinion
@@ -914,6 +980,12 @@ statMap = {
 #skill SolarOrbPlayer
 #set SolarOrbPlayer
 #flags spell area duration
+statMap = {
+	["solar_orb_base_pulse_frequency_ms"] = {
+		skill("hitTimeOverride", nil),
+		div = 1000,
+	},
+},
 #mods
 #set SolarOrbAuraPlayer
 #flags spell area duration
@@ -924,23 +996,32 @@ statMap = {
 #set SoulOfferingPlayer
 #flags duration
 statMap = {
-	["power_offering_buff_spell_damage_+%_final"] = {
-		mod("Damage", "MORE", nil, ModFlag.Spell, 0, { type = "GlobalEffect", effectType = "Buff" }),
+	["power_offering_buff_spell_damage_+%"] = {
+		mod("Damage", "INC", nil, ModFlag.Spell, 0, { type = "GlobalEffect", effectType = "Buff" }),
 	},
 },
-#mods
-#skillEnd
-
-#from item
-#skill SoulrendPlayer
-#set SoulrendPlayer
-#flags spell projectile duration
 #mods
 #skillEnd
 
 #skill SparkPlayer
 #set SparkPlayer
 #flags spell projectile duration
+#mods
+#skillEnd
+
+#skill SummonSpectrePlayer
+#set SummonSpectrePlayer
+#flags spell minion spectre duration permanentMinion
+minionList = {
+},
+statMap = {
+	["accuracy_rating"] = {
+		mod("MinionModifier", "LIST", { mod = mod("Accuracy", "BASE", nil) })
+	},
+	["raised_spectre_level"] = {
+		skill("minionLevel", nil),
+	},
+},
 #mods
 #skillEnd
 
@@ -1006,8 +1087,8 @@ statMap = {
 #skillEnd
 
 #from item
-#skill StaffUnleashNextSpellPlayer
-#set StaffUnleashNextSpellPlayer
+#skill UnleashPlayer
+#set UnleashPlayer
 #flags
 #baseMod mod("Empowered", "FLAG", true, ModFlag.Spell, 0, { type = "GlobalEffect", effectType = "Buff" })
 #mods
@@ -1030,7 +1111,7 @@ statMap = {
 #set VulnerabilityPlayer
 #flags area duration
 statMap = {
-	["vulnerability_total_armour_-"] = {
+	["base_skill_buff_total_armour_-_to_grant"] = {
 		mod("IgnoreArmour", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Curse" }),
 	},
 },

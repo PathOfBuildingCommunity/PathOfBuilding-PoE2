@@ -8,21 +8,12 @@ return {
 				limit={
 					[1]={
 						[1]=1,
-						[2]="#"
-					}
-				},
-				text="Remnant spawn on kill chance {0}%"
-			},
-			[2]={
-				limit={
-					[1]={
-						[1]=1,
 						[2]=99
 					}
 				},
 				text="{0}% chance to spawn a Remnant on killing an enemy"
 			},
-			[3]={
+			[2]={
 				limit={
 					[1]={
 						[1]=100,
@@ -39,19 +30,6 @@ return {
 	[2]={
 		[1]={
 			[1]={
-				[1]={
-					k="milliseconds_to_seconds_2dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]=1,
-						[2]="#"
-					}
-				},
-				text="Remnant spawn on Critical Hit interval {0}s"
-			},
-			[2]={
 				limit={
 					[1]={
 						[1]=1000,
@@ -60,7 +38,7 @@ return {
 				},
 				text="Spawn a Remnant on Critically Hitting a target, no more than once per second"
 			},
-			[3]={
+			[2]={
 				[1]={
 					k="milliseconds_to_seconds_2dp_if_required",
 					v=1
@@ -87,15 +65,6 @@ return {
 						[2]="#"
 					}
 				},
-				text="Life recovered per Remnant {0}"
-			},
-			[2]={
-				limit={
-					[1]={
-						[1]=1,
-						[2]="#"
-					}
-				},
 				text="Each Remnant grants {0} Life"
 			}
 		},
@@ -103,8 +72,16 @@ return {
 			[1]="life_remnants_gain_per_globe"
 		}
 	},
+	[4]={
+		[1]={
+		},
+		stats={
+			[1]="virtual_life_remnants_gain_per_globe"
+		}
+	},
 	["life_remnants_chance_to_spawn_orb_on_killing_enemy_%"]=1,
 	["life_remnants_gain_per_globe"]=3,
 	["life_remnants_spawn_remnant_on_crit_vs_enemy_every_X_ms"]=2,
-	parent="skill_stat_descriptions"
+	parent="skill_stat_descriptions",
+	["virtual_life_remnants_gain_per_globe"]=4
 }

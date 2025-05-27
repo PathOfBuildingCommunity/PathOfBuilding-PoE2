@@ -41,12 +41,38 @@ local skills, mod, flag, skill = ...
 #skill AttritionPlayer
 #set AttritionPlayer
 #flags
+statMap = {
+	["skill_attrition_presence_max_seconds"] = {
+		mod("Multiplier:AttritionMaxDamage", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff"}),
+	},
+	["skill_attrition_culling_strike_at_x_or_more_stacks"] = {
+		mod("Multiplier:AttritionCullSeconds", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff"}),
+	},
+	["skill_attrition_hit_damage_+%_final_vs_rare_or_unique_enemy_per_second_ever_in_presence_up_to_max"] = {
+		{mod("Damage", "MORE", nil, 0, KeywordFlag.Hit, { type = "GlobalEffect", effectType = "Buff"}, { type = "Multiplier", var = "EnemyPresenceSeconds", actor = "enemy", limitVar = "AttritionMaxDamage", div = 2, limitTotal = true }, { type = "ActorCondition", actor = "enemy", var = "RareOrUnique" })},
+		{mod("CullPercent", "MAX", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff"}, { type = "MultiplierThreshold", var = "EnemyPresenceSeconds", actor = "enemy", thresholdVar = "AttritionCullSeconds"}, { type = "ActorCondition", actor = "enemy", var = "RareOrUnique" }),
+		value = 10,}
+		},
+},
 #mods
 #skillEnd
 
 #skill BerserkPlayer
 #set BerserkPlayer
 #flags
+statMap = {
+	["life_loss_%_per_minute_per_rage_while_not_losing_rage"] = {
+		mod("LifeDegen", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff" }, { type = "Multiplier", var = "RageEffect" }),
+		div = 60
+	},
+	["life_leech_from_physical_attack_damage_permyriad_per_rage"] = {
+		mod("PhysicalDamageLifeLeech", "BASE", nil, ModFlag.Attack, 0, { type = "GlobalEffect", effectType = "Buff" }, { type = "Multiplier", var = "RageEffect" }),
+		div = 100,
+	},
+	["rage_effect_+%"] = {
+		mod( "RageEffect", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff" } ),
+	}
+},
 #mods
 #skillEnd
 
@@ -109,7 +135,7 @@ local skills, mod, flag, skill = ...
 
 #skill ClusterGrenadeMiniPlayer
 #set ClusterGrenadeMiniPlayer
-#flags attack area projectile duration
+#flags attack area projectile
 #mods
 #skillEnd
 
@@ -125,13 +151,13 @@ local skills, mod, flag, skill = ...
 
 #skill DefianceBannerPlayer
 #set DefianceBannerPlayer
-#flags
+#flags duration
 statMap = {
-	["skill_defiance_banner_armour_evasion_+%_final"] = {
+	["base_skill_buff_armour_evasion_+%_final_to_apply"] = {
 		mod("Armour", "MORE", nil, 0, 0, { type = "Condition", var = "BannerPlanted" }, { type = "GlobalEffect", effectType = "Aura"}),
 		mod("Evasion", "MORE", nil, 0, 0, { type = "Condition", var = "BannerPlanted" }, { type = "GlobalEffect", effectType = "Aura"}),
 	},
-	["skill_defiance_banner_movement_speed_+%"] = {
+	["base_skill_buff_movement_speed_+%_to_apply"] = {
 		mod("MovementSpeed", "INC", nil, 0, 0, { type = "Condition", var = "BannerPlanted" }, { type = "GlobalEffect", effectType = "Aura"}),
 	},
 },
@@ -144,6 +170,16 @@ statMap = {
 #skill DreadBannerPlayer
 #set DreadBannerPlayer
 #flags duration
+statMap = {
+	["base_skill_buff_flask_charge_per_min_to_apply"] = {
+		mod("FlaskChargesGenerated", "BASE", nil, 0, 0, { type = "Condition", var = "BannerPlanted" }, { type = "GlobalEffect", effectType = "Aura"}),
+		div = 60,
+	},
+	["base_skill_buff_stun_and_ailment_threshold_+%_final_to_apply"] = {
+		mod("AilmentThreshold", "MORE", nil, 0, 0, { type = "Condition", var = "BannerPlanted" }, { type = "GlobalEffect", effectType = "Aura"}),
+		mod("StunThreshold", "MORE", nil, 0, 0, { type = "Condition", var = "BannerPlanted" }, { type = "GlobalEffect", effectType = "Aura"}),
+	},
+},
 #mods
 #skillEnd
 
@@ -191,7 +227,7 @@ statMap = {
 
 #skill ExplosiveGrenadePlayer
 #set ExplosiveGrenadePlayer
-#flags attack area projectile duration
+#flags attack area projectile
 #mods
 #skillEnd
 
@@ -200,11 +236,14 @@ statMap = {
 #set ExsanguinatePlayer
 #flags spell duration chaining
 #mods
+#set ExsanguinateDotPlayer
+#flags spell duration chaining
+#mods
 #skillEnd
 
 #skill FlashGrenadePlayer
 #set FlashGrenadePlayer
-#flags attack area projectile duration
+#flags attack area projectile
 #mods
 #skillEnd
 
@@ -240,6 +279,15 @@ statMap = {
 #mods
 #skillEnd
 
+#skill HeraldOfBloodPlayer
+#set HeraldOfBloodPlayer
+#flags
+#mods
+#set HeraldOfBloodExplosionPlayer
+#flags
+#mods
+#skillEnd
+
 #skill InfernalCryPlayer
 #set InfernalCryPlayer
 #flags warcry area duration
@@ -255,6 +303,15 @@ statMap = {
 #skill LeapSlamPlayer
 #set LeapSlamPlayer
 #flags attack area melee
+#mods
+#skillEnd
+
+#skill MetaCastLightningSpellOnHitPlayer
+#set MetaCastLightningSpellOnHitPlayer
+#flags spell
+#mods
+#set SupportMetaCastLightningSpellOnHitPlayer
+#flags
 #mods
 #skillEnd
 
@@ -296,7 +353,7 @@ statMap = {
 #flags attack projectile
 #mods
 #set FragmentationRoundsFreezeShatterPlayer
-#flags
+#flags attack projectile area
 #mods
 #skillEnd
 
@@ -323,10 +380,10 @@ statMap = {
 
 #skill GlacialBoltPlayer
 #set GlacialBoltPlayer
-#flags attack projectile area
+#flags attack projectile
 #mods
 #set GlacialBoltWallPlayer
-#flags attack area duration
+#flags attack area duration projectile
 #mods
 #skillEnd
 
@@ -350,10 +407,10 @@ statMap = {
 
 #skill HighVelocityRoundsPlayer
 #set HighVelocityRoundsPlayer
-#flags attack projectile area
+#flags attack projectile
 #mods
 #set HighVelocityRoundsArmourBrokenPlayer
-#flags attack projectile area
+#flags attack projectile
 #mods
 #skillEnd
 
@@ -365,10 +422,11 @@ statMap = {
 
 #skill IceShardsPlayer
 #set IceShardsPlayer
-#flags attack projectile area
+#flags attack projectile
 #mods
 #set IceShardsShardPlayer
 #flags attack projectile area
+#baseMod flag("CanCreateHazards")
 #mods
 #skillEnd
 
@@ -380,7 +438,7 @@ statMap = {
 
 #skill IncendiaryShotPlayer
 #set IncendiaryShotPlayer
-#flags attack projectile area
+#flags attack projectile
 #mods
 #skillEnd
 
@@ -392,7 +450,7 @@ statMap = {
 
 #skill PermafrostBoltsPlayer
 #set PermafrostBoltsPlayer
-#flags attack projectile area
+#flags attack projectile
 #mods
 #skillEnd
 
@@ -431,7 +489,7 @@ statMap = {
 
 #skill ShockburstRoundsPlayer
 #set ShockburstRoundsPlayer
-#flags attack projectile area
+#flags attack projectile
 #mods
 #set ShockburstRoundsExplosionPlayer
 #flags attack projectile area
@@ -447,9 +505,19 @@ statMap = {
 #skill SiegeCascadePlayer
 #set SiegeCascadePlayer
 #flags attack projectile area
+statMap = {
+	["siege_cascade_damage_+%_final_vs_immobilised_enemies"] = {
+		mod("Damage", "MORE", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "Immobilised" }),
+	},
+},
 #mods
 #set SiegeCascadeExplodePlayer
 #flags attack projectile area
+statMap = {
+	["siege_cascade_damage_+%_final_vs_immobilised_enemies"] = {
+		mod("Damage", "MORE", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "Immobilised" }),
+	},
+},
 #mods
 #skillEnd
 
@@ -461,7 +529,7 @@ statMap = {
 
 #skill StormblastBoltsPlayer
 #set StormblastBoltsPlayer
-#flags attack projectile
+#flags attack projectile area
 #mods
 #set StormblastBoltsExplosionPlayer
 #flags attack projectile area
@@ -535,7 +603,7 @@ end,
 
 #skill RipwireBallistaProjectilePlayer
 #set RipwireBallistaProjectilePlayer
-#flags attack projectile duration totem
+#flags attack projectile totem
 #mods
 #skillEnd
 
@@ -588,7 +656,7 @@ statMap = {
 
 #skill ShieldWallPlayer
 #set ShieldWallPlayer
-#flags attack shieldAttack
+#flags attack shieldAttack melee
 #mods
 #skillEnd
 
@@ -651,7 +719,7 @@ statMap = {
 
 #skill ShockGrenadePlayer
 #set ShockGrenadePlayer
-#flags attack area projectile duration
+#flags attack area projectile
 #mods
 #skillEnd
 
@@ -660,12 +728,12 @@ statMap = {
 
 #skill WarBannerPlayer
 #set WarBannerPlayer
-#flags
+#flags duration
 statMap = {
-	["skill_war_banner_attack_damage_+%_final"] = {
+	["base_skill_buff_attack_damage_+%_final_to_apply"] = {
 		mod("Damage", "MORE", nil,  ModFlag.Attack, 0, { type = "Condition", var = "BannerPlanted" }, { type = "GlobalEffect", effectType = "Aura"}),
 	},
-	["skill_war_banner_accuracy_+%"] = {
+	["base_skill_buff_banner_accuracy_+%_to_apply"] = {
 		mod("Accuracy", "INC", nil, 0, 0, { type = "Condition", var = "BannerPlanted" }, { type = "GlobalEffect", effectType = "Aura"}),
 	},
 },

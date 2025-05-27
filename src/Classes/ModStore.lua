@@ -250,7 +250,7 @@ function ModStoreClass:GetCondition(var, cfg, noMod)
 end
 
 function ModStoreClass:GetMultiplier(var, cfg, noMod)
-	return (self.multipliers[var] or 0) + (self.parent and self.parent:GetMultiplier(var, cfg, true) or 0) + (not noMod and self:Sum("BASE", cfg, multiplierName[var]) or 0)
+	return (not noMod and self:Override(cfg, multiplierName[var])) or (self.multipliers[var] or 0) + (self.parent and self.parent:GetMultiplier(var, cfg, true) or 0) + (not noMod and self:Sum("BASE", cfg, multiplierName[var]) or 0)
 end
 
 function ModStoreClass:GetStat(stat, cfg)
@@ -363,6 +363,14 @@ function ModStoreClass:EvalMod(mod, cfg)
 			end
 		elseif tag.type == "MultiplierThreshold" then
 			local target = self
+			local thresholdTarget = self
+			if tag.thresholdActor then
+				if self.actor[tag.thresholdActor] then
+					thresholdTarget = self.actor[tag.thresholdActor].modDB
+				else
+					return
+				end
+			end
 			if tag.actor then
 				if self.actor[tag.actor] then
 					target = self.actor[tag.actor].modDB
@@ -378,7 +386,7 @@ function ModStoreClass:EvalMod(mod, cfg)
 			else
 				mult = target:GetMultiplier(tag.var, cfg)
 			end
-			local threshold = tag.threshold or target:GetMultiplier(tag.thresholdVar, cfg)
+			local threshold = tag.threshold or thresholdTarget:GetMultiplier(tag.thresholdVar, cfg)
 			if (tag.upper and mult > threshold) or (not tag.upper and mult < threshold) then
 				return
 			end
@@ -445,6 +453,9 @@ function ModStoreClass:EvalMod(mod, cfg)
 			end
 			local percent = tag.percent or self:GetMultiplier(tag.percentVar, cfg)
 			local mult = base * (percent and percent / 100 or 1)
+			if tag.floor then
+				mult = m_floor(mult)
+			end
 			local limitTotal
 			if tag.limit or tag.limitVar then
 				local limit = tag.limit or self:GetMultiplier(tag.limitVar, cfg)

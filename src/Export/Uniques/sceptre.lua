@@ -42,6 +42,7 @@ UniqueBaseLifeRegenToAllies1
 ]],[[
 Sacred Flame
 Shrine Sceptre
+Source: Drops from unique{Arbiter of Ash} in normal{The Burning Monolith}
 Implicits: 1
 Grants Skill: Level (1-20) Purity of Fire
 UniqueDamageGainedAsFire1

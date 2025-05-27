@@ -157,6 +157,7 @@ data.misc = { -- magic numbers
 	TemporalChainsEffectCap = 75,
 	BuffExpirationSlowCap = 0.25,
 	DamageReductionCap = 90,
+	EnemyPhysicalDamageReductionCap = 75,
 	ResistFloor = -200,
 	MaxResistCap = 90,
 	EvadeChanceCap = 95,
@@ -165,7 +166,11 @@ data.misc = { -- magic numbers
 	SuppressionChanceCap = 100,
 	SuppressionEffect = 50,
 	AvoidChanceCap = 75,
+	AccuracyFalloffStart = 20,
+	AccuracyFalloffEnd = 120,
+	MaxAccuracyRangePenalty = 90,
 	ArmourRatio = 10,
+	NegArmourDmgBonusCap = 100,
 	EnergyShieldRechargeBase = 0.125,
 	EnergyShieldRechargeDelay = 4,
 	WardRechargeDelay = 2,
@@ -183,6 +188,7 @@ data.misc = { -- magic numbers
 	TrapTriggerRadiusBase = 10,
 	MineDetonationRadiusBase = 60,
 	MineAuraRadiusBase = 35,
+	MinionRevivalTimeBase = 7.5,
 	BrandAttachmentRangeBase = 30,
 	ProjectileDistanceCap = 150,
 	MinStunChanceNeeded = 20,
@@ -213,6 +219,7 @@ data.misc = { -- magic numbers
 	PvpElemental2 = 150,
 	PvpNonElemental1 = 0.57,
 	PvpNonElemental2 = 90,
+	presenceRadiusBase = 40, -- in units (base entity "Presence" radius of patch 0.2.0 is 4 meters)
 }
 
 data.skillColorMap = { colorCodes.STRENGTH, colorCodes.DEXTERITY, colorCodes.INTELLIGENCE, colorCodes.NORMAL }
@@ -261,7 +268,8 @@ data.cursePriority = {
 	["Boots"] = 7000,
 	["Ring 1"] = 8000,
 	["Ring 2"] = 9000,
-	["CurseFromEquipment"] = 10000,
+	["Ring 3"] = 10000,
+	["CurseFromEquipment"] = 11000,
 	["CurseFromAura"] = 20000,
 }
 
@@ -274,6 +282,7 @@ data.keystones = {
 	"Bulwark",
 	"Chaos Inoculation",
 	"Conduit",
+	"Crimson Assault",
 	"Dance with Death",
 	"Eldritch Battery",
 	"Elemental Equilibrium",
@@ -288,6 +297,7 @@ data.keystones = {
 	"Pain Attunement",
 	"Resolute Technique",
 	"Resonance",
+	"Trusted Kinship",
 	"Unwavering Stance",
 	"Vaal Pact",
 	"Whispers of Doom",
@@ -464,6 +474,9 @@ data.highPrecisionMods = {
 	["SupportManaMultiplier"] = {
 		["MORE"] = 4,
 	},
+	["ReservationMultiplier"] = {
+		["MORE"] = 4,
+	},
 }
 
 data.weaponTypeInfo = {
@@ -473,6 +486,7 @@ data.weaponTypeInfo = {
 	["Claw"] = { oneHand = true, melee = true, flag = "Claw" },
 	["Dagger"] = { oneHand = true, melee = true, flag = "Dagger" },
 	["Spear"] = { oneHand = true, melee = true, flag = "Spear" },
+	["Flail"] = { oneHand = true, melee = true, flag = "Flail" },
 	["Staff"] = { oneHand = false, melee = true, flag = "Staff", label = "Quarterstaff" },
 	["Wand"] = { oneHand = true, melee = false, flag = "Wand" },
 	["One Handed Axe"] = { oneHand = true, melee = true, flag = "Axe" },
@@ -485,13 +499,13 @@ data.weaponTypeInfo = {
 	["Two Handed Sword"] = { oneHand = false, melee = true, flag = "Sword" },
 }
 data.unarmedWeaponData = {
-	[0] = { type = "None", AttackRate = 1.2, CritChance = 0, PhysicalMin = 2, PhysicalMax = 6 }, -- Scion
-	[1] = { type = "None", AttackRate = 1.2, CritChance = 0, PhysicalMin = 2, PhysicalMax = 8 }, -- Marauder
-	[2] = { type = "None", AttackRate = 1.2, CritChance = 0, PhysicalMin = 2, PhysicalMax = 5 }, -- Ranger
-	[3] = { type = "None", AttackRate = 1.2, CritChance = 0, PhysicalMin = 2, PhysicalMax = 5 }, -- Witch
-	[4] = { type = "None", AttackRate = 1.2, CritChance = 0, PhysicalMin = 2, PhysicalMax = 6 }, -- Duelist
-	[5] = { type = "None", AttackRate = 1.2, CritChance = 0, PhysicalMin = 2, PhysicalMax = 6 }, -- Templar
-	[6] = { type = "None", AttackRate = 1.2, CritChance = 0, PhysicalMin = 2, PhysicalMax = 5 }, -- Shadow
+	[0] = { type = "None", AttackRate = 1.4, CritChance = 0, PhysicalMin = 2, PhysicalMax = 6 }, -- Scion
+	[1] = { type = "None", AttackRate = 1.4, CritChance = 0, PhysicalMin = 2, PhysicalMax = 8 }, -- Marauder
+	[2] = { type = "None", AttackRate = 1.4, CritChance = 0, PhysicalMin = 2, PhysicalMax = 5 }, -- Ranger
+	[3] = { type = "None", AttackRate = 1.4, CritChance = 0, PhysicalMin = 2, PhysicalMax = 5 }, -- Witch
+	[4] = { type = "None", AttackRate = 1.4, CritChance = 0, PhysicalMin = 2, PhysicalMax = 6 }, -- Duelist
+	[5] = { type = "None", AttackRate = 1.4, CritChance = 0, PhysicalMin = 2, PhysicalMax = 6 }, -- Templar
+	[6] = { type = "None", AttackRate = 1.4, CritChance = 0, PhysicalMin = 2, PhysicalMax = 5 }, -- Shadow
 }
 
 data.setJewelRadiiGlobally = function(treeVersion)
@@ -936,7 +950,7 @@ end
 table.sort(data.itemBaseTypeList)
 
 -- Rare templates
---data.rares = LoadModule("Data/Rares")
+data.rares = LoadModule("Data/Rares")
 
 -- Uniques (loaded after version-specific data because reasons)
 data.uniques = { }

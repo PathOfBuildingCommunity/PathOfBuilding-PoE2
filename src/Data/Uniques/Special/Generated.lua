@@ -23,6 +23,7 @@ do
 	local against = {
 		"Against the Darkness",
 		"Time-Lost Diamond",
+		"Source: Drops from unique{Zarokh, the Temporal}",
 		"Limited to: 1",
 		"Has Alt Variant: true",
 	}
@@ -32,7 +33,7 @@ do
 	local variantCount = #against
 	table.insert(against, "Selected Variant: 1")
 	table.insert(against, "Selected Alt Variant: 2")
-	table.insert(against, "Radius: Large")
+	table.insert(against, "Radius: Small")
 	table.insert(against, "Implicits: 0")
 	local smallLine = "Small Passive Skills in Radius also grant "
 	local notableLine = "Notable Passive Skills in Radius also grant "
@@ -56,6 +57,7 @@ do
 	local fromNothing = {
 		"From Nothing",
 		"Diamond",
+		"Source: Drops from unique{The King in the Mists} in normal{Crux of Nothingness}",
 		"Limited to: 1",
 		"Radius: Small",
 	}
@@ -84,6 +86,7 @@ do
 	local prism = {
 		"Prism of Belief",
 		"Diamond",
+		"Source: Drops from unique{Arbiter of Ash} in normal{The Burning Monolith}",
 		"Limited to: 1",
 	}
 	for _, name in ipairs(gems) do
@@ -94,4 +97,36 @@ do
 	end
 	table.insert(prism, "Corrupted")
 	table.insert(data.uniques.generated, table.concat(prism, "\n"))
+end
+
+local treedata = LoadModule("TreeData/" .. latestTreeVersion .. "/tree.lua")
+local nodes = treedata.nodes
+
+do
+    local megalomaniac = {
+        "Megalomaniac",
+        "Diamond",
+		"Source: Drops from unique{Kosis, The Revelation}",
+        "Limited to: 1",
+        "Has Alt Variant: true",
+        "Has Alt Variant Two: true",
+    }
+    local megalomaniacMods = { }
+    for _, node in pairs(nodes) do
+        if node.isNotable == true and node.recipe then
+            table.insert(megalomaniacMods, node)
+        end
+    end
+    table.sort(megalomaniacMods, function(a, b) return a.name < b.name end)  -- Sort by name, if needed
+    for _, node in ipairs(megalomaniacMods) do
+        table.insert(megalomaniac, "Variant: " .. node.name)  -- Add the name of the node to megalomaniac
+    end
+    table.insert(megalomaniac, "Selected Variant: 1")
+    table.insert(megalomaniac, "Selected Alt Variant: 2")
+    table.insert(megalomaniac, "Selected Alt Variant: 3")
+	for index, node in ipairs(megalomaniacMods) do
+		table.insert(megalomaniac, "{variant:"..index.."}Allocates "..node.name)
+	end
+	table.insert(megalomaniac, "Corrupted")
+    table.insert(data.uniques.generated, table.concat(megalomaniac, "\n"))
 end

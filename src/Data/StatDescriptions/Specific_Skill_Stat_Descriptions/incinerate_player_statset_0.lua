@@ -4,19 +4,6 @@
 return {
 	[1]={
 		[1]={
-			[1]={
-				[1]={
-					k="divide_by_ten_1dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Cone length {0}m"
-			}
 		},
 		stats={
 			[1]="active_skill_area_of_effect_radius"
@@ -58,15 +45,39 @@ return {
 	[3]={
 		[1]={
 			[1]={
+				[1]={
+					k="milliseconds_to_seconds_2dp_if_required",
+					v=1
+				},
+				limit={
+					[1]={
+						[1]=1000,
+						[2]=1000
+					}
+				},
+				text="Fire Exposure duration is {0} second"
+			},
+			[2]={
+				[1]={
+					k="milliseconds_to_seconds_2dp_if_required",
+					v=1
+				},
 				limit={
 					[1]={
 						[1]="#",
 						[2]="#"
 					}
 				},
-				text="More damage per stage {0}%"
-			},
-			[2]={
+				text="Fire Exposure duration is {0} seconds"
+			}
+		},
+		stats={
+			[1]="base_skill_effect_duration"
+		}
+	},
+	[4]={
+		[1]={
+			[1]={
 				limit={
 					[1]={
 						[1]="#",
@@ -80,22 +91,9 @@ return {
 			[1]="incinerate_damage_+%_final_per_stage"
 		}
 	},
-	[4]={
+	[5]={
 		[1]={
 			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					},
-					[2]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Fire Exposure inflicted at maximum stages (maximum) {0}% ({1}%)"
-			},
-			[2]={
 				limit={
 					[1]={
 						[1]="#",
@@ -114,18 +112,9 @@ return {
 			[2]="incinerate_maximum_exposure_magnitude"
 		}
 	},
-	[5]={
+	[6]={
 		[1]={
 			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Maximum stages {0}"
-			},
-			[2]={
 				limit={
 					[1]={
 						[1]="#",
@@ -139,7 +128,14 @@ return {
 			[1]="incinerate_maximum_stages"
 		}
 	},
-	[6]={
+	[7]={
+		[1]={
+		},
+		stats={
+			[1]="skill_effect_duration"
+		}
+	},
+	[8]={
 		[1]={
 			[1]={
 				limit={
@@ -162,11 +158,13 @@ return {
 	},
 	["active_skill_area_of_effect_radius"]=1,
 	["active_skill_base_area_of_effect_radius"]=2,
-	["incinerate_buff_exposure_-_to_total_fire_resistance_per_stack"]=4,
-	["incinerate_damage_+%_final_per_stage"]=3,
-	["incinerate_maximum_exposure_magnitude"]=4,
-	["incinerate_maximum_stages"]=5,
+	["base_skill_effect_duration"]=3,
+	["incinerate_buff_exposure_-_to_total_fire_resistance_per_stack"]=5,
+	["incinerate_damage_+%_final_per_stage"]=4,
+	["incinerate_maximum_exposure_magnitude"]=5,
+	["incinerate_maximum_stages"]=6,
 	parent="skill_stat_descriptions",
-	["spell_maximum_base_fire_damage"]=6,
-	["spell_minimum_base_fire_damage"]=6
+	["skill_effect_duration"]=7,
+	["spell_maximum_base_fire_damage"]=8,
+	["spell_minimum_base_fire_damage"]=8
 }

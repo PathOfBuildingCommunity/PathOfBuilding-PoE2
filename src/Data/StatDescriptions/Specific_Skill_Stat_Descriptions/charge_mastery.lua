@@ -5,19 +5,6 @@ return {
 	[1]={
 		[1]={
 			[1]={
-				[1]={
-					k="milliseconds_to_seconds_2dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Charge consumption interval {0}s"
-			},
-			[2]={
 				limit={
 					[1]={
 						[1]=1000,
@@ -26,7 +13,7 @@ return {
 				},
 				text="Consumes one of each Charge every second"
 			},
-			[3]={
+			[2]={
 				[1]={
 					k="milliseconds_to_seconds_2dp_if_required",
 					v=1
@@ -49,22 +36,13 @@ return {
 			[1]={
 				limit={
 					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="More Critical Hit Chance with Power Charge {0}%"
-			},
-			[2]={
-				limit={
-					[1]={
 						[1]=1,
 						[2]="#"
 					}
 				},
 				text="{0}% more Critical Hit Chance while\nyou have a Power Charge"
 			},
-			[3]={
+			[2]={
 				[1]={
 					k="negate",
 					v=1
@@ -87,22 +65,13 @@ return {
 			[1]={
 				limit={
 					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="More Defences with Endurance Charge {0}%"
-			},
-			[2]={
-				limit={
-					[1]={
 						[1]=1,
 						[2]="#"
 					}
 				},
 				text="{0}% more Defences while you have an Endurance Charge"
 			},
-			[3]={
+			[2]={
 				[1]={
 					k="negate",
 					v=1
@@ -125,22 +94,13 @@ return {
 			[1]={
 				limit={
 					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="More Skill Speed with Frenzy Charge {0}%"
-			},
-			[2]={
-				limit={
-					[1]={
 						[1]=1,
 						[2]="#"
 					}
 				},
 				text="{0}% more Skill Speed while you have a Frenzy Charge"
 			},
-			[3]={
+			[2]={
 				[1]={
 					k="negate",
 					v=1

@@ -86,7 +86,7 @@
             )
         )
 
-        (set! new-layer (car (gimp-layer-new new-image width height RGBA-IMAGE "new-layer" 100 LAYER-MODE-NORMAL)))
+        (set! new-layer (car (gimp-layer-new new-image "new-layer" width height RGBA-IMAGE 100 LAYER-MODE-NORMAL)))
         (gimp-image-insert-layer new-image new-layer -1 -1)
         (gimp-edit-copy (vector src-layer-id))
         (gimp-floating-sel-anchor (vector-ref (car (gimp-edit-paste new-layer TRUE)) 0))
@@ -121,14 +121,14 @@
                 )
             )
 
-            (set! new-layer (car (gimp-layer-new new-image width-image height-image RGBA-IMAGE "new-layer" 100 LAYER-MODE-NORMAL)))
+            (set! new-layer (car (gimp-layer-new new-image "new-layer" width-image height-image RGBA-IMAGE 100 LAYER-MODE-NORMAL)))
             (gimp-image-insert-layer new-image new-layer -1 -1)
             (gimp-selection-none src-image)
             (gimp-edit-copy (vector src-layer-id))
             (gimp-floating-sel-anchor (vector-ref (car (gimp-edit-paste new-layer TRUE)) 0))
 
             ;; add new mask layer to the new image
-            (set! mask-layer (car (gimp-layer-new new-image width-image height-image RGBA-IMAGE "mask" 100 LAYER-MODE-NORMAL)))
+            (set! mask-layer (car (gimp-layer-new new-image "mask" width-image height-image RGBA-IMAGE 100 LAYER-MODE-NORMAL)))
             (gimp-context-set-foreground '(255 255 255))
             (gimp-image-insert-layer new-image mask-layer -1 -1)
             (gimp-drawable-edit-fill mask-layer FILL-FOREGROUND)

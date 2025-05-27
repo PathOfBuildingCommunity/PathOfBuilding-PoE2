@@ -22,7 +22,6 @@ local skillTypes = {
 	"MeleeSingleTarget",
 	"Multicastable",
 	"TotemCastsAlone",
-	"Multistrikeable",
 	"CausesBurning",
 	"SummonsTotem",
 	"TotemCastsWhenNotDetached",
@@ -31,6 +30,7 @@ local skillTypes = {
 	"Cold",
 	"Lightning",
 	"Triggerable",
+	"Triggers",
 	"Trapped",
 	"Movement",
 	"DamageOverTime",
@@ -138,7 +138,7 @@ local skillTypes = {
 	"SkillConsumesShock",
 	"Wall",
 	"Persistent",
-	"Nonpathing",
+	"UsableWhileMoving",
 	"CanBecomeArrowRain",
 	"MultipleReservation",
 	"SupportedByElementalDischarge",
@@ -181,7 +181,47 @@ local skillTypes = {
 	"IsBlasphemy",
 	"PersistentShowsCastTime",
 	"GeneratesEnergy",
+	"GeneratesRemnants",
 	"CommandableMinion",
+	"Bow",
+	"AffectsPresence",
+	"GainsStages",
+	"HasSeals",
+	"SupportedByUnleash",
+	"SupportedBySalvo",
+	"Spear",
+	"GroundTargetedProjectile",
+	"SupportedByFusillade",
+	"HasUsageCondition",
+	"SupportedByMobileAssault",
+	"RequiresBuckler",
+	"UsableWhileMounted",
+	"Companion",
+	"ConsumesInstillment",
+	"CanCancelActions",
+	"SupportedByUnmoving",
+	"SupportedByCleanse",
+	"Hazard",
+	"SupportedByRally",
+	"SupportedByFlamepierce",
+	"SupportedByStormchain",
+	"SupportedByFreezefork",
+	"Palm",
+	"CannotSpiritStrike",
+	"SkillConsumesBleeding",
+	"SkillConsumesPoison",
+	"TargetsDestructibleRareCorpses",
+	"SupportedByAncestralAid",
+	"MinionsAreUndamagable",
+	"GeneratesInfusion",
+	"SkillConsumesParried",
+	"DetonatesAfterTime",
+	"NoAttackOrCastTime",
+	"CreatesCompanion",
+	"CannotTerrainChain",
+	"SupportedByTumult",
+	"RequiresCharges",
+	"CannotConsumeCharges",
 }
 
 -- This is here to fix name collisions like in the case of Barrage
@@ -394,6 +434,9 @@ directiveTable.skill = function(state, args, out)
 		if levelRow.SpiritReservation ~= 0 then
 			level.extra.spiritReservationFlat = levelRow.SpiritReservation
 		end
+		if levelRow.ReservationMultiplier ~= 100 then
+			level.extra.reservationMultiplier = levelRow.ReservationMultiplier - 100
+		end
 		--if levelRow.ManaReservationFlat ~= 0 then
 		--	level.extra.manaReservationFlat = levelRow.ManaReservationFlat
 		--end
@@ -491,9 +534,11 @@ directiveTable.skill = function(state, args, out)
 			out:write('\tignoreMinionTypes = true,\n')
 		end
 		local weaponTypes = { }
-		for _, class in ipairs(granted.WeaponRestrictions) do
-			if weaponClassMap[class.Id] then
-				weaponTypes[weaponClassMap[class.Id]] = true
+		if granted.WeaponRestrictions[1] then
+			for _, class in ipairs(granted.WeaponRestrictions[1].WeaponClass) do
+				if weaponClassMap[class.ItemClass.Id] then
+					weaponTypes[weaponClassMap[class.ItemClass.Id]] = true
+				end
 			end
 		end
 		if next(weaponTypes) then
@@ -525,9 +570,11 @@ directiveTable.skill = function(state, args, out)
 			out:write('},\n')
 		end
 		local weaponTypes = { }
-		for _, class in ipairs(granted.ActiveSkill.WeaponRestrictions) do
-			if weaponClassMap[class.Id] then
-				weaponTypes[weaponClassMap[class.Id]] = true
+		if granted.ActiveSkill.WeaponRestrictions then
+			for _, class in ipairs(granted.ActiveSkill.WeaponRestrictions.WeaponClass) do
+				if weaponClassMap[class.ItemClass.Id] then
+					weaponTypes[weaponClassMap[class.ItemClass.Id]] = true
+				end
 			end
 		end
 		if next(weaponTypes) then
@@ -686,7 +733,7 @@ directiveTable.set = function(state, args, out)
 					statMapOrderIndex = statMapOrderIndex + 1
 				end
 			end
-			if resolveInterpolation and #statsPerLevel > 1 then -- Don't resolve values for minion skills as it will break them
+			if resolveInterpolation and #statsPerLevel > 5 then -- Don't resolve values for minion skills as it will break them
 				table.insert(level, statRow.BaseResolvedValues[i])
 				if state.skill.setIndex ~= 1 then
 					-- Modify the correct statInterpolation value in the current set by offsetting the value from the count in the base set
@@ -701,7 +748,7 @@ directiveTable.set = function(state, args, out)
 		end
 		if injectConstantValuesIntoEachLevel then
 			for i, stat in ipairs(grantedEffectStatSet.ConstantStats) do
-				if not statMap[stat.Id] then
+				if not statMap[stat.Id] or indx == 1 then
 					statMap[stat.Id] = #set.stats + #set.constantStats + 1
 					table.insert(set.stats, { id = stat.Id })
 					if indx == 1 then
@@ -727,12 +774,12 @@ directiveTable.set = function(state, args, out)
 		for i, stat in ipairs(statRow.AdditionalStats) do
 			for k, v in pairs(tempRemoveStats) do
 				if stat.Id == v then
-					statRow.BaseResolvedValues[i] = 0 -- Set the removed stat value to zero, but would be better if we could remove the value and the corresponding statInterpolation value too
+					statRow.AdditionalStatsValues[i] = 0 -- Set the removed stat value to zero, but would be better if we could remove the value and the corresponding statInterpolation value too
 					table.remove(tempRemoveStats, k) -- Only remove the first stat which will be from the copied base set and not the current set
 					break
 				end
 			end
-			if not statMap[stat.Id] then
+			if not statMap[stat.Id] or indx == 1 then
 				statMap[stat.Id] = #set.stats + 1
 				table.insert(set.stats, { id = stat.Id })
 				if indx == 1 then
@@ -1001,8 +1048,23 @@ for skillGem in dat("SkillGems"):Rows() do
 				end
 			end
 			out:write('\t\t},\n')
+			local weaponRequirement = { }
+			if gemEffect.GrantedEffect.ActiveSkill and gemEffect.GrantedEffect.ActiveSkill.WeaponRestrictions then
+				if gemEffect.GrantedEffect.ActiveSkill.WeaponRestrictions.String then
+					table.insert(weaponRequirement, escapeGGGString(gemEffect.GrantedEffect.ActiveSkill.WeaponRestrictions.String.Text))
+				else
+					for _, class in ipairs(gemEffect.GrantedEffect.ActiveSkill.WeaponRestrictions.WeaponClass) do
+						if weaponClassMap[class.ItemClass.Id] then
+							table.insert(weaponRequirement, escapeGGGString(class.ItemClass.ItemClassCategory.Name))
+						end
+					end
+				end
+			end
 			out:write('\t\tgemType = "', gemType, '",\n')
 			out:write('\t\ttagString = "', table.concat(tagNames, ", "), '",\n')
+			if next(weaponRequirement) then
+				out:write('\t\tweaponRequirements = "', table.concat(weaponRequirement, ", "), '",\n')
+			end
 			out:write('\t\treqStr = ', skillGem.Str, ',\n')
 			out:write('\t\treqDex = ', skillGem.Dex, ',\n')
 			out:write('\t\treqInt = ', skillGem.Int, ',\n')

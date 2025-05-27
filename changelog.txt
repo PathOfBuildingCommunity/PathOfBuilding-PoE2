@@ -1,3 +1,190 @@
+VERSION[0.8.0][2025/04/16]
+
+--- New to Path of Building ---
+* Add support for Megalomaniac in PoB Trader (Edvinas-Smita)
+* Add proper support for pasting items with Lesser and Greater Runes (QuickStick123)
+
+--- Tree ---
+* Add support for Eternal Life ascendancy notable (Edvinas-Smita)
+* Add support for Smith of Kitava's Body Armour mods (Peechey, LocalIdentity)
+* Add support for "Crimson Assault" Keystone (majochem)
+
+--- Skills ---
+* Add support for Dread Banner Ailment and Stun threshold (Blitz54)
+* Add support for Burgeon, Pinpoint Critical, Warm Blooded, and other partial gems (Blitz54)
+* Add support for Retreat, Pursuit, and Blindside (Blitz54)
+* Add support for Unerring Power (Blitz54)
+
+--- Items ---
+* Add support for Sire of Shards +4 projectiles (Blitz54)
+* Add support for Nightscale "cannot regen mana" mod (Blitz54)
+* Add support for Gloamgown base ES Recharge Delay (Blitz54)
+* Add support for Daevata's Wind "past 8 seconds" mod (Blitz54)
+
+--- Fixed Crashes ---
+* Fix a crash when importing a character with tree version 0_1 selected (trompetin17)
+
+--- User Interface ---
+* Add Weapon requirements to gem tooltip (LocalIdentity)
+* Improve Accuracy Breakdown for Excess Hit Chance (majochem)
+* Fix Ascendancy node positions on tree (trompetin17)
+
+--- Fixed Calculations ---
+* Fix Concoction skill Crit Chance and base damage (LocalIdentity)
+* Fix Gem attack speed multiplier affecting Crossbow reload speed (LocalIdentity)
+* Fix Recovery rate mods multiplying Life / Mana regeneration rate (LocalIdentity)
+* Fix Support Gem reservation multipliers (LocalIdentity)
+* Fix Arc skill on Storm Mages not working (LocalIdentity)
+* Fix Dauntless max damage stacking (Blitz54)
+
+--- Fixed Behaviours ---
+* Fix trader sometimes not finding any mods for weapon slots (Edvinas-Smita)
+
+--- Accuracy Improvements ---
+* Fix Giant's Blood Keystone (majochem)
+* Fix Cursecarver variants (Blitz54)
+
+
+VERSION[0.7.1][2025/04/09]
+
+--- Fixed Behaviours ---
+* Fix Import for Armour Piercing Rounds (trompetin17)
+
+VERSION[0.7.0][2025/04/09]
+
+--- New to Path of Building ---
+* Add support for Accuracy Penalties at distance (LocalIdentity)
+* Add resource lost information to enemy damage breakdown (Edvinas-Smita)
+* Add 4 More Uniques (Blitz54)
+* Add support for Commandment, Reach, and various gem mods (Blitz54)
+* Add support for Deadly Herald (Blitz54)
+* Add support for "Enemies you X have" and "Enemies you X cannot recharge energy shield" (madxmike)
+* Add Daze config and fix tree parsing for 0.2.0 (Blitz54)
+* Add support for player elemental Ailment Threshold calcs (LocalIdentity)
+
+--- Ascendancy ---
+* Add support for Infernalist's Bringer of Flame ascendancy (LocalIdentity)
+* Add support for Amazon's Penetrate node (majochem)
+* Add support for Amazon's Mystic Harvest and Stalking Panther ascendancies (LocalIdentity)
+* Add support for Tactician's Watch How I Do It ascendancy (majochem)
+* Add support for Acolyte of Chayula's Ravenous Doubts ascendancy (LocalIdentity)
+* Add support for Warbringer's Warcaller's Bellow ascendancy (LocalIdentity)
+* Add support for Blood Mage's Blood Barbs and Between the Cracks ascendancies (LocalIdentity)
+* Add support for Gemling Legionnaire's Implanted Gems ascendancies (Paliak)
+* Add support for Gemling Legionnaire's Integrated Efficiency ascendancy (LocalIdentity)
+
+--- Fixed Crashes ---
+* Fix crash when hovering over some jewel sockets with a 0.1 tree (trompetin17)
+* Fix crash when importing 0.1 characters that used old jewel sockets (trompetin17)
+
+--- Fixed Calculations ---
+* Fix Area and Projectile flags for many skills (LocalIdentity)
+* Fix quality of Sceptres affecting Spirit total (LocalIdentity)
+* Fix calculation of Curse delay from support gems (LocalIdentity)
+* Fix Heightened Curse not affecting Blasphemy Spirit cost (LocalIdentity)
+* Fix Stomping Ground damage calculation (LocalIdentity)
+* Fix "increased Ailment chance" mods not working (LocalIdentity)
+* Fix Life cost calculation when using Sanguimancy and Archmage (LocalIdentity)
+
+--- Fixed Behaviours ---
+* Fix damage flags on Considered Casting and Controlled Destruction (LocalIdentity)
+* Fix some support gems showing a stat requirement (LocalIdentity)
+* Fix Smith's Masterwork not allowing you to allocate multiple nodes (trompetin17)
+* Fix Import for skills granted by items (trompetin17)
+* Add back Skeletal Warriors for Sceptres (Blitz54)
+* Fix Rupture The Soul, Necromantic Conduit, Price of Power, Crimson Power and Stay Light, Use Cover ascendancies not working (LocalIdentity)
+* Fix "Could not generate search" error when using only Full DPS as a weight and not using Full DPS (Paliak)
+
+--- Accuracy Improvements ---
+* Fix Stat descriptions on gem tooltips and crit node on tree (LocalIdentity)
+* Add support for "Curse Magnitudes" (madxmike)
+* Fix support for some Keystones that changed the wording of their mods (Blitz54)
+
+
+VERSION[0.6.0][2025/04/06]
+
+--- New to Path of Building ---
+* Support importing characters from PoE API (Wires77, trompetin17)
+* Add 0.2 Passive Tree (trompetin17)
+* Add support for all new active gems (LocalIdentity)
+* Add some new 0.2 Uniques (mods are not supported yet) (Blitz54)
+* Update existing uniques with changes from 0.2 (Blitz54, Wires77)
+
+--- Mechanics ---
+* Implement Rare item templates (Blitz54)
+* Add support for various Crossbow mechanics (DPS, Reload Time, Additional Projectiles, Bolt Count) (majochem)
+* Added support for break armour on hit (MrHB212)
+* Add Damage Buff for fully broken enemy armour (lucs66)
+* Add support for Soul Core stat requirement conversion (haugenc)
+* Add support for Minion Revival Time (Blitz54)
+* Add support for Ice Crystal life (Blitz54)
+* Add support for Parried Recently (Blitz54)
+* Update Pinned enemy conditions (lucs66)
+* Update Charge Duration, Unarmed Speed, and Cruel Ogham Manor reward (Blitz54)
+* Update Sceptres Auras to apply to Self (Blitz54)
+
+--- Ascendancy ---
+* Add support for Break Enemy Armour Below 0 - "Imploding Impacts" Warbringer (majochem)
+* Add support for "Price Of Power" (Lich Ascendancy Notable) (majochem)
+* Add support for "Rupture The Soul" (Lich Ascendancy Notable) (majochem)
+* Add support for "Eldritch Empowerment" (Lich Ascendancy Notable) (majochem)
+* Add Support for "Necromantic Conduit" and "Blackened Heart" (Lich Ascendancy Notables) (majochem)
+* Add support for "A Solid Plan" - (Tactician Notable) (Blitz54)
+* Add support for "Critical Strike" (Amazon Ascendancy Notable) (majochem)
+* Add support for "Soulless Form" (Lich Ascendancy Notable) (majochem)
+* Adds Support for Unfurled Finger and Mystic Attunement (Nostrademous)
+
+--- Skills ---
+* Add support for Discipline (Blitz54)
+* Add support for Bidding support gem (Blitz54)
+* Add support for Sigil of Power (Blitz54)
+* Add support for Attrition (Blitz54)
+* Add support for Berserk Gem (Blitz54)
+* Add support for Excoriate and Adhere (Blitz54)
+* Add support for Mysticism, Enormity, Strong Hearted, Loyalty, Overextend (Blitz54)
+* Add support for 15 new Support gems (LocalIdentity)
+* Add support for Skeletal Warrior gem quality (Blitz54)
+* Add support for Enfeeble "enemies deal less damage" mods (Blitz54)
+* Add Base Attack Damage for Stomping Ground support (Blitz54)
+* Add support for Ailment part of Overwhelming Presence skill (mauriliogenovese)
+* Add support for Siege Cascade dmg vs Immobilised enemy (Blitz54)
+* Add support for Blasphemy's "Socketed Skills have +1 metres to base radius" (lutharous)
+* Add support for Blasphemy less curse effect (Blitz54)
+
+--- Uniques ---
+* Add support for Megalomaniac (Blitz54)
+* Add support for Candlemaker "chance to ignite is doubled" (Blitz54)
+* Add support for Saffell's Frame "max block mods apply to max resist" (Blitz54)
+* Add support for Perfidy "% chance to avoid chaos damage from hits" (Blitz54)
+* Add support for Bones of Ullr mod and fix Lord of Horrors (Blitz54)
+
+--- Tree ---
+* Add support for Grenadier tree node (Blitz54)
+* Add support for "enemies in your presence have resistance equal to yours" (Blitz54)
+* Add parsing for some new mods (Paliak)
+* Add support for basic Companion nodes (Blitz54)
+
+--- User Interface ---
+* Toggle Attribute Nodes with Right Click (Kylixen)
+* Only show bleed/ignite/poison options when needed (deathbeam)
+
+--- Fixed Calculations ---
+* Fix unleash seal gain time depends on base cast speed (mauriliogenovese)
+* Fix Blasphemy logic applying to Trigger Spells (Blitz54)
+* Fix Burden of Shadows Life cost calculation (LocalIdentity)
+* Fix warcry speed scaled by cast speed instead of warcry speed (mauriliogenovese)
+* Add support for Elemental Storm and Solar Orb hit rate (Blitz54)
+
+--- Fixed Behaviours ---
+* Fix Weapon comparison with Giant's Blood (mauriliogenovese)
+* Fix node search not updating when switching between Sorceress and Witch (Blitz54)
+* Fix "Exploit Weakness" Support not applying for "ArmourFullyBroken" (majochem)
+* Fix Shockwave tree node not applying to all AoE skills (mauriliogenovese)
+* Fix Unholy Might to use PoE 2 version (majochem)
+
+--- Other changes ---
+* Fix skill tree textures not displaying correctly on old hardware (Zao)
+
 VERSION[0.5.0][12/02/2025]
 
 --- New to Path of Building ---

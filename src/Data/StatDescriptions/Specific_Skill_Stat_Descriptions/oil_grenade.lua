@@ -4,19 +4,6 @@
 return {
 	[1]={
 		[1]={
-			[1]={
-				[1]={
-					k="divide_by_ten_1dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Oil spray radius {0}m"
-			}
 		},
 		stats={
 			[1]="active_skill_area_of_effect_radius"
@@ -123,19 +110,6 @@ return {
 	},
 	[5]={
 		[1]={
-			[1]={
-				[1]={
-					k="milliseconds_to_seconds_2dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Fuse duration {0}s"
-			}
 		},
 		stats={
 			[1]="grenade_fuse_duration"
@@ -143,19 +117,6 @@ return {
 	},
 	[6]={
 		[1]={
-			[1]={
-				[1]={
-					k="milliseconds_to_seconds_2dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Oil duration {0}s"
-			}
 		},
 		stats={
 			[1]="secondary_skill_effect_duration"
@@ -163,19 +124,6 @@ return {
 	},
 	[7]={
 		[1]={
-			[1]={
-				[1]={
-					k="milliseconds_to_seconds_2dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Oil Ground duration {0}s"
-			}
 		},
 		stats={
 			[1]="secondary_skill_ground_effect_duration"
@@ -183,19 +131,6 @@ return {
 	},
 	[8]={
 		[1]={
-			[1]={
-				[1]={
-					k="milliseconds_to_seconds_2dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Oil duration {0}s"
-			}
 		},
 		stats={
 			[1]="secondary_skill_ground_effect_duration"

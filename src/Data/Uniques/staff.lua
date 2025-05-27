@@ -5,6 +5,7 @@ return {
 [[
 The Burden of Shadows
 Chiming Staff
+Source: Drops from unique{The King in the Mists} in normal{Crux of Nothingness}
 Implicits: 1
 Grants Skill: Level (1-20) Sigil of Power
 (20-30)% increased Cast Speed
@@ -40,6 +41,18 @@ Grants Skill: Level (1-20) Living Bomb
 100% increased chance to Ignite
 100% increased Magnitude of Ignite you inflict
 ]],[[
+Sire of Shards
+Chiming Staff
+League: Dawn of the Hunt
+Implicits: 1
+Grants Skill: Level (1-20) Sigil of Power
+(80-120)% increased Spell Damage
+(10-20)% increased Cast Speed
++(5-10)% to all Elemental Resistances
+20% increased Light Radius
+Spells fire 4 additional Projectiles
+Spells fire Projectiles in a circle
+]],[[
 Taryn's Shiver
 Gelid Staff
 Implicits: 1
@@ -63,6 +76,7 @@ Causes Bleeding on Hit
 ]],[[
 Collapsing Horizon
 Wyrm Quarterstaff
+Source: Drops from unique{Kosis, The Revelation}
 100% increased Elemental Damage with Attacks
 +(5-10)% to Critical Hit Chance
 +(2-4) to Level of all Elemental Skills
@@ -90,12 +104,16 @@ Variant: Current
 Causes Daze buildup equal to 100% of Damage dealt
 ]],[[
 Pillar of the Caged God
+Variant: Pre 0.2.0
+Variant: Current
 Long Quarterstaff
 Implicits: 1
-16% increased Range
-2% increased Area of Effect for Attacks per 5 Intelligence
-2% increased Attack Speed per 5 Dexterity
-10% increased Weapon Damage per 5 Strength
+16% increased Melee Strike Range with this weapon
+{variant:1}2% increased Area of Effect for Attacks per 10 Intelligence
+{variant:2}1% increased Area of Effect for Attacks per 10 Intelligence
+{variant:1}2% increased Attack Speed per 10 Dexterity
+{variant:2}1% increased Attack Speed per 10 Dexterity
+10% increased Weapon Damage per 10 Strength
 ]],[[
 The Sentry
 Gothic Quarterstaff

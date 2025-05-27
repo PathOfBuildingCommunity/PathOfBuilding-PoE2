@@ -4,24 +4,11 @@
 return {
 	[1]={
 		stats={
-			[1]="added_attack_time_ms"
+			[1]="total_attack_time_+_ms"
 		}
 	},
 	[2]={
 		[1]={
-			[1]={
-				[1]={
-					k="divide_by_ten_1dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Shockwave radius {0}m"
-			}
 		},
 		stats={
 			[1]="active_skill_area_of_effect_radius"
@@ -67,13 +54,21 @@ return {
 					[1]={
 						[1]="#",
 						[2]="#"
+					},
+					[2]={
+						[1]=0,
+						[2]=0
 					}
 				},
-				text="Maximum shockwaves per use {0}"
+				text="Maximum {0:+d} shockwaves per use"
 			},
 			[2]={
 				limit={
 					[1]={
+						[1]="#",
+						[2]="#"
+					},
+					[2]={
 						[1]="#",
 						[2]="#"
 					}
@@ -82,12 +77,14 @@ return {
 			}
 		},
 		stats={
-			[1]="gathering_storm_perfect_aoe_limit"
+			[1]="gathering_storm_perfect_aoe_limit",
+			[2]="quality_display_gathering_storm_is_gem"
 		}
 	},
 	["active_skill_area_of_effect_radius"]=2,
 	["active_skill_base_area_of_effect_radius"]=3,
-	["added_attack_time_ms"]=1,
 	["gathering_storm_perfect_aoe_limit"]=4,
-	parent="skill_stat_descriptions"
+	parent="skill_stat_descriptions",
+	["quality_display_gathering_storm_is_gem"]=4,
+	["total_attack_time_+_ms"]=1
 }

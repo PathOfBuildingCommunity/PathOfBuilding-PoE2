@@ -4,19 +4,6 @@
 return {
 	[1]={
 		[1]={
-			[1]={
-				[1]={
-					k="divide_by_ten_1dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Explosion radius {0}m"
-			}
 		},
 		stats={
 			[1]="active_skill_area_of_effect_radius"
@@ -93,19 +80,6 @@ return {
 			[1]={
 				limit={
 					[1]={
-						[1]="#",
-						[2]="#"
-					},
-					[2]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Ice Crystal maximum Life {0}"
-			},
-			[2]={
-				limit={
-					[1]={
 						[1]=1,
 						[2]="#"
 					},
@@ -116,7 +90,7 @@ return {
 				},
 				text="Ice Crystals have {0} maximum Life"
 			},
-			[3]={
+			[2]={
 				limit={
 					[1]={
 						[1]=1,
@@ -137,22 +111,42 @@ return {
 	},
 	[5]={
 		[1]={
+		},
+		stats={
+			[1]="skill_effect_duration"
+		}
+	},
+	[6]={
+		[1]={
 			[1]={
 				[1]={
-					k="milliseconds_to_seconds_2dp_if_required",
+					k="divide_by_ten_1dp_if_required",
 					v=1
 				},
 				limit={
 					[1]={
-						[1]="#",
+						[1]=10,
+						[2]=10
+					}
+				},
+				text="Wall is {0} metre long"
+			},
+			[2]={
+				[1]={
+					k="divide_by_ten_1dp_if_required",
+					v=1
+				},
+				limit={
+					[1]={
+						[1]=1,
 						[2]="#"
 					}
 				},
-				text="Ice Crystal duration {0}s"
+				text="Wall is {0} metres long"
 			}
 		},
 		stats={
-			[1]="skill_effect_duration"
+			[1]="wall_maximum_length"
 		}
 	},
 	["active_skill_area_of_effect_radius"]=1,
@@ -161,5 +155,6 @@ return {
 	["frost_wall_maximum_life"]=4,
 	["frozen_locus_crystal_display_stat"]=4,
 	parent="skill_stat_descriptions",
-	["skill_effect_duration"]=5
+	["skill_effect_duration"]=5,
+	["wall_maximum_length"]=6
 }

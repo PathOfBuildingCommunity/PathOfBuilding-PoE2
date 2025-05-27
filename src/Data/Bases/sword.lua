@@ -2,11 +2,10 @@
 -- Item data (c) Grinding Gear Games
 local itemBases = ...
 
-
 itemBases["Golden Blade"] = {
 	type = "One Handed Sword",
 	quality = 20,
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { demigods = true, onehand = true, not_for_sale = true, weapon = true, sword = true, one_hand_weapon = true, default = true, },
 	implicit = "+(16-24) to all Attributes",
 	implicitModTypes = { { "attribute" }, },
@@ -17,7 +16,7 @@ itemBases["Energy Blade One Handed"] = {
 	type = "One Handed Sword",
 	quality = 20,
 	hidden = true,
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { onehand = true, not_for_sale = true, weapon = true, sword = true, one_hand_weapon = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 0, PhysicalMax = 0, CritChanceBase = 7, AttackRateBase = 1.7, Range = 11, },
@@ -26,7 +25,7 @@ itemBases["Energy Blade One Handed"] = {
 itemBases["Shortsword"] = {
 	type = "One Handed Sword",
 	quality = 20,
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { onehand = true, ezomyte_basetype = true, weapon = true, sword = true, one_hand_weapon = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 6, PhysicalMax = 9, CritChanceBase = 5, AttackRateBase = 1.55, Range = 11, },
@@ -35,7 +34,7 @@ itemBases["Shortsword"] = {
 itemBases["Broadsword"] = {
 	type = "One Handed Sword",
 	quality = 20,
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { onehand = true, ezomyte_basetype = true, weapon = true, sword = true, one_hand_weapon = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 8, PhysicalMax = 13, CritChanceBase = 5, AttackRateBase = 1.6, Range = 11, },
@@ -44,7 +43,7 @@ itemBases["Broadsword"] = {
 itemBases["Vampiric Blade"] = {
 	type = "One Handed Sword",
 	quality = 20,
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { onehand = true, ezomyte_basetype = true, weapon = true, sword = true, one_hand_weapon = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 11, PhysicalMax = 20, CritChanceBase = 5, AttackRateBase = 1.5, Range = 11, },
@@ -53,7 +52,7 @@ itemBases["Vampiric Blade"] = {
 itemBases["Scimitar"] = {
 	type = "One Handed Sword",
 	quality = 20,
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { maraketh_basetype = true, onehand = true, weapon = true, sword = true, one_hand_weapon = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 14, PhysicalMax = 23, CritChanceBase = 5, AttackRateBase = 1.55, Range = 11, },
@@ -62,7 +61,7 @@ itemBases["Scimitar"] = {
 itemBases["Charred Shortsword"] = {
 	type = "One Handed Sword",
 	quality = 20,
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { maraketh_basetype = true, onehand = true, weapon = true, sword = true, one_hand_weapon = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 19, PhysicalMax = 34, CritChanceBase = 5, AttackRateBase = 1.6, Range = 11, },
@@ -71,7 +70,7 @@ itemBases["Charred Shortsword"] = {
 itemBases["Sickle Sword"] = {
 	type = "One Handed Sword",
 	quality = 20,
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { maraketh_basetype = true, onehand = true, weapon = true, sword = true, one_hand_weapon = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 18, PhysicalMax = 38, CritChanceBase = 5, AttackRateBase = 1.5, Range = 11, },
@@ -80,7 +79,7 @@ itemBases["Sickle Sword"] = {
 itemBases["Falchion"] = {
 	type = "One Handed Sword",
 	quality = 20,
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { onehand = true, vaal_basetype = true, weapon = true, sword = true, one_hand_weapon = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 27, PhysicalMax = 37, CritChanceBase = 5, AttackRateBase = 1.5, Range = 11, },
@@ -89,7 +88,7 @@ itemBases["Falchion"] = {
 itemBases["Treasured Blade"] = {
 	type = "One Handed Sword",
 	quality = 20,
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { onehand = true, vaal_basetype = true, weapon = true, sword = true, one_hand_weapon = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 27, PhysicalMax = 45, CritChanceBase = 5, AttackRateBase = 1.55, Range = 11, },
@@ -98,7 +97,7 @@ itemBases["Treasured Blade"] = {
 itemBases["Cutlass"] = {
 	type = "One Handed Sword",
 	quality = 20,
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { onehand = true, weapon = true, sword = true, one_hand_weapon = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 33, PhysicalMax = 49, CritChanceBase = 5, AttackRateBase = 1.5, Range = 11, },
@@ -107,7 +106,7 @@ itemBases["Cutlass"] = {
 itemBases["Runic Shortsword"] = {
 	type = "One Handed Sword",
 	quality = 20,
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { onehand = true, weapon = true, sword = true, one_hand_weapon = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 26, PhysicalMax = 55, CritChanceBase = 5, AttackRateBase = 1.65, Range = 11, },
@@ -116,7 +115,7 @@ itemBases["Runic Shortsword"] = {
 itemBases["Messer"] = {
 	type = "One Handed Sword",
 	quality = 20,
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { onehand = true, weapon = true, sword = true, one_hand_weapon = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 30, PhysicalMax = 56, CritChanceBase = 5, AttackRateBase = 1.6, Range = 11, },
@@ -125,7 +124,7 @@ itemBases["Messer"] = {
 itemBases["Commander Sword"] = {
 	type = "One Handed Sword",
 	quality = 20,
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { onehand = true, weapon = true, sword = true, one_hand_weapon = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 36, PhysicalMax = 60, CritChanceBase = 5, AttackRateBase = 1.5, Range = 11, },
@@ -134,18 +133,27 @@ itemBases["Commander Sword"] = {
 itemBases["Dark Blade"] = {
 	type = "One Handed Sword",
 	quality = 20,
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { onehand = true, weapon = true, sword = true, one_hand_weapon = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 43, PhysicalMax = 65, CritChanceBase = 5, AttackRateBase = 1.55, Range = 11, },
 	req = { level = 65, str = 81, dex = 81, },
+}
+itemBases["Golden Blade"] = {
+	type = "One Handed Sword",
+	quality = 20,
+	socketLimit = 2,
+	tags = { onehand = true, ezomyte_basetype = true, weapon = true, sword = true, one_hand_weapon = true, default = true, },
+	implicitModTypes = { },
+	weapon = { PhysicalMin = 6, PhysicalMax = 9, CritChanceBase = 5, AttackRateBase = 1.55, Range = 11, },
+	req = { },
 }
 
 itemBases["Energy Blade One Handed"] = {
 	type = "One Handed Sword",
 	quality = 20,
 	hidden = true,
-	socketLimit = 3,
+	socketLimit = 2,
 	tags = { onehand = true, not_for_sale = true, weapon = true, sword = true, one_hand_weapon = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 0, PhysicalMax = 0, CritChanceBase = 7, AttackRateBase = 1.7, Range = 11, },

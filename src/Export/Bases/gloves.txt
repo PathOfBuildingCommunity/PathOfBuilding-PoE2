@@ -3,6 +3,28 @@ local itemBases = ...
 
 #type Gloves
 #socketLimit 2
-#baseMatch BaseType Metadata/Items/Armours/Gloves/AbstractGloves
-#baseMatch BaseType Metadata/Items/Armours/Gloves/GlovesDemigods
+
+#subType Armour
+#baseMatch Metadata/Items/Armours/Gloves/FourGlovesStr%d+
+
+#subType Evasion
+#baseMatch Metadata/Items/Armours/Gloves/FourGlovesDex%d+
+
+#subType Energy Shield
+#baseMatch Metadata/Items/Armours/Gloves/FourGlovesInt%d+
+
+#subType Armour/Evasion
+#baseMatch Metadata/Items/Armours/Gloves/FourGlovesStrDex%d+
+
+#subType Armour/Energy Shield
+#baseMatch Metadata/Items/Armours/Gloves/FourGlovesStrInt%d+
+
+#subType Evasion/Energy Shield
+#baseMatch Metadata/Items/Armours/Gloves/FourGlovesDexInt%d+
+
+#subType Armour/Evasion/Energy Shield
+#baseMatch Metadata/Items/Armours/Gloves/FourGlovesStrDexInt%d+
+
+#subType
+#baseMatch BaseType Metadata/Items/Armours/Gloves/GlovesDemigods1
 

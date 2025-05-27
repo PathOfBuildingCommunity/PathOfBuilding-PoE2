@@ -17,6 +17,7 @@ UniqueDamageAddedAsColdAttacks1
 ]],[[
 Beyond Reach
 Visceral Quiver
+Source: Drops from unique{Xesht, We That Are One} in normal{Twisted Domain}
 Implicits: 1
 QuiverImplicitCriticalStrikeChance1
 UniqueIncreasedAttackSpeed6
@@ -35,5 +36,25 @@ UniqueIncreasedMana5
 UniqueIgniteChanceIncrease3
 UniqueAlwaysPierceBurningEnemies1
 UniqueDamageAddedAsFireAttacks1
+]],[[
+The Lethal Draw
+Sacral Quiver
+League: Dawn of the Hunt
+Implicits: 1
+QuiverImplicitLifeGainPerTarget1
+UniqueIncreasedAttackSpeed5
+UniqueLifeGainPerTarget2
+UniqueArrowPierceChance1
+UniqueBowDamageFromLifeFlaskCharges1
+]],[[
+Rearguard
+Blunt Quiver
+League: Dawn of the Hunt
+Implicits: 1
+QuiverImplicitStunThresholdReduction1
+UniqueAddedPhysicalDamage5
+UniqueIncreasedPhysicalDamageReductionRating4
+UniqueProjectileSpeed3
+UniqueBlockPercent2
 ]],
 }

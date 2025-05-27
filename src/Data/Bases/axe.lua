@@ -222,7 +222,8 @@ itemBases["Ceremonial Halberd"] = {
 	quality = 20,
 	socketLimit = 3,
 	tags = { axe = true, two_hand_weapon = true, weapon = true, twohand = true, default = true, },
-	implicitModTypes = { },
+	implicit = "Cannot use Projectile Attacks",
+	implicitModTypes = { {  }, },
 	weapon = { PhysicalMin = 53, PhysicalMax = 123, CritChanceBase = 5, AttackRateBase = 1.2, Range = 13, },
 	req = { level = 52, str = 93, dex = 37, },
 }

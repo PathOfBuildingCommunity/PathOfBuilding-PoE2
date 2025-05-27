@@ -9,19 +9,6 @@ return {
 	},
 	[2]={
 		[1]={
-			[1]={
-				[1]={
-					k="divide_by_ten_1dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Impact radius {0}m"
-			}
 		},
 		stats={
 			[1]="active_skill_area_of_effect_radius"
@@ -65,22 +52,13 @@ return {
 			[1]={
 				limit={
 					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="More Hit damage per stage {0}%"
-			},
-			[2]={
-				limit={
-					[1]={
 						[1]=1,
 						[2]="#"
 					}
 				},
 				text="{0}% more Damage with Hits for each stage"
 			},
-			[3]={
+			[2]={
 				[1]={
 					k="negate",
 					v=1
@@ -103,15 +81,36 @@ return {
 			[1]={
 				limit={
 					[1]={
-						[1]="#",
-						[2]="#"
+						[1]=1,
+						[2]=1
+					},
+					[2]={
+						[1]=0,
+						[2]=0
 					}
 				},
-				text="Maximum Stages {0}"
+				text="{0:+d} maximum Stage"
 			},
 			[2]={
 				limit={
 					[1]={
+						[1]="#",
+						[2]="#"
+					},
+					[2]={
+						[1]=0,
+						[2]=0
+					}
+				},
+				text="{0:+d} maximum Stages"
+			},
+			[3]={
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					},
+					[2]={
 						[1]="#",
 						[2]="#"
 					}
@@ -120,7 +119,8 @@ return {
 			}
 		},
 		stats={
-			[1]="channelled_slam_max_stages"
+			[1]="channelled_slam_max_stages",
+			[2]="quality_display_supercharged_slam_is_gem"
 		}
 	},
 	["active_skill_area_of_effect_radius"]=2,
@@ -128,5 +128,6 @@ return {
 	["base_skill_effect_duration"]=1,
 	["channelled_slam_damage_+%_final_per_stage"]=4,
 	["channelled_slam_max_stages"]=5,
-	parent="skill_stat_descriptions"
+	parent="skill_stat_descriptions",
+	["quality_display_supercharged_slam_is_gem"]=5
 }

@@ -41,7 +41,7 @@ return {
 	[7] = {
 		Resource = "UnreservedManaPercent",
 		Stat = "base_unreserved_mana_cost_%",
-		ResourceString = "[DNT] {0}% Unreserved Mana ",
+		ResourceString = "{0}% Unreserved Mana ",
 		Divisor = 1,
 	},
 	[8] = {
@@ -81,6 +81,12 @@ return {
 		Divisor = 60,
 	},
 	[14] = {
+		Resource = "ESPercent",
+		Stat = "base_es_cost_%",
+		ResourceString = "{0}% Energy Shield",
+		Divisor = 1,
+	},
+	[15] = {
 		Resource = "Soul",
 		Stat = " ",
 		ResourceString = "{0} Souls Per Use",

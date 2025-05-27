@@ -4,19 +4,6 @@
 return {
 	[1]={
 		[1]={
-			[1]={
-				[1]={
-					k="divide_by_ten_1dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Explosion radius {0}m"
-			}
 		},
 		stats={
 			[1]="active_skill_area_of_effect_radius"
@@ -99,9 +86,13 @@ return {
 					[1]={
 						[1]="#",
 						[2]="#"
+					},
+					[2]={
+						[1]=0,
+						[2]=0
 					}
 				},
-				text="Ignite damage from Overkill damage {0}%"
+				text="An additional {0:+d}% of Overkill damage contributes to base Ignite damage"
 			},
 			[2]={
 				[1]={
@@ -110,6 +101,10 @@ return {
 				},
 				limit={
 					[1]={
+						[1]="!",
+						[2]=0
+					},
+					[2]={
 						[1]="#",
 						[2]="#"
 					}
@@ -118,21 +113,13 @@ return {
 			}
 		},
 		stats={
-			[1]="herald_of_ash_burning_%_overkill_damage_per_minute"
+			[1]="herald_of_ash_burning_%_overkill_damage_per_minute",
+			[2]="quality_display_herald_of_ash_burning_%_overkill_damage_per_minute_is_gem"
 		}
 	},
 	[5]={
 		[1]={
 			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Overkill damage threshold {0}%"
-			},
-			[2]={
 				limit={
 					[1]={
 						[1]="#",
@@ -148,19 +135,6 @@ return {
 	},
 	[6]={
 		[1]={
-			[1]={
-				[1]={
-					k="milliseconds_to_seconds_2dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Ignite duration {0}s"
-			}
 		},
 		stats={
 			[1]="skill_effect_duration"
@@ -172,5 +146,6 @@ return {
 	["herald_of_ash_burning_%_overkill_damage_per_minute"]=4,
 	["herald_of_ash_overkill_threshold_%"]=5,
 	parent="skill_stat_descriptions",
+	["quality_display_herald_of_ash_burning_%_overkill_damage_per_minute_is_gem"]=4,
 	["skill_effect_duration"]=6
 }

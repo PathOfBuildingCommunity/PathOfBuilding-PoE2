@@ -57,7 +57,7 @@ local ItemClass = newClass("Item", function(self, raw, rarity, highQuality)
 end)
 
 local lineFlags = {
-	["custom"] = true, ["enchant"] = true, ["implicit"] = true, ["rune"] = true,
+	["custom"] = true, ["fractured"] = true, ["enchant"] = true, ["implicit"] = true, ["rune"] = true,
 }
 
 -- Special function to store unique instances of modifier on specific item slots
@@ -315,9 +315,22 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 		end
 	end
 	if self.rawLines[l] then
-		self.name = self.rawLines[l]
 		-- Determine if "Unidentified" item
 		local unidentified = false
+		if self.rarity == "UNIQUE" then
+			local unidentifiedBase = data.itemBases[self.rawLines[l]]
+			local identifiedBase = data.itemBases[self.rawLines[l+1]]
+			if unidentifiedBase and not identifiedBase then
+				unidentified = true
+				self.name = "Unidentified item"
+				self.baseName = self.rawLines[l]
+				self.base = unidentifiedBase
+			else
+				self.name = self.rawLines[l]
+			end
+		else
+			self.name = self.rawLines[l]
+		end
 		for _, line in ipairs(self.rawLines) do
 			if line == "Unidentified" then
 				unidentified = true
@@ -368,6 +381,8 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 			self.mirrored = true
 		elseif line == "Corrupted" then
 			self.corrupted = true
+		elseif line == "Fractured Item" then
+			self.fractured = true
 		elseif line == "Requirements:" then
 			-- nothing to do
 		else
@@ -779,24 +794,151 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 		if self.base.weapon or self.base.armour then
 			local shouldFixRunesOnItem = #self.runes == 0
 
+			-- Form a key value table with the following format
+			-- { [strippedModLine] = { { runeName1, runeValue1 }, etc, }, etc}
+			-- This will be used to more easily grab the relevant runes that combinations will need to be of.
+			-- This could be refactored to only needs to be called once.
+			local statGroupedRunes = { }
+			local type = self.base.weapon and "weapon" or "armour" -- minor optimisation
+			for runeName, runeMods in pairs(data.itemMods.Runes) do
+				-- gets the first value in the mod and its stripped line.
+				local runeValue
+				local runeStrippedModeLine = runeMods[type][1]:gsub("(%d%.?%d*)", function(val)
+					runeValue = val
+					return "#"
+				end)
+				if statGroupedRunes[runeStrippedModeLine] == nil then
+					statGroupedRunes[runeStrippedModeLine] = { }
+				end
+				t_insert(statGroupedRunes[runeStrippedModeLine], { runeName, runeValue });
+			end
+
+			-- Sort table to ensure first entries are always largest.
+			for _, runes in pairs(statGroupedRunes) do
+				table.sort(runes,  function(a, b) return a[2] > b[2] end)
+			end
+
+			local remainingRunes = self.itemSocketCount
 			for i, modLine in ipairs(self.runeModLines) do
 				local value
-				local strippedModeLine = modLine.line:gsub("(%d%.?%d*)", function(val)
+				local strippedModLine = modLine.line:gsub("(%d%.?%d*)", function(val)
 					value = val
 					return "#"
 				end)
-				for name, runeMods in pairs(data.itemMods.Runes) do
-					local runeValue
-					local runeStrippedModeLine = (self.base.weapon and runeMods.weapon or runeMods.armour)[1]:gsub("(%d%.?%d*)", function(val)
-						runeValue = val
-						return "#"
-					end)
-					if strippedModeLine == runeStrippedModeLine then
-						modLine.soulcore = name:match("Soul Core") ~= nil
-						modLine.runeCount = round(value/runeValue)
+				local groupedRunes = statGroupedRunes[strippedModLine]
+				if groupedRunes then -- found the rune category with the relevant stat.
+					-- First a greedy base is found using the runes in the groupedRunes. If this matches the target value then that set of runes is applied.
+					-- If the greedy base isn't a solution we search all the possible combinations that could lead to a valid combination.
+					-- This done by recursing through all combinations that could lead to a valid value and pruning values that exceed the number
+					-- of runes and solutions that it would be impossible to reach the target value from. Visited combinations are recorded and are used such 
+					-- that candidates are only searched once. This makes for a fairly efficient algorithm that doesn't search unneeded values very much.
+					local function getNumberOfRunesOfEachType(values, target)
+						local function adjustCombination(values, target, result, best, visited, sum, count)
+							-- This is used to avoid unnecessary checks on decrement.
+							local function checkAndAdjustCombination(values, target, result, best, visited, sum, count)
+								-- If it's a valid solution, update best
+								if math.abs(sum-target) <  1e-9 then
+									if not best.count or count < best.count then
+										best.count = count
+										-- Copy solution to avoid side effects from continued searching.
+										local solution = {}
+										for k, v in pairs(result) do
+											solution[k] = v
+										end
+										best.solution = solution
+									end
+									return
+								end
+
+								-- Prune if we already used more runes than the best found
+								if best.count and count >= best.count then return end
+
+								return adjustCombination(values, target, result, best, visited, sum, count)
+							end
+
+							for _, v in ipairs(values) do
+								local function checkUnique(result)
+									-- Generate a unique key from the result table this prevents duplicates combinations being searched
+									local key = ""
+									for value, count in pairs(result) do
+										if count > 0 then
+											key = key .. value .. "x" .. count .. " "
+										end
+									end
+									if visited[key] then 
+										return false 
+									else
+										visited[key] = true
+										return true
+									end
+								end
+								
+								-- Incrementing is done first as to reach the target you will need to add a count as such it should be more efficient.
+								-- Try increasing (if it doesn't overshoot or exceed maximum number of remaining runes)
+								if sum + tonumber(v) <= target + 1e-9 and count < remainingRunes then
+									result[v] = (result[v] or 0) + 1
+									if checkUnique(result) then
+										checkAndAdjustCombination(values, target, result, best, visited, sum + v, count + 1)
+									end
+									result[v] = result[v] - 1
+								end
+
+								-- Try decreasing (if possible and only if target is still reachable).
+								if (result[v] or 0) > 0 and (not best.count or target - 1e-9 < sum - tonumber(v) + values[1] * (best.count - count + 1)) then
+									result[v] = result[v] - 1
+									if checkUnique(result) then
+										adjustCombination(values, target, result, best, visited, sum - v, count - 1)
+									end
+									result[v] = result[v] + 1
+								end
+							end
+						end
+						
+						-- Step 1: Perform greedy search and tests if a single rune is used as these are the most common use case.
+						local greedySolution = {}
+						local leftover = target
+
+						for _, v in ipairs(values) do
+							local count = math.floor(leftover / v)
+							greedySolution[v] = count
+							leftover = leftover - count * v
+						end
+
+						local greedyCount = 0
+						for v, c in pairs(greedySolution) do
+							greedyCount = greedyCount + c
+						end
+						if math.abs(leftover) <= 1e-9 then -- Greedy search found a solution
+							return greedySolution, greedyCount
+						end
+
+						-- Step 2. Perform search starting from the greedy base
+						local best = {count = nil, solution = nil}
+						local visited = {}
+
+						adjustCombination(values, target, greedySolution, best, visited, target - leftover, greedyCount)
+
+						return best.solution, best.count
+					end
+
+					local values = { }
+					for i, runes in ipairs(groupedRunes) do
+						t_insert(values, runes[2])
+					end
+					local result, numRunes = getNumberOfRunesOfEachType(values, tonumber(value))
+
+					if result then -- we have found a valid combo for that rune category
+						remainingRunes = remainingRunes - numRunes
+						-- this code should probably be refactored to based off stored self.runes rather than the recomputed amounts off the runeModLines this 
+						-- is too avoid having to run the relatively expensive recomputation every time the item is parsed even if we know the runes on the item already.
+						modLine.soulcore = groupedRunes[1][1]:match("Soul Core") ~= nil
+						modLine.runeCount = numRunes
+
 						if shouldFixRunesOnItem then
-							for i = 1, modLine.runeCount do
-								t_insert(self.runes, name)
+							for i, rune in ipairs(groupedRunes) do
+								for _ = 1, tonumber(result[rune[2]]) do
+									t_insert(self.runes, groupedRunes[i][1])
+								end
 							end
 						end
 					end
@@ -1000,6 +1142,9 @@ function ItemClass:BuildRaw()
 		if modLine.custom then
 			line = "{custom}" .. line
 		end
+		if modLine.fractured then
+			line = "{fractured}" .. line
+		end
 		if modLine.variantList then
 			local varSpec
 			for varId in pairs(modLine.variantList) do
@@ -1113,8 +1258,8 @@ function ItemClass:UpdateRunes()
 				if statOrder[order] then
 					-- Combine stats
 					local start = 1
-					statOrder[order].line = statOrder[order].line:gsub("%d+", function(num)
-						local s, e, other = line:find("(%d+)", start)
+					statOrder[order].line = statOrder[order].line:gsub("(%d%.?%d*)", function(num)
+						local s, e, other = line:find("(%d%.?%d*)", start)
 						start = e + 1
 						return tonumber(num) + tonumber(other)
 					end)
@@ -1298,7 +1443,7 @@ function ItemClass:BuildModListForSlotNum(baseList, slotNum)
 	if self.spiritValue then
 		local spiritBase = self.base.spirit + calcLocal(modList, "Spirit", "BASE", 0)
 		local spiritInc = calcLocal(modList, "Spirit", "INC", 0)
-		self.spiritValue = round( spiritBase * (1 + spiritInc / 100) * (1 + ((self.quality or 0) / 100)))
+		self.spiritValue = round( spiritBase * (1 + spiritInc / 100))
 	end
 	if self.charmLimit then
 		self.charmLimit = self.base.charmLimit + calcLocal(modList, "CharmLimit", "BASE", 0)
@@ -1312,6 +1457,10 @@ function ItemClass:BuildModListForSlotNum(baseList, slotNum)
 		weaponData.AttackRate = round(self.base.weapon.AttackRateBase * (1 + weaponData.AttackSpeedInc / 100), 2)
 		weaponData.rangeBonus = calcLocal(modList, "WeaponRange", "BASE", 0) + 10 * calcLocal(modList, "WeaponRangeMetre", "BASE", 0) + m_floor(self.quality / 10 * calcLocal(modList, "AlternateQualityLocalWeaponRangePer10Quality", "BASE", 0))
 		weaponData.range = self.base.weapon.Range + weaponData.rangeBonus
+		if self.base.weapon.ReloadTimeBase then 
+			weaponData.ReloadSpeedInc = calcLocal(modList, "ReloadSpeed", "INC", ModFlag.Attack) + weaponData.AttackSpeedInc
+			weaponData.ReloadTime = round(self.base.weapon.ReloadTimeBase / (1 + weaponData.ReloadSpeedInc / 100), 2)
+		end
 		local LocalIncEle = calcLocal(modList, "LocalElementalDamage", "INC", 0)
 		for _, dmgType in pairs(dmgTypeList) do
 			local min = (self.base.weapon[dmgType.."Min"] or 0) + calcLocal(modList, dmgType.."Min", "BASE", 0)
@@ -1583,6 +1732,16 @@ function ItemClass:BuildModList()
 		self.requirements.strMod = 0
 		self.requirements.dexMod = 0
 		self.requirements.intMod = 0
+	elseif calcLocal(baseList, "AttributeRequirementsConverted", "FLAG", 0) then
+		local strConversion = calcLocal(baseList, "AttributeRequirementsConvertedToStrength", "BASE", 0) / 100  
+		local dexConversion = calcLocal(baseList, "AttributeRequirementsConvertedToDexterity", "BASE", 0) / 100 
+		local intConversion = calcLocal(baseList, "AttributeRequirementsConvertedToIntelligence", "BASE", 0) / 100 
+		self.requirements.intBase = intConversion * (self.requirements.str + self.requirements.dex) + (self.requirements.int + calcLocal(baseList, "IntRequirement", "BASE", 0)) - self.requirements.int * (strConversion + dexConversion)
+		self.requirements.intMod = m_floor(self.requirements.intBase * (1 + calcLocal(baseList, "IntRequirement", "INC", 0) / 100))
+		self.requirements.dexBase = dexConversion * (self.requirements.str + self.requirements.int) + (self.requirements.dex + calcLocal(baseList, "DexRequirement", "BASE", 0)) - self.requirements.dex * (strConversion + intConversion)
+		self.requirements.dexMod = m_floor( self.requirements.dexBase * (1 + calcLocal(baseList, "DexRequirement", "INC", 0) / 100))
+		self.requirements.strBase = strConversion * (self.requirements.int + self.requirements.dex) + (self.requirements.str + calcLocal(baseList, "StrRequirement", "BASE", 0)) - self.requirements.str * (dexConversion + intConversion)
+		self.requirements.strMod = m_floor(self.requirements.strBase * (1 + calcLocal(baseList, "StrRequirement", "INC", 0) / 100))
 	else
 		self.requirements.strMod = m_floor((self.requirements.str + calcLocal(baseList, "StrRequirement", "BASE", 0)) * (1 + calcLocal(baseList, "StrRequirement", "INC", 0) / 100))
 		self.requirements.dexMod = m_floor((self.requirements.dex + calcLocal(baseList, "DexRequirement", "BASE", 0)) * (1 + calcLocal(baseList, "DexRequirement", "INC", 0) / 100))
@@ -1617,6 +1776,9 @@ function ItemClass:BuildModList()
 		self.slotModList = { }
 		for i = 1, 2 do
 			self.slotModList[i] = self:BuildModListForSlotNum(baseList, i)
+		end
+		if self.type == "Ring" then
+			self.slotModList[3] = self:BuildModListForSlotNum(baseList, 3)
 		end
 	else
 		self.modList = self:BuildModListForSlotNum(baseList)

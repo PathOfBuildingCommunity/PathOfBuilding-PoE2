@@ -196,6 +196,7 @@ Drop Shocked Ground while moving, lasting 8 seconds
 [[
 Beetlebite
 Velour Shoes
+Source: Drops from unique{The King in the Mists} in normal{Crux of Nothingness}
 (20-30)% increased Movement Speed
 (60-120)% increased Evasion and Energy Shield
 Aggravate Bleeding on Enemies when they Enter your Presence
@@ -216,13 +217,14 @@ Variant: Current
 (60-80)% increased Evasion and Energy Shield
 +(10-20) to Intelligence
 +1 to Maximum Power Charges
-{variant:1}+8% to Critical Damage Bonus per Power Charge
-{variant:2}+12% to Critical Damage Bonus per Power Charge
+{variant:1}8% increased Critical Damage Bonus per Power Charge
+{variant:2}12% increased Critical Damage Bonus per Power Charge
 ]],
 -- Boots: Armour/Evasion/Energy Shield
 [[
 Ab Aeterno
 Grand Cuisses
+Source: Drops from unique{Arbiter of Ash} in normal{The Burning Monolith}
 (15-30)% increased Movement Speed
 (60-80)% increased Armour, Evasion and Energy Shield
 Dodge Roll avoids all Hits

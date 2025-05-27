@@ -429,6 +429,7 @@ function calcs.buildOutput(build, mode)
 								t_insert(output[costResource.."Warning"], skill.activeEffect.grantedEffect.name)
 							end
 						end
+						output.EternalLifeWarning = output.EternalLifeWarning or env.modDB:Flag(nil, "EternalLife") and costResource == "LifeCost" and cachedCost > 0 and output.EnergyShieldRecoveryCap > 0
 					end
 				end
 				for pool, costResource in pairs({["LifeUnreservedPercent"] = "LifePercentCost", ["ManaUnreservedPercent"] = "ManaPercentCost"}) do

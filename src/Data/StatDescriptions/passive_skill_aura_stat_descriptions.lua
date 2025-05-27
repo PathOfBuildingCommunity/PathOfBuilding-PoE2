@@ -216,7 +216,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="You and nearby Allies Regenerate {0}% of Life per second"
+				text="You and nearby Allies Regenerate {0}% of maximum Life per second"
 			}
 		},
 		stats={

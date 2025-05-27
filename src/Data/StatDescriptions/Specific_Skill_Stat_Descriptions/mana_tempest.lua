@@ -12,22 +12,13 @@ return {
 			[1]={
 				limit={
 					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Lightning Spell Chains granted {0}"
-			},
-			[2]={
-				limit={
-					[1]={
 						[1]=1,
 						[2]=1
 					}
 				},
 				text="Buff causes Lightning Spells that cost Mana to Chain an additional time"
 			},
-			[3]={
+			[2]={
 				limit={
 					[1]={
 						[1]=2,
@@ -46,22 +37,13 @@ return {
 			[1]={
 				limit={
 					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Additional Chain targets granted {0}"
-			},
-			[2]={
-				limit={
-					[1]={
 						[1]=1,
 						[2]=1
 					}
 				},
 				text="Buff causes Lightning Spells that cost Mana to also Chain to {0:+d} target when Chaining, but not Chain further from them"
 			},
-			[3]={
+			[2]={
 				limit={
 					[1]={
 						[1]="#",
@@ -84,15 +66,6 @@ return {
 						[2]="#"
 					}
 				},
-				text="Causes Lightning Spell Projectiles to Fork"
-			},
-			[2]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
 				text="Projectiles from Empowered Lightning Spells Fork"
 			}
 		},
@@ -105,13 +78,29 @@ return {
 			[1]={
 				limit={
 					[1]={
-						[1]="#",
+						[1]=1,
+						[2]=1
+					}
+				},
+				text="Empowered Spells Split to {0} additional target"
+			},
+			[2]={
+				limit={
+					[1]={
+						[1]=2,
 						[2]="#"
 					}
 				},
-				text="Mana cost inherited from skills used {0}%"
-			},
-			[2]={
+				text="Empowered Spells Split to {0} additional targets"
+			}
+		},
+		stats={
+			[1]="mana_tempest_empowered_spells_split_to_X_additional_targets"
+		}
+	},
+	[6]={
+		[1]={
+			[1]={
 				limit={
 					[1]={
 						[1]="#",
@@ -129,6 +118,7 @@ return {
 	["mana_costing_lightning_spells_number_of_additional_beam_chains"]=2,
 	["mana_costing_lightning_spells_number_of_additional_beam_splits"]=3,
 	["mana_costing_lightning_spells_projectiles_fork"]=4,
-	["mana_tempest_mana_cost_%_to_add_to_cost_per_second"]=5,
+	["mana_tempest_empowered_spells_split_to_X_additional_targets"]=5,
+	["mana_tempest_mana_cost_%_to_add_to_cost_per_second"]=6,
 	parent="skill_stat_descriptions"
 }

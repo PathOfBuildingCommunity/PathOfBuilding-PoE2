@@ -197,6 +197,7 @@ UniqueShockedGroundWhileMoving1
 [[
 Beetlebite
 Velour Shoes
+Source: Drops from unique{The King in the Mists} in normal{Crux of Nothingness}
 UniqueMovementVelocity21
 UniqueLocalIncreasedEvasionAndEnergyShield13
 UniqueAggravateBleedOnPresence1
@@ -224,6 +225,7 @@ UniqueMaximumPowerCharges1
 [[
 Ab Aeterno
 Grand Cuisses
+Source: Drops from unique{Arbiter of Ash} in normal{The Burning Monolith}
 UniqueMovementVelocity22
 UniqueLocalArmourAndEvasionAndEnergyShield4
 UniqueDodgeRollAvoidAllDamage1

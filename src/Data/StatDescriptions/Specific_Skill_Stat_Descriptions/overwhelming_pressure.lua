@@ -5,19 +5,6 @@ return {
 	[1]={
 		[1]={
 			[1]={
-				[1]={
-					k="negate",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Enemy Elemental Ailment Threshold reduction {0}%"
-			},
-			[2]={
 				limit={
 					[1]={
 						[1]=1,
@@ -26,7 +13,7 @@ return {
 				},
 				text="Enemies in your Presence have {0}% increased\nElemental Ailment Threshold"
 			},
-			[3]={
+			[2]={
 				[1]={
 					k="negate",
 					v=1
@@ -47,19 +34,6 @@ return {
 	[2]={
 		[1]={
 			[1]={
-				[1]={
-					k="negate",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Enemy Stun Threshold reduction {0}%"
-			},
-			[2]={
 				limit={
 					[1]={
 						[1]=1,
@@ -68,7 +42,7 @@ return {
 				},
 				text="Enemies in your Presence have {0}% increased Stun Threshold"
 			},
-			[3]={
+			[2]={
 				[1]={
 					k="negate",
 					v=1

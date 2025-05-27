@@ -96,14 +96,11 @@ directiveTable.base = function(state, args, out)
 	if state.subType and #state.subType > 0 then
 		out:write('\tsubType = "', state.subType, '",\n')
 	end
-	if maximumQuality ~= 0 then
+	if maximumQuality ~= 0 then --If it crashes on this line, you are missing a .It file for a base ConPrintf(baseItemType.BaseType)
 		out:write('\tquality = ', maximumQuality, ',\n')
 	end
 	if state.type == "Belt" then
-		local beltType = dat("BeltTypes"):GetRow("BaseItemType", baseItemType)
-		if beltType then
-			out:write('\tcharmLimit = ', beltType.CharmCount, ',\n')
-		end
+			out:write('\tcharmLimit = 0,\n')
 	end
 	local itemSpirit = dat("ItemSpirit"):GetRow("BaseItemType", baseItemType)
 	if itemSpirit then
@@ -136,16 +133,20 @@ directiveTable.base = function(state, args, out)
 			table.insert(implicitModTypes, modDesc.modTags)
 		end
 	end
+	if state.type == "Belt" then
+		table.insert(implicitLines, "Has (1-3) Charm Slots")
+	end
 	if #implicitLines > 0 then
 		out:write('\timplicit = "', table.concat(implicitLines, "\\n"), '",\n')
 	end
 	local inherentSkillType = dat("ItemInherentSkills"):GetRow("BaseItemType", baseItemType)
 	if inherentSkillType then
-		local skillGem = dat("SkillGems"):GetRow("BaseItemType", inherentSkillType.Skill)
+		local skillGem = dat("SkillGems"):GetRow("BaseItemType", inherentSkillType.Skill[1].BaseItemType)
+		local gemEffect = dat("GemEffects"):GetRow("GrantedEffect", skillGem.GemEffects[1].GrantedEffect)
 		if #inherentSkillType.Skill > 1 then
 			print("Unhandled Instance - Inherent Skill number more than 1")
 		end
-		out:write('\timplicit = "Grants Skill: Level (1-20) ', inherentSkillType.Skill[1].BaseItemType.Name, '",\n')
+		out:write('\timplicit = "Grants Skill: Level (1-20) ', gemEffect.GrantedEffect.ActiveSkill.DisplayName, '",\n')
 	end
 	out:write('\timplicitModTypes = { ')
 	for i=1,#implicitModTypes do
@@ -196,6 +197,9 @@ directiveTable.base = function(state, args, out)
 		out:write('CritChanceBase = ', weaponType.CritChance / 100, ', ')
 		out:write('AttackRateBase = ', round(1000 / weaponType.Speed, 2), ', ')
 		out:write('Range = ', weaponType.Range, ', ')
+		if weaponType.ReloadTime > 0 then
+			out:write('ReloadTimeBase = ', round(weaponType.ReloadTime / 1000, 2), ', ')
+		end
 		out:write('},\n')
 		itemValueSum = weaponType.DamageMin + weaponType.DamageMax
 	end
@@ -442,5 +446,5 @@ end
 
 print("Item bases exported.")
 
---processTemplateFile("Rares", "Bases/", "../Data/", directiveTable)
---print("Rare Item Templates Generated and Verified")
+processTemplateFile("Rares", "Bases/", "../Data/", directiveTable)
+print("Rare Item Templates Generated and Verified")

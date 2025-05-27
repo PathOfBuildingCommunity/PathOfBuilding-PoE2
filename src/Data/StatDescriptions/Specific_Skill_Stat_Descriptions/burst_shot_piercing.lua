@@ -14,19 +14,6 @@ return {
 	},
 	[3]={
 		[1]={
-			[1]={
-				[1]={
-					k="divide_by_ten_1dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Explosion radius {0}m"
-			}
 		},
 		stats={
 			[1]="active_skill_area_of_effect_radius"
@@ -124,16 +111,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Multiple fragments can Hit the same target, combining Damage"
-			},
-			[2]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Multiple fragments can Hit the same target\nMultiple Fragments hitting a target simultaniously will combine their damage into a single Hit"
+				text="Multiple fragments can Hit the same target\nMultiple Fragments hitting a target simultaneously will combine their damage into a single Hit"
 			}
 		},
 		stats={

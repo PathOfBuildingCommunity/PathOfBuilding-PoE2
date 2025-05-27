@@ -19,30 +19,17 @@ return {
 			}
 		},
 		stats={
-			[1]="base_life_regeneration_rate_per_minute"
+			[1]="skeletal_cleric_grants_base_life_regeneration_rate_per_minute"
 		}
 	},
 	[2]={
 		[1]={
-			[1]={
-				[1]={
-					k="milliseconds_to_seconds_2dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Regeneration duration {0}s"
-			}
 		},
 		stats={
 			[1]="skill_effect_duration"
 		}
 	},
-	["base_life_regeneration_rate_per_minute"]=1,
 	parent="skill_stat_descriptions",
+	["skeletal_cleric_grants_base_life_regeneration_rate_per_minute"]=1,
 	["skill_effect_duration"]=2
 }

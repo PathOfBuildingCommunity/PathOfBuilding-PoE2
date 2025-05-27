@@ -8,26 +8,18 @@ return {
 		}
 	},
 	[2]={
+		stats={
+			[1]="never_freeze"
+		}
+	},
+	[3]={
 		[1]={
-			[1]={
-				[1]={
-					k="divide_by_ten_1dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Burst radius {0}m"
-			}
 		},
 		stats={
 			[1]="active_skill_area_of_effect_radius"
 		}
 	},
-	[3]={
+	[4]={
 		[1]={
 			[1]={
 				[1]={
@@ -60,7 +52,7 @@ return {
 			[1]="active_skill_base_area_of_effect_radius"
 		}
 	},
-	[4]={
+	[5]={
 		[1]={
 			[1]={
 				[1]={
@@ -93,38 +85,16 @@ return {
 			[1]="cascade_attack_base_total_distance"
 		}
 	},
-	[5]={
+	[6]={
 		[1]={
-			[1]={
-				[1]={
-					k="divide_by_ten_1dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Wave length {0}m"
-			}
 		},
 		stats={
 			[1]="cascade_attack_total_distance"
 		}
 	},
-	[6]={
+	[7]={
 		[1]={
 			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Bursts {0}"
-			},
-			[2]={
 				limit={
 					[1]={
 						[1]="#",
@@ -138,11 +108,12 @@ return {
 			[1]="upheaval_number_of_spikes"
 		}
 	},
-	["active_skill_area_of_effect_radius"]=2,
-	["active_skill_base_area_of_effect_radius"]=3,
+	["active_skill_area_of_effect_radius"]=3,
+	["active_skill_base_area_of_effect_radius"]=4,
 	["base_secondary_skill_effect_duration"]=1,
-	["cascade_attack_base_total_distance"]=4,
-	["cascade_attack_total_distance"]=5,
+	["cascade_attack_base_total_distance"]=5,
+	["cascade_attack_total_distance"]=6,
+	["never_freeze"]=2,
 	parent="skill_stat_descriptions",
-	["upheaval_number_of_spikes"]=6
+	["upheaval_number_of_spikes"]=7
 }

@@ -4,19 +4,6 @@
 return {
 	[1]={
 		[1]={
-			[1]={
-				[1]={
-					k="divide_by_ten_1dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Explosion radius {0}m"
-			}
 		},
 		stats={
 			[1]="active_skill_area_of_effect_radius"
@@ -58,31 +45,6 @@ return {
 	[3]={
 		[1]={
 			[1]={
-				limit={
-					[1]={
-						[1]=1,
-						[2]=99
-					}
-				},
-				text="{0}% chance to Blind Enemies and Allies"
-			},
-			[2]={
-				limit={
-					[1]={
-						[1]=100,
-						[2]="#"
-					}
-				},
-				text="Blinds Enemies and Allies"
-			}
-		},
-		stats={
-			[1]="attacks_chance_to_blind_on_hit_%"
-		}
-	},
-	[4]={
-		[1]={
-			[1]={
 				[1]={
 					k="milliseconds_to_seconds_2dp_if_required",
 					v=1
@@ -113,21 +75,8 @@ return {
 			[1]="base_skill_effect_duration"
 		}
 	},
-	[5]={
+	[4]={
 		[1]={
-			[1]={
-				[1]={
-					k="milliseconds_to_seconds_2dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Fuse duration {0}s"
-			}
 		},
 		stats={
 			[1]="grenade_fuse_duration"
@@ -135,8 +84,7 @@ return {
 	},
 	["active_skill_area_of_effect_radius"]=1,
 	["active_skill_base_area_of_effect_radius"]=2,
-	["attacks_chance_to_blind_on_hit_%"]=3,
-	["base_skill_effect_duration"]=4,
-	["grenade_fuse_duration"]=5,
+	["base_skill_effect_duration"]=3,
+	["grenade_fuse_duration"]=4,
 	parent="skill_stat_descriptions"
 }

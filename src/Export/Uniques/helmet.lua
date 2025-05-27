@@ -11,6 +11,15 @@ UniquePercentageStrength1
 UniquePercentageDexterity1
 UniquePercentageIntelligence1
 ]],[[
+Blood Price
+Fierce Greathelm
+League: Dawn of the Hunt
+UniqueLocalIncreasedPhysicalDamageReductionRatingPercent29
+UniqueEnemiesInPresenceReservesLife1
+UniqueLifeRegeneration18
+UniqueStunThreshold18
+UniquePresenceRadius3
+]],[[
 Corona of the Red Sun
 Warrior Greathelm
 Variant: Pre 0.1.1
@@ -75,6 +84,15 @@ UniqueIncreasedSpirit1
 UniqueColdResist16
 UniqueDoublePresenceRadius1
 ]],[[
+The Black Insignia
+Corsair Cap
+League: Dawn of the Hunt
+UniqueLocalIncreasedEvasionRatingPercent24
+UniqueItemFoundRarityIncrease14
+UniqueLightningResist24
+UniqueTailwindOnCriticalStrike1
+UniqueLoseTailwindOnHit1
+]],[[
 Elevore
 Hunter Hood
 Variant: Pre 0.1.1
@@ -90,6 +108,15 @@ Felt Cap
 UniqueLocalIncreasedEvasionRating1
 UniqueItemFoundRarityIncrease3
 UniqueAllResistances1
+]],[[
+Heatshiver
+Velvet Cap
+League: Dawn of the Hunt
+UniqueLocalIncreasedEvasionRatingPercent31
+UniqueIncreasedMana45
+UniqueFireResist33
+UniqueColdResist28
+UniqueColdAddedAsFireChilledEnemy1
 ]],[[
 Innsmouth
 Shabby Hood
@@ -114,15 +141,39 @@ UniqueLocalIncreasedEvasionRatingPercent1
 UniqueFireResist6
 UniqueLightRadius7
 UniqueIgniteEnemiesInPresence1
+]],[[
+Starkonja's Head
+Leatherbound Hood
+League: Dawn of the Hunt
+UniqueLocalIncreasedEvasionRatingPercent26
+UniqueCriticalStrikeChance13
+UniqueDexterity38
+EvasionRatingPercentOnLowLifeUniqueHelmetDex4
+UniqueDamageRemovedFromCompanion1
 ]],
 -- Helmet: Energy Shield
 [[
 Atziri's Disdain
 Gold Circlet
-UniqueIncreasedMana7
-UniqueItemFoundRarityIncrease2
-UniqueDamageBypassEnergyShieldPercent1
-UniqueEnergyShieldAsPercentOfLife1
+Variant: 0.2.0
+Variant: Current
+{variant:1}UniqueIncreasedMana12[40,60]
+{variant:2}UniqueIncreasedMana12
+{variant:1}UniqueItemFoundRarityIncrease2[10,20]
+{variant:2}UniqueItemFoundRarityIncrease2
+{variant:1}UniqueDamageBypassEnergyShieldPercent1[20,25]
+{variant:2}UniqueDamageBypassEnergyShieldPercent1
+{variant:1}UniqueEnergyShieldAsPercentOfLife1[25,30]
+{variant:2}UniqueEnergyShieldAsPercentOfLife1
+]],[[
+Crown of Eyes
+Coral Circlet
+League: Dawn of the Hunt
+UniqueLocalIncreasedEnergyShieldPercent23
+UniqueIncreasedAccuracy9
+UniqueAllAttributes7
+UniqueFireResist9
+UniqueSpellDamageModifiersApplyToAttackDamage1
 ]],[[
 Crown of Thorns
 Twig Circlet
@@ -151,6 +202,15 @@ UniqueMaximumColdResist1
 {variant:2}UniqueColdResist8
 UniqueLightRadius1
 ]],[[
+Indigon
+Magus Tiara
+League: Dawn of the Hunt
+UniqueLocalIncreasedEnergyShieldPercent20
+UniqueIncreasedMana49
+UniqueSpellDamagePerManaSpent1
+UniqueManaCostPerManaSpent1
+UniqueCannotRecoverManaExceptRegen1
+]],[[
 Mask of the Stitched Demon
 Feathered Tiara
 UniqueLocalIncreasedEnergyShieldPercent18
@@ -160,10 +220,23 @@ UniqueLifeRegenPerEnergyShield1
 ]],[[
 Sandstorm Visage
 Chain Tiara
+Source: Drops from unique{Zarokh, the Temporal}
+Variant: Pre 0.2.0
+Variant: Current
 UniqueLocalIncreasedEnergyShield8
 UniqueDexterity3
 UniqueEnemiesInPresenceBlinded1
-UniqueEnemiesInPresenceGainCritWeakness1
+{variant:1}UniqueEnemiesInPresenceGainCritWeakness1[1,1]
+{variant:2}UniqueEnemiesInPresenceGainCritWeakness1
+]],[[
+Scold's Bridle
+Jade Tiara
+League: Dawn of the Hunt
+UniqueLocalIncreasedEnergyShield17
+UniqueSpellDamage3
+UniqueIncreasedMana28
+UniqueIncreasedCastSpeed12
+UniquePhysicalDamageOnSkillUse1
 ]],[[
 Visage of Ayah
 Beaded Circlet
@@ -179,10 +252,20 @@ UniqueEldritchBattery1
 [[
 Assailum
 Closed Helm
+Source: Drops from unique{Kosis, The Revelation}
 UniqueLocalIncreasedArmourAndEvasion6
 UniqueIncreasedAccuracy10
 UniqueCriticalStrikeChance11
 UniquePerfectTimingWindow1
+]],[[
+The Bringer of Rain
+Decorated Helm
+League: Dawn of the Hunt
+UniqueLocalIncreasedArmourAndEvasion27
+UniqueIncreasedAccuracy11
+UniqueLifeRegeneration16
+UniqueDisableChestSlot1
+UniqueUseTwoHandedWeaponOneHand1
 ]],[[
 Erian's Cobble
 Guarded Helm
@@ -269,7 +352,7 @@ UniqueReducedShockEffectOnSelf1
 ]],[[
 Cornathaum
 Heavy Crown
-UniqueItemFoundRarityIncrease2
+UniqueItemFoundRarityIncrease10
 UniqueIntelligence16
 UniqueLightRadius7
 UniqueExperienceIncrease1
@@ -286,13 +369,27 @@ UniqueThornsOnAnyHit1
 ]],[[
 Crown of the Victor
 Iron Crown
-UniqueItemFoundRarityIncrease2
+Variant: Pre 0.2.0
+Variant: Current
+{variant:1}UniqueItemFoundRarityIncrease2[10,20]
+{variant:2}UniqueItemFoundRarityIncrease2
 UniqueLifeGainedFromEnemyDeath2
 UniqueManaGainedFromEnemyDeath3
 UniqueGlobalSkillGemLevel1
 ]],[[
+The Deepest Tower
+Spiritbone Crown
+League: Dawn of the Hunt
+UniqueLocalIncreasedArmourAndEnergyShield18
+UniqueIncreasedLife46
+UniqueChaosResist14
+UniquePresenceRadius2
+UniqueLightRadius19
+UniqueEnemiesInPresenceLowLife1
+]],[[
 Keeper of the Arc
 Spiritbone Crown
+Source: Drops from unique{Olroth, Origin of the Fall}
 UniqueLocalIncreasedArmourAndEnergyShield7
 UniqueLifeRegeneration10
 UniqueManaRegeneration26
@@ -320,6 +417,7 @@ UniquePoisonOnCrit1
 ]],[[
 Glimpse of Chaos
 Tribal Mask
+Source: Drops from unique{Trialmaster} in normal{The Trial of Chaos}
 UniqueModifyableWhileCorrupted1
 UniqueIncreasedLife37
 UniqueIncreasedMana33
@@ -366,6 +464,7 @@ UniqueGlobalItemAttributeRequirements1
 [[
 Solus Ipse
 Grand Visage
+Source: Drops from unique{Arbiter of Ash} in normal{The Burning Monolith}
 UniqueIncreasedMana12
 UniqueLightRadius9
 UniqueLocalArmourAndEvasionAndEnergyShield2
