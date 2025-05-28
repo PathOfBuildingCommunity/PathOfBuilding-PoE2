@@ -131,13 +131,15 @@ statMap = {
 #skill SupportConcoctPlayer
 #set SupportConcoctPlayer
 statMap = {
-	["support_concoct_bleed_effect_+%_final_per_life_flask_charge_consumed"] = {
-		mod("AilmentMagnitude", "MORE", nil, 0, KeywordFlag.Bleed, { type = "Multiplier", var = "LifeFlaskChargesUsed"}),
-	},
 	["consume_%_of_maximum_life_flask_charges_on_skill_use"] = {
-		-- Display only
+		mod("Multiplier:LifeFlaskMaxChargesPercent", "BASE", nil),
+	},
+	["support_concoct_bleed_effect_+%_final_per_life_flask_charge_consumed"] = {
+		mod("AilmentMagnitude", "MORE", nil, 0, KeywordFlag.Bleed, { type = "Multiplier", var = "LifeFlaskChargeConsumed"}),
 	},
 },
+#baseMod mod("Multiplier:LifeFlaskChargeConsumed", "BASE", 1, 0, 0, { type = "PercentStat", stat = "LifeFlask1MaxCharges", percentVar = "LifeFlaskMaxChargesPercent", floor = true })
+#baseMod mod("Multiplier:LifeFlaskChargeConsumed", "BASE", 1, 0, 0, { type = "PercentStat", stat = "LifeFlask2MaxCharges", percentVar = "LifeFlaskMaxChargesPercent", floor = true })
 #mods
 #skillEnd
 
@@ -728,7 +730,7 @@ statMap = {
 
 #skill StompingGroundShockwavePlayer
 #set StompingGroundShockwavePlayer
-#flags nonWeaponAttack area
+#flags nonWeaponAttack area melee
 statMap = {
 	["attack_minimum_added_physical_damage_as_%_of_strength"] = {
 		skill("PhysicalMin", nil, { type = "PercentStat", stat = "Str", percent = 1 }),

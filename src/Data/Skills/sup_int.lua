@@ -119,7 +119,19 @@ skills["SupportAmbrosiaPlayer"] = {
 			label = "Ambrosia",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["consume_%_of_maximum_mana_flask_charges_on_skill_use"] = {
+					mod("Multiplier:ManaFlaskMaxChargesPercent", "BASE", nil),
+				},
+				["gain_%_damage_as_lighting_per_mana_flask_charge_consumed"] = {
+					mod("DamageGainAsLightning", "BASE", nil, 0, 0, { type = "Multiplier", var = "ManaFlaskChargeConsumed"}),
+				},
+			},
 			baseFlags = {
+			},
+			baseMods = {
+				mod("Multiplier:ManaFlaskChargeConsumed", "BASE", 1, 0, 0, { type = "PercentStat", stat = "ManaFlask1MaxCharges", percentVar = "ManaFlaskMaxChargesPercent", floor = true }),
+				mod("Multiplier:ManaFlaskChargeConsumed", "BASE", 1, 0, 0, { type = "PercentStat", stat = "ManaFlask2MaxCharges", percentVar = "ManaFlaskMaxChargesPercent", floor = true }),
 			},
 			constantStats = {
 				{ "consume_%_of_maximum_mana_flask_charges_on_skill_use", 20 },

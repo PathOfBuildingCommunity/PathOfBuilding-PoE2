@@ -3684,6 +3684,15 @@ return {
 				["type"] = "enchant", 
 			}, 
 		}, 
+		["51867"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|51867", 
+				["text"] = "Allocates Finality", 
+				["type"] = "enchant", 
+			}, 
+		}, 
 		["51871"] = {
 			["specialCaseData"] = {
 			}, 
@@ -6104,19 +6113,6 @@ return {
 				["type"] = "enchant", 
 			}, 
 		}, 
-		["832_LocalIncreasedBlockPercentage"] = {
-			["Shield"] = {
-				["max"] = 30, 
-				["min"] = 20, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_2481353198", 
-				["text"] = "#% increased Block chance", 
-				["type"] = "enchant", 
-			}, 
-		}, 
 		["837_LocalPhysicalDamageReductionRatingPercent"] = {
 			["Boots"] = {
 				["max"] = 25, 
@@ -6141,7 +6137,7 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_1062208444", 
+				["id"] = "enchant.stat_2866361420", 
 				["text"] = "#% increased Armour", 
 				["type"] = "enchant", 
 			}, 
@@ -6170,7 +6166,7 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_124859000", 
+				["id"] = "enchant.stat_2106365538", 
 				["text"] = "#% increased Evasion Rating", 
 				["type"] = "enchant", 
 			}, 
@@ -6417,7 +6413,7 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_1062208444", 
+				["id"] = "enchant.stat_2866361420", 
 				["text"] = "#% increased Armour", 
 				["type"] = "enchant", 
 			}, 
@@ -6430,7 +6426,7 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "enchant.stat_124859000", 
+				["id"] = "enchant.stat_2106365538", 
 				["text"] = "#% increased Evasion Rating", 
 				["type"] = "enchant", 
 			}, 
@@ -6632,51 +6628,6 @@ return {
 				["type"] = "enchant", 
 			}, 
 			["usePositiveSign"] = true, 
-		}, 
-		["915_LocalIncreasedAttackSpeed"] = {
-			["1HMace"] = {
-				["max"] = 8, 
-				["min"] = 6, 
-			}, 
-			["1HWeapon"] = {
-				["max"] = 8, 
-				["min"] = 6, 
-			}, 
-			["2HMace"] = {
-				["max"] = 8, 
-				["min"] = 6, 
-			}, 
-			["2HWeapon"] = {
-				["max"] = 8, 
-				["min"] = 6, 
-			}, 
-			["Bow"] = {
-				["max"] = 8, 
-				["min"] = 6, 
-			}, 
-			["Crossbow"] = {
-				["max"] = 8, 
-				["min"] = 6, 
-			}, 
-			["Flail"] = {
-				["max"] = 8, 
-				["min"] = 6, 
-			}, 
-			["Quarterstaff"] = {
-				["max"] = 8, 
-				["min"] = 6, 
-			}, 
-			["Spear"] = {
-				["max"] = 8, 
-				["min"] = 6, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "enchant.stat_210067635", 
-				["text"] = "#% increased Attack Speed", 
-				["type"] = "enchant", 
-			}, 
 		}, 
 		["916_LocalAttributeRequirements"] = {
 			["1HMace"] = {
@@ -7608,7 +7559,7 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "explicit.stat_2481353198", 
+				["id"] = "explicit.stat_4147897060", 
 				["text"] = "#% increased Block chance", 
 				["type"] = "explicit", 
 			}, 
@@ -7960,7 +7911,7 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "explicit.stat_1604736568", 
+				["id"] = "explicit.stat_1030153674", 
 				["text"] = "Recover #% of maximum Mana on Kill", 
 				["type"] = "explicit", 
 			}, 
@@ -10007,7 +9958,7 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "explicit.stat_2481353198", 
+				["id"] = "explicit.stat_4147897060", 
 				["text"] = "#% increased Block chance", 
 				["type"] = "explicit", 
 			}, 
@@ -10036,7 +9987,7 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "explicit.stat_3484657501", 
+				["id"] = "explicit.stat_809229260", 
 				["text"] = "# to Armour", 
 				["type"] = "explicit", 
 			}, 
@@ -10066,7 +10017,7 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "explicit.stat_3484657501", 
+				["id"] = "explicit.stat_809229260", 
 				["text"] = "# to Armour", 
 				["type"] = "explicit", 
 			}, 
@@ -10080,7 +10031,7 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "explicit.stat_3484657501", 
+				["id"] = "explicit.stat_809229260", 
 				["text"] = "# to Armour", 
 				["type"] = "explicit", 
 			}, 
@@ -10094,7 +10045,7 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "explicit.stat_3484657501", 
+				["id"] = "explicit.stat_809229260", 
 				["text"] = "# to Armour", 
 				["type"] = "explicit", 
 			}, 
@@ -10108,7 +10059,7 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "explicit.stat_3484657501", 
+				["id"] = "explicit.stat_809229260", 
 				["text"] = "# to Armour", 
 				["type"] = "explicit", 
 			}, 
@@ -10138,7 +10089,7 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "explicit.stat_3484657501", 
+				["id"] = "explicit.stat_809229260", 
 				["text"] = "# to Armour", 
 				["type"] = "explicit", 
 			}, 
@@ -10168,7 +10119,7 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "explicit.stat_53045048", 
+				["id"] = "explicit.stat_2144192055", 
 				["text"] = "# to Evasion Rating", 
 				["type"] = "explicit", 
 			}, 
@@ -10194,7 +10145,7 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "explicit.stat_53045048", 
+				["id"] = "explicit.stat_2144192055", 
 				["text"] = "# to Evasion Rating", 
 				["type"] = "explicit", 
 			}, 
@@ -10224,7 +10175,7 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "explicit.stat_53045048", 
+				["id"] = "explicit.stat_2144192055", 
 				["text"] = "# to Evasion Rating", 
 				["type"] = "explicit", 
 			}, 
@@ -10238,7 +10189,7 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "explicit.stat_53045048", 
+				["id"] = "explicit.stat_2144192055", 
 				["text"] = "# to Evasion Rating", 
 				["type"] = "explicit", 
 			}, 
@@ -10252,7 +10203,7 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "explicit.stat_53045048", 
+				["id"] = "explicit.stat_2144192055", 
 				["text"] = "# to Evasion Rating", 
 				["type"] = "explicit", 
 			}, 
@@ -10266,7 +10217,7 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "explicit.stat_53045048", 
+				["id"] = "explicit.stat_2144192055", 
 				["text"] = "# to Evasion Rating", 
 				["type"] = "explicit", 
 			}, 
@@ -10296,7 +10247,7 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "explicit.stat_4052037485", 
+				["id"] = "explicit.stat_3489782002", 
 				["text"] = "# to maximum Energy Shield", 
 				["type"] = "explicit", 
 			}, 
@@ -10322,7 +10273,7 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "explicit.stat_4052037485", 
+				["id"] = "explicit.stat_3489782002", 
 				["text"] = "# to maximum Energy Shield", 
 				["type"] = "explicit", 
 			}, 
@@ -10352,7 +10303,7 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "explicit.stat_4052037485", 
+				["id"] = "explicit.stat_3489782002", 
 				["text"] = "# to maximum Energy Shield", 
 				["type"] = "explicit", 
 			}, 
@@ -10366,7 +10317,7 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "explicit.stat_4052037485", 
+				["id"] = "explicit.stat_3489782002", 
 				["text"] = "# to maximum Energy Shield", 
 				["type"] = "explicit", 
 			}, 
@@ -10380,7 +10331,7 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "explicit.stat_4052037485", 
+				["id"] = "explicit.stat_3489782002", 
 				["text"] = "# to maximum Energy Shield", 
 				["type"] = "explicit", 
 			}, 
@@ -10394,7 +10345,7 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "explicit.stat_4052037485", 
+				["id"] = "explicit.stat_3489782002", 
 				["text"] = "# to maximum Energy Shield", 
 				["type"] = "explicit", 
 			}, 
@@ -10412,7 +10363,7 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "explicit.stat_1062208444", 
+				["id"] = "explicit.stat_2866361420", 
 				["text"] = "#% increased Armour", 
 				["type"] = "explicit", 
 			}, 
@@ -10425,7 +10376,7 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "explicit.stat_1062208444", 
+				["id"] = "explicit.stat_2866361420", 
 				["text"] = "#% increased Armour", 
 				["type"] = "explicit", 
 			}, 
@@ -10446,7 +10397,7 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "explicit.stat_1062208444", 
+				["id"] = "explicit.stat_2866361420", 
 				["text"] = "#% increased Armour", 
 				["type"] = "explicit", 
 			}, 
@@ -10459,7 +10410,7 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "explicit.stat_1062208444", 
+				["id"] = "explicit.stat_2866361420", 
 				["text"] = "#% increased Armour", 
 				["type"] = "explicit", 
 			}, 
@@ -10488,7 +10439,7 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "explicit.stat_1062208444", 
+				["id"] = "explicit.stat_2866361420", 
 				["text"] = "#% increased Armour", 
 				["type"] = "explicit", 
 			}, 
@@ -10539,7 +10490,7 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "explicit.stat_124859000", 
+				["id"] = "explicit.stat_2106365538", 
 				["text"] = "#% increased Evasion Rating", 
 				["type"] = "explicit", 
 			}, 
@@ -10568,7 +10519,7 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "explicit.stat_124859000", 
+				["id"] = "explicit.stat_2106365538", 
 				["text"] = "#% increased Evasion Rating", 
 				["type"] = "explicit", 
 			}, 
@@ -10581,7 +10532,7 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "explicit.stat_124859000", 
+				["id"] = "explicit.stat_2106365538", 
 				["text"] = "#% increased Evasion Rating", 
 				["type"] = "explicit", 
 			}, 
@@ -10602,7 +10553,7 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "explicit.stat_124859000", 
+				["id"] = "explicit.stat_2106365538", 
 				["text"] = "#% increased Evasion Rating", 
 				["type"] = "explicit", 
 			}, 
@@ -10615,7 +10566,7 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "explicit.stat_124859000", 
+				["id"] = "explicit.stat_2106365538", 
 				["text"] = "#% increased Evasion Rating", 
 				["type"] = "explicit", 
 			}, 
@@ -11762,7 +11713,7 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "explicit.stat_3484657501", 
+				["id"] = "explicit.stat_809229260", 
 				["text"] = "# to Armour", 
 				["type"] = "explicit", 
 			}, 
@@ -11784,7 +11735,7 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "explicit.stat_1062208444", 
+				["id"] = "explicit.stat_2866361420", 
 				["text"] = "#% increased Armour", 
 				["type"] = "explicit", 
 			}, 
@@ -11797,7 +11748,7 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "explicit.stat_53045048", 
+				["id"] = "explicit.stat_2144192055", 
 				["text"] = "# to Evasion Rating", 
 				["type"] = "explicit", 
 			}, 
@@ -11819,7 +11770,7 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "explicit.stat_124859000", 
+				["id"] = "explicit.stat_2106365538", 
 				["text"] = "#% increased Evasion Rating", 
 				["type"] = "explicit", 
 			}, 
@@ -11832,7 +11783,7 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "explicit.stat_4052037485", 
+				["id"] = "explicit.stat_3489782002", 
 				["text"] = "# to maximum Energy Shield", 
 				["type"] = "explicit", 
 			}, 
@@ -12667,19 +12618,6 @@ return {
 				["type"] = "explicit", 
 			}, 
 		}, 
-		["899_CharmIncreasedDuration"] = {
-			["Charm"] = {
-				["max"] = 40, 
-				["min"] = 16, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "explicit.stat_2541588185", 
-				["text"] = "#% increased Duration", 
-				["type"] = "explicit", 
-			}, 
-		}, 
 		["900_FlaskIncreasedRecoveryOnLowMana"] = {
 			["ManaFlask"] = {
 				["max"] = 100, 
@@ -13073,7 +13011,7 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "explicit.stat_210067635", 
+				["id"] = "explicit.stat_681332047", 
 				["text"] = "#% increased Attack Speed", 
 				["type"] = "explicit", 
 			}, 
@@ -13738,7 +13676,7 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "explicit.stat_210067635", 
+				["id"] = "explicit.stat_681332047", 
 				["text"] = "#% increased Attack Speed", 
 				["type"] = "explicit", 
 			}, 
@@ -17919,56 +17857,6 @@ return {
 				["type"] = "rune", 
 			}, 
 		}, 
-		["828"] = {
-			["1HMace"] = {
-				["max"] = 110, 
-				["min"] = 50, 
-			}, 
-			["1HWeapon"] = {
-				["max"] = 110, 
-				["min"] = 50, 
-			}, 
-			["2HMace"] = {
-				["max"] = 110, 
-				["min"] = 50, 
-			}, 
-			["2HWeapon"] = {
-				["max"] = 110, 
-				["min"] = 50, 
-			}, 
-			["Bow"] = {
-				["max"] = 110, 
-				["min"] = 50, 
-			}, 
-			["Claw"] = {
-				["max"] = 110, 
-				["min"] = 50, 
-			}, 
-			["Crossbow"] = {
-				["max"] = 110, 
-				["min"] = 50, 
-			}, 
-			["Flail"] = {
-				["max"] = 110, 
-				["min"] = 50, 
-			}, 
-			["Quarterstaff"] = {
-				["max"] = 110, 
-				["min"] = 50, 
-			}, 
-			["Spear"] = {
-				["max"] = 110, 
-				["min"] = 50, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "rune.stat_691932474", 
-				["text"] = "# to Accuracy Rating", 
-				["type"] = "rune", 
-			}, 
-			["usePositiveSign"] = true, 
-		}, 
 		["830"] = {
 			["1HMace"] = {
 				["max"] = 8, 
@@ -18333,55 +18221,6 @@ return {
 				["type"] = "rune", 
 			}, 
 			["usePositiveSign"] = true, 
-		}, 
-		["915"] = {
-			["1HMace"] = {
-				["max"] = 5, 
-				["min"] = 5, 
-			}, 
-			["1HWeapon"] = {
-				["max"] = 5, 
-				["min"] = 5, 
-			}, 
-			["2HMace"] = {
-				["max"] = 5, 
-				["min"] = 5, 
-			}, 
-			["2HWeapon"] = {
-				["max"] = 5, 
-				["min"] = 5, 
-			}, 
-			["Bow"] = {
-				["max"] = 5, 
-				["min"] = 5, 
-			}, 
-			["Claw"] = {
-				["max"] = 5, 
-				["min"] = 5, 
-			}, 
-			["Crossbow"] = {
-				["max"] = 5, 
-				["min"] = 5, 
-			}, 
-			["Flail"] = {
-				["max"] = 5, 
-				["min"] = 5, 
-			}, 
-			["Quarterstaff"] = {
-				["max"] = 5, 
-				["min"] = 5, 
-			}, 
-			["Spear"] = {
-				["max"] = 5, 
-				["min"] = 5, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "rune.stat_210067635", 
-				["text"] = "#% increased Attack Speed", 
-				["type"] = "rune", 
-			}, 
 		}, 
 		["9189"] = {
 			["Boots"] = {

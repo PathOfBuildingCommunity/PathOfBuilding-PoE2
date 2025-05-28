@@ -1816,7 +1816,7 @@ function ItemsTabClass:IsItemValidForSlot(item, slotName, itemSet)
 		if not node or item.type ~= "Jewel" then
 			return false
 		elseif node.containJewelSocket  then
-			if item.rarity == "UNIQUE" or (item.base and item.base.subType ~= nil) then
+			if item.rarity == "UNIQUE" or item.rarity == "RELIC" or (item.base and item.base.subType ~= nil) then
 				-- Lich socket can only accept basic non-unique jewels
 				-- Need to change this to use ModParser if GGG add different conditional ascendancy jewel sockets
 				return false

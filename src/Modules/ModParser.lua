@@ -3223,9 +3223,8 @@ local specialModList = {
 	["trigger level (%d+) (.+) after spending a total of (%d+) mana"] = function(num, _, skill) return triggerExtraSkill(skill, num) end,
 	["consumes a void charge to trigger level (%d+) (.+) when you fire arrows"] = function(num, _, skill) return triggerExtraSkill(skill, num) end,
 	["consumes a void charge to trigger level (%d+) (.+) when you fire arrows with a non%-triggered skill"] = function(num, _, skill) return triggerExtraSkill(skill, num) end,
-	["your hits treat cold resistance as (%d+)%% higher than actual value"] = function(num) return {
-		mod("ColdPenetration", "BASE", -num, nil, 0, KeywordFlag.Hit),
-	} end,
+	["your hits treat cold resistance as (%d+)%% higher than actual value"] = function(num) return { mod("ColdPenetration", "BASE", -num, nil, 0, KeywordFlag.Hit) } end,
+	["your hits can penetrate elemental resistances down to a minimum of %-(%d+)%%"] = function(num) return { mod("ElementalPenetrationMinimum", "BASE", -num, nil, 0, KeywordFlag.Hit) } end,
 	-- Conversion
 	["increases and reductions to minion damage also affects? you"] = { flag("MinionDamageAppliesToPlayer"), mod("ImprovedMinionDamageAppliesToPlayer", "MAX", 100) },
 	["increases and reductions to minion damage also affects? you at (%d+)%% of their value"] = function(num) return { flag("MinionDamageAppliesToPlayer"), mod("ImprovedMinionDamageAppliesToPlayer", "MAX", num) } end,
@@ -6225,6 +6224,14 @@ local jewelOtherFuncs = {
 		return function(node, out, data)
 			if node and node.type == "Normal" and not node.isAttribute then
 				out:NewMod("JewelSmallPassiveSkillEffect", "INC", tonumber(num), data.modSource, { type = "GlobalEffect", effectType = "Global", unscalable = true })
+				out[#out].parsedLine = num.."% increased Effect"
+			end
+		end
+	end,
+	["(%d+)%% increased Effect of Notable Passive Skills in Radius$"] = function(num)
+		return function(node, out, data)
+			if node and node.type == "Notable" then
+				out:NewMod("JewelNotablePassiveSkillEffect", "INC", tonumber(num), data.modSource, { type = "GlobalEffect", effectType = "Global", unscalable = true })
 				out[#out].parsedLine = num.."% increased Effect"
 			end
 		end
