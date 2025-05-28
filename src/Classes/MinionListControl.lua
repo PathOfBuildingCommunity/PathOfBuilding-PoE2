@@ -70,7 +70,7 @@ function MinionListClass:AddValueTooltip(tooltip, index, minionId)
 		if minion.evasion then
 			tooltip:AddLine(14, s_format("^7Evasion Multiplier: x%.2f", 1 + minion.evasion))
 		end
-		tooltip:AddLine(14, s_format("^7Resistances: %s%d^7/%s%d^7/%s%d^7/%s%d", 
+		tooltip:AddLine(14, s_format("^7Resistances: %s%d ^7/ %s%d ^7/ %s%d ^7/ %s%d",
 			colorCodes.FIRE, minion.fireResist, 
 			colorCodes.COLD, minion.coldResist, 
 			colorCodes.LIGHTNING, minion.lightningResist, 
@@ -78,7 +78,7 @@ function MinionListClass:AddValueTooltip(tooltip, index, minionId)
 		))
 		tooltip:AddLine(14, s_format("^7Base Damage: x%.2f", minion.damage))
 		tooltip:AddLine(14, s_format("^7Base Attack Speed: %.2f", 1 / minion.attackTime))
-
+		tooltip:AddLine(14, s_format("^7Base Movement Speed: %.2f", minion.baseMovementSpeed / 10))
 		for _, skillId in ipairs(minion.skillList) do
 			if self.data.skills[skillId] then
 				tooltip:AddLine(14, "^7Skill: "..self.data.skills[skillId].name)

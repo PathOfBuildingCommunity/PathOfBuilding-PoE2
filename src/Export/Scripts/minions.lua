@@ -216,6 +216,7 @@ directiveTable.emit = function(state, args, out)
 	if state.limit then
 		out:write('\tlimit = "', state.limit, '",\n')
 	end
+	out:write('\tbaseMovementSpeed = ', monsterVariety.MovementSpeed, ',\n')
 	if monsterVariety.ExperienceMultiplier then
 		out:write('\tspectreReservation = ', (round(50 * math.max(monsterVariety.ExperienceMultiplier/100, 0) / 10) * 10), ',\n')
 		out:write('\tcompanionReservation = ', (round(math.sqrt(monsterVariety.ExperienceMultiplier/100), 2) * 30), ',\n') 

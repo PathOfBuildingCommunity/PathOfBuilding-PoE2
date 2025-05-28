@@ -35,7 +35,8 @@ local MinionSearchListClass = newClass("MinionSearchListControl", "MinionListCon
 		"Sort by Cold Resistance",
 		"Sort by Lightning Resistance",
 		"Sort by Chaos Resistance",
-		"Sort by Total Resistance"
+		"Sort by Total Resistance",
+		"Sort by Movement Speed",
 	}, function(index, value)
 			self:sortSourceList()
 	end)
@@ -99,6 +100,7 @@ function MinionSearchListClass:sortSourceList()
 		[10] = { field = "lightningResist", asc = false },
 		[11] = { field = "chaosResist", asc = false },
 		[12] = { field = "totalResist", asc = false },
+		[13] = { field = "baseMovementSpeed", asc = false },
 	}
 	local sortModeIndex = self.controls.sortModeDropDown and self.controls.sortModeDropDown.selIndex or 1
 	local sortOption = sortFields[sortModeIndex]

@@ -180,6 +180,50 @@ skills["AzmeriPictBowRainOfSpores"] = {
 		},
 	}
 }
+skills["BloodMageBloodTendrils"] = {
+	name = "Exsanguinate",
+	hidden = true,
+	description = "Expel your own blood as Chaining blood tendrils in a cone in front of you. Enemies hit by the tendrils take Physical damage and are inflicted with a Debuff that deals Physical damage over time.",
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Chains] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Physical] = true, [SkillType.CanRapidFire] = true, [SkillType.DamageOverTime] = true, [SkillType.Duration] = true, [SkillType.UsableWhileMoving] = true, },
+	castTime = 1.67,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { critChance = 5, storedUses = 1, levelRequirement = 0, cooldown = 0.5, },
+	},
+	statSets = {
+		[1] = {
+			label = "Exsanguinate",
+			baseEffectiveness = 2.5,
+			incrementalEffectiveness = 0.10000000149012,
+			damageIncrementalEffectiveness = 0.017500000074506,
+			statDescriptionScope = "exsanguinate",
+			baseFlags = {
+				spell = true,
+				hit = true,
+				triggerable = true,
+				duration = true,
+				chaining = true,
+			},
+			constantStats = {
+				{ "base_skill_effect_duration", 1000 },
+				{ "number_of_chains", 1 },
+				{ "spell_maximum_action_distance_+%", -40 },
+				{ "active_skill_base_radius_+", -8 },
+			},
+			stats = {
+				"spell_minimum_base_physical_damage",
+				"spell_maximum_base_physical_damage",
+				"base_physical_damage_to_deal_per_minute",
+				"blood_tendrils_beam_count",
+				"spell_damage_modifiers_apply_to_skill_dot",
+			},
+			levels = {
+				[1] = { 0.80000001192093, 1.2000000476837, 66.666668156783, 2, statInterpolation = { 3, 3, 3, 1, }, actorLevel = 1, },
+			},
+		},
+	}
+}
 skills["CGEBloodPriestBoilingBlood"] = {
 	name = "Boiling Blood",
 	hidden = true,
@@ -1341,6 +1385,48 @@ skills["MPSAzmeriPictStaffProj2"] = {
 				"action_attack_or_cast_time_uses_animation_length",
 				"maintain_projectile_direction_when_using_contact_position",
 				"check_for_targets_between_initiator_and_projectile_source",
+			},
+			levels = {
+				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["MPSBloodMageBloodProjectile"] = {
+	name = "Blood Projectile",
+	hidden = true,
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, },
+	castTime = 2.57,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { critChance = 5, storedUses = 1, levelRequirement = 0, cooldown = 6, },
+	},
+	statSets = {
+		[1] = {
+			label = "Blood Projectile",
+			baseEffectiveness = 3,
+			incrementalEffectiveness = 0.10000000149012,
+			damageIncrementalEffectiveness = 0.017500000074506,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				spell = true,
+				projectile = true,
+				triggerable = true,
+				hit = true,
+			},
+			constantStats = {
+				{ "monster_projectile_variation", 1041 },
+				{ "number_of_additional_projectiles", 2 },
+			},
+			stats = {
+				"spell_minimum_base_physical_damage",
+				"spell_maximum_base_physical_damage",
+				"base_is_projectile",
+				"projectile_uses_contact_position",
+				"check_for_targets_between_initiator_and_projectile_source",
+				"projectile_uses_contact_direction",
+				"distribute_projectiles_over_contact_points",
 			},
 			levels = {
 				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },

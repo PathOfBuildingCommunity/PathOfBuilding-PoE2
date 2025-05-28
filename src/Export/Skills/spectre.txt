@@ -42,6 +42,12 @@ statMap = {
 #mods
 #skillEnd
 
+#skill BloodMageBloodTendrils
+#set BloodMageBloodTendrils
+#flags spell hit triggerable duration chaining
+#mods
+#skillEnd
+
 #skill CGEBloodPriestBoilingBlood Boiling Blood
 #set CGEBloodPriestBoilingBlood
 #flags spell area triggerable duration
@@ -233,6 +239,12 @@ statMap = {
 #set MPSAzmeriPictStaffProj
 #flags spell projectile triggerable hit
 #baseMod mod("ProjectileCount", "BASE", 2)
+#mods
+#skillEnd
+
+#skill MPSBloodMageBloodProjectile Blood Projectile
+#set MPSBloodMageBloodProjectile
+#flags spell projectile triggerable hit
 #mods
 #skillEnd
 

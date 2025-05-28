@@ -1457,19 +1457,20 @@ function buildMode:OpenSpectreLibrary(library)
 				end
 			end
 		end
-		controls.minionNameLabel = new("LabelControl", {"TOP",controls.source,"TOPRIGHT"}, {130, -25, 0, 18}, "^7"..minion.name)
+		local movementSpeed = minion.baseMovementSpeed / 10 .. " m/s"
+		controls.minionNameLabel.labelText = "^7" .. minion.name
 		controls.lifeLabel.lifeValue = round(totalLife)
 		controls.energyshieldLabel.energyShieldValue = round(totalES)
 		controls.armourLabel.armourValue = round(totalArmour)
 		controls.blockLabel.blockValue = blockChance
 		controls.evasionLabel.evasionValue = round(totalEvasion)
 		controls.resistsLabel.resistsValue = (
-			colorCodes.FIRE..minion.fireResist.."^7/"..
-			colorCodes.COLD..minion.coldResist.."^7/"..
-			colorCodes.LIGHTNING..minion.lightningResist.."^7/"..
+			colorCodes.FIRE..minion.fireResist.."^7 / "..
+			colorCodes.COLD..minion.coldResist.."^7 / "..
+			colorCodes.LIGHTNING..minion.lightningResist.."^7 / "..
 			colorCodes.CHAOS..minion.chaosResist)
+		controls.movementSpeedLabel.movementSpeedValue = movementSpeed
 	end
-
 
 	local label = (library == "beast" and "Beasts" or "Spectres")
 	controls.list = new("MinionListControl", nil, {-230, 40, 210, 270}, self.data, destList, nil, label.." in Build:")
@@ -1542,14 +1543,23 @@ function buildMode:OpenSpectreLibrary(library)
 	end
 	spectrePopup:SelectControl(spectrePopup.controls.source.controls.searchText)
 
-	controls.minionNameLabel = new("LabelControl", {"TOP",controls.source,"TOPRIGHT"}, {130, -25, 0, 18}, "Minion Stats")
-	controls.minionGemLevelLabel = new("LabelControl", {"BOTTOM", controls.minionNameLabel, "TOP"}, {-40, -10, 0, 16}, "Gem Level:")
-	controls.minionGemLevel = new("EditControl", {"LEFT", controls.minionGemLevelLabel, "RIGHT"}, {4, 0, 60, 20}, "20", nil, "%D", 3, function()
+	controls.minionNameLabel = new("LabelControl", {"TOP",controls.source,"TOP"}, {230, -50, 0, 18}, "Minion Stats")
+	controls.minionNameLabel.Draw = function(self, view)
+		local xPos, yPos = self:GetPos()
+		SetDrawColor(colorCodes.RELIC)
+		DrawImage(nil, xPos-78, yPos-10, 244, 38)
+		SetDrawColor(0,0,0,1)
+		DrawImage(nil, xPos-76, yPos-8, 240, 34)
+		SetDrawColor(1, 1, 1)
+		DrawString(xPos + 45, yPos, "CENTER_X", 18, "VAR BOLD", self.labelText or "Monster Stats")
+	end
+	controls.minionGemLevelLabel = new("LabelControl", {"BOTTOM", controls.minionNameLabel, "TOP"}, {-40, 275, 0, 16}, "Gem Level:")
+	controls.minionGemLevel = new("EditControl", {"LEFT", controls.minionGemLevelLabel, "RIGHT"}, {4, 0, 60, 20}, 20, nil, "%D", 3, function()
 		if self.lastSelectedMinion then
 			UpdateMinionDisplay(self.lastSelectedMinion)
 		end
 	end)
-	controls.lifeLabel = new("LabelControl", {"TOP", controls.source, "TOP"}, {170, 4, 0, 16}, colorCodes.LIFE.."LIFE")
+	controls.lifeLabel = new("LabelControl", {"TOP", controls.source, "TOP"}, {170, -9, 0, 16}, colorCodes.LIFE.."LIFE")
 	controls.lifeLabel.Draw = function(self, view)
 		local xPos, yPos = self:GetPos()
 		local boxWidth, boxHeight = 120, 50
@@ -1559,14 +1569,14 @@ function buildMode:OpenSpectreLibrary(library)
 		SetDrawColor(0, 0, 0, 1)
 		DrawImage(nil, xPos + (labelWidth / 2) - (boxWidth / 2) + 2, yPos - 1, boxWidth - 4, boxHeight - 4)
 		SetDrawColor(colorCodes.LIFE)
-		DrawImage(nil, xPos + (labelWidth / 2) - (boxWidth / 2), yPos + 15, boxWidth, 2)
+		DrawImage(nil, xPos + (labelWidth / 2) - (boxWidth / 2), yPos + 16, boxWidth, 2)
 		SetDrawColor(1, 1, 1)
 		DrawString(xPos + (labelWidth / 2), yPos, "CENTER_X", 16, "VAR BOLD", "LIFE")
 		if self.lifeValue then
 			DrawString(xPos + (labelWidth / 2), yPos + 24, "CENTER_X", 16, "VAR", self.lifeValue)
 		end
 	end
-	controls.energyshieldLabel = new("LabelControl", {"TOP",controls.source,"TOP"}, {293, 4, 0, 16}, colorCodes.ES.."ENERGY SHIELD")
+	controls.energyshieldLabel = new("LabelControl", {"TOP",controls.source,"TOP"}, {293, -9, 0, 16}, colorCodes.ES.."ENERGY SHIELD")
 	controls.energyshieldLabel.Draw = function(self, view)
 		local xPos, yPos = self:GetPos()
 		local boxWidth, boxHeight = 120, 50
@@ -1576,7 +1586,7 @@ function buildMode:OpenSpectreLibrary(library)
 		SetDrawColor(0, 0, 0, 1)
 		DrawImage(nil, xPos + (labelWidth / 2) - (boxWidth / 2) + 2, yPos - 1, boxWidth - 4, boxHeight - 4)
 		SetDrawColor(colorCodes.ES)
-		DrawImage(nil, xPos + (labelWidth / 2) - (boxWidth / 2), yPos + 15, boxWidth, 2)
+		DrawImage(nil, xPos + (labelWidth / 2) - (boxWidth / 2), yPos + 16, boxWidth, 2)
 		SetDrawColor(1, 1, 1)
 		DrawString(xPos + (labelWidth / 2), yPos, "CENTER_X", 16, "VAR BOLD", "ENERGY SHIELD")
 		if self.energyShieldValue then
@@ -1593,7 +1603,7 @@ function buildMode:OpenSpectreLibrary(library)
 		SetDrawColor(0, 0, 0, 1)
 		DrawImage(nil, xPos + (labelWidth / 2) - (boxWidth / 2) + 2, yPos - 1, boxWidth - 4, boxHeight - 4)
 		SetDrawColor(colorCodes.NORMAL)
-		DrawImage(nil, xPos + (labelWidth / 2) - (boxWidth / 2), yPos + 15, boxWidth, 2)
+		DrawImage(nil, xPos + (labelWidth / 2) - (boxWidth / 2), yPos + 16, boxWidth, 2)
 		SetDrawColor(1, 1, 1)
 		DrawString(xPos + (labelWidth / 2), yPos, "CENTER_X", 16, "VAR BOLD", "ARMOUR")
 		if self.armourValue then
@@ -1610,7 +1620,7 @@ function buildMode:OpenSpectreLibrary(library)
 		SetDrawColor(0, 0, 0, 1)
 		DrawImage(nil, xPos + (labelWidth / 2) - (boxWidth / 2) + 2, yPos - 1, boxWidth - 4, boxHeight - 4)
 		SetDrawColor(colorCodes.EVASION)
-		DrawImage(nil, xPos + (labelWidth / 2) - (boxWidth / 2), yPos + 15, boxWidth, 2)
+		DrawImage(nil, xPos + (labelWidth / 2) - (boxWidth / 2), yPos + 16, boxWidth, 2)
 		SetDrawColor(1, 1, 1)
 		DrawString(xPos + (labelWidth / 2), yPos, "CENTER_X", 16, "VAR BOLD", "EVASION")
 		if self.evasionValue then
@@ -1627,7 +1637,7 @@ function buildMode:OpenSpectreLibrary(library)
 		SetDrawColor(0, 0, 0, 1)
 		DrawImage(nil, xPos + (labelWidth / 2) - (boxWidth / 2) + 2, yPos - 1, boxWidth - 4, boxHeight - 4)
 		SetDrawColor(colorCodes.NORMAL)
-		DrawImage(nil, xPos + (labelWidth / 2) - (boxWidth / 2), yPos + 15, boxWidth, 2)
+		DrawImage(nil, xPos + (labelWidth / 2) - (boxWidth / 2), yPos + 16, boxWidth, 2)
 		SetDrawColor(1, 1, 1)
 		DrawString(xPos + labelWidth / 2, yPos, "CENTER_X", 16, "VAR BOLD", "BLOCK")
 		if self.blockValue then
@@ -1644,11 +1654,28 @@ function buildMode:OpenSpectreLibrary(library)
 		SetDrawColor(0, 0, 0, 1)
 		DrawImage(nil, xPos + (labelWidth / 2) - (boxWidth / 2) + 2, yPos - 1, boxWidth - 4, boxHeight - 4)
 		SetDrawColor(colorCodes.DEFENCE)
-		DrawImage(nil, xPos + (labelWidth / 2) - (boxWidth / 2), yPos + 15, boxWidth, 2)
+		DrawImage(nil, xPos + (labelWidth / 2) - (boxWidth / 2), yPos + 16, boxWidth, 2)
 		SetDrawColor(1, 1, 1)
 		DrawString(xPos + labelWidth / 2, yPos, "CENTER_X", 16, "VAR BOLD", "RESISTS")
 		if self.resistsValue then
 			DrawString(xPos + (labelWidth / 2), yPos + 24, "CENTER_X", 16, "VAR", self.resistsValue)
+		end
+	end
+	controls.movementSpeedLabel = new("LabelControl", {"TOP",controls.blockLabel,"TOP"}, {61, 54, 0, 16}, "MOVEMENT SPEED")
+	controls.movementSpeedLabel.Draw = function(self, view)
+		local xPos, yPos = self:GetPos()
+		local boxWidth, boxHeight = 244, 50
+		local labelWidth = DrawStringWidth(16, "VAR BOLD", "MOVEMENT SPEED")
+		SetDrawColor(colorCodes.DEFENCE)
+		DrawImage(nil, xPos + (labelWidth / 2) - (boxWidth / 2), yPos - 3, boxWidth, boxHeight)
+		SetDrawColor(0, 0, 0, 1)
+		DrawImage(nil, xPos + (labelWidth / 2) - (boxWidth / 2) + 2, yPos - 1, boxWidth - 4, boxHeight - 4)
+		SetDrawColor(colorCodes.DEFENCE)
+		DrawImage(nil, xPos + (labelWidth / 2) - (boxWidth / 2), yPos + 16, boxWidth, 2)
+		SetDrawColor(1, 1, 1)
+		DrawString(xPos + labelWidth / 2, yPos, "CENTER_X", 16, "VAR BOLD", "MOVEMENT SPEED")
+		if self.movementSpeedValue then
+			DrawString(xPos + (labelWidth / 2), yPos + 24, "CENTER_X", 16, "VAR", self.movementSpeedValue)
 		end
 	end
 end
