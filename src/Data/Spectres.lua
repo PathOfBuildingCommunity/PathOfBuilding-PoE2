@@ -855,8 +855,8 @@ minions["Metadata/Monsters/ShellMonster/ShellMonster"] = {
 	monsterCategory = "Beast",
 	spawnLocation = {
 		"Vastiri Outskirts",
-		"The Ziggurat Refuge",
 		"Trial of the Sekhemas",
+		"The Ziggurat Refuge",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeedComboTEMP",
@@ -1585,7 +1585,7 @@ minions["Metadata/Monsters/Mutewind/MutewindWomanJavelin"] = {
 	},
 }
 
-minions["Metadata/Monsters/Mutewind/MutewindWomanSpearCorrodedElite"] = {
+minions["Metadata/Monsters/Mutewind/MutewindWomanSpearCorrodedEliteSpectre_"] = {
 	name = "Faridun Impaler",
 	monsterTags = { "allows_inc_aoe", "fast_movement", "human", "humanoid", "melee", "not_int", "physical_affinity", "red_blood", "SpearMetal_onhit_audio", "very_fast_movement", },
 	extraFlags = {
@@ -2580,38 +2580,6 @@ minions["Metadata/Monsters/SkeletonSoldier/Rusted/RustedSoldierOneHandSword"] = 
 	},
 }
 
--- Sentinel
-minions["Metadata/Monsters/VaalConstructs/Sentinel/VaalConstructSentinel"] = {
-	name = "Stone Sentinel",
-	monsterTags = { "2HBluntWood_onhit_audio", "allows_inc_aoe", "cannot_be_monolith", "construct", "melee", "not_dex", "not_int", "physical_affinity", "stone_construct", "vaal", "very_slow_movement", },
-	life = 2.5,
-	baseDamageIgnoresAttackSpeed = true,
-	armour = 1,
-	fireResist = 30,
-	coldResist = 0,
-	lightningResist = 0,
-	chaosResist = 0,
-	damage = 2.5,
-	damageSpread = 0.2,
-	attackTime = 1.5,
-	attackRange = 13,
-	accuracy = 1,
-	baseMovementSpeed = 14,
-	spectreReservation = 130,
-	companionReservation = 47.4,
-	monsterCategory = "Construct",
-	spawnLocation = {
-	},
-	skillList = {
-		"MeleeAtAnimationSpeed",
-		"GAVaalConstructSentinelGroundSlam",
-		"GAVaalConstructSentinelFootSlam",
-		"GAVaalConstructSentinelImpact",
-	},
-	modList = {
-	},
-}
-
 -- Serpent Shaman
 minions["Metadata/Monsters/SerpentClanMonster/SerpentClanCaster"] = {
 	name = "Serpent Shaman",
@@ -3073,39 +3041,6 @@ minions["Metadata/Monsters/Werewolves/WerewolfProwlerRed1"] = {
 	},
 }
 
-
-minions["Metadata/Monsters/Werewolves/WerewolfProwlerRed1"] = {
-	name = "Tendril Prowler",
-	monsterTags = { "beast", "Beast_onhit_audio", "mammal_beast", "medium_movement", "melee", "not_int", "not_str", "physical_affinity", "red_blood", },
-	life = 1.4,
-	baseDamageIgnoresAttackSpeed = true,
-	evasion = 0.4,
-	fireResist = -30,
-	coldResist = 0,
-	lightningResist = 0,
-	chaosResist = 0,
-	damage = 1.4,
-	damageSpread = 0.2,
-	attackTime = 2.25,
-	attackRange = 12,
-	accuracy = 1,
-	baseMovementSpeed = 37,
-	spectreReservation = 70,
-	companionReservation = 35.4,
-	monsterCategory = "Beast",
-	spawnLocation = {
-		"Ogham Manor",
-		"The Ziggurat Refuge",
-	},
-	skillList = {
-		"MeleeAtAnimationSpeed",
-		"WerewolfProwlerHowlEAS",
-		"MeleeAtAnimationSpeed2",
-	},
-	modList = {
-	},
-}
-
 minions["Metadata/Monsters/Monkeys/MonkeyJungle"] = {
 	name = "Feral Primate",
 	monsterTags = { "animal_claw_weapon", "beast", "cannot_be_map_archnemesis", "fast_movement", "flesh_armour", "is_unarmed", "mammal_beast", "melee", "not_int", "not_str", "physical_affinity", "primate_beast", "ranged", "red_blood", "small_height", "Unarmed_onhit_audio", },
@@ -3176,9 +3111,9 @@ minions["Metadata/Monsters/BloodChieftain/MonkeyChiefJungle"] = {
 	},
 }
 
-minions["Metadata/Monsters/Spiker/Spiker"] = {
+minions["Metadata/Monsters/Spiker/Spiker3_"] = {
 	name = "Porcupine Goliath",
-	monsterTags = { "allows_additional_projectiles", "animal_claw_weapon", "beast", "Claw_onhit_audio", "flesh_armour", "has_dagger", "has_one_handed_melee", "mammal_beast", "medium_height", "medium_movement", "melee", "monster_has_on_death_mechanic", "physical_affinity", "red_blood", "rodent_beast", },
+	monsterTags = { "allows_additional_projectiles", "beast", "Claw_onhit_audio", "mammal_beast", "medium_movement", "melee", "monster_has_on_death_mechanic", "physical_affinity", "red_blood", "rodent_beast", },
 	life = 1.4,
 	baseDamageIgnoresAttackSpeed = true,
 	fireResist = 0,
@@ -3201,9 +3136,13 @@ minions["Metadata/Monsters/Spiker/Spiker"] = {
 		"The Ziggurat Refuge",
 	},
 	skillList = {
+		"MeleeAtAnimationSpeed",
+		"MMASpikerDeathSpike",
+		"GTSpikerDeathExplosion",
+		"MAASSpikerDoubleSlash",
 	},
 	modList = {
-		-- MonsterDisplayCastsSpikeNovaOnDeath [display_monster_spike_nova_on_death_text = 1]
+		-- SpectrePlayDeathAction [is_spectre_with_death_action = 1]
 	},
 }
 
@@ -3298,8 +3237,8 @@ minions["Metadata/Monsters/Wraith/WraithSpookyCold"] = {
 	monsterCategory = "Undead",
 	spawnLocation = {
 		"Cemetery of the Eternals",
-		"The Ziggurat Refuge",
 		"Trial of the Sekhemas",
+		"The Ziggurat Refuge",
 	},
 	skillList = {
 		"SpookyWraithProjectileCold",
@@ -3638,7 +3577,7 @@ minions["Metadata/Monsters/Hags/TrenchHag"] = {
 	},
 }
 
-minions["Metadata/Monsters/HuhuGrub/HuhuGrubLarvae"] = {
+minions["Metadata/Monsters/HuhuGrub/HuhuGrubLarvaeSpectre"] = {
 	name = "Flesh Larva",
 	monsterTags = { "beast", "insect", "melee", "physical_affinity", "ranged", "red_blood", "slow_movement", "Stab_onhit_audio", },
 	life = 0.6,
@@ -3723,10 +3662,10 @@ minions["Metadata/Monsters/BloodMonsters/BloodCourtesan1"] = {
 	monsterCategory = "Undead",
 	spawnLocation = {
 		"The Ziggurat Refuge",
-		"Ogham Village",
 		"Mausoleum of the Praetor",
 		"The Manor Ramparts",
 		"Ogham Manor",
+		"Ogham Village",
 	},
 	skillList = {
 		"LivingBloodGroundSmall",
@@ -3875,6 +3814,41 @@ minions["Metadata/Monsters/Knight/DeathKnight1"] = {
 	skillList = {
 		"DeathKnightSlamEAA",
 		"MeleeAtAnimationSpeed",
+	},
+	modList = {
+	},
+}
+
+minions["Metadata/Monsters/Knight/DeathKnightNecropolisElite"] = {
+	name = "Death Knight",
+	monsterTags = { "2HSharpMetal_onhit_audio", "allows_inc_aoe", "construct", "humanoid", "melee", "monster_barely_moves", "not_dex", "not_int", "physical_affinity", "very_slow_movement", },
+	life = 2,
+	baseDamageIgnoresAttackSpeed = true,
+	armour = 0.8,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 2.2,
+	damageSpread = 0.3,
+	attackTime = 2.505,
+	attackRange = 14,
+	accuracy = 1,
+	weaponType1 = "Two Handed Axe",
+	baseMovementSpeed = 11,
+	spectreReservation = 100,
+	companionReservation = 42.3,
+	monsterCategory = "Construct",
+	spawnLocation = {
+		"Cemetery of the Eternals",
+		"The Manor Ramparts",
+		"The Ziggurat Refuge",
+	},
+	skillList = {
+		"DeathKnightSlamEAA",
+		"MeleeAtAnimationSpeed",
+		"GADeathKnightOverheadslamforward",
+		"GADeathKnightOverheadslam",
 	},
 	modList = {
 	},
@@ -4040,77 +4014,6 @@ minions["Metadata/Monsters/Ghouls/GhoulCommander"] = {
 		"GhoulCommanderVomit",
 		"GhoulCommanderDash",
 		"GhoulCommanderHowl",
-	},
-	modList = {
-	},
-}
-
-minions["Metadata/Monsters/Bird/MutantBird"] = {
-	name = "Scourge of the Skies",
-	monsterTags = { "beast", "Beast_onhit_audio", "flying", "immobile", "red_blood", },
-	life = 1.32,
-	baseDamageIgnoresAttackSpeed = true,
-	fireResist = 0,
-	coldResist = 0,
-	lightningResist = 0,
-	chaosResist = 0,
-	damage = 1.21,
-	damageSpread = 0.2,
-	attackTime = 2.01,
-	attackRange = 45,
-	accuracy = 1,
-	baseMovementSpeed = 0,
-	spectreReservation = 60,
-	companionReservation = 31.5,
-	monsterCategory = "Beast",
-	spawnLocation = {
-	},
-	skillList = {
-		"MutantBirdPeck",
-		"MutantBirdMultiPeck",
-		"MutantBirdSpawnDog",
-		"MutantBirdVomitSpray",
-		"MutantBirdSpawnDogLongRange",
-		"MutantBirdMortar",
-		"MutantBirdFirstEncounter",
-		"MutantBirdDespawnDogStart",
-		"MutantBirdDespawnDogFinish",
-		"MutantBirdTurnLeft",
-		"MutantBirdTurnRight",
-		"MutantBirdVomitMortarSmall",
-		"MutantBirdVomitMortarMedium",
-		"MutantBirdVomitMortarLarge",
-	},
-	modList = {
-	},
-}
-
-minions["Metadata/Monsters/Bird/MutantBirdDog"] = {
-	name = "Flesh Pup",
-	monsterTags = { "beast", "Beast_onhit_audio", "fast_movement", "red_blood", "very_fast_movement", },
-	life = 1.32,
-	baseDamageIgnoresAttackSpeed = true,
-	fireResist = 0,
-	coldResist = 0,
-	lightningResist = 0,
-	chaosResist = 0,
-	damage = 1.21,
-	damageSpread = 0.2,
-	attackTime = 0.945,
-	attackRange = 18,
-	accuracy = 1,
-	baseMovementSpeed = 77,
-	spectreReservation = 60,
-	companionReservation = 31.5,
-	monsterCategory = "Beast",
-	spawnLocation = {
-	},
-	skillList = {
-		"MutantBirdDogMelee",
-		"MutantBirdDogMeleeMove",
-		"MutantBirdDogLeapAttack",
-		"MutantBirdDogEnterBird",
-		"MutantBirdDogMeleeBite",
 	},
 	modList = {
 	},
@@ -4666,9 +4569,9 @@ minions["Metadata/Monsters/RisenArbalest__"] = {
 	},
 }
 
-minions["Metadata/Monsters/Bugbot/BugbotRocky_"] = {
+minions["Metadata/Monsters/Bugbot/BugbotRockyNoEmerge"] = {
 	name = "Skitter Golem",
-	monsterTags = { "cannot_be_monolith", "construct", "medium_movement", "melee", "not_dex", "not_int", "physical_affinity", "StaffWood_onhit_audio", },
+	monsterTags = { "cannot_be_monolith", "construct", "medium_movement", "melee", "not_dex", "not_int", "physical_affinity", "sanctum_monster", "StaffWood_onhit_audio", },
 	life = 0.6,
 	baseDamageIgnoresAttackSpeed = true,
 	armour = 0.6,
@@ -5545,9 +5448,9 @@ minions["Metadata/Monsters/SerpentClanMonster/SerpentClan1"] = {
 	},
 }
 
-minions["Metadata/Monsters/SaltGolem/SaltGolem"] = {
+minions["Metadata/Monsters/SaltGolem/SaltGolemNoEmerge"] = {
 	name = "Quake Golem",
-	monsterTags = { "allows_inc_aoe", "construct", "melee", "MonsterBlunt_onhit_audio", "not_dex", "not_int", "physical_affinity", "very_slow_movement", },
+	monsterTags = { "allows_inc_aoe", "construct", "melee", "MonsterBlunt_onhit_audio", "not_dex", "not_int", "physical_affinity", "sanctum_monster", "very_slow_movement", },
 	life = 1.8,
 	baseDamageIgnoresAttackSpeed = true,
 	armour = 1,
@@ -5565,8 +5468,8 @@ minions["Metadata/Monsters/SaltGolem/SaltGolem"] = {
 	companionReservation = 40.2,
 	monsterCategory = "Construct",
 	spawnLocation = {
-		"The Ziggurat Refuge",
 		"Trial of the Sekhemas",
+		"The Ziggurat Refuge",
 		"Valley of the Titans",
 		"Traitor's Passage",
 	},
@@ -5868,7 +5771,7 @@ minions["Metadata/Monsters/WingedFiend/WingedFiend"] = {
 	},
 }
 
-minions["Metadata/Monsters/RockSlider"] = {
+minions["Metadata/Monsters/RockSliderSpectre"] = {
 	name = "Boulder Ant",
 	monsterTags = { "beast", "Beast_onhit_audio", "cannot_be_monolith", "insect", "medium_movement", "melee", "not_dex", "not_int", "physical_affinity", },
 	life = 0.75,
@@ -6194,7 +6097,7 @@ minions["Metadata/Monsters/CaveDweller/CaveDweller"] = {
 	},
 }
 
-minions["Metadata/Monsters/MineBat/MineBatDesertCave"] = {
+minions["Metadata/Monsters/MineBat/MineBatDesertCaveNoEmerge"] = {
 	name = "Vesper Bat",
 	monsterTags = { "allows_additional_projectiles", "allows_inc_aoe", "beast", "cannot_be_monolith", "flying", "lightning_affinity", "mammal_beast", "melee", "MonsterStab_onhit_audio", "not_int", "not_str", "physical_affinity", "ranged", "red_blood", "slow_movement", },
 	life = 1.2,
@@ -6298,7 +6201,7 @@ minions["Metadata/Monsters/VultureZombie/VultureDemon"] = {
 	},
 }
 
-minions["Metadata/Monsters/Kinarha/Kinarha"] = {
+minions["Metadata/Monsters/Kinarha/KinarhaSpectre"] = {
 	name = "Kinarha",
 	monsterTags = { "2HBluntWood_onhit_audio", "construct", "fast_movement", "melee", "mud_blood", "not_dex", "not_int", "physical_affinity", "ranged", },
 	life = 1.2,
@@ -6948,9 +6851,9 @@ minions["Metadata/Monsters/VaalSavage/VaalSavageStalker"] = {
 	companionReservation = 35.4,
 	monsterCategory = "Humanoid",
 	spawnLocation = {
-		"The Ziggurat Refuge",
-		"The Matlan Waterways",
 		"The Azak Bog",
+		"The Matlan Waterways",
+		"The Ziggurat Refuge",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -7171,9 +7074,9 @@ minions["Metadata/Monsters/VaalSavage/VaalSavageBrute"] = {
 	companionReservation = 36.6,
 	monsterCategory = "Humanoid",
 	spawnLocation = {
+		"The Azak Bog",
 		"The Matlan Waterways",
 		"The Ziggurat Refuge",
-		"The Azak Bog",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -8093,7 +7996,7 @@ minions["Metadata/Monsters/WereCat/TigerChimeral"] = {
 	},
 }
 
-minions["Metadata/Monsters/Taniwha/RiverTaniwha"] = {
+minions["Metadata/Monsters/Taniwha/RiverTaniwhaNoJank"] = {
 	name = "River Drake",
 	monsterTags = { "beast", "melee", "not_int", "not_str", "physical_affinity", "red_blood", "reptile_beast", "slow_movement", "Unarmed_onhit_audio", },
 	life = 1.4,
@@ -8128,36 +8031,6 @@ minions["Metadata/Monsters/Taniwha/RiverTaniwha"] = {
 	},
 }
 
-minions["Metadata/Monsters/Taniwha/RiverTaniwhaTropicalIsland_"] = {
-	name = "Coastal Drake",
-	monsterTags = { "beast", "melee", "not_int", "not_str", "physical_affinity", "red_blood", "reptile_beast", "slow_movement", "Unarmed_onhit_audio", },
-	life = 1.4,
-	baseDamageIgnoresAttackSpeed = true,
-	evasion = 0.2,
-	fireResist = 0,
-	coldResist = 30,
-	lightningResist = 0,
-	chaosResist = 0,
-	damage = 1.4,
-	damageSpread = 0.2,
-	attackTime = 1.5,
-	attackRange = 9,
-	accuracy = 1,
-	baseMovementSpeed = 28,
-	spectreReservation = 70,
-	companionReservation = 35.4,
-	monsterCategory = "Beast",
-	spawnLocation = {
-	},
-	skillList = {
-		"MeleeAtAnimationSpeedComboTEMP",
-		"EDSRiverTaniwhaCloudSpray",
-		"CGERiverTaniwhaPoisonGround",
-	},
-	modList = {
-	},
-}
-
 minions["Metadata/Monsters/WhipTongueChimeral/WhipTongueChimeral"] = {
 	name = "Whiptongue Croaker",
 	monsterTags = { "2HBluntMetal_onhit_audio", "beast", "medium_movement", "not_int", "not_str", "red_blood", "reptile_beast", },
@@ -8186,7 +8059,7 @@ minions["Metadata/Monsters/WhipTongueChimeral/WhipTongueChimeral"] = {
 	},
 }
 
-minions["Metadata/Monsters/VaalConstructs/Sentinel/VaalConstructSentinel"] = {
+minions["Metadata/Monsters/VaalConstructs/Sentinel/VaalConstructSentinelNoEmerge_"] = {
 	name = "Stone Sentinel",
 	monsterTags = { "2HBluntWood_onhit_audio", "allows_inc_aoe", "cannot_be_monolith", "construct", "melee", "not_dex", "not_int", "physical_affinity", "stone_construct", "vaal", "very_slow_movement", },
 	life = 2.5,
@@ -8217,7 +8090,7 @@ minions["Metadata/Monsters/VaalConstructs/Sentinel/VaalConstructSentinel"] = {
 	},
 }
 
-minions["Metadata/Monsters/VaalConstructs/Sentinel/VaalConstructSentinelGolden"] = {
+minions["Metadata/Monsters/VaalConstructs/Sentinel/VaalConstructSentinelGoldenNoEmerge"] = {
 	name = "Gold-Melted Sentinel",
 	monsterTags = { "2HBluntMetal_onhit_audio", "allows_inc_aoe", "cannot_be_monolith", "construct", "melee", "not_dex", "not_int", "physical_affinity", "stone_construct", "vaal", "very_slow_movement", },
 	life = 2.5,
@@ -8250,7 +8123,7 @@ minions["Metadata/Monsters/VaalConstructs/Sentinel/VaalConstructSentinelGolden"]
 	},
 }
 
-minions["Metadata/Monsters/VaalConstructs/Pyramid/VaalConstructPyramidAncient"] = {
+minions["Metadata/Monsters/VaalConstructs/Pyramid/VaalConstructPyramidAncientActivated"] = {
 	name = "Rusted Reconstructor",
 	monsterTags = { "2HBluntMetal_onhit_audio", "caster", "construct", "golem", "lightning_affinity", "monster_barely_moves", "not_dex", "vaal", "very_slow_movement", },
 	life = 1.1,
@@ -8417,66 +8290,6 @@ minions["Metadata/Monsters/VaalConstructs/Skitterbot/VaalConstructSkitterbot"] =
 		"GSVaalConstructSkitterbotGrenadeExplode",
 		"EASPatrolEndTurn",
 		"EASCrawlerFireGrenades",
-	},
-	modList = {
-	},
-}
-
-minions["Metadata/Monsters/VaalConstructs/Monkey/VaalConstructMonkey"] = {
-	name = "Constructed Monkey",
-	monsterTags = { "caster", "Claw_onhit_audio", "construct", "golem", "is_unarmed", "medium_movement", "metal_armour", "not_dex", "vaal", },
-	life = 1,
-	baseDamageIgnoresAttackSpeed = true,
-	energyShield = 0.1,
-	armour = 1,
-	fireResist = 0,
-	coldResist = 0,
-	lightningResist = 30,
-	chaosResist = 0,
-	damage = 1.1,
-	damageSpread = 0.2,
-	attackTime = 1.5,
-	attackRange = 10,
-	accuracy = 1,
-	baseMovementSpeed = 35,
-	spectreReservation = 50,
-	companionReservation = 30,
-	monsterCategory = "Construct",
-	spawnLocation = {
-	},
-	skillList = {
-		"MonsterWaitShort",
-	},
-	modList = {
-	},
-}
-
-minions["Metadata/Monsters/VaalConstructs/Monkey/VaalConstructMonkeyHead"] = {
-	name = "Constructed Monkey Head",
-	monsterTags = { "caster", "Claw_onhit_audio", "construct", "golem", "immobile", "is_unarmed", "metal_armour", "not_dex", "vaal", },
-	life = 1,
-	baseDamageIgnoresAttackSpeed = true,
-	energyShield = 0.1,
-	armour = 1,
-	fireResist = 0,
-	coldResist = 0,
-	lightningResist = 30,
-	chaosResist = 0,
-	damage = 1.1,
-	damageSpread = 0.2,
-	attackTime = 1.5,
-	attackRange = 10,
-	accuracy = 1,
-	baseMovementSpeed = 0,
-	spectreReservation = 50,
-	companionReservation = 30,
-	monsterCategory = "Construct",
-	spawnLocation = {
-	},
-	skillList = {
-		"GSMonkeyConstructFire",
-		"FaceLastTarget",
-		"MonsterWaitShort",
 	},
 	modList = {
 	},
@@ -8829,36 +8642,6 @@ minions["Metadata/Monsters/Cenobite/CenobiteBloater/CenobiteBloater"] = {
 	},
 }
 
-minions["Metadata/Monsters/VaalMonsters/ViperNapuatzi/ViperNapuatziSnakeMinion"] = {
-	name = "Viper Servant",
-	monsterTags = { "beast", "fast_movement", "not_int", "not_str", "reptile_beast", "Stab_onhit_audio", },
-	life = 1,
-	baseDamageIgnoresAttackSpeed = true,
-	evasion = 0.5,
-	fireResist = 0,
-	coldResist = 0,
-	lightningResist = 0,
-	chaosResist = 0,
-	damage = 0.67,
-	damageSpread = 0.2,
-	attackTime = 1.245,
-	attackRange = 6,
-	accuracy = 1,
-	baseMovementSpeed = 46,
-	spectreReservation = 50,
-	companionReservation = 30,
-	monsterCategory = "Beast",
-	spawnLocation = {
-	},
-	skillList = {
-		"MeleeAtAnimationSpeedChaos",
-		"CGEViperNapuatziSnakeGroundDegen",
-	},
-	modList = {
-		-- MonsterNoDropsOrExperience [monster_no_drops_or_experience = 1]
-	},
-}
-
 minions["Metadata/Monsters/VaalMonsters/Zealots/VaalZealotDaggersBlood"] = {
 	name = "Blood Zealot",
 	monsterTags = { "1HSword_onhit_audio", "cultist", "fast_movement", "human", "humanoid", "melee", "not_int", "not_str", "physical_affinity", "red_blood", "very_fast_movement", },
@@ -9025,7 +8808,7 @@ minions["Metadata/Monsters/VaalMonsters/Zealots/VaalZealotDaggersLightning"] = {
 	},
 }
 
-minions["Metadata/Monsters/VaalMonsters/Zealots/VaalZealotDaggersBannerPatrol"] = {
+minions["Metadata/Monsters/VaalMonsters/Zealots/VaalZealotDaggersBannerPatrolSpectre"] = {
 	name = "Bannerbearing Zealot",
 	monsterTags = { "1HSword_onhit_audio", "cannot_be_monolith", "cultist", "fast_movement", "human", "humanoid", "melee", "not_int", "not_str", "red_blood", "very_fast_movement", },
 	life = 1,
@@ -9406,127 +9189,6 @@ minions["Metadata/Monsters/VaalMonsters/Living/Beasts/VaalJaguar"] = {
 	},
 }
 
-minions["Metadata/Monsters/VaalMonsters/Living/Minions/VaalJaguarMinion"] = {
-	name = "Jaguar Familiar",
-	monsterTags = { "beast", "Claw_onhit_audio", "medium_movement", "melee", "not_int", "physical_affinity", "red_blood", },
-	life = 1.44,
-	baseDamageIgnoresAttackSpeed = true,
-	armour = 0.3,
-	evasion = 0.3,
-	fireResist = 0,
-	coldResist = 0,
-	lightningResist = 0,
-	chaosResist = 0,
-	damage = 1.44,
-	damageSpread = 0.2,
-	attackTime = 1.5,
-	attackRange = 14,
-	accuracy = 1,
-	baseMovementSpeed = 30,
-	spectreReservation = 60,
-	companionReservation = 32.1,
-	monsterCategory = "Beast",
-	spawnLocation = {
-	},
-	skillList = {
-		"MeleeAtAnimationSpeed",
-		"DTTVaalJaguarMinionLeap",
-		"GAVaalJaguarMinionImpact",
-	},
-	modList = {
-		-- MonsterNoDropsOrExperience [monster_no_drops_or_experience = 1]
-	},
-}
-
-minions["Metadata/Monsters/VaalMonsters/Living/Minions/VaalSnakeMinion"] = {
-	name = "Serpentine Familiar",
-	monsterTags = { "beast", "fast_movement", "not_int", "not_str", "red_blood", "reptile_beast", "Stab_onhit_audio", },
-	life = 0.8,
-	baseDamageIgnoresAttackSpeed = true,
-	evasion = 0.5,
-	fireResist = 0,
-	coldResist = 0,
-	lightningResist = 0,
-	chaosResist = 0,
-	damage = 0.8,
-	damageSpread = 0.2,
-	attackTime = 1.245,
-	attackRange = 6,
-	accuracy = 1,
-	baseMovementSpeed = 46,
-	spectreReservation = 40,
-	companionReservation = 26.7,
-	monsterCategory = "Beast",
-	spawnLocation = {
-	},
-	skillList = {
-		"MeleeAtAnimationSpeed",
-	},
-	modList = {
-		-- MonsterNoDropsOrExperience [monster_no_drops_or_experience = 1]
-	},
-}
-
-minions["Metadata/Monsters/VaalMonsters/Living/Minions/VaalMonkeyMinion_"] = {
-	name = "Primal Familiar",
-	monsterTags = { "animal_claw_weapon", "beast", "cannot_be_map_archnemesis", "Claw_onhit_audio", "fast_movement", "flesh_armour", "is_unarmed", "mammal_beast", "melee", "not_int", "not_str", "physical_affinity", "ranged", "red_blood", "small_height", },
-	life = 0.8,
-	baseDamageIgnoresAttackSpeed = true,
-	evasion = 0.25,
-	fireResist = 0,
-	coldResist = 0,
-	lightningResist = 0,
-	chaosResist = 0,
-	damage = 0.8,
-	damageSpread = 0.2,
-	attackTime = 1.005,
-	attackRange = 7,
-	accuracy = 1,
-	baseMovementSpeed = 46,
-	spectreReservation = 40,
-	companionReservation = 26.7,
-	monsterCategory = "Beast",
-	spawnLocation = {
-	},
-	skillList = {
-		"MeleeAtAnimationSpeed",
-		"ScavengerThrow",
-		"EASJungleMonkeyTaunt",
-	},
-	modList = {
-		-- MonsterNoDropsOrExperience [monster_no_drops_or_experience = 1]
-	},
-}
-
-minions["Metadata/Monsters/SerpentHusk/snakes/SerpentHuskSnake"] = {
-	name = "Snake",
-	monsterTags = { "beast", "not_int", "not_str", "red_blood", "reptile_beast", "Stab_onhit_audio", "very_slow_movement", },
-	life = 0.5,
-	baseDamageIgnoresAttackSpeed = true,
-	evasion = 0.5,
-	fireResist = -30,
-	coldResist = 0,
-	lightningResist = 0,
-	chaosResist = 0,
-	damage = 0.5,
-	damageSpread = 0.2,
-	attackTime = 1.5,
-	attackRange = 14,
-	accuracy = 1,
-	baseMovementSpeed = 18,
-	spectreReservation = 30,
-	companionReservation = 21.3,
-	monsterCategory = "Beast",
-	spawnLocation = {
-	},
-	skillList = {
-		"EASSnakeSuitUp",
-		"EASSnakeRetreat",
-	},
-	modList = {
-	},
-}
-
 minions["Metadata/Monsters/Procession/ProcessionAxeShield"] = {
 	name = "Vaal Embalmed Axeman",
 	monsterTags = { "1HSword_onhit_audio", "humanoid", "medium_movement", "melee", "monster_blocks_damage", "not_dex", "not_int", "physical_affinity", "red_blood", "undead", },
@@ -9655,7 +9317,7 @@ minions["Metadata/Monsters/Procession/ProcessionBow"] = {
 	},
 }
 
-minions["Metadata/Monsters/Procession/ProcessionBanner"] = {
+minions["Metadata/Monsters/Procession/ProcessionBannerSpectre"] = {
 	name = "Vaal Embalmed Bearer",
 	monsterTags = { "aura_bearer", "humanoid", "medium_movement", "not_dex", "not_str", "physical_affinity", "red_blood", "Unarmed_onhit_audio", "undead", },
 	life = 1.2,
@@ -9678,7 +9340,7 @@ minions["Metadata/Monsters/Procession/ProcessionBanner"] = {
 	},
 	skillList = {
 		"ABTTProcessionBannerInactive",
-		"ABTTProcessionBannerRegen",
+		"ABTTProcessionBannerRegenSpectre",
 		"ABTTProcessionBannerDrain",
 	},
 	modList = {
@@ -10870,98 +10532,6 @@ minions["Metadata/Monsters/SkeletonProwler/SkeletonProwler_"] = {
 	},
 }
 
-minions["Metadata/Monsters/RatMonster/RatMonsterPrison"] = {
-	name = "Eaten Rat",
-	monsterTags = { "beast", "fast_movement", "mammal_beast", "not_int", "red_blood", "Snap_onhit_audio", "undead", },
-	life = 0.9,
-	baseDamageIgnoresAttackSpeed = true,
-	armour = 0.35,
-	evasion = 0.25,
-	fireResist = 0,
-	coldResist = 0,
-	lightningResist = 0,
-	chaosResist = 0,
-	damage = 0.9,
-	damageSpread = 0.2,
-	attackTime = 1.065,
-	attackRange = 15,
-	accuracy = 1,
-	baseMovementSpeed = 38,
-	spectreReservation = 50,
-	companionReservation = 28.5,
-	monsterCategory = "Undead",
-	spawnLocation = {
-	},
-	skillList = {
-		"MeleeAtAnimationSpeed",
-		"MeleeAtAnimationSpeedComboTEMP2",
-	},
-	modList = {
-		-- MonsterNecromancerRaisable [undead_description = 1]
-	},
-}
-
-minions["Metadata/Monsters/Zombies/UpperPrison/PrisonZombieUnarmed_"] = {
-	name = "Eternal Prisoner",
-	monsterTags = { "not_dex", "not_int", "Unarmed_onhit_audio", "undead", "very_slow_movement", "zombie", },
-	life = 1,
-	baseDamageIgnoresAttackSpeed = true,
-	armour = 0.5,
-	fireResist = 0,
-	coldResist = 0,
-	lightningResist = 0,
-	chaosResist = 0,
-	damage = 1.2,
-	damageSpread = 0.2,
-	attackTime = 1.35,
-	attackRange = 7,
-	accuracy = 1,
-	baseMovementSpeed = 7,
-	spectreReservation = 50,
-	companionReservation = 30,
-	monsterCategory = "Undead",
-	spawnLocation = {
-	},
-	skillList = {
-		"MeleeAtAnimationSpeed",
-		"PrisonZombieWalkEmerge",
-	},
-	modList = {
-		-- MonsterNecromancerRaisable [undead_description = 1]
-	},
-}
-
-minions["Metadata/Monsters/TentacleDemonFemale/TentacleWhipper"] = {
-	name = "Ghastly Siren",
-	monsterTags = { "beast", "humanoid", "not_int", "red_blood", "Unarmed_onhit_audio", "very_slow_movement", },
-	life = 1.1,
-	baseDamageIgnoresAttackSpeed = true,
-	armour = 0.25,
-	evasion = 0.5,
-	fireResist = 0,
-	coldResist = 0,
-	lightningResist = 0,
-	chaosResist = 0,
-	damage = 1.1,
-	damageSpread = 0.2,
-	attackTime = 1.5,
-	attackRange = 13,
-	accuracy = 1,
-	baseMovementSpeed = 13,
-	spectreReservation = 60,
-	companionReservation = 31.5,
-	monsterCategory = "Beast",
-	spawnLocation = {
-	},
-	skillList = {
-		"MeleeAtAnimationSpeed",
-		"MeleeAtAnimationSpeedComboTEMP2",
-		"GSSirenArenaEmergeStalagmiteBreakInwardEG",
-	},
-	modList = {
-	},
-}
-
 minions["Metadata/Monsters/BrineMaiden/BrineMaiden"] = {
 	name = "Brine Maiden",
 	monsterTags = { "beast", "Beast_onhit_audio", "humanoid", "medium_movement", "not_str", "red_blood", },
@@ -11318,34 +10888,6 @@ minions["Metadata/Monsters/RatMonster/RatMonsterCistern"] = {
 	},
 }
 
-minions["Metadata/Monsters/SummonedPhantasm/HusbandWifeSpirits"] = {
-	name = "Captured Soul",
-	monsterTags = { "ghost", "ghost_blood", "Unarmed_onhit_audio", "undead", "very_slow_movement", },
-	life = 1,
-	baseDamageIgnoresAttackSpeed = true,
-	fireResist = 0,
-	coldResist = 0,
-	lightningResist = 75,
-	chaosResist = 0,
-	damage = 1,
-	damageSpread = 0.2,
-	attackTime = 1.755,
-	attackRange = 6,
-	accuracy = 1,
-	baseMovementSpeed = 7,
-	spectreReservation = 50,
-	companionReservation = 30,
-	monsterCategory = "Undead",
-	spawnLocation = {
-	},
-	skillList = {
-		"EASHusbandMonsterConsumeSpirit",
-		"GSHusbandWifeRevive",
-	},
-	modList = {
-	},
-}
-
 minions["Metadata/Monsters/RabidFeralDogMonster/RabidDog"] = {
 	name = "Rabid Dog",
 	monsterTags = { "beast", "mammal_beast", "melee", "not_int", "not_str", "physical_affinity", "red_blood", "Snap_onhit_audio", "very_slow_movement", },
@@ -11585,7 +11127,7 @@ minions["Metadata/Monsters/SkeletalReaper/SkeletalReaper"] = {
 	},
 }
 
-minions["Metadata/Monsters/VaseMonster/VaseMonster_"] = {
+minions["Metadata/Monsters/VaseMonster/VaseMonsterSpectre"] = {
 	name = "Urnwalker",
 	monsterTags = { "construct", "melee", "not_dex", "not_int", "physical_affinity", "ranged", "Unarmed_onhit_audio", "undead", "very_slow_movement", },
 	life = 1.7,
@@ -11843,33 +11385,6 @@ minions["Metadata/Monsters/ChaosGodTriceratops/ChaosGodTriceratops_"] = {
 		"EASChaosGodTriceratopsGigaBeam",
 		"TCChaosGodTriceratops",
 		"GSChaosGodTriceratopsGigaBeam",
-	},
-	modList = {
-	},
-}
-
-minions["Metadata/Monsters/Rhoas/Winged/WingedRhoa"] = {
-	name = "Albino Rhoa",
-	monsterTags = { "beast", "mammal_beast", "medium_movement", "MonsterBlunt_onhit_audio", "not_int", "not_str", "red_blood", },
-	life = 1,
-	baseDamageIgnoresAttackSpeed = true,
-	evasion = 0.5,
-	fireResist = -30,
-	coldResist = 0,
-	lightningResist = 0,
-	chaosResist = 0,
-	damage = 1,
-	damageSpread = 0.2,
-	attackTime = 1.23,
-	attackRange = 16,
-	accuracy = 1,
-	baseMovementSpeed = 32,
-	spectreReservation = 50,
-	companionReservation = 30,
-	monsterCategory = "Beast",
-	spawnLocation = {
-	},
-	skillList = {
 	},
 	modList = {
 	},
@@ -12292,7 +11807,7 @@ minions["Metadata/Monsters/LeagueRitual/DryadFaction/FungalZombie/DruidicFungusZ
 	},
 }
 
-minions["Metadata/Monsters/LeagueRitual/DryadFaction/SplitMonster/SplitMonster"] = {
+minions["Metadata/Monsters/LeagueRitual/DryadFaction/SplitMonster/SplitMonsterSpectre"] = {
 	name = "Treant Splitbeast",
 	monsterTags = { "demon", "fast_movement", "MonsterStab_onhit_audio", "not_dex", "not_int", "red_blood", },
 	life = 1.5,
@@ -12315,8 +11830,6 @@ minions["Metadata/Monsters/LeagueRitual/DryadFaction/SplitMonster/SplitMonster"]
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
-		"EASFallenGodSplitLeft",
-		"EASFallenGodSplitRight",
 		"MeleeAtAnimationSpeedComboTEMP2",
 	},
 	modList = {

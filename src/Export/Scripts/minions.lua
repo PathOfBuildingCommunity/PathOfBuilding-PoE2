@@ -118,12 +118,11 @@ directiveTable.emit = function(state, args, out)
 	local allMonsterPackIds = {}
 
 	-- Step 1: From MonsterPackEntries
-	for i = 1, 2000 do
-		local entry = dat("MonsterPackEntries"):GetRow("Id", tostring(i))
-		if entry and entry.MonsterPacksKey then
+	for entry in dat("MonsterPackEntries"):Rows() do
+		if entry.MonsterPacksKey then
 			local packId = entry.MonsterPacksKey.Id
 			if packId then
-				allMonsterPackIds[packId] = true -- add to full set of pack IDs
+				allMonsterPackIds[packId] = true
 				if entry.MonsterVarietiesKey and entry.MonsterVarietiesKey.Name == monsterVariety.Name then
 					table.insert(matchingEntries, packId)
 				end
@@ -131,7 +130,7 @@ directiveTable.emit = function(state, args, out)
 		end
 	end
 	-- Step 2: Check if monster is in AdditionalMonsters within MonsterPacks
-	for packId, _ in pairs(allMonsterPackIds) do
+	for packId in pairs(allMonsterPackIds) do
 		local pack = dat("MonsterPacks"):GetRow("Id", tostring(packId))
 		if pack and pack.AdditionalMonsters then
 			for _, addMon in ipairs(pack.AdditionalMonsters) do

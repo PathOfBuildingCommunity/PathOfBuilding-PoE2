@@ -48,6 +48,18 @@ statMap = {
 #mods
 #skillEnd
 
+#skill BurdenedWretchSlam Slam
+#set BurdenedWretchSlam
+#flags attack triggerable
+#mods
+#skillEnd
+
+#skill BurdenedWretchSlamUnique Slam
+#set BurdenedWretchSlamUnique
+#flags attack triggerable
+#mods
+#skillEnd
+
 #skill CGEBloodPriestBoilingBlood Boiling Blood
 #set CGEBloodPriestBoilingBlood
 #flags spell area triggerable duration
@@ -69,6 +81,12 @@ statMap = {
 #skill CultistBeastSunder Sunder
 #set CultistBeastSunder
 #flags triggerable attack
+#mods
+#skillEnd
+
+#skill DeathKnightSlamEAA Slam
+#set DeathKnightSlamEAA
+#flags attack triggerable
 #mods
 #skillEnd
 
@@ -102,6 +120,31 @@ statMap = {
 #mods
 #skillEnd
 
+#skill ExpeditionGroundLaser Ground Laser
+#set ExpeditionGroundLaser
+#flags spell triggerable
+#mods
+#skillEnd
+
+#skill FungalArtilleryMortar Mortar
+#set FungalArtilleryMortar
+#flags spell projectile triggerable
+#mods
+#skillEnd
+
+#skill GADeathKnightOverheadslamforward Overhead Slam
+#set GADeathKnightOverheadslamforward
+#flags attack triggerable
+#mods
+#skillEnd
+
+#skill GSArmourCasterVolatileExplode Volatile Mote
+#set GSArmourCasterVolatileExplode
+#flags spell triggerable
+#baseMod skill("cooldown", 15)
+#mods
+#skillEnd
+
 #skill GSCenobiteBloaterOnDeath Death Explosion
 #set GSCenobiteBloaterOnDeath
 #flags spell triggerable
@@ -117,6 +160,12 @@ statMap = {
 #skill GACenobiteBloaterSlam Slam
 #set GACenobiteBloaterSlam
 #flags triggerable attack melee
+#mods
+#skillEnd
+
+#skill GAFigureheadSlamGhostFlame Slam
+#set GAFigureheadSlamGhostFlame
+#flags triggerable attack
 #mods
 #skillEnd
 
@@ -175,6 +224,25 @@ statMap = {
 #mods
 #skillEnd
 
+#skill GraveyardGhostDashToTarget Dash
+#set GraveyardGhostDashToTarget
+#flags spell
+#mods
+#skillEnd
+
+#skill GraveyardSpookyGhostExplode Sword Barrage
+#set GraveyardSpookyGhostExplode
+#flags triggerable spell hit
+#mods
+#skillEnd
+
+#skill GSDesertBatZap Zap
+#set GSDesertBatZap
+#flags triggerable spell hit
+#baseMod skill("cooldown", 6)
+#mods
+#skillEnd
+
 #skill GSHellscapePaleEliteBoltImpact Bolt Impact
 #set GSHellscapePaleEliteBoltImpact
 #flags triggerable spell hit
@@ -193,6 +261,48 @@ statMap = {
 #mods
 #skillEnd
 
+#skill GSRagingFireSpiritsVolatileSanctum Self-Destruct
+#set GSRagingFireSpiritsVolatileSanctum
+#flags triggerable spell hit
+#mods
+#skillEnd
+
+#skill HyenaCentaurMeleeStab
+#set HyenaCentaurMeleeStab
+#flags attack melee
+#mods
+#skillEnd
+
+#skill HyenaCentaurMeleeSwipe Swipe
+#set HyenaCentaurMeleeSwipe
+#flags attack melee
+#mods
+#skillEnd
+
+#skill HyenaCentaurSpearThrow Spear Throw
+#set HyenaCentaurSpearThrow
+#flags attack projectile triggerable
+#mods
+#skillEnd
+
+#skill MASExtraAttackDistance6
+#set MASExtraAttackDistance6
+#flags attack melee
+#mods
+#skillEnd
+
+#skill MASExtraAttackDistance20
+#set MASExtraAttackDistance20
+#flags attack melee
+#mods
+#skillEnd
+
+#skill MASStatueWretchPush
+#set MASStatueWretchPush
+#flags attack melee
+#mods
+#skillEnd
+
 #skill MeleeAtAnimationSpeedBow
 #set MeleeAtAnimationSpeedBow
 #flags attack projectile melee
@@ -201,6 +311,12 @@ statMap = {
 
 #skill MeleeAtAnimationSpeedComboTEMP
 #set MeleeAtAnimationSpeedComboTEMP
+#flags attack melee
+#mods
+#skillEnd
+
+#skill MeleeAtAnimationSpeedFire Basic Attack (Fire)
+#set MeleeAtAnimationSpeedFire
 #flags attack melee
 #mods
 #skillEnd
@@ -229,6 +345,12 @@ statMap = {
 #mods
 #skillEnd
 
+#skill MPSArmourCasterBasic Fireball
+#set MPSArmourCasterBasic
+#flags spell projectile triggerable hit
+#mods
+#skillEnd
+
 #skill MPSAzmeriPictStaffProj Chaos Bolt
 #set MPSAzmeriPictStaffProj
 #flags spell projectile triggerable hit
@@ -239,6 +361,12 @@ statMap = {
 #set MPSAzmeriPictStaffProj
 #flags spell projectile triggerable hit
 #baseMod mod("ProjectileCount", "BASE", 2)
+#mods
+#skillEnd
+
+#skill MMSBaneSapling Basic Spell
+#set MMSBaneSapling
+#flags spell projectile triggerable hit
 #mods
 #skillEnd
 
@@ -262,6 +390,12 @@ statMap = {
 
 #skill MPSVaalBloodPriestProj Blood Projectile
 #set MPSVaalBloodPriestProj
+#flags spell projectile triggerable hit
+#mods
+#skillEnd
+
+#skill MPSVaalConstructCannon Cannon
+#set MPSVaalConstructCannon
 #flags spell projectile triggerable hit
 #mods
 #skillEnd
@@ -309,6 +443,12 @@ statMap = {
 #mods
 #skillEnd
 
+#skill MPWVaalSavageBlowDart Blow Dart
+#set MPWVaalSavageBlowDart
+#flags attack triggerable projectile
+#mods
+#skillEnd
+
 #skill MutewindBanditWomanLeap Leap Slam
 #set MutewindBanditWomanLeap
 #flags triggerable attack
@@ -330,6 +470,24 @@ statMap = {
 
 #skill QuillCrabSpikeBurstTropical Spike Burst
 #set QuillCrabSpikeBurstTropical
+#flags attack projectile
+#mods
+#skillEnd
+
+#skill RisenArbalestBasicProjectile Basic Attack
+#set RisenArbalestBasicProjectile
+#flags attack projectile
+#mods
+#skillEnd
+
+#skill RisenArbalestSnipe Snipe
+#set RisenArbalestSnipe
+#flags attack projectile
+#mods
+#skillEnd
+
+#skill RisenArbalestRainOfArrows
+#set RisenArbalestRainOfArrows
 #flags attack projectile
 #mods
 #skillEnd
@@ -384,6 +542,13 @@ statMap = {
 #mods
 #skillEnd
 
+#addSkillTypes Projectile
+#skill SpookyWraithProjectileExplosionCold Basic Spell
+#set SpookyWraithProjectileExplosionCold
+#flags striggerable spell projectile
+#mods
+#skillEnd
+
 #skill TBHellscapePaleLightningBoltSpammableLeft Lightning Bolt
 #set TBHellscapePaleLightningBoltSpammableLeft
 #flags spell hit triggerable
@@ -393,6 +558,12 @@ statMap = {
 #skill TCHellscapePaleElite2Charge Charge
 #set TCHellscapePaleElite2Charge
 #flags attack melee
+#mods
+#skillEnd
+
+#skill UrchinSlingProjectile Sling Rock
+#set UrchinSlingProjectile
+#flags projectile attack triggerable
 #mods
 #skillEnd
 

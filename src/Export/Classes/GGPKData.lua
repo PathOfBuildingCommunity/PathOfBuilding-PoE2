@@ -310,6 +310,7 @@ function GGPKClass:GetNeededFiles()
 		"Data/MonsterPackEntries.dat",
 		"Data/MonsterPacks.dat",
 		"Data/WorldAreas.dat",
+		"Data/SpectreOverrides.dat",
 	}
 	local csdFiles = {
 		"^Metadata/StatDescriptions/specific_skill_stat_descriptions/\\w+.csd$",
