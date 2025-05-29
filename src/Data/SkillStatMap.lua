@@ -1120,6 +1120,9 @@ return {
 ["base_chance_to_ignite_%"] = {
 	mod("EnemyIgniteChance", "BASE", nil),
 },
+["ignite_chance_+%"] = {
+	mod("EnemyIgniteChance", "INC", nil),
+},
 ["active_skill_ignite_chance_+%_final"] = {
 	mod("EnemyIgniteChance", "MORE", nil),
 },

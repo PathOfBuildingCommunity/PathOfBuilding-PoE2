@@ -2024,6 +2024,38 @@ minions["Metadata/Monsters/BoneCultists/BoneCultist_Zealots/BoneCultistZealot01"
 	},
 }
 
+minions["Metadata/Monsters/BoneCultists/BoneCultist_Zealots/BoneCultistZealot02"] = {
+	name = "Lost-men Zealot",
+	monsterTags = { "allows_inc_aoe", "caster", "cultist", "fire_affinity", "human", "humanoid", "not_dex", "not_str", "red_blood", "Unarmed_onhit_audio", "very_slow_movement", },
+	life = 1.35,
+	baseDamageIgnoresAttackSpeed = true,
+	energyShield = 0.15,
+	fireResist = 30,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1.35,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 10,
+	accuracy = 1,
+	baseMovementSpeed = 20,
+	spectreReservation = 70,
+	companionReservation = 34.8,
+	monsterCategory = "Humanoid",
+	spawnLocation = {
+		"The Ziggurat Refuge",
+		"Mastodon Badlands",
+		"The Bone Pits",
+	},
+	skillList = {
+		"MPSBoneCultistZealotFire",
+		"BoneCultistZealotFirestorm",
+	},
+	modList = {
+	},
+}
+
 minions["Metadata/Monsters/BoneCultists/BoneCultist_Zealots/FarudinLocustWarlock"] = {
 	name = "Faridun Plaguebringer",
 	monsterTags = { "allows_additional_projectiles", "allows_inc_aoe", "caster", "human", "humanoid", "not_dex", "not_str", "physical_affinity", "ranged", "red_blood", "Unarmed_onhit_audio", "very_slow_movement", },
@@ -10316,30 +10348,33 @@ minions["Metadata/Monsters/VaalHumanoids/VaalHumanoidCannon/VaalHumanoidCannonFi
 	},
 }
 
-minions["Metadata/Monsters/VaalHumanoids/VaalHumanoidCannon/VaalHumanoidCannonLightningSkitterMine_"] = {
-	name = "Skitter Mine",
-	monsterTags = { "2HBluntMetal_onhit_audio", "caster", "construct", "fast_movement", "golem", "is_unarmed", "metal_armour", "mud_blood", "no_final_gasp", "no_shroud_walker", "not_dex", "uses_suicide_explode", "vaal", "very_fast_movement", },
-	life = 0.8,
+minions["Metadata/Monsters/VaalHumanoids/VaalHumanoidCannon/VaalHumanoidCannonLightning"] = {
+	name = "Doryani's Elite",
+	monsterTags = { "allows_additional_projectiles", "allows_inc_aoe", "construct", "fast_movement", "humanoid", "lightning_affinity", "not_int", "ranged", "red_blood", "Unarmed_onhit_audio", },
+	life = 1.4,
 	baseDamageIgnoresAttackSpeed = true,
-	energyShield = 0.15,
-	armour = 1,
+	armour = 0.33,
+	evasion = 0.33,
 	fireResist = 0,
 	coldResist = 0,
 	lightningResist = 30,
 	chaosResist = 0,
-	damage = 0.8,
+	damage = 1.4,
 	damageSpread = 0.2,
 	attackTime = 1.5,
-	attackRange = 10,
+	attackRange = 14,
 	accuracy = 1,
-	baseMovementSpeed = 52,
-	spectreReservation = 40,
-	companionReservation = 26.7,
+	baseMovementSpeed = 45,
+	spectreReservation = 70,
+	companionReservation = 35.4,
 	monsterCategory = "Construct",
 	spawnLocation = {
+		"The Black Chambers",
+		"The Ziggurat Refuge",
 	},
 	skillList = {
-		"SkitterMineDetonate",
+		"EASVaalHumanoidSkitterMine",
+		"VaalHumanoidShockRifle",
 	},
 	modList = {
 	},

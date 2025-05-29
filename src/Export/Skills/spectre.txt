@@ -5,6 +5,42 @@
 --
 local skills, mod, flag, skill = ...
 
+--ABTT = Add Buff to Target Triggered
+--CGE = Monster Cast Ground Effect
+--DTT = Detach Dash to Target
+--EA = Empty Action
+--EAA = Empty Action Attack
+--EAS = Empty Action Spell
+--EDS = Effect Driven Spell + Effect Driven Attack
+--EG = Execute Geal
+--GA = Geometry Attack
+--GPS = Geometry Projectile Spell
+--GPA = Geometry Projectile Attack
+--GS = Geometry Spell
+--GT = Geometry Trigger
+--MAAS = Melee At Animation Speed
+--MAS = Monster Attack Skills
+--MDD = Monster Detonate Dead
+--MMA = Monster Mortar Attack
+--MMS = Monster Mortar Spell
+--MPW = Monster Projectile Weapon
+--MPS = Monster Projectile Spell
+--SO = Spawn Object
+--SSM = Summon Specific Monster
+--TC = Table Charge
+
+#skill ABTTProcessionBannerDrain Banner
+#set ABTTProcessionBannerDrain
+#flags buff duration
+statMap = {
+	["base_physical_damage_taken_per_minute"] = {
+		skill("PhysicalDot", nil),
+		div = 60,
+	},
+},
+#mods
+#skillEnd
+
 #skill AzmeriFabricationDespair
 #set AzmeriFabricationDespair
 #flags spell curse area duration
@@ -45,6 +81,18 @@ statMap = {
 #skill BloodMageBloodTendrils
 #set BloodMageBloodTendrils
 #flags spell hit triggerable duration chaining
+#mods
+#skillEnd
+
+#skill BoneCultistZealotFirestorm Firestorm
+#set BoneCultistZealotFirestorm
+#flags spell hit triggerable
+#mods
+#skillEnd
+
+#skill BoneCultistZealotLightningstorm Lightning Storm
+#set BoneCultistZealotLightningstorm
+#flags spell hit triggerable
 #mods
 #skillEnd
 
@@ -108,6 +156,12 @@ statMap = {
 #mods
 #skillEnd
 
+#skill EDSPyramidHandLightningLance
+#set EDSPyramidHandLightningLance
+#flags triggerable spell hit
+#mods
+#skillEnd
+
 #skill EDSShellMonsterFlamethrower Flamethrower
 #set EDSShellMonsterFlamethrower
 #flags spell triggerable
@@ -123,6 +177,12 @@ statMap = {
 #skill ExpeditionGroundLaser Ground Laser
 #set ExpeditionGroundLaser
 #flags spell triggerable
+#mods
+#skillEnd
+
+#skill FarudinWarlockBugRend Rend
+#set FarudinWarlockBugRend
+#flags spell area duration projectile triggerable
 #mods
 #skillEnd
 
@@ -165,6 +225,12 @@ statMap = {
 
 #skill GAFigureheadSlamGhostFlame Slam
 #set GAFigureheadSlamGhostFlame
+#flags triggerable attack
+#mods
+#skillEnd
+
+#skill GASaltGolemMelee
+#set GASaltGolemMelee
 #flags triggerable attack
 #mods
 #skillEnd
@@ -243,6 +309,19 @@ statMap = {
 #mods
 #skillEnd
 
+#skill GSExpeditionBoneCultistEggExplosion Pustule
+#set GSExpeditionBoneCultistEggExplosion
+#flags triggerable spell hit
+#baseMod skill("cooldown", 6)
+#mods
+#skillEnd
+
+#skill GSHellscapeDemonEliteBeamNuke Beam
+#set GSHellscapeDemonEliteBeamNuke
+#flags triggerable spell hit
+#mods
+#skillEnd
+
 #skill GSHellscapePaleEliteBoltImpact Bolt Impact
 #set GSHellscapePaleEliteBoltImpact
 #flags triggerable spell hit
@@ -263,6 +342,30 @@ statMap = {
 
 #skill GSRagingFireSpiritsVolatileSanctum Self-Destruct
 #set GSRagingFireSpiritsVolatileSanctum
+#flags triggerable spell hit
+#mods
+#skillEnd
+
+#skill GSRagingTimeSpiritsVolatileSanctum Self-Destruct
+#set GSRagingTimeSpiritsVolatileSanctum
+#flags triggerable spell hit
+#mods
+#skillEnd
+
+#skill GSVaalConstructSkitterbotGrenadeExplode Grenade Explosion
+#set GSVaalConstructSkitterbotGrenadeExplode
+#flags triggerable spell hit
+#mods
+#skillEnd
+
+#skill GSWarlockRaiseBugs Raise Bugs
+#set GSWarlockRaiseBugs
+#flags spell
+#mods
+#skillEnd
+
+#skill HellscapeDemonFodderFaceLaser Laser
+#set HellscapeDemonFodderFaceLaser
 #flags triggerable spell hit
 #mods
 #skillEnd
@@ -297,9 +400,21 @@ statMap = {
 #mods
 #skillEnd
 
+#skill MASFireConvertAltArtFireArrow
+#set MASFireConvertAltArtFireArrow
+#flags attack projectile
+#mods
+#skillEnd
+
 #skill MASStatueWretchPush
 #set MASStatueWretchPush
 #flags attack melee
+#mods
+#skillEnd
+
+#skill MASKelpDregCrossbow
+#set MASKelpDregCrossbow
+#flags attack melee projectile
 #mods
 #skillEnd
 
@@ -330,6 +445,25 @@ statMap = {
 #skill MeleeAtAnimationSpeedLightning Basic Attack (Lightning)
 #set MeleeAtAnimationSpeedLightning
 #flags attack melee
+#mods
+#skillEnd
+
+#skill MMSBaneSapling Basic Spell
+#set MMSBaneSapling
+#flags spell projectile triggerable hit
+#mods
+#skillEnd
+
+
+#skill MMSBoneRabbleMortar Mortar
+#set MMSBoneRabbleMortar
+#flags projectile spell area
+#mods
+#skillEnd
+
+#skill MMSHellscapeDemonEliteTripleMortar Triple Mortar
+#set MMSHellscapeDemonEliteTripleMortar
+#flags triggerable spell area hit 
 #mods
 #skillEnd
 
@@ -364,14 +498,38 @@ statMap = {
 #mods
 #skillEnd
 
-#skill MMSBaneSapling Basic Spell
-#set MMSBaneSapling
+#skill MPSBloodMageBloodProjectile Blood Projectile
+#set MPSBloodMageBloodProjectile
 #flags spell projectile triggerable hit
 #mods
 #skillEnd
 
-#skill MPSBloodMageBloodProjectile Blood Projectile
-#set MPSBloodMageBloodProjectile
+#skill MPSBoneRabbleBurningArrow Burning Arrow
+#set MPSBoneRabbleBurningArrow
+#flags spell projectile triggerable hit
+#mods
+#skillEnd
+
+#skill MPSBoneCultistNecromancerLightning Basic Spell (Lightning)
+#set MPSBoneCultistNecromancerLightning
+#flags spell projectile triggerable hit
+#mods
+#skillEnd
+
+#skill MPSBoneCultistZealotFire Basic Spell (Fire)
+#set MPSBoneCultistZealotFire
+#flags spell projectile triggerable hit
+#mods
+#skillEnd
+
+#skill MPSBoneCultistZealotLightning Basic Spell (Lightning)
+#set MPSBoneCultistZealotLightning
+#flags spell projectile triggerable hit
+#mods
+#skillEnd
+
+#skill MPSBreachEliteBoneProjectile Basic Spell (Cold)
+#set MPSBreachEliteBoneProjectile
 #flags spell projectile triggerable hit
 #mods
 #skillEnd
@@ -382,8 +540,50 @@ statMap = {
 #mods
 #skillEnd
 
+#skill MPSChaosGodTriHeadLizardBasicProjectile Basic Spell (Chaos)
+#set MPSChaosGodTriHeadLizardBasicProjectile
+#flags spell projectile triggerable hit
+#mods
+#skillEnd
+
+#skill MPSExpeditionBoneCultistProjectiles Basic Spell (Cold)
+#set MPSExpeditionBoneCultistProjectiles
+#flags spell projectile triggerable hit
+#mods
+#skillEnd
+
+#skill MPSHellscapeDemonFodderProj Fireball
+#set MPSHellscapeDemonFodderProj
+#flags spell projectile triggerable hit
+#mods
+#skillEnd
+
+#skill MPSHellscapeFleshEliteBasicProj Basic Spell (Physical)
+#set MPSHellscapeFleshEliteBasicProj
+#flags spell projectile triggerable hit
+#mods
+#skillEnd
+
+#skill MPSHellscapePaleHammerhead Basic Spell (Physical)
+#set MPSHellscapePaleHammerhead
+#flags spell projectile triggerable hit
+#mods
+#skillEnd
+
 #skill MPSMercurialCasterEnrage Basic Spell
 #set MPSMercurialCasterEnrage
+#flags spell projectile triggerable hit
+#mods
+#skillEnd
+
+#skill MPSRedSkeletonCaster Basic Spell (Cold)
+#set MPSRedSkeletonCaster
+#flags spell projectile triggerable hit
+#mods
+#skillEnd
+
+#skill MPSSkeletonMancerBasicProj Basic Spell
+#set MPSSkeletonMancerBasicProj
 #flags spell projectile triggerable hit
 #mods
 #skillEnd
@@ -396,6 +596,18 @@ statMap = {
 
 #skill MPSVaalConstructCannon Cannon
 #set MPSVaalConstructCannon
+#flags spell projectile triggerable hit
+#mods
+#skillEnd
+
+#skill MPAVaalHumanoidCannon Cannon
+#set MPAVaalHumanoidCannon
+#flags spell projectile triggerable hit
+#mods
+#skillEnd
+
+#skill MPSVaalHumanoidCannonNapalmMiniBlob Napalm Cannon
+#set MPSVaalHumanoidCannonNapalmMiniBlob
 #flags spell projectile triggerable hit
 #mods
 #skillEnd
@@ -440,6 +652,12 @@ statMap = {
 #set MPWFarudinSpearThrow
 #flags attack projectile triggerable
 #baseMod skill("cooldown", 8)
+#mods
+#skillEnd
+
+#skill MPWKelpDregPuncture Puncture
+#set MPWKelpDregPuncture
+#flags attack triggerable projectile
 #mods
 #skillEnd
 
@@ -492,6 +710,26 @@ statMap = {
 #mods
 #skillEnd
 
+#skill SerpentClanCurse
+#set SerpentClanCurse
+#flags area duration curse
+statMap = {
+	["physical_damage_taken_+%"] = {
+		mod("PhysicalDamageTaken", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Curse" }),
+	},
+	["receive_bleeding_chance_%_when_hit_by_attack"] = {
+		mod("SelfBleedChance", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Curse" }),
+	},
+},
+#mods
+#skillEnd
+
+#skill SerpentClanTailWhip Tail Whip
+#set SerpentClanTailWhip
+#flags attack melee
+#mods
+#skillEnd
+
 #skill ShellMonsterDeathMortar Death Mortar
 #set ShellMonsterDeathMortar
 #flags spell projectile area
@@ -522,23 +760,15 @@ statMap = {
 #mods
 #skillEnd
 
-#skill SerpentClanCurse
-#set SerpentClanCurse
-#flags area duration curse
-statMap = {
-	["physical_damage_taken_+%"] = {
-		mod("PhysicalDamageTaken", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Curse" }),
-	},
-	["receive_bleeding_chance_%_when_hit_by_attack"] = {
-		mod("SelfBleedChance", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Curse" }),
-	},
-},
+#skill SkelemancerSkelenado
+#set SkelemancerSkelenado
+#flags spell projectile hit
 #mods
 #skillEnd
 
-#skill SerpentClanTailWhip Tail Whip
-#set SerpentClanTailWhip
-#flags attack melee
+#skill SpookyGhostLightningBounce Basic Spell
+#set SpookyGhostLightningBounce
+#flags striggerable spell projectile
 #mods
 #skillEnd
 
@@ -549,9 +779,21 @@ statMap = {
 #mods
 #skillEnd
 
+#skill TBBreachElitePaleLightningBoltSpammableLeft Lightning Bolt
+#set TBBreachElitePaleLightningBoltSpammableLeft
+#flags spell hit triggerable
+#mods
+#skillEnd
+
 #skill TBHellscapePaleLightningBoltSpammableLeft Lightning Bolt
 #set TBHellscapePaleLightningBoltSpammableLeft
 #flags spell hit triggerable
+#mods
+#skillEnd
+
+#skill TBVaalPyramidBeam Pyramid Beam
+#set TBVaalPyramidBeam
+#flags spell attack triggerable
 #mods
 #skillEnd
 
@@ -582,5 +824,11 @@ statMap = {
 #skill VaalBloodPriestSoulrend Soulrend
 #set VaalBloodPriestSoulrend
 #flags spell area duration projectile triggerable
+#mods
+#skillEnd
+
+#skill VaalHumanoidShockRifle Shock Rifle
+#set VaalHumanoidShockRifle
+#flags spell projectile hit
 #mods
 #skillEnd

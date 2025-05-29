@@ -6,6 +6,67 @@
 --
 local skills, mod, flag, skill = ...
 
+--ABTT = Add Buff to Target Triggered
+--CGE = Monster Cast Ground Effect
+--DTT = Detach Dash to Target
+--EA = Empty Action
+--EAA = Empty Action Attack
+--EAS = Empty Action Spell
+--EDS = Effect Driven Spell + Effect Driven Attack
+--EG = Execute Geal
+--GA = Geometry Attack
+--GPS = Geometry Projectile Spell
+--GPA = Geometry Projectile Attack
+--GS = Geometry Spell
+--GT = Geometry Trigger
+--MAAS = Melee At Animation Speed
+--MAS = Monster Attack Skills
+--MDD = Monster Detonate Dead
+--MMA = Monster Mortar Attack
+--MMS = Monster Mortar Spell
+--MPW = Monster Projectile Weapon
+--MPS = Monster Projectile Spell
+--SO = Spawn Object
+--SSM = Summon Specific Monster
+--TC = Table Charge
+
+skills["ABTTProcessionBannerDrain"] = {
+	name = "Banner",
+	hidden = true,
+	skillTypes = { [SkillType.Buff] = true, [SkillType.Duration] = true, [SkillType.Spell] = true, [SkillType.Triggerable] = true, },
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Banner",
+			baseEffectiveness = 7.5,
+			incrementalEffectiveness = 0.10000000149012,
+			damageIncrementalEffectiveness = 0.017500000074506,
+			statDescriptionScope = "skill_stat_descriptions",
+			statMap = {
+				["base_physical_damage_taken_per_minute"] = {
+					skill("PhysicalDot", nil),
+					div = 60,
+				},
+			},
+			baseFlags = {
+				buff = true,
+				duration = true,
+			},
+			stats = {
+				"base_physical_damage_taken_per_minute",
+				"is_area_damage",
+			},
+			levels = {
+				[1] = { 16.666667039196, statInterpolation = { 3, }, actorLevel = 1, },
+			},
+		},
+	}
+}
 skills["AzmeriFabricationDespair"] = {
 	name = "Despair",
 	hidden = true,
@@ -220,6 +281,76 @@ skills["BloodMageBloodTendrils"] = {
 			},
 			levels = {
 				[1] = { 0.80000001192093, 1.2000000476837, 66.666668156783, 2, statInterpolation = { 3, 3, 3, 1, }, actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["BoneCultistZealotFirestorm"] = {
+	name = "Firestorm",
+	hidden = true,
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, },
+	castTime = 3,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { critChance = 6, storedUses = 1, levelRequirement = 0, cooldown = 10, },
+	},
+	statSets = {
+		[1] = {
+			label = "Firestorm",
+			baseEffectiveness = 9,
+			incrementalEffectiveness = 0.10000000149012,
+			damageIncrementalEffectiveness = 0.017500000074506,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				spell = true,
+				hit = true,
+				triggerable = true,
+			},
+			constantStats = {
+				{ "spell_maximum_action_distance_+%", -50 },
+				{ "active_skill_base_physical_damage_%_to_convert_to_fire", 80 },
+			},
+			stats = {
+				"spell_minimum_base_physical_damage",
+				"spell_maximum_base_physical_damage",
+				"is_area_damage",
+			},
+			levels = {
+				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["BoneCultistZealotLightningstorm"] = {
+	name = "Lightning Storm",
+	hidden = true,
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, },
+	castTime = 1.5,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { critChance = 6, levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Lightning Storm",
+			baseEffectiveness = 5,
+			incrementalEffectiveness = 0.10000000149012,
+			damageIncrementalEffectiveness = 0.017500000074506,
+			statDescriptionScope = "geometry_spell",
+			baseFlags = {
+				spell = true,
+				hit = true,
+				triggerable = true,
+			},
+			stats = {
+				"spell_minimum_base_lightning_damage",
+				"spell_maximum_base_lightning_damage",
+				"is_area_damage",
+			},
+			levels = {
+				[1] = { 0.5, 1.5, statInterpolation = { 3, 3, }, actorLevel = 1, },
 			},
 		},
 	}
@@ -576,6 +707,45 @@ skills["EDSGolemancerReapLeft"] = {
 		},
 	}
 }
+skills["EDSPyramidHandLightningLance"] = {
+	name = "",
+	hidden = true,
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, },
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "",
+			baseEffectiveness = 2,
+			incrementalEffectiveness = 0.10000000149012,
+			damageIncrementalEffectiveness = 0.017500000074506,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				triggerable = true,
+				spell = true,
+				hit = true,
+			},
+			constantStats = {
+				{ "spell_maximum_action_distance_+%", -65 },
+			},
+			stats = {
+				"spell_minimum_base_lightning_damage",
+				"spell_maximum_base_lightning_damage",
+				"is_area_damage",
+				"action_attack_or_cast_time_uses_animation_length",
+				"base_skill_can_be_blocked",
+				"base_skill_can_be_avoided_by_dodge_roll",
+			},
+			levels = {
+				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
+			},
+		},
+	}
+}
 skills["EDSShellMonsterFlamethrower"] = {
 	name = "Flamethrower",
 	hidden = true,
@@ -688,6 +858,47 @@ skills["ExpeditionGroundLaser"] = {
 			levels = {
 				[1] = { 0.80000001192093, 1.2000000476837, 50, statInterpolation = { 3, 3, 1, }, actorLevel = 1, },
 				[2] = { 0.80000001192093, 1.2000000476837, 200, statInterpolation = { 3, 3, 1, }, actorLevel = 68, },
+			},
+		},
+	}
+}
+skills["FarudinWarlockBugRend"] = {
+	name = "Rend",
+	hidden = true,
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Projectile] = true, [SkillType.DamageOverTime] = true, [SkillType.Chaos] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Trappable] = true, [SkillType.Mineable] = true, [SkillType.Totemable] = true, [SkillType.DegenOnlySpellDamage] = true, [SkillType.AreaSpell] = true, },
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Rend",
+			baseEffectiveness = 2.25,
+			incrementalEffectiveness = 0.10000000149012,
+			damageIncrementalEffectiveness = 0.017500000074506,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				spell = true,
+				area = true,
+				duration = true,
+				projectile = true,
+				triggerable = true,
+			},
+			constantStats = {
+				{ "active_skill_projectile_speed_+%_variation_final", 25 },
+				{ "active_skill_area_of_effect_radius_+%_final", -30 },
+				{ "base_skill_effect_duration", 1000 },
+				{ "spell_maximum_action_distance_+%", -40 },
+			},
+			stats = {
+				"base_physical_damage_to_deal_per_minute",
+				"base_is_projectile",
+				"action_attack_or_cast_time_uses_animation_length",
+			},
+			levels = {
+				[1] = { 50.000001117587, statInterpolation = { 3, }, actorLevel = 1, },
 			},
 		},
 	}
@@ -945,6 +1156,34 @@ skills["GAFigureheadSlamGhostFlame"] = {
 			stats = {
 				"is_area_damage",
 				"action_attack_or_cast_time_uses_animation_length",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["GASaltGolemMelee"] = {
+	name = "",
+	hidden = true,
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Attack] = true, },
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				triggerable = true,
+				attack = true,
+			},
+			stats = {
+				"is_area_damage",
 			},
 			levels = {
 				[1] = { actorLevel = 1, },
@@ -1352,6 +1591,84 @@ skills["GSDesertBatZap"] = {
 		},
 	}
 }
+skills["GSExpeditionBoneCultistEggExplosion"] = {
+	name = "Pustule",
+	hidden = true,
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, },
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { critChance = 7, levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Pustule",
+			baseEffectiveness = 6,
+			incrementalEffectiveness = 0.10000000149012,
+			damageIncrementalEffectiveness = 0.017500000074506,
+			statDescriptionScope = "geometry_spell",
+			baseFlags = {
+				triggerable = true,
+				spell = true,
+				hit = true,
+			},
+			baseMods = {
+				skill("cooldown", 6),
+			},
+			constantStats = {
+				{ "active_skill_base_cold_damage_%_to_convert_to_chaos", 40 },
+			},
+			stats = {
+				"spell_minimum_base_cold_damage",
+				"spell_maximum_base_cold_damage",
+				"is_area_damage",
+				"base_is_projectile",
+				"base_skill_can_be_blocked",
+				"base_skill_can_be_avoided_by_dodge_roll",
+			},
+			levels = {
+				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["GSHellscapeDemonEliteBeamNuke"] = {
+	name = "Beam",
+	hidden = true,
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, },
+	castTime = 2,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { critChance = 5, storedUses = 1, levelRequirement = 0, cooldown = 7, },
+	},
+	statSets = {
+		[1] = {
+			label = "Beam",
+			baseEffectiveness = 9.1999998092651,
+			incrementalEffectiveness = 0.10000000149012,
+			damageIncrementalEffectiveness = 0.017500000074506,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				triggerable = true,
+				spell = true,
+				hit = true,
+			},
+			constantStats = {
+				{ "spell_maximum_action_distance_+%", -40 },
+			},
+			stats = {
+				"spell_minimum_base_fire_damage",
+				"spell_maximum_base_fire_damage",
+				"is_area_damage",
+			},
+			levels = {
+				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
+			},
+		},
+	}
+}
 skills["GSHellscapePaleEliteBoltImpact"] = {
 	name = "Bolt Impact",
 	hidden = true,
@@ -1493,6 +1810,146 @@ skills["GSRagingFireSpiritsVolatileSanctum"] = {
 				"spell_maximum_base_fire_damage",
 				"is_area_damage",
 				"action_attack_or_cast_time_uses_animation_length",
+			},
+			levels = {
+				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["GSRagingTimeSpiritsVolatileSanctum"] = {
+	name = "Self-Destruct",
+	hidden = true,
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, },
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { critChance = 5, levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Self-Destruct",
+			baseEffectiveness = 3,
+			incrementalEffectiveness = 0.10000000149012,
+			damageIncrementalEffectiveness = 0.017500000074506,
+			statDescriptionScope = "geometry_spell",
+			baseFlags = {
+				triggerable = true,
+				spell = true,
+				hit = true,
+			},
+			constantStats = {
+				{ "spell_maximum_action_distance_+%", -92 },
+			},
+			stats = {
+				"spell_minimum_base_lightning_damage",
+				"spell_maximum_base_lightning_damage",
+				"is_area_damage",
+				"action_attack_or_cast_time_uses_animation_length",
+			},
+			levels = {
+				[1] = { 0.5, 1.5, statInterpolation = { 3, 3, }, actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["GSVaalConstructSkitterbotGrenadeExplode"] = {
+	name = "Grenade Explosion",
+	hidden = true,
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, },
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { critChance = 5, levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Grenade Explosion",
+			baseEffectiveness = 4.5999999046326,
+			incrementalEffectiveness = 0.10000000149012,
+			damageIncrementalEffectiveness = 0.017500000074506,
+			statDescriptionScope = "geometry_spell",
+			baseFlags = {
+				triggerable = true,
+				spell = true,
+				hit = true,
+			},
+			stats = {
+				"spell_minimum_base_fire_damage",
+				"spell_maximum_base_fire_damage",
+				"is_area_damage",
+				"skill_ignore_moving_slowdown_on_shift_attack",
+				"base_is_projectile",
+			},
+			levels = {
+				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["GSWarlockRaiseBugs"] = {
+	name = "Raise Bugs",
+	hidden = true,
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, },
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { storedUses = 1, levelRequirement = 0, cooldown = 18, },
+	},
+	statSets = {
+		[1] = {
+			label = "Raise Bugs",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "geometry_spell",
+			baseFlags = {
+				spell = true,
+			},
+			stats = {
+				"is_area_damage",
+				"action_attack_or_cast_time_uses_animation_length",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["HellscapeDemonFodderFaceLaser"] = {
+	name = "Laser",
+	hidden = true,
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, },
+	castTime = 2,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { storedUses = 1, levelRequirement = 0, cooldown = 6, },
+	},
+	statSets = {
+		[1] = {
+			label = "Laser",
+			baseEffectiveness = 0.77499997615814,
+			incrementalEffectiveness = 0.10000000149012,
+			damageIncrementalEffectiveness = 0.017500000074506,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				triggerable = true,
+				spell = true,
+				hit = true,
+			},
+			constantStats = {
+				{ "spell_maximum_action_distance_+%", -60 },
+				{ "ignite_chance_+%", 200 },
+			},
+			stats = {
+				"spell_minimum_base_fire_damage",
+				"spell_maximum_base_fire_damage",
+				"is_area_damage",
+				"cannot_stun",
+				"base_skill_can_be_blocked",
+				"base_skill_can_be_avoided_by_dodge_roll",
 			},
 			levels = {
 				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
@@ -1669,6 +2126,44 @@ skills["MASExtraAttackDistance20"] = {
 		},
 	}
 }
+skills["MASFireConvertAltArtFireArrow"] = {
+	name = "Basic Attack",
+	hidden = true,
+	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.ProjectilesFromUser] = true, },
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Basic Attack",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				attack = true,
+				projectile = true,
+			},
+			constantStats = {
+				{ "active_skill_base_physical_damage_%_to_convert_to_fire", 60 },
+				{ "ignite_chance_+%", 50 },
+				{ "arrow_projectile_variation", 1000 },
+			},
+			stats = {
+				"skill_can_fire_arrows",
+				"skill_can_fire_wand_projectiles",
+				"action_attack_or_cast_time_uses_animation_length",
+				"projectile_uses_contact_position",
+				"use_scaled_contact_offset",
+				"projectile_ballistic_angle_from_reference_event",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
 skills["MASStatueWretchPush"] = {
 	name = "Basic Attack",
 	hidden = true,
@@ -1694,6 +2189,45 @@ skills["MASStatueWretchPush"] = {
 				"action_attack_or_cast_time_uses_animation_length",
 				"projectile_uses_contact_position",
 				"use_scaled_contact_offset",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["MASKelpDregCrossbow"] = {
+	name = "Basic Attack",
+	hidden = true,
+	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.ProjectilesFromUser] = true, },
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Basic Attack",
+			baseEffectiveness = 0,
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				attack = true,
+				melee = true,
+				projectile = true,
+			},
+			constantStats = {
+				{ "arrow_projectile_variation", 1001 },
+			},
+			stats = {
+				"skill_can_fire_arrows",
+				"skill_can_fire_wand_projectiles",
+				"action_attack_or_cast_time_uses_animation_length",
+				"projectile_uses_contact_position",
+				"use_scaled_contact_offset",
+				"maintain_projectile_direction_when_using_contact_position",
+				"check_for_targets_between_initiator_and_projectile_source",
 			},
 			levels = {
 				[1] = { actorLevel = 1, },
@@ -1870,6 +2404,143 @@ skills["MeleeAtAnimationSpeedLightning"] = {
 			},
 			levels = {
 				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["MMSBaneSapling"] = {
+	name = "Basic Spell",
+	hidden = true,
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, },
+	castTime = 1.77,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { storedUses = 1, levelRequirement = 0, cooldown = 2, },
+	},
+	statSets = {
+		[1] = {
+			label = "Basic Spell",
+			baseEffectiveness = 1.5,
+			incrementalEffectiveness = 0.10000000149012,
+			damageIncrementalEffectiveness = 0.017500000074506,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				spell = true,
+				projectile = true,
+				triggerable = true,
+				hit = true,
+			},
+			constantStats = {
+				{ "projectile_spread_radius", 5 },
+				{ "active_skill_base_physical_damage_%_to_convert_to_chaos", 40 },
+				{ "spell_maximum_action_distance_+%", -40 },
+				{ "monster_projectile_variation", 1340 },
+			},
+			stats = {
+				"spell_minimum_base_physical_damage",
+				"spell_maximum_base_physical_damage",
+				"is_area_damage",
+				"base_is_projectile",
+				"projectile_uses_contact_position",
+				"use_scaled_contact_offset",
+				"projectile_ballistic_angle_from_target_distance",
+			},
+			levels = {
+				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
+			},
+		},
+	}
+}
+
+skills["MMSBoneRabbleMortar"] = {
+	name = "Mortar",
+	hidden = true,
+	description = "Generic monster mortar skill. Like Monster Projectile but has an impact effect.",
+	skillTypes = { [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.AreaSpell] = true, },
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { critChance = 6, levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Mortar",
+			baseEffectiveness = 3.5,
+			incrementalEffectiveness = 0.10000000149012,
+			damageIncrementalEffectiveness = 0.017500000074506,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				projectile = true,
+				spell = true,
+				area = true,
+			},
+			constantStats = {
+				{ "projectile_spread_radius", 12 },
+				{ "number_of_chains", 3 },
+				{ "monster_mortar_bounce_angle_variance", 90 },
+				{ "spell_maximum_action_distance_+%", -55 },
+				{ "mortar_projectile_distance_override", 23 },
+				{ "active_skill_shock_chance_+%_final", 50 },
+			},
+			stats = {
+				"spell_minimum_base_lightning_damage",
+				"spell_maximum_base_lightning_damage",
+				"is_area_damage",
+				"base_is_projectile",
+				"projectile_uses_contact_position",
+				"use_scaled_contact_offset",
+				"action_attack_or_cast_time_uses_animation_length",
+			},
+			levels = {
+				[1] = { 0.5, 1.5, statInterpolation = { 3, 3, }, actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["MMSHellscapeDemonEliteTripleMortar"] = {
+	name = "Triple Mortar",
+	hidden = true,
+	description = "Generic monster mortar skill. Like Monster Projectile but has an impact effect.",
+	skillTypes = { [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.AreaSpell] = true, },
+	castTime = 1.5,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { critChance = 5, levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Triple Mortar",
+			baseEffectiveness = 2.5,
+			incrementalEffectiveness = 0.10000000149012,
+			damageIncrementalEffectiveness = 0.017500000074506,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				triggerable = true,
+				spell = true,
+				area = true,
+				hit = true,
+			},
+			constantStats = {
+				{ "spell_maximum_action_distance_+%", -40 },
+				{ "projectile_spread_radius", 14 },
+				{ "active_skill_ignite_chance_+%_final", 100 },
+				{ "skill_speed_+%", -10 },
+				{ "number_of_additional_projectiles", 2 },
+			},
+			stats = {
+				"spell_minimum_base_physical_damage",
+				"spell_maximum_base_physical_damage",
+				"is_area_damage",
+				"base_is_projectile",
+				"projectile_uses_contact_position",
+				"use_scaled_contact_offset",
+				"distribute_projectiles_over_contact_points",
+			},
+			levels = {
+				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
 			},
 		},
 	}
@@ -2104,50 +2775,6 @@ skills["MPSAzmeriPictStaffProj2"] = {
 		},
 	}
 }
-skills["MMSBaneSapling"] = {
-	name = "Basic Spell",
-	hidden = true,
-	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, },
-	castTime = 1.77,
-	qualityStats = {
-	},
-	levels = {
-		[1] = { storedUses = 1, levelRequirement = 0, cooldown = 2, },
-	},
-	statSets = {
-		[1] = {
-			label = "Basic Spell",
-			baseEffectiveness = 1.5,
-			incrementalEffectiveness = 0.10000000149012,
-			damageIncrementalEffectiveness = 0.017500000074506,
-			statDescriptionScope = "skill_stat_descriptions",
-			baseFlags = {
-				spell = true,
-				projectile = true,
-				triggerable = true,
-				hit = true,
-			},
-			constantStats = {
-				{ "projectile_spread_radius", 5 },
-				{ "active_skill_base_physical_damage_%_to_convert_to_chaos", 40 },
-				{ "spell_maximum_action_distance_+%", -40 },
-				{ "monster_projectile_variation", 1340 },
-			},
-			stats = {
-				"spell_minimum_base_physical_damage",
-				"spell_maximum_base_physical_damage",
-				"is_area_damage",
-				"base_is_projectile",
-				"projectile_uses_contact_position",
-				"use_scaled_contact_offset",
-				"projectile_ballistic_angle_from_target_distance",
-			},
-			levels = {
-				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
-			},
-		},
-	}
-}
 skills["MPSBloodMageBloodProjectile"] = {
 	name = "Blood Projectile",
 	hidden = true,
@@ -2183,6 +2810,211 @@ skills["MPSBloodMageBloodProjectile"] = {
 				"check_for_targets_between_initiator_and_projectile_source",
 				"projectile_uses_contact_direction",
 				"distribute_projectiles_over_contact_points",
+			},
+			levels = {
+				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["MPSBoneRabbleBurningArrow"] = {
+	name = "Burning Arrow",
+	hidden = true,
+	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, },
+	castTime = 1.5,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { storedUses = 1, levelRequirement = 0, cooldown = 6, },
+	},
+	statSets = {
+		[1] = {
+			label = "Burning Arrow",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				spell = true,
+				projectile = true,
+				triggerable = true,
+				hit = true,
+			},
+			constantStats = {
+				{ "monster_projectile_variation", 1032 },
+				{ "ignite_chance_+%", 50 },
+				{ "non_skill_base_physical_damage_%_to_gain_as_fire", 30 },
+				{ "active_skill_base_physical_damage_%_to_convert_to_fire", 60 },
+			},
+			stats = {
+				"use_scaled_contact_offset",
+				"projectile_uses_contact_position",
+				"base_is_projectile",
+				"action_attack_or_cast_time_uses_animation_length",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["MPSBoneCultistNecromancerLightning"] = {
+	name = "Basic Spell (Lightning)",
+	hidden = true,
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, },
+	castTime = 1.333,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { critChance = 5, levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Basic Spell (Lightning)",
+			baseEffectiveness = 3.6749999523163,
+			incrementalEffectiveness = 0.10000000149012,
+			damageIncrementalEffectiveness = 0.017500000074506,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				spell = true,
+				projectile = true,
+				triggerable = true,
+				hit = true,
+			},
+			constantStats = {
+				{ "monster_projectile_variation", 1019 },
+				{ "spell_maximum_action_distance_+%", -40 },
+				{ "active_skill_shock_chance_+%_final", 20 },
+			},
+			stats = {
+				"spell_minimum_base_lightning_damage",
+				"spell_maximum_base_lightning_damage",
+				"base_is_projectile",
+				"use_scaled_contact_offset",
+				"projectile_uses_contact_position",
+				"maintain_projectile_direction_when_using_contact_position",
+				"action_attack_or_cast_time_uses_animation_length",
+			},
+			levels = {
+				[1] = { 0.5, 1.5, statInterpolation = { 3, 3, }, actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["MPSBoneCultistZealotFire"] = {
+	name = "Basic Spell (Fire)",
+	hidden = true,
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, },
+	castTime = 1.333,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { critChance = 5, levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Basic Spell (Fire)",
+			baseEffectiveness = 3.2000000476837,
+			incrementalEffectiveness = 0.10000000149012,
+			damageIncrementalEffectiveness = 0.017500000074506,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				spell = true,
+				projectile = true,
+				triggerable = true,
+				hit = true,
+			},
+			constantStats = {
+				{ "monster_projectile_variation", 1017 },
+				{ "spell_maximum_action_distance_+%", -50 },
+			},
+			stats = {
+				"spell_minimum_base_fire_damage",
+				"spell_maximum_base_fire_damage",
+				"base_is_projectile",
+				"use_scaled_contact_offset",
+				"projectile_uses_contact_position",
+				"maintain_projectile_direction_when_using_contact_position",
+			},
+			levels = {
+				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["MPSBoneCultistZealotLightning"] = {
+	name = "Basic Spell (Lightning)",
+	hidden = true,
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, },
+	castTime = 1.333,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { critChance = 6, levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Basic Spell (Lightning)",
+			baseEffectiveness = 3,
+			incrementalEffectiveness = 0.10000000149012,
+			damageIncrementalEffectiveness = 0.017500000074506,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				spell = true,
+				projectile = true,
+				triggerable = true,
+				hit = true,
+			},
+			constantStats = {
+				{ "monster_projectile_variation", 1018 },
+				{ "spell_maximum_action_distance_+%", -40 },
+			},
+			stats = {
+				"spell_minimum_base_lightning_damage",
+				"spell_maximum_base_lightning_damage",
+				"base_is_projectile",
+				"use_scaled_contact_offset",
+				"projectile_uses_contact_position",
+				"maintain_projectile_direction_when_using_contact_position",
+			},
+			levels = {
+				[1] = { 0.5, 1.5, statInterpolation = { 3, 3, }, actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["MPSBreachEliteBoneProjectile"] = {
+	name = "Basic Spell (Cold)",
+	hidden = true,
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, },
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { critChance = 8, levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Basic Spell (Cold)",
+			baseEffectiveness = 3,
+			incrementalEffectiveness = 0.10000000149012,
+			damageIncrementalEffectiveness = 0.017500000074506,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				spell = true,
+				projectile = true,
+				triggerable = true,
+				hit = true,
+			},
+			constantStats = {
+				{ "monster_projectile_variation", 1361 },
+				{ "spell_maximum_action_distance_+%", -30 },
+			},
+			stats = {
+				"spell_minimum_base_cold_damage",
+				"spell_maximum_base_cold_damage",
+				"base_is_projectile",
+				"projectile_uses_contact_position",
+				"maintain_projectile_direction_when_using_contact_position",
+				"action_attack_or_cast_time_uses_animation_length",
 			},
 			levels = {
 				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
@@ -2235,6 +3067,222 @@ skills["MPSBreachEliteFallenLunarisMonsterChaosSpark"] = {
 		},
 	}
 }
+skills["MPSChaosGodTriHeadLizardBasicProjectile"] = {
+	name = "Basic Spell (Chaos)",
+	hidden = true,
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, },
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Basic Spell (Chaos)",
+			baseEffectiveness = 3,
+			incrementalEffectiveness = 0.10000000149012,
+			damageIncrementalEffectiveness = 0.017500000074506,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				spell = true,
+				projectile = true,
+				triggerable = true,
+				hit = true,
+			},
+			constantStats = {
+				{ "monster_projectile_variation", 1370 },
+				{ "spell_maximum_action_distance_+%", -30 },
+				{ "number_of_additional_projectiles", 2 },
+				{ "projectile_spread_radius", 16 },
+				{ "projectile_speed_variation_+%", 10 },
+			},
+			stats = {
+				"spell_minimum_base_chaos_damage",
+				"spell_maximum_base_chaos_damage",
+				"base_is_projectile",
+				"projectile_uses_contact_position",
+				"maintain_projectile_direction_when_using_contact_position",
+				"action_attack_or_cast_time_uses_animation_length",
+				"projectile_ballistic_angle_from_target_distance",
+				"distribute_projectiles_over_contact_points",
+			},
+			levels = {
+				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["MPSExpeditionBoneCultistProjectiles"] = {
+	name = "Basic Spell (Cold)",
+	hidden = true,
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, },
+	castTime = 1.333,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { critChance = 7, levelRequirement = 0, },
+		[2] = { critChance = 7, levelRequirement = 0, },
+		[3] = { critChance = 7, levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Basic Spell (Cold)",
+			baseEffectiveness = 3.75,
+			incrementalEffectiveness = 0.10000000149012,
+			damageIncrementalEffectiveness = 0.017500000074506,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				spell = true,
+				projectile = true,
+				triggerable = true,
+				hit = true,
+			},
+			constantStats = {
+				{ "monster_projectile_variation", 192 },
+				{ "spell_maximum_action_distance_+%", -35 },
+				{ "active_skill_base_cold_damage_%_to_convert_to_chaos", 40 },
+			},
+			stats = {
+				"spell_minimum_base_cold_damage",
+				"spell_maximum_base_cold_damage",
+				"base_is_projectile",
+				"projectile_uses_contact_position",
+			},
+			levels = {
+				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
+				[2] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 45, },
+				[3] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 68, },
+			},
+		},
+	}
+}
+skills["MPSHellscapeDemonFodderProj"] = {
+	name = "Fireball",
+	hidden = true,
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, },
+	castTime = 1.25,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { critChance = 6, levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Fireball",
+			baseEffectiveness = 2.25,
+			incrementalEffectiveness = 0.10000000149012,
+			damageIncrementalEffectiveness = 0.017500000074506,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				spell = true,
+				projectile = true,
+				triggerable = true,
+				hit = true,
+			},
+			constantStats = {
+				{ "monster_projectile_variation", 206 },
+				{ "spell_maximum_action_distance_+%", -38 },
+				{ "active_skill_ignite_chance_+%_final", 100 },
+			},
+			stats = {
+				"spell_minimum_base_fire_damage",
+				"spell_maximum_base_fire_damage",
+				"base_is_projectile",
+				"projectile_uses_contact_position",
+				"use_scaled_contact_offset",
+				"action_attack_or_cast_time_uses_animation_length",
+				"maintain_projectile_direction_when_using_contact_position",
+				"check_for_targets_between_initiator_and_projectile_source",
+			},
+			levels = {
+				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["MPSHellscapeFleshEliteBasicProj"] = {
+	name = "Basic Spell (Physical)",
+	hidden = true,
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, },
+	castTime = 1.166,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { critChance = 5, levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Basic Spell (Physical)",
+			baseEffectiveness = 2.8499999046326,
+			incrementalEffectiveness = 0.10000000149012,
+			damageIncrementalEffectiveness = 0.017500000074506,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				spell = true,
+				projectile = true,
+				triggerable = true,
+				hit = true,
+			},
+			constantStats = {
+				{ "monster_projectile_variation", 207 },
+				{ "projectile_ballistic_gravity_override", -40 },
+			},
+			stats = {
+				"spell_minimum_base_physical_damage",
+				"spell_maximum_base_physical_damage",
+				"base_is_projectile",
+				"projectile_uses_contact_position",
+				"use_scaled_contact_offset",
+				"action_attack_or_cast_time_uses_animation_length",
+			},
+			levels = {
+				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["MPSHellscapePaleHammerhead"] = {
+	name = "Basic Spell (Physical)",
+	hidden = true,
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, },
+	castTime = 1.166,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { critChance = 5, levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Basic Spell (Physical)",
+			baseEffectiveness = 2.4500000476837,
+			incrementalEffectiveness = 0.10000000149012,
+			damageIncrementalEffectiveness = 0.017500000074506,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				spell = true,
+				projectile = true,
+				triggerable = true,
+				hit = true,
+			},
+			constantStats = {
+				{ "monster_projectile_variation", 205 },
+				{ "spell_maximum_action_distance_+%", -40 },
+				{ "base_chance_to_inflict_bleeding_%", 50 },
+			},
+			stats = {
+				"spell_minimum_base_physical_damage",
+				"spell_maximum_base_physical_damage",
+				"base_is_projectile",
+				"projectile_uses_contact_position",
+				"always_pierce",
+			},
+			levels = {
+				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
+			},
+		},
+	}
+}
 skills["MPSMercurialCasterEnrage"] = {
 	name = "Basic Spell",
 	hidden = true,
@@ -2272,6 +3320,88 @@ skills["MPSMercurialCasterEnrage"] = {
 			},
 			levels = {
 				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["MPSRedSkeletonCaster"] = {
+	name = "Basic Spell (Cold)",
+	hidden = true,
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, },
+	castTime = 1.5,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { critChance = 7, levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Basic Spell (Cold)",
+			baseEffectiveness = 3.2999999523163,
+			incrementalEffectiveness = 0.10000000149012,
+			damageIncrementalEffectiveness = 0.017500000074506,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				spell = true,
+				projectile = true,
+				triggerable = true,
+				hit = true,
+			},
+			constantStats = {
+				{ "monster_projectile_variation", 1024 },
+				{ "spell_maximum_action_distance_+%", -35 },
+			},
+			stats = {
+				"spell_minimum_base_cold_damage",
+				"spell_maximum_base_cold_damage",
+				"use_scaled_contact_offset",
+				"projectile_uses_contact_position",
+				"base_is_projectile",
+			},
+			levels = {
+				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["MPSSkeletonMancerBasicProj"] = {
+	name = "Basic Spell",
+	hidden = true,
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, },
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Basic Spell",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				spell = true,
+				projectile = true,
+				triggerable = true,
+				hit = true,
+			},
+			constantStats = {
+				{ "monster_projectile_variation", 1103 },
+				{ "spell_maximum_action_distance_+%", -30 },
+			},
+			stats = {
+				"spell_minimum_base_fire_damage",
+				"spell_maximum_base_fire_damage",
+				"spell_minimum_base_physical_damage",
+				"spell_maximum_base_physical_damage",
+				"base_is_projectile",
+				"use_scaled_contact_offset",
+				"projectile_uses_contact_position",
+				"maintain_projectile_direction_when_using_contact_position",
+				"action_attack_or_cast_time_uses_animation_length",
+			},
+			levels = {
+				[1] = { 0.40000000596046, 0.60000002384186, 0.40000000596046, 0.60000002384186, statInterpolation = { 3, 3, 3, 3, }, actorLevel = 1, },
 			},
 		},
 	}
@@ -2355,6 +3485,88 @@ skills["MPSVaalConstructCannon"] = {
 				"projectile_uses_contact_position",
 				"projectile_uses_contact_direction",
 				"use_scaled_contact_offset",
+			},
+			levels = {
+				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["MPAVaalHumanoidCannon"] = {
+	name = "Cannon",
+	hidden = true,
+	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, },
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Cannon",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				spell = true,
+				projectile = true,
+				triggerable = true,
+				hit = true,
+			},
+			constantStats = {
+				{ "monster_projectile_variation", 1094 },
+				{ "active_skill_base_physical_damage_%_to_convert_to_fire", 40 },
+				{ "spell_maximum_action_distance_+%", -40 },
+			},
+			stats = {
+				"base_is_projectile",
+				"action_attack_or_cast_time_uses_animation_length",
+				"projectile_ballistic_angle_from_reference_event",
+				"projectile_uses_contact_position",
+				"projectile_uses_contact_direction",
+				"use_scaled_contact_offset",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["MPSVaalHumanoidCannonNapalmMiniBlob"] = {
+	name = "Napalm Cannon",
+	hidden = true,
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, },
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Napalm Cannon",
+			baseEffectiveness = 1.5,
+			incrementalEffectiveness = 0.10000000149012,
+			damageIncrementalEffectiveness = 0.017500000074506,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				spell = true,
+				projectile = true,
+				triggerable = true,
+				hit = true,
+			},
+			constantStats = {
+				{ "monster_projectile_variation", 1128 },
+				{ "number_of_additional_projectiles", 2 },
+				{ "projectile_spread_radius", 15 },
+				{ "active_skill_projectile_speed_+%_variation_final", 25 },
+				{ "number_of_chains", 1 },
+			},
+			stats = {
+				"spell_minimum_base_fire_damage",
+				"spell_maximum_base_fire_damage",
+				"base_is_projectile",
+				"projectile_ballistic_angle_from_target_distance",
 			},
 			levels = {
 				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
@@ -2633,6 +3845,48 @@ skills["MPWFarudinSpearThrow"] = {
 			},
 			levels = {
 				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["MPWKelpDregPuncture"] = {
+	name = "Puncture",
+	hidden = true,
+	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, },
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { baseMultiplier = 1.5, levelRequirement = 0, },
+		[2] = { baseMultiplier = 1.5, levelRequirement = 0, },
+		[3] = { baseMultiplier = 1.5, levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Puncture",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				attack = true,
+				triggerable = true,
+				projectile = true,
+			},
+			constantStats = {
+				{ "monster_projectile_variation", 1055 },
+				{ "chance_to_poison_on_hit_with_attacks_%", 50 },
+			},
+			stats = {
+				"active_skill_bleeding_effect_+%_final",
+				"use_scaled_contact_offset",
+				"projectile_uses_contact_position",
+				"base_is_projectile",
+				"attacks_inflict_bleeding_on_hit",
+				"action_attack_or_cast_time_uses_animation_length",
+			},
+			levels = {
+				[1] = { 0, statInterpolation = { 1, }, actorLevel = 1, },
+				[2] = { 25, statInterpolation = { 1, }, actorLevel = 30, },
+				[3] = { 50, statInterpolation = { 1, }, actorLevel = 60, },
 			},
 		},
 	}
@@ -2929,6 +4183,89 @@ skills["RisenArbalestRainOfArrows"] = {
 		},
 	}
 }
+skills["SerpentClanCurse"] = {
+	name = "Vulnerability",
+	hidden = true,
+	description = "Curse all targets in an area after a short delay, making Hits against them ignore a portion of their Armour.",
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Cascadable] = true, [SkillType.AppliesCurse] = true, [SkillType.CanRapidFire] = true, [SkillType.AreaSpell] = true, [SkillType.Physical] = true, [SkillType.UsableWhileMoving] = true, },
+	castTime = 1.5,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { storedUses = 1, levelRequirement = 0, cooldown = 6, },
+	},
+	statSets = {
+		[1] = {
+			label = "Vulnerability",
+			baseEffectiveness = 0,
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "vulnerability",
+			statMap = {
+				["physical_damage_taken_+%"] = {
+					mod("PhysicalDamageTaken", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Curse" }),
+				},
+				["receive_bleeding_chance_%_when_hit_by_attack"] = {
+					mod("SelfBleedChance", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Curse" }),
+				},
+			},
+			baseFlags = {
+				area = true,
+				duration = true,
+				curse = true,
+			},
+			constantStats = {
+				{ "base_skill_effect_duration", 4000 },
+				{ "physical_damage_taken_+%", 30 },
+				{ "receive_bleeding_chance_%_when_hit_by_attack", 20 },
+				{ "hex_remove_at_effect_variance", 600 },
+				{ "active_skill_area_of_effect_radius_+%_final", 9 },
+			},
+			stats = {
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["SerpentClanTailWhip"] = {
+	name = "Tail Whip",
+	hidden = true,
+	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.ProjectilesFromUser] = true, },
+	castTime = 1.5,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { baseMultiplier = 1.7, storedUses = 1, levelRequirement = 0, cooldown = 8, },
+		[2] = { baseMultiplier = 1.7, storedUses = 1, levelRequirement = 0, cooldown = 8, },
+	},
+	statSets = {
+		[1] = {
+			label = "Tail Whip",
+			baseEffectiveness = 0,
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				attack = true,
+				melee = true,
+			},
+			constantStats = {
+				{ "voll_slam_damage_+%_final_at_centre", 50 },
+				{ "monster_penalty_against_minions_damage_+%_final_vs_player_minions", 100 },
+				{ "attack_maximum_action_distance_+", 6 },
+			},
+			stats = {
+				"action_attack_or_cast_time_uses_animation_length",
+				"base_skill_can_be_avoided_by_dodge_roll",
+				"base_skill_can_be_blocked",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+				[2] = { actorLevel = 68, },
+			},
+		},
+	}
+}
 skills["ShellMonsterDeathMortar"] = {
 	name = "Death Mortar",
 	hidden = true,
@@ -3148,85 +4485,90 @@ skills["ShellMonsterSprayMortarPoison"] = {
 		},
 	}
 }
-skills["SerpentClanCurse"] = {
-	name = "Vulnerability",
+skills["SkelemancerSkelenado"] = {
+	name = "Spark",
 	hidden = true,
-	description = "Curse all targets in an area after a short delay, making Hits against them ignore a portion of their Armour.",
-	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Cascadable] = true, [SkillType.AppliesCurse] = true, [SkillType.CanRapidFire] = true, [SkillType.AreaSpell] = true, [SkillType.Physical] = true, [SkillType.UsableWhileMoving] = true, },
-	castTime = 1.5,
+	description = "Launch a spray of sparking Projectiles that travel erratically along the ground until they hit an enemy or expire.",
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Damage] = true, [SkillType.Duration] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Lightning] = true, [SkillType.CanRapidFire] = true, [SkillType.Invokable] = true, [SkillType.UsableWhileMoving] = true, },
+	castTime = 1,
 	qualityStats = {
 	},
 	levels = {
-		[1] = { storedUses = 1, levelRequirement = 0, cooldown = 6, },
+		[1] = { critChance = 5, levelRequirement = 0, },
 	},
 	statSets = {
 		[1] = {
-			label = "Vulnerability",
-			baseEffectiveness = 0,
-			incrementalEffectiveness = 0.054999999701977,
-			statDescriptionScope = "vulnerability",
-			statMap = {
-				["physical_damage_taken_+%"] = {
-					mod("PhysicalDamageTaken", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Curse" }),
-				},
-				["receive_bleeding_chance_%_when_hit_by_attack"] = {
-					mod("SelfBleedChance", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Curse" }),
-				},
-			},
+			label = "Spark",
+			baseEffectiveness = 3,
+			incrementalEffectiveness = 0.10000000149012,
+			damageIncrementalEffectiveness = 0.017500000074506,
+			statDescriptionScope = "spark",
 			baseFlags = {
-				area = true,
-				duration = true,
-				curse = true,
+				spell = true,
+				projectile = true,
+				hit = true,
 			},
 			constantStats = {
-				{ "base_skill_effect_duration", 4000 },
-				{ "physical_damage_taken_+%", 30 },
-				{ "receive_bleeding_chance_%_when_hit_by_attack", 20 },
-				{ "hex_remove_at_effect_variance", 600 },
-				{ "active_skill_area_of_effect_radius_+%_final", 9 },
+				{ "base_skill_effect_duration", 6000 },
+				{ "monster_projectile_variation", 1000 },
+				{ "base_projectile_speed_+%", -70 },
+				{ "skill_visual_scale_+%", -20 },
+				{ "number_of_projectiles_override", 1 },
+				{ "spark_min_time_between_target_clearing_ms", 200 },
 			},
 			stats = {
+				"spell_minimum_base_physical_damage",
+				"spell_maximum_base_physical_damage",
+				"spell_minimum_base_fire_damage",
+				"spell_maximum_base_fire_damage",
+				"base_is_projectile",
+				"projectiles_not_offset",
+				"always_pierce",
 			},
 			levels = {
-				[1] = { actorLevel = 1, },
+				[1] = { 0.40000000596046, 0.60000002384186, 0.40000000596046, 0.60000002384186, statInterpolation = { 3, 3, 3, 3, }, actorLevel = 1, },
 			},
 		},
 	}
 }
-skills["SerpentClanTailWhip"] = {
-	name = "Tail Whip",
+skills["SpookyGhostLightningBounce"] = {
+	name = "Basic Spell",
 	hidden = true,
-	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.ProjectilesFromUser] = true, },
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, },
 	castTime = 1.5,
 	qualityStats = {
 	},
 	levels = {
-		[1] = { baseMultiplier = 1.7, storedUses = 1, levelRequirement = 0, cooldown = 8, },
-		[2] = { baseMultiplier = 1.7, storedUses = 1, levelRequirement = 0, cooldown = 8, },
+		[1] = { critChance = 6, levelRequirement = 0, },
 	},
 	statSets = {
 		[1] = {
-			label = "Tail Whip",
-			baseEffectiveness = 0,
-			incrementalEffectiveness = 0.054999999701977,
+			label = "Basic Spell",
+			baseEffectiveness = 5,
+			incrementalEffectiveness = 0.10000000149012,
+			damageIncrementalEffectiveness = 0.017500000074506,
 			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
-				attack = true,
-				melee = true,
+				striggerable = true,
+				spell = true,
+				projectile = true,
 			},
 			constantStats = {
-				{ "voll_slam_damage_+%_final_at_centre", 50 },
-				{ "monster_penalty_against_minions_damage_+%_final_vs_player_minions", 100 },
-				{ "attack_maximum_action_distance_+", 6 },
+				{ "ballistic_bounce_behavior_variation", 7 },
+				{ "number_of_chains", 10 },
+				{ "monster_projectile_variation", 1091 },
+				{ "shock_chance_+%", 50 },
 			},
 			stats = {
-				"action_attack_or_cast_time_uses_animation_length",
-				"base_skill_can_be_avoided_by_dodge_roll",
-				"base_skill_can_be_blocked",
+				"spell_minimum_base_lightning_damage",
+				"spell_maximum_base_lightning_damage",
+				"base_is_projectile",
+				"always_pierce",
+				"projectile_uses_contact_position",
+				"projectile_uses_contact_direction",
 			},
 			levels = {
-				[1] = { actorLevel = 1, },
-				[2] = { actorLevel = 68, },
+				[1] = { 0.5, 1.5, statInterpolation = { 3, 3, }, actorLevel = 1, },
 			},
 		},
 	}
@@ -3270,6 +4612,37 @@ skills["SpookyWraithProjectileExplosionCold"] = {
 		},
 	}
 }
+skills["TBBreachElitePaleLightningBoltSpammableLeft"] = {
+	name = "Lightning Bolt",
+	hidden = true,
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Triggerable] = true, [SkillType.Attack] = true, [SkillType.Damage] = true, },
+	castTime = 1.333,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Lightning Bolt",
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				spell = true,
+				hit = true,
+				triggerable = true,
+			},
+			constantStats = {
+				{ "generic_skill_trigger_skills_with_id", 1 },
+			},
+			stats = {
+				"base_deal_no_damage",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
 skills["TBHellscapePaleLightningBoltSpammableLeft"] = {
 	name = "Lightning Bolt",
 	hidden = true,
@@ -3301,6 +4674,42 @@ skills["TBHellscapePaleLightningBoltSpammableLeft"] = {
 			stats = {
 				"spell_minimum_base_lightning_damage",
 				"spell_maximum_base_lightning_damage",
+			},
+			levels = {
+				[1] = { 0.5, 1.5, statInterpolation = { 3, 3, }, actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["TBVaalPyramidBeam"] = {
+	name = "Pyramid Beam",
+	hidden = true,
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Triggerable] = true, [SkillType.Attack] = true, [SkillType.Damage] = true, },
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { critChance = 5, levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Pyramid Beam",
+			baseEffectiveness = 2.25,
+			incrementalEffectiveness = 0.10000000149012,
+			damageIncrementalEffectiveness = 0.017500000074506,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				spell = true,
+				attack = true,
+				triggerable = true,
+			},
+			constantStats = {
+				{ "active_skill_shock_chance_+%_final", 15 },
+			},
+			stats = {
+				"spell_minimum_base_lightning_damage",
+				"spell_maximum_base_lightning_damage",
+				"action_attack_or_cast_time_uses_animation_length",
 			},
 			levels = {
 				[1] = { 0.5, 1.5, statInterpolation = { 3, 3, }, actorLevel = 1, },
@@ -3500,6 +4909,46 @@ skills["VaalBloodPriestSoulrend"] = {
 			},
 			levels = {
 				[1] = { 50.000001117587, statInterpolation = { 3, }, actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["VaalHumanoidShockRifle"] = {
+	name = "Shock Rifle",
+	hidden = true,
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.Damage] = true, },
+	castTime = 4,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { critChance = 6, storedUses = 1, levelRequirement = 0, cooldown = 9, },
+	},
+	statSets = {
+		[1] = {
+			label = "Shock Rifle",
+			baseEffectiveness = 5,
+			incrementalEffectiveness = 0.10000000149012,
+			damageIncrementalEffectiveness = 0.017500000074506,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				spell = true,
+				projectile = true,
+				hit = true,
+			},
+			constantStats = {
+				{ "active_skill_projectile_damage_+%_final", 50 },
+				{ "spectral_throw_deceleration_override", 100 },
+				{ "spell_maximum_action_distance_+%", -45 },
+				{ "base_skill_effect_duration", 200 },
+			},
+			stats = {
+				"spell_minimum_base_lightning_damage",
+				"spell_maximum_base_lightning_damage",
+				"is_area_damage",
+				"base_is_projectile",
+			},
+			levels = {
+				[1] = { 0.5, 1.5, statInterpolation = { 3, 3, }, actorLevel = 1, },
 			},
 		},
 	}

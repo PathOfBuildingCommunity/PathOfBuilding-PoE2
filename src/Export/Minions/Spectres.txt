@@ -201,6 +201,9 @@ local minions, mod, flag = ...
 #spectre Metadata/Monsters/BoneCultists/BoneCultist_Zealots/BoneCultistZealot01
 #emit
 
+#spectre Metadata/Monsters/BoneCultists/BoneCultist_Zealots/BoneCultistZealot02
+#emit
+
 #spectre Metadata/Monsters/BoneCultists/BoneCultist_Zealots/FarudinLocustWarlock
 #emit
 
@@ -971,7 +974,7 @@ local minions, mod, flag = ...
 #spectre Metadata/Monsters/VaalHumanoids/VaalHumanoidCannon/VaalHumanoidCannonFire
 #emit
 
-#spectre Metadata/Monsters/VaalHumanoids/VaalHumanoidCannon/VaalHumanoidCannonLightningSkitterMine_
+#spectre Metadata/Monsters/VaalHumanoids/VaalHumanoidCannon/VaalHumanoidCannonLightning
 #emit
 
 #spectre Metadata/Monsters/VaalConstructs/Colossus/VaalColossusMetal
